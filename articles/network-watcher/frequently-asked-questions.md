@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471850"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123521"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>有关 Azure 网络观察程序的常见问题解答 (FAQ)
 [Azure 网络观察程序](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)服务提供一套工具用于监视、诊断 Azure 虚拟网络中的资源、查看其指标，以及为其启用或禁用日志。 本文解答有关该服务的常见问题。
@@ -80,6 +80,14 @@ ms.locfileid: "77471850"
 
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>如何管理网络观察程序资源？ 
 网络观察程序资源代表网络观察程序的后端服务，由 Azure 完全托管。 客户无需管理它。 不支持移动资源等操作。 但[可以删除资源](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal)。 
+
+## <a name="service-availability-and-redundancy"></a>服务可用性和冗余 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>网络观察程序服务区域是否可复原？ 
+是的。 默认情况下，网络观察程序服务是区域复原服务。 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>如何实现将网络观察程序服务配置为区域复原服务吗？ 
+无需客户配置即可启用区域复原。 默认情况下，网络观察程序资源的区域复原功能可用，并由服务本身管理。 
 
 ## <a name="nsg-flow-logs"></a>NSG 流日志
 

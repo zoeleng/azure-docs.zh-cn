@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080992"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123331"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>在 Power BI 仪表板中可视化和分析 Azure IoT Central 数据
 
@@ -27,7 +27,7 @@ ms.locfileid: "87080992"
 - 筛选到特定设备发送的数据
 - 查看表中的最新遥测数据
 
-此解决方案设置一个管道，该管道从你的 [连续数据导出](howto-export-data-blob-storage.md) Azure Blob 存储帐户读取数据。 管道使用 Azure Functions、Azure 数据工厂和 Azure SQL 数据库来处理和转换数据。 可以可视化和分析作为 .PBIX 文件下载的 Power BI 报表中的数据。 所有资源都是在 Azure 订阅中创建的，因此，你可以自定义每个组件以满足你的需求。
+此解决方案设置一个管道，该管道从你的 [连续数据导出](./howto-export-data.md) Azure Blob 存储帐户读取数据。 管道使用 Azure Functions、Azure 数据工厂和 Azure SQL 数据库来处理和转换数据。 可以可视化和分析作为 .PBIX 文件下载的 Power BI 报表中的数据。 所有资源都是在 Azure 订阅中创建的，因此，你可以自定义每个组件以满足你的需求。
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -43,7 +43,7 @@ ms.locfileid: "87080992"
 - 如果要与其他人共享仪表板) ，则 Power BI Pro (。
 
 > [!NOTE]
-> 如果使用版本 2 IoT Central 应用程序，请参阅之前版本的文档站点上的 [Power BI 仪表板中的可视化和分析 Azure IoT Central 数据](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) 。
+> 如果使用版本 2 IoT Central 应用程序，请参阅之前版本的文档站点上的 [Power BI 仪表板中的可视化和分析 Azure IoT Central 数据](/previous-versions/azure/iot-central/core/howto-connect-powerbi) 。
 
 ## <a name="install"></a>安装
 

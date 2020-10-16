@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398572"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123314"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>使用工作流将 Azure IoT Central 应用程序与其他云服务相集成
 
@@ -32,7 +32,7 @@ ms.locfileid: "91398572"
 设置解决方案需要版本 3 IoT Central 应用程序。 若要了解如何检查您的应用程序版本，请参阅 [关于您的应用程序](./howto-get-app-info.md)。 若要了解如何创建 IoT Central 应用程序，请参阅 [创建 Azure IoT Central 应用程序](./quick-deploy-iot-central.md)。
 
 > [!NOTE]
-> 如果使用版本 2 IoT Central 应用程序，请参阅之前版本的文档站点上的使用 [Azure 逻辑应用中的 IoT Central 连接器生成工作流](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) ，并使用 Azure IoT Central V2 连接器
+> 如果使用版本 2 IoT Central 应用程序，请参阅之前版本的文档站点上的使用 [Azure 逻辑应用中的 IoT Central 连接器生成工作流](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) ，并使用 Azure IoT Central V2 连接器
 
 ## <a name="trigger-a-workflow-from-a-rule"></a>从规则触发工作流
 

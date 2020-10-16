@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408794"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123726"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>使用连接监视器（预览版）进行网络连接监视
 
@@ -143,9 +143,7 @@ ms.locfileid: "91408794"
 * 每个区域每个订阅的最大连接监视器数：100
 * 每个连接监视器的最大测试组：20 个
 * 每个连接监视器的最大源和目标：100
-* 每个连接监视器的最大测试组： 
-    * 20 个通过 ARMClient
-    * 2 个通过 Azure 门户
+* 每个连接监视器的最大测试配置数：20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>分析监视数据并设置警报
 

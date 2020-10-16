@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999762"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123777"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>使用 Azure IoT Central 解决方案中的属性
 
@@ -44,8 +44,8 @@ ms.locfileid: "91999762"
 | 状态值    | 仅适用于状态语义类型。 定义可能的状态值，其中每个状态值都具有显示名称、名称、枚举类型和值。                                                                                   |
 | 单位            | 属性值的单位，如**mph**、 **%** 或** &deg; C**。                                                                                                                                                              |
 | 显示单位    | 仪表板和窗体上使用的显示单位。                                                                                                                                                                                    |
-| 注释         | 有关属性功能的任何注释。                                                                                                                                                                                        |
-| 说明     | 属性功能的说明。                                                                                                                                                                                          |
+| 评论         | 有关属性功能的任何注释。                                                                                                                                                                                        |
+| 描述     | 属性功能的说明。                                                                                                                                                                                          |
 
 属性还可以在设备模板中的接口中定义，如下所示：
 
@@ -152,7 +152,7 @@ ms.locfileid: "91999762"
 
 默认情况下，属性是只读的。 只读属性意味着设备将属性值更新报告给 Azure IoT Central 应用程序。 Azure IoT Central 应用程序无法设置只读属性的值。
 
-Azure IoT Central 使用设备孪生在设备和 Azure IoT Central 应用程序之间同步属性值。 设备属性值使用设备孪生报告属性。 有关详细信息，请参阅 [设备孪生](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins)。
+Azure IoT Central 使用设备孪生在设备和 Azure IoT Central 应用程序之间同步属性值。 设备属性值使用设备孪生报告属性。 有关详细信息，请参阅 [设备孪生](../../iot-hub/tutorial-device-twins.md)。
 
 来自设备功能模型的以下代码片段显示了只读属性类型的定义：
 
@@ -250,7 +250,7 @@ hubClient.getTwin((err, twin) => {
 | `'ac': 5xx` | 错误 | 设备在处理请求的更改时遇到意外错误。 |
 
 
-有关设备孪生的详细信息，请参阅 [通过后端服务配置设备](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins)。
+有关设备孪生的详细信息，请参阅 [通过后端服务配置设备](../../iot-hub/tutorial-device-twins.md)。
 
 当操作员在 Azure IoT Central 应用程序中设置可写属性时，应用程序将使用设备克隆的所需属性将该值发送到设备。 然后，设备使用 "设备克隆" 报告属性进行响应。 当 Azure IoT Central 收到报告的属性值时，它会更新状态为 "已 **接受**" 的属性视图。
 

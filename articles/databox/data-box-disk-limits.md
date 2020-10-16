@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203515"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124163"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box 磁盘限制
 
@@ -35,9 +35,9 @@ ms.locfileid: "86203515"
 
 有关 Azure 存储服务限制的最新信息以及对共享、容器和文件进行命名的最佳做法，请转到：
 
-- [命名和引用容器](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [命名和引用共享](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [块 blob 和页 blob 约定](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [命名和引用容器](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [命名和引用共享](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [块 blob 和页 blob 约定](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > 如果有任何文件或目录超出了 Azure 存储服务限制，或者不符合 Azure 文件/Blob 命名约定，则这些文件或目录不会通过 Data Box 服务引入到 Azure 存储中。
@@ -64,7 +64,7 @@ ms.locfileid: "86203515"
 
 | 数据类型             | 默认限制          |
 |--------------------------|------------------------|
-| 块 Blob、页 Blob    | 有关这些限制的最新信息，请参阅 [Azure Blob 存储缩放目标](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage)、[Azure 标准存储缩放目标](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)和 [Azure 文件存储缩放目标](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)。 <br /><br /> 这些限制包括来自所有源（包括 Data Box Disk）的数据。|
+| 块 Blob、页 Blob    | 有关这些限制的最新信息，请参阅 [Azure Blob 存储缩放目标](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage)、[Azure 标准存储缩放目标](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)和 [Azure 文件存储缩放目标](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets)。 <br /><br /> 这些限制包括来自所有源（包括 Data Box Disk）的数据。|
 
 
 ## <a name="azure-object-size-limits"></a>Azure 对象大小限制

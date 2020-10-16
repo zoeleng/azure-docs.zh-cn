@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224853"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124215"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 证书入门
 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
@@ -37,7 +37,7 @@ ms.locfileid: "86224853"
 
 **步骤 1** - 证书颁发机构 (CA) 提供者  
 -   对于任何给定公司（例如 Contoso）来说，以 IT 管理员、PKI 管理员或任何可以使用 CA 来管理帐户的人员的身份加入 是使用 Key Vault 证书的先决条件。  
-    以下 CA 是目前可以与 Key Vault 配合使用的提供者：  
+    以下 Ca 是 Key Vault 的当前合作提供商。 在[此处](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers)了解详细信息   
     -   DigiCert - Key Vault 提供 DigiCert 的 OV TLS/SSL 证书。  
     -   GlobalSign - Key Vault 提供 GlobalSign 的 OV TLS/SSL 证书。  
 

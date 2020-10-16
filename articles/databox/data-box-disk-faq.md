@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9305ff5904588241ff8319f28eab2ce20ad77876
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826134"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125109"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk：常见问题解答
 
@@ -66,7 +66,7 @@ A. Data Box Disk 仅支持在与目标相同的国家/地区内进行数据引�
 
 ### <a name="option-1"></a>选项 1： 
 
-使用[Azure 导入/导出服务](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)将包含数据的[受支持磁盘](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks)从加拿大的源位置传输到 Azure WestUS datacenter。
+使用[Azure 导入/导出服务](../storage/common/storage-import-export-service.md)将包含数据的[受支持磁盘](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks)从加拿大的源位置传输到 Azure WestUS datacenter。
 
 ### <a name="option-2"></a>选项 2：
 
@@ -77,7 +77,7 @@ A. Data Box Disk 仅支持在与目标相同的国家/地区内进行数据引�
 3. 然后，可以使用 AzCopy 之类的工具将数据复制到 WestUS 中的存储帐户。 此步骤将产生 Data Box Disk 计费中未包含的 [标准存储](https://azure.microsoft.com/pricing/details/storage/) 和 [带宽费用](https://azure.microsoft.com/pricing/details/bandwidth/) 。
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. 如果 Data Box 磁盘出现任何问题，我应该与谁联系？
-A. 如果 Data Box Disk 出现任何问题，请联系 [Microsoft 支持部门](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)。
+A. 如果 Data Box Disk 出现任何问题，请联系 [Microsoft 支持部门](./data-box-disk-contact-microsoft-support.md)。
 
 ## <a name="configure-and-connect"></a>配置和连接
  
@@ -147,7 +147,7 @@ A.  若要加快复制过程：
 - 使用多个数据复制流。 例如，在 Robocopy 中使用多线程选项。 有关所用的确切命令的详细信息，请转到[教程：将数据复制到 Azure Data Box Disk 并进行验证](data-box-disk-deploy-copy-data.md#copy-data-to-disks)。
 - 使用多个会话。
 - 不通过网络共享进行复制（否则可能受到网络速度的限制）可确保使数据驻留在磁盘所连接到计算机本地。
-- 在整个复制过程中，确保使用 USB 3.0 或更高版本。 下载并使用 [USBView 工具](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview)，以识别已连接到计算机的 USB 控制器和 USB 设备。
+- 在整个复制过程中，确保使用 USB 3.0 或更高版本。 下载并使用 [USBView 工具](/windows-hardware/drivers/debugger/usbview)，以识别已连接到计算机的 USB 控制器和 USB 设备。
 - 为用于复制数据的计算机建立性能基准。 下载并使用 [Bluestop FIO 工具](https://ci.appveyor.com/project/axboe/fio)来建立服务器硬件的性能基准。 选择最新的 x86 或 x64 版本，选择“项目”选项卡，然后下载 MSI。
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>Q. 如果源数据包含小型文件（几个 KB 或 MB），如何加速数据复制？
