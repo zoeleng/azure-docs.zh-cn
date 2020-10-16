@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 3182f7fa913cd61e6c51ea91be6b46e83a1ab949
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa10b2170024760fe20d6ed037353b12a0a9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540096"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127244"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>了解 Azure Database for MariaDB 的根 CA 更改的更改
 
-Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/驱动程序的根证书，请使用 [连接到数据库服务器](concepts-connectivity-architecture.md)。 当前可用的根证书已设置为在标准维护和安全最佳方案中的 2020 (10/26/2020) 。 本文提供了有关即将发生的更改、将受影响的资源以及确保你的应用程序保持与数据库服务器的连接所需的步骤的更多详细信息。
+Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/驱动程序的根证书，请使用 [连接到数据库服务器](concepts-connectivity-architecture.md)。 当前可用的根证书设置为在2021年2月15日 (02/15/2021) 为标准维护和安全最佳方案的一部分。 本文提供了有关即将发生的更改、将受影响的资源以及确保你的应用程序保持与数据库服务器的连接所需的步骤的更多详细信息。
+
+>[!NOTE]
+> 根据客户的反馈，我们已扩展了2020年2月15日到到2021的现有巴尔的摩根 CA 的根证书弃用。 我们希望此扩展为用户提供足够的提前期，使其能够在客户端更改受影响的情况下实施这些更改。
 
 ## <a name="what-update-is-going-to-happen"></a>要进行哪些更新？
 
@@ -24,12 +27,12 @@ Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/�
 根据行业的合规性要求，CA 供应商开始为不符合的 Ca 收回 CA 证书，要求服务器使用由合规 Ca 颁发的证书，并由这些符合的 ca 颁发的 CA 证书进行签名。 由于 Azure Database for MariaDB 当前使用其中一个不符合的证书，客户端应用程序使用这些证书来验证其 SSL 连接，因此，我们需要确保 (下面所述的适当操作) ，以最大程度地减少对 MariaDB 服务器造成的潜在影响。
 
 
-新证书将于2020年10月26日开始使用 (10/26/2020) 。如果在从 MySQL 客户端进行连接时使用 CA 验证或完全验证服务器证书 (sslmode = verify-CA 或 sslmode = verify-full) ，则需要在2020年10月26日之前更新应用程序配置)  (10/26/2020。
+新证书将于2021年2月15日 (02/15/2021) 使用。如果在从 MySQL 客户端进行连接时使用 CA 验证或完全验证服务器证书 (sslmode = verify-CA 或 sslmode = verify-full) ，则需要在2021年2月15日之前更新应用程序配置 (02/15/2021) 。
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>如何实现知道数据库是否会受到影响？
 
 使用 SSL/TLS 并验证根证书的所有应用程序都需要更新根证书。 通过查看连接字符串，可以确定连接是否验证根证书。
--   如果连接字符串包含 `sslmode=verify-ca` 或 `sslmode=verify-full` ，则需要更新证书。
+-   如果连接字符串包含 `sslmode=verify-ca` 或 `sslmode=verify-identity` ，则需要更新证书。
 -   如果连接字符串包括 `sslmode=disable` 、 `sslmode=allow` 、 `sslmode=prefer` 或 `sslmode=require` ，则无需更新证书。 
 -   如果连接字符串未指定 sslmode，则无需更新证书。
 
@@ -83,7 +86,10 @@ Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/�
 *   证书/已吊销的证书无效
 *   连接超时
 
-## <a name="frequently-asked-questions"></a>常见问题解答
+> [!NOTE]
+> 在进行证书更改之前，请不要删除或更改 **巴尔的摩证书** 。 更改完成后，我们将发送一条通信，在这种情况下，它们可以安全删除巴尔的摩证书。 
+
+## <a name="frequently-asked-questions"></a>常见问题
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. 如果我不使用 SSL/TLS，是否仍需要更新根 CA？
 如果不使用 SSL/TLS，则无需执行任何操作。 
@@ -91,8 +97,8 @@ Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/�
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. 如果我正在使用 SSL/TLS，是否需要重新启动数据库服务器来更新根 CA？
 不需要，你无需重新启动数据库服务器即可开始使用新证书。 证书更新是客户端更改，传入的客户端连接需要使用新证书来确保它们可以连接到数据库服务器。
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. 如果在2020年10月26日之前未更新根证书，则会发生什么情况 (10/26/2020) ？
-如果在2020年10月26日之前未更新根证书，则通过 SSL/TLS 连接并对根证书进行验证的应用程序将无法与 MariaDB 数据库服务器通信，应用程序将遇到 MariaDB 数据库服务器的连接问题。
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. 如果在2021年2月15日之前未更新根证书，会发生什么情况 (02/15/2021) ？
+如果在2021年2月15日之前未更新根证书 (02/15/2021) ，通过 SSL/TLS 连接并对根证书进行验证的应用程序将无法与 MariaDB 数据库服务器通信，应用程序将遇到 MariaDB 数据库服务器的连接问题。
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mariadb"></a>4. 如果将应用服务用于 Azure Database for MariaDB，会产生什么影响？
 对于 Azure 应用服务，连接到 Azure Database for MariaDB，可以有两种可能的方案，具体取决于你在应用程序中使用 SSL 的方式。
@@ -110,11 +116,11 @@ Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/�
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. 是否需要为此更改计划数据库服务器维护停机时间？
 不是。 由于此处的更改仅在客户端连接到数据库服务器，因此数据库服务器不需要维护停机时间来进行此更改。
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. 如果在 2020 (10/26/2020) 之前无法获得此更改的计划停机时间怎么办？
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. 如果在2021年2月15日 (02/15/2021) 之前无法获得此更改的计划停机时间怎么办？
 由于用于连接到服务器的客户端需要更新证书信息（如 [此处](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)的修复部分所述），因此在这种情况下，服务器不需要停机。
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. 如果我在2020年10月26日之后创建一个新的服务器，我会受到影响吗？
-对于10月26日之后创建的服务器 2020 (10/26/2020) ，你可以使用应用程序的新颁发的证书来使用 SSL 进行连接。
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. 如果在2021年2月15日之后创建新的服务器 (02/15/2021) ，将会受到影响吗？
+对于2021年2月15日之后创建的服务器 (02/15/2021) ，你可以使用应用程序的新颁发的证书来使用 SSL 连接。
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Microsoft 更新其证书的频率或过期策略是什么？
 Azure Database for MariaDB 使用的这些证书由受信任的证书颁发机构 (CA) 提供。 因此，Azure Database for MariaDB 上对这些证书的支持与 CA 的支持这些证书相关联。 但是，在这种情况下，这些预定义证书中可能存在无法预料的错误，这些错误需要在最早进行修复。

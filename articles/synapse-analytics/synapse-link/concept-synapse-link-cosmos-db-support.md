@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287819"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127005"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse Link for Azure Cosmos DB（预览版）支持的特性
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 中有两种类型的容器：
 
 | 类别              | 说明 |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL 无服务器](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| 运行时支持 |支持 Azure Synapse 运行时访问 Azure Cosmos DB| ✓ | [联系我们](mailto:cosmosdbsynapselink@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
+| 运行时支持 |支持 Azure Synapse 运行时访问 Azure Cosmos DB| ✓ | ✓ |
 | Azure Cosmos DB API 支持 | 支持 Azure Cosmos DB API 类型 | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |对象，例如可以创建一个表，直接指向 Azure Cosmos DB 容器| 数据帧、View、Table | 查看 |
 | **读取**    | 可读取 Azure Cosmos DB 容器的类型 | OLTP / HTAP | HTAP  |

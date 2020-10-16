@@ -3,12 +3,12 @@ title: 使用顾问改进卓越运营
 description: 使用 Azure 顾问为 Azure 订阅优化和完善卓越运营。
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077382"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122613"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>使用 Azure 顾问实现卓越运营
 
@@ -53,6 +53,12 @@ Azure Policy 是 Azure 中的一项服务，可用于创建、分配和管理策
 **强制审核未使用托管磁盘的 VM。** 
 
 **使能够从资源组继承标记。**  创建或更新任何资源时，此策略将添加或替换父资源组中指定的标记和值。 可触发修正任务来修正现有资源。
+
+顾问建议使用几个单个 Azure 策略，以帮助客户通过采用最佳做法实现卓越运营。 如果客户决定分配推荐的策略，则会取消建议。 如果客户决定稍后删除该策略，则 Advisor 将继续取消此建议，因为我们会将其删除视为以下的强信号：
+
+1.  客户删除了该策略，因为虽然顾问的建议，但它不适用于其特定用例。 
+2.  在分配和删除策略之后，客户就会意识到该策略，并且他们可以根据需要重新分配或删除它，而不会在以后与用例相关的情况下进行分配。 如果客户在最大程度上发现了相同的策略，则他们可以在 Azure 策略中执行此操作，而无需顾问的建议。 请注意，此逻辑仅适用于操作卓越类别中的策略建议。 这些规则不适用于安全建议。  
+
 
 ## <a name="no-validation-environment-enabled"></a>未启用验证环境
 Azure 顾问确定你未在当前订阅中启用验证环境。 创建主机池时，你对属性选项卡中的“验证环境”选择了“否”。若拥有至少一个启用了验证环境的主机池，可通过 Windows 虚拟桌面服务部署确保业务连续性，并可及早发现潜在问题。 [了解详细信息](../virtual-desktop/create-validation-host-pool.md)

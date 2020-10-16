@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082164"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126785"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -141,10 +141,10 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 ### <a name="overview"></a>概述
 移动推送通知是在移动设备上看到的弹出通知。 对于调用，我们将重点介绍 VoIP (通过 Internet 协议) 推送通知。 我们将注册推送通知，处理推送通知，然后取消注册推送通知。
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备条件
 
-若要完成本部分，请创建 Firebase 帐户，并 (FCM) 启用云消息传送。 确保 Firebase 云消息传送已连接到 Azure 通知中心 (ANH) 实例。 有关说明，请参阅 [将 Firebase 连接到 Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) 。
-本部分还假设你使用 Android Studio 版本3.6 或更高版本来生成应用程序。
+使用云消息 (FCM) 启用，并将 Firebase 云消息服务连接到 Azure 通知中心实例来设置 Firebase 帐户。 有关详细信息，请参阅 [通信服务通知](https://docs.microsoft.com/azure/communication-services/concepts/notifications) 。
+此外，本教程假定你使用 Android Studio 版本3.6 或更高版本来生成应用程序。
 
 Android 应用程序需要一组权限，以便能够接收来自 Firebase 云消息传送的通知消息。 在 `AndroidManifest.xml` 文件中，在 *<manifest ... >* 或标记下面添加以下权限集 *</application>*
 
@@ -195,21 +195,21 @@ import com.google.firebase.iid.InstanceIdResult;
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            Log.w("PushNotification", "getInstanceId failed", task.getException());
                             return;
                         }
 
                         // Get new Instance ID token
                         String deviceToken = task.getResult().getToken();
                         // Log
-                        Log.d(TAG, "Device Registration token retrieved successfully");
+                        Log.d("PushNotification", "Device Registration token retrieved successfully");
                     }
                 });
 ```
 向传入呼叫推送通知的调用服务客户端库注册设备注册令牌：
 
 ```java
-String deviceRegistrationToken = "some_token";
+String deviceRegistrationToken = "<Device Token from previous section>";
 try {
     callAgent.registerPushNotification(deviceRegistrationToken).get();
 }
@@ -226,16 +226,16 @@ catch(Exception e) {
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-    private java.util.Map<String, String> pushNotificationMessageData;
+    private java.util.Map<String, String> pushNotificationMessageDataFromFCM;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d("PushNotification", "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
         else {
-            pushNotificationMessageData = serializeDictionaryAsJson(remoteMessage.getData());
+            pushNotificationMessageDataFromFCM = remoteMessage.getData();
         }
     }
 }
@@ -252,10 +252,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-检索有效负载后，可以通过对实例调用方法来将其传递到通信服务客户端库 `handlePushNotification` `CallAgent` 。
+- 检索有效负载后，可以通过对*CallAgent*实例调用*handlePushNotification*方法，将其传递给*通信服务*客户端库。 `CallAgent`通过 `createCallAgent(...)` 在类上调用方法来创建实例 `CallClient` 。
 
 ```java
-java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
 try {
     callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
 }

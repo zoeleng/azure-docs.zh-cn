@@ -6,18 +6,21 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: b23783080e976f70ba8c5e02f67dcee36bbc9c34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eb4ad48554b8ca2ce6af9f89652fad685998a2a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444953"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126048"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的 SSL/TLS 连接
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将数据库服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
 
+>[!NOTE]
+> 根据客户的反馈，我们已在2021年2月15日到 (02/15/2021) 扩展了现有巴尔的摩根 CA 的根证书弃用。
+
 > [!IMPORTANT] 
-> SSL 根证书设置为在10月26日开始过期，2020 (10/26/2020) 。 请更新您的应用程序以使用 [新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅 [计划的证书更新](concepts-certificate-rotation.md)
+> SSL 根证书设置为从2021年2月15日开始过期 (02/15/2021) 。 请更新您的应用程序以使用 [新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅 [计划的证书更新](concepts-certificate-rotation.md)
 
 ## <a name="default-settings"></a>默认设置
 默认情况下，应将数据库服务配置为需要 SSL 连接才可连接到 MariaDB。  建议尽量不要禁用 SSL 选项。

@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7c708268eaeade1cfb625c73ff8758a1941ff5b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3e006f717ed1c66c7db29dbd70c226d2d75ea8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157443"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127210"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>使用 Azure IoT Central 和 Dynamics 365 Field Service 构建端到端解决方案 
 
@@ -34,5 +34,5 @@ ms.locfileid: "80157443"
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解[政府用 IoT Central 模板](./overview-iot-central-government.md)
-* 详细了解 [IoT 中心](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-* 详细了解 [Dynamics 365 Field Service](https://docs.microsoft.com/dynamics365/field-service/cfs-iot-overview)
+* 详细了解 [IoT 中心](../core/overview-iot-central.md)
+* 详细了解 [Dynamics 365 Field Service](/dynamics365/field-service/cfs-iot-overview)

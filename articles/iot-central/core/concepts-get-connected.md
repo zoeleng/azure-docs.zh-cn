@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714235"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126835"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>连接到 Azure IoT Central
 
@@ -169,7 +169,7 @@ IoT Central 使用 [Azure IoT 中心设备预配服务 (DPS) ](../../iot-dps/abo
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>基于注册的单个设备连接
 
-对于连接设备的每个设备都有自己的身份验证凭据，请使用单独的注册。 单个注册是允许连接的单个设备的条目。 个人注册可使用 x.509 叶证书或 SAS 令牌 (从物理或虚拟受信任的平台模块) 作为证明机制。 设备 ID (也称为 "注册 ID") 在单个注册中是字母数字、小写形式，可以包含连字符。 有关详细信息，请参阅 [DPS 单个注册](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment)。
+对于连接设备的每个设备都有自己的身份验证凭据，请使用单独的注册。 单个注册是允许连接的单个设备的条目。 个人注册可使用 x.509 叶证书或 SAS 令牌 (从物理或虚拟受信任的平台模块) 作为证明机制。 设备 ID (也称为 "注册 ID") 在单个注册中是字母数字、小写形式，可以包含连字符。 有关详细信息，请参阅 [DPS 单个注册](../../iot-dps/concepts-service.md#individual-enrollment)。
 
 > [!NOTE]
 > 为设备创建单个注册时，其优先级高于 IoT Central 应用程序中的默认组注册选项。
@@ -188,7 +188,7 @@ IoT Central 支持用于单个注册的以下证明机制：
     > [!TIP]
     > 对于测试，可以使用适用于 [Node.js的 Azure IoT 设备预配设备 SDK 工具 ](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) 来生成自签名证书： `node create_test_cert.js device "mytestdevice"`
 
-- **受信任的平台模块 (TPM) 证明：**[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation)是一种硬件安全模块。 使用 TPM 是连接设备的最安全方式之一。 本文假设使用的是独立的、固件或集成的 TPM。 软件仿真 Tpm 非常适合用于原型制作或测试，但它们不提供与离散、固件或集成 Tpm 相同的安全性级别。 请勿在生产环境中使用软件 Tpm。 若要创建使用 TPM 的单个注册，请打开 " **设备连接** " 页，选择 " **单个注册** " 作为 "连接方法"，选择 " **TPM** " 作为机制。 输入 TPM 认可密钥并保存设备连接信息。
+- **受信任的平台模块 (TPM) 证明：**[TPM](../../iot-dps/concepts-tpm-attestation.md)是一种硬件安全模块。 使用 TPM 是连接设备的最安全方式之一。 本文假设使用的是独立的、固件或集成的 TPM。 软件仿真 Tpm 非常适合用于原型制作或测试，但它们不提供与离散、固件或集成 Tpm 相同的安全性级别。 请勿在生产环境中使用软件 Tpm。 若要创建使用 TPM 的单个注册，请打开 " **设备连接** " 页，选择 " **单个注册** " 作为 "连接方法"，选择 " **TPM** " 作为机制。 输入 TPM 认可密钥并保存设备连接信息。
 
 ## <a name="automatically-associate-with-a-device-template"></a>自动与设备模板关联
 
@@ -265,7 +265,7 @@ Azure 设备 SDK 为实现设备代码提供最简便的方法。 以下设备 S
 | 遥测 | 设备到云的消息传送 |
 | 属性 | 设备孪生报告属性 |
 | 属性（可写） | 设备孪生所需的和报告的属性 |
-| Command | 直接方法 |
+| 命令 | 直接方法 |
 
 ### <a name="protocols"></a>协议
 
@@ -279,7 +279,7 @@ Azure 设备 SDK 为实现设备代码提供最简便的方法。 以下设备 S
 
 如果设备无法使用这些受支持协议中的任何一种，可以使用 Azure IoT Edge 进行协议转换。 IoT Edge 支持其他边缘智能方案，可以将处理从 Azure IoT Central 应用程序卸载到边缘。
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 
 在设备与 Azure IoT Central 之间交换的所有数据都经过加密。 如果设备已连接到任何面向设备的 IoT 中心终结点，则 IoT 中心会对从该设备发出的所有请求进行身份验证。 为了避免通过网络交换凭据，设备使用签名的令牌进行身份验证。 有关详细信息，请参阅 [控制对 IoT 中心的访问](../../iot-hub/iot-hub-devguide-security.md)。
 

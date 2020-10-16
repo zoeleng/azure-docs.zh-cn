@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449682"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127518"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>使用本地 Web UI 管理 Data Box 和 Data Box Heavy
 
@@ -177,7 +177,7 @@ BOM 或清单文件包含复制到 Data Box 或 Data Box Heavy 的文件的列�
     ![禁用校验和](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. 禁用校验和验证****
-3. 选择“应用”。 
+3. 选择“应用”。
 
 > [!NOTE]
 > "跳过校验和计算" 选项仅在 Azure Data Box 处于解锁状态时才可用。 锁定设备时，不会显示此选项。
@@ -198,7 +198,7 @@ BOM 或清单文件包含复制到 Data Box 或 Data Box Heavy 的文件的列�
 
     ![启用 SMB 签名](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
 
-3. 选择“应用”。 
+3. 选择“应用”。
 4. 在本地 Web UI 中，转到“关闭或重启”****。
 5. 选择“重启”。 
 
@@ -206,7 +206,7 @@ BOM 或清单文件包含复制到 Data Box 或 Data Box Heavy 的文件的列�
 
 默认情况下，web UI 用户具有 SMB 共享的备份操作员特权。 如果你不想这样做，请使用 **Enable Operator 权限** 来禁用或启用权限。
 
-有关信息，请参阅 [Active Directory 安全组](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators)中的备份操作员。
+有关信息，请参阅 [Active Directory 安全组](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators)中的备份操作员。
 
 在 Azure 设备中启用备份操作员权限：
 
@@ -241,7 +241,7 @@ BOM 或清单文件包含复制到 Data Box 或 Data Box Heavy 的文件的列�
 
      ![为 Azure 文件启用 Acl](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
-3. 选择“应用”。 
+3. 选择“应用”。
 4. 在本地 Web UI 中，转到“关闭或重启”****。
 5. 选择“重启”。 
 
@@ -261,7 +261,7 @@ BOM 或清单文件包含复制到 Data Box 或 Data Box Heavy 的文件的列�
 
     ![启用 TLS 1。1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
-3. 选择“应用”。 
+3. 选择“应用”。
 4. 在本地 Web UI 中，转到“关闭或重启”****。
 5. 选择“重启”。 
 

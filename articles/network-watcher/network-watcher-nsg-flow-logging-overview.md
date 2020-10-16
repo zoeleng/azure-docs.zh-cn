@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7d477e50ef4fc47042d57aa973d483a784465d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070575"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127329"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>针对网络安全组进行流日志记录简介
 
@@ -360,6 +360,10 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **用户定义的入站 TCP 规则的问题**： [ (nsg) 的网络安全组 ](https://docs.microsoft.com/azure/virtual-network/security-overview) 作为有 [状态防火墙](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)实现。 但是，由于当前平台限制，影响入站 TCP 流的用户定义的规则将以无状态方式实现。 因此，被用户定义的入站规则影响的流将变为非终止类型。 不会为这些流记录额外的字节和数据包计数。 因此，NSG 流日志（和流量分析）中报告的字节数和数据包数可能与实际数字不同。 我们计划将在 2020 年 12 月的最新版本中提供一个用于解决这些问题的选择加入标志。 在此期间，由于此行为导致的严重问题，客户可以通过支持请求选择加入，请 > NSG Flow 日志下的 "网络观察程序" 下提出支持请求。  
 
 **入站流被从 Internet IP 记录到了没有公共 IP 的虚拟机**：对于没有通过与 NIC 关联的公共 IP 地址分配公共 IP 地址作为实例级公共 IP 的虚拟机，或者是属于基本负载均衡器后端池的一部分的虚拟机，请使用[默认SNAT](../load-balancer/load-balancer-outbound-connections.md)，并使用由 Azure 分配的 IP 地址以便于进行出站连接。 因此，如果流的目的地是分配给 SNAT 的端口范围内的端口，你可能会看到来自 Internet IP 地址的流的流日志条目。 虽然 Azure 不允许将这些流传输到 VM，但是按照设计，该尝试会被记录并显示在网络观察程序的 NSG 流日志中。 我们建议使用 NSG 来显式阻止不需要的入站 Internet 流量。
+
+**服务不兼容**：由于当前平台限制，NSG 流日志不支持一小部分 Azure 服务。 不兼容服务的当前列表是
+- [Azure Kubernetes 服务 (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+- [逻辑应用](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>最佳实践
 

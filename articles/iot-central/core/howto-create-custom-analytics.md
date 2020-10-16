@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e261e8d5d9cd147f3157303b7a2a50db7c33e58
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660126"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123039"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>使用 Azure Databricks 通过自定义分析扩展 Azure IoT Central
 
-本操作指南向解决方案开发人员介绍如何使用自定义分析和可视化来扩展 IoT Central 应用程序。 本示例使用 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) 工作区来分析 IoT Central 遥测流并生成可视化效果（例如[框图](https://wikipedia.org/wiki/Box_plot)）。
+本操作指南向解决方案开发人员介绍如何使用自定义分析和可视化来扩展 IoT Central 应用程序。 本示例使用 [Azure Databricks](/azure/azure-databricks/) 工作区来分析 IoT Central 遥测流并生成可视化效果（例如[框图](https://wikipedia.org/wiki/Box_plot)）。
 
 本操作指南将介绍如何扩展 IoT Central，使其功能超越[内置分析工具](./howto-create-custom-analytics.md)的功能。
 
@@ -27,7 +27,7 @@ ms.locfileid: "84660126"
 * 使用“连续数据导出”从 IoT Central 应用程序流式传输遥测数据。**
 * 创建一个 Azure Databricks 环境用于分析和绘制设备遥测数据。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 完成本操作方法指南中的步骤需要有效的 Azure 订阅。
 
@@ -37,9 +37,9 @@ ms.locfileid: "84660126"
 
 在 [Azure IoT Central 应用程序管理器](https://aka.ms/iotcentral)网站上使用以下设置创建一个 IoT Central 应用程序：
 
-| 设置 | Value |
+| 设置 | “值” |
 | ------- | ----- |
-| 定价计划 | Standard |
+| 定价计划 | 标准 |
 | 应用程序模板 | 店内分析 – 条件监视 |
 | 应用程序名称 | 接受默认设置，或选择自己的名称 |
 | URL | 接受默认设置，或选择自己的唯一 URL 前缀 |
@@ -59,7 +59,7 @@ ms.locfileid: "84660126"
 
 在 [Azure 门户中使用以下设置创建一个事件中心命名空间](https://portal.azure.com/#create/Microsoft.EventHub)：
 
-| 设置 | Value |
+| 设置 | 值 |
 | ------- | ----- |
 | 名称    | 选择命名空间名称 |
 | 定价层 | 基本 |
@@ -72,13 +72,13 @@ ms.locfileid: "84660126"
 
 在 [Azure 门户中使用以下设置创建一个 Azure Databricks 服务](https://portal.azure.com/#create/Microsoft.Databricks)：
 
-| 设置 | Value |
+| 设置 | “值” |
 | ------- | ----- |
 | 工作区名称    | 选择工作区名称 |
 | 订阅 | 订阅 |
 | 资源组 | IoTCentralAnalysis |
 | 位置 | 美国东部 |
-| 定价层 | Standard |
+| 定价层 | 标准 |
 
 创建所需的资源后，**IoTCentralAnalysis** 资源组将如以下屏幕截图所示：
 
@@ -109,12 +109,12 @@ ms.locfileid: "84660126"
     | 设置 | 值 |
     | ------- | ----- |
     | 显示名称 | 导出到事件中心 |
-    | 已启用 | 开 |
+    | 启用 | 开 |
     | 事件中心命名空间 | 事件中心命名空间的名称 |
     | 事件中心 | centralexport |
     | 度量 | 开 |
-    | 设备 | 关闭 |
-    | 设备模板 | 关闭 |
+    | 设备 | 关 |
+    | 设备模板 | 关 |
 
 ![数据导出配置](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -130,10 +130,10 @@ ms.locfileid: "84660126"
 
 使用下表中的信息创建群集：
 
-| 设置 | Value |
+| 设置 | “值” |
 | ------- | ----- |
 | 群集名称 | centralanalysis |
-| 群集模式 | Standard |
+| 群集模式 | 标准 |
 | Databricks 运行时版本 | 5.5 LTS（Scala 2.11、Spark 2.4.3） |
 | Python 版本 | 3 |
 | 启用自动缩放 | 否 |

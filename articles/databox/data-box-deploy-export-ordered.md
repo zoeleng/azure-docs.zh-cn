@@ -8,18 +8,18 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575565"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122460"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>教程：创建 Azure Data Box (预览版的出口订单) 
 
 Azure Data Box 是一种混合解决方案，可让你将 Azure 中的数据移到你的位置。 本教程介绍如何创建 Azure Data Box 的出口订单。 创建导出顺序的主要原因是为了进行灾难恢复，并且在本地存储区被泄露并且需要还原备份。
 
-本教程的介绍内容包括：
+在本教程中，你将学习：
 
 > [!div class="checklist"]
 >
@@ -82,7 +82,7 @@ Azure Data Box 是一种混合解决方案，可让你将 Azure 中的数据移�
 
 6. 在 " **顺序**" 中，指定 **基本** 订单详细信息。 输入或选择以下信息，然后选择“下一步”。
 
-    |设置  |值  |
+    |设置  |“值”  |
     |---------|---------|
     |订阅     | 系统会根据前面所做的选择自动填充此订阅。|
     |资源组 | 之前选择的资源组。 |
@@ -164,7 +164,7 @@ Azure Data Box 是一种混合解决方案，可让你将 Azure 中的数据移�
 2. 选择 " **+ 容器** " 以创建容器。
     ![容器部分的屏幕截图。](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
-3. 在从 Azure 门户右侧弹出的 " **新建容器** " 选项卡中，为容器添加一个名称。 名称必须为小写，并且可以包含数字和短划线 "-"。 然后从下拉列表框中选择 " **公共访问级别** "。 建议选择 " **专用 (非匿名访问) ** "，以防止其他人访问数据。 有关容器访问级别的详细信息，请参阅 [容器访问权限](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)。
+3. 在从 Azure 门户右侧弹出的 " **新建容器** " 选项卡中，为容器添加一个名称。 名称必须为小写，并且可以包含数字和短划线 "-"。 然后从下拉列表框中选择 " **公共访问级别** "。 建议选择 " **专用 (非匿名访问) ** "，以防止其他人访问数据。 有关容器访问级别的详细信息，请参阅 [容器访问权限](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container)。
 
    ![新 "容器" 选项卡的屏幕截图，其中显示 "专用 (没有选择匿名访问) " 选项。](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
@@ -180,7 +180,7 @@ Azure Data Box 是一种混合解决方案，可让你将 Azure 中的数据移�
 
    !["容器" 部分的屏幕截图，其中的私有测试容器容器称为 "out"。](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
 
-6. 双击容器将打开容器属性视图。 现在想要附加 (或浏览) 包含要导出的 blob 和/或 Azure 文件列表的 XML 文件。 选择“上传”。
+6. 双击容器将打开容器属性视图。 现在想要附加 (或浏览) 包含要导出的 blob 和/或 Azure 文件列表的 XML 文件。 选择“上传”。 
 
    !["上传 blob" 对话框的屏幕截图，其中包含一个称为 "上载" 选项。](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
 

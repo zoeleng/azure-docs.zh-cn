@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2969c963b491e4b08a0959d548e43ba11276d28a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439942"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126543"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的 SSL/TLS 连接
 
@@ -20,8 +20,11 @@ Azure Database for MySQL 支持使用安全套接字层 (SSL) 将数据库服务
 > [!NOTE]
 > 更新 `require_secure_transport` 服务器参数值不会影响 MySQL 服务的行为。 使用本文中概述的 SSL 和 TLS 增强功能来保护与数据库的连接。
 
+>[!NOTE]
+> 根据客户的反馈，我们已在2021年2月15日到 (02/15/2021) 扩展了现有巴尔的摩根 CA 的根证书弃用。
+
 > [!IMPORTANT] 
-> SSL 根证书设置为在10月26日开始过期，2020 (10/26/2020) 。 请更新您的应用程序以使用 [新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅 [计划的证书更新](concepts-certificate-rotation.md)
+> SSL 根证书设置为从2021年2月15日开始过期 (02/15/2021) 。 请更新您的应用程序以使用 [新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅 [计划的证书更新](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>SSL 默认设置
 

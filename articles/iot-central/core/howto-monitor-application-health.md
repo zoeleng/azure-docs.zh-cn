@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d246adbf8e87d5503bc19bcd497dd00370c0a867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66f0846ab8fcfc316c4b40ad9e51b402a37e874d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001894"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122903"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>监视连接到 IoT Central 应用程序的设备的总体运行状况
 
@@ -46,7 +46,7 @@ ms.locfileid: "87001894"
 
 ## <a name="iot-central-metrics"></a>IoT Central 度量值
 
-有关 IoT Central 当前可用指标的列表，请参阅 [支持的指标和 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps)。
+有关 IoT Central 当前可用指标的列表，请参阅 [支持的指标和 Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftiotcentraliotapps)。
 
 ### <a name="metrics-and-invoices"></a>指标和发票
 

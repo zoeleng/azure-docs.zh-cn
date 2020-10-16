@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80365500"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122971"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>管理 IoT Central 应用程序中的用户和角色
 
@@ -25,7 +25,7 @@ ms.locfileid: "80365500"
 
 每个用户必须有一个用户帐户才能登录和访问 Azure IoT Central 应用程序。 Microsoft 帐户和 Azure Active Directory 帐户在 Azure IoT Central 中受支持。 Azure IoT Central 目前不支持 Azure Active Directory 组。
 
-有关详细信息，请参阅 [Microsoft 帐户帮助](https://support.microsoft.com/products/microsoft-account?category=manage-account)和[快速入门：将新用户添加到 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)。
+有关详细信息，请参阅 [Microsoft 帐户帮助](https://support.microsoft.com/products/microsoft-account?category=manage-account)和[快速入门：将新用户添加到 Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md)。
 
 1. 若要将用户添加到 IoT Central 应用程序，请转到“用户”页中的“管理”部分。  
     
@@ -53,7 +53,7 @@ ms.locfileid: "80365500"
 
 ## <a name="delete-users"></a>删除用户
 
-若要删除用户，选择“用户”**** 页上的一个或多个复选框。 然后选择“删除”  。
+若要删除用户，选择“用户”**** 页上的一个或多个复选框。 然后选择“删除”。
 
 ## <a name="manage-roles"></a>管理角色
 
@@ -72,7 +72,7 @@ ms.locfileid: "80365500"
 
 " **生成器** " 角色中的用户可以管理应用的每个部分，但不能在 "管理" 或 "连续数据导出" 选项卡上进行更改。
 
-### <a name="operator"></a>操作员
+### <a name="operator"></a>运算符
 
 充当“操作员”角色的用户可以监视设备的运行状况和状态。**** 他们不能对设备模板进行更改，也不能管理应用程序。 操作员可以添加和删除设备、管理设备集，以及运行分析和作业。 
 

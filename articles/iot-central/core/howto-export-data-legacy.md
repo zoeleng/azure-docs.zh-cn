@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974418"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126731"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>使用数据导出 (旧) 将 IoT 数据导出到云目标
 
@@ -63,13 +63,13 @@ ms.locfileid: "90974418"
 
 如果没有要导出到的现有 Azure 存储帐户，请执行以下步骤：
 
-1. [在 Azure 门户中创建新的存储帐户](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。 可以详细了解如何创建新的 [Azure Blob 存储帐户](https://aka.ms/blobdocscreatestorageaccount) 或 [Azure Data Lake Storage v2 存储帐户](../../storage/blobs/data-lake-storage-quickstart-create-account.md)。 数据导出只能将数据写入支持块 blob 的存储帐户。 以下列表显示了已知的兼容存储帐户类型：
+1. [在 Azure 门户中创建新的存储帐户](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。 可以详细了解如何创建新的 [Azure Blob 存储帐户](../../storage/blobs/storage-quickstart-blobs-portal.md) 或 [Azure Data Lake Storage v2 存储帐户](../../storage/common/storage-account-create.md)。 数据导出只能将数据写入支持块 blob 的存储帐户。 以下列表显示了已知的兼容存储帐户类型：
 
     |性能层|帐户类型|
     |-|-|
-    |Standard|常规用途 V2|
-    |Standard|常规用途 V1|
-    |Standard|Blob 存储|
+    |标准|常规用途 V2|
+    |标准|常规用途 V1|
+    |标准|Blob 存储|
     |高级|块 Blob 存储|
 
 2. 在存储帐户中创建容器。 转到存储帐户。 在“Blob 服务”下选择“浏览 Blob”********。 选择顶部的“+ 容器”以创建新容器。****
@@ -156,7 +156,7 @@ ms.locfileid: "90974418"
 
 此消息不包括发送设备的设备 ID。
 
-若要从 Azure 流分析查询中的消息数据检索设备 ID，请使用 [GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) 函数。 有关示例，请参阅 [使用流分析扩展 Azure IoT Central 使用自定义规则扩展 Azure、Azure Functions 和 SendGrid](./howto-create-custom-rules.md)。
+若要从 Azure 流分析查询中的消息数据检索设备 ID，请使用 [GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue) 函数。 有关示例，请参阅 [使用流分析扩展 Azure IoT Central 使用自定义规则扩展 Azure、Azure Functions 和 SendGrid](./howto-create-custom-rules.md)。
 
 若要在 Azure Databricks 或 Apache Spark 工作区中检索设备 ID，请使用 [systemProperties](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md)。 有关示例，请参阅 [使用 Azure Databricks 通过自定义分析扩展 Azure IoT Central](./howto-create-custom-analytics.md)中的 Databricks 工作区。
 
@@ -557,7 +557,7 @@ ms.locfileid: "90974418"
 
 如果在已启用 " *设备* 和 *设备模板* " 流的预览应用程序中有现有的数据导出，请将导出更新为 **30 年6月 30 2020 日**。 此要求适用于导出到 Azure Blob 存储、Azure 事件中心和 Azure 服务总线。
 
-自2020年2月3日起，启用了设备和设备模板的应用程序中的所有新导出都将具有上面所述的数据格式。 在此日期之前创建的所有导出都将保留在2020年6月30日之前的旧数据格式，此时，这些导出会自动迁移到新的数据格式。 新数据格式与 IoT Central 公共 API 中的 [设备](https://docs.microsoft.com/rest/api/iotcentral/devices/get)、 [设备属性](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties)、 [设备云属性](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)和 [设备模板](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) 对象匹配。
+自2020年2月3日起，启用了设备和设备模板的应用程序中的所有新导出都将具有上面所述的数据格式。 在此日期之前创建的所有导出都将保留在2020年6月30日之前的旧数据格式，此时，这些导出会自动迁移到新的数据格式。 新数据格式与 IoT Central 公共 API 中的 [设备](/rest/api/iotcentral/devices/get)、 [设备属性](/rest/api/iotcentral/devices/getproperties)、 [设备云属性](/rest/api/iotcentral/devices/getcloudproperties)和 [设备模板](/rest/api/iotcentral/devicetemplates/get) 对象匹配。
 
 对于 **设备**，旧数据格式和新数据格式之间的显著差异包括：
 - `@id` 对于删除的设备， `deviceId` 将重命名为 `id` 

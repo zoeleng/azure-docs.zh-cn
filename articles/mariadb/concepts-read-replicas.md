@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 7/7/2020
-ms.openlocfilehash: ec06fff73b1a4209546af5ca845e28aaa9dfb0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: fcf368c9fbbb185ac3f47faa5705e1933d085c81
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532340"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126440"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的只读副本
 
@@ -47,7 +47,7 @@ ms.locfileid: "91532340"
 ### <a name="universal-replica-regions"></a>通用副本区域
 无论源服务器位于何处，都可以在以下任何区域中创建读取副本。 支持的通用副本区域包括：
 
-澳大利亚东部、澳大利亚东南部、美国中部、东亚、美国东部、美国东部2、日本东部、日本西部、韩国中部、韩国南部、美国中北部、北欧、美国中南部、东南亚、英国南部、英国西部、西欧、美国西部、美国西部2、美国中部。
+澳大利亚东部、澳大利亚东南部、巴西南部、加拿大中部、加拿大东部、美国中部、东亚、美国东部、美国东部2、日本东部、日本西部、韩国中部、韩国南部、美国中北部、北欧、美国中南部、东南亚、英国南部、英国西部、西欧、美国西部、美国西部2、美国中部。
 
 ### <a name="paired-regions"></a>配对区域
 除通用副本区域外，还可以在源服务器的 Azure 配对区域中创建读取副本。 如果你不知道所在区域的配对，可以从 [Azure 配对区域](../best-practices-availability-paired-regions.md)一文中了解更多信息。

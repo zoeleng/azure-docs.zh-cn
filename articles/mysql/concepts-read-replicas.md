@@ -1,17 +1,17 @@
 ---
-title: 只读副本 - Azure Database for MySQL。
+title: 读取副本-Azure Database for MySQL
 description: 了解 Azure Database for MySQL 中的只读副本：选择区域、创建副本、连接副本、监视复制和停止复制。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876543"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126647"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -38,7 +38,7 @@ ms.locfileid: "91876543"
 只读副本功能使用 MySQL 本机异步复制。 该功能不适用于同步复制方案。 源和副本之间将有可度量的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
 
 > [!IMPORTANT]
-> Azure Database for MySQL 使用基于 **行** 的二进制日志记录。 如果表缺少主键，则会扫描表中的所有行，以进行 DML 操作。 这会导致复制滞后增加。 为了确保副本能够跟上对源服务器的更改，我们通常建议在创建副本服务器之前在源服务器的表中添加一个主键，或者在已有副本服务器的情况下重新创建副本服务器。
+> Azure Database for MySQL 使用基于 ROW 的二进制日志记录。 如果表缺少主键，则会扫描表中的所有行来进行 DML 操作。 这会导致复制延迟时间增加。 若要确保副本服务器能够与源服务器中的更改保持同步，我们通常建议在创建副本服务器之前在源服务器中的表上添加主键，或者在已有副本服务器时重新创建副本服务器。
 
 ## <a name="cross-region-replication"></a>跨区域复制
 你可以在源服务器的其他区域中创建读取副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
@@ -50,7 +50,7 @@ ms.locfileid: "91876543"
 ### <a name="universal-replica-regions"></a>通用副本区域
 无论源服务器位于何处，都可以在以下任何区域中创建读取副本。 支持的通用副本区域包括：
 
-澳大利亚东部、澳大利亚东南部、美国中部、东亚、美国东部、美国东部2、日本东部、日本西部、韩国中部、韩国南部、美国中北部、北欧、美国中南部、东南亚、英国南部、英国西部、西欧、美国西部、美国西部2、美国中部。
+澳大利亚东部、澳大利亚东南部、巴西南部、加拿大中部、加拿大东部、美国中部、东亚、美国东部、美国东部2、日本东部、日本西部、韩国中部、韩国南部、美国中北部、北欧、美国中南部、东南亚、英国南部、英国西部、西欧、美国西部、美国西部2、美国中部。
 
 ### <a name="paired-regions"></a>配对区域
 除通用副本区域外，还可以在源服务器的 Azure 配对区域中创建读取副本。 如果你不知道所在区域的配对，可以从 [Azure 配对区域](../best-practices-availability-paired-regions.md)一文中了解更多信息。

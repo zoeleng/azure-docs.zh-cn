@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042875"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126818"
 ---
 # <a name="device-model-repository"></a>设备模型存储库
 
@@ -30,7 +30,7 @@ Microsoft 托管了具有以下特征的公共 DMR：
 
 ## <a name="custom-device-model-repository"></a>自定义设备模型存储库
 
-可以在任何存储介质（如本地文件系统或自定义 HTTP web 服务器）中使用相同的 DMR 模式来创建自定义 DMR。 只需更改用于访问 DMR 的基 URL，就可以像从公共 DRM 检索模型。
+可以在任何存储介质（如本地文件系统或自定义 HTTP web 服务器）中使用相同的 DMR 模式来创建自定义 DMR。 你可以从自定义 DMR 中检索模型，只需更改用于访问 DMR 的基 URL 即可，就像从公共 DMR 中检索模型一样。
 
 > [!NOTE]
 > 用于验证公共 DMR 中的模型的工具可在自定义存储库中重复使用。

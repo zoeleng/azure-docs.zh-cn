@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8948ed51a9cda3d308046f3b85b6ce338462e82c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05a3846de1ad4100abec996f8051201882bb7566
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87826154"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127535"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>使用 CLI 创建和管理 Azure Database for MySQL 的专用链接
 
@@ -92,7 +92,7 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id") \    
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id" -o tsv) \    
     --group-id mysqlServer \  
     --connection-name myConnection  
  ```
@@ -174,7 +174,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
     | 连接名称| 选择所选的连接名称。|
     | 主机名 | 选择 *mydemoserver.privatelink.mysql.database.azure.com* |
     | 用户名 | 输入在 *username@servername* 创建 MySQL server 期间提供的用户名。 |
-    | Password | 输入在创建 MySQL server 期间提供的密码。 |
+    | 密码 | 输入在创建 MySQL server 期间提供的密码。 |
     ||
 
 5. 选择“连接”。

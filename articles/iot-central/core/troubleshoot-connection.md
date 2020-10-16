@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34a9350f830171a137ca3a63ecae2203edec92b2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322443"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127363"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>排查设备中的数据未在 Azure IoT Central 中显示的原因
 
@@ -34,9 +34,9 @@ ms.locfileid: "89322443"
 
 如果尚未这样做，请安装 `az cli` 工具和 `azure-iot` 扩展。
 
-若要了解如何安装 `az cli` ，请参阅 [安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+若要了解如何安装 `az cli` ，请参阅 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
-若要 [安装](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) 该 `azure-iot` 扩展，请运行以下命令：
+若要 [安装](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) 该 `azure-iot` 扩展，请运行以下命令：
 
 ```cmd/bash
 az extension add --name azure-iot
@@ -129,9 +129,9 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| 设备预配状态 | 说明 | 可能的缓解 |
+| 设备预配状态 | 描述 | 可能的缓解 |
 | - | - | - |
-| 已预配 | 无立即识别的问题。 | 不适用 |
+| 已预配 | 无立即识别的问题。 | 空值 |
 | 已注册 | 设备尚未连接到 IoT Central。 | 检查设备日志是否存在连接问题。 |
 | 已阻止 | 设备被阻止连接到 IoT Central。 | 设备被阻止连接到 IoT Central 应用程序。 在 IoT Central 中取消阻止设备，然后重试。 若要了解详细信息，请参阅 [阻止设备](concepts-get-connected.md#device-status-values)。 |
 | 审批 | 设备未批准。 | 未批准设备连接到 IoT Central 应用程序。 批准 IoT Central 中的设备，然后重试。 若要了解详细信息，请参阅 [批准设备](concepts-get-connected.md#connect-without-registering-devices) |
@@ -155,7 +155,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | 401 | 无法验证授权令牌。 例如，它已过期或不适用于请求的 URI。 此错误代码也会在 TPM 证明流中返回给设备。 | 确保你的设备具有正确的凭据。 |
 | 404 | 设备预配服务实例或某个资源（如注册）不存在。 | [向客户支持提交票证](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 |
 | 412 | `ETag`根据 RFC7232，请求中的不匹配 `ETag` 现有资源的。 | [向客户支持提交票证](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 |
-| 429 | 服务限制了操作。 对于具体的服务限制，请参阅 [IoT 中心设备预配服务限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits)。 | 减少消息频率，在更多设备之间拆分责任。 |
+| 429 | 服务限制了操作。 对于具体的服务限制，请参阅 [IoT 中心设备预配服务限制](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits)。 | 减少消息频率，在更多设备之间拆分责任。 |
 | 500 | 发生内部错误。 | 向[客户支持提交票证](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)，查看他们能否进一步提供帮助。 |
 
 ## <a name="payload-shape-issues"></a>负载形状问题

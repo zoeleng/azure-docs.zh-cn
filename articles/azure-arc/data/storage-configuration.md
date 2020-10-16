@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317321"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127227"
 ---
 # <a name="storage-configuration"></a>存储配置
 
@@ -238,6 +238,6 @@ Microsoft 及其 OEM、OS 和 Kubernetes 合作伙伴正在使用 Azure Arc 数�
 
 |公有云服务|建议|
 |---|---|
-|**Azure Kubernetes 服务 (AKS)**|Azure Kubernetes Service (AKS) 有两种类型的存储-Azure 文件和 Azure 磁盘。 每种类型的存储有两个定价/性能层-标准 (HDD) 和高级 (SSD) 。 因此，在 (AKS 中提供的四个存储类 `azurefile`) ， `azurefile-premium` (azure 文件高级层) ， `default` (azure 磁盘标准层) 和 `managed-premium` (azure 磁盘高级层) 。 默认存储类 `default` (Azure 磁盘标准层) 。 在您的决策中应考虑的类型和层之间存在重大的 **[定价差异](https://azure.microsoft.com/en-us/pricing/details/storage/)** 。 对于具有高性能要求的生产工作负荷，我们建议 `managed-premium` 对所有存储类使用。 对于开发/测试工作负荷、概念证明等，其中的成本是一个考虑因素，就 `azurefile` 是成本最低的选项。 所有这四种选项都可用于需要远程共享存储的情况，因为它们是 Azure 中所有网络连接的存储设备。 阅读有关 [AKS 存储](../../aks/concepts-storage.md)的详细信息。|
+|**Azure Kubernetes 服务 (AKS)**|Azure Kubernetes Service (AKS) 有两种类型的存储-Azure 文件和 Azure 托管磁盘。 每种类型的存储有两个定价/性能层-标准 (HDD) 和高级 (SSD) 。 因此，在 (AKS 中提供的四个存储类 `azurefile`) ， `azurefile-premium` (azure 文件高级层) ， `default` (azure 磁盘标准层) 和 `managed-premium` (azure 磁盘高级层) 。 默认存储类 `default` (Azure 磁盘标准层) 。 在您的决策中应考虑的类型和层之间存在重大的 **[定价差异](https://azure.microsoft.com/en-us/pricing/details/storage/)** 。 对于具有高性能要求的生产工作负荷，我们建议 `managed-premium` 对所有存储类使用。 对于开发/测试工作负荷、概念证明等，其中的成本是一个考虑因素，就 `azurefile` 是成本最低的选项。 所有这四种选项都可用于需要远程共享存储的情况，因为它们是 Azure 中所有网络连接的存储设备。 阅读有关 [AKS 存储](../../aks/concepts-storage.md)的详细信息。|
 |**AWS 弹性 Kubernetes 服务 (EKS)**| Amazon 的弹性 Kubernetes 服务有一个基于 [EBS CSI 存储驱动程序](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)的主存储类。 建议用于生产工作负荷。 有一个新的存储驱动程序- [EFS CSI 存储驱动程序](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) -可以添加到 EKS 群集，但它目前处于 beta 阶段，可能会有所更改。 尽管 AWS 指出此存储驱动程序支持用于生产，但我们不建议使用它，因为它仍处于测试阶段并且可能会有所更改。 EBS 存储类为默认值，并调用 `gp2` 。 阅读有关 [EKS 存储](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)的详细信息。|
 |**Google Kubernetes 引擎 (GKE)**|Google Kubernetes 引擎 (GKE) 只包含一个 `standard` 用于 [GCE 持久性磁盘](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk)的存储类。 这也是默认值。 虽然可与直接连接 Ssd 一起使用的 GKE 有一个 [本地静态卷配置程序](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) ，但不建议使用它，因为它不是由 Google 维护或支持的。 阅读有关 [GKE 存储](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)的详细信息。

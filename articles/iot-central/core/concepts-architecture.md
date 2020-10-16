@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337137"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126167"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 体系结构
 
@@ -104,7 +104,7 @@ Azure IoT Central 使用 Azure IoT 中心作为启用设备连接的云网关。
 - 设备管理。
 - 安全的设备连接。
 
-若要详细了解 IoT 中心，请参阅 [Azure IoT 中心](https://docs.microsoft.com/azure/iot-hub/)。
+若要详细了解 IoT 中心，请参阅 [Azure IoT 中心](../../iot-hub/index.yml)。
 
 若要详细了解 Azure IoT Central 中的设备连接，请参阅[设备连接](concepts-get-connected.md)。
 

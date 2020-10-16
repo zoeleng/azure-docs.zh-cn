@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803783"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122647"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>在 Azure IoT Central 应用程序中定义新的 IoT 设备类型
 
@@ -45,7 +45,7 @@ ms.locfileid: "91803783"
 - 使用 Visual Studio Code 创建设备功能模型。 基于模型实现设备代码。 将设备功能模型手动导入到 IoT Central 应用程序中，然后添加 IoT Central 应用程序所需的任何云属性、自定义项和仪表板。
 - 使用 Visual Studio Code 创建设备功能模型。 基于模型实现设备代码，并通过设备优先连接将实际设备连接到 IoT Central 应用程序。 IoT Central 从公共存储库中查找并导入设备功能模型。 然后，你可以将 IoT Central 应用程序所需的任何云属性、自定义和仪表板添加到设备模板中。
 
-你还可以使用 [REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) 或 [CLI](howto-manage-iot-central-from-cli.md)将设备模板添加到 IoT Central 应用程序。
+你还可以使用 [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) 或 [CLI](howto-manage-iot-central-from-cli.md)将设备模板添加到 IoT Central 应用程序。
 
 某些 [应用程序模板](concepts-app-templates.md) 已包括在应用程序模板支持的方案中非常有用的设备模板。 例如，请参阅 [存储分析体系结构](../retail/store-analytics-architecture.md)。
 
@@ -120,7 +120,7 @@ ms.locfileid: "91803783"
 
 下表显示了遥测功能的配置设置：
 
-| 字段 | 说明 |
+| 字段 | 描述 |
 | ----- | ----------- |
 | 显示名称 | 仪表板和窗体上使用的遥测值的显示名称。 |
 | 名称 | 遥测消息中字段的名称。 IoT Central 将根据显示名称生成此字段的值，但你可根据需要选择自己的值。 此字段必须为字母数字。 |
@@ -131,7 +131,7 @@ ms.locfileid: "91803783"
 | 状态值 | 仅适用于状态语义类型。 定义可能的状态值，其中每个状态值都具有显示名称、名称、枚举类型和值。 |
 | 单位 | 遥测值的单位，例如**mph**、 **%** 或** &deg; C**。 |
 | 显示单位 | 仪表板和窗体上使用的显示单位。 |
-| 注释 | 有关遥测功能的任何注释。 |
+| 评论 | 有关遥测功能的任何注释。 |
 | 说明 | 遥测功能的说明。 |
 
 ### <a name="properties"></a>属性
@@ -140,7 +140,7 @@ ms.locfileid: "91803783"
 
 下表显示了属性功能的配置设置：
 
-| 字段 | 说明 |
+| 字段 | 描述 |
 | ----- | ----------- |
 | 显示名称 | 仪表板和窗体上使用的属性值的显示名称。 |
 | 名称 | 属性的名称。 IoT Central 将根据显示名称生成此字段的值，但你可根据需要选择自己的值。 此字段必须为字母数字。 |
@@ -152,8 +152,8 @@ ms.locfileid: "91803783"
 | 状态值 | 仅适用于状态语义类型。 定义可能的状态值，其中每个状态值都具有显示名称、名称、枚举类型和值。 |
 | 单位 | 属性值的单位，如**mph**、 **%** 或** &deg; C**。 |
 | 显示单位 | 仪表板和窗体上使用的显示单位。 |
-| 注释 | 有关属性功能的任何注释。 |
-| 说明 | 属性功能的说明。 |
+| 评论 | 有关属性功能的任何注释。 |
+| 描述 | 属性功能的说明。 |
 
 ### <a name="commands"></a>命令
 
@@ -161,14 +161,14 @@ ms.locfileid: "91803783"
 
 下表显示了命令功能的配置设置：
 
-| 字段 | 说明 |
+| 字段 | 描述 |
 | ----- | ----------- |
 | 显示名称 | 仪表板和窗体上使用的命令的显示名称。 |
 | 名称 | 命令的名称。 IoT Central 将根据显示名称生成此字段的值，但你可根据需要选择自己的值。 此字段必须为字母数字。 |
 | 功能类型 | 命令。 |
-| Command | `SynchronousExecutionType`. |
-| 注释 | 有关命令功能的任何注释。 |
-| 说明 | 命令功能的说明。 |
+| 命令 | `SynchronousExecutionType`. |
+| 评论 | 有关命令功能的任何注释。 |
+| 描述 | 命令功能的说明。 |
 | 请求 | 如果启用，则请求参数的定义包括：名称、显示名称、架构、单位和显示单位。 |
 | 响应 | 如果启用，则命令响应的定义包括：名称、显示名称、架构、单位和显示单位。 |
 
@@ -199,7 +199,7 @@ ms.locfileid: "91803783"
 
 下表显示了云属性的配置设置：
 
-| 字段 | 说明 |
+| 字段 | 描述 |
 | ----- | ----------- |
 | 显示名称 | 仪表板和窗体上使用的云属性值的显示名称。 |
 | 名称 | 云属性的名称。 IoT Central 将根据显示名称生成此字段的值，但你可根据需要选择自己的值。 |

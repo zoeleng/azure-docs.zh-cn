@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b65d1be9fa3ddb28a216d51e91ce2a8b20f15e6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051162"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127176"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box：常见问题解答
 
@@ -236,8 +236,8 @@ A.  将数据复制到 Data Box 中时，数据将上传到 Azure 存储帐户�
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. 我刚刚发现，我并未遵循容器的 Azure 命名要求。 我的数据是否无法上传到 Azure？
 A.  如果容器名称包含大写字母，这些名称会自动转换为小写。 如果名称存在其他方面的不合规情况（包含特殊字符、采用其他语言，等等），则上传将会失败。 有关命名共享、容器、文件的最佳做法的详细信息，请转到：
-- [命名和引用共享](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [块 blob 和页 blob 约定](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)。
+- [命名和引用共享](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [块 blob 和页 blob 约定](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)。
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>Q. 如何验证已复制到 Data Box 的数据？
 A.  数据复制完成后，运行“准备交付”即可验证数据。 验证过程中，Data Box 将生成文件列表和数据的校验和。 可以下载文件列表，并根据源数据中的文件验证该列表。 有关详细信息，请转到[准备交付](data-box-deploy-picked-up.md#prepare-to-ship)。
