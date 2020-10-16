@@ -9,12 +9,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: f3ab2a19179c80765ba69e748b1421caae200fb8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 94696eacd9a75129f493a97bca201ad5ffb3456c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101233"
+ms.locfileid: "92131558"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Java 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -188,53 +188,6 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 }
 ```
 
-## <a name="manage-a-directory-acl"></a>管理目录 ACL
-
-此示例获取并设置名为 `my-directory` 的目录的 ACL。 此示例为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取访问权限。
-
-> [!NOTE]
-> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
-
-```java
-static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
-
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.getDirectoryClient("my-directory");
-
-    PathAccessControl directoryAccessControl =
-        directoryClient.getAccessControl();
-
-    List<PathAccessControlEntry> pathPermissions = directoryAccessControl.getAccessControlList();
-       
-    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
-             
-    RolePermissions groupPermission = new RolePermissions();
-    groupPermission.setExecutePermission(true).setReadPermission(true);
-  
-    RolePermissions ownerPermission = new RolePermissions();
-    ownerPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(true);
-  
-    RolePermissions otherPermission = new RolePermissions();
-    otherPermission.setReadPermission(true);
-  
-    PathPermissions permissions = new PathPermissions();
-  
-    permissions.setGroup(groupPermission);
-    permissions.setOwner(ownerPermission);
-    permissions.setOther(otherPermission);
-
-    directoryClient.setPermissions(permissions, null, null);
-
-    pathPermissions = directoryClient.getAccessControl().getAccessControlList();
-     
-    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
-
-}
-
-```
-
-还可以获取和设置容器根目录的 ACL。 若要获取根目录，请将空字符串 (`""`) 传递到“DataLakeFileSystemClient.getDirectoryClient”方法。
-
 ## <a name="upload-a-file-to-a-directory"></a>将文件上传到目录
 
 首先，通过创建 **DataLakeFileClient** 类的实例，在目标目录中创建文件引用。 通过调用 **DataLakeFileClient.append** 方法上传文件。 确保通过调用 **DataLakeFileClient.FlushAsync** 方法完成上传。
@@ -284,53 +237,6 @@ static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 
     }
 
-```
-
-## <a name="manage-a-file-acl"></a>管理文件 ACL
-
-此示例获取并设置名为 `upload-file.txt` 的文件的 ACL。 此示例为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取访问权限。
-
-> [!NOTE]
-> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
-
-```java
-static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
-
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.getDirectoryClient("my-directory");
-
-    DataLakeFileClient fileClient = 
-        directoryClient.getFileClient("uploaded-file.txt");
-
-    PathAccessControl fileAccessControl =
-        fileClient.getAccessControl();
-
-    List<PathAccessControlEntry> pathPermissions = fileAccessControl.getAccessControlList();
-     
-    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
-           
-    RolePermissions groupPermission = new RolePermissions();
-    groupPermission.setExecutePermission(true).setReadPermission(true);
-
-    RolePermissions ownerPermission = new RolePermissions();
-    ownerPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(true);
-
-    RolePermissions otherPermission = new RolePermissions();
-    otherPermission.setReadPermission(true);
-
-    PathPermissions permissions = new PathPermissions();
-
-    permissions.setGroup(groupPermission);
-    permissions.setOwner(ownerPermission);
-    permissions.setOther(otherPermission);
-
-    fileClient.setPermissions(permissions, null, null);
-
-    pathPermissions = fileClient.getAccessControl().getAccessControlList();
-   
-    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
-
-}
 ```
 
 ## <a name="download-from-a-directory"></a>从目录下载
@@ -388,6 +294,107 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
             
         item = iterator.next();
     }
+
+}
+```
+
+## <a name="manage-access-control-lists-acls"></a>管理访问控制列表 (Acl) 
+
+可以获取、设置和更新目录与文件的访问权限。
+
+> [!NOTE]
+> 如果使用 Azure Active Directory (Azure AD) 来授权访问，请确保已为安全主体分配了 [存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
+
+### <a name="manage-a-directory-acl"></a>管理目录 ACL
+
+此示例获取并设置名为 `my-directory` 的目录的 ACL。 此示例为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取访问权限。
+
+> [!NOTE]
+> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
+
+```java
+static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
+
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory");
+
+    PathAccessControl directoryAccessControl =
+        directoryClient.getAccessControl();
+
+    List<PathAccessControlEntry> pathPermissions = directoryAccessControl.getAccessControlList();
+       
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
+             
+    RolePermissions groupPermission = new RolePermissions();
+    groupPermission.setExecutePermission(true).setReadPermission(true);
+  
+    RolePermissions ownerPermission = new RolePermissions();
+    ownerPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(true);
+  
+    RolePermissions otherPermission = new RolePermissions();
+    otherPermission.setReadPermission(true);
+  
+    PathPermissions permissions = new PathPermissions();
+  
+    permissions.setGroup(groupPermission);
+    permissions.setOwner(ownerPermission);
+    permissions.setOther(otherPermission);
+
+    directoryClient.setPermissions(permissions, null, null);
+
+    pathPermissions = directoryClient.getAccessControl().getAccessControlList();
+     
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
+
+}
+
+```
+
+还可以获取和设置容器根目录的 ACL。 若要获取根目录，请将空字符串 (`""`) 传递到“DataLakeFileSystemClient.getDirectoryClient”方法。
+
+### <a name="manage-a-file-acl"></a>管理文件 ACL
+
+此示例获取并设置名为 `upload-file.txt` 的文件的 ACL。 此示例为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取访问权限。
+
+> [!NOTE]
+> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
+
+```java
+static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
+
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-directory");
+
+    DataLakeFileClient fileClient = 
+        directoryClient.getFileClient("uploaded-file.txt");
+
+    PathAccessControl fileAccessControl =
+        fileClient.getAccessControl();
+
+    List<PathAccessControlEntry> pathPermissions = fileAccessControl.getAccessControlList();
+     
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
+           
+    RolePermissions groupPermission = new RolePermissions();
+    groupPermission.setExecutePermission(true).setReadPermission(true);
+
+    RolePermissions ownerPermission = new RolePermissions();
+    ownerPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(true);
+
+    RolePermissions otherPermission = new RolePermissions();
+    otherPermission.setReadPermission(true);
+
+    PathPermissions permissions = new PathPermissions();
+
+    permissions.setGroup(groupPermission);
+    permissions.setOwner(ownerPermission);
+    permissions.setOther(otherPermission);
+
+    fileClient.setPermissions(permissions, null, null);
+
+    pathPermissions = fileClient.getAccessControl().getAccessControlList();
+   
+    System.out.println(PathAccessControlEntry.serializeList(pathPermissions));
 
 }
 ```

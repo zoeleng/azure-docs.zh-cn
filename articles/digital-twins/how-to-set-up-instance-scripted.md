@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047414"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132510"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>设置 Azure 数字孪生实例和身份验证 (脚本) 
 
@@ -28,11 +28,11 @@ ms.locfileid: "92047414"
 
 ## <a name="prerequisites-download-the-script"></a>必备组件：下载脚本
 
-示例脚本用 PowerShell 编写。 这是 [**Azure 数字孪生示例**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)的一部分，可通过导航到此示例链接并选择标题下面的 " *下载 ZIP* " 按钮，将其下载到计算机。
+示例脚本用 PowerShell 编写。 这是 [**Azure 数字孪生端到端示例**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)的一部分，可通过导航到此示例链接并选择标题下面的 " *下载 ZIP* " 按钮，将其下载到计算机。
 
-这会将示例项目下载到你的计算机上 _**Azure_Digital_Twins_samples.zip**_。 导航到计算机上的文件夹并将其解压缩以提取文件。
+这会将示例项目下载到你的计算机上 _**Azure_Digital_Twins_end_to_end_samples.zip**_。 导航到计算机上的文件夹并将其解压缩以提取文件。
 
-在解压缩文件夹中，部署脚本位于_Azure_Digital_Twins_samples > 脚本 > **deploy.ps1** _。
+在解压缩文件夹中，部署脚本位于_Azure_Digital_Twins_end_to_end_samples > 脚本 > **deploy.ps1** _。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

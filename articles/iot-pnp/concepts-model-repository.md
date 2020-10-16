@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126818"
+ms.locfileid: "92131354"
 ---
 # <a name="device-model-repository"></a>设备模型存储库
 
@@ -24,20 +24,20 @@ DMR 定义了一个模式，用于根据设备克隆模型标识符 (DTMI) 在�
 
 Microsoft 托管了具有以下特征的公共 DMR：
 
-- 特选模型。 Microsoft 使用开放 GitHub PR 验证工作流查看并批准所有可用的接口。
+- 特选模型。 Microsoft 使用 GitHub 拉取请求 (PR) 验证工作流来查看和批准所有可用接口。
 - 不可变性.  发布后，无法更新接口。
-- 超大规模。 Microsoft 提供了创建安全且高度可缩放的终结点所需的所有基础结构。
+- 超大规模。 Microsoft 提供所需的基础结构来创建安全、可缩放的终结点，你可以在其中发布和使用设备型号。
 
 ## <a name="custom-device-model-repository"></a>自定义设备模型存储库
 
-可以在任何存储介质（如本地文件系统或自定义 HTTP web 服务器）中使用相同的 DMR 模式来创建自定义 DMR。 你可以从自定义 DMR 中检索模型，只需更改用于访问 DMR 的基 URL 即可，就像从公共 DMR 中检索模型一样。
+可以在任何存储介质（如本地文件系统或自定义 HTTP web 服务器）中使用相同的 DMR 模式来创建自定义 DMR。 只需更改用于访问 DMR 的基 URL，就可以像从公共 DMR 检索设备模型。
 
 > [!NOTE]
-> 用于验证公共 DMR 中的模型的工具可在自定义存储库中重复使用。
+> Microsoft 提供了用于在公共 DMR 中验证设备模型的工具。 可以在自定义存储库中重复使用这些工具。
 
 ## <a name="public-models"></a>公共模型
 
-存储在模型存储库中的公共数字克隆模型可供每个人在其应用程序中使用和集成。 公共模型允许设备制造商和解决方案开发人员开放的 eco 系统共享和重复使用其 IoT 即插即用设备型号。
+存储在模型存储库中的公共设备模型可供所有人使用并集成到其应用程序中。 使用公用设备模型，设备构建者和解决方案开发人员可以使用开放的 eco 系统共享和重复使用其 IoT 即插即用设备型号。
 
 有关如何在模型存储库中发布模型以使其公开的说明，请参阅 [发布模型](#publish-a-model) 部分。
 
@@ -47,7 +47,7 @@ Microsoft 托管了具有以下特征的公共 DMR：
 
 ### <a name="resolve-models"></a>解析模型
 
-若要以编程方式访问这些接口，需要将 dtmi 转换为可用于查询公共终结点的相对路径。 下面的代码示例演示如何执行此操作：
+若要以编程方式访问这些接口，需要将 DTMI 转换为可用于查询公共终结点的相对路径。 下面的代码示例演示如何执行此操作：
 
 若要将 DTMI 转换为绝对路径，我们将使用 `DtmiToPath` 函数，使用 `IsValidDtmi` ：
 
@@ -88,14 +88,14 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. 分叉公共 GitHub 存储库： [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models) 。
 1. 克隆分叉的存储库。 （可选）创建一个新分支，使更改与 `main` 分支隔离。
 1. `dtmi`使用文件夹/文件名约定将新接口添加到文件夹。 请参阅 [添加模型](#add-model) 工具。
-1. 使用 [脚本验证更改](#validate-files) 部分本地验证模型。
+1. 使用 [脚本验证更改](#validate-files) 部分本地验证设备型号。
 1. 在本地提交更改并推送到你的分支。
-1. 从分叉创建一个目标为分支的 PR `main` 。 请参阅 [创建问题或](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) 请求文档。
-1. 查看 [PR 要求](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md)。
+1. 在分支中，创建一个面向分支的拉取请求 `main` 。 请参阅 [创建问题或](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) 请求文档。
+1. 查看 [拉取请求要求](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md)。
 
-PR 触发一系列 GitHub 操作，这些操作将验证新提交的接口，并确保你的 PR 满足所有检查。
+拉取请求触发一系列 GitHub 操作，这些操作将验证新提交的接口，并确保拉取请求满足所有检查。
 
-Microsoft 将在三个工作日内通过所有检查来响应 PR。
+Microsoft 将在三个工作日内通过所有检查来响应拉取请求。
 
 ### <a name="add-model"></a>添加模型
 
@@ -109,7 +109,7 @@ Microsoft 将在三个工作日内通过所有检查来响应 PR。
 
 ### <a name="local-validation"></a>本地验证
 
-你可以在提交 PR 之前本地运行相同的验证检查，以帮助提前诊断问题。
+你可以在提交拉取请求之前本地运行相同的验证检查，以帮助提前诊断问题。
 
 #### <a name="validate-files"></a>验证-文件
 
@@ -125,7 +125,7 @@ Microsoft 将在三个工作日内通过所有检查来响应 PR。
 
 #### <a name="validate-models"></a>验证-模型
 
-您可以运行 [DTDL 验证示例](https://github.com/Azure-Samples/DTDL-Validator) 以在本地验证模型。
+您可以运行 [DTDL 验证示例](https://github.com/Azure-Samples/DTDL-Validator) 以在本地验证设备型号。
 
 ## <a name="next-steps"></a>后续步骤
 

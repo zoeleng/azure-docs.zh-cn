@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046802"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131677"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>指标顾问常见问题
 
@@ -31,7 +31,7 @@ ms.locfileid: "92046802"
 
 :::image type="content" source="media/pricing.png" alt-text="F0 资源已存在时的消息":::
 
-公共预览期间，只允许在一个区域中的一个订阅下创建指标顾问的一个实例。
+公共预览期间，只能在订阅下为每个区域创建一个指标顾问实例。
 
 如果已在同一区域中使用相同的订阅创建了一个实例，则可以尝试不同的区域或不同的订阅来创建新的实例。 还可以删除现有实例以创建新实例。
 
@@ -108,6 +108,40 @@ ms.locfileid: "92046802"
 
 如果数据通常非常不稳定，并且您希望在其变得太稳定或甚至变成平面线时收到警报，则可以将 "更改阈值" 配置为在更改太小时检测此类数据点。
 有关详细信息，请参阅 [异常情况检测配置](how-tos/configure-metrics.md#anomaly-detection-methods) 。
+
+## <a name="advanced-concepts"></a>高级概念
+
+### <a name="how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics"></a>指标顾问如何为多维度量值生成事件树？
+
+度量值可以按维度拆分为多个时序。 例如， `Response latency` 对团队拥有的所有服务监视指标。 `Service`类别可以用作维度来丰富指标，因此，我们将 `Response latency` 按 `Service1` 、等拆分 `Service2` 。 每个服务可以部署在多个数据中心的不同计算机上，因此，指标可以进一步由 `Machine` 和拆分 `Data center` 。
+
+|服务| 数据中心| 计算机  | 
+|----|------|----------------   |
+| S1 |  DC1 |   M1 |
+| S1 |  DC1 |   M2 |
+| S1 |  DC2 |   M3 |
+| S1 |  DC2 |   M4 |
+| S2 |  DC1 |   M1 |
+| S2 |  DC1 |   M2 |
+| S2 |  DC2 |   M5 |
+| S2 |  DC2 |   M6 |
+| ...|      |      |
+
+从总体开始 `Response latency` ，我们可以向下钻取和的度量 `Service` 值 `Data center` `Machine` 。 不过，如果服务所有者使用该路径，可能更有意义 `Service`  ->  `Data center`  ->  `Machine` ，或者可能更适合基础结构工程师使用该路径 `Data Center`  ->  `Machine`  ->  `Service` 。 这一切都取决于用户的各个业务要求。 
+
+在指标顾问中，用户可以指定要向下钻取或从分层拓扑的一个节点中汇总的任何路径。 更准确地说，分层拓扑是一个定向非循环图形，而不是树结构。 有一个完整的分层拓扑，其中包括所有可能的维度组合，如下所示： 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="F0 资源已存在时的消息" lightbox="media/dimension-combinations-view.png":::
+
+理论上，如果维度 `Service` 具有 `Ls` 非重复值，维度具有非重复值， `Data center` `Ldc` 并且维度 `Machine` 具有不同的值 `Lm` ，则 `(Ls + 1) * (Ldc + 1) * (Lm + 1)` 层次结构拓扑中可能存在维度组合。 
+
+但通常并非所有维度组合都是有效的，这可能会显著降低复杂性。 目前，如果用户自行聚合度量值，则不会限制维度数。 如果需要使用指标顾问提供的汇总功能，则维度数量不应超过6。 但是，我们会将度量值扩展的时序数量限制为小于10000。
+
+"诊断" 页中的 **事件树** 工具仅显示检测到异常的节点，而不是整个拓扑。 这是为了帮助你专注于当前问题。 它也可能不会显示指标内的所有异常，而会根据贡献显示最常见的异常。 通过这种方式，我们可以快速找出异常数据的影响、范围和传播路径。 这可以显著减少需要重点关注的异常的数量，并可帮助用户了解并找到其关键问题。 
+ 
+例如，当发生异常时 `Service = S2 | Data Center = DC2 | Machine = M5` ，异常的偏差会影响父节点 `Service= S2` ，该节点也已检测到异常，但异常不会影响 `DC2` 和所有服务上的整个数据中心 `M5` 。 事件树的构建方式如下：下面的屏幕截图中捕获了最常见的异常 `Service = S2` ，可以在两个路径中分析根本原因，这两个路径都将导致 `Service = S2 | Data Center = DC2 | Machine = M5` 。
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5个标记的顶点，其中的两个不同路径的边缘使用标记为 S2 的常见节点连接。最常见的异常在服务 = S2 上捕获，根本原因可以通过两个路径来进行分析，这两个路径会导致服务 = S2 |数据中心 = DC2 |计算机 = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>后续步骤
 - [指标顾问概述](overview.md)

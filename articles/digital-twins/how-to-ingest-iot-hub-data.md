@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048043"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131490"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>将 IoT 中心遥测数据引入 Azure 数字孪生
 
@@ -224,7 +224,7 @@ namespace IotHubtoTwins
 
 ## <a name="send-simulated-iot-data"></a>发送模拟 IoT 数据
 
-若要测试新的入口函数，请使用 [*教程：连接端到端解决方案*](./tutorial-end-to-end.md)中的设备模拟器。 该教程由用 c # 编写的示例项目驱动。 示例代码位于此处： [Azure 数字孪生示例](/samples/azure-samples/digital-twins-samples/digital-twins-samples)。 将使用该存储库中的 **devicesimulator.exe** 项目。
+若要测试新的入口函数，请使用 [*教程：连接端到端解决方案*](./tutorial-end-to-end.md)中的设备模拟器。 该教程由用 c # 编写的示例项目驱动。 示例代码位于此处： [Azure 数字孪生端到端示例](/samples/azure-samples/digital-twins-samples/digital-twins-samples)。 将使用该存储库中的 **devicesimulator.exe** 项目。
 
 在端到端教程中，完成以下步骤：
 1. [*在 IoT 中心注册模拟设备*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

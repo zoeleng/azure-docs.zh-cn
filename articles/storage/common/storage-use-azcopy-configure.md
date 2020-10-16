@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037178"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132204"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>对 AzCopy 进行配置、优化和故障排除
 
@@ -87,7 +87,7 @@ AzCopy 目前不支持要求通过 NTLM 或 Kerberos 进行身份验证的代理
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-传输小型文件时，吞吐量可能会下降。 可以设置 `AZCOPY_CONCURRENCY_VALUE` 环境变量来提高吞吐量。 此变量指定可发生的并发请求数。  
+传输小型文件时，吞吐量可能会下降。 可以通过设置环境变量来提高吞吐量 `AZCOPY_CONCURRENCY_VALUE` 。 此变量指定可发生的并发请求数。  
 
 如果计算机中的 CPU 少于 5 个，则此变量的值将设置为 `32`。 否则，默认值等于 16 乘以 CPU 数。 此变量的最大默认值为 `3000`，但可以手动增大或减小此值。 
 

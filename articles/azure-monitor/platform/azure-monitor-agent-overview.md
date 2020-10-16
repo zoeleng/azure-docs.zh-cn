@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263770"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132697"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a> (预览版 Azure Monitor 代理概述) 
 Azure Monitor 代理 (AMA) 从虚拟机的来宾操作系统收集监视数据，并将其传送到 Azure Monitor。 本文概述了 Azure Monitor 代理，包括如何安装它以及如何配置数据收集。
@@ -76,7 +76,7 @@ Azure Monitor 代理无需支付费用，但可能会产生数据引入的费用
 
 Azure Monitor 代理会将数据发送到 Azure Monitor 指标或支持 Azure Monitor 日志的 Log Analytics 工作区。
 
-| 数据源 | Destinations | 说明 |
+| 数据源 | Destinations | 描述 |
 |:---|:---|:---|
 | 性能        | Azure Monitor 指标<br>Log Analytics 工作区 | 测量操作系统和工作负载不同方面性能的数值。 |
 | Windows 事件日志 | Log Analytics 工作区 | 发送到 Windows 事件日志记录系统的信息。 |
@@ -84,11 +84,11 @@ Azure Monitor 代理会将数据发送到 Azure Monitor 指标或支持 Azure Mo
 
 
 ## <a name="supported-operating-systems"></a>支持的操作系统
-有关 Log Analytics 代理当前支持的 Windows 和 Linux 操作系统版本的列表，请参阅 [支持的操作系统](agents-overview.md#supported-operating-systems) 。
+有关 Azure Monitor 代理当前支持的 Windows 和 Linux 操作系统版本的列表，请参阅 [支持的操作系统](agents-overview.md#supported-operating-systems) 。
 
 
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 Azure Monitor 代理无需任何密钥，而是需要 [系统分配的托管标识](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)。 部署代理之前，必须在每个虚拟机上启用系统分配的托管标识。
 
 ## <a name="networking"></a>网络
@@ -99,7 +99,7 @@ Azure Monitor 代理支持 Azure 服务标记 (需要) AzureMonitor 和 AzureRes
 
 | 属性 | Windows | Linux |
 |:---|:---|:---|
-| 发布者 | Microsoft Azure。监视器  | Microsoft Azure。监视器 |
+| Publisher | Microsoft Azure。监视器  | Microsoft Azure。监视器 |
 | 类型      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 

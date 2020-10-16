@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993168"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132051"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>利用 Application Insights 收集 Azure Active Directory B2C 日志
 
@@ -26,13 +26,13 @@ ms.locfileid: "91993168"
 此处所述的详细活动日志 **只** 应在开发自定义策略时启用。
 
 > [!WARNING]
-> 不要在生产环境中启用开发模式。 日志收集发送到标识提供程序的所有声明。 作为开发人员，您需要负责在 Application Insights 日志中收集的任何个人数据。 仅当策略处于 **开发人员模式下**时，才收集这些详细日志。
+> 不要 `DeploymentMode` `Developer` 在生产环境中将设置为。 日志收集发送到标识提供程序的所有声明。 作为开发人员，您需要负责在 Application Insights 日志中收集的任何个人数据。 仅当策略处于 **开发人员模式下**时，才收集这些详细日志。
 
 ## <a name="set-up-application-insights"></a>设置 Application Insights
 
 如果还没有，请在订阅中创建 Application Insights 的实例。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 1. 在顶部菜单中选择 " **目录 + 订阅** " 筛选器，然后选择包含 Azure 订阅的目录 (不是 Azure AD B2C 目录) 。
 1. 选择左侧导航菜单中的 " **创建资源** "。
 1. 搜索并选择 " **Application Insights**"，然后选择 " **创建**"。
@@ -58,7 +58,7 @@ ms.locfileid: "91993168"
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"` 告诉 Applicationinsights.config 通过处理管道加速遥测。 适用于开发，但在较大的卷上受到限制。
+    * `DeveloperMode="true"` 告诉 Applicationinsights.config 通过处理管道加速遥测。 适用于开发，但在较大的卷上受到限制。 在生产环境中，将设置 `DeveloperMode` 为 `false` 。
     * `ClientEnabled="true"` 发送用于跟踪页面视图和客户端错误的 Applicationinsights.config 客户端脚本。 可以在 Application Insights 门户中的 **browserTimings** 表中查看这些项。 通过设置 `ClientEnabled= "true"` ，你可以将 Application Insights 添加到页面脚本，并获取页面加载和 ajax 调用、计数、浏览器异常和 ajax 失败的详细信息以及用户和会话计数的计时。 此字段是 **可选**的， `false` 默认情况下，设置为。
     * `ServerEnabled="true"` 将现有 UserJourneyRecorder JSON 作为自定义事件发送到 Application Insights。
 
@@ -102,6 +102,31 @@ ms.locfileid: "91993168"
 条目可能较长。 导出到 CSV 进行更深入的了解。
 
 有关查询的详细信息，请参阅 [Azure Monitor 中的日志查询概述](../azure-monitor/log-query/log-query-overview.md)。
+
+## <a name="configure-application-insights-in-production"></a>在生产环境中配置 Application Insights
+
+若要改善您的生产环境性能和更好的用户体验，请务必将策略配置为忽略不重要的消息。 使用以下配置仅将严重错误消息发送到 Application Insights。 
+
+1. 将 `DeploymentMode` [TrustFrameworkPolicy](trustframeworkpolicy.md) 的属性设置为 `Production` 。 
+
+   ```xml
+   <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+   TenantId="yourtenant.onmicrosoft.com"
+   PolicyId="B2C_1A_signup_signin"
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin"
+   DeploymentMode="Production"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights">
+   ```
+
+1. 将 `DeveloperMode` [JourneyInsights](relyingparty.md#journeyinsights) 的设置为 `false` 。
+
+   ```xml
+   <UserJourneyBehaviors>
+     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   </UserJourneyBehaviors>
+   ```
+   
+1. 上载和测试策略。
 
 ## <a name="next-steps"></a>后续步骤
 

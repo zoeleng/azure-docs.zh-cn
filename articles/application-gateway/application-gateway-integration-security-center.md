@@ -9,12 +9,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277194"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131201"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>应用程序网关和 Azure 安全中心之间的集成概述
 
@@ -44,7 +44,7 @@ ms.locfileid: "76277194"
 
 如果拥有现有应用程序网关，可在“使用现有解决方案”下将其选中。****
 
-![用于添加 web 应用程序防火墙的页面][4]
+!["添加 Web 应用程序防火墙" 页的屏幕截图。 在 "使用现有解决方案" 下，应用程序网关可见。][4]
 
 如果通过安全中心将 Web 应用程序添加到应用程序网关，资源不会添加为后端池成员。 必须直接在应用程序网关资源上执行此操作。
 
@@ -62,7 +62,7 @@ ms.locfileid: "76277194"
 
 安全中心会跟踪作为受保护资源添加到应用程序网关的应用程序。  它会监视此资源的运行状况，确保其受到应用程序网关保护。 接下来是向应用程序网关的后端池添加专用 IP、公共 IP或 拟机的 NIC。 完成之前，将显示一条“完成应用程序保护”的额外建议，直到资源添加完毕。****
 
-![用于添加 web 应用程序防火墙的页面][5]
+!["完成应用程序保护" 页的屏幕截图，其中一个应用程序可见。 文本说明了要采取哪些措施来保护应用程序。][5]
 
 ## <a name="security-alerts"></a>安全警报
 

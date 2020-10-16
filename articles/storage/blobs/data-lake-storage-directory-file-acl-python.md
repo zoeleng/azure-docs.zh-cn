@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: fc99bc645b48739d6d6339111780047496c1984d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98a1fbf30e7b653598aac6b83c0d8155582e2051
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017109"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131473"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Python 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -164,39 +164,6 @@ def delete_directory():
      print(e) 
 ```
 
-## <a name="manage-directory-permissions"></a>管理目录权限
-
-通过调用 **DataLakeDirectoryClient.get_access_control** 方法获取目录的访问控制列表 (ACL)，并通过调用 **DataLakeDirectoryClient.set_access_control** 方法来设置 ACL。
-
-> [!NOTE]
-> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
-
-此示例获取并设置名为 `my-directory` 的目录的 ACL。 字符串 `rwxr-xrw-` 为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取和写入权限。
-
-```python
-def manage_directory_permissions():
-    try:
-        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
-
-        directory_client = file_system_client.get_directory_client("my-directory")
-        
-        acl_props = directory_client.get_access_control()
-        
-        print(acl_props['permissions'])
-        
-        new_dir_permissions = "rwxr-xrw-"
-        
-        directory_client.set_access_control(permissions=new_dir_permissions)
-        
-        acl_props = directory_client.get_access_control()
-        
-        print(acl_props['permissions'])
-    
-    except Exception as e:
-     print(e) 
-```
-
-还可以获取和设置容器根目录的 ACL。 若要获取根目录，请调用 **FileSystemClient._get_root_directory_client** 方法。
 
 ## <a name="upload-a-file-to-a-directory"></a>将文件上传到目录 
 
@@ -252,40 +219,6 @@ def upload_file_to_directory_bulk():
       print(e) 
 ```
 
-## <a name="manage-file-permissions"></a>管理文件权限
-
-通过调用 **DataLakeFileClient.get_access_control** 方法获取文件的访问控制列表 (ACL)，并通过调用 **DataLakeFileClient.set_access_control** 方法来设置 ACL。
-
-> [!NOTE]
-> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
-
-此示例获取并设置名为 `my-file.txt` 的文件的 ACL。 字符串 `rwxr-xrw-` 为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取和写入权限。
-
-```python
-def manage_file_permissions():
-    try:
-        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
-
-        directory_client = file_system_client.get_directory_client("my-directory")
-        
-        file_client = directory_client.get_file_client("uploaded-file.txt")
-
-        acl_props = file_client.get_access_control()
-        
-        print(acl_props['permissions'])
-        
-        new_file_permissions = "rwxr-xrw-"
-        
-        file_client.set_access_control(permissions=new_file_permissions)
-        
-        acl_props = file_client.get_access_control()
-        
-        print(acl_props['permissions'])
-
-    except Exception as e:
-     print(e) 
-```
-
 ## <a name="download-from-a-directory"></a>从目录下载 
 
 打开用于写入的本地文件。 然后，创建一个 **DataLakeFileClient** 实例，该实例表示要下载的文件。 调用 **DataLakeFileClient.read_file**，以便从文件读取字节，然后将这些字节写入本地文件。 
@@ -333,7 +266,82 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="set-an-acl-recursively-preview"></a>以递归方式设置 ACL（预览）
+## <a name="manage-access-control-lists-acls"></a>管理访问控制列表 (Acl) 
+
+可以获取、设置和更新目录与文件的访问权限。
+
+> [!NOTE]
+> 如果使用 Azure Active Directory (Azure AD) 来授权访问，请确保已为安全主体分配了 [存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
+
+### <a name="manage-directory-acls"></a>管理目录 Acl
+
+通过调用 **DataLakeDirectoryClient.get_access_control** 方法获取目录的访问控制列表 (ACL)，并通过调用 **DataLakeDirectoryClient.set_access_control** 方法来设置 ACL。
+
+> [!NOTE]
+> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
+
+此示例获取并设置名为 `my-directory` 的目录的 ACL。 字符串 `rwxr-xrw-` 为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取和写入权限。
+
+```python
+def manage_directory_permissions():
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        acl_props = directory_client.get_access_control()
+        
+        print(acl_props['permissions'])
+        
+        new_dir_permissions = "rwxr-xrw-"
+        
+        directory_client.set_access_control(permissions=new_dir_permissions)
+        
+        acl_props = directory_client.get_access_control()
+        
+        print(acl_props['permissions'])
+    
+    except Exception as e:
+     print(e) 
+```
+
+还可以获取和设置容器根目录的 ACL。 若要获取根目录，请调用 **FileSystemClient._get_root_directory_client** 方法。
+
+### <a name="manage-file-permissions"></a>管理文件权限
+
+通过调用 **DataLakeFileClient.get_access_control** 方法获取文件的访问控制列表 (ACL)，并通过调用 **DataLakeFileClient.set_access_control** 方法来设置 ACL。
+
+> [!NOTE]
+> 如果你的应用程序通过使用 Azure Active Directory (Azure AD) 来授予访问权限，请确保已向应用程序用来授权访问的安全主体分配了[存储 Blob 数据所有者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改它们所带来的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
+
+此示例获取并设置名为 `my-file.txt` 的文件的 ACL。 字符串 `rwxr-xrw-` 为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取和写入权限。
+
+```python
+def manage_file_permissions():
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        file_client = directory_client.get_file_client("uploaded-file.txt")
+
+        acl_props = file_client.get_access_control()
+        
+        print(acl_props['permissions'])
+        
+        new_file_permissions = "rwxr-xrw-"
+        
+        file_client.set_access_control(permissions=new_file_permissions)
+        
+        acl_props = file_client.get_access_control()
+        
+        print(acl_props['permissions'])
+
+    except Exception as e:
+     print(e) 
+```
+
+### <a name="set-an-acl-recursively-preview"></a>以递归方式设置 ACL（预览）
 
 你可以为父目录的现有子项以递归方式添加、更新和删除 ACL，而不必为每个子项单独进行这些更改。 有关详细信息，请参阅[以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)](recursive-access-control-lists.md)。
 

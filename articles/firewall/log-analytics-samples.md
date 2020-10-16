@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023867"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132782"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Azure 防火墙的 Azure Monitor 日志
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 以下日志示例显示了日志条目中包含的数据。
 
-![日志条目一](media/log-analytics-samples/log1.png)
+:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="日志条目的屏幕截图。多个值可见，如时间戳、协议、端口号、操作、规则集合和规则。" border="false":::
 
-![日志条目二 ](media/log-analytics-samples/log2.png)
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="日志条目的屏幕截图。多个值可见，如时间戳、协议、端口号、操作、规则集合和规则。" border="false":::
 
-![日志条目三](media/log-analytics-samples/log3.png)
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="日志条目的屏幕截图。多个值可见，如时间戳、协议、端口号、操作、规则集合和规则。" border="false":::
 ## <a name="next-steps"></a>后续步骤
 
 若要了解 Azure 防火墙监视和诊断，请参阅[教程：监视 Azure 防火墙日志和指标](tutorial-diagnostics.md)。

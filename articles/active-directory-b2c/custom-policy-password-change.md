@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2018
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116359"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131745"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略配置密码更改
 
@@ -38,7 +38,7 @@ ms.locfileid: "87116359"
         <ClaimType Id="oldPassword">
           <DisplayName>Old Password</DisplayName>
           <DataType>string</DataType>
-          <UserHelpText>Enter password</UserHelpText>
+          <UserHelpText>Enter your old password</UserHelpText>
           <UserInputType>Password</UserInputType>
         </ClaimType>
       </ClaimsSchema>
@@ -172,14 +172,14 @@ ms.locfileid: "87116359"
 4. 选择“标识体验框架”。
 5. 在“自定义策略”页上，单击“上传策略”****。
 6. 选择“覆盖策略(若存在)”，然后搜索并选择 *TrustframeworkExtensions.xml* 文件。****
-7. 单击“上载” 。
+7. 单击“上载” 。 
 8. 针对信赖方文件（例如 *ProfileEditPasswordChange.xml*）重复步骤 5 到 7。
 
 ### <a name="run-the-policy"></a>运行策略
 
 1. 打开你更改的策略。 例如，*B2C_1A_profile_edit_password_change*。
 2. 对于“应用程序”  ，选择你之前注册的应用程序。 若要查看令牌，“回复 URL”应当显示 `https://jwt.ms`****。
-3. 单击 " **立即运行**"。 使用之前创建的帐户登录。 现在应该有机会更改密码。
+3. 单击 " **立即运行**"。 用先前创建的帐户登录。 现在应该有机会更改密码。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564791"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132068"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 ID 令牌提示技术配置文件
 
@@ -36,7 +36,7 @@ Id_token_hint 必须是有效的 JWT 令牌。 下表列出了必需的声明。
 
 | 名称 | 声明 | 示例值 | 说明 |
 | ---- | ----- | ------------- | ----------- |
-| 目标受众 | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | 标识令牌的目标接收方。 这是令牌颁发者定义的任意字符串。 Azure AD B2C 将验证此值，如果该标记不匹配，则拒绝该令牌。  |
+| 读者 | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | 标识令牌的目标接收方。 这是令牌颁发者定义的任意字符串。 Azure AD B2C 将验证此值，如果该标记不匹配，则拒绝该令牌。  |
 | 颁发者 | `iss` |`https://localhost` | 标识) security token service (令牌颁发者。 这是令牌颁发者定义的任意 URI。 Azure AD B2C 将验证此值，如果该标记不匹配，则拒绝该令牌。  |
 | 过期时间 | `exp` | `1600087315` | 令牌失效的时间，以纪元时间表示。 Azure AD B2C 不会验证此声明。 |
 | 生效时间 | `nbf` | `1599482515` | 令牌生效的时间，以纪元时间表示。 此时间通常与颁发令牌的时间相同。 Azure AD B2C 不会验证此声明。 |
@@ -82,24 +82,24 @@ Id_token_hint 必须是有效的 JWT 令牌。 下表列出了必需的声明。
 
 使用对称密钥时，以下元数据是相关的。 
 
-| 属性 | 必须 | 说明 |
+| Attribute | 必需 | 描述 |
 | --------- | -------- | ----------- |
 | 颁发者 | 是 | 标识) security token service (令牌颁发者。 此值必须与 `iss` JWT 令牌声明中的声明完全相同。 | 
 | IdTokenAudience | 是 | 标识令牌的目标接收方。 必须与 `aud` JWT 令牌声明中的声明限完全相同。 | 
 
-使用对称密钥时，以下元数据是相关的。 
+使用非对称密钥时，以下元数据是相关的。 
 
-| 属性 | 必须 | 说明 |
+| Attribute | 必需 | 描述 |
 | --------- | -------- | ----------- |
 | METADATA| 是 | 指向令牌颁发者配置文档的 URL，也称为 OpenID 知名配置终结点。   |
 | 颁发者 | 否 | 标识) security token service (令牌颁发者。 此值可用于覆盖元数据中配置的值，并且必须与 `iss` JWT 令牌声明中的声明完全相同。 |  
-| IdTokenAudience | 否 | 标识令牌的目标接收方。 此值可用于覆盖元数据中配置的值，并且必须与 `aud` JWT 令牌声明中的声明完全相同。 |  
+| IdTokenAudience | 否 | 标识令牌的目标接收方。 必须与 `aud` JWT 令牌声明中的声明限完全相同。 |  
 
 ## <a name="cryptographic-keys"></a>加密密钥
 
 使用对称密钥时， **CryptographicKeys** 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| Attribute | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | client_secret | 是 | 用于验证 JWT 令牌签名的加密密钥。|
 
@@ -123,7 +123,7 @@ $newClientSecret
 
 此代码会创建类似的机密字符串 `VK62QTn0m1hMcn0DQ3RPYDAr6yIiSvYgdRwjZtU5QhI=` 。
 
-#### <a name="step-2-add-the-signing-key-to-azure-ad-b2c"></a>步骤 2. 将签名密钥添加到 Azure AD B2C
+#### <a name="step-2-add-the-signing-key-to-azure-ad-b2c"></a>步骤 2。 将签名密钥添加到 Azure AD B2C
 
 令牌颁发者使用的同一密钥需要在 Azure AD B2C 策略密钥中创建。  
 
@@ -137,7 +137,7 @@ $newClientSecret
    可能会自动添加前缀 `B2C_1A_`。
 1. 在 " **密钥** " 框中，输入前面生成的登录密钥。
 1. 使用“加密”**** 作为“密钥用法”****。
-1. 选择“创建”  。
+1. 选择“创建”。
 1. 确认已创建密钥 `B2C_1A_IdTokenHintKey`。
 
 
@@ -205,7 +205,7 @@ New-SelfSignedCertificate `
 ```
 
 
-#### <a name="step-2-add-the-id-token-hint-technical-profile"></a>步骤 2. 添加 ID 令牌提示技术配置文件 
+#### <a name="step-2-add-the-id-token-hint-technical-profile"></a>步骤 2。 添加 ID 令牌提示技术配置文件 
 
 以下技术配置文件会验证令牌并提取声明。 更改令牌颁发者的已知配置终结点的元数据 URI。  
 
@@ -219,7 +219,7 @@ New-SelfSignedCertificate `
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

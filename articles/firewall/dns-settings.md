@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ffac4f19d50d9a386110e1b89f8f147652a2cd
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85610636"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132000"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Azure 防火墙 DNS 设置（预览版）
 
@@ -57,6 +57,7 @@ DNS 服务器维护域名并将它解析为 IP 地址。 默认情况下，Azure
 3. 在“DNS 服务器”下，选择“自定义” 。
 4. 输入防火墙的专用 IP 地址。
 5. 选择“保存” 。
+6. 重启已连接到虚拟网络的 VM，以便为其分配新的 DNS 服务器设置。 VM 在重启之前，将继续使用其当前 DNS 设置。
 
 #### <a name="enable-dns-proxy-preview"></a>启用 DNS 代理（预览）
 

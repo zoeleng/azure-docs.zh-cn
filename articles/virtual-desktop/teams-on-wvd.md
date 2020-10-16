@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88922559"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131762"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>在 Windows 虚拟桌面上使用 Microsoft 团队
 
@@ -92,7 +92,7 @@ Windows 虚拟桌面上的 Microsoft 团队支持聊天和协作。 借助媒体
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
-        这会将团队安装到64位操作系统上的程序文件 (x86) 文件夹，并安装32位操作系统上的 Program Files 文件夹。 此时，黄金映像设置已完成。 对于非持久设置，需要为每台计算机安装团队。
+        这会将团队安装到32位操作系统上的程序文件 (x86) 文件夹，并安装64位操作系统上的 Program Files 文件夹。 此时，黄金映像设置已完成。 对于非持久设置，需要为每台计算机安装团队。
 
         安装团队时可以设置两个标志， **ALLUSER = 1** ， **ALLUSERS = 1**。 了解这些参数之间的差异非常重要。 **ALLUSER = 1**参数仅在 VDI 环境中用于指定每台计算机的安装。 可以在非 VDI 和 VDI 环境中使用 **ALLUSERS = 1** 参数。 设置此参数时，团队 Machine-Wide 安装程序将显示在 "控制面板" 的 "程序和功能" 以及 Windows "设置" 中的 "应用 & 功能"。 计算机上具有管理员凭据的所有用户都可以卸载团队。
 

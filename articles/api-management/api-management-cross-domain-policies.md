@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 31d26769fa3ef49684f8a2eedf6a0691316e742b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071228"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131235"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies（API 管理跨域策略）
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-policies.md)。
@@ -45,9 +45,7 @@ ms.locfileid: "92071228"
 
 ```xml
 <cross-domain>
-    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain>
 </cross-domain>
 ```
 
@@ -124,7 +122,7 @@ CORS 允许浏览器与服务器交互，并确定是否允许特定的跨源请
 
 ### <a name="elements"></a>元素
 
-|名称|说明|必须|默认|
+|名称|描述|必须|默认|
 |----------|-----------------|--------------|-------------|
 |cors|根元素。|是|空值|
 |allowed-origins|包含的 `origin` 元素说明了跨域请求的允许来源。 `allowed-origins` 可能包含单个 `origin` 元素，该元素指定允许任何源的 `*`，或者包含一个或多个内含 URI 的 `origin` 元素。|是|空值|
@@ -137,7 +135,7 @@ CORS 允许浏览器与服务器交互，并确定是否允许特定的跨源请
 
 ### <a name="attributes"></a>属性
 
-|名称|说明|必须|默认|
+|名称|描述|必须|默认|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|`Access-Control-Allow-Credentials`预检响应中的标头将设置为此属性的值，并且会影响客户端在跨域请求中提交凭据的能力。|否|false|
 |preflight-result-max-age|`Access-Control-Max-Age`预检响应中的标头将设置为此属性的值，并且会影响用户代理缓存预处理响应的能力。|否|0|
@@ -169,13 +167,13 @@ CORS 允许浏览器与服务器交互，并确定是否允许特定的跨源请
 
 ### <a name="elements"></a>元素
 
-|名称|说明|必需|
+|名称|描述|必需|
 |----------|-----------------|--------------|
 |jsonp|根元素。|是|
 
 ### <a name="attributes"></a>属性
 
-|名称|说明|必须|默认|
+|名称|描述|必须|默认|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|以函数所在的完全限定域名为前缀的跨域 JavaScript 函数调用。|是|空值|
 

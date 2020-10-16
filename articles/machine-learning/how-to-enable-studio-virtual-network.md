@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776079"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131813"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -67,7 +67,7 @@ ms.locfileid: "91776079"
 * 启动标记项目。
 
 > [!NOTE]
-> [ML 辅助数据标签](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 不支持虚拟网络后保护的默认存储帐户。 对于 ML 辅助数据标签，必须使用非默认存储帐户。 可在虚拟网络后保护非默认存储帐户。 
+> [ML 辅助数据标签](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 不支持虚拟网络后保护的默认存储帐户。 对于 ML 辅助数据标记，必须使用非默认存储帐户。 可在虚拟网络后面保护非默认存储帐户。 
 
 工作室支持从虚拟网络中的以下数据存储类型读取数据：
 
@@ -106,7 +106,7 @@ Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存�
 
 你可以使用 RBAC 和 POSIX 样式的访问控制列表 (ACL) 来控制虚拟网络内的数据访问。
 
-若要使用 RBAC，请将工作区托管标识添加到 [Blob 数据读取者](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)角色。 有关详细信息，请参阅 [Azure 基于角色的访问控制](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control)。
+若要使用 RBAC，请将工作区托管标识添加到 [Blob 数据读取者](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)角色。 有关详细信息，请参阅 [Azure 基于角色的访问控制](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)。
 
 若要使用 ACL，可以向工作区托管标识分配访问权限，就像向任何其他安全主体分配访问权限一样。 有关详细信息，请参阅[文件和目录上的访问控制列表](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)。
 

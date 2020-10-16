@@ -3,12 +3,12 @@ title: 策略定义结构的详细信息
 description: 介绍如何使用策略定义为组织中的 Azure 资源建立约定。
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074254"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132476"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -438,7 +438,7 @@ strongType 的非资源类型允许值包括：
 
 使用修订后的策略规则，`if()` 会先检查名称的长度，然后尝试在少于三个字符的值上获取 `substring()`。 如果名称太短，则会改为返回“不是以 abc 开头”的值，并将其与 abc 进行比较。 短名称不是以 abc 开头的资源仍会导致策略规则失败，但在评估过程中不会再造成错误。
 
-### <a name="count"></a>Count
+### <a name="count"></a>计数
 
 计算资源有效负载中陈列有多少成员符合条件表达式的条件，可以使用 Count 表达式来构成。 常见的方案是检查“其中至少一个”、“只有一个”、“全部”或“没有”数组成员符合条件。 Count 会计算条件表达式每个 [\[\*\] 别名](#understanding-the--alias)数组成员，并加总 true 结果，然后将结果与表达式运算符进行比较。 “Count”表达式最多可添加到单个 policyRule 定义 3 次 。
 
@@ -589,8 +589,8 @@ Azure Policy 支持以下类型的效果：
 以下函数仅适用于策略规则：
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime**： [Required] 采用通用 ISO 8601 dateTime 格式的字符串字符串 `yyyy-MM-ddTHH:mm:ss.fffffffZ` 。
-  - **numberOfDaysToAdd**： [必需] 要添加的星期数。
+  - **dateTime**： [Required] 采用通用 ISO 8601 dateTime 格式的字符串字符串 "YYYY-MM-yyyy-mm-ddthh： MM： ss。FFFFFFFZ'
+  - numberOfDaysToAdd：[必需] 整数 - 要增加的天数
 - `field(fieldName)`
   - fieldName：[必需] 字符串 - 要检索的[字段](#fields)名称
   - 返回由 If 条件计算的资源中该字段的值。
