@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85131959"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151067"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Azure SignalR 服务的资源日志
 
@@ -20,8 +20,8 @@ ms.locfileid: "85131959"
 ## <a name="prerequisites"></a>先决条件
 若要启用资源日志，需要指定某个位置用于存储日志数据。 本教程使用 Azure 存储和 Log Analytics。
 
-* [Azure 存储](../azure-monitor/platform/resource-logs-collect-storage.md) - 保留策略审核、静态分析或备份的资源日志。
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) - 灵活的日志搜索和分析工具，可用于分析 Azure 资源生成的原始日志。
+* [Azure 存储](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) - 保留策略审核、静态分析或备份的资源日志。
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) - 灵活的日志搜索和分析工具，可用于分析 Azure 资源生成的原始日志。
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>设置 Azure SignalR 服务的资源日志
 

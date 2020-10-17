@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080192"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150163"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
-本文介绍了可供在 [Azure 应用服务](https://go.microsoft.com/fwlink/?LinkId=529714)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
+本文介绍了可供在 [Azure 应用服务](./overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
 
 > [!NOTE] 
 > 应用服务中的 [Linux 应用](overview.md#app-service-on-linux)在其自己的容器中运行。 不允许访问主机操作系统，你具有对容器的根访问权限。 同样，对于[在 Windows 容器中运行的应用](quickstart-custom-container.md?pivots=container-windows)，你具有对容器的管理访问权限，但无法访问主机操作系统。 
@@ -126,4 +126,3 @@ ms.locfileid: "88080192"
 ## <a name="more-information"></a>详细信息
 
 [Azure 应用服务沙盒](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - 有关应用服务的执行环境的最新信息。 此页由应用服务开发团队直接维护。
-

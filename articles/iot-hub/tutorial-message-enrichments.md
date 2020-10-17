@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 030a69c7eca70c081a1d9392bfa527f3386d7c2b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019719"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150596"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>教程：使用 Azure IoT 中心消息根据
 
@@ -77,7 +77,7 @@ ms.locfileid: "89019719"
 
 下面是脚本创建的资源。 "扩充"*是指资源*适用于带有根据的消息。 "*原始*" 表示资源适用于未得到丰富的消息。
 
-| 名称 | 值 |
+| 名称 | “值” |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 容器名称 | 原配  |
@@ -259,7 +259,7 @@ az iot hub route create \
 
 2. 将这些值添加到 ContosoStorageEndpointEnriched 终结点的列表。
 
-   | 密钥 | 值 | 终结点 (下拉列表)  |
+   | 密钥 | “值” | 终结点 (下拉列表)  |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | Msds-devicelocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -297,7 +297,7 @@ az iot hub route create \
 
    下面是通过加载模板创建的资源。 "扩充"**是指资源**适用于带有根据的消息。 "**原始**" 表示资源适用于未得到丰富的消息。 这些值与 Azure CLI 脚本中使用的值相同。
 
-   | 名称 | 值 |
+   | 名称 | “值” |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | 容器名称 | 原配  |
@@ -386,7 +386,7 @@ az iot hub route create \
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>使用 Azure CLI 清理资源
 
-若要删除资源组，请使用 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 命令。 请记住， `$resourceGroup` 本教程开始时设置为 **ContosoResourcesMsgEn** 。
+若要删除资源组，请使用 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 命令。 请记住， `$resourceGroup` 本教程开始时设置为 **ContosoResourcesMsgEn** 。
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

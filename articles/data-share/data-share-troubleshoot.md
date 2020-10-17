@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/02/2020
-ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761525"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151364"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>排查 Azure Data Share 中的常见问题 
 
@@ -61,12 +61,20 @@ ms.locfileid: "91761525"
 基于 SQL 的共享需要其他权限。 有关先决条件的详细列表，请参阅 [从 SQL 源共享](how-to-share-from-sql.md) 。
 
 ## <a name="snapshot-failed"></a>快照失败
-快照可能因多种原因而失败。 单击快照的开始时间，然后单击每个数据集的状态，即可找到详细的错误消息。 快照失败的原因如下：
+快照可能因多种原因而失败。 单击快照的开始时间，然后单击每个数据集的状态，即可找到详细的错误消息。 下面是快照失败的常见原因：
 
 * 数据共享没有读取源数据存储或写入目标数据存储的权限。 有关详细权限要求，请参阅 [角色和要求](concepts-roles-permissions.md) 。 如果这是你第一次拍摄快照，可能需要几分钟时间才能向数据共享资源授予对 Azure 数据存储的访问权限。 请等待几分钟，然后重试。
 * 与源或目标数据存储的数据共享连接已被防火墙阻止。
 * 共享数据集，或源或目标数据存储已删除。
-* 对于 SQL 共享，快照进程或目标数据存储不支持数据类型。 有关详细信息，请参阅 [从 SQL 源共享](how-to-share-from-sql.md#supported-data-types) 。
+
+对于 SQL 源，以下是快照失败的其他原因。 
+
+* 用于授予数据共享权限的源或目标 SQL 脚本未运行，或使用 SQL 身份验证（而不是 Azure Active Directory 身份验证）运行。  
+* 源或目标 SQL 数据存储已暂停。
+* 快照进程或目标数据存储不支持 SQL 数据类型。 有关详细信息，请参阅 [从 SQL 源共享](how-to-share-from-sql.md#supported-data-types) 。
+* 源或目标 SQL 数据存储区已被其他进程锁定。 Azure 数据共享不会将锁应用于源和目标 SQL 数据存储区。 但是，源和目标 SQL 数据存储上的现有锁将导致快照失败。
+* 目标 SQL 表被 foreign key 约束引用。 在快照过程中，如果存在具有相同名称的目标表，则 Azure 数据共享会删除表并创建新表。 如果目标 SQL 表被 foreign key 约束引用，则无法删除此表。
+* 生成目标 CSV 文件，但无法在 Excel 中读取数据。 如果源 SQL 表包含非英语字符的数据，则可能会发生这种情况。 在 Excel 中，选择 "获取数据" 选项卡并选择 CSV 文件，选择 "文件源" 作为65001： Unicode (UTF-8) 并加载数据。
 
 ## <a name="next-steps"></a>后续步骤
 

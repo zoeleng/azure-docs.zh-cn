@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0837184528582a84d93ab92cde4662b352666f53
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393887"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150351"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>认知服务的 Azure 安全基线
 
@@ -992,7 +992,7 @@ Microsoft 管理 Azure 认知服务的底层基础结构，并实施了严格控
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4：确保保护备份和客户管理的密钥
 
-**指南**：使用 azure DevOps 来安全地存储和管理 Azure 资源管理器模板。 若要保护在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。  使用基于角色的访问控制来保护客户管理的密钥。 在密钥保管库中启用软删除和清除保护，以防止意外删除或恶意删除密钥。 
+**指南**：使用 azure DevOps 来安全地存储和管理 Azure 资源管理器模板。 若要保护在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。  使用 Azure 基于角色的访问控制来保护客户管理的密钥。 在密钥保管库中启用软删除和清除保护，以防止意外删除或恶意删除密钥。 
 
 * [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 

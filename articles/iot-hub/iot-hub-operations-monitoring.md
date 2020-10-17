@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022014"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139328"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT 中心操作监视（已弃用）
 
@@ -191,7 +191,7 @@ IoT 中心监视 6 种类别的事件：
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>连接到监视终结点
 
-IoT 中心上的监视终结点是与事件中心兼容的终结点。 可使用任何适用于事件中心的机制从此终结点读取监视消息。 以下示例创建的基本读取器不适用于高吞吐量部署。 若要深入了解如何处理来自事件中心的消息，请参阅[事件中心入门](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)教程。
+IoT 中心上的监视终结点是与事件中心兼容的终结点。 可使用任何适用于事件中心的机制从此终结点读取监视消息。 以下示例创建的基本读取器不适用于高吞吐量部署。 若要深入了解如何处理来自事件中心的消息，请参阅[事件中心入门](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)教程。
 
 若要连接到监视终结点，需要一个连接字符串和终结点名称。 以下步骤介绍如何在门户中查找必需的值：
 
@@ -271,4 +271,4 @@ class Program
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
 
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)

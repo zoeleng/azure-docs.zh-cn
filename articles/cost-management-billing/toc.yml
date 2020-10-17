@@ -313,7 +313,7 @@
             - name: SAP HANA 大型实例
               href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
             - name: SQL 数据库
-              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+              href: ../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
             - name: Azure Synapse Analytics
               href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
             - name: 虚拟机
@@ -365,9 +365,9 @@
 - name: 参考
   items:
     - name: Azure 成本管理 REST API
-      href: 'https://docs.microsoft.com/rest/api/cost-management'
+      href: /rest/api/cost-management
     - name: Azure 使用情况 REST API
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: 资源管理器模板
       href: /azure/templates/microsoft.consumption/budgets
     - name: 成本管理 REST API 示例
@@ -377,19 +377,19 @@
     - name: Azure 计费 API 概述
       href: manage/usage-rate-card-overview.md
     - name: Azure 计费 REST API
-      href: 'https://docs.microsoft.com/rest/api/billing'
+      href: /rest/api/billing
     - name: Azure 使用情况 API 概述
       href: manage/consumption-api-overview.md
     - name: Azure 使用情况 REST API
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: RateCard REST API
-      href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
+      href: /previous-versions/azure/reference/mt219005(v=azure.100)
     - name: 使用情况 REST API
-      href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
+      href: /previous-versions/azure/reference/mt219003(v=azure.100)
     - name: Enterprise Reporting 概述
       href: manage/enterprise-api.md
     - name: Enterprise Reporting REST API
-      href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
+      href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
     - name: 预留
       items:
         - name: 预留 REST API
@@ -493,4 +493,4 @@
         - name: Cloudyn 常见问题解答
           href: cloudyn/cost-mgt-faq.md
         - name: 联系 Cloudyn 支持人员
-          href: 'https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request'
+          href: ./costs/open-support-request.md

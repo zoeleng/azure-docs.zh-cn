@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192541"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148984"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>清除 Azure CDN 终结点
 ## <a name="overview"></a>概述
@@ -69,11 +69,11 @@ ms.locfileid: "88192541"
     ![“清除”按钮](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> 清除请求需要花费大约10分钟的时间来处理 **来自 Microsoft 的 Azure CDN**，大约2分钟， **Azure CDN 从 Verizon** (标准和高级) ，大约10秒，使用 **Akamai 中的 Azure CDN**。  在任何给定时间，Azure CDN 在配置文件级别拥有最多 50 个并发清除请求的限制。 
+> 清除请求需要花费大约10分钟的时间来处理 **来自 Microsoft 的 Azure CDN**，大约2分钟， **Azure CDN 从 Verizon** (标准和高级) ，大约10秒，使用 **Akamai 中的 Azure CDN**。  在配置文件级别，在任何给定时间，Azure CDN 都有100个并发清除请求的限制。 
 > 
 > 
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 * [在 Azure CDN 终结点上预加载资产](cdn-preload-endpoint.md)
 * [Azure CDN REST API 参考 - 清除或预加载终结点](/rest/api/cdn/endpoints)
 

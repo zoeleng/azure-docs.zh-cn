@@ -7,16 +7,16 @@ author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bcb7a8e040a8e32a8513e5e0e73d6c124e04563a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66b74fd8fe326666d3c34b59acba383fd4205e17
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816278"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151338"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure IoT 中心的 Azure Policy 内置定义
 
-有关演示如何实现常见 IoT 方案的 IoT 中心示例代码，请参阅 [IoT 中心快速入门](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli)。 有用于多种编程语言（包括 C、Node.js 和 Python）的快速入门。
+有关演示如何实现常见 IoT 方案的 IoT 中心示例代码，请参阅 [IoT 中心快速入门](./quickstart-send-telemetry-cli.md)。 有用于多种编程语言（包括 C、Node.js 和 Python）的快速入门。
 
 此页是 Azure IoT 中心的 [Azure Policy](../governance/policy/overview.md) 内置策略定义的索引。 有关其他服务的其他 Azure Policy 内置定义，请参阅 [Azure Policy 内置定义](../governance/policy/samples/built-in-policies.md)。
 

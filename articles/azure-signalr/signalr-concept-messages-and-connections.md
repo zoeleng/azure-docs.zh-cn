@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 5483e10e817ce8a0a7e7c82d817b7bdbbdd9176b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71462bd30dbd4b377353c792a3c579e02949680
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87853443"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151092"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Azure SignalR 服务中的消息和连接
 
@@ -62,7 +62,7 @@ ASP.NET SignalR 在计算服务器连接数方面有所不同。 除了定义的
 
 ## <a name="related-resources"></a>相关资源
 
-- [Azure Monitor 中的聚合类型](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
+- [Azure Monitor 中的聚合类型](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr )
 - [ASP.NET Core SignalR 配置](/aspnet/core/signalr/configuration)
 - [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

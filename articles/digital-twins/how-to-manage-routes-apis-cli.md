@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 请参阅如何设置和管理 Azure 数字孪生数据的终结点和事件路由。
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/23/2020
+ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 14edc97115735f8b6763171a07b5f739fc745e9f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047363"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151249"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>在 Azure 数字孪生中管理终结点和路由 (Api 和 CLI) 
 
@@ -84,6 +84,70 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 * 添加事件中心终结点 (需要预先创建的事件中心资源) 
 ```azurecli
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+```
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>创建具有死信的端点
+
+当终结点无法在某个时间段内传递事件时，或者尝试将事件传递到一定次数后，它可以将未送达的事件发送到存储帐户。 此过程称为“死信处理”。
+
+若要创建启用了死信的终结点，必须使用 [ARM api](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 来创建终结点。 
+
+在设置死信位置之前，必须有一个包含容器的存储帐户。 创建终结点时，提供此容器的 URL。 死信作为带有 SAS 令牌的容器 URL 提供。 该令牌只需要 `write` 对存储帐户中目标容器的权限。 完整的格式 URL 将采用以下格式： `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+若要了解有关 SAS 令牌的详细信息，请参阅： [使用共享访问签名授予对 Azure 存储资源的有限访问权限 (SAS) ](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+若要了解有关死信的详细信息，请参阅 [概念：事件路由](./concepts-route-events.md#dead-letter-events)
+
+#### <a name="configuring-the-endpoint"></a>配置终结点
+
+创建终结点时，请将添加 `deadLetterSecret` 到 `properties` 请求正文中的对象，该对象包含用于存储帐户的容器 URL 和 SAS 令牌。
+
+```json
+{
+  "properties": {
+    "endpointType": "EventGrid",
+    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+    "accessKey1": "xxxxxxxxxxx",
+    "accessKey2": "xxxxxxxxxxx",
+    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+  }
+}
+```
+
+有关详细信息，请参阅 Azure 数字孪生 REST API 文档： [终结点-DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)。
+
+### <a name="message-storage-schema"></a>消息存储架构
+
+死信消息将按以下格式存储在您的存储帐户中：
+
+`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+
+死信消息将匹配要传递到原始终结点的原始事件的架构。
+
+下面是一个用于克隆 [创建通知](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)的死信消息示例：
+
+```json
+{
+  "specversion": "1.0",
+  "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "data": {
+    "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+    "TwinData": "some sample",
+    "$metadata": {
+      "$model": "dtmi:test:deadlettermodel;1",
+      "room": {
+        "lastUpdateTime": "2020-10-14T01:11:49.3576659Z"
+      }
+    }
+  },
+  "subject": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "time": "2020-10-14T01:11:49.3667224Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
+}
 ```
 
 ## <a name="event-routes-with-apis-and-the-c-sdk"></a>与 Api 和 c # SDK (的事件路由) 

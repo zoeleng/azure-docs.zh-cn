@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c522ac9e1aedbcdfdb4564d17b506b1b490da0c3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282368"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150397"
 ---
 # <a name="manage-digital-twins"></a>管理数字孪生
 
@@ -54,21 +54,7 @@ await client.CreateDigitalTwinAsync("myNewTwinID", initData);
 
 如果不使用任何自定义帮助器类，则可以在中表示克隆的属性 `Dictionary<string, object>` ，其中 `string` 是属性的名称， `object` 是表示属性及其值的对象。
 
-```csharp
-// Define the model type for the twin to be created
-Dictionary<string, object> meta = new Dictionary<string, object>()
-{
-    { "$model", "dtmi:com:contoso:Room;1" }
-};
-// Initialize the twin properties
-Dictionary<string, object> twin = new Dictionary<string, object>()
-{
-    { "$metadata", meta },
-    { "Temperature", temperature},
-    { "Humidity", humidity},
-};
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
 #### <a name="create-twins-with-the-helper-class"></a>用 helper 类创建孪生
 
@@ -166,7 +152,7 @@ object result = await client.GetDigitalTwin(id);
 数字克隆的已定义属性在数字克隆上作为顶级属性返回。 不属于 DTDL 定义的元数据或系统信息将以 `$` 前缀返回。 元数据属性包括：
 * 此 Azure 数字孪生实例中数字输出的 ID，如 `$dtId` 。
 * `$etag`，由 web 服务器分配的标准 HTTP 字段
-* 节中的其他属性 `$metadata` 。 其中包括:
+* 节中的其他属性 `$metadata` 。 这些方法包括：
     - 数字克隆的模型的 DTMI。
     - 每个可写属性的同步状态。 这对于设备最为有用，在这种情况下，在设备处于) 脱机状态时，服务和设备可能会 (分叉状态。 目前，此属性仅适用于连接到 IoT 中心的物理设备。 使用元数据部分中的数据，可以了解属性的完整状态以及上次修改的时间戳。 有关同步状态的详细信息，请参阅有关同步设备状态的 [此 IoT 中心教程](../iot-hub/tutorial-device-twins.md) 。
     - 服务特定的元数据，如 IoT 中心或 Azure 数字孪生。 

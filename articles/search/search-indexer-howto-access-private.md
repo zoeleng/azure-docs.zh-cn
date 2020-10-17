@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102721"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150420"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>通过 (Azure 认知搜索的专用终结点建立索引器连接) 
 
@@ -33,7 +33,7 @@ ms.locfileid: "92102721"
 
 与某些资源的专用终结点连接只能通过搜索管理 API 的预览版本创建 (`2020-08-01-Preview` 或更高版本) ，如下表中的 "预览" 标记所示。 不带 "预览" 标记的资源可以使用预览版或 (或更高版本的 API 版本来创建 `2020-08-01`) 。
 
-以下是可以从 Azure 认知搜索中创建出站专用终结点的 Azure 资源的列表。 `groupId` 下表中列出的需要完全使用 API 中 (区分大小写的) 来创建共享的专用链接资源。
+以下是可以从 Azure 认知搜索中创建出站专用终结点的 Azure 资源的列表。 `groupId`下表中列出的值需要完全按照编写 (区分大小写的) 在 API 中创建共享的专用链接资源。
 
 | Azure 资源 | 组 ID |
 | --- | --- |
@@ -47,7 +47,7 @@ ms.locfileid: "92102721"
 
 还可以使用 [列表支持的 API](/rest/api/searchmanagement/privatelinkresources/listsupported)查询支持出站专用终结点连接的 Azure 资源的列表。
 
-本文将使用 [ARMClient](https://github.com/projectkudu/ARMClient) 和 [Postman](https://www.postman.com/) 的混合来演示 REST API 调用。
+本文的其余部分将使用 [ARMClient](https://github.com/projectkudu/ARMClient) 和 [Postman](https://www.postman.com/) 的混合来演示 REST API 调用。
 
 > [!NOTE]
 > 在本文中，假设搜索服务的名称是__contoso-搜索__，后者位于订阅 ID 为__00000000-0000-0000-0000-000000000000__的订阅的资源组__contoso__中。 此搜索服务的资源 ID 将为 `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`

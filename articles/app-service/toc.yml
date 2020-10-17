@@ -28,6 +28,7 @@
     - name: 静态 HTML 站点
       href: quickstart-html.md
     - name: ARM 模板
+      displayName: Resource Manager
       href: quickstart-arm-template.md
     - name: 自定义容器
       href: quickstart-custom-container.md
@@ -315,7 +316,7 @@
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: 部署脚本
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 排查间歇性出站连接错误
           href: troubleshoot-intermittent-outbound-connection-errors.md

@@ -1,5 +1,5 @@
 - name: Azure Data Box 文档 - 脱机传输
-  href: /azure/databox
+  href: ./index.yml
   items:
     - name: Data Box
       items:
@@ -103,7 +103,7 @@
             - name: 迁移
               items:
                 - name: 到 Sharepoint Online
-                  href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
+                  href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%252fazure%252fdatabox%252fcontext%252fcontext
                 - name: 到 Azure 文件同步
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: 从 HDFS 存储

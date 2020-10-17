@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d7b94da2f922e7dba8c165dcf9d1e906855f6dfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294217"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151236"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR 服务身份验证
 
@@ -48,7 +48,7 @@ ms.locfileid: "91294217"
 * 在 [GitHub](https://github.com/) 上创建的帐户
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [已配置的 Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [已配置的 Azure Cloud Shell](../cloud-shell/quickstart.md)
 * 下载或克隆 [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub 存储库。
 
 ## <a name="create-an-oauth-app"></a>创建 OAuth 应用
@@ -388,7 +388,7 @@ ms.locfileid: "91294217"
 
 ## <a name="deploy-the-app-to-azure"></a>将应用部署到 Azure
 
-在本部分中，将使用 Azure Cloud Shell 的 Azure 命令行接口 (CLI) 在 [Azure 应用服务](https://docs.microsoft.com/azure/app-service/)中创建新的 Web 应用，以便在 Azure 中托管 ASP.NET 应用程序。 Web 应用将配置为使用本地 Git 部署。 还将使用 SignalR 连接字符串、GitHub OAuth 应用密码和部署用户配置 Web 应用。
+在本部分中，将使用 Azure Cloud Shell 的 Azure 命令行接口 (CLI) 在 [Azure 应用服务](../app-service/index.yml)中创建新的 Web 应用，以便在 Azure 中托管 ASP.NET 应用程序。 Web 应用将配置为使用本地 Git 部署。 还将使用 SignalR 连接字符串、GitHub OAuth 应用密码和部署用户配置 Web 应用。
 
 本部分中的步骤使用 Azure CLI 的 signalr 扩展。 执行以下命令，安装 Azure CLI 的 signalr 扩展：
 

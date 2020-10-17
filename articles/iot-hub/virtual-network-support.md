@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613894"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149084"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT 中心支持具有专用链接和托管标识的虚拟网络
 
@@ -224,7 +224,7 @@ IoT 中心可将消息路由到客户拥有的存储帐户。 为了允许路由
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>指向用于上传文件的存储帐户的出口连接
 
-IoT 中心的文件上传功能允许设备将文件上传到客户拥有的存储帐户。 若要正常上传文件，设备和 IoT 中心都需要连接到存储帐户。 如果存储帐户上存在防火墙限制，你的设备需要使用任何支持的存储帐户机制（包括[专用终结点](../private-link/create-private-endpoint-storage-portal.md)、[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)或[直接防火墙配置](../storage/common/storage-network-security.md)）来实现连接。 同样，如果存储帐户上存在防火墙限制，需要将 IoT 中心配置为通过受信任的 Microsoft 服务异常功能来访问存储资源。 出于此目的，IoT 中心必须具有一个托管标识。 预配托管标识后，请按照以下步骤为你的中心的资源标识提供 RBAC 权限，用于访问你的存储帐户。
+IoT 中心的文件上传功能允许设备将文件上传到客户拥有的存储帐户。 若要正常上传文件，设备和 IoT 中心都需要连接到存储帐户。 如果存储帐户上存在防火墙限制，你的设备需要使用任何支持的存储帐户机制（包括[专用终结点](../private-link/tutorial-private-endpoint-storage-portal.md)、[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)或[直接防火墙配置](../storage/common/storage-network-security.md)）来实现连接。 同样，如果存储帐户上存在防火墙限制，需要将 IoT 中心配置为通过受信任的 Microsoft 服务异常功能来访问存储资源。 出于此目的，IoT 中心必须具有一个托管标识。 预配托管标识后，请按照以下步骤为你的中心的资源标识提供 RBAC 权限，用于访问你的存储帐户。
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -252,7 +252,7 @@ IoT 中心支持从/向客户提供的存储 blob 批量[导入/导出](./iot-hu
 
 3. 导航到存储帐户中的“防火墙和虚拟网络”选项卡，并启用“允许从所选网络进行访问”选项 。 在“异常”列表中，勾选“允许受信任的 Microsoft 服务访问此存储帐户”复选框 。 单击“保存”按钮  。
 
-现在可以使用用于[创建导入导出作业](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs)的 Azure IoT REST API 了解有关如何使用批量导入/导出功能的信息。 需要在请求正文中提供 `storageAuthenticationType="identityBased"`，并分别使用 `inputBlobContainerUri="https://..."` 和 `outputBlobContainerUri="https://..."` 作为存储帐户的输入和输出 URL。
+现在可以使用用于[创建导入导出作业](/rest/api/iothub/service/jobs/getimportexportjobs)的 Azure IoT REST API 了解有关如何使用批量导入/导出功能的信息。 需要在请求正文中提供 `storageAuthenticationType="identityBased"`，并分别使用 `inputBlobContainerUri="https://..."` 和 `outputBlobContainerUri="https://..."` 作为存储帐户的输入和输出 URL。
 
 Azure IoT 中心 SDK 也支持在服务客户端的注册表管理器中使用此功能。 以下代码段演示如何在使用 C# SDK 时启动导入或导出作业。
 
@@ -295,4 +295,4 @@ await registryManager.ExportDevicesAsync(
 
 * [消息路由](./iot-hub-devguide-messages-d2c.md)
 * [文件上传](./iot-hub-devguide-file-upload.md)
-* [批量设备导入/导出](./iot-hub-bulk-identity-mgmt.md) 
+* [批量设备导入/导出](./iot-hub-bulk-identity-mgmt.md)

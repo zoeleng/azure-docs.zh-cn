@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767313"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150785"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -53,9 +53,9 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
 | 语言 | MQTT 协议参数 | 基于 Web 套接字的 MQTT 协议参数
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | 如果 MQTT 失败，TransportType.Mqtt 将退回到基于 Web 套接字的 MQTT。 若仅指定基于 Web 套接字的 MQTT，请使用 TransportType.Mqtt_WebSocket_Only |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | 如果 MQTT 失败，TransportType.Mqtt 将退回到基于 Web 套接字的 MQTT。 若仅指定基于 Web 套接字的 MQTT，请使用 TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | 默认支持 MQTT | 在调用中添加 `websockets=True` 来创建客户端 |
 
 以下片段展示如何在使用 Azure IoT Node.js SDK 时指定基于 Web 套接字的 MQTT 协议：
@@ -119,7 +119,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * DeviceTwinMQTTWin32：包含用于在 Windows 计算机上查询和订阅 Azure IoT 中心内设备的设备孪生事件的代码。
 
-* PnPMQTTWin32：包含将包含 IoT 即插即用设备功能的遥测消息发送到 Azure IoT 中心、在 Windows 计算机上构建和运行的代码。 有关 IoT 的详细信息，请参阅 [即插即用](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32：包含将包含 IoT 即插即用设备功能的遥测消息发送到 Azure IoT 中心、在 Windows 计算机上构建和运行的代码。 有关 IoT 的详细信息，请参阅 [即插即用](../iot-pnp/overview-iot-plug-and-play.md)
 
 **对于 Linux：**
 
@@ -443,7 +443,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 若要深入了解如何规划 IoT 中心部署，请参阅：
 
-* [Azure IoT 已认证设备目录](https://catalog.azureiotsolutions.com/)
+* [Azure IoT 认证设备目录](https://catalog.azureiotsolutions.com/)
 * [支持其他协议](iot-hub-protocol-gateway.md)
 * [与事件中心比较](iot-hub-compare-event-hubs.md)
 * [缩放、高可用性和灾难恢复](iot-hub-scaling.md)
@@ -451,4 +451,4 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)

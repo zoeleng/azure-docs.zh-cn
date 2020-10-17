@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebae7359c7bd593cb2b63bbd69919330c6aa24f9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86998997"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150755"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 AMD GPU 驱动程序
 
@@ -31,7 +31,7 @@ NVv4 VM 仅支持 Microsoft 发布的 GPU 驱动程序。 请勿从任何其他�
 
 | OS | 驱动程序 |
 | -------- |------------- |
-| Windows 10 企业多会话-内部版本1903 <br/><br/>Windows 10 - 版本 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
+| Windows 10 企业多会话-内部版本1903 <br/><br/>Windows 10 - 版本 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. Q1。修补程序](https://download.microsoft.com/download/d/e/f/def0fb44-15ab-4b83-959a-8094eb9d0dfe/AMD-Azure-NVv4-Driver-20Q1-Hotfix3.exe) ( .exe)  |
 
 
 ## <a name="driver-installation"></a>驱动程序安装
@@ -48,11 +48,11 @@ NVv4 VM 仅支持 Microsoft 发布的 GPU 驱动程序。 请勿从任何其他�
 
 可以在设备管理器中验证驱动程序安装。 以下示例展示了如何在 Azure NVv4 VM 上成功配置 Radeon Instinct MI25 卡。
 <br />
-![GPU 驱动程序属性](./media/n-series-amd-driver-setup/device-manager.png)
+![GPU 设备状态](./media/n-series-amd-driver-setup/device-manager.png)
 
 可以使用 dxdiag 验证 GPU 显示属性（包括视频 RAM）。 以下示例显示了 Azure NVv4 VM 上 Radeon Instinct MI25 卡的 1/2 分区。
 <br />
-![GPU 驱动程序属性](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![GPU 属性](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 如果运行的是 Windows 10 内部版本 1903 或更高版本，则 dxdiag 不会在“显示”选项卡中显示任何信息。请使用底部的“保存所有信息”选项，输出文件会显示与 AMD MI25 GPU 相关的信息。
 

@@ -4,16 +4,16 @@ description: 了解如何在 IoT 中心对下游设备（叶设备）进行身�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046717"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151390"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>通过 Azure IoT 中心对下游设备进行身份验证
 
@@ -21,13 +21,13 @@ ms.locfileid: "92046717"
 
 成功设置透明网关连接需要完成三个常规步骤。 本文将介绍其中的第二个步骤：
 
-1. 将网关设备配置为服务器，以便下游设备能够安全地连接到该设备。 设置网关以接收来自下游设备的消息，并将其路由到适当的目标。 有关详细信息，请参阅[将 IoT Edge 设备配置为充当透明网关](how-to-create-transparent-gateway.md)。
+1. 将网关设备配置为服务器，以便下游设备能够安全地连接到该设备。 设置网关以接收来自下游设备的消息，并将其路由到适当的目标。 有关这些步骤，请参阅 [将 IoT Edge 设备配置为充当透明网关](how-to-create-transparent-gateway.md)。
 2. **为下游设备创建设备标识，以便它可以通过 IoT 中心进行身份验证。配置下游设备，使其通过网关设备发送消息。**
-3. 将下游设备连接到网关设备并开始发送消息。 有关详细信息，请参阅[将下游设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)。
+3. 将下游设备连接到网关设备并开始发送消息。 有关这些步骤，请参阅 [将下游设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)。
 
 下游设备可以使用以下三种方法之一在 IoT 中心进行身份验证：对称密钥（有时称为共享访问密钥）、X.509 自签名证书，或 X.509 证书颁发机构 (CA) 签名的证书。 身份验证步骤用于在 IoT 中心设置任何非 IoT Edge 设备的步骤类似，只是在声明网关关系方面有细微的差别。
 
-本文中的步骤说明了手动设备预配。 不支持自动预配装有 Azure IoT 中心设备预配服务 (DPS) 的下游设备。
+不支持自动预配装有 Azure IoT 中心设备预配服务 (DPS) 的下游设备。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -42,10 +42,16 @@ ms.locfileid: "92046717"
 选择你希望下游设备如何向 IoT 中心进行身份验证：
 
 * [对称密钥身份验证](#symmetric-key-authentication)：IoT 中心会创建一个你放置在下游设备上的密钥。 当设备进行身份验证时，IoT 中心会检查两个密钥是否匹配。 不需创建其他证书便可使用对称密钥身份验证。
+
+  如果你在开发或测试方案中测试网关，则此方法会更快速地开始使用。
+
 * [X.509 自签名身份验证](#x509-self-signed-authentication)：有时称为指纹身份验证，因为你与 IoT 中心共享来自设备的 X.509 证书的指纹。
+
+  建议在生产方案中对设备进行证书身份验证。
+
 * [X.509 CA 签名的身份验证](#x509-ca-signed-authentication)：将根 CA 证书上传到 IoT 中心。 当设备提供其 x.509 证书进行身份验证时，IoT 中心会检查它是否属于由同一根 CA 证书签名的信任链。
 
-使用这三种方法之一注册设备后，请转到下一部分来[检索和修改连接字符串](#retrieve-and-modify-connection-string)（用于下游设备）。
+  建议在生产方案中对设备进行证书身份验证。
 
 ### <a name="symmetric-key-authentication"></a>对称密钥身份验证
 
@@ -59,17 +65,15 @@ ms.locfileid: "92046717"
 
 * 选择“对称密钥”作为身份验证类型。
 
-* 选择 " **设置父设备** "，然后选择此下游设备将连接的 IoT Edge 网关设备。 此步骤启用下游设备的 [脱机功能](offline-capabilities.md) 。 以后随时可以更改父项。
+* 选择 " **设置父设备** "，然后选择此下游设备将连接的 IoT Edge 网关设备。 以后随时可以更改父项。
 
    ![在门户中使用对称密钥身份验证创建设备 ID](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
-还可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的操作。 以下示例使用对称密钥身份验证创建新的 IoT 设备，并分配父设备：
+还可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的操作。 以下示例使用 [az iot 中心设备标识](/cli/azure/ext/azure-iot/iot/hub/device-identity) 命令创建具有对称密钥身份验证的新 iot 设备，并分配父设备：
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
-
-有关用于创建设备和管理父/子设备的 Azure CLI 命令的详细信息，请参阅 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 命令的参考内容。
 
 接下来，[检索并修改连接字符串](#retrieve-and-modify-connection-string)，从而使设备知道通过其网关进行连接。
 
@@ -104,7 +108,7 @@ az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {exis
    * 提供与设备证书的使用者名称匹配的设备 ID。
    * 选择“X.509 自签名”作为身份验证类型。
    * 粘贴从设备的主要和辅助证书中复制的十六进制字符串。
-   * 选择“设置父设备”，并选择下游设备用来建立连接的 IoT Edge 网关设备。 对下游设备进行 X.509 身份验证时，需要使用父设备。
+   * 选择“设置父设备”，并选择下游设备用来建立连接的 IoT Edge 网关设备。 以后随时可以更改父项。
 
    ![在门户中使用 X.509 自签名身份验证创建设备 ID](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
@@ -120,13 +124,11 @@ az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {exis
    * Java:[SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python：[send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-还可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的设备创建操作。 以下示例使用 X.509 自签名身份验证创建新的 IoT 设备，并分配父设备：
+还可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的设备创建操作。 以下示例使用 [az iot 中心设备标识](/cli/azure/ext/azure-iot/iot/hub/device-identity) 命令创建具有 x.509 自签名身份验证的新 iot 设备，并分配父设备：
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
-
-有关用于创建设备、生成证书和管理父/子设备的 Azure CLI 命令的详细信息，请参阅 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 命令的参考内容。
 
 接下来，[检索并修改连接字符串](#retrieve-and-modify-connection-string)，从而使设备知道通过其网关进行连接。
 
@@ -150,7 +152,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
    1. 添加新设备。 为**设备 ID** 提供小写名称，并选择身份验证类型“X.509 CA 签名”。
 
-   2. 设置父设备。 对于下游设备，请选择“设置父设备”，并选择用来与 IoT 中心建立连接的 IoT Edge 网关设备。
+   2. 设置父设备。 选择 " **设置父设备** "，然后选择将提供与 IoT 中心的连接的 IoT Edge 网关设备。
 
 4. 创建下游设备的证书链。 使用上传到 IoT 中心的同一根 CA 证书来建立此链。 使用在门户中提供给设备标识的相同小写设备 ID。
 
@@ -166,13 +168,11 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
    * Java:[SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python：[send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-还可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的设备创建操作。 以下示例使用 X.509 CA 签名身份验证创建新的 IoT 设备，并分配父设备：
+还可以使用[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)来完成相同的设备创建操作。 以下示例使用 [az iot 中心设备标识](/cli/azure/ext/azure-iot/iot/hub/device-identity) 命令创建具有 x.509 CA 签名身份验证的新 iot 设备，并分配父设备：
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
-
-有关详细信息，请参阅 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 命令的 Azure CLI 参考内容。
 
 接下来，[检索并修改连接字符串](#retrieve-and-modify-connection-string)，从而使设备知道通过其网关进行连接。
 
@@ -213,4 +213,4 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 
 此时，你已向 IoT 中心注册了一个 IoT Edge 设备并已将其配置为透明网关。 你还向 IoT 中心注册了一个下游设备，并将其指向其网关设备。
 
-本文中的步骤将下游设备设置为向 IoT 中心进行身份验证。 接下来，你需要将下游设备配置为信任网关设备并安全地连接到该设备。 继续阅读透明网关系列的下一篇文章：[将下游设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)。
+接下来，你需要将下游设备配置为信任网关设备并安全地连接到该设备。 继续阅读透明网关系列的下一篇文章：[将下游设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)。

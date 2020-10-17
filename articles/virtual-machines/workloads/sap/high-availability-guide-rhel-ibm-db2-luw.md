@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d613da4d9abdfe22fc20f1b74da41e4a65cbff33
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077398"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151569"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server 上 Azure VM 中 IBM Db2 LUW 的高可用性
 
@@ -33,7 +33,7 @@ IBM Db2 for Linux、UNIX 和 Windows (LUW) 在 [高可用性和灾难恢复 (HAD
 
 在开始安装之前，请参阅以下 SAP 说明和文档：
 
-| SAP 说明 | 说明 |
+| SAP 说明 | 描述 |
 | --- | --- |
 | [1928533] | Azure 上的 SAP 应用程序：支持的产品和 Azure VM 类型 |
 | [2015553] | Azure 上的 SAP：支持先决条件 |
@@ -403,6 +403,8 @@ Daemon 状态： corosync： active/disabled pacemaker： active/disabled pcsd�
 > [!NOTE]
 > 标准负载均衡器 SKU 具有从负载均衡器下的节点访问公共 IP 地址的限制。 [使用 Azure 标准负载均衡器在 SAP 高可用性方案中的虚拟机的公共终结点连接](./high-availability-guide-standard-load-balancer-outbound-connections.md)文章介绍了如何启用这些节点来访问公共 IP 地址
 
+> [!IMPORTANT]
+> 负载平衡方案中的 NIC 辅助 IP 配置不支持浮动 IP。 有关详细信息，请参阅 [Azure 负载均衡器限制](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)。 如果需要 VM 的其他 IP 地址，请部署第二个 NIC。  
 
 
 1. 创建前端 IP 池：
@@ -495,7 +497,7 @@ j2ee/dbhost = db-virt-hostname
     
     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
     
-1. 选择“添加”  。
+1. 选择 **添加** 。
 1. 若要保存所做的更改，请在左上角选择磁盘图标。
 1. 关闭配置工具。
 1. 重新启动 Java 实例。
@@ -507,7 +509,7 @@ j2ee/dbhost = db-virt-hostname
 
 建议配置公共 NFS 共享或 GlusterFS，其中日志是从这两个节点写入的。 NFS 共享或 GlusterFS 必须高度可用。 
 
-可以使用现有的高可用 NFS 共享或 GlusterFS 传输或配置文件目录。 有关详细信息，请参阅：
+可以使用现有的高可用 NFS 共享或 GlusterFS 传输或配置文件目录。 有关详情，请参阅：
 
 - [适用于 SAP NetWeaver 的 Red Hat Enterprise Linux 上的 Azure VM 上的 GlusterFS][glusterfs] 
 - [Azure Vm 上的 SAP NetWeaver 高可用性，适用于 SAP 应用程序的 Azure NetApp 文件 Red Hat Enterprise Linux][anf-rhel]

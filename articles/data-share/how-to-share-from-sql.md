@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761917"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150378"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>从 Azure SQL 数据库和 Azure Synapse Analytics 共享和接收数据
 
@@ -54,7 +54,7 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
     1. 在 Azure 门户中的 SQL Server 中，导航到“防火墙和虚拟网络” 
     1. 单击 **"是"** *允许 Azure 服务和资源访问此服务器*。
     1. 单击 " **+ 添加客户端 IP**"。 客户端 IP 地址可能会更改。 下次从 Azure 门户共享 SQL 数据时，可能需要重复此过程。 还可以添加 IP 范围。
-    1. 单击 **“保存”** 。 
+    1. 单击“ **保存**”。 
 
 ### <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -169,7 +169,7 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
     1. 在 Azure 门户中的 SQL Server 中，导航到“防火墙和虚拟网络” 
     1. 单击 **"是"** *允许 Azure 服务和资源访问此服务器*。
     1. 单击 " **+ 添加客户端 IP**"。 客户端 IP 地址可能会更改。 下次从 Azure 门户共享 SQL 数据时，可能需要重复此过程。 还可以添加 IP 范围。
-    1. 单击 **“保存”** 。 
+    1. 单击“ **保存**”。 
 
 ### <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -277,7 +277,23 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
 > 1. 对于映射到小数过渡类型的数据类型，当前快照最多支持精度为28。 如果数据需要的精度大于28，请考虑将转换为字符串。 
 > 1.  如果要将数据从 Azure SQL 数据库共享到 Azure Synapse Analytics，并非所有数据类型都受支持。 有关详细信息，请参阅 [SYNAPSE SQL 池中的表数据类型](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) 。 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted 或动态数据掩码
+Azure 数据共享目前不支持配置了 Always Encrypted 的 Azure SQL 数据库。 
+
+对于包含动态数据掩码的源 SQL 表，数据将在收件人端显示为掩码。
+
+## <a name="sql-snapshot-performance"></a>SQL 快照性能
+SQL 快照性能受多种因素的影响。 我们始终建议你执行自己的性能测试。 下面是影响性能的一些示例因素。
+
+* 硬件配置 (例如，源和目标 SQL 数据存储的 Vcore、内存、DWU) 。 
+* 对源和目标数据存储区的并行访问。 如果要从同一 SQL 数据存储区共享多个表和视图，或者将多个表和视图接收到同一个 SQL 数据存储中，则性能会受到影响。   
+* 源和目标数据存储区的位置。 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>排查 SQL 快照故障
+快照失败的最常见原因是数据共享没有源或目标数据存储的权限。 若要向数据共享授予源或目标 SQL 数据存储区的权限，必须在使用 Azure Active Directory authentication 连接到 SQL 数据库时运行提供的 SQL 脚本。 若要解决其他 SQL 快照故障，请参阅 [快照故障排除](data-share-troubleshoot.md#snapshot-failed)。
 
 ## <a name="next-steps"></a>后续步骤
-已了解如何使用 Azure 数据共享服务从存储帐户共享和接收数据。 若要了解有关其他数据源的共享的详细信息，请继续阅读 [支持的数据存储](supported-data-stores.md)。
+已了解如何使用 Azure 数据共享服务共享和接收来自 SQL 源的数据。 若要了解有关其他数据源的共享的详细信息，请继续阅读 [支持的数据存储](supported-data-stores.md)。
+
+
 

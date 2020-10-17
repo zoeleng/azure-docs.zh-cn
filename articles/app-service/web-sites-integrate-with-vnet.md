@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018621"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150149"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络集成
 
-本文介绍 Azure 应用服务 VNet 集成功能，并介绍如何为 [Azure 应用服务](https://go.microsoft.com/fwlink/?LinkId=529714)中的应用设置此功能。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。 使用 VNet 集成功能，你的应用可通过 VNet 访问中的资源。 VNet 集成不允许私下访问应用。
+本文介绍 Azure 应用服务 VNet 集成功能，并介绍如何为 [Azure 应用服务](./overview.md)中的应用设置此功能。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。 使用 VNet 集成功能，你的应用可通过 VNet 访问中的资源。 VNet 集成不允许私下访问应用。
 
 Azure App Service 在 VNet 集成功能上有两种变化形式：
 

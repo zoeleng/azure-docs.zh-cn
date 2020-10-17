@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2019
+ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79ef279423c524f0d409815e7ae163aa699f5428
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c2b606059f92cafc44e383c2aced0d6bed467c2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082199"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149662"
 ---
 # <a name="backup-and-restore-on-sap-hana-on-azure"></a>在 Azure 上 SAP HANA 上的备份和还原
 
@@ -399,6 +399,561 @@ SAP HANA 对 /hana/log 卷执行常规写入，将提交的更改记录到数据
 
 ### <a name="recover-to-another-point-in-time"></a>恢复到另一个时间点
 若要还原到特定的时间点，请参阅在 [Azure 中从存储快照 SAP HANA 的手动恢复指南](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)中的 "将数据库恢复到以下时间点"。 
+
+
+
+
+
+## <a name="snapcenter-integration-in-sap-hana-large-instances"></a>SAP HANA 大型实例中的 SnapCenter 集成
+
+本部分介绍了客户如何使用 NetApp SnapCenter 软件对 Microsoft Azure HANA 大型 (实例上托管的 SAP HANA 数据库执行快照、备份和还原) 。 
+
+SnapCenter 提供适用于方案的解决方案，包括备份/恢复、灾难恢复 (DR) 与异步存储复制、系统复制和系统克隆。 与 Azure 上的 SAP HANA 大型实例集成，客户现在可以使用 SnapCenter 进行备份和恢复操作。
+
+有关其他参考，请参阅 SnapCenter 上的 NetApp TR-4614 和 TR-4646。
+
+- [SAP HANA 的备份/恢复 (TR-4614) ](https://www.netapp.com/us/media/tr-4614.pdf)
+- [SAP HANA 通过存储复制进行灾难恢复 (TR-4646) ](https://www.netapp.com/us/media/tr-4646.pdf)
+- [SAP HANA SnapCenter (TR-4719) ](https://www.netapp.com/us/media/tr-4719.pdf)
+- [SnapCenter 中的 SAP 克隆 (TR-4667) ](https://www.netapp.com/us/media/tr-4667.pdf)
+
+### <a name="system-requirements-and-prerequisites"></a>系统要求和先决条件
+
+若要在 Azure SnapCenter 上运行，系统要求包括：
+* Azure Windows 2016 或更高版本上的 SnapCenter Server，其中包含 4-vCPU，16 GB RAM 和至少 650 GB 托管高级 SSD 存储。
+* SAP HANA 大型实例系统 1.5 TB – 24 TB RAM。 建议使用两个 SAP HANA 大型实例系统来克隆操作和测试。
+
+将 SnapCenter 集成到 SAP HANA 的步骤如下： 
+
+1. 发出支持票证请求，以便将用户生成的公钥传达给 Microsoft Ops 团队。 这是设置 SnapCenter 用户以访问存储系统所必需的。
+1. 在 VNET 中创建有权访问 B-HLI 的 VM;此 VM 用于 SnapCenter。 
+1. 下载并安装 SnapCenter。 
+1. 备份和恢复操作。 
+
+### <a name="create-a-support-ticket-for-user-role-storage-setup"></a>为用户角色存储设置创建支持票证
+
+1. 打开 Azure 门户，导航到 " **订阅** " 页。 在 "订阅" 页上，选择 SAP HANA 订阅，如下所示。
+
+   :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" **资源组** "子页。
+
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+
+1. 在某个区域中选择相应的资源组。
+
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+
+1. 选择与 Azure 存储上的 SAP HANA 相对应的 SKU 条目。
+
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+
+1. 打开 **新的支持票证** 请求，以红色列出。
+
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 选项卡上，提供： 
+   
+   * 设置 SnapCenter
+   * SnapCenter 用户的公钥 (SnapCenter) -请参阅下面的公钥创建示例
+
+     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="./media/snapcenter/new-support-request-details.png":::
+
+1. 选择 "查看" 和 " **创建** " 以查看你的支持票证。 
+
+1. 为 HANA 大型实例或任何 Linux 服务器上的 SnapCenter 用户名生成证书。
+
+   SnapCenter 需要使用用户名和密码来访问存储虚拟机 (SVM) 并创建 HANA 数据库的快照。 Microsoft 使用公钥，以便 (客户) 设置用于访问存储系统的密码。
+
+   ```bash
+   openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout snapcenter.key -out snapcenter.pem -subj "/C=US/ST=WA/L=BEL/O=NetApp/CN=snapcenter"
+   Generating a 2048 bit RSA private key
+   ................................................................................................................................................+++++
+   ...............................+++++
+   writing new private key to 'snapcenter.key'
+   -----
+
+   sollabsjct31:~ # ls -l cl25*
+   -rw-r--r-- 1 root root 1704 Jul 22 09:59 snapcenter.key
+   -rw-r--r-- 1 root root 1253 Jul 22 09:59 snapcenter.pem
+
+   ```
+
+1. 将 snapcenter 文件附加到支持票证，并选择 "**创建**"
+
+   提交公钥证书后，Microsoft 会将租户的 SnapCenter 用户名和 SVM IP 地址设置为。   
+
+1. 收到 SVM IP 后，设置一个密码以访问你控制的 SVM。
+
+   下面是 REST 调用 (文档) 来自虚拟网络中 HANA 大型实例或 VM 的一个示例，可访问 HANA 大型实例环境，并将用于设置密码。
+
+   ```bash
+   curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
+   ```
+
+   确保 HANA DB 系统上没有处于活动状态的代理变量。
+
+   ```bash
+   sollabsjct31:/tmp # unset http_proxy
+   sollabsjct31:/tmp # unset https_proxy
+   ```
+
+### <a name="download-and-install-snapcenter"></a>下载并安装 SnapCenter
+现在，用户名已设置为 SnapCenter 访问存储系统，在安装后，你将使用 SnapCenter 用户名配置 SnapCenter。 
+
+安装 SnapCenter 之前，请查看 [通过 SnapCenter SAP HANA 备份/恢复](https://www.netapp.com/us/media/tr-4614.pdf) 来定义备份策略。 
+
+1. 登录到 [NetApp](https://mysupport.netapp.com) ， [下载](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmysupport.netapp.com%2Fsite%2Fproducts%2Fall%2Fdetails%2Fsnapcenter%2Fdownloads-tab&data=02%7C01%7Cmadhukan%40microsoft.com%7Ca53f5e2f245a4e36933008d816efbb54%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637284566603265503&sdata=TOANWNYoAr1q5z1opu70%2FUDPHjluvovqR9AKplYpcpk%3D&reserved=0) 最新版本的 SnapCenter。
+
+1. 在 Windows Azure VM 上安装 SnapCenter。
+
+   安装程序将检查 VM 的先决条件。 
+
+   >[!IMPORTANT]
+   >请注意 VM 的大小，尤其是在较大的环境中。
+
+1. 配置 SnapCenter 的用户凭据。 默认情况下，它会填充用于安装应用程序的 Windows 用户凭据。 
+
+   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择"::: 
+
+1. 启动会话时，请保存安全例外，GUI 启动。
+
+1. 使用 Windows 凭据登录到 (VM 上的 SnapCenter https://snapcenter-vm:8146) ，以配置环境。
+
+
+### <a name="set-up-the-storage-system"></a>设置存储系统
+
+1. 在 SnapCenter 中，选择 " **存储系统**"，然后选择 " **+ 新建**"。 
+
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+
+   默认值为每个租户一个 SVM。 如果客户在多个区域中具有多个租户或 HLIs，则建议配置 SnapCenter 中的所有 Svm。
+
+1. 在 "添加存储系统" 中，提供要添加的存储系统的信息、SnapCenter 用户名和密码，然后选择 " **提交**"。
+
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 以设置 HANA 插件和 hana 数据库主机。  最新版本的 SnapCenter 会自动在主机上检测 HANA 数据库。
+
+   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="media/snapcenter/managed-hosts-new-host.png":::
+
+1. 提供新主机的信息：
+   1. 选择主机类型的操作系统。
+   1. 输入 SnapCenter VM 主机名。
+   1. 提供要使用的凭据。
+   1. 选择 **Microsoft Windows** 和 **SAP HANA** 选项，然后选择 " **提交**"。
+
+   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 以添加 HANA 节点。
+
+   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="media/snapcenter/add-hana-node.png":::
+
+1. 提供 HANA 节点的信息：
+   1. 选择主机类型的操作系统。
+   1. 输入 HANA DB 主机名或 IP 地址。
+   1. 选择 **+** 以添加在 HANA DB 主机操作系统上配置的凭据，然后选择 **"确定"**。
+   1. 选择 **SAP HANA** ，然后选择 " **提交**"。
+
+   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" **确认并提交**"。
+
+   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 创建 SNAPCENTER 用户。
+
+   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+
+
+### <a name="auto-discovery"></a>自动发现
+默认情况下，SnapCenter 4.3 启用自动发现功能。  ) 配置了 HANA 系统复制 (HSR，则不支持自动发现。 必须手动将该实例添加到 SnapCenter 服务器。
+
+
+### <a name="hana-setup-manual"></a>HANA 安装 (手动) 
+如果配置了 HSR，则必须手动配置系统。  
+
+1. 在 SnapCenter 的顶部) 选择 " **资源** " 和 " **SAN HANA** ("，然后选择右侧的 " **+ 添加 SAP HANA 数据库** (") 。
+
+   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="media/snapcenter/manual-hana-setup.png":::
+
+1. 指定在 Linux 主机上或在安装了插件的主机上配置的 HANA 管理员用户的资源详细信息。 将从 Linux 系统上的插件管理备份。
+
+   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" **完成**"。
+
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+### <a name="create-a-snapshot-policy"></a>创建快照策略
+
+使用 SnapCenter 备份 SAP HANA 数据库资源之前，必须为要备份的资源或资源组创建备份策略。 在创建快照策略的过程中，会向你提供配置预/post 命令和特殊 SSL 密钥的选项。 有关如何创建快照策略的信息，请参阅为 [SAP HANA 数据库创建备份策略](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html)。
+
+1. 在 SnapCenter 中，选择 " **资源** "，然后选择数据库。
+
+   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 按照配置向导的工作流配置快照计划程序。
+
+   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
+
+1. 提供用于配置预/post 命令和专用 SSL 密钥的选项。  在此示例中，我们使用的不是特殊设置。
+
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+
+1. 选择 " **添加** " 以创建快照策略，该策略还可用于其他 HANA 数据库。 
+
+   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 输入策略名称和描述。
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 和 "频率"。
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 配置按 **需备份保留设置**。  在我们的示例中，我们要将保留期设置为三个快照副本。
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 配置 **每小时保留设置**。 
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 如果配置了 SnapMirror 设置，请 **在创建本地快照副本后选择 "更新 SnapMirror**"。
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" **添加**"。
+
+   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 和 "频率"。
+
+   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 提供通知的电子邮件详细信息。
+
+   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 以创建备份策略。
+
+### <a name="disable-ems-message-to-netapp-autosupport"></a>禁用 Autosupport 的 EMS 消息
+默认情况下，将启用 EMS 数据收集，并在安装日期后每7天运行一次。  可以通过 PowerShell cmdlet 禁用数据收集 `Disable-SmDataCollectionEms` 。
+
+1. 在 PowerShell 中，使用 SnapCenter 建立会话。
+
+   ```powershell
+   Open-SmConnection
+   ```
+
+1. 使用凭据登录。
+1. 禁用 EMS 消息的收集。
+
+   ```powershell
+   Disable-SmCollectionEms
+   ```
+
+### <a name="restore-database-after-crash"></a>崩溃后还原数据库
+您可以使用 SnapCenter 来还原数据库。  在本部分中，我们将介绍高级步骤，但有关详细信息，请参阅 [SAP HANA Backup/Recovery With SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf)。
+
+
+1. 停止数据库并删除所有数据库文件。
+
+   ```
+   su - h31adm
+   > sapcontrol -nr 00 -function StopSystem
+   StopSystem
+   OK
+   > sapcontrol -nr 00 -function GetProcessList
+   OK
+   name, description, dispstatus, textstatus, starttime, elapsedtime, pid
+   hdbdaemon, HDB Daemon, GRAY, Stopped, , , 35902
+ 
+   ```
+
+1. 卸载数据库卷。
+
+   ```bash
+   unmount /hana/data/H31/mnt00001
+   ```
+
+
+1. 通过 SnapCenter 还原数据库文件。  选择该数据库，然后选择 " **还原**"。  
+
+   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
+
+1. 选择还原类型。  在我们的示例中，我们将还原整个资源。 
+
+   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" **文件级别**"。
+
+1. 按照工作流的配置向导执行操作。
+   
+   SnapCenter 将数据还原到原始位置，以便可以在 HANA 中启动还原过程。 此外，由于 SnapCenter 不能 (数据库关闭) ，因此会显示警告。
+
+   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" 下，右键单击系统数据库，然后选择 "**备份和恢复**  >  **恢复系统数据库**"。
+
+   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 选择恢复类型。
+
+   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 选择备份目录的位置。
+
+   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择":::
+
+1. 选择用于恢复 SAP HANA 数据库的备份。
+
+   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择"  >  **恢复租户数据库**"。
+1. 按照向导的工作流完成租户数据库的恢复。 
+
+有关还原数据库的详细信息，请参阅 [使用 SnapCenter 备份/恢复 SAP HANA](https://www.netapp.com/us/media/tr-4614.pdf)。
+
+
+### <a name="non-database-backups"></a>非数据库备份
+可以还原非数据卷，例如 (/hana/shared) 或操作系统备份的网络文件共享。  有关还原非数据卷的详细信息，请参阅 [使用 SnapCenter 备份/恢复 SAP HANA](https://www.netapp.com/us/media/tr-4614.pdf)。
+
+### <a name="sap-hana-system-cloning"></a>SAP HANA 系统克隆
+
+在克隆之前，必须安装与源数据库相同的 HANA 版本。 SID 和 ID 可能不同。 
+
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="为用户存储设置创建支持案例&quot;:::
+
+1. 在 SAP HANA 订阅 &quot;页上，选择" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
+
+1. 从/usr/sap/H34/HDB40. 为 H34 数据库创建 HANA 数据库用户存储
+
+   ```
+   hdbuserstore set H34KEY sollabsjct34:34013 system manager
+   ```
+ 
+1. 禁用防火墙。
+
+   ```bash
+   systemctl disable SuSEfirewall2
+   systemctl stop  SuSEfirewall2
+   ```
+
+1. 安装 Java SDK。
+
+   ```bash
+   zypper in java-1_8_0-openjdk
+   ```
+
+1. 在 SnapCenter 中，添加克隆将装载到的目标主机。 有关详细信息，请参阅 [在远程主机上添加主机和安装插件包](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html)。
+   1. 为要添加的运行方式凭据提供信息。 
+   1. 选择主机操作系统并输入主机信息。
+   1. 在 " **要安装的插件**" 下，选择版本，输入安装路径，然后选择 " **SAP HANA**"。
+   1. 选择 " **验证** " 以运行预安装检查。
+
+1. 停止 HANA 并卸载旧的数据卷。  将从 SnapCenter 装载克隆。  
+
+   ```bash
+   sapcontrol -nr 40 -function StopSystem
+   umount /hana/data/H34/mnt00001
+
+   ```
+ 1. 为目标创建配置和 shell 脚本文件。
+ 
+    ```bash
+    mkdir /NetApp
+    chmod 777 /NetApp
+    cd NetApp
+    chmod 777 sc-system-refresh-H34.cfg
+    chmod 777 sc-system-refresh.sh
+
+    ```
+
+    >[!TIP]
+    >可以从 [SnapCenter 复制 SAP 克隆](https://www.netapp.com/us/media/tr-4667.pdf)中的脚本。
+
+1. 修改配置文件。 
+
+   ```bash
+   vi sc-system-refresh-H34.cfg
+   ```
+
+   * HANA_ARCHITECTURE = "MDC_single_tenant"
+   * KEY = "H34KEY"
+   * TIME_OUT_START = 18
+   * TIME_OUT_STOP = 18
+   * INSTANCENO = "40"
+   * 存储 = "10.250.101.33"
+
+1. 修改 shell 脚本文件。
+
+   ```bash
+   vi sc-system-refresh.sh
+   ```  
+
+   * VERBOSE = 否
+   * MY_NAME = " `basename $0` "
+   * BASE_SCRIPT_DIR = " `dirname $0` "
+   * MOUNT_OPTIONS = "rw，timeo = 600，rsize = 1048576，wsize = 1048576，intr，noatime，nolock"
+
+1. 从备份进程启动克隆。 选择要创建克隆的主机。 
+
+   >[!NOTE]
+   >有关详细信息，请参阅 [从备份克隆](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html)。
+
+1. 在 " **脚本**" 下提供以下内容：
+
+   * **装载命令：** /NetApp/sc-system-refresh.sh Mount H34% hana_data_h31_mnt00001_t250_vol_Clone
+   * **Post clone 命令：** /NetApp/sc-system-refresh.sh recover H34
+
+1. 禁用/etc/fstab 中的自动装载)  (锁定，因为无需预安装数据库的数据量。 
+
+   ```bash
+   vi /etc/fstab
+   ```
+
+### <a name="delete-a-clone"></a>删除克隆
+
+如果不再需要克隆，可以将其删除。 有关详细信息，请参阅 [删除克隆](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html)。
+
+用于在删除克隆之前执行的命令包括：
+* **预克隆删除：** /NetApp/sc-system-refresh.sh 关闭 H34
+* **卸载：** /NetApp/sc-system-refresh.sh 卸载 H34
+
+这些命令允许 SnapCenter 适用于数据库，卸载卷，并删除 fstab 条目。  之后，将删除 FlexClone。 
+
+### <a name="cloning-database-logfile"></a>克隆数据库日志文件
+
+```   
+20190502025323###sollabsjct34###sc-system-refresh.sh: Adding entry in /etc/fstab.
+20190502025323###sollabsjct34###sc-system-refresh.sh: 10.250.101.31:/Sc21186309-ee57-41a3-8584-8210297f791d /hana/data/H34/mnt00001 nfs rw,vers=4,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
+20190502025323###sollabsjct34###sc-system-refresh.sh: Mounting data volume.
+20190502025323###sollabsjct34###sc-system-refresh.sh: mount /hana/data/H34/mnt00001
+20190502025323###sollabsjct34###sc-system-refresh.sh: Data volume mounted successfully.
+20190502025323###sollabsjct34###sc-system-refresh.sh: chown -R h34adm:sapsys /hana/data/H34/mnt00001
+20190502025333###sollabsjct34###sc-system-refresh.sh: Recover system database.
+20190502025333###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/HDB40/exe/Python/bin/python /usr/sap/H34/HDB40/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
+[140278542735104, 0.005] >> starting recoverSys (at Thu May  2 02:53:33 2019)
+[140278542735104, 0.005] args: ()
+[140278542735104, 0.005] keys: {'command': 'RECOVER DATA USING SNAPSHOT CLEAR LOG'}
+recoverSys started: ============2019-05-02 02:53:33 ============
+testing master: sollabsjct34
+sollabsjct34 is master
+shutdown database, timeout is 120
+stop system
+stop system: sollabsjct34
+stopping system: 2019-05-02 02:53:33
+stopped system: 2019-05-02 02:53:33
+creating file recoverInstance.sql
+restart database
+restart master nameserver: 2019-05-02 02:53:38
+start system: sollabsjct34
+2019-05-02T02:53:59-07:00  P010976      16a77f6c8a2 INFO    RECOVERY state of service: nameserver, sollabsjct34:34001, volume: 1, RecoveryPrepared
+recoverSys finished successfully: 2019-05-02 02:54:00
+[140278542735104, 26.490] 0
+[140278542735104, 26.490] << ending recoverSys, rc = 0 (RC_TEST_OK), after 26.485 secs
+20190502025400###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is started ....
+20190502025400###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025410###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025420###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025430###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025440###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025451###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502025451###sollabsjct34###sc-system-refresh.sh: SAP HANA database is started.
+20190502025451###sollabsjct34###sc-system-refresh.sh: Recover tenant database H34.
+20190502025451###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/SYS/exe/hdb/hdbsql -U H34KEY RECOVER DATA FOR H34 USING SNAPSHOT CLEAR LOG
+0 rows affected (overall time 69.584135 sec; server time 69.582835 sec)
+20190502025600###sollabsjct34###sc-system-refresh.sh: Checking availability of Indexserver for tenant H34.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Recovery of tenant database H34 succesfully finished.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Status: GREEN
+Deleting the DB Clone – Logfile
+20190502030312###sollabsjct34###sc-system-refresh.sh: Stopping HANA database.
+20190502030312###sollabsjct34###sc-system-refresh.sh: sapcontrol -nr 40 -function StopSystem HDB
+
+02.05.2019 03:03:12
+StopSystem
+OK
+20190502030312###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is stopped ....
+20190502030312###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030322###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030332###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030342###sollabsjct34###sc-system-refresh.sh: Status:  GRAY
+20190502030342###sollabsjct34###sc-system-refresh.sh: SAP HANA database is stopped.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Unmounting data volume.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Junction path: Sc21186309-ee57-41a3-8584-8210297f791d
+20190502030347###sollabsjct34###sc-system-refresh.sh: umount /hana/data/H34/mnt00001
+20190502030347###sollabsjct34###sc-system-refresh.sh: Deleting /etc/fstab entry.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Data volume unmounted successfully.
+
+```
+
+### <a name="uninstall-snapcenter-plug-ins-package-for-linux"></a>卸载适用于 Linux 的 SnapCenter 插件包
+
+你可以从命令行卸载 Linux 插件包。 由于自动部署需要全新系统，因此很容易卸载插件。  
+
+>[!NOTE]
+>可能需要手动卸载旧版本的插件。 
+
+卸载插件。
+
+```bash
+cd /opt/NetApp/snapcenter/spl/installation/plugins
+./uninstall
+```
+
+你现在可以通过在 SnapCenter 中选择 " **提交** "，在新节点上安装最新的 HANA 插件。 
+
+
 
 
 ## <a name="next-steps"></a>后续步骤

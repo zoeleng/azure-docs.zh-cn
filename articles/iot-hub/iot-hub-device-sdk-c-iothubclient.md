@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33521dd9110d7ba6ee84650345b38c8c6a4950b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81732604"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149142"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关 IoTHubClient 的详细信息
 
@@ -28,7 +28,7 @@ ms.locfileid: "81732604"
 
 我们将使用 **IoTHubClient** SDK 示例来阐释这些主题。 如果想要继续，请参阅适用于 C 的 Azure IoT 设备 SDK 中随附的 **iothub\_client\_sample\_http** and **iothub\_client\_sample\_amqp** 应用程序。以下部分所述的所有内容都将通过这些示例来演示。
 
-可在 GitHub 存储库中找到[**适用于 C 语言的 Azure IoT 设备 SDK**](https://github.com/Azure/azure-iot-sdk-c)，还可在 [C API 参考](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)中查看 API 的详细信息。
+可在 GitHub 存储库中找到[**适用于 C 语言的 Azure IoT 设备 SDK**](https://github.com/Azure/azure-iot-sdk-c)，还可在 [C API 参考](/azure/iot-hub/iot-c-sdk-ref/)中查看 API 的详细信息。
 
 ## <a name="the-lower-level-apis"></a>较低级别 API
 
@@ -157,7 +157,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 首先调用 **IoTHubMessage\_Properties**，然后将消息的句柄传递给它。 返回的结果是 **MAP\_HANDLE** 引用，这使得我们可以开始添加属性。 后一项操作是通过调用 **Map\_AddOrUpdate**（使用对 MAP\_HANDLE、属性名称和属性值的引用）来实现的。 使用此 API 可需要任意数目的属性。
 
-从 **事件中心**读取事件时，接收方可以枚举属性并检索其对应值。 例如，在 .NET 中，这可以通过访问 [EventData 对象中的属性集合](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx)来实现。
+从 **事件中心**读取事件时，接收方可以枚举属性并检索其对应值。 例如，在 .NET 中，这可以通过访问 [EventData 对象中的属性集合](/dotnet/api/microsoft.servicebus.messaging.eventdata)来实现。
 
 在上面的示例中，我们将属性附加到发送到 IoT 中心的事件。 属性也可以附加到从 IoT 中心接收的消息。 如果想要从消息检索属性，可以在消息回调函数中使用如下所示的代码：
 
@@ -277,4 +277,4 @@ batching 选项非常重要。 默认情况下，库将逐个引入事件（单�
 
 若要详细了解如何针对 IoT 中心进行开发，请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-若要进一步探索 IoT 中心的功能，请参阅[使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)。
+若要进一步探索 IoT 中心的功能，请参阅[使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)。

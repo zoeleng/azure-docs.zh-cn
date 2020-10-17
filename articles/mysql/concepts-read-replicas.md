@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126647"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151179"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -128,6 +128,26 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
     
 如果应用程序成功处理了读取和写入操作，则表明故障转移已完成。 应用程序经历的停机时间取决于何时检测到问题并完成上面的步骤 1 和 2。
 
+## <a name="global-transaction-identifier-gtid"></a>全局事务标识符 (GTID) 
+
+全局事务标识符 (GTID) 是在源服务器上为每个提交的事务创建的唯一标识符，在 Azure Database for MySQL 中默认情况下处于关闭状态。 GTID 在版本5.7 和8.0 上受支持，并且仅在支持高达 16 TB 存储的服务器上受支持。 若要详细了解 GTID 及其在复制中的使用方式，请参阅 [使用 GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) 的 MySQL 复制文档。
+
+MySQL 支持两种类型的事务： GTID 事务 (用 GTID) 和匿名事务标识， (没有分配 GTID) 
+
+以下服务器参数可用于配置 GTID： 
+
+|**服务器参数**|**说明**|**默认值**|**值**|
+|--|--|--|--|
+|`gtid_mode`|指示是否使用 GTIDs 来标识事务。 每次只能对两个模式进行一次操作， (例如： `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`：新事务和复制事务都必须是匿名的 <br> `OFF_PERMISSIVE`：新的事务是匿名的。 复制的事务可以是匿名或 GTID 事务。 <br> `ON_PERMISSIVE`：新事务是 GTID 的事务。 复制的事务可以是匿名或 GTID 事务。 <br> `ON`：新事务和复制的事务都必须是 GTID 事务。|
+|`enforce_gtid_consistency`|通过只允许执行可以以事务性安全方式记录的语句来强制执行 GTID 一致性。 必须先将此值设置为， `ON` 然后才能启用 GTID 复制。 |`OFF`|`OFF`：允许所有事务违反 GTID 一致性。  <br> `ON`：不允许事务违反 GTID 一致性。 <br> `WARN`：允许所有事务违反 GTID 一致性，但会生成警告。 | 
+
+> [!NOTE]
+> 启用 GTID 后，无法再将其关闭。 如果需要关闭 GTID，请与支持人员联系。 
+
+若要启用 GTID 并配置一致性行为，请 `gtid_mode` `enforce_gtid_consistency` 使用 [Azure 门户](howto-server-parameters.md)、 [Azure CLI](howto-configure-server-parameters-using-cli.md)或 [PowerShell](howto-configure-server-parameters-using-powershell.md)更新和服务器参数。
+
+如果在) 上的源 (服务器上启用了 GTID `gtid_mode` ，则新创建的副本也将启用 GTID 并使用 GTID 复制。 若要保持复制一致，你无法 `gtid_mode` 在源服务器或副本服务器上进行更新，)  (。
+
 ## <a name="considerations-and-limitations"></a>注意事项和限制
 
 ### <a name="pricing-tiers"></a>定价层
@@ -178,9 +198,18 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
 
 若要在源服务器上更新上述参数之一，请删除副本服务器，更新主副本上的参数值，然后重新创建副本。
 
+### <a name="gtid"></a>GTID
+
+支持 GTID：
+- MySQL 版本5.7 和8。0 
+- 支持高达 16 TB 存储的服务器。 有关支持 16 TB 存储的区域的完整列表，请参阅 [定价层](concepts-pricing-tiers.md#storage) 一文。 
+
+默认情况下，GTID 处于关闭状态。 启用 GTID 后，无法再将其关闭。 如果需要关闭 GTID，请与支持人员联系。 
+
+如果在源服务器上启用了 GTID，则新创建的副本也将启用 GTID 并使用 GTID 复制。 若要保持复制一致，你无法 `gtid_mode` 在源服务器或副本服务器上进行更新，)  (。
+
 ### <a name="other"></a>其他
 
-- 不支持全局事务标识符 (GTID)。
 - 不支持创建副本服务器的副本。
 - 内存中的表可能会导致副本服务器变得不同步。这是 MySQL 复制技术的限制。 有关详细信息，请阅读 [MySQL 参考文档](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html)中的更多信息。
 - 确保源服务器表具有主键。 缺少主键可能会导致源和副本之间的复制延迟。

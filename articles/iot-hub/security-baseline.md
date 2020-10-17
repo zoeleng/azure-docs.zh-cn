@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49496dbf1355ceee7619d93bcb0676892b7a212d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906913"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150565"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>适用于 Azure IoT 中心的 Azure 安全基线
 
@@ -33,9 +33,9 @@ IoT 中心的功能，包括消息路由、文件上传和批量设备导入/导
 将设备中开放的硬件端口数保持在最低限度，以避免不必要的访问。 此外，建立相应机制来阻止或检测对设备的物理篡改。
 
 - [IoT 虚拟网络支持](virtual-network-support.md)
-- [大量网络最佳做法](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc#networking)
+- [大量网络最佳做法](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
 - [Azure 专用链接概述](../private-link/private-link-overview.md)
-- [Azure 网络安全组](../virtual-network/security-overview.md)
+- [Azure 网络安全组](../virtual-network/network-security-groups-overview.md)
 
 **Azure 安全中心监视**：是
 
@@ -75,7 +75,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 - [管理 Azure DDoS 保护基本](../virtual-network/ddos-protection-overview.md)
 
-- [Azure 安全中心的威胁防护](../security-center/threat-protection.md)
+- [Azure 安全中心的威胁防护](../security-center/azure-defender.md)
 
 **Azure 安全中心监视**：是
 
@@ -138,7 +138,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 **指南**：对与 Azure IoT 中心部署关联的网络资源使用标记，以便按逻辑将这些资源组织成某种分类。
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -148,7 +148,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 **指南**：使用 Azure 活动日志监视网络资源配置，并检测与 Azure IoT 中心相关的网络资源的更改。 在 Azure Monitor 中创建当关键网络资源发生更改时触发的警报。
 
-- [如何查看和检索 Azure 活动日志事件](/azure/azure-monitor/platform/activity-log-view)
+- [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [如何在 Azure Monitor 中创建警报](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -274,9 +274,9 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 **指南**：借助 Azure 基于角色的访问控制 (Azure RBAC)，可以通过角色分配管理对 Azure IoT 中心的访问。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。 
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure 安全中心监视**：是
 
@@ -296,7 +296,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 还可以通过使用 Azure AD Privileged Identity Management 和 Azure 资源管理器来启用对管理帐户的即时访问。
 
-- [详细了解 Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [详细了解 Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure 安全中心监视**：是
 
@@ -340,7 +340,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 **指导**：使用 Azure Active Directory 安全报告和监视来检测环境中何时发生可疑活动或不安全的活动。 使用 Azure 安全中心监视标识和访问活动。
 
-- [如何确定标记为存在风险活动的 Azure AD 用户](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [如何确定标记为存在风险活动的 Azure AD 用户](../active-directory/identity-protection/overview-identity-protection.md)
 - [如何在 Azure 安全中心内监视用户的标识和访问活动](../security-center/security-center-identity-access.md)
 
 **Azure 安全中心监视**：是
@@ -376,9 +376,9 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 使用 Azure AD Privileged Identity Management (PIM) 在环境中发生可疑或不安全的活动时生成日志和警报。
 
-- [了解 Azure AD 报告](/azure/active-directory/reports-monitoring/)
+- [了解 Azure AD 报告](../active-directory/reports-monitoring/index.yml)
 - [如何使用 Azure AD 标识和访问评审](../active-directory/governance/access-reviews-overview.md)
-- [部署 Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [部署 Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure 安全中心监视**：是
 
@@ -392,7 +392,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 使用 Azure Monitor 诊断日志监视“连接”类别中未经授权的连接尝试。
 
-- [如何将 Azure 活动日志与 Azure Monitor 集成](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [如何将 Azure 活动日志与 Azure Monitor 集成](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [为 IoT 中心配置诊断日志](iot-hub-monitor-resource-health.md)
 
@@ -404,7 +404,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 **指导**：使用 Azure AD 标识保护功能来配置对检测到的与用户标识相关的可疑操作的自动响应。 还可将数据引入 Azure Sentinel 以做进一步调查。
   
-- [如何查看 Azure AD 风险登录](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [如何查看 Azure AD 风险登录](../active-directory/identity-protection/overview-identity-protection.md)
   
 - [ 如何配置和启用 Identity Protection 风险策略](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
   
@@ -430,7 +430,7 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 **指导**：使用标记可以帮助跟踪存储或处理敏感信息的 Azure 资源。
  
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -440,9 +440,9 @@ Azure DDoS 防护基本版已作为 IoT 中心的一部分启用，使用时无�
 
 **指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Azure RBAC 来控制对 Azure 资源的访问。
   
-- [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
-- [如何创建管理组](/azure/governance/management-groups/create)
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建其他 Azure 订阅](../cost-management-billing/manage/create-subscription.md)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -593,7 +593,7 @@ Azure IoT 中心对写入数据中心的静态数据和传输中的数据进行�
 
 **指南**：向 Azure 资源应用标记（并非所有资源都支持标记，但大多数资源都支持），以便按逻辑将这些资源组织成某种分类。
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -603,11 +603,11 @@ Azure IoT 中心对写入数据中心的静态数据和传输中的数据进行�
 
 **指导**：在适用的情况下，请使用标记、管理组和单独的订阅来组织和跟踪资产。 定期核对清单，确保及时地从订阅中删除未经授权的资源。
   
-- [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
+- [如何创建其他 Azure 订阅](../cost-management-billing/manage/create-subscription.md)
   
-- [如何创建管理组](/azure/governance/management-groups/create)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
   
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -725,7 +725,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 还可以使用来自 Azure 安全中心的建议作为 Azure 资源的安全配置基线。
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [如何查看可用的 Azure Policy 别名](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [教程：创建和管理策略以强制实施符合性](../governance/policy/tutorials/create-and-manage.md)
 
@@ -769,8 +769,8 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 **指南**：如果对 Azure IoT 中心或相关资源使用自定义 Azure Policy 定义，请使用 Azure Repos 安全地存储和管理代码。
 
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-- [Azure Repos 文档](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [如何在 Azure DevOps 中存储代码](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure Repos 文档](/azure/devops/repos/index?view=azure-devops)
 
 **Azure 安全中心监视**：不适用
 
@@ -830,8 +830,8 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 - [IoT 中心安全令牌](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [如何将托管标识用于 IoT 中心](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [如何创建密钥保管库](/azure/key-vault/quick-create-portal)
-- [如何使用托管标识提供 Key Vault 身份验证](/azure/key-vault/managed-identity)
+- [如何创建密钥保管库](../key-vault/secrets/quick-create-portal.md)
+- [如何使用托管标识提供 Key Vault 身份验证](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure 安全中心监视**：是
 
@@ -940,7 +940,7 @@ Microsoft 反恶意软件会在支持 Azure 服务（例如，Azure 应用服务
  
  
 - [了解 Azure RBAC](../role-based-access-control/overview.md)
-- [Azure Blob 存储的软删除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Azure Blob 存储的软删除](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure 安全中心监视**：不适用
 
@@ -973,7 +973,7 @@ Microsoft 反恶意软件会在支持 Azure 服务（例如，Azure 应用服务
   
 - [Azure 安全中心的安全警报](../security-center/security-center-alerts-overview.md)
   
-- [使用标记整理 Azure 资源](/azure/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：是
 
@@ -1039,5 +1039,5 @@ Microsoft 反恶意软件会在支持 Azure 服务（例如，Azure 应用服务
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 安全基准](/azure/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](/azure/security/benchmarks/security-baselines-overview)
+- 请参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)

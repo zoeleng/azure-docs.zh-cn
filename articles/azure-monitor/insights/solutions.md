@@ -5,13 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/07/2020
-ms.openlocfilehash: d509862fe4dafff174ee03c3b5cc887fa9d9ff22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085988"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150526"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor 中的监视解决方案
 
@@ -59,6 +60,21 @@ az monitor log-analytics solution list --subscription MySubscription
 
 # List all log-analytics solutions in a resource group
 az monitor log-analytics solution list --resource-group MyResourceGroup
+```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+使用 [AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/get-azmonitorloganalyticssolution) cmdlet 列出订阅中安装的监视解决方案。 在运行这些命令之前，请遵循 [安装监视解决方案](#install-a-monitoring-solution)中的先决条件。
+
+```azurepowershell-interactive
+# List all log-analytics solutions in the current subscription.
+Get-AzMonitorLogAnalyticsSolution
+
+# List all log-analytics solutions for a specific subscription
+Get-AzMonitorLogAnalyticsSolution -SubscriptionId 00000000-0000-0000-0000-000000000000
+
+# List all log-analytics solutions in a resource group
+Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 ```
 
 * * *
@@ -151,6 +167,54 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
                                            Microsoft.OperationalInsights/workspaces/{WorkspaceName}"
 ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+### <a name="prepare-your-environment"></a>准备环境
+
+1. 安装 Azure PowerShell
+
+   在运行 Azure PowerShell reference 命令之前，需要 [安装 Azure PowerShell](/powershell/azure/install-az-ps) 。 如果愿意，还可以使用 Azure Cloud Shell 来完成本文中的步骤。 Azure Cloud Shell 是一种通过浏览器使用的交互式 Shell 环境。 使用以下方法之一开始 Cloud Shell：
+
+   - 通过转到打开 Cloud Shell [https://shell.azure.com](https://shell.azure.com)
+
+   - 选择菜单栏上[Azure 门户](https://portal.azure.com)中右上角的 " **Cloud Shell** " 按钮
+
+   > [!IMPORTANT]
+   > **MonitoringSolutions** PowerShell 模块为预览版时，必须使用 cmdlet 单独安装它 `Install-Module` 。 此 PowerShell 模块公开上市后，它将成为未来 Az PowerShell 模块版本的一部分，并且默认情况下在 Azure Cloud Shell 中可用。
+
+   ```azurepowershell-interactive
+   Install-Module -Name Az.MonitoringSolutions
+   ```
+
+1. 登录。
+
+   如果使用的是 PowerShell 的本地安装，请使用 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet 登录。 按照 PowerShell 中显示的步骤完成身份验证过程。
+
+   ```azurepowershell
+   Connect-AzAccount
+   ```
+
+### <a name="install-a-solution-with-azure-powershell"></a>使用 Azure PowerShell 安装解决方案
+
+安装解决方案时，必须选择要在其中安装该解决方案的 [Log Analytics 工作区](../platform/manage-access.md)，以及要将解决方案数据收集到的位置。 使用 Azure PowerShell，你可以通过使用 [MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell 模块中的 cmdlet 来管理工作区。 请遵循 [Log Analytics 工作区和自动化帐户](#log-analytics-workspace-and-automation-account)中所述的过程来链接工作区和帐户。
+
+使用 [AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/new-azmonitorloganalyticssolution) cmdlet 安装监视解决方案。 方括号中的参数是可选的。
+
+```azurepowershell
+New-AzMonitorLogAnalyticsSolution -ResourceGroupName <string> -Type <string> -Location <string>
+-WorkspaceResourceId <string> [-SubscriptionId <string>] [-Tag <hashtable>]
+[-DefaultProfile <psobject>] [-Break] [-HttpPipelineAppend <SendAsyncStep[]>]
+[-HttpPipelinePrepend <SendAsyncStep[]>] [-Proxy <uri>] [-ProxyCredential <pscredential>]
+[-ProxyUseDefaultCredentials] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+下面的示例为 log analytics 工作区创建监视 log analytics 解决方案。
+
+```azurepowershell-interactive
+$workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName MyResourceGroup -Name WorkspaceName
+New-AzMonitorLogAnalyticsSolution -Type Containers -ResourceGroupName MyResourceGroup -Location $workspace.Location -WorkspaceResourceId $workspace.ResourceId
+```
+
 * * *
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作区和自动化帐户
@@ -185,6 +249,14 @@ az monitor log-analytics solution delete --name
                                          --resource-group
                                          [--no-wait]
                                          [--yes]
+```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+若要使用 Azure PowerShell 删除已安装的解决方案，请使用 [AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) cmdlet。
+
+```azurepowershell-interactive
+Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name WorkspaceName
 ```
 
 * * *

@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715402"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149018"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
-[Azure 应用服务](https://go.microsoft.com/fwlink/?LinkId=529714)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure 订阅凭据不同。
+[Azure 应用服务](./overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure 订阅凭据不同。
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
@@ -96,11 +96,11 @@ az resource update --resource-group <resource-group> --name ftp --namespace Micr
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-若要确认在 WebDeploy 上阻止发布配置文件凭据，请尝试 [使用 Visual Studio 2019 发布 web 应用](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)。
+若要确认在 WebDeploy 上阻止发布配置文件凭据，请尝试 [使用 Visual Studio 2019 发布 web 应用](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)。
 
 ### <a name="disable-access-to-the-api"></a>禁用对 API 的访问
 
-上一部分中的 API 是 azure RBAC)  (Azure 基于角色的访问控制，这意味着，你可以 [创建自定义角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) 并将 priveldged 的用户分配给角色，使其无法在任何站点上启用基本身份验证。 若要配置自定义角色，请 [遵循这些说明](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)。
+上一部分中的 API 是 azure RBAC)  (Azure 基于角色的访问控制，这意味着，你可以 [创建自定义角色](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) 并将 priveldged 的用户分配给角色，使其无法在任何站点上启用基本身份验证。 若要配置自定义角色，请 [遵循这些说明](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)。
 
 你还可以使用 [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) 审核任何成功的身份验证请求，并使用 [Azure 策略](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) 对订阅中的所有站点实施此配置。
 
