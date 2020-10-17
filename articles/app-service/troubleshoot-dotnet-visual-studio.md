@@ -6,16 +6,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983011"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147738"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的应用进行故障排除
 ## <a name="overview"></a>概述
-本教程介绍如何使用 Visual Studio 工具，通过远程运行[调试模式](/visualstudio/debugger/)或查看应用程序日志和 Web 服务器日志，帮助调试[应用服务](https://go.microsoft.com/fwlink/?LinkId=529714)中的应用。
+本教程介绍如何使用 Visual Studio 工具，通过远程运行[调试模式](/visualstudio/debugger/)或查看应用程序日志和 Web 服务器日志，帮助调试[应用服务](./overview.md)中的应用。
 
 学习内容：
 
@@ -49,7 +49,7 @@ ms.locfileid: "90983011"
    >
    >
 
-    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
+    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](../role-based-access-control/role-assignments-portal.md)。
 2. 在“服务资源管理器”中，展开“Azure”，并展开“应用服务”。
 3. 展开包含在[在 Azure 应用服务中创建 ASP.NET 应用](quickstart-dotnet-framework.md)中创建的应用的资源组，右键单击该应用节点，并单击“查看设置”。
 
@@ -125,7 +125,7 @@ ms.locfileid: "90983011"
     }
     ```
 
-1. 在 `ViewBag.Message` 行上[设置一个断点](https://docs.microsoft.com/visualstudio/debugger/)。
+1. 在 `ViewBag.Message` 行上[设置一个断点](/visualstudio/debugger/)。
 
 1. 在“解决方案资源管理器”中，右键单击该项目并单击“发布”。
 
@@ -176,7 +176,7 @@ ms.locfileid: "90983011"
 
 2. 在 ContosoAdsWebJob 项目中，打开 *Functions.cs*。
 
-3. 在 `GnerateThumbnail` 方法的第一个语句中[设置一个断点](https://docs.microsoft.com/visualstudio/debugger/)。
+3. 在 `GnerateThumbnail` 方法的第一个语句中[设置一个断点](/visualstudio/debugger/)。
 
     ![设置断点](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -241,7 +241,7 @@ ms.locfileid: "90983011"
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* 如果发现调试程序没有针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[指定是否仅使用 Visual Studio 中的“仅我的代码”调试用户代码](https://docs.microsoft.com/visualstudio/debugger/just-my-code)。
+* 如果发现调试程序没有针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[指定是否仅使用 Visual Studio 中的“仅我的代码”调试用户代码](/visualstudio/debugger/just-my-code)。
 * 启用远程调试功能时，服务器上会出现一个计时器，48 小时后该功能自动关闭。 这一 48 小时的限制是出于安全性与性能的考虑。 可以根据需要轻松地多次重启该功能。 我们建议，在不主动进行调试的时候，保持其处于禁用状态。
 * 可以手动将调试器附加到任何进程，而不仅仅是应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](/visualstudio/debugger/debugging-in-visual-studio)。
 
@@ -330,7 +330,7 @@ ms.locfileid: "90983011"
     ```
 
 `WebPageTraceListener` 允许通过浏览至 `/trace.axd` 查看跟踪输出。
-1. 将<a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">跟踪元素</a>添加到 Web.config file 文件中的 `<system.web>` 下面，如下所示：
+1. 将<a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">跟踪元素</a>添加到 Web.config file 文件中的 `<system.web>` 下面，如下所示：
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -505,7 +505,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -624,7 +624,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 若要针对特定故障排除问题寻求帮助，可在以下论坛之一开启话题讨论：
 
 * [ASP.NET 站点上的 Azure 论坛](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)。
-* [Microsoft 上的 Azure 论坛问答](https://docs.microsoft.com/answers/topics/azure-webapps.html)。
+* [Microsoft 上的 Azure 论坛问答](/answers/topics/azure-webapps.html)。
 * [StackOverflow.com](https://www.stackoverflow.com)。
 
 ### <a name="debugging-in-visual-studio"></a>在 Visual Studio 中进行调试

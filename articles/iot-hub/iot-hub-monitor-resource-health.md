@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fec74938adea4058041766a5c28c5a5200aa189e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438392"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146558"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>监视 Azure IoT 中心的运行状况并快速诊断问题
 
@@ -36,7 +36,7 @@ IoT 中心还提供了其自己的指标，可使用这些指标了解 IoT 资�
 
 Azure Monitor 提供 Azure 资源的诊断信息，这意味着，你可以监视在 IoT 中心内部发生的操作。
 
-若要详细了解 Azure Monitor 监视的具体指标和事件，请参阅 [Azure Monitor 支持的指标](../azure-monitor/platform/metrics-supported.md)和 [Azure 诊断日志支持的服务、架构和类别](../azure-monitor/platform/diagnostic-logs-schema.md)。
+若要详细了解 Azure Monitor 监视的具体指标和事件，请参阅 [Azure Monitor 支持的指标](../azure-monitor/platform/metrics-supported.md)和 [Azure 诊断日志支持的服务、架构和类别](../azure-monitor/platform/resource-logs-schema.md)。
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -122,7 +122,7 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
 
 #### <a name="routes"></a>路由
 
-[消息路由](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)类别跟踪消息路由评估期间发生的错误以及 IoT 中心感知到的终结点运行状况。 此类别包括诸如下列项的事件：
+[消息路由](./iot-hub-devguide-messages-d2c.md)类别跟踪消息路由评估期间发生的错误以及 IoT 中心感知到的终结点运行状况。 此类别包括诸如下列项的事件：
 
 * 规则评估结果为“未定义”，
 * IoT 中心将某个终结点标记为死终结点，或者
@@ -352,9 +352,9 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
 
 此时不会计算 `durationMs`，因为 IoT 中心的时钟可能不会与设备时钟同步，所以持续时间计算可能产生误导。 我们建议使用 `properties` 部分中的时间戳编写逻辑，以捕获设备到云延迟的峰值。
 
-| 属性 | 类型 | 说明 |
+| 属性 | 类型 | 描述 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | 整数 | 以字节为单位的设备到云消息的大小 |
+| **messageSize** | Integer | 以字节为单位的设备到云消息的大小 |
 | **deviceId** | ASCII 7 位字母数字字符字符串 | 设备的标识 |
 | **callerLocalTimeUtc** | UTC 时间戳 | 设备本地时钟报告的消息创建时间 |
 | **calleeLocalTimeUtc** | UTC 时间戳 | IoT 中心服务端时钟报告的消息到达 IoT 中心网关的时间 |
@@ -386,7 +386,7 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
 
 在 `properties` 部分中，此日志包含有关消息入口的其他信息。
 
-| 属性 | 类型 | 说明 |
+| 属性 | 类型 | 描述 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | 字符串 | True 或 false，指示 IoT 中心是否启用了消息路由 |
 | **parentSpanId** | 字符串 | 父消息的 [span-id](https://w3c.github.io/trace-context/#parent-id)，在这种情况下为 D2C 消息跟踪 |
@@ -418,7 +418,7 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
 
 在 `properties` 部分中，此日志包含有关消息入口的其他信息。
 
-| 属性 | 类型 | 说明 |
+| 属性 | 类型 | 描述 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **点** | 字符串 | 路由终结点的名称 |
 | **endpointType** | 字符串 | 路由终结点的类型 |
@@ -478,7 +478,7 @@ IoT 中心配置日志跟踪自动设备管理功能集的事件和错误。
 
 下表显示了用于不同 Azure IoT Sdk 的 SDK 名称：
 
-| SdkVersion 属性中的 SDK 名称 | 语言 |
+| SdkVersion 属性中的 SDK 名称 | Language |
 |----------|----------|
 | .NET | .NET (C#) |
 | microsoft azure. 设备 | .NET (c # ) 服务 SDK |

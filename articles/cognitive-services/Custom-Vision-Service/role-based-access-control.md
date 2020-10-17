@@ -1,7 +1,7 @@
 ---
-title: 基于角色的访问控制-自定义视觉
+title: Azure 基于角色的访问控制-自定义视觉
 titleSuffix: Azure Cognitive Services
-description: 本文介绍如何为自定义视觉项目配置基于角色的访问控制。
+description: 本文介绍如何为自定义视觉项目配置基于 Azure 角色的访问控制。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826936"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146362"
 ---
-# <a name="role-based-access-control"></a>基于角色的访问控制
+# <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
 
-自定义视觉支持 Azure 基于角色的访问控制 (Azure RBAC)，这是用于管理对 Azure 资源的个人访问权限的授权系统。 使用 RBAC，可以为不同的团队成员分配自定义视觉项目的不同级别的权限。 有关 RBAC 的详细信息，请参阅 [AZURE RBAC 文档](https://docs.microsoft.com/azure/role-based-access-control/)。
+自定义视觉支持 Azure 基于角色的访问控制 (Azure RBAC)，这是用于管理对 Azure 资源的个人访问权限的授权系统。 使用 Azure RBAC，可为不同的团队成员分配自定义视觉项目的不同级别的权限。 有关 Azure RBAC 的详细信息，请参阅 [AZURE rbac 文档](https://docs.microsoft.com/azure/role-based-access-control/)。
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>将角色分配添加到自定义视觉资源
 
@@ -27,7 +27,7 @@ ms.locfileid: "91826936"
 1. 在 [Azure 门户](https://ms.portal.azure.com/)中，选择“所有服务”。 
 1. 然后选择 **认知服务**，并导航到特定自定义视觉培训资源。
    > [!NOTE]
-   > 还可以设置整个资源组、订阅或管理组的 RBAC。 为此，请选择所需的作用域级别，然后导航到所需的项目 (例如，选择 " **资源组** "，然后单击到所需的资源组) 。
+   > 你还可以为整个资源组、订阅或管理组设置 Azure RBAC。 为此，请选择所需的作用域级别，然后导航到所需的项目 (例如，选择 " **资源组** "，然后单击到所需的资源组) 。
 1. 选择左侧导航窗格中的 " **访问控制 (IAM) ** 。
 1. 选择 " **角色分配** " 选项卡以查看此作用域的角色分配。
 1. 选择 "**添加**" "添加  ->  **角色分配**"。

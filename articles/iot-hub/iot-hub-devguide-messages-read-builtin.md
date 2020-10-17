@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.custom:
 - amqp
 - 'Role: Cloud Development'
-ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327695"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147670"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
@@ -72,12 +72,12 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 可以与内置的、与事件中心兼容的且由 IoT 中心公开的终结点配合使用的产品集成包括：
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)。 请参阅[使用 Azure Functions 从 IoT 中心处理数据](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/)。
-* [Azure 流分析](https://docs.microsoft.com/azure/stream-analytics/)。 请参阅[将数据作为流分析的输入进行流式传输](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)。
-* [时序见解](https://docs.microsoft.com/azure/time-series-insights/)。 请参阅[向时序见解环境添加 IoT 中心事件源](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md)。
+* [Azure Functions](../azure-functions/index.yml)。 请参阅[使用 Azure Functions 从 IoT 中心处理数据](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/)。
+* [Azure 流分析](../stream-analytics/index.yml)。 请参阅[将数据作为流分析的输入进行流式传输](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)。
+* [时序见解](../time-series-insights/index.yml)。 请参阅[向时序见解环境添加 IoT 中心事件源](../time-series-insights/how-to-ingest-data-iot-hub.md)。
 * [Apache Storm Spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md)。 可以在 GitHub 上查看 [Spout 源代码](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 。
-* [Apache Spark 集成](../hdinsight/spark/apache-spark-eventhub-streaming.md)。
-* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/)。
+* [Apache Spark 集成](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)。
+* [Azure Databricks](/azure/azure-databricks/)。
 
 ## <a name="next-steps"></a>后续步骤
 

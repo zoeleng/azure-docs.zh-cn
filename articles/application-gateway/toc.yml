@@ -80,6 +80,10 @@
           href: redirect-overview.md
         - name: 重写 HTTP 标头和 URL
           href: rewrite-http-headers-url.md
+        - name: 安全
+          items:
+            - name: 安全基线
+              href: security-baseline.md
     - name: SSL
       items:
         - name: SSL 终止和端到端 SSL
@@ -281,7 +285,7 @@
     - name: Azure 资源管理器
       displayName: ARM
       href: ../azure-resource-manager/management/overview.md
-    - name: 资源管理器模板
+    - name: Resource Manager 模板
       displayName: ARM
       href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
 - name: 资源

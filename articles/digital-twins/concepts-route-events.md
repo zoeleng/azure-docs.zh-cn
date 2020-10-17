@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 了解如何将 Azure 数字孪生中的事件路由到其他 Azure 服务。
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044286"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145985"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>在 Azure 数字孪生内部和外部路由事件
 
@@ -91,6 +91,20 @@ await client.CreateEventRoute("routeName", er);
 > 所有 SDK 函数都提供同步和异步版本。
 
 还可以使用 [Azure 数字孪生 CLI](how-to-use-cli.md)创建路由。
+
+## <a name="dead-letter-events"></a>死信事件
+当终结点无法在某个时间段内传递事件时，或者尝试将事件传递到一定次数后，它可以将未送达的事件发送到存储帐户。 此过程称为“死信处理”。 当满足 **以下条件之一** 时，Azure 数字孪生会将事件死信。 
+
+- 事件未在生存期内传递
+- 尝试传递事件的次数已超出限制
+
+如果满足上述任一条件，则会将该事件删除或视为死信。  默认情况下，每个终结点 **不会** 启用死信。 若要启用它，您必须指定一个存储帐户，以便在创建终结点时保存未传递的事件。 你将从此存储帐户中拉取事件来解决传递问题。
+
+在设置死信位置之前，必须有一个包含容器的存储帐户。 创建终结点时，提供此容器的 URL。 死信作为带有 SAS 令牌的容器 URL 提供。 该令牌只需要 `write` 对存储帐户中目标容器的权限。 完整的格式 URL 将采用以下格式： `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+若要了解有关 SAS 令牌的详细信息，请参阅： [*使用共享访问签名授予对 Azure 存储资源的有限访问权限 (SAS) *](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+若要了解如何设置死信，请参阅 [*如何：在 Azure 数字孪生中管理终结点和路由 (api 和 CLI) *](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)。
 
 ### <a name="types-of-event-messages"></a>事件消息的类型
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84634351"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146778"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 可视化 Azure IoT 中心的实时传感器数据
 
@@ -52,7 +52,7 @@ ms.locfileid: "84634351"
 
 ### <a name="create-a-stream-analytics-job"></a>创建流分析作业
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择“创建资源” > “物联网” > “流分析作业”。************
+1. 在 [Azure 门户](https://portal.azure.com)中，选择“创建资源” > “物联网” > “流分析作业”。   
 
 2. 为作业输入以下信息。
 
@@ -64,7 +64,7 @@ ms.locfileid: "84634351"
 
    ![在 Azure 中创建流分析作业](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png)
 
-3. 选择“创建” 。
+3. 选择“创建”。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>将输入添加到流分析作业
 
@@ -78,11 +78,11 @@ ms.locfileid: "84634351"
 
    **从 "订阅" 中选择 "IoT 中心**"：选择此单选按钮。
 
-   **订阅**：选择要用于本教程的 Azure 订阅。
+   **订阅**：选择本教程使用的 Azure 订阅。
 
    **Iot 中心**：选择要用于本教程的 iot 中心。
 
-   **终结点**：选择“消息传送”****。
+   **终结点**：选择“消息传送”  。
 
    **共享访问策略名称**：选择想要流分析作业用于 IoT 中心的共享访问策略的名称。 对于本教程，您可以选择 " *服务*"。 默认情况下，在新的 IoT 中心创建 *服务* 策略，并授予在 IoT 中心公开的云端终结点上发送和接收的权限。 若要了解详细信息，请参阅 [访问控制和权限](iot-hub-devguide-security.md#access-control-and-permissions)。
 
@@ -94,7 +94,7 @@ ms.locfileid: "84634351"
 
    ![向 Azure 中的流分析作业添加输入](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png)
 
-4. 选择“保存” 。
+4. 选择“保存”。 
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>将输出添加到流分析作业
 
@@ -118,7 +118,7 @@ ms.locfileid: "84634351"
 
    ![向 Azure 中的流分析作业添加输出](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png)
 
-5. 选择“保存” 。
+5. 选择“保存”。 
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>配置流分析作业的查询
 
@@ -140,15 +140,15 @@ ms.locfileid: "84634351"
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>创建并发布实现数据可视化的 Power BI 报表
 
-以下步骤说明如何使用 Power BI 服务创建和发布报表。 如果要在 Power BI 中使用 "新建外观"，则可以在执行一些修改的情况下执行这些步骤。 若要了解差异以及如何在 "新建外观" 中导航，请参阅 [Power BI 服务的 "新外观"](https://docs.microsoft.com/power-bi/consumer/service-new-look)。
+以下步骤说明如何使用 Power BI 服务创建和发布报表。 如果要在 Power BI 中使用 "新建外观"，则可以在执行一些修改的情况下执行这些步骤。 若要了解差异以及如何在 "新建外观" 中导航，请参阅 [Power BI 服务的 "新外观"](/power-bi/consumer/service-new-look)。
 
-1. 确保示例应用程序正在设备上运行。 如果没有，请参考[设置设备](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)中的教程。
+1. 确保示例应用程序正在设备上运行。 如果没有，请参考[设置设备](./iot-hub-raspberry-pi-kit-node-get-started.md)中的教程。
 
 2. 登录到 [Power BI](https://powerbi.microsoft.com/en-us/) 帐户。
 
 3. 选择你使用的工作区，" **我的工作区**"。
 
-4. 选择“数据集”。
+4. 选择“数据集”。 
 
    此时应当会看到你在为流分析作业创建输出时指定的数据集。
 
@@ -160,11 +160,11 @@ ms.locfileid: "84634351"
 
    1. 在 "报表创建" 页的 " **可视化** " 窗格中，选择 "折线图" 图标以添加折线图。
 
-   2. 在“字段”窗格中展开一个表，该表是在为流分析作业创建输出时指定的。****
+   2. 在“字段”窗格中展开一个表，该表是在为流分析作业创建输出时指定的。 
 
-   3. 将 **EventEnqueuedUtcTime** 拖至“可视化效果”窗格中的“轴”。********
+   3. 将 **EventEnqueuedUtcTime** 拖至“可视化效果”窗格中的“轴”。  
 
-   4. 将“温度”拖至“值”。********
+   4. 将“温度”拖至“值”。  
 
       已创建一个折线图。 X 轴显示 UTC 时区的日期和时间。 Y 轴显示来自传感器的温度。
 

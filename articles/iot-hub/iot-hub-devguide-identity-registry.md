@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029828"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147711"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -84,7 +84,7 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 
 有关导入和导出 API 的详细信息，请参阅 [IoT 中心资源提供程序 REST API](/rest/api/iothub/iothubresource)。 若要了解有关如何运行导入和导出作业的详细信息，请参阅[批量管理 IoT 中心的设备标识](iot-hub-bulk-identity-mgmt.md)。
 
-设备标识也可以使用 [REST API](/rest/api/iothub/service/jobs/createimportexportjob) 或 IoT 中心[服务 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) 之一通过服务 API 从 IoT 中心导出和导入。
+设备标识也可以使用 [REST API](/rest/api/iothub/service/jobs/createimportexportjob) 或 IoT 中心[服务 SDK](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) 之一通过服务 API 从 IoT 中心导出和导入。
 
 ## <a name="device-provisioning"></a>Device Provisioning
 

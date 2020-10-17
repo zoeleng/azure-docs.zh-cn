@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: c51b99ed04357cdebaabbde2b2bd0400adcfef30
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134127"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147913"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>通过专用链接 (预览) 保护和隔离 Azure HDInsight 群集
 
@@ -56,7 +56,7 @@ ms.locfileid: "92134127"
 
 如果 `privateLink` 设置为 " *启用*"，则会创建内部 [标准负载平衡](../load-balancer/load-balancer-overview.md) 器 (slb) ，并为每个 SLB 预配 Azure 专用链接服务。 专用链接服务可让你从专用终结点访问 HDInsight 群集。
 
-标准负载均衡器不会自动提供公共出站 NAT （如基本负载均衡器）。 对于出站依赖项，你必须提供自己的 NAT 解决方案，如 [虚拟网络 NAT](../virtual-network/nat-overview.md) 或 [防火墙](./hdinsight-restrict-outbound-traffic.md)。 你的 HDInsight 群集仍需要访问其出站依赖项。 如果不允许这些出站依赖项，则群集创建可能会失败。
+标准负载均衡器不会自动提供 [公共出站 NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) （如基本负载均衡器）。 对于出站依赖项，你必须提供自己的 NAT 解决方案，如 [虚拟网络 NAT](../virtual-network/nat-overview.md) 或 [防火墙](./hdinsight-restrict-outbound-traffic.md)。 你的 HDInsight 群集仍需要访问其出站依赖项。 如果不允许这些出站依赖项，则群集创建可能会失败。
 
 ### <a name="prepare-your-environment"></a>准备环境
 

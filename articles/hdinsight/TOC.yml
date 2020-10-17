@@ -276,7 +276,7 @@
           href: /rest/api/hdinsight/
         - name: REST API (Apache Spark)
           href: /rest/api/hdinsightspark/
-        - name: 资源管理器模板
+        - name: Resource Manager 模板
           href: /azure/templates/microsoft.hdinsight/allversions
     - name: 资源
       items:
@@ -954,6 +954,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: HDInsight 虚拟网络体系结构
           href: ./hdinsight-virtual-network-architecture.md
+        - name: 专用链接
+          href: ./hdinsight-private-link.md
         - name: 传输层安全性
           href: ./transport-layer-security.md
         - name: 为 HDInsight 计划 VNET

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074730"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147083"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
@@ -22,7 +22,7 @@ ms.locfileid: "87074730"
 
 对于需要阻止特定 IP 地址的 IoT 中心终结点的情况，有两个具体用例：
 
-* IoT 中心应仅从指定范围内的 IP 地址接收流量并拒绝任何其他流量。 例如，将 IoT 中心与 [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) 配合使用，以在 IoT 中心与本地基础结构之间创建专用连接。
+* IoT 中心应仅从指定范围内的 IP 地址接收流量并拒绝任何其他流量。 例如，将 IoT 中心与 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) 配合使用，以在 IoT 中心与本地基础结构之间创建专用连接。
 
 * 需要拒绝来自 IoT 中心管理员已标识为可疑地址的 IP 地址的流量。
 
@@ -75,7 +75,7 @@ ms.locfileid: "87074730"
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>使用 Azure CLI 检索和更新 IP 筛选器
 
-可以通过 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 检索和更新 IoT 中心的 IP 筛选器。
+可以通过 [Azure CLI](/cli/azure/?view=azure-cli-latest) 检索和更新 IoT 中心的 IP 筛选器。
 
 若要检索 IoT 中心的当前 IP 筛选器，请运行：
 
@@ -149,7 +149,7 @@ $iothubResource | Set-AzResource -Force
 
 ## <a name="update-ip-filter-rules-using-rest"></a>使用 REST 更新 IP 筛选器
 
-还可以使用 Azure 资源提供程序的 REST 终结点检索和修改 IoT 中心的 IP 筛选器。 请参阅 [createorupdate 方法](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate)`properties.ipFilterRules`。
+还可以使用 Azure 资源提供程序的 REST 终结点检索和修改 IoT 中心的 IP 筛选器。 请参阅 [createorupdate 方法](/rest/api/iothub/iothubresource/createorupdate)`properties.ipFilterRules`。
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 筛选器规则评估
 

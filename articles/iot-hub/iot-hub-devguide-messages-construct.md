@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766975"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147694"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
@@ -24,7 +24,7 @@ ms.locfileid: "91766975"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与[事件中心](/azure/event-hubs/)事件和[服务总线](/azure/service-bus-messaging/)消息相比，IoT 中心的设备到云消息更类似前者，类似之处在于有大量事件通过可供多个读取器读取的服务 。
+IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与[事件中心](../event-hubs/index.yml)事件和[服务总线](../service-bus-messaging/index.yml)消息相比，IoT 中心的设备到云消息更类似前者，类似之处在于有大量事件通过可供多个读取器读取的服务 。
 
 IoT 中心消息由以下部分组成：
 
@@ -61,8 +61,8 @@ IoT 中心消息由以下部分组成：
 | iothub-connection-module-id |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **moduleId**。 | 否 | connectionModuleId |
 | iothub-connection-auth-generation-id |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **connectionDeviceGenerationId**（根据[设备标识属性](iot-hub-devguide-identity-registry.md#device-identity-properties)）。 | 否 |connectionDeviceGenerationId |
 | iothub-connection-auth-method |由 IoT 中心对设备到云的消息设置的身份验证方法。 此属性包含用于验证发送消息的设备的身份验证方法的相关信息。| 否 | connectionAuthMethod |
-| dt-dataschema | 此值由 IoT 中心在设备到云消息上设置。 它包含设备连接中设置的设备型号 ID。 | 否 | 不适用 |
-| dt-subject | 正在发送设备到云消息的组件的名称。 | 是 | 不适用 |
+| dt-dataschema | 此值由 IoT 中心在设备到云消息上设置。 它包含设备连接中设置的设备型号 ID。 | 否 | 空值 |
+| dt-subject | 正在发送设备到云消息的组件的名称。 | 是 | 空值 |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>**C2D** IoT 中心消息的系统属性
 

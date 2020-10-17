@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106818"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146300"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中的安全性
 
@@ -42,7 +42,7 @@ Azure Active Directory 对用户进行身份验证，以便用户可以访问 Da
 * 用于帐户管理[ (AZURE RBAC) 的 azure 基于角色的访问控制](../role-based-access-control/overview.md)
 * 用于访问存储区中数据的 POSIX ACL
 
-### <a name="rbac-for-account-management"></a>用于帐户管理的 RBAC
+### <a name="azure-rbac-for-account-management"></a>用于帐户管理的 Azure RBAC
 
 默认情况下，针对 Data Lake Storage Gen1 定义四种基本角色。 这些角色允许通过 Azure 门户、PowerShell cmdlet 和 REST API 对 Data Lake Storage Gen1 帐户执行不同的操作。 所有者和参与者角色可对帐户执行许多管理功能。 可以将读取者角色分配给仅查看帐户管理数据的用户。
 
@@ -111,7 +111,7 @@ Data Lake Storage Gen1 还针对帐户中存储的数据提供加密。 可以�
 
 有关如何使用 Data Lake Storage Gen1 的诊断日志的详细信息，请参阅[访问 Data Lake Storage Gen1 的诊断日志](data-lake-store-diagnostic-logs.md)。
 
-## <a name="summary"></a>“摘要”
+## <a name="summary"></a>总结
 
 企业客户需要安全、易用的数据分析云平台。 Data Lake Storage Gen1 旨在利用 Azure Active Directory 集成、基于 ACL 的授权、网络隔离、传输中的数据加密、静态数据加密和审核，通过标识管理和身份验证来满足这些需求。
 

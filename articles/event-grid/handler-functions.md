@@ -3,12 +3,12 @@ title: Azure Functions 作为 Azure 事件网格事件的事件处理程序
 description: 介绍如何将 Azure Functions 用作事件网格事件的事件处理程序。
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873721"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145765"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Azure Functions 作为事件网格事件的事件处理程序
 
@@ -74,13 +74,13 @@ ms.locfileid: "91873721"
 可以在 &quot;**事件网格主题**&quot; 页的 &quot;**功能**":::
 
 ### <a name="azure-resource-manager-template"></a>Azure 资源管理器模板
-可以在 Azure 资源管理器模板中设置 **maxEventsPerBatch** 和 **preferredBatchSizeInKilobytes** 。 有关详细信息，请参阅 [EventGrid eventSubscriptions template reference](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions)。
+可以在 Azure 资源管理器模板中设置 **maxEventsPerBatch** 和 **preferredBatchSizeInKilobytes** 。 有关详细信息，请参阅 [EventGrid eventSubscriptions template reference](/azure/templates/microsoft.eventgrid/eventsubscriptions)。
 
 ### <a name="azure-cli"></a>Azure CLI
-你可以使用 [az eventgrid event-订阅 create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) 或 [az eventgrid 事件-订阅更新](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) 命令，使用以下参数配置与批处理相关的设置： `--max-events-per-batch` 或 `--preferred-batch-size-in-kilobytes` 。
+你可以使用 [az eventgrid event-订阅 create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) 或 [az eventgrid 事件-订阅更新](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) 命令，使用以下参数配置与批处理相关的设置： `--max-events-per-batch` 或 `--preferred-batch-size-in-kilobytes` 。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-可以使用 [AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) 或 [AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet，使用以下参数配置与批处理相关的设置： `-MaxEventsPerBatch` 或 `-PreferredBatchSizeInKiloBytes` 。
+可以使用 [AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) 或 [AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet，使用以下参数配置与批处理相关的设置： `-MaxEventsPerBatch` 或 `-PreferredBatchSizeInKiloBytes` 。
 
 ## <a name="next-steps"></a>后续步骤
-如需支持的事件处理程序的列表，请参阅[事件处理程序](event-handlers.md)一文。 
+如需支持的事件处理程序的列表，请参阅[事件处理程序](event-handlers.md)一文。

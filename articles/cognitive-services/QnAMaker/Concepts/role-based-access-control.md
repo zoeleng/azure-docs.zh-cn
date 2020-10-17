@@ -5,28 +5,28 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 967fdae49f904f6c1cb450b637a8dbc5c481b135
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776878"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147526"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>与其他作者和编辑人员协作
 
-使用基于角色的访问控制 (RBAC) 置于 QnA Maker 资源上，与其他作者和编辑器进行协作。
+使用 Azure 基于角色的访问控制来与其他作者和编辑人员进行协作 (Azure RBAC) 置于 QnA Maker 资源。
 
 ## <a name="access-is-provided-on-the-qna-maker-resource"></a>QnA Maker 资源上提供了访问权限
 
 所有权限都受 QnA Maker 资源上的权限控制。 这些权限与读取、写入、发布和完全访问权限一致。
 
-此 RBAC 功能包括：
-* Azure Active Directory (AAD) 为100% 向后兼容所有者和参与者的基于密钥的身份验证。 客户可在其请求中使用基于密钥的身份验证或基于 RBAC 的身份验证。
+此 Azure RBAC 功能包括：
+* Azure Active Directory (AAD) 为100% 向后兼容所有者和参与者的基于密钥的身份验证。 客户可在其请求中使用基于密钥的身份验证或基于密钥的 Azure 身份验证。
 * 快速将作者和编辑器添加到资源中的所有知识库，因为控件位于资源级别，而不是在知识库级别。
 
 ## <a name="access-is-provided-by-a-defined-role"></a>访问由定义的角色提供
 
-[!INCLUDE [RBAC permissions table](../includes/role-based-access-control.md)]
+[!INCLUDE [Azure RBAC permissions table](../includes/role-based-access-control.md)]
 
 ## <a name="authentication-flow"></a>身份验证流
 
@@ -35,7 +35,7 @@ ms.locfileid: "91776878"
 > [!div class="mx-imgBorder"]
 > ![下图显示了从作者的角度来登录到 QnA Maker 门户并使用创作 Api 的流。](../media/qnamaker-how-to-collaborate-knowledge-base/rbac-flow-from-portal-to-service.png)
 
-|步骤|说明|
+|步骤|描述|
 |--|--|
 |1|门户获取 QnA Maker 资源的标记。|
 |2|门户会调用适当的 QnA Maker 创作 API (APIM) 传递令牌，而不是密钥。|

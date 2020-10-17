@@ -152,13 +152,31 @@
       href: concept-onnx.md
     - name: ML 管道
       href: concept-ml-pipelines.md
-    - name: 企业就绪情况和安全性
+    - name: 安全
       items:
         - name: 企业安全概述
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: 安全基线
           href: security-baseline.md
+    - name: 负责的 ML
+      items:
+        - name: “负责的 ML”概述
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: 模型可解释性
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: 机器学习中的公平
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: 差异隐私
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
+- name: 操作指南
+  items:
+    - name: 安全性
+      items:
         - name: 标识和访问管理
           items:
             - name: 设置身份验证
@@ -212,22 +230,6 @@
         - name: 审核和管理合规性
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: 负责的 ML
-      items:
-        - name: “负责的 ML”概述
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: 模型可解释性
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: 机器学习中的公平
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: 差异隐私
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
-- name: 操作指南
-  items:
     - name: 创建并管理工作区
       items:
         - name: 使用 Azure 门户

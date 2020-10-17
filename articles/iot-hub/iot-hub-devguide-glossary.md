@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87023460"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147776"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 
@@ -28,19 +28,19 @@ ms.locfileid: "87023460"
 
 ## <a name="automatic-device-management"></a>自动设备管理
 
-Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的任务自动化，包括在大型设备阵列的整个生命周期内对其进行管理。 使用自动设备管理，可以根据设备的属性将一组设备指定为目标、定义所需的配置，并在设备进入管理范畴时让 IoT 中心更新这些设备。  包括[自动设备配置](iot-hub-auto-device-config.md)和 [IoT Edge 自动部署](../iot-edge/how-to-deploy-at-scale.md)。
+Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的任务自动化，包括在大型设备阵列的整个生命周期内对其进行管理。 使用自动设备管理，可以根据设备的属性将一组设备指定为目标、定义所需的配置，并在设备进入管理范畴时让 IoT 中心更新这些设备。  包括[自动设备配置](./iot-hub-automatic-device-management.md)和 [IoT Edge 自动部署](../iot-edge/how-to-deploy-at-scale.md)。
 
 ## <a name="automatic-device-configuration"></a>自动设备配置
 
-解决方案后端可以使用[自动设备配置](iot-hub-auto-device-config.md)将所需属性分配到一组[设备孪生](#device-twin)，并使用系统指标和自定义指标来报告状态。 
+解决方案后端可以使用[自动设备配置](./iot-hub-automatic-device-management.md)将所需属性分配到一组[设备孪生](#device-twin)，并使用系统指标和自定义指标来报告状态。 
 
 ## <a name="azure-classic-cli"></a>Azure 经典 CLI
 
-[Azure 经典 CLI](../cli-install-nodejs.md) 是一个跨平台、开放源代码、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此版本的 CLI 仅应用于经典部署。
+[Azure 经典 CLI](/cli/azure/install-classic-cli) 是一个跨平台、开放源代码、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此版本的 CLI 仅应用于经典部署。
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) 是一个跨平台、开源、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。
+[Azure CLI](/cli/azure/install-az-cli2) 是一个跨平台、开源、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 设备 SDK
 
@@ -72,7 +72,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 
 ## <a name="azure-service-bus"></a>Azure 服务总线
 
-通过[服务总线](../service-bus/index.md)，可在云端使用企业消息传递进行通信，也可采用中继进行通信，帮助将本地解决方案与云端连接。 某些 IoT 中心教程使用服务总线[队列](../service-bus-messaging/service-bus-messaging-overview.md)。
+通过[服务总线](../service-bus-messaging/index.yml)，可在云端使用企业消息传递进行通信，也可采用中继进行通信，帮助将本地解决方案与云端连接。 某些 IoT 中心教程使用服务总线[队列](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 ## <a name="azure-storage"></a>Azure 存储
 
@@ -96,7 +96,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 
 ## <a name="configuration"></a>配置
 
-在使用[自动设备配置](iot-hub-auto-device-config.md)的情况下，可以通过 IoT 中心的配置为一组设备孪生定义所需的配置，并提供一组指标来报告状态和进度。
+在使用[自动设备配置](./iot-hub-automatic-device-management.md)的情况下，可以通过 IoT 中心的配置为一组设备孪生定义所需的配置，并提供一组指标来报告状态和进度。
 
 ## <a name="connection-string"></a>连接字符串
 
@@ -164,7 +164,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 
 ## <a name="device-rest-api"></a>设备 REST API
 
-在设备上使用[设备 REST API](https://docs.microsoft.com/rest/api/iothub/device)，可以将设备到云消息发送到 IoT 中心，并能从 IoT 中心接收[云到设备](#cloud-to-device)消息。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [设备 SDK](#azure-iot-device-sdks) 。
+在设备上使用[设备 REST API](/rest/api/iothub/device)，可以将设备到云消息发送到 IoT 中心，并能从 IoT 中心接收[云到设备](#cloud-to-device)消息。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [设备 SDK](#azure-iot-device-sdks) 。
 
 ## <a name="device-provisioning"></a>Device Provisioning
 
@@ -184,7 +184,7 @@ IoT 中心公开了多个[终结点](iot-hub-devguide-endpoints.md)，以便使�
 
 ## <a name="event-hubs-service"></a>事件中心服务
 
-[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)是高度可缩放的数据引入服务，每秒可以引入数以百万计的事件。 该服务使用户能够处理和分析连接设备和应用程序产生的大量数据。 有关该服务与 IoT 中心服务的比较的信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较](iot-hub-compare-event-hubs.md)。
+[事件中心](../event-hubs/event-hubs-about.md)是高度可缩放的数据引入服务，每秒可以引入数以百万计的事件。 该服务使用户能够处理和分析连接设备和应用程序产生的大量数据。 有关该服务与 IoT 中心服务的比较的信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较](iot-hub-compare-event-hubs.md)。
 
 ## <a name="event-hub-compatible-endpoint"></a>与事件中心兼容的终结点
 
@@ -226,7 +226,7 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT 中心资源 REST API
 
-使用 [IoT 中心资源 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)，可以管理 [Azure 订阅](#subscription)中的 IoT 中心，包括创建、更新和删除中心等操作。
+使用 [IoT 中心资源 REST API](/rest/api/iothub/iothubresource)，可以管理 [Azure 订阅](#subscription)中的 IoT 中心，包括创建、更新和删除中心等操作。
 
 ## <a name="iot-solution-accelerators"></a>IoT 解决方案加速器
 
@@ -304,7 +304,7 @@ SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 
 ## <a name="service-rest-api"></a>服务 REST API
 
-可以从解决方案后端使用[服务 REST API](https://docs.microsoft.com/rest/api/iothub/service/configuration) 来管理设备。 使用 API，不仅可以检索和更新[设备孪生](#device-twin)属性，还能调用[直接方法](#direct-method)并安排[作业](#job)。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [服务 SDK](#azure-iot-service-sdks) 。
+可以从解决方案后端使用[服务 REST API](/rest/api/iothub/service/configuration) 来管理设备。 使用 API，不仅可以检索和更新[设备孪生](#device-twin)属性，还能调用[直接方法](#direct-method)并安排[作业](#job)。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [服务 SDK](#azure-iot-service-sdks) 。
 
 ## <a name="shared-access-signature"></a>共享访问签名
 
