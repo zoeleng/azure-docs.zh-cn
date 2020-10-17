@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87062064"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145925"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>了解数字孪生及其克隆图形
 
@@ -47,33 +47,9 @@ ms.locfileid: "87062064"
 
 在当前预览的 Azure 数字孪生中，必须先初始化所有克隆的属性，然后才能创建克隆。 这是通过创建一个提供必要初始化值的 JSON 文档来完成的。
 
-```csharp
-public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
-{
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-    {
-      { "$model", "dtmi:com:contoso:Room;2" }
-    };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-    {
-      { "$metadata", meta },
-      { "Temperature", temperature},
-      { "Humidity", humidity},
-    };
-    try
-    {
-      await client.DigitalTwins.AddAsync(id, initData);
-      return true;
-    }
-    catch (ErrorResponseException e)
-    {
-      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
-      return false;
-    }
-}
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+
+你还可以使用名为的帮助器类 `BasicDigitalTwin` ，以更直接的方式将属性字段存储在 "双子" 对象中，作为使用字典的替代方法。 有关帮助器类及其用法示例的详细信息，请参阅 how *to： Manage 数码孪生*中的[*创建数字*](how-to-manage-twin.md#create-a-digital-twin)大距离部分。
 
 ### <a name="create-relationships"></a>创建关系
 

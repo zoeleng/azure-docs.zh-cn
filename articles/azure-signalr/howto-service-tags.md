@@ -8,16 +8,16 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 8810309fef5dbbb35465a2af15d42fa8a59d5401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302099"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152316"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>使用 Azure SignalR 服务的服务标记
 
-配置[网络安全组](../virtual-network/security-overview.md#network-security-groups)时，可以使用 Azure SignalR 服务的[服务标记](../virtual-network/security-overview.md#service-tags)。 它允许你定义到 Azure SignalR 服务终结点的出站网络安全规则，而无需对 IP 地址进行硬编码。
+配置[网络安全组](../virtual-network/network-security-groups-overview.md#network-security-groups)时，可以使用 Azure SignalR 服务的[服务标记](../virtual-network/network-security-groups-overview.md#service-tags)。 它允许你定义到 Azure SignalR 服务终结点的出站网络安全规则，而无需对 IP 地址进行硬编码。
 
 Azure SignalR 服务管理这些服务标记。 不能创建自己的服务标记或修改现有的服务标记。 Microsoft 管理与服务标记匹配的这些地址前缀，并在地址更改时自动更新服务标记。
 
@@ -41,9 +41,9 @@ Azure SignalR 服务管理这些服务标记。 不能创建自己的服务标�
 
 1. 根据需要调整其他字段。
 
-1. 单击“添加”。
+1. 单击“添加”  。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-- [网络安全组：服务标记](../virtual-network/security-overview.md#security-rules)
+- [网络安全组：服务标记](../virtual-network/network-security-groups-overview.md#security-rules)

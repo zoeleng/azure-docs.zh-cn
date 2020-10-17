@@ -4,12 +4,12 @@ description: Batch 支持 Azure AD 在 Batch 服务中进行身份验证。 了�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d84086e3fa59c1e04df5b2717738da44f5c14b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533506"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144828"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -103,7 +103,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 若要对以无人参与方式运行的应用程序进行验证，可以使用服务主体。 注册应用程序后，请按照 Azure 门户中的下列步骤配置服务主体：
 
 1. 为应用程序请求一个机密。
-1. 向应用程序分配基于角色的访问控制 (RBAC)。
+1. 将 Azure RBAC)  (azure RBAC 访问控制分配给应用程序。
 
 ### <a name="request-a-secret-for-your-application"></a>为应用程序请求一个机密
 
@@ -119,15 +119,15 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
     ![创建密钥](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-rbac-to-your-application"></a>向应用程序分配 RBAC
+### <a name="assign-azure-rbac-to-your-application"></a>将 Azure RBAC 分配到应用程序
 
-若要使用服务主体进行验证，需要向应用程序分配 RBAC。 执行以下步骤:
+若要使用服务主体进行身份验证，需要将 Azure RBAC 分配给应用程序。 执行以下步骤:
 
 1. 在 Azure 门户中，导航到应用程序使用的 Batch 帐户。
 1. 在批处理帐户的“设置”部分中，选择“访问控制(IAM)” 。
 1. 选择“角色分配”选项卡。
 1. 选择“添加角色分配”。
-1. 在“角色”下拉列表中，为应用程序选择参与者或读者角色。 有关这些角色的详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../role-based-access-control/overview.md)。
+1. 在“角色”下拉列表中，为应用程序选择参与者或读者角色。 有关这些角色的详细信息，请参阅 [在 Azure 门户中开始使用 Azure 基于角色的访问控制](../role-based-access-control/overview.md)。
 1. 在“选择”字段中，输入应用程序的名称。 从列表中选择你的应用程序，然后选择“保存”。
 
 应用程序现在应显示在已分配 Azure 角色的访问控制设置中。
@@ -138,7 +138,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 自定义角色向用户授予用于提交作业、任务等的粒度权限。 这可以防止用户执行影响成本的操作，例如创建池或修改节点。
 
-你可以使用自定义角色向 Azure AD 用户、组或服务主体授予以下 RBAC 操作的权限：
+你可以使用自定义角色向以下 Azure RBAC 操作的 Azure AD 用户、组或服务主体授予权限：
 
 - Microsoft.Batch/batchAccounts/pools/write
 - Microsoft.Batch/batchAccounts/pools/delete

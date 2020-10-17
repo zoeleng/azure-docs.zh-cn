@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777150"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145774"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>使用来自 IoT 中心的传感器数据的天气预报 Azure 机器学习 Studio (经典) 
 
@@ -46,7 +46,7 @@ ms.locfileid: "91777150"
   - 已在订阅中创建一个 Azure IoT 中心。
   - 一个可向 Azure IoT 中心发送消息的客户端应用程序。
 - 一个 [Azure 机器学习工作室（经典版）](https://studio.azureml.net/)帐户。
-- [Azure 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts)是**常规用途 v2**帐户，但支持 azure Blob 存储的任何 azure 存储帐户也会起作用。
+- [Azure 存储帐户](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts)是**常规用途 v2**帐户，但支持 azure Blob 存储的任何 azure 存储帐户也会起作用。
 
 > [!Note]
 > 本文使用 Azure 流分析和多个其他付费服务。 当必须在 Azure 区域之间传输数据时，Azure 流分析会产生额外的费用。 出于此原因，最好确保资源组、IoT 中心和 Azure 存储帐户，以及本教程后面添加的机器学习 Studio (经典) 工作区和 Azure 流分析作业，它们都位于同一 Azure 区域。 可以在 " [按区域的 Azure 产品可用性" 页](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)上查看 Azure 机器学习 Studio (经典) 和其他 azure 服务的区域支持。
@@ -170,7 +170,7 @@ ms.locfileid: "91777150"
 
    ![向 Azure 中的流分析作业添加输入](media/iot-hub-weather-forecast-machine-learning/add-input-stream-analytics-job.png)
 
-1. 选择“保存”。
+1. 选择“保存”。 
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>将输出添加到流分析作业
 
@@ -204,7 +204,7 @@ ms.locfileid: "91777150"
 
    ![向 Azure 中的流分析作业添加函数](media/iot-hub-weather-forecast-machine-learning/add-function-stream-analytics-job.png)
 
-1. 选择“保存”。
+1. 选择“保存”。 
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>配置流分析作业的查询
 
