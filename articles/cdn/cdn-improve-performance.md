@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358281"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148742"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>通过在 Azure CDN 中压缩文件来提高性能
 文件压缩是提高文件传输速度和增加页面加载性能的一种简单有效的方法，可通过在从服务器发送文件之前减少其大小来实现。 文件压缩可以减少带宽成本，并为用户提供更快的响应体验。
@@ -113,6 +113,8 @@ ms.locfileid: "91358281"
 
 如果对资产的请求指定了 gzip 压缩并且请求导致缓存未命中，则 Azure CDN 将直接在 POP 服务器上对资产执行 gzip 压缩。 此后，将从缓存提供压缩的文件。
 
+如果源使用分块传输编码 (CTE) 将压缩的数据发送到 CDN POP，则不支持大于8MB 的响应大小。 
+
 ### <a name="azure-cdn-from-verizon-profiles"></a>Verizon 的 Azure CDN 配置文件
 
 对于 **Verizon 的 Azure CDN 标准版**和 **Verizon 的 Azure CDN 高级版**配置文件，只有符合条件的文件才会被压缩。 要符合压缩条件，文件必须：
@@ -149,7 +151,7 @@ ms.locfileid: "91358281"
 | 未压缩 |未缓存 |未压缩 | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>已启用压缩且文件适合压缩
-| 客户端请求的格式（通过 Accept-Encoding 标头） | 缓存文件格式 | CDN 对客户端的响应 | 注意 |
+| 客户端请求的格式（通过 Accept-Encoding 标头） | 缓存文件格式 | CDN 对客户端的响应 | 说明 |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |在支持的格式之间进行 CDN 转码。 |
 | Compressed |未压缩 |Compressed |CDN 执行压缩。 |
@@ -165,6 +167,6 @@ ms.locfileid: "91358281"
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 * [排查 CDN 文件压缩问题](cdn-troubleshoot-compression.md)    
 

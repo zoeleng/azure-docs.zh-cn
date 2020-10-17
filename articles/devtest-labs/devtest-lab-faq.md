@@ -3,12 +3,12 @@ title: Azure 开发测试实验室常见问题解答 | Microsoft Docs
 description: 本文提供有关 Azure 开发测试实验室的部分常见问题解答 (FAQ)。
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289374"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144585"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure 开发测试实验室常见问题
 获取关于 Azure 开发测试实验室的某些最常见问题的解答。
@@ -145,7 +145,7 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 -   开发测试实验室为相同大小的共享 IP 计算机创建资源组。
 
 常见资源组方案：
--   所有虚拟机都创建在指定的公共资源组中。 详细了解[实验室的资源组分配](https://aka.ms/RGControl)。
+-   所有虚拟机都创建在指定的公共资源组中。 详细了解[实验室的资源组分配](./resource-group-control.md)。
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>如何在整个开发测试实验室环境中保留命名约定？
 你可能需要将当前企业命名约定扩展到 Azure 运营，并在整个开发测试实验室环境中保持这种命名约定的一致性。 部署开发测试实验室时，我们建议使用特定的起始策略。 通过中心脚本和 JSON 模板部署这些策略，以实施一致性。 可以通过在订阅级别应用的 Azure 策略来实施命名策略。 有关 Azure Policy 的 JSON 示例，请参阅 [Azure Policy 示例](../governance/policy/samples/index.md)。
@@ -200,7 +200,7 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 可以，可将多个磁盘附加到 VM 中。
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>开发测试实验室支持第 2 代映像吗？
-是。 开发测试实验室服务支持 [第2代映像](../virtual-machines/windows/generation-2.md)。 但是，如果第1代和第2代版本都可用于映像，则在创建 VM 时，开发测试 Labs 只显示映像的第1代版本。 如果该映像只有第2代可用版本，则会看到该映像。 
+是的。 开发测试实验室服务支持 [第2代映像](../virtual-machines/generation-2.md)。 但是，如果第1代和第2代版本都可用于映像，则在创建 VM 时，开发测试 Labs 只显示映像的第1代版本。 如果该映像只有第2代可用版本，则会看到该映像。 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>如果要将 Windows OS 映像用于我的测试，是否需要购买 MSDN 订阅？
 要在 Azure 中使用 Windows 客户端 OS 映像（Windows 7 或更高版本）进行开发或测试，请执行以下步骤之一：

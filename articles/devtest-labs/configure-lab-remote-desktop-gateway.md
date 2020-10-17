@@ -3,12 +3,12 @@ title: 在 Azure 开发测试实验室中配置实验室以使用远程桌面网
 description: 了解如何使用远程桌面网关在 Azure 开发测试实验室中配置实验室，以确保安全访问实验室 Vm，而无需公开 RDP 端口。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288069"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144702"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>将 Azure 开发测试实验室中的实验室配置为使用远程桌面网关
 在 Azure 开发测试实验室中，可以为实验室配置远程桌面网关，以确保 (Vm) 安全访问实验室虚拟机，而无需公开 RDP 端口。 实验室为实验室用户提供了一个中心位置，用于查看并连接到他们有权访问的所有虚拟机。 "**虚拟机**" 页上的 "**连接**" 按钮创建计算机特定的 RDP 文件，您可以打开该文件以连接到计算机。 可以通过将实验室连接到远程桌面网关，进一步自定义和保护 RDP 连接。 
@@ -79,7 +79,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 1. **保存** 变化.
 
     > [!NOTE] 
-    > 单击 " **保存**" 即表示你同意 [远程桌面网关的许可条款](https://www.microsoft.com/licensing/product-licensing/products)。 有关远程网关的详细信息，请参阅 [欢迎使用远程桌面服务](https://aka.ms/rds) 和 [部署远程桌面环境](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)。
+    > 单击 " **保存**" 即表示你同意 [远程桌面网关的许可条款](https://www.microsoft.com/licensing/product-licensing/products)。 有关远程网关的详细信息，请参阅 [欢迎使用远程桌面服务](/windows-server/remote/remote-desktop-services/Welcome-to-rds) 和 [部署远程桌面环境](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)。
 
 
 如果首选通过自动化配置实验室，请参阅 [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) 的示例 PowerShell 脚本设置 **网关主机名** 和 **网关令牌机密** 设置。 [Azure 开发测试实验室 GitHub 存储库](https://github.com/Azure/azure-devtestlab)还提供 azure 资源管理器模板，该模板使用**网关主机名**和**网关令牌机密**设置创建或更新实验室。
@@ -94,7 +94,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>创建远程桌面网关的示例
 
 > [!NOTE] 
-> 使用示例模板即表示你同意 [远程桌面网关的许可条款](https://www.microsoft.com/licensing/product-licensing/products)。 有关远程网关的详细信息，请参阅 [欢迎使用远程桌面服务](https://aka.ms/rds) 和 [部署远程桌面环境](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)。
+> 使用示例模板即表示你同意 [远程桌面网关的许可条款](https://www.microsoft.com/licensing/product-licensing/products)。 有关远程网关的详细信息，请参阅 [欢迎使用远程桌面服务](/windows-server/remote/remote-desktop-services/Welcome-to-rds) 和 [部署远程桌面环境](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)。
 
 [Azure 开发测试实验室 GitHub 存储库](https://github.com/Azure/azure-devtestlab)提供了几个示例，可帮助设置使用令牌身份验证和具有开发测试实验室的远程桌面网关所需的资源。 这些示例包括用于网关计算机、实验室设置和函数应用的 Azure 资源管理器模板。
 

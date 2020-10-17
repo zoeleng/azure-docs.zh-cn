@@ -3,12 +3,12 @@ title: 注册表登录故障排除
 description: 登录到 Azure 容器注册表时的常见问题的症状、原因和解决方法
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253348"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148436"
 ---
 # <a name="troubleshoot-registry-login"></a>注册表登录故障排除
 
@@ -95,7 +95,7 @@ az acr login --name myregistry
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>确认凭据已被授权访问注册表
 
-确认与凭据关联的注册表权限，如用于从注册表拉取映像的 `AcrPull` RBAC 角色，或用于推送映像的 `AcrPush` 角色。 
+确认与凭据关联的注册表权限，如 `AcrPull` 用于从注册表中提取映像的 Azure 角色或 `AcrPush` 用于推送映像的角色。 
 
 若要在门户中访问注册表或要使用 Azure CLI 进行注册表管理，至少需要用于执行 Azure 资源管理器操作的 `Reader` 角色。
 
@@ -103,7 +103,7 @@ az acr login --name myregistry
 
 相关链接：
 
-* [RBAC 角色和权限 - Azure 容器注册表](container-registry-roles.md)
+* [Azure 角色和权限-Azure 容器注册表](container-registry-roles.md)
 * [使用存储库范围内的令牌登录](container-registry-repository-scoped-permissions.md)
 * [使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)
 * [使用门户来创建可以访问资源的 Azure AD 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ az acr login --name myregistry
   * [排查与注册表相关的网络问题](container-registry-troubleshoot-access.md)
   * [注册表性能故障排除](container-registry-troubleshoot-performance.md)
 * [社区支持](https://azure.microsoft.com/support/community/)选项
-* [Microsoft 问答](https://docs.microsoft.com/answers/products/)
+* [Microsoft 问答](/answers/products/)
 * [开具支持票证](https://azure.microsoft.com/support/create-ticket/) - 根据你提供的信息，可能会针对注册表中的身份验证失败运行快速诊断
-
-

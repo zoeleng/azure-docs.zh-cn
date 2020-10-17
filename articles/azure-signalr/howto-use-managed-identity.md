@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094069"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152306"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR 服务的托管标识
 
@@ -62,20 +62,20 @@ Azure SignalR 服务是一种完全托管的服务，因此你不能使用托管
     - 空
     - 服务主体的应用程序（客户端）ID
     - 服务主体的应用程序 ID URI
-    - [Azure 服务的资源 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [Azure 服务的资源 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
     > 如果你在服务中亲自验证访问令牌，则可选择任何一种资源格式。 只需要确保“身份验证”设置中的“资源”值与验证一致即可。 如果对数据平面使用 azure (azure RBAC) 的基于角色的访问控制，则必须使用服务提供商请求的资源。
 
 ### <a name="validate-access-tokens"></a>验证访问令牌
 
-`Authorization` 标头中的令牌是 [Microsoft 标识平台访问令牌](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens)。
+`Authorization` 标头中的令牌是 [Microsoft 标识平台访问令牌](../active-directory/develop/access-tokens.md#validating-tokens)。
 
 若要验证访问令牌，你的应用还应当验证受众和签名令牌。 这些需要根据 OpenID 发现文档中的值进行验证。 有关示例，请参阅[文档的独立于租户的版本](https://login.microsoftonline.com/common/.well-known/openid-configuration)。
 
-Azure Active Directory (Azure AD) 中间件具有用于验证访问令牌的内置功能。 你可以浏览我们的[示例](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)来查找所选语言的示例。
+Azure Active Directory (Azure AD) 中间件具有用于验证访问令牌的内置功能。 你可以浏览我们的[示例](../active-directory/develop/sample-v2-code.md)来查找所选语言的示例。
 
-我们提供了库和代码示例，用以演示如何轻松处理令牌验证。 还有多个可用于 JSON Web 令牌 (JWT) 验证的开源合作伙伴库。 几乎针对每种平台和语言都提供了至少一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Microsoft 标识平台身份验证库](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries)。
+我们提供了库和代码示例，用以演示如何轻松处理令牌验证。 还有多个可用于 JSON Web 令牌 (JWT) 验证的开源合作伙伴库。 几乎针对每种平台和语言都提供了至少一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Microsoft 标识平台身份验证库](../active-directory/develop/reference-v2-libraries.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

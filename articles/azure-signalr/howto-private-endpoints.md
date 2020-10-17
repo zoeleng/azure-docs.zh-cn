@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302139"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152338"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>使用 Azure SignalR 服务的专用终结点
 
@@ -82,8 +82,8 @@ Azure SignalR 服务所有者可以通过[Azure 门户](https://portal.azure.com
 
 有关配置自己的 DNS 服务器以支持专用终结点的详细信息，请参阅以下文章：
 
-- [Azure 虚拟网络中资源的名称解析](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [专用终结点的 DNS 配置](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Azure 虚拟网络中资源的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [专用终结点的 DNS 配置](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>创建专用终结点
 
@@ -93,11 +93,11 @@ Azure SignalR 服务所有者可以通过[Azure 门户](https://portal.azure.com
 
     ![创建 Azure SignalR 服务-网络选项卡](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
 
-1. 单击“添加”。 填写新专用终结点的订阅、资源组、位置和名称。 选择虚拟网络和子网。
+1. 单击“添加”  。 填写新专用终结点的订阅、资源组、位置和名称。 选择虚拟网络和子网。
 
     ![创建 Azure SignalR 服务-添加专用终结点](media/howto-private-endpoints/portal-create-blade-add-private-endpoint.png)
 
-1. 单击“查看 + 创建”  。
+1. 单击“查看 + 创建”。
 
 ### <a name="create-a-private-endpoint-for-an-existing-azure-signalr-service-in-the-azure-portal"></a>在 Azure 门户中创建现有 Azure SignalR 服务的专用终结点
 
@@ -121,7 +121,7 @@ Azure SignalR 服务所有者可以通过[Azure 门户](https://portal.azure.com
 
     ![创建专用终结点-配置](media/howto-private-endpoints/portal-create-private-endpoint-configuration.png)
 
-1. 单击“查看 + 创建”  。
+1. 单击“查看 + 创建”。
 
 ### <a name="create-a-private-endpoint-using-azure-cli"></a>使用 Azure CLI 创建专用终结点
 
@@ -198,7 +198,7 @@ Vnet 中具有现有专用终结点的客户端在访问具有专用终结点的
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>专用终结点所在子网的网络安全组规则
 
-目前，无法为专用终结点配置 [网络安全组](../virtual-network/security-overview.md) (NSG) 规则和用户定义的路由。 应用于托管专用终结点的子网的 NSG 规则应用到专用终结点。 此问题的一种有限的解决方法是在源子网中实现专用终结点的访问规则，不过，这种方法可能需要更高的管理开销。
+目前，无法为专用终结点配置 [网络安全组](../virtual-network/network-security-groups-overview.md) (NSG) 规则和用户定义的路由。 应用于托管专用终结点的子网的 NSG 规则应用到专用终结点。 此问题的一种有限的解决方法是在源子网中实现专用终结点的访问规则，不过，这种方法可能需要更高的管理开销。
 
 ## <a name="next-steps"></a>后续步骤
 

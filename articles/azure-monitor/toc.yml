@@ -293,7 +293,7 @@
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
                 - name: 资源管理器模板
-                  href: platform/template-workspace-configuration.md
+                  href: ./samples/resource-manager-workspace.md
             - name: 删除和恢复工作区
               href: platform/delete-workspace.md
             - name: 管理访问权限
@@ -415,7 +415,7 @@
                       href: platform/diagnostics-extension-windows-install.md
                     - name: PowerShell
                       href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
-                    - name: 资源管理器模板
+                    - name: Resource Manager 模板
                       href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
                 - name: 发送到 Azure Monitor 指标存储
                   items:
@@ -463,7 +463,7 @@
           href: platform/autoscale-get-started.md
         - name: 配置设置
           href: platform/autoscale-understanding-settings.md
-        - name: 最佳实践
+        - name: 最佳做法
           href: platform/autoscale-best-practices.md
         - name: 常见指标
           href: platform/autoscale-common-metrics.md

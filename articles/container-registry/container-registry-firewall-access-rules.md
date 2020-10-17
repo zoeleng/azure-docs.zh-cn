@@ -3,12 +3,12 @@ title: 防火墙访问规则
 description: 通过允许访问（“加入允许列表”）REST API 和数据终结点域名或特定于服务的 IP 地址范围，来配置规则以访问防火墙后的 Azure 容器注册表。
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246973"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148510"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>配置规则以访问防火墙后的 Azure 容器注册表
 
@@ -113,7 +113,7 @@ ms.locfileid: "86246973"
 
 ## <a name="allow-access-by-service-tag"></a>允许按服务标记访问
 
-在 Azure 虚拟网络中，使用网络安全规则筛选从虚拟机等资源到容器注册表的流量。 若要简化 Azure 网络规则的创建，请使用 AzureContainerRegistry [服务标记](../virtual-network/security-overview.md#service-tags)。 服务标记代表一组用于全局或每个 Azure 区域访问 Azure 服务的 IP 地址前缀。 当地址更改时，将自动更新标记。 
+在 Azure 虚拟网络中，使用网络安全规则筛选从虚拟机等资源到容器注册表的流量。 若要简化 Azure 网络规则的创建，请使用 AzureContainerRegistry [服务标记](../virtual-network/network-security-groups-overview.md#service-tags)。 服务标记代表一组用于全局或每个 Azure 区域访问 Azure 服务的 IP 地址前缀。 当地址更改时，将自动更新标记。 
 
 例如，创建包含目标 AzureContainerRegistry 的出站网络安全组规则，以允许流量流向 Azure 容器注册表。 若要只允许在特定区域中访问服务标记，请按以下格式指定区域：AzureContainerRegistry.[区域名称]。
 
@@ -183,7 +183,7 @@ az acr show-endpoints --name myregistry
 
 * 了解 [Azure 网络安全最佳做法](../security/fundamentals/network-best-practices.md)
 
-* 详细了解 Azure 虚拟网络中的[安全组](../virtual-network/security-overview.md)
+* 详细了解 Azure 虚拟网络中的[安全组](../virtual-network/network-security-groups-overview.md)
 
 * 详细了解如何为容器注册表设置[专用链接](container-registry-private-link.md)
 

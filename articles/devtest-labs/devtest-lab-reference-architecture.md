@@ -4,12 +4,12 @@ description: 本文提供了企业中 Azure 开发测试实验室的参考体系
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367744"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144545"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>适用于企业的 Azure 开发测试实验室参考体系结构
 本文提供了参考体系结构，可帮助你根据企业中的 Azure 开发测试实验室部署解决方案。 其中包括以下内容：
@@ -30,7 +30,7 @@ ms.locfileid: "91367744"
     - 你有不能移到云中的本地数据。
     - 你更喜欢将实验室的虚拟机加入本地域。
     - 你想要通过本地防火墙强制执行所有网络流量，以实现安全/合规性。
-- **网络安全组**：根据源和目标 IP 地址将流量限制到云环境 (或在云环境) 中的常见方法是使用 [网络安全组](../virtual-network/security-overview.md)。 例如，你希望只允许来自企业网络的流量进入实验室网络。
+- **网络安全组**：根据源和目标 IP 地址将流量限制到云环境 (或在云环境) 中的常见方法是使用 [网络安全组](../virtual-network/network-security-groups-overview.md)。 例如，你希望只允许来自企业网络的流量进入实验室网络。
 - **远程桌面网关**：企业通常会阻止企业防火墙上的传出远程桌面连接。 有几个选项可用于实现与开发测试实验室中基于云的环境的连接，其中包括：
   - 使用 [远程桌面网关](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)，并允许使用网关负载均衡器的静态 IP 地址。
   - 通过 ExpressRoute/站点到站点 VPN 连接[定向所有传入的 RDP 流量](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)。 当企业规划开发测试实验室部署时，此功能是一个常见的考虑因素。

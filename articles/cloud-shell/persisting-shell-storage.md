@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470130"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152266"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>在 Azure Cloud Shell 中持久保存文件
 Cloud Shell 利用 Azure 文件存储在会话之间持久保存文件。 初始启动时，Cloud Shell 会提示关联新的或现有的文件共享，以便在会话之间持久保存文件。
@@ -55,7 +55,7 @@ Cloud Shell 利用 Azure 文件存储在会话之间持久保存文件。 初始
 ![资源组设置](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>保护存储访问
-安全起见，每个用户应预配自己的存储帐户。  对于基于角色的访问控制 (RBAC)，用户必须具有存储帐户级别的“参与者”访问权限或更高访问权限。
+安全起见，每个用户应预配自己的存储帐户。  对于 azure RBAC)  (Azure 基于角色的访问控制，用户必须在存储帐户级别具有参与者访问权限或更高权限。
 
 Cloud Shell 在指定订阅中的存储帐户内使用 Azure 文件共享。 由于继承了权限，对订阅拥有足够访问权限的用户将能够访问订阅中包含的所有存储帐户和文件共享。
 
@@ -66,7 +66,7 @@ Cloud Shell 在指定订阅中的存储帐户内使用 Azure 文件共享。 由
 
 Cloud Shell 计算机位于以下区域中：
 
-|领域|区域|
+|分区图|区域|
 |---|---|
 |美洲|美国东部、美国中南部、美国西部|
 |欧洲|欧洲北部、欧洲西部|

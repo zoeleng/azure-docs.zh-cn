@@ -3,12 +3,12 @@ title: 排查与注册表相关的网络问题
 description: 访问位于虚拟网络中或防火墙后面的 Azure 容器注册表时的常见问题的症状、原因和解决方法
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743363"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148459"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>排查与注册表相关的网络问题
 
@@ -103,7 +103,7 @@ ContainerRegistryLoginEvents 表中的注册表资源日志可能有助于诊断
 
 ### <a name="configure-service-access"></a>配置服务访问
 
-目前，Azure 安全中心无法在注册表中执行 [映像漏洞扫描](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) ，从而限制对专用终结点、选定子网或 IP 地址的访问。 此外，以下服务的资源无法访问具有网络限制的容器注册表：
+目前，Azure 安全中心无法在注册表中执行 [映像漏洞扫描](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) ，从而限制对专用终结点、选定子网或 IP 地址的访问。 此外，以下服务的资源无法访问具有网络限制的容器注册表：
 
 * Azure DevOps Services 
 * Azure 容器实例
@@ -113,7 +113,7 @@ ContainerRegistryLoginEvents 表中的注册表资源日志可能有助于诊断
 
 相关链接：
 
-* [通过安全中心扫描 Azure 容器注册表映像](../security-center/azure-container-registry-integration.md)
+* [通过安全中心扫描 Azure 容器注册表映像](../security-center/defender-for-container-registries-introduction.md)
 * 提供[反馈](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
 * [配置公共 IP 网络规则](container-registry-access-selected-networks.md)
 * [使用 Azure 专用链接以私密方式连接到 Azure 容器注册表](container-registry-private-link.md)
@@ -138,7 +138,5 @@ ContainerRegistryLoginEvents 表中的注册表资源日志可能有助于诊断
   * [注册表登录故障排除](container-registry-troubleshoot-login.md) 
   * [注册表性能故障排除](container-registry-troubleshoot-performance.md)
 * [社区支持](https://azure.microsoft.com/support/community/)选项
-* [Microsoft 问答](https://docs.microsoft.com/answers/products/)
+* [Microsoft 问答](/answers/products/)
 * [开具支持票证](https://azure.microsoft.com/support/create-ticket/)
-
-

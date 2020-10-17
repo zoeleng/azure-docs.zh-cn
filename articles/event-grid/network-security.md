@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326450"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148933"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Azure 事件网格资源的网络安全
 本文介绍如何将以下安全功能与 Azure 事件网格配合使用： 
@@ -23,7 +23,7 @@ ms.locfileid: "91326450"
 ## <a name="service-tags"></a>服务标记
 服务标记代表给定 Azure 服务中的一组 IP 地址前缀。 Microsoft 会管理服务标记包含的地址前缀，并在地址更改时自动更新服务标记，从而尽量减少频繁更新网络安全规则所需的复杂操作。 有关服务标记的详细信息，请参阅[服务标记概述](../virtual-network/service-tags-overview.md)。
 
-可以在[网络安全组](../virtual-network/security-overview.md#security-rules) 或  [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 AzureEventGrid****），即可允许或拒绝相应服务的流量。**  **  
+可以在[网络安全组](../virtual-network/network-security-groups-overview.md#security-rules) 或  [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 AzureEventGrid****），即可允许或拒绝相应服务的流量。**  **  
 
 | 服务标记 | 目的 | 可以使用入站还是出站连接？ | 可以支持区域范围？ | 是否可在 Azure 防火墙中使用？ |
 | --- | -------- |:---:|:---:|:---:|

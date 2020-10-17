@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 658470a3c19f8484ac56f6a1d88d23c3d7b4147e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978099"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152111"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux 上的 SAP HANA 扩展系统的高可用性 
 
@@ -152,7 +152,7 @@ Azure NetApp 卷部署在一个单独的子网中，[委托给 Azure NetApp 文�
 
     d. 选择 " **网络**"，然后连接网络接口。 在 " **附加网络接口** " 下拉列表中，选择已为 `inter` 和子网创建的网络接口 `hsr` 。  
     
-    e. 选择“保存”。  
+    e. 选择“保存”。 
  
     f. 对于剩余的虚拟机，请重复步骤 b 到 e， (在我们的示例中，  **hana-s1-db2**、 **hana-s1-db3**、 **db1**、 **hana-s2-db2** 和 **hana-s2-db3**) 。
  
@@ -219,6 +219,9 @@ Azure NetApp 卷部署在一个单独的子网中，[委托给 Azure NetApp 文�
       1. 确保**启用浮动 IP**。
       1. 选择“确定”。
 
+   > [!IMPORTANT]
+   > 负载平衡方案中的 NIC 辅助 IP 配置不支持浮动 IP。 有关详细信息，请参阅 [Azure 负载均衡器限制](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)。 如果需要 VM 的其他 IP 地址，请部署第二个 NIC。    
+   
    > [!Note]
    > 如果没有公共 IP 地址的 VM 被放在内部（无公共 IP 地址）标准 Azure 负载均衡器的后端池中，就不会有出站 Internet 连接，除非执行额外的配置来允许路由到公共终结点。 有关如何实现出站连接的详细信息，请参阅 [SAP 高可用性方案中使用 Azure 标准负载均衡器的虚拟机的公共终结点连接](./high-availability-guide-standard-load-balancer-outbound-connections.md)。  
 

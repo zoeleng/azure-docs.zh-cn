@@ -4,12 +4,12 @@ description: 有关保护 Azure 容器实例的映像和机密的建议，以及
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922228"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148658"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure 容器实例的安全注意事项
 
@@ -34,7 +34,7 @@ ms.locfileid: "87922228"
 
 利用解决方案来扫描专用注册表中的容器映像并识别潜在漏洞。 了解不同解决方案提供的威胁检测的深度很重要。
 
-例如，Azure 容器注册表可以选择[与 Azure 安全中心](../security-center/azure-container-registry-integration.md)集成，以便自动扫描已推送到注册表的所有 Linux 映像。 Azure 安全中心的集成 Qualys 扫描程序可以检测映像漏洞、对其进行分类，并提供修正指导。
+例如，Azure 容器注册表可以选择[与 Azure 安全中心](../security-center/defender-for-container-registries-introduction.md)集成，以便自动扫描已推送到注册表的所有 Linux 映像。 Azure 安全中心的集成 Qualys 扫描程序可以检测映像漏洞、对其进行分类，并提供修正指导。
 
 还可以通过 Azure Marketplace 使用安全监视和图像扫描解决方案，如 [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) 和 [浅绿安全性](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) 。  
 
@@ -138,7 +138,7 @@ ms.locfileid: "87922228"
 
 维护对容器生态系统（包括 Kubernetes 群集）、容器注册表和容器映像的管理访问的准确审核线索。 这些日志在审核时可能需要用到，在发生任何安全事件后可用作法庭证据。 Azure 解决方案包括：
 
-* [将 Azure Kubernetes 服务与 Azure 安全中心集成](../security-center/azure-kubernetes-service-integration.md)来监视群集环境的安全配置并生成安全建议
+* [将 Azure Kubernetes 服务与 Azure 安全中心集成](../security-center/defender-for-kubernetes-introduction.md)来监视群集环境的安全配置并生成安全建议
 * [Azure 容器监视解决方案](../azure-monitor/insights/containers.md)
 * [Azure 容器实例](container-instances-log-analytics.md)和[azure 容器注册表](../container-registry/container-registry-diagnostics-audit-logs.md)的资源日志
 

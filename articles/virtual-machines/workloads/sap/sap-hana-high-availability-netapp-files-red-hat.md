@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978163"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144200"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux 上的 Azure NetApp 文件 SAP HANA 扩展的高可用性
 
@@ -227,6 +227,13 @@ Azure NetApp 文件量的吞吐量是卷大小和服务级别的一项功能，�
 5.  创建虚拟机 1 (**hanadb1**) 。 
 6.  创建虚拟机 2 (**hanadb2**) 。  
 7.  创建虚拟机时，我们将不会添加任何磁盘，因为所有装入点都将位于 Azure NetApp 文件中的 NFS 共享上。 
+
+> [!IMPORTANT]
+> 负载平衡方案中的 NIC 辅助 IP 配置不支持浮动 IP。 有关详细信息，请参阅 [Azure 负载均衡器限制](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)。 如果需要 VM 的其他 IP 地址，请部署第二个 NIC。    
+
+> [!NOTE] 
+> 如果没有公共 IP 地址的 VM 被放在内部（无公共 IP 地址）标准 Azure 负载均衡器的后端池中，就不会有出站 Internet 连接，除非执行额外的配置来允许路由到公共终结点。 有关如何实现出站连接的详细信息，请参阅 [SAP 高可用性方案中使用 Azure 标准负载均衡器的虚拟机的公共终结点连接](./high-availability-guide-standard-load-balancer-outbound-connections.md)。
+
 8.  如果使用标准负载均衡器，请执行以下配置步骤：
     1.  首先创建前端 IP 池：
         1.  打开负载均衡器，选择**前端 IP 池**，然后选择“添加”。
@@ -255,8 +262,6 @@ Azure NetApp 文件量的吞吐量是卷大小和服务级别的一项功能，�
         1.  确保**启用浮动 IP**。
         1.  选择“确定”。
 
-> [!NOTE] 
-> 如果没有公共 IP 地址的 VM 被放在内部（无公共 IP 地址）标准 Azure 负载均衡器的后端池中，就不会有出站 Internet 连接，除非执行额外的配置来允许路由到公共终结点。 有关如何实现出站连接的详细信息，请参阅 [SAP 高可用性方案中使用 Azure 标准负载均衡器的虚拟机的公共终结点连接](./high-availability-guide-standard-load-balancer-outbound-connections.md)。
 
 9. 或者，如果你的方案指示使用基本负载均衡器，请执行以下配置步骤：
     1.  配置负载均衡器。 首先创建前端 IP 池：

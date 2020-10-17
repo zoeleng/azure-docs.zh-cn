@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f47e201f0fe6f44eb33916b2b3ed71ef963d5a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531203"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148132"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>使用 Azure 门户管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "87531203"
    3. 资源组****：要在其中创建帐户的 Azure 资源组。 
    4. 位置****：Data Lake Analytics 帐户的 Azure 数据中心。 
    5. Data Lake Store****：要用于 Data Lake Analytics 帐户的默认存储。 Azure Data Lake Store 帐户和 Data Lake Analytics 帐户必须位于同一位置。
-4. 单击“创建”。 
+4. 单击 **“创建”** 。 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>删除 Data Lake Analytics 帐户
 
@@ -87,13 +87,13 @@ Data Lake Analytics 支持以下数据源：
 3. 选择一个用户，然后单击“选择”****。
 4. 选择一个角色，然后单击“选择”****。 若要设置要使用 Azure Data Lake 的新的开发人员，请选择“Data Lake Analytics 开发人员”**** 角色。
 5. 选择 U-SQL 数据库的访问控制列表 (ACL)。 如果对所选内容满意，请单击“选择”****。
-6. 选择文件的 ACL。 对于默认存储，不要更改根文件夹“/”和 /system 文件夹的 ACL。 单击“选择”。
+6. 选择文件的 ACL。 对于默认存储，不要更改根文件夹“/”和 /system 文件夹的 ACL。 单击“选择”  。
 7. 查看所选的所有更改，然后单击“运行”****。
 8. 完成向导后，单击“完成”****。
 
-## <a name="manage-role-based-access-control"></a>管理基于角色的访问控制
+## <a name="manage-azure-role-based-access-control"></a>管理 Azure 基于角色的访问控制
 
-与其他 Azure 服务一样，可使用基于角色的访问控制 (RBAC) 来控制用户与服务交互的方式。
+与其他 Azure 服务一样，可以使用 Azure 基于角色的访问控制 (Azure RBAC) 来控制用户与服务交互的方式。
 
 标准 Azure 角色具有以下功能：
 * 所有者****：可提交作业、监视作业、从任何用户取消作业以及配置帐户。

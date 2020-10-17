@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 53a861761f819c2127228e7ef688f04d91744d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081247"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151897"
 ---
 # <a name="how-to-connect-to-data-sources"></a>如何连接到数据源
 ## <a name="introduction"></a>简介
@@ -40,7 +40,7 @@ ms.locfileid: "87081247"
 | Power Query |.xlsx |安装了 Power Query for Excel 外接程序的Excel 2016 或 Excel 2010 或 Excel 2013 |
 | Power BI Desktop |.pbix |Power BI Desktop 2016 年 7 月版或更高版本 |
 | SQL Server Data Tools |vsweb:// |安装了 SQL Server 工具的 Visual Studio 2013 Update 4 或更高版本 |
-| 报表管理器 |http:// |请参阅 [SQL Server Reporting Services 的浏览器要求](https://technet.microsoft.com/library/ms156511.aspx) |
+| 报表管理器 |http:// |请参阅 [SQL Server Reporting Services 的浏览器要求](/sql/reporting-services/browser-support-for-reporting-services-and-power-view) |
 
 ## <a name="your-data-your-tools"></a>数据，工具
 菜单中可用的选项取决于当前所选的数据资产类型。 当然，并非所有可能的工具都包括在“打开方式...” 菜单中，但仍可以使用任何客户端工具轻松连接到数据源。 在“Azure 数据目录”**** 门户中选中某数据资产时，会在属性窗格中显示其完整位置。

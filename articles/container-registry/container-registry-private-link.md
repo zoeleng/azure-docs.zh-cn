@@ -3,21 +3,21 @@ title: 设置专用链接
 description: 在容器注册表上设置专用终结点，并实现在本地虚拟网络中通过专用链接进行访问的功能。 专用链接访问是高级服务层级的一项功能。
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743635"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148473"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>使用 Azure 专用链接以私密方式连接到 Azure 容器注册表
 
 
-通过将虚拟网络专用 IP 地址分配到注册表终结点并使用 [Azure 专用链接](../private-link/private-link-overview.md)，限制对注册表的访问。 虚拟网络上的客户端与注册表的专用终结点之间的网络流量将遍历 Microsoft 主干网络上的虚拟网络和专用链接，从而消除了公共 internet 的泄露。 专用链接还允许通过 [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) 专用对等互连或 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)从本地进行专用注册表访问。
+通过将虚拟网络专用 IP 地址分配到注册表终结点并使用 [Azure 专用链接](../private-link/private-link-overview.md)，限制对注册表的访问。 虚拟网络上的客户端与注册表的专用终结点之间的网络流量将遍历 Microsoft 主干网络上的虚拟网络和专用链接，从而消除了公共 internet 的泄露。 专用链接还允许通过 [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) 专用对等互连或 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)，从本地访问专用注册表。
 
 你可以为注册表的专用终结点 [配置 DNS 设置](../private-link/private-endpoint-overview.md#dns-configuration) ，以使这些设置解析为注册表分配的专用 IP 地址。 使用 DNS 配置时，网络中的客户端和服务可以继续按注册表的完全限定的域名（如 myregistry.azurecr.io）来访问注册表。 
 
-此功能在“高级”容器注册表服务层级中可用。 目前，最多可以为注册表设置10个私有终结点。 有关注册表服务层级和限制的信息，请参阅 [Azure 容器注册表层级](container-registry-skus.md)。
+此功能在“高级”容器注册表服务层级中可用。 目前，最多可以为注册表设置 10 个专用终结点。 有关注册表服务层级和限制的信息，请参阅 [Azure 容器注册表层级](container-registry-skus.md)。
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
@@ -209,7 +209,7 @@ az network private-dns record-set a add-record \
 1. 在“网络连接”中，选择“专用终结点” > “+ 添加”。
 1. 输入或选择以下信息：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     | ------- | ----- |
     | 订阅 | 选择订阅。 |
     | 资源组 | 输入现有组名称或创建一个新组。|
@@ -375,7 +375,7 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-使用本文中的步骤设置专用终结点连接时，注册表会自动接受来自对注册表拥有 RBAC 权限的客户端和服务的连接。 可以设置终结点以要求手动批准连接。 有关如何批准和拒绝专用终结点连接的信息，请参阅[管理专用终结点连接](../private-link/manage-private-endpoint.md)。
+使用本文中的步骤设置专用终结点连接时，注册表会自动接受来自具有对注册表的 Azure RBAC 权限的客户端和服务的连接。 可以设置终结点以要求手动批准连接。 有关如何批准和拒绝专用终结点连接的信息，请参阅[管理专用终结点连接](../private-link/manage-private-endpoint.md)。
 
 ## <a name="add-zone-records-for-replicas"></a>为副本添加区域记录
 

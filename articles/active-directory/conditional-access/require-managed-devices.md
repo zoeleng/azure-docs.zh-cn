@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258636"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145119"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>如何：要求托管设备使用条件访问访问 cloud app
 
@@ -126,4 +126,4 @@ ms.locfileid: "91258636"
 
 ## <a name="next-steps"></a>后续步骤
 
-在环境中配置基于设备的条件性访问策略之前，应查看 [Azure Active Directory 中的条件性访问的最佳做法](best-practices.md)。
+[评估条件访问策略的影响，然后才能广泛地启用报表模式](concept-conditional-access-report-only.md)。

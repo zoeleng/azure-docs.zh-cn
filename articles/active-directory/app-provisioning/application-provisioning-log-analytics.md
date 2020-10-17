@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: d3fd553e6903951de64c301df94ea9f2fc3eb471
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132085"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145586"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>了解预配如何与 Azure Monitor 日志集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "92132085"
 
 你应该已熟悉 Azure 监视和 Log Analytics。 如果没有，请跳过了解相关信息，然后返回了解应用程序预配日志。 若要了解有关 Azure 监视的详细信息，请参阅 [Azure Monitor 概述](../../azure-monitor/overview.md)。 若要详细了解 Azure Monitor 日志和 Log Analytics，请参阅 [Azure Monitor 中的日志查询概述](../../azure-monitor/log-query/log-query-overview.md)。
 
-配置 Azure 监视后，可以启用应用程序预配的日志。 选项位于 " **诊断设置** " 页上。
+配置 Azure 监视后，可以为应用程序预配启用日志。 选项位于 " **诊断设置** " 页上。
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="访问诊断设置" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 

@@ -3,16 +3,16 @@ title: 跨多个实验室和订阅的 Azure 开发测试实验室使用情况
 description: 了解如何跨多个实验室和订阅报告 Azure 开发测试实验室的使用情况。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287270"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152199"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>跨多个实验室和订阅报告 Azure 开发测试实验室的使用情况
 
-大多数大型组织希望通过在使用中可视化趋势和离群值，来跟踪资源使用情况，以便更有效地处理这些资源。 根据资源使用情况，实验室所有者或经理可自定义实验室以 [提高资源使用和成本](../cost-management-billing/manage/getting-started.md)。 在 Azure 开发测试实验室中，可以下载每个实验室的资源使用情况，以便更深入地了解使用模式。 这些使用模式可以帮助查明更改以提高效率。 大多数企业需要单独的实验室使用情况和跨 [多个实验室和订阅](/azure/architecture/cloud-adoption/decision-guides/subscriptions/)的总体使用情况。 
+大多数大型组织希望通过在使用中可视化趋势和离群值，来跟踪资源使用情况，以便更有效地处理这些资源。 根据资源使用情况，实验室所有者或经理可自定义实验室以 [提高资源使用和成本](../cost-management-billing/cost-management-billing-overview.md)。 在 Azure 开发测试实验室中，可以下载每个实验室的资源使用情况，以便更深入地了解使用模式。 这些使用模式可以帮助查明更改以提高效率。 大多数企业需要单独的实验室使用情况和跨 [多个实验室和订阅](/azure/architecture/cloud-adoption/decision-guides/subscriptions/)的总体使用情况。 
 
 本文介绍如何跨多个实验室和订阅处理资源使用情况信息。
 

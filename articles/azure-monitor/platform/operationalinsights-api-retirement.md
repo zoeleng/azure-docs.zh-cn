@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: a03b7bd63385b7cc16e4dafb5cd12ccd212dc959
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ad3287651716580aaf6ab8c5e819fd92a70e695d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089377"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144112"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Microsoft.operationalinsights API 版本停用
 Microsoft 将在停用 API 之前至少12个月提供通知，以便顺利过渡到较新的/受支持的版本。 我们发布了新版本 (2020-08-01) **microsoft.operationalinsights** 资源提供程序 api，并将在2023年10月31日停用任何早期的 API 版本。
@@ -69,4 +69,4 @@ Microsoft 将在停用 API 之前至少12个月提供通知，以便顺利过渡
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [microsoft.operationalinsights 工作区 API 的参考](https://docs.microsoft.com/rest/api/loganalytics/workspaces)。
+- 请参阅 [microsoft.operationalinsights 工作区 API 的参考](/rest/api/loganalytics/workspaces)。

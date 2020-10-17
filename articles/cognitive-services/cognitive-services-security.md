@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326807"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152284"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure 认知服务安全性
 
@@ -33,7 +33,7 @@ ms.locfileid: "91326807"
 
 ## <a name="authentication"></a>身份验证
 
-在讨论身份验证时，存在几种常见的误解。 身份验证和授权常常互相混淆。 标识也是安全性的主要组件。 标识是有关<a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">主体 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>的信息的集合。 标识提供者 (IdP) 为身份验证服务提供标识。 身份验证是验证用户身份的行为。 授权指为给定身份指定对资源的访问权限和特权。 有多种认知服务产品/服务，包括基于角色的访问控制 (RBAC)。 RBAC 可用于简化与人工管理主体有关的一些仪式。 有关更多详细信息，请参阅 [Azure 资源的基于角色的访问控制](../role-based-access-control/overview.md)。
+在讨论身份验证时，存在几种常见的误解。 身份验证和授权常常互相混淆。 标识也是安全性的主要组件。 标识是有关<a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">主体 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>的信息的集合。 标识提供者 (IdP) 为身份验证服务提供标识。 身份验证是验证用户身份的行为。 授权指为给定身份指定对资源的访问权限和特权。 一些认知服务产品，包括 Azure RBAC)  (Azure 基于角色的访问控制。 Azure RBAC 可用于简化手动管理主体所涉及的某些工作人员。 有关更多详细信息，请参阅 azure [资源的 azure 基于角色的访问控制](../role-based-access-control/overview.md)。
 
 有关使用订阅密钥进行身份验证、访问令牌和 Azure Active Directory (AAD) 的详细信息，请参阅对<a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Azure 认知 <span class="docon docon-navigate-external x-hidden-focus"></span> 服务的请求进行身份验证</a>。
 
@@ -201,7 +201,7 @@ NSString* value =
 
 此认知服务提供客户密码箱：
 
-* 转换器
+* 翻译工具
 
 对于以下服务，Microsoft 工程师将无法访问 E0 层中的任何客户数据： 
 

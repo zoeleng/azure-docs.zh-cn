@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192640"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148707"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>通过 Azure CDN 优化大型文件下载
 
@@ -44,10 +44,10 @@ ms.locfileid: "88192640"
 
 有关字节范围请求的详细信息，请参阅 [RFC 7233](https://tools.ietf.org/html/rfc7233)。
 
-CDN 会在收到区块后进行缓存。 无需在 CDN 缓存上缓存整个文件。 文件或字节范围的后续请求将从 CDN 缓存提供。 如果未在 CDN 上缓存所有区块，将使用预提取从源请求区块。 此优化取决于源服务器能否支持字节范围请求；如果源服务器不支持字节范围请求，则此优化无效。 
+CDN 会在收到区块后进行缓存。 无需在 CDN 缓存上缓存整个文件。 文件或字节范围的后续请求将从 CDN 缓存提供。 如果未在 CDN 上缓存所有区块，将使用预提取从源请求区块。 此优化依赖于源服务器的功能来支持字节范围请求;如果源服务器不支持字节范围请求，则下载大于8mb 大小的数据的请求将会失败。 
 
 ### <a name="conditions-for-large-file-optimization"></a>大型文件优化的条件
-使用常规 Web 分发优化类型时，会默认启用 **Microsoft 推出的 Azure CDN 标准版**的大型文件优化功能。 对文件大小上限没有任何限制。
+对文件大小上限没有任何限制。
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>使用 Verizon 的 Azure CDN 优化大型文件分发
@@ -104,10 +104,10 @@ CDN 会在收到区块后进行缓存。 无需在 CDN 缓存上缓存整个文�
 
 CDN 会在收到区块后进行缓存。 无需在 CDN 缓存上缓存整个文件。 文件或字节范围的后续请求将从 CDN 缓存提供。 如果未在 CDN 上缓存所有区块，将使用预提取从源请求区块。 此优化取决于源服务器能否支持字节范围请求；如果源服务器不支持字节范围请求，则此优化无效。
 
-### <a name="caching"></a>缓存
+### <a name="caching"></a>Caching
 大型文件优化使用与常规 Web 交付不同的默认缓存过期时间。 它可根据 HTTP 响应代码区分正缓存和负缓存。 如果源服务器通过响应中的 Cache-Control 或 Expires 标头指定了过期时间，则 CDN 将遵循该值。 如果源未指定此时间，并且该文件与此优化类型的类型和文件条件相符，则 CDN 会针对大型文件优化使用默认值。 否则，CDN 会使用常规 Web 交付的默认值。
 
-| 缓存  | 常规 Web | 大型文件优化 
+| Caching  | 常规 Web | 大型文件优化 
 --- | --- | --- 
 缓存：正 <br> HTTP 200、203、300、 <br> 301、302 和 410 | 7 天 |1 天  
 缓存：负 <br> HTTP 204、305、404 <br> 和 405 | 无 | 1 秒 

@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016121"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145374"
 ---
 # <a name="building-a-conditional-access-policy"></a>生成条件访问策略
 
 如[什么是条件访问](overview.md)一文中所述，条件访问策略是一个关于**分配**和**访问控制**的 if-then 语句。 条件访问策略可统合信号，做出决策，并实施组织策略。
 
-组织如何创建这些策略？ 需要执行哪些操作？
+组织如何创建这些策略？ 需要执行哪些操作？ 它们是如何应用的？
 
 ![条件访问（信号 + 决策 + 实施 = 策略）](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+可随时将多个条件访问策略应用于单个用户。 在这种情况下，必须满足所应用的所有策略。 例如，如果一个策略需要多重身份验证 (MFA)，另一个策略需要兼容的设备，则你必须完成 MFA 并使用兼容的设备。 所有分配在逻辑上采用 **AND** 运算符。 如果配置了多个分配，则必须满足所有分配才能触发策略。
+
+所有策略都是在两个阶段中强制实施的：
+
+- 阶段 1：收集会话详细信息 
+   - 收集会话详细信息，如需要进行策略评估的网络位置和设备标识。 
+   - 针对 [仅报告模式下](concept-conditional-access-report-only.md)的已启用策略和策略进行策略评估的阶段1。
+- 阶段 2：强制 
+   - 使用在第 1 阶段收集的会话详细信息来识别尚未满足的任何要求。 
+   - 如果有一个策略配置为阻止访问，则在使用阻止授权控制的情况下，将在此处停止强制，用户会被阻止。 
+   - 在满足策略之前，系统将提示用户完成附加的授权控制要求，这些要求未按以下顺序在阶段1期间满足：  
+      - 多重身份验证 
+      - 批准的客户端应用/应用保护策略 
+      - 受管理设备（合规或混合 Azure AD 加入） 
+      - 使用条款 
+      - 自定义控件  
+   - 满足所有授权控制后，应用 (应用的会话控制、Microsoft Cloud App Security 和令牌生存期)  
+   - 针对所有已启用的策略执行策略评估的第 2 阶段。 
 
 ## <a name="assignments"></a>分配
 
@@ -32,15 +51,15 @@ ms.locfileid: "92016121"
 
 ### <a name="users-and-groups"></a>用户和组
 
-[用户和组](concept-conditional-access-users-groups.md)指定该策略将包含或排除的对象。 该分配可以包括所有用户、特定的用户组、目录角色或外部来宾用户。 
+[用户和组](concept-conditional-access-users-groups.md) 分配策略将包括或排除的用户。 该分配可以包括所有用户、特定的用户组、目录角色或外部来宾用户。 
 
 ### <a name="cloud-apps-or-actions"></a>云应用或操作
 
-[云应用或操作](concept-conditional-access-cloud-apps.md)可以包括或排除将受该策略约束的云应用程序或用户操作。
+[云应用或操作](concept-conditional-access-cloud-apps.md) 可以包括或排除将服从策略的云应用程序或用户操作。
 
 ### <a name="conditions"></a>条件
 
-一个策略可以包含多个[条件](concept-conditional-access-conditions.md)。
+策略可以包含多个 [条件](concept-conditional-access-conditions.md)。
 
 #### <a name="sign-in-risk"></a>登录风险
 

@@ -3,12 +3,12 @@ title: 注册表性能故障排除
 description: 注册表性能常见问题的症状、原因和解决方法
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15129ebe1da2e52fac106a34863f609c440549ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88227109"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148411"
 ---
 # <a name="troubleshoot-registry-performance"></a>注册表性能故障排除
 
@@ -115,7 +115,5 @@ nslookup myregistry.azurecr.io
   * [注册表登录故障排除](container-registry-troubleshoot-login.md)
   * [排查与注册表相关的网络问题](container-registry-troubleshoot-access.md)
 * [社区支持](https://azure.microsoft.com/support/community/)选项
-* [Microsoft 问答](https://docs.microsoft.com/answers/products/)
+* [Microsoft 问答](/answers/products/)
 * [开具支持票证](https://azure.microsoft.com/support/create-ticket/)
-
-

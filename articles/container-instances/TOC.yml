@@ -43,7 +43,7 @@
 - name: 示例
   items:
     - name: 代码示例
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance'
+      href: /samples/browse/?products=azure&terms=container%2binstance
     - name: 资源管理器模板
       href: container-instances-samples-rm.md
 - name: 概念

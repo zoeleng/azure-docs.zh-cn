@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5147d6d7f1bd1fcd43835f6a66196c7642ad4ff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839548"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151943"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -33,7 +33,7 @@ ms.locfileid: "91839548"
 
 还没有 DevKit？ 请尝试 [DevKit 模拟器](https://azure-samples.github.io/iot-devkit-web-simulator/)或[购买 DevKit](https://aka.ms/iot-devkit-purchase)。
 
-可以在[代码示例库](https://docs.microsoft.com/samples/browse/?term=mxchip)中找到所有 DevKit 教程的源代码。
+可以在[代码示例库](/samples/browse/?term=mxchip)中找到所有 DevKit 教程的源代码。
 
 ## <a name="what-you-need"></a>需要什么
 
@@ -267,7 +267,7 @@ IoT DevKit 包含丰富的示例库，可以使用这些示例来了解如何将
 
     ![选择子项](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. 然后选择或创建新[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology)。
+1. 然后选择或创建新[资源组](../azure-resource-manager/management/overview.md#terminology)。
 
     ![选择资源组](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 

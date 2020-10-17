@@ -5,22 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032962"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145093"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>排查使用条件访问时的登录问题
 
 可以参考本文中的信息，使用错误消息和 Azure AD 登录日志来排查与条件访问相关的意外登录结果。
+
+## <a name="select-all-consequences"></a>选择 "所有" 结果
+
+条件访问框架提供了极大的配置灵活性。 不过，很大的灵活性还意味着您应该仔细检查每个配置策略，然后再发布它以避免产生不良结果。 在这种情况下，应该特别注意影响完整集的任务，例如**所有用户/组/云应用**。
+
+组织应避免以下配置：
+
+**对于所有用户、所有云应用：**
+
+- **阻止访问** -此配置将阻止整个组织。
+- **要求设备标记为合规** -对于尚未注册其设备的用户，此策略将阻止所有访问权限，包括对 Intune 门户的访问权限。 如果是不具有注册设备的管理员，则此策略会阻止你回到 Azure 门户更改策略。
+- **需要混合 Azure AD 加入域的设备** -此策略阻止访问还可能会阻止组织中所有用户的访问，前提是这些用户未加入混合 Azure AD 设备。
+- **需要应用保护策略** - 如果没有 Intune 策略，此阻止访问权限的策略还可能会阻止组织中所有用户的访问权限。 如果你是管理员，没有设置了 Intune 应用保护策略的客户端应用程序，则此策略会阻止你返回到 Intune 和 Azure 之类的门户。
+
+**对于所有用户、所有云应用、所有设备平台：**
+
+- **阻止访问** -此配置将阻止整个组织。
 
 ## <a name="conditional-access-sign-in-interrupt"></a>条件访问登录中断
 
@@ -82,8 +99,14 @@ ms.locfileid: "88032962"
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## <a name="what-to-do-if-you-are-locked-out-of-the-azure-portal"></a>如果已 Azure 门户锁定，该怎么办？
+
+如果由于条件性访问策略中的设置不正确而导致 Azure 门户锁定：
+
+- 检查组织中是否有其他管理员尚未被阻止。 具有 Azure 门户访问权限的管理员可以禁用影响你登录的策略。 
+- 如果组织中的任何管理员都无法更新策略，请提交支持请求。 Microsoft 支持人员可以检查并确认更新了阻止访问的条件访问策略。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Active Directory 门户中的“登录活动”报表](../reports-monitoring/concept-sign-ins.md)
 - [使用 What If 工具排查条件访问问题](troubleshoot-conditional-access-what-if.md)
-- [Azure Active Directory 中的条件访问](best-practices.md)的最佳做法

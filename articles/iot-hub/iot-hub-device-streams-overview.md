@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327678"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152168"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT 中心设备流（预览版）
 
@@ -103,7 +103,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> 确保已安装 Azure CLI 2.0.57 或更高版本。 可从[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 页下载最新版本。
+> 确保已安装 Azure CLI 2.0.57 或更高版本。 可从[安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 页下载最新版本。
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>允许以出站方式连接到设备流式处理终结点
@@ -119,7 +119,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> 确保已安装 Azure CLI 2.0.57 或更高版本。 可从[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 页下载最新版本。
+> 确保已安装 Azure CLI 2.0.57 或更高版本。 可从[安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 页下载最新版本。
 >
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>通过设备流活动日志排除故障
@@ -156,7 +156,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="iot-hub-device-stream-samples"></a>IoT 中心设备流示例
 
-IoT 中心页上提供两个[快速入门示例](/azure/iot-hub)。 这些示例演示应用程序如何使用设备流。
+IoT 中心页上提供两个[快速入门示例](./index.yml)。 这些示例演示应用程序如何使用设备流。
 
 * *echo* 示例演示如何以编程方式使用设备流（通过直接调用 SDK API）。
 
@@ -194,7 +194,7 @@ IoT 中心页上提供两个[快速入门示例](/azure/iot-hub)。 这些示例
 
 4. 服务本地代理侦听指定端口，该端口等待来自用户的新 SSH 连接（示例中使用端口 2222，但可以将该端口配置为任何其他的可用端口）。 用户将 SSH 客户端指向 localhost 上的服务本地代理端口。
 
-### <a name="notes"></a>注意
+### <a name="notes"></a>说明
 
 * 上述步骤完成了 SSH 客户端（右侧）与 SSH 守护程序（左侧）之间的端到端隧道连接。 此端到端连接的一部分涉及通过设备流将流量发送到 IoT 中心。
 

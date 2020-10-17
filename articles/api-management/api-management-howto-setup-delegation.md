@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87460994"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148772"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 
@@ -61,20 +61,18 @@ ms.locfileid: "87460994"
    * 根据 **returnUrl** 和 **salt** 查询参数计算字符串的 HMAC-SHA512 哈希（[下文提供了示例代码]）：
      
      > HMAC(**salt** + '\n' + **returnUrl**)
-     > 
-     > 
+
    * 将上面计算的哈希与 **sig** 查询参数的值进行比较。 如果两个哈希匹配，则转到下一步，否则拒绝该请求。
 3. 验证收到的是否为登录/注册请求：需将 **operation** 查询参数设置为“**SignIn**”。
 4. 向用户提供登录或注册 UI
 5. 如果用户要注册，则需在 API 管理中为其创建相应的帐户。 请使用 API 管理 REST API [创建用户]。 这样做时，请确保将用户 ID 设置为与用户存储中的用户 ID 相同的值，或设置为可跟踪的 ID。
 6. 在成功对用户进行身份验证后：
    
-   * 通过 API 管理 REST API [请求单一登录 (SSO) 令牌]
-   * 将 returnUrl 查询参数追加到从上述 API 调用接收的 SSO URL：
+   * 通过 API 管理[请求共享访问令牌]REST API
+   * 将 returnUrl 查询参数追加到你从上述 API 调用接收的 SSO URL：
      
-     > 例如，`https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
-     > 
-     > 
+     > 例如，`https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     
    * 将用户重定向到上述生成的 URL
 
 除了 **SignIn** 操作，还可以执行帐户管理，只需按上述步骤使用以下某个操作即可：
@@ -186,7 +184,7 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[请求单一登录 (SSO) 令牌]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[请求共享访问令牌]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [创建用户]: /rest/api/apimanagement/2019-12-01/user/createorupdate
 [调用订阅 REST API]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90934822"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151839"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>使用 Azure Data Studio 管理启用了 Azure Arc 的 PostgreSQL 超大规模服务器组
 
@@ -61,9 +61,8 @@ PostgreSQL 仪表板视图：
 
 此窗格左侧列出了多个仪表板：
 
-- **概述：** 显示有关实例的摘要信息，如名称、Azure 订阅 ID、配置、数据库引擎版本、Grafana 和 Kibana 的终结点 .。。
+- **概述：** 显示有关实例的摘要信息，例如 name、PostgreSQL admin user name、Azure 订阅 ID、configuration、数据库引擎版本、Grafana 的终结点和 Kibana .。。
 - **连接字符串：** 显示连接到 PostgreSQL 实例所需的各种连接字符串，例如 psql、Node.js、PHP、Ruby .。。
-- **属性：** 显示不同的属性，例如 PostgreSQL 管理员用户名、阴影资源的关联资源组 .。。
 - **诊断并解决问题：** 是登陆页面，您可以在其中找到各种资源，这些资源将帮助您在展开故障排除笔记本时对实例进行故障排除
 - **新的支持请求：** 是一个登陆页面，你将能够从我们的支持服务中请求协助，并从公共预览版公告开始。
 

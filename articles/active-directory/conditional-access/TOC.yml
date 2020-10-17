@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: 登录频率和浏览器持久性控制
       href: howto-conditional-access-session-lifetime.md
-    - name: 最佳做法
-      href: best-practices.md
     - name: 疑难解答
       items:
         - name: 排查登录问题
