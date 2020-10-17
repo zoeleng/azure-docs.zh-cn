@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800494"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143928"
 ---
 # <a name="azure-resource-logs"></a>Azure 资源日志
 Azure 资源日志是[平台日志](platform-logs-overview.md)，可以通过它深入了解已在 Azure 资源中执行的操作。 资源日志的内容因 Azure 服务和资源类型而异。 默认不会收集资源日志。 必须为每个 Azure 资源创建诊断设置，以便将其资源日志发送到 Log Analytics 工作区与 [Azure Monitor 日志](data-platform-logs.md)一起使用，发送到 Azure 事件中心以转发到 Azure 外部，或者发送到 Azure 存储进行存档。
@@ -27,7 +27,7 @@ Azure 资源日志是[平台日志](platform-logs-overview.md)，可以通过它
 - 使用日志查询执行复杂分析，并深入了解日志数据。
 - 使用带有复杂警报逻辑的日志警报。
 
-[创建诊断设置](diagnostic-settings.md)，以便将资源日志发送到 Log Analytics 工作区。 如 [Azure Monitor 日志的结构](../log-query/logs-structure.md)中所述，此数据将存储在表中。 资源日志使用的表取决于资源使用的收集类型：
+[创建诊断设置](diagnostic-settings.md)，以便将资源日志发送到 Log Analytics 工作区。 如 [Azure Monitor 日志的结构](./data-platform-logs.md)中所述，此数据将存储在表中。 资源日志使用的表取决于资源使用的收集类型：
 
 - Azure 诊断 - 所有数据将写入到 _AzureDiagnostics_ 表中。
 - 特定于资源 - 每个类别的资源的数据将写入到单独的表中。

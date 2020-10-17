@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: d7d41a875d8e0c30085bafd346e316672359de26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039bea98090edcc5966be3cea54b31c61c18dc10
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87375038"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92157871"
 ---
 :::row:::
     :::column span="3":::
@@ -25,7 +25,7 @@ ms.locfileid: "87375038"
 
 若要从你的 Android Studio 项目中使用该包，请进行以下更改：
 
-1. 在项目级 build.gradle  文件中，向 `repository` 部分添加以下内容：
+1. 在项目级 build.gradle  文件中，向 `repositories` 部分添加以下内容：
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```

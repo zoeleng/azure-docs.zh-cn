@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514793"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143266"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Azure SignalR 服务中的服务模式
 
@@ -51,11 +51,11 @@ Azure SignalR 服务目前支持三种服务模式：默认、无服务器和经
 > [!NOTE]
 > SignalR 服务[管理 SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md) 支持 REST API 和 WebSocket 方式。 如果使用的是 .NET 以外的语言，则还可以按照此[规范](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)手动调用 REST API。
 >
-> 如果使用的是 Azure Functions，则可以使用 [Azure Functions 的 SignalR 服务绑定](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service)（以下称为函数绑定），将消息作为输出绑定发送。
+> 如果使用的是 Azure Functions，则可以使用 [Azure Functions 的 SignalR 服务绑定](../azure-functions/functions-bindings-signalr-service.md)（以下称为函数绑定），将消息作为输出绑定发送。
 
 服务器应用程序还可以从客户端接收消息和连接事件。 服务会使用 Webhook 将消息和连接事件传递到预配置的终结点（称为上游）。 相较于默认模式，无法保证粘性，且 HTTP 请求可能比 WebSocket 连接低效。
 
-有关如何配置上游的详细信息，请参阅此[文档](https://docs.microsoft.com/azure/azure-signalr/concept-upstream)。
+有关如何配置上游的详细信息，请参阅此[文档](./concept-upstream.md)。
 
 下图说明了无服务器模式的工作方式：
 

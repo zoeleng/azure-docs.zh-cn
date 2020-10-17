@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9660aa3923964392f1789570d26dd825e0fef350
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71827900"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143195"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>为 Azure 认知服务启用诊断日志记录
 
@@ -24,7 +24,7 @@ ms.locfileid: "71827900"
 
 若要启用诊断日志记录，需要指定某个位置用于存储日志数据。 本教程使用 Azure 存储和 Log Analytics。
 
-* [Azure 存储](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) - 保留策略审核、静态分析或备份的诊断日志。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必位于发出日志的资源所在的订阅中。
+* [Azure 存储](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) - 保留策略审核、静态分析或备份的诊断日志。 只要配置设置的用户对两个订阅都具有适当的 Azure RBAC 访问权限，存储帐户就不必与资源发出日志位于同一订阅中。
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) - 灵活的日志搜索和分析工具，可用于分析 Azure 资源生成的原始日志。
 
 > [!NOTE]

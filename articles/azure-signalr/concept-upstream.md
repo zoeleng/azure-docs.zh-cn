@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514231"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143247"
 ---
 # <a name="upstream-settings"></a>上游设置
 
@@ -88,7 +88,7 @@ http://host.com/chat/api/messages/broadcast
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>通过资源管理器模板创建上游设置
 
-若要使用 [Azure 资源管理器模板](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)创建上游设置，请在 `properties` 属性中设置 `upstream` 属性。 以下代码片段显示了如何设置用于创建和更新上游设置的 `upstream` 属性。
+若要使用 [Azure 资源管理器模板](../azure-resource-manager/templates/overview.md)创建上游设置，请在 `properties` 属性中设置 `upstream` 属性。 以下代码片段显示了如何设置用于创建和更新上游设置的 `upstream` 属性。
 
 ```JSON
 {
