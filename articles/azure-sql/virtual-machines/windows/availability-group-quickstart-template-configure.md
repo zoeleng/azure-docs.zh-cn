@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293560"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167979"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>使用 Azure 快速启动模板为 Azure VM 上的 SQL Server 配置可用性组
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,6 +33,8 @@ ms.locfileid: "91293560"
    | &nbsp; | &nbsp; |
 
 其他可用性组配置部分（例如创建可用性组，以及创建内部负载均衡器）必须手动完成。 本文提供自动和手动步骤的顺序。
+
+尽管本文使用 Azure 快速入门模板来配置可用性组环境，但是也可以使用 [Azure 门户](availability-group-azure-portal-configure.md)、 [PowerShell 或 Azure CLI](availability-group-az-commandline-configure.md)来执行此操作，也可以 [手动](availability-group-manually-configure-tutorial.md) 执行此操作。 
  
 
 ## <a name="prerequisites"></a>先决条件 
@@ -102,6 +104,9 @@ ms.locfileid: "91293560"
 > 此时请不要创建侦听程序，因为 101-sql-vm-aglistener-setup 快速启动模板会在步骤 4 中自动创建侦听程序。 
 
 ## <a name="create-load-balancer"></a>创建负载均衡器
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Always On 可用性组侦听器需要 Azure 负载均衡器的内部实例。 内部负载均衡器为可用性组侦听器提供“浮动”IP 地址，可以加快故障转移和重新连接的速度。 如果可用性组中的 SQL Server VM 属于同一个可用性集，则可以使用基本负载均衡器。 否则，需要使用标准负载均衡器。 
 
 > [!IMPORTANT]

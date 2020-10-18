@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272491"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164238"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>为 Azure Vm 上的 FCI (SQL Server 准备虚拟机) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "91272491"
 
 若要了解详细信息，请参阅 [有关 Azure vm 的 SQL Server FCI](failover-cluster-instance-overview.md) 和 [群集最佳实践](hadr-cluster-best-practices.md)的概述。 
 
-## <a name="prerequisites"></a>必备条件 
+## <a name="prerequisites"></a>先决条件 
 
 - 一个 Microsoft Azure 订阅。 [免费试用](https://azure.microsoft.com/free/)。 
 - Azure 虚拟机上的 Windows 域或使用虚拟网络配对扩展到 Azure 的本地数据中心。
@@ -101,14 +101,14 @@ Azure Marketplace 中的 SQL Server VM 映像将自动注册到 SQL VM 资源提
 
 在每个虚拟机上，打开 SQL Server 使用的 Windows 防火墙 TCP 端口。 默认情况下，此端口为1433。 但你可以在 Azure VM 部署上更改 SQL Server 端口，因此请打开 SQL Server 在你的环境中使用的端口。 此端口会在从 Azure Marketplace 部署 SQL Server 映像时自动打开。 
 
-如果使用 [负载均衡器](hadr-vnn-azure-load-balancer-configure.md)，还需要打开运行状况探测使用的端口。 默认情况下，此端口为59999。 但可以是创建负载均衡器时指定的任何 TCP 端口。 
+如果使用 [负载均衡器](failover-cluster-instance-vnn-azure-load-balancer-configure.md)，还需要打开运行状况探测使用的端口。 默认情况下，此端口为59999。 但可以是创建负载均衡器时指定的任何 TCP 端口。 
 
 此表详细说明了可能需要打开的端口，具体取决于你的 FCI 配置： 
 
    | 目的 | 端口 | 说明
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | SQL Server 的默认实例正常使用的端口。 如果使用了库中的某个映像，此端口会自动打开。 </br> </br> **使用者**：所有 FCI 配置。 |
-   | 运行状况探测 | TCP 59999 | 任何打开的 TCP 端口。 将负载均衡器 [运行状况探测](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) 和群集配置为使用此端口。 </br> </br> **使用者**： FCI 和负载均衡器。 |
+   | 运行状况探测 | TCP 59999 | 任何打开的 TCP 端口。 将负载均衡器 [运行状况探测](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) 和群集配置为使用此端口。 </br> </br> **使用者**： FCI 和负载均衡器。 |
    | 文件共享 | UDP 445 | 文件共享服务使用的端口。 </br> </br> **使用者**：包含高级文件共享的 FCI。 |
 
 ## <a name="join-the-domain"></a>加入域

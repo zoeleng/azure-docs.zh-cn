@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015918"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166176"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>文本分析 API 中有哪些新功能？
 
@@ -25,6 +25,7 @@ ms.locfileid: "92015918"
 
 * 从模型版本开始，对情绪分析 v3. x 的印地语支持 `2020-04-01` 。 
 * `2020-09-01`用于 v3/languages 终结点的模型版本，它添加了更多的语言检测和准确性改进。
+* 印度中部和阿拉伯联合酋长国北部中的 v3 可用性。
 
 ## <a name="september-2020"></a>2020 年 9 月
 
@@ -182,7 +183,7 @@ JSON 响应中以下属性的名称已更改（如果适用）：
     * 日期作为 DateTime 下的子类型
     * 电子邮件 
     * 电话号码 (仅限我们) 
-    * 代码
+    * URL
     * IP 地址
 
 > [!div class="nextstepaction"]

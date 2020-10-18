@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456548"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167876"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>将存储资源管理器与 Azure 文件存储配合使用
 
@@ -73,7 +73,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 1. 主窗格会显示该文件共享的内容。
     
-    ![共享的内容](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![用于显示共享内容存储资源管理器中的文件共享的主窗格屏幕截图。](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>删除文件共享
 
@@ -191,7 +191,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 1.  主窗格会显示该文件共享的内容。
 
-    ![共享的内容](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![存储资源管理器中的文件共享 myazurefileshare 主窗格的屏幕截图，其中显示了所选第一个文件夹的共享内容。](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  主窗格会显示该文件共享的内容。
 

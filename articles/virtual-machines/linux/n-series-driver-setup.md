@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 02fbe721f1bf5737ad1d10d656ea75ed1372b484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284874"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168471"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -310,7 +310,7 @@ sudo reboot
 
 如果安装了驱动程序，将看到如下输出。 请注意，除非当前正在 VM 上运行 GPU 工作负荷，否则 GPU-Util 将显示 0%。**** 驱动程序版本和 GPU 详细信息可能与所示的内容不同。
 
-![NVIDIA 设备状态](./media/n-series-driver-setup/smi-nv.png)
+![屏幕截图，显示在查询 GPU 设备状态时的输出。](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>X11 服务器

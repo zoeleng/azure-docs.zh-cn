@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26bac8115a64d78ce64bc400f98fb26cb929ba4d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444843"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164493"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>使用 Azure 密钥管理库配置 Always Encrypted 
 
@@ -149,7 +149,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 1. 展开“数据库” > “Clinic” > “表”。
 2. 右键单击“患者”表，并选择“加密列”以打开始终加密向导：
 
-    ![加密列](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![突出显示加密列的屏幕截图 .。。菜单选项。](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置**、**验证**和**摘要**。
 
@@ -574,7 +574,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 可以看到，加密的列不包含任何明文数据。
 
-   ![新建控制台应用程序](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![显示已加密列不包含任何明文数据的屏幕截图。](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 若要使用 SSMS 访问纯文本数据，首先需要确保用户具有 Azure Key Vault 的适当权限：get、unwrapKey 和 verify。 有关详细信息，请参阅[创建和存储列主密钥 (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted)。
 
@@ -584,7 +584,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 2. 单击“连接” > “数据库引擎”打开“连接到服务器”窗口，并单击“选项”。
 3. 单击“其他连接参数”，并键入 **Column Encryption Setting=enabled**。
 
-    ![新建控制台应用程序](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![显示 "其他更正参数" 选项卡的屏幕截图。](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. 针对 Clinic 数据库运行以下查询。
 

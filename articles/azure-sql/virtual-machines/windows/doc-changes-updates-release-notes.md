@@ -10,18 +10,24 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/21/2020
-ms.openlocfilehash: 6e2665a413b3d43f7e1b294ebfc390c57d995f29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758636"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168318"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上 SQL Server 的文档更改
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure 允许你使用内置的 SQL Server 映像部署虚拟机 (VM)。 本文汇总了 [Azure 虚拟机上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 的最新版本中与新功能和改进相关的文档更改。 
+
+## <a name="october-2020"></a>2020 年 10 月
+
+| 更改 | 详细信息 |
+| --- | --- |
+| **AG 的 DNN** | 你现在可以为 SQL Server 2019 CU8 和更高版本 [ (DNN) 侦听器) 配置分布式网络名称 ](availability-group-distributed-network-name-dnn-listener-configure.md) ，以替换传统的 [VNN 侦听器](availability-group-overview.md#connectivity)，取消需要使用 Azure 负载均衡器。   | 
 
 ## <a name="september-2020"></a>2020 年 9 月
 

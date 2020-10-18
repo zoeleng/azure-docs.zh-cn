@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797932"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168284"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>排查 Azure FarmBeats 问题
 
@@ -174,7 +174,7 @@ ms.locfileid: "88797932"
 
 如果你已获得访问权限，但遇到此错误，请尝试刷新页面。 如果错误仍然存在，请联系我们并提供错误消息/日志。
 
-![FarmBeats 项目](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![显示授权错误的屏幕截图。](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>加速器问题  
 
@@ -293,7 +293,7 @@ ms.locfileid: "88797932"
 6. 在左窗格中，选择“Blob 容器”，然后选择“job-logs”（针对 Azure 数据工厂日志）或“appinsights-logs”（针对应用服务日志）  。
 7. 选择“下载”，并将日志下载到计算机上的本地文件夹。
 
-    ![FarmBeats 项目](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![显示下载的日志文件的屏幕截图。](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>为加速器收集 Azure 数据工厂作业日志或应用服务日志
 
@@ -327,33 +327,33 @@ ms.locfileid: "88797932"
 > [!NOTE]
 > 若要查看资源组中服务的标记，请单击 "编辑列" 并向资源组视图添加 "标记"。
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="FarmBeats 项目&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
 
 3. 在数据工厂的 &quot;概述&quot; 页上，单击 " **创作和监视**"。 此时会在浏览器中打开一个新选项卡。 单击 **监视器**
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="FarmBeats 项目&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
 
 3. 在数据工厂的 &quot;概述&quot; 页上，单击 ":::
 
 4. 你将看到一个管道运行列表，其中包含天气作业执行的一部分。 单击要为其收集日志的作业
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="FarmBeats 项目&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
 
 3. 在数据工厂的 &quot;概述&quot; 页上，单击 " 页上，你将看到活动运行的列表。 记下要为其收集日志的活动的运行 Id
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="FarmBeats 项目&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
 
 3. 在数据工厂的 &quot;概述&quot; 页上，单击 ":::
 
 6. 返回到 Azure 门户中的 FarmBeats 资源组，并单击名为**datahublogs**的存储帐户
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="FarmBeats 项目&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
 
 3. 在数据工厂的 &quot;概述&quot; 页上，单击 ":::
 
 7. 单击 "**容器**  ->  **adfjobs**"。 在搜索框中，输入前面步骤5中记下的作业运行 ID。
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="FarmBeats 项目&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
 
 3. 在数据工厂的 &quot;概述&quot; 页上，单击 ":::
 

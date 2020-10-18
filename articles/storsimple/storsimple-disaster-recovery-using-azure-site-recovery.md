@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514919"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168012"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>使用 Azure Site Recovery 针对 StorSimple 上托管的文件共享创建自动灾难恢复解决方案
 
@@ -91,9 +91,9 @@ Microsoft Azure StorSimple 是一种混合型云存储解决方案，可解决�
          > [!NOTE]
          > 根据具体的版本，文件名可能有所不同。
       
-1. 单击“下一步”。
+1. 单击“下一步”。 
 1. 接受**协议条款**，并单击“下一步”。****
-1. 单击“完成”  。
+1. 单击“完成”。
 1. 使用从 StorSimple 存储中划分出来的卷创建文件共享。 有关详细信息，请参阅 [Use the StorSimple Manager service to manage volumes](storsimple-manage-volumes.md)（使用 StorSimple Manager 服务管理卷）。
    
    1. 在本地 VM 上，按 Windows 键 + Q 并搜索 **iSCSI**。
@@ -294,7 +294,7 @@ Microsoft Azure StorSimple 是一种混合型云存储解决方案，可解决�
 1. 在 Azure 门户中，依次选择“恢复服务”**** 保管库 “恢复计划 (Site Recovery)”&gt; **“recoveryplan_name”** &gt; ****（为文件服务器 VM 创建的恢复计划名称）。
 1. 在“恢复计划”边栏选项卡上，依次单击“更多”**“计划的故障转移”** &gt;  ****。
 
-   ![恢复计划](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![突出显示计划的故障转移和故障转移选项的屏幕截图。](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. 在“确认计划的故障转移”**** 边栏选项卡上，选择源和目标位置并选择目标网络，并单击勾选图标 ✓ 开始故障转移过程。
 1. 副本虚拟机在创建后处于待提交状态。 单击“**提交**”以提交故障转移。
 1. 复制完成后，虚拟机会在辅助位置启动。
@@ -321,7 +321,7 @@ Microsoft Azure StorSimple 是一种混合型云存储解决方案，可解决�
    
    ![启动故障回复](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
-## <a name="best-practices"></a>最佳实践
+## <a name="best-practices"></a>最佳方案
 ### <a name="capacity-planning-and-readiness-assessment"></a>容量规划和准备情况评估
 #### <a name="hyper-v-site"></a>Hyper-V 站点
 使用 [User Capacity Planner 工具](https://www.microsoft.com/download/details.aspx?id=39057)为 Hyper-V 副本环境设计服务器、存储和网络基础结构。

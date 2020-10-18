@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667687"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166448"
 ---
 # <a name="get-started-with-custom-keyword"></a>自定义关键字入门
 
 本快速入门介绍如何使用 Speech Studio 和 Speech SDK 来使用自定义关键字。 关键字是允许激活语音的单词或短语。 使用 Speech Studio 创建关键字模型，然后在应用程序中导出用于语音 SDK 的模型文件。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 本文中的步骤需要语音订阅和语音 SDK。 如果还没有订阅，请 [免费试用语音服务](overview.md#try-the-speech-service-for-free)。 若要获取 SDK，请参阅适用于你的平台的 [安装指南](quickstarts/setup-platform.md) 。
 
@@ -54,7 +54,7 @@ ms.locfileid: "91667687"
 
 1. 门户为关键字创建候选发音。 通过单击 "播放" 按钮来倾听每个候选项，并删除任何不正确的发音旁边的检查。 仅选中好发音后，单击 " **训练** " 开始生成关键字模型。 
 
-    ![查看关键字](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![屏幕截图显示了正确的 pronounciations。](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. 生成模型最多可能需要30分钟时间。 模型完成后，关键字列表将从 **处理** 更改为 **成功** 。 然后，你可以下载该文件。
 

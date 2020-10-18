@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399527"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168029"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全技术功能
 本文介绍了 Azure 中的安全服务，可帮助你保护云中的数据、资源和应用程序，并满足业务的安全需求。
@@ -367,7 +367,8 @@ Azure 操作安全性建立在一个框架上，该框架融合了通过 Microso
 
 云应用程序很复杂，包含很多移动部件。 监视可以为用户提供数据，确保应用程序始终处于健康运行状态。 监视还有助于避免潜在问题，或者解决过去的问题。
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) 此外，还可以利用监视数据深入了解应用程序的情况。 了解这些情况有助于改进应用程序的性能或可维护性，或者实现本来需要手动干预的操作的自动化。
+![显示可以使用监视数据来深入了解应用程序的关系图。](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+此外，还可以利用监视数据深入了解应用程序的情况。 了解这些情况有助于改进应用程序的性能或可维护性，或者实现本来需要手动干预的操作的自动化。
 
 审核网络安全性对于检测网络漏洞以及确保符合 IT 安全和监管治理模型至关重要。 使用安全组视图，可以检索配置的网络安全组和安全规则，以及有效的安全规则。 应用规则列表后，可以确定打开的端口并评估网络漏洞。
 

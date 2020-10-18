@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361460"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167910"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>当无权访问 Azure 串行控制台且磁盘布局使用 LVM（逻辑卷管理器）时，对 Linux VM 进行故障排除
 
@@ -71,7 +71,7 @@ ms.locfileid: "91361460"
 
 `lsblk`
 
-![运行 lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![显示 lsblk 命令输出的屏幕截图。](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 验证是否显示受影响 VM 中的 LVM。
@@ -198,11 +198,11 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 所有 LV 应显示为已装载的分区
 
-![高级](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![显示 LVs 的屏幕截图显示为装入的分区。](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 查询安装的**内核**
 
-![高级](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![屏幕截图显示了如何查询已安装的内核。](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 如果需要，请删除或升级**内核** 
  ![ 高级](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

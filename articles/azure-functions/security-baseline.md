@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107515"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168080"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>适用于 Azure Functions 的 Azure 安全基线
 
@@ -22,7 +22,7 @@ ms.locfileid: "92107515"
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -315,7 +315,7 @@ Azure Functions 还提供与 Azure 应用程序 Insights 的内置集成，以�
 
 - [如何启用 Azure Functions 的诊断设置](./functions-monitor-log-analytics.md)
 
-- [如何为 Azure Functions 启用 Application Insights](./functions-monitoring.md#enable-application-insights-integration)
+- [如何为 Azure Functions 启用 Application Insights](./configure-monitoring.md#enable-application-insights-integration)
 
 - [如何在 Azure 中创建警报](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Azure Functions 还提供与 Azure 应用程序 Insights 的内置集成，以�
 
 **指南**：通过 AZURE ACTIVE DIRECTORY (AD) 控制对 Azure Functions 的控制平面访问。 Azure AD 没有默认密码。
 
-可以通过多种方式控制数据平面访问，包括授权密钥、网络限制和验证 AAD 标识。 授权密钥由连接到 Azure Functions HTTP 终结点的客户端使用，可以随时重新生成。 默认情况下，将为新的 HTTP 终结点生成这些密钥。
+可以通过多种方式控制数据平面访问，包括授权密钥、网络限制和验证 Azure AD 标识。 授权密钥由连接到 Azure Functions HTTP 终结点的客户端使用，可以随时重新生成。 默认情况下，将为新的 HTTP 终结点生成这些密钥。
 
 函数应用提供多种部署方法，其中一些部署方法可能利用一组生成的凭据。 查看将用于应用程序的部署方法。
 
@@ -463,7 +463,7 @@ Azure Functions 还提供与 Azure 应用程序 Insights 的内置集成，以�
 
 - [如何将 Azure Functions 应用配置为使用 Azure AD 登录](../app-service/configure-authentication-provider-aad.md)
 
-- [如何创建和配置 AAD 实例](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [如何创建和配置 Azure AD 实例](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure 安全中心监视**：是
 

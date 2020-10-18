@@ -1,5 +1,5 @@
 ---
-title: '使用 Azure 共享磁盘 (预览创建 FCI) '
+title: 使用 Azure 共享磁盘创建 FCI
 description: 使用 Azure 共享磁盘，通过 Azure 虚拟机上的 SQL Server (FCI) 创建故障转移群集实例。
 services: virtual-machines
 documentationCenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272644"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168233"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>在 Azure Vm 上创建 FCI 和 Azure 共享磁盘 (SQL Server) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,14 +28,14 @@ ms.locfileid: "91272644"
 若要了解详细信息，请参阅 [有关 Azure vm 的 SQL Server FCI](failover-cluster-instance-overview.md) 和 [群集最佳实践](hadr-cluster-best-practices.md)的概述。 
 
 
-## <a name="prerequisites"></a>必备条件 
+## <a name="prerequisites"></a>先决条件 
 
 在完成本文中的说明之前，你应该已经：
 
 - Azure 订阅。 [免费试用](https://azure.microsoft.com/free/)。 
 - [两个或多个 Windows Azure 虚拟机](failover-cluster-instance-prepare-vm.md)。 [可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md) 和 [邻近组](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (支持 PPGs) 。 如果使用 PPG，则所有节点必须位于同一个组中。
 - 有权限在 Azure 虚拟机和 Active Directory 中创建对象的帐户。
-- 最新版本的 [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0)。 
+- 最新版本的 [PowerShell](/powershell/azure/install-az-ps)。 
 
 
 ## <a name="add-azure-shared-disk"></a>添加 Azure 共享磁盘
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>配置连接 
 
-若要将流量正确路由到当前主节点，请配置适用于你的环境的连接选项。 如果使用 SQL Server 2019 CU2 + 和 Windows Server 2016 (或更高版本，则可以创建 [Azure 负载均衡器](hadr-vnn-azure-load-balancer-configure.md) ，) 可以改为预览 [分布式网络名称](hadr-distributed-network-name-dnn-configure.md) 功能。 
+若要将流量正确路由到当前主节点，请配置适用于你的环境的连接选项。 你可以创建 [Azure 负载均衡器](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ，或者，如果使用 SQL SERVER 2019 CU2 (或更高版本) 和 Windows Server 2016 (或更) 高版本，则可以改为使用 [分布式网络名称](failover-cluster-instance-distributed-network-name-dnn-configure.md) 功能。 
 
 ## <a name="limitations"></a>限制
 
@@ -221,7 +221,8 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="next-steps"></a>后续步骤
 
-如果尚未执行此操作，请使用 [虚拟网络名称、Azure 负载均衡器](hadr-vnn-azure-load-balancer-configure.md) 或 [ (DNN) 的分布式网络名称 ](hadr-distributed-network-name-dnn-configure.md)配置到 FCI 的连接。 
+如果尚未执行此操作，请使用 [虚拟网络名称、Azure 负载均衡器](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 或 [ (DNN) 的分布式网络名称 ](failover-cluster-instance-distributed-network-name-dnn-configure.md)配置到 FCI 的连接。 
+
 
 如果 Azure 共享磁盘不是合适的 FCI 存储解决方案，请考虑使用 [高级文件共享](failover-cluster-instance-premium-file-share-manually-configure.md) 或 [存储空间直通](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 来创建 FCI。 
 

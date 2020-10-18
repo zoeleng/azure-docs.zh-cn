@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317170"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164816"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-允许在默认跟踪级别向流式处理函数日志进行写入。 `context.log` 中还提供了其他的日志记录方法，用以允许在其他跟踪级别写入函数日志：
+允许你使用其他日志记录级别，在默认跟踪级别写入流式处理函数日志。 下一部分将详细介绍跟踪日志记录。 
 
+## <a name="write-trace-output-to-logs"></a>将跟踪输出写入日志
 
-| 方法                 | 说明                                |
-| ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | 向错误级日志记录或更低级别进行写入。   |
-| **warn(_message_)**    | 向警告级日志记录或更低级别进行写入。 |
-| **info(_message_)**    | 向信息级日志记录或更低级别进行写入。    |
-| **verbose(_message_)** | 向详细级日志记录进行写入。           |
+在函数中，使用 `context.log` 方法将跟踪输出写入日志和控制台。 调用时，将在 `context.log()` 默认跟踪级别（即 _信息_ 跟踪级别）将消息写入日志。 函数与 Azure 应用程序 Insights 集成，以更好地捕获函数应用日志。 Application Insights 是 Azure Monitor 的一部分，它提供了应用程序遥测和跟踪输出的集合、视觉对象呈现和分析功能。 若要了解详细信息，请参阅 [监视 Azure Functions](functions-monitoring.md)。
 
-以下示例在警告跟踪级别向日志进行写入：
+下面的示例在 info 跟踪级别写入日志，包括调用 ID：
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-可以在 host.json 文件中[为日志记录配置跟踪级别阈值](#configure-the-trace-level-for-console-logging)。 有关写入日志的详细信息，请参阅下面的[写入跟踪输出](#writing-trace-output-to-the-console)。
-
-若要了解有关查看和查询函数日志的详细信息，请阅读[监视 Azure Functions](functions-monitoring.md)。
-
-## <a name="writing-trace-output-to-the-console"></a>将跟踪输出写入到控制台 
-
-在 Functions 中，可以使用 `context.log` 方法将跟踪输出写入到控制台。 在 Functions v2.x 中，使用 `console.log` 的跟踪输出在函数应用级别捕获。 这意味着 `console.log` 的输出不受限于特定的函数调用，因此不会显示在特定函数的日志中。 但是，它们将传播到 Application Insights。 在 Functions v1.x 中，不能使用 `console.log` 写入到控制台。
-
-调用 `context.log()` 时，消息会在默认跟踪级别（即_信息_跟踪级别）写入到控制台。 以下代码在信息跟踪级别向控制台进行写入：
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-此代码等同于上述代码：
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-此代码在错误级别向控制台进行写入：
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-因为_错误_是最高跟踪级别，所以，只要启用了日志记录，此跟踪会在所有跟踪级别写入到输出中。
 
 所有 `context.log` 方法都支持 Node.js [util.format 方法](https://nodejs.org/api/util.html#util_util_format_format)支持的同一参数格式。 请考虑以下代码，它使用默认跟踪级别写入函数日志：
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>为控制台日志记录配置跟踪级别
+> [!NOTE]  
+> 不要使用 `console.log` 来编写跟踪输出。 由于的输出 `console.log` 是在函数应用级别捕获的，因此它不会绑定到特定函数调用，也不会显示在特定函数的日志中。 此外，版本1.x 的函数运行时不支持使用 `console.log` 来写入控制台。
 
-Functions 1.x 允许定义向控制台进行写入时使用的阈值跟踪级别，这使得可以轻松控制从函数向控制台写入跟踪的方式。 若要针对写入到控制台的所有跟踪设置阈值，请在 host.json 文件中使用 `tracing.consoleLevel` 属性。 此设置应用于 Function App 中的所有函数。 以下示例设置跟踪阈值来启用详细日志记录：
+### <a name="trace-levels"></a>跟踪级别
+
+除了默认级别外，还可以使用以下日志记录方法，以便在特定跟踪级别写入函数日志。
+
+| 方法                 | 说明                                |
+| ---------------------- | ------------------------------------------ |
+| **error(_message_)**   | 将错误级别事件写入日志。   |
+| **warn(_message_)**    | 将警告级别事件写入日志。 |
+| **info(_message_)**    | 向信息级日志记录或更低级别进行写入。    |
+| **verbose(_message_)** | 向详细级日志记录进行写入。           |
+
+下面的示例在警告跟踪级别（而不是信息级别）写入同一日志：
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+因为_错误_是最高跟踪级别，所以，只要启用了日志记录，此跟踪会在所有跟踪级别写入到输出中。
+
+### <a name="configure-the-trace-level-for-logging"></a>配置日志记录的跟踪级别
+
+函数允许你定义用于写入日志或控制台的阈值跟踪级别。 特定阈值设置取决于函数运行时的版本。
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+若要为写入日志的跟踪设置阈值，请使用 `logging.logLevel` 文件的 host.js中的属性。 此 JSON 对象允许您为函数应用中的所有函数定义默认阈值，还可以为各个函数定义特定阈值。 若要了解详细信息，请参阅 [如何为 Azure Functions 配置监视](configure-monitoring.md)。
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+若要为写入到日志和控制台的所有跟踪设置阈值，请使用 `tracing.consoleLevel` 文件的 host.js中的属性。 此设置应用于 Function App 中的所有函数。 以下示例设置跟踪阈值来启用详细日志记录：
 
 ```json
 {
@@ -360,7 +358,65 @@ Functions 1.x 允许定义向控制台进行写入时使用的阈值跟踪级别
 }  
 ```
 
-**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_。 有关详细信息，请参阅 [host.json 参考](functions-host-json-v1.md)。
+**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_。 有关详细信息，请参阅 [ v1. x reference 上的host.js](functions-host-json-v1.md)。
+
+---
+
+### <a name="log-custom-telemetry"></a>记录自定义遥测
+
+默认情况下，函数将输出作为跟踪写入到 Application Insights。 为了更好地控制，可以使用 [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) 将自定义遥测数据发送到 Application Insights 实例。 
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+`tagOverrides` 参数将 `operation_Id` 设置为函数的调用 ID。 通过此设置，可为给定的函数调用关联所有自动生成的遥测和自定义遥测。
 
 ## <a name="http-triggers-and-bindings"></a>HTTP 触发器和绑定
 

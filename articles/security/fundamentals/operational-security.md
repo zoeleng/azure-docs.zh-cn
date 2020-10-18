@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543327"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168046"
 ---
 # <a name="azure-operational-security"></a>Azure 操作安全性
-## <a name="introduction"></a>简介
+## <a name="introduction"></a>介绍
 
 ### <a name="overview"></a>概述
 我们知道，安全是云中的首要任务，及时找到有关 Azure 安全性的准确信息极其重要。 为应用程序和服务使用 Azure 其中一个最合理原因就是：可以利用各种可用的安全工具和功能。 这些工具和功能可帮助在安全的 Azure 平台上创建安全的解决方案。 Microsoft Azure 必须提供保密、完整且可用的客户数据，并实现透明问责。
@@ -81,7 +81,7 @@ Azure Monitor 日志的核心功能由在 Azure 中运行的一组服务提供�
 使用这种方法可以整合来自各种源的数据，因此可将 Azure 服务中的数据合并到现有的本地环境。 此外，它还能将数据收集与针对该数据执行的操作明确区分开来，以便能够针对所有类型的数据执行所有操作。
 
 
-![Azure Monitor 日志](./media/operational-security/azure-operational-security-fig2.png)
+![显示来自各种来源的数据合并的关系图，以便可以将 Azure 服务中的数据与现有的本地环境组合在一起。](./media/operational-security/azure-operational-security-fig2.png)
 
 Azure Monitor 服务使用以下方法安全地管理你的基于云的数据：
 -   数据隔离

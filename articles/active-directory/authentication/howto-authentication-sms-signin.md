@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849057ab1ccde2e0771f0c1cd52ea399ffe4cea7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964683"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166619"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>为用户配置和启用通过 Azure Active Directory 进行基于短信的身份验证（预览版）
 
@@ -96,13 +96,17 @@ ms.locfileid: "91964683"
 1. 搜索并选择“Azure Active Directory”。
 1. 在“Azure Active Directory”窗口左侧的导航菜单中，选择“用户”。
 1. 选择在上一部分中为其启用了基于短信的身份验证的用户（例如“Contoso 用户”），然后选择“身份验证方法”。
-1. 输入用户的电话号码，包括国家/地区代码，例如 +1 xxxxxxxxx。 Azure 门户将验证电话号码的格式是否正确。
+1. 选择 " **+ 添加身份验证方法**"，然后在 " *选择方法* " 下拉菜单中选择 " **电话号码**"。
 
-    ![在 Azure 门户中为用户设置一个用于基于短信的身份验证的电话号码](./media/howto-authentication-sms-signin/set-user-phone-number.png)
+    输入用户的电话号码，包括国家/地区代码，例如 +1 xxxxxxxxx。 Azure 门户将验证电话号码的格式是否正确。
+
+    然后，从 " *电话类型* " 下拉菜单中选择 " *移动*"、" *备用移动*" 或 " *其他* " （根据需要）。
+
+    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="在 Azure 门户中为用户设置一个用于基于短信的身份验证的电话号码&quot;:::
 
     该电话号码在租户中必须是唯一的。 如果尝试为多个用户使用同一个电话号码，将显示错误消息。
 
-1. 若要将该电话号码应用到用户的帐户，请选择“保存”。
+1. 若要将电话号码应用到用户的帐户，请选择 " **添加**"。
 
 成功预配后，会出现一个勾选标记，表示已启用短信登录。
 
@@ -142,7 +146,7 @@ ms.locfileid: "91964683"
 1. 确认用户帐户已在“短信”身份验证方法策略中启用。
 1. 确保使用已在 Azure 门户中经过验证的正确格式设置电话号码（例如 +1 4251234567）。
 1. 确保电话号码未在租户中的其他地方使用。
-1. 检查帐户中是否设置了语音号码。 如果设置了语音号码，请将其删除，然后再次尝试设置电话号码。
+1. 检查帐户中是否设置了语音号码。 如果设置了语音号码，请删除并尝试重新输入电话号码。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079547"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168556"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 指标资源管理器的高级功能
 
@@ -77,15 +77,15 @@ ms.locfileid: "87079547"
 
 2. 选择想要筛选的维度（属性）
 
-   ![图表上的](./media/metrics-charts/00006.png)
+   ![屏幕截图，显示可筛选)  (属性的尺寸。](./media/metrics-charts/00006.png)
 
 3. 选择想要在绘制图表时包含的维度值（此示例将显示筛选出了成功的存储事务）：
 
-   ![图表上的](./media/metrics-charts/00007.png)
+   ![显示筛选出成功存储事务的屏幕截图。](./media/metrics-charts/00007.png)
 
 4. 选择筛选值后，在“筛选选择器”之外单击将其关闭。 现在图表将显示失败的存储事务数：
 
-   ![图表上的](./media/metrics-charts/00008.png)
+   ![显示失败的存储事务数的屏幕截图](./media/metrics-charts/00008.png)
 
 5. 可以重复步骤 1-4 将多个筛选器应用到同一个图表。
 
@@ -104,11 +104,11 @@ ms.locfileid: "87079547"
 
 2. 选择想要用于分割图表的维度：
 
-   ![图表上的](./media/metrics-charts/00010.png)
+   ![屏幕截图，显示在其上划分图表的选定维度。](./media/metrics-charts/00010.png)
 
    现在图表将显示多个折线图，每个维度部分均有一个：
 
-   ![图表上的](./media/metrics-charts/00012.png)
+   ![显示多个行的屏幕截图，每个维度段一个行。](./media/metrics-charts/00012.png)
 
 3. 在“分组选择器”之外单击以将其关闭。
 
@@ -125,7 +125,7 @@ ms.locfileid: "87079547"
 
 若要控制 y 轴范围，请使用 “…” 图表菜单，并选择“编辑图表”以访问高级图表设置。 修改“Y 轴范围”部分中的值，或者使用“自动”按钮恢复为默认值。
 
-![图表上的](./media/metrics-charts/00014-manually-set-granularity.png)
+![突出显示 "编辑图表" 选项的屏幕截图。](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > 如果图表用于跟踪一段时间内的各种计数或合计（并因此使用计数、求和、最小值或最大值聚合），要锁定这类图表的 y 轴边界，通常需要指定一个固定的时间粒度，而不是依赖于自动默认值。 这是必要的，因为当用户通过调整浏览器窗口大小或者通过更改屏幕分辨率来自动修改时间粒度时，图表上的值也会发生更改。 时间粒度发生的更改会影响图表的外观，导致当前选择的 y 轴范围失效。
@@ -138,7 +138,7 @@ ms.locfileid: "87079547"
 
 配置图表颜色后，将图表固定到仪表板时，它们将保持此配置。 以下部分说明如何固定图表。
 
-![图表上的](./media/metrics-charts/018.png)
+![显示如何固定图表的屏幕截图。](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>将图表固定到仪表板
 

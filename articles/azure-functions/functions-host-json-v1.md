@@ -3,12 +3,12 @@ title: Azure Functions 1.x 的 host.json 参考
 description: 使用 v1 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757518"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167708"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
@@ -209,7 +209,7 @@ ms.locfileid: "81757518"
 }
 ```
 
-|属性  |默认 | 说明 |
+|属性  |默认 | 描述 |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|启用时，将为此设置将导致请求处理管道，以定期检查系统性能计数器类似连接/线程/进程/内存/CPU 等，并通过内置的高阈值 (80%)，如果有任何这些计数器请求拒绝与 429“太忙”响应，直至恢复到正常水平的计数器。|
 |maxConcurrentRequests|无限制 (`-1`)|将并行执行的 HTTP 函数的最大数目。 这样，可以控制并发性，从而帮助管理资源利用率。 例如，你可能有一个使用大量系统资源（内存/CPU/套接字）的 HTTP 函数，它在并发度太高时会导致问题。 或者，某个函数向第三方服务发出出站请求，则可能需要限制这些调用的速率。 在这种情况下，应用限制可能有帮助。|
@@ -230,7 +230,7 @@ ms.locfileid: "81757518"
 
 ## <a name="logger"></a>logger
 
-控制 [ILogger 对象](functions-monitoring.md#write-logs-in-c-functions)或 [context.log](functions-monitoring.md#write-logs-in-javascript-functions) 写入的日志的筛选。
+控制对由 [ILogger](functions-dotnet-class-library.md#ilogger) 对象或按 [上下文](functions-reference-node.md#contextlog-method)编写的日志的筛选。
 
 ```json
 {
@@ -247,7 +247,7 @@ ms.locfileid: "81757518"
 }
 ```
 
-|属性  |默认 | 说明 |
+|属性  |默认 | 描述 |
 |---------|---------|---------| 
 |categoryFilter|不适用|指定按类别进行筛选| 
 |defaultLevel|信息|对于 `categoryLevels` 数组中未指定的任何类别，会将此级别和更高级别的日志发送到 Application Insights。| 
@@ -306,7 +306,7 @@ ms.locfileid: "81757518"
 }
 ```
 
-|属性  |默认 | 说明 |
+|属性  |默认 | 描述 |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|消息泵应该对回调发起的最大并发调用数。 默认情况下，Functions 运行时同时处理多条消息。 若要指示运行时一次只处理单个队列或主题消息，请将 `maxConcurrentCalls` 设置为 1。 | 
 |prefetchCount|不适用|基础 MessageReceiver 将要使用的默认 PrefetchCount。| 
@@ -340,7 +340,7 @@ ms.locfileid: "81757518"
 
 *版本 1.x*
 
-使用 `TraceWriter` 对象创建的日志的配置设置。 请参阅 [C# 日志记录](functions-reference-csharp.md#logging)和 [Node.js 日志记录](functions-reference-node.md#writing-trace-output-to-the-console)。
+使用 `TraceWriter` 对象创建的日志的配置设置。 若要了解详细信息，请参阅 [c # 日志记录]。
 
 ```json
 {
@@ -351,7 +351,7 @@ ms.locfileid: "81757518"
 }
 ```
 
-|属性  |默认 | 说明 |
+|属性  |默认 | 描述 |
 |---------|---------|---------| 
 |consoleLevel|info|控制台日志记录的跟踪级别。 选项包括：`off`、`error`、`warning`、`info` 和 `verbose`。|
 |fileLoggingMode|debugOnly|文件日志记录的跟踪级别。 选项包括 `never`、`always` 和 `debugOnly`。| 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962955"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168216"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制
 
@@ -36,7 +36,7 @@ ms.locfileid: "88962955"
 
 从访问限制 UI 可以查看为应用定义的访问限制规则列表。
 
-![列出访问限制](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Azure 门户中的 "访问限制" 屏幕屏幕截图，显示为所选应用定义的访问限制规则列表。](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 该列表将显示应用中的所有当前限制。 如果应用中存在 VNet 限制，该表将显示是否为 Microsoft.Web 启用了服务终结点。 如果应用中未定义限制，则可以从任何位置访问应用。  
 
@@ -68,11 +68,11 @@ ms.locfileid: "88962955"
 
 单击任一行，可编辑现有访问限制规则。 编辑的内容会立即生效，包括在优先级排序方面的变化。
 
-![编辑访问限制规则](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Azure 门户显示现有访问限制规则的字段的 "编辑 IP 限制" 对话框的屏幕截图。](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 编辑规则时，无法更改 IP 地址规则与虚拟网络规则这两种类型。 
 
-![编辑访问限制规则](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Azure 门户显示虚拟网络规则的设置的 "编辑 IP 限制" 对话框的屏幕截图。](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 若要删除某个规则，请单击规则上的“...”然后单击“删除”   。
 
@@ -90,7 +90,7 @@ ms.locfileid: "88962955"
 
 除了能够控制对应用的访问以外，还可以限制对应用所用的 scm 站点的访问。 scm 站点是 Web 部署终结点，也是 Kudu 控制台。 对于 scm 站点，可以分配不同于应用的访问限制；也可以对应用和 scm 站点使用相同的设置。 选中相应的框来使用与应用相同的限制时，所有设置都会留空。如果取消选中该框，将应用前面针对 scm 站点指定的所有设置。 
 
-![列出访问限制](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Azure 门户中的访问限制屏幕的屏幕截图，显示没有为 scm 站点或应用设置任何访问限制。](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>访问限制规则的编程操作 ##
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207154"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168182"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>排查入口控制器的常见问题
 
@@ -85,15 +85,15 @@ EOF
 获取带有 [Cloud Shell](https://shell.azure.com/)的 pod 的列表： `kubectl get pods -o wide` 。
 预期已创建名为“test-agic-app-pod”的 Pod。 该 Pod 有一个 IP 地址。 此地址必须在 AKS 所用的应用程序网关的 VNET 中。
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+!["Bash" 窗口的屏幕截图，Azure Cloud Shell 显示在列表中包含 agic 的一组 pod。](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 获取服务列表：`kubectl get services -o wide`。 预期会看到名为“test-agic-app-service”的服务。
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+!["Bash" 窗口的屏幕截图 Azure Cloud Shell 显示列表中包含 agic 的服务列表。](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 获取入口列表：`kubectl get ingress`。 预期已创建名为“test-agic-app-ingress”的入口资源。 该资源具有主机名“test.agic.contoso.com”。
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+!["Bash" 窗口的屏幕截图，Azure Cloud Shell 显示列表中包含 agic 的恒温器列表。](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 其中的一个 Pod 将是 AGIC。 `kubectl get pods` 将显示 Pod 列表，其中的一个 Pod 以“ingress-azure”开头。 使用 `kubectl logs <name-of-ingress-controller-pod>` 获取该 Pod 的所有日志，以验证部署是否成功。 如果部署成功，日志中会添加以下行：
 ```
@@ -120,7 +120,7 @@ I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
 1. 使用 `kubectl get ingress` 获取应用程序网关的公共 IP 地址
 2. 使用 `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+!["Bash" 窗口的屏幕截图，其中显示了与测试应用成功建立 HTTP 连接 Azure Cloud Shell 显示卷曲命令。](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 结果 `HTTP/1.1 200 OK` 表示应用程序网关 + AKS + AGIC 系统按预期方式工作。
 

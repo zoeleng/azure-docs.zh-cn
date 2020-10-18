@@ -4,12 +4,12 @@ description: 了解如何使用 Visual Studio Code 的 Azure Functions 扩展开
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 1614ac0711c6a83d7e303b5a4b6ebbdf23ba2e03
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104064"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167893"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio 开发 Azure Functions
 
@@ -384,15 +384,13 @@ HTTP 触发器的请求 URL 显示在终端输出中。 在本地运行项目时
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> 流日志仅支持单个 Functions 宿主实例。 将函数扩展为多个实例时，不会在日志流中显示来自其他实例的数据。 Application Insights 中的[实时指标流](../azure-monitor/app/live-stream.md)支持多个实例。 同时，在近实时情况下，流分析基于[采样数据](functions-monitoring.md#configure-sampling)。
+> 流日志仅支持单个 Functions 宿主实例。 将函数扩展为多个实例时，不会在日志流中显示来自其他实例的数据。 Application Insights 中的[实时指标流](../azure-monitor/app/live-stream.md)支持多个实例。 同时，在近实时情况下，流分析基于[采样数据](configure-monitoring.md#configure-sampling)。
 
 ### <a name="application-insights"></a>Application Insights
 
-我们建议通过将函数应用与 Application Insights 集成来监视函数的执行。 在 Azure 门户中创建函数应用时，默认情况下会完成此集成。 在 Visual Studio 发布期间创建函数应用时，需要自己集成 Application Insights。
+我们建议通过将函数应用与 Application Insights 集成来监视函数的执行。 在 Azure 门户中创建函数应用时，默认情况下会完成此集成。 在 Visual Studio 发布期间创建函数应用时，需要自己集成 Application Insights。 若要了解如何操作，请参阅 [启用 Application Insights 集成](configure-monitoring.md#enable-application-insights-integration)。
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-若要了解详细信息，请参阅[监视 Azure Functions](functions-monitoring.md)。
+若要了解有关使用 Application Insights 进行监视的详细信息，请参阅 [监视 Azure Functions](functions-monitoring.md)。
 
 ## <a name="c-script-projects"></a>C\# 脚本项目
 

@@ -13,21 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c591bfa911663503b3e8a9101910034c91a8251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78414e26836d1547fe195a0a7844b6a98bb0dfc8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298773"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168250"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>在 Azure VM (PowerShell & Az CLI 上配置 SQL Server 的可用性组) 
+# <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>使用 PowerShell 或 Az CLI 为 Azure VM 上的 SQL Server 配置可用性组 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-本文介绍如何使用 [PowerShell](/powershell/scripting/install/installing-powershell) 或 [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) 来部署 Windows 故障转移群集、将 SQL Server vm 添加到群集，并为 Always On 可用性组创建内部负载均衡器和侦听器。 
+本文介绍如何使用 [PowerShell](/powershell/scripting/install/installing-powershell) 或 [Azure CLI](/cli/azure/sql/vm) 来部署 Windows 故障转移群集、将 SQL Server vm 添加到群集，并为 Always On 可用性组创建内部负载均衡器和侦听器。 
 
 可用性组的部署仍可通过 SQL Server Management Studio (SSMS) 或 Transact-sql (T-sql) 手动完成。 
 
-## <a name="prerequisites"></a>必备条件
+尽管本文使用 PowerShell 和 Az CLI 来配置可用性组环境，但是也可以使用[Azure 快速入门模板](availability-group-quickstart-template-configure.md)或[手动](availability-group-manually-configure-tutorial.md)方式从[Azure 门户](availability-group-azure-portal-configure.md)执行此操作。 
+
+## <a name="prerequisites"></a>先决条件
 
 若要配置 Always On 可用性组，必须具备以下先决条件： 
 
@@ -62,7 +64,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> 如果使用的是过时的 Azure CLI 版本，可能会看到错误 `az sql: 'vm' is not in the 'az sql' command group`。 下载[最新版本的 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)，以跳过此错误。
+> 如果使用的是过时的 Azure CLI 版本，可能会看到错误 `az sql: 'vm' is not in the 'az sql' command group`。 下载[最新版本的 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)，以跳过此错误。
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -82,7 +84,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## <a name="define-cluster-metadata"></a>定义分类元数据
 
-Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) 命令组管理托管可用性组的 Windows Server 故障转移群集 (WSFC) 服务的元数据。 群集元数据包括 Active Directory 域、群集帐户、要用作云见证的存储帐户和 SQL Server 版本。 使用 [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) 定义 WSFC 的元数据，以便在添加第一个 SQL Server VM 时，按定义创建群集。 
+Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group) 命令组管理托管可用性组的 Windows Server 故障转移群集 (WSFC) 服务的元数据。 群集元数据包括 Active Directory 域、群集帐户、要用作云见证的存储帐户和 SQL Server 版本。 使用 [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group#az-sql-vm-group-create) 定义 WSFC 的元数据，以便在添加第一个 SQL Server VM 时，按定义创建群集。 
 
 下面的代码片段定义群集的元数据：
 
@@ -127,7 +129,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>将 Vm 添加到群集
 
-将第一个 SQL Server VM 添加到群集将创建群集。 [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) 命令使用先前指定的名称创建群集，在 SQL Server VM 上安装群集角色，然后将其添加到群集中。 继续使用 `az sql vm add-to-group` 命令将更多 SQL Server VM 添加到新创建的群集中。 
+将第一个 SQL Server VM 添加到群集将创建群集。 [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm#az-sql-vm-add-to-group) 命令使用先前指定的名称创建群集，在 SQL Server VM 上安装群集角色，然后将其添加到群集中。 继续使用 `az sql vm add-to-group` 命令将更多 SQL Server VM 添加到新创建的群集中。 
 
 以下代码片段会创建群集，并将第一个 SQL Server VM 添加到其中： 
 
@@ -204,6 +206,8 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 
 ## <a name="create-internal-load-balancer"></a>创建内部负载均衡器
 
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Always On 可用性组侦听器需要 Azure 负载均衡器的内部实例。 内部负载均衡器为可用性组侦听器提供“浮动”IP 地址，可以加快故障转移和重新连接的速度。 如果可用性组中的 SQL Server VM 属于同一个可用性集，则可以使用基本负载均衡器。 否则，需要使用标准负载均衡器。  
 
 > [!NOTE]
@@ -240,7 +244,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 
 ## <a name="create-listener"></a>创建侦听器
 
-手动创建可用性组后，可以使用 [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create) 命令创建侦听器。 
+手动创建可用性组后，可以使用 [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-create) 命令创建侦听器。 
 
 子网资源 ID 是 `/subnets/<subnetname>` 附加到虚拟网络资源的资源 ID 的值。 标识子网资源 ID：
    1. 转到 [Azure 门户](https://portal.azure.com)中的资源组。 
@@ -294,7 +298,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 ---
 
 ## <a name="modify-number-of-replicas"></a>修改副本数 
-将可用性组部署到 Azure 中托管的 SQL Server VM，这会增加复杂性。 现在可使用资源提供程序和虚拟机组管理资源。 因此，将副本添加到可用性组或从中删除副本时，还有一个附加步骤，即使用有关 SQL Server VM 的信息来更新侦听器元数据。 修改可用性组中的副本数时，还必须使用 [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) 命令，以使用 SQL Server VM 的元数据更新侦听器。 
+将可用性组部署到 Azure 中托管的 SQL Server VM，这会增加复杂性。 现在可使用资源提供程序和虚拟机组管理资源。 因此，将副本添加到可用性组或从中删除副本时，还有一个附加步骤，即使用有关 SQL Server VM 的信息来更新侦听器元数据。 修改可用性组中的副本数时，还必须使用 [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-update) 命令，以使用 SQL Server VM 的元数据更新侦听器。 
 
 
 ### <a name="add-a-replica"></a>添加副本

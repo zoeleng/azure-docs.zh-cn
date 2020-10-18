@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715940"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167689"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用依赖项注入
 
@@ -131,8 +131,8 @@ Azure Functions 应用提供与 [ASP.NET 依赖项注入](/aspnet/core/fundament
 Azure Functions 会自动添加 Application Insights。
 
 > [!WARNING]
-> - 请勿将 `AddApplicationInsightsTelemetry()` 添加到服务集合，因为它注册的服务与环境提供的服务发生冲突。
-> - 如果使用内置 Application Insights 功能，请勿注册自己的 `TelemetryConfiguration` 或 `TelemetryClient`。 如果需要配置自己的 `TelemetryClient` 实例，请通过插入的 `TelemetryConfiguration` 创建一个实例，如[监视 Azure Functions](./functions-monitoring.md#version-2x-and-later-2) 中所示。
+> - 不要添加 `AddApplicationInsightsTelemetry()` 到服务集合，后者将注册与环境提供的服务冲突的服务。
+> - `TelemetryConfiguration` `TelemetryClient` 如果你使用的是内置 Application Insights 功能，请不要注册自己的或。 如果需要配置自己 `TelemetryClient` 的实例，请通过插入的实例创建一个实例， `TelemetryConfiguration` 如在 [c # 函数中记录自定义遥测](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions)中所示。
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 和 ILoggerFactory
 
@@ -287,7 +287,7 @@ namespace MyNamespace
 }
 ```
 
-将配置提供程序添加到 `IFunctionsConfigurationBuilder` 的 `ConfigurationBuilder` 属性。 有关使用配置提供程序的详细信息，请参阅 [ASP.NET Core 中的配置](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers)。
+将配置提供程序添加到 `IFunctionsConfigurationBuilder` 的 `ConfigurationBuilder` 属性。 有关使用配置提供程序的详细信息，请参阅 [ASP.NET Core 中的配置](/aspnet/core/fundamentals/configuration/#configuration-providers)。
 
 `FunctionsHostBuilderContext` 是从 `IFunctionsConfigurationBuilder.GetContext()` 中获取的。 使用此上下文检索当前环境名称，并解析函数应用文件夹中配置文件的位置。
 

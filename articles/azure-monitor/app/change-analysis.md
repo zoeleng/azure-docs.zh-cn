@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992884"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168267"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>使用 Azure Monitor 中的应用程序更改分析（预览版）
 
@@ -169,7 +169,7 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>故障排除
+## <a name="troubleshoot"></a>疑难解答
 
 ### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>注册 Microsoft 时遇到问题。请从 "更改历史记录" 选项卡更改分析资源提供程序
 如果是第一次在其与应用程序更改分析集成后查看更改历史记录，则会看到它会自动注册资源提供程序 **ChangeAnalysis**。 在极少数情况下，可能会由于以下原因而失败：
@@ -187,7 +187,9 @@ foreach ($webapp in $webapp_list)
 - **此时间比预期时间长**。 此消息表示注册花费的时间超过2分钟。 这种情况很罕见，但并不一定表示出现了问题。 可以中转到 " **订阅" |** 用于检查 **ChangeAnalysis** 资源提供程序注册状态的资源提供程序。 可以尝试使用 UI 注销、重新注册或刷新，以查看是否有帮助。 如果问题仍然存在，请联系 changeanalysishelp@microsoft.com 以获得支持。
     ![排除 RP 注册花费的时间过长](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![选择了疑难解答工具的虚拟机的 "诊断和解决问题" 工具的屏幕截图。](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![用于分析虚拟机的最新更改故障排除工具的磁贴的屏幕截图。](./media/change-analysis/analyze-recent-changes.png)
 
 ## <a name="next-steps"></a>后续步骤
 

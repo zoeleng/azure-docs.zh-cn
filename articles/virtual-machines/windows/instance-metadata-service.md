@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 51310b1569982e0b71f39dede0d4d7dbefd1a3c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 49840c2591bc1a991920b00aec020d4f652c9a50
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975529"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168386"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -520,7 +520,7 @@ createOption | 有关 VM 创建方式的信息
 diffDiskSettings | 临时磁盘设置
 diskSizeGB | 磁盘大小 (GB)
 encryptionSettings | 磁盘的加密设置
-图像   | 源用户映像虚拟硬盘
+image   | 源用户映像虚拟硬盘
 managedDisk | 托管磁盘参数
 name    | 磁盘名称
 osType  | 磁盘中包含的 OS 类型
@@ -535,7 +535,7 @@ caching | 缓存要求
 createOption | 有关 VM 创建方式的信息
 diffDiskSettings | 临时磁盘设置
 diskSizeGB | 磁盘大小 (GB)
-图像   | 源用户映像虚拟硬盘
+image   | 源用户映像虚拟硬盘
 lun     | 磁盘的逻辑单元号
 managedDisk | 托管磁盘参数
 name    | 磁盘名称
@@ -732,7 +732,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```
