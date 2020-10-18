@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b81d3f74c20f42620ceeae08bec5d484909377a7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150420"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167468"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>通过 (Azure 认知搜索的专用终结点建立索引器连接) 
 
@@ -23,7 +23,7 @@ ms.locfileid: "92150420"
 
 + 提供内容或代码的 Azure 资源之前必须已注册到 [Azure 专用链接服务](https://azure.microsoft.com/services/private-link/)。
 
-+ Azure 认知搜索服务必须是 "基本" 或更高版本 (在 "免费" 层) 上不可用。 此外，对于具有技能组合的索引器，搜索服务必须为 S2 或更高版本。 有关详细信息，请参阅 [服务限制](search-limits-quotas-capacity.md#shared-private-link-resource-limits)。
++ Azure 认知搜索服务必须是 "基本" 或更高版本 (在 "免费" 层) 上不可用。 此外，如果索引器具有技能组合，则层必须是标准 2 (S2) 或更高版本。 有关详细信息，请参阅 [服务限制](search-limits-quotas-capacity.md#shared-private-link-resource-limits)。
 
 ## <a name="shared-private-link-resources-management-apis"></a>共享的专用链接资源管理 Api
 

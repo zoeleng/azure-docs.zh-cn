@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628050"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165326"
 ---
 # <a name="prepare-data-for-custom-speech"></a>准备自定义语音识别的数据
 
@@ -59,7 +59,7 @@ ms.locfileid: "84628050"
 
 若要上传数据，请导航到<a href="https://speech.microsoft.com/customspeech" target="_blank">自定义语音识别门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。 在门户中，单击“上传数据”启动向导并创建第一个数据集。 在上传数据之前，系统会要求你为数据集选择语音数据类型。
 
-![从语音门户选择音频](./media/custom-speech/custom-speech-select-audio.png)
+![从语音门户突出显示音频上传选项的屏幕截图。](./media/custom-speech/custom-speech-select-audio.png)
 
 上传的每个数据集必须符合所选数据类型的要求。 必须先将数据设置为正确格式再上传它。 格式正确的数据可确保自定义语音识别服务对其进行准确处理。 以下部分列出了要求。
 

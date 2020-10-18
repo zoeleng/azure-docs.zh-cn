@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f37828d5561ef382f572c1fdd4917a71f8a00407
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930163"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165590"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -34,7 +34,7 @@ ms.locfileid: "91930163"
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Feature                                                         | NER 3。0 | NER 3.1-预览版2 |
+| 功能                                                         | NER 3。0 | NER 3.1-预览版2 |
 |-----------------------------------------------------------------|--------|----------|
 | 用于单个请求和批量请求的方法                          | X      | X        |
 | 跨多个类别展开实体识别           | X      | X        |
@@ -43,7 +43,7 @@ ms.locfileid: "91930163"
 
 有关信息，请参阅 [语言支持](../language-support.md) 。
 
-### <a name="entity-types"></a>实体类型
+## <a name="entity-types"></a>实体类型
 
 命名实体识别 v3 提供跨多种类型的扩展检测。 目前，NER 3.0 可以识别 " [常规实体" 类别](../named-entity-types.md)中的实体。
 

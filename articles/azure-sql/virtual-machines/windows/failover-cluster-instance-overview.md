@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272499"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165225"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server 故障转移群集实例 (FCI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -140,7 +140,7 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 
 ## <a name="connectivity"></a>连接
 
-Azure 虚拟机上的 SQL Server 故障转移群集实例使用[分布式网络名称 (DNN)](hadr-distributed-network-name-dnn-configure.md) 或 [Azure 负载均衡器虚拟网络名称 (VNN)](hadr-vnn-azure-load-balancer-configure.md) 将流量路由到 SQL Server 实例，而不管哪个节点当前拥有群集资源。 在将某些功能和 DNN 与 SQL Server FCI 一起使用时，还有其他注意事项。 有关详细信息，请参阅 [DNN 互操作性与 SQL Server FCI](failover-cluster-instance-dnn-interoperability.md)。 
+Azure 虚拟机上的 SQL Server 故障转移群集实例使用[分布式网络名称 (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) 或 [Azure 负载均衡器虚拟网络名称 (VNN)](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 将流量路由到 SQL Server 实例，而不管哪个节点当前拥有群集资源。 在将某些功能和 DNN 与 SQL Server FCI 一起使用时，还有其他注意事项。 有关详细信息，请参阅 [DNN 互操作性与 SQL Server FCI](failover-cluster-instance-dnn-interoperability.md)。 
 
 有关群集连接选项的更多详细信息，请参阅[将 HADR 连接路由到 Azure VM 上的 SQL Server](hadr-cluster-best-practices.md#connectivity)。 
 

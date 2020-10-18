@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334899"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167111"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>向数据库授予对 Azure SQL 数据库、SQL 托管实例和 Azure Synapse Analytics 的访问权限
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "91334899"
 
 ![SQL Server 管理员](./media/logins-create-manage/sql-admins.png)
 
-![SQL Server 管理员](./media/logins-create-manage/sql-admins2.png)
+![突出显示 "属性" 菜单选项的屏幕截图。](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > 创建管理员登录名后，无法对其进行更改。 若要重置服务器管理员的密码，请转到 [Azure 门户](https://portal.azure.com)，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码” 。 若要重置 SQL 托管实例的密码，请转到 Azure 门户，单击该实例，然后单击“重置密码”。 也可以使用 PowerShell 或 Azure CLI。

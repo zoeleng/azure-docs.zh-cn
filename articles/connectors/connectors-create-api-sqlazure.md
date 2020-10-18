@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326773"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166278"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用自动完成 SQL 数据库的工作流
 
@@ -67,6 +67,9 @@ ms.locfileid: "91326773"
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>连接到 Azure SQL 数据库或托管实例
 
+若要访问 Azure SQL 托管实例而不使用本地数据网关或 integration services 环境，则必须 [在 AZURE SQL 托管实例上设置公共终结点](../azure-sql/managed-instance/public-endpoint-configure.md)。 公共终结点使用端口3342，因此，请确保在从逻辑应用创建连接时指定此端口号。
+
+
 第一次添加 [SQL 触发器](#add-sql-trigger)或 [SQL 操作](#add-sql-action)时，如果尚未创建到数据库的连接，系统会提示你完成以下步骤：
 
 1. 对于“身份验证类型”，选择所需的并已在 Azure SQL 数据库或 Azure SQL 托管实例中的数据库上启用的身份验证：
@@ -79,7 +82,7 @@ ms.locfileid: "91326773"
 
    此示例将继续使用 **Azure AD 集成**：
 
-   ![屏幕截图，显示已打开 "身份验证类型" 列表并选择 "Azure AD 集成" 的 "SQL Server" 连接窗口。](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+   ![此屏幕截图显示在其中打开了“身份验证类型”列表并选择了“Azure AD 集成”的“SQL Server”连接窗口。](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
 1. 在选择“Azure AD 集成”后，选择“登录”。 根据你使用的是 Azure SQL 数据库还是 Azure SQL 托管实例，选择用于身份验证的用户凭据。
 
@@ -248,6 +251,18 @@ ms.locfileid: "91326773"
 
 1. 若要引用 JSON 内容属性，请在你要在其中引用这些属性的编辑框中单击，以便显示动态内容列表。 在列表中的[**分析 JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) 标题下，为你所需的 JSON 内容属性选择数据令牌。
 
+## <a name="troubleshoot-problems"></a>排查问题
+
+遇到连接问题非常常见。 下面是错误消息的示例：
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+请按照 [解决连接错误 SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) 来解决该问题。
+
 ## <a name="connector-specific-details"></a>特定于连接器的详细信息
 
 有关此连接器的触发器、操作和限制的技术信息，请参阅[连接器的参考页](/connectors/sql/)，这是基于 Swagger 说明生成的。
@@ -255,4 +270,3 @@ ms.locfileid: "91326773"
 ## <a name="next-steps"></a>后续步骤
 
 * 了解其他[适用于 Azure 逻辑应用的连接器](../connectors/apis-list.md)
-

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3cc579615a69b659bc1a4736984f0b3dcd6edb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272517"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165227"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>在 Azure Vm 上使用存储空间直通 (SQL Server 创建 FCI) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,14 +50,14 @@ ms.locfileid: "91272517"
    > 可以在 Azure 中基于模板创建整个解决方案。 GitHub [Azure 快速入门模板](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad) 页上提供了一个模板示例。 此示例不是针对任何特定工作负荷设计的，也没有针对任何特定工作负荷进行测试。 运行该模板可以使用与域连接的存储空间直通存储创建 SQL Server FCI。 可以评估该模板，并根据用途对其进行修改。
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在完成本文中的说明之前，你应该已经：
 
 - Azure 订阅。 [免费试用](https://azure.microsoft.com/free/)。 
 - [可用性集中](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)的[两个或更多个已准备的 Windows Azure 虚拟机](failover-cluster-instance-prepare-vm.md)。
 - 有权限在 Azure 虚拟机和 Active Directory 中创建对象的帐户。
-- 最新版本的 [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0)。 
+- 最新版本的 [PowerShell](/powershell/azure/install-az-ps)。 
 
 
 ## <a name="add-the-windows-cluster-feature"></a>添加 Windows 群集功能
@@ -164,7 +164,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. [创建卷](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes)。
 
-   启用存储空间直通后，它会自动创建存储池。 接下来，可以创建卷。 PowerShell cmdlet `New-Volume` 自动完成卷的创建过程。 此过程包括格式化、将卷添加到群集，以及创建 CSV。 此示例创建一个 800 千兆字节 (GB) 的 CSV：
+   启用存储空间直通后，它会自动创建存储池。 接下来，可以创建卷。 PowerShell cmdlet `New-Volume` 自动完成卷的创建过程。 此过程包括格式化、将卷添加到群集，以及创建 CSV。 此示例将创建 800 gb (GB) CSV：
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -233,7 +233,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>配置连接 
 
-若要将流量正确路由到当前主节点，请配置适用于你的环境的连接选项。 你可以创建 [Azure 负载均衡器](hadr-vnn-azure-load-balancer-configure.md) ，或者，如果你使用 SQL Server 2019 和 Windows Server 2016 (或更高版本) ，则可以改为预览 [分布式网络名称](hadr-distributed-network-name-dnn-configure.md) 功能。 
+若要将流量正确路由到当前主节点，请配置适用于你的环境的连接选项。 你可以创建 [Azure 负载均衡器](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ，或者，如果使用 SQL SERVER 2019 CU2 (或更高版本) 和 Windows Server 2016 (或更) 高版本，则可以改为使用 [分布式网络名称](failover-cluster-instance-distributed-network-name-dnn-configure.md) 功能。 
 
 ## <a name="limitations"></a>限制
 
@@ -243,12 +243,12 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="next-steps"></a>后续步骤
 
-如果尚未执行此操作，请使用 [虚拟网络名称、Azure 负载均衡器](hadr-vnn-azure-load-balancer-configure.md) 或 [ (DNN) 的分布式网络名称 ](hadr-distributed-network-name-dnn-configure.md)配置到 FCI 的连接。 
+如果尚未执行此操作，请使用 [虚拟网络名称、Azure 负载均衡器](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 或 [ (DNN) 的分布式网络名称 ](failover-cluster-instance-distributed-network-name-dnn-configure.md)配置到 FCI 的连接。 
 
 如果存储空间直通不是合适的 FCI 存储解决方案，请考虑使用 [Azure 共享磁盘](failover-cluster-instance-azure-shared-disks-manually-configure.md) 或 [高级文件共享](failover-cluster-instance-premium-file-share-manually-configure.md) 来创建 FCI。 
 
 若要了解详细信息，请参阅 [有关 Azure vm 的 SQL Server FCI](failover-cluster-instance-overview.md) 和 [群集配置最佳实践](hadr-cluster-best-practices.md)的概述。 
 
-有关其他信息，请参阅： 
+有关详细信息，请参阅： 
 - [Windows 群集技术](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server 故障转移群集实例](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

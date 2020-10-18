@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995686"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164476"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>启用用于 VM 的 Azure Monitor 概述
 
@@ -37,30 +38,42 @@ ms.locfileid: "91995686"
 >[!NOTE]
 >本部分中所述的以下信息也适用于[服务映射解决方案](service-map.md)。  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics-workspace"></a>Log Analytics 工作区
 
 用于 VM 的 Azure Monitor 支持以下区域中的 Log Analytics 工作区：
 
-- 美国中西部
-- 美国西部
-- 美国西部 2
-- 美国中南部
-- 美国东部
-- 美国东部 2
-- 美国中部
-- 美国中北部
-- US Gov Az
-- US Gov Va
-- 加拿大中部
-- 英国南部
-- 北欧
-- 西欧
-- 东亚
-- 东南亚
-- 印度中部
-- 日本东部
-- 澳大利亚东部
-- 澳大利亚东南部
+- 非洲
+  - 南非北部
+- 亚太区
+  - 东亚
+  - 东南亚
+- 澳大利亚
+  - 澳大利亚东部
+  - 澳大利亚东南部
+- Azure Government
+  - US Gov Az
+  - US Gov Va
+- Canada
+  - 加拿大中部
+- 欧洲
+  - 北欧
+  - 西欧
+- 印度
+  - 印度中部
+- 日本
+  - 日本东部
+- United Kingdom
+  - 英国南部
+- 美国
+  - 美国中部
+  - 美国东部
+  - 美国东部 2
+  - 美国中北部
+  - 美国中南部
+  - 美国中西部
+  - 美国西部
+  - 美国西部 2
+
 
 >[!NOTE]
 >可以在任何区域监视 Azure Vm。 Vm 本身并不限于 Log Analytics 工作区所支持的区域。

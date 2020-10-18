@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073795"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164357"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -64,7 +64,7 @@ ms.locfileid: "92073795"
 
 当用户上传一个图像时，Web 角色中运行的前端在 [Azure Blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 中存储图像，并将广告信息存储在带有指向 Blob 的 URL 的数据库中。 同时，它将一条消息写入 Azure 队列。 在辅助角色中定期运行的后端进程轮询队列是否有新消息。 显示新消息时，辅助角色会创建该图像的缩略图，并为该广告更新缩略图 URL 数据库字段。 下图演示了应用程序各部分之间如何交互：
 
-![Contoso 广告体系结构](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![显示应用程序的各个部分如何交互的关系图。](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -217,7 +217,7 @@ Web 项目和辅助角色项目都有自己的数据库连接字符串。当应�
 6. 选择并复制连接字符串，供在以下步骤中配置辅助角色项目的使用（不带周围的引号）。
 7. 在云服务项目的“角色”下的“解决方案资源管理器”中，右键单击“ContosoAdsWorker”并单击“属性”。
 
-    ![角色属性](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![突出显示 "属性" 菜单选项的屏幕截图。](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. 单击“设置”选项卡。
 9. 将“服务配置”更改为“云”。
 10. 选择 `ContosoAdsDbConnectionString` 设置的“值”字段，并粘贴从本教程上一部分复制的连接字符串。
@@ -378,7 +378,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 2. 保存所做更改。
 3. 在 ContosoAdsCloudService 项目中，右键单击“角色”下的 ContosoAdsWeb，并单击“属性”。
 
-    ![角色属性](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![突出显示 "角色" 下的 "属性" 菜单选项的屏幕截图。](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. 在“ContosoAdsWeb [角色]”属性窗口中，单击“设置”选项卡，并单击“添加设置”。
 
     将“服务配置”保留设置为“所有配置”。

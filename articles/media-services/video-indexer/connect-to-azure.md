@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005933"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164783"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>创建连接到 Azure 的视频索引器帐户
 
@@ -47,7 +47,7 @@ ms.locfileid: "83005933"
 
     将视频索引器帐户连接到 Azure 时，将要使用此成员。
 
-    此用户应当是 Azure 订阅中具有“所有者”角色，或者兼具“参与者”和“用户访问管理员”两个角色的成员************。 用户可以添加两次，具有两个角色。 一次分配“参与者”角色，另一次分配“用户访问管理员”角色。
+    此用户应当是 Azure 订阅中具有“所有者”角色，或者兼具“参与者”和“用户访问管理员”两个角色的成员************。 用户可以添加两次，具有两个角色。 一次分配“参与者”角色，另一次分配“用户访问管理员”角色。 有关详细信息，请参阅 [查看用户对 Azure 资源的访问权限](https://docs.microsoft.com/azure/role-based-access-control/check-access)。
 
     ![访问控制](./media/create-account/access-control-iam.png)
 
@@ -144,7 +144,7 @@ ms.locfileid: "83005933"
 
 在对话框中提供以下信息：
 
-|设置|说明|
+|设置|描述|
 |---|---|
 |视频索引器帐户区域|视频索引器帐户区域的名称。 为了获得更好的性能和更低的成本，强烈建议指定 Azure 媒体服务资源和 Azure 存储帐户所在的区域的名称。 |
 |Azure AD 租户|Azure AD 租户的名称，例如“contoso.onmicrosoft.com”。 可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名上。 找到“域”右侧的名称****。|

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: ebae7359c7bd593cb2b63bbd69919330c6aa24f9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6885c28d993b8ddab5fe158ad7b1480259cb8fb0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150755"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92163779"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 AMD GPU 驱动程序
 
@@ -48,11 +48,12 @@ NVv4 VM 仅支持 Microsoft 发布的 GPU 驱动程序。 请勿从任何其他�
 
 可以在设备管理器中验证驱动程序安装。 以下示例展示了如何在 Azure NVv4 VM 上成功配置 Radeon Instinct MI25 卡。
 <br />
-![GPU 设备状态](./media/n-series-amd-driver-setup/device-manager.png)
+
+![显示 Azure NVv4 VM 上的 Radeon Instinct MI25 卡成功配置的屏幕截图。](./media/n-series-amd-driver-setup/device-manager.png)
 
 可以使用 dxdiag 验证 GPU 显示属性（包括视频 RAM）。 以下示例显示了 Azure NVv4 VM 上 Radeon Instinct MI25 卡的 1/2 分区。
 <br />
-![GPU 属性](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![屏幕截图，显示 Azure NVv4 VM 上的 Radeon Instinct MI25 卡的1/2 分区。](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 如果运行的是 Windows 10 内部版本 1903 或更高版本，则 dxdiag 不会在“显示”选项卡中显示任何信息。请使用底部的“保存所有信息”选项，输出文件会显示与 AMD MI25 GPU 相关的信息。
 

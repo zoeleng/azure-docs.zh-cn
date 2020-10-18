@@ -13,25 +13,26 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482774"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164561"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>在 Azure VM 上配置 SQL Server 的可用性组 (Azure 门户-预览) 
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>使用 Azure 门户为 Azure VM 上的 SQL Server 配置可用性组 (预览)  
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 本文介绍如何使用 [Azure 门户](https://portal.azure.com) 为 Azure vm 上的 SQL Server 配置可用性组。 
 
 使用 Azure 门户创建新群集或加入现有群集，然后创建可用性组、侦听器和内部负载均衡器。 
 
-   > [!NOTE]
-   > 此功能目前处于预览状态且正在部署，因此，如果所需的区域不可用，请稍后再查看。 
+此功能目前处于预览状态。 
+
+尽管本文使用 Azure 门户来配置可用性组环境，但也可以使用 [PowerShell 或 Azure CLI](availability-group-az-commandline-configure.md)、 [Azure 快速入门模板](availability-group-quickstart-template-configure.md)或 [手动](availability-group-manually-configure-tutorial.md) 操作。 
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要使用 Azure 门户配置 Always On 可用性组，必须满足以下先决条件： 
 
@@ -161,7 +162,7 @@ ms.locfileid: "89482774"
 
 1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " **Windows Server 故障转移群集凭据** "，并输入用于 SQL Server 服务、群集操作员和群集启动帐户的帐户。 
 1. 选择要添加到群集的 SQL Server Vm。 
-1. 选择“应用”。  
+1. 选择“应用”。 
 
 可以在活动日志中检查部署的状态，可从顶部导航栏中的电铃图标访问该 **活动日志** 。 
 
@@ -177,7 +178,7 @@ ms.locfileid: "89482774"
 
 ## <a name="remove-cluster"></a>删除群集
 
-从群集中删除所有 SQL Server Vm 以销毁该群集，然后从 SQL VM 资源提供程序中删除该群集元数据。 为此，可以使用最新版本的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 或 PowerShell。 
+从群集中删除所有 SQL Server Vm 以销毁该群集，然后从 SQL VM 资源提供程序中删除该群集元数据。 为此，可以使用最新版本的 [Azure CLI](/cli/azure/install-azure-cli) 或 PowerShell。 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

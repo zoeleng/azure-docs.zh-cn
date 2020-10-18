@@ -3,12 +3,12 @@ title: Azure Functions 的应用设置参考
 description: 有关 Azure Functions 应用设置或环境变量的参考文档。
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589294"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165754"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -23,7 +23,7 @@ ms.locfileid: "88589294"
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Application Insights 的检测密钥。 仅使用 `APPINSIGHTS_INSTRUMENTATIONKEY` 或 `APPLICATIONINSIGHTS_CONNECTION_STRING` 中的一个。 有关详细信息，请参阅[监视 Azure Functions](functions-monitoring.md)。 
+Application Insights 的检测密钥。 仅使用 `APPINSIGHTS_INSTRUMENTATIONKEY` 或 `APPLICATIONINSIGHTS_CONNECTION_STRING` 中的一个。 如果 Application Insights 在主权云中运行，请使用 `APPLICATIONINSIGHTS_CONNECTION_STRING` 。 有关详细信息，请参阅 [如何为 Azure Functions 配置监视](configure-monitoring.md)。 
 
 |键|示例值|
 |---|------------|
@@ -31,7 +31,12 @@ Application Insights 的检测密钥。 仅使用 `APPINSIGHTS_INSTRUMENTATIONKE
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Application Insights 的连接字符串。 当函数应用需要使用连接字符串进行支持的已添加自定义项时，请使用 `APPLICATIONINSIGHTS_CONNECTION_STRING`，而不要使用 `APPINSIGHTS_INSTRUMENTATIONKEY`。 有关详细信息，请参阅[连接字符串](../azure-monitor/app/sdk-connection-string.md)。 
+Application Insights 的连接字符串。 `APPLICATIONINSIGHTS_CONNECTION_STRING` `APPINSIGHTS_INSTRUMENTATIONKEY` 在以下情况下使用而不是：
+
++ 当函数应用需要使用连接字符串支持的添加的自定义项时。 
++ 当 Application Insights 实例在主权云中运行时，这需要自定义终结点。
+
+有关详细信息，请参阅[连接字符串](../azure-monitor/app/sdk-connection-string.md)。 
 
 |键|示例值|
 |---|------------|
@@ -41,7 +46,7 @@ Application Insights 的连接字符串。 当函数应用需要使用连接字�
 
 默认情况下，[Functions 代理](functions-proxies.md)使用快捷方式从代理直接将 API 调用发送到同一函数应用中的函数。 使用此快捷方式取代创建新的 HTTP 请求。 此设置让你能够禁用该快捷方式行为。
 
-|键|值|说明|
+|键|“值”|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|是|具有指向本地函数应用中函数的后端 URL 的调用不会直接发送到函数， 相反，请求会定向回函数应用的 HTTP 前端。|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|具有指向本地函数应用中函数的后端 URL 的调用会直接转发到函数。 这是默认值。 |
@@ -50,7 +55,7 @@ Application Insights 的连接字符串。 当函数应用需要使用连接字�
 
 此设置控制字符 `%2F` 在路由参数插入后端 URL 时是否在路由参数中解码为斜杠。 
 
-|键|值|说明|
+|键|“值”|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|是|包含编码斜杠的路由参数已解码。 |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|所有路由参数均原样传递，这是默认行为。 |
@@ -204,7 +209,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 _此设置当前处于预览状态。_  
 
-此设置控制 Azure Functions 缩放控制器中的日志记录。 有关详细信息，请参阅[缩放控制器日志](functions-monitoring.md#scale-controller-logs-preview)。
+此设置控制 Azure Functions 缩放控制器中的日志记录。 有关详细信息，请参阅[缩放控制器日志](functions-monitoring.md#scale-controller-logs)。
 
 |键|示例值|
 |-|-|

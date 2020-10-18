@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293636"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165139"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>适用于 Windows 10 的设计助手体验
 
@@ -70,7 +70,7 @@ Windows 10 根据设备上下文推断出客户上下文的激活体验。 下�
 当助手应用有焦点时，客户意向清楚地与应用程序进行交互，因此所有语音激活体验都应由主要的应用程序视图处理。 此视图可能已由客户调整大小。 为了帮助说明助手 shell 交互，本文档的其余部分使用名为 Contoso 的财务服务助理的具体示例。 在此和后续的关系图中，客户显示的内容将显示在左侧的卡通语音气泡中，在右侧的卡通气泡中显示助手响应。
 
 **应用内视图。语音激活开始时的初始状态：** 
- ![ 激活之前 Windows 上的语音助手屏幕截图](media/voice-assistants/windows_voice_assistant/initial_state.png)
+ ![ 屏幕截图，显示 Contoso 金融助手应用程序的默认画布。 右侧的卡通语音气泡显示为 "Contoso"。](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **应用内视图。语音激活成功后，倾听体验开始：** ![ 语音助手正在侦听时 Windows 上的语音助手屏幕截图](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -108,9 +108,9 @@ Windows 10 根据设备上下文推断出客户上下文的激活体验。 下�
 - 如果应用正在 &quot; 使用中 &quot; ，则它可能会继续锁定。 &quot;使用中 &quot; 构成了任何输入或输出。 例如，当流式传输音乐或视频时，应用可能会继续锁定。 &quot;接下来 &quot; ，还可以执行其他 multiturn 对话框步骤，使应用保持锁定。
 - **有关关闭应用程序的实现的详细信息** ，请参阅 [上述锁定实现指南](windows-voice-assistants-implementation-guide.md#closing-the-application)。
 
-![激活之前 Windows 上的语音助手屏幕截图](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![显示 Contoso 财务助手应用的上述锁定视图的屏幕截图。](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![激活之前 Windows 上的语音助手屏幕截图](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![显示 Windows 锁定屏幕的桌面屏幕截图。](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>&amp;超出锁定的隐私安全注意事项
 
@@ -122,7 +122,7 @@ Windows 10 根据设备上下文推断出客户上下文的激活体验。 下�
 - 发言人 ID 技术可以在缓解某些风险的情况下发挥作用，但发言人 ID 并不是 Windows 身份验证的合适替代品。
 - "允许的技能" 列表应考虑三类操作或技能：
 
-| **操作类** | **描述** | **示例 (不是完整列表) ** |
+| **操作类** | **说明** | **示例 (不是完整列表) ** |
 | --- | --- | --- |
 | 无身份验证的安全 | 常规用途信息或基本应用程序命令和控制 | &quot;什么时间？ &quot; ， &quot; 播放下一个曲目&quot; |
 | 用发言人 ID 安全 | 模拟风险，泄露个人信息。 | &quot;下一次约会&#39;是什么？ &quot; ， &quot; 查看我的购物列表 &quot; ， &quot; 答复呼叫&quot; |

@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076668"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165479"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在门户中为云服务配置自动缩放
 
@@ -53,7 +53,7 @@ ms.locfileid: "92076668"
 
 将“缩放方式”**** 选项设置为“计划和性能规则”****。
 
-![包含配置文件和规则的云服务缩放设置](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![显示 "计划和性能规则" 选项的屏幕截图。](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. 现有的配置文件。
 2. 添加父配置文件的规则。

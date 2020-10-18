@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482564"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165547"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>生成土潮湿热度地图
 
@@ -54,7 +54,7 @@ ms.locfileid: "75482564"
 2.  选择**MyFarm**  >  **添加设备**。
 3.  将显示 " **添加设备** " 窗口。 选择链接到场的 "土料湿气传感器" 的任何设备。
 
-    ![FarmBeats 项目](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![显示 "添加设备" 屏幕的屏幕截图。](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. 选择 " **添加设备**"。     
 
@@ -70,7 +70,7 @@ ms.locfileid: "75482564"
 6.  在 "**选择土料湿度****传感器" 度量值**中，输入要用于地图的度量值。
     若要查找传感器度量值，请在 " **传感器**" 中选择任何泥土湿度传感器。 在 " **传感器属性**" 中，使用 " **度量值名称** " 值。
 
-    ![FarmBeats 项目](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![显示泥土湿气屏幕的屏幕截图。](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  选择 " **生成映射**"。

@@ -4,12 +4,12 @@ description: 了解如何使用用于容器的 Azure Monitor 启用对订阅中�
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994513"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165394"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -132,12 +132,10 @@ provisioningState       : Succeeded
 2. 在资源列表中，开始键入“Containers”  。  列表会根据输入的内容进行筛选。
 
 3. 选择“Kubernetes 服务”  。
+    
+4. 在 Kubernetes services 列表中，选择一个服务。
 
-    ![Kubernetes 服务链接](./media/container-insights-onboard/portal-search-containers-01.png)
-
-4. 在容器列表中，选择一个容器。
-
-5. 在容器概述页面中，选择“监视容器”  。
+5. 在 "Kubernetes 服务概述" 页上，选择 " **监视-Insights**"。
 
 6. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区  。
     列表预先选择了 AKS 容器在订阅中部署到的默认工作区和位置。
@@ -343,7 +341,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>代理版本低于 06072018
 
-若要验证 06072018 之前发布的 Log Analytics 代理版本是否已正确部署，请运行以下命令：
+若要验证 06072018  之前发布的 Log Analytics 代理版本是否已正确部署，请运行以下命令：
 
 ```
 kubectl get ds omsagent --namespace=kube-system

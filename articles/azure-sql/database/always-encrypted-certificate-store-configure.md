@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444771"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164510"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>使用 Windows 证书存储配置 Always Encrypted
 
@@ -97,7 +97,7 @@ SSMS 提供了一个向导，通过设置 CMK、CEK 和已加密列即可轻松�
 1. 展开“数据库” > “Clinic” > “表”。
 2. 右键单击“患者”表，并选择“加密列”以打开始终加密向导：
 
-    ![加密列](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![显示加密表的屏幕截图 .。。的菜单选项。](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置** (CMK)、**验证**和**摘要**。
 
@@ -149,7 +149,7 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 1. 打开 Visual Studio 并创建新的 C# 控制台应用程序。 确保将项目设置为 **.NET Framework 4.6** 或更高版本。
 2. 将项目命名为 **AlwaysEncryptedConsoleApp**，并单击“确定”。
 
-![新建控制台应用程序](./media/always-encrypted-certificate-store-configure/console-app.png)
+![显示新命名的命名为 alwaysencryptedconsoleapp 项目的屏幕截图。](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>修改连接字符串以启用始终加密
 
@@ -510,7 +510,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 可以看到，加密的列不包含任何明文数据。
 
-   ![新建控制台应用程序](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![在加密列中显示加密数据的屏幕截图。](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 要使用 SSMS 来访问明文数据，可将 **Column Encryption Setting=enabled** 参数添加到连接中。
 
@@ -518,7 +518,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 2. 单击“连接” > “数据库引擎”打开“连接到服务器”窗口，并单击“选项”。
 3. 单击“其他连接参数”，并键入 **Column Encryption Setting=enabled**。
 
-    ![新建控制台应用程序](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![屏幕截图，显示 "其他连接参数" 选项卡，在框中键入 "列加密设置 = 已启用"。](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. 针对 **Clinic** 数据库运行以下查询。
 
     ```tsql

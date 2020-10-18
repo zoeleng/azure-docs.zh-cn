@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cba2517f536c9044ad15c628c793529f93b988ce
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966485"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164987"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>为 Azure Active Directory 自助式密码重置 (SSPR) 预填用户身份验证联系信息
 
@@ -48,16 +48,14 @@ ms.locfileid: "91966485"
 
 ## <a name="authentication-contact-info"></a>身份验证联系人信息
 
-在 Azure 门户中 Azure AD 用户的“身份验证方法”**** 页上，全局管理员可以手动设置身份验证联系人信息，如以下示例屏幕截图所示：
+在 Azure 门户中 Azure AD 用户的 " **身份验证方法** " 页上，全局管理员可以手动设置身份验证联系信息。 您可以查看 " *可用身份验证方法* " 部分下的现有方法，或按以下示例屏幕截图中所示的 " **+ 添加身份验证方法**"：
 
-![Azure AD 中用户的身份验证联系信息][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="从 Azure 门户管理身份验证方法":::
 
 以下注意事项适用于这些身份验证联系信息：
 
 * 如果“电话”字段已填充且在 SSPR 策略中启用了“移动电话”，则用户会在密码重置注册页和密码重置工作流中看到该号码。****
-* “备用电话”字段不用于密码重置。**
 * 如果“电子邮件”字段已填充且在 SSPR 策略中启用了“电子邮件”，则用户会在密码重置注册页和密码重置工作流中看到该电子邮件。****
-* 如果“电子邮件”字段已填充且在 SSPR 策略中启用了“电子邮件”，则用户不会在密码重置注册页中看到该电子邮件，但会在密码重置工作流中看到它。****
 
 ## <a name="security-questions-and-answers"></a>安全问题和答案
 
@@ -169,5 +167,3 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 > [!div class="nextstepaction"]
 > [启用 Azure AD 自助式密码重置](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "全局管理员可以修改用户的身份验证联系人信息"

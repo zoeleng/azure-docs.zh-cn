@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018588"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164221"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>对 Azure 文件同步进行故障排除
 使用 Azure 文件同步，即可将组织的文件共享集中在 Azure 文件中，同时又不失本地文件服务器的灵活性、性能和兼容性。 Azure 文件同步可将 Windows Server 转换为 Azure 文件共享的快速缓存。 可以使用 Windows Server 上可用的任意协议本地访问数据，包括 SMB、NFS 和 FTPS。 并且可以根据需要在世界各地具有多个缓存。
@@ -734,7 +734,7 @@ PerItemErrorCount: 1006.
 | **错误字符串** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **所需的补救措施** | 是 |
 
-如果发生许多的文件同步错误，同步会话可能无法开始。 <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+当有许多文件无法与每个项的错误同步时，同步会话会失败，并出现以下错误之一。 执行如何实现中所述的步骤 [，查看是否存在未同步的特定文件或文件夹？](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 部分以解决每个项的错误。 ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED "同步错误"，请打开支持案例。
 
 > [!NOTE]
 > Azure 文件同步每天在服务器上创建临时 VSS 快照一次，以同步包含开放句柄的文件。

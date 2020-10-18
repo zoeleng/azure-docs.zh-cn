@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683898"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164204"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>FarmBeats 的灾难恢复
 
@@ -45,18 +45,18 @@ FarmBeats 将数据存储在三个 Azure 第一方服务中，即 **azure 存储
 复制还原的 Cosmos DB 的访问密钥并更新新的 FarmBeats Datahub Key Vault。
 
 
-  ![灾难恢复](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
+  ![突出显示访问密钥副本的位置的屏幕截图。](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > 复制已还原 Cosmos DB 的 URL，并将其更新为新的 FarmBeats Datahub 应用服务配置。 你现在可以在新的 FarmBeats 部署中删除 Cosmos DB 帐户。
 
-  ![灾难恢复](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![显示在何处复制已还原 Cosmos DB 的 URL 的屏幕截图。](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>配置存储帐户
 
 复制还原的存储帐户的访问密钥，并在新的 FarmBeats Datahub Key Vault 中更新该密钥。
 
-![灾难恢复](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
+![显示在何处复制已还原存储帐户的访问密钥的屏幕截图。](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > 请确保在新的 FarmBeats Batch VM 配置文件中更新存储帐户名称。

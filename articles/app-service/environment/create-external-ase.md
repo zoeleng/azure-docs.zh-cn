@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4922d8855173ab2539c3960aacf54c89aaf1b7b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148253"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164595"
 ---
 # <a name="create-an-external-app-service-environment"></a>创建外部应用服务环境
 
@@ -61,7 +61,7 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 
 1. 在 [Azure 门户](https://portal.azure.com/)中，选择“创建资源”   > “Web + 移动”   > “Web 应用”  。
 
-    ![创建 Web 应用][1]
+    ![Azure 门户屏幕截图显示在 Azure Marketplace 中选择 Web + 移动，并在右侧打开用于创建新 Web 应用的屏幕。][1]
 
 2. 选择订阅。 在相同订阅中创建应用和 ASE。
 
@@ -71,7 +71,7 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 
 5. 选择应用服务计划，然后选择“新建”****。 Linux Web 应用和 Windows Web 应用不能位于同一应用服务计划中，但可以位于同一应用服务环境中。 
 
-    ![新建应用服务计划][2]
+    ![显示 "Web 应用" 窗格、"应用服务计划" 窗格和 "新建应用服务计划" 窗格的 Azure 门户屏幕截图。][2]
 
 6. 在“位置”下拉列表中，选择要创建 ASE 的区域****。 如果选择现有 ASE，则不会新建 ASE。 应用服务计划将在所选 ASE 中进行创建。 
 
@@ -99,7 +99,7 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 
 1. 在 [Azure 门户](https://portal.azure.com/)中，单击“创建资源”**** > “Web + 移动”**** > “适用于容器的 Web 应用”****。 
 
-    ![创建 Web 应用][7]
+    ![显示 Web + 移动在 Azure Marketplace 中选择的 Azure 门户屏幕截图，并在右侧打开用于容器的 Web 应用窗格。][7]
 
 1. 选择订阅。 在相同订阅中创建应用和 ASE。
 
@@ -107,7 +107,7 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 
 1. 选择应用服务计划，然后选择“新建”****。 Linux Web 应用和 Windows Web 应用不能位于同一应用服务计划中，但可以位于同一应用服务环境中。 
 
-    ![新建应用服务计划][8]
+    ![显示 "用于容器的 Web 应用" 窗格、"应用服务计划" 窗格和 "新建应用服务计划" 窗格的 Azure 门户屏幕截图。][8]
 
 1. 在“位置”下拉列表中，选择要创建 ASE 的区域****。 如果选择现有 ASE，则不会新建 ASE。 应用服务计划将在所选 ASE 中进行创建。 
 
