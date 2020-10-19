@@ -34,7 +34,11 @@
     - name: 概念
       items:
         - name: 审查要求
-          href: azure-stack-edge-gpu-system-requirements.md
+          items:
+            - name: 对于 Azure Stack Edge
+              href: azure-stack-edge-gpu-system-requirements.md
+            - name: 对于 Azure Stack Edge Blob 存储
+              href: azure-stack-edge-gpu-system-requirements-rest.md
         - name: 了解限制
           href: azure-stack-edge-limits.md
         - name: 安全概述

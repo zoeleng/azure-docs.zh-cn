@@ -482,7 +482,11 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 连接到 Azure Synapse Link for Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: 使用 Apache Spark for Azure Synapse Analytics 查询 Azure Cosmos DB 分析存储
+            - name: 使用 Power BI 和无服务器 SQL 池来分析 Azure Cosmos DB
+              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 使用无服务器 SQL 池查询 Azure Cosmos DB 数据
+              href: ./sql/query-cosmos-db-analytical-store.md
+            - name: 使用 Apache Spark 查询 Azure Cosmos DB 分析存储
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: 使用 Apache Spark 将数据从 Synapse Link 复制到 SQL 池
               href: ./synapse-link/how-to-copy-to-sql-pool.md

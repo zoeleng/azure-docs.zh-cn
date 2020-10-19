@@ -1,4 +1,4 @@
-- name: Azure 专用链接文档
+- name: 专用链接文档
   href: index.yml
 - name: 概述
   items:
@@ -24,6 +24,7 @@
     - name: 创建专用链接服务 - ARM 模板
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
 - name: 教程
   items:
     - name: 连接到存储帐户
@@ -42,7 +43,7 @@
       items:
         - name: 安全基线
           href: security-baseline.md
-- name: 如何
+- name: 操作说明
   items:
     - name: 私密连接到 Web 应用
       href: create-private-endpoint-webapp-portal.md

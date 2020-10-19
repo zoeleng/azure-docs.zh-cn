@@ -21,7 +21,7 @@
           href: quick-create-template.md
 - name: 概念
   items:
-    - name: 使用基于角色的访问控制共享仪表板
+    - name: 使用 Azure 基于角色的访问控制共享仪表板
       href: azure-portal-dashboard-share-access.md
     - name: 以编程方式创建 Azure 仪表板
       href: azure-portal-dashboards-create-programmatically.md

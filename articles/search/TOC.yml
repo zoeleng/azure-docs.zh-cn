@@ -116,7 +116,7 @@
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
-        - name: 保护索引器资源
+        - name: 访问受保护的内容
           href: search-indexer-securing-resources.md
         - name: 安全基线
           href: security-baseline.md

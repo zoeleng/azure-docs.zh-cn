@@ -180,7 +180,7 @@
           href: basic-age-gating.md
         - name: 定义自定义属性
           href: user-flow-custom-attributes.md
-        - name: API 连接器
+        - name: API 连接器（预览版）
           items:
             - name: 概述
               href: api-connectors-overview.md
@@ -322,7 +322,7 @@
                       href: social-transformations.md
                     - name: StringCollection
                       href: stringcollection-transformations.md
-                    - name: String
+                    - name: 字符串
                       href: string-transformations.md
                 - name: 谓词
                   href: predicates.md

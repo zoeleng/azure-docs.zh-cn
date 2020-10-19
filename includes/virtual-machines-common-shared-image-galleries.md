@@ -4,15 +4,15 @@ description: include 文件
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: akjosh
+ms.date: 10/14/2020
+ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89494312"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116767"
 ---
 共享映像库是一种可以帮助你围绕映像构建结构和组织的服务。 共享映像库提供：
 
@@ -56,19 +56,36 @@ ms.locfileid: "89494312"
 
 所有这三个映像都有唯一的一组值。 格式类似于当前在 Azure PowerShell 中为 [Azure 市场映像](../articles/virtual-machines/windows/cli-ps-findimage.md)指定发布者、套餐和 SKU，以获取最新市场映像版本的方式。 每个映像定义需要包含一组唯一的这些值。
 
+以下参数确定了它们可包含哪些类型的映像版本：
+
+- 操作系统状态 - 可将 OS 状态设置为[通用化或专用化](#generalized-and-specialized-images)。 此字段为必需字段。
+- 操作系统 - 可以是 Windows 或 Linux。 此字段为必需字段。
+-   Hyper-V 代 - 指定映像是从第 1 代还是[第 2 代](../articles/virtual-machines/generation-2.md) Hyper-V VHD 创建的。 默认值是“第 1 代”。
+
+
 下面是可在映像定义上设置的其他参数，以便你可以更轻松地跟踪资源：
 
-* 操作系统状态 - 可将 OS 状态设置为[通用化或专用化](#generalized-and-specialized-images)。
-* 操作系统 - 可以是 Windows 或 Linux。
-* 说明 - 使用说明可以更详细地解释该映像定义为何存在。 例如，可为预装了应用程序的前端服务器创建一个映像定义。
-* Eula - 可用于指向特定于映像定义的最终用户许可协议。
-* 隐私声明和发行说明 - 将发行说明和隐私声明存储在 Azure 存储中，并提供在映像定义中用于访问它们的 URI。
-* 生命周期结束日期 - 将生命周期结束日期附加到映像定义，以便能够使用自动化功能删除旧的映像定义。
-* 标记 - 可以在创建映像定义时添加标记。 有关标记的详细信息，请参阅[使用标记来组织资源](../articles/azure-resource-manager/management/tag-resources.md)。
-* 最小和最大 vCPU 与内存建议量 - 如果映像附带 vCPU 和内存建议量，则你可以将该信息附加到映像定义。
-* 不允许的磁盘类型 - 可以提供有关 VM 所需存储的信息。 例如，如果映像不适合标准 HDD 磁盘，请将其添加到禁止列表。
-* Hyper-V 生成 - 可以指定是从第 1 代还是从第 2 代 Hyper-V VHD 创建映像。
-* 市场映像的购买计划信息 `-PurchasePlanPublisher `、`-PurchasePlanName` 和 `-PurchasePlanProduct`。 若要详细了解购买计划信息，请参阅[在 Azure 市场中查找映像](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)和[在创建映像时提供 Azure 市场购买计划信息](../articles/virtual-machines/marketplace-images.md)。
+- 说明 - 使用说明可以更详细地解释该映像定义为何存在。 例如，可为预装了应用程序的前端服务器创建一个映像定义。
+- Eula - 可用于指向特定于映像定义的最终用户许可协议。
+- 隐私声明和发行说明 - 将发行说明和隐私声明存储在 Azure 存储中，并提供在映像定义中用于访问它们的 URI。
+- 生命周期结束日期 - 将生命周期结束日期附加到映像定义，以便能够使用自动化功能删除旧的映像定义。
+- 标记 - 可以在创建映像定义时添加标记。 有关标记的详细信息，请参阅[使用标记来组织资源](../articles/azure-resource-manager/management/tag-resources.md)。
+- 最小和最大 vCPU 与内存建议量 - 如果映像附带 vCPU 和内存建议量，则你可以将该信息附加到映像定义。
+- 不允许的磁盘类型 - 可以提供有关 VM 所需存储的信息。 例如，如果映像不适合标准 HDD 磁盘，请将其添加到禁止列表。
+- 市场映像的购买计划信息 `-PurchasePlanPublisher`、`-PurchasePlanName` 和 `-PurchasePlanProduct`。 若要详细了解购买计划信息，请参阅[在 Azure 市场中查找映像](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)和[在创建映像时提供 Azure 市场购买计划信息](../articles/virtual-machines/marketplace-images.md)。
+
+
+## <a name="image-versions"></a>映像版本
+
+映像版本用于创建 VM。 可根据环境的需要创建多个映像版本。 使用映像版本创建 VM 时，将使用该映像版本来创建该 VM 的新磁盘。 可以多次使用映像版本。
+
+映像版本的属性如下所示：
+
+- 版本号。 它用作映像版本的名称。 它始终采用以下格式：MajorVersion.MinorVersion.Patch。 如果指定在创建 VM 时使用最新版本，则依次根据版本最高的 MajorVersion、MinorVersion 和 Patch 选择最新映像。 
+- 源。 源可以是 VM、托管磁盘、快照、托管映像，也可以是其他映像版本。 
+- 最新版本中不包含它。 可将某个版本设为不用作最新映像版本。 
+- 生命周期结束日期。 在此之后无法从此映像创建 VM 的日期。
+
 
 ## <a name="generalized-and-specialized-images"></a>通用和专用映像
 
@@ -141,7 +158,7 @@ ms.locfileid: "89494312"
 - 存储共享映像版本的存储费用。 费用取决于映像版本的副本数，以及版本要复制到的区域数。 例如，如果你有 2 个映像，并将其同时复制到 3 个区域，则你需要根据映像的大小，为 6 个托管磁盘付费。 有关详细信息，请参阅[托管磁盘定价](https://azure.microsoft.com/pricing/details/managed-disks/)。
 - 将第一个映像版本从源区域复制到目标区域的网络传出费用。 后续副本将在区域中处理，因此不会产生额外的费用。 
 
-## <a name="updating-resources"></a>更新资源
+## <a name="updating-resources"></a>正在更新资源
 
 创建后，可对映像库资源进行一些更改。 限制如下：
  

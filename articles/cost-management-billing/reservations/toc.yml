@@ -118,6 +118,10 @@
       items:
         - name: 续订预留项
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: 疑难解答
+      items:
+        - name: 没有符合条件的订阅
+          href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: 参考
   items:
     - name: 预留 REST API

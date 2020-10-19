@@ -127,12 +127,6 @@
         - name: 已启用 Arc 的服务器
           tocHref: /azure/azure-arc/servers/
           topicHref: /azure/azure-arc/servers/
-    - name: ASC for IoT
-      tocHref: /azure/asc-for-iot/
-      topicHref: /azure/asc-for-iot/
-    - name: 证明
-      tocHref: /azure/attestation/
-      topicHref: /azure/attestation/
     - name: 自动化
       tocHref: /azure/automation/
       topicHref: /azure/automation/
@@ -554,25 +548,6 @@
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/
-    - name: Key Vault
-      tocHref: /azure/key-vault/
-      topicHref: /azure/key-vault
-      items:
-        - name: 常规
-          tocHref: /azure/key-vault/general/
-          topicHref: /azure/key-vault/general/
-        - name: 证书
-          tocHref: /azure/key-vault/certificates/
-          topicHref: /azure/key-vault/certificates/
-        - name: 键
-          tocHref: /azure/key-vault/keys/
-          topicHref: /azure/key-vault/keys/
-        - name: 机密
-          tocHref: /azure/key-vault/secrets/
-          topicHref: /azure/key-vault/secrets/
-        - name: 托管的 HSM
-          tocHref: /azure/key-vault/managed-hsm/
-          topicHref: /azure/key-vault/managed-hsm/
     - name: Azure Kinect DK
       tocHref: /azure/kinect-dk/
       topicHref: /azure/kinect-dk/
@@ -771,12 +746,37 @@
         - name: 基准
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/
-    - name: 安全中心
-      tocHref: /azure/security-center/
-      topicHref: /azure/security-center/
-    - name: Azure Sentinel
-      tocHref: /azure/sentinel/
-      topicHref: /azure/sentinel/
+        - name: Key Vault
+          tocHref: /azure/key-vault/
+          topicHref: /azure/key-vault
+          items:
+            - name: 常规
+              tocHref: /azure/key-vault/general/
+              topicHref: /azure/key-vault/general/
+            - name: 证书
+              tocHref: /azure/key-vault/certificates/
+              topicHref: /azure/key-vault/certificates/
+            - name: 键
+              tocHref: /azure/key-vault/keys/
+              topicHref: /azure/key-vault/keys/
+            - name: 机密
+              tocHref: /azure/key-vault/secrets/
+              topicHref: /azure/key-vault/secrets/
+            - name: 托管的 HSM
+              tocHref: /azure/key-vault/managed-hsm/
+              topicHref: /azure/key-vault/managed-hsm/
+        - name: 安全中心
+          tocHref: /azure/security-center/
+          topicHref: /azure/security-center/
+        - name: Azure Sentinel
+          tocHref: /azure/sentinel/
+          topicHref: /azure/sentinel/
+        - name: Defender for IoT
+          tocHref: /azure/defender-for-iot/
+          topicHref: /azure/defender-for-iot/
+        - name: 证明
+          tocHref: /azure/attestation/
+          topicHref: /azure/attestation/
     - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/

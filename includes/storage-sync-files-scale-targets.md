@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/05/2019
+ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84466930"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116757"
 ---
 | 资源 | 目标 | 硬限制 |
 |----------|--------------|------------|
@@ -27,7 +27,7 @@ ms.locfileid: "84466930"
 | 目录中的最大文件系统对象（目录和文件）数 | 500 万个对象 | 是 |
 | 最大对象（目录和文件）安全描述符大小 | 64 KiB | 是 |
 | 文件大小 | 100 GiB | 否 |
-| 要进行分层的文件的最小文件大小 | V9：基于文件系统群集大小（双文件系统群集大小）。 例如，如果文件系统群集大小为 4kb，则最小文件大小为 8kb。<br> V8 和更早版本：64 KiB  | 是 |
+| 要进行分层的文件的最小文件大小 | V9 及更高版本：基于文件系统群集大小（双文件系统群集大小）。 例如，如果文件系统群集大小为 4kb，则最小文件大小为 8kb。<br> V8 和更早版本：64 KiB  | 是 |
 
 > [!Note]  
 > Azure 文件同步终结点可以纵向扩展到 Azure 文件共享的大小。 如果达到 Azure 文件共享大小限制，同步将无法运行。

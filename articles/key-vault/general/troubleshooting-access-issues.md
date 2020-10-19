@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595982"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125246"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>排查 Azure 密钥保管库访问策略问题
 
@@ -51,7 +51,9 @@ ms.locfileid: "89595982"
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>如何在不删除现有访问策略的情况下，使用 ARM 模板重新部署 Key Vault？
 
-目前，重新部署密钥保管库会删除密钥保管库中的所有访问策略，并将其替换为 ARM 模板中的访问策略。 Key Vault 访问策略没有增量选项。 若要在密钥保管库中保留访问策略，需要读取密钥保管库中现有的访问策略并使用这些策略填充 ARM 模板，以避免任何访问中断。
+目前，重新部署密钥保管库会删除密钥保管库中的所有访问策略，并将其替换为 ARM 模板中的访问策略。 Key Vault 访问策略没有增量选项。 若要在 Key Vault 中保留访问策略，需要读取 Key Vault 中现有的访问策略，并使用这些策略填充 ARM 模板以避免任何访问中断。
+
+有助于此方案的另一种方法是将 RBAC 角色用作访问策略的替代方法。 通过 RBAC，无需再次指定策略即可重新部署 Key Vault。 可在[此处](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)详细了解此解决方案。
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>以下错误类型的建议故障排除步骤
 

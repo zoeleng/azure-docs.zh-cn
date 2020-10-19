@@ -34,6 +34,8 @@
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
         - name: 使用呼叫客户端库
           href: quickstarts/voice-video-calling/calling-client-samples.md
+        - name: 在 Teams 会议中加入通话应用
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
 - name: 教程
   expanded: false
   items:
@@ -62,6 +64,8 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: 语音和视频概念
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Teams 互操作性
+          href: concepts/voice-video-calling/teams-interop.md
     - name: 客户端和服务器体系结构
       href: concepts/client-and-server-architecture.md
     - name: 呼叫流
