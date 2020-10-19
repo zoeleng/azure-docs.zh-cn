@@ -4,12 +4,12 @@ description: 与代理、扩展和磁盘相关的 Azure 备份失败的症状、
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182031"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170296"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
@@ -103,7 +103,6 @@ Azure VM 代理可能已停止、已过期、处于不一致状态或未安装�
 
 当其中一个扩展失败将 VM 状态置于预配失败状态时，会发生此错误。<br>打开 Azure 门户>“VM”>“设置”>“扩展”>“扩展状态”，然后检查所有扩展是否都处于“预配成功”状态**** ****。 若要了解详细信息，请参阅[预配状态](../virtual-machines/states-lifecycle.md#provisioning-states)。
 
-- 如果 VMSnapshot 扩展处于失败状态，则右键单击失败的扩展并将其删除。 触发按需备份。 此操作会重新安装扩展并运行备份作业。  <br>
 - 如果其他任何扩展处于失败状态，则可能会干扰备份。 确保这些扩展问题已解决，然后重试备份操作。
 - 如果 VM 预配状态处于“正在更新”状态，则可能会干扰备份。 确保它正常，然后重试备份操作。
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperfq2
-ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850092"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170344"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 应用程序中管理设备
 
@@ -52,7 +52,7 @@ ms.locfileid: "91850092"
 
 1. 将“模拟”开关切换为“打开”或“关闭”。************ 真实设备是指要连接到 Azure IoT Central 应用程序的物理设备。 模拟设备包含 Azure IoT Central 生成的示例数据。
 
-1. 选择“创建”。
+1. 选择“创建” 。
 
 1. 此设备随即显示在此模板的设备列表中。 选择设备查看设备详细信息页，其中包含该设备的所有视图。
 
@@ -60,7 +60,7 @@ ms.locfileid: "91850092"
 
 若要将大量设备连接到应用程序，可从 CSV 文件批量导入设备。 该 CSV 文件应包含以下列和标头：
 
-* **IOTC_DeviceID** - 设备 ID 应全部小写。
+* **IOTC_DeviceID** -设备 ID 可以包含字母、数字和 `-` 字符。
 * **IOTC_DeviceName** - 此列是可选的。
 
 若要在应用程序中批量注册设备：
@@ -166,7 +166,7 @@ ms.locfileid: "91850092"
 
 1. 将属性修改为所需的值。 可以一次性修改多个属性，并可以同时更新所有属性。
 
-1. 选择“保存”  。 如果保存了可写属性，值将会发送到设备。 当设备确认对可写属性的更改时，状态将恢复为“已同步”。**** 如果保存了云属性，值将会更新。
+1. 选择“保存”。 如果保存了可写属性，值将会发送到设备。 当设备确认对可写属性的更改时，状态将恢复为“已同步”。**** 如果保存了云属性，值将会更新。
 
 ## <a name="next-steps"></a>后续步骤
 

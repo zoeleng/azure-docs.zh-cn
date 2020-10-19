@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9a93602327b5c5294d6c17c1804c04c6603dcf37
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9ebf07a5125995e66297d89643845b54aad246b8
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999877"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170302"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>如何使用 Node.js 设备 SDK IoT Central 应用程序将设备连接到 x.509 证书
 
@@ -50,12 +50,15 @@ IoT Central 支持共享访问签名 (SAS) 和 x.509 证书，以保护设备与
     npm install
     ```
 
-1. 创建根证书，然后通过运行脚本派生设备证书。 请确保仅对证书名称使用小写字母数字和连字符：
+1. 创建根证书，然后通过运行脚本派生设备证书：
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
     node create_test_cert.js device mytestdevice mytestrootcert
     ```
+
+    > [!TIP]
+    > 设备 ID 可以包含字母、数字和 `-` 字符。
 
 这些命令为根和设备证书生成三个文件
 

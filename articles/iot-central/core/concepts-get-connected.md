@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126835"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170045"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>连接到 Azure IoT Central
 
@@ -111,7 +111,7 @@ IoT Central 使用 [Azure IoT 中心设备预配服务 (DPS) ](../../iot-dps/abo
 
 ### <a name="register-and-connect-devices"></a>注册并连接设备
 
-若要使用 x.509 证书大容量连接设备，请先通过使用 CSV 文件 [导入设备 id 和设备名称](howto-manage-devices.md#import-devices)，在应用程序中注册设备。 设备 Id 应该全部为小写。
+若要使用 x.509 证书大容量连接设备，请先通过使用 CSV 文件 [导入设备 id 和设备名称](howto-manage-devices.md#import-devices)，在应用程序中注册设备。 设备 ID 可以包含字母、数字和 `-` 字符。
 
 使用上载到 x.509 注册组的根或中间证书，为设备生成 x.509 叶证书。 使用 **设备 ID** 作为 `CNAME` 叶证书中的值。 设备代码需要应用程序的 **ID 范围** 值、 **设备 ID**和相应的设备证书。
 
@@ -154,7 +154,7 @@ IoT Central 使用 [Azure IoT 中心设备预配服务 (DPS) ](../../iot-dps/abo
 
 1. [创建一个注册组](#create-an-enrollment-group) ，然后 [将根或中间 x.509 证书添加](#add-and-verify-a-root-or-intermediate-x509-certificate) 到 IoT Central 应用程序并进行验证。
 
-1. 使用已添加到 IoT Central 应用程序的根证书或中间证书为设备生成叶证书。 使用小写的设备 Id 作为 `CNAME` 叶证书中的。
+1. 使用已添加到 IoT Central 应用程序的根证书或中间证书为设备生成叶证书。 使用设备 Id 作为 `CNAME` 叶证书中的。 设备 ID 可以包含字母、数字和 `-` 字符。
 
 1. OEM 用设备 ID、生成的叶 x.509 证书和应用程序 **ID 范围** 值闪烁每个设备。
 
@@ -169,7 +169,7 @@ IoT Central 使用 [Azure IoT 中心设备预配服务 (DPS) ](../../iot-dps/abo
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>基于注册的单个设备连接
 
-对于连接设备的每个设备都有自己的身份验证凭据，请使用单独的注册。 单个注册是允许连接的单个设备的条目。 个人注册可使用 x.509 叶证书或 SAS 令牌 (从物理或虚拟受信任的平台模块) 作为证明机制。 设备 ID (也称为 "注册 ID") 在单个注册中是字母数字、小写形式，可以包含连字符。 有关详细信息，请参阅 [DPS 单个注册](../../iot-dps/concepts-service.md#individual-enrollment)。
+对于连接设备的每个设备都有自己的身份验证凭据，请使用单独的注册。 单个注册是允许连接的单个设备的条目。 个人注册可使用 x.509 叶证书或 SAS 令牌 (从物理或虚拟受信任的平台模块) 作为证明机制。 设备 ID (也称为 "注册 ID") 在单个注册中，设备 ID 可以包含字母、数字和 `-` 字符。 有关详细信息，请参阅 [DPS 单个注册](../../iot-dps/concepts-service.md#individual-enrollment)。
 
 > [!NOTE]
 > 为设备创建单个注册时，其优先级高于 IoT Central 应用程序中的默认组注册选项。
@@ -263,7 +263,7 @@ Azure 设备 SDK 为实现设备代码提供最简便的方法。 以下设备 S
 | Azure IoT Central | Azure IoT 中心 |
 | ----------- | ------- |
 | 遥测 | 设备到云的消息传送 |
-| 属性 | 设备孪生报告属性 |
+| properties | 设备孪生报告属性 |
 | 属性（可写） | 设备孪生所需的和报告的属性 |
 | 命令 | 直接方法 |
 

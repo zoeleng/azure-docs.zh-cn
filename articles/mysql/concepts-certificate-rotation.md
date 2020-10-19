@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: d36fe791e34544a4d6132a49fc5ec3f2aa334654
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: cc32a67ab681341fd8320b9445f4e00013f2aa51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127278"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170276"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>了解 Azure Database for MySQL 的根 CA 更改的更改
 
@@ -104,7 +104,7 @@ Azure Database for MySQL 将更改启用了 SSL 的客户端应用程序/驱动�
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. 如果将应用服务用于 Azure Database for MySQL，会产生什么影响？
 对于 Azure 应用服务，连接到 Azure Database for MySQL，可以有两种可能的方案，具体取决于你在应用程序中使用 SSL 的方式。
 *   已将此新证书添加到应用服务中的平台级别。 如果你在应用程序中使用应用服务平台上包含的 SSL 证书，则无需执行任何操作。
-*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。
+*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。此方案的一个很好的示例是，在应用服务中使用自定义容器，如[应用服务文档](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)中所述
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5. 如果使用 Azure Kubernetes Services (AKS) 与 Azure Database for MySQL，会产生什么影响？
 如果尝试使用 Azure Kubernetes Services (AKS) 连接到 Azure Database for MySQL，则与从专用客户主机环境访问类似。 请参阅 [此处](../aks/ingress-own-tls.md)的步骤。
