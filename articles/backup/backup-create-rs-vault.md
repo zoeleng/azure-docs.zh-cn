@@ -4,12 +4,12 @@ description: 本文介绍如何创建和配置用于存储备份和恢复点的�
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981493"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171631"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>创建和配置恢复服务保管库
 
@@ -35,7 +35,7 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
    - 如果使用 Azure 作为主要备份存储终结点，则我们建议继续使用默认的“异地冗余”设置。
    - 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。
    - 详细了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)。
-   - 如果需要在某个区域不停机的情况下使用数据，请确保数据驻留，然后选择 " [区域冗余存储](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage)"。
+   - 如果需要在某个区域不停机的情况下使用数据，请确保数据驻留，然后选择 " [区域冗余存储](../storage/common/storage-redundancy.md#zone-redundant-storage)"。
 
 >[!NOTE]
 >此保管库的存储复制设置与 Azure 文件共享备份无关，因为当前解决方案基于快照，并且没有数据传输到保管库。 快照存储在与备份文件共享相同的存储帐户中。

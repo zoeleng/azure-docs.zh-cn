@@ -4,12 +4,12 @@ description: '了解 Azure Database for PostgreSQL 具有长期保留 (预览版
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093882"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173581"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL 具有长期保留 (预览版的备份) 
 
@@ -236,7 +236,7 @@ Azure 备份遵循严格的安全准则。 即使它是本机 Azure 服务，也
 
     ![重新分配策略](./media/backup-azure-database-postgresql/reassign-policy.png)
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 本部分提供有关在 Azure 备份中备份 Azure PostgreSQL 数据库的疑难解答信息。
 
@@ -244,7 +244,7 @@ Azure 备份遵循严格的安全准则。 即使它是本机 Azure 服务，也
 
 在要备份或还原的 PG 服务器上授予备份保管库 MSI **读取** 访问权限：
 
-为了建立与 PostgreSQL 数据库的安全连接，Azure 备份使用 [托管服务标识 (MSI) ](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 身份验证模型。 这意味着备份保管库将只能访问那些已被用户显式授予权限的资源。
+为了建立与 PostgreSQL 数据库的安全连接，Azure 备份使用 [托管服务标识 (MSI) ](../active-directory/managed-identities-azure-resources/overview.md) 身份验证模型。 这意味着备份保管库将只能访问那些已被用户显式授予权限的资源。
 
 创建时，系统 MSI 会自动分配给保管库。 需要为此保管库 MSI 授予对要从中备份数据库的 PostgreSQL 服务器的访问权限。
 
@@ -308,7 +308,7 @@ Azure 备份遵循严格的安全准则。 即使它是本机 Azure 服务，也
 
     ![分配存储 Blob 数据参与者角色](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
-1. 或者，通过使用 Azure CLI [az role create create](https://docs.microsoft.com/cli/azure/role/assignment) 命令，对要还原到的特定容器授予精细的权限。
+1. 或者，通过使用 Azure CLI [az role create create](/cli/azure/role/assignment) 命令，对要还原到的特定容器授予精细的权限。
 
     ```azurecli
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id

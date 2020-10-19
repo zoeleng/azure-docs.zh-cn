@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fd48ff8dd0f4fa44206f6636f869d4ea3f959ae5
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132510"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174172"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>设置 Azure 数字孪生实例和身份验证 (脚本) 
 
@@ -55,10 +55,10 @@ ms.locfileid: "92132510"
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="显示 PowerShell 版本选择的 Cloud Shell 窗口&quot;:::
 
-1. 选择 &quot;上传/下载文件" 窗口中发送命令来运行该脚本。  (回忆要粘贴到 Cloud Shell 中，可以在 Windows 和 Linux 上使用 **Ctrl + shift + v** ，或在 macOS 上使用 **Cmd + shift + v** 。 你还可以使用右键单击菜单。 ) 
+1. 选择 &quot;上传/下载文件" 窗口中发送命令来运行该脚本。 你可以复制下面的命令 (回忆要粘贴到 Cloud Shell 中，可以在 Windows 和 Linux 上使用 **Ctrl + shift + v** ，或在 macOS 上使用 **Cmd + shift + v** 。 还可以使用右键单击菜单) 。
 
     ```azurecli
-    ./deploy.ps1
+    ./deploy.ps1 -RegisterAadApp
     ```
 
     当脚本通过自动安装步骤运行时，系统会要求您传递以下值：

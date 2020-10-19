@@ -3,12 +3,12 @@ title: MARS 代理的支持矩阵
 description: 本文汇总了备份运行 Microsoft Azure 恢复服务 (MARS) 代理的计算机时的 Azure 备份支持。
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332672"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173529"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 恢复服务 (MARS) 代理进行备份的支持矩阵
 
@@ -67,14 +67,14 @@ MARS 代理需要以下 URL 的访问权限：
 
 对上面列出的所有 URL 和 IP 地址的访问都使用端口 443 上的 HTTPS 协议。
 
-使用 MARS 代理在 Azure Vm 中备份文件和文件夹时，还需要将 Azure 虚拟网络配置为允许访问。 如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (*AzureActiveDirectory*) 和 Azure 存储 (*存储*) 创建类似的[NSG 规则](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags)，以允许进行身份验证和数据传输连接。 以下步骤介绍了为 Azure 备份标记创建规则的过程：
+使用 MARS 代理从 Azure VM 备份文件和文件夹时，还需要将 Azure 虚拟网络配置为允许访问。 如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）创建类似的 [NSG 规则](../virtual-network/network-security-groups-overview.md#service-tags)，以便在连接后进行身份验证和数据传输。 以下步骤介绍了为 Azure 备份标记创建规则的过程：
 
 1. 在“所有服务”中转到“网络安全组”，然后选择“网络安全组”。
 2. 在“设置”下选择“出站安全规则”。
-3. 选择“添加”  。 根据[安全规则设置](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
-4. 选择 " **添加** " 以保存新创建的出站安全规则。
+3. 选择 **添加** 。 根据[安全规则设置](../virtual-network/manage-network-security-group.md#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
+4. 选择“添加”，保存新创建的出站安全规则。
 
-同样，可以为 Azure 存储和 Azure AD 创建 NSG 出站安全规则。 有关服务标记的详细信息，请参阅[此文](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)。
+同样，可以为 Azure 存储和 Azure AD 创建 NSG 出站安全规则。 有关服务标记的详细信息，请参阅[此文](../virtual-network/service-tags-overview.md)。
 
 ### <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持
 
@@ -90,7 +90,7 @@ MARS 代理需要以下 URL 的访问权限：
 
 使用 Microsoft 对等互连，选择以下服务/区域和相关社区值：
 
-- Azure 备份 (根据恢复服务保管库的位置) 
+- Azure 备份（根据恢复服务保管库的位置）
 - Azure Active Directory (12076:5060)
 - Azure 存储（根据恢复服务保管库的位置）
 

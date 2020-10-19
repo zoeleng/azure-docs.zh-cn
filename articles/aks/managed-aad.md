@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936990"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171933"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS-托管 Azure Active Directory 集成
 
@@ -32,10 +32,10 @@ AKS 托管 Azure Active Directory 集成在 [支持 AKS](https://azure.microsoft
 ## <a name="limitations"></a>限制 
 
 * 无法禁用 AKS 管理的 Azure AD 集成
-* AKS 托管的 Azue AD 集成不支持非 RBAC 启用的群集
+* AKS 管理的 Azure AD 集成不支持非 RBAC 启用的群集
 * 不支持更改与 AKS 托管 Azure AD 集成关联的 Azure AD 租户
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 * Azure CLI 版本2.11.0 或更高版本
 * Kubectl，最低版本为 [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) 或 [kubelogin](https://github.com/Azure/kubelogin)
@@ -55,7 +55,7 @@ kubelogin --version
 对于其他操作系统，请遵循[这些说明](https://kubernetes.io/docs/tasks/tools/install-kubectl/)。
 
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 对于群集，需要 Azure AD 组。 此组需要作为群集的管理员组，以便授予群集管理员权限。 您可以使用现有的 Azure AD 组，或创建一个新组。 记录 Azure AD 组的对象 ID。
 

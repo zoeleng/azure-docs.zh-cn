@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 5d17fb9bee77aae9945c12d45a5ffff316f9d639
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 94c67be39ddd9f52087fa4632e239a8e85930886
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144246"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171479"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>如何在工作区中运行 Jupyter 笔记本
 
@@ -180,7 +180,7 @@ Azure 机器学习在创建 *ipynb*文件时创建一个检查点文件   。
 
 1. 选择笔记本工具栏中的“+”。 
 2. 为计算命名，并在“虚拟机大小”中选择一个大小。 
-3. 选择“创建”。
+3. 选择“创建” 。
 4. 计算实例会自动连接到笔记本，现在就可以运行单元格了。
 
 只有本人可以查看和使用自己创建的计算实例。  用户文件与 VM 分开存储，并在工作区中的所有计算实例之间共享。
@@ -233,7 +233,7 @@ Azure 机器学习在创建 *ipynb*文件时创建一个检查点文件   。
     ```
 
 > [!NOTE]
-> 对于笔记本内的包管理，使用 **% pip**或 **% conda**幻函数会自动将包安装到**当前正在运行的内核**中，而 **!conda**不是 (引用当前正在运行的内核之外的包) **!pip**
+> 对于笔记本内的包管理，使用 **% pip**或 **% conda**幻函数将包自动安装到**当前正在运行的内核**中，而不是引用所有** (包（** 包括当前正在运行的内核之外的包） **，而不**是引用所有包) 
 
 可以安装任何[可用的 Jupyter 内核](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)。
 

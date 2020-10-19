@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309194"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173952"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>如何：使用健康状况文本分析（预览）
 
@@ -227,7 +227,11 @@ docker-compose up
 
 
 ## <a name="example-api-request"></a>示例 API 请求
-该容器提供基于 REST 的查询预测终结点 API。
+该容器提供基于 REST 的查询预测终结点 API。  我们还在容器中提供了一个可视化工具，可通过将该 **演示** 追加到容器的终结点来访问它，例如：
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 使用下面的示例 cURL 请求将查询提交到已部署的容器，并使用适当的值替换 `serverURL` 变量。
 

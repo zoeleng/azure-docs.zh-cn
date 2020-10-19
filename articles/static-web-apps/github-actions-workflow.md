@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0d4a455458812bef1d79aba583a6317c08b65863
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948368"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173671"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Azure 静态 Web 应用的 GitHub Actions 工作流预览版
 
@@ -164,6 +164,36 @@ Azure 静态 Web 应用为你设置的 `repo_token`、`action` 和 `azure_static
 | `routes_location` | 定义找到 routes.json 文件的目录位置。 此位置相对于存储库的根目录。 |
 
  如果你的前端框架生成步骤不会在默认情况下将此文件移到 `app_artifact_location`，则显式了解 routes.json 文件的位置尤为重要。
+
+## <a name="environment-variables"></a>环境变量
+
+可以通过作业配置的部分来设置生成的环境变量 `env` 。
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          ###### Repository/Build Configurations
+          app_location: "/"
+          api_location: "api"
+          app_artifact_location: "public"
+          ###### End of Repository/Build Configurations ######
+        env: # Add environment variables here
+          HUGO_VERSION: 0.58.0
+```
 
 ## <a name="next-steps"></a>后续步骤
 

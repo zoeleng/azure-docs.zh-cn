@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 0d36a09b67e110551470f3908800e77c35b1e3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c7caf6c01c2e7ea9aaf141a2597ef338735d3d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843762"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173595"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>准备 Azure Stack Edge Pro GPU 设备故障
 
@@ -66,7 +66,8 @@ Azure Stack Edge Pro GPU 设备可能出现两种类型的硬件故障。
 | 第三方软件           | 对解决方案的引用                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | https://www.cohesity.com/solution/cloud/azure/ <br> 有关详细信息，请联系 Cohesity。          |
-| Veritas                        | 有关详细信息，请与 Veritas 联系。   |
+| Commvault                      | https://www.commvault.com/azure <br> 有关详细信息，请联系 Commvault。          |
+| Veritas                        | http://veritas.com/azure <br> 有关详细信息，请与 Veritas 联系。   |
 
 
 ## <a name="protect-files-and-folders-on-vms"></a>保护 Vm 上的文件和文件夹
@@ -78,7 +79,8 @@ Azure Stack Edge 适用于 Azure 备份和其他第三方数据保护解决方�
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | 用于 Azure 备份的 (MARS) 代理 Microsoft Azure 恢复服务 | Windows        | [关于 MARS 代理](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows、Linux | [Microsoft Azure 集成、备份和恢复解决方案简述](https://www.cohesity.com/solution/cloud/azure) <br>有关详细信息，请联系 Cohesity。                          |
-| Veritas                 | Windows、Linux | 有关详细信息，请与 Veritas 联系。                    |
+| Commvault               | Windows、Linux | https://www.commvault.com/azure <br>有关详细信息，请联系 Commvault。                          |
+| Veritas                 | Windows、Linux | http://veritas.com/azure <br> 有关详细信息，请与 Veritas 联系。                    |
 
 
 

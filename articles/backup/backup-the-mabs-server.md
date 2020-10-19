@@ -3,12 +3,12 @@ title: 备份 MABS 服务器
 description: 了解如何备份 Microsoft Azure 备份 Server (MABS) 。
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946645"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172112"
 ---
 # <a name="back-up-the-mabs-server"></a>备份 MABS 服务器
 
@@ -115,13 +115,13 @@ and AG.ServerName like N'%<dpmsqlservername>%' -- <dpmsqlservername> is a placeh
 
 1. 导航到副本 VHD 路径 `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PhysicalReplicaId\>`
 2. 使用命令装载 disk0 中存在的 **。** `mount-vhd disk0.vhdx`
-3. 装载副本 VHD 后，请使用 `mountvol.exe` 通过 SQL 脚本输出中的物理副本 ID 向副本卷分配驱动器号。 例如： `mountvol X: \?\Volume{}\`
+3. 装载副本 VHD 后，请使用 `mountvol.exe` 通过 SQL 脚本输出中的物理副本 ID 向副本卷分配驱动器号。 例如：`mountvol X: \?\Volume{}\`
 
 #### <a name="to-copy-the-database-from-a-previous-recovery-point"></a>从以前的恢复点复制数据库
 
 1. 导航到 DPMDB 容器目录  `\<MABSServer FQDN\>\<PhysicalReplicaId\>` 。 你将看到多个目录在其下有一些唯一的 GUID 标识符，并在 MABS DB 中执行相应的恢复点。 其他目录表示 PIT/恢复点。
 2. 导航到任何 PIT vhd 路径，例如， `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PITId\>` 使用命令装载其中包含的**disk0。** `mount-vhd disk0.vhdx`
-3. 装载副本 VHD 后，使用 `mountvol.exe` SQL 脚本输出中的物理副本 ID 将驱动器号分配给副本卷。 例如： `mountvol X: \?\Volume{}\`
+3. 装载副本 VHD 后，使用 `mountvol.exe` SQL 脚本输出中的物理副本 ID 将驱动器号分配给副本卷。 例如：`mountvol X: \?\Volume{}\`
 
    以上步骤中以角括号显示的所有字词都是占位符。 将它们替换为适当的值，如下所示：
    - **ReFSVolume** -从 SQL 脚本输出访问路径
@@ -168,7 +168,7 @@ and servername like '%dpmsqlservername%' --netbios name of server hosting DPMDB
 
 1. 确定想要开始恢复数据库的时间。
 
-    - 如果要从 MABS 副本卷中直接执行的最后一个备份中复制数据库，请使用 **mountvol.exe** 通过 SQL 脚本输出中的 GUID 将驱动器号分配给副本卷。 例如： `C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
+    - 如果要从 MABS 副本卷中直接执行的最后一个备份中复制数据库，请使用 **mountvol.exe** 通过 SQL 脚本输出中的 GUID 将驱动器号分配给副本卷。 例如：`C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
 
     - 如果要将数据库从以前的恢复点复制 (卷影副本) ，则需要使用 SQL 脚本输出中的卷 GUID 来列出副本的所有卷影副本。 此命令列出该卷的卷影副本： `C:\>Vssadmin list shadows /for\=\\?\Volume{d7a4fd76-a0a8-11e2-8fd3-001c23cb7375}\` 。 请注意要从中恢复的创建时间和卷影副本 ID。
 
@@ -184,9 +184,9 @@ and servername like '%dpmsqlservername%' --netbios name of server hosting DPMDB
 
 你可以使用本机 SQL Server 备份（独立于 MABS）将 MABS 数据库备份到本地磁盘。
 
-- 获取 SQL Server 备份的[概述](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)。
+- 获取 SQL Server 备份的[概述](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)。
 
-- [详细了解](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)如何将 SQL Server 备份到云。
+- [详细了解](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)如何将 SQL Server 备份到云。
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>备份到受 MABS 保护的共享
 
@@ -238,9 +238,9 @@ and servername like '%dpmsqlservername%' --netbios name of server hosting DPMDB
 
 你可以像使用 SQL Server 本机备份一样 SQL Server，备份 MABS 数据库。
 
-- 获取 SQL Server 备份的[概述](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)。
+- 获取 SQL Server 备份的[概述](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)。
 
-- [详细了解](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)如何将 SQL Server 备份到云。
+- [详细了解](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)如何将 SQL Server 备份到云。
 
 ### <a name="recover-the-mabs-database"></a>恢复 MABS 数据库
 
@@ -282,7 +282,7 @@ and servername like '%dpmsqlservername%' --netbios name of server hosting DPMDB
 
 **DpmSync** 是一个命令行工具，可用于将 MABS 数据库与存储池中的磁盘状态和已安装的保护代理进行同步。 DpmSync 将还原 MABS 数据库，将 MABS 数据库与存储池中的副本同步，还原报表数据库，并重新分配缺少的副本。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
 | 参数      | 说明    |
 |----------------|-----------------------------|

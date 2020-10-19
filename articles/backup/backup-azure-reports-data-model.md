@@ -3,12 +3,12 @@ title: Azure 备份诊断事件的数据模型
 description: 此数据模型参考了将诊断事件发送到 Log Analytics (LA) 的资源特定模式。
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569599"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173980"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure 备份诊断事件的数据模型
 
@@ -222,7 +222,7 @@ ms.locfileid: "91569599"
 
 上述表中的每条记录都有一个关联的 **操作名称**。 "操作名称" 描述 (的记录类型，还指示为该记录填充表中的哪些字段) 。 每个表 (类别) 支持一个或多个不同的操作名称。 下面汇总了上述每个表中支持的操作名称。
 
-| **表名称/类别**                   | **支持的操作名称** | **描述**              |
+| **表名称/类别**                   | **支持的操作名称** | **说明**              |
 | ------------------------------------------- | ------------------------------|----------------------------- |
 | CoreAzureBackup | BackupItem | 表示一条记录，其中包含给定备份项的所有详细信息，例如 ID、名称、类型等。 |
 | CoreAzureBackup | BackupItemAssociation | 表示备份项与其关联的受保护容器 (（如果适用) ）之间的映射。 |
@@ -239,7 +239,7 @@ ms.locfileid: "91569599"
 | AddonAzureBackupPolicy | 策略 |  表示包含备份和保留策略的所有详细信息的记录。 例如，ID、名称、保留设置等。 |
 | AddonAzureBackupPolicy | PolicyAssociation | 表示备份项和应用到备份策略的备份策略之间的映射。 |   
 
-通常，您需要在不同的表中执行联接，以及将不同的记录集作为同一个表的一部分 (按操作名称进行区分) 以获取分析所需的所有字段。 若要开始，请参阅 [示例查询](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) 。 
+通常，您需要在不同的表中执行联接，以及将不同的记录集作为同一个表的一部分 (按操作名称进行区分) 以获取分析所需的所有字段。 若要开始，请参阅 [示例查询](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) 。 
 
 ## <a name="next-steps"></a>后续步骤
 

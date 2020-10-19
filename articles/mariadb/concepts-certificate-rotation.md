@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 73fa10b2170024760fe20d6ed037353b12a0a9e7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 2d1122d723058af7b11004589a9ebd14958cc4ef
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127244"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173102"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>了解 Azure Database for MariaDB 的根 CA 更改的更改
 
@@ -103,7 +103,7 @@ Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/�
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mariadb"></a>4. 如果将应用服务用于 Azure Database for MariaDB，会产生什么影响？
 对于 Azure 应用服务，连接到 Azure Database for MariaDB，可以有两种可能的方案，具体取决于你在应用程序中使用 SSL 的方式。
 *   已将此新证书添加到应用服务中的平台级别。 如果你在应用程序中使用应用服务平台上包含的 SSL 证书，则无需执行任何操作。
-*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。
+*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。此方案的一个很好的示例是，在应用服务中使用自定义容器，如[应用服务文档](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)中所述
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mariadb"></a>5. 如果使用 Azure Kubernetes Services (AKS) 与 Azure Database for MariaDB，会产生什么影响？
 如果尝试使用 Azure Kubernetes Services (AKS) 连接到 Azure Database for MariaDB，则与从专用客户主机环境访问类似。 请参阅 [此处](../aks/ingress-own-tls.md)的步骤。
@@ -114,7 +114,7 @@ Azure Database for MariaDB 将更改使用 SSL 启用的客户端应用程序/�
 如果使用自承载 Integration Runtime 在连接字符串中显式包含 SSL 证书文件的路径，则需要下载 [新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) ，并更新连接字符串以使用该证书。
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. 是否需要为此更改计划数据库服务器维护停机时间？
-不是。 由于此处的更改仅在客户端连接到数据库服务器，因此数据库服务器不需要维护停机时间来进行此更改。
+否。 由于此处的更改仅在客户端连接到数据库服务器，因此数据库服务器不需要维护停机时间来进行此更改。
 
 ### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. 如果在2021年2月15日 (02/15/2021) 之前无法获得此更改的计划停机时间怎么办？
 由于用于连接到服务器的客户端需要更新证书信息（如 [此处](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)的修复部分所述），因此在这种情况下，服务器不需要停机。
@@ -149,7 +149,7 @@ Azure Database for MariaDB 使用的这些证书由受信任的证书颁发机�
 若要验证是否正在使用 SSL 连接连接到服务器，请参阅 [ssl 验证](howto-configure-ssl.md#verify-the-ssl-connection)。
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. 如果我的证书文件中已有 DigiCertGlobalRootG2，是否需要执行任何操作？
-不是。 如果你的证书文件已有 **DigiCertGlobalRootG2**，则无需执行任何操作。
+否。 如果你的证书文件已有 **DigiCertGlobalRootG2**，则无需执行任何操作。
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. 如果我有其他问题，该怎么办？
 如果有疑问，请从 [Microsoft Q&的](mailto:AzureDatabaseformariadb@service.microsoft.com)社区专家那里获取答案。 如果你有支持计划并需要技术帮助[，请联系我们。](mailto:AzureDatabaseformariadb@service.microsoft.com)

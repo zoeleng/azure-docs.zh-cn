@@ -3,12 +3,12 @@ title: 体系结构概述
 description: 概述 Azure 备份服务使用的体系结构、组件和流程。
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613996"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173270"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
@@ -45,7 +45,7 @@ Azure 备份将备份数据存储在保管库-恢复服务保管库和备份保�
 - 指定如何复制保管库中的数据以实现冗余：
   - **本地冗余存储 (LRS)** ：若要防范数据中心发生故障，可以使用 LRS。 LRS 将数据复制到存储缩放单元。 [了解详细信息](../storage/common/storage-redundancy.md#locally-redundant-storage)。
   - **异地冗余存储 (GRS)** ：若要防范区域范围的服务中断，可以使用 GRS。 GRS 会将数据复制到次要区域。 [了解详细信息](../storage/common/storage-redundancy.md#geo-redundant-storage)。
-  - **区域冗余存储 (ZRS) **：在 [可用性区域](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)中复制数据，从而在同一区域中保证数据的驻留和复原能力。 [了解详细信息](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **区域冗余存储 (ZRS) **：在 [可用性区域](../availability-zones/az-overview.md#availability-zones)中复制数据，从而在同一区域中保证数据的驻留和复原能力。 [了解详细信息](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 恢复服务保管库默认使用 GRS。
 
 恢复服务保管库具有以下附加功能：

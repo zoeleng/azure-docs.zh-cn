@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087964ab64c94d5dfe223ce4e47355784003b627
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371178"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173352"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS 保护标准概述
 
@@ -26,7 +26,7 @@ Azure DDoS 保护与应用程序设计最佳做法相结合，可提供针对 DD
 
 DDoS 保护标准易于启用，无需更改应用程序。 通过专用流量监视和机器学习算法调整保护策略。 策略应用到与部署在虚拟网络中资源相关的公共 IP 地址，例如 Azure 负载均衡器、Azure 应用程序网关和 Azure Service Fabric 实例，但此保护不适用于应用服务环境。可在攻击期间通过 Azure Monitor 视图并针对历史记录获得实时遥测。 可通过诊断设置获取大量攻击缓解分析。 可通过 [Azure 应用程序网关 Web 应用程序防火墙](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或通过从 Azure 市场安装第三方防火墙来添加应用程序层保护。 为 IPv4 和 IPv6 Azure [公共 IP 地址](virtual-network-public-ip-address.md)提供保护。
 
-![DDoS 保护基本 vs 标准](./media/ddos-protection-overview/ddoscomparison.png)
+![DDoS 保护基本 vs 标准](./media/ddos-protection-overview/ddosfeatures.png)
 
 Azure DDoS 保护不存储客户数据。
 
@@ -41,8 +41,6 @@ DDoS 保护标准可缓解以下攻击类型：
 标准 DDoS 保护可保护虚拟网络中的资源，包括与虚拟机、负载均衡器和应用程序网关相关联的公共 IP 地址。 与应用程序网关 web 应用程序防火墙或使用公共 IP 在虚拟网络中部署的第三方 web 应用程序防火墙结合使用时，DDoS 保护标准可提供第3层到第7层缓解功能。
 
 ## <a name="ddos-protection-standard-features"></a>DDoS 保护标准功能
-
-![DDoS 功能](./media/ddos-protection-overview/ddosfeatures.png)
 
 DDoS 保护标准功能包括：
 

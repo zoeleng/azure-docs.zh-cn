@@ -3,12 +3,12 @@ title: 使用 Azure 备份将 SAP HANA 数据库备份到 Azure
 description: 本文介绍如何使用 Azure 备份服务将 SAP HANA 数据库备份到 Azure 虚拟机。
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 3e19701abe152e947e87ef624a003538ab7062a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271794"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172985"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>备份 Azure VM 中的 SAP HANA 数据库
 
@@ -57,13 +57,13 @@ SAP HANA 数据库是关键工作负荷，要求较低的恢复点目标 (RPO) �
 
 #### <a name="nsg-tags"></a>NSG 标记
 
-如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (*AzureActiveDirectory*) 和 Azure 存储 (*存储*) 创建类似的[NSG 规则](../virtual-network/security-overview.md#service-tags)，以允许进行身份验证和数据传输连接。  以下步骤介绍了为 Azure 备份标记创建规则的过程：
+如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）创建类似的 [NSG 规则](../virtual-network/network-security-groups-overview.md#service-tags)，以便在连接后进行身份验证和数据传输。  以下步骤介绍了为 Azure 备份标记创建规则的过程：
 
 1. 在“所有服务”中转到“网络安全组”，然后选择“网络安全组”。
 
 1. 在“设置”下选择“出站安全规则”。
 
-1. 选择“添加”  。 根据[安全规则设置](../virtual-network/manage-network-security-group.md#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
+1. 选择 **添加** 。 根据[安全规则设置](../virtual-network/manage-network-security-group.md#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
 
 1. 选择“添加”，保存新创建的出站安全规则。
 
@@ -113,7 +113,7 @@ SAP HANA 数据库是关键工作负荷，要求较低的恢复点目标 (RPO) �
 
 现在启用备份。
 
-1. 在步骤2中，选择 " **配置备份**"。
+1. 在步骤 2 中，选择“配置备份”。
 
     ![配置备份](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. 在“选择要备份的项”中，选择要保护的所有数据库，然后选择“确定”。
@@ -122,7 +122,7 @@ SAP HANA 数据库是关键工作负荷，要求较低的恢复点目标 (RPO) �
 3. 在“备份策略” > “选择备份策略”中，按照下面的说明，为数据库创建一个新的备份策略。 
 
     ![选择备份策略](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. 创建策略后，在 " **备份** " 菜单上选择 " **启用备份**"。
+4. 创建策略后，在“备份菜单”中选择“启用备份” 。
 
     ![启用备份](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. 在门户的“通知”区域跟踪备份配置进度。
@@ -173,7 +173,7 @@ SAP HANA 数据库是关键工作负荷，要求较低的恢复点目标 (RPO) �
 
 7. 选择“确定”保存策略，并返回“备份策略”主菜单。  
 8. 请选择“日志备份”，以添加事务日志备份策略。
-    * 在“日志备份”中，选择“启用”。   由于 SAP HANA 管理所有日志备份，因此无法禁用此功能。
+    * 在“日志备份”中，选择“启用”。   由于 SAP HANA 管理所有日志备份，此类备份无法被禁用。
     * 设置频率和保留期控制。
 
     > [!NOTE]
@@ -183,7 +183,7 @@ SAP HANA 数据库是关键工作负荷，要求较低的恢复点目标 (RPO) �
 10. 完成定义备份策略后，选择“确定”。
 
 > [!NOTE]
-> 每个日志备份都链接到上一个完整备份，以形成恢复链。 此完整备份将一直保留到最后一个日志备份的保留期结束为止。 这可能意味着完整备份会保留一段额外的时间，以确保所有日志都可以恢复。 假设用户具有每周完整备份、每日差异和2小时的日志。 所有这些备份都将保留 30 天。 但是，只有在下一次完整备份可用之后（即30到7天后），才能真正清除/删除每周的完全备份。 例如，每周的完整备份在11月16日执行。 根据保留策略，它应保留到 12 月 16 日。 该完整备份的最后一次日志备份发生在下一次计划的完整备份之前，即 11 月 22 日。 必须等到 12 月 22 日此日志备份可用后，才能删除 11 月 16 日的完整备份。 因此，11 月 16 日的完整备份将保留到 12 月 22 日。
+> 每个日志备份都链接到上一个完整备份，以形成恢复链。 此完整备份将一直保留到最后一个日志备份的保留期结束为止。 这可能意味着完整备份会保留一段额外的时间，以确保所有日志都可以恢复。 假设用户有每周完整备份、每日差异备份和 2 小时日志备份。 所有这些备份都将保留 30 天。 但是，只有在下一个完整备份可用后（即 30 + 7 天后），才能真正清除/删除这个每周完整备份。 例如，每周完整备份在 11 月 16 日执行。 根据保留策略，它应保留到 12 月 16 日。 该完整备份的最后一次日志备份发生在下一次计划的完整备份之前，即 11 月 22 日。 必须等到 12 月 22 日此日志备份可用后，才能删除 11 月 16 日的完整备份。 因此，11 月 16 日的完整备份将保留到 12 月 22 日。
 
 ## <a name="run-an-on-demand-backup"></a>运行按需备份
 
@@ -205,13 +205,13 @@ SAP HANA 数据库是关键工作负荷，要求较低的恢复点目标 (RPO) �
 1. 为此，请双击“systemdb” > “配置” > “选择数据库” > “筛选器(日志)”。   
 1. 将 **enable_auto_log_backup** 设置为 **No**。
 1. 将 **log_backup_using_backint** 设置为 **False**。
-1. 将 **catalog_backup_using_backint** 设置为 **False**。
+1. 将“catalog_backup_using_backint”设置为“False” 。
 1. 创建数据库的完整备份。
 1. 等待完整备份和目录备份完成。
 1. 将前面的设置恢复为 Azure 的设置：
     * 将 **enable_auto_log_backup** 设置为 **Yes**。
     * 将 log_backup_using_backint 设置为 True 。
-    * 将 **catalog_backup_using_backint** 设置为 **True**。
+    * 将“catalog_backup_using_backint”设置为“True” 。
 
 ## <a name="next-steps"></a>后续步骤
 

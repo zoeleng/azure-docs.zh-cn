@@ -4,12 +4,12 @@ description: 本文解答有关使用 Azure 备份服务备份 Azure VM 的常�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056712"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172826"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
@@ -23,8 +23,8 @@ ms.locfileid: "92056712"
 
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>为什么初始备份需要很长的时间才能完成？
 
-初始备份始终是完整备份，并且它将取决于数据的大小以及处理备份的时间。 <br>
-若要提高备份性能，请参阅 [备份最佳做法](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [备份注意事项](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) 和 [备份性能](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+初始备份始终是完整备份，它取决于数据大小和处理备份的时间。 <br>
+若要提高备份性能，请参阅[备份最佳做法](./backup-azure-vms-introduction.md#best-practices)、[备份注意事项](./backup-azure-vms-introduction.md#backup-and-restore-considerations)和[备份性能](./backup-azure-vms-introduction.md#backup-performance)<br>
 增量备份的总备份时间不超过 24 小时，但是，首次备份可能并非如此。
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>备份成本包含在 VM 成本内吗？
@@ -107,9 +107,9 @@ Azure 虚拟机备份策略支持的最短保持期为 7 天，最长为 9999 �
 
 Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性磁盘备份和还原。 有关详细信息，请参阅 [Azure VM 的选择性磁盘备份和还原](selective-disk-backup-restore.md)。
 
-### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>如果在备份期间发生了租户更改，是否保留托管标识？
+### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>如果在备份过程中发生租户更改，是否保留托管标识？
 
-如果发生 [租户更改](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) ，则需要禁用并重新启用 [托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ，才能使备份再次工作。
+如果发生[租户更改](/azure/devops/organizations/accounts/change-azure-ad-connection)，则需要禁用并重新启用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)才能重新运行备份。
 
 ## <a name="restore"></a>还原
 
@@ -163,7 +163,7 @@ Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性�
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>为什么还原操作需要很长时间才能完成？
 
-还原的总时间取决于每秒的输入/输出操作 (IOPS) 和存储帐户的吞吐量。 如果目标存储帐户与其他应用程序的读取和写入操作一起加载，则总还原时间可能会受到影响。 若要改善还原操作，请选择一个未与其他应用程序数据一起加载的存储帐户。
+总还原时间取决于存储帐户的每秒输入/输出操作次数 (IOPS) 和吞吐量。 如果目标存储帐户加载了其他应用程序读写操作，则总还原时间可能会受到影响。 若要改进还原操作，请选择未加载其他应用程序数据的存储帐户。
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 
@@ -207,6 +207,6 @@ VM 是使用已修改策略或新策略中的计划和保留设置备份的。
 
 目前，你可根据分配给 VM 的备份策略来查看备份项 (VM) 级别的保留设置。
 
-要查看备份的保留设置，一种方法是在 Azure 门户中导航到 VM 的备份项[仪表板](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard)。 选择指向其备份策略的链接有助于查看与 VM 关联的全部每日、每周、每月和每年保留点的保留期。
+要查看备份的保留设置，一种方法是在 Azure 门户中导航到 VM 的备份项[仪表板](./backup-azure-manage-vms.md#view-vms-on-the-dashboard)。 选择指向其备份策略的链接有助于查看与 VM 关联的全部每日、每周、每月和每年保留点的保留期。
 
-还可使用[备份资源管理器](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer)在单一管理平台查看所有 VM 的保留设置。 从任何恢复服务保管库中导航到备份资源管理器，转到“备份项”选项卡，然后选择“高级视图”，查看每个 VM 的详细保留信息。
+还可使用[备份资源管理器](./monitor-azure-backup-with-backup-explorer.md)在单一管理平台查看所有 VM 的保留设置。 从任何恢复服务保管库中导航到备份资源管理器，转到“备份项”选项卡，然后选择“高级视图”，查看每个 VM 的详细保留信息。

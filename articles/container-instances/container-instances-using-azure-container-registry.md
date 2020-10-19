@@ -5,12 +5,12 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89656995"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173653"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>从 Azure 容器注册表部署到 Azure 容器实例
 
@@ -22,19 +22,18 @@ ms.locfileid: "89656995"
 
 **Azure CLI**：本文中的命令行示例使用 [Azure CLI](/cli/azure/)，并采用适用于 Bash shell 的格式。 可在本地[安装 Azure CLI](/cli/azure/install-azure-cli)，或使用 [Azure Cloud Shell][cloud-shell-bash]。
 
+## <a name="limitations"></a>限制
+
+* 无法使用在同一容器组中配置的[托管标识](container-instances-managed-identity.md)向 Azure 容器注册表进行身份验证，以便在容器组部署期间拉取图像。
+* 目前，无法从部署到 Azure 虚拟网络的 [Azure 容器注册表](../container-registry/container-registry-vnet.md)拉取映像。
+
 ## <a name="configure-registry-authentication"></a>配置注册表身份验证
 
-在生产方案中，如果要提供对“无外设”服务和应用程序的访问权限，建议使用[服务主体](../container-registry/container-registry-auth-service-principal.md)配置注册表访问权限。 使用服务主体可以为容器映像提供 [AZURE RBAC)  (azure 基于角色的访问控制 ](../container-registry/container-registry-roles.md) 。 例如，可将服务主体配置为拥有注册表的仅限提取的访问权限。
+在生产方案中，如果要提供对“无外设”服务和应用程序的访问权限，建议使用[服务主体](../container-registry/container-registry-auth-service-principal.md)配置注册表访问权限。 使用服务主体可以提供对容器映像的 [Azure 基于角色的访问控制 (Azure RBAC)](../container-registry/container-registry-roles.md)。 例如，可将服务主体配置为拥有注册表的仅限提取的访问权限。
 
 Azure 容器注册表提供了附加的[身份验证选项](../container-registry/container-registry-authentication.md)。
 
-> [!NOTE]
-> 无法使用在同一容器组中配置的[托管标识](container-instances-managed-identity.md)向 Azure 容器注册表进行身份验证，以便在容器组部署期间拉取图像。
-
-> [!NOTE]
-> 此时，无法从部署到 Azure 虚拟网络的 [Azure 容器注册表](../container-registry/container-registry-vnet.md) 中提取映像。
-
-在以下部分中，将创建一个 Azure 密钥保管库和一个服务主体，并将服务主体的凭据存储在保管库中。 
+在以下部分中，将创建一个 Azure 密钥保管库和一个服务主体，并将服务主体的凭据存储在保管库中。
 
 ### <a name="create-key-vault"></a>创建 Key Vault
 
@@ -73,7 +72,7 @@ az keyvault secret set \
 
 上述命令中的 `--role` 参数使用“acrpull”角色配置服务主体，该角色授予其对注册表的只拉取访问权限。 若要同时授予推送和拉取访问权限，请将 `--role` 参数更改为“acrpush”。
 
-接下来，将服务主体的 *appId* 存储在保管库中，这是传递到 Azure 容器注册表进行身份验证的 **用户名** 。
+接下来，将服务主体的 *appId*（传递给 Azure 容器注册表用于身份验证的**用户名**）存储在保管库中。
 
 ```azurecli
 # Store service principal ID in vault (the registry *username*)

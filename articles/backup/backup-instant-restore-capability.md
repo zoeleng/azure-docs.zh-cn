@@ -4,12 +4,12 @@ description: Azure 即时还原功能以及有关 VM 备份堆栈、资源管理
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000373"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173921"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>使用 Azure 备份即时还原功能获得更高的备份和还原性能
 
@@ -60,6 +60,8 @@ ms.locfileid: "89000373"
 ## <a name="configure-snapshot-retention"></a>配置快照保留期
 
 ### <a name="using-azure-portal"></a>使用 Azure 门户
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 在 Azure 门户中可以看到，“即时还原”部分下的“VM 备份策略”窗格中添加了一个字段。  对于与特定备份策略关联的所有 VM，可以在“VM 备份策略”窗格中更改快照保留持续时间。
 

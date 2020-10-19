@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044192"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171912"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>检索 IoT Edge 部署中的日志
 
@@ -82,7 +82,7 @@ ms.locfileid: "92044192"
 
 日志检索成功后，将返回 **"status"： 200** 后跟一个有效负载，其中包含从模块检索到的日志，并按你在请求中指定的设置进行筛选。
 
-例如：
+例如： 。
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +123,7 @@ az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <
 
 ![在 Azure 门户中调用直接方法 "GetModuleLogs"](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-还可以通过管道将 CLI 输出传递给 Linux 实用程序（如 [gzip](https://en.wikipedia.org/wiki/Gzip)）来处理压缩的响应。 例如：
+还可以通过管道将 CLI 输出传递给 Linux 实用程序（如 [gzip](https://en.wikipedia.org/wiki/Gzip)）来处理压缩的响应。 例如： 。
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -184,7 +184,7 @@ az iot hub invoke-module-method \
 | message | 字符串 | 如果错误，则为消息; 否则为空字符串。 |
 | correlationId | 字符串   | 用于查询上载请求状态的 ID。 |
 
-例如：
+例如： 。
 
 以下调用将以压缩 JSON 格式从所有模块上传最后100日志行：
 
@@ -300,7 +300,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 | message | 字符串 | 如果错误，则为消息; 否则为空字符串。 |
 | correlationId | 字符串   | 用于查询上载请求状态的 ID。 |
 
-例如：
+例如： 。
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -358,7 +358,7 @@ az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name
 | message | 字符串 | 如果错误，则为消息; 否则为空字符串。 |
 | correlationId | 字符串   | 用于查询上载请求状态的 ID。 |
 
-例如：
+例如： 。
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -370,7 +370,7 @@ az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <
 '
 ```
 
-在 Azure 门户中，用 `UploadModuleLogs` 您的信息填充 GUID 后，调用方法名称和以下 JSON 有效负载的方法：
+在 Azure 门户中，用 `GetTaskStatus` 您的信息填充 GUID 后，调用方法名称和以下 JSON 有效负载的方法：
 
 ```json
     {

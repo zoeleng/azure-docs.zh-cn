@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448526"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174156"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>删除和恢复 Azure Log Analytics 工作区
 
@@ -45,7 +45,7 @@ ms.locfileid: "91448526"
 
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 登录 [Azure 门户](https://portal.azure.com)。 
+1. 登录到 [Azure 门户](https://portal.azure.com)。 
 2. 在 Azure 门户中，选择“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”。
 3. 在 Log Analytics 工作区的列表中，选择一个工作区，然后从中间窗格的顶端单击“删除”。
 4. 确认页面随即出现，显示过去一周内工作区的数据引入。 键入要确认的工作区的名称，然后单击“删除”。
@@ -82,7 +82,7 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 登录 [Azure 门户](https://portal.azure.com)。 
+1. 登录到 [Azure 门户](https://portal.azure.com)。 
 2. 在 Azure 门户中，选择“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”。 你将看到所选范围内的工作区列表。
 3. 单击左上侧菜单中的“恢复”，打开包含处于软删除状态且可恢复的工作区页面。
 
@@ -112,6 +112,9 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 * 如果在创建工作区时收到一条错误消息“此工作区名称已在使用中”或“发生冲突”，则可能是由于以下原因 ：
   * 工作区名称不可用，并且已被组织中的某个用户或其他客户使用。
   * 该工作区是在最近 14 天内删除的，其名称仍处于软删除期间保留状态。 若要替换软删除，同时永久删除你的工作区并创建新的同名工作区，请按照以下步骤，先恢复工作区再执行永久删除：<br>
-     1. [恢复](#recover-workspace)工作区。
-     2. [永久删除](#permanent-workspace-delete)工作区。
-     3. 使用相同的工作区名称创建新的工作区。
+    1. [恢复](#recover-workspace)工作区。
+    2. [永久删除](#permanent-workspace-delete)工作区。
+    3. 使用相同的工作区名称创建新的工作区。
+* 如果看到显示 "找 *不到资源*" 的204响应代码，则原因可能是连续尝试使用 "删除工作区" 操作。 204为空响应，这通常意味着该资源不存在，因此删除完成，无需执行任何操作。
+  在后端成功完成删除调用后，可以还原工作区，并在前面建议的方法之一中完成永久删除操作。
+

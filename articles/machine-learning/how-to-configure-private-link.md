@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89bad470d5ead43b79e3691343b53fff796f7abc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828119"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172788"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>为 Azure 机器学习工作区配置 Azure 专用链接
 
@@ -29,7 +29,7 @@ ms.locfileid: "91828119"
 >
 > 如果使用的是 Mozilla Firefox，则在尝试访问工作区的专用终结点时可能会遇到问题。 此问题可能与 Mozilla 中的 HTTPS 上的 DNS 有关。 建议使用 Google Chrome 的 Microsoft Edge 作为解决方法。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 如果计划将启用了专用链接的工作区与客户托管的密钥配合使用，则必须使用支持票证请求此功能。 有关详细信息，请参阅 [管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
 
@@ -39,20 +39,28 @@ ms.locfileid: "91828119"
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>创建使用专用终结点的工作区
 
-使用以下方法之一创建具有专用终结点的工作区：
+使用以下方法之一创建具有专用终结点的工作区。 上述每种方法都 __需要一个现有的虚拟网络__：
 
 > [!TIP]
-> 如果需要，Azure 资源管理器模板可以创建一个新的虚拟网络。 其他方法都需要现有虚拟网络。
-
-# <a name="resource-manager-template"></a>[Resource Manager 模板](#tab/azure-resource-manager)
-
-中的 Azure 资源管理器模板 [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) 提供了一种简单的方法来创建具有专用终结点和虚拟网络的工作区。
-
-有关使用此模板（包括专用终结点）的信息，请参阅 [使用 Azure 资源管理器模板创建 Azure 机器学习的工作区](how-to-create-workspace-template.md)。
+> 如果要同时创建工作区、专用终结点和虚拟网络，请参阅 [使用 Azure 资源管理器模板创建 Azure 机器学习的工作区](how-to-create-workspace-template.md)。
 
 # <a name="python"></a>[Python](#tab/python)
 
 Azure 机器学习 Python SDK 提供了 [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) 类，该类可用于 [工作区。创建 ( # B1 ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) 来创建具有专用终结点的工作区。 此类需要现有虚拟网络。
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.create(name='myworkspace',
+    subscription_id='<my-subscription-id>',
+    resource_group='myresourcegroup',
+    location='eastus2',
+    private_endpoint_config=pe,
+    private_endpoint_auto_approval=True,
+    show_output=True)
+```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -62,11 +70,83 @@ Azure 机器学习 Python SDK 提供了 [PrivateEndpointConfig](https://docs.mic
 * `--pe-auto-approval`：是否应自动批准与工作区的专用终结点连接。
 * `--pe-resource-group`：要在其中创建专用终结点的资源组。 必须是包含虚拟网络的同一个组。
 * `--pe-vnet-name`：要在其中创建专用终结点的现有虚拟网络。
-* `--pe-subnet-name`：要在其中创建专用终结点的子网的名称。 默认值是 `default`。
+* `--pe-subnet-name`：要在其中创建专用终结点的子网的名称。 默认值为 `default`。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 使用 Azure 机器学习 studio 中的 " __网络__ " 选项卡可以配置专用终结点。 但是，它需要现有虚拟网络。 有关详细信息，请参阅 [在门户中创建工作区](how-to-manage-workspace.md)。
+
+---
+
+## <a name="add-a-private-endpoint-to-a-workspace"></a>向工作区添加专用终结点
+
+使用以下方法之一将专用终结点添加到现有工作区：
+
+> [!IMPORTANT]
+>
+> 必须具有现有虚拟网络才能在中创建专用终结点。 在添加专用终结点之前，您还必须 [对专用终结点禁用网络策略](../private-link/disable-private-endpoint-network-policy.md) 。
+
+> [!WARNING]
+>
+> 如果有与此工作区关联的任何现有计算目标，并且这些目标不在在中创建专用终结点的同一虚拟网络后面，则这些目标将不起作用。
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.from_config()
+ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approval=True, show_output=True)
+```
+
+有关此示例中使用的类和方法的详细信息，请参阅 [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) 和 [Workspace.add_private_endpoint](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-)。
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[机器学习的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)提供了[az ml workspace private-endpoint add](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add)命令。
+
+```azurecli
+az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+在门户的 "Azure 机器学习" 工作区中，选择 " __专用终结点连接__ "，然后选择 " __+ 专用终结点__"。 使用字段创建新的专用终结点。
+
+* 选择 __区域__时，请选择虚拟网络所在的区域。 
+* 选择 __资源类型__时，请使用 __MachineLearningServices/工作区__。 
+* 将 __资源__ 设置为你的工作区名称。
+
+最后，选择 " __创建__ " 以创建专用终结点。
+
+---
+
+## <a name="remove-a-private-endpoint"></a>删除专用终结点
+
+使用以下方法之一从工作区中删除专用终结点：
+
+# <a name="python"></a>[Python](#tab/python)
+
+使用 [Workspace.delete_private_endpoint_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) 删除专用终结点。
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+# get the connection name
+_, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].rpartition('/')
+ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[机器学习的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)提供了[az ml workspace private-endpoint delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete)命令。
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+在门户的 "Azure 机器学习" 工作区中，选择 " __专用终结点连接__"，然后选择要删除的终结点。 最后，选择 " __删除__"。
 
 ---
 

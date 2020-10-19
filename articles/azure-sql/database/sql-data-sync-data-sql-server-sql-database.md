@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057886"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173557"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>什么是 Azure SQL 数据同步？
 
@@ -137,6 +137,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 - 对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
 - 不支持 Azure Active Directory 身份验证。
 - 如果存在具有相同名称但不同架构的表 (例如，dbo. customers 和 sales。客户) 只能将其中一个表添加到同步中。
+- 表名不能包含 ASCII 值小于或等于 "-" 的字符。
 - 不支持具有用户定义数据类型的列
 - 不支持在不同订阅之间移动服务器。 
 

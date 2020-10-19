@@ -4,12 +4,12 @@ description: 有关如何在 Azure 订阅和资源组之间移动恢复服务保
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056423"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171602"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 订阅和资源组移动恢复服务保管库
 
@@ -52,7 +52,7 @@ ms.locfileid: "92056423"
 
 若要将恢复服务保管库及其关联的资源移到不同的资源组，请执行以下操作：
 
-1. 登录 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.com/)。
 2. 打开“恢复服务保管库”列表，并选择要移动的保管库。**** 当保管库仪表板打开时，其外观如下图所示。
 
    ![打开恢复服务保管库](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -81,7 +81,7 @@ ms.locfileid: "92056423"
 
 可将恢复服务保管库及其关联的资源移到不同的订阅
 
-1. 登录 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.com/)。
 2. 打开“恢复服务保管库”列表，并选择要移动的保管库。 当保管库仪表板打开时，其外观如下图所示。
 
     ![打开恢复服务保管库](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -178,7 +178,7 @@ az resource move --destination-group <destinationResourceGroupName> --ids <Vault
   - 只能为旧保管库中未过期的恢复点还原已备份的数据。
   - 将需要在新的保管库中创建数据的新初始副本。
 
-- 对于 Azure VM，可以 [停止保护，保留](backup-azure-manage-vms.md#stop-protecting-a-vm) 旧保管库中 vm 的数据，将 vm 移动到另一个资源组，然后在新保管库中保护 vm。 请参阅将 VM 移到其他资源组的[指南和限制](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)。
+- 对于 Azure VM，可以 [停止保护，保留](backup-azure-manage-vms.md#stop-protecting-a-vm) 旧保管库中 vm 的数据，将 vm 移动到另一个资源组，然后在新保管库中保护 vm。 请参阅将 VM 移到其他资源组的[指南和限制](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)。
 
   同一时间只能在一个保管库中保护 VM。 但是，可以在新的保管库中保护新资源组中的 VM，因为它被视为不同 VM。
 

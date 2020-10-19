@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048451"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172262"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>语音服务的语言和语音支持
 
@@ -170,7 +170,7 @@ Microsoft 语音 SDK 和 REST API 支持以下语音，其中的每种语音都�
 | `fr-CH` <sup>新建</sup> | 法语（瑞士） | 女 | `fr-CH-ArianeNeural` | 常规 |
 | `fr-FR` | 法语 (法国)  | 女 | `fr-FR-DeniseNeural` | 常规 |
 | `fr-FR` <sup>新建</sup> | 法语（法国） | 男 | `fr-FR-HenriNeural` | 常规 |
-| `he-IL` <sup>新建</sup> | 希伯来语 (Isareal)  | 女 | `he-IL-HilaNeural` | 常规 |
+| `he-IL` <sup>新建</sup> | 希伯来语（以色列） | 女 | `he-IL-HilaNeural` | 常规 |
 | `hi-IN` | 印地语 (印度)  | 女 | `hi-IN-SwaraNeural` | 常规 |
 | `hr-HR` <sup>新建</sup> | 克罗地亚语（克罗地亚） | 女 | `hr-HR-GabrijelaNeural` | 常规 |
 | `hu-HU` <sup>新建</sup> | 匈牙利语(匈牙利) | 女 | `hu-HU-NoemiNeural` | 常规 |
