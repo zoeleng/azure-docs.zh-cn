@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828044"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169399"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL 数据库和 Azure Synapse Analytics 的审核
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,6 +94,17 @@ Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段�
   
    ![存储选项](./media/auditing-overview/auditing-select-destination.png)
 
+### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a> (预览版 Microsoft 支持部门操作的审核) 
+
+使用 Azure SQL Server Microsoft 支持部门)  (操作的审核功能，可以在支持请求期间审核 Microsoft 支持工程师的操作。 将此功能与您的审核结合使用，可以为您的工作人员提供更大的透明性，并允许异常检测、趋势可视化和数据丢失防护。
+
+若要启用 Microsoft 支持部门操作的审核 (预览版) 导航到 " **AZURE SQL server** " 窗格中 "安全" 标题下的 "**审核**"，并将**Microsoft 支持操作的审核切换 (预览) **为 **"开**"。
+
+  > [!IMPORTANT]
+  >  (预览的 Microsoft 支持操作审核) 不支持存储帐户目标。 若要启用此功能，必须配置 Log Analytics 工作区或事件中心目标。
+
+![Microsoft 支持部门操作的屏幕截图](./media/auditing-overview/support-operations.png)
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>对存储目标的审核
 
 若要配置将审核日志写入存储帐户的操作，请选择“存储”，打开“存储详细信息”。  依次选择要用于保存日志的 Azure 存储帐户以及保持期。 。 早于保留期的日志会被删除。
@@ -111,7 +122,7 @@ Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段�
 - 可以将审核日志写入到 VNet 或防火墙后面的 Azure 存储帐户。 有关具体说明，请参阅[将审核写入 VNet 和防火墙后面的存储帐户](audit-write-storage-account-behind-vnet-firewall.md)。
 - 配置审核设置后，可打开新威胁检测功能，并配置电子邮件用于接收安全警报。 使用威胁检测时，会接收针对异常数据库活动（可能表示潜在的安全威胁）发出的前瞻性警报。 有关详细信息，请参阅[威胁检测入门](threat-detection-overview.md)。
 - 有关日志格式、存储文件夹的层次结构和命名约定的详细信息，请参阅 [Blob 审核日志格式参考](https://go.microsoft.com/fwlink/?linkid=829599)。
-- 使用 AAD 身份验证时，失败的登录记录将不会出现在 SQL 审核日志中。 若要查看失败的登录审核记录，需要访问 [Azure Active Directory 门户](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，该门户记录这些事件的详细信息。
+- 使用 Azure AD 身份验证时，失败的登录记录将 *不* 会出现在 SQL 审核日志中。 若要查看失败的登录审核记录，需要访问 [Azure Active Directory 门户](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，该门户记录这些事件的详细信息。
 - 对[只读副本](read-scale-out.md)的审核会自动启用。 有关存储文件夹的层次结构、命名约定和日志格式的详细信息，请参阅 [SQL 数据库审核日志格式](audit-log-format.md)。
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>对 Log Analytics 目标的审核
