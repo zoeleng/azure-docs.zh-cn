@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: 通知
       href: concepts/notifications.md
+    - name: 日志记录和诊断
+      href: concepts/logging-and-diagnostics.md
+    - name: 指标
+      href: concepts/metrics.md
 - name: 示例
   items:
     - name: 出色的分组呼叫示例
