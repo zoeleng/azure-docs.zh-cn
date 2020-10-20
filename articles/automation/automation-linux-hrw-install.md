@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84f168104be4ba4cb8af2e31be82eed0e2ae83a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776266"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205178"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合 Runbook 辅助角色
 
@@ -28,7 +28,7 @@ ms.locfileid: "91776266"
 
 如果没有 Azure Monitor Log Analytics 工作区，请在创建工作区前查看 [Azure Monitor 日志设计指南](../azure-monitor/platform/design-logs-deployment.md)。
 
-如果你有工作区，但它没有与你的自动化帐户关联，则启用自动化功能会添加 Azure 自动化的功能，包括对混合 Runbook 辅助角色的支持。 当你在 Log Analytics 工作区中启用 Azure 自动化功能之一时，特别 [更新管理](update-management/update-mgmt-overview.md) 或 [更改跟踪和清单](change-tracking.md)，辅助角色组件会自动推送到代理计算机。
+如果你有工作区，但它没有与你的自动化帐户关联，则启用自动化功能会添加 Azure 自动化的功能，包括对混合 Runbook 辅助角色的支持。 当你在 Log Analytics 工作区中启用 Azure 自动化功能之一时，特别 [更新管理](update-management/update-mgmt-overview.md) 或 [更改跟踪和清单](change-tracking/overview.md)，辅助角色组件会自动推送到代理计算机。
 
 若要将更新管理功能添加到工作区，请运行以下 PowerShell cmdlet：
 
@@ -60,7 +60,7 @@ ms.locfileid: "91776266"
 * Red Hat Enterprise Linux Server 5、6 和 7 (x86/x64)
 * Debian GNU/Linux 6、7 和 8 (x86/x64)
 * Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS 和 18.04 (x86/x64)
-* SUSE Linux Enterprise Server 12 (x86/x64) 
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### <a name="minimum-requirements"></a>最低要求
 

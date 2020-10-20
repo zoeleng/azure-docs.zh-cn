@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: ef99ff874376e0d76e45e4b0b2c36a78d938130b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843761"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205572"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>从失败的 Azure Stack Edge Pro GPU 设备恢复 
 
 本文介绍如何在 Azure Stack Edge Pro GPU 设备上从不可承受的故障中恢复。 Azure Stack Edge Pro GPU 设备上无法容忍的故障需要更换设备。
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>开始之前
 
 确保你有：
 
@@ -62,7 +62,8 @@ ms.locfileid: "91843761"
 | 第三方软件           | 对解决方案的引用                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> 有关详细信息，请联系 Cohesity。          |
-| Veritas                        | 有关详细信息，请与 Veritas 联系。   |
+| Commvault                      | https://www.commvault.com/azure <br> 有关详细信息，请联系 Commvault。 |
+| Veritas                        | http://veritas.com/azure <br> 有关详细信息，请与 Veritas 联系。   |
 
 完全配置替换设备后，启用设备进行本地存储。 
 
@@ -82,7 +83,8 @@ ms.locfileid: "91843761"
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | 用于 Azure 备份的 (MARS) 代理 Microsoft Azure 恢复服务 | Windows        | [关于 MARS 代理](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows、Linux | [Microsoft Azure 集成、备份和恢复解决方案简述](https://www.cohesity.com/solution/cloud/azure) <br>有关详细信息，请联系 Cohesity。                          |
-| Veritas                 | Windows、Linux | 有关详细信息，请与 Veritas 联系。                    |
+| Commvault               | Windows、Linux | https://www.commvault.com/azure <br> 有关详细信息，请联系 Commvault。
+| Veritas                 | Windows、Linux | http://veritas.com/azure <br> 有关详细信息，请与 Veritas 联系。                    |
 
 完全配置替换设备后，你可以使用以前使用的 VM 映像重新部署 Vm。 
 

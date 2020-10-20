@@ -3,14 +3,14 @@ title: 如何创建 Azure 自动化更新管理警报
 description: 本文介绍如何配置 Azure 警报以通知有关更新评估或部署的状态。
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f832f0359bd8f9caf13008939f482b440faa1a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977007"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203171"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>如何创建更新管理警报
 
@@ -56,7 +56,7 @@ Azure 自动化创建两个不同的平台指标，它们与收集并转发到 A
 
 9. 对于成功的运行，请将“严重性”字段设置为“信息(严重性 2)”；对于失败的运行，请将其设置为“信息(严重性 1)”  。
 
-    ![屏幕截图显示 "定义警报详细信息" 部分，其中突出显示了 "警报规则名称、说明和严重级别" 字段。](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
+    ![屏幕截图显示了“定义警报详细信息”部分，其中突出显示了“警报规则名称”、“说明”和“严重性”字段。](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
 
 10. 选择“是”以启用预警规则。
 
@@ -86,3 +86,8 @@ Azure 自动化创建两个不同的平台指标，它们与收集并转发到 A
 
 ## <a name="next-steps"></a>后续步骤
 
+* 详细了解 [Azure Monitor 中的警报](../../azure-monitor/platform/alerts-overview.md)。
+
+* 了解用于从 Log Analytics 工作区检索和分析数据的 [日志查询](../../azure-monitor/log-query/log-query-overview.md) 。
+
+* [使用 Azure Monitor 日志管理使用情况和成本](../../azure-monitor/platform/manage-cost-storage.md)介绍了如何通过更改数据保持期来控制成本，以及如何分析和警报数据的使用情况。

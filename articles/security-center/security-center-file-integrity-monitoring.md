@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946087"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205381"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 安全中心中的文件完整性监视
 了解如何在 Azure 安全中心使用本演练 (FIM) 配置文件完整性监视。
@@ -31,7 +31,7 @@ ms.locfileid: "91946087"
 |发布状态：|正式发布 (GA)|
 |定价：|需要 [用于服务器的 Azure Defender](defender-for-servers-introduction.md)。<br>FIM 将数据上传到 Log Analytics 工作区。 需要根据上传的数据量支付数据费用。 请参阅 [Log Analytics 定价](https://azure.microsoft.com/pricing/details/log-analytics/)了解详细信息。|
 |所需角色和权限：|**工作区所有者** 可以启用/禁用 FIM (有关详细信息，请参阅 [Log Analytics) 的 Azure 角色](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles) 。<br>**读者** 可以查看结果。|
-|云：|![是 ](./media/icons/yes-icon.png) 商业云<br>![是 ](./media/icons/yes-icon.png) US Gov<br>![无 ](./media/icons/no-icon.png) 中国 Gov，其他 Gov<br>仅支持 Azure 自动化的更改跟踪解决方案的区域。<br>请参阅 [链接 Log Analytics 工作区的受支持区域](../automation/how-to/region-mappings.md)。<br>[了解有关更改跟踪的详细信息](../automation/change-tracking.md)。|
+|云：|![是 ](./media/icons/yes-icon.png) 商业云<br>![是 ](./media/icons/yes-icon.png) US Gov<br>![无 ](./media/icons/no-icon.png) 中国 Gov，其他 Gov<br>仅支持 Azure 自动化的更改跟踪解决方案的区域。<br>请参阅 [链接 Log Analytics 工作区的受支持区域](../automation/how-to/region-mappings.md)。<br>[了解有关更改跟踪的详细信息](../automation/change-tracking/overview.md)。|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>安全中心内的 FIM 是什么？
@@ -56,7 +56,7 @@ ms.locfileid: "91946087"
 
 通过将这些项的当前状态与上一次扫描过程中的状态进行比较，FIM 会在进行可疑修改时发出警报。
 
-FIM 使用 Azure 更改跟踪解决方案来跟踪和识别环境中发生的更改。 启用文件完整性监视时，你具有类型为 "**解决方案**" 的**更改跟踪**资源。 有关数据收集频率的详细信息，请参阅 Azure 更改跟踪的[更改跟踪数据收集详细信息](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)。
+FIM 使用 Azure 更改跟踪解决方案来跟踪和识别环境中发生的更改。 启用文件完整性监视时，你具有类型为 "**解决方案**" 的**更改跟踪**资源。 有关数据收集频率的详细信息，请参阅 [更改跟踪数据收集详细信息](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection)。
 
 > [!NOTE]
 > 如果删除 **更改跟踪** 资源，还将禁用安全中心中的文件完整性监视功能。

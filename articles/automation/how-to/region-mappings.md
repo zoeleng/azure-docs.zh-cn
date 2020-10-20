@@ -1,16 +1,16 @@
 ---
 title: 链接的 Log Analytics 工作区支持的区域
 description: 本文介绍自动化帐户与 Log Analytics 工作区之间受支持的区域映射，因为它与 Azure 自动化的某些功能相关。
-ms.date: 09/03/2020
+ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440654"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207319"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>链接的 Log Analytics 工作区支持的区域
 
@@ -32,6 +32,7 @@ ms.locfileid: "89440654"
 |**美国**||
 |EastUS<sup>1</sup>|EastUS2|
 |美国西部 2|美国西部 2|
+|Default-machinelearning-southcentralus|Default-machinelearning-southcentralus|
 |WestCentralUS|WestCentralUS|
 |**加拿大**||
 |CanadaCentral|CanadaCentral|
@@ -44,6 +45,7 @@ ms.locfileid: "89440654"
 |**欧洲**||
 |UKSouth|UKSouth|
 |西欧|西欧|
+|SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>2</sup>|USGovArizona|
@@ -86,5 +88,5 @@ ms.locfileid: "89440654"
 ## <a name="next-steps"></a>后续步骤
 
 * 在[更新管理概述](../update-management/update-mgmt-overview.md)中详细了解更新管理。
-* 在[更改跟踪和库存概述](../change-tracking.md)中了解更改跟踪和库存。
+* 在[更改跟踪和库存概述](../change-tracking/overview.md)中了解更改跟踪和库存。
 * 在[在空闲时间启动/停止 VM 概述](../automation-solution-vm-management.md)中了解在空闲时间启动/停止 VM。

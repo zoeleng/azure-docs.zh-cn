@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 31660d13fe69d393a19167eaea8a69bfb6260467
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097331"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202066"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>适用于云解决方案提供商 (CSP) 的 ExpressRoute
 Microsoft 为传统经销商和分销商 (CSP) 提供超大规模的服务，允许他们为客户快速预配新服务和解决方案，而不需投资开发这些新服务。 为了让云解决方案提供商 (CSP) 能够直接管理这些新服务，Microsoft 提供了相应的程序和 API，以便 CSP 代表客户管理 Microsoft Azure 资源。 其中一项资源就是 ExpressRoute。 ExpressRoute 允许 CSP 将现有客户资源连接到 Azure 服务。 ExpressRoute 是指向 Azure 中服务的高速专用通信链接。 
@@ -28,7 +28,7 @@ ExpressRoute 由一对线路组成，用于实现高可用性，这些线路连�
 Microsoft Azure 提供越来越多的服务，可以将这些服务提供给客户。 ExpressRoute 提供对 Microsoft Azure 环境的高速低延迟访问，从而帮助你和你的客户充分利用这些服务。
 
 ## <a name="microsoft-azure-management"></a>Microsoft Azure 管理
-Microsoft 通过允许以编程方式与自己的服务管理系统集成，为 Csp 提供 Api 来管理 Azure 客户订阅。 可在 [此处](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx)找到受支持的管理功能。
+Microsoft 通过允许以编程方式与自己的服务管理系统集成，为 Csp 提供 Api 来管理 Azure 客户订阅。 可在 [此处](/previous-versions/windows/mt844538(v=win.10))找到受支持的管理功能。
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure 资源管理
 订阅管理方式将取决于你与客户签署的协定。 可以由 CSP 直接管理资源的创建和维护，也可以始终由客户对 Microsoft Azure 订阅进行控制，并根据需要来创建 Azure 资源。 如果客户在其 Microsoft Azure 订阅中管理资源的创建，则将使用以下两种模型之一： "*连接到*" 模型或 "*直接到*" 模型。 将在下面各节中详细介绍这些模型。  
@@ -114,7 +114,7 @@ ExpressRoute 通过 Azure 虚拟网络网关连接到 Azure 网络。 网络网�
 ### <a name="user-defined-routing-udr"></a>用户定义的路由 (UDR)
 使用用户定义的路由，可以控制虚拟网络中从分配的子网到其他子网的出站流量，或者控制经过其他某个预定义网关（ExpressRoute；Internet 或 VPN）的出站流量。 可以将默认的系统路由表替换为用户定义的路由表，以便将默认路由表替换为自定义路由。 使用用户定义的路由，客户可以创建到某些设备（例如防火墙或入侵检测设备）的特定路由，或者阻止他人从托管用户定义的路由的子网访问特定的子网。 有关 User-Defined 路由的概述，请参阅 [此处](../virtual-network/virtual-networks-udr-overview.md)。 
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 根据所用的模型（Connect-To 或 Connect-Through），客户可在其 vNet 中定义安全策略，或者向 CSP 提供针对其 vNet 进行定义时的安全策略要求。 可以定义以下安全标准：
 
 1. **客户隔离** — Azure 平台通过将客户 ID 和 vNet 信息存储在安全的数据库中，将每个客户的流量封装在 GRE 隧道中，从而实现客户隔离。
@@ -129,6 +129,6 @@ ExpressRoute 通过 Azure 虚拟网络网关连接到 Azure 网络。 网络网�
 
 如需更多信息，可单击以下链接：
 
-[云解决方案提供商计划中的 Azure](https://docs.microsoft.com/azure/cloud-solution-provider)。  
+[云解决方案提供商计划中的 Azure](/azure/cloud-solution-provider)。  
 [做好以云解决方案提供商身份进行事务处理的准备](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch)。  
 [Microsoft 云解决方案提供商资源](https://partner.microsoft.com/solutions/cloud-reseller-resources)。

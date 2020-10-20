@@ -8,12 +8,12 @@ keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856426"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207574"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight 业务连续性体系结构
 
@@ -24,7 +24,7 @@ ms.locfileid: "91856426"
 
 ## <a name="apache-hive-and-interactive-query"></a>Apache Hive 和交互式查询
 
-在 HDInsight Hive 和交互式查询群集中，建议使用[Hive 复制 V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS)来实现业务连续性。 需要复制的独立 Hive 群集的永久部分为存储层和 Hive 元存储。 具有企业安全性套餐的多用户方案中的 Hive 群集需要 Azure Active Directory 域服务和 Ranger 元存储。
+为 HDInsight Hive 和交互式查询群集中的业务连续性建议使用[Hive 复制 V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) 。 需要复制的独立 Hive 群集的永久部分为存储层和 Hive 元存储。 具有企业安全性套餐的多用户方案中的 Hive 群集需要 Azure Active Directory 域服务和 Ranger 元存储。
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Hive 和交互式查询体系结构&quot;:::
 
@@ -65,6 +65,8 @@ ms.locfileid: "91856426"
 基于 Hive 事件的复制是在主群集和辅助群集之间配置的。 这包括两个不同的阶段：引导和增量运行：
 
 * &quot;引导":::
+
+有关 Hive 复制和代码示例的详细信息，请参阅 [Azure HDInsight 群集中的 Apache Hive 复制](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## <a name="apache-spark"></a>Apache Spark
 

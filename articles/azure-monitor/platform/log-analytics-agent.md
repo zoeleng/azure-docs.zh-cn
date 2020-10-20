@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 015bd48060f47023877d8c48601770228b1500fe
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104336"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207132"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 代理概述
 Azure Log Analytics 代理会从 Windows 和 Linux 虚拟机中收集遥测数据，这些虚拟机在任何云、本地计算机上以及通过 [System Center Operations Manager](/system-center/scom/) 监视，并将其收集的数据发送到 Azure Monitor 中的 Log Analytics 工作区。 Log Analytics 代理还支持 Azure Monitor 中的见解和其他服务，例如[用于 VM 的 Azure Monitor](../insights/vminsights-enable-overview.md)、[Azure 安全中心](../../security-center/index.yml)和 [Azure 自动化](../../automation/automation-intro.md)。 本文详细概述了代理、系统和网络要求以及部署方法。
@@ -51,7 +51,7 @@ Log Analytics 代理不收取任何费用，但引入的数据可能产生费用
 Log Analytics 代理将数据发送到 Azure Monitor 中的 Log Analytics 工作区。 Windows 代理可以是多宿主的，将数据发送到多个工作区和 System Center Operations Manager 管理组。 Linux 代理只能发送到一个目标工作区或管理组。
 
 ## <a name="other-services"></a>其他服务
-适用于 Linux 和 Windows 的代理不仅适用于连接到 Azure Monitor。 其他服务（例如 Azure 安全中心和 Azure Sentinel）依赖于代理及其连接 Log Analytics 工作区。 代理还支持 Azure 自动化以托管混合 Runbook 辅助角色和其他服务，例如 [更改跟踪](../../automation/change-tracking.md)、 [更新管理](../../automation/update-management/update-mgmt-overview.md)和 [Azure 安全中心](../../security-center/security-center-introduction.md)。 有关混合 Runbook 辅助角色的详细信息，请参阅 [Azure 自动化混合 Runbook 辅助角色](../../automation/automation-hybrid-runbook-worker.md)。  
+适用于 Linux 和 Windows 的代理不仅适用于连接到 Azure Monitor。 其他服务（例如 Azure 安全中心和 Azure Sentinel）依赖于代理及其连接 Log Analytics 工作区。 代理还支持 Azure 自动化以托管混合 Runbook 辅助角色和其他服务，例如 [更改跟踪](../../automation/change-tracking/overview.md)、 [更新管理](../../automation/update-management/update-mgmt-overview.md)和 [Azure 安全中心](../../security-center/security-center-intro.md)。 有关混合 Runbook 辅助角色的详细信息，请参阅 [Azure 自动化混合 Runbook 辅助角色](../../automation/automation-hybrid-runbook-worker.md)。  
 
 ## <a name="workspace-and-management-group-limitations"></a>工作区和管理组限制
 

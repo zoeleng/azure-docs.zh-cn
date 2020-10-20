@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977555"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206078"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>可使用哪些 Azure 技术和服务来创建 IoT 解决方案？
 
@@ -61,7 +61,7 @@ Azure IoT 解决方案加速器可以对 IoT 解决方案进行高级控制。 �
 
 可通过 [Azure IoT Edge](../iot-edge/about-iot-edge.md) 将部分 IoT 工作负载从 Azure 云服务下移至你的设备。 IoT Edge 可降低解决方案中的延迟、减少设备与云的数据交换量并支持脱机方案。 你可通过 IoT Central 和某些解决方案加速器来管理 IoT Edge 设备。
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) 是一个安全的高级应用程序平台，具有针对互连设备的内置通信和安全功能。 它包括一个安全的微控制器单元、一个自定义的基于 linux 的操作系统和一项基于云的安全服务（提供连续的可续订安全性）。
+[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) 是一个安全的高级应用程序平台，具有针对互连设备的内置通信和安全功能。 它包括一个安全的微控制器单元、一个自定义的基于 linux 的操作系统和一项基于云的安全服务（提供连续的可续订安全性）。
 
 ### <a name="cloud-connectivity"></a>云连接
 
@@ -76,7 +76,7 @@ IoT 中心是解决方案加速器的核心组件，可以用来克服 IoT 实�
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>弥合物理世界和数字世界之间的差距
 
-[Azure 数字孪生](../digital-twins/about-digital-twins.md)是一种 IoT 服务，用于为物理环境建模。 它使用的空间智能图可以对人员、空间和设备之间的关系建模。 通过跨数字和物理世界关联数据，可以创建上下文感知的解决方案。
+[Azure 数字孪生](../digital-twins/overview.md)是一种 IoT 服务，用于为物理环境建模。 它使用的空间智能图可以对人员、空间和设备之间的关系建模。 通过跨数字和物理世界关联数据，可以创建上下文感知的解决方案。
 
 Iot Central 使用数字孪生将现实世界中的设备和数据与用户用来监视和管理这些连接设备的数字模型同步。
 
@@ -84,7 +84,7 @@ Iot Central 使用数字孪生将现实世界中的设备和数据与用户用�
 
 IoT 设备通常生成大量时序数据，例如从传感器读取的温度数据。 [Azure 时序见解](../time-series-insights/time-series-insights-overview.md)可以连接到某个 IoT 中心，从设备读取遥测流，存储该数据，然后我们就可以查询它并将它可视化。
 
-[Azure Maps](/azure/azure-maps) 是一系列地理空间服务，这些服务使用新鲜的地图数据为 Web 和移动应用程序提供准确的地理上下文。 可以使用 REST API、基于 Web 的 JavaScript 控件或 Android SDK 来构建应用程序。
+[Azure Maps](../azure-maps/index.yml) 是一系列地理空间服务，这些服务使用新鲜的地图数据为 Web 和移动应用程序提供准确的地理上下文。 可以使用 REST API、基于 Web 的 JavaScript 控件或 Android SDK 来构建应用程序。
 
 ## <a name="next-steps"></a>后续步骤
 

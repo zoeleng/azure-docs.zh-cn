@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: bc4fbbc265bef00be27c890c3f090a49591dc415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562734"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201406"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>服务请求失败。 状态： 403 (禁止访问) 
 
@@ -29,9 +29,9 @@ ms.locfileid: "90562734"
 
 ### <a name="cause-2"></a>原因 #2
 
-如果你使用客户端应用来与 Azure 数字孪生通信，则可能会发生此错误，因为 Azure AD) 应用注册的 [Azure Active Directory (](../active-directory/fundamentals/active-directory-whatis.md) 没有为 Azure 数字孪生服务设置权限。
+如果你使用客户端应用程序与使用 [应用注册](how-to-create-app-registration.md)进行身份验证的 Azure 数字孪生通信，则可能会发生此错误，因为你的应用注册没有为 Azure 数字孪生服务设置权限。
 
-应用注册需要为 Azure 数字孪生 Api 配置访问权限。 然后，在客户端应用对应用注册进行身份验证时，会向其授予应用注册已配置的权限。
+应用注册必须具有为 Azure 数字孪生 Api 配置的访问权限。 然后，在客户端应用对应用注册进行身份验证时，会向其授予应用注册已配置的权限。
 
 ## <a name="solutions"></a>解决方案
 
@@ -59,23 +59,35 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 有关此角色要求和分配过程的更多详细信息，请参阅如何：设置 [*用户的用户访问权限* 部分](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) 中的 *操作方法：设置实例和身份验证 (CLI 或门户) *。
 
-如果此角色分配已存在并且仍遇到403问题，请继续下一解决方案。
+如果已使用此角色分配 *，并且* 使用 Azure AD 应用注册来验证客户端应用，则如果此解决方案未解决403问题，则可继续执行下一解决方案。
 
 ### <a name="solution-2"></a>解决方案 #2
 
-第二个解决方案是验证 Azure AD 应用注册是否具有为 Azure 数字孪生服务配置的权限。 如果未配置此设置，请对其进行设置。
+如果使用 Azure AD 应用注册来验证客户端应用，则第二种可能的解决方案是验证应用注册是否具有为 Azure 数字孪生服务配置的权限。 如果未配置这些设置，请对其进行设置。
 
 #### <a name="check-current-setup"></a>检查当前设置
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+若要检查权限是否已正确配置，请导航到 Azure 门户中的 " [Azure AD 应用注册概述" 页](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 。 可以通过在门户搜索栏中搜索 *应用注册* 来自行访问此页。
+
+切换到 " *所有应用程序* " 选项卡以查看已在订阅中创建的所有应用程序注册。
+
+你应在列表中看到刚刚创建的应用注册。 选择它以打开其详细信息。
+
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Azure 门户中的应用注册页&quot;:::
 
 首先，验证是否已正确设置注册上的 Azure 数字孪生权限设置。 为此，请从菜单栏中选择 " *清单* "，以查看应用注册的清单代码。 滚动到代码窗口的底部，在下查找这些字段 `requiredResourceAccess` 。 值应与以下屏幕截图中的值匹配：
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Azure 门户中的应用注册页&quot;:::
+
+首先，验证是否已正确设置注册上的 Azure 数字孪生权限设置。 为此，请从菜单栏中选择 " *API 权限* "，验证此应用注册是否包含 Azure 数字孪生的读/写权限。 应会看到如下所示的条目：
+
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Azure 门户中的应用注册页&quot;:::
+
+首先，验证是否已正确设置注册上的 Azure 数字孪生权限设置。 为此，请从菜单栏中选择 ":::
 
 #### <a name="fix-issues"></a>解决问题
 
-如果任何此项的显示方式与所述有所不同，请按照*如何：设置实例和身份验证 (CLI 或门户) *中的 "设置[*客户端应用程序的访问权限*" 部分](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications)中的说明设置应用注册的说明进行操作。
+如果任何此项的显示方式与所述有所不同，请按照 [*如何：创建应用注册*](how-to-create-app-registration.md)中的如何设置应用注册中的说明进行操作。
 
 ## <a name="next-steps"></a>后续步骤
 

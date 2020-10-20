@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c8cf84aa697512b6d1147bf853d30761792370b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318550"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207302"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>将 Active Directory 与 Azure Active Directory 进行比较
 
@@ -39,7 +39,7 @@ Azure Active Directory 是适用于云的标识和访问管理解决方案的下
 | 传统应用和旧式应用| 大多数本地应用使用 LDAP、Windows-Integrated 身份验证 (NTLM 和 Kerberos) 或基于标头的身份验证来控制对用户的访问。| Azure AD 可以使用在本地运行 [Azure AD 应用程序代理](../manage-apps/application-proxy.md) 代理来访问这些类型的本地应用。 使用此方法 Azure AD 可以在迁移时使用 Kerberos 对 Active Directory 用户进行身份验证，或者需要与旧应用共存。 |
 | SaaS 应用|Active Directory 不会以本机方式支持 SaaS 应用，需要联合系统，如 AD FS。|支持 OAuth2、SAML 和 WS 身份验证的 SaaS 应用 \* 可集成到使用 Azure AD 进行身份验证。 |
 | 采用新式身份验证的业务线 (LOB) 应用|组织可以将 AD FS 与 Active Directory 配合使用来支持需要新式身份验证的 LOB 应用。| 需要新式身份验证的 LOB 应用可以配置为使用 Azure AD 进行身份验证。 |
-| 中间层级/守护程序服务|在本地环境中运行的服务通常使用 AD 服务帐户或组托管服务帐户 (gMSA) 来运行。 然后，这些应用将继承服务帐户的权限。| Azure AD 提供[托管标识](../managed-identities-azure-resources/index.yml)，以在云中运行其他工作负荷。 这些标识的生命周期由 Azure AD 管理，并绑定到资源提供程序，无法用于其他目的以获得后门访问。|
+| 中间层级/守护程序服务|在本地环境中运行的服务通常使用 AD 服务帐户或组托管服务帐户 (gMSA) 来运行。 然后，这些应用将继承服务帐户的权限。| Azure AD 提供[托管标识](../managed-identities-azure-resources/index.yml)，以在云中运行其他工作负荷。 这些标识的生命周期由 Azure AD 管理，并绑定到资源提供程序，因此不能用于其他目的来获取后门访问权限。|
 | **设备**|||
 | 移动型|在没有第三方解决方案的情况下，Active Directory 本身不支持移动设备。| Microsoft 的移动设备管理解决方案 Microsoft Intune 集成了 Azure AD。 Microsoft Intune 向标识系统提供在身份验证期间要评估的设备状态信息。 |
 | Windows 桌面|Active Directory 提供使用组策略、System Center Configuration Manager 或其他第三方解决方案来加入 Windows 设备以对其进行管理的功能。|Windows 设备可以 [加入到 Azure AD](../devices/index.yml)。 条件性访问可以检查是否 Azure AD 将设备加入到身份验证过程中。 还可以通过 [Microsoft Intune](/intune/what-is-intune)来管理 Windows 设备。 在这种情况下，条件性访问会考虑设备是否符合 (例如，在允许访问应用之前) 最新的安全修补程序和病毒签名。|

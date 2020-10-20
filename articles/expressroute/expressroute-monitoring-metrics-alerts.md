@@ -1,18 +1,18 @@
 ---
 title: Azure ExpressRoute：监视、指标和警报
-description: 了解有关使用 Azure Monitor 的 Azure ExpressRoute 监视、指标和警报，一种是跨 Azure 的所有指标、警报和诊断日志的一站。
+description: 了解使用 Azure Monitor（其中集中了 Azure 的所有指标、警报和诊断日志）的 Azure ExpressRoute 监视、指标和警报。
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92b5685722b8a37de3945caa1305a76b3cabb8a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252623"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206231"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 监视、指标和警报
 
@@ -70,7 +70,7 @@ ms.locfileid: "91252623"
 
 ### <a name="arp-availability---split-by-peering"></a>ARP 可用性 - 按对等互连拆分  
 
-可以查看跨对等互连和对等机（主要和辅助 ExpressRoute 路由器）的近实时 [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) 可用性。 此仪表板显示跨两个对等机启动的专用对等互连 ARP 会话，该会话在跨 Microsoft 对等互连时会彻底关闭。 已跨两个对等机利用了默认聚合（平均）。  
+可以查看跨对等互连和对等机（主要和辅助 ExpressRoute 路由器）的近实时 [ARP](./expressroute-troubleshooting-arp-resource-manager.md) 可用性。 此仪表板显示跨两个对等机启动的专用对等互连 ARP 会话，该会话在跨 Microsoft 对等互连时会彻底关闭。 已跨两个对等机利用了默认聚合（平均）。  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="线路指标":::
 
@@ -155,18 +155,18 @@ ms.locfileid: "91252623"
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="线路指标":::
 
-## <a name="additional-metrics-in-log-analytics"></a>Log Analytics 中的其他度量值
+## <a name="additional-metrics-in-log-analytics"></a>Log Analytics 中的其他指标
 
-还可以通过导航到 ExpressRoute 线路资源并选择 " *日志* " 选项卡来查看 expressroute 指标。对于查询的任何指标，输出将包含下面的列。
+还可以通过导航到 ExpressRoute 线路资源并选择“日志”选项卡来查看 ExpressRoute 指标。对于你查询的任何指标，输出将包含以下列。
 
-|**列**|**类型**|**说明**|
+|**列**|类型|**说明**|
 | --- | --- | --- |
-|TimeGrain|字符串|PT1M (度量值每分钟推送) |
-|Count|real|通常等于 2 (每个 MSEE 每分钟推送一个指标值) |
-|最小值|real|由两个 Msee 推送的两个指标值的最小值|
-|最大值|real|由两个 Msee 推送的两个指标值的最大|
-|平均值|real|等于 (最小 + 最大) /2|
-|总计|real|这两个 Msee 中的两个指标值的总和 (主值以针对所查询的度量) |
+|TimeGrain|字符串|PT1M（每分钟推送一次指标值）|
+|Count|real|通常等于 2（每个 MSEE 每分钟推送一个指标值）|
+|最低配置|real|两个 MSEE 推送的两个指标值中的最小值|
+|最大值|real|两个 MSEE 推送的两个指标值中的最大值|
+|平均值|real|等于 (最小值 + 最大值)/2|
+|总计|real|来自两个 MSEE 的两个指标值的总和（所查询指标的需关注的主要值）|
   
 ## <a name="next-steps"></a>后续步骤
 

@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893197"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205636"
 ---
 # <a name="late-stage-reprojection"></a>后期阶段重新投影
 
@@ -46,7 +46,7 @@ ms.locfileid: "91893197"
 
 ### <a name="configure-planar-lsr-in-unity"></a>在 Unity 中配置平面 LSR
 
-平面参数派生自所谓的 " *焦点点*"，您必须通过提供每个框架 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` 。 有关详细信息，请参阅 [Unity 要点 API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) 。 如果未设置焦点，则将为你选择一个回退。 但是，自动回退通常会导致不理想的结果。
+平面参数派生自所谓的 " *焦点点*"，您必须通过提供每个框架 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` 。 有关详细信息，请参阅 [Unity 要点 API](/windows/mixed-reality/focus-point-in-unity) 。 如果未设置焦点，则将为你选择一个回退。 但是，自动回退通常会导致不理想的结果。
 
 您可以自行计算焦点，不过，这可能会使其基于由远程呈现主机计算的点。 调用 `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` 以获取。 系统会要求提供一个坐标框架，以便在其中表示焦点。 在大多数情况下，只需在此处提供结果 `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` 。
 

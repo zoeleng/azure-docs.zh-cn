@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc79261035ef0f8671b9e43e1332ad68d1c9d39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c183c906644d5d672b97642b1b072a2a08a70973
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654115"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203749"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 证书更改  
 
@@ -24,7 +24,7 @@ Microsoft 在将 Azure 服务更新为使用来自一组不同的根证书颁发
 
 - [Azure Active Directory](/azure/active-directory) (Azure AD) 服务在 2020 年 7 月 7 日开始此过渡。
 - 所有新创建的 Azure TLS/SSL 终结点都包含链接到新根 CA 的已更新证书。
-- 现有 Azure 终结点将以分阶段的方法从 2020 年 8 月 13 日开始过渡，到 2020 年 10 月 26 日完成。
+- 现有的 Azure 终结点将从2020年8月13日开始逐步转换。
 - [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub)和 [DPS](/azure/iot-dps/) 将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)。
 - [Azure 存储](/azure/storage)将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)。
 

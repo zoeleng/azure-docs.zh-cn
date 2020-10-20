@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
-ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/16/2020
+ms.openlocfilehash: 48a044e53602b330e43b35ce2425b4b7a90582bf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044490"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206571"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>验证 Azure Marketplace 的虚拟机映像时遇到的常见问题
 
@@ -29,13 +29,13 @@ ms.locfileid: "92044490"
 
 当使用属于另一发布服务器的基本映像并且已更新该映像时，将发生此错误。 在这种情况下，你将不能发布映像。
 
-若要解决此问题，请从 Azure Marketplace 检索映像，并对其进行更改。 有关详细信息，请参阅下列文章：
+若要解决此问题，请从 Azure Marketplace 检索映像，并对其进行更改。 有关详细信息，请参阅以下文章：
 
 - [Linux 映像](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows 映像](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> 如果使用的是不是从 Marketplace 获取的 Linux 基础映像，则可以将第一个分区偏移 2048 KB。 这允许使用未格式化的空间来添加新的计费信息，并允许 Azure 将 VM 发布到 Marketplace。  
+> 如果使用的是不是从 Azure Marketplace 获取的 Linux 基础映像，则可以将第一个分区偏移 2048 KB。 这允许使用未格式化的空间来添加新的计费信息，并允许 Azure 将 VM 发布到 Azure Marketplace。  
 
 ## <a name="vm-extension-failure"></a>VM 扩展失败
 
@@ -46,7 +46,7 @@ ms.locfileid: "92044490"
 1. 选择你的 Linux VM。
 1. 请参阅 " **诊断设置**"。
 1. 通过更新 **存储帐户**启用基本矩阵。
-1. 选择“保存”。
+1. 选择“保存”。 
 
    ![启用来宾级监视](./media/vm-certification-issues-solutions-1.png)
 
@@ -87,7 +87,7 @@ ms.locfileid: "92044490"
 
 有关选择已批准基准的详细信息，请参阅 [创建 Azure 虚拟机技术资产](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)。
 
-## <a name="tool-kit-test-case-execution-failed"></a>工具包测试用例执行失败 
+## <a name="tool-kit-test-case-execution-failed"></a>工具包测试用例执行失败
 
 Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD 或映像是否与 Azure 环境兼容。
 
@@ -145,7 +145,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 |16|Windows Internet 名称服务|Windows Internet 名称服务。 此服务器功能尚不受支持。 应用程序不应依赖于此功能。|
 |17|无线 LAN 服务|无线 LAN 服务。 此服务器功能尚不受支持。 应用程序不应依赖于此功能。|
 
-如果前面的测试用例遇到任何故障，请参阅该解决方案的表中的 " **说明** " 列。 如果需要详细信息，请与支持团队联系。 
+如果前面的测试用例遇到任何故障，请参阅该解决方案的表中的 " **说明** " 列。 如果需要详细信息，请与支持团队联系。
 
 ## <a name="data-disk-size-verification"></a>数据磁盘大小验证
 
@@ -199,8 +199,8 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 如果映像未与以下某个内核版本一起安装，请将其更新为正确的修补程序。 在用以下必需的修补程序更新映像后，请求支持团队提供必要的批准：
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS 系列|版本|内核|
@@ -261,12 +261,12 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 检查是否为运行自测事例的帐户启用了正确的访问权限。 如果未启用访问权限，请启用它以运行测试用例。 如果你不想启用访问，则可能会与支持团队共享自测用例结果。
 
 ## <a name="download-failure"></a>下载失败
-    
+
 请参阅下表，了解当你使用共享访问签名 (SAS) URL 下载 VM 映像时出现的任何问题。
 
 |方案|错误|Reason|解决方案|
 |---|---|---|---|
-|1|找不到 Blob|VHD 可以从指定位置删除或移动。|| 
+|1|找不到 Blob|VHD 可以从指定位置删除或移动。||
 |2|Blob 正在使用中|VHD 由其他内部进程使用。|使用 SAS URL 下载 VHD 时，VHD 应处于已使用状态。|
 |3|无效 SAS URL|VHD 的关联 SAS URL 不正确。|获取正确的 SAS URL。|
 |4|签名无效|VHD 的关联 SAS URL 不正确。|获取正确的 SAS URL。|
@@ -317,7 +317,7 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 
 ## <a name="remote-access-issue"></a>远程访问问题
 
-如果没有为 Windows 映像启用远程桌面协议 (RDP) 选项，将收到此错误。 
+如果没有为 Windows 映像启用远程桌面协议 (RDP) 选项，将收到此错误。
 
 提交 Windows 映像之前对其启用 RDP 访问。
 
@@ -334,11 +334,11 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 
 命令： "cat/dev/null > ~/.bash_history && history-c" ![ Bash history 命令（在 Azure 门户上）](./media/vm-certification-issues-solutions-4.png)
 
-步骤 3. 执行完命令后，重新启动 VM。
+步骤 3. 执行命令后，重新启动 VM。
 
-步骤 4. 通用化 VM，拍摄映像 VHD 并停止 VM。
+步骤4：一般化 VM，拍摄映像 VHD 并停止 VM。
 
-步骤 5。     Re-Submit 一般化映像。
+步骤 5。 Re-Submit 一般化映像。
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>请求异常 (自定义模板) 在 VM 映像上进行选择性测试
 
@@ -349,7 +349,7 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 
 异常情况
 
-在三种情况下，发布者通常会请求这些异常。 
+在三种情况下，发布者通常会请求这些异常。
 
 * **一个或多个测试用例的异常：** 对于测试用例，发布者可以联系 [Marketplace 发布者支持](https://aka.ms/marketplacepublishersupport) 请求例外。 
 
@@ -357,20 +357,22 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
        在这种情况下，发布者可以在此处下载[认证的测试工具](https://aka.ms/AzureCertificationTestTool)，并在[Marketplace 发布者支持](https://aka.ms/marketplacepublishersupport)中提供报表
 
 
-* **自定义模板：** 某些发布者发布需要自定义 ARM 模板来部署 Vm 的 VM 映像。 在这种情况下，将请求发布者在 [Marketplace 发布者支持](https://aka.ms/marketplacepublishersupport) 中提供自定义模板，以便证书团队可以使用相同的验证。 
+* **自定义模板：** 某些发布者发布需要自定义 ARM 模板来部署 Vm 的 VM 映像。
+
+在这种情况下，将请求发布者在 [Marketplace 发布者支持](https://aka.ms/marketplacepublishersupport) 中提供自定义模板，以便证书团队可以使用相同的验证。
 
 ### <a name="information-to-provide-for-exception-scenarios"></a>要提供给异常方案的信息
 
 发布者必须与 [Marketplace 发布者支持](https://aka.ms/marketplacepublishersupport) 部门联系，以获得上述方案的请求异常，并提供以下信息：
 
-   1.   发布者 ID –合作伙伴中心门户上的发布者 ID
-   2.   产品/服务 ID/名称–请求例外的产品/服务 ID/名称 
-   3.   SKU/计划 ID –请求了其例外的 VM 产品/服务的计划 ID/sku
-   4.    版本–请求其异常的 VM 产品/服务的版本
-   5.   异常类型–测试，锁定 VM，自定义模板
-   6.   请求原因–导致此异常的原因，以及有关要免除的测试的信息 
-   7. 已请求此异常的时间线-日期 
-   8.   附件-附加任何重要性证据文档。 对于锁定的 Vm，附加测试报告和自定义模板，提供自定义 ARM 模板作为附件。 为自定义模板附加锁定 Vm 和自定义 ARM 模板的报告失败将导致拒绝请求
+   1. 发布者 ID –合作伙伴中心门户上的发布者 ID
+   1. 产品/服务 ID/名称–请求例外的产品/服务 ID/名称 
+   1. SKU/计划 ID –请求了其例外的 VM 产品/服务的计划 ID/sku
+   1. 版本–请求其异常的 VM 产品/服务的版本
+   1. 异常类型–测试，锁定 VM，自定义模板
+   1. 请求原因–导致此异常的原因，以及有关要免除的测试的信息 
+   1. 已请求此异常的时间线-日期 
+   1. 附件-附加任何重要性证据文档。 对于锁定的 Vm，附加测试报告和自定义模板，提供自定义 ARM 模板作为附件。 为自定义模板附加锁定 Vm 和自定义 ARM 模板的报告失败将导致拒绝请求
 
 ## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>如何解决 VM 产品/服务中的漏洞或攻击
 
@@ -403,7 +405,7 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 1. 在 " **计划概述** " 选项卡上的 " **名称** " 列中，选择要将 VM 添加到其中的计划。
 1. 在 " **技术配置** " 选项卡上的 " **VM 映像**" 下，选择 " **+ 添加 VM 映像**"。
    > [!NOTE]
-   > 一次只能向一个计划添加一个 VM 映像。 要添加多个 VM 映像，请在添加下一个 VM 映像之前，发布第一个 VM 并等待，直到它到达 _发布服务器_ 的第一阶段。
+   > 一次只能向一个计划添加一个 VM 映像。 要添加多个 VM 映像，请在添加下一个 VM 映像之前，将每个 VM 映像发布。
 1. 在出现的框中，提供新的磁盘版本和虚拟机映像。
 1. 选择“保存草稿”。
 1. 转到下一节，删除包含安全漏洞的 VM 映像。
@@ -425,6 +427,7 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 1. 选择 " **查看并发布**"。
 1. 如果需要向证书团队提供任何信息，请将其添加到 " **证书的说明** " 框。
 1. 选择“发布”。
+1. 当发布状态达到 "发布" 阶段时， **选择 "上线"**。
 
 有关发布过程的详细信息，请参阅 [如何查看产品/服务并将其发布到商业市场](../review-publish-offer.md)。
 

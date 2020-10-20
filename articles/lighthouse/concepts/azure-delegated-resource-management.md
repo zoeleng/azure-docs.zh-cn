@@ -1,18 +1,18 @@
 ---
 title: Azure 委派资源管理
 description: Azure 委派的资源管理是 Azure Lighthouse 的关键部分，允许服务提供商以灵活性和精度在大规模管理委派的资源。
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163520"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203851"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 委派资源管理
 
-Azure 委托资源管理是 [Azure Lighthouse](../overview.md)的关键组件之一。 借助 Azure 委托资源管理，服务提供商可以简化客户参与和载入体验，同时灵活精确地管理大规模委托资源。
+Azure 委托资源管理是 [Azure Lighthouse](../overview.md)的关键组件之一。 借助 Azure 委托资源管理，服务提供商可以简化客户参与和载入体验，同时灵活精确地管理大规模委托资源。 客户保持对哪些服务提供商可以访问其租户的控制，客户保持对可访问其租户的人员、他们可以访问的资源以及可执行的操作进行控制。
 
 ## <a name="what-is-azure-delegated-resource-management"></a>什么是 Azure 委派资源管理？
 
@@ -35,7 +35,8 @@ Azure 委托资源管理是 [Azure Lighthouse](../overview.md)的关键组件之
 2. 可以通过以下两种方式之一指定此访问权限并将客户加入 Azure Lighthouse：
    - [发布 Azure Marketplace 托管服务产品/服务](../how-to/publish-managed-services-offers.md) (客户将接受的私有或公共) 
    - 为一个或多个特定订阅或资源组[将 Azure 资源管理器模板部署到客户的租户](../how-to/onboard-customer.md)
-3. 一旦客户载入，授权用户便可以登录到你的管理租户，并根据你定义的访问权限在给定的客户范围内执行任务。
+
+3. 一旦客户载入，授权用户便可以登录到你的管理租户，并根据你定义的访问权限在给定的客户范围内执行任务。 客户可以查看服务提供商的操作，并且可以根据需要删除访问权限。
 
 > [!NOTE]
 > 可以管理位于不同 [区域](../../availability-zones/az-overview.md#regions)的委托资源。 但是，不支持跨 [全国云和](../../active-directory/develop/authentication-national-cloud.md) Azure 公有云或跨两个不同的国家云的订阅委派。

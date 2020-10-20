@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802984"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204021"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -163,7 +163,7 @@ Azure Cosmos DB SDK 正在不断改进以提供最佳性能。 若要确定最�
 对于具有大量创建有效负载的工作负荷，请将 `EnableContentResponseOnWrite` 请求选项设置为 `false`。 该服务将不再将创建或更新的资源返回给 SDK。 通常，因为应用程序具有正在创建的对象，因此不需要服务即可将其返回。 标头值仍可访问，例如请求费用。 禁用内容响应有助于提高性能，因为 SDK 不再需要分配内存或序列化响应正文。 此外还会降低网络带宽的使用率，从而进一步提高性能。  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource

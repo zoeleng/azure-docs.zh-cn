@@ -4,21 +4,21 @@ description: 了解 Azure 应用服务中的网络功能，以及需要通过哪
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/16/2020
+ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743040"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207032"
 ---
 # <a name="app-service-networking-features"></a>应用服务网络功能
 
 可通过多种方式部署 Azure 应用服务中的应用程序。 默认情况下，应用服务托管的应用可直接通过 Internet 访问，并且它们只能访问 Internet 托管的终结点。 但是，许多客户应用程序需要控制入站和出站网络流量。 应用服务中的多项功能可以满足这些需求。 难点在于，应该使用哪种功能来解决给定的问题。 本文档旨在帮助客户根据某些示例用例来确定要使用的功能。
 
-Azure 应用服务有两种主要部署类型。 多租户公共服务提供了免费、共享、基本、标准、高级、PremiumV2 和 PremiumV3 定价 Sku 中的应用服务计划。 单租户应用服务环境 (ASE)：直接在 Azure 虚拟网络 (VNet) 中托管隔离的 SKU 应用服务计划。 所用的功能根据是在多租户服务还是 ASE 中操作而有所不同。 
+Azure 应用服务有两种主要部署类型。 多租户公共服务提供了免费、共享、基本、标准、高级、Premiumv2 和 Premiumv3 定价 Sku 中的应用服务计划。 单租户应用服务环境 (ASE)：直接在 Azure 虚拟网络 (VNet) 中托管隔离的 SKU 应用服务计划。 所用的功能根据是在多租户服务还是 ASE 中操作而有所不同。 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>多租户应用服务网络功能 
 
@@ -41,9 +41,9 @@ Azure 应用服务是一种分布式系统。 处理传入 HTTP/HTTPS 请求的�
 | 支持应用的基于 IP 的 SSL 需求 | 应用分配的地址 |
 | 应用的非共享专用入站地址 | 应用分配的地址 |
 | 从一组妥善定义的地址限制对应用的访问 | 访问限制 |
-| 限制从 VNet 中的资源访问应用 | 服务终结点 </br> ILB ASE </br> 专用终结点 (预览)  |
-| 在 VNet 中的专用 IP 上公开我的应用 | ILB ASE </br> 包含服务终结点的应用程序网关上用于入站通信的专用 IP </br> 服务终结点 (预览)  |
-| 使用 WAF 保护我的应用 | 应用程序网关 + ILB ASE </br> 包含服务终结点的应用程序网关 </br> 提供访问限制的 Azure Front Door |
+| 限制从 VNet 中的资源访问应用 | 服务终结点 </br> ILB ASE </br> 专用终结点 |
+| 在 VNet 中的专用 IP 上公开我的应用 | ILB ASE </br> 专用终结点 </br> 使用服务终结点的应用程序网关上的入站专用 IP |
+| 使用 Web 应用程序防火墙保护我的应用程序 (WAF)  | 应用程序网关 + ILB ASE </br> 具有专用终结点的应用程序网关 </br> 具有服务终结点的应用程序网关 </br> 提供访问限制的 Azure Front Door |
 | 对发往不同区域中的应用的流量进行负载均衡 | 提供访问限制的 Azure Front Door | 
 | 对同一区域中的流量进行负载均衡 | [包含服务终结点的应用程序网关][appgwserviceendpoints] | 
 
@@ -62,11 +62,15 @@ Azure 应用服务是一种分布式系统。 处理传入 HTTP/HTTPS 请求的�
 
 ### <a name="default-networking-behavior"></a>默认网络行为
 
-Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 “免费”和“共享”SKU 计划在多租户辅助角色上托管客户工作负荷。 “基本”和更高层的计划仅托管专用于一个应用服务计划 (ASP) 的客户工作负荷。 如果你有“标准”应用服务计划，该计划中的所有应用将在同一个辅助角色上运行。 如果横向扩展辅助角色，将在 ASP 中每个实例的新辅助角色上复制该 ASP 中的所有应用。 用于 PremiumV2 和 PremiumV3 的辅助角色不同于用于其他计划的工作线程。 在每个应用服务部署中，有一个 IP 地址用于发往该应用服务部署中的应用的所有入站流量。 但是，有 4 到 11 个地址可用于发出出站调用。 这些地址由该应用服务部署中的所有应用共享。 出站地址根据不同的辅助角色类型而异。 这意味着，免费、共享、基本、标准和高级 Asp 使用的地址与 PremiumV2 和 PremiumV3 Asp 的出站调用所使用的地址不同。 查看应用的属性时，可以看到应用使用的入站和出站地址。 如果需要锁定与 IP ACL 之间的依赖关系，请使用 possibleOutboundAddresses。 
+Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 “免费”和“共享”SKU 计划在多租户辅助角色上托管客户工作负荷。 “基本”和更高层的计划仅托管专用于一个应用服务计划 (ASP) 的客户工作负荷。 如果你有“标准”应用服务计划，该计划中的所有应用将在同一个辅助角色上运行。 如果横向扩展辅助角色，将在 ASP 中每个实例的新辅助角色上复制该 ASP 中的所有应用。 
+
+#### <a name="outbound-addresses"></a>出站地址
+
+辅助 Vm 按应用服务定价计划在很大程度上分解。 免费、共享、基本、标准和高级均使用相同的工作 VM 类型。 Premiumv2 是在另一个 VM 类型上。 Premiumv3 为其他 VM 类型。 VM 系列中的每项更改都有一组不同的出站地址。 如果从标准扩展到 Premiumv2，则出站地址将会更改。 如果从 Premiumv2 扩展到 Premiumv3，则出站地址会发生更改。 当你从标准扩展到 Premiumv2 时，有一些较旧的缩放单位会更改入站和出站地址。 有许多地址用于发出出站呼叫。 应用程序的 "属性" 中列出了应用程序进行出站调用所使用的出站地址。 此应用服务部署中的同一辅助 VM 系列上运行的所有应用共享这些地址。 如果要查看应用可能在该缩放单位中使用的所有可能地址，有另一个名为 possibleOutboundAddresses 的属性将列出它们。 
 
 ![应用属性](media/networking-features/app-properties.png)
 
-应用服务包含许多用于管理服务的终结点。  这些地址发布在单独的文档中，同时包含在 AppServiceManagement IP 服务标记中。 AppServiceManagement 标记只能与需要允许此类流量的应用服务环境 (ASE) 配合使用。 将在 AppService IP 服务标记中跟踪应用服务的入站地址。 没有任何 IP 服务标记包含应用服务使用的出站地址。 
+应用服务包含许多用于管理服务的终结点。  这些地址发布在单独的文档中，同时包含在 AppServiceManagement IP 服务标记中。 AppServiceManagement 标记仅用于需要允许此类流量的应用服务环境。 将在 AppService IP 服务标记中跟踪应用服务的入站地址。 没有任何 IP 服务标记包含应用服务使用的出站地址。 
 
 ![应用服务入站和出站示意图](media/networking-features/default-behavior.png)
 
@@ -100,7 +104,7 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
 
 ### <a name="service-endpoints"></a>服务终结点
 
-使用服务终结点可以锁定对应用的**入站**访问，使源地址必须来自所选的一组子网。 此功能可与 IP 访问限制结合使用。 服务终结点在与 IP 访问限制相同的用户体验中设置。 可以生成访问规则的允许/拒绝列表，其中包括公共地址以及 VNet 中的子网。 此功能支持如下方案：
+使用服务终结点可以锁定对应用程序的 **入站** 访问，以使源地址必须来自所选的一组子网。 此功能可与 IP 访问限制结合使用。 服务终结点与远程调试不兼容。 若要对应用进行远程调试，你的客户端不能位于启用服务终结点的子网中。 服务终结点在与 IP 访问限制相同的用户体验中设置。 可以生成访问规则的允许/拒绝列表，其中包括公共地址以及 VNet 中的子网。 此功能支持如下方案：
 
 ![服务终结点](media/networking-features/service-endpoints.png)
 
@@ -111,10 +115,18 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
 
 可以在[配置服务终结点访问限制][serviceendpoints]教程中详细了解如何配置包含你的应用的服务终结点
 
-### <a name="private-endpoint-preview"></a>专用终结点 (预览) 
+### <a name="private-endpoints"></a>专用终结点
 
 专用终结点是一个网络接口，可通过 Azure 专用链接将你私下安全地连接到你的 Web 应用。 专用终结点使用 VNet 中的专用 IP 地址，从而有效地将 Web 应用引入 VNet。 此功能仅适用于 **入站** 流到 Web 应用。
-[为 Azure Web 应用使用专用终结点（预览版）][privateendpoints]
+[使用 Azure Web 应用的专用终结点][privateendpoints]
+
+专用终结点启用如下方案：
+
+* 限制从 VNet 中的资源访问应用 
+* 在 VNet 中的专用 IP 上公开我的应用 
+* 使用 WAF 保护我的应用 
+
+专用终结点可防止数据渗透，因为在专用终结点上可以访问的唯一内容就是它所配置的应用。 
  
 ### <a name="hybrid-connections"></a>混合连接
 
@@ -132,7 +144,7 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
 * 实现其他出站连接方法无法实现的方案
 * 在应用服务中进行开发，其中的应用可以轻松利用本地资源 
 
-由于使用此功能可以访问本地资源且无需在入站防火墙中开放额外的端口，因此它非常受开发人员的青睐。 其他出站应用服务网络功能与 Azure 虚拟网络密切相关。 混合连接不依赖于遍历 VNet，可用于满足更广泛的网络需求。 必须注意的是，应用服务混合连接功能不考虑，也不知道在其上执行的操作。 也就是说，可以使用它来访问数据库、Web 服务或大型机上的任意 TCP 套接字。 此功能在本质上是通过隧道传输 TCP 数据包。 
+由于使用此功能可以访问本地资源且无需在入站防火墙中开放额外的端口，因此它非常受开发人员的青睐。 其他出站应用服务网络功能与 Azure 虚拟网络相关。 混合连接不依赖于遍历 VNet，可用于满足更广泛的网络需求。 必须注意的是，应用服务混合连接功能不考虑，也不知道在其上执行的操作。 也就是说，可以使用它来访问数据库、Web 服务或大型机上的任意 TCP 套接字。 此功能在本质上是通过隧道传输 TCP 数据包。 
 
 混合连接不仅在开发活动中非常流行，而且可以在众多的生产应用程序中使用。 它非常适合用于访问 Web 服务或数据库，但不适合在涉及到创建许多连接的场合中使用。 
 
@@ -152,7 +164,7 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
 
 ### <a name="vnet-integration"></a>VNet 集成
 
-网关所需的 VNet 集成功能非常有用，但仍不能解决跨 ExpressRoute 访问资源的问题。 在需要跨 ExpressRoute 连接进行访问的情况下，应用需要能够调用服务终结点保护的服务。 为了同时解决这两个附加需求，我们添加了另一项 VNet 集成功能。 借助新的 VNet 集成功能，可将应用的后端放置在位于同一区域的资源管理器 VNet 中的子网内。 无法从已经位于 VNet 中的应用服务环境使用此功能。 使用此功能可以：
+网关所需的 VNet 集成功能非常有用，但仍不能解决跨 ExpressRoute 访问资源的情况。 在需要跨 ExpressRoute 连接进行访问的情况下，应用需要能够调用服务终结点保护的服务。 为了同时解决这两个附加需求，我们添加了另一项 VNet 集成功能。 借助新的 VNet 集成功能，可将应用的后端放置在位于同一区域的资源管理器 VNet 中的子网内。 无法从已经位于 VNet 中的应用服务环境使用此功能。 使用此功能可以：
 
 * 访问位于同一区域的资源管理器 VNet 中的资源
 * 访问通过服务终结点保护的资源 
@@ -213,22 +225,58 @@ ASE 提供最佳的隔离和专用应用托管，但也附带了一些管理难�
 
 ### <a name="create-multi-tier-applications"></a>创建多层应用程序
 
-多层应用程序是只能从前端层访问其中的 API 后端应用的应用程序。 若要创建多层应用程序，可以：
+多层应用程序是只能从前端层访问其中的 API 后端应用的应用程序。 创建多层应用程序有两种方法。 这两种方法都是通过使用 VNet 集成将前端 web 应用连接到 VNet 中的子网来完成的。 这样，web 应用便可以调用 VNet。 前端应用连接到 VNet 后，你必须选择如何锁定对 API 应用程序的访问。  方法：
 
-* 使用 VNet 集成将前端 Web 应用的后端连接到 VNet 中的子网
-* 使用服务终结点保护发往 API 应用的入站流量，以便只允许来自前端 Web 应用所用子网的流量
+* 在同一 ILB ASE 中托管前端和 API 应用，并使用应用程序网关向 internet 公开前端应用
+* 在多租户服务和后端的 ILB ASE 中托管前端
+* 在多租户服务中托管前端和 API 应用
 
-![多层应用](media/networking-features/multi-tier-app.png)
+如果同时为多层应用程序托管前端应用和 API 应用，可以执行以下操作：
 
-可以在其他前端应用中使用 VNet 集成，并在 API 应用及其子网中使用服务终结点，让多个前端应用使用同一个 API 应用。  
+在 VNet 中通过专用终结点公开 API 应用程序
+
+![专用终结点双层应用](media/networking-features/multi-tier-app-private-endpoint.png)
+
+使用服务终结点保护发往 API 应用的入站流量，以便只允许来自前端 Web 应用所用子网的流量
+
+![服务终结点保护的应用](media/networking-features/multi-tier-app.png)
+
+这两种方法之间的折衷是：
+
+* 使用服务终结点时，你只需将 API 应用的流量保护到集成子网。 这可以保护 API 应用，但你仍然可以将前端应用的数据渗透为应用服务中的其他应用。
+* 使用专用终结点时，会在播放两个子网。 这增加了复杂性。 此外，专用终结点是顶级资源，并添加了更多的管理。 使用专用终结点的好处是没有数据渗透。 
+
+这两种方法都可以使用多个前端。 小规模地说，服务终结点更易于使用，因为你只需为前端集成子网上的 API 应用启用服务终结点。 添加更多前端应用时，必须使用集成子网调整每个 API 应用的服务终结点。 借助专用终结点，你可以获得更多的复杂性，但在设置专用终结点后，你无需更改 API 应用上的任何内容。 
+
+### <a name="line-of-business-applications"></a>业务线应用程序
+
+业务线 (LOB) 应用程序是通常无法从 internet 进行访问的内部应用程序。 从可严格控制访问权限的企业网络内部调用这些应用程序。 如果使用 ILB ASE，则可以很容易地托管业务线应用程序。 如果使用多租户服务，可以使用专用终结点或服务终结点与应用程序网关结合使用。 将应用程序网关用于服务终结点而不是专用终结点有两个原因：
+
+* 你需要在 LOB 应用上 WAF 保护
+* 你需要对 LOB 应用的多个实例进行负载均衡
+
+如果这两种情况都不是这样，则最好是使用专用终结点。 使用应用服务中提供的专用终结点，你可以在 VNet 中的专用地址上公开你的应用。 你放置在 VNet 中的专用终结点可跨 ExpressRoute 和 VPN 连接访问。 配置专用终结点会将你的应用公开到专用地址，但你将需要配置 DNS 以从本地连接到该地址。 要执行此操作，需要将包含专用终结点的 Azure DNS 专用区域转发到本地 DNS 服务器。 Azure DNS 专用区域不支持区域转发，但你可以使用 DNS 服务器来实现此目的。 此模板 [DNS 转发器](https://azure.microsoft.com/resources/templates/301-dns-forwarder/)使你可以更轻松地将 Azure DNS 专用区域转发到本地 DNS 服务器。
+
+## <a name="app-service-ports"></a>应用服务端口
+
+如果扫描应用服务，你会发现为入站连接公开的几个端口。 在多租户服务中无法阻止或控制对这些端口的访问。 公开的端口如下：
+
+| 使用 | 端口 |
+|----------|-------------|
+|  HTTP/HTTPS  | 80、443 |
+|  管理 | 454、455 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio 远程调试  |  4020, 4022, 4024 |
+|  Web 部署服务 | 8172 |
+|  基础结构使用 | 7654、1221 |
 
 <!--Links-->
-[appassignedaddress]: ./configure-ssl-certificate.md
-[iprestrictions]: ./app-service-ip-restrictions.md
-[serviceendpoints]: ./app-service-ip-restrictions.md
-[hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
-[vnetintegration]: ./web-sites-integrate-with-vnet.md
-[networkinfo]: ./environment/network-info.md
-[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
-[privateendpoints]: ./networking/private-endpoint.md
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
+[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
+[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

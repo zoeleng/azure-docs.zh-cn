@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 073fab4aee084513db4ca05af6c12087c0a8f911
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360950"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206367"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>教程：使用语音 SDK 实现机器人的语音
 
@@ -54,7 +54,7 @@ ms.locfileid: "91360950"
 > * 添加自定义关键字激活
 > * 了解如何更改识别语音的语言
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 下面是完成本教程所需的操作：
 
@@ -227,7 +227,7 @@ ms.locfileid: "91360950"
 2. 在左侧导航窗格中的 " **设置**" 下，单击 " **配置**"。
 3. 选择 " **常规设置** " 选项卡。
 4. 找到 " **Web 套接字** " 的切换，并将其设置为 **"开**"。
-5. 单击 **“保存”** 。
+5. 单击“保存” 。
 
 > [!TIP]
 > 您可以使用 Azure App Service 页顶部的控件来停止或重新启动该服务。 故障排除时，这可能很方便。
@@ -254,7 +254,7 @@ ms.locfileid: "91360950"
 |------|-------|----------|
 | EchoBot20190805125647 | 应用服务 | 美国西部 |
 | SpeechEchoBotTutorial-AppServicePlan | 应用服务计划 | 美国西部 |
-| SpeechEchoBotTutorial-BotRegistration-8726 | 机器人频道注册 | Global |
+| SpeechEchoBotTutorial-BotRegistration-8726 | 机器人频道注册 | 全局 |
 | SpeechEchoBotTutorial-Speech | 认知服务 | 美国西部 |
 
 > [!IMPORTANT]
@@ -291,11 +291,11 @@ ms.locfileid: "91360950"
    * 查看标题为 " **配置直接线路语音**" 的页面上的文本，然后展开 " **认知服务帐户** " 下拉菜单。
    * 选择之前创建的语音资源 (例如，从菜单中选择 " **SpeechEchoBotTutorial** ") ，将机器人关联到语音订阅密钥。
    * 忽略其余的可选字段。
-   * 单击 **“保存”** 。
+   * 单击“保存” 。
 
 1. 在 **机器人管理** 导航中，单击 " **设置**"。
    * 选中标记为 **启用流式处理终结点**的框。 这是在机器人和直接线路语音通道之间创建在 web 套接字上构建的通信协议所必需的。
-   * 单击 **“保存”** 。
+   * 单击“保存” 。
 
 > [!TIP]
 > 若要了解详细信息，请参阅 [连接机器人以定向语音](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0)。 此页包含其他信息和已知问题。
@@ -412,7 +412,7 @@ Windows 语音助手客户端使用包含语音 SDK 的 NuGet 包[cognitiveservi
 
 在 Windows 语音助手客户端源代码中，查看以下文件以查看用于启用关键字检测的代码：
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) 包括对语音 SDK 方法的调用 [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) ，该方法用于实例化磁盘上的本地文件中的模型。
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) 包括对语音 SDK 方法的调用 [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest&preserve-view=true#fromfile-string-) ，该方法用于实例化磁盘上的本地文件中的模型。
 1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) 包括对语音 SDK 方法的调用 [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) ，该方法激活连续关键字检测。
 
 ## <a name="optional-change-the-language-and-bot-voice"></a> (可选) 更改语言和机器人声音
@@ -465,14 +465,14 @@ Windows 语音助手客户端使用包含语音 SDK 的 NuGet 包[cognitiveservi
 
 1. 从 " [Azure 门户](https://portal.azure.com)中，单击" **Azure 服务**"导航中的"**资源组**"。
 2. 找到名为 " **SpeechEchoBotTutorial**" 的资源组。 单击 )  ( 三个点。
-3. 选择“删除资源组”。
+3. 选择“删除资源组”  。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [通过语音 SDK 构建你自己的客户端应用](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 * 部署到 [附近的 Azure 区域](https://azure.microsoft.com/global-infrastructure/locations/) ，查看机器人响应时间改进
 * 部署到 [支持高质量神经 TTS 声音的 Azure 区域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)

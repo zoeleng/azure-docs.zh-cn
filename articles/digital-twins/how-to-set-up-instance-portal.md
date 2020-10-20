@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c67add18dc653cc033d0cf4990f9c44f07633ac2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047397"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205470"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>设置 Azure 数字孪生实例和身份验证 (门户) 
 
@@ -24,7 +24,8 @@ ms.locfileid: "92047397"
 * 若要使用 CLI 手动完成这些步骤，请参阅本文的 CLI 版本： how [*to： Set a instance and authentication (CLI) *](how-to-set-up-instance-cli.md)。
 * 若要通过使用部署脚本示例的自动安装运行，请参阅本文的脚本编写版本： how [*to： Set a instance and authentication (script) *](how-to-set-up-instance-scripted.md)。
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>创建 Azure 数字孪生实例
 
@@ -84,72 +85,7 @@ ms.locfileid: "92047397"
 
 在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ ":::
 
-现在，你已准备好使用 Azure 数字孪生实例，并已分配了管理它的权限。 接下来，你将设置对客户端应用程序的访问权限。
-
-## <a name="set-up-access-permissions-for-client-applications"></a>设置客户端应用程序的访问权限
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-首先，导航到 Azure 门户中的 [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) (可以使用此链接或通过门户搜索栏) 找到它。 从 "服务" 菜单中选择 " *应用注册* "，然后选择 " *+ 新注册*"。
-
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ " 按钮。
-
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ ":::
-
-完成设置注册后，门户会将你重定向到其详细信息页面。
-
-### <a name="provide-azure-digital-twins-api-permission"></a>提供 Azure 数字孪生 API 权限
-
-接下来，将你创建的应用注册配置为具有对 Azure 数字孪生 Api 的基准权限。
-
-从应用注册的门户页中，从菜单中选择 " *API 权限* "。 在 "下列权限" 页上，单击 " *+ 添加权限* " 按钮。
-
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ " _**Azure 数字孪生**_ "，以继续分配 Azure 数字孪生 api 的权限。
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ " _**Azure 智能空间服务**_ "。 对于同一组 Api，这是较旧的名称 (请注意， *应用程序 (客户端) ID* 与上面的屏幕截图) 中的相同，并且不会在此步骤之外更改体验。
-> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ " 复选框以授予此应用注册读取器和编写器权限。
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ ":::
-
-完成后点击 *添加权限* 。
-
-### <a name="verify-success"></a>验证是否成功
-
-返回到 " *API 权限* " 页，验证现在是否存在用于反映读/写权限的 Azure 数字孪生条目：
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ " *清单* "，以查看应用注册的清单代码。 滚动到代码窗口的底部，在下查找这些字段 `requiredResourceAccess` 。 值应与以下屏幕截图中的值匹配：
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ ":::
-
-### <a name="collect-important-values"></a>收集重要值
-
-接下来，从菜单栏中选择 " *概述* " 以查看应用注册的详细信息：
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;) ** 服务。 选择 &quot; _创建_ ":::
-
-记下**在页面上显示的***应用程序 (客户端) id*和*目录 (租户) id* 。 稍后将需要这些值对 [Azure 数字孪生 api 的客户端应用进行身份验证](how-to-authenticate-client.md)。 如果您不是将为此类应用程序编写代码的人员，则应与将要进行共享的人员共享这些值。
-
-### <a name="other-possible-steps-for-your-organization"></a>组织的其他可能步骤
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+现在，你已准备好使用 Azure 数字孪生实例，并已分配了管理它的权限。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -157,5 +93,5 @@ ms.locfileid: "92047397"
 * [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*操作说明：使用 Azure 数字孪生 CLI*](how-to-use-cli.md)
 
-或者，请参阅如何通过编写客户端应用的身份验证代码将客户端应用程序连接到实例：
+或者，请参阅如何使用身份验证代码将客户端应用程序连接到实例：
 * [*操作说明：编写应用身份验证代码*](how-to-authenticate-client.md)

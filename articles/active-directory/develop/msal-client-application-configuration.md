@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 910007109e4751cf2fd509d1d568c66ae2a22cd2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81534459"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200825"
 ---
 # <a name="application-configuration-options"></a>应用程序配置选项
 
@@ -126,7 +126,7 @@ Azure AD 云颁发机构有两个组成部分：
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
 有关更多 iOS 详细信息，请参阅[将使用 Microsoft Authenticator 的 iOS 应用程序从 ADAL.NET 迁移到 MSAL.NET](msal-net-migration-ios-broker.md) 和[在 iOS 上利用中转站](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)。
-有关更多 Android 详细信息，请参阅 [Android 中的代理身份验证](brokered-auth.md)。
+有关更多 Android 详细信息，请参阅 [Android 中的代理身份验证](msal-android-single-sign-on.md)。
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>机密客户端应用的重定向 URI
 
