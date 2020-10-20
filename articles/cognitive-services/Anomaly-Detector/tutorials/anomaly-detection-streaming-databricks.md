@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 了解如何使用异常检测器 API 和 Azure Databricks 来监视数据中的异常。
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: aahi
-ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: mbullwin
+ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245598"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017652"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>教程：使用 Azure Databricks 针对流数据进行异常情况检测
 
@@ -63,7 +63,7 @@ ms.locfileid: "88245598"
 
 1. 在 Azure 门户中，选择“创建资源” > “分析” > “Azure Databricks”。
 
-    ![Azure 门户上的 Databricks](../media/tutorials/azure-databricks-on-portal.png "Azure 门户上的 Databricks")
+    ![门户上的 Azure Databricks](../media/tutorials/azure-databricks-on-portal.png "Azure 门户上的 Databricks")
 
 3. 在“Azure Databricks 服务”下提供以下值，创建 Databricks 工作区：
 
@@ -115,7 +115,7 @@ ms.locfileid: "88245598"
 
 3. 在应用程序页中选择“密钥和访问令牌”选项卡，复制“使用者密钥”和“使用者机密”的值。 此外，请选择“创建我的访问令牌”以生成访问令牌。 复制“访问令牌”和“访问令牌机密”的值。
 
-    ![Twitter 应用程序详细信息](../media/tutorials/twitter-app-key-secret.png "Twitter 应用程序详细信息")
+    ![Twitter 应用程序详细信息 2](../media/tutorials/twitter-app-key-secret.png "Twitter 应用程序详细信息")
 
 保存 Twitter 应用程序的检索值。 稍后在本教程中需要用到这些值。
 
@@ -193,7 +193,7 @@ ms.locfileid: "88245598"
 
 2. 在“创建 Notebook”对话框中输入 **SendTweetsToEventHub** 作为名称，选择 **Scala** 作为语言，并选择前面创建的 Spark 群集。
 
-    ![在 Databricks 中创建笔记本](../media/tutorials/databricks-notebook-details.png "在 Databricks 中创建笔记本")
+    ![Notebook 详细信息](../media/tutorials/databricks-notebook-details.png "在 Databricks 中创建笔记本")
 
     选择“创建”。
 

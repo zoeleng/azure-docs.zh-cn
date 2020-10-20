@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 0b6973f50e4d51c1c94e262a08681ec0431f511e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d78b67cbd811ae0f3b7cea8aec119d05464c124a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333968"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047788"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -1080,6 +1080,6 @@ runcmd:
 * 配置了负载均衡器流量规则和运行状况探测。
 * 测试了负载均衡器。
 
-若要了解有关 Azure 负载均衡器的更多信息，请进一步阅读[什么是 Azure 负载均衡器？](load-balancer-overview.md)和[负载均衡器常见问题](load-balancer-faqs.md)。
-
-详细了解[负载均衡器和可用性区域](load-balancer-standard-availability-zones.md)。
+若要详细了解 Azure 负载均衡器，请继续学习
+> [!div class="nextstepaction"]
+> [什么是 Azure 负载均衡器？](load-balancer-overview.md)

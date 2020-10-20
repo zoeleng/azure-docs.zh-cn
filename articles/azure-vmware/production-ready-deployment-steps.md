@@ -3,12 +3,12 @@ title: 规划 Azure VMware 解决方案部署
 description: 本文概述了 Azure VMware 解决方案部署工作流。  最终结果是一个就绪的可用于创建和迁移虚拟机 (VM) 的环境。
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802202"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055080"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>规划 Azure VMware 解决方案部署
 
@@ -104,7 +104,7 @@ Azure VMware 解决方案通过内部 ExpressRoute 线路连接到 Microsoft Azu
 Azure VMware 解决方案中的 ExpressRoute 线路连接到在此步骤中定义的 Azure 虚拟网络中的 ExpressRoute 网关。  
 
 >[!IMPORTANT]
->如果选择现有的虚拟网络，则必须选择一个没有预先存在的网关子网的虚拟网络。  
+>你可以使用现有的 ExpressRoute 网关连接到 Azure VMware 解决方案，只要它不超过每个虚拟网络四条 ExpressRoute 线路的限制即可。  但是，若要通过 ExpressRoute 从本地访问 Azure VMware 解决方案，必须具有 ExpressRoute Global Reach，因为 ExpressRoute 网关不提供其连接线路之间的传递路由。  
 
 如果要将 ExpressRoute 线路从 Azure VMware 解决方案连接到现有 ExpressRoute 网关，可在部署后执行此操作。  
 

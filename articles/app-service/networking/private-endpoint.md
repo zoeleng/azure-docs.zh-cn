@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873092"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217059"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>使用 Azure Web 应用的专用终结点
 
@@ -91,7 +91,7 @@ ms.locfileid: "91873092"
 
 |名称 |类型 |值 |备注 |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<-Azure 会在 Azure 公共 DNS 中创建此项，将应用服务指向 privatelink，这由我们管理|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--在 DNS 系统中管理此项以指向专用终结点 IP 地址|
 
 在此 DNS 配置之后，可以通过默认名称 mywebappname.azurewebsites.net 访问 Web 应用。 必须使用此名称，因为为 *. azurewebsites.net 颁发了默认证书。

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420646"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048264"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>教程：使用 PowerShell 创建和管理 VPN 网关
 
@@ -28,7 +28,7 @@ Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程�
 
 ![VNet 和 VPN 网关](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>使用 Azure Cloud Shell 和 Azure PowerShell
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -184,9 +184,7 @@ Remove-AzResourceGroup -Name $RG1
 > * 调整 VPN 网关大小
 > * 重置 VPN 网关
 
-若要了解 S2S 连接、VNet 到 VNet 连接和 P2S 连接，请转到以下教程。
+接下来，请继续以下教程：
 
 > [!div class="nextstepaction"]
-> * [创建 S2S 连接](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [创建 VNet 到 VNet 连接](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [创建 P2S 连接](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [创建连接](vpn-gateway-tutorial-vpnconnection-powershell.md)

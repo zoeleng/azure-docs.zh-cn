@@ -3,12 +3,12 @@ title: 开始使用并在团队中创建 Azure 实验室服务实验室
 description: 了解如何开始使用并在团队中创建 Azure 实验室服务实验室。
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092131"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217076"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>开始使用并在团队内创建实验室服务实验室
 
@@ -24,6 +24,9 @@ ms.locfileid: "92092131"
 1. [实验室帐户创建者将其他用户添加](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)到**实验室创建者**角色。 例如，实验室帐户创建者/管理员将教师添加到“实验室创建者”角色，这样教师就可以创建课堂实验室。
 1. 然后，教师创建实验室，预先配置模板 VM，并发布实验室，将 VM 预配到团队中的每个人。
 1. 一旦发布了实验室，就会在首次登录到 Azure 实验室服务时，通过单击包含团队中的 **Azure 实验室服务** 应用的选项卡，在团队成员身份列表中的每个人上分配一个 VM， (SSO) 或通过访问 [实验室网站](https://labs.azure.com)。 然后，用户可以使用 VM 来执行类工作和家庭作业。
+
+> [!IMPORTANT]
+> 仅当在与团队相同的租户中创建实验室帐户时，才可以在团队内使用 Azure 实验室服务。
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>将 Azure 实验室服务应用作为选项卡添加到团队
 

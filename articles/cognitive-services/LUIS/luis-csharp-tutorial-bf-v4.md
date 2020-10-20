@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316420"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058193"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>教程：使用在 C# 中启用语言理解的 Web 应用机器人
 
@@ -27,7 +27,7 @@ ms.locfileid: "91316420"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [机器人模拟器](https://aka.ms/abs/build/emulatordownload)
+* [Bot Framework Emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-web-app-bot-resource"></a>创建 Web 应用机器人资源
@@ -314,18 +314,18 @@ ms.locfileid: "91316420"
 
 ![主页上显示关于你的机器人的信息。](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>使用机器人模拟器测试机器人
+## <a name="use-the-bot-framework-emulator-to-test-the-bot"></a>使用 Bot Framework Emulator 测试机器人
 
-1. 启动机器人模拟器并选择“打开机器人”。
+1. 打开 Bot Framework Emulator，然后选择“打开机器人”。
 1. 在“打开机器人”弹出对话框中，输入机器人 URL（如 `http://localhost:3978/api/messages`）。 `/api/messages` 路由是机器人的 Web 地址。
 1. 输入下载的机器人代码根目录中的“appsettings.json”文件中的“Microsoft 应用 ID”和“Microsoft 应用密码”，然后选择“连接”   。
 
-1. 在机器人模拟器中输入 `Book a flight from Seattle to Berlin tomorrow` 应可获得基本机器人的响应，与上一部分中在“通过网上聊天执行测试”中收到的响应相同。
+1. 在 Bot Framework Emulator 中输入 `Book a flight from Seattle to Berlin tomorrow` 应可获得基本机器人的响应，与上一部分中在“通过网上聊天执行测试”中收到的响应相同。
 
     [![屏幕截图显示了具有基本机器人响应的 Bot Framework Emulator。](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. 请选择“是”。 机器人将以其操作摘要答复你。
-1. 从机器人模拟器的日志中，选择包含 `<- trace LuisV3 Trace` 的行。 这将显示 LUIS 对言语的意图和本质的 JSON 答复。
+1. 从 Bot Framework Emulator 的日志中，选择包含 `<- trace LuisV3 Trace` 的行。 这将显示 LUIS 对言语的意图和本质的 JSON 答复。
 
     [![屏幕截图显示了一个基本机器人响应，其中选择了“LuisV3 跟踪”并突出显示了“JSON 响应”。](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299358"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217552"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理日志警报
 
@@ -79,7 +79,7 @@ ms.locfileid: "91299358"
 
 1. 你还可以选择通过使用**总计或连续泄露**[来设置触发警报的冲突数](alerts-unified-log.md#number-of-violations-to-trigger-alert)。
 
-1. 选择“完成”。 
+1. 选择“完成”  。 
 
 1. 定义 **警报规则名称**和 **描述**，然后选择警报 **严重性**。 所有警报操作都使用这些详细信息。 此外，还可以选择在创建 **时启用规则**，而不激活预警规则。
 
@@ -201,7 +201,7 @@ ms.locfileid: "91299358"
     > [!NOTE]
     > 日志警报规则当前是 [无状态的，不能解决](alerts-unified-log.md#state-and-resolving-alerts)。
 
-1. 在顶部栏中选择 " **管理规则** " 按钮以编辑规则：
+1. 在顶部栏中选择 " **管理警报规则** " 按钮以编辑规则：
 
     ![ 管理警报规则](media/alerts-log/manage-alert-rules.png)
 

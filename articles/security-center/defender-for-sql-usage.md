@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a532418ebc5cab08b06f8dde87e8126bf8e96ffe
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577826"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217161"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>计算机上适用于 SQL server 的 Azure Defender 
 
@@ -58,7 +58,7 @@ ms.locfileid: "91577826"
     - **不使用 azure Arc 连接 windows 计算机** -如果你选择在不使用 azure arc 的情况下连接在 windows 计算机上运行的 SQL Server，请按照 [将 windows 计算机连接到 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)中的说明进行操作。
 
 
-### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>步骤 2. 在安全中心的 "定价和设置" 页中启用可选计划：
+### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>步骤 2。 在安全中心的 "定价和设置" 页中启用可选计划：
 
 1. 在安全中心的菜单中，打开 " **定价 & 设置** " 页。
 
@@ -118,7 +118,7 @@ ms.locfileid: "91577826"
 
 1. 警报各自独立，每个警报都包含详细的修正步骤和调查信息。 可以使用其他 Azure 安全中心和 Azure Sentinel 功能进一步调查，从而更深入地了解：
 
-    * 启用 SQL Server 的审核功能以进一步调查。 如果你是 Azure Sentinel 用户，则可以将 SQL 审核日志从 Windows 安全日志事件上传到 Sentinel，并享受内容丰富的调查体验。 [了解 SQL Server 审核的详细信息](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15)。
+    * 启用 SQL Server 的审核功能以进一步调查。 如果你是 Azure Sentinel 用户，则可以将 SQL 审核日志从 Windows 安全日志事件上传到 Sentinel，并享受内容丰富的调查体验。 [了解 SQL Server 审核的详细信息](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15&preserve-view=true)。
     * 若要改善安全状况，请采纳每个警报中针对主机的安全中心建议。 这将降低未来攻击的风险。 
 
     [详细了解如何管理和响应警报](security-center-managing-and-responding-alerts.md)。

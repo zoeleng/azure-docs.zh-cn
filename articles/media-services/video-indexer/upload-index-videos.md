@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268819"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218933"
 ---
 # <a name="upload-and-index-your-videos"></a>上传视频和编制视频索引  
 
@@ -72,15 +72,15 @@ ms.locfileid: "89268819"
 > 视频的名称长度不得超过 80 个字符。
 
 1. 登录到[视频索引器](https://www.videoindexer.ai/)网站。
-2. 若要上传视频，请按“上传”按钮或链接。****
+1. 若要上传视频，请按“上传”按钮或链接。****
 
-    ![上载](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="上载":::
+1. 视频上传以后，视频索引器就会开始对视频进行索引编制和分析。
 
-    视频上传以后，视频索引器就会开始对视频进行索引编制和分析。
-
-    ![已上传](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    当视频索引器分析完以后，你会获得一个通知，其中包含视频链接以及对视频中找到的内容的简短说明。 例如：人物、主题、OCR。
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="上载":::
+1. 完成分析视频索引器后，会收到一封电子邮件，其中包含指向视频的链接，并简要介绍了视频中的内容。 例如：人物、主题、OCR。
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>用 API 上传和索引
 
@@ -118,7 +118,7 @@ ms.locfileid: "89268819"
         
     - 示例： https： \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>注意
+##### <a name="notes"></a>说明
 
 - 视频索引器返回在原始 URL 中提供的任何现有参数。
 - 提供的 URL 必须进行编码。

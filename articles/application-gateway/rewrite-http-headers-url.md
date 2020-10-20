@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281185"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216668"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>使用应用程序网关重写 HTTP 标头和 URL
 
@@ -50,7 +50,7 @@ HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的
 
 若要了解如何使用 Azure 门户在应用程序网关中重写 URL，请参阅[此文](rewrite-url-portal.md)。
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![描述使用应用程序网关重写 URL 的过程的示意图。](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > URL 重写功能为预览版，仅适用于 Standard_v2 和 WAF_v2 SKU 版应用程序网关。 建议不要在生产环境中使用。 若要了解关于预览的详细信息，请参阅[此处的使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。

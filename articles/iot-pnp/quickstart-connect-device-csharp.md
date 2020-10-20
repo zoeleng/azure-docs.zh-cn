@@ -7,18 +7,18 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d1deac1c7932a8f3cec06d9c264ba401f7f1341d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: da1ac77ad2716abf964c835634d049895fe88654
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91577027"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044541"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>快速入门：将 Windows 上运行的示例 IoT 即插即用设备应用程序连接到 IoT 中心 (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
-本快速入门介绍如何生成示例 IoT 即插即用设备应用程序，将其连接到 IoT 中心，并使用 Azure IoT 资源管理器工具来查看它发送的遥测数据。 该示例应用程序以 CSharp 编写，包含在用于 C# 的 Azure IoT 设备 SDK 中。 解决方案构建者可以使用 Azure IoT 资源管理器工具来了解 IoT 即插即用设备的功能，而无需查看任何设备代码。
+本快速入门介绍如何生成示例 IoT 即插即用设备应用程序，将其连接到 IoT 中心，并使用 Azure IoT 资源管理器工具来查看它发送的遥测数据。 该示例应用程序以 C# 编写，包含在用于 C# 的 Azure IoT 示例中。 解决方案构建者可以使用 Azure IoT 资源管理器工具来了解 IoT 即插即用设备的功能，而无需查看任何设备代码。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -31,9 +31,9 @@ ms.locfileid: "91577027"
 
 ## <a name="download-the-code"></a>下载代码
 
-在本快速入门中，你将准备一个用于克隆和生成 Azure IoT 中心设备 C# SDK 的开发环境。
+在本快速入门中，你将准备一个用于克隆和构建用于 C# 的 Azure IoT 示例存储库的开发环境。
 
-在所选文件夹中打开命令提示符。 运行以下命令，将[用于 .NET 的 Microsoft Azure IoT 示例](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 存储库克隆到此位置：
+在所选文件夹中打开命令提示符。 运行以下命令，将[用于 C# (.NET) 的 Microsoft Azure IoT 示例](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 存储库克隆到此位置：
 
 ```cmd
 git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -113,4 +113,4 @@ DateTime since = JsonConvert.DeserializeObject<DateTime>(request.DataAsJson);
 本快速入门已介绍如何将 IoT 即插即用设备连接到 IoT 中心。 若要详细了解如何生成可与 IoT 即插即用设备交互的解决方案，请参阅：
 
 > [!div class="nextstepaction"]
-> [操作说明：连接到设备并与之交互](howto-develop-solution.md)
+> [操作说明：连接到设备并与之交互](./quickstart-service-node.md)

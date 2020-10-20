@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767130"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048213"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>规划电话服务和短信解决方案
 
@@ -74,7 +74,9 @@ ms.locfileid: "91767130"
 
 ## <a name="azure-subscriptions-eligibility"></a>Azure 订阅资格
 
-若要获取电话号码，需要使用 Azure 付费订阅。 无法通过试用帐户获取电话号码。 
+若要获取电话号码，需要使用 Azure 付费订阅。 无法在试用帐户上或通过 Azure 免费额度获取电话号码。 
+
+目前，电话号码的可用性仅限于有美国帐单邮寄地址的 Azure 订阅。
 
 ## <a name="next-steps"></a>后续步骤
 

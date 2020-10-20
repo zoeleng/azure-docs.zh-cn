@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: b856381e8d085c6839effd1de6d9867b214d24ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 04d53dc213d5e992dc79e322b071025bdb447b1b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020382"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057495"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>快速入门：使用 Azure Monitor 从混合环境中的 Linux 计算机收集数据
 
@@ -62,13 +62,11 @@ ms.locfileid: "89020382"
 
 2. 在 Log Analytics 工作区列表中，选择前面创建的工作区。 （可能已将其命名为 **DefaultLAWorkspace**。）
 
-3. 选择“高级设置”：
-
-    ![Azure 门户中 Log Analytics 的“高级设置”菜单](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+3. 选择“代理管理”：
  
-4. 选择“已连接的源”，然后选择“Linux 服务器” 。
+4. 然后选择“Linux 服务器”。
 
-5. “工作区 ID”和“主密钥”右侧的值 。 将它们复制并粘贴到喜爱的编辑器中。
+5. “工作区 ID”和“主键”右侧的值 。 将它们复制并粘贴到喜爱的编辑器中。
 
 ## <a name="install-the-agent-for-linux"></a>安装适用于 Linux 的代理
 

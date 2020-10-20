@@ -1,23 +1,21 @@
 ---
 title: 使用 Azure Data Lake Analytics 分析网站日志
 description: 了解如何使用 Azure Data Lake Analytics 分析网站日志以运行 U SQL 函数和查询。
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132630"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219388"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>使用 Azure Data Lake Analytics 分析网站日志
 了解如何使用 Data Lake Analytics 分析网站日志，尤其是找出尝试访问网站时哪些引用发生了错误。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 * **Visual Studio 2015 或 Visual Studio 2013**。
 * **[适用于 Visual Studio 的 Data Lake 工具](https://aka.ms/adltoolsvs)**。
 
@@ -58,7 +56,7 @@ U-SQL 应用程序主要是 U-SQL 脚本。 若要了解有关 U SQL 的详细�
 
    ![新建 U-SQL Visual Studio 项目](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-3. 单击" **确定**"。 Visual Studio 将创建包含 Script.usql 文件的解决方案。
+3. 单击“确定”。 Visual Studio 将创建包含 Script.usql 文件的解决方案。
 
 4. 在 Script.usql 文件中输入以下脚本：
 
@@ -185,4 +183,4 @@ U-SQL 应用程序主要是 U-SQL 脚本。 若要了解有关 U SQL 的详细�
 
 * [通过 Azure 门户实现 Data Lake Analytics 入门](data-lake-analytics-get-started-portal.md)
 * [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [通过 .NET SDK 实现 Data Lake Analytics 入门](data-lake-analytics-get-started-net-sdk.md)
+* [通过 .NET SDK 实现 Data Lake Analytics 入门](./data-lake-analytics-get-started-cli.md)

@@ -1,22 +1,20 @@
 ---
 title: '为 Azure Data Lake U-SQL 作业调试 c # 代码'
 description: 本文介绍如何使用针对 Visual Studio 的 Azure Data Lake 工具调试 U-SQL 失败顶点。
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131865"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218011"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>调试失败 U-SQL 作业的用户定义 C# 代码
 
-U-SQL 使用 C# 提供扩展性模型。 在 U-SQL 脚本中，可以轻松调用 C# 函数，并执行类似于 SQL 的声明性语言所不支持的分析函数。 若要详细了解 U-SQL 扩展性，请参阅 [U-SQL 可编程性指南](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf)。 
+U-SQL 使用 C# 提供扩展性模型。 在 U-SQL 脚本中，可以轻松调用 C# 函数，并执行类似于 SQL 的声明性语言所不支持的分析函数。 若要详细了解 U-SQL 扩展性，请参阅 [U-SQL 可编程性指南](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf)。 
 
 在实践中，任何代码都可能需要调试，但调试在云中包含自定义代码且日志文件有限的分布式作业有一定的难度。 [针对 Visual Studio 的 Azure Data Lake 工具](https://aka.ms/adltoolsvs)提供一项称作“失败顶点调试”的功能，可帮助我们更轻松地调试自定义代码中发生的失败。**** 当 U-SQL 作业失败时，服务会保留失败状态，该工具可帮助将云故障环境下载到本地计算机进行调试。 本地下载捕获整个云环境，包括任何输入数据和用户代码。
 

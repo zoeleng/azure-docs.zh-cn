@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 94c67be39ddd9f52087fa4632e239a8e85930886
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171479"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221412"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>如何在工作区中运行 Jupyter 笔记本
 
@@ -112,6 +112,19 @@ ms.locfileid: "92171479"
 如果计算实例正在运行，还可以在任何 Python Notebook 中使用由 [Intellisense](https://code.visualstudio.com/docs/editor/intellisense) 提供支持的代码完成功能。
 
 另外，还可以从笔记本工具栏中启动 Jupyter 或 JupyterLab。  Azure 机器学习不提供来自 Jupyter 或 JupyterLab 的更新，也不修复其中的 bug，因为这些开源产品不在 Microsoft 支持的范围内。
+
+### <a name="focus-mode"></a>焦点模式
+
+使用焦点模式展开您的当前视图，以便您可以专注于活动选项卡。 焦点模式隐藏笔记本文件资源管理器。
+
+1. 在终端窗口工具栏中，选择 " **焦点模式**"   以打开焦点模式。 根据窗口宽度，此位置可能位于工具栏中的 " **...** " 菜单项下。
+1. 在焦点模式下，通过选择 " **标准视图**" 返回到标准视图。
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="新建文件&quot;:::
+
+1. 为文件命名。 
+1. 对于 Jupyter Notebook 文件，请选择 &quot; **笔记本** ":::
+
 
 ### <a name="use-intellisense"></a>使用 IntelliSense
 

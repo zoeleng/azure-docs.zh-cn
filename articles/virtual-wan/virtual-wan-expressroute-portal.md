@@ -1,5 +1,5 @@
 ---
-title: 教程 - 使用 Azure 虚拟 WAN 创建 ExpressRoute 连接
+title: 教程：使用 Azure 虚拟 WAN 创建 ExpressRoute 连接
 description: 在本教程中，你将了解如何使用 Azure 虚拟 WAN 创建与 Azure 和本地环境的 ExpressRoute 连接。
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821889"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054808"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>教程：使用 Azure 虚拟 WAN 创建 ExpressRoute 关联
 
@@ -30,7 +30,7 @@ ms.locfileid: "91821889"
 > * 更改网关大小
 > * 播发默认路由
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="prerequisites"></a>先决条件
 
 在开始配置之前，请验证你是否符合以下条件：
 
@@ -40,7 +40,7 @@ ms.locfileid: "91821889"
 
 * 获取中心区域的 IP 地址范围。 该中心是虚拟 WAN 创建和使用的虚拟网络。 为中心指定的地址范围不能与要连接到的任何现有虚拟网络重叠。 此外，它也不能与本地连接到的地址范围重叠。 如果不熟悉本地网络配置中的 IP 地址范围，则咨询能够提供此类详细信息的人员。
 
-* ExpressRoute 线路必须是高级版/标准版线路才能连接到中心网关。
+* ExpressRoute 线路必须是高级版或标准版线路才能连接到中心网关。
 
 * 如果还没有 Azure 订阅，可以创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -153,6 +153,17 @@ ExpressRoute 网关以 2 Gbps 为单位进行预配。 1 个缩放单元= 2 Gbps
 
    ![传播默认路由](./media/virtual-wan-expressroute-portal/defaultroute2.png "传播默认路由")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>清理资源
+
+如果不再需要这些资源，可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 删除资源组及其包含的所有资源。 将“myResourceGroup”替换为资源组的名称，并运行以下 PowerShell 命令：
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解虚拟 WAN，请参阅[虚拟 WAN 概述](virtual-wan-about.md)页。
+接下来，若要详细了解虚拟 WAN，请参阅：
+
+> [!div class="nextstepaction"]
+> * [虚拟 WAN 常见问题解答](virtual-wan-faq.md)

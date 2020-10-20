@@ -3,12 +3,13 @@ title: 为 Azure Functions 配置监视
 description: 了解如何将 function app 连接到 Application Insights 进行监视，以及如何配置数据收集。
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.openlocfilehash: 4b2c4e23bf54dc87325af7068b287fad2f9314a0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: contperfq2
+ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168827"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217178"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>如何配置 Azure Functions 的监视
 

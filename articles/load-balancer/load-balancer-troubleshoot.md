@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801914"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217382"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>排查 Azure 负载均衡器问题
 
@@ -30,6 +30,12 @@ ms.locfileid: "85801914"
 - 负载均衡器后端的 VM 不响应已配置端口上的通信
 
 当后端 VM 的外部客户端通过负载均衡器时，将使用客户端的 IP 地址进行通信。 请确保将客户端的 IP 地址添加到 NSG 允许列表中。 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>症状：标准内部负载均衡器的出站连接 (ILB) 
+
+验证及解决方法
+
+**默认情况下**，标准 ilb 是安全的。 基本 Ilb 允许通过 *隐藏* 的公共 IP 地址连接到 internet。 对于生产工作负荷，这并不是推荐，因为 IP 地址既不是静态的，也不是通过你拥有的 Nsg 进行锁定。 如果最近从基本 ILB 移到了标准 ILB，则 [应通过 nsg](egress-only.md) 锁定 IP 来显式创建公共 ip。 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>故障描述：负载均衡器后端的 VM 不响应运行状况探测
 后端服务器必须通过探测检查后，才可加入负载均衡器集。 有关运行状况探测的详细信息，请参阅[了解负载均衡器探测](load-balancer-custom-probe-overview.md)。 

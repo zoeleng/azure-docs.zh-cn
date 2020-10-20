@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89003841"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044660"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure 数字孪生是什么？
 
@@ -38,13 +38,13 @@ Azure 数字孪生是一个服务型平台 (PaaS)，可用于基于整个环境�
 * 模型定义实体之间的语义**关系**，以便可以将孪生连接到反映其交互的知识图。 可以将模型视为描述你世界的名词，将关系视为动词。
 * 还可以使用模型继承来专用化孪生。 一个模型可以继承自另一个模型。
 
-DTDL 用于其他 Azure IoT 服务中的数据模型，包括 [IoT 即插即用 (PnP)](../iot-pnp/overview-iot-plug-and-play.md) 和[时序见解 (TSI)](../time-series-insights/time-series-insights-update-overview.md)。 这有助于使 Azure 数字孪生解决方案与 Azure 生态系统的其他部分保持连接并兼容。
+DTDL 用于其他 Azure IoT 服务中的数据模型，包括 [IoT 即插即用 (PnP)](../iot-pnp/overview-iot-plug-and-play.md) 和[时序见解 (TSI)](../time-series-insights/overview-what-is-tsi.md)。 这有助于使 Azure 数字孪生解决方案与 Azure 生态系统的其他部分保持连接并兼容。
 
 ### <a name="live-execution-environment"></a>实时执行环境
 
 Azure 数字孪生中的数字模型是真实世界的实时最新表示。 使用自定义 DTDL 模型中的关系，可以将孪生连接到表示你环境的**实时图形**。
 
-可借助示例应用程序 [Azure 数字孪生资源管理器](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)查看 Azure 数字孪生图的可视化效果。
+可借助示例应用程序 [Azure 数字孪生资源管理器](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)查看 Azure 数字孪生图的可视化效果。
 
 下面是示例可视化效果的视图：
 
@@ -84,7 +84,7 @@ Azure 数字孪生通常与其他 Azure 服务结合使用，作为较大 IoT �
 * 一个或多个客户端应用程序，通过配置模型、创建拓扑并从孪生图中提取见解来驱动 Azure 数字孪生实例。
 * 一种或多种外部计算资源，用于处理由 Azure 数字孪生或连接的数据源（例如设备）生成的事件。 提供计算资源的一种常见方法是通过 [Azure Functions](../azure-functions/functions-overview.md)。
 * IoT 中心，提供设备管理和 IoT 数据流功能。
-* 下游服务，处理诸如工作流集成（如[逻辑应用](../logic-apps/logic-apps-overview.md)）、冷存储、时序集成或分析之类的任务。 
+* 下游服务，处理工作流集成（如[逻辑应用](../logic-apps/logic-apps-overview.md)、冷存储、时序集成或分析）等任务。
 
 下图显示了 Azure 数字孪生在较大 Azure IoT 解决方案的上下文中所处的位置。
 

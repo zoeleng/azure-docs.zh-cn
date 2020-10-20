@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure 基础基准蓝图示例
 description: CIS Microsoft Azure 基础基准蓝图示例的概述。 此蓝图示例可帮助客户评估特定控制要求。
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6cc985fe127eae795d9a8e37624c403dd6e6f96a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6c09e539e192db8422b25079264b9f4e8965d994
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739380"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054604"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure 基础基准蓝图示例
 
@@ -33,7 +33,7 @@ CIS Microsoft Azure 基础基准蓝图示例使用 [Azure Policy](../../policy/o
 
 首先，通过使用示例作为起点在环境中创建新的蓝图，来实现蓝图示例。
 
-1. 在左侧窗格中，选择“所有服务”。 搜索并选择“蓝图”。
+1. 在左侧窗格中，选择“所有服务”  。 搜索并选择“蓝图”。
 
 1. 在左侧的“开始”页中，选择“创建蓝图”下的“创建”按钮。 
 
@@ -46,7 +46,7 @@ CIS Microsoft Azure 基础基准蓝图示例使用 [Azure Policy](../../policy/o
 
 1. 选择页面顶部的“项目”选项卡，或页面底部的“下一步:项目”。
 
-1. 查看构成蓝图示例的项目列表。 许多项目包含稍后我们将要定义的参数。 查看完蓝图示例后，选择“保存草稿”。
+1. 查看蓝图示例中所包含项目的列表。 许多项目包含稍后我们将要定义的参数。 查看完蓝图示例后，选择“保存草稿”。
 
 ### <a name="publish-the-sample-copy"></a>发布示例副本
 
@@ -62,7 +62,7 @@ CIS Microsoft Azure 基础基准蓝图示例使用 [Azure Policy](../../policy/o
 
 成功**发布**蓝图示例的副本后，可将它分配到它所在的管理组中的某个订阅。 在此步骤中，需提供参数来使蓝图示例副本的每个部署保持唯一。
 
-1. 在左侧窗格中，选择“所有服务”。 搜索并选择“蓝图”。
+1. 在左侧窗格中，选择“所有服务”  。 搜索并选择“蓝图”。
 
 1. 在左侧选择“蓝图定义”页。 使用筛选器找到蓝图示例的副本，然后选择它。
 

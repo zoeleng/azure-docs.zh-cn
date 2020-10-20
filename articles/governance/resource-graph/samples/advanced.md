@@ -1,14 +1,14 @@
 ---
 title: 高级查询示例
 description: 使用 Azure Resource Graph 运行一些高级查询，包括使用列、列出使用的标记以及使用正则表达式匹配资源。
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425288"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057138"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Advanced Resource Graph 查询示例
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>查询来宾配置分配报表的详细信息
 
-显示[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)详细信息的报表。
-在以下示例中，查询仅返回来宾分配名称为 `installed_application_linux` 并且输出包含字符串 `Python` 的结果，以列出安装了包含名称 Python 的包的所有 Linux 计算机。
-若要查询所有计算机是否符合特定分配，请删除第二个 `where` 子句。
+显示[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)详细信息的报表。 在以下示例中，查询仅返回来宾分配名称为 `installed_application_linux` 并且输出包含字符串 `Python` 的结果，以列出安装了包含名称 Python 的包的所有 Linux 计算机。 若要查询所有计算机是否符合特定分配，请删除第二个 `where` 子句。
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>查找计算机不符合来宾配置分配的所有原因
 
-显示特定计算机的所有[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)。
-删除第一个 `where` 子句，以便还包含计算机合规的审核。
+显示特定计算机的所有[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)。 删除第一个 `where` 子句，以便还包含计算机合规的审核。
 
 ```kusto
 GuestConfigurationResources

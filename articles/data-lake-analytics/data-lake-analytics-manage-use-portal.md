@@ -1,18 +1,16 @@
 ---
 title: 使用 Azure 门户管理 Azure Data Lake Analytics
 description: 本文介绍如何使用 Azure 门户管理 Data Lake Analytics 帐户、数据源、用户和作业。
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 3f47e201f0fe6f44eb33916b2b3ed71ef963d5a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c1057478d9ae7d63bef9477a0b1297fa2c507ffa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148132"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218419"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>使用 Azure 门户管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +33,7 @@ ms.locfileid: "92148132"
    3. 资源组****：要在其中创建帐户的 Azure 资源组。 
    4. 位置****：Data Lake Analytics 帐户的 Azure 数据中心。 
    5. Data Lake Store****：要用于 Data Lake Analytics 帐户的默认存储。 Azure Data Lake Store 帐户和 Data Lake Analytics 帐户必须位于同一位置。
-4. 单击 **“创建”** 。 
+4. 单击“创建”。 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>删除 Data Lake Analytics 帐户
 
@@ -87,7 +85,7 @@ Data Lake Analytics 支持以下数据源：
 3. 选择一个用户，然后单击“选择”****。
 4. 选择一个角色，然后单击“选择”****。 若要设置要使用 Azure Data Lake 的新的开发人员，请选择“Data Lake Analytics 开发人员”**** 角色。
 5. 选择 U-SQL 数据库的访问控制列表 (ACL)。 如果对所选内容满意，请单击“选择”****。
-6. 选择文件的 ACL。 对于默认存储，不要更改根文件夹“/”和 /system 文件夹的 ACL。 单击“选择”  。
+6. 选择文件的 ACL。 对于默认存储，不要更改根文件夹“/”和 /system 文件夹的 ACL。 单击“选择”。
 7. 查看所选的所有更改，然后单击“运行”****。
 8. 完成向导后，单击“完成”****。
 
@@ -112,7 +110,7 @@ Data Lake Analytics 支持以下数据源：
 2. 单击 "**访问控制 (IAM) **"  >  **添加角色分配**"。
 3. 选择角色。
 4. 添加用户。
-5. 单击" **确定**"。
+5. 单击“确定”。
 
 >[!NOTE]
 >如果用户或安全组需要提交作业，还需要对存储帐户的权限。 有关详细信息，请参阅[保护 Data Lake Store 中存储的数据](../data-lake-store/data-lake-store-secure-data.md)。

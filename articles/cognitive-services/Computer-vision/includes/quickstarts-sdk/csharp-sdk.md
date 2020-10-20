@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ec3e44c667d6821c4a6dc0779a760b65de5046e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6315ca68c8e58c3ba04e616967c233c81fda9b19
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321824"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038478"
 ---
 <a name="HOLTop"></a>
 
@@ -24,27 +24,34 @@ ms.locfileid: "89321824"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services/)
-* 最新版本的 [.NET Core SDK](https://dotnet.microsoft.com/download/)。
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 或最新版本的 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)。
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 为密钥和终结点 URL [创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别将其命名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`。
 
 ## <a name="setting-up"></a>设置
 
 ### <a name="create-a-new-c-application"></a>新建 C# 应用程序
 
-在首选编辑器或 IDE 中创建新的 .NET Core 应用程序。 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+使用 Visual Studio 创建新的 .NET Core 应用程序。 
+
+### <a name="install-the-client-library"></a>安装客户端库 
+
+创建新项目后，右键单击“解决方案资源管理器”中的项目解决方案，然后选择“管理 NuGet 包”，以安装客户端库 。 在打开的包管理器中，选择“浏览”，选中“包括预发行版”并搜索 `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`。 选择版本 `6.0.0-preview.1`，然后选择“安装”。 
+
+#### <a name="cli"></a>[CLI](#tab/cli)
 
 在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `computer-vision-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：ComputerVisionQuickstart.cs。
 
-```dotnetcli
-dotnet new console -n computer-vision-quickstart
+```console
+dotnet new console -n (product-name)-quickstart
 ```
 
 将目录更改为新创建的应用文件夹。 可使用以下代码生成应用程序：
 
-```dotnetcli
+```console
 dotnet build
 ```
 
@@ -58,6 +65,19 @@ Build succeeded.
 ...
 ```
 
+### <a name="install-the-client-library"></a>安装客户端库
+
+在应用程序目录中，使用以下命令安装适用于 .NET 的计算机视觉客户端库：
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+```
+
+---
+
+> [!TIP]
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) 上找到它，其中包含此快速入门中的代码示例。
+
 在你喜欢使用的编辑器或 IDE 中，打开项目目录中的 ComputerVisionQuickstart.cs 文件。 然后，添加以下 `using` 指令：
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
@@ -66,15 +86,19 @@ Build succeeded.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_vars)]
 
-### <a name="install-the-client-library"></a>安装客户端库
+> [!IMPORTANT]
+> 转到 Azure 门户。 如果在“先决条件”部分中创建的计算机视觉资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
+>
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
 
-在应用程序目录中，使用以下命令安装适用于 .NET 的计算机视觉客户端库：
+在应用程序的 `Main` 方法中，添加对本快速入门中使用的方法的调用。 稍后将创建这些内容。
 
-```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
-```
 
-如果你使用的是 Visual Studio IDE，客户端库可用作可下载的 NuGet 包。
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 ## <a name="object-model"></a>对象模型
 
@@ -103,17 +127,12 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
-你可能想要在 `Main` 方法中调用此方法。
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>分析图像
 
 以下代码定义方法 `AnalyzeImageUrl`，该方法使用客户端对象分析远程图像并输出结果。 该方法返回文本说明、分类、标记列表、检测到的人脸、成人内容标志、主颜色和图像类型。
 
-在 `Main` 方法中添加方法调用。
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
 
 ### <a name="set-up-test-image"></a>设置测试图像
 
@@ -214,9 +233,6 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 计算机视觉可以读取图像中的可见文本，并将其转换为字符流。 有关文本识别的详细信息，请参阅[光学字符识别 (OCR)](../../concept-recognizing-text.md#read-api) 概念文档。本部分中的代码使用[适用于 Read 3.0 的最新计算机视觉 SDK 版本](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1)，并定义了 `BatchReadFileUrl` 方法，该方法使用客户端对象来检测和提取图像中的文本。
 
-在 `Main` 方法中添加方法调用。
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 ### <a name="set-up-test-image"></a>设置测试图像
 
@@ -247,17 +263,25 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 ## <a name="run-the-application"></a>运行应用程序
 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+单击 IDE 窗口顶部的“调试”按钮，运行应用程序。
+
+#### <a name="cli"></a>[CLI](#tab/cli)
+
 从应用程序目录使用 `dotnet run` 命令运行应用程序。
 
-```dotnetcli
+```dotnet
 dotnet run
 ```
+
+---
 
 ## <a name="clean-up-resources"></a>清理资源
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [门户](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤

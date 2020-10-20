@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: aca16e334e594f8adf0c0a3b0354db827fc475fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9db530c1bdff6521c945ae0c2373bb9d32b8a476
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333964"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047771"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -1271,8 +1271,8 @@ Remove-AzResourceGroup -Name $rg
 * 配置了负载均衡器流量规则和运行状况探测。
 * 测试了负载均衡器。
 
-若要了解有关 Azure 负载均衡器的更多信息，请进一步阅读[什么是 Azure 负载均衡器？](load-balancer-overview.md)和[负载均衡器常见问题](load-balancer-faqs.md)。
-
-* 详细了解[负载均衡器和可用性区域](load-balancer-standard-availability-zones.md)。
+若要详细了解 Azure 负载均衡器，请继续学习
+> [!div class="nextstepaction"]
+> [什么是 Azure 负载均衡器？](load-balancer-overview.md)
 
 

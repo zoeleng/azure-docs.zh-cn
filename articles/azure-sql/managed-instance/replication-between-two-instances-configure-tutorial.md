@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617054"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058210"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>教程：配置两个托管实例之间的复制
 
@@ -48,7 +48,7 @@ ms.locfileid: "91617054"
 
 要配置 SQL 托管实例来充当发布服务器和/或分发服务器，需满足以下要求：
 
-- 发布服务器托管实例与分发服务器和订阅服务器位于同一虚拟网络中，或者已在所有三个实体的虚拟网络之间配置[虚拟网络对等互连](../../virtual-network/tutorial-connect-virtual-networks-powershell.md)。 
+- 发布服务器托管实例与分发服务器和订阅服务器位于同一虚拟网络中，或者已在所有三个实体的虚拟网络之间配置了 [VPN 网关](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。 
 - 连接时，在复制参与者之间使用 SQL 身份验证。
 - 适用于复制工作目录的 Azure 存储帐户共享。
 - 需要在托管实例的 NSG 安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。  如果遇到错误 `failed to connect to azure storage \<storage account name> with os error 53`，则需要将出站规则添加到相应 SQL 托管实例子网的 NSG。

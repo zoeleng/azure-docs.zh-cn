@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859276"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038429"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure 虚拟 WAN 是否已正式发布 (GA)？
 
@@ -115,7 +115,7 @@ ms.locfileid: "91859276"
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>是否需要使用首选的合作伙伴设备？
 
-不是。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
+否。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>虚拟 WAN 合作伙伴如何自动与 Azure 虚拟 WAN 建立连接？
 
@@ -159,7 +159,7 @@ ms.locfileid: "91859276"
 
 ### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>辐射 VNet 是否可以包含虚拟网络网关？
 
-不是。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
+否。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
 
 ### <a name="is-there-support-for-bgp-in-vpn-connectivity"></a>VPN 连接是否支持 BGP？
 
@@ -228,7 +228,7 @@ ms.locfileid: "91859276"
 如果某个虚拟中心从多个远程中心获知同一路由，则其决定顺序如下所示：
 
 1. 最长前缀匹配。
-2. 本地路由优先于中心间路由。
+2. 本地路由优先于中心间路由（虚拟中心为中心间 AS 分配65520-65520）
 3. 静态路由优先于 BGP 路由：这与虚拟中心路由器做出的决定有关。 但是，如果决策者是其中的站点通过 BGP 播发路由的 VPN 网关，或者是提供静态地址前缀的 VPN 网关，则静态路由可能优先于 BGP 路由。
 4. ExpressRoute (ER) 优先于 VPN：在本地中心，ER 优先于 VPN。 ExpressRoute 线路之间的传输连接只能通过 Global Reach 提供。 因此，当有一个 ExpressRoute 线路连接到一个中心，并且有另一个 ExpressRoute 线路通过 VPN 连接连接到其他中心时，对于中心间路由方案，VPN 可能是首选项。
 5. AS 路径长度。

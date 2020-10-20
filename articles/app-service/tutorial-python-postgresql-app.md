@@ -3,7 +3,7 @@ title: 教程：使用 Postgre 部署 Python Django 应用
 description: 创建使用 PostgreSQL 数据库的 Python Web 应用并将其部署到 Azure。 本教程使用 Django 框架，应用托管在 Linux 上的 Azure 应用服务上。
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e171ce1ab7d2b9d4a78399ee639945bde16b71ca
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369614"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019403"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>教程：在 Azure 应用服务中部署使用 PostgreSQL 的 Django Web 应用
 
@@ -114,7 +114,7 @@ Djangoapp 示例包含数据驱动的 Django 投票应用，该应用是根据 D
 - 生产设置位于“azuresite/production.py”文件中。 开发详细信息位于 azuresite/settings.py 中。
 - 当 `DJANGO_ENV` 环境变量设置为“生产”时，应用将使用生产设置。 你将稍后在本教程中创建此环境变量以及用于 PostgreSQL 数据库配置的其他环境变量。
 
-这些更改特定于将 Django 配置为在任何生产环境中运行，而不是特定于应用服务。 有关详细信息，请参阅 [Django 部署清单](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)。
+这些更改特定于将 Django 配置为在任何生产环境中运行，而不是特定于应用服务。 有关详细信息，请参阅 [Django 部署清单](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)。 另请参阅 [Azure 上 Django 的生产设置](configure-language-python.md#production-settings-for-django-apps)，以了解某些更改的详细信息。
 
 [存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -134,19 +134,19 @@ az extension add --name db-up
 然后使用 [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 命令在 Azure 中创建 Postgres 数据库：
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-- 将 *\<postgres-server-name>* 替换为在所有 Azure 中唯一的名称（服务器终结点是 `https://<postgres-server-name>.postgres.database.azure.com`）。 良好的模式是结合使用公司名称和其他唯一值。
+- 将 \<postgres-server-name> 替换为在整个 Azure 中唯一的名称（服务器终结点将变为 `https://<postgres-server-name>.postgres.database.azure.com`）。 良好的模式是结合使用公司名称和其他唯一值。
 - 对于 \<admin-username> 和 \<admin-password>，请指定用来为此 Postgres 服务器创建管理员用户的凭据 。
 - 此处使用的 B_Gen5_1（基本，第 5 代，1 核）[定价层](../postgresql/concepts-pricing-tiers.md)成本最低。 对于生产数据库，请省略 `--sku-name` 参数以改用 GP_Gen5_2（常规用途，第 5 代，2 核）层。
 
 此命令将执行以下操作，可能需要花几分钟的时间：
 
 - 创建名为 `DjangoPostgres-tutorial-rg` 的[资源组](../azure-resource-manager/management/overview.md#terminology)（如果尚未存在）。
-- 创建 Postgres 服务器。
-- 使用唯一的用户名和密码创建默认的管理员帐户。 （若要指定自己的凭据，请通过 `az postgres up` 命令使用 `--admin-user` 和 `--admin-password` 参数。）
-- 创建 `pollsdb` 数据库。
+- 创建一个由 `--server-name` 参数命名的 Postgres 服务器。
+- 使用 `--admin-user` 和 `--admin-password` 参数创建一个管理员帐户。 可以忽略这些参数，使命令为你生成唯一的凭据。
+- 创建一个由 `--database-name` 参数命名的 `pollsdb` 数据库。
 - 支持从本地 IP 地址进行访问。
 - 支持从 Azure 服务进行访问。
 - 创建有权访问 `pollsdb` 数据库的数据库用户。
@@ -203,17 +203,19 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 
 将代码部署到应用服务后，下一步是将应用连接到 Azure 中的 Postgres 数据库。
 
-应用代码需要在多个环境变量中查找数据库信息。 若要在应用服务中设置环境变量，你需要使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 命令创建“应用设置”。
+应用代码预期在以下四个环境变量中找到数据库信息：`DBHOST`、`DBNAME`、`DBUSER`，和 `DBPASS`。 若要使用生产设置，还需要将 `DJANGO_ENV` 环境变量设置为 `production`。
+
+若要在应用服务中设置环境变量，请通过以下 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 命令创建“应用设置”。
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>@<postgres-server-name>" DBPASS="<password>"
+az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- 将 *\<postgres-server-name>* 替换为之前通过 `az postgres up` 命令使用的名称。
-- 将 *\<username>* 和 *\<password>* 替换为命令也为你生成的凭据。 `DBUSER` 参数的格式必须为 `<username>@<postgres-server-name>`。
-- 资源组和应用名称是从“.azure/config”文件中的缓存值中提取的。
-- 命令按应用代码的预期方式创建名为 `DJANGO_ENV`、`DBHOST`、`DBNAME`、`DBUSER`和 `DBPASS` 的设置。
-- 在 Python 代码中，可以使用 `os.environ.get('DJANGO_ENV')` 之类的语句来访问这些设置（作为环境变量）。 有关详细信息，请参阅[访问环境变量](configure-language-python.md#access-environment-variables)。
+- 将 *\<postgres-server-name>* 替换为之前通过 `az postgres up` 命令使用的名称。 azuresite/production.py 中的代码会自动追加 `.postgres.database.azure.com` 来创建完整的 Postgres 服务器 URL。
+- 将 \<username> 和 \<password> 替换为你先前在 `az postgres up` 命令中使用的管理员凭据，或 `az postgres up` 为你生成的评估。 azuresite/production.py 中的代码会从 `DBUSER` 和 `DBHOST` 自动构造完整的 Postgres 用户名。
+- 从 .azure/config 文件中的缓存值提取资源组和应用名称。
+
+在 Python 代码中，可以使用 `os.environ.get('DJANGO_ENV')` 之类的语句来访问这些设置（作为环境变量）。 有关详细信息，请参阅[访问环境变量](configure-language-python.md#access-environment-variables)。
 
 [存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -230,6 +232,8 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
     将 `<app-name>` 替换为之前在 `az webapp up` 命令中使用的名称。
 
     在 macOS 和 Linux 上，可以使用 [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) 命令以其他方式连接到 SSH 会话。
+
+    如果你无法连接到 SSH 会话，则表示应用本身已启动失败。 [请查看诊断日志](#stream-diagnostic-logs)以了解详细信息。 例如，如果你没有在上一部分中创建必要的应用设置，则日志将指示 `KeyError: 'DBNAME'`。
 
 1. 在 SSH 会话中运行以下命令（可以使用 Ctrl+Shift+V 粘贴命令）  ：
 
@@ -249,7 +253,7 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
-    
+
 1. `createsuperuser` 命令会提示输入超级用户凭据。 针对本教程，请使用默认的用户名 `root`，对于电子邮件地址，按 Enter 以留空，并输入 `Pollsdb1` 作为密码。
 
 1. 如果看到“数据库已锁定”错误，请确保已在上一部分运行 `az webapp settings` 命令。 如果没有这些设置，migrate 命令将无法与数据库通信，从而导致错误。
@@ -259,6 +263,10 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
 ### <a name="create-a-poll-question-in-the-app"></a>在应用中创建投票问题
 
 1. 在浏览器中打开 URL `http://<app-name>.azurewebsites.net`。 应用应显示消息“无可用投票”，因为数据库中尚没有特定的投票。
+
+    如果看到“应用程序错误”，可能是由于你没有在上一步（[配置环境变量以连接数据库](#configure-environment-variables-to-connect-the-database)）中创建所需的设置，或者这些值包含错误。 运行命令 `az webapp config appsettings list` 以检查设置。 还可以[检查诊断日志](#stream-diagnostic-logs)以查看应用启动过程中的特定错误。 例如，如果你未创建设置，则日志将显示错误 `KeyError: 'DBNAME'`。
+
+    更新设置以更正所有错误后，请等待应用重启，然后刷新浏览器。
 
 1. 浏览到 `http://<app-name>.azurewebsites.net/admin`。 使用上一节中的超级用户凭据登录（`root` 和 `Pollsdb1`）。 在“投票”下，选择“问题”旁边的“添加”，创建一个包含一些选项的投票问题  。
 
@@ -403,7 +411,7 @@ python manage.py migrate
 
 ### <a name="review-app-in-production"></a>在生产环境中查看应用
 
-浏览到“`http://<app-name>.azurewebsites.net`”并再次在生产中测试应用。 （因为你只更改了数据库字段的长度，所以仅在创建问题时尝试输入较长的响应时，更改才会比较明显。）
+浏览到“`http://<app-name>.azurewebsites.net`”并再次在生产中测试应用。 （因为你仅更改了数据库字段的长度，所以仅在创建问题时尝试输入较长的响应时，更改才会比较明显。）
 
 [存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -446,7 +454,7 @@ az webapp log tail
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果想要保留应用或者继续查看下一个教程，请直接跳到[接下来的步骤](#next-steps)。 否则，若要避免产生持续的费用，你可以删除为本教程创建的资源组：
+如果想要保留应用或者继续查看其他教程，请直接跳转到[后续步骤](#next-steps)。 否则，若要避免产生持续的费用，你可以删除为本教程创建的资源组：
 
 ```azurecli
 az group delete --no-wait

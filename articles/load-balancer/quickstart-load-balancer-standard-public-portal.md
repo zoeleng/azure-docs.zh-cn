@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607209"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047737"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共负载均衡器，以便对 VM 进行负载均衡
 
@@ -49,7 +49,7 @@ ms.locfileid: "88607209"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | Value                                              |
+    | 设置                 | 值                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中输入 myResourceGroupLB 。|
@@ -100,7 +100,7 @@ ms.locfileid: "88607209"
 
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
     
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
@@ -128,7 +128,7 @@ ms.locfileid: "88607209"
 
 3. 使用以下值配置负载均衡规则：
     
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
@@ -284,7 +284,7 @@ ms.locfileid: "88607209"
 
 3. 使用以下值配置出站规则：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入 myOutboundRule。 |
     | 前端 IP 地址 | 选择“新建”。 </br> 在“名称”中输入“LoadBalancerFrontEndOutbound”。 </br> 选择“IP 地址”或“IP 前缀”。 </br> 在“公共 IP 地址”或“公共 IP 前缀”下选择“新建”。 </br> 对于“名称”，请输入“myPublicIPOutbound”或“myPublicIPPrefixOutbound”。 </br> 选择“添加”  。|
@@ -328,7 +328,7 @@ ms.locfileid: "88607209"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | Value                                              |
+    | 设置                 | 值                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中键入 myResourceGroupLB 。|
@@ -418,7 +418,7 @@ ms.locfileid: "88607209"
 
 3. 在“添加后端池”页上，输入或选择：
     
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入“myBackendPool”。 |
     | 虚拟网络 | 选择“myVNet”。 |
@@ -436,7 +436,7 @@ ms.locfileid: "88607209"
 
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
     
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
@@ -464,7 +464,7 @@ ms.locfileid: "88607209"
 
 3. 使用以下值配置负载均衡规则：
     
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
@@ -626,6 +626,6 @@ ms.locfileid: "88607209"
 * 已将 3 个 VM 连接到负载均衡器。
 * 已配置负载均衡器流量规则、运行状况探测器，然后测试负载均衡器。 
 
-若要了解有关 Azure 负载均衡器的更多信息，请进一步阅读[什么是 Azure 负载均衡器？](load-balancer-overview.md)和[负载均衡器常见问题](load-balancer-faqs.md)。
-
-详细了解[负载均衡器和可用性区域](load-balancer-standard-availability-zones.md)。
+若要详细了解 Azure 负载均衡器，请继续学习
+> [!div class="nextstepaction"]
+> [什么是 Azure 负载均衡器？](load-balancer-overview.md)
