@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d71a7535c40d240b6c9bf53cff906f12b4b8b5df
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043028"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204293"
 ---
 # <a name="write-client-app-authentication-code"></a>编写客户端应用身份验证代码
 
@@ -22,7 +22,7 @@ Azure 数字孪生使用 [基于 OAUTH 2.0 Azure AD 安全令牌](../active-dire
 
 本文介绍如何使用 `Azure.Identity` 客户端库获取凭据。 尽管本文介绍了 c # 中的代码示例（如你编写的 [.net (c # ) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)），但你可以使用版本的，无论你使用的是 `Azure.Identity` 何种 sdk (有关可用于 Azure 数字孪生的 sdk 的详细信息，请参阅 [*如何：使用 azure 数字孪生 api 和 sdk*](how-to-use-apis-sdks.md)) 。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 首先，请完成 [*操作方法：设置实例和身份验证*](how-to-set-up-instance-portal.md)中的设置步骤。 这将确保你有 Azure 数字孪生实例，你的用户具有访问权限，并且已为客户端应用程序设置了权限。 完成此设置后，就可以编写客户端应用代码了。
 
@@ -105,9 +105,9 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet)方法适用于交互式应用程序，并将打开一个 web 浏览器用于身份验证。 如果需要交互式身份验证，则可以使用此来代替 `DefaultAzureCredential` 。
 
-若要使用交互式浏览器凭据，你将需要具有 Azure 数字孪生 Api 权限的 **应用注册** 。 有关如何设置此应用注册的步骤，请参阅*如何：设置实例和身份验证*中的 "[*设置客户端应用程序的访问权限*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications)" 部分。 设置应用注册后，需要 .。。
-* 应用注册的 *应用程序 (客户端) ID*
-* 应用注册的 *目录 (租户) ID*
+若要使用交互式浏览器凭据，你将需要具有 Azure 数字孪生 Api 权限的 **应用注册** 。 有关如何设置此应用注册的步骤，请参阅 [*如何：创建应用注册*](how-to-create-app-registration.md)。 设置应用注册后，需要 .。。
+* 应用注册的 *应用程序 (客户端) ID* ([查找](how-to-create-app-registration.md#collect-client-id-and-tenant-id)) 
+* 应用注册的 *目录 (租户) ID* ([查找](how-to-create-app-registration.md#collect-client-id-and-tenant-id)) 
 * Azure 数字孪生实例的 URL ([查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)) 
 
 下面是使用创建经过身份验证的 SDK 客户端的代码示例 `InteractiveBrowserCredential` 。

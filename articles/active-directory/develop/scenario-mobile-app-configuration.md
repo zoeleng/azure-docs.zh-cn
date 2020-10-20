@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 52bfd76a12f431576d4fc3cc7a51c6e58c7551ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442745"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204212"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>配置调用 Web API 的移动应用
 
@@ -160,7 +160,7 @@ var pca = PublicClientApplicationBuilder
 
 ### <a name="enable-the-broker-for-msal-for-android"></a>为用于 Android 的 MSAL 启用中介
 
-有关在 Android 上启用中介的信息，请参阅 [Android 上的中介身份验证](brokered-auth.md)。
+有关在 Android 上启用中介的信息，请参阅 [Android 上的中介身份验证](msal-android-single-sign-on.md)。
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>为用于 iOS 和 macOS 的 MSAL 启用中介
 

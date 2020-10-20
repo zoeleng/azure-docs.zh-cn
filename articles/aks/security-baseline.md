@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072860"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201692"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes 服务的 azure 安全基线
 
@@ -70,7 +70,7 @@ Azure Kubernetes Service 的 Azure 安全基线包含的建议可帮助你提高
 
 - [应用程序网关入口控制器 ](../application-gateway/ingress-controller-overview.md)
 
-- [将 Azure API 管理与 Azure Kubernetes 服务中部署的微服务配合使用](../api-management/api-management-kubernetes.md)
+- [将 Azure API 管理与 Azure Kubernetes 服务中部署的微服务结合使用](../api-management/api-management-kubernetes.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -854,7 +854,7 @@ Taints、标签或标记可用于定期协调清点，并确保从订阅及时�
 
 - [如何使用文件完整性监视](../security-center/security-center-file-integrity-monitoring.md)
 
-- [了解 Azure 更改跟踪](../automation/change-tracking.md)
+- [了解 Azure 更改跟踪](../automation/change-tracking/overview.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -888,7 +888,7 @@ Taints、标签或标记可用于定期协调清点，并确保从订阅及时�
 
 - 允许的资源类型
 
-使用 Azure 资源关系图查询/发现订阅中的资源。 确保环境中的所有 Azure 资源均已获得批准。
+使用 Azure 资源关系图查询/发现订阅中的资源。 确保环境中存在的所有 Azure 资源已获得批准。
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

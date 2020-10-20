@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108144"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206446"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>将计费数据上传到 Azure 并在 Azure 门户中查看
 
@@ -135,10 +135,10 @@ azdata arc dc upload -p usage.json
 
 请按照以下步骤设置计费导出作业：
 
-1. 单击左侧的 "导出"。
-1. 单击“添加”。
+1. 单击左侧的 " **导出** "。
+1. 单击“添加” 。
 1. 输入名称和导出频率，并单击 "下一步"。
-1. 选择创建新的存储帐户或创建一个新的存储帐户，并填写表单以指定要将帐单数据文件导出到的存储帐户、容器和目录路径，然后单击 "下一步"。
+1. 选择创建新的存储帐户或使用现有的存储帐户，并填写表单以指定要将帐单数据文件导出到的存储帐户、容器和目录路径，然后单击 "下一步"。
 1. 单击“创建”。
 
 计费数据导出文件将在大约4小时内可用，并将按照创建计费导出作业时指定的计划导出。
@@ -156,7 +156,7 @@ azdata arc dc upload -p usage.json
 5. 单击上面创建计费导出作业时指定的容器。
 6. 单击上面创建计费导出作业时指定的文件夹。
 7. 向下钻取生成的文件夹和文件，然后单击其中一个生成的 .csv 文件。
-8. 单击 "下载" 按钮，该按钮会将文件保存到本地下载文件夹。
+8. 单击 " **下载** " 按钮，该按钮会将文件保存到本地下载文件夹。
 9. 使用 .csv 文件查看器（如 Excel）打开该文件。
 10. 筛选结果以仅显示**资源类型**为的行  =  `Microsoft.AzureData/<data service resource type` 。
 11. 你将在 UsageQuantity 列中看到当前24小时内使用实例的小时数。

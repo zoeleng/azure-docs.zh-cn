@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 10/02/2020
-ms.openlocfilehash: 365d38eedd327bb50bbbea01a6847738c482b1bd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d214a746a4eb5035e007136da80f4c69ae1dd1c8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091179"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204449"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure 机器学习中的已知问题和故障排除
 
@@ -365,7 +365,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
 * **automl_setup 失败**： 
-    * 在 Windows 上，从 Anaconda 提示符运行 automl_setup。 若要安装 Miniconda，请单击[此处](https://docs.conda.io/en/latest/miniconda.html)。
+    * 在 Windows 上，从 Anaconda 提示符运行 automl_setup。 使用此链接 [安装 miniconda) ](https://docs.conda.io/en/latest/miniconda.html)。
     * 通过运行 `conda info` 命令，确保已安装 conda 64 位而不是 32 位。 对于 Windows，`platform` 应为 `win-64`，对于 Mac，应为 `osx-64`。
     * 确保已安装 conda 4.4.10 或更高版本。 可以使用命令 `conda -V` 检查该版本。 如果安装了以前的版本，可以使用以下命令对其进行更新：`conda update conda`。
     * Linux - `gcc: error trying to exec 'cc1plus'`
@@ -373,17 +373,17 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
       * 将新名称作为第一个参数传递给 automl_setup 以创建新的 conda 环境。 使用 `conda env list` 查看现有的 conda 环境，并使用 `conda env remove -n <environmentname>` 删除它们。
       
 * **automl_setup_linux.sh 失败**：如果 automl_setup_linus.sh 在 Ubuntu Linux 上失败，并出现错误：`unable to execute 'gcc': No such file or directory`-
-  1. 确保已启用出站端口 53 和 80。 在 Azure VM 上，可以通过选择 VM 并单击“网络”，从 Azure 门户执行此操作。
+  1. 确保已启用出站端口 53 和 80。 在 Azure VM 上，可以通过选择 VM 并单击 "网络" 来从 Azure 门户执行此操作。
   2. 运行命令 `sudo apt-get update`
   3. 运行命令 `sudo apt-get install build-essential --fix-missing`
   4. 再次运行 `automl_setup_linux.sh`
 
 * **configuration.ipynb 失败**：
   * 对于本地 conda，请首先确保 automl_setup 已成功运行。
-  * 确保 subscription_id 是正确的。 通过选择“所有服务”，然后选择“订阅”，在 Azure 门户中查找 subscription_id。 字符“<”和“>”不应包含在 subscription_id 值中。 例如，`subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 的格式有效。
+  * 确保 subscription_id 是正确的。 依次选择 "所有服务" 和 "订阅"，查找 Azure 门户中的 subscription_id。 字符“<”和“>”不应包含在 subscription_id 值中。 例如，`subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 的格式有效。
   * 确保参与者或所有者有权访问“订阅”。
   * 检查该区域是否为受支持的区域之一：`eastus2`、`eastus`、`westcentralus`、`southeastasia`、`westeurope`、`australiaeast`、`westus2`、`southcentralus`。
-  * 确保使用 Azure 门户访问该区域。
+  * 使用 Azure 门户确保对区域的访问权限。
   
 * **导入 AutoMLConfig 失败**：自动化机器学习版本 1.0.76 中存在包更改，这要求先卸载以前的版本，再更新到新版本。 如果从 v1.0.76 之前的 SDK 版本升级到 v1.0.76 或更高版本后遇到 `ImportError: cannot import name AutoMLConfig`，请先运行 `pip uninstall azureml-train automl` 再运行 `pip install azureml-train-auotml` 来解决该错误。 automl_setup.cmd 脚本会自动执行此操作。 
 
@@ -481,6 +481,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 可以使用 Azure 基于角色的访问控制来限制可使用 Azure 机器学习执行的操作。 这些限制可以防止用户界面项显示在 Azure 机器学习工作室中。 例如，如果分配了无法创建计算实例的角色，则创建计算实例的选项不会出现在工作室中。
 
 有关详细信息，请参阅[管理用户和角色](how-to-assign-roles.md)。
+
+## <a name="compute-cluster-wont-resize"></a>计算群集不调整大小
+
+如果 Azure 机器学习计算群集在调整节点状态 (0 > 0) 时出现堵塞，这可能是由 Azure 资源锁引起的。
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
