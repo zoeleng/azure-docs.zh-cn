@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97873c9f59dc0d99293d2b1ebaf87af309dbcf47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627136"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208288"
 ---
 # <a name="connect-data-sources"></a>连接数据源
 
@@ -158,8 +158,8 @@ Azure Sentinel 支持以下数据连接方法：
 | MCAS SecurityAlert  | [连接 Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon（事件） | [连接 Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [连接 Windows 事件](../azure-monitor/platform/data-sources-windows-events.md) <br> [获取 Sysmon 分析程序](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | 默认情况下，虚拟机上未安装 Sysmon 集合。 有关如何安装 Sysmon 代理的详细信息，请参阅 [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon)。 |
-| ConfigurationData  | [自动执行 VM 清单](../automation/automation-vm-inventory.md)| &#10007; | |
-| ConfigurationChange  | [自动执行 VM 跟踪](../automation/change-tracking.md) | &#10007; | |
+| ConfigurationData  | [自动执行 VM 清单](../automation/change-tracking/overview.md)| &#10007; | |
+| ConfigurationChange  | [自动执行 VM 跟踪](../automation/change-tracking/overview.md) | &#10007; | |
 | F5 BIG-IP | [连接 F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
 | McasShadowItReporting  |  | &#10007; | |
 | Barracuda_CL | [连接 Barracuda](connect-barracuda.md) | &#10003; | |

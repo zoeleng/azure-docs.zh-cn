@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4a21300872e98a35ea27835385b4045921f4657
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ea5d291f372485da714104eaa7df19ed3a153423
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969562"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206180"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 托管和运行 SAP 工作负荷方案
 
@@ -82,6 +82,8 @@ SAP 应用程序层和 DBMS 的高可用性记录在有关[Sap NetWeaver 的 Azu
 
 ## <a name="change-log"></a>更改日志
 
+- 10/16/2020：在 SLES 上的 LUW 中更改[了 Azure 虚拟机上的 Azure Db2 的 ha](./dbms-guide-ha-ibm.md)，在 rhel 上通过 Pacemaker[实现了 sap nw](./high-availability-guide-rhel.md)的 ha，在 rhel 上，azure VM 上的 sap nw 的 ha，azure vm 上的 sap nw [HA，在](./high-availability-guide-rhel-ibm-db2-luw.md)rhel[多 SID 指南](./high-availability-guide-rhel-multi-sid.md)[上，azure](./high-availability-guide-rhel-netapp-files.md)Vm 上[的](./sap-hana-high-availability-netapp-files-red-hat.md) [sap](./sap-hana-high-availability.md)nw ha，针对 azure vm 上的 sap nw 的[ha，适用于 sap 应用程序的 ha](./high-availability-guide-suse.md)，适用于 azure 上的 SAP NNW 的 ha 多 SID[指南中的](./high-availability-guide-suse-multi-sid.md)azure VM 上的 sap nw ha，适用于 azure 上的 azure VM 上的 sap nw[的 ha](./high-availability-guide-suse-netapp-files.md)，适用于 azure 上[的 azure vm](./high-availability-guide-suse-nfs.md)的和 SAP HANA SAP HANA，[在 RHEL 上，Azure vm 上的 SAP HANA HA](./sap-hana-high-availability-rhel.md)， [RHEL 上的 azure Vm 上使用 Pacemaker SAP HANA 向外扩展 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md)，使用 wsfc 和[共享磁盘为 Sap ASCS/scs 准备 Azure 基础结构](./sap-high-availability-infrastructure-wsfc-shared-disk.md)，使用 wsfc 和[AZURE 共享磁盘为 SAP ASCS/scs 准备多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)，并[使用 wsfc 和共享磁盘为 sap ASCS/scs 启用多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)。  
+- 10/15/2020： azure 上的 SAP BusinessObjects BI 平台文档、azure 上的 sap [BUSINESSOBJECTS bi 平台规划和实施指南](businessobjects-deployment-guide.md) 、 [适用于 azure 上的 Linux 的 sap BusinessObjects bi 平台部署指南](businessobjects-deployment-guide-linux.md)
 - 10/05/2020： [在 RHEL 上通过 Azure vm 上的 Pacemaker SAP HANA 扩展 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md) 的发布配置指南
 - 09/30/2020：在 [rhel 上的 Azure vm 上 SAP HANA 高可用性](./sap-hana-high-availability-rhel.md)，在 rhel 上 [通过和进行 SAP HANA 扩展](./sap-hana-high-availability-netapp-files-red-hat.md) ，并 [在 Azure 中的 rhel 上设置 Pacemaker](./high-availability-guide-rhel-pacemaker.md) 以适应 rhel 8.1 的说明
 - 09/29/2020：[有关 SAP 应用程序的最佳网络延迟，请在 Azure 邻近位置组](./sap-proximity-placement-scenarios.md)一文中对 PPG 的使用做出限制和建议 

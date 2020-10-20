@@ -2,15 +2,15 @@
 title: 从自动化帐户启用 Azure 自动化更新管理
 description: 本文介绍如何从自动化帐户启用更新管理。
 services: automation
-ms.date: 09/09/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b46bd1e30efff81748389ef62c46410479fb4b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669504"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206622"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>从自动化帐户启用更新管理
 
@@ -65,14 +65,14 @@ ms.locfileid: "89669504"
 
     ![保存的搜索](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. 要为向工作区报告的所有可用计算机启用更新管理，请在“管理计算机”页上选择“在所有可用计算机上启用”。 此操作禁用单独添加计算机的控件。 此任务会将向工作区报告的所有计算机的名称添加到计算机组保存的搜索查询 `MicrosoftDefaultComputerGroup`。 选中此项后，此操作将禁用“管理计算机”按钮。
+3. 要为向工作区报告的所有可用计算机启用更新管理，请在“管理计算机”页上选择“在所有可用计算机上启用”。 此操作禁止控件单独添加计算机，并将向工作区报告的所有计算机添加到计算机组保存的搜索查询 `MicrosoftDefaultComputerGroup` 。 如果选择此项，此操作将禁用 " **管理计算机** " 选项。
 
-4. 若要为所有可用的计算机和将来的计算机启用该功能，请选择“在所有可用的和将来的计算机上启用”。 此选项从工作区中删除已保存的搜索和作用域配置，并允许该功能包括当前或将来向工作区报告的所有 Azure 和非 Azure 计算机。 选中此项后，此操作将永久禁用“管理计算机”按钮，因为没有可用的作用域配置。
+4. 若要为所有可用的计算机和将来的计算机启用该功能，请选择“在所有可用的和将来的计算机上启用”。 此选项从工作区中删除已保存的搜索和作用域配置，并允许该功能包括当前或将来向工作区报告的所有 Azure 和非 Azure 计算机。 选中此操作时，此操作会永久禁用 " **管理计算机** " 选项，因为没有可用的作用域配置。
 
     > [!NOTE]
-    > 由于此选项会删除 Log Analytics 中保存的搜索和作用域配置，因此在选择此选项之前，必须先删除 Log Analytics 工作区中的所有删除锁。 否则，该选项将无法删除配置，必须手动将其删除。
+    > 由于此选项会删除 Log Analytics 中保存的搜索和范围配置，因此在选择此选项之前，请务必在 Log Analytics 工作区上删除所有删除锁。 否则，该选项将无法删除配置，必须手动将其删除。
 
-5. 如果需要，可以通过重新添加初始的已保存搜索查询来添加作用域配置。 有关详细信息，请参阅[限制更新管理的部署范围](update-mgmt-scope-configuration.md)。
+5. 如有必要，可以通过重新添加初始保存的搜索查询来添加作用域配置。 有关详细信息，请参阅[限制更新管理的部署范围](update-mgmt-scope-configuration.md)。
 
 6. 若要为一台或多台计算机启用该功能，请选择“在所选计算机上启用”，并选择每台计算机旁边的“添加” 。 此任务会将所选计算机名称添加到计算机组为此功能保存的搜索查询。
 

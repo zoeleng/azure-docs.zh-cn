@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a05216fd44a64c037561662009987615f5657a8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782511"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207166"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Azure 远程呈现支持选项
 
@@ -56,7 +56,7 @@ ms.locfileid: "84782511"
 
 ## <a name="microsoft-qa"></a>Microsoft 问答
 
-要快速从 Microsoft 工程师、Azure 最有价值专家 (MVP) 或我们的专家社区那里获得技术产品问题的可靠答案，请在 [Microsoft 问答](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html)上与我们联系 - 这是 Azure 的首选社区支持位置。
+要快速从 Microsoft 工程师、Azure 最有价值专家 (MVP) 或我们的专家社区那里获得技术产品问题的可靠答案，请在 [Microsoft 问答](/answers/topics/azure-remote-rendering.html)上与我们联系 - 这是 Azure 的首选社区支持位置。
 
 ## <a name="next-steps"></a>后续步骤
 

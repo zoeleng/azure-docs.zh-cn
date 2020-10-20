@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: a862b978d7737d3d1c301d090012576f64a3ddda
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150743"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202202"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -80,12 +80,12 @@ ExpressRoute 对各种服务类型支持[三个路由域](expressroute-circuit-p
 
 ### <a name="microsoft-peering"></a>Microsoft 对等互连
 
-如果对 Azure Microsoft 对等互连启用了 ExpressRoute 线路，则可以通过该线路访问 Azure 中使用的[公共 IP 地址范围](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。 Azure Microsoft 对等互连将提供对当前在 Azure 上托管的服务的访问权限（具有地理限制，具体取决于线路的 SKU）。 若要验证特定服务的可用性，可以查看该服务的文档，以了解是否为该服务发布了保留范围。 然后，查找目标服务的 IP 范围，并与 [Azure IP 范围和服务标记 – 公有云 XML 文件](https://www.microsoft.com/download/details.aspx?id=56519)中列出的范围进行比较。 或者，可以为相关服务开具支持票证以进行说明。
+如果对 Azure Microsoft 对等互连启用了 ExpressRoute 线路，则可以通过该线路访问 Azure 中使用的[公共 IP 地址范围](../virtual-network/public-ip-addresses.md#public-ip-addresses)。 Azure Microsoft 对等互连将提供对当前在 Azure 上托管的服务的访问权限（具有地理限制，具体取决于线路的 SKU）。 若要验证特定服务的可用性，可以查看该服务的文档，以了解是否为该服务发布了保留范围。 然后，查找目标服务的 IP 范围，并与 [Azure IP 范围和服务标记 – 公有云 XML 文件](https://www.microsoft.com/download/details.aspx?id=56519)中列出的范围进行比较。 或者，可以为相关服务开具支持票证以进行说明。
 
 支持：
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* Power BI - 通过 Azure 区域社区提供，请参阅[此处](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)以了解如何查找 Power BI 租户的区域。
+* Power BI - 通过 Azure 区域社区提供，请参阅[此处](/power-bi/service-admin-where-is-my-tenant-located)以了解如何查找 Power BI 租户的区域。
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)（Azure 全球服务社区）
 * 适用于 IaaS (虚拟机、虚拟网络网关、负载均衡器等的 Azure 公共 IP 地址 )   
@@ -118,7 +118,7 @@ Microsoft 会验证指定的“播发的公用前缀”和“对等 ASN”（或
 Dynamics 365 和 Common Data Service (CDS) 环境托管在 Azure 上，因此客户可以受益于针对 Azure 资源的底层 ExpressRoute 支持。 如果路由器筛选器包含在其中托管 Dynamics 365/CDS 环境的 Azure 区域，则可以连接到其服务终结点。
 
 > [!NOTE]
-> 如果在同一[地缘政治区域](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations)内部署了 expressroute 线路[，则](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium)**不**需要通过 Azure expressroute 进行 Dynamics 365 连接。
+> 如果在同一[地缘政治区域](./expressroute-locations-providers.md#expressroute-locations)内部署了 expressroute 线路[，则](#expressroute-premium)**不**需要通过 Azure expressroute 进行 Dynamics 365 连接。
 
 ## <a name="data-and-connections"></a>数据和连接
 
@@ -152,15 +152,15 @@ Dynamics 365 和 Common Data Service (CDS) 环境托管在 Azure 上，因此客
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>如何在专用对等互连上实现冗余？
 
-来自不同对等互连位置的多条 ExpressRoute 线路或来自同一对等互连位置的最多四个连接可以连接到同一虚拟网络，以此在单条线路变得不可用的情况下提供高可用性。 你随后可以为其中一个本地连接[分配更高的权重](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)，使特定线路成为首选。 强烈建议客户至少设置两个 ExpressRoute 线路，以避免单一故障点。 
+来自不同对等互连位置的多条 ExpressRoute 线路或来自同一对等互连位置的最多四个连接可以连接到同一虚拟网络，以此在单条线路变得不可用的情况下提供高可用性。 你随后可以为其中一个本地连接[分配更高的权重](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection)，使特定线路成为首选。 强烈建议客户至少设置两个 ExpressRoute 线路，以避免单一故障点。 
 
-请参阅[此处](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)以了解如何进行高可用性设计，并参阅[此处](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)以了解如何进行灾难恢复设计。  
+请参阅[此处](./designing-for-high-availability-with-expressroute.md)以了解如何进行高可用性设计，并参阅[此处](./designing-for-disaster-recovery-with-expressroute-privatepeering.md)以了解如何进行灾难恢复设计。  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>如何在 Microsoft 对等互连上实现冗余？
 
-当客户使用 Microsoft 对等互连访问 azure 公共服务（如 Azure 存储或 Azure SQL）时，强烈建议使用 Microsoft 对等互连，以便 Microsoft 365 在不同的对等位置实现多个线路，以避免单点故障。 客户可以在两个线路上播放相同的前缀，并使用 [AS PATH 附加](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)或播放不同的前缀来确定来自本地的路径。
+当客户使用 Microsoft 对等互连访问 azure 公共服务（如 Azure 存储或 Azure SQL）时，强烈建议使用 Microsoft 对等互连，以便 Microsoft 365 在不同的对等位置实现多个线路，以避免单点故障。 客户可以在两个线路上播放相同的前缀，并使用 [AS PATH 附加](./expressroute-optimize-routing.md#solution-use-as-path-prepending)或播放不同的前缀来确定来自本地的路径。
 
-请参阅[此处](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)以了解如何进行高可用性设计。
+请参阅[此处](./designing-for-high-availability-with-expressroute.md)以了解如何进行高可用性设计。
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何确保连接到 ExpressRoute 的虚拟网络上的高可用性？
 
@@ -170,7 +170,7 @@ Dynamics 365 和 Common Data Service (CDS) 环境托管在 Azure 上，因此客
 
 必须在路由器上实现“本地首选项”属性，以确保从本地到 Azure 的路径始终首选采用 ExpressRoute 线路。
 
-请参阅[此处](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings)有关 BGP 路径选择和常见路由器配置的其他详细信息。 
+请参阅[此处](./expressroute-optimize-routing.md#path-selection-on-microsoft-and-public-peerings)有关 BGP 路径选择和常见路由器配置的其他详细信息。 
 
 ### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>如果我不在云交换中共置，而我的服务提供商提供点到点连接，我需要在本地网络与 Microsoft 之间订购两个物理连接吗？
 
@@ -229,7 +229,7 @@ Dynamics 365 和 Common Data Service (CDS) 环境托管在 Azure 上，因此客
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>连接到同一线路的虚拟网络相互隔离吗？
 
-不是。 从路由角度看，连接到同一 ExpressRoute 线路的所有虚拟网络都属于同一路由域，不是相互隔离的。 如果需要路由隔离，则需要创建单独的 ExpressRoute 线路。
+否。 从路由角度看，连接到同一 ExpressRoute 线路的所有虚拟网络都属于同一路由域，不是相互隔离的。 如果需要路由隔离，则需要创建单独的 ExpressRoute 线路。
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>能否将一个虚拟网络连接到多条 ExpressRoute 线路？
 
@@ -384,7 +384,7 @@ Microsoft 365 services 需要启用高级外接程序。 有关费用，请参�
 是的。 即使已为网络配置了 ExpressRoute，也可以通过 Internet 访问 Microsoft 365 服务终结点。 如果你所在位置的网络配置为通过 ExpressRoute 连接到 Microsoft 365 服务，请与你的组织的网络团队核实。
 
 ### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>如何为 Azure ExpressRoute 上的 Microsoft 365 网络流量规划高可用性？
-请参阅有关[使用 Azure ExpressRoute 实现高可用性和故障转移](https://aka.ms/erhighavailability)的建议
+请参阅有关[使用 Azure ExpressRoute 实现高可用性和故障转移](/microsoft-365/enterprise/network-planning-with-expressroute)的建议
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>是否可以通过 Azure 美国政府版 ExpressRoute 线路访问 Office 365 美国政府社区 (GCC) 服务？
 
@@ -422,5 +422,4 @@ Microsoft 365 services 需要启用高级外接程序。 有关费用，请参�
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>ExpressRoute 服务是否存储客户数据？
 
-不是。 
-
+否。

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
-ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398080"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202542"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>创建和管理 ExpressRoute 公共对等互连
 
@@ -28,9 +28,9 @@ ms.locfileid: "89398080"
 >已弃用公共对等互连。 不能在新的 ExpressRoute 线路上创建公共对等互连。 如果你使用的是新的 ExpressRoute 线路，请将 [Microsoft 对等互连](expressroute-circuit-peerings.md#microsoftpeering) 用于 Azure 服务。
 >
 
-## <a name="connectivity"></a>连接性
+## <a name="connectivity"></a>连接
 
-始终会从 WAN 发起到 Microsoft Azure 服务的连接。 Microsoft Azure 服务无法通过此路由域发起到网络的连接。 如果为 ExpressRoute 线路启用了 Azure 公共对等互连，则可以通过该线路访问 [Azure 中使用的公共 IP 范围](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
+始终会从 WAN 发起到 Microsoft Azure 服务的连接。 Microsoft Azure 服务无法通过此路由域发起到网络的连接。 如果为 ExpressRoute 线路启用了 Azure 公共对等互连，则可以通过该线路访问 [Azure 中使用的公共 IP 范围](../virtual-network/public-ip-addresses.md#public-ip-addresses)。
 
 启用公共对等互连后，可以连接到大多数 Azure 服务。 我们不允许选择要将路由播发到的服务。
 
@@ -60,7 +60,7 @@ ms.locfileid: "89398080"
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> Azure 公共对等互连有 1 个 NAT IP 地址与每个 BGP 会话相关联。 对于大于 2 个 NAT IP 地址，请转到 Microsoft 对等互连。 通过 Microsoft 对等互连，可以配置自己的 NAT 分配，并使用路由筛选器进行选择性前缀播发。 有关详细信息，请参阅[转到 Microsoft 对等互连](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)。
+> Azure 公共对等互连有 1 个 NAT IP 地址与每个 BGP 会话相关联。 对于大于 2 个 NAT IP 地址，请转到 Microsoft 对等互连。 通过 Microsoft 对等互连，可以配置自己的 NAT 分配，并使用路由筛选器进行选择性前缀播发。 有关详细信息，请参阅[转到 Microsoft 对等互连](./how-to-move-peering.md)。
 >
 
 ## <a name="custom-route-filters"></a>自定义路由筛选器

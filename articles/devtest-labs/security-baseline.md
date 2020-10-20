@@ -3,12 +3,12 @@ title: Azure 开发测试实验室的 azure 安全基准
 description: Azure 开发测试实验室的 azure 安全基准
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151874"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207285"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure 开发测试实验室的 azure 安全基准
 
@@ -52,7 +52,7 @@ Azure 开发测试实验室的 Azure 安全基准包含的建议可帮助你提�
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 **指南：** Azure 开发测试实验室虚拟机 (Vm) 由客户创建和拥有。 因此，组织负责监视它。 可以使用 Azure 安全中心监视计算操作系统。 安全中心从操作系统收集的数据包括 OS 类型和版本、OS（Windows 事件日志）、正在运行的进程、计算机名称、IP 地址和登录用户。 Log Analytics 代理还会收集故障转储文件。
 
-有关详细信息，请参阅下列文章： 
+有关详细信息，请参阅以下文章： 
 
 - [如何使用 Azure Monitor 收集 Azure 虚拟机内部主机日志](../azure-monitor/learn/quick-collect-azurevm.md)
 - [了解 Azure 安全中心数据收集](../security-center/security-center-enable-data-collection.md)
@@ -73,7 +73,7 @@ Azure 开发测试实验室的 Azure 安全基准包含的建议可帮助你提�
 ### <a name="26-monitor-and-review-logs"></a>2.6：监视和审查日志
 **指南：** 启用 Azure 活动日志诊断设置，并将日志发送到 Log Analytics 工作区。 在 Log Analytics 中运行查询以搜索术语，确定趋势，分析模式，并根据可能已为 Azure 开发测试实验室收集的活动日志数据提供许多其他见解。
 
-有关详细信息，请参阅下列文章：
+有关详细信息，请参阅以下文章：
 
 - [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/diagnostic-settings.md)
 - [如何收集和分析 Azure Monitor 的 Log Analytics 工作区中的 Azure 活动日志](../azure-monitor/platform/activity-log.md)
@@ -493,7 +493,7 @@ Microsoft 对支持 Azure 开发测试实验室的底层资源执行漏洞管理
 **指南：** Azure Automation 在部署、操作和解除工作负荷和资源的实现过程中提供完全控制。 作为订阅管理员，你可以使用更改跟踪来确定在开发测试实验室中托管的 Vm 上安装的所有软件。 可以实现自己的过程，也可以使用 Azure Automation State Configuration 来删除未经授权的软件。
 
 - [Azure 自动化简介](../automation/automation-intro.md)
-- [使用更改跟踪解决方案跟踪环境中的更改](../automation/change-tracking.md)
+- [使用更改跟踪解决方案跟踪环境中的更改](../automation/change-tracking/overview.md)
 - [Azure 自动化状态配置概述](../automation/automation-dsc-overview.md)
 
 **Azure 安全中心监视：** 不可用
@@ -515,7 +515,7 @@ Microsoft 对支持 Azure 开发测试实验室的底层资源执行漏洞管理
 - 不允许的资源类型
 - 允许的资源类型
 
-请参阅下列文章： 
+请参阅以下文章： 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [如何使用 Azure Policy 拒绝特定的资源类型](../governance/policy/samples/index.md)
 

@@ -1,18 +1,18 @@
 ---
 title: 联合销售合作伙伴参与 - Microsoft 商业市场
-description: 面向合作伙伴的 Microsoft 合作伙伴中心联合销售计划可以帮助你赢得广泛的客户群并创造新的销售机会。
+description: 适用于合作伙伴的 Microsoft 合作伙伴中心共同销售计划可帮助你赢得巨大的客户群，并生成新的销售。
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/23/2020
-ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268717"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207695"
 ---
 # <a name="co-sell-partner-engagement"></a>联合销售合作伙伴参与
 
@@ -24,7 +24,7 @@ ms.locfileid: "91268717"
 
 <ul>
 
-![显示在针对 Microsoft 管理的客户共享、接受和赢得销售线索时如何进行联合销售的关系图。](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+![显示在对 Microsoft 管理的客户进行共享、接受和赢得销售线索后如何进行共同销售的关系图。](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 </ul>
 
 - **共同销售 incentivized** 与 Microsoft 销售团队合作时，除了下面列出的 marketplace 权益外，在与 Microsoft 销售团队合作时，IP 解决方案可以获得奖励。</li></ul>
@@ -35,7 +35,7 @@ ms.locfileid: "91268717"
 
 * Marketplace 服务费用从20% 减少到10%。 此折扣适用于通过商业市场销售的 IaaS 或 SaaS 产品/服务。 有关更多详细信息，请参阅 [降低服务费用](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) 。
 * 云解决方案提供商 (CSP) 合作伙伴获得10% 的激励，以销售 IaaS 或 SaaS 产品/服务。 在 [云解决方案提供商计划](cloud-solution-providers.md)中了解有关 CSP 计划的详细信息。
-* 通过商业市场提供的产品/服务的销售人员将对客户的 Azure 消耗承诺做出贡献。 符合条件的客户将在 Azure 门户中看到产品/服务标记为 **"azure 权益资格"** 。 有关更多详细信息，请参阅 [Azure 消耗承诺权益](azure-consumption-commitment-benefit.md) 。
+* 通过商业市场提供的产品/服务的销售人员将对客户的 Azure 消耗承诺做出贡献。 符合条件的客户将在 Azure 门户中看到标记为 **"Azure 权益资格"** 的产品/服务。 有关更多详细信息，请参阅 [Azure 消耗承诺权益](azure-consumption-commitment-benefit.md) 。
 * 产品/服务可实现 **AZURE IP 共同销售 incentivized** 或 **Business Applications 共同销售 incentivized** 状态将在商店中收到 **"首选解决方案"** 徽章。 徽章在特定行业垂直或解决方案领域提升产品/服务的质量、性能和满足客户需求的能力。 有关详细信息 [，请参阅 Microsoft AppSource 和 Azure Marketplace 中的首选解决方案](preferred-solutions.md)。
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>共同销售发布步骤和要求
@@ -44,8 +44,8 @@ ms.locfileid: "91268717"
 
 |步骤    |产品/服务类型    |要求    |共同销售状态    |
 |----    |-------------    |------------    |---------------   |
-|<ol start=1><li> 在合作伙伴中心创建一个帐户，并在商业应用商店中发布你的产品/服务。</li>|All|<li>产品/服务满足商业市场发布要求。</li><li>合作伙伴中心有一个完整的业务配置文件。</li>|未准备就绪|
-|<ol start=2><li>提交所需的共同销售材料。</li>|合作伙伴中心提供*的具有*[共同销售选项](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)的 IP|[在合作伙伴中心上传所需的材料](#how-to-submit-co-sell-materials-in-partner-center)： <ul><li>每个符合条件的国家/地区的销售联系人。</li><li>物料清单：客户一-寻呼、客户演示文稿板 (可选) 、解决方案登录页 URL、社交媒体通道 URL 或其他 (例如，案例研究) 。|合作销售就绪|
+|<ol start=1><li> 在合作伙伴中心创建一个帐户，并在商业应用商店中发布你的产品/服务。</li>|全部|<li>产品/服务满足商业市场发布要求。</li><li>合作伙伴中心有一个完整的业务配置文件。</li>|未准备就绪|
+|<ol start=2><li>提交所需的共同销售材料。</li>|合作伙伴中心提供*的具有*[共同销售选项](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)的 IP|[在合作伙伴中心上传所需的资料](#how-to-submit-co-sell-materials-in-partner-center)|合作销售就绪|
 ||合作伙伴中心提供的 IP*无需*[共同销售选项](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>[与云专家合作](https://partner.microsoft.com/campaigns/ced-nomination-form/)提供所需的共同销售文档的请求。|合作销售就绪|
 ||咨询服务|<li>[与云专家合作](https://partner.microsoft.com/campaigns/ced-nomination-form/)提供所需的共同销售文档的请求。</li><li>活动金牌资格。</li>|合作销售就绪|
 |<ol start=3><li>符合 IP 共同销售激励的条件</li>|Azure 应用程序，Azure 容器，IoT Edge 模块，SaaS，Vm|完成共同销售后，还需要执行两个额外的要求： <ul> 要求1：满足以下任一要求：<ul><li>*在组织级别：* 在过去12个月内，达到或超过 $100000 美元的 Azure 消耗收入。</li><li>*在产品/服务级别：* 累积的 marketplace 计费收入 $100000 美元。</li></ul><br>要求2：超过50% 的产品/服务的基础结构必须在 Azure 上运行：<ul><li>合作伙伴中心提供的*具有*[共同销售选项](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)的 IP 提供：将体系结构关系图与合作伙伴中心的共同销售文档一起用于查看。</li><li>合作伙伴中心提供的 IP 优惠，*无需*[共同销售](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|Azure IP 共同销售 incentivized|
@@ -63,18 +63,19 @@ ms.locfileid: "91268717"
 
 1. 在左侧菜单中，选择 " **与 Microsoft 共同销售**"。
 
-    [![此图显示了 "与 Microsoft 共同销售" 选项卡的位置。](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。":::
 
-1. 提供有关产品/服务的详细信息并上传 **文档** 部分。 Microsoft 卖方将使用此信息来建议并销售您的产品/服务。
+1. 提供基本的列表详细信息，以帮助 Microsoft 卖方在 **列表** 部分快速排序和发现你的产品/服务。  (*必需：所有字段。*) 
+
+    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。":::  
+
+1. 提供有关产品/服务的详细信息并上传 **文档** 部分。 Microsoft 卖方将使用此信息来建议并销售您的产品/服务。  (*必需：客户一页-寻呼和客户演示文稿。*) 
+
+    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。":::
  
-   [![此图显示了 "共同销售" 选项卡上的文档部分。](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
+1. 在 **contact** 节中上传销售联系人信息。 Microsoft 卖方可能会联系这些联系人，请求有关你的产品/服务的其他信息。  (*必需：提供产品/服务的每个地域的联系人。*) 
 
-1. 在 **contact** 节中上传销售联系人信息。 Microsoft 卖方可能会联系这些联系人，请求有关你的产品/服务的其他信息。
-
-     [![此图显示了 "共同销售" 选项卡中的 "联系人" 部分。](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
-
-1. 继续之前，请保存草稿。
-1. 完成产品/服务的所有必需部分后，可以提交产品/服务以供审阅和发布。 在右上角选择 " **查看并发布**"。 查看产品/服务详细信息，然后选择 " **发布**"。
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。" **发布**"。
 1. 我们将查看上传的资料，确定你的产品/服务是否符合共同销售计划。
 
 ## <a name="next-steps"></a>后续步骤

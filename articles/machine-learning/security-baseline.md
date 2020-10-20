@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 831e72610690753a62c04b51e277110653e0d2c9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107668"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204327"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure 机器学习的 Azure 安全基线
 
@@ -721,7 +721,7 @@ Azure 机器学习为各种计算资源甚至为你自己的计算资源提供�
 
 - [如何使用文件完整性监视](../security-center/security-center-file-integrity-monitoring.md)
 
-- [了解 Azure 自动化更改跟踪和库存](../automation/change-tracking.md)
+- [了解 Azure 自动化更改跟踪和库存](../automation/change-tracking/overview.md)
 
 - [如何启用 Azure 虚拟机库存](../automation/automation-tutorial-installed-software.md)
 

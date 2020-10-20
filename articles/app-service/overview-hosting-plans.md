@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742967"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200842"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure 应用服务计划概述
 
@@ -37,7 +37,7 @@ ms.locfileid: "91742967"
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> 与**标准**层相比，新的**PremiumV3**定价层保证[Dv3 系列 vm](../virtual-machines/dv3-dsv3-series.md)具有更快的处理器、SSD 存储以及四个内存与内核的比率。 **PremiumV3** 还支持更高的规模，通过增加的实例计数，同时仍然提供 **标准** 层中的所有高级功能。 现有 **PremiumV2** 层中提供的所有功能都包含在 **PremiumV3**中。
+> 与**标准**层相比，新的**PremiumV3**定价层保证具有更快处理器的计算机 (最小 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu)每个虚拟 CPU) 、SSD 存储以及四个内存与内核的比率。 **PremiumV3** 还支持更高的规模，通过增加的实例计数，同时仍然提供 **标准** 层中的所有高级功能。 现有 **PremiumV2** 层中提供的所有功能都包含在 **PremiumV3**中。
 >
 > 类似于其他专用层，以下三种 VM 大小可用于此层：
 >

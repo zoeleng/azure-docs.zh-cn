@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318018"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201828"
 ---
 # <a name="security-control-v2-asset-management"></a>安全控制 V2：资产管理
 
@@ -150,7 +150,7 @@ Azure 安全中心清单功能和 Azure 资源图可查询和发现订阅中的�
 
 - [如何使用 Azure 安全中心自适应应用程序控制](../../security-center/security-center-adaptive-application.md)
 
-- [了解 Azure 自动化更改跟踪和库存](../../automation/change-tracking.md)
+- [了解 Azure 自动化更改跟踪和库存](../../automation/change-tracking/overview.md)
 
 - [如何在 Windows 环境中控制 PowerShell 脚本的执行](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566494"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202338"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 线路和对等互连
 
@@ -70,7 +70,7 @@ ExpressRoute 线路有多个与之关联的路由域/对等互连： Azure 公�
 
 ## <a name="expressroute-health"></a><a name="health"></a>ExpressRoute 运行状况
 
-可以使用[网络性能监视器](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) 监视 ExpressRoute 线路的可用性、与 VNet 的连接性和带宽利用率。
+可以使用[网络性能监视器](../networking/network-monitoring-overview.md) (NPM) 监视 ExpressRoute 线路的可用性、与 VNet 的连接性和带宽利用率。
 
 NPM 监视 Azure 专用对等互连和 Microsoft 对等互连的运行状况。 有关详细信息，请查看我们的[帖子](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/)。
 

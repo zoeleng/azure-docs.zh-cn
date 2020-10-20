@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b812a727a555f8c4c95389f2ba0cc5ccea2f608a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766667"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205551"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>配置自定义警报来监视播发路由
 
@@ -42,7 +42,7 @@ ms.locfileid: "91766667"
 
 * 你熟悉 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)。
 
-* 你熟悉如何使用 Azure PowerShell。 需要使用 Azure PowerShell 在 ExpressRoute 网关上收集网络前缀。 有关一般 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0)。
+* 你熟悉如何使用 Azure PowerShell。 需要使用 Azure PowerShell 在 ExpressRoute 网关上收集网络前缀。 有关一般 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/?view=azps-4.1.0)。
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>说明和限制
 
@@ -257,7 +257,7 @@ Write-Output  $jsonResults
 
 * 警报消息：对状态（正常、警报、警告）的详细说明
 
-PowerShell 脚本会将收集的信息转换为 JSON 输出。 runbook 使用 PowerShell cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?) 作为输出流，以便将信息传递到客户端。
+PowerShell 脚本会将收集的信息转换为 JSON 输出。 runbook 使用 PowerShell cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output) 作为输出流，以便将信息传递到客户端。
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4.验证 runbook
 

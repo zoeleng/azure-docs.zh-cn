@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822396"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203766"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 存储生命周期
 
@@ -22,8 +22,9 @@ ms.locfileid: "91822396"
 
 生命周期管理策略允许：
 
-- 将 Blob 转移到较冷的存储层（从热到冷、从热到存档，或者从冷到存档），以便针对性能和成本进行优化
-- 删除生命周期已结束的 Blob
+- 如果访问以优化性能，则立即将 blob 从冷转换为热 
+- 将 blob、blob 版本和 blob 快照转换为冷存储层 ("热到冷"、"热"、"存档" 或 "冷" 以便存档) 如果在一段时间内未被访问或修改即可优化成本
+- 在生命周期结束时删除 blob、blob 版本和 blob 快照
 - 在存储帐户级别定义每天运行一次的规则
 - 使用名称前缀或 [blob 索引标记](storage-manage-find-blobs.md) 作为筛选器，将规则应用于容器或部分 blob () 
 
@@ -33,7 +34,7 @@ ms.locfileid: "91822396"
 
 ## <a name="availability-and-pricing"></a>可用性和定价
 
-生命周期管理功能在所有 Azure 区域中适用于常规用途 v2 (GPv2) 帐户、Blob 存储帐户和高级块 Blob 存储帐户。 在 Azure 门户中，可将现有的常规用途 (GPv1) 帐户升级为 GPv2 帐户。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
+生命周期管理功能适用于常规用途 v2 (GPv2) 帐户、Blob 存储帐户、高级块 Blob 存储帐户和 Azure Data Lake Storage Gen2 帐户的所有 Azure 区域。 在 Azure 门户中，可将现有的常规用途 (GPv1) 帐户升级为 GPv2 帐户。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
 生命周期管理功能是免费的。 客户需要支付[设置 Blob 层](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 调用的常规操作费用。 删除操作是免费的。 有关定价的详细信息，请参阅[块 Blob 定价](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
@@ -254,29 +255,41 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 - 在上次修改后的 30 天后，将 Blob 分层到冷层
 - 在上次修改后的 90 天后，将 Blob 分层到存档层
 - 在上次修改后的 2,555 天（7 年）后，删除 Blob
-- 在创建快照后的 90 天后，删除 Blob 快照
+- 在创建后的90天内删除以前的 blob 版本
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -303,24 +316,24 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 满足运行条件时，操作将应用到筛选的 Blob。
 
-生命周期管理支持 Blob 的分层和删除，以及 Blob 快照的删除。 在 Blob 或 Blob 快照中为每个规则至少定义一个操作。
+生命周期管理支持对 blob、以前的 blob 版本和 blob 快照进行分层和删除。 为基本 blob、以前的 blob 版本或 blob 快照上的每个规则定义至少一个操作。
 
-| 操作                      | 基本 Blob                                   | 快照      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | 目前支持位于热层的 Blob         | 不支持 |
-| enableAutoTierToHotFromCool | 支持当前位于冷层的 blob        | 不支持 |
-| tierToArchive               | 目前支持位于热层或冷层的 Blob | 不支持 |
-| 删除                      | 支持 `blockBlob` 和 `appendBlob`  | 支持     |
+| 操作                      | 基本 Blob                                  | 快照      | 版本
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | 对 `blockBlob` 支持                  | 支持     | 支持     |
+| enableAutoTierToHotFromCool | 对 `blockBlob` 支持                  | 不支持 | 不支持 |
+| tierToArchive               | 对 `blockBlob` 支持                  | 支持     | 支持     |
+| delete                      | 支持 `blockBlob` 和 `appendBlob` | 支持     | 支持     |
 
 >[!NOTE]
 >如果在同一 Blob 中定义了多个操作，生命周期管理将对该 Blob 应用开销最低的操作。 例如，操作 `delete` 的开销比 `tierToArchive` 更低。 操作 `tierToArchive` 的开销比 `tierToCool` 更低。
 
-运行条件基于期限。 基本 Blob 使用上次修改时间来跟踪陈旧程度，Blob 快照使用快照创建时间来跟踪陈旧程度。
+运行条件基于期限。 基本 blob 使用上一次修改时间，blob 版本使用版本创建时间，blob 快照使用快照创建时间跟踪时间。
 
 | 操作运行条件               | 条件值                          | 说明                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | 指示陈旧程度（天）的整数值 | 基本 Blob 操作的条件                                              |
-| daysAfterCreationGreaterThan       | 指示陈旧程度（天）的整数值 | Blob 快照操作的条件                                          |
+| daysAfterCreationGreaterThan       | 指示陈旧程度（天）的整数值 | Blob 版本和 blob 快照操作的条件                         |
 | daysAfterLastAccessTimeGreaterThan | 指示陈旧程度（天）的整数值 |  (预览) 启用 "上次访问时间" 时的基本 blob 操作的条件 |
 
 ## <a name="examples"></a>示例
@@ -513,26 +526,35 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 }
 ```
 
-### <a name="delete-old-snapshots"></a>删除旧快照
+### <a name="manage-versions"></a>管理版本
 
-对于在整个生存期内频繁修改和访问的数据，通常会使用快照来跟踪数据的旧版本。 可以创建一个策略，用于根据快照的陈旧程度删除旧快照。 可通过评估快照创建时间来确定快照的陈旧程度。 此策略规则删除容器 `activedata` 中自创建快照后达到或超过 90 天的块 Blob 快照。
+对于在其整个生存期内定期修改和访问的数据，您可以启用 Blob 存储版本控制来自动维护对象的以前版本。 你可以创建策略以分层或删除以前的版本。 版本期限通过评估版本创建时间来确定。 此策略规则将以前版本的容器中的以前版本 `activedata` 分为90天或更早的版本，以将其版本创建到冷层，并删除以前版本365天或更低的版本。
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: 23381a45d045e8f96e989bce9f52d627f5a88255
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b9b3b30592237e1bbe1b08b0ed1d118131b15a26
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979064"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206044"
 ---
 # <a name="what-are-the-azure-iot-support-and-help-options"></a>Azure IoT 支持和帮助选项有哪些？
 
@@ -31,21 +31,21 @@ ms.locfileid: "91979064"
 
 ## <a name="post-a-question-on-microsoft-qa"></a>在 Microsoft 问答上发布问题
 
-要快速从 Microsoft 工程师、Azure 最有价值专家 (MVP) 或我们的专家社区那里获得技术产品问题的可靠答案，请在 [Microsoft 问答](https://aka.ms/azureqa)上与我们联系 - 这是 Azure 的首选社区支持位置。 
+要快速从 Microsoft 工程师、Azure 最有价值专家 (MVP) 或我们的专家社区那里获得技术产品问题的可靠答案，请在 [Microsoft 问答](/answers/products/azure)上与我们联系 - 这是 Azure 的首选社区支持位置。 
 
 如果通过搜索未找到你的问题的解答，请在 Microsoft 问答中提交新问题。 提问时，请使用以下标记之一：
 
-- [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
-- [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
-- [Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
-- [Azure IoT 中心](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
-- [Azure IoT 中心设备预配服务 (DPS)](https://docs.microsoft.com/answers/topics/azure-iot-dps.html)
-- [Azure IoT SDK](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html)
-- [Azure 数字孪生](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
-- [Azure RTOS](https://docs.microsoft.com/answers/topics/azure-rtos.html)
-- [Azure Sphere](https://docs.microsoft.com/answers/topics/azure-sphere.html)
-- [Azure 时序见解](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
-- [Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Azure IoT](/answers/topics/azure-iot.html)
+- [Azure IoT Central](/answers/topics/azure-iot-central.html)
+- [Azure IoT Edge](/answers/topics/azure-iot-edge.html)
+- [Azure IoT 中心](/answers/topics/azure-iot-hub.html)
+- [Azure IoT 中心设备预配服务 (DPS)](/answers/topics/azure-iot-dps.html)
+- [Azure IoT SDK](/answers/topics/azure-iot-sdk.html)
+- [Azure 数字孪生](/answers/topics/azure-digital-twins.html)
+- [Azure RTOS](/answers/topics/azure-rtos.html)
+- [Azure Sphere](/answers/topics/azure-sphere.html)
+- [Azure 时序见解](/answers/topics/azure-time-series-insights.html)
+- [Azure Maps](/answers/topics/azure-maps.html)
 
 ## <a name="post-a-question-on-stack-overflow"></a>在 Stack Overflow 上提问
 

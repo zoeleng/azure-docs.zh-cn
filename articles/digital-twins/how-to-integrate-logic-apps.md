@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097518"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207540"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>使用自定义连接器与逻辑应用集成
 
@@ -40,16 +40,15 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 若要将 Azure 数字孪生实例连接到本文中的逻辑应用，需要已设置 **Azure 数字孪生实例** 。 
 
-首先，设置 Azure 数字孪生实例及所需的身份验证，以便能够使用它。 为此，请按照[如何：*设置实例和身份验证*](how-to-set-up-instance-portal.md)中的说明设置实例和身份验证。 根据你的首选体验，针对 [Azure 门户](how-to-set-up-instance-portal.md)、[CLI](how-to-set-up-instance-cli.md) 或[自动化 Cloud Shell 部署脚本示例](how-to-set-up-instance-scripted.md)提供了有关设置的文章。 所有版本的说明还包含用于验证是否已成功完成每个步骤并准备好继续使用新实例的步骤。
+首先， **设置 Azure 数字孪生实例** ，并设置所需的身份验证，以便能够使用它。 为此，请按照[如何：*设置实例和身份验证*](how-to-set-up-instance-portal.md)中的说明设置实例和身份验证。 根据你的首选体验，针对 [Azure 门户](how-to-set-up-instance-portal.md)、[CLI](how-to-set-up-instance-cli.md) 或[自动化 Cloud Shell 部署脚本示例](how-to-set-up-instance-scripted.md)提供了有关设置的文章。 所有版本的说明还包含用于验证是否已成功完成每个步骤并准备好继续使用新实例的步骤。
+* 设置 Azure 数字孪生实例后，需要实例的 **_主机名_** ([在 Azure 门户) 中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) 。
 
-在本教程中，你将在设置实例时需要多个值。 如果需要再次收集这些值，请使用下面的链接转至设置文章中的相应部分，以在 [Azure 门户](https://portal.azure.com)中找到这些值。
-* Azure 数字孪生实例主机名（[在门户中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)）
-* Azure AD 应用注册应用程序（客户端）ID（[在门户中查找](how-to-set-up-instance-portal.md#collect-important-values)）
-* Azure AD 应用注册目录（租户）ID（[在门户中查找](how-to-set-up-instance-portal.md#collect-important-values)）
+若要对 ADT 资源管理器应用程序进行身份验证，还需要设置 **应用程序注册**。 按照 [*如何：创建应用注册*](how-to-create-app-registration.md) 中的说明进行设置。 
+* 进行应用注册后，将需要注册的 **_应用程序 (客户端) id_** 和 **_目录 (租户) ID_** ([在 Azure 门户) 中查找](how-to-create-app-registration.md#collect-client-id-and-tenant-id) 。
 
 ### <a name="get-app-registration-client-secret"></a>获取应用注册客户端密钥
 
-还需要创建 Azure AD 应用注册的 **_客户端机密_** 。 为此，请导航到 Azure 门户中的 " [应用注册](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) " 页 (你可以使用此链接，或在门户搜索栏) 中查找它。 从列表中选择注册，以打开其详细信息。 
+还需要创建 Azure AD 应用注册的 **_客户端机密_** 。 为此，请导航到 Azure 门户中的 " [应用注册](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) " 页 (你可以使用此链接，或在门户搜索栏) 中查找它。 从列表中选择在上一部分中创建的注册，以便打开其详细信息。 
 
 从注册的菜单中点击 *证书和机密* ，然后选择 " *+ 新建客户端密钥*"。
 
