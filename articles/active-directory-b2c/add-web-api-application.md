@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385954"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214951"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>向 Azure Active Directory B2C 租户添加 Web API 应用程序
 
@@ -34,7 +34,7 @@ ms.locfileid: "85385954"
 1. 选择“注册”。
 1. 记录“应用程序(客户端) ID”，以便在 Web API 的代码中使用。
 
-如果有一个实现隐式授权流的应用程序（例如基于 JavaScript 的单页应用程序 (SPA)），可以通过执行以下步骤来启用此流：
+如果你有一个实现隐式授权流的应用程序（例如， [基于 JavaScript 的单页应用程序 (SPA) ](tutorial-register-spa.md)），则可以按照以下步骤启用此流：
 
 1. 在“管理”下，选择“身份验证”。 
 1. 在“隐式授权”下，选中“访问令牌”和“ID 令牌”复选框  。

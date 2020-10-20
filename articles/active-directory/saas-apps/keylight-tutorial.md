@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535741"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>教程：Azure Active Directory 与 LockPath Keylight 集成
 
@@ -133,15 +133,15 @@ ms.locfileid: "88535741"
 
     b. 在顶部菜单中，单击“人员”  ，并选择“Keylight 设置”  。
 
-    ![配置单一登录](./media/keylight-tutorial/401.png)
+    ![屏幕截图显示了处于选中状态的“人员”图标，并从下拉列表中选中了“Keylight 安装”。](./media/keylight-tutorial/401.png)
 
     c. 在左侧树视图中，单击“SAML”  。
 
-    ![配置单一登录](./media/keylight-tutorial/402.png)
+    ![屏幕截图显示在树状视图中处于选中状态的“S A M L”。](./media/keylight-tutorial/402.png)
 
     d. 在“SAML 设置”  对话框中，单击“编辑”  。
 
-    ![配置单一登录](./media/keylight-tutorial/404.png)
+    ![屏幕截图显示了“S A M L 设置”窗口，其中“编辑”按钮处于选中状态。](./media/keylight-tutorial/404.png)
 
 1. 在“编辑 SAML 设置”  对话框页上，执行以下步骤：
 

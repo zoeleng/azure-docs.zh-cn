@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964679"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221190"
 ---
 # <a name="unsupported-language-deployments"></a>不支持的语言部署
 
@@ -35,11 +35,11 @@ ms.locfileid: "85964679"
 ## <a name="process"></a>进程
 在迁移适用于部署的中心的模型后，可以转到工作区的 " **设置** " 页，滚动到页面末尾，其中显示了 **不受支持的翻译人员中心培训** 部分。  仅当你的项目满足上述先决条件时才会显示此部分。
 
-![如何从 Hub 迁移](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![突出显示了不受支持的翻译人员中心培训部分的屏幕截图。](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 在 **不受支持的翻译中心培训** 选择页中，"未 **请求的培训** " 选项卡包含可用于部署的模型。  选择要部署的模型并提交请求。   在部署截止时间4月30日之前，你可以选择想要部署的任意数量的模型。
  
-![如何从 Hub 迁移](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![显示 "未请求的培训" 选项卡的屏幕截图。](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 提交后，该模型将不再出现在 "未 **请求的培训** " 选项卡上，而会出现在 " **请求的培训** " 选项卡上。 你可以随时查看你请求的培训。
 

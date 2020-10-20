@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 125a823acc79143d9d6556e496f7728c718db089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cb0d9ff1074ba1a309cf4f5a8cad12f34335e435
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332541"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989749"
 ---
 适用于 .NET 的 Azure 内容审查器客户端库入门。 请按照以下步骤安装 NuGet 包并试用基本任务的示例代码。 
 
@@ -33,19 +33,24 @@ ms.locfileid: "91332541"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services/)
-* [.NET Core](https://dotnet.microsoft.com/download/dotnet-core) 的当前版本。
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 或最新版本的 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)。
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account"  title="创建 [产品名称] 资源"  target="_blank">创建内容审查器资源<span class="docon docon-navigate-external x-hidden-focus"></span></a>，以获取密钥和终结点。 等待其部署并单击“转到资源”按钮。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到内容审查器。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
 
-## <a name="create-a-content-moderator-resource"></a>创建内容审查器资源
+## <a name="setting-up"></a>设置
 
-Azure 认知服务由你订阅的 Azure 资源表示。 在本地计算机上使用 [Azure 门户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 创建内容审查器的资源。 也可执行以下操作：
+### <a name="create-a-new-c-application"></a>新建 C# 应用程序
 
-* 在 [Azure 门户](https://portal.azure.com/)上查看资源
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
 
-获取资源的密钥后，请为该密钥和终结点 URL [创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别命名为 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 和 `CONTENT_MODERATOR_ENDPOINT`。
+使用 Visual Studio 创建新的 .NET Core 应用程序。 
 
-## <a name="create-a-new-c-application"></a>新建 C# 应用程序
+### <a name="install-the-client-library"></a>安装客户端库 
 
-在首选文本编辑器或 IDE 中创建新的 .NET Core 应用程序。 
+创建新项目后，右键单击“解决方案资源管理器”中的项目解决方案，然后选择“管理 NuGet 包”，以安装客户端库 。 在打开的包管理器中，选择“浏览”，选中“包括预发行版”并搜索 `Microsoft.Azure.CognitiveServices.ContentModerator`。 选择版本 `2.0.0`，然后选择“安装”。 
+
+#### <a name="cli"></a>[CLI](#tab/cli)
 
 在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `content-moderator-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：*Program.cs*。
 
@@ -69,18 +74,7 @@ Build succeeded.
 ...
 ```
 
-在首选的编辑器或 IDE 中，从项目目录打开 *Program.cs* 文件。 添加以下 `using` 语句：
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
-
-在 Program 类中，为资源的终结点位置创建变量，并将密钥创建为环境变量。
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
-
-> [!NOTE]
-> 如果在启动应用程序后创建了环境变量，则需要关闭再重新打开运行该应用程序的编辑器、IDE 或 shell 才能访问该变量。
-
-## <a name="install-the-client-library"></a>安装客户端库
+### <a name="install-the-client-library"></a>安装客户端库 
 
 在应用程序目录中，通过以下命令安装适用于 .NET 的内容审查器客户端库：
 
@@ -88,7 +82,35 @@ Build succeeded.
 dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 2.0.0
 ```
 
-如果你使用的是 Visual Studio IDE，客户端库可用作可下载的 NuGet 包。
+---
+
+> [!TIP]
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs) 上找到它，其中包含此快速入门中的代码示例。
+
+在首选的编辑器或 IDE 中，从项目目录打开 *Program.cs* 文件。 添加以下 `using` 语句：
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
+
+在“Program”类中，为资源的密钥和终结点创建变量。
+
+> [!IMPORTANT]
+> 转到 Azure 门户。 如果在“先决条件”部分中创建的内容审查器资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
+>
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
+
+
+在应用程序的 `main()` 方法中，添加对本快速入门中使用的方法的调用。 稍后将创建这些内容。
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_client)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_call)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_call)]
+
 
 ## <a name="object-model"></a>对象模型
 
@@ -112,9 +134,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 
 
 ## <a name="authenticate-the-client"></a>验证客户端
 
-在新方法中，使用终结点和密钥实例化客户端对象。 无需为每种方案都使用不同的客户端，但这有助于使代码保持条理性。
+在新方法中，使用终结点和密钥实例化客户端对象。
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_auth)]
 
 ## <a name="moderate-text"></a>审查文本
 
@@ -129,9 +151,6 @@ Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255,
 Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
-将以下方法调用添加到 `Main` 方法：
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
 然后在 Program 类中的某个位置定义文本审查方法：
 
@@ -146,7 +165,7 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 ### <a name="get-sample-images"></a>获取示例图像
 
-定义输入和输出文件：
+在“Program”类的根中，定义输入和输出文件：
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_image_vars)]
 
@@ -156,10 +175,6 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
-
-将输入和输出文件传递到 `Main` 方法的以下方法调用中。 你将在以后的步骤中定义此方法。
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_call)]
 
 ### <a name="define-helper-class"></a>使用帮助器类
 
@@ -189,9 +204,7 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 可使用内容审查器 .NET 客户端库将内容馈送到[评审工具](https://contentmoderator.cognitive.microsoft.com)，使审查人员可以评审该内容。 若要详细了解评审工具，请参阅[评审工具概念指南](../../review-tool-user-guide/human-in-the-loop.md)。
 
-本节中的方法使用 [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) 类以创建评审、检索评审 ID，并在通过评审工具的 Web 门户收到人工输入后检查评审详细信息。 它会将所有这些信息记录到输出文本文件中。 从 `Main` 方法中调用方法：
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_call)]
+本节中的方法使用 [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) 类以创建评审、检索评审 ID，并在通过评审工具的 Web 门户收到人工输入后检查评审详细信息。 它会将所有这些信息记录到输出文本文件中。 
 
 ### <a name="get-sample-images"></a>获取示例图像
 
@@ -257,17 +270,25 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 ## <a name="run-the-application"></a>运行应用程序
 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+单击 IDE 窗口顶部的“调试”按钮，运行应用程序。
+
+#### <a name="cli"></a>[CLI](#tab/cli)
+
 从应用程序目录使用 `dotnet run` 命令运行应用程序。
 
 ```dotnet
-dotnet run 
+dotnet run
 ```
+
+---
 
 ## <a name="clean-up-resources"></a>清理资源
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [门户](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤

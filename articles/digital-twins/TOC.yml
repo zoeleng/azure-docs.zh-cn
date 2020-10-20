@@ -193,7 +193,7 @@
       items:
         - name: 设备模拟器服务
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
-        - name: Azure 数字孪生示例
+        - name: Azure 数字孪生端到端示例
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Azure 数字孪生资源管理器（示例）
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
@@ -201,10 +201,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DPS 和 IoT 中心集成示例
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: 逻辑应用连接器的 Azure 数字孪生自定义 Swagger
-          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: SignalR 集成示例
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+        - name: 逻辑应用连接器的 Azure 数字孪生自定义 Swagger
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: Azure 工具
       items:
         - name: Azure Cloud Shell

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 8e92c893d97ce9fadfa2d40476631c2b9ba5d177
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999264"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018264"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 安全中心数据安全性
 
@@ -57,19 +57,19 @@ Log Analytics 代理扫描各种安全相关配置和事件，并将其收集到
 
 可以指定存储从计算机收集的数据的工作区和区域。 默认将从计算机中收集的数据存储在最近的工作区中，如下表所示：
 
-| VM 地区                              | 工作区地区 |
-|-------------------------------------|---------------|
-| 美国、巴西、南非 | United States |
-| Canada                              | Canada        |
-| 欧洲（不包括英国）   | 欧洲        |
-| United Kingdom                      | United Kingdom |
-| 亚洲（不包括印度、日本、韩国、中国）   | 亚太区  |
-| 韩国                              | 亚太区  |
-| 印度                               | 印度         |
-| 日本                               | 日本         |
-| 中国                               | 中国         |
-| 澳大利亚                           | 澳大利亚     |
-|||
+| VM 地区                                      | 工作区地区  |
+|---------------------------------------------|----------------|
+| 美国、巴西、南非         | United States  |
+| Canada                                      | Canada         |
+| 欧洲（不包括英国）           | 欧洲         |
+| United Kingdom                              | United Kingdom |
+| 亚洲（不包括印度、日本、韩国、中国） | 亚太区   |
+| 韩国                                       | 亚太区   |
+| 印度                                       | 印度          |
+| 日本                                       | 日本          |
+| 中国                                       | 中国          |
+| 澳大利亚                                   | 澳大利亚      |
+|                                             |                |
 
 > [!NOTE]
 > 适用于存储的 Azure Defender 根据相关 Azure 资源的位置按区域存储项目。 有关详细信息，请参阅[适用于存储的 Azure Defender 简介](defender-for-storage-introduction.md)。
@@ -80,18 +80,16 @@ Log Analytics 代理扫描各种安全相关配置和事件，并将其收集到
 客户可以从以下数据流访问安全中心相关数据：
 
 
-|Stream  |数据类型  |
-|---------|---------|
-|[Azure 活动日志](../azure-monitor/platform/activity-log.md)| 所有安全警报、经审核的安全中心[实时](security-center-just-in-time.md)访问请求，以及由[自适应应用程序控制](security-center-adaptive-application.md)生成的所有警报 |
-|[Azure Monitor 日志](../azure-monitor/platform/data-platform.md)|所有安全警报。|
-|[Azure Resource Graph](../governance/resource-graph/overview.md)|安全警报、安全建议、漏洞评估结果、安全分数信息、合规性检查的状态等。|
-|[Azure 安全中心 REST API](https://docs.microsoft.com/rest/api/securitycenter/)|安全警报、安全建议等。 .|
-|||
+| Stream                                                                                | 数据类型                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure 活动日志](../azure-monitor/platform/activity-log.md)                       | 所有安全警报、经审核的安全中心[实时](security-center-just-in-time.md)访问请求，以及由[自适应应用程序控制](security-center-adaptive-application.md)生成的所有警报。|
+| [Azure Monitor 日志](../azure-monitor/platform/data-platform.md)                      | 所有安全警报。                                                                                                                                                                                                |
+| [Azure Resource Graph](../governance/resource-graph/overview.md)                      | 安全警报、安全建议、漏洞评估结果、安全分数信息、合规性检查的状态等。                                                                       |
+| [Azure 安全中心 REST API](https://docs.microsoft.com/rest/api/securitycenter/) | 安全警报、安全建议等。                                                                                                                                                                |
+|                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>后续步骤
 
 本文档介绍如何在 Azure 安全中心管理数据和确保数据安全性。 
 
-若要详细了解 Azure 安全中心，请参阅：
-
-- [什么是 Azure 安全中心？](security-center-introduction.md)
+若要详细了解 Azure 安全中心，请参阅[什么是 Azure 安全中心？](security-center-introduction.md)

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045393"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218249"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>在 Visual Studio 中使用作业关系图在本地调试 Azure 流分析查询
 
@@ -87,7 +87,7 @@ ms.locfileid: "86045393"
   
 #### <a name="output-sinks-live-output"></a>输出接收器（实时输出）
 
-![作业关系图 - 本地输出接收器](./media/debug-locally-using-job-diagram/live-output.png)
+![显示本地输出接收器的作业关系图。](./media/debug-locally-using-job-diagram/live-output.png)
 
 |指标|说明|
 |-|-|

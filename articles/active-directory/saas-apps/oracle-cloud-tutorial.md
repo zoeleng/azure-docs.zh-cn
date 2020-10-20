@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7a0da85aeba1a9736884a6b8b345efd3f0a8544c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543833"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996546"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>教程：将 Oracle Cloud Infrastructure Console 与 Azure Active Directory 集成
 
@@ -101,7 +101,7 @@ ms.locfileid: "88543833"
 
 1. Oracle Cloud Infrastructure Console 应用程序需要特定格式的 SAML 断言，因此，需要在 SAML 令牌属性配置中添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。 单击“编辑”图标以打开“用户属性”对话框  。
 
-   ![image](common/edit-attribute.png)
+   ![屏幕截图显示“用户属性”对话框，已选择其右上角的“编辑”图标。](common/edit-attribute.png)
 
 1. 除上述属性以外，Oracle Cloud Infrastructure Console 应用程序还要求在 SAML 响应中传回其他几个属性。 在“组声明(预览)”对话框中的“用户属性和声明”部分，执行以下步骤   ：
 
@@ -111,9 +111,9 @@ ms.locfileid: "88543833"
  
    1. 单击“ **保存**”。
 
-      ![image](./media/oracle-cloud-tutorial/config07.png)
+      ![屏幕截图显示“用户属性和声明”部分，其中突出显示“名称标识符值”和“声明中返回的组”的“编辑”图标。](./media/oracle-cloud-tutorial/config07.png)
     
-      ![image](./media/oracle-cloud-tutorial/config11.png)
+      ![屏幕截图显示选择了“持久性”和“保存”按钮的“管理用户声明”对话框。](./media/oracle-cloud-tutorial/config11.png)
 
    1. 单击“声明中返回的组”旁边的**笔**。 
 
@@ -173,15 +173,15 @@ ms.locfileid: "88543833"
 
 1. 单击菜单左侧，单击“标识”，然后导航到“联合身份验证”   。
 
-   ![配置](./media/oracle-cloud-tutorial/config01.png)
+   ![屏幕截图显示从左上角的菜单中选择了“标识”和“联合”的“Oracle Cloud 基础结构控制台”。](./media/oracle-cloud-tutorial/config01.png)
 
 1. 通过单击“下载此文档”链接保存“服务提供程序元数据文件”，将该文件上传到 Azure 门户的“基本 SAML 配置”部分，然后单击“添加标识提供者”     。
 
-   ![配置](./media/oracle-cloud-tutorial/config02.png)
+   ![屏幕截图显示从左侧菜单中选择了“联合”，并选择了“添加标识提供程序”按钮和“下载此文档”操作。](./media/oracle-cloud-tutorial/config02.png)
 
 1. 在“添加标识提供者”弹出窗口中，执行以下步骤  ：
 
-   ![配置](./media/oracle-cloud-tutorial/config03.png)
+   ![屏幕截图显示“添加标识提供程序”弹出窗口。](./media/oracle-cloud-tutorial/config03.png)
 
    1. 在“名称”文本框中，输入名称  。
 
@@ -193,7 +193,7 @@ ms.locfileid: "88543833"
 
    1. 单击“继续”，并在“编辑标识提供者”部分执行以下步骤   ：
 
-      ![配置](./media/oracle-cloud-tutorial/config09.png)
+      ![屏幕截图显示“编辑标识提供程序”部分，其中突出显示了“标识提供程序组”、“OCI 组”、“添加映射”和“提交”按钮。](./media/oracle-cloud-tutorial/config09.png)
 
    1. “标识提供者组”  应选为“自定义组”。 “组 ID”应为 Azure Active Directory 中的组的 GUID。 此组需要与“OCI 组”字段中的相应组建立映射  。
 

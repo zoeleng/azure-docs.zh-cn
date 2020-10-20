@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553969"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>教程：Azure Active Directory 与 Percolate 的集成
 
@@ -103,7 +103,7 @@ ms.locfileid: "88553969"
 
 5. 如果要在 SP 发起的模式下配置应用程序，请选择“设置其他 URL”，然后在“登录 URL”框中输入 https://percolate.com/app/login    ：
 
-   ![Percolate 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+   ![屏幕截图显示已选择“设置附加 URL”部分，其中突出显示了“登录 URL”文本框。](common/metadata-upload-additional-signon.png)
 6. 在“设置 SAML 单一登录”页上的“SAML 签名证书”部分，选择“复制”图标，以复制“应用联合元数据 URL”     。 保存此 URL。
 
     ![复制应用联合元数据 URL](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ ms.locfileid: "88553969"
 
 3. 在左窗格中选择“用户和组”： 
 
-    ![选择“用户和组”](common/users-groups-blade.png)
+    ![屏幕截图显示已从左窗格中选择“用户和组”。](common/users-groups-blade.png)
 
 4. 选择“添加用户”，然后在“添加分配”对话框中选择“用户和组”。   
 

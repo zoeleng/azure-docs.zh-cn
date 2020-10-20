@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547097"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850721"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>教程：Azure Active Directory 与 Jive 的单一登录 (SSO) 集成
 
@@ -140,7 +140,7 @@ ms.locfileid: "88547097"
 
 1. 在顶部菜单中，单击“SAML”。
 
-    ![在应用端配置单一登录](./media/jive-tutorial/tutorial_jive_002.png)
+    ![屏幕截图显示选择了“已启用”的“SAML”选项卡。](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. 在“常规”选项卡下选择“已启用”。
 
@@ -148,7 +148,7 @@ ms.locfileid: "88547097"
 
 1. 导航到“IDP 元数据”选项卡。
 
-    ![在应用端配置单一登录](./media/jive-tutorial/tutorial_jive_003.png)
+    ![屏幕截图显示选择了“IDP 元数据”的“SAML”选项卡。](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. 复制下载的元数据 XML 文件的内容，并将其粘贴到“标识提供者(IDP)元数据”文本框中。
 
@@ -156,7 +156,7 @@ ms.locfileid: "88547097"
 
 1. 选择“用户属性映射”选项卡。
 
-    ![在应用端配置单一登录](./media/jive-tutorial/tutorial_jive_004.png)
+    ![屏幕截图显示选择了“用户属性映射”的“SAML”选项卡。](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. 在“电子邮件”文本框中，复制并粘贴“mail”值的属性名称。
 

@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus，aro，openshift，指标，red hat
-ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80886882"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218606"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>在 Azure Red Hat OpenShift 群集中部署独立的 Prometheus 实例
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 将在年6月 30 2022 日停用。 支持创建新的 Azure Red Hat OpenShift 3.11 群集持续到30年 11 2020 月30日。 停用后，剩余的 Azure Red Hat OpenShift 3.11 群集将关闭，以防出现安全漏洞。
+> 
+> 按照本指南 [创建 Azure Red Hat OpenShift 4 群集](tutorial-create-cluster.md)。
+> 如果有特定问题， [请](mailto:arofeedback@microsoft.com)联系我们。
 
 本文介绍如何配置一个独立的 Prometheus 实例，该实例使用 Azure Red Hat OpenShift 群集中的服务发现。
 

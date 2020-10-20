@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fe7e0d43050120daa017669a96e90f96b873530
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 39f2f592601f60f060cce8ded2b5303dc6b10e8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543782"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>教程：Azure Active Directory 与 Origami 的集成
 
@@ -126,11 +126,11 @@ ms.locfileid: "88543782"
 
 2. 在顶部菜单中，单击“管理员”。 
    
-    ![配置单一登录](./media/origami-tutorial/tutorial_origami_51.png)
+    ![显示已选择“管理员”的 Origami 主页的屏幕截图。](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. 在“单一登录设置”对话框页上，执行以下步骤：
    
-    ![配置单一登录](./media/origami-tutorial/tutorial_origami_531.png)
+    ![显示“单一登录设置”页的屏幕截图，其中选择了“启用单一登录”并突出显示了文本框。](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. 选择“启用单一登录”。 
 
@@ -201,19 +201,19 @@ ms.locfileid: "88543782"
 
 2. 在顶部菜单中，单击“管理员”。 
    
-    ![配置单一登录](./media/origami-tutorial/tutorial_origami_51.png)
+    ![显示已选择“管理员”的 Origami 帐户主页的屏幕截图。](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. 在“用户和安全”对话框中，单击“用户”。  
    
-    ![配置单一登录](./media/origami-tutorial/tutorial_origami_54.png)
+    ![显示选中了“用户”的“用户和安全”对话框的屏幕截图。](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. 单击“添加新用户”。 
    
-    ![配置单一登录](./media/origami-tutorial/tutorial_origami_55.png)
+    ![显示选中了“添加新用户”按钮的屏幕截图。](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. 在“添加新用户”对话框中，执行以下步骤：
    
-    ![配置单一登录](./media/origami-tutorial/tutorial_origami_56.png)
+    ![显示“添加新用户”对话框的屏幕截图，其中突出显示了“用户名”、“名字”、“姓氏”文本框。](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. 在“用户名”文本框中，输入用户的电子邮件，例如 **brittasimon\@contoso.com**。
 
@@ -227,7 +227,7 @@ ms.locfileid: "88543782"
 
     f. 单击“保存”  。
    
-    ![配置单一登录](./media/origami-tutorial/tutorial_origami_57.png)
+    ![显示已选择“保存”按钮的屏幕截图。](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. 向用户分配“用户角色”和“客户端访问权限”。   
    

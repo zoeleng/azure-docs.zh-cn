@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 05ec19fd2351b3a9ac1f383ce4747404eeead936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2bad99a836da7aab64e8cc0d454423fd56ffce1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067818"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217773"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用存储过程活动运行 SSIS 包
 
@@ -95,7 +95,7 @@ ms.locfileid: "89067818"
     7. 单击“测试连接”按钮，测试与数据库之间的连接。
     8. 单击“保存”按钮保存链接服务。 
 
-        ![Azure SQL 数据库链接服务](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![显示用于添加新的链接服务的过程的屏幕截图。](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. 在属性窗口中，从“SQL 帐户”选项卡切换到“存储过程”选项卡，然后执行以下步骤： 
 
     1. 选择“编辑”。 

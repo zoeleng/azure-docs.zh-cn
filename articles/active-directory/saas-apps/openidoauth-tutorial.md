@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705616"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996622"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>从 Azure AD 应用库配置 OpenID/OAuth 应用程序
 
@@ -99,19 +99,19 @@ ms.locfileid: "90705616"
 
     a. 单击菜单左侧的“应用注册”  ，然后在搜索框中键入应用程序名称以打开应用程序。
 
-    ![图形 API](./media/openidoauth-tutorial/application.png)
+    ![屏幕截图显示从左侧菜单中选择了“应用注册”，并突出显示了“应用程序 ID”搜索框。](./media/openidoauth-tutorial/application.png)
 
     b. 单击“查看 API 权限”  。
 
-    ![图形 API](./media/openidoauth-tutorial/api-permission.png)
+    ![屏幕截图显示“调用 API”页面，其中选择了“查看 API 权限”按钮。](./media/openidoauth-tutorial/api-permission.png)
 
     c. 单击“添加权限”  。
 
-    ![图形 API](./media/openidoauth-tutorial/add-permission.png)
+    ![屏幕截图显示“API 权限”部分，其中选择了“添加权限”按钮。](./media/openidoauth-tutorial/add-permission.png)
 
     d. 单击“Microsoft Graph”  。
 
-    ![图形 API](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![屏幕截图显示“请求 API 权限”页面，其中选择了“Microsoft API”选项卡和“Microsoft Graph”磁贴。](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. 从“委托的权限”  和  “应用程序权限”中选择所需的选项。
 

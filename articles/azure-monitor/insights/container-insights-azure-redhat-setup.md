@@ -3,14 +3,23 @@ title: 为容器 Azure Monitor 配置 Azure Red Hat OpenShift v3. x |Microsoft D
 description: 本文介绍如何使用 Azure Red Hat OpenShift 版本3和更高版本上托管 Azure Monitor 来配置监视 Kubernetes 群集。
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 4e1770944fa1917bc94dfbf1a3daa0708593e356
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994558"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216362"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>配置适用于容器 Azure Monitor 的 Azure Red Hat OpenShift v3 
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>配置适用于容器 Azure Monitor 的 Azure Red Hat OpenShift v3
+
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 6 2022 月将停用。
+>
+> 从10月2020起，你将无法再创建新的3.11 群集。
+> 现有3.11 群集将继续运行，直到6月2022，但在该日期之后将不再受支持。
+>
+> 按照本指南 [创建 Azure Red Hat OpenShift 4 群集](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster)。
+> 如果有特定问题， [请](mailto:aro-feedback@microsoft.com)联系我们。
 
 容器 Azure Monitor 为 Azure Kubernetes 服务提供丰富的监视体验 (AKS) 和 AKS Engine 群集。 本文介绍如何启用对 [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 版本3中托管的 Kubernetes 群集和版本3的最新支持版本的监视，以实现类似的监视体验。
 
@@ -159,7 +168,7 @@ ms.locfileid: "91994558"
 
 ### <a name="from-the-azure-portal"></a>通过 Azure 门户
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 
 2. 在 "Azure 门户" 菜单或从 "主页" 中，选择 " **Azure Monitor**"。 在“见解”部分，选择“容器”。 
 

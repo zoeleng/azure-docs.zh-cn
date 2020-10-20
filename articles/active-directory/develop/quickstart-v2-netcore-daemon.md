@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bf9a2232a04b929d716d3b2412f1b2c666b29f62
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e1df230a49ca5483d0ab091da11530786c829ca8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767284"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042637"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>快速入门：使用控制台应用的标识获取令牌并调用 Microsoft Graph API
 
@@ -73,15 +73,13 @@ ms.locfileid: "91767284"
 
 > [!div renderon="docs"]
 > [下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
-
-> [!div renderon="docs"]
-> > [!NOTE]
-> > 可在 Visual Studio 或 Visual Studio for Mac 中运行所提供的项目
+>
+> 可在 Visual Studio 或 Visual Studio for Mac 中运行所提供的项目。
 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 使用 Visual Studio 2019 运行项目。
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [下载代码示例](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

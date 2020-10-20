@@ -1,18 +1,16 @@
 ---
 title: 使用针对 Visual Studio Code 的 Azure Data Lake 工具
 description: 了解如何使用针对 Visual Studio Code 的 Azure Data Lake 工具创建、测试和运行 U-SQL 脚本。
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87126476"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221241"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>使用针对 Visual Studio Code 的 Azure Data Lake 工具
 
@@ -20,7 +18,7 @@ ms.locfileid: "87126476"
 
 [![视频播放器： VS Code Azure Data Lake 工具](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)](https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode")
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 适用于 VS Code 的 Azure Data Lake 工具支持 Windows、Linux 和 macOS。U-SQL 本地运行和本地调试仅适用于 Windows。
 
@@ -146,7 +144,7 @@ Azure Data Lake 工具支持多种自定义代码。 有关说明，请参阅[�
 
 ## <a name="work-with-assemblies"></a>处理程序集
 
-有关开发程序集的信息，请参阅[为 Azure Data Lake Analytics 作业开发 U-SQL 程序集](data-lake-analytics-u-sql-develop-assemblies.md)。
+有关开发程序集的信息，请参阅[为 Azure Data Lake Analytics 作业开发 U-SQL 程序集]()。
 
 可以使用 Data Lake 工具在 Data Lake Analytics 目录中注册自定义代码程序集。
 

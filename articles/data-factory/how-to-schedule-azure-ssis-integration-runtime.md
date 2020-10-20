@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187245"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219439"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>如何按计划启动和停止 Azure-SSIS Integration Runtime
 
@@ -149,7 +149,7 @@ ms.locfileid: "86187245"
 
 1. 在管道工具栏上，依次选择“触发器”、“新建/编辑”   。 
 
-   ![“触发器”->“新建/编辑”](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![突出显示触发器 > 新建/编辑菜单选项的屏幕截图。](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. 在“添加触发器”窗格中，选择“+ 新建”   。
 
@@ -220,7 +220,7 @@ ms.locfileid: "86187245"
 2. 登录到 [Azure 门户](https://portal.azure.com/)。    
 3. 在左侧菜单中选择“新建”，然后依次选择“监视 + 管理”、“自动化”。************ 
 
-   ![“新建”->“监视 + 管理”->“自动化”](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![突出显示监视 + 管理 > 自动化选项的屏幕截图。](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. 在“添加自动化帐户”窗格中，执行以下操作****。
 
@@ -262,7 +262,7 @@ ms.locfileid: "86187245"
 
 1. 切换到“Runbook”选项卡，在工具栏中选择“+ 添加 Runbook”********。 
 
-   ![“添加 Runbook”按钮](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![突出显示 "+ 添加 runbook" 按钮的屏幕截图。](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. 选择“创建新的 Runbook”并执行以下操作：**** 
 
@@ -345,7 +345,7 @@ ms.locfileid: "86187245"
    
 6. 在作业窗口中，选择“输出”磁贴。**** 在输出窗口中，等到依次出现消息“##### 正在启动 #####”和“##### 已完成 #####”********。 启动 Azure SSIS IR 大约需要 20 分钟。 关闭“作业”窗口并返回到“Runbook”窗口********。
 
-   ![Azure SSIS IR - 已启动](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![突出显示 "输出" 磁贴的屏幕截图。](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. 重复上述两个步骤，但这一次要使用“停止”作为“操作”的值********。 选择工具栏上的“开始”按钮，再次启动 Runbook****。 输入资源组、ADF 和 Azure-SSIS IR 名称。 对于“操作”，请输入“停止”。******** 在输出窗口中，等到依次出现消息“##### 正在停止 #####”和“##### 已完成 #####”********。 停止 Azure SSIS IR 所需的时间比启动 Azure SSIS IR 要短一些。 关闭“作业”窗口并返回到“Runbook”窗口********。
 
@@ -373,7 +373,7 @@ ms.locfileid: "86187245"
     
 3. 切换到“参数和运行设置”选项卡。指定资源组、ADF 和 Azure-SSIS IR 名称。 对于“操作”，请输入“启动”并选择“确定”************。 再次选择“确定”，在 Runbook 的“计划”页上查看该计划********。 
 
-   ![计划启动 Azure SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![突出显示操作字段的屏幕截图。](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. 重复上述两个步骤，创建名为“每日停止 IR”的计划。**** 输入时间比“每日启动 IR”计划中指定的时间至少晚 30 分钟****。 对于“操作”，请输入“停止”并选择“确定”************。 再次选择“确定”，在 Runbook 的“计划”页上查看该计划********。 
 

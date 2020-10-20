@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 9f136248b93283b02824ead7f34886a056ae0a33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 72420019ead1ae47054ae62197d8cc310063a6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762053"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969766"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>快速入门：使用表单识别器 REST API 和 Python 提取文本和布局信息
 
@@ -27,7 +27,7 @@ ms.locfileid: "91762053"
 
 若要完成本快速入门，必须具备以下条件：
 - 安装 [Python](https://www.python.org/downloads/)（若要在本地运行此示例）。
-- 表单文档。 可以从本快速入门的[示例数据集](https://go.microsoft.com/fwlink/?linkid=2090451)中下载图像。
+- 表单文档。 对于此快速入门，可从[示例数据集](https://go.microsoft.com/fwlink/?linkid=2090451)下载图像（下载并提取 sample_data.zip）。
 
 > [!NOTE]
 > 此快速入门使用本地存储的文档。 若要了解如何使用通过 URL 访问的远程文件，请参阅[参考文档](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)。

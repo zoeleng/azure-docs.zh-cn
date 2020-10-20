@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 2128559d8074281c1019d99e1316da34c7ec6797
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed3d5de27a2d9ce5060ff4bfe71c595512658e58
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554594"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940610"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>教程：Azure Active Directory 单一登录 (SSO) 与 monday.com 的集成
 
@@ -88,14 +88,14 @@ ms.locfileid: "88554594"
 
     c. 成功上传元数据文件后，“标识符”和“回复 URL”值会自动填充在“基本 SAML 配置”部分。  
 
-    ![image](common/idp-intiated.png)
+    ![显示“基本 SAML 配置”的屏幕截图，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     > [!Note]
     > 如果“标识符”和“回复 URL”值未自动填充，请手动填充这些值。   “标识符”和“回复 URL”相同，值采用以下模式：`https://<your-domain>.monday.com/saml/saml_callback`  
 
 1. 如果要在 SP  发起的模式下配置应用程序，请单击“设置其他 URL”  ，并执行以下步骤：
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://<YOUR_DOMAIN>.monday.com`
 
@@ -104,7 +104,7 @@ ms.locfileid: "88554594"
 
 1. monday.com 应用程序需要特定格式的 SAML 断言，这要求向 SAML 令牌属性配置添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。
 
-    ![image](common/default-attributes.png)
+    ![屏幕截图显示具有默认值的“用户属性和声明”（如 Givenname user.givenname 和 Emailaddress User.mail）。](common/default-attributes.png)
 
 1. 除了上述属性，monday.com 应用程序还要求在 SAML 响应中传递回更多的属性，如下所示。 这些属性也是预先填充的，但可以根据要求查看它们。
 
@@ -166,15 +166,15 @@ ms.locfileid: "88554594"
 
 1. 转到页面右上角的“配置文件”，然后单击“管理员”   。
 
-    ![monday.com 配置](./media/mondaycom-tutorial/configuration01.png)
+    ![屏幕截图显示选择了“管理员配置文件”。](./media/mondaycom-tutorial/configuration01.png)
 
 1. 选择“安全性”，并确保单击“SAML”旁边的“打开”   。
 
-    ![monday.com 配置](./media/mondaycom-tutorial/configuration02.png)
+    ![屏幕截图显示了“安全”选项卡，SAML 旁边带有“打开”选项。](./media/mondaycom-tutorial/configuration02.png)
 
 1. 填写 IDP 中的以下详细信息。
 
-    ![monday.com 配置](./media/mondaycom-tutorial/configuration03.png)
+    ![屏幕截图显示了“SAML 提供程序”，你可以在其中输入来自 IDP 的信息。](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > 有关更多详细信息，请参阅[此文](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642)

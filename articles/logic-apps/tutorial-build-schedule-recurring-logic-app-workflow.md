@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: 3bf4ad12bab3e71675ff35203bf69526b3b8614f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574511"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842557"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>教程：使用 Azure 逻辑应用创建基于计划的、定期执行的自动化工作流
 
@@ -360,18 +360,18 @@ ms.locfileid: "91574511"
 
 1. 在 Azure 门户的搜索框中，输入你创建的资源组的名称。 从结果中的“资源组”下，选择该资源组。
 
-   此示例创建一个名为 `LA-TravelTime-RG` 的资源组。 
+   此示例创建一个名为 `LA-TravelTime-RG` 的资源组。
 
    ![屏幕截图显示了 Azure 搜索框，其中输入了“la-travel-time-rg”并选择了“LA-TravelTime-RG”。****](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
    > [!TIP]
    > 如果 Azure 主页在“最近的资源”下显示了该资源组，则可以从主页中选择该组。
 
-1. 在资源组菜单上，检查是否已选中“概览”。 在“概览”窗格的工具栏上，选择“删除资源组”。 
+1. 在资源组菜单上，检查是否已选中“概览”。 在“概览”窗格的工具栏上，选择“删除资源组”。
 
    ![屏幕截图显示了资源组的“概览”窗格，并在窗格的工具栏上选择了“删除资源组”。](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. 在确认窗格中，输入资源组名称，然后选择“删除”。
+1. 出现确认窗格时，输入资源组名称，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

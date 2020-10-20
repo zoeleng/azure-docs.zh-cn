@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 602babb3544093b7cd7c5b30ce4f4612148591cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315569"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216906"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>对 ParallelRunStep 进行调试和故障排除
 
@@ -25,7 +25,7 @@ ms.locfileid: "91315569"
 
 ## <a name="testing-scripts-locally"></a>在本地测试脚本
 
-有关机器学习管道的信息，请参阅[在本地测试脚本部分](how-to-debug-pipelines.md#debug-scripts-locally)。 ParallelRunStep 作为 ML 管道中的一个步骤运行，因此相同的答案对两种情况均适用。
+有关机器学习管道的信息，请参阅[在本地测试脚本部分](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines)。 ParallelRunStep 作为 ML 管道中的一个步骤运行，因此相同的答案对两种情况均适用。
 
 ## <a name="debugging-scripts-from-remote-context"></a>从远程上下文调试脚本
 
@@ -141,6 +141,8 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
+* 请参阅以下 [演示 Azure 机器学习管道的 Jupyter 笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
 * 请查看 SDK 参考，获取有关 [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) 包的帮助。 查看 ParallelRunStep 类的参考[文档](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true)。
 

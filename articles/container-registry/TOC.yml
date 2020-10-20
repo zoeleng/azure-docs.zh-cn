@@ -120,6 +120,7 @@
                   href: container-registry-repository-scoped-permissions.md
             - name: Azure 基于角色的访问控制
               href: container-registry-roles.md
+              displayName: 'permissions, authorization'
             - name: 内容信任
               href: container-registry-content-trust.md
             - name: 通过安全中心扫描映像

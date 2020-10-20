@@ -6,16 +6,22 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469977"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221156"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>创建适用于 Azure Red Hat OpenShift 的 Azure AD 租户
 
-Microsoft Azure Red Hat OpenShift 要求在其中创建群集的 [Azure Active Directory (Azure AD) ](../active-directory/develop/quickstart-create-new-tenant.md) 租户。 *租户*是组织或应用开发人员通过注册 Azure、Microsoft Intune 或 Microsoft 365 与 Microsoft 建立关系时接收的 Azure AD 的专用实例。 每个 Azure AD 租户都是独特的，独立于其他 Azure AD 租户，并具有自己的工作、学校标识和应用注册。
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 将在年6月 30 2022 日停用。 支持创建新的 Azure Red Hat OpenShift 3.11 群集持续到30年 11 2020 月30日。 停用后，剩余的 Azure Red Hat OpenShift 3.11 群集将关闭，以防出现安全漏洞。
+> 
+> 按照本指南 [创建 Azure Red Hat OpenShift 4 群集](tutorial-create-cluster.md)。
+> 如果有特定问题， [请](mailto:arofeedback@microsoft.com)联系我们。
+
+Microsoft Azure Red Hat OpenShift 要求在其中创建群集的 [Azure Active Directory (Azure AD) ](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 租户。 *租户*是组织或应用开发人员通过注册 Azure、Microsoft Intune 或 Microsoft 365 与 Microsoft 建立关系时接收的 Azure AD 的专用实例。 每个 Azure AD 租户都是独特的，独立于其他 Azure AD 租户，并具有自己的工作、学校标识和应用注册。
 
 如果还没有 Azure AD 租户，请按照以下说明创建一个。
 

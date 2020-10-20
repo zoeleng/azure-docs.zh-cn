@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297652"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048485"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>教程：使用示例客户端应用了解 Azure 数字孪生
 
@@ -79,7 +79,7 @@ ms.locfileid: "91297652"
 > 如果想尝试创建自己的模型，可以将 Room 模型代码粘贴到新文件中，该文件以 .json 为扩展名，并保存在 AdtSampleApp\SampleClientApp\Models 文件夹中  。 然后，尝试添加属性和关系以表示想要的任何内容。 也可以查看此文件夹中的其他示例模型以获得灵感。
 
 > [!TIP] 
-> 有一种与语言无关的 [DTDL 验证程序示例](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)，可用来检查模型文件，以确保 DTDL 有效。 它是在 DTDL 分析程序库的基础上构建的，详情请参阅[*操作方法：分析和验证模型*](how-to-parse-models.md)。
+> 有一种与语言无关的 [DTDL 验证程序示例](/samples/azure-samples/dtdl-validator/dtdl-validator)，可用来检查模型文件，以确保 DTDL 有效。 它是在 DTDL 分析程序库的基础上构建的，详情请参阅[*操作方法：分析和验证模型*](how-to-parse-models.md)。
 
 ### <a name="get-started-with-the-command-line-app"></a>命令行应用入门
 
@@ -171,7 +171,7 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 #### <a name="modify-a-digital-twin"></a>修改数字孪生
 
-还可以修改已创建的孪生的属性。 尝试运行以下命令，将 room0 的 RoomName 从 Room0 更改为 PresidentialSuite  ：
+你可以修改已创建的孪生的属性。 尝试运行以下命令，将 room0 的 RoomName 从 Room0 更改为 PresidentialSuite  ：
 
 ```cmd/sh
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite

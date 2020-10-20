@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: fe6c7f10ce64e25f46444cd2db8b67aab4ae2135
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308242"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842812"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实现设备固件更新过程
 
@@ -184,7 +184,7 @@ node ServiceClient.js "{your service connection string}"
 
 以下屏幕截图显示后端应用程序的输出，并突出显示它如何创建配置来更新固件所需属性：
 
-![后端应用程序](./media/tutorial-firmware-update/BackEnd1.png)
+![屏幕截图显示了后端应用程序的输出。](./media/tutorial-firmware-update/BackEnd1.png)
 
 以下屏幕截图显示后端应用程序的输出，并突出显示它如何监视模拟设备提供的固件更新指标：
 

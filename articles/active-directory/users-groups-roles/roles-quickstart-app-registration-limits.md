@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7304ecd73ed73e3ec6ae3c060fef264e016fe38
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb53f9a6121ec9329eaec5d8cb554e7f125e058f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89067801"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856647"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>快速入门：授权创建无限数目的应用注册的权限
 
@@ -60,7 +60,7 @@ ms.locfileid: "89067801"
 可以使用两个权限来授予创建应用程序注册的能力，这两个权限各自有不同的行为：
 
 - microsoft.directory/applications/createAsOwner：分配此权限会导致将创建者添加为所创建应用注册的第一个所有者，创建的应用注册将计入到创建者的“创建 250 个对象”配额中。
-- microsoft.directory/applicationPolicies/create：分配此权限会导致不将创建者添加为所创建应用注册的第一个所有者，创建的应用注册不会计入到创建者的“创建 250 个对象”配额中。 请慎用此权限，因为在达到目录级配额之前，没有任何办法可阻止被分配者创建应用注册。 如果同时分配上述两个权限，此权限优先。
+- microsoft.directory/applications/create：分配此权限不会导致将创建者添加为所创建应用注册的第一个所有者，创建的应用注册不会计入到创建者的“250 个已创建对象”配额。 请慎用此权限，因为在达到目录级配额之前，没有任何办法可阻止被分配者创建应用注册。 如果同时分配上述两个权限，此权限优先。
 
 ## <a name="create-a-custom-role-in-azure-ad-powershell"></a>在 Azure AD PowerShell 中创建自定义角色
 

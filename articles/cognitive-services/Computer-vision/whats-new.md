@@ -10,16 +10,22 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90904094"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976362"
 ---
 # <a name="whats-new-in-computer-vision"></a>计算机视觉中的新增功能
 
 了解服务中的新增功能。 这些内容可能包括发布说明、视频、博客文章和其他类型的信息。 请将本页加入书签，以随时了解该服务的最新信息。
+
+## <a name="october-2020"></a>2020 年 10 月
+
+### <a name="computer-vision-api-v31-ga"></a>计算机视觉 API v3.1 GA
+
+正式发布的计算机视觉 API 已升级到 v3.1。
 
 ## <a name="september-2020"></a>2020 年 9 月
 

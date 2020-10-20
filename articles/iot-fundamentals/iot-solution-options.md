@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
-ms.openlocfilehash: 046116addf643d6c0eb0faf2f821b6ef78d440c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1afb24a0e3e78acb1d44185843538bd55c491edf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77050624"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976770"
 ---
-# <a name="choose-the-right-iot-solution"></a>选择正确的 IoT 解决方案
+# <a name="what-is-the-right-iot-solution-for-your-business"></a>适用于企业的 IoT 解决方案是什么？
 
 若要为企业构建 IoT 解决方案，通常可以选择使用平台服务或托管应用平台方法。  
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9541f2c5f8ee1aac45b6f659547a3ee34c093181
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 47ecf00b608121271e98ca5abbbd5e69ca811fd2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535092"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>教程：Azure Active Directory 与 LearnUpon 的集成
 
@@ -130,15 +130,15 @@ ms.locfileid: "88535092"
 
 1. 单击“设置”选项卡。 
 
-    ![配置单一登录](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![屏幕截图显示了“设置”选项卡。](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. 单击“单一登录 - SAML”，并单击“常规设置”以配置 SAML 设置。  
    
-    ![配置单一登录](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![屏幕截图显示选择了“单一登录 - SAML”，其中选择了“常规设置”。](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. 在“常规设置”  部分中，执行以下步骤：
    
-    ![配置单一登录](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![屏幕截图显示了“常规设置”部分，你可以在其中输入所述值。](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. 选择“启用”。 
 
@@ -158,7 +158,7 @@ ms.locfileid: "88535092"
 
 1. 单击“用户设置”  ，并执行以下步骤：
 
-     ![配置单一登录](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![屏幕截图显示了“用户设置”部分，你可以在其中输入所述值。](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
     a. 在“名字标识符格式”文本框中  ，键入相应的值，指明用户名字在 SAML 断言中所处的位置，例如：`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
   

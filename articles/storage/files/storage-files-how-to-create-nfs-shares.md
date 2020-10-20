@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 2a848cb77336fc89172d55a6204d66b9e5be5976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705225"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220741"
 ---
 # <a name="how-to-create-an-nfs-share"></a>如何创建 NFS 共享
 
@@ -58,8 +58,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 ```azurecli
 az login
-az feature register --name AllowNfsFileShares
-                    --namespace Microsoft.Storage
+az feature register --name AllowNfsFileShares \
+                    --namespace Microsoft.Storage \
                     --subscription <yourSubscriptionIDHere>
 az provider register --namespace Microsoft.Storage
 ```
@@ -82,7 +82,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 ## <a name="create-an-nfs-share"></a>创建 NFS 共享
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 现在，你已创建 FileStorage 帐户并配置了网络，接下来可以创建一个 NFS 文件共享。 此过程类似于创建 SMB 共享，在创建共享时选择 **NFS** 而不是 **smb** 。
 
@@ -96,7 +96,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
     - 根 squash-远程超级用户 (根) 以 root 身份接收访问权限。
     - 所有 squash-所有用户访问映射到 UID (65534) 和 GID (65534) 。
     
-1. 选择“创建”  。
+1. 选择“创建” 。
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="文件共享创建边栏选项卡的屏幕截图":::
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ce41e6b502aef1c44cf96f3b4a5efe401fba3173
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761322"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046479"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>快速入门：与已连接到解决方案的 IoT 即插即用设备交互 (Java)
 
@@ -27,7 +27,7 @@ IoT 即插即用简化了 IoT 的使用，使你无需了解底层设备实现�
 
 要完成本快速入门，需在本地 Windows 环境上安装以下软件：
 
-* Java SE 开发工具包 8。 在[针对 Azure 和 Azure Stack 的 Java 长期支持](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)中的“长期支持”下选择“Java 8”。
+* Java SE 开发工具包 8。 在[针对 Azure 和 Azure Stack 的 Java 长期支持](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)中的“长期支持”下选择“Java 8”。
 * [Apache Maven 3](https://maven.apache.org/download.cgi)。
 
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>使用示例代码克隆 SDK 存储库
@@ -76,7 +76,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 在本快速入门中，你将使用以 Java 编写的示例 IoT 解决方案与刚设置的示例设备进行交互。
 
 > [!NOTE]
-> 此示例使用来自 IoT 中心服务客户端的“com.microsoft.azure.sdk.iot.service.*;”命名空间。 若要详细了解如何检索模型 ID，请参阅[开发人员指南](concepts-developer-guide-service.md)。
+> 此示例使用来自 IoT 中心服务客户端的“com.microsoft.azure.sdk.iot.service”命名空间 。 若要了解有关 API（包括数字孪生 API）的详细信息，请参阅[服务开发人员指南](concepts-developer-guide-service.md)。
 
 1. 打开另一个终端窗口用作服务终端。
 
@@ -88,7 +88,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
     mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
-### <a name="get-digital-twin"></a>获取数字孪生
+### <a name="get-device-twin"></a>获取设备孪生
 
 以下代码片段演示了如何在服务中检索设备孪生：
 
@@ -99,9 +99,9 @@ twinClient.getTwin(twin);
 System.out.println("Model Id of this Twin is: " + twin.getModelId());
 ```
 
-### <a name="update-a-digital-twin"></a>更新数字孪生
+### <a name="update-a-device-twin"></a>更新设备孪生
 
-以下代码片段演示了如何使用补丁通过数字孪生体来更新属性：
+以下代码片段演示了如何使用补丁通过设备孪生来更新属性：
 
 ```java
 String propertyName = "targetTemperature";

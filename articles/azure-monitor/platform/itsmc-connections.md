@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b8bed9233073e629ee3bce2630fd373c87663b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058761"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215869"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>将 ITSM 产品/服务与 IT 服务管理连接器相连接
 本文介绍如何配置 ITSM 产品/服务与 Log Analytics 中的 IT 服务管理连接器 (ITSMC) 之间的连接，以便集中管理工作项。 有关 ITSMC 的详细信息，请参阅[概述](./itsmc-overview.md)。
@@ -44,7 +44,8 @@ ms.locfileid: "90058761"
 
 > [!NOTE]
 > 
-> ITSM 连接器只能连接到基于云的 ServiceNow 实例。 当前不支持本地 ServiceNow 实例。
+> - ITSM 连接器只能连接到基于云的 ServiceNow 实例。 当前不支持本地 ServiceNow 实例。
+> - 为了使用自定义模板作为操作的一部分，应将 SCSM 中的参数 "ProjectionType" 映射到 "Servicemanager.incidentmanagement.configuration.xml！ProjectionType "。
 
 ### <a name="connection-procedure"></a>连接过程
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: 276368eaf54ea87dddd2b292b07084e09d97d5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760752094296db52fb1ef353d6143f9153784745
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850396"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093593"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>安全建议 - 参考指南
 
@@ -59,22 +59,22 @@ ms.locfileid: "91850396"
 |**应启用适用于容器注册表的 Azure Defender**|若要生成安全的容器化工作负载，请确保它们所基于的映像不存在已知漏洞。 适用于容器注册表的 Azure Defender 会扫描注册表中每个推送的容器映像上是否有安全漏洞，并按映像显示详细的发现结果。<br>重要说明：修正此建议将产生 ACR 注册表保护费用。 如果此订阅中没有任何 ACR 注册表，则不会产生任何费用。 如果以后在此订阅中创建任何 ACR 注册表，它们将自动受到保护，并从该时间点开始计费。<br>（相关策略：[应对 Azure 容器注册表的注册表启用高级威胁防护](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)）|高|**是**|订阅|
 |**应启用 Azure Defender for Kubernetes**|Azure Defender for Kubernetes 为容器化环境提供实时威胁防护，并针对可疑活动生成警报。 可以使用此信息快速补救安全问题，并提高容器的安全性。<br>重要说明：修正此建议将产生 AKS 群集保护费用。 如果此订阅中没有任何 AKS 群集，则不会产生任何费用。 如果以后在此订阅中创建任何 AKS 群集，它们将自动受到保护，并从该时间点开始计费。<br>（相关策略：[应对 Azure Kubernetes 服务的群集启用高级威胁防护](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)）|高|**是**|订阅|
 |**应在 Kubernetes 服务上定义经授权的 IP 范围**|通过仅向特定范围内的 IP 地址授予 API 访问权限，来限制对 Kubernetes 服务管理 API 的访问。 建议配置已获授权的 IP 范围，以便只有受允许网络中的应用程序可以访问群集。<br>（相关策略：[预览]：应在 Kubernetes 服务上定义经授权的 IP 范围）|高|N|Kubernetes 服务|
-|**应在群集上安装并启用用于 Kubernetes 的 Azure Policy 加载项（预览）**|适用于 Kubernetes 的 Azure Policy 加载项扩展了 Gatekeeper v3（用于开放策略代理 (OPA) 的准入控制器 Webhook），以集中、一致的方式在群集上应用大规模 automountServiceAccountToken 强制措施和安全措施。 <br>安全中心要求加载项审核并强制实施群集内的安全功能和符合性。 [了解详细信息](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes)。<br>（相关策略：[预览]：应在群集上安装并启用适用于 Kubernetes 的 Azure Policy 加载项）|高|**是**|Kubernetes 服务|
-|**应强制执行容器 CPU 和内存限制（预览）**|强制执行 CPU 和内存限制可阻止资源耗尽攻击（一种拒绝服务攻击形式）。<br>建议为容器设置限制，以确保运行时防止容器使用的资源超过配置的资源限制。<br>（相关策略：[预览]：确保容器 CPU 和内存资源限制不超过 Kubernetes 群集中指定的限制）|中型|N|Kubernetes 服务|
-|**应只从受信任的注册表中部署容器映像（预览）**|在 Kubernetes 群集上运行的映像应来自已知和监视的容器映像注册表。<br>受信任的注册表通过限制引入未知漏洞、安全问题和恶意映像的可能性，降低群集暴露风险。<br>（相关策略：[预览]：确保只有允许使用的容器映像才在 Kubernetes 群集中运行）|高|N|Kubernetes 服务|
-|**应避免使用特权提升的容器（预览）**|容器在 Kubernetes 群集中不应将特权提升到根目录。<br>AllowPrivilegeEscalation 属性控制进程是否可以获得比其父进程更多的特权。 <br>（相关策略：[预览]：Kubernetes 群集不得允许容器特权提升）|中型|N|Kubernetes 服务|
-|**应避免使用共享敏感主机命名空间的容器（预览）**|为了防止容器外的特权提升，请避免 Pod 访问 Kubernetes 群集中的敏感主机命名空间（主机进程 ID 和主机 IPC）。 <br>（相关策略：[预览]：Kubernetes 群集容器不得共享主机进程 ID 命名空间或主机 IPC 命名空间）|中| 否|Kubernetes 群集|
-|**容器应只侦听允许的端口（预览）**|要减少 Kubernetes 群集的受攻击面，请限制容器对已配置端口的访问权限，从而限制对群集的访问权限。 <br>（相关策略：[预览]：确保容器仅侦听 Kubernetes 群集中允许的端口）|中型|N|Kubernetes 服务|
-|**应强制对容器使用不可变（只读）根文件系统（预览）**|Kubernetes 群集中的容器应使用只读根文件系统。<br>不可变文件系统将恶意二进制文件添加到路径，可防止容器在运行时更改。<br>（相关策略：[预览]：Kubernetes 群集容器应使用只读根文件系统|中型|N|Kubernetes 服务|
-|**应强制对容器使用最低权限 Linux 功能（预览）**|为了减少容器的攻击面，请限制 Linux 功能，并向容器授予特定特权，而不授予根用户的所有特权。<br>建议先删除所有功能，再添加所需的功能。<br>（相关策略：[预览]：Kubernetes 群集容器只应使用允许的功能）|中型|N|Kubernetes 服务|
-|**应限制替代或禁用容器 AppArmor 配置文件（预览）**|在 Kubernetes 集群上运行的容器应仅限使用允许的 AppArmor 配置文件。<br>AppArmor（应用程序防御）是一种 Linux 安全模块，可保护操作系统及其应用程序免受安全威胁。 为使用此模块，系统管理员需要将 AppArmor 安全配置文件与每个程序相关联。 <br>（相关策略：[预览]：Kubernetes 群集容器只应使用允许的 AppArmor 配置文件）|高|N|Kubernetes 服务|
-|**应避免特权容器（预览）**|要防止主机访问不受限制，请尽可能避免使用特权容器。<br>特权容器具有主机的所有根功能。 它们可用作攻击的入口点，并将恶意代码或恶意软件传播到被攻击的应用程序、主机和网络。 <br>（相关策略：[预览]：不允许 Kubernetes 群集中有特权容器）|中型|N|Kubernetes 服务|
+|**应在群集上安装并启用适用于 Kubernetes 的 Azure Policy 加载项**|适用于 Kubernetes 的 Azure Policy 加载项扩展了 Gatekeeper v3（用于开放策略代理 (OPA) 的准入控制器 Webhook），以集中、一致的方式在群集上应用大规模 automountServiceAccountToken 强制措施和安全措施。 <br>安全中心要求加载项审核并强制实施群集内的安全功能和符合性。 [了解详细信息](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes)。<br>（相关策略：[预览]：应在群集上安装并启用适用于 Kubernetes 的 Azure Policy 加载项）|高|**是**|Kubernetes 服务|
+|**应强制执行容器 CPU 和内存限制**|强制执行 CPU 和内存限制可阻止资源耗尽攻击（一种拒绝服务攻击形式）。<br>建议为容器设置限制，以确保运行时防止容器使用的资源超过配置的资源限制。<br>（相关策略：[预览]：确保容器 CPU 和内存资源限制不超过 Kubernetes 群集中指定的限制）|中型|N|Kubernetes 服务|
+|**应只从受信任的注册表中部署容器映像**|在 Kubernetes 群集上运行的映像应来自已知和监视的容器映像注册表。<br>受信任的注册表通过限制引入未知漏洞、安全问题和恶意映像的可能性，降低群集暴露风险。<br>（相关策略：[预览]：确保只有允许使用的容器映像才在 Kubernetes 群集中运行）|高|N|Kubernetes 服务|
+|**应避免使用特权提升的容器**|容器在 Kubernetes 群集中不应将特权提升到根目录。<br>AllowPrivilegeEscalation 属性控制进程是否可以获得比其父进程更多的特权。 <br>（相关策略：[预览]：Kubernetes 群集不得允许容器特权提升）|中型|N|Kubernetes 服务|
+|**应避免使用共享敏感主机命名空间的容器**|为了防止容器外的特权提升，请避免 Pod 访问 Kubernetes 群集中的敏感主机命名空间（主机进程 ID 和主机 IPC）。 <br>（相关策略：[预览]：Kubernetes 群集容器不得共享主机进程 ID 命名空间或主机 IPC 命名空间）|中| 否|Kubernetes 群集|
+|**容器应只侦听允许的端口**|要减少 Kubernetes 群集的受攻击面，请限制容器对已配置端口的访问权限，从而限制对群集的访问权限。 <br>（相关策略：[预览]：确保容器仅侦听 Kubernetes 群集中允许的端口）|中型|N|Kubernetes 服务|
+|**应强制对容器使用不可变（只读）根文件系统**|Kubernetes 群集中的容器应使用只读根文件系统。<br>不可变文件系统将恶意二进制文件添加到路径，可防止容器在运行时更改。<br>（相关策略：[预览]：Kubernetes 群集容器应使用只读根文件系统|中型|N|Kubernetes 服务|
+|**应强制对容器使用最低权限 Linux 功能**|为了减少容器的攻击面，请限制 Linux 功能，并向容器授予特定特权，而不授予根用户的所有特权。<br>建议先删除所有功能，再添加所需的功能。<br>（相关策略：[预览]：Kubernetes 群集容器只应使用允许的功能）|中型|N|Kubernetes 服务|
+|**应限制替代或禁用容器 AppArmor 配置文件**|在 Kubernetes 集群上运行的容器应仅限使用允许的 AppArmor 配置文件。<br>AppArmor（应用程序防御）是一种 Linux 安全模块，可保护操作系统及其应用程序免受安全威胁。 为使用此模块，系统管理员需要将 AppArmor 安全配置文件与每个程序相关联。 <br>（相关策略：[预览]：Kubernetes 群集容器只应使用允许的 AppArmor 配置文件）|高|N|Kubernetes 服务|
+|**应避免特权容器**|要防止主机访问不受限制，请尽可能避免使用特权容器。<br>特权容器具有主机的所有根功能。 它们可用作攻击的入口点，并将恶意代码或恶意软件传播到被攻击的应用程序、主机和网络。 <br>（相关策略：[预览]：不允许 Kubernetes 群集中有特权容器）|中型|N|Kubernetes 服务|
 |**应使用基于角色的访问控制来限制对 Kubernetes 服务群集的访问权限**|若要提供对用户可以执行的操作的粒度筛选，请使用基于角色的访问控制 (RBAC) 来管理 Kubernetes 服务群集中的权限并配置相关授权策略。 有关详细信息，请参阅 [Azure 基于角色的访问控制](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac)。<br>（相关策略：[预览]：应在 Kubernetes 服务中使用基于角色的访问控制 (RBAC)）|中型|N|Kubernetes 服务|
-|**应避免以根用户身份运行容器（预览）**|在 Kubernetes 群集中应以非根用户身份运行容器。 <br>在容器内以根用户身份运行进程会导致在主机上以根用户身份运行该进程。 <br>如果发生泄漏，攻击者会获得容器中的根权限，任何配置错误都变得更加容易被利用。<br>（相关策略：[预览]：应以非根用户身份运行 Kubernetes 群集容器）|高|N|Kubernetes 服务|
-|**服务应只侦听允许的端口（预览）**|要减少 Kubernetes 群集的受攻击面，请限制服务对已配置端口的访问权限，从而限制对群集的访问权限。 <br>（相关策略：[预览]：确保服务只在 Kubernetes 群集中侦听允许使用的端口）|中型|N|Kubernetes 服务|
+|**应避免以根用户身份运行容器**|在 Kubernetes 群集中应以非根用户身份运行容器。 <br>在容器内以根用户身份运行进程会导致在主机上以根用户身份运行该进程。 <br>如果发生泄漏，攻击者会获得容器中的根权限，任何配置错误都变得更加容易被利用。<br>（相关策略：[预览]：应以非根用户身份运行 Kubernetes 群集容器）|高|N|Kubernetes 服务|
+|**服务应只侦听允许的端口**|要减少 Kubernetes 群集的受攻击面，请限制服务对已配置端口的访问权限，从而限制对群集的访问权限。 <br>（相关策略：[预览]：确保服务只在 Kubernetes 群集中侦听允许使用的端口）|中型|N|Kubernetes 服务|
 |**Kubernetes 服务应升级到最新的 Kubernetes 版本**|将 Azure Kubernetes Service 群集升级到最新的 Kubernetes 版本，以便从最新的漏洞修补程序中获益。 有关特定 Kubernetes 漏洞的详细信息，请参阅 [Kubernetes CVE](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes)。<br>（相关策略：[预览]：Kubernetes 服务应升级到不易受攻击的 Kubernetes 版本）|高|N|Kubernetes 服务|
-|**应限制对主机网络和端口的使用（预览）**|限制 Pod 在 Kubernetes 群集中对主机网络和允许的主机端口范围的访问。<br>在启用 hostNetwork 属性的情况下创建的 Pod 将共享该节点的网络空间。 为了避免被泄露的容器侦听网络流量，建议不要将 Pod 置于主机网络上。 如果需要在节点的网络上公开容器端口，并且使用 Kubernetes 服务节点端口不能满足你的需求，另一个可能的做法是在 Pod 规范中为容器指定 hostPort。<br>（相关策略：[预览]：Kubernetes 群集 Pod 只应使用批准的主机网络和端口范围）|中型|N|Kubernetes 服务|
-|**Pod HostPath 卷装载的使用应仅限于已知列表（预览）**|为了减少 Kubernetes 群集的受攻击面，请将 Kubernetes 群集中的 Pod HostPath 卷装置限制为已配置的允许主机路径。<br>如果泄漏，应限制容器的容器节点访问。<br>（相关策略：[预览]：Kubernetes 群集 Pod hostPath 卷只应使用允许的主机路径）| 中型|N|Kubernetes 服务|
+|**应限制对主机网络和端口的使用**|限制 Pod 在 Kubernetes 群集中对主机网络和允许的主机端口范围的访问。<br>在启用 hostNetwork 属性的情况下创建的 Pod 将共享该节点的网络空间。 为了避免被泄露的容器侦听网络流量，建议不要将 Pod 置于主机网络上。 如果需要在节点的网络上公开容器端口，并且使用 Kubernetes 服务节点端口不能满足你的需求，另一个可能的做法是在 Pod 规范中为容器指定 hostPort。<br>（相关策略：[预览]：Kubernetes 群集 Pod 只应使用批准的主机网络和端口范围）|中型|N|Kubernetes 服务|
+|**Pod HostPath 卷装载的使用应仅限于已知列表**|为了减少 Kubernetes 群集的受攻击面，请将 Kubernetes 群集中的 Pod HostPath 卷装置限制为已配置的允许主机路径。<br>如果泄漏，应限制容器的容器节点访问。<br>（相关策略：[预览]：Kubernetes 群集 Pod hostPath 卷只应使用允许的主机路径）| 中型|N|Kubernetes 服务|
 |应修正 Azure 容器注册表映像中的漏洞（由 Qualys 提供技术支持）|容器映像漏洞评估功能会扫描注册表中每个推送的容器映像上的安全漏洞，并按映像显示详细的发现结果。 修复这些漏洞可以极大改善容器的安全状况，并保护其不受攻击影响。<br>（无相关策略）|高|N|容器注册表|
 ||||||
 
@@ -160,8 +160,8 @@ ms.locfileid: "91850396"
 |应限制对具有防火墙和虚拟网络配置的存储帐户的访问|在存储帐户防火墙设置中审核无限制的网络访问权限。 应该配置网络规则，以便只有来自许可网络的应用程序才能访问存储帐户。 若要允许来自特定 Internet 或本地客户端的连接，可以向来自特定 Azure 虚拟网络或到公共 Internet IP 地址范围的流量授予访问权限。<br>（相关策略：审核对存储帐户的无限制网络访问）|低|N|存储帐户|
 |**应启用适用于 Azure SQL 数据库服务器的 Azure Defender**|Azure Defender for SQL 是提供高级 SQL 安全功能的统一包。 它包括以下功能：呈现和缓解潜在数据库漏洞、检测可能指示对数据库产生威胁的异常活动以及发现敏感数据并对其进行分类。 <br>重要说明：修正此建议将产生 Azure SQL Database 服务器保护费用。 如果此订阅中没有任何 Azure SQL Database 服务器，则不会产生任何费用。 如果以后在此订阅中创建任何 Azure SQL Database 服务器，它们将自动受到保护，并从该时间点开始计费。<br>（相关策略：[应在 Azure SQL 数据库服务器上启用高级数据安全](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)）|高|**是**|订阅|
 |**应启用适用于计算机上的 SQL 服务器的 Azure Defender**|Azure Defender for SQL 是提供高级 SQL 安全功能的统一包。 它包括以下功能：呈现和缓解潜在数据库漏洞、检测可能指示对数据库产生威胁的异常活动以及发现敏感数据并对其进行分类。 <br>重要说明：修正此建议将对计算机上的 SQL Server 产生保护费用。 如果此订阅中没有任何计算机 SQL Server，则不会产生任何费用。 如果以后在此订阅中创建任何计算机上的 SQL Server，它们将自动受到保护，并从该时间点开始计费。<br>（相关策略：[应在计算机的 SQL 服务器上启用高级数据安全](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b)）|高|**是**|订阅|
-|应对托管实例启用高级数据安全|高级数据安全 (ADS) 是一个提供高级 SQL 安全功能的统一包。 它可发现和分类敏感数据、呈现和减少潜在数据库漏洞，以及检测可能表明数据库有威胁的异常活动。 每个托管实例的 ADS 费用为 $15。<br>（相关策略：应对 SQL 托管实例启用高级数据安全）|高|**是**|SQL|
-|**应在 SQL 服务器上启用高级数据安全性**|高级数据安全 (ADS) 是一个提供高级 SQL 安全功能的统一包。 它可发现和分类敏感数据、呈现和减少潜在数据库漏洞，以及检测可能表明数据库有威胁的异常活动。 ADS 费用为每个 SQL server 15 美元。<br>（相关策略：应对 SQL Server 启用高级数据安全）|高|**是**|SQL|
+|**应对托管实例启用 Azure Defender for SQL**|Azure Defender for SQL 是提供高级 SQL 安全功能的统一包。 它可呈现和减少潜在数据库漏洞，以及检测可能表明数据库有威胁的异常活动。 Azure Defender for SQL 按<a href='https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing'>定价页面</a>中所示的定价计费。<br>（相关策略：应对 SQL 托管实例启用高级数据安全）|高|**是**|SQL|
+|**应对 SQL 服务器启用 Azure Defender for SQL**|Azure Defender for SQL 是提供高级 SQL 安全功能的统一包。 它可呈现和减少潜在数据库漏洞，以及检测可能表明数据库有威胁的异常活动。 Azure Defender for SQL 按<a href='https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing'>定价页面</a>中所示的定价计费。<br>（相关策略：应对 SQL Server 启用高级数据安全）|高|**是**|SQL|
 |应该为 SQL 数据库预配 Azure Active Directory 管理员|预配 SQL 数据库的 Azure AD 管理员以启用 Azure AD 身份验证。 使用 Azure AD 身份验证可以简化权限管理，以及集中化数据库用户和其他 Microsoft 服务的标识管理。<br>（相关策略：审核确认已为 SQL Server 预配了 Azure Active Directory 管理员）|高|N|SQL|
 |应对 SQL 数据库启用审核|对 SQL 数据库启用审核。 <br>（相关策略：应在服务器的高级数据安全设置上启用 SQL 数据库的审核）|低|**是**|SQL|
 |**应启用适用于存储的 Azure Defender**|适用于存储的 Azure Defender 会检测访问或恶意利用存储帐户的异常和可能有害的企图。<br>重要说明：修正此建议将产生 Azure 存储帐户保护费用。 如果此订阅中没有任何 Azure 存储帐户，则不会产生任何费用。 如果以后在此订阅中创建任何 Azure 存储帐户，它们将自动受到保护，并从该时间点开始计费。<br>（相关策略：[应对 Azure 存储帐户启用高级威胁防护](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)）|高|**是**|订阅|

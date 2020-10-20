@@ -2,7 +2,6 @@
 title: Azure 安全中心警报的架构
 description: 本文介绍了 Azure 安全中心用于安全警报的不同架构。
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901341"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220663"
 ---
 # <a name="security-alerts-schemas"></a>安全警报架构
 
@@ -173,7 +172,7 @@ Azure 安全中心审核在 Azure 活动日志中生成作为事件的安全警�
 
 Microsoft Graph 是 Microsoft 365 中的数据和智能的网关。 它提供了一个统一的可编程性模型，可用于访问 Microsoft 365、Windows 10 和企业移动性 + 安全性中的大量数据。 在 Microsoft Graph 中使用丰富的数据来构建与数百万用户交互的组织和使用者的应用程序。
 
-[Microsoft Graph 文档](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0)中提供了发送到 MS Graph 的安全警报的架构和 JSON 表示形式。
+[Microsoft Graph 文档](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true)中提供了发送到 MS Graph 的安全警报的架构和 JSON 表示形式。
 
 ---
 

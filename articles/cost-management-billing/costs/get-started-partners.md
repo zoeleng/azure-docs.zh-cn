@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372249"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827576"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>面向合作伙伴的 Azure 成本管理入门
 
@@ -151,9 +151,11 @@ Azure 成本管理要求对计费帐户或订阅拥有读取访问权限。
 
 将以基于即用即付费率的成本，提供订阅和资源组 Azure RBAC 范围的成本分析、预算和警报。
 
-Azure RBAC 范围内的预留实例的摊销视图和实际成本将显示零费用。 预留实例成本仅显示在购买时所在的计费范围内。
+Azure RBAC 范围内的预留实例的摊销视图和实际成本将显示零费用。 权利的购买成本（如预留实例和市场费用）仅显示在进行购买的合作伙伴租户的计费范围内。
 
 用于计算视图中显示的成本的零售价与适用于所有客户的 Azure 定价计算器中显示的价格相同。 显示的成本不包括合作伙伴可能具有的任何折扣或额度，例如“合作伙伴赚取的额度”、“分级折扣”和“全局服务折扣”。
+
+ 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>在成本分析中分析成本
 

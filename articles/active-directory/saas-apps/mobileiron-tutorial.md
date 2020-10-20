@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554623"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>教程：Azure Active Directory 与 MobileIron 集成
 
@@ -99,7 +99,7 @@ ms.locfileid: "88554623"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分中执行以下步骤：
 
-    ![MobileIron 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![屏幕截图显示“基本 SAML 配置”，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     a. 在“标识符”  文本框中，使用以下模式键入 URL：`https://www.mobileiron.com/<key>`
 
@@ -107,7 +107,7 @@ ms.locfileid: "88554623"
 
     c. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
-    ![MobileIron 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://<host>.mobileiron.com/user/login.html`
 
@@ -124,11 +124,11 @@ ms.locfileid: "88554623"
 
 2. 转到“管理员”   > “标识”  ，然后在“有关云 IDP 设置的信息”字段中选择“AAD”选项。  
 
-    ![配置单一登录管理按钮](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![屏幕截图显示了 MobileIron 站点的“管理”选项卡，其中选择了“标识”。](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. 复制**密钥**和**主机**的值，并在 Azure 门户的“基本 SAML 配置”  部分中粘贴它们以完成 URL。
 
-    ![配置单一登录管理按钮](./media/mobileiron-tutorial/key.png)
+    ![屏幕截图显示了“设置 SAML”选项以及密钥和主机值。](./media/mobileiron-tutorial/key.png)
 
 4. 在“从 AAD 导出元数据文件并导入到 MobileIron 云字段”中，单击“选择文件”从 Azure 门户上传已下载的元数据。   上传完成后，单击“完成”。 
 

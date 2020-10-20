@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: ae43e0ed1bf3f64ce851e9ae779d54b82269a7be
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: e20183356655668750cb1450338d4c8af1ee2d8c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405559"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951693"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>教程：通过设备预配服务 (DPS) 使用自定义分配策略
 
@@ -347,7 +347,20 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. 右键单击“prov\_dev\_client\_sample”项目，然后选择“设为启动项目”。
+6. 在 `main()` 函数中，找到对 `Prov_Device_Register_Device()` 的调用。 在调用之前，添加以下几行代码，这些代码在预配期间使用 [`Prov_Device_Set_Provisioning_Payload()`](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) 传递自定义 JSON 有效负载。 可通过这种方式为自定义分配函数提供详细信息。 也可通过这种方式传递设备类型，而不检查注册 ID。
+
+    ```c
+    // An example custom payload
+    const char* custom_json_payload = "{\"MyDeviceFirmwareVersion\":\"12.0.2.5\",\"MyDeviceProvisioningVersion\":\"1.0.0.0\"}";
+
+    prov_device_result = Prov_Device_Set_Provisioning_Payload(prov_device_handle, custom_json_payload);
+    if (prov_device_result != PROV_DEVICE_RESULT_OK)
+    {
+        (void)printf("\r\nFailure setting provisioning payload: %s\r\n", MU_ENUM_TO_STRING(PROV_DEVICE_RESULT, prov_device_result));
+    }
+    ```
+
+7. 右键单击“prov\_dev\_client\_sample”项目，然后选择“设为启动项目”。
 
 ### <a name="simulate-the-contoso-toaster-device"></a>模拟 Contoso 烤箱设备
 
@@ -369,13 +382,15 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 2. 在 Visual Studio 菜单中，选择“调试” > “开始执行(不调试)”以运行该解决方案。  出现重新生成项目的提示时，请选择“是”，以便在运行项目之前重新生成项目。
 
-    下面是示例日志记录输出，它来自针对烤箱设备运行的自定义分配函数代码。 请注意，已成功为烤箱设备选择了一个中心。 在门户中的函数代码下单击“日志”可以获得此日志记录：
+    以下测试是为烤箱设备运行的自定义分配函数代码的示例日志记录输出。 请注意，已成功为烤箱设备选择了一个中心。 还要注意 `payload` 成员，它包含你添加到代码中的自定义 JSON 内容。 这可供你的代码在 `deviceRuntimeContext` 中使用。
+
+    在门户中的函数代码下单击“日志”可以获得此日志记录：
 
     ```cmd
     2020-09-23T11:44:37.505 [Information] Executing 'Functions.HttpTrigger1' (Reason='This function was programmatically called via the host APIs.', Id=4596d45e-086f-4e86-929b-4a02814eee40)
     2020-09-23T11:44:41.380 [Information] C# HTTP trigger function processed a request.
     2020-09-23T11:44:41.381 [Information] Request.Body:...
-    2020-09-23T11:44:41.381 [Information] {"enrollmentGroup":{"enrollmentGroupId":"contoso-custom-allocated-devices","attestation":{"type":"symmetricKey"},"capabilities":{"iotEdge":false},"etag":"\"e8002126-0000-0100-0000-5f6b2a570000\"","provisioningStatus":"enabled","reprovisionPolicy":{"updateHubAssignment":true,"migrateDeviceData":true},"createdDateTimeUtc":"2020-09-23T10:58:31.62286Z","lastUpdatedDateTimeUtc":"2020-09-23T10:58:31.62286Z","allocationPolicy":"custom","iotHubs":["contoso-toasters-hub-1098.azure-devices.net"],"customAllocationDefinition":{"webhookUrl":"https://contoso-function-app.azurewebsites.net/api/HttpTrigger1?****","apiVersion":"2019-03-31"}},"deviceRuntimeContext":{"registrationId":"contoso-toaster-007","symmetricKey":{}},"linkedHubs":["contoso-toasters-hub-1098.azure-devices.net"]}
+    2020-09-23T11:44:41.381 [Information] {"enrollmentGroup":{"enrollmentGroupId":"contoso-custom-allocated-devices","attestation":{"type":"symmetricKey"},"capabilities":{"iotEdge":false},"etag":"\"e8002126-0000-0100-0000-5f6b2a570000\"","provisioningStatus":"enabled","reprovisionPolicy":{"updateHubAssignment":true,"migrateDeviceData":true},"createdDateTimeUtc":"2020-09-23T10:58:31.62286Z","lastUpdatedDateTimeUtc":"2020-09-23T10:58:31.62286Z","allocationPolicy":"custom","iotHubs":["contoso-toasters-hub-1098.azure-devices.net"],"customAllocationDefinition":{"webhookUrl":"https://contoso-function-app.azurewebsites.net/api/HttpTrigger1?****","apiVersion":"2019-03-31"}},"deviceRuntimeContext":{"registrationId":"contoso-toaster-007","symmetricKey":{},"payload":{"MyDeviceFirmwareVersion":"12.0.2.5","MyDeviceProvisioningVersion":"1.0.0.0"}},"linkedHubs":["contoso-toasters-hub-1098.azure-devices.net"]}
     2020-09-23T11:44:41.687 [Information] linkedHub : contoso-toasters-hub-1098.azure-devices.net
     2020-09-23T11:44:41.688 [Information] Selected hub : contoso-toasters-hub-1098.azure-devices.net
     2020-09-23T11:44:41.688 [Information] Response
@@ -410,15 +425,17 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
     保存文件。
 
-2. 在 Visual Studio 菜单中，选择“调试” > “开始执行(不调试)”以运行该解决方案。  对于重新生成项目的提示，请选择“是”，以便在运行项目之前重新生成项目。
+2. 在 Visual Studio 菜单中，选择“调试” > “开始执行(不调试)”以运行该解决方案。  对于重新生成项目的提示，请选择“是”，以便在运行项目之前重新生成项目  。
 
-    下面是示例日志记录输出，它来自针对热泵设备运行的自定义分配函数代码。 自定义分配策略拒绝此注册并显示 HTTP 错误“400 错误的请求”。 在门户中的函数代码下单击“日志”可以获得此日志记录：
+    以下测试是为热泵设备运行的自定义分配函数代码的示例日志记录输出。 自定义分配策略拒绝此注册并显示 HTTP 错误“400 错误的请求”。 注意 `payload` 成员，它包含你添加到代码中的自定义 JSON 内容。 这可供你的代码在 `deviceRuntimeContext` 中使用。
+
+    在门户中的函数代码下单击“日志”可以获得此日志记录：
 
     ```cmd
     2020-09-23T11:50:23.652 [Information] Executing 'Functions.HttpTrigger1' (Reason='This function was programmatically called via the host APIs.', Id=2fa77f10-42f8-43fe-88d9-a8c01d4d3f68)
     2020-09-23T11:50:23.653 [Information] C# HTTP trigger function processed a request.
     2020-09-23T11:50:23.654 [Information] Request.Body:...
-    2020-09-23T11:50:23.654 [Information] {"enrollmentGroup":{"enrollmentGroupId":"contoso-custom-allocated-devices","attestation":{"type":"symmetricKey"},"capabilities":{"iotEdge":false},"etag":"\"e8002126-0000-0100-0000-5f6b2a570000\"","provisioningStatus":"enabled","reprovisionPolicy":{"updateHubAssignment":true,"migrateDeviceData":true},"createdDateTimeUtc":"2020-09-23T10:58:31.62286Z","lastUpdatedDateTimeUtc":"2020-09-23T10:58:31.62286Z","allocationPolicy":"custom","iotHubs":["contoso-toasters-hub-1098.azure-devices.net"],"customAllocationDefinition":{"webhookUrl":"https://contoso-function-app.azurewebsites.net/api/HttpTrigger1?****","apiVersion":"2019-03-31"}},"deviceRuntimeContext":{"registrationId":"contoso-heatpump-088","symmetricKey":{}},"linkedHubs":["contoso-toasters-hub-1098.azure-devices.net"]}
+    2020-09-23T11:50:23.654 [Information] {"enrollmentGroup":{"enrollmentGroupId":"contoso-custom-allocated-devices","attestation":{"type":"symmetricKey"},"capabilities":{"iotEdge":false},"etag":"\"e8002126-0000-0100-0000-5f6b2a570000\"","provisioningStatus":"enabled","reprovisionPolicy":{"updateHubAssignment":true,"migrateDeviceData":true},"createdDateTimeUtc":"2020-09-23T10:58:31.62286Z","lastUpdatedDateTimeUtc":"2020-09-23T10:58:31.62286Z","allocationPolicy":"custom","iotHubs":["contoso-toasters-hub-1098.azure-devices.net"],"customAllocationDefinition":{"webhookUrl":"https://contoso-function-app.azurewebsites.net/api/HttpTrigger1?****","apiVersion":"2019-03-31"}},"deviceRuntimeContext":{"registrationId":"contoso-heatpump-088","symmetricKey":{},"payload":{"MyDeviceFirmwareVersion":"12.0.2.5","MyDeviceProvisioningVersion":"1.0.0.0"}},"linkedHubs":["contoso-toasters-hub-1098.azure-devices.net"]}
     2020-09-23T11:50:23.654 [Information] Unknown device registration
     2020-09-23T11:50:23.654 [Information] Response
     2020-09-23T11:50:23.654 [Information] Unrecognized device registration.

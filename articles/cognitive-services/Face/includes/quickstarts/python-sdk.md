@@ -1,20 +1,20 @@
 ---
 title: 人脸 Python 客户端库快速入门
-description: 使用适用于 Python 的人脸客户端库来检测人脸、查找相似的人脸（按图像进行人脸搜索）、识别人脸（人脸识别搜索）并迁移人脸数据。
+description: 使用适用于 Python 的人脸客户端库来检测人脸、查找相似的人脸（按图像进行人脸搜索）并识别人脸（人脸识别搜索）。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
-ms.openlocfilehash: f746a61850567014ce216c47df472d035f1ae123
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322936"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859697"
 ---
 开始使用适用于 Python 的人脸客户端库进行人脸识别。 请按照以下步骤安装程序包并试用基本任务的示例代码。 通过人脸服务，可以访问用于检测和识别图像中的人脸的高级算法。
 
@@ -25,7 +25,6 @@ ms.locfileid: "91322936"
 * 创建和训练人员组
 * 识别人脸
 * 验证人脸
-* 创建用于数据迁移的快照
 
 [参考文档](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [库源代码](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [包 (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [示例](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -85,7 +84,6 @@ pip install --upgrade azure-cognitiveservices-vision-face
 * [创建和训练人员组](#create-and-train-a-person-group)
 * [识别人脸](#identify-a-face)
 * [验证人脸](#verify-faces)
-* [创建用于数据迁移的快照](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>验证客户端
 
@@ -207,52 +205,6 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>创建用于数据迁移的快照
-
-利用快照功能，可将已保存的人脸数据（例如训练的 **PersonGroup**）移到不同的 Azure 认知服务人脸订阅。 例如，如果你使用免费订阅创建了一个“PersonGroup”对象，现在想要将其迁移到付费订阅，则可以使用此功能。 有关快照功能的大致概述，请参阅[迁移人脸数据](../../Face-API-How-to-Topics/how-to-migrate-face-data.md)。
-
-此示例将迁移你在[创建和训练人员组](#create-and-train-a-person-group)中创建的 **PersonGroup**。 可以先完成该部分，或者使用你自己的人脸数据构造。
-
-### <a name="set-up-target-subscription"></a>设置目标订阅
-
-首先，必须有另一个已包含人脸资源的 Azure 订阅；可以遵循[设置](#setting-up)部分中的步骤做好此准备。 
-
-然后在脚本顶部附近创建以下变量。 还需要为 Azure 帐户的订阅 ID 以及新（目标）帐户的密钥、终结点和订阅 ID 创建新的环境变量。 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### <a name="authenticate-target-client"></a>对目标客户端进行身份验证
-
-稍后需要在脚本中将当前客户端对象保存为源客户端，然后对目标订阅的新客户端对象进行身份验证。 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### <a name="use-a-snapshot"></a>使用快照
-
-剩余的快照操作将在异步函数中进行。 
-
-1. 第一步是**创建**快照，以将原始订阅的人脸数据保存到临时云位置。 此方法返回用于查询操作状态的 ID。
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. 接下来，不断查询该 ID，直到操作完成。
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    此代码使用应单独定义的 `wait_for_operation` 函数：
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. 返回到异步函数。 使用 **apply** 操作将人脸数据写入目标订阅。 此方法也会返回一个 ID。
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. 再次使用 `wait_for_operation` 函数查询该 ID，直到操作完成。
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-完成这些步骤后，即可从新的（目标）订阅访问你的人脸数据构造。
-
 ## <a name="run-the-application"></a>运行应用程序
 
 使用 `python` 命令从应用程序目录运行人脸识别应用。
@@ -265,16 +217,12 @@ python quickstart-file.py
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [门户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 如果你在本快速入门中创建了 **PersonGroup** 并想要删除它，请在脚本中运行以下代码：
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-如果你在本快速入门中使用快照功能迁移了数据，则还需要删除保存到目标订阅的 **PersonGroup**。
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## <a name="next-steps"></a>后续步骤
 

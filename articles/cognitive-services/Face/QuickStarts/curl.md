@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cd7d1a476f09a2fbfffa687a28616c8faeaae22c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88539332"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858262"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>快速入门：使用人脸 REST API 和 cURL 检测图像中的人脸
 
@@ -34,9 +34,7 @@ ms.locfileid: "88539332"
  
 将使用如下所示的命令来调用人脸 API 并获取图像中的人脸属性数据。 首先，将代码复制到文本编辑器中&mdash;在运行它之前，需对命令的某些部分进行更改。
 
-```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
-```
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
 
 ### <a name="subscription-key"></a>订阅密钥
 将 `<Subscription Key>` 替换为有效的人脸订阅密钥。
@@ -46,14 +44,6 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint St
 URL `https://<My Endpoint String>.com/face/v1.0/detect` 指示要查询的 Azure 人脸终结点。 可能需更改此 URL 的第一部分，使之与订阅密钥的相应终结点匹配。
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-### <a name="url-query-string"></a>URL 查询字符串
-
-人脸终结点 URL 的查询字符串指定要检索的人脸属性。 可能需要更改此字符串，具体取决于预期用途。
-
-```
-?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
-```
 
 ### <a name="image-source-url"></a>图像源 URL
 源 URL 指示将要用作输入的图像。 可以更改此字段，使之指向要分析的任何图像。
@@ -65,6 +55,28 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ## <a name="run-the-command"></a>运行命令
 
 进行更改以后，请打开命令提示符并输入新的命令。 应该会在控制台窗口中看到显示为 JSON 数据的人脸信息。 例如：
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]  
+```
+
+## <a name="extract-face-attributes"></a>提取人脸属性
+ 
+若要提取人脸属性，请使用检测模型 1 并添加 `returnFaceAttributes` 查询参数。 该命令现在应如下所示。 与之前一样，请插入你的人脸订阅密钥和终结点。
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+返回的人脸信息现在包含人脸属性。 例如：
 
 ```json
 [

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550688"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>教程：Azure Active Directory 与 HappyFox 集成
 
@@ -132,19 +132,19 @@ ms.locfileid: "88550688"
 
 2. 导航到“管理”，单击“集成”选项卡   。
 
-    ![配置单一登录](./media/happyfox-tutorial/header.png) 
+    ![显示“管理”页的屏幕截图，其中“集成”选项卡处于选中状态。](./media/happyfox-tutorial/header.png) 
 
 3. 在集成选项卡中，单击“SAML 集成”下的“配置”以打开单一登录设置   。
 
-    ![配置单一登录](./media/happyfox-tutorial/configure.png)
+    ![显示“SAML 集成”设置的屏幕截图，其中“配置”操作处于选中状态。](./media/happyfox-tutorial/configure.png)
 
 4. 在 SAML 配置部分，将从 Azure 门户复制的“登录 URL”值粘贴到“SSO 目标 URL”文本框   。
 
-    ![配置单一登录](./media/happyfox-tutorial/targeturl.png)
+    ![显示“SAML 配置”部分的屏幕截图，其中突出显示了“SSO 目标 URL”文本框。](./media/happyfox-tutorial/targeturl.png)
 
 5. 打开从 Azure 门户下载的证书，并将其内容粘贴到 IdP Signature 部分  。
 
-    ![配置单一登录](./media/happyfox-tutorial/cert.png)
+    ![屏幕截图突出显示了“IdP 签名”部分。](./media/happyfox-tutorial/cert.png)
 
 6. 单击“保存设置”按钮  。
 

@@ -6,12 +6,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: be7f9d66a10f3f0f4a1ae0f9e28e226f268a7f7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9123ca6a1bfa90737bb1ce83ee365d1ecf514e1f
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497437"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220986"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>通过 Azure CLI 开始使用 Azure Data Lake Analytics
 
@@ -19,7 +19,7 @@ ms.locfileid: "87497437"
 
 本文介绍如何使用 Azure CLI 命令行接口创建 Azure Data Lake Analytics 帐户、提交 USQL 作业和目录。 此作业读取制表符分隔值 (TSV) 文件，并将其转换为逗号分隔值 (CSV) 文件。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在开始之前，需要以下项：
 
@@ -104,11 +104,11 @@ az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Sour
 az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
-Data Lake Analytics 还可以访问 Azure Blob 存储。  有关将数据上传到 Azure Blob 存储的详细信息，请参阅[将 Azure CLI 用于 Azure 存储](../storage/common/storage-azure-cli.md)。
+Data Lake Analytics 还可以访问 Azure Blob 存储。  有关将数据上传到 Azure Blob 存储的详细信息，请参阅[将 Azure CLI 用于 Azure 存储](../storage/blobs/storage-quickstart-blobs-cli.md)。
 
 ## <a name="submit-data-lake-analytics-jobs"></a>提交 Data Lake Analytics 作业
 
-Data Lake Analytics 作业使用 U-SQL 语言编写而成。 若要了解有关 U-SQL 的详细信息，请参阅 [U-SQL 语言入门](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 语言参考](https://docs.microsoft.com/u-sql/)。
+Data Lake Analytics 作业使用 U-SQL 语言编写而成。 若要了解有关 U-SQL 的详细信息，请参阅 [U-SQL 语言入门](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 语言参考](/u-sql/)。
 
 ### <a name="to-create-a-data-lake-analytics-job-script"></a>创建 Data Lake Analytics 作业脚本
 

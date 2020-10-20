@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e7b09c13cd27bd8197f6b65a1213d3154db6ac3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f96f7eb358907bc27303735f4d8a111efeb6a3dc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553814"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>教程：Azure Active Directory 与 Pingboard 集成
 
@@ -101,7 +101,7 @@ ms.locfileid: "88553814"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分执行以下步骤：
 
-    ![Pingboard 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![屏幕截图显示“基本 SAML 配置”，其中突出显示了“标识符”和“回复 URL”文本框，并选择了“保存”按钮。](common/idp-intiated.png)
 
     a. 在“标识符”文本框中键入 URL：`http://app.pingboard.com/sp`
 

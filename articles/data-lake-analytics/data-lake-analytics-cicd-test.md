@@ -1,21 +1,18 @@
 ---
 title: 如何测试你的 Azure Data Lake Analytics 代码
 description: 了解如何为 Azure Data Lake Analytics 的 U-SQL 和扩展的 C# 代码添加测试用例。
-services: data-lake-analytics
 author: liudan66
 ms.author: liud
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 08/30/2019
-ms.openlocfilehash: 44426598daf1808ef0aee233968b04d2dc7c165f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129910"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219201"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>测试 Azure Data Lake Analytics 代码
 
@@ -112,7 +109,7 @@ U-SQL 脚本测试项目是基于 C# 单元测试框架生成的。 生成项目
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>在 Azure Pipelines 中运行测试用例<a name="run-test-cases-in-azure-devops"></a>
 
-U-SQL 脚本测试项目和 C# UDO 测试项目都继承 C# 单元测试项目********。 Azure Pipelines 中的 [Visual Studio 测试任务](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) 可以运行这些测试用例。
+U-SQL 脚本测试项目和 C# UDO 测试项目都继承 C# 单元测试项目********。 Azure Pipelines 中的 [Visual Studio 测试任务](/azure/devops/pipelines/test/getting-started-with-continuous-testing) 可以运行这些测试用例。
 
 ### <a name="run-u-sql-test-cases-in-azure-pipelines"></a>在 Azure Pipelines 中运行 U-SQL 测试用例
 
