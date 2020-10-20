@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540042"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>教程：Azure Active Directory 与 Lifesize Cloud 的集成
 
@@ -137,15 +137,15 @@ ms.locfileid: "88540042"
 
 2. 在右上角单击你的名字，并单击“高级设置”。
 
-    ![配置单一登录](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![屏幕截图显示“高级设置”菜单项。](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. 现在，在“高级设置”中，单击“SSO 配置”链接。 这将打开实例的 SSO 配置页。
 
-    ![配置单一登录](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![屏幕截图显示可在其中选择 SSO 配置的“高级设置”。](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. 现在，在 SSO 配置 UI 中配置以下值。
 
-    ![配置单一登录](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![屏幕截图显示可在其中输入所述值的“SSO 配置”页。](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. 在“标识提供者颁发者”文本框中，粘贴从 Azure 门户复制的“Azure AD 标识符”值 。
 

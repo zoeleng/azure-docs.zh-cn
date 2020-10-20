@@ -4,12 +4,12 @@ description: 对在任何环境中运行的 Java 应用程序进行无代码应�
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537651"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215257"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>配置选项 - Azure Monitor Application Insights 的 Java 独立代理
 
@@ -164,9 +164,10 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
 }
 ```
 
-还可以使用环境变量设置 JMX 指标 `APPLICATIONINSIGHTS_JMX_METRICS` 。
+支持数值和布尔 JMX 指标值。 `0`对于 false 和 true，布尔 JMX 指标将映射到 `1` 。
 
-此环境变量内容必须是匹配上述结构的 json 数据，例如 `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
+[//]: # "注意：此处不记录 APPLICATIONINSIGHTS_JMX_METRICS"
+[//]: # "env var 中嵌入的 json 非常杂乱，只应记录无代码置备附加方案"
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer（包括 Spring Boot Actuator 中的指标）
 

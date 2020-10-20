@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, 低代码聊天机器人, 多回合对话
-ms.openlocfilehash: fe46fadc6d3f5a74c95faeec6b7759f18e843f7d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776776"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874418"
 ---
 # <a name="what-is-qna-maker"></a>什么是 QnA Maker？
 
@@ -83,9 +83,9 @@ QnA Maker 提供可集成到整个开发生命周期的创作、训练、发布�
 
 我们提供了适用于大多数流行编程语言的快速入门，旨在让你了解基本设计模式并帮助你在 10 分钟以内运行代码。 请参阅以下列表，了解每项功能的快速入门。
 
-* [LUIS 客户端库入门](../quickstarts/quickstart-sdk.md)
-* [LUIS 门户入门](../quickstarts/create-publish-knowledge-base.md)
-* [LUIS REST API 入门](../quickstarts/quickstart-rest-curl.md)
+* [QnA Maker 客户端库入门](../quickstarts/quickstart-sdk.md)
+* [QnA Maker 门户入门](../quickstarts/create-publish-knowledge-base.md)
+* [QnA Maker REST API 入门](../quickstarts/quickstart-rest-curl.md)
 
 
 ## <a name="next-steps"></a>后续步骤

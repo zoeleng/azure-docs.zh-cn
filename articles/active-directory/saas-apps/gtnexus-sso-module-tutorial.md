@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544285"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>教程：Azure Active Directory 与 GTNexus SSO System 集成
 
@@ -101,11 +101,11 @@ ms.locfileid: "88544285"
 
     a. 单击“上传元数据文件”  。
 
-    ![image](common/upload-metadata.png)
+    ![屏幕截图显示“基本 SAML 配置”页面，其中选择了“上传元数据文件”操作。](common/upload-metadata.png)
 
     b. 单击“文件夹徽标”  来选择元数据文件并单击“上传”。 
 
-    ![image](common/browse-upload-metadata.png)
+    ![屏幕截图显示“选择文件”字段，其中选择了“文件夹”徽标和“上传”按钮。](common/browse-upload-metadata.png)
 
     c. 成功将元数据文件上传后，**标识符**和**回复 URL** 值会自动填充在“GTNexus SSO System”部分的文本框中：
 

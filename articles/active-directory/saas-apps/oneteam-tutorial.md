@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a9560cfe0daf158dad03a3171047669a19eade
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13dd930842cb724d12711ac9e7704fd9af4e29d8
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547948"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>教程：Azure Active Directory 与 Oneteam 的集成
 
@@ -101,7 +101,7 @@ ms.locfileid: "88547948"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”  部分中执行以下步骤：
 
-    ![Oneteam 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![屏幕截图显示“基本 SAML 配置”部分，其中突出显示了“标识符”和“回复 URL”文本框，并选择了“保存”按钮。](common/idp-intiated.png)
 
     a. 在“标识符”  文本框中，使用以下模式键入 URL：`https://api.one-team.io/teams/<team name>`
 

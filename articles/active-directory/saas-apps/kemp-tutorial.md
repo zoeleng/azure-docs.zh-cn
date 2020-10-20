@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 37b21a5e9e2839fba24b3dcc861fc7c42bdb4547
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299944"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945203"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>教程：Azure Active Directory SSO 与 Kemp LoadMaster Azure AD 集成的集成
 
@@ -145,7 +145,7 @@ ms.locfileid: "91299944"
 
 1. 指定虚拟服务的参数。
 
-    ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-1.png)
+    ![屏幕截图显示“请指定虚拟服务的参数”页面，框中有示例值。](./media/kemp-tutorial/kemp-1.png)
 
     a. 虚拟地址
     
@@ -161,7 +161,7 @@ ms.locfileid: "91299944"
 
 1. 指定实际服务器的参数。
     
-    ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-2.png)
+    ![屏幕截图显示“请指定实际服务器的参数”页面，框中有示例值。](./media/kemp-tutorial/kemp-2.png)
 
     a. 选择“允许远程地址”
     
@@ -203,7 +203,7 @@ ms.locfileid: "91299944"
 
 1. 单击“SSL 属性”（在第 7 层运行）。
     
-    ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-3.png)
+    ![屏幕截图显示选择了“SSL 加速”-“已启用”和一个示例证书的“SSL 属性”部分。](./media/kemp-tutorial/kemp-3.png)
     
     a. 在“SSL 加速”中单击“已启用”。
     
@@ -222,7 +222,7 @@ ms.locfileid: "91299944"
 
 1. 在“证书和颁发机构”下单击“中间证书”。
 
-    ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-6.png)
+    ![屏幕截图显示选择了一个示例证书的“当前已安装的中间证书”部分。](./media/kemp-tutorial/kemp-6.png)
 
     a. 在“添加新的中间证书”中单击“选择文件”。
     
@@ -238,7 +238,7 @@ ms.locfileid: "91299944"
  
 转到“虚拟服务”下的“管理 SSO”。
 
-   ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-7.png)
+   ![屏幕截图显示“管理 SSO”页。](./media/kemp-tutorial/kemp-7.png)
    
    a. 在为其提供名称之后，单击“添加新客户端配置”下的“添加”。
 
@@ -268,7 +268,7 @@ ms.locfileid: "91299944"
 
 1. 单击“修改”，然后导航到“ESP 选项”。
     
-    ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-8.png)
+    ![屏幕截图显示展开了“ESP 选项”和“实际服务器”部分的“视图/修改服务”页。](./media/kemp-tutorial/kemp-8.png)
 
     a. 单击“启用 ESP”。
     
@@ -286,7 +286,7 @@ ms.locfileid: "91299944"
 
 此时应显示租户登录页，而不是之前未经身份验证的访问。 
 
-![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-9.png)
+![屏幕截图显示租户的“登录”页。](./media/kemp-tutorial/kemp-9.png)
 
 ## <a name="configuring-kerberos-based-authentication"></a>配置基于 Kerberos 的身份验证 
  
@@ -294,7 +294,7 @@ ms.locfileid: "91299944"
 
 1. 创建用户帐户（在此示例中为 AppDelegation）。
     
-    ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-10.png)
+    ![屏幕截图显示选择了“帐户”选项卡的“kcd 用户属性”窗口。](./media/kemp-tutorial/kemp-10.png)
 
 
     a. 选择“属性编辑器”选项卡。
@@ -311,7 +311,7 @@ ms.locfileid: "91299944"
 
 1. 选择“委派”选项卡。
 
-    ![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-11.png)
+    ![屏幕截图显示选择了“委派”选项卡的“kcd 用户属性”窗口。](./media/kemp-tutorial/kemp-11.png)
 
     a. 选择“仅信任此用户作为指定服务的委派”。
 
@@ -332,7 +332,7 @@ ms.locfileid: "91299944"
 
 转到 Kemp LoadMaster Azure AD 集成 Web 控制台 >“虚拟服务”>“管理 SSO”。
 
-![Kemp LoadMaster Azure AD 集成 Web 服务器](./media/kemp-tutorial/kemp-12.png)
+![屏幕截图显示“管理 SSO”-“管理域”页。](./media/kemp-tutorial/kemp-12.png)
 
 a. 导航到“服务器端单一登录配置”。
 

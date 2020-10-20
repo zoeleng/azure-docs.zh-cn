@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91372606"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048502"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>快速入门 - 使用 ADT Explorer 探索示例 Azure 数字孪生方案
 
 通过 Azure 数字孪生，可创建真实环境的实时模型并与之交互。 要实现这一点，也可将单个元素建模为数字孪生，然后将它们连接到可响应实时事件且可查询来获取信息的知识图 。
 
-在本快速入门中，你将通过名为 [Azure 数字孪生 (ADT) 资源管理器](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)的示例应用程序来探索预生成的 Azure 数字孪生图。 借助 ADT 资源管理器，可上传方案、查看孪生和图的可视表示形式，还可通过基于浏览器的视觉体验执行其他管理活动。
+在本快速入门中，你将通过名为 [Azure 数字孪生 (ADT) 资源管理器](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)的示例应用程序来探索预生成的 Azure 数字孪生图。 借助 ADT Explorer 可上传环境的数字表示形式，查看孪生的可视化映像，以及创建用于表示 Azure 数字孪生中环境的图形，并通过基于浏览器的视觉体验执行其他管理活动。
 
 本快速入门包含以下主要步骤：
 
@@ -38,8 +38,8 @@ ms.locfileid: "91372606"
 还需要在计算机上有 Node.js。 可以通过以下链接获取最新版本：[Node.js](https://nodejs.org/)。
 
 最后，还需要下载两个要在快速入门期间使用的示例：
-* ADT 资源管理器示例应用程序。 此示例包含在快速入门中用于加载和探索 Azure 数字孪生方案的主要应用。 若要获取此应用，请在此处导航：[Azure 数字孪生 (ADT) 资源管理器](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)。 点击“下载 ZIP”按钮，将此示例代码的 .ZIP 文件作为 Azure_Digital_Twins__ADT__explorer.zip 下载到计算机 __。 解压缩文件夹并提取文件。
-* 示例 Azure 数字孪生方案。 这包括预生成的 Azure 数字孪生图，你需要将它加载到 ADT 资源管理器中以供使用。 若要获取此方案，请在此处导航：[Azure 数字孪生示例](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples)。 点击“下载 ZIP”按钮，将此示例代码的 .ZIP 文件下载到你的计算机。这会将 .ZIP 文件夹作为 Azure_Digital_Twins_samples.zip 下载到计算机。 解压缩文件夹并提取文件。
+* ADT 资源管理器示例应用程序。 此示例包含在快速入门中用于加载和探索 Azure 数字孪生方案的主要应用。 若要获取此应用，请在此处导航：[Azure 数字孪生 (ADT) 资源管理器](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)。 点击“下载 ZIP”按钮，将此示例代码的 .ZIP 文件下载到计算机 。 这会将 .ZIP 文件夹以 Azure_Digital_Twins__ADT__explorer.zip 的形式下载到计算机上__。 解压缩文件夹并提取文件。
+* 示例 Azure 数字孪生方案。 这包括预生成的 Azure 数字孪生图，你需要将它加载到 ADT 资源管理器中以供使用。 若要获取此方案，请在此处导航：[Azure 数字孪生示例](/samples/azure-samples/digital-twins-samples/digital-twins-samples)。 点击“下载 ZIP”按钮，将此示例代码的 .ZIP 文件下载到计算机 。 这会将 .ZIP 文件夹以 Azure_Digital_Twins_samples.zip 的形式下载到计算机上__。 解压缩文件夹并提取文件。
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>设置 Azure 数字孪生和 ADT 资源管理器
 
@@ -205,7 +205,7 @@ ADT 资源管理器现在将使用上传的文件来创建所请求的孪生及�
     :::column-end:::
 :::row-end:::
 
-该图现在已上传到 ADT 资源管理器。 要查看该图，请在“ADT 资源管理器”窗口顶部附近的“图形资源管理器”框中点击“运行查询”按钮 。 
+该图现在已上传到 ADT 资源管理器。 要查看该图，请在 ADT Explorer 窗口顶部附近的“图形资源管理器”框中点击“运行查询”按钮 。 
 
 :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -307,7 +307,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 然后，你探索了图，方法是…
 1. 使用查询以回答有关方案的问题。
 2. 编辑数字孪生上的属性。
-    * 再次运行查询，查看答案如何因更新而发生变化。
+3. 再次运行查询，查看答案如何因更新而发生变化。
 
 本练习的目的是演示如何使用 Azure 数字孪生图回答有关环境的问题（即使在环境持续变化时）。 
 

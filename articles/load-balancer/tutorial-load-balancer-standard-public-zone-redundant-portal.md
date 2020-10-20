@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446099"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048349"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教程：在 Azure 门户中使用标准负载均衡器对跨可用性区域的 VM 进行负载均衡
 
@@ -40,6 +40,10 @@ ms.locfileid: "91446099"
 如果需要，也可以使用 [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md) 完成本教程中的步骤。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
+
+## <a name="prerequisites"></a>先决条件
+
+* Azure 订阅
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -231,8 +235,10 @@ ms.locfileid: "91446099"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-若不再需要资源组、负载均衡器以及所有相关资源，请将其删除。 为此，请选择包含负载均衡器的资源组，然后单击“删除”。
+若不再需要资源组、负载均衡器以及所有相关资源，请将其删除。 为此，请选择包含负载均衡器的资源组，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解[标准负载均衡器](load-balancer-standard-overview.md)。
+详细了解如何在特定可用性区域中对 VM 进行负载均衡。
+> [!div class="nextstepaction"]
+> [在可用性区域中对 VM 进行负载均衡](tutorial-load-balancer-standard-public-zonal-portal.md)

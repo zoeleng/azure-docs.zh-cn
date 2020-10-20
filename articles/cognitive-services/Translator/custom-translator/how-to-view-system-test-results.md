@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509623"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220850"
 ---
 # <a name="view-system-test-results"></a>查看系统测试结果
 
@@ -70,12 +70,12 @@ ms.locfileid: "88509623"
 
 2. 对于成功训练的但尚未部署的模型，将显示“部署”按钮。
 
-    ![部署模型](media/how-to/how-to-deploy-model.png)
+    ![用于突出显示部署模型的 "部署" 按钮的屏幕截图。](media/how-to/how-to-deploy-model.png)
 
 3.  单击“部署”。
 4.  针对要在其中部署模型的区域选择“已部署”****，然后单击“保存”。 可以为多个区域选择“已部署”。****
 
-    ![部署模型](media/how-to/how-to-deploy-model-regions.png)
+    ![显示可在何处部署或取消部署模型的屏幕截图。](media/how-to/how-to-deploy-model-regions.png)
 
 5.  可在“状态”列中查看模型的状态。
 
@@ -90,7 +90,7 @@ ms.locfileid: "88509623"
 
 2. 对于已成功部署的模型，它会显示“更新”**** 按钮。
 
-    ![部署模型](media/how-to/how-to-update-undeploy-model.png)
+    ![突出显示 "更新" 按钮以更新部署设置的屏幕截图。](media/how-to/how-to-update-undeploy-model.png)
 
 3.  选择“更新”  。
 4.  针对要在其中部署或取消部署模型的区域选择“已部署”或“已取消部署”，然后单击“保存”。************

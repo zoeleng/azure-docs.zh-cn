@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553932"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>教程：Azure Active Directory 与 PerformanceCentre 的集成
 
@@ -128,19 +128,19 @@ ms.locfileid: "88553932"
 
 2. 在左侧选项卡中，单击“配置”。 
    
-    ![Azure AD 单一登录][10]
+    ![屏幕截图显示选择了“配置”的“PerformanceCenter”菜单。][10]
 
 3. 在左侧选项卡中，单击“杂项”，并单击“单一登录”。  
    
-    ![Azure AD 单一登录][11]
+    ![屏幕截图显示从“杂项”菜单选择了“单一登录”的“配置”选项卡。][11]
 
 4. 选择“SAML”作为“协议”。  
    
-    ![Azure AD 单一登录][12]
+    ![屏幕截图显示从“协议”菜单选择了“SAML”的“单一登录配置”部分。][12]
 
 5. 在记事本中打开下载的元数据文件，将其内容复制并粘贴到“标识提供者元数据”文本框中，然后单击“保存”。  
    
-    ![Azure AD 单一登录][13]
+    ![屏幕截图显示“标识提供程序元数据”文本框。][13]
 
 6. 确保“实体基 URL”和“实体 ID URL”的值正确。  
     
@@ -207,7 +207,7 @@ ms.locfileid: "88553932"
 
 2. 在左侧菜单中，单击“相互关联”，并单击“创建参与者”。  
    
-    ![创建用户][400]
+    ![屏幕截图显示选择了“创建参与者”按钮的“PerformanceCenter”公司站点“相互关联 - 参与者”页。][400]
 
 3. 在“相互关联 - 创建参与者”对话框中，执行以下步骤： 
    

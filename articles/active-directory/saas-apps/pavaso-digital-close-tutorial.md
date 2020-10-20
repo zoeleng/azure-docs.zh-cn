@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ef4515b7ecee3ea814d9a34d3bf3c217d551934
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 31e05e45713100c321440d63fe51586204d07231
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543737"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>教程：Azure Active Directory 与 Pavaso Digital Close 的集成
 
@@ -99,7 +99,7 @@ ms.locfileid: "88543737"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”  部分中执行以下步骤：
 
-    ![Pavaso Digital Close 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![显示“基本 SAML 配置”的屏幕截图，其中突出显示了“标识符”和“回复 URL”文字框，并选择了“保存”操作。](common/idp-intiated.png)
 
     a. 在“标识符”  文本框中，使用以下模式键入 URL：`https://<SUBDOMAIN>.pavaso.com/AuthServices`
 

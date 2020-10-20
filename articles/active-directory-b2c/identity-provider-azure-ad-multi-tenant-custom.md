@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4343a5e185fdfe96e1e3298b0fc3fe6719f3a4a2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116300"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215835"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略为多租户 Azure Active Directory 设置登录
 
@@ -37,7 +37,7 @@ ms.locfileid: "87116300"
 1. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“应用注册” 。
 1. 选择“新注册”。
 1. 输入应用程序的**名称**。 例如，`Azure AD B2C App`。
-1. 为此应用程序选择 **任何组织目录中的帐户** 。
+1. 选择 **任何组织目录中的帐户 (此应用程序的任何 Azure AD 目录–多租户) ** 。
 1. 对于“重定向 URI”，接受值 **Web**，并以全小写字母输入以下 URL，其中 `your-B2C-tenant-name` 将替换为 Azure AD B2C 租户的名称。
 
     ```
@@ -61,7 +61,7 @@ ms.locfileid: "87116300"
 1. 选择“添加可选声明”。
 1. 对于“令牌类型”，选择“ID”。
 1. 选择要添加的可选声明：`family_name` 和 `given_name`。
-1. 单击“添加”。
+1. 单击“添加” 。
 
 ## <a name="create-a-policy-key"></a>创建策略密钥
 
@@ -162,11 +162,11 @@ ms.locfileid: "87116300"
 
 1. 在 Azure AD B2C 租户中的“自定义策略”页上，选择“上传策略” 。
 2. 启用“覆盖策略(若存在)”，然后浏览到 *TrustFrameworkExtensions.xml* 文件并选中该文件。
-3. 选择“上传”。
+3. 选择“上传”。 
 
 ## <a name="register-the-claims-provider"></a>注册声明提供程序
 
-此时，标识提供者已设置，但不会出现在任何注册/登录屏幕中。 若要使其可用，需要创建现有模板用户旅程的副本，并对其进行修改，使其具有 Azure AD 标识提供者。
+此时，标识提供者已设置，但在任何注册/登录屏幕中都不可用。 若要使其可用，需要创建现有模板用户旅程的副本，并对其进行修改，使其具有 Azure AD 标识提供者。
 
 1. 打开初学者包中的 *TrustFrameworkBase.xml* 文件。
 2. 找到并复制包含 `Id="SignUpOrSignIn"` 的 **UserJourney** 元素的完整内容。

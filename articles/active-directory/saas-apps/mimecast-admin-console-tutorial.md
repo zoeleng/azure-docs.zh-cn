@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f3029acd791e7c45eb5943d298189430ac308e99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6a9599c20905168b425675d0b028545143c7d19f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528448"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941069"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Mimecast Admin Console 集成
 
@@ -155,23 +155,23 @@ ms.locfileid: "88528448"
 
 1. 导航到“管理” > “服务” > “应用程序”。
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/services.png)
+    ![屏幕截图显示选择了“应用程序”的“Mimecast”窗口。](./media/mimecast-admin-console-tutorial/services.png)
 
 1. 单击“身份验证配置文件”选项卡。
     
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
+    ![屏幕截图显示选择了“身份验证配置文件”的“应用程序”选项卡。](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
 
 1. 单击“新建身份验证配置文件”选项卡。
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
+    ![屏幕截图显示选择了“新建身份验证配置文件”。](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
 
 1. 在“说明”文本框中提供有效说明，并选中“为管理控制台强制执行 SAML 身份验证”复选框。
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
+    ![屏幕截图显示了“为管理控制台强制执行 SAML 身份验证”的位置。](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
 
 1. 在“管理控制台的 SAML 配置”页面上，执行以下步骤：
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/sso-settings.png)
+    ![屏幕截图显示了“管理控制台的 SAML 配置”页面，你可以在其中输入所述值。](./media/mimecast-admin-console-tutorial/sso-settings.png)
 
     a. 对于“提供程序”，从下拉菜单中选择“Azure Active Directory” 。
 
@@ -189,19 +189,19 @@ ms.locfileid: "88528448"
 
 1. 导航到“管理” > “目录” > “内部目录”。
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/internal-directories.png)
+    ![屏幕截图显示选择了“内部目录”的“Mimecast”窗口。](./media/mimecast-admin-console-tutorial/internal-directories.png)
 
 1. 如果下面提及你的域，请选择该域，否则请通过单击“新域”来创建新域。
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/domain-name.png)
+    ![屏幕截图显示选择了域。](./media/mimecast-admin-console-tutorial/domain-name.png)
 
 1. 单击“新地址”选项卡。
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/new-address.png)
+    ![屏幕截图显示选择了“新建地址”。](./media/mimecast-admin-console-tutorial/new-address.png)
 
 1. 在以下页面提供所需用户信息：
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/user-information.png)
+    ![屏幕截图显示了可以在其中输入所述值的页。](./media/mimecast-admin-console-tutorial/user-information.png)
 
     a. 在“电子邮件地址”文本框中，输入用户的电子邮件地址，例如 `B.Simon@yourdomainname.com`。
 
@@ -215,7 +215,7 @@ ms.locfileid: "88528448"
 
     f. 若要将角色分配给用户，请单击“角色编辑”，并根据组织要求向用户分配所需角色。
 
-    ![Mimecast Admin Console 配置](./media/mimecast-admin-console-tutorial/assign-role.png)
+    ![屏幕截图显示了“地址设置”，你可以在其中选择“角色编辑”。](./media/mimecast-admin-console-tutorial/assign-role.png)
 
 ## <a name="test-sso"></a>测试 SSO 
 

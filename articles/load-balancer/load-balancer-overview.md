@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299195"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017720"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 
@@ -80,10 +80,8 @@ Azure 负载均衡器在开放式系统互连 (OSI) 模型的第四层上运行�
 订阅 RSS 源，并在 [Azure 更新](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer)页上查看最新的 Azure 负载均衡器功能更新。
 
 ## <a name="next-steps"></a>后续步骤
-请参阅[升级基本负载均衡器](upgrade-basic-standard.md)，将基本负载均衡器升级为标准负载均衡器。
 
-请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)，开始使用负载均衡器。
+请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)以开始使用负载均衡器。
 
 有关 Azure 负载均衡器限制和组件的详细信息，请参阅 [Azure 负载均衡器组件](./components.md)和 [Azure 负载均衡器概念](./concepts.md)
 
-有关 Azure 负载均衡选项的比较，请参阅 [Azure 中的负载均衡选项概述](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。

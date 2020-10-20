@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461472"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217042"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>为 Azure NetApp 文件配置 NFSv 4.1 Kerberos 加密
 
@@ -75,7 +75,7 @@ Azure NetApp 文件在 Kerberos 模式下支持 NFS 客户端加密 (krb5.conf�
 * SMB 共享的计算机帐户
 * NFSv 4.1 的计算机帐户-可以通过前缀来识别此帐户 `NFS-` 。 
 
-创建第一个 NFSv 4.1 Kerberos 卷后，请使用以下 PowerShell 命令设置加密类型或计算机帐户：
+创建第一个 NFSv 4.1 Kerberos 卷后，请使用以下 PowerShell 命令设置计算机帐户的加密类型：
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -96,11 +96,11 @@ Azure NetApp 文件在 Kerberos 模式下支持 NFS 客户端加密 (krb5.conf�
 3. 为新卷 (装入点) 创建目录。  
 
 4. 为计算机帐户将默认加密类型设置为 AES 256：  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * 对于每个计算机帐户，只需运行一次此命令。
     * 可以从域控制器或安装了 [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) 的 PC 上运行此命令。 
-    * `$COMPUTERACCOUNT`变量是在部署 Kerberos 卷 Active Directory 中创建的计算机帐户。 这是前缀为的帐户 `NFS-` 。 
+    * `$NFSCOMPUTERACCOUNT`变量是在部署 Kerberos 卷 Active Directory 中创建的计算机帐户。 这是前缀为的帐户 `NFS-` 。 
     * `$ANFSERVICEACCOUNT`变量是在创建计算机帐户的组织单位上具有委派控制权限的非特权 Active Directory 用户帐户。 
 
 5. 在主机上装载卷： 

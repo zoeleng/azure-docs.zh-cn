@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251894"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044949"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>教程：通过 Azure 门户使用标准负载均衡器对可用性区域中的 VM 进行负载均衡
 
@@ -39,6 +39,10 @@ ms.locfileid: "78251894"
 
 如果需要，可使用 [Azure CLI](load-balancer-standard-public-zonal-cli.md) 完成本教程。
 
+## <a name="prerequisites"></a>先决条件
+
+* Azure 订阅
+
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
 在 [https://portal.azure.com](https://portal.azure.com) 中登录 Azure 门户。
@@ -55,11 +59,11 @@ ms.locfileid: "78251894"
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中键入 MyResourceGroupZLB   。|
     | 名称                   | *myLoadBalancer*                                   |
-    | 区域         | 选择“西欧”  。                                        |
-    | 类型          | 选择“公共”。                                         |
-    | SKU           | 选择“标准”  。                          |
-    | 公共 IP 地址 | 选择“新建”。  |
-    | 公共 IP 地址名称              | 在文本框中键入 myPublicIP  。   |
+    | 区域         | 选择“西欧”。                                        |
+    | 类型          | 选择“公共”。                                        |
+    | SKU           | 选择“标准”。                          |
+    | 公共 IP 地址 | 选择“新建”。 |
+    | 公共 IP 地址名称              | 在文本框中键入 myPublicIP。   |
     |可用性区域| 选择“1”。     |
 3. 在“查看 + 创建”选项卡中，单击“创建”   。   
 
@@ -228,5 +232,6 @@ ms.locfileid: "78251894"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解[标准负载均衡器](load-balancer-standard-overview.md)。
-- [跨可用性区域对 VM 进行负载均衡](tutorial-load-balancer-standard-public-zone-redundant-portal.md)。
+进入下一篇文章，了解如何跨可用性区域负载均衡 VM。
+> [!div class="nextstepaction"]
+> [跨可用性区域对 VM 进行负载均衡](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

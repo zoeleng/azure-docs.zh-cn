@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 07ac0ac4d7b86b644ca5d1876b1332fee7358cac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 826ce780fd9196d67adba5bb148a795d3fe4f0f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552592"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850347"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>教程：将 JFrog Artifactory 与 Azure Active Directory 集成
 
@@ -92,15 +92,15 @@ ms.locfileid: "88552592"
 
 1. JFrog Artifactory 应用程序需要特定格式的 SAML 断言，因此，需要在 SAML 令牌属性配置中添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。 单击“编辑”图标以打开“用户属性”对话框  。
 
-    ![image](common/edit-attribute.png)
+    ![显示“用户属性”部分的屏幕截图，其中标出了编辑控件。](common/edit-attribute.png)
 
 1. 除上述属性以外，JFrog Artifactory 应用程序还要求在 SAML 响应中传回其他几个属性。 在“组声明(预览)”对话框中的“用户属性和声明”部分，执行以下步骤   ：
 
     a. 单击“声明中返回的组”旁边的**笔**。 
 
-    ![image](./media/jfrog-artifactory-tutorial/config04.png)
+    ![显示“用户属性和声明”部分的屏幕截图，其中标出了“编辑”图标。](./media/jfrog-artifactory-tutorial/config04.png)
 
-    ![image](./media/jfrog-artifactory-tutorial/config05.png)
+    ![显示“组声明”部分的屏幕截图，其中“所有组”处于选中状态。](./media/jfrog-artifactory-tutorial/config05.png)
 
     b. 从单选列表中选择“所有组”。 
 

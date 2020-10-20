@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554628"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>教程：Azure Active Directory 与 moconavi 集成
 
@@ -191,15 +191,15 @@ ms.locfileid: "88554628"
 
 3. 单击“连接设置”  按钮。
 
-    ![测试单一登录](./media/moconavi-tutorial/testing1.png)
+    ![屏幕截图显示了包含“连接设置”按钮的 moconavi。](./media/moconavi-tutorial/testing1.png)
 
 4. 在“连接到 URL”文本框中输入 `https://mcs-admin.moconavi.biz/gateway`，然后单击“完成”按钮。
 
-    ![测试单一登录](./media/moconavi-tutorial/testing2.png)
+    ![屏幕截图显示了“连接到 URL”框和“完成”按钮。](./media/moconavi-tutorial/testing2.png)
 
 5. 在以下屏幕截图中，执行以下步骤：
 
-    ![测试单一登录](./media/moconavi-tutorial/testing3.png)
+    ![屏幕截图显示了 moconavi 页面，你可以在其中输入所述值。](./media/moconavi-tutorial/testing3.png)
 
     a. 将 **输入身份验证密钥**:`azureAD` 输入到“输入身份验证密钥”  文本框中。
 
@@ -209,11 +209,11 @@ ms.locfileid: "88554628"
 
 6. 将 Azure AD 密码输入到“密码”  文本框中，然后单击“登录”  按钮。
 
-    ![测试单一登录](./media/moconavi-tutorial/testing4.png)
+    ![屏幕截图显示了输入 Azure AD 密码的位置。](./media/moconavi-tutorial/testing4.png)
 
 7. 显示菜单时，表示 Azure AD 身份验证成功。
 
-    ![测试单一登录](./media/moconavi-tutorial/testing5.png)
+    ![屏幕截图显示了 moconavi 中的“电话”图标。](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>其他资源
 

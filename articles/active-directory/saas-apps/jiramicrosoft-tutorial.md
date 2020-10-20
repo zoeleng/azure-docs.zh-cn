@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d55f461205ceecad098319d7b4b41c175390abfd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891583"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850493"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>教程：Azure Active Directory 单一登录 (SSO) 与 JIRA SAML SSO by Microsoft 集成
 
@@ -156,11 +156,11 @@ ms.locfileid: "88891583"
 
 2. 将鼠标悬停在小齿轮上，并单击“外接程序”  。
 
-    ![配置单一登录](./media/jiramicrosoft-tutorial/addon1.png)
+    ![屏幕截图显示“设置”菜单中处于选中状态的“加载项”。](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. 从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=56506)下载插件。 使用“上传加载项”菜单手动上传由 Microsoft 提供的插件。 [Microsoft 服务协议](https://www.microsoft.com/servicesagreement/)涵盖了插件下载。
 
-    ![配置单一登录](./media/jiramicrosoft-tutorial/addon12.png)
+    ![屏幕截图显示“管理加载项”，其中标注了“上传加载项”链接。](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. 要运行 JIRA 反向代理方案或负载均衡器方案，请执行以下步骤：
 
@@ -171,19 +171,19 @@ ms.locfileid: "88891583"
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![配置单一登录](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![屏幕截图显示编辑器中添加了新行的 server.xml 文件。](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. 根据代理/负载均衡器，在**系统设置**中更改**基本 URL**。
 
-    ![配置单一登录](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![屏幕截图显示“管理设置”，可在其中更改“基本 URL”。](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. 插件安装后，它会显示在“管理加载项”部分的“用户已安装”加载项部分 。 单击“配置”配置新的插件。
 
-    ![配置单一登录](./media/jiramicrosoft-tutorial/addon14.png)
+    ![屏幕截图显示“Jira 的 Azure AD SAML 单一登录”部分，其中“配置”处于选中状态。](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. 在配置页上执行下列步骤：
 
-    ![配置单一登录](./media/jiramicrosoft-tutorial/addon54.png)
+    ![屏幕截图显示“Jira 的 Microsoft Azure Active Directory 单一登录”配置页。](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 请确保一个应用仅映射一个证书，以免在解析元数据时出错。 如果有多个证书，则管理员会在解析元数据时收到错误。
@@ -230,19 +230,19 @@ ms.locfileid: "88891583"
 
 2. 将鼠标悬停在小齿轮上，并单击“用户管理”  。
 
-    ![添加员工](./media/jiramicrosoft-tutorial/user1.png)
+    ![屏幕截图显示“设置”菜单中处于选中状态的“用户管理”。](./media/jiramicrosoft-tutorial/user1.png)
 
 3. 重定向到“管理员访问权限”页后，输入密码，  并单击“确认”按钮。
 
-    ![添加员工](./media/jiramicrosoft-tutorial/user2.png)
+    ![屏幕截图显示“管理员访问权限”页，可在其中输入凭据。](./media/jiramicrosoft-tutorial/user2.png)
 
 4. 在“用户管理”  选项卡部分，单击“创建用户”  。
 
-    ![添加员工](./media/jiramicrosoft-tutorial/user3.png) 
+    ![屏幕截图显示“用户管理”选项卡，可在其中“创建用户”。](./media/jiramicrosoft-tutorial/user3.png) 
 
 5. 在“新建用户”对话框页中，执行以下步骤：
 
-    ![添加员工](./media/jiramicrosoft-tutorial/user4.png) 
+    ![屏幕截图显示“新建用户”对话框，可在其中输入此步骤中的信息。](./media/jiramicrosoft-tutorial/user4.png) 
 
     a. 在“电子邮件地址”文本框中，键入用户的电子邮件地址（例如 B.simon@contoso.com）。
 

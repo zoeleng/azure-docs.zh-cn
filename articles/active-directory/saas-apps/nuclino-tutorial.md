@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 18814d23c634dc58148c26b67c2f669e22a136ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b84cbe57c40b12ae01952963b324b8bcfdcfd2e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554286"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945475"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Nuclino 的集成
 
@@ -155,15 +155,15 @@ ms.locfileid: "88554286"
 
 4. 单击“ICON”  。
 
-    ![Nuclino 配置](./media/nuclino-tutorial/configure1.png)
+    ![屏幕截图显示选择了“Azure AD SSO”旁边的“菜单”图标。](./media/nuclino-tutorial/configure1.png)
 
 5. 单击“Azure AD SSO”，然后从下拉列表中选择“团队设置”。  
 
-    ![Nuclino 配置](./media/nuclino-tutorial/configure2.png)
+    ![屏幕截图显示选择了“团队设置”的“Azure AD SSO”下拉列表。](./media/nuclino-tutorial/configure2.png)
 
 6. 从左侧导航窗格中选择“身份验证”。 
 
-    ![Nuclino 配置](./media/nuclino-tutorial/configure3.png)
+    ![屏幕截图显示已选择“身份验证”。](./media/nuclino-tutorial/configure3.png)
 
 7. 在“身份验证”  部分执行以下步骤：
 

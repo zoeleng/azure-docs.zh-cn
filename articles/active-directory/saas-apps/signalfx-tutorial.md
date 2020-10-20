@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521474"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856817"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>教程：Azure Active Directory 单一登录 (SSO) 与 SignalFx 集成
 
@@ -159,7 +159,7 @@ ms.locfileid: "88521474"
         * 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
 
 * 可以通过访问面板或已分配到组织的自定义登录页访问 SignalFx 应用程序。 测试用户应从上述任一位置开始测试集成。
-    * 测试用户可以使用前面在此过程中为 **b.simon@contoso.com** 创建的凭据。
+    * 测试用户可以使用在此过程的前面部分为 b.simon\@contoso.com 创建的凭据。
 
 ### <a name="first-time-logins"></a>首次登录
 

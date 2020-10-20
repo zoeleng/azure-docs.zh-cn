@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 资源管理器模板（ARM 模板）创建 ExpressRoute 线路
-description: 了解如何使用 Azure 资源管理器模板（ARM 模板）创建 ExpressRoute 线路。
+title: 快速入门：使用 Azure 资源管理器模板（ARM 模板）创建 ExpressRoute 线路
+description: 本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）创建 ExpressRoute 线路。
 services: expressroute
 author: duongau
 mnager: kumud
 ms.service: expressroute
 ms.topic: quickstart
 ms.custom: subject-armsq
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 540d9d5f7ef3815743909a399076c55018f0df40
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759231"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961844"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>快速入门：使用 ARM 模板创建具有专用对等互连的 ExpressRoute 线路
 

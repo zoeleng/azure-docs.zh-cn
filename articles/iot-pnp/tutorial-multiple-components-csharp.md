@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f6f87ed4ba74c3f7750e56d4bb8473cf4b1a4341
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575378"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945526"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>教程：将 Windows 上运行的 IoT 即插即用多组件设备应用程序连接到 IoT 中心 (C#)
 
@@ -33,7 +33,7 @@ ms.locfileid: "91575378"
 
 如果已完成[快速入门：将 Windows 上运行的示例 IoT 即插即用设备应用程序连接到 IoT 中心 (C#)](quickstart-connect-device-csharp.md)，则已克隆了存储库。
 
-从用于 .NET 的 Microsoft Azure IoT SDK GitHub 存储库克隆示例。 在所选文件夹中打开命令提示符。 运行以下命令，以克隆[用于 .NET 的 Microsoft Azure IoT 示例](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 存储库：
+为 C# GitHub 存储库克隆 Azure IoT 示例中的示例。 在所选文件夹中打开命令提示符。 运行以下命令，以克隆[用于 .NET 的 Microsoft Azure IoT 示例](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 存储库：
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git

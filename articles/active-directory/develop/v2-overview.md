@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627119"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056406"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>什么是 Microsoft 标识平台？
 
@@ -74,8 +74,7 @@ Microsoft 标识平台由多个组件组成：
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) - 邀请外部用户加入你的 Azure AD 租户，作为可向其分配权限（用于授权）的“来宾”用户，同时他们可以使用其现有凭据进行身份验证。
 
-> [!TIP]
-> 是否正在寻找 Azure Active Directory 开发人员平台 (v1.0) 文档？ 请参阅[适用于开发人员的 Azure Active Directory (v1.0) 概述](../azuread-dev/v1-overview.md)。
+[面向开发人员的 Azure Active Directory (v1.0)](../azuread-dev/v1-overview.md) - 此处向开发人员显示使用较旧的 v1.0 终结点的现有应用。 对于新项目，请勿使用 v1.0。
 
 ## <a name="next-steps"></a>后续步骤
 

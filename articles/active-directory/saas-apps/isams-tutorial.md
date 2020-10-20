@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: e0226392ff96c6dc10cbd729135a15c066378f68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5486752c8a1e36eba047ffd4d82b10cddfc771a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552711"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850007"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>教程：Azure Active Directory 单一登录 (SSO) 与 iSAMS 的集成
 
@@ -132,16 +132,16 @@ ms.locfileid: "88552711"
 1. 导航到“控制面板”，并打开“身份验证”模块。
 1. 从右侧菜单中，选择“标识提供者”
 
-    ![配置](./media/isams-tutorial/click-identity-provider.png)
+    ![屏幕截图显示选定了“标识提供者”的 Active Directory 配置。](./media/isams-tutorial/click-identity-provider.png)
 
 1. 选择“添加提供程序”
 
-    ![配置](./media/isams-tutorial/add-identity-provider.png)
+    ![屏幕截图显示已选择“添加提供程序”的标识提供者。](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. 在下面的页中执行以下步骤：
 
-    ![配置](./media/isams-tutorial/configure-isams.png)
+    ![屏幕截图显示“标识提供者向导”，可以在其中执行所述步骤。](./media/isams-tutorial/configure-isams.png)
 
     a. 在“名称”文本框中，指定 `Saml2 Azure` 之类的有效名称。 这是将显示在登录页上的名称。
 
@@ -159,12 +159,12 @@ ms.locfileid: "88552711"
 
 2.  转到“控制面板主页” -> “安全性和权限” -> “用户帐户” -> “用户选项和任务” -> “修改用户属性”    
 
-    ![测试用户](./media/isams-tutorial/modify-user-properties.png)
+    ![屏幕截图显示已选择“修改用户属性”的“用户帐户”页。](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. 在生成的弹出窗口中，选择“帐户详细信息”选项卡，然后将“授权”更改为新创建的标识提供者的授权 。
 
-    ![测试用户](./media/isams-tutorial/account-details.png)
+    ![屏幕截图显示“帐户详细信息”，其中包含“授权”的值。](./media/isams-tutorial/account-details.png)
 
 4. 单击“保存并关闭”。
 

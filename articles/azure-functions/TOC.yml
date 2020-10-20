@@ -70,7 +70,7 @@
           href: /samples/browse/?products=azure-functions&languages=csharp
         - name: Java
           href: /samples/browse/?products=azure-functions&languages=java
-        - name: Javascript
+        - name: JavaScript
           href: /samples/browse/?products=azure-functions&languages=javascript
         - name: PowerShell
           href: /samples/browse/?products=azure-functions&languages=azurepowershell
@@ -120,7 +120,7 @@
           href: functions-reference-csharp.md
         - name: F#
           href: functions-reference-fsharp.md
-        - name: Javascript
+        - name: JavaScript
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
@@ -141,6 +141,9 @@
           displayName: 'secure, ssl'
         - name: 安全基线
           href: security-baseline.md
+    - name: 监视
+      href: functions-monitoring.md
+      displayName: 'App Insights, Application Insights, logs, logging'
     - name: 诊断
       href: functions-diagnostics.md
     - name: 消耗计划成本
@@ -282,11 +285,18 @@
           href: functions-geo-disaster-recovery.md
     - name: 监视
       items:
-        - name: 监视函数
-          href: functions-monitoring.md
+        - name: 配置监视
+          href: configure-monitoring.md
           displayName: 'App Insights, Application Insights, logs, logging'
-        - name: 分析日志
+        - name: 分析遥测数据
+          href: analyze-telemetry-data.md
+          displayName: 'App Insights, Application Insights, Kusto'
+        - name: 流式处理日志
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: 诊断日志
           href: functions-monitor-log-analytics.md
+          displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
     - name: 安全
       items:
         - name: 添加 SSL 证书

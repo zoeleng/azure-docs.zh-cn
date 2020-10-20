@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447172"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946009"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>快速入门：设置 Azure 安全中心
 
@@ -33,7 +33,7 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和威胁�
 若要在订阅中启用 Azure Defende，必须拥有“订阅所有者”、“订阅参与者”或“安全管理员”角色。
 
 
-## <a name="open-security-center-for-the-first-time"></a>第一次打开安全中心
+## <a name="enable-security-center-on-your-azure-subscription"></a>在 Azure 订阅中启用安全中心
 
 1. 登录到 [Azure 门户](https://azure.microsoft.com/features/azure-portal/)。
 
@@ -54,6 +54,8 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和威胁�
 
 若要充分利用安全中心，需要按以下步骤启用 Azure Defender，并安装 Log Analytics 代理。
 
+> [!TIP]
+> 若要在管理组中的所有订阅上启用安全中心，请参阅[在多个 Azure 订阅上启用安全中心](onboard-management-group.md)。
 
 ## <a name="enable-azure-defender"></a>启用 Azure Defender
 

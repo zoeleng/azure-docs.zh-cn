@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cab4cd34458e6107c653859c97dfda12486a38a1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32b856a80209c015c9fc96029bdf8d540b340c25
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549734"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-sales-navigator"></a>教程：Azure Active Directory 单一登录 (SSO) 与 LinkedIn Sales Navigator 的集成
 
@@ -145,11 +145,11 @@ ms.locfileid: "88549734"
 
 1. 在“帐户中心”  ，单击“设置”  下的“全局设置”  。 此外，请从下拉列表中选择“Sales Navigator”。 
 
-    ![配置单一登录](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
+    ![屏幕截图显示了“应用程序设置”，你可以在其中选择“销售导航”。](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
 1. 单击“或单击此处从表单加载并复制单个字段”并执行以下步骤： 
 
-    ![配置单一登录](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
+    ![屏幕截图显示了“单一登录”，你可以在其中输入所述值。](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
     a. 复制“实体 ID”，并将其粘贴到 Azure 门户上“基本 SAML 配置”中的“标识符”文本框内。   
 
@@ -157,11 +157,11 @@ ms.locfileid: "88549734"
 
 1. 转到“LinkedIn 管理设置”  分区。 单击“上传 XML 文件”选项，上传从 Azure 门户下载的 XML 文件。 
 
-    ![配置单一登录](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
+    ![屏幕截图显示了“配置 LinkedIn 服务提供商 SSO 设置”，你可以在其中上传 XML 文件。](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. 单击“打开”  启用 SSO。 SSO 状态将从“未连接”  更改为“已连接” 
 
-    ![配置单一登录](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
+    ![屏幕截图显示了单一登录，你可以在其中启用“通过 SSO 对用户进行身份验证”。](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-sales-navigator-test-user"></a>创建 LinkedIn Sales Navigator 测试用户
 

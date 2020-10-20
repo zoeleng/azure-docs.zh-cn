@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852031"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214900"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的自定义策略的开发人员说明
 
@@ -63,10 +63,10 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="protocols-and-authorization-flows"></a>协议和授权流
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 授权代码](authorization-code-flow.md) |  |  | X |  |
-| 具有 PKCE 的 OAuth2 授权代码 |  |  | X | 仅限移动应用程序  |
+| 具有 PKCE 的 OAuth2 授权代码 |  |  | X | [公共客户端和单页应用程序](authorization-code-flow.md)  |
 | [OAuth2 隐式流](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 资源所有者密码凭据](ropc-custom.md) |  | X |  |  |
 | [OIDC 连接](openid-connect.md) |  |  | X |  |
@@ -76,7 +76,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="identify-providers-federation"></a>标识提供者联合 
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | 例如 Google+。  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | 例如 Facebook。  |
@@ -87,7 +87,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="rest-api-integration"></a>REST API 集成
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [具有基本身份验证的 REST API](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [具有客户端证书身份验证的 REST API](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -95,7 +95,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="component-support"></a>组件支持
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [电话因素身份验证](phone-factor-technical-profile.md) |  |  | X |  |
 | [Azure MFA 身份验证](multi-factor-auth-technical-profile.md) |  | X |  |  |
@@ -110,7 +110,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="page-layout-versions"></a>页面布局版本
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [2.0.0](page-layout.md) |  | X |  |  |
 | [1.2.0](page-layout.md) |  | X |  |  |
@@ -120,7 +120,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="app-ief-integration"></a>App-IEF 集成
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | 查询字符串参数 `domain_hint` |  |  | X | 作为声明提供时，可以传递给 IDP。 |
 | 查询字符串参数 `login_hint` |  |  | X | 作为声明提供时，可以传递给 IDP。 |
@@ -130,7 +130,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="session-management"></a>会话管理
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [默认 SSO 会话提供程序](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [外部登录会话提供程序](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
@@ -140,7 +140,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="security"></a>安全性
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | 策略密钥 - 生成、手动、上传 |  |  | X |  |
 | 策略密钥 - RSA/证书、机密 |  |  | X |  |
@@ -148,7 +148,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="developer-interface"></a>开发人员接口
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure 门户-IEF UX |  |  | X |  |
 | 策略上传 |  |  | X |  |

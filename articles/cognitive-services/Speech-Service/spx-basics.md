@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854901"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893809"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>了解语音 CLI 的基础知识
 
@@ -69,6 +69,51 @@ spx translate --microphone --source en-US --target ru-RU --output file C:\some\f
 
 > [!NOTE]
 > 有关所有受支持的语言及其相应的区域设置代码列表，请参阅[语言和区域设置文章](language-support.md)。
+
+### <a name="configuration-files-in-the-datastore"></a>数据存储中的配置文件
+
+语音 CLI 可以读取和写入配置文件中的多个设置，这些设置存储在本地语音 CLI 数据存储中，并在语音 CLI 调用中使用 @ 符号进行命名。 语音 CLI 将尝试将一个新的设置保存它在当前工作目录中创建的新 `./spx/data` 子目录中。
+查找配置值时，语音 CLI 将在当前工作目录中查找，然后在 `./spx/data` 路径中查找。
+以前，你使用了数据存储来保存 `@key` 和 `@region` 值，因此无需通过每个命令行调用来指定它们。
+你还可以使用配置文件来存储你自己的配置设置，甚至使用它们来传递 URL 或在运行时生成的其他动态内容。
+
+本部分介绍了使用本地数据存储中的配置文件借助 `spx config` 来存储和提取命令设置，并使用 `--output` 选项存储语音 CLI 的输出。
+
+下面的示例将清除 `@my.defaults` 配置文件，为文件中的“键”和“区域”添加键值对，并在调用 `spx recognize` 时使用此配置 。
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+你还可以向配置文件写入动态内容。 例如，以下命令将创建一个自定义语音模型，并在配置文件中存储新模型的 URL。 下一条命令要等到该 URL 的模型可以使用时才返回。
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+以下示例将两条 URL 写入 `@my.datasets.txt` 配置文件。
+在此方案中，`--output` 可以包括一个可选“添加”关键字，以创建配置文件或追加到现有配置文件。
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+有关数据存储文件的详细信息，包括使用默认配置文件（用于命令特定默认设置的 `@spx.default`、`@default.config` 和 `@*.default.config`），请输入以下命令：
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>批处理操作
 

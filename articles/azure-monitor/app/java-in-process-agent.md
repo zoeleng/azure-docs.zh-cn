@@ -3,12 +3,12 @@ title: 监视任何环境中的 Java 应用程序 - Azure Monitor Application In
 description: 对在任何环境中运行的 Java 应用程序进行应用程序性能监视，而不需要检测该应用。 分布式跟踪和应用程序映射。
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370028"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215274"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 无代码应用程序监视 Azure Monitor Application Insights - 公共预览版
 
@@ -114,8 +114,8 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000
 ### <a name="logs"></a>日志
 
 * java.util.logging
-* Log4j
-* SLF4J/Logback
+* 包含 MDC 属性的 Log4j () 
+* SLF4J/Logback (包括 MDC 属性) 
 
 ### <a name="metrics"></a>指标
 

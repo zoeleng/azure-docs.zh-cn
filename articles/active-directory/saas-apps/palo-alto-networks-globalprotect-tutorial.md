@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 9c52050d432701f4af2e166b36e38dc23e0cc002
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c08694efafef315b0f5e96d293d883767860fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286924"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855201"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Palo Alto Networks - GlobalProtect 的集成
 
@@ -117,7 +117,7 @@ ms.locfileid: "91286924"
 
 ## <a name="configure-palo-alto-networks---globalprotect-sso"></a>配置 Palo Alto Networks - GlobalProtect SSO
 
-1. 在另一个浏览器窗口中，以管理员身份打开 Palo Alto Networks Firewall GlobalProtect。
+1. 在另一个浏览器窗口中，以管理员身份打开 Palo Alto Networks - GlobalProtect。
 
 2. 单击“设备”。
 

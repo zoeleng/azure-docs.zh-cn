@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812312"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850373"
 ---
 # <a name="creating-a-synapse-workspace"></a>创建 Synapse 工作区
 
@@ -29,8 +29,9 @@ ms.locfileid: "91812312"
 1. 打开 [Azure 门户](https://portal.azure.com)，然后在顶部搜索“Synapse”。
 1. 在“服务”下的搜索结果中，选择“Azure Synapse Analytics (工作区预览版)” 。
 1. 选择“添加”以创建工作区。
-1. 在“基本信息”中，输入必填字段，然后选择工作区名称。 在本教程中，我们将使用 myworkspace。
-1. 需要 ADLSGEN2 帐户才能创建工作区。 最简单的方法是创建一个新工作区。 如果要重复使用现有工作区，需要执行一些其他配置。 
+1. 在“基本信息”中，输入首选的“订阅”、“资源组”和“区域”，然后选择工作区名称   。 在本教程中，我们将使用 myworkspace。
+1. 需要 ADLSGEN2 帐户和该帐户中的容器来创建工作区。 最简单的方法是创建一个新工作区。 如果要重复使用现有工作区，需要执行一些其他配置。 
+    1. Synapse 工作区将使用此容器作为存储 Spark 日志和 Spark 表数据的默认位置。
 1. 选项 1 创建新的 ADLSGEN2 帐户 
     1. 导航到“选择 Data Lake Storage Gen 2”。 
     1. 单击“新建”进行创建，并将其命名为 contosolake 。

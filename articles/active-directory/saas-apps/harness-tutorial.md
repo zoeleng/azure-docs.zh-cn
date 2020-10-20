@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
-ms.openlocfilehash: cfa81b52e8479851fc22b12cbc96a9507f0b2dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e49fc29f03269096bfc7d6bb6e905187bb8788ff
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551381"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Harness 集成
 
@@ -138,15 +138,15 @@ ms.locfileid: "88551381"
 
 4. 在页面右上角，单击“持续安全性”   > “访问管理”   > “身份验证设置”  。
 
-    ![Harness 配置](./media/harness-tutorial/configure01.png)
+    ![屏幕截图显示了“连续安全”菜单，其中已选择“访问管理”和“身份验证设置”。](./media/harness-tutorial/configure01.png)
 
 5. 在“SSO 提供程序”  部分中，单击“+ 添加 SSO 提供程序”   > “SAML”  。
 
-    ![Harness 配置](./media/harness-tutorial/configure03.png)
+    ![屏幕截图显示了“SSO 提供程序”，其中已选择“+ 添加 SSO 提供程序 - SAML”。](./media/harness-tutorial/configure03.png)
 
 6. 在“SAML 提供程序”  弹出窗口中，执行以下步骤：
 
-    ![Harness 配置](./media/harness-tutorial/configure02.png)
+    ![屏幕截图显示了“SAML 提供程序”弹出窗口，其中突出显示了“URL”和“显示名称”字段，且已选择“选择文件”和“提交”按钮。](./media/harness-tutorial/configure02.png)
 
     a. 复制“在 SSO 提供程序中，请启用基于 SAML 的登录，然后输入以下 URL”  实例，并将其粘贴到 Azure 门户上“基本 SAML 配置”  部分的“答复 URL”文本框中。
 
@@ -166,11 +166,11 @@ ms.locfileid: "88551381"
 
 1. 在页面右上角，单击“持续安全性”   > “访问管理”   > “用户”  。
 
-    ![Harness 配置](./media/harness-tutorial/configure04.png)
+    ![屏幕截图显示了“连续安全”菜单，其中已选择“访问管理”和“用户”。](./media/harness-tutorial/configure04.png)
 
 1. 在页面右侧，单击“+ 添加用户”。 
 
-    ![Harness 配置](./media/harness-tutorial/configure05.png)
+    ![屏幕截图显示了“用户”页面，其中选择了“+ 添加用户”操作。](./media/harness-tutorial/configure05.png)
 
 1. 在“添加用户”弹出窗口中，执行以下步骤  ：
 

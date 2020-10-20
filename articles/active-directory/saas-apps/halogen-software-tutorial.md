@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 1743908652a70667a368dced18b2e808ce590a1b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 746f60374a4e8f01af119d6e9c604b941e7c4950
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549987"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944227"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Saba TalentSpace 的集成
 
@@ -131,15 +131,15 @@ ms.locfileid: "88549987"
 
 2. 单击“**选项**”选项卡。
   
-    ![什么是 Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-12.png)
+    ![显示“saba TalentSpace”主页的屏幕截图，其中“选项”选项卡处于选中状态。](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. 在左侧导航窗格中，单击“SAML 配置”。 
   
-    ![什么是 Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-13.png)
+    ![显示左侧导航窗格中“用户界面”的屏幕截图，其中“SAML 配置”处于选中状态。](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. 在“SAML 配置”  页上，执行以下步骤：
 
-    ![什么是 Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-14.png)
+    ![显示“SAML 配置”页的屏幕截图，其中突出显示了“设置”选项。](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. 选择 **NameID** 作为**唯一标识符**。
 
@@ -166,7 +166,7 @@ ms.locfileid: "88549987"
 
 2. 单击“用户中心”选项卡，并单击“创建用户”。  
 
-    ![什么是 Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
+    ![显示“用户中心”选项卡的屏幕截图，其中“创建用户”处于选中状态。](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. 在“新建用户”  对话框页上，执行以下步骤：
 

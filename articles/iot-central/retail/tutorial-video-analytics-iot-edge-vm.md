@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526385"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873272"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>教程：创建用于视频分析的 IoT Edge 实例 (Linux VM)
 
@@ -34,7 +34,7 @@ Azure IoT Edge 是一项完全托管的服务，可通过部署和运行以下�
 
 ## <a name="prerequisites"></a>先决条件
 
-在开始之前，应该先完成上一教程 - [在 Azure IoT Central 中创建视频分析应用程序](./tutorial-video-analytics-create-app.md)。
+在开始之前，应该先完成上一教程 - [在 Azure IoT Central 中创建视频分析应用程序](./tutorial-video-analytics-create-app-yolo-v3.md)或[在 Azure IoT Central 中创建视频分析 (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md)。
 
 还需要一个 Azure 订阅。 如果没有 Azure 订阅，则可在 [Azure 注册页](https://aka.ms/createazuresubscription)上免费创建一个。
 

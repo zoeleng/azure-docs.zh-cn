@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151364"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220452"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>排查 Azure Data Share 中的常见问题 
 
@@ -34,7 +34,7 @@ ms.locfileid: "92151364"
     1. 搜索“Microsoft.DataShare”
     1. 单击“注册” 
 
-    需要 Azure 订阅的 [Azure 参与者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 才能完成这些步骤。 
+    需要 Azure 订阅的 [Azure 参与者角色](../role-based-access-control/built-in-roles.md#contributor) 才能完成这些步骤。 
 
 * **邀请将发送到你的电子邮件别名而不是 Azure 登录电子邮件处。** 如果你已注册了 Azure Data Share 服务或已在 Azure 租户中创建了 Data Share 资源，但仍无法看到邀请，原因可能是提供者已将你的电子邮件别名而不是 Azure 登录电子邮件地址作为收件人输入。 请联系你的数据提供者，确保他们已将邀请发送到你的 Azure 登录电子邮件地址而非电子邮件别名处。
 
@@ -81,4 +81,3 @@ ms.locfileid: "92151364"
 若要了解如何开始共享数据，请继续阅读[共享数据](share-your-data.md)教程。 
 
 若要了解如何接收数据，请继续阅读 [接受和接收数据](subscribe-to-data-share.md) 教程。
-

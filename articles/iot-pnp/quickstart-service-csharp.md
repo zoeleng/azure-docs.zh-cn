@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759163"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945370"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>快速入门：与已连接到解决方案的 IoT 即插即用设备交互 (C#)
 
@@ -34,7 +34,7 @@ IoT 即插即用简化了 IoT 的使用，使你无需了解底层设备实现�
 
 如果已完成[快速入门：将 Windows 上运行的示例 IoT 即插即用设备应用程序连接到 IoT 中心 (C#)](quickstart-connect-device-csharp.md)，则已克隆了存储库。
 
-从用于 .NET 的 Microsoft Azure IoT SDK GitHub 存储库克隆示例。 在所选文件夹中打开命令提示符。 运行以下命令，以克隆[适用于 .NET 的 Microsoft Azure IoT 示例](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 存储库：
+为 C# GitHub 存储库克隆 Azure IoT 示例中的示例。 在所选文件夹中打开命令提示符。 运行以下命令，以克隆[适用于 .NET 的 Microsoft Azure IoT 示例](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 存储库：
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -55,7 +55,6 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     | IOTHUB_DEVICE_DPS_ID_SCOPE | 完成[设置环境](set-up-environment.md)时记下的值 |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | 完成[设置环境](set-up-environment.md)时记下的值 |
-
 
 1. 现在可以在 Visual Studio 中生成示例，并在调试模式下运行它。
 
@@ -81,9 +80,9 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 1. 现在可以在 Visual Studio 中生成示例，并在调试模式下运行它。
 
-### <a name="get-digital-twin"></a>获取数字孪生
+### <a name="get-device-twin"></a>获取设备孪生
 
-以下代码片段演示了服务应用程序如何检索数字孪生体：
+以下代码片段演示了服务应用程序如何检索设备孪生：
 
 ```C#
 // Get a Twin and retrieves model Id set by Device client
@@ -92,7 +91,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> 此示例使用来自 IoT 中心服务客户端的“Microsoft.Azure.Devices.Client;”命名空间。 若要详细了解如何检索模型 ID，请参阅[开发人员指南](concepts-developer-guide-service.md)。
+> 此示例使用 IoT 中心服务客户端中的 Microsoft.Azure.Devices.Client 命名空间 。 若要了解有关 API（包括数字孪生 API）的详细信息，请参阅[服务开发人员指南](concepts-developer-guide-service.md)。
 
 此代码生成以下输出：
 
@@ -101,7 +100,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-以下代码片段演示了如何使用补丁通过数字孪生体来更新属性：
+以下代码片段演示了如何使用补丁通过设备孪生来更新属性：
 
 ```C#
 // Update the twin

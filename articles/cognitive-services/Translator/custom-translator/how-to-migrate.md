@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537980"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220867"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>将 Hub 工作区和项目迁移到自定义翻译
 
@@ -55,7 +55,7 @@ Microsoft Translator Hub 允许有选择性地迁移项目。
 
 3. 单击相应项目的“迁移”链接。
 
-    ![如何从 Hub 迁移](media/how-to/how-to-migrate-from-hub.png)
+    ![突出显示所选项目的 "迁移" 按钮的屏幕截图。](media/how-to/how-to-migrate-from-hub.png)
 
 4. 点击“迁移”链接后，将显示一个窗体，可以在其中执行下列操作：
    * 指定要迁移到的自定义翻译器上的工作区
@@ -76,7 +76,7 @@ Microsoft Translator Hub 允许有选择性地迁移项目。
 
 3. 在“设置”页上单击“将工作区数据迁移到自定义翻译”。
 
-    ![如何从 Hub 迁移](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![突出显示将工作区数据迁移到自定义转换器选项的屏幕截图。](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. 在下一页上，选择以下两个选项之一：
 
@@ -130,7 +130,7 @@ Microsoft Translator Hub 允许有选择性地迁移项目。
 
 此表比较了 Microsoft Translator Hub 和自定义翻译器之间的功能。
 
-| Feature | 集线器 | 自定义翻译 |
+| 功能 | 集线器 | 自定义翻译 |
 | ------- | :-: | :---------------: |
 | 自定义功能状态    | 正式版    | 正式版 |
 | 文本 API 版本    | V2     | V3  |

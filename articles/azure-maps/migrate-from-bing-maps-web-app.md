@@ -1,6 +1,6 @@
 ---
 title: 教程：从必应地图迁移 Web 应用 | Microsoft Azure Maps
-description: 如何将 Web 应用从必应地图迁移到 Microsoft Azure Maps。
+description: 有关如何将 Web 应用从必应地图迁移到 Microsoft Azure Maps 的教程。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319724"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876509"
 ---
-# <a name="migrate-a-web-app-from-bing-maps"></a>从必应地图迁移 Web 应用
+# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>教程 - 从必应地图迁移 Web 应用
 
 使用必应地图的 Web 应用通常使用必应地图 V8 JavaScript SDK。 Azure Maps Web SDK 是适合用于迁移目标的基于 Azure 的 SDK。 Azure Maps Web SDK 允许你使用自己的内容和图像自定义交互式地图，以便在 Web 或移动应用程序中显示。 此控件使用 WebGL，因此可以渲染大型数据集，同时保持很高的性能。 使用 JavaScript 或 TypeScript 通过此 SDK 进行开发。
 

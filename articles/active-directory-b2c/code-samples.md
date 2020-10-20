@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 76cacbea3f98f65e290cb2722062127d2264e171
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664828"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854284"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 代码示例
 
@@ -54,3 +54,15 @@ ms.locfileid: "91664828"
 | 示例 | 说明 |
 |--------| ----------- |
 | [saml-sp-tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | SAML 测试应用程序，用于测试已配置为充当 SAML 标识提供者的 Azure AD B2C。 |
+
+## <a name="api-connectors"></a>API 连接器
+
+下表提供了一些代码示例的链接，这些示例使用 [API 连接器](api-connectors-overview.md)在用户流中利用 Web API。
+
+## <a name="api-connector-azure-function-quickstarts"></a>API 连接器 Azure Function 快速入门
+
+| 示例                                                                                                                          | 说明                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | 此 .NET Core Azure Function 示例演示如何将登录限制为特定电子邮件域并验证用户提供的信息。 |
+| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | 此 Node.js Azure Function 示例演示如何将登录限制为特定电子邮件域并验证用户提供的信息。  |
+| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | 此 Python Azure Function 示例演示如何将登录限制为特定电子邮件域并验证用户提供的信息。    |

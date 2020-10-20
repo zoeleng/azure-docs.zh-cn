@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631070"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930707"
 ---
 # <a name="tutorial-mock-api-responses"></a>教程：模拟 API 响应
 
@@ -107,7 +107,7 @@ API 公开一个或多个操作。 在本部分中，将操作添加到你创建
 1. 选择“保存”。
 
     > [!TIP]
-    > API 包含文本“模拟已启用”的黄色条形表示从 API 管理返回的响应发送了模拟策略，而不是实际的后端响应。
+    > API 的黄色条和“已启用模拟”表示从 API 管理返回的响应是由[模拟策略](api-management-advanced-policies.md#mock-response)模拟的，而不是由后端产生的。
 
 ## <a name="test-the-mocked-api"></a>测试模拟 API
 

@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024109"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875015"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure 通知中心
 
@@ -32,17 +32,7 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于�
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> 通知中心需要 Azure CLI 2.0.67 或更高版本。 运行 `az --version` 查看安装的版本和依赖库。 若要安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
-
-## <a name="install-the-azure-cli-extension"></a>安装 Azure CLI 扩展
-
-使用 Azure CLI 的扩展引用时，必须先安装该扩展。 借助 Azure CLI 扩展，可访问尚未在核心 CLI 中提供的试验性的和预发布的命令。 若要详细了解包含更新和卸载的扩展，请参阅[使用 Azure CLI 的扩展](/cli/azure/azure-cli-extensions-overview)。
-
-安装用于通知中心的 Azure CLI 扩展。
-
-```azurecli
-az extension add --name notification-hub
-```
+> 通知中心需要 Azure CLI 2.0.67 或更高版本。 运行 [az version](/cli/azure/reference-index?#az_version) 以查找安装的版本和依赖库。 若要升级到最新版本，请运行 [az upgrade](/cli/azure/reference-index?#az_upgrade)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

@@ -33,7 +33,7 @@ IBM Db2 for Linux、UNIX 和 Windows (LUW) 在 [高可用性和灾难恢复 (HAD
 
 在开始安装之前，请参阅以下 SAP 说明和文档：
 
-| SAP 说明 | 描述 |
+| SAP 说明 | 说明 |
 | --- | --- |
 | [1928533] | Azure 上的 SAP 应用程序：支持的产品和 Azure VM 类型 |
 | [2015553] | Azure 上的 SAP：支持先决条件 |
@@ -431,7 +431,7 @@ Daemon 状态： corosync： active/disabled pacemaker： active/disabled pcsd�
 
    e. 选择 IBM Db2 群集的虚拟机。
 
-   f. 选择“确定”  。
+   f. 选择“确定”。
 
 1. 创建运行状况探测：
 
@@ -509,7 +509,7 @@ j2ee/dbhost = db-virt-hostname
 
 建议配置公共 NFS 共享或 GlusterFS，其中日志是从这两个节点写入的。 NFS 共享或 GlusterFS 必须高度可用。 
 
-可以使用现有的高可用 NFS 共享或 GlusterFS 传输或配置文件目录。 有关详情，请参阅：
+可以使用现有的高可用 NFS 共享或 GlusterFS 传输或配置文件目录。 有关详细信息，请参阅：
 
 - [适用于 SAP NetWeaver 的 Red Hat Enterprise Linux 上的 Azure VM 上的 GlusterFS][glusterfs] 
 - [Azure Vm 上的 SAP NetWeaver 高可用性，适用于 SAP 应用程序的 Azure NetApp 文件 Red Hat Enterprise Linux][anf-rhel]

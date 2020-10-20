@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: d7f0ca619c990d2a42c31df82ee9f90bd7ea230b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 8f2603ce055d18e1ad7e202e0c662e042a1d1d48
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801811"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>教程：Azure Active Directory 与 Palo Alto Networks - Aperture 集成
 
@@ -77,7 +77,7 @@ ms.locfileid: "91801811"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分执行以下步骤：
 
-    ![Palo Alto Networks - Aperture 域和 URL 单一登录信息 IDP](common/idp-intiated.png)
+    ![显示“基本 SAML 配置”的屏幕截图，其中突出显示了“标识符”和“回复 URL”文字框，并选择了“保存”操作。](common/idp-intiated.png)
 
     a. 在“标识符”文本框中，使用以下模式键入 URL：`https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 

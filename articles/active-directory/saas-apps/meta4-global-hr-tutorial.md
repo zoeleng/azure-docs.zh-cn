@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: a5d10d776de483919a64ccc46ca4cbb2b633f250
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6b8ea30e9d6c9b4557643d461d39b6375e987784
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552564"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>教程：Azure Active Directory 与 Meta4 Global HR 的集成
 
@@ -103,13 +103,13 @@ ms.locfileid: "88552564"
 
 4. 如果要在 IDP 发起的模式下配置应用程序，请在“基本 SAML 配置部分”中执行以下步骤   ：
 
-    ![Meta4 Global HR 域和 URL 单一登录信息](common/both-replyurl.png)
+    ![屏幕截图显示了“基本 SAML 配置”部分，你可以在其中输入“回复 URL”并选择“保存”。](common/both-replyurl.png)
 
     在“回复 URL”文本框中，使用以下模式键入 URL：`https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST` 
 
 5. 如果要在 SP  发起的模式下配置应用程序，请单击“设置其他 URL”  ，并执行以下步骤：
 
-    ![Meta4 Global HR 域和 URL 单一登录信息](common/both-signonurl.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/both-signonurl.png)
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://<SUBDOMAIN>.meta4globalhr.com`
 

@@ -1,5 +1,5 @@
 ---
-title: 教程 - 修改 IoT Edge 实时视频分析模块
+title: 教程 - 修改 Azure IoT Edge 实时视频分析模块
 description: 本教程说明如何修改和生成视频分析 - 对象和运动检测应用程序模板所使用的实时视频分析网关模块。
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037854"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873466"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>教程：修改和生成实时视频分析网关模块
 
@@ -50,7 +50,7 @@ git clone https://github.com/Azure/live-video-analytics
 1. 编辑 `LvaEdgeGatewayModule` 模块部分，以将映像名称和 AMS 帐户名称添加到 `env:amsAccountName:value`。
 1. 编辑 `lvaYolov3` 模块部分并添加映像的名称。
 1. 编辑 `lvaEdge` 模块部分并添加映像的名称。
-1. 有关如何完成配置的详细信息，请参阅[在 Azure IoT Central 中创建视频分析应用程序](tutorial-video-analytics-create-app.md)。
+1. 有关如何完成配置的详细信息，请参阅[在 Azure IoT Central 中创建视频分析应用程序](tutorial-video-analytics-create-app-yolo-v3.md)。
 
 ## <a name="build-the-code"></a>生成代码
 

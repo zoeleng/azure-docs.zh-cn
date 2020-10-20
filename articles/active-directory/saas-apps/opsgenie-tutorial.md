@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8958e16ef4b1b7033fa0757e2a70eb053896b143
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543901"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996565"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>教程：Azure Active Directory 单一登录 (SSO) 与 OpsGenie 的集成
 
@@ -133,15 +133,15 @@ ms.locfileid: "88543901"
 
 3. 若要启用 SSO，请选择“启用”。 
    
-    ![OpsGenie 设置](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![屏幕截图显示选择了“已启用”复选框。](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. 在“提供程序”部分，单击“Azure Active Directory”选项卡。  
    
-    ![OpsGenie 设置](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![屏幕截图显示“提供程序”部分，其中选择了“Azure Active Directory”选项卡。](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. 在“Azure Active Directory”对话框页上，执行以下步骤：
    
-    ![OpsGenie 设置](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![屏幕截图显示了“单一登录”部分，其中包含“启用单一登录”开关、“SAML 2.0 终结点”和“元数据 URL”。](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. 复制“应用 ID URI”值，并将其粘贴到 Azure 门户上“基本 SAML 配置”部分的“标识符(实体 ID)”文本框中。   
 
@@ -169,7 +169,7 @@ ms.locfileid: "88543901"
 
 4. 在“添加用户”对话框中，执行以下步骤： 
    
-    ![OpsGenie 设置](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![屏幕截图显示了“添加用户”对话框，其中突出显示了“电子邮件”和“全名”文本框，并已选择“保存”按钮。](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. 在“电子邮件”文本框中，键入 B.Simon 在 Azure Active Directory 中使用的电子邮件地址。 
    

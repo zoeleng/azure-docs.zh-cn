@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987366"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812431"
 ---
 # <a name="what-is-azure-iot-central"></a>什么是 Azure IoT Central？
 
@@ -50,14 +50,21 @@ IoT Central 是一个 IoT 应用程序平台，可减轻开发、管理和维护
 
 作为解决方案构建者，你可以使用基于 Web 的工具为连接到应用程序的设备创建“设备模板”。 设备模板是定义一种设备的特征和行为的蓝图，例如：
 
-- 它发送的遥测。
-- 操作员可以修改的业务属性。
-- 由设备设置的、在应用程序中处于只读状态的设备属性。
-- 由操作员设置的属性，决定了设备的行为。
+- 它发送的遥测。 示例包含温度和湿度。 遥测是流式处理数据。
+- 操作员可以修改的业务属性。 示例包含客户地址和最后维护日期。
+- 由设备设置的、在应用程序中处于只读状态的设备属性。 例如，阀的状态为打开或关闭。
+- 由操作员设置的属性，决定了设备的行为。 例如，设备的目标温度。
+- 操作员可以调用的、在设备上运行的命令。 例如，用于远程重启设备的命令。
 
 此[设备模板](howto-set-up-template.md)包括：
 
-- 设备功能模型，描述设备应该实现的功能，例如发送的遥测数据和报告的属性。
+- 设备功能模型，描述设备应实现的功能。 设备功能包括：
+
+  - 流式传输到 IoT Central 的遥测。
+  - 用于将状态报告给 IoT Central 的只读属性。
+  - 从 IoT Central 接收的、用于设置设备状态的可写属性。
+  - 从 IoT Central 调用的命令。
+
 - 不存储在设备上的云属性。
 - 属于 IoT Central 应用程序的自定义、仪表板和窗体。
 
@@ -144,7 +151,6 @@ IoT Central 应用程序完全由 Microsoft 托管，这降低了管理应用程
 - 不支持数组架构类型。
 - 仅支持 C 设备 SDK 以及 Node.js 设备和服务 SDK。
 - IoT Central 目前可在美国、欧洲、亚太、澳大利亚、英国和日本位置中使用。
-- 不能在英国和日本位置使用“自定义应用程序(旧版)”应用程序模板。
 - 必须在同一文件中以内联方式定义设备功能模型的所有接口。
 
 ## <a name="next-steps"></a>后续步骤

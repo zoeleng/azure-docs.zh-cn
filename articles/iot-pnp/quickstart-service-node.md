@@ -3,17 +3,17 @@ title: 与已连接到 Azure IoT 解决方案的 IoT 即插即用设备交互 (N
 description: 使用 Node.js 连接到已与 Azure IoT 解决方案连接的 IoT 即插即用设备并与之交互。
 author: elhorton
 ms.author: elhorton
-ms.date: 08/11/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 6ad6e48642e7b7df4b93b37b5ef66381833d8bbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574987"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946121"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>快速入门：与已连接到解决方案的 IoT 即插即用设备交互 (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 若要详细了解示例配置，请参阅[示例自述文件](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md)。
 
-在本快速入门中，可以使用一个以 Node.js 编写的示例恒温器设备作为 IoT 即插即用设备。 运行示例设备：
+在本快速入门中，使用一个以 Node.js 编写的示例恒温器设备作为 IoT 即插即用设备。 运行示例设备：
 
 1. 打开终端窗口，然后导航到包含从 GitHub 克隆的适用于 Node.js 的 Microsoft Azure IoT SDK 存储库的本地文件夹。
 
@@ -94,48 +94,103 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 1. 转到**服务**终端，并使用以下命令来运行用于读取设备信息的示例：
 
     ```cmd/sh
-    node get_digital_twin.js
+    node twin.js
     ```
 
-1. 在服务终端输出中，请注意数字孪生体的响应。 你会看到所报告的设备的模型 ID 以及相关属性：
+1. 在服务终端输出中，请注意设备孪生的响应。 你会看到所报告的设备的模型 ID 以及相关属性：
 
     ```json
-    "$dtId": "mySimpleThermostat",
-    "serialNumber": "123abc",
-    "maxTempSinceLastReboot": 51.96167432818655,
-    "$metadata": {
-      "$model": "dtmi:com:example:Thermostat;1",
-      "serialNumber": { "lastUpdateTime": "2020-07-09T14:04:00.6845182Z" },
-      "maxTempSinceLastReboot": { "lastUpdateTime": "2020-07-09T14:04:00.6845182" }
+    Model Id: dtmi:com:example:Thermostat;1
+    {
+      "deviceId": "my-pnp-device",
+      "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "Njc3MDMxNDcy",
+      "status": "enabled",
+      "statusUpdateTime": "0001-01-01T00:00:00Z",
+      "connectionState": "Connected",
+      "lastActivityTime": "0001-01-01T00:00:00Z",
+      "cloudToDeviceMessageCount": 0,
+      "authenticationType": "sas",
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      },
+      "modelId": "dtmi:com:example:Thermostat;1",
+      "version": 4,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2020-10-05T11:35:19.4574755Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "maxTempSinceLastReboot": 31.343640523762232,
+          "serialNumber": "123abc",
+          "$metadata": {
+            "$lastUpdated": "2020-10-05T11:35:23.7339042Z",
+            "maxTempSinceLastReboot": {
+              "$lastUpdated": "2020-10-05T11:35:23.7339042Z"
+            },
+            "serialNumber": {
+              "$lastUpdated": "2020-10-05T11:35:23.7339042Z"
+            }
+          },
+          "$version": 3
+        }
+      },
+      "capabilities": {
+        "iotEdge": false
+      },
+      "tags": {}
     }
     ```
 
-1. 以下代码片段显示了 get_digital_twin .js 中用于检索设备孪生的模型 ID 的代码：
+1. 以下代码片段显示了 twin.js 中检索设备孪生的模型 ID 的代码：
 
     ```javascript
-    console.log("Model Id: " + inspect(digitalTwin.$metadata.$model))
+    var registry = Registry.fromConnectionString(connectionString);
+    registry.getTwin(deviceId, function(err, twin) {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log('Model Id: ' + twin.modelId);
+        //...
+      }
+      //...
+    }
     ```
 
 在本方案中，此代码输出 `Model Id: dtmi:com:example:Thermostat;1`。
 
+> [!NOTE]
+> 这些服务示例使用来自 IoT 中心服务客户端的 Registry 类 。 若要了解有关 API（包括数字孪生 API）的详细信息，请参阅[服务开发人员指南](concepts-developer-guide-service.md)。
+
 ### <a name="update-a-writable-property"></a>更新可写属性
 
-1. 在代码编辑器中打开文件 update_digital_twin.js。
+1. 在代码编辑器中打开文件 twin.js。
 
-1. 查看示例代码。 你可以了解如何创建 JSON 修补程序来更新设备的数字孪生体。 在此示例中，代码将恒温器的温度替换为值 42：
+1. 查看示例代码，它演示了更新设备孪生的两种方法。 若要使用第一种方法，请按如下所示修改 `twinPatch` 变量：
 
     ```javascript
-    const patch = [{
-        op: 'add',
-        path: '/targetTemperature',
-        value: '42'
-      }]
+    var twinPatch = {
+      tags: {
+        city: "Redmond"
+      },
+      properties: {
+        desired: {
+          targetTemperature: 42
+        }
+      }
+    };
     ```
+
+    `targetTemperature` 属性被定义为恒温器设备模型中的可写属性。
 
 1. 在服务终端中，使用以下命令来运行用于更新属性的示例：
 
     ```cmd/sh
-    node update_digital_twin.js
+    node twin.js
     ```
 
 1. 在设备终端中，将看到设备已接收更新：
@@ -151,44 +206,54 @@ git clone https://github.com/Azure/azure-iot-sdk-node
       }
     }
     updated the property
-    Properties have been reported for component
     ```
 
 1. 在服务终端中，运行以下命令以确认属性已更新：
 
     ```cmd/sh
-    node get_digital_twin.js
+    node twin.js
     ```
 
-1. 在服务终端输出的 `thermostat1` 组件下的数字孪生体响应中，你会看到所报告的已更新的目标温度。 设备可能需要花费一段时间来完成更新。 请重复此步骤，直到设备已处理属性更新为止：
+1. 在服务终端输出的 ¬reported` 属性部分中，你会看到报告的已更新的目标温度。 设备可能需要花费一段时间来完成更新。 请重复此步骤，直到设备已处理属性更新为止：
 
     ```json
-    targetTemperature: 42,
+    "reported": {
+      //...
+      "targetTemperature": {
+        "value": 42,
+        "ac": 200,
+        "ad": "Successfully executed patch for targetTemperature",
+        "av": 4
+      },
+      //...
+    }
     ```
 
 ### <a name="invoke-a-command"></a>调用命令
 
-1. 打开文件 invoke_command.js，并查看代码。
+1. 打开文件 device_method.js，并查看代码。
 
 1. 转到**服务**终端。 使用以下命令来运行用于调用该命令的示例：
 
     ```cmd/sh
-    set IOTHUB_COMMAND_NAME=getMaxMinReport
-    set IOTHUB_COMMAND_PAYLOAD=commandpayload
-    node invoke_command.js
+    set IOTHUB_METHOD_NAME=getMaxMinReport
+    set IOTHUB_METHOD_PAYLOAD=commandpayload
+    node device_method.js
     ```
 
 1. 服务终端中的输出显示以下确认消息：
 
     ```cmd/sh
+    getMaxMinReport on my-pnp-device:
     {
-        xMsCommandStatuscode: 200,  
-        xMsRequestId: 'ee9dd3d7-4405-4983-8cee-48b4801fdce2',  
-        connection: 'close',  'content-length': '18',  
-        'content-type': 'application/json; charset=utf-8',  
-        date: 'Thu, 09 Jul 2020 15:05:14 GMT',  
-        server: 'Microsoft-HTTPAPI/2.0',  vary: 'Origin',  
-        body: 'min/max response'
+      "status": 200,
+      "payload": {
+        "maxTemp": 23.460596940801928,
+        "minTemp": 23.460596940801928,
+        "avgTemp": 23.460596940801928,
+        "endTime": "2020-10-05T12:48:08.562Z",
+        "startTime": "2020-10-05T12:47:54.450Z"
+      }
     }
     ```
 

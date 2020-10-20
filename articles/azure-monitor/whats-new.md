@@ -6,16 +6,83 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6722b88947fda8f1a09e540d69c4a8bec74143df
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91325651"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842659"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 文档中有哪些新增内容？
 
 本文提供新的或已经过重大更新的 Azure Monitor 文章列表。 在每个月的第一周，本文将会刷新，以包含上个月的文章更新。
+
+## <a name="september-2020"></a>2020 年 9 月
+
+### <a name="general"></a>常规
+- [Azure Monitor常见问题解答](faq.md) - 添加了有关 OpenTelemetry 的部分。
+
+### <a name="agents"></a>代理
+- [Azure Monitor 代理概述](platform/azure-monitor-agent-overview.md) - 添加了切换到新代理的决定因素。
+- [Azure 监视代理概述](platform/agents-overview.md) - 添加了对 Windows 10 的支持。
+
+### <a name="alerts"></a>警报
+- [使用 Azure 资源管理器模板创建日志警报](platform/alerts-log-create-templates.md) - 新文章。
+- [排查 Azure 指标警报问题](platform/alerts-troubleshoot-metric.md) - 添加了有关导出指标警报规则的 ARM 模板的部分。
+
+### <a name="application-insights"></a>Application Insights
+- [新建基于工作区的 Azure Monitor Application Insights 资源](app/create-workspace-resource.md) - 删除了预览名称。
+- [Azure Application Insights 中的数据保留和存储](app/data-retention-privacy.md) - 添加了对 Mac 和 Linux 数据丢失保护的新增支持的详细信息。
+- [Application Insights 中的事件计数器](app/eventcounters.md) - 添加了有关默认收集的计数器的备注。
+- [Azure Application Insights 中基于日志的指标和预先聚合的指标](app/pre-aggregated-metrics-log-metrics.md) - 删除了预览名称。
+- [将 Azure Monitor Application Insights 经典资源迁移到基于工作区的资源](app/convert-classic-resource.md) - 新文章。
+- [在任何环境中监视 Java 应用程序 - Azure Monitor Application Insights](app/java-in-process-agent.md) - 更新为代理的新预览版本。
+- [使用 Azure Application Insights 为 ASP.NET 设置 Web 应用分析](app/asp-net.md) - 重写了文章。
+- [Azure Application Insights 中的遥测通道](app/telemetry-channels.md) - 添加了对 Mac 和 Linux 数据丢失保护的新增支持的详细信息。
+- [Azure Application Insights Snapshot Debugger 故障排除](app/snapshot-debugger-troubleshoot.md) - 向 Snapshot Debugger 故障排除添加了“SSL”部分。
+- [使用 Azure Monitor 中的应用程序更改分析查找 Web 应用问题](app/change-analysis.md) - 添加了虚拟机和活动日志。
+
+
+### <a name="containers"></a>容器
+- [使用适用于容器的 Azure Monitor 配置启用 Azure Arc 的 Kubernetes 群集](insights/container-insights-enable-arc-enabled-clusters.md) - 添加了有关使用服务主体启用监视功能的指南。
+- [用于容器的 Azure Monitor 中的部署和 HPA 指标](insights/container-insights-deployment-hpa-metrics.md) - 新文章。
+
+### <a name="insights-and-solutions"></a>见解和解决方案
+- [适用于 Azure Cache for Redis 的 Azure Monitor](insights/redis-cache-insights-overview.md) - 删除了预览名称。
+- [Azure 网络监视器（预览版）](insights/network-insights-overview.md)- 添加了“连接和流量”部分。
+- [IT 服务管理连接器 - Azure Monitor 中的安全导出](platform/it-service-management-connector-secure-webhook-connections.md) - 新文章。
+- [Azure Monitor 中的 IT 服务管理连接器](platform/itsmc-connections.md) - 有关 Cherwell 和 Provance ITSM 集成的说明。
+- [使用 Azure Monitor for Key Vault 监视 Key Vault](insights/key-vault-insights-overview.md) - 删除了预览名称。
+
+### <a name="logs"></a>日志
+- [审核 Azure Monitor 日志查询中的查询](log-query/query-audit.md) - 新文章。
+- [Azure Monitor 客户管理的密钥](platform/customer-managed-keys.md) - 添加了客户密码箱。
+- [Azure Monitor 日志专用群集](log-query/logs-dedicated-clusters.md) - 新文章。
+- [设计 Azure Monitor 日志部署](platform/design-logs-deployment.md) - 更新了“缩放和引入卷速率限制”部分。
+- [Azure Monitor Log Analytics 中的日志查询范围](log-query/scope.md) - 更新为包括基于工作区的应用程序。
+- [登录 Azure Monitor](platform/data-platform-logs.md) - 更新为包括基于工作区的应用程序。
+- [Azure Monitor 日志记录中的标准列](platform/log-standard-columns.md) - 更新为包括基于工作区的应用程序。
+- [Azure Monitor 服务限制](service-limits.md) - 更新了针对用户查询限制的限制。
+- [在 Azure Monitor Log Analytics 中使用客户管理的存储帐户](platform/private-storage.md) - 重写了文章。
+- [查看和分析 Azure Log Analytics 中的数据](log-query/logs-structure.md) - 更新为包括基于工作区的应用程序。
+
+
+### <a name="platform-logs"></a>平台日志
+- [Azure 活动日志事件架构 - Azure Monitor](platform/activity-log-schema.md) - 添加了严重性级别。
+- [诊断设置的资源管理器模板示例](samples/resource-manager-diagnostic-settings.md) - 添加了 Azure 存储帐户示例。
+
+### <a name="visualizations"></a>可视化效果
+- [Azure Monitor 工作簿图表可视化效果](platform/workbooks-chart-visualizations.md) - 新文章。
+- [Azure Monitor 工作簿复合条呈现器](platform/workbooks-composite-bar.md) - 新文章。
+- [Azure Monitor 工作簿图可视化效果](platform/workbooks-graph-visualizations.md) - 新文章。
+- [Azure Monitor 工作簿网格可视化效果](platform/workbooks-grid-visualizations.md) - 新文章。
+- [Azure Monitor 工作簿蜂巢可视化效果](platform/workbooks-honey-comb.md) - 新文章。
+- [Azure Monitor 工作簿文本可视化效果](platform/workbooks-text-visualizations.md) - 新文章。
+- [Azure Monitor 工作簿磁贴可视化效果](platform/workbooks-tile-visualizations.md) - 新文章。
+- [Azure Monitor 工作簿树可视化效果](platform/workbooks-tree-visualizations.md) - 新文章。
+
+
+
 
 ## <a name="august-2020"></a>2020 年 8 月
 

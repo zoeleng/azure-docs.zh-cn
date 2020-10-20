@@ -977,7 +977,7 @@
                   href: virtual-machines/windows/backup-restore.md
                 - name: 用于还原的 Azure 存储
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-                - name: Always On 可用性组
+                - name: 可用性组 (AG)
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: 故障转移群集实例
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
@@ -1054,33 +1054,45 @@
                       href: virtual-machines/windows/automated-backup.md
                     - name: 自动备份 (SQL 2014)
                       href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Always On 可用性组
+                - name: 可用性组 (AG)
                   items:
-                    - name: Azure 门户
-                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
-                    - name: PowerShell 或 Az CLI
-                      href: virtual-machines/windows/availability-group-az-commandline-configure.md
-                    - name: Azure 快速入门模板
-                      href: virtual-machines/windows/availability-group-quickstart-template-configure.md
-                    - name: 多个区域
-                      href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
-                    - name: 独立于域（工作组）
-                      href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-                    - name: 手动配置
+                    - name: 创建 AG
                       items:
-                        - name: 先决条件
-                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                        - name: 教程
-                          href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-                        - name: 负载均衡器 - Azure 门户
-                          href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
-                        - name: 负载均衡器 - Azure PowerShell
-                          href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                        - name: Azure 门户
+                          href: virtual-machines/windows/availability-group-azure-portal-configure.md
+                        - name: PowerShell 或 Az CLI
+                          href: virtual-machines/windows/availability-group-az-commandline-configure.md
+                        - name: Azure 快速入门模板
+                          href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                        - name: 多个区域
+                          href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                        - name: 独立于域（工作组）
+                          href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+                        - name: 手动配置
+                          items:
+                            - name: 先决条件
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+                            - name: 教程
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: 负载均衡器 - Azure 门户
+                              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+                            - name: 负载均衡器 - Azure PowerShell
+                              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                    - name: 配置连接
+                      items:
+                        - name: VNN 侦听器
+                          displayName: virtual network name
+                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                        - name: DNN 侦听器
+                          displayName: distributed network name
+                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                        - name: DNN 互操作性
+                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: 故障转移群集实例 (FCI)
                   items:
                     - name: 为 FCI 准备 VM
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-                    - name: 使用以下项创建 FCI
+                    - name: 创建 FCI
                       items:
                         - name: Azure 共享磁盘
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
@@ -1088,16 +1100,14 @@
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
                         - name: 高级文件共享 (Win2012+)
                           href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-                    - name: 分布式网络名称 (DNN)
+                    - name: 配置连接
                       items:
-                        - name: 为 FCI 创建 DNN
-                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: FCI DNN 和 SQL Server 功能
+                        - name: 虚拟网络名称 (VNN)
+                          href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+                        - name: 分布式网络名称 (DNN)
+                          href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+                        - name: DNN 互操作性
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
-                - name: 配置连接
-                  items:
-                    - name: 虚拟网络名称 (VNN)
-                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
         - name: 参考
           items:
             - name: Azure PowerShell

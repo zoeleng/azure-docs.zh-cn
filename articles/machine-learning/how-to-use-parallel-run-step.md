@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 08/14/2020
+ms.date: 10/13/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1e55a8e8dd78a6093c875cd20dd8b240816e7426
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905615"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055097"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>使用 Azure 机器学习对大量数据运行批处理推理
 
@@ -26,6 +26,9 @@ ms.locfileid: "90905615"
 通过大型数据集或使用复杂的模型进行推理可能会非常耗时。 通过 `ParallelRunStep` 类，可以并行执行处理，可能会更快地获得整体结果。 即使运行单个计算的速度非常快，但许多方案（对象检测、视频处理、自然语言处理等）都需要运行多个计算。 
 
 通过 `ParallelRunStep`，可轻松将批量推理扩展到大型计算机群集。 此类群集可以处理 TB 级结构化或非结构化数据，同时可提高工作效率和优化成本。
+
+> [!NOTE]
+> ParallelRunStep 针对易并行工作负载而设计，也可以用于同时训练多个模型，或者处理大数据。
 
 本文介绍如何执行以下任务：
 

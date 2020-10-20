@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: a1d74e79f2b375f481c6557c04deb80dcb929b99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62732f92d0739018863229da0a05646cfa817006
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554396"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941009"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-organization"></a>教程：Azure Active Directory 与 New Relic (By Organization) 的单一登录 (SSO) 集成
 
@@ -82,15 +82,15 @@ ms.locfileid: "88554396"
 
     a. 单击“上传元数据文件”  。
 
-    ![图像](common/upload-metadata.png)
+    ![屏幕截图显示了“基本 SAML 配置”，其中包含“上传元数据文件”链接。](common/upload-metadata.png)
 
     b. 单击“文件夹徽标”  来选择元数据文件并单击“上传”。 
 
-    ![图像](common/browse-upload-metadata.png)
+    ![屏幕截图显示了可在其中选择并上传文件的对话框。](common/browse-upload-metadata.png)
 
     c. 成功上传元数据文件后，“标识符”  和“回复 URL”  值会自动填充在“基本 SAML 配置”部分：
 
-    ![图像](common/idp-intiated.png)
+    ![显示“基本 SAML 配置”的屏幕截图，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     > [!Note]
     > 如果**标识符**和**回复 URL** 值未自动填充，则请按要求手动填充这些值。

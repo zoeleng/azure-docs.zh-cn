@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544054"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>教程：Azure Active Directory 与 OnTrack 集成
 
@@ -118,7 +118,7 @@ ms.locfileid: "88544054"
 
 5. OnTrack 应用程序需要特定格式的 SAML 断言，这要求向 SAML 令牌属性配置添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。 单击“编辑”图标打开“用户属性”对话框。  
 
-    ![image](common/edit-attribute.png)
+    ![屏幕截图显示“用户属性”对话框，在其右上角选择了“编辑”图标。](common/edit-attribute.png)
 
 6. 除了上述属性，OnTrack 应用程序还要求在 SAML 响应中传递回更多的属性。 在“用户属性”对话框的“用户声明”部分执行以下步骤，以便添加 SAML 令牌属性，如下表所示：
 
@@ -132,7 +132,7 @@ ms.locfileid: "88544054"
 
     a. 单击“添加新声明”  以打开“管理用户声明”  对话框。
 
-    ![image](common/new-save-attribute.png)
+    ![屏幕截图显示“用户声明”对话框，其中选择了“添加新声明”和“保存”操作。](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
