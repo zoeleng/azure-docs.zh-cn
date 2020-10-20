@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440206"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840432"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>教程：部署和演练微型配送中心应用程序模板
 
@@ -96,4 +96,4 @@ ms.locfileid: "91440206"
 > [!div class="nextstepaction"]
 > [微履行中心解决方案体系结构](./architecture-micro-fulfillment-center.md)
 * 详细了解 [Azure IoT Central 零售模板](./overview-iot-central-retail.md)
-* 详细了解其他 [Azure IoT Central 概述](../preview/overview-iot-central.md)
+* 详细了解 [Azure IoT Central](../preview/overview-iot-central.md)

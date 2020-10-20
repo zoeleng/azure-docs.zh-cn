@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a63944dfb9a22f30451793d367650f03b8aa2c1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6146809363681ed73f3d63ccf43ba49044ccc28
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87483801"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940576"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索证书
 
@@ -74,7 +74,7 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 az keyvault certificate create --vault-name "Contoso-Vault2" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-现在，可以通过 URI 来引用已添加到 Azure Key Vault 的此证书。 使用 **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** 获取当前版本。 
+现在，可以通过 URI 来引用已添加到 Azure Key Vault 的此证书。 使用“https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate”获取当前版本。 
 
 若要查看以前存储的证书，请使用以下命令：
 

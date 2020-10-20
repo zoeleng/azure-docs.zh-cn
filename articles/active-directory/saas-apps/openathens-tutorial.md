@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543935"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994192"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>教程：Azure Active Directory 单一登录 (SSO) 与 OpenAthens 的集成
 
@@ -134,37 +134,37 @@ ms.locfileid: "88543935"
 
 1. 在“管理”  选项卡下的列表中选择“连接”  。
 
-    ![配置单一登录](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![屏幕截图显示从“管理”选项卡中选择了“连接”的“OpenAthens”公司网页。](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. 选择“SAML 1.1/2.0”，再选择“配置”按钮。  
 
-    ![配置单一登录](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![屏幕截图显示选择了“SAML 1.1/2.0”和“配置”按钮的 “选择本地身份验证系统类型。”对话框。](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
-1. 若要添加配置，请选择“浏览”按钮上传已从 Azure 门户下载的元数据 .xml 文件，再选择“添加”。  
+1. 若要添加配置，请选择“浏览”按钮上传已从 Azure 门户下载的元数据 .xml 文件，再选择“添加”。********
 
-    ![配置单一登录](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![屏幕截图显示选择了“浏览”操作和“添加”按钮的 “添加 SAML 身份验证系统。”对话框。](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-1. 在“详细信息”  选项卡下执行以下步骤。
+1. 在“详细信息”**** 选项卡下执行以下步骤。
 
     ![配置单一登录](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
-    a. 在“显示名称映射”  中，选择“使用属性”  。
+    a. 在“显示名称映射”**** 中，选择“使用属性”****。
 
-    b. 在“显示名称属性”  文本框中，输入值 `http://schema.microsoft.com/identity/claims/displayname`。
+    b. 在“显示名称属性”**** 文本框中，输入值 `http://schema.microsoft.com/identity/claims/displayname`。
 
-    c. 在“唯一用户映射”  中，选择“使用属性”  。
+    c. 在“唯一用户映射”**** 中，选择“使用属性”****。
 
-    d. 在“唯一用户属性”  文本框中，输入值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    d. 在“唯一用户属性”**** 文本框中，输入值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
-    e. 在“状态”  中，选中所有三个复选框。
+    e. 在“状态”**** 中，选中所有三个复选框。
 
-    f. 在“创建本地帐户”  中，选择“自动”  。
+    f. 在“创建本地帐户”**** 中，选择“自动”****。
 
-    g. 选择“保存更改”。 
+    g. 选择“保存更改”。
 
-    h. 在“信赖方”  选项卡上，复制**元数据 URL** 并在浏览器中将其打开以下载 **SP 元数据 XML** 文件。 在 Azure AD 中的“基本 SAML 配置”  部分中上传此 SP 元数据文件。
+    h. 在“信赖方”**** 选项卡上，复制**元数据 URL** 并在浏览器中将其打开以下载 **SP 元数据 XML** 文件。 在 Azure AD 中的“基本 SAML 配置”**** 部分中上传此 SP 元数据文件。
 
-    ![配置单一登录](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![屏幕截图显示已选择“信赖方”选项卡，并突出显示了“元数据 URL”。](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>创建 OpenAthens 测试用户
 

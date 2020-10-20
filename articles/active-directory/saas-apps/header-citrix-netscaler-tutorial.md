@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540570"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944183"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>教程：Azure Active Directory 单一登录与 Citrix NetScaler 的集成（基于标头的身份验证）
 
@@ -392,7 +392,7 @@ ms.locfileid: "88540570"
 
 1. 在“负载均衡虚拟服务器”窗格中的“高级设置”下，选择“策略”。    为 NetScaler 实例配置的所有策略将显示在列表中。
  
-    ![Citrix NetScaler 配置 -“负载均衡虚拟服务器”窗格](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![显示“配置”选项卡的屏幕截图，其中突出显示了“名称”、“操作”和“表达式”字段，且“创建”按钮处于选中状态。](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Citrix NetScaler 配置 -“负载均衡虚拟服务器”窗格](./media/header-citrix-netscaler-tutorial/header06.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553901"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>教程：Azure Active Directory 与 Periscope Data 集成
 
@@ -123,7 +123,7 @@ ms.locfileid: "88553901"
 
 2. 打开在左下角的齿轮菜单并打开“帐单”   > “安全”  菜单，然后执行以下步骤。 只有管理员才有权访问这些设置。
 
-    ![Periscope Data 配置信息](./media/periscope-data-tutorial/configure01.png)
+    ![屏幕截图显示带有所选设置的“安全性”对话框。](./media/periscope-data-tutorial/configure01.png)
 
     a. 从步骤 #5“SAML 签名证书”  中复制“应用联合元数据 URL”  ，然后在浏览器中打开它。 这会打开一个 XML 文档。
 
@@ -143,7 +143,7 @@ ms.locfileid: "88553901"
 
     i. 最后，单击“保存”  ，并通过输入“注销”  来确认  SSO 设置更改。
 
-    ![Periscope Data 配置信息](./media/periscope-data-tutorial/configure02.png)
+    ![屏幕截图显示在文本框中键入了“注销”并选择了“确认”按钮的“更新 SSO 配置”对话框。](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户 
 
@@ -206,7 +206,7 @@ ms.locfileid: "88553901"
 
 2. 单击菜单左下角的“设置”  图标，并导航到“权限”  。
 
-    ![Periscope Data 配置信息](./media/periscope-data-tutorial/configure03.png)
+    ![屏幕截图显示选择了“权限”的“设置”菜单。](./media/periscope-data-tutorial/configure03.png)
 
 3. 单击“添加用户”，然后执行以下步骤： 
 

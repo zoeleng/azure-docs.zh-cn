@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c1b8874d8813d6200c915778841c26e77b02e434
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 764f01fa5966a6620612405b4df37fc5ff44f33a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554845"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>教程：Azure Active Directory 与 Marketo 的集成
 
@@ -130,15 +130,15 @@ ms.locfileid: "88554845"
    
     b. 单击顶部导航窗格上的“管理员”按钮。 
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![屏幕截图显示在导航窗格中选择了“管理”。](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. 导航到“集成”菜单，单击“Munchkin 链接”  。
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_11.png)
+    ![屏幕截图显示从“集成”选择了“Munchkin”。](./media/marketo-tutorial/tutorial_marketo_11.png)
    
     d. 复制屏幕上显示的 Munchkin Id，并在 Azure AD 配置向导中填写回复 URL。
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_12.png) 
+    ![屏幕截图显示了“Munchkin”’页面，你可以在其中复制“帐户 ID”。](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
 2. 若要在应用程序中配置 SSO，请执行以下步骤：
    
@@ -146,15 +146,15 @@ ms.locfileid: "88554845"
    
     b. 单击顶部导航窗格上的“管理员”按钮。 
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![屏幕截图显示在导航窗格中选择了“管理”。](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. 导航到“集成”菜单，然后单击“单一登录”  。
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_07.png) 
+    ![屏幕截图显示已选择“集成”中的“单一登录”。](./media/marketo-tutorial/tutorial_marketo_07.png) 
    
     d. 若要启用 SAML 设置，请单击“编辑”  按钮。
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_08.png) 
+    ![屏幕截图显示了“SSO 设置”，你可以在其中选择“编辑”。](./media/marketo-tutorial/tutorial_marketo_08.png) 
    
     e. 已启用  的单一登录设置。
    
@@ -164,7 +164,7 @@ ms.locfileid: "88554845"
    
     h. 对于“名称标识符元素”，选择“用户 ID 位置”  。
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_09.png)
+    ![屏幕截图显示“编辑 SAML 设置”，你可以在其中输入所述值。](./media/marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
     > 如果用户标识符不是 UPN 值，则在“属性”选项卡中更改该值。
@@ -179,7 +179,7 @@ ms.locfileid: "88554845"
    
     m. 在“错误 URL”中，复制 Marketo 实例 URL 并单击“保存”按钮以保存设置    。
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_10.png)
+    ![屏幕截图显示“编辑重定向页面”对话框，你可以在其中输入所述的值。](./media/marketo-tutorial/tutorial_marketo_10.png)
 
 3. 若要为用户启用 SSO，请完成以下操作：
    
@@ -187,15 +187,15 @@ ms.locfileid: "88554845"
    
     b. 单击顶部导航窗格上的“管理员”按钮。 
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![屏幕截图显示在导航窗格中选择了“管理”。](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. 导航到“安全性”菜单，并单击“登录设置”。  
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_13.png)
+    ![屏幕截图显示从“安全性”选择了“登录设置”。](./media/marketo-tutorial/tutorial_marketo_13.png)
    
     d. 选中“需要 SSO”选项并保存设置。  
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_14.png)
+    ![屏幕截图显示了“密码强度设置”，你可以在其中选择“需要 SSO”。](./media/marketo-tutorial/tutorial_marketo_14.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户 
 
@@ -256,21 +256,21 @@ ms.locfileid: "88554845"
 
 2. 单击顶部导航窗格上的“管理员”按钮。 
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![屏幕截图显示在导航窗格中选择了“管理”。](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
 3. 导航到“安全性”菜单，单击“用户和角色”  
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_19.png)  
+    ![屏幕截图显示从“安全”中选择了“用户和角色”。](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
 4. 在“用户”选项卡上单击“邀请新用户”链接 
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_15.png) 
+    ![屏幕截图显示了“用户”选项卡中的“邀请新用户”。](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
 5. 在“邀请新用户”向导中，填写以下信息
    
     a. 在文本框中输入用户**电子邮件**地址
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_16.png)
+    ![屏幕截图显示了“邀请新用户”向导的第一步，你可以在其中输入用户信息。](./media/marketo-tutorial/tutorial_marketo_16.png)
    
     b. 在文本框中输入**名字**
    
@@ -280,10 +280,10 @@ ms.locfileid: "88554845"
 
 6. 在“权限”选项卡中，选择“用户角色”并单击“下一步”   
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_17.png)
+    ![屏幕截图显示了“邀请新用户”向导的第一步，你可以在其中输入权限。](./media/marketo-tutorial/tutorial_marketo_17.png)
 7. 单击“发送”按钮以发送用户邀请 
    
-    ![配置单一登录](./media/marketo-tutorial/tutorial_marketo_18.png)
+    ![屏幕截图显示了“邀请新用户”向导的第一步，你可以在其中输入你的消息。](./media/marketo-tutorial/tutorial_marketo_18.png)
 
 8. 用户将收到电子邮件通知，且必须单击链接并更改密码以激活帐户。 
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 7c647ba9a89fedf0d43bd8b10460fed101d166b9
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1ce0368bb86134bd52473b80eabbfaf87e36148d
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801389"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939641"
 ---
 # <a name="what-is-azure-private-link"></a>什么是 Azure 专用链接？ 
 使用 Azure 专用链接，可以通过虚拟网络中的[专用终结点](private-endpoint-overview.md)访问 Azure PaaS 服务（例如，Azure 存储和 SQL 数据库）和 Azure 托管的客户拥有的服务/合作伙伴服务。
@@ -62,7 +62,7 @@ Azure 专用链接提供以下优势：
 |Azure 服务总线 | 所有公共区域<br/>所有政府区域  | 在 Azure 服务总线的高级层受支持。 [针对层级进行选择](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [了解如何为 Azure 服务总线创建专用终结点。](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure 中继 | 所有公共区域      |  | 预览 <br/> [了解如何为 Azure 中继服务创建专用终结点。](https://docs.microsoft.com/azure/azure-relay/private-link-service)  |
 |Azure 事件网格| 所有公共区域<br/> 所有政府区域       |  | GA   <br/> [了解如何为 Azure 事件网格创建专用终结点。](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web 应用 | 所有公共区域      | 受 PremiumV2 Windows 和 Linux 以及弹性高级函数支持  | 预览   <br/> [了解如何为 Azure Web 应用创建专用终结点。](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
+|Azure Web 应用 | 所有公共区域      | 支持 PremiumV2、PremiumV3 或 Function Premium 计划  | GA   <br/> [了解如何为 Azure Web 应用创建专用终结点。](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
 |Azure 机器学习 | 所有公共区域    |  | GA   <br/> [了解如何为 Azure 机器学习创建专用终结点。](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure 自动化  | 所有公共区域 |  | 预览 </br> [了解如何为 Azure 自动化服务创建专用终结点。](https://docs.microsoft.com/azure/automation/how-to/private-link-security)| |
 | Azure IoT 中心 | 所有公共区域    |  | GA   <br/> [了解如何为 Azure IoT 中心创建专用终结点。](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |

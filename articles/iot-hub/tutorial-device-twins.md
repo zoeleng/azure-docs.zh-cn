@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251875"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842761"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -191,11 +191,11 @@ node ServiceClient.js "{your service connection string}"
 
 以下屏幕截图显示模拟设备应用程序的输出，并突出显示它如何处理对 **maxTemperature** 所需属性做出的更新。 可以看到顶级处理程序和气候组件处理程序的运行方式：
 
-![模拟设备](./media/tutorial-device-twins/SimulatedDevice1.png)
+![屏幕截图显示了顶级处理程序和气候组件处理程序的运行方式。](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 以下屏幕截图显示后端应用程序的输出，并突出显示它如何发送对 **maxTemperature** 所需属性做出的更新：
 
-![后端应用程序](./media/tutorial-device-twins/BackEnd1.png)
+![屏幕截图显示了后端应用程序的输出，并突出显示了它如何发送更新。](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>接收状态信息
 

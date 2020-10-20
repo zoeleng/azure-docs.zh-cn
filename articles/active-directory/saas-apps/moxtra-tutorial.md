@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544037"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940899"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Moxtra 的集成
 
@@ -156,11 +156,11 @@ ms.locfileid: "88544037"
 
 2. 在左侧工具栏上，单击“管理控制台”>“SAML 单一登录”，然后单击“新建”。  
    
-    ![配置单一登录](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![屏幕截图显示了“SAML 单一登录”页面，其中包含创建新的 SAML 单一登录的选项。](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. 在 **SAML** 页上执行以下步骤：
    
-    ![配置单一登录](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![屏幕截图显示了 SAML 页面，你可以在其中输入所述值。](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. 在“名称”文本框中，键入配置名称（例如：  SAML）  。 
   
@@ -191,7 +191,7 @@ ms.locfileid: "88544037"
 
 1. 在左侧工具栏上，单击“管理控制台”>“用户管理”，并单击“添加用户”。  
    
-    ![配置单一登录](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![屏幕截图显示了“用户管理”页面，其中已选择“添加用户”。](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. 在“添加用户”对话框中，执行以下步骤： 
   

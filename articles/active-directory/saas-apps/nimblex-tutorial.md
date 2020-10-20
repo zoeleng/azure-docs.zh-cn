@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3be17c672eb918c715602c7576c7d682badd925
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554367"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940994"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>教程：Azure Active Directory 与 Nimblex 的集成
 
@@ -132,19 +132,19 @@ ms.locfileid: "88554367"
 
 2. 单击页面右上角的“设置”标志  。
 
-    ![Nimblex 设置](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+    ![屏幕截图显示了“设置”图标。](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. 在“控制面板”页面上，单击“安全”部分下的“单一登录”    。
 
-    ![Nimblex 设置](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+    ![屏幕截图显示从“安全”菜单选择了“单一登录”。](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. 在“管理单一登录”页面上，选择实例名称并单击“编辑”   。
 
-    ![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+    ![屏幕截图显示了“管理单一登录”，你可以在其中选择“编辑”。](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. 在“编辑 SSO 提供程序”页面上执行以下步骤  ：
 
-    ![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+    ![屏幕截图显示了“编辑 SSO 提供程序”，你可以在其中输入所述值。](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
     a. 在“说明”文本框中，键入实例名称  。
 

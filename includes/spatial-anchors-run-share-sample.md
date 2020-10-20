@@ -4,17 +4,22 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 8/27/2020
 ms.author: rgarcia
-ms.openlocfilehash: efd5ff494620d4fab3fb904d9bcf054b57a3290b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50e4799f09322eab05b4f8ddf7004c2e0078fdab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358744"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971273"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
-Java android 示例支持跨设备共享。
-在 Android Studio 的示例文件夹中打开文件 `SharedActivity.java`。 在 `SharedActivity.java` 文件中输入之前步骤（从 ASP.NET Web 应用 Azure 部署）中获得的 URL 作为 `SharingAnchorsServiceUrl` 的值。 将 URL 中的 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
+Java Android 示例支持跨设备共享。
+
+在 Android Studio 中，打开示例文件夹中的 SharedActivity.java 文件。 
+
+在 SharedActivity.java 文件中输入之前步骤（从 ASP.NET Web 应用 Azure 部署）中复制的 URL 作为 `SharingAnchorsServiceUrl` 的值。 
+
+将 URL 中的 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
 
 [!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
@@ -23,16 +28,28 @@ Java android 示例支持跨设备共享。
 ## <a name="ios"></a>[iOS](#tab/iOS)
 
 Objective-C iOS 示例支持跨设备共享。
-打开示例文件夹中的文件 `SharedDemoViewController.m`。 在 `SharedDemoViewController.m` 文件中输入之前步骤（从 ASP.NET Web 应用 Azure 部署）中获得的 URL 作为 `SharingAnchorsServiceUrl` 的值。 将 URL 中的 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
 
-将应用部署到设备。 应用启动后，选择“点击以启动共享演示”选项。 根据应用中的说明操作。 可以选择“点击以按定位点编号查找定位点”或“点击以创建定位点并将其保存到服务”。
+打开示例文件夹中的“SharedDemoViewController.m”文件。 
+
+在 SharedDemoViewController.m 文件中输入之前步骤（从 ASP.NET Web 应用 Azure 部署）中获得的 URL 作为 `SharingAnchorsServiceUrl` 的值。 
+
+将 URL 中的 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
+
+将应用部署到设备。 
+
+应用启动后，选择“点击以启动共享演示”选项，然后遵循应用中的说明。 可以选择“点击以按定位点编号查找定位点”或“点击以创建定位点并将其保存到服务”。
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Xamarin Android 和 iOS 示例都支持跨设备共享。
-打开示例文件夹中的文件 `AccountDetails.cs`。 在 `AccountDetails.cs` 文件中输入之前步骤（从 ASP.NET Web 应用 Azure 部署）中获得的 URL 作为 `AnchorSharingServiceUrl` 的值。 将 URL 中的 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
+
+打开示例文件夹中的“AccountDetails.cs”文件。 
+
+在 AccountDetails.cs 文件中输入之前步骤（从 ASP.NET Web 应用 Azure 部署）中获得的 URL 作为 `AnchorSharingServiceUrl` 的值。 
+
+将 URL 中的 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
 
 [!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
@@ -52,21 +69,23 @@ Xamarin Android 和 iOS 示例都支持跨设备共享。
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-在“项目”窗格中，导航到 `Assets\AzureSpatialAnchors.Examples\Resources`。 选择 `SpatialAnchorSamplesConfig`。 然后，在“检查器”**** 窗格中，输入 `Sharing Anchors Service url`（来自 ASP.NET Web 应用 Azure 部署）作为 `Base Sharing Url` 的值，将 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
+在“项目”窗格中，转到 `Assets\AzureSpatialAnchors.Examples\Resources`。 
+
+选择“SpatialAnchorSamplesConfig”。 然后，在“检查器”窗格中，输入 `Sharing Anchors Service` URL（来自 ASP.NET Web 应用 Azure 部署）作为 `Base Sharing Url` 的值。 将 `index.html` 替换为 `api/anchors`。 它应如下所示： `https://<app_name>.azurewebsites.net/api/anchors`。
 
 选择“文件” > “保存”，从而保存场景 。
 
 ## <a name="deploy-to-your-device"></a>部署到设备
 
-### <a name="deploy-to-android-device"></a>部署到 Android 设备
+### <a name="deploy-to-an-android-device"></a>部署到 Android 设备
 
 登录 Android 设备并使用 USB 线将其连接到计算机上。
 
 通过选择“文件” > “生成设置”，打开“生成设置”    。
 
-在“生成中的场景”**** 下，确保所有场景旁边都有复选标记。
+在“生成中的场景”下，确保每个场景旁边都有复选标记。
 
-确保“导出项目”不显示勾号****。 单击“生成并运行”****。 系统将提示你保存 `.apk` 文件。 你可为其选择任何名称。
+确保“导出项目”不显示复选标记。 单击“生成并运行”****。 系统将提示你保存 .apk 文件。 你可为其选择任何名称。
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -74,7 +93,7 @@ Xamarin Android 和 iOS 示例都支持跨设备共享。
 
 通过选择“文件” > “生成设置”，打开“生成设置”    。
 
-在“生成中的场景”**** 下，确保所有场景旁边都有复选标记。
+在“生成中的场景”下，确保每个场景旁边都有复选标记。
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 

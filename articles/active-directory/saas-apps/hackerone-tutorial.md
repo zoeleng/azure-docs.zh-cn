@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d72e6c6a606a199bd8b0ada601479267e0d728d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544173"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>教程：Azure Active Directory 与 HackerOne 集成
 
@@ -126,11 +126,11 @@ ms.locfileid: "88544173"
 
 2. 在顶部菜单中，单击“设置”  。
 
-    ![配置单一登录](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![显示菜单中处于选中状态的“设置”的屏幕截图。](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. 导航到“身份验证”  并单击“添加 SAML 设置”  。
 
-    ![配置单一登录](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![显示“身份验证设置”页的屏幕截图，其中“添加 SAML 设置”按钮处于选中状态。](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. 在“SAML 设置”  对话框中，执行以下步骤：
 
@@ -146,7 +146,7 @@ ms.locfileid: "88544173"
 
 5. 在“身份验证设置”对话框中，执行以下步骤：
 
-    ![配置单一登录](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![显示“身份验证设置”对话框的屏幕截图，其中“运行测试”按钮处于选中状态。](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. 单击“运行测试”。 
 

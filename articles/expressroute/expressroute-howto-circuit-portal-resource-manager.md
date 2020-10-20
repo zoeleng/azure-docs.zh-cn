@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c2e0f7736aa5d6779e4ed7cb3824f6606c121565
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973353"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073132"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>快速入门：创建和修改 ExpressRoute 线路
 
@@ -172,7 +172,7 @@ ms.locfileid: "91973353"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-可以选择“删除”图标来删除 ExpressRoute 线路。 
+可以选择“删除”图标来删除 ExpressRoute 线路。 请先确保提供程序状态为“未预配”，然后再继续操作。
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="创建 ExpressRoute 线路":::
 

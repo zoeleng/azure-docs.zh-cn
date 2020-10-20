@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5d4900713cd8d96180bf74b300a738a8b676421e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bd47a528b6c9aef354df8e52da63409002f6fb32
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547148"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>教程：Azure Active Directory 与 Jitbit Helpdesk 集成
 
@@ -137,7 +137,7 @@ ms.locfileid: "88547148"
 
 1. 单击“常规设置”  。
 
-    ![用户、公司和权限](./media/jitbit-helpdesk-tutorial/ic777680.png "用户、公司和权限")
+    ![屏幕截图显示“常规设置”链接。](./media/jitbit-helpdesk-tutorial/ic777680.png "用户、公司和权限")
 
 1. 在“身份验证设置”  配置部分中，执行以下步骤：
 

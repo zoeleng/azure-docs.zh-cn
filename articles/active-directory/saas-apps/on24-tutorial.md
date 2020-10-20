@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554243"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944368"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>教程：Azure Active Directory 与 ON24 Virtual Environment SAML Connection 集成
 
@@ -147,7 +147,7 @@ ms.locfileid: "88554243"
 
 5.  如果要在“SP”发起的模式下配置应用程序，请执行以下步骤  ：
 
-    ![ON24 Virtual Environment SAML Connection 域和 URL 单一登录信息](common/both-signonurl.png)
+    ![屏幕截图显示了“设置附加 URL”部分，突出显示了“登录 URL”文本框。](common/both-signonurl.png)
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://vshow.on24.com/vshow/<INSTANCENAME>`。
 

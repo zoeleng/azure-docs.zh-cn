@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552456"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>教程：Azure Active Directory 与 Namely 的集成
 
@@ -128,19 +128,19 @@ ms.locfileid: "88552456"
 
 2. 在顶部工具栏中，单击“公司”。 
    
-    ![配置单一登录](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![屏幕截图显示选择了“公司价值”。](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. 单击“设置”选项卡。 
    
-    ![配置单一登录](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![屏幕截图显示选择了“公司设置”选项卡。](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. 单击“SAML”。 
    
-    ![配置单一登录](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![屏幕截图显示选择了“SAML”。](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. 在“SAML 设置”  页上，执行以下步骤：
    
-    ![配置单一登录](./media/namely-tutorial/tutorial_namely_09.png)
+    ![屏幕截图显示了“SAML 设置”，你可以在其中输入所述值。](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. 单击“启用 SAML”。  
 
@@ -211,15 +211,15 @@ ms.locfileid: "88552456"
 
 2. 在顶部工具栏中，单击“人员”。 
    
-    ![配置单一登录](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![屏幕截图显示选择了“人员价值”。](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. 单击“目录”选项卡。 
    
-    ![配置单一登录](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![屏幕截图显示选择了“人员目录”选项卡。](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. 单击“添加新人员”。 
 
-    ![配置单一登录](./media/namely-tutorial/tutorial_namely_12.png)
+    ![屏幕截图显示了“新增人员”选项。](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. 在“添加新人员”对话框中，执行以下步骤： 
 

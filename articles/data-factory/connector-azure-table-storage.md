@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417485"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220442"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure 表存储复制数据
 
@@ -222,7 +222,7 @@ ms.locfileid: "81417485"
 
 对于无架构的数据存储（如 Azure 表），数据工厂将使用下列方式之一推断架构：
 
-* 如果在复制活动中指定列映射，则数据工厂使用源端列列表来检索数据。 在这种情况下，如果行不包含列的值，则会为其提供 null 值。
+* 如果在复制活动中指定列映射，数据工厂将使用源端列列表来检索数据。 在这种情况下，如果行不包含列的值，则会为其提供 null 值。
 * 如果未在复制活动中指定列映射，则数据工厂使用数据中的第一行来推断架构。 在这种情况下，如果第一行不包含完整架构（例如某些列具有 null 值），则复制操作的结果中会丢失部分列。
 
 ## <a name="copy-activity-properties"></a>复制活动属性
@@ -236,7 +236,7 @@ ms.locfileid: "81417485"
 | properties | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 type 属性必须设置为 **AzureTableSource**。 |是 |
-| azureTableSourceQuery |使用自定义表存储查询读取数据。 请参阅以下部分中的示例。 |否 |
+| azureTableSourceQuery |使用自定义表存储查询读取数据。<br/>源查询是 `$filter` Azure 表存储支持的查询选项的直接映射，详细了解 [此文档](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options)中的语法，请参阅以下 [azureTableSourceQuery 示例部分](#azuretablesourcequery-examples)中的示例。 |否 |
 | azureTableSourceIgnoreTableNotFound |指示是否允许存在忽略表异常。<br/>允许的值为 **True** 和 **False**（默认值）。 |否 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 示例

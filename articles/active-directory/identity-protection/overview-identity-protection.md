@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91265266"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996532"
 ---
 # <a name="what-is-identity-protection"></a>什么是“标识保护”？
 
@@ -113,6 +113,8 @@ Microsoft 标识安全和保护团队的负责人 Alex Weinert 在他[于 2018 �
 | 通知 | 检测到用户存在风险的警报  | 否 | 否 |是 |
 | 通知 | 每周摘要| 否 | 否 | 是 | 
 | | MFA 注册策略 | 否 | 否 | 是 |
+
+有关这些丰富报表的详细信息，请参阅[操作说明：调查风险](howto-identity-protection-investigate-risk.md#navigating-the-reports)一文。
 
 ## <a name="next-steps"></a>后续步骤
 

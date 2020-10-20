@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850568"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>教程：将 Sansan Intacct 与 Azure Active Directory 集成
 
@@ -189,7 +189,7 @@ ms.locfileid: "88535813"
 
 1. 在“用户信息”部分中，执行以下步骤：
 
-    ![用户信息](./media/intacct-tutorial/ic790043.png "用户信息")
+    ![屏幕截图显示“用户信息”部分，可在其中输入此步骤中的信息。](./media/intacct-tutorial/ic790043.png "用户信息")
 
     a. 在“用户信息”部分中输入要预配的 Azure AD 帐户的**用户 ID**、**姓氏**、**名字**、**电子邮件地址**、**职务**和**电话** 。
 
@@ -204,7 +204,7 @@ ms.locfileid: "88535813"
 
 1. 单击“单一登录”选项卡并确保下方屏幕截图中的“联合 SSO 用户 ID”与 Azure 门户的“用户属性”部分中通过 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 映射的“源属性”值是相同的   。
 
-    ![用户信息](./media/intacct-tutorial/ic790044.png "用户信息")
+    ![屏幕截图显示“用户信息”部分，可在其中输入联合 SSO 用户 ID。](./media/intacct-tutorial/ic790044.png "用户信息")
 
 > [!NOTE]
 > 若要预配 Azure AD 用户帐户，可以使用任何其他 Sage Intacct 用户帐户创建工具或 Sage Intacct 提供的 API。

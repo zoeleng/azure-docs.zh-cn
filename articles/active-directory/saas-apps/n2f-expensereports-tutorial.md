@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6036ff86c430422556ed4f7e1bc80fe122ed0a30
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9eee16c1ba207eb35633d7ec1a7167300d40d662
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552539"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>教程：Azure Active Directory 与 N2F - Expense reports 的集成
 
@@ -99,11 +99,11 @@ ms.locfileid: "88552539"
 
 4. 在“基本 SAML 配置”部分，如果你要在“IDP 发起的模式”下配置应用程序，用户无需执行任何步骤，因为应用已与 Azure 进行预集成。  
 
-    ![N2F - Expense reports 域和 URL 单一登录信息](common/preintegrated.png)
+    ![屏幕截图显示了“基于 SAML 的登录”页面，其中包含“基本 SAML 配置”。](common/preintegrated.png)
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
-    ![N2F - Expense reports 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![屏幕截图显示了“集成”页面，你可以在其中添加“Azure AD 单一登录”。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”文本框中，键入 URL：`https://www.n2f.com/app/`
 
@@ -127,23 +127,23 @@ ms.locfileid: "88552539"
 
 2. 单击“设置”，然后从下拉列表中选择“高级设置”。  
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/configure1.png)
+    ![屏幕截图显示选择了“高级设置”。](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. 选择“帐户设置”选项卡。 
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/configure2.png)
+    ![屏幕截图显示选择了“帐户设置”。](./media/n2f-expensereports-tutorial/configure2.png)
 
 4. 依次选择“身份验证”、“+ 添加身份验证方法”选项卡。  
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/configure3.png)
+    ![屏幕截图显示了“帐户设置身份验证”，你可以在其中添加身份验证方法。](./media/n2f-expensereports-tutorial/configure3.png)
 
 5. 选择“SAML Microsoft Office 365”作为身份验证方法。 
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/configure4.png)
+    ![屏幕截图显示了“身份验证方法”，其中选择了“SAML Microsoft Office 365”。](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. 在“身份验证方法”  部分执行以下步骤：
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/configure5.png)
+    ![屏幕截图显示了“身份验证方法”，你可以在其中输入所述值。](./media/n2f-expensereports-tutorial/configure5.png)
 
     a. 在“实体 ID”文本框中，粘贴从 Azure 门户复制的“Azure AD 标识符”值   。
 
@@ -212,19 +212,19 @@ ms.locfileid: "88552539"
 
 2. 单击“设置”，然后从下拉列表中选择“高级设置”。  
 
-    ![N2F - Expense - 添加用户](./media/n2f-expensereports-tutorial/configure1.png)
+    ![屏幕截图显示选择了“高级设置”。](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. 在左侧导航面板中选择“用户”选项卡。 
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/user1.png)
+    ![屏幕截图显示选择了“用户”。](./media/n2f-expensereports-tutorial/user1.png)
 
 4. 选择“+ 新建用户”选项卡。 
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/user2.png)
+    ![屏幕截图显示了“新用户”选项。](./media/n2f-expensereports-tutorial/user2.png)
 
 5. 在“用户”部分执行以下步骤： 
 
-    ![N2F - Expense reports 配置](./media/n2f-expensereports-tutorial/user3.png)
+    ![屏幕截图显示了你可以在其中输入所述值的部分。](./media/n2f-expensereports-tutorial/user3.png)
 
     a. 在“电子邮件地址”文本框中，输入用户的电子邮件地址，例如 brittasimon\@contoso.com。
 

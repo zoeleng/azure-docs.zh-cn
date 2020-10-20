@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c43a50dbbd2276573a80b866ee673e4391d9736b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a503f93895d0e1377f8037818b68ea42178363c2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551395"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944931"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grovo"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Grovo 集成
 
@@ -137,11 +137,11 @@ ms.locfileid: "88551395"
 
 2. 转到“管理” > “集成”。  
  
-    ![Grovo 配置](./media/grovo-tutorial/tutorial_grovo_admin.png) 
+    ![屏幕截图显示“管理”菜单，其中选择了“集成”。](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
 3. 单击“SP 发起的 SAML 2.0”部分下的“设置”。  
 
-    ![Grovo 配置](./media/grovo-tutorial/tutorial_grovo_setup.png)
+    ![屏幕截图显示“S P Initiateds SAML 2.0”部分，其中选择了“设置”按钮。](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
 4. 在“SP 发起的 SAML 2.0”弹出窗口中执行以下步骤： 
 

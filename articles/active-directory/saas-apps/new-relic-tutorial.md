@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554451"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940950"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>教程：Azure Active Directory 与 New Relic by Account 的单一登录 (SSO) 集成
 
@@ -134,7 +134,7 @@ ms.locfileid: "88554451"
 
 2. 在顶部菜单中，单击“帐户设置”。 
    
-    ![帐户设置](./media/new-relic-tutorial/ic797036.png "帐户设置")
+    ![屏幕截图显示“欢迎”页面，其中选择了“帐户设置”。](./media/new-relic-tutorial/ic797036.png "帐户设置")
 
 3. 单击“安全性和身份验证”选项卡，并单击“单一登录”选项卡。  
    
@@ -158,11 +158,11 @@ ms.locfileid: "88554451"
 
 2. 在顶部菜单中，单击“帐户设置”。 
    
-    ![帐户设置](./media/new-relic-tutorial/ic797040.png "帐户设置")
+    ![屏幕截图显示从“欢迎”页面选择了“帐户”设置。](./media/new-relic-tutorial/ic797040.png "帐户设置")
 
 3. 在左侧的“帐户”窗格中，单击“摘要”，并单击“添加用户”。   
    
-    ![帐户设置](./media/new-relic-tutorial/ic797041.png "帐户设置")
+    ![屏幕截图显示了“摘要”窗格，你可以在其中选择“添加用户”。](./media/new-relic-tutorial/ic797041.png "帐户设置")
 
 4. 在“活动用户”对话框中，执行以下步骤： 
    

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 123b85905a5c56949a0c1d35bb1e37215ed8097c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554702"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>教程：Azure Active Directory 与 Mixpanel 的集成
 
@@ -130,15 +130,15 @@ ms.locfileid: "88554702"
 
 3. 单击“访问安全性”选项卡，并单击“更改设置”。  
    
-    ![Mixpanel 设置](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![屏幕截图显示了“访问安全”选项卡，你可以在其中更改设置。](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. 在“更改证书”对话框页上，单击“选择文件”上传所下载的证书，然后单击“下一步”    。
    
-    ![Mixpanel 设置](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![屏幕截图显示了“更改证书”对话框，你可以在其中选择证书文件。](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  在“更改身份验证 URL”对话框页的“身份验证 URL”文本框中，粘贴从 Azure 门户复制的“登录 URL”的值，然后单击“下一步”    。
    
-    ![Mixpanel 设置](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+    ![屏幕截图显示了“更改身份验证 URL”窗格，你可以在其中复制登录 URL。](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. 单击“完成”  。
 
@@ -205,7 +205,7 @@ ms.locfileid: "88554702"
 
 4. 在“团队成员”文本框中，键入 Britta 在 Azure 中的电子邮件地址。 
    
-    ![Mixpanel 设置](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![屏幕截图显示了“团队”选项卡，你可以在其中添加地址以发送邀请。](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. 单击“邀请”。  
 

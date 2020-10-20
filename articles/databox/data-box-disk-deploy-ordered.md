@@ -1,5 +1,5 @@
 ---
-title: 有关订购 Azure Data Box Disk 的教程 | Microsoft Docs
+title: 有关订购 Azure Data Box 磁盘的教程 | Microsoft Docs
 description: 使用本教程了解如何注册和订购用于将数据导入 Azure 的 Azure Data Box 磁盘。
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266519"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950935"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>教程：订购 Azure Data Box Disk
 
@@ -65,14 +65,14 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
     |设置|值|
     |---|---|
-    |订阅|选择已为其启用了 Data Box 服务的订阅。<br> 订阅链接到计费帐户。 |
+    |订阅|选择已为其启用了 Data Box 服务的订阅。<br> 该订阅将链接到计费帐户。 |
     |传输类型| 导入到 Azure|
     |源国家/地区 | 选择数据当前所在的国家/地区。|
     |目标 Azure 区域|选择要在其中传输数据的 Azure 区域。|
   
 4. 选择“Data Box 磁盘”。 单次订购的解决方案（包括 5 个磁盘）的最大容量为 35 TB。 可以创建多个订单，以增加数据大小。
 
-     ![选择 Data Box 磁盘选项](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![选择 Data Box Disk 选项 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. 在“订单”中指定“订单详细信息”。  输入或选择以下信息。
 
@@ -93,13 +93,13 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
     |设置  |值  |
     |---------|---------|
-    |资源组     | 若要从本地 VHD 创建托管磁盘，请创建新的资源组。 使用现有资源组的前提是，它是由 Data Box 服务为托管磁盘的 Data Box Disk 订单创建的。 <br> 只支持一个资源组。|
+    |资源组     | 若要从本地 VHD 创建托管磁盘，请创建新的资源组。 使用现有资源组的前提是，它是通过 Data Box 服务为托管磁盘的 Data Box Disk 订单创建的。 <br> 只支持一个资源组。|
 
     ![托管磁盘的 Data Box Disk 订单](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    为托管磁盘指定的存储帐户用作临时存储帐户。 Data Box 服务将 VHD 上传到临时存储帐户，然后将其转换为托管磁盘并移到资源组。 有关详细信息，请参阅[验证 Azure 中的数据上传](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure)。
+    为托管磁盘指定的存储帐户用作临时存储帐户。 Data Box 服务将 VHD 上传到临时存储帐户，然后将其转换为托管磁盘并转移到资源组。 有关详细信息，请参阅[验证 Azure 中的数据上传](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure)。
 
-6. 单击“下一步”。
+6. 单击“下一步”。 
 
     ![提供订单详细信息](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 

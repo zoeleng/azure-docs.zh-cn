@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543969"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>教程：Azure Active Directory 与 Optimizely 的集成
 
@@ -110,7 +110,7 @@ ms.locfileid: "88543969"
 
 5. Optimizely 应用程序需要特定格式的 SAML 断言，这要求向 SAML 令牌属性配置添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。 单击“编辑”图标打开“用户属性”对话框。  
 
-    ![image](common/edit-attribute.png)
+    ![屏幕截图显示“用户属性”对话框，已选择其右上角的“编辑”图标。](common/edit-attribute.png)
 
 6. 除了上述属性，Optimizely 应用程序还要求在 SAML 响应中传递回更多的属性。 在“用户属性”对话框的“用户声明”部分执行以下步骤，以便添加 SAML 令牌属性，如下表所示：
 
@@ -120,7 +120,7 @@ ms.locfileid: "88543969"
     
     a. 单击“添加新声明”  以打开“管理用户声明”  对话框。
 
-    ![image](common/new-save-attribute.png)
+    ![屏幕截图显示“用户声明”对话框，其中突出显示了“添加新声明”和“保存”操作。](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -164,7 +164,7 @@ ms.locfileid: "88543969"
 
 4. 单击右上角的帐户名称，并单击“帐户设置”。 
 
-    ![Azure AD 单一登录](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![屏幕截图显示，在右上角选择了帐户名称，并从菜单中选择了“帐户设置”。](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. 在“帐户”选项卡中，选中“概述”部分“单一登录”下的“启用 SSO”框。  
   
@@ -231,7 +231,7 @@ ms.locfileid: "88543969"
 
 2. 单击“新建协作者”  ，向项目添加新协作者。
    
-    ![创建 Azure AD 测试用户](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![屏幕截图显示 Optimizely 主页，其中选择了“协作者”选项卡和“新建协作者”按钮。](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. 填写电子邮件地址，为其分配角色。 单击“邀请”。 
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756734"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976923"
 ---
 # <a name="quickstart-handle-sms-events"></a>快速入门：处理短信事件
 
@@ -92,13 +92,13 @@ ms.locfileid: "91756734"
 
 ### <a name="receiving-sms-events"></a>接收短信事件
 
-完成以上任一操作后，你会注意到 `SMS Received` 和 `SMS Delivery Report Received` 事件发送到你的终结点。 这些事件会显示在我们在开始时设置的 [Azure 事件网格查看器示例](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)中。 可以按事件旁的眼睛图标来查看整个有效负载。 事件将如下所示：
+完成以上任一操作后，你会注意到 `SMS Received` 和 `SMS Delivery Report Received` 事件会发送到你的终结点。 这些事件会显示在我们在开始时设置的 [Azure 事件网格查看器示例](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)中。 可以按事件旁的眼睛图标来查看整个有效负载。 事件如下所示：
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="显示在资源事件页中选择事件订阅按钮的屏幕截图。":::
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="显示在资源事件页中选择事件订阅按钮的屏幕截图。":::
 
-详细了解[事件架构和其他事件处理概念](../../concepts/event-handling.md)
+详细了解[事件架构和其他事件处理概念](../../concepts/event-handling.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 

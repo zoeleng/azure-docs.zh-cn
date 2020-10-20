@@ -3,12 +3,12 @@ title: Azure 蓝图概述
 description: 了解如何通过 Azure 蓝图服务在 Azure 环境中创建、定义和部署项目。
 ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91614251"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892721"
 ---
 # <a name="what-is-azure-blueprints"></a>什么是 Azure 蓝图？
 
@@ -25,7 +25,7 @@ Azure 蓝图服务由全球分布的 [Azure Cosmos DB](../../cosmos-db/introduct
 
 ## <a name="how-its-different-from-arm-templates"></a>与 ARM 模板的不同之处
 
-此服务旨在帮助进行环境设置。 此设置通常包括一组资源组、策略、角色分配和 ARM 模板部署。 蓝图是将每个项目类型组合在一起的包，通过蓝图可编写和版本化该包（包括通过 CI/CD 管道）。 最终可在一个可审计和跟踪的操作中将每个蓝图分配给订阅。
+此服务旨在帮助进行环境设置。 此设置通常包括一组资源组、策略、角色分配和 ARM 模板部署。 蓝图是将每个项目类型组合在一起的包，通过蓝图可编写和版本化该包（包括通过持续集成和持续交付 [CI/CD] 管道）。 最终可在一个可审计和跟踪的操作中将每个蓝图分配给订阅。
 
 几乎所有要包含在 Azure 蓝图中部署的内容都可以使用 ARM 模板完成。 但是，ARM 模板是 Azure 中不以本机方式存在的文档 - 每个模板均存储在本地或源代码管理中。 该模板用于部署一个或多个 Azure 资源，但部署了这些资源后，资源与模板之间就不再存在有效的连接或关系。
 

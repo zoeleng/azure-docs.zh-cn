@@ -6,16 +6,16 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: bff8c89dcdcbb7c319e04e5e7518985badf5a5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399914186ce9de62ef46b682c8d4a6e51426cc26
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132307"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221105"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>了解 U SQL 和 Spark 数据格式之间的差异
 
-如果要使用 [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) 或 [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md)，则建议将数据从 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 迁移到 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)。
+如果要使用 [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) 或 [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md)，则建议将数据从 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 迁移到 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)。
 
 除了移动文件外，还需要将数据存储在可由 Spark 访问的 U SQL 表中。
 
@@ -26,13 +26,13 @@ ms.locfileid: "87132307"
 - 编写 [Azure 数据工厂](../data-factory/introduction.md) 管道，将 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 帐户中的数据复制到 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 帐户。
 - 编写一个 Spark 作业，该作业从 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 帐户读取数据并将其写入 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 帐户。 根据用例，如果不需要保留原始文件格式，则可以使用不同的格式（例如 Parquet）来编写。
 
-建议你查看文章将 [大数据分析解决方案从 Azure Data Lake Storage Gen1 升级到 Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+建议你查看文章将 [大数据分析解决方案从 Azure Data Lake Storage Gen1 升级到 Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 
 ## <a name="move-data-stored-in-u-sql-tables"></a>移动在 U SQL 表中存储的数据
 
 Spark 不理解 U-SQL 表。 如果将数据存储在 U SQL 表中，您将运行一个可提取表数据并将其保存为 Spark 可识别的格式的 U SQL 作业。 最合适的格式是在 Hive 元存储的文件夹布局之后创建一组 Parquet 文件。
 
-可以通过内置 Parquet 输出器在 U SQL 中实现输出，并使用包含文件集的动态输出分区来创建分区文件夹。 [处理比以往更多的文件，使用 Parquet](https://blogs.msdn.microsoft.com/azuredatalake/2018/06/11/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) 提供了有关如何创建此类 Spark 可耗用数据的示例。
+可以通过内置 Parquet 输出器在 U SQL 中实现输出，并使用包含文件集的动态输出分区来创建分区文件夹。 [处理比以往更多的文件，使用 Parquet](/archive/blogs/azuredatalake/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) 提供了有关如何创建此类 Spark 可耗用数据的示例。
 
 完成此转换后，按 " [移动存储在 Azure Data Lake Storage Gen1 文件中的数据](#move-data-stored-in-azure-data-lake-storage-gen1-files)" 一章中所述复制数据。
 
@@ -47,8 +47,8 @@ Spark 不理解 U-SQL 表。 如果将数据存储在 U SQL 表中，您将运�
 ## <a name="next-steps"></a>后续步骤
 
 - [了解适用于 SQL 开发人员的 Spark 代码概念](understand-spark-code-concepts.md)
-- [将大数据分析解决方案从 Azure Data Lake Storage Gen1 升级到 Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [将大数据分析解决方案从 Azure Data Lake Storage Gen1 升级到 Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
+- [.NET for Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
 - [在 Azure 数据工厂中使用 Spark 活动转换数据](../data-factory/transform-data-using-spark.md)
 - [在 Azure 数据工厂中使用 Hadoop Hive 活动转换数据](../data-factory/transform-data-using-hadoop-hive.md)
 - [Azure HDInsight 中的 Apache Spark 是什么](../hdinsight/spark/apache-spark-overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 245818b60647539c7fff7c45dcecdc6840153fb5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 536fcab8cdfea4846cc1122fa56c939f525388f4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549035"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938451"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>教程：Azure Active Directory 单一登录 (SSO) 与 NetDocuments 集成
 
@@ -136,7 +136,7 @@ ms.locfileid: "88549035"
 
 3. 选择“安全中心”  。
    
-    ![存储库](./media/netdocuments-tutorial/security-center.png "安全中心")
+    ![屏幕截图显示从“法律文档”选择了“安全中心”。](./media/netdocuments-tutorial/security-center.png "安全中心")
 
 4. 选择“高级身份验证”  。
     
@@ -166,7 +166,7 @@ ms.locfileid: "88549035"
 
 3. 选择“用户和组”  。
    
-    ![存储库](./media/netdocuments-tutorial/users-groups.png "存储库")
+    ![屏幕截图显示从“法律文档”中选择了“用户和组”。](./media/netdocuments-tutorial/users-groups.png "存储库")
 
 4. 在“电子邮件地址”文本框中，键入要预配的有效 Azure Active Directory 帐户的电子邮件地址，并单击“添加用户”。  
    

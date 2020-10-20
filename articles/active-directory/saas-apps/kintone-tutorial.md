@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e831fd561b7c8dcf78e9203ec6d38c60c22a5bf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e1e966595422f353067d66483defa0b880874415
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535316"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>教程：Azure Active Directory 与 Kintone 的集成
 
@@ -145,7 +145,7 @@ ms.locfileid: "88535316"
 
 1. 单击“启用 SAML 身份验证”  。
 
-    ![SAML 身份验证](./media/kintone-tutorial/ic785882.png "SAML 身份验证")
+    ![屏幕截图显示选择了“用户和系统管理”。](./media/kintone-tutorial/ic785882.png "SAML 身份验证")
 
 1. 在“SAML 身份验证”部分中，执行以下步骤：
 
@@ -232,7 +232,7 @@ ms.locfileid: "88535316"
 
 1. 单击“新建用户”  。
 
-    ![新建用户](./media/kintone-tutorial/ic785889.png "新建用户")
+    ![屏幕截图显示了“用户”部分，其中已选择“添加用户”操作。](./media/kintone-tutorial/ic785889.png "新建用户")
 
 1. 在“新建用户”  部分中，执行以下步骤：
 

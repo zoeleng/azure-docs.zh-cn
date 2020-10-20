@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 954215f04525e850151fdad93af6e7272b41b3df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 58460dffad3d44090644a544f4082b7727ece3f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498457"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840330"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -40,7 +40,7 @@ ms.locfileid: "87498457"
 |---|---|
 | [创建 Azure Cosmos 帐户、数据库和容器](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| 为 Core (SQL) API 创建 Azure Cosmos DB 帐户、数据库和容器。 |
 | [创建 Azure Cosmos 帐户、数据库和容器（具有自动缩放功能）](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 为 Core (SQL) API 创建 Azure Cosmos DB 帐户、数据库和容器（具有自动缩放功能）。 |
-| [更改吞吐量](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 更新数据库和容器的 RU/秒。|
+| [吞吐量操作](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 在数据库和容器上的自动缩放和标准吞吐量之间读取、更新和迁移。|
 | [锁定资源以防止将其删除](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 使用资源锁防止删除资源。|
 |||
 
@@ -50,7 +50,7 @@ ms.locfileid: "87498457"
 |---|---|
 | [创建 Azure Cosmos 帐户、数据库和集合](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| 为 MongoDB API 创建 Azure Cosmos DB 帐户、数据库和集合。 |
 | [创建 Azure Cosmos 帐户、数据库（具有自动缩放功能）以及两个集合（具有共享吞吐量）](scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 为 MongoDB API 创建 Azure Cosmos DB 帐户、数据库（具有自动缩放功能）以及两个集合（具有共享吞吐量）。 |
-| [更改吞吐量](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 更新数据库和集合的 RU/秒。|
+| [吞吐量操作](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 在数据库和集合上的自动缩放和标准吞吐量之间读取、更新和迁移。|
 | [锁定资源以防止将其删除](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 使用资源锁防止删除资源。|
 |||
 
@@ -60,7 +60,7 @@ ms.locfileid: "87498457"
 |---|---|
 | [创建 Azure Cosmos 帐户、密钥空间和表](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| 为 Cassandra API 创建 Azure Cosmos DB 帐户、密钥空间和表。 |
 | [创建 Azure Cosmos 帐户、密钥空间和表（具有自动缩放功能）](scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 为 Cassandra API 创建 Azure Cosmos DB 帐户、密钥空间和表（具有自动缩放功能）。 |
-| [更改吞吐量](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 更新密钥空间和表的 RU/秒。|
+| [吞吐量操作](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 在密钥空间和表上的自动缩放和标准吞吐量之间读取、更新和迁移。|
 | [锁定资源以防止将其删除](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 使用资源锁防止删除资源。|
 |||
 
@@ -70,7 +70,7 @@ ms.locfileid: "87498457"
 |---|---|
 | [创建 Azure Cosmos 帐户、数据库和图](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| 为 Gremlin API 创建 Azure Cosmos DB 帐户、数据库和图。 |
 | [创建 Azure Cosmos 帐户、数据库和图（具有自动缩放功能）](scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 为 Gremlin API 创建 Azure Cosmos DB 帐户、数据库和图（具有自动缩放功能）。 |
-| [更改吞吐量](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 更新数据库和图的 RU/秒。|
+| [吞吐量操作](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 在数据库和图上的自动缩放和标准吞吐量之间读取、更新和迁移。|
 | [锁定资源以防止将其删除](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 使用资源锁防止删除资源。|
 |||
 
@@ -80,6 +80,6 @@ ms.locfileid: "87498457"
 |---|---|
 | [创建 Azure Cosmos 帐户和表](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| 为表 API 创建 Azure Cosmos DB 帐户和表。 |
 | [创建 Azure Cosmos 帐户和表（具有自动缩放功能）](scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 为表 API 创建 Azure Cosmos DB 帐户和表（具有自动缩放功能）。 |
-| [更改吞吐量](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 更新表的 RU/秒。|
+| [吞吐量操作](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 在表上的自动缩放和标准吞吐量之间读取、更新和迁移。|
 | [锁定资源以防止将其删除](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 通过资源锁防止资源遭到删除。|
 |||

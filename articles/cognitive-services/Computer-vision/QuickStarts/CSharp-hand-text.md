@@ -1,7 +1,7 @@
 ---
-title: 快速入门：使用计算机视觉 3.0 REST API Read 操作和 C# 提取文本
+title: 快速入门：使用计算机视觉 3.1 REST API Read 操作和 C# 提取文本
 titleSuffix: Azure Cognitive Services
-description: 本快速入门使用计算机视觉 3.0 REST API Read 操作和 C# 在图像中应用 OCR。
+description: 本快速入门使用计算机视觉 3.1 REST API Read 操作和 C# 在图像中应用 OCR。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2f7678e2dd9f04f7aa930271c69c2d4ccf1e692b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 603a002b4d9088295f7050afc47e643290818e0b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88928235"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969477"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>快速入门：使用计算机视觉 3.0 REST API Read 操作和 C# 提取文本
+# <a name="quickstart-extract-text-using-the-computer-vision-31-rest-api-read-operation-and-c"></a>快速入门：使用计算机视觉 3.1 REST API Read 操作和 C# 提取文本
 
-本快速入门将使用计算机视觉 3.0 REST API 中提供的新 OCR 技术从图像中提取印刷体文本和手写文本。 使用新的 [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 和 [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) 方法，可以检测图像中的文本，并将识别的字符提取到计算机可读的字符流中。 
+本快速入门将使用计算机视觉 3.1 REST API 中提供的新 OCR 技术从图像中提取印刷体文本和手写文本。 使用新的 [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 和 [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 方法，可以检测图像中的文本，并将识别的字符提取到计算机可读的字符流中。 
 
 > [!IMPORTANT]
-> [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 方法以异步方式运行。 此方法不返回成功响应正文中的任何信息。 相反，批量读取方法返回 `Operation-Location` 响应标头字段值中的 URI。 然后就可以调用此 URI，它表示[获取读取结果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API，同时检查状态并返回 Read 方法调用的结果。
+> [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 方法以异步方式运行。 此方法不返回成功响应正文中的任何信息。 相反，批量读取方法返回 `Operation-Location` 响应标头字段值中的 URI。 然后就可以调用此 URI，它表示[获取读取结果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) API，同时检查状态并返回 Read 方法调用的结果。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -68,7 +68,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
+        static string uriBase = endpoint + "/vision/v3.1/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";
@@ -213,7 +213,7 @@ namespace CSHttpClientSample
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

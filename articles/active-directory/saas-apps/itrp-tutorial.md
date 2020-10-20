@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552783"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>教程：Azure Active Directory 与 ITRP 集成
 
@@ -94,7 +94,7 @@ ms.locfileid: "88552783"
 
 3. 在“设置 SAML 单一登录”页上，选择“编辑”图标打开“基本 SAML 配置”对话框：   
 
-    ![“编辑”图标](common/edit-urls.png)
+    ![屏幕截图显示“使用 SAML 设置单一登录”页面，其中选中了“编辑”图标。](common/edit-urls.png)
 
 4. 在“基本 SAML 配置”对话框中执行以下步骤。 
 
@@ -113,7 +113,7 @@ ms.locfileid: "88552783"
 
 5. 在“SAML 签名证书”  部分中，选择“编辑”  图标以打开“SAML 签名证书”  对话框：
 
-    ![“编辑”图标](common/edit-certificate.png)
+    ![屏幕截图显示“SAML 签名证书”页，其中“编辑”图标处于选中状态。](common/edit-certificate.png)
 
 6. 在“SAML 签名证书”对话框中，复制并保存“指纹”值   ：
 
@@ -143,9 +143,9 @@ ms.locfileid: "88552783"
 
 1. 在“单一登录”配置部分中，执行以下步骤。 
 
-    ![“单一登录”部分](./media/itrp-tutorial/ic775572.png "“单一登录”部分")
+    ![屏幕截图显示已选中“启用”的“单一登录”部分。](./media/itrp-tutorial/ic775572.png "“单一登录”部分")
 
-    ![“单一登录”部分](./media/itrp-tutorial/ic775573.png "“单一登录”部分")
+    ![屏幕截图显示“单一登录”部分，可在其中添加此步骤中所述的信息。](./media/itrp-tutorial/ic775573.png "“单一登录”部分")
 
     1. 选择“启用”。 
 

@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f453c074126e448eb54d432532b9064b3eb3cb35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50717c7e8a7b0f748df98c1896e1b7eb64cd7be3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287886"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819345"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>连接到 Azure Synapse Link for Azure Cosmos DB（预览版）
 
@@ -36,7 +36,7 @@ ms.locfileid: "91287886"
 
 ## <a name="navigate-to-synapse-studio"></a>导航到 Synapse Studio
 
-在 Synapse 工作区中，选择“启动 Synapse Studio”。 在 Synapse Studio 主页上，选择“**数据”，这会将你转到“数据对象资源管理器”。
+在 Synapse 工作区中，选择“启动 Synapse Studio”。 在 Synapse Studio 主页上，选择“数据”，这会将你转到“数据对象资源管理器” 。
 
 ## <a name="connect-an-azure-cosmos-db-database-to-a-synapse-workspace"></a>将 Azure Cosmos DB 数据库连接到 Synapse 工作区
 

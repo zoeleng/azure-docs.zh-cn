@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e0198fdcfea1656e3aec5179358e69fb6fb55723
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547522"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>教程：Azure Active Directory 与 JIRA SAML SSO by Microsoft (V5.2) 集成
 
@@ -146,23 +146,23 @@ ms.locfileid: "88547522"
 
 2. 将鼠标悬停在小齿轮上，并单击“外接程序”  。
 
-    ![配置单一登录](./media/jira52microsoft-tutorial/addon1.png)
+    ![屏幕截图显示“设置”菜单中处于选中状态的“加载项”。](./media/jira52microsoft-tutorial/addon1.png)
 
 3. 在“加载项”选项卡部分，单击“管理加载项”  。
 
-    ![配置单一登录](./media/jira52microsoft-tutorial/addon7.png)
+    ![屏幕截图显示在“加载项”选项卡中选择了“管理加载项”。](./media/jira52microsoft-tutorial/addon7.png)
 
 4. 从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=56521)下载插件。 使用“上传加载项”  菜单手动上传由 Microsoft 提供的插件。 [Microsoft 服务协议](https://www.microsoft.com/servicesagreement/)涵盖了插件下载。
 
-    ![配置单一登录](./media/jira52microsoft-tutorial/addon12.png)
+    ![屏幕截图显示“管理加载项”，其中标注了“上传加载项”链接。](./media/jira52microsoft-tutorial/addon12.png)
 
 5. 插件安装后，会显示在“用户已安装”加载项部分  。 单击“配置”  配置新的插件。
 
-    ![配置单一登录](./media/jira52microsoft-tutorial/addon13.png)
+    ![屏幕截图显示“Jira 的 Azure AD SAML 单一登录”部分，其中“配置”处于选中状态。](./media/jira52microsoft-tutorial/addon13.png)
 
 6. 在配置页上执行下列步骤：
 
-    ![配置单一登录](./media/jira52microsoft-tutorial/addon52.png)
+    ![屏幕截图显示“Microsoft Jira SSO 连接器”配置页。](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > 请确保一个应用仅映射一个证书，以免在解析元数据时出错。 如果有多个证书，则管理员会在解析元数据时收到错误。
@@ -251,19 +251,19 @@ ms.locfileid: "88547522"
 
 2. 将鼠标悬停在小齿轮上，并单击“用户管理”  。
 
-    ![添加员工](./media/jira52microsoft-tutorial/user1.png)
+    ![屏幕截图显示“设置”菜单中处于选中状态的“用户管理”。](./media/jira52microsoft-tutorial/user1.png)
 
 3. 重定向到“管理员访问权限”页后，输入密码，  并单击“确认”按钮。 
 
-    ![添加员工](./media/jira52microsoft-tutorial/user2.png)
+    ![屏幕截图显示“管理员访问权限”页，可在其中输入凭据。](./media/jira52microsoft-tutorial/user2.png)
 
 4. 在“用户管理”  选项卡部分，单击“创建用户”  。
 
-    ![添加员工](./media/jira52microsoft-tutorial/user3.png) 
+    ![屏幕截图显示“用户管理”选项卡，可在其中“创建用户”。](./media/jira52microsoft-tutorial/user3.png) 
 
 5. 在“新建用户”对话框页中，执行以下步骤： 
 
-    ![添加员工](./media/jira52microsoft-tutorial/user4.png)
+    ![屏幕截图显示“新建用户”对话框，可在其中输入此步骤中的信息。](./media/jira52microsoft-tutorial/user4.png)
 
     a. 在“电子邮件地址”文本框中，键入用户的电子邮件地址（例如 Brittasimon@contoso.com）。
 

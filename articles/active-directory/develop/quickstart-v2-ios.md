@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613452"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016138"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>快速入门：从 iOS 或 macOS 应用将用户登录并调用 Microsoft Graph API
 
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |其中： | 说明 |
 > |---------|---------|
 > | `clientId` | 在 *portal.azure.com* 中注册的应用程序的应用程序 ID |
-> | `authority` | Microsoft 标识平台终结点。 在大多数情况下，这将是 *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | Microsoft 标识平台终结点。 在大多数情况下，这是 `https://login.microsoftonline.com/common` |
 > | `redirectUri` | 应用程序的重定向 URI。 可以传递“nil”以使用默认值，也可以使用自定义重定向 URI。 |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>（仅适用于 iOS）其他应用要求
@@ -274,3 +274,4 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 > [!div class="nextstepaction"]
 > [教程：从 iOS 或 macOS 应用将用户登录并调用 Microsoft Graph](tutorial-v2-ios.md)
+

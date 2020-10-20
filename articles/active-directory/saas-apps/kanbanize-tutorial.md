@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546825"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850704"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Kanbanize 集成
 
@@ -153,7 +153,7 @@ ms.locfileid: "88546825"
 
 5. 在“管理面板”页上的菜单左侧，单击“集成”  ，然后启用“单一登录”  。
 
-    ![Kanbanize 集成](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![屏幕截图显示选择了“集成”的管理面板。](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. 在“集成”部分下，单击“配置”  打开“单一登录集成”  页。
 
@@ -161,7 +161,7 @@ ms.locfileid: "88546825"
 
 7. 在“单一登录集成”  页上的“配置”  下，执行以下步骤：
 
-    ![Kanbanize 集成](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![屏幕截图显示可在其中输入此步骤的值的“单一登录集成”页。](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. 在“Idp 实体 ID”文本框中，粘贴从 Azure 门户复制的“Azure AD 标识符”值   。
 

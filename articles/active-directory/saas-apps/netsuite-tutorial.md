@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554509"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940780"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>教程：将 Azure AD 单一登录 (SSO) 与 NetSuite 集成
 
@@ -96,7 +96,7 @@ NetSuite 支持：
 
     * 我们将在 Netsuite 配置节中获取 **<`Instance ID`>** 值，本教程稍后将在 Netsuite 配置下的步骤 8 中对此进行说明。 我们将找到确切的域（例如，在本例中为 system.na0.netsuite.com）。
 
-        ![配置单一登录](./media/NetSuite-tutorial/domain-value.png)
+        ![屏幕截图显示了“SAML 安装”页面，你可以从其中获取域。](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > 上述 URL 中的值不是真实值。 请使用实际回复 URL 更新这些值。 若要获取该值，请联系 [NetSuite 客户端支持团队](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)。 还可参考 Azure 门户中的“基本 SAML 配置”部分显示的格式。 
@@ -164,31 +164,31 @@ NetSuite 支持：
 
 2. 在顶部导航栏中选择“设置”，然后选择“公司” > “启用功能”。   
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![屏幕截图显示从“公司”选择了“启用功能”。](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. 在页面中间的工具栏中，选择“SuiteCloud”。 
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![屏幕截图显示选择了“SuiteCloud”。](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. 在“管理身份验证”  下，选中“SAML 单一登录”  复选框以在 NetSuite 中启用“SAML 单一登录”选项。
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![屏幕截图显示了“管理身份验证”，你可以在其中选择“SAML 单一登录”。](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. 在顶部导航栏中选择“设置”  。
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-setup.png)
+    ![屏幕截图显示从“NETSUITE”导航栏中选择了“安装”。](./media/NetSuite-tutorial/ns-setup.png)
 
 6. 在“设置任务”列表中选择“集成”。  
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-integration.png)
+    ![屏幕截图显示从“安装任务”选择了“集成”。](./media/NetSuite-tutorial/ns-integration.png)
 
 7. 在“管理身份验证”下，选择“SAML 单一登录”。  
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-saml.png)
+    ![屏幕截图显示从“安装任务”中的“集成”项选择了“SAML 单一登录”。](./media/NetSuite-tutorial/ns-saml.png)
 
 8. 在“SAML 设置”窗格中的“NetSuite 配置”下，执行以下操作：  
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![屏幕截图显示了“SAML 安装”，你可以在其中输入所述值。](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. 选中“主要身份验证方法”复选框。 
 
@@ -198,9 +198,9 @@ NetSuite 支持：
 
 9. 在 NetSuite 顶部导航栏中选择“设置”，然后选择“公司” > “公司信息”。   
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-com.png)
+    ![屏幕截图显示从“公司”选择了“公司信息”。](./media/NetSuite-tutorial/ns-com.png)
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-account-id.png)
+    ![屏幕截图显示了可以在其中输入所述值的窗格。](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. 在“公司信息”窗格中的右侧列中，复制“帐户 ID”值。  
 
@@ -210,23 +210,23 @@ NetSuite 支持：
 
     a. 在顶部导航栏中选择“设置”  。
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-setup.png)
+    ![屏幕截图显示从“NETSUITE”导航栏中选择了“安装”。](./media/NetSuite-tutorial/ns-setup.png)
 
     b. 在左窗格中选择“用户/角色”，然后选择“管理角色”。  
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![屏幕截图显示了“管理角色”窗格，你可以在其中选择“新角色”。](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. 选择“新建角色”。 
 
     d. 输入新角色的**名称**。
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-new-role.png)
+    ![屏幕截图显示“安装管理员”，你可以在其中输入角色名称。](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. 选择“保存”。 
 
     f. 在顶部导航栏中选择“权限”  。 然后选择“设置”  。
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-sso.png)
+    ![屏幕截图显示了“安装”选项卡，你可以在其中输入所述值。](./media/NetSuite-tutorial/ns-sso.png)
 
     g. 依次选择“SAML 单一登录”、“添加”   。
 
@@ -234,19 +234,19 @@ NetSuite 支持：
 
     i. 在顶部导航栏中选择“设置”，然后选择“设置管理器”。  
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-setup.png)
+    ![屏幕截图显示从“NETSUITE”导航栏中选择了“安装”。](./media/NetSuite-tutorial/ns-setup.png)
 
     j. 在左窗格中选择“用户/角色”，然后选择“管理用户”。  
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![屏幕截图显示了“管理用户”窗格，你可以在其中选择“套件演示团队”。](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. 选择一个测试用户，选择“编辑”，然后选择“访问”选项卡。  
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![屏幕截图显示了“管理用户”窗格，你可以在其中选择“编辑”。](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. 在“角色”窗格中，指定已创建的相应角色。 
 
-    ![配置单一登录](./media/NetSuite-tutorial/ns-add-role.png)
+    ![屏幕截图显示从“员工”选择了“管理员”。](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. 选择“保存”。 
 

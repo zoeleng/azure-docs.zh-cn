@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528839"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856875"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>教程：Azure Active Directory 与 Meta Networks 连接器集成
 
@@ -101,7 +101,7 @@ ms.locfileid: "88528839"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分中执行以下步骤：
 
-    ![Meta Networks 连接器域和 URL 单一登录信息](common/idp-intiated.png)
+    ![显示“基本 SAML 配置”的屏幕截图，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     a. 在“标识符”  文本框中，使用以下模式键入 URL：`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,7 +109,7 @@ ms.locfileid: "88528839"
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
-    ![Meta Networks 连接器域和 URL 单一登录信息](common/both-advanced-urls.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/both-advanced-urls.png)
 
     a. 在“登录 URL”  文本框中，使用以下模式键入 URL：`https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`。
 
@@ -120,7 +120,7 @@ ms.locfileid: "88528839"
 
 6. Meta Networks Connector 应用程序需要特定格式的 SAML 断言，这要求向 SAML 令牌属性配置添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。 单击“编辑”图标打开“用户属性”对话框。  
 
-    ![image](common/edit-attribute.png)
+    ![屏幕截图显示“用户属性”，并且已选择“编辑”图标。](common/edit-attribute.png)
     
 7. 除了上述属性，Meta Networks Connector 应用程序还要求在 SAML 响应中传递回更多的属性。 在“用户属性”对话框的“用户声明”部分执行以下步骤，以便添加 SAML 令牌属性，如下表所示：
     
@@ -134,9 +134,9 @@ ms.locfileid: "88528839"
 
     a. 单击“添加新声明”  以打开“管理用户声明”  对话框。
 
-    ![image](common/new-save-attribute.png)
+    ![屏幕截图显示“用户声明”以及“添加新声明”选项。](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![屏幕截图显示“管理用户声明”对话框，可在其中输入所述的值。](common/new-attribute-details.png)
 
     b. 在“名称”文本框中，键入为该行显示的属性名称。 
 
@@ -173,19 +173,19 @@ ms.locfileid: "88528839"
     
 2. 转到“管理员”，然后选择“设置”   。
     
-    ![配置单一登录](./media/metanetworksconnector-tutorial/configure3.png)
+    ![屏幕截图显示从“管理”菜单选择了“设置”。](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. 请确保“记录 Internet 流量”和“强制开启 VPN MFA”设置为关闭   。
     
-    ![配置单一登录](./media/metanetworksconnector-tutorial/configure1.png)
+    ![屏幕截图显示正在关闭这些设置。](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. 转到“管理员”，然后选择“SAML”   。
     
-    ![配置单一登录](./media/metanetworksconnector-tutorial/configure4.png)
+    ![屏幕截图显示从“管理”菜单选择了“SAML”。](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. 在“详细信息”页面上执行以下步骤  ：
     
-    ![配置单一登录](./media/metanetworksconnector-tutorial/configure2.png)
+    ![屏幕截图显示了“详细信息”页面，你可以在其中输入所述值。](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. 复制“SSO URL”值并将其粘贴到“Meta Networks 连接器域和 URL”部分中的“登录 URL”文本框中    。
     
@@ -197,7 +197,7 @@ ms.locfileid: "88528839"
     
 6. 在“常规”  选项卡中，执行以下步骤：
 
-    ![配置单一登录](./media/metanetworksconnector-tutorial/configure5.png)
+    ![屏幕截图显示了“常规”页面，你可以在其中输入所述值。](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. 在“标识提供者单一登录 URL”中，粘贴从 Azure 门户复制的“登录 URL”值   。
 

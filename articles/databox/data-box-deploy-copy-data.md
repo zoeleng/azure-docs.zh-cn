@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766321"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951003"
 ---
 ::: zone target="docs"
 
@@ -116,14 +116,14 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 连接到 Data Box 共享后，下一步是复制数据。 在开始复制数据之前，请查看以下注意事项：
 
 * 确保将数据复制到与适当数据格式对应的共享中。 例如，将块 Blob 数据复制到块 Blob 的共享中。 将 VHD 复制到页 Blob。 如果数据格式与相应的共享类型不匹配，则在后续步骤中，数据将无法上传到 Azure。
+* 始终为要复制的文件在共享下创建一个文件夹，然后将文件复制到该文件夹。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
 * 复制数据时，请确保数据大小符合 [Azure 存储帐户大小限制](data-box-limits.md#azure-storage-account-size-limits)中所述的大小限制。
-* 如果 Data Box 正在上传的数据同时已由 Data Box 外部的其他应用程序上传，则可能会导致上传作业失败和数据损坏。
+* 在将数据传输到 Azure 文件存储时，如果要保留元数据（ACL、时间戳和文件属性），请遵循[使用 Azure Data Box 保留文件 ACL、属性和时间戳](data-box-file-acls-preservation.md)中的指南  
+* 如果 Data Box 正在上传的数据也已由 Data Box 外部的其他应用程序上传，则这时可能会导致上传作业失败和数据损坏。
 * 我们建议：
   * 不同时使用 SMB 和 NFS。
   * 将相同的数据复制到 Azure 上的同一个最终目标。
-
   在这些情况下，最终的结果不可确定。
-* 始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
 
 > [!IMPORTANT]
 > 请确保保留源数据的副本，直到可以确认 Data Box 已将数据传输到 Azure 存储中为止。
@@ -136,7 +136,7 @@ robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft 
 
 下表描述了属性。
     
-|Attribute  |说明  |
+|属性  |说明  |
 |---------|---------|
 |/e     |复制包括空目录的子目录。         |
 |/r:     |指定复制失败时的重试次数。         |

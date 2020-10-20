@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c9c4cef07bf1de64bcb14bc4487e0f56d2a40dfc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bdeec23b6b0a0ef2884fa35bd0a576ef57bb7853
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518525"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>教程：Azure Active Directory 与 Mozy Enterprise 的集成
 
@@ -126,11 +126,11 @@ ms.locfileid: "88518525"
 
 2. 在“配置”部分中，单击“身份验证策略”。  
    
-    ![身份验证策略](./media/mozy-enterprise-tutorial/ic777314.png "身份验证策略")
+    ![屏幕截图显示从“配置”选择了“身份验证策略”。](./media/mozy-enterprise-tutorial/ic777314.png "身份验证策略")
 
 3. 在“身份验证策略”  部分中，执行以下步骤：
    
-    ![身份验证策略](./media/mozy-enterprise-tutorial/ic777315.png "身份验证策略")
+    ![屏幕截图显示了“身份验证策略”部分，你可以在其中输入所述值。](./media/mozy-enterprise-tutorial/ic777315.png "身份验证策略")
    
     a. 对于“提供程序”，选择“目录服务”。  
    

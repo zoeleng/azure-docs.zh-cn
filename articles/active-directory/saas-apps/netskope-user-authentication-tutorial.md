@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a2bd9b7240033df47f57dc3432ce50819d8754b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62d6d5527cd917304e4c8bc0c4740f4edb772218
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544020"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939142"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-user-authentication"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Netskope 用户身份验证的集成
 
@@ -136,15 +136,15 @@ ms.locfileid: "88544020"
 
 1. 单击“活动平台”选项卡  。
 
-    ![Netskope 用户身份验证配置](./media/netskope-user-authentication-tutorial/user1.png)
+    ![屏幕截图显示从“设置”选择了活动平台。](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. 向下滚动至“正向代理”并选择“SAML”   。
 
-    ![Netskope 用户身份验证配置](./media/netskope-user-authentication-tutorial/config-saml.png)
+    ![屏幕截图显示从“活动平台”选择了“SAML”。](./media/netskope-user-authentication-tutorial/config-saml.png)
 
 1. 在“SAML 设置”  页上，执行以下步骤：
 
-    ![Netskope 用户身份验证配置](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
+    ![屏幕截图显示了“SAML 设置”，你可以在其中输入所述值。](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
 
     a. 复制“SAML 实体 ID”值，并将其粘贴到 Azure 门户上“基本 SAML 配置”部分的“标识符”文本框中    。
 
@@ -152,11 +152,11 @@ ms.locfileid: "88544020"
 
 1. 单击“添加帐户”  。
 
-    ![Netskope 用户身份验证配置](./media/netskope-user-authentication-tutorial/config-addaccount.png)
+    ![屏幕截图显示在“SAML”窗格中选择了“添加帐户”。](./media/netskope-user-authentication-tutorial/config-addaccount.png)
 
 1. 在“添加 SAML 帐户”页上执行以下步骤  ：
 
-    ![Netskope 用户身份验证配置](./media/netskope-user-authentication-tutorial/config-settings1.png)
+    ![屏幕截图显示了“添加 SAML 帐户”，你可以在其中输入所述值。](./media/netskope-user-authentication-tutorial/config-settings1.png)
 
     a. 在“名称”文本框中提供类似于 Azure AD 的名称  。
 
@@ -174,23 +174,23 @@ ms.locfileid: "88544020"
 
 1. 在左侧导航窗格中单击“设置”选项卡  。
 
-    ![Netskope 用户身份验证用户创建](./media/netskope-user-authentication-tutorial/config-settings.png)
+    ![屏幕截图显示选择了“设置”。](./media/netskope-user-authentication-tutorial/config-settings.png)
 
 1. 单击“活动平台”选项卡  。
 
-    ![Netskope 用户身份验证用户创建](./media/netskope-user-authentication-tutorial/user1.png)
+    ![屏幕截图显示从“设置”选择了活动平台。](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. 单击“用户”选项卡。 
 
-    ![Netskope 用户身份验证用户创建](./media/netskope-user-authentication-tutorial/add-user.png)
+    ![屏幕截图显示从“活动平台”中选择了“用户”。](./media/netskope-user-authentication-tutorial/add-user.png)
 
 1. 单击“添加用户”  。
 
-    ![Netskope 用户身份验证用户创建](./media/netskope-user-authentication-tutorial/user-add.png)
+    ![屏幕截图显示了“用户”对话框，你可在其中选择“添加用户”。](./media/netskope-user-authentication-tutorial/user-add.png)
 
 1. 输入要添加的用户的电子邮件地址，然后单击“添加”  。
 
-    ![Netskope 用户身份验证用户创建](./media/netskope-user-authentication-tutorial/add-user-popup.png)
+    ![屏幕截图显示了“添加用户”，你可以在其中输入用户列表。](./media/netskope-user-authentication-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>测试 SSO
 

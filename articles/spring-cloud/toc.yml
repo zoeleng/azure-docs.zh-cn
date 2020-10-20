@@ -94,25 +94,24 @@
     - name: 监视
     - name: 创建角色和权限
       href: spring-cloud-howto-permissions.md
-      items:
-        - name: 分布式跟踪和 Application Insights
-          href: spring-cloud-tutorial-distributed-tracing.md
-        - name: 分析日志和指标
-          href: diagnostic-services.md
-        - name: 实时流式传输日志
-          href: spring-cloud-howto-log-streaming.md
-    - name: DevOps 部署
-      items:
-        - name: 使用 Azure DevOps 进行 CI/CD
-          href: spring-cloud-howto-cicd.md
-        - name: 使用 GitHub Actions 进行 CI/CD
-          href: spring-cloud-howto-github-actions.md
-        - name: 在 GitHub Actions 中向 Key Vault 进行身份验证
-          href: spring-cloud-github-actions-key-vault.md
-    - name: 疑难解答
-      items:
-        - name: 故障排除指南
-          href: spring-cloud-troubleshoot.md
+    - name: 分布式跟踪和 Application Insights
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: 分析日志和指标
+      href: diagnostic-services.md
+    - name: 实时流式传输日志
+      href: spring-cloud-howto-log-streaming.md
+- name: DevOps 部署
+  items:
+    - name: 使用 Azure DevOps 进行 CI/CD
+      href: spring-cloud-howto-cicd.md
+    - name: 使用 GitHub Actions 进行 CI/CD
+      href: spring-cloud-howto-github-actions.md
+    - name: 在 GitHub Actions 中向 Key Vault 进行身份验证
+      href: spring-cloud-github-actions-key-vault.md
+- name: 疑难解答
+  items:
+    - name: 故障排除指南
+      href: spring-cloud-troubleshoot.md
 - name: 参考
   items:
     - name: Azure CLI 插件

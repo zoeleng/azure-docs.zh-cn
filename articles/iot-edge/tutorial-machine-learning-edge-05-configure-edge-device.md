@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448506"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974543"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>教程：配置 IoT Edge 设备
 
@@ -96,7 +96,7 @@ ms.locfileid: "91448506"
 
 要将 Azure IoT Edge 设备连接到 IoT 中心，首先需在中心内创建该设备的标识。 我们从云端设备标识中提取连接字符串，用它在 IoT Edge 设备上配置运行时。 在所配置的设备连接到中心后，我们就能够部署模块并发送消息了。 我们还能更改 IoT 中心内相应的设备标识，进而更改物理 IoT Edge 设备的配置。
 
-在本教程中，我们会使用 Visual Studio Code 创建新的设备标识。 你可通过 [Azure 门户](how-to-register-device.md#register-in-the-azure-portal)或 [Azure CLI](how-to-register-device.md#register-with-the-azure-cli) 完成这些步骤。
+在本教程中，我们会使用 Visual Studio Code 创建新的设备标识。 你也可以使用 Azure 门户或 Azure CLI 完成这些步骤。
 
 1. 在开发计算机上，打开 Visual Studio Code。
 
@@ -294,12 +294,9 @@ IoT Edge 运行时使用 `/etc/iotedge/config.yaml` 文件来保留其配置。 
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-
 ## <a name="next-steps"></a>后续步骤
 
 我们刚才完成了将 Azure VM 配置为 Azure IoT Edge 透明网关的操作。 我们首先创建了测试证书并将它们上传到 Azure Key Vault。 接下来，我们使用了脚本和资源管理器模板，通过 Azure 市场中的“Ubuntu Server 16.04 LTS + Azure IoT Edge 运行时”映像部署了 VM。 在 VM 启动并运行后，我们通过 SSH 进行了连接，登录到 Azure 并从 Key Vault 下载了证书。 我们通过更新 config.yaml 文件对 IoT Edge 运行时的配置进行了多处更新。
-
-有关详细信息，请参阅[如何将 IoT Edge 设备用作网关](iot-edge-as-gateway.md)和[将 IoT Edge 设备配置为充当透明网关](how-to-create-transparent-gateway.md)。
 
 请继续学习下一篇文章，了解如何构建 IoT Edge 模块。
 

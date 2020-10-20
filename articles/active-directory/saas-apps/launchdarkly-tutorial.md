@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bae3f4a0d8c793061bb3833b04717d378e86f85f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78f9217ea7288bac56b008911f7b39c73bba7771
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519631"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856528"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>教程：Azure Active Directory 与 LaunchDarkly 集成
 
@@ -100,7 +100,7 @@ ms.locfileid: "88519631"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分中执行以下步骤：
 
-    ![LaunchDarkly 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![显示“基本 SAML 配置”的屏幕截图，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     a. 在“标识符”文本框中键入 URL：`app.launchdarkly.com`
 
@@ -113,7 +113,7 @@ ms.locfileid: "88519631"
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://app.launchdarkly.com`
 
-    ![LaunchDarkly 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/metadata-upload-additional-signon.png)
 
 6. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
 
@@ -135,19 +135,19 @@ ms.locfileid: "88519631"
 
 2. 从左侧导航面板中选择“帐户设置”  。
 
-    ![LaunchDarkly 配置](./media/launchdarkly-tutorial/configure1.png)
+    ![屏幕截图显示在“生产”下选择了“帐户设置”项。](./media/launchdarkly-tutorial/configure1.png)
 
 3. 单击“安全”选项卡  。
 
-    ![LaunchDarkly 配置](./media/launchdarkly-tutorial/configure2.png)
+    ![屏幕截图显示帐户设置的“安全性”选项卡。](./media/launchdarkly-tutorial/configure2.png)
 
 4. 单击“启用 SSO”，然后单击“编辑 SAML 配置”   。
 
-    ![LaunchDarkly 配置](./media/launchdarkly-tutorial/configure3.png)
+    ![屏幕截图显示可在其中启用 SSO 和编辑 SAML 配置的“单一登录”页。](./media/launchdarkly-tutorial/configure3.png)
 
 5. 在“编辑 SAML 配置”  部分执行以下步骤：
 
-    ![LaunchDarkly 配置](./media/launchdarkly-tutorial/configure4.png)
+    ![屏幕截图显示可在其中进行此处所述的更改的“编辑 SAML 配置”部分。](./media/launchdarkly-tutorial/configure4.png)
 
     a. 复制实例的“SAML 使用者服务 URL”并将其粘贴到 Azure 门户上“LaunchDarkly 域和 URL”部分的“回复 URL”文本框中   。
 

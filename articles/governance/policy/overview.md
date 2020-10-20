@@ -1,14 +1,14 @@
 ---
 title: Azure Policy 概述
 description: Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理 Azure 环境中的策略定义。
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91538950"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873908"
 ---
 # <a name="what-is-azure-policy"></a>什么是 Azure Policy？
 
@@ -72,16 +72,16 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者”角色包括大多数 Azure Policy 操作。 “所有者”具有完全权限。 “参与者”和“读取者”都有权访问所有 Azure Policy 读取操作。  “参与者”可以触发资源修正，但无法创建定义或分配。
+许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者”角色包括大多数 Azure Policy 操作。 “所有者”具有完全权限。 “参与者”和“读取者”都有权访问所有 Azure Policy 读取操作。  “参与者”可以触发资源修正，但无法创建定义或分配。 需要“用户访问管理员”以授予 deployIfNotExists 或 modify 分配所需权限的托管标识  。
 
 如果没有任何内置角色具有所需的权限，可创建[自定义角色](../../role-based-access-control/custom-roles.md)。
 
 > [!NOTE]
-> deployIfNotExists 策略分配的托管标识需有足够的权限才能创建或更新模板中包含的资源。 有关详细信息，请参阅[配置有关修正的策略定义](./how-to/remediate-resources.md#configure-policy-definition)。
+> deployIfNotExists 或 modify 策略分配的托管标识需有足够的权限才能创建或更新已定位资源 。 有关详细信息，请参阅[配置有关修正的策略定义](./how-to/remediate-resources.md#configure-policy-definition)。
 
 ### <a name="resources-covered-by-azure-policy"></a>Azure Policy 涵盖的资源
 
-Azure Policy 评估 Azure 中的所有资源。 对于某些资源提供程序（例如 [Guest Configuration](./concepts/guest-configuration.md)、[Azure Kubernetes 服务](../../aks/intro-kubernetes.md)和 [Azure Key Vault](../../key-vault/general/overview.md)），可以使用一个更深度的集成来管理设置和对象。 有关详细信息，请参阅[资源提供程序模式](./concepts/definition-structure.md)。
+Azure Policy 评估 Azure 中的所有资源以及已启用 Arc 的资源。 对于某些资源提供程序（例如 [Guest Configuration](./concepts/guest-configuration.md)、[Azure Kubernetes 服务](../../aks/intro-kubernetes.md)和 [Azure Key Vault](../../key-vault/general/overview.md)），可以使用一个更深度的集成来管理设置和对象。 有关详细信息，请参阅[资源提供程序模式](./concepts/definition-structure.md)。
 
 ### <a name="recommendations-for-managing-policies"></a>管理策略的建议
 
@@ -112,7 +112,6 @@ Azure Policy 评估 Azure 中的所有资源。 对于某些资源提供程序�
 - **允许的位置**（拒绝）：限制新资源的可用位置。 其效果是用于强制执行异地符合性要求。
 - **允许的虚拟机 SKU**（拒绝）：指定可以部署的虚拟机 SKU 集。
 - **将标记添加到资源**（修改）：如果部署请求未指定，则应用所需的标记及其默认值。
-- **追加标记及其默认值**（追加）：对资源强制执行所需的标记及其值。
 - **不允许的资源类型**（拒绝）：禁止部署资源类型的列表。
 
 若要实现这些策略定义（包括内置定义和自定义定义），需将其分配出去。 可通过 Azure 门户、PowerShell 或 Azure CLI 来分配上述任意策略。

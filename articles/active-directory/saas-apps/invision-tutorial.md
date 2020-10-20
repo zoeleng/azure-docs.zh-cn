@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c988168f5d56fd7dcf8142a9f1e68af2defdcfc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e8f542f8a734f5bd6592ebc743b30676dd61f07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552960"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850534"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>教程：Azure Active Directory 单一登录 (SSO) 与 InVision 的集成
 
@@ -133,15 +133,15 @@ ms.locfileid: "88552960"
 
 1. 单击“团队”并选择“设置”。  
 
-    ![InVision 配置](./media/invision-tutorial/config1.png)
+    ![屏幕截图显示“团队”选项卡，其中“设置”处于选中状态。](./media/invision-tutorial/config1.png)
 
 1. 向下滚动到“单一登录”，然后单击“更改”。  
 
-    ![InVision 配置](./media/invision-tutorial/config3.png)
+    ![屏幕截图显示“单一登录”的“更改”按钮。](./media/invision-tutorial/config3.png)
 
 1. 在“单一登录”页上执行以下步骤： 
 
-    ![InVision 配置](./media/invision-tutorial/config4.png)
+    ![屏幕截图显示“单一登录”页，可在其中输入此步骤的值。](./media/invision-tutorial/config4.png)
 
     a. 将“要求 <帐户名称> 的每个成员执行 SSO”更改为“打开”。  
 
@@ -169,19 +169,19 @@ ms.locfileid: "88552960"
 
 1. 单击“团队”并选择“人员”。  
 
-    ![InVision 配置](./media/invision-tutorial/config2.png)
+    ![屏幕截图显示“团队”选项卡，其中“人员”处于选中状态。](./media/invision-tutorial/config2.png)
 
 1. 单击“+”图标添加新用户。 
 
-    ![InVision 配置](./media/invision-tutorial/user1.png)
+    ![屏幕截图显示用于添加用户的“+”图标。](./media/invision-tutorial/user1.png)
 
 1. 输入用户的电子邮件地址，然后单击“下一步”。 
 
-    ![InVision 配置](./media/invision-tutorial/user2.png)
+    ![屏幕截图显示“邀请到”对话框，可在此处输入地址。](./media/invision-tutorial/user2.png)
 
 1. 验证电子邮件地址后，单击“邀请”。 
 
-    ![InVision 配置](./media/invision-tutorial/user3.png)
+    ![屏幕截图显示“邀请”对话框，可在其中选择“邀请”以继续操作。](./media/invision-tutorial/user3.png)
 
 ## <a name="test-sso"></a>测试 SSO
 

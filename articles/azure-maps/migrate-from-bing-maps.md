@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319599"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873738"
 ---
-# <a name="migrate-from-bing-maps-to-azure-maps"></a>从必应地图迁移到 Azure Maps
+# <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>教程 - 从必应地图迁移到 Azure Maps
 
 本指南介绍如何将基于 Web、移动和服务器的应用程序从必应地图迁移到 Azure Maps 平台。 本指南包括有关如何迁移到 Azure Maps 的比较代码示例、迁移建议和最佳做法。
 

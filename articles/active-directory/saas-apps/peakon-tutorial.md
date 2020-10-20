@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e385b40911e1adf4e5142de4fb627334baee4a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08d9c2f1676c0a04e9cd191b64c41af276521b3d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543731"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>教程：Azure Active Directory 与 Peakon 集成
 
@@ -110,7 +110,7 @@ Peakon 与 Azure AD 集成提供以下优势：
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
-    ![Peakon 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![屏幕截图显示已选择“设置附加 URL”部分，其中突出显示了“登录 URL”文本框。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”文本框中，键入 URL：`https://app.peakon.com/login`
 

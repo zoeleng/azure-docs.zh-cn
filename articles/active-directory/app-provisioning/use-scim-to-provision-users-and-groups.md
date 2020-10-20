@@ -1,24 +1,24 @@
 ---
-title: 开发 SCIM 终结点以便将用户预配到 Azure AD 中的应用
-description: 跨域身份管理系统 (SCIM) 将自动用户预配标准化。 了解如何开发 SCIM 终结点，将 SCIM API 与 Azure Active Directory 集成，以及开始自动将用户和组预配到云应用程序中。
+title: 教程 - 开发 SCIM 终结点以便将用户预配到 Azure AD 中的应用
+description: 跨域身份管理系统 (SCIM) 将自动用户预配标准化。 在本教程中，你将了解如何开发 SCIM 终结点，将 SCIM API 与 Azure Active Directory 集成，以及开始自动将用户和组预配到云应用程序中。
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fd534443c56612d0c0d67c228cba154fb1db18c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
-ms.translationtype: MT
+ms.openlocfilehash: bfd9e08387a4de2220ef56afdd0ef79bd837ed4c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967046"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070191"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>使用 Azure AD 生成 SCIM 终结点并配置用户预配
+# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>教程 - 使用 Azure AD 生成 SCIM 终结点并配置用户预配
 
 应用程序开发人员可以使用跨域身份管理系统 (SCIM) 用户管理 API 实现在应用程序与 Azure AD 之间自动预配用户和组。 本文介绍如何生成 SCIM 终结点以及如何与 Azure AD 预配服务集成。 SCIM 规范提供了预配用的常见用户架构。 与联合标准（例如 SAML 或 OpenID Connect）结合使用时，SCIM 为管理员提供了基于标准的端到端访问权限管理解决方案。
 
@@ -60,7 +60,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642)、[7643](https://tools
 |标记|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|活动|isSoftDeleted（计算值不存储在用户上）|
 
-上面定义的架构将使用下面的 JSON 有效负载来表示。 请注意，除应用程序所需的属性外，JSON 表示形式还包含所需的 `id` 、 `externalId` 和 `meta` 属性。
+上面定义的架构将使用下面的 JSON 有效负载表示。 请注意，除了应用程序所需的属性，JSON 表示形式还包括所需的 `id`、`externalId` 和 `meta` 属性。
 
 ```json
 {
@@ -134,7 +134,7 @@ SCIM RFC 中定义了多个终结点。 可以从 /User 终结点开始，然后
 |/Group|对组对象执行 CRUD 操作。|
 |/ServiceProviderConfig|详细说明受支持的 SCIM 标准的特点（例如受支持的资源和身份验证方法）。|
 |/ResourceTypes|指定有关每个资源的元数据|
-|/Schemas|每个客户端和服务提供商支持的属性集可能有所不同。 一个服务提供程序可以包括 `name` 、 `title` 和 `emails` ，而另一个服务提供程序使用 `name` 、 `title` 和 `phoneNumbers` 。 利用架构终结点可以发现受支持的属性。|
+|/Schemas|每个客户端和服务提供商支持的属性集可能有所不同。 一个服务提供商可能包括 `name`、`title` 和 `emails` 属性，而另一个服务提供商使用 `name`、`title` 和 `phoneNumbers` 属性。 利用架构终结点可以发现受支持的属性。|
 |/Bulk|使用批量操作，你可以通过单个操作（例如更新大型组的成员身份）对大量资源对象执行操作。|
 
 
@@ -153,7 +153,7 @@ SCIM RFC 中定义了多个终结点。 可以从 /User 终结点开始，然后
 * 支持根据 SCIM 协议第 3.4.2 节，按 ID 和管理员查询用户。  
 * 支持根据 SCIM 协议第 3.4.2 节，按 ID 和成员查询组。  
 * 接受使用一个持有者令牌对应用程序进行 Azure AD 身份验证和授权。
-* 支持软删除用户 `active=false` 并还原用户 `active=true` (用户对象应在请求中返回，无论用户是否) 活动。 只有当用户从应用程序中进行了硬删除时，才应返回该用户。 
+* 支持软删除某个用户 `active=false`，然后再还原该用户 `active=true`（无论用户是否处于活动状态，都应在请求中返回用户对象）。 不应返回用户的唯一例外是，从应用程序中硬删除用户的情况。 
 
 实现 SCIM 终结点时，请遵循以下一般准则，以确保与 Azure AD 兼容：
 
@@ -747,7 +747,7 @@ TLS 1.2 密码套件最低标准：
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP 范围
-Azure AD 预配服务当前在 AzureActiveDirectory 的 IP 范围下[运行，如下所列。](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) 可以添加 AzureActiveDirectory 标记下面列出的 IP 范围，以允许从 Azure AD 预配服务到应用程序的流量。 请注意，你将需要仔细检查 "IP 范围" 列表中的计算地址。 地址（如 "40.126.25.32"）可在 IP 范围列表中表示为 "40.126.0.0/18"。 你还可以使用以下 [API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)以编程方式检索 IP 范围列表。
+Azure AD 预配服务当前在 AzureActiveDirectory 的 IP 范围下运行，如[此处](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) 所示。 可以添加 AzureActiveDirectory 标记下面列出的 IP 范围，以允许来自 Azure AD 预配服务的流量进入应用程序。 请注意，需要仔细检查 IP 范围列表中的计算地址。 地址（如“40.126.25.32”）可在 IP 范围列表中表示为“40.126.0.0/18”。 还可以使用以下 [API](/rest/api/virtualnetwork/servicetags/list)以编程方式检索 IP 范围列表。
 
 ## <a name="step-3-build-a-scim-endpoint"></a>步骤 3：生成 SCIM 终结点
 
@@ -917,10 +917,10 @@ https://docs.microsoft.com/aspnet/core/fundamentals/environments)
 
 示例 1.查询服务以找到匹配的用户
 
-Azure Active Directory `externalId` 在 Azure AD 中查询其属性值与用户的 mailNickname 属性值相匹配的用户的服务。 查询以类似此例的超文本传输协议 (HTTP) 请求形式表示，其中，jyoung 是 Azure Active Directory 中某个用户的 mailNickname 示例。
+Azure Active Directory 会在服务中查询是否有某个用户的 `externalId` 属性值与 Azure AD 中用户的 mailNickname 属性值匹配。 查询以类似此例的超文本传输协议 (HTTP) 请求形式表示，其中，jyoung 是 Azure Active Directory 中某个用户的 mailNickname 示例。
 
 >[!NOTE]
-> 这只是一个示例。 并非所有用户都具有 mailNickname 属性，并且该用户具有的值可能不是目录中的唯一值。 此外，用于匹配的属性 (在此情况下 `externalId`) 可在 [Azure AD 属性映射](customize-application-attributes.md)中进行配置。
+> 这只是一个示例。 并非所有用户都具有 mailNickname 属性，并且该用户具有的值可能不是目录中的唯一值。 另外，用于匹配的属性（在本例中为 `externalId`）可以在 [Azure AD 属性映射](customize-application-attributes.md)中进行配置。
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -941,7 +941,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-在示例查询中，对于具有给定属性值的用户 `externalId` ，传递给 QueryAsync 方法的参数的值是：
+在示例查询中，对于具有 `externalId` 属性的给定值的用户，传递给 QueryAsync 方法的参数的值为：
 
 * parameters.AlternateFilters.Count:1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
@@ -950,7 +950,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 示例 2.预配用户
 
-如果对具有与用户的 mailNickname 属性值匹配的属性值的用户对 web 服务的查询的响应 `externalId` 未返回任何用户，则 Azure Active Directory 请求服务将用户设置为 Azure Active Directory 中的用户。  以下是此类请求的示例： 
+如果在 Web 服务中查询是否有某个用户的 `externalId` 属性值与用户的 mailNickname 属性值匹配时，该查询的响应未返回任何用户，Azure Active Directory 将请求服务预配一个与 Azure Active Directory 中的用户相对应的用户。  以下是此类请求的示例： 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -1176,7 +1176,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 请按照下面的清单进行操作，以确保应用程序能够快速上架，并且客户可以享受顺畅的部署体验。 当上架到库时，系统将向你收集相关信息。 
 > [!div class="checklist"]
 > * 支持 [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) 用户和组终结点（仅需要其中一项支持，但建议同时确保这两项支持）
-> * 支持每个租户的至少25个请求，以确保预配和取消预配用户和组，而无需延迟 (要求) 
+> * 支持每个租户每秒至少 25 个请求，以确保预配和取消预配用户和组时不会出现延迟（必需）
 > * 确定工程和支持联系人，以便在上架到库后为客户提供指导（必需）
 > * 3 个应用程序的未过期测试凭据（必需）
 > * 如下所述，支持 OAuth 授权代码许可或长期有效的令牌（必需）
@@ -1193,7 +1193,7 @@ SCIM 规范未定义用于身份验证和授权的特定于 SCIM 的方案。 �
 |--|--|--|--|
 |用户名和密码（Azure AD 不推荐或不支持）|易于实现|不安全 - [你的密码无关紧要](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|库应用根据具体情况提供支持。 非库应用不支持。|
 |长期持有者令牌|长期令牌不要求用户提供此令牌。 管理员在设置预配时可以轻松地使用这些令牌。|如果不使用电子邮件等不安全的方法，则很难与管理员共享长期令牌。 |库应用和非库应用均支持。 |
-|OAuth 授权代码许可|访问令牌的生存期比密码短得多，并且具有长期持有者令牌不具有的自动刷新机制。  初次授权时，真实用户必须提供该令牌，从而增加了责任级别。 |要求用户提供。 如果用户离开组织，则令牌无效，并且需要再次完成授权。|支持库应用，但不支持非库应用。 但是，可以在 UI 中提供一个访问令牌作为短期测试用途的机密令牌。 在积压工作（backlog）中支持对非库的 OAuth 代码授予。|
+|OAuth 授权代码许可|访问令牌的生存期比密码短得多，并且具有长期持有者令牌不具有的自动刷新机制。  初次授权时，真实用户必须提供该令牌，从而增加了责任级别。 |要求用户提供。 如果用户离开组织，则令牌无效，并且需要再次完成授权。|库应用支持，但非库应用不支持。 但是，可以在 UI 中提供一个访问令牌作为短期测试的机密令牌。 积压工作 (backlog) 中支持对非库的 OAuth 代码授权。|
 |OAuth 客户端凭据许可|访问令牌的生存期比密码短得多，并且具有长期持有者令牌不具有的自动刷新机制。 授权代码许可和客户端凭据许可都创建相同类型的访问令牌，因此换用这些方法对 API 是透明的。  预配可以完全自动执行，无需用户干预即可以无提示的方式请求提供新令牌。 ||库应用和非库应用不支持。 支持已在我们的积压工作 (backlog) 中。|
 
 > [!NOTE]
@@ -1211,18 +1211,18 @@ OAuth 授权代码许可流：预配服务支持[授权代码许可](https://too
 * 支持多个重定向 URL。 管理员可以通过“portal.azure.com”和“aad.portal.azure.com”配置预配。 支持多个重定向 URL 将确保用户可以从任一门户授予访问权限。
 * 支持多个机密可确保机密续订在不停机的情况下顺利进行。 
 
-OAuth 代码授予流中的步骤：
-1. 用户登录到 Azure 门户 > 企业应用程序 > 选择 "应用程序 > 预配" > 单击 "授权"。
-2. Azure 门户将用户重定向到第三方应用)  (登录页。
+OAuth 代码授权流中的步骤：
+1. 用户登录到“Azure 门户”>“企业应用程序”>“选择应用程序”>“预配”，再单击“授权”。
+2. Azure 门户将用户重定向到“授权 URL”（第三方应用的登录页面）。
 3. 管理员向第三方应用程序提供凭据。 
-4. 第三方应用将用户重定向到 Azure 门户，并提供授予代码 
-5. Azure AD 预配服务将调用令牌 URL 并提供授权代码。 第三方应用程序使用访问令牌、刷新令牌和到期日期做出响应
-6. 预配周期开始时，服务会检查当前访问令牌是否有效，并根据需要将其与新令牌交换。 每次向应用发出请求时提供访问令牌，并在每次请求前检查请求的有效性。
+4. 第三方应用将用户重定向到 Azure 门户，并提供授权代码 
+5. Azure AD 预配服务将调用令牌 URL 并提供授权代码。 第三方应用程序以访问令牌、刷新令牌和到期日期做出响应
+6. 预配周期开始时，服务会检查当前访问令牌是否有效，并根据需要替换为新令牌。 每次向应用发出请求时提供访问令牌，并在每次请求前检查请求的有效性。
 
 > [!NOTE]
-> 虽然目前不可能在非库应用程序上设置 OAuth，但你可以手动从授权服务器生成访问令牌，并在非库应用程序的 "机密令牌" 字段中输入该令牌。 这样，你就可以在载入应用程序库之前验证 SCIM 服务器与 Azure AD SCIM 客户端的兼容性，从而支持 OAuth 代码授予。  
+> 虽然目前不能在非库应用程序上设置 OAuth，但可以手动从授权服务器生成访问令牌，并在非库应用程序的“机密令牌”字段中输入该令牌。 这样，你就可以在加入应用库之前验证 SCIM 服务器与 Azure AD SCIM 客户端的兼容性，从而支持 OAuth 代码授权。  
 
-**长时间生存期 OAuth 持有者令牌：** 如果你的应用程序不支持 OAuth 授权代码授予流，你还可以生成一个长期的 OAuth 持有者令牌，而不是管理员可用于设置预配集成。 该令牌应永不过期，否则当令牌过期时，预配作业将被[隔离](application-provisioning-quarantine-status.md)。 此令牌的大小必须小于 1 KB。  
+**OAuth 长期持有者令牌：** 如果应用程序不支持 OAuth 授权代码许可流，那么还可以生成长期 OAuth 持有者令牌，该令牌的生存期比管理员用来设置预配集成的令牌要长。 该令牌应永不过期，否则当令牌过期时，预配作业将被[隔离](application-provisioning-quarantine-status.md)。 此令牌的大小必须小于 1 KB。  
 
 有关其他身份验证和授权方法，请在 [UserVoice](https://aka.ms/appprovisioningfeaturerequest) 上告诉我们。
 

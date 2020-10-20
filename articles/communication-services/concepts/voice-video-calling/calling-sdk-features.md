@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8216bb8c30448e7e91ec9a1bcc531b720eca30c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665185"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977861"
 ---
 # <a name="calling-client-library-overview"></a>呼叫客户端库概述
 
@@ -34,7 +34,8 @@ ms.locfileid: "91665185"
 |                   | 为两个以上的用户（最多 350 个用户）启动组呼叫                                                       | ✔️   | ✔️            | ✔️ 
 |                   | 将两个用户的一对一呼叫升级为两个以上用户的组呼叫                                 | ✔️   | ✔️            | ✔️ 
 |                   | 在一个组呼叫开始后加入它                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | 邀请其他 VoIP 参与者加入正在进行的组呼叫                                                       | ✔️   | ✔️            | ✔️ 
+|                   | 邀请其他 VoIP 参与者加入正在进行的组呼叫                                                       | ✔️   | ✔️            | ✔️
+|                   | 打开/关闭视频                                                         | ✔️   | ✔️            | ✔️ 
 |                   | 将麦克风静音/取消静音                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | 切换照相机                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | 本地保持/取消保持                                                                                                  | ✔️   | ✔️            | ✔️           

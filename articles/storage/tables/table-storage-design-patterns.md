@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41e07087574989935e89ba2c1f4c09a3c12b192d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006340"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215597"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  
@@ -294,7 +294,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 
 假定使用以下结构在表服务中存储员工实体：  
 
-![员工实体结构](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![屏幕截图显示了如何在表服务中存储员工实体。](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 还需要存储有关员工为组织工作的每年的评价和绩效的历史数据，并且需要能够按年份访问此信息。 一种选择是创建另一个表，该表存储具有以下结构的实体：  
 

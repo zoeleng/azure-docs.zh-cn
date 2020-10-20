@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0a04b893af41f15d0757b781716909535f43239e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8caf136c43f40458634316da4b4002386f1419da
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544003"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997049"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Onit 集成
 
@@ -132,7 +132,7 @@ ms.locfileid: "88544003"
 
 2. 在顶部菜单中，单击“管理”。 
    
-    ![管理](./media/onit-tutorial/IC791174.png "管理")
+    ![屏幕截图显示“MS SSO 测试”页面顶部的菜单，其中选择了“管理”操作。](./media/onit-tutorial/IC791174.png "管理")
 
 3. 单击“编辑公司”。 
    
