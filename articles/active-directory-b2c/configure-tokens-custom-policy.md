@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e72bd04bb41537546191b8ceb320c0722bd10146
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215189"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340285"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略管理 SSO 和令牌自定义
 
@@ -90,6 +90,45 @@ ms.locfileid: "92215189"
 
 > [!NOTE]
 > 使用授权代码流和 PKCE 的单页面应用程序的刷新令牌生存期始终为24小时。 [详细了解浏览器中刷新令牌的安全隐患](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)。
+
+## <a name="provide-optional-claims-to-your-app"></a>向应用程序提供可选声明
+
+[信赖方策略技术配置文件](relyingparty.md#technicalprofile)输出声明是返回到应用程序的值。 添加输出声明会在用户成功旅程后向令牌发出声明，并将其发送到应用程序。 修改 "信赖方" 部分中的 "技术配置文件" 元素，以将所需声明添加为输出声明。
+
+1. 打开自定义策略文件。 例如，SignUpOrSignin.xml。
+1. 查找 OutputClaims 元素。 添加要包含在令牌中的 OutputClaim。 
+1. 设置输出声明特性。 
+
+下面的示例添加 `accountBalance` 声明。 AccountBalance 声明将作为平衡发送到应用程序。 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+OutputClaim 元素包含以下属性：
+
+  - **ClaimTypeReferenceId** -策略文件或父策略文件中 [ClaimsSchema](claimsschema.md) 部分定义的声明类型的标识符。
+  - **PartnerClaimType** -允许在令牌中更改声明的名称。 
+  - **DefaultValue** -默认值。 你还可以将默认值设置为 [声明解析程序](claim-resolver-overview.md)，如租户 ID。
+  - **AlwaysUseDefaultValue** -强制使用默认值。
 
 ## <a name="next-steps"></a>后续步骤
 

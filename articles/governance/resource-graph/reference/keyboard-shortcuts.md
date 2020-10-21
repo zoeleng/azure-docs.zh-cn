@@ -1,15 +1,15 @@
 ---
 title: Azure 门户中适用于 Azure Resource Graph 资源管理器的键盘快捷方式
 description: Azure 门户中的 Azure Resource Graph 资源管理器支持键盘快捷方式，可帮助你执行操作和导航。
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146430"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340115"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>适用于 Azure Resource Graph 资源管理器的键盘快捷方式
 
@@ -24,7 +24,7 @@ ms.locfileid: "89146430"
 |增加缩进 |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd>+<kbd>]</kbd> |
 |下移一行 |<kbd>ALT</kbd>+<kbd>↓</kbd> |<kbd>Option</kbd>+<kbd>↓</kbd> |
 |上移一行 |<kbd>ALT</kbd>+<kbd>↑</kbd> |<kbd>Option</kbd>+<kbd>↑</kbd> |
-|Replace |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd> |
+|Replace |<kbd>CTRL</kbd>+<kbd>H</kbd> |<kbd>Cmd</kbd> +<kbd>H</kbd> |
 |全选 |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd>+<kbd>A</kbd> |
 |向下选择 |<kbd>SHIFT</kbd>+<kbd>↓</kbd> |<kbd>SHIFT</kbd>+<kbd>↓</kbd> |
 |向右选择 |<kbd>SHIFT</kbd>+<kbd>→</kbd> |<kbd>SHIFT</kbd>+<kbd>→</kbd> |

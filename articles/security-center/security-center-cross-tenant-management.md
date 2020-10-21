@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782806"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340778"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>安全中心的跨租户管理
 
@@ -57,4 +57,4 @@ ms.locfileid: "84782806"
 
 * [通过 Azure 安全中心增强安全状况](security-center-monitoring.md) -了解如何监视 azure 资源的运行状况。
 * [Azure 安全中心常见问题解答](faq-general.md) -查找有关使用服务的常见问题。
-* [了解企业方案中的 Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) -了解 azure Lighthouse 如何简化使用多 Azure AD 租户的企业内的跨租户管理。
+* [了解企业方案中的 Azure Lighthouse](../lighthouse/concepts/enterprise.md) -了解 azure Lighthouse 如何简化使用多 Azure AD 租户的企业内的跨租户管理。

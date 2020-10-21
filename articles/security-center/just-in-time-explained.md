@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449004"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340013"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>了解实时 (JIT) VM 访问
 
@@ -40,14 +40,14 @@ ms.locfileid: "91449004"
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>JIT 如何与网络安全组和 Azure 防火墙一起运行
 
-启用实时 VM 访问时，可以选择 VM 上要阻止入站流量的端口。 安全中心确保你选择的端口在[网络安全组](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) 和 [Azure 防火墙规则](https://docs.microsoft.com/azure/firewall/rule-processing)中有“拒绝所有入站流量”规则。 这些规则限制对 Azure VM 管理端口的访问，并防止其受到攻击。 
+启用实时 VM 访问时，可以选择 VM 上要阻止入站流量的端口。 安全中心确保你选择的端口在[网络安全组](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) 和 [Azure 防火墙规则](../firewall/rule-processing.md)中有“拒绝所有入站流量”规则。 这些规则限制对 Azure VM 管理端口的访问，并防止其受到攻击。 
 
 如果所选端口已有了其他规则，则现有的这些规则优先于新的“拒绝所有入站流量”规则。 如果所选端口没有现有的规则，则新规则在 NSG 和 Azure 防火墙中的优先级最高。
 
-当用户请求访问 VM 时，安全中心会检查用户是否对该 VM 具有 [Azure 基于角色的访问控制 (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 权限。 如果请求获得批准，安全中心将配置网络安全组 (NSG) 和 Azure 防火墙，以便允许在指定的时间量内从相关 IP 地址（或范围）发往所选端口的入站流量。 在该时间到期后，安全中心会将 NSG 还原为以前的状态。 已经建立的连接不会中断。
+当用户请求访问 VM 时，安全中心会检查用户是否对该 VM 具有 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) 权限。 如果请求获得批准，安全中心将配置网络安全组 (NSG) 和 Azure 防火墙，以便允许在指定的时间量内从相关 IP 地址（或范围）发往所选端口的入站流量。 在该时间到期后，安全中心会将 NSG 还原为以前的状态。 已经建立的连接不会中断。
 
 > [!NOTE]
-> JIT 不支持由 [Azure 防火墙管理器](https://docs.microsoft.com/azure/firewall-manager/overview)控制的 Azure 防火墙保护的 VM。
+> JIT 不支持由 [Azure 防火墙管理器](../firewall-manager/overview.md)控制的 Azure 防火墙保护的 VM。
 
 
 

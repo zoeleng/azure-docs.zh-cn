@@ -4,12 +4,12 @@ description: 了解 Azure Migrate 服务。
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86122075"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314768"
 ---
 # <a name="about-azure-migrate"></a>关于 Azure Migrate
 
@@ -124,5 +124,5 @@ Azure Migrate 内置了 Azure 与合作伙伴的 ISV 工具，可提供丰富的
 
 ## <a name="next-steps"></a>后续步骤
 
-- 尝试根据我们的教程评估 [VMware VM](tutorial-prepare-vmware.md)、[Hyper-V VM](tutorial-prepare-hyper-v.md) 或[物理服务器](tutorial-prepare-physical.md)。
+- 尝试根据我们的教程评估 [VMware VM](./tutorial-discover-vmware.md)、[Hyper-V VM](./tutorial-discover-hyper-v.md) 或[物理服务器](./tutorial-discover-physical.md)。
 - [查看常见问题解答](resources-faq.md)（关于 Azure Migrate）。

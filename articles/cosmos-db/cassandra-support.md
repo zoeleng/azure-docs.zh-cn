@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803494"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107481"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支持的 Apache Cassandra 功能 
 
@@ -151,6 +151,7 @@ Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 | CREATE USER（在原生 Apache Cassandra 中已弃用） | 否 |
 | DELETE | 是 |
 | DELETE（使用 IF 条件的轻型事务）| 是 |
+| DISTINCT | 否 |
 | DROP AGGREGATE | 否 |
 | .DROP FUNCTION | 否 |
 | DROP INDEX | 是 |

@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261068"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340081"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor 中具有动态阈值的指标警报
 
@@ -98,7 +98,7 @@ ms.locfileid: "81261068"
 
 ## <a name="dynamic-thresholds-best-practices"></a>动态阈值最佳做法
 
-动态阈值可以应用于任何平台或 Azure Monitor 中的自定义指标，而且它已针对常用应用程序和基础结构指标进行了优化。
+动态阈值可应用于 Azure Monitor 中的大多数平台和自定义指标，并且还针对常见的应用程序和基础结构指标进行了优化。
 以下各项是有关如何使用动态阈值针对这些指标中的某一些配置警报的最佳做法。
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>针对虚拟机 CPU 百分比指标的动态阈值

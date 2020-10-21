@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076974"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339707"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>使用自适应应用程序控制来减少计算机的攻击面
 
@@ -52,7 +52,7 @@ ms.locfileid: "92076974"
 |----|:----|
 |发布状态：|正式发布 (GA)|
 |定价：|需要[用于服务器的 Azure Defender](defender-for-servers-introduction.md)|
-|支持的计算机：|![是](./media/icons/yes-icon.png) 运行 Windows 和 Linux 的 Azure 和非 Azure 计算机<br>![是](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) 计算机|
+|支持的计算机：|![是](./media/icons/yes-icon.png) 运行 Windows 和 Linux 的 Azure 和非 Azure 计算机<br>![是](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) 计算机|
 |所需角色和权限：|“安全读者”和“读者”角色可以查看组和已知安全应用程序列表 <br>“参与者”和“安全管理员”角色可以查看组和已知安全应用程序的列表 |
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
 |||
@@ -85,7 +85,7 @@ ms.locfileid: "92076974"
     - **无推荐** - 没有已定义的应用程序允许列表且不支持此功能的计算机。 你的计算机出现在此选项卡中可能是因为以下原因：
       - 缺少 Log Analytics 代理
       - Log Analytics 代理未发送事件
-      - 这是一台 Windows 计算机，具有通过 GPO 或本地安全策略启用的预先存在的 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 策略
+      - 这是一台 Windows 计算机，具有通过 GPO 或本地安全策略启用的预先存在的 [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 策略
 
       > [!TIP]
       > 安全中心至少需要两周的数据才能定义每个计算机组的唯一推荐。 最近创建的计算机，或属于仅最近使用 Azure Defender 启用的订阅的计算机将显示在 " **无建议** " 选项卡下。
@@ -220,7 +220,7 @@ ms.locfileid: "92076974"
 
 要以编程方式管理自适应应用程序控制，请使用我们的 REST API。 
 
-[此处](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols)提供了完整 API 文档。
+[此处](/rest/api/securitycenter/adaptiveapplicationcontrols)提供了完整 API 文档。
 
 REST API 提供的一些函数：
 

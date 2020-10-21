@@ -3,17 +3,17 @@ title: 快速入门：Azure Blob 存储库 v12 - Xamarin
 description: 本快速入门介绍如何通过 Xamarin 使用 Azure Blob 存储客户端库版本 12 在 Blob（对象）存储中创建容器和 blob。 接下来介绍如何将 blob 下载到移动设备，以及如何列出容器中的所有 blob。
 author: codemillmatt
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001320"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109011"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>快速入门：通过 Xamarin 使用 Azure Blob 存储客户端库 v12
 
@@ -157,7 +157,7 @@ protected async override void OnAppearing()
 以下代码片段：
 
 1. 创建文本的 `MemoryStream`。
-1. 通过调用 [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) 类的 [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) 函数，将文本上传到 Blob，并向其传递文件名以及文本的 `MemoryStream`。 此方法将创建 Blob（如果该 Blob 尚不存在），或者覆盖 Blob（如果该 Blob 已存在）。
+1. 通过调用 [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) 类的 [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) 函数，将文本上传到 Blob，并向其传递文件名以及文本的 `MemoryStream`。 此方法将创建 Blob（如果该 Blob 尚不存在），或者覆盖 Blob（如果该 Blob 已存在）。
 
 将以下代码添加到 MainPage.xaml.cs 文件中：
 

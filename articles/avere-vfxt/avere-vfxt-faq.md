@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272685"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342359"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
@@ -160,7 +160,7 @@ Avere vFXT for Azure 当前不支持本地 SSD。 用于 Avere vFXT 的磁盘必
 
 ### <a name="does-the-system-encrypt-the-cache"></a>系统是否加密缓存？
 
-数据在磁盘间进行条带化，但未加密。 但是，磁盘本身可以加密。 有关详细信息，请参见[在 Azure 中保护和使用虚拟机上的策略](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption)。
+数据在磁盘间进行条带化，但未加密。 但是，磁盘本身可以加密。 有关详细信息，请参见[在 Azure 中保护和使用虚拟机上的策略](../virtual-machines/security-policy.md#encryption)。
 
 ## <a name="technical-networking"></a>技术：网络
 
@@ -259,7 +259,7 @@ Avere vFXT 不支持专用对象存储。
 
 对于 Azure core 文件服务器的 Avere vFXT，通常不建议使用冷层 blob 存储。 "冷" 层提供的存储成本较低，但操作成本更高。  (参阅 [阻止 blob 定价](<https://azure.microsoft.com/pricing/details/storage/blobs/>) 了解更多详细信息。 ) 如果经常访问和修改或删除数据，请考虑使用热层。
 
-[访问层](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) 提供了有关使用酷层存储作为 vFXT core 文件服务器的有用情况的详细信息。
+[访问层](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) 提供了有关使用酷层存储作为 vFXT core 文件服务器的有用情况的详细信息。
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>如何对 Blob 容器进行加密？
 

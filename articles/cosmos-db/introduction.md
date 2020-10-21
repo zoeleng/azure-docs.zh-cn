@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2301219db250b97fd7ea2eb3814f5eba2c70148a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aad69a34cc27f341bec5beda0f52e2581538aaf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569861"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278427"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Cosmos DB 是 Azure 中的一项基本服务。 近十年来，Microsoft 的许�
 
 ### <a name="ubiquitous-regional-presence"></a>无处不在、分布广泛
 
-Cosmos DB 已面向全球所有 Azure 区域推出，包括公有云中的区域（超过 54 个）、[中国区 Azure 世纪互联](https://www.azure.cn/en-us/)、Azure 德国、Azure 政府以及适用于美国国防部 (DoD) 的 Azure 政府。 请参阅 [Cosmos DB 在各区域的可用性](regional-presence.md)。
+Cosmos DB 已面向全球所有 Azure 区域推出，包括公有云中的区域（超过 54 个）、[中国区 Azure 世纪互联](https://www.azure.cn/en-us/)、Azure 德国、Azure 政府以及适用于美国国防部 (DoD) 的 Azure 政府。 请参阅[使用 Azure Cosmos DB 实现高可用性](high-availability.md)。
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>默认保护和企业就绪
 
