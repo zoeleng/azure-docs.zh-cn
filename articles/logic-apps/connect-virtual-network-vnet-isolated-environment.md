@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fee95a435b477639fe2b98cf2c9cbf500df5941
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369002"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310023"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>使用集成服务环境 (ISE) 从 Azure 逻辑应用连接到 Azure 虚拟网络
 
@@ -95,11 +95,11 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
    > [!NOTE]
    > 如果你的场景要求限制需要访问的 IP 地址数，可以将这种方法用于单个 ISE。 考虑防火墙或虚拟网络设备的额外费用是否适合你的场景。 详细了解 [Azure 防火墙定价](https://azure.microsoft.com/pricing/details/azure-firewall/)。
 
-* 如果在没有任何约束的情况下创建了新的 Azure 虚拟网络和子网，则无需在虚拟网络中设置[网络安全组 (NSG)](../virtual-network/security-overview.md#network-security-groups) 来控制跨子网的流量。
+* 如果在没有任何约束的情况下创建了新的 Azure 虚拟网络和子网，则无需在虚拟网络中设置[网络安全组 (NSG)](../virtual-network/network-security-groups-overview.md#network-security-groups) 来控制跨子网的流量。
 
-* 对于现有的虚拟网络，可以有选择性地设置[网络安全组 (NSG)](../virtual-network/security-overview.md#network-security-groups)，以[跨子网筛选网络流量](../virtual-network/tutorial-filter-network-traffic.md)。 如果你想这样做或已在使用 NSG，请确保为这些 NSG [打开表中所述的端口](#network-ports-for-ise)。
+* 对于现有的虚拟网络，可以有选择性地设置[网络安全组 (NSG)](../virtual-network/network-security-groups-overview.md#network-security-groups)，以[跨子网筛选网络流量](../virtual-network/tutorial-filter-network-traffic.md)。 如果你想这样做或已在使用 NSG，请确保为这些 NSG [打开表中所述的端口](#network-ports-for-ise)。
 
-  设置 [NSG 安全规则](../virtual-network/security-overview.md#security-rules)时，需要同时使用 TCP 和 UDP 协议，也可以改为选择任意一个协议，从而不必为每个协议创建单独的规则  。 NSG 安全规则描述了必须为需要访问这些端口的 IP 地址打开的端口。 确保这些终结点之间存在的任何防火墙、路由器或其他项也使这些 IP 地址可以访问这些端口。
+  设置 [NSG 安全规则](../virtual-network/network-security-groups-overview.md#security-rules)时，需要同时使用 TCP 和 UDP 协议，也可以改为选择任意一个协议，从而不必为每个协议创建单独的规则  。 NSG 安全规则描述了必须为需要访问这些端口的 IP 地址打开的端口。 确保这些终结点之间存在的任何防火墙、路由器或其他项也使这些 IP 地址可以访问这些端口。
 
 * 如果通过防火墙设置强制隧道以重定向 Internet 绑定的流量，请查看 [其他强制隧道要求](#forced-tunneling)。
 

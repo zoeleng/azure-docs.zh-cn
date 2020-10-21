@@ -1,18 +1,18 @@
 ---
 title: Azure 应用程序配置的内置策略定义
 description: 列出 Azure 应用程序配置的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 30f57594ea7366e8835ed0d7773886ed83fe622d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d882da559774d8b88a9a0aba2105f25c6437d08c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825372"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309537"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Azure 应用程序配置的 Azure Policy 内置定义
 

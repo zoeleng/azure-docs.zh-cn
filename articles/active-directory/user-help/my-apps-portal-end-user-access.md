@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 245b7c63b3c459d545dfd39fe162df1ee4f816f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e54f153738d232eaddff8b0fc499a763581ca726
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031035"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277447"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>从“我的应用”门户登录并启动应用
 
@@ -42,7 +42,7 @@ ms.locfileid: "90031035"
 
 你可以在你的计算机上访问和使用 "我的应用" 门户，也可以通过 iOS 或 Android 移动设备上的 Edge 浏览器的移动版访问。
 
-![“我的应用”门户中的“应用”页](media/my-apps-portal/my-apps-portal-apps-page.png)
+![“我的应用”门户中的“应用”页](media/my-apps-portal/my-apps-home.png)
 
 ## <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>在计算机上访问和使用“我的应用”门户
 

@@ -3,12 +3,12 @@ title: Azure Migrate 中的 VMware 评估支持
 description: 了解使用 Azure Migrate 服务器评估时的 VMware VM 评估支持。
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667786"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315793"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 评估支持矩阵 
 
@@ -117,4 +117,4 @@ Azure Migrate 使用 [Azure Migrate 设备](migrate-appliance.md)进行发现和
 ## <a name="next-steps"></a>后续步骤
 
 - [查阅](best-practices-assessment.md)关于创建评估的最佳做法。
-- [为 VMware VM 评估做好准备](tutorial-prepare-vmware.md)。
+- [为 VMware VM 评估做好准备](./tutorial-discover-vmware.md)。

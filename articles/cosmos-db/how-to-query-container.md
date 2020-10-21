@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261250"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276123"
 ---
 # <a name="query-an-azure-cosmos-container"></a>查询 Azure Cosmos 容器
 
@@ -19,7 +19,7 @@ ms.locfileid: "85261250"
 
 ## <a name="in-partition-query"></a>分区中查询
 
-从容器中查询数据时，如果查询指定了分区键筛选器，则 Azure Cosmos DB 会自动优化查询。 它会将查询路由到筛选器中指定的分区键值所对应的[物理分区](partition-data.md#physical-partitions)。
+从容器中查询数据时，如果查询指定了分区键筛选器，则 Azure Cosmos DB 会自动优化查询。 它会将查询路由到筛选器中指定的分区键值所对应的[物理分区](partitioning-overview.md#physical-partitions)。
 
 例如，请考虑以下针对 `DeviceId` 使用等式筛选器的查询。 如果对按 `DeviceId` 分区的容器运行此查询，则此查询将筛选到单个物理分区。
 
@@ -61,7 +61,7 @@ Azure Cosmos DB SDK 1.9.0 及更高版本支持并行查询执行选项。 并�
 
 - **MaxBufferedItemCount**：权衡查询延迟与客户端内存利用率。 如果省略此选项或将其设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
 
-由于 Azure Cosmos DB 能够并行执行跨分区查询，因此，随着系统增加[物理分区](partition-data.md#physical-partitions)，查询延迟通常增加得不多。 但是，随着物理分区总数的增加，RU 开销会明显增大。
+由于 Azure Cosmos DB 能够并行执行跨分区查询，因此，随着系统增加[物理分区](partitioning-overview.md#physical-partitions)，查询延迟通常增加得不多。 但是，随着物理分区总数的增加，RU 开销会明显增大。
 
 运行跨分区查询时，实质上是对每个物理分区执行单独的查询。 尽管跨分区查询将使用索引（如果可用），但它们仍然不如分区中查询高效。
 

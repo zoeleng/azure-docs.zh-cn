@@ -4,15 +4,15 @@ description: 了解有助于提高 Azure Cosmos DB .NET v3 SDK 性能的客户�
 author: j82w
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204021"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277301"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -67,32 +67,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 **连接策略：使用直接连接模式**
 
-客户端连接到 Azure Cosmos DB 的方式对性能有重大影响，尤其是在观察到的客户端延迟方面。 有两个密钥配置设置可用于配置客户端连接策略：连接模式和连接协议。  两种可用的连接模式为：
-
-   * 直接模式（默认）
-
-     直接模式支持通过 TCP 协议进行连接，在使用 [Microsoft.Azure.Cosmos/.NET V3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) 的情况下是默认的连接模式。 与网关模式相比，直接模式提供的性能更佳且需要的网络跃点数更少。
-
-   * 网关模式
-      
-     如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 
-     
-     但是，对于性能的影响是：每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境中运行应用程序时，我们也建议使用网关连接模式。
-
-     在 Azure Functions 中使用 SDK 时，尤其是在[消耗计划](../azure-functions/functions-scale.md#consumption-plan)中使用时，请注意当前的[连接限制](../azure-functions/manage-connections.md)。 这种情况下，如果还在 Azure Functions 应用程序中使用其他基于 HTTP 的客户端，则使用网关模式可能更好。
-     
-在直接模式下使用 TCP 协议时，除了网关端口外，还需确保从 10000 到 20000 这个范围内的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 在[专用终结点](./how-to-configure-private-endpoints.md)上使用直接模式时，应打开从 0 到 65535 的整个 TCP 端口范围。 默认情况下，标准 Azure VM 配置的端口是打开的。 如果这些端口未处于打开状态，你在尝试使用 TCP 时将收到“503 服务不可用”错误。 
-
-下表显示了可用于各种 API 的连接模式，以及用于每个 API 的服务端口：
-
-|连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
-|---------|---------|---------|---------|
-|网关  |   HTTPS    |  所有 SDK    |   SQL (443)、MongoDB（10250、10255、10256）、表 (443)、Cassandra (10350)、Graph (443) <br><br> 端口 10250 映射到没有异地复制功能的默认 Azure Cosmos DB API for MongoDB 实例，端口 10255 和 10256 映射到具有异地复制功能的实例。   |
-|直接    |     TCP    |  .NET SDK    | 使用公共/服务终结点时：端口介于 10000 到 20000 之间<br><br>使用专用终结点时：端口介于 0 到 65535 之间 |
-
-Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 TCP 协议使用传输层安全性 (TLS) 来进行初始身份验证和加密通信。 为了获得最佳性能，请尽可能使用 TCP 协议。
-
-对于 SDK V3，可以在 `CosmosClientOptions` 中创建 `CosmosClient` 实例时配置连接模式。 请记住，直接模式是默认设置。
+.NET V3 SDK 默认连接模式为直接。 在中创建实例时，将配置连接模式 `CosmosClient` `CosmosClientOptions` 。  若要了解有关不同连接选项的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -102,10 +77,6 @@ new CosmosClientOptions
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
 });
 ```
-
-由于仅在直接模式下才支持 TCP，如果使用网关模式，则 HTTPS 协议始终用来与网关通信。
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="使用不同的连接模式和协议建立到 Azure Cosmos DB 的连接。" border="false":::
 
 **临时端口耗尽**
 
@@ -126,7 +97,7 @@ new CosmosClientOptions
 
 确保调用应用程序位于预配的 Azure Cosmos DB 终结点所在的 Azure 区域即可尽可能降低延迟。 有关可用区域的列表，请参阅 [Azure 区域](https://azure.microsoft.com/regions/#services)。
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="使用不同的连接模式和协议建立到 Azure Cosmos DB 的连接。" border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="将客户端并置在同一区域中。" border="false":::
 
    <a id="increase-threads"></a>
 
@@ -287,4 +258,4 @@ SDK 全部都会隐式捕获此响应，并遵循服务器指定的 retry-after 
 ## <a name="next-steps"></a>后续步骤
 如果需要使用一个示例应用程序来评估 Azure Cosmos DB，以便在数个客户端计算机上实现高性能方案，请参阅[使用 Azure Cosmos DB 进行性能和缩放测试](performance-testing.md)。
 
-若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
+若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partitioning-overview.md)。

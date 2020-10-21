@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59f1231e2edf3277898ff57d8e6f8da42ee057ca
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015630"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276989"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源拉取模型
 
@@ -112,7 +112,7 @@ while (iteratorForThePartitionKey.HasMoreResults)
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-获取容器的 FeedRange 列表时，每个[物理分区](partition-data.md#physical-partitions)你都会获得一个 `FeedRange`。
+获取容器的 FeedRange 列表时，每个[物理分区](partitioning-overview.md#physical-partitions)你都会获得一个 `FeedRange`。
 
 然后可以使用 `FeedRange` 创建一个 `FeedIterator`，以便跨多个计算机或线程并行处理更改源。 与上面展示了如何获取整个容器或单个分区键的 `FeedIterator` 的示例不同，你可以使用 FeedRanges 获取多个 FeedIterator，以便并行处理更改源。
 

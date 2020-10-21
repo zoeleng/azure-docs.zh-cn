@@ -402,6 +402,8 @@
       href: luis-reference-prebuilt-sentiment.md
 - name: 资源
   items:
+    - name: 支持和帮助选项
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
     - name: 代码示例
       href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: 区域可用性
@@ -425,10 +427,6 @@
     - name: 配置虚拟网络
       maintainContext: true
       href: ../cognitive-services-virtual-networks.md
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/LUIS'
-    - name: UserVoice
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
     - name: 搜索
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: 博客

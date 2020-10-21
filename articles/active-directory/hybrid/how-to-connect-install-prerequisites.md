@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662166"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276949"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本文介绍 Azure Active Directory (Azure AD) Connect 的先决条件和硬件要求。
@@ -46,6 +46,14 @@ ms.locfileid: "89662166"
 * Azure AD 使用的域控制器必须可写。 不支持使用只读域控制器 (RODC)，Azure AD Connect 不遵循任何写入重定向。
 * 不支持通过“以点分隔的”（名称包含句点“.”）NetBIOS 名称来使用本地林或域。
 * 建议[启用 Active Directory 回收站](how-to-connect-sync-recycle-bin.md)。
+
+### <a name="powershell-execution-policy"></a>PowerShell 执行策略
+Azure Active Directory Connect 在安装过程中运行已签名的 PowerShell 脚本。 确保 PowerShell 执行策略允许运行脚本。
+
+安装期间建议的执行策略为 "RemoteSigned"。
+
+有关设置 PowerShell 执行策略的详细信息，请参阅 [set-executionpolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)。
+
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 服务器
 Azure AD Connect 服务器包含关键标识数据。 确保对此服务器的管理访问权限得到适当的保护非常重要。 按照[保护特权访问](/windows-server/identity/securing-privileged-access/securing-privileged-access)中的指南进行操作。 

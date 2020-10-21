@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269754"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310031"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>阻止 Azure 逻辑应用中的连接器创建的连接
 
@@ -224,7 +224,7 @@ ms.locfileid: "91269754"
 
 * [策略结构定义](../governance/policy/concepts/definition-structure.md)
 * [教程：创建和管理策略以强制实施符合性](../governance/policy/tutorials/create-and-manage.md)
-* [Azure 逻辑应用的 Azure Policy 内置策略定义](../logic-apps/policy-samples.md)
+* [Azure 逻辑应用的 Azure Policy 内置策略定义](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -311,7 +311,7 @@ ms.locfileid: "91269754"
 
 * [策略结构定义](../governance/policy/concepts/definition-structure.md)
 * [教程：创建和管理策略以强制实施符合性](../governance/policy/tutorials/create-and-manage.md)
-* [Azure 逻辑应用的 Azure Policy 内置策略定义](../logic-apps/policy-samples.md)
+* [Azure 逻辑应用的 Azure Policy 内置策略定义](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 

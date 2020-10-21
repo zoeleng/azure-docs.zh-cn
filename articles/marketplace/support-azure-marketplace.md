@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329748"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275418"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 商用 marketplace 支持
 
@@ -45,6 +45,6 @@ ms.locfileid: "91329748"
 ## <a name="next-steps"></a>后续步骤
 
 * 访问[“商业市场发布者指南”页面](index.yml)。
-* 详细了解[合作伙伴中心商业市场计划的支持](partner-center-portal/support.md)。
+* 详细了解[合作伙伴中心商业市场计划的支持](support.md)。
 
 ---

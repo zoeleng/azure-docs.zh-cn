@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810c38397981a100c2d5a68492f8a15b75cd79bd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650109"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276051"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>更新商业应用商店中的现有产品/服务
 
@@ -67,7 +67,7 @@ ms.locfileid: "89650109"
 
 1. 在合作伙伴中心，返回到 **计划概述**。
 2. 选择“新建计划”。 输入 **计划 ID** 和 **计划名称**，然后选择 " **创建**"。
-1. 若要重复使用已隐藏的计划中的技术配置，请选中 " **重复使用技术配置** " 复选框。 有关详细信息，请参阅 [计划概述](azure-vm-create-offer.md#plan-overview) 。
+1. 若要重复使用已隐藏的计划中的技术配置，请选中 " **重复使用技术配置** " 复选框。 若要了解详细信息，请参阅 [创建 VM 的计划](../azure-vm-create-plans.md) 。
     > [!IMPORTANT]
     > 如果您选择 **此计划重新利用其他计划中的技术配置**，则以后将无法停止销售父计划。 如果要停止销售父计划，请不要使用此选项。
 3. 完成新计划所需的所有部分，包括新价格。

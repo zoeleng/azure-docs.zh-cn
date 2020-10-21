@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
-ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 7838f9f1febcab073633dbb4af011e99acbe22d3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75397472"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310294"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用字符串
 
@@ -74,8 +74,8 @@ print @"C:\backslash\not\escaped\with @ prefix"
 `!startswith_cs`  |右侧不是左侧的初始子序列|是        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |右侧是左侧的结束子序列|否             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |右侧不是左侧的结束子序列|否         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |右侧是左侧的结束子序列|是             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |右侧不是左侧的结束子序列|是         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |右侧是左侧的结束子序列|是             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |右侧不是左侧的结束子序列|是         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|左侧包含右侧的匹配项        |是           |`"Fabrikam" matches regex "b.*k"`
 `in`           |等于某个元素       |是           |`"abc" in ("123", "345", "abc")`
 `!in`          |不等于任何元素   |是           |`"bca" !in ("123", "345", "abc")`

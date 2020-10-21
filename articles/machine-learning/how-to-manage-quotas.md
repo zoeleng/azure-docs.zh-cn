@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203036"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275562"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>管理和增加 Azure 机器学习资源的配额
 
@@ -177,7 +177,7 @@ Azure 使用限制和配额来防止因欺诈而超出运行的预算，并遵�
     | ----- | ----- |
     | 问题类型 | 技术条件 |
     | 服务 | 我的服务。 在下拉列表中选择 " __机器学习__ "。 |
-    | 问题类型 | 工作区安装、SDK 和 CLI |
+    | 问题类型 | 工作区配置和安全性 |
     | 问题子类型 | 专用终结点和专用 DNS 区域宽限请求 |
 
 2. 在 __详细信息__ 部分中，使用 " __说明__ " 字段提供要使用的 Azure 区域以及计划使用的方案。 如果需要为多个订阅请求配额增加，还请在此字段中列出订阅 Id。
