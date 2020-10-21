@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320079"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280537"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>针对按流量计费的异常情况检测服务
 
@@ -74,7 +74,7 @@ ms.locfileid: "87320079"
     - **商业应用商店**  > 计费**计费**  > **为 SaaS 产品发送了错误的使用情况**
 3. 在 " **下一步**" 下，选择 " **检查解决方案** " 按钮，将其定向到 "合作伙伴中心" 以提交支持票证。
 
-有关发布者支持选项的详细信息，请参阅 [合作伙伴中心的商业市场计划支持](support.md)。
+有关发布者支持选项的详细信息，请参阅 [合作伙伴中心的商业市场计划支持](../support.md)。
 
 ## <a name="next-step"></a>后续步骤
 

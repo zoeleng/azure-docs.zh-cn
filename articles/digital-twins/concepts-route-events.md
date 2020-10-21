@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145985"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282245"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>在 Azure 数字孪生内部和外部路由事件
 
@@ -83,7 +83,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. 首先， `EventRoute` 将创建一个对象，并且构造函数将使用终结点的名称。 此 `endpointName` 字段标识一个终结点，如事件中心、事件网格或服务总线。 在进行此注册调用之前，必须在订阅中创建这些终结点，并使用控制平面 Api 将这些终结点附加到 Azure 数字孪生。
 
-2. 事件路由对象还具有一个 [**筛选器**](./how-to-manage-routes-apis-cli.md#filter-events) 字段，该字段可用于限制跟随此路由的事件类型。 的筛选器将 `true` 启用无额外筛选的路由 (筛选器 `false` 禁用路由) 。 
+2. 事件路由对象还具有一个 [**筛选器**](how-to-manage-routes-apis-cli.md#filter-events) 字段，该字段可用于限制跟随此路由的事件类型。 的筛选器将 `true` 启用无额外筛选的路由 (筛选器 `false` 禁用路由) 。 
 
 3. 然后，将此事件路由对象传递到 `CreateEventRoute` ，同时传递给路由的名称。
 
@@ -93,18 +93,19 @@ await client.CreateEventRoute("routeName", er);
 还可以使用 [Azure 数字孪生 CLI](how-to-use-cli.md)创建路由。
 
 ## <a name="dead-letter-events"></a>死信事件
+
 当终结点无法在某个时间段内传递事件时，或者尝试将事件传递到一定次数后，它可以将未送达的事件发送到存储帐户。 此过程称为“死信处理”。 当满足 **以下条件之一** 时，Azure 数字孪生会将事件死信。 
 
-- 事件未在生存期内传递
-- 尝试传递事件的次数已超出限制
+* 事件未在生存期内传递
+* 尝试传递事件的次数已超出限制
 
-如果满足上述任一条件，则会将该事件删除或视为死信。  默认情况下，每个终结点 **不会** 启用死信。 若要启用它，您必须指定一个存储帐户，以便在创建终结点时保存未传递的事件。 你将从此存储帐户中拉取事件来解决传递问题。
+如果满足上述任一条件，则会将该事件删除或视为死信。 默认情况下，每个终结点 **不会** 启用死信。 若要启用它，您必须指定一个存储帐户，以便在创建终结点时保存未传递的事件。 然后，你可以从此存储帐户拉取事件以解析传递。
 
 在设置死信位置之前，必须有一个包含容器的存储帐户。 创建终结点时，提供此容器的 URL。 死信作为带有 SAS 令牌的容器 URL 提供。 该令牌只需要 `write` 对存储帐户中目标容器的权限。 完整的格式 URL 将采用以下格式： `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 若要了解有关 SAS 令牌的详细信息，请参阅： [*使用共享访问签名授予对 Azure 存储资源的有限访问权限 (SAS) *](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-若要了解如何设置死信，请参阅 [*如何：在 Azure 数字孪生中管理终结点和路由 (api 和 CLI) *](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)。
+若要了解如何使用死信设置终结点，请参阅 [*如何：在 Azure 数字孪生中管理终结点和路由 (api 和 CLI) *](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)。
 
 ### <a name="types-of-event-messages"></a>事件消息的类型
 

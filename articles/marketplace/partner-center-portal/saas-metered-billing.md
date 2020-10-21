@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d232f7ba1304d76a0ba2db62b9f0f9b4229513f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378588"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279180"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>使用商业性 marketplace 计量服务的 SaaS 计费计费
 
@@ -153,7 +153,7 @@ ms.locfileid: "89378588"
 - 由于您的端 (错误或错误而需要升级的问题（例如）。 用法事件) 错误。
 - 与计费计费相关的任何其他问题。
 
-若要了解发布者支持选项并与 Microsoft 建立支持票证，请按照 [合作伙伴中心的商业市场计划支持](./support.md)中的说明进行操作。
+若要了解发布者支持选项并与 Microsoft 建立支持票证，请按照 [合作伙伴中心的商业市场计划支持](../support.md)中的说明进行操作。
 
 ## <a name="next-steps"></a>后续步骤
 

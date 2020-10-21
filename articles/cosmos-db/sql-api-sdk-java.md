@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569935"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275292"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -232,7 +232,7 @@ ms.locfileid: "91569935"
 * 对文档添加了生存时间 (TTL) 支持。
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* 实现了[分区集合](partition-data.md)和[用户定义的性能级别](performance-levels.md)。
+* 实现了[分区集合](partitioning-overview.md)和[用户定义的性能级别](performance-levels.md)。
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * 修复了 HashPartitionResolver 中的 Bug 以生成 little-endian 格式的哈希值，以便与其他 SDK 保持一致。

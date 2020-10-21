@@ -1,39 +1,39 @@
 ---
 title: 为 Windows 虚拟桌面设置 Azure 多重身份验证-Azure
-description: 如何设置 Azure 多重身份验证以提高 Windows 虚拟桌面的安全性。
+description: 如何设置 Azure 多重身份验证，提高 Windows 虚拟桌面的安全性。
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108977"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312652"
 ---
-# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>为 Windows 虚拟桌面启用 Azure 多重身份验证
+# <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>为 Windows 虚拟桌面启用 Azure 多重身份验证
 
 >[!IMPORTANT]
 > 如果要从 Windows 虚拟桌面 (经典) 文档访问此页面，请确保在完成后 [返回到 Windows 虚拟桌面 (经典) 文档](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) 。
 
 适用于 windows 虚拟桌面的 Windows 客户端是将 Windows 虚拟桌面与本地计算机集成的最佳选项。 但是，当你将 Windows 虚拟桌面帐户配置到 Windows 客户端时，你需要采取某些措施来保护你的用户和用户安全。
 
-首次登录时，客户端会要求提供用户名、密码和 Azure MFA。 此后，下次登录时，客户端将记住 Azure Active Directory (AD) 企业应用程序的令牌。 当你选择 " **记住我**" 时，用户可以在重新启动客户端后登录，而不需要重新输入其凭据。
+首次登录时，客户端会要求提供用户名、密码和 Azure 多重身份验证。 此后，下次登录时，客户端将记住 Azure Active Directory (AD) 企业应用程序的令牌。 当你在提示输入会话主机凭据时选择 " **记住我** "，你的用户可以在重新启动客户端后登录，而不需要重新输入其凭据。
 
-尽管记住凭据很方便，但它也可以使部署在企业方案或个人设备上不太安全。 若要保护用户，你需要确保客户端继续请求 Azure 多重身份验证 (MFA) 凭据。 本文将演示如何配置 Windows 虚拟桌面的条件性访问策略，以便启用此设置。
+尽管记住凭据很方便，但它也可以使部署在企业方案或个人设备上不太安全。 若要保护用户，可以确保客户端更频繁地请求 Azure 多重身份验证凭据。 本文将演示如何配置 Windows 虚拟桌面的条件性访问策略，以便启用此设置。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 下面是你需要入门的内容：
 
 - 为用户分配包含 Azure Active Directory Premium P1 或 P2 的许可证。
 - 用户分配为组成员的 Azure Active Directory 组。
-- 为所有用户启用 Azure MFA。 有关如何执行此操作的详细信息，请参阅 [如何要求用户进行双重验证](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user)。
+- 为所有用户启用 Azure 多重身份验证。 有关如何执行此操作的详细信息，请参阅 [如何要求用户进行双重验证](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user)。
 
 > [!NOTE]
-> 以下设置也适用于 [Windows 虚拟桌面 web 客户端](https://rdweb.wvd.microsoft.com/webclient/index.html)。
+> 以下设置也适用于 [Windows 虚拟桌面 web 客户端](https://rdweb.wvd.microsoft.com/arm/webclient/index.html)。
 
 ## <a name="create-a-conditional-access-policy"></a>创建条件访问策略
 
@@ -45,7 +45,7 @@ ms.locfileid: "92108977"
 4. 为策略指定名称。 建议组织为其策略的名称创建有意义的标准。
 5. 在“分配”  下，选择“用户和组”  。
 6. 在 "**包括**" 下，选择 "**选择用户和组**  >  **用户和组**" > 选择你在 "[先决条件](#prerequisites)" 阶段创建的组。
-7. 选择“完成”。
+7. 选择“完成”  。
 8. 在 "**云应用或操作**  >  **包括**" 下，选择 "**选择应用**"。
 9. 根据所使用的 Windows 虚拟桌面版本选择以下应用之一。
    
@@ -63,7 +63,7 @@ ms.locfileid: "92108977"
         之后，请跳到步骤10。
 
    >[!IMPORTANT]
-   > 请勿选择名为 "Windows 虚拟桌面 Azure 资源管理器提供程序" 的应用 (50e95039-b200-4007-bc97-8d5790743a63) 。 此应用仅用于检索用户源，而不应具有 MFA。
+   > 请勿选择名为 "Windows 虚拟桌面 Azure 资源管理器提供程序" 的应用 (50e95039-b200-4007-bc97-8d5790743a63) 。 此应用仅用于检索用户源，而不应具有多重身份验证。
    > 
    > 如果使用 Windows 虚拟桌面 (经典) ，则如果条件访问策略阻止所有访问，并且仅排除 Windows 虚拟桌面应用 Id，则可以通过将应用 ID 9cdead84-a844-4324-93f2-b2e6bb768d07 添加到策略来解决此问题。 不添加此应用 ID 会阻止对 Windows 虚拟桌面 (经典) 资源的源发现。
 
@@ -85,7 +85,7 @@ ms.locfileid: "92108977"
     >若要查找要选择的应用的应用 ID，请在 "应用程序类型" 下拉菜单中，单击 " **企业应用程序** "，然后选择 " **Microsoft 应用程序** "。
 
 12. 在 "**访问控制**" "  >  **授权**" 下，选择 "**授予访问权限**，**需要多重身份验证**"，然后**选择**。
-13. 在 **"访问控制**"  >  **会话**下，选择 "**登录频率**"，将 "值" 设置为**1** ，将 "单位" 设置为 "**小时**"，然后选择 "**选择**"。
+13. 在 "**访问控制**"  >  **会话**下，选择 "**登录频率**"，将 "值" 设置为所需的提示时间，然后选择 "**选择**"。 例如，如果将值设置为 **1** ，将单位设置为 **小时**，则在连接启动一小时后，将需要多重身份验证。
 14. 确认设置，然后将“启用策略”设置为“打开”。 
 15. 选择 " **创建** " 以启用策略。
 

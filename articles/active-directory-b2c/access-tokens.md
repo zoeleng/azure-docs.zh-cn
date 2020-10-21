@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115534"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309017"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中请求访问令牌
 
@@ -50,10 +50,15 @@ scope=https://contoso.onmicrosoft.com/api/read openid offline_access
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-如果请求的作用域数超过为客户端应用程序授予的数目，则只有在授予至少一个权限的情况下，调用才会成功。 生成的访问令牌的 **scp** 声明中只会填充已成功授予的权限。 OpenID Connect 标准指定了多个特殊的作用域值。 以下作用域表示访问用户配置文件的权限：
+如果请求的作用域数超过为客户端应用程序授予的数目，则只有在授予至少一个权限的情况下，调用才会成功。 生成的访问令牌的 **scp** 声明中只会填充已成功授予的权限。 
+
+### <a name="openid-connect-scopes"></a>OpenID Connect 范围
+
+OpenID Connect 标准指定了多个特殊的作用域值。 以下作用域表示访问用户配置文件的权限：
 
 - **openid** - 请求 ID 令牌。
 - **offline_access** - 使用[授权代码流](authorization-code-flow.md)请求刷新令牌。
+- **00000000-0000-0000-0000-000000000000** -使用客户端 id 作为范围表示你的应用需要一个访问令牌，该令牌可用于你自己的服务或 web API （由同一客户端 ID 表示）。
 
 如果 `/authorize` 请求中的 **response_type** 参数包含 `token`，那么 **scope** 参数必须包含至少一个将被授予的资源作用域（除 `openid` 和 `offline_access` 以外）。 否则，`/authorize` 请求会失败。
 

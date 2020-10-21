@@ -7,12 +7,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136033"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278417"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据建模
 
@@ -440,6 +440,6 @@ Review documents:
 
 若要了解有关 Azure Cosmos DB 的详细信息，请参阅该服务的[文档](https://azure.microsoft.com/documentation/services/cosmos-db/)页。
 
-若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](sql-api-partition-data.md)。
+若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](partitioning-overview.md)。
 
 若要了解如何使用实际示例对 Azure Cosmos DB 上的数据进行建模和分区，请参阅 [ 数据建模和分区-Real-World 示例](how-to-model-partition-example.md)。

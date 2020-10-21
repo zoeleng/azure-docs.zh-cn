@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931795"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275533"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>商业应用商店中的 SaaS 履单 Api 版本2
 
@@ -581,7 +581,7 @@ TLS 版本1.2 的版本将尽快作为 HTTPS 通信的最低版本来强制实�
 
 |  参数         | 值             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  用于获取操作状态的 URL。  例如，`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`。 |
+|  `Operation-Location`        |  用于获取操作状态的 URL。  例如，`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31` 。 |
 
 代码：400请求错误：验证失败。
 
@@ -646,7 +646,7 @@ TLS 版本1.2 的版本将尽快作为 HTTPS 通信的最低版本来强制实�
 
 |  参数         | 值             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  链接到资源以获取操作的状态。  例如，`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`。  |
+|  `Operation-Location`        |  链接到资源以获取操作的状态。  例如，`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31` 。  |
 
 代码：400请求错误：验证失败。
 
@@ -711,7 +711,7 @@ TLS 版本1.2 的版本将尽快作为 HTTPS 通信的最低版本来强制实�
 
 |  参数         | 值             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  链接到资源以获取操作的状态。  例如，`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`。 |
+|  `Operation-Location`        |  链接到资源以获取操作的状态。  例如，`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31` 。 |
 
 代码：400错误的请求。  此 SaaS 订阅的 "删除" 不在 `allowedCustomerOperations` 列表中。
 
@@ -953,11 +953,11 @@ Response body:
 
 若要开始开发过程，我们建议在发布方端创建虚拟 API 响应。  这些响应可以基于本文档中提供的示例响应。
 
-当发布服务器已准备好进行端到端测试时： 
+当发布服务器已准备好进行端到端测试时：
 
 * 将 SaaS 产品/服务发布到受限预览版受众，并将其保留在预览阶段。
-* 此产品/服务的价格应为0，因此不会在测试时触发实际的计费费用。  另一种方法是设置非零价格，并在24小时内取消所有测试购买。 
-* 确保所有流都是端到端调用，就像客户购买产品/服务一样。 
+* 此产品/服务的价格应为0，因此不会在测试时触发实际的计费费用。  另一种方法是设置非零价格，并在24小时内取消所有测试购买。
+* 确保所有流都是端到端调用，就像客户购买产品/服务一样。
 * 如果合作伙伴要测试完整的购买和计费流，请通过价格高于 $0 的产品/服务进行测试。  采购将计费，并将生成发票。
 
 可以根据产品/服务的发布位置，从 Azure 门户或 Microsoft AppSource 站点触发采购流。
@@ -966,8 +966,7 @@ Response body:
 
 ## <a name="get-support"></a>获取支持
 
-有关发布者支持选项，请参阅 [合作伙伴中心的商业市场计划支持](support.md) 。
-
+有关发布者支持选项，请参阅 [合作伙伴中心的商业市场计划支持](../support.md) 。
 
 ## <a name="next-steps"></a>后续步骤
 

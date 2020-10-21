@@ -4,27 +4,27 @@ description: 了解如何识别、诊断和排查 Azure Cosmos DB SQL 查询问�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089983"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277174"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>排查使用 Azure Cosmos DB 时遇到的查询问题
 
-本文逐步说明排查 Azure Cosmos DB 中的查询问题的一般建议方法。 虽然不应将本文中所述的步骤视为针对潜在查询问题的完全防御方法，但我们在其中包含了最常见的性能提示。 应将本文用作起点，以排查 Azure Cosmos DB 核心 (SQL) API 中查询速度缓慢或费用较高的问题。 还可以使用[诊断日志](cosmosdb-monitor-resource-logs.md)来识别速度缓慢或消耗大量吞吐量的查询。
+本文逐步说明排查 Azure Cosmos DB 中的查询问题的一般建议方法。 虽然不应将本文中所述的步骤视为针对潜在查询问题的完全防御方法，但我们在其中包含了最常见的性能提示。 应将本文用作起点，以排查 Azure Cosmos DB 核心 (SQL) API 中查询速度缓慢或费用较高的问题。 还可以使用[诊断日志](cosmosdb-monitor-resource-logs.md)来识别速度缓慢或消耗大量吞吐量的查询。 如果使用的是 MongoDB Azure Cosmos DB API，应使用 [Azure Cosmos DB 的 api 进行 mongodb 查询疑难解答指南](mongodb-troubleshoot-query.md)
 
-可对 Azure Cosmos DB 中的查询优化进行广泛分类：
+Azure Cosmos DB 中的查询优化广泛分类，如下所示：
 
 - 可降低查询请求单位 (RU) 费用的优化
 - 仅降低延迟的优化
 
-几乎可以肯定，降低查询的 RU 费用还将降低延迟。
+如果减少查询的 RU 费用，通常还会降低延迟。
 
 本文提供了可通过使用 [营养数据集](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)重新创建的示例。
 
@@ -191,7 +191,7 @@ RU 费用：409.51 RU
 
 RU 费用：2.98 RU
 
-可以随时将属性添加到索引策略，而不会影响写入可用性或性能。 如果将新属性添加到索引，则使用此属性的查询将立即使用新的可用索引。 查询将在生成新索引时使用该索引。 因此，在重新生成索引时，查询结果可能会不一致。 如果为新属性编制索引，则在重新生成索引期间，仅使用现有索引的查询将不受影响。 你可以[跟踪索引转换进度](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)。
+你可以随时将属性添加到索引策略，而不会影响写入或读取可用性。 你可以[跟踪索引转换进度](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)。
 
 ### <a name="understand-which-system-functions-use-the-index"></a>了解哪些系统函数使用索引
 
@@ -469,7 +469,7 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 
 ## <a name="optimizations-that-reduce-query-latency"></a>可降低查询延迟的优化
 
-在许多情况下，当查询延迟仍然过高时，RU 费用是可接受的。 以下部分概述了降低查询延迟的提示。 如果对同一数据集多次运行同一查询，则该查询每次都会产生相同的 RU 费用。 但是，每次执行查询时，查询延迟可能各不相同。
+在许多情况下，当查询延迟仍然过高时，RU 费用是可接受的。 以下部分概述了降低查询延迟的提示。 如果在同一数据集上多次运行相同的查询，则每次都将具有相同的 RU 费用。 但是，每次执行查询时，查询延迟可能各不相同。
 
 ### <a name="improve-proximity"></a>提高邻近度
 

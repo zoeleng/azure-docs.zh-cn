@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea5d291f372485da714104eaa7df19ed3a153423
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b481a1ccf36120a30bf7c923e2d59c5782433567
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206180"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282513"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 托管和运行 SAP 工作负荷方案
 
@@ -73,16 +73,14 @@ SAP 应用程序层和 DBMS 的高可用性记录在有关[Sap NetWeaver 的 Azu
 
 
 ## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>有关将 Azure 服务集成到 SAP 组件的文档
+在本部分中，你将了解有关 PowerBI 集成到 SAP 数据源以及 Azure 数据工厂集成到 SAP BW 的文档。
 
-- [在 Power BI Desktop 中使用 SAP HANA](/power-bi/desktop-sap-hana)
-- [DirectQuery 和 SAP HANA](/power-bi/desktop-directquery-sap-hana)
-- [在 Power BI Desktop 中使用 SAP BW 连接器](/power-bi/desktop-sap-bw-connector) 
-- [Azure 数据工厂提供 SAP HANA 和业务数据仓库数据集成](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
 ## <a name="change-log"></a>更改日志
 
-- 10/16/2020：在 SLES 上的 LUW 中更改[了 Azure 虚拟机上的 Azure Db2 的 ha](./dbms-guide-ha-ibm.md)，在 rhel 上通过 Pacemaker[实现了 sap nw](./high-availability-guide-rhel.md)的 ha，在 rhel 上，azure VM 上的 sap nw 的 ha，azure vm 上的 sap nw [HA，在](./high-availability-guide-rhel-ibm-db2-luw.md)rhel[多 SID 指南](./high-availability-guide-rhel-multi-sid.md)[上，azure](./high-availability-guide-rhel-netapp-files.md)Vm 上[的](./sap-hana-high-availability-netapp-files-red-hat.md) [sap](./sap-hana-high-availability.md)nw ha，针对 azure vm 上的 sap nw 的[ha，适用于 sap 应用程序的 ha](./high-availability-guide-suse.md)，适用于 azure 上的 SAP NNW 的 ha 多 SID[指南中的](./high-availability-guide-suse-multi-sid.md)azure VM 上的 sap nw ha，适用于 azure 上的 azure VM 上的 sap nw[的 ha](./high-availability-guide-suse-netapp-files.md)，适用于 azure 上[的 azure vm](./high-availability-guide-suse-nfs.md)的和 SAP HANA SAP HANA，[在 RHEL 上，Azure vm 上的 SAP HANA HA](./sap-hana-high-availability-rhel.md)， [RHEL 上的 azure Vm 上使用 Pacemaker SAP HANA 向外扩展 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md)，使用 wsfc 和[共享磁盘为 Sap ASCS/scs 准备 Azure 基础结构](./sap-high-availability-infrastructure-wsfc-shared-disk.md)，使用 wsfc 和[AZURE 共享磁盘为 SAP ASCS/scs 准备多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)，并[使用 wsfc 和共享磁盘为 sap ASCS/scs 启用多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)。  
+- 10/16/2020：在 SLES 上的 LUW 中更改[了 Azure 虚拟机上的 Azure Db2 的 ha](./dbms-guide-ha-ibm.md)，在 rhel 上通过 Pacemaker[实现了 sap nw](./high-availability-guide-rhel.md)的 ha，在 rhel 上，azure VM 上的 sap nw 的 ha，azure vm 上的 sap nw [HA，在](./high-availability-guide-rhel-ibm-db2-luw.md)rhel[多 SID 指南](./high-availability-guide-rhel-multi-sid.md)[上，azure](./high-availability-guide-rhel-netapp-files.md)Vm 上[的](./sap-hana-high-availability-netapp-files-red-hat.md) [sap](./sap-hana-high-availability.md)nw ha，针对 azure vm 上的 sap nw 的[ha，适用于 sap 应用程序的 ha](./high-availability-guide-suse.md)，适用于 azure 上的 SAP NNW 的 ha 多 SID[指南中的](./high-availability-guide-suse-multi-sid.md)azure VM 上的 sap nw ha，适用于 azure 上的 azure VM 上的 sap nw[的 ha](./high-availability-guide-suse-netapp-files.md)，适用于 azure 上[的 azure vm](./high-availability-guide-suse-nfs.md)的和 SAP HANA SAP HANA，[在 RHEL 上，Azure vm 上的 SAP HANA HA](./sap-hana-high-availability-rhel.md)， [RHEL 上的 azure Vm 上使用 Pacemaker SAP HANA 向外扩展 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md)，使用 wsfc 和[共享磁盘为 Sap ASCS/scs 准备 Azure 基础结构](./sap-high-availability-infrastructure-wsfc-shared-disk.md)，使用 wsfc 和[AZURE 共享磁盘为 SAP ASCS/scs 准备多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)，并[使用 wsfc 和共享磁盘为 sap ASCS/scs 启用多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)。 
+- 10/16/2020：添加文档来控制 hana 大型实例的存储快照，以便在 [Hana 大型实例上备份和还原 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
 - 10/15/2020： azure 上的 SAP BusinessObjects BI 平台文档、azure 上的 sap [BUSINESSOBJECTS bi 平台规划和实施指南](businessobjects-deployment-guide.md) 、 [适用于 azure 上的 Linux 的 sap BusinessObjects bi 平台部署指南](businessobjects-deployment-guide-linux.md)
 - 10/05/2020： [在 RHEL 上通过 Azure vm 上的 Pacemaker SAP HANA 扩展 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md) 的发布配置指南
 - 09/30/2020：在 [rhel 上的 Azure vm 上 SAP HANA 高可用性](./sap-hana-high-availability-rhel.md)，在 rhel 上 [通过和进行 SAP HANA 扩展](./sap-hana-high-availability-netapp-files-red-hat.md) ，并 [在 Azure 中的 rhel 上设置 Pacemaker](./high-availability-guide-rhel-pacemaker.md) 以适应 rhel 8.1 的说明

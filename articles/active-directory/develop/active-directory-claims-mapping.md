@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601463"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275795"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>如何：为租户中的特定应用自定义在令牌中发出的声明（预览版）
 
@@ -301,7 +301,7 @@ ID 元素标识源中用于为声明提供值的属性。 下表列出对 Source
 | 用户 | companyname| 组织名称 |
 | 用户 | streetaddress | 街道地址 |
 | 用户 | postalcode | 邮政编码 |
-| 用户 | user.preferredlanguage | 首选语言 |
+| 用户 | preferredlanguage | 首选语言 |
 | 用户 | onpremisesuserprincipalname | 本地 UPN |*
 | 用户 | mailNickname | 邮件别名 |
 | 用户 | extensionattribute1 | 扩展属性 1 |
@@ -419,7 +419,7 @@ ID 元素标识源中用于为声明提供值的属性。 下表列出对 Source
 
 ### <a name="custom-signing-key"></a>自定义签名密钥
 
-必须为服务主体对象分配自定义签名密钥，否则声明映射策略无法生效。 这可以确保确认令牌是由声明映射策略的创建者修改的，并防止应用程序被恶意参与者创建的声明映射策略破坏。 若要添加自定义签名密钥，可以使用 Azure PowerShell cmdlet `new-azureadapplicationkeycredential` 为应用程序对象创建对称密钥凭据。 有关此 Azure PowerShell cmdlet 的详细信息，请参阅 [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)。
+必须为服务主体对象分配自定义签名密钥，否则声明映射策略无法生效。 这可以确保确认令牌是由声明映射策略的创建者修改的，并防止应用程序被恶意参与者创建的声明映射策略破坏。 若要添加自定义签名密钥，可以使用 Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) 为应用程序对象创建证书密钥凭据。
 
 启用了声明映射的应用必须通过将 `appid={client_id}` 追加到其 [OpenID Connect 元数据请求](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)来验证令牌签名密钥。 下面是你应该使用的 OpenID 连接元数据文档的格式：
 
@@ -476,7 +476,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
       Get-AzureADPolicy
       ```
 1. 将策略分配到服务主体。 还需要获取服务主体的 ObjectId。
-   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 中登录到 Azure AD 帐户。
+   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 中登录到你的 Azure AD 帐户。
    2. 获取服务主体的 ObjectId 后，运行以下命令：
 
       ``` powershell
@@ -500,7 +500,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
       Get-AzureADPolicy
       ```
 1. 将策略分配到服务主体。 还需要获取服务主体的 ObjectId。
-   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 中登录到 Azure AD 帐户。
+   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 中登录到你的 Azure AD 帐户。
    2. 获取服务主体的 ObjectId 后，运行以下命令：
 
       ``` powershell
@@ -524,7 +524,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
       Get-AzureADPolicy
       ```
 1. 将策略分配到服务主体。 还需要获取服务主体的 ObjectId。
-   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 中登录到 Azure AD 帐户。
+   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 中登录到你的 Azure AD 帐户。
    2. 获取服务主体的 ObjectId 后，运行以下命令：
 
       ``` powershell

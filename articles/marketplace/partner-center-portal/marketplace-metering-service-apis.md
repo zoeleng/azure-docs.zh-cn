@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319977"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278027"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 计费 Api
 
@@ -273,7 +273,7 @@ Batch 用量事件 API 允许一次为多个已购买的资源发出使用事件
 
 ## <a name="get-support"></a>获取支持
 
-按照对 [合作伙伴中心中的商业市场计划的支持](./support.md) 中的说明，了解发布者支持选项，并与 Microsoft 建立支持票证。
+按照对 [合作伙伴中心中的商业市场计划的支持](../support.md) 中的说明，了解发布者支持选项，并与 Microsoft 建立支持票证。
 
 ## <a name="next-steps"></a>后续步骤
 

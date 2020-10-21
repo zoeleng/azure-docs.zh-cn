@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/24/2020
+ms.date: 10/20/2020
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51f9043dcf329e4f3f23ddb930e53cfdfa2f107a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78871441fe7f9b0f6d02cdf6f05b97933abfca54
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631641"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275632"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理安装
 
@@ -42,7 +42,7 @@ ms.locfileid: "91631641"
 | 筛选或禁用出站流量的 TLS 检查 | 如果网络层上的出站流量存在 TLS 检查或终止，则代理注册步骤或数据上传操作可能会失败。 阅读有关[如何设置 TLS 检查的](/previous-versions/tn-archive/ee796230(v=technet.10))详细信息 |
 | 运行代理的服务器上的防火墙端口 |为了使代理能够与 Azure AD Health 服务终结点通信，代理要求打开以下防火墙端口。<br /><br /><li>TCP 端口 443</li><li>TCP 端口 5671</li> <br />请注意，代理的最新版本不再需要端口 5671。 升级到最新版本，此时仅需要端口 443。 了解有关[启用防火墙端口](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100))的更多信息 |
 | 如果启用了 IE 增强安全性，请允许以下网站 |如果在要安装代理的服务器上启用了“IE 增强的安全性”，则必须允许访问以下网站。<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https： \/ /aadcdn.msftauth.net</li><li>Azure Active Directory 信任的组织联合服务器。 例如：https:\//sts.contoso.com</li> 阅读有关 [如何配置 IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)的详细信息。 如果网络中有一个代理，请参阅下面的说明。|
-| 确保已安装 PowerShell v4.0 或更高版本 | <li>Windows Server 2008 R2 附带 PowerShell v2.0，后者对代理来说不够用。 根据下面[在 Windows Server 2008 R2 服务器上的代理安装](#agent-installation-on-windows-server-2008-r2-servers)下的说明更新 PowerShell。</li><li>Windows Server 2012 附带 PowerShell v3.0，后者对代理来说不够用。</li><li>Windows Server 2012 R2 和更高版本附带足够使用的 PowerShell 最新版本。</li>|
+| 确保已安装 PowerShell v4.0 或更高版本 | <li>Windows Server 2012 附带 PowerShell v3.0，后者对代理来说不够用。</li><li>Windows Server 2012 R2 和更高版本附带足够使用的 PowerShell 最新版本。</li>|
 |禁用 FIPS|Azure AD Connect Health 代理不支持 FIPS。|
 
 > [!IMPORTANT]
@@ -111,17 +111,6 @@ ms.locfileid: "91631641"
 
 ![Azure AD Connect Health AD FS 服务](./media/how-to-connect-health-agent-install/install5.png)
 
-### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>在 Windows Server 2008 R2 服务器上的代理安装
-
-适用于 Windows Server 2008 R2 服务器的步骤：
-
-1. 确保正在运行 Service Pack 1 或更高版本的服务器。
-2. 关闭代理安装的 IE ESC：
-3. 在安装 AD Health 代理之前，在每台服务器上安装 Windows PowerShell 4.0。 若要安装 Windows PowerShell 4.0：
-   * 使用以下链接下载脱机安装程序，安装 [Microsoft.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) 。
-   * （从 Windows 功能）安装 PowerShell ISE
-   * 在服务器上安装 Internet Explorer 版本 10 或更高版本。 （Health 服务需要在 Internet Explorer 中使用 Azure 管理员凭据对你进行身份验证。）
-4. 有关在 Windows Server 2008 R2 上安装 Windows PowerShell 4.0 的详细信息，请参阅 [此处](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)的 wiki 文章。
 
 ### <a name="enable-auditing-for-ad-fs"></a>为 AD FS 启用审核
 
@@ -130,20 +119,6 @@ ms.locfileid: "91631641"
 >
 
 若要通过使用情况分析功能收集和分析数据，必须向 Azure AD Connect Health 代理提供 AD FS 审核日志中的信息。 默认情况下未启用这些日志。 使用以下过程在 AD FS 服务器上启用 AD FS 审核和查找 AD FS 审核日志。
-
-#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>在 Windows Server 2008 R2 上启用 AD FS 审核的步骤
-
-1. 单击 **“开始”**，指向 **“程序”**，指向 **“管理工具”**，然后单击 **“本地安全策略”**。
-2. 导航到 **“安全设置\本地策略\用户权限分配”** 文件夹，然后双击 **“生成安全审核”**。
-3. 在 **“本地安全设置”** 选项卡上，验证是否列出了 AD FS 2.0 服务帐户。 如果该服务帐户不存在，请单击 **“添加用户或组”** 并将其添加到列表中，然后单击 **“确定”**。
-4. 若要启用审核，请使用提升的权限打开命令提示符，并运行以下命令：<code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>。
-5. 关闭“本地安全策略”****。
-<br />   -- **仅主 AD FS 服务器需要执行以下步骤。** -- <br />
-6. 打开“AD FS 管理”**** 管理单元。 若要打开“AD FS 管理”管理单元，请单击“开始”，指向“程序”，指向“管理工具”，然后单击“AD FS 2.0 管理”。****************
-7. 在“操作”**** 窗格中，单击“编辑联合身份验证服务属性”****。
-8. 在 **“联合身份验证服务属性”** 对话框中，单击 **“事件”** 选项卡。
-9. 选中 **“成功审核”** 和 **“失败审核”** 复选框。
-10. 单击" **确定**"。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>在 Windows Server 2012 R2 上启用 AD FS 审核的步骤
 

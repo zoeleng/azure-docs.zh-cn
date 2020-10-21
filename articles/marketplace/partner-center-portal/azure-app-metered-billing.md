@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320045"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280446"
 ---
 # <a name="managed-application-metered-billing"></a>托管应用程序计费计费 
 
@@ -117,7 +117,7 @@ ms.locfileid: "87320045"
 * 由于您的端 (错误或错误而需要升级的问题（例如）。 用法事件) 错误。
 * 与计费计费相关的任何其他问题。
 
-按照对 [合作伙伴中心中的 "商业市场" 计划的支持](./support.md) 中的说明，了解发布者支持选项并与 Microsoft 建立支持票证。
+按照对 [合作伙伴中心中的 "商业市场" 计划的支持](../support.md) 中的说明，了解发布者支持选项并与 Microsoft 建立支持票证。
 
 ## <a name="next-steps"></a>后续步骤
 

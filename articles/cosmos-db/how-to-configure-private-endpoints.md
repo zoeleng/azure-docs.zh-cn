@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334423"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279721"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>为 Azure Cosmos 帐户配置 Azure 专用链接
 
@@ -73,7 +73,7 @@ ms.locfileid: "91334423"
     |专用 DNS 区域 |选择 privatelink.documents.azure.com"。 <br><br/> 专用 DNS 区域是自动确定的。 无法使用 Azure 门户更改此区域。|
     |||
 
-1. 选择“查看 + 创建”  。 在“查看 + 创建”页上，Azure 会验证你的配置。
+1. 选择“查看 + 创建”。 在“查看 + 创建”页上，Azure 会验证你的配置。
 1. 看到“验证通过”消息时，选择“创建” 。
 
 如果已批准 Azure Cosmos 帐户的专用链接，则 Azure 门户上“防火墙和虚拟网络”窗格中的“所有网络”选项将不可用。 
@@ -684,7 +684,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 若要详细了解 Azure Cosmos DB 安全功能，请参阅以下文章：
 
-* 若要为 Azure Cosmos DB 配置防火墙，请参阅[防火墙支持](firewall-support.md)。
+* 若要为 Azure Cosmos DB 配置防火墙，请参阅[防火墙支持](how-to-configure-firewall.md)。
 
 * 若要了解如何为 Azure Cosmos 帐户配置虚拟网络服务终结点，请参阅[配置从虚拟网络进行的访问](how-to-configure-vnet-service-endpoint.md)。
 

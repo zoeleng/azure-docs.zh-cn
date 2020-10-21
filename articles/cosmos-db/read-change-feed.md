@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018963"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282063"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>读取 Azure Cosmos DB 更改源
 
@@ -39,7 +39,7 @@ ms.locfileid: "90018963"
 
 ### <a name="azure-functions"></a>Azure Functions
 
-如果你对更改源还不太了解，则 Azure Functions 是最简单的选项。 由于其简易性，它也是大多数更改源用例的建议选项。 为 Azure Cosmos DB 创建 Azure Functions 触发器时，请选择要连接的容器，每当该容器中发生更改时，都会触发 Azure 函数。 由于 Azure Functions 在后台使用更改源处理器，因此它会自动在容器的[分区](partition-data.md)之间并行化更改处理操作。
+如果你对更改源还不太了解，则 Azure Functions 是最简单的选项。 由于其简易性，它也是大多数更改源用例的建议选项。 为 Azure Cosmos DB 创建 Azure Functions 触发器时，请选择要连接的容器，每当该容器中发生更改时，都会触发 Azure 函数。 由于 Azure Functions 在后台使用更改源处理器，因此它会自动在容器的[分区](partitioning-overview.md)之间并行化更改处理操作。
 
 使用 Azure Functions 进行开发是一种简单体验，可能比在你自己的平台上部署更改源处理器更快。 可以使用 Azure Functions 门户来创建触发器，也可以使用 SDK 以编程方式这样做。 Visual Studio 和 VS Code 支持编写 Azure 函数，你甚至可以使用 Azure Functions CLI 进行跨平台开发。 可以在桌面上编写和调试代码，然后单击一下鼠标部署函数。 有关详细信息，请参阅[使用 Azure Functions 进行无服务器数据库计算](serverless-computing-database.md)和[将更改源与 Azure Functions 配合使用](change-feed-functions.md)。
 

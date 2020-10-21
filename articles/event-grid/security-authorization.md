@@ -3,16 +3,18 @@ title: Azure 事件网格安全和身份验证
 description: 介绍 Azure 事件网格及其概念。
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8220e0f913a16cc32b4598ecb3836cc892ea83fd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119083"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318555"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>授权访问事件网格资源
-借助 Azure 事件网格，可以控制授予不同用户用来执行各种管理操作的访问级别，例如列出事件订阅、创建新的事件订阅及生成密钥。 事件网格使用 Azure 的基于角色的访问控制 (RBAC)。
+使用 Azure 事件网格，可以控制提供给不同用户执行各种 **管理操作** （如列出事件订阅、创建新用户和生成密钥）的访问级别。 事件网格使用 Azure 的基于角色的访问控制 (RBAC)。
 
+> [!NOTE]
+> EventGrid 不支持用于将事件发布到事件网格主题或域的 RBAC。 使用共享访问签名 (SAS) 密钥或令牌对发布事件的客户端进行身份验证。 有关详细信息，请参阅 [对发布客户端进行身份验证](security-authenticate-publishing-clients.md)。 
 
 ## <a name="operation-types"></a>操作类型
 

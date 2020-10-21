@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9ae5632f2495ac5916ac8c86666e973c34d1b789
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215223"
+ms.locfileid: "92275278"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授权代码流
 
@@ -24,7 +24,7 @@ ms.locfileid: "92215223"
 
 [OAuth 2.0 规范第 4.1 部分](https://tools.ietf.org/html/rfc6749)描述了 OAuth 2.0 授权代码流。 在大多数 [应用程序类型](application-types.md)（包括 web 应用程序、单页应用程序和本机安装的应用程序）中，可以使用它进行身份验证和授权。 可使用 OAuth 2.0 授权代码流安全地获取应用程序的访问令牌和刷新令牌，这些令牌可用于访问受到[授权服务器](protocols-overview.md)保护的资源。  刷新令牌允许客户端在访问令牌到期后（通常在一小时后）获取新的访问（和刷新）令牌。
 
-<!-- This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens. -->
+本文重点介绍**公共客户端** OAuth 2.0 授权代码流。 公共客户端是那些不能被信任以安全维护机密密码完整性的任何客户端应用程序。 这包括单页应用程序、移动应用程序、桌面应用程序，以及本质上不在服务器上运行的任何应用程序。
 
 > [!NOTE]
 > 若要使用 Azure AD B2C 向 Web 应用添加标识管理，请使用 [OpenID Connect](openid-connect.md)，而不要使用 OAuth 2.0。
@@ -39,15 +39,9 @@ Azure AD B2C 扩展了标准 OAuth 2.0 流，使其功能远远超出了简单�
 
 ## <a name="redirect-uri-setup-required-for-single-page-apps"></a>单页应用所需的重定向 URI 设置
 
-单页应用程序的授权代码流需要一些其他设置。  按照[创建单页应用程序](tutorial-register-spa.md)的说明将重定向 URI 正确地标记为已为 CORS 启用。 若要更新现有的重定向 URI 以启用 CORS，请打开清单编辑器，然后在 `replyUrlsWithType` 部分中将重定向 URI 的 `type` 字段设置为 `spa`。 还可以在“身份验证”选项卡的“Web”部分单击重定向 URI，然后使用授权代码流选择要迁移到的 URI。
+单页应用程序的授权代码流需要一些其他设置。  按照[创建单页应用程序](tutorial-register-spa.md)的说明将重定向 URI 正确地标记为已为 CORS 启用。 若要更新现有的重定向 URI 以启用 CORS，可以在 **应用注册**的 " **身份验证** " 选项卡的 "Web" 部分中单击 "迁移" 提示。或者，您可以打开 **应用注册清单编辑器** ，然后将 `type` 重定向 URI 的字段设置为 `spa` `replyUrlsWithType` 。
 
 `spa` 重定向类型与隐式流向后兼容。 当前使用隐式流来获取令牌的应用可以移动到 `spa` 重定向 URI 类型，而不会出现问题，并会继续使用隐式流。
-
-如果尝试使用授权代码流并查看此错误：
-
-`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
-
-则需要访问应用注册，并更新应用的重定向 URI 以键入 `spa`。
 
 ## <a name="1-get-an-authorization-code"></a>1.获取授权代码
 授权代码流始于客户端将用户定向到 `/authorize` 终结点。 这是授权代码流中用户会执行操作的交互部分。 在此请求中，客户端指示在 `scope` 参数中需要从用户处获取的权限。 下面有三个示例（为方便阅读，提供了换行符），每个示例都使用不同的用户流。
