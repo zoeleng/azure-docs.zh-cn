@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f5e1ba52390191409d8da4bc4c41faaa859a4a8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001836"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125605"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - 智能仪表应用体系结构
 
@@ -28,7 +28,7 @@ ms.locfileid: "87001836"
 
 ## <a name="smart-meters-and-connectivity"></a>智能仪表和连接 
 
-智能仪表是所有能源资产中最重要的设备之一。 它记录能源消耗数据并将其传输到用于监视和其他用例（如计费和需求响应）的实用程序。 根据仪表类型，它可以通过网关或其他中间设备或系统（例如边缘设备和前端系统）连接到 IoT Central。 构建 IoT Central 设备网桥以连接无法直接连接的设备。 IoT Central 设备桥是一种开放源代码解决方案，你可以在[此处](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)找到完整的详细信息。 
+智能仪表是所有能源资产中最重要的设备之一。 它记录能源消耗数据并将其传输到用于监视和其他用例（如计费和需求响应）的实用程序。 根据仪表类型，它可以通过网关或其他中间设备或系统（例如边缘设备和前端系统）连接到 IoT Central。 构建 IoT Central 设备网桥以连接无法直接连接的设备。 IoT Central 设备桥是一种开放源代码解决方案，你可以在[此处](../core/howto-build-iotc-device-bridge.md)找到完整的详细信息。 
 
 
 ## <a name="iot-central-platform"></a>IoT Central 平台
@@ -42,4 +42,4 @@ IoT Central 平台提供了两个扩展选项：连续数据导出 (CDE) 和 API
 ## <a name="next-steps"></a>后续步骤
 
 * 现在你已了解该体系结构，请[免费创建智能仪表应用](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](https://docs.microsoft.com/azure/iot-central/)
+* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](../index.yml)

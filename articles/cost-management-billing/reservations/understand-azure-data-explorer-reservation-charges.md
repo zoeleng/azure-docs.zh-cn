@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383112"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147234"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>了解如何将预留折扣应用于 Azure 数据资源管理器
 
@@ -70,4 +70,4 @@ ms.locfileid: "81383112"
 * [管理 Azure 预留](manage-reserved-vm-instance.md)  
 * [了解即用即付订阅的预留使用情况](understand-reserved-instance-usage.md)
 * [了解企业合约的预留使用情况](understand-reserved-instance-usage-ea.md)
-* [了解 CSP 订阅的预留使用情况](https://docs.microsoft.com/partner-center/azure-reservations)
+* [了解 CSP 订阅的预留使用情况](/partner-center/azure-reservations)

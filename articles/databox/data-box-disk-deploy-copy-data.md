@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766841"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125331"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ ms.locfileid: "91766841"
 
 如果未使用拆分复制工具复制数据，则需要验证数据。 若要验证数据，请执行以下步骤。
 
-1. 运行 `DataBoxDiskValidation.cmd` 以在驱动器的 *DataBoxDiskImport* 文件夹中进行校验和验证。 此功能仅适用于 Windows 环境。 Linux 用户需要验证复制到磁盘的源数据是否符合[先决条件](https://docs.microsoft.com/azure/databox/data-box-disk-limits)。
+1. 运行 `DataBoxDiskValidation.cmd` 以在驱动器的 *DataBoxDiskImport* 文件夹中进行校验和验证。 此功能仅适用于 Windows 环境。 Linux 用户需要验证复制到磁盘的源数据是否符合[先决条件](./data-box-disk-limits.md)。
     
     ![Data Box Disk 验证工具输出](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -335,6 +335,6 @@ ms.locfileid: "91766841"
 1. 运行 `DataBoxDiskValidation.cmd` 以在驱动器的 *DataBoxDiskImport* 文件夹中进行校验和验证。
 2. 使用选项 2 验证文件并生成校验和。 根据具体的数据大小，此步骤可能需要一段时间。 如果在验证和校验和生成过程中出现任何错误，则会向你发送通知并提供指向错误日志的链接。
 
-    有关数据验证的详细信息，请参阅[验证数据](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data)。 如果在验证过程中遇到错误，请参阅[排查验证错误](data-box-disk-troubleshoot.md)。
+    有关数据验证的详细信息，请参阅[验证数据](#validate-data)。 如果在验证过程中遇到错误，请参阅[排查验证错误](data-box-disk-troubleshoot.md)。
 
 ::: zone-end

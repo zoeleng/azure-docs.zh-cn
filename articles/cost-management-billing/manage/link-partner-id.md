@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017006"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132544"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>将合作伙伴 ID 链接到 Azure 帐户
 
@@ -25,13 +25,13 @@ PAL 使 Microsoft 能够识别哪些合作伙伴促成了 Azure 客户的成功�
 
 在你链接合作伙伴 ID 之前，客户必须使用以下选项之一，授权你访问其 Azure 资源：
 
-- **来宾用户**：客户可将你添加为来宾用户并分配任何 Azure 角色。 有关详细信息，请参阅[添加另一个目录中的来宾用户](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)。
+- **来宾用户**：客户可将你添加为来宾用户并分配任何 Azure 角色。 有关详细信息，请参阅[添加另一个目录中的来宾用户](../../active-directory/external-identities/what-is-b2b.md)。
 
 - **目录帐户**：客户可以为你在其自己的目录中创建用户帐户，并分配任何 Azure 角色。
 
 - **服务主体**：客户可在其目录中为你的组织添加一个应用或脚本，并分配任何 Azure 角色。 该应用或脚本的标识称为服务主体。
 
-- **Azure Lighthouse**：你的客户可以委托一个订阅（或资源组），这样你的用户就可以通过你的租户在其上工作。 有关详细信息，请参阅 [Azure 委托资源管理](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)。
+- **Azure Lighthouse**：你的客户可以委托一个订阅（或资源组），这样你的用户就可以通过你的租户在其上工作。 有关详细信息，请参阅 [Azure 委托资源管理](../../lighthouse/concepts/azure-delegated-resource-management.md)。
 
 ## <a name="link-to-a-partner-id"></a>链接到合作伙伴 ID
 
@@ -55,7 +55,7 @@ PAL 使 Microsoft 能够识别哪些合作伙伴促成了 Azure 客户的成功�
 
 1. 安装 [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell 模块。
 
-2. 使用用户帐户或服务主体登录到客户的租户。 有关详细信息，请参阅[使用 PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+2. 使用用户帐户或服务主体登录到客户的租户。 有关详细信息，请参阅[使用 PowerShell 登录](/powershell/azure/authenticate-azureps)。
 
    ```azurepowershell-interactive
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -89,7 +89,7 @@ C:\> remove-AzManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ```
 
-2. 使用用户帐户或服务主体登录到客户的租户。 有关详细信息，请参阅[使用 Azure CLI 登录](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
+2. 使用用户帐户或服务主体登录到客户的租户。 有关详细信息，请参阅[使用 Azure CLI 登录](/cli/azure/authenticate-azure-cli)。
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -152,9 +152,9 @@ C:\ az managementpartner delete --partner-id 12345
 
 由于以下原因，无法在报告中看到客户
 
-1. 链接的用户帐户对任何客户 Azure 订阅或资源都没有 [Azure 基于角色的访问权限 (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)。
+1. 链接的用户帐户对任何客户 Azure 订阅或资源都没有 [Azure 基于角色的访问权限 (Azure RBAC)](../../role-based-access-control/overview.md)。
 
-2. 用户对其具有 [Azure 基于角色的访问权限 (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 的 Azure 订阅没有任何使用。
+2. 用户对其具有 [Azure 基于角色的访问权限 (Azure RBAC)](../../role-based-access-control/overview.md) 的 Azure 订阅没有任何使用。
 
 **链接合作伙伴 ID 是否适用于 Azure Stack？**
 

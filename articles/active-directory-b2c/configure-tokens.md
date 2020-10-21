@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10f86d194c5c70f2de0ab6502893e228800b1bdf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 67bc9d6b35d4841999721a00592a6bbe23bff10f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215461"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340217"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中配置令牌
 
@@ -53,7 +53,18 @@ ms.locfileid: "92215461"
 
     ![Azure 门户中的令牌兼容性属性设置](./media/configure-tokens/token-compatibility.png)
 
-5. 单击“保存” 。
+5. 单击“ **保存**”。
+
+## <a name="provide-optional-claims-to-your-app"></a>向应用程序提供可选声明
+
+应用程序声明是返回到应用程序的值。 更新用户流以包含所需的声明。
+
+1. 选择“用户流(策略)”。
+1. 打开之前创建的用户流。
+1. 选择“应用程序声明”  。
+1. 选择要发送回应用程序的声明和属性。
+1. 单击“ **保存**”。
+
 
 ## <a name="next-steps"></a>后续步骤
 

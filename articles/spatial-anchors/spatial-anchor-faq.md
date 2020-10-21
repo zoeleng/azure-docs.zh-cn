@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9457836a3048ff08b228bf9d5b84400af15d6cc5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb02de25cfcb0dde01699c1169d03f0d822c4ae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854947"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097399"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>有关 Azure 空间定位点的常见问题解答
 
@@ -128,4 +128,4 @@ Azure 空间定位点将 6DoF 跟踪器作为构造块，使你可以将真实�
 
 **问：Azure 空间定位点使用哪些端口和协议？**
 
-**答:** Azure 空间定位点使用加密协议通过 TCP 端口 443 进行通信。 对于身份验证，它使用 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)，后者使用 HTTPS 通过端口 443 进行通信。
+**答:** Azure 空间定位点使用加密协议通过 TCP 端口 443 进行通信。 对于身份验证，它使用 [Azure Active Directory](../active-directory/index.yml)，后者使用 HTTPS 通过端口 443 进行通信。

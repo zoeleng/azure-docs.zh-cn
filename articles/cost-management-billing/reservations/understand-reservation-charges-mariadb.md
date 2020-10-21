@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be2dd4235883601b0b13c5783e4c7c7c106c20e9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0691ec320b62ed212235a63dacedcf3ec38a23ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682019"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151473"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mariadb"></a>如何对 Azure Database for MariaDB 应用预留折扣
 
@@ -30,7 +30,7 @@ Azure Database for MariaDB 预留容量是按小时向正在运行的 MariaDB �
 
 以下示例演示如何根据购买的核心的数目及其运行时间，来应用 Azure Database for MariaDB 预留容量折扣。
 
-* **示例 1**：购买 8 vCore 的 Azure Database for MariaDB 预留容量。 如果运行的是与其余预留属性匹配的 16 vCore Azure Database for MariaDB 服务器，需按照即用即付价格为 8 vCore MariaDB 服务器计算用量支付费用，并获得一小时 8 vCore MariaDB 服务器计算用量的预留折扣。
+**示例 1**：购买 8 vCore 的 Azure Database for MariaDB 预留容量。 如果运行的是与其余预留属性匹配的 16 vCore Azure Database for MariaDB 服务器，需按照即用即付价格为 8 vCore MariaDB 服务器计算用量支付费用，并获得一小时 8 vCore MariaDB 服务器计算用量的预留折扣。
 
 余下的示例假设购买的 Azure Database for MariaDB 预留容量用于 16 vCore Azure Database for MariaDB，并且剩余的预留属性与正在运行的 MariaDB 服务器相匹配。
 
@@ -40,7 +40,7 @@ Azure Database for MariaDB 预留容量是按小时向正在运行的 MariaDB �
 
 * **示例 4**：下午 1:00 到 1:45 运行一台 16 vCore Azure Database for MariaDB 服务器。 下午 1:30 到 2:00 运行另一台 16 vCore Azure Database for MariaDB 服务器。 将收取 15 分钟重叠期的即用即付费用。 预留折扣将应用到剩余时间的计算用量。
 
-若要了解 Azure 预留的应用情况并在计费使用情况报告中查看该信息，请参阅[了解 Azure 预留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)。
+若要了解 Azure 预留的应用情况并在计费使用情况报告中查看该信息，请参阅[了解 Azure 预留使用情况](./understand-reserved-instance-usage-ea.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

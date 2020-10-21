@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: bfa84a993fafe9240ba765de8d87ea4afb69cbd5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca4c1810912771f56661ca5b682b6991735f526e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015941"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150831"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>了解如何将预留折扣应用于 Azure Cosmos DB
 
@@ -121,4 +121,4 @@ Azure 计费系统将向第一个处理且与预留配置相匹配的实例分�
 * [管理 Azure 预留](manage-reserved-vm-instance.md)  
 * [了解即用即付订阅的预留使用情况](understand-reserved-instance-usage.md)  
 * [了解企业合约的预留使用情况](understand-reserved-instance-usage-ea.md)
-* [了解 CSP 订阅的预留使用情况](https://docs.microsoft.com/partner-center/azure-reservations)
+* [了解 CSP 订阅的预留使用情况](/partner-center/azure-reservations)

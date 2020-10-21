@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 13e11bb6064888ac36a2d2801fee3db1e9e9fcba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89050499"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150968"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>快速入门：从控制台应用广播实时消息
 
@@ -64,7 +64,7 @@ Azure SignalR 服务提供了 [REST API](https://github.com/Azure/azure-signalr/
 
 ### <a name="build-the-executable-file"></a>生成可执行文件
 
-我们使用 macOS osx.10.13-x64 作为示例。 你可以找到有关如何在其他平台上进行生成的[参考资料](https://docs.microsoft.com/dotnet/core/rid-catalog)。
+我们使用 macOS osx.10.13-x64 作为示例。 你可以找到有关如何在其他平台上进行生成的[参考资料](/dotnet/core/rid-catalog)。
 
 ```bash
 cd AzureSignalR-samples/samples/Serverless/

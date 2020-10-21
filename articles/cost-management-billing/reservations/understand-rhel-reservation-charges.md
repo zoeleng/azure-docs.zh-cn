@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 4314a52488473bcacd4aa62a0e8f44d88d2b75f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 311ce7edc617b02e62f4e4fefc7393318f99a1a9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681594"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148269"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>了解如何将 Red Hat Linux Enterprise 软件预留计划折扣应用于 Azure
 
@@ -53,7 +53,7 @@ Azure 门户商城名称：
 若要了解有关预留的详细信息，请参阅以下文章：
 
 - [什么是适用于 Azure 的预留](save-compute-costs-reservations.md)
-- [通过 Azure 预留为 Red Hat 软件计划预付费](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [通过 Azure 预留为 Red Hat 软件计划预付费](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [通过 Azure 虚拟机预留实例为虚拟机预付费](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [管理 Azure 预留](manage-reserved-vm-instance.md)
 - [了解即用即付订阅的预留使用情况](understand-reserved-instance-usage.md)

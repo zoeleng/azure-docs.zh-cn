@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950731"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341917"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>利用资产清单和管理工具浏览和管理资源
 
@@ -68,22 +68,22 @@ Azure 安全中心的资产清单页提供了一个页面，用于查看已连�
     ![清单的导出选项](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > KQL 文档提供了一个数据库，其中包含一些示例数据以及一些简单的查询，以获取语言的 "感觉"。 有关[详细信息，请参阅此 KQL 教程](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer)。
+    > KQL 文档提供了一个数据库，其中包含一些示例数据以及一些简单的查询，以获取语言的 "感觉"。 有关[详细信息，请参阅此 KQL 教程](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer)。
 
 - **资产管理选项** -库存使你可以执行复杂的发现查询。 如果找到了与查询匹配的资源，则清单将提供操作的快捷方式，例如：
 
     - 将标记分配给筛选的资源-选择要标记的资源旁的复选框。
     - 将新服务器加入安全中心-使用 " **添加非 Azure 服务器** " 工具栏按钮。
-    - 使用 Azure 逻辑应用自动执行工作负荷-使用 " **触发器逻辑应用** " 按钮在一个或多个资源上运行逻辑应用。 逻辑应用必须提前准备，并接受相关的触发器类型 (HTTP 请求) 。 [了解有关逻辑应用的详细信息](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)。
+    - 使用 Azure 逻辑应用自动执行工作负荷-使用 " **触发器逻辑应用** " 按钮在一个或多个资源上运行逻辑应用。 逻辑应用必须提前准备，并接受相关的触发器类型 (HTTP 请求) 。 [了解有关逻辑应用的详细信息](../logic-apps/logic-apps-overview.md)。
 
 
 ## <a name="how-does-asset-inventory-work"></a>资产清单如何工作？
 
-资产清单利用 [Azure 资源关系图 (ARG) ](https://docs.microsoft.com/azure/governance/resource-graph/)，这是一项 azure 服务，可在多个订阅中查询安全中心的安全状态数据。
+资产清单利用 [Azure 资源关系图 (ARG) ](../governance/resource-graph/index.yml)，这是一项 azure 服务，可在多个订阅中查询安全中心的安全状态数据。
 
 ARG 旨在提供高效的资源浏览功能，使其能够大规模查询。
 
-使用 [Kusto 查询语言 (KQL) ](https://docs.microsoft.com/azure/data-explorer/kusto/query/)，资产清单可以通过交叉引用使用其他资源属性的 ASC 数据快速生成深度见解。
+使用 [Kusto 查询语言 (KQL) ](/azure/data-explorer/kusto/query/)，资产清单可以通过交叉引用使用其他资源属性的 ASC 数据快速生成深度见解。
 
 
 ## <a name="how-to-use-asset-inventory"></a>如何使用资产清单
@@ -152,5 +152,5 @@ ARG 旨在提供高效的资源浏览功能，使其能够大规模查询。
 
 有关相关工具的详细信息，请参阅以下页面：
 
-- [Azure 资源关系图 (ARG) ](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Kusto 查询语言 (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Azure 资源关系图 (ARG) ](../governance/resource-graph/index.yml)
+- [Kusto 查询语言 (KQL)](/azure/data-explorer/kusto/query/)

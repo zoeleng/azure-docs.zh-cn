@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441477"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341832"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>常见问题解答 - 有关数据收集、代理和工作区的问题
 
@@ -43,7 +43,7 @@ ms.locfileid: "91441477"
 
 ## <a name="what-is-the-log-analytics-agent"></a>什么是 Log Analytics 代理？
 
-Azure 安全中心依赖 [Log Analytics 代理](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)来监视安全漏洞和威胁。该代理与 Azure Monitor 服务所用的代理相同， 
+Azure 安全中心依赖 [Log Analytics 代理](../azure-monitor/platform/log-analytics-agent.md)来监视安全漏洞和威胁。该代理与 Azure Monitor 服务所用的代理相同， 
 
 有时又称为 Microsoft Monitoring Agent（或“MMA”）。 
 
@@ -66,7 +66,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 - 当前未在该 VM 上安装 Log Analytics 代理扩展。
 - 该 VM 处于正在运行状态。
-- 安装了 Windows 或 Linux [Azure 虚拟机代理](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)。
+- 安装了 Windows 或 Linux [Azure 虚拟机代理](../virtual-machines/extensions/agent-windows.md)。
 - 该 VM 未用作应用程序，例如 Web 防火墙或下一代防火墙。
 
 
@@ -88,7 +88,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Log Analytics 代理收集哪些数据？
 
-有关代理监视的应用程序和服务的完整列表，请参阅 [Azure Monitor 监视哪些内容？](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services)。
+有关代理监视的应用程序和服务的完整列表，请参阅 [Azure Monitor 监视哪些内容？](../azure-monitor/monitor-reference.md#azure-services)。
 
 > [!IMPORTANT]
 > 请注意，对于某些服务（例如 Azure 防火墙），如果启用了日志记录并选择记录琐碎资源（例如，将日志设置为“详细”），则可能会对 Log Analytics 工作区的存储需求产生重大影响。 

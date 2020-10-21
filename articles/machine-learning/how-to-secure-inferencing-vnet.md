@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972503"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341305"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -119,11 +119,11 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 可以通过两种方法将流量与 AKS 群集隔离到虚拟网络：
 
-* __私有 AKS 群集__：此方法使用 Azure 专用链接为 VNet 中的 AKS 群集创建专用终结点。
-* __内部 AKS 负载均衡器__：此方法配置负载均衡器，以便群集使用 VNet 中的内部 IP 地址。
+* __私有 AKS 群集__：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
+* __内部 AKS 负载均衡器__：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
 
 > [!WARNING]
-> 这两种配置都是实现相同目标 (保护到 VNet) 中 AKS 群集的流量的不同方式。 **使用其中一个或另一个，但不能同时使用两者**。
+> **使用 PRIVATE AKS 或内部负载均衡器，但不能同时使用两者**。
 
 ### <a name="private-aks-cluster"></a>专用 AKS 群集
 

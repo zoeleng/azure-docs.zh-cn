@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aaf803d463e03f2de7814fed4b20a0b4312fa1ef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87428968"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148827"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 
@@ -40,7 +40,7 @@ IoT 中心为发送数据的设备提供保护信道。
 
 * 可以完全控制设备访问，并可以根据每个设备的级别控制连接。
 
-* [IoT 中心设备预配服务](https://docs.microsoft.com/azure/iot-dps/)在设备首次启动时，自动将设备提供给正确的 IoT 中心。
+* [IoT 中心设备预配服务](../iot-dps/index.yml)在设备首次启动时，自动将设备提供给正确的 IoT 中心。
 
 * 多种身份验证类型支持各种设备功能：
 
@@ -64,13 +64,13 @@ IoT 中心为发送数据的设备提供保护信道。
 
 可以将 IoT 中心与其他 Azure 服务集成，生成完整的端对端解决方案。 例如，使用：
 
-* [Azure 事件网格](https://docs.microsoft.com/azure/event-grid/)，可以采用可靠、可缩放且安全的方式快速地让你的业务响应关键事件。
+* [Azure 事件网格](../event-grid/index.yml)，可以采用可靠、可缩放且安全的方式快速地让你的业务响应关键事件。
 
-* [Azure 逻辑应用](https://docs.microsoft.com/azure/logic-apps/)，可以自动执行业务流程。
+* [Azure 逻辑应用](../logic-apps/index.yml)，可以自动执行业务流程。
 
 * [Azure 机器学习](iot-hub-weather-forecast-machine-learning.md)，可为解决方案添加机器学习和 AI 模型。
 
-* [Azure 流分析](https://docs.microsoft.com/azure/stream-analytics/)，可从设备对数据流执行实时分析计算。
+* [Azure 流分析](../stream-analytics/index.yml)，可从设备对数据流执行实时分析计算。
 
 ## <a name="configure-and-control-your-devices"></a>配置和控制设备
 
@@ -88,7 +88,7 @@ IoT 中心为发送数据的设备提供保护信道。
 
 ## <a name="connect-your-devices"></a>连接数据
 
-使用 [Azure IoT 设备 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 库，生成在设备上运行且与 IoT 中心集成的应用程序。 支持的平台包括多个 Linux 分发版、Windows 和实时操作系统。 支持的语言包括：
+使用 [Azure IoT 设备 SDK](./iot-hub-devguide-sdks.md) 库，生成在设备上运行且与 IoT 中心集成的应用程序。 支持的平台包括多个 Linux 分发版、Windows 和实时操作系统。 支持的语言包括：
 
 * C
 * C#
@@ -108,7 +108,7 @@ IoT 中心和设备 SDK 支持用于连接设备的以下协议：
 
 如果解决方案无法使用其中一种支持的协议，则可以将 IoT 中心扩展到支持自定义协议：
 
-* 使用 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)，创建现场网关，执行边缘的协议转换。
+* 使用 [Azure IoT Edge](../iot-edge/index.yml)，创建现场网关，执行边缘的协议转换。
 
 * 自定义 [Azure IoT 协议网关](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)，在云中执行协议转换。
 

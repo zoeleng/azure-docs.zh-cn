@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: ab13c9494ee04d112cec93af9efaab43705297bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fac992ba0d6be945fcb3184d27394ff58d98c44c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319514"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151032"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>快速入门：通过 Java 使用 Azure Functions 和 SignalR 服务创建聊天室
 
@@ -102,6 +102,6 @@ Azure SignalR 服务可让你轻松地向应用程序添加实时功能，而 Az
 在本快速入门中，使用 Maven 生成并运行了一个实时无服务器应用程序。 接下来，了解如何从头开始创建 Java Azure Functions。
 
 > [!div class="nextstepaction"]
-> [使用 Java 和 Maven 创建第一个函数](../azure-functions/functions-create-first-java-maven.md)
+> [使用 Java 和 Maven 创建第一个函数](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
 
 [存在问题？请告诉我们。](https://aka.ms/asrs/qsjava)

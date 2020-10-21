@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: e5c9540bed34de3cad5c74c7041c8d7e06aef9ca
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 68df6d6707ebe4f1a4b75a8005e746e2c1eba864
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946053"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341577"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 安全中心中的数据收集
 安全中心从 Azure 虚拟机 (VM)、虚拟机规模集、IaaS 容器和非 Azure 计算机（包括本地计算机）收集数据，以监视安全漏洞和威胁。 数据是使用 Log Analytics 代理收集的，该代理从计算机中读取各种与安全相关的配置和事件日志，然后将数据复制到工作区进行分析。 此类数据的示例包括：操作系统类型和版本、操作系统日志（Windows 事件日志）、正在运行的进程、计算机名称、IP 地址和已登录的用户。
@@ -133,7 +133,7 @@ ms.locfileid: "91946053"
 
 
 ## <a name="cross-subscription-workspace-selection"></a>跨订阅工作区选择
-选择用于存储数据的工作区时，跨所有订阅的所有工作区可用。 通过跨订阅工作区选择，可以从不同订阅中运行的虚拟机收集数据并将其存储在所选的工作区中。 如果在组织中使用集中式工作区，并想要使用该工作区来收集安全数据，则这种选择非常有用。 有关如何管理工作区的详细信息，请参阅[管理工作区访问权限](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)。
+选择用于存储数据的工作区时，跨所有订阅的所有工作区可用。 通过跨订阅工作区选择，可以从不同订阅中运行的虚拟机收集数据并将其存储在所选的工作区中。 如果在组织中使用集中式工作区，并想要使用该工作区来收集安全数据，则这种选择非常有用。 有关如何管理工作区的详细信息，请参阅[管理工作区访问权限](../azure-monitor/platform/manage-access.md)。
 
 
 
@@ -174,9 +174,9 @@ ms.locfileid: "91946053"
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - 如果使用组策略对象 (GPO)，建议启用审核策略过程创建事件 4688 以及事件 4688 内的 CommandLine 字段。 有关过程创建事件 4688 的详细信息，请参阅安全中心的[常见问题解答](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)。 有关这些审核策略的详细信息，请参阅[审核策略建议](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)。
+> - 如果使用组策略对象 (GPO)，建议启用审核策略过程创建事件 4688 以及事件 4688 内的 CommandLine 字段。 有关过程创建事件 4688 的详细信息，请参阅安全中心的[常见问题解答](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)。 有关这些审核策略的详细信息，请参阅[审核策略建议](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)。
 > -  若要为[自适应应用程序控件](security-center-adaptive-application.md)启用数据收集，安全中心会在审核模式下配置本地 AppLocker 策略以允许所有应用程序。 这将导致 AppLocker 生成事件，然后由安全中心收集和利用这些事件。 请务必注意，不会在已配置 AppLocker 策略的任何计算机上配置此策略。 
-> - 若要收集 Windows 筛选平台[事件 ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)，需要启用[审核筛选平台连接](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
+> - 若要收集 Windows 筛选平台[事件 ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)，需要启用[审核筛选平台连接](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
 
 选择筛选策略的具体步骤：
@@ -204,7 +204,7 @@ ms.locfileid: "91946053"
 
 - 存在现有的 VM 扩展<br>
     - 当将监视代理作为扩展安装时，扩展配置仅允许向单个工作区进行报告。 安全中心不会覆盖用户工作区的现有连接。 如果已连接的工作区中安装了“security”或“securityFree”解决方案，安全中心会将来自 VM 的安全性数据存储在该工作区中。 在此过程中，安全中心可以将扩展版本升级到最新版本。  
-    - 若要查看现有扩展将数据发送到哪个工作区，请运行测试来[验证与 Azure 安全中心的连接](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)。 或者，可以打开 Log Analytics 工作区，选择一个工作区，选择 VM，然后查看 Log Analytics 代理连接。 
+    - 若要查看现有扩展将数据发送到哪个工作区，请运行测试来[验证与 Azure 安全中心的连接](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center)。 或者，可以打开 Log Analytics 工作区，选择一个工作区，选择 VM，然后查看 Log Analytics 代理连接。 
     - 如果环境中的 Log Analytics 代理安装在客户端工作站上并向现有的 Log Analytics 工作区报告，请查看 [Azure 安全中心支持的操作系统](security-center-os-coverage.md)列表以确保操作系统受支持。 有关详细信息，请参阅[现有 Log Analytics 客户](./faq-azure-monitor-logs.md)。
  
 ### <a name="turn-off-automatic-provisioning"></a>关闭自动预配 <a name="offprovisioning"></a>
@@ -265,8 +265,8 @@ ms.locfileid: "91946053"
 
 1. 若要使用 PowerShell 部署扩展，请按照虚拟机文档中的说明进行操作：
 
-    - [对于 Windows 计算机](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-    - [对于 Linux 计算机](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [对于 Windows 计算机](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
+    - [对于 Linux 计算机](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
 
 
 

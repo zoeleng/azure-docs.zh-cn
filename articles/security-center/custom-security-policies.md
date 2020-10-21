@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448387"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341883"
 ---
 # <a name="using-custom-security-policies"></a>使用自定义安全策略
 
@@ -21,7 +21,7 @@ ms.locfileid: "91448387"
 
 你可以利用此功能添加自己的自定义计划。 如果环境未遵循所创建的策略，则你会收到建议。 你创建的任何自定义计划将连同内置计划一起显示在法规符合性仪表板中，如教程[改善法规符合性](security-center-compliance-dashboard.md)中所述。
 
-如 [Azure Policy 文档](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location)中所述，当你为自定义计划指定位置时，该位置必须是某个管理组或订阅。 
+如 [Azure Policy 文档](../governance/policy/concepts/definition-structure.md#definition-location)中所述，当你为自定义计划指定位置时，该位置必须是某个管理组或订阅。 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>将自定义计划添加到订阅 
 
@@ -136,7 +136,7 @@ Azure 安全中心提供的内置建议包括严重性级别和修正说明等�
 }
   ```
 
-有关使用 securityCenter 属性的另一个示例，请参阅 [REST API 文档的此部分](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples)。
+有关使用 securityCenter 属性的另一个示例，请参阅 [REST API 文档的此部分](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples)。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -146,4 +146,4 @@ Azure 安全中心提供的内置建议包括严重性级别和修正说明等�
 如需其他相关材料，请参阅以下文章： 
 
 - [安全策略概述](tutorial-security-policy.md)
-- [内置安全策略列表](security-center-policy-definitions.md)
+- [内置安全策略列表](./policy-reference.md)

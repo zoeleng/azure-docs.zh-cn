@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: bed158fb99654bd48184073b1266ae630255558b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613163"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341374"
 ---
 # <a name="create-an-azure-hpc-cache"></a>创建 Azure HPC 缓存
 
@@ -81,7 +81,7 @@ Azure HPC 缓存会管理缓存和预加载哪些文件，以最大限度地提�
 
 ## <a name="add-resource-tags-optional"></a>添加资源标记（可选）
 
-在“标记”**** 页上，可以向 Azure HPC 缓存实例添加[资源标记](https://go.microsoft.com/fwlink/?linkid=873112)。
+在“标记”**** 页上，可以向 Azure HPC 缓存实例添加[资源标记](../azure-resource-manager/management/tag-resources.md)。
 
 ## <a name="finish-creating-the-cache"></a>完成缓存创建
 
@@ -196,7 +196,7 @@ az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
 
 ## <a name="requirements"></a>要求
 
-如果选择在本地使用 PowerShell，则本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](/powershell/azure/install-az-ps)。 如果你选择使用 Cloud Shell，请参阅 [Azure Cloud Shell 概述](https://docs.microsoft.com/azure/cloud-shell/overview)来了解详细信息。
+如果选择在本地使用 PowerShell，则本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](/powershell/azure/install-az-ps)。 如果你选择使用 Cloud Shell，请参阅 [Azure Cloud Shell 概述](../cloud-shell/overview.md)来了解详细信息。
 
 > [!IMPORTANT]
 > **HPCCache** PowerShell 模块为预览版时，必须使用 cmdlet 单独安装它 `Install-Module` 。 此 PowerShell 模块公开上市后，它将成为未来 Az PowerShell 模块版本的一部分，并从 Azure Cloud Shell 中的本机提供。
