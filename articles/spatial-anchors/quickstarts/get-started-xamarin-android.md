@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b7f9a83a3972ed0a5a635826b40e15c437da16b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab414b877bd2d098c6e340267ff579fb58aec9d9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540364"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097314"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>快速入门：使用 Azure 空间定位点创建 Xamarin Android 应用
 
@@ -37,10 +37,10 @@ ms.locfileid: "91540364"
     - <a href="https://git-scm.com/download/win" target="_blank">适用于 Windows 的 Git</a>。
     - <a href="https://git-lfs.github.com/">Git LFS</a>。
   - 如果使用 macOS：
-    - 最新版本的 <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>。
+    - 最新版本的 <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>。
     - <a href="https://git-scm.com/download/mac" target="_blank">适用于 macOS 的 Git</a>。
     - <a href="https://git-lfs.github.com/">Git LFS</a>。
-- 最新版本的 Xamarin.Android 已在所选的平台上安装并运行。 有关安装 Xamarin.Android 的指南，请参阅 [Xamarin.Android 安装](https://docs.microsoft.com/xamarin/android/get-started/installation/index)指南。
+- 最新版本的 Xamarin.Android 已在所选的平台上安装并运行。 有关安装 Xamarin.Android 的指南，请参阅 [Xamarin.Android 安装](/xamarin/android/get-started/installation/index)指南。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">支持开发人员</a>和 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 功能</a>的 Android 设备。
   - 你的计算机可能需要其他设备驱动程序才能与 Android 设备通信。 有关详细信息，请参阅[此文](https://developer.android.com/studio/run/device.html)。
 - 你的应用必须以 ARCore **1.8** 为目标。

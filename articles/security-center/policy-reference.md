@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 371bbd6919f787401da361339f705fa5edfa4547
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b7478199e4bb6f1e9ad986193370d4ea8610bd7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328685"
+ms.locfileid: "92340897"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure 安全中心的 Azure Policy 内置定义
 
@@ -52,5 +52,5 @@ ms.locfileid: "92328685"
 - [Azure 安全中心规划和操作指南](./security-center-planning-and-operations-guide.md)：了解如何规划和理解 Azure 安全中心的设计考虑事项。
 - [在 Azure 安全中心进行安全运行状况监视](./security-center-monitoring.md)：了解如何监视 Azure 资源的运行状况。
 - [在 Azure 安全中心内管理和响应安全警报](./security-center-managing-and-responding-alerts.md)：了解如何管理和响应安全警报。
-- [通过 Azure 安全中心监视合作伙伴解决方案](./security-center-partner-solutions.md)：了解如何监视合作伙伴解决方案的运行状况。
+- [通过 Azure 安全中心监视合作伙伴解决方案](./security-center-partner-integration.md)：了解如何监视合作伙伴解决方案的运行状况。
 - [Azure Policy](../governance/policy/overview.md)：了解如何审核和管理 Azure 资源。

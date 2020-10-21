@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371399"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132357"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>在订阅者与 CSP 之间转移 Azure 订阅
 
@@ -26,7 +26,7 @@ ms.locfileid: "91371399"
 当请求获得批准后，CSP 可以向其客户提供组合发票。 若要详细了解 CSP 转移订阅，请参阅[获取你的 MPA 帐户的 Azure 订阅的计费所有权](mpa-request-ownership.md)。
 
 >[!IMPORTANT]
-> 将 EA 订阅转移到 CSP 合作伙伴后，以前应用到 EA 订阅的任何配额增加都将重置为默认值。 如果在订阅转移后需要额外的配额，请让 CSP 提供程序提交[配额增加](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests)请求。 
+> 将 EA 订阅转移到 CSP 合作伙伴后，以前应用到 EA 订阅的任何配额增加都将重置为默认值。 如果在订阅转移后需要额外的配额，请让 CSP 提供程序提交[配额增加](../../azure-portal/supportability/regional-quota-requests.md)请求。 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>将其他订阅转移到 CSP 合作伙伴
 
@@ -42,7 +42,7 @@ ms.locfileid: "91371399"
 1. 在开始之前，[验证](/rest/api/resources/resources/validatemoveresources)是否所有 Azure 资源都可以从源订阅移动到目标订阅。  
     某些 Azure 资源无法在订阅之间移动。 若要查看可移动的 Azure 资源的完整列表，请参阅[资源对移动操作的支持](../../azure-resource-manager/management/move-support-resources.md)。
     > [!IMPORTANT]
-    >  - Azure CSP 仅支持 Azure 资源管理器资源。 如果源订阅中的 Azure 资源是使用 Azure 经典部署模型创建的，则在迁移之前必须先将其迁移到 [Azure 资源管理器](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm)。 你必须是合作伙伴才能查看此网页。
+    >  - Azure CSP 仅支持 Azure 资源管理器资源。 如果源订阅中的 Azure 资源是使用 Azure 经典部署模型创建的，则在迁移之前必须先将其迁移到 [Azure 资源管理器](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm)。 你必须是合作伙伴才能查看此网页。
 
 1. 验证是否所有源订阅服务都使用 Azure 资源管理器模型。 然后，使用 [Azure 资源移动](../../azure-resource-manager/management/move-resource-group-and-subscription.md)将资源从源订阅转移到目标订阅。
     > [!IMPORTANT]

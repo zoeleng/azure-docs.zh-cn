@@ -4,12 +4,12 @@ description: 了解如何使用 Visual Studio 添加输出绑定，以将 C# 类
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84235374"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167114"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>使用 Visual Studio 将函数连接到 Azure 存储
 
@@ -106,7 +106,7 @@ ms.locfileid: "84235374"
 接下来，应为函数应用启用 Application Insights 监视：
 
 > [!div class="nextstepaction"]
-> [启用 Application Insights 集成](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [启用 Application Insights 集成](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [前一篇快速入门文章]: functions-create-your-first-function-visual-studio.md

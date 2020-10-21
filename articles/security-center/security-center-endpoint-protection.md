@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 8cc12ba40b6722f75e4f3f4e8ce7023a0523c278
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219660"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341407"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure 安全中心中的 Endpoint Protection 评估和建议
 
@@ -29,9 +29,9 @@ Azure 安全中心提供[支持的](security-center-services.md#endpoint-support
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* 安全中心建议在运行 [MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) 且结果为“AMServiceEnabled: False”时，在虚拟机上安装 Endpoint Protection 解决方案 
+* 安全中心建议在运行 [MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) 且结果为“AMServiceEnabled: False”时，在虚拟机上安装 Endpoint Protection 解决方案 
 
-* 安全中心建议在运行 [MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) 且发生以下任何情况时，解决计算机上的 Endpoint Protection 运行状况问题：
+* 安全中心建议在运行 [MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) 且发生以下任何情况时，解决计算机上的 Endpoint Protection 运行状况问题：
 
   * 以下任一属性为 false：
 

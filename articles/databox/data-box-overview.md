@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206227"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123556"
 ---
 # <a name="what-is-azure-data-box"></a>什么是 Azure Data Box？
 
@@ -144,7 +144,7 @@ Data Box 可以根据部署服务的区域、设备的发货国家/地区以及�
 
 - **服务可用性** - 当对导入或导出订单使用 Data Box 时，若要获取有关区域可用性的信息，请转到 [Azure 可用产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)。 Data Box 上的导出功能当前为预览版。 
 
-    对于导入订单，Data Box 也可以部署在 Azure 政府云中。 有关详细信息，请参阅[什么是 Azure 政府？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。 
+    对于导入订单，Data Box 也可以部署在 Azure 政府云中。 有关详细信息，请参阅[什么是 Azure 政府？](../azure-government/documentation-government-welcome.md)。 
 
 - **目标存储帐户** - 存储数据的存储帐户可在服务可用的所有 Azure 区域中获得。
 
@@ -154,7 +154,3 @@ Data Box 可以根据部署服务的区域、设备的发货国家/地区以及�
 - 请查看 [Data Box 系统要求](data-box-system-requirements.md)。
 - 了解 [Data Box 限制](data-box-limits.md)。
 - 在 Azure 门户中快速部署 [Azure Data Box](data-box-quickstart-portal.md)。
-
-
-
-

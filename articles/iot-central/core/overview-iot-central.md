@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 3952736af9cf7c3b720769cee6a58e3fc52a6111
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812431"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127397"
 ---
 # <a name="what-is-azure-iot-central"></a>什么是 Azure IoT Central？
 
@@ -114,7 +114,7 @@ IoT Central 是一个 IoT 应用程序平台，可减轻开发、管理和维护
 
 ## <a name="integrate-with-other-services"></a>与其他服务集成
 
-作为应用程序平台，IoT Central 可让你将 IoT 数据转换为业务见解来促成可行的结果。 例如，可通过[规则](./tutorial-create-telemetry-rules.md)、[数据导出](./howto-export-data.md)和[公共 REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) 将 IoT Central 与业务线应用程序相集成：
+作为应用程序平台，IoT Central 可让你将 IoT 数据转换为业务见解来促成可行的结果。 例如，可通过[规则](./tutorial-create-telemetry-rules.md)、[数据导出](./howto-export-data.md)和[公共 REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) 将 IoT Central 与业务线应用程序相集成：
 
 ![IoT Central 如何转换 IoT 数据](media/overview-iot-central/transform.png)
 

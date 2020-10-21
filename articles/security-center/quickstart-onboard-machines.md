@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993612"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340863"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>将非 Azure 计算机连接到安全中心
 
@@ -86,7 +86,7 @@ Azure Arc 是将非 Azure 计算机添加到 Azure 安全中心的首选方法�
 1. 登录到“Azure Stack”门户，然后打开“虚拟机”页。
 1. 选择要使用安全中心保护的虚拟机。
     >[!TIP]
-    > 有关如何在 Azure Stack 上创建虚拟机的信息，请参阅[适用于 Windows 虚拟机的此快速入门](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal)，或[适用于 Linux 虚拟机的此快速入门](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal)。
+    > 有关如何在 Azure Stack 上创建虚拟机的信息，请参阅[适用于 Windows 虚拟机的此快速入门](/azure-stack/user/azure-stack-quick-windows-portal)，或[适用于 Linux 虚拟机的此快速入门](/azure-stack/user/azure-stack-quick-linux-portal)。
 1. 选择“扩展”。 此时将显示此虚拟机上安装的虚拟机扩展列表。
 1. 选择“添加”选项卡。“新建资源”菜单会显示可用虚拟机扩展的列表。
 1. 选择“Azure 监视、更新和配置管理”扩展，然后选择“创建”。  此时会打开“安装扩展”配置页。

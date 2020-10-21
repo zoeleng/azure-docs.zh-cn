@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742377"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123902"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>教程：通过 SMB 从 Azure Data Box 复制数据（预览版）
 
@@ -82,7 +82,7 @@ ms.locfileid: "91742377"
     ![通过文件资源管理器连接到共享 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
-如果使用 Linux 客户端，请使用以下命令装载 SMB 共享。 下面的“vers”参数是 Linux 主机支持的 SMB 版本。 在下面的命令中插入相应版本。 有关 Data Box 支持的 SMB 版本，请参阅 [Linux 客户端支持的文件系统](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+如果使用 Linux 客户端，请使用以下命令装载 SMB 共享。 下面的“vers”参数是 Linux 主机支持的 SMB 版本。 在下面的命令中插入相应版本。 有关 Data Box 支持的 SMB 版本，请参阅 [Linux 客户端支持的文件系统](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/databoxubuntuhost/databox
@@ -119,4 +119,3 @@ sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/
 
 > [!div class="nextstepaction"]
 > [将 Azure Data Box 寄送到 Microsoft](./data-box-deploy-export-picked-up.md)
-

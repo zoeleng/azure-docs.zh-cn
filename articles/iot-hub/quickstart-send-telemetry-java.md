@@ -15,12 +15,12 @@ ms.custom:
 - mqtt
 - devx-track-java
 ms.date: 05/26/2020
-ms.openlocfilehash: 757e0892469e52b1f2716d837d8423c5940322e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53f20f5f909e8b24ba7279dabfb421053d5c5449
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87317920"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150641"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>快速入门：将遥测数据发送到 Azure IoT 中心并使用 Java 应用程序读取它
 
@@ -32,7 +32,7 @@ ms.locfileid: "87317920"
 
 * 具有活动订阅的 Azure 帐户。 [免费创建一个](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
-* Java SE 开发工具包 8。 在[针对 Azure 和 Azure Stack 的 Java 长期支持](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)中的“长期支持”下选择“Java 8”。
+* Java SE 开发工具包 8。 在[针对 Azure 和 Azure Stack 的 Java 长期支持](/java/azure/jdk/?view=azure-java-stable)中的“长期支持”下选择“Java 8”。
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)。
 

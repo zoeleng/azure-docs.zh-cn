@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683175"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132306"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理数据
 
@@ -110,7 +110,7 @@ Azure 成本管理接收标记，作为各个服务提交的每个使用记录�
 
 - 必须直接将标记应用到资源，不能从父资源组隐式继承标记。
 - 只有部署到资源组的资源才支持资源标记。
-- 某些部署的资源可能不支持标记，或者可能在使用情况数据中不包含标记 - 请参阅 [Azure 资源的标记支持](../../azure-resource-manager/tag-support.md)。
+- 某些部署的资源可能不支持标记，或者可能在使用情况数据中不包含标记 - 请参阅 [Azure 资源的标记支持](../../azure-resource-manager/management/tag-support.md)。
 - 应用标记时，资源标记只包含在使用情况数据中 - 标记不应用于历史数据。
 - 资源标记只有在数据刷新后才可用于成本管理 - 请参阅[成本和使用情况数据更新和保留](#cost-and-usage-data-updates-and-retention)。
 - 仅当资源处于活动/运行状态并生成使用情况记录时（例如，在 VM 不处于解除分配的情况下），资源标记才可用于成本管理。
@@ -121,7 +121,7 @@ Azure 成本管理接收标记，作为各个服务提交的每个使用记录�
 
 - 是否已将标记直接应用到资源？
 - 标记的应用是否已超出 24 小时？ 请参阅[成本和使用情况数据更新和保留](#cost-and-usage-data-updates-and-retention)
-- 资源类型是否支持标记？ 以下资源类型在 2019 年 12 月 1 日之前的使用情况数据中不支持标记。 如需所支持功能的完整列表，请参阅 [Azure 资源的标记支持](../../azure-resource-manager/tag-support.md)。
+- 资源类型是否支持标记？ 以下资源类型在 2019 年 12 月 1 日之前的使用情况数据中不支持标记。 如需所支持功能的完整列表，请参阅 [Azure 资源的标记支持](../../azure-resource-manager/management/tag-support.md)。
     - Azure Active Directory B2C 目录
     - Azure Bastion
     - Azure 防火墙
@@ -185,4 +185,4 @@ Azure 成本管理接收标记，作为各个服务提交的每个使用记录�
 
 ## <a name="see-also"></a>另请参阅
 
-- 如果尚未完成有关成本管理的第一个快速入门，请阅读[开始分析成本](../../cost-management/quick-acm-cost-analysis.md)。
+- 如果尚未完成有关成本管理的第一个快速入门，请阅读[开始分析成本](./quick-acm-cost-analysis.md)。

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125673"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339537"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置数据暂留
 本文介绍如何通过 Azure 门户在高级 Azure Cache for Redis 实例中配置持久性。 Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上具有灵活性。 
@@ -40,7 +40,7 @@ Azure Redis 缓存使用以下模型提供 Redis 暂留：
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="创建资源。" 并配置设置。 
    
-   | 设置      | 建议的值  | 描述 |
+   | 设置      | 建议的值  | 说明 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **首个存储帐户** | 下拉，然后选择存储帐户。 | 此存储帐户必须与缓存位于同一区域和订阅中，因此建议使用 **高级存储** 帐户，因为高级存储的吞吐量较高。 | 
    | **第一个存储密钥** | 下拉，并选择要使用的**主密钥或****辅助密钥**。 | 如果重新生成了暂留帐户的存储密钥，必须从“存储密钥”**** 下拉列表中重新配置所需密钥。 | 
@@ -53,11 +53,11 @@ Azure Redis 缓存使用以下模型提供 Redis 暂留：
 
 11. 或者，在“标记”选项卡中，如果希望对资源分类，请输入名称或值。 
 
-12. 选择“查看 + 创建”。 **** 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
+12. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
 
 13. 显示绿色的“已通过验证”消息后，选择“创建”。
 
-创建缓存需要花费片刻时间。 可在 Azure Cache for Redis 的“概述”页面上监视进度 ****  。 如果“状态”显示为“正在运行”，则表示该缓存可供使用。 ****   **** 
+创建缓存需要花费片刻时间。 可以在 Azure Cache for Redis 的“概述”页上监视进度。  如果“状态”显示为“正在运行”，则表示该缓存可供使用。  
 
 ## <a name="persistence-faq"></a>保留常见问题
 以下列表包含对 Azure Redis 缓存暂留相关常见问题的解答。
@@ -66,6 +66,7 @@ Azure Redis 缓存使用以下模型提供 Redis 暂留：
 * [是否可同时启用 AOF 暂留和 RDB 暂留？](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [应该选择哪个暂留模型？](#which-persistence-model-should-i-choose)
 * [如果我缩放到不同大小并还原了缩放操作之前生成的备份，会发生什么情况？](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [能否在两个不同的缓存中使用相同的存储帐户进行持久性？](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 
 
 ### <a name="rdb-persistence"></a>RDB 暂留
@@ -105,6 +106,9 @@ AOF 暂留将每个写入保存到日志，与 RDB 暂留相比，这对吞吐�
 * 如果缩放到更大的大小，则没有任何影响。
 * 如果缩放到更小的大小，并且自定义[数据库](cache-configure.md#databases)设置大于新大小的[数据库限制](cache-configure.md#databases)，则不会还原这些数据库中的数据。 有关详细信息，请参阅[在缩放过程中，自定义数据库设置是否会受影响？](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * 如果缩放到更小的大小，并且更小的大小空间不足，无法容纳上次备份的所有数据，则在还原过程中，通常会使用 [allkeys-lru](https://redis.io/topics/lru-cache) 逐出策略逐出密钥。
+
+### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>能否在两个不同的缓存中使用相同的存储帐户进行持久性？
+是的，可以使用相同的存储帐户在两个不同的缓存中持久保存
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>创建缓存后是否可更改 RDB 备份频率？
 可以，可在“数据暂留”边栏选项卡上更改 RDB 暂留的备份频率****。 有关说明，请参阅“配置 Redis 暂留”。

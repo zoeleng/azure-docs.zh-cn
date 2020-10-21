@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065856"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342155"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 
@@ -43,11 +43,11 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 8. 如果指标包含维度，则会显示一个维度表。 为每个维度选择一个或多个值。
     - 显示的维度值基于在过去 3 天内的指标数据。
     - 如果你要查看的维度值没有显示，请单击“+”来添加自定义值。
-    - 还可以针对任一维度**选择 \*** 。 **选择 \*** 会将选择范围动态调整为某个维度的所有当前和未来值。
+    - 您还可以为任何维度*选择 \* *"_"。 _*选择 \* *_ 会将所选内容动态缩放到维度的所有当前和未来值。
 
     指标警报规则将会针对所选值的所有组合对条件进行评估。 [详细了解如何针对多维指标发出警报](alerts-metric-overview.md)。
 
-9. 选择“阈值”  类型、“运算符”  和“聚合类型”  。 这将确定指标警报规则将评估的逻辑。
+9. 选择 _*阈值** 类型、 **运算符**和 **聚合类型**。 这将确定指标警报规则将评估的逻辑。
     - 如果使用“静态”  阈值，请继续定义“阈值”  。 指标图表可以帮助你确定可能合理的阈值。
     - 如果使用“动态”  阈值，请继续定义“阈值敏感度”  。 指标图表将显示基于最新数据计算得出的阈值。 [详细了解动态阈值条件类型和敏感度选项](alerts-dynamic-thresholds.md)。
 
@@ -154,8 +154,8 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 Azure 资源管理器模板创建指标警报](./alerts-metric-create-templates.md)。
-- [了解指标警报的工作原理](alerts-metric-overview.md)。
-- [了解指标警报与动态阈值条件的工作原理](alerts-dynamic-thresholds.md)。
+- [使用 Azure 资源管理器模板创建指标警报](./alerts-metric-create-templates.md)
+- [了解指标警报的工作方式](alerts-metric-overview.md)
+- [了解具有动态阈值条件的指标警报的工作原理](alerts-dynamic-thresholds.md)
 - [了解指标警报的 Webhook 架构](./alerts-metric-near-real-time.md#payload-schema)
-
+- [解决指标警报中的问题](alerts-troubleshoot-metric.md)

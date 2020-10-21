@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840432"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125963"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>教程：部署和演练微型配送中心应用程序模板
 
@@ -47,7 +47,7 @@ ms.locfileid: "91840432"
 
 1. 如果你有一个 Azure 订阅，请输入目录、Azure 订阅和区域。 如果你没有订阅，可以启用 7 天免费试用版并填写所需的联系信息。  
 
-    有关目录和订阅的详细信息，请参阅[创建应用程序](../preview/quick-deploy-iot-central.md)快速入门。
+    有关目录和订阅的详细信息，请参阅[创建应用程序](../core/quick-deploy-iot-central.md)快速入门。
 
 1. 选择“创建”  。
 
@@ -96,4 +96,4 @@ ms.locfileid: "91840432"
 > [!div class="nextstepaction"]
 > [微履行中心解决方案体系结构](./architecture-micro-fulfillment-center.md)
 * 详细了解 [Azure IoT Central 零售模板](./overview-iot-central-retail.md)
-* 详细了解 [Azure IoT Central](../preview/overview-iot-central.md)
+* 详细了解 [Azure IoT Central](../core/overview-iot-central.md)

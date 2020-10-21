@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962983"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124579"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>群组聊天英雄示例入门
 
@@ -30,7 +30,7 @@ Azure 通信服务的群组聊天英雄示例演示了如何使用通信服务�
 在本地计算机上运行该示例之前，我们将通过本示例快速入门了解其工作原理。 然后，使用你自己的 Azure 通信服务资源将此示例部署到 Azure。
 
 > [!IMPORTANT]
-> [从 GitHub 下载示例](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+> [从 GitHub 下载示例](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>概述
 
@@ -98,12 +98,12 @@ Azure 通信服务的群组聊天英雄示例演示了如何使用通信服务�
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果想要清理并删除通信服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。 了解有关[清理资源](../quickstarts/create-communication-resource.md#clean-up-resources)的详细信息。
+如果想要清理并删除通信服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。 了解[清理资源](../quickstarts/create-communication-resource.md#clean-up-resources)的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
 >[!div class="nextstepaction"] 
->[从 GitHub 下载示例](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+>[从 GitHub 下载示例](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 有关详细信息，请参阅以下文章：
 

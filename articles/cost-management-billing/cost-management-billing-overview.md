@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: ''
-ms.openlocfilehash: 7f4585d7199b44c82df9a03ea3244885da72d2fa
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e5f49fb48cfc9be9cfb6970641ad7b4b3c06fb5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685164"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131048"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>什么是 Azure 成本管理和计费？
 
@@ -112,7 +112,7 @@ Azure 门户当前支持以下类型的计费帐户：
 Azure 还包含其他一些工具，虽然这些工具不属于 Azure 成本管理和计费功能集， 但它们在成本管理过程中都发挥着重要作用。 若要详细了解这些工具，请参阅以下链接。
 
 - [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator/) - 使用此工具可估计前期云成本。
-- [Azure Migrate](../migrate/migrate-overview.md) - 评估当前数据中心的工作负载，获取有关 Azure 替代解决方案所需内容的见解。
+- [Azure Migrate](/azure/cost-management-billing/migrate-services-overview) - 评估当前数据中心的工作负载，获取有关 Azure 替代解决方案所需内容的见解。
 - [Azure 顾问](../advisor/advisor-overview.md) - 识别未使用的 VM，并获得有关 Azure 预留实例购买的建议。
 - [Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/) - 使用当前用于 Azure 中 VM 的本地 Windows Server 或 SQL Server 许可证来实现成本节省。
 

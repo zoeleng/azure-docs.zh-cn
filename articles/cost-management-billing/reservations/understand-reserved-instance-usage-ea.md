@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 20a9fb6a158134ffc18dc5bbb7eddd34d2b79562
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6e51363ff2f3782b77288f9dc1fcb8e59e9ffe0c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682002"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151791"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>获取企业协议预留成本和使用情况
 
@@ -55,7 +55,7 @@ Azure 使用情况数据中提供的其他信息已更改：
 - Term - 12 个月或 36 个月。
 - RINormalizationRatio - 在 AdditionalInfo 下提供。 这是预留项应用到使用记录的比率。 如果为预留项启用了实例大小灵活性，则它可应用到其他大小。 该值显示预留项应用到使用记录的比率。
 
-[请参阅字段定义](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+[请参阅字段定义](/rest/api/consumption/usagedetails/list#definitions)
 
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>使用 API 获取 Azure 消耗量和预留项使用情况数据
 
@@ -71,7 +71,7 @@ Azure 使用情况数据中提供的其他信息已更改：
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
-有关 {enrollmentId} 和 {billingPeriodId} 的详细信息，请参阅[使用情况详细信息 - 列出](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API 文章。
+有关 {enrollmentId} 和 {billingPeriodId} 的详细信息，请参阅[使用情况详细信息 - 列出](/rest/api/consumption/usagedetails/list) API 文章。
 
 下表中有关指标和筛选器的信息可帮助解决常见的预留项问题。
 

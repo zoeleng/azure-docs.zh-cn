@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 12b20f7556a460506067305401fb2379678ee58e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f12c1f20e01cb67adff2c83c7262f92daf8da969
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371688"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151493"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>适用于 Azure 预留自动化的 API
 
@@ -115,4 +115,4 @@ PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/
 - [了解即用即付订阅的预留使用情况](understand-reserved-instance-usage.md)
 - [了解企业合约的预留使用情况](understand-reserved-instance-usage-ea.md)
 - [预留未包含的 Windows 软件成本](reserved-instance-windows-software-costs.md)
-- [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](https://docs.microsoft.com/partner-center/azure-reservations)
+- [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](/partner-center/azure-reservations)

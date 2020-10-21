@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440779"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339724"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>在 Azure 安全中心内实现租户级公开范围
 本文介绍如何通过将安全策略应用到链接到 Azure Active Directory 租户的所有 Azure 订阅来大规模管理组织的安全状况。
@@ -33,10 +33,10 @@ ms.locfileid: "91440779"
 2. 通过 API 调用来创建管理组。
 3. 通过 PowerShell 创建管理组。
 
-有关管理组的详细概述，请参阅[使用 Azure 管理组整理资源](../azure-resource-manager/management-groups-overview.md)一文。
+有关管理组的详细概述，请参阅[使用 Azure 管理组整理资源](../governance/management-groups/overview.md)一文。
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>在 Azure 门户中创建管理组
-可以将订阅整理到管理组中，并向管理组应用治理策略。 管理组中的所有订阅都会自动继承应用于管理组的策略。 虽然不一定要在安全中心内创建管理组，但强烈建议至少创建一个管理组，以便创建根管理组。 创建管理组后，Azure AD 租户下的所有订阅都会与它关联。 有关 PowerShell 说明以及更多信息，请参阅[创建管理组以管理资源和组织](../azure-resource-manager/management-groups-create.md)。
+可以将订阅整理到管理组中，并向管理组应用治理策略。 管理组中的所有订阅都会自动继承应用于管理组的策略。 虽然不一定要在安全中心内创建管理组，但强烈建议至少创建一个管理组，以便创建根管理组。 创建管理组后，Azure AD 租户下的所有订阅都会与它关联。 有关 PowerShell 说明以及更多信息，请参阅[创建管理组以管理资源和组织](../governance/management-groups/create-management-group-portal.md)。
 
  
 1. 登录到 [Azure 门户](https://portal.azure.com)。

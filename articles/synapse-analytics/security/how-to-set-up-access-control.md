@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260149"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341543"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>保护 Synapse 工作区（预览）
+# <a name="secure-your-synapse-workspace-preview"></a>保护 Synapse 工作区（预览） 
 
 本文将介绍如何使用角色和访问控制来控制活动和数据访问。 通过遵循这些说明，可以简化 Azure Synapse Analytics 中的访问控制。 只需要在三个安全组之一中添加和删除用户。
 
@@ -31,7 +31,7 @@ ms.locfileid: "91260149"
   - Apache Spark for Azure Synapse Analytics 管理员
 - 对 Azure Data Lake Storage Gen 2 (ADLSGEN2) 中数据的访问控制。
 - 对 Synapse SQL 和 Spark 数据库的访问控制
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>保护 Synapse 工作区的步骤
 
 本文档使用标准名称来简化说明。 请将它们替换为你选择的任何名称。
@@ -71,11 +71,12 @@ ms.locfileid: "91260149"
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>第 3 步：创建和配置 Synapse 工作区
 
-在 Azure 门户中，创建 Synapse 工作区：
+ 在 Azure 门户中，创建 Synapse 工作区：
 
+- 选择订阅
+- 选择资源组-需要有权访问已为其分配 **所有者** 角色的资源组。
 - 将工作区命名为“WS1”
-- 选择“STG1”作为“存储帐户”
-- 选择“CNT1”作为要用作“文件系统”的容器。
+- 为存储帐户选择 STG1-。 选择“CNT1”作为要用作“文件系统”的容器。
 - 在 Synapse Studio 中打开 WS1
 - 依次选择“管理” > “访问控制”，将安全组分配到以下 Synapse 角色。
   - 将 WS1\_WSAdmins 分配到 Synapse 工作区管理员
@@ -112,7 +113,7 @@ Synapse 工作区需要访问 STG1 和 CNT1，以便能够运行管道并执行�
 
 每个角色的用户都需要完成以下步骤：
 
-| Number | 步骤 | 工作区管理员 | Spark 管理员 | SQL 管理员 |
+| 数字 | 步骤 | 工作区管理员 | Spark 管理员 | SQL 管理员 |
 | --- | --- | --- | --- | --- |
 | 1 | 将 parquet 文件上传到 CNT1 中 | YES | YES | YES |
 | 2 | 使用 SQL 按需版本读取 parquet 文件 | YES | 是 | YES |

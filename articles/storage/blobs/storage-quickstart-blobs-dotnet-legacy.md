@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434093df3465e363d95fb79342d1854b99583d08
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001410"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091417"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>快速入门：适用于 .NET 的 Azure Blob 存储客户端库 v11
 
@@ -33,7 +33,7 @@ ms.locfileid: "89001410"
 
 其他资源：
 
-* [API 参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [API 参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [库源代码](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [示例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -205,7 +205,7 @@ Azure Blob 存储最适合存储巨量的非结构化数据。 非结构化数�
 
 ### <a name="authenticate-the-client"></a>验证客户端
 
-以下代码检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) 对象。 若要检查连接字符串是否有效，请使用 [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet) 方法。 如果 `TryParse` 成功，它将初始化 `storageAccount` 变量并返回 `true`。
+以下代码检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) 对象。 若要检查连接字符串是否有效，请使用 [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) 方法。 如果 `TryParse` 成功，它将初始化 `storageAccount` 变量并返回 `true`。
 
 在 `ProcessAsync` 方法内添加此代码：
 

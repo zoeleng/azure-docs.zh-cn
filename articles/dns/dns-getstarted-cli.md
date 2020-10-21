@@ -6,15 +6,15 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a08a3bb8e01d827b806dae269b65569cb415404d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7d02095bbe3326209cff6b4e99858b2598c7a914
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91358570"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282233"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure DNS 区域和记录
 
@@ -23,6 +23,11 @@ ms.locfileid: "91358570"
 DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 最后，要将 DNS 区域发布到 Internet，需要为域配置名称服务器。 以下描述了上述每一个步骤。
 
 Azure DNS 还支持专用 DNS 区域。 若要详细了解专用 DNS 区域，请参阅[将 Azure DNS 用于专用域](private-dns-overview.md)。 有关如何创建专用 DNS 区域的示例，请参阅[通过 CLI 开始使用 Azure DNS 专用区域](./private-dns-getstarted-cli.md)。
+
+## <a name="prerequisites"></a>必备条件
+
+- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+- [Azure CLI 2.0.4 或更高版本](/cli/azure/install-azure-cli)（如果在本地运行 Azure CLI）。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -96,7 +101,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
 主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样   。 此结果表明名称解析正常工作。
 
-## <a name="delete-all-resources"></a>删除所有资源
+## <a name="clean-up-resources"></a>清理资源
 
 当不再需要时，可以通过删除资源组来删除本快速入门中创建的所有资源：
 

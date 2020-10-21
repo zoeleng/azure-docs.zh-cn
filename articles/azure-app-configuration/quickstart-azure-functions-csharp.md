@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 24620351cdd831ec5079e1f37726b2aa65339205
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767775"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075852"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>快速入门：使用 Azure 应用程序配置创建 Azure Functions 应用
 
@@ -120,7 +120,7 @@ ms.locfileid: "91767775"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你创建了一个新的应用程序配置存储区，并通过[应用程序配置提供程序](https://go.microsoft.com/fwlink/?linkid=2074664)将其用于 Azure Functions 应用。 若要了解如何将 Azure Functions 应用配置为动态刷新配置设置，请继续下一个教程。
+在本快速入门中，你创建了一个新的应用程序配置存储区，并通过[应用程序配置提供程序](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)将其用于 Azure Functions 应用。 若要了解如何将 Azure Functions 应用配置为动态刷新配置设置，请继续下一个教程。
 
 > [!div class="nextstepaction"]
 > [启用动态配置](./enable-dynamic-configuration-azure-functions-csharp.md)

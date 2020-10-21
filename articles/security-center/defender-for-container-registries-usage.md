@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532595"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342070"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>使用 Azure Defender 容器注册表来扫描映像是否存在漏洞
 
@@ -29,7 +29,7 @@ ms.locfileid: "91532595"
 |发布状态：|正式发布 (GA)|
 |定价：|**容器注册表的 Azure Defender**按[定价页](security-center-pricing.md)中所示的方式计费|
 |支持的注册表和映像：|![是 ](./media/icons/yes-icon.png) 可以从公共 internet 访问并提供外壳访问的 Linux 托管 ACR 注册表。<br>![无 ](./media/icons/no-icon.png) Windows 承载的 ACR 注册表。<br>![无 ](./media/icons/no-icon.png) "专用" 注册表项-安全中心要求可以从公共 internet 访问注册表。 安全中心当前无法使用防火墙、服务终结点或专用终结点（如 Azure Private Link）连接或扫描访问权限。<br>![没有任何 ](./media/icons/no-icon.png) 超级最简单映像（例如 [Docker 暂存](https://hub.docker.com/_/scratch/) 映像）或仅包含应用程序和其运行时依赖项的 "Distroless" 映像，无需包管理器、shell 或 OS。|
-|所需角色和权限：|**安全读取器** 和 [Azure 容器注册表读取器角色](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|所需角色和权限：|**安全读取器** 和 [Azure 容器注册表读取器角色](../container-registry/container-registry-roles.md)|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![否](./media/icons/no-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
 |||
 

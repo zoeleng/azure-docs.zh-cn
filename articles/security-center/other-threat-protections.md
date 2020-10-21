@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 377c68cd2f0b0c132fc690cb03d7c3c5694bb52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438905"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340880"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Azure 安全中心的其他威胁防护
 除内置 [Azure Defender 保护](azure-defender.md)外，Azure 安全中心还提供了以下威胁防护功能。
@@ -90,7 +90,7 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 DDoS 攻击尝试耗尽应用程序的资源，使应用程序对于合法用户不可用。 DDoS 攻击能够以任何可通过 Internet 访问的终结点作为目标。
 
-若要抵御 DDoS 攻击，请购买 Azure DDoS 防护许可证，并确保遵循有关应用程序设计的最佳做法。 DDoS 防护提供不同的服务层级。 有关详细信息，请参阅 [Azure DDoS 防护概述](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)。
+若要抵御 DDoS 攻击，请购买 Azure DDoS 防护许可证，并确保遵循有关应用程序设计的最佳做法。 DDoS 防护提供不同的服务层级。 有关详细信息，请参阅 [Azure DDoS 防护概述](../virtual-network/ddos-protection-overview.md)。
 
 有关 Azure DDoS 防护警报的列表，请参阅[警报参考表](alerts-reference.md#alerts-azureddos)。
 

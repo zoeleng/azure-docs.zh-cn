@@ -7,15 +7,15 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e9bd97dc4afe0937ebd0553117640e008a72722e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4e9ea34317951ecd9d3b6649ce42ffcf2f476d03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961741"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149221"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>应用服务环境简介 #
- 
+ 
 ## <a name="overview"></a>概述 ##
 
 Azure 应用服务环境是一项 Azure 应用服务功能，可提供完全隔离和专用的环境，以便高度安全地运行应用服务应用。 此功能可以托管：
@@ -91,7 +91,7 @@ ASEv1 使用与 ASEv2 不同的定价模型。 在 ASEv1 中，需要为分配�
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
