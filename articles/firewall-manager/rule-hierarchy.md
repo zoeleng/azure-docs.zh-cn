@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893669"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331730"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>使用 Azure 防火墙策略来定义规则层次结构
 
@@ -21,7 +21,7 @@ ms.locfileid: "88893669"
 Azure 防火墙策略允许你定义规则层次结构并强制实施符合性：
 
 - 提供了一个层次结构，用于在子应用程序团队策略之上覆盖中心基准策略。 基本策略具有较高的优先级，并在子策略之前运行。
-- 使用自定义的基于角色的访问控制 (RBAC) 定义，以防止无意中删除策略，并提供对订阅或资源组中的规则收集组的选择性访问。 
+- 使用 Azure 自定义角色定义可防止无意中删除策略，并提供对订阅或资源组中的规则收集组的选择性访问。 
 
 ## <a name="solution-overview"></a>解决方案概述
 
@@ -153,7 +153,7 @@ JSON 文件应类似于以下示例：
 
 ### <a name="summary"></a>总结
 
-带有自定义 RBAC 的防火墙策略现在提供对防火墙策略规则集合组的选择性访问。
+带有自定义角色的防火墙策略现在提供对防火墙策略规则集合组的选择性访问。
 
 用户无权执行以下操作：
 - 删除 Azure 防火墙或防火墙策略。

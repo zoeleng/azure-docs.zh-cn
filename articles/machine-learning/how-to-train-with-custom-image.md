@@ -7,24 +7,26 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8c971168add1aa63599a22f81a3b517d6cc561a1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281300"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329111"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>使用自定义 Docker 映像为模型定型
 
 本文介绍如何在使用 Azure 机器学习训练模型时使用自定义 Docker 映像。 使用本文中的示例脚本，通过创建卷积神经网络来分类宠物映像。 
 
-Azure 机器学习提供了一个默认 Docker 基本映像。 你还可以使用 Azure 机器学习环境来指定不同的基础映像，例如某个维护的 [Azure 机器学习基本](https://github.com/Azure/AzureML-Containers) 映像或你自己的 [自定义映像](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)。 自定义基本映像使你可以严密管理依赖关系，并在运行定型作业时保持对组件版本的更紧密控制。 
+Azure 机器学习提供了一个默认 Docker 基本映像。 你还可以使用 Azure 机器学习环境来指定不同的基础映像，例如某个维护的 [Azure 机器学习基本](https://github.com/Azure/AzureML-Containers) 映像或你自己的 [自定义映像](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)。 自定义基本映像使你可以严密管理依赖关系，并在运行定型作业时保持对组件版本的更紧密控制。
 
-## <a name="prerequisites"></a>先决条件 
+## <a name="prerequisites"></a>先决条件
+
 在以下任一环境中运行代码：
+
 * Azure 机器学习计算实例 (无需下载或安装) ：
   * 完成 " [设置环境和工作区](tutorial-1st-experiment-sdk-setup.md) " 教程，以创建使用 SDK 和示例存储库预加载的专用笔记本服务器。
   * 在 Azure 机器学习[示例存储库](https://github.com/Azure/azureml-examples)中，通过转到 "**笔记本**  >  **fastai**"  >  **resnet34. ipynb**目录查找已完成的笔记本。 
@@ -33,10 +35,12 @@ Azure 机器学习提供了一个默认 Docker 基本映像。 你还可以使�
   * 安装 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。 
   * 创建可在 internet 上使用的 [Azure 容器注册表](/azure/container-registry) 或其他 Docker 注册表。
 
-## <a name="set-up-the-experiment"></a>设置试验 
-在本部分中，将通过以下方式设置训练试验：初始化工作区、创建试验，以及上传定型数据和训练脚本。
+## <a name="set-up-a-training-experiment"></a>设置训练实验
+
+在本部分中，将通过初始化工作区、定义环境和配置计算目标来设置训练实验。
 
 ### <a name="initialize-a-workspace"></a>初始化工作区
+
 [Azure 机器学习工作区](concept-workspace.md)是服务的顶级资源。 它为您提供了一个集中的位置来处理您创建的所有项目。 在 Python SDK 中，可以通过创建 [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) 对象来访问工作区项目。
 
 `Workspace`从创建的 config.js文件创建一个作为[必备组件](#prerequisites)的对象。
@@ -47,11 +51,9 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="prepare-scripts"></a>准备脚本
-对于本教程，请使用[GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py)上的培训脚本*train.py* 。 在实践中，您可以采用任何自定义训练脚本，并按原样运行它，Azure 机器学习。
-
 ### <a name="define-your-environment"></a>定义环境
-创建 `Environment` 对象并启用 Docker。 
+
+创建 `Environment` 对象并启用 Docker。
 
 ```python
 from azureml.core import Environment
@@ -69,6 +71,8 @@ fastai_env.docker.base_image = "fastdotai/fastai2:latest"
 fastai_env.python.user_managed_dependencies = True
 ```
 
+#### <a name="use-a-private-container-registry-optional"></a>使用专用容器注册表 (可选) 
+
 若要使用工作区中没有的专用容器注册表中的映像，请使用 `docker.base_image_registry` 指定存储库的地址以及用户名和密码：
 
 ```python
@@ -77,6 +81,8 @@ fastai_env.docker.base_image_registry.address = "myregistry.azurecr.io"
 fastai_env.docker.base_image_registry.username = "username"
 fastai_env.docker.base_image_registry.password = "password"
 ```
+
+#### <a name="use-a-custom-dockerfile-optional"></a>使用自定义 Dockerfile (可选) 
 
 还可以使用自定义 Dockerfile。 如果需要安装非 Python 包作为依赖项，请使用此方法。 请记住将基本映像设置为 `None` 。
 
@@ -98,12 +104,13 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 有关创建和管理 Azure 机器学习环境的详细信息，请参阅 [创建和使用软件环境](how-to-use-environments.md)。 
 
-### <a name="create-or-attach-an-amlcompute-resource"></a>创建或附加 AmlCompute 资源
+### <a name="create-or-attach-a-compute-target"></a>创建或附加计算目标
+
 需要为模型定型创建 [计算目标](concept-azure-machine-learning-architecture.md#compute-targets) 。 在本教程中，将创建 `AmlCompute` 为训练计算资源。
 
-创建的 `AmlCompute` 时间大约为5分钟。 如果 `AmlCompute` 资源已在工作区中，则此代码将跳过创建过程。
+创建 `AmlCompute` 会花费几分钟时间。 如果 `AmlCompute` 资源已在工作区中，则此代码将跳过创建过程。
 
-与其他 Azure 服务一样，某些资源的限制 (例如， `AmlCompute`) 与 Azure 机器学习服务关联。 有关详细信息，请参阅 [默认限制和如何请求更高的配额](how-to-manage-quotas.md)。 
+与其他 Azure 服务一样，某些资源的限制 (例如， `AmlCompute`) 与 Azure 机器学习服务关联。 有关详细信息，请参阅 [默认限制和如何请求更高的配额](how-to-manage-quotas.md)。
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -129,7 +136,10 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
-### <a name="create-a-scriptrunconfig-resource"></a>创建 ScriptRunConfig 资源
+## <a name="configure-your-training-job"></a>配置训练作业
+
+对于本教程，请使用[GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py)上的培训脚本*train.py* 。 在实践中，您可以采用任何自定义训练脚本，并按原样运行它，Azure 机器学习。
+
 创建 `ScriptRunConfig` 资源，将作业配置为在所需的 [计算目标](how-to-set-up-training-targets.md)上运行。
 
 ```python
@@ -141,7 +151,8 @@ src = ScriptRunConfig(source_directory='fastai-example',
                       environment=fastai_env)
 ```
 
-### <a name="submit-your-run"></a>提交运行
+## <a name="submit-your-training-job"></a>提交训练作业
+
 使用对象提交定型运行时 `ScriptRunConfig` ，该 `submit` 方法返回类型的对象 `ScriptRun` 。 返回的 `ScriptRun` 对象使您能够以编程方式访问有关定型运行的信息。 
 
 ```python

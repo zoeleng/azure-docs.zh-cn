@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab257cee199050dcc444e9e3acf43370bd062e5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056262"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313165"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>向 Azure Active Directory 中的 Microsoft 365 组分配敏感度标签
 
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) 支持将 [Microsoft 365 合规中心](https:/
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-还需要将敏感度标签同步到 Azure AD。 有关说明，请参阅 [如何为容器启用敏感度标签和同步标签](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels)。
+还需要将敏感度标签同步到 Azure AD。 有关说明，请参阅 [如何为容器启用敏感度标签和同步标签](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels)。
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>在 Azure 门户中为新组分配标签
 
@@ -91,7 +91,7 @@ Azure Active Directory (Azure AD) 支持将 [Microsoft 365 合规中心](https:/
 
    ![在组的 "概述" 页上分配敏感度标签](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
 
-1. 选择“保存”以保存更改。
+1. 选择“保存”  以保存更改。
 
 ## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>从 Azure 门户中的现有组中删除标签
 
@@ -100,7 +100,7 @@ Azure Active Directory (Azure AD) 支持将 [Microsoft 365 合规中心](https:/
 1. 从 " **所有组** " 页中，选择要从中删除标签的组。
 1. 在 " **组** " 页上，选择 " **属性**"。
 1. 选择“删除” 。
-1. 单击“保存”应用所做的更改。
+1. 选择“保存”应用所做的更改。
 
 ## <a name="using-classic-azure-ad-classifications"></a>使用经典 Azure AD 分类
 

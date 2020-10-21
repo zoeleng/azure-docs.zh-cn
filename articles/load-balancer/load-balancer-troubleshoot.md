@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217382"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314817"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>排查 Azure 负载均衡器问题
 
@@ -157,6 +157,17 @@ ms.locfileid: "92217382"
 - 使用来自 VNet 中后端 VM 的 Psping 进行探测端口响应测试（例如 psping 10.0.0.4:3389）并记录结果。 
 - 如果这些 ping 测试未收到响应，请在运行 PsPing 时，在后端 VM 和 VNet 测试 VM 上同时运行 Netsh 跟踪，并停止 Netsh 跟踪。 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>症状：负载均衡器处于失败状态 
+
+**分辨率**
+
+- 确定处于失败状态的资源后，请跳到 [Azure 资源浏览器](https://resources.azure.com/) 并在此状态下确定资源。 
+- 将右上角的切换更新为 "读/写"。
+- 单击 "编辑" 以使资源处于 "失败" 状态。
+- 单击 "开始"，然后单击 "获取" 以确保已将预配状态更新为 "成功"。
+- 然后，可以继续执行其他操作，因为资源已失败状态。
+
+
 ## <a name="next-steps"></a>后续步骤
 
 如果上述步骤无法解决问题，请开具[支持票证](https://azure.microsoft.com/support/options/)。

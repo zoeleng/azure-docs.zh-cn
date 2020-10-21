@@ -3,15 +3,15 @@ title: 使用 Azure Active Directory 授予访问权限
 description: 本文提供有关使用 Azure Active Directory 授权访问事件中心资源的信息。
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566255"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332393"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>使用 Azure Active Directory 授权访问事件中心资源
-Azure 事件中心支持使用 Azure Active Directory (Azure AD) 授权对事件中心资源的请求。 可以通过 Azure AD 使用基于角色的访问控制 (RBAC) 授予对服务主体的访问权限，该服务主体可能是用户或应用程序服务主体。 若要详细了解角色和角色分配，请参阅[了解不同的角色](../role-based-access-control/overview.md)。
+Azure 事件中心支持使用 Azure Active Directory (Azure AD) 授权对事件中心资源的请求。 使用 Azure AD，你可以使用 Azure RBAC)  (Azure 基于角色的访问控制向安全主体（可以是用户或应用程序服务主体）授予权限。 若要详细了解角色和角色分配，请参阅[了解不同的角色](../role-based-access-control/overview.md)。
 
 ## <a name="overview"></a>概述
 当安全主体（用户或应用程序）尝试访问事件中心资源时，必须授权该请求。 使用 Azure AD 是，访问资源的过程包括两个步骤。 
@@ -39,7 +39,7 @@ Azure 提供了以下 Azure 内置角色，用于通过 Azure AD 和 OAuth 授�
 | [Azure 事件中心数据发送者](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | 使用此角色可以授予对事件中心资源的发送访问权限。 |
 | [Azure 事件中心数据接收方](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | 使用此角色可以授予对事件中心资源的使用/接收访问权限。 |
 
-有关架构注册表内置角色，请参阅 [架构注册表角色](schema-registry-overview.md#role-based-access-control)。
+有关架构注册表内置角色，请参阅 [架构注册表角色](schema-registry-overview.md#azure-role-based-access-control)。
 
 ## <a name="resource-scope"></a>资源范围 
 向安全主体分配 Azure 角色之前，请确定安全主体应具有的访问权限的范围。 最佳做法指出，最好是授予尽可能小的范围。
@@ -73,7 +73,7 @@ Azure 提供了以下 Azure 内置角色，用于通过 Azure AD 和 OAuth 授�
 
 ## <a name="next-steps"></a>后续步骤
 - 若要了解如何向安全主体分配内置 Azure 角色，请参阅[使用 Azure Active Directory 对事件中心资源访问进行身份验证](authenticate-application.md)。
-- 了解[如何使用 RBAC 创建自定义角色](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole)。
+- 了解 [如何通过 AZURE RBAC 创建自定义角色](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole)。
 - 了解[如何将 Azure Active Directory 与 EH 配合使用](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 请参阅以下相关文章：

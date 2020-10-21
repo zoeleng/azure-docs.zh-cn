@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542282"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330387"
 ---
 # <a name="execute-r-script-module"></a>“执行 R 脚本”模块
 
@@ -194,11 +194,11 @@ azureml_main <- function(dataframe1, dataframe2){
     > [!NOTE]
     > 现有 R 代码可能需要稍做更改才能在设计器管道中运行。 例如，以 CSV 格式提供的输入数据应显式转换为数据集，然后才能在代码中使用。 R 语言中使用的数据和列类型与在设计器中使用的数据和列类型在某些方面也有所不同。
 
-    如果你的脚本大于 16 KB，请使用 **脚本捆绑** 端口来避免错误，如 *命令行数超过16597个字符的限制*。 
+1. 如果你的脚本大于 16 KB，请使用 **脚本捆绑** 端口来避免错误，如 *命令行数超过16597个字符的限制*。 
     
     1. 将脚本和其他自定义资源捆绑到 zip 文件。
     1. 将 zip 文件作为 **文件数据集** 上传到工作室。 
-    1. 从 "设计器创作" 页左侧模块窗格的 " *我的数据集* " 列表中拖动数据集模块。 
+    1. 从 "设计器创作" 页左侧模块窗格内的 " *数据集* " 列表中拖动数据集模块。 
     1. 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
     
     下面是使用脚本包中的脚本的示例代码：

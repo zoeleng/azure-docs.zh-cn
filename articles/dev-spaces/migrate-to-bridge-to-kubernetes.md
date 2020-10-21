@@ -1,16 +1,16 @@
 ---
 title: 迁移到 Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 description: 描述从 Azure Dev Spaces 到 Kubernetes 的迁移过程
 keywords: Azure Dev Spaces，Dev 空间，Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，桥到 Kubernetes
-ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044694"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329792"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>迁移到 Bridge to Kubernetes
 
@@ -50,10 +50,10 @@ Azure Dev Spaces 和桥接 Kubernetes 具有类似的功能，它们在多个区
 | **可用性** |
 | 独立于 Kubernetes 和 Docker 项目  | 否  | 是   |
 | 自动回滚更改，后期调试  | 否  | 是   |
-| **环境** |
+| **支持的客户端工具** |
 | 适用于 Visual Studio 2019  | 是  | 是   |
 | 适用于 Visual Studio Code  | 是  | 是   |
-| 适用于 CLI  | 是  | 否   |
+| 使用 CLI  | 是  | 否   |
 | **操作系统兼容性** |
 | 适用于 Windows 10  | 是  | 是  |
 | 适用于 Linux  | 是  | 是  |

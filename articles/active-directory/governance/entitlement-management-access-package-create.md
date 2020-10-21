@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0126c5348a2acaebea0400a94ca0a1d14a1bf6ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707537"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318201"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中创建新访问包
 
@@ -99,7 +99,7 @@ ms.locfileid: "90707537"
 
     如果在现有目录中创建访问包，则可以选择该目录中现有的任何资源，而无需拥有该目录。
 
-    如果你是全局管理员、用户管理员或目录所有者，可通过另外一个选项来选择你拥有的但尚未包含在该目录中的资源。 如果选择当前不在所选目录中的资源，则这些资源也会添加到该目录，供其他目录管理员用来生成访问包。 若要查看可添加到目录中的所有资源，请选中 "选择" 窗格顶部的 " **全部查看** " 复选框。 如果你只想要选择当前在所选目录中的资源，则请将该 **复选框保持** 未选中状态 (默认状态) 。
+    如果你是全局管理员、用户管理员或目录所有者，可通过另外一个选项来选择你拥有的但尚未包含在该目录中的资源。 如果选择当前不在所选目录中的资源，则这些资源也会添加到该目录，供其他目录管理员用来生成访问包。 若要查看可添加到目录中的所有资源，请选中“选择”窗格顶部的“全部查看”复选框。 如果只想选择目前位于所选目录中的资源，请让“全部查看”复选框处于取消选中状态（默认状态）。
 
 1. 选择资源后，在“角色”列表中选择要将用户分配到的资源角色。****
 
@@ -135,11 +135,11 @@ ms.locfileid: "90707537"
 
 你也可以使用 Microsoft Graph 创建访问包。  通过具有委托的 `EntitlementManagement.ReadWrite.All` 权限的应用程序，相应角色中的用户可以调用 API 来
 
-1. [列出目录中的 accessPackageResources](https://docs.microsoft.com/graph/api/accesspackagecatalog-list?view=graph-rest-beta&tabs=http) 并为任何尚不在该目录中的资源[创建 accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&tabs=http)。
-1. [列出 accessPackageCatalog 中每个 accessPackageResource 的 accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackage-list-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http)。 然后，在接下来创建 accessPackageResourceRoleScope 时将会使用此角色列表来选择角色。
-1. [创建访问包](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta)。
-1. [创建 accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta&tabs=http)。
-1. 为该访问包中所需的每个资源角色[创建 accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http)。
+1. [列出目录中的 accessPackageResources](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta) 并为任何尚不在该目录中的资源[创建 accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta)。
+1. [列出 accessPackageCatalog 中每个 accessPackageResource 的 accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta)。 然后，在接下来创建 accessPackageResourceRoleScope 时将会使用此角色列表来选择角色。
+1. [创建访问包](/graph/tutorial-access-package-api?view=graph-rest-beta)。
+1. [创建 accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta)。
+1. 为该访问包中所需的每个资源角色[创建 accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta)。
 
 ## <a name="next-steps"></a>后续步骤
 

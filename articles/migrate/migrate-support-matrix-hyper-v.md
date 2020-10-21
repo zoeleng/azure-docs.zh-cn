@@ -3,12 +3,12 @@ title: Azure Migrate 中的 Hyper-v 评估支持
 description: 了解 Azure Migrate Server 评估的 Hyper-v 评估支持
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311331"
+ms.locfileid: "92331968"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 评估的支持矩阵
 
@@ -63,7 +63,7 @@ Azure Migrate 使用 [Azure Migrate 设备](migrate-appliance.md)进行发现和
 **设备** | **Connection**
 --- | ---
 **设备** | TCP 端口 3389 上的入站连接，可便于通过远程桌面连接来连接到设备。<br/><br/> 端口 44368 上的入站连接，用于使用 URL ``` https://<appliance-ip-or-name>:44368 ``` 远程访问设备管理应用<br/><br/> 端口443上的出站连接 (HTTPS) ，以将发现和性能元数据发送到 Azure Migrate。
-**Hyper-v 主机/群集** | WinRM 端口5985上的入站连接 (HTTP) 使用通用信息模型 (CIM) 会话请求 Hyper-v Vm 的元数据和性能数据。
+**Hyper-v 主机/群集** | WinRM 端口5985上的入站连接 (HTTP) 或 5986 (HTTPS) ，使用通用信息模型 (CIM) 会话请求 Hyper-v Vm 的元数据和性能数据。
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>基于代理的依赖关系分析要求
 

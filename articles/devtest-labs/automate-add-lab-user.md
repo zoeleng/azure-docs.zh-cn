@@ -3,12 +3,12 @@ title: 在 Azure 开发测试实验室中自动添加实验室用户 |Microsoft 
 description: 本文介绍如何使用 Azure 资源管理器模板、PowerShell 和 CLI 自动将用户添加到 Azure 开发测试实验室中的实验室。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483816"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327954"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>自动向 Azure 开发测试实验室中的实验室添加实验室用户
 Azure 开发测试实验室允许使用 Azure 门户快速创建自助服务开发测试环境。 但是，如果有多个团队和多个开发测试实验室实例，则自动执行创建过程可以节省时间。 利用[Azure 资源管理器模板](https://github.com/Azure/azure-devtestlab/tree/master/Environments)，你可以创建实验室、实验室 vm、自定义映像、公式，并以自动方式添加用户。 本文专门介绍如何将用户添加到开发测试实验室实例中。
@@ -179,7 +179,7 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 若要指定要向其授予权限的资源，可以通过将、或的组合指定给该 `ResourceName` `ResourceType` `ResourceGroup` `scope` 参数。 无论使用哪种参数组合，都可以为 cmdlet 提供足够的信息来唯一标识 Active Directory 对象 (用户、组或服务主体) 、作用域 (资源组或资源) 以及角色定义。
 
 ## <a name="use-azure-command-line-interface-cli"></a>使用 Azure 命令行界面 (CLI) 
-在 Azure CLI 中，使用命令将实验室用户添加到实验室 `az role assignment create` 。 有关 Azure CLI cmdlet 的详细信息，请参阅 [使用 RBAC 和 Azure CLI 管理对 Azure 资源的访问权限](../role-based-access-control/role-assignments-cli.md)。
+在 Azure CLI 中，使用命令将实验室用户添加到实验室 `az role assignment create` 。 有关 Azure CLI cmdlet 的详细信息，请参阅 [使用 Azure CLI 添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-cli.md)。
 
 被授予访问权限的对象可以由 `objectId` 、 `signInName` 和 `spn` 参数指定。 要向其授予访问权限的实验室，可以通过 `scope` url 或 `resource-name` 、和参数的组合来识别 `resource-type` `resource-group` 。
 

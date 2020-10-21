@@ -4,17 +4,27 @@ description: 了解如何配置 IP 访问控制策略，以为 Azure Cosmos 帐�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814172"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279754"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置 IP 防火墙
+
+为了保护存储在帐户中的数据，Azure Cosmos DB 支持基于机密的授权模型，该模型利用基于哈希的强消息验证代码 (HMAC) 。 此外，Azure Cosmos DB 支持使用基于 IP 的访问控制来提供入站防火墙支持。 此模型与传统数据库系统的防火墙规则类似，并且为帐户提供额外级别的安全性。 利用防火墙，可以配置为仅允许从一组已批准的计算机和/或云服务访问你的 Azure Cosmos 帐户。 从这些已批准的计算机和服务访问 Azure Cosmos 数据库中存储的数据仍需调用方提供有效的授权令牌。
+
+## <a name="ip-access-control"></a><a id="ip-access-control-overview"></a>IP 访问控制
+
+默认情况下，只要请求附有有效的授权令牌，即可从 Internet 访问你的 Azure Cosmos 帐户。 若要配置基于 IP 策略的访问控制，用户必须提供 CIDR（无类域间路由）格式的、要作为客户端 IP 允许列表包含的 IP 地址或 IP 地址范围集，这样才能访问给定的 Azure Cosmos 帐户。 应用此配置后，源自此允许列表外部的计算机的所有请求将收到 403（禁止访问）响应。 使用 IP 防火墙时，我们建议允许 Azure 门户访问你的帐户。 需有相应的访问权限才能允许使用数据资源管理器，以及检索 Azure 门户中显示的帐户指标。 使用数据资源管理器时，除了要允许 Azure 门户访问你的帐户，还需更新防火墙设置，将当前 IP 地址添加到防火墙规则中。 请注意，防火墙更改可能需要长达 15 分钟的时间进行传播。
+
+可将基于 IP 的防火墙与子网和 VNET 访问控制结合使用。 将这两种策略相结合，可以限制访问具有某个公共 IP 的任何源，和/或从 VNET 中的特定子网访问任何源。 若要详细了解如何使用基于子网和 VNET 的访问控制，请参阅[从虚拟网络访问 Azure Cosmos DB 资源](vnet-service-endpoint.md)。
+
+总而言之，始终需要提供授权令牌才能访问 Azure Cosmos 帐户。 如果未设置 IP 防火墙和 VNET 访问控制列表 (ACL)，可以使用授权令牌访问 Azure Cosmos 帐户。 在 Azure Cosmos 帐户中设置 IP 防火墙和/或 VNET ACL 后，只有源自指定的源（并且具有授权令牌）的请求才能收到有效的响应。 
 
 可以使用 IP 防火墙保护存储在 Azure Cosmos DB 帐户中的数据。 Azure Cosmos DB 支持使用基于 IP 的访问控制来提供入站防火墙支持。 可通过以下方法之一为 Azure Cosmos DB 帐户设置 IP 防火墙：
 
@@ -225,5 +235,5 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 若要为 Azure Cosmos DB 帐户配置虚拟网络服务终结点，请参阅以下文章：
 
-* [适用于 Azure Cosmos DB 帐户的虚拟网络和子网访问控制](vnet-service-endpoint.md)
+* [适用于 Azure Cosmos DB 帐户的虚拟网络和子网访问控制](how-to-configure-vnet-service-endpoint.md)
 * [为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)

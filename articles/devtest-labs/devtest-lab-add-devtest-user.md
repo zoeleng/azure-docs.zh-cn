@@ -3,19 +3,19 @@ title: 在 Azure 开发测试实验室中添加所有者和用户 | Microsoft Do
 description: 使用 Azure 门户或 PowerShell 在 Azure 开发测试实验室中添加所有者和用户
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d6af68cd663e88af90d690375a4d45c538aad1d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533319"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330183"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>在 Azure 开发测试实验室中添加所有者和用户
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Azure 开发测试实验室中的访问权限由 [AZURE RBAC)  (azure 基于角色的访问控制 ](../role-based-access-control/overview.md)来控制。 使用RBAC，可以将团队中的职责分配给*角色*，仅授予用户执行其作业所需的访问权限。 其中三个 Azure 角色是 *所有者*、 *开发测试实验室用户*和 *参与者*。 本文介绍三种主要 Azure 角色中的每个角色可以执行的操作。 在这里，将了解如何通过门户和 PowerShell 脚本将用户添加到实验室，以及如何在订阅级别添加用户。
+Azure 开发测试实验室中的访问权限由 [AZURE RBAC)  (azure 基于角色的访问控制 ](../role-based-access-control/overview.md)来控制。 使用 Azure RBAC，你可以将你的团队中的职责划分为 *角色* ，以便仅向用户授予执行作业所需的访问权限量。 其中三个 Azure 角色是 *所有者*、 *开发测试实验室用户*和 *参与者*。 本文介绍三种主要 Azure 角色中的每个角色可以执行的操作。 在这里，将了解如何通过门户和 PowerShell 脚本将用户添加到实验室，以及如何在订阅级别添加用户。
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>每个角色可以执行的操作
 可以为用户分配一下三种主要角色：

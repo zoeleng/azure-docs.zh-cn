@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257667"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329553"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Azure Monitor 日志进行事件分析和可视化
  Azure Monitor 日志收集并分析云中托管的应用程序和服务的遥测，并提供分析工具以帮助最大限度地提高其可用性和性能。 本文概述了如何在 Azure Monitor 日志中运行查询，以获取见解并解决群集中发生的问题。 本文解决以下常见问题：
@@ -42,7 +42,7 @@ Azure Monitor 日志接收到数据后，Azure 提供多个 *监视解决方案*
 
 下图是 Service Fabric 分析解决方案的主页。 此主页提供了群集中正在发生的事件的快照视图。
 
-![Service Fabric 解决方案](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![屏幕截图，显示 Service Fabric 分析解决方案的主页。](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  如果创建群集时启用了诊断，则可以看到以下对象的事件： 
 
@@ -105,5 +105,5 @@ Kusto 查询语言非常强大。 可以运行另一个有用查询来找出哪�
 * 若要启用基础结构监视（即性能计数器），请转到[添加 Log Analytics 代理](service-fabric-diagnostics-oms-agent.md)。 该代理将收集性能计数器，并将其添加到现有工作区。
 * 对于本地群集，Azure Monitor 日志提供了一个可用于将数据发送到 Azure Monitor 日志的 (HTTP 转发代理) 的网关。 有关详细信息，请参阅 [使用 Log Analytics 网关将计算机连接到无 Internet 访问 Azure Monitor 日志](../azure-monitor/platform/gateway.md)。
 * 配置  [自动警报](../azure-monitor/platform/alerts-overview.md) ，帮助检测和诊断。
-* 获取熟悉，其中包含作为 Azure Monitor 日志一部分提供的 [日志搜索和查询](../azure-monitor/log-query/log-query-overview.md) 功能。
+* 掌握 Azure Monitor 日志中提供的[日志搜索和查询](../azure-monitor/log-query/log-query-overview.md)功能。
 * 详细了解 Azure Monitor 日志及其提供的内容，请参阅 [什么是 Azure Monitor 日志？](../azure-monitor/overview.md)。
