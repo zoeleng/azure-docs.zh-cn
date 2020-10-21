@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102147"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342121"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>排查 Azure Monitor 指标警报的问题 
 
@@ -228,7 +228,7 @@ ms.locfileid: "92102147"
 若要创建指标警报规则，你需要有以下权限：
 
 - 对警报规则的目标资源的读取权限
-- 对在其中创建警报规则的资源组的写入权限（如果是从 Azure 门户中创建警报规则，则会在目标资源所在的资源组中创建警报规则）
+- 在其中创建警报规则的资源组的 "写入" 权限 (如果要从 Azure 门户创建警报规则，则默认情况下，将在目标资源所在的同一资源组中创建警报规则) 
 - 对关联到警报规则的任何操作组的读取权限（如果适用）
 
 

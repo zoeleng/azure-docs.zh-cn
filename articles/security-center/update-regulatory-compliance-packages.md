@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106257"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342189"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>在监管合规仪表板中自定义标准集
 
@@ -41,7 +41,7 @@ Microsoft 还会自行跟踪监管标准，并随时间推移自动改进其在�
 
 可以添加标准，如 NIST SP 800-53 R4、SWIFT CSP CSCF-v2020、UK Official and UK NHS、Canada Federal PBMM 以及 Azure CIS 1.1.0（新）- Azure CIS 1.1.0 的更完整表示形式。 
 
-此外，可以添加 Azure 安全基准，它是由 Microsoft 创作的特定于 Azure 的准则，适用于基于常见合规框架的安全与合规最佳做法。 （[详细了解 Azure 安全基准](https://docs.microsoft.com/azure/security/benchmarks/introduction)。）
+此外，可以添加 Azure 安全基准，它是由 Microsoft 创作的特定于 Azure 的准则，适用于基于常见合规框架的安全与合规最佳做法。 （[详细了解 Azure 安全基准](../security/benchmarks/introduction.md)。）
 
 其他标准会在可用时在仪表板中受支持。 
 
@@ -118,6 +118,6 @@ Microsoft 还会自行跟踪监管标准，并随时间推移自动改进其在�
 
 如需其他相关材料，请参阅以下文章： 
 
-- [Azure 安全基准](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Azure 安全基准](../security/benchmarks/introduction.md)
 - [安全中心监管合规仪表板](security-center-compliance-dashboard.md)
 - [使用安全策略](tutorial-security-policy.md)

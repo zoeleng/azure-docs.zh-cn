@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 6722b88947fda8f1a09e540d69c4a8bec74143df
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91842659"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151810"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 文档中有哪些新增内容？
 
@@ -64,7 +64,7 @@ ms.locfileid: "91842659"
 - [Azure Monitor 日志记录中的标准列](platform/log-standard-columns.md) - 更新为包括基于工作区的应用程序。
 - [Azure Monitor 服务限制](service-limits.md) - 更新了针对用户查询限制的限制。
 - [在 Azure Monitor Log Analytics 中使用客户管理的存储帐户](platform/private-storage.md) - 重写了文章。
-- [查看和分析 Azure Log Analytics 中的数据](log-query/logs-structure.md) - 更新为包括基于工作区的应用程序。
+- [查看和分析 Azure Log Analytics 中的数据](./platform/data-platform-logs.md) - 更新为包括基于工作区的应用程序。
 
 
 ### <a name="platform-logs"></a>平台日志
@@ -194,11 +194,11 @@ ms.locfileid: "91842659"
 - [将 Linux 计算机连接到 Azure Monitor](platform/agent-linux.md)
 - [为混合环境启用 Azure Monitor](insights/vminsights-enable-hybrid.md)
 - [在 Azure 门户中为单个虚拟机或虚拟机规模集启用 Azure Monitor](insights/vminsights-enable-portal.md)
-- [使用 Azure Policy 启用用于 VM 的 Azure Monitor](insights/vminsights-enable-at-scale-policy.md)
+- [使用 Azure Policy 启用用于 VM 的 Azure Monitor](./insights/vminsights-enable-policy.md)
 - [启用用于 VM 的 Azure Monitor 概述](insights/vminsights-enable-overview.md)
 - [使用 PowerShell 启用用于 VM 的 Azure Monitor](insights/vminsights-enable-powershell.md)
 - [使用资源管理器模板启用用于 VM 的 Azure Monitor](insights/vminsights-enable-resource-manager.md)
-- [使用 PowerShell 或模板启用用于 VM 的 Azure Monitor](insights/vminsights-enable-at-scale-powershell.md)
+- [使用 PowerShell 或模板启用用于 VM 的 Azure Monitor](./insights/vminsights-enable-powershell.md)
 
 
 ### <a name="visualizations"></a>可视化效果
@@ -292,7 +292,7 @@ ms.locfileid: "91842659"
 
 - [Azure Monitor常见问题解答](faq.md) - 添加了指标部分。
 - [Azure Monitor 客户托管密钥](platform/customer-managed-keys.md) - 准备正式发布的各种更改。
-- [Azure Monitor 的内置策略定义](samples/policy-samples.md) - 新文章。
+- [Azure Monitor 的内置策略定义](./samples/policy-reference.md) - 新文章。
 - [客户拥有的用于日志引入的存储帐户](platform/private-storage.md) - 新文章。
 - [管理 Azure Monitor 日志的使用情况和成本](platform/manage-cost-storage.md) - 添加了群集按比例计费。
 - [使用 Azure 专用链接将网络安全地连接到 Azure Monitor](platform/private-link-security.md) - 新文章。
@@ -330,8 +330,8 @@ ms.locfileid: "91842659"
 - [Azure Monitor 日志查询中的 app() 表达式](log-query/app-expression.md)
 - [Azure Monitor Log Analytics 中的日志查询范围](log-query/scope.md)
 - [使用 Azure Monitor 跨资源进行查询](log-query/cross-workspace-query.md)
-- [Azure Monitor 日志记录中的标准属性](platform/log-standard-properties.md)
-- [Azure Monitor 日志的结构](log-query/logs-structure.md)
+- [Azure Monitor 日志记录中的标准属性](./platform/log-standard-columns.md)
+- [Azure Monitor 日志的结构](./platform/data-platform-logs.md)
 
 
 
@@ -353,7 +353,7 @@ ms.locfileid: "91842659"
 - [使用 Azure CLI 创建 Log Analytics 工作区](learn/quick-create-workspace-cli.md) - 添加了故障排除部分。
 - [删除和恢复 Azure Log Analytics 工作区](platform/delete-workspace.md) - 更新了有关恢复已删除工作区的信息。
 - [Azure Monitor 日志查询中的函数](log-query/functions.md) - 删除了有关不包含其他函数的函数的注释。
-- [Azure Monitor 日志的结构](log-query/logs-structure.md) - 阐明了 Application Insights 表的属性说明。
+- [Azure Monitor 日志的结构](./platform/data-platform-logs.md) - 阐明了 Application Insights 表的属性说明。
 - [将 Azure Monitor 日志与 Azure 逻辑应用和 Power Automate 配合使用](platform/logicapp-flow-connector.md) - 添加了限制部分。
 - [使用 PowerShell 创建和配置 Log Analytics 工作区](platform/powershell-workspace-configuration.md) - 添加了故障排除部分。
 
@@ -578,7 +578,7 @@ ms.locfileid: "91842659"
 #### <a name="azure-monitor-for-containers"></a>用于容器的 Azure Monitor
 
 - [配置用于容器的 Azure Monitor 代理数据收集](insights/container-insights-agent-config.md) - 添加了有关在 Azure Red Hat OpenShift 上升级代理的详细信息，并添加了更多信息来区分代理的升级方法。
-- [为用于容器的 Azure Monitor 创建性能警报](insights/container-insights-alerts.md) - 修订了信息，并更新了使用工作区上下文警报针对工作区中存储的性能数据创建警报的步骤。
+- [为用于容器的 Azure Monitor 创建性能警报](./insights/container-insights-log-alerts.md) - 修订了信息，并更新了使用工作区上下文警报针对工作区中存储的性能数据创建警报的步骤。
 - [使用用于容器的 Azure Monitor 监视 Kubernetes](insights/container-insights-analyze.md) - 更新了概述文章，以及有关 Windows Kubernetes 群集支持的分析文章。
 - [使用用于容器的 Azure Monitor 配置 Azure Red Hat OpenShift 群集](insights/container-insights-azure-redhat-setup.md) - 添加了有关在 Azure Red Hat OpenShift 上升级代理的详细信息，并添加了更多信息来区分代理的升级方法。
 - [使用用于容器的 Azure Monitor 配置混合 Kubernetes 群集](insights/container-insights-hybrid-setup.md) - 更新了此文章，以反映 Kubelet cAdvisor 中添加的对安全端口 10250 的支持。
@@ -598,7 +598,7 @@ ms.locfileid: "91842659"
 
 - [管理 Azure Monitor 中的 Log Analytics 工作区](platform/manage-access.md) - 对“非操作”做了更新。
 - [管理 Azure Monitor 日志的用量和成本](platform/manage-cost-storage.md) - 在“定价模型”部分添加了有关数据量计算的阐释。
-- [使用 Azure 资源管理器模板创建和配置 Log Analytics 工作区](platform/template-workspace-configuration.md) - 更新了模板，添加了新定价层。
+- [使用 Azure 资源管理器模板创建和配置 Log Analytics 工作区](./samples/resource-manager-workspace.md) - 更新了模板，添加了新定价层。
 
 ### <a name="platform-logs"></a>平台日志
 
@@ -668,9 +668,9 @@ ms.locfileid: "91842659"
 - [Azure Monitor 服务限制](service-limits.md)
 - [收集和分析 Log Analytics 工作区中的 Azure 活动日志](./platform/activity-log.md)
 - [使用诊断设置（预览版）收集 Azure 活动日志 - Azure Monitor](./platform/activity-log.md)
-- [跨 Azure 租户将 Azure 活动日志收集到 Log Analytics 工作区中](platform/activity-log-collect-tenants.md)
+- [跨 Azure 租户将 Azure 活动日志收集到 Log Analytics 工作区中](./platform/activity-log.md)
 - [收集 Log Analytics 工作区中的 Azure 资源日志](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [使用资源管理器模板在 Azure 中创建诊断设置](platform/diagnostic-settings-template.md)
+- [使用资源管理器模板在 Azure 中创建诊断设置](./samples/resource-manager-diagnostic-settings.md)
 - [创建诊断设置以收集 Azure 中的日志和指标](platform/diagnostic-settings.md)
 - [导出 Azure 活动日志](./platform/activity-log.md#legacy-collection-methods)
 - [Azure 平台日志概述](platform/platform-logs-overview.md)

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f976bf4260e4a677aee5b5ccc4287db3d0b2e40d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91542489"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074288"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 解决方案加速器是什么？
 
@@ -85,7 +85,7 @@ IoT 解决方案加速器是完整且易于部署的 IoT 解决方案，可以�
 | 互连工厂      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | 设备模拟      | 微服务 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-若要了解有关微服务体系结构的详细信息，请参阅 [Azure IoT 参考体系结构简介](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)。
+若要了解有关微服务体系结构的详细信息，请参阅 [Azure IoT 参考体系结构简介](/azure/architecture/reference-architectures/iot/)。
 
 ## <a name="deployment-options"></a>部署选项
 

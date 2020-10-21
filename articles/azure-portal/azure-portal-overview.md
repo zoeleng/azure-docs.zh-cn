@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84763918"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072384"
 ---
 # <a name="azure-portal-overview"></a>Azure 门户概述
 
@@ -54,7 +54,7 @@ Azure 门户旨在实现复原能力和持续可用性。 每个 Azure 数据中
 
 ## <a name="getting-around-the-portal"></a>门户的布局
 
-最好是了解门户的基本布局以及如何与之交互。 本文将会介绍用户界面的组件，以及说明中使用的一些术语。 如需详细了解门户概览，请参阅课程[导航到门户](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal)。
+最好是了解门户的基本布局以及如何与之交互。 本文将会介绍用户界面的组件，以及说明中使用的一些术语。 如需详细了解门户概览，请参阅课程[导航到门户](/learn/modules/tour-azure-portal/3-navigate-the-portal)。
 
 Azure 门户菜单和页眉是始终存在的全局元素。 这些持久功能是与每个单独服务或功能关联的用户界面的“外壳”，而标头可提供对全局控件的访问。 资源的配置页面（有时称为“边栏选项卡”）还可能会提供一个资源菜单，以帮助你在功能之间切换。
 
@@ -64,7 +64,7 @@ Azure 门户菜单和页眉是始终存在的全局元素。 这些持久功能�
 
 ![显示扩展门户菜单的屏幕截图](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|密钥|说明
+|键|说明
 |:---:|---|
 |1|页头。 显示在每个门户页面的顶部，包含全局元素。|
 |2| 全局搜索。 使用搜索栏可以快速查找特定的资源、服务或文档。|

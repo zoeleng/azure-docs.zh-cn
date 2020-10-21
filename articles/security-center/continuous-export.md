@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8b27c3d0982e945fcabc6e7748646ea2ee1a4184
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945257"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342053"
 ---
 # <a name="continuously-export-security-alerts-and-recommendations"></a>持续导出安全警报和建议
 
@@ -80,7 +80,7 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>使用 REST API 配置连续导出
 
-可以通过 Azure 安全中心 [自动化 API](https://docs.microsoft.com/rest/api/securitycenter/automations)来配置和管理连续导出。 使用此 API 可创建或更新规则，以便导出到以下任何可能的目标：
+可以通过 Azure 安全中心 [自动化 API](/rest/api/securitycenter/automations)来配置和管理连续导出。 使用此 API 可创建或更新规则，以便导出到以下任何可能的目标：
 
 - Azure 事件中心
 - Log Analytics 工作区
@@ -97,7 +97,7 @@ API 提供了 Azure 门户中没有的其他功能，例如：
     > [!TIP]
     > 如果已使用 API 设置了多个导出配置，或者如果使用了仅限 API 的参数，则这些额外的功能不会在安全中心 UI 中显示。 而是会出现一个横幅，通知你存在其他配置。
 
-在 [REST API 文档](https://docs.microsoft.com/rest/api/securitycenter/automations)中详细了解自动化 API。
+在 [REST API 文档](/rest/api/securitycenter/automations)中详细了解自动化 API。
 
 
 
@@ -152,7 +152,7 @@ API 提供了 Azure 门户中没有的其他功能，例如：
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>在 Azure Monitor 中查看导出的警报和建议
 
-在某些情况下，你可以选择在 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)中查看导出的安全警报和/或建议。 
+在某些情况下，你可以选择在 [Azure Monitor](../azure-monitor/platform/alerts-overview.md)中查看导出的安全警报和/或建议。 
 
 Azure Monitor 提供了一种统一的警报体验，包括诊断日志、指标警报以及基于 Log Analytics 工作区查询的自定义警报。
 
@@ -162,13 +162,13 @@ Azure Monitor 提供了一种统一的警报体验，包括诊断日志、指标
 
     ![Azure Monitor 的 "警报" 页](./media/continuous-export/azure-monitor-alerts.png)
 
-1. 在 "创建规则" 页中，配置新的规则 (采用 Azure Monitor) 中配置 [日志警报规则](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) 的相同方式：
+1. 在 "创建规则" 页中，配置新的规则 (采用 Azure Monitor) 中配置 [日志警报规则](../azure-monitor/platform/alerts-unified-log.md) 的相同方式：
 
     * 对于 " **资源**"，请选择要向其中导出安全警报和建议的 "Log Analytics" 工作区。
 
     * 对于 " **条件**"，选择 " **自定义日志搜索**"。 在出现的页中，配置查询、lookback 周期和频率时间段。 在搜索查询中，你可以键入 *SecurityAlert* 或 *SecurityRecommendation* ，以在你启用连续导出到 Log Analytics 功能时查询安全中心持续导出到的数据类型。 
     
-    * 还可以配置要触发的 [操作组](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 。 操作组可以触发电子邮件发送、ITSM 票证、Webhook 等。
+    * 还可以配置要触发的 [操作组](../azure-monitor/platform/action-groups.md) 。 操作组可以触发电子邮件发送、ITSM 票证、Webhook 等。
     ![Azure Monitor 预警规则](./media/continuous-export/azure-monitor-alert-rule.png)
 
 现在，你将看到新的 Azure 安全中心警报或建议 (，具体取决于你配置的连续导出规则和你在 Azure Monitor 警报规则中定义的条件) Azure Monitor 警报中，如果提供了 (，则会自动触发操作组) 。
@@ -203,7 +203,7 @@ Azure Monitor 提供了一种统一的警报体验，包括诊断日志、指标
 如需相关资料，请参阅以下文档： 
 
 - 了解有关 [工作流自动化模板](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)的详细信息。
-- [Azure 事件中心文档](https://docs.microsoft.com/azure/event-hubs/)
-- [Azure Sentinel 文档](https://docs.microsoft.com/azure/sentinel/)
-- [Azure Monitor 文档](https://docs.microsoft.com/azure/azure-monitor/)
+- [Azure 事件中心文档](../event-hubs/index.yml)
+- [Azure Sentinel 文档](../sentinel/index.yml)
+- [Azure Monitor 文档](../azure-monitor/index.yml)
 - [导出数据类型架构](https://aka.ms/ASCAutomationSchemas)

@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400120"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151622"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 资源的预留
 
@@ -110,7 +110,7 @@ ms.locfileid: "89400120"
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>更改预留 VM 实例的优化设置
 
- 购买 VM 预留实例时，可以选择实例大小的灵活性或容量优先级。 实例大小可以灵活调整，因此可将预留折扣应用到同一 [VM 大小组](https://aka.ms/RIVMGroups)中的其他 VM。 容量优先级可以对部署优先使用数据中心容量。 此选项使你在需要时能够更加有把握地启动 VM 实例。
+ 购买 VM 预留实例时，可以选择实例大小的灵活性或容量优先级。 实例大小可以灵活调整，因此可将预留折扣应用到同一 [VM 大小组](../../virtual-machines/reserved-vm-instance-size-flexibility.md)中的其他 VM。 容量优先级可以对部署优先使用数据中心容量。 此选项使你在需要时能够更加有把握地启动 VM 实例。
 
 默认情况下，在共享预留范围时，将启用实例大小灵活性。 数据中心容量未针对 VM 部署设置优先级。
 
@@ -173,7 +173,7 @@ ms.locfileid: "89400120"
 - [通过 Azure Cosmos DB 保留容量预付 Azure Cosmos DB 资源费用](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 购买软件计划：
-- [通过 Azure 预留为 Red Hat 软件计划预付费](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [通过 Azure 预留为 Red Hat 软件计划预付费](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [通过 Azure 预留为 SUSE 软件计划预付费](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 了解折扣和使用情况：

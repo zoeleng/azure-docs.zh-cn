@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440723"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342376"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>使用实时访问保护管理端口
 
@@ -35,7 +35,7 @@ ms.locfileid: "91440723"
 |----|:----|
 |发布状态：|正式发布 (GA)|
 |定价：|需要[用于服务器的 Azure Defender](defender-for-servers-introduction.md)|
-|支持的 VM：|![是](./media/icons/yes-icon.png) 通过 Azure 资源管理器部署的 VM。<br>![否](./media/icons/no-icon.png) 通过经典部署模型部署的 VM。 [了解有关这些部署模型的详细信息](../azure-resource-manager/management/deployment-models.md)。<br>![否](./media/icons/no-icon.png) 由 [Azure 防火墙管理器](https://docs.microsoft.com/azure/firewall-manager/overview)控制的 Azure 防火墙保护的 VM|
+|支持的 VM：|![是](./media/icons/yes-icon.png) 通过 Azure 资源管理器部署的 VM。<br>![否](./media/icons/no-icon.png) 通过经典部署模型部署的 VM。 [了解有关这些部署模型的详细信息](../azure-resource-manager/management/deployment-models.md)。<br>![否](./media/icons/no-icon.png) 由 [Azure 防火墙管理器](../firewall-manager/overview.md)控制的 Azure 防火墙保护的 VM|
 |所需角色和权限：|“读取者”角色和“安全读取者”角色都可以查看 JIT 状态和参数。<br>若要创建可与 JIT 配合使用的自定义角色，请参阅[配置和使用 JIT 时需要哪些权限？](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)。<br>若要为那些需要请求对 VM 进行 JIT 访问而不执行其他 JIT 操作的用户创建最小特权角色，请使用安全中心 GitHub 社区页面中的 [Set-JitLeastPrivilegedRole 脚本](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role)。|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
 |||
@@ -215,7 +215,7 @@ ms.locfileid: "91440723"
 
 通过 Azure 安全中心 API 可使用实时 VM 访问功能。 使用此 API 获取有关已配置 VM 的信息、添加新的 VM、请求访问 VM，等等。 
 
-有关详细信息，请参阅 [JIT 网络访问策略](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)。
+有关详细信息，请参阅 [JIT 网络访问策略](/rest/api/securitycenter/jitnetworkaccesspolicies)。
 
 
 --- 
@@ -323,7 +323,7 @@ ms.locfileid: "91440723"
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-有关详细信息，请参阅 [PowerShell cmdlet 文档](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview)。
+有关详细信息，请参阅 [PowerShell cmdlet 文档](/powershell/scripting/developer/cmdlet/cmdlet-overview)。
 
 
 
@@ -333,7 +333,7 @@ ms.locfileid: "91440723"
 
 通过 Azure 安全中心 API 可使用实时 VM 访问功能。 使用此 API 获取有关已配置 VM 的信息、添加新的 VM、请求访问 VM，等等。 
 
-有关详细信息，请参阅 [JIT 网络访问策略](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)。
+有关详细信息，请参阅 [JIT 网络访问策略](/rest/api/securitycenter/jitnetworkaccesspolicies)。
 
 ---
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: ee690a73907eca3bcd577cf2d983c8abc5409925
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743057"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206945"
 ---
 # <a name="what-is-azure-expressroute"></a>什么是 Azure ExpressRoute？
 使用 ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Microsoft Azure 和 Microsoft 365 等 Microsoft 云服务建立连接。
@@ -36,10 +36,10 @@ ms.locfileid: "91743057"
 ## <a name="features"></a>功能
 
 ### <a name="layer-3-connectivity"></a>第 3 层连接
-Microsoft 使用 BGP（一种行业标准动态路由协议） 在本地网络、Azure 中的实例和 Microsoft 公共地址之间交换路由。 我们根据不同的流量配置文件来与网络建立多个 BGP 会话。 有关详细信息，请参阅 [ExpressRoute 线路和路由域](expressroute-circuit-peerings.md) 一文。
+Microsoft 使用 BGP（一种行业标准动态路由协议），在本地网络、Azure 中的实例和 Microsoft 公共地址之间交换路由。 我们根据不同的流量配置文件来与网络建立多个 BGP 会话。 有关详细信息，请参阅 [ExpressRoute 线路和路由域](expressroute-circuit-peerings.md) 一文。
 
 ### <a name="redundancy"></a>冗余
-每个 ExpressRoute 线路都有两个连接，用于从连接服务提供商/网络边缘的 [ExpressRoute 位置](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations)连接到两个 Microsoft 企业边缘路由器 (MSEE)。 Microsoft 要求通过连接服务提供商/网络边缘建立双重 BGP 连接 – 各自连接到每个 MSEE。 可以选择不要在一端部署冗余设备/以太网路线。 但是，连接服务提供商会使用冗余设备，确保以冗余方式将连接移交给 Microsoft。 冗余的第 3 层连接配置是 Microsoft [SLA](https://azure.microsoft.com/support/legal/sla/) 生效的条件。
+每个 ExpressRoute 线路都有两个连接，用于从连接服务提供商/网络边缘的 [ExpressRoute 位置](./expressroute-locations.md#expressroute-locations)连接到两个 Microsoft 企业边缘路由器 (MSEE)。 Microsoft 要求通过连接服务提供商/网络边缘建立双重 BGP 连接 – 各自连接到每个 MSEE。 可以选择不要在一端部署冗余设备/以太网路线。 但是，连接服务提供商会使用冗余设备，确保以冗余方式将连接移交给 Microsoft。 冗余的第 3 层连接配置是 Microsoft [SLA](https://azure.microsoft.com/support/legal/sla/) 生效的条件。
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>与 Microsoft 云服务建立连接
 通过 ExpressRoute 连接可访问以下服务：
@@ -82,7 +82,7 @@ ExpressRoute Direct 提供的主要功能包括但不限于：
 * 针对监管和需要专用和独立连接的行业的物理隔离，例如：银行、政府和零售
 * 根据业务部门，细化控制线路分布
 
-有关详细信息，请参阅[关于 ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973)。
+有关详细信息，请参阅[关于 ExpressRoute Direct](./expressroute-erdirect-about.md)。
 
 ### <a name="bandwidth-options"></a>带宽选项
 可以购买各种带宽的 ExpressRoute 线路。 下面列出了支持的带宽。 请务必咨询连接服务提供商，以确定他们支持的带宽。

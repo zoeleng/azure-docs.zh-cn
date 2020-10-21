@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: f56c3bd2d302fc7163fa8c05c595891f191c6a11
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3219fe3507af1c6020ad3a7d84782847dbb57ae
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91568431"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275092"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 简介：表 API
 
 [Azure Cosmos DB](introduction.md) 提供的表 API 适用于为 Azure 表存储编写且需要以下高级功能的应用程序：
 
 * [统包式全局分发](distribute-data-globally.md)。
-* 全球范围内[专用的吞吐量](partition-data.md)。
+* 全球范围内[专用的吞吐量](partitioning-overview.md)。
 * 99% 的情况下低至个位数的毫秒级延迟。
 * 保证高可用性。
 * 自动编制辅助索引。

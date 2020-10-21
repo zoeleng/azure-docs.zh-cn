@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448470"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342087"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>禁止来自 Azure Defender 的警报
 
@@ -139,7 +139,7 @@ REST API 中抑制规则的相关 HTTP 方法是：
 
 - **DELETE**：删除现有规则（但不会更改它已消除的警报的状态）。
 
-有关完整的详细信息和使用示例，请参阅 [API 文档](https://docs.microsoft.com/rest/api/securitycenter/)。 
+有关完整的详细信息和使用示例，请参阅 [API 文档](/rest/api/securitycenter/)。 
 
 
 ## <a name="next-steps"></a>后续步骤

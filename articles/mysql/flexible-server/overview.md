@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: da9b7216908b4a4ba80a421427f473c217f76c28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993752"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167043"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 灵活服务器（预览版）
 
@@ -121,10 +121,18 @@ Azure Database for MySQL 灵活服务器是一种完全托管的数据库服务�
 
 在 Azure 中运行工作负载的一个优点是，它可覆盖全球范围。 现在，在以下 Azure 区域提供适用于 Azure Database for MySQL 的灵活服务器：
 
+- 西欧
 - 北欧
-- 东南亚
+- 英国南部
 - 美国东部 2
 - 美国西部 2
+- 美国中部
+- 美国东部
+- 加拿大中部
+- 东南亚
+- 韩国中部
+- Japan East
+- 澳大利亚东部
 
 即将添加新的服务器。
 

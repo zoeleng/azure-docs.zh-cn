@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505607"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342427"
 ---
 # <a name="access-the-vfxt-cluster"></a>访问 vFXT 群集
 
@@ -27,7 +27,7 @@ ms.locfileid: "85505607"
 > [!NOTE]
 > 本文假设已在群集控制器或群集虚拟网络中另一 VM 上设置了公共 IP 地址。 本文介绍了如何使用该 VM 作为主机来访问群集。 如果使用 VPN 或 ExpressRoute 进行虚拟网络访问，请跳到 [连接到 Avere 控制面板](#connect-to-the-avere-control-panel-in-a-browser)。
 
-在连接之前，请确保在本地计算机上安装了创建群集控制器时所用的 SSH 公钥/私钥对。 如需帮助，请阅读有关适用于 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 或适用于 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 的 SSH 密钥文档。 如果你使用了密码而不是公钥，则在你连接时，系统将提示你输入密码。
+在连接之前，请确保在本地计算机上安装了创建群集控制器时所用的 SSH 公钥/私钥对。 如需帮助，请阅读有关适用于 [Windows](../virtual-machines/linux/ssh-from-windows.md) 或适用于 [Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 的 SSH 密钥文档。 如果你使用了密码而不是公钥，则在你连接时，系统将提示你输入密码。
 
 ## <a name="create-an-ssh-tunnel"></a>创建 SSH 隧道
 
@@ -55,7 +55,7 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
   你在创建隧道时已连接到群集 IP 地址，因此只需要在浏览器中使用 localhost IP 地址。 如果你使用了 8443 之外的本地端口，请改用你的端口号。
 
-* 如果你使用 VPN 或 ExpressRoute 来访问群集，请在浏览器中导航到群集管理 IP 地址。 示例：``https://203.0.113.51``
+* 如果你使用 VPN 或 ExpressRoute 来访问群集，请在浏览器中导航到群集管理 IP 地址。 示例： ``https://203.0.113.51``
 
 可能需要单击“高级”并确认是否可以安全地继续浏览该页面****，具体取决于浏览器。
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327393"
+ms.locfileid: "92344009"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 缓存的先决条件
 
@@ -65,7 +65,7 @@ Azure HPC 缓存需要具有以下特性的专用子网：
 
 简单的 DNS 服务器还可用于对所有可用缓存装入点中的客户端连接进行负载均衡。
 
-若要详细了解 azure 虚拟网络中的资源，请参阅 [名称解析中的](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)azure 虚拟网络和 DNS 服务器配置。
+若要详细了解 azure 虚拟网络中的资源，请参阅 [名称解析中的](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)azure 虚拟网络和 DNS 服务器配置。
 
 ## <a name="permissions"></a>权限
 
@@ -110,7 +110,7 @@ Azure HPC 缓存需要具有以下特性的专用子网：
 
 有关 [解决 NAS 配置和 NFS 存储目标问题](troubleshoot-nas.md)的详细信息。
 
-* **网络连接：** Azure HPC 缓存需要在缓存子网和 NFS 系统的数据中心之间进行高带宽的网络访问。 建议使用[ExpressRoute](https://docs.microsoft.com/azure/expressroute/)或类似的访问。 如果使用的是 VPN，你可能需要将其配置为将 TCP MSS 固定在1350，以确保不会阻止较大的数据包。 阅读 [vpn 数据包大小限制](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) ，了解有关 vpn 设置疑难解答的详细信息。
+* **网络连接：** Azure HPC 缓存需要在缓存子网和 NFS 系统的数据中心之间进行高带宽的网络访问。 建议使用[ExpressRoute](../expressroute/index.yml)或类似的访问。 如果使用的是 VPN，你可能需要将其配置为将 TCP MSS 固定在1350，以确保不会阻止较大的数据包。 阅读 [vpn 数据包大小限制](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) ，了解有关 vpn 设置疑难解答的详细信息。
 
 * **端口访问：** 缓存需要访问存储系统上的特定 TCP/UDP 端口。 不同类型的存储具有不同的端口要求。
 

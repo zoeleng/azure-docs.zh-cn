@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 026425c78934209a2d258d50a5c7f51feeebd63b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275340"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342138"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>利用安全中心的集成 EDR 解决方案保护终结点： Microsoft Defender for Endpoint
 
@@ -81,7 +81,7 @@ Microsoft Defender for Endpoint 提供：
     > [!NOTE]
     > 若要保护启用了 Azure Arc 的计算机，请按照 [快速入门：使用启用了 Azure arc 的服务器连接混合计算机](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)中的说明进行操作。
 
-1. 如果已在服务器上授权并部署了 Microsoft Defender for 终结点，请使用 [下架 Windows server](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)中所述的过程将其删除。
+1. 如果已在服务器上授权并部署了 Microsoft Defender for 终结点，请使用 [下架 Windows server](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)中所述的过程将其删除。
 1. 在安全中心的菜单中，选择“定价和设置”。
 1. 选择想要更改的订阅。
 1. 选择“威胁检测”。
@@ -94,11 +94,11 @@ Microsoft Defender for Endpoint 提供：
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>访问 Microsoft Defender for Endpoint 门户
 
-1. 确保用户帐户具有所需的权限。 [了解详细信息](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access)。
+1. 确保用户帐户具有所需的权限。 [了解详细信息](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access)。
 
-1. 检查你的代理或防火墙是否正在阻止匿名通信。 Defender for Endpoint 传感器从系统上下文进行连接，因此必须允许匿名通信。 若要确保受阻碍访问 Defender for Endpoint portal，请按照在 [代理服务器中启用对服务 url 的访问](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)中的说明进行操作。
+1. 检查你的代理或防火墙是否正在阻止匿名通信。 Defender for Endpoint 传感器从系统上下文进行连接，因此必须允许匿名通信。 若要确保受阻碍访问 Defender for Endpoint portal，请按照在 [代理服务器中启用对服务 url 的访问](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)中的说明进行操作。
 
-1. 打开 [Microsoft Defender 安全中心门户](https://securitycenter.windows.com/)。 有关该门户的功能和图标的详细信息，请参阅 [Microsoft Defender 安全中心门户概述](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview)。 
+1. 打开 [Microsoft Defender 安全中心门户](https://securitycenter.windows.com/)。 有关该门户的功能和图标的详细信息，请参阅 [Microsoft Defender 安全中心门户概述](/windows/security/threat-protection/microsoft-defender-atp/portal-overview)。 
 
 ## <a name="send-a-test-alert"></a>发送测试警报
 
@@ -128,7 +128,7 @@ Microsoft Defender for Endpoint 提供：
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>如何实现从第三方 EDR 工具切换？
 
-Microsoft Defender for Endpoint 文档中提供了有关从非 Microsoft 终结点解决方案切换的完整说明： [迁移概述](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration)。
+Microsoft Defender for Endpoint 文档中提供了有关从非 Microsoft 终结点解决方案切换的完整说明： [迁移概述](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration)。
   
 
 

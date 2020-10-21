@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: f2f40d2ac6652b2b7c968a428961a9bd7f7b4288
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6be5e9bda27ddff157eda10bbb695dfacaecda7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217501"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342257"
 ---
 # <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Azure FXT Edge 文件服务器的其他文档
 
@@ -19,7 +19,7 @@ ms.locfileid: "92217501"
 
 ## <a name="avere-vfxt-for-azure-cache-documentation"></a>适用于 Azure cache 的 Avere vFXT 文档
 
-[Avere vFXT For Azure](https://docs.microsoft.com/azure/avere-vfxt/) 是一个类似的群集缓存产品，它在 Microsoft Azure 中使用虚拟节点。 它使用 Azure 门户创建，但使用与 Azure FXT Edge 文件服务器硬件缓存相同的控制面板配置软件。
+[Avere vFXT For Azure](../avere-vfxt/index.yml) 是一个类似的群集缓存产品，它在 Microsoft Azure 中使用虚拟节点。 它使用 Azure 门户创建，但使用与 Azure FXT Edge 文件服务器硬件缓存相同的控制面板配置软件。
 
 ## <a name="legacy-hardware-documentation"></a>旧硬件文档
 
