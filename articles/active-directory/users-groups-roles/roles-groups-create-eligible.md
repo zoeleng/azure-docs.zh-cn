@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f14960f98a4257b0c8f920915327661cd8b867c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053746"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310393"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>在 Azure Active Directory 中创建角色可分配的组
 
-您只能向使用设置为 True 的 "isAssignableToRole" 属性创建的组分配角色，或者在 Azure AD 门户中创建的、 **Azure AD 可以将角色分配给组** 的角色。 此组属性可将组分配到 Azure Active Directory (Azure AD) 中的角色。 本文介绍如何创建这种特殊类型的组。 **注意：** 将 isAssignableToRole 属性设置为 true 的组不能为动态成员身份类型。 有关详细信息，请参阅 [使用组管理 Azure AD 角色分配](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept)。
+您只能向使用设置为 True 的 "isAssignableToRole" 属性创建的组分配角色，或者在 Azure AD 门户中创建的、 **Azure AD 可以将角色分配给组** 的角色。 此组属性可将组分配到 Azure Active Directory (Azure AD) 中的角色。 本文介绍如何创建这种特殊类型的组。 **注意：** 将 isAssignableToRole 属性设置为 true 的组不能为动态成员身份类型。 有关详细信息，请参阅 [使用组管理 Azure AD 角色分配](./roles-groups-concept.md)。
 
 ## <a name="using-azure-ad-admin-center"></a>使用 Azure AD 管理中心
 

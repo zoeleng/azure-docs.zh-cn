@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801318"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281060"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 
@@ -26,7 +26,7 @@ ms.locfileid: "91801318"
 
 * 如果针对某个数据库预配吞吐量，该数据库中的所有容器（例如集合/表/图形）可以基于负载共享该吞吐量。 在数据库级别预留的吞吐量将会根据特定容器集上的工作负荷以不均匀的方式进行共享。
 
-* 如果针对某个容器预配吞吐量，则可以保证该容器的吞吐量，并提供 SLA 保障。 所选的逻辑分区键对于在容器的所有逻辑分区之间均匀分配负载至关重要。 有关更多详细信息，请参阅[分区](partitioning-overview.md)和[水平缩放](partition-data.md)文章。
+* 如果针对某个容器预配吞吐量，则可以保证该容器的吞吐量，并提供 SLA 保障。 所选的逻辑分区键对于在容器的所有逻辑分区之间均匀分配负载至关重要。 有关更多详细信息，请参阅[分区](partitioning-overview.md)和[水平缩放](partitioning-overview.md)文章。
 
 下面是确定预配吞吐量策略时可以参考的一些指导原则：
 

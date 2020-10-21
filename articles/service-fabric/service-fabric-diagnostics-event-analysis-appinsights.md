@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 61a1d7cb3a5f43aa8100f1c7e8a102ab19b803f5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932441"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329570"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 进行事件分析和可视化
 
@@ -32,7 +32,7 @@ ms.locfileid: "91932441"
 
 在上图的右侧面板上，列表中有两种主要类型的条目：请求和事件。 在本例中，请求是通过 HTTP 请求对应用 API 发出的调用，事件是自定义事件，充当可以添加到代码中任意位置的遥测数据。 可以在[用于处理自定义事件和指标的 Application Insights API](../azure-monitor/app/api-custom-events-metrics.md) 中进一步了解如何检测应用程序。 单击某一请求将显示更多详细信息，如下图所示，其中包括 Application Insights Service Fabric NuGet 包中收集的特定于 Service Fabric 的数据。 在排查和了解应用程序的状态时，此信息非常有用；所有这些信息都可以在 Application Insights 中搜索
 
-![Application Insights 请求详细信息](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![显示更多详细信息的屏幕截图，其中包括特定于 Service Fabric 的数据，Service Fabric NuGet 包 Application Insights 中收集的数据。](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
 Application Insights 提供指定的视图用于查询所有传入的数据。 选择 "概述" 页顶部的 "指标资源管理器"，导航到 Application Insights 门户。 在此处，可以使用 Kusto 查询语言，针对前面所述的自定义事件、请求、异常、性能计数器和其他指标运行查询。 以下示例演示过去 1 小时内的所有请求。
 
@@ -48,7 +48,7 @@ Application Insights 提供指定的视图用于查询所有传入的数据。 �
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
     }
 ]
 ```
@@ -65,7 +65,7 @@ Application Insights 提供指定的视图用于查询所有传入的数据。 �
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>在 Azure 门户中导航到 Application Insights 资源。
 
-配置 Application Insights 作为事件和日志输出的数分钟后，Application Insights 资源中应开始显示信息。 导航到 Application Insights 资源，此时会转到 Application Insights 资源仪表板。 在 Application Insights 任务栏中选择 " **搜索** "，查看其已接收的最新跟踪，并能够进行筛选。
+配置 Application Insights 作为事件和日志输出的数分钟后，Application Insights 资源中应开始显示信息。 导航到 Application Insights 资源，此时会转到 Application Insights 资源仪表板。 在 Application Insights 任务栏中选择 "_*搜索*"，查看其已接收的最新跟踪，并能够进行筛选。
 
 指标资源管理器  是非常有用的工具，能够基于应用程序、服务和群集报告的指标创建自定义仪表板。 请参阅[了解 Application Insights 中的指标](../azure-monitor/platform/metrics-charts.md)，基于收集的数据为自身设置数个图表。
 

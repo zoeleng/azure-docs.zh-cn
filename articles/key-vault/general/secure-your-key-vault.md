@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04bd6975a2ba8824124c769e66da1e4ebe7534a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019879"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309941"
 ---
 # <a name="secure-access-to-a-key-vault"></a>保护对密钥保管库的访问
 
@@ -130,7 +130,7 @@ Azure 基于角色的访问控制是另一种用于控制对 Azure Key Vault 数
 
 ## <a name="private-endpoint-connection"></a>专用终结点连接
 
-如果需要完全阻止公开 Key Vault 公开，则可以使用 Azure 私有终结点。 Azure 专用终结点是一个网络接口，可以通过私密且安全的方式将你连接到 Azure 专用链接支持的服务。 专用终结点使用 VNet 中的专用 IP 地址将服务有效接入 VNet 中。 发往服务的所有流量都可以通过专用终结点路由，因此不需要网关、NAT 设备、ExpressRoute 或 VPN 连接或公共 IP 地址。 虚拟网络与服务之间的流量将通过 Microsoft 主干网络，因此不会从公共 Internet 泄露。 可以连接到 Azure 资源的实例，从而获得最高级别的访问控制粒度。
+如果需要完全阻止公开 Key Vault 公开，则可以使用 [Azure 私有终结点](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 。 Azure 专用终结点是一个网络接口，可以通过私密且安全的方式将你连接到 Azure 专用链接支持的服务。 专用终结点使用 VNet 中的专用 IP 地址将服务有效接入 VNet 中。 发往服务的所有流量都可以通过专用终结点路由，因此不需要网关、NAT 设备、ExpressRoute 或 VPN 连接或公共 IP 地址。 虚拟网络与服务之间的流量将通过 Microsoft 主干网络，因此不会从公共 Internet 泄露。 可以连接到 Azure 资源的实例，从而获得最高级别的访问控制粒度。
 
 使用 Azure 服务的专用链接的常见方案：
 
@@ -199,11 +199,11 @@ Azure 基于角色的访问控制是另一种用于控制对 Azure Key Vault 数
 
 ## <a name="resources"></a>资源
 
-[关于 Azure Key Vault](overview.md) 
-[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
-[Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 
-[AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
-[专用链接](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [关于 Azure Key Vault](overview.md)
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [专用链接](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>后续步骤
 

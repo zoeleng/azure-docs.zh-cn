@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509663"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279909"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>存储过程、触发器和用户定义的函数
 
@@ -24,7 +24,7 @@ Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Co
 
 * **过程逻辑：** 作为一种高级编程语言，JavaScript 提供用户熟悉的丰富接口来表达业务逻辑。 可以针对数据执行一系列复杂操作。
 
-* **原子事务：** Azure Cosmos DB 保证在单个存储过程或触发器内执行的数据库操作具有原子性。 此原子功能可让应用程序在单个批中合并相关操作，因此操作要么全部成功，要么全部失败。
+* **原子事务：** Azure Cosmos DB 在单个存储过程或触发器内执行的数据库操作是原子的。 此原子功能可让应用程序在单个批中合并相关操作，因此操作要么全部成功，要么全部失败。
 
 * **性能：** JSON 数据在本质上会映射到 JavaScript 语言类型系统。 这种映射可以实现多种优化，例如，在缓冲池中将 JSON 文档惰性具体化，并使其可按需供执行代码使用。 还有其他与传送业务逻辑到数据库相关的性能优势，包括：
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Co
 
 ### <a name="scope-of-a-transaction"></a>事务的范围
 
-存储过程将与 Azure Cosmos 容器关联，存储过程的执行范围限定于一个逻辑分区键。 存储过程必须在执行期间包括一个逻辑分区键值，用于定义事务范围的逻辑分区。 有关详细信息，请参阅 [Azure Cosmos DB 分区](partition-data.md)一文。
+存储过程将与 Azure Cosmos 容器关联，存储过程的执行范围限定于一个逻辑分区键。 存储过程必须在执行期间包括一个逻辑分区键值，用于定义事务范围的逻辑分区。 有关详细信息，请参阅 [Azure Cosmos DB 分区](partitioning-overview.md)一文。
 
 ### <a name="commit-and-rollback"></a>提交和回滚
 

@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366715"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282478"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>从 CouchBase 迁移到 Azure Cosmos DB SQL API
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 是一种可扩展、全球分布式、完全托管的数据库�
 
 * Azure Cosmos DB 在文档中有一个“ID”字段，而 Couchbase 将 ID 用作桶的一部分。 “ID”字段在整个分区中是唯一的。
 
-* Azure Cosmos DB 使用分区或分片技术进行缩放。 这意味着它会将数据拆分为多个分片/分区。 这些分区/分片是基于提供的分区键属性创建的。 可以选择分区键来优化读取以及写入操作，或者优化读/写操作。 若要了解详细信息，请参阅[分区](./partition-data.md)一文。
+* Azure Cosmos DB 使用分区或分片技术进行缩放。 这意味着它会将数据拆分为多个分片/分区。 这些分区/分片是基于提供的分区键属性创建的。 可以选择分区键来优化读取以及写入操作，或者优化读/写操作。 若要了解详细信息，请参阅[分区](./partitioning-overview.md)一文。
 
 * 在 Azure Cosmos DB 中，顶级层次结构无需表示集合，因为集合名称已存在。 此功能大幅简化了 JSON 结构。 以下示例展示了 Couchbase 与 Azure Cosmos DB 之间的数据模型差别：
 

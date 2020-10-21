@@ -1,20 +1,20 @@
 ---
 title: 适用于 Visual Studio Code 的 Azure Policy 扩展
 description: 了解如何使用适用于 Visual Studio Code 的 Azure Policy 扩展来查找 Azure 资源管理器别名。
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077926"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317613"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Azure Policy 扩展
 
-> 适用于 Azure Policy 扩展版本 **0.0.21** 和更高版本
+> 适用于 Azure 策略扩展版本 **0.1.0** 和更高版本
 
-了解如何使用适用于 Visual Studio Code 的 Azure Policy 扩展来查找[别名](../concepts/definition-structure.md#aliases)以及查看资源和策略。 首先，本文将介绍如何在 Visual Studio Code 中安装 Azure Policy 扩展。 接下来演练如何查找别名。
+了解如何使用适用于 Visual Studio Code 的 Azure 策略扩展查找 [别名](../concepts/definition-structure.md#aliases)，查看资源和策略，导出对象，以及评估策略定义。 首先，本文将介绍如何在 Visual Studio Code 中安装 Azure Policy 扩展。 接下来演练如何查找别名。
 
 可在 Visual Studio Code 支持的所有平台上安装适用于 Visual Studio Code 的 Azure Policy 扩展。 支持的平台包括 Windows、Linux 和 macOS。
 
@@ -151,6 +151,51 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
 1. 使用筛选器选择要显示的策略。 可对策略定义或策略分配的 _displayName_ 使用筛选器。
 
 选择策略或分配时（不管是通过搜索界面选择，还是在树视图中选择），Azure Policy 扩展将会打开表示该策略或分配及其所有资源管理器属性值的 JSON。 该扩展可以验证已打开的 Azure Policy JSON 架构。
+
+## <a name="export-objects"></a>导出对象
+
+你的订阅中的对象可以导出到本地 JSON 文件。 在 " **资源** 或 **策略** " 窗格中，将鼠标悬停在 "导出" 或 "选择可导出对象" 上方。 在突出显示的行的末尾，选择 "保存" 图标，然后选择一个文件夹来保存该资源 JSON。
+
+可以在本地导出下列对象：
+
+- 资源窗格
+  - 资源组
+  - 资源组或资源提供程序 (单个资源) 
+- 策略窗格
+  - 策略分配
+  - 内置策略定义
+  - 自定义策略定义
+  - 计划
+
+## <a name="on-demand-evaluation-scan"></a>按需评估扫描
+
+可以使用适用于 Visual Studio Code 的 Azure 策略扩展启动评估扫描。 若要开始评估，请选择并固定以下各对象：资源、策略定义和策略分配。
+
+1. 若要固定每个对象，请在 " **资源** " 窗格或 " **策略** " 窗格中找到该对象，然后选择 "固定到编辑" 选项卡图标。 固定对象会将其添加到扩展的 " **计算** " 窗格中。
+1. 在 " **评估** " 窗格中，选择每个对象之一，并使用 "选择评估" 图标将其标记为包括在评估中。
+1. 在 " **评估** " 窗格的顶部，选择 "运行评估" 图标。 Visual Studio Code 会打开一个新窗格，其中包含 JSON 格式的结果计算详细信息。
+
+> [!NOTE]
+> 如果所选策略定义是 [AuditIfNotExists](../concepts/effects.md#auditifnotexists) 或 [DeployIfNotExists](../concepts/effects.md#deployifnotexists)，则在 " **评估** " 窗格中使用加号图标来选择用于存在检查的 _相关_ 资源。
+
+评估结果提供有关策略定义和策略分配以及 **policyEvaluations. evaluationResult** 属性的信息。 输出与以下示例类似：
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="sign-out"></a>注销
 

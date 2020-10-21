@@ -3,12 +3,12 @@ title: 在本地服务器上发现应用、角色和功能，并提供 Azure Mig
 description: 了解如何通过 Azure Migrate Server 评估发现本地服务器上的应用、角色和功能。
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118641"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315200"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>发现计算机应用、角色和功能
 
@@ -46,7 +46,7 @@ ms.locfileid: "86118641"
 
 ## <a name="verify-permissions"></a>验证权限
 
-你 [创建了一个 vCenter Server 只读帐户](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) 用于发现和评估。 只读帐户需要为**虚拟机**  >  **来宾操作**启用特权，才能与 VM 交互以进行应用发现。
+你 [创建了一个 vCenter Server 只读帐户](./tutorial-discover-vmware.md#prepare-vmware) 用于发现和评估。 只读帐户需要为**虚拟机**  >  **来宾操作**启用特权，才能与 VM 交互以进行应用发现。
 
 ### <a name="add-the-user-account-to-the-appliance"></a>将用户帐户添加到设备
 
@@ -56,7 +56,7 @@ ms.locfileid: "86118641"
 2. 导航到 " **提供 vCenter 详细信息** " 面板。
 3. 在 "**发现 vm 上的应用程序和依赖项**" 中，单击 "**添加凭据**"
 3. 选择**操作系统**，提供帐户的友好名称和**用户名** / **密码**
-6. 单击“保存”。
+6. 单击“ **保存**”。
 7. 单击 " **保存并启动发现**"。
 
     ![添加 VM 用户帐户](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)

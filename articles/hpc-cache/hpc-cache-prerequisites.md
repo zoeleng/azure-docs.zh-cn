@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612976"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327393"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 缓存的先决条件
 
@@ -73,7 +73,7 @@ Azure HPC 缓存需要具有以下特性的专用子网：
 
 * 缓存实例需要能够创建 (Nic) 的虚拟网络接口。 创建缓存的用户必须在订阅中具有足够的权限才能创建 Nic。
 
-* 如果使用 Blob 存储，Azure HPC 缓存需要授权才能访问存储帐户。 使用基于角色的访问控制 (RBAC) 来授予缓存对 Blob 存储的访问权限。 需要两个角色：存储帐户参与者和存储 Blob 数据参与者。
+* 如果使用 Blob 存储，Azure HPC 缓存需要授权才能访问存储帐户。 使用 azure RBAC)  (Azure 基于角色的访问控制，以授予缓存对 Blob 存储的访问权限。 需要两个角色：存储帐户参与者和存储 Blob 数据参与者。
 
   按照 [添加存储目标](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 中的说明添加角色。
 

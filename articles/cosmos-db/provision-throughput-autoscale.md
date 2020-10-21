@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570738"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282093"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>创建具有自动缩放吞吐量的 Azure Cosmos 容器和数据库
 
@@ -85,6 +85,6 @@ Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或�
 * 查看[自动缩放常见问题解答](autoscale-faq.md)。
 * 了解如何[在手动与自动缩放吞吐量之间进行选择](how-to-choose-offer.md)。
 * 了解[如何对 Azure Cosmos 数据库或容器预配自动缩放吞吐量](how-to-provision-autoscale-throughput.md)。
-* 深入了解 Azure Cosmos DB 中的[分区](partition-data.md)。
+* 深入了解 Azure Cosmos DB 中的[分区](partitioning-overview.md)。
 
 

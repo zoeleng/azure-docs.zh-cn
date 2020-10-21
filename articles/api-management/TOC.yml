@@ -80,6 +80,8 @@
       href: self-hosted-gateway-overview.md
     - name: 可观察性
       href: observability.md
+    - name: 使用 ARM 模板的 CI/CD
+      href: devops-api-development-templates.md
 - name: 操作指南
   items:
     - name: 定义 API
@@ -184,7 +186,7 @@
           href: api-management-developer-portal-templates-reference.md
         - name: API
           href: api-management-api-templates.md
-        - name: 产品
+        - name: Products
           href: api-management-product-templates.md
         - name: 应用程序
           href: api-management-application-templates.md

@@ -3,12 +3,12 @@ title: 在 Azure Migrate 中添加评估工具
 description: 了解如何在 Azure Migrate 中添加评估工具。
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dee9ec2210bf6e04255b07cf641ced6807c8b5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86122109"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317367"
 ---
 # <a name="add-assessment-tools"></a>添加评估工具
 
@@ -60,4 +60,4 @@ ms.locfileid: "86122109"
 
 ## <a name="next-steps"></a>后续步骤
 
-尝试使用[VMware](tutorial-prepare-vmware.md) Vm、 [hyper-v](tutorial-prepare-hyper-v.md)或[物理服务器](tutorial-prepare-physical.md)Azure Migrate 服务器评估进行评估
+尝试使用[VMware](./tutorial-discover-vmware.md) Vm、 [hyper-v](./tutorial-discover-hyper-v.md)或[物理服务器](./tutorial-discover-physical.md)Azure Migrate 服务器评估进行评估

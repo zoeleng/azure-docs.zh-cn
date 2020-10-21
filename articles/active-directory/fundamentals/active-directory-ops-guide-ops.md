@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601295"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312611"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 常规操作指南参考
 
@@ -91,7 +91,7 @@ ms.locfileid: "90601295"
 #### <a name="on-premises-agents-logs-recommended-reading"></a>本地代理日志建议阅读
 
 - [应用程序代理故障排除](../manage-apps/application-proxy-troubleshoot.md)
-- [自助密码重置疑难解答 - Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [自助密码重置疑难解答 - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [了解 Azure AD 应用程序代理连接器](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect：对直通身份验证进行故障排除](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [排查 Azure MFA NPS 扩展的错误代码](../authentication/howto-mfa-nps-extension-errors.md)

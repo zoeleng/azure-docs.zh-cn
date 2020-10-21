@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88604811"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282041"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 
@@ -38,42 +38,50 @@ Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB、Cassandra、Gremlin �
 
 在估计你的工作负荷消耗的 RU 数量时，请考虑以下因素：
 
-* **项大小**：随着项的增大，读取或写入该项所要消耗的 RU 数也会增加。
+- **项大小**：随着项的增大，读取或写入该项所要消耗的 RU 数也会增加。
 
-* **项索引**：默认情况下会自动为每个项创建索引。 如果选择不为容器中的某些项创建索引，则消耗的 RU 数将会减少。
+- **项索引**：默认情况下会自动为每个项创建索引。 如果选择不为容器中的某些项创建索引，则消耗的 RU 数将会减少。
 
-* **项属性计数**：假设所有属性采用默认索引，写入某个项所要消耗的 RU 数会随着项属性计数的增加而增加。
+- **项属性计数**：假设所有属性采用默认索引，写入某个项所要消耗的 RU 数会随着项属性计数的增加而增加。
 
-* **带索引的属性**：每个容器的索引策略都可确定默认情况下要进行索引的属性类别。 若要减少写入操作的 RU 消耗，请限制带索引的属性数目。
+- **带索引的属性**：每个容器的索引策略都可确定默认情况下要进行索引的属性类别。 若要减少写入操作的 RU 消耗，请限制带索引的属性数目。
 
-* **数据一致性**：在执行读取操作时，非常一致性和有限过期一致性级别消耗的 RU 数大约比其他宽松一致性级别要多两倍。
+- **数据一致性**：在执行读取操作时，非常一致性和有限过期一致性级别消耗的 RU 数大约比其他宽松一致性级别要多两倍。
 
-* 读取的类型：点读取消耗的 RU 明显少于查询。
+- 读取的类型：点读取消耗的 RU 明显少于查询。
 
-* **查询模式**：查询的复杂性会影响操作使用的 RU 数。 影响查询操作成本的因素： 
-    
-    - 查询结果数
-    - 谓词数
-    - 谓词性质
-    - 用户定义的函数数目
-    - 源数据的大小
-    - 结果集的大小
-    - 投影数
+- **查询模式**：查询的复杂性会影响操作使用的 RU 数。 影响查询操作成本的因素： 
 
-  Azure Cosmos DB 保证针对相同数据重复执行的相同查询所消耗的 RU 数相同。
+  - 查询结果数
+  - 谓词数
+  - 谓词性质
+  - 用户定义的函数数目
+  - 源数据的大小
+  - 结果集的大小
+  - 投影数
 
-* **脚本的使用**：与查询一样，存储过程和触发器也是根据所执行的操作的复杂性来消耗 RU。 开发应用程序时，请检查[请求费用标头](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query)，以更好地了解每个操作消耗的 RU 容量。
+  对相同数据的相同查询在重复执行时将始终产生相同的 ru 数。
+
+- **脚本的使用**：与查询一样，存储过程和触发器也是根据所执行的操作的复杂性来消耗 RU。 开发应用程序时，请检查[请求费用标头](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query)，以更好地了解每个操作消耗的 RU 容量。
+
+## <a name="request-units-and-multiple-regions"></a>请求单位和多个区域
+
+如果针对 Cosmos 容器（或数据库）预配了 'R' 个 RU，则 Cosmos DB 可确保 'R' 个 RU 在与 Cosmos 帐户关联的每个区域中都可用。    无法有选择地将 RU 分配给特定区域。 针对 Cosmos 容器（或数据库）预配的 RU 是在与 Cosmos 帐户关联的所有区域中预配的。
+
+假设 Cosmos 容器配置了 *"R"* ru，并且存在与 Cosmos 帐户关联的 *"N"* 个区域，则容器中全局可用的总 ru 数 = *R* x *N*。
+
+所选的[一致性模型](consistency-levels.md)也会影响吞吐量。 与更强的一致性级别（例如，“有限过期”或“强”一致性）相比，更宽松的一致性级别（例如“会话”、“一致前缀”和“最终”一致性）可以获得约 2 倍的读取吞吐量。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解如何[对 Azure Cosmos 容器和数据库预配吞吐量](set-throughput.md)。
-* 详细了解 [Azure Cosmos DB 上的无服务器](serverless.md)。
-* 详细了解[逻辑分区](partition-data.md)。
-* 详细了解如何[全局缩放预配的吞吐量](scaling-throughput.md)。
-* 了解[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
-* 了解[如何对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)。
-* 了解如何[查找操作所产生的请求单位费用](find-request-unit-charge.md)。
-* 了解如何[在 Azure Cosmos DB 中优化预配的吞吐量成本](optimize-cost-throughput.md)。
-* 了解如何[优化 Azure Cosmos DB 中的读取和写入成本](optimize-cost-reads-writes.md)。
-* 了解如何[优化 Azure Cosmos DB 中的查询成本](optimize-cost-queries.md)。
-* 了解如何[使用指标监视吞吐量](use-metrics.md)。
+- 详细了解如何[对 Azure Cosmos 容器和数据库预配吞吐量](set-throughput.md)。
+- 详细了解 [Azure Cosmos DB 上的无服务器](serverless.md)。
+- 详细了解[逻辑分区](partition-data.md)。
+- 详细了解如何[全局缩放预配的吞吐量](scaling-throughput.md)。
+- 了解[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
+- 了解[如何对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)。
+- 了解如何[查找操作所产生的请求单位费用](find-request-unit-charge.md)。
+- 了解如何[在 Azure Cosmos DB 中优化预配的吞吐量成本](optimize-cost-throughput.md)。
+- 了解如何[优化 Azure Cosmos DB 中的读取和写入成本](optimize-cost-reads-writes.md)。
+- 了解如何[优化 Azure Cosmos DB 中的查询成本](optimize-cost-queries.md)。
+- 了解如何[使用指标监视吞吐量](use-metrics.md)。
