@@ -4,12 +4,12 @@ description: 如何在服务清单中描述终结点资源，包括如何设置 
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017584"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313571"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服务清单中指定资源
 ## <a name="overview"></a>概述
@@ -158,7 +158,7 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
 
 对于 Linux 群集，**MY** 存储默认为文件夹 **/var/lib/sfcerts**。
 
-有关使用 HTTPS 终结点的完整应用程序的示例，请参阅 [使用 Kestrel 将 https 终结点添加到 ASP.NET Core WEB API 前端服务](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest)。
+有关使用 HTTPS 终结点的完整应用程序的示例，请参阅 [使用 Kestrel 将 https 终结点添加到 ASP.NET Core WEB API 前端服务](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest)。
 
 ## <a name="port-acling-for-http-endpoints"></a>HTTP 终结点的端口 ACL 操作
 Service Fabric 将对默认指定的 HTTP(S) 终结点自动执行 ACL。 如果终结点没有关联的[SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) ，且 Service Fabric 配置为使用具有管理员权限的帐户运行，则**不**会执行自动 acl。

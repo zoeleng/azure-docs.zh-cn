@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151839"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320237"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>使用 Azure Data Studio 管理启用了 Azure Arc 的 PostgreSQL 超大规模服务器组
 
@@ -25,10 +25,10 @@ ms.locfileid: "92151839"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - [安装 azdata、Azure Data Studio 和 Azure CLI](install-client-tools.md)
-- 在 **Azure 数据 CLI** 和 **Azure Arc** 和 **PostgreSQL** 扩展中安装 Azure Data Studio
+- 在中安装 Azure Data Studio **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** 和 **Azure Arc** 和 **PostgreSQL** 扩展
 - 创建 [Azure Arc 数据控制器](create-data-controller-using-azdata.md)
 - 启动 Azure Data Studio
 

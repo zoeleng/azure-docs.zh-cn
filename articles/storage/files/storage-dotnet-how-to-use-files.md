@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfc347e1b514f9f59e2f238d2b1bfbaf59f2172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710696"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319797"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 
@@ -160,7 +160,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-如果尚不存在，则以下方法将创建文件共享。 方法首先从连接字符串创建 [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) 对象。 然后，该示例会尝试下载我们先前创建的文件。 从调用此方法 `Main()` 。
+如果文件共享尚不存在，则以下方法将创建该文件共享。 方法首先从连接字符串创建 [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) 对象。 然后，该示例会尝试下载我们先前创建的文件。 从调用此方法 `Main()` 。
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 

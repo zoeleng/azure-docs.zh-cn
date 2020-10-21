@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657d3f84a1dd196733ed23dd3b68db92e4b35e25
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570685"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279470"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 
@@ -517,5 +517,5 @@ while conflict:
 - [配置多宿主客户端](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [在 Azure Cosmos DB 帐户中添加或删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [如何 configuremulti 在应用程序中进行区域写入](how-to-multi-master.md)。
-- [分区和数据分布](partition-data.md)
+- [分区和数据分布](partitioning-overview.md)
 - [Azure Cosmos DB 中的索引](indexing-policies.md)

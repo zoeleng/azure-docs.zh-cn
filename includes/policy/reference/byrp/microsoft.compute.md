@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 5366e101e96e01e03fe843d0d7141735eabe4db3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e84c5c9f0f27589bf8f86de0922c138227124cd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859498"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92321927"
 ---
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -20,7 +20,7 @@ ms.locfileid: "91859498"
 |[应在面向 Internet 的虚拟机上应用自适应网络强化建议](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure 安全中心会分析面向虚拟机的 Internet 的流量模式，并提供可减小潜在攻击面的网络安全组规则建议 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 |[添加系统分配的托管标识，在没有标识的虚拟机上启用来宾配置分配](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |此策略将系统分配的托管标识添加到托管在 Azure 中的虚拟机，这些虚拟机受来宾配置支持，但没有任何托管标识。 系统分配的托管标识是所有来宾配置分配的先决条件，在使用任何来宾配置策略定义之前必须被添加到计算机。 有关来宾配置的详细信息，请访问 [https://aka.ms/gcpol](https://aka.ms/gcpol)。 |modify |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
 |[添加系统分配的托管标识，以在具有用户分配的标识的 VM 上启用来宾配置分配](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |此策略将系统分配的托管标识添加到托管在 Azure 中的虚拟机，这些虚拟机受来宾配置支持、至少有一个用户分配的标识，但没有系统分配的托管标识。 系统分配的托管标识是所有来宾配置分配的先决条件，在使用任何来宾配置策略定义之前必须被添加到计算机。 有关来宾配置的详细信息，请访问 [https://aka.ms/gcpol](https://aka.ms/gcpol)。 |modify |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
-|[所有网络端口应在与虚拟机关联的网络安全组上受到限制](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9daedab3-fb2d-461e-b861-71790eead4f6) |Azure 安全中心已识别出某些网络安全组的入站规则。 入站规则不应允许从“任何”或“Internet”范围进行访问。 这可能会使攻击者能够以资源为目标。 |AuditIfNotExists、Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnprotectedEndpoints_Audit.json) |
+|[应在与虚拟机关联的网络安全组上限制所有网络端口](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9daedab3-fb2d-461e-b861-71790eead4f6) |Azure 安全中心已识别到网络安全组的某些入站规则过于宽松。 入站规则不应允许从“任何”或“Internet”范围进行访问。 这有可能使得攻击者能够将你的资源定为攻击目标。 |AuditIfNotExists、Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnprotectedEndpoints_Audit.json) |
 |[允许的虚拟机大小 SKU](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcccc23c7-8427-4f53-ad12-b6a63eb452b3) |此策略可便于指定组织可部署的一组虚拟机大小 SKU。 |拒绝 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json) |
 |[应更新自适应应用程序控制策略中的允许列表规则](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F123a3936-f020-408a-ba0c-47873faf1534) |监视配置为供 Azure 安全中心的自适应应用程序控制进行审核的计算机组是否有行为变化。 安全中心使用机器学习来分析计算机上的运行过程，并建议已知安全应用程序的列表。 这些应用程序作为推荐的应用显示，在自适应应用程序控制策略中允许使用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControlsUpdate_Audit.json) |
 |[审核 Dependency Agent 部署 - VM 映像 (OS) 未列出](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F11ac78e3-31bc-4f0c-8434-37ab963cea07) |如果 VM 映像 (OS) 不在定义的列表中且未安装代理，则报告 VM 不合规。 OS 映像列表将随着支持的更新而不断更新。 |auditIfNotExists |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgent_OSImage_Audit.json) |

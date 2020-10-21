@@ -3,12 +3,12 @@ title: 为 VMware 设置 Azure Migrate 设备
 description: 了解如何设置 Azure Migrate 设备来评估和迁移 VMware Vm。
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448644"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318217"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>为 VMware Vm 设置设备
 
@@ -58,7 +58,7 @@ ms.locfileid: "91448644"
 2. 运行以下命令，生成 .OVA 的哈希：
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 用法示例：```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
-3. 对于最新的设备版本，生成的哈希应与这些 [设置](./tutorial-assess-vmware.md#verify-security)相符。
+3. 对于最新的设备版本，生成的哈希应与这些 [设置](./tutorial-discover-vmware.md#verify-security)相符。
 
 
 
@@ -117,7 +117,7 @@ ms.locfileid: "91448644"
    
    不支持使用 PIN 登录。
 3. 成功登录后，返回到 Web 应用。 
-4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](tutorial-prepare-vmware.md#prepare-azure)，会启动设备注册。
+4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](./tutorial-discover-vmware.md#prepare-an-azure-user-account)，会启动设备注册。
 1. 成功注册设备后，可以通过单击“查看详细信息”来查看注册详细信息。
 
 
@@ -126,7 +126,7 @@ ms.locfileid: "91448644"
 设备需连接 vCenter Server，以发现 VM 的配置和性能数据。
 
 1. 在**步骤 1：提供 vCenter Server 凭据**中，单击“添加凭据”以指定凭据的易记名称，为设备将用于在 vCenter Server 实例上发现 VM 的 vCenter Server 帐户添加“用户名”和“密码”  。
-    - 你应该已在[上一教程](tutorial-prepare-vmware.md#set-up-permissions-for-assessment)中设置具有所需权限的帐户。
+    - 你应该已在[上一教程](./tutorial-discover-vmware.md#create-an-account-to-access-vcenter)中设置具有所需权限的帐户。
     - 如果要将发现范围限定于特定的 VMware 对象（vCenter Server 数据中心、群集、群集文件夹、主机、主机文件夹或单个 VM），请参阅[此文](set-discovery-scope.md)中的说明，以限制 Azure Migrate 所使用的帐户。
 1. 在**步骤 2：提供 vCenter Server 详细信息**中，单击“添加发现源”，从下拉列表中选择凭据的易记名称，指定 vCenter Server 实例的 IP 地址/FQDN 。 可以保留“端口”的默认值 443，或指定 vCenter Server 侦听的自定义端口，然后单击“保存” 。
 1. 单击“保存”后，设备将尝试通过提供的凭据验证与 vCenter Server 的连接，并根据 vCenter Server IP 地址/FQDN 在表中显示验证状态。
@@ -145,4 +145,4 @@ ms.locfileid: "91448644"
 
 ## <a name="next-steps"></a>后续步骤
 
-查看 [VMware 评估](tutorial-assess-vmware.md) 和 [无代理迁移](tutorial-migrate-vmware.md)教程。
+查看 [VMware 评估](./tutorial-assess-vmware-azure-vm.md) 和 [无代理迁移](tutorial-migrate-vmware.md)教程。

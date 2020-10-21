@@ -3,12 +3,12 @@ title: 为 Hyper-v 设置 Azure Migrate 设备
 description: 了解如何设置 Azure Migrate 设备来评估和迁移 Hyper-v Vm。
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a12785ea3791366badb907498796a73c2c993623
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448090"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314166"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>为 Hyper-v Vm 设置设备
 
@@ -118,7 +118,7 @@ ms.locfileid: "91448090"
    
    不支持使用 PIN 登录。
 3. 成功登录后，返回到 Web 应用。 
-4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](tutorial-prepare-hyper-v.md#prepare-azure)，会启动设备注册。
+4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account)，会启动设备注册。
 1. 成功注册设备后，可以通过单击“查看详细信息”来查看注册详细信息。
 
 

@@ -3,12 +3,12 @@ title: Azure 事件中心的网络安全
 description: 本文介绍如何配置专用终结点的访问权限
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02a3a3436c354f7a9c817298d0ce887e33d8016a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767790"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318483"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Azure 事件中心的网络安全 
 本文介绍如何在 Azure 事件中心中使用以下安全功能： 
@@ -22,9 +22,9 @@ ms.locfileid: "91767790"
 ## <a name="service-tags"></a>服务标记
 服务标记代表给定 Azure 服务中的一组 IP 地址前缀。 Microsoft 会管理服务标记包含的地址前缀，并在地址更改时自动更新服务标记，从而尽量减少频繁更新网络安全规则所需的复杂操作。 有关服务标记的详细信息，请参阅[服务标记概述](../virtual-network/service-tags-overview.md)。
 
-可以在[网络安全组](../virtual-network/security-overview.md#security-rules) 或  [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 通过在规则的相应 "*源*" 或 "目标" 字段中指定服务标记名称 (例如， **EventHub**)    *destination*   ，可以允许或拒绝相应服务的流量。
+可以在[网络安全组](../virtual-network/network-security-groups-overview.md#security-rules) 或  [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 通过在规则的相应 "*源*" 或 "目标" 字段中指定服务标记名称 (例如， **EventHub**)    *destination*   ，可以允许或拒绝相应服务的流量。
 
-| 服务标记 | 目的 | 可以使用入站还是出站连接？ | 可以支持区域范围？ | 是否可在 Azure 防火墙中使用？ |
+| 服务标记 | 目的 | 可以使用入站还是出站连接？ | 可以支持区域范围？ | 是否可与 Azure 防火墙一起使用？ |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **EventHub** | Azure 事件中心。 | 出站 | 是 | 是 |
 

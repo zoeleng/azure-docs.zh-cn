@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 188c30a79074b819c5785cf5560f5843a3fcf6b4
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131609"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320479"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>访问控制列表 (中) 的 Acl Azure Data Lake Storage Gen2
 
@@ -254,7 +254,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## <a name="faq"></a>常见问题解答
+## <a name="faq"></a>常见问题
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>是否必须启用 ACL 的支持？
 
@@ -326,6 +326,11 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 获取服务主体的正确 OID 后，转到存储资源管理器的“管理访问权限”页，以添加该 OID 并为其分配适当的的权限。 请务必选择“保存”。
 
+### <a name="can-i-set-the-acl-of-a-container"></a>是否可以设置容器的 ACL？
+
+不是。 容器没有 ACL。 但是，你可以设置容器的根目录的 ACL。 每个容器都有一个根目录，并与容器同名。 例如，如果容器名为 `my-container` ，则根目录名为 `myContainer/` 。 
+
+Azure 存储 REST API 包含一个名为 " [设置容器 ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)" 的操作，但该操作不能用于设置容器的 ACL 或容器的根目录。 相反，该操作用于指示是否 [可以公开访问](anonymous-read-access-configure.md)容器中的 blob。 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>在哪里可以了解 POSIX 访问控制模型的详细信息？
 

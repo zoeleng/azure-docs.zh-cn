@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296084"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315840"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>逻辑应用的 Azure 安全基线
 
@@ -24,7 +24,7 @@ ms.locfileid: "89296084"
 
 ## <a name="network-security"></a>网络安全性
 
-[有关详细信息，请参阅 *Azure 安全基线：* 网络安全](/azure/security/benchmarks/security-control-network-security)。
+[有关详细信息，请参阅 *Azure 安全基线：* 网络安全](../security/benchmarks/security-control-network-security.md)。
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1：保护虚拟网络中的 Azure 资源
 
@@ -102,7 +102,7 @@ ms.locfileid: "89296084"
 
 - [如何部署 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [了解 Azure 安全中心集成的威胁情报](/azure/security-center/security-center-alerts-service-layer)
+- [了解 Azure 安全中心集成的威胁情报](../security-center/azure-defender.md)
 
 - [了解 Azure 安全中心自适应网络强化](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -200,13 +200,13 @@ ms.locfileid: "89296084"
 
 可以使用 Azure PowerShell 或 Azure CLI 根据资源的标记查找资源或对其执行操作。
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 - [如何创建虚拟网络](../virtual-network/quick-create-portal.md)
 
 - [如何创建采用安全配置的 NSG](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [逻辑应用的 Azure Policy 定义列表](/azure/logic-apps/policy-samples)
+- [逻辑应用的 Azure Policy 定义列表](./policy-reference.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -216,7 +216,7 @@ ms.locfileid: "89296084"
 
 **指导**：使用 Azure 活动日志监视网络资源配置，并检测与 Azure 逻辑应用实例相关的网络资源的更改。 在 Azure Monitor 中创建当关键网络资源发生更改时触发的警报。
 
-- [如何查看和检索 Azure 活动日志事件](/azure/azure-monitor/platform/activity-log-view)
+- [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [如何在 Azure Monitor 中创建警报](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -226,7 +226,7 @@ ms.locfileid: "89296084"
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-[有关详细信息，请参阅 *Azure 安全基线：* 日志记录和监视](/azure/security/benchmarks/security-control-logging-monitoring)。
+[有关详细信息，请参阅 *Azure 安全基线：* 日志记录和监视](../security/benchmarks/security-control-logging-monitoring.md)。
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1：使用批准的时间同步源
 
@@ -242,7 +242,7 @@ ms.locfileid: "89296084"
 
 或者，可以启用将数据加入 Azure Sentinel 或第三方 SIEM 的功能。 
 
-- [如何启用 Azure 活动日志的诊断设置](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
 - [如何为 Azure 逻辑应用设置 Azure Monitor 日志并收集诊断数据](monitor-logic-apps-log-analytics.md)
 
@@ -258,7 +258,7 @@ ms.locfileid: "89296084"
 
 或者，可以启用将数据加入 Azure Sentinel 或第三方 SIEM 的功能。 
 
-- [如何启用 Azure 活动日志的诊断设置](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
 - [如何为 Azure 逻辑应用设置 Azure Monitor 日志并收集诊断数据](monitor-logic-apps-log-analytics.md)
 
@@ -300,9 +300,9 @@ ms.locfileid: "89296084"
 
 - [如何为 Azure 逻辑应用设置 Azure Monitor 日志并收集诊断数据](monitor-logic-apps-log-analytics.md)
 
-- [如何启用 Azure 活动日志的诊断设置](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
-- [如何在 Azure Monitor 中的 Log Analytics 中收集和分析 Azure 活动日志](/azure/azure-monitor/platform/activity-log-collect)
+- [如何在 Azure Monitor 中的 Log Analytics 中收集和分析 Azure 活动日志](../azure-monitor/platform/activity-log.md)
 
 - [如何加入 Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -352,7 +352,7 @@ ms.locfileid: "89296084"
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-[有关详细信息，请参阅 *Azure 安全基线：* 标识和访问控制](/azure/security/benchmarks/security-control-identity-access-control)。
+[有关详细信息，请参阅 *Azure 安全基线：* 标识和访问控制](../security/benchmarks/security-control-identity-access-control.md)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -362,11 +362,11 @@ ms.locfileid: "89296084"
 
 逻辑应用的每个请求终结点在终结点的 URL 中都有一个共享访问签名 (SAS)。 如果与其他各方共享基于请求的触发器的终结点 URL，可以生成使用特定密钥并具有过期日期的回调 URL。 这样，就可以无缝滚动更新密钥，或者根据特定的时间跨度将触发逻辑应用的访问限制。
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 - [在 Azure 逻辑应用中使用托管标识验证对 Azure 资源的访问权限](create-managed-service-identity.md)
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [如何使用 SAS 在 Azure 逻辑应用中保护访问权限和数据](logic-apps-securing-a-logic-app.md#sas)
 
@@ -460,7 +460,7 @@ ms.locfileid: "89296084"
 
 - [如何部署 Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [了解 Azure AD 风险检测](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [了解 Azure AD 风险检测](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -508,7 +508,7 @@ Azure 逻辑应用支持系统分配的和用户分配的托管标识。 逻辑�
 
 **指导**：Azure Active Directory (AD) 提供日志来帮助发现过时的帐户。 此外，请使用 Azure 标识访问评审来有效管理组成员身份、对企业应用程序的访问和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。 
 
-- [了解 Azure AD 报告](/azure/active-directory/reports-monitoring/)
+- [了解 Azure AD 报告](../active-directory/reports-monitoring/index.yml)
 
 - [如何使用 Azure 标识访问评审](../active-directory/governance/access-reviews-overview.md)
 
@@ -524,7 +524,7 @@ Azure 逻辑应用支持系统分配的和用户分配的托管标识。 逻辑�
 
 可以通过为 Azure AD 用户帐户创建诊断设置，并将审核日志和登录日志发送到 Log Analytics 工作区，来简化此过程。 可以在 Log Analytics 中配置所需的日志警报。
 
-- [如何将 Azure 活动日志集成到 Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [如何将 Azure 活动日志集成到 Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [如何加入 Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -536,7 +536,7 @@ Azure 逻辑应用支持系统分配的和用户分配的托管标识。 逻辑�
 
 **指南**：可使用 Azure AD 风险和标识保护功能来配置对检测到的与用户标识相关的可疑操作的自动响应。 还可以将数据引入 Azure Sentinel 中以便进一步调查。 
 
-- [如何查看 Azure AD 风险登录](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [如何查看 Azure AD 风险登录](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [如何配置和启用标识保护风险策略](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -558,13 +558,13 @@ Azure 逻辑应用支持系统分配的和用户分配的托管标识。 逻辑�
 
 ## <a name="data-protection"></a>数据保护
 
-[有关详细信息，请参阅 *Azure 安全基线：* 数据保护](/azure/security/benchmarks/security-control-data-protection)。
+[有关详细信息，请参阅 *Azure 安全基线：* 数据保护](../security/benchmarks/security-control-data-protection.md)。
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
 **指导**：使用标记可以帮助跟踪存储或处理敏感信息的 Azure 资源。
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -584,11 +584,11 @@ Azure 逻辑应用支持系统分配的和用户分配的托管标识。 逻辑�
 
 - [使用集成服务环境 (ISE) 从 Azure 逻辑应用访问 Azure 虚拟网络资源](connect-virtual-network-vnet-isolated-environment-overview.md)
 
-- [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription) 
+- [如何创建其他 Azure 订阅](../cost-management-billing/manage/create-subscription.md) 
 
-- [如何创建管理组](/azure/governance/management-groups/create) 
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md) 
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -693,7 +693,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="vulnerability-management"></a>漏洞管理
 
-[有关详细信息，请参阅 *Azure 安全基线：* 漏洞管理](/azure/security/benchmarks/security-control-vulnerability-management)。
+[有关详细信息，请参阅 *Azure 安全基线：* 漏洞管理](../security/benchmarks/security-control-vulnerability-management.md)。
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1：运行自动漏洞扫描工具
 
@@ -737,7 +737,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="inventory-and-asset-management"></a>库存和资产管理
 
-[有关详细信息，请参阅 *Azure 安全基线：* 清单和资产管理](/azure/security/benchmarks/security-control-inventory-asset-management)。
+[有关详细信息，请参阅 *Azure 安全基线：* 清单和资产管理](../security/benchmarks/security-control-inventory-asset-management.md)。
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1：使用自动化资产发现解决方案
 
@@ -747,7 +747,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [如何使用 Azure Resource Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
-- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [如何查看 Azure 订阅](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [了解 Azure RBAC](../role-based-access-control/overview.md)
 
@@ -759,7 +759,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 **指导**：将标记应用到 Azure资源，以便有条理地将元数据组织成某种分类。
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -774,11 +774,11 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 - 不允许的资源类型
 - 允许的资源类型
 
-- [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
+- [如何创建其他 Azure 订阅](../cost-management-billing/manage/create-subscription.md)
 
-- [如何创建管理组](/azure/governance/management-groups/create)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -847,7 +847,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [如何使用 Azure Policy 拒绝特定的资源类型](/azure/governance/policy/samples/not-allowed-resource-types)
+- [如何使用 Azure Policy 拒绝特定的资源类型](../governance/policy/samples/index.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -889,7 +889,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [如何创建采用安全配置的 NSG](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [如何创建管理组](/azure/governance/management-groups/create) 
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md) 
 
 - [如何通过 RBAC 保护对逻辑应用的访问](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
@@ -899,7 +899,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="secure-configuration"></a>安全配置
 
-[有关详细信息，请参阅 *Azure 安全基线：* 安全配置](/azure/security/benchmarks/security-control-secure-configuration)。
+[有关详细信息，请参阅 *Azure 安全基线：* 安全配置](../security/benchmarks/security-control-secure-configuration.md)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -909,7 +909,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 另请使用受保护的参数来保护敏感数据和机密。
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [如何查看可用的 Azure Policy 别名](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -979,9 +979,9 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 此外，Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，应该对该模板进行检查，以确保配置满足/高于组织的安全要求。
 
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [如何在 Azure DevOps 中存储代码](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 文档](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 文档](/azure/devops/repos/index?view=azure-devops)
 
 - [在 Azure 门户中将单资源和多资源导出到模板](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1092,7 +1092,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="malware-defense"></a>恶意软件防护
 
-[有关详细信息，请参阅 *Azure 安全基线：* 恶意软件防护](/azure/security/benchmarks/security-control-malware-defense)。
+[有关详细信息，请参阅 *Azure 安全基线：* 恶意软件防护](../security/benchmarks/security-control-malware-defense.md)。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
@@ -1112,7 +1112,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [了解适用于 Azure 云服务和虚拟机的 Microsoft 反恶意软件](../security/fundamentals/antimalware.md)
 
-- [了解 Azure 安全中心的数据服务威胁检测](/azure/security-center/security-center-alerts-data-services)
+- [了解 Azure 安全中心的数据服务威胁检测](../security-center/azure-defender.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -1128,7 +1128,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="data-recovery"></a>数据恢复
 
-[有关详细信息，请参阅 *Azure 安全基线：* 数据恢复](/azure/security/benchmarks/security-control-data-recovery)。
+[有关详细信息，请参阅 *Azure 安全基线：* 数据恢复](../security/benchmarks/security-control-data-recovery.md)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
@@ -1178,7 +1178,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [设置客户管理的密钥，以便在 Azure 逻辑应用中 (ISEs) 为 integration service 环境加密静态数据](customer-managed-keys-integration-service-environment.md)
 
-- [如何在 Azure 中还原密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [如何在 Azure 中还原密钥保管库密钥](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure 安全中心监视**：不适用
 
@@ -1196,7 +1196,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [设置客户管理的密钥，以便在 Azure 逻辑应用中 (ISEs) 为 integration service 环境加密静态数据](customer-managed-keys-integration-service-environment.md)
 
-- [如何在密钥保管库中启用软删除和清除保护](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [如何在密钥保管库中启用软删除和清除保护](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure 安全中心监视**：是
 
@@ -1204,7 +1204,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="incident-response"></a>事件响应
 
-[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](/azure/security/benchmarks/security-control-incident-response)。
+[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](../security/benchmarks/security-control-incident-response.md)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
@@ -1228,7 +1228,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md)
 
-- [使用标记整理 Azure 资源](/azure/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -1278,7 +1278,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-[有关详细信息，请参阅 *Azure 安全基线：* 渗透测试和红队演练](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+[有关详细信息，请参阅 *Azure 安全基线：* 渗透测试和红队演练](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1：定期对 Azure 资源执行渗透测试，确保修正所有发现的关键安全问题
 
@@ -1294,5 +1294,5 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 安全基准](/azure/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](/azure/security/benchmarks/security-baselines-overview)
+- 请参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)

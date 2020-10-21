@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbe32125d957bb1fd53e7cb5a39ae9f745cef4a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533542"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317019"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中为 Azure AD 角色配置安全警报
 
@@ -108,8 +108,8 @@ ms.locfileid: "91533542"
 | **如何修复？** | 查看列表中的用户，删除不是绝对需要“全局管理员”角色的所有用户。 </br>改为这些用户分配特权更低的角色。 |
 | **防护** | 为用户分配他们所需的最低特权角色。 |
 | **门户中的缓解措施** | 从用户的特权角色中删除其帐户。 |
-| **触发器** | 如果满足两个不同的条件并且可以同时配置这两个条件，将触发此警报。 首先，需要达到特定阈值的全局管理员角色分配。 其次，总角色分配的特定百分比必须是全局管理员。 如果只满足其中一个度量，不会显示该警报。 |
-| **全局管理员的最少数目** | 此设置指定你认为对于你的 Azure AD 组织而言太少的全局管理员角色分配数（从2到100）。 |
+| **触发器** | 如果满足两个不同的条件并且可以同时配置这两个条件，将触发此警报。 首先，需要达到全局管理员角色分配的某个特定阈值。 其次，总角色分配的特定百分比必须是全局管理员。 如果只满足其中一个度量，不会显示该警报。 |
+| **全局管理员的最少数目** | 此设置指定的全局管理员角色分配数量（2 到 100）你认为对你的 Azure AD 组织来说太少。 |
 | **全局管理员百分比** | 此设置指定属于全局管理员的管理员的最小百分比（0% 到 100%），你不希望你的 Azure AD 组织降到该值之下。 |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>角色激活过于频繁
@@ -127,7 +127,7 @@ ms.locfileid: "91533542"
 
 ## <a name="customize-security-alert-settings"></a>自定义安全警报设置
 
-在 " **警报** " 页上，选择 " **设置**"。
+在“警报”页上选择“设置” 。
 
 ![突出显示了“设置”的“警报”页](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
@@ -137,7 +137,7 @@ ms.locfileid: "91533542"
 
 # <a name="previous-version"></a>[先前版本](#tab/previous)
 
-![Azure AD 角色-警报窗格列出警报和严重性](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![列出警报和严重性的“Azure AD 角色 - 警报”窗格](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alert-details"></a>安全警报详细信息
 
@@ -186,7 +186,7 @@ ms.locfileid: "91533542"
 | **如何修复？** | 请检查列表中的帐户。 如果它们不再需要访问权限，请将其从特权角色中删除。 |
 | **防护** | 确保当知道密码的用户有变化时，共享的帐户会轮换使用强密码。 </br>使用[访问评审](pim-how-to-start-security-review.md)定期审查具有特权角色的帐户，并删除不再需要的角色分配。 |
 | **门户中的缓解措施** | 从用户的特权角色中删除其帐户。 |
-| **最佳实践** | 使用密码进行身份验证并分配给高特权管理角色（如全局管理员或安全管理员）的共享帐户、服务帐户和紧急访问帐户应针对以下情况轮换其密码：<ul><li>发生涉及误用或泄露管理访问权限的安全事件后</li><li>任何用户的权限被更改而导致他们不再是管理员之后（例如，一名曾是管理员的员工离开了 IT 或组织）</li><li>固定时间间隔（例如，每季度或每年），即使没有任何已知的安全漏洞或 IT 人员变动</li></ul>由于多个用户有权限访问这些帐户的凭据，因此应轮换这些凭据以确保已失去其角色的人员无法再访问帐户。 [了解详细信息](https://aka.ms/breakglass) |
+| **最佳实践** | 使用密码进行身份验证并分配给高特权管理角色（如全局管理员或安全管理员）的共享帐户、服务帐户和紧急访问帐户应针对以下情况轮换其密码：<ul><li>发生涉及误用或泄露管理访问权限的安全事件后</li><li>任何用户的权限被更改而导致他们不再是管理员之后（例如，一名曾是管理员的员工离开了 IT 或组织）</li><li>固定时间间隔（例如，每季度或每年），即使没有任何已知的安全漏洞或 IT 人员变动</li></ul>由于多个用户有权限访问这些帐户的凭据，因此应轮换这些凭据以确保已失去其角色的人员无法再访问帐户。 [了解详细信息](../users-groups-roles/directory-admin-roles-secure.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>在 Privileged Identity Management 之外分配角色
 

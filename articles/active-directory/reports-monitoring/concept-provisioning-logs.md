@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056151"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319728"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>在 Azure Active Directory 门户中预配报表 (预览版) 
 
@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 可以通过在[Azure 门户](https://portal.azure.com)中**Azure Active Directory**边栏选项卡的 "**监视**" 部分选择 "**设置日志**" 来访问设置日志。 某些预配记录可能需要长达两个小时才能在门户中显示。
 
-![设置日志](./media/concept-provisioning-logs/access-provisioning-logs.png "“预配”日志")
+![“预配”日志](./media/concept-provisioning-logs/access-provisioning-logs.png "“预配”日志")
 
 
 设置日志有一个默认列表视图，其中显示：
@@ -119,7 +119,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 使用“状态”**** 筛选器，可以选择：
 
-- All
+- 全部
 - Success
 - 失败
 - 已跳过
@@ -173,10 +173,10 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 - 修改的属性
 
-- 摘要
+- 总结
 
 
-![预配详细信息](./media/concept-provisioning-logs/provisioning-tabs.png "制表符")
+![预配详细信息](./media/concept-provisioning-logs/provisioning-tabs.png "选项卡")
 
 
 
@@ -205,7 +205,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 **修改后的属性**显示旧值和新值。 在没有旧值的情况下，"旧值" 列为空白。 
 
 
-### <a name="summary"></a>摘要
+### <a name="summary"></a>总结
 
 " **摘要** " 选项卡概述源系统和目标系统中的对象发生了什么情况和标识符。 
 
@@ -215,7 +215,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 - 您可以使用 "更改 ID" 属性作为唯一标识符。 例如，当与产品支持交互时，这很有用。
 
-- 当前没有可用于下载 CSV 文件的预配数据的选项，但你可以使用 [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http)来导出数据。
+- 当前没有可用于下载 CSV 文件的预配数据的选项，但你可以使用 [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta)来导出数据。
 
 - 对于不在作用域内的用户，可能会看到跳过的事件。 这是预期情况，特别是在同步作用域设置为 "所有用户和组" 时。 我们的服务将评估租户中的所有对象，即使是超出范围的对象。 
 
@@ -245,10 +245,10 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 |DuplicateSourceEntries | 操作无法完成，因为找到多个具有配置的匹配属性的用户。 请删除重复的用户，或重新配置属性映射，如 [此处](../app-provisioning/customize-application-attributes.md)所述。|
 |ImportSkipped | 评估每个用户时，我们会尝试从源系统导入用户。 如果导入的用户缺少属性映射中定义的匹配属性，则通常会出现此错误。 如果在匹配属性的用户对象上不存在值，则无法计算范围、匹配或导出更改。 请注意，存在此错误并不表示用户处于范围内，因为我们尚未评估用户的范围。|
 |EntrySynchronizationSkipped | 预配服务已成功查询源系统并确定了用户。 用户未采取进一步的操作，已跳过这些操作。 此跳过可能是由于用户超出了作用域，或者用户在目标系统中已存在，无需进行进一步的更改。|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| 执行 GET 请求以检索用户或组时，会在响应中收到多个用户或组。 只应在响应中接收一个用户或组。 [例如](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)，如果我们执行 GET 请求来检索组，并提供筛选器以排除成员，并且你的 SCIM 终结点返回成员，则会引发此错误。|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| 执行 GET 请求以检索用户或组时，会在响应中收到多个用户或组。 只应在响应中接收一个用户或组。 [例如](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group)，如果我们执行 GET 请求来检索组，并提供筛选器以排除成员，并且你的 SCIM 终结点返回成员，则会引发此错误。|
 
 ## <a name="next-steps"></a>后续步骤
 
 * [检查用户设置的状态](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [为 Azure AD 库应用程序配置用户预配时遇到的问题](../app-provisioning/application-provisioning-config-problem.md)
-* [预配日志图形 API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [预配日志图形 API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

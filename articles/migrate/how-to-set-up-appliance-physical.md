@@ -4,12 +4,12 @@ description: 了解如何设置 Azure Migrate 设备进行物理服务器评估�
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e9d79d16e805eeaf770327a56a4247067c78a35
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448068"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314152"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>为物理服务器设置设备
 
@@ -122,7 +122,7 @@ Azure Migrate 设备是一种轻型设备，由 Azure Migrate 服务器评估用
    
    不支持使用 PIN 登录。
 3. 成功登录后，返回到 Web 应用。 
-4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](tutorial-prepare-physical.md)，会启动设备注册。
+4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](./tutorial-discover-physical.md)，会启动设备注册。
 1. 成功注册设备后，可以通过单击“查看详细信息”来查看注册详细信息。
 
 

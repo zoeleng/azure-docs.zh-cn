@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 525ab34bb9edff737686a88d7a8e664500282555
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096328"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320532"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>关于如何在 Azure VM 灾难恢复中联网
 
@@ -41,8 +41,8 @@ ms.locfileid: "92096328"
 > Site Recovery 不支持使用经过身份验证的代理控制网络连接，并且无法启用复制。
 
 >[!NOTE]
-> 不应执行基于 IP 地址的筛选来控制出站连接。
-> 不应在 Azure 路由表中添加 Azure Site Recovery 的 IP 地址来控制出站连接。
+>- 不应执行基于 IP 地址的筛选来控制出站连接。
+>- 不应在 Azure 路由表中添加 Azure Site Recovery 的 IP 地址来控制出站连接。
 
 ## <a name="outbound-connectivity-for-urls"></a>URL 的出站连接
 

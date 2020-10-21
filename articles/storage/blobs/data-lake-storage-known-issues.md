@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876118"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282209"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
@@ -90,9 +90,13 @@ Blob API 和 Data Lake Storage Gen2 API 可以对相同的数据执行操作。
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>访问控制列表 (ACL) 和匿名读取访问
 
-如果已授予对某个容器的[匿名读取访问权限](storage-manage-access-to-resources.md)，则 ACL 对该容器或该容器中的文件没有影响。
+如果已将[匿名读取访问](storage-manage-access-to-resources.md)授予容器，则 ACL 对该容器或该容器中的文件没有影响。
 
-## <a name="premium-performance-blockblobstorage-storage-accounts"></a>高性能 BlockBlobStorage 存储帐户
+### <a name="diagnostic-logs"></a>诊断日志
+
+尚不支持保留天数设置，但你可以使用任何支持的工具（例如 Azure 存储资源管理器、REST 或 SDK）手动删除日志。
+
+## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>特定于高级性能 BlockBlobStorage 存储帐户的问题
 
 ### <a name="diagnostic-logs"></a>诊断日志
 
@@ -108,8 +112,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-尚不支持保留天数设置，但你可以使用任何支持的工具（例如 Azure 存储资源管理器、REST 或 SDK）手动删除日志。
 
 ### <a name="lifecycle-management-policies"></a>生命周期管理策略
 

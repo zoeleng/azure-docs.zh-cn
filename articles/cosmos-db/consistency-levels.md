@@ -5,25 +5,35 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 70077f8f0e7a951b6da8cf65c874b17eb98b416c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567194"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276383"
 ---
-# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中有哪些一致性级别？
+# <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 
-依赖于复制实现高可用性和/或低延迟的分布式数据库在读取一致性与可用性、延迟和吞吐量之间进行基本权衡。 大多数商用分布式数据库都要求开发人员在两种极端一致性模型之间进行选择：非常一致和最终一致。  非常一致性模型的可线性化是数据可编程性的黄金标准。 但它导致的写入延迟代价较高（稳定状态下）且会降低可用性（遇到故障时）。 另一方面，最终一致性可提供更高的可用性和性能，但会加大应用程序的编程难度。
+依赖于复制以实现高可用性和/或低延迟的分布式数据库必须在 [PACLC 定理](https://en.wikipedia.org/wiki/PACELC_theorem)定义的读取一致性、可用性、延迟和吞吐量之间做出根本性的权衡。 非常一致性模型的可线性化是数据可编程性的黄金标准。 不过，由于数据必须跨远距离进行复制和提交，因此它增加了较高写入延迟的不足。 由于不能在每个区域中复制和提交数据，因此，在发生故障时，可能会降低可用性 (降低可用性) 。 最终一致性提供更高的可用性和更好的性能，但更难对应用程序进行编程，因为数据可能在所有区域中都不完全一致。
 
-Azure Cosmos DB 通过某种选择范围来实现数据一致性，而不会走两种极端。 开发人员可以使用这些选项在高可用性和性能方面做出精确的选择和细致的取舍。
+目前市场上可用的大多数商用分布式 NoSQL 数据库仅提供了严格的一致性。 Azure Cosmos DB 提供5个明确定义的级别。 按最强到最弱的顺序，级别分别为：
 
-借助 Azure Cosmos DB，开发人员可以在一致性范围内从五个明确定义的一致性级别中进行选择。 这些级别包括“非常”、“有限过期”、“会话”、“一致前缀”和“最终”一致性。     这些级别具有明确的定义且非常直观，可用于特定的真实场景。 每个级别[在可用性与性能方面各有利弊](consistency-levels-tradeoffs.md)，并有 SLA 作为保障。 下图以范围区间形式显示了不同的一致性级别。
+- *非常*
+- *有限过期*
+- *会话*
+- *一致前缀*
+- *最终*
+
+每个级别都提供可用性和性能的折衷。 下图以范围区间形式显示了不同的一致性级别。
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="范围形式的一致性" border="false" :::
 
 一致性级别与区域无关，无论在哪个区域为读取和写入操作提供服务、与 Azure Cosmos 帐户关联的区域数量是多少，或者帐户是配置了单个还是多个写入区域，都可以保证所有操作获得这种一致性。
+
+## <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性级别和 Azure Cosmos DB API
+
+Azure Cosmos DB 为常用数据库提供对与线路协议兼容的 API 的本机支持。 这些数据库包括 MongoDB、Apache Cassandra、Gremlin 和 Azure 表存储。 使用 Gremlin API 和表 API 时，将使用在 Azure Cosmos 帐户上配置的默认一致性级别。 若要详细了解 Cassandra API 或适用于 MongoDB 的 API 与 Azure Cosmos DB 的一致性级别之间的一致性级别映射，请参阅 [Cassandra API 一致性映射](cassandra-consistency.md) 和 [api for mongodb 一致性映射](mongodb-consistency.md)。
 
 ## <a name="scope-of-the-read-consistency"></a>读取一致性的范围
 
@@ -35,7 +45,7 @@ Azure Cosmos DB 通过某种选择范围来实现数据一致性，而不会走�
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>与一致性级别关联的保证
 
-Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选任何一致性级别的一致性保证。 如果满足与一致性级别关联的所有一致性保证，则读取请求满足一致性 SLA。 [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub 存储库中提供了 Azure Cosmos DB 中使用 TLA+ 规范语言精确定义的五个一致性级别。
+Azure Cosmos DB 确保100% 的读取请求满足所选一致性级别的一致性保证。 [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub 存储库中提供了 Azure Cosmos DB 中使用 TLA+ 规范语言精确定义的五个一致性级别。
 
 下面描述了五个一致性级别的语义：
 
@@ -48,9 +58,11 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 - **受限停滞一致性**：保证读取操作遵循一致性前缀保证。  读取操作可以滞后于写入操作最多“K”个项版本（即“更新”）或“T”时间间隔，以先达到者为准。 换言之，如果选择有限过期，则可以通过两种方式配置“过期”：
 
 - 项的版本数 (*K*)
-- 读取操作可以滞后于写入操作的时间间隔 (*T*)
+- 时间间隔 (*T*) 读取可能会滞后写入
 
-有限过期在“过期窗口”之外提供全局整体顺序。 当客户端在接受写入的区域中执行读取操作时，有限过期一致性提供的保证与非常一致性的保证相同。
+对于单个区域帐户， *K* 和 *T* 的最小值为10个写入操作或5秒。 对于多区域帐户， *K* 和 *T* 的最小值为100000写入操作或300秒。
+
+有限过期在“过期窗口”之外提供全局整体顺序。 当客户端在接受写入的区域中执行读取操作时，有限过期一致性提供的保证与非常一致性的保证相同。 当过期窗口接近时间或更新时，该服务会对新的写入进行限制，以允许复制进行追赶并遵循一致性保证。
 
 在过期窗口内，有限过期提供以下一致性保证：
 
@@ -78,7 +90,7 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 
 - 一致前缀：返回的更新包含所有更新的一些前缀，不带间隔。 一致前缀一致性级别保证读取操作永远不会看到无序写入。
 
-如果写入是按 `A, B, C` 顺序执行的，则客户端会看到 `A`、`A,B` 或 `A,B,C`，但永远不会看到类似于 `A,C` 或 `B,A,C` 的失序排列情况。 一致前缀的延迟、可用性和读取吞吐量与最终一致性相当，但还会提供顺序保证，以适应顺序非常重要的方案的需求。 
+如果写入是按 `A, B, C` 顺序执行的，则客户端会看到 `A`、`A,B` 或 `A,B,C`，但永远不会看到类似于 `A,C` 或 `B,A,C` 的失序排列情况。 一致前缀的延迟、可用性和读取吞吐量与最终一致性相当，但还会提供顺序保证，以适应顺序非常重要的方案的需求。
 
 下面是一致前缀的一致性保证：
 
@@ -95,6 +107,73 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 最终一致性是最弱的一致性形式，因为客户端可能会读取比之前读取的值还要旧的值。 最终一致性非常适合不需要任何顺序保证的应用程序。 示例包括推文、点赞或无回复评论的计数。 下图以乐谱形式演示了最终一致性。
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="范围形式的一致性":::
+
+## <a name="consistency-guarantees-in-practice"></a>一致性保证的实践
+
+在实践中，你可能经常会获得更强的一致性保证。 读取操作的一致性保证对应于所请求的数据库状态的新旧程度和顺序。 读取一致性与写入/更新操作的排序和传播有关。  
+
+如果对数据库没有写入操作，则具有 **最终**、 **会话**或 **一致前缀** 一致性级别的读取操作可能会生成与具有强一致性级别的读取操作相同的结果。
+
+如果使用非常一致性以外的一致性级别配置了 Azure Cosmos 帐户，则可以通过查看概率有限过期 (PBS) 指标，找到客户端获得工作负荷的非常一致读取的概率。** 此指标在 Azure 门户中公开，若要了解详细信息，请参阅[监视概率有限过期性 (PBS) 指标](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)。
+
+概率有限过期表明了最终一致的最终程度。 通过此指标可深入了解在 Azure Cosmos 帐户中目前配置的一致性级别之间获得更非常一致性的频率。 换句话说，可看到获得写入和读取区域组合的非常一致读取的概率（以毫秒计量）。
+
+## <a name="consistency-levels-and-latency"></a>一致性级别和延迟
+
+所有一致性级别的读取延迟始终保证在第 99 百分位小于 10 毫秒。 平均（在第 50 百分位）读取延迟通常不超过 4 毫秒。
+
+所有一致性级别的写入延迟始终保证在第 99 百分位小于 10 毫秒。 平均（在第 50 百分位）写入延迟通常不超过 5 毫秒。 跨多个区域且使用非常一致性配置的 Azure Cosmos 帐户不在此保障内。
+
+### <a name="write-latency-and-strong-consistency"></a>写入延迟和强一致性
+
+对于配置了强一致性（与多个区域一致）的 Azure Cosmos 帐户，99% 的情况下写入延迟等于任意两个最远区域之间的往返时间 (RTT) 的两倍加上 10 毫秒。 区域之间的高网络 RTT 将转变为 Cosmos DB 请求的更高延迟，因为只有在确保已将操作提交到帐户中的所有区域之后，强一致性才会完成该操作。
+
+确切的 RTT 延迟取决于光速距离和 Azure 网络拓扑。 Azure 网络不会为任意两个 Azure 区域之间的 RTT 提供任何延迟 Sla，但会发布 [azure 网络往返延迟统计信息](../networking/azure-network-latency.md)。 对于你的 Azure Cosmos 帐户，将在 Azure 门户中显示复制延迟。 可以使用 Azure 门户（转到“指标”边栏选项卡，选择“一致性”选项卡）监视与 Azure Cosmos 帐户关联的各个区域之间的复制延迟。
+
+> [!IMPORTANT]
+> 由于写入延迟大，默认情况下会阻止区域跨越 5000 英里（8000 公里）以上的帐户的强一致性。 若要启用此功能，请联系支持人员。
+
+## <a name="consistency-levels-and-throughput"></a>一致性级别和吞吐量
+
+- 对于强一致性和有限过期一致性，将针对一个四副本集中的两个副本（少数仲裁）进行读取，以提供一致性保证。 会话一致性、一致前缀一致性和最终一致性执行单副本读取。 结果是，在请求单位数量相同的情况下，强一致性和有限过期一致性的读取吞吐量是其他一致性级别的一半。
+
+- 对于给定类型的写入操作（例如插入、替换、更新插入和删除），所有一致性级别为请求单元提供的写入吞吐量是相同的。
+
+|**一致性级别**|**仲裁读取**|**仲裁写入**|
+|--|--|--|
+|**非常**|本地少数|全局多数|
+|**有限过期**|本地少数|本地多数|
+|**会话**|单个副本（使用会话令牌）|本地多数|
+|**一致前缀**|单个副本|本地多数|
+|**最终**|单个副本|本地多数|
+
+> [!NOTE]
+> 由于读取是从两个副本进行的，因此从两个副本进行读取以提供对强和受限过期的一致性保证，为本地少数读取读取的 RU/秒开销是较弱的一致性级别的两倍。
+
+## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>一致性级别和数据持续性
+
+在全球分布式数据库环境中，当发生区域范围的服务中断时，一致性级别与数据持续性之间存在直接关系。 制定业务连续性计划时，需了解应用程序在中断事件发生后完全恢复之前的最大可接受时间。 应用程序完全恢复所需的时间称为**恢复时间目标** (**RTO**)。 此外，还需要了解从中断事件恢复时，应用程序可忍受最近数据更新丢失的最长期限。 可以承受更新丢失的时限称为**恢复点目标** (**RPO**)。
+
+下表定义了当发生区域范围的服务中断时，一致性模型与数据持续性之间的关系。 需要注意的是，在分布式系统中，即使具有强一致性，使用 RPO 和 RTO 为零的分布式数据库也不可能是由于 [CAP 定理](https://en.wikipedia.org/wiki/CAP_theorem)。
+
+|**区域**|**复制模式**|**一致性级别**|**RPO**|**RTO**|
+|---------|---------|---------|---------|---------|
+|1|单个或多个写入区域|任何一致性级别|< 240 分钟|<1 周|
+|>1|单个写入区域|会话、一致的前缀或最终|< 15 分钟|< 15 分钟|
+|>1|单个写入区域|有限过期|*K* & *T*|< 15 分钟|
+|>1|单个写入区域|强|0|< 15 分钟|
+|>1|多个写入区域|会话、一致的前缀或最终|< 15 分钟|0|
+|>1|多个写入区域|有限过期|*K* & *T*|0|
+
+*K* = 某个项的“K”版本（即更新）的数目。 
+
+*T* = 自上次更新以来的时间间隔“T”。 
+
+对于单个区域帐户， *K* 和 *T* 的最小值为10个写入操作或5秒。 对于多区域帐户， *K* 和 *T* 的最小值为100000写入操作或300秒。 这定义了使用有限过期时间时数据的最小 RPO。
+
+## <a name="strong-consistency-and-multiple-write-regions"></a>强一致性和多个写入区域
+
+无法将配置为具有多个写入区域的 Cosmos 帐户配置为具有强一致性，因为分布式系统不能提供零的 RPO 和值为零的 RTO。 此外，对于对多个写入区域使用强一致性没有写入延迟，原因是必须将写入到任何区域，并将其提交到帐户内所有已配置的区域。 这会产生与单个写入区域帐户相同的写入延迟。
 
 ## <a name="additional-reading"></a>其他阅读材料
 
@@ -114,6 +193,6 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 
 - [为你的应用程序选择适当的一致性级别](consistency-levels-choosing.md)
 - [跨 Azure Cosmos DB API 的一致性级别](consistency-levels-across-apis.md)
-- [各种一致性级别的可用性和性能权衡](consistency-levels-tradeoffs.md)
 - [配置默认一致性级别](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [替代默认一致性级别](how-to-manage-consistency.md#override-the-default-consistency-level)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

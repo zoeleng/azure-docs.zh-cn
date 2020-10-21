@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 2c949447635ccdf4cf36acec43a09c1104b9fdd4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943860"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280030"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 操作安全性最佳做法
 本文提供了用于保护 Azure 中的数据、应用程序和其他资产的一系列操作最佳做法。
@@ -122,7 +122,7 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 **详细信息**：[使用 Azure Monitor 收集和导出数据](/azure/azure-monitor/overview#integrate-and-export-data)。 此做法对于启用安全事件调查至关重要，而在线日志保留期是有限的。 如果使用的是 Azure Sentinel，请参阅 [连接数据源](../../sentinel/connect-data-sources.md)。
 
 **最佳做法**：通过将终结点检测和响应 (EDR) 功能集成到攻击调查中，加快调查和搜寻过程，并减少误报。   
-**详细信息**：通过安全中心安全策略[启用 Microsoft Defender ATP 集成](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration)。 考虑使用 Azure Sentinel 进行威胁搜寻和事件响应。
+**详细信息**：通过安全中心安全策略 [为终结点集成启用 Microsoft Defender](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) 。 考虑使用 Azure Sentinel 进行威胁搜寻和事件响应。
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>监视基于端到端方案的网络监视
 客户在 Azure 中通过合并虚拟网络、ExpressRoute、应用程序网关和负载均衡器等网络资源来构建端到端网络。 监视适用于每个网络资源。

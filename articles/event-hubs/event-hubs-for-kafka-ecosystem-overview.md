@@ -3,12 +3,12 @@ title: 使用 Apache Kafka 应用中的事件中心 - Azure 事件中心 | Micro
 description: 本文介绍有关 Azure 事件中心提供的 Apache Kafka 支持的信息。
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 5c49f8f87d8d399cda33a332f7464ed340ae3a0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95534d32bdf34d44a11b31c2476c153272717941
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761492"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319850"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>使用 Apache Kafka 应用程序中的 Azure 事件中心
 事件中心提供与 Apache Kafka®制造者和使用者 Api 兼容的终结点，大多数现有 Apache Kafka 客户端应用程序可以使用这些 Api 作为运行自己 Apache Kafka 群集的替代方法。 事件中心支持版本1.0 及更高版本的 Apache Kafka 的生成者和使用者 Api 客户端。
@@ -128,7 +128,7 @@ Azure 事件中心客户要求提供 Kafka 流支持的最常见原因是，他�
 
 - [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)
 - [通过事件中心捕获 (的 Azure Synapse 分析) ](../event-grid/event-grid-event-hubs-integration.md)
-- [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/databricks-stream-from-eventhubs)
+- [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - Apache Spark[](event-hubs-kafka-spark-tutorial.md)

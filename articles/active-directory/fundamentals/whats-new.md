@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b076c757c8f86941c79da4f0be598aaa5ea6761
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773499"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317961"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 中的新增功能
 
@@ -84,7 +84,7 @@ Azure AD Connect 云预配公共预览版刷新功能通过客户反馈开发了
  
 如果 IT 管理员或最终用户读取 (的 BitLocker 恢复密钥) 有权访问该密钥，Azure Active Directory 现在会生成审核日志来捕获访问恢复密钥的人员。 相同的审核提供与 BitLocker 密钥关联的设备的详细信息。
 
-最终用户可以 [通过我的帐户访问其恢复密钥](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key)。 IT 管理员可在 beta 版或通过 Azure AD 门户通过 [BitLocker 恢复密钥 API](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta,) 访问恢复密钥。 若要了解详细信息，请参阅 [在 Azure AD 门户中查看或复制 BitLocker 密钥](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys)。
+最终用户可以 [通过我的帐户访问其恢复密钥](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key)。 IT 管理员可在 beta 版或通过 Azure AD 门户通过 [BitLocker 恢复密钥 API](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) 访问恢复密钥。 若要了解详细信息，请参阅 [在 Azure AD 门户中查看或复制 BitLocker 密钥](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys)。
 
 ---
 
@@ -412,7 +412,7 @@ Insights 管理员角色中的用户可以访问 [M365 Insights 应用程序](ht
  
 由于条件访问中的客户端应用条件的 GA 版本，默认情况下，新策略将默认应用于所有客户端应用程序。 这包括旧身份验证客户端。 现有策略将保持不变，但会从现有策略中删除 *"配置是/否* " 切换，以便轻松查看策略所应用到的客户端应用。 
 
-创建新策略时，请确保排除仍使用旧身份验证的用户和服务帐户;否则，它们将被阻止。 [了解详细信息](https://aka.ms/caclientapps)。
+创建新策略时，请确保排除仍使用旧身份验证的用户和服务帐户;否则，它们将被阻止。 [了解详细信息](../conditional-access/concept-conditional-access-conditions.md)。
  
 ---
 
@@ -978,7 +978,7 @@ IT 管理员可以开始使用新的 "混合管理员" 角色作为设置 Azure 
 **服务类别：** 应用预配  
 **产品功能：** 标识生命周期管理
  
-我们增强了 Workday 写回预配应用程序，现在支持工作电话号码和移动电话号码属性的写回。 除了电子邮件和用户名，你现在可以配置 Workday 写回预配应用，以将电话号码值从 Azure AD 传递到 Workday。 有关如何配置电话号码写回的详细信息，请参阅 [Workday 写回](https://aka.ms/WorkdayWriteback) 应用教程。 
+我们增强了 Workday 写回预配应用程序，现在支持工作电话号码和移动电话号码属性的写回。 除了电子邮件和用户名，你现在可以配置 Workday 写回预配应用，以将电话号码值从 Azure AD 传递到 Workday。 有关如何配置电话号码写回的详细信息，请参阅 [Workday 写回](../saas-apps/workday-writeback-tutorial.md) 应用教程。 
 
 ---
 
@@ -1025,7 +1025,7 @@ Azure AD B2C 的新应用注册体验现已正式发布。
 
 Azure AD B2C 应用注册体验基于适用于 Azure AD 租户的常规 [应用注册体验](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) ，但针对 Azure AD B2C 进行了定制。 旧的 "应用程序" 体验将在将来不再推荐使用。
 
-有关详细信息，请访问 [Azure AD B2C 的新应用注册体验](https://aka.ms/b2cappregtraining)。
+有关详细信息，请访问 [Azure AD B2C 的新应用注册体验](../../active-directory-b2c/app-registrations-training-guide.md)。
 
 ---
 
@@ -1051,7 +1051,7 @@ Azure AD B2C 应用注册体验基于适用于 Azure AD 租户的常规 [应用�
 
 **产品功能：** 标识安全和保护
 
-持续访问评估是一项新的安全功能，可用于在 Azure AD (（如用户帐户删除) ）中发生事件时，在依赖 Azure AD 方上以接近实时的方式执行策略。 我们首先将此功能扩展到团队和 Outlook 客户端。 有关更多详细信息，请阅读我们的 [博客](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) 和  [文档](./concept-fundamentals-continuous-access-evaluation.md)。
+持续访问评估是一项新的安全功能，可用于在 Azure AD (（如用户帐户删除) ）中发生事件时，在依赖 Azure AD 方上以接近实时的方式执行策略。 我们首先将此功能扩展到团队和 Outlook 客户端。 有关更多详细信息，请阅读我们的 [博客](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) 和  [文档](../conditional-access/concept-continuous-access-evaluation.md)。
 
 ---
 
@@ -1127,7 +1127,7 @@ Office 正在启动一系列适用于非传统组织的移动优先业务应用�
 
 [SincroPool Apps](https://www.sincropool.com/)， [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/)， [Float](../saas-apps/float-tutorial.md)， [LMS365](https://lms.365.systems/)， [iwt-9j-u8d 采购套件](../saas-apps/iwt-procurement-suite-tutorial.md)， [Lunni](https://lunni.fi/)， [EasySSO For Jira](../saas-apps/easysso-for-jira-tutorial.md)，[虚拟培训学院](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft)， [Meraki 仪表板](../saas-apps/meraki-dashboard-tutorial.md)， [Microsoft 365 移动器](https://app.mover.io/login)，[发言人参与](https://speakerengage.com/login.php)，[诚实](../saas-apps/honestly-tutorial.md)， [Ally](../saas-apps/ally-tutorial.md)， [DutyFlow](https://app.dutyflow.nl/)， [AlertMedia](../saas-apps/alertmedia-tutorial.md)，Gr8[人员](../saas-apps/gr8-people-tutorial.md) [，Pendo](../saas-apps/pendo-tutorial.md) [，HighGround，](../saas-apps/highground-tutorial.md)[协调](../saas-apps/harmony-tutorial.md)， [Timetabling 解决方案](../saas-apps/timetabling-solutions-tutorial.md)， [SynchroNet 单击](../saas-apps/synchronet-click-tutorial.md)，Fortes，Litmus， [GroupTalk，Frontify，TickitLMS](../saas-apps/litmus-tutorial.md) [Fortes Change Cloud](../saas-apps/fortes-change-cloud-tutorial.md)，COCO，MongoDB [cloud，](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial) [Nitro](../saas-apps/mongodb-cloud-tutorial.md) [，](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/)TMWS [Nitro Productivity Suite](../saas-apps/nitro-productivity-suite-tutorial.md) [，](https://recorder.grouptalk.com/) [，](../saas-apps/frontify-tutorial.md) [)  (，](../saas-apps/tickitlms-learn-tutorial.md) [empower](https://www.made-in-office.com/en/)
 
-有关这些应用的详细信息，请参阅 [SaaS 应用程序与 Azure Active Directory 集成](https://aka.ms/appstutorial)。 要详细了解如何在 Azure AD 应用库中列出应用程序，请参阅[在 Azure Active Directory 应用程序库中列出应用程序](https://aka.ms/azureadapprequest)。
+有关这些应用的详细信息，请参阅 [SaaS 应用程序与 Azure Active Directory 集成](../saas-apps/tutorial-list.md)。 要详细了解如何在 Azure AD 应用库中列出应用程序，请参阅[在 Azure Active Directory 应用程序库中列出应用程序](../azuread-dev/howto-app-gallery-listing.md)。
 
 ---
 
@@ -1211,7 +1211,7 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 - 仅为管理单元中的 Azure AD 用户分配具有管理权限的角色
 - 根据需要向用户和组填充管理单元
 
-有关详细信息，请参阅 [Azure Active Directory (preview) 中的管理单元管理 ](https://aka.ms/AdminUnitsDocs)。
+有关详细信息，请参阅 [Azure Active Directory (preview) 中的管理单元管理 ](../users-groups-roles/directory-administrative-units.md)。
 
 ---
 
@@ -1282,7 +1282,7 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 **产品功能：**
 
-我的员工可以使用 Firstline 经理（如商店经理）来确保其员工能够访问其 Azure AD 帐户。 组织可将常见任务（如重置密码或更改电话号码）委托给 Firstline Manager，而不是依赖于中心支持人员。 使用我的员工，不能访问帐户的用户只需点击几下鼠标就能重新获得访问权限，而无需任何支持人员或 IT 人员。 有关详细信息，请参阅 " [通过我的员工管理用户" (预览版) ](https://aka.ms/MyStaffAdminDocs) 并 [向我的员工 (预览) 委托用户管理 ](https://aka.ms/MyStaffUserDocs)。
+我的员工可以使用 Firstline 经理（如商店经理）来确保其员工能够访问其 Azure AD 帐户。 组织可将常见任务（如重置密码或更改电话号码）委托给 Firstline Manager，而不是依赖于中心支持人员。 使用我的员工，不能访问帐户的用户只需点击几下鼠标就能重新获得访问权限，而无需任何支持人员或 IT 人员。 有关详细信息，请参阅 " [通过我的员工管理用户" (预览版) ](../users-groups-roles/my-staff-configure.md) 并 [向我的员工 (预览) 委托用户管理 ](../user-help/my-staff-team-manager.md)。
 
 ---
 
