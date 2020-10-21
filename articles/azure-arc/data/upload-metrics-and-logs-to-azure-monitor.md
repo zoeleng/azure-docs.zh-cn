@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108161"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320166"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>将使用情况数据、指标和日志上传到 Azure Monitor
 
@@ -23,9 +23,9 @@ ms.locfileid: "92108161"
 > [!NOTE] 
 > 在预览期间，使用启用了 Azure Arc 的数据服务不会产生费用。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-你将需要安装 Azure CLI (az) 和 Azure Data CLI (azdata) 。  [安装工具](./install-client-tools.md)。
+需要 Azure CLI (az) 和 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 安装的。  [安装工具](./install-client-tools.md)。
 
 在将数据上传到 Azure 之前，需要确保 Azure 订阅已注册 AzureData 资源提供程序。
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 可以通过以下两个步骤将使用情况信息（如清单和资源使用情况）上传到 Azure：
 
-1. 使用命令导出使用情况数据 ```azdata export``` ，如下所示：
+1. 使用命令导出使用情况数据 `azdata export` ，如下所示：
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ az provider register -n Microsoft.AzureData --wait
    ```
    此命令创建一个 `usage.json` 文件，其中包含所有启用了 Azure Arc 的数据资源，如 SQL 托管实例和在数据控制器上创建的 PostgreSQL 超大规模实例等。
 
-2. 使用命令上载使用情况数据 ```azdata upload```
+2. 使用命令上载使用情况数据 `azdata upload`
 
    > [!NOTE]
    > 请在创建 Azure Arc 数据控制器之前等待至少24小时，然后再运行上传
@@ -77,7 +77,7 @@ az provider register -n Microsoft.AzureData --wait
 
 如果有多个具有 Azure Arc 数据服务的站点，则可以使用 Azure Monitor 作为中心位置，收集整个站点中的所有日志和指标。
 
-### <a name="before-you-begin"></a>在开始之前
+### <a name="before-you-begin"></a>准备工作
 
 启用日志和指标上传方案需要几个一次性的安装步骤：
 

@@ -125,6 +125,8 @@
       href: ../../web-application-firewall/security-baseline.md
     - name: Batch 安全基线
       href: ../../batch/security-baseline.md
+    - name: Cloud Shell 安全基线
+      href: ../../cloud-shell/security-baseline.md
     - name: 认知服务的安全基线
       href: ../../cognitive-services/security-baseline.md
     - name: 容器实例安全基线

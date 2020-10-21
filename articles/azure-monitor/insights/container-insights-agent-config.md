@@ -2,13 +2,13 @@
 title: 配置用于容器的 Azure Monitor 的代理数据收集 | Microsoft Docs
 description: 本主题介绍如何配置用于容器的 Azure Monitor 代理，以控制 stdout/stderr 和环境变量日志收集。
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994609"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320407"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>配置用于容器的 Azure Monitor 的代理数据收集
 
@@ -29,7 +29,7 @@ ms.locfileid: "91994609"
 
 ### <a name="data-collection-settings"></a>数据收集设置
 
-下面是可以配置的用于控制数据收集的设置。
+下表描述了可以配置以控制数据收集的设置：
 
 | 密钥 | 数据类型 | 值 | 说明 |
 |--|--|--|--|
@@ -43,16 +43,24 @@ ms.locfileid: "91994609"
 | `[log_collection_settings.enrich_container_logs] enabled =` | 布尔 | true 或 false | 此设置控制容器日志扩充，以填充写入群集中所有容器日志的<br> ContainerLog 表的每条日志记录的 Name 和 Image 属性值。<br> 此设置在 ConfigMap 中未指定时，默认为 `enabled = false`。 |
 | `[log_collection_settings.collect_all_kube_events]` | 布尔 | true 或 false | 此设置支持收集所有类型的 Kube 事件。<br> 默认情况下，不收集 Normal 类型的 Kube 事件。 将此设置设为 `true` 时，不再筛选 Normal 事件，并将收集所有事件。<br> 默认情况下，这设置为 `false`。 |
 
+### <a name="metric-collection-settings"></a>指标收集设置
+
+下表描述了可以配置以控制指标收集的设置：
+
+| 密钥 | 数据类型 | 值 | 描述 |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true 或 false | 此设置允许在 kube 命名空间中收集永久性卷 (PV) 使用情况指标。 默认情况下，不会收集在 kube 命名空间中具有永久性卷声明的永久卷的使用情况指标。 将此设置设置为时 `true` ，将收集所有命名空间的 PV 使用情况指标。 默认情况下，这设置为 `false`。 |
+
 ConfigMap 是一个全局列表，只能将一个 ConfigMap 应用到代理。 不能使用推翻收集规则的其他 ConfigMap。
 
 ## <a name="configure-and-deploy-configmaps"></a>使用 ConfigMap 进行配置和部署
 
 执行以下步骤，以配置 ConfigMap 配置文件并将其部署到群集。
 
-1. [下载](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml)模板 ConfigMap yaml 文件，并将其保存为 container-azm-ms-agentconfig.yaml。 
+1. 下载 [模板 CONFIGMAP YAML 文件](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) 并将其另存为容器 azm-agentconfig. YAML。 
 
-   >[!NOTE]
-   >使用 Azure Red Hat OpenShift 时，此步骤不是必需的，因为群集中已存在 ConfigMap 模板。
+   > [!NOTE]
+   > 使用 Azure Red Hat OpenShift 时，此步骤不是必需的，因为 ConfigMap 模板在群集上已存在。
 
 2. 使用自定义内容编辑 ConfigMap yaml 文件，以便收集 stdout、stderr 和/或环境变量。 如果正在编辑 ConfigMap yaml file for Azure Red Hat OpenShift，请首先运行命令， `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` 在文本编辑器中打开该文件。
 

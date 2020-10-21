@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273137"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310956"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>在 Azure Data Studio 中创建数据控制器
 
@@ -22,10 +22,10 @@ ms.locfileid: "91273137"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - 需要访问 Kubernetes 群集，并将 kubeconfig 文件配置为指向要部署到的 Kubernetes 群集。
-- 需要 [安装客户端工具](install-client-tools.md) ，包括 **Azure Data Studio** 称为 **AZURE Arc** 和 **azure 数据 CLI**Azure Data Studio 扩展。
+- 需要 [安装客户端工具](install-client-tools.md) ，包括 **Azure Data Studio** 称为 **Azure Arc** 和的 Azure Data Studio 扩展 **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** 。
 - 需要在 Azure Data Studio 中登录到 Azure。  为此，请键入 CTRL/Command + SHIFT + P 以打开命令文本窗口，然后键入 **Azure**。  选择 **"Azure：登录"**。   在面板中，单击右上方的 "+" 图标以添加 Azure 帐户。
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>使用部署向导创建 Azure Arc 数据控制器

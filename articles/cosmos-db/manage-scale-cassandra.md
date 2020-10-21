@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87486504"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277681"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>弹性缩放 Azure Cosmos DB Cassandra API 帐户
 
@@ -62,7 +62,7 @@ ms.locfileid: "87486504"
 
 除了标准（手动）或以编程方式预配吞吐量外，还可以在自动缩放预配的吞吐量中配置 Azure cosmos 容器。 自动缩放会自动立即缩放，以满足指定 RU 范围内的消耗需求，而不会影响 SLA。 若要了解详细信息，请参阅[在自动缩放中创建 Azure Cosmos 容器和数据库](provision-throughput-autoscale.md)一文。
 
-此方法的优点是，它是在系统中管理缩放需求的最简单的方法。 它保证不会**在已配置的 RU 范围内**应用速率限制。 缺点是，如果系统中的缩放需求是可预测的，那么相比使用上面提到的定制控制平面或 SDK 级别方法，自动缩放在处理缩放需求方面可能并没有那么经济高效。
+此方法的优点是，它是在系统中管理缩放需求的最简单的方法。 它不会 **在已配置的 RU 范围内**应用速率限制。 缺点是，如果系统中的缩放需求是可预测的，那么相比使用上面提到的定制控制平面或 SDK 级别方法，自动缩放在处理缩放需求方面可能并没有那么经济高效。
 
 若要设置或更改使用 CQL 的自动缩放的最大吞吐量 (RU)，请使用以下内容（相应地替换密钥空间/表名称）：
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d0956634289713f691feb1a9182233e6795e319
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201727"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279096"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>在 Azure 数字孪生中管理终结点和路由 (Api 和 CLI) 
 
@@ -90,13 +90,13 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 当终结点无法在某个时间段内传递事件时，或者尝试将事件传递到一定次数后，它可以将未送达的事件发送到存储帐户。 此过程称为“死信处理”。
 
-若要创建启用了死信的终结点，必须使用 [ARM api](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 来创建终结点。 
+若要创建启用了死信的终结点，必须使用 [ARM api](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 来创建终结点。 
 
 在设置死信位置之前，必须有一个包含容器的存储帐户。 创建终结点时，提供此容器的 URL。 死信作为带有 SAS 令牌的容器 URL 提供。 该令牌只需要 `write` 对存储帐户中目标容器的权限。 完整的格式 URL 将采用以下格式： `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-若要了解有关 SAS 令牌的详细信息，请参阅： [使用共享访问签名授予对 Azure 存储资源的有限访问权限 (SAS) ](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+若要了解有关 SAS 令牌的详细信息，请参阅： [使用共享访问签名授予对 Azure 存储资源的有限访问权限 (SAS) ](/azure/storage/common/storage-sas-overview)
 
-若要了解有关死信的详细信息，请参阅 [概念：事件路由](./concepts-route-events.md#dead-letter-events)
+若要了解有关死信的详细信息，请参阅 [*概念：事件路由*](concepts-route-events.md#dead-letter-events)。
 
 #### <a name="configuring-the-endpoint"></a>配置终结点
 
@@ -114,7 +114,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 }
 ```
 
-有关详细信息，请参阅 Azure 数字孪生 REST API 文档： [终结点-DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)。
+有关详细信息，请参阅 Azure 数字孪生 REST API 文档： [终结点-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)。
 
 ### <a name="message-storage-schema"></a>消息存储架构
 
@@ -124,7 +124,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 死信消息将匹配要传递到原始终结点的原始事件的架构。
 
-下面是一个用于克隆 [创建通知](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)的死信消息示例：
+下面是一个用于克隆 [创建通知](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)的死信消息示例：
 
 ```json
 {

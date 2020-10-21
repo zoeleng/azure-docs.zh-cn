@@ -55,10 +55,12 @@
       href: cache-high-availability.md
     - name: 故障转移和修补
       href: cache-failover.md
-    - name: 最佳做法
+    - name: 最佳实践
       href: cache-best-practices.md
     - name: 安全性
       items:
+        - name: 网络隔离选项
+          href: cache-network-isolation.md
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

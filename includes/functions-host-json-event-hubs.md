@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 2604a1608f21d7239db755027e15b8198fb3f9f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f3a58d3a7470867ab23249bbd645289e010ad89
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791702"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223122"
 ---
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 及更高版本
 
@@ -31,7 +31,7 @@ ms.locfileid: "81791702"
 |属性  |默认 | 说明 |
 |---------|---------|---------|
 |maxBatchSize|10 个|每个接收循环收到的最大事件计数。|
-|prefetchCount|300|基础 `EventProcessorHost` 使用的默认预提取计数。|
+|prefetchCount|300|基础 `EventProcessorHost` 使用的默认预提取计数。 允许的最小值为 10。|
 |batchCheckpointFrequency|1|创建 EventHub 游标检查点之前要处理的事件批数。|
 
 > [!NOTE]
@@ -57,4 +57,3 @@ ms.locfileid: "81791702"
 
 > [!NOTE]
 > 有关 Azure Functions 1.x 中 host.json 的参考，请参阅 [Azure Functions 1.x 的 host.json 参考](../articles/azure-functions/functions-host-json-v1.md)。
-

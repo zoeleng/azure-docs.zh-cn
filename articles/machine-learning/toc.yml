@@ -520,9 +520,6 @@
           href: how-to-debug-pipelines.md
         - name: 将管道数据记录到 Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: 使用并行运行步骤
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-use-parallel-run-step.md
         - name: 对并行运行步骤进行调试和故障排除
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md

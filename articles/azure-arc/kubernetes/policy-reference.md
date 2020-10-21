@@ -1,18 +1,18 @@
 ---
 title: 已启用 Azure Arc 的 Kubernetes 的内置策略定义
 description: 列出已启用 Azure Arc 的 Kubernetes 的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.service: azure-arc
 author: mlearned
 ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c6d8acd03fc84be8c9d4549c94f648199702bfb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 606c737fcec176051d460bc3d0831d59d616506a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824120"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310869"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>已启用 Azure Arc 的 Kubernetes 的 Azure Policy 内置定义
 

@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047635"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311682"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure 数字孪生中的已知问题
 
@@ -19,7 +19,7 @@ ms.locfileid: "92047635"
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>Cloud Shell 中的 "400 客户端错误：错误的请求"
 
-Cloud Shell 中的命令可能会间歇性地失败，并出现错误 "400 客户端错误： url 的错误请求： http://localhost:50342/oauth2/token " 后跟完整堆栈跟踪。
+在上运行 Cloud Shell 中 *https://shell.azure.com* 的命令可能会间歇性地失败，并出现错误 "400 客户端错误： url 的错误请求： http://localhost:50342/oauth2/token "，后跟完整堆栈跟踪。
 
 对于 Azure 数字孪生，此操作会影响以下命令组：
 * `az dt route`
@@ -30,7 +30,11 @@ Cloud Shell 中的命令可能会间歇性地失败，并出现错误 "400 客�
 
 若要解决此情况，可以 `az login` 在 Cloud Shell 中重新运行该命令并完成后续的登录步骤。 此后，你应该能够重新运行该命令。
 
-另一种解决方案是在您的计算机上 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ，以便您可以在本地运行 Azure CLI 命令。 本地 CLI 不会遇到此问题。
+或者，你可以打开 Azure 门户中的 "Cloud Shell" 窗格，并在其中完成 Cloud Shell 工作：
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="突出显示了 &quot;Cloud Shell&quot; 图标的 Azure 门户视图，并显示在门户窗口底部的 Cloud Shell":::
+
+最后，另一个解决方案是在您的计算机上 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ，以便您可以在本地运行 Azure CLI 命令。 本地 CLI 不会遇到此问题。
 
 ### <a name="possible-causes"></a>可能的原因
 

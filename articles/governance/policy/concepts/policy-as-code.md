@@ -1,29 +1,29 @@
 ---
-title: 将策略设计为代码工作流
+title: 将 Azure 策略设计为代码工作流
 description: 了解如何设计工作流以将 Azure Policy 定义部署为代码并自动验证资源。
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598212"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320609"
 ---
-# <a name="design-policy-as-code-workflows"></a>将策略设计为代码工作流
+# <a name="design-azure-policy-as-code-workflows"></a>将 Azure 策略设计为代码工作流
 
 随着你在云治理旅程中取得进展，需要从在 Azure 门户中或通过各种 SDK 手动管理每个策略定义，转变为在企业范围内更易于管理和重复进行的某个过程。 在云中大规模管理系统的两个主要方法是：
 
 - 基础结构即代码：将定义你的环境的内容从 Azure 资源管理器模板中的所有内容都 (ARM 模板) 到 azure 蓝图，作为源代码。
 - DevOps：人员、过程和产品的联合，以便向最终用户持续交付价值。
 
-策略即代码是这些概念的组合。 实质上，是将策略定义保留在源代码管理中，并在每次进行更改后，都测试并验证更改。 但是，这不应是涉及基础结构即代码或 DevOps 的策略的范围。
+作为代码的 Azure 策略组合在一起。 实质上，是将策略定义保留在源代码管理中，并在每次进行更改后，都测试并验证更改。 但是，这不应是涉及基础结构即代码或 DevOps 的策略的范围。
 
 验证步骤还应是其他持续集成或持续部署工作流的组成部分。 示例包括部署应用程序环境或虚拟基础结构。 通过使 Azure Policy 验证成为生成和部署过程的早期组成部分，应用程序和运营团队可提前很长时间发现他们的更改是否不合规，而不会等到为时已晚或是尝试在生产环境中进行部署时。
 
 ## <a name="definitions-and-foundational-information"></a>定义和基本信息
 
-在详细了解策略即代码工作流前，请查看以下定义和示例：
+在将 Azure 策略的详细信息作为代码工作流获取之前，请查看以下定义和示例：
 
 - [策略定义](./definition-structure.md)
 - [计划定义](./initiative-definition-structure.md)
@@ -43,10 +43,10 @@ ms.locfileid: "91598212"
 
 ## <a name="workflow-overview"></a>工作流概述
 
-策略即代码的建议常规工作流如下图所示：
+Azure 策略的建议常规工作流如下图所示：
 
-:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="图中显示了从创建到测试到部署的“策略作为代码”工作流框。" border="false":::
-   图中显示了“策略作为代码”工作流框。 创建包括策略和计划定义的创建。 测试包括已禁用强制模式的分配。 在网关检查合规性状态之后，向分配授予 MSI 权限并对资源进行修正。  部署包括在启用强制模式的情况下更新分配。
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="将 Azure 策略显示为从创建到要部署的测试的代码工作流框的关系图。" border="false":::
+   显示 "Azure 策略" 作为代码工作流框的关系图。 创建包括策略和计划定义的创建。 测试包括已禁用强制模式的分配。 在网关检查合规性状态之后，向分配授予 MSI 权限并对资源进行修正。  部署包括在启用强制模式的情况下更新分配。
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>创建和更新策略定义
@@ -56,22 +56,19 @@ ms.locfileid: "91598212"
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
@@ -89,17 +86,15 @@ ms.locfileid: "91598212"
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -114,7 +109,7 @@ ms.locfileid: "91598212"
 > [!NOTE]
 > 尽管强制模式非常有用，但它不能替代在各种条件下对策略定义进行全面测试。 应使用 `PUT` 和 `PATCH` REST API 调用、合规与不合规的资源以及边缘事例（如资源中缺少属性）对策略定义进行测试。
 
-部署分配后，使用 Policy SDK 或 [Azure Policy 合规性扫描 GitHub 操作](https://github.com/marketplace/actions/azure-policy-compliance-scan)来[获取新分配的合规性数据](../how-to/get-compliance-data.md)。 用于测试策略和分配的环境应同时具有合规与不合规的资源。
+部署分配后，请使用 Azure 策略 SDK、 [Azure 策略符合性扫描 GitHub 操作](https://github.com/marketplace/actions/azure-policy-compliance-scan)或 [Azure Pipelines 安全和符合性评估任务](/azure/devops/pipelines/tasks/deploy/azure-policy) 来获取新分配的 [符合性数据](../how-to/get-compliance-data.md) 。 用于测试策略和分配的环境应同时具有合规与不合规的资源。
 与用于代码的良好单元测试一样，需要测试资源是否如同预期，并且是否也没有假正或假负。 如果仅针对期望的内容进行测试和验证，则策略可能会产生意外和无法识别的影响。 有关详细信息，请参阅[评估新 Azure Policy 定义的影响](./evaluate-impact.md)。
 
 ### <a name="enable-remediation-tasks"></a>启用修正任务
@@ -138,13 +133,13 @@ ms.locfileid: "91598212"
 
 ## <a name="process-integrated-evaluations"></a>过程集成评估
 
-策略即代码的常规工作流用于大规模开发策略和计划并部署到环境。 但是，对于在 Azure 中部署或创建资源的任何工作流（例如部署应用程序，或运行 ARM 模板创建基础结构），策略评估应是部署过程的一部分。
+Azure 策略的常规工作流作为代码，用于大规模地开发和部署策略和计划。 但是，对于在 Azure 中部署或创建资源的任何工作流（例如部署应用程序，或运行 ARM 模板创建基础结构），策略评估应是部署过程的一部分。
 
 在这些情况下，在对测试订阅或资源组进行应用程序或基础结构部署之后，应针对该范围进行策略评估，以检查现有策略和计划的验证。 虽然其 enforcementMode 在此类环境中可以配置为 disabled，但尽早知道应用程序或基础结构部署是否违反策略定义会十分有用。 因此，此策略评估应是这些工作流中的一个步骤，并使创建不合规资源的部署失败。
 
 ## <a name="review"></a>审阅
 
-本文介绍了策略即代码的常规工作流，以及策略评估应该是其他部署工作流一部分的情况。 此工作流可在支持基于触发器的脚本化步骤和自动化的任何环境中使用。
+本文介绍了 Azure 策略的常规工作流作为代码，以及策略评估应为其他部署工作流的一部分。 此工作流可在支持基于触发器的脚本化步骤和自动化的任何环境中使用。 有关在 GitHub 上使用此工作流的教程，请参阅 [教程：使用 github 将 Azure 策略实现为代码](../tutorials/policy-as-code-github.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

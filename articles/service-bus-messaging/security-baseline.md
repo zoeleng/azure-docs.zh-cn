@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e844904f236e9d81404a3481af9349ac8881085
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761152"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310440"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>适用于服务总线的 Azure 安全基准
 
@@ -62,7 +62,7 @@ ms.locfileid: "91761152"
 
 - [如何配置 DDoS 防护](../virtual-network/manage-ddos-protection.md)
 
-- [Azure 安全中心集成威胁情报](/azure/security-center/security-center-alerts-service-layer)
+- [Azure 安全中心集成威胁情报](../security-center/azure-defender.md)
 
 **Azure 安全中心监视**：是
 
@@ -111,7 +111,7 @@ ms.locfileid: "91761152"
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [适用于服务总线命名空间的 Azure 内置策略](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
+- [适用于服务总线命名空间的 Azure 内置策略](./policy-reference.md#azure-service-bus-messaging)
 
 - [用于网络的 Azure Policy 示例](../governance/policy/samples/built-in-policies.md#network)
 
@@ -129,7 +129,7 @@ ms.locfileid: "91761152"
 
 可以使用 Azure PowerShell 或 Azure CLI 根据资源的标记查找资源或对其执行操作。 
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags) 
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md) 
 
 - [如何创建虚拟网络](../virtual-network/quick-create-portal.md) 
 
@@ -143,7 +143,7 @@ ms.locfileid: "91761152"
 
 **指南**：使用 Azure 活动日志监视网络资源配置，并检测与 Azure 服务总线相关的网络资源的更改。 在 Azure Monitor 中创建当关键网络资源发生更改时触发的警报。
 
-- [如何查看和检索 Azure 活动日志事件](/azure/azure-monitor/platform/activity-log-view)
+- [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [如何在 Azure Monitor 中创建警报](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -177,7 +177,7 @@ ms.locfileid: "91761152"
 
 - [如何为 Azure 服务总线启用诊断设置](service-bus-diagnostic-logs.md)
 
-- [如何启用 Azure 活动日志的诊断设置](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
 **Azure 安全中心监视**：是
 
@@ -231,9 +231,9 @@ ms.locfileid: "91761152"
 
 - [Azure 服务总线的内置角色](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure 安全中心监视**：是
 
@@ -311,7 +311,7 @@ ms.locfileid: "91761152"
 
 **指导**：使用 Azure Active Directory 安全报告和监视来检测环境中何时发生可疑活动或不安全的活动。 使用 Azure 安全中心监视标识和访问活动。
 
-- [如何确定标记为存在风险活动的 Azure AD 用户](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [如何确定标记为存在风险活动的 Azure AD 用户](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [如何在 Azure 安全中心内监视用户的标识和访问活动](../security-center/security-center-identity-access.md)
 
@@ -347,7 +347,7 @@ ms.locfileid: "91761152"
 
 另外，还会定期旋转服务总线命名空间的共享访问签名。
 
-- [了解 Azure AD 报告](/azure/active-directory/reports-monitoring/)
+- [了解 Azure AD 报告](../active-directory/reports-monitoring/index.yml)
 
 - [如何使用 Azure 标识访问评审](../active-directory/governance/access-reviews-overview.md)
 
@@ -363,7 +363,7 @@ ms.locfileid: "91761152"
 
 可以通过为 Azure AD 用户帐户创建诊断设置，并将审核日志和登录日志发送到 Log Analytics 工作区，来简化此过程。 然后，在 Azure Monitor 可以为日志中发生的某些操作配置所需的日志警报。
 
-- [如何将 Azure 活动日志集成到 Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [如何将 Azure 活动日志集成到 Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [使用 Azure Active Directory 授予对服务总线资源的访问权限](authenticate-application.md)
 
@@ -375,7 +375,7 @@ ms.locfileid: "91761152"
 
 **指南**：使用 Azure Active Directory 的标识保护和风险检测功能来配置自动响应，以检测与启用了服务总线的资源相关的检测到的可疑操作。 应通过 Azure Sentinel 启用自动响应，以实现组织的安全响应。
 
-- [如何查看 Azure AD 风险登录](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [如何查看 Azure AD 风险登录](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [如何配置和启用标识保护风险策略](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -403,7 +403,7 @@ ms.locfileid: "91761152"
 
 **指南**：对与服务总线相关的资源使用标记，以帮助跟踪存储或处理敏感信息的 Azure 资源。
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -413,11 +413,11 @@ ms.locfileid: "91761152"
 
 **指南**：为开发、测试和生产实施单独的订阅和管理组。 服务总线命名空间应由配置了专用终结点并适当标记的虚拟网络进行分隔。
 
-- [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
+- [如何创建其他 Azure 订阅](../cost-management-billing/manage/create-subscription.md)
 
-- [如何创建管理组](/azure/governance/management-groups/create)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 - [如何创建虚拟网络](../virtual-network/quick-create-portal.md)
 
@@ -437,7 +437,7 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 - [允许通过专用终结点访问 Azure 服务总线命名空间](private-link-service.md)
 
-- [了解网络安全组和服务标记](/azure/virtual-network/security-overview)
+- [了解网络安全组和服务标记](../virtual-network/network-security-groups-overview.md)
 
 - [了解 Azure 中的客户数据保护](../security/fundamentals/protection-customer-data.md)
 
@@ -507,7 +507,7 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 - [如何使用 Azure Resource Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
-- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [如何查看 Azure 订阅](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [了解 Azure RBAC](../role-based-access-control/overview.md)
 
@@ -527,11 +527,11 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 **指南**：使用标记、管理组和单独的订阅（如果适用）来组织和跟踪 Azure 服务总线命名空间和相关资源。 定期核对清单，确保及时地从订阅中删除未经授权的资源。
 
-- [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
+- [如何创建其他 Azure 订阅](../cost-management-billing/manage/create-subscription.md)
 
-- [如何创建管理组](/azure/governance/management-groups/create)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-- [如何创建和使用标记](/azure/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -574,7 +574,7 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [如何使用 Azure Policy 拒绝特定的资源类型](/azure/governance/policy/samples/not-allowed-resource-types)
+- [如何使用 Azure Policy 拒绝特定的资源类型](../governance/policy/samples/index.md)
 
 **Azure 安全中心监视**：是
 
@@ -603,9 +603,9 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 使用 "node.js" 命名空间中的 Azure 策略别名创建自定义策略，以审核或强制执行配置。
 
-- [适用于服务总线的 Azure 内置策略 ](/azure/service-bus-messaging/policy-samples)
+- [适用于服务总线的 Azure 内置策略 ](./policy-reference.md)
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [如何查看可用的 Azure Policy 别名](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -653,7 +653,7 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 - [配置服务总线的客户托管密钥](configure-customer-managed-key.md)
 
-- [如何创建 Key Vault](/azure/key-vault/quick-create-portal)
+- [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 **Azure 安全中心监视**：是
 
@@ -731,7 +731,7 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 - [如何配置客户托管的密钥以加密静态 Azure 服务总线数据](configure-customer-managed-key.md)
 
-- [如何在 Azure 中还原密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [如何在 Azure 中还原密钥保管库密钥](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure 安全中心监视**：不适用
 
@@ -741,7 +741,7 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 **指南**：在 Key Vault 中启用软删除，以防止意外或恶意删除密钥。 Azure 服务总线需要客户管理的密钥才能进行软删除，并且不会清除已配置的密钥。
 
-- [如何在密钥保管库中启用软删除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [如何在密钥保管库中启用软删除](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [设置密钥保管库与密钥](../event-hubs/configure-customer-managed-key.md)
 
@@ -775,7 +775,7 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 - [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md) 
 
-- [使用标记整理 Azure 资源](/azure/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：是
 
@@ -843,5 +843,5 @@ Microsoft 管理 Azure 服务总线的底层基础结构，并实施了严格控
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 安全基准](/azure/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](/azure/security/benchmarks/security-baselines-overview)
+- 请参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
