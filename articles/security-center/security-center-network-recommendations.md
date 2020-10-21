@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 868470292fbacd71e1eb2d39de7e3a9c5cf6900e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28d0d7b14c18a1d98be1872b1555930b2e1650c3
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883920"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342444"
 ---
 # <a name="protect-your-network-resources"></a>保护你的网络资源
 Azure 安全中心不断分析 Azure 资源的安全状态，以实现网络安全最佳做法。 在安全中心识别出潜在的安全漏洞时，它会创建一些建议，指导完成配置所需控件以强化和保护资源的过程。
@@ -120,4 +120,4 @@ Azure 安全中心不断分析 Azure 资源的安全状态，以实现网络安�
 
 若要了解有关适用于其他 Azure 资源类型的建议的详细信息，请参阅以下内容：
 
-- [在 Azure 安全中心保护计算机和应用程序](security-center-virtual-machine-protection.md)
+- [在 Azure 安全中心保护计算机和应用程序](./asset-inventory.md)

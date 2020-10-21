@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439848"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340579"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 协作邀请电子邮件的元素 - Azure Active Directory
 
 邀请电子邮件是将合作伙伴登记为 Azure AD 中的 B2B 协作用户的关键组件。 虽然[不一定要使用 B2B 协作通过电子邮件来邀请某人](add-user-without-invite.md)，但这样做可为用户提供所需的全部信息，让他们决定是否接受你的邀请。 邀请电子邮件中还会包含链接，将来当用户需要返回到你的资源时，始终可以使用该链接。
 
 ![显示企业间邀请电子邮件的屏幕截图](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> 我们正在将此新电子邮件模板推出到所有租户，因此某些租户仍在使用旧设计。 在 2020 年 5 月底，来自所有租户的邀请将使用此模板。
 
 ## <a name="explaining-the-email"></a>电子邮件说明
 
@@ -52,17 +49,11 @@ ms.locfileid: "91439848"
 
 ![电子邮件中网络钓鱼警告的图像](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>邀请方的信息
+### <a name="inviters-information-and-invitation-message"></a>邀请者的信息和邀请消息
 
-电子邮件包含有关邀请方以及发送邀请的组织的信息。 这些信息包括发件人的姓名和电子邮件地址，以及与组织关联的名称和主域。 所有这些信息应有助于受邀方在是否接受邀请方面做出明智决策。
+电子邮件包括与发送邀请的组织关联的名称和主域。 此信息应有助于被邀请者做出有关接受邀请的明智决策。 如果邀请方在[邀请来宾用户访问目录、组或应用](add-users-administrator.md)时或者[使用邀请 API](customize-invitation-api.md) 时在其邀请中包含了一条消息，该消息会在电子邮件的主要部分突出显示。 另外，还会包括邀请方的姓名和个人资料图像（如果邀请方已进行此方面的设置）。 消息本身是一个文本区域，因此出于安全原因，它不会处理 HTML 标记。
 
-![电子邮件中邀请方信息的图像](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>邀请消息
-
-如果邀请方在[邀请来宾用户访问目录、组或应用](add-users-administrator.md)时或者[使用邀请 API](customize-invitation-api.md) 时在其邀请中包含了一条消息，该消息会在电子邮件的主要部分突出显示。 另外，还会包括邀请方的姓名和个人资料图像（如果邀请方已进行此方面的设置）。 消息本身是一个文本区域，因此出于安全原因，它不会处理 HTML 标记。
-
-![电子邮件中邀请消息的图像](media/invitation-email-elements/invitation-message.png)
+![电子邮件中邀请消息的图像](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>接受按钮和重定向 URL
 

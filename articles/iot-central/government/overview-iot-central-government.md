@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90972300"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126560"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>使用 Azure IoT Central 生成政府解决方案
 
@@ -78,4 +78,4 @@ ms.locfileid: "90972300"
 * 了解[水质监测的概念](./concepts-waterqualitymonitoring-architecture.md)
 * 了解[用水量监测的概念](./concepts-waterconsumptionmonitoring-architecture.md)
 * 了解[联网废弃物管理的概念](./concepts-connectedwastemanagement-architecture.md)  
-* 在 [IoT Central 概述](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)中了解 IoT Central 
+* 在 [IoT Central 概述](../core/overview-iot-central.md)中了解 IoT Central

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2a205daeffb659ce0dd5756066d11691a89c166e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91664947"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072112"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Azure 通信服务中的事件处理
 
@@ -36,9 +36,9 @@ Azure 通信服务发出以下事件类型：
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.SMSReceived                         | 当通过与通信服务关联的电话号码收到短信时发布。 |
 | Microsoft.Communication.SMSDeliveryReportReceived           | 当收到通信服务发送的短信的传递报告时发布。     |
-| Microsoft.Communication.ChatMessageReceived*                | 当用户在其所属的聊天线程中收到消息时发布。        |
-| Microsoft.Communication.ChatMessageEdited*                   | 当在用户所属的聊天线程中编辑消息时发布。                |
-| Microsoft.Communication.ChatMessageDeleted*                  | 当在用户所属的聊天线程中删除消息时发布。               |
+| Microsoft.Communication.ChatMessageReceived                | 当用户在其所属的聊天线程中收到消息时发布。        |
+| Microsoft.Communication.ChatMessageEdited                   | 当在用户所属的聊天线程中编辑消息时发布。                |
+| Microsoft.Communication.ChatMessageDeleted                  | 当在用户所属的聊天线程中删除消息时发布。               |
 | Microsoft.Communication.ChatThreadCreatedWithUser           | 当用户在聊天线程创建期间添加为成员时发布。           |
 | Microsoft.Communication.ChatThreadWithUserDeleted           | 当删除用户所属的聊天线程时发布。                           |
 | Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | 当更新用户所属的聊天线程的属性时发布。              |
@@ -47,7 +47,6 @@ Azure 通信服务发出以下事件类型：
 
 可以使用 Azure 门户或 Azure CLI 订阅通信服务资源发出的事件。 可通过查看[如何在通信服务中处理短信事件](../quickstarts/telephony-sms/handle-sms-events.md)，来开始处理事件
 
-*请确保在“发送消息”API 调用中提供“发送方名称”，以便触发这些事件。
 
 ## <a name="event-subjects"></a>事件主题
 

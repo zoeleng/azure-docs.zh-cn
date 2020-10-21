@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951003"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123885"
 ---
 ::: zone target="docs"
 
@@ -105,7 +105,7 @@ ms.locfileid: "91951003"
 
     **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
     
-如果使用 Linux 客户端，请使用以下命令装载 SMB 共享。 下面的“vers”参数是 Linux 主机支持的 SMB 版本。 在下面的命令中插入相应版本。 有关 Data Box 支持的 SMB 版本，请参阅 [Linux 客户端支持的文件系统](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+如果使用 Linux 客户端，请使用以下命令装载 SMB 共享。 下面的“vers”参数是 Linux 主机支持的 SMB 版本。 在下面的命令中插入相应版本。 有关 Data Box 支持的 SMB 版本，请参阅 [Linux 客户端支持的文件系统](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox
@@ -131,7 +131,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 连接到 SMB 共享后，开始数据复制。 可以使用与 SMB 兼容的任何文件复制工具（例如 Robocopy）复制数据。 可以使用 Robocopy 启动多个复制作业。 使用以下命令：
 
 ```console
-robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
 ```
 
 下表描述了属性。

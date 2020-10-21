@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611262"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340302"
 ---
 # <a name="add-storage-targets"></a>添加存储目标
 
@@ -74,9 +74,9 @@ ms.locfileid: "91611262"
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>向你的帐户添加访问控制角色
 
-Azure HPC 缓存使用 azure [RBAC)  (azure 基于角色的访问控制 ](https://docs.microsoft.com/azure/role-based-access-control/index) 来授权缓存服务访问 Azure Blob 存储目标的存储帐户。
+Azure HPC 缓存使用 azure [RBAC)  (azure 基于角色的访问控制 ](../role-based-access-control/index.yml) 来授权缓存服务访问 Azure Blob 存储目标的存储帐户。
 
-存储帐户所有者必须为用户 "HPC 缓存资源提供程序" 显式添加角色 [存储帐户参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) 和 [存储 Blob 数据参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 。
+存储帐户所有者必须为用户 "HPC 缓存资源提供程序" 显式添加角色 [存储帐户参与者](../role-based-access-control/built-in-roles.md#storage-account-contributor) 和 [存储 Blob 数据参与者](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 。
 
 可以提前完成此操作，也可以通过单击页面上添加 Blob 存储目标的链接来完成此操作。 请记住，将角色设置传播到 Azure 环境可能需要长达五分钟，因此，在创建存储目标之前，请等待几分钟，然后再添加角色。
 
@@ -244,7 +244,7 @@ NFS 存储目标具有不同于 Blob 存储目标的设置。 使用情况模型
   * ``nfs-export`` -与面向客户端的路径关联的存储系统导出
   * ``target-path`` (可选) -导出的子目录（如果需要）
 
-  示例：``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
+  示例： ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
 
   阅读 [配置聚合命名空间](hpc-cache-namespace.md) ，了解有关虚拟命名空间功能的详细信息。
 

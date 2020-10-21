@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360680"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132119"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Azure 门户中的计费帐户和范围
 
@@ -27,7 +27,7 @@ Azure 门户支持以下类型的计费帐户：
 
 - **Microsoft 客户协议**：当组织与 Microsoft 代表一起签署 Microsoft 客户协议时，将会为 Microsoft 客户协议创建一个计费帐户。 特定区域的某些客户通过 Azure 网站注册[采用即用即付费率的帐户](https://azure.microsoft.com/offers/ms-azr-0003p/)或 [Azure 免费帐户](https://azure.microsoft.com/offers/ms-azr-0044p/)，这些客户可能也有一个适用于 Microsoft 客户协议的计费帐户。 在 Microsoft 客户协议中，最多可以有 20 个订阅。 有关详细信息，请参阅 [Microsoft 客户协议的计费帐户入门](../understand/mca-overview.md)。
 
-- **Microsoft 合作伙伴协议**：Microsoft 合作伙伴协议的计费帐户是为云解决方案提供商 (CSP) 合作伙伴创建的，用于在新的商业体验中管理其客户。 合作伙伴至少需要有一个客户拥有 [Azure 计划](https://docs.microsoft.com/partner-center/purchase-azure-plan)，才能在 Azure 门户中管理其计费帐户。 有关详细信息，请参阅 [Microsoft 合作伙伴协议的计费帐户入门](../understand/mpa-overview.md)。
+- **Microsoft 合作伙伴协议**：Microsoft 合作伙伴协议的计费帐户是为云解决方案提供商 (CSP) 合作伙伴创建的，用于在新的商业体验中管理其客户。 合作伙伴至少需要有一个客户拥有 [Azure 计划](/partner-center/purchase-azure-plan)，才能在 Azure 门户中管理其计费帐户。 有关详细信息，请参阅 [Microsoft 合作伙伴协议的计费帐户入门](../understand/mpa-overview.md)。
 
 若要确定计费帐户的类型，请参阅[检查计费帐户的类型](#check-the-type-of-your-account)。
 

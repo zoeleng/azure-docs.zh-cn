@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91666103"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131915"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>将 Azure 订阅的计费所有权转移到另一帐户
 
@@ -69,7 +69,7 @@ Visual Studio 和 Microsoft 合作伙伴网络订阅具有关联的每月定期 
 1. 查看和更新服务管理员、共同管理员和 Azure 角色分配。 有关详细信息，请参阅[添加或更改 Azure 订阅管理员](add-change-subscription-administrator.md)和[使用 Azure 门户添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)。
 1. 更新与此订阅的服务关联的凭据，包括：
    1. 用于向用户授予订阅资源管理权限的管理证书。 有关详细信息，请参阅[创建并上传 Azure 的管理证书](../../cloud-services/cloud-services-certs-create.md)
-   1. 存储空间等服务的访问密钥。 有关详细信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-create-storage-account.md)
+   1. 存储空间等服务的访问密钥。 有关详细信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-account-create.md)
    1. Azure 虚拟机等服务的远程访问凭据。
 1. 若正与合作伙伴合作，请考虑更新此订阅的合作伙伴 ID。 可以在 [Azure 门户](https://portal.azure.com)中更新合作伙伴 ID。 有关详细信息，请参阅[将合作伙伴 ID 链接到 Azure 帐户](link-partner-id.md)。
 

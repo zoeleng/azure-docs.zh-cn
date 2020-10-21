@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cavoeg
+ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007564"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339502"
 ---
 # <a name="features"></a>功能
 
@@ -37,15 +37,15 @@ Azure API for FHIR 为适用于 Azure 的 Microsoft FHIR 服务器提供完全�
 | 修补                          | 否        | 否        | 否        |                                                     |
 | delete                         | 是       | 是       | 是       |                                                     |
 | 删除（条件性）           | 否        | 否        | 否        |                                                     |
-| create                         | 是       | 是       | 是       | 支持 POST/PUT                               |
-| 创建（条件性）           | 是       | 是       | 是       |                                                     |
+| history                        | 是       | 是       | 是       |                                                     |
+| create                         | 是       | 是       | 是       | 同时支持 POST/PUT                               |
+| 创建 (条件)            | 是       | 是       | 是       |                                                     |
 | 搜索                         | 部分   | 部分   | 部分   | 请参阅下文                                           |
 | 链式搜索                 | 否        | 是       | 否        |                                           |
 | 反向链接搜索         | 否        | 否        | 否        |                                            |
 | capabilities                   | 是       | 是       | 是       |                                                     |
 | 批处理                          | 是       | 是       | 是       |                                                     |
 | transaction                    | 否        | 是       | 否        |                                                     |
-| history                        | 是       | 是       | 是       |                                                     |
 | 分页                         | 部分   | 部分   | 部分   | `self``next`支持和                     |
 | 中间人                 | 否        | 否        | 否        |                                                     |
 
@@ -53,11 +53,11 @@ Azure API for FHIR 为适用于 Azure 的 Microsoft FHIR 服务器提供完全�
 
 支持所有搜索参数类型。 
 
-| 搜索参数类型 | 支持-PaaS | 支持-OSS (SQL)  | 支持-OSS (Cosmos DB)  | 注释 |
+| 搜索参数类型 | 支持-PaaS | 支持-OSS (SQL)  | 支持-OSS (Cosmos DB)  | 评论 |
 |-----------------------|-----------|-----------|-----------|---------|
-| Number                | 是       | 是       | 是       |         |
+| 数字                | 是       | 是       | 是       |         |
 | Date/DateTime         | 是       | 是       | 是       |         |
-| 字符串                | 是       | 是       | 是       |         |
+| String                | 是       | 是       | 是       |         |
 | 令牌                 | 是       | 是       | 是       |         |
 | 参考             | 是       | 是       | 是       |         |
 | 合成             | 是       | 是       | 是       |         |
@@ -94,28 +94,30 @@ Azure API for FHIR 为适用于 Azure 的 Microsoft FHIR 服务器提供完全�
 | `_has`                  | 否        | 否        | 否        |         |
 | `_type`                 | 是       | 是       | 是       |         |
 | `_query`                | 否        | 否        | 否        |         |
-
-| 搜索操作       | 支持-PaaS | 支持-OSS (SQL)  | 支持-OSS (Cosmos DB)  | 注释 |
-|-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | 否        | 否        | 否        |         |
+
+| 搜索结果参数 | 支持-PaaS | 支持-OSS (SQL)  | 支持-OSS (Cosmos DB)  | 评论 |
+|-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | 部分        | 部分   | 部分        |   支持 `_sort=_lastUpdated`       |
-| `_score`                | 否        | 否        | 否        |         |
-| `_count`                | 是       | 是       | 是       |         |
-| `_summary`              | 部分   | 部分   | 部分   | 支持 `_summary=count` |
+| `_count`                | 是       | 是       | 是       | `_count` 限制为100个字符。 如果设置为高于100，则仅返回100，并在捆绑包中返回警告。 |
 | `_include`              | 否        | 是       | 否        |         |
 | `_revinclude`           | 否        | 是       | 否        | 包含的项限制为100。 |
+| `_summary`              | 部分   | 部分   | 部分   | 支持 `_summary=count` |
+| `_total`                | 部分   | 部分   | 部分   | _total = 非 _total = 准确      |
+| `_elements`             | 是       | 是       | 是       |         |
 | `_contained`            | 否        | 否        | 否        |         |
-| `_elements`             | 是        | 是        | 是        |         |
+| `containedType`         | 否        | 否        | 否        |         |
+| `_score`                | 否        | 否        | 否        |         |
 
 ## <a name="extended-operations"></a>扩展操作
 
 支持扩展 RESTful API 的所有操作。
 
-| 搜索参数类型 | 支持-PaaS | 支持-OSS (SQL)  | 支持-OSS (Cosmos DB)  | 注释 |
-|-----------------------|-----------|-----------|-----------|---------|
-|  (整个系统的 $export)                 | 是       | 是       | 是       |         |
-| 患者/$export         | 是       | 是       | 是       |         |
-| 组/$export               | 是       | 是       | 是       |         |
+| 搜索参数类型 | 支持-PaaS | 支持-OSS (SQL)  | 支持-OSS (Cosmos DB)  | 评论 |
+|------------------------|-----------|-----------|-----------|---------|
+|  (整个系统的 $export)  | 是       | 是       | 是       |         |
+| 患者/$export        | 是       | 是       | 是       |         |
+| 组/$export          | 是       | 是       | 是       |         |
 
 ## <a name="persistence"></a>持久性
 

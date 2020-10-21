@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824191"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075529"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>快速入门：将功能标志添加到 Spring Boot 应用
 
@@ -23,7 +23,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [创建免费帐户](https://azure.microsoft.com/free/)
-* 支持的 [Java 开发工具包 SDK](https://docs.microsoft.com/java/azure/jdk) 版本 8。
+* 支持的 [Java 开发工具包 SDK](/java/azure/jdk) 版本 8。
 * [Apache Maven](https://maven.apache.org/download.cgi) 版本 3.0 或更高版本。
 
 ## <a name="create-an-app-configuration-instance"></a>创建应用程序配置实例
@@ -304,7 +304,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已创建一个新的应用程序配置存储，并已使用它来通过[功能管理库](https://go.microsoft.com/fwlink/?linkid=2074664)管理 Spring Boot Web 应用中的功能。
+在本快速入门中，你已创建一个新的应用程序配置存储，并已使用它来通过[功能管理库](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)管理 Spring Boot Web 应用中的功能。
 
 * 详细了解[功能管理](./concept-feature-management.md)。
 * [管理功能标志](./manage-feature-flags.md)。

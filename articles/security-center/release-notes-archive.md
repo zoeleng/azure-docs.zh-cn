@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280127"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339792"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure 安全中心的新增功能存档
 
@@ -93,7 +93,7 @@ Azure 安全中心现已正式发布工作流自动化功能。 它可用于在�
 
 若要详细了解用于运行工作流的自动和手动安全中心功能，请参阅[工作流自动化](workflow-automation.md)。
 
-详细了解如何[创建逻辑应用](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)。
+详细了解如何[创建逻辑应用](../logic-apps/logic-apps-overview.md)。
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Azure 安全中心与 Windows Admin Center 的集成
@@ -214,7 +214,7 @@ Azure 安全中心对 Azure Key Vault 的威胁防护的支持提供额外的安
 
 若要详细了解用于运行工作流的自动和手动安全中心功能，请参阅[工作流自动化](workflow-automation.md)。
 
-若要了解如何创建逻辑应用，请参阅 [Azure 逻辑应用](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)。
+若要了解如何创建逻辑应用，请参阅 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)。
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>批量资源快速修复功能已推出正式版
@@ -270,9 +270,9 @@ Kubernetes 很快就成了在云中部署和管理软件的新标准。 只有�
 
 Azure 安全中心对 IaaS VM 上运行的 SQL 数据库的威胁防护和漏洞评估支持现已推出预览版。
 
-[漏洞评估](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)是一项易于配置的服务，可以发现、跟踪并帮助修正潜在的数据库漏洞。 此服务可让你查看以 Azure 安全评分提供的安全态势，并包含用于解决安全问题和增强数据库防御能力的步骤。
+[漏洞评估](../azure-sql/database/sql-vulnerability-assessment.md)是一项易于配置的服务，可以发现、跟踪并帮助修正潜在的数据库漏洞。 此服务可让你查看以 Azure 安全评分提供的安全态势，并包含用于解决安全问题和增强数据库防御能力的步骤。
 
-[高级威胁防护](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)检测异常活动，这些活动指示有人企图以非寻常或可能有害的方式访问或恶意利用你的 SQL 服务器。 它会持续监视数据库中的可疑活动，并针对异常的数据库访问模式提供操作导向的安全警报。 这些警报提供可疑活动的详细信息，以及有助于调查和缓解威胁的建议操作。
+[高级威胁防护](../azure-sql/database/threat-detection-overview.md)检测异常活动，这些活动指示有人企图以非寻常或可能有害的方式访问或恶意利用你的 SQL 服务器。 它会持续监视数据库中的可疑活动，并针对异常的数据库访问模式提供操作导向的安全警报。 这些警报提供可疑活动的详细信息，以及有助于调查和缓解威胁的建议操作。
 
 
 ### <a name="support-for-custom-policies-preview"></a>支持自定义策略（预览版）
@@ -346,7 +346,7 @@ JIT VM 访问使用 NSG 和 Azure 防火墙规则，仅在需要时才提供对 
 
 请求将记录在 Azure 活动日志中，因此你可以轻松监视和审核访问。 此实时页面还可帮助你快速识别已启用 JIT 的现有 VM，以及建议启用 JIT 的 VM。
 
-[详细了解 Azure 防火墙](https://docs.microsoft.com/azure/firewall/overview)。
+[详细了解 Azure 防火墙](../firewall/overview.md)。
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>提升安全态势的一键式修正（预览版）

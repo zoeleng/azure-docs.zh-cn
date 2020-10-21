@@ -8,12 +8,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: subject-armqs
+ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647897"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093814"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>使用 ARM 模板创建 Azure DNS 区域和记录
 
@@ -46,7 +47,7 @@ ms.locfileid: "89647897"
 
 ## <a name="deploy-the-template"></a>部署模板
 
-1. 从以下代码块中选择“试用”，以打开 Azure Cloud Shell，然后按照相关说明登录到 Azure****。 
+1. 从以下代码块中选择“试用”，以打开 Azure Cloud Shell，然后按照相关说明登录到 Azure。 
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -63,9 +64,9 @@ ms.locfileid: "89647897"
 
     等到控制台中显示提示。
 
-1. 从上一个代码块中选择“复制”****，以复制 PowerShell 脚本。
+1. 从上一个代码块中选择“复制”，以复制 PowerShell 脚本。
 
-1. 右键单击 shell 控制台窗格，然后选择“粘贴”****。
+1. 右键单击 shell 控制台窗格，然后选择“粘贴”。
 
 1. 输入相应的值。
 
@@ -79,7 +80,7 @@ ms.locfileid: "89647897"
 
 ## <a name="validate-the-deployment"></a>验证部署
 
-1. 登录 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.com)。
 
 1. 从左侧窗格中选择“资源组”****。
 
@@ -101,7 +102,7 @@ ms.locfileid: "89647897"
    nslookup www.<dns zone name> <name server name>
    ```
 
-   例如： 。
+   例如：
 
    ```
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.

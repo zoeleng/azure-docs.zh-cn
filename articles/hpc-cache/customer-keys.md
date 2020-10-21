@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092518"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340523"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>将客户托管的加密密钥用于 Azure HPC 缓存
 
@@ -58,7 +58,7 @@ Key vault 属性：
 
 * 创建 Azure HPC 缓存的用户必须具有与 [Key Vault 参与者角色](../role-based-access-control/built-in-roles.md#key-vault-contributor)等效的权限。 设置和管理 Azure Key Vault 需要相同的权限。
 
-  有关详细信息，请阅读 [对密钥保管库的安全访问](../key-vault/key-vault-secure-your-key-vault.md) 。
+  有关详细信息，请阅读 [对密钥保管库的安全访问](../key-vault/general/secure-your-key-vault.md) 。
 
 ## <a name="1-set-up-azure-key-vault"></a>1. 设置 Azure Key Vault
 
@@ -66,7 +66,7 @@ Key vault 属性：
 
 创建缓存时，必须指定用于缓存加密的保管库、密钥和密钥版本。
 
-有关详细信息，请阅读 [Azure Key Vault 文档](../key-vault/key-vault-overview.md) 。
+有关详细信息，请阅读 [Azure Key Vault 文档](../key-vault/general/overview.md) 。
 
 > [!NOTE]
 > Azure Key Vault 必须使用相同的订阅，并且必须与 Azure HPC 缓存位于同一区域。 请确保所选的区域 [支持客户管理的密钥功能](hpc-cache-overview.md#region-availability)。
@@ -92,7 +92,7 @@ Key vault 属性：
 
 1. 选择保管库后，从可用选项中选择单个密钥，或创建新密钥。 密钥必须是2048位的 RSA 密钥。
 
-1. 指定所选密钥的版本。 在 [Azure Key Vault 文档](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning)中了解有关版本控制的详细信息。
+1. 指定所选密钥的版本。 在 [Azure Key Vault 文档](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)中了解有关版本控制的详细信息。
 
 继续使用其他规范并按照 [创建 AZURE HPC 缓存](hpc-cache-create.md)中所述创建缓存。
 

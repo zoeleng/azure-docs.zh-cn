@@ -76,7 +76,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -155,7 +155,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -205,7 +205,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -250,7 +250,7 @@
             - name: Java
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javaref'
-            - name: Javascript
+            - name: JavaScript
               displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javascriptref'
             - name: Objective-C
@@ -323,7 +323,7 @@
                     - name: Java
                       displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
                       href: 'https://aka.ms/csspeech/javaref'
-                    - name: Javascript
+                    - name: JavaScript
                       displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
                       href: 'https://aka.ms/csspeech/javascriptref'
                     - name: Objective-C
@@ -483,7 +483,7 @@
               href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
-            - name: Javascript
+            - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'
@@ -580,9 +580,8 @@
       href: how-to-migrate-from-translator-speech-api.md
 - name: 资源
   items:
-    - name: 支持
-      displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
-      href: support.md
+    - name: 支持和帮助选项
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Swagger 文档
       href: swagger-documentation.md
     - name: 主权云

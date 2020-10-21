@@ -3,12 +3,12 @@ title: 快速入门：通过 Kafka 协议使用 Azure 事件中心进行数据�
 description: 快速入门：本文介绍了如何使用 Kafka 协议和 API 流式传输到 Azure 事件中心。
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 612a7515c14b77569b34c91d9b43413353b4d0e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e87d9b1e4a444695d64dc6acfa0e29f7b72e37f2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90061540"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319353"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>快速入门：使用 Kafka 协议通过事件中心进行数据流式传输
 此快速入门介绍如何在不更改协议客户端或运行自己的群集的情况下将数据流式传输到事件中心。 你将了解如何只需更改应用程序配置，即可使用生产者和使用者与事件中心通信。 
@@ -22,7 +22,7 @@ ms.locfileid: "90061540"
 
 * 通读[用于 Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)一文。
 * Azure 订阅。 如果还没有该订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-* [Java 开发工具包 (JDK) 1.7+](https://aka.ms/azure-jdks)。
+* [Java 开发工具包 (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)。
 * [下载](https://maven.apache.org/download.cgi)并[安装](https://maven.apache.org/install.html) Maven 二进制存档。
 * [Git](https://www.git-scm.com/)
 
@@ -103,4 +103,4 @@ ms.locfileid: "90061540"
 如果事件中心 Kafka 群集有事件，则现在开始从使用者接收这些事件。
 
 ## <a name="next-steps"></a>后续步骤
-本文介绍了如何在不更改协议客户端或运行自己的群集的情况下，将事件流式传输到事件中心。 若要了解详细信息，请参阅[针对 Azure 事件中心的 Apache Kafka 开发人员指南](apache-kafka-developer-guide.md)。 
+本文介绍了如何在不更改协议客户端或运行自己的群集的情况下，将事件流式传输到事件中心。 若要了解详细信息，请参阅[针对 Azure 事件中心的 Apache Kafka 开发人员指南](apache-kafka-developer-guide.md)。

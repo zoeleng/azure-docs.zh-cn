@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018264"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339469"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 安全中心数据安全性
 
@@ -51,7 +51,7 @@ Microsoft 使用多个租户所使用的模式和威胁情报增强预防和检�
 ## <a name="manage-data-collection-from-machines"></a>管理计算机中的数据收集
 在 Azure 中启用安全中心后，即为每个 Azure 订阅启用了数据收集功能。 也可以在安全中心中为订阅启用数据收集。 启用数据收集后，安全中心即可在所有受支持的现有 Azure 虚拟机以及任何新创建的虚拟机中预配 Log Analytics 代理。
 
-Log Analytics 代理扫描各种安全相关配置和事件，并将其收集到 [Windows 事件跟踪](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal) (ETW) 的跟踪中。 另外，在运行计算机的过程中，操作系统会引发事件日志事件。 此类数据的示例包括：操作系统类型和版本、操作系统日志（Windows 事件日志）、正在运行的进程、计算机名称、IP 地址、已登录用户、租户 ID。 Log Analytics 代理读取事件日志条目和 ETW 跟踪，并将其复制到工作区进行分析。 Log Analytics 代理还启用进程创建事件和命令行审核。
+Log Analytics 代理扫描各种安全相关配置和事件，并将其收集到 [Windows 事件跟踪](/windows/win32/etw/event-tracing-portal) (ETW) 的跟踪中。 另外，在运行计算机的过程中，操作系统会引发事件日志事件。 此类数据的示例包括：操作系统类型和版本、操作系统日志（Windows 事件日志）、正在运行的进程、计算机名称、IP 地址、已登录用户、租户 ID。 Log Analytics 代理读取事件日志条目和 ETW 跟踪，并将其复制到工作区进行分析。 Log Analytics 代理还启用进程创建事件和命令行审核。
 
 如果不使用 Azure Defender，也可以在“安全策略”中从虚拟机禁用数据收集。 受 Azure Defender 保护的订阅需要数据收集。 即使禁用数据收集，也仍会启用 VM 磁盘快照和项目收集。
 
@@ -85,7 +85,7 @@ Log Analytics 代理扫描各种安全相关配置和事件，并将其收集到
 | [Azure 活动日志](../azure-monitor/platform/activity-log.md)                       | 所有安全警报、经审核的安全中心[实时](security-center-just-in-time.md)访问请求，以及由[自适应应用程序控制](security-center-adaptive-application.md)生成的所有警报。|
 | [Azure Monitor 日志](../azure-monitor/platform/data-platform.md)                      | 所有安全警报。                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | 安全警报、安全建议、漏洞评估结果、安全分数信息、合规性检查的状态等。                                                                       |
-| [Azure 安全中心 REST API](https://docs.microsoft.com/rest/api/securitycenter/) | 安全警报、安全建议等。                                                                                                                                                                |
+| [Azure 安全中心 REST API](/rest/api/securitycenter/) | 安全警报、安全建议等。                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>后续步骤

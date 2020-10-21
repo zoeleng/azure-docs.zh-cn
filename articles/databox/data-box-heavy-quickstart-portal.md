@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5a0a040d80911b086561213bd0884ed67545c618
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920783"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122817"
 ---
 ::: zone target = "docs"
 
@@ -124,7 +124,7 @@ ms.locfileid: "87920783"
  
 1. 同时使用两个 40-Gbps 数据接口将数据复制到两个设备节点。
 
-    - 如果使用 Windows 主机，请使用 SMB 兼容的文件复制工具，例如 [Robocopy](https://technet.microsoft.com/library/ee851678.aspx)。
+    - 如果使用 Windows 主机，请使用 SMB 兼容的文件复制工具，例如 [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10))。
     - 对于 NFS 主机，请使用 `cp` 命令或 `rsync` 来复制数据。
 2. 使用路径 `\\<IP address of your device>\ShareName` 连接到设备上的共享。 若要获取共享访问凭据，请在 Data Box Heavy 的本地 Web UI 中转到“连接和复制”页面。
 3. 请确保共享和文件夹名称以及数据遵循 [Azure 存储和 Data Box Heavy 服务限制](data-box-heavy-limits.md)中所述的准则。

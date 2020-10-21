@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87439558"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331917"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Azure FarmBeats（预览版）概述
 
@@ -43,7 +43,7 @@ Azure FarmBeats 数据中心一个 API 层，可以跨提供商对各种农业�
 
 Azure FarmBeats 加速器是一个基于数据中心的示例 Web 应用程序。 此加速器可快速启动用户界面和模型开发。 Azure FarmBeats 加速器使用 Azure FarmBeats 的 API。 它将引入的传感器数据直观显示为图表，将输出建模为地图。 例如，可以使用加速器快速创建农场，并轻松获取该农场的植被覆盖指数图或传感器放置图。
 
-## <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Azure 基于角色的访问控制 (Azure RBAC)
 
 管理员可以使用预定义角色之一定义适用于 Azure FarmBeats 的访问规则。 角色决定了用户有权访问哪些应用程序区域以及可执行哪些操作。 Azure FarmBeats 中有两种角色 - 分别适用于用户和合作伙伴。
 

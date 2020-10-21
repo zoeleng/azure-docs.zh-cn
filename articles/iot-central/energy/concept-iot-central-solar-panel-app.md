@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00ef6cf6d4149f139876cb0c2d845133ba00157c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316028"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127500"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - 太阳能板应用体系结构
 
@@ -29,7 +29,7 @@ ms.locfileid: "91316028"
 
 ## <a name="solar-panels-and-connectivity"></a>太阳能电池板和连接 
 
-太阳能板是可再生能源的重要来源之一。 根据太阳能电池板的类型和设置，可以使用网关或其他中间设备和专用系统来连接它。 可能需要构建 IoT Central 设备网桥以连接无法直接连接的设备。 IoT Central 设备桥是一种开放源代码解决方案，你可以在[此处](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)找到完整的详细信息。 
+太阳能板是可再生能源的重要来源之一。 根据太阳能电池板的类型和设置，可以使用网关或其他中间设备和专用系统来连接它。 可能需要构建 IoT Central 设备网桥以连接无法直接连接的设备。 IoT Central 设备桥是一种开放源代码解决方案，你可以在[此处](../core/howto-build-iotc-device-bridge.md)找到完整的详细信息。 
 
 
 
@@ -43,4 +43,4 @@ IoT Central 平台提供了两个扩展选项：连续数据导出 (CDE) 和 API
 ## <a name="next-steps"></a>后续步骤
 
 * 现在，你已了解体系结构，[免费创建太阳能板应用](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](https://docs.microsoft.com/azure/iot-central/)
+* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](../index.yml)
