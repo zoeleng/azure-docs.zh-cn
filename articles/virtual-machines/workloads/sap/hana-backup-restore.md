@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c2b606059f92cafc44e383c2aced0d6bed467c2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5fdaa1346e4837b3bf611d964158d132dcdfeeda
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149662"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282686"
 ---
-# <a name="backup-and-restore-on-sap-hana-on-azure"></a>在 Azure 上 SAP HANA 上的备份和还原
+# <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>在 HANA 大型实例上备份和还原 SAP HANA
 
 >[!IMPORTANT]
 >本文不是 SAP HANA 管理文档或 SAP 说明的替代文档。 我们期望您对 SAP HANA 管理和操作的专业技能有深刻的了解，尤其是在备份、还原、高可用性和灾难恢复方面。 本文中提供的是 SAP HANA Studio 的屏幕截图。 SAP 管理工具屏幕的内容、结构和性质以及工具本身可能会因不同的 SAP HANA 发行版本而有所差异。

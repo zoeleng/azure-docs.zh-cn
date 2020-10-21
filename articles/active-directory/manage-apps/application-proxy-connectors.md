@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319820"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282131"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 应用程序代理连接器
 
@@ -161,8 +161,11 @@ Azure AD 为部署的所有连接器提供自动更新。 只要应用程序代�
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+对于政府版，使用 `-EnvironmentName "AzureUSGovernment"` 。 有关更多详细信息，请参阅 [安装适用于 Azure 政府云的代理](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)。
+
 若要了解有关如何验证证书和解决问题的详细信息，请参阅 [验证计算机和后端组件是否支持应用程序代理信任证书](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate)。
 
 ## <a name="under-the-hood"></a>揭秘

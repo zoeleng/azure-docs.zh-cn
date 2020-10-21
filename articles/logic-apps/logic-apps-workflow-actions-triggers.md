@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c15724643fb3c8c74d3afe58509822c56d2d17f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0cd8245b6d8298ae1d99e2dbe1e8457a40dc7d6
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821962"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330404"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>有关 Azure 逻辑应用中触发器和操作类型的架构参考指南
 
@@ -2308,6 +2308,9 @@ ID,Product_Name
 | <loop-count> | Integer | 针对操作可运行的最大循环数的限制。 有关默认限制和最大限制的详细信息，请参阅 [Azure 逻辑应用的限制和配置](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 | 
 | <loop-timeout> | String | 针对循环可运行的最长时间的限制。 默认 `timeout` 值为 `PT1H`，即要求的 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601)。 |
 |||| 
+
+> [!NOTE]
+> 如果表达式依赖于 Until 循环中任何操作的输出，请确保考虑该操作产生的任何失败。
 
 *示例*
 

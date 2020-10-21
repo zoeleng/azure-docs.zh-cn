@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282583"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331815"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中的预配吞吐量简介
 
@@ -96,7 +96,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 创建 Azure Cosmos 容器或数据库后，可以更新预配的吞吐量。 可对数据库或容器配置的最大预配吞吐量没有限制。
 
-### <a name="current-provisioned-throughput"></a>当前预配的吞吐量
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> 当前预配的吞吐量
 
 可以在 Azure 门户中或使用 Sdk 检索容器或数据库的预配吞吐量：
 
@@ -135,6 +135,14 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 * [ThroughputResponse. isReplacePending ( ](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) Java SDK 上的 # B1。
 
 可以使用 [Azure Monitor 指标](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db)来查看资源上预配吞吐量 (RU/s) 和存储的历史记录。
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> 高存储/低吞吐量计划
+
+如以上 " [当前预配的吞吐量](#current-provisioned-throughput) " 一节中所述，可以在容器或数据库上预配的最小吞吐量取决于多个因素。 其中一个是当前存储的数据量，因为 Azure Cosmos DB 强制实施每 GB 存储 10 RU/秒的最小吞吐量。
+
+如果需要存储大量数据，但吞吐量要求较低，则需要考虑到这一点。 为了更好地适应这些方案，Azure Cosmos DB 引入了一个 **"高存储/低吞吐量" 程序** ，可将合格帐户的每 GB 的每 GB 限制从10减少到1。
+
+目前，你的帐户中至少需要有 1 TB 的数据，才能获得资格。 若要加入此计划并评估你的完全资格，你只需填写 [此调查](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u)。 然后，Azure Cosmos DB 团队将跟进并继续进行加入。
 
 ## <a name="comparison-of-models"></a>模型比较
 下表显示了对数据库与容器预配标准（手动）吞吐量时的差异比较。 

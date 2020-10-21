@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
-ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450125"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330354"
 ---
 # <a name="execute-python-script-module"></a>“执行 Python 脚本”模块
 
@@ -120,9 +120,47 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
     ![执行 Python 输入映射](media/module/python-module.png)
 
-4. 若要包括新的 Python 包或代码，请在脚本捆绑包中添加包含这些自定义资源的压缩文件。 脚本捆绑包的输入必须是作为文件类型数据集上传到工作区的压缩文件。 可以在“数据集”资产页中上传数据集。 可以从设计器创作页面左侧模块树中的“我的数据集”列表中拖取数据集模块。 
+4. 若要包括新的 Python 包或代码，请将包含这些自定义资源的压缩文件连接到 **脚本绑定** 端口。 或者，如果你的脚本大于 16 KB，则使用 **脚本捆绑** 端口来避免错误（如 *命令行）超过16597个字符的限制*。 
 
-    在管道执行期间，可以使用已上传的压缩存档中包含的任何文件。 如果存档中包含目录结构，则会保留该结构，但你必须在路径前面追加一个名为 **src** 的目录。
+    
+    1. 将脚本和其他自定义资源捆绑到 zip 文件。
+    1. 将 zip 文件作为 **文件数据集** 上传到工作室。 
+    1. 从 "设计器创作" 页左侧模块窗格内的 " *数据集* " 列表中拖动数据集模块。 
+    1. 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
+    
+    在管道执行期间，可以使用已上传的压缩存档中包含的任何文件。 如果存档中包含目录结构，则会保留结构。
+    
+    下面是脚本绑定示例，其中包含 python 脚本文件和 txt 文件：
+      
+    > [!div class="mx-imgBorder"]
+    > ![脚本捆绑示例](media/module/python-script-bundle.png)  
+
+    下面是的内容 `my_script.py` ：
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    下面是示例代码，演示如何使用脚本捆绑包中的文件：    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. 在“Python 脚本”文本框中，键入或粘贴有效的 Python 脚本。
 

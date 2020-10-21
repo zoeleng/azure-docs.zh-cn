@@ -9,26 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e53c29c41b3c4a5a2dd1f421e128231aa5eec3
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706126"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327543"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 许可框架
 
-使用 Azure Active Directory (Azure AD) 许可框架可以轻松开发多租户 Web 应用程序和本机客户端应用程序。 这些应用程序允许用户帐户从与应用程序所注册到的租户不同的 Azure AD 租户登录。 除了你自己的 web Api 外，他们可能还需要访问 web Api，如 Microsoft Graph API (，以访问 Microsoft 365) 和其他 Microsoft 服务 Api 中的 Azure AD、Intune 和服务。
+使用 Azure Active Directory (Azure AD) 许可框架可以轻松开发多租户 Web 应用程序和本机客户端应用程序。 这些应用程序允许用户帐户从与应用程序所注册到的租户不同的 Azure AD 租户登录。 这些帐户除了需要访问你自己的 Web API 以外，可能还需要访问 Microsoft Graph API 等 Web API（以访问 Azure AD、Intune，以及 Microsoft 365 中的服务）和其他 Microsoft 服务 API。
 
-该框架基于某个用户或管理员，该用户或管理员允许某个应用程序在其目录中注册，这可能涉及到访问目录数据。 例如，如果某个 web 客户端应用程序需要从 Microsoft 365 读取关于用户的日历信息，则该用户需要先同意该客户端应用程序。 同意后，该客户端应用程序能够代表该用户调用 Microsoft Graph API，并根据需要使用日历信息。 [MICROSOFT GRAPH API](https://developer.microsoft.com/graph)提供对 Microsoft 365 (中的数据的访问，例如来自 Exchange 的日历和邮件、来自 SharePoint 的站点和列表、来自 OneDrive 的文档、来自 OneNote 的笔记本、) 计划器中的任务以及来自其他 Microsoft 云服务的 Azure AD 和其他数据对象。
+该框架基于某个用户或管理员，该用户或管理员允许某个应用程序在其目录中注册，这可能涉及到访问目录数据。 例如，如果某个 Web 客户端应用程序需要从 Microsoft 365 中读取关于用户的日历信息，则该用户首先需要同意该客户端应用程序。 同意后，该客户端应用程序能够代表该用户调用 Microsoft Graph API，并根据需要使用日历信息。 [MICROSOFT GRAPH API](https://developer.microsoft.com/graph)提供对 Microsoft 365 (中的数据的访问，例如来自 Exchange 的日历和邮件、来自 SharePoint 的站点和列表、来自 OneDrive 的文档、来自 OneNote 的笔记本、) 计划器中的任务以及来自其他 Microsoft 云服务的 Azure AD 和其他数据对象。
 
 同意框架使用公共或机密客户端，建立在 OAuth 2.0 及其各种流程的基础之上，例如，代码授权和客户端凭据授权。 通过使用 OAuth 2.0，Azure AD 可生成多种不同类型的客户端应用程序（例如手机、平板电脑、服务器上的客户端应用程序或 Web 应用程序），并获取对所需资源的访问权限。
 
-有关将许可框架与 OAuth2.0 授权配合使用的详细信息，请参阅[使用 OAuth 2.0 和 Azure AD 授权访问 Web 应用程序](v2-oauth2-auth-code-flow.md)及 [Azure AD 的身份验证方案](./authentication-vs-authorization.md)。 有关通过 Microsoft Graph 获取对 Microsoft 365 的授权访问的信息，请参阅 [使用 Microsoft Graph 进行应用身份验证](/graph/)。
+有关将许可框架与 OAuth2.0 授权配合使用的详细信息，请参阅[使用 OAuth 2.0 和 Azure AD 授权访问 Web 应用程序](v2-oauth2-auth-code-flow.md)及 [Azure AD 的身份验证方案](./authentication-vs-authorization.md)。 若要了解如何通过 Microsoft Graph 获取对 Microsoft 365 的授权访问权限，请参阅[使用 Microsoft Graph 进行应用身份验证](/graph/)。
 
 ## <a name="consent-experience---an-example"></a>同意体验 - 示例
 
@@ -64,5 +63,4 @@ ms.locfileid: "90706126"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 请参阅[如何将应用转换为多租户应用](howto-convert-app-to-be-multi-tenant.md)
-* 有关详细信息，请参阅[在授权代码授权流期间如何在 OAuth 2.0 协议层支持同意](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
+请参阅[如何将应用转换为多租户应用](howto-convert-app-to-be-multi-tenant.md)

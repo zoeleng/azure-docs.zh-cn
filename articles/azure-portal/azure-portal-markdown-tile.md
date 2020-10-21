@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263940"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281767"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>在 Azure 仪表板上使用 Markdown 磁贴显示自定义内容
 
@@ -48,9 +48,9 @@ ms.locfileid: "91263940"
       ![屏幕截图，显示输入 URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > 为了增加安全性，可以创建一个 Markdown 文件，将其存储在[启用了加密的 Azure 存储帐户 Blob](../storage/common/storage-service-encryption.md) 中，然后使用 URL 选项指向该文件。 通过存储帐户的加密选项来加密 Markdown 内容。 只有有权访问文件的用户才能查看仪表板上的 Markdown 内容。
+      > 为了增加安全性，可以创建一个 Markdown 文件，将其存储在[启用了加密的 Azure 存储帐户 Blob](../storage/common/storage-service-encryption.md) 中，然后使用 URL 选项指向该文件。 通过存储帐户的加密选项来加密 Markdown 内容。 只有有权访问文件的用户才能查看仪表板上的 Markdown 内容。 在存储帐户上设置跨域资源共享 (CORS) 规则，以便 Azure 门户 (_https://portal.azure.com/_) 可以访问 blob 中的 markdown 文件。
 
-1. 选择“完成”，关闭“编辑 Markdown”窗格。   内容会显示在 Markdown 磁贴上，该磁贴可以通过在右下角拖动图柄来重设大小。
+1. 选择“完成”，关闭“编辑 Markdown”窗格。******** 内容会显示在 Markdown 磁贴上，该磁贴可以通过在右下角拖动图柄来重设大小。
 
    ![屏幕截图，显示自定义 Markdown 磁贴](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 

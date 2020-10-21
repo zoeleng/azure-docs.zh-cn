@@ -3,12 +3,12 @@ title: 获取策略符合性数据
 description: Azure Policy 的评估和效果确定了符合性。 了解如何获取 Azure 资源的符合性详细信息。
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873619"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320419"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>获取 Azure 资源的符合性数据
 
@@ -88,7 +88,7 @@ jobs:
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-可以选择使用 no-wait 参数在继续之前不等待异步过程完成。
+您可以选择不等待异步过程完成，然后再继续执行 " **无等待** " 参数。
 
 #### <a name="on-demand-evaluation-scan---azure-powershell"></a>按需评估扫描 - Azure PowerShell
 
@@ -157,19 +157,24 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>按需评估扫描-Visual Studio Code
+
+适用于 Visual Studio code 的 Azure 策略扩展可以针对特定资源运行评估扫描。 此扫描与 Azure PowerShell 和 REST 方法不同，这是一个同步过程。
+有关详细信息和步骤，请参阅 [采用 VS Code 扩展的按需评估](./extension-for-vscode.md#on-demand-evaluation-scan)。
+
 ## <a name="how-compliance-works"></a>符合性的工作原理
 
 在分配中，如果资源不遵循策略或计划规则并且不_例外_，则该资源不**合规**。 下表显示了对于生成的符合性状态，不同的策略效果是如何与条件评估配合使用的：
 
 | 资源状态 | 效果 | 策略评估 | 符合性状态 |
 | --- | --- | --- | --- |
-| 新功能或更新功能 | 审核、修改、AuditIfNotExist | True | 不合规 |
-| 新功能或更新功能 | 审核、修改、AuditIfNotExist | False | 符合 |
-| 存在 | Deny、Audit、Append、Modify、DeployIfNotExist、AuditIfNotExist | True | 不合规 |
+| 新功能或更新功能 | Audit、Modify、AuditIfNotExist | True | 不合规 |
+| 新功能或更新功能 | Audit、Modify、AuditIfNotExist | False | 符合 |
+| Exists | Deny、Audit、Append、Modify、DeployIfNotExist、AuditIfNotExist | True | 不合规 |
 | Exists | Deny、Audit、Append、Modify、DeployIfNotExist、AuditIfNotExist | False | 符合 |
 
 > [!NOTE]
-> DeployIfNotExist 和 AuditIfNotExist 效果要求 IF 语句为 TRUE，并且存在条件为 FALSE 以使其不符合。 如果为 TRUE，则 IF 条件会触发相关资源存在条件的计算。
+> DeployIfNotExist 和 AuditIfNotExist 效果要求 IF 语句为 TRUE，而存在条件为 FALSE，即为不符合。 如果为 TRUE，则 IF 条件会触发相关资源存在条件的计算。
 
 例如，假设有一个资源组 ContsoRG，其中包含一些向公共网络公开的存储帐户（以红色突出显示）。
 

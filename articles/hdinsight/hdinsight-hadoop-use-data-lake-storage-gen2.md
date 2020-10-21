@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 94a84220b276edf8eaf539151964715675693dec
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131371"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332019"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集
 
@@ -42,11 +42,11 @@ Data Lake Storage Gen2 能够以默认存储和附加存储帐户的形式用作
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>Data Lake Storage Gen2 支持哪些类型的权限？
 
-Data Lake Storage Gen2 使用一个支持基于角色的访问控制 (RBAC) 和类似于 POSIX 的访问控制列表 (ACL) 的访问控制模型。 Data Lake Storage Gen1 仅支持用于控制数据访问的访问控制列表。
+Data Lake Storage Gen2 使用的访问控制模型同时支持 Azure RBAC) 和类似 POSIX 的访问控制列表 (Azure RBAC 和类似 POSIX 的访问控制 (列表) 。 Data Lake Storage Gen1 仅支持用于控制数据访问的访问控制列表。
 
-RBAC 使用角色分配有效地将权限集应用到 Azure 资源的用户、组和服务主体。 通常，这些 Azure 资源会被限制为顶级资源 (例如，Azure Blob 存储帐户) 。 对于 Azure Blob 存储，以及 Data Lake Storage Gen2，此机制已扩展到文件系统资源。
+Azure RBAC 使用角色分配将权限集有效地应用于 Azure 资源的用户、组和服务主体。 通常，这些 Azure 资源会被限制为顶级资源 (例如，Azure Blob 存储帐户) 。 对于 Azure Blob 存储，以及 Data Lake Storage Gen2，此机制已扩展到文件系统资源。
 
-有关使用 RBAC 的文件权限的详细信息，请参阅 azure [RBAC)  (azure 基于角色的访问控制 ](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)。
+有关使用 Azure RBAC 的文件权限的详细信息，请参阅 azure [rbac)  (azure 基于角色的访问控制 ](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)。
 
 有关使用 ACL 分配文件权限的详细信息，请参阅[对文件和目录应用访问控制列表](../storage/blobs/data-lake-storage-access-control.md)。
 

@@ -1,24 +1,24 @@
 ---
 title: 在 Azure Marketplace 中创建虚拟机产品/服务。
-description: 了解如何在 Azure Marketplace 上创建虚拟机产品/服务。
+description: 了解如何在 Microsoft 商业应用商店中创建虚拟机产品/服务。
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
-ms.openlocfilehash: 9395b607f235ab606c9013f9273c4162b8c953d7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.date: 10/20/2020
+ms.openlocfilehash: 5964292d7037465456efe22283a5552a2bfc7ad8
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283682"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331254"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>如何在 Azure Marketplace 上创建虚拟机产品/服务
 
-本文介绍如何在 [Azure 市场](https://azuremarketplace.microsoft.com/)创建 Azure 虚拟机产品/服务并将其发布到 Azure 市场上。 它介绍基于 Windows 和基于 Linux 的虚拟机（包含操作系统、虚拟硬盘 (VHD) 以及多达 16 个数据磁盘）。
+本文介绍如何为 [Azure Marketplace](https://azuremarketplace.microsoft.com/)创建 azure 虚拟机产品/服务。 它介绍基于 Windows 和基于 Linux 的虚拟机（包含操作系统、虚拟硬盘 (VHD) 以及多达 16 个数据磁盘）。
 
-开始前，首先[在合作伙伴中心创建商业市场帐户](partner-center-portal/create-account.md)。 确保帐户已注册加入商业市场计划。
+在开始之前，请 [在合作伙伴中心创建一个商用 marketplace 帐户](partner-center-portal/create-account.md)。 确保帐户已注册加入商业市场计划。
 
 ## <a name="before-you-begin"></a>准备工作
 

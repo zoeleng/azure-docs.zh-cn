@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108603"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332512"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>优化性能 Azure Data Lake Storage Gen1
 
@@ -25,7 +25,7 @@ Data Lake Storage Gen1 可进行缩放，以便为所有分析方案提供必要
 
 将源系统中的数据引入到 Data Lake Storage Gen1 时，必须考虑源硬件、源网络硬件和与 Data Lake Storage Gen1 的网络连接，这一点很重要。
 
-![Data Lake Storage Gen1 性能](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![此图显示源硬件、源网络硬件和与 Data Lake Storage Gen1 的网络连接可能是瓶颈。](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 务必确保数据移动不受这些因素影响。
 
@@ -43,8 +43,8 @@ Data Lake Storage Gen1 可进行缩放，以便为所有分析方案提供必要
 
 | 工具          | 设置 | 更多详细信息                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount、ConcurrentFileCount | [链接](./data-lake-store-get-started-powershell.md) |
-| AdlCopy    | Azure Data Lake Analytics 单元 | [链接](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| Powershell       | PerFileThreadCount、ConcurrentFileCount | [链接](./data-lake-store-get-started-powershell.md)。 |
+| AdlCopy    | Azure Data Lake Analytics 单元 | [链接](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)。         |
 | DistCp            | -m (mapper) | [链接](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure 数据工厂| parallelCopies | [链接](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper) | [链接](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
@@ -100,7 +100,7 @@ HDInsight 群集由两个头节点和一些辅助角色节点组成。 每个辅
 
 运行具有更多节点和/或更大 VM 的群集****。 更大的群集可运行更多 YARN 容器，如下图所示。
 
-![Data Lake Storage Gen1 性能](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![演示如何使用更多 YARN 容器的关系图。](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 使用具有更多网络带宽的 VM****。 如果网络带宽低于 Data Lake Storage Gen1 吞吐量，则网络带宽量可能成为瓶颈。 网络带宽大小因不同 VM 而异。 请选择具有可能的最大网络带宽的 VM 类型。
 
@@ -108,7 +108,7 @@ HDInsight 群集由两个头节点和一些辅助角色节点组成。 每个辅
 
 使用较小的 YARN 容器****。 缩减每个 YARN 容器的大小，创建更多包含相同数量资源的容器。
 
-![Data Lake Storage Gen1 性能](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![演示如何使用较小的 YARN 容器的关系图。](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 始终需要最小的 YARN 容器，具体取决于工作负荷。 如果选取的容器太小，作业会出现内存不足的问题。 通常，YARN 容器不应小于 1 GB。 常见的是 3 GB YARN 容器。 对于某些工作负荷，可能需要更大的 YARN 容器。
 
@@ -118,7 +118,7 @@ HDInsight 群集由两个头节点和一些辅助角色节点组成。 每个辅
 
 使用所有可用的容器****。 将任务数设置为等于或大于可用容器数，以便使用所有资源。
 
-![Data Lake Storage Gen1 性能](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![显示所有可用容器的用法的关系图。](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 失败的任务成本高昂****。 如果每项任务都有大量数据需要处理，那么任务失败就会导致以高成本重试任务。 因此，更好的做法是创建更多任务，每个任务处理少量数据。
 

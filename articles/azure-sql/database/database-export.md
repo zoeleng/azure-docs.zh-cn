@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443800"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328182"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>导出到 BACPAC 文件 - Azure SQL 数据库和 Azure SQL 托管实例
 
@@ -48,7 +48,7 @@ ms.locfileid: "91443800"
 
 1. 若要使用 [Azure 门户](https://portal.azure.com)导出数据库，请打开数据库页，并在工具栏上单击“导出”。
 
-   ![数据库导出](./media/database-export/database-export1.png)
+   ![突出显示 "导出" 按钮的屏幕截图。](./media/database-export/database-export1.png)
 
 2. 指定 BACPAC 文件名，为导出选择现有的 Azure 存储帐户和容器，然后提供用于访问源数据库的相应凭据。 即使你是 Azure 管理员，此处也需要 SQL Server 管理员登录名，因为是 Azure 管理员并不等同于在 Azure SQL 数据库或 Azure SQL 托管实例中拥有管理员权限。
 

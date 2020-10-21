@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279359"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332087"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>在 Azure 数字孪生 (门户中管理终结点和路由) 
 
@@ -72,7 +72,7 @@ ms.locfileid: "92279359"
 
 如果终结点创建失败，请在几分钟后观察错误消息并重试。
 
-现在，可以在 " _名称_ " 字段中指定的名称下，使用事件网格主题作为 Azure 数字孪生内的终结点。 通常将该名称用作 **事件路由**的目标， [稍后将在本文中](#event-routes)创建。
+现在，可以在 " _名称_ " 字段中指定的名称下，使用事件网格主题作为 Azure 数字孪生内的终结点。 通常将该名称用作 **事件路由**的目标， [稍后将在本文中](#create-an-event-route)创建。
 
 ### <a name="create-an-event-hubs-endpoint"></a>创建事件中心终结点
 
@@ -88,7 +88,7 @@ ms.locfileid: "92279359"
 
 然后，通过命中 _保存_来创建终结点。
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Azure 门户搜索栏的屏幕截图。" 字段中指定的名称下将事件中心用作 Azure 数字孪生内的终结点。 通常将该名称用作 **事件路由**的目标， [稍后将在本文中](#event-routes)创建。
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Azure 门户搜索栏的屏幕截图。" 字段中指定的名称下将事件中心用作 Azure 数字孪生内的终结点。 通常将该名称用作 **事件路由**的目标， [稍后将在本文中](#create-an-event-route)创建。
 
 ### <a name="create-a-service-bus-endpoint"></a>创建服务总线终结点
 
@@ -104,7 +104,7 @@ ms.locfileid: "92279359"
 
 然后，通过命中 _保存_来创建终结点。
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Azure 门户搜索栏的屏幕截图。" 字段中指定的名称下，使用服务总线主题作为 Azure 数字孪生内的终结点。 通常将该名称用作 **事件路由**的目标， [稍后将在本文中](#event-routes)创建。
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Azure 门户搜索栏的屏幕截图。" 字段中指定的名称下，使用服务总线主题作为 Azure 数字孪生内的终结点。 通常将该名称用作 **事件路由**的目标， [稍后将在本文中](#create-an-event-route)创建。
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>创建具有死信的端点
 
@@ -114,7 +114,7 @@ ms.locfileid: "92279359"
 
 有关如何通过 Api 执行此操作的说明，请参阅本文的 [*api 和 CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) 版本。
 
-## <a name="event-routes"></a>事件路由
+## <a name="create-an-event-route"></a>创建事件路由
 
 若要将数据从 Azure 数字孪生实际发送到终结点，需要定义 **事件路由**。 通过这些路由，开发人员可以将事件流连接到整个系统和下游服务。 有关事件路由的详细信息，请参阅 [*概念：路由 Azure 数字孪生事件*](concepts-route-events.md)。
 
@@ -123,7 +123,7 @@ ms.locfileid: "92279359"
 >[!NOTE]
 >如果你最近部署了终结点，请验证它们是否已完成部署， **然后再** 尝试将它们用于新的事件路由。 如果无法设置路由，因为终结点尚未准备就绪，请等待几分钟，然后重试。
 
-### <a name="create-an-event-route"></a>创建事件路由 
+### <a name="creation-steps-with-the-azure-portal"></a>Azure 门户的创建步骤
 
 事件路由定义包含以下元素：
 * 要使用的路由名称
@@ -149,7 +149,7 @@ ms.locfileid: "92279359"
 
 完成后，单击 " _保存_ " 按钮创建事件路由。
 
-### <a name="filter-events"></a>筛选事件
+## <a name="filter-events"></a>筛选事件
 
 如上所述，路由具有 **筛选** 字段。 如果路由上的筛选器值为 `false` ，则不会将任何事件发送到终结点。 
 

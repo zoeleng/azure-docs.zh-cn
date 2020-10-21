@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281397"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331203"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>有关从云合作伙伴门户过渡到合作伙伴中心的常见问题
 
@@ -30,7 +30,7 @@ ms.locfileid: "92281397"
 | 新的购买和部署 | 无更改。 你的客户可以继续购买和部署你的产品/服务，而不会出现任何中断。 |
 | 付款 | 任何购买和部署都将继续按常规方式支付给你。 详细了解如何 [在商业市场中付费](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context)。 |
 | API 与现有[云合作伙伴门户 API](cloud-partner-portal-api-overview.md) 的集成 | 仍支持现有云合作伙伴门户 Api，现有集成仍可正常工作。 要了解详细信息， [请参阅是否支持云合作伙伴门户 REST api？](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| 分析 | 可以通过在合作伙伴中心查看分析来继续监视销售、评估性能和优化商业应用商店中的产品/服务。 在 CPP 和伙伴中心中如何显示分析报表之间存在差异。 例如，CPP 中的 **卖方 Insights** 有一个 " **订单 & 使用情况** " 选项卡，该选项卡显示基于使用情况的产品/服务和基于使用情况的产品/ **服务的数据** 。 有关详细信息，请参阅 [合作伙伴中心的商业市场访问分析报表](partner-center-portal/analytics.md)。 |
+| Analytics | 可以通过在合作伙伴中心查看分析来继续监视销售、评估性能和优化商业应用商店中的产品/服务。 在 CPP 和伙伴中心中如何显示分析报表之间存在差异。 例如，CPP 中的 **卖方 Insights** 有一个 " **订单 & 使用情况** " 选项卡，该选项卡显示基于使用情况的产品/服务和基于使用情况的产品/ **服务的数据** 。 有关详细信息，请参阅 [合作伙伴中心的商业市场访问分析报表](partner-center-portal/analytics.md)。 |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>是否需要创建新帐户来管理合作伙伴中心提供的产品/服务？
@@ -77,8 +77,8 @@ ms.locfileid: "92281397"
 
 | 产品/服务类型 <img src="" width=150px>| 已移动到合作伙伴中心？ <img src="" width=100px>| 后续步骤 |
 | --- | --- | --- |
-| SaaS | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 有关详细信息，请参阅在 [商用 marketplace 中创建新的 SaaS 产品](partner-center-portal/create-new-saas-offer.md)。 |
-| 虚拟机 | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 有关详细信息，请参阅 [在 Azure Marketplace 上创建 azure 虚拟机产品/服务](azure-vm-create.md)。 |
+| SaaS | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 有关详细信息，请参阅 [为商用 Marketplace 规划 SaaS 产品](plan-saas-offer.md)。 |
+| 虚拟机 | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 在 [规划虚拟机产品/服务](marketplace-virtual-machines.md)中了解详细信息。 |
 | Azure 应用程序 | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 有关详细信息，请参阅 [创建 Azure 应用程序产品/服务](partner-center-portal/create-new-azure-apps-offer.md)。 |
 | Dynamics 365 Business Central | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 有关详细信息，请参阅 [创建 Dynamics 365 Business Central 产品](partner-center-portal/create-new-business-central-offer.md)。 |
 | Dynamics 365 for Customer Engagement & PowerApps | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 有关详细信息，请参阅 [创建 Dynamics 365 For Customer Engagement & PowerApps 产品](partner-center-portal/create-new-customer-engagement-offer.md)。 |

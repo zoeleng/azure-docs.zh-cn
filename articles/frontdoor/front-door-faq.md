@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2020
+ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: c7a5a02a063f90953982d42fe9c7d2c6dc199b2a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282283"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331577"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure 前门常见问题
 
@@ -161,6 +161,10 @@ Azure 前门 (AFD) 需要公共 IP 或可公开解析的 DNS 名称来路由流�
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>将规则添加到前门规则引擎后，规则需要多长时间？
 
 规则引擎配置需要大约10到15分钟的时间来完成更新。 当更新完成后，你可能会希望该规则生效。 
+
+### <a name="can-i-configure-azure-cdn-behind-my-front-door-profile-or-vice-versa"></a>能否在前门配置文件后配置 Azure CDN，反之亦然？
+
+Azure 前门和 Azure CDN 无法一起配置，因为在响应请求时，这两种服务都利用相同的 Azure 边缘站点。 
 
 ## <a name="performance"></a>性能
 

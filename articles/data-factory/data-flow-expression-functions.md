@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/06/2020
-ms.openlocfilehash: ab7ed95ba4b9a4fa6f0bafb78ea80a2d4acac71d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5645bd37ec466619a4093d767db1c846b90a4365
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827894"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281426"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>映射数据流中的数据转换表达式
 
@@ -155,7 +155,7 @@ ___
 ___
 ### <code>collect</code>
 <code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-将聚合组中表达式的所有值收集到一个数组中。 在此过程中，可以收集结构并将其转换为备用结构。 项目数将等于该组中的行数，并且可以包含 NULL 值。 收集的项的数量应该很小。  
+将聚合组中的表达式的所有值收集到一个数组中。 在此过程中，可以收集结构并将其转换为备用结构。 项目数将等于该组中的行数，并且可以包含 NULL 值。 收集的项的数量应该很小。  
 * ``collect(salesPerson)``
 * ``collect(firstName + lastName))``
 * ``collect(@(name = salesPerson, sales = salesAmount) )``
@@ -682,7 +682,7 @@ ___
 * ``rpad('dumbo', 4, '-') -> 'dumb'``  
 * ``rpad('dumbo', 8, '<>') -> 'dumbo<><'``  ___
 ### <code>rtrim</code>
-<code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></代码><br/><br/> 右键修整前导字符的字符串。 如果未指定第二个参数，则裁剪掉空格。 否则，它会修整中指定的任何字符econd parameter.  
+<code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></代码><br/><br/> 右键修整尾随字符的字符串。 如果未指定第二个参数，则裁剪掉空格。 否则，它会修整中指定的任何字符econd parameter.  
 * ``rtrim('  dumbo  ') -> '  dumbo'``  
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
 ___
@@ -1524,7 +1524,7 @@ Right pads the string by the supplied padding until it is of a certain length. I
 ___
 ### <code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Right trims a string of leading characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
+Right trims a string of trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
 * ``rtrim('  dumbo  ') -> '  dumbo'``  
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
 ___

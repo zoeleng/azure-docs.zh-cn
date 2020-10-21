@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876929"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328873"
 ---
 # <a name="configure-device-redirections"></a>配置设备重定向
 
@@ -50,7 +50,10 @@ ms.locfileid: "91876929"
 - `camerastoredirect:s:*` 重定向所有相机。
 - `camerastoredirect:s:` 禁用相机重定向。
 
-你还可以使用以分号分隔的 KSCATEGORY_VIDEO_CAMERA 接口列表（例如）来重定向特定相机 `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` 。
+>[!NOTE]
+>即使 `camerastoredirect:s:` 已禁用该属性，也可以通过属性重定向本地相机 `devicestoredirect:s:` 。 若要完全禁用相机重定向 `camerastoredirect:s:` ，请设置 `devicestoredirect:s:` 或定义不包括任何照相机的即插即用设备的某些子集。
+
+你还可以使用以分号分隔的 KSCATEGORY_VIDEO_CAMERA 接口列表（例如）来重定向特定相机 `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` 。 
 
 ### <a name="clipboard-redirection"></a>剪贴板重定向
 
@@ -78,7 +81,7 @@ ms.locfileid: "91876929"
 - 导航到 "**计算机配置**  >  **策略**" >  **管理模板**  >  **Windows 组件**  >  **远程桌面服务**  >  **远程桌面连接客户端**  >  **RemoteFX USB 设备重定向**"。
 - 选择 " **允许来自此计算机的其他支持的 REMOTEFX USB 设备的 RDP 重定向**"。
 - 选择 " **已启用** " 选项，然后选择 " **RemoteFX USB 重定向访问权限" 框中的管理员和用户** 。
-- 选择“确定”  。
+- 选择“确定” 。
 
 ### <a name="plug-and-play-device-redirection"></a>即插即用设备重定向
 

@@ -263,6 +263,8 @@
           items:
             - name: 服务器级别 IP 防火墙规则
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: GitHub 操作
+          href: database/connect-github-actions-sql-db.md
     - name: 教程
       items:
         - name: 设计数据库
@@ -1125,7 +1127,7 @@
               href: ./database/policy-reference.md
         - name: 资源
           items:
-            - name: 常见问题解答
+            - name: 常见问题
               href: virtual-machines/windows/frequently-asked-questions-faq.md
             - name: 定价
               href: virtual-machines/windows/pricing-guidance.md
@@ -1161,7 +1163,7 @@
               href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
         - name: 资源
           items:
-            - name: 常见问题解答
+            - name: 常见问题
               href: virtual-machines/linux/frequently-asked-questions-faq.md
             - name: “Linux 上的 SQL Server”文档
               href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-overview'

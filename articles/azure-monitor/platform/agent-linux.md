@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013740"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332495"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>在 Linux 计算机上安装 Log Analytics 代理
 本文详细介绍如何使用以下方法在 Linux 计算机上安装 Log Analytics 代理：
@@ -43,9 +43,11 @@ ms.locfileid: "92013740"
 >[!NOTE]
 >如果使用的是当前不受支持且与我们的支持模型不一致的发行版或版本，我们建议对此存储库创建分支，并接受 Microsoft 支持不会为已分支的代理版本提供帮助。
 
-### <a name="python-2-requirement"></a>Python 2 要求
+### <a name="python-requirement"></a>Python 要求
 
- Log Analytics 代理需要 Python 2。 如果虚拟机使用的发行版默认情况下不包括 Python 2，则必须进行安装。 以下示例命令将在不同的发行版上安装 Python 2。
+从代理版本1.13.27 开始，Linux 代理将支持 Python 2 和3。 我们始终建议使用最新的代理。 
+
+如果你使用的是较旧版本的代理，则默认情况下，你必须让虚拟机使用 python 2。 如果虚拟机使用的发行版默认情况下不包括 Python 2，则必须进行安装。 以下示例命令将在不同的发行版上安装 Python 2。
 
  - Red Hat、CentOS、Oracle：`yum install -y python2`
  - Ubuntu、Debian：`apt-get install -y python2`
@@ -71,7 +73,7 @@ OMS 代理对 Linux 提供了有限的自定义支持。
 当前支持以下内容： 
 - FIPS
 
-以下内容已计划，但尚不受支持：
+以下是但尚不支持以下内容：
 - CIS
 - SELINUX
 

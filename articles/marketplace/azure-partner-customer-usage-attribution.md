@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261373"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282359"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>商业应用商店合作伙伴和客户使用情况归属
 
@@ -268,7 +268,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="get-support"></a>获取支持
 
-请在 [合作伙伴中心的支持商业市场计划](./partner-center-portal/support.md)中了解商用 marketplace 中的支持选项。
+请在 [合作伙伴中心的支持商业市场计划](support.md)中了解商用 marketplace 中的支持选项。
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>如何提交技术咨询请求
 
