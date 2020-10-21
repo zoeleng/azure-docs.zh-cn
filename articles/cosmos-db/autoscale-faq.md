@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567581"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277973"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中自动缩放预配吞吐量的常见问题解答
 
@@ -125,7 +125,7 @@ Azure Cosmos DB 在一个共享吞吐量数据库中最多可实施 25 个容器
 - 1 小时：T=2：容器开始接收请求，在 1 秒内使用 1,000 RU。 此外，还有需使用 200 RU 的 TTL 要实现。 计费 RU/s 仍然为 1,000 RU/s。 无论何时发生 TTL，它们都不会影响自动缩放逻辑。
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>最大 RU/秒和物理分区之间的映射是什么？
-首次选择最大 RU/s 时，Azure Cosmos DB 将进行以下预配：最大 RU/秒/10000 RU/秒 = 物理分区的数量。 每个[物理分区](partition-data.md#physical-partitions)最多可支持 10,000 RU/s 和 50 GB 的存储。 随着存储大小的增长，Azure Cosmos DB 将自动拆分分区，以添加更多物理分区来应对存储的增长；如果存储[超过相关限制](#what-is-the-storage-limit-associated-with-each-max-rus-option)，Azure Cosmos DB 将增加最大 RU/s。 
+首次选择最大 RU/s 时，Azure Cosmos DB 将进行以下预配：最大 RU/秒/10000 RU/秒 = 物理分区的数量。 每个[物理分区](partitioning-overview.md#physical-partitions)最多可支持 10,000 RU/s 和 50 GB 的存储。 随着存储大小的增长，Azure Cosmos DB 将自动拆分分区，以添加更多物理分区来应对存储的增长；如果存储[超过相关限制](#what-is-the-storage-limit-associated-with-each-max-rus-option)，Azure Cosmos DB 将增加最大 RU/s。 
 
 数据库或容器的最大 RU/s 在所有物理分区之间平均分配。 因此，任何单个物理分区可扩展到的总吞吐量为：数据库或容器的最大 RU/s / 物理分区数。 
 
@@ -147,5 +147,5 @@ Azure Cosmos DB 在一个共享吞吐量数据库中最多可实施 25 个容器
 
 * 了解如何[对 Azure Cosmos DB 数据库或容器启用自动缩放](how-to-provision-autoscale-throughput.md)。
 * 了解[使用自动缩放预配吞吐量的优势](provision-throughput-autoscale.md#benefits-of-autoscale)。
-* 详细了解[逻辑和物理分区](partition-data.md)。
+* 详细了解[逻辑和物理分区](partitioning-overview.md)。
                         

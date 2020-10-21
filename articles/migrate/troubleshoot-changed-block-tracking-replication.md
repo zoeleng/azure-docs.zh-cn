@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871168"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314731"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>排查无代理 VMware VM 迁移中的复制问题
 
@@ -90,7 +90,7 @@ Set-AzureRmKeyVaultAccessPolicy-VaultName "keyvaultname"-ObjectId $userPrincipal
     
     **运行性能基准测试的步骤：**
     
-      1. [下载](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [下载](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. 在资源组中查找设备存储帐户。 存储帐户的名称类似于 migrategwsa \* \* \* \* \* \* \* \* \* \* 。 这是上述命令中参数 [account] 的值。
         
@@ -170,7 +170,7 @@ Set-AzureRmKeyVaultAccessPolicy-VaultName "keyvaultname"-ObjectId $userPrincipal
     
     **运行性能基准测试的步骤：**
     
-      1. [下载](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [下载](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. 在资源组中查找设备存储帐户。 存储帐户的名称类似于 migratelsa \* \* \* \* \* \* \* \* \* \* 。 这是上述命令中参数 [account] 的值。
         
@@ -295,4 +295,4 @@ VCenter Server 管理代理停止工作时，会出现此问题。 若要解决�
 
 ## <a name="next-steps"></a>后续步骤
 
-继续 VM 复制，并执行 [测试迁移](https://go.microsoft.com/fwlink/?linkid=2139333)。
+继续 VM 复制，并执行 [测试迁移](./tutorial-migrate-vmware.md#run-a-test-migration)。

@@ -3,17 +3,17 @@ title: 在 multiregional 环境中诊断并解决 Azure Cosmos Sdk 的可用性�
 description: 了解有关在多区域环境中操作时的 Azure Cosmos SDK 可用性行为的全部信息。
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743958"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319367"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>在 multiregional 环境中诊断并解决 Azure Cosmos Sdk 的可用性问题
 
@@ -34,7 +34,7 @@ ms.locfileid: "91743958"
 | 单个写入区域 | 首选区域 | 主要区域  |
 | 多个写入区域 | 首选区域 | 首选区域  |
 
-如果未设置首选区域：
+如果 **未设置首选区域**，SDK 客户端默认为主要区域：
 
 |帐户类型 |读取 |写入 |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ ms.locfileid: "91743958"
 > [!NOTE]
 > 主要区域指的是[Azure Cosmos 帐户区域列表](distribute-data-globally.md)中的第一个区域
 
-发生以下任何情况时，使用 Azure Cosmos SDK 的客户端将公开日志，并在 **操作诊断信息**中包含重试信息：
+在正常情况下，SDK 客户端将连接到首选区域 (如果将区域首选项设置) 或主要区域 (如果未) 首选项设置，则操作将限制为该区域，除非发生以下任何情况。
+
+在这些情况下，使用 Azure Cosmos SDK 的客户端将公开日志，并在 **操作诊断信息**中包含重试信息：
 
 * .NET V2 SDK 中响应的 *RequestDiagnosticsString* 属性。
 * .NET V3 SDK 中响应和异常的 *诊断* 属性。
@@ -66,7 +68,7 @@ Azure Cosmos SDK 客户端每5分钟读取一次帐户配置，并刷新其识�
 
 如果将客户端配置为最好连接到 Azure Cosmos 帐户没有的区域，则将忽略首选区域。 如果以后添加该区域，客户端将检测到该区域，并将其永久切换到该区域。
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>在单个写入区域帐户中故障转移写入区域
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>在单个写入区域帐户中将写入区域故障转移
 
 如果启动当前写入区域的故障转移，则下一个写入请求将会失败，并会出现已知的后端响应。 检测到此响应时，客户端将查询帐户以了解新的写入区域，并继续重试当前操作，并将所有将来的写入操作永久路由到新区域。
 
@@ -76,7 +78,7 @@ Azure Cosmos SDK 客户端每5分钟读取一次帐户配置，并刷新其识�
 
 ## <a name="session-consistency-guarantees"></a>会话一致性保证
 
-当使用 [会话一致性](consistency-levels.md#guarantees-associated-with-consistency-levels)时，客户端需要确保它可以读取自己的写入。 在 "读取区域" 首选项不同于写入区域的 "单一写入区域帐户" 中，可能会出现这样的情况：用户发出了写入操作，并在从本地区域读取数据时，本地区域尚未收到 (轻型约束) 速度的数据复制。 在这种情况下，SDK 会检测读取操作的特定故障，并在中心区域重试读取操作，以确保会话一致性。
+当使用 [会话一致性](consistency-levels.md#guarantees-associated-with-consistency-levels)时，客户端需要确保它可以读取自己的写入。 在 "读取区域" 首选项不同于写入区域的 "单一写入区域帐户" 中，可能会出现这样的情况：用户发出了写入操作，并在从本地区域读取数据时，本地区域尚未收到 (轻型约束) 速度的数据复制。 在这种情况下，SDK 会检测读取操作的特定故障，并在主要区域重试读取操作，以确保会话一致性。
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>TCP 协议上的暂时性连接问题
 

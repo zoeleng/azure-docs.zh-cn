@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306559"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318130"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>规划 Azure Active Directory 访问评审部署
 
@@ -87,7 +87,7 @@ ms.locfileid: "91306559"
 
 ### <a name="engage-the-right-stakeholders"></a>让合适的利益干系人参与
 
-如果技术项目失败，它们通常是由于在影响、结果和责任方面不符合预期而导致的。 为避免这些缺陷，请[确保你正在吸引正确的利益干系人](https://aka.ms/deploymentplans)，并确保项目角色明确。
+如果技术项目失败，它们通常是由于在影响、结果和责任方面不符合预期而导致的。 为避免这些缺陷，请[确保你正在吸引正确的利益干系人](../fundamentals/active-directory-deployment-plans.md)，并确保项目角色明确。
 
 对于访问评审，可能需包括组织中以下团队的代表：
 
@@ -182,7 +182,7 @@ ms.locfileid: "91306559"
 
 * 组[成员身份](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)（同步到 Azure AD，或者在 Azure AD 或 Microsoft 365 中创建，包括 Microsoft Teams）。
 
-* [访问包](/azure/active-directory/governance/entitlement-management-overview)：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
+* [访问包](./entitlement-management-overview.md)：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
 
 * [Azure AD 角色和 Azure 资源角色](../privileged-identity-management/pim-resource-roles-assign-roles.md)：详见 Privileged Identity Management 中的定义。
 
@@ -300,7 +300,7 @@ ms.locfileid: "91306559"
 
 打开“生命周期”选项卡即可向下滚动到“访问评审”。
 
- ![屏幕截图，显示 "生命周期" 选项卡中的 "编辑策略"。](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![此屏幕截图显示了“生命周期”选项卡中的“编辑策略”。](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>为组规划访问评审
 
@@ -446,7 +446,7 @@ ms.locfileid: "91306559"
 
 为了降低与过时角色分配相关的风险，应定期评审特权 Azure AD 角色的访问权限。
 
-![屏幕截图，显示 Azure A D 角色的 "查看成员身份" 列表。](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![此屏幕截图显示了 Azure AD 角色的“审阅成员身份”列表。](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 请按以下链接中的说明进行操作：
 
@@ -518,4 +518,3 @@ ms.locfileid: "91306559"
 * [什么是 Azure AD 权利管理？](entitlement-management-overview.md)
 
 * [什么是 Azure AD Privileged Identity Management？](../privileged-identity-management/pim-configure.md)
-

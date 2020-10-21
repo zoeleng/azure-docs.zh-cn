@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090393"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309916"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>查看并创建用于在 Azure 逻辑应用 Azure Monitor 日志中监视和跟踪的查询
 
-您可以查看从 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md) 生成结果的基础查询，并创建根据特定条件筛选结果的查询。 例如，你可以根据特定的交换控制编号查找消息。 查询使用 [Kusto 查询语言](https://aka.ms/LogAnalyticsLanguageReference)，如果想要查看不同的结果，可以对其进行编辑。 有关详细信息，请参阅 [Azure Monitor 日志查询](../azure-monitor/log-query/query-language.md)。
+您可以查看从 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md) 生成结果的基础查询，并创建根据特定条件筛选结果的查询。 例如，你可以根据特定的交换控制编号查找消息。 查询使用 [Kusto 查询语言](/azure/data-explorer/kusto/query/)，如果想要查看不同的结果，可以对其进行编辑。 有关详细信息，请参阅 [Azure Monitor 日志查询](/azure/data-explorer/kusto/query/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -59,7 +59,7 @@ ms.locfileid: "87090393"
 
      ![从 "逻辑应用 B2B" 解决方案预生成的查询开始](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
 
-   * 若要从空查询开始，请在查询编辑器中，开始键入查询的 [Kusto 查询语言](../azure-monitor/log-query/query-language.md) 。
+   * 若要从空查询开始，请在查询编辑器中，开始键入查询的 [Kusto 查询语言](/azure/data-explorer/kusto/query/) 。
 
      ![从空查询开始](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 

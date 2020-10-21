@@ -1,7 +1,7 @@
 ---
-title: 在 API 管理中使用 OAuth 2.0 授权开发人员帐户
+title: 在 API 管理中使用 OAuth 2.0 为开发人员帐户授权
 titleSuffix: Azure API Management
-description: 了解如何在 API 管理中使用 OAuth 2.0 为用户授权。 OAuth 2.0 保护 API，使用户只能访问他们有权访问的资源。
+description: 了解如何在 API 管理中使用 OAuth 2.0 为用户授权。 OAuth 2.0 保护 API，以便用户只能访问他们有权访问的资源。
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,23 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 08/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f2673bd181bc24d821b41ae1466c05a9593f154
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87902251"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315742"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 为开发人员帐户授权
 
 许多 API 支持使用 [OAuth 2.0](https://oauth.net/2/) 维护 API 的安全，并确保仅有效用户具有访问权限且只能访问有权访问的资源。 要将 Azure API 管理的交互式开发人员门户与此类 API 配合使用，需通过该服务对服务实例进行配置，使之适用于支持 OAuth 2.0 的 API。
 
-> [!IMPORTANT]
-> OAuth 2.0 授权在新开发人员门户的交互式控制台中尚不可用。
-
-## <a name="prerequisites"></a><a name="prerequisites"> </a>必备条件
+## <a name="prerequisites"></a><a name="prerequisites"> </a>先决条件
 
 本指南介绍如何配置 API 管理服务实例，以便针对开发人员帐户使用 OAuth 2.0 授权，但不介绍如何配置 OAuth 2.0 提供程序。 每个 OAuth 2.0 提供程序的配置均不相同，虽然步骤类似，不过在 API 管理服务实例中配置 OAuth 2.0 时使用的必需信息是相同的。 本主题介绍的示例使用 Azure Active Directory 作为 OAuth 2.0 提供程序。
 
@@ -50,7 +47,7 @@ ms.locfileid: "87902251"
     > [!NOTE]
     > 这些字段用于标识当前 API 管理服务实例中的 OAuth 2.0 授权服务器，其值不来自 OAuth 2.0 服务器。
 
-3. 输入“客户端注册页 URL”。**** 此页是供用户创建和管理其帐户的地方，因所使用的 OAuth 2.0 提供程序而异。 " **客户端注册页 URL** " 指向的页面，用户可以使用该页为支持帐户的用户管理的 OAuth 2.0 提供程序创建和配置自己的帐户，例如 `https://contoso.com/login` 。 某些组织不配置或使用此功能，即使 OAuth 2.0 提供程序支持此功能。 如果 OAuth 2.0 提供程序尚未配置用户管理帐户功能，请在此处输入一个占位符 URL，例如公司的 URL，或 `https://placeholder.contoso.com` 之类的 URL。
+3. 输入“客户端注册页 URL”。**** 此页是供用户创建和管理其帐户的地方，因所使用的 OAuth 2.0 提供程序而异。 “客户端注册页 URL”指向供用户针对 OAuth 2.0 提供程序创建和配置自己帐户的页面，这些提供程序支持用户管理帐户，例如 `https://contoso.com/login`。 某些组织不配置或使用此功能，即使 OAuth 2.0 提供程序支持此功能。 如果 OAuth 2.0 提供程序尚未配置用户管理帐户功能，请在此处输入一个占位符 URL，例如公司的 URL，或 `https://placeholder.contoso.com` 之类的 URL。
 
     ![OAuth 2.0 新服务器](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -78,8 +75,8 @@ ms.locfileid: "87902251"
 
     在新的开发人员门户中，URI 后缀的形式为：
 
-    - `/signin-oauth/code/callback/{authServerName}` 对于授权代码授予流
-    - `/signin-oauth/implicit/callback` 对于隐式授权流
+    - `/signin-oauth/code/callback/{authServerName}` - 授权代码授予流
+    - `/signin-oauth/implicit/callback` - 隐式授权流
 
     ![OAuth 2.0 新服务器](./media/api-management-howto-oauth2/oauth-04.png)
 

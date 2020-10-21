@@ -3,12 +3,12 @@ title: Azure Migrate 设备常见问题
 description: 获取有关 Azure Migrate 设备的常见问题的解答。
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630485"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314782"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 设备：常见问题
 
@@ -42,7 +42,7 @@ Azure Migrate 设备是一个轻型设备，Azure Migrate 服务器评估工具�
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>设备如何连接到 Azure？
 
-设备可以通过 internet 或使用 Azure ExpressRoute 进行连接。 请确保这些 [url](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) 已获得批准，使设备能够连接到 Azure。
+设备可以通过 internet 或使用 Azure ExpressRoute 进行连接。 请确保这些 [url](./migrate-appliance.md#url-access) 已获得批准，使设备能够连接到 Azure。
 
 - 若要将 Azure ExpressRoute 用于 Azure Migrate 复制流量，需要 Microsoft 对等互连或现有的公共对等互连， (对新的 ER 创建) 弃用了公共对等互连。
 - 不支持通过 Azure ExpressRoute 复制，只启用了) 专用对等互连 (。
@@ -109,7 +109,7 @@ Azure Migrate 设备收集的数据存储在创建 Azure Migrate 项目的 Azure
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Azure Migrate 设备/复制设备是否可以连接到同一 vCenter？
 
-是。 你可以同时添加用于评估和无代理 VMware 迁移) 的 Azure Migrate (设备，并将复制设备 (用于 VMware Vm 的基于代理的迁移) 到相同的 vCenter 服务器。 但请确保未在同一 VM 上设置这两个设备，并且当前不支持这两个设备。
+是的。 你可以同时添加用于评估和无代理 VMware 迁移) 的 Azure Migrate (设备，并将复制设备 (用于 VMware Vm 的基于代理的迁移) 到相同的 vCenter 服务器。 但请确保未在同一 VM 上设置这两个设备，并且当前不支持这两个设备。
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>可以通过设备发现多少 Vm 或服务器？
 
@@ -145,7 +145,7 @@ Azure Migrate 设备收集的数据存储在创建 Azure Migrate 项目的 Azure
 
 ## <a name="can-i-check-agent-health"></a>能否检查代理运行状况？
 
-是。 在门户中，前往 Azure Migrate： Server 评估或 Azure Migrate： Server 迁移工具的 " **代理运行状况** " 页。 可以在 Azure 与设备上的 "发现" 和 "评估" 代理之间检查连接状态。
+是的。 在门户中，前往 Azure Migrate： Server 评估或 Azure Migrate： Server 迁移工具的 " **代理运行状况** " 页。 可以在 Azure 与设备上的 "发现" 和 "评估" 代理之间检查连接状态。
 
 ## <a name="next-steps"></a>后续步骤
 

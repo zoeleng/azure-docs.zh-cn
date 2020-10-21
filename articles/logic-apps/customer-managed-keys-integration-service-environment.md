@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400137"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318447"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>设置客户管理的密钥，以便在 Azure 逻辑应用中 (ISEs) 为 integration service 环境加密静态数据
 
-Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../storage/common/storage-service-encryption.md)。 此加密可保护数据，并帮助你履行组织的安全性和合规性承诺。 默认情况下，Azure 存储使用 Microsoft 托管的密钥来加密数据。 有关 Azure 存储加密的工作原理的详细信息，请参阅 [静态数据的 Azure 存储加密](../storage/common/storage-service-encryption.md) 和 [静态数据加密](../security/fundamentals/encryption-atrest.md)。
+Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../storage/common/storage-service-encryption.md)。 此加密可保护数据，并帮助你履行组织的安全性和符合性承诺。 默认情况下，Azure 存储使用 Microsoft 托管的密钥来加密数据。 有关 Azure 存储加密的工作原理的详细信息，请参阅 [静态数据的 Azure 存储加密](../storage/common/storage-service-encryption.md) 和 [静态数据加密](../security/fundamentals/encryption-atrest.md)。
 
 当你创建 [集成服务环境 (ISE) ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 来托管逻辑应用，并且希望更好地控制 Azure 存储使用的加密密钥时，你可以使用 [Azure Key Vault](../key-vault/general/overview.md)设置、使用和管理你自己的密钥。 此功能也称为 "创建自己的密钥" (BYOK) ，密钥称为 "客户托管密钥"。
 
@@ -33,17 +33,17 @@ Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../s
 
 * 发送用于创建 ISE 的 HTTPS PUT 请求后 *30 分钟* 内，必须 [为 ise 的系统分配的标识授予密钥保管库访问权限](#identity-access-to-key-vault)。 否则，ISE 创建失败并引发权限错误。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 * 为[ise 启用访问权限](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)的[先决条件](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites)和要求与在 Azure 门户中创建 ise 时相同。
 
 * 已启用 **软删除** 且 **未清除** 属性的 Azure 密钥保管库
 
-  有关启用这些属性的详细信息，请参阅 [Azure Key Vault 软删除概述](../key-vault/general/soft-delete-overview.md) 和 [配置 Azure Key Vault 的客户托管密钥](../storage/common/storage-encryption-keys-portal.md)。 如果你不熟悉 Azure Key Vault，请参阅 [如何使用 Azure 门户创建密钥保管库](../key-vault/secrets/quick-create-portal.md#create-a-vault) ，或使用 Azure PowerShell 命令 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)。
+  有关启用这些属性的详细信息，请参阅 [Azure Key Vault 软删除概述](../key-vault/general/soft-delete-overview.md) 和 [配置 Azure Key Vault 的客户托管密钥](../storage/common/customer-managed-keys-configure-key-vault.md)。 如果你不熟悉 Azure Key Vault，请参阅 [如何使用 Azure 门户创建密钥保管库](../key-vault/secrets/quick-create-portal.md#create-a-vault) ，或使用 Azure PowerShell 命令 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)。
 
 * 在密钥保管库中，使用以下属性值创建的密钥：
 
-  | 属性 | 值 |
+  | properties | 值 |
   |----------|-------|
   | **键类型** | RSA |
   | **RSA 密钥大小** | 2048 |
@@ -52,7 +52,7 @@ Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../s
 
   ![创建客户管理的加密密钥](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  有关详细信息，请参阅 [配置客户管理的密钥与 Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) 或 Azure PowerShell 命令 [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey)。
+  有关详细信息，请参阅 [配置客户管理的密钥与 Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md) 或 Azure PowerShell 命令 [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey)。
 
 * 一种工具，可用于通过调用具有 HTTPS PUT 请求 REST API 的逻辑应用来创建 ISE。 例如，可以使用 [Postman](https://www.getpostman.com/downloads/)，也可以生成执行此任务的逻辑应用。
 
@@ -225,7 +225,7 @@ Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../s
 
    1. 完成 " **访问策略** " 窗格后，请选择 " **保存**"。
 
-有关详细信息，请参阅 [如何向 Key Vault 进行身份验证](/azure/key-vault/general/authentication) 和 [分配 Key Vault 访问策略](/azure/key-vault/general/assign-access-policy-portal)。
+有关详细信息，请参阅 [如何向 Key Vault 进行身份验证](../key-vault/general/authentication.md) 和 [分配 Key Vault 访问策略](../key-vault/general/assign-access-policy-portal.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090274"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317381"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure 逻辑应用的常见方案、示例、教程和演练
 
@@ -126,7 +126,7 @@ ms.locfileid: "87090274"
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>处理内容类型、转换和变换
 
-可以使用 Azure 逻辑应用[工作流定义语言](https://aka.ms/logicappsdocs)中的多个函数访问、转换和变换多个内容类型。 例如，可以使用 `@json()` 和 `@xml()` 工作流表达式在字符串、JSON 和 XML 之间转换。 逻辑应用引擎通过保留内容类型，来支持在服务之间以无损方式进行内容传输。
+可以使用 Azure 逻辑应用[工作流定义语言](./logic-apps-workflow-definition-language.md)中的多个函数访问、转换和变换多个内容类型。 例如，可以使用 `@json()` 和 `@xml()` 工作流表达式在字符串、JSON 和 XML 之间转换。 逻辑应用引擎通过保留内容类型，来支持在服务之间以无损方式进行内容传输。
 
 * [在 Azure 逻辑应用中处理内容类型](../logic-apps/logic-apps-content-type.md)，例如 `application/`、`application/octet-stream` 和 `multipart/formdata`
 * [有关在 Azure 逻辑应用和 Power Automate 的表达式中使用函数的参考指南](../logic-apps/workflow-definition-language-functions-reference.md)

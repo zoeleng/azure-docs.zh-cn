@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69bc58e7d217bbd902a82a15333eee6df40a21c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570100"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276337"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>使用多个写入区域时的冲突类型和解决策略
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 提供了灵活的策略驱动型机制来解决写入冲突。 
 
 * **最后写入者胜出 (LWW)** ：此解决策略默认情况下使用系统定义的时间戳属性。 它基于时间同步时钟协议。 若使用 SQL API，可以指定其他任何自定义数字属性（例如，你自己的时间戳概念）来解决冲突。 自定义数字属性又称为冲突解决路径。  
 
-  如果在执行插入或替换操作时有两个或更多个项发生冲突，冲突解决路径值最大的项将成为优胜者。 如果多个项的冲突解决路径的数字值相同，则由系统确定优胜者。 保证所有区域融合到单个优胜者，并且提交的项的版本最终相同。 当涉及到删除冲突时，已删除版本始终优先于插入或替换冲突。 不管冲突解决路径的值如何，均会出现此结果。
+  如果在执行插入或替换操作时有两个或更多个项发生冲突，冲突解决路径值最大的项将成为优胜者。 如果多个项的冲突解决路径的数字值相同，则由系统确定优胜者。 所有区域都将聚合到单个入选方，并最终使用同一版本的已提交项目。 当涉及到删除冲突时，已删除版本始终优先于插入或替换冲突。 不管冲突解决路径的值如何，均会出现此结果。
 
   > [!NOTE]
   > “最后写入者胜出”是默认冲突解决策略，对以下 API 使用时间戳 `_ts`：SQL、MongoDB、Cassandra、Gremlin、表。 自定义数值属性仅可用于 SQL API。

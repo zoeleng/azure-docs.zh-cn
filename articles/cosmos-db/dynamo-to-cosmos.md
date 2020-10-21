@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
-ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 167d1f21a2eb7ea4c685b5bbbb5d8d64fcc1367e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261862"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278699"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>将应用程序从 Amazon DynamoDB 迁移到 Azure Cosmos DB
 
@@ -144,7 +144,7 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 
 借助 Azure Cosmos DB，可使用以下代码来优化连接：
 
-* **ConnectionMode** 使用直接连接模式连接到 Azure Cosmos DB 服务中的数据节点。 使用网关模式仅初始化和缓存逻辑地址，并在更新时进行刷新。 有关更多详细信息，请查看[连接模式](performance-tips.md#networking)一文。
+* **ConnectionMode** 使用直接连接模式连接到 Azure Cosmos DB 服务中的数据节点。 使用网关模式仅初始化和缓存逻辑地址，并在更新时进行刷新。 有关更多详细信息，请查看[连接模式](sql-sdk-connection-modes.md)一文。
 
 * **ApplicationRegion** - 此选项用于设置首选异地复制区域，该区域用来与 Azure Cosmos DB 进行交互。 要了解详细信息，请查看[全球分发](distribute-data-globally.md)一文。
 

@@ -3,12 +3,12 @@ title: Azure Migrate 服务器评估中的 Azure VM 评估
 description: 了解 Azure Migrate 服务器评估中的评估
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275517"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319314"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>服务器评估概述 (迁移到 Azure Vm) 
 
@@ -54,7 +54,7 @@ ms.locfileid: "91275517"
 
 设备开始发现计算机后，你可以将你想要评估的计算机收集到一个组中，并为具有评估类型 " **AZURE VM**" 的组运行评估。
 
-按照我们有关 [VMware](tutorial-prepare-vmware.md)、 [hyper-v](tutorial-prepare-hyper-v.md)或 [物理服务器](tutorial-prepare-physical.md) 的教程操作，尝试这些步骤。
+按照我们有关 [VMware](./tutorial-discover-vmware.md)、 [hyper-v](./tutorial-discover-hyper-v.md)或 [物理服务器](./tutorial-discover-physical.md) 的教程操作，尝试这些步骤。
 
 ## <a name="how-do-i-assess-with-imported-data"></a>如何实现评估导入的数据？
 
@@ -173,7 +173,7 @@ Windows Server 2012 R2 和所有 SP | Azure 提供完全支持。 | 适用于 Az
 Windows Server 2012 和所有 SP | Azure 提供完全支持。 | 适用于 Azure。
 Windows Server 2008 R2 和所有 SP | Azure 提供完全支持。| 适用于 Azure。
 Windows Server 2008（32 位和 64 位） | Azure 提供完全支持。 | 适用于 Azure。
-Windows Server 2003 和 Windows Server 2003 R2 | 这些操作系统已超过其支持终止日期，需要 [自定义支持协议 (CSA) ](https://aka.ms/WSosstatement) ，以支持 Azure 中的支持。 | Azure 有条件的就绪。 请考虑在迁移到 Azure 之前升级 OS。
+Windows Server 2003 和 Windows Server 2003 R2 | 这些操作系统已超过其支持终止日期，需要 [自定义支持协议 (CSA) ](/troubleshoot/azure/virtual-machines/server-software-support) ，以支持 Azure 中的支持。 | Azure 有条件的就绪。 请考虑在迁移到 Azure 之前升级 OS。
 Windows 2000、Windows 98、Windows 95、Windows NT、Windows 3.1 和 MS-DOS | 这些操作系统已超过其支持结束日期。 计算机可能会在 Azure 中启动，但 Azure 不提供 OS 支持。 | Azure 有条件的就绪。 建议在迁移到 Azure 之前升级 OS。
 Windows 7、Windows 8 和 Windows 10 | Azure [仅支持 Visual Studio 订阅。](../virtual-machines/windows/client-images.md) | Azure 有条件的就绪。
 Windows 10 专业版 | Azure 提供了对[多租户托管权限](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md)的支持。 | Azure 有条件的就绪。
@@ -297,6 +297,6 @@ Azure Migrate 中的每个基于性能的 Azure VM 评估都与置信度分级�
 
 [查阅](best-practices-assessment.md)关于创建评估的最佳做法。 
 
-- 了解如何为 [VMware vm](tutorial-prepare-vmware.md)、 [hyper-v vm](tutorial-prepare-hyper-v.md)和 [物理服务器](tutorial-prepare-physical.md)运行评估。
-- 了解如何评估 [使用 CSV 文件导入](tutorial-assess-import.md)的服务器。
+- 了解如何为 [VMware vm](./tutorial-discover-vmware.md)、 [hyper-v vm](./tutorial-discover-hyper-v.md)和 [物理服务器](./tutorial-discover-physical.md)运行评估。
+- 了解如何评估 [使用 CSV 文件导入](./tutorial-discover-import.md)的服务器。
 - 了解如何设置 [依赖项可视化](concepts-dependency-visualization.md)。
