@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3b098b4136098a196dd747345556b1847512fcd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3658c621a5ac633bf42334df3e354c88afcf9b27
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570248"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278806"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 安全性 - 概述
 
@@ -59,7 +59,7 @@ ms.locfileid: "91570248"
 
 |安全要求|Azure Cosmos DB 的安全方案|
 |---|---|
-|网络安全性|使用 IP 防火墙是用于保护数据库的第一个保护层。 Azure Cosmos DB 支持使用基于 IP 的策略驱动访问控制来提供入站防火墙支持。 基于 IP 的访问控制类似于传统数据库系统使用的防火墙规则，但已经过扩展，确保只能通过获批准的一组计算机或云服务访问 Azure Cosmos 数据库帐户。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](firewall-support.md)一文。<br><br>使用 Azure Cosmos DB 可以启用特定的 IP 地址 (168.61.48.0)、IP 范围 (168.61.48.0/8) 以及 IP 和范围的组合。 <br><br>从此允许列表外部的计算机发出的所有请求会被 Azure Cosmos DB 阻止。 从获批准计算机和云服务发出的请求必须完成身份验证过程才能获得资源的访问控制权。<br><br> 可以使用[虚拟网络服务标记](../virtual-network/service-tags-overview.md)实现网络隔离，并保护 Azure Cosmos DB 资源不受常规 Internet 影响。 创建安全规则时，请使用服务标记代替特定 IP 地址。 通过在规则的相应源或目标字段中指定服务标记名（例如，AzureCosmosDB），可以允许或拒绝相应服务的流量。|
+|网络安全性|使用 IP 防火墙是用于保护数据库的第一个保护层。 Azure Cosmos DB 支持使用基于 IP 的策略驱动访问控制来提供入站防火墙支持。 基于 IP 的访问控制类似于传统数据库系统使用的防火墙规则，但已经过扩展，确保只能通过获批准的一组计算机或云服务访问 Azure Cosmos 数据库帐户。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](how-to-configure-firewall.md)一文。<br><br>使用 Azure Cosmos DB 可以启用特定的 IP 地址 (168.61.48.0)、IP 范围 (168.61.48.0/8) 以及 IP 和范围的组合。 <br><br>从此允许列表外部的计算机发出的所有请求会被 Azure Cosmos DB 阻止。 从获批准计算机和云服务发出的请求必须完成身份验证过程才能获得资源的访问控制权。<br><br> 可以使用[虚拟网络服务标记](../virtual-network/service-tags-overview.md)实现网络隔离，并保护 Azure Cosmos DB 资源不受常规 Internet 影响。 创建安全规则时，请使用服务标记代替特定 IP 地址。 通过在规则的相应源或目标字段中指定服务标记名（例如，AzureCosmosDB），可以允许或拒绝相应服务的流量。|
 |授权|Azure Cosmos DB 使用基于哈希的消息身份验证代码 (HMAC) 进行授权。 <br><br>每个请求使用机密帐户密钥进行哈希处理，后续的 base-64 编码哈希将连同每个调用发送到 Azure Cosmos DB。 要验证请求，Azure Cosmos DB 服务需使用正确的机密密钥和属性生成哈希值，然后将该值与请求中的值进行比较。 如果两个值匹配，则成功为操作授权并处理请求，否则，会发生授权失败并拒绝请求。<br><br>可以使用 [主密钥](secure-access-to-data.md#primary-keys)或 [资源令牌](secure-access-to-data.md#resource-tokens) ，以便对资源（如文档）进行精细的访问。<br><br>可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
 |用户和权限|使用帐户的主密钥可为每个数据库创建用户资源和权限资源。 资源令牌与数据库中的权限相关联，确定用户是否对数据库中的应用程序资源拥有访问权限（读写、只读或无访问权限）。 应用程序资源包括容器、文档、附件、存储过程、触发器和 UDF。 然后，在身份验证期间，使用资源令牌来允许或拒绝访问资源。<br><br>可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
 |Active Directory 集成 (RBAC)| 还可以在 Azure 门户中通过“访问控制(标识和访问管理)”来提供或限制对 Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问权限。 IAM 提供基于角色的访问控制并与 Active Directory 集成。 对于个人和组，可使用内置角色或自定义角色。 有关详细信息，请参阅 [Active Directory 集成](role-based-access-control.md)一文。|

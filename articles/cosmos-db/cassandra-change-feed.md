@@ -7,16 +7,16 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b2e94bfe1bef9ecdeaa4b2b84224967bb1c7741
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84431606"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281582"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Azure Cosmos DB API for Cassandra 中的更改源
 
-Azure Cosmos DB API for Cassandra 中的[更改源](change-feed.md)支持通过 Cassandra 查询语言 (CQL) 中的查询谓词提供。 使用这些谓词条件可以查询更改源 API。 应用程序可以使用 CQL 中必需的主键（也称为分区键）来获取对表所做的更改。 然后，可以根据结果采取进一步的措施。 对表中的行所做的更改将按照其修改时间顺序捕获，而排序顺序是按分区键提供保证的。
+Azure Cosmos DB API for Cassandra 中的[更改源](change-feed.md)支持通过 Cassandra 查询语言 (CQL) 中的查询谓词提供。 使用这些谓词条件可以查询更改源 API。 应用程序可以使用 CQL 中必需的主键（也称为分区键）来获取对表所做的更改。 然后，可以根据结果采取进一步的措施。 对表中的行所做的更改将按修改时间的顺序和每个分区键的排序顺序来捕获。
 
 以下示例演示如何使用 .NET 获取 Cassandra API 密钥空间表中所有行上的更改源。 直接在 CQL 中使用谓词 COSMOS_CHANGEFEED_START_TIME()，以从指定的开始时间（在本例中为当前日期时间）查询更改源中的项。 可以在[此处](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/)（对于 C#）和[此处](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java)（对于 Java）下载完整示例。
 

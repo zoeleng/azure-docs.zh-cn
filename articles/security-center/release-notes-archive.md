@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289797"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280127"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure 安全中心的新增功能存档
 
@@ -28,6 +28,50 @@ ms.locfileid: "91289797"
 - 新增功能
 - Bug 修复
 - 已弃用的功能
+
+
+## <a name="april-2020"></a>2020 年 4 月
+
+4 月的更新包括：
+- [动态符合性包现已正式发布](#dynamic-compliance-packages-are-now-generally-available)
+- [标识建议现包含在 Azure 安全中心的免费层中](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>动态符合性包现已正式发布
+
+Azure 安全中心的法规符合性仪表板现包含动态符合性包（现已正式发布），可跟踪更多行业和法规标准。
+
+可通过安全中心的安全策略页面将动态符合性包添加到订阅或管理组中。 加入标准或基准后，该标准会出现在法规符合性仪表板中，所有关联的符合性数据都映射为评估。 还将提供已加入的所有标准的摘要报表供下载。
+
+现在，你可添加如下标准：
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official 和 UK NHS**
+- **加拿大联邦 PBMM**
+- **Azure CIS 1.1.0（新版）** ，它是 Azure CIS 1.1.0 的完整表示形式
+
+此外，我们还添加了 Azure 安全基准，它是 Microsoft 创作的特定于 Azure 的准则，适合基于常见符合性框架的安全与合规最佳做法。 其他标准一经提供就将在仪表板中受到支持。  
+ 
+详细了解如何[在法规符合性仪表板中自定义一组标准](update-regulatory-compliance-packages.md)。
+
+
+### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>标识建议现包含在 Azure 安全中心的免费层中
+
+Azure 安全中心免费层中针对标识和访问的安全建议现已正式发布。 这是我们努力使云安全状态管理 (CSPM) 功能免费而取得的成果之一。 截至目前，这些建议仅在标准定价层中提供。
+
+标识和访问建议的示例包括：
+
+- “应在对订阅拥有所有者权限的帐户上启用多重身份验证。”
+- “最多只能为订阅指定 3 个所有者。”
+- “应从订阅中删除弃用的帐户。”
+
+如果你有订阅在免费定价层，则此更改将影响它们的安全功能分数，因为它们之前从未接受过标识和访问安全性评估。
+
+详细了解[标识和访问建议](recommendations-reference.md#recs-identity)。
+
+详细了解[监视标识和访问](security-center-identity-access.md)。
+
 
 
 ## <a name="march-2020"></a>2020 年 3 月

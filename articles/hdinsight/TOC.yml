@@ -276,7 +276,7 @@
           href: /rest/api/hdinsight/
         - name: REST API (Apache Spark)
           href: /rest/api/hdinsightspark/
-        - name: Resource Manager 模板
+        - name: 资源管理器模板
           href: /azure/templates/microsoft.hdinsight/allversions
     - name: 资源
       items:
@@ -647,6 +647,8 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: 将 Apache Kafka 与 IoT 中心配合使用
               href: ./kafka/apache-kafka-connector-iot-hub.md
+            - name: Confluent 架构注册表
+              href: ./kafka/schema-registry.md
             - name: 创建流式处理管道
               items:
                 - name: Apache Spark、Apache Kafka 和 Azure Cosmos DB
@@ -845,6 +847,8 @@
               href: ./hdinsight-troubleshoot-hive.md
             - name: Apache Hive 日志占用头节点上的整个磁盘空间
               href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
+            - name: Hive 的安全选项
+              href: ./interactive-query/hdinsight-security-options-for-hive.md
 - name: ML Services
   items:
     - name: 概述

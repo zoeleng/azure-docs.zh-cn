@@ -6,12 +6,12 @@ author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ddd586bf9a88b1246fcf20fc19493f5003bbb530
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151744"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318583"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share 中支持的数据存储
 
@@ -28,8 +28,8 @@ Azure 数据共享提供了开放式和灵活的数据共享，包括从和到�
 | Azure Blob 存储 |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |公共预览版 | |
-| Azure Synapse Analytics (以前的 Azure SQL DW)  |公共预览版 | |
+| Azure SQL Database |✓ | |
+| Azure Synapse Analytics (以前的 Azure SQL DW)  |✓ | |
 | Azure 数据资源管理器 | |✓ |
 
 ## <a name="data-store-support-matrix"></a>数据存储支持矩阵
@@ -38,7 +38,7 @@ Azure 数据共享提供了开放式和灵活的数据共享，包括从和到�
 
 下表详细说明了数据使用者在接受和配置其数据共享时具有的不同组合和选择。 有关如何配置数据集映射的详细信息，请参阅 [如何配置数据集映射](how-to-configure-mapping.md)。
 
-| 数据存储 | Azure Blob 存储 | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure 数据资源管理器
+| 数据存储 | Azure Blob 存储 | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL 数据库 | Azure Synapse Analytics | Azure 数据资源管理器
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob 存储 | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||

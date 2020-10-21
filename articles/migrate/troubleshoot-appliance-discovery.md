@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331771"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315785"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>排查 Azure Migrate 设备和发现问题
 
@@ -27,7 +27,7 @@ ms.locfileid: "91331771"
 
 如果收到错误消息 "提供的清单文件无效：无效的 OVF 清单条目"，请执行以下操作：
 
-1. 通过检查 Azure Migrate 的设备的哈希值，验证是否已正确下载了设备 .OVA 文件。 [了解详细信息](./tutorial-prepare-vmware.md)。 如果哈希值不匹配，请重新下载 .OVA 文件，然后重试部署。
+1. 通过检查 Azure Migrate 的设备的哈希值，验证是否已正确下载了设备 .OVA 文件。 [了解详细信息](./tutorial-discover-vmware.md)。 如果哈希值不匹配，请重新下载 .OVA 文件，然后重试部署。
 2. 如果部署仍失败，并且你正在使用 VMware vSphere 客户端部署 OVF 文件，请尝试通过 vSphere web 客户端进行部署。 如果部署仍失败，请尝试使用不同的 web 浏览器。
 3. 如果你使用的是 vSphere web 客户端并尝试在 vCenter Server 6.5 或6.7 上部署它，请尝试直接在 ESXi 主机上部署 .OVA：
    - 直接连接到 ESXi 主机 (而不是 vCenter Server) 与 web 客户端 (<>) *主机 IP 地址* 。

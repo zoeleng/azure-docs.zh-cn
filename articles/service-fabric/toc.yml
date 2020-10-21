@@ -104,7 +104,7 @@
           href: service-fabric-tutorial-standalone-install-an-application.md
         - name: 4- 清理群集和删除基础结构
           href: service-fabric-tutorial-standalone-clean-up.md
-- name: 最佳做法
+- name: 最佳实践
   items:
     - name: Service Fabric 最佳做法概述
       href: service-fabric-best-practices-overview.md
@@ -930,7 +930,7 @@
     - name: 发行说明
       href: release-notes.md
     - name: 示例代码
-      href: 'https://aka.ms/servicefabricsamples'
+      href: /samples/browse/?products=azure
     - name: 支持选项
       href: service-fabric-support.md
     - name: Service Fabric 版本

@@ -40,6 +40,8 @@
       href: quickstart-create-workspace.md
     - name: 使用 Azure CLI 创建 Synapse 工作区
       href: quickstart-create-workspace-cli.md
+    - name: 使用 Azure PowerShell 创建 Synapse 工作区
+      href: quickstart-create-workspace-powershell.md
     - name: 使用模板进行部署
       href: quickstart-deployment-template-workspaces.md
     - name: 使用 Synapse Studio
@@ -262,7 +264,7 @@
           items:
             - name: 概述
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 最佳做法
+            - name: 最佳实践
               href: sql/data-loading-best-practices.md
             - name: 列存储压缩
               href: sql/data-load-columnstore-compression.md
@@ -388,7 +390,7 @@
           items:
             - name: 面向 SQL 池的模型评分向导
               href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: 使用 Azure AutoML 运行回归试验（DW 中的评分）
+            - name: 使用 Azure AutoML 运行回归试验
               href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 工具集成（AI、ETL、BI）
       items:
@@ -483,9 +485,9 @@
             - name: 连接到 Azure Synapse Link for Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: 使用 Power BI 和无服务器 SQL 池来分析 Azure Cosmos DB
-              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 使用无服务器 SQL 池查询 Azure Cosmos DB 数据
-              href: ./sql/query-cosmos-db-analytical-store.md
+              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 使用 Apache Spark 查询 Azure Cosmos DB 分析存储
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: 使用 Apache Spark 将数据从 Synapse Link 复制到 SQL 池
@@ -600,7 +602,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure 文件存储
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: Azure SQL 数据库
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure SQL 托管实例
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -925,7 +927,7 @@
       href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: REST API
       href: /rest/api/synapse/

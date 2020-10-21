@@ -85,6 +85,8 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
+            - name: GitHub 操作
+              href: quickstart-mysql-github-actions.md
     - name: 教程
       items:
         - name: 设计数据库

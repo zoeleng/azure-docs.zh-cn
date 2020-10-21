@@ -5,15 +5,15 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43206fbc956602ddaf189f45648cf8a44a3dd143
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258304"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277319"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
 
@@ -38,14 +38,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 * **连接模式：使用直接模式**
 <a id="direct-connection"></a>
     
-    客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在客户端延迟方面）。 连接模式是可用于配置客户端的关键配置设置。 对于 Azure Cosmos DB Java SDK v4，有两种可用的连接模式：  
-
-    * 直接模式（默认）      
-    * 网关模式
-
-    这些连接模式实质上限制了数据平面请求（文档读取和写入）从客户端计算机到 Azure Cosmos DB 后端中分区的路由方式。 通常，直接模式是最佳性能的首选选项，它允许客户端直接与 Azure Cosmos DB 后端分区建立 TCP 连接，并直接发送请求，而不通过中介。 与之相反，在“网关”模式下，客户端发出的请求会路由到 Azure Cosmos DB 前端中所谓的“网关”服务器，该服务器接下来会将你的请求扇出到 Azure Cosmos DB 后端的相应分区。 如果应用程序在有严格防火墙限制的企业网络中运行，则“网关”模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次从/向 Azure Cosmos DB 读取/写入数据时，“网关”模式都涉及到额外的网络跃点（从客户端到网关，以及从网关到分区）。 因此，直接模式因为网络跃点较少，可以提供更好的性能。
-
-     如下所示，使用 directMode() 或 gatewayMode() 方法在 Azure Cosmos DB 客户端生成器中配置数据平面请求的连接模式。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。    否则，以参数（directMode() 的是 DirectConnectionConfig，gatewayMode() 的是 GatewayConnectionConfig）的形式传递配置设置类实例。
+    Java SDK 默认连接模式为直接。 你可以使用 *directMode ( # B1 * 或 *GatewayMode ( # B3 * 方法在客户端生成器中配置连接模式，如下所示。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。 否则，将配置设置类实例作为参数传递 (*DirectConnectionConfig* for *DirectMode ( # B2 *、  *GatewayConnectionConfig* for *gatewayMode ( # B4 *. ) 。 若要了解有关不同连接选项的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -84,7 +77,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 <a name="collocate-clients"></a>
 * **将客户端并置在同一 Azure 区域内以提高性能** <a id="same-region"></a>
 
-    如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos 数据库所在的相同区域中。 通过大致的比较发现，在同一区域中对 Azure Cosmos DB 的调用可在 1-2 毫秒内完成，而美国西海岸和美国东海岸之间的延迟则大于 50 毫秒。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://azure.microsoft.com/regions/#services)（Azure 区域）。
+    如果可能，请将调用 Azure Cosmos DB 的任何应用程序与 Azure Cosmos DB 数据库放在同一个区域中。 通过大致的比较发现，在同一区域中对 Azure Cosmos DB 的调用可在 1-2 毫秒内完成，而美国西海岸和美国东海岸之间的延迟则大于 50 毫秒。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://azure.microsoft.com/regions/#services)（Azure 区域）。
 
     :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
 
@@ -308,7 +301,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     后者是受支持的，但会增加应用程序的延迟；SDK 必须分析项并提取分区键。
 
-## <a name="indexing-policy"></a>索引策略
+## <a name="indexing-policy"></a>索引编制策略
  
 * **从索引中排除未使用的路径以加快写入速度**
 
@@ -372,4 +365,4 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="next-steps"></a>后续步骤
 
-若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
+若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partitioning-overview.md)。

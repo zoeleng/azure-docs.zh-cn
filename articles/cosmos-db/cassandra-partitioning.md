@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: d0234ca04b772e4ff5127ef9dd896b49141febfb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f12919cd35441c6c198269e2f79c705c1d304acd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167553"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278811"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>在 Azure Cosmos DB Cassandra API 中进行分区
 
@@ -25,7 +25,7 @@ Cassandra API 使用分区操作来缩放密钥空间中的各个表，以满足
 
 ## <a name="differences-between-apache-cassandra-and-azure-cosmos-db"></a>Apache Cassandra 与 Azure Cosmos DB 之间的差异
 
-在 Azure Cosmos DB 中，存储着分区的每台计算机本身称为[物理分区](partition-data.md#physical-partitions)。 物理分区类似于虚拟机、专用计算单元或物理资源集。 此计算单元上存储的每个分区在 Azure Cosmos DB 中都称为[逻辑分区](partition-data.md#logical-partitions)。 如果你已熟悉 Apache Cassandra，则可以像看待 Cassandra 中的常规分区那样看待逻辑分区。 
+在 Azure Cosmos DB 中，存储着分区的每台计算机本身称为[物理分区](partitioning-overview.md#physical-partitions)。 物理分区类似于虚拟机、专用计算单元或物理资源集。 此计算单元上存储的每个分区在 Azure Cosmos DB 中都称为[逻辑分区](partitioning-overview.md#logical-partitions)。 如果你已熟悉 Apache Cassandra，则可以像看待 Cassandra 中的常规分区那样看待逻辑分区。 
 
 Apache Cassandra 建议你为可以存储在分区中的数据大小设置 100 MB 的限制。 Azure Cosmos DB 的 Cassandra API 允许每个逻辑分区最多具有 20 GB 的数据，每个物理分区最多具有 30 GB 的数据。 在 Azure Cosmos DB 中，与 Apache Cassandra 不同，物理分区中可用的计算容量使用称为[请求单位](request-units.md)的单个指标来表示，这允许你按每秒请求数（读取或写入数）而不是按核心数、内存或 IOPS 来考虑你的工作负荷。 在你了解每个请求的成本后，这可以使容量规划更加直接。 每个物理分区最多可以有 10000 RU 的计算能力供其使用。 若要详细了解可伸缩性选项，可阅读有关 Cassandra API 中的[弹性缩放](manage-scale-cassandra.md)的文章。 
 
@@ -112,6 +112,6 @@ CREATE TABLE uprofile.user (
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解 [Azure Cosmos DB 中的分区和水平缩放](partition-data.md)。
+* 了解 [Azure Cosmos DB 中的分区和水平缩放](partitioning-overview.md)。
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)。
 * 了解 [Azure Cosmos DB 中的全局分布](distribute-data-globally.md)。

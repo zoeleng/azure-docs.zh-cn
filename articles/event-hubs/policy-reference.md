@@ -1,15 +1,15 @@
 ---
 title: Azure 事件中心的内置策略定义
 description: 列出 Azure 事件中心的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: da5d9be9e7684e3f3ab83856f2477824d9239f04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6525d1a2ea474fadd9257b5583b910127cd31634
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819127"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318410"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Azure 事件中心的 Azure Policy 内置定义
 

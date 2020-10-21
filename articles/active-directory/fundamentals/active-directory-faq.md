@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb6adc38fd44366b837119518622dd8931f9096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565559"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312587"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>有关 Azure Active Directory 的常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -162,7 +162,7 @@ Azure AD 付费服务，如企业移动性 + 安全性通过综合性的企业�
 
 有关详细信息，请参阅：
 
-* [针对不在 Azure Active Directory 应用程序库中的应用程序配置单一登录](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [针对不在 Azure Active Directory 应用程序库中的应用程序配置单一登录](../manage-apps/configure-saml-single-sign-on.md)
 * [使用 SCIM 启用从 Azure Active Directory 到应用程序的用户和组自动预配](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---

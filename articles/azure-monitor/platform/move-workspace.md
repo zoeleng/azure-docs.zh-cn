@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979691"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282871"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>将 Log Analytics 工作区移到其他订阅或资源组
 
@@ -39,10 +39,12 @@ ms.locfileid: "90979691"
 - Azure 安全中心
 
 >[!IMPORTANT]
-> **Azure Sentinel 客户：**
+> **Azure Sentinel 客户**
 > - 部署到工作区后，Azure Sentinel 当前不支持将该工作区移至其他资源组或订阅。 
->
->   如果已移动工作区，请禁用“分析”下的所有活动规则，并在五分钟后重新启用这些规则。 重申一下，这在大多数情况下应该是有效的，但不支持这样做，风险由你自己承担。
+> - 如果已移动工作区，请禁用“分析”下的所有活动规则，并在五分钟后重新启用这些规则。 重申一下，这在大多数情况下应该是有效的，但不支持这样做，风险由你自己承担。
+> 
+> **警报**
+> - 在移动后，所有警报都需要重新创建，因为这些权限基于工作区的 Azure 资源 ID，并随工作区移动而更改。 
 
 ### <a name="delete-solutions-in-azure-portal"></a>在 Azure 门户中删除解决方案
 在 Azure 门户中使用以下过程删除解决方案：

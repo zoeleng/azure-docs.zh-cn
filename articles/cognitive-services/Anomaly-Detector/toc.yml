@@ -74,16 +74,8 @@
       href: 'https://arxiv.org/abs/1906.03821'
 - name: 资源
   items:
-    - name: 支持
-      items:
-        - name: 获取支持
-          href: 'https://aka.ms/adsupport'
-        - name: Stack Overflow
-          href: 'https://aka.ms/adso'
-        - name: MSDN
-          href: 'https://aka.ms/admsdn'
-        - name: 用户之声
-          href: 'https://aka.ms/aduservoice'
+    - name: 支持和帮助选项
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: 定价
       href: 'https://aka.ms/adpricing'
     - name: 区域可用性

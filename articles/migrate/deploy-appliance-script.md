@@ -3,12 +3,12 @@ title: 使用脚本设置 Azure Migrate 设备
 description: 了解如何使用脚本设置 Azure Migrate 设备
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438917"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317328"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>使用脚本设置设备
 
@@ -16,17 +16,17 @@ ms.locfileid: "91438917"
 
 你可以使用脚本部署适用于 VMware 和 Hyper-v Vm 的设备，或使用从 Azure 门户下载的模板。 如果无法使用下载的模板创建 VM，则使用脚本会很有用。
 
-- 若要使用模板，请遵循 [VMware](tutorial-prepare-vmware.md) 或 [hyper-v](tutorial-prepare-hyper-v.md)教程。
+- 若要使用模板，请遵循 [VMware](./tutorial-discover-vmware.md) 或 [hyper-v](./tutorial-discover-hyper-v.md)教程。
 - 若要为物理服务器设置设备，只能使用脚本。 请参阅 [此文](how-to-set-up-appliance-physical.md)。
 - 若要在 Azure 政府版云中设置设备，请遵循 [此文](deploy-appliance-script-government.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 此脚本在现有物理计算机或 VM 上设置 Azure Migrate 设备。
 
 - 用作设备的计算机必须满足以下硬件和操作系统要求：
 
-方案 | 要求
+场景 | 要求
 --- | ---
 VMware | Windows Server 2016，含 32 GB 内存，8个个 vcpu，大约为 80 GB 的磁盘存储
 Hyper-V | Windows Server 2016，具有 16 GB 内存，8个个 vcpu，大约 80 GB 的磁盘存储
@@ -46,12 +46,12 @@ Hyper-V | Windows Server 2016，具有 16 GB 内存，8个个 vcpu，大约 80 G
 1. 在下载文件的计算机上，打开管理员命令窗口。
 2. 运行以下命令以生成 zip 文件的哈希
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 示例：```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-Public.zip SHA256```
+    - 示例： ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-Public.zip SHA256```
 3. 验证 Azure 公有云的最新设备版本和脚本：
 
     **算法** | **下载** | **SHA256**
     --- | --- | ---
-    VMware (85.8 MB)  | [最新版本](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
+    VMware (85.8 MB) | [最新版本](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
 
 
 
@@ -94,13 +94,13 @@ Hyper-V | Windows Server 2016，具有 16 GB 内存，8个个 vcpu，大约 80 G
 1. 在下载文件的计算机上，打开管理员命令窗口。
 2. 运行以下命令以生成 zip 文件的哈希
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 示例：```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-HyperV.zip SHA256```
+    - 示例： ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-HyperV.zip SHA256```
 
 3. 验证 Azure 公有云的最新设备版本和脚本：
 
     **方案** | **下载** | **SHA256**
     --- | --- | ---
-    Hyper-v (85.8 MB)  | [最新版本](https://go.microsoft.com/fwlink/?linkid=2116657) |  9bbef62e2e22481eda4b77c7fdf05db98c3767c20f0a873114fb0dcfa6ed682a
+    Hyper-V (85.8 MB) | [最新版本](https://go.microsoft.com/fwlink/?linkid=2116657) |  9bbef62e2e22481eda4b77c7fdf05db98c3767c20f0a873114fb0dcfa6ed682a
 
 ### <a name="run-the-script"></a>运行脚本
 

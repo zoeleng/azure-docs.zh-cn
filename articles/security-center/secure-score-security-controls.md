@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4897c1b54eff5eb06e0ef49f0c74e261f5a9687e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268258"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281276"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure 安全中心的安全评分
 
@@ -57,7 +57,7 @@ Azure 安全中心有两个主要目标：帮助你了解当前的安全状况�
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>从 REST API 获取安全功能分数
 
-可以通过[安全功能分数 API](https://docs.microsoft.com/rest/api/securitycenter/securescores/)（当前为预览版）访问分数。 通过 API 方法，可灵活地查询数据，久而久之构建自己的安全功能分数报告机制。 例如，可以使用安全功能分数 API 来获取特定订阅的分数。 此外，还可以使用安全功能分数控件 API 列出安全控件和订阅的当前分数。
+可以通过安全功能分数 API（当前为预览版）访问分数。 通过 API 方法，可灵活地查询数据，久而久之构建自己的安全功能分数报告机制。 例如，可以使用 [安全评分 API](https://docs.microsoft.com/rest/api/securitycenter/securescores) 来获取特定订阅的分数。 此外，你可以使用 [安全分数控制 API](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) 列出你的订阅的安全控制和当前分数。
 
 ![正在通过 API 检索单个安全功能分数](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -156,7 +156,7 @@ Azure 安全中心有两个主要目标：帮助你了解当前的安全状况�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">限制未经授权的网络访问（最高 4 分）</p></strong>组织内的终结点提供从虚拟网络到受支持的 Azure 服务的直接连接。 子网中的虚拟机可以与所有资源通信。 若要限制与子网内资源的通信，请创建一个网络安全组并将其关联到子网。 组织可以通过创建入站和出站规则来限制和防范未经授权的流量。</td>
-    <td class="tg-lboi"; width=55%>- 应禁用虚拟机上的 IP 转发<br>- 应在 Kubernetes 服务上定义已授权 IP 范围(预览版)<br>- (已弃用)应限制对应用服务的访问(预览版)<br>- (已弃用)应加强 IaaS NSG 上 Web 应用程序的规则<br>- 虚拟机应与网络安全组关联<br>- CORS 不应允许所有资源都能访问 API 应用<br>- CORS 不应允许所有资源都能访问函数应用<br>- CORS 不应允许所有资源都能访问 Web 应用程序<br>- 应为 API 应用禁用远程调试<br>- 应为函数应用禁用远程调试<br>- 应为 Web 应用程序禁用远程调试<br>- 应限制许可网络安全组(包含面向 Internet 的 VM)的访问<br>- 应强化面向 Internet 的虚拟机的网络安全组规则<br>- 应在群集上安装和启用适用于 Kubernetes 的 Azure 策略外接程序， (预览) <br>- 容器只应侦听 (预览中允许的端口) <br>- 服务应仅在 (预览中侦听允许的端口) <br>- 应 (预览版限制主机网络和端口的使用) </td>
+    <td class="tg-lboi"; width=55%>- 应禁用虚拟机上的 IP 转发<br>- 应在 Kubernetes 服务上定义已授权 IP 范围(预览版)<br>- (已弃用)应限制对应用服务的访问(预览版)<br>- (已弃用)应加强 IaaS NSG 上 Web 应用程序的规则<br>- 虚拟机应与网络安全组关联<br>- CORS 不应允许所有资源都能访问 API 应用<br>- CORS 不应允许所有资源都能访问函数应用<br>- CORS 不应允许所有资源都能访问 Web 应用程序<br>- 应为 API 应用禁用远程调试<br>- 应为函数应用禁用远程调试<br>- 应为 Web 应用程序禁用远程调试<br>- 应限制许可网络安全组(包含面向 Internet 的 VM)的访问<br>- 应强化面向 Internet 的虚拟机的网络安全组规则<br>- 应在群集上安装和启用适用于 Kubernetes 的 Azure 策略外接程序， (预览) <br>- 容器只应侦听 (预览中允许的端口) <br>- 服务应仅在 (预览中侦听允许的端口) <br>- 应 (预览版限制主机网络和端口的使用) <br>- 虚拟网络应受 Azure 防火墙 (预览版保护) </td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">应用自适应应用程序控制（最高 3 分）</p></strong>自适应应用程序控制 (AAC) 是一种智能的、自动化的端到端解决方案，可用于控制哪些应用程序可以在 Azure 计算机和非 Azure 计算机上运行。 它还有助于强化计算机免受恶意软件的侵害。<br>安全中心使用机器学习为一组计算机创建一个已知安全应用程序列表。<br>这种将已批准的应用程序列入列表的创新方法在不增加管理复杂性的情况下提供了安全优势。<br>AAC 尤其适用于需要运行一组特定应用程序的专用服务器。</td>
