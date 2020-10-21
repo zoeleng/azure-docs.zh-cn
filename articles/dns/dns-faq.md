@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa03e9a9bbbc7f8eefc1e0ba57a0a8b18da6e29
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77121722"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328753"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 
@@ -24,7 +24,7 @@ ms.locfileid: "77121722"
 
 Azure DNS 中的 DNS 域托管在 DNS 名称服务器的 Azure 全球网络上。 此系统使用任意广播网络，以便每个 DNS 查询由最近的可用 DNS 服务器来应答。 Azure DNS 为域提供更快的性能和高可用性。
 
-Azure DNS 基于 Azure 资源管理器。 Azure DNS 可以利用资源管理器功能，例如基于角色的访问控制、审核日志和资源锁定。 可以通过 Azure 门户、Azure PowerShell cmdlet 和跨平台 Azure CLI 来管理域和记录。 需要自动 DNS 管理的应用程序可通过 REST API 和 SDK 与服务集成。
+Azure DNS 基于 Azure 资源管理器。 Azure DNS 从资源管理器功能（如 Azure 基于角色的访问控制、审核日志和资源锁定）中受益。 可以通过 Azure 门户、Azure PowerShell cmdlet 和跨平台 Azure CLI 来管理域和记录。 需要自动 DNS 管理的应用程序可通过 REST API 和 SDK 与服务集成。
 
 ### <a name="how-much-does-azure-dns-cost"></a>Azure DNS 的费用是多少？
 
@@ -177,7 +177,7 @@ Azure DNS 仅支持托管静态 DNS 域，其中对某给定的 DNS 记录来说
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>如何保护我的 DNS 区域不被意外删除？
 
-可以使用 Azure 资源管理器管理 Azure DNS。 Azure DNS 受益于 Azure 资源管理器提供的访问控制功能。 基于角色的访问控制可以控制哪些用户具有对 DNS 区域和记录集的读取或写入访问权限。 资源锁可防止意外修改，或防止删除 DNS 区域和记录集。
+可以使用 Azure 资源管理器管理 Azure DNS。 Azure DNS 受益于 Azure 资源管理器提供的访问控制功能。 Azure 基于角色的访问控制可用于控制哪些用户具有对 DNS 区域和记录集的读取或写入访问权限。 资源锁可防止意外修改，或防止删除 DNS 区域和记录集。
 
 有关详细信息，请参阅[保护 DNS 区域和记录](dns-protect-zones-recordsets.md)。
 

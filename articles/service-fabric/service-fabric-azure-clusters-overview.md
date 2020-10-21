@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843305"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320509"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure 上 Service Fabric 群集的概述
 Service Fabric 群集是一组通过网络连接在一起的虚拟机或物理计算机，微服务会在其中部署和管理。 群集中的计算机或 VM 称为群集节点。 群集可以扩展到数千个节点。 如果向群集添加新节点，Service Fabric 会在新增加的节点间重新平衡服务分区副本和实例。 应用程序总体性能提高，访问内存的争用减少。 如果没有高效使用群集中的节点，可以减少群集中节点的数量。 Service Fabric 会再次在减少的节点间重新平衡分区副本和实例以更加充分利用每个节点上的硬件。
@@ -78,7 +78,7 @@ Service Fabric 还支持使用访问控制限制对不同用户组的某些群�
 ### <a name="network-security-groups"></a>网络安全组 
 网络安全组 (NSG) 控制子网、VM 或 特定 NIC 的入站和出站流量。  默认情况下，在将多个 VM 放在同一虚拟网络上时，它们可以通过任意端口相互通信。  如果要限制计算机之间的通信，可以将 NSG 定义为对网络进行分段或将 VM 彼此隔离。  如果群集中有多个节点类型，则可以将 NSG 应用于子网，以防止属于不同节点类型的计算机相互通信。  
 
-有关详细信息，请阅读[安全组](../virtual-network/security-overview.md)
+有关详细信息，请阅读[安全组](../virtual-network/network-security-groups-overview.md)
 
 ## <a name="scaling"></a>扩展
 

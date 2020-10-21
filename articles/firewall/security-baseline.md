@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 24c9e5137e59fbd14a489b4d41709f39aa448ed8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4794e581dc9855d79cb7cafbc5a6e55f1477f318
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231344"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329723"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>适用于 Azure 防火墙的 Azure 安全基线
 
@@ -370,7 +370,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2：隔离存储或处理敏感信息的系统
 
-**指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需 Azure 防火墙资源的访问级别。 可以通过 Active Directory 基于角色的访问控制来控制对 Azure 资源的访问。 
+**指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需 Azure 防火墙资源的访问级别。 可以通过 Azure 基于角色的访问控制来控制对 Azure 资源的访问权限。 
 
 - [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
 

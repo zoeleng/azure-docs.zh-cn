@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479553"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330472"
 ---
 # <a name="install-azure-farmbeats"></a>安装 Azure FarmBeats
 
@@ -87,7 +87,7 @@ Azure FarmBeats 的整个设置，包括准备和安装所需的时间不到1小
 
 从 marketplace 运行 FarmBeats 安装的人员需要是要在其中安装 FarmBeats 的资源组的所有者。 对于订阅所有者，在创建资源组时会自动发生这种情况。 对于其他人，请预先创建资源组，并请求订阅所有者使你成为资源组的所有者。
 
-可以按照 [基于角色的访问控制](https://docs.microsoft.com/azure/role-based-access-control/check-access)上的说明验证 Azure 门户中的访问权限。
+可以按照 [Azure 基于角色的访问控制](https://docs.microsoft.com/azure/role-based-access-control/check-access)中的说明，验证 Azure 门户中的访问权限。
 
 ### <a name="decide-subscription-and-region"></a>确定订阅和区域
 
@@ -152,7 +152,7 @@ Azure FarmBeats 要求创建和注册 Azure Active Directory 应用程序。 若
 
 2. 在门户中中转到 Azure Marketplace，并在 Marketplace 中搜索 " **Azure FarmBeats** "。
 
-3. 此时将显示一个新窗口，其中显示了 Azure FarmBeats 的概述。 选择“创建”。
+3. 此时将显示一个新窗口，其中显示了 Azure FarmBeats 的概述。 选择“创建” 。
 
 4. 此时将显示新窗口。 通过选择正确的订阅、资源组和要将 Azure FarmBeats 安装到的位置来完成注册过程。
 

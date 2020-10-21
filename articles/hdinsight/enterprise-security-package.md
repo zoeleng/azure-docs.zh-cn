@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8801929412da614784c76dbdf7c8282b31364409
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567089"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327886"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>适用于 Azure HDInsight 的企业安全性套餐
 
@@ -20,7 +20,7 @@ Enterprise Security 是一种可选包，可在 HDInsight 群集上作为创建�
 
 * 与 Active Directory 集成进行身份验证。
 
-    在过去，创建了包含本地管理员用户和本地 SSH 用户的 HDInsight 群集。 本地管理员用户可以访问所有文件、文件夹、表和列。  使用企业安全性套餐，可以通过将 HDInsight 与 Azure Active Directory 域服务集成来启用基于角色的访问控制。
+    在过去，创建了包含本地管理员用户和本地 SSH 用户的 HDInsight 群集。 本地管理员用户可以访问所有文件、文件夹、表和列。  使用企业安全性套餐，可以通过将 HDInsight 与 Azure Active Directory 域服务集成来启用 Azure 基于角色的访问控制。
 
     有关详细信息，请参阅：
 

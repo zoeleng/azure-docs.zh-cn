@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595bf6f921265e9e8dbc0e0e065fe835efea14bc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072789"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331645"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 动机和权益
 
@@ -39,11 +39,11 @@ Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight
 
 - **托管硬件和配置** - 无需担心 HDInsight 群集的物理硬件或基础结构。 只需指定群集的配置，Azure 就会对其进行设置。
 
-- **易于缩放** - 通过 HDInsight 可纵向 [扩展](../hdinsight-administer-use-portal-linux.md)或缩减工作负载。 Azure 负责重新分配数据和重新均衡工作负载，而不会中断数据处理作业。
+- **易于缩放** -HDInsight 使你能够 [扩展](../hdinsight-administer-use-portal-linux.md) 或缩减工作负荷。 Azure 负责重新分配数据和重新均衡工作负载，而不会中断数据处理作业。
 
 - **全球可用性** -HDInsight 比任何其他大数据分析产品在更多 [区域](https://azure.microsoft.com/regions/services/) 中提供。 Azure HDInsight 还在中国和德国的 Azure 政府版中提供，满足关键主权领域的企业需求。
 
-- **安全性和符合性** - HDInsight 允许通过  [Azure 虚拟网络](../hdinsight-plan-virtual-network-deployment.md)、 [加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)以及与  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md) 集成来保护企业数据资产。 HDInsight 还满足最常用的行业和政府 [符合性标准](https://azure.microsoft.com/overview/trusted-cloud)。
+- **安全且合规** -通过 HDInsight，你可以通过 [Azure 虚拟网络](../hdinsight-plan-virtual-network-deployment.md)、 [加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)以及与 [Azure Active Directory](../domain-joined/hdinsight-security-overview.md)的集成来保护企业数据资产。 HDInsight 还满足最常用的行业和政府[符合性标准](https://azure.microsoft.com/overview/trusted-cloud)。
 
 - **简化版本管理** -Azure HDInsight 管理 Hadoop eco 系统组件的版本，并使其保持最新。 软件更新在内部部署过程中通常比较复杂。
 
@@ -51,9 +51,9 @@ Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight
 
 - **生产力** - 可在首选开发环境中使用 Hadoop 和 Spark 的各种工具。
 
-- **自定义工具或第三方应用程序的可扩展性** - HDInsight 群集可使用已安装的组件进行扩展，也可以通过 Azure 市场中的[一键式](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 部署与其他大数据解决方案进行集成。
+- **自定义工具或第三方应用程序** 的可扩展性-HDInsight 群集可使用已安装的组件进行扩展，还可以通过在 Azure 市场位置使用 [一键式](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 部署与其他大数据解决方案集成。
 
-- **易于管理、管理和监视**-Azure HDInsight 与 [Azure Monitor 日志](../hdinsight-hadoop-oms-log-analytics-tutorial.md)集成，   提供单个界面，可用于监视所有群集。
+- **易于管理、管理和监视** -Azure HDInsight 与 [Azure Monitor 日志](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 集成，提供单个界面，可用于监视所有群集。
 
 - **与其他 Azure 服务集成** - HDInsight 可轻松地与其他常用 Azure 服务进行集成，例如：
 

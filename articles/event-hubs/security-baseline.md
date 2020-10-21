@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401123"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329621"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>事件中心的 Azure 安全基线
 
@@ -397,7 +397,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 ### <a name="39-use-azure-active-directory"></a>3.9：使用 Azure Active Directory
 
-**指导**：使用 Azure Active Directory (AD) 作为 Azure 资源（例如事件中心）的中心身份验证和授权系统。 这样就可以对用于管理的敏感资源进行基于角色的访问控制 (RBAC)。
+**指导**：使用 Azure Active Directory (AD) 作为 Azure 资源（例如事件中心）的中心身份验证和授权系统。 这就允许 azure RBAC) 使用 Azure 基于角色的访问控制 (管理敏感资源。
 
  如何创建和配置 Azure AD 实例： https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -539,9 +539,9 @@ Microsoft 会管理 Azure 事件中心的底层基础结构，并实施严格的
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：Azure 事件中心支持使用 Azure Active Directory (AD) 对事件中心资源请求进行授权。 可以通过 Azure AD 使用基于角色的访问控制 (RBAC) 授予对服务主体的访问权限，该服务主体可能是用户或应用程序服务主体。
+**指导**：Azure 事件中心支持使用 Azure Active Directory (AD) 对事件中心资源请求进行授权。 使用 Azure AD，你可以使用 Azure RBAC)  (Azure 基于角色的访问控制向安全主体（可以是用户或应用程序服务主体）授予权限。
 
-了解 Azure 事件中心的 Azure AD RBAC 和可用角色： https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+了解 Azure RBAC 和 Azure 事件中心的可用角色： https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Azure 安全中心监视**：不适用
 

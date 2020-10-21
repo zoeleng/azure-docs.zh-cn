@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201406"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331492"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>服务请求失败。 状态： 403 (禁止访问) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "92201406"
 
 ### <a name="cause-1"></a>原因 #1
 
-最常见的情况是，此错误表明，基于角色的访问控制对服务 (RBAC) 权限的设置不正确。 对于 Azure 数字孪生实例，许多操作都需要你要**尝试管理的实例上**的*Azure 数字孪生所有者 (预览) *角色。 
+最常见的情况是，此错误表明你的 Azure 基于角色的访问控制 (没有正确设置服务的 Azure RBAC) 权限。 对于 Azure 数字孪生实例，许多操作都需要你要**尝试管理的实例上**的*Azure 数字孪生所有者 (预览) *角色。 
 
 ### <a name="cause-2"></a>原因 #2
 

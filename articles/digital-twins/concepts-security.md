@@ -7,24 +7,24 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014998"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331747"
 ---
 # <a name="secure-azure-digital-twins"></a>保护 Azure 数字孪生
 
-为了安全起见，Azure 数字孪生支持对部署中特定数据、资源和操作的精确访问控制。 它通过称为 **基于角色的访问控制 (RBAC) **的粒度角色和权限管理策略来实现此功能。 可在 [此处](../role-based-access-control/overview.md)阅读有关适用于 AZURE 的 RBAC 的一般原则。
+为了安全起见，Azure 数字孪生支持对部署中特定数据、资源和操作的精确访问控制。 它通过称作 azure **RBAC)  (** 的粒度角色和权限管理策略来实现此功能。 可在 [此处](../role-based-access-control/overview.md)阅读 Azure RBAC 的一般原则。
 
 Azure 数字孪生还支持静态数据加密。
 
-## <a name="granting-permissions-with-rbac"></a>通过 RBAC 授予权限
+## <a name="granting-permissions-with-azure-rbac"></a>向 Azure RBAC 授予权限
 
-通过与 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) 集成，可向 Azure 数字孪生提供 RBAC。
+Azure RBAC 通过与 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) 集成提供给 Azure 数字孪生。
 
-可以使用 RBAC 向 *安全主体*（可以是用户、组或应用程序服务主体）授予权限。 安全主体由 Azure AD 进行身份验证，并在返回时接收 OAuth 2.0 令牌。 此令牌可用于授权对 Azure 数字孪生实例的访问请求。
+可以使用 Azure RBAC 向 *安全主体*授予权限，这可能是用户、组或应用程序服务主体。 安全主体由 Azure AD 进行身份验证，并在返回时接收 OAuth 2.0 令牌。 此令牌可用于授权对 Azure 数字孪生实例的访问请求。
 
 ### <a name="authentication-and-authorization"></a>身份验证和授权
 
@@ -57,7 +57,7 @@ Azure 提供以下 Azure 内置角色，用于授权访问 Azure 数字孪生资
 有关如何定义内置角色的详细信息，请参阅了解 Azure RBAC 文档中的 [*角色定义*](../role-based-access-control/role-definitions.md) 。 有关创建 Azure 自定义角色的详细信息，请参阅 [*azure 自定义角色*](../role-based-access-control/custom-roles.md)。
 
 可以通过两种方式分配角色：
-* 通过访问控制 (IAM) 窗格中的 Azure 数字孪生在 Azure 门户中 (参阅 [*使用 AZURE RBAC 和 Azure 门户添加或删除角色分配*](../role-based-access-control/role-assignments-portal.md)) 
+* 通过访问控制 (的 IAM) 窗格中的 Azure 数字孪生在 Azure 门户中 (参阅 [*使用 Azure 门户添加或删除 azure 角色分配*](../role-based-access-control/role-assignments-portal.md)) 
 * 通过 CLI 命令添加或删除角色
 
 有关如何执行此操作的更多详细步骤，请在 Azure 数字孪生教程中试用 [*：连接端到端解决方案*](tutorial-end-to-end.md)。
@@ -95,4 +95,4 @@ Azure 数字孪生目前不支持 ** (CORS) 的跨域资源共享 **。 因此�
 
 * 请参阅如何 [*：编写应用身份验证代码*](how-to-authenticate-client.md)中的客户端应用程序代码中的这些概念的交互。
 
-* 阅读有关 [适用于 Azure 的 RBAC 的](../role-based-access-control/overview.md)详细信息。
+* 阅读有关 [AZURE RBAC](../role-based-access-control/overview.md)的详细信息。

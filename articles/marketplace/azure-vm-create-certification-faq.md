@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: ee7a7101740e88d55d77f769263ab03a86b878d4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283707"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331288"
 ---
 # <a name="vm-certification-troubleshooting"></a>VM 认证故障排除
 
@@ -410,7 +410,7 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 5. 在 " **技术配置** " 选项卡上的 " **VM 映像** " 下，选择 " **+ 添加 VM 映像**"。
 
 > [!NOTE]
-> 一次只能向一个计划添加一个 VM 映像。 要添加多个 VM 映像，请先发布第一个 VM 映像，然后再等待，直到它到达发布服务器的注册阶段，然后再添加下一个 VM 映像。
+> 一次只能向一个计划添加一个 VM 映像。 要添加多个 VM 映像，请先发布第一个 VM 映像，然后再添加下一个 VM 映像。
 
 6. 在出现的框中，提供新的磁盘版本和虚拟机映像。
 7. 选择“保存草稿”。

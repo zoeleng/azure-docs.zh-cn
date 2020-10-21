@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac64eff8c87046fd1ce76ee71475fda79ac6f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802219"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329247"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>使用 Azure 专用链接将网络安全地连接到 Azure Monitor
 
@@ -41,6 +41,9 @@ Azure Monitor 专用链接范围是一项分组资源，它将一个或多个专
 ## <a name="planning-based-on-your-network"></a>根据自身网络进行规划
 
 设置 AMPLS 资源之前，请考虑自身的网络隔离要求。 评估你的虚拟网络对公共 Internet 的访问权限，以及每项 Azure Monitor 资源（即 Application Insights 组件和 Log Analytics 工作区）的访问限制。
+
+> [!NOTE]
+> 中心辐射型网络或对等互连网络的任何其他拓扑，可以设置中心 (主) VNet 和相关 Azure Monitor 资源之间的专用链接，而不是在每个 VNet 上设置专用链路。 如果这些网络使用的 Azure Monitor 资源是共享的，则这一点特别有用。 但是，如果你想要允许每个 VNet 访问一组单独的监视资源，请为每个网络创建专用于专用 AMPLS 的链接。
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>评估哪些虚拟网络应连接到专用链接
 

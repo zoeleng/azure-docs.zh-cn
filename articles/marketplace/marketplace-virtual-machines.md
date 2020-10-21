@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d92dad445b1aeace24dc0af7d95289f5535a5680
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281793"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329026"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>如何规划虚拟机产品/服务
 
@@ -23,10 +23,7 @@ ms.locfileid: "92281793"
 
 ### <a name="technical-fundamentals"></a>技术基础知识
 
-设计、构建和测试产品/服务的过程需要一定的时间，并需要在 Azure 平台和技术方面的专业知识来构建你的产品/服务。 工程团队应具有以下 Microsoft 技术的工作知识：
-
-- [设计和架构 Azure 应用程序](https://azure.microsoft.com/solutions/architecture/)
-- [Azure 虚拟机](https://azure.microsoft.com/services/virtual-machines/)、[Azure 存储](https://azure.microsoft.com/services/?filter=storage#storage)和 [Azure 网络](https://azure.microsoft.com/services/?filter=networking#networking)
+设计、构建和测试产品/服务的过程需要一定的时间，并需要在 Azure 平台和技术方面的专业知识来构建你的产品/服务。 你的工程团队应对 [Azure 虚拟机](https://azure.microsoft.com/services/virtual-machines/)、 [Azure 存储](https://azure.microsoft.com/services/?filter=storage#storage)和 [azure 网络](https://azure.microsoft.com/services/?filter=networking#networking)的工作知识，并熟练使用 [azure 应用程序的设计和体系结构](https://azure.microsoft.com/solutions/architecture/)。 请参阅以下其他技术资源： 
 
 - 教程
   - [Linux VM](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -40,9 +37,17 @@ ms.locfileid: "92281793"
 
 ## <a name="technical-requirements"></a>技术要求
 
+VM 产品/服务具有以下技术要求：
+
+- 必须 (VHD) 准备一个操作系统虚拟硬盘。 数据磁盘 Vhd 是可选的。 下面更详细地说明了这一点。
+- 客户可随时取消你的产品/服务。
+- 您必须为您的产品/服务创建至少一个计划。 你的计划基于你选择的 [授权选项](#licensing-options) 而定价。
+   > [!IMPORTANT]
+   > 计划中的每个 VM 映像必须具有相同的数据磁盘数。
+
 VM 包含两个组件：
 
-- **操作系统虚拟硬盘 (VHD) ** –包含与你的产品/服务一起部署的操作系统和解决方案。 准备 VHD 的过程会有所不同，具体取决于它是基于 Linux、Windows 还是基于自定义的 VM。
+- **操作 VHD** –包含与你的产品/服务一起部署的操作系统和解决方案。 准备 VHD 的过程会有所不同，具体取决于它是基于 Linux、Windows 还是基于自定义的 VM。
 - **数据磁盘 vhd** (可选) – VM 的专用持久存储。 请不要使用操作系统 VHD（例如 C: 驱动器）来存储持久性信息。 
     - 最多可以包含16个数据磁盘。
     - 每个数据磁盘使用一个 VHD，即使磁盘为空。
@@ -50,13 +55,7 @@ VM 包含两个组件：
     > [!NOTE]
     > 无论使用何种操作系统，都仅添加解决方案所需的最少数据磁盘数。 客户无法在部署时删除映像中包含的磁盘，但始终可以在部署期间或之后添加磁盘。
 
-VM 产品/服务具有以下技术要求：
-
-- 必须 (VHD) 准备一个操作系统虚拟硬盘。 数据磁盘 Vhd 是可选的。
-- 客户可随时取消你的产品/服务。
-- 您必须为您的产品/服务创建至少一个计划。 你的计划基于你选择的 [授权选项](#licensing-options) 而定价。
-   > [!IMPORTANT]
-   > 计划中的每个 VM 映像必须具有相同的数据磁盘数。
+有关准备技术资产的详细说明，请参阅 [使用已批准的基准创建虚拟机](azure-vm-create-using-approved-base.md) 或 [使用自己的映像创建虚拟机](azure-vm-create-using-own-image.md)。
 
 ## <a name="preview-audience"></a>预览版受众
 
@@ -134,5 +133,6 @@ Vm 完全启用了商务，使用即用即付或自带许可证 (BYOL) 许可模
 
 ## <a name="next-steps"></a>后续步骤
 
+- [在 Azure Marketplace 中创建虚拟机产品/服务](azure-vm-create.md)
 - [使用已批准的基准创建虚拟机](azure-vm-create-using-approved-base.md) ，或 [使用自己的映像创建虚拟机](azure-vm-create-using-own-image.md)。
 - [套餐列出最佳做法](gtm-offer-listing-best-practices.md)

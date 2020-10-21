@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0ccf537cb7f73adfcdfab5d0de10f7c282dc22f0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e8323c5a290ee2a78e2a3a131d50883d5f8c5a28
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207596"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330982"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
@@ -132,6 +132,8 @@ ms.locfileid: "92207596"
 如果已有一个 VNet，请验证这些设置是否与 VPN 网关设计兼容。 请特别注意任何可能与其他网络重叠的子网。 如果有重叠的子网，将无法正常连接。
 
 ### <a name="to-create-a-virtual-network"></a>创建虚拟网络
+
+[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 

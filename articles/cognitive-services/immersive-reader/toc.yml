@@ -40,6 +40,8 @@
       href: reference.md
 - name: 资源
   items:
+    - name: 支持和帮助选项
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Azure 路线图
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 语言支持

@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288913"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279082"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>使用 Synapse SQL 中的存储过程
 
-用于在 Synapse SQL 池中实现存储过程的技巧 (数据仓库) 用于开发解决方案。
+用于在 Synapse SQL 池中实现存储过程以开发解决方案的提示。
 
 ## <a name="what-to-expect"></a>期望
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Synapse SQL 不允许通过 INSERT 语句使用存储过程的结果集。 可以使用其他方法。 有关示例，请参阅[临时表](develop-tables-temporary.md)上的文章。
+Synapse SQL 不允许通过 INSERT 语句使用存储过程的结果集。 可以使用其他方法。 有关示例，请参阅有关预配的 Synapse SQL 池的 [临时表](develop-tables-temporary.md) 的文章。
 
 ## <a name="limitations"></a>限制
 

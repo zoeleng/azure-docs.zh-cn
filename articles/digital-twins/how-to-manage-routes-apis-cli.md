@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 96d759f0f722e332eb25e049fd336c784eb99789
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279096"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332070"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>在 Azure 数字孪生中管理终结点和路由 (Api 和 CLI) 
 
@@ -64,7 +64,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-现在，可以在使用参数指定的名称下，使用事件网格主题作为 Azure 数字孪生内的终结点 `--endpoint-name` 。 通常使用该名称作为 **事件路由**的目标，将 [在本文稍后](#event-routes-with-apis-and-the-c-sdk) 使用 AZURE 数字孪生服务 API 进行创建。
+现在，可以在使用参数指定的名称下，使用事件网格主题作为 Azure 数字孪生内的终结点 `--endpoint-name` 。 通常使用该名称作为 **事件路由**的目标，将 [在本文稍后](#create-an-event-route) 使用 AZURE 数字孪生服务 API 进行创建。
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>创建事件中心或服务总线终结点
 
@@ -150,7 +150,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 }
 ```
 
-## <a name="event-routes-with-apis-and-the-c-sdk"></a>与 Api 和 c # SDK (的事件路由) 
+## <a name="create-an-event-route"></a>创建事件路由
 
 若要将数据从 Azure 数字孪生实际发送到终结点，需要定义 **事件路由**。 通过 Azure 数字孪生 **EventRoutes api** ，开发人员可以将事件流连接到整个系统和下游服务。 有关事件路由的详细信息，请参阅 [*概念：路由 Azure 数字孪生事件*](concepts-route-events.md)。
 
@@ -163,7 +163,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 >
 > 如果要编写此流脚本，可能需要在2-3 分钟的等待时间内生成终结点服务，然后再继续进行路由设置。
 
-### <a name="create-an-event-route"></a>创建事件路由
+### <a name="creation-code-with-apis-and-the-c-sdk"></a>用 Api 和 c # SDK 创建代码
 
 使用 [数据平面 api](how-to-use-apis-sdks.md#overview-data-plane-apis)定义事件路由。 
 
@@ -217,7 +217,7 @@ catch (RequestFailedException e)
 }
 ```
 
-### <a name="filter-events"></a>筛选事件
+## <a name="filter-events"></a>筛选事件
 
 如果没有筛选，终结点就会收到来自 Azure 数字孪生的各种事件：
 * [数字孪生](concepts-twins-graph.md)使用 Azure 数字孪生服务 API 触发的遥测数据

@@ -3,18 +3,18 @@ title: Azure 开发测试实验室常见问题解答 | Microsoft Docs
 description: 本文提供有关 Azure 开发测试实验室的部分常见问题解答 (FAQ)。
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144585"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328379"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure 开发测试实验室常见问题
 获取关于 Azure 开发测试实验室的某些最常见问题的解答。
 
 ## <a name="blog-post"></a>博客文章
-我们的开发测试实验室团队博客已于 2019 年 3 月 20 日停用。 
+我们的开发测试实验室团队博客已于 2019 年 3 月 20 日停用。 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>从现在起，在哪里可以跟踪功能更新？
 从现在起，我们将在 Azure 博客和 Azure 更新上发布功能更新和信息性博客文章。 这些博客文章还将在需要时链接到我们的文档。
@@ -22,7 +22,7 @@ ms.locfileid: "92144585"
 订阅[开发测试实验室 Azure 博客](https://azure.microsoft.com/blog/tag/azure-devtest-labs/)和[开发测试实验室 Azure 更新](https://azure.microsoft.com/updates/?product=devtest-lab)随时了解开发测试实验室中的新功能。
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>现有的博客文章会发生什么情况？
-我们目前正在努力将现有博客文章（不包括中断更新）迁移到[开发测试实验室文档](devtest-lab-overview.md)。 弃用 MSDN 博客时，它将重定向到开发测试实验室的文档概述。 重定向后，你可以在“筛选条件”标题中搜索要查找的文章。 我们尚未迁移所有帖子，但应在本月底完成。 
+我们目前正在努力将现有博客文章（不包括中断更新）迁移到[开发测试实验室文档](devtest-lab-overview.md)。 弃用 MSDN 博客时，它将重定向到开发测试实验室的文档概述。 重定向后，你可以在“筛选条件”标题中搜索要查找的文章。 我们尚未迁移所有帖子，但应在本月底完成。 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>我在哪里可以看到中断更新？
@@ -68,7 +68,7 @@ Azure 开发测试实验室可为团队节省时间和金钱。 开发人员可�
 ## <a name="security"></a>安全性
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>开发测试实验室中有哪些安全级别？
-安全访问权限由基于角色的访问控制 (RBAC) 决定。 要了解访问权限的工作方式，最好先了解 RBAC 定义的权限、角色与作用域之间的差异。
+安全访问由 Azure RBAC)  (Azure 基于角色的访问控制决定。 若要了解访问的工作原理，请参阅 Azure RBAC 定义的权限、角色和范围之间的差异。
 
 - **权限**：权限是针对特定操作定义的访问权限。 例如，权限可以是对所有 VM 的读取访问权限。
 - **角色**：角色是可进行分组和分配给用户的一组权限。 例如，具有“订阅所有者”角色的用户对订阅中所有资源都具有访问权限。
@@ -83,7 +83,7 @@ Azure 开发测试实验室可为团队节省时间和金钱。 开发人员可�
 
 由于作用域是分层的，因此在用户具有某个作用域的权限时，系统会自动向该用户授予该作用域内每个较低级别的作用域的权限。 例如，如果向用户分配了订阅所有者角色，那么用户可访问订阅中的所有资源。 这些资源包括 VM、虚拟网络和实验室。 订阅所有者会自动继承实验室所有者的角色。 但是反过来则不适用。 实验室所有者具有访问实验室的权限，其低于订阅级别的作用域。 因此，实验室所有者不能查看 VM、虚拟网络或实验室之外的其他任何资源。
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>如何为我的开发测试实验室环境定义基于角色的访问控制才能确保在开发人员/测试人员完成其工作时由 IT 部门进行治理？
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>如何实现为我的开发测试实验室环境定义 Azure 基于角色的访问控制，以确保它可以在开发人员/测试可以执行其工作时进行控制？
 可以使用一种广泛的模式，但具体细节取决于你的组织。
 
 中心 IT 部门只应拥有必需的控制，让项目和应用程序团队拥有所需级别的控制。 通常情况下，这意味着中心 IT 部门拥有订阅并负责核心 IT 功能，例如网络配置。 订阅的**所有者**集应该小。 这些所有者可以在需要时指定其他所有者，或者应用订阅级别的策略，例如“禁止公共 IP”。
@@ -92,7 +92,7 @@ Azure 开发测试实验室可为团队节省时间和金钱。 开发人员可�
 
 开发测试实验室资源应该由那些接近项目/应用程序团队的所有者拥有。 这是因为他们了解团队对计算机和必需软件的要求。 在大多数组织中，此开发测试实验室资源的所有者通常是项目/开发主管。 此所有者可以管理实验室环境中的用户和策略，可以管理开发测试实验室环境中的所有 VM。
 
-应该将项目/应用程序团队成员添加到“开发测试实验室用户”角色中。 这些用户可以创建虚拟机（前提是遵循实验室和订阅级别的策略）。 他们也可以管理自己的虚拟机。 他们不能管理属于其他用户的虚拟机。
+项目/应用程序团队成员应添加到 **开发测试实验室用户** 角色。 这些用户可以创建虚拟机（前提是遵循实验室和订阅级别的策略）。 他们也可以管理自己的虚拟机。 他们不能管理属于其他用户的虚拟机。
 
 有关详细信息，请参阅 [Azure 企业基架 - 规范性订阅治理文档](/azure/architecture/cloud-adoption/appendix/azure-scaffold)。
 

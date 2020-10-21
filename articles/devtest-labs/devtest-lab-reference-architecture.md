@@ -4,12 +4,12 @@ description: 本文提供了企业中 Azure 开发测试实验室的参考体系
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144545"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328838"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>适用于企业的 Azure 开发测试实验室参考体系结构
 本文提供了参考体系结构，可帮助你根据企业中的 Azure 开发测试实验室部署解决方案。 其中包括以下内容：
@@ -24,7 +24,7 @@ ms.locfileid: "92144545"
 以下是参考体系结构的关键要素：
 
 - **Azure Active Directory (Azure AD) **：开发测试实验室使用 [Azure AD 服务进行标识管理](../active-directory/fundamentals/active-directory-whatis.md)。 当你为用户授予基于开发测试实验室的环境的访问权限时，请考虑以下两个重要方面：
-    - **资源管理**：它提供对 Azure 门户的访问权限，以便在创建虚拟机 (管理资源;创建环境;启动、停止、重启、删除和应用项目;如此) 。 资源管理通过使用基于角色的访问控制 (RBAC) 在 Azure 中完成。 你将角色分配给用户，并设置资源和访问级别权限。
+    - **资源管理**：它提供对 Azure 门户的访问权限，以便在创建虚拟机 (管理资源;创建环境;启动、停止、重启、删除和应用项目;如此) 。 资源管理是使用 Azure RBAC)  (基于角色的访问控制来完成的。 你将角色分配给用户，并设置资源和访问级别权限。
     - **虚拟机 (网络级) **：在默认配置中，虚拟机使用本地管理员帐户。 如果域 [服务 (Azure AD 域服务](../active-directory-domain-services/overview.md)、本地域或基于云的域) ，则可以将计算机加入域。 然后，用户可以使用基于域的标识来连接到 Vm。
 - **本地连接**：在体系结构关系图中，使用 [ExpressRoute](../expressroute/expressroute-introduction.md) 。 但也可以使用 [站点到站点 VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)。 尽管开发测试实验室不需要 ExpressRoute，但它通常用于企业。 仅当需要访问企业资源时，才需要 ExpressRoute。 常见方案包括：
     - 你有不能移到云中的本地数据。

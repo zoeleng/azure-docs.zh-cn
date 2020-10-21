@@ -3,12 +3,12 @@ title: 使用 Apache Kafka 应用中的事件中心 - Azure 事件中心 | Micro
 description: 本文介绍有关 Azure 事件中心提供的 Apache Kafka 支持的信息。
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 95534d32bdf34d44a11b31c2476c153272717941
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2b101adf173f3d623bb85d811ba5832020313f14
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319850"
+ms.locfileid: "92327291"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>使用 Apache Kafka 应用程序中的 Azure 事件中心
 事件中心提供与 Apache Kafka®制造者和使用者 Api 兼容的终结点，大多数现有 Apache Kafka 客户端应用程序可以使用这些 Api 作为运行自己 Apache Kafka 群集的替代方法。 事件中心支持版本1.0 及更高版本的 Apache Kafka 的生成者和使用者 Api 客户端。
@@ -60,7 +60,7 @@ Azure 事件中心提供了多个选项来授予对安全资源的访问权限�
 - 共享访问签名 (SAS)
 
 #### <a name="oauth-20"></a>OAuth 2.0
-事件中心与 Azure Active Directory (Azure AD) ，后者提供与 **OAuth 2.0** 兼容的集中授权服务器。 使用 Azure AD，可以通过基于角色的访问控制 (RBAC) 向客户端标识授予细粒度权限。 可以指定“SASL_SSL”作为协议，并指定“OAUTHBEARER”作为机制，通过这种方式将此功能用于 Kafka 客户端。 有关 Azure 角色和范围访问级别的详细信息，请参阅[使用 Azure AD 授予访问权限](authorize-access-azure-active-directory.md)。
+事件中心与 Azure Active Directory (Azure AD) ，后者提供与 **OAuth 2.0** 兼容的集中授权服务器。 使用 Azure AD，可以使用 Azure RBAC)  (Azure 基于角色的访问控制向客户端标识授予精细的权限。 可以指定“SASL_SSL”作为协议，并指定“OAUTHBEARER”作为机制，通过这种方式将此功能用于 Kafka 客户端。 有关 Azure 角色和范围访问级别的详细信息，请参阅[使用 Azure AD 授予访问权限](authorize-access-azure-active-directory.md)。
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

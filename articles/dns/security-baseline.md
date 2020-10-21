@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225660"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328070"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>适用于 Azure DNS 的 Azure 安全基线
 
@@ -102,7 +102,7 @@ ms.locfileid: "89225660"
 
 - [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [了解 Azure DNS 中的 Azure RBAC](dns-protect-zones-recordsets.md#role-based-access-control)
+- [了解 Azure DNS 中的 Azure RBAC](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Azure 安全中心监视**：是
 
@@ -208,7 +208,7 @@ ms.locfileid: "89225660"
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10：定期审查和协调用户访问
 
-**指南**：Azure Active Directory 提供日志来帮助发现过时的帐户。 此外，还可以使用 Azure AD 的标识和访问评审来有效地管理组成员身份、访问企业应用程序和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。 
+**指南**：Azure Active Directory 提供有助于发现陈旧帐户的日志。 此外，还可以使用 Azure AD 的标识和访问评审来有效地管理组成员身份、访问企业应用程序和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。 
 
 - [了解 Azure AD 报告](/azure/active-directory/reports-monitoring/)
 
@@ -260,13 +260,13 @@ ms.locfileid: "89225660"
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6：使用 Azure RBAC 管理对资源的访问
 
-**指南**： Azure Role-Based 访问控制 (azure RBAC) 为 azure 用户、组和资源启用精细访问管理。 使用 Azure RBAC，可以授予用户所需的访问级别。 
+**指南**： azure RBAC) 的 azure 基于角色的访问控制可为 azure 用户、组和资源启用精细的访问管理 (。 使用 Azure RBAC，可以授予用户所需的访问级别。 
 
 在 Azure DNS 中，存在 DNS 区域参与者角色，以及区域级别和记录集级别的 Azure RBAC。 还可以构建自己的自定义 Azure 角色，以提供更精细的控制。
 
 - [如何配置 Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [了解 Azure DNS 中的 Azure RBAC](dns-protect-zones-recordsets.md#role-based-access-control)
+- [了解 Azure DNS 中的 Azure RBAC](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [了解 Azure 中的 Azure RBAC 专用 DNS](dns-protect-private-zones-recordsets.md)
 
@@ -396,7 +396,7 @@ ms.locfileid: "89225660"
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3：维护安全的 Azure 资源配置
 
-**指南**：使用 Azure Policy [拒绝] 和 [不存在时部署] 在 Azure 资源中强制实施安全设置。
+**指南**：使用 Azure Policy“[拒绝]”和“[不存在则部署]”对不同的 Azure 资源强制实施安全设置。
 
 此外，Azure 资源管理器还支持其他类型的安全控制，即能够锁定资源。 资源锁应用于资源，对所有用户和角色都有效。 有两种类型的资源锁：  CanNotDelete 和 ReadOnly  。
 

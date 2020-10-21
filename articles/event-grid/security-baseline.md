@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d027797deee9435127592fc91c21d59ee93fe9b5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2a1396f67c94b34b4fdef0bdaf7e01770da91246
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152253"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331509"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>事件网格的 Azure 安全基线
 
@@ -70,7 +70,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 你可以配置专用终结点，以仅从所选的虚拟网络中限制访问。
 
-在这些虚拟网络上启用 DDoS 保护标准，防范分布式拒绝服务 (DDoS) 攻击。 根据 Azure 安全中心集成的威胁情报进行判断，拒绝与已知恶意的或未使用过的 Internet IP 地址通信。 有关详细信息，请参阅下列文章： 
+在这些虚拟网络上启用 DDoS 保护标准，防范分布式拒绝服务 (DDoS) 攻击。 根据 Azure 安全中心集成的威胁情报进行判断，拒绝与已知恶意的或未使用过的 Internet IP 地址通信。 有关详细信息，请参阅以下文章： 
 
 - [如何配置 Azure 事件网格主题或域的专用终结点](configure-private-endpoints.md)
 
@@ -287,9 +287,9 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
-**指南**：通过 Azure 事件网格，可以控制提供给不同用户执行各种管理操作（如列出事件订阅、创建新用户和生成密钥）的访问级别。 事件网格使用 Azure 的基于角色的访问控制 (RBAC)。 事件网格支持内置角色和自定义角色。
+**指南**：通过 Azure 事件网格，可以控制提供给不同用户执行各种管理操作（如列出事件订阅、创建新用户和生成密钥）的访问级别。 事件网格使用 azure RBAC)  (Azure 基于角色的访问控制。 事件网格支持内置角色和自定义角色。
 
-使用 Azure 基于角色的访问控制 (RBAC) 可通过角色分配管理对 Azure 资源的访问权限。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。
+Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管理对 Azure 资源的访问权限。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。
 
 - [授权访问事件网格资源](security-authorization.md)
 
@@ -457,7 +457,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2：隔离存储或处理敏感信息的系统
 
-**指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Azure Active Directory RBAC 来控制对 Azure 资源的访问权限。
+**指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Azure RBAC 来控制对 Azure 资源的访问。
 
 - [如何创建其他 Azure 订阅](../cost-management-billing/manage/create-subscription.md)
 
@@ -501,7 +501,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6：使用 Azure RBAC 管理对资源的访问
 
-**指南**： Azure 事件网格支持使用 AZURE ACTIVE DIRECTORY (AD) 向事件网格资源的请求授权。 可以通过 Azure AD 使用基于角色的访问控制 (RBAC) 授予对服务主体的访问权限，该服务主体可能是用户或应用程序服务主体。
+**指南**： Azure 事件网格支持使用 AZURE ACTIVE DIRECTORY (AD) 向事件网格资源的请求授权。 使用 Azure AD，你可以使用 Azure RBAC)  (Azure 基于角色的访问控制向安全主体（可以是用户或应用程序服务主体）授予权限。
 
 - [授权访问事件网格资源](security-authorization.md)
 

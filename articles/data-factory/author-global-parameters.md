@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567530"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328158"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure 数据工厂中的全局参数
 
@@ -52,7 +52,7 @@ ms.locfileid: "91567530"
 
 ![在 ARM 模板中包含](media/author-global-parameters/include-arm-template.png)
 
-将全局参数添加到 ARM 模板会添加一个工厂级别设置，该设置可以覆盖其他工厂级别设置，如其他环境中的客户托管密钥或 git 配置。 如果在提升的环境（如 UAT 或生产）中启用了这些设置，则最好在下面突出显示的步骤中通过 PowerShell 脚本部署全局参数。
+将全局参数添加到 ARM 模板会添加一个工厂级别设置，该设置将覆盖其他工厂级别设置，如其他环境中的客户托管密钥或 git 配置。 如果在提升的环境（如 UAT 或生产）中启用了这些设置，则最好在下面突出显示的步骤中通过 PowerShell 脚本部署全局参数。
 
 ### <a name="deploying-using-powershell"></a>使用 PowerShell 进行部署
 
