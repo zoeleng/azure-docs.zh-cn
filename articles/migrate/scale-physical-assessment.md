@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85081072"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317140"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>评估大量物理服务器以迁移到 Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "85081072"
 
 
 > [!NOTE]
-> 如果要在评估规模之前尝试使用概念证明来评估一些服务器，请遵循我们的 [系列教程](tutorial-prepare-physical.md)。
+> 如果要在评估规模之前尝试使用概念证明来评估一些服务器，请遵循我们的 [系列教程](./tutorial-discover-physical.md)。
 
 ## <a name="plan-for-assessment"></a>规划评估
 
@@ -64,7 +64,7 @@ ms.locfileid: "85081072"
 2. 设置你的 Azure 帐户的权限以与 Azure Migrate 进行交互。
 3. 准备物理服务器。
 
-按照 [本教程](tutorial-prepare-physical.md) 中的说明配置这些设置。
+按照 [本教程](./tutorial-discover-physical.md) 中的说明配置这些设置。
 
 ## <a name="create-a-project"></a>创建一个项目
 
@@ -73,7 +73,7 @@ ms.locfileid: "85081072"
 1. 创建 Azure Migrate 项目。
 2. 将 Azure Migrate 服务器评估工具添加到项目。
 
-[了解详细信息](how-to-add-tool-first-time.md) 
+[了解详细信息](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>创建和查看评估
 

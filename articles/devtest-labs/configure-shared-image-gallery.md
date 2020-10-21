@@ -3,12 +3,12 @@ title: 在 Azure 开发测试实验室中配置共享映像库 |Microsoft Docs
 description: 了解如何在 Azure 开发测试实验室中配置共享映像库，使用户能够在创建实验室资源的同时从共享位置访问映像。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271033"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327971"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>在 Azure 开发测试实验室中配置共享映像库
 开发测试实验室现在支持 [共享映像库](../virtual-machines/windows/shared-image-galleries.md) 功能。 它允许实验室用户在创建实验室资源的同时访问共享位置中的图像。 它还可帮助你围绕自定义托管 VM 映像构建结构和组织。 共享映像库功能支持：
@@ -16,7 +16,7 @@ ms.locfileid: "88271033"
 - 托管的映像全局复制
 - 对图像进行版本控制和分组以便于管理
 - 在支持可用性区域的区域中，使用区域冗余存储 (ZRS) 帐户使映像高度可用。 ZRS 提高了针对区域性故障的恢复能力。
-- 使用基于角色的访问控制 (RBAC) ，在多个订阅之间共享，甚至在租户之间共享。
+- 使用基于 Azure 角色的访问控制 (Azure RBAC) ，在订阅之间共享，甚至在租户之间共享。
 
 有关详细信息，请参阅 [共享映像库文档](../virtual-machines/windows/shared-image-galleries.md)。 
  

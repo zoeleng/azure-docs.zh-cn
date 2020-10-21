@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121633"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314642"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>排查 Azure Migrate 项目问题
 
@@ -52,7 +52,7 @@ ms.locfileid: "86121633"
 - 如果收到错误 "请求必须包含用户标识标头"，这可能表示无权访问 Azure Active Directory (组织) 租户的 Azure AD。 在这种情况下：
     - 当你首次添加到 Azure AD 租户时，你将收到加入租户的电子邮件邀请。
     - 接受要添加到租户的邀请。
-    - 如果看不到此电子邮件，请与有权访问租户的用户联系，要求他们 [重新发送邀请](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) 。
+    - 如果看不到此电子邮件，请与有权访问租户的用户联系，要求他们 [重新发送邀请](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) 。
     - 收到邀请电子邮件后，将其打开，然后选择接受邀请的链接。 然后，注销 Azure 门户并重新登录。  (刷新浏览器将不起作用。 ) 然后即可开始创建迁移项目。
 
 ## <a name="how-do-i-delete-a-project"></a>如何实现删除项目

@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053620"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314656"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>将自定义域映射到 Azure Blob 存储终结点
 
@@ -23,7 +23,7 @@ ms.locfileid: "88053620"
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> 这种映射仅适用于子域（例如：`www.contoso.com`）。 如果希望 web 终结点在根域上可用 (例如：) ，则必须 `contoso.com` 使用 Azure CDN。 有关指南，请参阅本文中的将 [自定义域映射到已启用 HTTPS](#enable-https) 部分。 由于你转到本文的这一节来启用自定义域的根域，因此用于启用 HTTPS 的那一节中的步骤是可选的。 
+> 这种映射仅适用于子域（例如：`www.contoso.com`）。 如果希望 web 终结点在根域上可用 (例如：) ，则必须 `contoso.com` 使用 Azure CDN。 有关指南，请参阅本文中的将 [自定义域映射到已启用 HTTPS](#enable-https) 部分。 由于你将转到本文的这一部分来启用自定义域的根域，因此用于启用 HTTPS 的那一节中的步骤是可选的。 
 
 <a id="enable-http"></a>
 
@@ -177,7 +177,7 @@ ms.locfileid: "88053620"
        
    - 在本文前面的[获取存储终结点的主机名](#endpoint)部分获取的主机名。 
 
-     将子域 `asverify` 添加到主机名。 例如： `asverify.mystorageaccount.blob.core.windows.net`。
+     将子域 `asverify` 添加到主机名。 例如：`asverify.mystorageaccount.blob.core.windows.net`。
 
 4. 若要注册自定义域，请选择“保存”按钮。****
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 053a64f276a09cfd1e11d51743a557e7a238cbc2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e1a9a644e3ec4690dbb1f536dd15db995b56cf12
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207897"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331713"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>ExpressRoute 的 Azure 安全基线
 
@@ -22,7 +22,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -242,7 +242,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 你可以使用订阅 Azure 门户中 (IAM) 窗格的 "标识和访问控制" 来配置 Azure RBAC)  (基于角色的访问控制。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。
 
-此外，使用 ExpressRoute 合作伙伴资源管理器 API 的合作伙伴可以对 expressRouteCrossConnection 资源应用基于角色的访问控制。 这些控制可以定义有关哪些用户帐户可以修改 expressRouteCrossConnection 资源以及添加/更新/删除对等互连配置的权限。
+此外，使用 ExpressRoute 合作伙伴资源管理器 API 的合作伙伴可将基于角色的访问控制应用到 expressRouteCrossConnection 资源。 这些控制可以定义有关哪些用户帐户可以修改 expressRouteCrossConnection 资源以及添加/更新/删除对等互连配置的权限。
 
 * [了解 Azure RBAC](../role-based-access-control/overview.md)
 
@@ -459,7 +459,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户是虚拟网关的所有者，这些网关与 ExpressRoute 线路位于不同的订阅中。 线路所有者有权随时修改和撤消授权。 撤消授权会导致从已撤消访问权限的订阅中删除所有链路连接。 线路用户可以兑换授权（每个虚拟网络需要一个授权）。
 
-此外，使用 ExpressRoute 合作伙伴资源管理器 API 的合作伙伴可以对 expressRouteCrossConnection 资源应用基于角色的访问控制。 这些控制可以定义有关哪些用户帐户可以修改 expressRouteCrossConnection 资源以及添加/更新/删除对等互连配置的权限。
+此外，使用 ExpressRoute 合作伙伴资源管理器 API 的合作伙伴可将基于角色的访问控制应用到 expressRouteCrossConnection 资源。 这些控制可以定义有关哪些用户帐户可以修改 expressRouteCrossConnection 资源以及添加/更新/删除对等互连配置的权限。
 
 * [了解 Azure RBAC](../role-based-access-control/overview.md)
 

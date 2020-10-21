@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421452"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275756"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>如何：为企业应用程序自定义 SAML 令牌中颁发的声明
 
@@ -167,7 +167,7 @@ ms.locfileid: "89421452"
 3. 选择用户所属的组。 在给定应用程序的所有声明中，最多可以选择50个唯一组。 
 4. 选择声明可检索其值的**源**。 可以从“源属性”下拉列表中选择一个用户属性，或者在用户属性作为声明发出之前对其应用转换。
 
-添加条件的顺序很重要。 Azure AD 将按从上到下的顺序评估条件，以确定要在声明中发出的值。 
+添加条件的顺序很重要。 Azure AD 将按从上到下的顺序评估条件，以确定要在声明中发出的值。 与表达式匹配的最后一个值将在声明中发出。
 
 例如，Britta Simon 是 Contoso 租户中的来宾用户。 她属于另一个也使用 Azure AD 的组织。 对于 Fabrikam 应用程序的以下配置，当 Britta 尝试登录到 Fabrikam 时，Microsoft 标识平台将按以下方式计算条件。
 

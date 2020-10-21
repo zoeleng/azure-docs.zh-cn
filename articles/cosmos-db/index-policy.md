@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089507"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277793"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
 
@@ -271,7 +271,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 
 添加新索引时，对读取可用性没有影响。 索引转换完成之后，查询将只利用新索引。 在索引转换过程中，查询引擎将继续使用现有的索引，因此，在索引转换过程中，你将观察到，读取性能类似于在启动索引更改之前观察到的情况。 添加新索引时，也不会有查询结果不完整或不一致的风险。
 
-在删除索引并立即运行对已删除索引进行筛选的查询时，无法保证查询结果一致或完整。 如果删除多个索引，并且是在一次索引策略更改中执行此操作，则查询引擎会在整个索引转换中保证结果一致并且完整。 但是，如果通过多个索引策略更改来删除索引，则在所有索引转换完成之前，查询引擎无法保证结果一致或完整。 大多数开发人员都不会在删除索引之后立即尝试运行利用这些索引的查询，所以，这种情况实际上不太可能发生。
+在删除索引并立即运行对已删除索引进行筛选的查询时，无法保证查询结果一致或完整。 如果删除多个索引，并且在单个索引策略更改中执行此操作，则查询引擎将在整个索引转换中提供一致和完整的结果。 但是，如果通过多个索引策略更改来删除索引，则在所有索引转换完成之前，查询引擎将不提供一致或完整的结果。 大多数开发人员都不会在删除索引之后立即尝试运行利用这些索引的查询，所以，这种情况实际上不太可能发生。
 
 > [!NOTE]
 > 如果可能，应始终尝试将多个索引更改组合成一次索引策略修改

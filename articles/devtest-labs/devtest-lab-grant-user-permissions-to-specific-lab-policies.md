@@ -3,25 +3,25 @@ title: 向用户授予特定实验室策略的权限 |Microsoft Docs
 description: 了解如何根据各个客户的需求在开发测试实验室中向用户授予特定实验室策略的权限
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835674"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328464"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>向用户授予特定实验室策略的权限
 ## <a name="overview"></a>概述
 本文说明了如何使用 PowerShell 向用户授予某个特定实验室策略的权限。 这样一来，可基于每个用户的需求应用权限。 例如，你可能想向某个特定用户授予更改 VM 策略设置的权限，但不想授予成本策略权限。
 
 ## <a name="policies-as-resources"></a>将策略作为资源
-如 azure RBAC) 一文中的 [azure 基于角色的访问控制 (](../role-based-access-control/role-assignments-portal.md) 中所述，RBAC 启用对 Azure 资源的精细访问管理。 使用 RBAC，可以在开发运营团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
+如 azure RBAC) 一文中的 [azure 基于角色的访问控制 (](../role-based-access-control/role-assignments-portal.md) 中所述，azure rbac 可为 azure 的资源提供精细的访问管理。 使用 Azure RBAC，可以在 DevOps 团队中对职责进行隔离，只向用户授予执行作业所需的访问权限。
 
-在开发测试实验室中，策略是一种资源类型，可启用 RBAC 操作 **Microsoft.DevTestLab/labs/policySets/policies/**。 每个实验室策略都是策略资源类型中的资源，可以作为作用域分配给 Azure 角色。
+在开发测试实验室中，策略是一种可启用 Azure RBAC 操作 **microsoft.devtestlab/实验室/policySets**/policy/的资源类型。 每个实验室策略都是策略资源类型中的资源，可以作为作用域分配给 Azure 角色。
 
 例如，若要授予用户对 **允许的 VM 大小** 策略的读/写权限，你需要创建一个可与 **microsoft.devtestlab/实验室/policySets/policy/** 操作一起工作的自定义角色，然后将相应的用户分配到 **microsoft.devtestlab/实验室/policySets/policy/AllowedVmSizesInLab**范围内的此自定义角色。
 
-若要了解有关 RBAC 中自定义角色的详细信息，请参阅[自定义角色的访问控制](../role-based-access-control/custom-roles.md)。
+若要详细了解 Azure RBAC 中的自定义角色，请参阅 [azure 自定义角色](../role-based-access-control/custom-roles.md)。
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>使用 PowerShell 创建实验室自定义角色
 若要开始，需要 [安装 Azure PowerShell](/powershell/azure/install-az-ps)。 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 91589a88712b093acfbb88df146074ad91ba0ea2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168369"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277978"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 
@@ -327,7 +327,7 @@ function createComment(postId, comment) {
 - 替换帖子
 - 添加新评论
 
-由于存储过程是作为原子事务执行的，可以保证 `commentCount` 的值和实际评论数始终保持同步。
+当存储过程作为原子事务执行时，的值 `commentCount` 和实际的注释数将始终保持同步。
 
 添加新的点赞来递增 `likeCount` 时，我们将显式调用类似的存储过程。
 
@@ -586,6 +586,6 @@ function truncateFeed() {
 
 完成这篇有关数据建模和分区实践的简介文章后，建议接下来阅读以下文章，以了解本文涉及的概念：
 
-- [使用数据库、容器和项](databases-containers-items.md)
+- [使用数据库、容器和项](account-databases-containers-items.md)
 - [Azure Cosmos DB 中的分区](partitioning-overview.md)
 - [Azure Cosmos DB 中的更改源](change-feed.md)

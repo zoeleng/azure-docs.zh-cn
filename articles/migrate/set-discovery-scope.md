@@ -3,12 +3,12 @@ title: 将 VMware VM 发现的作用域设置 Azure Migrate
 description: 描述如何在 Azure Migrate 中设置 VMware VM 评估和迁移的发现作用域。
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919720"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314029"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>为 VMware Vm 设置发现作用域
 
@@ -21,7 +21,7 @@ ms.locfileid: "88919720"
 
 ## <a name="before-you-start"></a>开始之前
 
-如果尚未设置 Azure Migrate 用于发现的 vCenter 用户帐户，请立即执行此操作进行 [评估](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) 或 [无代理迁移](tutorial-prepare-vmware.md#assign-permissions-to-an-account)。
+如果尚未设置 Azure Migrate 用于发现的 vCenter 用户帐户，请立即执行此操作进行 [评估](./tutorial-discover-vmware.md#prepare-vmware) 或 [无代理迁移](./migrate-support-matrix-vmware-migration.md#agentless-migration)。
 
 
 ## <a name="assign-permissions-and-roles"></a>分配权限和角色
