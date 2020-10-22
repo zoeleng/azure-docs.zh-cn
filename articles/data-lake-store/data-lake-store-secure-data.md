@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 02bfb7da51f243de8320d0230259577e337231fd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149280"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370689"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>保护 Azure Data Lake Storage Gen1 中存储的数据
 保护 Azure Data Lake Storage Gen1 中的数据包含三个步骤。  Azure RBAC) 和访问控制 (列表 (支持 Azure RBAC 的访问控制) 必须设置为完全启用用户和安全组对数据的访问权限。
@@ -39,7 +39,7 @@ ms.locfileid: "92149280"
 有关如何创建 Azure AD 安全组以及如何将用户添加到组的说明，请参阅 [管理 Azure Active Directory 中的安全组](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
 > [!NOTE] 
-> 可以使用 Azure 门户在 Azure AD 中向组添加用户和其他组。 不过，要将服务主体添加到组，请使用 [Azure AD 的 PowerShell 模块](../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)。
+> 可以使用 Azure 门户在 Azure AD 中向组添加用户和其他组。 不过，要将服务主体添加到组，请使用 [Azure AD 的 PowerShell 模块](../active-directory/enterprise-users/groups-settings-v2-cmdlets.md)。
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs
@@ -102,7 +102,7 @@ ms.locfileid: "92149280"
 4. 单击“添加”**** 图标以打开“分配权限”**** 边栏选项卡。 在此边栏选项卡中，单击 " **选择用户或组**"，然后在 " **选择用户或组** " 边栏选项卡中，查找之前在 Azure Active Directory 中创建的安全组。 如果搜索范围中存在大量的组，请使用顶部的文本框筛选组名称。 单击要添加的组，并单击“选择”****。
    
     ![添加组](./media/data-lake-store-secure-data/adl.acl.3.png "添加组")
-5. 单击“选择权限”****，选择权限、是否应当以递归方式应用权限，以及要将权限分配为访问 ACL、默认 ACL 还是同时分配为这两者。 单击" **确定**"。
+5. 单击“选择权限”****，选择权限、是否应当以递归方式应用权限，以及要将权限分配为访问 ACL、默认 ACL 还是同时分配为这两者。 单击“确定”。
    
     !["分配权限" 边栏选项卡的屏幕截图，其中包含 "选择权限" 选项，其中包含 "确定" 选项（称为 "确定" 选项）。](./media/data-lake-store-secure-data/adl.acl.4.png "分配权限给组")
    

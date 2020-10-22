@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: e71325246b69f501ec8af91c59cb4f042180542c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999655"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369958"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 专用终结点 DNS 配置
 
@@ -40,7 +40,7 @@ Azure 服务将在公共 DNS 服务上创建一个规范名称 DNS 记录 (CNAME
 对于 Azure 服务，请根据下表中所述使用建议的区域名称：
 
 | 专用链接资源类型/子资源 |专用 DNS 区域名称 | 公共 DNS 区域转发器 |
-|---|---|---|---|
+|---|---|---|
 | Azure 自动化 /(Microsoft.Automation/automationAccounts)/Webhook、DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL 数据库 (Microsoft.Sql/servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
@@ -77,6 +77,8 @@ Azure 服务将在公共 DNS 服务上创建一个规范名称 DNS 记录 (CNAME
 | Azure Monitor (Microsoft.Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | 认知服务 (Microsoft.CognitiveServices/accounts)/account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure 文件同步 (Storagesync.sys/storageSyncServices) /afs |  privatelink.afs.azure.net  |  afs.azure.net  |
+| Azure 数据工厂 (DataFactory/工厂 ) /dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
+| Azure 数据工厂 (DataFactory/工厂 ) /门户 |  privatelink.azure.com  |  azure.com  |
 
  
 ## <a name="dns-configuration-scenarios"></a>DNS 配置方案
@@ -130,38 +132,37 @@ DNS 是通过成功解析专用终结点 IP 地址使应用程序正常工作的
 以下方案适用于在 Azure 中具有 DNS 转发器的本地网络，而该转发器又负责通过服务器级转发器将所有 DNS 查询解析为 Azure 提供的 DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)。 
 
 > [!NOTE]
-> 此方案使用 Azure SQL 数据库建议的专用 DNS 区域。 对于其他服务，可以使用以下参考来调整模型： [Azure 服务 DNS 区域配置](#azure-services-dns-zone-configuration)。
+> 此方案使用 Azure SQL 数据库建议的专用 DNS 区域。 对于其他服务，可以使用以下参考来调整模型：[Azure 服务 DNS 区域配置](#azure-services-dns-zone-configuration)。
 
 若要正确进行配置，需要以下资源：
 
 - 本地网络
--  [连接到本地](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)的虚拟网络
-- 部署在 Azure 中的 DNS 转发器 
--  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)   使用 [类型 A 记录](../dns/dns-zones-records.md#record-types)专用 DNS 区域 privatelink.database.windows.net
+- 虚拟网络 [已连接到本地](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- 部署在 Azure 中的 DNS 转发器 
+- 使用[类型 A 记录](../dns/dns-zones-records.md#record-types)专用 DNS 区域[privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 专用终结点信息（FQDN 记录名称和专用 IP 地址）
 
 下图显示了一个本地网络的 DNS 解析序列，该本地网络使用部署在 Azure 中的 DNS 转发器，而解析由[链接到虚拟网络](../dns/private-dns-virtual-network-links.md)的专用 DNS 区域进行：
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="单个虚拟网络和 Azure 提供的 DNS":::
 
-可以为已有 DNS 解决方案的本地网络扩展此配置。 
-需要将本地 DNS 解决方案配置为通过 [条件转发器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)将 DNS 流量转发到 Azure DNS，该条件转发器引用部署在 Azure 中的 DNS 转发器。
+可以为已有 DNS 解决方案的本地网络扩展此配置。 需要配置本地 DNS 解决方案，以便通过引用 Azure 中部署的 DNS 转发器的 [条件转发器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) ，将 dns 流量转发到 Azure DNS。
 
 > [!NOTE]
-> 此方案使用 Azure SQL 数据库建议的专用 DNS 区域。 对于其他服务，可使用以下参考来调整模型： [Azure 服务 DNS 区域配置](#azure-services-dns-zone-configuration)
+> 此方案使用 Azure SQL 数据库建议的专用 DNS 区域。 对于其他服务，可以使用以下参考内容调整模型： [Azure 服务 DNS 区域配置](#azure-services-dns-zone-configuration)
 
 若要正确进行配置，需要以下资源：
 
-- 具有自定义 DNS 解决方案的本地网络 
--  [连接到本地](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)的虚拟网络
+- 具有自定义 DNS 解决方案的本地网络 
+- 虚拟网络 [已连接到本地](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
 - 部署在 Azure 中的 DNS 转发器
--  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)    使用 [类型 A 记录](../dns/dns-zones-records.md#record-types)专用 DNS 区域 privatelink.database.windows.net
+- 使用[类型 A 记录](../dns/dns-zones-records.md#record-types)专用 DNS 区域[privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 专用终结点信息（FQDN 记录名称和专用 IP 地址）
 
-下图显示了一个本地网络的 DNS 解析序列，该本地网络将 DNS 流量条件转发到 Azure，而解析由 [链接到虚拟网络](../dns/private-dns-virtual-network-links.md)的专用 DNS 区域进行。
+下图说明了本地网络中的 DNS 解析序列，该序列有条件地将 DNS 流量转发到 Azure，在该序列中，通过专用 DNS 区域 [链接到虚拟网络](../dns/private-dns-virtual-network-links.md)进行解析。
 
 > [!IMPORTANT]
-> 条件转发必须指向建议的[公共 DNS 区域转发器](#azure-services-dns-zone-configuration)。例如：  `database.windows.net`   而不是 **privatelink**. database.windows.net。
+> 条件转发必须指向建议的[公共 DNS 区域转发器](#azure-services-dns-zone-configuration)。 例如： `database.windows.net` 而不是 **privatelink**. database.windows.net。
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="单个虚拟网络和 Azure 提供的 DNS":::
 
@@ -177,18 +178,18 @@ DNS 是通过成功解析专用终结点 IP 地址使应用程序正常工作的
 > 此配置需要使用单个专用 DNS 区域。 所有从本地和[对等虚拟网络](../virtual-network/virtual-network-peering-overview.md)建立的客户端连接也必须使用同一专用 DNS 区域。
 
 > [!NOTE]
-> 此方案使用 Azure SQL 数据库建议的专用 DNS 区域。 对于其他服务，可以使用以下参考来调整模型： [Azure 服务 DNS 区域配置](#azure-services-dns-zone-configuration)。
+> 此方案使用 Azure SQL 数据库建议的专用 DNS 区域。 对于其他服务，可以使用以下参考来调整模型：[Azure 服务 DNS 区域配置](#azure-services-dns-zone-configuration)。
 
 若要正确进行配置，需要以下资源：
 
 - 本地网络
--  [连接到本地](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)的虚拟网络
-- [对等的虚拟网络](../virtual-network/virtual-network-peering-overview.md) 
+- 虚拟网络 [已连接到本地](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- [对等的虚拟网络](../virtual-network/virtual-network-peering-overview.md) 
 - 部署在 Azure 中的 DNS 转发器
--  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)    使用 [类型 A 记录](../dns/dns-zones-records.md#record-types)专用 DNS 区域 privatelink.database.windows.net
+- 使用[类型 A 记录](../dns/dns-zones-records.md#record-types)专用 DNS 区域[privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 专用终结点信息（FQDN 记录名称和专用 IP 地址）
 
-下图显示了一个本地和虚拟网络的 DNS 解析序列，该网络使用部署在 Azure 中的 DNS 转发器，而解析由 [链接到虚拟网络](../dns/private-dns-virtual-network-links.md)的专用 DNS 区域进行：
+下图显示了使用 Azure 中部署的 DNS 转发器的本地和虚拟网络中的 DNS 解析序列，其中的解决方案是通过 [链接到虚拟网络](../dns/private-dns-virtual-network-links.md)的专用 DNS 区域进行的：
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="单个虚拟网络和 Azure 提供的 DNS":::
 

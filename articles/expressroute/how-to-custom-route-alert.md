@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329843"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371488"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>配置自定义警报来监视播发路由
 
@@ -70,7 +70,7 @@ ms.locfileid: "92329843"
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2.为运行方式帐户分配角色
 
-默认情况下，将为**运行方式**帐户所使用的服务主体分配**参与者**角色。 你可以保留分配给服务主体的默认角色，也可以通过分配[内置角色](../role-based-access-control/built-in-roles.md)（例如，读取者）或[自定义角色](../active-directory/users-groups-roles/roles-create-custom.md)来限制权限。
+默认情况下，将为**运行方式**帐户所使用的服务主体分配**参与者**角色。 你可以保留分配给服务主体的默认角色，也可以通过分配[内置角色](../role-based-access-control/built-in-roles.md)（例如，读取者）或[自定义角色](../active-directory/roles/custom-create.md)来限制权限。
 
  请使用以下步骤来确定分配给运行方式帐户所使用的服务主体的角色：
 

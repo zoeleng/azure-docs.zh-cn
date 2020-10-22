@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/06/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: bf4a1feb91a1ac4b0bca0d6afdbac41a8be3aa4f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049652"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370978"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>从映像版本创建托管磁盘
 
@@ -23,10 +23,10 @@ ms.locfileid: "92049652"
 
 ## <a name="cli"></a>CLI
 
-将 `source` 变量设置为映像版本的 ID，然后使用 [az disk create](/cli/azure/disk.md#az_disk_create) 创建托管磁盘。 
+将 `source` 变量设置为映像版本的 ID，然后使用 [az disk create](/cli/azure/disk#az_disk_create) 创建托管磁盘。 
 
 
-你可以使用 [az sig image 版本列表](/cli/azure/sig/image-version.md#az_sig_image_version_list)查看列表图像版本。 在此示例中，我们将查找属于*myGallery*映像库中的*myImageDefinition*映像定义的所有映像版本。
+你可以使用 [az sig image 版本列表](/cli/azure/sig/image-version#az_sig_image_version_list)查看列表图像版本。 在此示例中，我们将查找属于*myGallery*映像库中的*myImageDefinition*映像定义的所有映像版本。
 
 ```azurecli-interactive
 az sig image-version list \

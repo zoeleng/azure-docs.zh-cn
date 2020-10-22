@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 8/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 9bfec8c1da0581fa7f17dd671358218f22c877c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6cbda4067e98c16ea26f3436b5f65e696549462
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708469"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370298"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure 机器学习 SDK 创建和运行机器学习管道
 
@@ -251,6 +251,18 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Python 环境如何处理管道参数
+
+如前面在 [配置训练运行的环境](#configure-the-training-runs-environment)中所述，环境状态和 Python 库依赖项是使用 `Environment` 对象指定的。 通常，可以 `Environment` 通过引用其名称和版本（可选）来指定现有的：
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+但是，如果选择使用 `PipelineParameter` 对象在运行时为管道步骤动态设置变量，则不能使用这种方法来引用现有的 `Environment` 。 相反，如果要使用 `PipelineParameter` 对象，则必须将 `environment` 的字段设置 `RunConfiguration` 为 `Environment` 对象。 你需要负责确保此类 `Environment` 在正确设置的外部 Python 包上具有依赖关系。
+
 ### <a name="use-a-dataset"></a>使用数据集 
 
 从 Azure Blob 存储、Azure 文件存储、Azure Data Lake Storage Gen1、Azure Data Lake Storage Gen2、Azure SQL 数据库和 Azure Database for PostgreSQL 创建的数据集可以用作任何管道步骤的输入。 可以将输出写入 [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true)、[DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true)，如果要将数据写入特定数据存储，请使用 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true)。 
@@ -337,6 +349,8 @@ pipeline_run1.wait_for_completion()
 ![以管道方式运行实验的图](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 有关详细信息，请参阅 [Experiment 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)参考。
+
+## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>对在推断时更改的参数使用管道参数
 
 ## <a name="view-results-of-a-pipeline"></a>查看管道的结果
 

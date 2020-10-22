@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3693c30a34601512770f5d9071f5d786410fb00e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90934520"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360371"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>使用 Kibana 和 Grafana 查看日志和指标
 
@@ -30,7 +30,7 @@ ms.locfileid: "90934520"
 
 若要检索公共 IP 地址，请使用以下命令：
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -66,7 +66,7 @@ mgmtproxy-svc-external   LoadBalancer   10.0.186.28   52.152.148.25   30777:3084
 
 ### <a name="find-the-name-of-the-nsg"></a>查找 NSG 的名称
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -74,7 +74,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 获得 NSG 的名称后，可以使用以下命令添加规则：
 
-```console
+```azurecli
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 将 GitOps 用于启用了 Azure Arc 的群集配置（预览版）
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, containers
-ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714177"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371250"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>在启用了 Arc 的 Kubernetes 群集 () 预览中使用 GitOps 部署配置
 
@@ -96,19 +96,18 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 下面是 --repository-url 参数的值支持的场景。
 
-| 场景 | 格式 | 说明 |
+| 场景 | 格式 | 描述 |
 | ------------- | ------------- | ------------- |
-| 专用 GitHub 存储库 - SSH | git@github.com:username/repo | Flux 生成的 SSH 密钥对。  用户必须将公钥作为部署密钥添加到 GitHub 帐户。 |
-| 公共 GitHub 存储库 | `http://github.com/username/repo` 或 git://github.com/username/repo   | 公共 Git 存储库  |
+| 公共 Git 存储库 | http [s]：//server/repo.git 或 git://server/repo.git   | 公共 Git 存储库  |
+| 私有 Git 存储库– SSH – Flux 创建的密钥 | ssh：//[user@] server/存储库或 [user@] 服务器：存储库. git | 需要将 Flux 生成的公钥添加到 Git 服务提供程序中的用户帐户或存储库。 在[此处](#apply-configuration-from-a-private-git-repository)可以找到更多详细信息 |
 
-上述场景受 Flux 支持，但不受 sourceControlConfiguration 支持。 
+Flux 支持这些方案，但尚不支持 sourceControlConfiguration。
 
-| 场景 | 格式 | 说明 |
+| 场景 | 格式 | 描述 |
 | ------------- | ------------- | ------------- |
-| 专用 GitHub 存储库 - HTTPS | `https://github.com/username/repo` | Flux 不生成 SSH 密钥对。  [说明](https://docs.fluxcd.io/en/1.17.0/guides/use-git-https.html) |
-| 专用 Git 主机 | user@githost:path/to/repo | [说明](https://docs.fluxcd.io/en/1.18.0/guides/use-private-git-host.html) |
-| 专用 GitHub 存储库 - SSH（自带密钥） | git@github.com:username/repo | [使用自己的 SSH 密钥对](https://docs.fluxcd.io/en/1.17.0/guides/provide-own-ssh-key.html) |
-
+| 私有 Git 存储库-HTTPS | https://server/repo.git | 即将推出 (将支持用户名/密码、用户名/令牌、证书)  |
+| 私有 Git 存储库-SSH –用户提供的密钥 | ssh：//[user@] server/存储库或 [user@] 服务器：存储库. git | 即将推出 |
+| 专用 Git 主机– SSH –自定义 known_hosts | ssh：//[user@] server/存储库或 [user@] 服务器：存储库. git | 即将推出 |
 
 #### <a name="additional-parameters"></a>附加参数
 
@@ -225,7 +224,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 将公钥作为部署密钥添加到 git 存储库
 
-1. 打开 GitHub，依次导航到“分支”、“设置”和“部署密钥” 
+1. 打开 GitHub，导航到你的存储库，转到 " **设置**"，然后 **部署密钥**
 2. 单击“添加部署密钥”
 3. 提供标题
 4. 选中“允许写访问”

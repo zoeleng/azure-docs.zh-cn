@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 3783c3dea67ebb9a77486d18bf80e67b85292744
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144179"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369057"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure Monitor 日志管理使用情况和成本    
 
@@ -243,7 +243,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 - 目标：选择 Log Analytics 资源
 - 条件： 
    - 信号名称：自定义日志搜索
-   - 搜索查询： `_LogOperation | where Detail has 'OverQuota'`
+   - 搜索查询： `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
    - 依据：结果数
    - 条件：大于
    - 阈值：0
@@ -600,9 +600,9 @@ union *
 - **定义警报条件**将 Log Analytics 工作区指定为资源目标。
 - **警报条件**指定下列项：
    - **信号名称**选择“自定义日志搜索”。
-   - 搜索对 `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` 的查询。 如果需要不同 
+   - 搜索对 `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` 的查询。 如果需要不同的 
    - 警报逻辑基于结果数，条件大于阈值 0 
-   - 每隔*1440* minutesto 每隔一天运行一次的**时间段** *1440*分钟和**警报频率**。
+   - “时间段”为 1440 分钟，并将“警报频率”设为每 1440 分钟，以便每天运行一次。
 - **定义警报详细信息**指定以下项：
    - 将“名称”设置为“24 小时内的可计费数据量大于 50 GB”
    - 将“严重性”设置为“警告”

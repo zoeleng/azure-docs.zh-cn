@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400683"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370587"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>在合作伙伴中心管理商业市场帐户
 
@@ -170,7 +170,7 @@ ms.locfileid: "91400683"
 
 ### <a name="create-new-users"></a>创建新用户
 
-若要创建全新的用户帐户，必须创建具有[全局管理员](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)权限的帐户。
+若要创建全新的用户帐户，必须创建具有[全局管理员](../../active-directory/roles/permissions-reference.md)权限的帐户。
 
 1. 转到“用户”（在“帐户设置”下），选择“添加用户”，然后选择“创建新用户”   。
 1. 输入每个新用户的名字、姓氏和用户名。 
@@ -184,7 +184,7 @@ ms.locfileid: "91400683"
 
 ### <a name="invite-new-users-by-email"></a>通过电子邮件邀请新用户
 
-若要通过电子邮件邀请当前不是公司工作帐户（Azure AD 租户）的一部分的用户，必须创建具有[全局管理员](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)权限的帐户。
+若要通过电子邮件邀请当前不是公司工作帐户（Azure AD 租户）的一部分的用户，必须创建具有[全局管理员](../../active-directory/roles/permissions-reference.md)权限的帐户。
 
 1. 转到“用户”（在“帐户设置”下），选择“添加用户”，然后选择“通过电子邮件邀请用户”   。
 2. 输入一个或多个电子邮件地址，最多 (10 个) ，用逗号或分号分隔。
@@ -204,7 +204,7 @@ ms.locfileid: "91400683"
 
 ### <a name="change-a-user-password"></a>更改用户密码
 
-如果你的其中一个用户需要更改密码，他们可以自行完成此操作（如果在创建用户帐户时提供了密码恢复电子邮件地址）。 还可以通过执行以下步骤来更新用户的密码。 若要更改公司工作帐户（Azure AD 租户）中的用户密码，必须登录具有[全局管理员](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)权限的帐户。 这会更改用户在 Azure AD 租户中的密码，以及用于访问合作伙伴中心的密码。
+如果你的其中一个用户需要更改密码，他们可以自行完成此操作（如果在创建用户帐户时提供了密码恢复电子邮件地址）。 还可以通过执行以下步骤来更新用户的密码。 若要更改公司工作帐户（Azure AD 租户）中的用户密码，必须登录具有[全局管理员](../../active-directory/roles/permissions-reference.md)权限的帐户。 这会更改用户在 Azure AD 租户中的密码，以及用于访问合作伙伴中心的密码。
 
 1. 在“用户”页（在“帐户设置”下）上，选择要编辑的用户帐户的名称 。
 2. 选择页面底部的“重置密码”按钮。

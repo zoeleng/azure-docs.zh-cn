@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341256"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371063"
 ---
 # <a name="monitor-identity-and-access"></a>监视标识和访问
 
@@ -56,7 +56,7 @@ Azure 安全中心具有两个专用安全控制，可确保满足组织的身�
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>多重身份验证 (MFA) 和 Azure Active Directory 
 
-启用 MFA 需要 [Azure Active Directory (AD) 租户权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+启用 MFA 需要 [Azure Active Directory (AD) 租户权限](../active-directory/roles/permissions-reference.md)。
 
 - 如果拥有高级版 AD，请使用[条件访问](../active-directory/conditional-access/concept-conditional-access-policy-common.md)启用 MFA。
 - 如果使用的是 AD 免费版，请启用 **安全默认设置** ，如 [Azure Active Directory 文档](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)中所述。

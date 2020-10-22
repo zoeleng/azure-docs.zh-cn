@@ -2,13 +2,13 @@
 title: Azure Batch 中的节点和池
 description: 从开发的角度来了解计算节点和池及其在 Azure Batch 工作流中的运用。
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385749"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371437"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch 中的节点和池
 
@@ -26,7 +26,7 @@ Batch 中的所有计算节点还包括：
 
 - 任务可引用的标准[文件夹结构](files-and-directories.md)和关联的[环境变量](jobs-and-tasks.md)。
 - **防火墙** 设置。
-- [远程访问](error-handling.md#connect-to-compute-nodes) Windows（远程桌面协议 (RDP)）和 Linux（安全外壳 (SSH)）节点。
+- [远程访问](error-handling.md#connect-to-compute-nodes) Windows (远程桌面协议 (RDP) # A3 和 Linux (安全外壳 (SSH) # A7 节点 (除非你 [使用禁用远程访问) 创建池](pool-endpoint-configuration.md) 。
 
 默认情况下，节点可以彼此通信，但无法与不属于同一池的虚拟机通信。 若要允许节点安全地与其他虚拟机或本地网络通信，可以[在 Azure 虚拟网络 (VNet) 的子网中](batch-virtual-network.md)预配该池。 当你这样做时，可以通过公共 IP 地址访问节点。 这些公共 IP 地址由 Batch 创建，可能会在池的生存期内更改。 你还可以[创建具有所控制的静态公共 IP 地址的池](create-pool-public-ip.md)，这样可确保它们不会意外更改。
 

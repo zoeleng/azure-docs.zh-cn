@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825423"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370417"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 到 Azure 的灾难恢复体系结构
 
@@ -128,7 +128,7 @@ Site Recovery 按如下所述创建快照：
 
 如果使用 URL 控制 VM 的出站访问，请允许这些 URL。
 
-| **Name**                  | 商用                               | 政府                                 | **说明** |
+| **名称**                  | 商用                               | 政府                                 | **说明** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | 存储                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | 允许将数据从 VM 写入源区域中的缓存存储帐户。 |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | 向 Site Recovery 服务 URL 提供授权和身份验证。 |
@@ -167,11 +167,11 @@ Site Recovery 按如下所述创建快照：
 
 #### <a name="control-access-with-nsg-rules"></a>使用 NSG 规则控制访问
 
-如果使用 [NSG 规则](../virtual-network/security-overview.md)通过筛选传入和传出 Azure 网络/子网的网络流量来控制 VM 连接，请注意以下要求：
+如果使用 [NSG 规则](../virtual-network/network-security-groups-overview.md)通过筛选传入和传出 Azure 网络/子网的网络流量来控制 VM 连接，请注意以下要求：
 
 - 源 Azure 区域的 NSG 规则应允许复制流量进行出站访问。
 - 我们建议先在测试环境中创建规则，然后在生产环境中实施这些规则。
-- 使用[服务标记](../virtual-network/security-overview.md#service-tags)，而不要允许单个 IP 地址。
+- 使用[服务标记](../virtual-network/network-security-groups-overview.md#service-tags)，而不要允许单个 IP 地址。
     - 服务标记表示集合在一起的一组 IP 地址前缀，可以最大程度地降低安全规则创建过程的复杂性。
     - Microsoft 会不断地自动更新服务标记。 
  

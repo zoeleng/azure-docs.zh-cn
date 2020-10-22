@@ -3,52 +3,53 @@ title: 利用 Azure VMware 解决方案预订实例节省成本
 description: 了解如何购买 Azure VMware 解决方案的预订实例。
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bac2497c637a301c7ce8cbc44fc6945c3ef43b06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951411"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370672"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>利用 Azure VMware 解决方案节省成本
 
-当你提交到 Azure VMware 解决方案的保留实例时，你可以节省资金。 预订折扣将自动应用于与预订范围和属性匹配的运行中的 Azure VMware 解决方案主机数。 无需将预订分配给专用主机即可获取折扣。 购买的预订实例仅涵盖使用情况的计算部分，并包括软件许可成本。 请参阅 [Azure VMware 解决方案的概述](introduction.md)。
+当你提交到 [Azure VMware 解决方案](introduction.md)的保留实例时，可以节省资金。 预订折扣将自动应用于与预订范围和属性匹配的运行中的 Azure VMware 解决方案主机。 无需将预订分配给专用主机即可获取折扣。 购买的预订实例仅涵盖使用情况的计算部分，并包括软件许可成本。 
+
 
 ## <a name="purchase-restriction-considerations"></a>购买限制注意事项
 
 保留实例可用，但有一些例外情况。
 
--   **云**  -预订仅在 "[按区域提供的产品](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware)" 页上列出的区域中可用。
+-   **云** 预订仅在 " [按区域提供的产品](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) " 页上列出的区域中可用。
 
--   **配额不足**  -作用域为单个/共享订阅的保留必须在订阅中为新的保留实例提供主机配额。 你可以 [创建配额增加请求](enable-azure-vmware-solution.md) 以解决此问题。
+-   **配额不足** -作用域为单个/共享订阅的保留必须在订阅中为新的保留实例提供主机配额。 你可以 [创建配额增加请求](enable-azure-vmware-solution.md) 以解决此问题。
 
--   **提供资格**-你将需要 [AZURE 企业协议 (EA) ](../cost-management-billing/manage/ea-portal-agreements.md)   与 Microsoft 配合使用。
+-   **提供资格**-你将需要 [AZURE 企业协议 (EA) ](../cost-management-billing/manage/ea-portal-agreements.md) 与 Microsoft 配合使用。
 
--   **容量限制**  -在极少数情况下，Azure 会限制购买 Azure VMware 解决方案主机 Sku 的新保留，因为区域中的容量不足。
+-   **容量限制** -在极少数情况下，azure 会限制购买新保留的 Azure VMware 解决方案主机 sku，因为区域中的容量不足。
 
 ## <a name="buy-a-reservation"></a>购买预留项
 
-可以在 [Azure 门户](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)中购买 Azure VMware 解决方案主机实例的保留实例。
+可以在 [Azure 门户](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)中购买 Azure VMware 解决方案主机实例的保留实例。
 
-提前支付预订费用， [按月](../cost-management-billing/reservations/prepare-buy-reservation.md)支付。
+通过[提前付款或按月付款](../cost-management-billing/reservations/prepare-buy-reservation.md)的方式为预留付款。
 
 这些要求适用于购买保留的专用主机实例：
 
 -   对于至少一个 EA 订阅或具有即用即付费率的订阅，必须是所有者角色。
 
--   对于 EA 订阅， **Add Reserved Instances**   必须在 [ea 门户](https://ea.azure.com/)中启用 "添加保留实例" 选项。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
+-   对于 EA 订阅，必须在[ea 门户](https://ea.azure.com/)中启用 "**添加保留实例**" 选项。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
 
 若要购买实例，请执行以下操作：
 
-1. 登录  [Azure 门户](https://portal.azure.com/)。
+1. 登录 [Azure 门户](https://portal.azure.com/)。
 
-2. 选择 " **所有服务**   >  **保留**"。
+2. 选择“所有服务” > “预订”。
 
-3. 选择 " **添加**"   购买新的预订，然后选择 " **Azure VMware 解决方案**"。
+3. 选择 " **添加** " 购买新的预订，然后选择 " **Azure VMware 解决方案**"。
 
-4. 输入必填字段。 运行与选择的属性相匹配的 Azure VMware 解决方案主机以获取预订折扣。 获取折扣的 Azure VMware 解决方案主机的实际数目取决于所选的范围和数量。
+4. 输入必填字段。 运行与属性匹配的 Azure VMware 解决方案主机时，可以选择 "限定" 以获取预订折扣。 根据所选范围和数量获取折扣的 Azure VMware 解决方案宿主的实际数量。
 
-   如果你有 EA 协议，则可以使用 " **添加更多" 选项**   快速添加其他实例。 选项不适用于其他订阅类型。
+   如果你有 EA 协议，则可以使用 " **添加更多" 选项** 快速添加其他实例。 选项不适用于其他订阅类型。
 
    | 字段        |  说明 |
    | ------------ | ------------ |
@@ -59,11 +60,14 @@ ms.locfileid: "91951411"
    | 术语         | 一年或三年。  |
    | 数量     | 预订中购买的实例数。 数量是可以获得计费折扣的正在运行的 Azure VMware 解决方案主机数。    |
 
-## <a name="usage-data-and-reservation-utilization"></a>使用情况数据和预订利用率
+## <a name="usage-data-and-reservation-usage"></a>使用情况数据和预订使用情况
 
-对于获得预留折扣的使用量，使用数据的有效价格为零。 你可以看到哪个 Azure VMware 解决方案实例收到每个预订的预订折扣。
+获取预订折扣的使用量的有效价格为零。 你可以看到哪个 Azure VMware 解决方案实例收到每个预订的预订折扣。
 
-有关如何在使用情况数据中显示预订折扣的详细信息，以及你是 EA 客户的详细信息，请参阅 [了解适用于企业注册的 Azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)。 如果有单独的订阅，请参阅 [了解即用即付订阅的 Azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage.md)。
+有关如何在使用情况数据中显示预订折扣的详细信息：
+
+- 对于 EA 客户，请参阅 [了解企业注册的 Azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+- 对于单独的订阅，请参阅 [了解即用即付订阅的 Azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## <a name="change-a-reservation-after-purchase"></a>在购买后更改保留
 
@@ -83,10 +87,10 @@ ms.locfileid: "91951411"
 > - 现有预订的区域
 > - SKU
 > - 数量
-> - 持续时间
+> - Duration
 >
->不过，如果想要进行更改，则可以 *交换*   预订。
+>不过，如果想要进行更改，则可以 *交换* 预订。
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>对预留执行取消、交换或退款操作
 
-可以在一定的限制下对预留执行取消、交换或退款操作。 有关详细信息，请参阅 [Azure 预订的自助服务交换和退款](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)。
+可以在一定的限制下对预留执行取消、交换或退款操作。 有关详细信息，请参阅 [Azure 预留的自助交换和退款](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)。

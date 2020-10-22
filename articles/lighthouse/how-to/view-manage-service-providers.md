@@ -3,12 +3,12 @@ title: 查看和管理服务提供商
 description: 客户可以使用 Azure 门户中的“服务提供商”页面来查看有关服务提供商、服务提供商产品/服务和委派资源的信息。
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974390"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371097"
 ---
 # <a name="view-and-manage-service-providers"></a>查看和管理服务提供商
 
@@ -78,7 +78,7 @@ ms.locfileid: "91974390"
 
 我们提供了一个 [Azure 策略内置策略定义](../../governance/policy/samples/built-in-policies.md#lighthouse) ，用于 [审核作用域到管理租户的委派](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json)。 你可以将此策略分配到包含你要审核的所有订阅的管理组。 检查此策略的符合性时，将在策略分配到的管理组中 (任何委派的订阅和/或资源组，) 将显示为不符合要求的状态。 然后，可以查看结果，并确认没有任何意外委托。
 
-另一个 [内置策略定义](../../governance/policy/samples/built-in-policies.md#lighthouse) 使你 [能够将委派限制到特定的管理租户](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json)。 此策略同样可以应用于包含要限制委派的任何订阅的管理组。 部署策略后，将拒绝将订阅委托给指定的租户的任何尝试。
+另一个 [内置策略定义](../../governance/policy/samples/built-in-policies.md#lighthouse) 使你 [能够将委派限制到特定的管理租户](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json)。 此策略同样可以应用于包含要限制委派的任何订阅的管理组。 部署策略后，将拒绝将订阅委托给指定的租户的任何尝试。
 
 有关如何分配策略和查看符合性状态结果的详细信息，请参阅 [快速入门：创建策略分配](../../governance/policy/assign-policy-portal.md)。
 
