@@ -3,12 +3,12 @@ title: 横向扩展 Service Fabric 托管群集（预览版）
 description: 本教程介绍如何横向扩展 Service Fabric 托管群集的节点类型。
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: a6777743932f3cc73db973c4d9935d4b5827700b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 01b299744d462496296884211eff08b7a9c64687
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91410183"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316138"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>教程：横向扩展 Service Fabric 托管群集（预览版）
 
@@ -28,7 +28,7 @@ ms.locfileid: "91410183"
 ## <a name="prerequisites"></a>先决条件
 
 * Service Fabric 托管群集（请参阅[部署托管群集](tutorial-managed-cluster-deploy.md)）。
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) 或更高版本（请参阅[*安装 Azure PowerShell*](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.7.0&preserve-view=true)）。
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) 或更高版本（请参阅[*安装 Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)）。
 
 ## <a name="scale-a-service-fabric-managed-cluster"></a>缩放 Service Fabric 托管群集
 更改实例计数，以增加或减少要缩放的节点类型上的节点数。 可以在群集部署的 Azure 资源管理器模板（ARM 模板）或 Service Fabric 资源管理器中找到节点类型名称。  

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: 了解如何排查和解决在启用和使用 Azure Dev Spaces 时遇到的常见问题
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes 服务, 容器, Helm, 服务网格, 服务网格路由, kubectl, k8s '
-ms.openlocfilehash: 5d8bf69d456bca2a88b8aa2031d5ef0ba20f7c30
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979113"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364161"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 故障排除
 
@@ -278,7 +278,7 @@ Service cannot be started.
 
 Azure Dev Spaces 在群集上运行的服务利用群集的托管标识与群集外的 Azure Dev Spaces 后端服务进行通信。 在 Pod 托管标识安装后，会在群集的节点上配置网络规则，以将托管标识凭据的所有调用重定向到[群集上安装的节点托管标识 (NMI) DaemonSet](https://github.com/Azure/aad-pod-identity#node-managed-identity)。 此 NMI DaemonSet 对调用 Pod 进行标识，并确保 Pod 已被正确标记来访问请求获取的托管标识。 Azure Dev Spaces 无法检测群集是否安装了 Pod 托管标识，也无法执行必要的配置来允许 Azure Dev Spaces 服务访问群集的托管标识。 由于尚未将 Azure Dev Spaces 服务配置为访问群集的托管标识，因此，NMI DaemonSet 将不允许它们获取托管标识的 Azure AD 令牌，并且无法与 Azure Dev Spaces 后端服务进行通信。
 
-若要修复此问题，请为 azds-injector-webhook 应用 [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)，并更新由 Azure Dev Spaces 检测的 Pod 来访问托管标识。
+若要修复此问题，请为 azds-injector-webhook 应用 [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)，并更新由 Azure Dev Spaces 检测的 Pod 来访问托管标识。
 
 创建名为 webhookException.yaml 的文件，并复制以下 YAML 定义：
 

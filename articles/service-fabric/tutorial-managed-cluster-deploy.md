@@ -4,12 +4,12 @@ description: 在本教程中，你将部署一个 Service Fabric 托管群集来
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410185"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316168"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>教程：部署 Service Fabric 托管群集（预览版）
 
@@ -37,7 +37,7 @@ ms.locfileid: "91410185"
 
 * 安装 [Service Fabric SDK 和 PowerShell 模块](service-fabric-get-started.md)。
 
-* 安装 [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric)（或更高版本）。
+* 安装 [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric)（或更高版本）。
 
 ## <a name="connect-to-your-azure-account"></a>连接到 Azure 帐户
 
@@ -73,7 +73,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 * **群集名称**：输入群集的唯一名称，如“mysfcluster”。
 * **管理员密码**：输入要用于群集中基础 VM 上 RDP 的管理员密码。
-* 客户端证书指纹：提供要用于访问群集的客户端证书的指纹。 如果你没有证书，请按照[设置和检索证书](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal)中的说明来创建自签名证书。
+* 客户端证书指纹：提供要用于访问群集的客户端证书的指纹。 如果你没有证书，请按照[设置和检索证书](../key-vault/certificates/quick-create-portal.md)中的说明来创建自签名证书。
 * 群集 SKU：指定要部署的 [Service Fabric 托管群集的类型](overview-managed-cluster.md#service-fabric-managed-cluster-skus)。 基本 SKU 群集仅适用于测试部署，不允许添加或删除节点类型。
 
 ```powershell

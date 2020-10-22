@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure 应用服务, web 应用, linux, windows, docker, 容器
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cb1aa2d922db96eff21a128eaa60363b37db9d7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312050"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152100"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>使用自定义容器将自定义软件迁移到 Azure 应用服务
 
@@ -28,7 +28,7 @@ ms.locfileid: "91312050"
 
 - <a href="https://hub.docker.com/" target="_blank">注册 Docker 中心帐户</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">安装用于 Windows 的 Docker</a>。
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">将 Docker 切换为运行 Windows 容器</a>。
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">将 Docker 切换为运行 Windows 容器</a>。
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">安装 Visual Studio 2019</a>，其中包含 **ASP.NET 和 web 开发**以及 **Azure 开发**工作负载。 如果已安装 Visual Studio 2019：
     - 通过单击“帮助” > “检查更新”，在 Visual Studio 中安装最新的更新。
     - 在 Visual Studio 中，通过单击“工具” > “获取工具和功能”，添加工作负载。
