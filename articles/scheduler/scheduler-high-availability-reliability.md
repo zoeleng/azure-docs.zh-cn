@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98a6672af7e74fdd0732f3ba03264d2f674eb44f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898563"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368139"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Azure 计划程序的高可用性和可靠性
 
@@ -22,7 +22,7 @@ ms.locfileid: "78898563"
 >
 > 计划程序在 Azure 门户中不再可用，但 [REST API](/rest/api/scheduler) 和 [Azure 计划程序 PowerShell cmdlet](scheduler-powershell-reference.md) 目前仍可用，以便你可以管理作业和作业集合。
 
-Azure 计划程序为作业提供了[高可用性](https://docs.microsoft.com/azure/architecture/framework/#resiliency)和可靠性。 有关详细信息，请参阅 [SLA 计划程序](https://azure.microsoft.com/support/legal/sla/scheduler)。
+Azure 计划程序为作业提供了[高可用性](/azure/architecture/framework/#resiliency)和可靠性。 有关详细信息，请参阅 [SLA 计划程序](https://azure.microsoft.com/support/legal/sla/scheduler)。
 
 ## <a name="high-availability"></a>高可用性
 

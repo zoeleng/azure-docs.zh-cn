@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310925"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372287"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>创建 Azure Arc 数据控制器
 
@@ -39,7 +39,7 @@ ms.locfileid: "92310925"
 > * Kubernetes 支持的最低版本为 v 1.14。
 > * 请参阅 [连接要求](connectivity.md) ，了解你的环境和 Azure 之间需要哪些连接。
 > * 请参阅 [存储配置指南](storage-configuration.md) 以了解有关如何配置永久性存储的详细信息。
-> * 如果你使用的是 Azure Kubernetes 服务，则群集的工作节点 VM 大小至少应为 **Standard_D8s_v3** 并使用 **高级磁盘。** 
+> * 如果你使用的是 Azure Kubernetes 服务，则群集的工作节点 VM 大小至少应为 **Standard_D8s_v3** 并使用 **高级磁盘。** 群集不应跨多个可用性区域。 
 > * 如果你使用的是其他 Kubernetes 分发或服务，则应确保你的最小节点大小为 8 GB RAM 和4个内核，以及所有 Kubernetes 节点上可用的 32 GB RAM 的总容量。 例如，你可能有1个位于 32 GB RAM 和4个内核的节点，或者可以有2个节点，每个节点都有一个 16 GB RAM 和4个内核。
 
 > [!NOTE]

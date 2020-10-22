@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419812"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365827"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>如何管理已加入 Azure AD 的设备上的本地管理员组
 
@@ -39,7 +39,7 @@ Azure AD 还会将 Azure AD 设备管理员角色添加到本地管理员组，�
 
 要查看并更新全局管理员角色的成员身份，请参阅：
 
-- [在 Azure Active Directory 中查看管理员角色的所有成员](../users-groups-roles/directory-manage-roles-portal.md)
+- [在 Azure Active Directory 中查看管理员角色的所有成员](../roles/manage-roles-portal.md)
 - [在 Azure Active Directory 中向用户分配管理员角色](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 

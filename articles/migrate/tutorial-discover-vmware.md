@@ -4,12 +4,12 @@ description: 了解如何使用 Azure Migrate 服务器评估工具发现本地 
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442231"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311287"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>教程：使用服务器评估发现 VMware VM
 
@@ -238,7 +238,7 @@ ms.locfileid: "91442231"
    
    不支持使用 PIN 登录。
 3. 成功登录后，返回到 Web 应用。 
-4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](tutorial-prepare-vmware.md#prepare-azure)，会启动设备注册。
+4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的权限，会启动设备注册。
 1. 成功注册设备后，可以通过单击“查看详细信息”来查看注册详细信息。
 
 
@@ -248,7 +248,7 @@ ms.locfileid: "91442231"
 设备需连接 vCenter Server，以发现 VM 的配置和性能数据。
 
 1. 在**步骤 1：提供 vCenter Server 凭据**中，单击“添加凭据”以指定凭据的易记名称，为设备将用于在 vCenter Server 实例上发现 VM 的 vCenter Server 帐户添加“用户名”和“密码”  。
-    - 你应该已在[上一教程](tutorial-prepare-vmware.md#set-up-permissions-for-assessment)中设置具有所需权限的帐户。
+    - 你应该已在上一教程中设置具有所需权限的帐户。
     - 如果要将发现范围限定于特定的 VMware 对象（vCenter Server 数据中心、群集、群集文件夹、主机、主机文件夹或单个 VM），请参阅[此文](set-discovery-scope.md)中的说明，以限制 Azure Migrate 所使用的帐户。
 1. 在**步骤 2：提供 vCenter Server 详细信息**中，单击“添加发现源”，从下拉列表中选择凭据的易记名称，指定 vCenter Server 实例的 IP 地址/FQDN 。 可以保留“端口”的默认值 443，或指定 vCenter Server 侦听的自定义端口，然后单击“保存” 。
 1. 单击“保存”后，设备将尝试通过提供的凭据验证与 vCenter Server 的连接，并根据 vCenter Server IP 地址/FQDN 在表中显示验证状态。
@@ -268,5 +268,5 @@ ms.locfileid: "91442231"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [评估 VMware VM](tutorial-assess-vmware.md) 以便迁移到 Azure VM。
+- [评估 VMware VM](./tutorial-assess-vmware-azure-vm.md) 以便迁移到 Azure VM。
 - [查看设备在发现期间收集的数据](migrate-appliance.md#collected-data---vmware)。

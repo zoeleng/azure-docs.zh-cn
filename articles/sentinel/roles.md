@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b680dbaead6e94aa955ebc0e0e720281a40389d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565836"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369890"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel 中的权限
 
-Azure Sentinel 使用 azure [RBAC)  (azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)来提供 [built-in roles](../role-based-access-control/built-in-roles.md)   可分配给 Azure 中的用户、组和服务的内置角色。
+Azure Sentinel 使用 azure [RBAC)  (azure 基于角色的访问控制 ](../role-based-access-control/role-assignments-portal.md) 来提供可分配给 Azure 中的用户、组和服务的 [内置角色](../role-based-access-control/built-in-roles.md) 。
 
 使用 RBAC 创建和分配安全操作团队中的角色，以授予 Azure Sentinel 的适当访问权限。 不同角色使你可以精细控制 Azure Sentinel 的用户可以查看和执行的操作。 可以直接在 Azure Sentinel 工作区中分配 azure 角色 (参阅下面) 或工作区所属的订阅或资源组中的说明，Azure Sentinel 将继承该工作区。
 
@@ -62,7 +62,7 @@ Azure Sentinel 使用 azure [RBAC)  (azure 基于角色的访问控制](../role
 
 - 来宾用户分配事件
 
-    如果来宾用户需要能够分配事件，则除了 Azure Sentinel 响应方角色外，还需要为该用户分配 [目录读取](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)者角色。 请注意，此角色 *不* 是 Azure RBAC 角色，而是 **Azure Active Directory** 角色，并且在默认情况下， (非来宾) 用户已分配此角色。 
+    如果来宾用户需要能够分配事件，则除了 Azure Sentinel 响应方角色外，还需要为该用户分配 [目录读取](../active-directory/roles/permissions-reference.md#directory-readers)者角色。 请注意，此角色 *不* 是 Azure RBAC 角色，而是 **Azure Active Directory** 角色，并且在默认情况下， (非来宾) 用户已分配此角色。 
 
 有关并行比较，请参阅 [下表](#roles-and-allowed-actions)。
 
@@ -80,7 +80,7 @@ Azure Sentinel 使用 azure [RBAC)  (azure 基于角色的访问控制](../role
 
 下表总结了 Azure Sentinel 中的角色和允许的操作。 
 
-| 角色 | 创建和运行 Playbook| 创建和编辑工作簿、分析规则和其他 Azure Sentinel 资源 | 管理事件 (关闭、分配等 )  | 查看数据、事件、工作簿和其他 Azure Sentinel 资源 |
+| Role | 创建和运行 Playbook| 创建和编辑工作簿、分析规则和其他 Azure Sentinel 资源 | 管理事件 (关闭、分配等 )  | 查看数据、事件、工作簿和其他 Azure Sentinel 资源 |
 |---|---|---|---|---|
 | Azure Sentinel 读取者 | -- | -- | -- | &#10003; |
 | Azure Sentinel 响应方 | -- | -- | &#10003; | &#10003; |
@@ -91,7 +91,7 @@ Azure Sentinel 使用 azure [RBAC)  (azure 基于角色的访问控制](../role
 
 - 除了或使用 Azure 内置角色，你还可以为 Azure Sentinel 创建 Azure 自定义角色。 Azure Sentinel 的 azure 自定义角色的创建方式与创建其他[自定义 AZURE RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)角色的方式相同，具体取决于 azure Sentinel 和[azure Log Analytics 资源](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights)的[特定权限](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights)。
 
-- 可以在 Azure Sentinel 工作区中的数据上使用 Log Analytics 高级基于角色的访问控制。 这包括基于数据类型的 RBAC 和以资源为中心的 RBAC。 有关 Log Analytics 角色的详细信息，请参阅 [在 Azure Monitor 中管理日志数据和工作区](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions)。
+- 可以在 Azure Sentinel 工作区中的数据上使用 Log Analytics 高级基于角色的访问控制。 这包括基于数据类型的 RBAC 和以资源为中心的 RBAC。 有关 Log Analytics 角色的详细信息，请参阅 [在 Azure Monitor 中管理日志数据和工作区](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions)。
 
 ## <a name="next-steps"></a>后续步骤
 

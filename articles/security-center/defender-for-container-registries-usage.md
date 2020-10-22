@@ -1,18 +1,18 @@
 ---
 title: 如何对容器注册表使用 Azure Defender
-description: 了解如何使用 Azure Defender 容器注册表来扫描注册表中的映像
+description: 了解如何使用用于容器注册表的 Azure Defender 扫描 Linux 托管注册表中的 Linux 映像
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342070"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370536"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>使用 Azure Defender 容器注册表来扫描映像是否存在漏洞
 
@@ -28,7 +28,8 @@ ms.locfileid: "92342070"
 |----|:----|
 |发布状态：|正式发布 (GA)|
 |定价：|**容器注册表的 Azure Defender**按[定价页](security-center-pricing.md)中所示的方式计费|
-|支持的注册表和映像：|![是 ](./media/icons/yes-icon.png) 可以从公共 internet 访问并提供外壳访问的 Linux 托管 ACR 注册表。<br>![无 ](./media/icons/no-icon.png) Windows 承载的 ACR 注册表。<br>![无 ](./media/icons/no-icon.png) "专用" 注册表项-安全中心要求可以从公共 internet 访问注册表。 安全中心当前无法使用防火墙、服务终结点或专用终结点（如 Azure Private Link）连接或扫描访问权限。<br>![没有任何 ](./media/icons/no-icon.png) 超级最简单映像（例如 [Docker 暂存](https://hub.docker.com/_/scratch/) 映像）或仅包含应用程序和其运行时依赖项的 "Distroless" 映像，无需包管理器、shell 或 OS。|
+|支持的注册表和映像：|通过 shell 访问可从公共 internet 访问 ACR 注册表中的 Linux 映像|
+|不受支持的注册表和映像：|Windows 映像<br>"专用" 注册表<br>访问权限限制为防火墙、服务终结点或专用终结点（如 Azure 专用链接）的注册表<br>超级最简单映像（如 [Docker 暂存](https://hub.docker.com/_/scratch/) 映像），或仅包含应用程序及其运行时依赖项的 "Distroless" 映像，无需包管理器、SHELL 或 OS|
 |所需角色和权限：|**安全读取器** 和 [Azure 容器注册表读取器角色](../container-registry/container-registry-roles.md)|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![否](./media/icons/no-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
 |||
@@ -36,14 +37,12 @@ ms.locfileid: "92342070"
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>标识 Azure 容器注册表映像中的漏洞 
 
-1. 若要对存储在 Azure 资源管理器 Azure 容器注册表中的映像启用漏洞扫描，请执行以下操作：
+若要对存储在 Azure 资源管理器 Azure 容器注册表中的映像启用漏洞扫描，请执行以下操作：
 
-    1. 为你的订阅启用 **容器注册表的 Azure Defender** 。
+1. 为你的订阅启用 **容器注册表的 Azure Defender** 。 安全中心现已准备好扫描注册表中的映像。
 
-        安全中心现已准备好扫描注册表中的映像。
-
-        >[!NOTE]
-        > 此功能按映像收费。
+    >[!NOTE]
+    > 此功能按映像收费。
 
 1. 每次推送或导入都会触发映像扫描，如果在过去的30天内请求映像，则为。 
 

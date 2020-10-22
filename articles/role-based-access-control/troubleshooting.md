@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665984"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368224"
 ---
 # <a name="troubleshoot-azure-rbac"></a>排查 Azure RBAC 的问题
 
@@ -61,7 +61,7 @@ $ras.Count
 
     如果收到错误“权限不足，无法完成操作”，则很可能是因为 Azure CLI 尝试在 Azure AD 中查找被分派人标识，但服务主体在默认情况下无法读取 Azure AD。
 
-    可通过两种方式解决此错误。 第一种方法是将[目录读取器](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色分配给服务主体，以便它能够读取目录中的数据。
+    可通过两种方式解决此错误。 第一种方法是将[目录读取器](../active-directory/roles/permissions-reference.md#directory-readers)角色分配给服务主体，以便它能够读取目录中的数据。
 
     第二种方法是使用 `--assignee-object-id` 参数而不是 `--assignee` 来创建角色分配。 通过使用 `--assignee-object-id`，Azure CLI 将跳过 Azure AD 查找。 你需要获取要为其分配角色的用户、组或应用程序的对象 ID。 有关详细信息，请参阅[使用 Azure CLI 添加或删除 Azure 角色分配](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)。
 
@@ -99,17 +99,17 @@ $ras.Count
 - 如果尝试创建资源时收到权限错误“具有此对象 id 的客户端无权在此作用域内执行操作(代码:AuthorizationFailed)”，请检查你当前登录时使用的用户是否分配有在所选作用域内对资源具有写入权限的角色。 例如，若要管理某个资源组中的虚拟机，则你应当在该资源组（或父作用域）中具有[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色。 有关每个内置角色的权限列表，请参阅 [Azure 内置角色](built-in-roles.md)。
 - 如果尝试创建或更新支持票证时收到权限错误“无权创建支持票证”，请检查你当前登录时使用的用户是否分配有具有 `Microsoft.Support/supportTickets/write` 权限的角色，例如[支持请求参与者](built-in-roles.md#support-request-contributor)。
 
-## <a name="move-resources-with-role-assignments"></a>移动资源并分配角色
+## <a name="move-resources-with-role-assignments"></a>移动具有角色分配的资源
 
-如果将已分配 Azure 角色的资源直接分配给资源 (或子资源) ，则不会移动角色分配，也不会将其变成孤立角色。 移动之后，必须重新创建角色分配。 最终，将自动删除孤立角色分配，但最佳做法是在移动资源之前删除角色分配。
+如果移动的资源具有直接分配给该资源（或子资源）的 Azure 角色，则该角色分配不会移动，将会变成孤立状态。 移动后必须重新创建角色分配。 最终会自动删除孤立的角色分配，但最好是在移动资源之前删除角色分配。
 
-有关如何移动资源的信息，请参阅 [将资源移到新的资源组或订阅](../azure-resource-manager/management/move-resource-group-and-subscription.md)。
+若要了解如何移动资源，请参阅[将资源移到新资源组或订阅](../azure-resource-manager/management/move-resource-group-and-subscription.md)。
 
 ## <a name="role-assignments-with-identity-not-found"></a>未找到标识的角色分配
 
 在 Azure 门户的角色分配列表中，你可能会注意到安全主体（用户、组、服务主体或托管标识）列为“未找到标识”，类型为“未知” 。
 
-![Azure 角色分配中未找到标识](./media/troubleshooting/unknown-security-principal.png)
+![Azure 角色分配中列出“未找到标识”](./media/troubleshooting/unknown-security-principal.png)
 
 找不到标识的原因有两个：
 

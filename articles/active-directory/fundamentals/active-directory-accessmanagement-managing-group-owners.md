@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788386dc3cbfb8b4252e8710d8ee1bfd9dbe4e66
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2847678c78aec4a287427463a9aeeb8bd82c6771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969908"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371930"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>在 Azure Active Directory 中添加或删除组所有者
 Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有者可以是用户或服务主体，并且能够管理组（包括成员身份）。 只有现有的组所有者或组管理管理员才能分配组所有者。 组所有者无需成为组成员。
@@ -63,10 +63,10 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure Active Directory 组管理对资源的访问](active-directory-manage-groups.md)
 
-- [用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)
+- [用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)
 
-- [使用组分配对集成式 SaaS 应用的访问权限](../users-groups-roles/groups-saasapps.md)
+- [使用组分配对集成式 SaaS 应用的访问权限](../enterprise-users/groups-saasapps.md)
 
 - [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)
 
-- [用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-v2-cmdlets.md)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287729"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359809"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -166,7 +166,7 @@ ms.locfileid: "87287729"
     若要详细了解配置服务器及其功能，请参阅 [VMware 到 Azure 的复制的体系结构](vmware-azure-architecture.md)。
 * 在哪里可以找到最新版本的配置服务器？
 
-    有关通过门户升级配置服务器的步骤，请参阅[升级配置服务器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 有关如何升级所有 Site Recovery 组件的说明，请参阅 [Site Recovery 中的服务更新](https://aka.ms/asr_how_to_upgrade)。
+    有关通过门户升级配置服务器的步骤，请参阅[升级配置服务器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 有关如何升级所有 Site Recovery 组件的说明，请参阅 [Site Recovery 中的服务更新](./service-updates-how-to.md)。
 * 在哪里可以下载配置服务器的密码？
 
     若要下载通行短语，请参阅[管理用于 VMware VM 灾难恢复的配置服务器](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)。

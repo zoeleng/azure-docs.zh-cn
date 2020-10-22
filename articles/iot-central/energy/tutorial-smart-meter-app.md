@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdcfeeede8b16bf9a92a885364e4c8fef7ea5cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986556"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127125"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>教程：创建并演练智能计量监视应用模板 
 
@@ -108,6 +108,6 @@ Adatum 是一家虚构的能源公司，负责监视和管理智能计量。 在
 
 若要了解智能计量应用体系结构，请参阅 
 > [!div class="nextstepaction"]
-> [概念文章](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+> [概念文章](./concept-iot-central-smart-meter-app.md)
 * 免费创建智能计量应用程序模板：[智能计量应用](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](https://docs.microsoft.com/azure/iot-central/)
+* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](../index.yml)

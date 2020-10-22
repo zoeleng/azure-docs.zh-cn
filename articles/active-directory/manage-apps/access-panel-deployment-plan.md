@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146617"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372474"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>规划应用程序部署 Azure Active Directory
 
@@ -72,7 +72,7 @@ Azure Active Directory (Azure AD) 我的应用是一种基于 web 的门户，�
 
 下表概述了 "我的应用" 部署的主要用例：
 
-| 领域| 说明 |
+| 区域| 说明 |
 | - | - |
 | 访问| "我的应用" 门户可从企业网络中的公司和个人设备进行访问。 |
 |访问 | 可以从企业网络外部的企业设备访问 "我的应用" 门户。 |
@@ -117,7 +117,7 @@ Azure Active Directory (Azure AD) 我的应用是一种基于 web 的门户，�
 
 下表列出了几个重要的 "我的应用" 配置和你可以使用的典型值：
 
-| Configuration| 典型值 |
+| 配置| 典型值 |
 | - | - |
 | 确定试点组| 确定要使用的 Azure AD 安全组，并确保所有试点成员都是组的一部分。 |
 | 确定要为生产启用的组。| 确定要使用的 Azure AD 安全组或同步到 Azure AD 的 Active Directory 组。 确保所有试点成员都是组的一部分。 |
@@ -225,7 +225,7 @@ Microsoft 为应用程序提供 [电子邮件和其他通信的可自定义模�
 
 可以让用户在 Azure AD 中创建和管理其自己的安全组或 Microsoft 365 组。 组的所有者可以批准或拒绝成员身份请求并委派对组成员身份的控制。 自助服务组管理功能不可用于启用邮件的安全组或通讯组列表。
 
-若要规划自助服务组成员身份，请确定你是否允许组织中的所有用户创建和管理组，或者只是部分用户。 如果你允许某个用户的子集，则需要设置要添加这些人员的组。 有关启用这些方案的详细信息，请参阅 [在 Azure Active Directory 中设置自助服务组管理](../users-groups-roles/groups-self-service-management.md) 。
+若要规划自助服务组成员身份，请确定你是否允许组织中的所有用户创建和管理组，或者只是部分用户。 如果你允许某个用户的子集，则需要设置要添加这些人员的组。 有关启用这些方案的详细信息，请参阅 [在 Azure Active Directory 中设置自助服务组管理](../enterprise-users/groups-self-service-management.md) 。
 
 ## <a name="plan-reporting-and-auditing"></a>规划报告和审核
 
@@ -299,7 +299,7 @@ Azure AD 将大多数审核数据保持30天。 可以通过 Azure 管理门户�
 
 ## <a name="manage-your-implementation"></a>管理实现
 
-使用最小特权角色来完成 Azure Active Directory 中所需的任务。 [查看可用的不同角色](../users-groups-roles/directory-assign-admin-roles.md) ，并选择正确的角色以解决此应用程序的每个角色的需求。 某些角色可能需要在部署完成后暂时应用并删除。
+使用最小特权角色来完成 Azure Active Directory 中所需的任务。 [查看可用的不同角色](../roles/permissions-reference.md) ，并选择正确的角色以解决此应用程序的每个角色的需求。 某些角色可能需要在部署完成后暂时应用并删除。
 
 | 角色| 角色| Azure AD 角色  |
 | - | -| -|
