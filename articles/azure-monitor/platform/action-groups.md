@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104387"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367731"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 操作组是由 Azure 订阅的所有者定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报使用操作组来通知用户某个警报已触发。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。 可以在订阅中最多配置 2,000 个操作组。
@@ -157,7 +157,7 @@ ITSM 操作需要 ITSM 连接。 了解如何创建 [ITSM 连接](./itsmc-overvi
 2. 启用操作组以使用 Azure AD 应用程序。
 
     > [!NOTE]
-    > 你必须是 [Azure AD 应用程序管理员角色](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles)的成员才能执行此脚本。
+    > 你必须是 [Azure AD 应用程序管理员角色](../../active-directory/roles/permissions-reference.md#available-roles)的成员才能执行此脚本。
     
     - 修改 PowerShell 脚本的 Connect-AzureAD 调用以使用 Azure AD 租户 ID。
     - 修改 PowerShell 脚本的变量 $myAzureADApplicationObjectId，以便使用 Azure AD 应用程序的对象 ID。
@@ -308,7 +308,7 @@ Webhook 使用以下规则进行处理
 4. 将在右侧窗格中打开一个新窗口。
     1.  选择源： **服务标记**
     1.  源服务标记： **操作组**
-    1.  单击“添加”  。
+    1.  单击“添加”。
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="有关如何添加服务标记的示例。"border="true":::
 

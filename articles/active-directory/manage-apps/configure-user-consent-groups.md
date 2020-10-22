@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4203c572ed040b37a377e8d4a6b1bc82c883ebd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804290"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368496"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>配置组所有者对应用访问组数据的同意
 
@@ -30,7 +30,7 @@ ms.locfileid: "91804290"
 
 请按照以下步骤管理对访问组数据的应用的组所有者同意：
 
-1. 以[全局管理员](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)的身份登录 [Azure 门户](https://portal.azure.com)。
+1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)的身份登录 [Azure 门户](https://portal.azure.com)。
 2. 选择“Azure Active Directory” > “企业应用程序” > “同意和权限” > “用户同意设置”   。
 3. 在“针对应用访问数据的组所有者同意”下，选择要启用的选项。
 4. 选择“保存”以保存设置。

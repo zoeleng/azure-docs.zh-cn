@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342138"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368073"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>利用安全中心的集成 EDR 解决方案保护终结点： Microsoft Defender for Endpoint
 
@@ -85,7 +85,7 @@ Microsoft Defender for Endpoint 提供：
 1. 在安全中心的菜单中，选择“定价和设置”。
 1. 选择想要更改的订阅。
 1. 选择“威胁检测”。
-1. 选择 " **允许 Windows DEFENDER ATP 访问我的数据**"，然后选择 " **保存**"。
+1. 选择 " **允许 Microsoft Defender For Endpoint 访问我的数据**"，然后选择 " **保存**"。
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Microsoft Defender for Endpoint 的安全中心":::
 

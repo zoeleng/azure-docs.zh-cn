@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 37005176452ba75f6b79af7ab1bf9faab5402f51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c75e2f635c14556cfd08ab73a66d8ebc30aeb8e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548918"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>教程：Azure Active Directory 与 Qumu Cloud 集成
 
@@ -101,7 +101,7 @@ ms.locfileid: "88548918"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分执行以下步骤：
 
-    ![Qumu Cloud 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![屏幕截图显示“基本 SAML 配置”，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     a. 在“标识符”  文本框中，使用以下模式键入 URL：`https://<subdomain>.qumucloud.com/saml/SSO`
 
@@ -109,7 +109,7 @@ ms.locfileid: "88548918"
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
-    ![Qumu Cloud 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://<subdomain>.qumucloud.com`
 
@@ -118,7 +118,7 @@ ms.locfileid: "88548918"
 
 6. Qumu Cloud 应用程序需要特定格式的 SAML 断言，因此，需要在 SAML 令牌属性配置中添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。 单击“编辑”图标打开“用户属性”对话框。  
 
-    ![image](common/edit-attribute.png)
+    ![屏幕截图显示“用户属性”，并且已选择“编辑”图标。](common/edit-attribute.png)
 
 7. 除上述属性以外，Qumu Cloud 应用程序还要求在 SAML 响应中传回其他几个属性。 在“用户属性”对话框的“用户声明”部分执行以下步骤，以便添加 SAML 令牌属性，如下表所示：
 
@@ -131,9 +131,9 @@ ms.locfileid: "88548918"
 
     a. 单击“添加新声明”  以打开“管理用户声明”  对话框。
 
-    ![image](common/new-save-attribute.png)
+    ![屏幕截图显示“用户声明”以及“添加新声明”选项。](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![屏幕截图显示“管理用户声明”对话框，可在其中输入所述的值。](common/new-attribute-details.png)
 
     b. 在“名称”文本框中，键入为该行显示的属性名称。 
 

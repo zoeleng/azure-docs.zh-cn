@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 66eee67ae191d764228a85aaf1e63eae43208cc3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 16412e6949bd6bf3d9496b33a900a0331bd1e9fb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537729"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278154"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>教程：使用数据迁移工具将数据迁移到 Azure Cosmos DB
 
@@ -351,7 +351,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a name="import-to-the-sql-api-bulk-import"></a><a id="SQLBulkTarget"></a>导入到 SQL API（批量导入）
 
-借助 Azure Cosmos DB 批量导入程序，可以使用 Azure Cosmos DB 存储过程从任何可用的源选项导入，以提高效率。 该工具支持导入到一个单分区 Azure Cosmos 容器。 它还支持分片导入，通过这种方法可跨多个单分区 Azure Cosmos 容器对数据进行分区。 有关将数据分区的详细信息，请参阅 [Azure Cosmos DB 中的分区和扩展](partition-data.md)。 该工具将在目标集合中创建、执行然后删除存储过程。  
+借助 Azure Cosmos DB 批量导入程序，可以使用 Azure Cosmos DB 存储过程从任何可用的源选项导入，以提高效率。 该工具支持导入到一个单分区 Azure Cosmos 容器。 它还支持分片导入，通过这种方法可跨多个单分区 Azure Cosmos 容器对数据进行分区。 有关将数据分区的详细信息，请参阅 [Azure Cosmos DB 中的分区和扩展](partitioning-overview.md)。 该工具将在目标集合中创建、执行然后删除存储过程。  
 
 :::image type="content" source="./media/import-data/documentdbbulk.png" alt-text="JSON 文件源选项的屏幕截图 - 数据库迁移工具":::
 
@@ -410,7 +410,7 @@ Azure Cosmos DB 批量导入程序具有下列高级附加选项：
 
 ## <a name="import-to-the-sql-api-sequential-record-import"></a><a id="SQLSeqTarget"></a>导入到 SQL API（顺序记录导入）
 
-借助 Azure Cosmos DB 顺序记录导入程序，可以从任何可用的源选项中逐条导入记录。 如果要导入到已达到存储过程配额的现有集合中，可以选择此选项。 该工具支持导入到单个（单分区和多分区）Azure Cosmos 容器。 它还支持分片导入，通过这种方法可跨多个单分区或多分区 Azure Cosmos 容器对数据进行分区。 有关将数据分区的详细信息，请参阅 [Azure Cosmos DB 中的分区和扩展](partition-data.md)。
+借助 Azure Cosmos DB 顺序记录导入程序，可以从任何可用的源选项中逐条导入记录。 如果要导入到已达到存储过程配额的现有集合中，可以选择此选项。 该工具支持导入到单个（单分区和多分区）Azure Cosmos 容器。 它还支持分片导入，通过这种方法可跨多个单分区或多分区 Azure Cosmos 容器对数据进行分区。 有关将数据分区的详细信息，请参阅 [Azure Cosmos DB 中的分区和扩展](partitioning-overview.md)。
 
 :::image type="content" source="./media/import-data/documentdbsequential.png" alt-text="JSON 文件源选项的屏幕截图 - 数据库迁移工具":::
 

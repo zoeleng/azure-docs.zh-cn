@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397957"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368037"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>排查 Azure 到 Azure VM 复制错误
 
@@ -202,7 +202,7 @@ Site Recovery configuration failed.
 #### <a name="fix-the-problem"></a>解决问题
 
 Azure Site Recovery 所需的访问权限 Microsoft 365 用于身份验证的 IP 范围。
-如果使用 Azure 网络安全组 (NSG) 规则/防火墙代理控制 VM 的出站网络连接，请确保使用基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则来允许访问 AAD。 我们不再支持基于 IP 地址的 NSG 规则。
+如果使用 Azure 网络安全组 (NSG) 规则/防火墙代理控制 VM 的出站网络连接，请确保使用基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/network-security-groups-overview.md#service-tags)的 NSG 规则来允许访问 AAD。 我们不再支持基于 IP 地址的 NSG 规则。
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>问题 3：Site Recovery 配置失败 (151197)
 

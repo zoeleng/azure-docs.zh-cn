@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842676"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365844"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft 标识平台终结点中的权限和许可
 
@@ -28,11 +28,11 @@ ms.locfileid: "91842676"
 Microsoft 标识平台实现 [OAuth 2.0](active-directory-v2-protocols.md) 授权协议。 OAuth 2.0 是可让第三方应用代表用户访问 Web 托管资源的方法。 与 Microsoft 标识平台集成的任何 Web 托管资源都有一个资源标识符，也称为“应用程序 ID URI”。 例如，Microsoft 的部分 Web 托管资源包括：
 
 * Microsoft Graph： `https://graph.microsoft.com`
-* Microsoft 365 邮件 API： `https://outlook.office.com`
+* Microsoft 365 邮件 API：`https://outlook.office.com`
 * Azure Key Vault：`https://vault.azure.net`
 
 > [!NOTE]
-> 强烈建议使用 Microsoft Graph，而不是 Microsoft 365 邮件 API 等等。
+> 强烈建议你使用 Microsoft Graph，而不要使用 Microsoft 365 邮件 API 等资源。
 
 这同样适用于已与 Microsoft 标识平台集成的任何第三方资源。 以上任意资源还可以定义一组可用于将该资源的功能划分成较小区块的权限。 例如， [Microsoft Graph](https://graph.microsoft.com) 已定义执行以下任务及其他任务所需的权限：
 
@@ -54,13 +54,13 @@ Microsoft 标识平台实现 [OAuth 2.0](active-directory-v2-protocols.md) 授�
 
 Microsoft 标识平台支持两种类型的权限：**委托的权限**和**应用程序权限**。
 
-* **委托的权限**由包含登录用户的应用使用。 对于这些应用，用户或管理员需许可应用请求的权限，并向应用授予委托的权限，以便在对目标资源发出调用时，该应用可充当登录的用户。 某些委托的权限可由非管理用户许可，但某些更高特权的权限需要[管理员许可](#admin-restricted-permissions)。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+* **委托的权限**由包含登录用户的应用使用。 对于这些应用，用户或管理员需许可应用请求的权限，并向应用授予委托的权限，以便在对目标资源发出调用时，该应用可充当登录的用户。 某些委托的权限可由非管理用户许可，但某些更高特权的权限需要[管理员许可](#admin-restricted-permissions)。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../roles/permissions-reference.md)。
 
 * **应用程序权限**由无需存在登录用户即可运行的应用使用；例如，以后台服务或守护程序形式运行的应用。  应用程序权限只能[由管理员许可](#requesting-consent-for-an-entire-tenant)。
 
 有效权限是应用在对目标资源发出请求时拥有的权限。 在对目标资源发出调用时，必须了解应用授予的委托权限和应用程序权限与其有效权限之间的差别。
 
-- 对于委托的权限，应用的有效权限是（通过许可）授予应用的委托权限与当前登录用户的特权的最低特权交集。 应用的特权永远不会超过登录用户的特权。 在组织内部，可以通过策略或者一个或多个管理员角色的成员身份来确定登录用户的特权。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+- 对于委托的权限，应用的有效权限是（通过许可）授予应用的委托权限与当前登录用户的特权的最低特权交集。 应用的特权永远不会超过登录用户的特权。 在组织内部，可以通过策略或者一个或多个管理员角色的成员身份来确定登录用户的特权。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../roles/permissions-reference.md)。
 
    例如，假设为应用授予了 Microsoft Graph 中的 _User.ReadWrite.All_ 委托权限。 此权限在名义上会授予应用读取和更新组织中每个用户的个人资料的权限。 如果登录用户是全局管理员，则应用可以更新组织中每个用户的个人资料。 但是，如果登录用户不是充当管理员角色，则应用只能更新登录用户的个人资料。 它无法更新组织中其他用户的个人资料，因为该应用有权代表的用户没有这些特权。
 
@@ -159,7 +159,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>在应用注册门户中请求权限
 
-应用程序可以在应用注册门户中记录 (委托和应用程序) 所需的权限。  这允许使用 `/.default` 范围和 Azure 门户的 "授予管理员许可" 选项。  通常，最佳做法是确保为给定应用程序静态定义的权限是它动态/增量请求的权限的超集。
+应用程序可以在应用注册门户中记录 (委托和应用程序) 所需的权限。  这样，便可以使用 `/.default` 范围和 Azure 门户的“授予管理员许可”选项。  通常，最佳做法是确保为给定应用程序静态定义的权限是它动态/增量请求的权限的超集。
 
 > [!NOTE]
 >只能使用 [`/.default`](#the-default-scope) 来请求应用程序权限 - 因此，如果应用需要应用程序权限，请确保这些权限已在应用注册门户中列出。
@@ -302,15 +302,15 @@ response_type=token            //code or a hybrid flow is also possible here
 
 这将产生显示所有已注册权限（如果根据许可和 `/.default` 的上述说明适用）的许可屏幕，然后返回 id_token，而不是访问令牌。  此行为针对从 ADAL 迁移到 MSAL 的某些旧客户端存在，并且**不应**由面向 Microsoft 标识平台终结点的新客户端使用。
 
-### <a name="client-credentials-grant-flow-and-default"></a>客户端凭据授予流和/.default
+### <a name="client-credentials-grant-flow-and-default"></a>客户端凭据授权流和“/.default”
 
-的另一个用途 `./default` 是在非交互式应用程序（如使用客户端凭据授予流的守护程序应用使用[客户端凭据](v2-oauth2-client-creds-grant-flow.md)授予流）中请求应用程序权限时)  (或*角色*。
+`./default` 的另一种用法是在非交互式应用程序（例如，使用[客户端凭据](v2-oauth2-client-creds-grant-flow.md)授权流来调用 Web API 的守护程序应用）中请求应用程序权限（或角色）时使用。
 
-若要为 web API 创建 (角色) 应用程序权限，请参阅 [如何：在应用程序中添加应用程序角色](howto-add-app-roles-in-azure-ad-apps.md)。
+若要为 Web API 创建应用程序权限（角色），请参阅[如何：在应用程序中添加应用角色](howto-add-app-roles-in-azure-ad-apps.md)。
 
-客户端应用程序中的客户端凭据请求 **必须** 包括 `scope={resource}/.default` ，其中 `{resource}` 是你的应用程序打算调用的 web API。 **不**支持使用单独的应用程序权限发出客户端凭据请求 (角色) 。 为该 web API 授予的 (角色) 的所有应用程序权限都将包含在返回的访问令牌中。
+客户端应用中的客户端凭据请求必须包括 `scope={resource}/.default`，其中 `{resource}` 是应用要调用的 Web API。 不支持使用单个应用程序权限（角色）发出客户端凭据请求。 为该 Web API 授予的所有应用程序权限（角色）都将包含在返回的访问令牌中。
 
-若要授予对所定义的应用程序权限的访问权限，包括授予对应用程序的管理员同意，请参阅 [快速入门：配置客户端应用程序以访问 WEB API](quickstart-configure-app-access-web-apis.md)。
+若要授予对所定义的应用程序权限的访问权限，包括授予对应用程序的管理员许可，请参阅[快速入门：配置客户端应用程序以访问 Web API](quickstart-configure-app-access-web-apis.md)。
 
 ### <a name="trailing-slash-and-default"></a>尾部斜杠和 /.default
 
@@ -324,5 +324,5 @@ response_type=token            //code or a hybrid flow is also possible here
 
 ## <a name="next-steps"></a>后续步骤
 
-* [ID 标记 |Microsoft 标识平台](id-tokens.md)
-* [访问令牌 |Microsoft 标识平台](access-tokens.md)
+* [ID 令牌 | Microsoft 标识平台](id-tokens.md)
+* [访问令牌 | Microsoft 标识平台](access-tokens.md)

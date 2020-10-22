@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
-ms.openlocfilehash: 877c1719a76f23f8446164b641dc2dac84261e0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5381fea4c492c6bcf61c392ea8a8f9bee8860644
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849274"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368921"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Hadoop Hive 活动转换数据
 
@@ -58,7 +58,7 @@ ms.locfileid: "83849274"
 }
 ```
 ## <a name="syntax-details"></a>语法详细信息
-| 属性            | 说明                                                  | 必须 |
+| 属性            | 描述                                                  | 必须 |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | name                | 活动名称                                         | 是      |
 | description         | 描述活动用途的文本                | 否       |
@@ -80,5 +80,5 @@ ms.locfileid: "83849274"
 * [Hadoop 流式处理活动](transform-data-using-hadoop-streaming.md)
 * [Spark 活动](transform-data-using-spark.md)
 * [.NET 自定义活动](transform-data-using-dotnet-custom-activity.md)
-* [机器学习“批处理执行”活动](transform-data-using-machine-learning.md)
+* [Azure 机器学习 Studio (经典) 批处理执行活动](transform-data-using-machine-learning.md)
 * [存储过程活动](transform-data-using-stored-procedure.md)

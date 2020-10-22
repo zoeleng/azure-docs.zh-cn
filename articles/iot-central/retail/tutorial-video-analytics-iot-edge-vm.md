@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873272"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127022"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>教程：创建用于视频分析的 IoT Edge 实例 (Linux VM)
 
@@ -94,7 +94,7 @@ sudo iotedge list
 
 部署创建了一个自定义 IoT Edge 环境，其中包含实时视频分析所需的模块。 部署更新了默认的 config.yaml，以确保 IoT 设备预配服务所使用的 IoT Edge 运行时连接到 IoT Central。 部署还在 /data/storage 文件夹中创建了一个名为 state.json 的文件，用于为模块提供其他配置数据 。 有关详细信息，请参阅[创建用于视频分析的 IoT Edge 实例 (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) 教程。
 
-若要对 IoT Edge 设备进行故障排除，请参阅[对 IoT Edge 设备进行故障排除](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+若要对 IoT Edge 设备进行故障排除，请参阅[对 IoT Edge 设备进行故障排除](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>使用 RTSP 模拟器
 

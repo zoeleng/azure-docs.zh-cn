@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 20ed84a87486f1095a90e012368b1f56d6426c8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205723"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367425"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>管理 Azure 门户设置和首选项
 
@@ -96,7 +96,7 @@ ms.locfileid: "88205723"
 
 ### <a name="change-the-directory-timeout-setting-admin"></a>更改目录超时设置（管理员）
 
-具有[全局管理员角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)的管理员可以在会话注销之前强制执行最长空闲时间。非活动超时设置在目录级别应用。 设置对新会话生效。 它不会立即应用于任何已登录的用户。 有关目录的详细信息，请参阅 [Active Directory 域服务概述](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)。
+具有[全局管理员角色](../active-directory/roles/permissions-reference.md#global-administrator--company-administrator)的管理员可以在会话注销之前强制执行最长空闲时间。非活动超时设置在目录级别应用。 设置对新会话生效。 它不会立即应用于任何已登录的用户。 有关目录的详细信息，请参阅 [Active Directory 域服务概述](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)。
 
 如果你是全局管理员，并且需要为 Azure 门户的所有用户强制执行空闲超时设置，请执行以下步骤：
 

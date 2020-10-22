@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971315"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123919"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>教程：创建并演练太阳能板监视应用模板 
 
@@ -108,6 +108,6 @@ Adatum 是一家虚构的能源公司，负责监视和管理太阳能板。 在
 ## <a name="next-steps"></a>后续步骤
 * 若要了解太阳能板应用体系结构，请参阅 
 > [!div class="nextstepaction"]
-> [概念文章](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+> [概念文章](./concept-iot-central-solar-panel-app.md)
 * 免费创建太阳能板应用程序模板：[太阳能板应用](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](https://docs.microsoft.com/azure/iot-central/)
+* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](../index.yml)

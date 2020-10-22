@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac90d3cabc179ecd1c1e421fd026a584f7158e3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649637"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368564"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 和 Dsv3 系列
 
@@ -22,7 +22,7 @@ Dv3 系列在采用超线程配置的 Intel® Xeon® Platinum 8272CL (Cascade La
 
 ## <a name="dv3-series"></a>Dv3 系列
 
-Dv3 系列大小在采用 Intel Turbo Boost Technology 2.0 的 Intel® Xeon® Platinum 8272CL (Cascade Lake)、Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行。 Dv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
+Dv3 系列大小运行在 Intel®强®白金 8272CL (级联 Lake) 、Intel®8171M® 2.1 GHz (Skylake) 、Intel®强® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel®至强® E5-2673 v3 2.4 (Haswell) 具有 [Intel &reg; Turbo 提升技术 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)的处理器 Dv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
 
 数据磁盘存储与虚拟机分开计费。 若要使用高级存储磁盘，请使用 Dsv3 大小。 Dsv3 大小的定价和计费标准与 Dv3 系列相同。
 
@@ -48,7 +48,7 @@ Dv3 系列 VM 采用 Intel® 超线程技术。
 
 ## <a name="dsv3-series"></a>Dsv3 系列
 
-Dsv3 系列大小在采用 Intel Turbo Boost Technology 2.0 的 Intel® Xeon® Platinum 8272CL (Cascade Lake)、Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，并使用高级存储。 Dsv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
+Dsv3 系列大小运行在 Intel®强®白金 8272CL (级联 Lake) 、Intel®8171M® 2.1 GHz (Skylake) 、Intel®至强® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel®至强® E5-2673 v3 2.4 GHz (Haswell) 使用 [Intel &reg; Turbo 提升技术 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) 和使用高级存储的处理器。 Dsv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
 
 Dsv3 系列 VM 采用 Intel® 超线程技术。
 

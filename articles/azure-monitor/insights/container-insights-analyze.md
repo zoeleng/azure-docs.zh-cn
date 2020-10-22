@@ -3,12 +3,12 @@ title: 使用用于容器的 Azure Monitor 监视 Kubernetes | Microsoft Docs
 description: 本文介绍如何使用用于容器的 Azure Monitor 查看和分析 Kubernetes 群集的性能。
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994764"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368751"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 监视 Kubernetes 群集性能
 
@@ -290,6 +290,10 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 | ![“上次报告正在运行”状态图标](./media/container-insights-analyze/containers-grey-icon.png) | 上次报告正在运行但已超过 30 分钟未响应|
 | ![“已终止”状态图标](./media/container-insights-analyze/containers-terminated-icon.png) | 成功停止或无法停止|
 | ![“已失败”状态图标](./media/container-insights-analyze/containers-failed-icon.png) | “已失败”状态 |
+
+## <a name="monitor-and-visualize-network-configurations"></a>监视和可视化网络配置
+Azure 网络策略管理器包括信息性的 Prometheus 指标，可用于监视和更好地了解网络配置。 它在 Azure 门户或 Grafana 实验室中提供内置可视化对象。 有关详细信息，请参阅 [通过 AZURE NPM 监视和直观显示网络配置](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm)。
+
 
 ## <a name="workbooks"></a>工作簿
 
