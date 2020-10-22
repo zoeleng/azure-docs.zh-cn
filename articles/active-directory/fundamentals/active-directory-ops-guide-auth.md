@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601358"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371046"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 身份验证管理操作参考指南
 
@@ -42,13 +42,13 @@ ms.locfileid: "90601358"
 | 会审和调查标记为有风险的用户和漏洞报告 Azure AD Identity Protection | InfoSec 运营团队 |
 
 > [!NOTE]
-> Azure AD Identity Protection 要求 Azure AD Premium P2 许可证。 若要根据需要查找正确的许可证，请参阅 [比较 Azure AD Free 和 Azure AD Premium 版本的一般可用功能](https://azure.microsoft.com/pricing/details/active-directory/)。
+> Azure AD Identity Protection 要求 Azure AD Premium P2 许可证。 若要根据需要查找正确的许可证，请参阅 [比较 Azure AD Free 和 Azure AD Premium 版本的一般可用功能](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 查看列表时，可能会发现需要为缺少所有者的任务分配所有者，或使用与上述建议不符的所有者来调整任务的所有权。
 
 #### <a name="owner-recommended-reading"></a>所有者建议阅读
 
-- [在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)
+- [在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md)
 - [Azure 中的监管](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>凭据管理
@@ -119,7 +119,7 @@ ms.locfileid: "90601358"
 
 ### <a name="device-trust-access-policies"></a>设备信任访问策略
 
-与组织中的用户一样，设备也是要保护的核心标识。 可以使用设备标识随时随地保护你的资源。对设备和其信任类型的记帐进行身份验证可通过以下方式改善你的安全状况和可用性：
+与组织中的用户一样，设备也是要保护的核心标识。 可以使用设备标识随时随地保护你的资源。 对设备和其信任类型的记帐进行身份验证可通过以下方式改善你的安全状况和可用性：
 
 - 在设备受信任的情况下，避免通过 MFA 实现摩擦
 - 阻止来自不受信任设备的访问
@@ -128,7 +128,7 @@ ms.locfileid: "90601358"
 可以通过使用以下方法之一在 Azure AD 中引入设备标识并对其进行管理，从而执行此目标：
 
 - 组织可以使用 [Microsoft Intune](/intune/what-is-intune) 来管理设备并强制实施符合性策略、证明设备运行状况，并根据设备是否符合来设置条件性访问策略。 Microsoft Intune 可以通过 JAMF 集成) 、Windows 桌面 (以本机方式使用适用于 Windows 10 的移动设备管理以及与 Microsoft 终结点 Configuration Manager) 和 Android 移动设备的共同管理，来管理 iOS 设备、Mac 桌面 (。
-- [混合 Azure AD 联接](../devices/hybrid-azuread-join-managed-domains.md) 在具有 Active Directory 加入域的计算机设备的环境中，通过组策略或 Microsoft 终结点 Configuration Manager 提供管理。 组织可以通过无缝 SSO 的 PHS 或 PTA 部署托管环境。 通过使你的设备 Azure AD 跨云和本地资源的 SSO 提高用户工作效率，同时使你能够使用 [条件访问](../conditional-access/overview.md)同时保护对云和本地资源的访问   。
+- [混合 Azure AD 联接](../devices/hybrid-azuread-join-managed-domains.md) 在具有 Active Directory 加入域的计算机设备的环境中，通过组策略或 Microsoft 终结点 Configuration Manager 提供管理。 组织可以通过无缝 SSO 的 PHS 或 PTA 部署托管环境。 通过使你的设备 Azure AD 跨云和本地资源的 SSO 提高用户工作效率，同时使你能够使用 [条件访问](../conditional-access/overview.md) 同时保护对云和本地资源的访问。
 
 如果已加入域且未在云中注册的 Windows 设备或在云中注册但没有条件访问策略的已加入域的 Windows 设备，则应注册未注册的设备，并且在任一情况下，都应 [使用混合 Azure AD 联接作为](../conditional-access/require-managed-devices.md) 条件性访问策略中的控件。
 
@@ -143,7 +143,7 @@ ms.locfileid: "90601358"
 - [如何：规划混合 Azure Active Directory 加入的实施](../devices/hybrid-azuread-join-plan.md)
 - [标识和设备访问权限配置](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-### <a name="windows-hello-for-business"></a>Windows Hello for Business
+### <a name="windows-hello-for-business"></a>Windows Hello 企业版
 
 在 Windows 10 中， [Windows Hello 企业版](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 将密码替换为 pc 上的强双重身份验证。 Windows Hello 企业版可为用户提供更简单的 MFA 体验，并减少对密码的依赖。 如果尚未开始推出 Windows 10 设备，或仅部分部署了 Windows 10 设备，则建议升级到 Windows 10，并在所有设备上 [启用 Windows Hello For Business](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) 。
 
@@ -177,7 +177,7 @@ ms.locfileid: "90601358"
 
 ### <a name="assign-users-to-applications"></a>将用户分配到应用程序
 
-将[用户分配到应用程序](../manage-apps/assign-user-or-group-access-portal.md)最好是使用组进行映射，因为它们允许更大的灵活性和大规模管理。 使用组的优点包括 [基于属性的动态组成员身份](../users-groups-roles/groups-dynamic-membership.md) 和 [应用所有者的委派](../fundamentals/active-directory-accessmanagement-managing-group-owners.md)。 因此，如果你已在使用和管理组，则建议你采取以下措施来改进大规模管理：
+将[用户分配到应用程序](../manage-apps/assign-user-or-group-access-portal.md)最好是使用组进行映射，因为它们允许更大的灵活性和大规模管理。 使用组的优点包括 [基于属性的动态组成员身份](../enterprise-users/groups-dynamic-membership.md) 和 [应用所有者的委派](../fundamentals/active-directory-accessmanagement-managing-group-owners.md)。 因此，如果你已在使用和管理组，则建议你采取以下措施来改进大规模管理：
 
 - 向应用程序所有者委派组管理和管理。
 - 允许对应用程序进行自助访问。
@@ -189,8 +189,8 @@ ms.locfileid: "90601358"
 #### <a name="assign-users-to-applications-recommended-reading"></a>将用户分配到建议阅读的应用程序
 
 - [向 Azure Active Directory 中的应用程序分配用户和组](../manage-apps/assign-user-or-group-access-portal.md)
-- [在 Azure Active Directory 中委托应用注册权限](../users-groups-roles/roles-delegate-app-roles.md)
-- [Azure Active Directory 中的动态组成员资格规则](../users-groups-roles/groups-dynamic-membership.md)
+- [在 Azure Active Directory 中委托应用注册权限](../roles/delegate-app-roles.md)
+- [Azure Active Directory 中的动态组成员资格规则](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>访问策略
 
@@ -205,7 +205,7 @@ ms.locfileid: "90601358"
 
 根据优先级，使用下表找到最符合组织需求的推荐解决方案：
 
-| **Priority** | **方案** | 建议 |
+| **Priority** | **方案** | **建议** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | 如果你使用的是 PHS 或 PTA，但未定义已命名的位置 | 定义已命名位置以提高风险事件的检测 |
 | 2 | 如果你是联合的并且未使用 "insideCorporateNetwork" 声明和命名位置， | 定义已命名位置以提高风险事件的检测 |
@@ -248,7 +248,7 @@ Microsoft Intune 应用管理 (MAM) 提供将数据保护控制（如存储加�
 - 使用条件性访问策略来 [实现 MFA](../conditional-access/plan-conditional-access.md)，而不是使用 **基于用户的 mfa**
 - 具有一小部分可应用于多个应用程序的核心策略
 - 定义空的异常组，并将它们添加到策略中以获得异常策略
-- 规划 [中断玻璃](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) 帐户，无 MFA 控制
+- 规划 [中断玻璃](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) 帐户，无 MFA 控制
 - 通过对 Exchange Online 和 Sharepoint Online 等服务实现一组相同的控件，确保在 Microsoft 365 的客户端应用程序（例如团队、OneDrive、) Outlook 等）上保持一致的体验
 - 应通过组而不是个体来实现策略的分配
 - 定期检查策略中使用的异常组，以限制用户超出安全状态的时间。 如果你拥有 Azure AD P2，则可以使用访问评审来自动执行此过程
@@ -347,7 +347,7 @@ Microsoft Intune 应用管理 (MAM) 提供将数据保护控制（如存储加�
 - [将应用程序与 Azure Active Directory 集成](../develop/quickstart-register-app.md)
 - [Azure Active Directory 中的应用、权限和许可。](../develop/quickstart-register-app.md)
 - [使用组来管理对中的资源的访问 Azure Active Directory](./active-directory-manage-groups.md)
-- [在 Azure Active Directory 中设置自助服务应用程序访问管理](../users-groups-roles/groups-self-service-management.md)
+- [在 Azure Active Directory 中设置自助服务应用程序访问管理](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>来自意外位置的流量
 

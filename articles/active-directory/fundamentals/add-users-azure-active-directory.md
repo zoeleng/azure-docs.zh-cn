@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321083"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370808"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 添加或删除用户
 
@@ -103,6 +103,6 @@ ms.locfileid: "89321083"
 
 - [创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
 
-- [使用动态组和用户](../users-groups-roles/groups-create-rule.md)
+- [使用动态组和用户](../enterprise-users/groups-create-rule.md)
 
-也可执行其他用户管理任务，例如[从其他目录添加来宾用户](../external-identities/what-is-b2b.md)或[还原已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../users-groups-roles/index.yml)。
+也可执行其他用户管理任务，例如[从其他目录添加来宾用户](../external-identities/what-is-b2b.md)或[还原已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../enterprise-users/index.yml)。

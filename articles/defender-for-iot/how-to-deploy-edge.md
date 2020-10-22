@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933563"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368802"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>在 IoT Edge 设备上部署安全模块
 
@@ -34,7 +34,7 @@ ms.locfileid: "90933563"
 
 ### <a name="prerequisites"></a>必备条件
 
-1. 在 IoT 中心中，确保你的设备已 [注册为 IoT Edge 设备](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)。
+1. 在 IoT 中心中，确保你的设备已 [注册为 IoT Edge 设备](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device)。
 
 1. Defender for IoT Edge module 要求在 IoT Edge 设备上安装 [审核 framework](https://linux.die.net/man/8/auditd) 。
 
@@ -107,7 +107,7 @@ ms.locfileid: "90933563"
     
    有关配置代理的详细信息，请参阅 [配置安全代理](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration)。
 
-1. 选择“更新”  。
+1. 选择“更新”。
 
 #### <a name="step-2-runtime-settings"></a>步骤2：运行时设置
 
@@ -141,7 +141,7 @@ ms.locfileid: "90933563"
 
 1. 选择“保存”。
 
-1. 选择“下一步”。
+1. 选择“**下一页**”。
 
 #### <a name="step-3-specify-routes"></a>步骤3：指定路由
 
@@ -157,7 +157,7 @@ ms.locfileid: "90933563"
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
     ```
 
-1. 选择“下一步”。
+1. 选择“**下一页**”。
 
 #### <a name="step-4-review-deployment"></a>步骤4：查看部署
 
@@ -175,7 +175,7 @@ ms.locfileid: "90933563"
 
 1. 验证以下容器是否正在运行：
 
-   | 名称 | 图像 |
+   | 名称 | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 66cf408799b37de1160ec3a76ee11ff1ffbb770b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: fe31e67168c4eaf6fe94c056a96fdf695ea94fe4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801386"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279999"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SQL API 的 Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) 示例
 
@@ -54,7 +54,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 ## <a name="database-examples"></a>数据库示例
 
-*DatabaseManagement* 项目示例的 [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](databases-containers-items.md)。
+*DatabaseManagement* 项目示例的 [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](account-databases-containers-items.md)。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -65,7 +65,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 ## <a name="container-examples"></a>容器示例
 
-*ContainerManagement* 项目示例的 [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 容器，请参阅[使用数据库、容器和项](databases-containers-items.md)。
+*ContainerManagement* 项目示例的 [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 容器，请参阅[使用数据库、容器和项](account-databases-containers-items.md)。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -78,7 +78,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 ## <a name="item-examples"></a>项示例
 
-*ItemManagement* 项目示例的 [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 项，请参阅[使用数据库、容器和项](databases-containers-items.md)。
+*ItemManagement* 项目示例的 [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 项，请参阅[使用数据库、容器和项](account-databases-containers-items.md)。
 
 | 任务 | API 参考 |
 | --- | --- |

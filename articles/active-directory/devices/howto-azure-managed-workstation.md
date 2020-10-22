@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269550"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365810"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>部署安全的 Azure 托管工作站
 
@@ -35,7 +35,7 @@ ms.locfileid: "89269550"
 | Intune 管理 | 是 | 是 | 是 | 是 | 是 | 是 |
 | 设备-Azure AD 已注册 | 是 |  |  |  |  | |   |
 | 已联接设备 Azure AD |   | 是 | 是 | 是 | 是 | 是 |
-| 已应用 Intune 安全基线 |   | 是 <br>  (增强)  | 是 <br>  (HighSecurity)  | 是 <br>  (NCSC)  | 是 <br>  (安全)  | NA |
+| 已应用 Intune 安全基线 |   | 是 <br>  (增强)  | 是 <br>  (HighSecurity)  | 是 <br>  (NCSC)  | 是 <br>  (安全)  | 不可用 |
 | 硬件符合安全 Windows 10 标准 |   | 是 | 是 | 是 | 是 | 是 |
 | 已启用 Microsoft Defender ATP |   | 是  | 是 | 是 | 是 | 是 |
 | 删除管理权限 |   |   | 是  | 是 | 是 | 是 |
@@ -51,11 +51,11 @@ ms.locfileid: "89269550"
 
 本指南中介绍的概念假设您 Microsoft 365 企业版 E5 或等效 SKU。 本指南中的某些建议可通过较低版本的 Sku 来实现。 有关详细信息，请参阅 [Microsoft 365 企业版许可](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise)。
 
-若要自动进行许可证预配，请考虑为用户提供 [基于组的许可](../users-groups-roles/licensing-groups-assign.md) 。
+若要自动进行许可证预配，请考虑为用户提供 [基于组的许可](../enterprise-users/licensing-groups-assign.md) 。
 
 ## <a name="azure-active-directory-configuration"></a>Azure Active Directory 配置
 
-Azure Active Directory (Azure AD) 管理管理员工作站的用户、组和设备。 使用 [管理员帐户](../users-groups-roles/directory-assign-admin-roles.md)启用标识服务和功能。
+Azure Active Directory (Azure AD) 管理管理员工作站的用户、组和设备。 使用 [管理员帐户](../roles/permissions-reference.md)启用标识服务和功能。
 
 创建安全工作站管理员帐户时，会将该帐户公开给当前工作站。 请确保使用已知的安全设备执行此初始配置和所有全局配置。 若要降低首次攻击的风险，请考虑遵循 [指导防止恶意软件感染的指导](/windows/security/threat-protection/intelligence/prevent-malware-infection)。
 
@@ -77,7 +77,7 @@ Azure Active Directory (Azure AD) 管理管理员工作站的用户、组和设�
 
 在 Azure 门户中，浏览到**Azure Active Directory**  >  **组**""  >  **新建组**"。
 
-1. 对于工作站用户组，你可能想要配置 [基于组的许可](../users-groups-roles/licensing-groups-assign.md) ，以自动为用户预配许可证。
+1. 对于工作站用户组，你可能想要配置 [基于组的许可](../enterprise-users/licensing-groups-assign.md) ，以自动为用户预配许可证。
 1. 对于 "工作站用户" 组，请输入：
 
    * **组类型** -安全性
@@ -131,7 +131,7 @@ Azure Active Directory (Azure AD) 管理管理员工作站的用户、组和设�
 
 #### <a name="azure-ad-conditional-access"></a>Azure AD 条件访问
 
-Azure AD 条件性访问可帮助将特权管理任务限制为符合要求的设备。 登录到云应用程序时，需要 **安全工作站用户** 组的预定义成员才能执行多重身份验证。 最佳做法是从策略中排除紧急访问帐户。 有关详细信息，请参阅 [管理 Azure AD 中的紧急访问帐户](../users-groups-roles/directory-emergency-access.md)。
+Azure AD 条件性访问可帮助将特权管理任务限制为符合要求的设备。 登录到云应用程序时，需要 **安全工作站用户** 组的预定义成员才能执行多重身份验证。 最佳做法是从策略中排除紧急访问帐户。 有关详细信息，请参阅 [管理 Azure AD 中的紧急访问帐户](../roles/security-emergency-access.md)。
 
 ## <a name="intune-configuration"></a>Intune 配置
 
@@ -166,13 +166,13 @@ Azure AD 条件性访问可帮助将特权管理任务限制为符合要求的�
    * " **联接 Azure AD 为** " 框应显示已 **联接 Azure AD** 并灰显。
    * 选择语言 (区域) ，用户帐户类型为 " **标准**"。 
 
-1. 选择“下一步”。
+1. 选择“**下一页**”。
 
    * 如果已预先配置了一个作用域标记，请选择它。
 
-1. 选择“下一步”。
+1. 选择“**下一页**”。
 1. 选择**Assignments**  >  **分配给**  >  **所选组**的分配。 在 " **选择要包括的组**" 中，选择 " **安全工作站**"。
-1. 选择“下一步”。
+1. 选择“**下一页**”。
 1. 选择“创建”以创建该配置文件。 Autopilot 部署配置文件现在即可分配给设备。
 
 Autopilot 中的设备注册根据设备类型和角色提供不同的用户体验。 在我们的部署示例中，我们将演示一个模型，其中的安全设备是大容量部署的并且可以共享，但当首次使用时，设备会分配给用户。 有关详细信息，请参阅 [Intune Autopilot 设备注册](/intune/device-enrollment)。
@@ -308,7 +308,7 @@ Windows Defender ATP 和 Microsoft Intune 一起工作以帮助防止安全漏�
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>条件性访问仅允许受保护的工作站访问 Azure 门户
 
-Azure AD 提供管理和限制的功能，以及可访问 Azure 云管理门户的人员和内容。 启用 [条件性访问](../conditional-access/overview.md) 将确保只有安全工作站可以管理或更改资源。 部署此功能时，如果 [紧急访问](../users-groups-roles/directory-emergency-access.md) 功能只能或应该用于极端情况以及通过策略管理的帐户，则这一点非常重要。
+Azure AD 提供管理和限制的功能，以及可访问 Azure 云管理门户的人员和内容。 启用 [条件性访问](../conditional-access/overview.md) 将确保只有安全工作站可以管理或更改资源。 部署此功能时，如果 [紧急访问](../roles/security-emergency-access.md) 功能只能或应该用于极端情况以及通过策略管理的帐户，则这一点非常重要。
 
 > [!NOTE]
 > 你将需要创建用户组，并将你的紧急用户添加为可以绕过条件访问策略。 对于我们的示例，我们有一个称为**急诊 BreakGlass**的安全组
@@ -341,7 +341,7 @@ Microsoft 脚本中心的 [SetDesktopBackground.ps1](https://gallery.technet.mic
 1. 提供脚本的 **名称** ，并指定 **脚本位置**。
 1. 选择“配置” 。
    1. 设置 " **使用登录凭据运行此脚本** **"**。
-   1. 选择“确定”  。
+   1. 选择“确定” 。
 1. 选择“创建”。
 1. 选择**分配**  >  **选择组**。
    1. 添加安全组安全 **工作站**。
@@ -428,7 +428,7 @@ Sentinel 监视要求设置到数据源的连接器，如 Azure AD。
 1. 提供脚本的 **名称** ，并指定 **脚本位置**。
 1. 选择“配置” 。
    1. 设置 " **使用登录凭据运行此脚本** **"**。
-   1. 选择“确定”  。
+   1. 选择“确定” 。
 1. 选择“创建”。
 1. 选择**分配**  >  **选择组**。
    1. 添加安全组安全 **工作站**。

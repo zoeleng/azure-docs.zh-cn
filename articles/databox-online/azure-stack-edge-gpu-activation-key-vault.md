@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976825"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367595"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Azure Key Vault 与 Azure Stack 边缘的集成 
 
@@ -22,7 +22,7 @@ Azure Key Vault 与用于机密管理的 Azure Stack Edge 资源集成。 本文
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>关于 Key vault 和 Azure Stack Edge
 
-Azure Key Vault 云服务用于安全地存储和控制对令牌、密码、证书、API 密钥和其他机密的访问。 Key Vault 还可以轻松地创建和控制用于对数据进行加密的加密密钥。 
+Azure Key Vault 云服务用于安全地存储和控制对令牌、密码、证书、API 密钥和其他机密的访问。 Key Vault 还可以轻松地创建和控制用于对数据进行加密的加密密钥。 有关允许的事务和相应费用的详细信息，请参阅 [Azure Key Vault 的定价](https://azure.microsoft.com/pricing/details/key-vault/)。
 
 对于 Azure Stack Edge 服务，使用的机密之一是通道完整性密钥 (CIK) 。 此密钥用于加密机密。 集成 key vault 后，CIK 会安全地存储在密钥保管库中。 有关详细信息，请参阅 [安全地存储机密和密钥](../key-vault/general/overview.md#securely-store-secrets-and-keys)。
 
@@ -44,6 +44,8 @@ Azure Key Vault 云服务用于安全地存储和控制对令牌、密码、证�
 - 你可以选择接受默认密钥名称或指定密钥保管库的自定义名称。 密钥保管库名称长度必须介于3到24个字符之间。 不能使用已在使用中的密钥保管库。 <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![创建 Azure Stack Edge 资源期间创建的 MSI](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- 要浏览到 Azure 密钥保管库，请转到 Azure Stack Edge 资源中的 **属性** ，并选择密钥保管库名称。 
 
 - 若要防止意外删除，在密钥保管库上启用了资源锁。 还会在密钥保管库上启用软删除，如果意外删除，则允许在90天内还原密钥保管库。 有关详细信息，请参阅 [Azure Key Vault 软删除概述](../key-vault/general/soft-delete-overview.md)
 
