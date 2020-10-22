@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930282"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166924"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>如何：使用文本分析 API 检测情绪
 
@@ -36,7 +36,7 @@ ms.locfileid: "91930282"
 | 基于 Linux 的 [Docker 容器](text-analytics-how-to-install-containers.md) | X  |  |
 | 观点挖掘                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>情绪评分和标记
+## <a name="sentiment-scoring-and-labeling"></a>情绪评分和标记
 
 情绪分析 v3 将情绪标签应用于文本，然后在句子和文档级别返回标签，每个标签都有一个置信度分数。 
 
@@ -51,7 +51,7 @@ ms.locfileid: "91930282"
 
 置信度分数范围介于 1 到 0 之间。 分数越接近于 1 表示标签分类的置信度越高，分数越低表示置信度越低。 对于每个文档或每个句子，与标签（积极、消极和中性）关联的预测分数总和为 1。
 
-### <a name="opinion-mining"></a>观点挖掘
+## <a name="opinion-mining"></a>观点挖掘
 
 观点挖掘是情绪分析的一项功能，从版本 3.1-preview.1 开始提供。 此功能在自然语言处理 (NLP) 中也称为基于方面的情绪分析，它更加精细地描述了对文本中某些方面（例如产品或服务的属性）的观点。
 

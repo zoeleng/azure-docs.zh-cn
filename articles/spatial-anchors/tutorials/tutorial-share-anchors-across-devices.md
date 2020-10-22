@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971263"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097280"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>教程：在会话和设备间共享空间定位点
 
@@ -86,7 +86,7 @@ Azure 空间定位点是一种跨平台开发人员服务，通过该服务，�
 
 打开 Visual Studio Code，然后打开 Sharing\SharingServiceSample 文件夹中的项目。 
 
-若要通过 Visual Studio Code 部署共享服务，请遵循<a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">通过 Visual Studio Code 将 ASP.NET Core 应用发布到 Azure</a> 中的说明。 从“通过 Visual Studio Code 打开它”部分开始。 请不要按照上面步骤中的说明创建另一个 ASP.NET 项目，因为你已有要部署和发布的项目：SharingServiceSample。
+若要通过 Visual Studio Code 部署共享服务，请遵循<a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">通过 Visual Studio Code 将 ASP.NET Core 应用发布到 Azure</a> 中的说明。 从“通过 Visual Studio Code 打开它”部分开始。 请不要按照上面步骤中的说明创建另一个 ASP.NET 项目，因为你已有要部署和发布的项目：SharingServiceSample。
 
 ---
 
@@ -104,4 +104,3 @@ Azure 空间定位点是一种跨平台开发人员服务，通过该服务，�
 
 > [!div class="nextstepaction"]
 > [使用 Azure Cosmos DB 存储定位点](./tutorial-use-cosmos-db-to-store-anchors.md)
-
