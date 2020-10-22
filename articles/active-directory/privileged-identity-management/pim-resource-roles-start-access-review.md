@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9e3aaf0747e9b28526a43d9f734084f8a75662
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b67761b3c765e202505d442647b3ba034ef15a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743688"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372491"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中创建对 Azure 资源角色的访问评审
 
@@ -30,7 +30,7 @@ ms.locfileid: "84743688"
 
 ## <a name="prerequisites"></a>必备条件
 
-[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>打开访问评审
 

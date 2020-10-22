@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fa66f17c6f96ac7f70188c5a28c0b180ed2f03e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189411b13baf2497f0752c15550dd419f88f754
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906880"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088595"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>使用 Azure Spring Cloud 的断路器仪表板
 
@@ -42,7 +42,7 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 ## <a name="provision-your-azure-spring-cloud-instance"></a>预配 Azure Spring Cloud 实例
-按照[在 Azure CLI 中预配服务实例](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)过程执行操作。
+按照[在 Azure CLI 中预配服务实例](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)过程执行操作。
 
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>将应用程序部署到 Azure Spring Cloud
 这些应用不使用配置服务器，因此无需为 Azure Spring Cloud 设置配置服务器。  按照以下步骤进行创建和部署：
@@ -82,6 +82,6 @@ az spring-cloud app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/
 作为 Web 应用，Hystrix 仪表板应在 `test-endpoint` 上正常工作。 如果无法正常工作，则可能有两个原因：第一，使用 `test-endpoint` 从 `/ to /<APP-NAME>/<DEPLOYMENT-NAME>` 更改基 URL，或者，第二，Web 应用将绝对路径用于静态资源。 若要使其在 `test-endpoint` 上正常工作，可能需要手动编辑前端文件中的 <base>。
 
 ## <a name="next-steps"></a>后续步骤
-* [在 Azure CLI 中预配服务实例](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
-* [准备要部署到 Azure Spring Cloud 中的 Java Spring 应用程序](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [在 Azure CLI 中预配服务实例](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [准备要部署到 Azure Spring Cloud 中的 Java Spring 应用程序](./spring-cloud-tutorial-prepare-app-deployment.md)
 ::: zone-end

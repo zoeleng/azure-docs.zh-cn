@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905387"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091060"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>教程：为微服务应用程序设置自动缩放功能
 
@@ -25,7 +25,7 @@ ms.locfileid: "90905387"
 若要遵循这些过程进行操作，需要：
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-* 部署的 Azure Spring Cloud 服务实例。 按[有关如何通过 Azure CLI 来部署应用的快速入门](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)中的说明开始操作。
+* 部署的 Azure Spring Cloud 服务实例。 按[有关如何通过 Azure CLI 来部署应用的快速入门](./spring-cloud-quickstart.md)中的说明开始操作。
 * 至少已在该服务实例中创建一个应用程序。
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>导航到 Azure 门户中的“自动缩放”页
@@ -70,5 +70,5 @@ ms.locfileid: "90905387"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Microsoft Azure 自动缩放概述](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Azure CLI 监视自动缩放](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Microsoft Azure 自动缩放概述](../azure-monitor/platform/autoscale-overview.md)
+* [Azure CLI 监视自动缩放](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

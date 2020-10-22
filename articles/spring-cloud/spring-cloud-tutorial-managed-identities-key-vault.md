@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 646b95e7e106b8657f8aeec2426b88cd6da20357
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f54139bc22ef85b016aabd2512bdf030efee91c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885647"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088578"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>教程：使用托管标识将密钥保管库连接到 Azure Spring Cloud 应用
 
@@ -25,7 +25,7 @@ Azure Key Vault 可以用来安全地存储令牌、密码、证书、API 密钥
 ## <a name="prerequisites"></a>先决条件
 
 * [注册 Azure 订阅](https://azure.microsoft.com/free/)
-* [安装 Azure CLI 2.0.67 或更高版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* [安装 Azure CLI 2.0.67 或更高版本](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * [安装 Maven 3.0 或更高版本](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>创建资源组
@@ -167,7 +167,7 @@ az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENT
 
 ## <a name="build-sample-spring-boot-app-with-java-sdk"></a>使用 Java SDK 生成示例 Spring Boot 应用
 
-此示例可从 Azure 密钥保管库设置和获取机密。 [适用于 Java 的 Azure Key Vault 机密客户端库](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme?view=azure-java-stablelibrary&preserve-view=true)提供跨 Azure SDK 的 Azure Active Directory 令牌身份验证支持。 它提供一组可用于构建 Azure SDK 客户端以支持 AAD 令牌身份验证的 TokenCredential 实现。
+此示例可从 Azure 密钥保管库设置和获取机密。 [适用于 Java 的 Azure Key Vault 机密客户端库](/java/api/overview/azure/security-keyvault-secrets-readme?preserve-view=true&view=azure-java-stablelibrary)提供跨 Azure SDK 的 Azure Active Directory 令牌身份验证支持。 它提供一组可用于构建 Azure SDK 客户端以支持 AAD 令牌身份验证的 TokenCredential 实现。
 
 使用 Azure Key Vault 机密客户端库，可以安全地存储令牌、密码、API 密钥和其他机密并控制对它们的访问权限。 此库提供了创建、检索、更新、删除、清除、备份、还原和列出机密及其版本的操作。
 
@@ -191,7 +191,7 @@ az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENT
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
 
-3. 通过添加 [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable&preserve-view=true)，从 Azure Active Directory 和 [SecretClientBuilder](https://docs.microsoft.com/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable&preserve-view=true) 获取令牌，以便在代码中从密钥保管库设置或获取机密。
+3. 通过添加 [ManagedIdentityCredentialBuilder](/java/api/com.azure.identity.managedidentitycredentialbuilder?preserve-view=true&view=azure-java-stable)，从 Azure Active Directory 和 [SecretClientBuilder](/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?preserve-view=true&view=azure-java-stable) 获取令牌，以便在代码中从密钥保管库设置或获取机密。
 
     从克隆示例项目的 [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28) 获取示例。
 
@@ -230,7 +230,6 @@ az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENT
 ## <a name="next-steps"></a>后续步骤
 
 * [如何使用 Azure Spring Cloud 中的托管标识访问 Storage Blob](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
-* [如何为 Azure Spring Cloud 应用程序启用系统分配的托管标识](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
+* [如何为 Azure Spring Cloud 应用程序启用系统分配的托管标识](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [了解有关 Azure 资源的托管标识的详细信息](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [在 GitHub Actions 中使用密钥保管库对 Azure Spring Cloud 进行身份验证](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-github-actions-key-vault)
-
+* [在 GitHub Actions 中使用密钥保管库对 Azure Spring Cloud 进行身份验证](./spring-cloud-github-actions-key-vault.md)

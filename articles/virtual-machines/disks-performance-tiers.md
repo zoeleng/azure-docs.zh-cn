@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939011"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359673"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a> (预览版的托管磁盘的性能层) 
 
@@ -42,19 +42,19 @@ Azure 磁盘存储当前提供内置突发功能，以提供更高的性能来�
 | 512 GiB | P20 | P30、P40、P50 |
 | 1 TiB | P30 | P40、P50 |
 | 2 TiB | P40 | P50 |
-| 4 TiB | P50 | None |
+| 4 TiB | P50 | 无 |
 | 8 TiB | P60 |  P70, P80 |
 | 16 TiB | P70 | P80 |
-| 32 TiB | P80 | None |
+| 32 TiB | P80 | 无 |
 
 有关计费信息，请参阅 [托管磁盘定价](https://azure.microsoft.com/pricing/details/managed-disks/)。
 
 ## <a name="restrictions"></a>限制
 
 - 此功能目前仅适用于高级 Ssd。
-- 必须先从正在运行的 VM 中分离磁盘，然后才能更改磁盘层。
+- 必须先解除分配 VM 或从正在运行的 VM 中分离磁盘，然后才能更改磁盘层。
 - 使用 P60、P70 和 P80 性能层限制为 4096 GiB 或更高的磁盘。
-- 磁盘的性能层每24小时只能更改一次。
+- 磁盘的性能层只能每24小时进行一次降级。
 
 ## <a name="regional-availability"></a>区域可用性
 

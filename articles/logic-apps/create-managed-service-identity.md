@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565921"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371471"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>使用 Azure 逻辑应用中的托管标识对 Azure 资源的访问进行身份验证
 
@@ -35,7 +35,7 @@ Azure 逻辑应用支持[系统分配的](../active-directory/managed-identities
 
 * Azure 帐户和订阅。 如果没有订阅，可以[注册免费的 Azure 帐户](https://azure.microsoft.com/free/)。 托管标识和需要访问的目标 Azure 资源必须使用相同的 Azure 订阅。
 
-* 若要为托管标识提供对 Azure 资源的访问权限，需要为该标识向目标资源添加一个角色。 若要添加角色，你需要 [Azure AD 管理员权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)，可以将角色分配给相应的 Azure AD 租户中的标识。
+* 若要为托管标识提供对 Azure 资源的访问权限，需要为该标识向目标资源添加一个角色。 若要添加角色，你需要 [Azure AD 管理员权限](../active-directory/roles/permissions-reference.md)，可以将角色分配给相应的 Azure AD 租户中的标识。
 
 * 要访问的目标 Azure 资源。 在此资源上，你将为托管标识添加一个角色，该角色可帮助逻辑应用对目标资源的访问进行身份验证。
 
@@ -301,7 +301,7 @@ Azure 逻辑应用支持[系统分配的](../active-directory/managed-identities
    ![选择“添加”>“添加角色分配”](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
-   > 如果“添加角色分配”选项处于禁用状态，那么你很可能没有权限。 有关可用于管理资源角色的权限的详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+   > 如果“添加角色分配”选项处于禁用状态，那么你很可能没有权限。 有关可用于管理资源角色的权限的详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)。
 
 1. 在“添加角色分配”下，选择一个“角色”，该角色授予标识对目标资源的所需访问权限。 
 
@@ -462,7 +462,7 @@ Azure 逻辑应用支持[系统分配的](../active-directory/managed-identities
 1. 在“角色”列表中，选择要删除的托管标识。 在工具栏上，选择“删除”。
 
    > [!TIP]
-   > 如果“删除”选项处于禁用状态，那么你很可能没有权限。 有关可用于管理资源角色的权限的详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+   > 如果“删除”选项处于禁用状态，那么你很可能没有权限。 有关可用于管理资源角色的权限的详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)。
 
 托管标识现在已删除，不再具有对目标资源的访问权限。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318403"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371896"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 功能部署指南
 
@@ -43,8 +43,8 @@ ms.locfileid: "89318403"
 
 | 任务 | 详细信息 | 所需的许可证 |
 | ---- | ------ | ---------------- |
-| [指定多个全局管理员](../users-groups-roles/directory-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 | Azure AD Free |
-| [尽可能使用非全局管理角色](../users-groups-roles/directory-assign-admin-roles.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 | Azure AD Free |
+| [指定多个全局管理员](../roles/security-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 | Azure AD Free |
+| [尽可能使用非全局管理角色](../roles/permissions-reference.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 | Azure AD Free |
 | [启用 Privileged Identity Management 以跟踪管理员角色的用途](../privileged-identity-management/pim-getting-started.md) | 启用 Privileged Identity Management 以开始跟踪管理角色的用途。 | Azure AD Premium P2 |
 | [推广自助式密码重置](../authentication/howto-sspr-deployment.md) | 让员工使用管理员控制的策略重置自己的密码，减少支持台收到的密码重置呼叫次数。 | |
 | [创建特定于组织的自定义禁止密码列表](../authentication/tutorial-configure-custom-password-protection.md) | 防止用户创建包含你所在组织或区域中常用单词或短语的密码。 | |
@@ -69,7 +69,7 @@ ms.locfileid: "89318403"
 | [实现密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md) | 同步密码哈希，以便能够复制密码更改、检测并补救错误密码，以及报告已泄漏的凭据。 | Azure AD Free |
 | [实现密码写回](../authentication/tutorial-enable-sspr-writeback.md) | 允许将云中的密码更改写回到本地 Windows Server Active Directory 环境。 | Azure AD Premium P1 |
 | [实现 Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | 为 Azure AD Connect 服务器、AD FS 服务器和域控制器启用关键运行状况统计信息的监视。 | Azure AD Premium P1 |
-| [按 Azure Active Directory 中的组成员资格将许可证分配给用户](../users-groups-roles/licensing-groups-assign.md) | 创建许可组来按组启用或禁用功能，而无需按用户进行设置，这样可以节省时间和精力。 | |
+| [按 Azure Active Directory 中的组成员资格将许可证分配给用户](../enterprise-users/licensing-groups-assign.md) | 创建许可组来按组启用或禁用功能，而无需按用户进行设置，这样可以节省时间和精力。 | |
 | [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 让来宾用户使用其自己的工作、学校或社交标识登录到你的应用和服务，借此来与他们协作。 | [Azure AD B2B 许可指南](../external-identities/licensing-guidance.md) |
 | [决定设备管理策略](../devices/overview.md) | 决定组织允许在设备上执行哪些操作。 这包括在自带设备与公司提供的设备上执行注册与加入操作。 | |
 | [在组织中部署 Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | 使用 Windows Hello 准备无密码 authentication | |
@@ -93,7 +93,7 @@ ms.locfileid: "89318403"
 | ---- | ------ | ---------------- |
 | [强制使用 Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | 删除普通日常用户帐户的管理角色。 使管理用户能够在成功完成多重身份验证检查、提供业务理由或请求指定的审批者批准之后使用其角色。 | Azure AD Premium P2 |
 | [在 PIM 中完成 Azure AD 目录角色的访问评审](../privileged-identity-management/pim-how-to-start-security-review.md) | 与安全和领导团队协作创建访问评审策略，以根据组织的策略评审管理访问权限。 | Azure AD Premium P2 |
-| [实施动态组成员资格策略](../users-groups-roles/groups-dynamic-membership.md) | 使用动态组根据来自人力资源（或真实来源）的属性（例如部门、职位、区域和其他属性）自动向组分配用户。 |  |
+| [实施动态组成员资格策略](../enterprise-users/groups-dynamic-membership.md) | 使用动态组根据来自人力资源（或真实来源）的属性（例如部门、职位、区域和其他属性）自动向组分配用户。 |  |
 | [实施基于组的应用程序预配](../manage-apps/what-is-access-management.md) | 使用基于组的访问管理预配为 SaaS 应用程序自动预配用户。 |  |
 | [自动用户预配和取消预配](../app-provisioning/user-provisioning.md) | 从员工帐户生命周期中删除手动步骤，以防止未经授权的访问。 将真实来源（HR 系统）中的标识同步到 Azure AD。 |  |
 

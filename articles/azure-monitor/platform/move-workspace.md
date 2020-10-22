@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282871"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372270"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>将 Log Analytics 工作区移到其他订阅或资源组
 
@@ -40,11 +40,20 @@ ms.locfileid: "92282871"
 
 >[!IMPORTANT]
 > **Azure Sentinel 客户**
-> - 部署到工作区后，Azure Sentinel 当前不支持将该工作区移至其他资源组或订阅。 
-> - 如果已移动工作区，请禁用“分析”下的所有活动规则，并在五分钟后重新启用这些规则。 重申一下，这在大多数情况下应该是有效的，但不支持这样做，风险由你自己承担。
+> - 目前，Azure Sentinel 部署到工作区后，不支持将工作区移动到另一个资源组或订阅。 
+> - 如果已移动工作区，请禁用“分析”下的所有活动规则，并在五分钟后重新启用这些规则。 但在大多数情况下，这应该是一个有效的解决方案，不过，这是不受支持的，会自行承担。
 > 
-> **警报**
-> - 在移动后，所有警报都需要重新创建，因为这些权限基于工作区的 Azure 资源 ID，并随工作区移动而更改。 
+> **重新创建警报**
+> - 在移动后，必须重新创建所有警报，因为这些权限基于工作区移动期间更改的工作区的 Azure 资源 ID。
+>
+> **更新资源路径**
+> - 工作区移动之后，必须检查并更新指向工作区的任何 Azure 或外部资源，使之指向新的资源目标路径。
+> 
+>   *示例：*
+>   - [Azure Monitor 预警规则](alerts-resource-move.md)
+>   - 第三方应用程序
+>   - 自定义脚本
+>
 
 ### <a name="delete-solutions-in-azure-portal"></a>在 Azure 门户中删除解决方案
 在 Azure 门户中使用以下过程删除解决方案：
