@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070378"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363651"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>规划云 HR 应用程序以 Azure Active Directory 用户预配
 
@@ -52,7 +52,7 @@ Cloud HR 应用与 Azure AD 用户预配的集成非常适合于以下组织：
 - 需要根据在云 HR 应用中检测到的更改信息，加入、移动和离开用户以同步到一个或多个 Active Directory 林、域和 Ou。
 - 将 Microsoft 365 用于电子邮件。
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>了解
 
 用户预配为正在进行的标识管理创建基础。 它增强了依赖于权威标识数据的业务流程的质量。
 
@@ -73,16 +73,16 @@ HR 驱动的 IT 预配的这一功能提供以下重要的业务优势：
 - **解决合规性和监管：** Azure AD 支持由源系统和目标系统的应用执行的用户预配请求的本地审核日志。 通过审核，您可以在单个屏幕上跟踪谁有权访问应用程序。
 - **管理成本：** 通过避免与手动预配相关的低效和人为错误，自动预配可降低成本。 它通过使用旧版和过时的平台减少了随时间而构建的自定义开发用户预配解决方案的需求。
 
-### <a name="licensing"></a>许可
+### <a name="licensing"></a>授权
 
 若要将云 HR 应用配置为 Azure AD 用户预配集成，需要一个有效的 [Azure AD Premium 许可证](https://azure.microsoft.com/pricing/details/active-directory/) 和一个云 HR 应用的许可证，如 Workday 或 SuccessFactors。
 
 还需要一个有效的 Azure AD Premium P1 或更高版本的订阅许可证，该许可证将源自 cloud HR 应用并设置为 Active Directory 或 Azure AD。 云 HR 应用中拥有的任何不正确的许可证数可能会导致用户预配时出现错误。
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备条件
 
-- Azure AD [混合标识管理员](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  配置 Azure AD Connect 预配代理。
-- Azure AD [应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) 角色在 Azure 门户中配置预配应用
+- Azure AD [混合标识管理员](../roles/permissions-reference.md#hybrid-identity-administrator)  配置 Azure AD Connect 预配代理。
+- Azure AD [应用程序管理员](../roles/permissions-reference.md#application-administrator) 角色在 Azure 门户中配置预配应用
 - Cloud HR 应用的测试和生产实例。
 - Cloud HR 应用中的管理员权限，用于创建系统集成用户并进行更改，以供测试之用。
 - 要 Active Directory 的用户预配，需要运行 Windows Server 2012 或更高版本的服务器来承载 Azure AD Connect 预配代理
@@ -110,7 +110,7 @@ HR 驱动的 IT 预配的这一功能提供以下重要的业务优势：
 
 #### <a name="description-of-workflow"></a>工作流的说明
 
-图中指示了以下关键步骤：  
+图中指示了以下关键步骤：  
 
 1. **Hr 团队** 在 cloud HR app 租户中执行事务。
 2. **Azure AD 预配服务** 运行来自 cloud HR 应用租户的计划周期，并标识需要处理以便与 Active Directory 同步的更改。
@@ -257,7 +257,7 @@ Azure AD Connect 预配代理部署拓扑取决于你计划集成的云 HR 应�
 
 启动 Joiners-Leavers 进程时，请收集以下要求。
 
-| 进程 | 要求 |
+| 过程 | 要求 |
 | - | - |
 | **Joiners** | 从标识生命周期角度看，如何处理 rehires？ Rehires 是否保留其旧的员工 Id？ |
 | | 您是否会提前处理日后招聘的员工并提前为他们创建 Active Directory 帐户？ 这些帐户是否创建为启用或禁用状态？ |
@@ -276,7 +276,7 @@ Azure AD Connect 预配代理部署拓扑取决于你计划集成的云 HR 应�
 
 启动 Joiners-离开者进程时，请收集以下要求。
 
-| 进程 | 要求 |
+| 过程 | 要求 |
 | - | - |
 | **Joiners** | Active Directory 帐户创建过程是手动、自动还是部分自动？ |
 | | 你是否打算将自定义属性从 cloud HR 应用传播到 Active Directory？ |
@@ -398,7 +398,7 @@ Windows server 上安装的 Azure AD Connect 预配代理在 Windows 事件日�
 
 Azure AD 预配服务不会生成报表、执行分析，也不会在30天内提供见解，因为服务不会存储、处理或保留超过30天的任何数据。
 
-### <a name="troubleshoot"></a>疑难解答
+### <a name="troubleshoot"></a>故障排除
 
 若要解决在预配期间可能会打开的任何问题，请参阅以下文章：
 

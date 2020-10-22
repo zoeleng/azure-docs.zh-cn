@@ -51,8 +51,6 @@
               href: ./database/security-controls-policy.md
             - name: 安全基线
               href: database/security-baseline.md
-            - name: 安全属性
-              href: database/security-controls.md
             - name: Azure Defender for SQL
               href: database/azure-defender-for-sql.md
             - name: 高级威胁防护
@@ -1127,7 +1125,7 @@
               href: ./database/policy-reference.md
         - name: 资源
           items:
-            - name: 常见问题
+            - name: 常见问题解答
               href: virtual-machines/windows/frequently-asked-questions-faq.md
             - name: 定价
               href: virtual-machines/windows/pricing-guidance.md
@@ -1163,7 +1161,7 @@
               href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
         - name: 资源
           items:
-            - name: 常见问题
+            - name: 常见问题解答
               href: virtual-machines/linux/frequently-asked-questions-faq.md
             - name: “Linux 上的 SQL Server”文档
               href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-overview'
@@ -1246,7 +1244,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
-    - name: 疑难解答
+    - name: 故障排除
       items:
         - name: 连接错误
           href: database/troubleshoot-common-errors-issues.md

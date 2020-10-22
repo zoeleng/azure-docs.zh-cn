@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107804"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364110"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>保护标识基础结构的五个步骤
 
@@ -135,7 +135,7 @@ Microsoft 建议限制用户同意，以帮助减少您的 surface 区域并降�
 
 启用 Azure AD PIM，然后查看分配有管理角色的用户，并删除这些角色中不必要的帐户。 对于剩余的特权用户，请将其角色分配从“永久”更改为“符合条件”。 最后，建立适当的策略，确保当这些用户需要访问这些特权角色时，能够使用所需的变更控制安全地进行访问。
 
-在部署特权帐户的过程中，请遵循[至少创建两个紧急帐户的最佳做法](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)，确保自己被锁定时仍能访问 Azure AD。
+在部署特权帐户的过程中，请遵循[至少创建两个紧急帐户的最佳做法](../../active-directory/roles/security-planning.md)，确保自己被锁定时仍能访问 Azure AD。
 
 ## <a name="step-3---automate-threat-response"></a>步骤 3 - 自动化威胁响应
 
@@ -193,7 +193,7 @@ IT 管理员可以通过 Azure AD 的[自助密码重置 (SSPR)](../../active-di
 
 ### <a name="implement-self-service-group-and-application-access"></a>实现自助服务组和应用程序访问
 
-Azure AD 使非管理员能够使用安全组、Microsoft 365 组、应用程序角色和访问包目录管理对资源的访问。  [自助服务组管理](../../active-directory/users-groups-roles/groups-self-service-management.md)使组所有者能够管理自己的组，而无需分配管理角色。 用户还可以创建和管理 Microsoft 365 组，而无需依靠管理员来处理其请求，且未使用的组会自动过期。  [Azure AD 权利管理](../../active-directory/governance/entitlement-management-overview.md)进一步启用委派和可见性，具有全面的访问请求工作流和自动过期。  可以委托非管理员为其拥有的组、Teams、应用程序和 SharePoint Online 网站配置自己的访问包，并为需要批准访问权限的人员配置自定义策略，包括将员工的经理和业务合作伙伴发起人配置为审批者。
+Azure AD 使非管理员能够使用安全组、Microsoft 365 组、应用程序角色和访问包目录管理对资源的访问。  [自助服务组管理](../../active-directory/enterprise-users/groups-self-service-management.md)使组所有者能够管理自己的组，而无需分配管理角色。 用户还可以创建和管理 Microsoft 365 组，而无需依靠管理员来处理其请求，且未使用的组会自动过期。  [Azure AD 权利管理](../../active-directory/governance/entitlement-management-overview.md)进一步启用委派和可见性，具有全面的访问请求工作流和自动过期。  可以委托非管理员为其拥有的组、Teams、应用程序和 SharePoint Online 网站配置自己的访问包，并为需要批准访问权限的人员配置自定义策略，包括将员工的经理和业务合作伙伴发起人配置为审批者。
 
 ### <a name="implement-azure-ad-access-reviews"></a>实施 Azure AD 访问评审
 

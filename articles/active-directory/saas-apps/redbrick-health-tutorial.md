@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
-ms.openlocfilehash: c6acbd115dfb6a4411add844f91cff921c2a2371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3036500f6d96fede9420b1b24297bfbfb3a400be
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548780"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105305"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-redbrick-health"></a>教程：Azure Active Directory 单一登录 (SSO) 与 RedBrick Health 集成
 
@@ -95,7 +95,7 @@ ms.locfileid: "88548780"
 
 1. RedBrick Health 应用程序需要特定格式的 SAML 断言。 请为此应用程序配置以下声明。 可以在应用程序集成页的“用户属性”部分管理这些属性的值。  在“使用 SAML 设置单一登录”  页上，单击“编辑”  按钮以打开“用户属性”  对话框。
 
-    ![image](common/edit-attribute.png)
+    ![屏幕截图显示“用户属性”，并且已选择“编辑”图标。](common/edit-attribute.png)
 
 1. 在“用户属性”  对话框的“用户声明”  部分中，按上图所示配置 SAML 令牌属性，并执行以下步骤：
 
@@ -110,9 +110,9 @@ ms.locfileid: "88548780"
 
     a. 单击“添加新声明”  以打开“管理用户声明”  对话框。
 
-    ![image](common/new-save-attribute.png)
+    ![屏幕截图显示“用户声明”以及“添加新声明”选项。](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![屏幕截图显示“管理用户声明”对话框，可在其中输入所述的值。](common/new-attribute-details.png)
 
     b. 在“名称”文本框中，键入为该行显示的属性名称。 
 

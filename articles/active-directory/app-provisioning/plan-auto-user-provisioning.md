@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070361"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363685"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>规划自动用户预配部署
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 自动用户预配可通过安全地根据业�
 
 请参阅 [利用 Azure Active Directory 自动执行用户预配和取消预配到 SaaS 应用程序](../app-provisioning/user-provisioning.md) ，以更好地了解功能。
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>了解
 
 用户预配为正在进行的标识管理创建了基础，并增强了依赖于权威标识数据的业务流程的质量。
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 自动用户预配可通过安全地根据业�
 
 * **降低成本**。 自动用户预配通过避免与手动预配相关的低效和人为错误，降低了成本。 它减少了自定义开发的用户预配解决方案、脚本和审核日志的需求。
 
-### <a name="licensing"></a>许可
+### <a name="licensing"></a>授权
 
 Azure AD 使用应用程序库菜单中提供的模板为任何应用程序提供自助集成。 有关许可证要求的完整列表，请参阅 [Azure AD 授权 "页](https://azure.microsoft.com/pricing/details/active-directory/)。
 
@@ -139,13 +139,13 @@ Azure AD 预配服务通过连接到每个应用程序供应商提供的用户�
 
 建议自动用户预配的初始配置在测试环境中包含一小部分用户，然后将其扩展到生产中的所有用户。 请参阅运行试验的 [最佳实践](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) 。
 
-#### <a name="best-practices-for-a-pilot"></a>试验的最佳实践  
+#### <a name="best-practices-for-a-pilot"></a>试验的最佳实践  
 
 通过试验，你可以在为每个人部署功能之前，对小型组进行测试。 确保在测试过程中，组织内的每个用例都经过全面测试。
 
 在第一轮中，面向 IT、可用性和其他可测试和提供反馈的适当用户。 使用此反馈，进一步开发您向用户发送的通信和说明，并深入了解支持人员可能会看到的问题类型。
 
-通过增加) 目标组 (的组的范围，将推出扩大到更大的用户组。 这可以通过 [动态组成员身份](../users-groups-roles/groups-dynamic-membership.md)来完成，也可以通过手动将用户添加到目标组 () 。
+通过增加) 目标组 (的组的范围，将推出扩大到更大的用户组。 这可以通过 [动态组成员身份](../enterprise-users/groups-dynamic-membership.md)来完成，也可以通过手动将用户添加到目标组 () 。
 
 ## <a name="plan-application-connections-and-administration"></a>规划应用程序连接和管理
 
@@ -292,7 +292,7 @@ Azure AD 可以通过审核日志和报告， [进一步深入](../app-provision
 
 建议你假设所有权，并使用这些报表来满足组织的要求。 Azure AD 将大多数审核数据保留30天。
 
-### <a name="troubleshoot"></a>疑难解答
+### <a name="troubleshoot"></a>故障排除
 
 请参阅以下链接，以解决在预配期间可能会打开的任何问题：
 

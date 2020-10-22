@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9630e1f23b6595ca690ecafcf0c4b9bfff603f2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb13b350dfecf70e5f3a45755f6f77069a855c6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78185652"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363838"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的用户帐户概述
 
@@ -43,7 +43,7 @@ ms.locfileid: "78185652"
 
     - 用户**** - 用户可以访问分配的资源，但不能管理大多数租户资源。
     - 全局管理员**** - 全局管理员可以完全控制所有租户资源。
-    - 受限的管理员**** - 为用户选择一个或多个管理角色。 有关可以选择的角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+    - 受限的管理员**** - 为用户选择一个或多个管理角色。 有关可以选择的角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../active-directory/roles/permissions-reference.md)。
 
 ### <a name="create-a-work-account"></a>创建工作帐户
 

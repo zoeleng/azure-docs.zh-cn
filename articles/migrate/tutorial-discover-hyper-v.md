@@ -4,12 +4,12 @@ description: 了解如何使用 Azure Migrate 服务器评估工具发现本地 
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442331"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317152"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>教程：使用服务器评估发现 Hyper-V VM
 
@@ -204,7 +204,7 @@ ms.locfileid: "91442331"
    
    不支持使用 PIN 登录。
 3. 成功登录后，返回到 Web 应用。 
-4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](tutorial-prepare-hyper-v.md#prepare-azure)，会启动设备注册。
+4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的权限，会启动设备注册。
 1. 成功注册设备后，可以通过单击“查看详细信息”来查看注册详细信息。
 
 

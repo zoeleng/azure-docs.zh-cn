@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963816"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363532"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>排查在 Azure Active Directory 中进行自助式密码重置时遇到的问题
 
@@ -32,7 +32,7 @@ ms.locfileid: "91963816"
 
 如果未向执行该操作的管理员分配 Azure AD 许可证，则不会看到“密码重置”菜单选项。
 
-若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
+若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>未看到某个特定的配置选项。
 
@@ -52,7 +52,7 @@ UI 的许多元素都是隐藏的，直到需要它们时才会显示。 在查�
 
 如果未向执行该操作的管理员分配 Azure AD 许可证，可能会发生这种情况。
 
-若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
+若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 ### <a name="user-registrations-show-multiple-times"></a>用户注册显示了多次。
 
@@ -74,7 +74,7 @@ UI 的许多元素都是隐藏的，直到需要它们时才会显示。 在查�
 
 当前只能使用 Azure 门户为 SSPR 启用一个 Azure AD 组。 支持使用嵌套组作为较广泛 SSPR 部署的一部分。 确保为所选组中的用户分配适当的许可证。 查看之前的故障排除步骤，根据需要启用 SSPR。
 
-另请查看故障排除步骤，确保向执行配置选项的管理员分配了许可证。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
+另请查看故障排除步骤，确保向执行配置选项的管理员分配了许可证。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 ### <a name="theres-an-error-processing-the-request"></a>处理请求时出错。
 
@@ -87,7 +87,7 @@ UI 的许多元素都是隐藏的，直到需要它们时才会显示。 在查�
 | 错误 | 解决方案 |
 | --- | --- |
 | 未针对密码重置启用目录。 | 在 Azure 门户中，将“自助式密码重置已启用”配置更改为“选定”或“全部”，然后选择“保存” 。 |
-| 用户未分配有 Azure AD 许可证。 | 如果未向所需的用户分配 Azure AD 许可证，则可能会发生这种情况。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
+| 用户未分配有 Azure AD 许可证。 | 如果未向所需的用户分配 Azure AD 许可证，则可能会发生这种情况。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 已针对密码重置启用了目录，但用户的身份验证信息缺失或格式错误。 | 确保用户在目录下的文件中具有格式正确的联系人数据。 有关详细信息，请参阅 [Azure AD 自助密码重置使用的数据](howto-sspr-authenticationdata.md)。 |
 | 已针对密码重置启用目录，但用户在文件中只有一个联系人数据片段，而策略要求执行两种验证方法。 | 请确保用户至少有 2 个正确配置的联系方式。 例如，同时提供了移动电话号码和办公电话号码。 |
 | 已针对密码重置启用目录并正确配置用户，但无法联系到用户。 | 这可能是因临时服务错误或联系人数据错误而导致的，我们无法正确检测到这些错误。 <br> <br> 如果用户等待 10 秒，会出现一个“重试”和“请联系管理员”链接。 如果用户选择“重试”，则会重新尝试电话联系。 如果用户选择“请联系管理员”，则向管理员发送一封表单电子邮件，请求其为该用户帐户执行密码重置。 |

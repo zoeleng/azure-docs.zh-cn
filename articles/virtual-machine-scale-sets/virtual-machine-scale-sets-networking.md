@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c93f8e50b0437f9ac1569b8abe19bd0b5174ea8d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783716"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363957"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -43,7 +43,7 @@ Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>带 Azure 负载均衡器的 Azure 虚拟机规模集
-请参阅 [Azure 负载平衡器和虚拟机规模集](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets)，详细了解如何根据你的场景使用虚拟机规模集配置标准负载平衡器。
+请参阅 [Azure 负载平衡器和虚拟机规模集](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md)，详细了解如何根据你的场景使用虚拟机规模集配置标准负载平衡器。
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>创建引用应用程序网关的规模集
 若要创建使用应用程序网关的规模集，请在规模集的 ipConfigurations 节中引用应用程序网关的后端地址池，如此 ARM 模板配置所示：
@@ -299,7 +299,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>每个规模集的 NSG 和 ASG
-可以使用[网络安全组](../virtual-network/security-overview.md)通过安全规则来筛选 Azure 虚拟网络中出入 Azure 资源的流量。 可以通过[应用程序安全组](../virtual-network/security-overview.md#application-security-groups)来处理 Azure 资源的网络安全问题，并将其作为应用程序结构的扩展组合起来。
+可以使用[网络安全组](../virtual-network/network-security-groups-overview.md)通过安全规则来筛选 Azure 虚拟网络中出入 Azure 资源的流量。 可以通过[应用程序安全组](../virtual-network/network-security-groups-overview.md#application-security-groups)来处理 Azure 资源的网络安全问题，并将其作为应用程序结构的扩展组合起来。
 
 可以直接向规模集应用网络安全组，只需将引用添加到规模集虚拟机属性的网络接口配置节即可。
 

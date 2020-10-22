@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657222"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363719"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>规划 Azure Active Directory 自助式密码重置部署
 
@@ -313,7 +313,7 @@ Azure AD 可以通过审核和报告提供有关 SSPR 性能的附加信息。
 可以使用 Azure 门户上预生成的报告来衡量 SSPR 性能。 如果有相应的授权，还可以创建自定义查询。 有关详细信息，请参阅 [Azure AD 密码管理的报告选项](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  必须是[全局管理员](../users-groups-roles/directory-assign-admin-roles.md)，并且必须选择为组织收集这些数据。 若要做出此选择，必须在 Azure 门户上至少访问“报告”选项卡或审核日志一次。 在此之前，不会为组织收集数据。
+>  必须是[全局管理员](../roles/permissions-reference.md)，并且必须选择为组织收集这些数据。 若要做出此选择，必须在 Azure 门户上至少访问“报告”选项卡或审核日志一次。 在此之前，不会为组织收集数据。
 
 注册和密码重置的审核日志可保留 30 天。 如果公司内部的安全审核要求保留更长的期限，需要将日志导出到 SIEM 工具（如 [Azure Sentinel](../../sentinel/connect-azure-active-directory.md)、Splunk 或 ArcSight）中使用。
 
@@ -323,7 +323,7 @@ Azure AD 可以通过审核和报告提供有关 SSPR 性能的附加信息。
 
 使用[使用情况和见解](./howto-authentication-methods-usage-insights.md)可以了解针对 Azure MFA 和 SSPR 等功能的身份验证方法在组织中的运作方式。 此报告功能可让组织了解注册的方法，以及这些方法的用法。
 
-### <a name="troubleshoot"></a>疑难解答
+### <a name="troubleshoot"></a>故障排除
 
 * 参阅[排查自助式密码重置问题](./active-directory-passwords-troubleshoot.md) 
 
