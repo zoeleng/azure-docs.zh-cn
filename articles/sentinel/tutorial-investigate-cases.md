@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843101"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367000"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>教程：通过 Azure Sentinel 调查事件
 
@@ -42,7 +42,7 @@ ms.locfileid: "91843101"
 ## <a name="prerequisites"></a>必备条件
 - 如果在设置分析规则时使用了实体映射字段，则只能调查事件。 调查图要求您的原始事件包含实体。
 
-- 如果有需要分配事件的来宾用户，则必须在 Azure AD 租户中为该用户分配 [目录读者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 角色。 默认情况下，定期 (非来宾) 用户分配此角色。
+- 如果有需要分配事件的来宾用户，则必须在 Azure AD 租户中为该用户分配 [目录读者](../active-directory/roles/permissions-reference.md#directory-readers) 角色。 默认情况下，定期 (非来宾) 用户分配此角色。
 
 ## <a name="how-to-investigate-incidents"></a>如何调查事件
 

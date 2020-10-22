@@ -4,12 +4,12 @@ description: 了解如何启用和查看 Azure Kubernetes 服务 (AKS) 中 Kuber
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076379"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368445"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
@@ -37,9 +37,11 @@ Azure Monitor 日志是在 Azure 门户中启用和管理的。 若要为 AKS �
 
 除了 Kubernetes 编写的条目，项目的审核日志还包含来自 AKS 的条目。
 
-审核日志记录到两个类别中： *kube* 和 *kube-* audit。 *Kube*类别包含每个审核事件的所有审核日志数据，包括*get*、 *list*、 *create*、 *update*、 *delete*、 *patch*和*post*。
+审核日志分为三个类别： *kube-audit*、 *kube*和 *guard*。
 
-*Kube*类别是*kube-audit*日志类别的子集。 *kube-* 通过从日志中排除 *get* 和 *list* 审核事件，管理员可以显著减少日志的数量。
+- *Kube*类别包含每个审核事件的所有审核日志数据，包括*get*、 *list*、 *create*、 *update*、 *delete*、 *patch*和*post*。
+- *Kube*类别是*kube-audit*日志类别的子集。 *kube-* 通过从日志中排除 *get* 和 *list* 审核事件，管理员可以显著减少日志的数量。
+- *防护*类别是托管 Azure AD 和 Azure RBAC 审核。 对于托管 Azure AD：中的标记，用户信息为 out。对于 Azure RBAC：向内和向外访问评审。
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>在 AKS 群集上计划测试 pod
 
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>查看收集的日志
 
-可能需要等待几分钟，诊断日志才会启用并显示。
+启用并显示诊断日志可能需要长达10分钟的时间。
 
 > [!NOTE]
 > 如果需要所有审核日志数据以实现符合性或其他目的，请收集该数据并将其存储在廉价存储（如 blob 存储）中。 使用 *kube* 日志类别收集并保存一组有意义的审核日志数据，以便进行监视和警报。

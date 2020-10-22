@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982486"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368241"
 ---
 # <a name="list-azure-role-definitions"></a>列出 Azure 角色定义
 
 角色定义是可执行特权的集合，例如读取、写入和删除。 它通常直接称为“角色”。 [Azure 基于角色的访问控制 (Azure RBAC)](overview.md) 具有超过 120 种[内置角色](built-in-roles.md)，也可以创建自己的自定义角色。 本文介绍如何列出可用于授予 Azure 资源访问权限的内置角色和自定义角色。
 
-若要查看 Azure Active Directory 的管理员角色列表，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+若要查看 Azure Active Directory 的管理员角色列表，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)。
 
 ## <a name="azure-portal"></a>Azure 门户
 

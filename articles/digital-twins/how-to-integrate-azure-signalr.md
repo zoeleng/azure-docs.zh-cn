@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131541"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367646"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>将 Azure 数字孪生与 Azure SignalR 服务集成
 
@@ -242,12 +242,6 @@ npm start
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-如果要删除 Azure 数字孪生实例，还可以使用以下命令，在端到端教程中删除为其创建的 Azure AD 应用注册：
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 最后，删除已下载到本地计算机的项目示例文件夹 (*Azure_Digital_Twins_end_to_end_samples.zip* 并 *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*) 。

@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265895"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366150"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
@@ -45,7 +45,7 @@ ms.locfileid: "91265895"
 1. 在左侧窗格中，选择“用户设置”。
 1. 检查“应用注册”  设置。 只有管理员可设置此值。 如果设置为“是”，则 Active AD 租户中的任何用户都可以注册应用。
 
-如果应用注册设置设定为“否”，则只有具有管理员角色的用户才能注册这些类型的应用程序。 请参阅[可用角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)和[角色权限](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)来了解 Azure AD 中的可用管理员角色以及授予每个角色的具体权限。 如果为帐户分配“用户”角色，但应用注册设置仅限于管理员用户，请要求管理员为你分配可以创建和管理应用注册的所有方面的管理员角色之一，或者让用户能够注册应用。
+如果应用注册设置设定为“否”，则只有具有管理员角色的用户才能注册这些类型的应用程序。 请参阅[可用角色](../roles/permissions-reference.md#available-roles)和[角色权限](../roles/permissions-reference.md#role-permissions)来了解 Azure AD 中的可用管理员角色以及授予每个角色的具体权限。 如果为帐户分配“用户”角色，但应用注册设置仅限于管理员用户，请要求管理员为你分配可以创建和管理应用注册的所有方面的管理员角色之一，或者让用户能够注册应用。
 
 ### <a name="check-azure-subscription-permissions"></a>检查 Azure 订阅权限
 
@@ -131,9 +131,9 @@ ms.locfileid: "91265895"
 
 ## <a name="authentication-two-options"></a>身份验证：两个选项
 
-服务主体可以使用两种类型的身份验证：基于密码的身份验证（应用程序机密）和基于证书的身份验证。 *建议使用证书*，但也可以创建应用程序机密。
+服务主体可以使用两种类型的身份验证：基于密码的身份验证（应用程序机密）和基于证书的身份验证。 我们建议使用证书，但你也可以创建应用程序机密。
 
-### <a name="option-1-upload-a-certificate"></a>选项1：上传证书
+### <a name="option-1-upload-a-certificate"></a>选项 1：上传证书
 
 可以使用现有证书（如果有）。  （可选）可以创建自签名证书，仅限测试目的。 打开 PowerShell 并使用以下参数运行 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate)，以在计算机上的用户证书存储中创建自签名证书：
 
@@ -164,7 +164,7 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 在应用程序注册门户中将证书注册到你的应用程序后，你需要启用客户端应用程序代码以使用该证书。
 
-### <a name="option-2-create-a-new-application-secret"></a>选项2：创建新的应用程序密钥
+### <a name="option-2-create-a-new-application-secret"></a>选项 2：创建新的应用程序机密
 
 如果选择不使用证书，则可以创建新的应用程序机密。
 
@@ -190,4 +190,4 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 * 了解如何[使用 Azure PowerShell 创建服务主体](howto-authenticate-service-principal-powershell.md)。
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)。
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。
-* 有关使用 **Microsoft Graph**使用应用注册的信息，请参阅 [应用程序](/graph/api/resources/application) API 参考。
+* 有关使用 Microsoft Graph 处理应用注册的信息，请参阅[应用程序](/graph/api/resources/application) API 参考。

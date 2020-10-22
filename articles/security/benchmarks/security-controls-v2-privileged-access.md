@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 68fdff9444286a7f304c3a3361ad33a02e87a282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758364"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367476"
 ---
 # <a name="security-control-v2-privileged-access"></a>安全控制 V2：特权访问
 
@@ -34,11 +34,11 @@ ms.locfileid: "91758364"
 
 可以使用 Azure AD Privileged Identity Management (PIM) 启用实时 (JIT) 对 Azure 资源和 Azure AD 的特权访问。 JIT 仅在用户需要权限任务时授予临时权限。 当 Azure AD 组织中存在可疑或不安全的活动时，PIM 还可以生成安全警报。
 
-- [Azure AD 中的管理员角色权限](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD 中的管理员角色权限](../../active-directory/roles/permissions-reference.md)
 
 - [使用 Azure Privileged Identity Management 安全警报](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [确保 Azure AD 中混合部署和云部署的特权访问安全性](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+- [确保 Azure AD 中混合部署和云部署的特权访问安全性](../../active-directory/roles/security-planning.md)
 
 **责任**：客户
 
@@ -50,7 +50,7 @@ ms.locfileid: "91758364"
 
 - [安全合规性管理](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [安全运营](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 ## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2：限制对关键业务系统的管理访问
 
@@ -114,7 +114,7 @@ ms.locfileid: "91758364"
 若要防止意外锁定 Azure AD 组织，请在不能使用正常管理帐户时设置紧急访问帐户进行访问。 紧急访问帐户通常具有很高的特权，不应将其分配给特定的个人。 紧急访问帐户只能用于“不受限”紧急情况，即不能使用正常管理帐户的情况。
 你应确保证书 (例如密码、证书或智能卡) 用于紧急访问帐户，且仅对有权在紧急情况下使用这些凭据的个人保密。
 
-- [在 Azure AD 中管理紧急访问帐户](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [在 Azure AD 中管理紧急访问帐户](../../active-directory/roles/security-emergency-access.md)
 
 **责任**：客户
 

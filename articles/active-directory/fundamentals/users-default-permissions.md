@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6c2255fcba12b19f375e694a0494011aa09b0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101856"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367816"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色分配](active-directory-users-assign-role-azure-portal.md)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。 只能在 Azure AD 的用户设置中更改默认用户权限。
@@ -36,7 +36,7 @@ ms.locfileid: "92101856"
 组 | <ul><li>创建安全组<li>创建 Microsoft 365 组<li>枚举所有组的列表<li>读取组的所有属性<li>读取非隐藏的组成员身份<li>读取加入的组的隐藏 Microsoft 365 组成员身份<li>管理用户拥有的组的属性、所有权和成员身份<li>将来宾添加到拥有的组<li>管理动态成员身份设置<li>删除拥有的组<li>还原拥有的 Microsoft 365 组</li></ul> | <ul><li>读取非隐藏组的属性，包括成员身份和所有权 (即使是未加入的组) <li>读取加入的组的隐藏 Microsoft 365 组成员身份<li>按显示名称或 ObjectId（如果允许）搜索组</li></ul> | <ul><li>读取加入的组的对象 id<li>如果允许，请在某些 Microsoft 365 应用中读取加入的组的成员身份和所有权 () </li></ul>
 应用程序 | <ul><li>注册（创建）新应用程序<li>枚举所有应用程序的列表<li>读取已注册的应用程序和企业应用程序的属性<li>管理拥有的应用程序的应用程序属性、分配和凭据<li>创建或删除用户的应用程序密码<li>删除拥有的应用程序<li>还原拥有的应用程序</li></ul> | <ul><li>读取已注册的应用程序和企业应用程序的属性</li></ul> | <ul><li>读取已注册的应用程序和企业应用程序的属性
 设备</li></ul> | <ul><li>枚举所有设备的列表<li>读取设备的所有属性<li>管理拥有的设备的所有属性</li></ul> | 无权限 | 无权限
-Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有合作伙伴协定</li></ul> | <ul><li>阅读公司显示名称<li>读取所有域</li></ul> | <ul><li>阅读公司显示名称<li>读取所有域</li></ul>
+Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有合作伙伴协定</li></ul> | <ul><li>读取公司显示名称<li>读取所有域</li></ul> | <ul><li>读取公司显示名称<li>读取所有域</li></ul>
 角色和范围 | <ul><li>读取所有管理角色和成员身份<li>读取管理单元的所有属性和成员身份</li></ul> | 无权限 | 无权限
 订阅 | <ul><li>读取所有订阅<li>启用服务计划成员</li></ul> | 无权限 | 无权限
 策略 | <ul><li>读取策略的所有属性<li>管理拥有的策略的所有属性</li></ul> | 无权限 | 无权限
@@ -48,19 +48,18 @@ Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有�
 权限 | 设置说明
 ---------- | ------------
 用户可以注册应用程序 | 将此选项设置为“否”可阻止用户创建应用程序注册。 然后，通过将特定的个人添加到“应用程序开发人员”角色，可以将该能力重新授予这些个人。
-允许用户使用 LinkedIn 连接工作或学校帐户 | 将此选项设置为“否”可阻止用户使用其 LinkedIn 帐户连接其工作或学校帐户。 有关详细信息，请参阅 [LinkedIn 帐户连接数据共享和同意](../users-groups-roles/linkedin-user-consent.md)。
-能够创建安全组 | 将此选项设置为“否”可阻止用户创建安全组。 全局管理员和用户管理员仍可创建安全组。 有关操作方法，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)。
-能够创建 Microsoft 365 组 | 将此选项设置为“否”可阻止用户创建 Microsoft 365 组。 将此选项设置为“某些”可让选定的一组用户创建 Microsoft 365 组。 全局管理员和用户管理员仍可创建 Microsoft 365 组。 有关操作方法，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)。
+允许用户使用 LinkedIn 连接工作或学校帐户 | 将此选项设置为“否”可阻止用户使用其 LinkedIn 帐户连接其工作或学校帐户。 有关详细信息，请参阅 [LinkedIn 帐户连接数据共享和同意](../enterprise-users/linkedin-user-consent.md)。
+能够创建安全组 | 将此选项设置为“否”可阻止用户创建安全组。 全局管理员和用户管理员仍可创建安全组。 有关操作方法，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)。
+能够创建 Microsoft 365 组 | 将此选项设置为“否”可阻止用户创建 Microsoft 365 组。 将此选项设置为“某些”可让选定的一组用户创建 Microsoft 365 组。 全局管理员和用户管理员仍可创建 Microsoft 365 组。 有关操作方法，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)。
 限制访问 Azure AD 管理门户 | 如果将此选项设为“否”，则允许非管理员使用 Azure AD 管理门户读取和管理 Azure AD 资源。 如果设为“是”，则限制所有非管理员在管理门户中访问任何 Azure AD 数据。<p>注意：此设置不限制通过 PowerShell 或其他客户端（例如 Visual Studio）对 Azure AD 数据的访问。设为“是”时，若要向特定的非管理员用户授予使用 Azure AD 管理门户的权限，请分配任何管理角色（如“目录读取者者”角色）。<p>此角色允许读取基本目录信息，默认情况下成员用户有这些信息（来宾和服务主体没有）。
 能够读取其他用户 | 此设置仅可在 PowerShell 中使用。 将此标记设置为 $false 可阻止所有非管理员用户从目录读取用户信息。 此标记不会阻止读取其他 Microsoft 服务（如 Exchange Online）中的用户信息。 此设置适用于特殊情况，因此不建议将此标记设置为 $false。
-
 
 ## <a name="restrict-guest-users-default-permissions"></a>限制来宾用户的默认权限
 
 可通过以下方式限制来宾用户的默认权限：
 
->[!NOTE] 
->"来宾用户 **访问限制** " 设置已替换 " **来宾用户权限** 限制" 设置。 有关此功能的用法指南，请参阅[限制 Azure Active Directory 中的来宾访问权限（预览）](../users-groups-roles/users-restrict-guest-permissions.md)。
+>[!NOTE]
+>来宾用户访问限制设置已替换“来宾用户权限受限”设置。 有关此功能的用法指南，请参阅[限制 Azure Active Directory 中的来宾访问权限（预览）](../enterprise-users/users-restrict-guest-permissions.md)。
 
 权限 | 设置说明
 ---------- | ------------
@@ -143,7 +142,7 @@ Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解有关来宾用户访问限制设置的更多信息，请参阅[限制 Azure Active Directory 中的来宾访问权限（预览）](../users-groups-roles/users-restrict-guest-permissions.md)。
+* 若要了解有关来宾用户访问限制设置的更多信息，请参阅[限制 Azure Active Directory 中的来宾访问权限（预览）](../enterprise-users/users-restrict-guest-permissions.md)。
 * 若要详细了解如何分配 Azure AD 管理员角色，请参阅[在 Azure Active Directory 中向用户分配管理员角色](active-directory-users-assign-role-azure-portal.md)
 * 若要了解有关如何在 Microsoft Azure 中控制资源访问的详细信息，请参阅 [了解 Azure 中的资源访问权限](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * 有关 Azure Active Directory 如何与 Azure 订阅相关联的详细信息，请参阅 [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)（Azure 订阅与 Azure Active Directory 的关联方式）

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: adbec15e252a7b5cbd55f1b571d55455fb313a01
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aaa9a78342cf64461d85d7542c7ed8a69186906b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337670"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275108"
 ---
 # <a name="azure-cosmos-db-sql-api-spring-data-azure-cosmos-db-v3-examples"></a>Azure Cosmos DB SQL API：Spring Data Azure Cosmos DB v3 示例
 
@@ -101,7 +101,7 @@ mvn spring-boot:run
 ```
 
 ## <a name="document-crud-examples"></a>文档 CRUD 示例
-[samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅概念性文章：[使用数据库、容器和项](databases-containers-items.md)。
+[samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅概念性文章：[使用数据库、容器和项](account-databases-containers-items.md)。
 
 | 任务 | API 参考 |
 | --- | --- |

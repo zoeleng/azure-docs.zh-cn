@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145413"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366354"
 ---
 # <a name="conditional-access-users-and-groups"></a>条件访问：用户和组
 
@@ -46,13 +46,13 @@ ms.locfileid: "92145413"
 > 如果用户或组是 2048 个以上的组的成员，则其访问可能会被阻止。 此限制适用于直接组和嵌套组成员身份。
 
 > [!WARNING]
-> 条件访问策略不支持为用户分配[范围为管理单元](../users-groups-roles/roles-admin-units-assign-roles.md)的目录角色或范围直接为对象的目录角色（例如，通过[自定义角色](../users-groups-roles/roles-create-custom.md)进行角色分配时就是如此）。
+> 条件访问策略不支持为用户分配[范围为管理单元](../roles/admin-units-assign-roles.md)的目录角色或范围直接为对象的目录角色（例如，通过[自定义角色](../roles/custom-create.md)进行角色分配时就是如此）。
 
 ## <a name="exclude-users"></a>排除用户
 
 如果组织同时包括并排除某个用户或组，则会从策略中排除该用户或组，因为排除操作会替代策略中的包括操作。 排除通常用于紧急访问或不受限帐户。 有关紧急访问帐户及其重要原因的详细信息，请参阅以下文章： 
 
-* [在 Azure AD 中管理紧急访问帐户](../users-groups-roles/directory-emergency-access.md)
+* [在 Azure AD 中管理紧急访问帐户](../roles/security-emergency-access.md)
 * [使用 Azure Active Directory 创建可复原的访问控制管理策略](../authentication/concept-resilient-controls.md)
 
 创建条件访问策略时，可以排除以下选项。

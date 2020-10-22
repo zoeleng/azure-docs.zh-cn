@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331815"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367119"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中的预配吞吐量简介
 
@@ -43,9 +43,6 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="承载一个或多个容器逻辑分区的物理分区" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>对数据库设置吞吐量
-
-> [!NOTE]
-> 当前在启用了[客户管理的密钥](how-to-setup-cmk.md)的帐户中，无法预配 Azure Cosmos 数据库吞吐量。
 
 对 Azure Cosmos 数据库预配吞吐量时，在该数据库中的所有容器（称作共享的数据库容器）之间共享吞吐量。 一种例外是在数据库中的特定容器上指定了预配的吞吐量。 在容器之间共享数据库级预配吞吐量相当于在计算机群集上托管数据库。 由于数据库中的所有容器共享一台计算机上的可用资源，因此，任何特定容器的性能自然不可预测。 若要了解如何对数据库配置预配吞吐量，请参阅[对 Azure Cosmos 数据库配置预配吞吐量](how-to-provision-database-throughput.md)。 若要了解如何对数据库配置自动缩放吞吐量，请参阅[预配自动缩放吞吐量](how-to-provision-autoscale-throughput.md)。
 

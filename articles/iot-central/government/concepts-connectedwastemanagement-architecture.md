@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 763fb82e0725e5a98112af3a79856c3703a5c2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77016079"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126269"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>连接的废弃物检测参考体系结构 
 
@@ -33,7 +33,7 @@ ms.locfileid: "77016079"
 让我们了解一些关键组件，它们往往在用水量监测解决方案中发挥着重要的作用。
 
 ## <a name="devices-and-connectivity"></a>设备和连接 
-在开放环境中使用的设备（例如垃圾桶）可以通过第三方网络运营商提供的低功耗广域网 (LPWAN) 进行连接。 对于此类设备，可以使用 [Azure IoT Central 设备网桥](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)将设备数据发送到 Azure IoT Central 中的 IoT 应用程序。 还可以使用支持 IP 的设备网关，或者直接连接到 IoT Central。
+在开放环境中使用的设备（例如垃圾桶）可以通过第三方网络运营商提供的低功耗广域网 (LPWAN) 进行连接。 对于此类设备，可以使用 [Azure IoT Central 设备网桥](../core/howto-build-iotc-device-bridge.md)将设备数据发送到 Azure IoT Central 中的 IoT 应用程序。 还可以使用支持 IP 的设备网关，或者直接连接到 IoT Central。
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central 是一个 IoT 应用平台，可让你快速启动和运行 IoT 解决方案。 你可以设计、自定义解决方案，并将其与第三方服务相集成。
@@ -51,5 +51,4 @@ IoT 数据可为废弃物治理公用事业中的各种业务应用程序赋能�
 ## <a name="next-steps"></a>后续步骤
 * 了解如何[创建联网废弃物管理](./tutorial-connected-waste-management.md) IoT Central 应用程序
 * 详细了解[政府用 IoT Central 模板](./overview-iot-central-government.md)
-* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-
+* 若要详细了解 IoT Central，请参阅 [IoT Central 概述](../core/overview-iot-central.md)

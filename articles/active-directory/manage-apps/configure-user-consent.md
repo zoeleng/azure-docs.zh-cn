@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfcd758390ff401c786c28d410c4d092a82c37f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819260"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368479"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>配置最终用户如何对应用程序表示同意
 
@@ -47,7 +47,7 @@ ms.locfileid: "91819260"
 
 若要通过 Azure 门户配置用户同意设置：
 
-1. 以[全局管理员](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)的身份登录 [Azure 门户](https://portal.azure.com)。
+1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)的身份登录 [Azure 门户](https://portal.azure.com)。
 1. 选择“Azure Active Directory” > “企业应用程序” > “同意和权限” > “用户同意设置”   。
 1. 在“针对应用程序的用户同意”下，选择想要为所有用户配置的同意设置。
 1. 选择“保存”以保存设置。
@@ -80,7 +80,7 @@ ms.locfileid: "91819260"
 
 将替换 `{consent-policy-id}` 为要应用的策略的 ID。 你可以选择已创建的 [自定义应用许可策略](manage-app-consent-policies.md#create-a-custom-app-consent-policy) ，也可以从以下内置策略中进行选择：
 
-| ID | 说明 |
+| ID | 描述 |
 |:---|:------------|
 | microsoft-用户-默认-低 | **允许用户同意已验证的发布者对所选权限的应用**<br /> 仅允许对已验证的发布者和应用程序中已注册的应用程序的应用进行有限的用户同意，并且仅适用于分类为 "影响较低" 的权限。  (不要忘记对 [权限进行分类](configure-permission-classifications.md) ，以选择允许用户同意的权限。 )  |
 | microsoft-用户-默认-旧式 | **允许用户同意应用**<br /> 此选项允许所有用户同意任何不需要管理员同意的任何应用程序的权限 |
