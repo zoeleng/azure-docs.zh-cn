@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258143"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363413"
 ---
 # <a name="publisher-verification"></a>发布者验证
 
@@ -49,7 +49,7 @@ ms.locfileid: "91258143"
 
 -  执行验证的用户必须获得授权，才能对 Azure AD 中的应用注册和合作伙伴中心中的 MPN 帐户进行更改。 
 
-    -  在 Azure AD 此用户必须是以下 [角色](../users-groups-roles/directory-assign-admin-roles.md)之一的成员： "应用程序管理员"、"云应用程序管理员" 或 "全局管理员"。 
+    -  在 Azure AD 此用户必须是以下 [角色](../roles/permissions-reference.md)之一的成员： "应用程序管理员"、"云应用程序管理员" 或 "全局管理员"。 
 
     -  在合作伙伴中心，该用户必须拥有以下[角色](/partner-center/permissions-overview)之一。MPN 管理员、帐户管理员或全局管理员（这是 Azure AD 中主导的共享角色）。
     

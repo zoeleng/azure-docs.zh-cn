@@ -12,12 +12,12 @@ metadata:
   title: 个性化体验创建服务文档
   titleSuffix: Azure Cognitive Services
   description: Azure 个性化体验创建服务是基于云的 API 服务，可让你选择要显示给用户的最佳体验，并从其实时行为中学习信息。
-  ms.openlocfilehash: 28197f7408ea93ed07d09e1ae44e7924f4605a14
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 51aba4941eb1e1e575e6d33a48a8fe1552eb4d47
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88506542"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92371131"
 landingContent:
 - title: 关于个性化体验创建服务
   linkLists:
@@ -123,9 +123,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: 支持和帮助选项
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - text: 疑难解答
       url: troubleshooting.md
-    - text: 在 Stack Overflow 上提出问题
-      url: https://stackoverflow.com/questions/tagged/personalizer
-    - text: 利用 UserVoice 影响服务
-      url: https://cognitive.uservoice.com/forums/921562-personalizer

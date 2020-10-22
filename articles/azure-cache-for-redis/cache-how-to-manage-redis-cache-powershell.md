@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 327505dfbaf5f6f35b065f4f3941053c5114aa33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 478b53b78fb72a01ad028c7fb6b7683b34cbca14
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019209"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370791"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -139,7 +139,7 @@ ms.locfileid: "89019209"
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Azure Redis 缓存 PowerShell 使用的属性
 下表包含使用 Azure PowerShell 创建和管理 Azure Redis 缓存实例时常用的参数的属性和说明。
 
-| 参数 | 说明 | 默认 |
+| 参数 | 描述 | 默认 |
 | --- | --- | --- |
 | 名称 |缓存的名称 | |
 | 位置 |缓存的位置 | |
@@ -853,5 +853,5 @@ ms.locfileid: "89019209"
 * [使用资源组管理 Azure 资源](../azure-resource-manager/templates/deploy-portal.md)：了解如何在 Azure 门户中创建和管理资源组。
 * [Azure 博客](https://azure.microsoft.com/blog/)：了解 Azure 中的新功能。
 * [Windows PowerShell 博客](https://devblogs.microsoft.com/powershell/)：了解 Windows PowerShell 中的新功能。
-* [“你好，脚本专家！”博客](https://blogs.technet.microsoft.com/heyscriptingguy/author/the-scripting-guys/)：从 Windows PowerShell 社区获取实用提示和技巧。
+* [“你好，脚本专家！”博客](https://devblogs.microsoft.com/scripting/tag/hey-scripting-guy/)：从 Windows PowerShell 社区获取实用提示和技巧。
 

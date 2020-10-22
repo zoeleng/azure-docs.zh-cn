@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 9e8a1246a2e48c3c569b82845c713ba25ee2467a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426116"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364025"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -29,7 +29,7 @@ ms.locfileid: "89426116"
 4. 检查 VM 的 Hyper-V-VMMS\Admin 登录中显示的问题。 此日志位于“应用程序和服务日志” > “Microsoft” > “Windows”中。
 5. 在来宾 VM 上，验证 WMI 是否已启用并可访问。
    - [了解](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)基本 WMI 测试。
-   - [排查](https://aka.ms/WMiTshooting) WMI 问题。
+   - [排查](/windows/win32/wmisdk/wmi-troubleshooting) WMI 问题。
    - [排查](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) WMI 脚本和服务的问题。
 6. 在来宾 VM 上，确保运行最新版本的 Integration Services。
     - [检查](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)是否安装了最新版本。

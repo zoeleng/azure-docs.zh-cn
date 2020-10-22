@@ -108,7 +108,7 @@
           items:
             - name: 使用 Azure Monitor 日志监视 VM
               href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 疑难解答
+        - name: 故障排除
           items:
             - name: 对 VM 操作系统磁盘进行故障排除
               href: ./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
@@ -354,8 +354,6 @@
           href: ../security-controls-policy.md
         - name: Azure 安全基准的安全基线
           href: security-baseline.md
-        - name: 内置安全控件
-          href: virtual-machines-linux-security-controls.md
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 状态和生命周期
@@ -807,7 +805,7 @@
                       href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                     - name: 自定义字段
                       href: ../../azure-monitor/platform/custom-fields.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: 疑难解答
+            - name: 故障排除
               items:
                 - name: Log Analytics VM 扩展
                   href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -1082,7 +1080,7 @@
           href: ../extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 导出扩展
           href: ../extensions/export-templates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: 疑难解答
+        - name: 故障排除
           href: ../extensions/troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 启用了 Python 3 的 Linux 系统的问题
           href: ../extensions/issues-using-vm-extensions-python-3.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -1190,5 +1188,5 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: 常见问题解答
       href: faq.md
-- name: 疑难解答
+- name: 故障排除
   href: ../troubleshooting/index.yml

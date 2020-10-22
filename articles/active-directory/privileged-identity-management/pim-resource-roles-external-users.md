@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88782730"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365521"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中邀请来宾用户并分配 Azure 资源角色
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) 来宾用户是 Azure AD 中企业对企业 (B
 
 使用 Privileged Identity Management，你可以邀请来宾并使他们有资格担任 Azure 资源角色。
 
-1. 使用[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)或[用户管理员](../users-groups-roles/directory-assign-admin-roles.md#user-administrator)角色成员用户的身份登录到 [Azure 门户](https://portal.azure.com/)。
+1. 使用[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)或[用户管理员](../roles/permissions-reference.md#user-administrator)角色成员用户的身份登录到 [Azure 门户](https://portal.azure.com/)。
 
 1. 打开“Azure AD Privileged Identity Management”。
 

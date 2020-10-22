@@ -107,8 +107,6 @@
                   href: service-bus-managed-service-identity.md
                 - name: 通过应用程序进行身份验证
                   href: authenticate-application.md
-        - name: 内置安全控件
-          href: service-bus-messaging-security-controls.md
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -231,7 +229,7 @@
           href: private-link-service.md
         - name: 配置客户管理的密钥
           href: configure-customer-managed-key.md
-    - name: 疑难解答
+    - name: 故障排除
       items:
         - name: 故障排除指南
           href: service-bus-troubleshooting-guide.md

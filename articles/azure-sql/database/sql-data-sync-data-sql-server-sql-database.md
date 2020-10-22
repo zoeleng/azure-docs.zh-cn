@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173557"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371745"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>什么是 Azure SQL 数据同步？
 
@@ -81,7 +81,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 | | 数据同步 | 事务复制 |
 |---|---|---|
 | **优点** | - 主动-主动支持<br/>- 在本地和 Azure SQL 数据库之间双向同步 | - 更低的延迟<br/>- 事务一致性<br/>- 迁移后重用现有拓扑 <br/>\- Azure SQL 托管实例支持 |
-| **缺点** | - 5 分钟或更长的延迟<br/>- 无事务一致性<br/>- 更高的性能影响 | - 无法从 Azure SQL 数据库发布 <br/>- 维护成本高 |
+| **缺点** | -5 同步之间的最小频率<br/>- 无事务一致性<br/>- 更高的性能影响 | - 无法从 Azure SQL 数据库发布 <br/>- 维护成本高 |
 
 ## <a name="get-started"></a>入门 
 
@@ -135,9 +135,9 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 - 主键不能具有以下数据类型：sql_variant、binary、varbinary、image、xml。
 - 使用以下数据类型作为主键时请小心谨慎，因为支持的精度仅到秒：time、datetime、datetime2、datetimeoffset。
 - 对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
+- 表名不能包含可打印字符：！ " # $ % ' ( ) * + -
 - 不支持 Azure Active Directory 身份验证。
 - 如果存在具有相同名称但不同架构的表 (例如，dbo. customers 和 sales。客户) 只能将其中一个表添加到同步中。
-- 表名不能包含 ASCII 值小于或等于 "-" 的字符。
 - 不支持具有用户定义数据类型的列
 - 不支持在不同订阅之间移动服务器。 
 
@@ -166,7 +166,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 | 同步组中的表                                          | 500                    | 创建多个同步组 |
 | 同步组中的表列                              | 1000                   |                             |
 | 表中的数据行大小                                        | 24MB                  |                             |
-| 最小同步间隔                                           | 5 分钟              |                             |
+| 最小同步频率间隔                                 | 5 分钟              |                             |
 
 > [!NOTE]
 > 如果只有一个同步组，则单个同步组中最多可能有 30 个终结点。 如果有多个同步组，则所有同步组中的终结点总数不能超过 30。 如果数据库属于多个同步组，则该数据库计算为多个终结点，而不是一个。
