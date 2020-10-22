@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665865"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216124"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>教程：使用授权代码流让用户登录并从 JavaScript 单页应用 (SPA) 调用 Microsoft Graph API
 
@@ -30,8 +30,6 @@ ms.locfileid: "91665865"
 > * 调用需要从 Microsoft 标识平台终结点获取的访问令牌的 Microsoft Graph 或你自己的 API
 
 MSAL.js 2.0 支持浏览器中的授权代码流（而不是隐式授权流），从而在 MSAL.js 1.0 的基础上进行了改进。 MSAL.js 2.0 不支持隐式流。
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -120,13 +118,13 @@ MSAL.js 2.0 支持浏览器中的授权代码流（而不是隐式授权流）�
 ```
 msal-spa-tutorial/
 ├── app
-│   ├── authConfig.js
-│   ├── authPopup.js
-│   ├── authRedirect.js
-│   ├── graphConfig.js
-│   ├── graph.js
-│   ├── index.html
-│   └── ui.js
+│   ├── authConfig.js
+│   ├── authPopup.js
+│   ├── authRedirect.js
+│   ├── graphConfig.js
+│   ├── graph.js
+│   ├── index.html
+│   └── ui.js
 └── server.js
 ```
 

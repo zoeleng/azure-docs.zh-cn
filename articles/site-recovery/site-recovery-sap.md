@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86133708"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369414"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>为多层 SAP NetWeaver 应用部署设置灾难恢复
 
@@ -39,11 +39,11 @@ ms.locfileid: "86133708"
 
 使用 Azure Site Recovery 可以为以下方案实现灾难恢复解决方案：
 * 在 Azure 数据中心内运行 SAP 系统，并将其复制到其他 Azure 数据中心（Azure 到 Azure 灾难恢复）。 
-   有关详细信息，请参阅 [Azure 到 Azure 复制体系结构](https://aka.ms/asr-a2a-architecture)。
+   有关详细信息，请参阅 [Azure 到 Azure 复制体系结构](./azure-to-azure-architecture.md)。
 * 在本地 VMware（或物理）服务器上运行 SAP 系统。 SAP 系统还会复制到 Azure 数据中心内的灾难恢复站点（VMware 到 Azure 灾难恢复）。 
-   此方案需要一些附加的组件。 有关详细信息，请参阅 [VMware 到 Azure 复制体系结构](https://aka.ms/asr-v2a-architecture)。
+   此方案需要一些附加的组件。 有关详细信息，请参阅 [VMware 到 Azure 复制体系结构](./vmware-azure-architecture.md)。
 * 在本地 Hyper-V 上运行的 SAP 系统。 SAP 系统还会复制到 Azure 数据中心内的灾难恢复站点（Hyper-V 到 Azure 灾难恢复）。
-   此方案需要一些附加的组件。 有关详细信息，请参阅 [Hyper-V 到 Azure 复制体系结构](https://aka.ms/asr-h2a-architecture)。
+   此方案需要一些附加的组件。 有关详细信息，请参阅 [Hyper-V 到 Azure 复制体系结构](./hyper-v-azure-architecture.md)。
 
 在本文中，你将使用 **Azure 到 Azure** 灾难恢复方案。 此方案将演示 Site Recovery 的 SAP 灾难恢复功能。 由于 Site Recovery 复制过程不特定于应用程序，因此介绍的过程应该也适用于其他方案。
 

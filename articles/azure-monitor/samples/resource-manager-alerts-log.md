@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f3e965b1141bb7cf49b191c828b7dd0f3ed3fba8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 623ad70572683103edb0a824830be6bbba6c8c35
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278356"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369040"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>用于 Azure Monitor 日志警报规则的资源管理器模板示例
 本文包含用于在 Azure Monitor 中创建和配置日志查询警报的 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)示例。 每个示例都包含模板文件和参数文件，其中包含要提供给模板的示例值。
@@ -36,7 +36,7 @@ ms.locfileid: "91278356"
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Resource ID of the Log Analytisc workspace."
+                "description": "Resource ID of the Log Analytics workspace."
             }
         },
         "location": {

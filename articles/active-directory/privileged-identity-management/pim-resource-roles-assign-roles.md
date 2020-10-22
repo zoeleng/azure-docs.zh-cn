@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf2b7a72b76c3ea028580a642a6a9f634c162edb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128159"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369720"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中分配 Azure 资源角色
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可以管
 
 遵循以下步骤可使用户符合 Azure 资源角色的条件。
 
-1. 使用“[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)”角色成员的用户身份登录到 [Azure 门户](https://portal.azure.com/)。
+1. 使用“[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)”角色成员的用户身份登录到 [Azure 门户](https://portal.azure.com/)。
 
     有关如何授予其他管理员访问权限以管理 Privileged Identity Management 的信息，请参阅[授予其他管理员访问权限以管理 Privileged Identity Management](pim-how-to-give-access-to-pim.md)。
 

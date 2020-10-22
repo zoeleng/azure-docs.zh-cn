@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489895"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216583"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>教程：使用 Azure Data Share 共享数据  
 
@@ -33,7 +33,7 @@ ms.locfileid: "89489895"
 
 ### <a name="share-from-a-storage-account"></a>从存储帐户共享：
 
-* 一个 Azure 存储帐户：如果没有，可以创建一个 [Azure 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* 一个 Azure 存储帐户：如果没有，可以创建一个 [Azure 存储帐户](../storage/common/storage-account-create.md)
 * 向存储帐户进行写入的权限，此权限位于 *Microsoft.Storage/storageAccounts/write* 中。 “参与者”角色有此权限。
 * 向存储帐户添加角色分配的权限，此权限存在于 *Microsoft.Authorization/role assignments/write* 中。 “所有者”角色有此权限。 
 
@@ -141,4 +141,4 @@ ms.locfileid: "89489895"
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何创建 Azure Data Share 并邀请接收者。 若要了解数据使用者如何接受和接收数据共享，请继续学习[接受和接收数据](subscribe-to-data-share.md)教程。 
+本教程介绍了如何创建 Azure Data Share 并邀请接收者。 若要了解数据使用者如何接受和接收数据共享，请继续学习[接受和接收数据](subscribe-to-data-share.md)教程。

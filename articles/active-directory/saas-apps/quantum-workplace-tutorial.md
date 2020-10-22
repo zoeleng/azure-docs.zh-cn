@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4e23a9d5334af5ebdaab2ef15a5c39f232095
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552243"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>教程：Azure Active Directory 与 Quantum Workplace 集成
 
@@ -99,11 +99,11 @@ ms.locfileid: "88552243"
 
 4. 在基本 SAML 配置  部分，应用程序进行了预配置，且已通过 Azure 预填充了必要的 URL。 用户需要单击“保存”  按钮来保存配置。
 
-    ![Quantum Workplace 域和 URL 单一登录信息](common/preintegrated.png)
+    ![屏幕截图显示“基本 SAML 配置”。](common/preintegrated.png)
 
 5. 如果要在 SP  发起的模式下配置应用程序，请单击“设置其他 URL”  ，并执行以下步骤：
 
-    ![Quantum Workplace 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”文本框中，键入 URL：`https://auth.quantumworkplace.com/Account/Login` 
 

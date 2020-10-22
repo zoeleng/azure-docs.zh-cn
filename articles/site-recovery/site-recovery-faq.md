@@ -4,12 +4,12 @@ description: 本文讨论有关 Azure Site Recovery 的常见问题。
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950487"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369431"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>有关 Azure Site Recovery 的一般问题
 
@@ -71,7 +71,7 @@ Site Recovery 采取各种措施来确保数据完整性。 使用 HTTPS 协议�
 
 可以使用[定价计算器](https://aka.ms/asr_pricing_calculator)来估算使用 Site Recovery 时的费用。
 
-若要对费用进行详细估算，请运行 [VMware](https://aka.ms/siterecovery_deployment_planner) 或 [Hyper-V](https://aka.ms/asr-deployment-planner) 的部署规划器工具并使用[成本估算报告](https://aka.ms/asr_DP_costreport)。
+若要对费用进行详细估算，请运行 [VMware](./site-recovery-deployment-planner.md) 或 [Hyper-V](https://aka.ms/asr-deployment-planner) 的部署规划器工具并使用[成本估算报告](./site-recovery-vmware-deployment-planner-cost-estimation.md)。
 
 
 ### <a name="managed-disks-are-now-used-to-replicate-vmware-vms-and-physical-servers-do-i-incur-additional-charges-for-the-cache-storage-account-with-managed-disks"></a>现在，托管磁盘用于复制 VMware VM 和物理服务器。 使用托管磁盘的缓存存储帐户是否会产生其他费用？

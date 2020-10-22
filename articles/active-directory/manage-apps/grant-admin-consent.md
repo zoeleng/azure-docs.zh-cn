@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069571"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369091"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>向应用程序授予租户范围的管理员许可
 
@@ -27,7 +27,7 @@ ms.locfileid: "90069571"
 
 ## <a name="prerequisites"></a>必备条件
 
-授予租户范围的管理员许可需要以[全局管理员](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)、[应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)或[云应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)的身份登录。
+授予租户范围的管理员许可需要以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录。
 
 > [!IMPORTANT]
 > 为应用程序授予租户范围的管理员许可后，除非已配置为需要用户分配，否则所有用户都可以登录到该应用。 若要限制哪些用户可登录到某个应用程序，需要提供用户分配，然后将用户或组分配到该应用程序。 有关详细信息，请参阅[分配用户和组的方法](methods-for-assigning-users-and-groups.md)。
@@ -47,7 +47,7 @@ ms.locfileid: "90069571"
 
 若要向“企业应用程序”中列出的应用授予租户范围的管理员许可：****
 
-1. 以[全局管理员](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)、[应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)或[云应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.com)。
+1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.com)。
 2. 依次选择“Azure Active Directory”、“企业应用程序”。********
 3. 选择要向其授予租户范围的管理员许可的应用程序。
 4. 选择“权限”，然后单击“授予管理员许可”。********
@@ -63,7 +63,7 @@ ms.locfileid: "90069571"
 
 若要通过“应用注册”授予租户范围的管理员许可：****
 
-1. 以[全局管理员](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)、[应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)或[云应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.com)。
+1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.com)。
 2. 依次选择“Azure Active Directory”、“应用注册”。********
 3. 选择要向其授予租户范围的管理员许可的应用程序。
 4. 选择“API 权限”，然后单击“授予管理员许可”。********

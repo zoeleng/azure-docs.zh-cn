@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653573"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369941"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>分析 Azure Site Recovery 部署规划器报告
 本文介绍 Azure Site Recovery 部署规划器针对 Hyper-V 到 Azure 方案生成的 Excel 报表中包含的工作表。
@@ -154,7 +154,7 @@ Hyper-V 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细
 
 **磁盘存储类型**：标准或高级存储帐户，用于复制“要放置的 VM”列中所述的所有相应 VM。****
 
-**建议的前缀**：建议的三字符前缀，可用于存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循[存储帐户的分区命名约定](https://aka.ms/storage-performance-checklist)。
+**建议的前缀**：建议的三字符前缀，可用于存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循[存储帐户的分区命名约定](/en-in/azure/storage/blobs/storage-performance-checklist)。
 
 **建议的帐户名称**：在使用建议的前缀后出现的存储帐户名称。 将尖括号（< 和 >）中的名称替换为自定义输入。
 
@@ -220,7 +220,7 @@ Hyper-V 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细
 
 **VM 名称**：生成报表时在 VMListFile 中使用的 VM 名称。 此列还列出附加到 VM 的磁盘 (VHD)。 这些名称包括 Hyper-V 主机名，其中的 VM 是此工具在分析期间发现它们时放置的。
 
-**VM 兼容性**：指示给定的 VM 为何无法与 Site Recovery 兼容使用。 会针对 VM 的每个不兼容磁盘说明原因，而根据已发布的[存储限制](https://aka.ms/azure-storage-scalbility-performance)，这些原因不外乎：
+**VM 兼容性**：指示给定的 VM 为何无法与 Site Recovery 兼容使用。 会针对 VM 的每个不兼容磁盘说明原因，而根据已发布的[存储限制](/en-in/azure/storage/common/scalability-targets-standard-account)，这些原因不外乎：
 
 * 磁盘大小大于 4,095 GB。 Azure 存储目前不支持大于 4,095 GB 的数据磁盘大小。
 

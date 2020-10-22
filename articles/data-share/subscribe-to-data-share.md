@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489912"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216566"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>教程：使用 Azure Data Share 接受和接收数据  
 
@@ -34,7 +34,7 @@ ms.locfileid: "89489912"
 
 ### <a name="receive-data-into-a-storage-account"></a>将数据接收到存储帐户 
 
-* 一个 Azure 存储帐户：如果没有，可以创建一个 [Azure 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。 
+* 一个 Azure 存储帐户：如果没有，可以创建一个 [Azure 存储帐户](../storage/common/storage-account-create.md)。 
 * 向存储帐户进行写入的权限，此权限位于 *Microsoft.Storage/storageAccounts/write* 中。 “参与者”角色有此权限。 
 * 向存储帐户添加角色分配的权限，此权限存在于 *Microsoft.Authorization/role assignments/write* 中。 “所有者”角色有此权限。  
 
@@ -62,7 +62,7 @@ ms.locfileid: "89489912"
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>将数据接收到 Azure 数据资源管理器群集中： 
 
-* 数据提供程序的数据资源管理器群集所在的同一 Azure 数据中心内的 Azure 数据资源管理器群集：如果没有此群集，可以创建一个 [Azure 数据资源管理器群集](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal)。 如果你不知道数据提供程序群集的 Azure 数据中心，可以稍后在此过程中创建群集。
+* 数据提供程序的数据资源管理器群集所在的同一 Azure 数据中心内的 Azure 数据资源管理器群集：如果没有此群集，可以创建一个 [Azure 数据资源管理器群集](/azure/data-explorer/create-cluster-database-portal)。 如果你不知道数据提供程序群集的 Azure 数据中心，可以稍后在此过程中创建群集。
 * 向 Azure 数据资源管理器群集进行写入的权限，此权限存在于 *Microsoft.Kusto/clusters/write* 中。 “参与者”角色有此权限。 
 * 向 Azure 数据资源管理器群集添加角色分配的权限，此权限存在于 *Microsoft.Authorization/role assignments/write* 中。 “所有者”角色有此权限。 
 

@@ -3,12 +3,12 @@ title: 准备 Azure Migrate 来使用 ISV 工具/Movere
 description: 本文介绍了如何准备 Azure Migrate 以使用 ISV 工具或 Movere，然后介绍如何开始使用该工具。
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 885e64536e516e4fd96233c37a68f6e77fb84e33
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103919"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369142"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>准备使用 ISV 工具或 Movere
 
@@ -26,7 +26,7 @@ ms.locfileid: "86103919"
 
 1. 在 Azure AD 中，查看你的帐户的角色。
 2. 如果你有用户角色，请在左侧选择“用户设置”，并验证用户是否可注册应用程序。 如果设置为“是”，则 Active AD 租户中的任何用户都可注册应用。 如果设置为“否”，则只有管理员用户可注册应用。   
-3. 如果你没有权限，则管理员用户可为你的用户帐户提供[应用程序管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator)角色，以便你可注册应用。
+3. 如果你没有权限，则管理员用户可为你的用户帐户提供[应用程序管理员](../active-directory/roles/permissions-reference.md#application-administrator)角色，以便你可注册应用。
 4. 将该工具链接到 Azure Migrate 后，管理员可从你的帐户中删除该角色。
 
 ### <a name="set-permissions-to-assign-a-role-to-an-azure-ad-app"></a>设置权限来将角色分配给 Azure AD 应用

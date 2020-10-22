@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600790"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369771"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>使用 Azure Active Directory 进行强身份验证的四个步骤
 
@@ -156,7 +156,7 @@ Azure 提供可供你和你的组织使用的报表，以确保用户已注册 M
 * 基于属性的使用动态组成员身份
 * 委托给应用所有者
 
-Azure AD 提供使用安全组和 Microsoft 365 组管理对资源的访问的能力。 可以批准或拒绝成员身份请求并委派组成员身份的控制权限的组所有者可以管理这些组。 此功能称为 [自助服务组管理](../users-groups-roles/groups-self-service-management.md)，通过允许没有分配管理角色的组所有者来创建和管理组，而无需依赖管理员来处理其请求，从而节省了时间。
+Azure AD 提供使用安全组和 Microsoft 365 组管理对资源的访问的能力。 可以批准或拒绝成员身份请求并委派组成员身份的控制权限的组所有者可以管理这些组。 此功能称为 [自助服务组管理](../enterprise-users/groups-self-service-management.md)，通过允许没有分配管理角色的组所有者来创建和管理组，而无需依赖管理员来处理其请求，从而节省了时间。
 
 ## <a name="step-4---operationalize-your-insights"></a>步骤 4-操作你的见解
 
@@ -172,9 +172,9 @@ Azure AD 提供使用安全组和 Microsoft 365 组管理对资源的访问的�
 
 考虑到操作方法时，需要考虑几个级别的管理。 第一层将管理工作负担 () 。 始终使用全局管理员角色可能适用于小型公司。 但对于具有支持特定任务的技术支持人员和管理员的大型组织而言，分配全局管理员角色可能会带来安全风险，因为它让这些用户能够管理高于和超出其功能的任务。
 
-在这种情况下，你应该考虑下一层的管理。 使用 Azure AD，你可以将最终用户指定为 "受限管理员"，这些用户可以在权限较低的角色中管理任务。 例如，你可以向技术支持人员分配 [安全读者](../users-groups-roles/directory-assign-admin-roles.md#security-reader) 角色，使其能够使用只读访问权限来管理与安全相关的功能。 或者，将 [身份验证管理员](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) 角色分配给个人是有意义的，使其能够重置非密码凭据或读取和配置 Azure 服务运行状况。
+在这种情况下，你应该考虑下一层的管理。 使用 Azure AD，你可以将最终用户指定为 "受限管理员"，这些用户可以在权限较低的角色中管理任务。 例如，你可以向技术支持人员分配 [安全读者](../roles/permissions-reference.md#security-reader) 角色，使其能够使用只读访问权限来管理与安全相关的功能。 或者，将 [身份验证管理员](../roles/permissions-reference.md#authentication-administrator) 角色分配给个人是有意义的，使其能够重置非密码凭据或读取和配置 Azure 服务运行状况。
 
-若要了解详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+若要了解详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../roles/permissions-reference.md)。
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 监视混合组件 (Azure AD Connect 同步、AD FS) 
 
@@ -229,7 +229,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="today"></a>今天
 
-|完成了吗？|项|
+|完成了吗？|项目|
 |:-|:-|
 ||针对组的试验性自助服务密码重置 (SSPR) |
 ||使用 Azure AD Connect Health 监视混合组件|
@@ -239,7 +239,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="next-two-weeks"></a>接下来两周
 
-|完成了吗？|项|
+|完成了吗？|项目|
 |:-|:-|
 ||使应用可供用户使用|
 ||试点 Azure AD 预配适用于所选的 SaaS 应用|
@@ -249,7 +249,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="next-month"></a>下个月
 
-|完成了吗？|项|
+|完成了吗？|项目|
 |:-|:-|
 ||监视应用的使用情况以推动见解|
 ||向应用程序进行安全远程访问|
@@ -258,7 +258,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="next-three-months"></a>接下来三个月
 
-|完成了吗？|项|
+|完成了吗？|项目|
 |:-|:-|
 ||启用自助服务应用管理|
 ||启用自助服务组管理|

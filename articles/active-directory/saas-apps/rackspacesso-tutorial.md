@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 991201429bdc09a03ddc46c5beb9d0f4d6744ed5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548870"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>教程：Azure Active Directory 与 Rackspace SSO 集成
 
@@ -101,11 +101,11 @@ ms.locfileid: "88548870"
 
     a. 单击“上传元数据文件”  。
 
-    ![image](common/upload-metadata.png)
+    ![屏幕截图显示了“基本 SAML 配置”，其中包含“上传元数据文件”链接。](common/upload-metadata.png)
 
     b. 单击“文件夹徽标”  来选择元数据文件并单击“上传”。 
 
-    ![image](common/browse-upload-metadata.png)
+    ![屏幕截图显示了可在其中选择并上传文件的对话框。](common/browse-upload-metadata.png)
 
     c. 成功上传元数据文件后，将自动填充所需的 URL。
 

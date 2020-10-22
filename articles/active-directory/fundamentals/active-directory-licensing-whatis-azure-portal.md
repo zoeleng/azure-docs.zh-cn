@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565049"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369805"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory 中基于组的许可是什么？
 
@@ -65,9 +65,9 @@ Microsoft 付费云服务（如 Microsoft 365、企业移动性 + 安全性、Dy
 
 若要详细了解通过基于组的许可进行许可证管理的其他方案，请参阅：
 
-* [将许可证分配到 Azure Active Directory 中的组](../users-groups-roles/licensing-groups-assign.md)
-* [识别和解决 Azure Active Directory 中组的许可问题](../users-groups-roles/licensing-groups-resolve-problems.md)
-* [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](../users-groups-roles/licensing-groups-migrate-users.md)
-* [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory 基于组的许可的其他方案](../users-groups-roles/licensing-group-advanced.md)
-* [Azure Active Directory 中基于组的许可的 PowerShell 示例](../users-groups-roles/licensing-ps-examples.md)
+* [将许可证分配到 Azure Active Directory 中的组](../enterprise-users/licensing-groups-assign.md)
+* [识别和解决 Azure Active Directory 中组的许可问题](../enterprise-users/licensing-groups-resolve-problems.md)
+* [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](../enterprise-users/licensing-groups-migrate-users.md)
+* [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](../enterprise-users/licensing-groups-change-licenses.md)
+* [Azure Active Directory 基于组的许可的其他方案](../enterprise-users/licensing-group-advanced.md)
+* [Azure Active Directory 中基于组的许可的 PowerShell 示例](../enterprise-users/licensing-ps-examples.md)

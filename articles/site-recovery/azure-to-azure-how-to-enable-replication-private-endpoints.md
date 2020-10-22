@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db8d09511385039ea79ad1ed1f50177156f69c8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658252"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369924"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>复制具有专用终结点的计算机
 
@@ -117,7 +117,7 @@ Azure Site Recovery 允许使用 [Azure 专用链接](../private-link/private-en
 > [!NOTE]
 > 只能在 **常规用途 v2** 存储帐户上创建存储的专用终结点。 有关定价信息，请参阅 [标准页 blob 价格](https://azure.microsoft.com/pricing/details/storage/page-blobs/)。
 
-按照创建 [专用存储的指导](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) 创建使用专用终结点的存储帐户。 请确保选择 **"是"** 以与专用 DNS 区域集成。 选择已创建的 DNS 区域，或新建一个。
+按照创建 [专用存储的指导](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) 创建使用专用终结点的存储帐户。 请确保选择 **"是"** 以与专用 DNS 区域集成。 选择已创建的 DNS 区域，或新建一个。
 
 ## <a name="grant-required-permissions-to-the-vault"></a>向保管库授予所需的权限
 

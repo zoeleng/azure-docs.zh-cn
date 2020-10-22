@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe591c55065372245d95210ab0282a0070c96434
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713646"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318784"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Amazon Web Services (AWS) 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91713646"
 * 让用户可以使用其 Azure AD 帐户自动登录到 Amazon Web Services (AWS)。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ![Azure AD 和 AWS 的关系示意图](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "91713646"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Amazon Web Services (AWS) 支持 **SP 和 IDP** 发起的 SSO
-* 配置 Amazon Web Services (AWS) 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* 配置 Amazon Web Services (AWS) 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > 此应用程序的标识符是一个固定字符串值，因此只能在一个租户中配置一个实例。
@@ -366,17 +366,17 @@ ms.locfileid: "91713646"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Amazon Web Services (AWS) 磁贴时，应会自动登录到为其设置了 SSO 的 Amazon Web Services (AWS)。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Amazon Web Services (AWS) 磁贴时，应会自动登录到为其设置了 SSO 的 Amazon Web Services (AWS)。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="known-issues"></a>已知问题
 
  * 在“预配”部分，“映射”子部分会显示“正在加载...”消息，但从不显示属性映射。  目前支持的唯一预配工作流是将角色从 AWS 导入到 Azure AD 中，以便在用户或组分配过程中对其进行选择。 上述属性映射是预先确定的，不可配置。
 
- * “预配”部分只支持一次为一个 AWS 租户输入一组凭据。 所有导入的角色都写入到 AWS 租户的 Azure AD [`servicePrincipal` 对象](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)的 `appRoles` 属性。
+ * “预配”部分只支持一次为一个 AWS 租户输入一组凭据。 所有导入的角色都写入到 AWS 租户的 Azure AD [`servicePrincipal` 对象](/graph/api/resources/serviceprincipal?view=graph-rest-beta)的 `appRoles` 属性。
 
    可将多个 AWS 租户（由 `servicePrincipals` 表示）从库添加到 Azure AD 进行预配。 但存在一个已知的问题：无法自动将所有导入的角色从用于预配的多个 AWS `servicePrincipals` 写入到用于 SSO 的单个 `servicePrincipal` 中。
 
-   若要解决此问题，可以使用 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) 来提取所有已导入每个 AWS `servicePrincipal`（已在其中配置预配）中的 `appRoles`。 然后，可将这些角色字符串添加到 AWS `servicePrincipal`（已在其中配置 SSO）。
+   若要解决此问题，可以使用 [Microsoft Graph API](/graph/api/resources/serviceprincipal?view=graph-rest-beta) 来提取所有已导入每个 AWS `servicePrincipal`（已在其中配置预配）中的 `appRoles`。 然后，可将这些角色字符串添加到 AWS `servicePrincipal`（已在其中配置 SSO）。
 
 * 角色必须满足以下要求才有资格从 AWS 导入 Azure AD：
 
@@ -384,17 +384,17 @@ ms.locfileid: "91713646"
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [通过 Azure AD 试用 Amazon Web Services (AWS)](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)
 
-- [如何通过高级可见性和控制保护 Amazon Web Services (AWS)](https://docs.microsoft.com/cloud-app-security/protect-aws)
+- [如何通过高级可见性和控制保护 Amazon Web Services (AWS)](/cloud-app-security/protect-aws)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

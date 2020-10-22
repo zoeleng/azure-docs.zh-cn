@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662514"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369788"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD 如何为本地工作负荷提供云管控管理
 
@@ -107,7 +107,7 @@ Azure AD 可以根据需要 [自动为来宾用户创建 ad 中的帐户](../ext
 
 通常，IT 部门会将访问权限审批决策委托给业务决策人。 此外，IT 部门可能涉及到用户本身的事务。 例如，访问公司位于欧洲的市场营销应用程序中的机密客户数据的用户需要知道该公司的策略。 来宾用户还可能不知道对其受邀组织中数据的处理要求。
 
-组织可以通过诸如 [动态组](../users-groups-roles/groups-dynamic-membership.md)这样的技术自动执行访问生命周期过程，结合使用用户预配到 [SaaS 应用程序](../saas-apps/tutorial-list.md)，或者 [使用系统实现跨域标识管理 (SCIM) 标准集成的应用程序](../app-provisioning/use-scim-to-provision-users-and-groups.md) 。 组织还可以控制哪些 [来宾用户有权访问本地应用程序](../external-identities/hybrid-cloud-to-on-premises.md)。 然后，可以使用 [Azure AD 访问评审](../governance/access-reviews-overview.md)定期评审这些访问权限。
+组织可以通过诸如 [动态组](../enterprise-users/groups-dynamic-membership.md)这样的技术自动执行访问生命周期过程，结合使用用户预配到 [SaaS 应用程序](../saas-apps/tutorial-list.md)，或者 [使用系统实现跨域标识管理 (SCIM) 标准集成的应用程序](../app-provisioning/use-scim-to-provision-users-and-groups.md) 。 组织还可以控制哪些 [来宾用户有权访问本地应用程序](../external-identities/hybrid-cloud-to-on-premises.md)。 然后，可以使用 [Azure AD 访问评审](../governance/access-reviews-overview.md)定期评审这些访问权限。
 
 ## <a name="future-directions"></a>未来发展方向
 

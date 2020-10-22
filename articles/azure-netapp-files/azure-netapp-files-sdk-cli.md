@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 10/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 61978566eba792a1d5b1db45ea4a9e8d6e84a543
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: f7b9cabdc7c2c706ff3b8dd5a0b3b5f7ed3666d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931030"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369023"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp 文件 SDK 和 CLI 工具
+# <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>Azure NetApp 文件 Sdk、CLI 工具和 ARM 模板
 
-本文列出了 Azure NetApp 文件支持的 Sdk 和命令行 (CLI) 工具。
+本文列出了 Azure NetApp 文件支持的 Sdk、命令行 (CLI) 工具和 Azure 资源管理器 (ARM) 模板。
 
 ## <a name="supported-sdks"></a>支持的 SDK 
 
@@ -44,12 +44,18 @@ ms.locfileid: "91931030"
 
 |    工具    |    命令参考    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure NetApp 文件的 Azure PowerShell](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
+|    PowerShell   |    [Azure NetApp 文件的 Azure PowerShell](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
 
 ## <a name="code-samples"></a>代码示例
 
 请参阅 [Azure NetApp 文件的代码示例](/samples/browse/?filter-products=netapp&products=azure-netapp-files)。
+
+## <a name="azure-resource-manager-templates"></a>Azure 资源管理器模板  
+
+Azure 资源管理器 (ARM) 允许使用声明性模板预配应用程序。 在单个模板中，可以部署多个服务及其依赖项。 在应用程序生命周期的每个阶段，可使用相同模板重复部署应用程序。   
+
+请参阅 [适用于 Azure NetApp 文件的 ARM 模板](https://azure.microsoft.com/resources/templates/?term=anf)。
 
 ## <a name="next-steps"></a>后续步骤   
  [下载 Azure Sdk](https://azure.microsoft.com/downloads/)
