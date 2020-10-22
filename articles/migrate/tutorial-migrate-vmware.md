@@ -4,12 +4,12 @@ description: 了解如何使用 Azure Migrate 运行 VMware VM 的无代理迁�
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530516"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310638"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>将 VMware VM 迁移到 Azure（使用无代理方法）
 
@@ -36,8 +36,8 @@ ms.locfileid: "90530516"
 
 开始学习本教程之前，应做好以下准备：
 
-1. [完成第一篇教程](tutorial-prepare-vmware.md)来准备 Azure 和 VMware，以便进行迁移。
-2. 建议先完成第二篇教程以[评估 VMware VM](tutorial-assess-vmware.md)，然后再将它们迁移到 Azure，但不一定要这样做。 
+1. [完成第一篇教程](./tutorial-discover-vmware.md)来准备 Azure 和 VMware，以便进行迁移。
+2. 建议先完成第二篇教程以[评估 VMware VM](./tutorial-assess-vmware-azure-vm.md)，然后再将它们迁移到 Azure，但不一定要这样做。 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>添加 Azure Migration 服务器迁移工具
@@ -59,7 +59,7 @@ ms.locfileid: "90530516"
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>设置 Azure Migrate 设备
 
-Azure Migrate 服务器迁移运行一个轻型 VMware VM 设备，该设备用于 VMware VM 的发现、评估和无代理迁移。 如果按照[评估教程](tutorial-assess-vmware.md)操作，则已将该设备设置为已启动。 如果尚未这样做，请使用以下方法之一立即进行设置：
+Azure Migrate 服务器迁移运行一个轻型 VMware VM 设备，该设备用于 VMware VM 的发现、评估和无代理迁移。 如果按照[评估教程](./tutorial-assess-vmware-azure-vm.md)操作，则已将该设备设置为已启动。 如果尚未这样做，请使用以下方法之一立即进行设置：
 
 - OVA 模板：使用下载的 OVA 模板在 VMware VM 上进行[设置](how-to-set-up-appliance-vmware.md)。
 - **脚本**：使用 PowerShell 安装程序脚本在 VMware VM 或物理计算机上进行[设置](deploy-appliance-script.md)。 如果无法使用 OVA 模板设置 VM，或者你使用的是 Azure 政府，则应使用此方法。
@@ -210,7 +210,7 @@ Azure Migrate 服务器迁移运行一个轻型 VMware VM 设备，该设备用�
     - 使用 Site Recovery 将 Azure VM 复制到次要区域以保证工作负荷运行且持续可用。 [了解详细信息](../site-recovery/azure-to-azure-tutorial-enable-replication.md)。
 - 为提高安全性，请执行以下操作：
     - 使用 [Azure 安全中心 - 适时管理](../security-center/security-center-just-in-time.md)锁定和限制入站流量访问。
-    - 使用[网络安全组](../virtual-network/security-overview.md)限制流入管理终结点的网络流量。
+    - 使用[网络安全组](../virtual-network/network-security-groups-overview.md)限制流入管理终结点的网络流量。
     - 部署[Azure 磁盘加密](../security/fundamentals/azure-disk-encryption-vms-vmss.md)以帮助保护磁盘，并保护数据以防被盗和未经授权的访问。
     - 详细了解[保护 IaaS 资源的安全](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)，并访问[Azure 安全中心](https://azure.microsoft.com/services/security-center/)。
 - 为了便于监视和管理，请执行以下操作：

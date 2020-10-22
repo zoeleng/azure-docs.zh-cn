@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318130"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362693"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>规划 Azure Active Directory 访问评审部署
 
@@ -198,7 +198,7 @@ ms.locfileid: "92318130"
 | 访问包| 全局管理员<p>访问包的创建者| 仅限全局管理员 |
 
 
-有关详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+有关详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../roles/permissions-reference.md)。
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>谁将评审对资源的访问权限？
 
@@ -343,7 +343,7 @@ ms.locfileid: "92318130"
 
 ### <a name="review-external-users-group-memberships"></a>评审外部用户的组成员身份
 
-若要最大程度地减少手动工作和相关的潜在错误，请考虑使用 [动态组](../users-groups-roles/groups-create-rule.md) 基于用户的属性分配组成员身份。 可能需要为外部用户创建一个或多个动态组。 内部赞助商可以充当组中成员身份的审阅者。 
+若要最大程度地减少手动工作和相关的潜在错误，请考虑使用 [动态组](../enterprise-users/groups-create-rule.md) 基于用户的属性分配组成员身份。 可能需要为外部用户创建一个或多个动态组。 内部赞助商可以充当组中成员身份的审阅者。 
 
 注意：由于访问评审而从组中删除的外部用户不会从租户中删除。 
 
@@ -389,7 +389,7 @@ ms.locfileid: "92318130"
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>规划 Azure AD 和 Azure 资源角色的评审
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 简化了企业对 Azure AD 中的资源的特权访问管理方式。 这样可以大大缩小 [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) 和 [Azure 资源](../../role-based-access-control/built-in-roles.md)中的特权角色的列表，提高目录的总体安全性。
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 简化了企业对 Azure AD 中的资源的特权访问管理方式。 这样可以大大缩小 [Azure AD](../roles/permissions-reference.md) 和 [Azure 资源](../../role-based-access-control/built-in-roles.md)中的特权角色的列表，提高目录的总体安全性。
 
 访问评审允许审阅者证实用户是否仍需担任某个角色。 与访问包的访问评审一样，Azure AD 角色和 Azure 资源的评审已集成到 PIM 管理员用户体验中。 建议定期评审下列角色分配：
 

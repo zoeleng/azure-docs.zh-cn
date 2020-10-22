@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318421"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371879"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 部署计划
 正在寻找有关部署 Azure Active Directory (Azure AD) 功能的端到端指南吗？ Azure AD 部署计划将引导你完成成功部署常见 Azure AD 功能所需的业务价值、规划注意事项和操作过程。
@@ -29,7 +29,7 @@ ms.locfileid: "89318421"
 
 角色可能包括以下 
 
-|角色 |说明 |
+|Role |描述 |
 |-|-|
 |最终用户|将为其实施功能的代表用户组。 经常预览试点计划中的更改。
 |IT 支持经理|IT 支持组织代表，他们可以从支持人员的角度提供此更改的可支持性的输入。  
@@ -54,7 +54,7 @@ ms.locfileid: "89318421"
 
 在第一轮中，面向 IT、可用性和其他可测试和提供反馈的适当用户。 此反馈应该用于进一步开发您向用户发送的通信和说明，并深入了解支持人员可能会看到的问题类型。 
 
-将部署扩展到更大的用户组应通过增加)  (的组的范围来执行。 这可以通过 [动态组成员身份](../users-groups-roles/groups-dynamic-membership.md)来完成，也可以通过手动将用户添加到目标组 () 。
+将部署扩展到更大的用户组应通过增加)  (的组的范围来执行。 这可以通过 [动态组成员身份](../enterprise-users/groups-dynamic-membership.md)来完成，也可以通过手动将用户添加到目标组 () 。
 
 
 ## <a name="deploy-authentication"></a>部署身份验证

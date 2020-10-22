@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b24d9e1cbbcf875d7b4bde3981b28d8999ba8d47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019124"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149197"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教程：通过 IoT 中心设置和使用指标和诊断日志
 
@@ -190,7 +190,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 转到门户中的中心。 单击“资源组”，选择“ContosoResources”，然后选择 IoT 中心“ContosoTestHub”。    
 
-IoT 中心尚未迁移到 [Azure Monitor 中的指标](/azure/azure-monitor/platform/data-collection#metrics)；必须使用[经典警报](/azure/azure-monitor/platform/alerts-classic.overview)。
+IoT 中心尚未迁移到 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform.md#metrics)；必须使用[经典警报](../azure-monitor/platform/alerts-classic.overview.md)。
 
 1. 在“监视”下，单击“警报”。此时会显示警报主屏幕。   
 
@@ -369,7 +369,7 @@ await Task.Delay(10);
 
 若要删除在本教程中创建的所有资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 本例删除 IoT 中心、存储帐户和资源组本身。 如果已将指标固定到仪表板，则需要手动删除这些指标，方法是：单击每个指标右上角的三个点，然后选择“删除”。 
 
-若要删除资源组，请使用 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 命令。
+若要删除资源组，请使用 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 命令。
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

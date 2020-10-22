@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181708"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372457"
 ---
 # <a name="how-to-use-self-service-application-access"></a>如何使用自助服务应用程序访问
 
@@ -67,4 +67,4 @@ ms.locfileid: "89181708"
 -   如果最近配置了自助应用程序访问，请在几分钟后尝试再次登录到用户的 "我的应用"，以查看是否显示了自助服务访问更改。
 
 ## <a name="next-steps"></a>后续步骤
-[为自助组管理设置 Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+[为自助组管理设置 Azure Active Directory](../enterprise-users/groups-self-service-management.md)

@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602925"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362767"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>在 Azure AD 访问评审中创建对组和应用程序的访问评审
 
@@ -164,6 +164,7 @@ ms.locfileid: "90602925"
 |已自动评审 | 系统已为未评审的所有用户记录了决定。 如果启用了“自动应用”，则评审可以进入“正在应用”阶段了。 |
 |正在应用 | 对于已批准的用户，访问权限不会更改。 |
 |已应用 | 已经从源或目录删除拒绝的用户（如果有）。 |
+|Failed | 查看无法进行。 此错误可能与删除租户、许可证更改或其他内部租户更改相关。 |
 
 ## <a name="create-reviews-via-apis"></a>通过 API 创建评审
 

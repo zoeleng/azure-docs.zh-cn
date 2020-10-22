@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e5b8dc325fa7eaceaa0274029049f546db5b6995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888544"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088765"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>使用 IntelliJ 部署 Azure Spring Cloud 应用程序
 
@@ -23,7 +23,7 @@ ms.locfileid: "90888544"
 在运行此示例之前，可以尝试[基础知识快速入门](spring-cloud-quickstart.md)。
 
 ## <a name="prerequisites"></a>先决条件
-* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable&preserve-view=true)
+* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA 社区版/旗舰版，版本 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
@@ -57,7 +57,7 @@ ms.locfileid: "90888544"
     ![导入项目](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## <a name="deploy-to-azure-spring-cloud"></a>部署到 Azure Spring Cloud
-若要部署到 Azure，必须使用你的 Azure 帐户登录，然后选择你的订阅。  有关登录的详细信息，请参阅[安装和登录](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)。
+若要部署到 Azure，必须使用你的 Azure 帐户登录，然后选择你的订阅。  有关登录的详细信息，请参阅[安装和登录](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)。
 
 1. 在 IntelliJ 项目资源管理器中右键单击你的项目，选择“Azure” -> “部署到 Azure Spring Cloud”。 
 
@@ -104,5 +104,5 @@ ms.locfileid: "90888544"
     ![流式处理日志输出](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## <a name="next-steps"></a>后续步骤
-* [准备适用于 Azure Spring Cloud 的 Spring 应用程序](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
-* [详细了解 Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)
+* [准备适用于 Azure Spring Cloud 的 Spring 应用程序](./spring-cloud-tutorial-prepare-app-deployment.md)
+* [详细了解 Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)

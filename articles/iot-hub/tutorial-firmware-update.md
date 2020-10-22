@@ -14,18 +14,18 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1410b9e8287b34c8b40e841ff513de784e1730a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842812"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150557"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实现设备固件更新过程
 
 可能需要更新连接到 IoT 中心的设备上的固件。 例如，可能需要向固件添加新功能，或者需要应用安全修补程序。 在许多 IoT 方案中，以物理方式访问设备并以手动方式对设备应用固件更新是不现实的。 本教程介绍如何通过连接到中心的后端应用程序以远程方式启动并监视固件更新过程。
 
-为了创建并监视固件更新过程，本教程中的后端应用程序在 IoT 中心创建了一个配置。 IoT 中心[自动设备管理](iot-hub-auto-device-config.md)使用此配置在所有冷却器设备上更新一组设备孪生所需属性。 所需属性指定所需固件更新的详细信息。 冷却器设备在运行固件更新过程时，会使用设备孪生报告属性将其状态报告给后端应用程序。 后端应用程序可以使用此配置监视从设备发送的报告属性，并跟踪固件更新过程至完成：
+为了创建并监视固件更新过程，本教程中的后端应用程序在 IoT 中心创建了一个配置。 IoT 中心[自动设备管理](./iot-hub-automatic-device-management.md)使用此配置在所有冷却器设备上更新一组设备孪生所需属性。 所需属性指定所需固件更新的详细信息。 冷却器设备在运行固件更新过程时，会使用设备孪生报告属性将其状态报告给后端应用程序。 后端应用程序可以使用此配置监视从设备发送的报告属性，并跟踪固件更新过程至完成：
 
 ![固件更新过程](media/tutorial-firmware-update/Process.png)
 

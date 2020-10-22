@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b076c757c8f86941c79da4f0be598aaa5ea6761
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317961"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362750"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 中的新增功能
 
@@ -94,7 +94,7 @@ Azure AD Connect 云预配公共预览版刷新功能通过客户反馈开发了
 **服务类别：** RBAC  
 **产品功能：** 访问控制
  
-具有 [团队设备管理员](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) 角色的用户可以从团队管理中心管理已 [认证的团队设备](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) 。 
+具有 [团队设备管理员](../roles/permissions-reference.md#teams-devices-administrator) 角色的用户可以从团队管理中心管理已 [认证的团队设备](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) 。 
 
 此角色允许用户在一眼内查看所有设备，并能够搜索和筛选设备。 用户还可以查看每个设备的详细信息，包括登录帐户以及设备的品牌和型号。 用户可以更改设备上的设置并更新软件版本。 此角色不会授予检查团队活动和调用设备质量的权限。
  
@@ -146,7 +146,7 @@ Azure AD Connect 云预配公共预览版刷新功能通过客户反馈开发了
 - 新的排序功能，如名称、用户主体名称和删除日期。
 - 新用户总数使用任何搜索或筛选器进行更新。
 
-有关详细信息，请参阅 [Azure Active Directory 中的用户管理增强功能 (预览) ](../users-groups-roles/users-search-enhanced.md)。
+有关详细信息，请参阅 [Azure Active Directory 中的用户管理增强功能 (预览) ](../enterprise-users/users-search-enhanced.md)。
 
 ---
 
@@ -255,7 +255,7 @@ Azure AD Connect 云预配公共预览版刷新功能通过客户反馈开发了
 
 已更新来宾用户的目录级别权限。 这些权限允许管理员要求对外部来宾用户访问的其他限制和控制。 管理员现在可以为外部来宾对用户和组的访问权限和成员身份信息添加其他限制。 使用此公共预览功能，客户可以通过模糊处理组成员身份，以大规模方式管理外部用户访问权限，包括限制来宾用户查看组成员身份的成员身份)  (。
 
-若要了解详细信息，请参阅 [受限来宾访问权限](../users-groups-roles/users-restrict-guest-permissions.md) 和 [用户默认权限](./users-default-permissions.md)。
+若要了解详细信息，请参阅 [受限来宾访问权限](../enterprise-users/users-restrict-guest-permissions.md) 和 [用户默认权限](./users-default-permissions.md)。
  
 ---
 
@@ -358,7 +358,7 @@ Azure AD 我的 Sign-Ins 是一项新功能，允许企业用户检查其登录�
 **服务类别：** Azure AD 角色  
 **产品功能：** 访问控制
 
-你现在可以将 Azure AD 内置角色分配给具有这一新功能的云组。 例如，可以将 SharePoint 管理员角色分配到 Contoso_SharePoint_Admins 组。 你还可以使用 PIM 使组成为角色的合格成员，而不是授予持续访问权限。 若要了解如何配置此功能，请参阅 [使用云组管理 Azure Active Directory (preview) 中的角色分配 ](../users-groups-roles/roles-groups-concept.md)。
+你现在可以将 Azure AD 内置角色分配给具有这一新功能的云组。 例如，可以将 SharePoint 管理员角色分配到 Contoso_SharePoint_Admins 组。 你还可以使用 PIM 使组成为角色的合格成员，而不是授予持续访问权限。 若要了解如何配置此功能，请参阅 [使用云组管理 Azure Active Directory (preview) 中的角色分配 ](../roles/groups-concept.md)。
  
 ---
 
@@ -368,7 +368,7 @@ Azure AD 我的 Sign-Ins 是一项新功能，允许企业用户检查其登录�
 **服务类别：** Azure AD 角色  
 **产品功能：** 访问控制
  
-Insights Business 主管角色中的用户可以通过 [M365 Insights 应用程序](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics)访问一组仪表板和见解。 其中包括对所有仪表板以及提供的见解和数据探索功能的完全访问权限。 但是，此角色中的用户无法访问产品配置设置，这是 Insights 管理员角色的责任。 若要了解有关此角色的详细信息，请参阅 [中的管理员角色权限 Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-business-leader)
+Insights Business 主管角色中的用户可以通过 [M365 Insights 应用程序](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics)访问一组仪表板和见解。 其中包括对所有仪表板以及提供的见解和数据探索功能的完全访问权限。 但是，此角色中的用户无法访问产品配置设置，这是 Insights 管理员角色的责任。 若要了解有关此角色的详细信息，请参阅 [中的管理员角色权限 Azure Active Directory](../roles/permissions-reference.md#insights-business-leader)
  
 ---
 
@@ -378,7 +378,7 @@ Insights Business 主管角色中的用户可以通过 [M365 Insights 应用程�
 **服务类别：** Azure AD 角色  
 **产品功能：** 访问控制
  
-Insights 管理员角色中的用户可以访问 [M365 Insights 应用程序](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics)中的完整管理功能集。 此角色中的用户可以读取目录信息、监视服务运行状况、文件支持票证，以及访问 Insights 管理员设置方面的内容。 若要了解有关此角色的详细信息，请参阅 [中的管理员角色权限 Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-administrator)
+Insights 管理员角色中的用户可以访问 [M365 Insights 应用程序](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics)中的完整管理功能集。 此角色中的用户可以读取目录信息、监视服务运行状况、文件支持票证，以及访问 Insights 管理员设置方面的内容。 若要了解有关此角色的详细信息，请参阅 [中的管理员角色权限 Azure Active Directory](../roles/permissions-reference.md#insights-administrator)
  
 --- 
 
@@ -528,7 +528,7 @@ Azure AD 应用程序代理现在支持 (RDS) Web 客户端的远程桌面服务
  
 2020年7月，我们已在应用程序库中添加了以下55新应用程序，并提供联合身份验证支持：
 
-[击掌](http://www.rmit.com.ar/)， [Appreiz](https://microsoftteams.appreiz.com/)， [Inextor 保管库](https://inexto.com/inexto-suite/inextor)， [Beekast](https://my.beekast.com/)， [Templafy](https://app.templafy.com/)， [Control 塔](https://bpm.tnxcorp.com/sso/microsoft)， [PeterConnects，](https://msteams.peterconnects.com/)[硬币构造云](https://sso.coinsconstructioncloud.com/#login/) [，](https://appfusions.alohacloud.com/auth) [AlohaCloud MT](https://task.teamsmain.medx.im/authorization) [，Cocoom，](https://start.cocoom.com/) [Medxnote，Reflekt](https://reflekt.konsolute.com/login) [，Rever](https://app.reverscore.net/access) [，MyCompanyArchive](https://login.mycompanyarchive.com/) [，GReminders](../saas-apps/titanfile-tutorial.md) [，Titanfile](../saas-apps/wootric-tutorial.md) [，](../saas-apps/kpifire-tutorial.md) [Wootric，](../saas-apps/intsights-tutorial.md) [SolarWinds，Orion](https://app.greminders.com/o365-oauth) [，OpenText](../saas-apps/datasite-tutorial.md) [，Datasite，](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US) [BlogIn、](../saas-apps/opentext-directory-services-tutorial.md) [IntSights、](../saas-apps/textline-tutorial.md)kpifire [、system.windows.media.textformatting.textline>](../saas-apps/blogin-tutorial.md)、[社区 Spark](../saas-apps/community-spark-tutorial.md)、 [Chatwork、](../saas-apps/cloud-academy-sso-tutorial.md) [CloudSign](../saas-apps/cloudsign-tutorial.md)、 [C3M Cloud Control](../saas-apps/c3m-cloud-control-tutorial.md) [，SmartHR ](https://smart-schoolapp.com/frmLoginForm)， [Chatwork](../saas-apps/chatwork-tutorial.md) [NumlyEngage](https://smarthr.jp/)™ [，密歇根](../saas-apps/numlyengage-tutorial.md)Data [Hub 单一登录，出口](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md)， [SendSafely](../saas-apps/egress-tutorial.md)， [Eletive](../saas-apps/sendsafely-tutorial.md)，[右手](https://app.eletive.com/)网络安全[ADI，Fyde](https://right-hand.ai/)Enterprise [Authentication，Verme](https://enterprise.fyde.com/)， [Lenses.io](../saas-apps/verme-tutorial.md) [，Momenta，Uprise](../saas-apps/lensesio-tutorial.md) [，CloudCords](../saas-apps/momenta-tutorial.md) [，](https://app.inspiresoftware.com/)TellMe Identity [Orchestrator SAML 连接器，Maverics](https://www.strata.io/identity-fabric/)，Smartschool， [Zepto](https://app.uprise.co/sign-in)， [Q](https://q.moduleq.com/login)timekeeping， [CloudCords](../saas-apps/cloudcords-tutorial.md)Studi.ly， [TellMe Bot](https://tellme365liteweb.azurewebsites.net/) [Trackplan，Skedda](https://studi.ly/) [，WhosOnLocation，](https://user.zepto-ai.com/signin) [Coggle，](../saas-apps/skedda-tutorial.md) [，](../saas-apps/whos-on-location-tutorial.md)) [ (，](../saas-apps/coggle-tutorial.md) [Kemp LoadMaster](https://kemptechnologies.com/cloud-load-balancer/)， [BrowserStack 单一登录](../saas-apps/browserstack-single-sign-on-tutorial.md) [Trackplan](http://www.trackplanfm.com/)
+[击掌](http://www.rmit.com.ar/)， [Appreiz](https://microsoftteams.appreiz.com/)， [Inextor 保管库](https://inexto.com/inexto-suite/inextor)， [Beekast](https://my.beekast.com/)， [Templafy](https://app.templafy.com/)， [Control 塔](https://bpm.tnxcorp.com/sso/microsoft)， [PeterConnects，](https://msteams.peterconnects.com/)[硬币构造云](https://sso.coinsconstructioncloud.com/#login/) [，](https://appfusions.alohacloud.com/auth) [AlohaCloud MT](https://task.teamsmain.medx.im/authorization) [，Cocoom，](https://start.cocoom.com/) [Medxnote，Reflekt](https://reflekt.konsolute.com/login) [，Rever](https://app.reverscore.net/access) [，MyCompanyArchive](https://login.mycompanyarchive.com/) [，GReminders](../saas-apps/titanfile-tutorial.md) [，Titanfile](../saas-apps/wootric-tutorial.md) [，](../saas-apps/kpifire-tutorial.md) [Wootric，](../saas-apps/intsights-tutorial.md) [SolarWinds，Orion](https://app.greminders.com/o365-oauth) [，OpenText](../saas-apps/datasite-tutorial.md) [，Datasite，](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US) [BlogIn、](../saas-apps/opentext-directory-services-tutorial.md) [IntSights、](../saas-apps/textline-tutorial.md)kpifire [、system.windows.media.textformatting.textline>](../saas-apps/blogin-tutorial.md)、[社区 Spark](../saas-apps/community-spark-tutorial.md)、 [Chatwork、](../saas-apps/cloud-academy-sso-tutorial.md) [CloudSign](../saas-apps/cloudsign-tutorial.md)、 [C3M Cloud Control](../saas-apps/c3m-cloud-control-tutorial.md) [，SmartHR ](https://smartschoolz.com/login)， [Chatwork](../saas-apps/chatwork-tutorial.md) [NumlyEngage](https://smarthr.jp/)™ [，密歇根](../saas-apps/numlyengage-tutorial.md)Data [Hub 单一登录，出口](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md)， [SendSafely](../saas-apps/egress-tutorial.md)， [Eletive](../saas-apps/sendsafely-tutorial.md)，[右手](https://app.eletive.com/)网络安全[ADI，Fyde](https://right-hand.ai/)Enterprise [Authentication，Verme](https://enterprise.fyde.com/)， [Lenses.io](../saas-apps/verme-tutorial.md) [，Momenta，Uprise](../saas-apps/lensesio-tutorial.md) [，CloudCords](../saas-apps/momenta-tutorial.md) [，](https://app.inspiresoftware.com/)TellMe Identity [Orchestrator SAML 连接器，Maverics](https://www.strata.io/identity-fabric/)，Smartschool， [Zepto](https://app.uprise.co/sign-in)， [Q](https://q.moduleq.com/login)timekeeping， [CloudCords](../saas-apps/cloudcords-tutorial.md)Studi.ly， [TellMe Bot](https://tellme365liteweb.azurewebsites.net/) [Trackplan，Skedda](https://studi.ly/) [，WhosOnLocation，](https://user.zepto-ai.com/signin) [Coggle，](../saas-apps/skedda-tutorial.md) [，](../saas-apps/whos-on-location-tutorial.md)) [ (，](../saas-apps/coggle-tutorial.md) [Kemp LoadMaster](https://kemptechnologies.com/cloud-load-balancer/)， [BrowserStack 单一登录](../saas-apps/browserstack-single-sign-on-tutorial.md) [Trackplan](http://www.trackplanfm.com/)
 
 你还可以从此处查找所有应用程序的文档 https://aka.ms/AppsTutorial
 
@@ -554,7 +554,7 @@ Azure AD 应用程序代理现在支持 (RDS) Web 客户端的远程桌面服务
 **服务类别：** Azure AD 角色  
 **产品功能：** 访问控制
  
-你现在可以在 Azure AD 门户的 "角色和管理员" 选项卡中查看角色的所有作用域中的角色分配。 你还可以将每个角色的角色分配下载到 CSV 文件中。 有关查看和添加角色分配的指导，请参阅 [在 Azure Active Directory 中查看和分配管理员角色](../users-groups-roles/directory-manage-roles-portal.md)。
+你现在可以在 Azure AD 门户的 "角色和管理员" 选项卡中查看角色的所有作用域中的角色分配。 你还可以将每个角色的角色分配下载到 CSV 文件中。 有关查看和添加角色分配的指导，请参阅 [在 Azure Active Directory 中查看和分配管理员角色](../roles/manage-roles-portal.md)。
  
 ---
 
@@ -703,7 +703,7 @@ RiskyUsers 和 riskDetections Microsoft Graph Api 现已正式发布。 现在�
 
 你现在可以创建敏感度标签，并使用标签设置将策略应用到 Microsoft 365 组，包括隐私 (公用或专用) 和外部用户访问策略。 你可以创建一个包含隐私策略的标签，并使用外部用户访问策略不允许添加来宾用户。 当用户将此标签应用于组时，该组将为 "专用"，并且不允许向该组添加来宾用户。 
 
-敏感度标签非常重要，可保护你的关键业务数据，并使你能够以相容且安全的方式管理规模较高的组。 有关使用敏感度标签的指南，请参阅 [Azure Active Directory (预览) 中的 Microsoft 365 组分配敏感度标签 ](../users-groups-roles/groups-assign-sensitivity-labels.md)。
+敏感度标签非常重要，可保护你的关键业务数据，并使你能够以相容且安全的方式管理规模较高的组。 有关使用敏感度标签的指南，请参阅 [Azure Active Directory (预览) 中的 Microsoft 365 组分配敏感度标签 ](../enterprise-users/groups-assign-sensitivity-labels.md)。
  
 ---
 
@@ -805,7 +805,7 @@ Azure 支持现可用于 Microsoft Identity Manager 2016 的 Azure AD 集成组�
 **产品功能：** 用户身份验证
  
 
-目前，位于 Azure AD、但未同步到租户中的域中的用户无法访问团队。 从6月结束，这项新功能将通过扩展现有电子邮件验证的注册功能来实现此目的。 这将允许可登录到联合 IdP 但尚未在 Azure ID 中使用用户对象的用户，以自动创建用户对象并对团队进行身份验证。 用户对象将被标记为 "自助注册"。 这是现有功能的扩展，用于对托管域中的用户进行电子邮件验证自行注册，并可使用同一标志进行控制。 此更改将在以下两个月内完成推出。 [在此处](../users-groups-roles/directory-self-service-signup.md)观看文档更新。
+目前，位于 Azure AD、但未同步到租户中的域中的用户无法访问团队。 从6月结束，这项新功能将通过扩展现有电子邮件验证的注册功能来实现此目的。 这将允许可登录到联合 IdP 但尚未在 Azure ID 中使用用户对象的用户，以自动创建用户对象并对团队进行身份验证。 用户对象将被标记为 "自助注册"。 这是现有功能的扩展，用于对托管域中的用户进行电子邮件验证自行注册，并可使用同一标志进行控制。 此更改将在以下两个月内完成推出。 [在此处](../enterprise-users/directory-self-service-signup.md)观看文档更新。
  
 ---
 
@@ -853,7 +853,7 @@ Azure 支持现可用于 Microsoft Identity Manager 2016 的 Azure AD 集成组�
 **服务类别：** Azure AD 云预配  
 **产品功能：** 标识生命周期管理
  
-IT 管理员可以开始使用新的 "混合管理员" 角色作为设置 Azure ADConnect 云预配的最小特权角色。 使用此新角色，你不再需要使用全局管理员角色来设置和配置云设置。 [了解详细信息](../users-groups-roles/roles-delegate-by-task.md#connect)。
+IT 管理员可以开始使用新的 "混合管理员" 角色作为设置 Azure ADConnect 云预配的最小特权角色。 使用此新角色，你不再需要使用全局管理员角色来设置和配置云设置。 [了解详细信息](../roles/delegate-by-task.md#connect)。
  
 ---
 
@@ -1225,7 +1225,7 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 **打印机管理员**：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机并管理所有打印机配置的所有方面，包括通用打印连接器设置。 他们可以同意所有委托的打印权限请求。 打印机管理员还有权访问打印报告。 
 
-**打印机技术人员**：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机和管理打印机状态。 他们还可以读取所有连接器信息。 打印机技术人员无法完成的关键任务是在打印机和共享打印机上设置用户权限。 [了解详细信息。](../users-groups-roles/directory-assign-admin-roles.md#printer-administrator)
+**打印机技术人员**：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机和管理打印机状态。 他们还可以读取所有连接器信息。 打印机技术人员无法完成的关键任务是在打印机和共享打印机上设置用户权限。 [了解详细信息。](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -1237,7 +1237,7 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 **产品功能：** 访问控制
 
-充当此角色的用户可以启用、配置和管理与在 Azure AD 中启用混合标识相关的服务及设置。 此角色允许将 Azure AD 配置为三种受支持的身份验证方法之一&#8212;密码哈希同步 (PHS) ，传递身份验证 (PTA) 或联合 (AD FS 或第三方联合身份验证提供程序) # B1，并部署相关的本地基础结构以启用它们。 本地基础结构包括预配和 PTA 代理。 此角色授予在非 Windows 10 设备或非 Windows Server 2016 计算机上启用无缝单一登录 (SSO) 以实现无缝身份验证的能力。 此外，此角色授予了查看登录日志以及访问运行状况和分析以进行监视和故障排除的功能。 [了解详细信息。](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
+充当此角色的用户可以启用、配置和管理与在 Azure AD 中启用混合标识相关的服务及设置。 此角色允许将 Azure AD 配置为三种受支持的身份验证方法之一&#8212;密码哈希同步 (PHS) ，传递身份验证 (PTA) 或联合 (AD FS 或第三方联合身份验证提供程序) # B1，并部署相关的本地基础结构以启用它们。 本地基础结构包括预配和 PTA 代理。 此角色授予在非 Windows 10 设备或非 Windows Server 2016 计算机上启用无缝单一登录 (SSO) 以实现无缝身份验证的能力。 此外，此角色授予了查看登录日志以及访问运行状况和分析以进行监视和故障排除的功能。 [了解详细信息。](../roles/permissions-reference.md#hybrid-identity-administrator)
 
 ---
 
@@ -1249,7 +1249,7 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 **产品功能：** 访问控制
 
-具有此角色的用户可以查看 Microsoft 提供的网络外围架构建议，这些建议基于用户位置的网络遥测。 Microsoft 365 的网络性能依赖于谨慎的企业客户网络外围架构，这通常是特定于用户的位置。 此角色允许编辑已发现的用户位置以及配置这些位置的网络参数，以方便改善遥测措施和设计建议。 [了解详细信息。](../users-groups-roles/directory-assign-admin-roles.md#network-administrator)
+具有此角色的用户可以查看 Microsoft 提供的网络外围架构建议，这些建议基于用户位置的网络遥测。 Microsoft 365 的网络性能依赖于谨慎的企业客户网络外围架构，这通常是特定于用户的位置。 此角色允许编辑已发现的用户位置以及配置这些位置的网络参数，以方便改善遥测措施和设计建议。 [了解详细信息。](../roles/permissions-reference.md#network-administrator)
 
 ---
 
@@ -1267,10 +1267,10 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 有关详细信息，请参阅以下内容：
 
-- [创建用户](../users-groups-roles/users-bulk-add.md) 或 [邀请来宾用户](../external-identities/tutorial-bulk-invite.md)
-- [删除用户](../users-groups-roles/users-bulk-delete.md) 或 [还原已删除的用户](../users-groups-roles/users-bulk-restore.md)
-- [下载用户列表](../users-groups-roles/users-bulk-download.md) 或 [下载组列表](../users-groups-roles/groups-bulk-download.md)
-- [添加 (导入) 成员](../users-groups-roles/groups-bulk-import-members.md)或[删除](../users-groups-roles/groups-bulk-remove-members.md)成员或[下载组的成员列表](../users-groups-roles/groups-bulk-download-members.md)
+- [创建用户](../enterprise-users/users-bulk-add.md) 或 [邀请来宾用户](../external-identities/tutorial-bulk-invite.md)
+- [删除用户](../enterprise-users/users-bulk-delete.md) 或 [还原已删除的用户](../enterprise-users/users-bulk-restore.md)
+- [下载用户列表](../enterprise-users/users-bulk-download.md) 或 [下载组列表](../enterprise-users/groups-bulk-download.md)
+- [添加 (导入) 成员](../enterprise-users/groups-bulk-import-members.md)或[删除](../enterprise-users/groups-bulk-remove-members.md)成员或[下载组的成员列表](../enterprise-users/groups-bulk-download-members.md)
 
 ---
 
@@ -1350,7 +1350,7 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 Azure Active Directory (Azure AD) 现在提供了验证动态组规则的方法。 在 " **验证规则** " 选项卡上，可以对照组成员验证动态规则，以确认规则按预期方式工作。 创建或更新动态组规则时，管理员希望知道用户或设备是否将成为该组的成员。 这有助于评估用户或设备是否满足规则条件，并有助于在不期望成员身份时进行故障排除。
 
-有关详细信息，请参阅 [ (预览版) 验证动态组成员身份规则 ](../users-groups-roles/groups-dynamic-rule-validation.md)。
+有关详细信息，请参阅 [ (预览版) 验证动态组成员身份规则 ](../enterprise-users/groups-dynamic-rule-validation.md)。
 
 ---
 

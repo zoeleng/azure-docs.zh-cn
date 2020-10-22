@@ -10,17 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4a4058cc6317e863fa20406449e64aa877810a54
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147478"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371178"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>文本分析 API v3 语言支持 
 
-> [!IMPORTANT]
-> 文本分析 API 的版本1.x 目前在以下区域中不可用：美国西部、阿拉伯联合酋长国北部、中国北部2、中国东部。
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 
 #### <a name="sentiment-analysis"></a>[情绪分析](#tab/sentiment-analysis)
@@ -123,7 +122,7 @@ ms.locfileid: "92147478"
 
 如果内容是用较少使用的语言表示的，则可以尝试“语言检测”来查看它是否返回代码。 无法检测到的语言的响应为 `unknown`。
 
-| Language | 语言代码 |  v3 支持 | 从 v3 模型版本开始提供： |
+| 语言 | 语言代码 |  v3 支持 | 从 v3 模型版本开始提供： |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|
 |南非荷兰语|`af`|✓|    |
 |阿尔巴尼亚语|`sq`|✓|    |

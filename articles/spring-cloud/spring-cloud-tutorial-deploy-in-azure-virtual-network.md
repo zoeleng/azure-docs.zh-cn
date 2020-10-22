@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892891"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088663"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>教程：在 Azure 虚拟网络中部署 Azure Spring Cloud（VNet 注入）
 
@@ -27,7 +27,7 @@ ms.locfileid: "90892891"
 * 授权客户控制 Azure Spring Cloud 的入站和出站网络通信
 
 ## <a name="prerequisites"></a>先决条件
-必须根据说明[在 Azure 门户上注册资源提供程序](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)或运行以下 az CLI 命令来注册 Azure Spring Cloud 资源提供程序 `Microsoft.AppPlatform`：
+必须根据说明[在 Azure 门户上注册资源提供程序](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)或运行以下 az CLI 命令来注册 Azure Spring Cloud 资源提供程序 `Microsoft.AppPlatform`：
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform

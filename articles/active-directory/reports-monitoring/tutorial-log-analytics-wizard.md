@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361902"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362563"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>教程：配置 Log Analytics 向导
 
@@ -45,7 +45,7 @@ ms.locfileid: "91361902"
 
 - [如何将活动日志与 Log Analytics 集成](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [在 Azure AD 中管理紧急访问帐户](../users-groups-roles/directory-emergency-access.md)
+- [在 Azure AD 中管理紧急访问帐户](../roles/security-emergency-access.md)
 
 - [KQL 快速参考](/azure/data-explorer/kql-quick-reference)
 

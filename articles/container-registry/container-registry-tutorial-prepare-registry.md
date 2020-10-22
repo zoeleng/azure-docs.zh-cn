@@ -4,16 +4,16 @@ description: 创建 Azure 容器注册表，配置异地复制，准备 Docker �
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 854b4eb35694f7498d0dc70567b19ccfdf7c8c82
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259525"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148389"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教程：准备异地复制的 Azure 容器注册表
 
-Azure 容器注册表是部署在 Azure 中的专用 Docker 注册表，能使部署尽量靠近网络。 本套教程由三篇文章构成，介绍如何使用异地复制将 Linux 容器中运行的 ASP.NET Core Web 应用程序部署到两个[用于容器的 Web 应用](../app-service/containers/index.yml)实例。 在其中可以了解 Azure 如何通过最靠近的异地复制存储库将映像部署到每个 Web 应用实例。
+Azure 容器注册表是部署在 Azure 中的专用 Docker 注册表，能使部署尽量靠近网络。 本套教程由三篇文章构成，介绍如何使用异地复制将 Linux 容器中运行的 ASP.NET Core Web 应用程序部署到两个[用于容器的 Web 应用](../app-service/index.yml)实例。 在其中可以了解 Azure 如何通过最靠近的异地复制存储库将映像部署到每个 Web 应用实例。
 
 在这套由三个部分构成的系列教程中，第一部分的内容包括：
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e13fe634db49dcc3f015eb90410c3b7753c8363
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: df1285145d0e8b04bf743a3967099d27d1195269
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318063"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362784"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能存档
 
@@ -183,7 +183,7 @@ Azure AD 预配服务提供了一组丰富的配置功能。 客户需要能够�
 **服务类别：** 组管理  
 **产品功能：** 协作
 
-若要为客户提供一种更灵活的方式来创建最符合需要的目录范围内的组，我们已将 "Azure 门户中的"**组**"" 常规设置 "中的"**目录范围组**"选项替换  >  **General**为[动态组文档](../users-groups-roles/groups-dynamic-membership.md)的链接。 我们已改进文档以提供更多说明，以便管理员可以创建包括或排除来宾用户在内的所有用户组。
+若要为客户提供一种更灵活的方式来创建最符合需要的目录范围内的组，我们已将 "Azure 门户中的"**组**"" 常规设置 "中的"**目录范围组**"选项替换  >  **General**为[动态组文档](../enterprise-users/groups-dynamic-membership.md)的链接。 我们已改进文档以提供更多说明，以便管理员可以创建包括或排除来宾用户在内的所有用户组。
 
 ---
 
@@ -739,7 +739,7 @@ Azure AD B2C 现在支持月度活跃用户 (MAU) 计费。 MAU 计费基于日�
 
 我们已于 2019 年 10 月将这 35 款支持联合的新应用添加到了应用库：
 
-[In Case of Crisis - Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md)、[Juno Journey](../saas-apps/juno-journey-tutorial.md)、[ExponentHR](../saas-apps/exponenthr-tutorial.md)、[Tact](https://tact.ai/assistant/)、[OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname)、[Salestim](https://prd.salestim.io/forms)、[Learnster](../saas-apps/learnster-tutorial.md)、[Dynatrace](../saas-apps/dynatrace-tutorial.md)、[HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process)、[Freshworks](../saas-apps/freshworks-tutorial.md)、[eCornell](../saas-apps/ecornell-tutorial.md)、[ShipHazmat](../saas-apps/shiphazmat-tutorial.md)、[Netskope Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md)、[Contentful](../saas-apps/contentful-tutorial.md)、[Bindtuning](https://bindtuning.com/login)、[HireVue Coordinate - Europe](https://www.hirevue.com/)、[HireVue Coordinate - USOnly](https://www.hirevue.com/)、[HireVue Coordinate - US](https://www.hirevue.com/)、[WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup)、[Cloudmore](../saas-apps/cloudmore-tutorial.md)、[Visit.org](../saas-apps/visitorg-tutorial.md)、[Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup)、[Paylocity](../saas-apps/paylocity-tutorial.md)、[Mail Luck!](../saas-apps/mail-luck-tutorial.md)、[Teamie](https://theteamie.com/)、[Velocity for Teams](https://velocity.peakup.org/teams/login)、[SIGNL4](https://account.signl4.com/manage)、[EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md)、[ScreenMeet](https://console.screenmeet.com/)、[Omega Point](https://pi.ompnt.com/)、[Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune)、[Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct)、[ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md)、[iHealthHome Care Navigation System](https://ihealthnav.com/account/signin)、[Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
+[In Case of Crisis - Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md)、[Juno Journey](../saas-apps/juno-journey-tutorial.md)、[ExponentHR](../saas-apps/exponenthr-tutorial.md)、[Tact](https://tact.ai/assistant/)、[OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname)、[Salestim](https://www.salestim.com/)、[Learnster](../saas-apps/learnster-tutorial.md)、[Dynatrace](../saas-apps/dynatrace-tutorial.md)、[HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process)、[Freshworks](../saas-apps/freshworks-tutorial.md)、[eCornell](../saas-apps/ecornell-tutorial.md)、[ShipHazmat](../saas-apps/shiphazmat-tutorial.md)、[Netskope Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md)、[Contentful](../saas-apps/contentful-tutorial.md)、[Bindtuning](https://bindtuning.com/login)、[HireVue Coordinate - Europe](https://www.hirevue.com/)、[HireVue Coordinate - USOnly](https://www.hirevue.com/)、[HireVue Coordinate - US](https://www.hirevue.com/)、[WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup)、[Cloudmore](../saas-apps/cloudmore-tutorial.md)、[Visit.org](../saas-apps/visitorg-tutorial.md)、[Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup)、[Paylocity](../saas-apps/paylocity-tutorial.md)、[Mail Luck!](../saas-apps/mail-luck-tutorial.md)、[Teamie](https://theteamie.com/)、[Velocity for Teams](https://velocity.peakup.org/teams/login)、[SIGNL4](https://account.signl4.com/manage)、[EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md)、[ScreenMeet](https://console.screenmeet.com/)、[Omega Point](https://pi.ompnt.com/)、[Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune)、[Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct)、[ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md)、[iHealthHome Care Navigation System](https://ihealthnav.com/account/signin)、[Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
 有关这些应用的详细信息，请参阅 [SaaS 应用程序与 Azure Active Directory 集成](../saas-apps/tutorial-list.md)。 要详细了解如何在 Azure AD 应用库中列出应用程序，请参阅[在 Azure Active Directory 应用程序库中列出应用程序](../azuread-dev/howto-app-gallery-listing.md)。
 
@@ -774,7 +774,7 @@ Office 365 组过期策略已得到增强，可以自动续订其成员正在使
 
 此增强功能有助于减少组过期通知，并有助于确保活动组继续可用。 如果你已拥有 Office 365 组的有效过期策略，则无需执行任何操作即可启用此新功能。
 
-有关详细信息，请参阅[为 Office 365 组配置过期策略](../users-groups-roles/groups-lifecycle.md)。
+有关详细信息，请参阅[为 Office 365 组配置过期策略](../enterprise-users/groups-lifecycle.md)。
 
 ---
 
@@ -822,7 +822,7 @@ Office 365 组过期策略已得到增强，可以自动续订其成员正在使
 
 - 下载特定组的组成员的列表。
 
-有关详细信息，请参阅[批量添加成员](../users-groups-roles/groups-bulk-import-members.md)、[批量删除成员](../users-groups-roles/groups-bulk-remove-members.md)、[批量下载成员列表](../users-groups-roles/groups-bulk-download-members.md)和[批量下载组列表](../users-groups-roles/groups-bulk-download.md)。
+有关详细信息，请参阅[批量添加成员](../enterprise-users/groups-bulk-import-members.md)、[批量删除成员](../enterprise-users/groups-bulk-remove-members.md)、[批量下载成员列表](../enterprise-users/groups-bulk-download-members.md)和[批量下载组列表](../enterprise-users/groups-bulk-download.md)。
 
 ---
 
@@ -861,7 +861,7 @@ Office 365 组过期策略已得到增强，可以自动续订其成员正在使
 >[!NOTE]
 > 在公共预览版推出初期，“全局读取者”角色不适用于以下对象：SharePoint、Privileged Access Management、客户密码箱、敏感度标签、Teams 生命周期、Teams 报告和调用分析、Teams IP 电话设备管理以及 Teams 应用目录。
 
-有关详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+有关详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../roles/permissions-reference.md)。
 
 ---
 
@@ -941,7 +941,7 @@ Office 365 组过期策略已得到增强，可以自动续订其成员正在使
 
 **键入：** 新功能 **服务类别：** Azure AD 角色 **产品功能：** 访问控制
 
-自定义角色（与 Azure AD P1 或 P2 订阅一起提供）现在可以通过让你创建具有特定权限的角色定义，然后将这些角色分配给特定资源，从而帮助提供精细访问。 当前，通过使用用于管理应用注册的权限来创建自定义角色，然后将该角色分配给特定的应用。 有关自定义角色的详细信息，请参阅 [Azure Active Directory 中的自定义管理员角色（预览版）](../users-groups-roles/roles-custom-overview.md)。
+自定义角色（与 Azure AD P1 或 P2 订阅一起提供）现在可以通过让你创建具有特定权限的角色定义，然后将这些角色分配给特定资源，从而帮助提供精细访问。 当前，通过使用用于管理应用注册的权限来创建自定义角色，然后将该角色分配给特定的应用。 有关自定义角色的详细信息，请参阅 [Azure Active Directory 中的自定义管理员角色（预览版）](../roles/custom-overview.md)。
 
 如需其他受支持的权限或资源（当前未显示），你可以将反馈发送到我们的 [Azure 反馈网站](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)，然后我们会将请求添加到更新路线图中。
 
@@ -1044,7 +1044,7 @@ AzureAD 和 AzureAD 预览 PowerShell 模块的新更新可用：
 
 我们对 Azure 门户中提供的动态组规则生成器进行了一些 UI 改进，以帮助你更轻松地设置新规则或更改现有规则。 通过此设计改进，你可以创建最多包含五个表达式（而不是只包含一个表达式）的规则。 我们还更新了设备属性列表，以删除弃用的设备属性。
 
-有关详细信息，请参阅[管理动态成员身份规则](../users-groups-roles/groups-dynamic-membership.md)。
+有关详细信息，请参阅[管理动态成员身份规则](../enterprise-users/groups-dynamic-membership.md)。
 
 ---
 
@@ -1530,7 +1530,7 @@ Azure AD 客户现在可以设置策略来管理其组织的用户和组的 FIDO
 
 - 为组织上传一组自定义的屏蔽字词，即不允许在组名中使用的字词（例如“CEO、工资单、HR”）。
 
-有关详细信息，请参阅[对 Office 365 组强制实施命名策略](../users-groups-roles/groups-naming-policy.md)。
+有关详细信息，请参阅[对 Office 365 组强制实施命名策略](../enterprise-users/groups-naming-policy.md)。
 
 ---
 
@@ -1594,7 +1594,7 @@ Azure AD 权利管理现已提供公共预览版，它可帮助客户委托访�
 
 - 为组织上传一组自定义的屏蔽字词，即不允许在组名中使用的字词（例如“CEO、工资单、HR”）。
 
-有关详细信息，请参阅[对 Office 365 组强制实施命名策略](../users-groups-roles/groups-naming-policy.md)。
+有关详细信息，请参阅[对 Office 365 组强制实施命名策略](../enterprise-users/groups-naming-policy.md)。
 
 ---
 
@@ -1740,7 +1740,7 @@ Azure AD Connect 正在转换电子邮件警报系统，系统可能会向某些
 
 现在，可以通过 Azure AD 门户查看和管理已删除的 Office 365 组。 此更改有助于查看可还原的组，并让你可以永久删除组织不需要的任何组。
 
-有关详细信息，请参阅[还原已过期或已删除的组](../users-groups-roles/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore)。
+有关详细信息，请参阅[还原已过期或已删除的组](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore)。
 
 ---
 
@@ -2097,7 +2097,7 @@ Privileged Identity Management (PIM) 管理员现在可以为特定资源导出�
 
 管理员可将用户分配到新的云设备管理员角色，以执行云设备管理员任务。 分配有“云设备管理员”角色的用户可以在 Azure AD 中启用、禁用和删除设备，并可以在 Azure 门户中读取 Windows 10 BitLocker 密钥（如果有）。
 
-有关角色和权限的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)
+有关角色和权限的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md)
 
 ---
 
@@ -2226,7 +2226,7 @@ Azure AD 域服务在 Azure 门户中提供有关托管域配置错误或问题�
 
 如果组织不再使用自定义域名，或者你需要使用其他 Azure AD 的域名，此项更改可帮助你更快地删除自定义域名。
 
-有关详细信息，请参阅[删除自定义域名](../users-groups-roles/domains-manage.md#delete-a-custom-domain-name)。
+有关详细信息，请参阅[删除自定义域名](../enterprise-users/domains-manage.md#delete-a-custom-domain-name)。
 
 ---
 
@@ -2246,7 +2246,7 @@ Azure AD 域服务在 Azure 门户中提供有关托管域配置错误或问题�
 
 - 用户管理员
 
-有关详细信息，请参阅[创建动态组和检查状态](../users-groups-roles/groups-create-rule.md)
+有关详细信息，请参阅[创建动态组和检查状态](../enterprise-users/groups-create-rule.md)
 
 ---
 
@@ -2303,7 +2303,7 @@ Azure 门户“登录”页上的新“故障排除和支持”选项卡旨在�
 
 借助此项更新，在为用户创建动态成员身份规则时，现在在动态用户组规则生成器中单击“获取自定义扩展属性”链接，输入唯一的应用 ID，然后即可收到要使用的完整自定义扩展属性列表。 还可以刷新此列表，以获取该应用的任何新自定义扩展属性。
 
-有关为动态成员身份规则使用自定义扩展属性的详细信息，请参阅[扩展属性和自定义扩展属性](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
+有关为动态成员身份规则使用自定义扩展属性的详细信息，请参阅[扩展属性和自定义扩展属性](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
 
 ---
 
@@ -2807,7 +2807,7 @@ Azure AD Connect 的最新版本包括：
 
     - **企业应用所有者。** 授予管理自有企业应用许多方面的权限，包括 SSO 设置、应用分配和同意（Azure AD 资源除外）。
 
-有关公共预览版的详细信息，请参阅 [Azure AD 委派的应用程序管理角色处于公共预览状态！](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) 博客。 有关角色和权限的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。
+有关公共预览版的详细信息，请参阅 [Azure AD 委派的应用程序管理角色处于公共预览状态！](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) 博客。 有关角色和权限的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md)。
 
 ---
 
@@ -3254,7 +3254,7 @@ Azure AD 应用现在可以在 JWT 或 SAML 令牌中请求自定义或可选声
 可更改在组中管理成员身份的方式。 想要在系统中保留相同的组名称和 ID，使针对组的任何现有引用仍然有效时，这很有用；创建新组需要更新这些引用。
 我们已更新 Azure AD 管理中心，以支持此功能。 现在，客户可将现有组从动态成员身份转换为分配的成员身份，或反之。 现有的 PowerShell cmdlet 仍可用。
 
-有关详细信息，请参阅 [Azure Active Directory 中的动态组成员身份规则](../users-groups-roles/groups-dynamic-membership.md)
+有关详细信息，请参阅 [Azure Active Directory 中的动态组成员身份规则](../enterprise-users/groups-dynamic-membership.md)
 
 ---
 

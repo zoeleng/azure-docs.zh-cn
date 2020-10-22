@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827532"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371199"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure 数据工厂中的集成运行时 
 
@@ -56,7 +56,7 @@ Azure 集成运行时可以：
 
 - 在 Azure 中运行数据流 
 - 在云数据存储之间运行复制活动
-- 在公用网络中调度以下转换活动： Databricks 笔记本/Jar/Python 活动、HDInsight Hive 活动、HDInsight Pig 活动、HDInsight MapReduce 活动、HDInsight Spark 活动、HDInsight 流式处理活动、机器学习批处理执行活动、机器学习更新资源活动、存储过程活动、Data Lake Analytics U SQL 活动、.NET 自定义活动、Web 活动、查找活动和获取元数据活动。
+- 在公用网络中调度以下转换活动： Databricks 笔记本/Jar/Python 活动，HDInsight Hive 活动，HDInsight Pig 活动，HDInsight MapReduce 活动，HDInsight Spark 活动，HDInsight 流式处理活动，Azure 机器学习 Studio (经典) 批处理执行活动，Azure 机器学习 Studio (经典) 更新资源活动，存储过程活动，Data Lake Analytics U SQL 活动，.NET 自定义活动，Web 活动，查找活动，以及获取元数据活动。
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 网络环境
 
@@ -79,7 +79,7 @@ Azure 集成运行时提供了使用安全、可靠和高性能的方式在云�
 自承载 IR 能够：
 
 - 在专用网络中的云数据存储和数据存储之间运行复制活动。
-- 针对本地或 Azure 虚拟网络中的计算资源调度以下转换活动： HDInsight Hive 活动 (BYOC-自带群集) ，HDInsight Pig 活动 (BYOC) ，HDInsight MapReduce 活动 (BYOC) ，HDInsight Spark 活动 (BYOC) ，HDInsight 流式处理活动 (BYOC) ，机器学习批处理执行活动，机器学习更新资源活动，存储过程活动，Data Lake Analytics U SQL 活动，自定义活动 (在 Azure Batch) 、查找活动和获取元数据活动中运行。
+- 针对本地或 Azure 虚拟网络中的计算资源调度以下转换活动： HDInsight Hive 活动 (BYOC-自带群集) HDInsight Pig 活动 (BYOC) ，HDInsight MapReduce 活动 (BYOC) ，HDInsight Spark 活动 (BYOC) ，HDInsight 流式处理活动 (BYOC) ，Azure 机器学习 Studio (经典) "批处理执行" 活动，Azure 机器学习 Studio (经典) 更新资源活动，存储过程活动，Data Lake Analytics U-SQL 活动，自定义活动 (在 Azure Batch) 、查找活动和获取元数据活动中运行。
 
 > [!NOTE] 
 > 使用自承载集成运行时支持需要自带驱动程序（如 SAP Hana、MySQL 等）的数据存储。有关详细信息，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

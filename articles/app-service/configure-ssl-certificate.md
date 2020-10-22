@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420874"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149066"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>在 Azure 应用服务中添加 TLS/SSL 证书
 
@@ -145,8 +145,8 @@ ms.locfileid: "89420874"
 | 资源组 | 建议选择与应用服务证书相同的资源组。 |
 | 位置 | 选择与应用服务应用相同的位置。 |
 | 定价层 | 有关信息，请参阅 [Azure Key Vault 定价详细信息](https://azure.microsoft.com/pricing/details/key-vault/)。 |
-| 访问策略| 定义应用程序和对保管库资源允许的访问权限。 可以稍后按照[分配密钥保管库访问策略](/azure/key-vault/general/assign-access-policy-portal)中的步骤进行配置。 |
-| 虚拟网络访问 | 限制为仅特定 Azure 虚拟网络具有保管库访问权限。 可以稍后配置，请按照[配置 Azure Key Vault 防火墙和虚拟网络](/azure/key-vault/general/network-security)的步骤进行操作。 |
+| 访问策略| 定义应用程序和对保管库资源允许的访问权限。 可以稍后按照[分配密钥保管库访问策略](../key-vault/general/assign-access-policy-portal.md)中的步骤进行配置。 |
+| 虚拟网络访问 | 限制为仅特定 Azure 虚拟网络具有保管库访问权限。 可以稍后配置，请按照[配置 Azure Key Vault 防火墙和虚拟网络](../key-vault/general/network-security.md)的步骤进行操作。 |
 
 选择保管库后，关闭“Key Vault 存储库”页面。 “步骤1:存储”选项应显示绿色复选标记表示成功。 保持页面处于打开状态，执行下一步骤。
 
@@ -189,7 +189,7 @@ ms.locfileid: "89420874"
 如果使用 Azure Key Vault 管理证书，则可以将 PKCS12 证书从 Key Vault 导入到应用服务中，前提是该证书[满足要求](#private-certificate-requirements)。
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>授权应用服务读取保管库
-默认情况下，应用服务资源提供程序无权访问 Key Vault。 若要将 Key Vault 用于证书部署，需要[授权资源提供程序对 KeyVault 的读取访问权限](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault)。 
+默认情况下，应用服务资源提供程序无权访问 Key Vault。 若要将 Key Vault 用于证书部署，需要[授权资源提供程序对 KeyVault 的读取访问权限](../key-vault/general/assign-access-policy-cli.md)。 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd` 是应用服务的资源提供程序服务主体名称，并且对于所有 Azure 订阅都是相同的。 对于 Azure 政府云环境，请改用 `6a02c803-dafd-4136-b4c3-5a6f318b4714` 作为资源提供程序服务主体名称。
 
@@ -378,11 +378,11 @@ az keyvault secret download \
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>更多资源
 

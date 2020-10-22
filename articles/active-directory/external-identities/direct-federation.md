@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908316"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362886"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>与面向来宾用户的 AD FS 和第三方提供者的直接联合（预览）
 
@@ -45,7 +45,7 @@ ms.locfileid: "87908316"
 ## <a name="limitations"></a>限制
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Azure AD 中的 DNS 验证域
-要与之联合的域不得在 Azure AD 中进行 DNS 验证。 允许你建立与非托管（经电子邮件验证或“病毒性”）Azure AD 租户的直接联合，因为未对其进行 DNS 验证。
+要与之联盟的域必须在 Azure AD**not**中通过 DNS 验证。 允许你建立与非托管（经电子邮件验证或“病毒性”）Azure AD 租户的直接联合，因为未对其进行 DNS 验证。
 
 ### <a name="authentication-url"></a>身份验证 URL
 直接联合只允许在身份验证 URL 的域与目标域匹配的策略中使用，或者在身份验证 URL 是这些允许的标识提供者之一的策略中使用（此列表可能会更改）：
@@ -60,7 +60,7 @@ ms.locfileid: "87908316"
 -   federation.exostar.com
 -   federation.exostartest.com
 
-例如，为 fabrikam.com 建立直接联合时，身份验证 URL `https://fabrikam.com/adfs` 将通过验证。 同一域中的主机也将通过验证，例如 `https://sts.fabrikam.com/adfs`。 但是，同一域的身份验证 URL `https://fabrikamconglomerate.com/adfs` 或 `https://fabrikam.com.uk/adfs` 不会通过验证。
+例如，为 _ * fabrikam * * 设置直接联合时，身份验证 URL `https://fabrikam.com/adfs` 将通过验证。 同一域中的主机也将通过验证，例如 `https://sts.fabrikam.com/adfs`。 但是，同一域的身份验证 URL `https://fabrikamconglomerate.com/adfs` 或 `https://fabrikam.com.uk/adfs` 不会通过验证。
 
 ### <a name="signing-certificate-renewal"></a>签名证书续订
 如果在标识提供者设置中指定元数据 URL，Azure AD 将在签名证书过期时自动续订该证书。 但是，如果出于任何原因在过期之前轮换证书，或未提供元数据 URL，Azure AD 将无法续订该证书。 在这种情况下，你将需要手动更新签名证书。
@@ -73,7 +73,7 @@ ms.locfileid: "87908316"
 
 ## <a name="frequently-asked-questions"></a>常见问题
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>是否可以与非托管（经电子邮件验证）租户所在的域建立直接联合？ 
-是的。 如果未验证域且租户尚未完成[管理员接管](../users-groups-roles/domains-admin-takeover.md)，则可以与该域建立直接联合。 当用户使用当前不存在的域兑换 B2B 邀请或执行 Azure AD 的自助注册时，将创建非托管或经电子邮件验证的租户。 可以与这些域建立直接联合。 如果尝试在 Azure 门户或通过 PowerShell 建立与经 DNS 验证的域的直接联合，则会看到一个错误。
+是的。 如果未验证域且租户尚未完成[管理员接管](../enterprise-users/domains-admin-takeover.md)，则可以与该域建立直接联合。 当用户使用当前不存在的域兑换 B2B 邀请或执行 Azure AD 的自助注册时，将创建非托管或经电子邮件验证的租户。 可以与这些域建立直接联合。 如果尝试在 Azure 门户或通过 PowerShell 建立与经 DNS 验证的域的直接联合，则会看到一个错误。
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>如果同时启用了直接联合和电子邮件一次性密码身份验证，那么哪个方法优先？
 与合作伙伴组织建立直接联合时，对于该组织中的新来宾用户而言，它将优先于电子邮件一次性密码身份验证。 如果来宾用户在建立直接联合之前使用一次性密码身份验证兑换了邀请，则他们将继续使用一次性密码身份验证。 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>是否由于部分同步的租户导致了直接联合地址登录问题？

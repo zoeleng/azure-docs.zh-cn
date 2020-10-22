@@ -4,12 +4,12 @@ description: 了解如何使用 Azure Migrate 服务器评估发现 AWS 实例�
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275449"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311280"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>教程：使用服务器评估发现 AWS 实例
 
@@ -224,7 +224,7 @@ Azure Migrate 设备是一种轻型设备，由 Azure Migrate 服务器评估用
    
    不支持使用 PIN 登录。
 3. 成功登录后，返回到 Web 应用。 
-4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](tutorial-prepare-physical.md)，会启动设备注册。
+4. 如果用于登录的 Azure 用户帐户对在密钥生成过程中创建的 Azure 资源具有恰当的[权限](./tutorial-discover-physical.md)，会启动设备注册。
 1. 成功注册设备后，可以通过单击“查看详细信息”来查看注册详细信息。
 
 

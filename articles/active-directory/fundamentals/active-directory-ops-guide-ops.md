@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312611"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370944"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 常规操作指南参考
 
@@ -49,7 +49,7 @@ ms.locfileid: "92312611"
 
 #### <a name="owners-recommended-reading"></a>所有者建议阅读
 
-- [在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)
+- [在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md)
 - [Azure 中的监管](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>混合管理
@@ -154,7 +154,7 @@ Azure AD 提供了两个 "发件人" 地址： <o365mc@email2.microsoft.com> （
 
 ### <a name="ad-fs-lockdown"></a>AD FS 锁定
 
-组织，它将应用程序配置为直接进行身份验证，以便 Azure AD 受益于 [Azure AD 智能锁定](../authentication/concept-sspr-howitworks.md)。 如果在 Windows Server 2012 R2 中使用 AD FS，请实现 AD FS [extranet 锁定保护](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)。 如果在 Windows Server 2016 或更高版本上使用 AD FS，请实现 [extranet 智能锁定](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)。 我们至少建议你启用 extranet 锁定，以包含对本地 Active Directory 进行暴力攻击的风险。 但是，如果在 Windows 2016 或更高版本中有 AD FS，还应启用 extranet 智能锁定，以帮助减轻 [密码喷涂](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 攻击。
+将应用程序配置为直接向 Azure AD 进行身份验证的组织可以受益于 [Azure AD 智能锁定](../authentication/concept-sspr-howitworks.md)。 如果在 Windows Server 2012 R2 中使用 AD FS，请实现 AD FS [extranet 锁定保护](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)。 如果在 Windows Server 2016 或更高版本上使用 AD FS，请实现 [extranet 智能锁定](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)。 我们至少建议你启用 extranet 锁定，以包含对本地 Active Directory 进行暴力攻击的风险。 但是，如果在 Windows 2016 或更高版本中有 AD FS，还应启用 extranet 智能锁定，以帮助减轻 [密码喷涂](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 攻击。
 
 如果 AD FS 仅用于 Azure AD 联合，则可以关闭某些终结点以最大程度地减少受攻击面。 例如，如果 AD FS 仅用于 Azure AD，则应禁用 WS-Trust 终结点，而不是为 **usernamemixed** 和 **windowstransport**启用终结点。
 
@@ -166,9 +166,9 @@ Active Directory 的管理层模型旨在使用一组缓冲区区域来保护标
 
 [层模型](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)由三个级别组成，只包括管理帐户，而不包括标准用户帐户。
 
-- **第0层**  -在环境中直接控制企业标识。 第 0 层包括帐户、组以及对 Active Directory 林、域或域控制器及其中的所有资产具有直接或间接管理控制权的其他资产。 第 0 层中所有资产的安全敏感性是等同的，因为它们均可以有效地相互控制。
-- **第1层**  -控制企业服务器和应用程序。 第 1 层资产包括服务器操作系统、云服务和企业应用程序。 第 1 层的管理员帐户能够管理控制这些资产上托管的大量业务价值。 常见的示例角色是服务器管理员，此角色可维护这些操作系统并能够影响所有企业服务。
-- **第2层**  -控制用户工作站和设备。 第 2 层的管理员帐户对用户工作站和设备上托管的大量业务价值具有管理控制权。 示例包括技术支持和计算机支持管理员，因为它们可以影响几乎任何用户数据的完整性。
+- **第 0 层** - 直接控制环境中的企业标识。 第 0 层包括帐户、组以及对 Active Directory 林、域或域控制器及其中的所有资产具有直接或间接管理控制权的其他资产。 第 0 层中所有资产的安全敏感性是等同的，因为它们均可以有效地相互控制。
+- **第 1 层** - 控制企业服务器和应用程序。 第 1 层资产包括服务器操作系统、云服务和企业应用程序。 第 1 层的管理员帐户能够管理控制这些资产上托管的大量业务价值。 常见的示例角色是服务器管理员，此角色可维护这些操作系统并能够影响所有企业服务。
+- **第 2 层** - 控制用户工作站和设备。 第 2 层的管理员帐户对用户工作站和设备上托管的大量业务价值具有管理控制权。 示例包括技术支持和计算机支持管理员，因为它们可以影响几乎任何用户数据的完整性。
 
 使用与域控制器相同的方式锁定对本地标识组件（例如 Azure AD Connect、AD FS 和 SQL 服务）的访问。
 
