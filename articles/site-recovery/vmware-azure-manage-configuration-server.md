@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcd232a3242b0341bfc81fa9785f76b0d3bd90cb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361477"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369448"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>管理配置服务器以便进行 VMware VM/物理服务器灾难恢复
 
@@ -169,12 +169,12 @@ ms.locfileid: "91361477"
 - 如果运行的是 9.7、9.8、9.9 或 9.10 版，可以直接升级到 9.11 版。
 - 如果运行的是 9.6 版或更早版本并且想要升级到 9.11 版，则必须先升级到 9.7 版， 然后再升级到 9.11 版。
 
-有关 Azure Site Recovery 组件支持声明的详细指南，请参阅[此处](https://aka.ms/asr_support_statement)。
-[此处](https://aka.ms/asr_update_rollups)提供了用于升级到配置服务器的所有版本的更新汇总的链接。
+有关 Azure Site Recovery 组件支持声明的详细指南，请参阅[此处](./service-updates-how-to.md#support-statement-for-azure-site-recovery)。
+[此处](./service-updates-how-to.md#links-to-currently-supported-update-rollups)提供了用于升级到配置服务器的所有版本的更新汇总的链接。
 
 > [!IMPORTANT]
 > 对于每一新版“N”的已发布 Azure Site Recovery 组件，“N-4”以下的所有版本都被视为不受支持。 始终建议升级到可用的最新版本。</br>
-> 有关 Azure Site Recovery 组件支持声明的详细指南，请参阅[此处](https://aka.ms/asr_support_statement)。
+> 有关 Azure Site Recovery 组件支持声明的详细指南，请参阅[此处](./service-updates-how-to.md#support-statement-for-azure-site-recovery)。
 
 按如下所示升级服务器：
 
@@ -192,7 +192,7 @@ ms.locfileid: "91361477"
     ![更新](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. 单击“完成”关闭安装程序。
-8. 若要升级其余的 Site Recovery 组件，请参阅我们的[升级指南](https://aka.ms/asr_vmware_upgrades)。
+8. 若要升级其余的 Site Recovery 组件，请参阅我们的[升级指南](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure)。
 
 ## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>从命令行升级配置服务器/进程服务器
 

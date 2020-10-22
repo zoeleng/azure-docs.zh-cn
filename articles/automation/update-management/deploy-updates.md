@@ -3,14 +3,14 @@ title: 如何为 Azure 自动化更新管理创建更新部署
 description: 本文介绍如何计划更新部署并查看其状态。
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8b9b3df024839007a349d3a412de4a70ff3a1cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222109"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369687"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>如何部署更新和查看结果
 
@@ -54,12 +54,12 @@ ms.locfileid: "92222109"
     > [!NOTE]
     > 如果选择了 Azure VM 或启用了 Arc 的服务器，则此选项不可用。 系统会自动识别操作系统。
 
-5. 在“要更新的组（预览）”区域，定义组合了订阅、资源组、位置和标记的查询，以生成要在部署中加入的 Azure VM 动态组。 要了解详细信息，请参阅[将动态组与更新管理配合使用](configure-groups.md)。
+5. 在 " **要更新的组** " 区域中，定义组合订阅、资源组、位置和标记的查询，以生成要包含在部署中的 Azure vm 动态组。 要了解详细信息，请参阅[将动态组与更新管理配合使用](configure-groups.md)。
 
     > [!NOTE]
     > 如果选择了 Azure VM 或启用了 Arc 的服务器，则此选项不可用。 计算机会自动成为已计划部署的目标。
 
-6. 在“要更新的计算机”区域，选择已保存的搜索、已导入的组或者从下拉菜单中选择“计算机”并选择各个计算机 。 通过此选项可以查看每台计算机的 Log Analytics 代理的准备情况。 若要了解在 Azure Monitor 日志中创建计算机组的不同方法，请参阅 [Azure Monitor 日志中的计算机组](../../azure-monitor/platform/computer-groups.md)。 在计划的更新部署中，最多可以包含500台计算机。
+6. 在“要更新的计算机”区域，选择已保存的搜索、已导入的组或者从下拉菜单中选择“计算机”并选择各个计算机 。 通过此选项可以查看每台计算机的 Log Analytics 代理的准备情况。 若要了解在 Azure Monitor 日志中创建计算机组的不同方法，请参阅 [Azure Monitor 日志中的计算机组](../../azure-monitor/platform/computer-groups.md)。 在计划的更新部署中，最多可以包含1000台计算机。
 
     > [!NOTE]
     > 如果选择了 Azure VM 或启用了 Arc 的服务器，则此选项不可用。 计算机会自动成为已计划部署的目标。
@@ -83,7 +83,7 @@ ms.locfileid: "92222109"
 
 10. 使用“定期”指定是部署一次还是使用定期计划，然后选择“确定” 。
 
-11. 在“前脚本 + 后脚本(预览)”区域，选择要在部署前和部署后运行的脚本。 若要了解详细信息，请参阅[管理前脚本和后脚本](pre-post-scripts.md)。
+11. 在 " **前脚本 + 后脚本** " 区域中，选择要在部署之前和之后运行的脚本。 若要了解详细信息，请参阅[管理前脚本和后脚本](pre-post-scripts.md)。
 
 12. 使用“维护时段(分钟)”字段来指定安装更新的允许时长。 指定维护时段时，请考虑以下详细信息：
 
@@ -111,7 +111,7 @@ ms.locfileid: "92222109"
     > [!NOTE]
     > 为启用了所选 Arc 的服务器配置完部署计划后，请选择 " **查看 + 创建**"。
 
-15. 此时会回到状态仪表板。 选择“部署计划”以显示已创建的部署计划。
+15. 此时会回到状态仪表板。 选择“部署计划”以显示已创建的部署计划。 最多会列出500个计划。 如果计划超过500个，并且想要查看完整列表，请参阅 [软件更新配置-](/rest/api/automation/softwareupdateconfigurations/list) 使用版本2019-06-01 或更高版本列出 REST API 方法。
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>以编程方式计划更新部署
 

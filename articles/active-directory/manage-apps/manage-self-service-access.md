@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88640746"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362359"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>如何配置自助应用程序分配
 
@@ -82,4 +82,4 @@ ms.locfileid: "88640746"
 完成自助服务应用程序配置后，用户可以导航到其 ["我的应用](https://myapps.microsoft.com/) "，然后单击 " **添加自助服务应用** 程序" 按钮以查找启用了自助访问的应用。 业务审批者还会在其 ["我的应用"](https://myapps.microsoft.com/)中看到通知。 可以启用电子邮件，在用户请求需要审批人批准的应用程序的访问权限时，向审批人发送电子邮件通知。
 
 ## <a name="next-steps"></a>后续步骤
-[为自助组管理设置 Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+[为自助组管理设置 Azure Active Directory](../enterprise-users/groups-self-service-management.md)

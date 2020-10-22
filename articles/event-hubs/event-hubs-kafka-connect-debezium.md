@@ -5,12 +5,12 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318522"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369550"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>将 Azure 事件中心（预览版）上的 Apache Kafka Connect 支持与 Debezium 集成进行变更数据捕获
 
@@ -98,6 +98,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> 将 `{YOUR.EVENTHUBS.CONNECTION.STRING}` 替换为事件中心命名空间的连接字符串。 有关获取连接字符串的说明，请参阅 [获取事件中心连接字符串](event-hubs-get-connection-string.md)。 下面是一个示例配置： `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ### <a name="run-kafka-connect"></a>运行 Kafka Connect
 此步骤在本地以分布式模式启动了一个 Kafka Connect 辅助角色，使用事件中心来保留群集状态。

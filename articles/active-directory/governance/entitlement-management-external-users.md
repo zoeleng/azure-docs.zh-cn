@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447090"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362495"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中管理外部用户的访问权限
 
@@ -109,7 +109,7 @@ Azure AD 权利管理利用 [Azure AD 企业对企业 (B2B) 解决方案](../ext
 
 - 如果希望外部用户能够访问与 Microsoft 365 组关联的 SharePoint Online 站点和资源，请确保启用 SharePoint Online 外部共享。 有关详细信息，请参阅[打开或关闭外部共享](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
 
-- 若要了解如何在 PowerShell 中在目录级别设置 Microsoft 365 组的来宾策略，请参阅[示例：在目录级别配置组的来宾策略](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level)。
+- 若要了解如何在 PowerShell 中在目录级别设置 Microsoft 365 组的来宾策略，请参阅[示例：在目录级别配置组的来宾策略](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level)。
 
 ### <a name="review-your-teams-sharing-settings"></a>查看 Teams 共享设置
 

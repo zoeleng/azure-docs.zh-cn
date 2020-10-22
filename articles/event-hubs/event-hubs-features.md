@@ -3,12 +3,12 @@ title: Azure 事件中心功能概述 | Microsoft Docs
 description: 本文详细介绍 Azure 事件中心的功能和术语。
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ebf4e928cadfc87f52fc10b27f9c8419d11a8f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936225"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369635"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure 事件中心的功能和术语
 
@@ -33,7 +33,9 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ### <a name="publishing-an-event"></a>发布事件
 
-可以通过 AMQP 1.0、Kafka 1.0（和更高版本）或 HTTPS 发布事件。 服务总线提供了[客户端库和类](./event-hubs-dotnet-framework-getstarted-send.md)，用于从 .NET 客户端将事件发布到事件中心。 对于其他运行时和平台，可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](https://qpid.apache.org/)。 可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 1 MB，不管它是单个事件还是事件批。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”（如下一部分所述）或其标识。
+可以通过 AMQP 1.0、Kafka 1.0（和更高版本）或 HTTPS 发布事件。 事件中心服务提供 [REST API](https://docs.microsoft.com/rest/api/eventhub/) 和 [.net](event-hubs-dotnet-standard-getstarted-send.md)、 [Java](event-hubs-java-get-started-send.md)、 [Python](event-hubs-python-get-started-send.md)、 [JavaScript](event-hubs-node-get-started-send.md)和用于将事件发布到事件中心 [的客户端](event-hubs-go-get-started-send.md) 库。 对于其他运行时和平台，可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](https://qpid.apache.org/)。 
+
+可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 1 MB，不管它是单个事件还是事件批。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”（如下一部分所述）或其标识。
 
 是要使用 AMQP 还 HTTPS 根据具体的使用方案而定。 AMQP 除了需要使用传输级别安全 (TLS) 或 SSL/TLS 以外，还需要建立持久的双向套接字。 初始化会话时，AMQP 具有较高的网络成本，但是 HTTPS 需要为每个请求使用额外的 TLS 开销。 对于活动频繁的发布者，AMQP 的性能更高。
 
