@@ -62,8 +62,6 @@
       items:
         - name: 安全基线
           href: security-baseline.md
-        - name: 内置安全控件
-          href: api-management-security-controls.md
     - name: 订阅
       href: api-management-subscriptions.md
     - name: 版本
@@ -160,6 +158,8 @@
       items:
         - name: 了解开发人员门户
           href: api-management-howto-developer-portal.md
+        - name: 从弃用的门户迁移到新的开发人员门户
+          href: developer-portal-deprecated-migration.md
         - name: 使用 Azure AD 进行身份验证
           href: api-management-howto-aad.md
         - name: 使用 Azure AD B2C 进行身份验证
@@ -170,13 +170,13 @@
           href: api-management-howto-configure-notifications.md
         - name: 启动控制台 OAuth 支持
           href: api-management-howto-oauth2.md
-        - name: 旧门户 - 自定义门户
+        - name: 弃用的门户 - 自定义门户
           href: api-management-customize-styles.md
-        - name: 旧门户 - 修改页面和布局
+        - name: 弃用的门户 - 修改页面和布局
           href: api-management-modify-content-layout.md
-        - name: 旧门户 - 通过模板进行自定义
+        - name: 弃用的门户 - 通过模板进行自定义
           href: api-management-developer-portal-templates.md
-    - name: 旧门户模板
+    - name: 弃用的门户模板
       items:
         - name: 数据模型参考
           href: api-management-template-data-model-reference.md

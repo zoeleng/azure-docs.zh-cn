@@ -292,8 +292,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
-                - name: 资源管理器模板
-                  href: ./samples/resource-manager-workspace.md
+            - name: 监视工作区
+              href: platform/monitor-workspace.md
             - name: 删除和恢复工作区
               href: platform/delete-workspace.md
             - name: 管理访问权限
@@ -415,7 +415,7 @@
                       href: platform/diagnostics-extension-windows-install.md
                     - name: PowerShell
                       href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
-                    - name: Resource Manager 模板
+                    - name: 资源管理器模板
                       href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
                 - name: 发送到 Azure Monitor 指标存储
                   items:
@@ -463,7 +463,7 @@
           href: platform/autoscale-get-started.md
         - name: 配置设置
           href: platform/autoscale-understanding-settings.md
-        - name: 最佳做法
+        - name: 最佳实践
           href: platform/autoscale-best-practices.md
         - name: 常见指标
           href: platform/autoscale-common-metrics.md
@@ -998,7 +998,7 @@
       items:
         - name: 概述
           href: insights/container-insights-overview.md
-        - name: 常见问题解答
+        - name: 常见问题
           href: faq.md#azure-monitor-for-containers
         - name: 启用监视
           items:

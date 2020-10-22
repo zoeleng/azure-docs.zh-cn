@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/10/2020
 ms.author: baanders
-ms.openlocfilehash: b637ef2be51ef2bbbe9fa7e1a2374927647ca382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a07c2684856cfe21001f996bb62ce4ea3297e8c2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87061714"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92379848"
 ---
-## <a name="visualization"></a>可视化
+## <a name="visualization"></a>可视化效果
 
 尽管与 Azure 数字孪生实例进行交互的主要方式是通过 [api 和 sdk](../articles/digital-twins/how-to-use-apis-sdks.md)，但要查看在实例中创建的孪生和图形，这会很有帮助。
 
-[**Azure 数字孪生资源管理器**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)是用于可视化和使用 Azure 数字孪生的示例应用程序。 按照示例提供的说明下载并运行应用程序代码。 
+[**Azure 数字孪生资源管理器**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)是用于可视化和使用 Azure 数字孪生的示例应用程序。 按照示例提供的说明下载并运行应用程序代码。 
 
 在此示例中，可以看到数字孪生的可视表示形式，以及在其他创建和管理活动中创建的图表。
 

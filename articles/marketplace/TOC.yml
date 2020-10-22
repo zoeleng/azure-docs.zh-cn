@@ -107,28 +107,36 @@
               href: partner-center-portal/create-azure-container-offer.md
     - name: Azure 虚拟机产品/服务
       items:
-        - name: 规划虚拟机产品/服务
+        - name: 规划 VM 产品/服务
           href: marketplace-virtual-machines.md
-        - name: 创建并发布虚拟机产品/服务
+        - name: 创建和发布 VM 产品/服务
           items:
-            - name: 创建 Azure 虚拟机套餐
-              href: partner-center-portal/azure-vm-create-offer.md
-            - name: 创建 Azure VM 技术资产
+            - name: 创建 VM 技术资产
               items:
-                - name: 虚拟机认证问题
-                  href: partner-center-portal/vm-certification-issues-solutions.md
-                - name: 创建 Azure VM 技术资产
-                  href: partner-center-portal/create-azure-vm-technical-asset.md
-                - name: Azure VM 技术资产常见问题解答
-                  href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: 测试通过 VHD 部署的虚拟机
-                  href: partner-center-portal/azure-vm-image-certification.md
-                - name: SAS URI
-                  items:
-                    - name: 获取 SAS URI
-                      href: partner-center-portal/get-sas-uri.md
-                    - name: SAS URI 常见问题解答
-                      href: partner-center-portal/common-sas-uri-issues.md
+                - name: 从已批准的基础创建 VM
+                  href: azure-vm-create-using-approved-base.md
+                - name: 使用自己的映像创建 VM
+                  href: azure-vm-create-using-own-image.md
+                - name: 测试 VM 映像
+                  href: azure-vm-image-test.md
+                - name: 获取 SAS URI
+                  href: azure-vm-get-sas-uri.md
+                - name: SAS 故障消息
+                  href: azure-vm-sas-failure-messages.md
+                - name: VM 创建常见问题解答
+                  href: azure-vm-create-faq.md
+                - name: VM 认证故障排除
+                  href: azure-vm-create-certification-faq.md
+            - name: 创建 VM 产品/服务
+              href: azure-vm-create.md
+            - name: 配置 VM 产品/服务属性
+              href: azure-vm-create-properties.md
+            - name: 配置 VM 产品/服务列表
+              href: azure-vm-create-listing.md
+            - name: 创建 VM 计划
+              href: azure-vm-create-plans.md
+            - name: 添加预览受众
+              href: azure-vm-create-preview.md
     - name: 咨询服务
       items:
         - name: 规划咨询服务套餐
@@ -329,7 +337,7 @@
     - name: 技术和发布办公时间
       href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: 合作伙伴中心支持选项
-      href: partner-center-portal/support.md
+      href: support.md
     - name: 合作伙伴中心公告
       href: /partner-center/announcements
     - name: Microsoft 合作伙伴社区
