@@ -5,6 +5,8 @@
   items:
     - name: 什么是应用程序预配？
       href: user-provisioning.md
+    - name: Docs 中的新增内容
+      href: whats-new-docs.md
 - name: 教程
   expanded: true
   items:

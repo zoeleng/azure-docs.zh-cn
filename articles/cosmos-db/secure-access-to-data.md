@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760863"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371726"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 
@@ -29,20 +29,7 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 
 ## <a name="primary-keys"></a>主键
 
-主键提供对数据库帐户的所有管理资源的访问权限。 主键：
-
-- 提供对帐户、数据库、用户和权限的访问权限。 
-- 无法用于提供对容器和文档的精细访问权限。
-- 在创建帐户过程中创建。
-- 随时可重新生成。
-
-每个帐户都包含两个主键：主密钥和辅助密钥。 使用两个密钥的目的是为了能够重新生成或轮换密钥，从而可以持续访问帐户和数据。
-
-除了 Cosmos DB 帐户的两个主键外，还有两个只读密钥。 这些只读密钥只允许针对帐户执行读取操作。 只读密钥不提供对资源的读取权限。
-
-可以使用 Azure 门户检索和重新生成主要、辅助、只读和读写主键。 有关说明，请参阅[查看、复制和重新生成访问密钥](manage-with-cli.md#regenerate-account-key)。
-
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性":::
+主键提供对数据库帐户的所有管理资源的访问权限。 每个帐户都包含两个主键：主密钥和辅助密钥。 使用两个密钥的目的是为了能够重新生成或轮换密钥，从而可以持续访问帐户和数据。 若要了解有关主键的详细信息，请参阅 [数据库安全](database-security.md#primary-keys) 一文。
 
 ### <a name="key-rotation"></a>密钥轮换<a id="key-rotation"></a>
 
@@ -51,10 +38,10 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 1. 导航到 Azure 门户以检索辅助密钥。
 2. 在应用程序中将主密钥替换为辅助密钥。 确保所有部署中的所有 Cosmos DB 客户端都立即重启，并将开始使用已更新的密钥。
 3. 在 Azure 门户中轮换主密钥。
-4. 验证新主密钥是否适用于所有资源。 密钥轮换过程可能需要不到一分钟，也可能需要几小时，具体取决于 Cosmos DB 帐户的大小。
+4. 验证新主密钥是否适用于所有资源。 根据 Cosmos DB 帐户的大小，密钥轮换过程可能需要的时间不到1分钟到几小时。
 5. 将辅助密钥替换为新的主密钥。
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure 门户中的主密钥轮换-演示 NoSQL 数据库安全性" border="false":::
 
 ### <a name="code-sample-to-use-a-primary-key"></a>使用主密钥的代码示例
 
@@ -102,9 +89,9 @@ Cosmos DB 资源令牌提供一种安全的替代方法，使客户端能够根�
 7. 手机应用可以继续使用该资源令牌以该资源令牌定义的权限按照该资源令牌允许的间隔直接访问 Cosmos DB 资源。
 8. 资源令牌到期后，后续请求收到 401 未经授权的异常。  此时，手机应用会重新建立标识，并请求新的资源令牌。
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure 门户中的主密钥轮换-演示 NoSQL 数据库安全性" border="false":::
 
-资源令牌的生成和管理由本机 Cosmos DB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [Cosmos DB 资源的访问控制](/rest/api/cosmos-db/access-control-on-cosmosdb-resources)或我们的 [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) 或 [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts) 的源代码。
+资源令牌的生成和管理由本机 Cosmos DB 客户端库处理;但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [Cosmos DB 资源的访问控制](/rest/api/cosmos-db/access-control-on-cosmosdb-resources)或我们的 [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) 或 [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts) 的源代码。
 
 有关用于生成或代理资源令牌的中间层服务的示例，请参阅 [ResourceTokenBroker 应用](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)。
 
