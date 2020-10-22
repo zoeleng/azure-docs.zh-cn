@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049564"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366558"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 创建可复原的访问控制管理策略
 
@@ -285,7 +285,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 ## <a name="learn-more"></a>了解详细信息
 
 * [Azure AD 身份验证文档](./howto-mfaserver-iis.md)
-* [在 Azure AD 中管理紧急访问管理账户](../users-groups-roles/directory-emergency-access.md)
+* [在 Azure AD 中管理紧急访问管理账户](../roles/security-emergency-access.md)
 * [在 Azure Active Directory 中配置命名位置](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [如何配置联接到混合 Azure Active Directory 的设备](../devices/hybrid-azuread-join-plan.md)

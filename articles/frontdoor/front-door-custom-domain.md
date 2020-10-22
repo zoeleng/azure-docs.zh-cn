@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e153edd807dcb119c34f60dc34e33fed510916bb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729162"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277612"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>教程：将自定义域添加到 Front Door
 本教程介绍如何将自定义域添加到 Front Door。 使用 Azure Front Door 进行应用程序交付时，如果希望自己的域名在最终用户请求中可见，则必须使用自定义域。 使用可见的域名可以方便客户，适用于推广品牌。
@@ -39,9 +39,9 @@ ms.locfileid: "91729162"
 
 * 在完成本教程中的步骤之前，必须先创建一个 Front Door。 有关详细信息，请参阅[快速入门：创建 Front Door](quickstart-create-front-door.md)。
 
-* 如果没有自定义域，则必须先在域提供商那里购买一个。 有关示例，请参阅[购买自定义域名](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)。
+* 如果没有自定义域，则必须先在域提供商那里购买一个。 有关示例，请参阅[购买自定义域名](../app-service/manage-custom-dns-buy-domain.md)。
 
-* 如果使用 Azure 来托管 [DNS 域](https://docs.microsoft.com/azure/dns/dns-overview)，必须将域提供商的域名系统 (DNS) 委托给 Azure DNS。 有关详细信息，请参阅 [向 Azure DNS 委派域](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)。 否则，如果通过域提供商处理 DNS 域，请转到[创建 CNAME DNS 记录](#create-a-cname-dns-record)。
+* 如果使用 Azure 来托管 [DNS 域](../dns/dns-overview.md)，必须将域提供商的域名系统 (DNS) 委托给 Azure DNS。 有关详细信息，请参阅 [向 Azure DNS 委派域](../dns/dns-delegate-domain-azure-dns.md)。 否则，如果通过域提供商处理 DNS 域，请转到[创建 CNAME DNS 记录](#create-a-cname-dns-record)。
 
 
 ## <a name="create-a-cname-dns-record"></a>创建 CNAME DNS 记录

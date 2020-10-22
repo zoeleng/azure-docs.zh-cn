@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: dae9db6dd20ef4346050be73250c7a10f7a449ec
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 044ee51fb7ff675af0fb97224313c388c4cbeac1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940679"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>教程：Azure Active Directory 与 Mitel MiCloud Connect 或 CloudLink Platform 的集成
 
@@ -204,7 +204,7 @@ ms.locfileid: "91940679"
 
 在本部分，我们将在 MiCloud Connect 帐户中创建名为 Britta Simon 的用户。 使用单一登录前，必须先创建并激活用户。
 
-若要详细了解如何在 Mitel 帐户门户中添加用户，请参阅 Mitel 知识库中的 [Adding a User](https://oneview.mitel.com/s/article/Adding-a-User-092815)（添加用户）一文。
+若要详细了解如何在 Mitel 帐户门户中添加用户，请参阅 Mitel 知识库中的 [Adding a User](https://shoretelcommunity.force.com/s/article/Adding-Users-092815)（添加用户）一文。
 
 根据以下详细信息在 MiCloud Connect 帐户中创建用户：
 

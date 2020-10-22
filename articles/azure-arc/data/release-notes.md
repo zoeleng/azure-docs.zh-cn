@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bbd3ab02cd1eccd00e2d36c14eebf2f63205
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319718"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360289"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>发行说明-启用了 Azure Arc 的数据服务 (预览) 
 
@@ -62,3 +62,8 @@ ms.locfileid: "91319718"
 - 不支持缩放 Postgres 超大规模辅助 _角色节点的_ 数量。
 - 如果使用 azure Kubernetes 服务引擎 (使用 Azure Arc 数据控制器和数据库实例的 Azure Stack 集线器上的 AKS Engine) ，则不支持升级到较新的 Kubernetes 版本。 请先卸载 Azure Arc 数据控制器和所有数据库实例，然后再升级 Kubernetes 群集。
 - 预览不支持 Postgres 版本11引擎的备份/还原。 它仅支持 Postgres 版本12的备份/还原。
+- Azure Kubernetes Service (AKS) ，支持支持 Azure Arc 的数据服务目前不支持跨 [多个可用性区域](../../aks/availability-zones.md) 的群集。 若要避免此问题，在 Azure 门户中创建 AKS 群集时，如果选择区域可用的区域，请从选择控件中清除所有区域。 参看下图：
+
+   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="清除每个区域的复选框以指定 &quot;无&quot;。":::
+
+  

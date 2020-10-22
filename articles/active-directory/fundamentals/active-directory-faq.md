@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312587"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371862"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>有关 Azure Active Directory 的常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -53,7 +53,7 @@ Azure AD 付费服务，如企业移动性 + 安全性通过综合性的企业�
 
 如果其他人需要使用同一个订阅登录和访问服务，则可向他们分配相应的[内置角色](../../role-based-access-control/built-in-roles.md)。 有关其他信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)。
 
-默认情况下，系统会将注册 Azure 订阅的人员指派为目录的全局管理员角色。 全局管理员有权访问所有 Azure AD 目录功能。 Azure AD 提供一组不同的管理员角色，用于管理目录和标识相关的功能。 这些管理员将有权访问 Azure 门户中的各种功能。 管理员的角色决定了其所能执行的操作，例如创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。  有关 Azure AD 目录管理员及其角色的其他信息，请参阅[在 Azure Active Directory 中向用户分配管理员角色](active-directory-users-assign-role-azure-portal.md)和[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。
+默认情况下，系统会将注册 Azure 订阅的人员指派为目录的全局管理员角色。 全局管理员有权访问所有 Azure AD 目录功能。 Azure AD 提供一组不同的管理员角色，用于管理目录和标识相关的功能。 这些管理员将有权访问 Azure 门户中的各种功能。 管理员的角色决定了其所能执行的操作，例如创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。  有关 Azure AD 目录管理员及其角色的其他信息，请参阅[在 Azure Active Directory 中向用户分配管理员角色](active-directory-users-assign-role-azure-portal.md)和[在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md)。
 
 此外，Azure AD 付费服务，如企业移动性 + 安全性通过综合性的企业级管理和安全解决方案来补充其他 web 服务，如 Microsoft 365 和 Microsoft Azure。
 

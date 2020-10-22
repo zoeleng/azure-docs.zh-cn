@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d24c824782bdc6530b78450fc55a879a511ddc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88516616"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367680"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>使用 Azure SQL 的 Azure Active Directory 服务主体
 
@@ -74,12 +74,12 @@ SQL 数据库和 Azure Synapse 现在支持以 Azure AD 应用程序身份运行
     > [!NOTE]
     > 也可以使用 CLI 命令分配服务器标识。 有关详细信息，请参阅 [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) 和 [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update)。
 
-2. 向已创建的或分配给服务器的服务器标识授予 Azure AD [**目录读取者**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)权限。
+2. 向已创建的或分配给服务器的服务器标识授予 Azure AD [**目录读取者**](../../active-directory/roles/permissions-reference.md#directory-readers)权限。
     - 若要授予此权限，请按照以下文章中提供的用于 SQL 托管实例的说明进行操作：[预配 Azure AD 管理员（SQL 托管实例）](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - 授予此权限的 Azure AD 用户必须担任 Azure AD **全局管理员**或**特权角色管理员**角色。
 
 > [!IMPORTANT]
-> 必须按上述顺序执行步骤 1 和步骤 2。 首先，创建或分配服务器标识，然后授予[**目录读取者**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)权限。 省略这两个步骤中的一个或同时忽略这两个都会导致以 Azure AD 应用程序身份在 Azure SQL 中创建 Azure AD 对象时发生执行错误。 有关以 Azure AD 应用程序身份创建 Azure AD 用户的分步说明，请参阅[教程：使用 Azure AD 应用程序创建 Azure AD 用户](authentication-aad-service-principal-tutorial.md)。
+> 必须按上述顺序执行步骤 1 和步骤 2。 首先，创建或分配服务器标识，然后授予[**目录读取者**](../../active-directory/roles/permissions-reference.md#directory-readers)权限。 省略这两个步骤中的一个或同时忽略这两个都会导致以 Azure AD 应用程序身份在 Azure SQL 中创建 Azure AD 对象时发生执行错误。 有关以 Azure AD 应用程序身份创建 Azure AD 用户的分步说明，请参阅[教程：使用 Azure AD 应用程序创建 Azure AD 用户](authentication-aad-service-principal-tutorial.md)。
 >
 > 在 **公共预览版**中，你可以将 **目录读取** 者角色分配到 Azure AD 中的组。 然后，组所有者可以将托管标识添加为此组的成员，这样就不需要 **全局管理员** 或 **特权角色管理员** 授予 **目录读者** 角色。 有关此功能的详细信息，请参阅 [Azure SQL 的 Azure Active Directory 中的目录读取者角色](authentication-aad-directory-readers-role.md)。
 

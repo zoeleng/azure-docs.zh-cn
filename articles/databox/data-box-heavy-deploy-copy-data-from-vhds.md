@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 335b564225bc2b7a4c2217c1d912f952239ecf24
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951428"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127193"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>教程：在 Azure 中使用 Data Box Heavy 将数据作为托管磁盘导入
 
@@ -38,7 +38,7 @@ ms.locfileid: "91951428"
 4. 已查看：
 
     - [“Azure 对象大小限制”中的“支持的托管磁盘大小”](data-box-heavy-limits.md#azure-object-size-limits)。
-    - [Azure 托管磁盘简介](/azure/virtual-machines/windows/managed-disks-overview)。 
+    - [Azure 托管磁盘简介](../virtual-machines/managed-disks-overview.md)。 
 
 ## <a name="connect-to-data-box-heavy"></a>连接到 Data Box Heavy
 
@@ -182,4 +182,3 @@ Data Box Heavy 根据指定的资源组按节点为每个关联的资源组创�
 
 > [!div class="nextstepaction"]
 > [将 Azure Data Box Heavy 寄送到 Microsoft](./data-box-heavy-deploy-picked-up.md)
-

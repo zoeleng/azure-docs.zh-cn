@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977008"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359707"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>在 Azure Active Directory 门户中分配或删除许可证
 
@@ -144,10 +144,10 @@ ms.locfileid: "91977008"
 
 分配了许可证之后，可以执行以下过程：
 
-- [识别和解决许可证分配问题](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [识别和解决许可证分配问题](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [将许可的用户添加到组以进行许可](../users-groups-roles/licensing-groups-migrate-users.md)
+- [将许可的用户添加到组以进行许可](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [在 Azure Active Directory 中使用组管理许可的方案、限制和已知问题](../users-groups-roles/licensing-group-advanced.md)
+- [在 Azure Active Directory 中使用组管理许可的方案、限制和已知问题](../enterprise-users/licensing-group-advanced.md)
 
 - [添加或更改个人资料信息](active-directory-users-profile-azure-portal.md)

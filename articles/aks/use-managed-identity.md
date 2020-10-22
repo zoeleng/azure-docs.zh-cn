@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397039"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371454"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes 服务中使用托管标识
 
@@ -30,8 +30,8 @@ ms.locfileid: "91397039"
 * 现有 AKS 群集无法迁移到托管标识。
 * 在群集升级操作期间，托管标识暂时不可用。
 * 不支持启用了托管标识的群集的租户移动/迁移。
-* 如果已启用群集 `aad-pod-identity` ，节点托管标识 (NMI) 盒修改节点的 iptables，以截获对 Azure 实例元数据终结点的调用。 此配置意味着对元数据终结点发出的任何请求都将被 NMI 截获，即使 pod 不使用也是如此 `aad-pod-identity` 。 可以将 AzurePodIdentityException .CRD 配置为通知来自与 `aad-pod-identity` 在 .crd 中定义的标签相匹配的 pod 的元数据终结点的任何请求都应该在无 NMI 处理的情况下代理。 `kubernetes.azure.com/managedby: aks` _Kube_命名空间中带标签的系统箱应 `aad-pod-identity` 通过配置 AzurePodIdentityException .crd 排除在中。 有关详细信息，请参阅 [禁用特定 pod 或应用程序的 aad-pod 标识](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)。
-  若要配置异常，请安装 [mic-EXCEPTION YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)。
+* 如果群集启用了 `aad-pod-identity`，节点托管标识 (NMI) pod 将修改节点的 iptable，以拦截对 Azure 实例元数据终结点的调用。 此配置意味着对元数据终结点发出的任何请求都将被 NMI 拦截，即使 pod 不使用 `aad-pod-identity`。 可以将 AzurePodIdentityException CRD 配置为通知 `aad-pod-identity` 应在不使用 NMI 进行出任何处理的情况下，代理与 CRD 中定义的标签匹配的 pod 所发起的对元数据终结点的任何请求。 应通过配置 AzurePodIdentityException CRD 在 `aad-pod-identity` 中排除在 _kube-system_ 命名空间中具有 `kubernetes.azure.com/managedby: aks` 标签的系统 pod。 有关详细信息，请参阅[禁用特定 pod 或应用程序的 aad-pod-identity](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)。
+  若要配置例外情况，请安装 [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)。
 
 ## <a name="summary-of-managed-identities"></a>托管标识摘要
 
@@ -40,7 +40,7 @@ AKS 对内置服务和加载项使用多个托管标识。
 | 标识                       | 名称    | 使用案例 | 默认权限 | 自带标识
 |----------------------------|-----------|----------|
 | 控制面板 | 不可见 | 由 AKS 用于托管网络资源，包括入口负载均衡器和 AKS 托管公共 IP | 节点资源组的参与者角色 | 预览
-| Kubelet | AKS Cluster Name-agentpool | 向 Azure 容器注册表 (ACR) 进行身份验证 | NA (kubernetes v 1.15 +)  | 目前不支持
+| Kubelet | AKS Cluster Name-agentpool | 向 Azure 容器注册表 (ACR) 进行身份验证 | NA（对于 kubernetes v1.15+） | 目前不支持
 | 加载项 | AzureNPM | 无需标识 | 不可用 | 否
 | 加载项 | AzureCNI 网络监视 | 无需标识 | 不可用 | 否
 | 加载项 | azurepolicy（网关守卫） | 无需标识 | 不可用 | 否
@@ -51,7 +51,7 @@ AKS 对内置服务和加载项使用多个托管标识。
 | 加载项 | 入口应用程序网关 | 管理所需的网络资源| 节点资源组的参与者角色 | 否
 | 加载项 | omsagent | 用于将 AKS 指标发送到 Azure Monitor | “监视指标发布者”角色 | 否
 | 加载项 | Virtual-Node (ACIConnector) | 管理 Azure 容器实例 (ACI) 所需的网络资源 | 节点资源组的参与者角色 | 否
-| OSS 项目 | aad-pod-标识 | 使应用程序能够使用 Azure Active Directory (AAD) 安全地访问云资源 | NA | 要授予权限的步骤 https://github.com/Azure/aad-pod-identity#role-assignment 。
+| OSS 项目 | aad-pod-identity | 通过 Azure Active Directory (AAD) 使应用程序可安全访问云资源 | NA | 要授予权限的步骤 https://github.com/Azure/aad-pod-identity#role-assignment 。
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>创建具有托管标识的 AKS 群集
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398300"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368003"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>排查 Azure 到 Azure VM 网络连接性问题
 
@@ -60,7 +60,7 @@ ms.locfileid: "91398300"
 #### <a name="resolution"></a>解决方法
 
 - Azure Site Recovery 需要访问 Microsoft 365 IP 范围才能进行身份验证。
-- 如果使用 Azure 网络安全组 (NSG) 规则/防火墙代理来控制 VM 上的出站网络连接，请确保允许与 Microsoft 365 IP 范围通信。 创建一个基于 [Azure Active Directory (Azure AD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则，该规则允许访问与 Azure AD 对应的所有 IP 地址。
+- 如果使用 Azure 网络安全组 (NSG) 规则/防火墙代理来控制 VM 上的出站网络连接，请确保允许与 Microsoft 365 IP 范围通信。 创建一个基于 [Azure Active Directory (Azure AD) 服务标记](../virtual-network/network-security-groups-overview.md#service-tags)的 NSG 规则，该规则允许访问与 Azure AD 对应的所有 IP 地址。
 - 如果将来向 Azure AD 添加新地址，则需创建新的 NSG 规则。
 
 ### <a name="example-nsg-configuration"></a>NSG 配置示例

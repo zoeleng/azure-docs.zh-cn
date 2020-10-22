@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b7e96934c96dd944e17a1ef1ffb51a6ee89bf4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318903"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359996"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 数据工厂 - 示例
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "85318903"
 | [跨 AppDomain Dot Net 活动示例](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |借助此示例，可创建自定义 .NET 活动，该活动不受 ADF 启动器使用的程序集版本限制（例如，WindowsAzure.Storage v4.3.0、 Newtonsoft.Json v6.0.x 等）。 |
 | [运行 R 脚本](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |此示例包括可用来调用 RScript.exe 的数据工厂自定义活动。 此示例仅适用于已安装有 R 的用户自己（非按需）的 HDInsight 群集。 |
 | [调用 HDInsight Hadoop 群集上的 Spark 作业](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |此示例演示如何使用 MapReduce 活动调用 Spark 程序。 Spark 程序只是将数据从一个 Azure Blob 容器复制到其他的 Azure Blob容器。 |
-| [使用 Azure 机器学习批处理评分活动的 Twitter 分析](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |此示例演示如何使用 AzureMLBatchScoringActivity 调用执行 Twitter 情绪分析、评分、预测等的 Azure 机器学习模型。 |
+| [使用 Azure 机器学习 Studio (经典) 批处理评分活动的 Twitter 分析](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |此示例演示如何使用 AzureMLBatchScoringActivity 调用执行 Twitter 情绪分析、评分、预测等的 Azure 机器学习模型。 |
 | [使用自定义活动的 Twitter 分析](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |此示例演示如何使用自定义 .NET 活动调用执行 Twitter 情绪分析、评分、预测等的 Azure 机器学习模型。 |
 | [Azure 机器学习的参数化管道](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |此示例提供端到端 C# 代码来部署 N 个管道进行评分和重新训练，每个管道都具有不同的区域参数，其中区域列表来自 parameters.txt 文件，该文件包含在此示例中。 |
 | [Azure 流分析作业的引用数据刷新](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |此示例演示如何将 Azure 数据工厂和 Azure 流分析配合使用以运行引用数据的查询并将引用数据设置为定期刷新。 |
@@ -46,7 +46,7 @@ ms.locfileid: "85318903"
 ## <a name="azure-resource-manager-templates"></a>Azure 资源管理器模板
 可在 GitHub 上找到数据工厂的以下 Azure 资源管理器模板。
 
-| 模板 | 说明 |
+| 模板 | 描述 |
 | --- | --- |
 | [从 Azure Blob 存储复制到 Azure SQL 数据库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |部署此模板将创建一个包含管道的 Azure 数据工厂，该管道可将数据从指定的 Azure blob 存储复制到 Azure SQL 数据库 |
 | [从 Salesforce 复制到 Azure Blob 存储](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |部署此模板将创建 Azure 数据工厂，其中包含可将数据从指定的 Salesforce 帐户复制到 Azure Blob 存储的管道。 |
@@ -75,7 +75,7 @@ ms.locfileid: "85318903"
     ![“数据工厂”边栏选项卡](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio 中的示例
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备条件
 必须在计算机上安装了以下软件：
 
 * Visual Studio 2013 或 Visual Studio 2015

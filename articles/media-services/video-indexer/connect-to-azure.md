@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 24b41a77985cac13e829d69ff77a4bf14fb40389
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164783"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371369"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>创建连接到 Azure 的视频索引器帐户
 
@@ -25,7 +25,7 @@ ms.locfileid: "92164783"
 
 如果要从 *试用版* 移动到 *付费* 视频索引器帐户，可以选择将所有视频和模型自定义复制到新帐户，如 [从试用帐户导入内容](#import-your-content-from-the-trial-account) 部分中所述。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 * Azure 订阅。
 
@@ -33,7 +33,7 @@ ms.locfileid: "92164783"
 
 * ) 域 Azure AD 的 Azure Active Directory (。
 
-    如果没有 Azure AD 域，请使用 Azure 订阅创建此域。 有关详细信息，请参阅 [管理 Azure AD 中的自定义域名](../../active-directory/users-groups-roles/domains-manage.md)
+    如果没有 Azure AD 域，请使用 Azure 订阅创建此域。 有关详细信息，请参阅 [管理 Azure AD 中的自定义域名](../../active-directory/enterprise-users/domains-manage.md)
 
 * 具有 **应用程序管理员** 角色的 Azure AD 域中的用户。 将视频索引器帐户连接到 Azure 时，将要使用此成员。
 

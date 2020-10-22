@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68795033d36ad0bcb36b7cd81cea0d848ecd5113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049003"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367833"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>将特权访问组（预览）引入 Privileged Identity Management
 
@@ -27,7 +27,7 @@ ms.locfileid: "89049003"
 
 ## <a name="identify-groups-to-manage"></a>标识要管理的组
 
-可以在 Azure AD 中创建角色可分配的组，如 [Azure Active Directory 中的创建可分配角色的组](../users-groups-roles/roles-groups-create-eligible.md)中所述。 你已是组的所有者，以使用 Privileged Identity Management 管理它。
+可以在 Azure AD 中创建角色可分配的组，如 [Azure Active Directory 中的创建可分配角色的组](../roles/groups-create-eligible.md)中所述。 你已是组的所有者，以使用 Privileged Identity Management 管理它。
 
 1. 使用特权角色管理员角色权限[登录到 Azure AD](https://aad.portal.azure.com)。
 1. 选择“组”，然后选择要在 PIM 中管理的可分配角色的组。 可以搜索和筛选列表。

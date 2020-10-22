@@ -1,14 +1,14 @@
 ---
 title: 管理启用了 Azure Arc 的服务器代理
 description: 本文介绍了在支持 Azure Arc 的服务器连接的计算机代理的生命周期中通常会执行的不同管理任务。
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: af020d0ca586b950b444f2a3149ad207b5696050
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108926"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371420"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>管理并维护 Connected Machine 代理
 
@@ -138,7 +138,7 @@ ms.locfileid: "92108926"
     zypper update
     ```
 
-[zypper](https://en.opensuse.org/Portal:Zypper) 命令的操作（如安装和删除包）记录在 `/var/log/zypper.log` 日志文件中。 
+[zypper](https://en.opensuse.org/Portal:Zypper) 命令的操作（如安装和删除包）记录在 `/var/log/zypper.log` 日志文件中。
 
 ## <a name="about-the-azcmagent-tool"></a>关于 Azcmagent 工具
 
@@ -148,9 +148,11 @@ Azcmagent 工具 ( # A0) 用于在安装期间配置启用了 Azure Arc 的服�
 
 * **Disconnect** - 断开计算机与 Azure Arc 的连接
 
-* **Reconnect** - 将断开连接的计算机重新连接到 Azure Arc
+* **Show** - 查看代理状态及其配置属性（资源组名称、订阅 ID、版本等），这有助于排查与代理相关的问题。 包括 `-j` 参数以 JSON 格式输出结果。
 
-* **Show** - 查看代理状态及其配置属性（资源组名称、订阅 ID、版本等），这有助于排查与代理相关的问题。
+* **日志** -在当前目录中创建一个 .zip 文件，该文件包含用于在进行故障排除时提供帮助的日志。
+
+* **版本** -显示连接的计算机代理版本。
 
 * **-h or --help** - 显示可用的命令行参数
 
@@ -158,7 +160,7 @@ Azcmagent 工具 ( # A0) 用于在安装期间配置启用了 Azure Arc 的服�
 
 * **-v or --verbose** - 启用详细日志记录
 
-你可以在以交互方式登录时手动执行“Connect”、“Disconnect”和“Reconnect”，也可以使用用于加入多个代理的相同服务主体或使用 Microsoft 标识平台[访问令牌](../../active-directory/develop/access-tokens.md)自动执行这些参数  。 如果未使用服务主体向启用了 Azure Arc 的服务器注册计算机，请参阅以下 [文章](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 创建服务主体。
+可以在交互式登录时手动执行连接和**断开****连接**，也可以使用用于集成多个代理的相同服务主体或使用 Microsoft 标识平台[访问令牌](../../active-directory/develop/access-tokens.md)来自动完成。 如果未使用服务主体向启用了 Azure Arc 的服务器注册计算机，请参阅以下 [文章](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 创建服务主体。
 
 >[!NOTE]
 >若要运行**azcmagent**，必须具有 Linux 计算机上的*根*访问权限。
@@ -198,28 +200,7 @@ Azcmagent 工具 ( # A0) 用于在安装期间配置启用了 Azure Arc 的服�
 
 若要使用提升的登录凭据（交互式）断开连接，请运行以下命令：
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>重新连接
-
-> [!WARNING]
-> `reconnect`命令已弃用，不应使用。 此命令将在将来的代理版本中删除，并且现有的代理将无法完成重新连接请求。 相反，请 [断开](#disconnect) 计算机的 [连接](#connect) ，然后重新连接。
-
-此参数将已注册或已连接的计算机与启用了 Azure Arc 的服务器重新连接。 如果计算机已关闭（至少 45 天）从而导致其证书过期，则可能需要执行此参数。 此参数使用提供的身份验证选项来检索与表示此计算机的 Azure 资源管理器资源相对应的新凭据。
-
-此命令需要高于 [Azure Connected Machine 加入](agent-overview.md#required-permissions)角色的权限。
-
-若要使用服务主体重新进行连接，请运行以下命令：
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-若要使用访问令牌重新进行连接，请运行以下命令：
-
-`azcmagent reconnect --access-token <accessToken>`
-
-若要使用提升的登录凭据（交互式）重新进行连接，请运行以下命令：
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>删除代理
 

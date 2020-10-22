@@ -3,12 +3,12 @@ title: 将混合计算机大规模连接到 Azure
 description: 本文介绍如何使用服务主体使用启用了 Azure Arc 的服务器将计算机连接到 Azure。
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: d789061c741b8a0da2edabcb56a67898ea28ec90
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f71bbc46ccac533db39176363f206ab033e60316
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108909"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360115"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>将混合计算机大规模连接到 Azure
 
@@ -16,9 +16,9 @@ ms.locfileid: "92108909"
 
 安装和配置 Connected Machine 代理的安装方法要求你在计算机上拥有管理员权限。 在 Linux 上，需使用 root 帐户；在 Windows 上，需要以“本地管理员组”的成员身份使用这些方法。
 
-在开始之前，请务必查看[先决条件](agent-overview.md#prerequisites)，并验证你的订阅和资源是否符合要求。
+在开始之前，请务必查看[先决条件](agent-overview.md#prerequisites)，并验证你的订阅和资源是否符合要求。 有关支持的区域和其他相关注意事项的信息，请参阅 [支持的 Azure 区域](overview.md#supported-regions)。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果你还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 在此过程结束时，你将成功地将混合计算机连接到启用了 Azure Arc 的服务器。
 

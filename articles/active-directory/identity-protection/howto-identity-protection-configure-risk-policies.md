@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337443"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367459"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>如何：配置和启用风险策略
 
@@ -45,7 +45,7 @@ Microsoft 建议将 "用户风险策略阈值" 设置为 " **高** "，并将 "�
 
 ## <a name="exclusions"></a>排除项
 
-所有策略都允许排除部分用户（如[应急访问或紧急情况管理员帐户](../users-groups-roles/directory-emergency-access.md)）。 组织可能会根据帐户的使用方式确定他们是否需要从特定策略中排除其他帐户。 应定期检查所有排除项，以查看它们是否仍适用。
+所有策略都允许排除部分用户（如[应急访问或紧急情况管理员帐户](../roles/security-emergency-access.md)）。 组织可能会根据帐户的使用方式确定他们是否需要从特定策略中排除其他帐户。 应定期检查所有排除项，以查看它们是否仍适用。
 
 在某些风险检测中，标识保护使用已配置的受信任 [网络位置](../conditional-access/location-condition.md) 来减少误报。
 

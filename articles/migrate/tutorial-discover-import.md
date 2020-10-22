@@ -3,12 +3,12 @@ title: 使用导入的 CSV 文件通过 Azure Migrate 服务器评估来评估�
 description: 描述如何在 Azure Migrate 服务器评估中使用导入的 CSV 文件来发现要迁移到 Azure 的本地服务器
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604217"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308395"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>教程：使用导入的 CSV 文件评估服务器
 
@@ -203,4 +203,4 @@ Apple Mac OS X 10<br/>Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentO
 
 > [!div class="checklist"]
 > * 创建 Azure Migrate 项目 
-> * 使用导入的 CSV 文件发现服务器。 现在，为[到 Azure VM 的 VMware VM 迁移](tutorial-assess-vmware.md)运行评估。
+> * 使用导入的 CSV 文件发现服务器。 现在，为[到 Azure VM 的 VMware VM 迁移](./tutorial-assess-vmware-azure-vm.md)运行评估。

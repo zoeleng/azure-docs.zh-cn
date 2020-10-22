@@ -3,19 +3,19 @@ title: 查看服务提供商活动
 description: 客户可以查看记录的活动，查看服务提供商通过 Azure 委派的资源管理执行的操作。
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974305"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371080"
 ---
 # <a name="view-service-provider-activity"></a>查看服务提供商活动
 
 已委派 [Azure Lighthouse](../overview.md) 订阅的客户可以 [查看 azure 活动日志](../../azure-monitor/platform/platform-logs-overview.md) 数据，查看所执行的所有操作。 这使客户能够全面了解服务提供商通过 [Azure 委派的资源管理](../concepts/azure-delegated-resource-management.md)执行的操作，以及由用户自己 Azure Active Directory (Azure AD) 租户中的用户完成的操作。
 
 > [!TIP]
-> 我们还提供了 Azure 策略内置策略定义，以 [限制对特定管理租户的委派](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) ，并 [审核作用域到管理租户的委派](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json)。 有关详细信息，请参阅 [在你的环境中审核委派](view-manage-service-providers.md#audit-delegations-in-your-environment)。
+> 我们还提供了 Azure 策略内置策略定义，以 [限制对特定管理租户的委派](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) ，并 [审核作用域到管理租户的委派](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json)。 有关详细信息，请参阅 [在你的环境中审核委派](view-manage-service-providers.md#audit-delegations-in-your-environment)。
 
 ## <a name="view-activity-log-data"></a>查看活动日志数据
 

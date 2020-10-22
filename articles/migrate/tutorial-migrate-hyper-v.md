@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979081"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308535"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>将 Hyper-V VM 迁移到 Azure 
 
@@ -151,7 +151,7 @@ ms.locfileid: "91979081"
 - **服务总线**：“Azure Migrate:服务器迁移使用服务总线将复制业务流程消息发送到设备。
 - **网关存储帐户**：“Azure Migrate:服务器迁移使用网关存储帐户存储有关所要复制的 VM 的状态信息。
 - **日志存储帐户**：Azure Migrate 设备将 VM 的复制日志上传到日志存储帐户。 Azure Migrate 将复制信息应用到副本托管磁盘。
-- **Key Vault**：Azure Migrate 设备使用 Key Vault 管理服务总线的连接字符串，以及复制中使用的存储帐户的访问密钥。 在[准备 Azure](tutorial-prepare-hyper-v.md#prepare-azure) 以进行 Hyper-V VM 评估和迁移时，应该已设置密钥保管库访问存储帐户所需的权限。 
+- **Key Vault**：Azure Migrate 设备使用 Key Vault 管理服务总线的连接字符串，以及复制中使用的存储帐户的访问密钥。 在[准备 Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) 以进行 Hyper-V VM 评估和迁移时，应该已设置密钥保管库访问存储帐户所需的权限。 
 
 
 ## <a name="track-and-monitor"></a>跟踪和监视
@@ -232,7 +232,7 @@ ms.locfileid: "91979081"
     - 使用 Site Recovery 将 Azure VM 复制到次要区域以保证工作负荷运行且持续可用。 [了解详细信息](../site-recovery/azure-to-azure-tutorial-enable-replication.md)。
 - 为提高安全性，请执行以下操作：
     - 使用 [Azure 安全中心 - 适时管理](../security-center/security-center-just-in-time.md)锁定和限制入站流量访问。
-    - 使用[网络安全组](../virtual-network/security-overview.md)限制流入管理终结点的网络流量。
+    - 使用[网络安全组](../virtual-network/network-security-groups-overview.md)限制流入管理终结点的网络流量。
     - 部署[Azure 磁盘加密](../security/fundamentals/azure-disk-encryption-vms-vmss.md)以帮助保护磁盘，并保护数据以防被盗和未经授权的访问。
     - 详细了解[保护 IaaS 资源的安全](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)，并访问[Azure 安全中心](https://azure.microsoft.com/services/security-center/)。
 - 为了便于监视和管理，请执行以下操作：
