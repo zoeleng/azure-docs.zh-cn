@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a203bbd65c07d21c7d96b59c57b441748ed5b9a9
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372453"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>教程：Azure Active Directory 与 Springer Link 集成
 
@@ -97,7 +97,7 @@ ms.locfileid: "91372453"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分中执行以下步骤：
 
-    ![Springer Link 域和 URL 单一登录信息](common/idp-relay.png)
+    ![显示“基本 SAML 配置”的屏幕截图，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-relay.png)
 
     a. 在“标识符”文本框中键入 URL：`https://fsso.springer.com`
 
@@ -109,7 +109,7 @@ ms.locfileid: "91372453"
 
 5. 如果要在“SP”发起的模式下配置应用程序，请执行以下步骤：
 
-    ![Springer Link 域和 URL 单一登录信息](common/both-signonurl.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/both-signonurl.png)
 
     在“登录 URL”文本框中，使用以下模式键入 URL：`https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 

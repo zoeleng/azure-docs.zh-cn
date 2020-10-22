@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873466"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124888"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>教程：修改和生成实时视频分析网关模块
 
@@ -28,8 +28,8 @@ ms.locfileid: "91873466"
 * [Node.js](https://nodejs.org/en/download/) v10 或更高版本
 * 已安装 [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) 扩展的 [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Docker](https://www.docker.com/products/docker-desktop) 引擎
-* 用于承载模块版本的 [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)。
-* [Azure 媒体服务](https://docs.microsoft.com/azure/media-services/)帐户。 如果已完成之前的教程，可以再次使用之前创建的项。
+* 用于承载模块版本的 [Azure 容器注册表](../../container-registry/index.yml)。
+* [Azure 媒体服务](../../media-services/index.yml)帐户。 如果已完成之前的教程，可以再次使用之前创建的项。
 
 ## <a name="clone-the-repository"></a>克隆存储库
 

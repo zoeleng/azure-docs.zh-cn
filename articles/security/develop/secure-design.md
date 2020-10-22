@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246803"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364042"
 ---
 # <a name="design-secure-applications-on-azure"></a>在 Azure 上设计安全的应用程序
 本文介绍了在为云设计应用程序时需要考虑的安全活动和控制措施。 介绍了在 Microsoft [安全开发生命周期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 的要求和设计阶段需要考虑的培训资源以及安全问题和概念。 目标是帮助你定义可用于设计更安全应用程序的活动和 Azure 服务。
@@ -226,7 +226,7 @@ Azure 提供了可用来托管网站和 Web 应用程序的其他服务。 大�
 
 #### <a name="implement-just-in-time-access"></a>实现实时访问
 
-实现 *实时* (JIT) 访问，进一步降低权限的暴露时间。 使用 [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) 执行以下操作：
+实现 *实时* (JIT) 访问，进一步降低权限的暴露时间。 使用 [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) 执行以下操作：
 
 - 向用户授予仅 JIT 所需的权限。
 - 分配时限更短的角色，确信权限会自动撤消。

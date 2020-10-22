@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739861"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124007"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>教程：在 Azure 中使用 Data Box 将数据导入为托管磁盘
 
@@ -38,7 +38,7 @@ ms.locfileid: "91739861"
 4. 已查看：
 
     - [“Azure 对象大小限制”中的“支持的托管磁盘大小”](data-box-limits.md#azure-object-size-limits)。
-    - [Azure 托管磁盘简介](/azure/virtual-machines/windows/managed-disks-overview)。 
+    - [Azure 托管磁盘简介](../virtual-machines/managed-disks-overview.md)。 
 
 5. 你一直维护源数据的副本，直到确认 Data Box 已将数据传输到 Azure 存储中为止。
 
@@ -183,4 +183,3 @@ Data Box 根据指定的资源组为每个关联的资源组创建一个共享�
 
 > [!div class="nextstepaction"]
 > [将 Azure Data Box 寄送到 Microsoft](./data-box-deploy-picked-up.md)
-

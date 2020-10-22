@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773886"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327648"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 标识平台代码示例（v2.0 终结点）
 
@@ -27,9 +27,6 @@ ms.locfileid: "91773886"
 - 要求使用访问令牌来访问受保护的 Web API。
 
 本文简要介绍了 Microsoft 标识平台终结点示例并提供了指向这些示例的链接。 这些示例将展示其工作原理，并提供可以在应用程序中使用的代码片段。 在代码示例页上，可以找到在要求、安装和设置方面提供帮助的详细自述主题。 代码中的注释可帮助你理解关键部分。
-
-> [!NOTE]
-> 如果对 v1.0 示例感兴趣，请参阅 [Azure AD 代码示例（v1.0 终结点）](../azuread-dev/sample-v1-code.md)。
 
 若要了解每种示例类型的基本方案，请参阅 [Microsoft 标识平台终结点的应用类型](v2-app-types.md)。
 
@@ -142,5 +139,4 @@ ms.locfileid: "91773886"
 
 ## <a name="see-also"></a>另请参阅
 
-- [Azure Active Directory (v1.0) 开发人员指南](../azuread-dev/v1-overview.md)
-- [Microsoft Graph API 概念和参考](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Microsoft Graph API 概念和参考](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388674"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363923"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>利用 Azure Pipelines 部署自定义策略
 
@@ -31,9 +31,9 @@ ms.locfileid: "85388674"
 > [!IMPORTANT]
 > 使用 Azure 管道管理 Azure AD B2C 自定义策略目前使用 Microsoft Graph API 终结点上提供的 **预览** 操作 `/beta` 。 不支持在生产应用程序中使用这些 API。 有关详细信息，请参阅 [Microsoft Graph REST API beta 终结点引用](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
-* 使用[B2C IEF 策略管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)角色在目录中为用户[Azure AD B2C 租户](tutorial-create-tenant.md)和凭据
+* 使用[B2C IEF 策略管理员](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)角色在目录中为用户[Azure AD B2C 租户](tutorial-create-tenant.md)和凭据
 * 已上传到租户的[自定义策略](custom-policy-get-started.md)
 * 已在你的租户中注册[管理应用](microsoft-graph-get-started.md)，其 Microsoft Graph API 权限*策略。 TrustFramework*
 * [Azure 管道](https://azure.microsoft.com/services/devops/pipelines/)和对[Azure DevOps Services 项目][devops-create-project]的访问
@@ -131,7 +131,7 @@ ms.locfileid: "85388674"
 1. 选择 " **变量** " 选项卡。
 1. 将以下变量添加到 **管道变量** 下，并按指定设置其值：
 
-    | 名称 | 值 |
+    | 名称 | “值” |
     | ---- | ----- |
     | `clientId` | **应用程序 (客户端) ** 你之前注册的应用程序的 ID。 |
     | `clientSecret` | 先前创建的 **客户端密码** 的值。 <br /> 将变量类型更改为 **机密** (选择锁定图标) 。 |
@@ -151,7 +151,7 @@ ms.locfileid: "85388674"
     * **任务版本**： 2. *
     * **显示名称**：此任务应上传的策略的名称。 例如， *B2C_1A_TrustFrameworkBase*。
     * **类型**：文件路径
-    * **脚本路径**：选择 ***省略号 ("***) "，导航到 " *脚本* " 文件夹，然后选择 *DeployToB2C.ps1* 文件。
+    * **脚本路径**：选择省略号 ( **_..._*_) 中，导航到 _Scripts * 文件夹，然后选择 *DeployToB2C.ps1* 文件。
     * **参数：**
 
         输入以下 **参数**值。 将替换 `{alias-name}` 为在上一节中指定的别名。
