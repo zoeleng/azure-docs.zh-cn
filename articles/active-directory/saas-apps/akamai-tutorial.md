@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329493"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319015"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Akamai 的集成
 
@@ -26,9 +26,9 @@ ms.locfileid: "91329493"
 * 让用户使用其 Azure AD 帐户自动登录到 Akamai。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
-Azure Active Directory 和 Akamai Enterprise Application Access 相集成，让你能够无缝地访问云中或本地托管的旧版应用程序。 集成解决方案利用 Azure Active Directory 的所有新式功能，例如 [Azure AD 条件访问](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)、[Azure AD 标识保护](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 和 [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)，不修改应用或安装代理就可访问旧版应用程序。
+Azure Active Directory 和 Akamai Enterprise Application Access 相集成，让你能够无缝地访问云中或本地托管的旧版应用程序。 集成解决方案利用 Azure Active Directory 的所有新式功能，例如 [Azure AD 条件访问](../conditional-access/overview.md)、[Azure AD 标识保护](../identity-protection/overview-identity-protection.md) 和 [Azure AD Identity Governance](../governance/identity-governance-overview.md)，不修改应用或安装代理就可访问旧版应用程序。
 
 下图描述了 Akamai EAA 在哪些方面适合更广泛的混合安全访问方案
 
@@ -589,14 +589,14 @@ Akamai EAA 应用程序在 Azure AD 门户上单独设置。 管理员可在应�
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-在访问面板中单击“Akamai”磁贴时，应会自动登录到设置了 SSO 的 Akamai。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中单击“Akamai”磁贴时，应会自动登录到设置了 SSO 的 Akamai。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [在 Azure AD 中试用 Akamai](https://aad.portal.azure.com/)

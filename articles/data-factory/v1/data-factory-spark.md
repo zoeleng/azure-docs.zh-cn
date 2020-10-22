@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82185585"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359945"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>从 Azure 数据工厂管道调用 Spark 程序
 
@@ -26,8 +26,8 @@ ms.locfileid: "82185585"
 > * [MapReduce 活动](data-factory-map-reduce.md)
 > * [Hadoop 流式处理活动](data-factory-hadoop-streaming-activity.md)
 > * [Spark 活动](data-factory-spark.md)
-> * [机器学习“批处理执行”活动](data-factory-azure-ml-batch-execution-activity.md)
-> * [机器学习更新资源活动](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure 机器学习 Studio (经典) 批处理执行活动](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure 机器学习 Studio (经典) 更新资源活动](data-factory-azure-ml-update-resource-activity.md)
 > * [存储过程活动](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 活动](data-factory-usql-activity.md)
 > * [.NET 自定义活动](data-factory-use-custom-activities.md)
@@ -51,7 +51,7 @@ Spark 活动是数据工厂支持的[数据转换活动](data-factory-data-trans
 * 创建引用存储链接服务的数据集。 目前，即使不生成任何输出，也必须为活动指定输出数据集。
 * 创建一个包含 Spark 活动的管道，使该活动引用创建的 HDInsight 链接服务。 该活动配置为使用上一步骤中创建的数据集作为输出数据集。 输出数据集驱动计划（每小时、每日）。 因此，即使该活动实际上不生成任何输出，也必须指定输出数据集。
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备条件
 1. 遵循[创建存储帐户](../../storage/common/storage-account-create.md)中的说明创建一个常规用途存储帐户。
 
 1. 遵循[在 HDInsight 中创建 Spark 群集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)教程中的说明在 HDInsight 中创建一个 Spark 群集。 将在步骤 1 中创建的存储帐户与此群集相关联。
@@ -273,7 +273,7 @@ Spark 活动是数据工厂支持的[数据转换活动](data-factory-data-trans
 若要进一步故障排除，请执行以下步骤：
 
 
-1. 转到 `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`。
+1. 转到  `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster` 。
 
     ![YARN UI 应用程序](media/data-factory-spark/yarnui-application.png)
 
@@ -324,7 +324,7 @@ Spark 活动是数据工厂支持的[数据转换活动](data-factory-data-trans
 
 下表描述了 JSON 定义中使用的 JSON 属性。
 
-| 属性 | 说明 | 必须 |
+| 属性 | 描述 | 必须 |
 | -------- | ----------- | -------- |
 | name | 管道中活动的名称。 | 是 |
 | description | 描述活动用途的文本。 | 否 |
@@ -344,7 +344,7 @@ Spark 活动是数据工厂支持的[数据转换活动](data-factory-data-trans
 
 在 HDInsight 链接服务引用的 Blob 存储中创建以下文件夹结构。 然后，将依赖文件上传到 **entryFilePath** 表示的根文件夹中的相应子文件夹。 例如，将 Python 文件上传到根文件夹的 pyFiles 子文件夹，将 jar 文件上传到根文件夹的 jars 子文件夹。 在运行时，数据工厂服务需要 Blob 存储中的以下文件夹结构：
 
-| 路径 | 说明 | 必须 | 类型 |
+| 路径 | 描述 | 必须 | 类型 |
 | ---- | ----------- | -------- | ---- |
 | . | Spark 作业在存储链接服务中的根路径。 | 是 | Folder |
 | &lt;用户定义&gt; | 指向 Spark 作业入口文件的路径。 | 是 | 文件 |
