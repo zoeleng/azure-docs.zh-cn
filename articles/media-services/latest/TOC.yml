@@ -67,6 +67,8 @@
       items:
         - name: 对远程文件 REST 进行编码和流式传输
           href: stream-files-tutorial-with-rest.md
+        - name: 媒体服务的客户管理的密钥
+          href: tutorial-byok.md
     - name: CLI
       items:
         - name: 对远程文件 CLI 进行编码和流式传输
@@ -175,6 +177,8 @@
         - name: 动态加密和密钥传送
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
+        - name: 客户管理的密钥
+          href: concept-use-customer-managed-keys-byok.md
         - name: 多 DRM 系统的设计
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

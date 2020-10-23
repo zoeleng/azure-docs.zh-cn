@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 80a7067b1d8d5417a6a448ee8a3be563344e9a72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67eba8bdc3bdc3b44a3f98692c8ffd7fb7958eb6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420245"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424048"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>适用于 Azure Database for MySQL 的 Azure 安全基线
 
@@ -176,7 +176,7 @@ Azure 安全中心监视：不适用
 
 指南：Microsoft 维护用于 Azure 资源的时间源，如适用于日志中的时间戳的 Azure Database for MySQL。
 
-**Azure 安全中心监视**：不适用
+Azure 安全中心监视：不适用
 
 **责任**：Microsoft
 
@@ -542,9 +542,9 @@ Azure 安全中心监视：不可用
 
 Azure 安全中心监视：不可用
 
-**责任**：共享
+责任：共享
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
 **指导**：使用 azure RBAC)  (azure 基于角色的访问控制来控制对 Azure Database for MySQL 控制平面的访问 (例如 Azure 门户) 。 对于数据平面访问（在数据库本身内），使用 SQL 查询创建用户并配置用户权限。 Azure RBAC 不影响数据库中的用户权限。
 
@@ -616,7 +616,7 @@ Microsoft 对支持 Azure Database for MySQL 的基础系统执行漏洞管理�
 
 **指导**：不适用；此项指导适用于计算资源。
 
-**Azure 安全中心监视**：不适用
+Azure 安全中心监视：不适用
 
 责任：空值
 
@@ -624,7 +624,7 @@ Microsoft 对支持 Azure Database for MySQL 的基础系统执行漏洞管理�
 
 **指导**：不适用；此项指导适用于计算资源。
 
-**Azure 安全中心监视**：不适用
+Azure 安全中心监视：不适用
 
 责任：空值
 
@@ -716,7 +716,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -724,7 +724,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源和整个 Azure。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -756,7 +756,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -774,7 +774,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-**Azure 安全中心监视**：不适用
+Azure 安全中心监视：不适用
 
 责任：空值
 
@@ -908,7 +908,7 @@ Azure 安全中心监视：不适用
 
 对于在 Azure 应用服务上运行的用于访问 Azure Database for MySQL 实例的 Azure 虚拟机或 Web 应用程序，请将托管服务标识与 Azure Key Vault 结合使用，以存储和检索 Azure Database for MySQL 实例的凭据。 确保启用 Key Vault 软删除。
 
-使用托管标识在 Azure Active Directory (AD) 中为 Azure 服务提供一个自动托管标识。 使用托管标识可以向支持 Azure AD 身份验证的任何服务（包括 Key Vault）进行身份验证，无需在代码中放入任何凭据。
+使用托管标识在 Azure Active Directory (AD) 中为 Azure 服务提供一个自动托管标识。 使用托管标识可以向支持 Azure AD 身份验证的任何服务（包括 Key Vault）证明身份，无需在代码中放入任何凭据。
 
 - [如何配置托管标识](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
@@ -948,7 +948,7 @@ Azure 安全中心监视：不适用
 
 预扫描要上传到非计算 Azure 资源的任何内容，例如应用服务、Data Lake Storage、Blob 存储、Azure Database for MySQL 等。Microsoft 无法访问这些实例中的数据。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：共享
 
@@ -958,7 +958,7 @@ Azure 安全中心监视：不适用
 
 Microsoft 反恶意软件会在支持 Azure 服务（例如，Azure Database for MySQL）的基础主机上启用，但它不会对客户内容运行。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 

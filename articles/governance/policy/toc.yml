@@ -43,6 +43,12 @@
     - name: 管理标记治理
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: 通过 GitHub 实现 Azure Policy as Code
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: Learn：使用 Azure Policy 控制和审核资源
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: 示例
   items:
     - name: 索引
@@ -113,7 +119,7 @@
     - name: 合规性
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: 将策略设计为代码工作流
+    - name: 设计 Azure Policy as Code 工作流
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Kubernetes 集成

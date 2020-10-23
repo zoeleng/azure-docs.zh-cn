@@ -10,22 +10,22 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: f2859ddb6ddf7d1041509c47adfe7bf3a1ce99b8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374628"
+ms.locfileid: "92424550"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 应用程序预配：新增功能
 
-欢迎使用 Azure Active Directory 应用程序预配文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。
+欢迎使用 Azure Active Directory 应用程序预配文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。 若要了解预配服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
 
 ## <a name="september-2020"></a>2020 年 9 月
 
 ### <a name="new-articles"></a>新文章
 
-- [新增功能](whats-new-docs.md)
+- [Docs 中的新增内容](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>更新的文章
 - [隔离状态的应用程序设置](application-provisioning-quarantine-status.md)

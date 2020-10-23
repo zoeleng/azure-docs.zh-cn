@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596561"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424768"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure 流分析输出  
-Azure 流分析可以针对 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 进行 JSON 输出，从而支持对非结构化 JSON 数据进行数据存档和低延迟查询。 本文档包括用于实现此配置的一些最佳做法。
+Azure 流分析可以针对 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 进行 JSON 输出，从而支持对非结构化 JSON 数据进行数据存档和低延迟查询。 本文档包括用于实现此配置的一些最佳做法。 建议在使用 Azure Cosmos DB 作为输出时，将作业设置为兼容性级别1.2。
 
 如果不熟悉 Azure Cosmos DB，请参阅 [Azure Cosmos DB 文档](https://docs.microsoft.com/azure/cosmos-db/)了解入门知识。 
 
@@ -137,3 +137,17 @@ Azure Cosmos DB 会根据工作负载自动缩放分区。 因此，建议使用
 - NotFound（HTTP 错误代码 404）
 - Forbidden（HTTP 错误代码 403）
 - BadRequest（HTTP 错误代码 400）
+
+## <a name="common-issues"></a>常见问题
+
+1. 将唯一索引约束添加到集合，流分析中的输出数据将违反此约束。 确保流分析的输出数据不违反唯一约束或删除约束。 有关详细信息，请参阅 [Azure Cosmos DB 中的唯一键约束](../cosmos-db/unique-keys.md)。
+
+2. `PartitionKey`列不存在。
+
+3. `Id`列不存在。
+
+## <a name="next-steps"></a>后续步骤
+
+* [了解 Azure 流分析的输出](stream-analytics-define-outputs.md) 
+* [从 Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)
+* [Azure 流分析自定义 blob 输出分区](stream-analytics-custom-path-patterns-blob-storage-output.md)

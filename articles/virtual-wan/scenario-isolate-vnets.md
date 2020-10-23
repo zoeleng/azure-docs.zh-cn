@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267629"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424738"
 ---
 # <a name="scenario-isolating-vnets"></a>方案：隔离 VNet
 
@@ -26,10 +26,10 @@ ms.locfileid: "91267629"
 
 | 源 |   目标 |  VNet | *分支* |
 | -------------- | -------- | ---------- | ---|
-| VNet     | &#8594;|           |     X    |
-| 分支   | &#8594;|    X     |     X    |
+| VNet     | &#8594;| 直接 |   直接    |
+| 分支   | &#8594;|  直接  |   直接    |
 
-上表中每个单元格都描述了虚拟 WAN 连接（流的“源”端，行标题）是否为特定流量流获取目标前缀（流的“目标”端，斜体的列标题），其中“X”表示由虚拟 WAN 提供连接。
+上表中的每个单元都说明了虚拟 WAN 连接 (流的 "From" 端，行标题) 与流的 "To" 端 (目标前缀（斜体) 中的列标题）进行通信。 在这种情况下，不存在防火墙或网络虚拟设备，因此通信直接通过虚拟 WAN (，因此) 的表中 "Direct" 一词。
 
 此连接矩阵提供了两种不同的行模式，它们会转换为两个路由表。 虚拟 WAN 已经有一个 Default 路由表，所以我们需要有另一个路由表。 在此示例中，我们将该路由表命名为 RT_VNET。
 

@@ -111,6 +111,16 @@
           href: marketplace-virtual-machines.md
         - name: 创建和发布 VM 产品/服务
           items:
+            - name: 创建 VM 产品/服务
+              href: azure-vm-create.md
+            - name: 配置 VM 产品/服务属性
+              href: azure-vm-create-properties.md
+            - name: 配置 VM 产品/服务列表
+              href: azure-vm-create-listing.md
+            - name: 创建 VM 计划
+              href: azure-vm-create-plans.md
+            - name: 添加预览受众
+              href: azure-vm-create-preview.md
             - name: 创建 VM 技术资产
               items:
                 - name: 从已批准的基础创建 VM
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: VM 认证故障排除
                   href: azure-vm-create-certification-faq.md
-            - name: 创建 VM 产品/服务
-              href: azure-vm-create.md
-            - name: 配置 VM 产品/服务属性
-              href: azure-vm-create-properties.md
-            - name: 配置 VM 产品/服务列表
-              href: azure-vm-create-listing.md
-            - name: 创建 VM 计划
-              href: azure-vm-create-plans.md
-            - name: 添加预览受众
-              href: azure-vm-create-preview.md
     - name: 咨询服务
       items:
         - name: 规划咨询服务套餐

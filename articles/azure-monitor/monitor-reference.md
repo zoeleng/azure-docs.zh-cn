@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206027"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461798"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor 监视哪些内容？
 本文介绍了由 Azure Monitor 监视的不同应用程序和服务。 
@@ -169,6 +169,19 @@ ms.locfileid: "92206027"
 |虚拟网络 - NSG 流日志 | 否 | 是 | 否 |  |
 |VPN 网关 | 是 | 是 | 否 |  |
 |Windows 虚拟桌面 | 否 | 否 | 否 |  |
+
+## <a name="virtual-machine-agents"></a>虚拟机代理
+下表列出了可以从虚拟机的来宾操作系统收集数据并将数据发送到监视器的代理。 每个代理都可以收集不同的数据，并将其发送到 Azure Monitor 中的指标或日志。 
+
+有关每个代理可以收集的数据的详细信息，请参阅 [Azure Monitor 代理概述](platform/agents-overview.md) 。
+
+| 代理 |  指标 | 日志 |
+|:---|:---|:---|:---|
+| [Azure Monitor 代理（预览版）](platform/azure-monitor-agent-overview.md) | 是 | 是 |
+| [Log Analytics 代理](platform/log-analytics-agent.md) | 否 | 是|
+| [诊断扩展](platform/diagnostics-extension-overview.md) | 是 | 否 |
+| [Telegraf 代理](platform/collect-custom-metrics-linux-telegraf.md) | 是 | 否 |
+| [依赖关系代理](insights/vminsights-enable-overview.md) | 否 | 是 |
 
 
 ## <a name="product-integrations"></a>产品集成

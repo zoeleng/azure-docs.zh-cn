@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282372"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425023"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>管理 Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制
 
@@ -22,7 +22,7 @@ Azure Cosmos DB 的用于 MongoDB 的 API 利用 Azure Cosmos DB 的核心索引
 
 ## <a name="indexing-for-mongodb-server-version-36"></a>适用于 MongoDB 服务器版本 3.6 的索引编制功能
 
-Azure Cosmos DB 的用于 MongoDB 服务器版本 3.6 的 API 会自动为无法删除的 `_id` 字段编制索引。 它会自动强制确保每个分片密钥的 `_id` 字段的唯一性。 在 Azure Cosmos DB 的用于 MongoDB 的 API 中，分片和编制索引是不同的概念。 你无需为分片键编制索引。 但是，与文档中的任何其他属性一样，如果此属性是查询中的常用筛选器，则我们建议为分片编制索引。
+Azure Cosmos DB 的用于 MongoDB 服务器版本 3.6 的 API 会自动为无法删除的 `_id` 字段编制索引。 它会自动强制确保每个分片密钥的 `_id` 字段的唯一性。 在 Azure Cosmos DB 的用于 MongoDB 的 API 中，分片和编制索引是不同的概念。 你无需为分片键编制索引。 但是，与文档中的任何其他属性一样，如果此属性是查询中的常见筛选器，我们建议为分片键编制索引。
 
 若要为其他字段编制索引，请应用 MongoDB 索引管理命令。 与在 MongoDB 中一样，Azure Cosmos DB 的用于 MongoDB 的 API 仅自动为 `_id` 字段编制索引。 此默认索引编制策略不同于 Azure Cosmos DB SQL API，后者在默认情况下会为所有字段编制索引。
 
@@ -40,7 +40,10 @@ Azure Cosmos DB 的用于 MongoDB 服务器版本 3.6 的 API 会自动为无法
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>复合索引（MongoDB 服务器版本 3.6）
 
-Azure Cosmos DB 的用于 MongoDB 的 API 对使用版本 3.6 Wire Protocol 的帐户支持复合索引。 一个复合索引中最多可以包含 8 个字段。 **与在 MongoDB 中不同，仅当查询需要一次对多个字段进行高效排序时，才应创建复合索引。** 对于包含多个不需要排序的筛选器的查询，请创建多个单字段索引，而不是创建单个复合索引。
+Azure Cosmos DB 的用于 MongoDB 的 API 对使用版本 3.6 Wire Protocol 的帐户支持复合索引。 一个复合索引中最多可以包含 8 个字段。 与在 MongoDB 中不同，仅当查询需要一次对多个字段进行高效排序时，才应创建复合索引。 对于包含多个不需要排序的筛选器的查询，请创建多个单字段索引，而不是创建单个复合索引。 
+
+> [!NOTE]
+> 不能基于嵌套属性或数组创建复合索引。
 
 以下命令对字段 `name` 和 `age` 创建复合索引：
 
@@ -59,7 +62,7 @@ Azure Cosmos DB 的用于 MongoDB 的 API 对使用版本 3.6 Wire Protocol 的�
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> 不能基于嵌套属性或数组创建复合索引。
+> 复合索引仅用于对结果进行排序的查询。 对于具有多个不需要排序的筛选器的查询，请创建 multipe 单字段索引。
 
 ### <a name="multikey-indexes"></a>多键索引
 
@@ -75,7 +78,7 @@ Azure Cosmos DB 创建多键索引来为数组中存储的内容编制索引。 
 
 ### <a name="text-indexes"></a>文本索引
 
-Azure Cosmos DB 的用于 MongoDB 的 API 目前支持文本索引。 要对字符串运行文本搜索查询，应使用 [Azure 认知搜索](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb)与 Azure Cosmos DB 的集成。
+Azure Cosmos DB 的用于 MongoDB 的 API 目前支持文本索引。 要对字符串运行文本搜索查询，应使用 [Azure 认知搜索](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb)与 Azure Cosmos DB 的集成。 
 
 ## <a name="wildcard-indexes"></a>通配符索引
 
@@ -92,7 +95,7 @@ Azure Cosmos DB 的用于 MongoDB 的 API 目前支持文本索引。 要对字�
   ]
 ```
 
-以下是另一个示例，此示例的 `children` 中有一组略有不同的属性：
+下面是另一个示例，这一次使用的属性集略有不同 `children` ：
 
 ```json
   "children": [
@@ -131,7 +134,10 @@ Azure Cosmos DB 的用于 MongoDB 的 API 目前支持文本索引。 要对字�
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-开始开发时，在所有字段上创建通配符索引可能会很有用。 随着在文档中为更多属性编制索引，用于编写和更新文档的请求单位 (RU) 费用将增加。 因此，如果有写入密集型工作负荷，则应选择单独的索引路径，而不要使用通配符索引。
+> [!NOTE]
+> 如果只是开始开发，我们 **强烈** 建议从所有字段的通配符索引开始。 这可以简化开发过程，并使其更易于优化查询。
+
+具有多个字段的文档可能有高请求单位 (RU) 为写入和更新付费。 因此，如果有写入密集型工作负荷，则应选择单独的索引路径，而不要使用通配符索引。
 
 ### <a name="limitations"></a>限制
 
@@ -335,7 +341,7 @@ Azure Cosmos DB 的用于 MongoDB 的 API 版本 3.6 支持使用 `currentOp()` 
 
 ## <a name="indexing-for-mongodb-version-32"></a>适用于 MongoDB 版本 3.2 的索引编制功能
 
-对于与 MongoDB Wire Protocol 版本 3.2 兼容的 Azure Cosmos DB 帐户，可用的索引编制功能和默认值是不同的。 可以[检查帐户的版本](mongodb-feature-support-36.md#protocol-support)。 可以通过提出[支持请求](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)升级到版本 3.6。
+对于与 MongoDB Wire Protocol 版本 3.2 兼容的 Azure Cosmos DB 帐户，可用的索引编制功能和默认值是不同的。 你可以 [检查帐户的版本](mongodb-feature-support-36.md#protocol-support) 并 [升级到版本 3.6](mongodb-version-upgrade.md)。
 
 如果使用的是版本 3.2，请阅读此本部分，其中概述了版本 3.2 与版本 3.6 之间的重要差别。
 
@@ -352,11 +358,11 @@ Azure Cosmos DB 的用于 MongoDB 的 API 版本 3.6 支持使用 `currentOp()` 
 
 ### <a name="compound-indexes-version-32"></a>复合索引（版本 3.2）
 
-复合索引包含对文档多个字段的引用。 若要创建复合索引，请通过提出[支持请求](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)升级到版本 3.6。
+复合索引包含对文档多个字段的引用。 如果要创建复合索引，请 [升级到版本 3.6](mongodb-version-upgrade.md)。
 
 ### <a name="wildcard-indexes-version-32"></a>通配符索引（版本 3.2）
 
-若要创建通配符索引，请通过提出[支持请求](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)升级到版本 3.6。
+若要创建通配符索引，请 [升级到版本 3.6](mongodb-version-upgrade.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: contperfq2
+ms.openlocfilehash: 38bff38ebe44d9018299444b89d7743c4cc92b72
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104557"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424190"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 应用程序代理常见问题
 
@@ -48,7 +49,7 @@ ms.locfileid: "92104557"
 
 目前没有，这是不可能的。 注册尝试始终在用户的主租户上进行。
 
-### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>后端应用程序托管在多个 web 服务器上，并要求用户会话持久性 (粘性) 。 如何实现会话暂留？ 
+### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>后端应用程序托管在多个 web 服务器上，并要求用户会话持久性 (粘性) 。 如何实现会话暂留？ 
 
 有关建议，请参阅 [应用程序代理连接器和应用程序的高可用性和负载平衡](application-proxy-high-availability-load-balancing.md)。
 
@@ -57,7 +58,7 @@ ms.locfileid: "92104557"
 应用程序代理连接器对 Azure 执行基于证书的身份验证。 TLS 终止 (TLS/HTTPS 检查或加速) 中断此身份验证方法，并且不受支持。 从连接器到 Azure 的流量必须绕过任何正在执行 TLS 终止的设备。  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>是否所有连接都需要 TLS 1.2？
-是的。 为了向我们的客户提供一流的加密，应用程序代理服务将访问限制为仅允许使用 TLS 1.2 协议。 这些更改已自 2019 年 8 月 31 日起逐步推出并生效。 请确保将所有客户端-服务器和浏览器-服务器组合更新为使用 TLS 1.2，以便保持连接到应用程序代理服务。 这包括用户用来访问那些通过应用程序代理发布的应用程序的客户端。 请查看如何为 [Office 365 中的 TLS 1.2](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) 做准备，了解有用的参考和资源。
+是。 为了向我们的客户提供一流的加密，应用程序代理服务将访问限制为仅允许使用 TLS 1.2 协议。 这些更改已自 2019 年 8 月 31 日起逐步推出并生效。 请确保将所有客户端-服务器和浏览器-服务器组合更新为使用 TLS 1.2，以便保持连接到应用程序代理服务。 这包括用户用来访问那些通过应用程序代理发布的应用程序的客户端。 请查看如何为 [Office 365 中的 TLS 1.2](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) 做准备，了解有用的参考和资源。
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>是否可以在连接器服务器 (s) 和后端应用程序服务器之间放置转发代理设备？
 是的，从连接器版本1.5.1526.0 开始支持此方案。 请参阅 [使用现有的本地代理服务器](application-proxy-configure-connectors-with-proxy-servers.md)。
@@ -176,7 +177,7 @@ NTLM 身份验证不能用作预身份验证或单一登录方法。 仅当可�
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>是否可以使用 Azure AD 应用程序代理作为 AD FS 代理 (，例如 Web 应用程序代理) ？
 
-不能。 Azure AD 应用程序代理用于处理 Azure AD，并且不满足充当 AD FS 代理的要求。
+错误。 Azure AD 应用程序代理用于处理 Azure AD，并且不满足充当 AD FS 代理的要求。
 
 ## <a name="websocket"></a>WebSocket
 
@@ -190,7 +191,7 @@ Windows 管理中心中 (事件日志、PowerShell 和远程桌面服务) 的功
 
 ### <a name="does-using-link-translation-affect-performance"></a>使用链接转换是否会影响性能？
 
-是的。 链接转换会影响性能。 应用程序代理服务会扫描应用程序以查找硬编码的链接，并将其替换为其相应的已发布外部 Url，然后将其呈现给用户。 
+是。 链接转换会影响性能。 应用程序代理服务会扫描应用程序以查找硬编码的链接，并将其替换为其相应的已发布外部 Url，然后将其呈现给用户。 
 
 为了获得最佳性能，我们建议通过配置 [自定义域](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)来使用相同的内部和外部 url。 如果无法使用自定义域，则可以使用移动设备上的 "我的应用安全登录扩展" 或 "Microsoft Edge 浏览器" 改进链接转换性能。 [有关 Azure AD 应用程序代理发布的应用，请参阅重定向硬编码的链接](application-proxy-configure-hard-coded-link-translation.md)。
 

@@ -191,6 +191,9 @@
             - name: 管理实时访问
               displayName: 'jit, management'
               href: security-center-just-in-time.md
+        - name: 使用集成的 Microsoft Defender for Endpoint 许可证
+          displayName: 'ATP, mdatp, wdatp'
+          href: security-center-wdatp.md
         - name: 管理自适应应用程序控制
           href: security-center-adaptive-application.md
         - name: 使用文件完整性监视
@@ -201,8 +204,6 @@
               href: security-center-file-integrity-monitoring-baselines.md
         - name: 管理自适应网络强化
           href: security-center-adaptive-network-hardening.md
-        - name: 集成 Microsoft Defender ATP
-          href: security-center-wdatp.md
         - name: 强化 Docker 主机
           displayName: containers
           href: harden-docker-hosts.md

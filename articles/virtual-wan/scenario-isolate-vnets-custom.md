@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267714"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461815"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>方案：VNet 的自定义隔离
 
@@ -25,11 +25,11 @@ ms.locfileid: "91267714"
 
 | 源 | 到:| *蓝色 VNet* | *红色 VNet* | *分支*|
 |---|---|---|---|---|
-| **蓝色 VNet** |   &#8594;|      X        |               |       X      |
-| **红色 VNet**  |   &#8594;|              |       X       |       X      |
-| **分支**   |   &#8594;|     X        |       X       |       X      |
+| **蓝色 VNet** |   &#8594;|   直接     |           |  直接 |
+| **红色 VNet**  |   &#8594;|              |   直接  |  直接 |
+| **分支**   |   &#8594;|   直接     |   直接  |  直接 |
 
-上表中每个单元格都描述了虚拟 WAN 连接（流的“源”端，表中的行标题）是否为特定的流量流获取目标前缀（流的“目标”端，表中的斜体列标题），其中“X”表示由虚拟 WAN 提供连接。
+上表中的每个单元都说明了虚拟 WAN 连接 (流的 "From" 端，行标题) 与流的 "To" 端 (目标通信，) 中的列标题。 在这种情况下，不存在防火墙或网络虚拟设备，因此通信直接通过虚拟 WAN (，因此) 的表中 "Direct" 一词。
 
 不同行模式的数量将是我们在此方案中需要的路由表的数量。 在本例中，我们将调用三个路由表，**RT_BLUE** 和 **RT_RED** 用于虚拟网络，**Default** 用于分支。 请记住，分支必须始终与 Default 路由表相关联。
 

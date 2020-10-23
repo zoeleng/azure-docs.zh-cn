@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940321"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425294"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azure 负载均衡器的 azure 安全基线
 
@@ -402,7 +402,7 @@ Azure CLI、Azure PowerShell 或 Azure 门户等工具为某些资源列出了�
 
 **指南**：使用 Azure RBAC 控制对负载均衡器资源的访问。
 
-- [如何在 Azure 中配置 RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [如何配置 Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Azure 安全中心监视**：是
 
@@ -552,7 +552,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3：维护安全的 Azure 资源配置
 
-**指南**：使用 Azure Policy [拒绝] 和 [不存在时部署] 在 Azure 资源中强制实施安全设置。  此外，还可以使用 Azure 资源管理器模板来维护组织所需的 Azure 资源的安全配置。 
+**指南**：使用 Azure Policy“[拒绝]”和“[不存在则部署]”对不同的 Azure 资源强制实施安全设置。  此外，还可以使用 Azure 资源管理器模板来维护组织所需的 Azure 资源的安全配置。 
 
 - [了解 Azure Policy 效果](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
@@ -606,7 +606,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 
+**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 
 
 严重性取决于安全中心在查找或用于发出警报的分析中的置信度，以及导致警报的活动的恶意意图的置信度。
 

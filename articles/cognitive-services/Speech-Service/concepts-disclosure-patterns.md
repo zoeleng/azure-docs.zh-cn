@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: fe4f0cdcdb863582560b0eba3a22e95b93ff858b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150939"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425113"
 ---
 # <a name="disclosure-design-patterns"></a>披露设计模式
 你已经确定了合成语音体验的正确[披露级别](concepts-disclosure-guidelines.md#disclosure-assessment)，现在正是探索潜在设计模式的好时机。
@@ -184,7 +184,7 @@ ms.locfileid: "92150939"
 
 可通过对数字助理能够执行的操作设置准确期望来隐式实现披露。 提供示例命令，以便用户可以了解如何与数字助理交互，并提供上下文帮助，以在体验的早期阶段了解有关合成语音的详细信息。
 
-![视觉提示和反馈](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![对可创建的会话默认响应的示例。](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>对话透明度
 

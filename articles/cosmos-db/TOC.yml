@@ -86,7 +86,7 @@
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure 资源管理器
-      href: resource-manager-samples.md
+      href: templates-samples-sql.md
 - name: 概念
   items:
     - name: NoSQL 数据库与关系数据库
@@ -99,31 +99,17 @@
         - name: 一致性级别
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: consistency-levels.md
-        - name: 选择适当的一致性级别
-          displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
-          href: consistency-levels-choosing.md
-        - name: 一致性级别和 Azure Cosmos DB API
-          href: consistency-levels-across-apis.md
-        - name: 一致性、可用性和性能权衡
-          href: consistency-levels-tradeoffs.md
         - name: 高可用性
           href: high-availability.md
-        - name: 全局缩放预配的吞吐量
-          displayName: 'request units, RUs, RU'
-          href: scaling-throughput.md
         - name: 冲突类型和解决策略
           displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: 全球分布 - 揭秘
           href: global-dist-under-the-hood.md
-        - name: 区域性存在
-          href: regional-presence.md
     - name: 分区
       items:
-        - name: 分区概述
-          href: partitioning-overview.md
         - name: 分区和水平扩展
-          href: partition-data.md
+          href: partitioning-overview.md
         - name: 合成分区键
           href: synthetic-partition-keys.md
     - name: 容量
@@ -389,6 +375,9 @@
                     - name: LTRIM
                       displayName: 'LTRIM, left trim, built-in functions'
                       href: sql-query-ltrim.md
+                    - name: REGEXMATCH
+                      displayName: 'REGEXMATCH, built-in functions'
+                      href: sql-query-regexmatch.md
                     - name: REPLACE
                       displayName: 'REPLACE, built-in functions'
                       href: sql-query-replace.md
@@ -486,13 +475,11 @@
         - name: LINQ to SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
-    - name: 使用 Azure Cosmos 帐户
-      href: account-overview.md
+    - name: Azure Cosmos DB 资源模型
+      displayName: 'collection, document'
+      href: account-databases-containers-items.md
     - name: 容器和项
       items:
-        - name: 使用数据库、容器和项
-          displayName: 'collection, document'
-          href: databases-containers-items.md
         - name: 模型文档数据
           displayName: document
           href: modeling-data.md
@@ -564,12 +551,11 @@
         - name: 优化预配吞吐量成本
           displayName: 'request units, RUs, RU'
           href: optimize-cost-throughput.md
-        - name: 优化查询成本
-          href: optimize-cost-queries.md
+        - name: 优化请求成本
+          displayName: 'request, cost, read, write, query, queries, RUs, RU'
+          href: optimize-cost-reads-writes.md
         - name: 优化存储成本
           href: optimize-cost-storage.md
-        - name: 优化读取和写入成本
-          href: optimize-cost-reads-writes.md
         - name: 优化多区域成本
           href: optimize-cost-regions.md
         - name: 优化开发/测试成本
@@ -586,11 +572,6 @@
         - name: 保护对数据的访问
           displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
-        - name: IP 防火墙
-          href: firewall-support.md
-        - name: 从虚拟网络访问
-          displayName: service endpoint
-          href: vnet-service-endpoint.md
         - name: 服务标记
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: 基于角色的访问控制
@@ -605,8 +586,6 @@
           href: security-baseline.md
     - name: 企业就绪情况
       items:
-        - name: 联机备份和本地还原
-          href: online-backup-and-restore.md
         - name: 合规性
           href: compliance.md
         - name: Azure Policy 支持
@@ -655,7 +634,7 @@
               href: cassandra-import-data.md
         - name: 概念
           items:
-            - name: 常见问题解答
+            - name: 常见问题
               href: cassandra-faq.md
             - name: 弹性缩放
               href: manage-scale-cassandra.md
@@ -663,6 +642,8 @@
               href: cassandra-partitioning.md
             - name: 辅助索引
               href: cassandra-secondary-index.md
+            - name: 映射一致性级别
+              href: cassandra-consistency.md
         - name: 操作指南
           items:
             - name: 迁移到 Cassandra API
@@ -675,6 +656,14 @@
                   href: cassandra-migrate-cosmos-db-blitzz.md
             - name: 更改源
               href: cassandra-change-feed.md
+            - name: 创建容器 - Cassandra API
+              href: how-to-create-container-cassandra.md
+            - name: 预配吞吐量 - Cassandra API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-cassandra.md
+            - name: 查找请求单位费用
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-cassandra.md
             - name: 存储和管理 Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra 和 Spark
@@ -700,12 +689,12 @@
                 - name: 复制表数据
                   href: cassandra-spark-table-copy-ops.md
             - name: 使用资源管理器模板进行管理
-              href: manage-cassandra-with-resource-manager.md
+              href: templates-samples-cassandra.md
               displayName: ARM
             - name: 使用 PowerShell 管理
-              href: powershell-samples.md
+              href: powershell-samples-cassandra.md
             - name: 使用 Azure CLI 进行管理
-              href: cli-samples.md
+              href: cli-samples-cassandra.md
     - name: MongoDB API
       items:
         - name: 概述
@@ -758,8 +747,10 @@
               href: mongodb-feature-support-36.md
             - name: 线路协议支持 (3.2)
               href: mongodb-feature-support.md
-            - name: 常见问题解答
+            - name: 常见问题
               href: mongodb-api-faq.md
+            - name: 映射一致性级别
+              href: mongodb-consistency.md
         - name: 操作指南
           items:
             - name: 迁移到 MongoDB API
@@ -793,18 +784,28 @@
               href: mongodb-change-streams.md
             - name: 管理数据索引编制
               href: mongodb-indexing.md
+            - name: 创建容器 - MongoDB API
+              href: how-to-create-container-mongodb.md
+            - name: 预配吞吐量 - MongoDB API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-mongodb.md
+            - name: 查找请求单位费用
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-mongodb.md
+            - name: 查询性能故障排除
+              href: mongodb-troubleshoot-query.md
             - name: 存储和管理 Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: MongoDB 扩展命令
               href: mongodb-custom-commands.md
               displayName: custom commands
             - name: 使用资源管理器模板进行管理
-              href: manage-mongodb-with-resource-manager.md
+              href: templates-samples-mongodb.md
               displayName: ARM
             - name: 使用 PowerShell 管理
-              href: powershell-samples.md
+              href: powershell-samples-mongodb.md
             - name: 使用 Azure CLI 进行管理
-              href: cli-samples.md
+              href: cli-samples-mongodb.md
             - name: 排查常见问题
               href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -836,8 +837,12 @@
               href: tutorial-query-graph.md
         - name: 概念
           items:
-            - name: 常见问题解答
+            - name: 常见问题
               href: gremlin-api-faq.md
+            - name: 响应头
+              href: gremlin-headers.md
+            - name: 限制
+              href: gremlin-limits.md
         - name: 操作指南
           items:
             - name: 图形数据建模
@@ -848,6 +853,14 @@
               href: bulk-executor-graph-dotnet.md
             - name: 优化 Gremlin 查询
               href: graph-execution-profile.md
+            - name: 创建容器 - Gremlin API
+              href: how-to-create-container-gremlin.md
+            - name: 预配吞吐量- Gremlin API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-gremlin.md
+            - name: 查找请求单位费用
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-gremlin.md
             - name: 使用资源令牌
               href: how-to-use-resource-tokens-gremlin.md
             - name: 使用区域终结点
@@ -859,12 +872,12 @@
             - name: 存储和管理 Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: 使用资源管理器模板进行管理
-              href: manage-gremlin-with-resource-manager.md
+              href: templates-samples-gremlin.md
               displayName: ARM
             - name: 使用 PowerShell 管理
-              href: powershell-samples.md
+              href: powershell-samples-gremlin.md
             - name: 使用 Azure CLI 进行管理
-              href: cli-samples.md
+              href: cli-samples-gremlin.md
         - name: 参考
           items:
             - name: 响应标头
@@ -921,21 +934,26 @@
               maintainContext: true
         - name: 概念
           items:
-            - name: 常见问题解答
+            - name: 常见问题
               href: table-api-faq.md
         - name: 操作指南
           items:
             - name: 使用表 API 构建应用
               href: table-support.md
+            - name: 创建容器 - 表 API
+              href: how-to-create-container-table.md
+            - name: 查找请求单位费用
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-table.md
             - name: 表存储设计指南
               href: table-storage-design-guide.md
             - name: 使用资源管理器模板进行管理
-              href: manage-table-with-resource-manager.md
+              href: templates-samples-table.md
               displayName: ARM
             - name: 使用 PowerShell 管理
-              href: powershell-samples.md
+              href: powershell-samples-table.md
             - name: 使用 Azure CLI 进行管理
-              href: cli-samples.md
+              href: cli-samples-table.md
         - name: 参考
           items:
             - name: .NET
@@ -971,7 +989,7 @@
         - name: 使用 Azure CLI
           href: manage-with-cli.md
         - name: 使用资源管理器模板
-          href: manage-sql-with-resource-manager.md
+          href: manage-with-templates.md
           displayName: ARM
         - name: 在区域之间移动
           href: how-to-move-regions.md
@@ -1018,7 +1036,7 @@
               href: storage-explorer.md
             - name: 使用 Azure Cosmos 资源管理器处理数据
               href: data-explorer.md
-        - name: 创建容器
+        - name: 创建容器 - SQL API
           href: how-to-create-container.md
         - name: 使用大型分区键创建容器
           href: large-partition-keys.md
@@ -1038,6 +1056,8 @@
           href: how-to-define-unique-keys.md
     - name: 性能
       items:
+        - name: 连接模式
+          href: sql-sdk-connection-modes.md
         - name: 查询
           items:
             - name: 获取查询执行指标
@@ -1102,16 +1122,12 @@
               href: troubleshoot-java-async-sdk.md
     - name: 更改源
       items:
-        - name: Azure Cosmos DB 触发器日志
-          href: how-to-configure-cosmos-db-trigger-logs.md
-        - name: Azure Cosmos DB 触发器连接策略
-          href: how-to-configure-cosmos-db-trigger-connection-policy.md
+        - name: Azure Cosmos DB 触发器高级配置
+          href: how-to-configure-cosmos-db-trigger.md
         - name: 多个 Azure Cosmos DB 触发器
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: 排查 Azure Cosmos DB 触发器问题
           href: troubleshoot-changefeed-functions.md
-        - name: 更改源处理器开始时间
-          href: how-to-configure-change-feed-start-time.md
         - name: 使用更改源估算器
           href: how-to-use-change-feed-estimator.md
         - name: 从更改源处理器库迁移
@@ -1180,8 +1196,8 @@
           href: how-to-setup-cmk.md
     - name: 企业就绪情况
       items:
-        - name: 从备份还原数据
-          href: how-to-backup-and-restore.md
+        - name: 联机备份和本地还原
+          href: online-backup-and-restore.md
         - name: 请求增加配额
           href: create-support-request-quota-increase.md
     - name: 监视
@@ -1342,7 +1358,7 @@
       href: query-cheat-sheet.md
     - name: SQL 演练
       href: 'https://www.documentdb.com/sql/demo'
-    - name: 常见问题解答
+    - name: 常见问题
       href: faq.md
     - name: 白皮书
       href: whitepapers.md

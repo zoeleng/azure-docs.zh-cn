@@ -1,5 +1,5 @@
 ---
-title: 创建 Azure 子 DNS 区域
+title: 教程：创建 Azure 子 DNS 区域
 titleSuffix: Azure DNS
 description: 有关如何在 Azure 门户中创建子 DNS 区域的教程。
 author: jonbeck
@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3f35d39634470ccacffa4d35c272a82725e9001c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c763f761d77ac05d9f6b45e5656436faa5697e88
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89080259"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310069"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>教程：创建新的子 DNS 区域
 

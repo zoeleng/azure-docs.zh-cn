@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: 排查基于 SAML 的单一登录的问题
           href: troubleshoot-saml-based-sso.md
+        - name: 调试基于 SAML 的单一登录
+          href: debug-saml-sso-issues.md
         - name: 排查用户登录问题
           items:
             - name: 意外的许可提示

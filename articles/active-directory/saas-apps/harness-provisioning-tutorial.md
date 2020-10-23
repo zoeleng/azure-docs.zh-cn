@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305624"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445653"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>教程：为自动用户预配配置工具
 
@@ -27,7 +27,7 @@ ms.locfileid: "91305624"
 >
 > 此连接器目前提供预览版。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 本文中所述的方案假定你已具备以下先决条件：
 
@@ -45,7 +45,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 * 建议分配单个 Azure AD 用户来测试自动用户预配配置。 稍后可以分配其他用户或组。
 
-* 将用户分配到工具时，必须在 " **分配** " 对话框中选择 ") 可用时" (的任何特定于应用程序的有效角色。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到工具时，必须在 " **分配** " 对话框中选择 ") 可用时" (的任何特定于应用程序的有效角色。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="set-up-harness-for-provisioning"></a>设置用于预配的工具
 
@@ -99,7 +99,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 本部分将指导你完成配置 Azure AD 预配服务，以便基于 Azure AD 中的用户或组分配来创建、更新和禁用环境中的用户或组的步骤。
 
 > [!TIP]
-> 还可以按照 " [工具单一登录" 教程](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial)中的说明，选择启用基于 SAML 的单一登录。 你可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充。
+> 还可以按照 " [工具单一登录" 教程](./harness-tutorial.md)中的说明，选择启用基于 SAML 的单一登录。 你可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充。
 
 > [!NOTE]
 > 若要了解有关工具 SCIM 终结点的详细信息，请参阅工具 [API 密钥](https://docs.harness.io/article/smloyragsm-api-keys) 这篇文章。
@@ -110,7 +110,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-1. 在应用程序列表中，选择“Harness”。****
+1. 在应用程序列表中，选择“Harness”。 
 
     ![应用程序列表中的 "工具" 链接](common/all-applications.png)
 

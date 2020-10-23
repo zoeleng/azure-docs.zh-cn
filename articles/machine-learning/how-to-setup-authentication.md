@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729026"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424982"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>为 Azure 机器学习资源和工作流设置身份验证
 
@@ -28,7 +28,7 @@ ms.locfileid: "91729026"
 * __交互式__：你可以使用 Azure Active Directory 中的帐户直接进行身份验证，或者使用它来获取用于身份验证的令牌。 在试验和迭代开发期间，你使用交互式身份验证。 或者，如果你想基于每个用户控制对资源（例如 Web 服务）的访问，也使用此类身份验证。
 * __服务主体__：在 Azure Active Directory 中创建一个服务主体帐户，并使用它来进行身份验证或获取令牌。 当需要使用自动化过程向服务进行身份验证时，将使用服务主体，无需用户交互。 例如连续集成和部署脚本，它可以在训练代码每次发生更改时对模型进行训练和测试。 在下列情况下，还可以使用服务主体来检索一个用于向 Web 服务进行身份验证的令牌：你不想要求服务的最终用户进行身份验证； 或者，没有直接使用 Azure Active Directory 执行最终用户身份验证。
 
-无论使用何种身份验证类型，都可以使用基于角色的访问控制 (RBAC) 来限定允许拥有的对资源的访问权限级别。 例如，用于获取已部署模型的访问令牌的帐户只需要对工作区的读取访问权限。 有关 RBAC 的详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
+无论使用何种身份验证类型，Azure RBAC)  (使用 Azure RBAC 的访问控制来确定允许访问资源的访问级别。 例如，用于获取已部署模型的访问令牌的帐户只需要对工作区的读取访问权限。 有关 Azure RBAC 的详细信息，请参阅 [管理对 Azure 机器学习工作区的访问](how-to-assign-roles.md)。
 
 ## <a name="prerequisites"></a>先决条件
 

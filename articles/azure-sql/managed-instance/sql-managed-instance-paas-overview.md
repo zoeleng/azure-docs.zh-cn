@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618121"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424232"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>什么是 Azure SQL 托管实例？
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,7 +96,7 @@ SQL 托管实例可在两个服务层级中提供：
 
 - 适用于具有典型性能要求的大多数业务应用程序
 - 高性能 Azure Blob 存储 (8 TB)
-- 基于可靠的 Azure Blob 存储和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability)
+- 基于可靠的 Azure Blob 存储和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)
 
 有关详细信息，请参阅[常规用途层中的存储层](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c)和 [SQL 托管实例（常规用途）的存储性能最佳做法和注意事项](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/)。
 
@@ -110,7 +110,7 @@ SQL 托管实例可在两个服务层级中提供：
 
 - 为具有最严苛性能和 HA 要求的商业应用程序设计
 - 附带超高速本地 SSD 存储（第 4 代最多 1 TB，第 5 代最多 4 TB）
-- 基于 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability)
+- 基于 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)
 - 内置的附加[只读数据库副本](../database/read-scale-out.md)，可用于报表和其他只读工作负荷
 - [内存中 OLTP](../in-memory-oltp-overview.md)，可用于具有高性能要求的工作负荷  
 

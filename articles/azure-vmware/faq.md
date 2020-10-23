@@ -1,15 +1,15 @@
 ---
-title: 常见问题解答
+title: 常见问题
 description: 提供有关 Azure VMware 解决方案的一些常见问题的解答。
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdc0bdb5966445fe98b2f65bce552fe6dca493ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368972"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461645"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>有关 Azure VMware 解决方案的常见问题
 
@@ -61,14 +61,14 @@ ms.locfileid: "92368972"
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Azure VMware 解决方案是否支持 Red Hat 解决方案？
 
-Microsoft 和 Red Hat 共享一个集成的归置支持团队，该团队为在 Azure 平台上运行的 Red Hat 生态系统提供统一的联系点。  与其他使用 Red Hat Enterprise Linux 的 Azure 平台服务一样，Azure VMware 解决方案位于云访问和集成的支持涵盖下，并支持 Red Hat Enterprise Linux 在 azure 中的 Azure VMware 解决方案之上运行。
+Microsoft 和 Red Hat 共享集成的定位支持团队，为在 Azure 平台上运行的 Red Hat 生态系统提供统一的联系点。  与其他使用 Red Hat Enterprise Linux 的 Azure 平台服务一样，Azure VMware 解决方案位于云访问和集成的支持涵盖下，并支持 Red Hat Enterprise Linux 在 azure 中的 Azure VMware 解决方案之上运行。
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition 是否可用，如果是，这会产生多少费用？
 
-Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX Enterprise Edition (EE)。 虽然 Azure VMware 解决方案的 VMware HCX EE 为预览版，但它是一项免费的功能/服务，并且遵守预览版服务条款和条件。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你还可以选择关闭/退出服务。
+Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX Enterprise Edition (EE)。 虽然适用于 Azure VMware 解决方案的 VMware HCX EE 处于预览状态，但它是免费的功能/服务，并受预览版服务条款和条件的约束。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你可以关闭或退出服务。
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Azure VMware 解决方案 Vm 是否可以通过 VMRC 来管理？
-是的，如果安装它的系统可以访问私有云 vCenter，并且它使用的是公共 DNS (以便可以) 解析 ESXi 主机名。
+是的，如果安装它的系统可以访问私有云 vCenter，并使用公共 DNS (以便可以) 解析 ESXi 主机名。
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>是否有关于在 Azure VMware 解决方案 Vm 中安装和使用 VMRC 的特殊说明？
 否，使用 [VMware 提供的说明](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) ，并满足这些说明中指定的 VM 先决条件。 
@@ -116,13 +116,13 @@ Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet �
 
 由于这些备份解决方案由客户进行安装和管理，因此他们可以联系到相应的 ISV 提供支持。 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>重复数据删除设置的正确存储策略是什么？
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>重复数据删除设置的正确存储策略是什么？
 
 使用 VM 模板的 *thin_provision* 存储策略。  默认值为 *thick_provision*。
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>SNMP 基础结构日志是否共享？
 
-不是。
+错误。
 
 ## <a name="hosts-clusters-and-private-clouds"></a>主机、群集和私有云
 
@@ -239,7 +239,7 @@ Microsoft 提供对 Azure VMware 解决方案的支持。 你可以提交 [支�
 * 你需要与 Microsoft [ (EA) 的 Azure 企业协议 ](../cost-management-billing/manage/ea-portal-agreements.md) 。
 * 需要 Azure 订阅中的 Azure 帐户。
 
-在创建 Azure VMware 解决方案资源之前，你需要提交一个支持票证来分配你的节点。 支持团队收到你的请求后，最多需要五个工作日来确认你的请求并分配你的节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。
+在创建 Azure VMware 解决方案资源之前，必须提交支持票证才能分配节点。 最多需要五个工作日内确认请求并分配节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。
 
 
 1. 在 Azure 门户中，在 " **帮助 + 支持**" 下创建 **[新的支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)** ，并为票证提供以下信息：
