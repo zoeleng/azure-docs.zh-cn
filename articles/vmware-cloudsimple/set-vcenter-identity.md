@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212261"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425744"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>设置要使用的 vCenter 标识源 Active Directory
 
@@ -56,14 +56,14 @@ VMware vCenter 支持用于身份验证的不同标识源，以便对访问 vCen
 
 | **选项** | **说明** |
 |------------|-----------------|
-| **Name** | 标识源的名称。 |
+| **名称** | 标识源的名称。 |
 | **用户的基本 DN** | 用户的基本可分辨名称。 |
 | **域名** | 域的 FQDN，例如，example.com。 不要在此文本框中提供 IP 地址。 |
 | **域别名** | 域 NetBIOS 名称。 如果使用的是 SSPI 身份验证，请将 Active Directory 域的 NetBIOS 名称添加为标识源的别名。 |
 | **组的基本 DN** | 组的基本可分辨名称。 |
-| **主服务器 URL** | 域的主域控制器 LDAP 服务器。<br><br>使用格式  `ldap://hostname:port`   或  `ldaps://hostname:port` 。 端口通常为389，适用于 LDAP 连接，636用于 LDAPS 连接。 对于 Active Directory 多域控制器部署，端口通常为3268，适用于 LDAP，3269用于 LDAPS。<br><br> `ldaps://`   在主或辅助 LDAP URL 中使用时，需要为 Active Directory 服务器的 LDAPS 终结点建立信任的证书。 |
+| **主服务器 URL** | 域的主域控制器 LDAP 服务器。<br><br>使用格式 `ldap://hostname:port` 或 `ldaps://hostname:port` 。 端口通常为389，适用于 LDAP 连接，636用于 LDAPS 连接。 对于 Active Directory 多域控制器部署，端口通常为3268，适用于 LDAP，3269用于 LDAPS。<br><br>`ldaps://`在主或辅助 LDAP URL 中使用时，需要为 Active Directory 服务器的 LDAPS 终结点建立信任的证书。 |
 | **辅助服务器 URL** | 用于故障转移的辅助域控制器 LDAP 服务器的地址。 |
-| **选择证书** | 如果要将 LDAPS 用于 Active Directory LDAP 服务器或 OpenLDAP 服务器标识源，请  `ldaps://`   在 "URL" 文本框中键入后显示 "选择证书" 按钮。 不需要辅助 URL。 |
+| **选择证书** | 如果要将 LDAPS 用于 Active Directory LDAP 服务器或 OpenLDAP 服务器标识源，请 `ldaps://` 在 "URL" 文本框中键入后显示 "选择证书" 按钮。 不需要辅助 URL。 |
 | **用户名** | 域中用户的 ID，这些用户和组的基本 DN 至少具有只读访问权限。 |
 | **密码** | Username 指定的用户的密码。 |
 
@@ -127,7 +127,7 @@ VMware vCenter 支持用于身份验证的不同标识源，以便对访问 vCen
 
 6. 选择 **Active Directory 作为 LDAP 服务器** ，然后单击 " **下一步**"。
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![突出显示 Active Directory 作为 LDAP 服务器选项的屏幕截图。](media/OnPremAD04.png)
 
 7. 为你的环境指定标识源参数，然后单击 " **下一步**"。
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1ef3a8fa7de557444c25650410b4e84422be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33329fc30d1c20b4e20901d06a061accb2aeceb0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849276"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456891"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>教程：为 Bonusly 配置自动用户预配
 
@@ -25,7 +25,7 @@ ms.locfileid: "91849276"
 > [!NOTE]
 > 本教程介绍在 Azure AD 用户预配服务之上构建的连接器。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 本教程中所述的方案假定你已具备以下项：
 
@@ -54,7 +54,7 @@ ms.locfileid: "91849276"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，键入“Bonusly”，在结果面板中选择“Bonusly”，然后单击“添加”按钮添加该应用程序************。
+4. 在搜索框中，键入“Bonusly”，在结果面板中选择“Bonusly”，然后单击“添加”按钮添加该应用程序    。
 
     ![结果列表中的 Bonusly](common/search-new-app.png)
 
@@ -64,13 +64,13 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 在配置和启用自动用户预配之前，应确定 Azure AD 中的哪些用户和/或组需要访问 Bonusly。 确定后，可以按照此处的说明将这些用户和/或组分配到 Bonusly：
 
-* [向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-bonusly"></a>将用户分配到 Bonusly 的重要提示
 
 * 建议将单个 Azure AD 用户分配到 Bonusly 以测试自动用户预配配置。 其他用户和/或组可以稍后分配。
 
-* 如果将用户分配到 Bonusly，必须在分配对话框中选择任何特定于应用程序的有效角色（如果有）。 具有“默认访问权限”角色的用户排除在预配之外。
+* 如果将用户分配到 Bonusly，必须在分配对话框中选择任何特定于应用程序的有效角色（如果有）。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>配置 Bonusly 的自动用户预配
 
@@ -85,15 +85,15 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“Bonusly”****。
+2. 在应用程序列表中，选择“Bonusly”  。
 
     ![应用程序列表中的 Bonusly 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Bonusly-设置选项卡的屏幕截图。在 &quot;管理&quot; 下，将突出显示设置。" border="false":::
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Bonusly-设置选项卡的屏幕截图。在 &quot;管理&quot; 下，将突出显示设置。" border="false":::
 
@@ -123,13 +123,13 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Bonusly-设置选项卡的屏幕截图。在 &quot;管理&quot; 下，将突出显示设置。" border="false":::
 
-10. 单击 **“保存”** 。
+10. 单击“ **保存**”。
 
 11. 在“映射”部分下，选择“将 Azure Active Directory 用户同步到 Bonusly”********。
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Bonusly-设置选项卡的屏幕截图。在 &quot;管理&quot; 下，将突出显示设置。" border="false":::
 
-12. 在“属性映射”部分中，查看从 Azure AD 同步到 Bonusly 的用户属性****。 选为“匹配”**** 属性的特性用于匹配 Bonusly 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
+12. 在“属性映射”部分中，查看从 Azure AD 同步到 Bonusly 的用户属性****。 选为“匹配”**** 属性的特性用于匹配 Bonusly 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改  。
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Bonusly-设置选项卡的屏幕截图。在 &quot;管理&quot; 下，将突出显示设置。" border="false":::
 
@@ -143,11 +143,11 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Bonusly-设置选项卡的屏幕截图。在 &quot;管理&quot; 下，将突出显示设置。" border="false":::
 
-16. 已准备好预配时，单击“保存”。
+16. 已准备好预配时，单击“保存”  。
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Bonusly-设置选项卡的屏幕截图。在 &quot;管理&quot; 下，将突出显示设置。" border="false":::
 
-此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步********。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 可使用“同步详细信息”部分监视进度并跟踪指向预配活动报告的链接，这些报告描述了 Azure AD 预配服务对 Bonusly 执行的所有操作****。
+此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步   。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 可使用“同步详细信息”部分监视进度并跟踪指向预配活动报告的链接，这些报告描述了 Azure AD 预配服务对 Bonusly 执行的所有操作****。
 
 若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../app-provisioning/check-status-user-account-provisioning.md)。
 

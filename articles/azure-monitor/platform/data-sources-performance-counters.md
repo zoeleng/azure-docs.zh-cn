@@ -1,25 +1,28 @@
 ---
-title: 在 Azure Monitor 中收集和分析性能计数器 | Microsoft Docs
+title: 在 Azure Monitor 中收集带有 Log Analytics 代理的 Windows 和 Linux 性能数据源
 description: 性能计数器由 Azure Monitor 收集，用于分析 Windows 和 Linux 代理的性能。  本文介绍了如何为 Windows 和 Linux 代理配置性能计数器收集、这些性能计数器在工作区中的存储详情和如何在 Azure 门户中对其进行分析。
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131184"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461356"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor 中的 Windows 和 Linux 性能数据源
-Windows 和 Linux 中的性能计数器提供对硬件组件、操作系统和应用程序性能的见解。  除聚合性能数据以用于长期分析和报告外，Azure Monitor 还可以定期收集性能计数器以进行近实时 (NRT) 分析。
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>利用 Log Analytics agent 收集 Windows 和 Linux 性能数据源
+Windows 和 Linux 中的性能计数器提供对硬件组件、操作系统和应用程序性能的见解。  Azure Monitor 除了聚合性能数据以进行更长期的分析和报告外，还可以经常从 Log Analytics 代理收集性能计数器， (NRT) 分析。
+
+> [!IMPORTANT]
+> 本文介绍如何使用 [Log Analytics 代理](log-analytics-agent.md) （即 Azure Monitor 使用的代理之一）来收集性能数据。 其他代理收集不同的数据，并以不同的方式进行配置。 请参阅 [Azure Monitor 代理概述](agents-overview.md) ，了解可用代理的列表及其可收集的数据。
 
 ![性能计数器](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>配置性能计数器
-通过[“高级设置”中的“数据”菜单](agent-data-sources.md#configuring-data-sources)配置性能计数器。
+从 "Log Analytics" 工作区的 "高级设置" 的 " [数据" 菜单中](agent-data-sources.md#configuring-data-sources) 配置性能计数器。
 
 首次为新的工作区配置 Windows 或 Linux 性能计数器时，可以选择快速创建几个通用的计数器。  将这些计数器在一个复选框中依次列出。  请确保已选中所有想要首先创建的计数器，并单击“**添加选定的性能计数器**。
 

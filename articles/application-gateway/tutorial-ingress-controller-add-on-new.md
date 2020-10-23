@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285581"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427969"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>教程：使用新的应用程序网关实例为新的 AKS 群集启用入口控制器加载项（预览版）
 
@@ -87,7 +87,7 @@ az group create --name myResourceGroup --location canadacentral
 如果在未指定现有应用程序网关实例的情况下部署启用 AGIC 加载项的新 AKS 群集，则将自动创建 Standard_v2 SKU 应用程序网关实例。 因此还需要指定应用程序网关实例的名称和子网地址空间。 应用程序网关实例的名称将是 myApplicationGateway，将要使用的子网地址空间是 10.2.0.0/16。 请确保你已在本教程开头添加或更新了 aks-preview 扩展。 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 若要为 `az aks create` 命令配置其他参数，请参阅[这些参考](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create)。 

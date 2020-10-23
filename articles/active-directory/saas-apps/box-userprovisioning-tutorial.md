@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde22fe9997e41d6d17fba94e6b9523d82c7b910
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312900"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456817"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>教程：为 Box 配置自动用户预配
 
@@ -24,7 +24,7 @@ ms.locfileid: "91312900"
 > [!NOTE]
 > 本教程介绍在 Azure AD 用户预配服务之上构建的连接器。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要配置 Azure AD 与 Box 的集成，需要以下项：
 
@@ -48,7 +48,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 在配置和启用预配服务前，需确定 Azure AD 中的哪些用户和/或组表示需要访问 Box 应用的用户。 确定后，可以按照此处的说明将这些用户分配到 Box 应用：
 
-[向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="assign-users-and-groups"></a>分配用户和组
 可以使用 Azure 门户中的“Box”>“用户和组”**** 选项卡指定应向哪些用户和组授予对 Box 的访问权限。 分配用户或组会导致以下结果：
@@ -91,7 +91,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 3. 选择 Box 实例，然后选择“预配”**** 选项卡。
 
-4. 将“预配模式”设置为“自动”。 
+4. 将“预配模式”  设置为“自动”  。 
 
     ![Azure 门户中 Box 的 "设置" 选项卡的屏幕截图。 预配模式设置为 "自动"，并且 "管理员凭据" 中突出显示了 "授权"。](./media/box-userprovisioning-tutorial/provisioning.png)
 

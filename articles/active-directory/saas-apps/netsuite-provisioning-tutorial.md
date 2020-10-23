@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983953"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428417"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>教程：为 Netsuite 配置自动用户预配
 
@@ -28,6 +28,7 @@ ms.locfileid: "90983953"
 *   Azure Active Directory 租户。
 *   Netsuite OneWorld 订阅。 请注意，目前仅 NetSuite OneWorld 支持自动用户预配。
 *   具有管理员权限的 Netsuite 用户帐户。
+*   与 Azure AD 的集成需要2FA 例外。 请联系 Netsuite 支持团队了解此例外。
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>将用户分配到 Netsuite OneWorld
 
@@ -60,7 +61,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 1. 选择 Netsuite 实例，并选择“预配”**** 选项卡。
 
-1. 将“预配模式”设置为“自动”。 
+1. 将“预配模式”  设置为“自动”  。 
 
     ![屏幕截图显示 Netsuite 预配页面，预配模式设置为自动，还可以设置其他值。](./media/netsuite-provisioning-tutorial/provisioning.png)
 

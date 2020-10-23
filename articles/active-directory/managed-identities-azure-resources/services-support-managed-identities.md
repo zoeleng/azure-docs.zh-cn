@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072163"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426436"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支持 Azure 资源托管标识的服务
 
@@ -41,6 +41,16 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 - [Azure Resource Manager 模板](../../api-management/api-management-howto-use-managed-service-identity.md)
 
+### <a name="azure-app-configuration"></a>Azure 应用配置
+
+| 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
+| --- | :-: | :-: | :-: | :-: |
+| 系统分配 | ![可用][check] | ![可用][check] | 不可用 | 不可用 |
+| 用户分配 | ![可用][check] | ![可用][check]  | 不可用  | 不可用 |
+
+请参阅以下列表，为可用) 的区域中的 Azure 应用配置 (配置托管标识：
+
+- [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
 
 ### <a name="azure-app-service"></a>Azure 应用服务
 

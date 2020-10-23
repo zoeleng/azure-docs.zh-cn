@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274038"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441838"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 协作常见问题解答
 
@@ -51,7 +51,7 @@ ms.locfileid: "91274038"
 某家组织想要添加 B2B 协作用户，根据需要将这些用户预配到应用程序中，然后发送邀请。 可以使用 B2B 协作邀请 API 自定义载入工作流。
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>能否在 Exchange 全局地址列表中显示来宾用户？
-是的。 默认情况下，来宾对象在组织的全局地址列表 (GAL) 中不可见，但你可以使用 Azure Active Directory PowerShell 使其可见。 请参阅[能否在全局地址列表中显示来宾对象？](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+是的。 默认情况下，来宾对象在组织的全局地址列表 (GAL) 中不可见，但你可以使用 Azure Active Directory PowerShell 使其可见。 请参阅[能否在全局地址列表中显示来宾对象？](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>是否可将来宾用户指定为受限制的管理员？
 绝对是。 有关详细信息，请参阅[将来宾用户添加到角色](add-guest-to-role.md)。
@@ -80,16 +80,16 @@ ms.locfileid: "91274038"
 是的。 Azure AD B2B 协作同时支持多重身份验证和使用者电子邮件帐户。
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>是否支持 Azure AD B2B 协作用户的密码重置？
-如果 Azure AD 租户是用户的主目录，则可以从 Azure 门户[重置用户的密码](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal)。 但是，对于使用由其他 Azure AD 目录或外部标识提供者管理的帐户登录的来宾用户，无法直接重置其密码。 只有用户主目录中的来宾用户或管理员可以重置密码。 以下示例演示来宾用户如何重置密码：
+如果 Azure AD 租户是用户的主目录，则可以从 Azure 门户[重置用户的密码](../fundamentals/active-directory-users-reset-password-azure-portal.md)。 但是，对于使用由其他 Azure AD 目录或外部标识提供者管理的帐户登录的来宾用户，无法直接重置其密码。 只有用户主目录中的来宾用户或管理员可以重置密码。 以下示例演示来宾用户如何重置密码：
  
 * 使用 Microsoft 帐户（例如 guestuser@live.com）登录的来宾用户可以使用 Microsoft 帐户自助密码重置 (SSPR) 来重置其自己的密码。 请参阅[如何重置 Microsoft 帐户密码](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)。
 * 使用 Google 帐户或其他外部标识提供者登录的来宾用户可以使用其标识提供者的 SSPR 方法来重置自己的密码。 例如，使用 Google 帐户 guestuser@gmail.com 的来宾用户可以遵照[更改或重置密码](https://support.google.com/accounts/answer/41078)中的说明重置其密码。
-* 如果标识租户是实时 (JIT) 或“病毒性”租户（独立的不受管 Azure 租户），则只有来宾用户可以重置其密码。 有时，组织会接管在员工使用其工作电子邮件地址注册服务时创建 [的病毒租户的管理](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) 。 组织接管病毒性租户后，只有该组织中的管理员可以重置用户密码或启用 SSPR。 如果需要，作为邀请方组织，你可以从目录中删除来宾用户帐户并重新发送邀请。
+* 如果标识租户是实时 (JIT) 或“病毒性”租户（独立的不受管 Azure 租户），则只有来宾用户可以重置其密码。 有时，组织会接管在员工使用其工作电子邮件地址注册服务时创建 [的病毒租户的管理](../users-groups-roles/domains-admin-takeover.md) 。 组织接管病毒性租户后，只有该组织中的管理员可以重置用户密码或启用 SSPR。 如果需要，作为邀请方组织，你可以从目录中删除来宾用户帐户并重新发送邀请。
 
 * 如果来宾用户的主目录是 Azure AD 租户，则你可以重置该用户的密码。 例如，你可能在本地 Active Directory 中创建了用户或同步了用户，并将其 UserType 设置为 Guest。 由于此用户位于你的目录中，因此，可以从 Azure 门户重置其密码。
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 是否为 Azure AD B2B 协作提供联机支持？
-是的，Dynamics 365 (Online) 支持 Azure AD B2B 协作。 有关详细信息，请参阅 Dynamics 365 文章[通过 Azure AD B2B 协作邀请用户](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration)。
+是的，Dynamics 365 (Online) 支持 Azure AD B2B 协作。 有关详细信息，请参阅 Dynamics 365 文章[通过 Azure AD B2B 协作邀请用户](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration)。
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>新创建的 B2B 协作用户的初始密码的生存期是什么？
 Azure AD 具有固定的字符集、密码强度和帐户锁定要求，同样适用于所有 Azure AD 云用户帐户。 云用户帐户是没有与其他标识提供者联合的帐户，例如 
@@ -117,8 +117,8 @@ Azure AD 具有固定的字符集、密码强度和帐户锁定要求，同样�
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Azure AD B2B 是否不接受 gmail.com 和 outlook.com 电子邮件地址，此类帐户是否使用 B2C？
 我们将去除 B2B 和企业对消费者 (B2C) 的协作在所支持的标识这方面的差异。 根据所使用的标识决定使用 B2B 还是 B2C 并不是一个合理的原因。 有关选择协作选项的信息，请参阅[在 Azure Active Directory 中比较 B2B 协作和 B2C](compare-with-b2c.md)。
 
-### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>是否可以将 Azure AD B2C 本地帐户邀请到 Azure AD 租户进行 B2B 协作？
-不是。 只能使用 Azure AD B2C 本地帐户登录到 Azure AD B2C 租户。 帐户不能用于登录 Azure AD 租户。 不支持将 Azure AD B2C 本地帐户邀请到 Azure AD 租户进行 B2B 协作。
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>是否可以邀请 Azure AD B2C 本地帐户加入 Azure AD 租户进行 B2B 协作？
+错误。 Azure AD B2C 本地帐户只能用于登录 Azure AD B2C 租户。 该帐户不能用于登录 Azure AD 租户。 不支持邀请 Azure AD B2C 本地帐户加入 Azure AD 租户来进行 B2B 协作。
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>哪些应用程序和服务支持 Azure B2B 来宾用户？
 所有与 Azure AD 集成的应用程序都可以支持 Azure B2B 来宾用户，但必须使用设置为租户的终结点对来宾用户进行身份验证。 可能还需要在来宾用户对应用进行身份验证时颁发的 SAML 令牌中[自定义声明](claims-mapping.md)。 
@@ -135,4 +135,3 @@ Azure AD 具有固定的字符集、密码强度和帐户锁定要求，同样�
 ### <a name="next-steps"></a>后续步骤
 
 - [什么是 Azure AD B2B 协作？](what-is-b2b.md)
-

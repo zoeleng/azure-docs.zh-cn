@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c71a7d4737ad34c43df1aa302d9517c61ed400b2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019012"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440784"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>了解 Azure 数字孪生中的克隆模型
 
@@ -230,7 +230,7 @@ Azure 数字孪生也不会 `writable` 对属性或关系观察属性。 尽管�
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅如何通过 DigitalTwinsModels Api 管理模型：
+请参阅如何通过 DigitalTwinModels Api 管理模型：
 * [*操作说明：管理自定义模型*](how-to-manage-model.md)
 
 或者，了解如何基于模型创建数字孪生：

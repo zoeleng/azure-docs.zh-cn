@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dba592417ca07d1858a7942b162b4dfa6a85680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c07a6a67e97deafa2f611b297574a801aa356d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273987"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441940"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>将 Google 添加为 B2B 来宾用户的标识提供者
 
@@ -109,7 +109,7 @@ Teams 完全支持所有设备上的 Google 来宾用户。 Google 用户可以�
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > 使用在“步骤 1：配置 Google 开发人员项目”中创建的应用的客户端 ID 和客户端密码。 有关详细信息，请参阅 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 一文。 
+   > 使用在“步骤 1：配置 Google 开发人员项目”中创建的应用的客户端 ID 和客户端密码。 有关详细信息，请参阅 [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 一文。 
  
 ## <a name="how-do-i-remove-google-federation"></a>如何删除 Google 联合？
 可以删除 Google 联合设置。 如果删除，则已按邀请操作的 Google 来宾用户将无法登录，但你可以通过从目录中删除然后重新邀请他们，使他们再次能够访问你的资源。 
@@ -133,4 +133,4 @@ Teams 完全支持所有设备上的 Google 来宾用户。 Google 用户可以�
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > 有关详细信息，请参阅 [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)。 
+   > 有关详细信息，请参阅 [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)。

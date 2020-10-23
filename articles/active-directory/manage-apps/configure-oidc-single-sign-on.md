@@ -11,17 +11,18 @@ ms.workload: identity
 ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
-ms.openlocfilehash: 825f79b0a1c132fb7a15d643c3487dfb7d6a9abd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: e819073c3bc723a66f8beb2f9b2a094a07233ca9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209621"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427675"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>了解基于 OIDC 的单一登录
 在应用程序管理的 [快速入门系列](view-applications-portal.md) 中，已了解如何使用 Azure AD 作为标识提供程序 (IdP) 应用程序。 本文详细介绍了使用 OpenID Connect 标准实现单一登录的应用。 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备工作
 将应用添加到 Azure Active Directory 租户的过程取决于实现的应用程序的单一登录类型。 若要详细了解可用于身份管理 Azure AD 的应用的单一登录选项，请参阅 [单一登录选项](sso-options.md)。 本文介绍了基于 OIDC 的应用。
 
 

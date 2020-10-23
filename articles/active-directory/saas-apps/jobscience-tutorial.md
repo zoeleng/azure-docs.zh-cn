@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850728"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>教程：Azure Active Directory 与 Jobscience 集成
 
@@ -29,7 +29,7 @@ ms.locfileid: "91850728"
 
 如果要了解有关 SaaS 应用与 Azure AD 的集成的详细信息，请参阅 [什么是使用 Azure Active Directory 的应用程序访问和单一登录](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要配置 Azure AD 与 Jobscience 的集成，需要以下项：
 
@@ -42,7 +42,7 @@ ms.locfileid: "91850728"
 测试本教程中的步骤应遵循以下建议：
 
 - 除非必要，请勿使用生产环境。
-- 如果没有 Azure AD 试用环境，可以在此处获取一个月的试用版： [试用产品/服务](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果没有 Azure AD 试用环境，可在此处获取一个月的试用版：[试用产品/服务](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>方案描述
 在本教程中，会在测试环境中测试 Azure AD 单一登录。 本教程中概述的方案包括两个主要构建基块：
@@ -115,9 +115,9 @@ ms.locfileid: "91850728"
  
 1. 在 " **SAML 签名证书** " 部分中，单击 " **证书 (Base64) ** ，然后将证书文件保存在计算机上。
 
-    ![屏幕截图显示 "SAML 签名证书" 窗格，你可以在其中下载证书。](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
+    ![屏幕截图显示了“SAML 签名证书”窗格，你可以在其中下载证书。](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
-1. 单击“保存”按钮****。
+1. 单击“保存”按钮  。
 
     ![屏幕截图显示 "保存" 按钮。](./media/jobscience-tutorial/tutorial_general_400.png)
 
@@ -257,7 +257,7 @@ ms.locfileid: "91850728"
    
    c. 在“别名”**** 文本框中键入用户的别名（如 brittas）。
 
-   d. 在“电子邮件”文本框中，键入用户的电子邮件地址（例如 Brittasimon@contoso.com）。
+   d. 在“电子邮件”文本框中，键入用户的电子邮件地址（例如 Brittasimon@contoso.com）。 
 
    e. 在“用户名”**** 文本框中，键入用户的用户名（例如 Brittasimon@contoso.com）。
 
@@ -289,7 +289,7 @@ ms.locfileid: "91850728"
 
     ![屏幕截图显示从 "Azure 门户" 菜单中选择的用户和组。][202] 
 
-1. 单击“添加”按钮。 然后在“添加分配”对话框中选择“用户和组”。********
+1. 单击“添加”按钮。  然后在“添加分配”对话框中选择“用户和组”。********
 
     ![屏幕截图显示用于添加分配的 "添加" 按钮。][203]
 
@@ -304,7 +304,7 @@ ms.locfileid: "91850728"
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
 单击访问面板中的 Jobscience 磁贴时，应自动登录到 Jobscience 应用程序。
-有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md)（访问面板简介）。
+有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
@@ -324,4 +324,3 @@ ms.locfileid: "91850728"
 [201]: ./media/jobscience-tutorial/tutorial_general_201.png
 [202]: ./media/jobscience-tutorial/tutorial_general_202.png
 [203]: ./media/jobscience-tutorial/tutorial_general_203.png
-
