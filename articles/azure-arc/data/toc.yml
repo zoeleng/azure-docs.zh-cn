@@ -66,8 +66,16 @@
       items:
         - name: 使用 Grafana 和 Kibana 进行监视
           href: monitor-grafana-kibana.md
-        - name: 上传指标和日志
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: 上传到 Azure Monitor
+          items:
+            - name: 上传先决条件
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: 上传日志
+              href: upload-logs.md
+            - name: 上传指标
+              href: upload-metrics.md
+            - name: 上传使用数据
+              href: upload-usage-data.md
         - name: 库存数据库实例
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: 获取数据控制器用户名和密码

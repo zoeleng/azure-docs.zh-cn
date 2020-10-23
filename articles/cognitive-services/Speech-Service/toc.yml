@@ -401,6 +401,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: 设置 Web 终结点
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: 导出“自定义命令”应用作为一项技能
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: 部署
                   items:
                     - name: 使用 Azure DevOps 持续部署

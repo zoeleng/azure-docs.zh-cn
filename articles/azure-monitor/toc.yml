@@ -463,7 +463,7 @@
           href: platform/autoscale-get-started.md
         - name: 配置设置
           href: platform/autoscale-understanding-settings.md
-        - name: 最佳实践
+        - name: 最佳做法
           href: platform/autoscale-best-practices.md
         - name: 常见指标
           href: platform/autoscale-common-metrics.md
@@ -642,7 +642,7 @@
                 - name: Spring Boot 应用
                   displayname: java
                   href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-                - name: 疑难解答
+                - name: 故障排除
                   href: app/java-troubleshoot.md
             - name: Node.js
               href: app/nodejs.md
@@ -893,7 +893,7 @@
               displayname: 'correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation'
             - name: 自定义电子邮件报告
               href: app/automate-custom-reports.md
-            - name: 例外
+            - name: 异常
               href: app/asp-net-exceptions.md
             - name: 日志跟踪
               href: app/asp-net-trace-logs.md
@@ -998,7 +998,7 @@
       items:
         - name: 概述
           href: insights/container-insights-overview.md
-        - name: 常见问题
+        - name: 常见问题解答
           href: faq.md#azure-monitor-for-containers
         - name: 启用监视
           items:
@@ -1022,6 +1022,8 @@
           href: insights/container-insights-analyze.md
         - name: 监视 GPU 性能
           href: insights/container-insights-gpu-monitoring.md
+        - name: 监视网络配置
+          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: 监视部署和 HPA
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: 查看实时数据

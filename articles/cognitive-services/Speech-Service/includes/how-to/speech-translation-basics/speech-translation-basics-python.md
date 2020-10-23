@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 91683b3328af384c073f7273b97a1cc0e49814a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 987aad74401a11407e33f0b0bd51548f354bdd6d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377557"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470932"
 ---
 语音服务的核心功能之一是能够识别人类语音并将其翻译成其他语言。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音翻译。 此快速入门介绍以下主题：
 
@@ -60,7 +60,7 @@ speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ
 * 使用主机：传入主机地址。 密钥或授权令牌是可选的。
 * 使用授权令牌：传入授权令牌和关联的区域。
 
-让我们看看如何使用密钥和区域创建 [`SpeechTranslationConfig`][config]。 请查看[区域支持](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk)页，找到你的区域标识符。
+让我们看看如何使用密钥和区域创建 [`SpeechTranslationConfig`][config]。 按照 [免费试用语音服务](../../../overview.md#try-the-speech-service-for-free)中的步骤获取这些凭据。
 
 ```python
 from_language, to_language = 'en-US', 'de'

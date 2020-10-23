@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 15814264f69ee29de8e71602cc7c0fb5754fa386
-  ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+  ms.openlocfilehash: 8dd08112bbfd56ddccb14cef1123b10ed7907a95
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/18/2020
-  ms.locfileid: "92164374"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92329197"
 highlightedContent:
   items:
   - title: Azure 开发人员入门指南
@@ -219,6 +219,12 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: genomics/index.yml
+  - title: 指标顾问（预览版）
+    summary: 用于监视指标和诊断问题的 AI 服务
+    imageSrc: ./media/index/metrics-advisor.svg
+    azureCategories:
+    - ai-machine-learning
+    url: cognitive-services/metrics-advisor/index.yml
   - title: 个性化体验创建服务
     summary: 一项 AI 服务，用于提供个性化的用户体验
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
