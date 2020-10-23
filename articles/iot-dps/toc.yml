@@ -21,6 +21,10 @@
           href: quick-create-simulated-device-symm-key.md
         - name: Java
           href: quick-create-simulated-device-symmetric-key-java.md
+        - name: C#
+          href: quick-create-device-symmetric-key-csharp.md
+        - name: Node.js
+          href: quick-create-device-symmetric-key-node.md
         - name: Python
           href: quick-create-device-symmetric-key-python.md
     - name: 预配 x.509 证书设备
@@ -149,7 +153,7 @@
       href: how-to-use-sdk-tools.md
     - name: 如何从设备发送更多数据
       href: how-to-send-additional-data.md
-    - name: 故障排除
+    - name: 疑难解答
       href: how-to-troubleshoot-dps.md
     - name: 使用 MQTT 协议与 DPS 通信
       href: iot-dps-mqtt-support.md

@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998753"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92428352"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 推理服务器 (预览版的高性能服务)  
 
@@ -30,7 +30,7 @@ Triton 是 *针对推理进行优化*的框架。 它提供更好的 Gpu 利用�
 > 当前在 __预览版__中，使用 Triton 进行 Azure 机器学习的部署。 预览版功能可能不会被客户支持覆盖。 有关详细信息，请参阅 [Microsoft Azure 预览版的补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!TIP]
-> 本文档中的代码片段用于说明目的，可能不会显示完整的解决方案。 有关工作示例代码，请参阅 [Azure 机器学习中的 Triton 的端到端示例](https://aka.ms/aml-triton-sample)。
+> 本文档中的代码片段用于说明目的，可能不会显示完整的解决方案。 有关工作示例代码，请参阅 [Azure 机器学习中的 Triton 的端到端示例](https://github.com/Azure/azureml-examples/tree/main/tutorials)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -47,7 +47,7 @@ Triton 是 *针对推理进行优化*的框架。 它提供更好的 Gpu 利用�
 
 * 已启动多个 [Gunicorn](https://gunicorn.org/) 辅助角色来并发处理传入的请求。
 * 这些工作人员处理预处理、调用模型和后期处理。 
-* 推理请求使用 __计分 URI__。 例如，`https://myserevice.azureml.net/score` 。
+* 推理请求使用 __计分 URI__。 例如 `https://myserevice.azureml.net/score`。
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="正常，非 triton，部署体系结构图":::
 
@@ -56,7 +56,7 @@ Triton 是 *针对推理进行优化*的框架。 它提供更好的 Gpu 利用�
 * 已启动多个 [Gunicorn](https://gunicorn.org/) 辅助角色来并发处理传入的请求。
 * 请求会转发到 **Triton 服务器**。 
 * Triton 按批处理请求，以最大程度地提高 GPU 利用率。
-* 客户端使用 __评分 URI__ 发出请求。 例如，`https://myserevice.azureml.net/score` 。
+* 客户端使用 __评分 URI__ 发出请求。 例如 `https://myserevice.azureml.net/score`。
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="正常，非 triton，部署体系结构图":::
 

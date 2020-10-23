@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617214"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428315"
 ---
 # <a name="what-is-azure-sql-database"></a>什么是 Azure SQL 数据库？
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,7 @@ Azure SQL 数据库使你的企业可以在中断期间继续运营。 在传统
 
 灾难恢复假设灾难性事件在局部地区发生，而远地部署了另一个包含数据副本的计算机或计算机组。 在 SQL Server 中，可以使用以异步模式运行的 Always On 可用性组来获取此功能。 人们通常不想等到远端复制完成后再提交事务，因此，在执行计划外故障转移时可能会丢失数据。
 
-高级和业务关键服务层级中的数据库已[执行与可用性组同步类似的操作](high-availability-sla.md#premium-and-business-critical-service-tier-availability)。 较低服务层级中的数据库使用[不同但等效的机制](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability)通过存储提供冗余。 内置逻辑可帮助防范单个计算机发生故障。 使用活动异地复制功能可以在灾难损毁整个区域时提供保护。
+高级和业务关键服务层级中的数据库已[执行与可用性组同步类似的操作](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)。 较低服务层级中的数据库使用[不同但等效的机制](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)通过存储提供冗余。 内置逻辑可帮助防范单个计算机发生故障。 使用活动异地复制功能可以在灾难损毁整个区域时提供保护。
 
 在单个区域中的单个数据中心建筑物发生服务中断时，Azure 可用性区域会尝试提供保护。 它有助于防止建筑物中发生断电或网络中断。 在 SQL 数据库中，可将不同的副本放在不同的可用性区域（其实是不同的建筑物）中。
 
