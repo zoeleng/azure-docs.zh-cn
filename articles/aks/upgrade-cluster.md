@@ -3,13 +3,13 @@ title: 升级 Azure Kubernetes 服务 (AKS) 群集
 description: 了解如何升级 Azure Kubernetes 服务 (AKS) 群集以获取最新的功能和安全更新。
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050615"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461441"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升级 Azure Kubernetes 服务 (AKS) 群集
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>升级 AKS 群集
 
-如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 将向运行指定 Kubernetes 版本的群集添加一个新节点，然后仔细地一次[隔离并清空][kubernetes-drain]一个旧节点，将对正在运行的应用程序造成的中断情况降到最低。 确认新节点运行应用程序 Pod 以后，就会删除旧节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。
+如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 会将一个新的缓冲区节点 (或任意数量的节点添加到运行指定 Kubernetes 版本的群集的 [最大浪涌](#customize-node-surge-upgrade-preview)) 中。 然后，它将 [cordon 并排出][kubernetes-drain] 其中一个旧节点，以最大程度地降低运行应用程序的中断 (如果使用的是最大冲击，则它将 [cordon 并][kubernetes-drain] 与) 指定的缓冲区节点数量同时排出任意数量的节点。 完全排出旧节点后，将重置映像接收新版本，并将成为要升级的以下节点的缓冲节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。 在该过程结束时，将删除最后一个排出节点，并保留现有的代理节点计数。
 
 ```azurecli-interactive
 az aks upgrade \

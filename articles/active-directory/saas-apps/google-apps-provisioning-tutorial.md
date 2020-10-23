@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3f2f62fe158b946e00c7f81d0cb7eeb0d8f09437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebbcb8dd8c895c61858952fbd4498bd57e06d36b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331120"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448650"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教程：为 G Suite 配置自动用户预配
 
-本教程介绍了需要在 G Suite 和 Azure Active Directory (Azure AD) 中执行的步骤，以配置自动用户预配。 配置时，Azure AD 会使用 Azure AD 预配服务自动预配用户和组，并将其预配到 [G Suite](https://gsuite.google.com/) 。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
+本教程介绍了需要在 G Suite 和 Azure Active Directory (Azure AD) 中执行的步骤，以配置自动用户预配。 配置时，Azure AD 会使用 Azure AD 预配服务自动预配用户和组，并将其预配到 [G Suite](https://gsuite.google.com/) 。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。 
 
 > [!NOTE]
 > 本教程介绍在 Azure AD 用户预配服务之上构建的连接器。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。
@@ -38,21 +38,21 @@ ms.locfileid: "91331120"
 > * 如果用户不需要访问，请在 G Suite 中删除用户
 > * 使用户属性在 Azure AD 和 G Suite 之间保持同步
 > * 在 G Suite 中预配组和组成员身份
-> * [单一登录](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial) 到 G Suite (建议) 
+> * [单一登录](./google-apps-tutorial.md) 到 G Suite (建议) 
 
 ## <a name="prerequisites"></a>先决条件
 
 本教程中概述的方案假定你已具有以下先决条件：
 
-* [Azure AD 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* 具有配置预配[权限](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)的 Azure AD 用户帐户（例如应用程序管理员、云应用程序管理员、应用程序所有者或全局管理员）。 
+* [Azure AD 租户](../develop/quickstart-create-new-tenant.md) 
+* 具有配置预配[权限](../users-groups-roles/directory-assign-admin-roles.md)的 Azure AD 用户帐户（例如应用程序管理员、云应用程序管理员、应用程序所有者或全局管理员）。 
 * [G Suite 租户](https://gsuite.google.com/pricing.html)
 * 具有管理员权限的 G Suite 上的用户帐户。
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 规划预配部署
-1. 了解[预配服务的工作原理](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
-2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
-3. 确定要 [在 Azure AD 和 G Suite 之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
+1. 了解[预配服务的工作原理](../app-provisioning/user-provisioning.md)。
+2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
+3. 确定要 [在 Azure AD 和 G Suite 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
 ## <a name="step-2-configure-g-suite-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 G Suite 以支持 Azure AD 的预配
 
@@ -71,7 +71,7 @@ ms.locfileid: "91331120"
     ![已启用 G Suite API](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
-   > 对于要预配到 G Suite 的每个用户，Azure AD 中的用户名 **必须** 绑定到自定义域。 例如，G Suite 不会接受 bob@contoso.onmicrosoft.com 之类的用户名， 但会接受 bob@contoso.com。 可以按照 [此处](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的说明更改现有用户的域。
+   > 对于要预配到 G Suite 的每个用户，Azure AD 中的用户名 **必须** 绑定到自定义域。 例如，G Suite 不会接受 bob@contoso.onmicrosoft.com 之类的用户名， 但会接受 bob@contoso.com。 可以按照 [此处](../fundamentals/add-custom-domain.md)的说明更改现有用户的域。
 
 4. 使用 Azure AD 添加并验证所需的自定义域后，必须使用 G Suite 再次验证它们。 若要验证 G Suite 中的域，请参阅以下步骤：
 
@@ -101,15 +101,15 @@ ms.locfileid: "91331120"
 
 ## <a name="step-3-add-g-suite-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加 G Suite
 
-从 Azure AD 应用程序库添加 G Suite，开始管理到 G Suite 的预配。 如果以前为 SSO 设置了 G Suite，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)详细了解如何从库中添加应用程序。 
+从 Azure AD 应用程序库添加 G Suite，开始管理到 G Suite 的预配。 如果以前为 SSO 设置了 G Suite，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
-使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
+使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 G Suite 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
+* 将用户和组分配到 G Suite 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
-* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
+* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-g-suite"></a>步骤 5。 配置 G Suite 的自动用户预配 
@@ -159,83 +159,83 @@ ms.locfileid: "91331120"
 
 8. 在“映射”部分下，选择“预配 Azure Active Directory 用户” 。
 
-9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 G Suite 的用户属性。 选为 " **匹配** " 属性的属性用于匹配 G Suite 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，将需要确保 G Suite API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
+9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 G Suite 的用户属性。 选为 " **匹配** " 属性的属性用于匹配 G Suite 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](../app-provisioning/customize-application-attributes.md)，将需要确保 G Suite API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
    |Attribute|类型|
    |---|---|
-   |primaryEmail|字符串|
+   |primaryEmail|String|
    |关系.[type eq "manager"]。值|字符串|
    |name.familyName|字符串|
    |name.givenName|字符串|
-   |已挂起|字符串|
-   |externalIds.[type eq "custom"]。值|字符串|
-   |externalIds.[type eq "组织"]。值|字符串|
-   |地址.[type eq "work"]。国家/地区|字符串|
-   |地址.[type eq "work"]. streetAddress|字符串|
-   |地址.[type eq "work"]。区域|字符串|
-   |地址.[type eq "work"]。位置|字符串|
-   |地址.[type eq "work"]. 邮政编码|字符串|
-   |封.[type eq "work"]. address|字符串|
-   |组织.[type eq "work"]. 部门|字符串|
-   |组织.[type eq "work"]。标题|字符串|
-   |phoneNumbers.[type eq "work"]。值|字符串|
-   |phoneNumbers.[type eq "mobile"]。值|字符串|
-   |phoneNumbers.[type eq "work_fax"]。值|字符串|
-   |封.[type eq "work"]. address|字符串|
-   |组织.[type eq "work"]. 部门|字符串|
-   |组织.[type eq "work"]。标题|字符串|
-   |phoneNumbers.[type eq "work"]。值|字符串|
-   |phoneNumbers.[type eq "mobile"]。值|字符串|
-   |phoneNumbers.[type eq "work_fax"]。值|字符串|
-   |地址.[type eq "home"]。国家/地区|字符串|
-   |地址.[type eq "home"]。格式|字符串|
-   |地址.[类型 eq "home"]。位置|字符串|
-   |地址.[type eq "home"]. 邮政编码|字符串|
-   |地址.[type eq "home"]. region|字符串|
-   |地址.[type eq "home"]. streetAddress|字符串|
-   |地址.[type eq "other"]。国家/地区|字符串|
-   |地址.[type eq "other"]。格式|字符串|
-   |地址.[type eq "other"]。位置|字符串|
-   |地址.[type eq "other"]。邮政编码|字符串|
-   |地址.[type eq "other"]。区域|字符串|
-   |地址.[type eq "other"]. streetAddress|字符串|
-   |地址.[type eq "work"]。格式|字符串|
-   |changePasswordAtNextLogin|字符串|
-   |封.[type eq "home"]. address|字符串|
-   |封.[type eq "other"]. address|字符串|
-   |externalIds.[type eq "account"]。值|字符串|
-   |externalIds.[type eq "custom"]. customType|字符串|
-   |externalIds.[type eq "customer"]。值|字符串|
-   |externalIds.[type eq "login_id"]。值|字符串|
-   |externalIds.[键入 eq "network"]。值|字符串|
-   |性别。类型|字符串|
-   |GeneratedImmutableId|字符串|
-   |标识符|字符串|
-   |ims.[type eq "home"]。协议|字符串|
-   |ims.[type eq "other"]。协议|字符串|
-   |ims.[type eq "work"]。协议|字符串|
-   |includeInGlobalAddressList|字符串|
-   |ipWhitelisted|字符串|
-   |组织.[type eq "school"]. costCenter|字符串|
-   |组织.[type eq "school"]. 部门|字符串|
-   |组织.[type eq "school"]。域|字符串|
-   |组织.[type eq "school"]. fullTimeEquivalent|字符串|
-   |组织.[type eq "school"]。位置|字符串|
-   |组织.[type eq "school"]。名称|字符串|
-   |组织.[type eq "school"]。符号|字符串|
-   |组织.[type eq "school"]。标题|字符串|
-   |组织.[type eq "work"]. costCenter|字符串|
-   |组织.[type eq "work"]。域|字符串|
-   |组织.[type eq "work"]. fullTimeEquivalent|字符串|
-   |组织.[type eq "work"]。位置|字符串|
-   |组织.[type eq "work"]。名称|字符串|
-   |组织.[type eq "work"]。符号|字符串|
-   |OrgUnitPath|字符串|
-   |phoneNumbers.[type eq "home"]。值|字符串|
-   |phoneNumbers.[type eq "other"]。值|字符串|
-   |web.[type eq "home"]。值|字符串|
-   |web.[type eq "other"]。值|字符串|
-   |web.[type eq "work"]。值|字符串|
+   |已挂起|String|
+   |externalIds.[type eq "custom"]。值|String|
+   |externalIds.[type eq "组织"]。值|String|
+   |地址.[type eq "work"]。国家/地区|String|
+   |地址.[type eq "work"]. streetAddress|String|
+   |地址.[type eq "work"]。区域|String|
+   |地址.[type eq "work"]。位置|String|
+   |地址.[type eq "work"]. 邮政编码|String|
+   |封.[type eq "work"]. address|String|
+   |组织.[type eq "work"]. 部门|String|
+   |组织.[type eq "work"]。标题|String|
+   |phoneNumbers.[type eq "work"]。值|String|
+   |phoneNumbers.[type eq "mobile"]。值|String|
+   |phoneNumbers.[type eq "work_fax"]。值|String|
+   |封.[type eq "work"]. address|String|
+   |组织.[type eq "work"]. 部门|String|
+   |组织.[type eq "work"]。标题|String|
+   |phoneNumbers.[type eq "work"]。值|String|
+   |phoneNumbers.[type eq "mobile"]。值|String|
+   |phoneNumbers.[type eq "work_fax"]。值|String|
+   |地址.[type eq "home"]。国家/地区|String|
+   |地址.[type eq "home"]。格式|String|
+   |地址.[类型 eq "home"]。位置|String|
+   |地址.[type eq "home"]. 邮政编码|String|
+   |地址.[type eq "home"]. region|String|
+   |地址.[type eq "home"]. streetAddress|String|
+   |地址.[type eq "other"]。国家/地区|String|
+   |地址.[type eq "other"]。格式|String|
+   |地址.[type eq "other"]。位置|String|
+   |地址.[type eq "other"]。邮政编码|String|
+   |地址.[type eq "other"]。区域|String|
+   |地址.[type eq "other"]. streetAddress|String|
+   |地址.[type eq "work"]。格式|String|
+   |changePasswordAtNextLogin|String|
+   |封.[type eq "home"]. address|String|
+   |封.[type eq "other"]. address|String|
+   |externalIds.[type eq "account"]。值|String|
+   |externalIds.[type eq "custom"]. customType|String|
+   |externalIds.[type eq "customer"]。值|String|
+   |externalIds.[type eq "login_id"]。值|String|
+   |externalIds.[键入 eq "network"]。值|String|
+   |性别。类型|String|
+   |GeneratedImmutableId|String|
+   |标识符|String|
+   |ims.[type eq "home"]。协议|String|
+   |ims.[type eq "other"]。协议|String|
+   |ims.[type eq "work"]。协议|String|
+   |includeInGlobalAddressList|String|
+   |ipWhitelisted|String|
+   |组织.[type eq "school"]. costCenter|String|
+   |组织.[type eq "school"]. 部门|String|
+   |组织.[type eq "school"]。域|String|
+   |组织.[type eq "school"]. fullTimeEquivalent|String|
+   |组织.[type eq "school"]。位置|String|
+   |组织.[type eq "school"]。名称|String|
+   |组织.[type eq "school"]。符号|String|
+   |组织.[type eq "school"]。标题|String|
+   |组织.[type eq "work"]. costCenter|String|
+   |组织.[type eq "work"]。域|String|
+   |组织.[type eq "work"]. fullTimeEquivalent|String|
+   |组织.[type eq "work"]。位置|String|
+   |组织.[type eq "work"]。名称|String|
+   |组织.[type eq "work"]。符号|String|
+   |OrgUnitPath|String|
+   |phoneNumbers.[type eq "home"]。值|String|
+   |phoneNumbers.[type eq "other"]。值|String|
+   |web.[type eq "home"]。值|String|
+   |web.[type eq "other"]。值|String|
+   |web.[type eq "work"]。值|String|
    
 
 10. 在 " **映射** " 部分下，选择 " **设置 Azure Active Directory 组**"。
@@ -244,12 +244,12 @@ ms.locfileid: "91331120"
 
       |Attribute|类型|
       |---|---|
-      |电子邮件|字符串|
+      |电子邮件|String|
       |成员|String|
-      |name|字符串|
+      |name|String|
       |description|字符串|
 
-12. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
+12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
 13. 若要为 G Suite 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
 
@@ -259,7 +259,7 @@ ms.locfileid: "91331120"
 
     ![预配范围](common/provisioning-scope.png)
 
-15. 已准备好预配时，单击“保存”。
+15. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
@@ -271,15 +271,15 @@ ms.locfileid: "91331120"
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
 配置预配后，请使用以下资源来监视部署：
 
-1. 通过[预配日志](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)来确定哪些用户已预配成功或失败
-2. 检查[进度栏](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)来查看预配周期的状态以及完成进度
-3. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)了解有关隔离状态的详细信息。
+1. 通过[预配日志](../reports-monitoring/concept-provisioning-logs.md)来确定哪些用户已预配成功或失败
+2. 检查[进度栏](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)来查看预配周期的状态以及完成进度
+3. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 可在[此处](../app-provisioning/application-provisioning-quarantine-status.md)了解有关隔离状态的详细信息。
 
 ## <a name="additional-resources"></a>其他资源
 
-* [管理企业应用的用户帐户预配](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企业应用的用户帐户预配](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解如何查看日志并获取有关预配活动的报告](../manage-apps/check-status-user-account-provisioning.md)
+* [了解如何查看日志并获取有关预配活动的报告](../app-provisioning/check-status-user-account-provisioning.md)

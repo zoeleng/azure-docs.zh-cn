@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fe56a8173a4cfe8836a078a62c7bc9015c83324
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359010"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461254"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>使用 Azure 数字孪生 API 和 SDK
 
@@ -42,10 +42,10 @@ Azure 数字孪生附带了 **控制平面 api** 和 **数据平面 api** ，用
 ## <a name="overview-data-plane-apis"></a>概述：数据平面 Api
 
 数据平面 Api 是用于管理 Azure 数字孪生实例中的元素的 Azure 数字孪生 Api。 其中包括创建路由、上传模型、创建关系和管理孪生等操作。 它们可以大致分为以下几类：
-* **DigitalTwinsModels** -DigitalTwinsModels 类别包含用于管理 Azure 数字孪生实例中的 [模型](concepts-models.md) 的 api。 管理活动包括上载、验证、检索和删除在 DTDL 中创作的模型。
+* **DigitalTwinModels** -DigitalTwinModels 类别包含用于管理 Azure 数字孪生实例中的 [模型](concepts-models.md) 的 api。 管理活动包括上载、验证、检索和删除在 DTDL 中创作的模型。
 * **DigitalTwins** -DigitalTwins 类别包含允许开发人员在 Azure 数字孪生实例中创建、修改和删除 [数字孪生](concepts-twins-graph.md) 及其关系的 api。
 * **查询** -查询类别允许开发人员 [查找跨关系图形的数字孪生集](how-to-query-graph.md) 。
-* **EventRoutes** -EventRoutes 类别包含用于 [路由数据](concepts-route-events.md)的 api，通过系统和下游服务。
+* **事件路由** -事件路由类别包含用于 [路由数据](concepts-route-events.md)的 api，通过系统和下游服务。
 
 公共预览版的最新数据平面 API 版本为 _**2020-10-31**_。
 
@@ -56,7 +56,7 @@ Azure 数字孪生附带了 **控制平面 api** 和 **数据平面 api** ，用
 * 可以使用 **.net (c # ) ** SDK。 使用 .NET SDK .。。
    - 你可以从 NuGet 中查看并添加包： [DigitalTwins](https://www.nuget.org/packages/Azure.DigitalTwins.Core)。 
    - 可以在 GitHub 中找到 SDK 源（包括示例的文件夹）：适用于 [.net 的 Azure IoT 数字孪生客户端库](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)。 
-   - 您可以查看 [SDK 参考文档](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview)。
+   - 您可以查看 [SDK 参考文档](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview)。
    - 若要查看详细信息和用法示例，请继续阅读本文的 [.net (c # ) SDK (数据平面) ](#net-c-sdk-data-plane) 部分。
 * 可以使用 **Java** SDK。 使用 Java SDK .。。
    - 可以从 Maven 查看和安装包： [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)

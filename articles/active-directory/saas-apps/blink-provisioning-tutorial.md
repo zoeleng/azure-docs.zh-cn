@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 33433587f0617382cc5f05550577594d7e3f9f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb04b17db94a2abf0ab11d9b9baff65e764e472a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322013"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457033"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>教程：为自动用户预配配置闪烁
 
@@ -46,7 +46,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 * 建议将单个 Azure AD 用户分配到闪烁，以测试自动用户预配配置。 其他用户和/或组可以稍后分配。
 
-* 将用户分配到闪烁时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到闪烁时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="setup-blink-for-provisioning"></a>设置的闪烁
 
@@ -81,7 +81,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 本部分将指导你完成配置 Azure AD 预配服务以基于 Azure AD 中的用户和/或组分配来创建、更新和禁用用户的步骤。
 
 > [!TIP]
-> 还可以根据 " [闪烁单一登录" 教程](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial)中提供的说明，选择启用基于 SAML 的单一登录以进行闪烁。 可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充
+> 还可以根据 " [闪烁单一登录" 教程](./blink-tutorial.md)中提供的说明，选择启用基于 SAML 的单一登录以进行闪烁。 可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>若要配置自动用户预配以便在 Azure AD 中闪烁：
 
@@ -93,11 +93,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![应用程序列表中的闪烁链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
@@ -105,17 +105,17 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
-6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”   。
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击 **“保存”** 。
+7. 单击“ **保存**”。
 
 8. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 用户以闪烁**"。
 
     ![闪烁用户映射](media/blink-provisioning-tutorial/User_mappings.png)
 
-9. 查看从 Azure AD 同步到 " **属性映射** " 部分中的 "闪烁" 的用户属性。 选为 " **匹配** " 属性的属性用于匹配 "闪烁" 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
+9. 查看从 Azure AD 同步到 " **属性映射** " 部分中的 "闪烁" 的用户属性。 选为 " **匹配** " 属性的属性用于匹配 "闪烁" 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改  。
 
     ![闪烁用户属性](media/blink-provisioning-tutorial/user-attributes.png)
 
@@ -129,7 +129,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![预配范围](common/provisioning-scope.png)
 
-15. 已准备好预配时，单击“保存”。
+15. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
@@ -145,4 +145,3 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 ## <a name="next-steps"></a>后续步骤
 
 * [了解如何查看日志并获取有关预配活动的报告](../app-provisioning/check-status-user-account-provisioning.md)
-

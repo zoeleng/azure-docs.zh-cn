@@ -6,24 +6,24 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da54917d21d468f96b8e72ac362e030570fabaee
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836473"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426020"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>使用门户创建和管理 Azure Database for MariaDB 的专用链接
 
 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure 资源（例如虚拟机 (VM)）能够以私密方式来与专用链接资源通信。  在本文中，你将了解如何使用 Azure 门户在 Azure 虚拟网络中创建 VM，并使用 Azure 私有终结点在 Azure Database for MariaDB 服务器中创建 VM。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果你还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!NOTE]
 > 专用链接功能仅适用于常规用途或内存优化定价层中的 Azure Database for MariaDB 服务器。 请确保数据库服务器是这些定价层中的一种。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
-登录 [Azure 门户](https://portal.azure.com)。
+登录到 [Azure 门户](https://portal.azure.com)。
 
 ## <a name="create-an-azure-vm"></a>创建 Azure VM
 
@@ -91,7 +91,7 @@ ms.locfileid: "87836473"
     |||
 
 
-1. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。
+1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。
 
 1. 看到“验证通过”消息时，选择“创建” 。
 
@@ -117,8 +117,8 @@ ms.locfileid: "87836473"
     | 计算 + 存储| 根据工作负荷选择服务器需要的定价层。 |
     |||
 
-7. 选择“确定”  。 
-8. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
+7. 选择“确定” 。 
+8. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
 9. 看到 "验证通过" 消息后，选择 " **创建**"。 
 10. 看到“验证通过”消息时选择“创建”。 
 
@@ -173,7 +173,7 @@ ms.locfileid: "87836473"
     > [!Note] 
     > 使用服务的预定义专用 DNS 区域，或提供首选 DNS 区域名称。 有关详细信息，请参阅 [Azure 服务 DNS 区域配置](../private-link/private-endpoint-dns.md) 。
 
-1. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
+1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
 2. 看到“验证通过”消息时，选择“创建” 。 
 
     ![已创建专用链接](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
@@ -201,7 +201,7 @@ ms.locfileid: "87836473"
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定”  。
+1. 选择“确定” 。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
@@ -246,12 +246,12 @@ ms.locfileid: "87836473"
 使用完专用终结点、MariaDB 服务器和 VM 后，请删除该资源组及其包含的所有资源：
 
 1.  *myResourceGroup*   在门户顶部的**搜索**框中输入 "myResourceGroup"，然后 *myResourceGroup*   从搜索结果中选择 "myResourceGroup"。
-2. 选择“删除资源组”。
+2. 选择“删除资源组”****。
 3. 输入 myResourceGroup 作为 **"资源组名称"** ，然后选择 " **删除**"。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本操作方法中，你在虚拟网络上创建了一个虚拟机、一个 Azure Database for MariaDB 和一个私有终结点用于专用访问。 你从 internet 连接到一个 VM，并使用专用链接安全地传达到 MariaDB 服务器。 若要了解有关专用终结点的详细信息，请参阅 [什么是 Azure 专用终结点](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)。
+在本操作方法中，你在虚拟网络上创建了一个虚拟机、一个 Azure Database for MariaDB 和一个私有终结点用于专用访问。 你从 internet 连接到一个 VM，并使用专用链接安全地传达到 MariaDB 服务器。 若要了解有关专用终结点的详细信息，请参阅 [什么是 Azure 专用终结点](../private-link/private-endpoint-overview.md)。
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

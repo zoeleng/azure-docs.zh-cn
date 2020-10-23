@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107617"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441855"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>向 Azure AD 中的 B2B 用户授予对本地应用程序的访问权限
 
@@ -29,7 +29,7 @@ ms.locfileid: "92107617"
 必须执行以下两个操作：
 
 - 按照 [配置基于 saml 的单一登录](../manage-apps/configure-saml-single-sign-on.md)中所述，使用 SAML 来集成应用。 请务必记下所用的“登录 URL”值。****
--  在将 **Azure Active Directory** 配置为身份验证源的情况下，使用 Azure AD 应用程序代理发布本地应用。 有关说明，请参阅[使用 Azure AD 应用程序代理发布应用程序](../manage-apps/application-proxy-publish-azure-portal.md)。 
+-  在将 **Azure Active Directory** 配置为身份验证源的情况下，使用 Azure AD 应用程序代理发布本地应用。 有关说明，请参阅[使用 Azure AD 应用程序代理发布应用程序](../manage-apps/application-proxy-add-on-premises-application.md)。 
 
    配置“内部 URL”设置时，请使用非库应用程序模板中指定的登录 URL。**** 这样，用户便可以从组织边界以外访问该应用。 应用程序代理对本地应用执行 SAML 单一登录。
  
@@ -39,7 +39,7 @@ ms.locfileid: "92107617"
 
 若要向 B2B 用户提供对 Windows 集成身份验证和 Kerberos 约束委派保护的本地应用程序的访问权限，需要以下组件：
 
-- **通过 Azure AD 应用程序代理的身份验证**。 B2B 用户必须能够在本地应用程序中进行身份验证。 为此，必须通过 Azure AD 应用程序代理发布本地应用。 有关详细信息，请参阅[开始使用应用程序代理并安装连接器](../manage-apps/application-proxy-enable.md)和[使用 Azure AD 应用程序代理发布应用程序](../manage-apps/application-proxy-publish-azure-portal.md)。
+- **通过 Azure AD 应用程序代理的身份验证**。 B2B 用户必须能够在本地应用程序中进行身份验证。 为此，必须通过 Azure AD 应用程序代理发布本地应用。 有关详细信息，请参阅[开始使用应用程序代理并安装连接器](../manage-apps/application-proxy-add-on-premises-application.md)和[使用 Azure AD 应用程序代理发布应用程序](../manage-apps/application-proxy-add-on-premises-application.md)。
 - **通过本地目录中的 B2B 用户对象授权**。 应用程序必须能够执行用户访问权限检查，并授予对正确资源的访问权限。 IWA 和 KCD 要求本地 Windows Server Active Directory 中有一个用户对象才能完成此授权。 根据 [KCD 的单一登录工作原理](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)中所述，应用程序代理需要使用此用户对象来模拟用户并获取应用程序的 Kerberos 令牌。 
 
    > [!NOTE]
@@ -71,7 +71,7 @@ ms.locfileid: "92107617"
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>通过 MIM 创建 B2B 来宾用户对象
 
-有关如何使用 MIM 2016 Service Pack 1 和 Microsoft Graph 的 MIM 管理代理在本地目录中创建来宾用户对象的信息，请参阅[使用 Microsoft Identity Manager (MIM) 2016 SP1 和 Azure 应用程序代理实现 Azure AD 企业到企业 (B2B) 协作](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)。
+有关如何使用 MIM 2016 Service Pack 1 和 Microsoft Graph 的 MIM 管理代理在本地目录中创建来宾用户对象的信息，请参阅[使用 Microsoft Identity Manager (MIM) 2016 SP1 和 Azure 应用程序代理实现 Azure AD 企业到企业 (B2B) 协作](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)。
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>通过脚本创建 B2B 来宾用户对象（预览版）
 
@@ -90,4 +90,3 @@ ms.locfileid: "92107617"
 - [适用于混合组织的 Azure Active Directory B2B 协作](hybrid-organizations.md)
 
 - 有关 Azure AD Connect 的概述，请参阅[将本地目录与 Azure Active Directory 进行集成](../hybrid/whatis-hybrid-identity.md)。
-

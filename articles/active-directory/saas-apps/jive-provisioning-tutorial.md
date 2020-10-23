@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fa45ece76499b50694d366ed2dcdd57cc1e0c7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caeff5be83e02948baab4ecbcf05630eacff74df
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312090"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459367"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>教程：为 Jive 配置自动用户预配
 
@@ -35,7 +35,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 在配置和启用预配服务前，需确定 Azure AD 中的哪些用户和/或组表示需要访问 Jive 应用的用户。 确定后，可按照此处的说明将这些用户分配到 Jive 应用：
 
-[向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-jive"></a>将用户分配到 Jive 的重要提示
 
@@ -61,7 +61,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 1. 选择 Jive 实例，并选择“预配”**** 选项卡。
 
-1. 将“预配模式”设置为“自动”。 
+1. 将“预配模式”  设置为“自动”  。 
 
     ![屏幕截图显示了 Jive 预配页面，预配模式设置为 "自动"，可以设置其他值。](./media/jive-provisioning-tutorial/provisioning.png)
 

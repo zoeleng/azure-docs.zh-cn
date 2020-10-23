@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424997"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460983"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习工作区
 
@@ -281,6 +281,13 @@ Azure 机器学习使用关联 Key Vault 实例存储以下凭据：
     ]
     }
     ```
+
+    此模板创建一个 _专用终结点_ ，用于从工作区到 ACR 的网络访问。 下面的屏幕截图显示了此专用终结点的示例。
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="工作区的 Azure 容器注册表":::
+
+    > [!IMPORTANT]
+    > 请勿删除此终结点！ 如果意外删除该模板，可以在此步骤中重新应用模板以创建新模板。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319072"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425802"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>用于语音容器的批处理工具包
 
@@ -25,7 +25,7 @@ ms.locfileid: "91319072"
 
 可在 [GitHub](https://github.com/microsoft/batch-processing-kit) 和   [Docker 中心](https://hub.docker.com/r/batchkit/speech-batch-kit/tags)免费使用 batch 工具包容器。 你只需要为你使用的语音容器 [付费](speech-container-howto.md#billing) 。
 
-| Feature  | 说明  |
+| 功能  | 说明  |
 |---------|---------|
 | 批处理音频文件分发     | 自动将大量文件分发到本地或基于云的语音容器终结点。 文件可以位于任何 POSIX 兼容卷上，包括网络文件系统。       |
 | 语音 SDK 集成 | 将常见标志传递到语音 SDK，包括：假设、diarization、language、猥亵屏蔽。  |
@@ -75,9 +75,8 @@ Batch 客户端可以动态检测终结点是否变为不可用 (例如，由于
 > [!NOTE] 
 > * 此示例对 `/my_nfs` 配置文件、输入、输出和日志目录使用相同的目录 () 。 可以对这些文件夹使用托管或 NFS 装载的目录。
 > * 使用运行客户端 `–h` 将列出可用的命令行参数及其默认值。 
+> * 仅 Linux 支持批处理容器。
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 使用 Docker `run` 命令启动容器。 这会在容器中启动一个交互式 shell。
 
 ```Docker
@@ -95,17 +94,6 @@ run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-若要在单个命令中运行 batch 客户端和容器：
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 客户端将开始运行。 如果某个音频文件已在以前的运行中转录，则客户端将自动跳过该文件。 如果发生暂时性错误，则会随自动重试一起发送文件，并且可以区分想要客户端重试的错误。 出现脚本错误时，客户端将继续运行，并且可以重试而不会丢失进度。  
@@ -126,7 +114,7 @@ docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch
 4. 文件将被调度到步骤1中的容器终结点。
 5. 日志和语音容器输出将返回到指定的输出目录。 
 
-#### <a name="daemon"></a>[后台程序](#tab/daemon)
+#### <a name="daemon"></a>[守护程序](#tab/daemon)
 
 > [!TIP]
 > 如果同时向输入目录添加了多个文件，则可以通过定期添加它们来提高性能。

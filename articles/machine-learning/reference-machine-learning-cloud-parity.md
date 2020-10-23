@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892977"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426524"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure 机器学习主权云平等性
 
@@ -122,7 +122,7 @@ ms.locfileid: "90892977"
 | 对计算资源的 Root 和 SSH 访问。                                          | YES | YES |  |
 | 维护已部署系统（实例、终结点等）的安全性，包括终结点保护、修补和日志记录 |  PARTIAL|  PARTIAL |VNet 后的 ACI 和专用终结点当前不可用 |                                  
 | 控制（禁用/限制/约束）ACI/AKS 集成的使用                    | PARTIAL| PARTIAL |VNet 后的 ACI 和专用终结点当前不可用|
-| 基于角色的访问控制 (RBAC) - 自定义角色创建                           | YES | YES |  |
+| Azure RBAC) -自定义角色创建 (azure 基于角色的访问控制                           | YES | YES |  |
 | 控制对 ML 服务使用的 ACR 映像的访问（Azure 提供/维护的与自定义的）  |PARTIAL|  PARTIAL | Azure 政府版不支持专用终结点和 VNet 后的 ACR |
 | **机器学习服务常规使用情况** |  | | |
 | 能够使用开发环境构建模型、训练该模型、将其作为终结点托管并通过 WebApp 使用它     | YES | YES |  |

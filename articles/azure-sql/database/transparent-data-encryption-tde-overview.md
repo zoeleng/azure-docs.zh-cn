@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 878fa9f576e50fb53e648d3bf39f98558d6e880a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945984"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441090"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 的透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ TDE 对页面级数据执行实时 I/O 加密和解密。 将每个页面读入�
 > 默认情况下，将使用服务托管的透明数据加密对 SQL 数据库中所有新建的数据库进行加密。 默认情况下，2017 年 5 月之前创建的现有 SQL 数据库以及通过还原、异地复制和数据库副本创建的 SQL 数据库均不加密。 默认情况下，2019 年 2 月之前创建的现有 SQL 托管实例数据库不加密。 通过源提供的还原继承加密状态创建的 SQL 托管实例数据库。
 
 > [!NOTE]
-> TDE 不能用于加密 Azure SQL 数据库和 Azure SQL 托管实例中的 **master** 数据库。 **master** 数据库包含对用户数据库执行 TDE 操作时所需的对象。
+> TDE 不能用于对 Azure SQL 数据库和 Azure SQL 托管实例中的系统数据库（例如 **master** 数据库）进行加密。 **master** 数据库包含对用户数据库执行 TDE 操作时所需的对象。
 
 ## <a name="service-managed-transparent-data-encryption"></a>服务托管的透明数据加密
 
