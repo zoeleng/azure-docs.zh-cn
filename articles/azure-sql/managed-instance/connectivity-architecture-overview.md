@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283371"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461713"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL 托管实例的连接体系结构
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -312,7 +312,7 @@ Azure 使用一个管理终结点来管理 SQL 托管实例。 此终结点位�
 SQL 托管实例当前不支持以下虚拟网络功能：
 
 - **Microsoft 对等互连**：如果在与 SQL 托管实例所在的虚拟网络直接或暂时对等互连的 ExpressRoute 线路上启用 [Microsoft 对等互连](../../expressroute/expressroute-faqs.md#microsoft-peering)，会影响虚拟网络内的 SQL 托管实例组件与它依赖的服务之间的流量，从而导致可用性问题。 向已启用 Microsoft 对等互连的虚拟网络部署 SQL 托管实例预计会失败。
-- **全局虚拟网络对等互连**：由于[所记录的负载均衡器约束](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)，跨 Azure 区域的[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)连接对 SQL 托管实例不起作用。
+- **全局虚拟网络对等互连**：跨 Azure 区域的 [虚拟网络对等](../../virtual-network/virtual-network-peering-overview.md) 互连对于放置在9/22/2020 之前创建的子网中的 SQL 托管实例不起作用。
 - **AzurePlatformDNS**：使用 AzurePlatformDNS [服务标记](../../virtual-network/service-tags-overview.md)阻止平台 DNS 解析会导致 SQL 托管实例不可用。 尽管 SQL 托管实例支持将客户定义的 DNS 用于引擎内的 DNS 解析，但平台操作依赖于平台 DNS。
 - **NAT 网关**：使用 [AZURE 虚拟网络 NAT](../../virtual-network/nat-overview.md) 控制与特定公共 IP 地址的出站连接将导致 SQL 托管实例不可用。 SQL 托管实例服务当前仅限于使用基本负载均衡器，该负载均衡器不会通过虚拟网络 NAT 提供入站和出站流的共存。
 

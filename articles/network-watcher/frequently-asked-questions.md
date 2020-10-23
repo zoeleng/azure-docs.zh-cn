@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4ba35d91d286cb43a763887d104e21ae0d537c8e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123521"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424132"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>有关 Azure 网络观察程序的常见问题解答 (FAQ)
 [Azure 网络观察程序](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)服务提供一套工具用于监视、诊断 Azure 虚拟网络中的资源、查看其指标，以及为其启用或禁用日志。 本文解答有关该服务的常见问题。
@@ -55,7 +55,7 @@ ms.locfileid: "92123521"
 可以在 [Azure 服务可用性](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)页上查看最新的区域可用性
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>使用网络观察程序需要哪些权限？
-请查看[使用网络观察程序所需的 RBAC 权限](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)的列表。 若要部署资源，需要对 NetworkWatcherRG 的参与者权限（见下）。
+请参阅 [使用网络观察程序所需的 AZURE RBAC 权限](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)的列表。 若要部署资源，需要对 NetworkWatcherRG 的参与者权限（见下）。
 
 ### <a name="how-do-i-enable-network-watcher"></a>如何启用网络观察程序？
 网络观察程序服务是为每个订阅[自动启用](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/)的。
@@ -84,7 +84,7 @@ ms.locfileid: "92123521"
 ## <a name="service-availability-and-redundancy"></a>服务可用性和冗余 
 
 ### <a name="is-the-network-watcher-service-zone-resilient"></a>网络观察程序服务区域是否可复原？ 
-是的。 默认情况下，网络观察程序服务是区域复原服务。 
+是。 默认情况下，网络观察程序服务是区域复原服务。 
 
 ### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>如何实现将网络观察程序服务配置为区域复原服务吗？ 
 无需客户配置即可启用区域复原。 默认情况下，网络观察程序资源的区域复原功能可用，并由服务本身管理。 

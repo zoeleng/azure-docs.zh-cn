@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa187d9f7ee2b4b91c8559a185f55f0015f0b441
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611344"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455623"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>教程：为自动用户预配配置 Cofense 收件人同步
 
-本教程介绍了在 Cofense 收件人同步和 Azure Active Directory (Azure AD) 配置自动用户预配时需要执行的步骤。 配置后，Azure AD 会自动预配用户并取消其预配，使其能够使用 Azure AD 预配服务进行 [Cofense 的收件人同步](https://cofense.com/) 。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
+本教程介绍了在 Cofense 收件人同步和 Azure Active Directory (Azure AD) 配置自动用户预配时需要执行的步骤。 配置后，Azure AD 会自动预配用户并取消其预配，使其能够使用 Azure AD 预配服务进行 [Cofense 的收件人同步](https://cofense.com/) 。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。 
 
 
 ## <a name="capabilities-supported"></a>支持的功能
@@ -37,14 +37,14 @@ ms.locfileid: "91611344"
 
 本教程中概述的方案假定你已具有以下先决条件：
 
-* [Azure AD 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Azure AD 中[有权](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)配置预配的用户帐户（例如应用管理员、云应用管理员、应用所有者或全局管理员）。 
+* [Azure AD 租户](../develop/quickstart-create-new-tenant.md) 
+* Azure AD 中[有权](../users-groups-roles/directory-assign-admin-roles.md)配置预配的用户帐户（例如应用管理员、云应用管理员、应用所有者或全局管理员）。 
 * Cofense PhishMe 中的标准操作员帐户。
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 规划预配部署
-1. 了解[预配服务的工作原理](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
-2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
-3. 确定 [Azure AD 和 Cofense 收件人同步之间要映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
+1. 了解[预配服务的工作原理](../app-provisioning/user-provisioning.md)。
+2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
+3. 确定 [Azure AD 和 Cofense 收件人同步之间要映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
 ## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 Cofense 收件人同步，以支持 Azure AD 的预配
 
@@ -60,15 +60,15 @@ ms.locfileid: "91611344"
 
 ## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>步骤 3. 添加 Azure AD 应用程序库中的 Cofense 收件人同步
 
-添加 Azure AD 应用程序库中的 Cofense 收件人同步，开始管理预配到 Cofense 收件人同步。如果你以前为 SSO 设置 Cofense 收件人同步，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)详细了解如何从库中添加应用程序。 
+添加 Azure AD 应用程序库中的 Cofense 收件人同步，开始管理预配到 Cofense 收件人同步。如果你以前为 SSO 设置 Cofense 收件人同步，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
-使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
+使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 Cofense 收件人同步时，你必须选择 "默认" **访问权限**以外的角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
+* 将用户和组分配到 Cofense 收件人同步时，你必须选择 "默认" **访问权限**以外的角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
-* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
+* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-cofense-recipient-sync"></a>步骤 5。 将自动用户预配配置为 Cofense 收件人同步 
@@ -116,27 +116,27 @@ ms.locfileid: "91611344"
    |name.formatted|字符串|
    |name.givenName|字符串|
    |name.familyName|字符串|
-   |名称. honorificSuffix|字符串|
-   |phoneNumbers [type eq "work"]。值|字符串|
-   |phoneNumbers [type eq "home"]。值|字符串|
-   |phoneNumbers [type eq "other"]。值|字符串|
-   |phoneNumbers [type eq "呼机"]。值|字符串|
-   |phoneNumbers [type eq "mobile"]。值|字符串|
-   |phoneNumbers [type eq "fax"]。值|字符串|
-   |地址 [type eq "other"]。格式|字符串|
-   |地址 [类型 eq "work"]。格式|字符串|
-   |地址 [type eq "work"]. streetAddress|字符串|
-   |地址 [类型 eq "work"]。位置|字符串|
-   |地址 [类型 eq "work"]。区域|字符串|
-   |地址 [类型 eq "work"]|字符串|
+   |名称. honorificSuffix|String|
+   |phoneNumbers [type eq "work"]。值|String|
+   |phoneNumbers [type eq "home"]。值|String|
+   |phoneNumbers [type eq "other"]。值|String|
+   |phoneNumbers [type eq "呼机"]。值|String|
+   |phoneNumbers [type eq "mobile"]。值|String|
+   |phoneNumbers [type eq "fax"]。值|String|
+   |地址 [type eq "other"]。格式|String|
+   |地址 [类型 eq "work"]。格式|String|
+   |地址 [type eq "work"]. streetAddress|String|
+   |地址 [类型 eq "work"]。位置|String|
+   |地址 [类型 eq "work"]。区域|String|
+   |地址 [类型 eq "work"]|String|
    |地址 [类型 eq "work"]。国家/地区|字符串|
    |title|字符串|
    |emails[type eq "work"].value|字符串|
-   |电子邮件 [类型 eq "home"]。值|字符串|
+   |电子邮件 [类型 eq "home"]。值|String|
    |电子邮件 [type eq "other"]。值|字符串|
    |preferredLanguage|字符串|
-   |nickName|字符串|
-   |userType|字符串|
+   |nickName|String|
+   |userType|String|
    |区域设置|字符串|
    |timezone|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
@@ -146,7 +146,7 @@ ms.locfileid: "91611344"
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|字符串|
 
-10. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
+10. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
 11. 若要为 Cofense 收件人同步启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
 
@@ -156,7 +156,7 @@ ms.locfileid: "91611344"
 
     ![预配范围](common/provisioning-scope.png)
 
-13. 已准备好预配时，单击“保存”。
+13. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
@@ -165,15 +165,15 @@ ms.locfileid: "91611344"
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
 配置预配后，请使用以下资源来监视部署：
 
-1. 通过[预配日志](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)来确定哪些用户已预配成功或失败
-2. 检查[进度栏](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)来查看预配周期的状态以及完成进度
-3. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)了解有关隔离状态的详细信息。  
+1. 通过[预配日志](../reports-monitoring/concept-provisioning-logs.md)来确定哪些用户已预配成功或失败
+2. 检查[进度栏](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)来查看预配周期的状态以及完成进度
+3. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 可在[此处](../app-provisioning/application-provisioning-quarantine-status.md)了解有关隔离状态的详细信息。  
 
 ## <a name="additional-resources"></a>其他资源
 
-* [管理企业应用的用户帐户预配](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企业应用的用户帐户预配](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解如何查看日志并获取有关预配活动的报告](../manage-apps/check-status-user-account-provisioning.md)
+* [了解如何查看日志并获取有关预配活动的报告](../app-provisioning/check-status-user-account-provisioning.md)

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba9a227956e7879a7c0f49e0534146fa01a49759
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908353"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442212"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>组织中的用户如何邀请来宾用户访问应用
 
@@ -28,7 +28,7 @@ ms.locfileid: "87908353"
  - 为应用配置自助服务，并将该组分配到该应用
 
 > [!NOTE]
-> 本文介绍如何为已添加到 Azure AD 租户中的基于库和 SAML 的应用设置自助服务管理。 您还可以 [设置自助服务 Microsoft 365 组](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) ，以便您的用户可以管理其自己的 Microsoft 365 组的访问权限。 有关用户可以与来宾用户共享 Office 文件和应用的更多方式，请参阅 [Microsoft 365 组中的来宾访问权限](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) 以及 [共享 SharePoint 文件或文件夹](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c)。
+> 本文介绍如何为已添加到 Azure AD 租户中的基于库和 SAML 的应用设置自助服务管理。 您还可以 [设置自助服务 Microsoft 365 组](../users-groups-roles/groups-self-service-management.md) ，以便您的用户可以管理其自己的 Microsoft 365 组的访问权限。 有关用户可以与来宾用户共享 Office 文件和应用的更多方式，请参阅 [Microsoft 365 组中的来宾访问权限](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) 以及 [共享 SharePoint 文件或文件夹](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c)。
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>通过访问面板邀请来宾用户访问应用
 
@@ -73,9 +73,9 @@ ms.locfileid: "87908353"
 7. 选择“添加”，以自动向来宾用户发送邀请。**** 发送邀请后，该用户帐户将以来宾的形式自动添加到目录。
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-自助服务应用管理要求全局管理员和 Azure AD 管理员完成一些初始设置。 在设置过程中，可为应用配置自助服务，并将某个组分配到应用程序所有者可以管理的应用。 此外，可将组配置为允许任何人请求成员身份，但需要组所有者的审批。 （详细了解[自助服务组管理](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)。） 
+自助服务应用管理要求全局管理员和 Azure AD 管理员完成一些初始设置。 在设置过程中，可为应用配置自助服务，并将某个组分配到应用程序所有者可以管理的应用。 此外，可将组配置为允许任何人请求成员身份，但需要组所有者的审批。 （详细了解[自助服务组管理](../users-groups-roles/groups-self-service-management.md)。） 
 
 > [!NOTE]
 > 不能将来宾用户添加到动态组或已与本地 Active Directory 同步的组。
@@ -105,8 +105,8 @@ ms.locfileid: "87908353"
 2. 在导航窗格中选择“Azure Active Directory”。
 3. 在“管理”下，选择“企业应用程序” > “所有应用程序”  。
 4. 在应用程序列表中，找到并打开该应用。
-5. 在“管理”下，选择“单一登录”，然后配置应用程序的单一登录。******** （有关详细信息，请参阅[如何管理企业应用的单一登录](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)。）
-6. 在“管理”下，选择“自助服务”，然后设置自助服务应用访问权限。******** （有关详细信息，请参阅[如何使用自助服务应用访问权限](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)。） 
+5. 在“管理”下，选择“单一登录”，然后配置应用程序的单一登录。******** （有关详细信息，请参阅[如何管理企业应用的单一登录](../manage-apps/view-applications-portal.md)。）
+6. 在“管理”下，选择“自助服务”，然后设置自助服务应用访问权限。******** （有关详细信息，请参阅[如何使用自助服务应用访问权限](../manage-apps/access-panel-manage-self-service-access.md)。） 
 
     > [!NOTE]
     > 对于“应将已分配的用户添加到哪个组?”设置，请选择在上一部分创建的组。****

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267731"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440478"
 ---
 # <a name="scenario-any-to-any"></a>方案：任意位置到任意位置
 
@@ -22,14 +22,14 @@ ms.locfileid: "91267731"
 
 ## <a name="design"></a><a name="design"></a>设计
 
-为了确定虚拟 WAN 方案中将会需要多少路由表，可以构建一个连接矩阵，其中每个单元格都表示源（行）是否可以与目标（列）通信。 此方案中的连接矩阵很普通，但我们已将其包含在内，以便与其他方案保持一致。
+为了确定虚拟 WAN 方案中将会需要多少路由表，可以构建一个连接矩阵，其中每个单元格都表示源（行）是否可以与目标（列）通信。
 
 | 源 |   目标 |  VNet | *分支* |
 | -------------- | -------- | ---------- | ---|
-| VNet     | &#8594;|      X     |     X    |
-| 分支   | &#8594;|    X     |     X    |
+| VNet     | &#8594;| 直接 | 直接 |
+| 分支   | &#8594;| 直接  | 直接 |
 
-上表中每个单元格都描述了虚拟 WAN 连接（流的“源”端，表中的行标题）是否为特定的流量流获取目标前缀（流的“目标”端，表中斜体的列标题），其中“X”表示由虚拟 WAN 提供连接。
+上表中的每个单元都说明了虚拟 WAN 连接 (流的 "From" 端，行标题) 与流的 "To" 端 (目标前缀（斜体) 中的列标题）进行通信。 在这种情况下，不存在防火墙或网络虚拟设备，因此通信直接通过虚拟 WAN (，因此) 的表中 "Direct" 一词。
 
 由于来自 VNet 和分支（VPN、ExpressRoute 和用户 VPN）的所有连接都具有相同的连接要求，因此需要单个路由表。 这样，所有的连接都将会关联，并将传播到同一个路由表，即 Default 路由表：
 
