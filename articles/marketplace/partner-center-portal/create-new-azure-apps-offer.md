@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710713"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428207"
 ---
 # <a name="create-an-azure-application-offer"></a>创建 Azure 应用程序产品/服务
 
@@ -328,16 +328,16 @@ ms.locfileid: "91710713"
 
 ### <a name="create-new-plan"></a>创建新计划
 
-计划 ID – 为此产品/服务中的每个计划创建唯一的计划 ID。 客户可以在产品 URL 中看到此 ID。  仅使用小写的字母数字字符、短划线或下划线。 此计划 ID 最多允许 50 个字符。 选择创建之后，便无法删除此 ID。
+**_计划 id_*_ –为此产品/服务中的每个计划创建唯一的计划 id。 客户可以在产品 URL 中看到此 ID。  仅使用小写的字母数字字符、短划线或下划线。 此计划 ID 最多允许 50 个字符。 选择创建之后，便无法删除此 ID。
 
-***计划名称*** –客户在确定要在产品/服务中选择的计划时，将看到此名称。 为此产品/服务中的每个计划创建唯一的产品/服务名称。 计划名称用于区分可能属于同一产品/服务的软件计划（例如，产品/服务名称：Windows Server；计划：Windows Server 2016、Windows Server 2019）。
+_*_计划名称_*_ –客户在确定要在产品/服务中选择的计划时，将看到此名称。 为此产品/服务中的每个计划创建唯一的产品/服务名称。 计划名称用于区分可能属于同一产品/服务的软件计划（例如，产品/服务名称：Windows Server；计划：Windows Server 2016、Windows Server 2019）。
 
 ### <a name="plan-setup"></a>计划设置
 
 使用此选项卡可以为计划的类型设置高级配置，无论它是否重复使用其他计划中的包以及计划应在哪些云中可用。 此选项卡上的答案会影响在其他选项卡上为相同计划显示的字段。
 
 #### <a name="plan-type"></a>计划类型
-选择产品/服务的计划类型。 “解决方案模板”计划完全由客户管理。 “托管应用程序”计划使发布者可以代表客户管理应用程序。 有关详细信息，请参阅 [Azure 应用程序计划的类型](#types-of-azure-application-plans)。
+选择产品/服务的计划类型。 _*解决方案模板** 计划完全由客户管理。 “托管应用程序”计划使发布者可以代表客户管理应用程序。 有关详细信息，请参阅 [Azure 应用程序计划的类型](#types-of-azure-application-plans)。
 
 #### <a name="re-use-technical-configuration"></a>重复使用技术配置
 
@@ -508,7 +508,7 @@ Azure 政府服务处理受特定政府法规和要求约束的数据。 例如�
 
 选择此选项可指定除了默认提供的“`*/read`”操作外，客户可以对托管资源执行的操作。
 
-在此处列出要使客户可以执行的其他操作（用分号分隔）。  有关详细信息，请参阅[了解 Azure 资源的拒绝分配](../../role-based-access-control/deny-assignments.md)。 有关可用操作，请参阅 [Azure 资源管理器资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。 例如，若要允许使用者重启虚拟机，请将 `Microsoft.Compute/virtualMachines/restart/action` 添加到允许的操作。
+在此处列出要使客户可以执行的其他操作（用分号分隔）。  有关详细信息，请参阅[了解 Azure 资源的拒绝分配](../../role-based-access-control/deny-assignments.md)。 有关可用操作，请参阅 [Azure 资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。 例如，若要允许使用者重启虚拟机，请将 `Microsoft.Compute/virtualMachines/restart/action` 添加到允许的操作。
 
 #### <a name="global-azure--azure-government-cloud"></a>全球 Azure/Azure 政府云
 
@@ -518,7 +518,7 @@ Azure 政府服务处理受特定政府法规和要求约束的数据。 例如�
 
 授权 – 添加要向其授予托管资源组权限的用户、组或应用程序的 Azure Active Directory 对象 ID。 通过其主体 ID 标识用户，该 ID 可在 [Azure 门户上的 Azure Active Directory 用户边栏选项卡](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)中找到。
 
-对于每个主体，从列表中选择一个 Azure AD 内置角色（“所有者”或“参与者”）。 选择的角色将描述主体对客户订阅中的资源所拥有的权限。 有关详细信息，请参阅 [Azure 内置角色](../../role-based-access-control/built-in-roles.md)。 有关基于角色的访问控制 (RBAC) 的详细信息，请参阅 [Azure 门户中的 RBAC 入门](../../role-based-access-control/overview.md)。
+对于每个主体，从列表中选择一个 Azure AD 内置角色（“所有者”或“参与者”）。 选择的角色将描述主体对客户订阅中的资源所拥有的权限。 有关详细信息，请参阅 [Azure 内置角色](../../role-based-access-control/built-in-roles.md)。 有关 azure RBAC)  (Azure 基于角色的访问控制的详细信息，请参阅 [什么是 AZURE rbac](../../role-based-access-control/overview.md)。
 
 >[!Note]
 >尽管最多可对每个云添加 100 个授权，但通常创建 Active Directory 的用户组并在“主体 ID”中指定其 ID 会更加轻松。 这会使你可以在部署计划之后向管理组添加更多用户，并减少只是为了添加更多授权而更新计划的需求。

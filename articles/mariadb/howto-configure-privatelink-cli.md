@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6763450b98b803b0b2e4d35108e10992ce1e7596
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 565e6fb2def64dd594e1b0018f3378ea09bc63cb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123090"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426179"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>使用 CLI 创建和管理 Azure Database for MariaDB 的专用链接
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>禁用子网专用终结点策略 
-Azure 会将资源部署到虚拟网络中的子网，因此，需要创建或更新子网，以禁用专用终结点 [网络策略](../private-link/disable-private-endpoint-network-policy.md)。 使用 [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
+Azure 会将资源部署到虚拟网络中的子网，因此，需要创建或更新子网，以禁用专用终结点 [网络策略](../private-link/disable-private-endpoint-network-policy.md)。 使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -148,7 +148,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定”  。
+1. 选择“确定” 。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
@@ -178,7 +178,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
     | 连接名称| 选择所选的连接名称。|
     | 主机名 | 选择 *mydemoserver.privatelink.mariadb.database.azure.com* |
     | 用户名 | 输入在 *username@servername* MariaDB 服务器创建过程中提供的用户名。 |
-    | 密码 | 输入在创建 MariaDB 服务器期间提供的密码。 |
+    | Password | 输入在创建 MariaDB 服务器期间提供的密码。 |
     ||
 
 5. 选择 " **测试连接** **" 或 "确定"**。
@@ -195,7 +195,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
-了解[什么是 Azure 专用终结点的](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)详细信息
+了解[什么是 Azure 专用终结点的](../private-link/private-endpoint-overview.md)详细信息
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

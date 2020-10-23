@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629720"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425098"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习训练环境
 
@@ -42,12 +42,12 @@ ms.locfileid: "91629720"
 
 + 用于计算资源的现有虚拟网络和子网。
 
-+ 若要将资源部署到虚拟网络或子网中，你的用户帐户必须在 Azure 基于角色的访问控制 (RBAC) 中具有以下操作的权限：
++ 若要将资源部署到虚拟网络或子网，你的用户帐户必须对 azure RBAC)  (azure 基于角色的访问控制具有以下操作的权限：
 
     - “Microsoft.Network/virtualNetworks/join/action”（在虚拟网络资源上）。
     - “Microsoft.Network/virtualNetworks/subnet/join/action”（在子网资源上）。
 
-    若要详细了解如何将 RBAC 与网络配合使用，请参阅[网络内置角色](/azure/role-based-access-control/built-in-roles#networking)
+    有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>计算群集和实例 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826903"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425675"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>什么是 Azure 机器学习计算实例？
 
@@ -118,9 +118,9 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 * 通过 SSH 连接到计算实例。 默认已禁用 SSH 访问，但可以在创建计算实例时启用。 SSH 访问是通过公钥/私钥机制实现的。 选项卡中将提供 IP 地址、用户名和端口号等 SSH 连接详细信息。
 * 获取有关特定计算实例的详细信息，例如 IP 地址和区域。
 
-使用 [RBAC](/azure/role-based-access-control/overview) 可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，如果只是特定计算实例的创建者，或在代表其创建的用户分配的情况下，则允许在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例专用于具有根访问权限的单个用户，可以通过 Jupyter/JupyterLab/RStudio 终端。 计算实例将具有单用户登录，并且所有操作都将使用该用户的标识进行实验性和归属的运行。 SSH 访问是通过公钥/私钥机制控制的。
+使用[AZURE RBAC](/azure/role-based-access-control/overview) ，可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，如果只是特定计算实例的创建者，或在代表其创建的用户分配的情况下，则允许在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例专用于具有根访问权限的单个用户，可以通过 Jupyter/JupyterLab/RStudio 终端。 计算实例将具有单用户登录，并且所有操作都将使用该用户在 Azure RBAC 中的标识和试验运行的归属。 SSH 访问是通过公钥/私钥机制控制的。
 
-可以通过 RBAC 来控制这些操作：
+Azure RBAC 可控制以下操作：
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*
@@ -148,7 +148,7 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 * [Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)。  有关如何查找此模板中所需的 TenantID 和 ObjectID 的详细信息，请参阅 [查找身份验证配置的标识对象 id](../healthcare-apis/find-identity-object-ids.md)。  你还可以在 Azure Active Directory 门户中找到这些值。
 * REST API
 
-你为其创建计算实例的数据科研人员需要以下 RBAC 权限： 
+你为其创建计算实例的数据科研人员需要以下 Azure RBAC 权限： 
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*

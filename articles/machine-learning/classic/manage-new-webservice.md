@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: caaf8e25cdf43602fda8fc72caf7d16b7b56c06a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc9da659e7e55e8b15071f957d6a51e3b4673244
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361885"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427556"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>使用 Azure 机器学习工作室（经典）Web 服务门户管理 Web 服务
 
-**适用于：** ![适用于。 ](../../../includes/media/aml-applies-to-skus/yes.png)机器学习 Studio (经典) 不适 ![ 用于。](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)  
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
 
 
 可以使用 Microsoft Azure 机器学习 Web 服务门户来管理机器学习 Web 服务（新 Web 服务和经典 Web 服务）。 由于经典 Web 服务和新的 Web 服务基于不同的基础技术，针对它们的管理能力会稍有不同。
@@ -44,7 +44,7 @@ ms.locfileid: "91361885"
 
 有关创建工作区的详细信息，请参阅[创建和共享 Azure 机器学习工作室（经典）工作区](create-workspace.md)。
 
-有关设置访问权限的更多信息，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../../role-based-access-control/role-assignments-portal.md)。
+有关设置访问权限的详细信息，请参阅 [使用 Azure 门户添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)。
 
 
 ## <a name="manage-new-web-services"></a>管理新的 Web 服务

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019760"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426857"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>使用媒体服务 v3 API 进行开发
 
@@ -35,7 +35,7 @@ ms.locfileid: "92019760"
 * **服务主体身份验证**：用于对服务进行身份验证（例如 Web 应用、函数应用、逻辑应用、API 和微服务）。 常常使用这种身份验证方法的应用程序是运行守护程序服务、中间层服务或计划作业的应用程序。 例如，对于 Web 应用而言，应始终有一个使用服务主体连接到媒体服务的中间层。
 * **用户身份验证**：用于验证使用应用与媒体服务资源进行交互的用户。 交互式应用应先提示用户输入用户凭据。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。
 
-媒体服务 API 有两个要求：发出 REST API 请求的用户或应用有权访问媒体服务帐户资源，这些用户或应用使用“参与者”或“所有者”角色 。 使用“读者”角色可访问 API，但该角色只能执行“获取”或“列出”操作  。 有关详细信息，请参阅[对媒体服务帐户基于角色的访问控制](rbac-overview.md)。
+媒体服务 API 有两个要求：发出 REST API 请求的用户或应用有权访问媒体服务帐户资源，这些用户或应用使用“参与者”或“所有者”角色 。 使用“读者”角色可访问 API，但该角色只能执行“Get”或“List”操作  。 有关详细信息，请参阅 [azure RBAC)  (Media Services 帐户的 azure RBAC 访问控制](rbac-overview.md)。
 
 请考虑使用托管标识（而不是创建服务主体），以便 Azure 资源通过 Azure 资源管理器访问媒体服务 API。 若要详细了解 Azure 资源托管标识，请参阅[什么是 Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/overview.md)。
 

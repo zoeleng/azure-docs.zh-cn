@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525035"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419945"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>使用 Veeam B&R 在 CloudSimple 私有云上备份工作负荷 Vm
 
@@ -56,7 +56,7 @@ Veeam 解决方案包括以下组件。
 * Azure 中基于 Linux 的主备份存储库配置为备份作业的目标。
 * `azcopy` 用于将数据从主备份存储库复制到复制到其他区域的 Azure blob 容器。
 
-![基本部署方案](media/veeam-basicdeployment.png)
+![显示基本 Veeam 部署方案的关系图。](media/veeam-basicdeployment.png)
 
 **高级部署**
 
@@ -98,7 +98,7 @@ Veeam 解决方案要求你执行以下操作：
 8. [Veeam 控制台：配置 Veeam Backup & 恢复软件](#veeam-console-install-veeam-backup-and-recovery-software)
 9. [CloudSimple 门户：设置 Veeam 访问权限和取消提升权限](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
 
-### <a name="before-you-begin"></a>开始之前
+### <a name="before-you-begin"></a>准备工作
 
 在开始 Veeam 部署之前，需要满足以下要求：
 

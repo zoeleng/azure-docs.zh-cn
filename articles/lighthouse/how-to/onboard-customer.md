@@ -3,12 +3,12 @@ title: 将客户加入 Azure Lighthouse
 description: 了解如何将客户加入 Azure Lighthouse，从而允许使用 Azure 委派的资源管理通过自己的租户访问和管理其资源。
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109062"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426337"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>将客户加入 Azure Lighthouse
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>定义角色和权限
 
-作为服务提供商，你可能想要为单个客户执行多个任务，这需要针对不同范围的不同访问权限。 你可以根据需要定义任意数量的授权，以便为租户中的用户分配适当的 [基于角色的访问控制 (RBAC) 内置角色](../../role-based-access-control/built-in-roles.md) 。
+作为服务提供商，你可能想要为单个客户执行多个任务，这需要针对不同范围的不同访问权限。 你可以根据需要定义任意数量的授权，以便将适当的 [Azure 内置角色](../../role-based-access-control/built-in-roles.md) 分配给租户中的用户。
 
 为了更轻松地进行管理，我们建议为每个角色使用 Azure AD 用户组。 这样，你可以灵活地在组中添加或删除单个用户，这样就无需重复载入过程来进行用户更改。 可以将角色分配给服务主体，这对于自动化方案非常有用。
 

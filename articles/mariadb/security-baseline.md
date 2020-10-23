@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0ee4bde81560455808ebc84498d8c52f6ab7fbb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393830"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424900"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>适用于 Azure Database for MariaDB 的 Azure 安全基线
 
 适用于 Azure Database for MariaDB 的 Azure 安全基线包含有助于改进部署安全状况的建议。
 
-此服务的基线摘自 [Azure 安全基准版本 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
+此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
 
-有关详细信息，请参阅 [Azure 安全基线概述](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)。
+有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
 ## <a name="network-security"></a>网络安全
 
-有关详细信息，请参阅[安全控制：网络安全性](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)。
+有关详细信息，请参阅[安全控制：网络安全性](../security/benchmarks/security-control-network-security.md)。
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
 
@@ -174,7 +174,7 @@ ms.locfileid: "89393830"
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-有关详细信息，请参阅[安全控制：日志记录和监视](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)。
+有关详细信息，请参阅[安全控制：日志记录和监视](../security/benchmarks/security-control-logging-monitoring.md)。
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1：使用批准的时间同步源
 
@@ -288,7 +288,7 @@ Azure 安全中心监视：不可用
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-有关详细信息，请参阅[安全控制：标识和访问控制](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)。
+有关详细信息，请参阅[安全控制：标识和访问控制](../security/benchmarks/security-control-identity-access-control.md)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -350,7 +350,7 @@ Azure 安全中心监视：不可用
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
-**指南**：将 PAW（特权访问工作站）与为登录和配置 Azure 资源而配置的 MFA 结合使用。
+**指导**：使用配置了 MFA 的 PAW（特权访问工作站）来登录并配置 Azure 资源。
 
 了解特权访问工作站： https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
@@ -454,7 +454,7 @@ Azure 安全中心监视：不适用
 
 ## <a name="data-protection"></a>数据保护
 
-有关详细信息，请参阅[安全控制：数据保护](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)。
+有关详细信息，请参阅[安全控制：数据保护](../security/benchmarks/security-control-data-protection.md)。
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
@@ -506,7 +506,7 @@ Microsoft 管理 MariaDB 的底层基础结构，并实施了严格控制来防�
 
 Azure 安全中心监视：不可用
 
-责任：共享
+**责任**：共享
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5：使用有效的发现工具识别敏感数据
 
@@ -566,7 +566,7 @@ Microsoft 管理 MariaDB 的底层基础结构，并实施了严格控制来防�
 
 ## <a name="vulnerability-management"></a>漏洞管理
 
-有关详细信息，请参阅[安全控制：漏洞管理。](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)
+有关详细信息，请参阅[安全控制：漏洞管理。](../security/benchmarks/security-control-vulnerability-management.md)
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1：运行自动漏洞扫描工具
 
@@ -614,7 +614,7 @@ Microsoft 管理 MariaDB 的底层基础结构，并实施了严格控制来防�
 
 ## <a name="inventory-and-asset-management"></a>清单和资产管理
 
-有关详细信息，请参阅[安全控制：清单和资产管理](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)。
+有关详细信息，请参阅[安全控制：清单和资产管理](../security/benchmarks/security-control-inventory-asset-management.md)。
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1：使用 Azure 资产发现
 
@@ -766,7 +766,7 @@ Microsoft 管理 MariaDB 的底层基础结构，并实施了严格控制来防�
 
 ## <a name="secure-configuration"></a>安全配置
 
-有关详细信息，请参阅[安全控制：安全配置](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)。
+有关详细信息，请参阅[安全控制：安全配置](../security/benchmarks/security-control-secure-configuration.md)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -916,7 +916,7 @@ Azure Repos 文档： https://docs.microsoft.com/azure/devops/repos/index?view=a
 
 ## <a name="malware-defense"></a>恶意软件防护
 
-有关详细信息，请参阅[安全控制：恶意软件防护](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)。
+有关详细信息，请参阅[安全控制：恶意软件防护](../security/benchmarks/security-control-malware-defense.md)。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
@@ -952,7 +952,7 @@ Microsoft 反恶意软件会在支持 Azure 服务（例如，Azure 应用服务
 
 ## <a name="data-recovery"></a>数据恢复
 
-有关详细信息，请参阅[安全控制：数据恢复](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)。
+有关详细信息，请参阅[安全控制：数据恢复](../security/benchmarks/security-control-data-recovery.md)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
@@ -1009,7 +1009,7 @@ Azure 安全中心监视：是
 
 ## <a name="incident-response"></a>事件响应
 
-有关详细信息，请参阅[安全控制：事件响应](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)。
+有关详细信息，请参阅[安全控制：事件响应](../security/benchmarks/security-control-incident-response.md)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
@@ -1081,7 +1081,7 @@ Azure 安全中心监视：是
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-有关详细信息，请参阅[安全控制：渗透测试和红队演练](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+有关详细信息，请参阅[安全控制：渗透测试和红队演练](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1：定期对 Azure 资源执行渗透测试，确保在 60 天内修正所有发现的关键安全问题
 
@@ -1098,5 +1098,5 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
 ## <a name="next-steps"></a>后续步骤
 
-- 参阅 [Azure 安全基准](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- 参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)

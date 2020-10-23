@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 3fe99543b821810b1479f1e504098d81fd20c534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb3d29a339911b0ec05b543257974014a1bcbe22
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711164"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425492"
 ---
 # <a name="monitoring-azure-queue-storage"></a>监视 Azure 队列存储
 
@@ -46,7 +46,7 @@ Azure 队列存储可收集与其他 Azure 资源相同的监视数据，如 [�
 
 有关 Azure 队列存储创建的指标和日志指标的详细信息，请参阅 [Azure 队列存储监视数据参考](monitor-queue-storage-reference.md) 。
 
-Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户。 Azure Monitor 不支持经典存储帐户。 如果要使用经典存储帐户上的指标或日志，则需要迁移到 Azure 资源管理器存储帐户。 请参阅[迁移到 Azure 资源管理器](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)。
+Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户。 Azure Monitor 不支持经典存储帐户。 如果要使用经典存储帐户上的指标或日志，则需要迁移到 Azure 资源管理器存储帐户。 请参阅[迁移到 Azure 资源管理器](/azure/virtual-machines/windows/migration-classic-resource-manager-overview)。
 
 如果需要，可以继续使用经典指标和日志。 实际上，经典指标和日志可与 Azure Monitor 中的指标和日志同时使用。 在 Azure 存储终止旧指标和日志的服务之前，支持范围保持不变。
 
@@ -56,7 +56,7 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
 
 若要使用 Azure 门户、Azure CLI 或 PowerShell 创建诊断设置，请参阅 [创建诊断设置以在 Azure 中收集平台日志和指标](../../azure-monitor/platform/diagnostic-settings.md)。 
 
-若要查看创建诊断设置的 Azure 资源管理器模板，请参阅 [Azure 存储的诊断设置](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage)。
+若要查看创建诊断设置的 Azure 资源管理器模板，请参阅 [Azure 存储的诊断设置](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage)。
 
 创建诊断设置时，请选择要为其启用日志的存储类型，如 blob、队列、表或文件。 对于队列存储，请选择 " **队列**"。 
 
@@ -89,7 +89,7 @@ Azure 队列存储的指标位于以下命名空间中：
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-有关包括 Azure 队列存储的所有 Azure Monitor 支持指标的列表，请参阅 [Azure Monitor 支持的指标](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)。
+有关包括 Azure 队列存储的所有 Azure Monitor 支持指标的列表，请参阅 [Azure Monitor 支持的指标](/azure/azure-monitor/platform/metrics-supported)。
 
 
 ### <a name="accessing-metrics"></a>访问指标
@@ -101,7 +101,7 @@ Azure 队列存储的指标位于以下命名空间中：
 
 #### <a name="list-the-metric-definition"></a>列出指标定义
 
-可以列出存储帐户或队列存储服务的指标定义。 请使用 [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) cmdlet。
+可以列出存储帐户或队列存储服务的指标定义。 请使用 [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) cmdlet。
 
 在此示例中，将 `<resource-ID>` 占位符替换为整个存储帐户的资源 id 或队列存储服务的资源 id。  你可以在 Azure 门户中存储帐户的“属性”页上找到这些资源 ID。
 
@@ -112,7 +112,7 @@ Azure 队列存储的指标位于以下命名空间中：
 
 #### <a name="reading-metric-values"></a>读取指标值
 
-你可以读取存储帐户或队列存储服务的帐户级别指标值。 使用 [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet。
+你可以读取存储帐户或队列存储服务的帐户级别指标值。 使用 [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet。
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -123,7 +123,7 @@ Azure 队列存储的指标位于以下命名空间中：
 
 #### <a name="list-the-account-level-metric-definition"></a>列出帐户级指标定义
 
-可以列出存储帐户或队列存储服务的指标定义。 使用 [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) 命令。
+可以列出存储帐户或队列存储服务的指标定义。 使用 [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) 命令。
  
 在此示例中，将 `<resource-ID>` 占位符替换为整个存储帐户的资源 id 或队列存储服务的资源 id。 你可以在 Azure 门户中存储帐户的“属性”页上找到这些资源 ID。
 
@@ -133,7 +133,7 @@ Azure 队列存储的指标位于以下命名空间中：
 
 #### <a name="read-account-level-metric-values"></a>读取帐户级指标值
 
-你可以读取存储帐户或队列存储服务的指标值。 请使用 [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) 命令。
+你可以读取存储帐户或队列存储服务的指标值。 请使用 [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) 命令。
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -330,19 +330,19 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 ![审核日志](media/monitor-queue-storage/event-hub-log.png)
 
-你可以使用安全信息和事件管理以及监视工具来访问和读取发送到事件中心的日志数据。 有关详细信息，请参阅[可对发送到事件中心的监视数据执行什么操作？](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)。
+你可以使用安全信息和事件管理以及监视工具来访问和读取发送到事件中心的日志数据。 有关详细信息，请参阅[可对发送到事件中心的监视数据执行什么操作？](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)。
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>访问 Log Analytics 工作区中的日志
 
 你可以使用 Azure Monitor 日志查询来访问发送到 Log Analytics 工作区的日志。
 
-有关详细信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)。
+有关详细信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](/azure/azure-monitor/log-query/get-started-portal)。
 
 数据存储在 **StorageQueueLogs** 表中。  
 
 #### <a name="sample-kusto-queries"></a>示例 Kusto 查询
 
-您可以在 **日志搜索** 栏中输入一些查询来帮助您监视队列存储。 这些查询使用[新语言](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
+您可以在 **日志搜索** 栏中输入一些查询来帮助您监视队列存储。 这些查询使用[新语言](/azure/azure-monitor/log-query/log-query-overview)。
 
 > [!IMPORTANT]
 > 从存储帐户资源组菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前资源组。 这意味着日志查询只包含来自该资源组的数据。 如果要运行的查询包含来自其他资源或来自其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 "**日志**"。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](/azure/azure-monitor/log-query/scope/)。

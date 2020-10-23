@@ -2,17 +2,17 @@
 title: 在 Azure 数据工厂中排查自承载集成运行时问题
 description: 了解如何在 Azure 数据工厂中排查自承载集成运行时问题。
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/16/2020
-ms.author: abnarain
-ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/22/2020
+ms.author: lle
+ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131290"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427217"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -618,34 +618,37 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 
 ### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>接收电子邮件以更新网络配置，以允许与新的 IP 地址进行通信
 
-#### <a name="symptoms"></a>症状
+#### <a name="email-notification-from-microsoft"></a>来自 Microsoft 的电子邮件通知
 
 你可能会收到以下电子邮件通知，建议你更新网络配置，以允许与 Azure 数据工厂的新 IP 地址进行通信，2020年11月8日：
 
    ![电子邮件通知](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
-#### <a name="resolution"></a>解决方法
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>如何确定你是否受此通知的影响
 
-此通知适用于从**本地**运行的或在**Azure 虚拟专用网络**中运行到 ADF 服务的**Integration Runtime** **出站通信**。 例如，如果在 Azure VNET 中具有自承载 IR 或 Azure SQL Server Integration Services (SSIS) IR 需要访问 ADF 服务，则需要查看是否需要在网络安全组中添加此新 IP 范围 ** (NSG) ** 规则。 如果出站 NSG 规则使用服务标记，则不会产生任何影响。
+此通知会影响以下方案：
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>方案1：从自承载 Integration Runtime 在企业防火墙后面的本地运行的出站通信
+如何确定是否受影响：
+- 如果使用本文档中所述的方法基于 FQDN 名称定义防火墙规则，则不会受到影响： " [防火墙配置和允许列表" 设置 "ip 地址](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)"。
+- 不过，如果你在企业防火墙上显式允许列表出站 Ip，会影响你。
 
-#### <a name="more-details"></a>更多详细信息
+受影响的操作：通知网络基础结构团队更新网络配置，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
 
-这些新 IP 范围仅对从**本地防火墙**或**azure 虚拟专用网络**到 ADF 服务的**出站通信规则产生影响** (参阅[防火墙配置和允许列表设置 IP 地址](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)以供参考) ，适用于在本地网络或 Azure 虚拟网络中具有需要与 ADF 服务通信的自承载 IR 或 SSIS ir 的情况。
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>方案2：自承载 Integration Runtime 在客户管理的 Azure 虚拟网络内的 Azure VM 上运行的出站通信
+如何确定是否受影响：
+- 检查包含自承载 Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不会产生任何影响。
+- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。 
+ ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式允许列表出站 IP 地址，则会受到影响。
 
-对于使用 **AZURE VPN**的现有用户：
+受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
 
-1. 在配置了 SSIS 或 Azure SSIS 的专用网络中检查任何出站 NSG 规则。 如果没有出站限制，则不会对它们产生任何影响。
-1. 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。 
-  
-    ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>方案3：来自客户托管的 Azure 虚拟网络中 SSIS Integration Runtime 的出站通信
+- 检查包含 SSIS Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不会产生任何影响。
+- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。
+- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式允许列表出站 IP 地址，则会受到影响。
 
-1. 如果直接在规则设置中使用 IP 地址，请检查是否在 [服务标记 ip 范围下载链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)中添加了所有 IP 范围。 我们已将新 IP 范围放入此文件中。 对于新用户：你只需跟踪文档中相关的自承载 IR 或 SSIS IR 配置即可配置 NSG 规则。
-
-对于具有 **本地**SSIS Ir 或自承载 IR 的现有用户：
-
-- 验证网络基础结构团队，看他们是否需要在出站规则的通信上包括新的 IP 范围地址。
-- 对于基于 FQDN 名称的防火墙规则，当你使用在防火墙配置上记录的设置 [和针对 ip 地址的允许列表设置](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)时，不需要进行更新。 
-- 某些本地防火墙支持服务标记，如果使用更新的 Azure 服务标记配置文件，则无需进行任何其他更改。
+受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
 
 ## <a name="self-hosted-ir-sharing"></a>自承载 IR 共享
 

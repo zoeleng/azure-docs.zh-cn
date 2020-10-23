@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613912"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425566"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>教程：为 Tableau Online 配置自动用户预配
 
@@ -67,7 +67,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 *   建议你将单个 Azure AD 用户分配到 Tableau Online，以测试自动用户预配配置。 可稍后再分配其他用户或组。
 
-*   将用户分配到 Tableau Online 时，请在 "分配" 对话框中选择任何特定于应用程序的有效角色（如果可用）。 具有“默认访问权限”角色的用户排除在预配之外。
+*   将用户分配到 Tableau Online 时，请在 "分配" 对话框中选择任何特定于应用程序的有效角色（如果可用）。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="configure-automatic-user-provisioning-to-tableau-online"></a>配置 Tableau Online 的自动用户预配
 
@@ -78,7 +78,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 ### <a name="configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>在 Azure AD 中为 Tableau Online 配置自动用户预配
 
-1. 登录 [Azure 门户](https://portal.azure.com)。 选择 "**企业应用程序**" "  >  **所有应用程序**  >  **Tableau 联机**"。
+1. 登录到 [Azure 门户](https://portal.azure.com)。 选择 "**企业应用程序**" "  >  **所有应用程序**  >  **Tableau 联机**"。
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
@@ -86,11 +86,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![应用程序列表中的 Tableau Online 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![Tableau Online 预配](./media/tableau-online-provisioning-tutorial/ProvisioningTab.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![Tableau Online 预配模式](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -98,7 +98,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
    * 在 " **域** " 框中，根据步骤6填写子域。
 
-   * 在 " **管理员用户名** " 框中，填写 Clarizen 租户的管理员帐户的用户名。 例如 admin@contoso.com。
+   * 在 " **管理员用户名** " 框中，填写 Tableau Online 租户上的管理员帐户的用户名。 例如 admin@contoso.com。
 
    * 在 " **管理员密码** " 框中，填写与管理员用户名对应的管理员帐户的密码。
 

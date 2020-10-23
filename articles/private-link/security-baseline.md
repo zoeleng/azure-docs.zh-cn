@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 654fc453f0b4167ae91afcab811de321925c6bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614643"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427502"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azure 专用链接的 azure 安全基线
 
@@ -220,7 +220,7 @@ ms.locfileid: "89614643"
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10：定期审查和协调用户访问
 
-**指南**：Azure Active Directory 提供日志来帮助发现过时的帐户。 此外，使用 Azure 标识访问评审来有效地管理组成员身份、访问企业应用程序和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。
+**指南**：Azure Active Directory 提供有助于发现陈旧帐户的日志。 此外，使用 Azure 标识访问评审来有效地管理组成员身份、访问企业应用程序和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。
 
 - [了解 Azure AD 报告](/azure/active-directory/reports-monitoring/)
 
@@ -268,7 +268,7 @@ ms.locfileid: "89614643"
 
 根据业务要求，使用应用程序和企业环境限制对 Azure 资源的访问级别。 
 
-通过 Azure Active Directory 基于角色的访问控制来控制对 Azure 资源的访问。
+通过 Azure RBAC)  (的 azure 基于角色的访问控制来控制对 Azure 资源的访问。
 
 - [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
 
@@ -292,7 +292,7 @@ ms.locfileid: "89614643"
 
 **责任**：共享
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
 **指南**：使用 azure RBAC)  (azure 基于角色的访问控制来控制对数据和资源的访问，否则使用服务特定的访问控制方法。
 

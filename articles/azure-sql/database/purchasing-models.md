@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319446"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427036"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>选择 vCore 或 DTU 购买模型 - Azure SQL 数据库和 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ ms.locfileid: "91319446"
 
 虚拟核心 (vCore) 表示通过一个选项提供的逻辑 CPU，你可以在硬件的层代和硬件的物理特性（例如，核心数、内存、存储大小）之间进行选择。 基于 vCore 的购买模型提供使用单项资源的灵活性、控制度和透明度，并提供简单明了的方法将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来选择计算、内存和存储资源。
 
-在基于 vCore 的购买模型中，可以为 SQL 数据库和 SQL 托管实例选择[常规用途](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability)或[业务关键](high-availability-sla.md#premium-and-business-critical-service-tier-availability)服务层级。  对于单一数据库，还可以选择[超大规模服务层级](service-tier-hyperscale.md)。
+在基于 vCore 的购买模型中，可以为 SQL 数据库和 SQL 托管实例选择[常规用途](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)或[业务关键](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)服务层级。  对于单一数据库，还可以选择[超大规模服务层级](service-tier-hyperscale.md)。
 
 使用基于 vCore 的购买模型，可以单独选择计算和存储资源、匹配本地性能，以及优化价格。 在基于 vCore 的购买模型中，费用包括：
 

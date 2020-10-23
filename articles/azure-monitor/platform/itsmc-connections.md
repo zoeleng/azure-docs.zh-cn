@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 3cb335cb32ded68377b4eec0af3b1ebbc19e77d9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9db20fd357a50a92384b3c3f483f8d75b67b3e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328295"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427366"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>将 ITSM 产品/服务与 IT 服务管理连接器相连接
 本文介绍如何配置 ITSM 产品/服务与 Log Analytics 中的 IT 服务管理连接器 (ITSMC) 之间的连接，以便集中管理工作项。 有关 ITSMC 的详细信息，请参阅[概述](./itsmc-overview.md)。
@@ -214,6 +214,8 @@ ms.locfileid: "92328295"
 > 3. 单击“撤销访问权限”，然后单击“撤消”。
 
 - 安装用于 Microsoft Log Analytics 集成的用户应用（ServiceNow 应用）。 [了解详细信息](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )。
+> [!NOTE]
+> ITSMC 仅支持从 ServiceNow 存储下载的适用于 Microsoft Log Analytics 集成的官方用户应用。 ITSMC 不支持 ServiceNow 端或不属于官方 ServiceNow 解决方案一部分的应用程序中的任何代码引入。 
 - 为安装的用户应用创建集成用户角色。 [此处](#create-integration-user-role-in-servicenow-app)提供了有关如何创建集成用户角色的信息。
 
 ### <a name="connection-procedure"></a>**连接过程**

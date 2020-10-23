@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542421"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425890"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>使用 Azure 门户将 Azure Database for MariaDB 服务器移到另一个区域
 
@@ -21,7 +21,7 @@ ms.locfileid: "91542421"
 可以使用 Azure Database for MariaDB [跨区域只读副本](concepts-read-replicas.md#cross-region-replication)来完成移到另一个区域的操作。 为此，请先在目标区域中创建一个只读副本。 接下来，停止到只读副本服务器的复制，使其成为同时接受读取和写入流量的独立服务器。 
 
 > [!NOTE]
-> 本文重点介绍如何将服务器移到不同的区域。 若要将服务器移到其他资源组或订阅，请参阅[移动](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription)一文。 
+> 本文重点介绍如何将服务器移到不同的区域。 若要将服务器移到其他资源组或订阅，请参阅[移动](../azure-resource-manager/management/move-resource-group-and-subscription.md)一文。 
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131813"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426110"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -89,7 +89,7 @@ Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存�
 1. 在数据存储设置中，对于“允许 Azure 机器学习服务使用工作区托管标识来访问存储”，选择“是” 。
 
 
-这些步骤使用 Azure 基于资源的访问控制 (RBAC) 将工作区托管标识作为“读取者”添加到存储服务。 “读取者”访问权限允许工作区检索防火墙设置，并确保数据不会离开虚拟网络。
+这些步骤使用 azure RBAC)  (基于 Azure 资源的访问控制将工作区管理的标识作为 __读取器__ 添加到存储服务。 “读取者”访问权限允许工作区检索防火墙设置，并确保数据不会离开虚拟网络。
 
 > [!NOTE]
 > 这些更改可能需要长达 10 分钟才能生效。
@@ -104,9 +104,9 @@ Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存�
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 访问控制
 
-你可以使用 RBAC 和 POSIX 样式的访问控制列表 (ACL) 来控制虚拟网络内的数据访问。
+可以使用 Azure RBAC 和 POSIX 样式的访问控制列表 (Acl) 来控制虚拟网络内的数据访问。
 
-若要使用 RBAC，请将工作区托管标识添加到 [Blob 数据读取者](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)角色。 有关详细信息，请参阅 [Azure 基于角色的访问控制](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)。
+若要使用 Azure RBAC，请将工作区管理的标识添加到 [Blob 数据读取器](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 角色。 有关详细信息，请参阅 [Azure 基于角色的访问控制](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)。
 
 若要使用 ACL，可以向工作区托管标识分配访问权限，就像向任何其他安全主体分配访问权限一样。 有关详细信息，请参阅[文件和目录上的访问控制列表](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)。
 

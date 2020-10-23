@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd6a907ce855fbb7c1ef96236766beef9b25b2ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400460"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428357"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault 的 Azure 安全基线
 
@@ -411,7 +411,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
 
-**指南**：在环境中发生可疑或不安全活动时，使用 Azure Active Directory (Azure AD) PRIVILEGED IDENTITY MANAGEMENT (PIM) 生成日志和警报。 使用 Azure AD 风险检测查看有关风险用户行为的警报和报告。 对于其他日志记录，请将 Azure 安全中心风险检测警报发送到 Azure Monitor，并使用操作组配置自定义警报/通知。
+**指导**：当环境中出现可疑或不安全的活动时，可使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 生成日志和警报。 使用 Azure AD 风险检测查看有关风险用户行为的警报和报告。 对于其他日志记录，请将 Azure 安全中心风险检测警报发送到 Azure Monitor，并使用操作组配置自定义警报/通知。
 
 启用高级威胁防护 (ATP) 以便 Azure Key Vault 生成可疑活动的警报。
 
@@ -566,7 +566,9 @@ Azure Key Vault 日志记录： https://docs.microsoft.com/azure/key-vault/key-v
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4：加密传输中的所有敏感信息
 
-**指南**：要 Azure Key Vault 进行身份验证、管理和数据平面访问的所有流量都经过加密，并通过 HTTPS：端口443进行。  (但是，对于 CRL，有时会出现 HTTP [端口 80] 流量。 )  
+**指南**：要 Azure Key Vault 进行身份验证、管理和数据平面访问的所有流量都经过加密，并通过 HTTPS：端口443进行。 但是 (，CRL 有时会出现 HTTP [端口 80] 流量。 ) Azure Key Vault 继续允许 TLS 1.1 和 TLS 1.0 数据引入。 可以通过客户端上的配置将数据限制为 TLS 1.2。
+
+
 
 访问防火墙后面的 Azure Key Vault： https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
@@ -1198,7 +1200,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide   
 
-有关生成自己的安全事件响应过程的指南：   
+有关构建你自己的安全事件响应过程的指导：  
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
@@ -1206,7 +1208,7 @@ Microsoft 安全响应中心事件解析：
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process   
 
-客户还可以利用 NIST 的计算机安全事件处理指南来帮助创建自己的事件响应计划： 
+客户还可以利用 NIST 的“计算机安全事件处理指南”来制定他们自己的事件响应计划：  
 
 https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
@@ -1227,7 +1229,7 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 **指导**：执行练习，测试定期事件的事件响应功能，以帮助保护 Azure Key Vault 实例和相关资源。 识别弱点和差距，并根据需要修改计划。
 
-请参阅 NIST 的刊物：Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities（IT 规划和功能的测试、培训与演练计划指南）：  
+请参阅 NIST 发布：针对 IT 计划和功能的测试、培训和试验计划指南： 
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 

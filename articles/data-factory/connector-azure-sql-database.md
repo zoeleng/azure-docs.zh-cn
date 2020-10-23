@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7072adfcfd276d6420d8ffd7331c59ead7edd288
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: fa994525285ffe363f734e9b706252105b05ff26
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952040"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428445"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Azure SQL 数据库中复制和转换数据
 
@@ -112,12 +112,12 @@ Azure SQL 数据库链接服务支持以下属性：
         "typeProperties": {
             "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": {
-                "type": "AzureKeyVaultSecret",
+                "type": "AzureKeyVaultSecret",
                 "store": {
-                    "referenceName": "<Azure Key Vault linked service name>",
-                    "type": "LinkedServiceReference"
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
                 },
-                "secretName": "<secretName>"
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -272,8 +272,8 @@ Azure SQL 数据库数据集支持以下属性：
 | isolationLevel | 指定 SQL 源的事务锁定行为。 允许的值为：ReadCommitted、ReadUncommitted、RepeatableRead、Serializable、Snapshot    。 如果未指定，则使用数据库的默认隔离级别。 请参阅[此文档](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel)了解更多详细信息。 | 否 |
 | partitionOptions | 指定用于从 Azure SQL 数据库加载数据的数据分区选项。 <br>允许的值为： **None** (默认值) 、 **PhysicalPartitionsOfTable**和 **DynamicRange**。<br>当启用分区选项时 (不 `None`) ，从 AZURE SQL 数据库并发加载数据的并行度由 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 复制活动的设置控制。 | 否 |
 | partitionSettings | 指定数据分区的设置组。 <br>当分区选项不是 `None` 时适用。 | 否 |
-| 在 `partitionSettings` 下： | | |
-| partitionColumnName | 指定源列的名称，此名称 **以整数或日期/日期/时间类型** ，用于并行复制的范围分区。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅 [从 SQL 数据库并行复制](#parallel-copy-from-sql-database) 部分。 | 否 |
+| **_在 `partitionSettings` ： _ 下_* | | |
+| partitionColumnName | 指定*以整数或日期/日期/时间类型** 表示的源列 _ 的名称，此名称将由范围分区用于并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅 [从 SQL 数据库并行复制](#parallel-copy-from-sql-database) 部分。 | 否 |
 | partitionUpperBound | 分区范围拆分的分区列的最大值。 此值用于决定分区跨距，而不是用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，则复制活动会自动检测值。  <br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅 [从 SQL 数据库并行复制](#parallel-copy-from-sql-database) 部分。 | 否 |
 | partitionLowerBound | 分区范围拆分的分区列的最小值。 此值用于决定分区跨距，而不是用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，则复制活动会自动检测值。<br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅 [从 SQL 数据库并行复制](#parallel-copy-from-sql-database) 部分。 | 否 |
 
@@ -671,6 +671,8 @@ END
 
 ADF 将使用在此处选取为密钥的列名作为后续更新 upsert （删除）的一部分。 因此，你必须选择存在于接收器映射中的列。 如果您不希望将该值写入此键列，请单击 "跳过写入键列"。
 
+可以将此处使用的键列参数化，以便更新目标 Azure SQL 数据库表。 如果有多个列作为组合键，则单击 "自定义表达式"，您将能够使用 ADF 数据流表达式语言添加动态内容，该语言可以包含一个字符串数组，其中包含一个组合键的列名称。
+
 **表操作：** 确定在写入之前是否从目标表重新创建或删除所有行。
 
 - 无：不会对表进行任何操作。
@@ -700,7 +702,7 @@ ADF 将使用在此处选取为密钥的列名作为后续更新 upsert （删�
 | 小数 |小数 |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 图像 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |小数 |
 | nchar |String, Char[] |

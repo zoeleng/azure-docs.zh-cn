@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fed376eae1c3dadb17f5ecf8e7f1c3422e07b9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757417"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426426"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>教程：为 Apple School Manager 配置自动用户预配
 
@@ -99,11 +99,11 @@ ms.locfileid: "91757417"
 > [!NOTE]
 >如果连接成功，则 Apple School Manager 会将 SCIM 连接显示为 "活动"。 Apple School Manager 可能需要长达60秒才能反映最新的连接状态。
 
-6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”   。
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击 **“保存”** 。
+7. 单击“ **保存**”。
 
 8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Apple School Manager**"。
 
@@ -116,7 +116,7 @@ ms.locfileid: "91757417"
    |name.givenName|字符串|
    |name.familyName|字符串|
    |name.givenName|字符串|
-   |externalId|字符串|
+   |externalId|String|
    |区域设置|字符串|
    |timezone|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
@@ -134,11 +134,11 @@ ms.locfileid: "91757417"
 
     ![预配范围](common/provisioning-scope.png)
 
-13. 已准备好预配时，单击“保存”。
+13. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步********。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。
+此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步   。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。
 
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
 
@@ -160,7 +160,6 @@ ms.locfileid: "91757417"
 * [在 Apple School Manager 中查看 SCIM 活动](https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
 * [在 Apple 学校管理器中管理现有的 SCIM 令牌和连接](https://support.apple.com/guide/apple-school-manager/apdc9a823611)
 * [断开 Apple School Manager 中的 SCIM 连接](https://support.apple.com/guide/apple-school-manager/apd609be3a61)
-* [在 Apple 学校管理器中管理现有的 SCIM 令牌和连接](https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
 * [Apple School Manager 中的 SCIM 连接疑难解答](https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>后续步骤

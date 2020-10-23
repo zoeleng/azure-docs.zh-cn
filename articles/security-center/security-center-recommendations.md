@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0efb2c26a63418835dd2b7561a1fb9d3a9d5fee8
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f3fb31dc7db4808db83f33abdf14179265d147f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945545"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425180"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure 安全中心的安全建议 
 本主题说明如何查看和了解 Azure 安全中心内的建议，以帮助你保护 Azure 资源。
@@ -75,7 +75,10 @@ ms.locfileid: "91945545"
  
 ## <a name="next-steps"></a>后续步骤
 
-在本文档中，已向你介绍安全中心的安全建议。 若要了解如何按建议修正，请参阅：
+在本文档中，已向你介绍安全中心的安全建议。 相关信息：
 
 - [按建议修正](security-center-remediate-recommendations.md) -- 了解如何为 Azure 订阅和资源组配置安全策略。
 - [防止对强制/拒绝建议的配置](prevent-misconfigurations.md)错误。
+- [自动响应建议](workflow-automation.md)
+- [从建议中免除资源](exempt-resource.md)
+- [安全建议 - 参考指南](recommendations-reference.md)

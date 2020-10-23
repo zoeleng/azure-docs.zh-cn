@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 170d5eaa4c14c6de54825bc08f3aef0fd0dfa0c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707993"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425513"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>对 Azure Database for PostgreSQL（单一数据库）使用虚拟网络服务终结点和规则
 
@@ -82,7 +82,7 @@ ms.locfileid: "91707993"
 - **网络管理员：** &nbsp; 启用终结点。
 - **数据库管理员：** &nbsp; 更新访问控制列表 (ACL)，将给定的子网添加到 Azure Database for PostgreSQL 服务器。
 
-RBAC 备用：
+*Azure RBAC 备选方案：*
 
 网络管理员和数据库管理员角色的权限超出虚拟网络规则的管理需要， 只有部分权限是必需的。
 
@@ -106,7 +106,7 @@ RBAC 备用：
 
 - 虚拟网络规则仅适用于 Azure 资源管理器虚拟网络，不适用于[经典部署模型][arm-deployment-model-568f]网络。
 
-- 使用 **Synapse 服务标记** 启用虚拟网络服务终结点 Azure Database for PostgreSQL，还可以为所有 Azure 数据库服务启用终结点： Azure Database for MySQL、Azure Database for PostgreSQL、Azure Sql 数据库和 Azure Analytics (以前的 Sql 数据仓库) 。
+- 使用 **Microsoft.Sql** 服务标记为 Azure Database for PostgreSQL 启用虚拟网络服务终结点也会为以下所有 Azure 数据库服务启用终结点：Azure Database for MySQL、Azure Database for PostgreSQL、Azure SQL 数据库和 Azure Synapse Analytics（以前称为 SQL 数据仓库）。
 
 - 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
 
@@ -147,7 +147,7 @@ RBAC 备用：
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

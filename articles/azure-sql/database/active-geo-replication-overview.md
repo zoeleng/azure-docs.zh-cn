@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124752"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426327"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>创建并使用活动异地复制 - Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ ms.locfileid: "92124752"
 > 如果主数据库上有架构更新，则日志重播会在辅助数据库上延迟。 因为架构更新需要在辅助数据库上有架构锁。
 
 > [!IMPORTANT]
-> 可以使用异地复制在与主数据库相同的区域中创建辅助数据库。 可以使用此辅助数据库对同一区域中的只读工作负荷进行负载均衡。 但是，同一区域中的辅助数据库不能提供额外的故障恢复能力，因此不适合用作灾难恢复的故障转移目标。 它也不保证可用性区域的隔离。 使用具有 [区域冗余配置](high-availability-sla.md#zone-redundant-configuration) 的业务关键或高级服务层来实现可用性区域隔离。
+> 可以使用异地复制在与主数据库相同的区域中创建辅助数据库。 可以使用此辅助数据库对同一区域中的只读工作负荷进行负载均衡。 但是，同一区域中的辅助数据库不能提供额外的故障恢复能力，因此不适合用作灾难恢复的故障转移目标。 它也不保证可用性区域的隔离。 使用具有 [区域冗余配置](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) 的业务关键或高级服务层，或常规用途服务层 [区域冗余配置](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) 来实现可用性区域隔离。
 >
 
 - **计划的故障转移**

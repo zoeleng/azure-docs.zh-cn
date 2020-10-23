@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: 请参阅如何检索、更新和删除单个孪生和关系。
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c522ac9e1aedbcdfdb4564d17b506b1b490da0c3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 58ee064d4946442bff70e97d56a68080333e2197
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150397"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426157"
 ---
 # <a name="manage-digital-twins"></a>管理数字孪生
 
-环境中的实体由 [数字孪生](concepts-twins-graph.md)表示。 管理数字孪生可能包括创建、修改和删除。 若要执行这些操作，可以使用 [**DigitalTwins api**](how-to-use-apis-sdks.md)、 [.Net (c # ) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)或 [Azure 数字孪生 CLI](how-to-use-cli.md)。
+环境中的实体由 [数字孪生](concepts-twins-graph.md)表示。 管理数字孪生可能包括创建、修改和删除。 若要执行这些操作，可以使用 [**DigitalTwins api**](how-to-use-apis-sdks.md)、 [.Net (c # ) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)或 [Azure 数字孪生 CLI](how-to-use-cli.md)。
 
 本文重点介绍如何管理数字孪生;若要整体处理关系和整数 [关系图](concepts-twins-graph.md) ，请参阅 [*操作方法：管理包含关系的双子关系图*](how-to-manage-graph.md)。
 
@@ -25,29 +25,32 @@ ms.locfileid: "92150397"
 
 ## <a name="create-a-digital-twin"></a>创建数字输出
 
-若要创建克隆，请在 `CreateDigitalTwin` 服务客户端上使用方法，如下所示：
+若要创建克隆，请在 `CreateDigitalTwin()` 服务客户端上使用方法，如下所示：
 
 ```csharp
-await client.CreateDigitalTwinAsync("myNewTwinID", initData);
+await client.CreateDigitalTwinAsync("myTwinId", initData);
 ```
 
 若要创建数字克隆，需要提供：
 * 数字克隆所需的 ID
-* 要使用的[模型](concepts-models.md) 
+* 要使用的[模型](concepts-models.md)
 
 （可选）可以为数字输出的所有属性提供初始值。 
 
 模型和初始属性值通过 `initData` 参数提供，它是一个包含相关数据的 JSON 字符串。 有关构造此对象的详细信息，请转到下一节。
 
 > [!TIP]
-> 创建或更新克隆后，可能会有长达10秒的延迟，更改将反映在 [查询](how-to-query-graph.md)中。 `GetDigitalTwin`[本文后面](#get-data-for-a-digital-twin)所述的 API () 不会遇到此延迟，因此，如果需要即时响应，请使用 api 调用而不是查询来查看新创建的孪生。 
+> 创建或更新克隆后，可能会有长达10秒的延迟，更改将反映在 [查询](how-to-query-graph.md)中。 `GetDigitalTwin`[本文后面](#get-data-for-a-digital-twin)所述的 API () 不会遇到此延迟，因此，如果需要即时响应，请使用 API 调用而不是查询来查看新创建的孪生。 
 
 ### <a name="initialize-model-and-properties"></a>初始化模型和属性
 
 克隆创建 API 接受序列化为克隆属性的有效 JSON 说明的对象。 请参阅 " [*概念：数字孪生" 和 "克隆图形"*](concepts-twins-graph.md) ，以获取对一种对的 JSON 格式的说明。 
 
-首先，您将创建一个数据对象来表示克隆及其属性数据。 然后，可以使用 `JsonSerializer` 将的序列化版本传递到用于参数的 API 调用 `initdata` 。
+首先，您可以创建一个数据对象来表示克隆及其属性数据。 然后，可以使用 `JsonSerializer` 将此对象的序列化版本传递给参数的 API 调用 `initdata` ，如下所示：
 
+```csharp
+await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+```
 可以手动创建参数对象，也可以使用提供的帮助器类创建参数对象。 下面是每个的示例。
 
 #### <a name="create-twins-using-manually-created-data"></a>使用手动创建的数据创建孪生
@@ -58,7 +61,7 @@ await client.CreateDigitalTwinAsync("myNewTwinID", initData);
 
 #### <a name="create-twins-with-the-helper-class"></a>用 helper 类创建孪生
 
-使用的帮助程序类，可以 `BasicDigitalTwin` 更直接地将属性字段存储在 "双子" 对象中。 你仍可以使用生成属性列表 `Dictionary<string, object>` ，然后可以将其直接添加到克隆的对象 `CustomProperties` 。
+使用的帮助程序类， `BasicDigitalTwin` 可以直接在 "克隆" 对象中存储属性字段。 你仍可以使用生成属性列表 `Dictionary<string, object>` ，然后可以将其直接添加到克隆的对象 `CustomProperties` 。
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
@@ -70,27 +73,37 @@ props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` 对象附带了一个 `Id` 字段。 可以将此字段保留为空，但如果添加了一个 ID 值，则它需要与传递给调用的 ID 参数匹配 `CreateDigitalTwin` 。 对于上面的示例，此示例如下所示：
+> `BasicDigitalTwin` 对象附带了一个 `Id` 字段。 可以将此字段保留为空，但如果添加了一个 ID 值，则它需要与传递给调用的 ID 参数匹配 `CreateDigitalTwin()` 。 例如：
 >
 >```csharp
->twin.Id = "myNewRoomID";
+>twin.Id = "myRoomId";
 >```
 
 ## <a name="get-data-for-a-digital-twin"></a>获取数字克隆的数据
 
-可以通过调用以下方法访问任何数字克隆的完整数据：
+可以通过调用方法来访问任何数字克隆的详细信息， `GetDigitalTwin()` 如下所示：
 
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
+此调用返回作为 JSON 字符串的未克隆数据。 下面的示例演示如何使用此方法来查看克隆的详细信息：
 
-此调用返回作为 JSON 字符串的未克隆数据。 
-
-当你使用检索到次时，仅返回至少已设置一次的属性 `GetDigitalTwin` 。
+```csharp
+Response<string> res = client.GetDigitalTwin("myRoomId");
+twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+foreach (string prop in twin.CustomProperties.Keys)
+{
+  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  Console.WriteLine($"Property '{prop}': {value}");
+}
+```
+使用方法检索次克隆时，仅返回至少已设置一次的属性 `GetDigitalTwin()` 。
 
 >[!TIP]
 >"克隆" 的 `displayName` 是其模型元数据的一部分，因此，在为克隆的实例获取数据时，它将不会显示。 若要查看此值，可以 [从模型中检索它](how-to-manage-model.md#retrieve-models)。
@@ -101,7 +114,7 @@ object result = await client.GetDigitalTwin(id);
 
 ```json
 {
-    "@id": " dtmi:com:contoso:Moon;1",
+    "@id": "dtmi:example:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "contents": [
@@ -120,8 +133,7 @@ object result = await client.GetDigitalTwin(id);
     ]
 }
 ```
-
-`object result = await client.DigitalTwins.GetByIdAsync("my-moon");`对*月亮*类型的硬类型调用的结果如下所示：
+`object result = await client.GetDigitalTwinAsync("my-moon");`对*月亮*类型的硬类型调用的结果如下所示：
 
 ```json
 {
@@ -130,7 +142,7 @@ object result = await client.GetDigitalTwin(id);
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "dtmi:com:contoso:Moon;1",
+    "$model": "dtmi:example:Moon;1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -151,8 +163,8 @@ object result = await client.GetDigitalTwin(id);
 
 数字克隆的已定义属性在数字克隆上作为顶级属性返回。 不属于 DTDL 定义的元数据或系统信息将以 `$` 前缀返回。 元数据属性包括：
 * 此 Azure 数字孪生实例中数字输出的 ID，如 `$dtId` 。
-* `$etag`，由 web 服务器分配的标准 HTTP 字段
-* 节中的其他属性 `$metadata` 。 这些方法包括：
+* `$etag`，由 web 服务器分配的标准 HTTP 字段。
+* 节中的其他属性 `$metadata` 。 其中包括:
     - 数字克隆的模型的 DTMI。
     - 每个可写属性的同步状态。 这对于设备最为有用，在这种情况下，在设备处于) 脱机状态时，服务和设备可能会 (分叉状态。 目前，此属性仅适用于连接到 IoT 中心的物理设备。 使用元数据部分中的数据，可以了解属性的完整状态以及上次修改的时间戳。 有关同步状态的详细信息，请参阅有关同步设备状态的 [此 IoT 中心教程](../iot-hub/tutorial-device-twins.md) 。
     - 服务特定的元数据，如 IoT 中心或 Azure 数字孪生。 
@@ -162,7 +174,7 @@ object result = await client.GetDigitalTwin(id);
 你还可以使用 SDK 随附的序列化帮助器类 `BasicDigitalTwin` ，它将返回以预分析形式返回的核心数据和属性。 以下是示例：
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
+Response<string> res = client.GetDigitalTwin(twin_Id);
 BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 foreach (string prop in twin.CustomProperties.Keys)
@@ -176,7 +188,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 
 ## <a name="update-a-digital-twin"></a>更新数字孪生
 
-若要更新数字克隆的属性，请编写要替换为 [JSON 修补](http://jsonpatch.com/) 格式的信息。 通过这种方式，可以一次替换多个属性。 然后将 JSON 修补文档传递到方法中 `Update` ：
+若要更新数字克隆的属性，请编写要替换为 [JSON 修补](http://jsonpatch.com/) 格式的信息。 通过这种方式，可以一次替换多个属性。 然后将 JSON 修补文档传递到方法中 `UpdateDigitalTwin()` ：
 
 ```csharp
 await client.UpdateDigitalTwin(id, patch);
@@ -203,7 +215,6 @@ await client.UpdateDigitalTwin(id, patch);
   }
 ]
 ```
-
 可以手动创建修补程序，也可以使用 [SDK](how-to-use-apis-sdks.md)中的序列化帮助器类创建修补程序。 下面是每个的示例。
 
 #### <a name="create-patches-manually"></a>手动创建修补程序
@@ -216,7 +227,10 @@ twinData.Add(new Dictionary<string, object>() {
     { "value", 25.0}
 });
 
-await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData));
+await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+Console.WriteLine("Updated twin properties");
+FetchAndPrintTwin(twin_Id, client);
+}
 ```
 
 #### <a name="create-patches-using-the-helper-class"></a>使用 helper 类创建修补程序
@@ -224,14 +238,14 @@ await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData
 ```csharp
 UpdateOperationsUtility uou = new UpdateOperationsUtility();
 uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
+await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 ```
 
 ### <a name="update-properties-in-digital-twin-components"></a>更新数字克隆组件中的属性
 
 请记住，模型可以包含组件，从而使其可由其他模型组成。 
 
-若要在数字克隆的组件中修补属性，你将使用 JSON 修补程序中的路径语法：
+若要在数字克隆的组件中修补属性，可以使用 JSON 修补程序中的路径语法：
 
 ```json
 [
@@ -245,7 +259,7 @@ await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
 
 ### <a name="update-a-digital-twins-model"></a>更新数字输出的模型
 
-`Update`函数还可用于将数字克隆迁移到其他模型。 
+`UpdateDigitalTwin()`函数还可用于将数字克隆迁移到其他模型。 
 
 例如，请考虑以下 JSON 修补程序文档，该文档将替换数字克隆的元数据 `$model` 字段：
 
@@ -254,7 +268,7 @@ await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "dtmi:com:contoso:foo;1"
+    "value": "dtmi:example:foo;1"
   }
 ]
 ```
@@ -273,7 +287,7 @@ await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "dtmi:com:contoso:foo_new"
+    "value": "dtmi:example:foo_new"
   },
   {
     "op": "add",
@@ -298,9 +312,9 @@ Azure 数字孪生确保所有传入的请求经过一次处理。 这意味着�
 
 ## <a name="delete-a-digital-twin"></a>删除数字克隆
 
-您可以使用删除孪生 `DeleteDigitalTwin(ID)` 。 但是，如果没有更多的关系，则只能删除一个克隆。 必须首先删除所有关系。 
+可以使用方法删除孪生 `DeleteDigitalTwin()` 。 但是，如果没有更多的关系，则只能删除一个克隆。 因此，请先删除克隆的传入和传出关系。
 
-下面是此代码的一个示例：
+下面是用于删除孪生及其关系的代码示例：
 
 ```csharp
 static async Task DeleteTwin(string id)
@@ -334,7 +348,7 @@ public async Task FindAndDeleteOutgoingRelationshipsAsync(string dtId)
     }
     catch (RequestFailedException ex)
     {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+        Log.Error($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
     }
 }
 
@@ -344,7 +358,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
     try
     {
-        // GetRelationshipssAsync will throw an error if a problem occurs
+        // GetRelationshipsAsync will throw an error if a problem occurs
         AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
         await foreach (IncomingRelationship incomingRel in incomingRels)
@@ -355,18 +369,162 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     }
     catch (RequestFailedException ex)
     {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+        Log.Error($"_*_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
     }
 }
 ```
-
 ### <a name="delete-all-digital-twins"></a>删除所有数字孪生
 
-有关如何一次删除所有孪生的示例，请下载教程中使用的示例应用 [*：使用示例客户端应用了解基础知识*](tutorial-command-line-app.md)。 *CommandLoop.cs*文件在函数中执行此 `CommandDeleteAllTwins` 功能。
+有关如何同时删除所有孪生的示例，请下载 _Tutorial 中使用的示例应用 [：使用示例客户端应用了解基础知识](tutorial-command-line-app.md)。 *CommandLoop.cs*文件在函数中执行此 `CommandDeleteAllTwins()` 功能。
+
+## <a name="manage-twins-using-runnable-code-sample"></a>使用可运行代码示例管理孪生
+
+您可以使用下面的可运行代码示例创建一个克隆，更新其详细信息，然后删除克隆。 
+
+此代码片段使用教程中模型定义的 [Room.js](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) [*：使用示例客户端应用浏览 Azure 数字孪生*](tutorial-command-line-app.md)。 你可以使用此链接直接前往文件，或将其作为完整的端到端 [示例项目的](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)一部分进行下载。
+
+将占位符替换 `<your-instance-hostname>` 为你的 Azure 数字孪生实例详细信息，然后运行该示例。
+
+```csharp
+using System;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections.Generic;
+using Azure;
+using Azure.DigitalTwins.Core.Serialization;
+using System.Text.Json;
+
+namespace minimal
+{
+    class Program
+    {
+
+        static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            Console.WriteLine();
+            Console.WriteLine($"Upload a model");
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            var typeList = new List<string>();
+            string twin_Id = "myRoomId";
+            string dtdl = File.ReadAllText("Room.json");
+            typeList.Add(dtdl);
+            // Upload the model to the service
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            Console.WriteLine($"Service client created – ready to go");
+            await client.CreateModelsAsync(typeList);
+            twin.Metadata = new DigitalTwinMetadata();
+            twin.Metadata.ModelId = "dtmi:example:Room;1";
+            // Initialize properties
+            Dictionary<string, object> props = new Dictionary<string, object>();
+            props.Add("Temperature", 35.0);
+            props.Add("Humidity", 55.0);
+            twin.CustomProperties = props;
+            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            Console.WriteLine("Twin created successfully");
+            twin = FetchAndPrintTwin(twin_Id, client);
+            List<object> twinData = new List<object>();
+            twinData.Add(new Dictionary<string, object>() 
+            {
+                { "op", "add"},
+                { "path", "/Temperature"},
+                { "value", 25.0}
+            });
+
+            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+            Console.WriteLine("Updated Twin Properties");
+            FetchAndPrintTwin(twin_Id, client);
+            await DeleteTwin(client, twin_Id);
+        }
+
+        private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
+        {
+            BasicDigitalTwin twin;
+            Response<string> res = client.GetDigitalTwin(twin_Id);
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+            foreach (string prop in twin.CustomProperties.Keys)
+            {
+                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                    Console.WriteLine($"Property '{prop}': {value}");
+            }
+
+            return twin;
+        }
+        static async Task DeleteTwin(DigitalTwinsClient client, string id)
+        {
+            await FindAndDeleteOutgoingRelationshipsAsync(client, id);
+            await FindAndDeleteIncomingRelationshipsAsync(client, id);
+            try
+            {
+                await client.DeleteDigitalTwinAsync(id);
+                Console.WriteLine("Twin deleted successfully");
+                FetchAndPrintTwin(id, client);
+            }
+            catch (RequestFailedException exc)
+            {
+                Console.WriteLine($"*** Error:{exc.Message}");
+            }
+        }
+
+        public static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+
+                await foreach (string relJson in relsJson)
+                {
+                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+                    await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+       static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+
+                await foreach (IncomingRelationship incomingRel in incomingRels)
+                {
+                    await client.DeleteRelationshipAsync(incomingRel.SourceId, incomingRel.RelationshipId).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted incoming relationship {incomingRel.RelationshipId} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"_*_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+    }
+}
+
+```
+下面是上述程序的控制台输出： 
+
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="显示已创建、更新和删除克隆的控制台输出" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## <a name="manage-twins-with-cli"></a>用 CLI 管理孪生
 
-还可以使用 Azure 数字孪生 CLI 管理孪生。 有关命令，请参阅 [*操作方法：使用 Azure 数字孪生 CLI*](how-to-use-cli.md)。
+还可以使用 Azure 数字孪生 CLI 管理孪生。 可在 _How 中找到命令 [：使用 Azure 数字孪生 CLI *](how-to-use-cli.md)。
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

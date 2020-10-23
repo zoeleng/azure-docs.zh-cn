@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 01126a1ca8590d02d0cd0aa1c8554b34161dbac5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079201"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426277"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例中的新增功能有哪些？
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -100,7 +100,7 @@ Azure SQL 数据库和 Azure SQL 托管实例的相关文档已拆分为单独�
 |---------|---------|---------|---------|
 |[在从服务器信任组删除托管实例后，可以执行分布式事务](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|具有解决方法||
 |[托管实例缩放操作后无法执行分布式事务](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|具有解决方法||
-|Azure SQL 中的[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)和 `BACKUP` / `RESTORE` 托管实例中的语句无法使用 Azure AD 管理标识向 Azure 存储进行身份验证|09月2020|具有解决方法||
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) /Azure SQL 中的[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15)和 `BACKUP` / `RESTORE` 托管实例中的语句无法使用 Azure AD 管理标识向 Azure 存储进行身份验证|2020 年 9 月|具有解决方法||
 |[服务主体无法访问 Azure AD 和 AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 年 8 月|具有解决方法||
 |[没有使用 CHECKSUM 的手动备份可能无法还原](#restoring-manual-backup-without-checksum-might-fail)|2020 年 5 月|已解决|2020 年 6 月|
 |[在修改、禁用或启用现有作业后代理无响应](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020 年 5 月|已解决|2020 年 6 月|
@@ -139,7 +139,7 @@ Azure SQL 数据库和 Azure SQL 托管实例的相关文档已拆分为单独�
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT 和备份/还原语句无法使用托管标识访问 Azure 存储
 
-Bulk insert 语句无法 `DATABASE SCOPED CREDENTIAL` 与托管标识一起使用来向 Azure 存储进行身份验证。 解决方法是切换到共享访问签名身份验证。 下面的示例将无法在 Azure SQL (数据库和托管实例) ：
+Bulk insert、BACKUP 和 RESTORE 语句以及 OPENROWSET 函数无法 `DATABASE SCOPED CREDENTIAL` 与托管标识一起使用来向 Azure 存储进行身份验证。 解决方法是切换到共享访问签名身份验证。 下面的示例将无法在 Azure SQL (数据库和托管实例) ：
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';

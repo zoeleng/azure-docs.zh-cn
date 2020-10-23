@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292924"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425771"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>云合作伙伴门户 API 参考
 
 > [!NOTE]
 > 云合作伙伴门户 Api 与集成，并将在合作伙伴中心继续工作。 转换引入了少量更改。 请查看本文档中列出的对 [CPP api 所做的更改](#changes-to-cpp-apis-after-the-migration-to-partner-center) ，以确保你的代码在转换到合作伙伴中心后继续工作。 CPP Api 仅适用于过渡到合作伙伴中心之前已集成的现有产品;新产品应使用合作伙伴中心提交 Api。
 
-云合作伙伴门户 REST API允许以编程方式检索和操作工作负载、产品/服务和发布者配置文件。 API 使用基于角色的访问控制 (RBAC) 在处理时强制实施正确的权限。
+云合作伙伴门户 REST API允许以编程方式检索和操作工作负载、产品/服务和发布者配置文件。 Api 使用 azure 基于角色的访问控制 (Azure RBAC) 在处理时间强制执行正确的权限。
 
 本参考提供云合作伙伴门户 REST API 的技术详细信息。 本文档中的有效负载示例仅供参考，随着新功能的添加可能会发生变化。
 
@@ -50,7 +50,7 @@ ms.locfileid: "87292924"
 - [创建产品/服务](./cloud-partner-portal-api-creating-offer.md)
 - [发布产品/服务](./cloud-partner-portal-api-publish-offer.md)
 
-### <a name="operations"></a>操作
+### <a name="operations"></a>Operations
 
 - [检索操作](./cloud-partner-portal-api-retrieve-operations.md)
 - [取消操作](./cloud-partner-portal-api-cancel-operations.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017737"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426862"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>有关从媒体服务 v2 迁移到 v3 的指导
 
@@ -59,7 +59,7 @@ ms.locfileid: "92017737"
 * 与 v2 API 中的节目实体相比，实时输出更易于使用。 
 * 改进的 RTMP 支持（提高了稳定性并提供了更多的源编码器支持）。
 * RTMPS 安全引入。<br/>创建直播活动时，将获得 4 个引入 URL。 这 4 个引入 URL 几乎是相同的，具有相同的流式处理令牌 (AppId)，仅端口号部分不同。 其中两个 URL 是 RTMPS 的主要和备份 URL。   
-* 可对实体使用基于角色的访问控制 (RBAC)。 
+* 你有 Azure 基于角色的访问控制 (Azure RBAC) 上的实体。 
 
 ## <a name="known-issues"></a>已知问题
 

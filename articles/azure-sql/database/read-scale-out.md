@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319419"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426979"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>使用只读副本卸载只读的查询工作负荷
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-作为 [高可用性体系结构](high-availability-sla.md#premium-and-business-critical-service-tier-availability)的一部分，"高级" 和 "业务关键服务" 层中的每个单一数据库、弹性池数据库和托管实例都将自动配有一个主读写副本和多个辅助只读副本。 为次要副本预配的计算大小与主要副本相同。 “读取扩展”功能允许使用一个只读副本的计算容量而不是在读写副本上运行它们来卸载只读工作负荷。 这样，一些只读工作负荷可与读写工作负荷相隔离，并且不会影响其性能。 该功能适用于包含逻辑隔离的只读工作负荷（例如分析）的应用程序。 在“高级”和“业务关键”服务层级中，应用程序可以使用此额外的容量获得性能优势，而无需额外付费。
+作为[高可用性体系结构](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)的一部分，“高级”和“业务关键”服务层级中的每个单一数据库、弹性池数据库和托管实例会自动预配有一个主读写副本和多个次要只读副本。 为次要副本预配的计算大小与主要副本相同。 “读取扩展”功能允许使用一个只读副本的计算容量而不是在读写副本上运行它们来卸载只读工作负荷。 这样，一些只读工作负荷可与读写工作负荷相隔离，并且不会影响其性能。 该功能适用于包含逻辑隔离的只读工作负荷（例如分析）的应用程序。 在“高级”和“业务关键”服务层级中，应用程序可以使用此额外的容量获得性能优势，而无需额外付费。
 
 如果至少创建了一个次要副本，则“超大规模”服务层级还会提供“读取扩展”功能。 如果只读工作负荷需要的资源多于一个次要副本上的可用资源，则可使用多个次要副本对该只读工作负荷进行负载均衡。
 
