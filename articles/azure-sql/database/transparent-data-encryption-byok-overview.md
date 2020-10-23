@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602663"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441124"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>使用客户管理的密钥进行 Azure SQL 透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Azure SQL [透明数据加密 (TDE)](/sql/relational-databases/security/encrypti
 > 对于当前正在使用服务托管的 TDE 并想要开始使用客户管理的 TDE 的用户，在切换过程中数据将保持加密状态，且不会造成停机，也不需要重新加密数据库文件。 从服务托管的密钥切换到客户管理的密钥只需重新加密 DEK，此操作非常快捷且可在线完成。
 
 > [!NOTE]
-> 若要为 Azure SQL 客户提供静态数据的两个级别的加密，请使用256加密算法 (使用 AES-加密算法) 使用平台托管密钥。这会提供静态加密的一层，以及包含客户管理密钥（已提供）的 TDE。 此时，客户必须请求对此功能的访问权限。 如果你对此功能感兴趣，请联系 AzureSQLDoubleEncryptionAtRest@service.microsoft.com 。
+> 若要为 Azure SQL 客户提供静态数据的两个级别的加密，请使用256加密算法 (使用 AES-加密算法) 使用平台托管密钥。这会提供静态加密的一层，以及包含客户管理密钥（已提供）的 TDE。 对于 Azure SQL 数据库和托管实例，当基础结构加密打开时，将对所有数据库（包括 master 数据库和其他系统数据库）进行加密。 此时，客户必须请求对此功能的访问权限。 如果你对此功能感兴趣，请联系 AzureSQLDoubleEncryptionAtRest@service.microsoft.com 。
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>客户管理的 TDE 的优势
 

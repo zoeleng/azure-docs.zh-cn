@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658362"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457985"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 无缝单一登录
 
@@ -64,18 +64,20 @@ Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可使连接�
 | 操作系统\浏览器 |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|是\*|是|是|是\*\*\*|空值
-|Windows 8.1|是\*|空值|是|是\*\*\*|空值
+|Windows 8.1|是\*|[\*\*\*|是|是\*\*\*|空值
 |Windows 8|是\*|空值|是|是\*\*\*|空值
 |Windows 7|是\*|空值|是|是\*\*\*|空值
 |Windows Server 2012 R2 或更高版本|是\*\*|空值|是|是\*\*\*|空值
 |Mac OS X|空值|空值|是\*\*\*|是\*\*\*|是\*\*\*
 
 
-\*需要 Internet Explorer 版本 10 或更高版本
+\*需要 Internet Explorer 版本10或更高版本。
 
-\*\*需要 Internet Explorer 版本 10 或更高版本。 禁用增强保护模式
+\*\*需要 Internet Explorer 版本10或更高版本。 禁用增强保护模式。
 
-\*\*\*需要[额外的配置](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*需要 [其他配置](how-to-connect-sso-quick-start.md#browser-considerations)。
+
+\*\*\*\*需要 Microsoft Edge 版本77或更高版本。
 
 >[!NOTE]
 >对于 Windows 10，建议使用 [Azure AD join](../devices/concept-azure-ad-join.md)，以获得最佳的 Azure AD 单一登录体验。

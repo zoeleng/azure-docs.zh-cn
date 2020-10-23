@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055930"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441102"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics Azure Monitor (预览中的工作区数据导出) 
 使用 Azure Monitor 中的工作区数据导出，你可以在收集数据时，将数据从 Log Analytics 工作区中的选定表连续导出到 Azure 存储帐户或 Azure 事件中心。 Log Analytics 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -36,7 +36,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区中导出
 ## <a name="current-limitations"></a>当前限制
 
 - 当前只能使用 CLI 或 REST 请求执行配置。 不能使用 Azure 门户或 PowerShell。
-- 受支持的表当前仅限于下面 ( # tabes) 部分中的特定项。 如果数据导出规则包含不受支持的表，则操作将会成功，但不会为该表导出任何数据。 如果数据导出规则包含不存在的表，则它将失败，并且 * <tableName> 工作区中不存在错误表。*
+- 受支持的表当前仅限于在下面的 " [支持的表](#supported-tables) " 部分中指定的表。 如果数据导出规则包含不受支持的表，则操作将会成功，但不会为该表导出任何数据。 如果数据导出规则包含不存在的表，则将失败并出现错误 ```Table <tableName> does not exist in the workspace.```
 - Log Analytics 工作区可以位于除以下项之外的任何区域：
   - 瑞士北部
   - 瑞士西部
@@ -239,7 +239,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>不支持的表
 如果数据导出规则包含不受支持的表，则配置将会成功，但不会为该表导出任何数据。 如果以后支持该表，则将在此时导出其数据。
 
-如果数据导出规则包含不存在的表，则它将失败，并且 * <tableName> 工作区中不存在错误表*。
+如果数据导出规则包含不存在的表，则将失败并出现错误 ```Table <tableName> does not exist in the workspace.```
 
 
 ## <a name="supported-tables"></a>支持的表

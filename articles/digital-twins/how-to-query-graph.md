@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea12b3eb72ce05f2672f6ca0912cc67345413c3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078470"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461271"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>查询 Azure 数字孪生克隆图形
 
-本文提供了有关使用 [Azure 数字孪生查询语言](concepts-query-language.md) 查询克隆 [图形](concepts-twins-graph.md) 以获取信息的示例和更多详细信息。 使用 Azure 数字孪生 [**查询 api**](how-to-use-apis-sdks.md)在图形上运行查询。
+本文提供了有关使用 [Azure 数字孪生查询语言](concepts-query-language.md) 查询克隆 [图形](concepts-twins-graph.md) 以获取信息的示例和更多详细信息。 使用 Azure 数字孪生 [**查询 api**](/rest/api/digital-twins/dataplane/query)在图形上运行查询。
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 

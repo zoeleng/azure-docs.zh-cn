@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319973"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457956"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：配置筛选
 使用筛选功能可以控制本地目录中的哪些对象应该出现在 Azure Active Directory (Azure AD) 中。 默认配置采用配置的林中所有域内的所有对象。 我们一般建议使用这种配置。 使用 Exchange Online 和 Skype for Business 等 Microsoft 365 工作负载的用户将受益于完整的全局地址列表，因为这样可以发送电子邮件和呼叫每个联系人。 使用默认配置时，用户获得的体验与使用 Exchange 或 Lync 的本地实现获得的相同。
@@ -127,7 +127,7 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。 如果 Azure A
 3.  选择“自定义同步选项”，然后单击“下一步”。  
 4.  输入 Azure AD 凭据
 5.  在“连接的目录”  屏幕上，单击“下一步”  。
-6.  在“域和 OU 筛选”页上，单击“刷新”。    新域现在将显示，删除的域会消失。
+6.  在“域和 OU 筛选”页上，单击“刷新”。    新域现在会出现，并且删除的域将会消失。
    ![分区](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>更新运行配置文件

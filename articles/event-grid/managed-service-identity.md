@@ -1,14 +1,14 @@
 ---
-title: 使用托管服务标识进行事件传送
+title: 事件传递、托管服务标识和专用链接
 description: 本文介绍如何为 Azure 事件网格主题启用托管服务标识。 用于将事件转发到受支持的目标。
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534237"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460914"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>使用托管标识进行事件传递
 本文介绍了如何为 Azure 事件网格主题或域启用[托管服务标识](../active-directory/managed-identities-azure-resources/overview.md)。 使用它将事件转发到受支持的目标，如服务总线队列和主题、事件中心和存储帐户。
@@ -17,6 +17,9 @@ ms.locfileid: "87534237"
 1. 使用系统分配的标识创建主题或域，或者更新现有主题或域以启用标识。 
 1. 在目标（例如，服务总线队列）上将标识添加到相应角色（例如，服务总线数据发送方）。
 1. 创建事件订阅时，允许使用标识将事件传送到目标。 
+
+> [!NOTE]
+> 目前不能使用 [专用终结点](../private-link/private-endpoint-overview.md)传递事件。 有关详细信息，请参阅本文末尾的 " [专用终结点](#private-endpoints) " 部分。 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>创建带有标识的主题或域
 首先，让我们看看如何创建带有系统托管标识的主题或域。
@@ -279,6 +282,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## <a name="private-endpoints"></a>专用终结点
+目前不能使用 [专用终结点](../private-link/private-endpoint-overview.md)传递事件。 也就是说，如果你的已交付事件流量不得离开专用 IP 空间，则不支持严格的网络隔离要求。 
+
+但是，如果你的要求以安全方式使用加密通道和发送方的已知标识发送事件 (在这种情况下，事件网格) 使用公共 IP 空间，则可以使用 Azure 事件网格主题或配置了系统管理标识的域将事件传送到事件中心、服务总线或 Azure 存储服务，如本文中所示。 然后，可以使用在虚拟网络上部署的 Azure Functions 或 webhook 中配置的私有链接来请求事件。 请参阅示例：[连接到专用终结点，Azure Functions。](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/)
+
+请注意，在此配置下，流量将从事件网格到事件中心、服务总线或 Azure 存储的公共 IP/internet 进入，但可以对通道进行加密，并使用事件网格的托管标识。 如果将部署到虚拟网络的 Azure Functions 或 webhook 配置为通过专用链接使用事件中心、服务总线或 Azure 存储，则流量的该部分将显然在 Azure 中。
 
 
 ## <a name="next-steps"></a>后续步骤

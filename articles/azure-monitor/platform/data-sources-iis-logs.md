@@ -1,20 +1,23 @@
 ---
-title: Azure Monitor 中的 IIS 日志 | Microsoft Docs
+title: Azure Monitor 中的 Log Analytics 代理收集 IIS 日志
 description: Internet 信息服务 (IIS) 会将用户活动存储在日志文件中，并可通过 Azure Monitor 进行收集。  本文介绍了如何配置 IIS 日志收集以及在 Azure Monitor 中创建的记录的详细信息。
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008177"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461186"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure Monitor 中收集 IIS 日志
-Internet 信息服务 (IIS) 会将用户活动存储在日志文件中，并可通过 Azure Monitor 进行收集并将其存储为[日志数据](data-platform.md)。
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 代理收集 IIS 日志
+Internet Information Services (IIS) 将用户活动存储在日志文件中，该文件可由 Log Analytics 代理收集并存储在 [Azure Monitor 日志](data-platform.md)中。
+
+> [!IMPORTANT]
+> 本文介绍如何使用 [Log Analytics 代理](log-analytics-agent.md) （即 Azure Monitor 使用的代理之一）来收集 IIS 日志。 其他代理收集不同的数据，并以不同的方式进行配置。 请参阅 [Azure Monitor 代理概述](agents-overview.md) ，了解可用代理的列表及其可收集的数据。
 
 ![IIS 日志](media/data-sources-iis-logs/overview.png)
 
@@ -23,17 +26,17 @@ Azure Monitor 会从 IIS 创建的日志文件中收集条目，因此，必须[
 
 Azure Monitor 仅支持以 W3C 格式存储的 IIS 日志文件，不支持自定义字段或 IIS 高级日志记录。 Azure Monitor 不会收集 NCSA 或 IIS 本机格式的日志。
 
-在 Azure Monitor 中通过[“高级设置”菜单](agent-data-sources.md#configuring-data-sources)配置 IIS 日志。  只需选择**收集 W3C 格式 IIS 日志文件**，即可完成配置。
+在 Azure Monitor 从 Log Analytics 代理的 " [高级设置" 菜单](agent-data-sources.md#configuring-data-sources) 中配置 IIS 日志。  只需选择**收集 W3C 格式 IIS 日志文件**，即可完成配置。
 
 
 ## <a name="data-collection"></a>数据收集
-每次日志时间戳更改时，Azure Monitor 都会从每个代理收集 IIS 日志条目。 每 **5 分钟**读取一次日志。 如果由于任何原因，IIS 在创建新文件时未在滚动更新时间之前更新时间戳，则会在创建新文件后收集条目。 新文件创建的频率由 IIS 站点的“日志文件滚动更新计划”  设置控制，默认情况下为每天一次。 如果设置为“每小时”  ，则 Azure Monitor 每小时收集一次日志。 如果设置为“每日”  ，则 Azure Monitor 每 24 小时收集一次日志。
+每次日志时间戳更改时，Azure Monitor 都会从每个代理收集 IIS 日志条目。 每 **5 分钟**读取一次日志。 如果由于任何原因，IIS 在创建新文件时未在滚动更新时间之前更新时间戳，则会在创建新文件后收集条目。 新文件创建的频率由 IIS 站点的“日志文件滚动更新计划”**** 设置控制，默认情况下为每天一次。 如果设置为“每小时”****，则 Azure Monitor 每小时收集一次日志。 如果设置为“每日”****，则 Azure Monitor 每 24 小时收集一次日志。
 
 
 ## <a name="iis-log-record-properties"></a>IIS 日志记录属性
 IIS 日志记录的类型为 **W3CIISLog**，并具有下表中的属性：
 
-| properties | 说明 |
+| 属性 | 说明 |
 |:--- |:--- |
 | Computer |从中收集事件的计算机的名称。 |
 | cIP |客户端的 IP 地址。 |

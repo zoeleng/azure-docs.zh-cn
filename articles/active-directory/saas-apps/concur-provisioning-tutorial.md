@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317440"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455414"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>教程：为 Concur 配置自动用户预配
 
@@ -35,7 +35,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 在配置和启用预配服务前，需确定 Azure AD 中的哪些用户和/或组表示需要访问 Concur 应用的用户。 确定后，可按照此处的说明将这些用户分配到 Concur 应用：
 
-[向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-concur"></a>将用户分配到 Concur 的重要提示
 
@@ -94,7 +94,7 @@ Concur 顾问或客户管理员必须创建单独的 Web 服务管理员配置�
 
 8. 选择 Concur 实例，然后选择“预配”选项卡****。
 
-9. 将“预配模式”设置为“自动”。 
+9. 将“预配模式”  设置为“自动”  。 
  
     ![Azure 门户中的 Concur 的 "设置" 选项卡的屏幕截图。 预配模式设置为 "自动"，并且 "测试连接" 按钮已突出显示。](./media/concur-provisioning-tutorial/provisioning.png)
 
@@ -121,4 +121,3 @@ Concur 顾问或客户管理员必须创建单独的 Web 服务管理员配置�
 * [管理企业应用的用户帐户预配](tutorial-list.md)
 * [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 * [配置单一登录](concur-tutorial.md)
-

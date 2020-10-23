@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362886"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442076"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>与面向来宾用户的 AD FS 和第三方提供者的直接联合（预览）
 
@@ -66,7 +66,7 @@ ms.locfileid: "92362886"
 如果在标识提供者设置中指定元数据 URL，Azure AD 将在签名证书过期时自动续订该证书。 但是，如果出于任何原因在过期之前轮换证书，或未提供元数据 URL，Azure AD 将无法续订该证书。 在这种情况下，你将需要手动更新签名证书。
 
 ### <a name="limit-on-federation-relationships"></a>联合关系限制
-目前最多支持 1000 个联合关系。 此限制包括[内部联合](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)和直接联合。
+目前最多支持 1000 个联合关系。 此限制包括[内部联合](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)和直接联合。
 
 ### <a name="limit-on-multiple-domains"></a>多个域限制
 目前，我们不支持同一个租户中多个域的直接联合。
@@ -87,7 +87,7 @@ ms.locfileid: "92362886"
 
 ### <a name="saml-20-configuration"></a>SAML 2.0 配置
 
-可以将 Azure AD B2B 配置为与使用 SAML 协议的标识提供者联合，具体要求如下。 有关在 SAML 标识提供者和 Azure AD 之间建立信任的详细信息，请参阅[使用 SAML 2.0 标识提供者 (IdP) 进行单一登录](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp)。  
+可以将 Azure AD B2B 配置为与使用 SAML 协议的标识提供者联合，具体要求如下。 有关在 SAML 标识提供者和 Azure AD 之间建立信任的详细信息，请参阅[使用 SAML 2.0 标识提供者 (IdP) 进行单一登录](../hybrid/how-to-connect-fed-saml-idp.md)。  
 
 > [!NOTE]
 > 在 Azure AD 上，不能对直接联合的目标域进行 DNS 验证。 身份验证 URL 域必须与目标域相匹配，或者必须是所允许标识提供者的域。 有关详细信息，请参阅[限制](#limitations)部分。 

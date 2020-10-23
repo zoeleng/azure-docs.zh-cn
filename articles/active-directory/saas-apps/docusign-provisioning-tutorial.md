@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0a69784be3b03b030ef599037b57c2c20ea2c6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317423"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454671"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>教程：为 DocuSign 配置自动用户预配
 
@@ -35,7 +35,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 在配置和启用预配服务前，需确定 Azure AD 中哪些用户和/或组表示需要访问 DocuSign 应用的用户。 确定后，可按照此处的说明将这些用户分配到 DocuSign 应用：
 
-[向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>将用户分配到 DocuSign 的重要提示
 
@@ -63,7 +63,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 1. 选择 DocuSign 实例，然后选择“预配”**** 选项卡。
 
-1. 将“预配模式”设置为“自动”。 
+1. 将“预配模式”  设置为“自动”  。 
 
     ![Azure 门户中的 DocuSign 的 "设置" 选项卡的屏幕截图。 预配模式设置为 "自动"，并且突出显示 "管理员用户名"、"密码" 和 "测试连接"。](./media/docusign-provisioning-tutorial/provisioning.png)
 
@@ -93,6 +93,12 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 此操作会对“用户和组”部分中分配到 DocuSign 的任何用户启动初始同步。 初始同步执行的时间比后续同步长，只要服务正在运行，大约每隔 40 分钟就会进行一次同步。 可以使用“同步详细信息”**** 部分监视进度并跟踪指向预配活动日志的链接，这些日志描述了预配服务对 DocuSign 应用执行的所有操作。
 
 若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../app-provisioning/check-status-user-account-provisioning.md)。
+
+## <a name="troubleshooting-tips"></a>疑难解答指南
+* 可以通过在属性映射中使用 [开关](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) 和 [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) 函数，在 Docusign 中为用户设置角色或权限配置文件。 例如，当用户在 Azure AD 中分配了 "DS Admin" 角色时，以下表达式将设置 ID "8032066"。 如果未在 Azure AD 端为用户分配角色，则不会设置任何权限配置文件。 可以从 DocuSign [门户](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)检索该 ID。
+
+Switch (SingleAppRoleAssignment ( [appRoleAssignments] ) ，""，"8032066"，"DS Admin" ) 
+
 
 ## <a name="additional-resources"></a>其他资源
 

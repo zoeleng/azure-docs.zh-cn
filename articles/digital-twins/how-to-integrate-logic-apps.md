@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427981"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461067"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>使用自定义连接器与逻辑应用集成
 
@@ -43,7 +43,7 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 首先， **设置 Azure 数字孪生实例** ，并设置所需的身份验证，以便能够使用它。 为此，请按照[如何：*设置实例和身份验证*](how-to-set-up-instance-portal.md)中的说明设置实例和身份验证。 根据你的首选体验，针对 [Azure 门户](how-to-set-up-instance-portal.md)、[CLI](how-to-set-up-instance-cli.md) 或[自动化 Cloud Shell 部署脚本示例](how-to-set-up-instance-scripted.md)提供了有关设置的文章。 所有版本的说明还包含用于验证是否已成功完成每个步骤并准备好继续使用新实例的步骤。
 * 设置 Azure 数字孪生实例后，需要实例的 **_主机名_** ([在 Azure 门户) 中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) 。
 
-若要对 ADT 资源管理器应用程序进行身份验证，还需要设置 **应用程序注册**。 按照 [*如何：创建应用注册*](how-to-create-app-registration.md) 中的说明进行设置。 
+若要对连接器进行身份验证，还需要设置 **应用注册**。 按照 [*如何：创建应用注册*](how-to-create-app-registration.md) 中的说明进行设置。 
 * 进行应用注册后，将需要注册的 **_应用程序 (客户端) id_** 和 **_目录 (租户) ID_** ([在 Azure 门户) 中查找](how-to-create-app-registration.md#collect-client-id-and-tenant-id) 。
 
 ### <a name="get-app-registration-client-secret"></a>获取应用注册客户端密钥
@@ -68,7 +68,7 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 本文使用逻辑应用来更新 Azure 数字孪生实例中的克隆。 若要继续，你应在实例中至少添加一个 "双子入"。 
 
-可以使用 [DigitalTwins api](how-to-use-apis-sdks.md)、 [.Net (c # ) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)或 [Azure 数字孪生 CLI](how-to-use-cli.md)添加孪生。 有关如何使用这些方法创建孪生的详细步骤，请参阅 [*操作方法：管理数字孪生*](how-to-manage-twin.md)。
+可以使用 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins)、 [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)或 [Azure 数字孪生 CLI](how-to-use-cli.md)添加孪生。 有关如何使用这些方法创建孪生的详细步骤，请参阅 [*操作方法：管理数字孪生*](how-to-manage-twin.md)。
 
 你将需要已创建的实例中的克隆的克隆 **_ID_** 。
 
