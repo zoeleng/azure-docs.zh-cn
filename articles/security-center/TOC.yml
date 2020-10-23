@@ -131,10 +131,6 @@
           href: security-center-monitoring.md
         - name: 建议的参考列表
           href: recommendations-reference.md
-        - name: 保护网络资源
-          href: security-center-network-recommendations.md
-        - name: 保护标识和访问权限
-          href: security-center-identity-access.md
         - name: 管理安全建议
           items:
             - name: 自动响应建议
@@ -142,6 +138,10 @@
               href: workflow-automation.md
             - name: 从建议中免除资源
               href: exempt-resource.md
+        - name: 保护网络资源
+          href: security-center-network-recommendations.md
+        - name: 保护标识和访问权限
+          href: security-center-identity-access.md
     - name: Azure Defender 警报
       items:
         - name: Azure Defender 警报概述
@@ -170,7 +170,7 @@
         - name: 漏洞扫描
           items:
             - name: 适用于计算机的集成 VA 扫描程序
-              displayName: 'qualys, vulnerability, arc'
+              displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: 通过 BYOL VA 解决方案扫描 VM
               displayName: 'qualys, rapid7, vulnerability'
@@ -179,7 +179,7 @@
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: 禁止显示特定漏洞结果
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, rapid7'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: 使用实时 VM 访问保护管理端口
           items:
@@ -187,20 +187,24 @@
               displayName: 'jit, management'
               href: just-in-time-explained.md
             - name: 管理实时访问
-              displayName: 'jit, management'
+              displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: 使用集成的 Microsoft Defender for Endpoint 许可证
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
         - name: 管理自适应应用程序控制
+          displayName: 'aac, whitelist, allowlist, reviewgroup'
           href: security-center-adaptive-application.md
         - name: 使用文件完整性监视
           items:
             - name: 文件完整性监视概述
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring.md
             - name: 使用文件完整性监视比较基线
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
         - name: 管理自适应网络强化
+          displayName: anh
           href: security-center-adaptive-network-hardening.md
         - name: 强化 Docker 主机
           displayName: containers
