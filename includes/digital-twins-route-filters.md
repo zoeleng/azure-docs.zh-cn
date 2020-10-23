@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "91779494"
 ---
-| 筛选器名称 | 说明 | 筛选器文本架构 | 支持的值 | 
+| 筛选器名称 | 描述 | 筛选器文本架构 | 支持的值 | 
 | --- | --- | --- | --- |
 | True/False | 允许创建不带筛选的路由，或禁用路由，以便不发送事件 | `<true/false>` | `true` = 启用无筛选的路由 <br> `false` = 已禁用路由 |
 | 类型 | 通过数字克隆实例流动的[事件类型](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) | `type = '<eventType>'` | 下面是可能的事件类型值： <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
@@ -42,7 +42,7 @@ ms.locfileid: "91779494"
 
 定义路由筛选器时支持以下函数：
 
-|函数|说明|示例|
+|函数|描述|示例|
 |--|--|--|
 |STARTS_WITH (x、y) |如果值以字符串开头，则返回 true `x` `y` 。|`STARTS_WITH($body.$metadata.$model, 'dtmi:example:com:floor')`|
 |ENDS_WITH (x、y)  | 如果值以字符串结尾，则返回 true `x` `y` 。|`ENDS_WITH($body.$metadata.$model, 'floor;1')`|

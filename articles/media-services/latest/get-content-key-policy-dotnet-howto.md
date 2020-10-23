@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7f46c77d463873a5cdd5d8c4ac1b28f1b7d0b9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298991"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427076"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>从现有策略获取签名密钥
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-V3 API 的主要设计原则之一是使 API 更安全。 v3 API 不会在 **Get** 或 **List** 操作中返回机密或凭据。 请参阅此处的详细说明：有关详细信息，请参阅 [RBAC 和媒体服务帐户](rbac-overview.md)
+V3 API 的主要设计原则之一是使 API 更安全。 v3 API 不会在 **Get** 或 **List** 操作中返回机密或凭据。 请参阅此处的详细说明：有关详细信息，请参阅 [AZURE RBAC 和媒体服务帐户](rbac-overview.md)
 
 本文中的示例演示如何使用 .NET 从现有策略中获取签名密钥。 
  

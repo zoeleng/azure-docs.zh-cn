@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fb27868a06e133f6f90d0a7a18d218b74aafdd69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 828be8e790803e53b0434a71fb32a29a4a0c17bc
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420041"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428070"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>适用于 Azure Database for PostgreSQL 的 Azure 安全基线-单服务器
 
@@ -544,7 +544,7 @@ Azure Database for PostgreSQL 当前支持的 TLS 版本为 TLS 1.0、TLS 1.1、
 
 **责任**：共享
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
 **指导**：使用 azure RBAC)  (azure 基于角色的访问控制来控制对 Azure Database for PostgreSQL 控制平面的访问 (例如 Azure 门户) 。 对于数据平面访问（在数据库本身内），使用 SQL 查询创建用户并配置用户权限。 Azure RBAC 不影响数据库中的用户权限。
 
@@ -622,7 +622,7 @@ Microsoft 对支持 Azure Database for PostgreSQL 的基础系统执行漏洞管
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3：为第三方软件部署自动修补程序管理解决方案
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -910,7 +910,7 @@ Microsoft 对支持 Azure Database for PostgreSQL 的基础系统执行漏洞管
 
 对于在 Azure 应用服务上运行的用于访问 Azure Database for PostgreSQL 服务器的 Azure 虚拟机或 Web 应用程序，请结合使用托管服务标识与 Azure Key Vault ，以存储和检索 Azure Database for PostgreSQL 服务器的凭据。 请确保启用 Key Vault 软删除。
 
-使用托管标识在 Azure Active Directory (AD) 中为 Azure 服务提供一个自动托管标识。 使用托管标识可以向支持 Azure AD 身份验证的任何服务（包括 Key Vault）进行身份验证，无需在代码中放入任何凭据。
+使用托管标识在 Azure Active Directory (AD) 中为 Azure 服务提供一个自动托管标识。 使用托管标识可以向支持 Azure AD 身份验证的任何服务（包括 Key Vault）证明身份，无需在代码中放入任何凭据。
 
 - [如何配置托管标识](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

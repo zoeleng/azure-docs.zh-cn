@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79532172"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425662"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB 高级威胁防护
 
@@ -42,6 +42,6 @@ ms.locfileid: "79532172"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解有关 [Azure 安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)的详细信息
+* 了解有关 [Azure 安全中心](../security-center/security-center-introduction.md)的详细信息
 * 有关定价的详细信息，请参阅 [Azure Database for MariaDB 定价页](https://azure.microsoft.com/pricing/details/mariadb/) 
-* 使用 Azure 门户配置[Azure Database for MariaDB 高级威胁防护](howto-database-threat-protection-portal.md)  
+* 使用 Azure 门户配置[Azure Database for MariaDB 高级威胁防护](howto-database-threat-protection-portal.md)

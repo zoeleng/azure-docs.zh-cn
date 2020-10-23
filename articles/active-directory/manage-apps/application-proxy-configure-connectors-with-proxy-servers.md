@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207999"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426456"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>使用现有的本地代理服务器
 
@@ -121,7 +122,7 @@ OS 组件尝试通过针对 wpad.domainsuffix 执行 DNS 查找来查找代理�
 如果不能通过 FQDN 允许连接，请使用以下选项改为指定 IP 范围：
 
 * 允许连接器对所有目标进行出站访问。
-* 允许连接器对所有 Azure 数据中心 IP 范围进行出站访问。 使用 Azure 数据中心 IP 范围列表的难点在于，该列表每周更新。 需要制定一个流程来确保相应地更新访问规则。 只使用 IP 地址的子集可能导致配置中断。 若要下载最新的 Azure 数据中心 IP 范围，请导航到 [https://download.microsoft.com](https://download.microsoft.com) 并搜索 "AZURE IP 范围和服务标记"。 请确保选择相关的云。 例如，可以在 "Azure IP 范围和服务标记–公有云" 中找到公有云 IP 范围。 可以通过搜索 "Azure IP 范围和服务标记–美国政府 Cloud" 找到 US 政府云。
+* 允许连接器对所有 Azure 数据中心 IP 范围进行出站访问。 使用 Azure 数据中心 IP 范围列表的难点在于，该列表每周更新。 需要制定一个流程来确保相应地更新访问规则。 只使用 IP 地址的子集可能导致配置中断。 若要下载最新的 Azure 数据中心 IP 范围，请导航到 [https://download.microsoft.com](https://download.microsoft.com) 并搜索 "AZURE IP 范围和服务标记"。 请确保选择相关的云。 例如，可以在 "Azure IP 范围和服务标记–公有云" 中找到公有云 IP 范围。 可以通过搜索 "Azure IP 范围和服务标记–美国政府云" 找到美国政府云。
 
 #### <a name="proxy-authentication"></a>代理身份验证
 

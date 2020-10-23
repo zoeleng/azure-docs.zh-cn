@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 547b455dc776b7304e413b3b6f1330e7cedcf2a2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908290"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441991"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>将 Facebook 添加为外部标识的标识提供者
 
@@ -78,7 +78,7 @@ ms.locfileid: "87908290"
    `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > 使用在 Facebook 开发者控制台中创建的应用客户端 ID 和客户端密码。 有关详细信息，请参阅 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 一文。 
+   > 使用在 Facebook 开发者控制台中创建的应用客户端 ID 和客户端密码。 有关详细信息，请参阅 [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 一文。 
 
 ## <a name="how-do-i-remove-facebook-federation"></a>如何删除 Facebook 联合身份验证？
 可以删除 Facebook 联合身份验证设置。 这样做的话，任何已经在用户流中使用 Facebook 帐户注册的用户都将无法再登录。 
@@ -99,7 +99,7 @@ ms.locfileid: "87908290"
     `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
 
    > [!NOTE]
-   > 有关详细信息，请参阅 [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)。 
+   > 有关详细信息，请参阅 [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)。 
 
 ## <a name="next-steps"></a>后续步骤
 

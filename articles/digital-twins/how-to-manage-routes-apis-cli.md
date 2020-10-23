@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 775b2da1b3f07897a566b6e82fa3f6b0de10bd22
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: bd6c504970d4991ee7d5c44b091a5d91c9d0a166
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428264"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461390"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>在 Azure 数字孪生中管理终结点和路由 (Api 和 CLI) 
 
@@ -20,7 +20,7 @@ ms.locfileid: "92428264"
 
 在 Azure 数字孪生中，可以将 [事件通知](how-to-interpret-event-data.md) 路由到下游服务或连接的计算资源。 这是通过首先设置可接收事件的 **终结点** 来完成的。 然后，可以创建  [**事件路由**](concepts-route-events.md) ，用于指定由 Azure 数字孪生生成的哪些事件将传递到哪些终结点。
 
-可以通过 [EventRoutes api](how-to-use-apis-sdks.md)、 [.Net (c # ) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)或 [Azure 数字孪生 CLI](how-to-use-cli.md)来管理终结点和路由。 本文逐步讲解如何通过这些机制创建终结点和路由。
+可以通过 [事件路由 api](/rest/api/digital-twins/dataplane/eventroutes)、 [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)或 [Azure 数字孪生 CLI](how-to-use-cli.md)来管理终结点和路由。 本文逐步讲解如何通过这些机制创建终结点和路由。
 
 还可以通过 [Azure 门户](https://portal.azure.com)进行管理。 有关使用门户的本文版本，请参阅 [*操作方法：管理终结点和路由 (门户) *](how-to-manage-routes-portal.md)。
 
@@ -154,7 +154,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 若要将数据从 Azure 数字孪生实际发送到终结点，需要定义 **事件路由**。 通过 Azure 数字孪生 **EventRoutes api** ，开发人员可以将事件流连接到整个系统和下游服务。 有关事件路由的详细信息，请参阅 [*概念：路由 Azure 数字孪生事件*](concepts-route-events.md)。
 
-本节中的示例使用 [.net (c # ) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)。
+本节中的示例使用 [.net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)。
 
 **必备组件**：你需要先按本文前面所述创建终结点，然后才能继续创建路由。 终结点完成设置后，可以继续创建事件路由。
 

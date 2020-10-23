@@ -7,22 +7,22 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0123a89c4ec1c2c70326de1a2f685b08278333ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131490"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461543"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>将 IoT 中心遥测数据引入 Azure 数字孪生
 
 Azure 数字孪生由 IoT 设备和其他来源的数据驱动。 要在 Azure 数字孪生中使用的设备数据的常见来源为 [IoT 中心](../iot-hub/about-iot-hub.md)。
 
-将数据引入 Azure 数字孪生的过程是设置外部计算资源（如 [Azure 函数](../azure-functions/functions-overview.md)），该资源接收数据并使用 [DigitalTwins api](how-to-use-apis-sdks.md) 相应地设置属性或在 [数字孪生](concepts-twins-graph.md) 上触发遥测事件。 
+将数据引入 Azure 数字孪生的过程是设置外部计算资源（如 [Azure 函数](../azure-functions/functions-overview.md)），该资源接收数据并使用 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 相应地设置属性或在 [数字孪生](concepts-twins-graph.md) 上触发遥测事件。 
 
 本操作方法文档演练如何编写可从 IoT 中心引入遥测数据的 Azure 函数。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 继续此示例之前，需要将以下资源设置为系统必备组件：
 * **IoT 中心**。 有关说明，请参阅[此 Iot 中心快速入门](../iot-hub/quickstart-send-telemetry-cli.md)中的*创建 iot 中心*部分。

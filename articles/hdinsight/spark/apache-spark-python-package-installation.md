@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ef4a4f422bb787b3ead33ed1047d26d5e3c9c1f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29e4411a104bbcd1d6d5b3320df47a742e2ca84
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978065"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461237"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>使用脚本操作在 Azure HDInsight 上安全管理 Python 环境
 
@@ -46,8 +46,8 @@ HDInsight Spark 群集是通过 Anaconda 安装创建的。 群集中有两个 P
 |设置 |Python 2.7|Python 3.5|
 |----|----|----|
 |路径|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark 版本|默认设置为 2.7|空值|
-|Livy 版本|默认设置为 2.7|不适用|
+|Spark 版本|默认设置为 2.7|可以将配置更改为3。5|
+|Livy 版本|默认设置为 2.7|可以将配置更改为3。5|
 |Jupyter|PySpark 内核|PySpark3 内核|
 
 ## <a name="safely-install-external-python-packages"></a>安全安装外部 Python 包

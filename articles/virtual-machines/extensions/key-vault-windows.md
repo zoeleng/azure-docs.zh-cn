@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 78231fa5cc6e5061ab3e2b26faf97da76da83b32
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201675"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427902"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Key Vault 虚拟机扩展
 
@@ -26,6 +26,8 @@ ms.locfileid: "92201675"
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
+
+使用 Windows Server 2019 core 安装，已上传并转换为要在 Azure 中使用的自定义本地 VM 上还支持 Key Vault VM extensio。
 
 ### <a name="supported-certificate-content-types"></a>支持的证书内容类型
 
@@ -59,7 +61,7 @@ ms.locfileid: "92201675"
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
-          "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
@@ -92,7 +94,7 @@ ms.locfileid: "92201675"
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | 字符串 |
-| certificateStoreName | MY | string |
+| certificateStoreName | MY | 字符串 |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine 或 CurrentUser（区分大小写） | string |
 | requiredInitialSync | 是 | boolean |
@@ -194,9 +196,9 @@ ms.locfileid: "92201675"
     
     ```azurecli
        # Start the deployment
-         az vm extension set -n "KeyVaultForWindows" `
+         az vm extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
