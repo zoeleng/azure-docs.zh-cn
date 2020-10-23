@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044065"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425690"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure 数据工厂中的查找活动
 
@@ -72,7 +72,7 @@ firstRowOnly | 指示仅返回第一行还是返回所有行。 | Boolean | 不�
 
 查找结果会返回到活动运行结果的 `output` 节。
 
-* **当 `firstRowOnly` 设置为 `true`（默认值）时**，输出格式如以下代码所示。 查找结果位于固定的 `firstRow` 键下。 若要在后续活动中使用该结果，请使用 `@{activity('LookupActivity').output.firstRow.table` 模式。
+* **当 `firstRowOnly` 设置为 `true`（默认值）时**，输出格式如以下代码所示。 查找结果位于固定的 `firstRow` 键下。 若要在后续活动中使用该结果，请使用 `@{activity('LookupActivity').output.firstRow.table}` 模式。
 
     ```json
     {

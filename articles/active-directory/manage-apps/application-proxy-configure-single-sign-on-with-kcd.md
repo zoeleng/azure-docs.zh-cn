@@ -1,29 +1,25 @@
 ---
-title: 使用应用程序代理进行单一登录 | Microsoft 文档
-description: 介绍如何使用 Azure AD 应用程序代理提供单一登录。
+title: Azure Active Directory 中的基于 Kerberos 的单一登录 (SSO) 与应用程序代理
+description: 介绍如何使用 Azure Active Directory 应用程序代理提供单一登录。
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq2
+ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299742"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426490"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>使用应用程序代理通过 Kerberos 约束委派单一登录到应用程序
+# <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>用于单一登录的 Kerberos 约束委派 (SSO) 应用程序代理的应用
 
 可以为通过应用程序代理发布的使用集成的 Windows 身份验证保护的本地应用程序提供单一登录。 这些应用程序需要使用 Kerberos 票证进行访问。 应用程序代理使用 Kerberos 约束委派 (KCD) 来支持这些应用程序。 
 
@@ -43,7 +39,7 @@ ms.locfileid: "91299742"
 7. 连接器使用从 AD 收到的 Kerberos 令牌，将原始请求发送到应用程序服务器。
 8. 应用程序将响应发送到连接器，该响应随后返回到应用程序代理服务，最后返回到用户。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 开始为 IWA 应用程序使用 SSO 之前，请确保已在环境中完成以下设置和配置：
 
 * 应用（例如 SharePoint Web 应用）已设置为使用 Windows 集成身份验证。 有关详细信息，请参阅 [启用对 Kerberos 身份验证的支持](https://technet.microsoft.com/library/dd759186.aspx)或 for sharepoint，请参阅 [在 SharePoint 2013 中计划 Kerberos 身份验证](https://technet.microsoft.com/library/ee806870.aspx)。

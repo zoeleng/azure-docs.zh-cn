@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 3cfcd758390ff401c786c28d410c4d092a82c37f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368479"
+ms.locfileid: "92427639"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>配置最终用户如何对应用程序表示同意
 
@@ -80,7 +81,7 @@ ms.locfileid: "92368479"
 
 将替换 `{consent-policy-id}` 为要应用的策略的 ID。 你可以选择已创建的 [自定义应用许可策略](manage-app-consent-policies.md#create-a-custom-app-consent-policy) ，也可以从以下内置策略中进行选择：
 
-| ID | 描述 |
+| ID | 说明 |
 |:---|:------------|
 | microsoft-用户-默认-低 | **允许用户同意已验证的发布者对所选权限的应用**<br /> 仅允许对已验证的发布者和应用程序中已注册的应用程序的应用进行有限的用户同意，并且仅适用于分类为 "影响较低" 的权限。  (不要忘记对 [权限进行分类](configure-permission-classifications.md) ，以选择允许用户同意的权限。 )  |
 | microsoft-用户-默认-旧式 | **允许用户同意应用**<br /> 此选项允许所有用户同意任何不需要管理员同意的任何应用程序的权限 |

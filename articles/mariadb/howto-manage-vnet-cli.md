@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8c57013249d614b8933455c6b4d04d012ca87500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c011d1dc080bc3aedf0af96297f7d62784394dc4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502284"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425986"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for MariaDB VNet 服务终结点
 
@@ -28,7 +28,7 @@ ms.locfileid: "87502284"
 > 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
 
 ## <a name="configure-vnet-service-endpoints"></a>配置 VNet 服务终结点
-[az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) 命令用于配置虚拟网络。
+[az network vnet](/cli/azure/network/vnet?view=azure-cli-latest) 命令用于配置虚拟网络。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
 
@@ -36,12 +36,12 @@ ms.locfileid: "87502284"
 
 如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。 
 
-如果在本地运行 CLI，需要使用 [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
+如果在本地运行 CLI，需要使用 [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
 ```azurecli-interactive
 az login
 ```
 
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) 命令选择帐户下的特定订阅 ID。 用订阅的 **az login** 输出中的 **id** 属性代替订阅 id 占位符。
+如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) 命令选择帐户下的特定订阅 ID。 用订阅的 **az login** 输出中的 **id** 属性代替订阅 id 占位符。
 
 - 该帐户必须拥有创建虚拟网络和服务终结点所需的必要权限。
 
@@ -49,7 +49,7 @@ az login
 
 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/”权限。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
 
-详细了解[内置角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)以及将特定的权限分配到[自定义角色](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)。
+详细了解[内置角色](../role-based-access-control/built-in-roles.md)以及将特定的权限分配到[自定义角色](../role-based-access-control/custom-roles.md)。
 
 VNet 和 Azure 服务资源可以位于相同或不同的订阅中。 如果 VNet 和 Azure 服务资源位于不同的订阅中，资源应在相同的 Active Directory (AD) 租户下。 确保两个订阅都注册了 **Microsoft.Sql** 资源提供程序。 有关详细信息，请参阅[资源管理器注册][resource-manager-portal]
 

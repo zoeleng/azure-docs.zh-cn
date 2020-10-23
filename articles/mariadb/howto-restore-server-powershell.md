@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833243"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424508"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>如何使用 PowerShell 来备份和还原 Azure Database for MariaDB 服务器
 
@@ -23,14 +23,14 @@ Azure Database for MariaDB 服务器定期进行备份以便启用还原功能�
 
 若要完成本操作指南，需要：
 
-- 在本地安装[Az PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)或在浏览器中[Azure Cloud Shell](https://shell.azure.com/)
+- 在本地安装[Az PowerShell 模块](/powershell/azure/install-az-ps)或在浏览器中[Azure Cloud Shell](https://shell.azure.com/)
 - [Azure Database for MariaDB 服务器](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > 尽管 Az.MariaDb PowerShell 模块为预览版，但必须使用以下命令从 Az PowerShell 模块单独安装它：`Install-Module -Name Az.MariaDb -AllowPrerelease`。
 > Az.MariaDb PowerShell 模块正式版推出后，它会包含在将来的 Az PowerShell 模块发行版中，并在 Azure Cloud Shell 中原生提供。
 
-如果选择在本地使用 PowerShell，请使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。
+如果选择在本地使用 PowerShell，请使用 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,9 +75,9 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `Restore-AzMariaDbServer` cmdlet 的 PointInTimeRestore 参数集需要以下参数：
 
-| 设置 | 建议的值 | 说明  |
+| 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  源服务器所在的资源组。  |
+| ResourceGroupName |  myresourcegroup |  源服务器所在的资源组。  |
 | 名称 | mydemoserver-restored | 通过还原命令创建的新服务器的名称。 |
 | RestorePointInTime | 2020-03-13T13:59:00Z | 选择要还原的时间点。 此日期和时间必须在源服务器的备份保留期限内。 使用 ISO8601 日期和时间格式。 例如，可以使用自己的本地时区，如 2020-03-13T05:59:00-08:00。 也可以使用 UTC Zulu 格式，如 2018-03-13T13:59:00Z。 |
 | UsePointInTimeRestore | `<SwitchParameter>` | 使用时间点模式还原。 |
@@ -117,7 +117,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `Restore-AzMariaDbServer` cmdlet 的 GeoRestore 参数集需要以下参数：
 
-| 设置 | 建议的值 | 说明  |
+| 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | 新服务器属于的资源组的名称。|
 |名称 | mydemoserver-georestored | 新服务器的名称。 |

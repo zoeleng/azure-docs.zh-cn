@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77087124"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424673"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>配置到 CloudSimple 私有云的 VPN 连接
 
@@ -63,7 +63,7 @@ ms.locfileid: "77087124"
 
 4. 选择要使用的协议的 OpenVPN 配置文件 (. ovpn) ，并单击 " **打开**"。
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![突出显示可选择的 OpenVPN 配置文件的屏幕截图。](media/import-p2s-vpn-config-choose-ovpn.png)
 
 此时，该连接将显示在 "Viscosity" 菜单中。
 
@@ -71,7 +71,7 @@ ms.locfileid: "77087124"
 
 若要使用 Viscosity OpenVPN 客户端连接到 VPN，请从菜单中选择该连接。 菜单图标将更新以指示已建立连接。
 
-![VPN](media/vis03.png)
+![显示 CloudSimple VPN 连接状态的屏幕截图。](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>连接到多个私有云
 

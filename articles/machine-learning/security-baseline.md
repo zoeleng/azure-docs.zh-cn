@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb403e2d1b11391ca3917478955dc282a174ae88
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204327"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426301"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure 机器学习的 Azure 安全基线
 
@@ -303,13 +303,13 @@ Azure 机器学习为各种计算资源甚至为你自己的计算资源提供�
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
-**指导**：可以使用 Azure 门户中资源的“标识和访问管理”选项卡配置基于角色的访问控制 (RBAC)，并维护有关 Azure 机器学习资源的库存。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
+**指南**：你可以使用 Azure 门户中的资源的 "标识和访问管理" 选项卡来配置 azure RBAC)  (基于角色的访问控制，并在 Azure 机器学习资源上维护库存。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
 
-Azure 机器学习为 Azure 机器学习中的常见管理方案提供了内置的 RBAC。 在 Azure Active Directory (Azure AD) 中创建了配置文件的个人可将这些 RBAC 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对资源和 Azure 机器学习资源操作的访问权限。
+Azure 机器学习在 Azure 机器学习中为常见管理方案提供内置角色。 在 Azure Active Directory (Azure AD) 中具有配置文件的个人可以将这些角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure 机器学习资源的资源和操作的访问权限。
 
 还可以使用 Azure AD PowerShell 模块执行即席查询，以发现属于管理组的成员的帐户。
 
-- [了解 Azure 机器学习中基于角色的访问控制](how-to-assign-roles.md)
+- [了解 Azure 中基于角色的访问控制 Azure 机器学习](how-to-assign-roles.md)
 
 - [如何使用 PowerShell 获取 Azure Active Directory 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -902,13 +902,13 @@ Azure 机器学习完全支持用于跟踪工作的 Git 存储库；你可以将
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
-**指导**：Azure 机器学习为各种计算资源甚至为你自己的计算资源提供不同的支持。 对于你的组织拥有的计算资源，请使用 Azure 基于角色的访问控制 (RBAC) 来确保只有经过授权的用户才能访问你的自定义映像。 使用 Azure 共享映像库，可以将映像共享给组织内的不同用户、服务主体或 Azure AD 组。 将容器映像存储在 Azure 容器注册表中，并使用 RBAC 来确保只有经过授权的用户才能进行访问。
+**指导**：Azure 机器学习为各种计算资源甚至为你自己的计算资源提供不同的支持。 对于你的组织拥有的计算资源，请使用 azure RBAC)  (Azure 基于角色的访问控制，以确保只有经过授权的用户可以访问你的自定义映像。 使用 Azure 共享映像库，可以将映像共享给组织内的不同用户、服务主体或 Azure AD 组。 将容器映像存储在 Azure 容器注册表中，并使用 Azure RBAC 确保只有获得授权的用户才有权访问。
 
-- [了解 Azure 中的 RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [了解 Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [了解容器注册表的 RBAC](../container-registry/container-registry-roles.md)
+- [了解容器注册表的 Azure RBAC](../container-registry/container-registry-roles.md)
 
-- [如何在 Azure 中配置 RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [如何配置 Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [共享映像库概述](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1088,7 +1088,7 @@ Azure 机器学习为各种计算资源甚至为你自己的计算资源提供�
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4：确保保护备份和客户管理的密钥
 
-**指导**：对于本地备份，请使用备份到 Azure 时提供的密码提供静态加密。 使用基于角色的访问控制来保护备份和客户管理的密钥。 
+**指导**：对于本地备份，请使用备份到 Azure 时提供的密码提供静态加密。 使用 Azure 基于角色的访问控制来保护备份和客户管理的密钥。 
 
 在 Key Vault 中启用软删除和清除保护，以防止意外删除或恶意删除密钥。 如果将 Azure 存储用于存储备份，请启用软删除以在 blob 或 blob 快照被删除时保存和恢复数据。
  

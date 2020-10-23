@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82732897"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427798"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>为 Azure Database for MariaDB 计算资源预付预留容量
 
@@ -19,13 +19,13 @@ ms.locfileid: "82732897"
 
 不需要将保留分配给特定 Azure Database for MariaDB 服务器。 已在运行的 Azure Database for MariaDB 或新部署的，将自动获得预留价格的好处。 购买预留容量便会预付为期一年或三年的计算资源费用。 购买保留后，与预订属性匹配的 Azure database for MariaDB 计算费用不再按即用即付费率收费。 预订不涉及与 MariaDB 数据库服务器关联的软件、网络或存储费用。 在保留期结束时，计费权益过期，按即用即付价格对 Azure Database for MariaDB 进行计费。 虚拟机预留实例不自动续订。 有关定价信息，请参阅 [Azure Database for MariaDB 保留容量产品](https://azure.microsoft.com/pricing/details/mariadb/)。 </br>
 
-可以在 [Azure 门户](https://portal.azure.com/)中购买 Azure Database for MariaDB 保留容量。 通过[提前付款或按月付款](../cost-management-billing/reservations/monthly-payments-reservations.md)的方式为预留付款。 购买保留容量：
+可以在 [Azure 门户](https://portal.azure.com/)中购买 Azure Database for MariaDB 保留容量。 通过[提前付款或按月付款](../cost-management-billing/reservations/prepare-buy-reservation.md)的方式为预留付款。 购买保留容量：
 
 * 对于至少一个企业或个人订阅，你必须以即用即付费率作为所有者角色。
 * 对于企业订阅，必须在 [EA 门户](https://ea.azure.com/)中启用“添加预留实例”****。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
 * 对于云解决方案提供商 (CSP) 计划中，只有管理员代理或销售代理才能购买 Azure Database for MariaDB 保留容量。 </br>
 
-有关企业客户和即用即付客户如何针对预订购买付费的详细信息，请参阅 [了解企业注册的 azure 保留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) 和了解即 [用即付订阅的 azure 保留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)。
+有关企业客户和即用即付客户如何针对预订购买付费的详细信息，请参阅 [了解企业注册的 azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 和了解即 [用即付订阅的 azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage.md)。
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>在购买之前确定正确的服务器大小
@@ -60,7 +60,7 @@ ms.locfileid: "82732897"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>对预留执行取消、交换或退款操作
 
-可以在一定的限制下对预留执行取消、交换或退款操作。 有关详细信息，请参阅 [Azure 预留的自助交换和退款](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)。
+可以在一定的限制下对预留执行取消、交换或退款操作。 有关详细信息，请参阅 [Azure 预留的自助交换和退款](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)。
 
 ## <a name="vcore-size-flexibility"></a>vCore 大小灵活性
 
@@ -77,9 +77,9 @@ VCore 预订折扣将自动应用于与 Azure Database for MariaDB 保留容量�
 
 若要了解有关 Azure 预订的详细信息，请参阅以下文章：
 
-* [什么是 Azure 保留](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)？
-* [管理 Azure 预留项](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [了解 Azure 预留折扣](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [了解即用即付订阅的预留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)
-* [了解企业合约的预留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](https://docs.microsoft.com/partner-center/azure-reservations)
+* [什么是 Azure 保留](../cost-management-billing/reservations/save-compute-costs-reservations.md)？
+* [管理 Azure 预留项](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [了解 Azure 预留折扣](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [了解即用即付订阅的预留使用情况](../cost-management-billing/reservations/understand-reservation-charges-mariadb.md)
+* [了解企业合约的预留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](/partner-center/azure-reservations)

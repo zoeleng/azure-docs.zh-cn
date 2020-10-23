@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97f5bd1718c7612ce330ee27ee64f9ad885591b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715384"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425830"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>适用于队列存储的安全建议
 
@@ -65,5 +65,5 @@ Azure 安全中心会定期分析 Azure 资源的安全状态，以识别潜在�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure 安全文档](https://docs.microsoft.com//azure/security/)
-- [安全开发文档](https://docs.microsoft.com/azure/security/develop/)。
+- [Azure 安全文档](/azure/security/)
+- [安全开发文档](/azure/security/develop/)。

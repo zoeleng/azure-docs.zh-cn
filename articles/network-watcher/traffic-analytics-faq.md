@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87479840"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426547"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常见问题解答
 
@@ -58,7 +58,7 @@ ms.locfileid: "87479840"
 
 3. 若要列出分配给特定用户的所有角色，请使用 **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**。 
 
-如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关详细信息，请参阅[使用 Azure PowerShell 管理基于角色的访问控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
+如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关更多详细信息，请参阅 [使用 Azure PowerShell 添加或删除 Azure 角色分配](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>流量分析在哪些 Azure 区域中可用？

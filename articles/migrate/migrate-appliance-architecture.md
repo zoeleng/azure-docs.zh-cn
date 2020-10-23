@@ -3,12 +3,12 @@ title: Azure Migrate 设备体系结构
 description: 概述了服务器评估和迁移期间使用的 Azure Migrate 设备。
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a01932a9e4f72d7ce6747214b53f124d54942894
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d38796d4c4a1149d096f5bb06f7a11bc71b33cc5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312913"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428154"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 设备体系结构
 
@@ -51,8 +51,8 @@ Azure Migrate 设备用于以下应用场景。
 **操作** | **详细信息** | **权限**
 --- | --- | ---
 **注册源提供程序** | 这些资源提供程序在设备设置过程中所选的订阅中注册： OffAzure、KeyVault。<br/><br/> 通过注册资源提供程序来配置订阅，以供资源提供程序使用。 | 需要订阅的“参与者”或“所有者”角色才能注册资源提供程序。
-**创建 Azure AD 应用程序通信** | Azure Migrate 将在设备上运行的代理和在 Azure 上运行的相应服务之间创建一个 Azure Active Directory (Azure AD) 的身份验证和授权 (应用程序。<br/><br/> 此应用没有权限进行 Azure 资源管理器调用，或对任何资源的 RBAC 访问权限。 | 需要 [这些权限](./tutorial-discover-vmware.md#prepare-an-azure-user-account) 才能 Azure Migrate 创建应用。
-**创建 Azure AD 应用-密钥保管库** | 仅为 VMware Vm 到 Azure 的无代理迁移创建此应用。<br/><br/> 它以独占方式用于访问在用户订阅中为无代理迁移创建的密钥保管库。<br/><br/> 当从设备启动发现时，它会在客户的租户)  (创建的 Azure 密钥保管库中具有 RBAC 访问权限。 | 需要 [这些权限](./tutorial-discover-vmware.md#prepare-an-azure-user-account) 才能 Azure Migrate 创建应用。
+**创建 Azure AD 应用程序通信** | Azure Migrate 将在设备上运行的代理和在 Azure 上运行的相应服务之间创建一个 Azure Active Directory (Azure AD) 的身份验证和授权 (应用程序。<br/><br/> 此应用无权对任何资源进行 Azure 资源管理器调用或 Azure RBAC 访问权限。 | 需要 [这些权限](./tutorial-discover-vmware.md#prepare-an-azure-user-account) 才能 Azure Migrate 创建应用。
+**创建 Azure AD 应用-密钥保管库** | 仅为 VMware Vm 到 Azure 的无代理迁移创建此应用。<br/><br/> 它以独占方式用于访问在用户订阅中为无代理迁移创建的密钥保管库。<br/><br/> 当从设备启动发现时，它会在客户的租户)  (创建的 Azure 密钥保管库上提供 Azure RBAC 访问权限。 | 需要 [这些权限](./tutorial-discover-vmware.md#prepare-an-azure-user-account) 才能 Azure Migrate 创建应用。
 
 
 

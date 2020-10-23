@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976228"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424353"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 
@@ -39,7 +39,7 @@ VPN 网关连接依赖于多个资源配置，其中每个资源包含可配置�
 
 VPN 网关需要 `-GatewayType` *Vpn*。
 
-例如：
+示例：
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -53,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>配置网关 SKU
 
-#### <a name="azure-portal"></a>Azure 门户
+**Azure 门户**
 
 如果使用 Azure 门户创建 Resource Manager 虚拟网络网关，可以使用下拉列表选择网关 SKU。 显示的选项对应于所选的网关类型和 VPN 类型。
 
-#### <a name="powershell"></a>PowerShell
+**PowerShell**
 
 以下 PowerShell 示例将 `-GatewaySku` 指定为 VpnGw1。 使用 PowerShell 创建网关时，需要首先创建 IP 配置，然后变量引用它。 在此示例中，配置变量为 $gwipconfig。
 
@@ -67,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+**Azure CLI**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -82,6 +82,12 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 3. 不能从基本/标准/高性能 SKU 调整为 VpnGw SKU****。 而只能[更改](#change)为新版 SKU。
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>重设网关大小
+
+**Azure 门户**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 

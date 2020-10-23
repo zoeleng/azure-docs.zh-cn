@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207081"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427534"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>创建和管理 Azure 机器学习计算实例
 
@@ -111,7 +111,7 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 * [Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)。  有关如何查找此模板中所需的 TenantID 和 ObjectID 的详细信息，请参阅 [查找身份验证配置的标识对象 id](../healthcare-apis/find-identity-object-ids.md)。  你还可以在 Azure Active Directory 门户中找到这些值。
 * REST API
 
-你为其创建计算实例的数据科研人员需要以下各项： [基于角色的访问控制 (RBAC) ](../role-based-access-control/overview.md) 权限： 
+你为其创建计算实例的数据科研人员需要以下 azure [RBAC) 权限的基于角色的访问控制 (](../role-based-access-control/overview.md) ： 
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
@@ -161,7 +161,7 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Delete
+* 删除
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 
     有关详细信息，请参阅 [az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)。
 
-* Delete
+* 删除
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
@@ -226,9 +226,9 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 
 ---
 
-使用 [RBAC](/azure/role-based-access-control/overview) 可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，如果只是特定计算实例的创建者，或在代表其创建的用户分配的情况下，则允许在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例专用于具有根访问权限的单个用户，可以通过 Jupyter/JupyterLab/RStudio 终端。 计算实例将具有单用户登录，并且所有操作都将使用该用户的标识进行实验性和归属的运行。 SSH 访问是通过公钥/私钥机制控制的。
+使用[AZURE RBAC](/azure/role-based-access-control/overview) ，可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，如果只是特定计算实例的创建者，或在代表其创建的用户分配的情况下，则允许在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例专用于具有根访问权限的单个用户，可以通过 Jupyter/JupyterLab/RStudio 终端。 计算实例将具有单用户登录，并且所有操作都将使用该用户在 Azure RBAC 中的标识和试验运行的归属。 SSH 访问是通过公钥/私钥机制控制的。
 
-可以通过 RBAC 来控制这些操作：
+Azure RBAC 可控制以下操作：
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*

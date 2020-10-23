@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965142"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424574"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 概述的组合安全信息注册
 
@@ -34,7 +34,7 @@ ms.locfileid: "91965142"
 
 在启用新体验之前，请查看此以管理员为中心的文档和以用户为中心的文档，以确保你了解此功能的功能和效果。 根据 [用户文档](../user-help/security-info-setup-signin.md) 的培训，为用户准备新体验，并帮助确保成功部署。
 
-Azure AD 组合的安全信息注册目前不适用于国内云，如 Azure 美国政府版、Azure 德国或 Azure 中国世纪互联。
+Azure AD 组合的安全信息注册当前不适用于 Azure 德国或 Azure 中国世纪互联的国内云。 适用于 Azure 美国政府版。
 
 > [!IMPORTANT]
 > 同时启用了原始预览和增强组合注册体验的用户将看到新的行为。 同时启用这两种体验的用户只会看到新的 "我的配置文件" 体验。 新的 *"我的个人资料* " 与组合注册的外观一致，并为用户提供无缝体验。 用户可以通过转到来查看我的个人资料 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 。

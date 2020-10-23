@@ -7,12 +7,12 @@ ms.topic: how-to
 author: github-2407
 ms.author: krsh
 ms.date: 10/15/2020
-ms.openlocfilehash: 21d6d8ec0b59b7bfb7c79884c73db0cbccfe971c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 36eebb218ed2b2d9a48cf7d970896115af5cf6f8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283620"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424864"
 ---
 # <a name="test-a-virtual-machine-image"></a>测试虚拟机映像
 
@@ -31,7 +31,7 @@ ms.locfileid: "92283620"
 
 本部分介绍如何创建和部署用户提供的虚拟机 (VM) 映像。 为此，可以从 Azure 部署的虚拟硬盘提供操作系统和数据磁盘 VHD 映像。 这些步骤使用通用 VHD 部署 VM。
 
-1. 登录 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.com/)。
 2. 将通用操作系统 VHD 和数据磁盘 Vhd 上传到 Azure 存储帐户。
 3. 在主页上，选择 " **创建资源**"，搜索 "模板部署"，然后选择 " **创建**"。
 4. 选择“在编辑器中生成自己的模板”。
@@ -1737,25 +1737,60 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>如何使用卷来使用 Linux 操作系统上的 Self-Test API
 
-在卷中调用 API：
+在此示例中，卷将用于对 Azure Active Directory 和 Self-Host VM 进行 POST API 调用。
 
-1. 使用 curl 命令调用 API。
-2. 方法是 Post，内容类型是 JSON，如以下代码片段示例所示。
+1. 请求 Azure AD 令牌向自托管 VM 进行身份验证
 
-```shell
-curl POST -H "Content-Type:application/json" -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
-https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "UserName":"XXX",
-"Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD", "AppId":"XXXX-XXXX-XXXX",
-"TenantId "XXXX-XXXX-XXXX"}'
-```
+   确保在卷请求中替换正确的值。
 
-<br>下面是使用卷调用 API 的示例：
+   ```
+   curl --location --request POST 'https://login.microsoftonline.com/{TENANT_ID}/oauth2/token' \
+   --header 'Content-Type: application/x-www-form-urlencoded' \
+   --data-urlencode 'grant_type=client_credentials' \
+   --data-urlencode 'client_id={CLIENT_ID} ' \
+   --data-urlencode 'client_secret={CLIENT_SECRET}' \
+   --data-urlencode 'resource=https://management.core.windows.net'
+   ```
+   下面是来自请求的响应示例：
+   ```JSON
+   {
+       "token_type": "Bearer",
+       "expires_in": "86399",
+       "ext_expires_in": "86399",
+       "expires_on": "1599663998",
+       "not_before": "1599577298",
+       "resource": "https://management.core.windows.net",
+       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJS…"
+   }
+   ```
 
-![使用卷调用 API 的示例。](media/vm/use-curl-call-api.png)
+2. 提交针对自测 VM 的请求
 
-<br>下面是来自卷曲调用的 JSON 结果：
+   确保将持有者令牌和参数替换为正确的值。
 
-![来自卷调用的 JSON 结果。](media/vm/test-results-json-viewer-3.png)
+   ```
+   curl --location --request POST 'https://isvapp.azurewebsites.net/selftest-vm' \
+   --header 'Content-Type: application/json' \
+   --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJS…' \
+   --data-raw '{
+       "DNSName": "avvm1.eastus.cloudapp.azure.com",
+       "UserName": "azureuser",
+       "Password": "SECURE_PASSWORD_FOR_THE_SSH_INTO_VM",
+       "OS": "Linux",
+       "PortNo": "22",
+       "CompanyName": "COMPANY_NAME",
+       "AppId": "CLIENT_ID_SAME_AS_USED_FOR_AAD_TOKEN ",
+       "TenantId": "TENANT_ID_SAME_AS_USED_FOR_AAD_TOKEN"
+   }'
+   ```
+
+   自测试 VM api 调用的示例响应
+   ```JSON
+   {
+       "TrackingId": "9bffc887-dd1d-40dd-a8a2-34cee4f4c4c3",
+       "Response": "{\"SchemaVersion\":1,\"AppCertificationCategory\":\"Microsoft Single VM Certification\",\"ProviderID\":\"050DE427-2A99-46D4-817C-5354D3BF2AE8\",\"OSName\":\"Ubuntu 18.04\",\"OSDistro\":\"Ubuntu 18.04.5 LTS\",\"KernelVersion\":\"5.4.0-1023-azure\",\"KernelFullVersion\":\"Linux version 5.4.0-1023-azure (buildd@lgw01-amd64-053) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #23~18.04.1-Ubuntu SMP Thu Aug 20 14:46:48 UTC 2020\\n\",\"OSVersion\":\"18.04\",\"CreatedDate\":\"09/08/2020 01:13:47\",\"TestResult\":\"Pass\",\"APIVersion\":\"1.5\",\"Tests\":[{\"TestID\":\"48\",\"TestCaseName\":\"Bash History\",\"Description\":\"Bash history files should be cleared before creating the VM image.\",\"Result\":\"Passed\",\"ActualValue\":\"No file Exist\",\"RequiredValue\":\"1024\"},{\"TestID\":\"39\",\"TestCaseName\":\"Linux Agent Version\",\"Description\":\"Azure Linux Agent Version 2.2.41 and above should be installed.\",\"Result\":\"Passed\",\"ActualValue\":\"2.2.49\",\"RequiredValue\":\"2.2.41\"},{\"TestID\":\"40\",\"TestCaseName\":\"Required Kernel Parameters\",\"Description\":\"Verifies the following kernel parameters are set console=ttyS0, earlyprintk=ttyS0, rootdelay=300\",\"Result\":\"Warning\",\"ActualValue\":\"Missing Parameter: rootdelay=300\\r\\nMatched Parameter: console=ttyS0,earlyprintk=ttyS0\",\"RequiredValue\":\"console=ttyS0#earlyprintk=ttyS0#rootdelay=300\"},{\"TestID\":\"41\",\"TestCaseName\":\"Swap Partition on OS Disk\",\"Description\":\"Verifies that no Swap partitions are created on the OS disk.\",\"Result\":\"Passed\",\"ActualValue\":\"No. of Swap Partitions: 0\",\"RequiredValue\":\"swap\"},{\"TestID\":\"42\",\"TestCaseName\":\"Root Partition on OS Disk\",\"Description\":\"It is recommended that a single root partition is created for the OS disk.\",\"Result\":\"Passed\",\"ActualValue\":\"Root Partition: 1\",\"RequiredValue\":\"1\"},{\"TestID\":\"44\",\"TestCaseName\":\"OpenSSL Version\",\"Description\":\"OpenSSL Version should be >=0.9.8.\",\"Result\":\"Passed\",\"ActualValue\":\"1.1.1\",\"RequiredValue\":\"0.9.8\"},{\"TestID\":\"45\",\"TestCaseName\":\"Python Version\",\"Description\":\"Python version 2.6+ is highly recommended. \",\"Result\":\"Passed\",\"ActualValue\":\"2.7.17\",\"RequiredValue\":\"2.6\"},{\"TestID\":\"46\",\"TestCaseName\":\"Client Alive Interval\",\"Description\":\"It is recommended to set ClientAliveInterval to 180. On the application need, it can be set between 30 to 235. \\nIf you are enabling the SSH for your end users this value must be set as explained.\",\"Result\":\"Warning\",\"ActualValue\":\"120\",\"RequiredValue\":\"ClientAliveInterval 180\"},{\"TestID\":\"49\",\"TestCaseName\":\"OS Architecture\",\"Description\":\"Only 64-bit operating system should be supported.\",\"Result\":\"Passed\",\"ActualValue\":\"x86_64\\n\",\"RequiredValue\":\"x86_64,amd64\"},{\"TestID\":\"50\",\"TestCaseName\":\"Security threats\",\"Description\":\"Identifies OS with recent high profile vulnerability that may need patching.  Ignore warning if system was patched as appropriate.\",\"Result\":\"Passed\",\"ActualValue\":\"Ubuntu 18.04\",\"RequiredValue\":\"OS impacted by GHOSTS\"},{\"TestID\":\"51\",\"TestCaseName\":\"Auto Update\",\"Description\":\"Identifies if Linux Agent Auto Update is enabled or not.\",\"Result\":\"Passed\",\"ActualValue\":\"# AutoUpdate.Enabled=y\\n\",\"RequiredValue\":\"Yes\"},{\"TestID\":\"52\",\"TestCaseName\":\"SACK Vulnerability patch verification\",\"Description\":\"Checks if the running Kernel Version has SACK vulnerability patch.\",\"Result\":\"Passed\",\"ActualValue\":\"Ubuntu 18.04.5 LTS,Linux version 5.4.0-1023-azure (buildd@lgw01-amd64-053) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #23~18.04.1-Ubuntu SMP Thu Aug 20 14:46:48 UTC 2020\",\"RequiredValue\":\"Yes\"}]}"
+   }
+   ```
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,12 +3,12 @@ title: 跨租户管理体验
 description: Azure 委派资源管理可实现跨租户管理体验。
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424153"
 ---
 # <a name="cross-tenant-management-experiences"></a>跨租户管理体验
 
@@ -160,7 +160,7 @@ Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSu
 对于所有方案，都请注意以下当前限制：
 
 - 可以使用 Azure Lighthouse 来执行 Azure 资源管理器处理的请求。 这些请求的操作 URI 都以 `https://management.azure.com` 开头。 但是，Azure Lighthouse 不支持 Key Vault 机密访问或存储数据访问)  (资源类型实例处理的请求。 这些请求的操作 URI 通常以实例特有的地址开头，例如 `https://myaccount.blob.core.windows.net` 或 `https://mykeyvault.vault.azure.net/`。 后者通常也是数据操作，而不是管理操作。
-- 角色分配必须使用基于角色的访问控制 (RBAC) [内置角色](../../role-based-access-control/built-in-roles.md)。 除所有者或具有权限的任何内置角色外，Azure 委托资源管理当前支持所有内置角色 [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) 。 仅在[向托管标识分配角色](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)时才支持使用用户访问管理员角色。  不支持自定义角色和[经典订阅管理员角色](../../role-based-access-control/classic-administrators.md)。
+- 角色分配必须使用 [Azure 内置角色](../../role-based-access-control/built-in-roles.md)。 除所有者或具有权限的任何内置角色外，Azure 委托资源管理当前支持所有内置角色 [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) 。 仅在[向托管标识分配角色](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)时才支持使用用户访问管理员角色。  不支持自定义角色和[经典订阅管理员角色](../../role-based-access-control/classic-administrators.md)。
 - 尽管你可以加入使用 Azure Databricks 的订阅，但管理租户中的用户目前无法在委托订阅上启动 Azure Databricks 工作区。
 - 尽管可以加入具有资源锁的订阅和资源组，但这些锁定不会阻止管理租户中的用户执行操作。 用于保护系统管理资源（例如由 Azure 托管应用程序或 Azure 蓝图创建的资源）的[拒绝分配](../../role-based-access-control/deny-assignments.md)（系统分配的拒绝分配）会阻止管理租户中的用户对这些资源进行操作；但是，目前客户租户中的用户无法创建自己的拒绝分配（用户分配的拒绝分配）。
 

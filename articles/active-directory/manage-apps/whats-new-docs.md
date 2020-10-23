@@ -10,23 +10,23 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 14e4cd141094763d37a1309572bb4da4efb3f7ce
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375208"
+ms.locfileid: "92428028"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 应用程序管理：新增功能
 
-欢迎使用 Azure Active Directory 应用程序管理文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。
+欢迎使用 Azure Active Directory 应用程序管理文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。 若要了解应用程序管理服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
 
 ## <a name="september-2020"></a>2020 年 9 月
 
 ### <a name="new-articles"></a>新文章
 - [快速入门：在 Azure Active Directory (Azure AD) 租户中为应用程序设置基于 OIDC 的单一登录 (SSO)](add-application-portal-setup-oidc-sso.md)
 - [快速入门：将用户分配到使用 Azure AD 作为标识提供者的应用](add-application-portal-assign-users.md)
-- [新增功能](whats-new-docs.md)
+- [Docs 中的新增内容](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>更新的文章

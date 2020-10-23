@@ -3,12 +3,12 @@ title: Azure 实验室服务 - 管理员指南 | Microsoft Docs
 description: 本指南可帮助使用 Azure 实验室服务创建和管理实验室帐户的管理员。
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371403"
+ms.locfileid: "92425308"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure 实验室服务 - 管理员指南
 管理大学云资源的信息技术 (IT) 管理员通常负责为学校设置实验室帐户。 设置实验室帐户后，管理员或教师会创建实验室帐户中包含的课堂实验室。 本文简要概述了所涉及的 Azure 资源以及创建这些资源的指导。
@@ -178,7 +178,7 @@ ms.locfileid: "92371403"
 
 ## <a name="manage-identity"></a>管理标识
 
-使用 [Azure 基于角色的访问控制](https://docs.microsoft.com/azure/role-based-access-control/overview)，可以分配以下角色以授予对实验室帐户和课堂实验室的访问权限：
+使用 azure [RBAC)  (基于角色的访问控制 ](https://docs.microsoft.com/azure/role-based-access-control/overview)，可以分配以下角色以授予对实验室帐户和教室实验室的访问权限：
 
 - 实验室帐户所有者
 

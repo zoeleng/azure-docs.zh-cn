@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996349"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426653"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>使用 Azure 逻辑应用和 Azure 服务总线在云中交换消息
 
@@ -60,7 +60,7 @@ ms.locfileid: "91996349"
       ![复制服务总线命名空间连接字符串](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > 若要确认连接字符串是与服务总线命名空间关联还是与消息传送实体（例如队列）关联，请在该连接字符串中搜索 `EntityPath`  参数。 如果找到了该参数，则表示连接字符串适用于特定的实体，不是适用于逻辑应用的正确字符串。
+   > 若要确认连接字符串是与服务总线命名空间关联还是与消息传送实体（例如队列）关联，请在该连接字符串中搜索 `EntityPath` 参数。 如果找到了该参数，则表示连接字符串适用于特定的实体，不是适用于逻辑应用的正确字符串。
 
 ## <a name="add-service-bus-trigger"></a>添加服务总线触发器
 
@@ -68,18 +68,22 @@ ms.locfileid: "91996349"
 
 1. 登录到 [Azure 门户](https://portal.azure.com)，然后在逻辑应用设计器中打开空白逻辑应用。
 
-1. 在搜索框中，输入“Azure 服务总线”作为筛选器。 在触发器列表中，选择所需的触发器。
+1. 在门户的搜索框中，输入 `azure service bus` 。 从显示的 "触发器" 列表中，选择所需的触发器。
 
    例如，若要在有新项发送到服务总线队列时触发逻辑应用，请选择“队列中收到消息时(自动完成)”触发器。
 
    ![选择服务总线触发器](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   所有服务总线触发器都是长轮询触发器。 此说明意味着，触发器在激发时会处理所有消息，然后等待 30 秒，让更多的消息出现在队列或主题订阅中。 如果在 30 秒内未显示任何消息，则会跳过触发器运行。 否则，该触发器将继续读取消息，直到队列或主题订阅为空。 下一次触发器轮询将基于在触发器的属性中指定的重复周期间隔。
+   下面是使用服务总线触发器时的一些注意事项：
 
-   某些触发器（例如“一条或多条消息抵达队列时(自动完成)”触发器）可能会返回一条或多条消息。 这些触发器在触发时返回的消息数至少为 1，至多为触发器的**最大消息计数**属性指定的消息数。
+   * 所有服务总线触发器都是长轮询触发器。 此说明意味着，触发器在激发时会处理所有消息，然后等待 30 秒，让更多的消息出现在队列或主题订阅中。 如果在 30 秒内未显示任何消息，则会跳过触发器运行。 否则，该触发器将继续读取消息，直到队列或主题订阅为空。 下一次触发器轮询将基于在触发器的属性中指定的重复周期间隔。
 
-    > [!NOTE]
-    > 自动完成触发器会自动完成一条消息，但仅在下一次调用服务总线时才会完成。 此行为可能会影响逻辑应用的设计。 例如，应避免更改自动完成触发器的并发性，因为如果逻辑应用进入受限制状态，此更改可能会导致重复的消息。 更改并发控制会形成以下情况：跳过受限制的触发器并显示 `WorkflowRunInProgress` 代码、完成操作不会发生以及下一次触发器运行会在轮询间隔后发生。 必须将服务总线锁定持续时间设置为比轮询间隔更长的值。 但是尽管进行此设置，如果逻辑应用在下一个轮询间隔内保持受限制状态，则消息仍可能不会完成。
+   * 某些触发器（例如“一条或多条消息抵达队列时(自动完成)”触发器）可能会返回一条或多条消息。 这些触发器在触发时返回的消息数至少为 1，至多为触发器的**最大消息计数**属性指定的消息数。
+
+     > [!NOTE]
+     > 自动完成触发器会自动完成一条消息，但仅在下一次调用服务总线时才会完成。 此行为可能会影响逻辑应用的设计。 例如，应避免更改自动完成触发器的并发性，因为如果逻辑应用进入受限制状态，此更改可能会导致重复的消息。 更改并发控制会形成以下情况：跳过受限制的触发器并显示 `WorkflowRunInProgress` 代码、完成操作不会发生以及下一次触发器运行会在轮询间隔后发生。 必须将服务总线锁定持续时间设置为比轮询间隔更长的值。 但是尽管进行此设置，如果逻辑应用在下一个轮询间隔内保持受限制状态，则消息仍可能不会完成。
+
+   * 如果打开服务总线触发器 [的并发设置](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ，则该属性的默认值 `maximumWaitingRuns` 为10。 基于服务总线实体的 "锁定持续时间" 设置和逻辑应用实例的运行持续时间，此默认值可能太大，可能会导致 "锁定丢失" 异常。 若要查找方案的最佳值，请使用属性的值1或2开始测试 `maximumWaitingRuns` 。 若要更改最大等待运行值，请参阅 [更改等待运行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。
 
 1. 如果触发器是首次连接到服务总线命名空间，则请在逻辑应用设计器提示你输入连接信息时执行以下步骤。
 
@@ -113,13 +117,13 @@ ms.locfileid: "91996349"
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，然后在逻辑应用设计器中打开逻辑应用。
+1. 在 [Azure 门户](https://portal.azure.com)的逻辑应用设计器中打开逻辑应用。
 
 1. 在要添加操作的步骤下，选择“新建步骤”。
 
    或者将鼠标指针移到这些步骤之间的箭头上，以便在步骤之间添加操作。 选择出现的加号 ( **+** )，然后选择“添加操作”。
 
-1. 在“选择操作”下的搜索框中，输入“azure 服务总线”作为筛选器。 从操作列表中选择所需的操作。 
+1. 在“选择操作”下的搜索框中输入 `azure service bus`。 从显示的 "操作" 列表中，选择所需的操作。 
 
    在此示例中，请选择“发送消息”操作。
 

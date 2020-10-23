@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613758"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427301"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -106,6 +106,11 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 ## <a name="using-the-solution"></a>使用解决方案
    使用 ITSM 连接器解决方案，可以基于 Azure 警报、Log Analytics 警报和 Log Analytics 日志记录创建工作项。
 
+## <a name="template-definitions"></a>模板定义
+   可以使用 ITSM 工具定义的模板的 **工作项** 类型。
+通过使用模板，客户可以定义字段，这些字段将根据定义为操作组一部分的固定值自动填充。 此定义是在 ITSM 工具中完成的。
+在这些情况下，"使用自定义模板" 的复选框使客户能够根据定义为操作组一部分的固定值自动填充框字段。
+   
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>根据 Azure 警报创建 ITSM 工作项
 
 创建 ITSM 连接后，可以使用**操作组**中的 **ITSM 操作**，在 ITSM 工具中基于 Azure 警报创建工作项。
@@ -133,8 +138,10 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
     ![ITSM 操作详细信息](media/itsmc-overview/itsm-action-details.png)
 
 6. 从下拉列表菜单中选择“工作项”类型。
-   选择使用现有模板或填充 ITSM 产品要求的字段。
-7. 单击“确定”。
+
+7. 选择使用现有模板或使用通用模板，并填写 ITSM 产品所需的字段。
+
+8. 单击“确定”。
 
 创建/编辑 Azure 警报规则时，使用具有 ITSM 操作的操作组。 警报触发时，会在 ITSM 工具中创建/更新工作项。
 

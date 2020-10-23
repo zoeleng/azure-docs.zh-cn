@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315840"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424070"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>逻辑应用的 Azure 安全基线
 
@@ -182,7 +182,7 @@ ms.locfileid: "92315840"
 
 - 应启用 DDoS 防护标准版
 
-还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、基于角色的访问控制 (RBAC) 和策略）来简化大规模的 Azure 部署。 轻松将蓝图应用到新的订阅和环境，并通过版本控制来微调控制措施和管理。
+你还可以使用 Azure 蓝图通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、Azure 基于角色的访问控制 (Azure RBAC) 和策略）来简化大规模的 Azure 部署。 轻松将蓝图应用到新的订阅和环境，并通过版本控制来微调控制措施和管理。
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -578,7 +578,7 @@ Azure 逻辑应用支持系统分配的和用户分配的托管标识。 逻辑�
 
 创建 ISE 时，可以选择使用内部或外部访问终结点。 你的选择将确定 ISE 中逻辑应用的请求或 webhook 触发器是否可以从虚拟网络外部接收调用。
 
-此外，为各个安全域（如环境类型和数据敏感度级别）使用单独的订阅和管理组实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Active Directory 基于角色的访问控制来控制对 Azure 资源的访问。
+此外，为各个安全域（如环境类型和数据敏感度级别）使用单独的订阅和管理组实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Azure 基于角色的访问控制 (Azure RBAC) 来控制对 Azure 资源的访问。
 
 - [了解逻辑应用的连接器](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 **责任**：共享
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：可以仅允许特定的用户或组运行特定的任务，例如管理、编辑和查看逻辑应用。 若要控制其权限，请使用 Azure 基于角色的访问控制 (RBAC)，以便能够为 Azure 订阅中的成员分配自定义角色或内置角色：
+**指导**：可以仅允许特定的用户或组运行特定的任务，例如管理、编辑和查看逻辑应用。 若要控制其权限，请使用 Azure 基于角色的访问控制 (Azure RBAC)，这样就能够为 Azure 订阅中的成员分配自定义角色或内置角色：
 
 - 逻辑应用参与者：允许管理逻辑应用，但不允许更改其访问权限。
 - 逻辑应用操作员：允许读取、启用和禁用逻辑应用，但不允许编辑或更新它们。
@@ -883,7 +883,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 **指导**：业务运营所需的与逻辑应用相关的资源可能会给组织带来较高的风险，应将其隔离在其自己的虚拟机和/或虚拟网络中，并通过 Azure 防火墙或网络安全组进行充分的保护。
 
-业务运营所需的逻辑应用可能会给组织带来较高的风险，应尽可能通过具有特定权限和 RBAC 边界的单独资源组将其隔离。
+对于业务操作所需的逻辑应用，但可能会因为具有特定权限的独立资源组和 Azure RBAC 边界，在可能的情况下隔离组织的风险。
 
 - [如何创建虚拟网络](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ Microsoft 管理 Azure 逻辑应用的底层基础结构，并实施了严格控
 
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md) 
 
-- [如何通过 RBAC 保护对逻辑应用的访问](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [如何通过 Azure RBAC 保护对逻辑应用的访问](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure 安全中心监视**：不适用
 

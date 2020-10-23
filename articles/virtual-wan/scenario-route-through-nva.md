@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976262"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424757"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>方案：通过 NVA 路由流量
 
@@ -41,16 +41,16 @@ ms.locfileid: "90976262"
 
 | 源             | 到:|   *NVA 轮辐*|*NVA Vnet*|*非 NVA Vnet*|*分支*|
 |---|---|---|---|---|---|
-| **NVA 轮辐**   | &#8594; | 0/0 UDR  |  对等互连 |   0/0 UDR    |  0/0 UDR  |
-| **NVA Vnet**    | &#8594; |   静态 |      X   |        X     |      X    |
-| **非 NVA Vnet**| &#8594; |   静态 |      X   |        X     |      X    |
-| **分支**     | &#8594; |   静态 |      X   |        X     |      X    |
+| **NVA 轮辐**   | &#8594; | Over NVA VNet | 对等互连 | Over NVA VNet | Over NVA VNet |
+| **NVA Vnet**    | &#8594; | 对等互连 | 直接 | 直接 | 直接 |
+| **非 NVA Vnet**| &#8594; | Over NVA VNet | 直接 | 直接 | 直接 |
+| **分支**     | &#8594; | Over NVA VNet | 直接 | 直接 | 直接 |
 
-连接矩阵中的每个单元都说明了虚拟 WAN 连接 (流的 "From" 端、表中的行标题) 了解流的 "To" 端 (目标前缀，表) 中的列标题用于特定的流量流。 "X" 表示虚拟 WAN 在本机提供连接，而 "静态" 表示虚拟 WAN 使用静态路由提供连接。 考虑以下情况：
+连接矩阵中的每个单元都说明了 VNet 或分支 (流的 "From" 端，表中的行标题) 与流的 "To" 端 (目标 VNet 或分支，表) 中的列标题以斜体形式进行通信。 "直接" 表示虚拟 WAN 在本机提供连接，"对等互连" 表示 VNet 中的 User-Defined 路由提供连接，"Over NVA VNet" 表示连接遍历 NVA VNet 中部署的 NVA。 考虑以下情况：
 
 * NVA 轮辐不受虚拟 WAN 的管理。 因此，用户将维护与其他 Vnet 或分支通信的机制。 与 NVA VNet 的连接是由 VNet 对等互连提供的，默认路由到 0.0.0.0/0，并将其作为下一个跃点指向 NVA
 * NVA Vnet 将知道自己的 NVA 轮辐，但不能了解连接到其他 NVA Vnet 的 NVA 轮辐。 例如，在表1中，VNet 2 知道 VNet 5 和 VNet 6，而不是关于 VNet 7 和 VNet 8 的其他分支。 需要使用静态路由将其他轮辐前缀注入到 NVA Vnet 中。
-* 同样，分支和非 NVA Vnet 将不知道任何 NVA 轮辐，因为 NVA 轮辐未连接到 VWAN 集线器。 因此，此处还需要静态路由。
+* 同样，分支和非 NVA Vnet 将不知道任何 NVA 轮辐，因为 NVA 轮辐未连接到虚拟 WAN hub。 因此，此处还需要静态路由。
 
 考虑到 NVA 轮辐不受虚拟 WAN 管理，所有其他行都显示相同的连接模式。 因此，单个路由表 (默认) 会执行以下操作：
 
@@ -127,7 +127,7 @@ ms.locfileid: "90976262"
 
 这将导致路由配置更改，如下面的 **图 3**所示。
 
-**图3**
+**图 3**
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="图 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 52ee08e0cce23aebbac1564a5c3ed894d0e487d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 396d2785d80ff29212dddcfb97adbff8ba9ce4c8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711158"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425161"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Azure 队列存储监视数据引用
 
@@ -36,7 +36,7 @@ Azure 存储在 Azure Monitor 中提供以下容量指标。
 
 #### <a name="queue-storage"></a>队列存储
 
-下表显示[队列存储指标](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)。
+下表显示[队列存储指标](/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)。
 
 | 指标 | 说明 |
 | ------------------- | ----------------- |
@@ -77,7 +77,7 @@ Azure 存储支持对 Azure Monitor 中的指标使用以下维度。
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - 有关监视 Azure 存储的说明，请参阅 [监视 Azure 队列存储](monitor-queue-storage.md) 。
 - 有关监视 Azure 资源的详细信息，请参阅[使用 Azure Monitor 监视 Azure 资源](../../azure-monitor/insights/monitor-azure-resource.md)。

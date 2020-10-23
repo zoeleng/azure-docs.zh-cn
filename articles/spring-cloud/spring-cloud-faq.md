@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 48a2f7f6587d22c34e240fb3e784eb980c81b6b3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094001"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419847"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 春季云常见问题解答
 
@@ -76,7 +76,7 @@ Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud 是否支持分布式跟踪？
 
-是的。 有关详细信息，请参阅 [教程：在 Azure 春季云中使用分布式跟踪](spring-cloud-tutorial-distributed-tracing.md)。
+是。 有关详细信息，请参阅 [教程：在 Azure 春季云中使用分布式跟踪](spring-cloud-tutorial-distributed-tracing.md)。
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>服务绑定支持哪些资源类型？
@@ -89,7 +89,7 @@ Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>能否在我的应用程序中查看、添加或移动永久性卷？
 
-是的。
+是。
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>删除/移动 Azure 春季云服务实例时，是否也会删除/移动其扩展资源？
 
@@ -106,7 +106,7 @@ Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Azure 春季云中支持哪些版本的 Java 运行时？
 
-Azure 春季云支持具有最新版本的 Java LTS 版本，当前为2020年6月、Java 8 build 252 和 Java 11 build 7 提供支持。 请参阅 [安装适用于 Azure 的 JDK 和 Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Azure 春季云支持具有最新版本的 Java LTS 版本，当前支持的版本为2020年6月、java 8 和 Java 11。 请参阅 [安装适用于 Azure 的 JDK 和 Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>谁构建了这些 Java 运行时？
 
@@ -151,19 +151,19 @@ Azul 系统。 Azul Zulu for Azure - Enterprise Edition 内部版 JDK 是适用�
 ## <a name="deployment"></a>部署
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Azure 春季云是否支持蓝绿色部署？
-是的。 有关详细信息，请参阅 [设置过渡环境](spring-cloud-howto-staging-environment.md)。
+是。 有关详细信息，请参阅 [设置过渡环境](spring-cloud-howto-staging-environment.md)。
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>是否可以访问 Kubernetes 来操作应用程序容器？
 
-否。  Azure Spring Cloud 可使开发人员抽身于底层体系结构，将注意力放在应用程序代码和业务逻辑上。
+错误。  Azure Spring Cloud 可使开发人员抽身于底层体系结构，将注意力放在应用程序代码和业务逻辑上。
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud 是否支持从源构建容器？
 
-是的。 有关详细信息，请参阅 [从源代码启动春季云应用程序](spring-cloud-quickstart.md)。
+是。 有关详细信息，请参阅 [从源代码启动春季云应用程序](spring-cloud-quickstart.md)。
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud 是否支持应用实例中的自动缩放？
 
-否。
+错误。
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>将现有春季 Cloud 微服务迁移到 Azure 春季云的最佳做法是什么？

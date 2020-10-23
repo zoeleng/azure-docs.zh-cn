@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280863"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427981"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>使用自定义连接器与逻辑应用集成
 
@@ -68,7 +68,7 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 本文使用逻辑应用来更新 Azure 数字孪生实例中的克隆。 若要继续，你应在实例中至少添加一个 "双子入"。 
 
-可以使用 [DigitalTwins api](how-to-use-apis-sdks.md)、 [.Net (c # ) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)或 [Azure 数字孪生 CLI](how-to-use-cli.md)添加孪生。 有关如何使用这些方法创建孪生的详细步骤，请参阅 [*操作方法：管理数字孪生*](how-to-manage-twin.md)。
+可以使用 [DigitalTwins api](how-to-use-apis-sdks.md)、 [.Net (c # ) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)或 [Azure 数字孪生 CLI](how-to-use-cli.md)添加孪生。 有关如何使用这些方法创建孪生的详细步骤，请参阅 [*操作方法：管理数字孪生*](how-to-manage-twin.md)。
 
 你将需要已创建的实例中的克隆的克隆 **_ID_** 。
 

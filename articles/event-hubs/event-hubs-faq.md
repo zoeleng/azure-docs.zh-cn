@@ -3,12 +3,12 @@ title: 常见问题 - Azure 事件中心 | Microsoft Docs
 description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 94ddfbf0803ea7ab53b1b42b977a9ebdd2354bc5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369601"
+ms.locfileid: "92424182"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -206,7 +206,7 @@ bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.p
 ## <a name="best-practices"></a>最佳做法
 
 ### <a name="how-many-partitions-do-i-need"></a>需要多少分区？
-分区数在创建时指定，必须介于 2 到 32 之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 有关分区的详细信息，请参阅[分区](event-hubs-features.md#partitions)。
+分区数在创建时指定，并且必须介于1到32之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 有关分区的详细信息，请参阅[分区](event-hubs-features.md#partitions)。
 
 你可能希望在创建时将其设置为最高可能值，即 32。 请记住，具有多个分区将导致事件发送到多个分区，不会保留顺序，除非将发送方配置为：仅发送到 32 个分区中的一个分区，而让其余 31 个分区冗余。 在前一种情况下，必须跨所有 32 个分区读取事件。 在后一种情况下，除了必须在事件处理器主机上进行额外配置外，没有明显的额外成本。
 

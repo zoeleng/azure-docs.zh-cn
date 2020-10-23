@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79246105"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424706"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>为本地工作站的私有云 vCenter 访问配置 DNS 进行名称解析
 
@@ -58,19 +58,19 @@ zone "az.cloudsimple.io"
 
 1. 右键单击 DNS 服务器，然后选择 " **新建区域**"。 
   
-    ![新建区域](media/DNS01.png)
+    ![突出显示 "新建区域" 菜单选项的屏幕截图。](media/DNS01.png)
 2. 选择 " **存根区域** "，然后单击 " **下一步**"。
 
-    ![新建区域](media/DNS02.png)
+    ![突出显示存根区域选项的屏幕截图。](media/DNS02.png)
 3. 根据您的环境选择合适的选项，然后单击 " **下一步**"。
 
-    ![新建区域](media/DNS03.png)
+    ![显示区域数据复制选项的屏幕截图。](media/DNS03.png)
 4. 选择 " **向前查找区域** "，然后单击 " **下一步**"。
 
-    ![新建区域](media/DNS01.png)
+    ![突出显示 "正向查找区域" 选项的屏幕截图。](media/DNS01.png)
 5. 输入区域名称，并单击 " **下一步**"。
 
-    ![新建区域](media/DNS05.png)
+    ![显示在何处输入区域名称的屏幕截图。](media/DNS05.png)
 6. 输入你的私有云的 DNS 服务器的 IP 地址，该服务器是从 CloudSimple 门户获取的。
 
     ![新建区域](media/DNS06.png)

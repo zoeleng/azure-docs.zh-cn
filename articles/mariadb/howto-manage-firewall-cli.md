@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3edf6248d42878bb79115fad925ef38e3353c979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ffbacd9167f6c73fb2815f76f56bfe2ae08eca9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502265"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425949"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for MariaDB 防火墙规则
 可以使用服务器级防火墙规则，管理从特定的 IP 地址或某个范围的 IP 地址对 Azure Database for MariaDB 服务器的访问。 使用便捷的 Azure CLI 命令，可创建、更新、删除、列出和显示防火墙规则，用于管理服务器。 有关 Azure Database for MariaDB 的概述，请参阅 [Azure Database for MariaDB 服务器防火墙规则](./concepts-firewall-rules.md)。
@@ -21,7 +21,7 @@ ms.locfileid: "87502265"
 也可使用虚拟网络 (VNet) 规则来保护对服务器进行的访问。 详细了解如何[使用 Azure CLI 创建和管理虚拟网络服务终结点和规则](howto-manage-vnet-cli.md)。
 
 ## <a name="prerequisites"></a>必备条件
-* [安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+* [安装 Azure CLI](/cli/azure/install-azure-cli)。
 * [Azure Database for MariaDB 服务器和数据库](quickstart-create-mariadb-server-database-using-azure-cli.md)。
 
 ## <a name="firewall-rule-commands"></a>防火墙规则命令：

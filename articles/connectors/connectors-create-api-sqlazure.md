@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169381"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426606"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用自动完成 SQL 数据库的工作流
 
@@ -214,19 +214,16 @@ ms.locfileid: "92169381"
 
 有时，你必须处理大到连接器不能同时返回所有结果的结果集，或者你希望更好地控制结果集的大小和结构。 下面提供了一些可用于处理此类大型结果集的方法：
 
-* 为了帮助你将结果作为较小的集进行管理，请启用“分页”。 有关详细信息，请参阅[使用分页获取批量数据、记录和项](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)。
+* 为了帮助你将结果作为较小的集进行管理，请启用“分页”。 有关详细信息，请参阅[使用分页获取批量数据、记录和项](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)。 有关详细信息，请参阅 [对逻辑应用进行批量数据传输的 SQL 分页](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)。
 
-* 创建按所需方式组织结果的存储过程。
+* 创建一个 [*存储过程，该存储过程*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) 按所需的方式组织结果。 SQL 连接器提供多种后端功能，你可以使用 Azure 逻辑应用访问这些功能，以便你可以更轻松地自动执行与 SQL 数据库表一起使用的业务任务。
 
   获取或插入多个行时，逻辑应用可以在这些[限制](../logic-apps/logic-apps-limits-and-config.md)中使用 [*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 来循环访问这些行。 但是，当逻辑应用必须处理非常大的记录（例如，数千或数百万行）时，你希望将调用数据库的成本降到最低。
 
-  若要按所需方式组织结果，可以创建在 SQL 实例中运行并使用 **SELECT - ORDER BY** 语句的[*存储过程*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine)。 此解决方案可以更好地控制结果的大小和结构。 逻辑应用可以使用 SQL Server 连接器的“执行存储过程”操作调用存储过程。
+  若要按所需方式组织结果，可以创建在 SQL 实例中运行并使用 SELECT - ORDER BY 语句的**存储过程**。 此解决方案可以更好地控制结果的大小和结构。 逻辑应用可以使用 SQL Server 连接器的“执行存储过程”操作调用存储过程。 有关详细信息，请参阅 [SELECT-ORDER By 子句](/sql/t-sql/queries/select-order-by-clause-transact-sql)。
 
-  如需更多解决方案详细信息，请参阅以下文章：
-
-  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)（通过 SQL 分页使用逻辑应用进行批量数据传输）
-
-  * [SELECT - ORDER BY 子句](/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  > [!NOTE]
+  > 使用此连接器时，存储过程的执行限制为 [小于2分钟的超时限制](/connectors/sql/#known-issues-and-limitations)。 某些存储过程可能需要比此限制更长的时间来处理和完全完成，这会生成 `504 TIMEOUT` 错误。 实际上，一些长时间运行的进程被明确地编码为用于此目的的存储过程。 从 Azure 逻辑应用调用这些过程可能会导致由于此超时限制导致的问题。 尽管 SQL 连接器不以本机方式支持异步模式，但你可以通过使用 SQL 完成触发器、本机 SQL 传递查询、状态表以及使用 [Azure 弹性作业代理](../azure-sql/database/elastic-jobs-overview.md)的服务器端作业来模拟此模式。
 
 ### <a name="handle-dynamic-bulk-data"></a>处理动态批量数据
 
@@ -253,13 +250,13 @@ ms.locfileid: "92169381"
 
 ## <a name="troubleshoot-problems"></a>排查问题
 
-通常会发生连接问题，因此，若要排查和解决这类问题，请查看 [解决连接错误以 SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)。 下面是一些示例：
+* 通常会发生连接问题，因此，若要排查和解决这类问题，请查看 [解决连接错误以 SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)。 下面是一些可能的恶意活动：
 
-* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
-* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>特定于连接器的详细信息
 

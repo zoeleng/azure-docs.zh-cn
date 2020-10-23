@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507661"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424698"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>优化 CloudSimple 私有云以安装 Oracle RAC
 
@@ -79,7 +79,7 @@ Oracle RAC 虚拟机具有多个磁盘，这些磁盘用于特定功能。  共�
 * 共享设置为 " **无共享**"。
 * 使用 vSAN 策略对存储定义冗余。  
 
-![Oracle RAC 数据磁盘组配置](media/oracle-vm-os-disks.png)
+![显示 Oracle RAC OS 磁盘物理配置的关系图。](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>数据磁盘配置
 
@@ -148,7 +148,7 @@ SQL > alter database add logfile thread 2 ('+ORCLRAC_REDO1','+ORCLRAC_REDO2') si
 * 磁盘必须配置为 ASM 磁盘组。  
 * ASM 冗余设置为 **外部** 冗余。
 
-![Oracle RAC 投票磁盘组配置](media/oracle-vm-fra-disks.png)
+![显示 Oracle RAC 投票磁盘组配置的关系图。](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>部署 CloudSimple 私有云 vSphere 群集
 
@@ -220,7 +220,7 @@ Oracle 使用共享磁盘来存储数据、日志和重做日志文件。  可�
 9. 对于共享，请指定 **多个编写器**。
 10. 对于 "虚拟设备" 节点，选择在步骤2中创建的新的 SCSI 控制器。
 
-    ![在第一个 VM 上创建磁盘](media/oracle-rac-new-hard-disk.png)
+    ![屏幕截图，突出显示在第一个 VM 上创建磁盘所需的字段。](media/oracle-rac-new-hard-disk.png)
 
 对于 Oracle 数据、日志和重做日志文件所需的所有新磁盘，重复步骤2到10。
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598190"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426006"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>在 Azure Database for MariaDB 中配置数据传入复制
 
@@ -56,7 +56,7 @@ ms.locfileid: "91598190"
 
 2. 请确保源服务器允许端口3306上的入站和出站流量，并且源服务器具有 **公共 IP 地址**、DNS 可公开访问，或者具有完全限定的域名 (FQDN) 。 
    
-   尝试从在其他计算机上托管的 MySQL 命令行或从 Azure 门户中提供的 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中进行连接，以测试与源服务器的连接。
+   尝试从在其他计算机上托管的 MySQL 命令行或从 Azure 门户中提供的 [Azure Cloud Shell](../cloud-shell/overview.md) 中进行连接，以测试与源服务器的连接。
 
    如果你的组织具有严格的安全策略，并且将不允许源服务器上的所有 IP 地址启用从 Azure 到源服务器的通信，则可以使用以下命令来确定你的 Azure Database for MariaDB 服务器的 IP 地址。
     
@@ -212,7 +212,7 @@ ms.locfileid: "91598190"
 
 1. 设置源服务器。
 
-   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](reference-data-in-stored-procedures.md)中找到所有过程。 存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。
+   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](reference-stored-procedures.md)中找到所有过程。 存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。
 
    若要链接两个服务器并启动复制，请在 Azure DB for MariaDB 服务中登录到目标副本服务器。 接下来，使用 `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` Azure DB for MariaDB 服务器上的或存储过程将外部实例设置为源服务器。
 

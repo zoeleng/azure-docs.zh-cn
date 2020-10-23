@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f4947fe379f19593d06ba9efb6bfc43c397e9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333437"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424408"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>教程：为自动用户预配配置缩放
 
@@ -93,11 +93,11 @@ ms.locfileid: "91333437"
 
     ![应用程序列表中的 Zoom 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
@@ -134,7 +134,7 @@ ms.locfileid: "91333437"
 
     ![预配范围](common/provisioning-scope.png)
 
-13. 已准备好预配时，单击“保存”。
+13. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
@@ -152,6 +152,7 @@ ms.locfileid: "91333437"
 
 ## <a name="change-log"></a>更改日志
 * 05/14/2020-支持为电子邮件添加的更新操作 [类型 eq "work"] 属性。
+* 10/20/2020-添加了对两个新角色的支持 "已授权" 和 "本地"，以替换现有角色 "Pro" 和 "Corp"。 未来将删除对角色 "Pro" 和 "Corp" 的支持。
 
 ## <a name="additional-resources"></a>其他资源
 

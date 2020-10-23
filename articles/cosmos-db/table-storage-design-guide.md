@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002170"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428054"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure 表存储表设计指南：可缩放的高性能表
 
@@ -476,7 +476,7 @@ EGT 还引入了一个在设计时需要评估的潜在权衡。 使用更多分
 #### <a name="context-and-problem"></a>上下文和问题
 表存储使用 `PartitionKey` 和 `RowKey` 值自动编制实体的索引。 这使客户端应用程序可以使用这些值高效地检索实体。 例如，使用下面的表结构时，客户端应用程序可使用点查询，通过部门名称和员工 ID（`PartitionKey` 和 `RowKey` 值）检索单个员工实体。 客户端还可以在每个部门内检索按员工 ID 排序的实体。  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="显示部门实体和员工实体的插图":::[9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="显示部门实体和员工实体的插图":::900
 
 如果还要能够基于另一个属性（例如，电子邮件地址）的值查找员工实体，则必须使用效率较低的分区扫描来查找匹配项。 这是因为表存储不提供辅助索引。 此外，还无法选择请求按 `RowKey` 顺序以外顺序排序的员工列表。  
 

@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 14e3b23b4246f26e1ac59e0b12b043341546d0a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: fc480ab025a0e0de7cccde8818ddbd85ce6c8529
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018237"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424613"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>用于在 Azure AD 中编写属性映射的表达式的参考
 
@@ -48,7 +49,7 @@ ms.locfileid: "92018237"
 
 **Parameters**
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |通常是来自源对象的属性的名称。 |
 | **suffix** |必须 |String |要附加到源值末尾的字符串。 |
@@ -66,10 +67,10 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **value1** |必须 |num |应与 value2 一起个的数值|
-| **value2** |必须 |num |应为 value1 个的数字值|
+| **value1** |必需 |num |应与 value2 一起个的数值|
+| **value2** |必需 |num |应为 value1 个的数字值|
 
 **实例**
 `BitAnd(&HF, &HF7)`
@@ -86,9 +87,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **expression** |必须 | 表达式 | 任何有效的表达式 |
+| **expression** |必需 | 表达式 | 任何有效的表达式 |
 
 示例：  
 `CBool([attribute1] = [attribute2])`                                                                    
@@ -102,10 +103,10 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source1 .。。sourceN** | 必须 | String |必需，次数可变。 通常是来自源对象的属性的名称。 |
-| **defaultValue** | 可选 | 字符串 | 所有源值为 NULL 时要使用的默认值。 可以是空字符串 ("")。
+| **defaultValue** | 可选 | String | 所有源值为 NULL 时要使用的默认值。 可以是空字符串 ("")。
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -115,7 +116,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |要转换为 base 64 的字符串|
 
@@ -132,7 +133,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |要转换为 UTF8 Hex 的字符串|
 
@@ -149,9 +150,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **attribute** |必须 |attribute |将计算元素的多值属性|
+| **attribute** |必需 |attribute |将计算元素的多值属性|
 
 ---
 ### <a name="cstr"></a>CStr
@@ -161,7 +162,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | value  |必须 | numeric、reference 或 boolean | 可以是数字值、引用属性或布尔值。 |
 
@@ -178,7 +179,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | value  |必须 | 日期 | 要转换为 DateTime 类型的广告日期 |
 
@@ -197,7 +198,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |通常是来自源对象的属性的名称。 |
 | **inputFormat** |必须 |String |源值的预期格式。 有关支持的格式，请参阅 [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
@@ -217,11 +218,11 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **状态** |必须 |变量或表达式 |计算结果为 true 或 false 的任何值或表达式。 |
-| **valueIfTrue** |必须 |变量或字符串 | 如果条件计算结果为 true，则为返回值。 |
-| **valueIfFalse** |必须 |变量或字符串 |如果条件计算结果为 false，则为返回值。|
+| **状态** |必需 |变量或表达式 |计算结果为 true 或 false 的任何值或表达式。 |
+| **valueIfTrue** |必需 |变量或字符串 | 如果条件计算结果为 true，则为返回值。 |
+| **valueIfFalse** |必需 |变量或字符串 |如果条件计算结果为 false，则为返回值。|
 
 **实例**
 `IIF([country]="USA",[country],[department])`
@@ -234,7 +235,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **value1** |必须 |String |要搜索的字符串 |
 | **value2** |必须 |String |要查找的字符串 |
@@ -258,9 +259,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **expression** |必须 |表达式 |要计算的表达式 |
+| **expression** |必需 |表达式 |要计算的表达式 |
 
 **实例**
 `IsNull([displayName])`
@@ -276,9 +277,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **expression** |必须 |表达式 |要计算的表达式 |
+| **expression** |必需 |表达式 |要计算的表达式 |
 
 **实例**
 `IsNullOrEmpty([displayName])`
@@ -293,9 +294,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **expression** |必须 |表达式 |要计算的表达式 |
+| **expression** |必需 |表达式 |要计算的表达式 |
 
 **实例**
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -308,21 +309,21 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **expression** |必须 |表达式 |要计算的表达式 |
+| **expression** |必需 |表达式 |要计算的表达式 |
 
 ---
-### <a name="item"></a>项
+### <a name="item"></a>项目
 **函数：** Item (属性，index) 
 
 **说明：** Item 函数返回多值字符串/属性中的一个项。
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **attribute** |必须 |Attribute |要搜索的多值属性 |
+| **attribute** |必需 |Attribute |要搜索的多值属性 |
 | **index** |必需 |整数 | 多值字符串中的项的索引|
 
 **实例**
@@ -338,10 +339,10 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | separator  |必须 |String |用于在将源值连接为一个字符串时分隔源值的字符串。 如果不需要分隔符，则可以是 ""。 |
-| **source1 .。。sourceN** |必选，次数可变 |字符串 |要联接在一起的字符串值。 |
+| **source1 .。。sourceN** |必选，次数可变 |String |要联接在一起的字符串值。 |
 
 ---
 ### <a name="left"></a>Left
@@ -354,9 +355,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **字符串** |必须 |Attribute | 要从其返回字符的字符串 |
+| **字符串** |必需 |Attribute | 要从其返回字符的字符串 |
 | **NumChars** |必需 |整数 | 标识从字符串的开头开始)  (的字符数的数字|
 
 **实例**
@@ -372,11 +373,11 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |通常是属性的名称。 |
-| **start** |必须 |整型 |**source** 字符串中的索引，子字符串应从这里开始。 字符串中第一个字符的索引为 1，第二个字符的索引为 2，依此类推。 |
-| **length** |必须 |整型 |子字符串的长度。 如果长度超出 **source** 字符串，则函数将返回从 **start** 索引到 **source** 字符串末尾的子字符串。 |
+| **start** |必需 |integer |**source** 字符串中的索引，子字符串应从这里开始。 字符串中第一个字符的索引为 1，第二个字符的索引为 2，依此类推。 |
+| **length** |必需 |integer |子字符串的长度。 如果长度超出 **source** 字符串，则函数将返回从 **start** 索引到 **source** 字符串末尾的子字符串。 |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -386,7 +387,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String | 通常是名字或姓氏属性。 |
 
@@ -398,9 +399,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **source** |必须 |布尔型字符串 |预期的 **source** 值为“True”或“False”。 |
+| **source** |必需 |布尔型字符串 |预期的 **source** 值为“True”或“False”。 |
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
@@ -410,7 +411,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | value  |必须 | String | 支持的格式的日期时间字符串。 有关支持的格式，请参阅 https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx。 |
 
@@ -430,9 +431,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **attribute** |必须 |多值属性 |将删除重复项的多值属性|
+| **attribute** |必需 |多值属性 |将删除重复项的多值属性|
 
 **示例：** 
  `RemoveDuplicates([proxyAddresses])`返回净化的 proxyAddress 属性，其中所有重复值均已删除。
@@ -462,15 +463,15 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |通常是来自 **源** 对象的属性的名称。 |
-| **oldValue** |可选 |字符串 |要在 **source** 或 **template** 中替换的值。 |
-| **regexPattern** |可选 |字符串 |**source** 中要替换的值的正则表达式模式。 或者，当使用 **replacementPropertyName** 时，从 **replacementPropertyName** 中提取值的模式。 |
-| **regexGroupName** |可选 |字符串 |**regexPattern** 中的组名称。 仅当使用 **replacementPropertyName** 时，才会从 **replacementPropertyName** 中以 **replacementValue** 的形式提取此组的值。 |
-| **replacementValue** |可选 |字符串 |用于替换旧值的新值。 |
-| **replacementAttributeName** |可选 |字符串 |用于替换值的属性的名称 |
-| **模版** |可选 |字符串 |提供 **模板** 值后，我们将在模板中查找 **oldValue** ，并将其替换为 **source** 值。 |
+| **oldValue** |可选 |String |要在 **source** 或 **template** 中替换的值。 |
+| **regexPattern** |可选 |String |**source** 中要替换的值的正则表达式模式。 或者，当使用 **replacementPropertyName** 时，从 **replacementPropertyName** 中提取值的模式。 |
+| **regexGroupName** |可选 |String |**regexPattern** 中的组名称。 仅当使用 **replacementPropertyName** 时，才会从 **replacementPropertyName** 中以 **replacementValue** 的形式提取此组的值。 |
+| **replacementValue** |可选 |String |用于替换旧值的新值。 |
+| **replacementAttributeName** |可选 |String |用于替换值的属性的名称 |
+| **模版** |可选 |String |提供 **模板** 值后，我们将在模板中查找 **oldValue** ，并将其替换为 **source** 值。 |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -487,9 +488,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |需要至少 2 个，没有上限 |字符串 | 要评估的唯一值生成规则的列表。 |
+| **uniqueValueRule1  … uniqueValueRuleN** |需要至少 2 个，没有上限 |String | 要评估的唯一值生成规则的列表。 |
 
 
 ---
@@ -500,7 +501,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |必须 |String |**[appRoleAssignments]** 对象。 |
 
@@ -512,10 +513,10 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |要更新的 **source** 值。 |
-| **后面** |必须 |String |指定将用来拆分字符串的字符（示例：“,”） |
+| **delimiter** |必须 |String |指定将用来拆分字符串的字符（示例：“,”） |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -525,7 +526,7 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |要更新的 **source** 值。 |
 
@@ -537,10 +538,10 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |要更新的 **source** 值。 |
-| **defaultValue** |可选 |字符串 |当 source 不匹配任何 key 时使用的默认值。 可以是空字符串 ("")。 |
+| **defaultValue** |可选 |String |当 source 不匹配任何 key 时使用的默认值。 可以是空字符串 ("")。 |
 | key  |必须 |String |用来比较 **source** 值的 **key**。 |
 | value  |必须 |String |与该 key 匹配的 **source** 的替换值。 |
 
@@ -552,10 +553,10 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |通常是来自源对象的属性的名称 |
-| **culture** |可选 |字符串 |基于 RFC 4646 的区域性名称格式是 languagecode2-country/regioncode2**，其中 languagecode2** 是两个字母的语言代码，country/regioncode2 是两个字母的子区域性代码**。 示例包括代表日语（日本）的 ja-JP 和代表英语（美国）的 en-US。 在双字母语言代码不可用的情况下，使用派生自 ISO 639-2 的三字母代码。|
+| **culture** |可选 |String |基于 RFC 4646 的区域性名称格式是 languagecode2-country/regioncode2**，其中 languagecode2** 是两个字母的语言代码，country/regioncode2 是两个字母的子区域性代码**。 示例包括代表日语（日本）的 ja-JP 和代表英语（美国）的 en-US。 在双字母语言代码不可用的情况下，使用派生自 ISO 639-2 的三字母代码。|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -565,10 +566,10 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
 | **source** |必须 |String |通常是来自源对象的属性的名称。 |
-| **culture** |可选 |字符串 |基于 RFC 4646 的区域性名称格式是 languagecode2-country/regioncode2**，其中 languagecode2** 是两个字母的语言代码，country/regioncode2 是两个字母的子区域性代码**。 示例包括代表日语（日本）的 ja-JP 和代表英语（美国）的 en-US。 在双字母语言代码不可用的情况下，使用派生自 ISO 639-2 的三字母代码。|
+| **culture** |可选 |String |基于 RFC 4646 的区域性名称格式是 languagecode2-country/regioncode2**，其中 languagecode2** 是两个字母的语言代码，country/regioncode2 是两个字母的子区域性代码**。 示例包括代表日语（日本）的 ja-JP 和代表英语（美国）的 en-US。 在双字母语言代码不可用的情况下，使用派生自 ISO 639-2 的三字母代码。|
 
 ---
 ### <a name="word"></a>Word
@@ -582,9 +583,9 @@ ms.locfileid: "92018237"
 
 **Parameters** 
 
-| 名称 | 必选/重复 | 类型 | 说明 |
+| 名称 | 必选/重复 | 类型 | 注释 |
 | --- | --- | --- | --- |
-| **字符串** |必须 |多值属性 |要从中返回单词的字符串。|
+| **字符串** |必需 |多值属性 |要从中返回单词的字符串。|
 | **WordNumber** |必需 | 整数 | 标识应返回的单词编号的数字|
 | **限定符** |必须 |String| 一个字符串，表示应用于标识单词的分隔符 (s) |
 

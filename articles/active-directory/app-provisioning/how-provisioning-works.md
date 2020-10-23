@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366677"
+ms.locfileid: "92424640"
 ---
 # <a name="how-provisioning-works"></a>预配工作原理
 
@@ -179,6 +180,8 @@ Azure AD [预配日志（预览）](../reports-monitoring/concept-provisioning-l
 
 确保你具有应用程序的 *活动* 映射。 如果你使用应用程序库中的应用程序，映射可能会略有不同。 请确保对库应用程序使用默认的/出盒映射。
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="禁用用户" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **配置应用程序以删除用户**
 
@@ -188,7 +191,9 @@ Azure AD [预配日志（预览）](../reports-monitoring/concept-provisioning-l
 * 将从 Azure AD 中的 "回收站" 中永久删除/删除用户。
 * 用户未从应用中取消分配。
 * 用户从范围内进入范围外 (不会再) 传递范围筛选器。
-    
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="禁用用户" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 默认情况下，Azure AD 预配服务软删除或禁用超出范围的用户。 如果要重写此默认行为，可以设置一个标志来 [跳过超出范围的删除操作。](skip-out-of-scope-deletions.md)
 
 如果发生上述四个事件之一，并且目标应用程序不支持软删除，则预配服务将发送 DELETE 请求，以从应用中永久删除该用户。

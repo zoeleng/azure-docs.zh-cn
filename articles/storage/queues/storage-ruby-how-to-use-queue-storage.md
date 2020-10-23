@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: c29b864fb3a547599f32c00c9e8c27cbdb0e0a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459600"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425465"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "89459600"
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
-创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](https://docs.microsoft.com/azure/app-service/quickstart-ruby)。
+创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](/azure/app-service/quickstart-ruby)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
 要使用 Azure 存储，需要下载和使用 Ruby azure 包，其中包括一组便于与存储 REST 服务进行通信的库。
@@ -151,7 +151,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>后续步骤
 在了解了有关队列存储的基础知识后，可使用以下链接来了解更复杂的存储任务。
 
-* 访问 [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+* 访问 [Azure 存储团队博客](/archive/blogs/windowsazurestorage/)
 * 访问 GitHub 上的 [AZURE SDK For Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存储库
 
 若要了解 Azure 队列服务（本文所述）和 Azure 服务总线队列（[如何使用服务总线队列](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/)文章中所述）之间的比较，请参阅 [Azure 队列和服务总线队列 - 比较与对照](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

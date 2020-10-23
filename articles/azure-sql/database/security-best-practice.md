@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885167"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427271"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>用于解决 Azure SQL 数据库和 Azure SQL 托管实例常见安全要求的 playbook
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -647,7 +647,7 @@ SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 S
 
 **最佳做法**：
 
-- 为特定服务器或托管实例配置适用于 SQL 的[Azure Defender](azure-defender-for-sql.md)   。 通过切换到 [Azure 安全中心标准层](../../security-center/security-center-pricing.md)，还可以为订阅中的所有服务器和托管实例配置 azure DEFENDER for SQL。
+- 为特定服务器或托管实例配置 [Azure Defender for SQL](azure-defender-for-sql.md) 。 还可以通过切换到 [Azure 安全中心标准层](../../security-center/security-center-pricing.md)，为订阅中的所有服务器和托管实例配置 Azure Defender for SQL。
 
 - 若要获得完整的调查体验，建议启用  [SQL 数据库审核](../../azure-sql/database/auditing-overview.md)。 使用审核可以跟踪数据库事件，并将这些事件写入到 Azure 存储帐户或 Azure Log Analytics 工作区中的审核日志。
 
@@ -791,12 +791,14 @@ Azure SQL 数据库和 SQL 托管实例目前提供以下技术来缓解数据�
 
 - Azure 提供内置的高可用性：[SQL 数据库和 SQL 托管实例的高可用性](high-availability-sla.md)
 
-- 业务关键层包括故障转移组、多可用性区域、完整和差异日志备份，以及默认情况下启用的时间点还原备份：  
-  - [高可用性-区域冗余配置](high-availability-sla.md#zone-redundant-configuration)
+- “业务关键”层包括故障转移组、完整和差异日志备份，以及默认已启用的时间点还原备份：  
   - [自动备份](automated-backups-overview.md)
   - [使用自动数据库备份恢复数据库 - 时间点还原](recovery-using-backups.md#point-in-time-restore)
 
-- 可按以下文章中所述配置其他业务连续性功能，例如，跨不同的 Azure 地理区域自动故障转移组：[业务连续性概述](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- 可以配置其他业务连续性功能，如跨不同 Azure 地域的区域冗余配置和自动故障转移组： 
+    - [高级 & 业务关键服务层的高可用性区域冗余配置](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [常规用途服务层的高可用性区域冗余配置](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+    - [业务连续性概述](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## <a name="next-steps"></a>后续步骤
 

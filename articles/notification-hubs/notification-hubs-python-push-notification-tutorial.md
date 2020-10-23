@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852321"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424838"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何通过 Python 使用通知中心
 
@@ -414,7 +414,7 @@ hub.send_windows_notification(wns_payload)
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![控制台的屏幕截图，其中 HTTP 请求、服务总线通知格式、服务总线通知标记和 XWNS 类型值的详细信息以红色框标出。][3]
+![控制台的屏幕截图，其中详细介绍了 H T P P 请求和服务总线通知格式、服务总线通知标记，以及以红色列出的 X W 类型值。][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>发送通知指定多个标记
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![控制台的屏幕截图，其中 HTTP 请求、服务总线通知格式、服务总线通知标记和 XWNS 类型值的详细信息以红色框标出。][4]
+![控制台的屏幕截图，其中详细介绍了 H T P P 请求和服务总线通知格式、多个服务总线通知标记，以及以红色列出的 X W 类型值。][4]
 
 ### <a name="templated-notification"></a>模板通知
 
