@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079645"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440444"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>将托管标识与 Azure 机器学习 (预览版一起使用) 
 
@@ -29,7 +29,6 @@ ms.locfileid: "92079645"
 
  * 为 Azure 机器学习工作区配置和使用 ACR，无需让管理员用户访问 ACR。
  * 访问工作区外部的私有 ACR，以获取用于定型或推理的基本图像。
- * 使用托管标识（而不是存储访问密钥）访问用于定型的数据集。
 
 > [!IMPORTANT]
 > 使用托管标识控制对资源的访问，Azure 机器学习当前为预览版。 预览功能按 "原样" 提供，不保证支持或服务级别协议。 有关详细信息，请参阅 [Microsoft Azure 预览版的补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>访问定型数据
-
-如前面所述，使用托管标识创建了机器学习计算群集后，可以使用该标识访问无存储帐户密钥的定型数据。 对于此方案，可以使用系统分配的托管标识。
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>向计算托管标识授予对存储帐户的访问权限
-
-[向托管标识授予](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) 存储定型数据的存储帐户的 "读取者" 角色。
-
-### <a name="register-data-store-with-workspace"></a>向工作区注册数据存储
-
-分配托管标识后，可以创建数据存储，而无需指定存储凭据。
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>提交定型运行任务
-
-使用数据存储提交定型运行时，机器学习计算将使用其托管标识来访问数据。
 
 ## <a name="use-docker-images-for-inference"></a>使用 Docker 映像进行推理
 

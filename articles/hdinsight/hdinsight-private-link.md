@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147913"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426396"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>通过专用链接 (预览) 保护和隔离 Azure HDInsight 群集
 
@@ -59,6 +59,8 @@ ms.locfileid: "92147913"
 标准负载均衡器不会自动提供 [公共出站 NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) （如基本负载均衡器）。 对于出站依赖项，你必须提供自己的 NAT 解决方案，如 [虚拟网络 NAT](../virtual-network/nat-overview.md) 或 [防火墙](./hdinsight-restrict-outbound-traffic.md)。 你的 HDInsight 群集仍需要访问其出站依赖项。 如果不允许这些出站依赖项，则群集创建可能会失败。
 
 ### <a name="prepare-your-environment"></a>准备环境
+
+对于 successgfull 创建专用链接服务，必须显式 [禁用专用链接服务的网络策略](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy)。
 
 下图显示了创建群集之前所需的网络配置的示例。 在此示例中，在创建群集之前，将使用 UDR 将所有出站流量 [强制](../firewall/forced-tunneling.md) 发送到 Azure 防火墙，并将所需的出站依赖关系 "允许" 到防火墙上。 对于企业安全性套餐群集，可通过 VNet 对等互连提供与 Azure Active Directory 域服务的网络连接。
 

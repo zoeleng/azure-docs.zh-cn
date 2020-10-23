@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145925"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440820"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>了解数字孪生及其克隆图形
 
@@ -39,11 +39,11 @@ ms.locfileid: "92145925"
 
 ## <a name="create-with-the-apis"></a>通过 Api 创建
 
-此部分显示从客户端应用程序创建数字孪生和关系的外观。 它包含使用 [DigitalTwins api](how-to-use-apis-sdks.md)的 .net 代码示例，以提供有关每个概念中的内容的其他上下文。
+此部分显示从客户端应用程序创建数字孪生和关系的外观。 它包含使用 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins)的 .net 代码示例，以提供有关每个概念中的内容的其他上下文。
 
 ### <a name="create-digital-twins"></a>创建数字孪生
 
-下面是使用 [DigitalTwins api](how-to-use-apis-sdks.md) 来实例化类型 *空间*的克隆的客户端代码的代码段。
+下面是使用 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 来实例化类型 *空间*的克隆的客户端代码的代码段。
 
 在当前预览的 Azure 数字孪生中，必须先初始化所有克隆的属性，然后才能创建克隆。 这是通过创建一个提供必要初始化值的 JSON 文档来完成的。
 
@@ -53,7 +53,7 @@ ms.locfileid: "92145925"
 
 ### <a name="create-relationships"></a>创建关系
 
-下面是一些客户端代码示例，它使用[DigitalTwins api](how-to-use-apis-sdks.md)在名为*GroundFloor*的*楼层*类型数字硬编码与称为*咖啡馆*的*房间*类型数字硬编码之间建立关系。
+下面是一些客户端代码示例，它使用[DigitalTwins api](/rest/api/digital-twins/dataplane/twins)在名为*GroundFloor*的*楼层*类型数字硬编码与称为*咖啡馆*的*房间*类型数字硬编码之间建立关系。
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

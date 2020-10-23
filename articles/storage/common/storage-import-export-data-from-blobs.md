@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441871"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440718"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 
@@ -36,6 +36,8 @@ ms.locfileid: "91441871"
     - [创建 DHL 帐户](http://www.dhl-usa.com/en/express/shipping/open_account.html)。
 
 ## <a name="step-1-create-an-export-job"></a>步骤 1：创建导出作业
+
+### <a name="portal"></a>[门户](#tab/azure-portal)
 
 在 Azure 门户中执行以下步骤来创建导出作业。
 
@@ -100,6 +102,83 @@ ms.locfileid: "91441871"
 
     - 单击“确定”以完成导出作业的创建。
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+使用以下步骤在 Azure 门户中创建导出作业。
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>创建作业
+
+1. 使用 [az extension add](/cli/azure/extension#az_extension_add) 命令添加 [az import-export](/cli/azure/ext/import-export/import-export) extension：
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. 若要获取可从中接收磁盘的位置列表，请使用 [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) 命令：
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. 运行以下 [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) 命令，以创建使用现有存储帐户的导出作业：
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+   此作业将导出存储帐户中的所有 blob。 可以通过将以下值替换为 **--export**来指定要导出的 blob：
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   此参数值将导出根容器中名为 *logo.bmp* 的 blob。
+
+   你还可以选择使用前缀选择容器中的所有 blob。 将此值替换为 **--export**：
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   有关详细信息，请参阅[有效 blob 路径示例](#examples-of-valid-blob-paths)。
+
+   > [!NOTE]
+   > 如果在复制数据时，要导出的 blob 正在使用中，则 Azure 导入/导出服务将生成该 blob 的快照并复制快照。
+
+1. 使用 [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) 命令查看资源组 myierg 的所有作业：
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. 若要更新作业或取消作业，请运行 [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) 命令：
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
+
 <!--## (Optional) Step 2: -->
 
 ## <a name="step-2-ship-the-drives"></a>步骤 2：寄送驱动器
@@ -153,7 +232,7 @@ ms.locfileid: "91441871"
 
     下表介绍了这些参数：
 
-    |命令行参数|说明|  
+    |命令行参数|描述|  
     |--------------------------|-----------------|  
     |**/logdir**|可选。 日志目录。 详细日志文件将写入此目录。 如果未指定，则使用当前目录作为日志目录。|  
     |**/sn**|必需。 导出作业的存储帐户的名称。|  

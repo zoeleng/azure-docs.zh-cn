@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531184"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460863"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -23,7 +23,37 @@ ms.locfileid: "91531184"
 * 签订了 Azure 支持协议的客户可以在 [Azure 门户](https://manage.windowsazure.com/?getsupport=true)中提出支持请求。
 * 借助 [OMI 故障排除指南](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)诊断 OMI 问题。
 * 提交 [GitHub 问题](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)。
-* 请访问 Log Analytics 反馈页面，查看已提交的想法和 bug [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback)或提交新的想法或 bug。  
+* 请访问 Log Analytics 反馈页面，查看已提交的想法和 bug [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback)或提交新的想法或 bug。 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics 疑难解答工具
+
+Log Analytics 代理 Linux 故障排除工具是一个脚本，旨在帮助查找和诊断 Log Analytics 代理的问题。 安装后，代理将自动包含在代理中。 运行该工具应该是诊断问题的第一步。
+
+### <a name="how-to-use"></a>使用方法
+可以通过将以下命令粘贴到具有 Log Analytics 代理的计算机上的终端窗口来运行故障排除工具： `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>手动安装
+安装 Log Analytics 代理时，将自动包含故障排除工具。 但是，如果安装失败，还可以按照以下步骤手动安装它。
+
+1. 将疑难解答捆绑包复制到计算机上： `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. 解包包： `tar -xzvf omsagent_tst.tar.gz`
+3. 运行手动安装： `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>涵盖的方案
+下面是由疑难解答工具检查的方案列表：
+
+1. 代理不正常，检测信号不能正常工作
+2. 代理未启动，无法连接到日志分析服务
+3. 代理 syslog 不工作
+4. 代理的 CPU/内存使用率高
+5. 代理存在安装问题
+6. 代理自定义日志不起作用
+7. 收集代理日志
+
+有关更多详细信息，请查看 [Github 文档](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md)。
+
+ >[!NOTE]
+ >遇到问题时，请运行日志收集器工具。 最初使日志可帮助我们的支持团队更快地解决问题。
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>重要的日志位置和日志收集器工具
 
@@ -58,7 +88,7 @@ ms.locfileid: "91531184"
 | 6 | 无效的程序包体系结构或者载入期间返回 200 错误；omsagent-*x64.sh 程序包只能安装在 64 位系统上，而 omsagent-* x86.sh 程序包只能安装在 32 位系统上。 从[最新版本](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)为你的体系结构下载正确的程序包。 |
 | 17 | OMS 程序包安装失败。 仔细查看命令输出查找根源故障。 |
 | 19 | OMI 程序包安装失败。 仔细查看命令输出查找根源故障。 |
-| 20 个 | SCX 程序包安装失败。 仔细查看命令输出查找根源故障。 |
+| 20 | SCX 程序包安装失败。 仔细查看命令输出查找根源故障。 |
 | 21 | Provider 工具包安装失败。 仔细查看命令输出查找根源故障。 |
 | 22 | 捆绑的程序包安装失败。 仔细查看命令输出查找根源故障 |
 | 23 | SCX 或 OMI 程序包已安装。 使用 `--upgrade` 而不是 `--install` 安装 shell 捆绑包。 |

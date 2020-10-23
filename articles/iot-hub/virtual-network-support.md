@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149084"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427850"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT 中心支持具有专用链接和托管标识的虚拟网络
 
@@ -170,7 +170,7 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>指向用于路由的存储帐户终结点的出口连接
 
-IoT 中心可将消息路由到客户拥有的存储帐户。 为了允许路由功能在启用了防火墙限制的情况下访问存储帐户，IoT 中心需要具有[托管标识](#turn-on-managed-identity-for-iot-hub)。 预配托管标识后，请按照以下步骤为你的中心的资源标识提供 RBAC 权限，用于访问你的存储帐户。
+IoT 中心可将消息路由到客户拥有的存储帐户。 为了允许路由功能在启用了防火墙限制的情况下访问存储帐户，IoT 中心需要具有[托管标识](#turn-on-managed-identity-for-iot-hub)。 预配托管标识后，请按照以下步骤，将 Azure RBAC 权限授予你中心的资源标识，以便访问你的存储帐户。
 
 1. 在 Azure 门户中，导航到存储帐户的“访问控制 (IAM)”选项卡，然后在“添加角色分配”部分下，单击“添加”  。
 
@@ -188,7 +188,7 @@ IoT 中心可将消息路由到客户拥有的存储帐户。 为了允许路由
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>指向用于路由的事件中心终结点的出口连接
 
-可以将 IoT 中心配置为将消息路由到客户拥有的事件中心命名空间。 为了允许路由功能在启用了防火墙限制的情况下访问事件中心资源，IoT 中心需要具有托管标识。 创建托管标识后，请按照以下步骤为你的中心的资源标识提供 RBAC 权限，用于访问你的事件中心。
+可以将 IoT 中心配置为将消息路由到客户拥有的事件中心命名空间。 为了允许路由功能在启用了防火墙限制的情况下访问事件中心资源，IoT 中心需要具有托管标识。 创建托管标识后，请按照以下步骤，将 Azure RBAC 权限授予中心的资源标识，以访问事件中心。
 
 1. 在 Azure 门户中，导航到事件中心的“访问控制 (IAM)”选项卡，然后在“添加角色分配”部分下，单击“添加”  。
 
@@ -206,7 +206,7 @@ IoT 中心可将消息路由到客户拥有的存储帐户。 为了允许路由
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>指向用于路由的服务总线终结点的出口连接
 
-可以将 IoT 中心配置为将消息路由到客户拥有的服务总线命名空间。 为了允许路由功能在启用了防火墙限制的情况下访问服务总线中心资源，IoT 中心需要具有托管标识。 预配托管标识后，请按照以下步骤为你的中心的资源标识提供 RBAC 权限，用于访问你的服务总线。
+可以将 IoT 中心配置为将消息路由到客户拥有的服务总线命名空间。 为了允许路由功能在启用了防火墙限制的情况下访问服务总线中心资源，IoT 中心需要具有托管标识。 预配托管标识后，请按照以下步骤，将 Azure RBAC 权限授予中心的资源标识，以访问服务总线。
 
 1. 在 Azure 门户中，导航到服务总线的“访问控制 (IAM)”选项卡，然后在“添加角色分配”部分下，单击“添加”  。
 
@@ -224,7 +224,7 @@ IoT 中心可将消息路由到客户拥有的存储帐户。 为了允许路由
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>指向用于上传文件的存储帐户的出口连接
 
-IoT 中心的文件上传功能允许设备将文件上传到客户拥有的存储帐户。 若要正常上传文件，设备和 IoT 中心都需要连接到存储帐户。 如果存储帐户上存在防火墙限制，你的设备需要使用任何支持的存储帐户机制（包括[专用终结点](../private-link/tutorial-private-endpoint-storage-portal.md)、[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)或[直接防火墙配置](../storage/common/storage-network-security.md)）来实现连接。 同样，如果存储帐户上存在防火墙限制，需要将 IoT 中心配置为通过受信任的 Microsoft 服务异常功能来访问存储资源。 出于此目的，IoT 中心必须具有一个托管标识。 预配托管标识后，请按照以下步骤为你的中心的资源标识提供 RBAC 权限，用于访问你的存储帐户。
+IoT 中心的文件上传功能允许设备将文件上传到客户拥有的存储帐户。 若要正常上传文件，设备和 IoT 中心都需要连接到存储帐户。 如果存储帐户上存在防火墙限制，你的设备需要使用任何支持的存储帐户机制（包括[专用终结点](../private-link/tutorial-private-endpoint-storage-portal.md)、[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)或[直接防火墙配置](../storage/common/storage-network-security.md)）来实现连接。 同样，如果存储帐户上存在防火墙限制，需要将 IoT 中心配置为通过受信任的 Microsoft 服务异常功能来访问存储资源。 出于此目的，IoT 中心必须具有一个托管标识。 预配托管标识后，请按照以下步骤，将 Azure RBAC 权限授予你中心的资源标识，以便访问你的存储帐户。
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -244,7 +244,7 @@ IoT 中心的文件上传功能允许设备将文件上传到客户拥有的存�
 
 IoT 中心支持从/向客户提供的存储 blob 批量[导入/导出](./iot-hub-bulk-identity-mgmt.md)设备的信息。 若要正常使用批量导入/导出功能，设备和 IoT 中心都需要连接到存储帐户。
 
-若要使用此功，需要从 IoT 中心连接到存储帐户。 为了在启用了防火墙限制的情况下访问服务总线资源，IoT 中心需要具有托管标识。 预配托管标识后，请按照以下步骤为你的中心的资源标识提供 RBAC 权限，用于访问你的服务总线。
+若要使用此功，需要从 IoT 中心连接到存储帐户。 为了在启用了防火墙限制的情况下访问服务总线资源，IoT 中心需要具有托管标识。 预配托管标识后，请按照以下步骤，将 Azure RBAC 权限授予中心的资源标识，以访问服务总线。
 
 1. 在 Azure 门户中，导航到存储帐户的“访问控制 (IAM)”选项卡，然后在“添加角色分配”部分下，单击“添加”  。
 

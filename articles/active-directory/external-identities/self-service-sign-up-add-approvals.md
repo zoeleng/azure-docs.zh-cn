@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165222"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441617"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>将自定义审批工作流添加到自助注册
 
@@ -29,7 +29,7 @@ ms.locfileid: "88165222"
 
 ## <a name="register-an-application-for-your-approval-system"></a>为审批系统注册应用程序
 
-你需要将你的审批系统注册为 Azure AD 租户中的应用程序，以便它可以使用 Azure AD 进行身份验证，并且具有创建用户的权限。 详细了解 [Microsoft Graph 的身份验证和授权基础知识](https://docs.microsoft.com/graph/auth/auth-concepts)。
+你需要将你的审批系统注册为 Azure AD 租户中的应用程序，以便它可以使用 Azure AD 进行身份验证，并且具有创建用户的权限。 详细了解 [Microsoft Graph 的身份验证和授权基础知识](/graph/auth/auth-concepts)。
 
 1. 以 Azure AD 管理员身份登录到 [Azure 门户](https://portal.azure.com)。
 2. 在“Azure 服务”下，选择“Azure Active Directory”。
@@ -38,7 +38,7 @@ ms.locfileid: "88165222"
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. 选择“注册”。 可以将其他字段保留默认值。
+5. 选择“注册”  。 可以将其他字段保留默认值。
 
    ![注册应用程序页面](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
@@ -263,14 +263,14 @@ Content-type: application/json
 
 ## <a name="user-account-creation-after-manual-approval"></a>手动批准后创建用户帐户
 
-获取手动批准后，自定义批准系统使用[Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)创建[用户](https://docs.microsoft.com/graph/azuread-users-concept-overview)帐户。 审批系统预配用户帐户的方式取决于用户使用的标识提供者。
+获取手动批准后，自定义批准系统使用[Microsoft Graph](/graph/use-the-api)创建[用户](/graph/azuread-users-concept-overview)帐户。 审批系统预配用户帐户的方式取决于用户使用的标识提供者。
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>对于联合 Google 或 Facebook 用户
 
 > [!IMPORTANT]
 > 批准系统应显式检查并显示和，这 `identities` `identities[0]` `identities[0].issuer` `identities[0].issuer` 等于 "facebook" 或 "google" 才能使用此方法。
 
-如果用户使用 Google 或 Facebook 帐户登录，则可以使用 [用户创建 API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http)。
+如果用户使用 Google 或 Facebook 帐户登录，则可以使用 [用户创建 API](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0)。
 
 1. 审批系统使用将从用户流接收 HTTP 请求。
 
@@ -318,7 +318,7 @@ Content-type: application/json
 }
 ```
 
-| 参数                                           | 必须 | 说明                                                                                                                                                            |
+| 参数                                           | 必需 | 描述                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | 是      | 可以通过将 `email` 声明发送到 API，将该 `@` 字符替换 `_` 为，并预先将其挂起到来生成 `#EXT@<tenant-name>.onmicrosoft.com` 。 |
 | accountEnabled                                      | 是      | 必须设置为 `true`。                                                                                                                                                 |
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>对于联合 Azure Active Directory 用户
 
-如果用户使用联合 Azure Active Directory 帐户登录，则必须使用 [邀请 API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) 创建用户，并根据需要使用 [用户更新 api](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) 向用户分配更多属性。
+如果用户使用联合 Azure Active Directory 帐户登录，则必须使用 [邀请 API](/graph/api/invitation-post?view=graph-rest-1.0) 创建用户，并根据需要使用 [用户更新 api](/graph/api/user-update?view=graph-rest-1.0) 向用户分配更多属性。
 
 1. 审批系统从用户流接收 HTTP 请求。
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Function 快速入门示例](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)入门。
-- [查看具有手动审批的来宾用户的自助注册示例](code-samples-self-service-sign-up.md#custom-approval-workflows)。 
+- [查看具有手动审批的来宾用户的自助注册示例](code-samples-self-service-sign-up.md#custom-approval-workflows)。

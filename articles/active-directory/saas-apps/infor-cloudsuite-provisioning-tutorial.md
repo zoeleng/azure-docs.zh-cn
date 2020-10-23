@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 171a96f37d4c1e740e23cc766566d3c1756b6d08
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850860"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460178"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>教程：为 Infor CloudSuite 配置自动用户预配
 
@@ -46,7 +46,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 * 建议将单个 Azure AD 用户分配到 Infor CloudSuite 以测试自动用户预配配置。 其他用户和/或组可以稍后分配。
 
-* 将用户分配到 Infor CloudSuite 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到 Infor CloudSuite 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="set-up-infor-cloudsuite-for-provisioning"></a>设置 Infor CloudSuite 以进行预配
 
@@ -103,7 +103,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 本部分将指导你完成以下步骤：配置 Azure AD 预配服务，以便基于 Azure AD 中的用户和/或组分配在 Infor CloudSuite 中创建、更新和禁用用户和/或组。
 
 > [!TIP]
-> 还可以选择按照 [Infor CloudSuite 单一登录教程](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial)中提供的说明为 Infor CloudSuite 启用基于 SAML 的单一登录。 可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充。
+> 还可以选择按照 [Infor CloudSuite 单一登录教程](./infor-cloud-suite-tutorial.md)中提供的说明为 Infor CloudSuite 启用基于 SAML 的单一登录。 可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充。
 
 > [!NOTE]
 > 若要详细了解 Infor CloudSuite 的 SCIM 终结点，请参阅 [此](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#)。
@@ -114,15 +114,15 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“Infor CloudSuite”。****
+2. 在应用程序列表中，选择“Infor CloudSuite”。 
 
     ![应用程序列表中的 Infor CloudSuite](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
@@ -130,17 +130,17 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
-6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”   。
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击 **“保存”** 。
+7. 单击“ **保存**”。
 
 8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Infor CloudSuite**"。
 
     ![Infor CloudSuite 用户映射](media/infor-cloudsuite-provisioning-tutorial/usermappings.png)
 
-9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Infor CloudSuite 的用户属性。 选为 " **匹配** " 属性的属性用于匹配 Infor CloudSuite 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
+9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Infor CloudSuite 的用户属性。 选为 " **匹配** " 属性的属性用于匹配 Infor CloudSuite 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改  。
 
     ![Infor CloudSuite 用户属性](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
 
@@ -148,7 +148,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![Infor CloudSuite 组映射](media/infor-cloudsuite-provisioning-tutorial/groupmappings.png)
 
-11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Infor CloudSuite 的组属性。 选为 " **匹配** " 属性的属性用于匹配 Infor CloudSuite 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
+11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Infor CloudSuite 的组属性。 选为 " **匹配** " 属性的属性用于匹配 Infor CloudSuite 中的组以执行更新操作。 选择“保存”按钮以提交任何更改  。
 
     ![Infor CloudSuite 组属性](media/infor-cloudsuite-provisioning-tutorial/groupattributes.png)
 
@@ -162,11 +162,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![预配范围](common/provisioning-scope.png)
 
-15. 已准备好预配时，单击“保存”。
+15. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步********。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务在 Infor CloudSuite 上执行的所有操作。
+此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步   。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务在 Infor CloudSuite 上执行的所有操作。
 
 若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../app-provisioning/check-status-user-account-provisioning.md)。
 

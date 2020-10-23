@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 的 SAML 身份验证
-description: 实现此身份验证模式的体系结构指南
+description: 有关 Azure Active Directory 的 SAML 身份验证实现的体系结构指南
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b13e04db8e83a8a10c2d7fe0aea202dfa3b69c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114156"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441209"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Azure Active Directory 的 SAML 身份验证
 
@@ -37,7 +37,7 @@ SAML 规范定义了三个角色：
 
 尽管 SAML 地址为 SSO 的最重要用例之一是 SSO （特别是通过跨安全域扩展 SSO），但也有其他用例 (也称为配置文件) 。 
 
-![体系结构图](./media/authentication-patterns/saml-auth.png)
+![SAML 的体系结构关系图](./media/authentication-patterns/saml-auth.png)
 
 ## <a name="components-of-system"></a>系统组件
 

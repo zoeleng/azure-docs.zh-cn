@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299691"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455931"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>教程：为 GoToMeeting 配置自动用户预配
 
@@ -35,7 +35,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 在配置和启用预配服务前，需确定 Azure AD 中哪些用户和/或组表示需要访问 GoToMeeting 应用的用户。 确定后，可按照此处的说明将这些用户分配到 GoToMeeting 应用：
 
-[向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-gotomeeting"></a>将用户分配到 GoToMeeting 的重要提示
 
@@ -90,6 +90,4 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 * [管理企业应用的用户帐户预配](tutorial-list.md)
 * [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
-* [配置单一登录](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
-
-
+* [配置单一登录](./citrix-gotomeeting-tutorial.md)
