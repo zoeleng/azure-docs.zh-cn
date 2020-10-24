@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a3c37143154a6e701c4308903c46f4e68ac1b604
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458093"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495759"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>使用关系管理数字孪生图
 
@@ -221,6 +221,8 @@ await DeleteRelationship(client, srcId, relId);
 
 以下可运行代码片段使用本文中的关系操作来创建数字孪生和关系的克隆图形。
 
+### <a name="set-up-the-runnable-sample"></a>设置可运行示例
+
 此代码片段使用教程中的模型定义 [* 上的Room.js*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) 和 [*Floor.js*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) [*：使用示例客户端应用浏览 Azure 数字孪生*](tutorial-command-line-app.md)。 你可以使用这些链接直接前往文件，或将其作为完整的端到端 [示例项目的](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)一部分进行下载。 
 
 在运行该示例之前，请执行以下操作：
@@ -232,7 +234,12 @@ await DeleteRelationship(client, srcId, relId);
     dotnet add package Azure.identity
     ```
 
-然后，运行该示例。
+如果要直接运行该示例，还需要设置本地凭据。 下一节将对此进行演练。
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>运行示例
+
+完成上述步骤后，可以直接运行以下示例代码。
 
 ```csharp 
 using System;

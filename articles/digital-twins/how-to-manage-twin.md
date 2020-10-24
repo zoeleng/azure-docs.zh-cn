@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461306"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494785"
 ---
 # <a name="manage-digital-twins"></a>管理数字孪生
 
@@ -381,6 +381,8 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 您可以使用下面的可运行代码示例创建一个克隆，更新其详细信息，然后删除克隆。 
 
+### <a name="set-up-the-runnable-sample"></a>设置可运行示例
+
 此代码片段使用教程中模型定义的 [Room.js](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) [*：使用示例客户端应用浏览 Azure 数字孪生*](tutorial-command-line-app.md)。 你可以使用此链接直接前往文件，或将其作为完整的端到端 [示例项目的](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)一部分进行下载。
 
 在运行该示例之前，请执行以下操作：
@@ -392,7 +394,12 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     dotnet add package Azure.identity
     ```
 
-然后，运行该示例。
+如果要直接运行该示例，还需要设置本地凭据。 下一节将对此进行演练。
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>运行示例
+
+完成上述步骤后，可以直接运行以下示例代码。
 
 ```csharp
 using System;
@@ -555,8 +562,6 @@ namespace minimal
 ## <a name="manage-twins-with-cli"></a>用 CLI 管理孪生
 
 还可以使用 Azure 数字孪生 CLI 管理孪生。 可在 _How 中找到命令 [：使用 Azure 数字孪生 CLI *](how-to-use-cli.md)。
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="view-all-digital-twins"></a>查看所有数字孪生
 

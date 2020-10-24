@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504297"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491217"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>适用于小型数据集以及中低速网络带宽的数据传输
  
@@ -63,6 +63,6 @@ ms.locfileid: "85504297"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[使用 Azure 存储资源管理器传输数据](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)。
-- [使用 AzCopy 传输数据](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- 了解如何[使用 Azure 存储资源管理器传输数据](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)。
+- [使用 AzCopy 传输数据](/azure/storage/common/storage-use-azcopy-v10)
 

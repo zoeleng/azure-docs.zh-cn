@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 900221bd27fe4020a927b3155c91aa8e494ca890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88da1c7fba5d7cb51863a580ae420eb6b3298a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203841"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491268"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>具有中高速网络带宽的大型数据集的数据传输
  
@@ -98,14 +98,14 @@ ms.locfileid: "86203841"
 - [了解如何使用导入/导出转移数据](/azure/storage/common/storage-import-export-data-to-blobs)。
 - 了解如何
 
-    - [使用 Data Box Disk 传输数据](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal)。
-    - [使用 Data Box 传输数据](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)。
+    - [使用 Data Box Disk 传输数据](/azure/databox/data-box-disk-quickstart-portal)。
+    - [使用 Data Box 传输数据](/azure/databox/data-box-quickstart-portal)。
 - [使用 AzCopy 传输数据](/azure/storage/common/storage-use-azcopy-v10)。
 - 了解如何：
-    - [使用 Data Box Gateway 传输数据](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares)。
-    - [在将数据发送到 Azure 之前使用 Data Box Edge 转换数据](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute)。
-- [了解如何使用 Azure 数据工厂传输数据](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal)。
+    - [使用 Data Box Gateway 传输数据](/azure/databox-online/data-box-gateway-deploy-add-shares)。
+    - [在将数据发送到 Azure 之前使用 Data Box Edge 转换数据](/azure/databox-online/data-box-edge-deploy-configure-compute)。
+- [了解如何使用 Azure 数据工厂传输数据](/azure/data-factory/quickstart-create-data-factory-portal)。
 - 使用 REST API 传输数据
 
-    - [在 .NET 中](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [在 Java 中](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [在 .NET 中](/dotnet/api/overview/azure/storage)
+    - [在 Java 中](/java/api/overview/azure/storage)

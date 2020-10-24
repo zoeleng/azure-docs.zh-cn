@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709192"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489670"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>在 Azure DNS 中托管反向 DNS 查找区域
 
@@ -48,7 +48,7 @@ IPv4 反向查找区域的名称基于其所代表的 IP 范围。 应采用以�
 
 以下示例演示如何通过 Azure 门户在 Azure DNS 中创建名为 `2.0.192.in-addr.arpa` 的“类 C”的反向 DNS 区域：
 
- ![“创建 DNS 区域”窗格，已填写其中的输入框](./media/dns-reverse-dns-hosting/figure2.png)
+ ![介绍如何通过 Azure 门户在 Azure DNS 中创建名为 2.0.192.in-arpa 的类 C 反向 DNS 区域的屏幕截图。](./media/dns-reverse-dns-hosting/figure2.png)
 
 “资源组位置”定义资源组的位置。  它对 DNS 区域没有影响。 DNS 区域位置始终是“全局”，并且不会显示。
 
@@ -117,7 +117,7 @@ az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2
 
 1. 在“DNS 区域”  窗格顶部，选择“+ 记录集”  打开“添加记录集”  窗格。
 
-   ![用于创建记录集的按钮](./media/dns-reverse-dns-hosting/figure4.png)
+   !["DNS 区域" 窗格的屏幕截图，其中箭头指向 "+ 记录集" 按钮。](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. PTR 记录的记录集名称需为以倒序排序的 IPv4 地址的其余部分。 
 
@@ -162,7 +162,7 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.a
 4. 在“域名”字段中，输入使用该 IP 的资源的 FQDN  。
 5. 单击窗格底部的“确定”创建 DNS 记录。 
 
-![“添加记录集”窗格，已填写其中的输入框](./media/dns-reverse-dns-hosting/figure7.png)
+![显示 "添加记录集" 窗格的屏幕截图，其中箭头指向 "类型" 字段中的值。](./media/dns-reverse-dns-hosting/figure7.png)
 
 以下示例演示如何使用 PowerShell 或 Azure CLI 完成此任务。
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987746"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480592"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 
@@ -20,9 +20,9 @@ ms.locfileid: "90987746"
 
 使用相同的工具在一个位置管理不同的 Azure 实体。 可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。
 
-Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 Cosmos 帐户。 有关详细信息，请参阅 [Azure 存储资源管理器中的 Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) 。
+Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 Cosmos 帐户。 有关详细信息，请参阅 [Azure 存储资源管理器中的 Azure Cosmos DB]() 。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 具有 SQL API 或 MongoDB Azure Cosmos DB API 的 Cosmos 帐户。 如果没有帐户，可以在 Azure 门户中创建一个。 有关详细信息，请参阅 [Azure Cosmos DB：使用 .Net 构建 SQL API web 应用和 Azure 门户](create-sql-api-dotnet.md) 。
 
@@ -64,7 +64,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 使用以下步骤通过模拟器连接到 Azure Cosmos DB。 此方法仅支持 SQL 帐户。
 
-1. 安装 Cosmos DB 模拟器，然后将其打开。 有关如何安装模拟器的详细说明，请参阅 [Cosmos DB 模拟器](https://docs.microsoft.com/azure/cosmos-db/local-emulator)。
+1. 安装 Cosmos DB 模拟器，然后将其打开。 有关如何安装模拟器的详细说明，请参阅 [Cosmos DB 模拟器](./local-emulator.md)。
 
 1. 在左侧树中找到 " **本地和附加** "，右键单击 **Cosmos DB 帐户**"，然后选择" **连接到 Cosmos DB 模拟器**"。
 
@@ -148,7 +148,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 #### <a name="query-for-documents"></a>查询文档
 
-* 若要编辑文档筛选器，请输入 [SQL 查询](how-to-sql-query.md)，然后选择 " **应用**"。
+* 若要编辑文档筛选器，请输入 [SQL 查询](./sql-query-getting-started.md)，然后选择 " **应用**"。
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
@@ -213,7 +213,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 * **触发器**和**UDF**的操作与**存储过程**类似。
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 下面是在存储资源管理器中使用 Azure Cosmos DB 时出现的常见问题的解决方案。
 
@@ -317,4 +317,4 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 ## <a name="next-steps"></a>后续步骤
 
 * 观看此视频以了解如何在 Azure 存储资源管理器中使用 Azure Cosmos DB： [使用 Azure 存储资源管理器中的 Azure Cosmos DB](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。
-* 在[存储资源管理器入门](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)中了解有关存储资源管理器和连接更多服务的详细信息。
+* 在[存储资源管理器入门](../vs-azure-tools-storage-manage-with-storage-explorer.md)中了解有关存储资源管理器和连接更多服务的详细信息。

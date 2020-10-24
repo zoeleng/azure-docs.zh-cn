@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 23f334d28ef5045c68bb84fc0bc34e8f847fe0f9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281842"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490656"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>查找 Azure Cosmos DB SQL API 中执行的操作的请求单位费用
 
@@ -175,8 +175,8 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 * [Azure Cosmos DB 中的请求单位和吞吐量](request-units.md)
 * [在 Azure Cosmos DB 中优化预配的吞吐量成本](optimize-cost-throughput.md)
-* [优化 Azure Cosmos DB 中的查询成本](optimize-cost-queries.md)
-* [全局缩放预配的吞吐量](scaling-throughput.md)
+* [优化 Azure Cosmos DB 中的查询成本](./optimize-cost-reads-writes.md)
+* [全局缩放预配的吞吐量](./request-units.md)
 * [在容器和数据库上预配吞吐量](set-throughput.md)
 * [为容器预配吞吐量](how-to-provision-container-throughput.md)
 * [使用 Azure Cosmos DB 中的指标进行监视和调试](use-metrics.md)

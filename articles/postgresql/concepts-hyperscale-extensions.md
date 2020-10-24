@@ -7,20 +7,20 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996441"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487970"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL 中的 PostgreSQL 扩展-超大规模 (Citus) 
 
-PostgreSQL 提供使用扩展来扩展数据库功能的功能。 扩展允许在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载后，扩展可以像内置功能那样运行。 有关 PostgreSQL 扩展的详细信息，请参阅 [将相关对象打包到扩展](https://www.postgresql.org/docs/current/static/extend-extensions.html)中。
+PostgreSQL 提供使用扩展来扩展数据库功能的功能。 扩展允许在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载后，扩展可以像内置功能那样运行。 有关 PostgreSQL 扩展的详细信息，请参阅 [将相关对象打包到扩展](https://www.postgresql.org/docs/current/static/extend-extensions.html)中。
 
 ## <a name="use-postgresql-extensions"></a>使用 PostgreSQL 扩展
 
-必须先在数据库中安装 PostgreSQL 扩展，然后才能使用它们。 若要安装特定扩展，请从 psql 工具运行 [CREATE extension](https://www.postgresql.org/docs/current/static/sql-createextension.html)   命令，将打包的对象加载到数据库中。
+必须先在数据库中安装 PostgreSQL 扩展，然后才能使用它们。 若要安装特定扩展，请从 psql 工具运行 [CREATE extension](https://www.postgresql.org/docs/current/static/sql-createextension.html) 命令，将打包的对象加载到数据库中。
 
 Azure Database for PostgreSQL (Citus) 目前支持此处列出的密钥扩展的子集。 不支持所列扩展以外的扩展。 不能 Azure Database for PostgreSQL 创建自己的扩展。
 
@@ -140,7 +140,7 @@ Azure Database for PostgreSQL (Citus) 目前支持此处列出的密钥扩展的
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Pg \_ stat \_ 语句扩展](https://www.postgresql.org/docs/current/pgstatstatements.html)在每个 Azure Database for PostgreSQL 服务器上预加载，为你提供一种跟踪 SQL 语句执行统计信息的方法。
 
-此设置 `pg_stat_statements.track` 控制扩展对哪些语句进行计数。 默认值为 `top` ，这意味着将跟踪客户端直接发出的所有语句。 另外两个跟踪级别为 `none` 和 `all`。 此设置可通过 [Azure 门户](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal)或 [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli) 作为服务器参数进行配置。
+此设置 `pg_stat_statements.track` 控制扩展对哪些语句进行计数。 默认值为 `top` ，这意味着将跟踪客户端直接发出的所有语句。 另外两个跟踪级别为 `none` 和 `all`。 此设置可通过 [Azure 门户](./howto-configure-server-parameters-using-portal.md)或 [Azure CLI](./howto-configure-server-parameters-using-cli.md) 作为服务器参数进行配置。
 
 Pg_stat_statements 提供的查询执行信息和对服务器性能的影响，因为它记录了每个 SQL 语句。 如果你没有主动使用 pg_stat_statements 扩展，我们建议你将设置 `pg_stat_statements.track` 为 `none` 。 某些第三方监视服务可能依赖于 pg_stat_statements 来提供查询性能见解，因此请确认这是否适用于这种情况。
 

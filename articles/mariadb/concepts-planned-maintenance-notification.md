@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9a37baaa80aadcf10f2bb2091a04fccb3fd9b504
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428817"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490826"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的计划内维护通知
 
@@ -63,7 +63,7 @@ Azure Database for MariaDB 服务执行基础硬件、操作系统和数据库�
 
 有关如何创建服务运行状况警报的详细步骤，请参阅 [创建有关服务通知的活动日志警报](../service-health/alerts-activity-log-service-notifications.md)。
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>收到通知事件后，是否可以控制或更改服务器的计划内维护？
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>能否取消或推迟计划内维护？
 
 维护是为了使服务器保持安全、稳定和保持最新状态。 计划内维护事件无法取消或延迟。 将通知发送到给定的 Azure 区域后，不能对该区域中的任何单个服务器进行修补计划更改。 同时为整个区域推出修补程序。 Azure Database for MariaDB 服务适用于不需要对服务进行精细控制或自定义的云本机应用程序。
 

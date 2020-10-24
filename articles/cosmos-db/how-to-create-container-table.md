@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: ccda92f094d28b27e48de689c3b39c4f8a9bfaa3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283647"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491132"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>在 Azure Cosmos DB 中创建容器表 API
 
@@ -54,5 +54,4 @@ ms.locfileid: "92283647"
 * [Azure Cosmos DB 中的分区](partitioning-overview.md)
 * [Azure Cosmos DB 中的请求单位](request-units.md)
 * [在容器和数据库上预配吞吐量](set-throughput.md)
-* [使用 Azure Cosmos 帐户](account-overview.md)
-
+* [使用 Azure Cosmos 帐户](./account-databases-containers-items.md)

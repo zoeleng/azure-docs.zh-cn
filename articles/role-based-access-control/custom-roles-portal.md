@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511715"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481323"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>使用 Azure 门户创建 Azure 自定义角色
 
@@ -331,7 +331,7 @@ Microsoft.CostManagement/exports/delete
 
 1. 单击要删除的自定义角色对应的省略号 ( **...** )，然后单击“删除”。
 
-    ![自定义角色菜单](./media/custom-roles-portal/delete-menu.png)
+    ![屏幕截图，显示可选择进行删除的自定义角色的列表。](./media/custom-roles-portal/delete-menu.png)
 
     可能需要几分钟的时间才能完全删除你的自定义角色。
 

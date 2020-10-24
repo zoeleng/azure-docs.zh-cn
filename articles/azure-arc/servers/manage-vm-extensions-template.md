@@ -1,14 +1,14 @@
 ---
 title: 使用 Azure 资源管理器模板启用 VM 扩展
 description: 本文介绍如何使用 Azure 资源管理器模板将虚拟机扩展部署到在混合云环境中运行的支持 Azure Arc 的服务器。
-ms.date: 10/15/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 23cb1e85b9560b7033dc5bdce672ee8718ed326b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 935fa38fbb98622f2da7d2ce9e1d166b12a32e44
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462872"
+ms.locfileid: "92491200"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>使用 ARM 模板启用 Azure VM 扩展
 
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 * 如果你的计算机需要在外部下载脚本并且只能通过代理服务器进行通信，则需要 [配置已连接的计算机代理](manage-agent.md#update-or-remove-proxy-settings) 以设置代理服务器环境变量。
 
-自定义脚本扩展配置指定脚本位置和要运行命令等设置。 此配置在 Azure 资源管理器模板中指定，如下所示，适用于 Linux 和 Windows 混合计算机。
+自定义脚本扩展配置指定要运行的脚本位置和命令等。 此配置在 Azure 资源管理器模板中指定，如下所示，适用于 Linux 和 Windows 混合计算机。
 
 ### <a name="template-file-for-linux"></a>适用于 Linux 的模板文件
 
@@ -543,7 +543,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 }
 ```
 
-## <a name="deploy-the-dependency-agent"></a>部署依赖关系代理
+## <a name="deploy-the-dependency-agent-extension"></a>部署依赖关系代理扩展
 
 若要使用 Azure Monitor 依赖关系代理扩展，提供以下示例以在 Windows 和 Linux 上运行。 如果不熟悉依赖关系代理，请参阅 [Azure Monitor 代理概述](../../azure-monitor/platform/agents-overview.md#dependency-agent)。
 

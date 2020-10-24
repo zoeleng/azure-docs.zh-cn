@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: aro、openshift、az aro、red hat、cli
 ms.custom: mvc
-ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469875"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490231"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>为 Azure Red Hat OpenShift 4 群集 (门户配置 Azure Active Directory 身份验证) 
 
@@ -62,7 +62,7 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 
 导航到 " **令牌配置 (预览") ** 并单击 " **添加可选声明**"。 选择 " **ID** "，然后检查 **电子邮件** 和 **upn** 声明。
 
-![创建机密](media/aro4-ad-tokens.png)
+![显示已添加的电子邮件和 upn 声明的屏幕截图。](media/aro4-ad-tokens.png)
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>将用户和组分配给群集 (可选) 
 
