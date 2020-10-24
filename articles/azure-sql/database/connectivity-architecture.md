@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325379"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479079"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL 数据库和 Azure Synapse Analytics 连接体系结构
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "91325379"
 
 下图提供连接体系结构的综合概述。
 
-![体系结构概述](./media/connectivity-architecture/connectivity-overview.png)
+![显示连接体系结构的高级概述的关系图。](./media/connectivity-architecture/connectivity-overview.png)
 
 以下步骤介绍如何建立与 Azure SQL 数据库的连接：
 
@@ -63,7 +63,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 
 如果从 Azure 外部连接，则连接默认具有 `Proxy` 连接策略。 `Proxy` 策略是指通过 Azure SQL 数据库网关建立 TCP 会话，并且所有后续数据包通过网关传输。 下图演示了此流量流。
 
-![体系结构概述](./media/connectivity-architecture/connectivity-onprem.png)
+![此图显示了如何通过 Azure SQL 数据库网关建立 TCP 会话，并通过网关流过所有后续数据包。](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > 另请打开 TCP 端口 1434 和 14000-14999，以便[使用 DAC 进行连接](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
@@ -80,7 +80,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 | 澳大利亚 Central2   | 20.36.113.0 |
 | 澳大利亚东部       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | 澳大利亚东南部 | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| 巴西南部         | 104.41.11.5, 191.233.200.14 |
+| Brazil South         | 104.41.11.5, 191.233.200.14 |
 | 加拿大中部       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | 加拿大东部          | 40.86.226.166, 52.242.30.154 |
 | 美国中部           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
@@ -98,7 +98,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 | 印度中部        | 104.211.96.159     |
 | 印度南部          | 104.211.224.146    |
 | 印度西部           | 104.211.160.80     |
-| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| 日本东部           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | 日本西部           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | 韩国中部        | 52.231.32.42       |
 | 韩国南部          | 52.231.200.86      |

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277301"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475322"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 此处列出的四个应用程序类型默认使用 32 位主机处理。 若要将你的应用程序类型的主机处理更改为 64 位处理，请执行以下步骤：
 
-- **对于可执行应用程序**：在“项目属性”窗口的“生成”窗格上，将[平台目标](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true)设置为“x64”。
+- **对于可执行应用程序**：在“项目属性”窗口的“生成”窗格上，将[平台目标](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019)设置为“x64”。
 
 - **对于基于 VSTest 的测试项目**：在 Visual Studio“测试”菜单上，选择“测试” > “测试设置”，然后将“默认处理器体系结构”设置为“X64”。  
 
@@ -53,7 +53,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     
 **启用服务器端垃圾回收**
 
-在某些情况下，降低垃圾回收的频率可能会有帮助。 在 .NET 中，将 [gcServer](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) 设置为 `true`。
+在某些情况下，降低垃圾回收的频率可能会有帮助。 在 .NET 中，将 [gcServer](/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) 设置为 `true`。
 
 **横向扩展客户端工作负载**
 
@@ -86,8 +86,8 @@ new CosmosClientOptions
 
 在具有稀疏访问且与网关模式访问相比连接计数更高的情况下，你可以：
 
-* 将 [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) 属性配置为 `PrivatePortPool`（Framework 版本 >= 4.6.1 且 .NET Core 版本 >= 2.0 时有效）。 此属性使 SDK 可以针对各种 Azure Cosmos DB 目标终结点使用一小部分临时端口。
-* 将 [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) 属性配置为大于或等于 10 分钟。 建议值为 20 分钟到 24 小时。
+* 将 [CosmosClientOptions.PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) 属性配置为 `PrivatePortPool`（Framework 版本 >= 4.6.1 且 .NET Core 版本 >= 2.0 时有效）。 此属性使 SDK 可以针对各种 Azure Cosmos DB 目标终结点使用一小部分临时端口。
+* 将 [CosmosClientOptions.IdleConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) 属性配置为大于或等于 10 分钟。 建议值为 20 分钟到 24 小时。
 
 <a id="same-region"></a>
 
@@ -103,7 +103,7 @@ new CosmosClientOptions
 
 **增加线程/任务数目**
 
-由于对 Azure Cosmos DB 的调用是通过网络执行的，可能需要改变请求的并发度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用 .NET [任务并行库](https://msdn.microsoft.com//library/dd460717.aspx)，请创建大约数百个在 Azure Cosmos DB 中进行读取或写入操作的任务。
+由于对 Azure Cosmos DB 的调用是通过网络执行的，可能需要改变请求的并发度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用 .NET [任务并行库](/dotnet/standard/parallel-programming/task-parallel-library-tpl)，请创建大约数百个在 Azure Cosmos DB 中进行读取或写入操作的任务。
 
 **启用加速网络**
  
@@ -146,7 +146,7 @@ itemResponse.Resource
 
 **在使用网关模式时增大每台主机的 System.Net MaxConnections**
 
-使用网关模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的。 这些请求受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 `MaxConnections` 设置为较大的值（从 100 到 1,000），以便客户端库能够同时使用多个连接来访问 Azure Cosmos DB。 在 .NET SDK 1.8.0 及更高版本中，[ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 的默认值为 50。 若要更改该值，可以将 [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) 设置为较高的值。
+使用网关模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的。 这些请求受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 `MaxConnections` 设置为较大的值（从 100 到 1,000），以便客户端库能够同时使用多个连接来访问 Azure Cosmos DB。 在 .NET SDK 1.8.0 及更高版本中，[ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) 的默认值为 50。 若要更改该值，可以将 [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) 设置为较高的值。
 
 **优化已分区集合的并行查询**
 
@@ -170,7 +170,7 @@ SQL .NET SDK 支持并行查询，使你能够并行查询分区的容器。 有
 
 在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果请求受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 允许退让有助于确保最大程度地减少等待重试的时间。 
 
-有关详细信息，请参阅 [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter)。
+有关详细信息，请参阅 [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter)。
     
 有一个机制可以记录附加诊断信息和排查延迟问题，如以下示例所示。 可以记录具有较高读取延迟的请求的诊断字符串。 捕获的诊断字符串可帮助你了解收到给定请求的 429 错误的次数。
 

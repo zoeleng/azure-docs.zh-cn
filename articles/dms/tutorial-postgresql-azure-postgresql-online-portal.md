@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 4e424d41a7b4c1d9394e789c60b60a6fa86a69c5
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: c451c49555e9c4c9214780bd936c17e9a30df776
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893775"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495534"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>教程：通过 Azure 门户使用 DMS 将 PostgreSQL 联机迁移到 Azure DB for PostgreSQL
 
@@ -211,7 +211,7 @@ ms.locfileid: "91893775"
 
 2. 在“Azure 数据库迁移服务”屏幕上，搜索所创建的 Azure 数据库迁移服务实例名称，选择该实例，然后选择“+ 新建迁移项目” 。
 
-3. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“PostgresSQL”，在“目标服务器类型”文本框中选择“Azure Database for PostgreSQL”    。
+3. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“PostgreSQL”，在“目标服务器类型”文本框中选择“Azure Database for PostgreSQL”    。
 
 4. 在“选择活动类型”部分选择“联机数据迁移”。 
 

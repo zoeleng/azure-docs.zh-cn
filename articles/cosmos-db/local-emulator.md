@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173791"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482615"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>安装并使用 Azure Cosmos 模拟器进行本地开发和测试
 
@@ -365,7 +365,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>表 API
 
-在桌面上运行 Azure Cosmos 模拟器后，可以使用 [Azure Cosmos DB 表 API SDK](table-storage-how-to-use-dotnet.md) 与模拟器进行交互。 使用 "/EnableTableEndpoint" 作为管理员，从 [命令提示符](emulator-command-line-parameters.md) 启动模拟器。 接下来，运行下列代码以连接到表 API 帐户：
+在桌面上运行 Azure Cosmos 模拟器后，可以使用 [Azure Cosmos DB 表 API SDK](./tutorial-develop-table-dotnet.md) 与模拟器进行交互。 使用 "/EnableTableEndpoint" 作为管理员，从 [命令提示符](emulator-command-line-parameters.md) 启动模拟器。 接下来，运行下列代码以连接到表 API 帐户：
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;

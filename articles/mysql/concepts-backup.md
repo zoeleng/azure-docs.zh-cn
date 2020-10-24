@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9514d0fb6c9cbc95b82f13ffb576703893f303f2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057529"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484553"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -38,7 +38,7 @@ Azure Database for MySQL 对数据文件和事务日志进行备份。 可以通
 常规用途存储是支持 [常规用途](concepts-pricing-tiers.md) 和 [内存优化层](concepts-pricing-tiers.md) 服务器的后端存储。 对于常规用途存储高达 4 TB 的服务器，完整备份每周进行一次。 差异备份一天进行两次。 每五分钟执行一次事务日志备份。一般用途的备份存储空间最多可存储 4 TB 存储，并在备份时消耗 IO 带宽。 对于大型数据库 ( # A0 1TB) 在 4 TB 存储上，我们建议你考虑 
 
 - 预配更多 IOPs，以考虑备份 Io 或
-- 或者，如果基础存储基础在首选 [Azure 区域](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)中可用，则可迁移到通用存储，该存储支持高达 16 TB 的存储。 一般用途存储无需额外付费即可实现最大 16 TB 存储。 若要获得有关迁移到 16 TB 存储的帮助，请从 Azure 门户提出支持票证。 
+- 或者，如果基础存储基础结构在首选 [Azure 区域](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)中可用，则可迁移到通用存储，该存储支持多达 16 TB 的存储。 一般用途存储无需额外付费即可实现最大 16 TB 存储。 若要获得有关迁移到 16 TB 存储的帮助，请从 Azure 门户提出支持票证。 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>一般用途存储服务器，最多支持 16 TB 存储
 在 [Azure 区域](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)的一个子集，所有新预配的服务器都可支持最多 16 TB 存储空间的常规用途存储。 换句话说，对于支持的所有 [区域](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) ，存储最多 16 TB 存储空间都是默认的常规用途存储。 这些 16 TB 存储服务器上的备份基于快照。 第一次完整快照备份在创建服务器后立即进行计划。 此第一个完整快照备份将保留为服务器的基准备份。 后续快照备份仅为差异备份。 
@@ -55,12 +55,16 @@ Azure Database for MySQL 对数据文件和事务日志进行备份。 可以通
 - 具有最多 4 TB 存储空间的服务器将保留最多2个完整数据库备份、所有差异备份和自最早的完整数据库备份以来执行的事务日志备份。
 -   具有高达 16 TB 存储的服务器将保留完整的数据库快照、所有差异快照和事务日志备份，过去8天。
 
+#### <a name="long-term-retention"></a>长期保留
+目前尚不支持长期保留35天的备份。 你可以选择使用 mysqldump 来执行备份并将其存储起来以供长期保留。 我们的支持团队针对发表介绍如何实现此 [目的的分步](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) 指导。 
+
+
 ### <a name="backup-redundancy-options"></a>备份冗余选项
 
 使用 Azure Database for MySQL 时，可以灵活地在“常规用途”层和“内存优化”层中选择本地冗余或异地冗余备份存储。 当备份存储在异地冗余备份存储中时，这些备份不仅会存储在托管服务器所在的区域中，还会复制到[配对的数据中心](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 这样可以在发生灾难时提供更好的保护，并且可以将服务器还原到其他区域。 “基本”层仅提供本地冗余备份存储。
 
-> [!IMPORTANT]
-> 只能在服务器创建期间为备份配置本地冗余或异地冗余存储。 预配服务器以后，不能更改备份存储冗余选项。
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>从本地冗余迁移到异地冗余备份存储
+只能在服务器创建期间为备份配置本地冗余或异地冗余存储。 预配服务器以后，不能更改备份存储冗余选项。 若要将备份存储从本地冗余存储移到异地冗余存储，请创建新的服务器并使用 [转储和还原](concepts-migrate-dump-restore.md) 来迁移数据，这是唯一受支持的选项。
 
 ### <a name="backup-storage-cost"></a>备份存储成本
 

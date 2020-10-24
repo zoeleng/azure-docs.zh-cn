@@ -1,6 +1,6 @@
 ---
 title: Synapse SQL 体系结构
-description: 了解 Azure Synapse SQL 如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。
+description: 了解 Azure Synapse SQL 如何将分布式查询处理功能与 Azure 存储结合起来，实现高性能和可伸缩性。
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046861"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476002"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL 体系结构 
 
@@ -35,7 +35,7 @@ Synapse SQL 利用横向扩展体系结构在多个节点间分布数据的计�
 
 Synapse SQL 使用基于节点的体系结构。 应用程序连接到控制节点并向其发出 T-SQL 命令，该节点是 Synapse SQL 的单一入口点。 
 
-SQL 池的控制节点利用 MPP 引擎优化查询以进行并行处理，然后将操作传递给计算节点以实现并行工作。 
+Azure Synapse SQL 控制节点利用分布式查询引擎优化查询以进行并行处理，然后将操作传递到计算节点以并行完成工作。 
 
 SQL 按需版本的控制节点利用分布式查询处理 (DQP) 引擎，通过将用户查询拆分为将在计算节点上执行的较小查询，来优化和协调用户查询的分布式执行。 每个小查询称为一个任务，表示分布式执行单元。 它从存储中读取文件，联接其他任务的结果，对从其他任务检索到的数据进行分组或排序。 
 
@@ -61,7 +61,7 @@ SQL 按需版本允许你以只读方式查询数据湖中的文件，而 SQL �
 
 控制节点是体系结构的核心。 它是与所有应用程序和连接进行交互的前端。 
 
-在 SQL 池中，MPP 引擎在控制节点上运行，以优化和协调并行查询。 将 T-SQL 查询提交到 SQL 池时，控制节点会将其转换为可针对每个分布区并行运行的查询。
+在 Synapse SQL 中，分布式查询引擎在控制节点上运行以优化和协调并行查询。 将 T-SQL 查询提交到 SQL 池时，控制节点会将其转换为可针对每个分布区并行运行的查询。
 
 在 SQL 按需版本中，DQP 引擎在控制节点上运行，通过将用户查询拆分为将在计算节点上执行的较小查询，来优化和协调用户查询的分布式执行。 它还为每个节点分配要处理的文件集。
 
@@ -69,7 +69,7 @@ SQL 按需版本允许你以只读方式查询数据湖中的文件，而 SQL �
 
 计算节点提供计算能力。 
 
-在 SQL 池中，分布区映射到计算节点以进行处理。 如果支付更多计算资源费用，SQL 池会将分布区重新映射到可用的计算节点。 计算节点数的范围是 1 到 60，它由 SQL 池的服务级别确定。 每个计算节点均有一个节点 ID，该 ID 会显示在系统视图中。 在名称以 sys.pdw_nodes 开头的系统视图中找到 node_id 列即可查看计算节点 ID。 有关这些系统视图的列表，请参阅 [MPP 系统视图](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest)。
+在 SQL 池中，分布区映射到计算节点以进行处理。 如果支付更多计算资源费用，SQL 池会将分布区重新映射到可用的计算节点。 计算节点数的范围是 1 到 60，它由 SQL 池的服务级别确定。 每个计算节点均有一个节点 ID，该 ID 会显示在系统视图中。 在名称以 sys.pdw_nodes 开头的系统视图中找到 node_id 列即可查看计算节点 ID。 有关这些系统视图的列表，请参阅 [SYNAPSE SQL 系统视图](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest)。
 
 在 SQL 按需版本中，将为每个计算节点分配任务以及要对其执行任务的文件集。 任务是指分布式查询执行单元，实际上是用户提交的查询的一部分。 可进行自动缩放，以确保利用足够多的计算节点来执行用户查询。
 

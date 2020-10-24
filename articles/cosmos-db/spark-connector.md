@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 633baafa7f6cb1bc134f07ce64ba98ebd4cb626c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50884a45e60826f09fffcc9f86992563e473424d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603044"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478042"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 到 Azure Cosmos DB 的连接器加速大数据分析
 
@@ -33,8 +33,8 @@ ms.locfileid: "90603044"
 
 ## <a name="quickstart"></a>快速入门
 
-* 遵循 [Java SDK 入门](sql-api-async-java-get-started.md)中的步骤设置 Cosmos DB 帐户，并填充一些数据。
-* 按照 [Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 入门中的步骤设置 Azure Databricks 工作区和群集。
+* 遵循 [Java SDK 入门](./create-sql-api-java.md)中的步骤设置 Cosmos DB 帐户，并填充一些数据。
+* 按照 [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) 入门中的步骤设置 Azure Databricks 工作区和群集。
 * 现在可以创建新的 Notebook，并导入 Cosmos DB 连接器库。 有关如何设置工作区的详细信息，请跳转到[使用 Cosmos DB 连接器](#bk_working_with_connector)。
 * 以下部分提供了有关如何使用连接器读取和写入数据的代码片段。
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850696"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478144"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 
@@ -216,9 +216,9 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 
 为什么此过程如此简单？
 
-Azure 认知搜索实现其调用 [索引器](https://msdn.microsoft.com/library/azure/dn946891.aspx)的内容、在数据存储库中挂钩的后台进程，以及自动添加、更新或删除索引中的对象。 它们支持 [Azure SQL 数据库索引器](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/)、[Azure Blobs 索引器](../search/search-howto-indexing-azure-blob-storage.md)和 [Azure Cosmos DB 索引器](../search/search-howto-index-documentdb.md)。 从 Cosmos DB 到 Azure 认知搜索的信息的过渡非常简单。 这两种技术都以 JSON 格式存储信息，因此只需[创建索引](../search/search-create-index-portal.md)并从要编制索引的文档中映射属性。 就这么简单！ 根据数据大小，可在几分钟内通过云基础结构中的最佳搜索即服务解决方案搜索所有内容。
+Azure 认知搜索实现其调用 [索引器](/rest/api/searchservice/Indexer-operations)的内容、在数据存储库中挂钩的后台进程，以及自动添加、更新或删除索引中的对象。 它们支持 [Azure SQL 数据库索引器](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search)、[Azure Blobs 索引器](../search/search-howto-indexing-azure-blob-storage.md)和 [Azure Cosmos DB 索引器](../search/search-howto-index-cosmosdb.md)。 从 Cosmos DB 到 Azure 认知搜索的信息的过渡非常简单。 这两种技术都以 JSON 格式存储信息，因此只需[创建索引](../search/search-what-is-an-index.md)并从要编制索引的文档中映射属性。 就这么简单！ 根据数据大小，可在几分钟内通过云基础结构中的最佳搜索即服务解决方案搜索所有内容。
 
-有关 Azure 认知搜索的详细信息，可以访问 [Hitchhiker 的指南进行搜索](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)。
+有关 Azure 认知搜索的详细信息，可以访问 [Hitchhiker 的指南进行搜索](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search)。
 
 ## <a name="the-underlying-knowledge"></a>基础知识
 

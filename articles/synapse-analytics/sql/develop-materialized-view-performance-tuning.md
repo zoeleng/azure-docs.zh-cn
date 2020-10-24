@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289032"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474761"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>通过具体化视图进行性能优化
 
@@ -79,7 +79,9 @@ SQL 池支持标准视图和具体化视图。  两者都是用 SELECT 表达式
 
 **需要不同的数据分布策略来提高查询性能**
 
-Azure 数据仓库是一种大规模并行处理 (MPP) 分布式系统。   数据仓库表中的数据使用三种[分布策略](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)（hash、round_robin 或 replicated）中的一种分布到 60 个节点上。  
+Azure 数据仓库是一种大规模并行处理 (MPP) 分布式系统。  
+
+Synapse SQL 是一个分布式查询系统，使企业能够使用数据工程师所熟悉的标准 T-SQL 体验来实现数据仓库和数据虚拟化方案。 它还扩展了 SQL 的功能，可以解决流式处理和机器学习方案的问题。 数据仓库表中的数据使用三种[分布策略](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)（hash、round_robin 或 replicated）中的一种分布到 60 个节点上。  
 
 数据分布在表创建时进行指定，并且在删除表之前保持不变。 具体化视图是磁盘上的虚拟表，支持 hash 和 round_robin 数据分布。  用户可以选择符合后列特征的数据分布：与基表不同但对于经常使用视图的查询而言是最优的。  
 

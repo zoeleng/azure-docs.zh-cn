@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207931"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496003"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure 机器学习的企业安全性
 
@@ -100,7 +100,7 @@ ms.locfileid: "92207931"
 
 Azure 机器学习将在订阅中为每个工作区区域创建一个额外的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头），该应用程序具有参与者级别的访问权限。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 通过这些应用程序，Azure 机器学习可帮助管理计算资源。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源（计算目标）用于训练和部署模型。 可以在虚拟网络中创建这些计算目标。 例如，可以使用 Azure Data Science Virtual Machine 来训练模型，然后将模型部署到 AKS。  
 
@@ -183,6 +183,7 @@ Azure 机器学习在 Azure Cosmos DB 实例中存储指标和元数据。 此�
 有关使用现有 Azure 容器注册表创建工作区的示例，请参阅以下文章：
 
 * [使用 Azure CLI 创建 Azure 机器学习工作区](how-to-manage-workspace-cli.md)
+* [使用 PYTHON SDK 创建工作区](how-to-manage-workspace.md?tabs=python#create-a-workspace)。
 * [使用 Azure 资源管理器模板创建 Azure 机器学习的工作区](how-to-create-workspace-template.md)
 
 #### <a name="azure-container-instance"></a>Azure 容器实例

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278186"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482598"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中 Cassandra API 的常见问题解答。
 
@@ -75,7 +75,7 @@ Azure Cosmos DB 针对操作设置上限，在性能和延迟方面提供保障�
 
 相关指标显示了吞吐量在若干小时内、若干天内以及每七天内在各个分区中的使用情况或总体使用情况。 有关详细信息，请参阅[使用 Azure Cosmos DB 中的指标进行监视和调试](use-metrics.md)。
 
-[Azure Cosmos DB 诊断日志记录](logging.md)一文中介绍了诊断日志。
+[Azure Cosmos DB 诊断日志记录](./monitor-cosmos-db.md)一文中介绍了诊断日志。
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>主键是否映射到 Azure Cosmos DB 的分区键概念？
 
@@ -135,9 +135,9 @@ Azure Cosmos DB 为读取、写入和吞吐量提供性能保障。 因此，无
 
 Azure Cosmos DB 是一个平台服务，可帮助你提高工作效率，而无需担心如何管理和监视基础结构。 例如，你无需使用各种工具监视节点状态、副本状态、gc 和 OS 参数。 只需在门户指标中关注可用的吞吐量，以查明你是否受到限制，然后增大或减小该吞吐量。 方法：
 
-- 监视 [SLA](monitor-accounts.md)
+- 监视 [SLA](./monitor-cosmos-db.md)
 - 使用[指标](use-metrics.md)
-- 使用[诊断日志](logging.md)
+- 使用[诊断日志](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>哪些客户端 SDK 可以使用 Cassandra API？
 
@@ -187,7 +187,7 @@ Cassandra API 从 Azure Cosmos DB 的全局分布式平台借用。 为了确保
 请通过 [UserVoice 反馈](https://feedback.azure.com/forums/263030-azure-cosmos-db)提供反馈。
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>后续步骤
 

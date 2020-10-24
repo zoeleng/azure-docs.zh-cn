@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 347da75d8e3f58d3875b02000d74533b36a9b18c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278620"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486100"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>预配标准 (在 Azure Cosmos DB-SQL API 中的数据库上手动) 吞吐量
 
@@ -72,7 +72,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 请参阅以下文章，了解在 Azure Cosmos DB 中预配的吞吐量：
 
-* [全局缩放预配的吞吐量](scaling-throughput.md)
+* [全局缩放预配的吞吐量](./request-units.md)
 * [在容器和数据库上预配吞吐量](set-throughput.md)
 * [如何在容器上预配标准（手动）吞吐量](how-to-provision-container-throughput.md)
 * [如何为容器预配自动缩放吞吐量](how-to-provision-autoscale-throughput.md)

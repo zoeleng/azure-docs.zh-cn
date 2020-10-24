@@ -8,12 +8,12 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476920"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>诊断和排查 Azure Cosmos DB .NET SDK 请求超时异常
 如果 SDK 在超时限制发生之前未能完成请求，则会出现 HTTP 408 错误。
@@ -28,7 +28,7 @@ ms.locfileid: "89021929"
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-SDK 中的所有异步操作都有一个可选的 CancellationToken 参数。 此 [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) 参数在整个操作过程中对所有网络请求使用。 在网络请求的间隔期间，可能会检查取消令牌；如果相关令牌已过期，则会取消操作。 应使用取消令牌来定义操作范围上的近似预期超时。
+SDK 中的所有异步操作都有一个可选的 CancellationToken 参数。 此 [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) 参数在整个操作过程中对所有网络请求使用。 在网络请求的间隔期间，可能会检查取消令牌；如果相关令牌已过期，则会取消操作。 应使用取消令牌来定义操作范围上的近似预期超时。
 
 > [!NOTE]
 > `CancellationToken` 参数是一种机制，其中库将在它[不会导致无效状态](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/)时检查取消情况。 当在取消中定义的时间已超过时，操作可能无法完全取消。 而在该时间超过后，它会在可安全执行时取消。

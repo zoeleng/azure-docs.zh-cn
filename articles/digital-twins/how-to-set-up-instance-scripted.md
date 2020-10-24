@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205536"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495018"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>设置 Azure 数字孪生实例和身份验证 (脚本) 
 
@@ -43,7 +43,7 @@ ms.locfileid: "92205536"
 
 下面是在 Cloud Shell 中运行部署脚本的步骤。
 1. 在浏览器中转到 [Azure Cloud Shell](https://shell.azure.com/) 窗口。 使用以下命令登录：
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     如果 CLI 可以打开默认浏览器，它将这样做并加载 Azure 登录页。 否则，请在浏览器中打开 *https://aka.ms/devicelogin*，然后输入终端中显示的授权代码。
@@ -58,11 +58,11 @@ ms.locfileid: "92205536"
 
 1. 选择 &quot;上传/下载文件" 窗口中发送命令来运行该脚本。 你可以复制下面的命令 (回忆要粘贴到 Cloud Shell 中，可以在 Windows 和 Linux 上使用 **Ctrl + shift + v** ，或在 macOS 上使用 **Cmd + shift + v** 。 还可以使用右键单击菜单) 。
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    此脚本将创建一个 Azure 数字孪生实例，并为 Azure 用户分配 *Azure 数字孪生所有者 (预览) * 角色。
+    此脚本将创建一个 Azure 数字孪生实例，并向 Azure 用户分配该实例上的 *Azure 数字孪生数据所有者* 角色。
 
     当脚本通过自动安装步骤运行时，系统会要求您传递以下值：
     * 对于实例：要使用的 Azure 订阅的*订阅 ID*
@@ -79,10 +79,10 @@ ms.locfileid: "92205536"
 如果脚本成功完成，最终打印输出将显示 `Deployment completed successfully` 。 否则，请解决错误消息，并重新运行该脚本。 它将跳过已完成的步骤，并在你离开的点再次开始请求输入。
 
 > [!NOTE]
-> 脚本当前将 Azure 数字 (孪生中所需的管理角色分配给 azure 数字 *孪生所有者 (预览版) *) 到从 Cloud Shell 运行脚本的同一用户。 如果需要将此角色分配给将管理实例的其他人，可以通过 Azure 门户 ([指令](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 或 CLI ([说明](how-to-set-up-instance-cli.md#set-up-user-access-permissions)) 来完成此操作。
+> 脚本当前将 Azure 数字孪生中所需的管理角色分配给从 Cloud Shell 运行脚本的同一用户)  (*azure 数字孪生数据所有者* 。 如果需要将此角色分配给将管理实例的其他人，可以通过 Azure 门户 ([指令](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 或 CLI ([说明](how-to-set-up-instance-cli.md#set-up-user-access-permissions)) 来完成此操作。
 
 >[!NOTE]
->目前有一个 **已知** 的脚本化安装问题，其中某些用户 (特别是个人 Microsoft 帐户上的用户 [ (msa) ](https://account.microsoft.com/account)) 可能会发现 **未创建 _Azure 数字孪生所有者 (预览版) _ 的角色分配**。
+>目前有一个 **已知** 的脚本化安装问题，其中某些用户 (专用 Microsoft 帐户上的用户 [ (msa) ](https://account.microsoft.com/account)) 可能会发现 **未创建 _Azure 数字孪生数据所有者_ 的角色分配**。
 >
 >你可以在本文后面的 " [*验证用户角色分配*](#verify-user-role-assignment) " 部分中验证角色分配，并且如果需要，还可以使用 [Azure 门户](how-to-set-up-instance-portal.md#set-up-user-access-permissions) 或 [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions)手动设置角色分配。
 >

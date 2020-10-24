@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 38f21ec32d14261c7f1bb5e285180d9721b9dca7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280512"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477821"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
-Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](how-to-sql-query.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
+Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](./sql-query-getting-started.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
 
 * 有关 Azure Cosmos DB 的 SQL 查询执行如何工作的概要详细信息
 * 有关查询请求和响应标头以及客户端 SDK 选项的详细信息
@@ -275,6 +275,4 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ## <a name="next-steps"></a>后续步骤
 * 若要了解受支持的 SQL 查询运算符和关键字，请参阅 [SQL 查询](sql-query-getting-started.md)。 
 * 若要了解请求单位，请参阅[请求单位](request-units.md)。
-* 若要了解索引编制策略，请参阅[索引编制策略](index-policy.md) 
-
-
+* 若要了解索引编制策略，请参阅[索引编制策略](index-policy.md)

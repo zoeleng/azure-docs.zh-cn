@@ -2,13 +2,13 @@
 title: 专用事件中心概述 - Azure 事件中心 | Microsoft Docs
 description: 本文概述专用 Azure 事件中心，它提供事件中心的单租户部署。
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: e6208a8d50e21766969dbe9d9739d5003958126a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322441"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495098"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>专用事件中心概述
 
@@ -53,38 +53,11 @@ ms.locfileid: "85322441"
 
 ## <a name="how-to-onboard"></a>如何加入
 
-通过[Azure 门户](https://aka.ms/eventhubsclusterquickstart)[创建事件中心群集](event-hubs-dedicated-cluster-create-portal.md)的自助服务体验现在处于预览阶段。 如果你有任何疑问或需要事件中心专用层的帮助加入，请联系 [事件中心团队](mailto:askeventhubs@microsoft.com)。
+通过[Azure 门户](https://aka.ms/eventhubsclusterquickstart)[创建事件中心群集](event-hubs-dedicated-cluster-create-portal.md)的自助服务体验现在为预览版。 如果你有任何疑问或需要事件中心专用层的帮助加入，请联系 [事件中心团队](mailto:askeventhubs@microsoft.com)。
 
-## <a name="faqs"></a>常见问题
+## <a name="faqs"></a>常见问题解答
 
-#### <a name="what-can-i-achieve-with-a-cluster"></a>可以使用群集来做什么？
-
-对于事件中心群集，可以引入和流式传输的数据量取决于各种因素，例如生成者、使用者、引入和处理速率，等等。 
-
-下表显示了我们在测试期间实现的基准结果：
-
-| 有效负载形状 | 接收方 | 入口带宽| 入口消息 | 出口带宽 | 出口消息 | TU 总数 | 每个 CU 的 TU 数 |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| 100x1KB 批 | 2 | 400 MB/秒 | 400k 消息数/秒 | 800 MB/秒 | 800k 消息数/秒 | 400 TU | 100 TU | 
-| 10x10KB 批 | 2 | 666 MB/秒 | 66.6k 消息数/秒 | 1.33 GB/秒 | 133k 消息数/秒 | 666 TU | 166 TU |
-| 6x32KB 批 | 1 | 1.05 GB/秒 | 34k 消息数/秒 | 1.05 GB/秒 | 34k 消息数/秒 | 1000 TU | 250 TU |
-
-测试中使用了以下条件：
-
-- 一个专用层事件中心群集使用四个容量单位 (CU)。 
-- 用于引入的事件中心包含 200 个分区。 
-- 引入的数据由从所有分区接收数据的两个接收方应用程序接收。
-
-#### <a name="can-i-scale-updown-my-cluster"></a>是否可以纵向扩展/纵向缩减群集？
-
-创建后，群集将按最少 4 个小时的使用量计费。 在自助服务体验的预览版本中，你可以向事件中心团队提交 [支持请求](https://ms.portal.azure.com/#create/Microsoft.Support) ，并在 *技术 > 配额 > 请求中纵向扩展或缩减专用群集* ，使群集扩大或缩小。 完成纵向缩减群集的请求最多可能需要 7 天。 
-
-#### <a name="how-will-geo-dr-work-with-my-cluster"></a>如何将异地灾难恢复应用于群集？
-
-可以将专用层群集下的命名空间与专用层群集下的另一个命名空间进行异地配对。 不鼓励将专用层命名空间与标准产品/服务中的命名空间配对，因为吞吐量限制不兼容，会导致出错。 
-
-#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>是否可以迁移标准命名空间，以使其属于专用层群集？
-目前，我们不支持将事件中心数据从标准命名空间迁移到专用命名空间的自动迁移过程。 
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

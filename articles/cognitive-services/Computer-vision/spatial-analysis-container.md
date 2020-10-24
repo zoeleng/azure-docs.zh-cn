@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277285"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496132"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a> (预览中安装并运行空间分析容器) 
 
@@ -99,7 +99,7 @@ Azure Stack Edge 是一种硬件即服务解决方案，是一种支持 AI 的�
   1. 启用 Azure Stack 边缘设备上的计算功能。 若要启用计算，请在设备的 web 界面中转到 **计算** 页。 
   2. 选择要为计算启用的网络接口，然后单击 " **启用**"。 这会在设备上的该网络接口上创建一个虚拟交换机。
   3. 将 Kubernetes 测试节点 IP 地址和 Kubernetes 外部服务 IP 地址留空。
-  4. 单击“应用”。 此操作可能需要大约两分钟的时间。 
+  4. 单击“应用”  。 此操作可能需要大约两分钟的时间。 
 
 ![配置计算](media/spatial-analysis/configure-compute.png)
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-如果主机不是 Azure Stack Edge 设备，则需要安装 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 版本1.0.8。 请按照以下步骤下载正确的版本：
+如果主机不是 Azure Stack Edge 设备，则需要安装 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 版本1.0.9。 请按照以下步骤下载正确的版本：
 
 Ubuntu Server 18.04：
 ```bash
@@ -286,10 +286,10 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get update
 ```
 
-安装1.0.8 版本：
+安装1.0.9 版本：
 
 ```bash
-sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
 ```
 
 接下来，使用 [连接字符串](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal)将主机计算机注册为 IoT 中心实例中的 IoT Edge 设备。
@@ -314,11 +314,11 @@ sudo systemctl restart iotedge
 
 ### <a name="iot-deployment-manifest"></a>IoT 部署清单
 
-若要简化多台主机计算机上的容器部署，可以创建部署清单文件来指定容器创建选项和环境变量。 可 [在 GitHub 上找到部署清单](https://go.microsoft.com/fwlink/?linkid=2142179)的示例。
+若要简化多台主机计算机上的容器部署，可以创建部署清单文件来指定容器创建选项和环境变量。 可在 Github 上找到 [Azure Stack 边缘](https://go.microsoft.com/fwlink/?linkid=2142179) 和  [其他台式计算机](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 的部署清单的示例。
 
 下表显示 IoT Edge 模块使用的各种环境变量。 你还可以使用中的属性在上面链接的部署清单中设置它们 `env` `spatialanalysis` ：
 
-| 设置名称 | 值 | 说明|
+| 设置名称 | 值 | 描述|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | 信息详细 | 日志记录级别，请选择以下两个值之一|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | 不修改|
@@ -335,17 +335,16 @@ sudo systemctl restart iotedge
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](#billing)。
 
-使用你自己的设置和操作选择更新文件的示例 [DeploymentManifest.js](https://go.microsoft.com/fwlink/?linkid=2142179) 后，你可以使用以下 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 命令在主计算机上部署容器，如 IoT Edge 模块。
+使用你自己的设置和操作选择更新 [Azure Stack Edge 设备](https://go.microsoft.com/fwlink/?linkid=2142179) 或 [台式计算机](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 的部署清单后，可以使用以下 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 命令在主计算机上部署容器，如 IoT Edge 模块。
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
-|参数  |说明  |
+|参数  |描述  |
 |---------|---------|
-| `--deployment-id` | 部署的新名称。 |
 | `--hub-name` | Azure IoT 中心名称。 |
 | `--content` | 部署文件的名称。 |
 | `--target-condition` | 主计算机的 IoT Edge 设备名称。 |
@@ -386,7 +385,7 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 单击 " **生成 SAS 令牌和 URL** " 并复制 "BLOB SAS URL"。 将开头的替换为 `https` `http` ，并在支持视频播放的浏览器中测试 URL。
 
-将 `VIDEO_URL` [部署清单](https://go.microsoft.com/fwlink/?linkid=2142179) 中的替换为所有关系图的 URL。 设置 `VIDEO_IS_LIVE` 为 `false` ，然后重新部署具有更新清单的空间分析容器。 请参阅以下示例。
+将 `VIDEO_URL` [Azure Stack 边缘设备](https://go.microsoft.com/fwlink/?linkid=2142179) 或其他 [桌面计算机](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 的部署清单中的替换为所有关系图。 设置 `VIDEO_IS_LIVE` 为 `false` ，然后重新部署具有更新清单的空间分析容器。 请参阅以下示例。
 
 空间分析模块将开始使用视频文件，并且还会持续自动重放。
 
@@ -408,7 +407,7 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 ```
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 如果在启动或运行容器时遇到问题，请参阅 [遥测和故障排除](spatial-analysis-logging.md) ，了解常见问题的步骤。 本文还包含有关生成和收集日志以及收集系统运行状况的信息。
 

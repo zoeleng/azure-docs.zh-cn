@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84423915"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496048"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>删除与 Azure Cache for Redis 配合使用的 TLS 1.0 和 1.1
 
@@ -19,10 +19,14 @@ ms.locfileid: "84423915"
 
 作为此项工作的一部分，我们将对 Azure Cache for Redis 进行以下更改：
 
-* 第 1 阶段：**** 对于新创建的缓存实例，我们会将默认的最低 TLS 版本配置为 1.2（以前为 TLS 1.0）。  目前，不会更新现有的缓存实例。 如果需要，可以将[最低 TLS 版本更改](cache-configure.md#access-ports)回 1.0 或1.1，以实现后向兼容性。 此更改可以通过 Azure 门户或其他管理 API 来完成。
-* **阶段 2：** 我们将停止支持 TLS 版本 1.0 和 1.1。 完成此更改后，应用程序将需要使用 TLS 1.2 或更高版本与缓存进行通信。
+* **阶段1：** 对于新创建的缓存实例，我们将默认的最小 TLS 版本配置为1.2， (之前是 TLS 1.0) 。 目前，不会更新现有的缓存实例。 如果需要，仍可使用 Azure 门户或其他管理 Api [将最低 TLS 版本更改](cache-configure.md#access-ports) 为1.0 或1.1，以实现向后兼容。
+* **阶段2：** 我们将停止支持 TLS 1.1 和 TLS 1.0。 完成此更改后，应用程序必须使用 TLS 1.2 或更高版本与缓存通信。 当我们将 Redis 服务迁移为仅支持 TLS 1.2 或更高版本时，Azure Cache for 适用于适用于 Azure 的 Azure 缓存服务。
 
-另外，作为此更改的一部分，我们将删除对较旧的不安全的加密套件的支持。  如果为缓存配置最低 TLS 版本 (1.2)，则受支持的加密套件会受到以下限制。
+  > [!NOTE]
+  > 阶段2暂时计划于2020年12月31日之前开始。 但是，我们强烈建议你立即开始规划此更改，并主动更新客户端以支持 TLS 1.2 或更高版本。 
+  >
+
+作为此更改的一部分，我们还将删除对不安全的较早加密套件的支持。 如果使用最小 TLS 1.2 配置缓存，则受支持的加密套件将限制为以下套件：
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -33,12 +37,14 @@ ms.locfileid: "84423915"
 
 | 云                | 阶段 1 开始日期 | 阶段 2 开始日期         |
 |----------------------|--------------------|----------------------------|
-| Azure（全球）       |  2020 年 1 月 13 日  | 由于新冠肺炎而推迟  |
-| Azure Government     |  2020 年 3 月 13 日    | 由于新冠肺炎而推迟  |
-| Azure 德国        |  2020 年 3 月 13 日    | 由于新冠肺炎而推迟  |
-| Azure 中国世纪互联 |  2020 年 3 月 13 日    | 由于新冠肺炎而推迟  |
+| Azure（公有云）       |  2020 年 1 月 13 日  | 由于 COVID-19 而延迟  |
+| Azure Government     |  2020 年 3 月 13 日    | 由于 COVID-19 而延迟  |
+| Azure 德国        |  2020 年 3 月 13 日    | 由于 COVID-19 而延迟  |
+| Azure 中国世纪互联 |  2020 年 3 月 13 日    | 由于 COVID-19 而延迟  |
 
-注意：尚未确定阶段 2 的新日期
+> [!NOTE]
+> 阶段2暂时计划于2020年12月31日之前开始。 在设置特定日期时，将更新本文。
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>检查应用程序是否已合规
 
