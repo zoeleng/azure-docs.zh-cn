@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331492"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495909"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>服务请求失败。 状态： 403 (禁止访问) 
 
@@ -25,7 +25,9 @@ ms.locfileid: "92331492"
 
 ### <a name="cause-1"></a>原因 #1
 
-最常见的情况是，此错误表明你的 Azure 基于角色的访问控制 (没有正确设置服务的 Azure RBAC) 权限。 对于 Azure 数字孪生实例，许多操作都需要你要**尝试管理的实例上**的*Azure 数字孪生所有者 (预览) *角色。 
+最常见的情况是，此错误表明你的 Azure 基于角色的访问控制 (没有正确设置服务的 Azure RBAC) 权限。 Azure 数字孪生实例的许多操作要求你在**尝试管理的实例上**拥有*Azure 数字孪生数据所有者*角色。 
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>原因 #2
 
@@ -37,11 +39,12 @@ ms.locfileid: "92331492"
 
 ### <a name="solution-1"></a>解决方案 #1
 
-第一种解决方案是验证 Azure 用户在尝试管理的实例上是否有 _**Azure 数字孪生所有者 (预览版) **_ 角色。 如果没有此角色，请对其进行设置。
+第一种解决方案是验证 Azure 用户在尝试管理的实例上是否拥有 _**Azure 数字孪生数据所有者**_ 角色。 如果没有此角色，请对其进行设置。
 
 请注意，此角色不同于 .。。
-* 整个 Azure 订阅的 *所有者* 角色。 *Azure 数字孪生所有者 (预览版) * 是 Azure 数字孪生中的一个角色，其作用域为此单个 Azure 数字孪生实例。
-* Azure 数字孪生中的 *所有者* 角色。 它们是两个不同的 Azure 数字孪生管理角色， *Azure 数字孪生所有者 (预览) * 是在预览期间用于管理的角色。
+* 此角色的以前的名称在预览期间， *Azure 数字孪生所有者 (预览) * (角色相同，但名称已更改) 
+* 整个 Azure 订阅的 *所有者* 角色。 *Azure 数字孪生数据所有者* 是 Azure 数字孪生中的一个角色，其作用域为此单个 Azure 数字孪生实例。
+* Azure 数字孪生中的 *所有者* 角色。 它们是两个不同的 Azure 数字孪生管理角色， *Azure 数字孪生数据所有者* 是在预览期间用于管理的角色。
 
 #### <a name="check-current-setup"></a>检查当前设置
 
@@ -49,12 +52,12 @@ ms.locfileid: "92331492"
 
 #### <a name="fix-issues"></a>解决问题 
 
-如果你没有此角色分配，则在 **azure 订阅** 中具有所有者角色的用户应运行以下命令，为 azure 用户提供 Azure 数字 *孪生所有者 (预览 * **azure 数字孪生实例**上的) 角色。 
+如果你没有此角色分配，则在**azure 订阅**中具有所有者角色的用户应运行以下命令，以向 azure 用户提供 Azure 数字**孪生实例**上的*azure 数字孪生数据所有者*角色。 
 
 如果你是订阅的所有者，则可以自己运行此命令。 否则，请联系所有者以代表你运行此命令。
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
 有关此角色要求和分配过程的更多详细信息，请参阅如何：设置 [*用户的用户访问权限* 部分](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) 中的 *操作方法：设置实例和身份验证 (CLI 或门户) *。

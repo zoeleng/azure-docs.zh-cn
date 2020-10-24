@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 420efd653ef6218b5a1d5a8c70ca268b7185fc30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 41ba9d9e66fa1d7f622550bde68951573af4bb96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103537"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484978"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>使用 Azure 门户创建包含 Azure Data Lake Storage Gen1 的 HDInsight 群集
 
@@ -25,7 +25,7 @@ ms.locfileid: "92103537"
 
 了解如何使用 Azure 门户创建 Azure Data Lake Storage Gen1 为默认存储或附加存储的 HDInsight 群集。 尽管其他存储对于 HDInsight 群集是可选的，但建议将业务数据存储在其他存储帐户中。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在开始之前，请确保满足以下要求：
 
@@ -45,7 +45,7 @@ ms.locfileid: "92103537"
 
 若要创建 Data Lake Storage Gen1 作为默认存储帐户的 HDInsight 群集，请执行以下操作：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 2. 有关创建 HDInsight 群集的一般信息，请遵循[创建群集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)。
 3. 在“存储”边栏选项卡的“主存储类型”下，选择“Azure Data Lake Storage Gen1”，然后输入以下信息************：
 
@@ -64,7 +64,7 @@ ms.locfileid: "92103537"
 
 使用 Data Lake Storage Gen1 作为附加存储帐户创建 HDInsight 群集：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 2. 有关创建 HDInsight 群集的一般信息，请遵循[创建群集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)。
 3. 在“存储”**** 边栏选项卡的“主存储类型”**** 下，选择“Azure 存储”****，然后输入以下信息：
 
@@ -85,18 +85,11 @@ ms.locfileid: "92103537"
 在 Azure 门户中，可以使用现有的服务主体，或创建一个新的服务主体。
 
 若要从 Azure 门户创建服务主体：
-
-1. 从 "存储" 边栏选项卡中选择 **Data Lake Store 访问** 。
-1. 在 " **Data Lake Storage Gen1 访问** " 边栏选项卡中，选择 " **新建**"。
-1. 选择 " **服务主体**"，然后按照说明创建服务主体。
-1. 下载证书（如果决定以后再次使用）。 如要想要在创建其他 HDInsight 群集时使用相同的服务主体，下载证书的做法将非常有用。
-
-    ![将服务主体添加到 HDInsight 群集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png)
-
-1. 选择 " **访问权限** " 以配置文件夹访问权限。  请参阅[配置文件权限](#configure-file-permissions)。
+1. 请参阅[使用 Azure Active Directory 创建服务主体和证书](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
 使用 Azure 门户中的现有服务主体：
 
+1. 服务主体应拥有存储帐户的 "所有者" 权限。 请参阅 [将服务主体的权限设置为存储帐户的所有者](#configure-serviceprincipal-permissions)。
 1. 选择 **Data Lake Store 访问**。
 1. 在 " **Data Lake Storage Gen1 访问** " 边栏选项卡上，选择 " **使用现有**"。
 1. 选择 " **服务主体**"，然后选择一个服务主体。
@@ -105,6 +98,10 @@ ms.locfileid: "92103537"
 [将服务主体添加到 HDInsight 群集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. 选择 " **访问权限** " 以配置文件夹访问权限。  请参阅[配置文件权限](#configure-file-permissions)。
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>将服务主体的权限设置为存储帐户的所有者
+1. 在 "访问控制 (IAM) 存储帐户" 边栏选项卡上，单击 "添加角色分配"。 
+2. 在 "添加角色分配" 边栏选项卡中选择 "角色"，然后选择 SPN，并单击 "保存"。
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>配置文件权限
 
@@ -130,7 +127,7 @@ ms.locfileid: "92103537"
 
 1. 单击页面底部的“选择”****。
 1. 选择 " **运行** " 分配权限。
-1. 选择“完成”。
+1. 选择“完成”  。
 
 在 HDInsight 群集根级别分配权限：
 
@@ -140,7 +137,7 @@ ms.locfileid: "92103537"
 1. 设置文件夹上的权限。  “读取”、“写入”和“执行”默认全部选中。
 1. 单击页面底部的“选择”****。
 1. 选择“运行”。
-1. 选择“完成”。
+1. 选择“完成”  。
 
 如果使用 Data Lake Storage Gen1 作为额外存储，则必须仅为要从 HDInsight 群集访问的文件夹分配权限。 例如，在下面的屏幕截图中，只提供对 Data Lake Storage Gen1 的存储帐户中 **mynewfolder** 文件夹的访问权限。
 

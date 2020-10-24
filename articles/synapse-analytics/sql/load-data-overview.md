@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483722"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474659"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>为 Azure Synapse SQL 池设计 PolyBase 数据加载策略
 
-传统的 SMP 数据仓库通过提取、转换和加载 (ETL) 过程来加载数据。 Azure SQL 池是一种大规模的并行处理 (MPP) 体系结构，它利用了计算和存储资源的可伸缩性和灵活性。 使用 (ELT) 进程的提取、加载和转换可以利用 MPP，并消除在加载前转换数据所需的资源。
+传统的 SMP 数据仓库通过提取、转换和加载 (ETL) 过程来加载数据。 Azure SQL 池是一种大规模的并行处理 (MPP) 体系结构，它利用了计算和存储资源的可伸缩性和灵活性。 使用提取、加载和转换 (ELT) 进程可以利用内置的分布式查询处理功能，消除在加载前转换数据所需的资源。
 
 尽管 SQL 池支持多种加载方法（包括 BCP 和 SQL BulkCopy API 等非 Polybase 选项），但最快且最具伸缩性的加载日期的方式是通过 PolyBase。  PolyBase 是这样一种技术，可以通过 T-SQL 语言访问存储在 Azure Blob 存储或 Azure Data Lake Storage 中的外部数据。
 
@@ -59,8 +59,8 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 |          int          |                             int                              |
 |        bigint         |                            bigint                            |
 |        boolean        |                             bit                              |
-|        Double         |                            FLOAT                             |
-|         FLOAT         |                             real                             |
+|        Double         |                            float                             |
+|         float         |                             real                             |
 |        Double         |                            money                             |
 |        Double         |                          smallmoney                          |
 |        string         |                            nchar                             |
@@ -112,7 +112,7 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. 使用 PolyBase 将数据加载到 SQL 池临时表
 
-最佳做法是将数据载入临时表。 使用临时表可以处理错误且不干扰生产表。 使用临时表，还可以在将数据插入生产表之前，使用 SQL 池 MPP 进行数据转换。
+最佳做法是将数据载入临时表。 使用临时表可以处理错误且不干扰生产表。 使用临时表，还可以在将数据插入生产表之前，使用 SQL 池内置分布式查询处理功能进行数据转换。
 
 ### <a name="options-for-loading-with-polybase"></a>使用 PolyBase 加载数据的选项
 

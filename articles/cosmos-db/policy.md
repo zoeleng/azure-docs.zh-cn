@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320891"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482224"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>使用 Azure Policy 实现 Azure Cosmos DB 资源的治理和控制
 
@@ -134,4 +134,4 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 
 - [查看 Azure Cosmos DB 的示例自定义策略定义](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)，包括针对上述的多个写入位置和 VNet 筛选策略的内容。
 - [在 Azure 门户中创建策略分配](../governance/policy/assign-policy-portal.md)
-- [查看 Azure Cosmos DB 的 Azure Policy 内置策略定义](./policy-samples.md)
+- [查看 Azure Cosmos DB 的 Azure Policy 内置策略定义](./policy-reference.md)

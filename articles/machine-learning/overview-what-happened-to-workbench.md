@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: 6d62c9aa7be1511cdac6404ac7c42200677e56fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62351f341d03873afc59ff7748fa03da0a202d35
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651605"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495582"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 有何遭遇？
 
@@ -99,6 +99,8 @@ run = exp.submit(source_directory=script_folder,
 有关该服务的概述，请阅读[什么是 Azure 机器学习？](overview-what-is-azure-ml.md)。
 
 通过首选方法创建首个试验：
+
+  + [使用你自己的环境](tutorial-1st-experiment-sdk-setup-local.md)
   + [使用 Python 笔记本](tutorial-1st-experiment-sdk-setup.md)
   + [使用 R Markdown](tutorial-1st-r-experiment.md) 
   + [使用自动化机器学习](tutorial-designer-automobile-price-train-score.md) 

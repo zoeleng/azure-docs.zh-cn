@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4b0e0bd38c8bb9ea1d2331a65fc891e157971eef
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367646"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495857"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>将 Azure 数字孪生与 Azure SignalR 服务集成
 
@@ -20,7 +20,7 @@ ms.locfileid: "92367646"
 
 本文中所述的解决方案使你能够将数字克隆遥测数据推送到连接的客户端，例如单个网页或移动应用程序。 因此，客户端将使用 IoT 设备的实时指标和状态进行更新，而无需轮询服务器或提交新的更新 HTTP 请求。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 下面是在继续操作之前应完成的先决条件：
 
@@ -145,7 +145,7 @@ ms.locfileid: "92367646"
 
 1. 最后，使用以下 Azure CLI 命令将 Azure SignalR **连接字符串** 从前面添加到该函数的应用设置中。 如果[计算机上安装](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)了 Azure CLI，则可在[Azure Cloud Shell](https://shell.azure.com)中或在本地运行该命令：
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -240,7 +240,7 @@ npm start
 > [!IMPORTANT]
 > 删除资源组的操作不可逆。 资源组以及包含在其中的所有资源将被永久删除。 请确保不会意外删除错误的资源组或资源。 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

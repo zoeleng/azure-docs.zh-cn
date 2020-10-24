@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122715"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474897"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>在 Azure Synapse 链接 (预览版中利用无服务器 SQL 池查询 Azure Cosmos DB 数据) 
 
@@ -247,7 +247,7 @@ Azure Cosmos DB SQL (Core) API 的帐户支持 number、string、boolean、null�
 | 布尔 | bit |
 | Integer | bigint |
 | 小数 | FLOAT |
-| 字符串 | varchar (UTF8 数据库排序规则)  |
+| String | varchar (UTF8 数据库排序规则)  |
 |  (ISO 格式字符串的日期时间)  | varchar (30)  |
 | Unix 时间戳 (日期时间)  | bigint |
 | Null | `any SQL type` 
@@ -277,5 +277,6 @@ Azure Cosmos DB SQL (Core) API 的帐户支持 number、string、boolean、null�
 
 有关详细信息，请参阅以下文章：
 
+- [将 Power BI 和无服务器 Synapse SQL 池与 Azure Synapse 链接一起使用](../../cosmos-db/synapse-link-power-bi.md)
 - [如何按需在 SQL 中创建和使用视图](create-use-views.md) 
 - [有关通过 Azure Cosmos DB 生成 SQL 点播视图并通过 DirectQuery 将它们连接到 Power BI 模型的教程](./tutorial-data-analyst.md)

@@ -2,23 +2,24 @@
 title: 在加密设备上配置 LVM 和 RAID-Azure 磁盘加密
 description: 本文提供了有关在适用于 Linux Vm 的加密设备上配置 LVM 和 RAID 的说明。
 author: jofrance
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ccb74fe58742974798732605b4a017a06777bcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328167"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476155"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>在加密设备上配置 LVM 和 RAID
 
 本文分步介绍了如何在加密设备上 (LVM) 和 RAID 执行逻辑卷管理。 此过程适用于以下环境：
 
-- Linux 发行版
+- Linux 分布
     - RHEL 7.6 +
     - Ubuntu 18.04 +
     - SUSE 12 +

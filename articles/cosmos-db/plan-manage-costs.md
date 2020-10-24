@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f0a8fcb841399eb910f5f043cc75ddad037ee30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606865"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482241"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>规划和管理 Azure Cosmos DB 的成本
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 支持两种类型的容量模式： [预配吞吐量](set-throu
 
 如果打算在无服务器模式下使用 Azure Cosmos DB，则需要估计每月可能会消耗多少个 [请求单位](request-units.md) 和存储 GB 的存储。 您可以通过计算每月发出的数据库操作的数量来估算所需的请求单位数，并按相应的 RU 成本乘以它们的数量。 下表列出了常见数据库操作的估计 RU 费用：
 
-| 操作 | 估计成本 | 注意 |
+| 操作 | 估计成本 | 说明 |
 | --- | --- | --- |
 | 创建项 | 5 RU | 要编制索引的属性少于5的 1 KB 项的平均开销 |
 | 更新项 | 10 RU | 要编制索引的属性少于5的 1 KB 项的平均开销 |
@@ -75,13 +75,13 @@ Azure Cosmos DB 支持两种类型的容量模式： [预配吞吐量](set-throu
 
 ## <a name="use-budgets-and-cost-alerts"></a>使用预算和成本警报
 
-可以创建[预算](../cost-management/tutorial-acm-create-budgets.md)来管理成本，并创建警报以自动通知利益干系人支出异常和超支风险。 警报基于与预算和成本阈值相比的支出。 预算和警报是针对 Azure 订阅和资源组创建的，因此它们在总体成本监视策略中非常有用。 但是，它们的功能有限，无法管理单个 Azure 服务成本（如 Azure Cosmos DB 成本），因为它们旨在跟踪更高级别的成本。
+可以创建[预算](../cost-management-billing/costs/tutorial-acm-create-budgets.md)来管理成本，并创建警报以自动通知利益干系人支出异常和超支风险。 警报基于与预算和成本阈值相比的支出。 预算和警报是针对 Azure 订阅和资源组创建的，因此它们在总体成本监视策略中非常有用。 但是，它们的功能有限，无法管理单个 Azure 服务成本（如 Azure Cosmos DB 成本），因为它们旨在跟踪更高级别的成本。
 
-如果你的 Azure 订阅有支出限制，Azure 将阻止你支出支出。 创建和使用 Azure 资源时，将使用信用额度。 达到信用额度限制时，将在该计费周期的剩余时间内禁用部署的资源。 你无法更改信用额度，但可以将其删除。 有关支出限制的详细信息，请参阅 [Azure 支出限制](../billing/billing-spending-limit.md)。
+如果你的 Azure 订阅有支出限制，Azure 将阻止你支出支出。 创建和使用 Azure 资源时，将使用信用额度。 达到信用额度限制时，将在该计费周期的剩余时间内禁用部署的资源。 你无法更改信用额度，但可以将其删除。 有关支出限制的详细信息，请参阅 [Azure 支出限制](../cost-management-billing/manage/spending-limit.md)。
 
 ## <a name="monitor-costs"></a>监视成本
 
-在 Azure Cosmos DB 中使用资源时，会产生成本。 资源使用情况单位成本因时间间隔 (秒、分钟、小时和天) 或请求单位使用情况而异。 一旦开始使用 Azure Cosmos DB，就会产生成本，你可以在 Azure 门户的 " [成本分析](../cost-management/quick-acm-cost-analysis.md) " 窗格中看到它们。
+在 Azure Cosmos DB 中使用资源时，会产生成本。 资源使用情况单位成本因时间间隔 (秒、分钟、小时和天) 或请求单位使用情况而异。 一旦开始使用 Azure Cosmos DB，就会产生成本，你可以在 Azure 门户的 " [成本分析](../cost-management-billing/costs/quick-acm-cost-analysis.md) " 窗格中看到它们。
 
 使用成本分析时，可以在关系图和表中查看不同时间间隔的 Azure Cosmos DB 成本。 一些示例如下：日、当前、上个月和年。 还可以对比预算和预测的成本来查看成本。 随着时间的推移切换到较长的视图，可帮助你确定支出趋势并了解超支可能发生的位置。 如果您已经创建了预算，还可以轻松地查看他们超出的位置。查看成本分析中的 Azure Cosmos DB 成本：
 
@@ -103,5 +103,5 @@ Azure Cosmos DB 支持两种类型的容量模式： [预配吞吐量](set-throu
 
 * [Azure Cosmos DB 中的定价模型](how-pricing-works.md)
 * [在 Azure Cosmos DB 中优化预配的吞吐量成本](optimize-cost-throughput.md)
-* [优化 Azure Cosmos DB 中的查询成本](optimize-cost-queries.md)
+* [优化 Azure Cosmos DB 中的查询成本](./optimize-cost-reads-writes.md)
 * [优化 Azure Cosmos DB 中的存储成本](optimize-cost-storage.md)

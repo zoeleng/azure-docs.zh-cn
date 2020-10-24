@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8735bf721ec85dcd556582f7fd887dd82b55a35d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369975"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475220"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
 
@@ -85,13 +85,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 * **在 Azure VM 上启用“加速网络”以降低延迟。**
 
-建议你按说明在 [Windows（单击获取说明）](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell)或 [Linux（单击获取说明）](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)Azure VM 中启用“加速网络”，以便最大程度地提高性能。
+建议你按说明在 [Windows（单击获取说明）](../virtual-network/create-vm-accelerated-networking-powershell.md)或 [Linux（单击获取说明）](../virtual-network/create-vm-accelerated-networking-cli.md)Azure VM 中启用“加速网络”，以便最大程度地提高性能。
 
 没有加速网络，在 Azure VM 与其他 Azure 资源之间传输的 IO 可能会不必要地通过主机和虚拟交换机（位于 VM 与其网卡之间）进行路由。 在数据路径中以内联方式放置主机和虚拟交换机不仅会增加信道中的延迟和抖动，还会占用 VM 的 CPU 周期。 使用加速网络时，VM 直接与 NIC 连接，没有中介；以前由主机和虚拟交换机处理的任何网络策略细节现在都在 NIC 的硬件中处理；主机和虚拟交换机将被绕过。 通常情况下，当启用加速网络后，应会降低延迟并提高吞吐量，同时会提高延迟一致性并降低 CPU 利用率。
 
 限制：加速网络必须受 VM OS 支持，并且只能在已停止并解除分配 VM 的情况下启用。 不能通过 Azure 资源管理器部署此 VM。
 
-有关更多详细信息，请参阅 [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) 和 [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 说明。
+有关更多详细信息，请参阅 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 和 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 说明。
 
 ## <a name="sdk-usage"></a>SDK 用法
 * **安装最新的 SDK**
@@ -311,7 +311,7 @@ _ **横向扩展客户端工作负荷**
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
 
 ## <a name="throughput"></a>吞吐量
 <a id="measure-rus"></a>

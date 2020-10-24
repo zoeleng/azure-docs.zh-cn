@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 556b3915336d0ca9cec8ac67a34778cfb2523cbe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282041"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475067"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB、Cassandra、Gremlin �
 
   对相同数据的相同查询在重复执行时将始终产生相同的 ru 数。
 
-- **脚本的使用**：与查询一样，存储过程和触发器也是根据所执行的操作的复杂性来消耗 RU。 开发应用程序时，请检查[请求费用标头](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query)，以更好地了解每个操作消耗的 RU 容量。
+- **脚本的使用**：与查询一样，存储过程和触发器也是根据所执行的操作的复杂性来消耗 RU。 开发应用程序时，请检查[请求费用标头](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request)，以更好地了解每个操作消耗的 RU 容量。
 
 ## <a name="request-units-and-multiple-regions"></a>请求单位和多个区域
 
@@ -76,12 +76,12 @@ Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB、Cassandra、Gremlin �
 
 - 详细了解如何[对 Azure Cosmos 容器和数据库预配吞吐量](set-throughput.md)。
 - 详细了解 [Azure Cosmos DB 上的无服务器](serverless.md)。
-- 详细了解[逻辑分区](partition-data.md)。
-- 详细了解如何[全局缩放预配的吞吐量](scaling-throughput.md)。
+- 详细了解[逻辑分区](./partitioning-overview.md)。
+- 详细了解如何[全局缩放预配的吞吐量]()。
 - 了解[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
 - 了解[如何对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)。
 - 了解如何[查找操作所产生的请求单位费用](find-request-unit-charge.md)。
 - 了解如何[在 Azure Cosmos DB 中优化预配的吞吐量成本](optimize-cost-throughput.md)。
 - 了解如何[优化 Azure Cosmos DB 中的读取和写入成本](optimize-cost-reads-writes.md)。
-- 了解如何[优化 Azure Cosmos DB 中的查询成本](optimize-cost-queries.md)。
+- 了解如何[优化 Azure Cosmos DB 中的查询成本](./optimize-cost-reads-writes.md)。
 - 了解如何[使用指标监视吞吐量](use-metrics.md)。

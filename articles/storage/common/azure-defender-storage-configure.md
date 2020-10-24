@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289763"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474846"
 ---
 # <a name="configure-azure-defender-for-storage"></a>配置用于存储的 Azure Defender
 
@@ -37,7 +37,7 @@ ms.locfileid: "91289763"
 
 - 发布状态：
   - [Blob 存储](https://azure.microsoft.com/services/storage/blobs/) (公开上市) 
-  - [Azure 文件](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (公开发布) 
+  - [Azure 文件](/azure/storage/files/storage-files-introduction) (公开发布) 
   - Azure Data Lake Storage Gen2 (公开上市) 
 - 云：<br>
     ✔ 商业云<br>
@@ -66,7 +66,7 @@ ms.locfileid: "91289763"
 ### <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 启动 [Azure 门户](https://portal.azure.com/)。
-1. 导航到存储帐户。 在 " **设置**" 下，选择 " **高级安全**"。
+1. 导航到自己的存储帐户。 在 " **设置**" 下，选择 " **高级安全**"。
 1. 选择 " **启用用于存储的 Azure Defender**"。
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="显示如何在安全中心启用 Azure Defender 以实现存储的屏幕截图":::
@@ -98,16 +98,16 @@ ms.locfileid: "91289763"
 
 使用 Rest API 命令创建、更新或获取特定存储帐户的 Azure Defender 设置。
 
-- [高级威胁防护-创建](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [高级威胁防护-获取](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [高级威胁防护-创建](/rest/api/securitycenter/advancedthreatprotection/create)
+- [高级威胁防护-获取](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 使用以下 PowerShell cmdlet：
 
-- [启用高级威胁防护](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [获取高级威胁防护](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [禁用高级威胁防护](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [启用高级威胁防护](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [获取高级威胁防护](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [禁用高级威胁防护](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 

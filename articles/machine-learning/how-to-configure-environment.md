@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203086"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495237"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>为 Azure 机器学习设置开发环境
 
@@ -139,10 +139,10 @@ Azure 机器学习 [计算实例](concept-compute-instance.md) 是一种基于�
 
 随时可从 Azure 机器学习工作区内部创建组件。 只需提供名称并指定 Azure VM 类型即可。 请参考以下文章尝试操作计算实例：[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)。
 
-若要了解计算实例的详细信息（包括如何安装包），请参阅[计算实例](concept-compute-instance.md)。
+若要了解有关计算实例的详细信息（包括如何安装包），请参阅 [创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)。
 
 > [!TIP]
-> 若要防止对未使用的计算实例产生费用，请 [停止计算实例](tutorial-1st-experiment-bring-data.md#clean-up-resources)。
+> 若要防止对未使用的计算实例产生费用，请 [停止计算实例](how-to-create-manage-compute-instance.md#manage)。
 
 除了 Jupyter Notebook server 和 JupyterLab，还可以在 [Azure 机器学习 studio 内的集成笔记本功能](how-to-run-jupyter-notebooks.md)中使用计算实例。
 

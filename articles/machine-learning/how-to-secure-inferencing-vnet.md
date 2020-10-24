@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
+ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 0eb4f8a7994e7c1d04013e9c9cf92e604ef6a1a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424458"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496025"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -123,7 +123,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 * __内部 AKS 负载均衡器__：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
 
 > [!WARNING]
-> **使用 PRIVATE AKS 或内部负载均衡器，但不能同时使用两者**。
+> 内部负载均衡器不适用于使用 kubenet 的 AKS 群集。 如果要同时使用内部负载均衡器和专用 AKS 群集，请使用 Azure Container 网络接口 (CNI) 配置专用 AKS 群集。 有关详细信息，请参阅 [在 Azure Kubernetes Service 中配置 AZURE CNI 网络](../aks/configure-azure-cni.md)。
 
 ### <a name="private-aks-cluster"></a>专用 AKS 群集
 
@@ -134,7 +134,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 > [!IMPORTANT]
 > 在将启用了专用链接的 AKS 群集与 Azure 机器学习一起使用之前，你必须打开支持事件才能启用此功能。 有关详细信息，请参阅 [管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
 
-## <a name="internal-aks-load-balancer"></a>内部 AKS 负载均衡器
+### <a name="internal-aks-load-balancer"></a>内部 AKS 负载均衡器
 
 默认情况下，AKS 部署使用[公共负载均衡器](../aks/load-balancer-standard.md)。 在本部分中，你会了解如何将 AKS 配置为使用内部负载均衡器。 内部（或专用）负载平衡器用于仅在前端允许专用 IP 的情况。 内部负载均衡器用于对虚拟网络内部的流量进行负载均衡
 

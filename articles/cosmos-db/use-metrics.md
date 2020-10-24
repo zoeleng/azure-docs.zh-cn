@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280802"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476308"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的指标进行监视和调试
 
-Azure Cosmos DB 提供吞吐量、存储、一致性、可用性和延迟的指标。 Azure 门户提供这些指标的聚合视图。 也可通过 Azure Monitor API 查看 Azure Cosmos DB 指标。 指标的维度值（例如容器名称）不区分大小写。 因此，在对这些维度值进行字符串比较时，需要使用不区分大小写的比较。 若要了解如何查看 Azure Monitor 中的指标，请参阅[获取 Azure Monitor 中的指标](cosmos-db-azure-monitor-metrics.md)一文。
+Azure Cosmos DB 提供吞吐量、存储、一致性、可用性和延迟的指标。 Azure 门户提供这些指标的聚合视图。 也可通过 Azure Monitor API 查看 Azure Cosmos DB 指标。 指标的维度值（例如容器名称）不区分大小写。 因此，在对这些维度值进行字符串比较时，需要使用不区分大小写的比较。 若要了解如何查看 Azure Monitor 中的指标，请参阅[获取 Azure Monitor 中的指标](./monitor-cosmos-db.md)一文。
 
 本文介绍常见用例，以及如何使用 Azure Cosmos DB 指标来分析和调试这些问题。 指标每 5 分钟收集一次且保留 7 天。
 
@@ -112,6 +112,6 @@ QueryMetrics 提供执行各查询组件所用时长的详细信息  。 导致�
 
 前文介绍了如何使用 Azure 门户中提供的指标来监视和调试问题。 以下文章进一步介绍了如何提高数据库性能：
 
-* 若要了解如何查看 Azure Monitor 中的指标，请参阅[获取 Azure Monitor 中的指标](cosmos-db-azure-monitor-metrics.md)一文。 
+* 若要了解如何查看 Azure Monitor 中的指标，请参阅[获取 Azure Monitor 中的指标](./monitor-cosmos-db.md)一文。 
 * [执行 Azure Cosmos DB 缩放和性能测试](performance-testing.md)
 * [Azure Cosmos DB 性能提示](performance-tips.md)

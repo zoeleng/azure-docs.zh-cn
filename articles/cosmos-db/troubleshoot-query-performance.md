@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277174"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476699"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>排查使用 Azure Cosmos DB 时遇到的查询问题
 
@@ -191,7 +191,7 @@ RU 费用：409.51 RU
 
 RU 费用：2.98 RU
 
-你可以随时将属性添加到索引策略，而不会影响写入或读取可用性。 你可以[跟踪索引转换进度](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)。
+你可以随时将属性添加到索引策略，而不会影响写入或读取可用性。 你可以[跟踪索引转换进度](./how-to-manage-indexing-policy.md#dotnet-sdk)。
 
 ### <a name="understand-which-system-functions-use-the-index"></a>了解哪些系统函数使用索引
 
@@ -491,5 +491,5 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 参阅以下文章，了解有关如何按查询度量 RU、获取执行统计信息以优化查询等信息：
 
 * [使用 .NET SDK 获取 SQL 查询执行指标](profile-sql-api-query.md)
-* [优化 Azure Cosmos DB 的查询性能](sql-api-sql-query-metrics.md)
+* [优化 Azure Cosmos DB 的查询性能](./sql-api-query-metrics.md)
 * [.NET SDK 性能提示](performance-tips.md)

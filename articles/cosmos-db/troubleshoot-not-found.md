@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802390"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496087"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>诊断和排查 Azure Cosmos DB 的“未找到”异常
 HTTP 状态代码 404 表示资源不再存在。
@@ -28,7 +28,7 @@ HTTP 状态代码 404 表示资源不再存在。
 
 #### <a name="solution"></a>解决方案：
 1. Azure Cosmos DB 的默认帐户一致性为会话一致性。 创建或更新项时，响应将返回一个会话令牌，该令牌可以在 SDK 实例之间传递，以确保读取请求在从具有该更改的副本中进行读取。
-1. 将[一致性级别](consistency-levels-choosing.md)更改为[更高级别](consistency-levels-tradeoffs.md)。
+1. 将[一致性级别](./consistency-levels.md)更改为[更高级别](./consistency-levels.md)。
 
 ### <a name="invalid-partition-key-and-id-combination"></a>分区键和 ID 组合无效
 分区键和 ID 组合无效。
@@ -37,7 +37,7 @@ HTTP 状态代码 404 表示资源不再存在。
 修复导致错误组合的应用程序逻辑。 
 
 ### <a name="invalid-character-in-an-item-id"></a>项 ID 中的字符无效
-项被插入 Azure Cosmos DB，并且项 ID 中带有[无效字符](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks)。
+项被插入 Azure Cosmos DB，并且项 ID 中带有[无效字符](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks)。
 
 #### <a name="solution"></a>解决方案：
 将 ID 更改为不包含特殊字符的其他值。 如果不能更改 ID，则可以对 ID 进行 Base64 编码以将特殊字符转义。
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>生存时间清除
-项已设置[生存时间 (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) 属性。 由于 TTL 属性已过期，项被清除。
+项已设置[生存时间 (TTL)](./time-to-live.md) 属性。 由于 TTL 属性已过期，项被清除。
 
 #### <a name="solution"></a>解决方案：
 更改 TTL 属性以防止清除该项。
@@ -94,11 +94,11 @@ while (invalidItemsIterator.HasMoreResults)
 项所在的数据库或容器已删除。
 
 #### <a name="solution"></a>解决方案：
-1. [还原](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period)父资源或重新创建资源。
+1. [还原](./online-backup-and-restore.md#request-data-restore-from-a-backup)父资源或重新创建资源。
 1. 创建新资源来替换已删除的资源。
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. 容器/集合名称区分大小写
-容器/集合名称是 Cosmos DB 中的 sesnsitive。
+容器/集合名称在 Cosmos DB 中区分大小写。
 
 #### <a name="solution"></a>解决方案：
 请确保在连接到 Cosmos DB 时使用确切的名称。

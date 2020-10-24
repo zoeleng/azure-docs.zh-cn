@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ebc0398eeb7679ffd57e0aa5aae642f6303aaa35
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327699"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484604"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight 的 Azure 安全基线
 
@@ -146,9 +146,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 如何查看可用的 Azure Policy 别名：
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-如何配置和管理 Azure Policy：
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias 如何配置和管理 Azure 策略：
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -346,11 +344,11 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 如何使用 PowerShell 获取 Azure AD 中的目录角色：
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 如何使用 PowerShell 获取 Azure AD 中目录角色的成员：
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 如何使用 Azure 安全中心监视标识和访问：
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 如何查看 Azure 订阅：
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 了解 Azure RBAC：
 
@@ -942,7 +940,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 如何查看可用的 Azure Policy 别名：
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 如何配置和管理 Azure Policy：
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **指导**：如果使用自定义的 Azure Policy 定义，请使用 Azure DevOps 或 Azure Repos 安全地存储和管理代码。
 
-如何在 Azure DevOps 中存储代码：
+[如何在 Azure DevOps 中存储代码](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Azure Repos 文档：
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Azure Repos 文档](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **指导**：在“Microsoft.HDInsight”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 HDInsight 群集的配置。
 
-如何查看可用的 Azure Policy 别名：
+[如何查看可用的 Azure Policy 别名](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-如何配置和管理 Azure Policy：
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 如何在 Azure 中备份 Key Vault 密钥：
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Azure 安全中心监视**：目前不可用
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 如何在 Azure 中还原 Key Vault 密钥：
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Azure 安全中心监视**：目前不可用
 
@@ -1290,7 +1280,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-在以下网页中可以找到有关 Microsoft 红队演练策略和执行，以及针对 Microsoft 托管云基础结构、服务和应用程序执行现场渗透测试的详细信息： https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+对于 Microsoft 红队演练策略和执行，以及针对 Microsoft 托管云基础结构、服务和应用程序的实时站点渗透测试，可在此处找到详细信息： https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure 安全中心监视**：不适用
 

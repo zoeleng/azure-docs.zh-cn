@@ -3,12 +3,12 @@ title: 有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 description: 查找有关 Azure Kubernetes 服务 (AKS) 的某些常见问题的解答。
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8f50475d7ba9117fd32951b401b24b63d192fcd8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372372"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494522"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -20,11 +20,11 @@ ms.locfileid: "92372372"
 
 ## <a name="can-i-spread-an-aks-cluster-across-regions"></a>能否跨区域分布 AKS 群集？
 
-否。 AKS 群集是区域资源，不能跨区域。 有关如何创建包括多个区域的体系结构的指南，请参阅[用于实现业务连续性和灾难恢复的最佳做法][bcdr-bestpractices]。
+否。 AKS 群集是区域资源，不能跨区域。 如需了解如何创建包含多个区域的体系结构，请参阅[业务连续性和灾难恢复最佳做法][bcdr-bestpractices]。
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>AKS 群集是否可以跨可用性区域？
 
-是的。 在[支持可用性区域的区域][availability-zones]中，可以在一个或跨多个[可用性区域][az-regions]部署 AKS 群集。
+可以。 在[支持可用性区域的区域][availability-zones]中，可以在一个或跨多个[可用性区域][az-regions]部署 AKS 群集。
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>是否可以控制谁有权限访问 Kubernetes API 服务器？
 
@@ -193,7 +193,7 @@ AKS 代理节点按标准 Azure 虚拟机计费，因此，如果你已为在 AK
 
 ## <a name="can-i-use-custom-vm-extensions"></a>是否可以使用自定义 VM 扩展？
 
-不是，AKS 是托管服务，不支持操作 IaaS 资源。 要安装自定义组件等， 请利用 Kubernetes 的 API 和机制。 例如，使用 DaemonSet 安装所需的组件。
+支持 Log Analytics 代理，因为它是由 Microsoft 管理的扩展。 否则，AKS 为托管服务，不支持操作 IaaS 资源。 若要安装自定义组件等，请使用 Kubernetes Api 和机制。 例如，使用 Daemonset 安装所需的组件。
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS 是否将任何客户数据存储在群集区域之外？
 
