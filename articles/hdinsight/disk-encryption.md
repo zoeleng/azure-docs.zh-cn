@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290831"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487307"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight 静态数据双重加密
 
@@ -127,7 +127,7 @@ HDInsight 仅支持 Azure Key Vault。 如果拥有自己的密钥保管库，�
 
 #### <a name="using-azure-cli"></a>使用 Azure CLI
 
-以下示例演示如何使用 Azure CLI 来创建已启用磁盘加密的新 Apache Spark 群集。 有关详细信息，请参阅 [Azure CLI az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)。
+以下示例演示如何使用 Azure CLI 来创建已启用磁盘加密的新 Apache Spark 群集。 有关详细信息，请参阅 [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create)。
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -365,7 +365,7 @@ New-AzResourceGroupDeployment `
 
 #### <a name="using-azure-cli"></a>使用 Azure CLI
 
-以下示例演示如何轮换现有 HDInsight 群集的磁盘加密密钥。 有关详细信息，请参阅 [Azure CLI az hdinsight rotate-disk-encryption-key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key)。
+以下示例演示如何轮换现有 HDInsight 群集的磁盘加密密钥。 有关详细信息，请参阅 [Azure CLI az hdinsight rotate-disk-encryption-key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key)。
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -398,7 +398,7 @@ HDInsight 使用与 HDInsight 群集关联的托管标识来访问 Azure Key Vau
 
 **如果删除密钥，如何恢复群集？**
 
-由于仅支持已启用“软删除”的密钥，因此，如果 Key Vault 中的密钥已恢复，则群集应重新获得对密钥的访问权限。 若要恢复 Azure Key Vault 密钥，请参阅 [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) 或 [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover)。
+由于仅支持已启用“软删除”的密钥，因此，如果 Key Vault 中的密钥已恢复，则群集应重新获得对密钥的访问权限。 若要恢复 Azure Key Vault 密钥，请参阅 [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) 或 [az-keyvault-key-recover](/cli/azure/keyvault/key#az-keyvault-key-recover)。
 
 
 **如果群集已纵向扩展，新节点是否无缝支持客户管理的密钥？**

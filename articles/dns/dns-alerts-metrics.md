@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76937452"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489602"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 指标和警报
 Azure DNS 是 DNS 域的托管服务，它使用 Microsoft Azure 基础结构提供名称解析。 本文介绍了 Azure DNS 服务的指标和警报。
@@ -57,7 +57,7 @@ Azure DNS 中的“查询量”指标显示 Azure DNS 接收到的 DNS 区域的
 ### <a name="record-set-capacity-utilization"></a>记录集容量使用率
 Azure DNS 的“记录集容量使用率”指标显示 DNS 区域的记录集容量使用百分比**。 Azure DNS 中的每个 DNS 区域受到记录集限制的约束，该限制定义区域允许的记录集最大数（请参阅 [DNS 限制](dns-zones-records.md#limits)）。 因此，此指标显示命中记录集限制的接近程度。 例如，如果为 DNS 区域配置了 500 个记录集，并且区域的默认记录集限制为 5000，那么 RecordSetCapacityUtilization 指标的值将显示为 10%（通过 500 除以 5000 计算得出）。 度量单位是百分比，聚合类型是最大值************。 若要查看此指标，请从 Azure 门户的“监视”选项卡选择“指标(预览)”资源管理器体验。 从“资源”下拉列表选择 DNS 区域，选择“记录集容量使用率”指标，然后选择“最大值”作为“聚合”。 下面的屏幕快照显示示例。 有关指标资源管理器体验和图表的详细信息，请参阅 [Azure Monitor 指标资源管理器](../azure-monitor/platform/metrics-charts.md)。 
 
-![记录集计数](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
+![屏幕截图，whows 如何查看指标的示例。](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 图：Azure DNS 记录集容量使用率指标**
 

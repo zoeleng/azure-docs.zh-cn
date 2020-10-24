@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856579"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488106"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -25,7 +25,7 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 
 * [cURL](https://curl.haxx.se/) - 用于与基于 Web 的服务进行通信。
 * 命令行 JSON 处理程序 **jq**。  请参阅 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - 用于远程管理 Azure 服务。
+* [Azure CLI](/cli/azure/install-azure-cli) - 用于远程管理 Azure 服务。
 * **SSH 客户端**。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="users"></a>用户
@@ -191,7 +191,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 如果使用 __Azure Blob 存储__，请参阅以下链接，了解访问数据的方法：
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
+* [Azure CLI](/cli/azure/install-az-cli2)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
 * [blobxfer.py](https://github.com/Azure/blobxfer)：用于处理 Azure 存储中的 blob 的 python 脚本。
 * 多种 SDK：
 

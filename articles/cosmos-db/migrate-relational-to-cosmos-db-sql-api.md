@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: aaff5adf358c31d99df7a51305c4e3554c3259c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3aec6cf2fa515d71b93d84cf8c4fc901fc847162
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166244"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487426"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>将一对多关系数据迁移到 Azure Cosmos DB SQL API 帐户中
 
@@ -340,5 +340,5 @@ pool.map(writeOrder, orderids)
 :::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
 
 ## <a name="next-steps"></a>后续步骤
-* 了解 [Azure Cosmos DB 中的数据建模](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
-* 了解[如何在 Azure Cosmos DB 中为数据建模和分区](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)
+* 了解 [Azure Cosmos DB 中的数据建模](./modeling-data.md)
+* 了解[如何在 Azure Cosmos DB 中为数据建模和分区](./how-to-model-partition-example.md)

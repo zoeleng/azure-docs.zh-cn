@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 20ebfc571d72b79b61a61fb633feb63c4cc58fdd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939335"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488803"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>从 Azure AD 获取用于从客户端应用程序授权请求的令牌
 
@@ -288,6 +288,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Microsoft 标识平台](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Microsoft 标识平台](/azure/active-directory/develop/)
 - [使用 Azure RBAC 管理对存储数据的访问权限](storage-auth-aad-rbac.md)
 - [使用 Azure Active Directory 和 Azure 资源的托管标识验证对 blob 和队列的访问权限](storage-auth-aad-msi.md)

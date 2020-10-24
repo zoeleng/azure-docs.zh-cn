@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d676d891683cc11dd8c1999c26464373d17e97be
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932016"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489398"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -44,7 +44,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>是否可以在 VNet 之间或者 VNet 与本地数据中心之间执行 WAN 优化？
 是的。 可以通过 Azure 市场部署许多供应商提供 [WAN 优化网络虚拟设备](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization)。
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>配置
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>要使用哪些工具创建 VNet？
 可以使用以下工具创建或配置 VNet：
@@ -265,7 +265,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>如果虚拟网络所属的订阅位于不同的 Azure Active Directory 租户中，能否启用 VNet 对等互连？
-是。 如果订阅属于不同的 Azure Active Directory 租户，则可以建立 VNet 对等互连（无论是本地还是全球）。 可以通过门户、PowerShell 或 CLI 实现此目的。
+能。 如果订阅属于不同的 Azure Active Directory 租户，则可以建立 VNet 对等互连（无论是本地还是全球）。 可以通过门户、PowerShell 或 CLI 实现此目的。
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>我的 VNet 对等互连连接处于“已启动”状态，为什么我不能连接？
 如果对等互连连接处于“已启动”状态，则意味着只创建了一个链路。 必须创建双向链接才能成功建立连接。 例如，若要从 VNet A 对等互连到 VNet B，必须创建从 VNetA 到 VNetB 以及从 VNetB 到 VNetA 的链接。 创建这两个链路后，状态会更改为“已连接”。
@@ -283,7 +283,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 创建 VNet 对等互连连接不收费。 跨对等互连连接进行数据传输收费。 请[参阅此文](https://azure.microsoft.com/pricing/details/virtual-network/)。
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>VNet 对等互连流量是否加密？
-否。 对等互连 VNet 中的资源之间的流量是专用的，处于隔离状态。 它始终局限在 Microsoft 主干上。
+当 Vnet 对等互连流量在数据中心之间移动时，在基础网络硬件上使用不受 (或代表 Microsoft [MACsec 数据链路层加密](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) 的外部物理边界。
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>为什么我的对等互连连接处于“已断开连接”状态？
 删除某个 VNet 对等互连链接时，VNet 对等互连连接就会进入“已断开”状态。 必须删除两个链接才能重新建立成功的对等互连连接。
@@ -309,7 +309,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 受监视的网络接口仅能拥有一个 TAP 配置。 请咨询各个 [合作伙伴解决方案](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) ，以便能够将多个分流流量副本流式传输到所选的分析工具。
 
 ### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>同一虚拟网络 TAP 资源是否可以聚合多个虚拟网络中来自受监视的网络接口的流量？
-是。 同一虚拟网络 TAP 资源可用于聚合同一订阅或不同订阅中的对等虚拟网络中来自受监视的网络接口的镜像流量。 虚拟网络 TAP 资源和目标负载均衡器或目标网络接口必须位于同一订阅中。 所有订阅必须在同一 Azure Active Directory 租户下。
+能。 同一虚拟网络 TAP 资源可用于聚合同一订阅或不同订阅中的对等虚拟网络中来自受监视的网络接口的镜像流量。 虚拟网络 TAP 资源和目标负载均衡器或目标网络接口必须位于同一订阅中。 所有订阅必须在同一 Azure Active Directory 租户下。
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>如果我在网络接口上启用虚拟网络 TAP 配置，是否需要考虑生产流量的性能问题？
 
@@ -355,7 +355,7 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 是，可以这样做。 虚拟网络和 Azure 服务资源也可以位于相同或不同的订阅中。 唯一的要求是虚拟网络和 Azure 服务资源必须位于相同的 Active Directory (AD) 租户之下。
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>如果虚拟网络和 Azure 服务资源属于不同的 AD 租户，是否可打开 VNet 服务终结点并设置 VNet ACL？
-是的，可以使用 Azure 存储的服务终结点和 Azure Key Vault。 对于服务的其余部分，不支持跨 AD 租户的 VNet 服务终结点和 VNet Acl。
+是的，在将服务终结点用于 Azure 存储和 Azure Key Vault 时可以这样。 对于其余服务，AD 租户不支持 VNet 服务终结点和 VNet ACL。
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>可以通过 Azure 虚拟网络网关连接的本地设备 IP 地址 (VPN) 或 ExpressRoute 网关通过 VNet 服务终结点访问 Azure PaaS 服务吗？
 默认情况下，无法从本地网络访问在虚拟网络中保护的 Azure 服务资源。 要允许来自本地的流量，还必须允许来自本地或 ExpressRoute 的公共（通常为 NAT）IP 地址。 可通过 Azure 服务资源的 IP 防火墙配置添加这些 IP 地址。

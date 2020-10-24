@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: fba5c868a146529a981e23cd88b413f2eb441896
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a221e3c32d458135111583885a0b9f97743d36ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708928"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490027"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>使用 Azure 门户设置针对 Azure Database for PostgreSQL（单一服务器）指标的警报
 
@@ -27,7 +27,7 @@ ms.locfileid: "91708928"
 可使用以下项配置并获取预警规则相关信息：
 * [Azure 门户](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure 监视器 REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure 监视器 REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>通过 Azure 门户针对指标创建警报规则
 1. 在 [Azure 门户](https://portal.azure.com/)中，选择要监视的 Azure Database for PostgreSQL 服务器。
@@ -83,4 +83,4 @@ ms.locfileid: "91708928"
 
 ## <a name="next-steps"></a>后续步骤
 * 了解[在警报中配置 Webhook](../azure-monitor/platform/alerts-webhooks.md)的详细信息。
-* 获取[指标集合概述](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。
+* 获取[指标集合概述](../azure-monitor/platform/data-platform.md)以确保服务可用且响应迅速。

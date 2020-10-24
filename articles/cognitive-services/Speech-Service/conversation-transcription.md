@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81402511"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487767"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>什么是在会议 (预览) 中进行对话对话？
 
@@ -34,9 +34,11 @@ ms.locfileid: "81402511"
 > [!NOTE]
 > 虽然会话脚本未对房间中的扬声器数量施加限制，但对于每个会话，它已针对2-10 扬声器进行了优化。
 
-## <a name="use-cases"></a>用例
+## <a name="get-started"></a>入门
 
-### <a name="inclusive-meetings"></a>非独占会议
+若要开始，请参阅实时对话对话 [快速入门](how-to-use-conversation-transcription.md) 。
+
+## <a name="use-cases"></a>用例
 
 若要为每个人（例如失聪和听力障碍的参与者）提供会议，请务必实时进行脚本。 实时模式下的对话对话采用会议音频，并确定谁在说什么，这允许所有会议参与者在不延迟的情况下执行脚本并参与会议。
 
@@ -54,6 +56,10 @@ ms.locfileid: "81402511"
 
 - **多通道音频流** –有关规范和设计的详细信息，请参阅 [MICROSOFT Speech Device SDK 麦克风](https://aka.ms/cts/microphone)。 若要详细了解或购买开发工具包，请参阅[获取 Microsoft 语音设备 SDK](https://aka.ms/cts/getsdk)。
 - **用户语音示例** –对话要求在会话前需要用户配置文件。 需要从每个用户那里收集音频记录，然后将录制发送到 [签名生成服务](https://aka.ms/cts/signaturegenservice) ，以验证音频和生成用户配置文件。
+
+> [!NOTE]
+> 用户语音示例是可选的。 如果不输入此项，脚本将显示不同的扬声器，但显示为 "Speaker1"、"Speaker2" 等，而不是将其识别为预先注册的特定发言人名称。
+
 
 ## <a name="real-time-vs-asynchronous"></a>实时与异步
 
@@ -73,9 +79,9 @@ ms.locfileid: "81402511"
 
 ## <a name="language-support"></a>语言支持
 
-目前，对话脚本支持以下区域中的 "en-us" 和 "zh-chs"： *centralus* 和 *eastasia*。 如果需要其他区域设置支持，请联系 [对话脚本功能](mailto:CTSFeatureCrew@microsoft.com)人员。
+目前，对话脚本支持以下区域中的 [所有语音到文本语言](language-support.md#speech-to-text) ：  `centralus` 、 `eastasia` 、 `eastus` 和 `westeurope` 。 如果需要其他区域设置支持，请联系 [对话脚本功能](mailto:CTSFeatureCrew@microsoft.com)人员。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [实时转录对话](how-to-use-conversation-transcription-service.md)
+> [实时转录对话](how-to-use-conversation-transcription.md)

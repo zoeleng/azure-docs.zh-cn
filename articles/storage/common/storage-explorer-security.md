@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714379"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488599"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure 存储管理器安全指南
 
@@ -44,13 +44,13 @@ Microsoft Azure 存储资源管理器可用于在 Windows、macOS 和 Linux 上�
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Azure 基于角色的访问控制 (Azure RBAC)
 
-[Azure 基于角色的访问控制 (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 提供对 Azure 资源的精细访问控制。 可以从 Azure 门户管理 Azure 角色和权限。
+[Azure 基于角色的访问控制 (Azure RBAC)](/azure/role-based-access-control/overview) 提供对 Azure 资源的精细访问控制。 可以从 Azure 门户管理 Azure 角色和权限。
 
 存储资源管理器支持 Azure RBAC 访问存储帐户、Blob 和队列。 如果需要访问文件共享或表，则需要分配授予权限以列出存储帐户密钥的 Azure 角色。
 
 #### <a name="access-control-lists-acls"></a>访问控制列表 (ACL)
 
-[访问控制列表 (ACL)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) 允许在 ADLS Gen2 blob 容器中的文件和文件夹级别控制访问权限。 你可以使用存储资源管理器管理 ACL。
+[访问控制列表 (ACL)](/azure/storage/blobs/data-lake-storage-access-control) 允许在 ADLS Gen2 blob 容器中的文件和文件夹级别控制访问权限。 你可以使用存储资源管理器管理 ACL。
 
 ### <a name="shared-access-signatures-sas"></a>共享访问签名 (SAS)
 
@@ -102,4 +102,4 @@ Microsoft Azure 存储资源管理器可用于在 Windows、macOS 和 Linux 上�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安全建议](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [安全建议](/azure/storage/blobs/security-recommendations)

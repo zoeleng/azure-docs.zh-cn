@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8d2c7d48dc0b77d3be0b9019d4bbf1da8a40c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541724"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490265"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>使用 REST 代理与 Azure HDInsight 中的 Apache Kafka 群集交互
 
@@ -83,7 +83,7 @@ ms.locfileid: "91541724"
 1. 通过执行 `pip3 install msal` 安装所需的 Python 依赖项。
 1. 修改 **Configure these properties** 代码部分，并更新你的环境的以下属性：
 
-    |属性 |说明 |
+    |properties |说明 |
     |---|---|
     |租户 ID|订阅所在的 Azure 租户。|
     |客户端 ID|在安全组中注册的应用程序的 ID。|
@@ -97,7 +97,7 @@ ms.locfileid: "91541724"
 1. 从 Azure AD 提取 OAuth 令牌。
 1. 演示如何向 Kafka REST 代理发出请求。
 
-有关在 Python 中获取 OAuth 令牌的详细信息，请参阅 [Python AuthenticationContext 类](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python)。 如果不是通过 Kafka REST 代理创建或删除的 `topics` 在该处有所反映，则可能会出现延迟。 此延迟是因为缓存刷新。
+有关在 Python 中获取 OAuth 令牌的详细信息，请参阅 [Python AuthenticationContext 类](/python/api/adal/adal.authentication_context.authenticationcontext)。 如果不是通过 Kafka REST 代理创建或删除的 `topics` 在该处有所反映，则可能会出现延迟。 此延迟是因为缓存刷新。
 
 ```python
 #Required python packages

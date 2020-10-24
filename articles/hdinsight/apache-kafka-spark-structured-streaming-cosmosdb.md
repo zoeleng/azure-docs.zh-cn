@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203476"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487324"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用
 
@@ -86,7 +86,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 本文档使用的项目在 Cosmos DB 中存储数据。 运行代码之前，必须首先在 Cosmos DB 实例中创建数据库和集合   。 还必须检索文档终结点，以及用于对 Cosmos DB 的请求进行身份验证的密钥  。
 
-可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 执行此操作。 以下脚本将创建名为 `kafkadata` 的数据库和名为 `kafkacollection` 的集合。 然后，将返回主键。
+可使用 [Azure CLI](/cli/azure/) 执行此操作。 以下脚本将创建名为 `kafkadata` 的数据库和名为 `kafkacollection` 的集合。 然后，将返回主键。
 
 ```azurecli
 #!/bin/bash

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329366"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489279"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服务配额
 
@@ -144,7 +144,7 @@ Cosmos DB 会定期自动备份数据。 有关备份保留时间间隔和窗口
 
 ## <a name="per-request-limits"></a>每个请求限制
 
-Azure Cosmos DB 支持对容器、项和数据库等资源执行 [CRUD 和查询操作](/rest/api/cosmos-db/)。 它还支持针对容器中具有相同分区键的多个项的[事务性批处理请求](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch)。
+Azure Cosmos DB 支持对容器、项和数据库等资源执行 [CRUD 和查询操作](/rest/api/cosmos-db/)。 它还支持针对容器中具有相同分区键的多个项的[事务性批处理请求](/dotnet/api/microsoft.azure.cosmos.transactionalbatch)。
 
 | 资源 | 默认限制 |
 | --- | --- |
@@ -191,7 +191,7 @@ Azure Cosmos DB 为每个帐户维护系统元数据。 此元数据可用于免
 
 ## <a name="sql-query-limits"></a>SQL 查询限制
 
-Cosmos DB 支持使用 [SQL](how-to-sql-query.md) 查询项。 下表描述了查询语句的限制，例如子句数目或查询长度方面的限制。
+Cosmos DB 支持使用 [SQL](./sql-query-getting-started.md) 查询项。 下表描述了查询语句的限制，例如子句数目或查询长度方面的限制。
 
 | 资源 | 默认限制 |
 | --- | --- |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372236"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487460"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 安全性 - 概述
 
@@ -69,7 +69,7 @@ ms.locfileid: "92372236"
 |自动联机备份|Azure Cosmos 数据库定期备份并存储在异地冗余的存储中。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息。|
 |还原已删除的数据|可以使用自动联机备份来恢复大约 30 天内意外删除的数据。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息|
 |保护和隔离敏感数据|“新增功能”中列出的区域中的所有数据现已处于静态加密状态。<br><br>可将个人数据和其他机密数据隔离到特定的容器，并限制为只能由特定的用户进行读写或只读访问。|
-|监视攻击|使用[审核日志和活动日志](logging.md)，可以监视帐户中的正常和异常活动。 可以查看针对资源执行了哪些操作、操作是谁发起的、操作是何时发生的、操作的状态等，如此表后面的屏幕截图所示。|
+|监视攻击|使用[审核日志和活动日志](./monitor-cosmos-db.md)，可以监视帐户中的正常和异常活动。 可以查看针对资源执行了哪些操作、操作是谁发起的、操作是何时发生的、操作的状态等，如此表后面的屏幕截图所示。|
 |响应攻击|联系 Azure 支持部门举报潜在的攻击行为后，将启动由 5 个步骤构成的事件响应过程。 该 5 步骤过程的目的是在检测到问题并启动调查后，尽快将服务安全性和操作恢复正常。<br><br>在[云中的 Microsoft Azure 安全响应](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)中了解详细信息。|
 |地域隔离|Azure Cosmos DB 确保符合主权区域（例如德国、中国和 US Gov）的数据治理要求。|
 |受保护的设施|Azure Cosmos DB 中的数据存储在 Azure 的受保护数据中心内的 SSD 上。<br><br>在 [Microsoft 全球数据中心](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)中了解详细信息|
@@ -104,6 +104,6 @@ ms.locfileid: "92372236"
 
 有关主密钥和资源令牌的详细信息，请参阅 [保护对 Azure Cosmos DB 数据的访问](secure-access-to-data.md)。
 
-有关审核日志记录的详细信息，请参阅 [Azure Cosmos DB 诊断日志记录](logging.md)。
+有关审核日志记录的详细信息，请参阅 [Azure Cosmos DB 诊断日志记录](./monitor-cosmos-db.md)。
 
 有关 Microsoft 认证的详细信息，请参阅 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/)。

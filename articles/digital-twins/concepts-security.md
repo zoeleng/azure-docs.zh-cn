@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331747"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485743"
 ---
 # <a name="secure-azure-digital-twins"></a>保护 Azure 数字孪生
 
@@ -48,11 +48,13 @@ Azure RBAC 通过与 [Azure Active Directory](../active-directory/fundamentals/a
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>授权： azure 数字孪生的 Azure 角色
 
 Azure 提供以下 Azure 内置角色，用于授权访问 Azure 数字孪生资源：
-* *Azure 数字孪生所有者 (预览版) * –使用此角色授予对 Azure 数字孪生资源的完全访问权限。
-* *Azure 数字孪生读者 (预览版) * –使用此角色授予对 Azure 数字孪生资源的只读访问权限。
+* *Azure 数字孪生数据所有者* –使用此角色授予对 Azure 数字孪生资源的完全访问权限。
+* *Azure 数字孪生数据读取器* –使用此角色授予对 Azure 数字孪生资源的只读访问权限。
 
-> [!TIP]
-> *Azure 数字孪生 Reader (预览版) *角色现在还支持浏览关系。
+>[!NOTE]
+> 最近在预览版中将这些角色重命名为其以前的名称：
+> * *Azure 数字孪生数据所有者* 以前是 *Azure 数字孪生所有者 (预览) *。
+> * *Azure 数字孪生数据读取器* 是以前的 *Azure 数字孪生读卡器 (预览) *。
 
 有关如何定义内置角色的详细信息，请参阅了解 Azure RBAC 文档中的 [*角色定义*](../role-based-access-control/role-definitions.md) 。 有关创建 Azure 自定义角色的详细信息，请参阅 [*azure 自定义角色*](../role-based-access-control/custom-roles.md)。
 

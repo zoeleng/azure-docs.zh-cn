@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104098"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480065"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>有关 Azure Synapse Link for Azure Cosmos DB 的常见问题
 
@@ -37,13 +37,13 @@ Azure Synapse Link for Azure Cosmos DB 在 Azure Cosmos DB 和 Azure Synapse Ana
 
 对于启用了分析存储的容器，此时不支持在分析存储中自动备份和还原数据。 
 
-如果在数据库帐户上启用了 Synapse 链接，Azure Cosmos DB 将继续自动将数据 [备份](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) 到事务性存储区中， (只按计划的备份间隔) 容器。 需要特别注意的是，当启用了分析存储的容器被还原到新帐户时，将仅使用事务性存储来还原容器，而不会启用分析存储。 
+如果在数据库帐户上启用了 Synapse 链接，Azure Cosmos DB 将继续自动将数据 [备份](./online-backup-and-restore.md) 到事务性存储区中， (只按计划的备份间隔) 容器。 需要特别注意的是，当启用了分析存储的容器被还原到新帐户时，将仅使用事务性存储来还原容器，而不会启用分析存储。 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>能否禁用 Azure Cosmos DB 帐户的 Azure Synapse 链接功能？
 
 目前，在帐户级别启用 Synapse Link 功能后，无法禁用它。 我们知道，如果在帐户级别启用了 Synapse Link 功能，但没有启用了分析存储的容器，则不会产生任何计费影响。 
 
-如果需要关闭该功能，可以使用2个选项。 第一种是删除并重新创建新的 Azure Cosmos DB 帐户，如有必要，迁移数据。 第二种方法是打开支持票证，以获取有关数据迁移到另一个帐户的帮助。
+如果需要关闭该功能，可以选择 2 个选项。 第一个选项是删除并重新创建新的 Azure Cosmos DB 帐户，根据需要迁移数据。 第二个选项是打开支持票证，以获取有关将数据迁移到其他帐户的帮助。
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 分析存储
 
@@ -100,7 +100,7 @@ Azure Cosmos DB 保证事务和分析工作负荷之间的性能隔离。 在容
 
 ### <a name="is-analytical-store-supported-by-terraform"></a>Terraform 是否支持分析存储？
 
-目前 Terraform 不支持分析存储容器。 有关详细信息，请查看 [Terraform GitHub 问题](https://github.com/hashicorp/terraform/issues) 。
+目前 Terraform 不支持分析存储容器。 有关详细信息，请查看 [Terraform GitHub 问题](https://github.com/hashicorp/terraform/issues)。
 
 ## <a name="analytical-time-to-live-ttl"></a>分析生存时间 (TTL)
 

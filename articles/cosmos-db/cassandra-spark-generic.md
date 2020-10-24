@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 662b85bb2b928cbbcfb1b88adecb2c125c9ae5df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260485"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486610"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 连接到 Azure Cosmos DB Cassandra API
 
@@ -22,7 +22,7 @@ ms.locfileid: "85260485"
 ## <a name="prerequisites"></a>先决条件
 * [预配一个 Azure Cosmos DB Cassandra API 帐户。](create-cassandra-dotnet.md#create-a-database-account)
 
-* 预配所选 Spark 环境 [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) |其他 "。
+* 预配所选 Spark 环境 [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) |其他 "。
 
 ## <a name="dependencies-for-connectivity"></a>连接的依赖项
 * **Cassandra 的 Spark 连接器：** Spark 连接器用于连接到 Azure Cosmos DB Cassandra API。  请识别并使用 [Maven 中心]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)内与 Spark 环境的 Spark 和 Scala 版本兼容的连接器版本。

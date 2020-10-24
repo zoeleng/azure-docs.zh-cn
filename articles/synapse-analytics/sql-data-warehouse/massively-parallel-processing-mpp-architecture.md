@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics（以前称为 SQL DW）体系结构
-description: 了解 Azure Synapse Analytics（以前称为 SQL DW）如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。
+description: 了解 Azure Synapse Analytics 如何 (以前的 SQL DW) 将分布式查询处理功能与 Azure 存储结合起来，实现高性能和可伸缩性。
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210960"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479334"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics（以前称为 SQL DW）体系结构
 
@@ -33,13 +33,13 @@ Azure Synapse 是一种无限制的分析服务，它将企业数据仓库和大
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Synapse SQL MPP 体系结构组件
+## <a name="synapse-sql-architecture-components"></a>Synapse SQL 体系结构组件
 
 [Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 利用横向扩展体系结构在多个节点间分布数据的计算处理。 缩放单位是计算能力（称为[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)）的抽象概念。 计算与存储分离开来，以便用户能够独立于系统中的数据进行缩放计算。
 
 ![Synapse SQL 体系结构](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL 使用基于节点的体系结构。 应用程序将 T-SQL 命令连接到、发布给控制节点，该节点是 Synapse SQL 的单一入口点。 控制节点运行用于优化并行处理查询的 MPP 引擎，然后将操作传递给计算节点以实现并行工作。
+Synapse SQL 使用基于节点的体系结构。 应用程序将 T-SQL 命令连接到、发布给控制节点，该节点是 Synapse SQL 的单一入口点。 控制节点承载分布式查询引擎，该引擎优化查询以进行并行处理，然后将操作传递到计算节点以并行完成工作。
 
 计算节点将所有用户数据存储在 Azure 存储中并运行并行查询。 数据移动服务 (DMS) 是一项系统级内部服务，它根据需要在节点间移动数据以并行运行查询和返回准确的结果。
 
@@ -60,13 +60,13 @@ Synapse SQL 使用 Azure 存储保护用户数据。  由于数据通过 Azure �
 
 ### <a name="control-node"></a>控制节点
 
-控制节点是体系结构的核心。 它是与所有应用程序和连接进行交互的前端。 MPP 引擎在控制节点上运行以优化和协调并行查询。 提交 T-SQL 查询时，控制节点会将其转换为可针对每个分布区并行运行的查询。
+控制节点是体系结构的核心。 它是与所有应用程序和连接进行交互的前端。 分布式查询引擎在控制节点上运行以优化和协调并行查询。 提交 T-SQL 查询时，控制节点会将其转换为可针对每个分布区并行运行的查询。
 
 ### <a name="compute-nodes"></a>计算节点
 
 计算节点提供计算能力。 分布区映射到计算节点以进行处理。 当你为更多计算资源付费时，分布区将重新映射到可用的计算节点。 计算节点数的范围是 1 到 60，它由 Synapse SQL 的服务级别确定。
 
-每个计算节点均有一个节点 ID，该 ID 会显示在系统视图中。 在名称以 sys.pdw_nodes 开头的系统视图中找到 node_id 列即可查看计算节点 ID。 有关这些系统视图的列表，请参阅 [MPP 系统视图](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。
+每个计算节点均有一个节点 ID，该 ID 会显示在系统视图中。 在名称以 sys.pdw_nodes 开头的系统视图中找到 node_id 列即可查看计算节点 ID。 有关这些系统视图的列表，请参阅 [SYNAPSE SQL 系统视图](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。
 
 ### <a name="data-movement-service"></a>数据移动服务
 

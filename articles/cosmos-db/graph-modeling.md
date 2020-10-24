@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409759"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490622"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的图形数据建模
 
@@ -37,7 +37,7 @@ ms.locfileid: "91409759"
 
 如果满足上述条件，则图形数据库方法可能会为查询复杂性、数据模型可伸缩性和查询性能提供优势    。
 
-下一步是确定图形是否将用于分析或事务目的。 如果图形将用于繁重的计算和数据处理工作负载，则值得探索 [Cosmos DB Spark 连接器](https://docs.microsoft.com/azure/cosmos-db/spark-connector)以及 [GraphX 库](https://spark.apache.org/graphx/)的使用。 
+下一步是确定图形是否将用于分析或事务目的。 如果图形将用于繁重的计算和数据处理工作负载，则值得探索 [Cosmos DB Spark 连接器](./spark-connector.md)以及 [GraphX 库](https://spark.apache.org/graphx/)的使用。 
 
 ## <a name="how-to-use-graph-objects"></a>如何使用图形对象
 

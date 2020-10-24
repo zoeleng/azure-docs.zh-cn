@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707534"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489704"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>通过 Azure CLI、REST API 创建和管理只读副本
 
@@ -34,7 +34,7 @@ ms.locfileid: "91707534"
 
 ### <a name="prerequisites"></a>先决条件
 
-- [安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [安装 Azure CLI 2.0](/cli/azure/install-azure-cli)
 - 作为主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md) 。
 
 
@@ -60,7 +60,7 @@ ms.locfileid: "91707534"
 
 ### <a name="create-a-read-replica"></a>创建只读副本
 
-[az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) 命令需要以下参数：
+[az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) 命令需要以下参数：
 
 | 设置 | 示例值 | 说明  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > 在主服务器设置更新为新值之前，请将副本设置更新为一个相等或更大的值。 此操作可帮助副本与主服务器发生的任何更改保持同步。
 
 ### <a name="list-replicas"></a>列出副本
-您可以使用 [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) 命令查看主服务器的副本列表。
+您可以使用 [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) 命令查看主服务器的副本列表。
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>停止复制到副本服务器
-您可以使用 [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) 命令停止主服务器和读取副本之间的复制。
+您可以使用 [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) 命令停止主服务器和读取副本之间的复制。
 
 停止复制到主服务器和读取副本后，无法撤消。 只读副本将成为支持读取和写入的独立服务器。 独立服务器不能再次成为副本。
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>删除主服务器或副本服务器
-若要删除主服务器或副本服务器，请使用 [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) 命令。
+若要删除主服务器或副本服务器，请使用 [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) 命令。
 
 删除主服务器时，将停止复制到所有读取副本。 只读副本将成为支持读取和写入的独立服务器。
 

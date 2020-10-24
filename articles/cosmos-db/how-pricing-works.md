@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7d54dfe2efa82aaa650168c476da03d89fe4527
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281537"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490486"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的定价模型
 
@@ -36,7 +36,7 @@ Azure Cosmos DB 中的定价模型在所有 API 中都是一致的。 有关详�
 
 Azure Cosmos DB 免费为开发人员提供众多选项。 这些选项包括：
 
-* Azure Cosmos DB 免费层：使用 Azure Cosmos DB 免费层，可以轻松上手、开发和测试应用程序，甚至免费运行小型生产工作负载。 如果在帐户上启用了免费层，那么在该帐户的生存期内，你将在该帐户中免费获得前 400 RU/秒的吞吐量和 5 GB 的存储空间。 每个 Azure 订阅最多可以有一个免费层帐户，并且必须在创建帐户时选择加入使用。 首先，[在 Azure 门户中创建一个启用了免费层的新帐户](create-cosmosdb-resources-portal.md) 或使用 [ARM 模板](manage-sql-with-resource-manager.md#free-tier)。
+* Azure Cosmos DB 免费层：使用 Azure Cosmos DB 免费层，可以轻松上手、开发和测试应用程序，甚至免费运行小型生产工作负载。 如果在帐户上启用了免费层，那么在该帐户的生存期内，你将在该帐户中免费获得前 400 RU/秒的吞吐量和 5 GB 的存储空间。 每个 Azure 订阅最多可以有一个免费层帐户，并且必须在创建帐户时选择加入使用。 首先，[在 Azure 门户中创建一个启用了免费层的新帐户](create-cosmosdb-resources-portal.md) 或使用 [ARM 模板](./manage-with-templates.md#free-tier)。
 
 * **Azure 免费帐户**： azure 提供一个 [免费层](https://azure.microsoft.com/free/) ，可为你提供 $200 （在 Azure 信用额度中的前30天）和有限数量的免费服务（12个月）。 有关详细信息，请参阅 [Azure 免费帐户](../cost-management-billing/manage/avoid-charges-free-account.md)。 Azure Cosmos DB 是 Azure 免费帐户的一部分。 具体而言，此免费帐户为 Azure Cosmos DB 提供了 5 GB 存储和 400 RU/秒的预配吞吐量。
 
@@ -59,7 +59,7 @@ Azure Cosmos DB 免费为开发人员提供众多选项。 这些选项包括：
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
-* 详细了解如何[优化查询成本](optimize-cost-queries.md)
+* 详细了解如何[优化查询成本](./optimize-cost-reads-writes.md)
 * 详细了解如何[优化多区域 Cosmos 帐户的成本](optimize-cost-regions.md)
 * 了解 [Azure Cosmos DB 预留容量](cosmos-db-reserved-capacity.md)
 * 了解 [Azure Cosmos DB 模拟器](local-emulator.md)

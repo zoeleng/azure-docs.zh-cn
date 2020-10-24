@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997551"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487222"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 群集的日志
 
@@ -42,7 +42,7 @@ HDInsight 日志管理的典型步骤如下：
 * 群集状态，包括上次状态更改的详细信息
 * 为主节点、核心节点和任务节点指定的 HDInsight 实例的类型和数量
 
-可以使用 Azure 门户获取其中的大多数顶级信息。  或者，可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 获取有关 HDInsight 群集的信息：
+可以使用 Azure 门户获取其中的大多数顶级信息。  或者，可以使用 [Azure CLI](/cli/azure/) 获取有关 HDInsight 群集的信息：
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>

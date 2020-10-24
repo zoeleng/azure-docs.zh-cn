@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 442e1c4facce076ce9eeacee772df9381fee6f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997211"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485845"
 ---
 # <a name="use-the-change-feed-estimator"></a>使用更改源估算器
 
@@ -64,4 +64,4 @@ ms.locfileid: "88997211"
 现在，可以通过以下文章继续详细了解更改源处理器：
 
 * [更改源处理器概述](change-feed-processor.md)
-* [更改源处理器开始时间](how-to-configure-change-feed-start-time.md)
+* [更改源处理器开始时间](./change-feed-processor.md#starting-time)

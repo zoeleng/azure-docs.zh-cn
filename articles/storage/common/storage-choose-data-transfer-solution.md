@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400532"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488684"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>选择 Azure 数据传输解决方案
 
@@ -71,15 +71,15 @@ ms.locfileid: "91400532"
 ## <a name="next-steps"></a>后续步骤
 
 - [获取 Azure 存储资源管理器简介](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/)。
-- [阅读 AzCopy 概述](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)。
+- [阅读 AzCopy 概述](/azure/storage/common/storage-use-azcopy-v10)。
 - [快速入门：使用 PowerShell 上传、下载和列出 blob](../blobs/storage-quickstart-blobs-powershell.md)
 - [快速入门：使用 Azure CLI 创建、下载和列出 blob](../blobs/storage-quickstart-blobs-cli.md)
 - 学习内容：
 
-    - [用于脱机传输的 Azure Data Box、Azure Data Box Disk 和 Azure Data Box Heavy](https://docs.microsoft.com/azure/databox/)。
-    - [用于联机传输的 Azure Data Box Gateway 和 Azure Stack 边缘](https://docs.microsoft.com/azure/databox-online/)。
-- [了解什么是 Azure 数据工厂](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)。
+    - [用于脱机传输的 Azure Data Box、Azure Data Box Disk 和 Azure Data Box Heavy](/azure/databox/)。
+    - [用于联机传输的 Azure Data Box Gateway 和 Azure Stack 边缘](/azure/databox-online/)。
+- [了解什么是 Azure 数据工厂](/azure/data-factory/copy-activity-overview)。
 - 使用 REST API 传输数据
 
-    - [在 .NET 中](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [在 Java 中](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [在 .NET 中](/dotnet/api/overview/azure/storage)
+    - [在 Java 中](/java/api/overview/azure/storage)

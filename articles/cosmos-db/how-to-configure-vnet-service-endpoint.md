@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c1d96c373103e0a89a9553ce8dab6ce5cce23c7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279703"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490520"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>配置从虚拟网络 (VNet 对 Azure Cosmos DB 的访问权限) 
 
@@ -91,7 +91,7 @@ ms.locfileid: "92279703"
 
 在 Azure PowerShell 中使用以下步骤配置 Azure Cosmos DB 帐户的服务终结点：  
 
-1. 安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。  
+1. 安装 [Azure PowerShell](/powershell/azure/install-Az-ps) 并[登录](/powershell/azure/authenticate-azureps)。  
 
 1. 为虚拟网络的现有子网启用服务终结点。  
 
@@ -315,7 +315,7 @@ az network vnet subnet update \
 
 ### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>笔记本和 Mongo/Cassandra Shell 当前是否与启用了虚拟网络的帐户兼容？
 
-目前，不支持在 Cosmos DB 数据资源管理器中使用 [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) 和 [Cassandra Shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) 集成和 [Jupyter 笔记本服务](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)。 此功能目前正在积极开发中。
+目前，不支持在 Cosmos DB 数据资源管理器中使用 [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) 和 [Cassandra Shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) 集成和 [Jupyter 笔记本服务](./cosmosdb-jupyter-notebooks.md)。 此功能目前正在积极开发中。
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>是否可以在 Azure Cosmos 帐户中同时指定虚拟网络服务终结点和 IP 访问控制策略？ 
 

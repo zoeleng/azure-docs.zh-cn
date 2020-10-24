@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d801499360bd05cee4c01aefd873337303017f3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 682a580d15af44ca69d9cb12a5349beaca2d28b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427518"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489908"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>使用托管标识连接到 Azure Database for PostgreSQL
 
@@ -34,13 +34,13 @@ ms.locfileid: "92427518"
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>为 VM 创建用户分配托管标识
 
-使用 [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) 命令在订阅中创建标识。 可以使用虚拟机所在的相同资源组，也可以使用其他资源组。
+使用 [az identity create](/cli/azure/identity#az-identity-create) 命令在订阅中创建标识。 可以使用虚拟机所在的相同资源组，也可以使用其他资源组。
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-要在以下步骤中配置标识，请使用 [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) 命令将标识的资源 ID 和客户端 ID 存储在变量中。
+要在以下步骤中配置标识，请使用 [az identity show](/cli/azure/identity#az-identity-show) 命令将标识的资源 ID 和客户端 ID 存储在变量中。
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-现在，我们使用 [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 命令将用户分配标识分配给 VM：
+现在，我们使用 [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) 命令将用户分配标识分配给 VM：
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

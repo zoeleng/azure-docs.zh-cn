@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b016468d858162123e2796e0d76b83b0a1bbf33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568040"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480048"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link for Azure Cosmos DB：准实时分析用例
 
@@ -118,7 +118,7 @@ Synapse Link for Azure Cosmos DB 用例：
 
   * 通过事务存储中的[实时索引](index-policy.md)，高吞吐量引入批处理和流式处理数据馈送。
 
-  * Azure Cosmos DB 事务存储提供了另外三个选项，而不会走非常一致性和最终一致性这两种极端，从而实现最接近近业务需求的[可用性和性能权衡](consistency-levels-tradeoffs.md)。
+  * Azure Cosmos DB 事务存储提供了另外三个选项，而不会走非常一致性和最终一致性这两种极端，从而实现最接近近业务需求的[可用性和性能权衡](./consistency-levels.md)。
 
 * CompanyXYZ 的供应链合作伙伴具有较大变动的流量模式，范围从数百到数百万个请求，因此库存管理平台需要处理流量中的意外情况。  使用 Azure Cosmos DB 的好处：
 

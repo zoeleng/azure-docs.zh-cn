@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e50502c8c3e37c5d48359079e2e72c13feea4a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399034"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487868"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答
 
@@ -132,7 +132,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>如何才能访问此服务导入的数据？
 
-使用 Azure 门户或[存储资源管理器](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)在你的 Azure 存储帐户下访问该数据。  
+使用 Azure 门户或[存储资源管理器](/azure/vs-azure-tools-storage-manage-with-storage-explorer)在你的 Azure 存储帐户下访问该数据。  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>导入完成后，我的数据在存储帐户中看起来是什么样的？ 是否会保留我的目录层次结构？
 
@@ -144,7 +144,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 工具是否与 32 位操作系统兼容？
 
-否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 的完整列表，请转到[受支持的操作系统](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)。
+否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 的完整列表，请转到[受支持的操作系统](/azure/storage/common/storage-import-export-requirements)。
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 导入/导出支持的最大块 Blob 和页 Blob 大小是多少？
 

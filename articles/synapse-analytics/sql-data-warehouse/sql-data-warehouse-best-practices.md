@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 6978855e9b32a3842e76d02ef543d86cf0673019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206642"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489636"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics（以前称为 SQL DW）中 Synapse SQL 池的最佳做法
 
@@ -64,7 +64,7 @@ SQL 池有多个可用于监视查询执行的 DMV。  《使用 DMV 监视工�
 
 SQL 池支持通过多种工具（包括 Azure 数据工厂、PolyBase 和 BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  
 
-PolyBase 设计为使用 MPP（大规模并行处理）体系结构，因此加载和导出巨量数据的速度比其他任何工具更快。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。  
+PolyBase 旨在利用系统的分布式性质，并将数据加载和导出度的速度快于任何其他工具。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。   
 
 > [!TIP]
 > 使用 CTAS 可以减少事务日志记录，是加载数据最快的方法。

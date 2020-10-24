@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283657"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488378"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>排查使用适用于 MongoDB 的 Azure Cosmos DB API 时的查询问题
 
@@ -111,12 +111,12 @@ db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 
 `$explain`命令输出时间较长，并且包含有关查询执行的详细信息。 但一般情况下，在优化查询性能时，应重点关注几个部分：
 
-| 指标 | 说明 | 
+| 指标 | 描述 | 
 | ------ | ----------- |
 | `timeInclusiveMS` | 后端查询延迟 |
 | `pathsIndexed` | 显示查询使用的索引 | 
 | `pathsNotIndexed` | 显示查询可以使用的索引（如果可用） | 
-| `shardInformation` | 特定[物理分区](partition-data.md#physical-partitions)的查询性能摘要 | 
+| `shardInformation` | 特定[物理分区](./partitioning-overview.md#physical-partitions)的查询性能摘要 | 
 | `retrievedDocumentCount` | 查询引擎加载的文档数 | 
 | `outputDocumentCount` | 查询结果中返回的文档数 | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | 由于速率限制而导致的额外查询延迟 | 
@@ -256,13 +256,13 @@ Azure Cosmos DB 的 MongoDB API 中的索引最佳做法不同于 MongoDB。 在
 
 [通配符索引](mongodb-indexing.md#wildcard-indexes) 可以简化索引。 与在 MongoDB 中不同，通配符索引可以在查询谓词中支持多个字段。 如果使用一个通配符索引，而不是为每个属性创建单独的索引，查询性能不会有差异。 为所有属性添加通配符索引是优化所有查询的最简单方法。
 
-你可以随时添加新索引，而不会影响写入或读取可用性。 你可以[跟踪索引转换进度](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)。
+你可以随时添加新索引，而不会影响写入或读取可用性。 你可以[跟踪索引转换进度](./how-to-manage-indexing-policy.md#dotnet-sdk)。
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>了解哪些聚合运算使用索引
 
 大多数情况下，Azure Cosmos DB 的 MongoDB API 中的聚合操作将部分使用索引。 通常，查询引擎将首先应用相等和范围筛选器并使用索引。 应用这些筛选器后，查询引擎可以评估其他筛选器，并根据需要加载其余文档以计算聚合。 
 
-下面的示例说明：
+以下是一个示例：
 
 ```
 db.coll.aggregate( [
