@@ -9,22 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f70a11165f6433e580fd857f2d5a620deb6640c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604226"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503615"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a> (预览配置令牌生存期策略) 
-如果能够创建和管理应用、服务主体和整个组织的令牌生存期，就可以在 Azure AD 中实现各种新的方案。 若要了解详细信息，请参阅 [Microsoft 标识平台中的可配置令牌生存期](active-directory-configurable-token-lifetimes.md)。 
+如果能够创建和管理应用、服务主体和整个组织的令牌生存期，就可以在 Azure AD 中实现各种新的方案。  
 
 > [!IMPORTANT]
-> 在预览期间收到客户的来信后，我们实现了 Azure AD 条件性访问中的 [身份验证会话管理功能](../conditional-access/howto-conditional-access-session-lifetime.md) 。 可以使用此新功能，通过设置登录频率来配置刷新令牌生存期。 5月30日之后2020，任何新租户都无法使用可配置的令牌生存期策略来配置会话和刷新令牌。 弃用将在此之后的几个月内发生，这意味着我们将停止考虑现有会话和刷新令牌策略。 你仍可以在弃用后配置访问令牌生存期。
+> 2021年1月30日之后，租户将无法再配置刷新和会话令牌生存期，Azure AD 将在该日期后停止遵循策略中的现有刷新和会话令牌配置。 你仍可以在弃用后配置访问令牌生存期。  若要了解详细信息，请参阅 [Microsoft 标识平台中的可配置令牌生存期](active-directory-configurable-token-lifetimes.md)。
+> 已在 Azure AD 条件访问中实现 [身份验证会话管理功能](../conditional-access/howto-conditional-access-session-lifetime.md)   。 可以使用此新功能，通过设置登录频率来配置刷新令牌生存期。
 
 
 本部分逐步讲解一些常见的策略方案，帮助你针对以下属性实施新规则：
@@ -40,7 +41,7 @@ ms.locfileid: "91604226"
 * 为调用 Web API 的本机应用创建策略
 * 管理高级策略
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 以下示例演示如何创建、更新、链接和删除应用、服务主体和整个组织的策略。 如果你不熟悉 Azure AD，我们建议你在继续学习这些示例之前，先了解 [如何获取 Azure AD 租户](quickstart-create-new-tenant.md) 。  
 
 若要开始，请执行以下步骤：

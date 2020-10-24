@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: edb184fa286eb6212f714c18830540e105ea3305
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5ecfd5e5ff29b2eade4391976947062d6e8f186f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92021171"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516148"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure Web 应用程序防火墙的 azure 安全基线
 
@@ -355,7 +355,7 @@ Azure WAF 通过检查入站 web 流量来阻止攻击（例如 SQL 注入、跨
 
 **指南**：对单个安全域（例如，开发、测试和生产环境）使用单独的订阅和管理组实现隔离。 
 
-使用 Azure Active Directory (Azure AD) 基于角色的访问控制 (Azure RBAC) 来控制对 Azure 资源的访问。
+使用 azure RBAC) 的 Azure 基于角色的访问 (控制来控制对 Azure 资源的访问。
 
 - [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
 
@@ -379,10 +379,10 @@ Azure WAF 通过检查入站 web 流量来阻止攻击（例如 SQL 注入、跨
 
 **责任**：共享
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指南**：使用 Azure Active Directory (控制对 azure 资源的访问 Azure AD) 基于角色的访问控制 (Azure RBAC) 。
-- [如何在 Azure 中配置 RBAC](../role-based-access-control/role-assignments-portal.md)
+**指南**：使用 azure RBAC)  (azure RBAC 的访问控制来控制对 azure 资源的访问。
+- [如何配置 Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure 安全中心监视**：不适用
 

@@ -2,14 +2,14 @@
 title: 选择池的 VM 大小
 description: 如何选择 Azure Batch 池中计算节点的可用 VM 大小
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107498"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517049"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -31,17 +31,19 @@ ms.locfileid: "92107498"
 | 基本 A | 除 Basic_A0 (A0) 之外的所有大小 |
 | A | 除 Standard_A0 之外的所有大小 |
 | Av2 | 所有大小 |
-| B | 无 |
-| DC | 无 |
+| B | 不支持 |
+| DC | 不支持 |
 | Dv2, DSv2 | 所有大小 |
 | Dv3, Dsv3 | 所有大小 |
 | Dav4<sup>1</sup> | 所有大小 |
 | Dasv4<sup>1</sup> | 所有大小 |
 | Ddv4、Ddsv4 |  所有大小 |
+| Dv4, Dsv4 | 不支持 |
 | Ev3, Esv3 | 除 E64is_v3 之外的所有大小 |
 | Eav4<sup>1</sup> | 所有大小 |
 | Easv4<sup>1</sup> | 所有大小 |
 | Edv4, Edsv4 |  所有大小 |
+| Ev4, Esv4 | 不支持 |
 | F, Fs | 所有大小 |
 | Fsv2 | 所有大小 |
 | G, Gs | 所有大小 |
@@ -56,12 +58,13 @@ ms.locfileid: "92107498"
 | NC | 所有大小 |
 | NCv2<sup>1</sup> | 所有大小 |
 | NCv3<sup>1</sup> | 所有大小 |
+| NCasT4_v3 | 无（尚不可用） |
 | ND<sup>1</sup> | 所有大小 |
 | NDv2<sup>1</sup> | 无（尚不可用） |
 | NV | 所有大小 |
 | NVv3<sup>1</sup> | 所有大小 |
-| NVv4 | 无（尚不可用） |
-| SAP HANA | 无 |
+| NVv4<sup>1</sup> | 所有大小 |
+| SAP HANA | 不支持 |
 
 <sup>1</sup> 可以在虚拟机配置的批处理池中分配这些 VM 系列，但必须创建新的 Batch 帐户并请求特定的 [配额增加](batch-quota-limit.md#increase-a-quota)。 Batch 帐户完全支持每个 VM 系列的 vCPU 配额后，将取消此限制。
 

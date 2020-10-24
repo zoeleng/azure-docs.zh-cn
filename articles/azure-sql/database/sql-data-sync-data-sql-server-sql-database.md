@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371745"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503328"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>什么是 Azure SQL 数据同步？
 
@@ -135,7 +135,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 - 主键不能具有以下数据类型：sql_variant、binary、varbinary、image、xml。
 - 使用以下数据类型作为主键时请小心谨慎，因为支持的精度仅到秒：time、datetime、datetime2、datetimeoffset。
 - 对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
-- 表名不能包含可打印字符：！ " # $ % ' ( ) * + -
+- 表名不能包含可打印字符：！ "# $%" ( ) * +-space
 - 不支持 Azure Active Directory 身份验证。
 - 如果存在具有相同名称但不同架构的表 (例如，dbo. customers 和 sales。客户) 只能将其中一个表添加到同步中。
 - 不支持具有用户定义数据类型的列

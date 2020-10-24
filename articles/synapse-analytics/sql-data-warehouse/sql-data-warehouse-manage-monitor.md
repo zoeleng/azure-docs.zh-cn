@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048018"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515723"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>使用 DMV 监视 Azure Synapse Analytics SQL 池工作负载
 
@@ -139,7 +139,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * 检查 *total_elapsed_time* 列，以查看是否有特定分布在数据移动上比其他分布花费了更多时间。
-* 对于长时间运行的分布，请检查 *rows_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。 如果是这样，此发现可能指示基础数据倾斜。
+* 对于长时间运行的分布，请检查 *rows_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。 如果是这样，此发现可能指示基础数据倾斜。 数据偏斜的一个原因是在包含多个 NULL 值的列上进行分布 (其行将全部位于同一分布) 中。 避免在这些类型的列上进行分布，或在可能时筛选查询以消除空值，从而避免查询速度缓慢。 
 
 如果查询正在运行，则可以使用 [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 从 SQL Server 计划缓存中检索 SQL Server 估计计划，以了解特定分布中当前正在运行的 SQL 步骤。
 

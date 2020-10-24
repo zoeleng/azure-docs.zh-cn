@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5b008dd3d3a9d2422cca1fe00329543ed6d362f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850075"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517135"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>教程：为 MediusFlow 配置自动用户预配
 
-本教程介绍了在 MediusFlow 和 Azure Active Directory (Azure AD) 中配置自动用户预配所需执行的步骤。 配置后，Azure AD 就可以使用 Azure AD 预配服务自动向 [MediusFlow](https://www.mediusflow.com/) 预配和取消预配用户和组。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
+本教程介绍了在 MediusFlow 和 Azure Active Directory (Azure AD) 中配置自动用户预配所需执行的步骤。 配置后，Azure AD 就可以使用 Azure AD 预配服务自动向 [MediusFlow](https://www.mediusflow.com/) 预配和取消预配用户和组。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。 
 
 
 ## <a name="capabilities-supported"></a>支持的功能
@@ -35,16 +35,16 @@ ms.locfileid: "91850075"
 
 本教程中概述的方案假定你已具有以下先决条件：
 
-* [Azure AD 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Azure AD 中[有权](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)配置预配的用户帐户（例如应用管理员、云应用管理员、应用所有者或全局管理员）。 
+* [Azure AD 租户](../develop/quickstart-create-new-tenant.md) 
+* Azure AD 中[有权](../users-groups-roles/directory-assign-admin-roles.md)配置预配的用户帐户（例如应用管理员、云应用管理员、应用所有者或全局管理员）。 
 * 具有质量保证或生产租户的活动 MediusFlow 订阅。
 * MediusFlow 中拥有管理员访问权限的用户帐户，可以在 MediusFlow 中执行配置。
 * 在 MediusFlow 租户中添加的公司，应将用户预配到其中。
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 计划预配部署
-1. 了解[预配服务的工作原理](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
-2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)内。
-3. 确定[在 Azure AD 与 MediusFlow 之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)哪些数据。 
+1. 了解[预配服务的工作原理](../app-provisioning/user-provisioning.md)。
+2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)内。
+3. 确定[在 Azure AD 与 MediusFlow 之间映射](../app-provisioning/customize-application-attributes.md)哪些数据。 
 
 ## <a name="step-2-configure-mediusflow-to-support-provisioning-with-azure-ad"></a>步骤 2. 将 MediusFlow 配置为支持通过 Azure AD 进行预配
 
@@ -108,15 +108,15 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用库添加 MediusFlow
 
-从 Azure AD 应用库添加 MediusFlow，以开始管理向 MediusFlow 预配用户。 如果之前已经为 MediusFlow 设置了 SSO，那么可以使用相同的应用。 不过，建议在最初测试集成时单独创建一个应用。 若要详细了解如何从库中添加应用，可以单击[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)。 
+从 Azure AD 应用库添加 MediusFlow，以开始管理向 MediusFlow 预配用户。 如果之前已经为 MediusFlow 设置了 SSO，那么可以使用相同的应用。 不过，建议在最初测试集成时单独创建一个应用。 若要详细了解如何从库中添加应用，可以单击[此处](../manage-apps/add-application-portal.md)。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围内 
 
-使用 Azure AD 预配服务，可以根据对应用的分配或用户/组的特性来限定谁在预配范围内。 如果选择根据分配来限定要将谁预配到应用，可以按照下面的[步骤](../manage-apps/assign-user-or-group-access-portal.md)操作，将用户和组分配到应用。 如果选择只根据用户或组的特性来限定谁在预配范围内，可以使用范围筛选器，如[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述。 
+使用 Azure AD 预配服务，可以根据对应用的分配或用户/组的特性来限定谁在预配范围内。 如果选择根据分配来限定要将谁预配到应用，可以按照下面的[步骤](../manage-apps/assign-user-or-group-access-portal.md)操作，将用户和组分配到应用。 如果选择只根据用户或组的特性来限定谁在预配范围内，可以使用范围筛选器，如[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述。 
 
-* 将用户和组分配到 MediusFlow 时，必须选择除“默认访问”之外的角色。 具有“默认访问”角色的用户被排除在预配范围之外，并在预配日志中被标记为无有效资格。 如果应用上唯一可用的角色是“默认访问”角色，可以[更新应用清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)来添加其他角色。 
+* 将用户和组分配到 MediusFlow 时，必须选择除“默认访问”之外的角色。 具有“默认访问”角色的用户被排除在预配范围之外，并在预配日志中被标记为无有效资格。 如果应用上唯一可用的角色是“默认访问”角色，可以[更新应用清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)来添加其他角色。 
 
-* 先小部分测试。 在向所有用户推出之前，先对一小部分用户和组进行测试。 如果预配范围设置为分配的用户和组，可以通过将一两个用户或组分配到应用来控制它。 如果预配范围设置为所有用户和组，可以指定[基于特性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
+* 先小部分测试。 在向所有用户推出之前，先对一小部分用户和组进行测试。 如果预配范围设置为分配的用户和组，可以通过将一两个用户或组分配到应用来控制它。 如果预配范围设置为所有用户和组，可以指定[基于特性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-mediusflow"></a>步骤 5。 配置自动向 MediusFlow 预配用户 
@@ -153,7 +153,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 8. 在“映射”部分下，选中“将 Azure Active Directory 用户同步到 MediusFlow”。
 
-9. 在“特性映射”部分中，审阅从 Azure AD 同步到 MediusFlow 的用户特性。 选为“匹配”属性的特性是用于匹配 MediusFlow 中用于更新操作的用户帐户。 如果选择更改[匹配目标特性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，则需要确保 MediusFlow API 支持根据相应特性来筛选用户。 选择“保存”按钮以提交任何更改。
+9. 在“特性映射”部分中，审阅从 Azure AD 同步到 MediusFlow 的用户特性。 选为“匹配”属性的特性是用于匹配 MediusFlow 中用于更新操作的用户帐户。 如果选择更改[匹配目标特性](../app-provisioning/customize-application-attributes.md)，则需要确保 MediusFlow API 支持根据相应特性来筛选用户。 选择“保存”按钮以提交任何更改。
 
    |Attribute|类型|
    |---|---|
@@ -178,7 +178,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
       |externalID|字符串|
       |members|参考|
 
-12. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
+12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
 13. 若要为 MediusFlow 启用 Azure AD 预配服务，请在“设置”部分中将“预配状态”更改为“开”。
 
@@ -197,15 +197,15 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
 配置预配后，请使用以下资源来监视部署：
 
-1. 通过[预配日志](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)来确定哪些用户已预配成功或失败
-2. 检查[进度栏](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)，以查看预配周期的状态以及还剩多少完成
-3. 如果预配配置似乎处于运行不正常状态，应用将进入隔离状态。 若要详细了解隔离状态，请单击[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)。
+1. 通过[预配日志](../reports-monitoring/concept-provisioning-logs.md)来确定哪些用户已预配成功或失败
+2. 检查[进度栏](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)，以查看预配周期的状态以及还剩多少完成
+3. 如果预配配置似乎处于运行不正常状态，应用将进入隔离状态。 若要详细了解隔离状态，请单击[此处](../app-provisioning/application-provisioning-quarantine-status.md)。
 
 ## <a name="additional-resources"></a>其他资源
 
-* [管理企业应用的用户帐户预配](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企业应用的用户帐户预配](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解如何查看日志并获取有关预配活动的报告](../manage-apps/check-status-user-account-provisioning.md)
+* [了解如何查看日志并获取有关预配活动的报告](../app-provisioning/check-status-user-account-provisioning.md)

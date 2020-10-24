@@ -9,23 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948617"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503770"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Microsoft 标识平台中可配置的令牌生存期 (预览) 
 
 可以指定 Microsoft 标识平台颁发的令牌的生存期。 可以针对组织中的所有应用、多租户（多组织）应用程序或者组织中的特定服务主体设置生存期。 但是，我们目前不支持为 [托管标识服务主体](../managed-identities-azure-resources/overview.md)配置令牌生存期。
 
 > [!IMPORTANT]
-> 在预览期间收到客户的来信后，我们实现了 Azure AD 条件性访问中的 [身份验证会话管理功能](../conditional-access/howto-conditional-access-session-lifetime.md) 。 可以使用此新功能，通过设置登录频率来配置刷新令牌生存期。 5月30日之后2020，任何新租户都无法使用可配置的令牌生存期策略来配置会话和刷新令牌。 弃用将在此之后的几个月内发生，这意味着我们将停止考虑现有会话和刷新令牌策略。 你仍可以在弃用后配置访问令牌生存期。
+> 2021年1月30日之后，租户将无法再配置刷新和会话令牌生存期，Azure Active Directory 将在该日期后停止遵循策略中的现有刷新和会话令牌配置。 你仍可以在停用后配置访问令牌生存期。
+> 已在 Azure AD 条件访问中实现 [身份验证会话管理功能](../conditional-access/howto-conditional-access-session-lifetime.md)   。 可以使用此新功能，通过设置登录频率来配置刷新令牌生存期。 条件性访问是一项 Azure AD Premium P1 功能，你可以在 [高级定价页](https://azure.microsoft.com/en-us/pricing/details/active-directory/)上评估高级版是否适合你的 organzation。 
+> 
+> 对于不在停用日期后在条件访问中使用身份验证会话管理的租户，他们可以预计 Azure AD 将遵循下一部分中所述的默认配置。
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>停用后的可配置令牌生存期属性
+刷新和会话令牌配置受以下属性及其各自的设置值影响。 停用刷新和会话令牌配置后，无论策略是否具有自定义值配置的自定义值，Azure AD 将仅服从下面所述的默认值。  
+
+|properties   |策略属性字符串    |影响 |默认 |
+|----------|-----------|------------|------------|
+|刷新令牌最大非活动时间 |MaxInactiveTime  |刷新令牌 |90 天  |
+|单因素刷新令牌最大期限  |MaxAgeSingleFactor  |刷新令牌（适用于任何用户）  |直到吊销  |
+|多因素刷新令牌最大期限  |MaxAgeMultiFactor  |刷新令牌（适用于任何用户） |180 天  |
+|单因素会话令牌最大期限  |MaxAgeSessionSingleFactor |会话令牌（持久性和非持久性）  |直到吊销 |
+|多因素会话令牌最大期限  |MaxAgeSessionMultiFactor  |会话令牌（持久性和非持久性）  |180 天 |
+
+你可以使用 [new-azureadpolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet 来标识其属性值不同于 Azure AD 默认值的令牌生存期策略。
+
+若要进一步了解如何在租户中使用策略，可以使用 [get-azureadpolicyappliedobject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet 来确定哪些应用和服务主体已链接到你的策略。 
+
+如果你的租户有定义刷新和会话令牌配置属性的自定义值的策略，则 Microsoft 建议你将范围内的这些策略更新为反映上述默认值的值。 如果未进行任何更改，Azure AD 将自动服从默认值。  
+
+## <a name="overview"></a>概述
 
 在 Azure AD 中，策略对象表示针对组织中的单个应用程序或所有应用程序强制实施的一组规则。 每种策略类型都有一个唯一的结构，其中的一组属性将应用于它们所分配到的对象。
 

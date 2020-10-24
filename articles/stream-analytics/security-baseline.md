@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a7f27ff20a4770caea44e73d91001d9785c015
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89228998"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517219"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>适用于流分析的 Azure 安全基线
 
@@ -248,7 +248,7 @@ ms.locfileid: "89228998"
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2：在适用的情况下更改默认密码
 
-**指导**：流分析没有默认密码的概念，因为身份验证是 Azure Active Directory 提供的，并且由用于管理服务的基于角色的访问控制 (RBAC) 进行保护。 根据注入流服务和输出服务，你需要轮换在作业中配置的凭据。
+**指南**：流分析没有默认密码的概念，因为 Azure Active Directory 提供身份验证，并由 azure 基于角色的访问控制保护 (azure RBAC) 来管理服务。 根据注入流服务和输出服务，你需要轮换在作业中配置的凭据。
 
 * [轮转流分析作业的输入和输出的登录凭据](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -324,7 +324,7 @@ ms.locfileid: "89228998"
 
 ### <a name="39-use-azure-active-directory"></a>3.9：使用 Azure Active Directory
 
-**指导**：使用 Azure Active Directory (Azure AD) 作为中心身份验证和授权系统。 Azure AD 提供基于角色的访问控制 (RBAC)，用于精细地控制客户端对流分析资源的访问权限。
+**指导**：使用 Azure Active Directory (Azure AD) 作为中心身份验证和授权系统。 Azure AD 提供 Azure RBAC)  (Azure 基于角色的访问控制，以精细控制客户端对流分析资源的访问权限。
 
 * [如何创建和配置 Azure AD 实例](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

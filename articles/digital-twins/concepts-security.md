@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485743"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503311"
 ---
 # <a name="secure-azure-digital-twins"></a>保护 Azure 数字孪生
 
@@ -20,7 +20,7 @@ ms.locfileid: "92485743"
 
 Azure 数字孪生还支持静态数据加密。
 
-## <a name="granting-permissions-with-azure-rbac"></a>向 Azure RBAC 授予权限
+## <a name="roles-and-permissions-with-azure-rbac"></a>Azure RBAC 中的角色和权限
 
 Azure RBAC 通过与 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) 集成提供给 Azure 数字孪生。
 
@@ -47,22 +47,32 @@ Azure RBAC 通过与 [Azure Active Directory](../active-directory/fundamentals/a
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>授权： azure 数字孪生的 Azure 角色
 
-Azure 提供以下 Azure 内置角色，用于授权访问 Azure 数字孪生资源：
-* *Azure 数字孪生数据所有者* –使用此角色授予对 Azure 数字孪生资源的完全访问权限。
-* *Azure 数字孪生数据读取器* –使用此角色授予对 Azure 数字孪生资源的只读访问权限。
+Azure 提供了 **两个 azure 内置角色** ，用于授权对 Azure 数字孪生 [数据平面 api](how-to-use-apis-sdks.md#overview-data-plane-apis)的访问。 可以按名称或 ID 引用角色：
+
+| 内置角色 | 说明 | ID | 
+| --- | --- | --- |
+| Azure 数字孪生数据所有者 | 通过 Azure 数字孪生资源提供完全访问权限 | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Azure 数字孪生数据读取器 | 提供对 Azure 数字孪生资源的只读访问权限 | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 >[!NOTE]
 > 最近在预览版中将这些角色重命名为其以前的名称：
 > * *Azure 数字孪生数据所有者* 以前是 *Azure 数字孪生所有者 (预览) *。
 > * *Azure 数字孪生数据读取器* 是以前的 *Azure 数字孪生读卡器 (预览) *。
 
-有关如何定义内置角色的详细信息，请参阅了解 Azure RBAC 文档中的 [*角色定义*](../role-based-access-control/role-definitions.md) 。 有关创建 Azure 自定义角色的详细信息，请参阅 [*azure 自定义角色*](../role-based-access-control/custom-roles.md)。
-
 可以通过两种方式分配角色：
 * 通过访问控制 (的 IAM) 窗格中的 Azure 数字孪生在 Azure 门户中 (参阅 [*使用 Azure 门户添加或删除 azure 角色分配*](../role-based-access-control/role-assignments-portal.md)) 
 * 通过 CLI 命令添加或删除角色
 
 有关如何执行此操作的更多详细步骤，请在 Azure 数字孪生教程中试用 [*：连接端到端解决方案*](tutorial-end-to-end.md)。
+
+有关如何定义内置角色的详细信息，请参阅了解 Azure RBAC 文档中的 [*角色定义*](../role-based-access-control/role-definitions.md) 。 有关创建 Azure 自定义角色的详细信息，请参阅 [*azure 自定义角色*](../role-based-access-control/custom-roles.md)。
+
+##### <a name="automating-roles"></a>自动化角色
+
+在自动方案中引用角色时，建议使用其 **id** 而不是名称来引用它们。 这些名称在两个版本之间可能会发生更改，但 Id 将不会更改，使其在自动化中更加稳定。
+
+> [!TIP]
+> 如果使用 cmdlet （如 `New-AzRoleAssignment` ([引用](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)) ） Assiging 角色，则可以使用 `-RoleDefinitionId` 参数而不是 `-RoleDefinitionName` 来传递 ID，而不是传递角色的名称。
 
 ### <a name="permission-scopes"></a>权限范围
 

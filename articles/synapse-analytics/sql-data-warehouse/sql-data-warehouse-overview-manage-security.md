@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629363"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516877"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>保护 Azure Synapse 中的数据库
 
@@ -92,7 +92,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-通过 Azure 门户或 Azure 资源管理器 API 管理数据库和服务器的操作可根据门户用户帐户的角色分配进行控制。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
+通过 Azure 门户或 Azure 资源管理器 API 管理数据库和服务器的操作可根据门户用户帐户的角色分配进行控制。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
 
 ## <a name="encryption"></a>Encryption
 

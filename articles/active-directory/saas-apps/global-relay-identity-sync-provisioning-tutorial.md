@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: f0e34c8a331c475b103922789a9d1983f1c84cac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492155"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514378"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>教程：为自动用户预配配置全局中继标识同步
 
@@ -52,7 +52,7 @@ ms.locfileid: "92492155"
 
 ## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加全局中继标识同步
 
-从 Azure AD 应用程序库添加全局中继标识同步，开始管理预配到全局中继标识同步。如果以前为 SSO 设置了全局中继标识同步，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)详细了解如何从库中添加应用程序。 
+从 Azure AD 应用程序库添加全局中继标识同步，开始管理预配到全局中继标识同步。在 [此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)了解有关从库中添加应用程序的详细信息。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
@@ -63,7 +63,7 @@ ms.locfileid: "92492155"
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>步骤 5。 配置全局中继标识同步的自动用户预配 
 
-本部分介绍了如何配置 Azure AD 预配服务以基于 Azure AD 中的用户和/或组分配在 TestApp 中创建、更新和禁用用户和/或组。
+本部分将指导你完成以下步骤：配置 Azure AD 预配服务，以便基于 Azure AD 中的用户和/或组分配在全局中继标识同步应用中创建、更新和禁用用户和/或组。
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>若要为 Azure AD 中的全局中继标识同步配置自动用户预配，请执行以下操作：
 
