@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fa28b299a33f5386edc6ce14c523d2c332b0767b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425566"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520497"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>教程：为 Tableau Online 配置自动用户预配
 
@@ -61,7 +61,7 @@ ms.locfileid: "92425566"
 
 Azure Active Directory 使用称为分配的概念来确定哪些用户应收到对所选应用的访问权限。 在自动用户预配的上下文中，只同步已分配到 Azure AD 中的应用程序的用户或组。
 
-在配置和启用自动用户预配之前，决定 Azure AD 中的哪些用户或组需要访问 Tableau Online。 若要将这些用户或组分配到 Tableau Online，请按照 [向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)中的说明进行操作。
+在配置和启用自动用户预配之前，决定 Azure AD 中的哪些用户或组需要访问 Tableau Online。 若要将这些用户或组分配到 Tableau Online，请按照 [向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)中的说明进行操作。
 
 ### <a name="important-tips-for-assigning-users-to-tableau-online"></a>将用户分配到 Tableau Online 的重要提示
 
@@ -78,7 +78,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 ### <a name="configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>在 Azure AD 中为 Tableau Online 配置自动用户预配
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 选择 "**企业应用程序**" "  >  **所有应用程序**  >  **Tableau 联机**"。
+1. 登录 [Azure 门户](https://portal.azure.com)。 选择 "**企业应用程序**" "  >  **所有应用程序**  >  **Tableau 联机**"。
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 

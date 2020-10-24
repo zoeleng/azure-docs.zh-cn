@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945907"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521299"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>支持在 Azure 区域之间移动 Azure Vm
 
@@ -30,9 +30,9 @@ ms.locfileid: "91945907"
 --- | ---
 Windows Server 2019 | 支持 Server Core、带桌面体验的服务器。
 Windows Server 2016  | 支持 Server Core、带桌面体验的服务器。
-Windows Server 2012 R2 | 支持。
-Windows Server 2012 | 支持。
-Windows Server 2008 R2 SP1/SP2 | 支持。<br/><br/> 对于运行 Windows Server 2008 R2 SP1/SP2 的计算机，需要安装 (SSU) 和[sha-1 更新](https://support.microsoft.com/help/4474419)的 Windows[服务堆栈更新](https://support.microsoft.com/help/4490628)。  从 2019 年 9 月开始不再支持 SHA-1。如果未启用 SHA-2 代码签名，则无法按预期方式安装/升级代理扩展。 详细了解 [SHA-2 升级和要求](https://aka.ms/SHA-2KB)。
+Windows Server 2012 R2 | 。
+Windows Server 2012 | 。
+Windows Server 2008 R2 SP1/SP2 | 。<br/><br/> 对于运行 Windows Server 2008 R2 SP1/SP2 的计算机，需要安装 (SSU) 和[sha-1 更新](https://support.microsoft.com/help/4474419)的 Windows[服务堆栈更新](https://support.microsoft.com/help/4490628)。  从 2019 年 9 月开始不再支持 SHA-1。如果未启用 SHA-2 代码签名，则无法按预期方式安装/升级代理扩展。 详细了解 [SHA-2 升级和要求](https://aka.ms/SHA-2KB)。
 Windows 10 (x64) | 支持。
 Windows 8.1 (x64) | 支持。
 Windows 8 (x64) | 支持。
@@ -107,7 +107,7 @@ Microsoft (发布 Azure 库映像)  | 支持 | 如果 VM 在受支持的操作�
  (第三方发布的 Azure 库映像)   | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。
  (第三方发布的自定义映像) | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。
 使用 Site Recovery 的 Vm | 不支持 | 使用后端 Site Recovery 在虚拟机区域之间移动资源。 如果已在使用 Site Recovery，请禁用复制，然后启动准备进程。
-RBAC 策略 | 不支持 | 基于角色的访问控制 (在虚拟机上的 RBAC) 策略不会复制到目标区域中的 VM。
+Azure RBAC 策略 | 不支持 | Azure RBAC 中的 azure RBAC) 策略 (azure RBAC 的访问控制不会复制到目标区域中的 VM。
 扩展 | 不支持 | 扩展不会复制到目标区域中的 VM。 移动完成后，手动安装它们。
 
 

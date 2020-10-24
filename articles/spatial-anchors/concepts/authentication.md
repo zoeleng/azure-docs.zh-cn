@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328532"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516913"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure 空间定位点身份验证和授权
 
-在本文中，你将学习从你的应用程序或 web 服务向 Azure 空间定位点进行身份验证的各种方式。 你还将了解如何使用 Azure Active Directory (Azure AD) 中的基于角色的访问控制来控制对空间锚定帐户的访问。
+在本文中，你将学习从你的应用程序或 web 服务向 Azure 空间定位点进行身份验证的各种方式。 你还将了解如何使用 Azure 中基于角色的访问控制 (Azure RBAC) ，Azure Active Directory (Azure AD) 来控制对空间锚定帐户的访问。
 
 ## <a name="overview"></a>概述
 
@@ -108,7 +108,7 @@ configuration.AccountKey(LR"(MyAccountKey)");
    1.    中转到 Azure 门户中的空间锚资源。
    2.    请 **访问 (IAM) ** "选项卡上的" 访问控制 "。
    3.    选择“添加角色分配”。
-   1.    [选择一个角色](#role-based-access-control)。
+   1.    [选择一个角色](#azure-role-based-access-control)。
    2.    在 " **选择** " 框中，输入要为其分配访问权限的用户、组和/或应用程序的名称。
    3.    选择“保存”。
 
@@ -176,13 +176,13 @@ Azure AD 访问令牌通过 [MSAL](../../active-directory/develop/msal-overview.
 1.    在 Azure AD 中注册应用程序：
         1.    在 Azure 门户中，选择 " **Azure Active Directory**"，然后选择 " **应用注册**"。
         2.    选择“新注册”。
-        3.    输入应用程序的名称，选择“Web 应用/API”作为应用程序类型，然后输入服务的身份验证 URL。 选择“创建” 。
+        3.    输入应用程序的名称，选择“Web 应用/API”作为应用程序类型，然后输入服务的身份验证 URL。 选择“创建”。
 4.    在应用程序中，选择 " **设置**"，然后选择 " **证书和密钥** " 选项卡。创建新的客户端密钥，选择持续时间，然后选择 " **添加**"。 务必保存机密值。 需要将其包含在 web 服务的代码中。
 2.    向应用程序和/或用户授予对你的资源的访问权限：
         1.    中转到 Azure 门户中的空间锚资源。
         2.    请 **访问 (IAM) ** "选项卡上的" 访问控制 "。
         3.    选择“添加角色分配”。
-        1.    [选择一个角色](#role-based-access-control)。
+        1.    [选择一个角色](#azure-role-based-access-control)。
         2.    在 " **选择** " 框中，输入要向其分配访问权限的应用程序的名称或名称。 如果希望应用的用户具有不同于空间锚点帐户的角色，请在 Azure AD 中注册多个应用程序，并为每个应用程序分配一个单独的角色。 然后实现授权逻辑，以便为用户使用适当的角色。
         
               > [!NOTE] 
@@ -262,7 +262,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>基于角色的访问控制
+## <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
 
 为了帮助你控制授予应用程序、服务或 Azure AD 服务用户的访问级别，你可以根据需要为 Azure 空间锚定帐户分配这些预先存在的角色：
 

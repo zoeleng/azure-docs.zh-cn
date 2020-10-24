@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207695"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520977"
 ---
 # <a name="co-sell-partner-engagement"></a>联合销售合作伙伴参与
 
@@ -44,12 +44,12 @@ ms.locfileid: "92207695"
 
 |步骤    |产品/服务类型    |要求    |共同销售状态    |
 |----    |-------------    |------------    |---------------   |
-|<ol start=1><li> 在合作伙伴中心创建一个帐户，并在商业应用商店中发布你的产品/服务。</li>|全部|<li>产品/服务满足商业市场发布要求。</li><li>合作伙伴中心有一个完整的业务配置文件。</li>|未准备就绪|
+|<ol start=1><li> 在合作伙伴中心创建一个帐户，并在商业应用商店中发布你的产品/服务。</li>|All|<li>产品/服务满足商业市场发布要求。</li><li>合作伙伴中心有一个完整的业务配置文件。</li>|未准备就绪|
 |<ol start=2><li>提交所需的共同销售材料。</li>|合作伙伴中心提供*的具有*[共同销售选项](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)的 IP|[在合作伙伴中心上传所需的资料](#how-to-submit-co-sell-materials-in-partner-center)|合作销售就绪|
 ||合作伙伴中心提供的 IP*无需*[共同销售选项](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>[与云专家合作](https://partner.microsoft.com/campaigns/ced-nomination-form/)提供所需的共同销售文档的请求。|合作销售就绪|
 ||咨询服务|<li>[与云专家合作](https://partner.microsoft.com/campaigns/ced-nomination-form/)提供所需的共同销售文档的请求。</li><li>活动金牌资格。</li>|合作销售就绪|
 |<ol start=3><li>符合 IP 共同销售激励的条件</li>|Azure 应用程序，Azure 容器，IoT Edge 模块，SaaS，Vm|完成共同销售后，还需要执行两个额外的要求： <ul> 要求1：满足以下任一要求：<ul><li>*在组织级别：* 在过去12个月内，达到或超过 $100000 美元的 Azure 消耗收入。</li><li>*在产品/服务级别：* 累积的 marketplace 计费收入 $100000 美元。</li></ul><br>要求2：超过50% 的产品/服务的基础结构必须在 Azure 上运行：<ul><li>合作伙伴中心提供的*具有*[共同销售选项](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)的 IP 提供：将体系结构关系图与合作伙伴中心的共同销售文档一起用于查看。</li><li>合作伙伴中心提供的 IP 优惠，*无需*[共同销售](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|Azure IP 共同销售 incentivized|
-||Dynamics|<li>在 ISV Connect 高级层中具有活动注册。</li>|Business Applications 共同销售 incentivized|
+||动态|<li>在 ISV Connect 高级层中具有活动注册。</li>|Business Applications 共同销售 incentivized|
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>如何在合作伙伴中心提交共同销售材料
 
@@ -75,8 +75,13 @@ ms.locfileid: "92207695"
  
 1. 在 **contact** 节中上传销售联系人信息。 Microsoft 卖方可能会联系这些联系人，请求有关你的产品/服务的其他信息。  (*必需：提供产品/服务的每个地域的联系人。*) 
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。" **发布**"。
-1. 我们将查看上传的资料，确定你的产品/服务是否符合共同销售计划。
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。" 下拉列表中，选择 "成为共同销售就绪"：
+<ul><ul>
+
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。":::
+
+CED 将与你联系以完成此过程。
+</ul></ul>
 
 ## <a name="next-steps"></a>后续步骤
 

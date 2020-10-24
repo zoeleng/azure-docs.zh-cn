@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e306c65735d8a5682cd90a1ce28fceec7d045c4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545854"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519752"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>教程：为 Zscaler 配置自动用户预配
 
 本教程演示在 Zscaler 中执行的步骤，并 Azure Active Directory (Azure AD) 将 Azure AD 配置为自动预配和取消设置用户和组 Zscaler。
 
 > [!NOTE]
-> 本教程介绍在 Azure AD 用户预配服务基础上构建的连接器。 有关此服务的功能、工作原理以及常见问题的信息，请参阅[使用 Azure Active Directory 自动将用户预配到软件即服务 (SaaS) 应用程序和取消预配](../active-directory-saas-app-provisioning.md)。
+> 本教程介绍在 Azure AD 用户预配服务基础上构建的连接器。 有关此服务的功能、工作原理以及常见问题的信息，请参阅[使用 Azure Active Directory 自动将用户预配到软件即服务 (SaaS) 应用程序和取消预配](../app-provisioning/user-provisioning.md)。
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -63,13 +63,13 @@ ms.locfileid: "88545854"
 
 Azure Active Directory 使用称为分配的概念来确定哪些用户应收到对所选应用的访问权限。 在自动用户预配的上下文中，只同步已分配到 Azure AD 中的应用程序的用户或组。
 
-在配置和启用自动用户预配之前，决定 Azure AD 中的哪些用户或组需要访问 Zscaler。 若要将这些用户或组分配到 Zscaler，请按照 [向企业应用分配用户或组](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)中的说明进行操作。
+在配置和启用自动用户预配之前，决定 Azure AD 中的哪些用户或组需要访问 Zscaler。 若要将这些用户或组分配到 Zscaler，请按照 [向企业应用分配用户或组](../manage-apps/assign-user-or-group-access-portal.md)中的说明进行操作。
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-one"></a>将用户分配到 Zscaler 的重要提示
 
 * 建议你将单个 Azure AD 用户分配到 Zscaler 一个用户来测试自动用户预配配置。 可稍后再分配其他用户或组。
 
-* 将用户分配到 Zscaler 时，在 "分配" 对话框中选择任何特定于应用程序的有效角色（如果可用）。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到 Zscaler 时，在 "分配" 对话框中选择任何特定于应用程序的有效角色（如果可用）。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="configure-automatic-user-provisioning-to-zscaler-one"></a>配置 Zscaler 的自动用户预配
 
@@ -88,11 +88,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![应用程序列表中的 Zscaler 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![Zscaler 一个预配](./media/zscaler-one-provisioning-tutorial/provisioning-tab.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![Zscaler 一种设置模式](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
@@ -134,7 +134,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![Zscaler 一个匹配的组属性](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
-14. 若要配置范围筛选器，请按照[范围筛选器教程](./../active-directory-saas-scoping-filters.md)中的说明进行操作。
+14. 若要配置范围筛选器，请按照[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中的说明进行操作。
 
 15. 若要为 Zscaler 启用 Azure AD 预配服务，请在 " **设置** " 部分中，将 " **预配状态** " 更改为 **"打开**"。
 
@@ -152,7 +152,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 可使用“同步详细信息”部分监视进度并跟踪指向预配活动报告的链接。 该报表介绍 Azure AD 预配服务对 Zscaler 执行的所有操作。
 
-若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../active-directory-saas-provisioning-reporting.md)。
+若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../app-provisioning/check-status-user-account-provisioning.md)。
 
 ## <a name="additional-resources"></a>其他资源
 
@@ -161,7 +161,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解如何查看日志并获取有关预配活动的报告](../active-directory-saas-provisioning-reporting.md)
+* [了解如何查看日志并获取有关预配活动的报告](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png

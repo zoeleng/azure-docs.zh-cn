@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22252ea3e132aee39075d986d7f5a979e14c0a3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541282"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520228"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教程：针对自动用户预配来配置 Workday
 
@@ -311,7 +311,7 @@ ms.locfileid: "91541282"
 要预配到本地 Active Directory，必须在具有 .NET 4.7.1 Framework 或更高版本且可通过网络访问所需 Active Directory 域的服务器上安装预配代理。
 
 > [!TIP]
-> 可以使用[此处](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)提供的说明来检查服务器上的 .NET framework 版本。
+> 可以使用[此处](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)提供的说明来检查服务器上的 .NET framework 版本。
 > 如果服务器未安装 .NET 4.7.1 或更高版本，可从[此处](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)下载。  
 
 将下载的代理安装程序传输到服务器主机，并按照以下步骤完成代理配置。
@@ -396,7 +396,7 @@ ms.locfileid: "91541282"
 
       > [!NOTE]
      > 如果 URL 中未指定任何版本信息，则应用将使用 Workday Web 服务 (WWS) v 21.1，而不需要对应用附带的默认 XPATH API 表达式进行任何更改。 若要使用特定的 WWS API 版本，请在 URL 中指定版本号 <br>
-     > 示例：`https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
+     > 示例： `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
      > <br> 如果你使用的是 WWS API v 30.0 +，则在启用预配作业之前， **请在 "** **属性映射-> 高级选项-> 编辑用于 Workday 的编辑属性列表** " 中引用 [管理配置](#managing-your-configuration) 和 [Workday 属性引用](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30)部分。  
 
    * **Active Directory 林 -** 向代理注册时使用的 Active Directory 域的“名称”。 使用下拉列表选择用于预配的目标域。 此值通常为如下所示的字符串：contoso.com
@@ -410,7 +410,7 @@ ms.locfileid: "91541282"
    * **通知电子邮件 -** 输入电子邮件地址，然后选中“如果失败，则发送电子邮件”复选框。
 
      > [!NOTE]
-     > 如果预配作业进入[隔离](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)状态，Azure AD 预配服务将发送电子邮件通知。
+     > 如果预配作业进入[隔离](../app-provisioning/application-provisioning-quarantine-status.md)状态，Azure AD 预配服务将发送电子邮件通知。
 
    * 单击“测试连接”按钮。 如果连接测试成功，请单击顶部的“保存”按钮。 如果连接测试失败，请仔细检查代理设置上配置的 Workday 凭据和 AD 凭据是否有效。
 
@@ -594,7 +594,7 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>解决方案是否支持将本地 AD 组分配给用户？
 
-目前不支持此功能。 建议的解决方法是部署 PowerShell 脚本，该脚本在 Microsoft 图形 API 终结点中[查询审核日志数据](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta)，并使用该数据触发组分配等方案。 可将此 PowerShell 脚本附加到任务计划程序，并将其部署到运行预配代理的框中。  
+目前不支持此功能。 建议的解决方法是部署 PowerShell 脚本，该脚本在 Microsoft 图形 API 终结点中[查询审核日志数据](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta)，并使用该数据触发组分配等方案。 可将此 PowerShell 脚本附加到任务计划程序，并将其部署到运行预配代理的框中。  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>解决方案使用哪些 Workday API 来查询和更新 Workday 工作人员个人资料？
 
@@ -679,7 +679,7 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>如何确保预配代理能够与 Azure AD 租户进行通信且防火墙不阻止代理所需的端口？
 
-还可以检查是否所有 [必需的端口](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) 都已打开。
+还可以检查是否所有 [必需的端口](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) 都已打开。
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>能否将一个预配代理配置为预配多个 AD 域？
 
@@ -1157,4 +1157,4 @@ Azure AD 预配服务属于 GDPR 的数据处理器类别。 该服务作为数�
 * [了解如何查看日志并获取有关预配活动的报告](../app-provisioning/check-status-user-account-provisioning.md)
 * [了解如何在 Workday 和 Azure Active Directory 之间配置单一登录](workday-tutorial.md)
 * [了解如何将其他 SaaS 应用程序与 Azure Active Directory 进行集成](tutorial-list.md)
-* [了解如何使用 Microsoft Graph API 来管理预配配置](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [了解如何使用 Microsoft Graph API 来管理预配配置](/graph/api/resources/synchronization-overview)

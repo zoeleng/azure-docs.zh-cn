@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 26644d42e0e51d59c6c28daaba5447a65a43b6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c106c1464ec6d77305b1985cc8dbd51e2b4db
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460635"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519471"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>使用托管标识访问 Azure 流分析作业的 Azure SQL 数据库（预览）
 
@@ -60,7 +60,7 @@ Azure 流分析支持对 Azure SQL 数据库输出接收器进行[托管标识�
 
    ![添加 Active Directory 管理员](./media/sql-db-output-managed-identity/add-admin.png)
 
-   “Active Directory 管理员”页会显示 Active Directory 的所有成员和组。 不能选择灰显的用户或组，因为它们不受 Azure Active Directory 管理员的支持。 请参阅在 **Azure Active Directory Features and Limitations**    [使用 SQL 数据库或 Azure Synapse 进行身份验证时使用 Azure Active Directory 身份验证](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)的 Azure Active Directory 功能和限制部分中受支持的管理员列表。 基于角色的访问控制 (RBAC) 仅适用于该门户，不会传播到 SQL Server。 此外，所选用户或组是将能够在下一个部分创建“包含数据库用户”的用户。
+   “Active Directory 管理员”页会显示 Active Directory 的所有成员和组。 不能选择灰显的用户或组，因为它们不受 Azure Active Directory 管理员的支持。 请参阅在 **Azure Active Directory Features and Limitations**    [使用 SQL 数据库或 Azure Synapse 进行身份验证时使用 Azure Active Directory 身份验证](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)的 Azure Active Directory 功能和限制部分中受支持的管理员列表。 Azure RBAC)  (基于角色的访问控制仅适用于该门户，不会传播到 SQL Server。 此外，所选用户或组是将能够在下一个部分创建“包含数据库用户”的用户。
 
 1. 在“Active Directory 管理员”页中，选择“保存”。 更改管理员的过程只需要几分钟。
 

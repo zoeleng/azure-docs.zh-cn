@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021147"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518729"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 存储分析指标（经典）
 
@@ -176,7 +176,10 @@ queueClient.SetServiceProperties(serviceProperties);
 >
 
 ## <a name="access-metrics-data-programmatically"></a>以编程方式访问指标数据  
-以下列表显示示例 C# 代码，该代码用于访问分钟范围的分钟指标，并在控制台窗口中显示结果。 代码示例使用 Azure 存储客户端库版本 4.x 或更高版本，其中包括 CloudAnalyticsClient 类，用于简化访问存储中的指标表的过程。  
+以下列表显示示例 C# 代码，该代码用于访问分钟范围的分钟指标，并在控制台窗口中显示结果。 代码示例使用 Azure 存储客户端库版本 4.x 或更高版本，其中包括 CloudAnalyticsClient 类，用于简化访问存储中的指标表的过程。 
+
+> [!NOTE]
+> **CloudAnalyticsClient**类不包括在适用于 .Net 的 Azure Blob 存储客户端库 v12 中。 **2023 年8月 31**日存储分析度量值，也称为*经典指标*。 有关详细信息，请查看[官方公告](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)。 如果使用经典指标，建议你在该日期之前过渡到 Azure Monitor 中的指标。 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  
