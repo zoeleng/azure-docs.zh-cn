@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962320"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515706"
 ---
 # <a name="enable-write-accelerator"></a>启用写入加速器
 
@@ -57,7 +57,7 @@ ms.locfileid: "91962320"
 | M16ms、M16s | 2 | 2500 |
 | M8ms、M8s | 1 | 1250 |
 
-IOPS 限制是针对每个 VM 而不是每个磁盘  。 对于每个 VM，所有写入加速器磁盘具有相同的 IOPS 限制。
+IOPS 限制是针对每个 VM 而不是每个磁盘  。 对于每个 VM，所有写入加速器磁盘具有相同的 IOPS 限制。 附加的磁盘不能超过 VM 的写入加速器 IOPS 限制。 例如，即使附加的磁盘可以执行 30000 IOPS，系统也不允许磁盘超过 20000 IOPS 来进行 M416ms_v2。
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>在特定磁盘上启用写入加速器
 

@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797796"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504068"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -59,7 +59,7 @@ IoT 即插即用设备会为每个接口（包括根）发送至少一条遥测�
 | 最大并发连接设备流数<sup>1</sup> | 50 | 50 | 50 |
 | 最大设备流数据传输<sup>1</sup>（每日聚合量） | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup>此功能在 IoT 中心的基本层内不可用。 有关详细信息，请参阅[如何选择正确的 IoT 中心](iot-hub-scaling.md)。 <br/><sup>2</sup>限制计量大小为 4 KB。
+<sup>1</sup>此功能在 IoT 中心的基本层内不可用。 有关详细信息，请参阅[如何选择正确的 IoT 中心](iot-hub-scaling.md)。 <br/><sup>2</sup>限制计量大小为 4 KB。 限制仅基于请求负载大小。
 
 ### <a name="throttling-details"></a>限制详细信息
 

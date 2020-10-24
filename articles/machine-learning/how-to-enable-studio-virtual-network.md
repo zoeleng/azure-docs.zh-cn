@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92426110"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503209"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -36,7 +36,7 @@ ms.locfileid: "92426110"
 
 
 > [!IMPORTANT]
-> 尽管大多数工作室都可与虚拟网络中存储的数据配合使用，但集成笔记本并非如此。 集成笔记本不支持使用虚拟网络中的存储。 但你可以从计算实例使用 Jupyter Notebook。 有关详细信息，请参阅[访问计算实例笔记本中的数据]()部分。
+> 如果你的工作区位于 __主权云中__，例如 azure 政府版或 Azure 中国世纪互联，则集成笔记本 _不_ 支持使用虚拟网络中的存储。 但你可以从计算实例使用 Jupyter Notebook。 有关详细信息，请参阅[访问计算实例笔记本中的数据](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)部分。
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -127,7 +127,7 @@ Azure Data Lake Storage Gen1 仅支持 POSIX 样式的访问控制列表。 可�
 若要为管道设置新的默认存储，请执行以下操作：
 
 1. 在管道草稿中，选择管道标题附近的“设置”齿轮图标。
-1. 选择“选择默认数据存储”。
+1. 选择 " **选择默认数据存储**"。
 1. 指定新的数据存储。
 
 还可以基于每个模块替代默认数据存储。 这使你可以控制每一单个模块的存储位置。

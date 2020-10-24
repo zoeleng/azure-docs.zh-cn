@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a9410215abeb6fdb413866cbff12cf5f826c0fee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201692"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504365"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes 服务的 azure 安全基线
 
@@ -949,7 +949,7 @@ Taints、标签或标记可用于定期协调清点，并确保从订阅及时�
 
 在 Kubernetes 中实现命名空间，以创建逻辑隔离边界。 使用 "ContainerService" 命名空间中的 Azure 策略别名创建自定义策略，以便审核或强制执行 Azure Kubernetes Service (AKS) 实例的配置。 
 
-查看并实现额外的 Kubernetes 功能和隔离和多租户注意事项，包括以下方面：计划、网络、身份验证/授权和容器。 还应使用单独的订阅和/或管理组进行开发、测试和生产。 将 AKS 群集与虚拟网络、适当标记的子网分开，并使用 Web 应用程序防火墙 (WAF) 进行保护。
+查看并实现用于隔离和多租户的其他 Kubernetes 功能和注意事项，包括以下内容：计划、网络、身份验证/授权和容器。 还应使用单独的订阅和/或管理组进行开发、测试和生产。 将 AKS 群集与虚拟网络、适当标记的子网分开，并使用 Web 应用程序防火墙 (WAF) 进行保护。
 
 - [了解 AKS 中群集隔离的最佳实践](operator-best-practices-cluster-isolation.md)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 173ca296689bbdb8d574930ec2549e82839c47e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5e71566ea7cd2e8953c84d58128e3380a782ba40
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428465"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516709"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>教程：为自动用户预配配置 Netskope 用户身份验证
 
@@ -97,7 +97,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 本部分将指导你完成配置 Azure AD 预配服务以基于 Azure AD 中的用户和/或组分配来创建、更新和禁用用户和/或组的步骤。
 
 > [!TIP]
-> 还可以按照 [Netskope 用户身份验证单一登录教程](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial)中提供的说明，选择为 Netskope 用户身份验证启用基于 SAML 的单一登录。 可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充。
+> 还可以按照 [Netskope 用户身份验证单一登录教程](./netskope-cloud-security-tutorial.md)中提供的说明，选择为 Netskope 用户身份验证启用基于 SAML 的单一登录。 可以独立于自动用户预配配置单一登录，尽管这两个功能互相补充。
 
 > [!NOTE]
 > 若要了解有关 Netskope 用户身份验证的 SCIM 终结点的详细信息，请参阅 [此](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon)。
@@ -172,4 +172,3 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 ## <a name="next-steps"></a>后续步骤
 
 * [了解如何查看日志并获取有关预配活动的报告](../app-provisioning/check-status-user-account-provisioning.md)
-

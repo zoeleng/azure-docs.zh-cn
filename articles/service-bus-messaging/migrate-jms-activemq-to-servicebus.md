@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067148"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515740"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>将现有 Java 消息服务 (JMS) 2.0 应用程序从 Apache ActiveMQ 迁移到 Azure 服务总线
 
@@ -62,7 +62,7 @@ Azure 服务总线的双层特性提供了各种业务连续性功能（高可�
 
 #### <a name="authentication-and-authorization"></a>身份验证和授权
 
-Azure Active Directory 支持的基于角色的访问控制 (RBAC) 是服务总线的首选身份验证机制。 但是，由于 Apache QPID JMS 目前不支持 RBAC 或基于声明的身份验证，你应该使用 SAS 密钥进行身份验证。
+Azure RBAC Azure Active Directory)  (的 azure RBAC 访问控制是服务总线的首选身份验证机制。 由于 Apache QPID JMS 目前不支持 Azure RBAC 或基于声明的身份验证，但是，你应该使用 SAS 密钥进行身份验证。
 
 ## <a name="pre-migration"></a>预迁移
 

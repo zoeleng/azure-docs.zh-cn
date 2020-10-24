@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460948"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516199"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>复制 Azure SQL 数据库中数据库的事务一致性副本
 
@@ -108,7 +108,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
 
 此命令将 Database1 复制到名为 pool1 的弹性池中名为 Database2 的新数据库。 根据数据库的大小，复制操作可能需要一些时间才能完成。
 
-Database1 可以是单个或共用数据库，但 pool1 必须是与 Database1 相同的服务层。 
+Database1 可以是单个或共用的数据库。 支持在不同的层池之间进行复制，但有些跨层副本将不会成功。 例如，你可以将单个或弹性标准 db 复制到常规用途池中，但无法将标准弹性数据库复制到高级池。 
 
    ```sql
    -- execute on the master database to start copying
