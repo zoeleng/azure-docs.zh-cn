@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c2567cf1799bca5750e90fbe5d89f6da952ff5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285978"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514885"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>教程：为 Smartsheet 配置自动用户预配
 
-本教程的目的是演示要在 Smartsheet 和 Azure Active Directory (Azure AD) 中执行的步骤，以将 Azure AD 自动预配和取消预配到 [Smartsheet](https://www.smartsheet.com/pricing)。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
+本教程的目的是演示要在 Smartsheet 和 Azure Active Directory (Azure AD) 中执行的步骤，以将 Azure AD 自动预配和取消预配到 [Smartsheet](https://www.smartsheet.com/pricing)。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。 
 
 
 ## <a name="capabilities-supported"></a>支持的功能
@@ -37,15 +37,15 @@ ms.locfileid: "91285978"
 
 本教程中概述的方案假定你已具有以下先决条件：
 
-* [Azure AD 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)。
-* 具有配置预配[权限](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)的 Azure AD 用户帐户（例如应用程序管理员、云应用程序管理员、应用程序所有者或全局管理员）。
+* [Azure AD 租户](../develop/quickstart-create-new-tenant.md)。
+* 具有配置预配[权限](../users-groups-roles/directory-assign-admin-roles.md)的 Azure AD 用户帐户（例如应用程序管理员、云应用程序管理员、应用程序所有者或全局管理员）。
 * [Smartsheet 租户](https://www.smartsheet.com/pricing)。
 * 具有系统管理员权限的 Smartsheet Enterprise 或 Enterprise Premier 计划中的用户帐户。
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 规划预配部署
-1. 了解[预配服务的工作原理](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
-2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
-3. 确定要 [在 Azure AD 与 Smartsheet 之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
+1. 了解[预配服务的工作原理](../app-provisioning/user-provisioning.md)。
+2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
+3. 确定要 [在 Azure AD 与 Smartsheet 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
 ## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 Smartsheet 以支持 Azure AD 的预配
 
@@ -75,7 +75,7 @@ ms.locfileid: "91285978"
 
     ![使用 API 访问的 "个人设置" 对话框的屏幕截图，并生成新的访问令牌选项（称为 out）。](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
-7. 定义 API 访问令牌的名称。 单击" **确定**"。
+7. 定义 API 访问令牌的名称。 单击“确定”。
 
     ![步骤1（共2步）的屏幕截图：使用 "确定" 选项生成 API 访问令牌（称为 "确定" 选项）。](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
@@ -85,13 +85,13 @@ ms.locfileid: "91285978"
 
 ## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加 Smartsheet
 
-从 Azure AD 应用程序库中添加 Smartsheet，开始管理预配到 Smartsheet。 如果以前为 SSO 设置了 Smartsheet，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)详细了解如何从库中添加应用程序。 
+从 Azure AD 应用程序库中添加 Smartsheet，开始管理预配到 Smartsheet。 如果以前为 SSO 设置了 Smartsheet，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
-使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
+使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 Smartsheet 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
+* 将用户和组分配到 Smartsheet 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 若要确保 Smartsheet 与 Azure AD 之间的用户角色分配中的奇偶校验，建议使用完全 Smartsheet 用户列表中填充的相同角色分配。 若要从 Smartsheet 中检索此用户列表，请导航到 **帐户管理员 > 用户管理 > "更多操作" > 下载用户列表 (csv) **。
 
@@ -99,7 +99,7 @@ ms.locfileid: "91285978"
 
 *  如果用户在 Smartsheet 中分配了多个角色，则 **必须** 确保在 Azure AD 中复制这些角色分配，以避免用户可能会永久失去对 Smartsheet 对象的访问权限。 **必须**在 Azure AD 中将 Smartsheet 中的每个唯一角色分配给不同的组。 然后， **必须** 将用户添加到对应于所需角色的每个组。 
 
-* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
+* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>步骤 5。 配置 Smartsheet 的自动用户预配 
 
@@ -115,11 +115,11 @@ ms.locfileid: "91285978"
 
     ![应用程序列表中的 Smartsheet 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
@@ -127,11 +127,11 @@ ms.locfileid: "91285978"
 
     ![令牌](common/provisioning-testconnection-tenanturltoken.png)
 
-6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”   。
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击 **“保存”** 。
+7. 单击“ **保存**”。
 
 8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Smartsheet**"。
 
@@ -148,7 +148,7 @@ ms.locfileid: "91285978"
    |phoneNumbers[type eq "mobile"].value|字符串|
    |phoneNumbers[type eq "fax"].value|字符串|
    |externalId|字符串|
-   |角色 [主 eq "True"]。显示|字符串|
+   |角色 [主 eq "True"]。显示|String|
    |role [primary eq "True"]。类型|字符串|
    |roles[primary eq "True"].value|String|
    |角色|字符串|
@@ -168,18 +168,18 @@ ms.locfileid: "91285978"
 
     ![预配范围](common/provisioning-scope.png)
 
-13. 已准备好预配时，单击“保存”。
+13. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步********。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 
+此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步   。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 
 
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
 配置预配后，请使用以下资源来监视部署：
 
-1. 通过[预配日志](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)来确定哪些用户已预配成功或失败
-2. 检查[进度栏](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)来查看预配周期的状态以及完成进度
-3. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 有关隔离状态的详细信息，请访问[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)。  
+1. 通过[预配日志](../reports-monitoring/concept-provisioning-logs.md)来确定哪些用户已预配成功或失败
+2. 检查[进度栏](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)来查看预配周期的状态以及完成进度
+3. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 有关隔离状态的详细信息，请访问[此处](../app-provisioning/application-provisioning-quarantine-status.md)。  
 
 ## <a name="connector-limitations"></a>连接器限制
 

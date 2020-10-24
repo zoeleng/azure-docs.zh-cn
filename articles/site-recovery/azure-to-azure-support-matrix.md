@@ -4,12 +4,12 @@ description: 汇总了使用 Azure Site Recovery 将 Azure VM 灾难恢复到次
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 9f2aaaa4138c483224bb3a98266e10b95b9381a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425852"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520932"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>在 Azure 区域之间进行 Azure VM 灾难恢复的支持矩阵
 
@@ -188,7 +188,7 @@ Azure 库映像 — 由 Microsoft 发布 | 支持 | 如果 VM 在受支持的操
 Azure 库映像 - 由第三方发布 | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。
 自定义映像 - 由第三方发布 | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。
 使用 Site Recovery 迁移的 VM | 支持 | 如果使用 Site Recovery 将 VMware VM 或物理计算机迁移到 Azure，则需要卸载计算机上运行的旧版移动服务，并在重启计算机后将该计算机复制到另一个 Azure 区域。
-RBAC 策略 | 不支持 | VM 上的基于角色的访问控制 (RBAC) 策略不会复制到目标区域中的故障转移 VM。
+Azure RBAC 策略 | 不支持 | 基于 azure 角色的访问控制 (Vm 上的 Azure RBAC) 策略不会复制到目标区域中的故障转移 VM。
 扩展 | 不支持 | 扩展不会复制到目标区域中的故障转移 VM。 需要在故障转移后手动进行安装。
 邻近放置组 | 支持 | 可使用 Site Recovery 保护位于邻近放置组内的虚拟机。
 

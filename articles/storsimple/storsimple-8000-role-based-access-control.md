@@ -1,5 +1,5 @@
 ---
-title: 针对 StorSimple 使用基于角色的访问控制 | Microsoft Docs
+title: 使用 Azure 基于角色的访问控制进行 StorSimple |Microsoft Docs
 description: 介绍如何在 StorSimple 环境中使用 azure RBAC)  (azure 基于角色的访问控制。
 services: storsimple
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87920393"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518970"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>适用于 StorSimple 的基于角色的访问控制
+# <a name="azure-role-based-access-control-for-storsimple"></a>适用于 StorSimple 的 Azure 基于角色的访问控制
 
-本文简要介绍了如何将 azure RBAC) 的 Azure 基于角色的访问控制用于 StorSimple 设备 (。 RBAC 提供针对 Azure 的细化访问管理。 使用 RBAC 只向 StorSimple 用户授予执行作业所需的适当访问量，而不用向每个人授予不受限制的访问。 若要深入了解 Azure 中访问管理的基础知识，请参阅 [Azure 门户中基于角色的访问控制入门](../role-based-access-control/overview.md)。
+本文简要介绍了如何将 azure RBAC) 的 Azure 基于角色的访问控制用于 StorSimple 设备 (。 Azure RBAC 提供适用于 Azure 的精细访问管理。 使用 Azure RBAC 只向 StorSimple 用户授予正确的访问权限，而无需为每个人提供无限制的访问权限。 有关 Azure 中的访问管理的基础知识的详细信息，请参阅 [什么是 AZURE RBAC) 的 azure 基于角色的访问控制 (](../role-based-access-control/overview.md)。
 
 本文适用于在 Azure 门户中运行 Update 3.0 或更高版本的 StorSimple 8000 系列设备。
 
@@ -31,7 +31,7 @@ ms.locfileid: "87920393"
 
 ## <a name="azure-roles-for-storsimple"></a>适用于 StorSimple 的 Azure 角色
 
-可基于角色分配 RBAC。 该角色可确保根据环境中的可用资源授予特定的权限级别。 StorSimple 用户可以选择以下两种类型的角色：内置或自定义。
+可以根据角色分配 Azure RBAC。 该角色可确保根据环境中的可用资源授予特定的权限级别。 StorSimple 用户可以选择以下两种类型的角色：内置或自定义。
 
 * **内置角色** - 内置角色可以是所有者、参与者、读者或用户访问管理员。 有关详细信息，请参阅 [Azure 基于角色的访问控制的内置角色](../role-based-access-control/built-in-roles.md)。
 

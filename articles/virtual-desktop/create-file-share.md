@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287315"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519433"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>使用 Azure 文件和 AD DS 创建配置文件容器
 
@@ -19,7 +19,7 @@ ms.locfileid: "91287315"
 
 此过程使用 Active Directory 域服务 (AD DS) ，这是本地的目录服务。 如果你正在查找有关如何使用 Azure AD DS 创建 FSLogix 配置文件容器的信息，请参阅 [使用 Azure 文件创建 FSLogix 配置文件容器](create-profile-container-adds.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在开始之前，请确保域控制器已同步到 Azure，并可从会话主机连接到的 Azure 虚拟网络 () VNET 进行解析。
 
@@ -54,13 +54,13 @@ ms.locfileid: "91287315"
 
 若要创建文件共享，请执行以下操作：
 
-1. 选择“转到资源”。
+1. 选择“转到资源”。 
 
 2. 在 "概述" 页上，选择 " **文件共享**"。
 
 3. 选择 " **+ 文件共享**"，创建一个名为 " **配置文件**" 的新文件共享，然后输入相应的配额，或者将该字段留空，不使用配额。
 
-4. 选择“创建”  。
+4. 选择“创建”。
 
 ## <a name="enable-active-directory-authentication"></a>启用 Active Directory 身份验证
 
@@ -86,7 +86,7 @@ ms.locfileid: "91287315"
 >[!NOTE]
 >为其分配权限的帐户或组应该已在域中创建并与 Azure AD 同步。 在 Azure AD 中创建的帐户不起作用。
 
- (RBAC) 权限分配基于角色的访问控制权限：
+ (Azure RBAC) 权限分配 Azure 基于角色的访问控制权限：
 
 1. 打开 Azure 门户。
 
@@ -106,7 +106,7 @@ ms.locfileid: "91287315"
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>为用户分配对 Azure 文件共享的权限
 
-将 RBAC 权限分配给用户后，接下来需要配置 NTFS 权限。
+将 Azure RBAC 权限分配给用户后，接下来需要配置 NTFS 权限。
 
 需要了解 Azure 门户中的两项内容才能入门：
 
@@ -131,7 +131,7 @@ ms.locfileid: "91287315"
     - `/`用反斜杠替换正斜杠 `\` 。
     - 将在 [创建 Azure 文件共享](#create-an-azure-file-share) 中创建的文件共享的名称添加到 UNC 末尾。
 
-        例如： `\\customdomain.file.core.windows.net\<fileshare-name>`
+        例如：`\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>获取存储帐户密钥
 

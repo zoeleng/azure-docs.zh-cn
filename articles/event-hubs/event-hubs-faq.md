@@ -3,12 +3,12 @@ title: 常见问题 - Azure 事件中心 | Microsoft Docs
 description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495230"
+ms.locfileid: "92518018"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -42,13 +42,13 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://azure.microsoft.com/regions/)页。  
 
-### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>是否可以使用单个 AMQP 连接来与多个事件中心相互收发数据？
+### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>能否使用单个高级消息队列协议 (AMQP) 连接来发送和接收多个事件中心？
 
 可以，但前提是所有事件中心都在同一个命名空间中。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
 
-事件中心标准版目前支持的最长保留期为七天。 事件中心不应作为永久性的数据存储。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新机器学习模型。 如果需要将消息保留七天以上，请启用事件中心的[事件中心捕获](event-hubs-capture-overview.md)功能，将数据从事件中心提取到所选的存储帐户或 Azure Data Lake 服务帐户。 启用捕获功能需要支付费用，具体因购买的吞吐量单位而异。
+事件中心标准版目前支持的最长保留期为七天。 事件中心不应作为永久性的数据存储。 大于24小时的保留期适用于将事件流重播到相同系统中的情况。 例如，为了训练或验证现有数据的新机器学习模型。 如果需要将消息保留七天以上，请启用事件中心的[事件中心捕获](event-hubs-capture-overview.md)功能，将数据从事件中心提取到所选的存储帐户或 Azure Data Lake 服务帐户。 启用捕获功能需要支付费用，具体因购买的吞吐量单位而异。
 
 可以在存储帐户上配置已捕获数据的保留期。 Azure 存储的“生命周期管理”功能为常规用途 v2 和 blob 存储帐户提供了基于规则的丰富策略。 可使用该策略将数据转移到适当的访问层，或在数据的生命周期结束时使数据过期。 有关详细信息，请参阅[管理 Azure Blob 存储生命周期](../storage/blobs/storage-lifecycle-management-concepts.md)。 
 
@@ -56,12 +56,12 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 事件中心向 [Azure Monitor](../azure-monitor/overview.md) 发出详尽指标用于提供资源的状态。 此外，参考指标不仅可以在命名空间级别，而且还能在实体级别评估事件中心服务的总体运行状况。 了解 [Azure 事件中心](event-hubs-metrics-azure-monitor.md)提供哪些监视功能。
 
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Azure 事件中心将客户数据存储在何处？
-Azure 事件中心存储客户数据。 事件中心会自动将此数据存储在单个区域中，因此，此服务会自动满足区域数据派驻要求，其中包括 [信任中心](https://azuredatacentermap.azurewebsites.net/)中指定的要求。
+Azure 事件中心存储客户数据。 事件中心会自动将此数据存储在单个区域中，因此，此服务会自动满足区域数据派驻要求，其中包括 [信任中心](https://azuredatacentermap.azurewebsites.net/)中指定的区域数据。
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>需要在防火墙上打开哪些端口？ 
 可以将以下协议与 Azure 服务总线配合使用，以便发送和接收消息：
 
-- 高级消息队列协议 (AMQP)
+- AMQP
 - HTTP
 - Apache Kafka
 
@@ -105,7 +105,7 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
 ### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>在哪里可以找到客户端 IP 发送或接收到命名空间的消息？
 首先，在命名空间上启用 [IP 筛选](event-hubs-ip-filtering.md)。 
 
-然后，按照[启用诊断日志](event-hubs-diagnostic-logs.md#enable-diagnostic-logs)中的说明，为[事件中心虚拟网络连接事件](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema)启用诊断日志。 将看到连接遭到拒绝的 IP 地址。
+然后，按照[启用诊断日志](event-hubs-diagnostic-logs.md#enable-diagnostic-logs)中的说明，为[事件中心虚拟网络连接事件](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema)启用诊断日志。 你将看到拒绝连接的 IP 地址。
 
 ```json
 {
@@ -128,12 +128,23 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>要使现有的应用程序与事件中心通信，需要完成哪些配置更改？
 要连接到事件中心，需要更新 Kafka 客户端配置。 为此，可以创建事件中心命名空间并获取[连接字符串](event-hubs-get-connection-string.md)。 更改 bootstrap.servers，以将事件中心 FQDN 和端口指向 9093。 更新 sasl.jaas.config，以使用正确的身份验证将 Kafka 客户端定向到事件中心终结点（已获取的连接字符串），如下所示：
 
-bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```properties
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
 
 示例：
 
-启动服务器 = dummynamespace：9093。 ms = 60000 security。 protocol = SASL_SSL SASL = 纯 sasl.jaas.config= kafka，PlainLoginModule required 用户名 = "$ConnectionString" password = "Endpoint = sb：//dummynamespace.servicebus.windows.net/;;;;;SharedAccessKeyName = DummyAccessKeyName;SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
-
+```properties
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+```
 注意：如果 sasl.jaas.config 不是框架中受支持的配置，请查找用于设置 SASL 用户名和密码的配置，并改为使用这些配置。 将用户名设置为 $ConnectionString，将密码设置为事件中心连接字符串。
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>事件中心的消息/事件大小是多少？
@@ -259,9 +270,9 @@ bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.p
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>使用 Azure Blob 存储作为检查点存储时，如何以特定版本的 Azure 存储 SDK 为目标？
-如果在 Azure Stack Hub 上运行此代码，除非将特定的存储 API 版本作为目标，否则会遇到运行时错误。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack Hub 支持的存储 Blob SDK 版本可能与 Azure 上通常提供的版本不同。 如果正在将 Azure Blob 存储用作检查点存储，请检查[支持用于你的 Azure Stack Hub 版本的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version)，并在你的代码中面向该版本。 
+如果在 Azure Stack Hub 上运行此代码，除非将特定的存储 API 版本作为目标，否则会遇到运行时错误。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack 中心可能支持的存储 Blob SDK 版本不同于 Azure 上通常可用的版本。 如果正在将 Azure Blob 存储用作检查点存储，请检查[支持用于你的 Azure Stack Hub 版本的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version)，并在你的代码中面向该版本。 
 
-例如，如果在 Azure Stack Hub 版本 2005 上运行，则存储服务的最高可用版本为版本 2019-02-02。 默认情况下，事件中心 SDK 客户端库使用 Azure 上的最高可用版本（在 SDK 发布时为 2019-07-07）。 在这种情况下，除了执行本部分中的步骤以外，还需要添加相关代码，将存储服务 API 版本 2019-02-02 作为目标。 有关如何以特定存储 API 版本为目标的示例，请参阅 c #、Java、Python 和 JavaScript/TypeScript 的以下示例。  
+例如，如果在 Azure Stack Hub 版本2005上运行，则存储服务的最高可用版本为2019-02-02 版。 默认情况下，事件中心 SDK 客户端库使用 Azure 上的最高可用版本（在 SDK 发布时为 2019-07-07）。 在这种情况下，除了执行本部分中的步骤以外，还需要添加相关代码，将存储服务 API 版本 2019-02-02 作为目标。 有关如何以特定存储 API 版本为目标的示例，请参阅 c #、Java、Python 和 JavaScript/TypeScript 的以下示例。  
 
 有关如何从代码面向特定存储 API 版本的示例，请参阅 GitHub 上的以下示例： 
 

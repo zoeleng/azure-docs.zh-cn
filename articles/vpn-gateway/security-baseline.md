@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626252"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518179"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>VPN 网关的 Azure 安全基线
 
@@ -178,7 +178,7 @@ ms.locfileid: "91626252"
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
-**指南**： Azure 基于角色的访问控制 (RBAC) 使你可以通过角色分配管理对 Azure 资源的访问权限。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。
+**指南**：借助基于 Azure 角色的访问控制 (Azure RBAC)，可以通过角色分配管理对 Azure 资源的访问。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。
 
 - [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
@@ -310,7 +310,7 @@ ms.locfileid: "91626252"
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2：隔离存储或处理敏感信息的系统
 
-**指南**： VPN 网关为每个客户虚拟网络提供专用的 VM 实例。 为单独的安全域（如环境类型和数据敏感度级别）使用单独的虚拟网络、订阅和管理组实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Active Directory 基于角色的访问控制来控制对 Azure 资源的访问。
+**指南**： VPN 网关为每个客户虚拟网络提供专用的 VM 实例。 为单独的安全域（如环境类型和数据敏感度级别）使用单独的虚拟网络、订阅和管理组实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Azure 基于角色的访问控制 (Azure RBAC) 来控制对 Azure 资源的访问。
 
 - [如何创建其他 Azure 订阅](/azure/billing/billing-create-subscription)
 
@@ -362,11 +362,11 @@ ms.locfileid: "91626252"
 
 **责任**：客户
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指南**：使用 Azure AD RBAC 来控制对数据和资源的访问，否则使用服务特定的访问控制方法。 使用内置的基于角色的访问控制角色，如 "所有者"、"参与者" 或 "网络参与者"，然后将该角色分配给相应的作用域。 通过创建自定义角色并将虚拟网络、子网、VPN 网关、网络接口、网络安全组和路由表的特定权限分配给角色，为虚拟网络功能的子集分配特定权限。
+**指南**：使用 azure RBAC)  (azure 基于角色的访问控制来控制对数据和资源的访问，否则使用服务特定的访问控制方法。 使用内置角色，如 "所有者"、"参与者" 或 "网络参与者"，然后将该角色分配给相应的作用域。 通过创建自定义角色并将虚拟网络、子网、VPN 网关、网络接口、网络安全组和路由表的特定权限分配给角色，为虚拟网络功能的子集分配特定权限。
 
-- [如何在 Azure 中配置 RBAC](../role-based-access-control/role-assignments-portal.md)
+- [如何配置 Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [计划虚拟网络](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816825"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519650"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>适用于虚拟机的 Azure Automanage
 
@@ -37,7 +37,7 @@ Azure Automanage 还自动监视是否有偏移，并在检测到它时纠正。
 最后，体验非常简单。
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在虚拟机上尝试启用 Azure Automanage 之前，需要考虑几个先决条件。
 
@@ -58,7 +58,7 @@ Azure Automanage 还自动监视是否有偏移，并在检测到它时纠正。
 
 有关参与的 Azure 服务的完整列表以及支持的配置文件，请参阅 [Azure Automanage For 虚拟机最佳实践](virtual-machines-best-practices.md) 。
 
- 我们会自动将你带到这些参与服务。 它们对于我们的最佳实践白皮书至关重要，你可以在我们的 [云采用框架](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management)中找到它。
+ 我们会自动将你带到这些参与服务。 它们对于我们的最佳实践白皮书至关重要，你可以在我们的 [云采用框架](/azure/cloud-adoption-framework/manage/azure-server-management)中找到它。
 
 对于所有这些服务，我们将自动载入、autoconfigure、监视偏移，并在检测到偏差时进行。
 

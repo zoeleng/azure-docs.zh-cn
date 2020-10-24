@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277510"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508023"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什么是 Azure 专用终结点？
 
@@ -134,14 +134,15 @@ Azure 专用终结点是一个网络接口，可以将你通过专用且安全�
 
 ## <a name="next-steps"></a>后续步骤
 - [使用门户创建 SQL 数据库的专用终结点](create-private-endpoint-portal.md)
-- [使用 PowerShell 创建 SQL 数据库的专用终结点](create-private-endpoint-powershell.md)
+- [使用 PowerShell 为 SQL 数据库创建专用终结点](create-private-endpoint-powershell.md)
 - [使用 CLI 创建 SQL 数据库的专用终结点](create-private-endpoint-cli.md)
-- [使用门户创建存储帐户的专用终结点](create-private-endpoint-storage-portal.md)
+- [使用门户为存储帐户创建专用终结点](create-private-endpoint-storage-portal.md)
 - [使用门户创建 Azure Cosmos 帐户的专用终结点](../cosmos-db/how-to-configure-private-endpoints.md)
 - [使用 Azure PowerShell 创建自己的专用链接服务](create-private-link-service-powershell.md)
-- [使用门户创建自己的用于 Azure Database for PostgreSQL - 单个服务器的专用链接](../postgresql/howto-configure-privatelink-portal.md)
+- [使用门户创建 Azure Database for PostgreSQL 单一服务器的自己的专用链接](../postgresql/howto-configure-privatelink-portal.md)
 - [使用 CLI 创建自己的用于 Azure Database for PostgreSQL - 单个服务器的专用链接](../postgresql/howto-configure-privatelink-cli.md)
-- [使用门户创建自己的用于 Azure Database for MySQL 的专用链接](../mysql/howto-configure-privatelink-portal.md)
+- [使用门户创建 Azure Database for MySQL 的专用链接](../mysql/howto-configure-privatelink-portal.md)
 - [使用 CLI 创建自己的用于 Azure Database for MySQL 的专用链接](../mysql/howto-configure-privatelink-cli.md)
-- [使用门户创建自己的用于 Azure Database for MariaDB 的专用链接](../mariadb/howto-configure-privatelink-portal.md)
+- [使用门户创建 Azure Database for MariaDB 的专用链接](../mariadb/howto-configure-privatelink-portal.md)
 - [使用 CLI 创建自己的用于 Azure Database for MariaDB 的专用链接](../mariadb/howto-configure-privatelink-cli.md)
+- [使用门户和 CLI 为 Azure Key Vault 创建自己的专用链接](../key-vault/general/private-link-service.md)

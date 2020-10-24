@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: b1a88398d657e6bc242c7db12f3c0ddc1af828ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a585fa1c3c56d285859171e6b5673fe57beffb3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935851"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517315"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>为 Azure Data Lake Storage Gen2 中的文档编制索引
 
@@ -44,7 +44,7 @@ ms.locfileid: "88935851"
 
 ## <a name="access-control"></a>访问控制
 
-Azure Data Lake Storage Gen2 实现了一个[访问控制模型](../storage/blobs/data-lake-storage-access-control.md)，该模型支持 Azure 基于角色的访问控制 (Azure RBAC) 和类似 POSIX 的访问控制列表 (ACL)。 为 Data Lake Storage Gen2 中的内容编制索引时，Azure 认知搜索不会从内容中提取 RBAC 和 ACL 信息。 因此，此信息不会包含在 Azure 认知搜索索引中。
+Azure Data Lake Storage Gen2 实现了一个[访问控制模型](../storage/blobs/data-lake-storage-access-control.md)，该模型支持 Azure 基于角色的访问控制 (Azure RBAC) 和类似 POSIX 的访问控制列表 (ACL)。 在 Data Lake Storage Gen2 编制内容的索引时，Azure 认知搜索不会从内容中提取 Azure RBAC 和 ACL 信息。 因此，此信息不会包含在 Azure 认知搜索索引中。
 
 如果对索引中的每个文档保持访问控制非常重要，则应由应用程序开发人员需要负责实施[安全修整](./search-security-trimming-for-azure-search.md)。
 

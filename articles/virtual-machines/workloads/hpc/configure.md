@@ -4,15 +4,15 @@ description: 了解如何配置和优化启用了 "不支持" 的 H 系列和 N 
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ecfe1df273834ae38bd6bb94980444f5e34f786
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: a1bfb5988169ba79a6e3e8416804d7d4c896c758
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994818"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516844"
 ---
 # <a name="configure-and-optimize-vms"></a>配置和优化 VM
 
@@ -36,11 +36,24 @@ ms.locfileid: "91994818"
   对于启用了 SR-IOV 的支持 [RDMA 的 vm](../../sizes-hpc.md#rdma-capable-instances)，适用于 Marketplace 中的 [CentOS 版本7.6 或更高](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) 版本 VM 映像。 这些 VM 映像经过优化，并预先加载了 RDMA 的 OFED 驱动程序和各种常用的 MPI 库和科学计算包，并且是开始使用的最简单的方法。
 
   在 [azhpc](https://github.com/Azure/azhpc-images/tree/master/centos)存储库中创建 CENTOS-HPC 7.6 版和更高版本的 VM 映像时使用的脚本示例。
+  
+  > [!NOTE] 
+  > 最新的 Azure HPC marketplace 映像具有 OFED 5.1 及更高版本，不支持 ConnectX3-Pro 的智能卡。 SR-IOV 启用了具有 FDR 的 N 系列 VM 大小 (例如，NCv3) 将能够使用以下 CentOS HPC VM 映像版本或更早版本：
+  >- OpenLogic： CentOS-HPC：7.6：7.6.2020062900
+  >- OpenLogic： CentOS-HPC：7_6gen2：7.6.2020062901
+  >- OpenLogic： CentOS-HPC：7.7：7.7.2020062600
+  >- OpenLogic： CentOS-HPC： 7_7-gen2：7.7.2020062601
+  >- OpenLogic： CentOS-HPC：8_1：8.1.2020062400
+  >- OpenLogic： CentOS-HPC： 8_1-gen2：8.1.2020062401
+
 
 ### <a name="rhelcentos-vm-images"></a>RHEL/CentOS VM 映像
 可以配置 Marketplace 上基于 RHEL 或 CentOS 的非 HPC VM 映像，以便在支持支持 [RDMA 的虚拟机](../../sizes-hpc.md#rdma-capable-instances)上使用。 详细了解如何在 Vm 上 [启用无限](enable-infiniband.md) 和 [设置 MPI](setup-mpi.md) 。
 
   在 [azhpc](https://github.com/Azure/azhpc-images/tree/master/centos)存储库中创建 CENTOS-HPC 7.6 版和更高版本的 VM 映像时使用的脚本示例。
+  
+  > [!NOTE]
+  > Mellanox OFED 5.1 及更高版本不 ConnectX3-Pro 支持在启用了 SR-IOV 的 N 系列 VM 大小的 N 系列 VM 大小 (NCv3) 的。 请在 N 系列 VM 的 ConnectX3-Pro 卡上使用 LTS Mellanox OFED 版本 4.9-0.1.7.0 或更低版本。 请 [在此处](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)查看更多详细信息。
 
 ### <a name="ubuntu-vm-images"></a>Ubuntu VM 映像
 支持在 Marketplace 中推出的 Ubuntu Server 16.04 LTS、18.04 LTS 和 20.04 LTS VM 映像，适用于 SR-IOV 和非 SR-IOV RDMA 支持的 [vm](../../sizes-hpc.md#rdma-capable-instances)。 详细了解如何在 Vm 上 [启用无限](enable-infiniband.md) 和 [设置 MPI](setup-mpi.md) 。

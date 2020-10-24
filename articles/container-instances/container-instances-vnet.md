@@ -4,12 +4,12 @@ description: 了解如何使用 Azure 命令行接口将容器组部署到新的
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303002"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518120"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>将容器实例部署到 Azure 虚拟网络
 
@@ -40,7 +40,7 @@ ms.locfileid: "91303002"
 
 ### <a name="example"></a>示例
 
-以下 [az container create][az-container-create] 命令指定新虚拟网络和子网的设置。 提供[支持](container-instances-region-availability.md#availability---virtual-network-deployment)在虚拟网络中部署容器组的区域中创建的资源组的名称。 此命令将部署公共 Microsoft [aci-helloworld][aci-helloworld] 容器，该容器运行一个提供静态网页的小型 Node.js Web 服务器。 在下一部分，我们要将另一个容器组部署到同一子网，并测试这两个容器实例之间的通信。
+以下 [az container create][az-container-create] 命令指定新虚拟网络和子网的设置。 提供[支持](container-instances-region-availability.md)在虚拟网络中部署容器组的区域中创建的资源组的名称。 此命令将部署公共 Microsoft [aci-helloworld][aci-helloworld] 容器，该容器运行一个提供静态网页的小型 Node.js Web 服务器。 在下一部分，我们要将另一个容器组部署到同一子网，并测试这两个容器实例之间的通信。
 
 ```azurecli
 az container create \

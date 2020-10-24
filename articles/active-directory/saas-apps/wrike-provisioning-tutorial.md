@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: e3ec25504decca0747c8a853bb88ab3e7a10966a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546315"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520024"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>教程：为 Wrike 配置自动用户预配
 
 本教程的目的是演示在 Wrike 和 Azure Active Directory (Azure AD) 中执行的步骤，以将 Azure AD 自动预配和取消设置为 Wrike 的用户或组。
 
 > [!NOTE]
-> 本教程介绍了在 Azure AD 用户预配服务的基础上构建的连接器。 有关此服务的作用、工作原理以及常见问题的重要详细信息，请参阅 [使用 Azure Active Directory 自动执行用户预配和取消预配到软件即服务 (SaaS) 应用程序](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
+> 本教程介绍了在 Azure AD 用户预配服务的基础上构建的连接器。 有关此服务的作用、工作原理以及常见问题的重要详细信息，请参阅 [使用 Azure Active Directory 自动执行用户预配和取消预配到软件即服务 (SaaS) 应用程序](../app-provisioning/user-provisioning.md)。
 >
 > 此连接器目前以公共预览版提供。 有关预览功能的一般 Microsoft Azure 使用条款的详细信息，请参阅 [Microsoft Azure 预览版的补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
@@ -46,7 +46,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 * 建议将单个 Azure AD 用户分配到 Wrike 以测试自动用户预配配置。 稍后可以分配其他用户或组。
 
-* 将用户分配到 Wrike 时，必须在 "分配" 对话框中选择 "可用) 任何有效的应用程序特定的角色 (。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到 Wrike 时，必须在 "分配" 对话框中选择 "可用) 任何有效的应用程序特定的角色 (。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="set-up-wrike-for-provisioning"></a>设置 Wrike 以进行预配
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102687"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519599"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>使用托管标识设置与 Cosmos DB 数据库的索引器连接
 
@@ -29,7 +29,7 @@ ms.locfileid: "92102687"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 打开系统分配的托管标识
 
-启用系统分配的托管标识后，Azure 将为搜索服务创建一个标识，该标识可用于对同一租户和订阅中的其他 Azure 服务进行身份验证。 然后，可以在基于角色的访问控制 (RBAC) 分配中使用此标识，该分配允许在编制索引期间访问数据。
+启用系统分配的托管标识后，Azure 将为搜索服务创建一个标识，该标识可用于对同一租户和订阅中的其他 Azure 服务进行身份验证。 然后，你可以在 Azure 基于角色的访问控制中使用此标识， (允许在索引过程中访问数据的 Azure RBAC) 分配。
 
 ![打开系统分配的托管标识](./media/search-managed-identities/turn-on-system-assigned-identity.png "打开系统分配的托管标识")
 
@@ -80,7 +80,7 @@ api-key: [Search service admin key]
 
 请求正文包含数据源定义，其中应包括以下字段：
 
-| 字段   | 说明 |
+| 字段   | 描述 |
 |---------|-------------|
 | name | 必需。 选择任意名称来表示你的数据源对象。 |
 |type| 必需。 必须是 `cosmosdb`。 |

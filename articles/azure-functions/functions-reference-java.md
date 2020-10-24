@@ -4,12 +4,12 @@ description: 了解如何使用 Java 开发函数。
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996493"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519616"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -134,8 +134,6 @@ public class Function {
 
 ## <a name="java-versions"></a>Java 版本
 
-对 Java 11 的支持目前为预览版
-
 创建函数应用（用于在 Azure 中运行函数）时使用的 Java 版本在 pom.xml 文件中指定。 Maven 原型当前为 Java 8（可以在发布之前进行更改）生成 pom.xml。 pom.xml 中的 Java 版本应该与在本地对其开发和测试应用的版本相匹配。 
 
 ### <a name="supported-versions"></a>支持的版本
@@ -144,14 +142,14 @@ public class Function {
 
 | Functions 版本 | Java 版本 (Windows) | Java 版本 (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11（预览版）<br/>8 | 11（预览版）<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | 不适用 |
 
 除非为部署指定 Java 版本，否则在部署到 Azure 期间，Maven 原型默认为 Java 8。
 
 ### <a name="specify-the-deployment-version"></a>指定部署版本
 
-可以使用 `-DjavaVersion` 参数来控制 Maven 原型的目标 Java 版本。 此参数的值可以是 `8` 或 `11` 。 Java 11 支持目前处于预览状态。 
+可以使用 `-DjavaVersion` 参数来控制 Maven 原型的目标 Java 版本。 此参数的值可以是 `8` 或 `11` 。 
 
 Maven 原型生成面向指定 Java 版本的 pom.xml。 pom.xml 文件中的以下元素指示要使用的 Java 版本：
 

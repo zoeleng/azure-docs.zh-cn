@@ -3,12 +3,12 @@ title: 完成虚拟机的灾难恢复
 description: 本文介绍如何使用 Azure VMware 解决方案完成虚拟机的灾难恢复
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 2ccb6546b9b01255e4a28aed79fd0d3ccbc4516c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91579672"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508428"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>使用 Azure VMware 解决方案完成虚拟机灾难恢复
 
@@ -20,7 +20,7 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
 - **暂停** –暂停与所选 VM 关联的当前复制策略。
 
-- **Resume** -暂停与所选 VM 关联的当前复制策略。
+- **Resume** -恢复与所选 VM 关联的当前复制策略。
 
 - **删除** -删除与所选 VM 关联的当前复制策略。
 
@@ -163,7 +163,7 @@ VMware HCX 目前没有用于创建和自动化灾难恢复计划的内置机制
 
 - 暂停
 
-- 恢复
+- 继续
 
 - 删除保护
 

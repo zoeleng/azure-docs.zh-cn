@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751143"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521940"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>用于将 SaaS 应用程序与 Azure Active Directory 集成的教程
 
@@ -25,7 +25,7 @@ ms.locfileid: "88751143"
 
 有关已预先集成到 Azure AD 中的所有 SaaS 应用的列表，请参阅 [Active Directory 市场](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)。
 
-使用 [应用程序网络门户](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) ，请求将启用 [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) 的应用程序添加到库中，以实现自动预配，或将启用 SAML/OIDC 的应用程序添加到 SSO 的库。
+使用 [应用程序网络门户](../azuread-dev/howto-app-gallery-listing.md) ，请求将启用 [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 的应用程序添加到库中，以实现自动预配，或将启用 SAML/OIDC 的应用程序添加到 SSO 的库。
 
 ## <a name="quick-links"></a>快速链接
 
@@ -34,7 +34,7 @@ ms.locfileid: "88751143"
 | ![徽标-Atlassian 云](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian 云-用户预配](atlassian-cloud-provisioning-tutorial.md)|
 | ![徽标-ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - 用户预配](servicenow-provisioning-tutorial.md)|
 | ![徽标-时差](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - 用户预配](slack-provisioning-tutorial.md)|
-| ![徽标-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors-用户预配](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![徽标-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors-用户预配](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![徽标-Workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - 用户预配](workday-inbound-tutorial.md)|
 
 若要查找更多教程，请使用左侧的目录。
@@ -47,7 +47,7 @@ ms.locfileid: "88751143"
 | ![徽标-Alibaba 云服务 (角色基础 SSO) ](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba 云服务 (角色基础 SSO) ](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![徽标-Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform-用户预配](google-apps-provisioning-tutorial.md) |
 | ![徽标-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - 用户预配](salesforce-provisioning-tutorial.md) |
-| ![徽标-SAP 云标识平台](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP 云标识平台](saphana-tutorial.md)|[SAP 云标识平台-预配](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![徽标-SAP 云标识平台](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP 云标识平台](saphana-tutorial.md)|[SAP 云标识平台-预配](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>OneClick SSO
 

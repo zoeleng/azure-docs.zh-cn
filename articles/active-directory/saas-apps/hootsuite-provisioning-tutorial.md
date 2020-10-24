@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 82cd39fdefef477e3761d8d7ab771301cea962e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92443215"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503753"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>教程：为 Hootsuite 配置自动用户预配
 
@@ -35,7 +35,7 @@ ms.locfileid: "92443215"
 本教程中概述的方案假定你已具有以下先决条件：
 
 * [Azure AD 租户](../develop/quickstart-create-new-tenant.md) 
-* 具有配置预配[权限](../users-groups-roles/directory-assign-admin-roles.md)的 Azure AD 用户帐户（例如应用程序管理员、云应用程序管理员、应用程序所有者或全局管理员）。 
+* Azure AD 中[有权](../users-groups-roles/directory-assign-admin-roles.md)配置预配的用户帐户（例如应用管理员、云应用管理员、应用所有者或全局管理员）。 
 * 在组织中拥有“管理成员”权限的 [Hootsuite](http://www.hootsuite.com/) 用户帐户。
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 规划预配部署
@@ -49,7 +49,7 @@ ms.locfileid: "92443215"
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库中添加 Hootsuite
 
-从 Azure AD 应用程序库中添加 Hootsuite，开始管理到 Hootsuite 的预配。 如果你以前为 Hootsuite 设置过 SSO，则可以使用同一应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。 
+从 Azure AD 应用程序库中添加 Hootsuite，开始管理到 Hootsuite 的预配。 如果以前为 SSO 设置了 Hootsuite，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
@@ -108,18 +108,30 @@ ms.locfileid: "92443215"
    |displayName|字符串|
    |preferredLanguage|字符串|
    |timezone|字符串|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:organizationIds|字符串|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:teamIds|字符串|
+   |name.givenName|字符串|
+   |name.familyName|字符串|
 
-10. 若要为 Hootsuite 启用 Azure AD 预配服务，请在“设置”部分中将“预配状态”更改为“打开” 
+10. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 组**"。
+
+11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Hootsuite 的组属性。 选为 " **匹配** " 属性的特性用于匹配 Hootsuite 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
+
+      |Attribute|类型|
+      |---|---|
+      |displayName|字符串|
+      |externalId|字符串|
+      |members|参考|
+
+12. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
+
+13. 若要为 Hootsuite 启用 Azure AD 预配服务，请在“设置”部分中将“预配状态”更改为“打开” 
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-11. 通过在“设置”部分的“范围”中选择所需的值，定义要预配到 Hootsuite 的用户和/或组 。
+14. 通过在“设置”部分的“范围”中选择所需的值，定义要预配到 Hootsuite 的用户和/或组 。
 
     ![预配范围](common/provisioning-scope.png)
 
-12. 已准备好预配时，单击“保存”。
+15. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
@@ -130,8 +142,12 @@ ms.locfileid: "92443215"
 
 * 通过[预配日志](../reports-monitoring/concept-provisioning-logs.md)来确定哪些用户已预配成功或失败
 * 检查[进度栏](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)来查看预配周期的状态以及完成进度
-* 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 可在[此处](../app-provisioning/application-provisioning-quarantine-status.md)了解有关隔离状态的详细信息。  
+* 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 有关隔离状态的详细信息，请访问[此处](../app-provisioning/application-provisioning-quarantine-status.md)。  
 
+## <a name="change-log"></a>更改日志
+
+* 10/22/2020-添加了对用户特性 "givenName" 和 "familyName" 的支持。 已为用户删除自定义扩展属性 "organizationIds" 和 "Teamid"。
+添加了对组属性 "displayName"、"members" 和 "externalId" 的支持。
 
 ## <a name="additional-resources"></a>其他资源
 

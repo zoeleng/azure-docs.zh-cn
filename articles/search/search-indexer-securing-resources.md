@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101250"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503481"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>索引器访问 azure 网络安全功能 (Azure 认知搜索) 保护的内容
 
@@ -87,7 +87,7 @@ Azure 认知搜索索引器能够有效地从数据源提取内容，并将根�
 
 客户应对**共享的专用链接资源**调用搜索管理操作（ [CreateOrUpdate API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) ），以便创建到其安全资源的专用终结点连接 (例如，存储帐户) 。 通过此 (出站) 专用终结点连接的流量将仅源自搜索服务特定 "专用" 索引器执行环境中的虚拟网络。
 
-Azure 认知搜索将验证此 API 的调用方是否具有 RBAC 权限，以批准对安全资源的专用终结点连接请求。 例如，如果请求与具有只读权限的存储帐户建立专用终结点连接，则此调用将被拒绝。
+Azure 认知搜索将验证此 API 的调用方是否具有 Azure RBAC 权限，以批准对安全资源的专用终结点连接请求。 例如，如果请求与具有只读权限的存储帐户建立专用终结点连接，则此调用将被拒绝。
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>步骤2：批准专用终结点连接
 
