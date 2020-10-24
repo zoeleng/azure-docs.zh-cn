@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7f9573769beb5bf1f6ebe47e6e0a277185ac42b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084817"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488412"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -145,7 +145,7 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
 
 1. 按[步骤 2](#connect) 中所述创建系统数据源并为其命名，如 `SDS Name`。
 
-1. [安装 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 并连接到服务器。 
+1. [安装 SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 并连接到服务器。 
 
 1. 在 SSMS 查询编辑器中，使用以下命令为数据源创建链接服务器对象 `DEMOCOSMOS`。 将 `DEMOCOSMOS` 替换为链接服务器的名称，并将 `SDS Name` 替换为系统数据源的名称。
 
@@ -203,7 +203,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. 单击“新建”，输入视图的名称（例如 EmployeesfromSeattleView），并单击“确定”。********
 
-1. 在“编辑视图”窗口中，输入一个 Azure Cosmos DB 查询****。 这必须是一个 [Azure Cosmos DB SQL 查询](how-to-sql-query.md)（例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`），然后单击“确定”。****
+1. 在“编辑视图”窗口中，输入一个 Azure Cosmos DB 查询****。 这必须是一个 [Azure Cosmos DB SQL 查询](./sql-query-getting-started.md)（例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`），然后单击“确定”。****
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Azure Cosmos DB ODBC 数据源管理器":::
 

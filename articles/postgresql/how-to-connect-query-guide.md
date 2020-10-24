@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 924dbadc07f57e5928ecc63a24bf5e57d6213670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90934200"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490010"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>适用于 PostgreSQL 的 Azure 数据库的连接和查询概述-单服务器
 
@@ -23,7 +23,7 @@ ms.locfileid: "90934200"
 | 快速入门 | 说明 |
 |---|---|
 |[Pgadmin](https://www.pgadmin.org/)|您可以使用 pgadmin 连接到服务器，并简化数据库对象的创建、维护和使用。|
-|[Azure Cloud Shell 中的 psql](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|本文介绍如何在[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)中运行[**psql**](https://www.postgresql.org/docs/current/static/app-psql.html)以连接到服务器，然后运行语句以在数据库中查询、插入、更新和删除数据。如果已在开发环境中安装，则可以运行**psql**|
+|[Azure Cloud Shell 中的 psql](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|本文介绍如何在[Azure Cloud Shell](../cloud-shell/overview.md)中运行[**psql**](https://www.postgresql.org/docs/current/static/app-psql.html)以连接到服务器，然后运行语句以在数据库中查询、插入、更新和删除数据。如果已在开发环境中安装，则可以运行**psql**|
 |[PostgreSQL 与 VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|适用于 VS Code (预览版的 Azure 数据库扩展) 允许使用 scrapbooks 和丰富的 Intellisense 在本地和云中浏览和查询 PostgreSQL 服务器。 |
 |[PHP](connect-php.md)|本快速入门演示如何使用 PHP 来创建连接到数据库的程序，并使用数据库对象处理数据。|
 |[Java](connect-java.md)|本快速入门演示了如何使用 Java 连接到数据库，然后使用数据库对象处理数据。|
@@ -42,10 +42,10 @@ ms.locfileid: "90934200"
 ## <a name="postgresql-extensions"></a>PostgreSQL 扩展
 PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展会如同内置功能一样运行。
 
-- [Postgres 11 扩展](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-11-extensions)
-- [Postgres 10 扩展](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-10-extensions)
-- [Postgres 9.6 扩展](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-96-extensions)
-- [Postgres 9.5 扩展](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
+- [Postgres 11 扩展](./concepts-extensions.md#postgres-11-extensions)
+- [Postgres 10 扩展](./concepts-extensions.md#postgres-10-extensions)
+- [Postgres 9.6 扩展](./concepts-extensions.md#postgres-96-extensions)
+- [Postgres 9.5 扩展](./concepts-extensions.md#postgres-95-extensions)
 
 有关更多详细信息，请参阅 [如何在单一服务器上使用 PostgreSQL 扩展](concepts-extensions.md)。
 

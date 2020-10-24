@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311682"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489007"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure 数字孪生中的已知问题
 
@@ -34,7 +34,7 @@ ms.locfileid: "92311682"
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="突出显示了 &quot;Cloud Shell&quot; 图标的 Azure 门户视图，并显示在门户窗口底部的 Cloud Shell":::
 
-最后，另一个解决方案是在您的计算机上 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ，以便您可以在本地运行 Azure CLI 命令。 本地 CLI 不会遇到此问题。
+最后，另一个解决方案是在您的计算机上 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) ，以便您可以在本地运行 Azure CLI 命令。 本地 CLI 不会遇到此问题。
 
 ### <a name="possible-causes"></a>可能的原因
 
@@ -46,7 +46,9 @@ ms.locfileid: "92311682"
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>编写脚本后缺少角色分配
 
-在 [*操作方法：设置实例和身份验证 (脚本) *](how-to-set-up-instance-scripted.md)时，某些用户可能会遇到有关角色分配部分的问题。 此脚本不表示失败，但 *Azure 数字孪生所有者 (预览) * 角色未成功分配给用户，此问题将影响在路上创建其他资源的能力。
+在 [*操作方法：设置实例和身份验证 (脚本) *](how-to-set-up-instance-scripted.md)时，某些用户可能会遇到有关角色分配部分的问题。 此脚本不表示失败，但 *Azure 数字孪生数据所有者* 角色未成功分配给用户，此问题将影响在路上创建其他资源的能力。
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 若要确定运行脚本后是否成功设置了角色分配，请按照安装程序一文中的 [*验证用户角色分配*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) 部分中的说明进行操作。 如果用户未显示此角色，此问题会影响你。
 
@@ -64,7 +66,7 @@ ms.locfileid: "92311682"
 
 ## <a name="issue-with-interactive-browser-authentication"></a>交互式浏览器身份验证问题
 
-使用 1.2.0 ** [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet)库**的版本**1.2.0**在 azure 数字孪生应用程序中编写身份验证代码时，可能会遇到[InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet)方法问题。
+使用 1.2.0 ** [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)库**的版本**1.2.0**在 azure 数字孪生应用程序中编写身份验证代码时，可能会遇到[InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)方法问题。
 
 这不是最新版本的库。 最新版本为 **1.2.2**。
 

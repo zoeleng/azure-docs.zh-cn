@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708775"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485250"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>网络概述-Azure Database for PostgreSQL-灵活服务器
 
@@ -72,6 +72,9 @@ ms.locfileid: "91708775"
 * 不支持跨区域的对等互连 Vnet
 
 了解如何在 [Azure 门户](how-to-manage-virtual-network-portal.md) 或 [Azure CLI](how-to-manage-virtual-network-cli.md)中创建具有私有访问权限的灵活服务器 (VNet 集成) 。
+
+> [!NOTE]
+> 如果使用的是自定义 DNS 服务器，则必须使用 DNS 转发器解析 Azure Database for MySQL 灵活服务器的 FQDN。 请参阅 [使用自己的 DNS 服务器的名称解析](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 以了解详细信息。
 
 ## <a name="public-access-allowed-ip-addresses"></a>公共访问（允许的 IP 地址）
 公共访问方法的特征包括：

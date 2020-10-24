@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: allensu
-ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b507fbad4d9089d918ae7a85c07f30efcb118476
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649808"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487239"
 ---
 # <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>配置 Azure 负载均衡器的 TCP 空闲超时
 
@@ -28,7 +28,11 @@ ms.locfileid: "91649808"
 
 如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 以创建与 Azure 的连接。
 
-Azure 负载均衡器的空闲超时设置为4分钟到120分钟。 默认情况下，它设置为 4 分钟。 如果处于非活动状态的时间超过超时值，则不能保证在客户端和云服务之间保持 TCP 或 HTTP 会话。 详细了解 [TCP 空闲超时](load-balancer-tcp-reset.md)。
+Azure 负载均衡器的空闲超时范围如下：
+
+对于出站规则为4分钟到100分钟，负载均衡器规则和入站 NAT 规则为4分钟到30分钟
+
+默认情况下，它设置为 4 分钟。 如果处于非活动状态的时间超过超时值，则不能保证在客户端和云服务之间保持 TCP 或 HTTP 会话。 详细了解 [TCP 空闲超时](load-balancer-tcp-reset.md)。
 
 以下部分介绍如何更改公共 IP 和负载均衡器资源的空闲超时设置。
 
@@ -41,7 +45,7 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-`IdleTimeoutInMinutes` 是可选项。 如果未设置，默认超时为 4 分钟。 可接受的超时范围为4到120分钟。
+`IdleTimeoutInMinutes` 是可选项。 如果未设置，默认超时为 4 分钟。 
 
 ## <a name="set-the-tcp-idle-timeout-on-rules"></a>设置规则的 TCP 空闲超时
 

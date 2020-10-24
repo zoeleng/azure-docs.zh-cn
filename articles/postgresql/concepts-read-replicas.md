@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123282"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490163"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的只读副本
 
@@ -143,7 +143,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 ### <a name="disaster-recovery"></a>灾难恢复
 
-当出现重大灾难事件（如可用性区域级别或区域故障）时，可以通过提升读取副本来执行灾难恢复操作。 在 UI 门户中，可以导航到读取副本服务器。 然后单击 "复制" 选项卡，可以停止副本以将其升级为独立服务器。 或者，你可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) 来停止和升级副本服务器。
+当出现重大灾难事件（如可用性区域级别或区域故障）时，可以通过提升读取副本来执行灾难恢复操作。 在 UI 门户中，可以导航到读取副本服务器。 然后单击 "复制" 选项卡，可以停止副本以将其升级为独立服务器。 或者，你可以使用 [Azure CLI](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) 来停止和升级副本服务器。
 
 ## <a name="considerations"></a>注意事项
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984116"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478314"
 ---
 # <a name="performance-tune-with-materialized-views"></a>使用具体化视图优化性能
 
@@ -79,7 +79,7 @@ SQL 池支持标准视图和具体化视图。  两者都是用 SELECT 表达式
 
 **需要不同的数据分布策略来提高查询性能**
 
-SQL 池是一个分布式大规模并行处理 (MPP) 系统。   SQL 池表中的数据使用三种[分布策略](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（hash、round_robin 或 replicated）中的一种在 60 个节点上分布。  
+Synapse SQL 是一种分布式查询处理系统。  SQL 表中的数据使用三个 [分发策略](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 之一（ (哈希、round_robin 或复制) ）分布到60个节点。   
 
 数据分布在表创建时进行指定，并且在删除表之前保持不变。 具体化视图是磁盘上的虚拟表，支持 hash 和 round_robin 数据分布。  用户可以选择符合后列特征的数据分布：与基表不同但对于经常使用视图的查询而言是最优的。  
 

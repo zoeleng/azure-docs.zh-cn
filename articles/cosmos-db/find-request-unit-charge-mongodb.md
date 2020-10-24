@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: d1fe28e4339cb4585deeeef1c44e3614fd693943
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283716"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490690"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>查找适用于 MongoDB Azure Cosmos DB API 中执行的操作的请求单位费用
 
@@ -91,4 +91,4 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 
 * [Azure Cosmos DB 中的请求单位和吞吐量](request-units.md)
 * [在 Azure Cosmos DB 中优化预配的吞吐量成本](optimize-cost-throughput.md)
-* [优化 Azure Cosmos DB 中的查询成本](optimize-cost-queries.md)
+* [优化 Azure Cosmos DB 中的查询成本](./optimize-cost-reads-writes.md)

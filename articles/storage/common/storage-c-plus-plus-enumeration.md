@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: b9ae42bb29d1273e4f0f9c25803e8cc97b56ad95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 008991a6eda8a2eac9e7a39074c9e0bddb0c51b5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462405"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488701"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>使用 C++ 列出 Azure 存储资源
 
@@ -200,5 +200,5 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 * [如何通过 C++ 使用表存储](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [如何通过 C++ 使用队列存储](../storage-c-plus-plus-how-to-use-queues.md)
 * [适用于 C++ 的 Azure 存储客户端库 API 文档。](https://azure.github.io/azure-storage-cpp/)
-* [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+* [Azure 存储团队博客](/archive/blogs/windowsazurestorage/)
 * [Azure 存储文档](https://azure.microsoft.com/documentation/services/storage/)

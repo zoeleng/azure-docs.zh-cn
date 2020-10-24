@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 1a8d375519ed4c7d252afe60d71aad4c5244cd1c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283649"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491166"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>在 MongoDB Azure Cosmos DB API 中创建容器
 
@@ -62,12 +62,11 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 
 ## <a name="create-a-container-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建容器
 
-[使用资源管理器模板为 MONGODB API Azure Cosmos DB 创建集合](manage-sql-with-resource-manager.md#azure-cosmos-account-with-standard-provisioned-throughput)。
+[使用资源管理器模板为 MONGODB API Azure Cosmos DB 创建集合](./manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure Cosmos DB 中的分区](partitioning-overview.md)
 * [Azure Cosmos DB 中的请求单位](request-units.md)
 * [在容器和数据库上预配吞吐量](set-throughput.md)
-* [使用 Azure Cosmos 帐户](account-overview.md)
-
+* [使用 Azure Cosmos 帐户](./account-databases-containers-items.md)

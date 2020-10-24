@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578030"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490741"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 高级计划
 
@@ -104,7 +104,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 你还可以通过 Azure CLI 提高最大突发限制：
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 每个计划的最小值至少为一个实例。  系统会根据计划中的应用请求的始终就绪实例自动为你配置实际的最小实例数。  例如，如果应用 A 请求 5 个始终就绪实例，应用 B 在同一计划中请求 2 个始终就绪实例，则最小计划大小将计算为 5。  应用 A 将在所有 5 个实例上运行，应用 B 将仅在 2 个实例上运行。
@@ -117,7 +117,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 可以使用 Azure CLI 为计划增大算出的最小值。
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>可用的实例 SKU
@@ -135,9 +135,9 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 例如，JavaScript 函数应用受 Node.js 中的默认内存限制约束。 若要增大此固定内存限制，请添加值为 `--max-old-space-size=<max memory in MB>` 的应用设置 `languageWorkers:node:arguments`。
 
-## <a name="region-max-scale-out"></a>区域最大 Scale Out
+## <a name="region-max-scale-out"></a>区域最大横向扩展
 
-下面是每个区域和 OS 配置中单个计划的当前支持的最大缩放值。 若要请求增加，请打开支持票证。
+下面是每个区域和 OS 配置中单个计划当前支持的最大横向扩展值。 若要请求增加，请开具支持票证。
 
 请在此处查看 Functions 的完整的区域可用性：[Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
@@ -147,7 +147,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 |澳大利亚中部 2| 100 | 不可用 |
 |澳大利亚东部| 100 | 20 |
 |Australia Southeast | 100 | 20 |
-|巴西南部| 100 | 20 |
+|Brazil South| 100 | 20 |
 |加拿大中部| 100 | 20 |
 |美国中部| 100 | 20 |
 |中国东部 2| 100 | 20 |
@@ -174,7 +174,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 |USGov Arizona| 100 | 20 |
 |USGov Virginia| 100 | 20 |
 |USNat 东部| 100 | 不可用 |
-|USNat 西| 100 | 不可用 |
+|USNat 西部| 100 | 不可用 |
 |西欧| 100 | 20 |
 |印度西部| 100 | 20 |
 |美国中西部| 100 | 20 |

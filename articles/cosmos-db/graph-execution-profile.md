@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
-ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408226"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490588"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>如何使用执行配置文件步骤来评估 Gremlin 查询
 
@@ -220,8 +220,8 @@ Cosmos DB Gremlin 运行时运算符|说明
 
 可以从中得出以下结论：
 - 该查询是单个 ID 查找，因为 Gremlin 语句遵循 `g.V('id')` 模式。
-- 从 `time` 指标判断，此查询的延迟似乎很高，因为它[针对某个单点读取操作花费了 10 毫秒以上](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)。
-- 查看 `storeOps` 对象可以发现 `fanoutFactor` 为 `5`，这意味着，此操作访问了 [5 个分区](https://docs.microsoft.com/azure/cosmos-db/partition-data)。
+- 从 `time` 指标判断，此查询的延迟似乎很高，因为它[针对某个单点读取操作花费了 10 毫秒以上](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide)。
+- 查看 `storeOps` 对象可以发现 `fanoutFactor` 为 `5`，这意味着，此操作访问了 [5 个分区](./partitioning-overview.md)。
 
 根据此分析的结论，我们可以确定，第一个查询不必要地访问了多余的分区。 在查询中指定分区键作为谓词可以解决此问题。 这样可以降低延迟以及每个查询的开销。 详细了解[图形分区](graph-partitioning.md)。 更佳的查询是 `g.V('tt0093640').has('partitionKey', 't1001')`。
 

@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884652"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489500"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>用于 PostgreSQL-Single 服务器的 Azure 数据库的专用链接
 
 专用链接允许你为 Azure Database for PostgreSQL 单服务器创建专用终结点，并将 Azure 服务引入到专用虚拟网络 (VNet) 中。 专用终结点公开专用 IP，可用于连接到数据库服务器，就像 VNet 中的任何其他资源一样。
 
-有关支持专用链接功能的 PaaS 服务的列表，请查看专用链接 [文档](https://docs.microsoft.com/azure/private-link/index)。 专用终结点是特定 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 和子网中的专用 IP 地址。
+有关支持专用链接功能的 PaaS 服务的列表，请查看专用链接 [文档](../private-link/index.yml)。 专用终结点是特定 [VNet](../virtual-network/virtual-networks-overview.md) 和子网中的专用 IP 地址。
 
 > [!NOTE]
 > 专用链接功能仅适用于常规用途或内存优化定价层中的 Azure Database for PostgreSQL 服务器。 请确保数据库服务器是这些定价层中的一种。
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL 单服务器中的数据（例如，数据库管�
 
 请考虑一个方案，该方案中的用户在 (VM) 连接到在美国西部预配 Azure Database for PostgreSQL 单一服务器的 Azure 虚拟机中运行 PGAdmin。 下面的示例演示如何使用网络访问控制在 Azure Database for PostgreSQL 单一服务器上使用公共终结点限制访问。
 
-* 通过将 " *允许 Azure 服务* " 设置为 "关闭"，禁用所有 Azure 服务流量，以便通过公共终结点 Azure Database for PostgreSQL 单个服务器。 请确保不允许 IP 地址或范围通过 [防火墙规则](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) 或 [虚拟网络服务终结点](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)访问服务器。
+* 通过将 " *允许 Azure 服务* " 设置为 "关闭"，禁用所有 Azure 服务流量，以便通过公共终结点 Azure Database for PostgreSQL 单个服务器。 请确保不允许 IP 地址或范围通过 [防火墙规则](./concepts-firewall-rules.md) 或 [虚拟网络服务终结点](./concepts-data-access-and-security-vnet.md)访问服务器。
 
 * 仅允许使用 VM 的专用 IP 地址将流量传输到 Azure Database for PostgreSQL 单一服务器。 有关详细信息，请参阅[服务终结点](concepts-data-access-and-security-vnet.md)和[VNet 防火墙规则](howto-manage-vnet-using-portal.md)相关文章。
 
@@ -45,7 +45,7 @@ Azure Database for PostgreSQL 单服务器中的数据（例如，数据库管�
 
 从本地计算机连接到公共终结点时，需要使用服务器级防火墙规则将 IP 地址添加到基于 IP 的防火墙。 尽管此模型非常适合用于允许对开发或测试工作负荷的单个计算机进行访问，但在生产环境中却难以管理。
 
-使用 "专用" 链接，可以使用 [Express Route](https://azure.microsoft.com/services/expressroute/) (ER) 、专用对等互连或 [VPN 隧道](https://docs.microsoft.com/azure/vpn-gateway/)来启用对专用终结点的跨界访问。 然后，他们可以通过公共终结点禁用所有访问权限，而不使用基于 IP 的防火墙。
+使用 "专用" 链接，可以使用 [Express Route](https://azure.microsoft.com/services/expressroute/) (ER) 、专用对等互连或 [VPN 隧道](../vpn-gateway/index.yml)来启用对专用终结点的跨界访问。 然后，他们可以通过公共终结点禁用所有访问权限，而不使用基于 IP 的防火墙。
 
 > [!NOTE]
 > 在某些情况下，Azure Database for PostgreSQL 和 VNet 子网位于不同的订阅中。 在这些情况下，必须确保以下配置：
@@ -57,8 +57,8 @@ Azure Database for PostgreSQL 单服务器中的数据（例如，数据库管�
 
 启用专用链接需要专用终结点。 可以使用以下操作方法指南完成此操作。
 
-* [Azure 门户](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
-* [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
+* [Azure 门户](./howto-configure-privatelink-portal.md)
+* [CLI](./howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>审批过程
 网络管理员创建专用终结点 (PE) 后，PostgreSQL 管理员可以 (PEC) 到 Azure Database for PostgreSQL 来管理专用终结点连接。 网络管理员和 DBA 之间的这种职责分离有助于管理 Azure Database for PostgreSQL 连接性。 
@@ -89,17 +89,17 @@ Azure Database for PostgreSQL 单服务器中的数据（例如，数据库管�
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="选择专用终结点门户":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>从对等互连虚拟网络 (VNet) 中的 Azure VM 进行连接
-配置 [vnet 对等互连](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) ，以便与对等互连 VNet 中的 Azure VM 建立与 Azure Database for PostgreSQL 单一服务器的连接。
+配置 [vnet 对等互连](../virtual-network/tutorial-connect-virtual-networks-powershell.md) ，以便与对等互连 VNet 中的 Azure VM 建立与 Azure Database for PostgreSQL 单一服务器的连接。
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>从 VNet 到 VNet 环境中的 Azure VM 进行连接
-配置 [vnet 到 VNET VPN 网关连接](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) ，以便从另一区域或订阅中的 Azure VM 建立与 Azure Database for PostgreSQL 单一服务器的连接。
+配置 [vnet 到 VNET VPN 网关连接](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) ，以便从另一区域或订阅中的 Azure VM 建立与 Azure Database for PostgreSQL 单一服务器的连接。
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>通过 VPN 从本地环境进行连接
 若要建立从本地环境到 Azure Database for PostgreSQL-单一服务器的连接，请选择并实现以下选项之一：
 
-* [点到站点连接](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [站点到站点 VPN 连接](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [ExpressRoute 线路](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [站点到站点 VPN 连接](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [ExpressRoute 线路](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>将专用链接与防火墙规则结合使用
 
@@ -128,11 +128,11 @@ Azure Database for PostgreSQL 单服务器中的数据（例如，数据库管�
 
 若要详细了解 Azure Database for PostgreSQL 单一服务器安全功能，请参阅以下文章：
 
-* 若要为 Azure Database for PostgreSQL 单个服务器配置防火墙，请参阅 [防火墙支持](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules)。
+* 若要为 Azure Database for PostgreSQL 单个服务器配置防火墙，请参阅 [防火墙支持](./concepts-firewall-rules.md)。
 
-* 若要了解如何为 Azure Database for PostgreSQL 单个服务器配置虚拟网络服务终结点，请参阅 [配置从虚拟网络进行访问](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)。
+* 若要了解如何为 Azure Database for PostgreSQL 单个服务器配置虚拟网络服务终结点，请参阅 [配置从虚拟网络进行访问](./concepts-data-access-and-security-vnet.md)。
 
-* 有关 Azure Database for PostgreSQL 单服务器连接的概述，请参阅 [Azure Database for PostgreSQL 连接体系结构](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+* 有关 Azure Database for PostgreSQL 单服务器连接的概述，请参阅 [Azure Database for PostgreSQL 连接体系结构](./concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

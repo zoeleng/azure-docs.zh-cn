@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409521"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490571"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin 服务器响应标头
 本文介绍了执行请求时 Cosmos DB Gremlin 服务器返回给调用方的标头。 这些标头可用于排查请求性能问题，生成与 Cosmos DB 服务进行本机集成的应用程序，以及简化客户支持。
@@ -29,7 +29,7 @@ ms.locfileid: "91409521"
 | **x-ms-total-server-time-ms** | double | 130.512 | Success 和 Failure | Cosmos DB Gremlin 服务器执行整个遍历所花费的总时间（以毫秒为单位）。 此标头包含在每个部分响应中。 它表示自请求开始后的累积执行时间。 最后一个响应表示总执行时间。 此标头可用于区分作为延迟来源的客户端和服务器。 可将客户端上的遍历执行时间与此标头的值进行比较。 |
 | **x-ms-status-code** | long | 200 | Success 和 Failure | 标头表示请求完成或终止的内部原因。 建议在应用程序中检查此标头的值并采取纠正措施。 |
 | **x-ms-substatus-code** | long | 1003 | 仅限故障 | Cosmos DB 是在统一存储层之上构建的多模型数据库。 此标头包含当高可用性堆栈的较低层中发生故障时有关故障原因的其他见解。 建议在应用程序中存储此标头，并在联系 Cosmos DB 客户支持人员时使用此标头。 Cosmos DB 工程师可以使用此标头的值快速进行故障排除。 |
-| **x-ms-retry-after-ms** | 字符串 (TimeSpan) | "00:00:03.9500000" | 仅限故障 | 此标头是 .NET [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) 类型的字符串表示形式。 此值仅包含在由于耗尽预配吞吐量而失败的请求中。 在指定的时间段后，应用程序应再次重新提交遍历。 |
+| **x-ms-retry-after-ms** | 字符串 (TimeSpan) | "00:00:03.9500000" | 仅限故障 | 此标头是 .NET [TimeSpan](/dotnet/api/system.timespan) 类型的字符串表示形式。 此值仅包含在由于耗尽预配吞吐量而失败的请求中。 在指定的时间段后，应用程序应再次重新提交遍历。 |
 | **x-ms-activity-id** | 字符串 (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Success 和 Failure | 标头包含请求的唯一服务器端标识符。 服务器将为每个请求分配一个唯一标识符用于跟踪。 应用程序应该记录服务器针对请求返回的活动标识符，客户在联系客户支持人员时可以使用这些标识符。 Cosmos DB 支持人员可在 Cosmos DB 服务遥测数据中按这些标识符查找特定的请求。 |
 
 ## <a name="status-codes"></a>状态代码

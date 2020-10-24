@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 59e00d2bb47826bb4bfa381c42db551f44d84b71
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486916"
 ---
 # <a name="manage-app-consent-policies"></a>管理应用同意策略
 
@@ -57,14 +57,14 @@ ID 以 "microsoft-" 开头的应用许可策略是内置策略。 其中的某�
 1. 查看策略的 "包括" 条件集：
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. 查看 "排除" 条件集：
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 
@@ -130,7 +130,7 @@ ID 以 "microsoft-" 开头的应用许可策略是内置策略。 其中的某�
 
 下表提供了应用许可策略支持的条件的列表。
 
-| 条件 | 说明|
+| 条件 | 描述|
 |:---------------|:----------|
 | PermissionClassification | 要授予的权限的 [权限分类](configure-permission-classifications.md) ，或 "全部" 与任何权限分类匹配 (包括未分类) 的权限。 默认值为 "all"。 |
 | PermissionType | 要授予的权限的权限类型。 使用 "应用程序" 作为委托权限的应用程序权限 (例如) 或 "委派" 的应用程序角色。 <br><br>**注意**：值 "delegatedUserConsentable" 表示委派的权限，而 API 发布者未将其配置为需要管理员同意，此值可用于内置权限授予策略，但不能在自定义权限授予策略中使用。 必需。 |

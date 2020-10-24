@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263538"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480915"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>将数百 TB 的数据迁移到 Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ Azure 数据工厂、Azure 数据迁移服务之类的工具正在修复上述�
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>包含批量执行程序库的自定义工具 
 
-使用可跨多个实例轻松横向扩展并能弹性应对暂时性故障的自定义工具可以解决上一部分所述的挑战。 此外，自定义工具可以在不同的检查点处暂停和恢复迁移。 Azure Cosmos DB 已提供整合了其中某些功能的[批量执行程序库](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview)。 例如，批量执行程序库已包含处理暂时性错误的功能，并且可以横向扩展单个节点中的线程，以消耗每个节点中的大约 50 万个 RU。 批量执行程序库还可将源数据集分区成可作为检查点形式独立运行的微批。  
+使用可跨多个实例轻松横向扩展并能弹性应对暂时性故障的自定义工具可以解决上一部分所述的挑战。 此外，自定义工具可以在不同的检查点处暂停和恢复迁移。 Azure Cosmos DB 已提供整合了其中某些功能的[批量执行程序库](./bulk-executor-overview.md)。 例如，批量执行程序库已包含处理暂时性错误的功能，并且可以横向扩展单个节点中的线程，以消耗每个节点中的大约 50 万个 RU。 批量执行程序库还可将源数据集分区成可作为检查点形式独立运行的微批。  
 
 自定义工具使用批量执行程序库，支持跨多个客户端横向扩展，并可以跟踪引入过程中出现的错误。 若要使用此工具，应将源数据分区成 Azure Data Lake Storage (ADLS) 中的不同文件，以便不同的迁移工作线程可以选取每个文件并将其引入 Azure Cosmos DB。 自定义工具利用单独的集合，该集合存储 ADLS 中每个源文件的迁移进度的相关元数据，并跟踪与这些文件关联的任何错误。  
 
@@ -152,4 +152,4 @@ Azure 数据工厂、Azure 数据迁移服务之类的工具正在修复上述�
 
 * 若要进行详细了解，请试用那些在 [.NET](bulk-executor-dot-net.md) 和 [Java](bulk-executor-java.md) 中使用批量执行程序库的示例应用程序。 
 * 批量执行程序库已集成到 Cosmos DB Spark 连接器中。若要进行详细的了解，请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)一文。  
-* 如需大规模迁移方面的更多帮助，请通过开具支持票证来联系 Azure Cosmos DB 产品团队：选择“常规建议”问题类型，“大规模迁移(TB+)”问题子类型。 
+* 如需大规模迁移方面的更多帮助，请通过开具支持票证来联系 Azure Cosmos DB 产品团队：选择“常规建议”问题类型，“大规模迁移(TB+)”问题子类型。

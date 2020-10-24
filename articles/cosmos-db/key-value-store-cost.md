@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262814"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488446"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>作为键值存储 Azure Cosmos DB-费用概述
 
-Azure Cosmos DB 是全球分布式多模型数据库服务，用于轻松构建高度可用的大规模应用程序。 默认情况下，Azure Cosmos DB 会自动并高效地为其引入的所有数据编制索引。 因此，可针对数据执行快速一致的 [SQL](how-to-sql-query.md)（和 [JavaScript](stored-procedures-triggers-udfs.md)）查询。 
+Azure Cosmos DB 是全球分布式多模型数据库服务，用于轻松构建高度可用的大规模应用程序。 默认情况下，Azure Cosmos DB 会自动并高效地为其引入的所有数据编制索引。 因此，可针对数据执行快速一致的 [SQL](./sql-query-getting-started.md)（和 [JavaScript](stored-procedures-triggers-udfs.md)）查询。 
 
 本文介绍使用 Azure Cosmos DB 作为键/值存储执行简单写入和读取操作时产生的费用。 写入操作包括数据项的插入、替换、删除和更新插入。 除了保证所有多区域帐户 99.999% 的可用性 SLA 外，Azure Cosmos DB 还保证在 99% 的情况下读取和（索引）写入延迟小于 10 毫秒。 
 
@@ -48,4 +48,3 @@ Azure Cosmos DB 性能基于以[请求单位](request-units.md)（RU/秒）表�
 ## <a name="next-steps"></a>后续步骤
 
 * 使用 [RU 计算器](https://cosmos.azure.com/capacitycalculator/)估算工作负荷的吞吐量。
-

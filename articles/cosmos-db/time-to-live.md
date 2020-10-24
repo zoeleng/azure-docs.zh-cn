@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802924"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476971"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 (TTL)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91802924"
 
 删除过期项是一个后台任务，它使用剩余的[请求单元](request-units.md)，即用户请求没有使用的请求单元。 即使在 TTL 过期后，如果容器出现请求过载的情况，并且没有足够的 RU 使用，也会延迟数据删除操作。 如果提供了足够的 RU 来执行删除操作，则会删除数据。 虽然数据删除延迟，但任何查询都不会（通过任何 API）在 TTL 已过期后返回数据。
 
-> 此内容与 Azure Cosmos DB 事务性存储区 TTL 相关。 如果你正在寻找 analitycal 存储 TTL，这将通过 [Azure Synapse 链接](https://docs.microsoft.com/azure/cosmos-db/synapse-link)启用 NoETL HTAP 方案，请单击 [此处](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl)。
+> 此内容与 Azure Cosmos DB 事务性存储区 TTL 相关。 如果你正在寻找 analitycal 存储 TTL，这将通过 [Azure Synapse 链接](./synapse-link.md)启用 NoETL HTAP 方案，请单击 [此处](./analytical-store-introduction.md#analytical-ttl)。
 
 ## <a name="time-to-live-for-containers-and-items"></a>容器和项的生存时间
 

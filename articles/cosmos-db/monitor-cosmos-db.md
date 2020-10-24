@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfedc7d14c234f88e8140281a01ffcc330ba532
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797813"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488361"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>监视 Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Azure 门户中每个 Azure Cosmos 数据库的“概述”页都提供数据库
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> 分析指标数据
 
-Azure Cosmos DB 提供了一个自定义体验来用于处理指标。 若要详细了解如何使用此体验以及如何分析各种 Azure Cosmos DB 方案，请参阅[从 Azure Monitor 监视和调试 Azure Cosmos DB 指标](cosmos-db-azure-monitor-metrics.md)。
+Azure Cosmos DB 提供了一个自定义体验来用于处理指标。 若要详细了解如何使用此体验以及如何分析各种 Azure Cosmos DB 方案，请参阅[从 Azure Monitor 监视和调试 Azure Cosmos DB 指标]()。
 
 可以从“Azure Monitor”菜单中打开“指标”，使用指标资源管理器根据来自其他 Azure 服务的指标分析 Azure Cosmos DB 的指标 。 有关使用此工具的详细信息，请参阅 [Azure 指标资源管理器入门](../azure-monitor/platform/metrics-getting-started.md)。 Azure Cosmos DB 的所有指标都位于命名空间“Cosmos DB 标准指标”中。 在将筛选器添加到图表时，可对这些指标使用以下维度：
 
@@ -118,7 +118,7 @@ Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有
 
 ### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Azure Monitor 中的 Azure Cosmos DB Log Analytics 查询
 
-可在“日志搜索”搜索栏中输入下面这些查询，以帮助监视 Azure Cosmos 容器。 这些查询使用[新语言](../log-analytics/log-analytics-log-search-upgrade.md)。
+可在“日志搜索”搜索栏中输入下面这些查询，以帮助监视 Azure Cosmos 容器。 这些查询使用[新语言](../azure-monitor/log-query/log-query-overview.md)。
 
 下面是一些可用于帮助监视 Azure Cosmos 数据库的查询。
 
@@ -151,9 +151,9 @@ Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有
 
 门户中可用的帐户级别指标（如帐户存储使用情况和请求总数）不可通过 SQL API 使用。 但是，可以使用 SQL API 在集合级别检索使用情况数据。 若要检索集合级别的数据，请执行以下操作：
 
-* 若要使用 REST API，请[对集合执行 GET](https://msdn.microsoft.com/library/mt489073.aspx)。 集合的配额和使用情况信息返回到响应中的 x-ms-resource-quota 和 x-ms-resource-usage 标头中。
+* 若要使用 REST API，请[对集合执行 GET](/rest/api/cosmos-db/get-a-collection)。 集合的配额和使用情况信息返回到响应中的 x-ms-resource-quota 和 x-ms-resource-usage 标头中。
 
-* 要使用 .NET SDK，请使用 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 方法，它返回 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)，其中包含大量使用情况属性，例如 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等。
+* 要使用 .NET SDK，请使用 [DocumentClient.ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) 方法，它返回 [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1)，其中包含大量使用情况属性，例如 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等。
 
 若要访问其他指标，请使用 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)。 可以通过调用以下命令检索可用的指标定义：
 
