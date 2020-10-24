@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280141"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488854"
 ---
 # <a name="storage-account-overview"></a>存储帐户概述
 
@@ -133,7 +133,7 @@ Azure 存储提供不同的选项，适用于根据使用模型访问块 Blob �
 - 表存储：`https://*mystorageaccount*.table.core.windows.net`
 - 队列存储：`https://*mystorageaccount*.queue.core.windows.net`
 - Azure 文件存储：`https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2： `https://*mystorageaccount*.dfs.core.windows.net` (使用 [专门针对大数据进行优化的 ABFS 驱动程序](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)。 ) 
+- Azure Data Lake Storage Gen2： `https://*mystorageaccount*.dfs.core.windows.net` (使用 [专门针对大数据进行优化的 ABFS 驱动程序](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)。 ) 
 
 > [!NOTE]
 > 块 blob 和 blob 存储帐户仅公开 Blob 服务终结点。
@@ -177,7 +177,7 @@ AzCopy 是一个 Windows 命令行实用程序，用于将数据高性能复制�
 
 可以创建自定义应用程序，以便将数据从常规用途 v1 存储帐户迁移到 Blob 存储帐户中。 使用其中一个 Azure 客户端库或 Azure 存储服务 REST API。 Azure 存储对多种语言和平台（如 .NET、Java、C++、Node.JS、PHP、Ruby 和 Python）提供了内容丰富的客户端库。 客户端库提供高级功能，如重试逻辑、日志记录和并行上传。 也可以直接针对 REST API（可发出 HTTP/HTTPS 请求的任何语言都可调用它）进行开发。
 
-有关 Azure 存储 REST API 的详细信息，请参阅 [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/)（Azure 存储服务 REST API 参考）。
+有关 Azure 存储 REST API 的详细信息，请参阅 [Azure Storage Services REST API Reference](/rest/api/storageservices/)（Azure 存储服务 REST API 参考）。
 
 > [!IMPORTANT]
 > 使用客户端加密进行加密的 Blob 会将与加密相关的元数据与 Blob 一起存储。 如果复制使用客户端加密来加密的 Blob，请确保复制操作保留 Blob 元数据，尤其是与加密相关的元数据。 如果复制不包含此加密元数据的 Blob，则不能再次检索 Blob 内容。 有关加密相关元数据的详细信息，请参阅 [Azure 存储客户端加密](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

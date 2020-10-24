@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714458"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488616"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -23,7 +23,7 @@ Microsoft Azure 存储资源管理器是一款独立应用，可用于在 Window
 
 ## <a name="azure-rbac-permissions-issues"></a>Azure RBAC 权限问题
 
-Azure 基于角色的访问控制 [AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 可通过将权限集组合到 _角色_中来实现对 azure 资源的高粒度访问管理。 下面是用于在存储资源管理器中以最佳方式使用 Azure RBAC 的一些策略。
+Azure 基于角色的访问控制 [AZURE RBAC](/azure/role-based-access-control/overview) 可通过将权限集组合到 _角色_中来实现对 azure 资源的高粒度访问管理。 下面是用于在存储资源管理器中以最佳方式使用 Azure RBAC 的一些策略。
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>如何在存储资源管理器中访问我的资源？
 
@@ -65,7 +65,7 @@ Azure 角色可以授予你进行管理或数据层访问的权限。 例如，�
 3. 选择与要连接到的资源关联的用户帐户和租户。 单击“下一步”。
 4. 选择资源类型，输入资源的 URL，并为连接输入唯一的显示名称。 单击“下一步”。 单击“连接”。
 
-对于其他资源类型，目前还没有 Azure RBAC 相关解决方案。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)。
+对于其他资源类型，目前还没有 Azure RBAC 相关解决方案。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)。
 
 ### <a name="recommended-azure-built-in-roles"></a>建议的 Azure 内置角色
 
@@ -332,7 +332,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. 下载存储资源管理器 .tar.gz 文件。
-2. 安装 [.NET Core 运行时](https://docs.microsoft.com/dotnet/core/install/linux)：
+2. 安装 [.NET Core 运行时](/dotnet/core/install/linux)：
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. 下载存储资源管理器 .tar.gz 文件。
-2. 安装 [.NET Core 运行时](https://docs.microsoft.com/dotnet/core/install/linux)：
+2. 安装 [.NET Core 运行时](/dotnet/core/install/linux)：
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. 下载存储资源管理器 .tar.gz 文件。
-2. 安装 [.NET Core 运行时](https://docs.microsoft.com/dotnet/core/install/linux)：
+2. 安装 [.NET Core 运行时](/dotnet/core/install/linux)：
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

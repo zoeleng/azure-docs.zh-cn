@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151702"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479912"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>使用 Azure 门户列出 Azure 角色分配
 
@@ -126,7 +126,7 @@ ms.locfileid: "92151702"
 
     随即将显示各种范围中分配给所选角色分配的托管标识的角色列表，如管理组、订阅、资源组或资源。 此列表包括你有权读取的所有角色分配。
 
-    ![系统分配的托管标识的角色分配](./media/shared/role-assignments-user-assigned.png)
+    ![显示用户分配的托管标识的角色分配的屏幕截图。](./media/shared/role-assignments-user-assigned.png)
 
 1. 若要更改订阅，请单击“订阅”列表。
 
@@ -178,7 +178,7 @@ ms.locfileid: "92151702"
 
     ![按 CSV 格式下载角色分配](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![按 CSV 格式下载角色分配](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![JSON 格式的下载角色分配的屏幕截图。](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>后续步骤
 

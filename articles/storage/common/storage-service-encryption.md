@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985759"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488565"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>静态数据的 Azure 存储加密
 
@@ -30,7 +30,7 @@ Azure 存储中的数据将使用 256 位 [AES 加密法](https://en.wikipedia.o
 
 2017 年 10 月 20 日后写入 Azure 存储的每个块 Blob、追加 Blob 或页 Blob 均已加密。 在此日期之前创建的 Blob 继续由后台进程加密。 若要强制对 2017 年 10 月 20 日之前创建的 Blob 进行加密，可以重写 Blob。 若要了解如何检查 Blob 的加密状态，请参阅 [检查 Blob 的加密状态](../blobs/storage-blob-encryption-status.md)。
 
-有关 Azure 存储加密的底层加密模块的详细信息，请参见[加密 API：下一代](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)。
+有关 Azure 存储加密的底层加密模块的详细信息，请参见[加密 API：下一代](/windows/desktop/seccng/cng-portal)。
 
 有关 Azure 托管磁盘的加密和密钥管理的信息，请参阅适用于 Windows VM 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/windows/disk-encryption.md)或适用于 Linux VM 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/linux/disk-encryption.md)。
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 70234c9bf6be8b9c2fbb5750fa1dba718ac2690d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43c8f3dc0df41d9322edbe2e0c763de12b787ed6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370468"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479793"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>监视、诊断和排查 Microsoft Azure 存储问题
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -131,7 +131,7 @@ ms.locfileid: "92370468"
 >
 >
 
-若要帮助估算各种存储对象（如 Blob）的大小，请参阅博客文章[了解 Microsoft Azure 存储计费 - 带宽、事务和容量](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity)。
+若要帮助估算各种存储对象（如 Blob）的大小，请参阅博客文章[了解 Microsoft Azure 存储计费 - 带宽、事务和容量](/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity)。
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>监视可用性
 应通过监视以下每小时或每分钟度量值表中的“可用性”列中的值来监视存储帐户中存储服务的可用性： **$MetricsHourPrimaryTransactionsBlob**、 **$MetricsHourPrimaryTransactionsTable**、 **$MetricsHourPrimaryTransactionsQueue**、 **$MetricsMinutePrimaryTransactionsBlob**、 **$MetricsMinutePrimaryTransactionsTable**、 **$MetricsMinutePrimaryTransactionsQueue**、 **$MetricsCapacityBlob**。 **可用性**列包含一个百分比值，指示该服务的可用性或该行所表示的 API 操作的可用性（**RowKey** 显示行是包含整体服务的度量值还是包含特定 API 操作的度量值）。
@@ -362,7 +362,7 @@ catch (StorageException storageException)
 #### <a name="investigating-client-performance-issues"></a>调查客户端的性能问题
 客户端响应速度慢的可能原因包括：可用连接数或可用线程数有限，或者 CPU、内存或网络带宽等资源不足。 可以通过以下方式解决此问题：修改客户端代码使其更高效（例如，对存储服务使用异步调用），或者使用更大的虚拟机（包含更多内核和更多内存）。
 
-对于表和队列服务，Nagle 算法也可能会导致高 **AverageE2ELatency**（与 **AverageServerLatency** 相比）：有关详细信息，请参阅博客文章 [Nagle’s Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests)（Nagle 算法对小型请求不友好）。 可以通过使用 **System.Net** 命名空间中的 **ServicePointManager** 类在代码中禁用 Nagle 算法。 应在应用程序中调用表或队列服务之前执行此操作，因为这样做不会影响已打开的连接。 下面的示例来自辅助角色中的 **Application_Start** 方法。
+对于表和队列服务，Nagle 算法也可能会导致高 **AverageE2ELatency**（与 **AverageServerLatency** 相比）：有关详细信息，请参阅博客文章 [Nagle’s Algorithm is Not Friendly towards Small Requests](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests)（Nagle 算法对小型请求不友好）。 可以通过使用 **System.Net** 命名空间中的 **ServicePointManager** 类在代码中禁用 Nagle 算法。 应在应用程序中调用表或队列服务之前执行此操作，因为这样做不会影响已打开的连接。 下面的示例来自辅助角色中的 **Application_Start** 方法。
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 

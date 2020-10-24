@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993582"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480422"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure 上的 Oracle Database Enterprise Edition 的参考体系结构
 
@@ -72,7 +72,7 @@ Oracle Data Guard 确保了企业数据的高可用性、数据保护和灾难�
 
 下图是在 Azure 上使用具有可用性区域的 Oracle 数据防护的建议体系结构。 此体系结构允许获得99.99% 的 VM 运行时间 SLA。
 
-![Oracle Database 将可用性区域与 Data Guard Broker 一起使用-FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![此图显示了在 Azure 上将 Oracle 数据防护与可用性区域配合使用时建议使用的体系结构。](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 在上图中，客户端系统通过 web 向 Oracle 后端访问自定义应用程序。 Web 前端是在负载均衡器中配置的。 Web 前端向适当的应用程序服务器进行调用以处理工作。 应用程序服务器查询主 Oracle 数据库。 Oracle 数据库已使用超线程的 [内存优化虚拟机](../../sizes-memory.md) 进行配置，该虚拟机具有 [受约束的核心个 vcpu](../../../virtual-machines/constrained-vcpu.md) ，可节省许可成本并最大限度地提高性能。 多个高级或超磁盘 (托管磁盘) 用于性能和高可用性。
 

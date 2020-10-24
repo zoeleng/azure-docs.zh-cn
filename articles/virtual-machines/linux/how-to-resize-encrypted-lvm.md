@@ -1,17 +1,18 @@
 ---
-title: 如何使用 Azure 磁盘加密调整加密的逻辑卷管理磁盘的大小
+title: 如何调整使用 Azure 磁盘加密加密的磁盘大小
 description: 本文介绍如何使用逻辑卷管理调整 ADE 加密磁盘的大小。
 author: jofrance
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddd6097fffbc02c9b7b027bcb712e20cc47f2f96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978469"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487953"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>如何调整使用 Azure 磁盘加密的逻辑卷管理设备的大小
 
@@ -572,7 +573,7 @@ Im 在某些情况下，你的限制可能要求你调整现有磁盘的大小�
     >
     >有关详细信息，请参阅 [在加密设备上配置 LVM 和 RAID](how-to-configure-lvm-raid-on-crypt.md)。
 
-    下面是一个示例：
+    以下是一个示例：
 
     ``` bash
     az vm encryption enable \

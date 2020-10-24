@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214003"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487001"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>在 Synapse SQL 池中设计分布式表的指南
 
 在 Synapse SQL 池中设计哈希分布式表和轮循机制分布式表的一些建议。
 
-本文要求读者熟悉 Synapse SQL 池中的数据分布和数据移动概念。  有关详细信息，请参阅 [Azure Synapse Analytics 大规模并行处理 (MPP) 体系结构](massively-parallel-processing-mpp-architecture.md)。
+本文假设你熟悉 Synapse SQL 中的数据分布和数据移动概念。  有关详细信息，请参阅 [Azure Synapse 分析体系结构](massively-parallel-processing-mpp-architecture.md)。
 
 ## <a name="what-is-a-distributed-table"></a>什么是分布式表？
 
@@ -32,7 +32,7 @@ ms.locfileid: "85214003"
 
 另一个表存储选项是跨所有计算节点复制一个小型表。 有关详细信息，请参阅[复制表的设计准则](design-guidance-for-replicated-tables.md)。 若要在这三个选项之间快速选择其一，请参阅[表概述](sql-data-warehouse-tables-overview.md)中的分布式表。
 
-在设计表的过程中，尽可能多地了解数据以及数据查询方式。  例如，考虑以下问题：
+在设计表的过程中，尽可能多地了解数据以及数据查询方式。    例如，考虑以下问题：
 
 - 表有多大？
 - 表的刷新频率是多少？

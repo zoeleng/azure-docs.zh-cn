@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 90a4e86360916ba4b3dace0861fd1c6f7cd9b459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90717f329cc366dbb951b24da0ffc1b65881a865
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567105"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487511"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 预留容量优化成本
 
@@ -22,7 +22,7 @@ Azure Cosmos DB 预留容量可以大幅降低 Cosmos DB 成本，相比正常�
 
 Azure Cosmos DB 预留容量涵盖为资源预配的吞吐量的费用。 但它不涵盖存储和网络费用。 购买预留后，不再像即用即付资费一样收取与预留属性相应的吞吐量费用。 预留相关详细信息，请参阅 [Azure 预留](../cost-management-billing/reservations/save-compute-costs-reservations.md)一文。
 
-可从 [Azure 门户](https://portal.azure.com)购买 Azure Cosmos DB 预留容量。 通过[提前付款或按月付款](../cost-management-billing/reservations/monthly-payments-reservations.md)的方式为预留付款。 购买预留容量：
+可从 [Azure 门户](https://portal.azure.com)购买 Azure Cosmos DB 预留容量。 通过[提前付款或按月付款](../cost-management-billing/reservations/prepare-buy-reservation.md)的方式为预留付款。 购买预留容量：
 
 * 对于至少一个企业或个人订阅，你必须以即用即付费率作为所有者角色。  
 * 对于企业订阅，必须在 [EA 门户](https://ea.azure.com)中启用“添加预留实例”****。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
@@ -90,7 +90,7 @@ Azure Cosmos DB 预留容量涵盖为资源预配的吞吐量的费用。 但它
    * [管理 Azure 预留](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
    * [了解企业合约的预留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [了解即用即付订阅的预留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
-   * [合作伙伴中心 CSP 计划中的 Azure 预留](https://docs.microsoft.com/partner-center/azure-reservations)
+   * [合作伙伴中心 CSP 计划中的 Azure 预留](/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>需要帮助？ 请联系我们。
 

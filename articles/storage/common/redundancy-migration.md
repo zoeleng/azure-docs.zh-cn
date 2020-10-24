@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827303"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487885"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>更改存储帐户的复制方式
 
@@ -41,7 +41,7 @@ Azure 存储提供以下类型的复制：
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>…从 LRS</b> | 空值 | 使用 Azure 门户、PowerShell 或 CLI 更改复制设置<sup>1</sup> | 执行手动迁移 <br /><br /> OR <br /><br /> 请求实时迁移 | 执行手动迁移 <br /><br /> OR <br /><br /> 先切换到 GRS/RA-GRS，然后请求实时迁移<sup>1</sup> |
 | <b>…从 GRS/RA-GRS</b> | 使用 Azure 门户、PowerShell 或 CLI 更改复制设置 | 空值 | 执行手动迁移 <br /><br /> OR <br /><br /> 先切换到 LRS，然后请求实时迁移 | 执行手动迁移 <br /><br /> OR <br /><br /> 请求实时迁移 |
-| <b>...from ZRS</b> | 执行手动迁移 | 执行手动迁移 | 不适用 | 使用 Azure 门户、PowerShell 或 CLI 更改复制设置<sup>1、2</sup> |
+| <b>...from ZRS</b> | 执行手动迁移 | 执行手动迁移 | 空值 | 使用 Azure 门户、PowerShell 或 CLI 更改复制设置<sup>1、2</sup> |
 | <b>...from GZRS/RA-GZRS</b> | 执行手动迁移 | 执行手动迁移 | 使用 Azure 门户、PowerShell 或 CLI 更改复制设置 | 空值 |
 
 <sup>1</sup> 会产生一次性出口费用。<br />
@@ -144,9 +144,9 @@ ZRS 仅支持常规用途 v2 帐户，因此请确保在将实时迁移请求提
 > [!NOTE]
 > 高级文件共享目前不支持实时迁移。 目前仅支持手动复制或移动数据。
 >
-> GZRS 存储帐户当前不支持存档层。 有关更多详细信息，请参阅 [Azure Blob 存储：热、冷和存档访问层](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 。
+> GZRS 存储帐户当前不支持存档层。 有关更多详细信息，请参阅 [Azure Blob 存储：热、冷和存档访问层](/azure/storage/blobs/storage-blob-storage-tiers) 。
 >
-> 托管磁盘仅适用于 LRS，无法迁移到 ZRS。 可以在标准 HDD 存储上存储标准 SSD 托管磁盘的快照和映像，并在 [LRS 和 ZRS 选项之间进行选择](https://azure.microsoft.com/pricing/details/managed-disks/)。 有关与可用性集的集成的详细信息，请参阅 [Azure 托管磁盘简介](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)。
+> 托管磁盘仅适用于 LRS，无法迁移到 ZRS。 可以在标准 HDD 存储上存储标准 SSD 托管磁盘的快照和映像，并在 [LRS 和 ZRS 选项之间进行选择](https://azure.microsoft.com/pricing/details/managed-disks/)。 有关与可用性集的集成的详细信息，请参阅 [Azure 托管磁盘简介](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)。
 
 ## <a name="switch-from-zrs-classic"></a>从 ZRS 经典切换
 
@@ -167,7 +167,7 @@ ZRS 经典版仅适用于常规用途 V1 (GPv1) 存储帐户中的**块 Blob**�
 
 若要升级到 Azure 门户中的 ZRS，请导航到该帐户的 **配置** 设置，然后选择 " **升级**"：
 
-![将 ZRS 经典升级到门户中的 ZRS](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+![在门户中将 ZRS 经典版升级到 ZRS](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

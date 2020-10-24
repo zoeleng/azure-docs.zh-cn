@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356360"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475909"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>使用 Azure Cosmos DB 更改源将实时数据分析可视化
 
@@ -50,11 +50,11 @@ Azure Cosmos DB 更改源是一种机制，用于从 Azure Cosmos 容器获取�
 
 5. **事件中心：** Azure 事件中心存储这些事件，并将其发送到 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)以执行进一步的分析。  
 
-6. **Azure 流分析：** Azure 流分析定义查询来处理事件和执行实时数据分析。 然后，将此数据发送到 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)。  
+6. **Azure 流分析：** Azure 流分析定义查询来处理事件和执行实时数据分析。 然后，将此数据发送到 [Microsoft Power BI](/power-bi/desktop-what-is-desktop)。  
 
 7. **Power BI：** Power BI 用于可视化 Azure 流分析发送的数据。 可以构建一个仪表板来实时了解指标的变化。  
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 * Microsoft .NET Framework 4.7.1 或更高版本
 
@@ -209,7 +209,7 @@ Azure 流分析是实时处理流数据的完全托管式云服务。 在此实�
 
 5. 导航回到流分析作业页，并选择“输出”。****  
 
-6. 选择“+ 添加”  。 然后，从下拉菜单中选择“Power BI”。****  
+6. 选择“+添加”。 然后，从下拉菜单中选择“Power BI”。****  
 
 7. 若要创建新的 Power BI 输出来可视化平均价格，请执行以下操作：
 
@@ -395,4 +395,4 @@ Power BI 是一套商业分析工具，可以分析数据和分享见解。 在�
 
 ## <a name="next-steps"></a>后续步骤 
   
-* 若要详细了解更改源，请参阅[使用 Azure Cosmos DB 中的更改源支持](change-feed.md)。 
+* 若要详细了解更改源，请参阅[使用 Azure Cosmos DB 中的更改源支持](change-feed.md)。

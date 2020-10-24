@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460541"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486933"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>在 Synapse SQL 池中设计表
 
@@ -79,7 +79,7 @@ SQL 池支持最常用的数据类型。 有关受支持数据类型的列表，
 
 ## <a name="distributed-tables"></a>分布式表
 
-SQL 池的一个基本功能是可以跨[分布区](massively-parallel-processing-mpp-architecture.md#distributions)以特定方式对表进行存储和运算。  SQL 池支持使用以下三种方法来分配数据：轮询机制（默认）、哈希和复制。
+Synapse SQL 的一项基本功能是它可以跨 [分布](massively-parallel-processing-mpp-architecture.md#distributions)区存储和操作表。 Synapse SQL 支持以下三种方法来分发数据：轮循机制 (默认) 、哈希和复制。
 
 ### <a name="hash-distributed-tables"></a>哈希分布表
 

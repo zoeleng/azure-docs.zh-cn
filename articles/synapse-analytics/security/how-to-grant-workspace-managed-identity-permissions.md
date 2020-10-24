@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535036"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487188"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>向工作区托管标识授予权限 (预览) 
 
@@ -70,7 +70,7 @@ ms.locfileid: "87535036"
 
 
 选择相同的容器或文件系统，以向托管标识授予 *存储 Blob 数据参与者* 角色。
-![ADLS Gen2 存储帐户容器选择](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![显示应选择的容器或文件系统的屏幕截图。](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>步骤3：导航到访问控制
 
@@ -80,7 +80,7 @@ ms.locfileid: "87535036"
 
 #### <a name="step-4-add-a-new-role-assignment"></a>步骤4：添加新的角色分配
 
-选择“+ 添加”  。
+选择“+添加”。
 
 ![添加新的角色分配](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 

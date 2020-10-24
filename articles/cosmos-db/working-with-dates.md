@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a524d34fcf8e629914d4fbc4669caada210866b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a876c5ba9c289f0edbbfdf8727e9957e7937b781
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019182"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476240"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
 
@@ -66,7 +66,7 @@ Azure Cosmos DB 支持 JSON 类型，如字符串、数字、布尔值、null、
     }
 ```  
 
-也可将 DateTime 存储为 Unix 时间戳，即存储为数字，用于表示自 1970 年 1 月 1 日以来已过去的秒数。 Azure Cosmos DB 的内部时间戳 (`_ts`) 属性遵循这种方法。 可以使用 [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) 类将 DateTime 序列化为数字。
+也可将 DateTime 存储为 Unix 时间戳，即存储为数字，用于表示自 1970 年 1 月 1 日以来已过去的秒数。 Azure Cosmos DB 的内部时间戳 (`_ts`) 属性遵循这种方法。 可以使用 [UnixDateTimeConverter](/dotnet/api/microsoft.azure.documents.unixdatetimeconverter) 类将 DateTime 序列化为数字。
 
 ## <a name="querying-datetimes-in-linq"></a>在 LINQ 中查询 Datetime
 

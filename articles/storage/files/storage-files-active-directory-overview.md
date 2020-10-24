@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716070"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486383"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>适用于 SMB 访问的 Azure 文件基于标识的身份验证选项概述
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ Azure 文件共享利用 Kerberos 协议在本地 AD DS 或 Azure AD DS 进行�
 
 下图描绘了本地 AD DS 通过 SMB 对 Azure 文件共享进行身份验证。 必须使用 Azure AD Connect 同步将本地 AD DS 同步到 Azure AD。仅本地 AD DS 和 Azure AD 中存在的混合用户可以通过 Azure 文件共享访问进行身份验证和授权。 这是因为 "共享级别" 权限是根据 Azure AD 中表示的标识进行配置的，其中使用在 AD DS 中强制执行目录/文件级权限。 请确保正确配置对同一混合用户的权限。
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="关系图":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="描述本地 AD DS 通过 SMB 对 Azure 文件共享进行身份验证的关系图。":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 
@@ -116,7 +116,7 @@ Azure 文件共享利用 Kerberos 协议在本地 AD DS 或 Azure AD DS 进行�
 
 - 其次，Azure AD 中存在的所有用户都可以进行身份验证和授权。 用户可以仅限云或混合。 从 Azure AD 到 Azure AD DS 的同步由平台管理，无需任何用户配置。 但是，客户端必须已加入到 Azure AD DS 的域，不能 Azure AD 加入或注册。 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="关系图":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="描述本地 AD DS 通过 SMB 对 Azure 文件共享进行身份验证的关系图。":::
 
 ### <a name="enable-identity-based-authentication"></a>启用基于标识的身份验证
 
@@ -147,7 +147,7 @@ Azure 文件共享在目录和文件级别（包括根目录）强制实施标�
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 文件的详细信息以及基于 SMB 的基于身份的身份验证，请参阅以下资源：
 
-- [规划 Azure 文件部署](storage-files-planning.md)
+- [规划 Azure 文件存储部署](storage-files-planning.md)
 - [启用 Azure 文件共享的通过 SMB 进行本地 Active Directory 域服务身份验证](storage-files-identity-auth-active-directory-enable.md)
 - [启用 Azure 文件上 Azure Active Directory 域服务身份验证](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [常见问题解答](storage-files-faq.md)

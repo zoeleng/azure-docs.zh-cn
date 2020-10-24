@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55fff7e4e36f066ba8ae5734e483df393fbd72cd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051896"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488650"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Azure 存储资源管理器 blob 版本控制指南
 
-Microsoft Azure 存储资源管理器提供对 blob 版本的轻松访问和管理。 本指南将帮助你了解 blob 版本控制在存储资源管理器中的工作原理。 在继续之前，建议你阅读有关 [blob 版本控制](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)的详细信息。
+Microsoft Azure 存储资源管理器提供对 blob 版本的轻松访问和管理。 本指南将帮助你了解 blob 版本控制在存储资源管理器中的工作原理。 在继续之前，建议你阅读有关 [blob 版本控制](/azure/storage/blobs/versioning-overview)的详细信息。
 
 ## <a name="terminology"></a>术语
 
 本部分提供一些定义，以帮助了解其在本文中的用法。
 
-- 软删除：备用的自动数据保护功能。 可在 [此处](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)详细了解软删除。
+- 软删除：备用的自动数据保护功能。 可在 [此处](/azure/storage/blobs/soft-delete-blob-overview)详细了解软删除。
 - 活动 blob：创建处于活动状态的 blob 或 blob 版本。 只能对处于活动状态的 blob 或 blob 版本执行操作。
 - 软删除 blob：标记为软删除的 blob 或 blob 版本。 只保留软删除的 blob 的保留期。
 - Blob 版本：已启用 blob 版本控制创建的 blob。 每个 blob 版本都与一个版本 ID 相关联。
@@ -117,5 +117,5 @@ Blob 版本不能单独删除。 它们必须同时被删除。 若要撤消删�
 
 ## <a name="see-also"></a>另请参阅
 
-* [Blob 版本控制](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [blob 的软删除](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+* [Blob 版本控制](/azure/storage/blobs/versioning-overview)
+* [blob 的软删除](/azure/storage/blobs/soft-delete-blob-overview)

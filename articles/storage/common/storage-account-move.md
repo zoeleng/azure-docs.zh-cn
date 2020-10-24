@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515019"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488820"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>将 Azure 存储帐户移到另一个区域
 
@@ -67,7 +67,7 @@ ms.locfileid: "85515019"
 
 若要使用 PowerShell 导出模板：
 
-1. 使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 命令登录到 Azure 订阅，然后按屏幕说明操作：
+1. 使用 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 命令登录到 Azure 订阅，然后按屏幕说明操作：
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -167,7 +167,7 @@ ms.locfileid: "85515019"
          }]          
     ```
 
-    可以运行 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) 命令获取区域代码。
+    可以运行 [Get-AzLocation](/powershell/module/az.resources/get-azlocation) 命令获取区域代码。
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -196,7 +196,7 @@ ms.locfileid: "85515019"
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. 使用 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) 获取要在其中部署目标公共 IP 的订阅 ID：
+1. 使用 [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) 获取要在其中部署目标公共 IP 的订阅 ID：
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -232,14 +232,14 @@ ms.locfileid: "85515019"
 
 ### <a name="move-data-to-the-new-storage-account"></a>将数据移到新的存储帐户
 
-AzCopy 是移动数据的首选工具。 此方法已针对性能进行优化。  速度较快的原因之一是数据直接在存储服务器之间复制。因此，AzCopy 不会占用计算机的网络带宽。 可在命令行或自定义脚本中使用 AzCopy。 请参阅 [AzCopy 入门](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+AzCopy 是移动数据的首选工具。 此方法已针对性能进行优化。  速度较快的原因之一是数据直接在存储服务器之间复制。因此，AzCopy 不会占用计算机的网络带宽。 可在命令行或自定义脚本中使用 AzCopy。 请参阅 [AzCopy 入门](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 你还可以使用 Azure 数据工厂来移动数据。 它提供了直观的用户界面。 要使用 Azure 数据工厂，请参阅以下任意链接： 
 
-  - [使用 Azure 数据工厂向/从 Azure Blob 存储复制数据](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [使用 Azure 数据工厂向/从 Azure Data Lake Storage Gen2 复制数据](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [使用 Azure 数据工厂从/向 Azure 文件存储复制数据](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [使用 Azure 数据工厂向/从 Azure 表存储复制数据](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [使用 Azure 数据工厂向/从 Azure Blob 存储复制数据](/azure/data-factory/connector-azure-blob-storage)
+  - [使用 Azure 数据工厂向/从 Azure Data Lake Storage Gen2 复制数据](/azure/data-factory/connector-azure-data-lake-storage)
+  - [使用 Azure 数据工厂从/向 Azure 文件存储复制数据](/azure/data-factory/connector-azure-file-storage)
+  - [使用 Azure 数据工厂向/从 Azure 表存储复制数据](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 在本教程中，你已将一个 Azure 存储帐户从一个区域移到了另一个区域，并清理了源资源。  若要详细了解如何在区域之间移动资源，以及如何在 Azure 中进行灾难恢复，请参阅：
 
 
-- [将资源移到新资源组或订阅中](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [将 Azure VM 移到另一区域](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [将资源移到新资源组或订阅中](/azure/azure-resource-manager/resource-group-move-resources)
+- [将 Azure VM 移到另一区域](/azure/site-recovery/azure-to-azure-tutorial-migrate)

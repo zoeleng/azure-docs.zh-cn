@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0a48570dbbae3eb2841049dc184afe7a903f740c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 974ddf4e5e6353eeb53ad90a16740909466016cf
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283725"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477056"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB MongoDB API 资源
 
@@ -51,7 +51,7 @@ ms.locfileid: "92283725"
 
 下面是一些其他资源：
 
-* [Azure 资源管理器文档](/azure/azure-resource-manager/)
+* [Azure 资源管理器文档](../azure-resource-manager/index.yml)
 * [Azure Cosmos DB 资源提供程序架构](/azure/templates/microsoft.documentdb/allversions)
 * [Azure Cosmos DB 快速入门模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [排查常见 Azure 资源管理器部署错误](../azure-resource-manager/templates/common-deployment-errors.md)

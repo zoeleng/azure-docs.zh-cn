@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080447"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488344"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB 监视数据参考
 
@@ -41,10 +41,10 @@ ms.locfileid: "88080447"
 | **duration** | **duration_d** | 操作持续时间，以毫秒为单位。 |
 | **requestLength** | **requestLength_s** | 请求的长度（按字节计）。 |
 | **responseLength** | **responseLength_s** | 响应的长度（按字节计）。|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | 将[资源令牌](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)用于身份验证时，此值非空。 值指向用户的资源 ID。 |
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | 将[资源令牌](./secure-access-to-data.md#resource-tokens)用于身份验证时，此值非空。 值指向用户的资源 ID。 |
 | **responseLength** | **responseLength_s** | 响应的长度（按字节计）。|
 
-如需所有 Azure Monitor 日志类别的列表和指向关联架构的链接，请参阅 [Azure Monitor 日志类别和架构](../azure-monitor/platform/diagnostic-logs-schema.md)。 
+如需所有 Azure Monitor 日志类别的列表和指向关联架构的链接，请参阅 [Azure Monitor 日志类别和架构](../azure-monitor/platform/resource-logs-schema.md)。 
 
 ## <a name="metrics"></a>指标
 以下各表列出了为 Azure CosmOS DB 收集的平台指标。 所有指标都存储在“Cosmos DB 标准指标”命名空间中。

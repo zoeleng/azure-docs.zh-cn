@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279909"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480218"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>存储过程、触发器和用户定义的函数
 
@@ -63,7 +63,7 @@ Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Co
 
 ### <a name="data-consistency"></a>数据一致性
 
-存储过程和触发器始终在 Azure Cosmos 容器的主要副本上执行。 此功能可确保从存储过程执行的读取提供[非常一致性](consistency-levels-tradeoffs.md)。 使用用户定义的函数的查询可以在主要副本或任何辅助副本上执行。 存储过程和触发器旨在支持事务写入–同时，只读逻辑最好作为应用程序端逻辑和使用 [AZURE COSMOS DB SQL API sdk](sql-api-dotnet-samples.md)的查询来实现，这将有助于您使数据库的吞吐量饱和。 
+存储过程和触发器始终在 Azure Cosmos 容器的主要副本上执行。 此功能可确保从存储过程执行的读取提供[非常一致性](./consistency-levels.md)。 使用用户定义的函数的查询可以在主要副本或任何辅助副本上执行。 存储过程和触发器旨在支持事务写入–同时，只读逻辑最好作为应用程序端逻辑和使用 [AZURE COSMOS DB SQL API sdk](sql-api-dotnet-samples.md)的查询来实现，这将有助于您使数据库的吞吐量饱和。 
 
 > [!TIP]
 > 在存储过程或触发器中执行的查询可能看不到同一脚本事务对项目所做的更改。 此语句同时适用于 SQL 查询（如 `getContent().getCollection.queryDocuments()`）以及集成语言查询（如 `getContext().getCollection().filter()`）。

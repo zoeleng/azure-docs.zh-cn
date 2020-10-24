@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302925"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482819"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB 中的地理空间和 GeoJSON 位置数据
 
@@ -210,7 +210,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-如果没有经纬度信息，但有物理地址或位置名称，如城市或国家/地区，则可以使用必应地图 REST 服务等地理编码服务来查找实际的坐标。 在[此处](https://msdn.microsoft.com/library/ff701713.aspx)详细了解必应地图地理编码。
+如果没有经纬度信息，但有物理地址或位置名称，如城市或国家/地区，则可以使用必应地图 REST 服务等地理编码服务来查找实际的坐标。 在[此处](/bingmaps/rest-services/)详细了解必应地图地理编码。
 
 ## <a name="next-steps"></a>后续步骤
 

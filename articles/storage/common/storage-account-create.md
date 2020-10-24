@@ -10,18 +10,18 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333573"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488888"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
 Azure 存储帐户包含所有 Azure 存储数据对象：Blob、文件、队列、表和磁盘。 存储帐户为你的 Azure 存储数据提供了一个唯一的命名空间，可以从世界上的任何位置通过 HTTP 或 HTTPS 访问该命名空间。 Azure 存储帐户中的数据是持久的，高度可用、安全且可大规模缩放。
 
-本操作指南文章介绍如何使用 [Azure 门户](https://portal.azure.com/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/)、[Azure CLI](https://docs.microsoft.com/cli/azure) 或 [Azure 资源管理器模板](../../azure-resource-manager/management/overview.md)创建存储帐户。  
+本操作指南文章介绍如何使用 [Azure 门户](https://portal.azure.com/)、[Azure PowerShell](/powershell/azure/)、[Azure CLI](/cli/azure) 或 [Azure 资源管理器模板](../../azure-resource-manager/management/overview.md)创建存储帐户。  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -98,7 +98,7 @@ az login
 
 # <a name="template"></a>[模板](#tab/template)
 
-不适用
+空值
 
 ---
 

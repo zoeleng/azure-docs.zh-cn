@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d784e8bfb0841570f63d8433fa74059eb9e22758
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569810"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487732"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Python SDK：发行说明和资源
 
@@ -33,14 +33,14 @@ ms.locfileid: "91569810"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST 资源提供程序](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**下载 SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 文档**|[Python API 参考文档](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
+|**API 文档**|[Python API 参考文档](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**SDK 安装说明**|[Python SDK 安装说明](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**入门**|[Python SDK 入门](create-sql-api-python.md)|
 |**当前受支持的平台**|[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -359,4 +359,4 @@ Microsoft 至少会在停用 SDK 前提前 12 个月发出通知，以便顺利�
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关 Cosmos DB 的详细信息，请参阅 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服务页。 
+若要了解有关 Cosmos DB 的详细信息，请参阅 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服务页。

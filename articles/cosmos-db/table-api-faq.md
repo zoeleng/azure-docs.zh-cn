@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167583"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484995"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中的表 API 的常见问题解答
 
@@ -97,7 +97,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmosDB;AccountKey=<
 
 ### <a name="which-tools-work-with-the-table-api"></a>哪些工具适用于表 API？
 
-可以使用 [Azure 存储资源管理器](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)。
+可以使用 [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)。
 
 灵活地采用之前指定格式的连接字符串的工具可以支持新的表 API。 [Azure 存储客户端工具](../storage/common/storage-explorers.md)页上提供了表工具的列表。
 
@@ -115,7 +115,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmosDB;AccountKey=<
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>如何将现有 Azure 表存储应用程序迁移到此服务？
 
-支持使用 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 和 [Azure Cosmos DB 数据迁移工具](import-data.md)。
+支持使用 [AzCopy](../storage/common/storage-use-azcopy-v10.md) 和 [Azure Cosmos DB 数据迁移工具](import-data.md)。
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>如何为此服务扩展存储大小，比如，最初我有 *n* GB 的数据，但一段时间后我的数据会增长到 1 TB？
 
@@ -231,7 +231,7 @@ Azure Cosmos DB 会在本地区域持续提交数据，然后在几毫秒内将�
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>平台形式的 Azure Cosmos DB 似乎拥有许多功能，例如排序、聚合、分层和其他功能。 是否会将这些功能添加到表 API 中？
 
-表 API 提供与 Azure 表存储相同的查询功能。 Azure Cosmos DB 还支持排序、聚合、地理空间查询、层次结构和各种内置函数。 有关详细信息，请参阅 [SQL 查询](how-to-sql-query.md)。
+表 API 提供与 Azure 表存储相同的查询功能。 Azure Cosmos DB 还支持排序、聚合、地理空间查询、层次结构和各种内置函数。 有关详细信息，请参阅 [SQL 查询](./sql-query-getting-started.md)。
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>何时应更改表 API 的 TableThroughput？
 
@@ -293,7 +293,7 @@ Azure Cosmos DB 是基于 SLA 的系统，在可用性、延迟和吞吐量方�
 可以通过以下任一方式分享反馈：
 
 * [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Microsoft 问答页](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft 问答页](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 适合编程问题。 请确保提问[切中主题](https://stackoverflow.com/help/on-topic)并[尽可能提供较多的详细信息，使问题清楚明了，便于回答](https://stackoverflow.com/help/how-to-ask)。
 
 ## <a name="next-steps"></a>后续步骤

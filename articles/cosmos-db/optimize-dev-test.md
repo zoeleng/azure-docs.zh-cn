@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606264"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475526"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化开发和测试成本
 
@@ -28,7 +28,7 @@ ms.locfileid: "88606264"
 > [!NOTE]
 > 免费层仅可在“预配吞吐量”模式下使用。
 
-免费层在帐户的生存期内无限期地持续下去，并附带定期 Azure Cosmos DB 帐户的所有 [权益和功能](introduction.md#key-benefits) ，包括无限制的存储和吞吐量 (RU/秒) 、sla、高可用性、在所有 Azure 区域中的全局分发，等等。 每个 Azure 订阅最多可以有一个免费层帐户，并且必须在创建帐户时选择加入使用。 首先，[在 Azure 门户中创建一个启用了免费层的新帐户](create-cosmosdb-resources-portal.md) 或使用 [ARM 模板](manage-sql-with-resource-manager.md#free-tier)。 如需更多详细信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/cosmos-db/)。
+免费层在帐户的生存期内无限期地持续下去，并附带定期 Azure Cosmos DB 帐户的所有 [权益和功能](introduction.md#key-benefits) ，包括无限制的存储和吞吐量 (RU/秒) 、sla、高可用性、在所有 Azure 区域中的全局分发，等等。 每个 Azure 订阅最多可以有一个免费层帐户，并且必须在创建帐户时选择加入使用。 首先，[在 Azure 门户中创建一个启用了免费层的新帐户](create-cosmosdb-resources-portal.md) 或使用 [ARM 模板](./manage-with-templates.md#free-tier)。 如需更多详细信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/cosmos-db/)。
 
 ## <a name="try-azure-cosmos-db-for-free"></a>免费试用 Azure Cosmos DB
 
@@ -57,5 +57,5 @@ Azure Cosmos DB 包含在 [Azure 免费帐户](https://azure.microsoft.com/free)
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
-* 详细了解如何[优化查询成本](optimize-cost-queries.md)
+* 详细了解如何[优化查询成本](./optimize-cost-reads-writes.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
