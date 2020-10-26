@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 2d560a415aa6ee0da5304a1a9900c30b32e3be18
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: af9b1f42140c5656c5f55a98c2d635d59e130db5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488922"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533727"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 体系结构最佳做法
 
@@ -44,8 +44,8 @@ Azure HDInsight 群集是针对特定类型的计算用途设计的。 由于可
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[.NET SDK](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
-|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight)||||X|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight)||||X|
+|[Python SDK](/python/api/overview/azure/hdinsight)||||X|
+|[Java SDK](/java/api/overview/azure/hdinsight)||||X|
 |[Azure Resource Manager 模板](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 有关详细信息，请参阅 [HDInsight 中的群集类型](../hadoop/apache-hadoop-introduction.md)一文。

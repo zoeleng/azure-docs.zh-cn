@@ -61,8 +61,10 @@
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL 数据库
           items:
-            - name: 将可用性区域与 SQL 数据库配合使用
-              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
+            - name: 将可用性区域与 SQL 数据库常规用途层配合使用
+              href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+            - name: 将可用性区域与 SQL 数据库高级层和业务关键层配合使用
+              href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
         - name: 存储
           items:
             - name: 区域冗余存储

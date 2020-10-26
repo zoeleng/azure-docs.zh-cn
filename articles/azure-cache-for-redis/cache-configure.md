@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f0d0742994b14f692c2aea9130edc73d779cff52
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089717"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544760"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -72,7 +72,7 @@ ms.locfileid: "92089717"
 
 ### <a name="access-control-iam"></a>访问控制 (IAM)
 
-** (IAM) 部分的访问控制**提供对 azure RBAC) 在 Azure 门户中的基于角色的访问 (控制支持。 此配置有助于组织轻松准确地满足其访问管理要求。 有关详细信息，请参阅 [Azure 门户中的 Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
+**(IAM) 部分的访问控制** 提供对 azure RBAC) 在 Azure 门户中的基于角色的访问 (控制支持。 此配置有助于组织轻松准确地满足其访问管理要求。 有关详细信息，请参阅 [Azure 门户中的 Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
 
 ### <a name="tags"></a>标记
 
@@ -141,9 +141,9 @@ ms.locfileid: "92089717"
 
 有关 `maxmemory` 策略的详细信息，请参阅 [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies)（逐出策略）。
 
-**Maxmemory-reserved**设置配置群集中的每个实例的内存量（以 MB 为单位），该内存是为非缓存操作保留的（如在故障转移过程中的复制）。 设置此值能够在负载变化时具有更一致的 Redis 服务器体验。 对于写入密集型工作负荷，应将此值设置为较高。 为此类操作保留内存后，无法存储缓存数据。
+**Maxmemory-reserved** 设置配置群集中的每个实例的内存量（以 MB 为单位），该内存是为非缓存操作保留的（如在故障转移过程中的复制）。 设置此值能够在负载变化时具有更一致的 Redis 服务器体验。 对于写入密集型工作负荷，应将此值设置为较高。 为此类操作保留内存后，无法存储缓存数据。
 
-**Maxfragmentationmemory-reserved 保留**设置配置群集中的每个实例的内存量（以 MB 为单位），保留这些内存碎片以容纳内存。 设置此值后，即使在缓存已满或接近满的状态并且碎片比率很高时，你也能拥有更加稳定的 Redis 服务器体验。 为此类操作保留内存后，无法存储缓存数据。
+**Maxfragmentationmemory-reserved 保留** 设置配置群集中的每个实例的内存量（以 MB 为单位），保留这些内存碎片以容纳内存。 设置此值后，即使在缓存已满或接近满的状态并且碎片比率很高时，你也能拥有更加稳定的 Redis 服务器体验。 为此类操作保留内存后，无法存储缓存数据。
 
 在选择新的内存预留值（maxmemory-reserved  或 maxfragmentationmemory-reserved  ）时，请注意此更改可能会如何影响已在运行的包含大量数据的缓存。 例如，如果你的 53 GB 缓存中已有 49 GB 数据，那么，将预留值更改为 8 GB 后，此更改会将系统的最大可用内存降至 45 GB。 如果你的当前 `used_memory` 或 `used_memory_rss` 值高于 45 GB 的新限制，则系统需要逐出数据，直到 `used_memory` 和 `used_memory_rss` 均低于 45 GB。 逐出可能会增加服务器负载和内存碎片。 有关 `used_memory` 和 `used_memory_rss` 等缓存指标的详细信息，请参阅[可用指标和报告时间间隔](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。
 
@@ -360,7 +360,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
 * [新建支持请求](#new-support-request)
 
 ### <a name="resource-health"></a>资源运行状况
-“资源运行状况”  会监视资源，并告知资源是否按预期运行。 有关 Azure 资源运行状况服务的详细信息，请参阅 [Azure 资源运行状况概述](../resource-health/resource-health-overview.md)。
+“资源运行状况”  会监视资源，并告知资源是否按预期运行。 有关 Azure 资源运行状况服务的详细信息，请参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。
 
 > [!NOTE]
 > 资源运行状况当前无法报告在虚拟网络中托管的 Azure Redis 缓存实例的运行状况。 有关详细信息，请参阅 [在 VNET 中托管缓存时，是否可以使用所有缓存功能？](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
@@ -382,7 +382,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
 >
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >
-> 任何可配置的值（例如 **max-memory-policy**）都可以通过 Azure 门户或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。
+> 任何可配置的值（例如 **max-memory-policy** ）都可以通过 Azure 门户或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。
 >
 >
 
@@ -439,7 +439,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
   * P4 (53 GB - 530 GB) - 最多支持 40,000 个连接
 
 > [!NOTE]
-> 虽然每个缓存大小*最多*允许一定数量的连接，但与 Redis 的每个连接都具有其关联的开销。 此类开销的一个示例是，由于 TLS/SSL 加密而导致的 CPU 和内存使用。 给定缓存大小的最大连接限制假定轻负载缓存。 如果连接开销的负载*和*客户端操作的负载超出了系统容量，那么即使未超出当前缓存大小的连接限制，缓存也可能会遇到容量问题。
+> 虽然每个缓存大小 *最多* 允许一定数量的连接，但与 Redis 的每个连接都具有其关联的开销。 此类开销的一个示例是，由于 TLS/SSL 加密而导致的 CPU 和内存使用。 给定缓存大小的最大连接限制假定轻负载缓存。 如果连接开销的负载 *和* 客户端操作的负载超出了系统容量，那么即使未超出当前缓存大小的连接限制，缓存也可能会遇到容量问题。
 >
 >
 

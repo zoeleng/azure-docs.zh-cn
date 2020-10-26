@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488905"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544828"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL 单服务器中的计划内维护通知
 
@@ -40,15 +40,15 @@ Azure Database for MySQL 服务执行基础硬件、操作系统和数据库引�
 
 **计划内维护通知** 允许您将即将发生的计划内维护事件的警报接收到 Azure Database for MySQL。 这些通知与[服务运行状况](../service-health/overview.md)计划内维护集成，允许你在同一位置查看你的订阅的所有计划内维护。 它还有助于将通知扩展到不同资源组的适当受众，因为你可能有不同的联系人负责不同的资源。 你将在事件之前的即将到来的维护72日历小时内收到通知。
 
-我们将尽一切努力为所有事件提供**计划内维护通知** 72 小时通知。 但是，对于关键或安全修补程序，通知可能会在事件快要发生时更晚一点发送，或者会被忽略。
+我们将尽一切努力为所有事件提供 **计划内维护通知** 72 小时通知。 但是，对于关键或安全修补程序，通知可能会在事件快要发生时更晚一点发送，或者会被忽略。
 
 可以在 Azure 门户上检查计划内的维护通知，也可以配置警报以接收通知。 
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>从 Azure 门户检查计划内维护通知
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择 " **服务运行状况**"。
+1. 在 [Azure 门户](https://portal.azure.com)中，选择 " **服务运行状况** "。
 2. 选择 **计划的维护** 选项卡
-3. 选择要检查计划内维护通知的 " **订阅**"、"区域" 和 " **服务** "。 
+3. 选择要检查计划内维护通知的 " **订阅** "、"区域" 和 " **服务** "。 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>接收计划内维护通知
 
@@ -61,7 +61,7 @@ Azure Database for MySQL 服务执行基础硬件、操作系统和数据库引�
 7. 确保“创建后启用规则”设置为“是”。
 8. 选择“创建警报规则”以完成警报
 
-有关如何创建服务运行状况警报的详细步骤，请参阅 [创建有关服务通知的活动日志警报](../service-health/alerts-activity-log-service-notifications.md)。
+有关如何创建服务运行状况警报的详细步骤，请参阅 [创建有关服务通知的活动日志警报](../service-health/alerts-activity-log-service-notifications-portal.md)。
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>能否取消或推迟计划内维护？
 

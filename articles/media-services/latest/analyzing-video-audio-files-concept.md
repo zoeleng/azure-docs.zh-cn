@@ -29,7 +29,7 @@ ms.locfileid: "92519633"
 
 对于音频分析器预设值（"基本" 和 "标准"）有两种模式。 请参阅下表中的差异说明。
 
-若要使用媒体服务 v3 预设分析内容，请创建**转换**，然后提交使用以下某个预设的**作业**：[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 或 **AudioAnalyzerPreset**。 有关演示如何使用 **VideoAnalyzerPreset** 的教程，请参阅[使用 Azure 媒体服务分析视频](analyze-videos-tutorial-with-api.md)。
+若要使用媒体服务 v3 预设分析内容，请创建 **转换** ，然后提交使用以下某个预设的 **作业** ： [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 或 **AudioAnalyzerPreset** 。 有关演示如何使用 **VideoAnalyzerPreset** 的教程，请参阅 [使用 Azure 媒体服务分析视频](analyze-videos-tutorial-with-api.md)。
 
 > [!NOTE]
 > 使用视频或音频分析器预设时，请使用 Azure 门户将帐户设置为具有10个 S3 媒体保留单位，尽管这不是必需的。 可以将 S1 或 S2 用于音频预设。 有关详细信息，请参阅[缩放媒体处理](media-reserved-units-cli-how-to.md)。
@@ -55,10 +55,10 @@ ms.locfileid: "92519633"
 
 输出包括一个 JSON 文件（包含所有见解）和该音频脚本的 VTT 文件。 此预设接受 [BCP47](https://tools.ietf.org/html/bcp47) 字符串格式的属性，该属性用于指定输入文件的语言。 音频见解包括：
 
-* **音频听录**：带有时间戳的口语脚本。 支持多种语言。
-* **说话人索引**：说话人和相应口语的映射。
-* **语音情绪分析**：对音频听录进行情绪分析后的输出。
-* **关键字**：从音频听录内容提取的关键字。
+* **音频听录** ：带有时间戳的口语脚本。 支持多种语言。
+* **说话人索引** ：说话人和相应口语的映射。
+* **语音情绪分析** ：对音频听录进行情绪分析后的输出。
+* **关键字** ：从音频听录内容提取的关键字。
 
 ### <a name="audioanalyzerpreset-basic-mode"></a>AudioAnalyzerPreset 基本模式
 
@@ -66,18 +66,18 @@ ms.locfileid: "92519633"
 
 输出包含用于音频脚本的 JSON 文件和 VTT 文件。 此预设接受 [BCP47](https://tools.ietf.org/html/bcp47) 字符串格式的属性，该属性用于指定输入文件的语言。 输出包括：
 
-* **音频听录**：带有时间戳的口语脚本。 支持多种语言，但不包括自动语言检测和发言人 diarization。
-* **关键字**：从音频听录内容提取的关键字。
+* **音频听录** ：带有时间戳的口语脚本。 支持多种语言，但不包括自动语言检测和发言人 diarization。
+* **关键字** ：从音频听录内容提取的关键字。
 
 ### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
 使用此预设，可以从视频中提取多个音频和视频见解。 输出包括一个 JSON 文件（包含所有见解）、该视频脚本的 VTT 文件以及视频缩略图集合。 此预设还接受 [BCP47](https://tools.ietf.org/html/bcp47) 字符串格式的属性，该属性表示视频的语言。 视频见解包括上述所有音频见解，此外还包含以下项：
 
-* **人脸跟踪**：视频中出现人脸的时间段。 每张人脸都有一个面部 ID 和对应的视频缩略图集合。
-* **视觉文本**：通过光学字符识别检测出的文本。 该文本带有时间戳，也用于提取关键字（以及音频脚本）。
-* **关键帧**：从视频中提取的关键帧集合。
-* **视觉内容审核**：标记为成人或猥亵性的视频部分。
-* **注释**：基于预定义对象模型对视频进行注释的结果
+* **人脸跟踪** ：视频中出现人脸的时间段。 每张人脸都有一个面部 ID 和对应的视频缩略图集合。
+* **视觉文本** ：通过光学字符识别检测出的文本。 该文本带有时间戳，也用于提取关键字（以及音频脚本）。
+* **关键帧** ：从视频中提取的关键帧集合。
+* **视觉内容审核** ：标记为成人或猥亵性的视频部分。
+* **注释** ：基于预定义对象模型对视频进行注释的结果
 
 ## <a name="insightsjson-elements"></a>insights.json 元素
 

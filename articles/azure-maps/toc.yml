@@ -95,6 +95,8 @@
   items:
     - name: 管理 Maps 帐户
       items:
+        - name: 使用 ARM 模板创建帐户
+          href: how-to-create-template.md
         - name: 管理帐户
           href: how-to-manage-account-keys.md
         - name: 管理身份验证

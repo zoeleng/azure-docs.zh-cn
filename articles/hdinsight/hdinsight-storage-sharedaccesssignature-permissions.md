@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e00f7b97b923443cef3b97e0cdeda009ad5c9b03
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2395eb5f5b40a7e3469292ec7faa68d8942dce9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490860"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535189"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure Blob 存储共享访问签名来限制对 HDInsight 中的数据的访问
 
 HDInsight 对与群集关联的 Azure Blob 存储帐户中的数据具有完全访问权限。 可以使用 Blob 容器中的共享访问签名来限制对数据的访问。  (SAS) 的共享访问签名是 Azure Blob 存储帐户的一项功能，可用于限制对数据的访问。 例如，它可以提供对数据的只读访问。
 
 > [!IMPORTANT]  
-> 对于使用 Apache Ranger 的解决方案，请考虑使用已加入域的 HDInsight。 有关详细信息，请参阅[配置已加入域的 HDInsight](./domain-joined/apache-domain-joined-configure.md) 文档。
+> 对于使用 Apache Ranger 的解决方案，请考虑使用已加入域的 HDInsight。 有关详细信息，请参阅[配置已加入域的 HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) 文档。
 
 > [!WARNING]  
 > HDInsight 必须对群集的默认存储拥有完全访问权限。
@@ -31,7 +31,7 @@ HDInsight 对与群集关联的 Azure Blob 存储帐户中的数据具有完全�
 
 * 一个现有的[存储容器](../storage/blobs/storage-quickstart-blobs-portal.md)。  
 
-* 如果使用 PowerShell，需要安装 [Az 模块](https://docs.microsoft.com/powershell/azure/)。
+* 如果使用 PowerShell，需要安装 [Az 模块](/powershell/azure/)。
 
 * 如果想要使用 Azure CLI，但尚未安装，请参阅 [安装 Azure CLI](/cli/azure/install-azure-cli)。
 
@@ -76,7 +76,7 @@ HDInsight 对与群集关联的 Azure Blob 存储帐户中的数据具有完全�
 
 建议始终使用存储访问策略。 使用存储策略时，可以根据需要撤销签名或延长过期日期。 本文档中的步骤使用存储访问策略生成 SAS。
 
-有关共享访问签名的详细信息，请参阅[了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
+有关共享访问签名的详细信息，请参阅[了解 SAS 模型](../storage/common/storage-sas-overview.md)。
 
 ## <a name="create-a-stored-policy-and-sas"></a>创建存储策略和 SAS
 
@@ -357,8 +357,8 @@ Remove-AzResourceGroup `
 
 1. 展开“自定义 core-site”部分，并滚动到底部，然后选择“添加属性...”。将以下值用于“键”和“值”： 
 
-    * **键**：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **值**：前面执行的某个方法返回的 SAS。
+    * **键** ：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **值** ：前面执行的某个方法返回的 SAS。
 
     将 `CONTAINERNAME` 替换为用于 C# 或 SAS 应用程序的容器名称。 将 `STORAGEACCOUNTNAME` 替换为所用的存储帐户名称。
 
@@ -411,7 +411,7 @@ Remove-AzResourceGroup `
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    此命令会将该文件下载到名为 **testfile.txt**的本地文件中。
+    此命令会将该文件下载到名为 **testfile.txt** 的本地文件中。
 
 5. 使用以下命令将本地文件上传到 SAS 存储上名为 **testupload.txt** 的新文件中：
 

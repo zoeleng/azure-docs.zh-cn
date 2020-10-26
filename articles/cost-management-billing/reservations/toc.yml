@@ -124,6 +124,8 @@
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 解决预留利用率问题
           href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
+        - name: 预留建议疑难解答
+          href: troubleshoot-reservation-recommendation.md??toc=/azure/cost-management-billing/reservations/toc.json
 - name: 参考
   items:
     - name: 预留 REST API

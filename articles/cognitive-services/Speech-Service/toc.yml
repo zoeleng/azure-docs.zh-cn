@@ -297,17 +297,15 @@
           href: index-conversation-scenarios.yml
         - name: 对话听录
           items:
-            - name: 概述
-              items:
-                - name: 什么是对话听录？
-                  href: conversation-transcription.md
+            - name: 对话听录概述
+              href: conversation-transcription.md
+            - name: 实时对话听录快速入门
+              href: how-to-use-conversation-transcription.md
             - name: 操作指南
               items:
                 - name: 处理呼叫中心方案
                   displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
                   href: call-center-transcription.md
-                - name: 实时对话听录
-                  href: how-to-use-conversation-transcription.md
                 - name: 异步对话听录
                   href: how-to-async-conversation-transcription.md
             - name: 参考
@@ -341,14 +339,10 @@
                       href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
         - name: 多设备对话
           items:
-            - name: 概述
-              items:
-                - name: 什么是多设备对话？
-                  href: multi-device-conversation.md
-            - name: 快速入门
-              items:
-                - name: 启动和加入对话
-                  href: quickstarts/multi-device-conversation.md
+            - name: 多设备对话概述
+              href: multi-device-conversation.md
+            - name: 多设备对话快速入门
+              href: quickstarts/multi-device-conversation.md
             - name: 参考
               items:
                 - name: 语音 SDK
@@ -363,12 +357,8 @@
       items:
         - name: 语音助手文档
           href: index-voice-assistants.yml
-        - name: 概述
-          items:
-            - name: 什么是语音助手？
-              href: voice-assistants.md
-            - name: 语音助手示例 (GitHub)
-              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: 语音助手概述
+          href: voice-assistants.md
         - name: 自定义命令
           items:
             - name: 什么是自定义命令？

@@ -69,6 +69,8 @@
               href: auth-remote-desktop-gateway.md
             - name: SAML 身份验证
               href: auth-saml.md
+            - name: SSH 身份验证
+              href: auth-ssh.md
             - name: Windows 身份验证 - KCD
               href: auth-kcd.md
             - name: 目录同步

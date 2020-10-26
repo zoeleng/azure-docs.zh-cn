@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211312"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544505"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Azure Cache for Redis 开发的常见问题解答
 
@@ -55,8 +55,8 @@ StackExchange.Redis 有很多选项。 本部分介绍一些常用设置。 有�
 
 * **重试**
   * 对于 ConnectRetry 和 ConnectTimeout，一般指导原则是快速失败并重试。 该指导原则取决于工作负荷，以及客户端发出 Redis 命令和接收响应平均花费的时间。
-  * 让 StackExchange.Redis 自动重新连接，而不是检查连接状态，并由用户自己重新连接。 **避免使用 ConnectionMultiplexer.IsConnected 属性**。
-  * 雪球效应 - 有时，可能会遇到这样的问题：不断地重试解决，但重试不断累积而永远无法恢复。 如果发生雪球效应，应该根据 Microsoft 模式和实践小组发布的[一般重试指导原则](../best-practices-retry-general.md)中所述，考虑使用指数退让重试算法。
+  * 让 StackExchange.Redis 自动重新连接，而不是检查连接状态，并由用户自己重新连接。 **避免使用 ConnectionMultiplexer.IsConnected 属性** 。
+  * 雪球效应 - 有时，可能会遇到这样的问题：不断地重试解决，但重试不断累积而永远无法恢复。 如果发生雪球效应，应该根据 Microsoft 模式和实践小组发布的[一般重试指导原则](/azure/architecture/best-practices/transient-faults)中所述，考虑使用指数退让重试算法。
   
 * **超时值**
   * 根据工作负荷相应地设置值。 如果要存储较大值，应将超时设置为较大值。
@@ -109,7 +109,7 @@ public static ConnectionMultiplexer Connection
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Redis 命令行工具不适用于 TLS 端口，但你可以按照[如何将 Redis 命令行工具用于 Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) 一文中的说明，使用 `stunnel` 等实用程序将工具安全地连接到 TLS 端口。
+> Redis 命令行工具不适用于 TLS 端口，但你可以按照[如何将 Redis 命令行工具用于 Azure Cache for Redis](./cache-how-to-redis-cli-tool.md) 一文中的说明，使用 `stunnel` 等实用程序将工具安全地连接到 TLS 端口。
 >
 >
 

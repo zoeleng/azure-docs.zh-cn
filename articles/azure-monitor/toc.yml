@@ -477,7 +477,7 @@
           href: platform/autoscale-virtual-machine-scale-sets.md
         - name: 使用 Webhook 和电子邮件通知
           href: platform/autoscale-webhook-email.md
-        - name: 疑难解答
+        - name: 故障排除
           href: platform/autoscale-troubleshoot.md
         - name: 资源日志架构
           href: platform/autoscale-resource-log-schema.md
@@ -642,7 +642,7 @@
                 - name: Spring Boot 应用
                   displayname: java
                   href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-                - name: 故障排除
+                - name: 疑难解答
                   href: app/java-troubleshoot.md
             - name: Node.js
               href: app/nodejs.md
@@ -719,7 +719,7 @@
                       href: app/status-monitor-v2-get-started.md
                     - name: 详细说明
                       href: app/status-monitor-v2-detailed-instructions.md
-                    - name: 疑难解答
+                    - name: 故障排除
                       href: app/status-monitor-v2-troubleshoot.md
                     - name: API 参考
                       href: app/status-monitor-v2-api-reference.md
@@ -1026,6 +1026,8 @@
           href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: 监视部署和 HPA
           href: insights/container-insights-deployment-hpa-metrics.md
+        - name: 监视永久性卷 (PV)
+          href: insights/container-insights-persistent-volumes.md
         - name: 查看实时数据
           items:
             - name: 实时数据（预览版）概述

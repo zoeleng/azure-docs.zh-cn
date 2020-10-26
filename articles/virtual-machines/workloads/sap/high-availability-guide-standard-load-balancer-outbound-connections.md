@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961470"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544743"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 高可用性方案中使用 Azure 标准负载均衡器的虚拟机的公共终结点连接
 
@@ -162,7 +162,7 @@ SAP 系统通常包含敏感的业务数据。 托管 SAP 系统的 VM 具有公
    1. 输入名称“MyRouteTable”，依次选择“订阅”、“资源组”和“位置”（与虚拟网络和防火墙的位置匹配）。  
    1. 保存  
 
-   防火墙规则如下所示：![使用 Azure 防火墙进行出站连接](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   防火墙规则如下所示： ![ 显示防火墙外观的关系图。](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. 创建从 VM 的子网指向 MyAzureFirewall 的专用 IP 的用户定义路由。
    1. 当你在“路由表”上时，单击“路由”。 选择“添加”。 

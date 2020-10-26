@@ -64,7 +64,7 @@ ms.locfileid: "91977861"
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **呼叫客户端库** | Chrome*、新 Edge | Chrome、Safari* | Chrome*  | Chrome* | Chrome* | Safari** |
+| **呼叫客户端库** | Chrome*、新 Microsoft Edge | Chrome、Safari* | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
 *请注意，除前两个版本外，还支持最新版本的 Chrome。<br/>

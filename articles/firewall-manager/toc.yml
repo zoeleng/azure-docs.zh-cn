@@ -14,6 +14,8 @@
   items:
     - name: 保护虚拟中心 - 门户
       href: secure-cloud-network.md
+    - name: 保护虚拟中心 - PowerShell
+      href: secure-cloud-network-powershell.md
     - name: 保护中心虚拟网络 - 门户
       href: secure-hybrid-network.md
 - name: 概念
