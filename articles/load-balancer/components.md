@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930945"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317446"
 ---
 # <a name="azure-load-balancer-components"></a>Azure 负载均衡器组件
 
@@ -128,6 +128,7 @@ HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部�
 
 ## <a name="limitations"></a>限制
 
+- 了解负载均衡器[限制](https://aka.ms/lblimits) 
 - 负载均衡器针对特定的 TCP 或 UDP 协议提供了负载均衡和端口转发。 负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。
 - 从后端 VM 到内部负载均衡器前端的出站流将会失败。
 - 负载均衡器规则不能跨越两个虚拟网络。  前端及其后端实例必须位于同一个虚拟网络中。  

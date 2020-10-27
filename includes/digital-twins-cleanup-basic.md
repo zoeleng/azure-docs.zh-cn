@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: 包括用于清理基本 Azure 数字孪生实例和应用注册的文件
+description: 包括用于清理基本 Azure 数字孪生实例的文件
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: e8f167555434338416381aaf8978a3d551686fb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606334"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372305"
 ---
 如果不再需要本教程中创建的资源，请按照以下步骤将其删除。
 
@@ -23,10 +23,4 @@ ms.locfileid: "90606334"
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-接下来，使用以下命令删除为客户端应用创建的 Azure Active Directory 应用注册：
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```

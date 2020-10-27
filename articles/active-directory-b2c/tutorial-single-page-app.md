@@ -11,16 +11,16 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258892"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216516"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>教程：使用 Azure AD B2C 在单页应用程序中启用身份验证
 
-本教程介绍如何使用 Azure Active Directory B2C (Azure AD B2C) 在单页应用程序 (SPA) 中进行用户登录和注册。
+本教程介绍如何使用 Azure Active Directory B2C (Azure AD B2C) 在使用 OAuth 2.0 隐式授权流的单页应用程序 (SPA) 中进行用户登录和注册。
 
 本教程是由两个部分组成的教程系列的第一部分，将介绍以下操作：
 
@@ -39,7 +39,7 @@ ms.locfileid: "91258892"
 在继续执行本教程中的步骤以前，需将以下 Azure AD B2C 资源准备到位：
 
 * [Azure AD B2C 租户](tutorial-create-tenant.md)
-* 在租户中[注册的应用程序](tutorial-register-applications.md)
+* 在租户中[注册的应用程序](tutorial-register-spa.md)（使用“隐式流”选项）
 * 在租户中[创建的用户流](tutorial-create-user-flows.md)
 
 另外，需要在本地开发环境中备好以下项：
@@ -60,7 +60,7 @@ ms.locfileid: "91258892"
 1. 在左侧菜单中，选择“Azure AD B2C”。 或者，选择“所有服务”并搜索并选择“Azure AD B2C”。
 1. 依次选择“应用注册(预览版)”、“拥有的应用程序”选项卡，然后选择“webapp1”应用程序 。
 1. 在“Web”下，选择“添加 URI”链接，输入 `http://localhost:6420`。
-1. 在“隐式授权”下，选中“访问令牌”和“ID 令牌”复选框，然后选择“保存”。
+1. 在“隐式授权”下，选中“访问令牌”和“ID 令牌”复选框（如果尚未选中），然后选择“保存”   。
 1. 选择“概述”。
 1. 记录“应用程序(客户端) ID”，以便稍后在单页 Web 应用程序中更新代码时使用。
 

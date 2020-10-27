@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e415cbec3b2e8c834ee02630d7f849ccf3e1e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548862"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>教程：Azure Active Directory 与 Recognize 集成
 
@@ -89,7 +89,7 @@ ms.locfileid: "88548862"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -97,7 +97,7 @@ ms.locfileid: "88548862"
 
     ![编辑基本 SAML 配置](common/edit-urls.png)
 
-4. 在“基本 SAML 配置”  部分，如果有**服务提供程序元数据文件**，请执行以下步骤：
+4. 在“基本 SAML 配置”  部分，如果有 **服务提供程序元数据文件** ，请执行以下步骤：
 
     >[!NOTE]
     >本教程的“配置 Cisco Webex Meetings 单一登录”部分会提供“服务提供程序元数据文件”。  
@@ -119,7 +119,7 @@ ms.locfileid: "88548862"
     > [!Note]
     > 如果“标识符”值未自动填充，可通过打开“SSO 设置”部分的“服务提供程序元数据 URL”来获取“标识符”值，本教程的“配置 Recognize 单一登录”部分会对此予以介绍。   登录 URL 值不是实际值。 请使用实际登录 URL 更新此值。 请联系 [Recognize 客户端支持团队](mailto:support@recognizeapp.com)获取该值。 还可以参考 Azure 门户中的“基本 SAML 配置”  部分中显示的模式。
 
-5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -139,15 +139,15 @@ ms.locfileid: "88548862"
 
 2. 在右上角，单击“菜单”  。 转到“公司管理员”  。
    
-    ![在应用端配置单一登录](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![屏幕截图显示从“设置”菜单选择了“公司管理员”。](./media/recognize-tutorial/tutorial_recognize_000.png)
 
 3. 在左侧导航窗格上，单击“设置”。 
    
-    ![在应用端配置单一登录](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![屏幕截图显示从导航页选择了“设置”。](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. 在“SSO 设置”部分中执行以下步骤  。
    
-    ![在应用端配置单一登录](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![屏幕截图显示了“SSO 设置”，你可以在其中输入所述值。](./media/recognize-tutorial/tutorial_recognize_002.png)
     
     a. 对于“启用 SSO”，选择“启用”   。
 
@@ -163,11 +163,11 @@ ms.locfileid: "88548862"
 
 5. 在“SSO 设置”  部分旁边，复制“服务提供程序元数据 url”下的 URL  。
    
-    ![在应用端配置单一登录](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![屏幕截图显示“备注”，你可以在其中复制“服务提供程序元数据”。](./media/recognize-tutorial/tutorial_recognize_003.png)
 
 6. 在空白浏览器下打开“元数据 URL 链接”以下载元数据文档  。 从文件复制 EntityDescriptor 值 (entityID)，并将其粘贴到 Azure 门户上的“基本 SAML 配置”中的“标识符”文本框   。
     
-    ![在应用端配置单一登录](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![屏幕截图显示包含纯文本 X M L 的文本框，你可以在其中获取实体 ID。](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户 
 

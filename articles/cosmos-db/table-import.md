@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85557624"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329398"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>将数据迁移到 Azure Cosmos DB 表 API 帐户
 
@@ -66,13 +66,13 @@ ms.locfileid: "85557624"
 * **/s.Filter：** 可选。 要应用的筛选器字符串
 * **/s.Projection：** 可选。 要选择的列的列表
 
-在从 Azure 表存储进行导入时，若要检索源连接字符串，请打开 Azure 门户并单击“存储帐户” > “帐户” > “访问密钥”，然后使用复制按钮复制**连接字符串**。  
+在从 Azure 表存储进行导入时，若要检索源连接字符串，请打开 Azure 门户并单击“存储帐户” > “帐户” > “访问密钥”，然后使用复制按钮复制 **连接字符串** 。  
 
-:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="HBase 源选项的屏幕截图":::
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="显示“存储帐户”>“帐户”>“访问密钥”选项并突出显示“复制”按钮的屏幕截图。":::
 
-在从 Azure 表存储进行导入时，若要检索源连接字符串，请打开 Azure 门户并单击“存储帐户” > “帐户” > “访问密钥”，然后使用复制按钮复制**连接字符串**。  
+在从 Azure 表存储进行导入时，若要检索源连接字符串，请打开 Azure 门户并单击“存储帐户” > “帐户” > “访问密钥”，然后使用复制按钮复制 **连接字符串** 。  
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="HBase 源选项的屏幕截图":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="显示“存储帐户”>“帐户”>“访问密钥”选项并突出显示“复制”按钮的屏幕截图。":::
 
 [示例 Azure 表存储命令](#azure-table-storage)
 

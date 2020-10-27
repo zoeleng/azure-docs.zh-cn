@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98d94e9544e75f762d4532101a92d14106d6a575
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931788"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150927"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>教程：识别照片中的 Azure 服务徽标
 
@@ -84,7 +84,7 @@ ms.locfileid: "88931788"
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-此结果采用 **PredictionResult** 实例的格式，该实例本身包含**预测**实例的列表。 **预测**包含检测到的标记及其边框在图像中的位置。
+此结果采用 **PredictionResult** 实例的格式，该实例本身包含 **预测** 实例的列表。 **预测** 包含检测到的标记及其边框在图像中的位置。
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
@@ -104,7 +104,7 @@ ms.locfileid: "88931788"
 
 ## <a name="create-a-service-principal"></a>创建服务主体
 
-应用需要通过一个 Azure 服务主体帐户将服务部署到 Azure 订阅。 使用服务主体可以通过基于角色的访问控制向应用委托特定的权限。 若要了解详细信息，请参阅[服务主体指南](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)。
+应用需要通过一个 Azure 服务主体帐户将服务部署到 Azure 订阅。 可以使用 Azure 基于角色的访问控制通过服务主体向应用委托特定的权限。 若要了解详细信息，请参阅[服务主体指南](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)。
 
 可以使用 Azure Cloud Shell 或 Azure CLI 创建服务主体（如下所示）。 若要开始，请登录并选择要使用的订阅。
 

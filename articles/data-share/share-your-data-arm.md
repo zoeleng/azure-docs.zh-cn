@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654100"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146152"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>快速入门：使用 Azure Data Share 和资源管理器模板共享数据
 
@@ -60,7 +60,7 @@ ms.locfileid: "88654100"
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-这是因为部署正在尝试在 RBAC 分配完成之前创建数据集。 尽管出现错误消息，但部署仍可能成功。  你仍然可以浏览[查看部署的资源](#review-deployed-resources)。
+这是因为部署正尝试在 Azure 角色分配完成之前创建数据集。 尽管出现错误消息，但部署仍可能成功。  你仍然可以浏览[查看部署的资源](#review-deployed-resources)。
 
 ## <a name="deploy-the-template"></a>部署模板
 
@@ -71,7 +71,7 @@ ms.locfileid: "88654100"
 
     * 订阅：选择用于创建数据共享和其他资源的 Azure 订阅。
     * 资源组：选择“新建”以创建新的资源组，或选择现有资源组。
-    * **位置**：选择资源组的位置。
+    * **位置** ：选择资源组的位置。
     * 项目名称：输入项目名称。  项目名称用于生成资源名称。  请参阅上一个模板中的变量定义。
     * 位置：选择资源的位置。  可以为资源组使用相同的位置。
     * 邀请电子邮件：输入数据共享收件人的 Azure 登录电子邮件地址。  电子邮件别名不起作用。

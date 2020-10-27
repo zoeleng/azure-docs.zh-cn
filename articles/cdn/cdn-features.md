@@ -1,30 +1,29 @@
 ---
-title: 比较 Azure 内容分发网络 (CDN) 产品功能 | Microsoft Docs
+title: 比较 Azure 内容分发网络 (CDN) 产品功能
 description: 了解每个 Azure 内容分发网络 (CDN) 产品支持的功能。
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: mdgattuso
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0e57ae691bf4b07b8161bc343929510d6be041a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8d8b01e8c5f4ea3054e639ecc9dd8b14bbf048b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81260507"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148732"
 ---
-# <a name="compare-azure-cdn-product-features"></a>比较 Azure CDN 产品功能
+# <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Azure CDN 产品功能之间有哪些比较？
 
-Azure 内容分发网络 (CDN) 包括四个产品：“来自 Microsoft 的 Azure CDN Standard”、“来自 Akamai 的 Azure CDN Standard”、“来自 Verizon 的 Azure CDN Standard”和“来自 Verizon 的 Azure CDN Premium”     。 有关将**来自 Verizon 的标准 Azure CDN** 配置文件迁移到**来自 Verizon 的高级 Azure CDN** 的信息，请参阅[将 Azure CDN 配置文件从标准 Verizon 迁移到高级 Verizon](cdn-migrate.md)。 请注意，虽然存在从标准 Verizon 到高级 Verizon 的升级路径，但目前没有其他产品之间的转换机制。
+Azure 内容分发网络 (CDN) 包括四个产品： 
+
+* **来自 Microsoft 的 Azure CDN 标准版**
+* **来自 Akamai 的 Azure CDN 标准版**
+* **来自 Verizon 的 Azure CDN 标准版**
+* **来自 Verizon 的 Azure CDN 高级版** 。 
 
 下表比较了每个产品的可用功能。
 
@@ -41,11 +40,11 @@ Azure 内容分发网络 (CDN) 包括四个产品：“来自 Microsoft 的 Azur
 | [全局服务器负载均衡 (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [快速清除](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** ，目前 Akamai 的 Azure CDN 不支持全部清除和通配符清除 |**&#x2713;** |**&#x2713;** |
 | [资产预加载](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| 缓存/标头设置（使用[缓存规则](cdn-caching-rules.md)）  |**&#x2713;** 使用[标准规则引擎](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
-| 可自定义的、基于规则的内容分发引擎 |**&#x2713;** 使用[标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用[规则引擎](cdn-rules-engine.md) |
-| 缓存/标头设置  |**&#x2713;** 使用[标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用[高级规则引擎](cdn-rules-engine.md) |
-| URL 重定向/重写 |**&#x2713;** 使用[标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用[高级规则引擎](cdn-rules-engine.md) |
-| 移动设备规则  |**&#x2713;** 使用[标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用[高级规则引擎](cdn-rules-engine.md) |
+| 缓存/标头设置（使用[缓存规则](cdn-caching-rules.md)）  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| 可自定义的、基于规则的内容分发引擎 |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用 [规则引擎](cdn-rules-engine.md) |
+| 缓存/标头设置  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用 [高级规则引擎](cdn-rules-engine.md) |
+| URL 重定向/重写 |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用 [高级规则引擎](cdn-rules-engine.md) |
+| 移动设备规则  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用 [高级规则引擎](cdn-rules-engine.md) |
 | [查询字符串缓存](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 双协议栈 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 支持](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -72,11 +71,19 @@ Azure 内容分发网络 (CDN) 包括四个产品：“来自 Microsoft 的 Azur
 | **易于使用** | **标准版 Microsoft** | **标准 Akamai** | **标准 Verizon** | **高级 Verizon** | 
 | 轻松与[存储](cdn-create-a-storage-account-with-cdn.md)、[Web 应用](cdn-add-to-web-app.md)和[媒体服务](../media-services/media-services-portal-manage-streaming-endpoints.md)等 Azure 服务集成  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | 通过 [REST API](/rest/api/cdn/)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 进行管理  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [压缩 MIME 类型](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |仅限默认值 |可配置性 |可配置性  |可配置性  |
+| [压缩 MIME 类型](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |仅限默认值 |可配置性 |可配置  |可配置性  |
 | 压缩编码  |gzip、brotli |gzip |gzip、deflate、bzip2、brotili  |gzip、deflate、bzip2、brotili  |
 
+## <a name="migration"></a>迁移
 
+有关将 **来自 Verizon 的标准 Azure CDN** 配置文件迁移到 **来自 Verizon 的高级 Azure CDN** 的信息，请参阅 [将 Azure CDN 配置文件从标准 Verizon 迁移到高级 Verizon](cdn-migrate.md)。 
 
+> [!NOTE]
+> 存在从标准 Verizon 到高级 Verizon 的升级路径，但目前没有其他产品之间的转换机制。
+
+## <a name="next-steps"></a>后续步骤
+
+* 了解有关 [Azure CDN](cdn-overview.md) 的详细信息。
 
 
 

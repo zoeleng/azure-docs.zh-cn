@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930911"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315305"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure 负载均衡器算法
 
@@ -57,6 +57,7 @@ ms.locfileid: "91930911"
 
 ## <a name="next-steps"></a>后续步骤
 
+- 了解组成 Azure 负载均衡器的[组件](components.md)。
 - 请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)以开始使用负载均衡器：在已安装自定义 IIS 扩展的情况下创建 VM，然后对 VM 之间的 Web 应用进行负载均衡。
 - 了解 [Azure 负载均衡器出站连接](load-balancer-outbound-connections.md)。
 - 详细了解 [Azure 负载均衡器](load-balancer-overview.md)。

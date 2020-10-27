@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854284"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214934"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 代码示例
 
@@ -47,7 +47,8 @@ ms.locfileid: "91854284"
 
 | 示例 | 说明 |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | 调用了一个 Web API 的单页应用程序 (SPA)。 通过 MSAL.js 使用 Azure AD B2C 完成身份验证。 |
+| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | 调用了一个 Web API 的单页应用程序 (SPA)。 通过 MSAL.js 使用 Azure AD B2C 完成身份验证。 此示例通过 PKCE 使用授权代码流。 |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | 调用了一个 Web API 的单页应用程序 (SPA)。 通过 MSAL.js 使用 Azure AD B2C 完成身份验证。 此示例使用隐式流。|
 
 ## <a name="saml-test-application"></a>SAML 测试应用程序
 

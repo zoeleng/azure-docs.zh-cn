@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b7e9491f3ddc49d49cf5301bba9d4f51fc9dd008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df2d836d3b3c42b0f2a378ec258dd184c68d5e
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282334"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495591"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>教程：使用 DMS 以联机方式将 MySQL 迁移到 Azure Database for MySQL
 
@@ -49,7 +49,7 @@ ms.locfileid: "91282334"
 
 要完成本教程，需要：
 
-* 下载并安装 [MySQL 社区版](https://dev.mysql.com/downloads/mysql/) 5.6 或 5.7。 本地 MySQL 版本必须与 Azure Database for MySQL 版本相符。 例如，MySQL 5.6 只能迁移到 Azure Database for MySQL 5.6，不能升级到 5.7。
+* 下载并安装 [MySQL 社区版](https://dev.mysql.com/downloads/mysql/) 5.6 或 5.7。 本地 MySQL 版本必须与 Azure Database for MySQL 版本相符。 例如，MySQL 5.6 只能迁移到 Azure Database for MySQL 5.6，不能升级到 5.7。 不支持向/从 MySQL 8.0 进行迁移。 不支持向/从 MySQL 8.0 进行迁移。
 * [在 Azure Database for MySQL 中创建一个实例](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)。 有关如何使用 Azure 门户连接和创建数据库的详细信息，请参阅[使用 MySQL Workbench 进行连接并查询数据](https://docs.microsoft.com/azure/mysql/connect-workbench)一文。  
 * 使用 Azure 资源管理器部署模型创建适合 Azure 数据库迁移服务的 Microsoft Azure 虚拟网络，它将使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 为本地源服务器提供站点到站点连接。 有关创建虚拟网络的详细信息，请参阅[虚拟网络文档](https://docs.microsoft.com/azure/virtual-network/)，尤其是提供了分步详细信息的快速入门文章。
 
@@ -172,7 +172,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 ## <a name="create-a-dms-instance"></a>创建 DMS 实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择**Azure 数据库迁移服务**。
+1. 在 Azure 门户中，选择 **+ 创建资源** ，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务** 。
 
     ![Azure 市场](media/tutorial-mysql-to-azure-mysql-online/portal-marketplace.png)
 
@@ -204,12 +204,12 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
       ![查找 Azure 数据库迁移服务的所有实例](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
 
-2. 在“Azure 数据库迁移服务”屏幕上，搜索你创建的 Azure 数据库迁移服务实例名称，然后选择该实例****。
+2. 在“Azure 数据库迁移服务”屏幕上，搜索你创建的 Azure 数据库迁移服务实例名称，然后选择该实例  。
 
      ![查找 Azure 数据库迁移服务实例](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
 
 3. 选择“+ 新建迁移项目”。
-4. 在“新建迁移项目”**** 屏幕上指定项目名称，在“源服务器类型”**** 文本框中选择“MySQL”****，在“目标服务器类型”**** 文本框中选择“AzureDbForMySQL”****。
+4. 在“新建迁移项目”  屏幕上指定项目名称，在“源服务器类型”  文本框中选择“MySQL”  ，在“目标服务器类型”  文本框中选择“AzureDbForMySQL”  。
 5. 在“选择活动类型”部分选择“联机数据迁移”。 
 
     ![创建数据库迁移服务项目](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
@@ -217,17 +217,17 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
     > [!NOTE]
     > 也可以现在就选择“仅创建项目”来创建迁移项目，在以后再执行迁移。
 
-6. 选择“保存”，记下成功使用 DMS 迁移数据需要满足的要求，然后选择“创建和运行活动”。********
+6. 选择“保存”，记下成功使用 DMS 迁移数据需要满足的要求，然后选择“创建和运行活动”。 
 
 ## <a name="specify-source-details"></a>指定源详细信息
 
-1. 在“添加源详细信息”**** 屏幕上，指定源 MySQL 实例的连接详细信息。
+1. 在“添加源详细信息”  屏幕上，指定源 MySQL 实例的连接详细信息。
 
     ![“添加源详细信息”屏幕](media/tutorial-mysql-to-azure-mysql-online/dms-add-source-details.png)
 
 ## <a name="specify-target-details"></a>指定目标详细信息
 
-1. 选择“保存”，然后在“目标详细信息”屏幕中指定目标 Azure Database for MySQL 服务器的连接详细信息，这是使用 mysqldump 向其部署 Employees 架构的 Azure Database for MySQL 的提前预配实例************。
+1. 选择“保存”，然后在“目标详细信息”屏幕中指定目标 Azure Database for MySQL 服务器的连接详细信息，这是使用 mysqldump 向其部署 Employees 架构的 Azure Database for MySQL 的提前预配实例  。
 
     ![“目标详细信息”屏幕](media/tutorial-mysql-to-azure-mysql-online/dms-add-target-details.png)
 
@@ -251,11 +251,11 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 ## <a name="monitor-the-migration"></a>监视迁移
 
-1. 在迁移活动屏幕上选择“刷新”****，以便更新显示，直到迁移的“状态”**** 显示为“完成”****。
+1. 在迁移活动屏幕上选择“刷新”  ，以便更新显示，直到迁移的“状态”  显示为“完成”  。
 
      ![活动状态 - 完成](media/tutorial-mysql-to-azure-mysql-online/dms-activity-completed.png)
 
-2. 在“数据库名称”下选择特定数据库即可转到“完整数据加载”和“增量数据同步”操作的迁移状态。************
+2. 在“数据库名称”下选择特定数据库即可转到“完整数据加载”和“增量数据同步”操作的迁移状态。 
 
     完整数据加载会显示初始加载迁移状态，而增量数据同步则会显示变更数据捕获 (CDC) 状态。
 
@@ -267,11 +267,11 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 完成初始的完整加载以后，数据库会被标记为“直接转换可供执行”。
 
-1. 如果准备完成数据库迁移，请选择“启动直接转换”。 
+1. 如果准备完成数据库迁移，请选择“启动直接转换”。
 
     ![启动直接转换](media/tutorial-mysql-to-azure-mysql-online/dms-start-cutover.png)
 
-2. 确保停止传入源数据库的所有事务；等到“挂起的更改”计数器显示 **0**。
+2. 确保停止传入源数据库的所有事务；等到“挂起的更改”计数器显示 **0** 。
 3. 选择“确认”，然后选择“应用”。
 4. 当数据库迁移状态显示“已完成”后，请将应用程序连接到新的目标 Azure SQL 数据库。
 

@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 105578df0a37ba1d53df2be8ebed1d1f6d77499f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bffaca9db9a6ecefc9870a2e39ba86640d70b945
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89018784"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281726"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 .NET Web 应用 
 
@@ -27,7 +27,7 @@ ms.locfileid: "89018784"
 > * [Golang](create-mongodb-go.md)
 >  
 
-Azure Cosmos DB 是 Microsoft 提供的全球分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 是 Microsoft 的快速 NoSQL 数据库，具有适合于任何规模的开放式 API。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的全球分布和水平缩放功能。 
 
 本快速入门演示如何使用 [Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md) 创建 Cosmos 帐户。 然后生成并部署通过 [MongoDB .NET 驱动程序](https://docs.mongodb.com/ecosystem/drivers/csharp/)生成的任务列表 Web 应用。
 
@@ -53,7 +53,7 @@ Azure Cosmos DB 是 Microsoft 提供的全球分布式多模型数据库服务�
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为要安装示例应用的新文件夹。
@@ -147,7 +147,7 @@ Azure Cosmos DB 是 Microsoft 提供的全球分布式多模型数据库服务�
 
 1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，并单击“管理 NuGet 包”。 
 
-2. 在 NuGet“浏览”框中，键入 *MongoDB.Driver*。
+2. 在 NuGet“浏览”框中，键入 *MongoDB.Driver* 。
 
 3. 从结果中安装“MongoDB.Driver”库。 这会安装 MongoDB.Driver 包以及所有依赖项。
 

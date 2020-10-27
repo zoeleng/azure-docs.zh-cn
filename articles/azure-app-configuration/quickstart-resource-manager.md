@@ -4,24 +4,24 @@ titleSuffix: Azure App Configuration
 description: 了解如何使用 Azure 资源管理器模板（ARM 模板）创建 Azure 应用程序配置存储。
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824186"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149010"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure 应用程序配置存储
 
 本快速入门介绍如何：
 
-- 使用 ARM 模板部署应用程序配置存储
-- 使用 ARM 模板在应用程序配置存储中创建键值
-- 从 ARM 模板读取应用程序配置存储中的键值
+- 使用 Azure 资源管理器模板（ARM 模板）部署应用程序配置存储。
+- 使用 ARM 模板在应用程序配置存储中创建键值。
+- 从 ARM 模板读取应用程序配置存储中的键值。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -35,14 +35,14 @@ ms.locfileid: "91824186"
 
 ## <a name="review-the-template"></a>查看模板
 
-本快速入门中使用的模板来自 [Azure 快速启动模板](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/)。 它创建新的应用程序配置存储，其中包含两个键值。 然后，它使用 `reference` 函数输出这两个键值资源的值。 通过这种方式读取键的值，就能在模板的其他位置使用键值。
+本快速入门中使用的模板来自 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/)。 它创建新的应用程序配置存储，其中包含两个键值。 然后，它使用 `reference` 函数输出这两个键值资源的值。 通过这种方式读取键的值，就能在模板的其他位置使用键值。
 
 本快速入门使用 `copy` 元素来创建多个键值资源实例。 若要详细了解 `copy` 元素，请参阅 [ARM 模板中的资源迭代](../azure-resource-manager/templates/copy-resources.md)。
 
 > [!IMPORTANT]
 > 此模板需要的应用程序配置资源提供程序版本为 `2020-07-01-preview` 或更高版本。 此版本使用 `reference` 函数来读取键值。 从 `2020-07-01-preview` 版本开始，将不再提供以前的版本中用于读取键值的 `listKeyValue` 函数。
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
 
 该模板中定义了两个 Azure 资源：
 
@@ -83,7 +83,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
-1. 登录到 [Azure 门户](https://portal.azure.com)
+1. 登录到 [Azure 门户](https://portal.azure.com)。
 1. 在 Azure 门户搜索框中，键入“应用程序配置”。 从列表中选择“应用程序配置”。
 1. 选择新创建的应用程序配置资源。
 1. 在“操作”下，单击“配置资源管理器” 。

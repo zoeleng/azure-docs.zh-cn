@@ -2,22 +2,23 @@
 title: 规划 Azure VMware 解决方案部署
 description: 本文概述了 Azure VMware 解决方案部署工作流。  最终结果是一个就绪的可用于创建和迁移虚拟机 (VM) 的环境。
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055080"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147980"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>规划 Azure VMware 解决方案部署
 
-在本文中，我们将为你提供规划过程，该过程用于标识并收集在部署过程中使用的数据。 [使用预部署清单](pre-deployment-checklist.md)来记录信息，方便在部署过程中进行参考。  
+在本文中，我们将为你提供规划过程，该过程用于标识并收集在部署过程中使用的数据。 规划部署时，请务必记录收集的信息，方便在部署过程中参考。
 
 本快速入门中的过程会生成一个用于创建虚拟机 (VM) 并进行迁移的生产就绪环境。 
 
 >[!IMPORTANT]
->在创建 Azure VMware 解决方案资源之前，你需要提交一个支持票证来分配你的节点。 支持团队收到你的请求后，最多需要五个工作日来确认你的请求并分配你的节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。 有关详细信息，请参阅[如何启用 Azure VMware 解决方案资源](enable-azure-vmware-solution.md)。 
+>在创建 Azure VMware 解决方案资源之前，请按照[如何启用 Azure VMware 解决方案资源](enable-azure-vmware-solution.md)一文中的说明提交支持票证来分配节点。 支持团队收到你的请求后，最多需要五个工作日来确认你的请求并分配你的节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。 
+
 
 ## <a name="subscription"></a>订阅
 

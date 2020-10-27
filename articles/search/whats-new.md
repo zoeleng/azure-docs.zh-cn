@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0df3c6b1851767616111308ad0bacce227ba1a83
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948895"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102568"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 认知搜索中的新增功能
 
@@ -27,7 +27,7 @@ ms.locfileid: "91948895"
 |功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 类别 | 说明 | 可用性  |
 |------------------------------|----------|-------------|---------------|
 | [托管服务标识](search-howto-managed-identities-data-sources.md) | 索引器、安全性 | 在 Azure Active Directory 中为搜索服务创建标识，然后使用 RBAC 权限授予对 Azure 数据源的访问权限。 此方法无需连接字符串的凭据。 <br><br>如果不能选择 IP 规则，可以通过[受信任的服务例外](search-indexer-howto-access-trusted-service-exception.md)来使用托管服务标识。 | 正式发布。 使用门户或使用 api-version=2020-06-30 [创建数据源 (REST)](/rest/api/searchservice/create-data-source) 时，访问此功能。 |
-| [使用专用链接的出站请求](search-indexer-howto-access-private.md) | 索引器、安全性 | 创建在访问由 Azure 专用链接保护的 Azure 资源时，索引器可以使用的共享专用链接资源。 若要详细了解确保索引器连接安全的所有方法，请参阅[使用 Azure 网络安全功能保护索引器资源](search-indexer-securing-resources.md)。 | 正式发布。 使用门户或使用 api-version=2020-08-01 的[共享专用链接资源](/rest/api/searchmanagement/sharedprivatelinkresources)时，访问此功能。 |
+| [使用专用链接的出站请求](search-indexer-howto-access-private.md) | 索引器、安全性 | 创建在访问由 Azure 专用链接保护的 Azure 资源时，索引器可以使用的共享专用链接资源。 若要详细了解确保索引器连接安全的所有方法，请参阅 [Azure 网络安全功能所保护内容的索引器访问权限](search-indexer-securing-resources.md)。 | 正式发布。 使用门户或使用 api-version=2020-08-01 的[共享专用链接资源](/rest/api/searchmanagement/sharedprivatelinkresources)时，访问此功能。 |
 | [管理 REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | 新的稳定 REST API 增加了对创建共享专用链接资源的支持。 | 正式发布。 |
 | [管理 REST API (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST | 添加了适用于 Azure Functions 和 Azure SQL for MySQL 数据库的共享专用链接资源。 | 公共预览版。 |
 | [管理 .NET SDK 4.0](/dotnet/api/overview/azure/search/management) | .NET SDK | 适用于管理 SDK 的 Azure SDK 更新，面向 REST API 版本 2020-08-01。 | 正式发布。 |
@@ -63,7 +63,7 @@ ms.locfileid: "91948895"
 | [**适用于入站防火墙支持的 IP 规则**](service-configure-firewall.md) | 安全性 | 将对搜索服务终结点的访问限制为特定的 IP 地址。 | 正式发布。 </br> 使用[管理 REST API 2020-03-13](/rest/api/searchmanagement/) 或更高版本，或门户。 |
 | [专用搜索终结点的 Azure 专用链接](service-create-private-endpoint.md) | 安全性| 通过将搜索服务作为专用链接资源（仅可供同一虚拟网络上的客户端应用和其他 Azure 服务访问）运行，使其不受公共 Internet 的影响。 | 正式发布。 </br> 使用[管理 REST API 2020-03-13](/rest/api/searchmanagement/) 或更高版本，或门户。 |
 | [系统托管的标识（预览版）](search-howto-managed-identities-data-sources.md) | 安全性（索引器） | 在 Azure Active Directory 中将搜索服务注册为受信任的服务，以设置到受支持的 Azure 数据源的连接，以编制索引。 适用于从 Azure 数据源（例如 Azure SQL 数据库、Azure Cosmos DB 和 Azure 存储）引入内容的[索引器](search-indexer-overview.md)。 | 公共预览版。 </br> 使用门户注册搜索服务。 |
-| [**sessionId 查询参数**](index-similarity-and-scoring.md)，[scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | 查询（相关性） | 将 sessionID 添加到查询中，以建立一个用于计算搜索分数的会话，scoringStatistics=global 用于从所有分区收集分数，以实现更一致的搜索分数计算。 | 正式发布。 </br> 使用[搜索 REST API 2020-06-30](/rest/api/searchservice/) 或更高版本，或 REST API 2019-05-06。 |
+| [**sessionId 查询参数**](index-similarity-and-scoring.md)， [scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | 查询（相关性） | 将 sessionID 添加到查询中，以建立一个用于计算搜索分数的会话，scoringStatistics=global 用于从所有分区收集分数，以实现更一致的搜索分数计算。 | 正式发布。 </br> 使用[搜索 REST API 2020-06-30](/rest/api/searchservice/) 或更高版本，或 REST API 2019-05-06。 |
 | [featuresMode（预览版）](index-similarity-and-scoring.md#featuresMode-param) | 查询 | 添加此查询参数，展开相关性分数以显示详细信息：每个字段相似度得分、每个字段术语频率和每个字段匹配的唯一标记数。 你可以在自定义评分算法中使用这些数据点。 有关演示此功能的示例，请参阅[添加机器学习 (LearnToRank) 以搜索相关性](https://github.com/Azure-Samples/search-ranking-tutorial)。 | 公共预览版。 </br> 使用[搜索 REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 或 REST API 2019-05-06-Preview。 |
 
 ## <a name="march-2020"></a>2020 年 3 月
@@ -119,7 +119,7 @@ ms.locfileid: "91948895"
 
 ## <a name="new-service-name"></a>新服务名称
 
-Azure 搜索现已重命名为 **Azure 认知搜索**，以反映认知技能和 AI 处理在核心操作中的更广泛用途（但仍为可选）。 API 版本、NuGet 包、命名空间和终结点未有变化。 新的和现有的搜索解决方案不受服务名称更改的影响。
+Azure 搜索现已重命名为 **Azure 认知搜索** ，以反映认知技能和 AI 处理在核心操作中的更广泛用途（但仍为可选）。 API 版本、NuGet 包、命名空间和终结点未有变化。 新的和现有的搜索解决方案不受服务名称更改的影响。
 
 ## <a name="service-updates"></a>服务更新
 

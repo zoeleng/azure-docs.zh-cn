@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575293"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206718"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教程：订购 Azure Data Box
 
@@ -55,7 +55,7 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
 
 #### <a name="install-the-cli-locally"></a>在本地安装 CLI
 
-* 安装 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 2.0.67 或更高版本。 或者，可以[使用 MSI 安装](https://aka.ms/installazurecliwindows)。
+* 安装 [Azure CLI](/cli/azure/install-azure-cli) 2.0.67 或更高版本。 或者，可以[使用 MSI 安装](https://aka.ms/installazurecliwindows)。
 
 **登录到 Azure**
 
@@ -164,13 +164,13 @@ You have logged in. Now let us find all the subscriptions to which you have acce
     WSManStackVersion              3.0
 ```
 
-如果你的版本低于 6.2.4，则需要升级 Windows PowerShell 版本。 要安装最新版本的 Windows PowerShell，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7)。
+如果你的版本低于 6.2.4，则需要升级 Windows PowerShell 版本。 要安装最新版本的 Windows PowerShell，请参阅[安装 Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true)。
 
 **安装 Azure PowerShell 和 Data Box 模块**
 
 需要安装 Azure PowerShell 模块才能使用 Azure PowerShell 订购 Azure Data Box。 安装 Azure PowerShell 模块：
 
-1. 安装 [Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。
+1. 安装 [Azure PowerShell Az 模块](/powershell/azure/new-azureps-module-az)。
 2. 然后使用命令 `Install-Module -Name Az.DataBox` 安装 Az.DataBox。
 
 ```azurepowershell
@@ -184,7 +184,7 @@ Version              Name                                Repository           De
 
 #### <a name="sign-in-to-azure"></a>登录 Azure
 
-打开 Windows PowerShell 命令窗口，并使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) 命令登录到 Azure：
+打开 Windows PowerShell 命令窗口，并使用 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) 命令登录到 Azure：
 
 ```azurepowershell
 PS C:\Windows> Connect-AzAccount
@@ -202,7 +202,7 @@ gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaa
 PS C:\Windows\System32>
 ```
 
-有关如何使用 Windows PowerShell 登录到 Azure 的详细信息，请参阅[使用 Azure PowerShell 进行登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+有关如何使用 Windows PowerShell 登录到 Azure 的详细信息，请参阅[使用 Azure PowerShell 进行登录](/powershell/azure/authenticate-azureps)。
 
 ---
 
@@ -213,7 +213,7 @@ PS C:\Windows\System32>
 在 Azure 门户中执行以下步骤以订购设备。
 
 1. 使用 Microsoft Azure 凭据在以下 URL 登录：[https://portal.azure.com](https://portal.azure.com)。
-2. 选择“+ 创建资源”并搜索 *Azure Data Box*。 选择“Azure Data Box”。
+2. 选择“+ 创建资源”并搜索 *Azure Data Box* 。 选择“Azure Data Box”。
 
    ![“新建”部分的屏幕截图，在搜索字段中有“Azure Data Box”字样。](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
@@ -255,7 +255,7 @@ PS C:\Windows\System32>
 
     ![Azure Data Box 数据目标](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个或多个存储帐户。 Data Box 可以与最多 10 个存储帐户链接。 也可以创建新的**常规用途 v1**、**常规用途 v2** 或 **Blob 存储帐户**。
+    根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个或多个存储帐户。 Data Box 可以与最多 10 个存储帐户链接。 也可以创建新的 **常规用途 v1** 、 **常规用途 v2** 或 **Blob 存储帐户** 。
 
     支持使用虚拟网络的存储帐户。 若要允许 Data Box 服务使用受保护的存储帐户，请在存储帐户网络防火墙设置中启用受信任的服务。 有关详细信息，请了解如何[将 Azure Data Box 添加为受信任的服务](../storage/common/storage-network-security.md#exceptions)。
 
@@ -273,14 +273,44 @@ PS C:\Windows\System32>
 
     在完成时选择“下一步:安全性”以继续操作。
 
-1. 在“安全性”中，如果要启用基于软件的双重加密，请选择“为订单启用双重加密” 。 
+    通过“安全性”屏幕，可以使用自己的设备并共享密码，还可选择使用双重加密。 
+
+    “安全性”屏幕上的所有设置都是可选的。 如果不更改任何设置，则将应用默认设置。
+
+    ![Data Box 导入订单的安全性屏幕](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+
+1. 如果不想使用 Azure Data Box 默认使用的系统生成的密码，请展开“创建自己的密码”。
+
+   系统生成的密码很安全，建议使用该密码，除非贵组织另有要求。
+
+   ![展开 Data Box 导入订单的“创建自己的密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - 要对新设备使用自己的密码，请在“设置设备密码的首选项”中选择“使用自己的密码”，然后键入符合安全要求的密码 。
+   
+     ![Data Box 导入的安全性屏幕，其中包含“使用自己的设备密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+
+   - 使用自己的共享密码：
+
+     1. 在“设置共享密码的首选项”中，依次选择“使用自己的密码”和“选择共享密码”  。
+     
+        ![Data Box 导入的安全性屏幕，其中包含“使用自己的共享密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+
+     1. 为订单中的每个存储帐户键入一个密码。 该密码将用于存储帐户的所有共享。
+     
+        要对所有存储帐户使用同一密码，请选择“复制到全部”。 完成后，选择“保存”。
+     
+        ![为 Data Box 导入订单输入共享密码的屏幕](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+       在“安全性”屏幕上，可以使用“查看更改密码”来更改密码 。
+
+1. 在“安全性”中，如果要启用基于软件的双重加密，请展开“双重加密(适用于高度安全的环境)”，然后选择“为订单启用双重加密”  。
+
+   ![Data Box 导入的安全性屏幕，为 Data Box 订单启用了基于软件的加密](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    除了对 Data Box 上的数据进行 AES-256 位加密，还可执行基于软件的加密。
 
    > [!NOTE]
    > 启用此选项可能会导致订单处理和数据复制耗时较长。 创建订单后，不能更改此选项。
-
-   ![Data Box 导入双重加密的安全性屏幕](media/data-box-deploy-ordered/select-data-box-import-07c.png)
 
    在完成时选择“下一步:联系人详细信息”以继续。
 
@@ -338,7 +368,7 @@ PS C:\Windows\System32>
    |query| JMESPath 查询字符串。 有关详细信息，请参阅 [JMESPath](http://jmespath.org/)。 | --query <string>|
    |verbose| 包括详细日志记录。 | --verbose |
 
-2. 在所选的命令提示符或终端中，使用 [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) 创建 Azure Data Box 订单。
+2. 在所选的命令提示符或终端中运行 [az databox job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true)，以创建 Azure Data Box 订单。
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -431,7 +461,7 @@ PS C:\Windows\System32>
     $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
    ```
 
-2. 记下 Data Box 订单的设置。 这些设置包括你的个人/企业信息、订阅名称、设备信息和寄送信息。 在运行 PowerShell 命令以创建 Data Box 订单时，需要将这些设置用作参数。 下表显示了用于 [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) 的参数设置。
+2. 记下 Data Box 订单的设置。 这些设置包括你的个人/企业信息、订阅名称、设备信息和寄送信息。 在运行 PowerShell 命令以创建 Data Box 订单时，需要将这些设置用作参数。 下表显示了用于 [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) 的参数设置。
 
     | 设置（参数） | 说明 |  示例值 |
     |---|---|---|
@@ -452,7 +482,7 @@ PS C:\Windows\System32>
     |CompanyName| 你工作的公司的名称。| "Contoso, LTD" |
     |StorageAccountResourceId [必填]| 要从中导入数据的 Azure 存储帐户 ID。| <AzStorageAccount>.id |
 
-3. 在所选的命令提示符或终端中，使用 [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) 创建 Azure Data Box 订单。
+3. 在所选的命令提示符或终端中，使用 [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) 创建 Azure Data Box 订单。
 
    ```azurepowershell
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
@@ -506,7 +536,7 @@ PS C:\Windows\System32>
 
 ### <a name="track-a-single-order"></a>跟踪单个订单
 
-若要获取单个现有 Azure Data Box 订单的跟踪信息，请运行 [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show)。 该命令显示有关订单的信息，例如（但不限于）：名称、资源组、跟踪信息、订阅 ID、联系人信息、寄送类型和设备 sku。
+若要获取单个现有 Azure Data Box 订单的跟踪信息，请运行 [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true)。 该命令显示有关订单的信息，例如（但不限于）：名称、资源组、跟踪信息、订阅 ID、联系人信息、寄送类型和设备 sku。
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -547,7 +577,7 @@ PS C:\Windows\System32>
 
 ### <a name="list-all-orders"></a>列出所有订单
 
-如果订购了多个设备，可以运行 [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) 查看所有的 Azure Data Box 订单。 该命令列出属于特定资源组的所有订单。 输出中还显示：订单名称、寄送状态、Azure 区域、交付类型、订单状态。 已取消的订单也包含在列表中。
+如果订购了多个设备，可以运行 [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) 查看所有的 Azure Data Box 订单。 该命令列出属于特定资源组的所有订单。 输出中还显示：订单名称、寄送状态、Azure 区域、交付类型、订单状态。 已取消的订单也包含在列表中。
 此命令还显示每个订单的时间戳。
 
 ```azurecli
@@ -590,7 +620,7 @@ az databox job list --resource-group <resource-group>
 
 ### <a name="track-a-single-order"></a>跟踪单个订单
 
-若要获取单个现有 Azure Data Box 订单的跟踪信息，请运行 [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob)。 该命令显示有关订单的信息，例如（但不限于）：名称、资源组、跟踪信息、订阅 ID、联系人信息、寄送类型和设备 sku。
+若要获取单个现有 Azure Data Box 订单的跟踪信息，请运行 [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob)。 该命令显示有关订单的信息，例如（但不限于）：名称、资源组、跟踪信息、订阅 ID、联系人信息、寄送类型和设备 sku。
 
 > [!NOTE]
 > `Get-AzDataBoxJob` 用于显示单个和多个订单。 不同之处在于，为单个订单指定了订单名称。
@@ -623,7 +653,7 @@ az databox job list --resource-group <resource-group>
 
 ### <a name="list-all-orders"></a>列出所有订单
 
-如果订购了多台设备，可以运行 [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob) 查看所有 Azure Data Box 订单。 该命令列出属于特定资源组的所有订单。 输出中还显示：订单名称、寄送状态、Azure 区域、交付类型、订单状态。 已取消的订单也包含在列表中。
+如果订购了多台设备，可以运行 [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) 查看所有 Azure Data Box 订单。 该命令列出属于特定资源组的所有订单。 输出中还显示：订单名称、寄送状态、Azure 区域、交付类型、订单状态。 已取消的订单也包含在列表中。
 此命令还显示每个订单的时间戳。
 
 ```azurepowershell
@@ -666,7 +696,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="cancel-an-order"></a>取消订单
 
-若要取消 Azure Data Box 订单，请运行 [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel)。 你需要指定取消订单的原因。
+若要取消 Azure Data Box 订单，请运行 [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true)。 你需要指定取消订单的原因。
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -703,7 +733,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>删除订单
 
-如果取消了 Azure Data Box 订单，可以运行 [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) 删除订单。
+如果取消了 Azure Data Box 订单，可以运行 [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) 删除订单。
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -742,7 +772,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="cancel-an-order"></a>取消订单
 
-若要取消 Azure Data Box 订单，请运行 [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob)。 你需要指定取消订单的原因。
+若要取消 Azure Data Box 订单，请运行 [Stop-AzDataBoxJob](/powershell/module/az.databox/stop-azdataboxjob)。 你需要指定取消订单的原因。
 
 ```azurepowershell
 Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
@@ -776,7 +806,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>删除订单
 
-如果取消了 Azure Data Box 订单，可以运行 [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) 删除订单。
+如果取消了 Azure Data Box 订单，可以运行 [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) 删除订单。
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

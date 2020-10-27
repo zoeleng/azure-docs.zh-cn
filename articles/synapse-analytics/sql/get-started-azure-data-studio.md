@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78807db19b413bb642e8dcf61e480d6d954b6178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87059557"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132459"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>使用 Azure Data Studio（预览版）连接到 Synapse SQL
 
@@ -94,4 +94,5 @@ OPENROWSET(
 - [Power BI](get-started-power-bi-professional.md)
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
- 
+
+有关详细信息，请访问[使用 Azure Data Studio 在 Azure Synapse Analytics 中借助专用 SQL 池连接和查询数据](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw)。 

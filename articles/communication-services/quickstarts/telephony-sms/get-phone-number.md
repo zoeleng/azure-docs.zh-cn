@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: cff39f93f9caddfdbe48788f14b62642a373e2bf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044762"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148184"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>快速入门：使用 Azure 门户获取电话号码
 
@@ -39,45 +39,45 @@ ms.locfileid: "92044762"
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="显示通信服务资源主页的屏幕截图。":::
 
-按`Get`按钮启动向导。 `Phone numbers`边栏选项卡上的向导将引导你完成一系列问题，以帮助你选择最适合你的情况的电话号码。 
+按“获取”按钮启动向导。 “电话号码”边栏选项卡上的向导将引导你完成一系列问题，以帮助你选择最适合你的情况的电话号码。 
 
-首先需要选择要在哪个`Country/region`预配电话号码。 选择国家/地区后，需要选择最符合你需求的`use case`。 
+首先需要选择要在哪个“国家/地区”预配电话号码。 选择国家/地区后，需要选择最符合你需求的“用例”。 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="显示通信服务资源主页的屏幕截图。":::
 
-### <a name="select-a-phone-plan"></a>选择电话套餐
+### <a name="select-your-phone-number-features"></a>选择电话号码功能
 
-选择电话套餐分为两个步骤： 
+配置电话号码分为两个步骤： 
 
 1. 选择[号码类型](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. 选择[套餐](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
+2. 选择[号码功能](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services)
 
-目前提供两种号码类型：`Geographic`和`Toll-free`。 选择号码类型后，系统会提供几个可供选择的套餐。
+可从两种电话号码类型中进行选择：“地理”和“免费” 。 选择号码类型后，可以选择功能。
 
-在我们的示例中，我们选择了`Toll-free`号码类型以及`Outbound calling`和`Inbound and Outbound SMS`套餐。
+在我们的示例中，我们选择了具有“出站呼叫”和“入站和出站 SMS”功能的“免费”号码类型  。
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="显示通信服务资源主页的屏幕截图。":::
 
-在此处单击页面底部的`Next: Numbers`按钮，以自定义要预配的电话号码。
+在此处单击页面底部的“下一步:号码”按钮，以自定义要预配的电话号码。
 
 ### <a name="customizing-phone-numbers"></a>自定义电话号码
 
-在`Numbers`页上，你将自定义要预配的电话号码。
+在“号码”页上，你将自定义要预配的电话号码。
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="显示通信服务资源主页的屏幕截图。":::
 
 > [!NOTE]
-> 本快速入门显示的是`Toll-free`号码类型自定义流。 如果选择了`Geographic`号码类型，则体验可能会略有不同，但最终结果是一样的。
+> 本快速入门显示的是“免费”号码类型自定义流。 如果选择了“地理”号码类型，则体验可能会略有不同，但最终结果是一样的。
 
-从可用区号列表中选择`Area code`，输入要预配的数量，然后单击`Search`查找符合所选要求的号码。 系统将显示符合你需求的电话号码及其每月费用。
+从可用区号列表中选择“区号”，输入要预配的数量，然后单击“搜索”查找符合所选要求的号码 。 系统将显示符合你需求的电话号码及其每月费用。
 
 :::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="显示通信服务资源主页的屏幕截图。":::
 
 > [!NOTE]
-> 号码可用性取决于所选的号码类型、位置和套餐。
+> 号码可用性取决于所选的号码类型、位置和功能。
 > 交易到期前，号码会作短暂保留。 如果交易到期，则需要重新选择号码。
 
-若要查看购买摘要并下单，请单击页面底部的`Next: Summary`按钮。
+若要查看购买摘要并下单，请单击页面底部的“下一步:摘要”按钮。
 
 ### <a name="place-order"></a>下单
 
@@ -86,7 +86,7 @@ ms.locfileid: "92044762"
 > [!NOTE]
 > 显示的价格是每月固定费用，其中包括租赁所选电话号码的费用。 拨打或接听电话时产生的即用即付费用未包含在此视图中。 价目表[可在此处获得](../../concepts/pricing.md)。 这些费用取决于号码类型和被叫目的地。 例如，从西雅图地区号码呼叫纽约地区号码的每分钟价格与从同一号码呼叫英国移动号码的每分钟价格可能不同。
 
-最后，单击页面底部的`Place order`进行确认。
+最后，单击页面底部的“下单”进行确认。
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="显示通信服务资源主页的屏幕截图。":::
 
@@ -103,12 +103,14 @@ ms.locfileid: "92044762"
 > [!NOTE]
 > 在此页面上显示预配号码可能需要几分钟时间。
 
-### <a name="customizing-phone-number-features"></a>自定义电话号码功能
-在`Numbers`页面上，可单击要自定义其套餐的号码将其选中。
+
+### <a name="customizing-phone-numbers"></a>自定义电话号码
+
+在“号码”页上，你可以选择一个电话号码进行配置。
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="显示通信服务资源主页的屏幕截图。":::
 
-从可用通话和短信功能的列表中选择功能，然后选择`Confirm`来应用所选内容。
+从可用选项中选择功能，然后单击“确认”以应用你的选择。
 
 ## <a name="troubleshooting"></a>疑难解答
 

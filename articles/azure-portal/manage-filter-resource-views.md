@@ -3,15 +3,15 @@ title: 查看和筛选 Azure 资源信息
 description: 筛选信息并使用不同的视图来更好地了解你的 Azure 资源。
 author: mgblythe
 ms.service: azure-portal
-ms.topic: quickstart
+ms.topic: how-to
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f6185e1c4042110f446337c1b2c2904fefdae7a9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650386"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280244"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>查看和筛选 Azure 资源信息
 
@@ -23,7 +23,7 @@ ms.locfileid: "91650386"
 
 ## <a name="filter-resources"></a>筛选资源
 
-通过使用筛选器将焦点放在你的资源的某个子集上，开始探索**所有资源**。 以下屏幕截图显示了对资源组的筛选，选择了某个订阅的六个资源组中的两个。
+通过使用筛选器将焦点放在你的资源的某个子集上，开始探索 **所有资源** 。 以下屏幕截图显示了对资源组的筛选，选择了某个订阅的六个资源组中的两个。
 
 :::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="所有资源的 Azure 门户视图":::
 
@@ -51,11 +51,11 @@ ms.locfileid: "91650386"
 
 1. 选择“管理视图”，然后选择“浏览所有视图”。
 
-1. 在 **“所有资源”的已保存视图**窗格中，选择该视图，然后选择“删除”图标 ![“删除视图”图标](media/manage-filter-resource-views/icon-delete.png)。
+1. 在 **“所有资源”的已保存视图** 窗格中，选择该视图，然后选择“删除”图标 ![“删除视图”图标](media/manage-filter-resource-views/icon-delete.png)。
 
 ## <a name="summarize-resources-with-visuals"></a>汇总具有视觉对象的资源
 
-到目前为止，我们查看过的视图是列表视图，但还有包括视觉对象的汇总视图。 与列表视图一样，你可以保存并使用这些视图。 筛选器在两种视图类型之间保持不变。 汇总视图包含标准视图，例如下面所示的“位置”视图，以及与特定服务相关的视图，例如虚拟机的“状态”视图。
+到目前为止，我们查看过的视图是列表视图，但还有包括视觉对象的汇总视图。 与列表视图一样，你可以保存并使用这些视图。 筛选器在两种视图类型之间保持不变。 汇总视图包含标准视图，例如下面所示的“位置”视图，以及与特定服务相关的视图，例如 Azure 存储的“状态”视图 。
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="所有资源的 Azure 门户视图":::
 
@@ -65,7 +65,7 @@ ms.locfileid: "91650386"
 
     :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="所有资源的 Azure 门户视图":::
 
-1. 使用汇总视图，你可以按不同的属性（包括“位置”和“类型”）进行汇总。 选择“汇总依据”选项和相应的视觉对象。 以下屏幕截图显示了“类型汇总”和**条形图**视觉对象。
+1. 使用汇总视图，你可以按不同的属性（包括“位置”和“类型”）进行汇总。 选择“汇总依据”选项和相应的视觉对象。 以下屏幕截图显示了“类型汇总”和 **条形图** 视觉对象。
 
     :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="所有资源的 Azure 门户视图":::
 

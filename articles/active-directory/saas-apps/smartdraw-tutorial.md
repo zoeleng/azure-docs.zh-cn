@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: f99993792c2d5f4300025f26d8409207382553d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b4387252be7e0b76f6e0733d6fd4f95d39e2f0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527588"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125946"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>教程：Azure Active Directory 单一登录 (SSO) 与 SmartDraw 的集成
 
@@ -40,7 +40,7 @@ ms.locfileid: "88527588"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * SmartDraw 支持 **SP 和 IDP** 发起的 SSO
-* SmartDraw 支持**实时**用户预配
+* SmartDraw 支持 **实时** 用户预配
 
 ## <a name="adding-smartdraw-from-the-gallery"></a>从库中添加 SmartDraw
 
@@ -50,7 +50,7 @@ ms.locfileid: "88527588"
 1. 在左侧导航窗格中，选择“Azure Active Directory”服务  。
 1. 导航到“企业应用程序”，选择“所有应用程序”   。
 1. 若要添加新的应用程序，请选择“新建应用程序”  。
-1. 在“从库中添加”部分的搜索框中，键入 **SmartDraw**。 
+1. 在“从库中添加”部分的搜索框中，键入 **SmartDraw** 。 
 1. 在结果面板中选择“SmartDraw”，然后添加该应用。  在该应用添加到租户时等待几秒钟。
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-smartdraw"></a>配置并测试 SmartDraw 的 Azure AD 单一登录
@@ -85,7 +85,7 @@ ms.locfileid: "88527588"
     > [!NOTE]
     > 登录 URL 值不是实际值。 需使用实际登录 URL 更新“登录 URL”值（本教程稍后将会介绍）。 还可以参考 Azure 门户中的“基本 SAML 配置”  部分中显示的模式。
 
-1. 单击“ **保存**”。
+1. 单击“ **保存** ”。
 
 1. SmartDraw 应用程序需要特定格式的 SAML 断言，因此，需要在 SAML 令牌属性配置中添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。
 
@@ -152,11 +152,11 @@ ms.locfileid: "88527588"
 
 1. 单击“管理 SmartDraw 许可证”下的“单一登录”。 
 
-    ![SmartDraw 配置](./media/smartdraw-tutorial/configure01.png)
+    ![显示“管理 SmartDraw 许可证”对话框的屏幕截图，你可在其中选择“单一登录”。](./media/smartdraw-tutorial/configure01.png)
 
 1. 在“配置”页上执行以下步骤：
 
-    ![SmartDraw 配置](./media/smartdraw-tutorial/configure02.png)
+    ![显示可在其中输入所述值的“配置”页的屏幕截图。](./media/smartdraw-tutorial/configure02.png)
 
     a. 在“域(类似于 acme.com)”文本框中键入你的域。 
 

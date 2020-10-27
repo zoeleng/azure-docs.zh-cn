@@ -1,18 +1,18 @@
 ---
 title: 教程：使用 Azure 专用终结点连接到存储帐户
 titleSuffix: Azure Private Link
-description: 开始使用 Azure 专用终结点以私密方式连接到存储帐户。
+description: 在本教程中开始使用 Azure 专用终结点以私密方式连接到存储帐户。
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 69bee753c2134b6eebe9c5df0a554c965208ad7c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 64856d0c9a06f57eb25a0cbc9279d1c09992f0d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91366204"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147587"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>教程：使用 Azure 专用终结点连接到存储帐户
 
@@ -27,6 +27,10 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 > * 测试到存储帐户专用终结点的连接。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+
+## <a name="prerequisites"></a>先决条件
+
+* Azure 订阅
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -70,7 +74,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 7. 选择“保存” 。
 
-8. 选择“安全”**** 选项卡。
+8. 选择“安全”  选项卡。
 
 9. 在“BastionHost”下，选择“启用” 。 输入此信息：
 
@@ -94,7 +98,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
@@ -115,7 +119,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -136,13 +140,13 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 2. 在“创建存储帐户”的“基本信息”选项卡中，输入或选择以下信息：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
     | 资源组 | 选择“myResourceGroup” |
     | **实例详细信息** |  |
-    | 存储帐户名称 | 输入 **mystorageaccount**。 如果该名称不可用，请输入一个唯一的名称。 |
+    | 存储帐户名称 | 输入 **mystorageaccount** 。 如果该名称不可用，请输入一个唯一的名称。 |
     | 位置 | 选择“美国东部” |
     | 性能 | 保留默认值“标准” |
     | 帐户类型 | 保留默认值“存储(常规用途 v2)” |
@@ -156,7 +160,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 6. 在“创建专用终结点”中，输入或选择以下信息：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | 订阅 | 选择 Azure 订阅 |
     | 资源组 | 选择“myResourceGroup” |
@@ -184,7 +188,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 13. 在存储帐户的“设置”部分中，选择“访问密钥”。 
 
-14. 对于“key1”，选择**连接字符串**上的“复制”。
+14. 对于“key1”，选择 **连接字符串** 上的“复制”。
 
 ## <a name="test-connectivity-to-private-endpoint"></a>测试到专用终结点的连接
 
@@ -196,7 +200,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 3. 选择“myVM”。
 
-4. 在 **myVM**的“概述”页上，选择“连接”，然后选择“堡垒”。
+4. 在 **myVM** 的“概述”页上，选择“连接”，然后选择“堡垒”。
 
 5. 选择蓝色的“使用堡垒”按钮。
 
@@ -216,7 +220,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
     Aliases:  mystorageaccount8675.blob.core.windows.net
     ```
 
-    将为存储帐户名称返回专用 IP 地址 **10.1.0.5**。  此地址位于你之前创建的虚拟网络的子网中。
+    将为存储帐户名称返回专用 IP 地址 **10.1.0.5** 。  此地址位于你之前创建的虚拟网络的子网中。
 
 9. 在虚拟机上安装 [Microsoft Azure 存储资源管理器](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)。
 
@@ -224,13 +228,13 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 11. 在“连接到 Azure 存储”屏幕中，选择“使用连接字符串”。
 
-12. 选择“**下一页**”。
+12. 选择“ **下一页** ”。
 
 13. 在“显示名称”中输入来自之前步骤的存储帐户名称。
 
 14. 在“连接字符串”下的框中，粘贴在前面步骤中复制的存储帐户的连接字符串。
 
-15. 选择“**下一页**”。
+15. 选择“ **下一页** ”。
 
 16. 在“连接摘要”中验证设置是否正确。  
 
@@ -246,7 +250,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 2. 选择“myResourceGroup”。
 
-3. 选择“删除资源组”****。
+3. 选择“删除资源组”  。
 
 4. 在“键入资源组名称”中输入“myResourceGroup”。 
 

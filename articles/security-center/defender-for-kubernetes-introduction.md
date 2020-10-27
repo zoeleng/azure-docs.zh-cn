@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449071"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370502"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>适用于 Kubernetes 的 Azure Defender 简介
 
@@ -30,7 +30,7 @@ Azure 安全中心和 AKS 构成了最佳的云原生 Kubernetes 安全产品和
 |----|:----|
 |发布状态：|正式发布 (GA)|
 |定价：|适用于 Kubernetes 的 Azure Defender 按[定价页](security-center-pricing.md)中的定价计费|
-|所需角色和权限：|**安全管理员**可以消除警报。<br>**安全读取者**可以查看结果。|
+|所需角色和权限：|**安全管理员** 可以消除警报。<br>**安全读取者** 可以查看结果。|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![否](./media/icons/no-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
 |||
 
@@ -88,6 +88,23 @@ Azure 安全中心和 AKS 构成了最佳的云原生 Kubernetes 安全产品和
 建议两者同时部署，以实现最完整的保护。
 
 如果你选择不在主机上安装代理，则只能收到一部分威胁防护权益和安全警报。 你仍会收到与网络分析以及与恶意服务器通信相关的警报。
+
+
+### <a name="does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes"></a>AKS 是否允许我在 AKS 节点上安装自定义 VM 扩展？
+
+为使 Azure Defender 能够监视 AKS 节点，它们必须运行 Log Analytics 代理。 
+
+AKS 是一项托管服务，由于 Log Analytics 代理是 Microsoft 托管的扩展，因此也受 AKS 群集支持。
+
+
+
+### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>如果我的群集已经在运行用于容器的 Azure Monitor 代理，我是否也需要 Log Analytics 代理？
+
+为使 Azure Defender 能够监视 AKS 节点，它们必须运行 Log Analytics 代理。
+
+如果群集已经在运行用于容器的 Azure Monitor 代理，则也可以安装 Log Analytics 代理，这两个代理可以彼此协同工作，而不会出现任何问题。
+
+[详细了解用于容器的 Azure Monitor 代理](../azure-monitor/insights/container-insights-manage-agent.md)。
 
 
 ## <a name="next-steps"></a>后续步骤

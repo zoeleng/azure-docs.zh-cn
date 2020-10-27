@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 253621fe257a0b1a1b3bdaa2578fd7df10b03f73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f3eae2a21c902b49b8e76fcb45e45577231e8b9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528539"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>教程：Azure Active Directory 与 Rollbar 的集成
 
@@ -89,7 +89,7 @@ ms.locfileid: "88528539"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "88528539"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分执行以下步骤：
 
-    ![Rollbar 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![屏幕截图显示“基本 SAML 配置”，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     a. 在“标识符”文本框中键入 URL：`https://saml.rollbar.com`
 
@@ -107,7 +107,7 @@ ms.locfileid: "88528539"
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
-    ![Rollbar 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://rollbar.com/<accountname>/saml/login/azure/`
 
@@ -134,15 +134,15 @@ ms.locfileid: "88528539"
 
 1. 单击右上角的“配置文件设置”  ，然后单击“帐户名称设置”  。
 
-    ![配置](./media/rollbar-tutorial/general.png)
+    ![显示从“配置文件设置”中选择了帐户名称设置的屏幕截图。](./media/rollbar-tutorial/general.png)
 
 1. 单击“安全性”下的“标识提供者”。 
 
-    ![配置](./media/rollbar-tutorial/configure1.png)
+    ![显示在“安全性”下选择了“标识提供者”的屏幕截图。](./media/rollbar-tutorial/configure1.png)
 
 1. 在“SAML 标识提供者”  部分中，执行以下步骤：
 
-    ![配置](./media/rollbar-tutorial/configure2.png)
+    ![显示“SAML 标识提供者”的屏幕截图，可在其中输入所述的值。](./media/rollbar-tutorial/configure2.png)
 
     a. 从“SAML 标识提供者”下拉列表中，选择“AZURE”。  
 
@@ -152,7 +152,7 @@ ms.locfileid: "88528539"
 
 1. 单击“保存”按钮后，屏幕将如下所示：
 
-    ![配置](./media/rollbar-tutorial/configure3.png)
+    ![显示“SAML 标识提供者”页中的结果的屏幕截图。](./media/rollbar-tutorial/configure3.png)
 
     > [!NOTE]
     > 若要完成以下步骤，必须先将自己作为用户添加到 Azure 中的 Rollbar 应用。
@@ -233,11 +233,11 @@ ms.locfileid: "88528539"
 
 1. 单击“邀请团队成员”  。
 
-    ![邀请人员](./media/rollbar-tutorial/user2.png)
+    ![显示已选择“邀请团队成员”选项的屏幕截图。](./media/rollbar-tutorial/user2.png)
 
 1. 在文本框中，输入用户名（例如 brittasimon\@contoso.com），然后单击“添加/邀请”。
 
-    ![邀请人员](./media/rollbar-tutorial/user3.png)
+    ![显示“添加/邀请成员”的屏幕截图，其中包含提供的地址。](./media/rollbar-tutorial/user3.png)
 
 1. 用户收到邀请，在接受邀请后，会在系统中创建该用户。
 

@@ -4,12 +4,12 @@ description: 本文介绍如何使用 Azure Migrate 将 GCP VM 迁移到 Azure�
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cd3bf225c6de0401aaa625cf3bb037b3beb58a35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2caebb5dda87a34d003f7f2bd208fff427c98431
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716291"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315886"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>发现、评估 Google Cloud Platform (GCP) VM 并将其迁移到 Azure
 
@@ -105,8 +105,8 @@ ms.locfileid: "91716291"
 
 “Azure Migrate:Azure Migrate 使用复制设备将计算机复制到 Azure。 复制设备运行以下组件。
 
-- **配置服务器**：配置服务器用于在 GCP VM 和 Azure 之间协调通信并管理数据复制。
-- **进程服务器**：进程服务器充当复制网关。 它会接收复制数据，通过缓存、压缩和加密对其进行优化，然后将它发送到 Azure 中的缓存存储帐户。
+- **配置服务器** ：配置服务器用于在 GCP VM 和 Azure 之间协调通信并管理数据复制。
+- **进程服务器** ：进程服务器充当复制网关。 它会接收复制数据，通过缓存、压缩和加密对其进行优化，然后将它发送到 Azure 中的缓存存储帐户。
 
 为设备部署做好准备，如下所述：
 
@@ -127,7 +127,7 @@ ms.locfileid: "91716291"
 
 设置一个 Azure Migrate 项目，并将服务器迁移工具添加到其中。
 
-1. 在 Azure 门户中选择“所有服务”，然后搜索 **Azure Migrate**。
+1. 在 Azure 门户中选择“所有服务”，然后搜索 **Azure Migrate** 。
 2. 在“服务”下选择“Azure Migrate”。 
 3. 在“概述”中，单击“评估和迁移服务器”。 
 4. 在“发现、评估和迁移服务器”下，单击“评估和迁移服务器”。 
@@ -174,7 +174,7 @@ ms.locfileid: "91716291"
 9. 如以下过程中所述，运行复制设备安装程序文件。  
     9.1. 在“准备工作”下选择“安装配置服务器和进程服务器”，然后选择“下一步”。   
     9.2 在“第三方软件许可证”中选择“我接受第三方许可协议”，然后选择“下一步”  。   
-    9.3 在“注册”中选择“浏览”，然后转到保管库注册密钥文件所在的位置 。 选择“**下一页**”。  
+    9.3 在“注册”中选择“浏览”，然后转到保管库注册密钥文件所在的位置 。 选择“ **下一页** ”。  
     9.4 在“Internet 设置”中选择“在不使用代理服务器的情况下连接到 Azure Site Recovery”，然后选择“下一步”  。  
     9.5 “先决条件检查”页面会运行多个项的检查。 完成后，选择“下一步”。  
     9.6 在“MySQL 配置”中提供 MySQL DB 的密码，然后选择“下一步” 。  
@@ -194,7 +194,7 @@ ms.locfileid: "91716291"
 必须在要迁移的源 GCP VM 上安装移动服务代理。 复制设备上已提供代理安装程序。 请找到适当的安装程序，并在要迁移的每台计算机上安装该代理。 请按如下所述执行此操作：
 
 1. 登录到复制设备。
-2. 导航到 **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**。
+2. 导航到 **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 。
 3. 找到适用于源 GCP VM 操作系统和版本的安装程序。 查看[支持的操作系统](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)。
 4. 将安装程序文件复制到要迁移的源 GCP VM。
 5. 请确保具有在安装复制设备时创建且已保存的通行短语文本文件。
@@ -275,10 +275,10 @@ ms.locfileid: "91716291"
 
 12. 在“计算”中，查看 VM 名称、大小、OS 磁盘类型和可用性配置（如果在上一步中选定）。 VM 必须符合 [Azure 要求](migrate-support-matrix-physical-migration.md#azure-vm-requirements)。
 
-    - **VM 大小**：如果你正在使用评估建议，则 VM 大小下拉列表会显示建议大小。 否则，Azure Migrate 会根据 Azure 订阅中最接近的匹配项选择大小。 或者，请在“Azure VM 大小”中的手动选择一个大小。
-    - **OS 磁盘**：为 VM 指定 OS（启动）磁盘。 OS 磁盘是包含操作系统引导加载程序和安装程序的磁盘。
-    - **可用性区域**：指定要使用的可用性区域。
-    - **可用性集**：指定要使用的可用性集。
+    - **VM 大小** ：如果你正在使用评估建议，则 VM 大小下拉列表会显示建议大小。 否则，Azure Migrate 会根据 Azure 订阅中最接近的匹配项选择大小。 或者，请在“Azure VM 大小”中的手动选择一个大小。
+    - **OS 磁盘** ：为 VM 指定 OS（启动）磁盘。 OS 磁盘是包含操作系统引导加载程序和安装程序的磁盘。
+    - **可用性区域** ：指定要使用的可用性区域。
+    - **可用性集** ：指定要使用的可用性集。
 
 ![计算设置](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
@@ -367,7 +367,7 @@ ms.locfileid: "91716291"
     - 使用 Site Recovery 将 Azure VM 复制到次要区域以保证工作负荷运行且持续可用。 [了解详细信息](../site-recovery/azure-to-azure-tutorial-enable-replication.md)。
 - 为提高安全性，请执行以下操作：
     - 使用 [Azure 安全中心 - 适时管理](../security-center/security-center-just-in-time.md)锁定和限制入站流量访问。
-    - 使用[网络安全组](../virtual-network/security-overview.md)限制流入管理终结点的网络流量。
+    - 使用[网络安全组](../virtual-network/network-security-groups-overview.md)限制流入管理终结点的网络流量。
     - 部署[Azure 磁盘加密](../security/fundamentals/azure-disk-encryption-vms-vmss.md)以帮助保护磁盘，并保护数据以防被盗和未经授权的访问。
     - 详细了解[保护 IaaS 资源的安全](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)，并访问[Azure 安全中心](https://azure.microsoft.com/services/security-center/)。
 - 为了便于监视和管理，请执行以下操作：
@@ -399,7 +399,7 @@ ms.locfileid: "91716291"
 **答：** 可能需要进行以下更改，然后才能将 EC2 VM 迁移到 Azure：
 
 - 如果使用 cloud-init 进行 VM 预配，可以先在 VM 上禁用 cloud-init，再将其复制到 Azure。 由 cloud-init 在 VM 上执行的预配步骤可能是特定于 GCP 的，将在迁移到 Azure 后失效。  
-- 查看[先决条件](#prerequisites)部分，确定操作系统是否需要进行任何更改
+- 查看[先决条件](#prerequisites)部分，以确定在将操作系统迁移到 Azure 之前是否需要对其进行任何更改。
 - 始终建议在最终迁移之前运行测试迁移。  
 
 ## <a name="next-steps"></a>后续步骤

@@ -1,22 +1,22 @@
 ---
-title: 将 IoT 即插即用设备转换为泛型模块 | Microsoft Docs
-description: 使用 C# PnP 设备代码，将其转换为模块。
+title: 连接泛型 IoT 即插即用泛型模块 | Microsoft Docs
+description: 在泛型模块中使用示例 C# IoT 即插即用设备代码。
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046330"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089156"
 ---
-# <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>教程：如何将 IoT 即插即用设备转换为模块 (C#)
+# <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>教程：连接 IoT 即插即用模块 (C#)
 
-本教程演示了如何转换 IoT 即插即用设备代码以将其作为泛型模块运行。
+本教程演示如何连接泛型 IoT 即插即用[模块](../iot-hub/iot-hub-devguide-module-twins.md)。
 
 如果设备在连接到 IoT 中心并实现由模型 ID 标识的数字孪生定义语言 (DTDL) 模型中描述的属性和方法时发布其模型 ID，则该设备为 IoT 即插即用设备。 若要详细了解设备如何使用 DTDL 和模型 ID，请参阅 [IoT 即插即用开发人员指南](./concepts-developer-guide-device-csharp.md)。 模块以相同方式使用模型 ID 和 DTDL 模型。
 
@@ -33,7 +33,7 @@ ms.locfileid: "92046330"
 
 使用 Azure IoT 资源管理器工具将名为 **my-module-device** 的新设备添加到 IoT 中心。
 
-将名为 **my-module** 的模块添加到 **my-module-device**：
+将名为 **my-module** 的模块添加到 **my-module-device** ：
 
 1. 在 Azure IoT 资源管理器工具中，导航到 **my-module-device** 设备。
 

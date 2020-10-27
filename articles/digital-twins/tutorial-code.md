@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057478"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201336"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>教程：使用 Azure 数字孪生 API 编写代码
 
@@ -104,40 +104,21 @@ using Azure.Identity;
 
 应用必须执行的第一项操作是对 Azure 数字孪生服务进行身份验证。 接着，你可以创建服务客户端类来访问 SDK 函数。
 
-为进行身份验证，需要以下三条信息：
-* 订阅的目录（租户）ID
-* 在之前设置 Azure 数字孪生实例时创建的应用程序（客户端）ID
-* Azure 数字孪生实例的 hostName
+为了进行身份验证，需要 Azure 数字孪生实例的 hostName。
 
->[!TIP]
-> 如果不知道自己的目录（租户）ID，可以在 [Azure Cloud Shell](https://shell.azure.com) 中运行以下命令来获取该 ID：
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
-
-在 Program.cs 中，将以下代码粘贴到 `Main` 方法中的“Hello, World!”输出行下方。 将 `adtInstanceUrl` 的值设置为 Azure 数字孪生实例的主机名，将 `clientId` 设置为应用程序 ID，并将 `tenantId` 设置为目录 ID  。
+在 Program.cs 中，将以下代码粘贴到 `Main` 方法中的“Hello, World!”输出行下方。 将 `adtInstanceUrl` 的值设置为 Azure 数字孪生实例 hostName。
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 保存文件。 
 
-请注意，此示例使用交互式浏览器凭据：
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-这种类型的凭据将导致浏览器窗口打开，并要求你提供 Azure 凭据。 
-
 >[!NOTE]
-> 要了解其他类型的凭据，请参阅 [Microsoft 标识平台身份验证库](../active-directory/develop/reference-v2-libraries.md)文档。
+> 此示例使用 `DefaultAzureCredential` 进行身份验证。 要了解其他类型的凭据，请参阅 [Microsoft 标识平台身份验证库](../active-directory/develop/reference-v2-libraries.md)文档，或有关[对客户端应用程序进行身份验证](how-to-authenticate-client.md)的 Azure 数字孪生相关文章。
 
 在命令窗口中，使用以下命令运行代码： 
 
@@ -181,7 +162,7 @@ Azure 数字孪生没有内部域词汇。 环境中可在 Azure 数字孪生中
 > 如果在本教程中使用 Visual Studio，建议你选择新创建的 JSON 文件，并将属性检查器中的“复制到输出目录”属性设置为“有更新时才复制”或“始终复制”  。 当你在本教程的其余部分使用 F5 执行程序时，这可让 Visual Studio 找到具有默认路径的 JSON 文件。
 
 > [!TIP] 
-> 有一种与语言无关的 [DTDL 验证程序示例](/samples/azure-samples/dtdl-validator/dtdl-validator)，可用来检查模型文件，以确保 DTDL 有效。 它是在 DTDL 分析程序库的基础上构建的，详情请参阅[*操作方法：分析和验证模型*](how-to-parse-models.md)。
+> 有一种与语言无关的 [DTDL 验证程序示例](/samples/azure-samples/dtdl-validator/dtdl-validator)，可用来检查模型文件，以确保 DTDL 有效。 它是在 DTDL 分析程序库的基础上构建的，详情请参阅 [*操作方法：分析和验证模型*](how-to-parse-models.md)。
 
 接下来，向 Program.cs 添加更多代码，将刚才创建的模型上传到 Azure 数字孪生实例。
 
@@ -320,13 +301,20 @@ for(int i=0; i<3; i++) {
 
 接下来，你可以在已创建的孪生之间创建关系，将它们连接到孪生图 。 [孪生图](concepts-twins-graph.md)用于表示整个环境。
 
-若要创建关系，需要使用 `Azure.DigitalTwins.Core.Serialization` 命名空间。 你之前已使用此 `using` 语句将此项添加到项目中：
+为帮助创建关系，此代码示例使用 `Azure.DigitalTwins.Core.Serialization` 命名空间。 你之前已使用此 `using` 语句将此项添加到项目中：
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>无需将 `Azure.DigitalTwins.Core.Serialization` 与数字孪生和关系结合使用；它是一个可选命名空间，可帮助将数据转换为正确的格式。 使用它的替代方法包括：
+>* 串联字符串以形成 JSON 对象
+>* 使用 `System.Text.Json` 等 JSON 分析程序来动态生成 JSON 对象
+>* 使用 C# 对自定义类型建模，将其实例化，然后将其序列化为字符串
+
 将新的静态方法添加到 `Main` 方法下的 `Program` 类：
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +336,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-然后，将以下代码添加到 `Main` 方法的末尾，以调用 `CreateRelationship` 代码：
+接下来，将以下代码添加到 `Main` 方法的末尾，以调用 `CreateRelationship` 方法并使用刚刚编写的代码：
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
@@ -455,11 +444,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();
@@ -554,7 +542,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>清理资源
  
-本教程中使用的实例可重复用于下一教程[*教程：使用示例客户端应用了解基础知识*](tutorial-command-line-app.md)。 如果打算继续学习下一个教程，可以保留在此处设置的 Azure 数字孪生实例。
+本教程中使用的实例可重复用于下一教程 [*教程：使用示例客户端应用了解基础知识*](tutorial-command-line-app.md)。 如果打算继续学习下一个教程，可以保留在此处设置的 Azure 数字孪生实例。
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 723546d6a997d895c1a1df39b558aabb797d0a11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9f93457edc4276422eb97b56c90b83ad6a19a65
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545087"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126886"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>教程：Azure Active Directory 的单一登录 (SSO) 与 SolarWinds Orion 的集成
 
@@ -144,19 +144,19 @@ ms.locfileid: "88545087"
 
 1. 登录 SolarWinds Orion，并转到“设置” -> “所有设置”。
 
-    ![ 配置 SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+    ![显示从“设置”选择了“所有设置”的屏幕截图。](./media/solarwinds-orion-tutorial/settings.png)
 
 1. 在“用户帐户”部分中，选择“SAML 配置”。
 
-    ![ 配置 SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
+    ![显示从“用户帐户”选择了“SAML 配置”的屏幕截图。](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
 
 1. 单击“添加标识提供者”。
 
-    ![ 配置 SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
+    ![显示 SAML 配置的屏幕截图，可在其中选择“添加标识提供者”。](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
 
 1. 在“添加标识提供者”页中执行以下步骤：
 
-    ![ 配置 SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
+    ![显示“添加标识提供者”页的屏幕截图，可在其中输入所述值。](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
 
     a. 转到“配置”选项卡。
 
@@ -174,25 +174,25 @@ ms.locfileid: "88545087"
 
 1. 登录 SolarWinds Orion 网站，并转到“设置” -> “所有设置”。
 
-    ![ SolarWinds Orion 创建测试用户 ](./media/solarwinds-orion-tutorial/settings.png)
+    ![显示从“设置”选择了“所有设置”的屏幕截图。](./media/solarwinds-orion-tutorial/settings.png)
 
 1. 在“用户帐户”部分中，选择“管理帐户”。
 
-    ![ SolarWinds Orion 创建测试用户 ](./media/solarwinds-orion-tutorial/user-accounts.png)
+    ![显示选择了“SAML 配置”的屏幕截图。](./media/solarwinds-orion-tutorial/user-accounts.png)
 
 1. 在“个人帐户”选项卡中，单击“添加新帐户”。
 
-    ![ SolarWinds Orion 创建测试用户 ](./media/solarwinds-orion-tutorial/create-user.png)
+    ![显示在“管理帐户”中选择了“添加新帐户”的屏幕截图。](./media/solarwinds-orion-tutorial/create-user.png)
 
 1. 选择需要创建 SAML 个人用户或组的帐户类型。
 
-    ![ SolarWinds Orion 创建测试用户 ](./media/solarwinds-orion-tutorial/create-user-new-account.png)
+    ![显示可在其中选择帐户类型的“添加新帐户”的屏幕截图。](./media/solarwinds-orion-tutorial/create-user-new-account.png)
 
 1.  在“名称 ID”文本框中，输入必须与 Azure AD 中的用户名或组名完全匹配的名称。
 
 1.  单击“下一步”，然后提交该页。
 
-    ![ SolarWinds Orion 创建测试用户 ](./media/solarwinds-orion-tutorial/create-user-name-id.png)
+    ![显示“添加新帐户”的屏幕截图，可在其中输入 Azure AD 的“名称 ID”。](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## <a name="test-sso"></a>测试 SSO 
 

@@ -4,16 +4,16 @@ description: 了解 Azure Analysis Services，它是一种可在云中提供企�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018791"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201505"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -71,7 +71,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
 <a name="naar">1</a> - 并未在所有区域推出。   
-<a name="rec">2</a> - 建议使用 v2。
+<a name="rec">2</a> - S8 和 S9 [已弃用](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/)。 建议使用 v2。 
 
 ## <a name="availability-by-region"></a>按区域列出的可用性
 
@@ -85,7 +85,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |加拿大中部    |     B1、B2、S0、S1、S2、S4、D1    |     1    |
 |美国东部     |     B1、B2、S0、S1、S2、S4、D1    |    1     |
 |美国东部 2     |     B1、B2、S0、S1、S2、S4、D1   |    7    |
-|美国东部 2     |     S8、S9、S8v2、S9v2   |    1    |
+|美国东部 2     |     S8v2、S9v2   |    1    |
 |美国中北部     |     B1、B2、S0、S1、S2、S4、D1     |    1     |
 |美国中北部     |     S8v2、S9v2    |    1     |
 |美国中部     |    B1、B2、S0、S1、S2、S4、D1     |    1     |
@@ -93,9 +93,9 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |美国中南部     |    B1、B2、S0、S1、S2、S4、D1     |    1     |
 |美国中西部   |     B1、B2、S0、S1、S2、S4、D1    |    3     |
 |美国西部     |    B1、B2、S0、S1、S2、S4、D1    |    7   |
-|美国西部     |    S8、S9、S8v2、S9v2   |    2  |
+|美国西部     |    S8v2、S9v2   |    2  |
 |美国西部 2    |    B1、B2、S0、S1、S2、S4、D1    |    3   |
-|美国西部 2    |    S8、S9、S8v2、S9v2  |    1     |
+|美国西部 2    |    S8v2、S9v2  |    1     |
 
 ### <a name="europe"></a>欧洲
 
@@ -105,17 +105,18 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |北欧     |    S8v2、S9v2      |    3     |
 |英国南部     |    B1、B2、S0、S1、S2、S4、D1      |     1    |
 |西欧     |    B1、B2、S0、S1、S2、S4、D1   |    7    |
-|西欧    |   S8、S9、S8v2、S9v2  |  1  |
+|西欧    |   S8v2、S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>亚太区 
 
 |区域  | 支持的计划 | 查询副本（仅限标准计划） |
 |---------|---------|:---------:|
 |澳大利亚东部     |    B1、B2、S0、S1、S2、S4     |    3     |
-|澳大利亚东部     |    S8、S9、S8v2、S9v2    |    1     |
+|澳大利亚东部     |    S8v2、S9v2    |    1     |
 |澳大利亚东南部     | B1、B2、S0、S1、S2、S4、D1       |    1     |
 |日本东部     |   B1、B2、S0、S1、S2、S4、D1       |    1     |
-|东南亚     |     B1、B2、S0、S1、S2、S4、S8、S9、S8v2、S9v2、D1     |   1      |
+|东南亚     |     B1、B2、S0、S1、S2、S4、D1     |   1      |
+|东南亚     |     S8v2、S9v2     |   1      |
 |印度西部     |    B1、B2、S0、S1、S2、S4、D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>按需求缩放
@@ -171,7 +172,7 @@ Azure Analysis Services 防火墙阻止所有客户端连接，规则中指定�
 
 用户身份验证由 [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) 处理。 登录时，用户需使用组织帐户标识对数据库进行基于角色的访问。 用户标识必须是服务器所在订阅的默认 Azure Active Directory 成员。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
-### <a name="data-security"></a>数据安全性
+### <a name="data-security"></a>数据安全
 
 Azure Analysis Services 使用 Azure Blob 存储来持久保留 Analysis Services 数据库的存储和元数据。 使用 [Azure Blob 服务器端加密 (SSE)](../storage/common/storage-service-encryption.md) 加密 Blob 中的数据文件。 使用“直接查询”模式时，仅存储元数据。 查询时通过加密的协议从数据源访问实际数据。
 

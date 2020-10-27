@@ -1,15 +1,15 @@
 ---
 title: Azure 安全基准的法规符合性详细信息
 description: Azure 安全基准法规符合性内置计划的详细信息。 每个控制措施都映射到一个或多个协助评估的 Azure Policy 定义。
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ac37714aa18806d3eddbb5cf03c922754483f85
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932169"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311456"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Azure 安全基准法规符合性内置计划的详细信息
 
@@ -29,7 +29,7 @@ ms.locfileid: "91932169"
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>在虚拟网络上使用网络安全组或 Azure 防火墙来保护资源
 
-**ID**：Azure 安全基准 1.1 所有权：客户
+**ID** ：Azure 安全基准 1.1 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -45,9 +45,9 @@ ms.locfileid: "91932169"
 |[Key Vault 应使用虚拟网络服务终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea4d6841-2173-4317-9747-ff522a45120f) |此策略审核任何未配置为使用虚拟网络服务终结点的 Key Vault。 |Audit、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_KeyVault_Audit.json) |
 |[应通过即时网络访问控制来保护虚拟机的管理端口](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |建议通过 Azure 安全中心监视可能的网络适时 (JIT) 访问 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 |[应关闭虚拟机上的管理端口](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22730e10-96f6-4aac-ad84-9383d35b5917) |打开远程管理端口会使 VM 暴露在较高级别的 Internet 攻击风险之下。 此类攻击试图暴力破解凭据，来获取对计算机的管理员访问权限。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OpenManagementPortsOnVirtualMachines_Audit.json) |
-|[应为 MariaDB 服务器启用专用终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a1302fb-a631-4106-9753-f3d494733990) |专用终结点连接通过启用到 Azure Database for MariaDB 的专用连接来加强安全通信。 配置专用终结点连接，以允许访问仅来自已知网络的流量，禁止访问所有其他 IP 地址（包括 Azure 内的）。 |AuditIfNotExists、Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_EnablePrivateEndPoint_Audit.json) |
-|[应为 MySQL 服务器启用专用终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7595c971-233d-4bcf-bd18-596129188c49) |专用终结点连接通过启用到 Azure Database for MySQL 的专用连接来加强安全通信。 配置专用终结点连接，以允许访问仅来自已知网络的流量，禁止访问所有其他 IP 地址（包括 Azure 内的）。 |AuditIfNotExists、Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnablePrivateEndPoint_Audit.json) |
-|[应为 PostgreSQL 服务器启用专用终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0564d078-92f5-4f97-8398-b9f58a51f70b) |专用终结点连接通过启用到 Azure Database for PostgreSQL 的专用连接来加强安全通信。 配置专用终结点连接，以允许访问仅来自已知网络的流量，禁止访问所有其他 IP 地址（包括 Azure 内的）。 |AuditIfNotExists、Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnablePrivateEndPoint_Audit.json) |
+|[应为 MariaDB 服务器启用专用终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a1302fb-a631-4106-9753-f3d494733990) |专用终结点连接通过启用到 Azure Database for MariaDB 的专用连接来加强安全通信。 配置专用终结点连接，以启用对仅来自已知网络的流量的访问，并防止访问所有其他 IP 地址，包括 Azure 内的地址。 |AuditIfNotExists、Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_EnablePrivateEndPoint_Audit.json) |
+|[应为 MySQL 服务器启用专用终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7595c971-233d-4bcf-bd18-596129188c49) |专用终结点连接通过启用到 Azure Database for MySQL 的专用连接来加强安全通信。 配置专用终结点连接，以启用对仅来自已知网络的流量的访问，并防止访问所有其他 IP 地址，包括 Azure 内的地址。 |AuditIfNotExists、Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnablePrivateEndPoint_Audit.json) |
+|[应为 PostgreSQL 服务器启用专用终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0564d078-92f5-4f97-8398-b9f58a51f70b) |专用终结点连接通过启用到 Azure Database for PostgreSQL 的专用连接来加强安全通信。 配置专用终结点连接，以启用对仅来自已知网络的流量的访问，并防止访问所有其他 IP 地址，包括 Azure 内的地址。 |AuditIfNotExists、Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnablePrivateEndPoint_Audit.json) |
 |[服务总线应使用虚拟网络服务终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |此策略审核任何未配置为使用虚拟网络服务终结点的服务总线。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |
 |[SQL Server 应使用虚拟网络服务终结点](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5d2f14-d830-42b6-9899-df6cfe9c71a3) |此策略审核任何未配置为使用虚拟网络服务终结点的 SQL Server。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_SQLServer_AuditIfNotExists.json) |
 |[应限制对存储帐户的网络访问](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |应限制对存储帐户的网络访问。 配置网络规则，以便只允许来自允许的网络的应用程序访问存储帐户。 若要允许来自特定 Internet 或本地客户端的连接，可以向来自特定 Azure 虚拟网络或到公共 Internet IP 地址范围的流量授予访问权限 |Audit、Deny、Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
@@ -58,7 +58,7 @@ ms.locfileid: "91932169"
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>监视和记录 VNet、子网和 NIC 的配置和流量
 
-**ID**：Azure 安全基准 1.2 所有权：客户
+**ID** ：Azure 安全基准 1.2 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ ms.locfileid: "91932169"
 
 ### <a name="protect-critical-web-applications"></a>保护关键的 Web 应用程序
 
-**ID**：Azure 安全基准 1.3 所有权：客户
+**ID** ：Azure 安全基准 1.3 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,7 +80,7 @@ ms.locfileid: "91932169"
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>拒绝与已知的恶意 IP 地址通信
 
-**ID**：Azure 安全基准 1.4 所有权：客户
+**ID** ：Azure 安全基准 1.4 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -91,7 +91,7 @@ ms.locfileid: "91932169"
 
 ### <a name="record-network-packets-and-flow-logs"></a>记录网络数据包和流日志
 
-**ID**：Azure 安全基准 1.5 所有权：客户
+**ID** ：Azure 安全基准 1.5 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>使用自动化工具监视网络资源配置并检测更改
 
-**ID**：Azure 安全基准 1.11 所有权：客户
+**ID** ：Azure 安全基准 1.11 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ ms.locfileid: "91932169"
 
 ### <a name="configure-central-security-log-management"></a>配置安全日志集中管理
 
-**ID**：Azure 安全基准 2.2 所有权：客户
+**ID** ：Azure 安全基准 2.2 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ ms.locfileid: "91932169"
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>为 Azure 资源启用审核日志记录
 
-**ID**：Azure 安全基准 2.3 所有权：客户
+**ID** ：Azure 安全基准 2.3 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ ms.locfileid: "91932169"
 
 ### <a name="collect-security-logs-from-operating-systems"></a>从操作系统收集安全日志
 
-**ID**：Azure 安全基准 2.4 所有权：客户
+**ID** ：Azure 安全基准 2.4 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ ms.locfileid: "91932169"
 
 ### <a name="configure-security-log-storage-retention"></a>配置安全日志存储保留期
 
-**ID**：Azure 安全基准 2.5 所有权：客户
+**ID** ：Azure 安全基准 2.5 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ ms.locfileid: "91932169"
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>启用针对异常活动的警报
 
-**ID**：Azure 安全基准 2.7 所有权：客户
+**ID** ：Azure 安全基准 2.7 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ ms.locfileid: "91932169"
 
 ### <a name="centralize-anti-malware-logging"></a>集中进行反恶意软件日志记录
 
-**ID**：Azure 安全基准 2.8 所有权：客户
+**ID** ：Azure 安全基准 2.8 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ ms.locfileid: "91932169"
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>维护管理帐户的清单
 
-**ID**：Azure 安全基准 3.1 所有权：客户
+**ID** ：Azure 安全基准 3.1 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-dedicated-administrative-accounts"></a>使用专用管理帐户
 
-**ID**：Azure 安全基准 3.3 所有权：客户
+**ID** ：Azure 安全基准 3.3 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>对所有基于 Azure Active Directory 的访问使用多重身份验证
 
-**ID**：Azure 安全基准 3.5 所有权：客户
+**ID** ：Azure 安全基准 3.5 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-azure-active-directory"></a>使用 Azure Active Directory
 
-**ID**：Azure 安全基准 3.9 所有权：客户
+**ID** ：Azure 安全基准 3.9 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ ms.locfileid: "91932169"
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>定期评审和协调用户访问权限
 
-**ID**：Azure 安全基准 3.10 所有权：客户
+**ID** ：Azure 安全基准 3.10 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ ms.locfileid: "91932169"
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>维护敏感信息清单
 
-**ID**：Azure 安全基准 4.1 所有权：客户
+**ID** ：Azure 安全基准 4.1 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ ms.locfileid: "91932169"
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>加密传输中的所有敏感信息
 
-**ID**：Azure 安全基准 4.4 所有权：共享
+**ID** ：Azure 安全基准 4.4 所有权：共享
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>使用有效的发现工具识别敏感数据
 
-**ID**：Azure 安全基准 4.5 所有权：客户
+**ID** ：Azure 安全基准 4.5 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>使用 Azure RBAC 控制对资源的访问
 
-**ID**：Azure 安全基准 4.6 所有权：客户
+**ID** ：Azure 安全基准 4.6 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ ms.locfileid: "91932169"
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>加密静态的敏感信息
 
-**ID**：Azure 安全基准 4.8 所有权：客户
+**ID** ：Azure 安全基准 4.8 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ ms.locfileid: "91932169"
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>记录对关键 Azure 资源的更改并发出警报
 
-**ID**：Azure 安全基准 4.9 所有权：客户
+**ID** ：Azure 安全基准 4.9 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ ms.locfileid: "91932169"
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>运行自动化漏洞扫描工具
 
-**ID**：Azure 安全基准 5.1 所有权：客户
+**ID** ：Azure 安全基准 5.1 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ ms.locfileid: "91932169"
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>部署操作系统修补程序自动化管理解决方案
 
-**ID**：Azure 安全基准 5.2 所有权：客户
+**ID** ：Azure 安全基准 5.2 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,23 +336,23 @@ ms.locfileid: "91932169"
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>部署第三方软件修补程序自动化管理解决方案
 
-**ID**：Azure 安全基准 5.3 所有权：客户
+**ID** ：Azure 安全基准 5.3 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[确保用作 API 应用一部分的“Java 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |我们定期发布适用于 Java 的更高版本来解决安全漏洞或包含更多功能。 建议使用 API 应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
-|[确保用作函数应用一部分的“Java 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |我们定期发布适用于 Java 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用函数应用的最新 Java 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
-|[确保用作 Web 应用一部分的“Java 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |我们定期发布适用于 Java 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 Web 应用的最新 Java 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
-|[确保用作 API 应用一部分的“PHP 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |我们定期发布适用于 PHP 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 API 应用的最新 PHP 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[确保用作 WEB 应用一部分的“PHP 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |我们定期发布适用于 PHP 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 Web 应用的最新 PHP 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
-|[确保用作 API 应用一部分的“Python 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |我们定期发布适用于 Python 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 API 应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
-|[确保用作函数应用一部分的“Python 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |我们定期发布适用于 Python 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用函数应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
-|[确保用作 Web 应用一部分的“Python 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |我们定期发布适用于 Python 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 Web 应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 |AuditIfNotExists、Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
+|[确保用作 API 应用一部分的“Java 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |我们定期发布适用于 Java 的更高版本来解决安全漏洞或包含更多功能。 建议使用 API 应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
+|[确保用作函数应用一部分的“Java 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |我们定期发布适用于 Java 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用函数应用的最新 Java 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
+|[确保用作 Web 应用一部分的“Java 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |我们定期发布适用于 Java 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 Web 应用的最新 Java 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
+|[确保用作 API 应用一部分的“PHP 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |我们定期发布适用于 PHP 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 API 应用的最新 PHP 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[确保用作 WEB 应用一部分的“PHP 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |我们定期发布适用于 PHP 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 Web 应用的最新 PHP 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[确保用作 API 应用一部分的“Python 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |我们定期发布适用于 Python 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 API 应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
+|[确保用作函数应用一部分的“Python 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |我们定期发布适用于 Python 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用函数应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
+|[确保用作 Web 应用一部分的“Python 版本”是最新的](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |我们定期发布适用于 Python 软件的更高版本来解决安全漏洞或包含更多功能。 建议使用 Web 应用的最新 Python 版本，以充分利用最新版本的安全修复（如果有）和/或新功能。 目前，此策略仅适用于 Linux Web 应用。 |AuditIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
 |[Kubernetes 服务应升级到不易受攻击的 Kubernetes 版本](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |将 Kubernetes 服务群集升级到更高 Kubernetes 版本，以抵御当前 Kubernetes 版本中的已知漏洞。 Kubernetes 版本 1.11.9+、1.12.7+、1.13.5+ 和 1.14.0+ 中已修补漏洞 CVE-2019-9946 |Audit、Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>使用风险评分流程确定所发现漏洞的修正优先级
 
-**ID**：Azure 安全基准 5.5 所有权：客户
+**ID** ：Azure 安全基准 5.5 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -366,7 +366,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-only-approved-applications"></a>只使用已批准的应用程序
 
-**ID**：Azure 安全基准 6.8 所有权：客户
+**ID** ：Azure 安全基准 6.8 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-only-approved-azure-services"></a>只使用已批准的 Azure 服务
 
-**ID**：Azure 安全基准 6.9 所有权：客户
+**ID** ：Azure 安全基准 6.9 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ ms.locfileid: "91932169"
 
 ### <a name="implement-approved-application-list"></a>实现已批准的应用程序列表
 
-**ID**：Azure 安全基准 6.10 所有权：客户
+**ID** ：Azure 安全基准 6.10 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ ms.locfileid: "91932169"
 
 ### <a name="maintain-secure-operating-system-configurations"></a>维护安全的操作系统配置
 
-**ID**：Azure 安全基准 7.4 所有权：共享
+**ID** ：Azure 安全基准 7.4 所有权：共享
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ ms.locfileid: "91932169"
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>针对操作系统实现自动化配置监视
 
-**ID**：Azure 安全基准 7.10 所有权：客户
+**ID** ：Azure 安全基准 7.10 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,7 +413,7 @@ ms.locfileid: "91932169"
 
 ### <a name="manage-azure-secrets-securely"></a>安全地管理 Azure 机密
 
-**ID**：Azure 安全基准 7.11 所有权：客户
+**ID** ：Azure 安全基准 7.11 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -421,7 +421,7 @@ ms.locfileid: "91932169"
 
 ### <a name="manage-identities-securely-and-automatically"></a>安全且自动地管理标识 
 
-**ID**：Azure 安全基准 7.12 所有权：客户
+**ID** ：Azure 安全基准 7.12 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ ms.locfileid: "91932169"
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>使用集中管理的反恶意软件
 
-**ID**：Azure 安全基准 8.1 所有权：客户
+**ID** ：Azure 安全基准 8.1 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ ms.locfileid: "91932169"
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>确保反恶意软件和签名已更新
 
-**ID**：Azure 安全基准 8.3 所有权：客户
+**ID** ：Azure 安全基准 8.3 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ ms.locfileid: "91932169"
 
 ### <a name="ensure-regular-automated-back-ups"></a>确保定期执行自动备份
 
-**ID**：Azure 安全基准 9.1 所有权：客户
+**ID** ：Azure 安全基准 9.1 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ ms.locfileid: "91932169"
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>执行完整的系统备份并备份所有客户托管密钥
 
-**ID**：Azure 安全基准 9.2 所有权：客户
+**ID** ：Azure 安全基准 9.2 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,7 +476,7 @@ ms.locfileid: "91932169"
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>确保保护备份和客户管理的密钥
 
-**ID**：Azure 安全基准 9.4 所有权：客户
+**ID** ：Azure 安全基准 9.4 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -486,7 +486,7 @@ ms.locfileid: "91932169"
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>提供安全事件联系人详细信息并针对安全事件配置警报通知
 
-**ID**：Azure 安全基准 10.4 所有权：客户
+**ID** ：Azure 安全基准 10.4 所有权：客户
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

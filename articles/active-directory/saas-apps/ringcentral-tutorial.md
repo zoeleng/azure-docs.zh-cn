@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bdbb68e8d8748bc8851720588f8748d788e0cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8539f3f2a5882f12f131c95b0c17efd3acba3cf
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542575"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105169"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>教程：将 RingCentral 与 Azure Active Directory 集成
 
@@ -78,16 +78,16 @@ ms.locfileid: "88542575"
 
    ![编辑基本 SAML 配置](common/edit-urls.png)
 
-1. 在“基本 SAML 配置”部分，如果有**服务提供程序元数据文件**，请执行以下步骤：
+1. 在“基本 SAML 配置”部分，如果有 **服务提供程序元数据文件** ，请执行以下步骤：
 
     1. 单击“上传元数据文件”。
     1. 单击“文件夹徽标”来选择元数据文件并单击“上传”。
     1. 成功上传元数据文件后，“标识符”和“回复 URL”值会自动填充在“基本 SAML 配置”部分  。
 
     > [!Note]
-    > 请在本教程稍后将介绍的“RingCentral SSO 配置”页面上获取**服务提供程序元数据文件**。
+    > 请在本教程稍后将介绍的“RingCentral SSO 配置”页面上获取 **服务提供程序元数据文件** 。
 
-1. 如果没有**服务提供程序元数据文件**，请输入以下字段的值：
+1. 如果没有 **服务提供程序元数据文件** ，请输入以下字段的值：
 
     a. 在“标识符”文本框中，键入一个 URL：
   
@@ -151,19 +151,19 @@ ms.locfileid: "88542575"
 
 1. 在顶部单击“工具”。
 
-    ![image](./media/ringcentral-tutorial/ringcentral1.png)
+    ![显示从 RingCentral 公司站点选择了“工具”的屏幕截图。](./media/ringcentral-tutorial/ringcentral1.png)
 
 1. 导航到“单一登录”。
 
-    ![image](./media/ringcentral-tutorial/ringcentral2.png)
+    ![显示从“工具”菜单选择了“单一登录”的屏幕截图。](./media/ringcentral-tutorial/ringcentral2.png)
 
 1. 在“单一登录”页的“SSO 配置”部分，在“步骤 1”中单击“编辑”，执行以下步骤： 
 
-    ![image](./media/ringcentral-tutorial/ringcentral3.png)
+    ![显示“SSO 配置”页的屏幕截图，可在其中选择“编辑”。](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. 在“设置单一登录”页上，执行以下步骤：
 
-    ![image](./media/ringcentral-tutorial/ringcentral4.png)
+    ![显示“设置单一登录”页的屏幕截图，可在其中上传 IDP 元数据。](./media/ringcentral-tutorial/ringcentral4.png)
 
     a. 单击“浏览”，上传从 Azure 门户下载的元数据文件。
 
@@ -171,21 +171,21 @@ ms.locfileid: "88542575"
 
     c. 在“属性映射”部分，针对“将电子邮件属性映射到”选项选择 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 
 
-    d. 单击“ **保存**”。
+    d. 单击“ **保存** ”。
 
     e. 在“步骤 2”中单击“下载”以下载“服务提供程序元数据文件”，并在“基本 SAML 配置”部分上传该文件，以便在 Azure 门户中自动填充“标识符”和“回复 URL”值     。
 
-    ![image](./media/ringcentral-tutorial/ringcentral6.png) 
+    ![显示“SSO 配置”页的屏幕截图，可在其中选择“下载”。](./media/ringcentral-tutorial/ringcentral6.png) 
 
     f. 在同一页导航到“启用 SSO”部分，执行以下步骤：
 
-    ![image](./media/ringcentral-tutorial/ringcentral5.png)
+    ![显示“启用 SSO”部分的屏幕截图，可在其中完成配置。](./media/ringcentral-tutorial/ringcentral5.png)
 
     * 选择“启用 SSO 服务”。
 
     * 选择“允许用户使用 SSO 或 RingCentral 凭据登录”。
 
-    * 单击“ **保存**”。
+    * 单击“ **保存** ”。
 
 ### <a name="create-ringcentral-test-user"></a>创建 RingCentral 测试用户
 

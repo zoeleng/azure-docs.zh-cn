@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: eb5e5cc97b13d8eb8e671501e9b16479ba59642a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ed4bd97dfe64a85785cf7805da2cf7f942baecd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999299"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367529"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure 安全中心的新增功能
 
@@ -28,6 +28,120 @@ ms.locfileid: "91999299"
 > [!TIP]
 > 如果要查找 6 个月之前的项目，可查看 [Azure 安全中心的新增功能存档](release-notes-archive.md)。
 
+
+## <a name="october-2020"></a>2020 年 10 月
+
+- [本地和多云计算机的漏洞评估（预览版）](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [添加了 Azure 防火墙建议（预览版）](#azure-firewall-recommendation-added-preview)
+- [“应在 Kubernetes 服务上定义已授权的 IP 范围”建议更新了快速修复](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [从 Azure Resource Graph (ARG) 中删除了 Microsoft.Security/securityStatuses 表](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>本地和多云计算机的漏洞评估（预览版）
+
+[适用于服务器的 Azure Defender](defender-for-servers-introduction.md) 的集成式漏洞评估扫描器（由 Qualys 提供支持）现可扫描启用了 Azure Arc 的服务器。
+
+当你在非 Azure 计算机上启用了 Azure Arc 后，安全中心将提供两种向计算机部署集成式漏洞扫描器的选项（手动和大规模）。
+
+此次更新后，你便可以发掘 Azure Defender 的强大功能，合并所有 Azure 和非 Azure 资产的漏洞管理计划。
+
+主要功能：
+
+- 监视 Azure Arc 计算机上的 VA（漏洞评估）扫描器预配状态
+- 将集成式 VA 代理预配到未受保护的 Windows 和 Linux Azure Arc 计算机（手动或大规模）
+- 从部署的代理接收和分析检测到的漏洞（手动和大规模）
+- 统一的 Azure VM 和 Azure Arc 计算机体验
+
+[详细了解如何将集成式漏洞扫描器部署到混合计算机](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)。
+
+[详细了解启用了 Azure Arc 的服务器](https://docs.microsoft.com/azure/azure-arc/servers/)。
+
+
+### <a name="azure-firewall-recommendation-added-preview"></a>添加了 Azure 防火墙建议（预览版）
+
+添加了新的建议，即使用 Azure 防火墙保护所有虚拟网络。
+
+“虚拟网络应受 Azure 防火墙保护”建议使用 Azure 防火墙限制虚拟网络的访问权限和防止潜在威胁。
+
+了解有关 [Azure 防火墙](https://azure.microsoft.com/services/azure-firewall/)的详细信息。
+
+
+### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>“应在 Kubernetes 服务上定义已授权的 IP 范围”建议更新了快速修复
+
+“应在 Kubernetes 服务上定义已授权的 IP 范围”建议现提供一个快速修复选项。
+
+要详细了解此建议和所有其他安全中心建议，请参阅[安全建议 - 参考指南](recommendations-reference.md)。
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
+
+
+### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>从 Azure Resource Graph (ARG) 中删除了 Microsoft.Security/securityStatuses 表
+
+Azure Resource Graph 是 Azure 中的一项服务，旨在提供高效的资源浏览功能，它能够在一组给定的订阅中进行大规模查询，使你能够有效地管理环境。 
+
+对于 Azure 安全中心，你可以使用 ARG 和 [Kusto 查询语言 (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) 来查询各种安全状态数据。 例如：
+
+- 资产清单利用 (ARG)
+- 我们提供了一个示例 ARG 查询，说明如何[在未启用多重身份验证 (MFA) 的情况下标识帐户](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+
+ARG 中提供了可以在查询中使用的数据表。
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议"
+}
+```
+而 Microsoft.Security/Assessments 将为这样的策略评估各保留一条记录，如下所示：
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**将使用 securityStatuses 的现有 ARG 查询转换为现在使用 Assessments 表的示例：**
+
+引用 SecurityStatuses 的查询：
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Assessments 表的替换查询：
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+若要了解详细信息，请参阅下列链接：
+- [如何使用 Azure Resource Graph 浏览器创建查询](../governance/resource-graph/first-query-portal.md)
+- [Kusto 查询语言 (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>2020 年 9 月
@@ -42,7 +156,6 @@ ms.locfileid: "91999299"
 - [从建议中免除资源](#exempt-a-resource-from-a-recommendation)
 - [安全中心的 AWS 和 GCP 连接器引入了多云体验](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
 - [Kubernetes 工作负载保护建议捆绑](#kubernetes-workload-protection-recommendation-bundle)
-- [适用于 IoT 的 Azure Defender 中的 IoT 威胁防护增强](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [漏洞评估发现结果现已可以连续导出](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [在创建新资源时通过强制执行建议来防止安全性配置错误](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [改进了网络安全组建议](#network-security-group-recommendations-improved)
@@ -71,7 +184,6 @@ Azure Defender 是集成到安全中心内部的云工作负载保护平台 (CWP
 - [适用于应用服务的 Azure Defender](defender-for-app-service-introduction.md)
 - [适用于存储的 Azure Defender](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [适用于 IoT 的 Azure Defender](defender-for-iot-introduction.md)
 - [适用于 Key Vault 的 Azure Defender](defender-for-key-vault-introduction.md)
 - [适用于 Kubernetes 的 Azure Defender](defender-for-kubernetes-introduction.md)
 - [适用于容器注册表的 Azure Defender](defender-for-container-registries-introduction.md)
@@ -99,7 +211,7 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 适用于存储的 Azure Defender 会检测 Azure 存储帐户上可能存在的有害活动。 无论数据是存储为 blob 容器、文件共享还是数据湖，都可以为其提供保护。
 
-[Azure 文件存储](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)和[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) 的支持现已正式发布。
+[Azure 文件存储](../storage/files/storage-files-introduction.md)和[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 的支持现已正式发布。
 
 从 2020 年 10 月 1 日起，我们将开始有偿保护这些服务上的资源。
 
@@ -165,13 +277,6 @@ Azure 安全中心现在可保护 Azure、Amazon Web Services (AWS) 和 Google C
 有关详细信息，请参阅[使用 Kubernetes 准入控制实现工作负载保护最佳做法](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)。
 
 
-### <a name="iot-threat-protection-enhancements-in-azure-defender-for-iot"></a>适用于 IoT 的 Azure Defender 中的 IoT 威胁防护增强
-
-由于包含 CyberX 无代理技术，适用于 IoT 的 Azure Defender 提供了更多威胁防护功能。 这为制造、构建管理系统 (BMS)、生命科学、能源和水利设施、石油和天然气以及物流等运营技术 (OT) 环境中使用的非托管棕色地带设备提供了安全保护。
-
-有关详细信息，请参阅[适用于 IoT 的 Azure Defender 简介](defender-for-iot-introduction.md)。
-
-
 ### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>漏洞评估发现结果现已可以连续导出
 
 使用连续导出将警报和建议实时流式传输到 Azure 事件中心、Log Analytics 工作区或 Azure Monitor。 在此处可以将此数据与 SIEM（如 Azure Sentinel、Power BI、Azure 数据资源管理器等）集成。
@@ -180,7 +285,7 @@ Azure 安全中心现在可保护 Azure、Amazon Web Services (AWS) 和 Google C
 
 现在选择建议并启用“包括安全性结果”选项时，可以通过连续导出来导出安全性结果。
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="在连续导出配置中包括安全结果开关" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议" :::
 
 相关页面：
 
@@ -216,7 +321,7 @@ Azure 安全中心现在可保护 Azure、Amazon Web Services (AWS) 和 Google C
 
 ### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>弃用了预览 AKS 建议“应在 Kubernetes 服务上定义 Pod 安全策略”
 
-如 [Azure Kubernetes 服务](https://docs.microsoft.com/azure/aks/use-pod-security-policies)文档中所述，弃用了预览建议“应在 Kubernetes Services 上定义 Pod 安全策略”。
+如 [Azure Kubernetes 服务](../aks/use-pod-security-policies.md)文档中所述，弃用了预览建议“应在 Kubernetes Services 上定义 Pod 安全策略”。
 
 Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 日之后将不再提供，以支持适用于 AKS 的 Azure Policy。
 
@@ -245,7 +350,7 @@ Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 �
 
 预览建议示例如下：
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="在连续导出配置中包括安全结果开关":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
 
 [详细了解安全功能分数](secure-score-security-controls.md)。
 
@@ -254,7 +359,7 @@ Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 �
 
 现在，建议的详细信息页面包括一个刷新时间间隔指示器（如相关），并且清楚显示了建议的严重性。
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="在连续导出配置中包括安全结果开关":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
 
 
 
@@ -282,7 +387,7 @@ Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 �
 
 ### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>添加了对 Azure Active Directory 安全默认值的支持（用于多重身份验证）
 
-安全中心已添加对[安全默认值](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)（Microsoft 的免费标识安全保护）的全部支持。
+安全中心已添加对[安全默认值](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)（Microsoft 的免费标识安全保护）的全部支持。
 
 安全默认值提供了预配置的标识安全设置，以保护组织免受与标识相关的常见攻击。 安全默认值总计已保护了逾 500 万名租户；50,000 名租户也受安全中心的保护。
 
@@ -290,7 +395,7 @@ Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 �
 
 我们旨在鼓励更多客户使用 MFA 保护其云环境，并缓解对[安全功能分数](secure-score-security-controls.md)影响最大的最高风险。
 
-详细了解[安全默认值](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)。
+详细了解[安全默认值](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)。
 
 
 ### <a name="service-principals-recommendation-added"></a>添加了服务主体建议
@@ -299,7 +404,7 @@ Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 �
 
 “应使用服务主体而不是管理证书来保护订阅”这一建议推荐使用服务主体或 Azure 资源管理器，以更安全地管理订阅。 
 
-详细了解 [Azure Active Directory 中的应用程序对象和服务主体对象](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)。
+详细了解 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。
 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>VM 漏洞评估 - 合并了建议和策略
@@ -480,7 +585,7 @@ Azure 存储的威胁防护可检测 Azure 存储帐户上的潜在有害活动�
 - 应在 SQL 托管实例高级数据安全设置中启用“向管理员和订阅所有者发送电子邮件通知”
 - 应在 SQL 服务器高级数据安全设置中为管理员和订阅所有者启用电子邮件通知
 
-了解有关[内置策略](security-center-policy-definitions.md)的详细信息。
+了解有关[内置策略](./policy-reference.md)的详细信息。
 
 
 
@@ -500,7 +605,7 @@ Azure 存储的威胁防护可检测 Azure 存储帐户上的潜在有害活动�
 
 ### <a name="secure-score-api-preview"></a>安全功能分数 API（预览）
 
-可以通过[安全功能分数 API](https://docs.microsoft.com/rest/api/securitycenter/securescores/)（当前处于预览阶段）立即访问分数。 通过 API 方法，可灵活地查询数据，久而久之构建自己的安全功能分数报告机制。 例如，可以使用安全功能分数 API 来获取特定订阅的分数。 此外，还可以使用安全功能分数控件 API 列出安全控件和订阅的当前分数。
+可以通过[安全功能分数 API](/rest/api/securitycenter/securescores/)（当前处于预览阶段）立即访问分数。 通过 API 方法，可灵活地查询数据，久而久之构建自己的安全功能分数报告机制。 例如，可以使用安全功能分数 API 来获取特定订阅的分数。 此外，还可以使用安全功能分数控件 API 列出安全控件和订阅的当前分数。
 
 有关使用安全功能分数 API 实现的外部工具的示例，请参阅 [GitHub 社区的安全功能分数区域](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)。
 
@@ -526,7 +631,7 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>将 Log Analytics 代理部署到 Azure Arc 计算机的两条新建议（预览）
 
-添加了两条新建议，以帮助将 [Log Analytics 代理](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)部署到 Azure Arc 计算机，并确保其受 Azure 安全中心的保护：
+添加了两条新建议，以帮助将 [Log Analytics 代理](../azure-monitor/platform/log-analytics-agent.md)部署到 Azure Arc 计算机，并确保其受 Azure 安全中心的保护：
 
 - Log Analytics 代理应安装在基于 Windows 的 Azure Arc 计算机上(预览)
 - Log Analytics 代理应安装在基于 Linux 的 Azure Arc 计算机上(预览)
@@ -678,7 +783,7 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 
 要详细了解安全控件，请参阅 [Azure 安全中心的安全功能分数增强版（预览版）](secure-score-security-controls.md)。
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="在连续导出配置中包括安全结果开关":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>扩展了“实现安全最佳做法”这一安全控件 
 
@@ -690,17 +795,17 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 
 移动的三项建议如下：
 
-- **应在对订阅拥有读取权限的帐户上启用 MFA**（原先位于“启用 MFA”控件中）
-- **应从订阅中删除具有读取权限的外部帐户**（原先位于“管理访问和权限”控件中）
-- **只多只为订阅指定 3 个所有者**（原先位于“管理访问和权限”控件中）
+- **应在对订阅拥有读取权限的帐户上启用 MFA** （原先位于“启用 MFA”控件中）
+- **应从订阅中删除具有读取权限的外部帐户** （原先位于“管理访问和权限”控件中）
+- **只多只为订阅指定 3 个所有者** （原先位于“管理访问和权限”控件中）
 
 添加到控件中的两项新建议如下：
 
-- **应在 Windows 虚拟机上安装来宾配置扩展（预览版）** - 如果使用 [Azure Policy 来宾配置](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)，则可在虚拟机中查看服务器和应用程序设置（仅限 Windows）。
+- **应在 Windows 虚拟机上安装来宾配置扩展（预览版）** - 如果使用 [Azure Policy 来宾配置](../governance/policy/concepts/guest-configuration.md)，则可在虚拟机中查看服务器和应用程序设置（仅限 Windows）。
 
 - **应在计算机上启用 Windows Defender 攻击防护（预览版）** - Windows Defender 攻击防护采用 Azure Policy 来宾配置代理。 攻击防护服务具有 4 个组件，旨在锁定设备来阻隔各种攻击途径，并阻止恶意软件攻击中常用的行为，同时让企业能够平衡其安全风险和生产力要求（仅限 Windows）。
 
-要详细了解 Windows Defender 攻击防护，可参阅[创建和部署攻击防护策略](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy)。
+要详细了解 Windows Defender 攻击防护，可参阅[创建和部署攻击防护策略](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy)。
 
 要详细了解安全控件，请参阅[安全功能分数增强版（预览版）](secure-score-security-controls.md)。
 
@@ -731,47 +836,3 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 - **警报聚合** - CDA 在一个故障转储中检测到多个攻击模式时，会触发多个安全警报。 而无文件攻击检测将从同一进程中确定的所有攻击模式组合到一个警报中，免去了关联多个警报的必要性。
 
 - **降低了对 Log Analytics 工作区的要求** - 包含潜在敏感数据的故障转储将无法上传到 Log Analytics 工作区。
-
-
-
-## <a name="april-2020"></a>2020 年 4 月
-
-4 月的更新包括：
-- [动态符合性包现已正式发布](#dynamic-compliance-packages-are-now-generally-available)
-- [标识建议现包含在 Azure 安全中心的免费层中](#identity-recommendations-now-included-in-azure-security-center-free-tier)
-
-
-### <a name="dynamic-compliance-packages-are-now-generally-available"></a>动态符合性包现已正式发布
-
-Azure 安全中心的法规符合性仪表板现包含动态符合性包（现已正式发布），可跟踪更多行业和法规标准。
-
-可通过安全中心的安全策略页面将动态符合性包添加到订阅或管理组中。 加入标准或基准后，该标准会出现在法规符合性仪表板中，所有关联的符合性数据都映射为评估。 还将提供已加入的所有标准的摘要报表供下载。
-
-现在，你可添加如下标准：
-
-- **NIST SP 800-53 R4**
-- **SWIFT CSP CSCF-v2020**
-- **UK Official 和 UK NHS**
-- **加拿大联邦 PBMM**
-- **Azure CIS 1.1.0（新版）** ，它是 Azure CIS 1.1.0 的完整表示形式
-
-此外，我们还添加了 Azure 安全基准，它是 Microsoft 创作的特定于 Azure 的准则，适合基于常见符合性框架的安全与合规最佳做法。 其他标准一经提供就将在仪表板中受到支持。  
- 
-详细了解如何[在法规符合性仪表板中自定义一组标准](update-regulatory-compliance-packages.md)。
-
-
-### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>标识建议现包含在 Azure 安全中心的免费层中
-
-Azure 安全中心免费层中针对标识和访问的安全建议现已正式发布。 这是我们努力使云安全状态管理 (CSPM) 功能免费而取得的成果之一。 截至目前，这些建议仅在标准定价层中提供。
-
-标识和访问建议的示例包括：
-
-- “应在对订阅拥有所有者权限的帐户上启用多重身份验证。”
-- “最多只能为订阅指定 3 个所有者。”
-- “应从订阅中删除弃用的帐户。”
-
-如果你有订阅在免费定价层，则此更改将影响它们的安全功能分数，因为它们之前从未接受过标识和访问安全性评估。
-
-详细了解[标识和访问建议](recommendations-reference.md#recs-identity)。
-
-详细了解[监视标识和访问](security-center-identity-access.md)。

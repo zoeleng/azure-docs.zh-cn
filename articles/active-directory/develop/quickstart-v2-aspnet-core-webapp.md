@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613486"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145048"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入门：向 ASP.NET Core Web 应用添加 Microsoft 登录功能
 
@@ -95,9 +95,9 @@ ms.locfileid: "91613486"
 >    "TenantId": "common",
 >    ```
 >
->    - 将 `Enter_the_Application_Id_here` 替换为在 Azure 门户中注册的应用程序的应用程序(客户端) ID。 可以在应用的“概览”页中找到“应用程序(客户端) ID”。
->    - 将 `common` 替换为以下内容之一：
->       - 如果应用程序仅支持此组织目录中的帐户，请将此值替换为目录（租户）ID (GUID) 或租户名称（例如，`contoso.onmicrosoft.com`）  。 你可以在应用的概述页面上找到目录（租户）ID 。
+>    - 将 `Enter_the_Application_Id_here` 替换为在 Azure 门户中注册的应用程序的“应用程序(客户端) ID”。 可以在应用的“概览”页中找到“应用程序(客户端) ID”。
+>    - 将 `common` 替换为以下其中一项：
+>       - 如果应用程序支持“仅限此组织目录中的帐户”，请将此值替换为“目录(租户) ID”(GUID) 或“租户名称”（例如 `contoso.onmicrosoft.com`）  。 你可以在应用的”概述”页上找到“目录(租户) ID” 。
 >       - 如果应用程序支持“任何组织目录中的帐户”，请将该值替换为`organizations`
 >       - 如果应用程序支持“所有 Microsoft 帐户用户”，请将该值保留为 `common`
 >
@@ -154,17 +154,22 @@ Microsoft.AspNetCore.Authentication 中间件使用主机进程初始化时执�
 | `Instance`             | 用户进行身份验证时使用的安全令牌服务 (STS) 终结点。 此值通常为 `https://login.microsoftonline.com/`，指示 Azure 公有云。 |
 | `TenantId`             | 租户的名称或其租户 ID (GUID)，或使用工作帐户或学校帐户或 Microsoft 个人帐户进行用户登录时常用的名称。                             |
 
-`Configure()` 方法包含两个重要的方法 `app.UseCookiePolicy()` 和 `app.UseAuthentication()`，这些方法实现了命名功能。
+`Configure()` 方法包含两个重要的方法 `app.UseAuthentication()` 和 `app.UseAuthorization()`，这些方法实现了命名功能。 此外，在 `Configure()` 方法中，必须至少调用一次 `endpoints.MapControllerRoute()` 或调用 `endpoints.MapControllers()`来注册 Microsoft Identity Web 的路由。
 
 ```csharp
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
 {
-    // more code
-    app.UseAuthentication();
-    app.UseAuthorization();
-    // more code
-}
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
+});
+
+// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>保护控制器或控制器的方法
