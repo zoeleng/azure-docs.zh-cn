@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188151"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545933"
 ---
 # <a name="configure-apache-spark-settings"></a>配置 Apache Spark 设置
 
@@ -23,13 +23,13 @@ HDInsight Spark 群集包含 Apache Spark 库的安装。  每个 HDInsight 群�
 
 ![Spark HDInsight 体系结构](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-HDInsight 群集中节点的 VM 数目和 VM 大小可能影响 Spark 配置。 非默认的 HDInsight 配置值通常需要非默认的 Spark 配置值。 在创建 HDInsight Spark 群集时，系统会显示每个组件的建议 VM 大小。 目前，Azure 的[内存优化 Linux VM 大小](../../virtual-machines/linux/sizes-memory.md)为 D12 v2 或更大。
+HDInsight 群集中节点的 VM 数目和 VM 大小可能影响 Spark 配置。 非默认的 HDInsight 配置值通常需要非默认的 Spark 配置值。 在创建 HDInsight Spark 群集时，系统会显示每个组件的建议 VM 大小。 目前，Azure 的[内存优化 Linux VM 大小](../../virtual-machines/sizes-memory.md)为 D12 v2 或更大。
 
 ## <a name="apache-spark-versions"></a>Apache Spark 版本
 
 使用适合你的群集的最佳 Spark 版本。  HDInsight 服务本身包含 Spark 和 HDInsight 的多个版本。  每个 Spark 版本包含一组默认群集设置。  
 
-创建新群集时，可从以下多个 Spark 版本中进行选择。 若要查看完整列表，请参阅  [HDInsight 组件和版本](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)。
+创建新群集时，可从以下多个 Spark 版本中进行选择。 若要查看完整列表，请参阅  [HDInsight 组件和版本](../hdinsight-component-versioning.md)。
 
 > [!NOTE]  
 > HDInsight 服务中的默认 Apache Spark 版本可随时更改，恕不另行通知。 如果你依赖某个版本，Microsoft 建议在使用 .NET SDK、Azure PowerShell 和 Azure 经典 CLI 创建群集时指定该特定版本。
@@ -85,7 +85,7 @@ spark.sql.files.openCostInBytes 1099511627776
 
 Spark 作业使用辅助角色资源（具体而言是内存），因此，我们往往会调整工作节点执行器的 Spark 配置值。
 
-我们经常调整 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory` 这三个关键参数来优化 Spark 配置，以改善应用程序要求。 执行器是针对 Spark 应用程序启动的进程。 执行器在工作节点上运行，负责执行应用程序的任务。 工作器节点数量和工作器节点大小决定执行程序数量和执行程序大小。 这些值存储在群集头节点的 `spark-defaults.conf` 中。  可以通过在 Ambari Web UI 中选择“自定义 spark-defaults”，在运行的群集中编辑这些值。  做出更改后，UI 会提示**重启**所有受影响的服务。
+我们经常调整 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory` 这三个关键参数来优化 Spark 配置，以改善应用程序要求。 执行器是针对 Spark 应用程序启动的进程。 执行器在工作节点上运行，负责执行应用程序的任务。 工作器节点数量和工作器节点大小决定执行程序数量和执行程序大小。 这些值存储在群集头节点的 `spark-defaults.conf` 中。  可以通过在 Ambari Web UI 中选择“自定义 spark-defaults”，在运行的群集中编辑这些值。  做出更改后，UI 会提示 **重启** 所有受影响的服务。
 
 > [!NOTE]  
 > 这三个配置参数可在群集级别配置（适用于群集中运行的所有应用程序），也可以针对每个应用程序指定。

@@ -1,17 +1,17 @@
 ---
-title: 配置指标警报-Azure 门户-Azure Database for MySQL
+title: 配置警报指标 - Azure 门户 - Azure Database for MySQL
 description: 本文介绍了如何通过 Azure 门户配置和访问针对 Azure Database for MySQL 的指标警报。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 3891d1730648fea3c480cd03921a76fe005c308f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb86bc3fbfd4beffdaca713d7989218550841f03
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740048"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546885"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>使用 Azure 门户设置针对 Azure Database for MySQL 指标的警报 
 
@@ -27,7 +27,7 @@ ms.locfileid: "91740048"
 可使用以下项配置并获取预警规则相关信息：
 * [Azure 门户](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure 监视器 REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure 监视器 REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>通过 Azure 门户针对指标创建警报规则
 1. 在 [Azure 门户](https://portal.azure.com/)中，选择要监视的 Azure Database for MySQL 服务器。
@@ -36,7 +36,7 @@ ms.locfileid: "91740048"
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="选择警报规则":::
 
-3. 选择“添加指标警报”（+ 图标）****。
+3. 选择“添加指标警报”（+ 图标）  。
 
 4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
@@ -46,7 +46,7 @@ ms.locfileid: "91740048"
 
 6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 和 **频率**。
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 和 **频率** 。
    
    完成后选择“完成”  。
 
@@ -56,7 +56,7 @@ ms.locfileid: "91740048"
 
 9. 使用名称、短名称、订阅和资源组填写“添加操作组”表单。
 
-10. 配置“电子邮件/短信/推送/语音”操作类型****。
+10. 配置“电子邮件/短信/推送/语音”操作类型  。
     
     选择“电子邮件 Azure 资源管理器角色”以选择订阅所有者、参与者和读取器来接收通知。
    
@@ -84,4 +84,4 @@ ms.locfileid: "91740048"
 
 ## <a name="next-steps"></a>后续步骤
 * 了解[在警报中配置 Webhook](../azure-monitor/platform/alerts-webhooks.md)的详细信息。
-* 获取[指标集合概述](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。
+* 获取[指标集合概述](../azure-monitor/platform/data-platform.md)以确保服务可用且响应迅速。

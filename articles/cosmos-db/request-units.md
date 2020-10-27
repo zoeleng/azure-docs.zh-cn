@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.openlocfilehash: 556b3915336d0ca9cec8ac67a34778cfb2523cbe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/23/2020
+ms.openlocfilehash: 13644baf197184f6872cce75fd3f9097d2116e79
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475067"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536379"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 
@@ -27,48 +27,54 @@ Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB、Cassandra、Gremlin �
 
 为了方便管理和规划容量，Azure Cosmos DB 会确保针对给定数据集执行的给定数据库操作的 RU 数是确定性的。 可以检查响应标头来跟踪任一数据库操作消耗的 RU 数。 了解[影响 RU 费用的因素](request-units.md#request-unit-considerations)以及应用程序吞吐量要求后，可以经济高效地运行应用程序。
 
-你使用的 Azure Cosmos 帐户的类型决定了消耗的 RU 的计费方式：
+你使用的 Azure Cosmos 帐户的类型决定了使用的 ru 收费的方式。 可以通过三种模式创建帐户：
 
-- 在[预配吞吐量](set-throughput.md)模式下，可以按秒来预配应用程序的 RU 数，增量为每秒 100 RU。 若要缩放应用程序的预配吞吐量，可以随时增加或减少 RU 数，增量或减量为 100 RU。 可以编程方式或使用 Azure 门户进行更改。 系统会针对你预配的每秒 RU 数按小时向你收费。 可在两个不同的粒度级别预配吞吐量：
-  - **容器**：有关详细信息，请参阅[对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
-  - **数据库**：有关详细信息，请参阅[对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)。
-- 在[无服务器](serverless.md)模式下，在 Azure Cosmos 帐户中创建资源时无需预配任何吞吐量。 在计费周期结束时，会针对你的数据库操作已消耗的请求单位量计费。
+1. **预配的吞吐量模式** ：在此模式下，你可以每秒以 100 ru/秒的增量预配应用程序的 ru 数。 若要缩放应用程序的预配吞吐量，可以随时增加或减少 RU 数，增量或减量为 100 RU。 可以编程方式或使用 Azure 门户进行更改。 系统会针对你预配的每秒 RU 数按小时向你收费。 若要了解详细信息，请参阅 [预配的吞吐量](set-throughput.md) 一文。
+
+   可在两个不同的粒度级别预配吞吐量：
+
+   * **容器** ：有关详细信息，请参阅 [对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
+   * **数据库** ：有关详细信息，请参阅 [对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)。
+
+2. **无服务器模式** ：在此模式下，在 Azure Cosmos 帐户中创建资源时，无需设置任何吞吐量。 在计费周期结束时，会针对你的数据库操作已消耗的请求单位量计费。 若要了解详细信息，请参阅 [无服务器吞吐量](serverless.md) 一文。 
+
+3. **自动缩放模式** ：在这种情况下，你可以根据数据库的使用情况，自动并即时缩放数据库或容器) 的吞吐量 (，而不会影响工作负荷的可用性、延迟、吞吐量或性能。 此模式非常适用于具有可变或不可预测流量模式的任务关键型工作负荷，并且需要具有高性能和缩放性方面的 Sla。 若要了解详细信息，请参阅 [自动缩放吞吐量](provision-throughput-autoscale.md) 一文。 
 
 ## <a name="request-unit-considerations"></a>请求单位注意事项
 
 在估计你的工作负荷消耗的 RU 数量时，请考虑以下因素：
 
-- **项大小**：随着项的增大，读取或写入该项所要消耗的 RU 数也会增加。
+* **项大小** ：随着项的增大，读取或写入该项所要消耗的 RU 数也会增加。
 
-- **项索引**：默认情况下会自动为每个项创建索引。 如果选择不为容器中的某些项创建索引，则消耗的 RU 数将会减少。
+* **项索引** ：默认情况下会自动为每个项创建索引。 如果选择不为容器中的某些项创建索引，则消耗的 RU 数将会减少。
 
-- **项属性计数**：假设所有属性采用默认索引，写入某个项所要消耗的 RU 数会随着项属性计数的增加而增加。
+* **项属性计数** ：假设所有属性采用默认索引，写入某个项所要消耗的 RU 数会随着项属性计数的增加而增加。
 
-- **带索引的属性**：每个容器的索引策略都可确定默认情况下要进行索引的属性类别。 若要减少写入操作的 RU 消耗，请限制带索引的属性数目。
+* **带索引的属性** ：每个容器的索引策略都可确定默认情况下要进行索引的属性类别。 若要减少写入操作的 RU 消耗，请限制带索引的属性数目。
 
-- **数据一致性**：在执行读取操作时，非常一致性和有限过期一致性级别消耗的 RU 数大约比其他宽松一致性级别要多两倍。
+* **数据一致性** ：在执行读取操作时，非常一致性和有限过期一致性级别消耗的 RU 数大约比其他宽松一致性级别要多两倍。
 
-- 读取的类型：点读取消耗的 RU 明显少于查询。
+* 读取的类型：点读取消耗的 RU 明显少于查询。
 
-- **查询模式**：查询的复杂性会影响操作使用的 RU 数。 影响查询操作成本的因素： 
-
-  - 查询结果数
-  - 谓词数
-  - 谓词性质
-  - 用户定义的函数数目
-  - 源数据的大小
-  - 结果集的大小
-  - 投影数
+* **查询模式** ：查询的复杂性会影响操作使用的 RU 数。 影响查询操作成本的因素： 
+ 
+  * 查询结果数
+  * 谓词数
+  * 谓词性质
+  * 用户定义的函数数目
+  * 源数据的大小
+  * 结果集的大小
+  * 投影数
 
   对相同数据的相同查询在重复执行时将始终产生相同的 ru 数。
 
-- **脚本的使用**：与查询一样，存储过程和触发器也是根据所执行的操作的复杂性来消耗 RU。 开发应用程序时，请检查[请求费用标头](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request)，以更好地了解每个操作消耗的 RU 容量。
+* **脚本的使用** ：与查询一样，存储过程和触发器也是根据所执行的操作的复杂性来消耗 RU。 开发应用程序时，请检查[请求费用标头](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request)，以更好地了解每个操作消耗的 RU 容量。
 
 ## <a name="request-units-and-multiple-regions"></a>请求单位和多个区域
 
 如果针对 Cosmos 容器（或数据库）预配了 'R' 个 RU，则 Cosmos DB 可确保 'R' 个 RU 在与 Cosmos 帐户关联的每个区域中都可用。    无法有选择地将 RU 分配给特定区域。 针对 Cosmos 容器（或数据库）预配的 RU 是在与 Cosmos 帐户关联的所有区域中预配的。
 
-假设 Cosmos 容器配置了 *"R"* ru，并且存在与 Cosmos 帐户关联的 *"N"* 个区域，则容器中全局可用的总 ru 数 = *R* x *N*。
+假设 Cosmos 容器配置了 *"R"* ru，并且存在与 Cosmos 帐户关联的 *"N"* 个区域，则容器中全局可用的总 ru 数 = *R* x *N* 。
 
 所选的[一致性模型](consistency-levels.md)也会影响吞吐量。 与更强的一致性级别（例如，“有限过期”或“强”一致性）相比，更宽松的一致性级别（例如“会话”、“一致前缀”和“最终”一致性）可以获得约 2 倍的读取吞吐量。
 
@@ -77,7 +83,6 @@ Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB、Cassandra、Gremlin �
 - 详细了解如何[对 Azure Cosmos 容器和数据库预配吞吐量](set-throughput.md)。
 - 详细了解 [Azure Cosmos DB 上的无服务器](serverless.md)。
 - 详细了解[逻辑分区](./partitioning-overview.md)。
-- 详细了解如何[全局缩放预配的吞吐量]()。
 - 了解[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
 - 了解[如何对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)。
 - 了解如何[查找操作所产生的请求单位费用](find-request-unit-charge.md)。

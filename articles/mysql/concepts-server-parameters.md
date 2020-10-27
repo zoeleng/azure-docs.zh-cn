@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627340"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545151"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器参数
 
@@ -57,9 +57,9 @@ MySQL 通常会为每个客户端连接分配一个线程。 随着并发用户�
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-在 Azure Database for MySQL 中，始终启用二进制日志 (即 `log_bin`) 设置为 ON。 如果你想要使用触发器，你会收到类似于 *你未启用超级权限和二进制日志记录的错误 (你可能想要使用较不安全的 `log_bin_trust_function_creators` 变量) *。 
+在 Azure Database for MySQL 中，始终启用二进制日志 (即 `log_bin`) 设置为 ON。 如果你想要使用触发器，你会收到类似于 *你未启用超级权限和二进制日志记录的错误 (你可能想要使用较不安全的 `log_bin_trust_function_creators` 变量)* 。 
 
-二进制日志记录格式始终为 **行** ，与服务器的所有连接 **始终** 使用基于行的二进制日志记录。 利用基于行的二进制日志记录，不存在安全问题，二进制日志记录无法中断，因此可以安全地将设置 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) 为 **TRUE**。
+二进制日志记录格式始终为 **行** ，与服务器的所有连接 **始终** 使用基于行的二进制日志记录。 利用基于行的二进制日志记录，不存在安全问题，二进制日志记录无法中断，因此可以安全地将设置 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) 为 **TRUE** 。
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -116,8 +116,8 @@ MySQL 根据你在表创建期间提供的配置，将 InnoDB 表存储在不同
 
 |**定价层**|**vCore(s)**|**默认值（字节）**|**最小值（字节）**|**最大值（字节）**|
 |---|---|---|---|---|
-|基本|1|在基本层中不可配置|不适用|不适用|
-|基本|2|在基本层中不可配置|不适用|不适用|
+|基本|1|在基本层中不可配置|空值|空值|
+|基本|2|在基本层中不可配置|空值|空值|
 |常规用途|2|262144|128|268435455|
 |常规用途|4|262144|128|536870912|
 |常规用途|8|262144|128|1073741824|
@@ -165,8 +165,8 @@ MySQL 根据你在表创建期间提供的配置，将 InnoDB 表存储在不同
 
 |**定价层**|**vCore(s)**|**默认值（字节）**|**最小值（字节）**|**最大值（字节）**|
 |---|---|---|---|---|
-|基本|1|在基本层中不可配置|不适用|空值|
-|基本|2|在基本层中不可配置|不适用|空值|
+|基本|1|在基本层中不可配置|空值|空值|
+|基本|2|在基本层中不可配置|空值|空值|
 |常规用途|2|16777216|16384|268435455|
 |常规用途|4|16777216|16384|536870912|
 |常规用途|8|16777216|16384|1073741824|
@@ -190,8 +190,8 @@ MySQL 根据你在表创建期间提供的配置，将 InnoDB 表存储在不同
 
 |**定价层**|**vCore(s)**|**默认值（字节）**|**最小值（字节）**|**最大值 **|
 |---|---|---|---|---|
-|基本|1|在基本层中不可配置|不适用|不适用|
-|基本|2|在基本层中不可配置|不适用|不适用|
+|基本|1|在基本层中不可配置|空值|空值|
+|基本|2|在基本层中不可配置|空值|空值|
 |常规用途|2|0|0|16777216|
 |常规用途|4|0|0|33554432|
 |常规用途|8|0|0|67108864|
@@ -217,7 +217,7 @@ lower_case_table_name 默认设置为 1，你可以在 MySQL 5.6 和 MySQL 5.7 �
 
 如果收到类似于“行大小太大(> 8126)”的错误，则可能需要关闭 innodb_strict_mode 参数。 不允许在服务器级别全局修改服务器参数 innodb_strict_mode，因为如果行数据大小大于 8k，该数据将会被截断，且不显示错误，这样就会导致有可能丢失数据。 建议修改架构以适应页面大小限制。 
 
-可以使用 `init_connect` 在会话级别设置此参数。 若要在会话级别设置 innodb_strict_mode，请参阅[设置未列出的参数](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed)。
+可以使用 `init_connect` 在会话级别设置此参数。 若要在会话级别设置 innodb_strict_mode，请参阅[设置未列出的参数](./howto-server-parameters.md#setting-parameters-not-listed)。
 
 > [!NOTE]
 > 如果有读取副本服务器，请在源服务器上的会话级别将 **innodb_strict_mode** 设置为 OFF 将中断复制。 如果有只读副本，建议将该参数始终设置为 OFF。
@@ -228,8 +228,8 @@ lower_case_table_name 默认设置为 1，你可以在 MySQL 5.6 和 MySQL 5.7 �
 
 |**定价层**|**vCore(s)**|**默认值（字节）**|**最小值（字节）**|**最大值（字节）**|
 |---|---|---|---|---|
-|基本|1|在基本层中不可配置|不适用|不适用|
-|基本|2|在基本层中不可配置|不适用|不适用|
+|基本|1|在基本层中不可配置|空值|空值|
+|基本|2|在基本层中不可配置|空值|空值|
 |常规用途|2|524288|32768|4194304|
 |常规用途|4|524288|32768|8388608|
 |常规用途|8|524288|32768|16777216|
@@ -248,8 +248,8 @@ lower_case_table_name 默认设置为 1，你可以在 MySQL 5.6 和 MySQL 5.7 �
 
 |**定价层**|**vCore(s)**|**默认值（字节）**|**最小值（字节）**|**最大值（字节）**|
 |---|---|---|---|---|
-|基本|1|在基本层中不可配置|不适用|不适用|
-|基本|2|在基本层中不可配置|不适用|不适用|
+|基本|1|在基本层中不可配置|空值|空值|
+|基本|2|在基本层中不可配置|空值|空值|
 |常规用途|2|16777216|1024|67108864|
 |常规用途|4|16777216|1024|134217728|
 |常规用途|8|16777216|1024|268435456|

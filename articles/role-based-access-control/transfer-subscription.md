@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819704"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545338"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>将 Azure 订阅转移到不同的 Azure AD 目录
 
@@ -75,7 +75,8 @@ ms.locfileid: "91819704"
 | Azure 文件 | 是 | 是 |  | 必须重新创建任何 ACL。 |
 | Azure 文件同步 | 是 | 是 |  |  |
 | Azure 托管磁盘 | 是 | 是 |  |  如果你使用磁盘加密集来使用客户管理的密钥来加密托管磁盘，则必须禁用并重新启用与磁盘加密集相关联的系统分配的标识。 您必须重新创建角色分配，即，对密钥保管库中的磁盘加密集再次授予所需权限。 |
-| 用于 Kubernetes 的 Azure 容器服务 | 是 | 是 |  |  |
+| Azure Kubernetes 服务 | 是 | 是 |  |  |
+| Azure Policy | 是 | 否 | 所有 Azure 策略对象，包括自定义定义、分配、免除和符合性数据。 | 必须 [导出](../governance/policy/how-to/export-resources.md)、导入和重新分配定义。 然后，创建新的策略分配以及所需的任何 [策略例外](../governance/policy/concepts/exemption-structure.md)。 |
 | Azure Active Directory 域服务 | 是 | 否 |  |  |
 | 应用注册 | “是” | 是 |  |  |
 
@@ -108,9 +109,9 @@ ms.locfileid: "91819704"
     az account set --subscription "Marketing"
     ```
 
-### <a name="install-the-resource-graph-extension"></a>安装 resource-graph 扩展
+### <a name="install-the-azure-resource-graph-extension"></a>安装 Azure 资源图扩展
 
- 借助 resource-graph 扩展，你可以使用 [az graph](/cli/azure/ext/resource-graph/graph) 命令来查询由 Azure 资源管理器管理的资源。 后续步骤中需要使用此命令。
+ 使用用于 [Azure 资源关系](../governance/resource-graph/index.yml)图的 Azure CLI *扩展，可以* 使用 [Az graph](/cli/azure/ext/resource-graph/graph) 命令查询由 Azure 资源管理器管理的资源。 后续步骤中需要使用此命令。
 
 1. 使用 [az extension list](/cli/azure/extension#az_extension_list) 查看是否安装了 resource-graph 扩展。
 

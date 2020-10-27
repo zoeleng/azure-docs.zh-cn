@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: c1d43da3a0be65b2351a4b6dbeeb2772062356bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d8b36676c9b95992bdcf382c1f474b56e30ad3fb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974628"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535546"
 ---
 # <a name="archived-release-notes"></a>已存档的发行说明
 
@@ -39,10 +39,10 @@ HDInsight 现在支持将高级 ADLS Gen2 作为 HDInsight HBase 3.6 和4.0 群�
 客户可以通过使用 IPSec 加密和平台托管密钥，在群集节点之间传输加密。 可以在创建群集时启用此选项。 查看有关 [如何在传输中启用加密的](./domain-joined/encryption-in-transit.md)更多详细信息。
 
 #### <a name="encryption-at-host"></a>主机加密
-当你在主机上启用加密时，存储在 VM 主机上的数据将静态加密，并加密为存储服务。 在此版本中，可以在创建群集时，在 **临时数据磁盘上的主机上启用加密** 。 仅在 [有限区域中的特定 VM sku](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal)上支持在主机上加密。 HDInsight 支持 [以下节点配置和 sku](./hdinsight-supported-node-configuration.md)。 有关 [如何在主机上启用加密的](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys)详细信息，请参阅。
+当你在主机上启用加密时，存储在 VM 主机上的数据将静态加密，并加密为存储服务。 在此版本中，可以在创建群集时，在 **临时数据磁盘上的主机上启用加密** 。 仅在 [有限区域中的特定 VM sku](../virtual-machines/disks-enable-host-based-encryption-portal.md)上支持在主机上加密。 HDInsight 支持 [以下节点配置和 sku](./hdinsight-supported-node-configuration.md)。 有关 [如何在主机上启用加密的](./disk-encryption.md#encryption-at-host-using-platform-managed-keys)详细信息，请参阅。
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>迁移到 Azure 虚拟机规模集
-HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本开始，该服务将逐步迁移到 [Azure 虚拟机规模集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。 整个过程可能需要几个月的时间。 迁移你的区域和订阅后，新创建的 HDInsight 群集将在无需客户操作的虚拟机规模集上运行。 不需要进行重大更改。
+HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本开始，该服务将逐步迁移到 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。 整个过程可能需要几个月的时间。 迁移你的区域和订阅后，新创建的 HDInsight 群集将在无需客户操作的虚拟机规模集上运行。 不需要进行重大更改。
 
 ### <a name="deprecation"></a>弃用
 此版本没有弃用。
@@ -60,7 +60,7 @@ HDInsight 目前不支持更改 Spark、Hadoop 和 ML 服务群集类型的 Zook
 HDInsight 会持续改善群集的可靠性和性能。 
 
 ### <a name="component-version-change"></a>组件版本更改
-此发行版未发生组件版本更改。 可以在[此文档](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
+此发行版未发生组件版本更改。 可以在[此文档](./hdinsight-component-versioning.md)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
 
 ## <a name="release-date-08092020"></a>发行日期：2020/08/09
 
@@ -110,7 +110,7 @@ HDInsight 会持续改善群集的可靠性和性能。
 * [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
 
 ### <a name="component-version-change"></a>组件版本更改
-此发行版未发生组件版本更改。 可以在[此文档](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
+此发行版未发生组件版本更改。 可以在[此文档](./hdinsight-component-versioning.md)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
 
 ### <a name="known-issues"></a>已知问题
 
@@ -122,10 +122,10 @@ Azure 门户中已解决了问题，即用户使用 SSH 身份验证类型的公
 
 ### <a name="new-features"></a>新增功能
 #### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>支持 Microsoft Azure 客户密码箱
-Azure HDInsight 现在支持 Azure 客户密码箱。 客户可通过其提供的界面查看和批准/拒绝客户数据访问请求。 当 Microsoft 工程师需要在支持请求期间访问客户数据时，可以使用它。 有关详细信息，请参阅 [Microsoft Azure 客户密码箱](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview)。
+Azure HDInsight 现在支持 Azure 客户密码箱。 客户可通过其提供的界面查看和批准/拒绝客户数据访问请求。 当 Microsoft 工程师需要在支持请求期间访问客户数据时，可以使用它。 有关详细信息，请参阅 [Microsoft Azure 客户密码箱](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview)。
 
 #### <a name="service-endpoint-policies-for-storage"></a>存储的服务终结点策略
-现在，客户可以在 HDInsight 群集子网上使用服务终结点策略 (SEP)。 详细了解 [Azure 服务终结点策略](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)。
+现在，客户可以在 HDInsight 群集子网上使用服务终结点策略 (SEP)。 详细了解 [Azure 服务终结点策略](../virtual-network/virtual-network-service-endpoint-policies-overview.md)。
 
 ### <a name="deprecation"></a>弃用
 #### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>弃用 HDInsight 3.6 Spark 群集中的 Spark 2.1 和 2.2
@@ -155,7 +155,7 @@ HDInsight 会持续改善群集的可靠性和性能。
 Zeppelin 过去会在字符串格式的表输出中错误地截断起始零。 此版本已修复此问题。
 
 ### <a name="component-version-change"></a>组件版本更改
-此发行版未发生组件版本更改。 可以在[此文档](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
+此发行版未发生组件版本更改。 可以在[此文档](./hdinsight-component-versioning.md)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
 
 ## <a name="release-date-06112020"></a>发行日期：2020/06/11
 
@@ -163,7 +163,7 @@ Zeppelin 过去会在字符串格式的表输出中错误地截断起始零。 �
 
 ### <a name="new-features"></a>新增功能
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>迁移到 Azure 虚拟机规模集
-HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本起，新创建的 HDInsight 群集开始使用 Azure 虚拟机规模集。 此更改将逐步推出。 预计不会有中断性变更。 详细了解 [Azure 虚拟机规模集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。
+HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本起，新创建的 HDInsight 群集开始使用 Azure 虚拟机规模集。 此更改将逐步推出。 预计不会有中断性变更。 详细了解 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。
  
 #### <a name="reboot-vms-in-hdinsight-cluster"></a>重启 HDInsight 群集中的 VM
 在此版本中，我们支持重启 HDInsight 群集中的 VM 以重启无响应的节点。 目前只能通过 API 完成此操作，即将支持使用 PowerShell 和 CLI。 有关此 API 的详细信息，请参阅[此文档](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json)。
@@ -186,15 +186,15 @@ HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本起，新�
 头节点至少需要 4 核 VM，以确保 HDInsight 群集的高可用性和可靠性。 从 2020 年 4 月 6 日开始，客户只能选择至少有 4 个核心的 VM 作为新 HDInsight 群集的头节点。 现有群集将继续按预期方式运行。 
  
 #### <a name="cluster-worker-node-provisioning-change"></a>群集工作器节点预配更改
-当 80% 的工作器节点准备就绪时，群集将进入**可运行**阶段。 在此阶段中，客户可以执行所有数据平面操作，例如运行脚本和作业。 但客户不能执行任何控制平面操作，例如纵向扩展/缩减。 仅支持删除。
+当 80% 的工作器节点准备就绪时，群集将进入 **可运行** 阶段。 在此阶段中，客户可以执行所有数据平面操作，例如运行脚本和作业。 但客户不能执行任何控制平面操作，例如纵向扩展/缩减。 仅支持删除。
  
-在进入**可运行**阶段后，群集会再等待 60 分钟，等待的对象是其余的 20% 的工作器节点。 在 60 分钟结束时，即使仍有部分工作节点不可用，群集也会进入**正在运行**阶段。 在群集进入**正在运行**阶段后，你可以正常使用它。 控制平面操作（例如纵向扩展/缩减）和数据平面操作（例如运行脚本和作业）都会被接受。 如果所请求的某些工作器节点不可用，则群集会被标记为部分成功。 你需要为已成功部署的节点付费。 
+在进入 **可运行** 阶段后，群集会再等待 60 分钟，等待的对象是其余的 20% 的工作器节点。 在 60 分钟结束时，即使仍有部分工作节点不可用，群集也会进入 **正在运行** 阶段。 在群集进入 **正在运行** 阶段后，你可以正常使用它。 控制平面操作（例如纵向扩展/缩减）和数据平面操作（例如运行脚本和作业）都会被接受。 如果所请求的某些工作器节点不可用，则群集会被标记为部分成功。 你需要为已成功部署的节点付费。 
  
 #### <a name="create-new-service-principal-through-hdinsight"></a>通过 HDInsight 创建新的服务主体
-以前，在创建群集的过程中，客户可以创建新的服务主体来访问 Azure 门户中已连接的 ADLS 第 1 代帐户。 从 2020 年 6 月 15 日起，客户无法在 HDInsight 创建工作流中创建新的服务主体，我们只支持现有的服务主体。 请参阅[使用 Azure Active Directory 创建服务主体和证书](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+以前，在创建群集的过程中，客户可以创建新的服务主体来访问 Azure 门户中已连接的 ADLS 第 1 代帐户。 从 2020 年 6 月 15 日起，客户无法在 HDInsight 创建工作流中创建新的服务主体，我们只支持现有的服务主体。 请参阅[使用 Azure Active Directory 创建服务主体和证书](../active-directory/develop/howto-create-service-principal-portal.md)。
 
 #### <a name="time-out-for-script-actions-with-cluster-creation"></a>创建群集时脚本操作的超时
-HDInsight 支持在创建群集的过程中运行脚本操作。 在此版本中，群集创建过程中的所有脚本操作都必须在 60 分钟内完成，否则会超时。提交到正在运行的群集的脚本操作不会受到影响。 请访问[此处](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process)了解更多详细信息。
+HDInsight 支持在创建群集的过程中运行脚本操作。 在此版本中，群集创建过程中的所有脚本操作都必须在 60 分钟内完成，否则会超时。提交到正在运行的群集的脚本操作不会受到影响。 请访问[此处](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process)了解更多详细信息。
  
 ### <a name="upcoming-changes"></a>即将推出的更改
 没有需要注意的即将发生的中断性变更。
@@ -212,7 +212,7 @@ Spark 版本已从 2.4.0 升级到 2.4.4。
 #### <a name="kafka-210-to-211"></a>Kafka 2.1.0 到 2.1.1
 Kafka 版本已从 2.1.0 升级到 2.1.1。
  
-可以在[此文档](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本
+可以在[此文档](./hdinsight-component-versioning.md)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本
 
 ### <a name="known-issues"></a>已知问题
 
@@ -227,10 +227,10 @@ Kafka 版本已从 2.1.0 升级到 2.1.1。
 #### <a name="tls-12-enforcement"></a>强制执行 TLS 1.2
 传输层安全性 (TLS) 和安全套接字层 (SSL) 是提供计算机网络通信安全的加密协议。 详细了解 [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)。 HDInsight 在公共 HTTPs 终结点上使用 TLS 1.2，但仍支持使用 TLS 1.1 以实现后向兼容。 
 
-在此发行版中，客户只能为通过公共群集终结点建立的所有连接启用 TLS 1.2。 为了支持此方案，我们引入了新属性 **minSupportedTlsVersion**，在创建群集期间可以指定此属性。 如果不设置该属性，群集仍支持 TLS 1.0、1.1 和 1.2，这与当前的行为相同。 客户可以将此属性的值设置为“1.2”，这意味着群集仅支持 TLS 1.2 和更高版本。 有关详细信息，请参阅[传输层安全性](./transport-layer-security.md)。
+在此发行版中，客户只能为通过公共群集终结点建立的所有连接启用 TLS 1.2。 为了支持此方案，我们引入了新属性 **minSupportedTlsVersion** ，在创建群集期间可以指定此属性。 如果不设置该属性，群集仍支持 TLS 1.0、1.1 和 1.2，这与当前的行为相同。 客户可以将此属性的值设置为“1.2”，这意味着群集仅支持 TLS 1.2 和更高版本。 有关详细信息，请参阅[传输层安全性](./transport-layer-security.md)。
 
 #### <a name="bring-your-own-key-for-disk-encryption"></a>为磁盘加密创建自己的密钥
-通过 Azure 存储服务加密 (SSE) 保护 HDInsight 中的所有托管磁盘。 这些磁盘上的数据默认已使用 Microsoft 托管的密钥进行加密。 从此发行版开始，可以创建自己的密钥 (BYOK) 进行磁盘加密，并使用 Azure Key Vault 管理该密钥。 BYOK 加密是创建群集期间完成的单步配置，不额外收费。 只需将 HDInsight 作为托管标识注册到 Azure Key Vault，并在创建群集时添加加密密钥。 有关详细信息，请参阅[客户管理的密钥磁盘加密](https://docs.microsoft.com/azure/hdinsight/disk-encryption)。
+通过 Azure 存储服务加密 (SSE) 保护 HDInsight 中的所有托管磁盘。 这些磁盘上的数据默认已使用 Microsoft 托管的密钥进行加密。 从此发行版开始，可以创建自己的密钥 (BYOK) 进行磁盘加密，并使用 Azure Key Vault 管理该密钥。 BYOK 加密是创建群集期间完成的单步配置，不额外收费。 只需将 HDInsight 作为托管标识注册到 Azure Key Vault，并在创建群集时添加加密密钥。 有关详细信息，请参阅[客户管理的密钥磁盘加密](./disk-encryption.md)。
 
 ### <a name="deprecation"></a>弃用
 此版本无弃用。 若要为即将到来的弃用做好准备，请参阅[即将推出的变更](#upcoming-changes)。
@@ -281,7 +281,7 @@ HDInsight 会持续改善群集的可靠性和性能。
 ### <a name="new-features"></a>新增功能
 
 #### <a name="service-tags"></a>服务标记
-服务标记通过使你轻松限制 Azure 服务的网络访问，以此简化 Azure 虚拟机和 Azure 虚拟网络的安全性。 你可在网络安全组 (NSG) 规则中使用服务标记，允许或拒绝全局或每个 Azure 区域的特定 Azure 服务流量。 Azure 会对每个标记下面的 IP 地址进行维护。 网络安全组 (NSG) 的 HDInsight 服务标记是运行状况和管理服务的 IP 地址组。 这些组有助于尽量降低创建安全规则时的复杂性。 HDInsight 客户可以通过 Azure 门户、PowerShell 和 REST API 启用服务标记。 有关详细信息，请参阅 [Azure HDInsight 的网络安全组 (NSG) 服务标记](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags)。
+服务标记通过使你轻松限制 Azure 服务的网络访问，以此简化 Azure 虚拟机和 Azure 虚拟网络的安全性。 你可在网络安全组 (NSG) 规则中使用服务标记，允许或拒绝全局或每个 Azure 区域的特定 Azure 服务流量。 Azure 会对每个标记下面的 IP 地址进行维护。 网络安全组 (NSG) 的 HDInsight 服务标记是运行状况和管理服务的 IP 地址组。 这些组有助于尽量降低创建安全规则时的复杂性。 HDInsight 客户可以通过 Azure 门户、PowerShell 和 REST API 启用服务标记。 有关详细信息，请参阅 [Azure HDInsight 的网络安全组 (NSG) 服务标记](./hdinsight-service-tags.md)。
 
 #### <a name="custom-ambari-db"></a>自定义 Ambari DB
 通过 HDInsight，你现在可将自己的 SQL DB 用于 Apache Ambari。 可以通过 Azure 门户或资源管理器模板来配置此自定义 Ambari DB。  此功能可让你为处理和容量需求选择合适的 SQL DB。 你还可轻松升级以匹配业务增长需求。 有关详细信息，请参阅[使用自定义 Ambari 数据库设置 HDInsight 群集](hdinsight-custom-ambari-db.md)。
@@ -305,7 +305,7 @@ HDInsight 会持续改善群集的可靠性和性能。
 今年晚些时候，预计从 2020/6/30 开始，Azure HDInsight 将为所有 HTTPS 连接强制实行 TLS 2.1 或更高版本。 我们建议你确保所有客户端都已准备好处理 TLS 1.2 或更高版本。
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>迁移到 Azure 虚拟机规模集
-HDInsight 目前使用 Azure 虚拟机来预配群集。 从 2020 年 2 月开始（将在稍后传达确切日期），HDInsight 将改为使用 Azure 虚拟机规模集。 详细了解 [Azure 虚拟机规模集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。
+HDInsight 目前使用 Azure 虚拟机来预配群集。 从 2020 年 2 月开始（将在稍后传达确切日期），HDInsight 将改为使用 Azure 虚拟机规模集。 详细了解 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。
 
 #### <a name="esp-spark-cluster-node-size-change"></a>ESP Spark 群集节点大小变更 
 在即将推出的版本中：
@@ -325,7 +325,7 @@ HDInsight 4.0 无组件版本变更。
 
 HDInsight 3.6 上的 Apache Zeppelin：0.7.0-->0.7.3. 
 
-可以在[此文档](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)中获取最新的组件版本。
+可以在[此文档](./hdinsight-component-versioning.md)中获取最新的组件版本。
 
 ### <a name="new-regions"></a>新区域
 
@@ -353,19 +353,19 @@ Kafka Rest API 代理通过安全 Azure AD 授权和 OAuth 协议，通过 Kafka
 
 可以根据要求，在基于负载和基于计划的自动缩放之间进行选择。 基于负载的自动缩放可根据当前资源需求增大和缩小群集大小，而基于计划的自动缩放可根据预定义的计划更改群集大小。 
 
-适用于 HBase 和 LLAP 工作负荷的自动缩放支持也推出了公共预览版。 有关详细信息，请参阅[自动缩放 Azure HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters)。
+适用于 HBase 和 LLAP 工作负荷的自动缩放支持也推出了公共预览版。 有关详细信息，请参阅[自动缩放 Azure HDInsight 群集](./hdinsight-autoscale-clusters.md)。
 
 #### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>适用于 Apache HBase 的 HDInsight 加速写入 
 
-加速写入使用 Azure 高级 SSD 托管磁盘，可以改善 Apache HBase 预写日志 (WAL) 的性能。 有关详细信息，请参阅[面向 Apache HBase 的 Azure HDInsight 加速写入](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes)。
+加速写入使用 Azure 高级 SSD 托管磁盘，可以改善 Apache HBase 预写日志 (WAL) 的性能。 有关详细信息，请参阅[面向 Apache HBase 的 Azure HDInsight 加速写入](./hbase/apache-hbase-accelerated-writes.md)。
 
 #### <a name="custom-ambari-db"></a>自定义 Ambari DB
 
-HDInsight 现在提供新的容量，使客户能够使用自己的适用于 Ambari 的 SQL 数据库。 现在，客户可以选择适当的用于 Ambari 的 SQL 数据库，并根据自己的业务增长需求轻松对其进行升级。 部署是使用 Azure 资源管理器模板完成的。 有关详细信息，请参阅[使用自定义 Ambari 数据库设置 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db)。
+HDInsight 现在提供新的容量，使客户能够使用自己的适用于 Ambari 的 SQL 数据库。 现在，客户可以选择适当的用于 Ambari 的 SQL 数据库，并根据自己的业务增长需求轻松对其进行升级。 部署是使用 Azure 资源管理器模板完成的。 有关详细信息，请参阅[使用自定义 Ambari 数据库设置 HDInsight 群集](./hdinsight-custom-ambari-db.md)。
 
 #### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>现已推出适用于 HDInsight 的 F 系列虚拟机
 
-F 系列虚拟机 (VM) 非常适合用于体验处理要求很低的 HDInsight。 根据每个 vCPU 的 Azure 计算单位 (ACU)，F 系列以较低的小时定价，在 Azure 产品组合中具有最高性价比。 有关详细信息，请参阅[为 Azure HDInsight 群集选择适当的 VM 大小](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size)。
+F 系列虚拟机 (VM) 非常适合用于体验处理要求很低的 HDInsight。 根据每个 vCPU 的 Azure 计算单位 (ACU)，F 系列以较低的小时定价，在 Azure 产品组合中具有最高性价比。 有关详细信息，请参阅[为 Azure HDInsight 群集选择适当的 VM 大小](./hdinsight-selecting-vm-size.md)。
 
 ### <a name="deprecation"></a>弃用
 
@@ -384,7 +384,7 @@ HDInsight 在群集中提供托管磁盘空间。 从此发行版开始，新建
 即将发布的版本中将发生以下更改。 
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>迁移到 Azure 虚拟机规模集
-HDInsight 目前使用 Azure 虚拟机来预配群集。 从 12 月开始，HDInsight 将改用 Azure 虚拟机规模集。 详细了解 [Azure 虚拟机规模集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。
+HDInsight 目前使用 Azure 虚拟机来预配群集。 从 12 月开始，HDInsight 将改用 Azure 虚拟机规模集。 详细了解 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。
 
 #### <a name="hbase-20-to-21"></a>HBase 2.0 到 2.1
 在即将推出的 HDInsight 4.0 版本中，HBase 版本将从 2.0 升级到 2.1。
@@ -396,7 +396,7 @@ HDInsight 目前使用 Azure 虚拟机来预配群集。 从 12 月开始，HDIn
 HDInsight 会持续改善群集的可靠性和性能。 
 
 ### <a name="component-version-change"></a>组件版本更改
-此版本未发生组件版本更改。 可在[此处](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
+此版本未发生组件版本更改。 可在[此处](./hdinsight-component-versioning.md)查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
 
 
 ## <a name="release-date-08072019"></a>发布日期：2019/08/07
@@ -518,17 +518,17 @@ Apache Storm 和机器学习服务在 HDInsight 4.0 中不可用。
 
 新的更新和功能划分为以下类别：
 
-*  ***更新 Hadoop 和其他开源项目*** - 除了超过 20 个开源项目的 1000 多个 bug 修复，此更新还包含 **Spark (2.3)** 和 **Kafka (1.0)** 的新版本。
+*  ***更新 Hadoop 和其他开源项目** _ –除了跨20多个开源项目的1000多个 bug 修复外，此更新还包含新版本的 _ *Spark (2.3)* * 和 **Kafka (1.0)** 。
 
     a.  [**Apache Spark 2.3 中的新增功能**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
     b.  [**Apache Kafka 1.0 中的新增功能**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***更新 R Server 9.1 到机器学习服务 9.3*** –在此版本中，我们将向数据科学家和工程师提供最优秀的开源，其中包含算法创新和易用性，并以 Apache Spark 的速度提供其首选语言。 此版本扩展了 R Server 的功能，添加了对 Python 的支持，群集名称因而从 R Server 更改为 ML Services。 
+*  ***将 R Server 9.1 更新到机器学习服务 9.3** _ –在此版本中，我们将向数据科学家和工程师提供最优秀的开源，其中包含算法创新和易用性，并以 Apache Spark 的速度提供其首选语言。 此版本扩展了 R Server 的功能，添加了对 Python 的支持，群集名称因而从 R Server 更改为 ML Services。 
 
-*  ***支持 Azure Data Lake Storage Gen2*** - HDInsight 将支持 Azure Data Lake Storage Gen2 的预览版本。 在可用区域中，客户可以选择将 ADLS Gen2 帐户作为 HDInsight 群集的主要存储或辅助存储。
+_ * **支持 Azure Data Lake Storage Gen2** _ – HDInsight 将支持 Azure Data Lake Storage Gen2 的预览版本。 在可用区域中，客户可以选择将 ADLS Gen2 帐户作为 HDInsight 群集的主要存储或辅助存储。
 
-*  ***HDInsight 企业安全性套餐更新（预览版）*** -（预览版）[虚拟网络服务终结点](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)支持 Azure Blob 存储、ADLS Gen1、Cosmos DB 和 Azure DB。
+_ * **HDInsight 企业安全性套餐更新 (预览版)** _ – (预览版) [虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md) 支持 Azure Blob 存储、ADLS Gen1、Cosmos DB 和 azure DB。
 
 ### <a name="component-versions"></a>组件版本
 
@@ -726,7 +726,7 @@ HDP 2.6.4 提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
 除以下修补程序以外，此版本还提供 Hive 1.2.1 和 Hive 2.1.0：
 
-**Hive 1.2.1 Apache 修补程序：**
+_ *Hive 1.2.1 Apache 修补程序：**
 
 -   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697)：ObjectInspectorConvertors\#UnionConvertor 执行错误的转换。
 
@@ -1925,6 +1925,6 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 ### <a name="upgrading"></a>正在升级
 
-所有这些功能已在 HDInsight 3.6 中提供。 若要获取最新版本的 Spark、Kafka 和 R Server（机器学习服务），请在[创建 HDInsight 3.6 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)时选择 Spark、Kafka 和 机器学习服务版本。 若要获取 ADLS 支持，可以选择 ADLS 存储类型作为选项。 现有群集不会自动升级到这些版本。
+所有这些功能已在 HDInsight 3.6 中提供。 若要获取最新版本的 Spark、Kafka 和 R Server（机器学习服务），请在[创建 HDInsight 3.6 群集](./hdinsight-hadoop-provision-linux-clusters.md)时选择 Spark、Kafka 和 机器学习服务版本。 若要获取 ADLS 支持，可以选择 ADLS 存储类型作为选项。 现有群集不会自动升级到这些版本。
 
-在 2018 年 6 月后创建的所有新群集将自动获取所有开源项目的 1000 多个 bug 修复。 请遵循[此指南](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster)，获取有关升级到较新 HDInsight 版本的最佳做法。
+在 2018 年 6 月后创建的所有新群集将自动获取所有开源项目的 1000 多个 bug 修复。 请遵循[此指南](./hdinsight-upgrade-cluster.md)，获取有关升级到较新 HDInsight 版本的最佳做法。

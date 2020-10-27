@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 17fb1bf8aebe1bd114f970aed997e77ce8a07af1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b194812ef68820a0c310d0bac3b055360c5b5e4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150776"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538419"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>监视、诊断和排查 Azure IoT 中心的连接断开问题
 
@@ -28,25 +28,25 @@ ms.locfileid: "92150776"
 
 使用 Azure Monitor 可在设备连接断开时获取警报并写入日志。
 
-### <a name="turn-on-diagnostic-logs"></a>启用诊断日志
+### <a name="turn-on-logs"></a>启用日志
 
-若要记录设备连接事件和错误，请为 IoT 中心启用诊断。 建议尽早启用这些日志，因为如果未启用诊断日志，则当设备断开连接时，将没有任何信息可用来排查问题。
+若要记录设备连接事件和错误，请为 [IoT 中心连接资源日志](monitor-iot-hub-reference.md#connections)创建诊断设置。 建议尽早创建此设置，因为默认情况下不收集这些日志，并且如果不使用这些日志，则不会有任何信息可解决设备断开连接的问题。
 
 1. 登录 [Azure 门户](https://portal.azure.com)。
 
-2. 浏览到 IoT 中心。
+1. 浏览到 IoT 中心。
 
-3. 选择“诊断设置”。
+1. 选择“诊断设置”。
 
-4. 选择“启用诊断”。
+1. 选择“添加诊断设置”。
 
-5. 启用要收集的“连接”日志。
+1. 选择 " **连接** 日志"。
 
-6. 为便于分析，应启用“发送到 Log Analytics”（[参阅定价](https://azure.microsoft.com/pricing/details/log-analytics/)）。 请参阅[解决连接错误](#resolve-connectivity-errors)下的示例。
+1. 若要更轻松地进行分析，请选择 " **发送到 Log Analytics** ( [参阅定价](https://azure.microsoft.com/pricing/details/log-analytics/)) "。 请参阅[解决连接错误](#resolve-connectivity-errors)下的示例。
 
    ![建议的设置](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-有关详细信息，请参阅[监视 Azure IoT 中心的运行状况并快速诊断问题](iot-hub-monitor-resource-health.md)。
+若要了解详细信息，请参阅 [监视 IoT 中心](monitor-iot-hub.md)。
 
 ### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>大规模设置设备断开连接警报
 
@@ -56,7 +56,7 @@ ms.locfileid: "92150776"
 
 2. 浏览到 IoT 中心。
 
-3. 选择“**警报**”。
+3. 选择“ **警报** ”。
 
 4. 选择“新建警报规则”。
 
@@ -72,7 +72,7 @@ ms.locfileid: "92150776"
 
 ## <a name="resolve-connectivity-errors"></a>解决连接错误
 
-为联网设备启用诊断日志和警报后，如果出错，则会收到警报。 本部分介绍如何在收到警报时解决常见问题。 以下步骤假设已经在 Azure Monitor 日志中设置了诊断日志。
+当你打开已连接设备的日志和警报时，将在出现错误时收到警报。 本部分介绍如何在收到警报时解决常见问题。 以下步骤假定已创建了一个诊断设置，以便将 IoT 中心连接日志发送到 Log Analytics 工作区。
 
 1. 登录 [Azure 门户](https://portal.azure.com)。
 

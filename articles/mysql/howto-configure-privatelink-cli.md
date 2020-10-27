@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 05a3846de1ad4100abec996f8051201882bb7566
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b6c26c99d68e5b92477a4d7f2c6734190d112aba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127535"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538759"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>使用 CLI 创建和管理 Azure Database for MySQL 的专用链接
 
@@ -21,7 +21,7 @@ ms.locfileid: "92127535"
 > [!NOTE]
 > 专用链接功能仅适用于常规用途或内存优化定价层中的 Azure Database for MySQL 服务器。 请确保数据库服务器是这些定价层中的一种。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -46,7 +46,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>禁用子网专用终结点策略 
-Azure 会将资源部署到虚拟网络中的子网，因此，需要创建或更新子网，以禁用专用终结点 [网络策略](../private-link/disable-private-endpoint-network-policy.md)。 使用 [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
+Azure 会将资源部署到虚拟网络中的子网，因此，需要创建或更新子网，以禁用专用终结点 [网络策略](../private-link/disable-private-endpoint-network-policy.md)。 使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -126,15 +126,15 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
-从 Internet 连接到 VM *myVm*，如下所示：
+从 Internet 连接到 VM *myVm* ，如下所示：
 
-1. 在门户的搜索栏中，输入 *myVm*。
+1. 在门户的搜索栏中，输入 *myVm* 。
 
-1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开**** ****。
+1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开   。
 
-1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp*) 文件，并将其下载到计算机。
+1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp* ) 文件，并将其下载到计算机。
 
-1. 打开 downloaded.rdp** 文件。
+1. 打开 downloaded.rdp  文件。
 
     1. 出现提示时，选择“连接”  。
 
@@ -167,7 +167,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 3. 使用任何可用的客户端测试 MySQL 服务器的专用链接连接。 在下面的示例中，我使用了 [MySQL 工作台](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) 来执行该操作。
 
 
-4. 在 " **新建连接**" 中，输入或选择以下信息：
+4. 在 " **新建连接** " 中，输入或选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
@@ -193,7 +193,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- 了解[什么是 Azure 专用终结点的](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)详细信息
+- 了解[什么是 Azure 专用终结点的](../private-link/private-endpoint-overview.md)详细信息
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

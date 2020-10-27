@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871960"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535019"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop YARN 进行故障排除
 
@@ -24,24 +24,24 @@ ms.locfileid: "91871960"
 
 在 Ambari 中使用以下步骤可以创建新的 YARN 队列，并在所有队列之间均衡容量分配。
 
-在此示例中，两个现有队列（**default** 和 **thriftsvr**）的容量都从 50 % 更改为 25%，因此，新队列 (Spark) 具有 50% 的容量。
+在此示例中，两个现有队列（ **default** 和 **thriftsvr** ）的容量都从 50 % 更改为 25%，因此，新队列 (Spark) 具有 50% 的容量。
 
 | 队列 | 容量 | 最大容量 |
 | --- | --- | --- |
-| default | 25% | 50% |
+| 默认值 | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |
 
-1. 依次选择“Abari 视图”图标和网格模式。**** 接下来，选择“YARN 队列管理器”。****
+1. 依次选择“Abari 视图”图标和网格模式。  接下来，选择“YARN 队列管理器”。 
 
     ![Apache Ambari 仪表板 YARN 队列管理器](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. 选择 **default** 队列。
 
     ![Apache Ambari YARN 选择默认队列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. 将 **default** 队列的**容量**从 50% 更改为 25%。 将 **thriftsvr** 队列的**容量**更改为 25%。
+3. 将 **default** 队列的 **容量** 从 50% 更改为 25%。 将 **thriftsvr** 队列的 **容量** 更改为 25%。
 
     ![将 default 和 thriftsvr 队列的容量更改为 25%](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. 若要创建新队列，请选择“添加队列”。****
+4. 若要创建新队列，请选择“添加队列”。 
 
     ![Apache Ambari YARN 仪表板添加队列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -49,10 +49,10 @@ ms.locfileid: "91871960"
 
     ![Apache Ambari YARN 仪表板名称队列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
-6. 将**容量**值保留为 50%，并选择“操作”按钮。****
+6. 将 
 
     ![Apache Ambari YARN 选择操作](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. 选择“保存并刷新队列”。****
+7. 选择“保存并刷新队列”。 
 
     ![选择“保存并刷新队列”](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -131,7 +131,7 @@ YARN 计划程序 UI 中会立即显示这些更改。
 
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>其他阅读材料
 
-- [使用 SSH 连接到 HDInsight (Apache Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [使用 SSH 连接到 HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN 的概念和应用程序](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## <a name="next-steps"></a>后续步骤
@@ -142,4 +142,4 @@ YARN 计划程序 UI 中会立即显示这些更改。
 
 - 联系 [@AzureSupport](https://twitter.com/azuresupport)，这是用于改进客户体验的官方 Microsoft Azure 帐户。 它可以将 Azure 社区成员连接到适当的资源，为他们提供解答、支持和专家建议。
 
-- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

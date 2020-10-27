@@ -4,23 +4,24 @@ description: 了解如何使用 Azure 存储资源管理器连接到 Azure Cosmo
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: be37ab43db9b5b696a619cb1539981c064b4cb0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480592"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537790"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 
 可以使用 Azure 存储资源管理器连接到 Azure Cosmos DB。 通过此功能，你可以连接到在 Azure 上托管的 Azure Cosmos DB 帐户，也可以从 Windows、macOS 或 Linux 连接到主权云。
 
-使用相同的工具在一个位置管理不同的 Azure 实体。 可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。
+使用相同的工具在一个位置管理不同的 Azure 实体。 可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 Cosmos 帐户。
 
-Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 Cosmos 帐户。 有关详细信息，请参阅 [Azure 存储资源管理器中的 Azure Cosmos DB]() 。
+> [!NOTE]
+> 与存储资源管理器 Azure Cosmos DB 的集成已弃用。 在此版本中，将不会从至少一年中删除任何现有功能。 应改用 [Azure 门户](https://portal.azure.com/)、 [azure 门户桌面应用](https://portal.azure.com/App/Download) 或独立 [Azure Cosmos 资源管理器](data-explorer.md) 。 替代选项包含存储资源管理器当前不支持的许多新功能。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -32,17 +33,17 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 ## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 
-1. 安装 **Azure 存储资源管理器**后，请在左窗格中选择 " **插件** " 图标。
+1. 安装 **Azure 存储资源管理器** 后，请在左窗格中选择 " **插件** " 图标。
 
    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
-1. 选择“添加 Azure 帐户”****，然后选择“登录”****。
+1. 选择“添加 Azure 帐户”  ，然后选择“登录”  。
 
    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
 1. 在“Azure 登录”对话框中，选择“登录”，然后输入 Azure 凭据。
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="显示左窗格中的插件图标的屏幕截图。" **应用**"。
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="显示左窗格中的插件图标的屏幕截图。" **应用** "。
 
     :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="显示左窗格中的插件图标的屏幕截图。" 窗格将更新并显示所选订阅中的帐户。
 
@@ -54,7 +55,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 可以使用连接字符串连接到 Azure Cosmos DB。 此方法仅支持 SQL 和表 Api。 按照下列步骤操作以连接到连接字符串：
 
-1. 在左侧树中找到 " **本地和附加** "，右键单击 **Cosmos DB 帐户**"，然后选择" **连接到 Cosmos DB**"。
+1. 在左侧树中找到 " **本地和附加** "，右键单击 **Cosmos DB 帐户** "，然后选择" **连接到 Cosmos DB** "。
 
     :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="显示左窗格中的插件图标的屏幕截图。" 以连接 Azure Cosmos DB 帐户。
 
@@ -66,7 +67,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 1. 安装 Cosmos DB 模拟器，然后将其打开。 有关如何安装模拟器的详细说明，请参阅 [Cosmos DB 模拟器](./local-emulator.md)。
 
-1. 在左侧树中找到 " **本地和附加** "，右键单击 **Cosmos DB 帐户**"，然后选择" **连接到 Cosmos DB 模拟器**"。
+1. 在左侧树中找到 " **本地和附加** "，右键单击 **Cosmos DB 帐户** "，然后选择" **连接到 Cosmos DB 模拟器** "。
 
     :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="显示左窗格中的插件图标的屏幕截图。" 以连接 Azure Cosmos DB 帐户。
 
@@ -98,13 +99,13 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 #### <a name="create-a-database"></a>创建数据库
 
-1. 右键单击 Azure Cosmos DB 帐户，然后选择 " **创建数据库**"。
+1. 右键单击 Azure Cosmos DB 帐户，然后选择 " **创建数据库** "。
 
    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="显示左窗格中的插件图标的屏幕截图。" 完成。
 
 #### <a name="delete-a-database"></a>删除数据库
 
-1. 右键单击该数据库，然后选择 " **删除数据库**"。 
+1. 右键单击该数据库，然后选择 " **删除数据库** "。 
 
    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
@@ -114,9 +115,9 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 #### <a name="create-a-collection"></a>创建集合
 
-1. 右键单击你的数据库，然后选择 " **创建集合**"。
+1. 右键单击你的数据库，然后选择 " **创建集合** "。
 
-   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="显示左窗格中的插件图标的屏幕截图。" 窗口中，输入请求的信息，如 **集合 ID** 和 **存储容量**等。 选择“确定”，以完成操作。
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="显示左窗格中的插件图标的屏幕截图。" 窗口中，输入请求的信息，如 **集合 ID** 和 **存储容量** 等。 选择“确定”，以完成操作。
 
    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="显示左窗格中的插件图标的屏幕截图。" **无限制** "，以便可以指定分区键，然后选择 **"确定"** 完成操作。
 
@@ -137,8 +138,8 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 #### <a name="create-and-modify-documents"></a>创建和修改文档
 
-- 打开左侧窗格中的 " **文档** "，选择 " **新建文档**"，在右窗格中编辑内容，然后选择 " **保存**"。
-- 还可以更新现有文档，然后选择“保存”。 若要放弃更改，请选择 " **放弃**"。
+- 打开左侧窗格中的 " **文档** "，选择 " **新建文档** "，在右窗格中编辑内容，然后选择 " **保存** "。
+- 还可以更新现有文档，然后选择“保存”。 若要放弃更改，请选择 " **放弃** "。
 
   :::image type="content" source="./media/storage-explorer/document.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
@@ -148,7 +149,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 #### <a name="query-for-documents"></a>查询文档
 
-* 若要编辑文档筛选器，请输入 [SQL 查询](./sql-query-getting-started.md)，然后选择 " **应用**"。
+* 若要编辑文档筛选器，请输入 [SQL 查询](./sql-query-getting-started.md)，然后选择 " **应用** "。
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
@@ -156,7 +157,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 #### <a name="create-and-modify-a-vertex"></a>创建和修改顶点
 
-* 若要创建新顶点，请从左窗格打开 " **关系图** "，选择 " **新建顶点**"，编辑内容，然后选择 **"确定"**。
+* 若要创建新顶点，请从左窗格打开 " **关系图** "，选择 " **新建顶点** "，编辑内容，然后选择 **"确定"** 。
 * 若要修改现有顶点，请在右侧窗格中选择 "笔" 图标。
 
    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
@@ -167,7 +168,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 #### <a name="filter-for-graph"></a>筛选图形
 
-* 若要编辑图形筛选器，请输入 [gremlin 查询](gremlin-support.md)，然后选择 " **应用筛选器**"。
+* 若要编辑图形筛选器，请输入 [gremlin 查询](gremlin-support.md)，然后选择 " **应用筛选器** "。
 
    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
@@ -176,12 +177,12 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 #### <a name="create-and-modify-a-table"></a>创建和修改表
 
 * 创建新表：
-   1. 在左窗格中，打开 " **实体**"，然后选择 " **添加**"。
+   1. 在左窗格中，打开 " **实体** "，然后选择 " **添加** "。
    1. 在 " **添加实体** " 对话框中，编辑内容。
    1. 选择 " **添加属性** " 按钮以添加属性。
-   1. 选择“插入”****。
+   1. 选择“插入”  。
 
-      :::image type="content" source="./media/storage-explorer/table.png" alt-text="显示左窗格中的插件图标的屏幕截图。" **更新**"。
+      :::image type="content" source="./media/storage-explorer/table.png" alt-text="显示左窗格中的插件图标的屏幕截图。" **更新** "。
 
    
 
@@ -207,11 +208,11 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>管理存储过程、触发器和 UDF
 
 * 创建存储过程：
-  1. 在左侧树中，右键单击 " **存储过程**"，然后选择 " **创建存储过程**"。
+  1. 在左侧树中，右键单击 " **存储过程** "，然后选择 " **创建存储过程** "。
   
      :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="显示左窗格中的插件图标的屏幕截图。" 以取消更改。
 
-* **触发器**和**UDF**的操作与**存储过程**类似。
+* **触发器** 和 **UDF** 的操作与 **存储过程** 类似。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -225,7 +226,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 出现此错误的原因有几个，两个最常见的原因是：
 
-* 你位于 *透明代理*之后。 与你的 IT 部门一样，有人会截获 HTTPS 流量，对其进行解密，然后使用自签名证书对其进行加密。
+* 你位于 *透明代理* 之后。 与你的 IT 部门一样，有人会截获 HTTPS 流量，对其进行解密，然后使用自签名证书对其进行加密。
 
 * 正在运行软件，例如防病毒软件。 该软件会将自签名的 TLS/SSL 证书注入到收到的 HTTPS 消息中。
 
@@ -237,12 +238,12 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
      - macOS 和 Linux：应包含在操作系统中。
 
 1. 运行 OpenSSL：
-    * Windows：依次单击 "安装" 目录和 " **/bin/**"，然后双击 **openssl.exe**。
+    * Windows：依次单击 "安装" 目录和 " **/bin/** "，然后双击 **openssl.exe** 。
     * Mac 和 Linux：从终端中执行 **openssl** 。
 1. 执行 `s_client -showcerts -connect microsoft.com:443`。
 1. 查找自签名证书。 如果你不确定，这是自签名的，则查找使用者 ( "s：" ) 和颁发者 ( "i：" ) 相同的任何位置。
 1. 如果找到任何自签名证书，请从中复制所有内容并将其粘贴 **-----开始证书-----** ， **-----最终证书-----** 到新的。每个文件的 .CER 文件。
-1. 打开存储资源管理器，然后 "**编辑**  >  **SSL 证书**" "  >  **导入证书**"。 使用文件选取器查找、选择和打开。你创建的 .CER 文件。
+1. 打开存储资源管理器，然后 " **编辑**  >  **SSL 证书** " "  >  **导入证书** "。 使用文件选取器查找、选择和打开。你创建的 .CER 文件。
 
 如果找不到任何自签名证书，可以发送反馈以获得更多帮助。
 
@@ -290,7 +291,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
   * ~/.config/StorageExplorer（对于 Linux）
   
   > [!NOTE]
-  > 如果删除这些文件， **则必须重新输入所有凭据**。
+  > 如果删除这些文件， **则必须重新输入所有凭据** 。
 
 ### <a name="httphttps-proxy-issue"></a>HTTP/HTTPS 代理问题
 
@@ -298,7 +299,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、Graph 和表 Api 配置的 
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>“本地和附加”节点下的“开发”节点问题
 
-在左侧树中的 "**本地" 和 "附加**" 节点下选择 "**开发**" 节点后，没有响应。 此行为是预期的行为。
+在左侧树中的 " **本地" 和 "附加** " 节点下选择 " **开发** " 节点后，没有响应。 此行为是预期的行为。
 
 :::image type="content" source="./media/storage-explorer/development.png" alt-text="显示左窗格中的插件图标的屏幕截图。":::
 
