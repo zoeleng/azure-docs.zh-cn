@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484757"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539694"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 生态系统中工作
 
@@ -31,17 +31,17 @@ Azure PowerShell 是一个脚本编写环境，使用它可以通过 Windows 在
 * [使用 PowerShell 运行 Apache Hive 查询](hadoop/apache-hadoop-use-hive-powershell.md)。
 * [通过 PowerShell 管理群集](hdinsight-administer-use-powershell.md)。
 
-请遵循[安装和配置 Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) 的步骤来获取最新版本。
+请遵循[安装和配置 Azure Powershell](/powershell/azure/install-az-ps) 的步骤来获取最新版本。
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>可在浏览器中运行的实用工具
 
 以下实用工具提供可在浏览器中运行的 Web UI：
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** 是在浏览器中运行的交互式命令行 Shell，在 Azure 门户中运行。
+* **[Azure Cloud Shell](../cloud-shell/overview.md)** 是在浏览器中运行的交互式命令行 Shell，在 Azure 门户中运行。
 
 * **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 是 Azure 门户中提供的管理和监视实用工具，可用于管理不同类型的作业，例如：
     * [将 Apache Ambari 与 REST API 配合使用](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Ambari 中的 Apache Hive 视图](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Apache Ambari 中的 Apache Tez 视图](hdinsight-debug-ambari-tez-view.md)
+    * [Apache Ambari 中的 Apache Tez 视图](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>用于 Visual Studio 的 Data Lake (Hadoop) 工具
 
@@ -84,8 +84,8 @@ HDInsight 中的 Apache Spark 群集包含可与 Jupyter Notebook 配合使用�
 
 如果遇到必须使用仅在 Linux 上可用的工具或技术的情况，请考虑以下选项：
 
-* **Windows 10 版 Bash on Ubuntu** 在 Windows 上提供一个 Linux 子系统。 Bash 允许直接运行 Linux 实用工具，而无需维护专用的 Linux 安装。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统安装指南 - Windows 10](https://docs.microsoft.com/windows/wsl/install-win10)。  也可以使用其他 [Unix shell](https://www.gnu.org/software/bash/)。
-* 使用**适用于 Windows 的 Docker** 可以访问许多基于 Linux 的工具，可以直接从 Windows 运行。 例如，可以直接在 Windows 中使用 Docker 来运行适用于 Hive 的 Beeline 客户端。 还可以使用 Docker 运行本地 Jupyter Notebook，以及远程连接到 Spark on HDInsight。 [适用于 Windows 的 Docker 入门](https://docs.docker.com/docker-for-windows/)
+* **Windows 10 版 Bash on Ubuntu** 在 Windows 上提供一个 Linux 子系统。 Bash 允许直接运行 Linux 实用工具，而无需维护专用的 Linux 安装。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统安装指南 - Windows 10](/windows/wsl/install-win10)。  也可以使用其他 [Unix shell](https://www.gnu.org/software/bash/)。
+* 使用 **适用于 Windows 的 Docker** 可以访问许多基于 Linux 的工具，可以直接从 Windows 运行。 例如，可以直接在 Windows 中使用 Docker 来运行适用于 Hive 的 Beeline 客户端。 还可以使用 Docker 运行本地 Jupyter Notebook，以及远程连接到 Spark on HDInsight。 [适用于 Windows 的 Docker 入门](https://docs.docker.com/docker-for-windows/)
 * 使用 **[MobaXTerm](https://mobaxterm.mobatek.net/)** 可以通过 SSH 连接以图形方式浏览群集文件系统。
 
 ## <a name="cross-platform-tools"></a>跨平台工具

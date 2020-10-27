@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486304"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545984"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -286,13 +286,13 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 用于自定义群集的脚本需要存储在以下位置之一：
 
-* 与群集关联的 __Azure 存储帐户__。
+* 与群集关联的 __Azure 存储帐户__ 。
 
 * 与群集关联的 __其他存储帐户__ 。
 
-* __可公开读取的 URI__。 例如，在 OneDrive、Dropbox 或其他文件托管服务中存储的数据的 URL。
+* __可公开读取的 URI__ 。 例如，在 OneDrive、Dropbox 或其他文件托管服务中存储的数据的 URL。
 
-* 与 HDInsight 群集关联的 __Azure Data Lake Storage 帐户__。 有关将 Azure Data Lake Storage 与 HDInsight 配合使用的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+* 与 HDInsight 群集关联的 __Azure Data Lake Storage 帐户__ 。 有关将 Azure Data Lake Storage 与 HDInsight 配合使用的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](./hdinsight-hadoop-provision-linux-clusters.md)。
 
     > [!NOTE]  
     > 用于访问 Data Lake Storage 的服务主体 HDInsight 必须具有对脚本的读取访问权限。
@@ -338,7 +338,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 请参�
 
 此问题最常出现于 Windows 环境中编写的脚本，因为 CRLF 是 Windows 上许多文本编辑器中常见的行尾符号。
 
-*解决方法*：如果是文本编辑器中的选项，请选择 "Unix 格式" 或 "LF" 作为行尾。 也可以在 Unix 系统上使用以下命令，将 CRLF 更改为 LF：
+*解决方法* ：如果是文本编辑器中的选项，请选择 "Unix 格式" 或 "LF" 作为行尾。 也可以在 Unix 系统上使用以下命令，将 CRLF 更改为 LF：
 
 > [!NOTE]  
 > 以下命令大致相当于将 CRLF 行尾更改为 LF。 根据系统中提供的实用工具选择一种解决方法。
@@ -354,7 +354,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 请参�
 
 *原因：* 将脚本另存为包含字节顺序标记 (BOM) 的 UTF-8 时会发生此错误。
 
-*解决方法*：将文件另存为 ASCII，或者不带 BOM 的 UTF-8。 也可以在 Linux 或 Unix 系统上使用以下命令来创建不带 BOM 的文件：
+*解决方法* ：将文件另存为 ASCII，或者不带 BOM 的 UTF-8。 也可以在 Linux 或 Unix 系统上使用以下命令来创建不带 BOM 的文件：
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
@@ -366,4 +366,4 @@ awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
 * 了解如何[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
 * 通过 [HDInsight.NET SDK 参考](/dotnet/api/overview/azure/hdinsight)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
-* 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。
+* 使用 [HDInsight REST API](/rest/api/hdinsight/) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。

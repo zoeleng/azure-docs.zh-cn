@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585927"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440512"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault 备份
 
@@ -30,6 +30,9 @@ Azure 密钥保管库自动提供了一些功能来帮助你维护可用性并�
 如果要防止意外或恶意删除机密，请在密钥保管库上配置软删除和清除保护功能。 有关详细信息，请参阅 [Azure 密钥保管库软删除概述](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)。
 
 ## <a name="limitations"></a>限制
+
+> [!IMPORTANT]
+> 对于密钥、机密和证书对象，Key Vault 不支持备份超过 500 个的历史版本。 尝试备份密钥、机密或证书对象可能会导致出现错误。 无法删除密钥、机密或证书的历史版本。
 
 Azure 密钥保管库当前不提供在单个操作中备份整个密钥保管库的方法。 任何使用此文档中列出的命令执行密钥保管库自动备份的尝试都可能导致错误，且 Microsoft 或 Azure 密钥保管库团队不支持此操作。 
 

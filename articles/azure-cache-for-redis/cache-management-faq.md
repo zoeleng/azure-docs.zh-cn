@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205393"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537654"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Azure Cache for Redis 管理常见问题解答
 本文提供关于如何管理用于 Redis 的 Azure 缓存的常见问题解答。
@@ -63,7 +63,7 @@ Redis 服务器本身不支持 TLS，但 Azure Cache for Redis 可提供此支�
 * 用于测试的客户端 VM 应与 Azure Redis 缓存实例位于同一区域。
 * 建议为客户端使用 Dv2 VM 系列，因为该系列具有更好的硬件，会提供最佳的结果。
 * 确保选择的客户端 VM 至少与正在测试的缓存拥有相同的计算和带宽容量。
-* 如果是在 Windows 设备上操作，请在客户端计算机上启用 VRSS。 [请参阅此处了解详细信息](https://technet.microsoft.com/library/dn383582.aspx)。
+* 如果是在 Windows 设备上操作，请在客户端计算机上启用 VRSS。 [请参阅此处了解详细信息](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11))。
 * 高级层 Redis 实例具有更好的网络延迟和吞吐量，因为它们是在 CPU 和网络两方面都更好的硬件上运行的。
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>使用常见 Redis 命令时要注意哪些问题？
@@ -144,10 +144,10 @@ WORKER: (Busy=3,Free=997,Min=4,Max=1000)
     > [!NOTE]
     > 此 方法指定的值是全局设置，将影响整个 AppDomain。 例如，如果已有 4 核计算机，并想要在运行时将 *minWorkerThreads* 和 *minIoThreads* 设置为 50（每个 CPU），可使用 **ThreadPool.SetMinThreads(200, 200)** 。
 
-* 也可指定最小线程数设置，方法是在 `Machine.config`（通常位于 `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`）中的 `<processModel>` 配置元素下使用 [*minIoThreads* 或 *minWorkerThreads* 配置设置](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx)。 **通常不建议以这种方式设置最小线程数，因为它是系统范围的设置。**
+* 也可指定最小线程数设置，方法是在 `Machine.config`（通常位于 `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`）中的 `<processModel>` 配置元素下使用 [*minIoThreads* 或 *minWorkerThreads* 配置设置](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100))。 **通常不建议以这种方式设置最小线程数，因为它是系统范围的设置。**
 
   > [!NOTE]
-  > 此配置元素中指定的值是*按核心*设置。 例如，如果使用 4 核计算机，并且希望 *minIoThreads* 设置在运行时为 200，则使用 `<processModel minIoThreads="50"/>`。
+  > 此配置元素中指定的值是 *按核心* 设置。 例如，如果使用 4 核计算机，并且希望 *minIoThreads* 设置在运行时为 200，则使用 `<processModel minIoThreads="50"/>`。
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>启用服务器 GC，以便在使用 StackExchange.Redis 时在客户端上获取更多吞吐量
@@ -159,7 +159,7 @@ WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
 ### <a name="performance-considerations-around-connections"></a>围绕连接的性能注意事项
 
-每个定价层都有不同的客户端连接、内存和带宽的限制。 虽然每个缓存大小*最多*允许一定数量的连接，但与 Redis 的每个连接都具有其关联的开销。 此类开销的一个示例是，由于 TLS/SSL 加密而导致的 CPU 和内存使用。 给定缓存大小的最大连接限制假定轻负载缓存。 如果连接开销的负载*和*客户端操作的负载超出了系统容量，那么即使未超出当前缓存大小的连接限制，缓存也可能会遇到容量问题。
+每个定价层都有不同的客户端连接、内存和带宽的限制。 虽然每个缓存大小 *最多* 允许一定数量的连接，但与 Redis 的每个连接都具有其关联的开销。 此类开销的一个示例是，由于 TLS/SSL 加密而导致的 CPU 和内存使用。 给定缓存大小的最大连接限制假定轻负载缓存。 如果连接开销的负载 *和* 客户端操作的负载超出了系统容量，那么即使未超出当前缓存大小的连接限制，缓存也可能会遇到容量问题。
 
 有关每个层的不同连接限制的详细信息，请参阅 [Azure Redis 缓存定价](https://azure.microsoft.com/pricing/details/cache/)。 有关连接和其他默认配置的详细信息，请参阅[默认 Redis 服务器配置](cache-configure.md#default-redis-server-configuration)。
 

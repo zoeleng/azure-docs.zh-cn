@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974662"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547803"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 管理 IP 地址
 
@@ -87,7 +87,7 @@ ms.locfileid: "91974662"
 | &nbsp; | 阿拉伯联合酋长国北部 | 65.52.252.96</br>65.52.252.97 | \*:443 | 入站 |
 | &nbsp; | 阿联酋中部 | 20.37.76.96</br>20.37.76.99 | \*:443 | 入站 |
 
-若要获取用于 Azure 政府版的 IP 地址的信息，请参阅 [Azure 政府智能 + 分析](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)文档。
+若要获取用于 Azure 政府版的 IP 地址的信息，请参阅 [Azure 政府智能 + 分析](../azure-government/compare-azure-government-global-azure.md)文档。
 
 有关详细信息，请参阅[控制网络流量](./control-network-traffic.md)。
 

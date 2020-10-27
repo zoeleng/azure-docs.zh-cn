@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 527d2d8cb8086ed6b5e87417e2bc80dd52aa6e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188406"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538793"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>排查 Azure HDInsight 中的资源创建失败问题
 
@@ -25,7 +25,7 @@ Azure 的配额限制为每个资源组 800 个部署。 将按资源组、订�
 
 若要解决此问题，请使用 Azure 门户、CLI 或 PowerShell 删除不再需要的部署。
 
-有关详细信息，请参阅[解决资源配额错误](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)。
+有关详细信息，请参阅[解决资源配额错误](../azure-resource-manager/templates/error-resource-quota.md)。
 
 ## <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>错误：最大节点已超过此区域中的可用核心数目
 
@@ -33,15 +33,15 @@ Azure 的配额限制为每个资源组 800 个部署。 将按资源组、订�
 
 若要请求增加配额，请按以下步骤操作：
 
-1. 转到 [Azure 门户](https://portal.azure.com)并选择“帮助 + 支持”。****
+1. 转到 
 
-1. 选择“新建支持请求”****。
+1. 选择“新建支持请求”  。
 
-1. 在“新建支持请求”页的“基本信息”选项卡上提供以下信息：**** ****
+1. 在“新建支持请求”页的“基本信息”选项卡上提供以下信息：  
 
-   * **问题类型：** 选择“服务和订阅限制(配额)”。****
+   * <bpt id="p1">**</bpt>Issue type:<ept id="p1">**</ept> Select <bpt id="p2">**</bpt>Service and subscription limits (quotas)<ept id="p2">**</ept>.
    * **订阅：** 选择要修改的订阅。
-   * **配额类型：** 选择“HDInsight”。****
+   * <bpt id="p1">**</bpt>Quota type:<ept id="p1">**</ept> Select <bpt id="p2">**</bpt>HDInsight<ept id="p2">**</ept>.
 
 有关详细信息，请参阅[创建支持票证来增加核心](hdinsight-capacity-planning.md#quotas)。
 
@@ -53,4 +53,4 @@ Azure 的配额限制为每个资源组 800 个部署。 将按资源组、订�
 
 * 联系 [@AzureSupport](https://twitter.com/azuresupport)，这是用于改进客户体验的官方 Microsoft Azure 帐户。 它可以将 Azure 社区成员连接到适当的资源，为他们提供解答、支持和专家建议。
 
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

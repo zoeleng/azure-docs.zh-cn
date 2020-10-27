@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 830e72a8de047b0219cfa0be264fad2e1f83beb2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142612"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536056"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 
@@ -25,7 +25,7 @@ ms.locfileid: "92142612"
 
 * 有效的 Azure 帐户。 如果没有帐户，只需花费几分钟就能创建一个[免费帐户](https://azure.microsoft.com/pricing/free-trial/)。
 
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
+* [Azure CLI](/cli/azure/install-azure-cli)。
 
 * Azure IoT 中心。 如果没有 IoT 中心，可以使用 [`az iot hub create` 命令](/cli/azure/iot/hub#az-iot-hub-create)创建一个，或[使用门户创建 IoT 中心](iot-hub-create-through-portal.md)。
 
@@ -35,7 +35,7 @@ ms.locfileid: "92142612"
 
 登录到 Azure 帐户，并选择订阅。
 
-1. 在命令提示符中，运行 [login 命令](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)：
+1. 在命令提示符中，运行 [login 命令](/cli/azure/get-started-with-azure-cli)：
 
     ```azurecli
     az login
@@ -57,7 +57,7 @@ ms.locfileid: "92142612"
 
 ## <a name="retrieve-your-storage-account-details"></a>检索存储帐户详细信息
 
-以下步骤假设已使用 **Resource Manager** 部署模型而不**经典**部署模型创建了存储帐户。
+以下步骤假设已使用 **Resource Manager** 部署模型而不 **经典** 部署模型创建了存储帐户。
 
 若要从设备配置文件上传，需要 Azure 存储帐户的连接字符串。 存储帐户必须与 IoT 中心位于同一订阅中。 还需要存储帐户中 Blob 容器的名称。 使用以下命令检索存储帐户密钥：
 
@@ -89,15 +89,15 @@ az storage account show-connection-string --name {your storage account name} \
 
 配置需要以下值：
 
-* **存储容器**：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
+* **存储容器** ：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
 
-* 接收已上传文件的通知：启用或禁用文件上传通知。****
+* 接收已上传文件的通知：启用或禁用文件上传通知。 
 
-* **SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
+* **SAS TTL** ：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
 
-* **文件通知设置默认 TTL**：文件上传通知到期前的生存时间。 默认设置为一天。
+* **文件通知设置默认 TTL** ：文件上传通知到期前的生存时间。 默认设置为一天。
 
-* **文件通知最大传送数**：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
+* **文件通知最大传送数** ：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
 
 使用以下 Azure CLI 命令在 IoT 中心内配置文件上传设置：
 
@@ -138,8 +138,7 @@ az iot hub show --name {your iot hub name}
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
 * [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
-* [IoT 中心指标](iot-hub-metrics.md)
-* [操作监视](iot-hub-operations-monitoring.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 

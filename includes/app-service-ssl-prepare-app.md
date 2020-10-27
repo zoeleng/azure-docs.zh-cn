@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd73ac372a21a32eac0c742a7f0f525db2d1a4fe
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78300990"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169092"
 ---
 ## <a name="prepare-your-web-app"></a>准备 Web 应用
 
@@ -31,7 +31,7 @@ ms.locfileid: "78300990"
 
 在“应用服务”页上，选择 Web 应用的名称  。
 
-![在门户中导航到 Azure 应用](./media/app-service-ssl-prepare-app/select-app.png)
+![Azure 门户中应用服务页面的屏幕截图，其中显示一个包含所有正在运行的 Web 应用的列表，且突出显示了列表中的第一个应用。](./media/app-service-ssl-prepare-app/select-app.png)
 
 你已登录到 Web 应用的管理页。  
 
@@ -49,7 +49,7 @@ ms.locfileid: "78300990"
 
 ### <a name="scale-up-your-app-service-plan"></a>纵向扩展应用服务计划
 
-选择任何非免费层（**B1**、**B2**、**B3**，或“生产”  类别中的任何层）。 有关其他选项，请单击“查看其他选项”  。
+选择任何非免费层（ **B1** 、 **B2** 、 **B3** ，或“生产”  类别中的任何层）。 有关其他选项，请单击“查看其他选项”  。
 
 单击“应用”  。
 

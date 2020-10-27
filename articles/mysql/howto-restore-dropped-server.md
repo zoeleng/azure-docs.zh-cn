@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 1de11a07bdbac153b6813915cfa52edfa6484aec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876887"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546715"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>还原已删除的 Azure Database for MySQL 服务器
 
@@ -36,7 +36,7 @@ ms.locfileid: "91876887"
    
  3. 双击 "删除 MySQL 服务器" 事件并单击 "JSON" 选项卡，并记下 JSON 输出中的 "resourceId" 和 "submissionTimestamp" 属性。 ResourceId 采用以下格式：/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver。
  
- 4. 请参阅 [创建服务器 REST API 页面](https://docs.microsoft.com/rest/api/mysql/servers/create) ，然后单击以绿色突出显示的 "试用" 选项卡，然后用 Azure 帐户登录。
+ 4. 请参阅 [创建服务器 REST API 页面](/rest/api/mysql/servers/create) ，然后单击以绿色突出显示的 "试用" 选项卡，然后用 Azure 帐户登录。
  
  5. 提供 resourceGroupName、serverName (删除的服务器名称) ，subscriptionId，派生自步骤3中捕获的 resourceId 属性，同时预填充 api 版本，如图所示。
  

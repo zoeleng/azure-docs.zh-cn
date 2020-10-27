@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759592"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538266"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -26,7 +26,7 @@ ms.locfileid: "81759592"
 
 ### <a name="symptom-1"></a>症状 1
 
-在诊断日志中，你会看到这样一种情况：设备断开连接并出现 **401003 IoTHubUnauthorized** 错误，接着出现 **404104 DeviceConnectionClosedRemotely** 错误，然后在不久之后成功连接。
+在日志中，可以看到设备的模式与 **401003 IoTHubUnauthorized** 断开连接，后跟 **404104 DeviceConnectionClosedRemotely** ，然后很快就会成功连接。
 
 ### <a name="symptom-2"></a>症状 2
 

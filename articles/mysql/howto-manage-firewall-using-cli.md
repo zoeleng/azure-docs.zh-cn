@@ -8,34 +8,34 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d981bf66ef9c17fda031e66e12e18a2ad9c67cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503049"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546392"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for MySQL 防火墙规则
 可以使用服务器级防火墙规则，管理从特定 IP 地址或某个范围的 IP 地址对 Azure Database for MySQL 服务器的访问。 使用便捷的 Azure CLI 命令，可创建、更新、删除、列出和显示防火墙规则，用于管理服务器。 有关 Azure Database for MySQL 防火墙的概述，请参阅 [Azure Database for MySQL 服务器防火墙规则](./concepts-firewall-rules.md)。
 
 也可使用虚拟网络 (VNet) 规则来保护对服务器进行的访问。 详细了解如何[使用 Azure CLI 创建和管理虚拟网络服务终结点和规则](howto-manage-vnet-using-cli.md)。
 
-## <a name="prerequisites"></a>必备条件
-* [安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+## <a name="prerequisites"></a>先决条件
+* [安装 Azure CLI](/cli/azure/install-azure-cli)。
 * [Azure Database for MySQL 服务器和数据库](quickstart-create-mysql-server-database-using-azure-cli.md)。
 
 ## <a name="firewall-rule-commands"></a>防火墙规则命令：
-从 Azure CLI 中使用 az mysql server firewall-rule 命令，创建、删除、列出、显示和更新防火墙规则****。
+从 Azure CLI 中使用 az mysql server firewall-rule 命令，创建、删除、列出、显示和更新防火墙规则  。
 
 命令：
-- create：创建 Azure MySQL 服务器防火墙规则。****
-- delete：删除 Azure MySQL 服务器防火墙规则。****
-- **list**：列出 Azure MySQL 服务器防火墙规则。
-- **show**：显示 Azure MySQL 服务器防火墙规则的详细信息。
-- update：更新 Azure MySQL 服务器防火墙规则。****
+- create：创建 Azure MySQL 服务器防火墙规则。 
+- delete：删除 Azure MySQL 服务器防火墙规则。 
+- **list** ：列出 Azure MySQL 服务器防火墙规则。
+- **show** ：显示 Azure MySQL 服务器防火墙规则的详细信息。
+- update：更新 Azure MySQL 服务器防火墙规则。 
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>登录到 Azure，并列出 Azure Database for MySQL 服务器
-使用 az login **** 命令通过 Azure 帐户安全连接到 Azure CLI。
+使用 az login  命令通过 Azure 帐户安全连接到 Azure CLI。
 
 1. 从命令行运行以下命令：
     ```azurecli
@@ -65,11 +65,11 @@ ms.locfileid: "87503049"
     ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>列出 Azure Database for MySQL 服务器上的防火墙规则 
-使用服务器名称和资源组名称，列出服务器上现有的服务器防火墙规则。 使用 [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list) 命令。  请注意，应在“--server”开关（而不是在“--name”开关）中指定服务器名称属性********。 
+使用服务器名称和资源组名称，列出服务器上现有的服务器防火墙规则。 使用 [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list) 命令。  请注意，应在“--server”开关（而不是在“--name”开关）中指定服务器名称属性  。 
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
-输出会默认采用 JSON 格式列出规则（如果有）。 可使用“--output table”**** 开关，以更具可读性的表格格式输出结果。
+输出会默认采用 JSON 格式列出规则（如果有）。 可使用“--output table”  开关，以更具可读性的表格格式输出结果。
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```

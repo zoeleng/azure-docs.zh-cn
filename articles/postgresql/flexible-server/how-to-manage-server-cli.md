@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c088188802590139ee895c45fb26959138db07e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: eba175eb831ef0c472c2e11d2d03f134a0d3b052
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939794"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547667"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure Database for PostgreSQL 灵活的服务器
 
@@ -23,13 +23,13 @@ ms.locfileid: "91939794"
 ## <a name="prerequisites"></a>先决条件
 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
 
-你将需要使用 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 命令登录到你的帐户。 请注意 id 属性，该属性指的是 Azure 帐户的订阅 ID。
+你将需要使用 [az login](/cli/azure/reference-index#az-login) 命令登录到你的帐户。 请注意 id 属性，该属性指的是 Azure 帐户的订阅 ID。
 
 ```azurecli-interactive
 az login
 ```
 
-使用 [az account set](/cli/azure/account) 命令选择帐户下的特定订阅。 记下 az login 输出中的 id 值，以用作命令中订阅参数的值。 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list)。
+使用 [az account set](/cli/azure/account) 命令选择帐户下的特定订阅。 记下 az login 输出中的 id 值，以用作命令中订阅参数的值。 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/azure/account#az-account-list)。
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -53,7 +53,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 name | mydemoserver | 输入服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
 resource-group | myresourcegroup | 提供 Azure 资源组的名称。
 sku-name|Standard_D4ds_v3|输入计算层和大小的名称。 遵循以下约定 Standard_ {VM size} （简写形式）。 有关详细信息，请参阅[定价层](../concepts-pricing-tiers.md)。
-storage-size | 6144 | 服务器的存储容量（以 MB 为单位）。 最小5120，增加1024增量。
+storage-size | 6144 | 服务器的存储容量（以 MB 为单位）。 最小值为 5120，以 1024 为增量递增。
 
 > [!IMPORTANT]
 > 不能缩小存储。 
@@ -68,7 +68,7 @@ storage-size | 6144 | 服务器的存储容量（以 MB 为单位）。 最小51
    psql --host=<servername> --port=<port> --username=<user> --dbname=<dbname>
    ```
 
-   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 mydemoserver.postgres.database.azure.com**** 上名为“postgres”**** 的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
+   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 mydemoserver.postgres.database.azure.com  上名为“postgres”  的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
   
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
@@ -101,7 +101,7 @@ storage-size | 6144 | 服务器的存储容量（以 MB 为单位）。 最小51
     CREATE DATABASE postgresdb;
     ```
 
-3. 在提示符下，执行以下命令以切换到新创建的数据库 **postgresdb**的连接：
+3. 在提示符下，执行以下命令以切换到新创建的数据库 **postgresdb** 的连接：
 
     ```bash
     \c postgresdb
@@ -112,14 +112,14 @@ storage-size | 6144 | 服务器的存储容量（以 MB 为单位）。 最小51
 已通过 psql 连接到 Azure Database for PostgreSQL 服务器并创建了一个空用户数据库。
 
 ## <a name="reset-admin-password"></a>重置管理员密码
-可以通过以下命令更改管理员角色的密码
+可以使用此命令更改管理员角色的密码
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
 ```
 
 > [!IMPORTANT]
-> 请确保密码最少8个字符，最多128个字符。
-> 密码必须包含以下类别中的三类：英文大写字母、英文小写字母、数字和非字母数字字符。
+> 请确保密码至少有 8 个字符，至多有 128 个字符。
+> 密码必须包含以下类别中的三个类别的字符：英文大写字母、英文小写字母、数字和非字母数字字符。
 
 ## <a name="delete-a-server"></a>删除服务器
 

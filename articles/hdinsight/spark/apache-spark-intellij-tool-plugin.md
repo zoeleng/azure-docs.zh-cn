@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: 85d9da10650028b0f04458ea3553d010e5589ffd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b70de1915e6c068bd658dff60776085075412789
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491370"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539779"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序
 
 本文演示如何使用 IntelliJ IDE 的 Azure Toolkit 插件在 Azure HDInsight 上开发 Apache Spark 应用程序。 [Azure HDInsight ](../hdinsight-overview.md)是托管在云中的开放源代码分析服务。 凭借该服务，你可使用开放源代码框架，如 Hadoop、Apache Spark、Apache Hive 和 Apache Kafka。
 
-可按多种方式使用 **Azure 工具包**插件：
+可按多种方式使用 **Azure 工具包** 插件：
 
 * 开发 Scala Spark 应用程序并将其提交到 HDInsight Spark 群集。
 * 访问 Azure HDInsight Spark 群集资源。
@@ -66,12 +66,12 @@ ms.locfileid: "92491370"
 3. 在主窗口中选择“Spark 项目(Scala)”。
 
 4. 在“生成工具”下拉列表中选择以下任一选项：
-   * **Maven**：支持 Scala 项目创建向导。
-   * **SBT**：用于管理依赖项和生成 Scala 项目。
+   * **Maven** ：支持 Scala 项目创建向导。
+   * **SBT** ：用于管理依赖项和生成 Scala 项目。
 
      ![IntelliJ IDEA“新建项目”对话框](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-5. 选择“**下一步**”。
+5. 选择“ **下一步** ”。
 
 6. 在“新建项目”窗口中提供以下信息：  
 
@@ -186,7 +186,7 @@ ms.locfileid: "92491370"
 
 1. “链接群集”窗口中提供的选项根据在“链接资源类型”下拉列表中选择的值而异。   请输入自己的值，然后选择“确定”。
 
-    * **HDInsight 群集**。  
+    * **HDInsight 群集** 。  
   
         |属性 |Value |
         |----|----|
@@ -216,7 +216,7 @@ ms.locfileid: "92491370"
 
    ![Azure 资源管理器链接群集 1](./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png)
 
-1. 还可以从 **Azure 资源管理器**取消链接群集。
+1. 还可以从 **Azure 资源管理器** 取消链接群集。
 
    ![Azure 资源管理器取消链接群集](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
 
@@ -239,7 +239,7 @@ ms.locfileid: "92491370"
     |主类名|默认值是所选文件中的 main 类。 可以通过选择省略号 ( **...** ) 并选择其他类来更改类。|
     |作业配置|您可以更改默认键和或值。 有关详细信息，请参阅 [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html)。|
     |命令行参数|如果需要，可为 main 类输入参数并以空格分隔。|
-    |引用的 Jar 和引用的文件|可以输入引用的 Jar 和文件（如果有）的路径。 还可以在 Azure 虚拟文件系统中浏览文件，但目前仅支持 ADLS 第 2 代群集。 更多相关信息：[Apache Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。  另请参阅[如何将资源上传到群集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)。|
+    |引用的 Jar 和引用的文件|可以输入引用的 Jar 和文件（如果有）的路径。 还可以在 Azure 虚拟文件系统中浏览文件，但目前仅支持 ADLS 第 2 代群集。 更多相关信息：[Apache Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。  另请参阅[如何将资源上传到群集](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md)。|
     |作业上传存储|展开以显示其他选项。|
     |存储类型|从下拉列表中选择“使用 Azure Blob 上传”。|
     |存储帐户|输入存储帐户。|
@@ -297,7 +297,7 @@ ms.locfileid: "92491370"
 
 默认情况下，用于 IntelliJ 的 Azure 工具包将列出所有 Azure 订阅中的 Spark 群集。 如果需要，可以指定想要访问的订阅。  
 
-1. 在 Azure 资源管理器中，右键单击 **azure** 根节点，然后选择 " **选择订阅**"。  
+1. 在 Azure 资源管理器中，右键单击 **azure** 根节点，然后选择 " **选择订阅** "。  
 
 2. 在“选择订阅”窗口中，清除不想要访问的订阅旁边的复选框，然后选择“关闭”。 
 
@@ -468,7 +468,7 @@ ms.locfileid: "92491370"
 
 1. 登录到 [Azure 门户](https://portal.azure.com/)。
 
-1. 在顶部的“搜索”框中，键入 **HDInsight**。 
+1. 在顶部的“搜索”框中，键入 **HDInsight** 。 
 
 1. 选择“服务”下的“HDInsight 群集” 。
 

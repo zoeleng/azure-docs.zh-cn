@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ed68211d034a133b923b6a2eec20ad6f1a0ffe2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666426"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541020"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>将 Azure 订阅关联或添加到 Azure Active Directory 租户
 
@@ -35,8 +35,6 @@ Azure 订阅与 Azure Active Directory (Azure AD) 之间存在信任关系。 �
 > [!Important]
 > 将订阅与其他目录关联时，如果用户的角色是使用 [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)分配的，则用户将失去其访问权限。 经典订阅管理员（包括服务管理员和共同管理员）也会失去访问权限。
 >
-> 当订阅与不同的目录关联时，还会从该订阅中删除策略分配。
->
 > 如果将 Azure Kubernetes 服务 (AKS) 群集移到其他订阅，或者将拥有该群集的订阅移到新租户，该群集将会由于失去角色分配和服务主体权限而丢失功能。 有关 AKS 的详细信息，请参阅 [Azure Kubernetes 服务 (AKS)](../../aks/index.yml)。
 
 ## <a name="before-you-begin"></a>准备阶段
@@ -50,7 +48,7 @@ Azure 订阅与 Azure Active Directory (Azure AD) 之间存在信任关系。 �
   - 如果你有任何密钥保管库，这些密钥保管库将无法访问，而且你必须在关联后对其进行修复
   - 如果对资源（例如虚拟机或逻辑应用）使用任何托管标识，则必须在关联后重新启用或重新创建这些标识
   - 如果拥有已注册的 Azure Stack，则将必须在关联后重新注册它
-  - 有关详细信息，请参阅将 [Azure 订阅转移到其他 Azure AD 目录](../../role-based-access-control/transfer-subscription.md)。
+  - 有关详细信息，请参阅[将 Azure 订阅转移到其他 Azure AD 目录](../../role-based-access-control/transfer-subscription.md)。
 
 - 使用符合以下条件的帐户登录：
 
@@ -93,7 +91,7 @@ Azure 订阅与 Azure Active Directory (Azure AD) 之间存在信任关系。 �
 
 - 如果已使用此订阅注册了 Azure Stack，则必须重新注册。 有关详细信息，请参阅[将 Azure Stack 注册到 Azure](/azure-stack/operator/azure-stack-registration)。
 
-- 有关详细信息，请参阅将 [Azure 订阅转移到其他 Azure AD 目录](../../role-based-access-control/transfer-subscription.md)。
+- 有关详细信息，请参阅[将 Azure 订阅转移到其他 Azure AD 目录](../../role-based-access-control/transfer-subscription.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874021"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541700"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 
@@ -25,7 +25,7 @@ Azure 门户是一种基于 Web 的管理工具，用于管理 Microsoft Azure �
 
 Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模板可以隐藏许多详细信息。 有关详细信息，请参阅[使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果你还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-clusters"></a>创建群集
 
@@ -33,17 +33,17 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 
 1. 登录到 [Azure 门户](https://portal.azure.com)。
 
-1. 在顶部菜单中，选择“+ 创建资源”。
+1. 在顶部菜单中，选择“+ 创建资源”  。
 
     ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "在 Azure 门户中创建新群集")
 
-1. 选择“分析” > “Azure HDInsight”，转到“创建 HDInsight 群集”页。
+1. 选择“分析”   >   “Azure HDInsight”，转到“创建 HDInsight 群集”  页。
 
 ## <a name="basics"></a>基础知识
 
 ![HDInsight 创建群集基本信息](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "在 Azure 门户中创建新群集")
 
-在“基本信息”选项卡中提供以下信息：
+在“基本信息”选项卡中提供以下信息： 
 
 |属性 |说明 |
 |---|---|
@@ -52,8 +52,8 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 |群集名称|输入任何全局唯一的名称。|
 |区域|从下拉列表中，选择在其中创建群集的区域。|
 |群集类型|单击“选择群集类型”，打开一个列表。 从列表中选择所需的群集类型。 HDInsight 群集有不同的类型。 这些类型与该群集进行优化的工作负荷或技术相对应。 没有任何方法支持创建组合多种类型的群集，|
-|版本|从下拉列表中，选择一个**版本**。 如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。|
-|群集登录用户名|提供用户名，默认为 **admin**。|
+|版本|从下拉列表中，选择一个 **版本** 。 如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。|
+|群集登录用户名|提供用户名，默认为 **admin** 。|
 |群集登录密码|提供密码。|
 |确认群集登录密码|重新输入密码|
 |安全外壳 (SSH) 用户名|提供用户名，默认为 **sshuser**|
@@ -64,17 +64,17 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 ## <a name="storage"></a>存储
 
 > [!WARNING] 
-> 从 2020 年 6 月 15 日开始，客户将无法使用 HDInsight 创建新的服务主体。 请参阅[使用 Azure Active Directory 创建服务主体和证书](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+> 从 2020 年 6 月 15 日开始，客户将无法使用 HDInsight 创建新的服务主体。 请参阅[使用 Azure Active Directory 创建服务主体和证书](../active-directory/develop/howto-create-service-principal-portal.md)。
 
 ![HDInsight 创建群集存储](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "在 Azure 门户中创建新群集 - 存储")
 
 ### <a name="primary-storage"></a>主存储
 
-从”主存储类型”的下拉列表中，选择默认存储类型。 要完成的后续字段将因选择而异。 对于 **Azure 存储**：
+从”主存储类型”的下拉列表中，选择默认存储类型。 要完成的后续字段将因选择而异。 对于 **Azure 存储** ：
 
 1. 至于“选择方法”，请选择“从列表中选择”或“使用访问密钥”。 
     * 接下来，对于“从列表中选择”，请从下拉列表中选择“主存储帐户”，或者选择“新建”。
-    * 对于“使用访问密钥”，请输入**存储帐户名称**。 然后，请提供**访问密钥**。
+    * 对于“使用访问密钥”，请输入 **存储帐户名称** 。 然后，请提供 **访问密钥** 。
 
 1. 对于“容器”，请接受默认值，或者输入一个新值。
 

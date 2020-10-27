@@ -1,17 +1,17 @@
 ---
-title: 配置警报-Azure 门户-Azure Database for PostgreSQL-单一服务器
+title: 配置警报 - Azure 门户 - Azure Database for PostgreSQL（单一服务器）
 description: 本文介绍如何通过 Azure 门户配置和访问针对 Azure Database for PostgreSQL（单一服务器）的指标警报。
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: a221e3c32d458135111583885a0b9f97743d36ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490027"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546613"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>使用 Azure 门户设置针对 Azure Database for PostgreSQL（单一服务器）指标的警报
 
@@ -36,7 +36,7 @@ ms.locfileid: "92490027"
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="选择警报规则":::
 
-3. 选择“添加指标警报”（+ 图标）****。
+3. 选择“添加指标警报”（+ 图标）  。
 
 4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
@@ -46,7 +46,7 @@ ms.locfileid: "92490027"
 
 6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 和 **频率**。
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 和 **频率** 。
    
    完成后选择“完成”  。
 
@@ -56,7 +56,7 @@ ms.locfileid: "92490027"
 
 9. 使用名称、短名称、订阅和资源组填写“添加操作组”表单。
 
-10. 配置“电子邮件/短信/推送/语音”操作类型****。
+10. 配置“电子邮件/短信/推送/语音”操作类型  。
     
     选择“电子邮件 Azure 资源管理器角色”以选择订阅所有者、参与者和读取器来接收通知。
    

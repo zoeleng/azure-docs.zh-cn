@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
-ms.openlocfilehash: 84d9253b865ddac6d97395af3d8632e29cc2ea24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323802"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546596"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>为 HDInsight 上的 Apache Hadoop 开发 Java MapReduce 程序
 
@@ -21,7 +21,7 @@ ms.locfileid: "87323802"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Java 开发人员工具包 (JDK) 版本 8](https://aka.ms/azure-jdks)。
+* [Java 开发人员工具包 (JDK) 版本 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)。
 
 * 根据 Apache 要求正确[安装](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是 Java 项目的项目生成系统。
 
@@ -44,7 +44,7 @@ cd C:\HDI
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    此命令将使用 `artifactID` 参数指定的名称（此示例中为 **wordcountjava**）创建目录。此目录包含以下项：
+    此命令将使用 `artifactID` 参数指定的名称（此示例中为 **wordcountjava** ）创建目录。此目录包含以下项：
 
     * `pom.xml` - [项目对象模型 (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，其中包含用于生成项目的信息和配置详细信息。
     * src\main\java\org\apache\hadoop\examples:包含应用程序代码。
@@ -147,7 +147,7 @@ maven-shade-plugin 还会生成 uber jar，其中包含应用程序所需的所�
 
 ## <a name="create-the-mapreduce-application"></a>创建 MapReduce 应用程序
 
-1. 输入以下命令，以创建并打开新文件 `WordCount.java`。 根据提示选择“是”，以创建新文件。****
+1. 输入以下命令，以创建并打开新文件 `WordCount.java`。 根据提示选择“是”，以创建新文件。 
 
     ```cmd
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java

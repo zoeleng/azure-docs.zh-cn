@@ -49,7 +49,7 @@
       href: tutorial-use-mqtt.md
     - name: 与 MXChip 设备交互（示例）
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
-    - name: 将设备迁移到模块
+    - name: 连接设备模块
       href: tutorial-migrate-device-to-module.md
 - name: 概念
   items:
@@ -85,8 +85,6 @@
       href: concepts-model-discovery.md
     - name: 模型分析程序
       href: concepts-model-parser.md
-    - name: 限制和配额
-      href: concepts-limits-quotas.md
     - name: 术语表
       href: iot-plug-and-play-glossary.md
 - name: 操作指南

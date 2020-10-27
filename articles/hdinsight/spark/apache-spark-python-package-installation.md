@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: b29e4411a104bbcd1d6d5b3320df47a742e2ca84
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dc1da641ba628cef92250549c1c6b6482cf18b51
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461237"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547327"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>使用脚本操作在 Azure HDInsight 上安全管理 Python 环境
 
@@ -37,7 +37,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 > [!IMPORTANT]
 > 完全支持通过 HDInsight 群集提供的组件。 Microsoft 支持部门可帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 Microsoft 支持部门也许能够解决问题，也可能要求你参与可用的开放源代码技术渠道，获取该技术的深入专业知识。 例如，有许多可以使用的社区站点，例如：[有关 HDInsight 的 Microsoft Q&A 问题页面](https://docs.microsoft.com/answers/topics/azure-hdinsight.html)、`https://stackoverflow.com`。 此外，Apache 项目在 `https://apache.org` 上有项目站点。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 Microsoft 支持部门也许能够解决问题，也可能要求你参与可用的开放源代码技术渠道，获取该技术的深入专业知识。 例如，有许多可以使用的社区站点，例如：[有关 HDInsight 的 Microsoft Q&A 问题页面](/answers/topics/azure-hdinsight.html)、`https://stackoverflow.com`。 此外，Apache 项目在 `https://apache.org` 上有项目站点。
 
 ## <a name="understand-default-python-installation"></a>了解默认 Python 安装
 
@@ -45,7 +45,7 @@ HDInsight Spark 群集是通过 Anaconda 安装创建的。 群集中有两个 P
 
 |设置 |Python 2.7|Python 3.5|
 |----|----|----|
-|路径|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
+|`Path`|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark 版本|默认设置为 2.7|可以将配置更改为3。5|
 |Livy 版本|默认设置为 2.7|可以将配置更改为3。5|
 |Jupyter|PySpark 内核|PySpark3 内核|

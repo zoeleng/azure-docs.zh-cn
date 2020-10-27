@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082269"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546035"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中将 ScaleR 和 SparkR 合并
 
@@ -25,7 +25,7 @@ ms.locfileid: "86082269"
 
 此代码原本是针对 Azure 上 HDInsight 群集中的 Spark 上运行的 ML Server 编写的。 但在一个脚本中混合使用 SparkR 和 ScaleR 的思路同样适用于本地环境。
 
-本文档中的步骤假定你对 R 和 ML Server 的 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 库有中等水平的了解。 在完成此方案时，你会 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) 。
+本文档中的步骤假定你对 R 和 ML Server 的 [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) 库有中等水平的了解。 在完成此方案时，你会 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) 。
 
 ## <a name="the-airline-and-weather-datasets"></a>航班和天气数据集
 
@@ -535,7 +535,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="next-steps-and-more-information"></a>后续步骤和详细信息
 
-- 有关 Apache Spark 使用 ML Server 的详细信息，请参阅 [入门指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)。
+- 有关 Apache Spark 使用 ML Server 的详细信息，请参阅 [入门指南](/machine-learning-server/r/how-to-revoscaler-spark)。
 
 - 有关 HDInsight 上的 ML 服务的信息，请参阅 [hdinsight 上的 Ml 服务概述](r-server/r-server-overview.md)。
 
@@ -543,4 +543,4 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - [Apache SparkR 文档](https://spark.apache.org/docs/2.1.0/sparkr.html)。
 
-- Databricks 中的[SparkR 概述](https://docs.databricks.com/spark/latest/sparkr/overview.html)。
+- [SparkR 概述](/azure/databricks/spark/latest/sparkr/overview)
