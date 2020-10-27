@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461288"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547633"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -112,7 +112,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>根据 Azure 警报创建 ITSM 工作项
 
-创建 ITSM 连接后，可以使用**操作组**中的 **ITSM 操作**，在 ITSM 工具中基于 Azure 警报创建工作项。
+创建 ITSM 连接后，可以使用 **操作组** 中的 **ITSM 操作** ，在 ITSM 工具中基于 Azure 警报创建工作项。
 
 操作组对 Azure 警报提供模块化且可重用的方法来触发操作。 可以在 Azure 门户结合指标警报、活动日志警报和 Azure Log Analytics 警报使用操作组。
 
@@ -140,7 +140,10 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 
 7. 如果要使用固定值填写 box 字段，应选中 "使用自定义模板" 复选框，否则请选择使用下拉列表中的现有 [模板](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) ，并使用固定值填充模板字段。
 
-8. 单击“确定”。
+8. 通过选择 " **为每个配置项目创建单独的工作项** " 复选框，每个配置项目将有自己的工作项。 也就是说，每个配置项目都有一个工作项，并且将根据要创建的警报更新该工作项。
+如果您取消选中复选框 " **为每个配置项目创建单独的工作项** "，则每个警报都将创建新的工作项，这意味着每个配置项目可能有1个以上的警报。
+
+9. 单击“确定”。
 
 创建/编辑 Azure 警报规则时，使用具有 ITSM 操作的操作组。 警报触发时，会在 ITSM 工具中创建/更新工作项。
 
@@ -183,7 +186,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 
 > [!NOTE]
 >
-> 根据导入 Log Analytics 的工作项类型，**ServiceDesk_CL** 包含以下字段：
+> 根据导入 Log Analytics 的工作项类型， **ServiceDesk_CL** 包含以下字段：
 
 **工作项：** **事件**  
 ServiceDeskWorkItemType_s="Incident"

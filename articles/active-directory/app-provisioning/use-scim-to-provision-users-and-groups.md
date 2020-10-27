@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: bfd9e08387a4de2220ef56afdd0ef79bd837ed4c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: contperfq2
+ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070191"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424591"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>教程 - 使用 Azure AD 生成 SCIM 终结点并配置用户预配
 
@@ -915,7 +916,7 @@ https://docs.microsoft.com/aspnet/core/fundamentals/environments)
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>处理用户预配和取消预配
 
-示例 1.查询服务以找到匹配的用户
+***示例 1.在服务中查询匹配的用户** _
 
 Azure Active Directory 会在服务中查询是否有某个用户的 `externalId` 属性值与 Azure AD 中用户的 mailNickname 属性值匹配。 查询以类似此例的超文本传输协议 (HTTP) 请求形式表示，其中，jyoung 是 Azure Active Directory 中某个用户的 mailNickname 示例。
 
@@ -943,12 +944,12 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 在示例查询中，对于具有 `externalId` 属性的给定值的用户，传递给 QueryAsync 方法的参数的值为：
 
-* parameters.AlternateFilters.Count:1
+_ parameters.AlternateFilters.Count:1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
 * parameters.AlternateFilters.ElementAt(0).ComparisonOperator:ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 
-示例 2.预配用户
+***示例 2.预配用户** _
 
 如果在 Web 服务中查询是否有某个用户的 `externalId` 属性值与用户的 mailNickname 属性值匹配时，该查询的响应未返回任何用户，Azure Active Directory 将请求服务预配一个与 Azure Active Directory 中的用户相对应的用户。  以下是此类请求的示例： 
 
@@ -997,7 +998,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 在预配用户的请求中，资源参数的值是 Microsoft.SCIM.Schemas 库中定义的 Microsoft.SCIM.Core2EnterpriseUser 类的实例。  如果预配用户的请求成功，则该方法的实现应返回 Microsoft.SCIM.Core2EnterpriseUser 类的实例，并将 Identifier 属性的值设置为新预配用户的唯一标识符。  
 
-示例 3.查询用户的当前状态 
+_*_示例 3.查询用户的当前状态_*_ 
 
 为了更新存在于前端为 SCIM 的标识存储中的已知用户，Azure Active Directory 将通过类似于下面的请求向服务请求该用户的当前状态来继续处理： 
 
@@ -1021,14 +1022,14 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 在检索用户当前状态的请求示例中，作为参数自变量值提供的对象属性值如下所示： 
   
-* 标识符："54D382A4-2050-4C03-94D1-E769F1D15682"
+_ Identifier:"54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-示例 4.查询要更新的引用属性的值 
+***示例 4.查询要更新的引用属性的值** _ 
 
 如果要更新引用属性，Azure Active Directory 将查询服务以判断以该服务为前端的标识存储区中的引用属性的当前值是否已经与 Azure Active Directory 中该属性的值相匹配。 对于用户，以这种方式查询当前值的唯一属性是 manager 属性。 以下是确定用户对象的 manager 属性当前是否具有特定值的请求示例：在示例代码中，请求被转换为对服务提供程序的 QueryAsync 方法的调用。 作为参数自变量值提供的对像属性值如下： 
   
-* parameters.AlternateFilters.Count:2
+_ parameters.AlternateFilters.Count:2
 * parameters.AlternateFilters.ElementAt(x).AttributePath:“ID”
 * parameters.AlternateFilters.ElementAt(x).ComparisonOperator:ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(x).ComparisonValue:"54D382A4-2050-4C03-94D1-E769F1D15682"
@@ -1040,7 +1041,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 此处，索引 x 的值可以是 0 并且索引 y 的值可以是 1，或者，x 的值可以是 1 并且 y 的值可以是 0，具体根据筛选器查询参数表达式的顺序而定。   
 
-示例 5.从 Azure AD 向 SCIM 服务发出更新用户请求 
+***示例 5.从 Azure AD 向 SCIM 服务发出用户更新请求** _ 
 
 以下是从 Azure Active Directory 向 SCIM 服务发出更新用户请求的示例： 
 
@@ -1079,7 +1080,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 在更新用户的请求示例中，作为修补参数值提供的对象具有这些属性值： 
   
-* ResourceIdentifier.Identifier:"54D382A4-2050-4C03-94D1-E769F1D15682"
+_ ResourceIdentifier.Identifier:"54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier:  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 * (PatchRequest as PatchRequest2).Operations.Count:1
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName:OperationName.Add
@@ -1088,7 +1089,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value:2819c223-7f76-453a-919d-413861904646
 
-示例6.取消预配用户
+***示例 6.取消预配用户** _
 
 若要从前端为 SCIM 服务的标识存储区中取消预配用户，Azure AD 会发送如下请求：
 
@@ -1111,7 +1112,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 在取消预配用户的请求示例中，作为 resourceIdentifier 参数值提供的对象具有以下属性值： 
 
-* ResourceIdentifier.Identifier:"54D382A4-2050-4C03-94D1-E769F1D15682"
+_ ResourceIdentifier.Identifier:"54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>步骤 4：将 SCIM 终结点与 Azure AD SCIM 客户端集成
@@ -1146,11 +1147,11 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 7. 在“租户 URL”字段中，输入应用程序的 SCIM 终结点的 URL。 示例： `https://api.contoso.com/scim/`
 8. 如果 SCIM 终结点需要来自非 Azure AD 颁发者的 OAuth 持有者令牌，可将所需的 OAuth 持有者令牌复制到可选的“密钥令牌”字段。 如果此字段留空，则 Azure AD 会在每个请求中包含从 Azure AD 颁发的 OAuth 持有者令牌。 将 Azure AD 用作标识提供者的应用可以验证 Azure AD 颁发的此令牌。 
    > [!NOTE]
-   > 不建议将此字段留空并依赖 Azure AD 生成的令牌。 此选项主要用于测试目的。
+   > 建议不要将此字段留空并依赖 Azure AD 生成的令牌*。 此选项主要用于测试目的。
 9. 选择“测试连接”，使 Azure Active Directory 尝试连接到 SCIM 终结点。 如果尝试失败，则显示错误信息。  
 
     > [!NOTE]
-    > **测试连接**使用随机 GUID 作为在 Azure AD 配置中选择的匹配属性，针对不存在的用户查询 SCIM 终结点。 预期正确响应为“HTTP 200 正常”以及空的 SCIM ListResponse 消息。
+    > **测试连接** 使用随机 GUID 作为在 Azure AD 配置中选择的匹配属性，针对不存在的用户查询 SCIM 终结点。 预期正确响应为“HTTP 200 正常”以及空的 SCIM ListResponse 消息。
 
 10. 如果尝试连接应用程序成功，请选择“保存”以保存管理员凭据。
 11. 在“映射”部分中有两个可选的[属性映射](customize-application-attributes.md)集：一个用于用户对象，一个用于组对象。 分别选择它们，查看从 Azure Active Directory 同步到应用的属性。 选为“匹配”属性的特性用于匹配应用中的用户和组，以执行更新操作。 选择“保存”，提交所有更改。

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: f29a34fd8916110355c0122fee9db29599a01231
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11cefb1a29f7139f137221ab6fb924cc656da15d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933356"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547191"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL-灵活服务器支持的版本
 
@@ -43,6 +43,6 @@ Bug 修复版本：5.7.29
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
->[使用 MySQL 在 Windows 上生成 PHP 应用](../../app-service/app-service-web-tutorial-php-mysql.md)<br/>
->[在 Linux 上构建带有 MySQL 的 PHP 应用](../../app-service/containers/tutorial-php-mysql-app.md)<br/>
->[用 MySQL 构建基于 Java 的弹簧应用](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>
+>[使用 MySQL 在 Windows 上生成 PHP 应用](../../app-service/tutorial-php-mysql-app.md)<br/>
+>[在 Linux 上构建带有 MySQL 的 PHP 应用](../../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)<br/>
+>[用 MySQL 构建基于 Java 的弹簧应用](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>

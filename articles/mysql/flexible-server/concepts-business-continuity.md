@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL 灵活的服务器的业务连续性概述
+title: 业务连续性概述-Azure Database for MySQL 灵活的服务器
 description: 了解 Azure Database for MySQL 灵活服务器的业务连续性概念
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107838"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546409"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 灵活的服务器 (预览版的业务连续性概述) 
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107838"
 Azure Database for MySQL 灵活的服务器可实现业务连续性功能，以便在发生计划内和计划外服务中断时保护数据库。 自动备份和高可用性等功能通过不同的恢复时间和数据丢失情况解决了不同级别的故障保护。 当你设计应用程序以防止故障时，应考虑到每个应用程序的恢复时间目标 (RTO) 和恢复点目标 (RPO) 。 RTO 是指停机容差，RPO 是数据库服务中断后的数据丢失容错。
 
 下表说明了灵活的服务器提供的功能。
-
 
 | **功能** | **说明** | **限制** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ Azure Database for MySQL 灵活的服务器可实现业务连续性功能，以�
 > 无运行时间、RTO 和 RPO SLA 在预览期间提供。 本页提供的详细信息，仅供参考。
 
 ## <a name="planned-downtime-mitigation"></a>缓解计划内停机
+
 下面是一些导致停机的计划内维护方案：
 
-| **方案** | **Process**|
+| **方案** | **处理**|
 | :------------ | :----------- |
-| **计算缩放 (用户) **| 执行计算缩放操作时，会使用缩放的计算配置来预配新的灵活服务器。 在现有的数据库服务器中，允许完成活动检查点，客户端连接将耗尽，所有未提交的事务将被取消，然后关闭。 然后，将存储连接到新服务器，启动数据库，该数据库在需要时执行恢复，然后才能接受客户端连接。 |
-| **Azure)  (新的软件部署 ** | 新功能的推出或 bug 修复会自动在服务的计划内维护过程中发生，并且你可以计划这些活动发生的时间。 有关详细信息，请参阅 [文档](https://aka.ms/servicehealthpm)以及查看 [门户](https://aka.ms/servicehealthpm) |
-| **Azure)  (次版本升级 ** | Azure Database for MySQL 会自动将数据库服务器修补到 Azure 确定的次要版本。 这是在服务的计划内维护过程中发生的。 这会导致短暂的停机（以秒为单位），并且会自动重启装有新次要版本的数据库服务器。 有关详细信息，请参阅 [文档](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification)，并查看 [门户](https://aka.ms/servicehealthpm)。|
+| **计算缩放 (用户)**| 执行计算缩放操作时，会使用缩放的计算配置来预配新的灵活服务器。 在现有的数据库服务器中，允许完成活动检查点，客户端连接将耗尽，所有未提交的事务将被取消，然后关闭。 然后，将存储连接到新服务器，启动数据库，该数据库在需要时执行恢复，然后才能接受客户端连接。 |
+| **Azure)  (新的软件部署** | 新功能的推出或 bug 修复会自动在服务的计划内维护过程中发生，并且你可以计划这些活动发生的时间。 有关详细信息，请参阅 [文档](https://aka.ms/servicehealthpm)以及查看 [门户](https://aka.ms/servicehealthpm) |
+| **Azure)  (次版本升级** | Azure Database for MySQL 会自动将数据库服务器修补到 Azure 确定的次要版本。 这是在服务的计划内维护过程中发生的。 这会导致短暂的停机（以秒为单位），并且会自动重启装有新次要版本的数据库服务器。 有关详细信息，请参阅 [文档](../concepts-monitoring.md#planned-maintenance-notification)，并查看 [门户](https://aka.ms/servicehealthpm)。|
 
-当使用 **区域冗余高可用性**配置了灵活的服务器时，灵活服务器首先在备用服务器上执行操作，然后在主服务器上执行操作，而不进行故障转移。 有关更多详细信息，请参阅 [概念-高可用性](./concepts-high-availability.md) 。
+当使用 **区域冗余高可用性** 配置了灵活的服务器时，灵活服务器首先在备用服务器上执行操作，然后在主服务器上执行操作，而不进行故障转移。 有关更多详细信息，请参阅 [概念-高可用性](./concepts-high-availability.md) 。
 
-##  <a name="unplanned-downtime-mitigation"></a>缓解计划外停机
+## <a name="unplanned-downtime-mitigation"></a>缓解计划外停机
 
 由于不可预见的故障（包括基础硬件故障、网络问题和软件错误）导致了未计划的停机时间。 如果数据库服务器意外关闭（如果配置了高可用性 [HA]），则会激活备用副本。 如果不是，则自动预配新的数据库服务器。 尽管不能避免非计划的停机时间，但通过在数据库服务器和存储层上自动执行恢复操作而无需人工干预，灵活的服务器可减少停机时间。
 
@@ -60,12 +60,10 @@ Azure Database for MySQL 灵活的服务器可实现业务连续性功能，以�
 | **可用性区域故障** | 虽然这是一个很少见的事件，但如果想要从区域级别的故障中恢复，则可以使用备份来执行时间点恢复，并选择自定义的还原点以访问最新数据。 新的灵活服务器将部署在另一个区域中。 还原所需的时间取决于以前的备份和要恢复的事务日志数。 | 灵活的服务器执行自动故障转移到备用站点。 有关更多详细信息，请参阅 [HA 概念页](./concepts-high-availability.md) 。 |
 | **区域故障** | 预览版尚不支持跨区域副本和异地还原功能。 | |
 
-
 > [!IMPORTANT]
->  **无法**   还原已删除的服务器。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 使用[Azure 资源锁](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)   来帮助防止意外删除服务器。
-
+> 已删除的服务器 **无法** 还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 使用 [Azure 资源锁](../../azure-resource-manager/management/lock-resources.md)帮助防止意外删除服务器。
 
 ## <a name="next-steps"></a>后续步骤
 
--   了解 [区域冗余高可用性](./concepts-high-availability.md)
--   了解 [备份和恢复](./concepts-backup-restore.md)
+- 了解 [区域冗余高可用性](./concepts-high-availability.md)
+- 了解 [备份和恢复](./concepts-backup-restore.md)

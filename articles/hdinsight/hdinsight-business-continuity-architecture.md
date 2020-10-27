@@ -8,12 +8,12 @@ keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207574"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547021"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight 业务连续性体系结构
 
@@ -58,7 +58,7 @@ ms.locfileid: "92207574"
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>带有备用辅助副本的 Hive 活动主节点
 
-在 *带有备用辅助副本的活动主*区域中，应用程序将写入活动的主要区域，而只读模式下的备用缩减辅助群集会在正常操作期间运行。 在正常操作过程中，可以选择将区域特定的读取操作卸载到辅助数据库。
+在 *带有备用辅助副本的活动主* 区域中，应用程序将写入活动的主要区域，而只读模式下的备用缩减辅助群集会在正常操作期间运行。 在正常操作过程中，可以选择将区域特定的读取操作卸载到辅助数据库。
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Hive 和交互式查询体系结构&quot;:::
 
@@ -66,7 +66,7 @@ ms.locfileid: "92207574"
 
 * &quot;引导":::
 
-有关 Hive 复制和代码示例的详细信息，请参阅 [Azure HDInsight 群集中的 Apache Hive 复制](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
+有关 Hive 复制和代码示例的详细信息，请参阅 [Azure HDInsight 群集中的 Apache Hive 复制](./interactive-query/apache-hive-replication.md)
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -113,7 +113,7 @@ Spark 工作负荷不一定涉及 Hive 组件。 为了使 Spark SQL 工作负�
 
 HBase 导出和 HBase 复制是在 HDInsight HBase 群集之间实现业务连续性的常用方法。
 
-HBase 导出是一个批处理复制过程，该过程使用 HBase 导出实用程序将表从主 HBase 群集导出到其基础 Azure Data Lake Storage 第2代存储。 然后，可以从辅助 HBase 群集访问导出的数据，并将其导入到必须 preexist 在辅助站点中的表中。 尽管 HBase 导出功能提供表级别的粒度，但在增量更新情况下，导出自动化引擎控制每次运行时要包含的增量行范围。 有关详细信息，请参阅 [HDInsight HBase 备份和复制](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#export-then-import)。
+HBase 导出是一个批处理复制过程，该过程使用 HBase 导出实用程序将表从主 HBase 群集导出到其基础 Azure Data Lake Storage 第2代存储。 然后，可以从辅助 HBase 群集访问导出的数据，并将其导入到必须 preexist 在辅助站点中的表中。 尽管 HBase 导出功能提供表级别的粒度，但在增量更新情况下，导出自动化引擎控制每次运行时要包含的增量行范围。 有关详细信息，请参阅 [HDInsight HBase 备份和复制](./hbase/apache-hbase-backup-replication.md#export-then-import)。
 
 HBase 复制以完全自动的方式在 HBase 群集之间使用近乎实时的复制。 复制是在表级别上完成的。 所有表或特定表都可以作为复制的目标。 HBase 复制最终是一致的，这意味着对主要区域中的表进行的最新编辑操作可能无法立即用于所有辅助副本。 辅助副本最终会与主副本保持一致。 如果以下情况，可以在两个或多个 HDInsight HBase 群集之间设置 HBase 复制：
 
@@ -121,9 +121,9 @@ HBase 复制以完全自动的方式在 HBase 群集之间使用近乎实时的�
 * 主数据库和辅助数据库位于同一区域中的不同对等互连 Vnet。
 * 主数据库和辅助数据库位于不同区域的不同对等互连 Vnet 中。
 
-有关详细信息，请参阅 [在 Azure 虚拟网络中设置 Apache HBase 群集复制](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication)。
+有关详细信息，请参阅 [在 Azure 虚拟网络中设置 Apache HBase 群集复制](./hbase/apache-hbase-replication.md)。
 
-还有其他几种方式来执行 HBase 群集的备份，如 [复制 hbase 文件夹](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-the-hbase-folder)、 [复制表](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-tables) 和 [快照](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#snapshots)。
+还有其他几种方式来执行 HBase 群集的备份，如 [复制 hbase 文件夹](./hbase/apache-hbase-backup-replication.md#copy-the-hbase-folder)、 [复制表](./hbase/apache-hbase-backup-replication.md#copy-tables) 和 [快照](./hbase/apache-hbase-backup-replication.md#snapshots)。
 
 ### <a name="hbase-rpo--rto"></a>HBase RPO & RTO
 
@@ -175,7 +175,7 @@ HBase 复制以完全自动的方式在 HBase 群集之间使用近乎实时的�
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
-若要启用跨区域可用性，HDInsight 4.0 支持 Kafka MirrorMaker，可用于在不同区域中维护主要 Kafka 群集的辅助副本。 MirrorMaker 充当高级使用者的使用者对，使用主群集中的特定主题，并使用同一名称在辅助副本中生成。 使用 MirrorMaker 进行跨群集复制以实现高可用性灾难恢复，假设创建者和使用者需要故障转移到副本群集。 有关详细信息，请参阅 [使用 MirrorMaker 在 HDInsight 上使用 Kafka 复制 Apache Kafka 主题](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring)
+若要启用跨区域可用性，HDInsight 4.0 支持 Kafka MirrorMaker，可用于在不同区域中维护主要 Kafka 群集的辅助副本。 MirrorMaker 充当高级使用者的使用者对，使用主群集中的特定主题，并使用同一名称在辅助副本中生成。 使用 MirrorMaker 进行跨群集复制以实现高可用性灾难恢复，假设创建者和使用者需要故障转移到副本群集。 有关详细信息，请参阅 [使用 MirrorMaker 在 HDInsight 上使用 Kafka 复制 Apache Kafka 主题](./kafka/apache-kafka-mirroring.md)
 
 根据启动复制时的主题生存期，MirrorMaker 主题复制可能会导致源和副本主题之间出现不同的偏移量。 HDInsight Kafka 群集还支持主题分区复制，这是单个群集级别的高可用性功能。
 
@@ -232,7 +232,7 @@ Active-Active 设置涉及两个突破独立的 VNet 对等互连 HDInsight Kafk
 
 ## <a name="hdinsight-enterprise-security-package"></a>HDInsight 企业安全性套餐
 
-此设置用于在主副本和辅助副本中启用多用户功能，以及 [AZURE AD DS 副本集](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) ，以确保用户可以对这两个群集进行身份验证。 在正常操作过程中，需要在辅助副本中设置 Ranger 策略，以确保将用户限制为读取操作。 下面的体系结构说明启用了 ESP 的配置单元活动主要-备用辅助设置可能的外观。
+此设置用于在主副本和辅助副本中启用多用户功能，以及 [AZURE AD DS 副本集](../active-directory-domain-services/tutorial-create-replica-set.md) ，以确保用户可以对这两个群集进行身份验证。 在正常操作过程中，需要在辅助副本中设置 Ranger 策略，以确保将用户限制为读取操作。 下面的体系结构说明启用了 ESP 的配置单元活动主要-备用辅助设置可能的外观。
 
 Ranger 元存储复制：
 

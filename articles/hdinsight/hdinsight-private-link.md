@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426396"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547412"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>通过专用链接 (预览) 保护和隔离 Azure HDInsight 群集
 
@@ -25,7 +25,7 @@ ms.locfileid: "92426396"
 
 ## <a name="remove-public-ip-addresses"></a>删除公共 IP 地址
 
-默认情况下，HDInsight RP 使用公共 Ip 向群集进行 *入站* 连接。 如果 `resourceProviderConnection` 网络属性设置为 " *出站*"，则它会反转到 HDInsight RP 的连接，以便始终从群集内部向 RP 发起连接。 如果没有入站连接，则不需要入站服务标记或公共 IP 地址。
+默认情况下，HDInsight RP 使用公共 Ip 向群集进行 *入站* 连接。 如果 `resourceProviderConnection` 网络属性设置为 " *出站* "，则它会反转到 HDInsight RP 的连接，以便始终从群集内部向 RP 发起连接。 如果没有入站连接，则不需要入站服务标记或公共 IP 地址。
 
 默认虚拟网络体系结构中使用的基本负载均衡器会自动提供公共 NAT (网络地址转换) 来访问所需的出站依赖项，如 HDInsight RP。 如果要限制到公共 internet 的出站连接，可以 [配置防火墙](./hdinsight-restrict-outbound-traffic.md)，但这不是必需的。
 
@@ -54,13 +54,13 @@ ms.locfileid: "92426396"
 
 默认情况下禁用的 "专用链接" 需要广泛的网络知识，以便在创建群集之前正确设置用户定义的路由 (UDR) 和防火墙规则。 仅当网络属性设置为 "出站" 时，才可以使用对群集的专用链接访问， `resourceProviderConnection` 如前一部分中所述。 *outbound*
 
-如果 `privateLink` 设置为 " *启用*"，则会创建内部 [标准负载平衡](../load-balancer/load-balancer-overview.md) 器 (slb) ，并为每个 SLB 预配 Azure 专用链接服务。 专用链接服务可让你从专用终结点访问 HDInsight 群集。
+如果 `privateLink` 设置为 " *启用* "，则会创建内部 [标准负载平衡](../load-balancer/load-balancer-overview.md) 器 (slb) ，并为每个 SLB 预配 Azure 专用链接服务。 专用链接服务可让你从专用终结点访问 HDInsight 群集。
 
-标准负载均衡器不会自动提供 [公共出站 NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) （如基本负载均衡器）。 对于出站依赖项，你必须提供自己的 NAT 解决方案，如 [虚拟网络 NAT](../virtual-network/nat-overview.md) 或 [防火墙](./hdinsight-restrict-outbound-traffic.md)。 你的 HDInsight 群集仍需要访问其出站依赖项。 如果不允许这些出站依赖项，则群集创建可能会失败。
+标准负载均衡器不会自动提供 [公共出站 NAT](../load-balancer/load-balancer-outbound-connections.md) （如基本负载均衡器）。 对于出站依赖项，你必须提供自己的 NAT 解决方案，如 [虚拟网络 NAT](../virtual-network/nat-overview.md) 或 [防火墙](./hdinsight-restrict-outbound-traffic.md)。 你的 HDInsight 群集仍需要访问其出站依赖项。 如果不允许这些出站依赖项，则群集创建可能会失败。
 
 ### <a name="prepare-your-environment"></a>准备环境
 
-对于 successgfull 创建专用链接服务，必须显式 [禁用专用链接服务的网络策略](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy)。
+对于 successgfull 创建专用链接服务，必须显式 [禁用专用链接服务的网络策略](../private-link/disable-private-link-service-network-policy.md)。
 
 下图显示了创建群集之前所需的网络配置的示例。 在此示例中，在创建群集之前，将使用 UDR 将所有出站流量 [强制](../firewall/forced-tunneling.md) 发送到 Azure 防火墙，并将所需的出站依赖关系 "允许" 到防火墙上。 对于企业安全性套餐群集，可通过 VNet 对等互连提供与 Azure Active Directory 域服务的网络连接。
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754950"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547582"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>连接到 HDInsight 上的 Apache Beeline 或将其安装在本地
 
@@ -104,7 +104,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 ## <a name="install-beeline-client"></a>安装 Beeline 客户端
 
-虽然头节点上包含 Beeline，但建议将其安装在本地。  本地计算机的安装步骤基于[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)。
+虽然头节点上包含 Beeline，但建议将其安装在本地。  本地计算机的安装步骤基于[适用于 Linux 的 Windows 子系统](/windows/wsl/install-win10)。
 
 1. 更新包列表。 在 bash shell 中输入以下命令：
 
@@ -128,7 +128,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        依次按 **Ctrl+X**、**Y**、Enter。
+        依次按 **Ctrl+X** 、 **Y** 、Enter。
 
 1. 下载 Hadoop 和 Beeline 存档，输入以下命令：
 
@@ -144,7 +144,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. 进一步修改 bashrc 文件。 你需要确定存档解压缩到的路径。 如果使用[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)，并严格按步骤操作，则路径为 `/mnt/c/Users/user/`，其中 `user` 是你的用户名。
+1. 进一步修改 bashrc 文件。 你需要确定存档解压缩到的路径。 如果使用[适用于 Linux 的 Windows 子系统](/windows/wsl/install-win10)，并严格按步骤操作，则路径为 `/mnt/c/Users/user/`，其中 `user` 是你的用户名。
 
     1. 打开文件 `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. 依次按 **Ctrl+X**、**Y**、Enter。
+    1. 依次按 **Ctrl+X** 、 **Y** 、Enter。
 
 1. 关闭并重新打开 bash 会话。
 

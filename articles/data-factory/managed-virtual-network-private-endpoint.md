@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563992"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545712"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure 数据工厂托管的虚拟网络 (预览) 
 
@@ -94,14 +94,16 @@ Azure 数据工厂支持专用链接。 通过专用链接，你可以访问 Azu
 - 美国东部
 - 美国东部 2
 - 美国中西部
+- 美国西部
 - 美国西部 2
 - 美国中南部
 - 美国中部
 - 北欧
 - 西欧
 - 英国南部
-- Southeast Asia
+- 东南亚
 - 澳大利亚东部
+- 澳大利亚东南部
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>从 ADF 托管虚拟网络通过公共终结点进行的出站通信
 - 对于出站通信，只打开端口443。
@@ -109,7 +111,7 @@ Azure 数据工厂支持专用链接。 通过专用链接，你可以访问 Azu
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Azure Key Vault 的链接服务创建 
 - 为 Azure Key Vault 创建链接服务时，不 Azure Integration Runtime 引用。 因此，在 Azure Key Vault 的链接服务创建过程中无法创建专用终结点。 但是，当你为引用 Azure Key Vault 链接服务的数据存储创建链接服务，并且此链接服务引用启用了托管虚拟网络 Azure Integration Runtime 时，你可以在创建期间为 Azure Key Vault 链接的服务创建专用终结点。 
-- Azure Key Vault 的链接服务的**测试连接**操作仅验证 URL 格式，但不执行任何网络操作。
+- Azure Key Vault 的链接服务的 **测试连接** 操作仅验证 URL 格式，但不执行任何网络操作。
 
 ## <a name="next-steps"></a>后续步骤
 

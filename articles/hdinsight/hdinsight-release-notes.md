@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 616e3e6c37faa3c085b8531173b557973e09fbf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c14e5537385b7518fd08d9d3599993bc6d82f88
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974560"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535495"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 发行说明
 
-本文提供有关**最新** Azure HDInsight 版本更新的信息。 有关较早版本的信息，请参阅 [HDInsight 发行说明存档](hdinsight-release-notes-archive.md)。
+本文提供有关 **最新** Azure HDInsight 版本更新的信息。 有关较早版本的信息，请参阅 [HDInsight 发行说明存档](hdinsight-release-notes-archive.md)。
 
 ## <a name="summary"></a>摘要
 
@@ -32,11 +32,11 @@ Azure HDInsight 是 Azure 中最受企业客户青睐的开源分析服务之一
 HDInsight 现在支持在预览中创建没有公共 IP 的群集和对群集的专用链接访问。 客户可以使用新的高级网络设置创建没有公共 IP 的完全隔离群集，并使用其自己的专用终结点来访问群集。 
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>迁移到 Azure 虚拟机规模集
-HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本开始，该服务将逐步迁移到 [Azure 虚拟机规模集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。 整个过程可能需要几个月的时间。 迁移你的区域和订阅后，新创建的 HDInsight 群集将在无需客户操作的虚拟机规模集上运行。 不需要进行重大更改。
+HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本开始，该服务将逐步迁移到 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。 整个过程可能需要几个月的时间。 迁移你的区域和订阅后，新创建的 HDInsight 群集将在无需客户操作的虚拟机规模集上运行。 不需要进行重大更改。
 
 ## <a name="deprecation"></a>弃用
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>弃用 HDInsight 3.6 ML 服务群集
-HDInsight 3.6 ML 服务群集类型将在 Dec 31 2020 后结束支持。 此后，客户不会创建新的 3.6 ML 服务群集。 现有群集将在没有 Microsoft 支持的情况下按原样运行。 请在 [此处](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions)查看 HDInsight 版本和群集类型的支持有效期。
+HDInsight 3.6 ML 服务群集类型将在 Dec 31 2020 后结束支持。 此后，客户不会创建新的 3.6 ML 服务群集。 现有群集将在没有 Microsoft 支持的情况下按原样运行。 请在 [此处](./hdinsight-component-versioning.md#available-versions)查看 HDInsight 版本和群集类型的支持有效期。
 
 ## <a name="behavior-changes"></a>行为更改
 此版本没有行为更改。
@@ -51,4 +51,4 @@ HDInsight 3.6 ML 服务群集类型将在 Dec 31 2020 后结束支持。 此后�
 HDInsight 会持续改善群集的可靠性和性能。 
 
 ## <a name="component-version-change"></a>组件版本更改
-此发行版未发生组件版本更改。 可以在[此文档](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
+此发行版未发生组件版本更改。 可以在[此文档](./hdinsight-component-versioning.md)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。

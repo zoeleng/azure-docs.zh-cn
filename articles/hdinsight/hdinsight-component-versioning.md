@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e2211be478a16238d35eeb5219cf6e785a6979
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394323"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547565"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>适用于 Azure HDInsight 的 Apache 组件和版本
 
@@ -65,9 +65,9 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 
 ### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>HDInsight 版本的支持到期和停用
 
-**支持到期**意味着 Microsoft 不再为特定的 HDInsight 版本提供支持， 并且不再可以通过 Azure 门户使用该版本创建群集。 仍可以使用 Azure CLI 或各种 SDK 创建这些版本。
+**支持到期** 意味着 Microsoft 不再为特定的 HDInsight 版本提供支持， 并且不再可以通过 Azure 门户使用该版本创建群集。 仍可以使用 Azure CLI 或各种 SDK 创建这些版本。
 
-**停用**意味着 HDInsight 版本的现有群集将继续按现样运行。 不能通过任何方式（包括 CLI 和 SDK）创建此版本的新群集。 其他控制平面功能（如手动缩放和自动缩放）在版本停用后也可能不起作用。 对已停用的版本不提供支持。
+**停用** 意味着 HDInsight 版本的现有群集将继续按现样运行。 不能通过任何方式（包括 CLI 和 SDK）创建此版本的新群集。 其他控制平面功能（如手动缩放和自动缩放）在版本停用后也可能不起作用。 对已停用的版本不提供支持。
 
 下表列出了 HDInsight 版本。 它还提供了支持到期日期和停用日期（如果已知这些日期）。
 
@@ -96,7 +96,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 | HDInsight 3.6 ML 服务      | 9.3               | 2020 年 12 月 31 日                      | 2020 年 12 月 31 日                |
 
 > [!NOTE]
-> 对某个群集版本的支持到期后，无法通过 Azure 门户使用该版本。 在某些情况下，可以继续通过 Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 命令中的 **Version** 参数和 .NET SDK 使用群集版本，直到版本停用的那天为止。
+> 对某个群集版本的支持到期后，无法通过 Azure 门户使用该版本。 在某些情况下，可以继续通过 Windows PowerShell [New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) 命令中的 **Version** 参数和 .NET SDK 使用群集版本，直到版本停用的那天为止。
 
 ### <a name="retired-versions"></a>已停用的版本
 

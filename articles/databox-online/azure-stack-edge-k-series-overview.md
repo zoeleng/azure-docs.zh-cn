@@ -73,7 +73,7 @@ Azure Stack Edge Mini R 解决方案包括 Azure Stack Edge 资源、Azure Stack
 
 将数据传输到其中的 Azure Stack Edge Mini R 物理设备、Azure 资源和目标存储帐户不一定非要位于同一区域。
 
-- **资源可用性** - 有关 Azure Stack Edge 资源可用的所有区域的列表，请转到[各区域提供的 Azure 产品](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)。 
+- **资源可用性** - 有关 Azure Stack Edge 资源可用的所有区域的列表，请转到 [各区域提供的 Azure 产品](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)。 
 
 - **设备可用性** - 有关 Azure Stack Edge Mini R 设备可供使用的所有国家/地区的列表，请转到 [Azure Stack Edge Mini R 定价](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR)的“Azure Stack Edge Mini R”选项卡中的“可用性”部分。
 

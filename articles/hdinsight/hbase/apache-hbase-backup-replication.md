@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505023"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542771"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>在 HDInsight 上为 Apache HBase 和 Apache Phoenix 设置备份与复制
 
@@ -52,7 +52,7 @@ HDInsight 中的 HBase 使用创建群集时选择的默认存储：Azure 存储
 
 * 创建指向当前存储位置的新 HDInsight 实例。 新实例是使用所有现有数据创建的。
 
-* 将 `hbase` 文件夹复制到其他 Azure 存储 blob 容器或 Data Lake Storage 位置，然后使用该数据启动新群集。 对于 Azure 存储，可以使用 [AzCopy](../../storage/common/storage-use-azcopy.md)；对于 Data Lake Storage，可以使用 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)。
+* 将 `hbase` 文件夹复制到其他 Azure 存储 blob 容器或 Data Lake Storage 位置，然后使用该数据启动新群集。 对于 Azure 存储，可以使用 [AzCopy](../../storage/common/storage-use-azcopy-v10.md)；对于 Data Lake Storage，可以使用 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)。
 
 ## <a name="export-then-import"></a>导出再导入
 
@@ -173,7 +173,7 @@ curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterNam
 
 ## <a name="snapshots"></a>快照
 
-使用[快照](https://hbase.apache.org/book.html#ops.snapshots)可为 HBase 数据存储中的数据创建时间点备份。 快照的开销极小，并且在数秒内即可完成，因为快照操作实际上是一种元数据操作，只捕获该时刻存储中所有文件的名称。 创建快照时，不会复制实际数据。 快照依赖于 HDFS 中存储的数据不可变性质，其中的更新、删除和插入都以新数据表示。 可以在同一群集上还原（克隆）快照，或者将快照导出到另一个群集。**
+使用[快照](https://hbase.apache.org/book.html#ops.snapshots)可为 HBase 数据存储中的数据创建时间点备份。 快照的开销极小，并且在数秒内即可完成，因为快照操作实际上是一种元数据操作，只捕获该时刻存储中所有文件的名称。 创建快照时，不会复制实际数据。 快照依赖于 HDFS 中存储的数据不可变性质，其中的更新、删除和插入都以新数据表示。 可以在同一群集上还原（克隆）快照，或者将快照导出到另一个群集。 
 
 若要创建快照，请通过 SSH 连接到 HDInsight HBase 群集的头节点，然后启动 `hbase` shell：
 
@@ -245,4 +245,4 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.mya
 ## <a name="next-steps"></a>后续步骤
 
 * [配置 Apache HBase 复制](apache-hbase-replication.md)
-* [使用 HBase 导入和导出实用工具](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [使用 HBase 导入和导出实用工具](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

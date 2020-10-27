@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103333"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535461"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>使用防火墙配置 Azure HDInsight 群集的出站网络流量
 
@@ -23,7 +23,7 @@ ms.locfileid: "92103333"
 
 HDInsight 群集通常部署在虚拟网络中。 群集与该虚拟网络外部的服务具有依赖关系。
 
-无法通过防火墙发送入站管理流量。 可以为入站流量使用 NSG 服务标记，如 [此处](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags)所述。 
+无法通过防火墙发送入站管理流量。 可以为入站流量使用 NSG 服务标记，如 [此处](./hdinsight-service-tags.md)所述。 
 
 HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 它们后面没有静态 IP 地址。 缺少静态地址意味着网络安全组 (NSG) 无法锁定来自群集的出站流量。 IP 地址经常更改，因此无法基于当前名称解析和使用来设置规则。
 
@@ -45,23 +45,23 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
 
 ### <a name="create-a-new-firewall-for-your-cluster"></a>为群集创建新的防火墙
 
-遵循以下文章中“部署防火墙”部分所述的步骤创建名为 **Test-FW01** 的防火墙：[教程：**** 使用 Azure 门户部署和配置 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)。
+遵循以下文章中“部署防火墙”部分所述的步骤创建名为  使用 Azure 门户部署和配置 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)。
 
 ### <a name="configure-the-firewall-with-application-rules"></a>使用应用程序规则配置防火墙
 
 创建一个应用程序规则集合，以允许群集发送和接收重要通信。
 
-1. 在 Azure 门户中选择新防火墙 **Test-FW01**。
+1. 在 Azure 门户中选择新防火墙 **Test-FW01** 。
 
-1. 导航到“设置” > “规则” > “应用程序规则集合” > “+ 添加应用程序规则集合”。**** **** **** ****
+1. 导航到“设置” > “规则” > “应用程序规则集合” > “+ 添加应用程序规则集合”。    
 
     ![标题：添加应用程序规则集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
-1. 在“添加应用程序规则集合”屏幕上提供以下信息：****
+1. 在“添加应用程序规则集合”屏幕上提供以下信息： 
 
     **顶部部分**
 
-    | 属性|  值|
+    | 属性|  Value|
     |---|---|
     |名称| FwAppRule|
     |优先级|200|
@@ -83,19 +83,19 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
 
    ![标题：输入应用程序规则集合详细信息](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. 选择 **添加** 。
+1. 选择“添加”  。
 
 ### <a name="configure-the-firewall-with-network-rules"></a>使用网络规则配置防火墙
 
 创建网络规则以正确配置 HDInsight 群集。
 
-1. 完成上一步骤后，导航到“网络规则集合” > “+ 添加网络规则集合”。**** ****
+1. 完成上一步骤后，导航到“网络规则集合” > “+ 添加网络规则集合”。  
 
-1. 在“添加网络规则集合”屏幕上提供以下信息：****
+1. 在“添加网络规则集合”屏幕上提供以下信息： 
 
     **顶部部分**
 
-    | 属性|  值|
+    | 属性|  Value|
     |---|---|
     |名称| FwNetRule|
     |优先级|200|
@@ -110,23 +110,23 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
     
    ![标题：输入应用程序规则集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. 选择 **添加** 。
+1. 选择“添加”  。
 
 ### <a name="create-and-configure-a-route-table"></a>创建并配置路由表
 
 创建包含以下条目的路由表：
 
-* [运行状况和管理服务](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions)的所有 IP 地址，下一跃点类型的**Internet**。 它应包括4个 Ip 的泛型区域以及2个适用于你的特定区域的 Ip。 仅当 ResourceProviderConnection 设置为 " *入站*" 时，才需要此规则。 如果 ResourceProviderConnection 设置为 " *出站* "，则 UDR 中不需要这些 ip。 
+* [运行状况和管理服务](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions)的所有 IP 地址，下一跃点类型的 **Internet** 。 它应包括4个 Ip 的泛型区域以及2个适用于你的特定区域的 Ip。 仅当 ResourceProviderConnection 设置为 " *入站* " 时，才需要此规则。 如果 ResourceProviderConnection 设置为 " *出站* "，则 UDR 中不需要这些 ip。 
 
 * IP 地址 0.0.0.0/0 的一个虚拟设备路由，其下一跃点为 Azure 防火墙专用 IP 地址。
 
 例如，若要为“美国东部”区域创建的群集配置路由表，请使用以下步骤:
 
-1. 选择 Azure 防火墙 **Test-FW01**。 复制“概述”页上列出的“专用 IP 地址”。**** **** 本示例使用**示例地址 10.0.2.4**。
+1. 选择 Azure 防火墙 **Test-FW01** 。 复制“概述”页上列出的“专用 IP 地址”。   本示例使用 **示例地址 10.0.2.4** 。
 
-1. 然后导航到“所有服务” > “网络” > “路由表”和“创建路由表”。**** **** **** ****
+1. 然后导航到“所有服务” > “网络” > “路由表”和“创建路由表”。    
 
-1. 在新路由中，导航到“设置” > “路由” > “+ 添加”。**** **** **** 添加以下路由：
+1. 在新路由中，导航到“设置” > “路由” > “+ 添加”。    添加以下路由：
 
 | 路由名称 | 地址前缀 | 下一跃点类型 | 下一跃点地址 |
 |---|---|---|---|
@@ -140,7 +140,7 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
 
 完成路由表配置：
 
-1. 选择“设置”下的“子网”，将创建的路由表分配到 HDInsight 子网。**** ****
+1. 选择“设置”下的“子网”，将创建的路由表分配到 HDInsight 子网。  
 
 1. 选择“+ 关联”。
 
@@ -160,7 +160,7 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
 
 ## <a name="logging-and-scale"></a>日志记录和缩放
 
-Azure 防火墙可将日志发送到一些不同的存储系统。 有关为防火墙配置日志记录的说明，请遵循以下文章中的步骤：[教程：监视 Azure 防火墙日志和指标](../firewall/tutorial-diagnostics.md)。
+Azure 防火墙可将日志发送到一些不同的存储系统。 有关为防火墙配置日志记录的说明，请遵循以下文章中的步骤：[教程：监视 Azure 防火墙日志和指标](../firewall/firewall-diagnostics.md)。
 
 完成日志记录设置后，如果使用 Log Analytics，则可以使用以下查询查看已阻止的流量：
 

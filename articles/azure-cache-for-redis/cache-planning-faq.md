@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 13ba529dd3067ae16167f0d9c14c8f72b982f52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398b567e173691068e6dd932e075d6598dcfe601
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010809"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537399"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>Azure Cache for Redis 规划常见问题解答
 
@@ -84,7 +84,7 @@ Azure Redis 缓存的定价在[此处](https://azure.microsoft.com/pricing/detai
 
 若要深入了解通过其他云使用 Azure Redis 缓存的注意事项，请参阅以下链接。
 
-- [Azure 政府数据库 - Azure Redis 缓存](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure 政府数据库 - Azure Redis 缓存](../azure-government/compare-azure-government-global-azure.md)
 - [Azure 中国世纪互联云 - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 

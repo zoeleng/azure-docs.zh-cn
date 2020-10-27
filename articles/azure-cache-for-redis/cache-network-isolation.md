@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b01e7ca9ff05b6eed51e1c454b8064ab28bda0d5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222150"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537467"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>用于 Redis 网络隔离选项的 Azure 缓存 
 在本文中，你将学习如何确定最佳的网络隔离解决方案以满足你的需求。 我们将深入了解 Azure 专用链接、Azure 虚拟网络 (VNet) 注入和 Azure 防火墙规则及其优点和局限性。  
@@ -21,7 +21,7 @@ Azure 专用链接提供从虚拟网络到 Azure PaaS 服务的专用连接。 �
 
 ### <a name="advantages"></a>优点
 * 在用于 Redis 实例的基本、标准和高级 Azure 缓存上受支持。 
-* 通过使用 [Azure 专用链接](/azure/private-link/private-link-overview)，你可以通过专用终结点从虚拟网络连接到 Azure 缓存实例，该终结点在虚拟网络中的子网内分配有专用 IP 地址。 使用此方法，可在 VNet 内部和公开缓存实例。  
+* 通过使用 [Azure 专用链接](../private-link/private-link-overview.md)，你可以通过专用终结点从虚拟网络连接到 Azure 缓存实例，该终结点在虚拟网络中的子网内分配有专用 IP 地址。 使用此方法，可在 VNet 内部和公开缓存实例。  
 * 创建专用终结点后，可以通过标志限制对公用网络的访问 `publicNetworkAccess` 。 `Enabled`默认情况下，此标志设置为，为你提供允许对缓存进行公共和专用链接访问的选项。 如果设置为 `Disabled` ，则它将只允许专用链接访问。 您可以使用 PATCH 请求将值设置为 `Disabled` 。 有关详细信息，请参阅 [Azure Cache For Redis With Azure Private Link (Preview) ](cache-private-link.md)。 
 * 所有外部缓存依赖关系不会影响 VNet 的 NSG 规则。
 
@@ -51,7 +51,7 @@ VNet 是 Azure 中专用网络的基本构建基块。 VNet 使许多 Azure 资�
 
 
 ## <a name="azure-firewall-rules"></a>Azure 防火墙规则
-[Azure 防火墙](/azure/firewall/overview) 是一种托管的基于云的网络安全服务，可保护 Azure VNet 资源。 它是一种具有内置的高可用性和不受限制的云可伸缩性的完全有状态防火墙即服务。 可以跨订阅和虚拟网络集中创建、实施和记录应用程序与网络连接策略。  
+[Azure 防火墙](../firewall/overview.md) 是一种托管的基于云的网络安全服务，可保护 Azure VNet 资源。 它是一种具有内置的高可用性和不受限制的云可伸缩性的完全有状态防火墙即服务。 可以跨订阅和虚拟网络集中创建、实施和记录应用程序与网络连接策略。  
 
 ### <a name="advantages"></a>优点
 * 配置防火墙规则时，仅指定 IP 地址范围内的客户端连接可以连接到缓存。 即使配置了防火墙规则，仍始终允许来自 Azure Redis 缓存监视系统的连接。 还允许您定义的 NSG 规则。  
@@ -63,4 +63,4 @@ VNet 是 Azure 中专用网络的基本构建基块。 VNet 使许多 Azure 资�
 ## <a name="next-steps"></a>后续步骤
 * 了解如何为 [Redis 实例的高级 Azure 缓存配置 VNet 注入的缓存](cache-how-to-premium-vnet.md)。  
 * 了解如何为 [Redis 层的所有 Azure 缓存配置防火墙规则](cache-configure.md#firewall)。 
-* 了解如何为 [Redis 层的所有 Azure 缓存配置专用终结点](cache-private-link.md)。 
+* 了解如何为 [Redis 层的所有 Azure 缓存配置专用终结点](cache-private-link.md)。

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 0445aeaea6f99754469d5c0e46972aef2ed667aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fdfa8c767757aa17983a28d0d586698551326fe4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424213"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545321"
 ---
 # <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>使用 ARM 模板创建用于 Redis 的 Azure 缓存
 
@@ -26,8 +26,8 @@ ms.locfileid: "92424213"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
-* **存储帐户**：若要创建帐户，请参阅[创建 Azure 存储帐户](/azure/storage/common/storage-account-create?tabs=azure-portal)。 存储帐户用于诊断数据。
+* **Azure 订阅** ：如果没有 Azure 订阅，请在开始之前创建一个 [免费帐户](https://azure.microsoft.com/free/)。
+* **存储帐户** ：若要创建帐户，请参阅 [创建 Azure 存储帐户](../storage/common/storage-account-create.md?tabs=azure-portal)。 存储帐户用于诊断数据。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -46,7 +46,7 @@ ms.locfileid: "92424213"
 * [通过数据暂留创建高级 Azure Redis 缓存](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Create Premium Redis Cache deployed into a Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)（创建部署到虚拟网络中的高级 Redis 缓存）
 
-若要检查最新模板，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/) 和搜索适用于 _Redis 的 azure Cache_。
+若要检查最新模板，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/) 和搜索适用于 _Redis 的 azure Cache_ 。
 
 ## <a name="deploy-the-template"></a>部署模板
 
@@ -57,9 +57,9 @@ ms.locfileid: "92424213"
 
     * 订阅：选择用于创建数据共享和其他资源的 Azure 订阅。
     * 资源组：选择“新建”以创建新的资源组，或选择现有资源组。
-    * **位置**：选择资源组的位置。 存储帐户和 Redis 缓存必须位于同一区域。 默认情况下，Redis 缓存使用的位置与资源组位置相同。 因此指定存储帐户所在的同一位置。
-    * **Redis 缓存名称**：输入 Redis 缓存的名称。
-    * **现有的诊断存储帐户**：输入存储帐户的资源 ID。 语法为 `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`。
+    * **位置** ：选择资源组的位置。 存储帐户和 Redis 缓存必须位于同一区域。 默认情况下，Redis 缓存使用的位置与资源组位置相同。 因此指定存储帐户所在的同一位置。
+    * **Redis 缓存名称** ：输入 Redis 缓存的名称。
+    * **现有的诊断存储帐户** ：输入存储帐户的资源 ID。 语法为 `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`。
 
     其余设置均采用默认值。
 1. 选择“我同意上述条款和条件”，然后选择“购买” 。

@@ -63,6 +63,7 @@
           href: protect-with-drm.md
         - name: 使用 Azure AD 进行内容保护
           href: azure-ad-content-protection.md
+          displayName: 'AAD, Active Directory'
     - name: REST
       items:
         - name: 对远程文件 REST 进行编码和流式传输
@@ -129,8 +130,8 @@
         - name: 概述
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: 转换和作业
-          href: transforms-jobs-concept.md
+    - name: 转换和作业
+      href: transforms-jobs-concept.md
     - name: 实时传送视频流
       items:
         - name: 概述
@@ -265,6 +266,8 @@
       items:
         - name: 创建转换
           href: cli-create-transform.md
+        - name: 使用 REST 创建基本音频转换
+          href: how-to-create-basic-audio-transform.md
         - name: 创建作业
           href: cli-create-jobs.md
         - name: 使用本地文件和 .NET 创建作业输入

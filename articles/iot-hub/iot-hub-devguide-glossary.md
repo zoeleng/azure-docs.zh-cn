@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147776"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547786"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 
@@ -60,7 +60,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 
 ## <a name="azure-portal"></a>Azure 门户
 
-[Microsoft Azure 门户](https://portal.azure.com) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_组织其内容。
+[Microsoft Azure 门户](https://portal.azure.com) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_ 组织其内容。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -218,7 +218,7 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 
 ## <a name="iot-hub-metrics"></a>IoT 中心度量值
 
-[IoT 中心指标](iot-hub-metrics.md)向用户提供有关 [Azure 订阅](#subscription)中的 IoT 中心的状态数据。 可以使用 IoT 中心指标评估服务以及连接到服务的设备的总体运行状况。 IoT 中心指标可以帮助用户了解 IoT 中心发生的情况，并调查根本原因，而无需联系 Azure 支持部门。
+[IoT 中心指标](monitor-iot-hub-reference.md#metrics)向用户提供有关 [Azure 订阅](#subscription)中的 IoT 中心的状态数据。 可以使用 IoT 中心指标评估服务以及连接到服务的设备的总体运行状况。 IoT 中心指标可以帮助用户了解 IoT 中心发生的情况，并调查根本原因，而无需联系 Azure 支持部门。 若要了解详细信息，请参阅 [监视 IoT 中心](monitor-iot-hub.md)。
 
 ## <a name="iot-hub-query-language"></a>IoT 中心查询语言
 
@@ -308,7 +308,7 @@ SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 
 ## <a name="shared-access-signature"></a>共享访问签名
 
-共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件：_共享访问策略_和_共享访问签名_（通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。
+共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件： _共享访问策略_ 和 _共享访问签名_ （通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。
 
 ## <a name="shared-access-policy"></a>共享访问策略
 
@@ -319,7 +319,7 @@ SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 为方便起见，许多 IoT 中心教程使用模拟设备，以便在本地计算机上运行示例。 相反， [物理设备](#physical-device) 是真实的设备，如连接到 IoT 中心的 Raspberry Pi。
 
 ## <a name="solution"></a>解决方案
-_解决方案_ 可以是包含一个或多个项目的 Visual Studio 解决方案。 _解决方案_也可能是包括诸如设备、[设备应用](#device-app)、IoT 中心、其他 Azure 服务和[后端应用](#back-end-app)等元素的 IoT 解决方案。
+_解决方案_ 可以是包含一个或多个项目的 Visual Studio 解决方案。 _解决方案_ 也可能是包括诸如设备、 [设备应用](#device-app)、IoT 中心、其他 Azure 服务和 [后端应用](#back-end-app)等元素的 IoT 解决方案。
 
 ## <a name="subscription"></a>订阅
 

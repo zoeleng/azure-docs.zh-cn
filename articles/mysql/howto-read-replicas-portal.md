@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 6b097aa0adb39e1576e8771bbae8707348351a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740116"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546800"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中创建和管理只读副本
 
@@ -55,7 +55,7 @@ ms.locfileid: "91740116"
 7. 选择“确定”以确认创建副本。
 
 > [!NOTE]
-> 只读副本使用与主服务器相同的服务器配置创建。 副本服务器配置在创建后可以更改。 副本服务器始终在与源服务器相同的资源组和订阅中创建。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription)。 建议副本服务器的配置应保留为等于或大于源的值，以确保副本能够与主副本保持同步。
+> 只读副本使用与主服务器相同的服务器配置创建。 副本服务器配置在创建后可以更改。 副本服务器始终在与源服务器相同的资源组和订阅中创建。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](../azure-resource-manager/management/move-resource-group-and-subscription.md)。 建议副本服务器的配置应保留为等于或大于源的值，以确保副本能够与主副本保持同步。
 
 一旦创建副本服务器，可以从“复制”边栏选项卡中进行查看。
 

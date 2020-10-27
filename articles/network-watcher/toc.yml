@@ -45,7 +45,7 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: 网络安全组视图
       href: network-watcher-security-group-view-overview.md
-    - name: 基于角色的访问控制权限
+    - name: Azure 基于角色的访问控制权限
       href: required-rbac-permissions.md
     - name: 安全性
       items:
@@ -164,7 +164,7 @@
           href: network-watcher-nsg-auditing-powershell.md
     - name: 诊断 VPN 网关和连接
       items:
-        - name: 故障排除
+        - name: 疑难解答
           items:
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md

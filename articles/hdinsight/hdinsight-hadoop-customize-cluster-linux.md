@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
-ms.openlocfilehash: 23361470fd7b1cdb5b6153580e0240ac2f6c9133
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b3ff84f3f648ad08769a36a791f1679a0a57bc73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490333"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546239"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用脚本操作自定义 Azure HDInsight 群集
 
-Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用自定义脚本来自定义群集****。 这些脚本用于安装其他组件以及更改配置设置。 可在创建群集期间或者之后使用脚本操作。
+Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用自定义脚本来自定义群集  。 这些脚本用于安装其他组件以及更改配置设置。 可在创建群集期间或者之后使用脚本操作。
 
 还可以将脚本操作作为 HDInsight 应用程序发布到 Azure 市场。 有关 HDInsight 应用程序的详细信息，请参阅[在 Azure 市场中发布 HDInsight 应用程序](hdinsight-apps-publish-applications.md)。
 
@@ -25,8 +25,8 @@ Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用�
 
 对于已加入域的 HDInsight 群集，对群集使用脚本操作时需要两个 Apache Ambari 权限：
 
-* **AMBARI.RUN\_CUSTOM\_COMMAND**。 默认情况下，Ambari 管理员角色具有此权限。
-* **CLUSTER.RUN\_CUSTOM\_COMMAND**。 默认情况下，HDInsight 群集管理员和 Ambari 管理员都具有此权限。
+* **AMBARI.RUN\_CUSTOM\_COMMAND** 。 默认情况下，Ambari 管理员角色具有此权限。
+* **CLUSTER.RUN\_CUSTOM\_COMMAND** 。 默认情况下，HDInsight 群集管理员和 Ambari 管理员都具有此权限。
 
 有关处理已加入域的 HDInsight 的权限的详细信息，请参阅[使用企业安全性套餐管理 HDInsight 群集](./domain-joined/apache-domain-joined-manage.md)。
 
@@ -34,7 +34,7 @@ Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用�
 
 如果你不是 Azure 订阅的管理员或所有者，则你的帐户必须对包含 HDInsight 群集的资源组至少拥有“参与者”访问权限。
 
-至少具有对 Azure 订阅的参与者访问权限的用户必须之前已注册提供程序。 在对订阅具有参与者访问权限的用户创建资源时，会进行提供程序注册。 对于不创建资源的情况，请参阅[使用 REST 注册提供程序](https://msdn.microsoft.com/library/azure/dn790548.aspx)。
+至少具有对 Azure 订阅的参与者访问权限的用户必须之前已注册提供程序。 在对订阅具有参与者访问权限的用户创建资源时，会进行提供程序注册。 对于不创建资源的情况，请参阅[使用 REST 注册提供程序](/rest/api/resources/providers#Providers_Register)。
 
 获取有关使用访问权限管理的详细信息：
 
@@ -110,7 +110,7 @@ Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用�
 
 使用 root 权限运行的脚本操作。 确保先了解脚本的作用，然后再将它应用到群集。
 
-将脚本应用到群集时，群集状态将从“正在运行”更改为“已接受”。**** **** 然后，状态将更改为“HDInsight 配置”，最后恢复为“正在运行”，表示脚本成功。**** **** 脚本状态记录在脚本操作历史记录中。 此信息告知脚本是成功还是失败。 例如，`Get-AzHDInsightScriptActionHistory` PowerShell cmdlet 显示脚本的状态。 此命令返回类似于以下文本的信息：
+将脚本应用到群集时，群集状态将从“正在运行”更改为“已接受”。   然后，状态将更改为“HDInsight 配置”，最后恢复为“正在运行”，表示脚本成功。   脚本状态记录在脚本操作历史记录中。 此信息告知脚本是成功还是失败。 例如，`Get-AzHDInsightScriptActionHistory` PowerShell cmdlet 显示脚本的状态。 此命令返回类似于以下文本的信息：
 
 ```output
 ScriptExecutionId : 635918532516474303
@@ -145,11 +145,11 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>在创建群集期间从 Azure 门户使用脚本操作
 
-1. 按照[使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的说明，开始创建群集。 从“配置 + 定价”**** 选项卡中，选择“+ 添加脚本操作”****。
+1. 按照[使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的说明，开始创建群集。 从“配置 + 定价”  选项卡中，选择“+ 添加脚本操作”  。
 
     ![Azure 门户群集脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
-1. 使用“选择脚本”条目选择预制的脚本。____ 若要使用自定义脚本，请选择“自定义”____。 然后提供脚本的“名称”和“Bash 脚本 URI”。____ ____
+1. 使用“选择脚本”条目选择预制的脚本。  若要使用自定义脚本，请选择“自定义”  。 然后提供脚本的“名称”和“Bash 脚本 URI”。  
 
     ![在“选择脚本”窗体中添加脚本](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -157,19 +157,19 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
     | 属性 | Value |
     | --- | --- |
-    | 选择脚本 | 要使用自己的脚本，请选择“自定义”____。 否则，请从提供的脚本中选择一个。 |
+    | 选择脚本 | 要使用自己的脚本，请选择“自定义”  。 否则，请从提供的脚本中选择一个。 |
     | 名称 |指定脚本操作的名称。 |
     | Bash 脚本 URI |指定脚本的 URI。 |
-    | Head/Worker/ZooKeeper |指定运行脚本的节点：“头节点”、“工作节点”或“ZooKeeper 节点”。**** **** **** |
+    | Head/Worker/ZooKeeper |指定运行脚本的节点：“头节点”、“工作节点”或“ZooKeeper 节点”。    |
     | parameters |根据脚本的需要，请指定参数。 |
 
-    使用“持久保存此脚本操作”条目，确保在执行缩放操作期间应用该脚本____。
+    使用“持久保存此脚本操作”条目，确保在执行缩放操作期间应用该脚本  。
 
-1. 选择“创建”保存脚本。____ 然后可以使用“+ 提交新项”再添加一个脚本。____
+1. 选择“创建”保存脚本。  然后可以使用“+ 提交新项”再添加一个脚本。 
 
     ![HDInsight 多脚本操作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    添加完脚本后，将返回到“配置 + 定价”**** 选项卡。
+    添加完脚本后，将返回到“配置 + 定价”  选项卡。
 
 1. 照常完成其余的群集创建步骤。
 
@@ -191,13 +191,13 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 获取有关如何部署模板的详细信息：
 
-* [使用 Resource Manager 模板和 Azure PowerShell 部署资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [使用 Resource Manager 模板和 Azure PowerShell 部署资源](../azure-resource-manager/templates/deploy-powershell.md)
 
-* [使用资源管理器模板和 Azure CLI 部署资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
+* [使用资源管理器模板和 Azure CLI 部署资源](../azure-resource-manager/templates/deploy-cli.md)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>在创建群集期间从 Azure PowerShell 使用脚本操作
 
-本部分使用 [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet 来调用脚本，以自定义群集。 开始之前，请确保安装并配置 Azure PowerShell。 若要使用这些 PowerShell 命令，需要 [AZ 模块](https://docs.microsoft.com/powershell/azure/)。
+本部分使用 [Add-AzHDInsightScriptAction](/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet 来调用脚本，以自定义群集。 开始之前，请确保安装并配置 Azure PowerShell。 若要使用这些 PowerShell 命令，需要 [AZ 模块](/powershell/azure/)。
 
 以下脚本演示如何在使用 PowerShell 创建群集时应用脚本操作：
 
@@ -217,13 +217,13 @@ HDInsight .NET SDK 提供客户端库，以方便从 .NET 应用程序使用 HDI
 
 1. 登录到 [Azure 门户](https://portal.azure.com)并找到群集。
 
-1. 在默认视图中的“设置”下，选择“脚本操作”**** ****。
+1. 在默认视图中的“设置”下，选择“脚本操作”   。
 
 1. 在“脚本操作”页顶部，选择“+ 提交新项” 。
 
     ![将脚本添加到正在运行的群集](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
-1. 使用“选择脚本”条目选择预制的脚本。____ 若要使用自定义脚本，请选择“自定义”____。 然后提供脚本的“名称”和“Bash 脚本 URI”。____ ____
+1. 使用“选择脚本”条目选择预制的脚本。  若要使用自定义脚本，请选择“自定义”  。 然后提供脚本的“名称”和“Bash 脚本 URI”。  
 
     ![在“选择脚本”窗体中添加脚本](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -231,19 +231,19 @@ HDInsight .NET SDK 提供客户端库，以方便从 .NET 应用程序使用 HDI
 
     | 属性 | Value |
     | --- | --- |
-    | 选择脚本 | 要使用自己的脚本，请选择“自定义”____。 否则，请选择提供的脚本。 |
+    | 选择脚本 | 要使用自己的脚本，请选择“自定义”  。 否则，请选择提供的脚本。 |
     | 名称 |指定脚本操作的名称。 |
     | Bash 脚本 URI |指定脚本的 URI。 |
-    | 头节点/辅助角色/Zookeeper |指定运行脚本的节点：“头节点”、“工作节点”或“ZooKeeper 节点”。**** **** **** |
+    | 头节点/辅助角色/Zookeeper |指定运行脚本的节点：“头节点”、“工作节点”或“ZooKeeper 节点”。    |
     | parameters |根据脚本的需要，请指定参数。 |
 
-    使用“持久保存此脚本操作”条目，确保在缩放操作中应用了脚本____。
+    使用“持久保存此脚本操作”条目，确保在缩放操作中应用了脚本  。
 
 1. 最后，选择“创建”按钮将脚本应用到群集。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>从 Azure PowerShell 将脚本操作应用到正在运行的群集
 
-若要使用这些 PowerShell 命令，需要 [AZ 模块](https://docs.microsoft.com/powershell/azure/)。 以下示例演示如何将脚本操作应用于正在运行的群集：
+若要使用这些 PowerShell 命令，需要 [AZ 模块](/powershell/azure/)。 以下示例演示如何将脚本操作应用于正在运行的群集：
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
@@ -280,7 +280,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="apply-a-script-action-to-a-running-cluster-by-using-rest-api"></a>使用 REST API 将脚本操作应用到正在运行的群集
 
-请参阅 [Azure HDInsight 中的群集 REST API](https://msdn.microsoft.com/library/azure/mt668441.aspx)。
+请参阅 [Azure HDInsight 中的群集 REST API](/rest/api/hdinsight/hdinsight-cluster)。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>从 HDInsight .NET SDK 将脚本操作应用到正在运行的群集
 
@@ -292,17 +292,17 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 1. 登录到 [Azure 门户](https://portal.azure.com)并找到群集。
 
-1. 在默认视图中的“设置”下，选择“脚本操作”**** ****。
+1. 在默认视图中的“设置”下，选择“脚本操作”   。
 
 1. 此群集的脚本历史记录显示在“脚本操作”部分。 此信息包括持久化脚本的列表。 以下屏幕截图显示已在此群集上运行了 Solr 脚本。 该屏幕截图未显示任何持久化脚本。
 
     ![门户脚本操作提交历史记录](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
-1. 选择历史记录中的脚本会显示此脚本的“属性”部分。**** 从屏幕顶部，可重新运行脚本或将它升级。
+1. 选择历史记录中的脚本会显示此脚本的“属性”部分。  从屏幕顶部，可重新运行脚本或将它升级。
 
     ![脚本操作属性升级](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-1. 还可以使用“脚本操作”部分条目右侧的省略号“...”**** 来执行操作。
+1. 还可以使用“脚本操作”部分条目右侧的省略号“...”  来执行操作。
 
     ![永久性脚本操作删除](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 

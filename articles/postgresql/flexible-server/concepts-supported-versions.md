@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 334eaa88ae927ae61ebb445343494cfdce570563
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b139e2f14379e0cd52ca72c347d49bcb4512c473
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167485"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542074"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 灵活的服务器中支持的 PostgreSQL 主版本
 
@@ -30,7 +30,7 @@ Azure Database for PostgreSQL 灵活的服务器当前支持以下主要版本�
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL 版本10和更低版本
 
-对于 Azure Database for PostgreSQL 灵活的服务器，我们不支持 PostgreSQL 版本10和更低版本。 如果需要较旧的版本，请使用 " [单一服务器](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 部署" 选项。
+对于 Azure Database for PostgreSQL 灵活的服务器，我们不支持 PostgreSQL 版本10和更低版本。 如果需要较旧的版本，请使用 " [单一服务器](../concepts-supported-versions.md) 部署" 选项。
 
 ## <a name="managing-upgrades"></a>管理升级
 

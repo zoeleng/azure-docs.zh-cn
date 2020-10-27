@@ -7,13 +7,13 @@ ms.author: mhopkins
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.topic: quickstart
+ms.openlocfilehash: 10f16118b37810ed888c0812a30ad276c49803f2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323734"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545780"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>快速入门：使用 Java v8 SDK 管理 blob
 
@@ -57,7 +57,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>运行示例
 
-此示例应用程序在默认目录（对于 Windows 用户，为 *C:\Users\<user>\AppData\Local\Temp*）中创建一个测试文件，将其上传到 Blob 存储，列出容器中的 Blob，然后下载具有新名称的文件，以便比较旧文件和新文件。
+此示例应用程序在默认目录（对于 Windows 用户，为 *C:\Users\<user>\AppData\Local\Temp* ）中创建一个测试文件，将其上传到 Blob 存储，列出容器中的 Blob，然后下载具有新名称的文件，以便比较旧文件和新文件。
 
 使用 Maven 在命令行运行示例。 打开 shell 并导航到已克隆目录中的 blobAzureApp。 然后输入 `mvn compile exec:java`。
 
@@ -76,7 +76,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-检查示例文件的默认目录（对于 Windows 用户，为 *C:\Users\<user>\AppData\Local\Temp*），再继续操作。 从控制台窗口复制 blob 的 URL，将其粘贴到浏览器，查看 Blob 存储中的文件的内容。 如果将目录中的示例文件与 Blob 存储中的内容进行比较，则会发现它们是相同的。
+检查示例文件的默认目录（对于 Windows 用户，为 *C:\Users\<user>\AppData\Local\Temp* ），再继续操作。 从控制台窗口复制 blob 的 URL，将其粘贴到浏览器，查看 Blob 存储中的文件的内容。 如果将目录中的示例文件与 Blob 存储中的内容进行比较，则会发现它们是相同的。
 
   >[!NOTE]
   >还可以使用工具（如 [Azure 存储资源管理器](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)）查看 Blob 存储中的文件。 Azure 存储资源管理器是免费的跨平台工具，可用于访问存储帐户信息。
@@ -110,7 +110,7 @@ Deleting the source, and downloaded files
 
 在本部分中，将创建对象的实例、创建新容器，并对容器设置权限，使 blob 公开，只需 URL 即可对其进行访问。 容器名为 quickstartcontainer。
 
-此示例使用 [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)，因为我们想要每次运行示例时都创建新容器。 在生产环境中，应用程序从头至尾都使用相同的容器，因此建议仅调用一次 **CreateIfNotExists**。 或者可以提前创建容器，这样就无需在代码中创建它。
+此示例使用 [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)，因为我们想要每次运行示例时都创建新容器。 在生产环境中，应用程序从头至尾都使用相同的容器，因此建议仅调用一次 **CreateIfNotExists** 。 或者可以提前创建容器，这样就无需在代码中创建它。
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage

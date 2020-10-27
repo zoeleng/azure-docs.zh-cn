@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 8801929412da614784c76dbdf7c8282b31364409
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d77d9877fbc49fbb147965b30e299b75b60ccce3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327886"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546647"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>适用于 Azure HDInsight 的企业安全性套餐
 
@@ -28,7 +28,7 @@ Enterprise Security 是一种可选包，可在 HDInsight 群集上作为创建�
 
     * [在 HDInsight 中计划 Azure 已加入域的 Apache Hadoop 群集](./domain-joined/apache-domain-joined-architecture.md)
 
-    * [配置已加入域的沙盒环境](./domain-joined/apache-domain-joined-configure.md)
+    * [配置已加入域的沙盒环境](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
     * [使用 Azure Active Directory 域服务设置和配置已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
