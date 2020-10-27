@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c9a610eb30b33adb82cebda74e99c37f84dacf9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319468"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543077"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Spark 和 Hive 工具
 
@@ -57,14 +57,14 @@ ms.locfileid: "92319468"
 
    ![visual studio code“新建文件”图标](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. 为新文件命名，使用 `.hql`（Hive 查询）或 `.py`（Spark 脚本）作为文件扩展名。 本示例使用 **HelloWorld.hql**。
+3. 为新文件命名，使用 `.hql`（Hive 查询）或 `.py`（Spark 脚本）作为文件扩展名。 本示例使用 **HelloWorld.hql** 。
 
 ## <a name="set-the-azure-environment"></a>设置 Azure 环境
 
 国家云用户请先遵循以下步骤设置 Azure 环境，然后使用“Azure:登录”命令登录到 Azure：
 
 1. 导航到“文件” > “首选项” > “设置”。  
-2. 搜索以下字符串：**Azure:云**。
+2. 搜索以下字符串： **Azure:云** 。
 3. 从列表中选择国家云：
 
    ![设置默认登录入口配置](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -93,7 +93,7 @@ ms.locfileid: "92319468"
 
 3. 输入 HDInsight 群集 URL。
 
-4. 输入 Ambari 用户名，默认为 **admin**。
+4. 输入 Ambari 用户名，默认为 **admin** 。
 
 5. 输入 Ambari 密码。
 
@@ -116,7 +116,7 @@ ms.locfileid: "92319468"
 
 4. 选择授权类型“基本”或“无”。   如果选择“基本”：  
    
-   1. 输入 Ambari 用户名，默认为 **admin**。  
+   1. 输入 Ambari 用户名，默认为 **admin** 。  
 
    2. 输入 Ambari 密码。
 
@@ -134,9 +134,9 @@ ms.locfileid: "92319468"
 
 ## <a name="set-the-default-cluster"></a>设置默认群集
 
-1. 重新打开[前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
+1. 重新打开 [前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
 
-2. 选择[前面](#open-a-work-folder)创建的 **HelloWorld.hql** 文件。 它将在脚本编辑器中打开。
+2. 选择 [前面](#open-a-work-folder)创建的 **HelloWorld.hql** 文件。 它将在脚本编辑器中打开。
 
 3. 右键单击脚本编辑器，然后选择“Spark/ Hive:Set Default Cluster”。  
 
@@ -150,9 +150,9 @@ ms.locfileid: "92319468"
 
 通过 Visual Studio Code 的 Spark 和 Hive 工具，可将交互式 Hive 查询和 Hive 批处理脚本提交到群集。
 
-1. 重新打开[前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
+1. 重新打开 [前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
 
-2. 选择[前面](#open-a-work-folder)创建的 **HelloWorld.hql** 文件。 它将在脚本编辑器中打开。
+2. 选择 [前面](#open-a-work-folder)创建的 **HelloWorld.hql** 文件。 它将在脚本编辑器中打开。
 
 3. 将以下代码复制并粘贴到 Hive 文件中，然后保存该文件：
 
@@ -170,7 +170,7 @@ ms.locfileid: "92319468"
 
    - “结果”面板：可以将整个结果作为 CSV、JSON、Excel 保存到本地路径，也可以只选择多个行。
 
-   - “消息”面板：选择**行**号会跳转到运行的脚本的第一行。
+   - “消息”面板：选择 **行** 号会跳转到运行的脚本的第一行。
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交交互式 PySpark 查询
 
@@ -179,9 +179,9 @@ ms.locfileid: "92319468"
 ### <a name="using-the-pyspark-interactive-command-in-py-file"></a>在 PY 文件中使用 PySpark Interactive 命令
 使用 PySpark Interactive 命令提交查询时，请执行以下步骤：
 
-1. 重新打开[前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
+1. 重新打开 [前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
 
-2. 遵循[前面](#open-a-work-folder)所述的步骤创建新的 **HelloWorld.py** 文件。
+2. 遵循 [前面](#open-a-work-folder)所述的步骤创建新的 **HelloWorld.py** 文件。
 
 3. 将以下代码复制并粘贴到脚本文件中：
 
@@ -203,7 +203,7 @@ ms.locfileid: "92319468"
 
    ![屏幕截图显示跳过 PySpark 安装的选项。](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. 如果以后需要安装，可以导航到 "**文件**  >  **首选项**  >  **设置**"，然后在 "设置" 中取消选中 " **HDInsight： Enable Skip Pyspark 安装**"。 
+5. 如果以后需要安装，可以导航到 " **文件**  >  **首选项**  >  **设置** "，然后在 "设置" 中取消选中 " **HDInsight： Enable Skip Pyspark 安装** "。 
     
     ![屏幕截图显示用于启用 Skip Pyspark 安装的选项。](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
@@ -229,11 +229,11 @@ ms.locfileid: "92319468"
 
     ![Pyspark Interactive 上下文菜单](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. 如果尚未指定默认群集，请选择群集。 几分钟后， **Python 交互式** 结果将显示在新的选项卡中。单击 PySpark 将内核切换到 **PySpark/Synapse PySpark**，代码将成功运行。 如果要切换到 Synapse Pyspark 内核，则鼓励 Azure 门户禁用自动设置。 否则，首次使用时，可能需要很长时间才能唤醒群集和设置 synapse 内核。 如果工具还允许使用上下文菜单提交代码块而非整个脚本文件，请执行以下操作：
+12. 如果尚未指定默认群集，请选择群集。 几分钟后， **Python 交互式** 结果将显示在新的选项卡中。单击 PySpark 将内核切换到 **PySpark/Synapse PySpark** ，代码将成功运行。 如果要切换到 Synapse Pyspark 内核，则鼓励 Azure 门户禁用自动设置。 否则，首次使用时，可能需要很长时间才能唤醒群集和设置 synapse 内核。 如果工具还允许使用上下文菜单提交代码块而非整个脚本文件，请执行以下操作：
 
     ![pyspark interactive - python interactive 窗口](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-13. 输入 **%%info**，然后按 Shift+Enter 查看作业信息（可选）：
+13. 输入 **%%info** ，然后按 Shift+Enter 查看作业信息（可选）：
 
     ![pyspark 交互查看作业信息](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -260,7 +260,7 @@ ms.locfileid: "92319468"
 
    ![设置默认 spark 池并重载](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
 
-3. 单击 "PySpark"，将内核切换到 **PySpark/Synapse PySpark**，然后单击 " **运行单元**"，在一段时间后，将显示结果。
+3. 单击 "PySpark"，将内核切换到 **PySpark/Synapse PySpark** ，然后单击 " **运行单元** "，在一段时间后，将显示结果。
 
    ![运行 ipynb 的结果](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
@@ -270,9 +270,9 @@ ms.locfileid: "92319468"
 
 ## <a name="submit-pyspark-batch-job"></a>提交 PySpark 批处理作业
 
-1. 重新打开[前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
+1. 重新打开 [前面](#open-a-work-folder)所述的 **HDexample** 文件夹（如果已关闭）。  
 
-2. 遵循[前面](#open-a-work-folder)所述的步骤创建新的 **BatchFile.py** 文件。
+2. 遵循 [前面](#open-a-work-folder)所述的步骤创建新的 **BatchFile.py** 文件。
 
 3. 将以下代码复制并粘贴到脚本文件中：
 
@@ -299,13 +299,13 @@ ms.locfileid: "92319468"
 
 4. [连接](#connect-to-an-azure-account)到 Azure 帐户或链接某个群集（如果尚未这样做）。
 
-5. 右键单击脚本编辑器，然后选择 **Spark： PySpark batch**，或 * * Synapse： PySpark batch * * *。
+5. 右键单击脚本编辑器，然后选择 " **Spark： PySpark batch** " 或 " **Synapse： PySpark batch** "。
 
 6. 选择要将 PySpark 作业提交到的群集/spark 池：
 
    ![提交 Python 作业结果输出](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-提交 Python 作业后，提交日志将显示在 Visual Studio Code 的“输出”窗口中。 同时还会显示 Spark UI URL 和 Yarn UI URL。 如果将 batch 作业提交到 Apache Spark 池，则还会显示 Spark 历史记录 UI URL 和 Spark 作业应用程序 UI URL。 你可以在 Web 浏览器中打开 URL 以跟踪作业状态。
+提交 Python 作业后，提交日志会显示在 Visual Studio Code 的 _ " *输出* " 窗口中。 同时还会显示 Spark UI URL 和 Yarn UI URL。 如果将 batch 作业提交到 Apache Spark 池，则还会显示 Spark 历史记录 UI URL 和 Spark 作业应用程序 UI URL。 你可以在 Web 浏览器中打开 URL 以跟踪作业状态。
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>与 HDInsight Identity Broker (HIB) 集成
 
@@ -394,7 +394,7 @@ ms.locfileid: "92319468"
 
 4. 展开群集以查看 Hive 元数据数据库和表架构。
 
-5. 右键单击 Hive 表。 例如：**hivesampletable**。 选择“预览”。
+5. 右键单击 Hive 表。 例如： **hivesampletable** 。 选择“预览”。
 
    ![适用于 Visual Studio code 的 Spark 和 Hive - 预览 Hive 表](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -422,18 +422,18 @@ ms.locfileid: "92319468"
 
 适用于 Visual Studio Code 的 Spark 和 Hive 还支持以下功能：
 
-- **IntelliSense 自动完成**。 弹出关键字、方法、变量和其他编程元素的相关建议。 不同图标表示不同类型的对象：
+- **IntelliSense 自动完成** 。 弹出关键字、方法、变量和其他编程元素的相关建议。 不同图标表示不同类型的对象：
 
     ![Spark & 用于 Visual Studio Code IntelliSense 对象的 Hive 工具](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 
-- **IntelliSense 错误标记**。 语言服务会为 Hive 脚本的编辑错误添加下划线。     
-- **语法突出显示**。 语言服务使用不同颜色来区分变量、关键字、数据类型、函数和其他编程元素：
+- **IntelliSense 错误标记** 。 语言服务会为 Hive 脚本的编辑错误添加下划线。     
+- **语法突出显示** 。 语言服务使用不同颜色来区分变量、关键字、数据类型、函数和其他编程元素：
 
     ![适用于 Visual Studio Code 的 Spark 和 Hive 工具 - 语法突出显示](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
 ## <a name="reader-only-role"></a>仅限读取者角色
 
-分配有群集“仅限读取者”角色的用户无法将作业提交到 HDInsight 群集，也无法查看 Hive 数据库。 需在 [Azure 门户](https://portal.azure.com/)中联系群集管理员将你的角色升级到 [**HDInsight 群集操作员**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)。 如果你有有效的 Ambari 凭据，可遵循以下指导手动链接群集。
+分配有群集“仅限读取者”角色的用户无法将作业提交到 HDInsight 群集，也无法查看 Hive 数据库。 需在 [Azure 门户](https://portal.azure.com/)中联系群集管理员将你的角色升级到 [**HDInsight 群集操作员**](./hdinsight-migrate-granular-access-cluster-configurations.md#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)。 如果你有有效的 Ambari 凭据，可遵循以下指导手动链接群集。
 
 ### <a name="browse-the-hdinsight-cluster"></a>浏览 HDInsight 群集  
 

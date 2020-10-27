@@ -235,7 +235,7 @@
           displayName: policy
     - name: 创建并管理工作区
       items:
-        - name: 使用 Azure 门户
+        - name: 使用 Azure 门户或 Python SDK
           href: how-to-manage-workspace.md
         - name: 使用 Azure CLI
           href: how-to-manage-workspace-cli.md

@@ -237,7 +237,7 @@ npm install -g parcel-bundler
 若要在 Visual Studio Code 中设置调试器扩展，请执行以下操作：
 
 1. 选择“运行”>“添加配置”
-2. 根据在前面的[先决条件](#prerequisites)部分中安装的扩展，选择“Edge”、“Chrome”或“Firefox”。
+2. 根据在前面的[先决条件](#prerequisites)部分中安装的扩展，选择“Microsoft Edge”、“Chrome”或“Firefox”。
 
 添加新配置会创建 launch.json 文件并在编辑器中打开该文件。 修改 launch.json 文件，使 `url` 值为 `http://localhost:1234/index.html`，如下所示：
 

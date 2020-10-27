@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083094"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542295"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 基础结构最佳做法
 
@@ -27,7 +27,7 @@ ms.locfileid: "86083094"
 Azure 区域确定群集的物理预配位置。 为了将读写延迟最小化，群集应与数据位于同一区域。
 
 **存储位置和大小**  
-默认存储必须位于群集所在区域中。 对于 48 节点群集，建议创建 4 到 8 个存储帐户。 尽管存储总量可能已足够，但每个存储帐户能够为计算节点提供额外的网络带宽。 如果有多个存储帐户，请为每个存储帐户使用不带前缀的随机名称。 使用随机名称的目的是降低出现存储瓶颈（限制）或所有帐户发生共模故障的可能性。 为提高性能，请对每个存储帐户仅使用一个容器。
+默认存储必须位于群集所在区域中。  对于 48 节点群集，建议创建 4 到 8 个存储帐户。 尽管存储总量可能已足够，但每个存储帐户能够为计算节点提供额外的网络带宽。 如果有多个存储帐户，请为每个存储帐户使用不带前缀的随机名称。 使用随机名称的目的是降低出现存储瓶颈（限制）或所有帐户发生共模故障的可能性。 为提高性能，请对每个存储帐户仅使用一个容器。
 
 **VM 大小和类型（现在支持 G 系列）**  
 每个群集类型具有一组节点类型，每个节点类型在 VM 大小和类型方面提供特定的选项。 VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定。 可以使用模拟工作负荷来确定每个节点类型的最佳 VM 大小和类型。
@@ -52,29 +52,29 @@ Azure 区域确定群集的物理预配位置。 为了将读写延迟最小化�
 |**应用程序**|**集成**
 |---|---|
 |气流|IaaS 或 HDInsight 边缘节点
-|Alluxio|IaaS  
-|Arcadia|IaaS 
+|Alluxio|IaaS  
+|Arcadia|IaaS 
 |Atlas|无（仅限 HDP）
 |Datameer|HDInsight 边缘节点
 |Datastax (Cassandra)|IaaS（CosmosDB，Azure 上的替代产品）
-|DataTorrent|IaaS 
-|钻取|IaaS 
+|DataTorrent|IaaS 
+|钻取|IaaS 
 |Ignite|IaaS
-|Jethro|IaaS 
-|Mapador|IaaS 
+|Jethro|IaaS 
+|Mapador|IaaS 
 |Mongo|IaaS（CosmosDB，Azure 上的替代产品）
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Presto|IaaS 或 HDInsight 边缘节点
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SAS|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SAS|IaaS 
 |Vertica|IaaS（SQLDW，Azure 上的替代产品）
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Waterline|HDInsight 边缘节点
-|StreamSets|HDInsight 边缘 
-|Palantir|IaaS 
-|Sailpoint|Iaas 
+|StreamSets|HDInsight 边缘 
+|Palantir|IaaS 
+|Sailpoint|Iaas 
 
 有关详细信息，请参阅[随不同 HDInsight 版本提供的 Apache Hadoop 组件](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)一文
 
@@ -109,7 +109,7 @@ HDInsight 提供预先编写的脚本用于在 HDInsight 群集上安装以下�
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 配置
 
-可以使用 Bootstrap 对 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml` 等配置文件中的配置进行更改。 以下脚本是使用 PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)的示例：
+可以使用 Bootstrap 对 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml` 等配置文件中的配置进行更改。 以下脚本是使用 PowerShell [AZ module](/powershell/azure/new-azureps-module-az) cmdlet [AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster)的示例：
 
 ```powershell
 # hive-site.xml configuration

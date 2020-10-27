@@ -3,12 +3,12 @@ title: 如何创建适用于 Windows 的来宾配置策略
 description: 了解如何创建适用于 Windows 的 Azure Policy 来宾配置策略。
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ef571857664739c055912cb6460c4638d4cad32b
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893112"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542856"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>如何创建适用于 Windows 的来宾配置策略
 
@@ -198,9 +198,9 @@ AuditBitLocker ./Config
 
 `New-GuestConfigurationPackage` cmdlet 创建包。 配置所需的模块必须在 `$Env:PSModulePath` 中提供。 创建 Windows 内容时 `New-GuestConfigurationPackage` cmdlet 的参数：
 
-- **Name**：来宾配置包名称。
-- **配置**：已编译 DSC 配置文档完整路径。
-- **路径**：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
+- **Name** ：来宾配置包名称。
+- **配置** ：已编译 DSC 配置文档完整路径。
+- **路径** ：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
 
 运行下面的命令，以使用上一步中给出的配置来创建包：
 
@@ -216,9 +216,9 @@ New-GuestConfigurationPackage `
 
 `Test-GuestConfigurationPackage` cmdlet 的参数：
 
-- **Name**：来宾配置策略名称。
+- **Name** ：来宾配置策略名称。
 - Parameter：以哈希表格式提供的策略参数。
-- **路径**：来宾配置包的完整路径。
+- **路径** ：来宾配置包的完整路径。
 
 运行下面的命令，以测试由上一步创建的包：
 
@@ -233,61 +233,10 @@ Test-GuestConfigurationPackage `
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-下一步是将文件发布到 Azure Blob 存储。 下面的脚本包含可用于自动执行此任务的函数。 `publish` 函数中使用的命令需要 `Az.Storage` 模块。
+下一步是将文件发布到 Azure Blob 存储。 命令 `Publish-GuestConfigurationPackage` 需要 `Az.Storage` 模块。
 
 ```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditBitlocker.zip `
-  -blobName 'AuditBitlocker'
+Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 在创建并上传来宾配置自定义策略包后，创建来宾配置策略定义。 `New-GuestConfigurationPolicy` cmdlet 需要使用自定义策略包，并创建策略定义。
@@ -296,10 +245,10 @@ $uri = publish `
 
 - ContentUri：来宾配置内容包的公共 http(s) URI。
 - DisplayName：策略显示名称。
-- **说明**：策略说明。
+- **说明** ：策略说明。
 - Parameter：以哈希表格式提供的策略参数。
-- **版本**：策略版本。
-- **路径**：在其中创建策略定义的目标路径。
+- **版本** ：策略版本。
+- **路径** ：在其中创建策略定义的目标路径。
 - Platform：来宾配置策略和内容包的目标平台 (Windows/Linux)。
 - Tag 向策略定义添加一个或多个标记筛选器
 - Category 在策略定义中设置类别元数据字段
@@ -320,8 +269,6 @@ New-GuestConfigurationPolicy `
 `New-GuestConfigurationPolicy` 创建以下文件：
 
 - auditIfNotExists.json
-- deployIfNotExists.json
-- Initiative.json
 
 cmdlet 输出中会返回一个对象，其中包含策略文件的计划显示名称和路径。
 
@@ -344,25 +291,7 @@ New-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
 ```
 
-在 Azure 中创建策略后，最后一步是分配计划。 请参阅“如何使用[门户](../assign-policy-portal.md)、[Azure CLI](../assign-policy-azurecli.md) 和 [Azure PowerShell](../assign-policy-powershell.md) 分配计划”。
-
-> [!IMPORTANT]
-> 必须始终使用组合 AuditIfNotExists 和 DeployIfNotExists 策略的计划来分配来宾配置策略。 如果只分配了 AuditIfNotExists 策略，则不会部署必备组件，并且策略始终显示“0”个服务器是符合的。
-
-分配具有 DeployIfNotExists 效果的策略定义需要额外级别的访问权限。 若要授予最小特权，可以创建扩展“资源策略参与者”的自定义角色定义。 下面的示例创建具有额外权限 Microsoft.Authorization/roleAssignments/write 的“资源策略参与者 DINE”角色。
-
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
+在 Azure 中创建策略后，最后一步是分配定义。 请参阅如何为 [门户](../assign-policy-portal.md)分配定义、 [Azure CLI](../assign-policy-azurecli.md)和 [Azure PowerShell](../assign-policy-powershell.md)。
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>使用标记筛选来宾配置策略
 
@@ -541,9 +470,9 @@ wmi_service -out ./Config
 
 `New-GuestConfigurationPackage` cmdlet 创建包。 对于第三方内容，使用 FilesToInclude 参数将 InSpec 内容添加到包。 不需要如同 Linux 包一样指定 ChefProfilePath。
 
-- **Name**：来宾配置包名称。
-- **配置**：已编译的配置文档完整路径。
-- **路径**：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
+- **Name** ：来宾配置包名称。
+- **配置** ：已编译的配置文档完整路径。
+- **路径** ：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
 - FilesoInclude：InSpec 配置文件的完整路径。
 
 运行下面的命令，以使用上一步中给出的配置来创建包：
@@ -560,7 +489,7 @@ New-GuestConfigurationPackage `
 
 如果要发布策略的更新，需要注意以下两个字段。
 
-- **版本**：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。 此属性更新来宾配置分配版本，这样代理就能识别更新后的包。
+- **版本** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。 此属性更新来宾配置分配版本，这样代理就能识别更新后的包。
 - contentHash：此属性由 `New-GuestConfigurationPolicy` cmdlet 自动更新。 它是 `New-GuestConfigurationPackage` 创建的包的哈希值。 对于你发布的 `.zip` 文件，此属性必须是正确的。 如果只更新了 contentUri 属性，扩展就不会接受内容包。
 
 发布更新后的包的最简单方法是，重复本文中描述的过程，并提供更新后的版本号。 该过程可保证正确更新所有属性。
@@ -581,7 +510,7 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 `Protect-GuestConfigurationPackage` cmdlet 的参数：
 
-- **路径**：来宾配置包的完整路径。
+- **路径** ：来宾配置包的完整路径。
 - Certificate：用于对包进行签名的代码签名证书。 只有在对 Windows 内容进行签名时，才支持此参数。
 
 GuestConfiguration 代理要求证书公钥在 Windows 计算机上的“受信任的根证书颁发机构”和 Linux 计算机上的 `/usr/local/share/ca-certificates/extra` 路径中存在。 为了让节点能够验证已签名的内容，请先在计算机上安装证书公钥，再应用自定义策略。 可以使用 VM 内的任何技术或使用 Azure Policy 来完成此过程。 [此处提供了](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)一个示例模板。

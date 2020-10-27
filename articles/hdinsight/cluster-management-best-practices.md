@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fbfb2aef838dbef6e7403e635f5bce42bf9ec901
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487256"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542312"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 群集管理最佳做法
 
@@ -26,12 +26,12 @@ ms.locfileid: "92487256"
 | Azure 数据工厂 | [使用 Azure 数据工厂在 HDInsight 中创建按需 Apache Hadoop 群集](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | 自定义资源管理器模板 | [使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | 快速入门模板 | [HDInsight 快速入门模板](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
-| Azure 示例 | [HDInsight Azure 示例](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
+| Azure 示例 | [HDInsight Azure 示例](/samples/browse/?products=azure-hdinsight) |
 | Azure 门户 | [使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集](./spark/apache-spark-intellij-tool-plugin.md) |
 | Azure CLI | [使用 Azure CLI 创建 HDInsight 群集](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [使用 Azure PowerShell 在 HDInsight 中创建基于 Linux 的群集](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [使用 Azure REST API 创建 Apache Hadoop 群集](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDK（.NET、Python、Java） | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)、[Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true)、[Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable&preserve-view=true)、[Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDK（.NET、Python、Java） | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)、[Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python)、[Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable)、[Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > 如果要创建群集，并重新使用以前创建的群集的群集名称，请等待此前的群集删除操作完成，然后再创建群集。
@@ -62,7 +62,7 @@ ms.locfileid: "92487256"
 | 手动缩放 | [缩放 Azure HDInsight 群集](./hdinsight-scaling-best-practices.md) |
 | 使用 Ambari 进行监视| [在 Azure HDInsight 中监视群集性能](./hdinsight-key-scenarios-to-monitor.md) |
 | 使用 Azure Monitor 日志进行监视 | [使用 Azure Monitor 日志监视 HDInsight 群集](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
-| 服务问题、计划内维护、运行状况和安全公告 | [订阅特定于订阅的服务运行状况警报](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+| 服务问题、计划内维护、运行状况和安全公告 | [订阅特定于订阅的服务运行状况警报](../service-health/alerts-activity-log-service-notifications-portal.md) |
 
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>如何检查已删除的 HDInsight 群集？

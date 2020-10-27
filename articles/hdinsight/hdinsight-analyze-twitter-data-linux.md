@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086715"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533285"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>使用 HDInsight 中的 Apache Hive 和 Apache Hadoop 分析 Twitter 数据
 
@@ -30,9 +30,9 @@ Twitter 允许通过 REST API 检索每个推文的数据作为 JavaScript 对�
 
 1. 在 web 浏览器中登录到 [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) 。 如果没有 Twitter 帐户，请选择 " **立即注册** " 链接。
 
-2. 选择 " **创建新应用**"。
+2. 选择 " **创建新应用** "。
 
-3. 输入“名称”****、“说明”****、“网站”****。 可为“网站”**** 字段补充 URL。 下表显示了一些要使用的示例值：
+3. 输入“名称”  、“说明”  、“网站”  。 可为“网站”  字段补充 URL。 下表显示了一些要使用的示例值：
 
    | 字段 | Value |
    |--- |--- |
@@ -40,17 +40,17 @@ Twitter 允许通过 REST API 检索每个推文的数据作为 JavaScript 对�
    | 说明 |MyHDInsightApp |
    | 网站 |`https://www.myhdinsightapp.com` |
 
-4. 选择 **"是，我同意**"，然后选择 " **创建 Twitter 应用程序**"。
+4. 选择 **"是，我同意** "，然后选择 " **创建 Twitter 应用程序** "。
 
-5. 选择 " **权限** " 选项卡。默认权限为 **只读**。
+5. 选择 " **权限** " 选项卡。默认权限为 **只读** 。
 
-6. 选择“密钥和访问令牌”选项卡****。
+6. 选择“密钥和访问令牌”选项卡  。
 
-7. 选择 **"创建我的访问令牌"**。
+7. 选择 **"创建我的访问令牌"** 。
 
 8. 在页面的右上角选择 " **测试 OAuth** "。
 
-9. 记下“使用者密钥”****、“使用者机密”****、“访问令牌”**** 和“访问令牌机密”****。
+9. 记下“使用者密钥”  、“使用者机密”  、“访问令牌”  和“访问令牌机密”  。
 
 ### <a name="download-tweets"></a>下载推文
 
@@ -59,7 +59,7 @@ Twitter 允许通过 REST API 检索每个推文的数据作为 JavaScript 对�
 > [!NOTE]  
 > 由于已安装了 Python，请在 HDInsight 群集上执行以下步骤。
 
-1. 使用 [ssh 命令](./hdinsight-hadoop-linux-use-ssh-unix.md)连接到群集。 编辑以下命令（将 CLUSTERNAME 替换为群集的名称），然后输入该命令：
+1. 使用 [ssh 命令](./hdinsight-hadoop-linux-use-ssh-unix.md)连接到群集。 编辑以下命令，将 CLUSTERNAME 替换为群集的名称，然后输入该命令：
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -143,7 +143,7 @@ Twitter 允许通过 REST API 检索每个推文的数据作为 JavaScript 对�
     > [!TIP]  
     > 调整最后一行的主题筛选器以跟踪常用关键字。 运行脚本时，使用常用关键字可以更快捕获数据。
 
-1. 使用 **Ctrl+X**，并使用 **Y** 以保存该文件。
+1. 使用 **Ctrl+X** ，并使用 **Y** 以保存该文件。
 
 1. 使用以下命令运行该文件并下载推文：
 
@@ -283,7 +283,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
    WHERE (length(json_response) > 500);
    ```
 
-1. 按 **Ctrl+X**，并按 **Y** 以保存该文件。
+1. 按 **Ctrl+X** ，并按 **Y** 以保存该文件。
 
 1. 使用以下命令运行该文件中包含的 HiveQL：
 
@@ -291,7 +291,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    此命令会运行 twitter.hql 文件****。 查询完成之后，会看到 `jdbc:hive2//localhost:10001/>` 提示符。
+    此命令会运行 twitter.hql 文件  。 查询完成之后，会看到 `jdbc:hive2//localhost:10001/>` 提示符。
 
 1. 根据 beeline 提示，使用以下查询验证数据是否已导入：
 
@@ -306,11 +306,11 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
     这会在消息文本中返回最多 10 篇包含 **Azure** 一词的推文。
 
     > [!NOTE]  
-    > 如果已更改 `gettweets.py` 脚本中的筛选器，请将 Azure 替换为用过的筛选器之一****。
+    > 如果已更改 `gettweets.py` 脚本中的筛选器，请将 Azure 替换为用过的筛选器之一  。
 
 ## <a name="next-steps"></a>后续步骤
 
 已了解如何将非结构化 JSON 数据集转换为结构化的 [Apache Hive](https://hive.apache.org/) 表。 若要了解有关 HDInsight 上的 Hive 的详细信息，请参阅以下文档：
 
 * [HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [使用 HDInsight 分析航班延误数据](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [使用 HDInsight 分析航班延误数据](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

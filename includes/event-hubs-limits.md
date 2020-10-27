@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ea1ac064799b0cede1de82851a514a2b389f20aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116772"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499187"
 ---
 下表提供了特定于 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)的配额和限制。 有关事件中心定价的信息，请参阅[事件中心定价](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
@@ -46,6 +46,8 @@ ms.locfileid: "92116772"
 
 ### <a name="dedicated-tier"></a>专用层
 事件中心专用层产品/服务按固定的每月价格计费，最少用量为 4 小时。 专用层提供标准计划的所有功能，但具有企业规模容量和限制，以满足客户的工作负荷需求。 
+
+请参阅本[文档](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal)，了解如何使用 Azure 门户创建专用“事件中心”群集。
 
 | Feature | 限制 |
 | --- | ---|

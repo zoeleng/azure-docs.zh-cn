@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 542e4e09949aa3d673f632890bd7ee99adf431d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487273"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543230"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
 
@@ -45,7 +45,7 @@ ms.locfileid: "92487273"
 ## <a name="prerequisites"></a>先决条件
 
 * SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md)。
-* 如果使用 PowerShell，则需要 [AZ 模块](https://docs.microsoft.com/powershell/azure/)。
+* 如果使用 PowerShell，则需要 [AZ 模块](/powershell/azure/)。
 * 如果想要使用 Azure CLI，但尚未安装，请参阅 [安装 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-virtual-network-configuration"></a>创建虚拟网络配置
@@ -77,12 +77,12 @@ ms.locfileid: "92487273"
     | --- | --- |
     |订阅 |选择相应的订阅。|
     |资源组 |选择包含此前创建的虚拟网络的资源组。|
-    |虚拟机名称 | 输入用于标识该虚拟机的友好名称。 本示例使用 **DNSProxy**。|
+    |虚拟机名称 | 输入用于标识该虚拟机的友好名称。 本示例使用 **DNSProxy** 。|
     |区域 | 选择与此前创建的虚拟网络相同的区域。  并非所有 VM 大小都可在所有区域中使用。  |
     |可用性选项 |  选择所需的可用性级别。  Azure 提供一系列的选项，用于管理应用程序的可用性和复原能力。  将解决方案构建为使用可用性区域或可用性集中的已复制 VM，使应用和数据免受事件中心中断和维护事件的影响。 此示例使用“不需要基础结构冗余”  。 |
     |映像 | 保留“Ubuntu Server 18.04 LTS”  。 |
-    |身份验证类型 | __密码__或 __SSH 公钥__：SSH 帐户的身份验证方法。 建议使用公钥，因为这些密钥更安全。 本示例使用**密码**。  有关详细信息，请参阅[为 Linux VM 创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。|
-    |用户名 |输入 VM 的管理员用户名。  本示例使用 **sshuser**。|
+    |身份验证类型 | __密码__ 或 __SSH 公钥__ ：SSH 帐户的身份验证方法。 建议使用公钥，因为这些密钥更安全。 本示例使用 **密码** 。  有关详细信息，请参阅[为 Linux VM 创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。|
+    |用户名 |输入 VM 的管理员用户名。  本示例使用 **sshuser** 。|
     |密码或 SSH 公钥 | 可用字段取决于针对“身份验证类型”所做的选择。   输入相应的值。|
     |公共入站端口|选择“允许所选端口”  。 然后从“选择入站端口”  下拉列表中选择“SSH (22)”  。|
 
@@ -106,7 +106,7 @@ ms.locfileid: "92487273"
 
 ### <a name="review-ip-addresses"></a>查看 IP 地址
 
-创建虚拟机后，你将收到包含 "**前往资源**" 按钮的**部署成功**通知。  选择“转到资源”  ，转到新的虚拟机。  在新虚拟机的默认视图中，按照以下步骤确定关联的 IP 地址：
+创建虚拟机后，你将收到包含 " **前往资源** " 按钮的 **部署成功** 通知。  选择“转到资源”  ，转到新的虚拟机。  在新虚拟机的默认视图中，按照以下步骤确定关联的 IP 地址：
 
 1. 在“设置”中，选择“属性”   。
 
@@ -267,7 +267,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 };
 ```
 
-若要了解如何在 Windows Server 2016  上使用 DNS，请参阅 [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) 文档。
+若要了解如何在 Windows Server 2016  上使用 DNS，请参阅 [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) 文档。
 
 配置本地 DNS 服务器后，可以 `nslookup` 从本地网络使用来验证是否可以解析虚拟网络中的名称。 下面为示例 
 
@@ -288,8 +288,8 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.
 
 2. 对于步骤 1 中确定的 IP 地址，允许该 IP 地址的入站流量。
 
-   * 如果使用的是__NSG__：允许 IP 地址的端口__443__上的__入站__流量。
-   * 如果使用的是 __UDR__：将 IP 地址的路由的 __下一跃点__ 类型设置为 __Internet__ 。
+   * 如果使用的是 __NSG__ ：允许 IP 地址的端口 __443__ 上的 __入站__ 流量。
+   * 如果使用的是 __UDR__ ：将 IP 地址的路由的 __下一跃点__ 类型设置为 __Internet__ 。
 
 如需使用 Azure PowerShell 或 Azure CLI 来创建 NSG 的示例，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-create-virtual-network.md#hdinsight-nsg) 文档。
 
@@ -347,6 +347,6 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
-* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。
+* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/network-security-groups-overview.md)。
 
 * 有关用户定义的路由的详细信息，请参阅[用户定义的路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。

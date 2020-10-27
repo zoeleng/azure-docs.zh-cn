@@ -164,7 +164,7 @@
       href: recovery-plan-overview.md
     - name: 关于迁移到 Azure
       href: migrate-overview.md
-    - name: 关于将基于角色的访问控制与 Site Recovery 配合使用
+    - name: 关于将 Azure 基于角色的访问控制与 Site Recovery 配合使用
       href: site-recovery-role-based-linked-access-control.md
     - name: 关于灾难恢复到辅助本地站点
       items:

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093011"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543519"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>预付 Azure Cache for Redis 计算资源的预留容量
 
@@ -22,10 +22,10 @@ ms.locfileid: "87093011"
 可以在 [Azure 门户](https://portal.azure.com/)中为 Redis 保留容量购买 Azure 缓存。 购买保留容量：
 
 * 对于至少一个企业或个人订阅，你必须以即用即付费率作为所有者角色。
-* 对于企业订阅，必须在 [EA 门户](https://ea.azure.com/)中启用“添加预留实例”****。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
+* 对于企业订阅，必须在  。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
 * 对于云解决方案提供商 (CSP) 程序，只有管理代理或销售代理可以为 Redis 保留容量购买 Azure Cache。
 
-有关企业客户和即用即付客户如何针对预订购买付费的详细信息，请参阅 [了解企业注册的 azure 保留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) 和 [了解即用即付订阅的 azure 保留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)。
+有关企业客户和即用即付客户如何针对预订购买付费的详细信息，请参阅 [了解企业注册的 azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 和 [了解即用即付订阅的 azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage.md)。
 
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>在购买之前确定正确的缓存大小
@@ -51,7 +51,7 @@ ms.locfileid: "87093011"
 | 字段 | 说明 |
 | :------------ | :------- |
 | 订阅   | 用于为 Redis 保留容量预留支付 Azure 缓存的订阅。 订阅上的付款方式将收取用于 Redis 预留容量预留的 Azure 缓存的前期成本。 订阅类型必须是企业协议 (产品/服务编号： BC-OP-NT-AZR-Ms-azr-0017p 或 BC-OP-NT-AZR-Ms-azr-0148p) 或使用即用即付定价 (产品/服务的个人协议产品/服务) 。 对于企业订阅，从注册的货币承诺余额中扣除费用或作为超额收取费用。 对于使用即用即付定价的单个订阅，将对订阅上的信用卡或发票付款方式收取费用。
-| 范围 | 预订的范围可以包含一个订阅或多个订阅（共享范围）。 如果选择： </br></br> **共享**，预订折扣将应用到计费上下文中任何订阅中运行的 Redis 实例的 Azure Cache。 对于企业客户，共享范围是注册范围，包括注册中的所有订阅。 对于即用即付客户，共享范围是由帐户管理员创建的所有即用即付订阅。</br></br> **单个订阅**，预订折扣将应用到此订阅中的 Redis 实例的 Azure Cache。 </br></br> **单个资源组**，预订折扣适用于所选订阅中的 Redis 实例的 Azure 缓存，以及该订阅内的所选资源组。
+| 范围 | 预订的范围可以包含一个订阅或多个订阅（共享范围）。 如果选择： </br></br> **共享** ，预订折扣将应用到计费上下文中任何订阅中运行的 Redis 实例的 Azure Cache。 对于企业客户，共享范围是注册范围，包括注册中的所有订阅。 对于即用即付客户，共享范围是由帐户管理员创建的所有即用即付订阅。</br></br> **单个订阅** ，预订折扣将应用到此订阅中的 Redis 实例的 Azure Cache。 </br></br> **单个资源组** ，预订折扣适用于所选订阅中的 Redis 实例的 Azure 缓存，以及该订阅内的所选资源组。
 | 区域 | Azure Cache 为 Redis 保留容量保留提供的 Azure 区域。
 | 定价层 | 适用于 Redis 服务器的 Azure 缓存的服务层。
 | 术语 | 一年或三年
@@ -59,7 +59,7 @@ ms.locfileid: "87093011"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>对预留执行取消、交换或退款操作
 
-可以在一定的限制下对预留执行取消、交换或退款操作。 有关详细信息，请参阅 [Azure 预留的自助交换和退款](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)。
+可以在一定的限制下对预留执行取消、交换或退款操作。 有关详细信息，请参阅 [Azure 预留的自助交换和退款](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)。
 
 ## <a name="cache-size-flexibility"></a>缓存大小灵活性
 
@@ -77,10 +77,9 @@ ms.locfileid: "87093011"
 
 * 若要了解有关 Azure 预订的详细信息，请参阅以下文章：
 
-    * [什么是 Azure 预订？](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-    * [管理 Azure 预留项](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-    * [了解 Azure 预留折扣](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-    * [了解即用即付订阅的预留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
-    * [了解企业合约的预留使用情况](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-    * [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](https://docs.microsoft.com/partner-center/azure-reservations)
-
+    * [什么是 Azure 预订？](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+    * [管理 Azure 预留项](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    * [了解 Azure 预留折扣](../cost-management-billing/reservations/understand-reservation-charges.md)
+    * [了解即用即付订阅的预留使用情况](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
+    * [了解企业合约的预留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+    * [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](/partner-center/azure-reservations)

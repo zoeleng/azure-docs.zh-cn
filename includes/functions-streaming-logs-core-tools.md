@@ -4,12 +4,12 @@ ms.author: glenga
 ms.date: 7/24/2019
 ms.topic: include
 ms.service: azure-functions
-ms.openlocfilehash: 1928a8238cd73087e3c199675574dd1395f4d76d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0159ceb6e5d6d64a7a9bda383396607e4ce05b84
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68881331"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164852"
 ---
 #### <a name="built-in-log-streaming"></a>内置日志流式处理
 
@@ -19,9 +19,12 @@ ms.locfileid: "68881331"
 func azure functionapp logstream <FunctionAppName>
 ```
 
+>[!NOTE]
+>尚未在 Core Tools 中为在消耗计划中的 Linux 上运行的函数应用启用内置流式处理。 相反，对于这些托管计划，你需要使用实时指标流近乎实时地查看日志。
+
 #### <a name="live-metrics-stream"></a>实时指标流
 
-也可通过包括 `--browser` 选项在新的浏览器窗口中查看函数应用的[实时指标流](../articles/azure-monitor/app/live-stream.md)，如以下示例所示：
+通过包含 `--browser` 选项，可在新的浏览器窗口中查看函数应用的[实时指标流](../articles/azure-monitor/app/live-stream.md)，如下例所示：
 
 ```bash
 func azure functionapp logstream <FunctionAppName> --browser

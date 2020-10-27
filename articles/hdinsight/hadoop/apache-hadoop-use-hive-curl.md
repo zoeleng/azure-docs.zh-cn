@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 524c888bb132405f03af44f9c28198be0ac89370
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489585"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533761"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Apache Hadoop 运行 Apache Hive 查询
 
@@ -25,13 +25,13 @@ ms.locfileid: "92489585"
 
 * HDInsight 中的 Apache Hadoop 群集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
 
-* 一个 REST 客户端。 本文档在 Windows PowerShell 上使用 [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest)，在 [Bash](https://docs.microsoft.com/windows/wsl/install-win10) 上使用 [Curl](https://curl.haxx.se/)。
+* 一个 REST 客户端。 本文档在 Windows PowerShell 上使用 [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest)，在 [Bash](/windows/wsl/install-win10) 上使用 [Curl](https://curl.haxx.se/)。
 
 * 如果使用 Bash，还需要 jq，它是一个命令行 JSON 处理器。  请参阅 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 
 ## <a name="base-uri-for-rest-api"></a>用于 Rest API 的基 URI
 
-HDInsight 上 REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称**区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.net`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
+HDInsight 上 REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称 **区分大小写** 。  虽然 URI (`CLUSTERNAME.azurehdinsight.net`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
 
 ## <a name="authentication"></a>身份验证
 
@@ -156,7 +156,7 @@ $clusterName
 
    * `ROW FORMAT` - 如何设置数据的格式。 每个日志中的字段都用空格分隔。
    * `STORED AS TEXTFILE LOCATION` -数据的存储位置 (示例/数据目录) 并且存储为文本。
-   * `SELECT` - 选择 **t4** 列包含值 **[ERROR]** 的所有行的计数。 此语句返回的值为 **3**，因为有三行包含此值。
+   * `SELECT` - 选择 **t4** 列包含值 **[ERROR]** 的所有行的计数。 此语句返回的值为 **3** ，因为有三行包含此值。
 
      > [!NOTE]  
      > 请注意，在与 Curl 配合使用时，将用 `+` 字符替换 HiveQL 语句之间的空格。 如果带引号的值包含空格（例如分隔符），则不应替换为 `+`。
@@ -181,11 +181,11 @@ $clusterName
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    如果作业已完成，状态是 **SUCCEEDED**。
+    如果作业已完成，状态是 **SUCCEEDED** 。
 
-1. 在作业的状态更改为“SUCCEEDED”**** 后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，该位置为 `/example/rest`。 此地址将输出存储在群集默认存储中的 `example/curl` 目录。
+1. 在作业的状态更改为“SUCCEEDED”  后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，该位置为 `/example/rest`。 此地址将输出存储在群集默认存储中的 `example/curl` 目录。
 
-    可以使用 [Azure CLI](/cli/azure/install-azure-cli) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 与 Azure 存储配合使用](https://docs.microsoft.com/azure/storage/storage-azure-cli)文档。
+    可以使用 [Azure CLI](/cli/azure/install-azure-cli) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 与 Azure 存储配合使用](../../storage/blobs/storage-quickstart-blobs-cli.md)文档。
 
 ## <a name="next-steps"></a>后续步骤
 

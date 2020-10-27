@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959836"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542601"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics 中的已保存查询
 
@@ -24,7 +24,7 @@ Log Analytics 提供了示例查询集，你可以运行这些查询本身，或
 新体验在上下文中筛选查询和提供查询建议。 换句话说，系统只会自动显示与所选作用域相关的查询。
 
 - 对于 **单个资源** –按资源类型筛选查询。
-- 对于**资源组**，将根据特定资源组中的资源对查询进行筛选。
+- 对于 **资源组** ，将根据特定资源组中的资源对查询进行筛选。
 - 对于 **工作区** –根据工作区中安装的解决方案筛选查询。
 
 对于所有 Log Analytics 作用域，此行为都是一致的。 如果看不到所需资源类型的示例查询，则可能是由于在上下文中进行了筛选。 下文中的一个部分介绍了如何删除上下文中作用域界定，以便你可以查看所有可能的查询。
@@ -54,7 +54,7 @@ Log Analytics 提供了示例查询集，你可以运行这些查询本身，或
 
 可以从 Log Analytics 左侧边栏中的查询窗格访问与对话框体验完全相同的功能。 可以将鼠标指针悬停在查询名称上来获取查询说明和其他功能。
 
-![边栏](media/saved-queries/sidebar-3.png)
+![显示 "查询" 窗格的屏幕截图。](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>查找和筛选查询
 
@@ -80,9 +80,9 @@ Log Analytics 提供了示例查询集，你可以运行这些查询本身，或
 此对话框支持以下分组依据：
 
 - **资源类型** -Azure 中定义的资源，例如虚拟机。 请参阅 [Azure Monitor 表参考](/azure/azure-monitor/reference/tables/tables-resourcetype)，以了解从 Azure Monitor 日志/Log Analytics 表到资源类型的完整映射。  
-- **类别** –一种类型的信息，如 *安全* 或 *审核*。 类别与在“表”边栏窗格中定义的类别完全相同。 有关类别的完整列表，请参阅 [Azure Monitor 表参考](/azure/azure-monitor/reference/tables/tables-category)。  
+- **类别** –一种类型的信息，如 *安全* 或 *审核* 。 类别与在“表”边栏窗格中定义的类别完全相同。 有关类别的完整列表，请参阅 [Azure Monitor 表参考](/azure/azure-monitor/reference/tables/tables-category)。  
 - **解决方案** -与查询关联的 Azure Monitor 解决方案
-- **主题** –示例查询（例如 *活动日志* 或 *应用日志*）的主题。 对示例查询而言，主题属性具有唯一性，可能会因资源类型而异。
+- **主题** –示例查询（例如 *活动日志* 或 *应用日志* ）的主题。 对示例查询而言，主题属性具有唯一性，可能会因资源类型而异。
 
 分组值还用作活动目录。 单击屏幕左侧的某个值会将查询视图向右滚动到所单击的项。
 

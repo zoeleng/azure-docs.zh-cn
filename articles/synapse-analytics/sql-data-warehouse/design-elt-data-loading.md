@@ -86,7 +86,7 @@ ms.locfileid: "92507797"
 | :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
 |                           BOOLEAN                            |                                       |       bit        |
 |                     BINARY/BYTE_ARRAY                      |                                       |    varbinary     |
-|                            DOUBLE                            |                                       |      float       |
+|                            DOUBLE                            |                                       |      FLOAT       |
 |                            FLOAT                             |                                       |       real       |
 |                            INT32                             |                                       |       int        |
 |                            INT64                             |                                       |      bigint      |

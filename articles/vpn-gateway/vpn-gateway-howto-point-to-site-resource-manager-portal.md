@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: e1a0234754c2966313e0b35dd59bed79e7736a2c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18260867f0258ebe3cc885c5a1b1754f143bfccc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328417"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541598"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点 VPN 连接：Azure 门户
 
@@ -119,7 +119,7 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 3. 使用记事本之类的文本编辑器打开该证书。 复制证书数据时，请确保将文本复制为一个无回车符或换行符的连续行。 可能需要在文本编辑器中将视图修改为“显示符号/显示所有字符”以查看回车符和换行符。 仅将以下部分复制为一个连续行：
 
    ![证书数据](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "复制根证书数据")
-4. 将证书数据粘贴到“公共证书数据”  字段中。 **命名**该证书，然后选择“保存”  。 最多可以添加 20 个受信任的根证书。
+4. 将证书数据粘贴到“公共证书数据”  字段中。 **命名** 该证书，然后选择“保存”  。 最多可以添加 20 个受信任的根证书。
 
    ![粘贴证书数据](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png "粘贴证书数据")
 5. 选择页面顶部的“保存”，保存所有配置设置。 
@@ -172,7 +172,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 这些说明适用于 Windows 客户端。
 
-1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
+1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all* 。
 2. 查看结果。 请注意，收到的 IP 地址是在配置中指定的点到站点 VPN 客户端地址池中的地址之一。 结果与以下示例类似：
 
    ```
@@ -192,7 +192,11 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 这些说明适用于 Windows 客户端。
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
+
+* 验证是否在为 VNet 指定 DNS 服务器 IP 地址之后，才生成 VPN 客户端配置包。 如果更新了 DNS 服务器 IP 地址，请生成并安装新的 VPN 客户端配置包。
+
+* 使用“ipconfig”检查分配给以太网适配器的 IPv4 地址，该适配器所在的计算机正是你要从其进行连接的计算机。 如果该 IP 地址位于要连接到的 VNet 的地址范围内，或者位于 VPNClientAddressPool 的地址范围内，则称为地址空间重叠。 当地址空间以这种方式重叠时，网络流量不会抵达 Azure，而是呆在本地网络中。
 
 ## <a name="to-add-or-remove-trusted-root-certificates"></a><a name="add"></a>添加或删除受信任的根证书
 
@@ -200,17 +204,17 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 ### <a name="to-add-a-trusted-root-certificate"></a>添加受信任的根证书
 
-最多可以将 20 个受信任的根证书 .cer 文件添加到 Azure。 有关说明，请参阅本文的[上传受信任的根证书](#uploadfile)部分。
+最多可以将 20 个受信任的根证书 .cer 文件添加到 Azure。 有关说明，请参阅本文的[上载受信任的根证书](#uploadfile)部分。
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>删除受信任的根证书
 
 1. 若要删除受信任的根证书，请导航到虚拟网关的“点到站点配置”页。 
 2. 在页面的“根证书”  部分，找到要删除的证书。
-3. 选择证书旁的省略号，并选择“删除”。
+3. 选择证书旁边的省略号，然后选择 "删除"。
 
 ## <a name="to-revoke-a-client-certificate"></a><a name="revokeclient"></a>吊销客户端证书
 
-可以吊销客户端证书。 通过证书吊销列表，可以选择性地拒绝基于单个客户端证书的点到站点连接。 这不同于删除受信任的根证书。 如果从 Azure 中删除受信任的根证书 .cer，它会吊销由吊销的根证书生成/签名的所有客户端证书的访问权限。 如果吊销客户端证书而非根证书，则可继续使用从根证书生成的其他证书进行身份验证。
+可以吊销客户端证书。 证书吊销列表用于选择性地拒绝基于单个客户端证书的点到站点连接。 这不同于删除受信任的根证书。 如果从 Azure 中删除受信任的根证书 .cer，它会吊销由吊销的根证书生成/签名的所有客户端证书的访问权限。 如果吊销客户端证书而非根证书，则可继续使用从根证书生成的其他证书进行身份验证。
 
 常见的做法是使用根证书管理团队或组织级别的访问权限，并使用吊销的客户端证书针对单个用户进行精细的访问控制。
 
@@ -218,7 +222,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 可以通过将指纹添加到吊销列表来吊销客户端证书。
 
-1. 检索客户端证书指纹。 有关详细信息，请参阅[如何检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
+1. 检索客户端证书指纹。 有关详细信息，请参阅 [如何检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
 2. 将信息复制到一个文本编辑器，删除所有空格，使之成为一个连续的字符串。
 3. 导航到虚拟网关的“点到站点配置”  页。 此页面正是用来[上传受信任的根证书](#uploadfile)的页面。
 4. 在“吊销的证书”  部分，输入证书的友好名称（不必是证书 CN）。

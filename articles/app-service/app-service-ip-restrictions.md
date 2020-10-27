@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168216"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533948"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制
 
@@ -61,7 +61,8 @@ ms.locfileid: "92168216"
 通过服务终结点，可以为应用配置应用程序网关或其他 WAF 设备。 还可以为多层应用程序配置安全后端。 有关某些可能性的更多详细信息，请阅读[网络功能和应用服务](networking-features.md)和[应用程序网关与服务终结点的集成](networking/app-gateway-with-service-endpoints.md)。
 
 > [!NOTE]
-> 对于使用 IP SSL 虚拟 IP (VIP) 的 web 应用，目前不支持服务终结点。 
+> - 对于使用 IP SSL 虚拟 IP (VIP) 的 web 应用，目前不支持服务终结点。
+> - IP 或服务终结点限制为512行。 如果你需要超过512行的限制，我们建议你查看独立的安全产品，如 Azure 前门、Azure 应用网关或 Web 应用程序防火墙 (WAF) 。
 >
 
 ## <a name="managing-access-restriction-rules"></a>管理访问限制规则
@@ -111,7 +112,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
 
 此信息在资源管理器中的位置为：
 
-management.azure.com/subscriptions/subscription ID/resourceGroups/resource groups/providers/Microsoft.Web/sites/web app name/config/web?api-version=2018-02-01************
+management.azure.com/subscriptions/subscription ID/resourceGroups/resource groups/providers/Microsoft.Web/sites/web app name/config/web?api-version=2018-02-01 
 
 前面的示例的 JSON 语法为：
 ```json

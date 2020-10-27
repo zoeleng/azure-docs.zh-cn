@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449036"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428106"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>将 AWS 帐户连接到 Azure 安全中心
 
@@ -77,7 +77,7 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
 1. 选择“另一个 AWS 帐户”。
 1. 输入以下详细信息：
 
-    - **帐户 ID** - 输入安全中心的 AWS 连接器页中显示的 Microsoft 帐户 ID (**158177204117**)。
+    - **帐户 ID** - 输入安全中心的 AWS 连接器页中显示的 Microsoft 帐户 ID ( **158177204117** )。
     - **需要外部 ID** - 应选择
     - **外部 ID** - 输入安全中心的 AWS 连接器页中显示的订阅 ID 
 
@@ -106,7 +106,7 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
     
 1. 在完成时选择“下一步:  标记”。 选择性地添加标记。 将标记添加到用户不会影响连接。
 1. 选择“查看”。
-1. 保存自动生成的访问密钥 ID 和**机密访问密钥** CSV 文件以供稍后使用。
+1. 保存自动生成的访问密钥 ID 和 **机密访问密钥** CSV 文件以供稍后使用。
 1. 查看摘要，然后单击“创建用户”。
 
 
@@ -118,9 +118,12 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
 - [在 Amazon EC2 Linux 实例上安装和配置 SSM 代理](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### <a name="step-4-create-a-service-principal-for-onboarding-at-scale"></a>步骤 4. 创建服务主体以用于大规模加入
+### <a name="step-4-complete-azure-arc-prerequisites"></a>步骤 4. 完成 Azure Arc 先决条件
+1. 确保注册适当的 [Azure 资源提供程序](../azure-arc/servers/agent-overview.md#register-azure-resource-providers)：
+    - Microsoft.HybridCompute
+    - Microsoft.GuestConfiguration
 
-以你要用于完成加入过程的订阅上的所有者身份，按照[创建服务主体以用于大规模加入](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)中的说明创建用于 Azure Arc 载入过程的服务主体。
+1. 为大规模加入创建服务主体。 在你要用于完成加入过程的订阅上，以所有者身份按照[为大规模加入创建服务主体](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)中的说明创建一个服务主体用于 Azure Arc 加入过程。
 
 
 ### <a name="step-5-connect-aws-to-security-center"></a>步骤 5。 将 AWS 连接到安全中心
@@ -132,7 +135,8 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
     1. 在“显示名称”中输入连接器的显示名称。
     1. 确认订阅是正确的。 这是将要包含连接器和 AWS 安全中心建议的订阅。
     1. 根据之前在[步骤 2：在 AWS 中设置安全中心身份验证](#step-2-set-up-authentication-for-security-center-in-aws)中选择的身份验证选项：
-        - 选择“担任角色”，接着粘贴[为安全中心创建 IAM 角色](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="安全中心的“概述”仪表板上列出的 3 个 GCP 项目":::中的 ARN
+        - 选择“假设角色”，然后粘贴来自[为安全中心创建 IAM 角色](#create-an-iam-role-for-security-center)。
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="安全中心的“概述”仪表板上列出的 3 个 GCP 项目":::
 
             OR
 
@@ -143,7 +147,7 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
     安全中心在连接的 AWS 帐户中发现 EC2 实例，并使用 SSM 将它们加入 Azure Arc。 
 
     > [!TIP]
-    > 下面的常见问题解答中列出了支持的操作系统。
+    > 有关受支持的操作系统的列表，请参阅常见问题解答中的[哪些操作系统支持我的 EC2 实例？](#what-operating-systems-for-my-ec2-instances-are-supported)。
 
     1. 选择要在所选订阅中将所发现的 AWS EC2 加入到其中的资源组和 Azure 区域。
     1. 在“服务主体 ID”和“服务主体客户端机密”中输入 Azure Arc 的相应信息，如此处的[创建服务主体以用于大规模载入](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)中所述

@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999951"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543145"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 代理 (预览) 
+# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 代理（预览版）
 
 本文介绍如何设置和使用 Azure HDInsight ID 代理功能。 你可以使用此功能在执行多重身份验证时，获取对 Apache Ambari 的新式 OAuth 身份验证，而无需 Azure Active Directory 域服务 (Azure AD DS) 中的旧密码哈希。
 
@@ -29,10 +29,10 @@ HDInsight ID 代理提供身份验证基础结构，该基础结构允许从 OAu
 
 根据组织的需求，使用下表确定最佳身份验证选项。
 
-|身份验证选项 |HDInsight 配置 | 要考虑的因素 |
+|身份验证选项 |HDInsight 配置 | 需考虑的因素 |
 |---|---|---|
 | 完全 OAuth | 企业安全性套餐 + HDInsight ID 代理 | 最安全的选项。  (多因素身份验证受支持。 *不* 需要 ) 传递哈希同步。 没有 Azure AD DS 中没有密码哈希的本地帐户的 ssh/kinit/keytab 访问权限。 仅限云的帐户可为 ssh/kinit/keytab。 通过 OAuth 对 Ambari 进行基于 Web 的访问。 需要更新旧版应用 (例如，JDBC/ODBC) 支持 OAuth。|
-| OAuth + 基本身份验证 | 企业安全性套餐 + HDInsight ID 代理 | 通过 OAuth 对 Ambari 进行基于 Web 的访问。 旧应用继续使用基本身份验证。对于基本身份验证访问，必须禁用多重身份验证。 *不*需要传递哈希同步。 没有 Azure AD DS 中没有密码哈希的本地帐户的 ssh/kinit/keytab 访问权限。 仅限云的帐户仍可以 ssh/kinit。 |
+| OAuth + 基本身份验证 | 企业安全性套餐 + HDInsight ID 代理 | 通过 OAuth 对 Ambari 进行基于 Web 的访问。 旧应用继续使用基本身份验证。对于基本身份验证访问，必须禁用多重身份验证。 *不* 需要传递哈希同步。 没有 Azure AD DS 中没有密码哈希的本地帐户的 ssh/kinit/keytab 访问权限。 仅限云的帐户仍可以 ssh/kinit。 |
 | 完全基本身份验证 | 企业安全性套餐 | 最类似于本地设置。 需要将密码哈希同步到 Azure AD DS。 本地帐户可以使用 ssh/kinit，也可以使用 keytab。 如果 Azure Data Lake Storage Gen2 备份存储，则必须禁用多重身份验证。 |
 
 下图显示了在启用 HDInsight ID 代理后，所有用户（包括联合用户）的新式基于 OAuth 的身份验证流：
@@ -41,9 +41,9 @@ HDInsight ID 代理提供身份验证基础结构，该基础结构允许从 OAu
 
 在此关系图中，客户端 (也就是说，浏览器或应用) 需要首先获取 OAuth 令牌。 然后，它将令牌提供给 HTTP 请求中的网关。 如果你已登录到其他 Azure 服务（例如 Azure 门户），则可以使用单一登录体验登录到 HDInsight 群集。
 
-还可能存在许多仅支持基本身份验证的旧版应用程序 (即，用户名和密码) 。 对于这些方案，你仍可以使用 HTTP 基本身份验证连接到群集网关。 在此设置中，你必须确保从网关节点到 Active Directory 联合身份验证服务 (AD FS) 终结点的网络连接，以确保可从网关节点直接看到的行。
+还可能存在许多仅支持基本身份验证的旧版应用程序 (即，用户名和密码) 。 对于这些情况，仍然可以使用 HTTP 基本身份验证连接到群集网关。 在此设置中，你必须确保从网关节点到 Active Directory 联合身份验证服务 (AD FS) 终结点的网络连接，以确保可从网关节点直接看到的行。
 
-下图显示了联合用户的基本身份验证流程。 首先，网关尝试使用 [ROPC flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc)完成身份验证。 如果没有同步到 Azure AD 的密码哈希，则会回退到发现 AD FS 终结点并通过访问 AD FS 终结点完成身份验证。
+下图显示了联合用户的基本身份验证流程。 首先，网关尝试使用 [ROPC flow](../../active-directory/develop/v2-oauth-ropc.md)完成身份验证。 如果没有同步到 Azure AD 的密码哈希，则会回退到发现 AD FS 终结点并通过访问 AD FS 终结点完成身份验证。
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="显示 HDInsight ID 代理的身份验证流的关系图。":::
 
@@ -103,11 +103,11 @@ HDInsight ID 代理功能向群集中添加了一个额外的 VM。 此 VM 是 H
 
 ## <a name="tool-integration"></a>工具集成
 
-HDInsight 工具已更新为本机支持 OAuth。 使用这些工具进行群集的基于 OAuth 的新式访问。 HDInsight [IntelliJ 插件](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) 可用于基于 Java 的应用程序，如 Scala。 适用于[Visual Studio Code 的 Spark 和 Hive 工具](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode)可用于 PySpark 和 hive 作业。 这些工具支持批处理和交互式作业。
+HDInsight 工具已更新为本机支持 OAuth。 使用这些工具进行群集的基于 OAuth 的新式访问。 HDInsight [IntelliJ 插件](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) 可用于基于 Java 的应用程序，如 Scala。 适用于[Visual Studio Code 的 Spark 和 Hive 工具](../hdinsight-for-vscode.md)可用于 PySpark 和 hive 作业。 这些工具支持批处理和交互式作业。
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>在 Azure AD DS 中在没有密码哈希的情况下进行 SSH 访问
 
-|SSH 选项 |要考虑的因素 |
+|SSH 选项 |需考虑的因素 |
 |---|---|
 | 本地 VM 帐户 (例如 sshuser)  | 此帐户是在创建群集时提供的。 此帐户没有 Kerberos 身份验证。 |
 | 仅限云的帐户 (例如， alice@contoso.onmicrosoft.com)  | 密码哈希在 Azure AD DS 中可用。 可以通过 SSH Kerberos 进行 kerberos 身份验证。 |
@@ -117,11 +117,11 @@ HDInsight 工具已更新为本机支持 OAuth。 使用这些工具进行群集
 
 如果你的组织未将密码哈希同步到 Azure AD DS，最佳做法是在 Azure AD 中创建一个仅限云的用户。 然后，在创建群集时将其分配为群集管理员，并将其用于管理目的。 可以使用它通过 SSH 获取对 Vm 的根访问权限。
 
-若要解决身份验证问题，请参阅 [此指南](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues)。
+若要解决身份验证问题，请参阅 [此指南](./domain-joined-authentication-issues.md)。
 
 ## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>使用 OAuth 连接到使用 HDInsight ID 代理的 HDInsight 网关的客户端
 
-在 HDInsight ID 代理安装中，可以更新连接到网关的自定义应用和客户端，以便首先获取所需的 OAuth 令牌。 按照 [本文档](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) 中的步骤获取令牌，其中包含以下信息：
+在 HDInsight ID 代理安装中，可以更新连接到网关的自定义应用和客户端，以便首先获取所需的 OAuth 令牌。 按照 [本文档](../../storage/common/storage-auth-aad-app.md) 中的步骤获取令牌，其中包含以下信息：
 
 *   OAuth 资源 URI：`https://hib.azurehdinsight.net` 
 *   AppId：7865c1d2-f040-46cc-875f-831a1ef6a28a

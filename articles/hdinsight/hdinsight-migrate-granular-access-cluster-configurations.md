@@ -7,28 +7,28 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 8ae16e6799d1253b8b070d59414beaee3c7ff332
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d2e9c1fe89866511f8eae0b900563471cd6e52e9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479776"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533302"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>迁移到群集配置的基于角色的细化访问权限
 
-我们正在引入一些重要更改，以支持使用更细化的基于角色的访问来获取敏感信息。 在实施这些更改的过程中，如果你使用的是某个[受影响的实体/方案](#am-i-affected-by-these-changes)，则可能需要**在 2019 年 9 月 3 日之前**采取某种措施。
+我们正在引入一些重要更改，以支持使用更细化的基于角色的访问来获取敏感信息。 在实施这些更改的过程中，如果你使用的是某个 [受影响的实体/方案](#am-i-affected-by-these-changes)，则可能需要 **在 2019 年 9 月 3 日之前** 采取某种措施。
 
 ## <a name="what-is-changing"></a>有什么变化？
 
-以前，可以通过 HDInsight API 获得机密，这些用户拥有所有者、参与者或读取者 [Azure 角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)，因为有 `*/read` 权访问权限。 机密定义为值，可用于获取比用户角色允许的访问权限更高的权限。 这些值包括群集网关 HTTP 凭据、存储帐户密钥和数据库凭据等值。
+以前，可以通过 HDInsight API 获得机密，这些用户拥有所有者、参与者或读取者 [Azure 角色](../role-based-access-control/rbac-and-directory-admin-roles.md)，因为有 `*/read` 权访问权限。 机密定义为值，可用于获取比用户角色允许的访问权限更高的权限。 这些值包括群集网关 HTTP 凭据、存储帐户密钥和数据库凭据等值。
 
 从 2019 年 9 月 3 日开始，访问这些机密需要 `Microsoft.HDInsight/clusters/configurations/action` 权限，这意味着这些机密不再可供具有“读取者”角色的用户访问。 拥有此权限的角色为“参与者”、“所有者”和新的“HDInsight 群集操作员”角色（下面将详细说明）。
 
-另外，我们正在引入新的 [HDInisght 群集操作员](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色，无需向此角色授予“参与者”或“所有者”的管理权限，即可让他们检索机密。 总结：
+另外，我们正在引入新的 [HDInisght 群集操作员](../role-based-access-control/built-in-roles.md#hdinsight-cluster-operator)角色，无需向此角色授予“参与者”或“所有者”的管理权限，即可让他们检索机密。 总结：
 
 | 角色                                  | 以前                                                                                       | 今后       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 读取器                                | - 读取访问权限，包括机密。                                                                   | - 读取访问权限，**不**包括机密 |           |   |   |
+| 读取器                                | - 读取访问权限，包括机密。                                                                   | - 读取访问权限， **不** 包括机密 |           |   |   |
 | HDInsight 群集操作员<br>（新角色） | 空值                                                                                              | - 读/写访问权限，包括机密         |   |   |
 | 参与者                           | - 读/写访问权限，包括机密。<br>- 创建和管理所有类型的 Azure 资源。<br>- 执行脚本操作。     | 没有变化 |
 | 所有者                                 | - 读/写访问权限，包括机密。<br>- 对所有资源的完全访问权限<br>- 将访问权限委托给其他人。<br>- 执行脚本操作。 | 没有变化 |
@@ -57,23 +57,23 @@ ms.locfileid: "92479776"
 
 以下 API 将会更改或弃用：
 
-- [**GET /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration)（已删除敏感信息）
+- [**GET /configurations/{configurationName}**](/rest/api/hdinsight/hdinsight-cluster#get-configuration)（已删除敏感信息）
     - 以前用于获取单个配置类型（包括机密）。
     - 从 2019 年 9 月 3 日开始，此 API 调用现在会返回省略机密的单个配置类型。 若要获取所有配置（包括机密），请使用新的 POST /configurations 调用。 如果只要获取网关设置，请使用新的 POST /getGatewaySettings 调用。
-- [**GET /configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration)（已弃用）
+- [**GET /configurations**](/rest/api/hdinsight/hdinsight-cluster#get-configuration)（已弃用）
     - 以前用于获取所有配置（包括机密）
     - 从 2019 年 9 月 3 日开始，此 API 调用将弃用且不再受支持。 今后若要获取所有配置，请使用新的 POST /configurations 调用。 若要获取省略敏感参数的配置，请使用 GET /configurations/{configurationName} 调用。
-- [**POST /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)（已弃用）
+- [**POST /configurations/{configurationName}**](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)（已弃用）
     - 以前用于更新网关凭据。
     - 从 2019 年 9 月 3 日开始，此 API 调用将弃用且不再受支持。 请改用新的 POST /updateGatewaySettings。
 
 已添加以下替换用的 API：</span>
 
-- [**POST /configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#list-configurations)
+- [**POST /configurations**](/rest/api/hdinsight/hdinsight-cluster#list-configurations)
     - 使用此 API 可以获取所有配置（包括机密）。
-- [**POST /getGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
+- [**POST /getGatewaySettings**](/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
     - 使用此 API 可以获取网关设置。
-- [**POST /updateGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)
+- [**POST /updateGatewaySettings**](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)
     - 使用此 API 可以更新网关设置（用户名和/或密码）。
 
 ### <a name="azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code
@@ -86,7 +86,7 @@ ms.locfileid: "92479776"
 
 ### <a name="azure-data-lake-and-stream-analytics-tools-for-visual-studio"></a>用于 Visual Studio 的 Azure Data Lake 和流分析工具
 
-更新到 2.3.9000.1 或更高版本的[用于 Visual Studio 的 Azure Data Lake 和流分析工具](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview)可以避免中断。  如需更新方面的帮助，请参阅文档：[更新用于 Visual Studio 的 Data Lake 工具](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio)。
+更新到 2.3.9000.1 或更高版本的[用于 Visual Studio 的 Azure Data Lake 和流分析工具](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview)可以避免中断。  如需更新方面的帮助，请参阅文档：[更新用于 Visual Studio 的 Data Lake 工具](./hadoop/apache-hadoop-visual-studio-tools-get-started.md#update-data-lake-tools-for-visual-studio)。
 
 ### <a name="azure-toolkit-for-eclipse"></a>用于 Eclipse 的 Azure 工具包
 
@@ -98,7 +98,7 @@ ms.locfileid: "92479776"
 
 请更新到 HDInsight SDK for .NET [版本 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/2.1.0)。 如果使用受这些更改影响的方法，则可能需要对代码进行少量的修改：
 
-- `ClusterOperationsExtensions.GetClusterConfigurations` 将**不再返回敏感参数**，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
+- `ClusterOperationsExtensions.GetClusterConfigurations` 将 **不再返回敏感参数** ，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
     - 今后若要检索所有配置（包括敏感参数），请使用 `ClusterOperationsExtensions.ListConfigurations`。  请注意，具有“读取者”角色的用户将无法使用此方法。 这样便可以精细控制哪些用户可以访问群集的敏感信息。
     - 如果只要检索 HTTP 网关凭据，请使用 `ClusterOperationsExtensions.GetGatewaySettings`。
 
@@ -112,7 +112,7 @@ ms.locfileid: "92479776"
 
 请更新到 HDInsight SDK for .NET [版本 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) 或更高版本。 如果使用受这些更改影响的方法，则可能需要对代码进行少量的修改：
 
-- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true) 将**不再返回敏感参数**，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
+- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true) 将 **不再返回敏感参数** ，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
     - 今后若要检索所有配置（包括敏感参数），请使用 [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet&preserve-view=true)。  请注意，具有“读取者”角色的用户将无法使用此方法。 这样便可以精细控制哪些用户可以访问群集的敏感信息。 
     - 如果只要检索 HTTP 网关凭据，请使用 [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet&preserve-view=true)。 
 - [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet&preserve-view=true) 现已弃用，已由 [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet&preserve-view=true) 取代。 
@@ -122,23 +122,23 @@ ms.locfileid: "92479776"
 
 请更新到 HDInsight SDK for Python [版本 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) 或更高版本。 如果使用受这些更改影响的方法，则可能需要对代码进行少量的修改：
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 将**不再返回敏感参数**，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
-    - 今后若要检索所有配置（包括敏感参数），请使用 [`ConfigurationsOperations.list`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)。  请注意，具有“读取者”角色的用户将无法使用此方法。 这样便可以精细控制哪些用户可以访问群集的敏感信息。 
-    - 如果只要检索 HTTP 网关凭据，请使用 [`ClusterOperations.get_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)。
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 现已弃用，已由 [`ClusterOperations.update_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 取代。
+- [`ConfigurationsOperations.get`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 将 **不再返回敏感参数** ，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
+    - 今后若要检索所有配置（包括敏感参数），请使用 [`ConfigurationsOperations.list`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)。  请注意，具有“读取者”角色的用户将无法使用此方法。 这样便可以精细控制哪些用户可以访问群集的敏感信息。 
+    - 如果只要检索 HTTP 网关凭据，请使用 [`ClusterOperations.get_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)。
+- [`ConfigurationsOperations.update`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 现已弃用，已由 [`ClusterOperations.update_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 取代。
 
 ### <a name="sdk-for-java"></a>SDK For Java
 
 请更新到 HDInsight SDK for Java [版本 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) 或更高版本。 如果使用受这些更改影响的方法，则可能需要对代码进行少量的修改：
 
-- `ConfigurationsInner.get` 将**不再返回敏感参数**，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
+- `ConfigurationsInner.get` 将 **不再返回敏感参数** ，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
 - `ConfigurationsInner.update` 现已弃用。
 
 ### <a name="sdk-for-go"></a>SDK For Go
 
 请更新到 HDInsight SDK for Go [版本 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight) 或更高版本。 如果使用受这些更改影响的方法，则可能需要对代码进行少量的修改：
 
-- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Get) 将**不再返回敏感参数**，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
+- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Get) 将 **不再返回敏感参数** ，例如存储密钥（核心站点）或 HTTP 凭据（网关）。
     - 今后若要检索所有配置（包括敏感参数），请使用 [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.List)。  请注意，具有“读取者”角色的用户将无法使用此方法。 这样便可以精细控制哪些用户可以访问群集的敏感信息。 
     - 如果只要检索 HTTP 网关凭据，请使用 [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.GetGatewaySettings)。
 - [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Update) 现已弃用，已由 [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) 取代。
@@ -154,7 +154,7 @@ ms.locfileid: "92479776"
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>将 HDInsight 群集操作员角色分配添加到用户
 
-具有[所有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)角色的用户可以将 [HDInsight 群集操作员](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色分配给你希望对敏感 HDInsight 群集配置值（如群集网关凭据和存储帐户密钥）具有读/写访问权限的用户。
+具有[所有者](../role-based-access-control/built-in-roles.md#owner)角色的用户可以将 [HDInsight 群集操作员](../role-based-access-control/built-in-roles.md#hdinsight-cluster-operator)角色分配给你希望对敏感 HDInsight 群集配置值（如群集网关凭据和存储帐户密钥）具有读/写访问权限的用户。
 
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
@@ -183,7 +183,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 门户
 
-或者，可以使用 Azure 门户将 HDInsight 群集操作员角色分配添加到用户。 请参阅文档， [添加或删除使用 Azure 门户-添加角色分配的 Azure 角色分配](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)。
+或者，可以使用 Azure 门户将 HDInsight 群集操作员角色分配添加到用户。 请参阅文档， [添加或删除使用 Azure 门户-添加角色分配的 Azure 角色分配](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)。
 
 ## <a name="faq"></a>常见问题
 

@@ -77,7 +77,7 @@ ms.locfileid: "92519548"
 * **凭据**
     * 使用托管标识进行身份验证时，凭据格式与不使用托管标识时不同。 此时，需要提供没有帐户密钥或密码的 ResourceId。 ResourceId 必须包含存储帐户的订阅 ID、存储帐户的资源组和存储帐户名称。
     * 托管标识格式： 
-        * ResourceId=/subscriptions/你的订阅 ID/resourceGroups/你的资源组名称/providers/Microsoft.Storage/storageAccounts/你的存储帐户名称/;*  *
+        * ResourceId=/subscriptions/你的订阅 ID/resourceGroups/你的资源组名称/providers/Microsoft.Storage/storageAccounts/你的存储帐户名称/; 
 * container 指定存储帐户中的容器或表名称。 默认情况下，容器中的所有 Blob 都可检索。 如果只想为特定虚拟目录中的 Blob 编制索引，可以使用可选的 **query** 参数指定该目录。
 
 如何使用 [REST API](/rest/api/searchservice/create-data-source) 创建 Blob 数据源对象的示例：

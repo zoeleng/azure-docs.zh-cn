@@ -90,6 +90,8 @@
       href: samples/calling-hero-sample.md
     - name: 分组聊天英雄示例
       href: samples/chat-hero-sample.md
+    - name: Web 调用示例
+      href: samples/web-calling-sample.md
 - name: 参考
   items:
     - name: REST API 文档
