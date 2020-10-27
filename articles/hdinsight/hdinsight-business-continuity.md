@@ -8,12 +8,12 @@ keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893639"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546936"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Azure HDInsight 业务连续性
 
@@ -39,7 +39,7 @@ Azure HDInsight 群集依赖于许多 Azure 服务，例如存储、数据库、
 
 * 使用 HDInsight 上的 Azure 监视工具检测群集中的异常行为并设置相应的警报通知。 你可以部署预配置的、特定于 HDInsight 群集的管理解决方案，这些解决方案收集特定群集类型的重要性能指标。 有关详细信息，请参阅 [适用于 HDInsight 的 Azure 监视](./hdinsight-hadoop-oms-log-analytics-tutorial.md)。  
 
-* 订阅 Azure 运行状况警报，以获得有关订阅、服务或区域的服务问题、计划内维护、运行状况和安全建议的通知。 包含问题原因和 resolute ETA 的运行状况通知可帮助你更好地执行故障转移和故障回复。 有关详细信息，请参阅 [Azure 服务运行状况文档](/azure/service-health/)。
+* 订阅 Azure 运行状况警报，以获得有关订阅、服务或区域的服务问题、计划内维护、运行状况和安全建议的通知。 包含问题原因和 resolute ETA 的运行状况通知可帮助你更好地执行故障转移和故障回复。 有关详细信息，请参阅 [Azure 服务运行状况文档](../service-health/index.yml)。
 
 ## <a name="single-region-availability"></a>单区域可用性
 
@@ -108,7 +108,7 @@ HDInsight 建议 Azure Data Lake Storage Gen2 作为基础存储层。 [Azure �
 
 ### <a name="cost-optimizations"></a>成本优化
 
-|领域|成本升级的原因|优化策略|
+|区域|成本升级的原因|优化策略|
 |----|------------------------|-----------------------|
 |数据存储|复制次要区域中的主数据/表|仅复制特选的数据|
 |数据出口|出站跨区域数据传输以价格提供。 查看带宽定价指导原则|仅复制特选数据以减少区域出口量|
@@ -117,12 +117,12 @@ HDInsight 建议 Azure Data Lake Storage Gen2 作为基础存储层。 [Azure �
 
 ### <a name="complexity-optimizations"></a>复杂性优化
 
-|领域|复杂性升级的原因|优化策略|
+|区域|复杂性升级的原因|优化策略|
 |----|------------------------|-----------------------|
 |读取写入模式 |需要对主数据库和辅助副本启用读取和写入 |将辅助副本设计为只读|
 |0 RPO & RTO |不需要零数据丢失 (RPO = 0) ，而不能停机 (RTO = 0)  |设计 RPO 和 RTO 以减少需要故障转移的组件数量。|
 |业务功能 |需要辅助数据库中主要的业务功能 |评估是否可以在辅助数据库中以业务功能的最低关键部分运行。|
-|连接性 |需要从主系统中的所有上游和下游系统也连接到辅助系统|将辅助连接限制为最低关键的关键部分。|
+|连接 |需要从主系统中的所有上游和下游系统也连接到辅助系统|将辅助连接限制为最低关键的关键部分。|
 
 ## <a name="next-steps"></a>后续步骤
 

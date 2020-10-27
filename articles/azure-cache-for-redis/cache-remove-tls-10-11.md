@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496048"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545304"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>删除与 Azure Cache for Redis 配合使用的 TLS 1.0 和 1.1
 
@@ -48,7 +48,7 @@ ms.locfileid: "92496048"
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>检查应用程序是否已合规
 
-确定应用程序是否能够使用 TLS 1.2 的最简单方法是，在测试或过渡缓存中将“最低 TLS 版本”值设置为 TLS 1.2，然后运行测试****。 “最低 TLS 版本”设置位于Azure 门户的缓存实例的[高级设置](cache-configure.md#advanced-settings)中。****  如果做出此项更改后，应用程序可继续按预期方式运行，则应用程序可能是合规的。 可能需要将应用程序使用的 Redis 客户端库配置为启用 TLS 1.2，以便连接到 Azure Cache for Redis。
+确定应用程序是否能够使用 TLS 1.2 的最简单方法是，在测试或过渡缓存中将“最低 TLS 版本”值设置为 TLS 1.2，然后运行测试  。 “最低 TLS 版本”设置位于Azure 门户的缓存实例的   如果做出此项更改后，应用程序可继续按预期方式运行，则应用程序可能是合规的。 可能需要将应用程序使用的 Redis 客户端库配置为启用 TLS 1.2，以便连接到 Azure Cache for Redis。
 
 ## <a name="configure-your-application-to-use-tls-12"></a>将应用程序配置为使用 TLS 1.2
 
@@ -65,7 +65,7 @@ ms.locfileid: "92496048"
 
 Redis .NET Core 客户端默认为操作系统默认 TLS 版本，此版本明显取决于操作系统本身。 
 
-根据操作系统版本和已应用的任何修补程序，有效的默认 TLS 版本可能会有所不同。 有一个关于此内容的信息源，也可以访问[此处](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)，阅读适用于 Windows 的相应文章。 
+根据操作系统版本和已应用的任何修补程序，有效的默认 TLS 版本可能会有所不同。 有一个关于此内容的信息源，也可以访问[此处](/dotnet/framework/network-programming/tls#support-for-tls-12)，阅读适用于 Windows 的相应文章。 
 
 但是，如果你使用的是旧操作系统，或者只是想要确保我们建议通过客户端手动配置首选 TLS 版本。
 

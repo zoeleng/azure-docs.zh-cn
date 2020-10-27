@@ -6,20 +6,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
-ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654108"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536787"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>适用于 Redis 的 Azure 缓存的高可用性
 
 适用于 Redis 的 Azure 缓存提供内置的高可用性。 其高可用性体系结构的目标是确保托管的 Redis 实例正常运行，即使在计划内或计划外中断时， (Vm) 的基础虚拟机也会受到影响。 它比在单个 VM 上托管 Redis，提供的速率要大得多。
 
-适用于 Redis 的 Azure Cache 通过使用多个虚拟机（称为 *节点*）来实现高可用性。 它会配置这些节点，以便在协调礼节中进行数据复制和故障转移。 它还会协调维护操作，例如 Redis software 修补。 "标准" 和 "高级" 级别提供各种高可用性选项：
+适用于 Redis 的 Azure Cache 通过使用多个虚拟机（称为 *节点* ）来实现高可用性。 它会配置这些节点，以便在协调礼节中进行数据复制和故障转移。 它还会协调维护操作，例如 Redis software 修补。 "标准" 和 "高级" 级别提供各种高可用性选项：
 
-| 选项 | 说明 | 可用性 | Standard | 高级 |
+| 选项 | 说明 | 可用性 | 标准 | 高级 |
 | ------------------- | ------- | ------- | :------: | :---: |
 | [标准复制](#standard-replication)| 单个数据中心或可用性区域中双节点复制的配置 (AZ) ，具有自动故障转移 | 99.9% |✔|✔|
 | [多个副本](#multiple-replicas) | 具有自动故障转移功能的一个或多个 AZs 中的多节点复制配置 | 99.95% (的区域冗余)  |-|✔|
@@ -28,7 +28,7 @@ ms.locfileid: "91654108"
 
 ## <a name="standard-replication"></a>标准复制
 
-默认情况下，在 "标准" 或 "高级" 层中，用于 Redis 的 Azure 缓存在一对 Redis 服务器上运行。 这两个服务器托管在专用 Vm 上。 开源 Redis 只允许一个服务器处理数据写入请求。 此服务器是 *主* 节点，而另一个 *副本*。 预配服务器节点后，适用于 Redis 的 Azure 缓存可向其分配主角色和副本角色。 主节点通常负责维护写入以及从 Redis 客户端读取请求。 在写入操作时，它会向其内部内存提交新密钥和密钥更新，并立即回复客户端。 它以异步方式将操作转发给副本。
+默认情况下，在 "标准" 或 "高级" 层中，用于 Redis 的 Azure 缓存在一对 Redis 服务器上运行。 这两个服务器托管在专用 Vm 上。 开源 Redis 只允许一个服务器处理数据写入请求。 此服务器是 *主* 节点，而另一个 *副本* 。 预配服务器节点后，适用于 Redis 的 Azure 缓存可向其分配主角色和副本角色。 主节点通常负责维护写入以及从 Redis 客户端读取请求。 在写入操作时，它会向其内部内存提交新密钥和密钥更新，并立即回复客户端。 它以异步方式将操作转发给副本。
 
 :::image type="content" source="media/cache-high-availability/replication.png" alt-text="数据复制设置":::
    
@@ -37,7 +37,7 @@ ms.locfileid: "91654108"
 >
 >
 
-如果 Redis 缓存中的主节点不可用，则副本将自动升级为新的主节点。 此过程称为 *故障转移*。 副本将等待足够长的时间，然后才会考虑主节点快速恢复的情况。 发生故障转移时，适用于 Redis 的 Azure Cache 预配新的 VM，并将其作为副本节点加入到缓存中。 副本执行与主副本的完整数据同步，以使其具有其他缓存数据副本。
+如果 Redis 缓存中的主节点不可用，则副本将自动升级为新的主节点。 此过程称为 *故障转移* 。 副本将等待足够长的时间，然后才会考虑主节点快速恢复的情况。 发生故障转移时，适用于 Redis 的 Azure Cache 预配新的 VM，并将其作为副本节点加入到缓存中。 副本执行与主副本的完整数据同步，以使其具有其他缓存数据副本。
 
 主节点可以作为计划内维护活动（如 Redis software 或操作系统更新）的一部分。 它还可以因为计划外的事件（如底层硬件、软件或网络故障）而停止工作。 [适用于 Redis 的 Azure 缓存的故障转移和修补](cache-failover.md) 提供有关 Redis 故障转移类型的详细说明。 用于 Redis 的 Azure 缓存将在其生存期内经历许多故障转移。 高可用性体系结构旨在使缓存中的这些更改在客户端上尽可能透明。
 
@@ -57,7 +57,7 @@ ms.locfileid: "91654108"
 >
 >
 
-适用于 Redis 的 Azure 缓存支持高级层中的区域冗余配置。 [区域冗余缓存](cache-how-to-zone-redundancy.md)可以将其节点置于同一区域中的不同[Azure 可用性区域](https://docs.microsoft.com/azure/availability-zones/az-overview)上。 它消除了数据中心或 AZ 停机作为单点故障，并提高了缓存的总体可用性。
+适用于 Redis 的 Azure 缓存支持高级层中的区域冗余配置。 [区域冗余缓存](cache-how-to-zone-redundancy.md)可以将其节点置于同一区域中的不同[Azure 可用性区域](../availability-zones/az-overview.md)上。 它消除了数据中心或 AZ 停机作为单点故障，并提高了缓存的总体可用性。
 
 下图说明了区域冗余配置：
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151179"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537960"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -71,7 +71,7 @@ ms.locfileid: "92151179"
 
 如果源服务器没有现有的副本服务器，则会先重新启动源服务器以准备进行复制。
 
-启动“创建副本”工作流时，将创建空白的 Azure Database for MySQL 服务器。 新服务器将用源服务器上的数据进行填充。 创建时间取决于源上的数据量以及自上次每周完整备份后的时间。 具体所需时间从几分钟到几小时不等。 副本服务器始终在与源服务器相同的资源组和订阅中创建。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription)。
+启动“创建副本”工作流时，将创建空白的 Azure Database for MySQL 服务器。 新服务器将用源服务器上的数据进行填充。 创建时间取决于源上的数据量以及自上次每周完整备份后的时间。 具体所需时间从几分钟到几小时不等。 副本服务器始终在与源服务器相同的资源组和订阅中创建。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](../azure-resource-manager/management/move-resource-group-and-subscription.md)。
 
 每个副本都启用了存储[自动增长](concepts-pricing-tiers.md#storage-auto-grow)。 自动增长功能允许副本与复制到它的数据保持同步，并防止由于存储空间不足错误而导致的复制中断。
 
@@ -83,7 +83,7 @@ ms.locfileid: "92151179"
 
 副本从源服务器继承管理员帐户。 源服务器上的所有用户帐户都将复制到读取副本。 您只能通过使用源服务器上提供的用户帐户连接到读取副本。
 
-可以使用主机名和有效的用户帐户连接到副本，就像在常规的 Azure Database for MySQL 服务器上连接一样。 对于名称为 **myreplica**、管理员用户名为 **myadmin** 的服务器，可以使用 mysql CLI 连接到副本：
+可以使用主机名和有效的用户帐户连接到副本，就像在常规的 Azure Database for MySQL 服务器上连接一样。 对于名称为 **myreplica** 、管理员用户名为 **myadmin** 的服务器，可以使用 mysql CLI 连接到副本：
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p

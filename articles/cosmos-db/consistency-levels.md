@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 0f69b30f477f99e2a4cae10edc7443b0630175c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487800"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547072"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 
@@ -49,16 +49,16 @@ Azure Cosmos DB 确保100% 的读取请求满足所选一致性级别的一致�
 
 下面描述了五个一致性级别的语义：
 
-- **非常一致性**：非常一致性提供可线性化保证。 可线性化是指并发处理请求。 保证读取操作返回项的最新提交版本。 客户端永远不会看到未提交或不完整的写入。 始终保证用户读取最新确认的写入。
+- **非常一致性** ：非常一致性提供可线性化保证。 可线性化是指并发处理请求。 保证读取操作返回项的最新提交版本。 客户端永远不会看到未提交或不完整的写入。 始终保证用户读取最新确认的写入。
 
   下图以乐谱形式演示了非常一致性。 将数据写入 "美国西部 2" 区域后，当您从其他区域读取数据时，您将获得最新的值：
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="范围形式的一致性":::
 
-- **受限停滞一致性**：保证读取操作遵循一致性前缀保证。  读取操作可以滞后于写入操作最多“K”个项版本（即“更新”）或“T”时间间隔，以先达到者为准。 换言之，如果选择有限过期，则可以通过两种方式配置“过期”：
+- **受限停滞一致性** ：保证读取操作遵循一致性前缀保证。  读取操作可以滞后于写入操作最多“K”个项版本（即“更新”）或“T”时间间隔，以先达到者为准。 换言之，如果选择有限过期，则可以通过两种方式配置“过期”：
 
-- 项的版本数 (*K*)
-- 时间间隔 (*T*) 读取可能会滞后写入
+- 项的版本数 ( *K* )
+- 时间间隔 ( *T* ) 读取可能会滞后写入
 
 对于单个区域帐户， *K* 和 *T* 的最小值为10个写入操作或5秒。 对于多区域帐户， *K* 和 *T* 的最小值为100000写入操作或300秒。
 
@@ -75,7 +75,7 @@ Azure Cosmos DB 确保100% 的读取请求满足所选一致性级别的一致�
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="范围形式的一致性":::
 
-- **会话一致性**：在单个客户端会话中，将保证读取操作遵循一致前缀、单调读取、单调写入、读取写入和读取后写入保证。 这采用单个“写入器”会话，或者多个写入器共享会话令牌。
+- **会话一致性** ：在单个客户端会话中，将保证读取操作遵循一致前缀、单调读取、单调写入、读取写入和读取后写入保证。 这采用单个“写入器”会话，或者多个写入器共享会话令牌。
 
 在会话外部执行写入的客户端将获得以下保证：
 
@@ -103,7 +103,7 @@ Azure Cosmos DB 确保100% 的读取请求满足所选一致性级别的一致�
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="范围形式的一致性":::
 
-- **最终一致性**：不保证读取的顺序。 如果缺少任何进一步的写入，则副本最终会收敛。  
+- **最终一致性** ：不保证读取的顺序。 如果缺少任何进一步的写入，则副本最终会收敛。  
 最终一致性是最弱的一致性形式，因为客户端可能会读取比之前读取的值还要旧的值。 最终一致性非常适合不需要任何顺序保证的应用程序。 示例包括推文、点赞或无回复评论的计数。 下图以乐谱形式演示了最终一致性。
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="范围形式的一致性":::
@@ -112,9 +112,9 @@ Azure Cosmos DB 确保100% 的读取请求满足所选一致性级别的一致�
 
 在实践中，你可能经常会获得更强的一致性保证。 读取操作的一致性保证对应于所请求的数据库状态的新旧程度和顺序。 读取一致性与写入/更新操作的排序和传播有关。  
 
-如果对数据库没有写入操作，则具有 **最终**、 **会话**或 **一致前缀** 一致性级别的读取操作可能会生成与具有强一致性级别的读取操作相同的结果。
+如果对数据库没有写入操作，则具有 **最终** 、 **会话** 或 **一致前缀** 一致性级别的读取操作可能会生成与具有强一致性级别的读取操作相同的结果。
 
-如果使用非常一致性以外的一致性级别配置了 Azure Cosmos 帐户，则可以通过查看概率有限过期 (PBS) 指标，找到客户端获得工作负荷的非常一致读取的概率。** 此指标在 Azure 门户中公开，若要了解详细信息，请参阅[监视概率有限过期性 (PBS) 指标](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)。
+如果使用非常一致性以外的一致性级别配置了 Azure Cosmos 帐户，则可以通过查看概率有限过期 (PBS) 指标，找到客户端获得工作负荷的非常一致读取的概率。  此指标在 Azure 门户中公开，若要了解详细信息，请参阅[监视概率有限过期性 (PBS) 指标](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)。
 
 概率有限过期表明了最终一致的最终程度。 通过此指标可深入了解在 Azure Cosmos 帐户中目前配置的一致性级别之间获得更非常一致性的频率。 换句话说，可看到获得写入和读取区域组合的非常一致读取的概率（以毫秒计量）。
 
@@ -152,7 +152,7 @@ Azure Cosmos DB 确保100% 的读取请求满足所选一致性级别的一致�
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>一致性级别和数据持续性
 
-在全球分布式数据库环境中，当发生区域范围的服务中断时，一致性级别与数据持续性之间存在直接关系。 制定业务连续性计划时，需了解应用程序在中断事件发生后完全恢复之前的最大可接受时间。 应用程序完全恢复所需的时间称为**恢复时间目标** (**RTO**)。 此外，还需要了解从中断事件恢复时，应用程序可忍受最近数据更新丢失的最长期限。 可以承受更新丢失的时限称为**恢复点目标** (**RPO**)。
+在全球分布式数据库环境中，当发生区域范围的服务中断时，一致性级别与数据持续性之间存在直接关系。 制定业务连续性计划时，需了解应用程序在中断事件发生后完全恢复之前的最大可接受时间。 应用程序完全恢复所需的时间称为 **恢复时间目标** ( **RTO** )。 此外，还需要了解从中断事件恢复时，应用程序可忍受最近数据更新丢失的最长期限。 可以承受更新丢失的时限称为 **恢复点目标** ( **RPO** )。
 
 下表定义了当发生区域范围的服务中断时，一致性模型与数据持续性之间的关系。 需要注意的是，在分布式系统中，即使具有强一致性，使用 RPO 和 RTO 为零的分布式数据库也不可能是由于 [CAP 定理](https://en.wikipedia.org/wiki/CAP_theorem)。
 
@@ -191,8 +191,6 @@ Azure Cosmos DB 确保100% 的读取请求满足所选一致性级别的一致�
 
 要详细了解 Azure Cosmos DB 中的一致性级别，请阅读以下文章：
 
-- [为你的应用程序选择适当的一致性级别]()
-- [跨 Azure Cosmos DB API 的一致性级别]()
 - [配置默认一致性级别](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [替代默认一致性级别](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

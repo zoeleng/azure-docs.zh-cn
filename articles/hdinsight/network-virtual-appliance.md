@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c0f5d8cdc7dda72f21fc1cf372e3796b26a3054a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127414"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545916"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>在 Azure HDInsight 中配置网络虚拟设备
 
 > [!Important]
-> 仅当你想要将网络虚拟设备配置为除[Azure Firewall](https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic)外 (NVA) 时，**才**需要以下信息。
+> 仅当你想要将网络虚拟设备配置为除 [Azure Firewall](./hdinsight-restrict-outbound-traffic.md)外 (NVA) 时， **才** 需要以下信息。
 
 Azure Firewall FQDN 标记自动配置为允许很多常见重要 Fqdn 的流量。 使用另一个网络虚拟设备将需要配置一些其他功能。 配置网络虚拟设备时请注意以下因素：
 
 * 可以使用服务终结点配置支持服务终结点的服务，这通常会出于成本或性能考虑因素而导致绕过 NVA。
-* 如果 "ResourceProviderConnection" 设置为 " *出站*"，则可以将专用终结点用于元存储的存储和 SQL server，而无需将其添加到 NVA。
+* 如果 "ResourceProviderConnection" 设置为 " *出站* "，则可以将专用终结点用于元存储的存储和 SQL server，而无需将其添加到 NVA。
 * IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）。
 * 可以在 NVA 设备中批准 FQDN HTTP/HTTPS 终结点。
 * 将创建的路由表分配到 HDInsight 子网。
@@ -41,7 +41,7 @@ Azure Firewall FQDN 标记自动配置为允许很多常见重要 Fqdn 的流量
 
 | **终结点** | **详细信息** |
 |---|---|
-| [此处](hdinsight-management-ip-addresses.md)发布的 IP | 这些 Ip 适用于 HDInsight 资源提供程序，应包含在 UDR 中以避免非对称路由。 仅当 ResourceProviderConnection 设置为 " *入站*" 时，才需要此规则。 如果 ResourceProviderConnection 设置为 " *出站* "，则 UDR 中不需要这些 ip。  |
+| [此处](hdinsight-management-ip-addresses.md)发布的 IP | 这些 Ip 适用于 HDInsight 资源提供程序，应包含在 UDR 中以避免非对称路由。 仅当 ResourceProviderConnection 设置为 " *入站* " 时，才需要此规则。 如果 ResourceProviderConnection 设置为 " *出站* "，则 UDR 中不需要这些 ip。  |
 | AAD-DS 专用 IP | 仅当 Vnet 不是对等互连时，才需要 ESP 群集。|
 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 98e062b159b2df639923cb3cd3aac286f6051016
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490894"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535087"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或作业失败问题
 
@@ -90,8 +90,8 @@ HDInsight 依赖于多个 Azure 服务。 它在 Azure HDInsight 中运行虚拟
 
 #### <a name="check-azure-service-usage-limits"></a>检查 Azure 服务使用限制
 
-在启动大型群集或同时启动多个群集时，如果超出 Azure 服务限制，则群集可能发生故障。 服务限制因 Azure 订阅而异。 有关详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)。
-可以使用[资源管理器提高核心配额请求](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)，向 Microsoft 请求增加可用 HDInsight 资源（例如 VM 核心和 VM 实例）的数量。
+在启动大型群集或同时启动多个群集时，如果超出 Azure 服务限制，则群集可能发生故障。 服务限制因 Azure 订阅而异。 有关详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-resource-manager/management/azure-subscription-service-limits.md)。
+可以使用[资源管理器提高核心配额请求](../azure-portal/supportability/resource-manager-core-quotas-request.md)，向 Microsoft 请求增加可用 HDInsight 资源（例如 VM 核心和 VM 实例）的数量。
 
 #### <a name="check-the-release-version"></a>检查发行版本
 
@@ -115,7 +115,7 @@ HDInsight 群集由虚拟机实例上运行的不同类型的节点组成。 可
 
 ### <a name="check-your-webhcat-service"></a>检查 WebHCat 服务
 
-Apache Hive、Apache Pig 或 Apache Sqoop 作业失败的常见场合之一是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)（或 *Templeton*）服务发生故障。 WebHCat 是 Hive、Pig、Scoop 和 MapReduce 等远程作业执行使用的 REST 接口。 WebHCat 将作业提交请求转换为 Apache Hadoop YARN 应用程序，并返回派生自 YARN 应用程序状态的状态。  以下部分介绍常见的 WebHCat HTTP 状态代码。
+Apache Hive、Apache Pig 或 Apache Sqoop 作业失败的常见场合之一是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)（或 *Templeton* ）服务发生故障。 WebHCat 是 Hive、Pig、Scoop 和 MapReduce 等远程作业执行使用的 REST 接口。 WebHCat 将作业提交请求转换为 Apache Hadoop YARN 应用程序，并返回派生自 YARN 应用程序状态的状态。  以下部分介绍常见的 WebHCat HTTP 状态代码。
 
 #### <a name="badgateway-502-status-code"></a>BadGateway（502 状态代码）
 
@@ -262,7 +262,7 @@ HDInsight 群集中预配置了相关服务（例如 Hadoop、Hive、HBase 等�
 ## <a name="next-steps"></a>后续步骤
 
 * [使用 Apache Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
-* [分析 HDInsight 日志](hdinsight-debug-jobs.md)
+* [分析 HDInsight 日志](./hdinsight-troubleshoot-guide.md)
 * [在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [在基于 Linux 的 HDInsight 上为 Apache Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight 上的 Apache Spark 群集的已知问题](hdinsight-apache-spark-known-issues.md)
+* [HDInsight 上的 Apache Spark 群集的已知问题](./spark/apache-spark-known-issues.md)

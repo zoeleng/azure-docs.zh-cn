@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d91161127b3fd3b63d7a5cc76df2fbeb33b62f34
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 97aa37d5bc99295de7b827467b8c6db551c34ef7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479827"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547531"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>使用浏览器、PowerShell 或 Azure CLI 删除 HDInsight 群集
 
-创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 计费每分钟按比例收费，因此，当不再使用群集时，应始终将其删除。 在本文档中，了解如何使用 [Azure 门户](https://portal.azure.com)、 [Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/)和 [Azure CLI](/cli/azure/)删除群集。
+创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 计费每分钟按比例收费，因此，当不再使用群集时，应始终将其删除。 在本文档中，了解如何使用 [Azure 门户](https://portal.azure.com)、 [Azure PowerShell Az 模块](/powershell/azure/)和 [Azure CLI](/cli/azure/)删除群集。
 
 > [!IMPORTANT]  
 > 删除 HDInsight 群集时不会删除与群集关联的 Azure 存储帐户或 Data Lake Storage。 可重新使用以后存储在这些服务中的数据。

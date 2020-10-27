@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 7d8d2c7d48dc0b77d3be0b9019d4bbf1da8a40c4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a99c6412650cac565414817c91752ae85b8ad37d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490265"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539592"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>使用 REST 代理与 Azure HDInsight 中的 Apache Kafka 群集交互
 
@@ -21,17 +21,17 @@ ms.locfileid: "92490265"
 
 ## <a name="rest-api-reference"></a>REST API 参考
 
-有关 Kafka REST API 支持的操作，请参阅 [HDInsight Kafka REST 代理 API 参考](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)。
+有关 Kafka REST API 支持的操作，请参阅 [HDInsight Kafka REST 代理 API 参考](/rest/api/hdinsight-kafka-rest-proxy)。
 
 ## <a name="background"></a>背景
 
 ![Kafka REST 代理设计](./media/rest-proxy/rest-proxy-architecture.png)
 
-有关 API 支持的操作的完整规范，请参阅 [Apache Kafka REST 代理 API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)。
+有关 API 支持的操作的完整规范，请参阅 [Apache Kafka REST 代理 API](/rest/api/hdinsight-kafka-rest-proxy)。
 
 ### <a name="rest-proxy-endpoint"></a>REST 代理端点
 
-使用 REST 代理创建 HDInsight Kafka 群集会为群集创建新的公共终结点，你可以在 Azure 门户的 HDInsight 群集“属性”中找到该终结点****。
+使用 REST 代理创建 HDInsight Kafka 群集会为群集创建新的公共终结点，你可以在 Azure 门户的 HDInsight 群集“属性”中找到该终结点  。
 
 ### <a name="security"></a>安全性
 
@@ -40,7 +40,7 @@ ms.locfileid: "92490265"
 对于 REST 代理终结点请求，客户端应用程序应获取 OAuth 令牌。 令牌用于验证安全组成员身份。 查找下面的[客户端应用程序示例](#client-application-sample)，其中演示了如何获取 OAuth 令牌。 客户端应用程序会在 HTTP 请求中将 OAuth 令牌传递给 REST 代理。
 
 > [!NOTE]
-> 请参阅[使用 Azure Active Directory 组管理应用和资源访问](../../active-directory/fundamentals/active-directory-manage-groups.md)来详细了解 AAD 安全组。 有关 OAuth 令牌工作原理的详细信息，请参阅[使用 OAuth 2.0 代码授权流来授权访问 Azure Active Directory Web 应用程序](../../active-directory/develop/v1-protocols-oauth-code.md)。
+> 请参阅[使用 Azure Active Directory 组管理应用和资源访问](../../active-directory/fundamentals/active-directory-manage-groups.md)来详细了解 AAD 安全组。 有关 OAuth 令牌工作原理的详细信息，请参阅[使用 OAuth 2.0 代码授权流来授权访问 Azure Active Directory Web 应用程序](../../active-directory/azuread-dev/v1-protocols-oauth-code.md)。
 
 ## <a name="kafka-rest-proxy-with-network-security-groups"></a>包含网络安全组的 Kafka REST 代理
 如果你引入自己的 VNet 并通过网络安全组控制网络流量，则除端口 443 外，还应允许端口 9400 上的入站流量。 这将确保 Kafka REST 代理服务器可以访问。
@@ -49,9 +49,9 @@ ms.locfileid: "92490265"
 
 1. 将一个应用程序注册到 Azure AD。 编写的用来与 Kafka REST 代理交互的客户端应用程序将使用此应用程序的 ID 和机密对 Azure 进行身份验证。
 
-1. 创建 Azure AD 安全组。 将已通过 Azure AD 注册的应用程序作为安全组的成员添加到该组中****。 此安全组将用于控制允许哪些应用程序与 REST 代理交互。 有关创建 Azure AD 组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
+1. 创建 Azure AD 安全组。 将已通过 Azure AD 注册的应用程序作为安全组的成员添加到该组中  。 此安全组将用于控制允许哪些应用程序与 REST 代理交互。 有关创建 Azure AD 组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-    验证该组的类型是否为“安全”****。
+    验证该组的类型是否为“安全”  。
     ![安全组](./media/rest-proxy/rest-proxy-group.png)
 
     验证该应用程序是否为该组的成员。
@@ -65,11 +65,11 @@ ms.locfileid: "92490265"
 
      ![屏幕截图显示 "创建 H D insights" 群集页，其中选择了 "安全 + 网络"。](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
-1. 单击“选择安全组”。**** 从安全组列表中，选择你要允许其访问 REST 代理的安全组。 可以使用搜索框查找适当的安全组。 单击底部的“选择”按钮****。
+1. 单击“选择安全组”。  从安全组列表中，选择你要允许其访问 REST 代理的安全组。 可以使用搜索框查找适当的安全组。 单击底部的“选择”按钮  。
 
      ![屏幕截图显示 "创建 H D 洞察力群集" 页，其中包含用于选择安全组的选项。](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
-1. 根据[使用 Azure 门户在 Azure HDInsight 中创建 Apache Kafka 群集](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)中所述，完成创建群集的剩余步骤。
+1. 根据[使用 Azure 门户在 Azure HDInsight 中创建 Apache Kafka 群集](./apache-kafka-get-started.md)中所述，完成创建群集的剩余步骤。
 
 1. 创建群集后，转到群集属性并记下 Kafka REST 代理 URL。
 
@@ -83,12 +83,12 @@ ms.locfileid: "92490265"
 1. 通过执行 `pip3 install msal` 安装所需的 Python 依赖项。
 1. 修改 **Configure these properties** 代码部分，并更新你的环境的以下属性：
 
-    |properties |说明 |
+    |属性 |说明 |
     |---|---|
     |租户 ID|订阅所在的 Azure 租户。|
     |客户端 ID|在安全组中注册的应用程序的 ID。|
     |客户端机密|在安全组中注册的应用程序的机密。|
-    |Kafkarest_endpoint|从群集概述的“属性”选项卡中获取此值，如[部署部分](#create-a-kafka-cluster-with-rest-proxy-enabled)所述****。 此属性应采用以下格式 – `https://<clustername>-kafkarest.azurehdinsight.net`|
+    |Kafkarest_endpoint|从群集概述的“属性”选项卡中获取此值，如  。 此属性应采用以下格式 – `https://<clustername>-kafkarest.azurehdinsight.net`|
 
 1. 在命令行中，通过执行 `sudo python3 <filename.py>` 来执行 Python 文件
 
@@ -261,7 +261,7 @@ while True:
         break
 ```
 
-下面是另外一个示例，说明如何使用 curl 命令从 Azure 获取用于 REST 代理的令牌。 请注意，我们需要在获取令牌时指定 `scope=https://hib.azurehdinsight.net/.default`****。
+下面是另外一个示例，说明如何使用 curl 命令从 Azure 获取用于 REST 代理的令牌。 请注意，我们需要在获取令牌时指定 `scope=https://hib.azurehdinsight.net/.default` 。
 
 ```cmd
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
@@ -269,4 +269,4 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Kafka REST 代理 API 参考文档](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)
+* [Kafka REST 代理 API 参考文档](/rest/api/hdinsight-kafka-rest-proxy/)
