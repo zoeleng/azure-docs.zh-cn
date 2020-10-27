@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076872"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545219"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 中将 Apache Sqoop 与 Hadoop 配合使用
 
@@ -105,7 +105,7 @@ HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
 
 HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定哪种方法最适合用户，并访问此链接进行演练。
 
-| **使用此方法** ，如果想要... | ... **交互式** shell | ...**批处理** | ...从此 **客户端操作系统** |
+| **使用此方法** ，如果想要... | ... **交互式** shell | ... **批处理** | ...从此 **客户端操作系统** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows（暂时） |
@@ -120,6 +120,6 @@ HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定�
 
 现在，你已了解了如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
-* [将 Apache Hive 和 HDInsight 配合使用](../hdinsight-use-hive.md)
+* [将 Apache Hive 和 HDInsight 配合使用](./hdinsight-use-hive.md)
 * [将数据上传到 HDInsight](../hdinsight-upload-data.md)：了解将数据上传到 HDInsight/Azure Blob 存储的其他方法。
 * [使用 Apache Sqoop 在 Apache Hadoop on HDInsight 与 SQL 数据库之间导入和导出数据](./apache-hadoop-use-sqoop-mac-linux.md)

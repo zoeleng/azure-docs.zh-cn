@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596501"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544029"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何配置 Azure Database for MySQL 的数据传入复制
 
@@ -51,9 +51,9 @@ ms.locfileid: "91596501"
 
 1. 请先查看[主服务器要求](concepts-data-in-replication.md#requirements)，然后再继续。 
 
-2. 请确保源服务器允许端口3306上的入站和出站流量，并且源服务器具有 **公共 IP 地址**、DNS 可公开访问，或者具有完全限定的域名 (FQDN) 。 
+2. 请确保源服务器允许端口3306上的入站和出站流量，并且源服务器具有 **公共 IP 地址** 、DNS 可公开访问，或者具有完全限定的域名 (FQDN) 。 
    
-   尝试从在其他计算机上托管的 MySQL 命令行或从 Azure 门户中提供的 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中进行连接，以测试与源服务器的连接。
+   尝试从在其他计算机上托管的 MySQL 命令行或从 Azure 门户中提供的 [Azure Cloud Shell](../cloud-shell/overview.md) 中进行连接，以测试与源服务器的连接。
 
    如果你的组织具有严格的安全策略，并且将不允许源服务器上的所有 IP 地址启用从 Azure 到源服务器的通信，则可以使用以下命令确定 MySQL 服务器的 IP 地址。
 
@@ -75,7 +75,7 @@ ms.locfileid: "91596501"
       ```bash
       ping <output of step 2b>
       ``` 
-      例如： 
+      例如： 。 
       ```bash      
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
@@ -189,7 +189,7 @@ ms.locfileid: "91596501"
 
 1. 设置源服务器
 
-   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](reference-data-in-stored-procedures.md)中找到所有过程。 这些存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。 
+   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](./reference-stored-procedures.md)中找到所有过程。 这些存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。 
 
    若要链接两个服务器并启动复制，请登录到 Azure DB for MySQL 服务中的目标副本服务器，并将外部实例设置为源服务器。 为此，可在 Azure DB for MySQL 服务器上使用 `mysql.az_replication_change_master` 存储过程。
 
@@ -286,4 +286,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- 详细了解 Azure Database for MySQL 的[向内复制数据](concepts-data-in-replication.md)。 
+- 详细了解 Azure Database for MySQL 的[向内复制数据](concepts-data-in-replication.md)。

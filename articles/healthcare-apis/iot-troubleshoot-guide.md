@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982993"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558510"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>适用于 FHIR 的 Azure IoT 连接器 (预览版) 故障排除指南
 
@@ -56,7 +56,7 @@ ms.locfileid: "90982993"
 
 ## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>适用于 FHIR 的 Azure IoT Connector 的错误消息和修补程序 (预览) 
 
-|Message|会|条件|Fix| 
+|消息|会|条件|Fix| 
 |-------|---------|---------|---|
 |映射名称无效，映射名称应为 device 或 FHIR。|API|提供的映射类型不是设备或 FHIR。|使用两种受支持的映射类型之一 (例如： Device 或 FHIR) 。|
 |验证失败。 缺少必需的信息或该信息无效。|API 和 Azure 门户|尝试保存的转换映射缺少所需的信息或元素。|添加缺少的转换映射信息或元素，然后尝试再次保存转换映射。|
@@ -104,7 +104,7 @@ ms.locfileid: "90982993"
 > [!NOTE]
 > 此过程也可用于复制和保存 **"配置 FHIR 映射"** JSON 的内容。
 
-3. 选择 **"配置设备映射"**。
+3. 选择 **"配置设备映射"** 。
 
     :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
@@ -122,7 +122,7 @@ ms.locfileid: "90982993"
 查看有关适用于 FHIR 的 Azure IoT 连接器的常见问题。
 
 >[!div class="nextstepaction"]
->[适用于 FHIR 常见问题的 Azure IoT 连接器](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[适用于 FHIR 常见问题的 Azure IoT 连接器](fhir-faq.md)
 
 *在 Azure 门户中，适用于 FHIR 的 Azure IoT 连接器称为 IoT Connector（预览版）。
 

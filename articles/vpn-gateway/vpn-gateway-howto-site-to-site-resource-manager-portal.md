@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 069add9a7e5dd6b19810b8b36a4fca49818bfb02
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b8c12048283cb8cc4220cb325762b272cde4a68f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479534"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541309"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
 
@@ -75,7 +75,7 @@ ms.locfileid: "92479534"
 * **虚拟网络：** VNet1
 * **网关子网地址范围：** 10.1.255.0/27
 * **公共 IP 地址：** 新建
-* **** 公共 IP 地址名称：VNet1GWpip
+*  公共 IP 地址名称：VNet1GWpip
 * **启用主动-主动模式：** Disabled
 * **配置 BGP：** Disabled
 
@@ -100,7 +100,7 @@ ms.locfileid: "92479534"
 通过站点到站点连接连接到本地网络需要 VPN 设备。 在此步骤中，请配置 VPN 设备。 配置 VPN 设备时，需要以下值：
 
 * 共享密钥。 此共享密钥就是在创建站点到站点 VPN 连接时指定的共享密钥。 在示例中，我们使用基本的共享密钥。 建议生成更复杂的可用密钥。
-* 虚拟网络网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要使用 Azure 门户查找 VPN 网关的公共 IP 地址，请导航到 " **虚拟网络网关**"，然后选择你的网关的名称。
+* 虚拟网络网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要使用 Azure 门户查找 VPN 网关的公共 IP 地址，请导航到 " **虚拟网络网关** "，然后选择你的网关的名称。
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
@@ -122,7 +122,7 @@ ms.locfileid: "92479534"
 
 ## <a name="how-to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>如何连接到虚拟机
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>如何重置 VPN 网关
 

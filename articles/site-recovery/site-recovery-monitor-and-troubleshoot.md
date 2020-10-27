@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68717347"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545797"
 ---
 # <a name="monitor-site-recovery"></a>监视 Site Recovery
 
@@ -36,7 +36,7 @@ ms.locfileid: "68717347"
 
 2. 在该仪表板中，向下钻取到不同的区域。 
 
-    ![Site Recovery 仪表板](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)。
+    ![屏幕截图，显示仪表板上可以向下钻取的区域。](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)。
 
 3. 在“复制的项”中，单击“全部查看”可查看保管库中的所有服务器。  
 4. 单击每个部分的状态详细信息，以便向下钻取。
@@ -153,13 +153,13 @@ ms.locfileid: "68717347"
 4. 单击“筛选器”可以根据复制运行状况或特定复制策略等特定参数来查看信息。 
 5. 右键单击某个计算机可以启动操作，例如，执行测试故障转移，或查看与它关联的特定错误详细信息。
 6. 单击某个计算机可以深入查看其更多详细信息。 详细信息包括：
-   - **复制信息**：计算机的当前状态和运行状况。
-   - **RPO**（恢复点目标）：虚拟机的当前 RPO，以及上次计算 RPO 的时间。
-   - **恢复点**：计算机的最新可用恢复点。
-   - **故障转移就绪性**：指示是否对该计算机运行了测试故障转移、计算机上运行的代理版本（适用于运行移动服务的计算机）和任何配置问题。
-   - **错误**：列出当前在计算机上观察到的复制错误症状，以及可能的原因/措施。
-   - **事件**：影响计算机的最近事件列表，按时间顺序列出。 错误详细信息显示当前可观测到的错误症状，而事件是影响了计算机的问题的历史记录。
-   - **基础结构视图**：显示将计算机复制到 Azure 时方案的基础结构状态。
+   - **复制信息** ：计算机的当前状态和运行状况。
+   - **RPO** （恢复点目标）：虚拟机的当前 RPO，以及上次计算 RPO 的时间。
+   - **恢复点** ：计算机的最新可用恢复点。
+   - **故障转移就绪性** ：指示是否对该计算机运行了测试故障转移、计算机上运行的代理版本（适用于运行移动服务的计算机）和任何配置问题。
+   - **错误** ：列出当前在计算机上观察到的复制错误症状，以及可能的原因/措施。
+   - **事件** ：影响计算机的最近事件列表，按时间顺序列出。 错误详细信息显示当前可观测到的错误症状，而事件是影响了计算机的问题的历史记录。
+   - **基础结构视图** ：显示将计算机复制到 Azure 时方案的基础结构状态。
 
      ![Azure Site Recovery 中复制的项详细信息/概述](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
@@ -173,9 +173,9 @@ ms.locfileid: "68717347"
 
 订阅方式如下：
 
-在保管库 > **监视** "部分中，单击" **Site Recovery 事件**"。
+在保管库 > **监视** "部分中，单击" **Site Recovery 事件** "。
 1. 单击“电子邮件通知”。
-1. 在“电子邮件通知”中，启用通知并指定收件人。**** 可向所有订阅管理员发送通知，并选择性地发送到特定的电子邮件地址。
+1. 在“电子邮件通知”中，启用通知并指定收件人。  可向所有订阅管理员发送通知，并选择性地发送到特定的电子邮件地址。
 
     ![电子邮件通知](./media/site-recovery-monitor-and-troubleshoot/email.png)
 

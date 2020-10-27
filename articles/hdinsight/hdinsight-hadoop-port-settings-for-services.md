@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3e2ca2eca0d258a14365edc97b98d0c827b0b6f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085270"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546052"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上的 Apache Hadoop 服务所使用的端口
 
@@ -158,7 +158,7 @@ HDInsight 群集中的所有节点都位于 Azure 虚拟网络中。 不能从 I
 | --- | --- | --- | --- | --- |
 | 代理 |辅助角色节点 |9092 |Kafka 线路协议 |用于客户端通信 |
 | &nbsp; |Zookeeper 节点 |2181 |&nbsp; |客户端用来连接 ZooKeeper 的端口 |
-| REST 代理 | Kafka 管理节点 |9400 |HTTPS |[Kafka REST 规范](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
+| REST 代理 | Kafka 管理节点 |9400 |HTTPS |[Kafka REST 规范](/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Spark 端口
 

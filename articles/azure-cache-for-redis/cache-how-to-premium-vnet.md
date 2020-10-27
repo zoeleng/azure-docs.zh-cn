@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 34e4781d1437b34607a6d9e4f99ec5bd2ef9b46d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: eb70e7cfec4e6f3e7e55fa74bbdd6cee43493576
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999985"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537875"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上具有灵活性。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -28,7 +28,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和�
 ## <a name="virtual-network-support"></a>虚拟网络支持
 在创建缓存期间，可在“新建 Azure Redis 缓存”  边栏选项卡中配置虚拟网络 (VNet) 支持。 
 
-1. 若要创建高级缓存，请登录到 [Azure 门户](https://portal.azure.com) ，然后选择 " **创建资源**"。 请注意，除了在 Azure 门户中创建缓存外，还可以使用资源管理器模板、PowerShell 或 Azure CLI 创建缓存。 有关创建 Azure Redis 缓存的详细信息，请参阅[创建缓存](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
+1. 若要创建高级缓存，请登录到 [Azure 门户](https://portal.azure.com) ，然后选择 " **创建资源** "。 请注意，除了在 Azure 门户中创建缓存外，还可以使用资源管理器模板、PowerShell 或 Azure CLI 创建缓存。 有关创建 Azure Redis 缓存的详细信息，请参阅[创建缓存](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="创建资源。":::
    
@@ -40,11 +40,11 @@ Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和�
 
 9. 或者，在“标记”选项卡中，如果希望对资源分类，请输入名称或值。 
 
-10. 选择“查看 + 创建”。 **** 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
+10. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
 
 11. 显示绿色的“已通过验证”消息后，选择“创建”。
 
-创建缓存需要花费片刻时间。 可在 Azure Cache for Redis 的“概述”页面上监视进度 ****  。 如果“状态”显示为“正在运行”，则表示该缓存可供使用。 ****   **** 创建缓存之后，可以在“资源菜单”  中单击“虚拟网络”  ，查看 VNet 的配置。
+创建缓存需要花费片刻时间。 可以在 Azure Cache for Redis 的“概述”页上监视进度。  如果“状态”显示为“正在运行”，则表示该缓存可供使用。  创建缓存之后，可以在“资源菜单”  中单击“虚拟网络”  ，查看 VNet 的配置。
 
 ![虚拟网络][redis-cache-vnet-info]
 
@@ -135,8 +135,8 @@ public static ConnectionMultiplexer Connection
 
 在虚拟网络中，可能一开始不符合 Azure Redis 缓存的网络连接要求。 在虚拟网络中使用时，Azure Redis 缓存需要以下所有项才能正常运行。
 
-* 与全球 Azure 存储终结点建立的出站网络连接。 这包括位于 Azure Redis 缓存实例区域的终结点，以及位于**其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域下解析： *table.core.windows.net*、 *blob.core.windows.net*、 *queue.core.windows.net*和 *file.core.windows.net*。 
-* 与 *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。 需要此连接才能支持 TLS/SSL 功能。
+* 与全球 Azure 存储终结点建立的出站网络连接。 这包括位于 Azure Redis 缓存实例区域的终结点，以及位于 **其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域下解析： *table.core.windows.net* 、 *blob.core.windows.net* 、 *queue.core.windows.net* 和 *file.core.windows.net* 。 
+* 与 *ocsp.msocsp.com* 、 *mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。 需要此连接才能支持 TLS/SSL 功能。
 * 虚拟网络的 DNS 设置必须能够解析前面几点所提到的所有终结点和域。 确保已针对虚拟网络配置并维护有效的 DNS 基础结构即可符合这些 DNS 要求。
 * 与以下 Azure 监视终结点（在下列 DNS 域下进行解析）的出站网络连接：shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
 
@@ -220,7 +220,7 @@ Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址�
 >UDR 中定义的路由 **必须** 足够明确，以便优先于 ExpressRoute 配置所播发的任何路由。 以下示例使用广泛 0.0.0.0/0 地址范围，因此使用更明确的地址范围，有可能意外地被路由播发重写。
 
 >[!WARNING]  
->**从公共对等路径到专用对等路径未正确交叉播发路由**的 ExpressRoute 配置不支持 Azure Redis 缓存。 已配置公共对等互连的 ExpressRoute 配置会收到来自 Microsoft 的大量 Microsoft Azure IP 地址范围的路由播发。 如果这些地址范围在专用对等路径上未正确交叉播发，则结果是来自 Azure Redis 缓存实例子网的所有出站网络数据包都不会正确地使用强制隧道发送到客户的本地网络基础结构。 此网络流会破坏 Azure Redis 缓存。 此问题的解决方法是停止从公共对等路径到专用对等路径的交叉播发路由。
+>**从公共对等路径到专用对等路径未正确交叉播发路由** 的 ExpressRoute 配置不支持 Azure Redis 缓存。 已配置公共对等互连的 ExpressRoute 配置会收到来自 Microsoft 的大量 Microsoft Azure IP 地址范围的路由播发。 如果这些地址范围在专用对等路径上未正确交叉播发，则结果是来自 Azure Redis 缓存实例子网的所有出站网络数据包都不会正确地使用强制隧道发送到客户的本地网络基础结构。 此网络流会破坏 Azure Redis 缓存。 此问题的解决方法是停止从公共对等路径到专用对等路径的交叉播发路由。
 
 
 有关用户定义路由的背景信息，请参阅此[概述](../virtual-network/virtual-networks-udr-overview.md)。

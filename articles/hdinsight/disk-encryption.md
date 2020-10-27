@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487307"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548024"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight 静态数据双重加密
 
@@ -23,7 +23,7 @@ ms.locfileid: "92487307"
 
 ## <a name="introduction"></a>简介
 
-在 Azure 中有三个主要的托管磁盘角色：数据磁盘、OS 磁盘和临时磁盘。 有关不同类型的托管磁盘的详细信息，请参阅 [Azure 托管磁盘简介](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)。 
+在 Azure 中有三个主要的托管磁盘角色：数据磁盘、OS 磁盘和临时磁盘。 有关不同类型的托管磁盘的详细信息，请参阅 [Azure 托管磁盘简介](../virtual-machines/managed-disks-overview.md)。 
 
 HDInsight 支持两个不同层中多种类型的加密：
 
@@ -35,8 +35,8 @@ HDInsight 支持两个不同层中多种类型的加密：
 
 |群集类型 |OS 磁盘（托管磁盘） |数据磁盘（托管磁盘） |临时数据磁盘（本地 SSD） |
 |---|---|---|---|
-|Kafka、有加速写入的 HBase|Layer1：默认为 [SSE 加密](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Layer1：默认为 [SSE 加密](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)，Layer2：使用 CMK 的可选静态加密|Layer1：使用 PMK 的可选主机加密，Layer2：使用 CMK 的可选静态加密|
-|所有其他群集（Spark、Interactive、Hadoop、无加速写入的 HBase）|Layer1：默认为 [SSE 加密](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|空值|Layer1：使用 PMK 的可选主机加密，Layer2：使用 CMK 的可选静态加密|
+|Kafka、有加速写入的 HBase|Layer1：默认为 [SSE 加密](../virtual-machines/managed-disks-overview.md#encryption)|Layer1：默认为 [SSE 加密](../virtual-machines/managed-disks-overview.md#encryption)，Layer2：使用 CMK 的可选静态加密|Layer1：使用 PMK 的可选主机加密，Layer2：使用 CMK 的可选静态加密|
+|所有其他群集（Spark、Interactive、Hadoop、无加速写入的 HBase）|Layer1：默认为 [SSE 加密](../virtual-machines/managed-disks-overview.md#encryption)|空值|Layer1：使用 PMK 的可选主机加密，Layer2：使用 CMK 的可选静态加密|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>使用客户管理的密钥进行静态加密
 
@@ -73,38 +73,38 @@ HDInsight 支持两个不同层中多种类型的加密：
 
 创建密钥保管库。 有关具体步骤，请参阅[创建 Azure Key Vault](../key-vault/secrets/quick-create-portal.md)。
 
-HDInsight 仅支持 Azure Key Vault。 如果拥有自己的密钥保管库，则可以将密钥导入 Azure Key Vault。 请记住，密钥保管库必须启用“软删除”****。 有关导入现有密钥的详细信息，请访问[关于密钥、机密和证书](../key-vault/about-keys-secrets-and-certificates.md)。
+HDInsight 仅支持 Azure Key Vault。 如果拥有自己的密钥保管库，则可以将密钥导入 Azure Key Vault。 请记住，密钥保管库必须启用“软删除”  。 有关导入现有密钥的详细信息，请访问[关于密钥、机密和证书](../key-vault/general/about-keys-secrets-certificates.md)。
 
 ### <a name="create-key"></a>创建密钥
 
-1. 在新密钥保管库中，导航到“设置” > “密钥” > “生成/导入”。**** **** ****
+1. 在新密钥保管库中，导航到“设置” > “密钥” > “生成/导入”。   
 
     ![在 Azure Key Vault 中生成新密钥](./media/disk-encryption/create-new-key.png "在 Azure Key Vault 中生成新密钥")
 
-1. 提供名称，然后选择“创建”。**** 保留默认**密钥类型** **RSA**。
+1. 提供名称，然后选择“创建”。  保留默认 **密钥类型** **RSA** 。
 
     ![生成密钥名称](./media/disk-encryption/create-key.png "生成密钥名称")
 
-1. 返回到“密钥”**** 页时，选择创建的密钥。
+1. 返回到“密钥”  页时，选择创建的密钥。
 
     ![Key Vault 密钥列表](./media/disk-encryption/key-vault-key-list.png)
 
-1. 选择要打开“密钥版本”**** 页的版本。 使用自己的密钥加密 HDInsight 群集时，需要提供密钥 URI。 复制“密钥标识符”**** 并将其保存在某处，直到你准备好创建群集。
+1. 选择要打开“密钥版本”  页的版本。 使用自己的密钥加密 HDInsight 群集时，需要提供密钥 URI。 复制“密钥标识符”  并将其保存在某处，直到你准备好创建群集。
 
     ![获取密钥标识符](./media/disk-encryption/get-key-identifier.png)
 
 ### <a name="create-access-policy"></a>创建访问策略
 
-1. 在新密钥保管库中，导航到“设置” > “访问策略” > “+ 添加访问策略”。**** **** ****
+1. 在新密钥保管库中，导航到“设置” > “访问策略” > “+ 添加访问策略”。   
 
     ![创建新的 Azure Key Vault 访问策略](./media/disk-encryption/key-vault-access-policy.png)
 
-1. 在“添加访问策略”页中提供以下信息：****
+1. 在“添加访问策略”页中提供以下信息： 
 
     |属性 |说明|
     |---|---|
-    |密钥权限|选择****“获取”****、“解包密钥”**** 和“包装密钥”。|
-    |机密权限|选择“获取”、“设置”和“删除”。**** **** ****|
+    |密钥权限|选择  “获取”  、“解包密钥”  和“包装密钥”。|
+    |机密权限|选择“获取”、“设置”和“删除”。   |
     |选择主体|选择前面创建的用户分配的托管标识。|
 
     ![为 Azure Key Vault 访问策略设置“选择主体”](./media/disk-encryption/azure-portal-add-access-policy.png)
@@ -121,7 +121,7 @@ HDInsight 仅支持 Azure Key Vault。 如果拥有自己的密钥保管库，�
 
 #### <a name="using-the-azure-portal"></a>使用 Azure 门户
 
-在群集创建期间，提供完整的“密钥标识符”****，包括密钥版本。 例如，`https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`。 还需要将托管标识分配给集群并提供密钥 URI。
+在群集创建期间，提供完整的“密钥标识符”  ，包括密钥版本。 例如，`https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`。 还需要将托管标识分配给集群并提供密钥 URI。
 
 ![创建新群集](./media/disk-encryption/create-cluster-portal.png)
 
@@ -141,7 +141,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板
 
-以下示例演示如何使用 Azure 资源管理器模板来创建已启用磁盘加密的新 Apache Spark 群集。 有关详细信息，请参阅[什么是 ARM 模板？](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)。
+以下示例演示如何使用 Azure 资源管理器模板来创建已启用磁盘加密的新 Apache Spark 群集。 有关详细信息，请参阅[什么是 ARM 模板？](../azure-resource-manager/templates/overview.md)。
 
 此示例使用 PowerShell 调用模板。
 
@@ -359,7 +359,7 @@ New-AzResourceGroupDeployment `
 
 #### <a name="using-the-azure-portal"></a>使用 Azure 门户
 
-若要轮换密钥，需要基密钥保管库 URI。 完成此操作后，转到门户中的“HDInsight 群集属性”部分，单击“磁盘加密密钥 URL”下的“更改密钥”。**** **** 输入新密钥的 URL，并提交轮换密钥的操作。
+若要轮换密钥，需要基密钥保管库 URI。 完成此操作后，转到门户中的“HDInsight 群集属性”部分，单击“磁盘加密密钥 URL”下的“更改密钥”。   输入新密钥的 URL，并提交轮换密钥的操作。
 
 ![轮换磁盘加密密钥](./media/disk-encryption/change-key.png)
 
@@ -392,7 +392,7 @@ HDInsight 使用与 HDInsight 群集关联的托管标识来访问 Azure Key Vau
 
 **如果群集失去了对 Key Vault 或密钥的访问权限，会发生什么情况？**
 
-如果群集失去了对密钥的访问权限，Apache Ambari 门户中会显示警告。 在此状态下，“更改密钥”操作将会失败。**** 恢复密钥访问权限后，Ambari 警告将会消失，密钥轮换等操作可以成功执行。
+如果群集失去了对密钥的访问权限，Apache Ambari 门户中会显示警告。 在此状态下，“更改密钥”操作将会失败。  恢复密钥访问权限后，Ambari 警告将会消失，密钥轮换等操作可以成功执行。
 
 ![密钥访问 Ambari 警报](./media/disk-encryption/ambari-alert.png)
 
@@ -420,7 +420,7 @@ HDInsight 使用与 HDInsight 群集关联的托管标识来访问 Azure Key Vau
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="启用主机加密。":::
 
-使用此选项可以 [在主机上](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) 使用 PMK 对 HDInsight vm 临时数据磁盘进行加密。 仅 [支持在有限区域中的特定 VM sku 上](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) 加密，且 HDInsight 支持 [以下节点配置和 sku](./hdinsight-supported-node-configuration.md)。
+使用此选项可以 [在主机上](../virtual-machines/disks-enable-host-based-encryption-portal.md) 使用 PMK 对 HDInsight vm 临时数据磁盘进行加密。 仅 [支持在有限区域中的特定 VM sku 上](../virtual-machines/disks-enable-host-based-encryption-portal.md) 加密，且 HDInsight 支持 [以下节点配置和 sku](./hdinsight-supported-node-configuration.md)。
 
 要了解适用于 HDInsight 群集的正确 VM 大小，请参阅[选择适用于 Azure HDInsight 群集的正确 VM 大小](hdinsight-selecting-vm-size.md)。 启用主机加密时，Zookeeper 节点的默认 VM SKU 将为 DS2V2。
 

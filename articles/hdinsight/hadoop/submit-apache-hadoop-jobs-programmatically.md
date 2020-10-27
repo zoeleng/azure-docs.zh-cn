@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b04e24541959740ca08c2ec196b2408db0b76b7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435699"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545185"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Apache Hadoop 作业
 
@@ -42,4 +42,4 @@ ms.locfileid: "75435699"
 
 ## <a name="see-also"></a>另请参阅
 
-- [Azure HDInsight 文档](https://docs.microsoft.com/azure/hdinsight/)
+- [Azure HDInsight 文档](../index.yml)
