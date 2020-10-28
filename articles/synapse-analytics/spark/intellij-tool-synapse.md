@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: c17addc313954fbca5b81c4594d7317065350c09
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249563"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368734"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>教程：使用 Synapse 工作区通过 IntelliJ 创建 Apache Spark 应用程序
 
@@ -49,12 +49,12 @@ ms.locfileid: "91249563"
 3. 在主窗口中选择“Spark 项目和示例(Scala)”。
 4. 在“生成工具”下拉列表中选择以下类型之一：
 
-   - **Maven**：支持 Scala 项目创建向导。
-   - **SBT**：用于管理依赖项和生成 Scala 项目。
+   - **Maven** ：支持 Scala 项目创建向导。
+   - **SBT** ：用于管理依赖项和生成 Scala 项目。
 
     ![IntelliJ IDEA“新建项目”对话框](./media/intellij-tool-synapse/create-synapse-application01.png)
 
-5. 选择“**下一页**”。
+5. 选择“ **下一页** ”。
 6. 在“新建项目”窗口中提供以下信息：
 
     | properties | 说明 |
@@ -145,7 +145,7 @@ ms.locfileid: "91249563"
     |主类名|默认值是所选文件中的主类。 可以通过选择省略号图标 (...) 并选择另一个类来更改类。|
     |作业配置|可以更改默认的键和值。 有关详细信息，请参阅 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)。|
     |命令行参数|如果需要，可为 main 类输入参数并以空格分隔。|
-    |引用的 Jar 和引用的文件|可以输入引用的 Jar 和引用的文件的路径（如果有）。 还可以在 Azure 虚拟文件系统中浏览文件，但目前仅支持 ADLS 第 2 代群集。 更多相关信息：[Apache Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)和[如何将资源上传到群集](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。|
+    |引用的 Jar 和引用的文件|可以输入引用的 Jar 和引用的文件的路径（如果有）。 还可以在 Azure 虚拟文件系统中浏览文件，但目前仅支持 ADLS 第 2 代群集。 有关详细信息，请参阅 [Apache Spark 配置]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) 和[如何将资源上传到群集](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。|
     |作业上传存储|展开以显示其他选项。|
     |存储类型|从下拉列表中选择“使用 Azure Blob 上传”或“使用群集默认存储帐户上传” 。|
     |存储帐户|输入存储帐户。|

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: a9ff0219a9b811cae15f9b34ec85240d303ab841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c66c37be1d200a73aa04854f946946b69c6b76
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450272"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629130"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -82,7 +82,7 @@ ms.locfileid: "91450272"
 
 ### <a name="azure-roles-to-manage-long-term-retention"></a>用于管理长期保留的 Azure 角色
 
-对于 **Get-AzSqlDatabaseLongTermRetentionBackup** 和 **Restore-AzSqlDatabase**，需要具有以下角色之一：
+对于 **Get-AzSqlDatabaseLongTermRetentionBackup** 和 **Restore-AzSqlDatabase** ，需要具有以下角色之一：
 
 - “订阅所有者”角色或
 - “SQL Server 参与者”角色或
@@ -90,7 +90,7 @@ ms.locfileid: "91450272"
 
    Microsoft.Sql/locations/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
 
-对于 **Remove-AzSqlDatabaseLongTermRetentionBackup**，需要具有以下角色之一：
+对于 **Remove-AzSqlDatabaseLongTermRetentionBackup** ，需要具有以下角色之一：
 
 - “订阅所有者”角色或
 - 具有以下权限的自定义角色：
@@ -200,6 +200,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > 从此处，可使用 SQL Server Management Studio 连接到已还原的数据库，执行所需任务，例如从恢复的数据库中提取一部分数据，复制到现有数据库或删除现有数据库，并将已还原的数据库重命名为现有数据库名。 请参阅[时间点还原](recovery-using-backups.md#point-in-time-restore)。
+
+## <a name="limitations"></a>限制
+- 从 LTR 备份进行还原时，"读取缩放" 属性处于禁用状态。 若要启用，请对还原的数据库进行读取缩放，并在创建数据库后对其进行更新。
 
 ## <a name="next-steps"></a>后续步骤
 

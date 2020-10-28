@@ -9,22 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b493b78971b7e802d82e8f61203abdaaca527016
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873857"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503549"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>教程 - 从 Google Maps 迁移 Android 应用
 
-Azure Maps Android SDK 有一个类似于 Web SDK 的 API 接口。 如果你已使用其中的某个 SDK 进行开发，可以应用很多相同的概念、最佳做法和体系结构。
+Azure Maps Android SDK 有一个类似于 Web SDK 的 API 接口。 如果你已使用其中的某个 SDK 进行开发，可以应用很多相同的概念、最佳做法和体系结构。 在本教程中，您将学习如何执行以下操作：
+
+> [!div class="checklist"]
+> * 加载地图
+> * 将地图本地化
+> * 添加标记、折线和多边形。
+> * 叠加图块层
+> * 显示交通情况数据
 
 Azure Maps Android SDK 支持 API 21 的最低 Android 版本：Android 5.0.0 (Lollipop)。
 
 所有示例都是以 Java 提供的，但是，也可以结合 Azure Maps Android SDK 使用 Kotlin。
 
 有关使用 Azure Maps Android SDK 进行开发的详细信息，请参阅 [Azure Maps Android SDK 的操作指南](how-to-use-android-map-control-library.md)。
+
+## <a name="prerequisites"></a>先决条件 
+
+1. 登录 [Azure 门户](https://portal.azure.com)。 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
+2. [创建 Azure Maps 帐户](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [获取主订阅密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account)（亦称为“主密钥”或“订阅密钥”）。 有关 Azure Maps 中身份验证的详细信息，请参阅[在 Azure Maps 中管理身份验证](how-to-manage-authentication.md)。
 
 ## <a name="load-a-map"></a>加载地图
 
@@ -150,7 +163,7 @@ Azure Maps Android SDK 支持 API 21 的最低 Android 版本：Android 5.0.0 (L
 
 若要使用适用于 Android 的 Azure Maps SDK 显示地图，需执行以下步骤：
 
-1. 打开顶级 **build.gradle** 文件，将以下代码添加到**所有项目**块节中：
+1. 打开顶级 **build.gradle** 文件，将以下代码添加到 **所有项目** 块节中：
 
     ```JAVA
     maven {
@@ -745,6 +758,18 @@ mapControl.onReady(map -> {
 
 ![Azure Maps 交通状况](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
-详细了解 Azure Maps Android SDK。
+## <a name="next-steps"></a>后续步骤
 
-[如何使用 Android 地图控件](how-to-use-android-map-control-library.md)
+详细了解 Azure Maps Android SDK：
+
+> [!div class="nextstepaction"]
+> [如何使用 Android 地图控件](how-to-use-android-map-control-library.md)
+
+> [!div class="nextstepaction"]
+> [在 Android 地图中添加符号层](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [在 Android 地图中添加形状](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [更改 Android 地图中的地图样式](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

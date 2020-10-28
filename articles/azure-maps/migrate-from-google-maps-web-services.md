@@ -9,16 +9,32 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3e80ff90e47f45655761abd4c7e8fa9ed04b61ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874452"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518885"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>教程 - 从 Google Maps 迁移 Web 服务
 
 Azure Maps 和 Google Maps 都通过 REST Web 服务提供对空间 API 的访问。 这些平台的 API 接口执行类似的功能。 但是，每个接口使用不同的命名约定和响应对象。
+
+在本教程中，您将学习如何执行以下操作：
+
+> * 正向/反向地理编码
+> * 搜索兴趣点
+> * 计算路线和方向
+> * 检索地图图像
+> * 计算距离矩阵
+> * 获取时区详细信息
+
+你还将了解： 
+
+> [!div class="checklist"]
+> * 从 Google Maps Web 服务迁移时，使用哪种 Azure Maps REST 服务
+> * 有关如何充分利用 Azure Maps 服务的提示
+> * 对其他相关 Azure Maps 服务的见解
 
 下表显示了功能与所列 Google Maps 服务 API 类似的 Azure Maps 服务 API。
 
@@ -48,6 +64,12 @@ Azure Maps 提供其他几个你可能会感兴趣的 REST Web 服务：
 
 - [空间操作](https://docs.microsoft.com/rest/api/maps/spatial)：将复杂的空间计算和操作（例如地理围栏）负载分散到某个服务。
 - [交通](https://docs.microsoft.com/rest/api/maps/traffic)：访问实时交通流量和事件数据。
+
+## <a name="prerequisites"></a>先决条件 
+
+1. 登录 [Azure 门户](https://portal.azure.com)。 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
+2. [创建 Azure Maps 帐户](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [获取主订阅密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account)（亦称为“主密钥”或“订阅密钥”）。 有关 Azure Maps 中身份验证的详细信息，请参阅[在 Azure Maps 中管理身份验证](how-to-manage-authentication.md)。
 
 ## <a name="geocoding-addresses"></a>地理编码地址
 
@@ -334,7 +356,6 @@ Azure Maps 提供一个 API 用于呈现包含叠加数据的静态地图图像�
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Azure Maps 标记](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 添加具有标签值“1”、“2”和“3”的三个图钉：
@@ -342,8 +363,6 @@ Azure Maps 提供一个 API 用于呈现包含叠加数据的静态地图图像�
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Azure Maps 多个标记](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -468,13 +487,24 @@ Azure Maps 为以下编程语言提供客户端库：
 
 - .NET Standard 2.0 – [GitHub 项目](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet 包](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
-## <a name="additional-resources"></a>其他资源
+## <a name="next-steps"></a>后续步骤
 
-下面是有关 Azure Maps REST 服务的其他文档和资源。
+详细了解 Azure Maps REST 服务：
 
-- [有关搜索的最佳做法](how-to-use-best-practices-for-search.md)
-- [搜索地址](how-to-search-for-address.md)
-- [路线规划最佳做法](how-to-use-best-practices-for-routing.md)
-- [Azure Maps REST 服务 API 参考文档](https://docs.microsoft.com/rest/api/maps/)
-- [代码示例](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [如何使用服务模块 (Web SDK)](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [有关搜索的最佳做法](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [搜索地址](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [路线规划最佳做法](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST 服务 API 参考文档](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [代码示例](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [如何使用服务模块 (Web SDK)](how-to-use-best-practices-for-routing.md)

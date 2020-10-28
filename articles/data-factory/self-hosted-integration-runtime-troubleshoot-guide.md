@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427217"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629354"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -34,7 +34,7 @@ ms.locfileid: "92427217"
 
     ![发送日志](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. 您可以选择要发送的日志。 对于 *自承载 ir*，你可以上载与失败的活动或自承载 ir 节点上的所有日志相关的日志。 对于 *共享 IR*，只能上载与失败的活动相关的日志。
+1. 您可以选择要发送的日志。 对于 *自承载 ir* ，你可以上载与失败的活动或自承载 ir 节点上的所有日志相关的日志。 对于 *共享 IR* ，只能上载与失败的活动相关的日志。
 
     ![选择日志](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -549,7 +549,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 然后，你可以通过删除筛选器来获取客户端与数据工厂服务器之间的对话。
 
     ![获取对话](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
-- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据[此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的**默认 TTL 和跃点限制值**（摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
+- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据 [此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的 **默认 TTL 和跃点限制值** （摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
 
     默认 TTL 和跃点限制值在不同的操作系统中有所不同，下面是一些操作系统的默认值：
     - Linux 内核 2.4 (circa 2001)：对于 TCP、UDP 和 ICMP，该值为 255
@@ -630,7 +630,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 ##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>方案1：从自承载 Integration Runtime 在企业防火墙后面的本地运行的出站通信
 如何确定是否受影响：
 - 如果使用本文档中所述的方法基于 FQDN 名称定义防火墙规则，则不会受到影响： " [防火墙配置和允许列表" 设置 "ip 地址](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)"。
-- 不过，如果你在企业防火墙上显式允许列表出站 Ip，会影响你。
+- 不过，如果你在公司防火墙上显式启用了出站 Ip 允许列表，则会受到影响。
 
 受影响的操作：通知网络基础结构团队更新网络配置，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
 
@@ -639,16 +639,55 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 检查包含自承载 Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不会产生任何影响。
 - 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。 
  ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
-- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式允许列表出站 IP 地址，则会受到影响。
+- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式启用了出站 IP 地址的允许列表，则会受到影响。
 
 受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>方案3：来自客户托管的 Azure 虚拟网络中 SSIS Integration Runtime 的出站通信
 - 检查包含 SSIS Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不会产生任何影响。
 - 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。
-- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式允许列表出站 IP 地址，则会受到影响。
+- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式启用了出站 IP 地址的允许列表，则会受到影响。
 
 受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
+
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>无法为 SSLTLS 安全通道建立信任关系 
+
+#### <a name="symptoms"></a>症状
+
+自承载 IR 无法连接到 ADF 服务。
+
+通过检查 SHIR 事件日志或 CustomLogEvent 表中的客户端通知日志，将发现以下错误消息：
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+如何检查 ADF 服务的服务器证书：
+
+最简单的方法是在浏览器中打开 ADF 服务 URL，例如，在 https://eu.frontend.clouddatahub.net/ 安装了 SHIR 的计算机上打开，然后查看服务器证书信息：
+
+  ![检查 ADF 服务的服务器证书](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![检查服务器证书路径](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>原因
+
+此问题的两个可能的原因：
+
+- ADF 服务服务器证书的根 CA 在安装 SHIR 的计算机上不受信任。 
+- 你使用的是环境中的代理，并且代理已替换 ADF 服务的服务器证书，而已安装 SHIR 的计算机不信任替换的服务器证书。
+
+#### <a name="solution"></a>解决方案
+
+- 对于原因1，请确保 ADF 服务器证书及其证书链受安装了 SHIR 的计算机的信任。
+- 出于第2原因，请信任 SHIR 计算机上的替换根 CA，或将代理配置为不替换 ADF 服务器证书。
+
+有关在 Windows 上信任证书的详细信息，请参阅 [此文](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) 。
+
+#### <a name="additional-info"></a>其他信息
+我们正在推出一个新的 SSL 证书，该证书已从 DigiCert 签名，请检查 DigiCert 全局根 G2 是否在受信任的根 CA 中。
+
+  ![DigiCert 全局根 G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+如果没有，请从 [此处](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt )下载。 
 
 ## <a name="self-hosted-ir-sharing"></a>自承载 IR 共享
 

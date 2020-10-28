@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207032"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628824"
 ---
 # <a name="app-service-networking-features"></a>应用服务网络功能
 
@@ -29,6 +29,7 @@ Azure 应用服务是一种分布式系统。 处理传入 HTTP/HTTPS 请求的�
 | 应用分配的地址 | 混合连接 |
 | 访问限制 | 需要网关的 VNet 集成 |
 | 服务终结点 | VNet 集成 |
+| 专用终结点 ||
 
 除非另有说明，否则所有功能都可以配合使用。 可以混合使用这些功能来解决各种问题。
 
@@ -43,7 +44,7 @@ Azure 应用服务是一种分布式系统。 处理传入 HTTP/HTTPS 请求的�
 | 从一组妥善定义的地址限制对应用的访问 | 访问限制 |
 | 限制从 VNet 中的资源访问应用 | 服务终结点 </br> ILB ASE </br> 专用终结点 |
 | 在 VNet 中的专用 IP 上公开我的应用 | ILB ASE </br> 专用终结点 </br> 使用服务终结点的应用程序网关上的入站专用 IP |
-| 使用 Web 应用程序防火墙保护我的应用程序 (WAF)  | 应用程序网关 + ILB ASE </br> 具有专用终结点的应用程序网关 </br> 具有服务终结点的应用程序网关 </br> 提供访问限制的 Azure Front Door |
+| 使用 Web 应用程序防火墙保护我的应用程序 (WAF)  | 应用程序网关 + ILB ASE </br> 具有专用终结点的应用程序网关 </br> 包含服务终结点的应用程序网关 </br> 提供访问限制的 Azure Front Door |
 | 对发往不同区域中的应用的流量进行负载均衡 | 提供访问限制的 Azure Front Door | 
 | 对同一区域中的流量进行负载均衡 | [包含服务终结点的应用程序网关][appgwserviceendpoints] | 
 
@@ -89,20 +90,23 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
 
 ### <a name="access-restrictions"></a>访问限制 
 
-使用访问限制功能可以基于来源 IP 地址筛选入站请求。 筛选操作在前端角色上发生，这些前端角色位于运行应用的辅助角色的上游。 由于前端角色位于辅助角色的上游，因此可将访问限制功能视为应用的网络级保护机制。 使用该功能可以生成按优先顺序评估的允许和拒绝地址块列表。 它类似于 Azure 网络中的网络安全组 (NSG) 功能。  可以在 ASE 或多租户服务中使用此功能。 在 ILB ASE 中使用时，可以限制从专用地址块进行的访问。
+使用访问限制功能可以筛选 **入站** 请求。 筛选操作在前端角色上发生，这些前端角色位于运行应用的辅助角色的上游。 由于前端角色位于辅助角色的上游，因此可将访问限制功能视为应用的网络级保护机制。 利用此功能，您可以构建按优先级顺序计算的允许和拒绝规则的列表。 它类似于 Azure 网络中的网络安全组 (NSG) 功能。  可以在 ASE 或多租户服务中使用此功能。 与 ILB ASE 或专用终结点一起使用时，你可以限制从专用地址块进行访问。
+> [!NOTE]
+> 每个应用最多可以配置512个访问限制规则。 
 
 ![访问限制](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>基于 IP 的访问限制规则
 
-需要限制可用于访问应用的 IP 地址时，访问限制功能非常有用。 此功能的用例包括：
+基于 IP 的访问限制功能有助于限制可用于访问应用的 IP 地址的情况。 IPv4 和 IPv6 均受支持。 此功能的用例包括：
 
 * 从一组妥善定义的地址限制对应用的访问 
-* 限制为通过负载均衡服务（例如 Azure Front Door）进行访问。 若要将入站流量锁定为 Azure Front Door，请创建规则以允许来自 147.243.0.0/16 和 2a01:111:2050::/44 的流量。 
+* 限制通过负载平衡服务的访问权限，例如 Azure 前门
 
 ![使用 Front Door 实现访问限制](media/networking-features/access-restrictions-afd.png)
 
-若要锁定对应用的访问，以便只能从 Azure 虚拟网络 (VNet) 中的资源访问它，则当源位于 VNet 中时，需要指定一个静态公共地址。 如果资源没有公共地址，则应改用服务终结点功能。 在[配置访问限制][iprestrictions]教程中了解如何启用此功能。
+在[配置访问限制][iprestrictions]教程中了解如何启用此功能。
 
-### <a name="service-endpoints"></a>服务终结点
+#### <a name="service-endpoint-based-access-restriction-rules"></a>基于服务终结点的访问限制规则
 
 使用服务终结点可以锁定对应用程序的 **入站** 访问，以使源地址必须来自所选的一组子网。 此功能可与 IP 访问限制结合使用。 服务终结点与远程调试不兼容。 若要对应用进行远程调试，你的客户端不能位于启用服务终结点的子网中。 服务终结点在与 IP 访问限制相同的用户体验中设置。 可以生成访问规则的允许/拒绝列表，其中包括公共地址以及 VNet 中的子网。 此功能支持如下方案：
 
@@ -113,7 +117,7 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
 
 ![包含应用程序网关的服务终结点](media/networking-features/service-endpoints-appgw.png)
 
-可以在[配置服务终结点访问限制][serviceendpoints]教程中详细了解如何配置包含你的应用的服务终结点
+可以在[配置服务终结点访问限制][serviceendpoints]教程中了解有关使用应用配置服务终结点的详细信息
 
 ### <a name="private-endpoints"></a>专用终结点
 
@@ -130,7 +134,7 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
  
 ### <a name="hybrid-connections"></a>混合连接
 
-应用可以通过应用服务混合连接向指定的 TCP 终结点发出**出站**调用。 终结点可以位于本地、VNet 中，或者允许通过端口 443 向 Azure 发出出站流量的任何位置。 该功能要求在 Windows Server 2012 或更高版本的主机上安装名为“混合连接管理器”(HCM) 的中继代理。 HCM 需要能够通过端口 443 访问 Azure 中继。 可以通过门户中的应用服务混合连接 UI 下载 HCM。 
+应用可以通过应用服务混合连接向指定的 TCP 终结点发出 **出站** 调用。 终结点可以位于本地、VNet 中，或者允许通过端口 443 向 Azure 发出出站流量的任何位置。 该功能要求在 Windows Server 2012 或更高版本的主机上安装名为“混合连接管理器”(HCM) 的中继代理。 HCM 需要能够通过端口 443 访问 Azure 中继。 可以通过门户中的应用服务混合连接 UI 下载 HCM。 
 
 ![混合连接网络流](media/networking-features/hybrid-connections.png)
 
@@ -150,7 +154,7 @@ Azure 应用服务缩放单元为每个部署中的多个客户提供支持。 �
 
 ### <a name="gateway-required-vnet-integration"></a>需要网关的 VNet 集成 
 
-应用可以通过网关所需的应用服务 VNet 集成功能向 Azure 虚拟网络发出**出站**请求。 该功能的工作原理是通过点到站点 VPN 将运行应用的主机连接到 VNet 中的虚拟网络网关。 配置该功能时，应用将获取分配给每个实例的点到站点地址之一。 使用此功能可以访问位于任何区域的经典或资源管理器 VNet 中的资源。 
+应用可以通过网关所需的应用服务 VNet 集成功能向 Azure 虚拟网络发出 **出站** 请求。 该功能的工作原理是通过点到站点 VPN 将运行应用的主机连接到 VNet 中的虚拟网络网关。 配置该功能时，应用将获取分配给每个实例的点到站点地址之一。 使用此功能可以访问位于任何区域的经典或资源管理器 VNet 中的资源。 
 
 ![需要网关的 VNet 集成](media/networking-features/gw-vnet-integration.png)
 

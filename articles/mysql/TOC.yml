@@ -102,10 +102,10 @@
         - name: 使用 MySQL 构建 PHP Web 应用
           items:
             - name: 将 Wordpress 与 MySQL 配合使用创建多容器应用
-              href: ../app-service/containers/tutorial-multi-container-app.md
+              href: ../app-service/tutorial-multi-container-app.md
               maintainContext: true
             - name: 将 PHP 与 MySQL 配合使用
-              href: ../app-service/app-service-web-tutorial-php-mysql.md
+              href: ../app-service/tutorial-php-mysql-app.md
               maintainContext: true
     - name: 示例
       items:
@@ -114,7 +114,7 @@
         - name: Java 连接池
           href: sample-scripts-java-connection-pooling.md
         - name: Azure Policy 内置策略定义
-          href: ./policy-samples.md
+          href: ./policy-reference.md
     - name: 概念
       items:
         - name: 服务器
@@ -427,6 +427,7 @@
             - name: Azure CLI
               href: flexible-server/quickstart-create-server-cli.md
             - name: ARM 模板
+              displayName: Resource Manager
               href: flexible-server/quickstart-create-arm-template.md
         - name: 连接和查询
           items:
@@ -558,7 +559,7 @@
     - name: 定价
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: Microsoft Q&A 问题页面
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-mysql.html'
+      href: /answers/topics/azure-database-mysql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: 视频

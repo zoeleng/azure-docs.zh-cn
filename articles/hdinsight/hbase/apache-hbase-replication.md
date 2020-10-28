@@ -66,7 +66,7 @@ ms.locfileid: "92540357"
 
 **VNet 1**
 
-| 属性 | “值” |
+| properties | 值 |
 |----------|-------|
 | 位置 | 美国西部 |
 | VNet 名称 | &lt;ClusterNamePrevix>-vnet1 |
@@ -78,12 +78,12 @@ ms.locfileid: "92540357"
 | 网关名称 | vnet1gw |
 | 网关类型 | Vpn |
 | 网关 VPN 类型 | RouteBased |
-| 网关 SKU | 基本 |
+| 网关 SKU | Basic |
 | 网关 IP | vnet1gwip |
 
 **VNet 2**
 
-| 属性 | “值” |
+| properties | 值 |
 |----------|-------|
 | 位置 | 美国东部 |
 | VNet 名称 | &lt;ClusterNamePrevix>-vnet2 |
@@ -95,7 +95,7 @@ ms.locfileid: "92540357"
 | 网关名称 | vnet2gw |
 | 网关类型 | Vpn |
 | 网关 VPN 类型 | RouteBased |
-| 网关 SKU | 基本 |
+| 网关 SKU | Basic |
 | 网关 IP | vnet1gwip |
 
 ## <a name="setup-dns"></a>设置 DNS
@@ -305,7 +305,7 @@ sudo service bind9 status
       >
       > 本演练假设 hn1 为活动头节点。 请检查群集以确定活动头节点。
 
-6. 选择“创建” 。 该脚本可能会运行一段时间，尤其是在使用 **-copydata** 参数的情况下。
+6. 选择“创建”  。 该脚本可能会运行一段时间，尤其是在使用 **-copydata** 参数的情况下。
 
 必需参数：
 
