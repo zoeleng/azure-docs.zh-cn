@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517291"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895369"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>实现 Creator 室内定位的动态样式
 
-借助 Azure Maps Creator [特征状态服务](https://docs.microsoft.com/rest/api/maps/featurestate)，可以根据室内定位数据特征的动态属性来应用样式。  例如，可以使用特定颜色来渲染设施会议室，以反映占用状态。 本文将介绍如何使用[特征状态服务](https://docs.microsoft.com/rest/api/maps/featurestate)和[室内 Web 模块](how-to-use-indoor-module.md)来动态渲染室内定位特征。
+借助 Azure Maps Creator [特征状态服务](/rest/api/maps/featurestate)，可以根据室内定位数据特征的动态属性来应用样式。  例如，可以使用特定颜色来渲染设施会议室，以反映占用状态。 本文将介绍如何使用[特征状态服务](/rest/api/maps/featurestate)和[室内 Web 模块](how-to-use-indoor-module.md)来动态渲染室内定位特征。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -68,7 +68,7 @@ map.events.add("click", function(e){
 
 1. 在 Postman 应用中，选择“新建”。 在“新建”窗口中，选择“请求”。 在“请求名称”中输入名称，然后选择一个集合。 单击“保存”
 
-2. 使用[特征更新状态 API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) 来更新状态。 为两个单元之一传递状态集 ID 和 `UNIT26`。 追加 Azure Maps 订阅密钥。 以下是用于更新状态的 POST 请求的 URL：
+2. 使用[特征更新状态 API](/rest/api/maps/featurestate/updatestatespreview) 来更新状态。 为两个单元之一传递状态集 ID 和 `UNIT26`。 追加 Azure Maps 订阅密钥。 以下是用于更新状态的 POST 请求的 URL：
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -134,4 +134,3 @@ map.events.add("click", function(e){
 
 > [!div class="nextstepaction"]
 > [WFS 服务](creator-indoor-maps.md#web-feature-service-api)
-

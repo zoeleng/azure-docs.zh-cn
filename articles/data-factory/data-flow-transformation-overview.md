@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606286"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892921"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>映射数据流转换概述
 
@@ -33,6 +33,7 @@ ms.locfileid: "81606286"
 | [查找](data-flow-lookup.md) | 多个输入/输出 | 引用来自其他源的数据。 |
 | [新建分支](data-flow-new-branch.md) | 多个输入/输出 | 对同一数据流应用多组操作和转换。 |
 | [透视](data-flow-pivot.md) | 架构修饰符 | 一种聚合，其中一个或多个分组列的不同行值转换为单独的列。 |
+| [排名](data-flow-rank.md) | 架构修饰符 | 根据排序条件生成排序排名 |
 | [Select](data-flow-select.md) | 架构修饰符 | 别名列和流名称，以及删除列或对列重新排序 |
 | [接收器](data-flow-sink.md) | - | 数据的最终目标 |
 | [Sort](data-flow-sort.md) | 行修饰符 | 对当前数据流中的传入行进行排序 |

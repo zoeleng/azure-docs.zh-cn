@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 9615dc358b1c5bed0e48c07c2571ccce05fcdf2e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 97f3a8f79e503b8870baf67ee982b0091d926b1e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637201"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895318"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>如何创建和配置 Azure 集成运行时
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Azure IR 的类型必须设置为 **托管** 。 无需指定计算详细信息�
 
 1. 在左窗格中选择“集成运行时”，然后选择“+ 新建” 。
 
-   ![创建集成运行时](media/doc-common-process/manage-new-integration-runtime.png)
+   ![突出显示左窗格和 "+ 新建" 按钮中的集成运行时的屏幕截图。](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. 在“集成运行时安装”页中选择“Azure，自承载”，然后选择“继续”。  
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cda543781118a19ba4999e774b96ae81857f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330921"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895488"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 入门
 
@@ -57,7 +57,7 @@ Android Studio 可让你在计算机上设置 Android 虚拟设备。 这样做�
 
 生成应用程序的下一步是安装 Azure Maps Android SDK。 请完成以下步骤来安装该 SDK：
 
-1. 打开顶级 **build.gradle** 文件，将以下代码添加到**所有项目**的 **repositories** 块节中：
+1. 打开顶级 **build.gradle** 文件，将以下代码添加到 **所有项目** 的 **repositories** 块节中：
 
     ```
     maven {
@@ -299,7 +299,7 @@ mapControl.onReady(map -> {
 > [在 Android 地图中添加符号层](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [在 Android 地图中添加形状](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [在 Android 地图中添加形状](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [更改 Android 地图中的地图样式](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [更改 Android 地图中的地图样式](./set-android-map-styles.md)

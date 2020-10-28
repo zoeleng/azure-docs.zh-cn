@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335290"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895386"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>如何使用 Azure Maps 空间 IO 模块
 
-Azure Maps Web SDK 提供 **空间 IO 模块**，该模块使用 JavaScript 或 TypeScript 将空间数据与 AZURE MAPS Web SDK 集成。 此模块中的强大功能使开发人员能够：
+Azure Maps Web SDK 提供 **空间 IO 模块** ，该模块使用 JavaScript 或 TypeScript 将空间数据与 AZURE MAPS Web SDK 集成。 此模块中的强大功能使开发人员能够：
 
 - [读取和写入公用空间数据文件](spatial-io-read-write-spatial-data.md)。 支持的文件格式包括： KML、KMZ、.GPX) 、GeoRSS、GML、GeoJSON 和包含包含空间信息的列的 CSV 文件。 还支持 Well-Known 文本 (WKT) 。
 - [连接到开放地理空间信息联盟 (OGC) 服务并与 Azure Maps WEB SDK 集成。覆盖 Web 地图服务 (WMS) 和 Web 地图磁贴服务 (WMTS) 作为地图上的层](spatial-io-add-ogc-map-layer.md)。
@@ -38,9 +38,9 @@ Azure Maps Web SDK 提供 **空间 IO 模块**，该模块使用 JavaScript 或 
 > [!WARNING]
 > 仅使用来自你信任的源的数据和服务，尤其是在从另一个域中引用它的情况下。 空间 IO 模块执行一些步骤来最大程度地降低风险，不过，最安全的方法不允许将任何 danagerous 的数据从开始到你的应用程序。 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-使用空间 IO 模块之前，需要先 [创建一个 Azure Maps 帐户](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) ，并 [获取帐户的主要订阅密钥](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)。
+使用空间 IO 模块之前，需要先 [创建一个 Azure Maps 帐户](./quick-demo-map-app.md#create-an-azure-maps-account) ，并 [获取帐户的主要订阅密钥](./quick-demo-map-app.md#get-the-primary-key-for-your-account)。
 
 ## <a name="installing-the-spatial-io-module"></a>安装空间 IO 模块
 
@@ -68,7 +68,7 @@ Azure Maps Web SDK 提供 **空间 IO 模块**，该模块使用 JavaScript 或 
 
 1. 创建新的 HTML 文件。
 
-2. 加载 Azure Maps Web SDK 并初始化地图控件。 请参阅 [Azure Maps map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) guide 获取详细信息。 完成此步骤后，HTML 文件应如下所示：
+2. 加载 Azure Maps Web SDK 并初始化地图控件。 请参阅 [Azure Maps map control](./how-to-use-map-control.md) guide 获取详细信息。 完成此步骤后，HTML 文件应如下所示：
 
     ```html
     <!DOCTYPE html>
@@ -256,4 +256,4 @@ Azure Maps Web SDK 提供 **空间 IO 模块**，该模块使用 JavaScript 或 
 请参阅 Azure Maps 空间 IO 文档：
 
 > [!div class="nextstepaction"]
-> [Azure Maps 空间 IO 包](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Azure Maps 空间 IO 包](/javascript/api/azure-maps-spatial-io/)

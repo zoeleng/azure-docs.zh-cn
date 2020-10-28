@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677949"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895794"
 ---
 # <a name="manage-azure-maps-creator"></a>管理 Azure Maps Creator
 
@@ -69,7 +69,7 @@ Azure Maps Creator 允许你创建专用室内定位数据。 使用 Azure Maps 
 
 Creator 继承 Azure Maps 访问控制 (IAM) 设置。 必须使用身份验证和授权规则发送数据访问的所有 API 调用。
 
-Creator 使用情况数据合并到 Azure Maps 使用情况图表和活动日志中。  有关详细信息，请参阅[在 Azure Maps 中管理身份验证](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)。
+Creator 使用情况数据合并到 Azure Maps 使用情况图表和活动日志中。  有关详细信息，请参阅[在 Azure Maps 中管理身份验证](./how-to-manage-authentication.md)。
 
 ## <a name="access-to-creator-services"></a>访问 Creator 服务
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738117"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894094"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虚拟机规划和实施指南
 
@@ -1832,7 +1832,7 @@ Azure 托管磁盘自动放置在其附加到的虚拟机的容错域中。 如�
 
 使用 Azure 基础结构 HA 和存储帐户的 SAP NetWeaver 系统的示例体系结构如下所示：
 
-![利用 Azure 基础结构 HA 来实现 SAP 应用程序的更高可用性][planning-guide-figure-2900]
+![此图显示了使用 Azure 基础结构 HA 和存储帐户的 SAP NetWeaver 系统。][planning-guide-figure-2900]
 
 使用 Azure 基础结构 HA 和托管磁盘的 SAP NetWeaver 系统的示例体系结构如下所示：
 
@@ -1892,7 +1892,7 @@ Azure 缩放单元内的 Azure 可用性集可使用不限数目的容错和升�
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Windows 徽标。][Logo_Windows] Windows 上的 HA
 
-![Azure IaaS 中包含 SQL Server 的 SAP NetWeaver 应用程序 HA 体系结构][planning-guide-figure-3200]
+![在 Azure IaaS 中显示 SAP NetWeaver 应用程序 HA 体系 SQL Server 结构的关系图。][planning-guide-figure-3200]
 
 以下 Azure 构造适用于 SAP NetWeaver 系统，可将基础结构问题和主机修补的影响降到最低：
 

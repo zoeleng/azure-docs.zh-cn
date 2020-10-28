@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 19deaa7656cc86d534278464dba1041267ef15b0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 149d0ae99975628239f8b08f3987947a99e01cbb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105033"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893227"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>使用 Java 和 IntelliJ 创建第一个 Azure 函数
 
@@ -114,7 +114,7 @@ ms.locfileid: "92105033"
 
 1. 选择要部署的函数应用（自动选择你刚刚创建的新函数应用）。 单击“运行”以部署函数。
 
-    ![将函数部署到 Azure - 运行](media/functions-create-first-java-intellij/deploy-functions-run.png)
+    ![屏幕截图显示 "部署 Azure Functions" 对话框。](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![将函数部署到 Azure - 日志](media/functions-create-first-java-intellij/deploy-functions-log.png)
 
@@ -130,7 +130,7 @@ ms.locfileid: "92105033"
 
 1. 右键单击 HttpTrigger-Java 函数，然后选择“触发器函数”，你可看到浏览器打开了触发器 URL。
 
-    ![将函数部署到 Azure - 运行](media/functions-create-first-java-intellij/explorer-trigger-functions.png)
+    ![屏幕截图显示带有 U R L 的浏览器。](media/functions-create-first-java-intellij/explorer-trigger-functions.png)
 
 ## <a name="add-more-functions-to-the-project"></a>向项目添加更多函数
 
@@ -140,7 +140,7 @@ ms.locfileid: "92105033"
 
 1. 在“创建函数类”向导中填写类名 HttpTest并选择 HttpTrigger，单击“确定”即可创建。采用这种方式，你可根据需要创建新的函数。
 
-    ![向项目中添加函数 - 选择触发器](media/functions-create-first-java-intellij/add-functions-trigger.png)
+    ![屏幕截图显示 "创建函数类" 对话框。](media/functions-create-first-java-intellij/add-functions-trigger.png)
     
     ![向项目添加函数 - 输出](media/functions-create-first-java-intellij/add-functions-output.png)
 
@@ -148,7 +148,7 @@ ms.locfileid: "92105033"
 
 1. 在 Azure 资源管理器中删除 Azure 函数
       
-      ![向项目中添加函数 - 选择触发器](media/functions-create-first-java-intellij/delete-function.png)
+      ![屏幕截图显示从上下文菜单中选择的 "删除"。](media/functions-create-first-java-intellij/delete-function.png)
       
 
 ## <a name="next-steps"></a>后续步骤

@@ -17,13 +17,13 @@
     - name: 新增功能
       items:
         - name: 发行说明
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes.md
         - name: 即将推出的重要更改
-          displayName: 'release notes, changelog'
+          displayName: 'release notes, changelog, news'
           href: upcoming-changes.md
         - name: 已存档的发行说明（超过 6 个月）
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes-archive.md
     - name: 安全中心基础知识
       items:
@@ -92,6 +92,7 @@
     - name: 设置电子邮件通知
       href: security-center-provide-security-contact-details.md
     - name: 使用 ARM 模板创建对警报的自动响应
+      displayName: Resource Manager
       href: quickstart-automation-alert.md
 - name: 教程
   items:
@@ -238,6 +239,7 @@
           displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
           href: export-to-siem.md
         - name: 导出到 Log Analytics 工作区或 Azure 事件中心
+          displayName: continuous
           href: continuous-export.md
         - name: 下载所有警报的 CSV 报告
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations

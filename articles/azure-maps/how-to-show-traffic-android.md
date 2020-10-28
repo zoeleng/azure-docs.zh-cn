@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272950"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895522"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>使用 Azure Maps 显示地图上的流量数据 Android SDK
 
 流数据和事件数据是可以在地图上显示的两种类型的流量数据。 本指南演示如何显示这两种类型的流量数据。 事件数据包含基于点的数据和基于行的数据，如构造、闭包和意外等。 流数据显示有关路上流量的指标。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-你需要 [创建 Azure 帐户](quick-demo-map-app.md#create-an-azure-maps-account)并 [获取订阅密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account)，然后才能在地图上显示流量。 然后，需要安装 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 并加载地图。
+你需要 [创建 Azure 帐户](quick-demo-map-app.md#create-an-azure-maps-account)并 [获取订阅密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account)，然后才能在地图上显示流量。 然后，需要安装 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 并加载地图。
 
 ## <a name="incidents-traffic-data"></a>事件流量数据
 
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 若要获取特定功能的事件，可以使用以下代码。 单击某项功能后，代码逻辑将检查事件，并生成有关事件的消息。 屏幕底部将显示一条消息，其中包含详细信息。
 
-1. 首先，您需要 **> 布局 > activity_main.xml**中编辑 res，使其看起来像下面这样的内容。 可以将 `mapcontrol_centerLat` 、和替换 `mapcontrol_centerLng` `mapcontrol_zoom` 为所需的值。 请记住，缩放级别是0到22之间的值。 在缩放级别为0时，整个世界适用于单个磁贴。
+1. 首先，您需要 **> 布局 > activity_main.xml** 中编辑 res，使其看起来像下面这样的内容。 可以将 `mapcontrol_centerLat` 、和替换 `mapcontrol_centerLng` `mapcontrol_zoom` 为所需的值。 请记住，缩放级别是0到22之间的值。 在缩放级别为0时，整个世界适用于单个磁贴。
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>

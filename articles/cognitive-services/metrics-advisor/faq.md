@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131677"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893571"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>指标顾问常见问题
 
 ### <a name="what-is-the-cost-of-my-instance"></a>实例的成本是多少？
 
 在预览期间，当前不需要使用实例。
-
-### <a name="why-is-the-demo-website-readonly"></a>为什么演示网站为只读？
-
-[演示网站](https://anomaly-detector.azurewebsites.net/)已公开发布。 此实例变为只读，以防止意外上载任何数据。
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>为什么无法创建资源？ "定价层" 不可用，显示 "你已为此订阅创建了1个 S0"？
 
@@ -141,9 +137,8 @@ ms.locfileid: "92131677"
  
 例如，当发生异常时 `Service = S2 | Data Center = DC2 | Machine = M5` ，异常的偏差会影响父节点 `Service= S2` ，该节点也已检测到异常，但异常不会影响 `DC2` 和所有服务上的整个数据中心 `M5` 。 事件树的构建方式如下：下面的屏幕截图中捕获了最常见的异常 `Service = S2` ，可以在两个路径中分析根本原因，这两个路径都将导致 `Service = S2 | Data Center = DC2 | Machine = M5` 。
 
- :::image type="content" source="media/root-cause-paths.png" alt-text="5个标记的顶点，其中的两个不同路径的边缘使用标记为 S2 的常见节点连接。最常见的异常在服务 = S2 上捕获，根本原因可以通过两个路径来进行分析，这两个路径会导致服务 = S2 |数据中心 = DC2 |计算机 = M5" lightbox="media/root-cause-paths.png":::
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5个标记的顶点，其中的两个不同路径由边缘和一个标记为 S2 的常见节点连接。最常见的异常在服务 = S2 上捕获，根本原因可以通过两个路径来进行分析，这两个路径会导致服务 = S2 |数据中心 = DC2 |计算机 = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>后续步骤
 - [指标顾问概述](overview.md)
-- [试用演示网站](quickstarts/explore-demo.md)
 - [使用 Web 门户](quickstarts/web-portal.md)

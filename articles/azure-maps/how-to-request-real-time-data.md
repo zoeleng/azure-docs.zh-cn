@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6f0cf663b42c8487495602e4cdbf1a88427f9daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310928"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895709"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>使用 Azure Maps 移动服务请求实时公共传输数据
 
-本文介绍如何使用 Azure Maps [移动服务](https://aka.ms/AzureMapsMobilityService) 来请求实时公共传输数据。
+本文介绍如何使用 Azure Maps [移动服务](/rest/api/maps/mobility) 来请求实时公共传输数据。
 
 在本文中，你将学习如何请求到达给定停止处的所有行的下一个实时到达
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 首先需要 Azure Maps 帐户和订阅密钥才能对 Azure Maps 公用传输 Api 进行任何调用。 有关信息，请按照 [创建帐户](quick-demo-map-app.md#create-an-azure-maps-account) 创建 Azure Maps 帐户中的说明进行操作。 按照 [获取主密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account) 中的步骤获取帐户的主密钥。 有关 Azure Maps 中身份验证的详细信息，请参阅[在 Azure Maps 中管理身份验证](./how-to-manage-authentication.md)。
 
@@ -30,7 +30,7 @@ ms.locfileid: "91310928"
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>请求停止的实时到达
 
-为了请求特定公用传输停止的实时到达数据，需要向 Azure Maps[移动服务](https://aka.ms/AzureMapsMobilityService)的[实时到达 API](https://aka.ms/AzureMapsMobilityRealTimeArrivals)发出请求，。 需要 **metroID** 和 **stopID** 来完成请求。 若要详细了解如何请求这些参数，请参阅有关如何 [请求公用传输路由](https://aka.ms/AMapsHowToGuidePublicTransitRouting)的指南。
+为了请求特定公用传输停止的实时到达数据，需要向 Azure Maps[移动服务](/rest/api/maps/mobility)的[实时到达 API](/rest/api/maps/mobility/getrealtimearrivalspreview)发出请求，。 需要 **metroID** 和 **stopID** 来完成请求。 若要详细了解如何请求这些参数，请参阅有关如何 [请求公用传输路由](./how-to-request-transit-data.md)的指南。
 
 让我们使用 "522" 作为地铁 ID，这是 "西雅图– Tacoma – Bellevue，WA" 领域的地铁 ID。 使用 "522---2060603" 作为 "stop ID"，此总线将停止在 "Ne 24 日 St & 162nd，Bellevue WA"。 若要请求接下来的五个实时到达数据，则在此停止时，请完成以下步骤：
 
@@ -121,4 +121,4 @@ ms.locfileid: "91310928"
 浏览 Azure Maps 移动服务 API 文档：
 
 > [!div class="nextstepaction"]
-> [移动服务 API 文档](https://aka.ms/AzureMapsMobilityService)
+> [移动服务 API 文档](/rest/api/maps/mobility)

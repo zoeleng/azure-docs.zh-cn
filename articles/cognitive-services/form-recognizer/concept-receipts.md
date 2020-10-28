@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761441"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893680"
 ---
 # <a name="receipt-concepts"></a>回执概念
 
@@ -437,7 +437,7 @@ Azure 窗体识别器可以使用它的一个预生成模型分析回执。 接�
 
 通常，归档业务开支需要花费时间从收据的图像中手动输入数据。 使用接收 API，可以使用提取的字段部分自动执行此过程，并快速分析收据。  
 
-由于接收 API 具有简单的 JSON 输出，因此可以通过多种方式使用提取的字段值。 与内部费用应用程序集成，以预填充费用报告。 有关此方案的详细信息，请阅读 Acumatica 如何利用接收 API 来 [使费用报告的过程更少](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure)。  
+由于接收 API 具有简单的 JSON 输出，因此可以通过多种方式使用提取的字段值。 与内部费用应用程序集成，以预填充费用报告。 有关此方案的详细信息，请阅读 Acumatica 如何利用接收 API 来 [使费用报告的过程更少](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)。  
 
 ### <a name="auditing-and-accounting"></a>审核和记帐 
 

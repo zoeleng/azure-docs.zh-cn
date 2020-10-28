@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d006ec692a2345f6b79c4be29446340cf4af6095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335341"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895454"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>使用 Azure Maps 室内定位模块
 
@@ -147,7 +147,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 4. 初始化定位对象。 定位对象支持以下选项：
     - `Subscription key` 是 Azure Maps 主订阅密钥。
     - `center` 定义室内定位中心位置的纬度和经度。 如果你不希望为 `bounds` 提供值，则为 `center` 提供值。 格式应显示为 `center`：[-122.13315, 47.63637]。
-    - `bounds` 是包含图块集定位数据的最小矩形。 如果你不希望为 `center` 设置值，则为 `bounds` 设置值。 可以通过调用[图块集列表 API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview) 找到定位边界。 图块集列表 API 返回 `bbox`，可以对其进行分析并将其分配给 `bounds`。 格式应显示为 `bounds` ： [# west，# 南部，# 东，# 北部]。
+    - `bounds` 是包含图块集定位数据的最小矩形。 如果你不希望为 `center` 设置值，则为 `bounds` 设置值。 可以通过调用[图块集列表 API](/rest/api/maps/tileset/listpreview) 找到定位边界。 图块集列表 API 返回 `bbox`，可以对其进行分析并将其分配给 `bounds`。 格式应显示为 `bounds` ： [# west，# 南部，# 东，# 北部]。
     - `style` 允许你设置背景颜色。 若要显示白色背景，请将 `style` 定义为“空白”。
     - `zoom` 允许你指定定位的最小和最大缩放级别。
 
@@ -257,4 +257,4 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 > [室内定位的动态样式](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [示例代码](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [示例代码](/samples/browse/?products=azure-maps)

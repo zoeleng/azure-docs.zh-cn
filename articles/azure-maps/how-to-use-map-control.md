@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335324"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895437"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure Maps 地图控件
 
 Map Control 客户端 JavaScript 库允许你将地图和嵌入 Azure Maps 功能呈现到你的 web 或移动应用程序中。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要在网页中使用 Map Control，必须具备以下先决条件之一：
 
 * [创建 Azure Maps 帐户](quick-demo-map-app.md#create-an-azure-maps-account) 并 [获取主要订阅密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account)，也称为主密钥或订阅密钥。
 
-* 获取 Azure Active Directory (具有 [身份验证选项](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)的 AAD) 凭据。
+* 获取 Azure Active Directory (具有 [身份验证选项](/javascript/api/azure-maps-control/atlas.authenticationoptions)的 AAD) 凭据。
 
 ## <a name="create-a-new-map-in-a-web-page"></a>在网页中创建新地图
 
@@ -75,7 +75,7 @@ Map Control 客户端 JavaScript 库允许你将地图和嵌入 Azure Maps 功�
     </style>
    ```
 
-4. 在页面的正文中，添加一个 `<div>` 元素并将其 `id` 指定为 **myMap**。
+4. 在页面的正文中，添加一个 `<div>` 元素并将其 `id` 指定为 **myMap** 。
 
    ```HTML
     <body onload="InitMap()">
@@ -83,7 +83,7 @@ Map Control 客户端 JavaScript 库允许你将地图和嵌入 Azure Maps 功�
     </body>
    ```
 
-5. 现在，我们将初始化地图控件。 若要对控件进行身份验证，你需要拥有 Azure Maps 订阅密钥，或使用具有 [身份验证选项](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)的 AZURE ACTIVE DIRECTORY (AAD) 凭据。
+5. 现在，我们将初始化地图控件。 若要对控件进行身份验证，你需要拥有 Azure Maps 订阅密钥，或使用具有 [身份验证选项](/javascript/api/azure-maps-control/atlas.authenticationoptions)的 AZURE ACTIVE DIRECTORY (AAD) 凭据。
 
     如果使用订阅密钥进行身份验证，请复制以下脚本元素，并将其粘贴到 `<head>` 元素内和第一个 `<script>` 元素之下。 `<Your Azure Maps Key>`将替换为 Azure Maps 的主订阅密钥。
 
@@ -279,7 +279,7 @@ var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 > [创建地图](map-create.md)
 
 > [!div class="nextstepaction"]
-> [代码示例](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [代码示例](/samples/browse/?products=azure-maps)
 
 有关显示如何将 Azure Active Directory (AAD) 与 Azure Maps 集成的示例列表，请参阅：
 
