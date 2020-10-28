@@ -14,12 +14,12 @@ ms.date: 09/29/2020
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b7bcfa6569edd93373f493cfaa7deff2976d35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540823"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370179"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什么是 Azure AD Privileged Identity Management？
 
@@ -36,14 +36,14 @@ ms.locfileid: "91540823"
 
 Privileged Identity Management 提供基于时间和基于审批的角色激活，用于缓解所关注资源上出现的访问权限过度、不必要或滥用的风险。 下面是 Privileged Identity Management 的一些重要功能：
 
-- 提供对 Azure AD 和 Azure 资源的**实时**特权访问权限
-- 使用开始和结束日期分配对资源的**限时**访问权限
-- 要求获得**批准**才能激活特权角色
-- 强制要求在激活任何角色时执行**多重身份验证**
-- 使用**理由**来了解用户激活角色的原因
-- 激活特权角色时获取**通知**
-- 开展**访问评审**，以确保用户仍然需要角色
-- 下载**审核历史记录**进行内部或外部审核
+- 提供对 Azure AD 和 Azure 资源的 **实时** 特权访问权限
+- 使用开始和结束日期分配对资源的 **限时** 访问权限
+- 要求获得 **批准** 才能激活特权角色
+- 强制要求在激活任何角色时执行 **多重身份验证**
+- 使用 **理由** 来了解用户激活角色的原因
+- 激活特权角色时获取 **通知**
+- 开展 **访问评审** ，以确保用户仍然需要角色
+- 下载 **审核历史记录** 进行内部或外部审核
 
 ## <a name="what-can-i-do-with-it"></a>它的作用是什么？
 
@@ -106,5 +106,5 @@ Privileged Identity Management 支持以下方案：
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 Privileged Identity Management 的许可要求](subscription-requirements.md)
-- [确保 Azure AD 中混合部署和云部署的特权访问安全性](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [确保 Azure AD 中混合部署和云部署的特权访问安全性](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [部署 Privileged Identity Management](pim-deployment-plan.md)

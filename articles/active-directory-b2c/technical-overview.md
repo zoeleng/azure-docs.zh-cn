@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921667"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364076"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C 的技术和功能概述
 
@@ -29,7 +29,7 @@ ms.locfileid: "87921667"
 
 * **目录** - 目录是 Azure AD B2C 将用户的凭据和配置文件数据以及应用程序注册存储到的位置。
 * **应用程序注册** - 将 Web、移动和本机应用程序注册到 Azure AD B2C 以启用标识管理。 此外，应用程序注册还包括要使用 Azure AD B2C 保护的 API。
-* **用户流**和**自定义策略** - 应用程序的内置标识体验（用户流）和完全可自定义的标识体验（自定义策略）。
+* **用户流** 和 **自定义策略** - 应用程序的内置标识体验（用户流）和完全可自定义的标识体验（自定义策略）。
   * 使用用户流可以快速配置和启用常见标识任务，例如注册、登录和配置文件编辑。
   * 使用自定义策略不仅可为常见标识任务启用用户体验，而且还能为组织、客户、员工、合作伙伴和市民的独特复杂标识工作流构建支持。
 * **标识提供者** - 以下对象的联合设置：
@@ -56,8 +56,8 @@ Azure AD B2C 定义多种类型的用户帐户。 Azure Active Directory、Azure
 
 可将使用者帐户关联到以下标识类型：
 
-* **本地**标识：将用户名和密码存储在 Azure AD B2C 目录本地。 我们通常将此类标识称为“本地帐户”。
-* **社交**或**企业**标识：用户的标识由 Facebook、Microsoft、ADFS 或 Salesforce 等联合标识提供者进行管理。
+* **本地** 标识：将用户名和密码存储在 Azure AD B2C 目录本地。 我们通常将此类标识称为“本地帐户”。
+* **社交** 或 **企业** 标识：用户的标识由 Facebook、Microsoft、ADFS 或 Salesforce 等联合标识提供者进行管理。
 
 具有使用者帐户的用户可以通过多个标识（例如用户名、电子邮件、员工 ID、政府 ID 等）登录。 单个帐户可以有多个本地和社交标识。
 
@@ -87,11 +87,11 @@ Azure AD B2C 的核心优势在于它的可扩展策略框架。 策略描述用
 
 在 Azure AD B2C 中，可以通过两个主要途径来提供这些标识体验：用户流和自定义策略。
 
-* **用户流**是我们提供的预定义的内置可配置策略，使你能够在几分钟内创建注册、登录和策略编辑体验。
+* **用户流** 是我们提供的预定义的内置可配置策略，使你能够在几分钟内创建注册、登录和策略编辑体验。
 
-* 使用**自定义策略**可为复杂的标识体验方案创建自己的用户旅程。
+* 使用 **自定义策略** 可为复杂的标识体验方案创建自己的用户旅程。
 
-用户流和自定义策略均由 *Identity Experience Framework*（Azure AD B2C 的策略业务流程引擎）提供支持。
+用户流和自定义策略均由 *Identity Experience Framework* （Azure AD B2C 的策略业务流程引擎）提供支持。
 
 ### <a name="user-flow"></a>用户流
 
@@ -215,7 +215,7 @@ Azure AD B2C 租户与用于员工和合作伙伴的企业 Azure Active Director
 * 在 Identity Experience Framework 中创建和管理信任框架策略（自定义策略）
 * 在 Identity Experience Framework 中管理用于联合身份验证和加密的机密（自定义策略）
 
-有关 Azure AD 角色的详细信息，包括 Azure AD B2C 管理角色支持，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+有关 Azure AD 角色的详细信息，包括 Azure AD B2C 管理角色支持，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)。
 
 ### <a name="multi-factor-authentication-mfa"></a>多重身份验证 (MFA)
 

@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08623e6d69ac4db1790c1e9b46089f0c72c0526d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf57e60fc05d579365d459e4a5d5288c2ca52bb0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87910437"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442144"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Azure Active Directory 中的外部标识是什么？
 
@@ -31,7 +31,7 @@ Azure AD 外部标识在用户与组织的关系上关注较少，而在个人�
 
 - 开发面向其他 Azure AD 租户（单租户或多租户）的应用。 为 Azure AD 开发应用程序时，可以定向到单个组织中的用户（单租户），或已具有 Azure AD 租户的任何组织的用户（称为多租户应用程序）。 这些多租户应用程序在你自己的 Azure AD 中自行注册过一次，但随后可以由任何组织中的任何 Azure AD 用户使用，不需要你做任何额外的工作。
 
-- 为消费者和客户 (Azure AD B2C) 开发白标应用。 如果你是创建面向客户的应用的业务或开发人员，则可以使用 Azure AD B2C 扩展到消费者、客户或公民。 开发人员可将 Azure AD 作为其应用程序的全功能标识系统，而让客户使用其已建立的标识（例如 Facebook 或 Gmail）进行登录。 借助 Azure AD B2C，可以在使用你的应用程序时，完全自定义和控制客户的注册和登录方式以及管理其个人资料。 有关详细信息，请参阅 [Azure AD B2C 文档](https://docs.microsoft.com/azure/active-directory-b2c/)。
+- 为消费者和客户 (Azure AD B2C) 开发白标应用。 如果你是创建面向客户的应用的业务或开发人员，则可以使用 Azure AD B2C 扩展到消费者、客户或公民。 开发人员可将 Azure AD 作为其应用程序的全功能标识系统，而让客户使用其已建立的标识（例如 Facebook 或 Gmail）进行登录。 借助 Azure AD B2C，可以在使用你的应用程序时，完全自定义和控制客户的注册和登录方式以及管理其个人资料。 有关详细信息，请参阅 [Azure AD B2C 文档](../../active-directory-b2c/index.yml)。
 
 ## <a name="compare-external-identities-solutions"></a>比较外部标识解决方案
 
@@ -45,13 +45,13 @@ Azure AD 外部标识在用户与组织的关系上关注较少，而在个人�
 | 外部用户在其自己的目录中管理，该目录与注册应用程序所在的目录相隔离。    | 外部用户在员工所在的目录中进行托管（特别备注的除外）。 可采用与员工相同的方式进行管理，还可将其添加到相同组，等等。    | 外部用户在应用程序目录中管理。 他们与组织的员工和合作伙伴目录（若有）分开管理。  |
 | 单一登录：支持 SSO 到所有 Azure AD 连接的应用。          | 单一登录：支持 SSO 到所有 Azure AD 连接的应用。 例如，可允许访问 Microsoft 365 或本地应用以及其他 SaaS 应用（例如 Salesforce 或 Workday）。    | 单一登录：支持在 Azure AD B2C 租户中单一登录到客户自有应用。 不支持 SSO 到 Microsoft 365 或其他 Microsoft SaaS 应用。    |
 | 客户生命周期：由用户的本组织管理。      | 合作伙伴生命周期：由主办/邀请组织管理。    | 客户生命周期：自助服务或由应用程序管理。      |
-| 安全策略和符合性：由主办/邀请组织管理（例如，通过[条件访问策略](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)）。           | 安全策略和符合性：由主办/邀请组织管理（例如，通过[条件访问策略](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)）。 | 安全策略和符合性：由应用程序管理。        |
+| 安全策略和符合性：由主办/邀请组织管理（例如，通过[条件访问策略](./conditional-access.md)）。           | 安全策略和符合性：由主办/邀请组织管理（例如，通过[条件访问策略](./conditional-access.md)）。 | 安全策略和符合性：由应用程序管理。        |
 | 品牌：使用主办/邀请组织的品牌。   | 品牌：使用主办/邀请组织的品牌。    | 品牌：由应用程序管理。 通常是带品牌的产品，组织退居幕后。   |
-| 详细信息：[管理多租户应用程序中的标识](https://docs.microsoft.com/azure/architecture/multitenant-identity/)、[操作指南](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) | 详细信息：[博客文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/)、[文档](what-is-b2b.md)                   | 详细信息：[产品页](https://azure.microsoft.com/services/active-directory-b2c/)、[文档](https://docs.microsoft.com/azure/active-directory-b2c/)       |
+| 详细信息：[管理多租户应用程序中的标识](/azure/architecture/multitenant-identity/)、[操作指南](../develop/howto-convert-app-to-be-multi-tenant.md) | 详细信息：[博客文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/)、[文档](what-is-b2b.md)                   | 详细信息：[产品页](https://azure.microsoft.com/services/active-directory-b2c/)、[文档](../../active-directory-b2c/index.yml)       |
 
 使用 Azure AD 外部标识保护和管理超出组织边界的客户和合作伙伴。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [什么是 Azure AD B2B 协作？](what-is-b2b.md)
-- [关于 Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview)
+- [关于 Azure AD B2C](../../active-directory-b2c/overview.md)

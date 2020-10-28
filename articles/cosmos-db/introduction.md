@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: aad69a34cc27f341bec5beda0f52e2581538aaf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cd6bbe963f0cee89c188053d0770816fdabc1b93
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278427"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490384"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 是 Microsoft 提供的全球分布式多模型数据库服务�
 
 凭借 Cosmos DB，你可以在全球范围内生成具有高响应性和高可用性的应用程序。 无论用户身处何处，Cosmos DB 均可以透明方式复制数据，因此用户可以与离他们最近的数据副本进行交互。
 
-凭借 Cosmos DB，还可以随时向 Cosmos 帐户添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将无缝地将数据复制到与 Cosmos 帐户相关联的所有区域，同时，得益于该服务的多导功能，应用程序将继续保持高可用性。 有关详细信息，请参阅[全局分发](distribute-data-globally.md)一文。
+凭借 Cosmos DB，还可以随时向 Cosmos 帐户添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将无缝地将数据复制到与 Cosmos 帐户相关联的所有区域，同时，得益于该服务的多导功能，应用程序将继续保持高可用性  。 有关详细信息，请参阅[全局分发](distribute-data-globally.md)一文。
 
 ### <a name="always-on"></a>AlwaysOn
 
@@ -40,7 +40,7 @@ Azure Cosmos DB 是 Microsoft 提供的全球分布式多模型数据库服务�
 
 ### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>吞吐量和存储的弹性可伸缩性（全球范围内）
 
-Cosmos DB 采用透明的水平分区和多区域写入复制设计，在全球范围内为读取操作和写入操作提供了前所未有的、灵活的可伸缩性。 通过单个 API 调用即可在全球范围内从数千个请求/秒扩展到数亿个请求/秒，并且只需为所需吞吐量（和存储）付费。 此功能有助于处理工作负载中的意外峰值，而无需为意外峰值进行过度预配。 有关详细信息，请参阅 [Cosmos DB 中的分区](partitioning-overview.md)、[容器和数据库上的预配吞吐量](set-throughput.md)以及[全局缩放预配的吞吐量](scaling-throughput.md)。
+Cosmos DB 采用透明的水平分区和多区域写入复制设计，在全球范围内为读取操作和写入操作提供了前所未有的、灵活的可伸缩性。 通过单个 API 调用即可在全球范围内从数千个请求/秒扩展到数亿个请求/秒，并且只需为所需吞吐量（和存储）付费。 此功能有助于处理工作负载中的意外峰值，而无需为意外峰值进行过度预配。 有关详细信息，请参阅 [Cosmos DB 中的分区](partitioning-overview.md)、[容器和数据库上的预配吞吐量](set-throughput.md)以及[全局缩放预配的吞吐量](./request-units.md)。
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>保证第 99 个百分位为低延迟（全球范围内）
 
@@ -48,7 +48,7 @@ Cosmos DB 采用透明的水平分区和多区域写入复制设计，在全球�
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>精确定义的多个一致性选择
 
-在 Cosmos DB 中构建全球分布式应用程序时，不再需要[在一致性、可用性、延迟和吞吐量之间进行极端的权衡](consistency-levels-tradeoffs.md)。 Cosmos DB 的多区域写入复制协议经过精心设计，为一个直观的编程模型（其低延迟和高可用性适用于全球分布式应用程序）提供[五个明确定义的一致性选择](consistency-levels.md) - “强”、“有限过期”、“会话”、“一致前缀”和“最终”    。
+在 Cosmos DB 中构建全球分布式应用程序时，不再需要[在一致性、可用性、延迟和吞吐量之间进行极端的权衡](./consistency-levels.md)。 Cosmos DB 的多区域写入复制协议经过精心设计，为一个直观的编程模型（其低延迟和高可用性适用于全球分布式应用程序）提供[五个明确定义的一致性选择](consistency-levels.md) - “强”、“有限过期”、“会话”、“一致前缀”和“最终”    。
 
 ### <a name="no-schema-or-index-management"></a>无需架构或索引管理
 
@@ -76,11 +76,11 @@ Cosmos DB 是第一个也是唯一一个提供[业界领先复合型 SLA](https:
 
 ### <a name="globally-distributed-operational-analytics-and-ai-with-natively-built-in-apache-spark"></a>具有本机内置 Apache Spark 的全球分布式运营分析和 AI
 
-可以在 Cosmos DB 中存储的数据上直接运行 [Spark](spark-connector.md)。 凭借该功能，你可以在全球范围内执行低延迟的操作分析，而不会影响直接针对 Cosmos DB 进行操作的事务工作负载。 有关详细信息，请参阅[全球分布式运营分析](lambda-architecture.md)。
+可以在 Cosmos DB 中存储的数据上直接运行 [Spark](spark-connector.md)。 凭借该功能，你可以在全球范围内执行低延迟的操作分析，而不会影响直接针对 Cosmos DB 进行操作的事务工作负载。 有关详细信息，请参阅[全球分布式运营分析](./synapse-link.md)。
 
 ### <a name="develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis"></a>使用常用的开放源代码软件 (OSS) API 在 Cosmos DB 上开发应用程序
 
-Cosmos DB 提供多种 API 来处理存储在 Cosmos 数据库中的数据。 默认情况下，[可以使用 SQL](how-to-sql-query.md)（核心 API）来查询 Cosmos 数据库。 Cosmos DB 还实现用于 [Cassandra](cassandra-introduction.md)、[MongoDB](mongodb-introduction.md)、[Gremlin](graph-introduction.md) 和 [Azure 表存储](table-introduction.md)的 API。 可以将常用 NoSQL（例如，MongoDB、Cassandra、Gremlin）的客户端驱动程序（和工具）直接指向 Cosmos 数据库。 Cosmos DB 支持常用 NoSQL API 的网络协议，因此可用其实现以下目标：
+Cosmos DB 提供多种 API 来处理存储在 Cosmos 数据库中的数据。 默认情况下，[可以使用 SQL](./sql-query-getting-started.md)（核心 API）来查询 Cosmos 数据库。 Cosmos DB 还实现用于 [Cassandra](cassandra-introduction.md)、[MongoDB](mongodb-introduction.md)、[Gremlin](graph-introduction.md) 和 [Azure 表存储](table-introduction.md)的 API。 可以将常用 NoSQL（例如，MongoDB、Cassandra、Gremlin）的客户端驱动程序（和工具）直接指向 Cosmos 数据库。 Cosmos DB 支持常用 NoSQL API 的网络协议，因此可用其实现以下目标：
 
 * 轻松将应用程序迁移到 Cosmos DB，同时保留应用程序逻辑的重要部分。
 * 使应用程序保持可移植性，并继续保持云供应商的不可知性。

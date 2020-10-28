@@ -8,19 +8,19 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707891"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481187"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 Python 连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
 本快速入门介绍如何使用 macOS、Ubuntu Linux 或 Windows 上的 Python 来处理 Azure Database for PostgreSQL。 本快速入门介绍了如何连接数据库和使用 SQL 语句查询、插入、更新和删除数据。 本文假设你熟悉如何使用 Python，但不熟悉如何使用 Azure Database for PostgreSQL。
 
 > [!TIP]
-> 如果希望使用 PostgreSQL 生成 Django 应用程序，请查看教程 - [使用 PostgreSQL 部署 Django Web 应用](../app-service/containers/tutorial-python-postgresql-app.md)教程。
+> 如果希望使用 PostgreSQL 生成 Django 应用程序，请查看教程 - [使用 PostgreSQL 部署 Django Web 应用](../app-service/tutorial-python-postgresql-app.md)教程。
 
 
 ## <a name="prerequisites"></a>先决条件

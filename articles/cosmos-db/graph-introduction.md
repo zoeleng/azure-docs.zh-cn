@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279841"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490605"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Gremlin API 简介
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 是一个完全托管的图形数据库，提供全局分发、�
 
 * **可灵活缩放吞吐量和存储**
 
-  现实世界中的图形需要扩展到超越单个服务器的容量。 Azure Cosmos DB 支持横向可缩放的图形数据库，就存储和预配吞吐量而言，这些数据库的大小几乎无限制。 随着图形数据库规模的增长，数据将使用[图形分区](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning)自动分发。
+  现实世界中的图形需要扩展到超越单个服务器的容量。 Azure Cosmos DB 支持横向可缩放的图形数据库，就存储和预配吞吐量而言，这些数据库的大小几乎无限制。 随着图形数据库规模的增长，数据将使用[图形分区](./graph-partitioning.md)自动分发。
 
 * **多区域复制**
 
@@ -52,7 +52,7 @@ Azure Cosmos DB 是一个完全托管的图形数据库，提供全局分发、�
 
 * **自动编制索引**
 
-  默认情况下，Azure Cosmos DB 自动为图形中的节点（也称为顶点）和边缘包含的所有属性编制索引，无需任何架构或创建二级索引。 深入了解 [Azure Cosmos DB 中的索引](https://docs.microsoft.com/azure/cosmos-db/index-overview)。
+  默认情况下，Azure Cosmos DB 自动为图形中的节点（也称为顶点）和边缘包含的所有属性编制索引，无需任何架构或创建二级索引。 深入了解 [Azure Cosmos DB 中的索引](/azure/cosmos-db/index-overview)。
 
 * **与 Apache TinkerPop 兼容**
 

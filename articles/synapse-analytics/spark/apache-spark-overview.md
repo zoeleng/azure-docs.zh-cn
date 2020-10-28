@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87498916"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369346"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中的 Apache Spark
 
@@ -45,7 +45,7 @@ Azure Synapse 中的 Spark 池提供完全托管的 Spark 服务。 下面列出
 
 Azure Synapse 中的 Spark 池默认包含可在这些池中使用的以下组件。
 
-- [Spark Core](https://spark.apache.org/docs/latest/)。 包括 Spark Core、Spark SQL、GraphX 和 MLlib。
+- [Spark Core](https://spark.apache.org/docs/2.4.5/)。 包括 Spark Core、Spark SQL、GraphX 和 MLlib。
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 - [Nteract 笔记本](https://nteract.io/)
@@ -81,7 +81,7 @@ Apache Spark 随附 [MLlib](https://spark.apache.org/mllib/) - 构建在 Spark �
 - [快速入门：在 Azure Synapse 中创建 Spark 池](../quickstart-create-apache-spark-pool-portal.md)
 - [快速入门：创建 Apache Spark 笔记本](../quickstart-apache-spark-notebook.md)
 - [教程：使用 Apache Spark 进行机器学习](./apache-spark-machine-learning-mllib-notebook.md)
-- [Apache Spark 官方文档](https://spark.apache.org/docs/latest/)
+- [Apache Spark 官方文档](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > 某些 Apache Spark 官方文档依赖于使用 Spark 控制台，但该控制台在 Azure Synapse Spark 中不可用，请改用笔记本或 IntelliJ 体验

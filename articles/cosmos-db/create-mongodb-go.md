@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b3d01445eb5624addb5edec3ccb9cd8e4a9b6d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85299188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476019"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：将 Go 应用程序连接到 Azure Cosmos DB 的 API for MongoDB
 
@@ -28,7 +28,7 @@ ms.locfileid: "85299188"
 
 Azure Cosmos DB 是一种多模型数据库服务，你可以借助其全球分布和水平缩放功能快速创建和查询文档、表、键/值和图数据库。 本快速入门将使用 Azure Cloud Shell 创建和管理 Azure Cosmos DB 帐户，从 GitHub 克隆现有示例应用程序并将其配置为使用 Azure Cosmos DB。 
 
-示例应用程序是使用 Go 编写的基于命令行的 `todo` 管理工具。 Azure Cosmos DB 的 API for MongoDB [与 MongoDB Wire Protocol 兼容](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility)，因而任何 MongoDB 客户端驱动程序都可以与其连接。 此应用程序使用[适用于 MongoDB 的 Go 驱动程序](https://github.com/mongodb/mongo-go-driver)，其使用方式使该应用程序完全知道数据存储在 Azure Cosmos DB 数据库中。
+示例应用程序是使用 Go 编写的基于命令行的 `todo` 管理工具。 Azure Cosmos DB 的 API for MongoDB [与 MongoDB Wire Protocol 兼容](./mongodb-introduction.md#wire-protocol-compatibility)，因而任何 MongoDB 客户端驱动程序都可以与其连接。 此应用程序使用[适用于 MongoDB 的 Go 驱动程序](https://github.com/mongodb/mongo-go-driver)，其使用方式使该应用程序完全知道数据存储在 Azure Cosmos DB 数据库中。
 
 ## <a name="prerequisites"></a>先决条件
 - 具有活动订阅的 Azure 帐户。 [免费创建一个](https://azure.microsoft.com/free)。 或者[免费试用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 而无需 Azure 订阅。 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` 配合使用。
@@ -279,7 +279,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 创建 Azure Cosmos DB 帐户后，Azure CLI 会显示类似于以下示例的信息： 
 
 > [!NOTE]
-> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 命令的输出格式](https://docs.microsoft.com/cli/azure/format-output-azure-cli)。
+> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 命令的输出格式](/cli/azure/format-output-azure-cli)。
 
 ```json
 {
@@ -420,7 +420,7 @@ Azure Cosmos DB 中存储的数据可用于在 Azure 门户中查看和查询。
 
 若要查看、查询和处理在上一步骤中创建的用户数据，请在 Web 浏览器中登录到 [Azure 门户](https://portal.azure.com)。
 
-在顶部搜索框中，输入 **Azure Cosmos DB**。 打开 Cosmos 帐户边栏选项卡后，请选择 Cosmos 帐户。 在左侧导航栏中，选择“数据资源管理器”。 在“集合”窗格中展开你的集合，即可查看该集合中的文档，查询数据，甚至可以创建和运行存储过程、触发器与 UDF。 
+在顶部搜索框中，输入 **Azure Cosmos DB** 。 打开 Cosmos 帐户边栏选项卡后，请选择 Cosmos 帐户。 在左侧导航栏中，选择“数据资源管理器”。 在“集合”窗格中展开你的集合，即可查看该集合中的文档，查询数据，甚至可以创建和运行存储过程、触发器与 UDF。 
 
 :::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="数据资源管理器，显示新创建的文档&quot;:::
 
@@ -457,4 +457,4 @@ Azure Cosmos DB 中存储的数据可用于在 Azure 门户中查看和查询。
 在本快速入门中，你已了解了如何使用 Azure Cloud Shell 创建 Azure Cosmos DB MongoDB API 帐户，以及如何创建和运行 Go 命令行应用以管理 `todo`。 现在可以将其他数据导入 Azure Cosmos DB 帐户了。
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: a9da6a592249aed727231b810a3fbb5f7b72e228
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 16f1e2a6b7a3c0e81b7ceb57359a48a84ee489d9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164187"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532724"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 .NET (C#) 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -52,7 +52,7 @@ dotnet add package MySqlConnector
  :::image type="content" source="./media/connect-csharp/1_server-overview-name-login.png" alt-text="Azure Database for MySQL 服务器名称":::
 
 ## <a name="connect-create-table-and-insert-data"></a>进行连接，创建表，然后插入数据
-通过以下代码来连接和加载数据，只需使用 `CREATE TABLE` 和 `INSERT INTO` SQL 语句即可。 代码使用 `MySqlConnection` 类，通过 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 方法来运行数据库命令。 
+通过以下代码来连接和加载数据，只需使用 `CREATE TABLE` 和 `INSERT INTO` SQL 语句即可。 代码使用 `MySqlConnection` 类，通过 [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 方法来运行数据库命令。 
 
 将 `Server`、`Database`、`UserID`、`Password` 参数替换为你在创建服务器和数据库时指定的值。 
 
@@ -117,7 +117,7 @@ namespace AzureMySqlExample
 
 ## <a name="read-data"></a>读取数据
 
-使用以下代码进行连接，并使用 `SELECT` SQL 语句读取数据。 代码使用 `MySqlConnection` 类，通过 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 方法和 [ExecuteReaderAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync) 方法运行数据库命令。 接下来，代码使用 [ReadAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) 转到结果中的记录。 然后，代码使用 GetInt32 和 GetString 分析记录中的值。
+使用以下代码进行连接，并使用 `SELECT` SQL 语句读取数据。 代码使用 `MySqlConnection` 类，通过 [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) 方法和 [ExecuteReaderAsync()](/dotnet/api/system.data.common.dbcommand.executereaderasync) 方法运行数据库命令。 接下来，代码使用 [ReadAsync()](/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) 转到结果中的记录。 然后，代码使用 GetInt32 和 GetString 分析记录中的值。
 
 将 `Server`、`Database`、`UserID`、`Password` 参数替换为你在创建服务器和数据库时指定的值。 
 
@@ -174,7 +174,7 @@ namespace AzureMySqlExample
 ```
 
 ## <a name="update-data"></a>更新数据
-使用以下代码进行连接，并使用 `UPDATE` SQL 语句读取数据。 代码使用 `MySqlConnection` 类，通过 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 方法来运行数据库命令。 
+使用以下代码进行连接，并使用 `UPDATE` SQL 语句读取数据。 代码使用 `MySqlConnection` 类，通过 [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 方法来运行数据库命令。 
 
 将 `Server`、`Database`、`UserID`、`Password` 参数替换为你在创建服务器和数据库时指定的值。 
 
@@ -226,7 +226,7 @@ namespace AzureMySqlExample
 ## <a name="delete-data"></a>删除数据
 使用以下代码进行连接，并使用 `DELETE` SQL 语句删除数据。 
 
-代码使用 `MySqlConnection` 类，通过 [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 方法来运行数据库命令。 
+代码使用 `MySqlConnection` 类，通过 [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) 方法与 MySQL 建立连接。 然后，代码使用 [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) 方法来运行数据库命令。 
 
 将 `Server`、`Database`、`UserID`、`Password` 参数替换为你在创建服务器和数据库时指定的值。 
 

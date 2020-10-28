@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40f820a32c7848b5370cb664d706e9f20928bc5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89296475"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534033"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>快速入门：使用简单的 Azure CLI 命令 az mysql up 创建 Azure Database for MySQL（预览）
 
@@ -28,7 +28,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
 
-你将需要使用 [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 命令登录到你的帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
+你将需要使用 [az login](/cli/azure/authenticate-azure-cli) 命令登录到你的帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
 
 ```azurecli
 az login

@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 128e80572275924655e1da534553265407353fff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319004"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487579"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户生成 Python 应用程序
 
@@ -39,7 +39,7 @@ ms.locfileid: "91319004"
     * 具有 Azure 有效订阅：
         * [创建 Azure 免费帐户](https://azure.microsoft.com/free)或使用现有订阅 
         * [Visual Studio 每月额度](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB 免费层](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB 免费层](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * 不具有 Azure 有效订阅：
         * [免费试用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，为期 30 天的测试环境。
         * [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator) 
@@ -115,7 +115,7 @@ ms.locfileid: "91319004"
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](https://portal.azure.com/)中，在你的 Azure Cosmos DB 帐户中，选择左侧导航栏中的“密钥”。 使用屏幕右侧的复制按钮将 **URI** 和**主密钥**复制到下一步的 *cosmos_get_started.py* 文件中。
+1. 在 [Azure 门户](https://portal.azure.com/)中，在你的 Azure Cosmos DB 帐户中，选择左侧导航栏中的“密钥”。 使用屏幕右侧的复制按钮将 **URI** 和 **主密钥** 复制到下一步的 *cosmos_get_started.py* 文件中。
 
     :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Azure 门户 >“数据资源管理器”>“添加集合”窗格":::
 
@@ -237,5 +237,3 @@ ms.locfileid: "91319004"
 
 > [!div class="nextstepaction"]
 > [将 SQL API 的数据导入 Azure Cosmos DB](import-data.md)
-
-

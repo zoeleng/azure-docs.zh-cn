@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157793"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438378"
 ---
 本快速入门将介绍如何使用适用于 iOS 的 Azure 通信服务呼叫客户端库开始呼叫。
 
@@ -201,4 +201,4 @@ func endCall()
 
 ## <a name="sample-code"></a>代码示例
 
-可以从 [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift) 下载示例应用
+可以从 [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling) 下载示例应用

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88185139"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424492"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for MariaDB 服务器
 
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/azure/group#az-group-create) 命令创建 [Azure 资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](/cli/azure/group#az-group-create) 命令创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在 `westus` 位置创建名为 `myresourcegroup` 的资源组：
 
@@ -49,11 +49,11 @@ az group create --name myresourcegroup --location westus
 ---|---|---
 name | **mydemoserver** | 输入用于标识 Azure Database for MariaDB 服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 它必须包含 3 到 63 个字符。
 resource-group |  myresourcegroup | 输入 Azure 资源组的名称。
-sku-name | **GP_Gen5_2** | SKU 的名称。 请遵循简写约定：*定价层*\_*计算代*\_*vCore 数*。 有关 **sku-name** 参数的详细信息，请查看此表后面的部分。
+sku-name | **GP_Gen5_2** | SKU 的名称。 请遵循简写约定： *定价层*\_*计算代*\_*vCore 数* 。 有关 **sku-name** 参数的详细信息，请查看此表后面的部分。
 backup-retention | **7** | 保留备份的时长。 单位为天。 范围：7 到 35。 
-geo-redundant-backup | **已禁用** | 是否应该为此服务启用异地冗余备份。 允许的值：**Enabled**、**Disabled**。
+geo-redundant-backup | **已禁用** | 是否应该为此服务启用异地冗余备份。 允许的值： **Enabled** 、 **Disabled** 。
 location | **westus** | 服务器的 Azure 位置。
-ssl-enforcement | **已启用** | 是否应该为此服务器启用 SSL。 允许的值：**Enabled**、**Disabled**。
+ssl-enforcement | **已启用** | 是否应该为此服务器启用 SSL。 允许的值： **Enabled** 、 **Disabled** 。
 storage-size | **51200** | 服务器的存储容量（单位是兆字节）。 有效的存储大小最小为 5120 MB，以 1024 MB 为增量。 有关存储大小限制的详细信息，请参阅[定价层](./concepts-pricing-tiers.md)。 
 版本 | **10.2** | MariaDB 主要引擎版本。
 admin-user | **myadmin** | 用于管理员登录的用户名。 admin-user 参数不能是“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”。       
@@ -66,7 +66,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 
 若要按区域和层了解有效值，请参阅[定价层](./concepts-pricing-tiers.md)。
 
-以下示例在“美国西部”区域创建一个名为 **mydemoserver** 的服务器。 该服务器在资源组 **myresourcegroup** 中，其服务器管理员登录名为 **myadmin**。 该服务器为“第 5 代”服务器，属于“常规用途”定价层，有 2 个 vCore。 服务器名称映射到 DNS 名称，必须在 Azure 中全局唯一。 将 `<server_admin_password>` 替换为你自己的服务器管理员密码。
+以下示例在“美国西部”区域创建一个名为 **mydemoserver** 的服务器。 该服务器在资源组 **myresourcegroup** 中，其服务器管理员登录名为 **myadmin** 。 该服务器为“第 5 代”服务器，属于“常规用途”定价层，有 2 个 vCore。 服务器名称映射到 DNS 名称，必须在 Azure 中全局唯一。 将 `<server_admin_password>` 替换为你自己的服务器管理员密码。
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -139,7 +139,7 @@ az mariadb server show --resource-group myresourcegroup --name mydemoserver
 
 ## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>使用 mysql 命令行工具连接到服务器
 
-使用 mysql 命令行工具连接到服务器。 可[下载](https://dev.mysql.com/downloads/)命令行工具并将其安装在计算机上。 还可以通过以下方式访问命令行工具：在本文的代码示例中选择“试用”按钮。  访问命令行工具的另一种方式是在 Azure 门户的右上工具栏中选择 **>_** 按钮，以便打开 **Azure Cloud Shell**。
+使用 mysql 命令行工具连接到服务器。 可[下载](https://dev.mysql.com/downloads/)命令行工具并将其安装在计算机上。 还可以通过以下方式访问命令行工具：在本文的代码示例中选择“试用”按钮。  访问命令行工具的另一种方式是在 Azure 门户的右上工具栏中选择 **>_** 按钮，以便打开 **Azure Cloud Shell** 。
 
 若要使用 mysql 命令行工具连接到服务器，请执行以下操作：
 
@@ -240,4 +240,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [使用 Azure CLI 设计 MariaDB 数据库](./tutorial-design-database-cli.md)
+> [使用 Azure CLI 设计 MariaDB 数据库](tutorial-design-database-cli.md)

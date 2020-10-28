@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2d82b7f618757fbf77072bd7147595eec3083885
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487630"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入门：通过 Azure Cosmos DB SQL API 帐户使用 Xamarin 生成 ToDo 应用
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!NOTE]
 > 在 GitHub 上的[此文档](https://github.com/xamarinhq/app-geocontacts)中，可以找到整个规范示例 Xamarin 应用的示例代码，其中展示了多个 Azure 产品，包括 CosmosDB。 此应用演示如何查看地理分散的联系人，并让这些联系人更新其位置。
 
-本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户、文档数据库和容器。 然后，你将使用 [Xamarin.Forms](https://docs.microsoft.com/xamarin/) 和 [MVVM 体系结构模式](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)生成并部署一个基于 [SQL .NET API](sql-api-sdk-dotnet.md) 和 [Xamarin](https://docs.microsoft.com/xamarin/) 的待办事项列表移动应用。
+本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户、文档数据库和容器。 然后，你将使用 [Xamarin.Forms](/xamarin/) 和 [MVVM 体系结构模式](/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)生成并部署一个基于 [SQL .NET API](sql-api-sdk-dotnet.md) 和 [Xamarin](/xamarin/) 的待办事项列表移动应用。
 
 :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="在 iOS 上运行的 Xamarin ToDo 应用":::
 
@@ -177,7 +177,7 @@ ToDoItems 解决方案中的代码包含：
 以下步骤将演示如何使用 Visual Studio for Mac 调试器来运行应用。
 
 > [!NOTE]
-> Android 版应用的使用完全相同。如果有差异，则会在下面的步骤中指出。 如果希望在 Windows 上使用 Visual Studio 进行调试，可参阅[此处 (iOS)](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) 和[此处 (Android)](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/) 的相关操作文档。
+> Android 版应用的使用完全相同。如果有差异，则会在下面的步骤中指出。 如果希望在 Windows 上使用 Visual Studio 进行调试，可参阅[此处 (iOS)](/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) 和[此处 (Android)](/xamarin/android/deploy-test/debugging/) 的相关操作文档。
 
 1. 首先选择要作为目标的平台，方法是：单击突出显示的下拉列表，然后选择适用于 iOS 的 ToDoItems.iOS 或适用于 Android 的 ToDoItems.Android。
 

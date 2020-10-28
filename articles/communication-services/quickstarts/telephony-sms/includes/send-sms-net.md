@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c044e9dc7b8ee622b157a93726e7700e62ba2dfa
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: c8bce6afd914a22be80a57ae234e39161d182b7f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779490"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499128"
 ---
 通过使用通信服务 C# 短信客户端库来发送短信，开启 Azure 通信服务使用旅程。
 
@@ -41,7 +41,7 @@ ms.locfileid: "91779490"
 
 ### <a name="create-a-new-c-application"></a>新建 C# 应用程序
 
-在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `SmsQuickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：**Program.cs**。
+在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `SmsQuickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目： **Program.cs** 。
 
 ```console
 dotnet new console -o SmsQuickstart
@@ -117,3 +117,7 @@ smsClient.Send(
 ```console
 dotnet run
 ```
+
+## <a name="sample-code"></a>代码示例
+
+可以从 [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS) 下载示例应用

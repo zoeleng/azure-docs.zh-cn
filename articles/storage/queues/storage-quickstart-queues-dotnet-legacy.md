@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e782dc632fe4100194015c3e0adb4ceb1ac30a6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011457"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425876"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>快速入门：使用适用于 .NET 的 Azure 存储 SDK v11 来管理队列
 
@@ -34,7 +34,7 @@ ms.locfileid: "89011457"
 - 安装 [.NET Core for Windows](https://www.microsoft.com/net/download/windows) 或 [.NET Framework](https://www.microsoft.com/net/download/windows)（Visual Studio for Windows 已随附）
 - 安装 [Visual Studio for Windows](https://www.visualstudio.com/)。 如果使用的是 .NET Core，则可以根据需要安装 Visual Studio。  
 
-有关在 .NET Core 与 .NET Framework 之间做出选择的信息，请参阅[为服务器应用选择 .NET Core 或 .NET Framework](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)。
+有关在 .NET Core 与 .NET Framework 之间做出选择的信息，请参阅[为服务器应用选择 .NET Core 或 .NET Framework](/dotnet/standard/choosing-core-framework-server)。
 
 ### <a name="linux"></a>Linux
 
@@ -148,7 +148,7 @@ Press any key to delete the sample queue.
 
 ### <a name="try-parsing-the-connection-string"></a>尝试分析连接字符串
 
-该示例首先检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 对象。 该示例使用 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 方法检查连接字符串是否有效。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true**。
+该示例首先检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 对象。 该示例使用 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 方法检查连接字符串是否有效。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true** 。
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -266,14 +266,14 @@ if (queue != null)
 
 ### <a name="binaries-and-source-code"></a>二进制文件和源代码
 
-- 下载最新版本的[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/azure/storage?view=azure-dotnet)的 NuGet 包
+- 下载最新版本的[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/azure/storage)的 NuGet 包
     - [通用](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [队列](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - 查看 GitHub 上的 [.NET 客户端库源代码](https://github.com/Azure/azure-storage-net)。
 
 ### <a name="client-library-reference-and-samples"></a>客户端库参考和示例
 
-- 参阅 [.NET API 参考](https://docs.microsoft.com/dotnet/api/overview/azure/storage)，详细了解 .NET 客户端库。
+- 参阅 [.NET API 参考](/dotnet/api/overview/azure/storage)，详细了解 .NET 客户端库。
 - 浏览使用 .NET 客户端库编写的[队列存储示例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues)。
 
 ## <a name="next-steps"></a>后续步骤
@@ -281,6 +281,6 @@ if (queue != null)
 本快速入门介绍了如何将消息添加到队列、扫视队列中的消息、取消消息排队，以及使用 .NET 处理消息。 
 
 > [!div class="nextstepaction"]
-> [在使用 Azure 队列存储的应用程序之间进行通信](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [在使用 Azure 队列存储的应用程序之间进行通信](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - 若要详细了解 .NET Core，请参阅 [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/)（.NET 10 分钟入门）。

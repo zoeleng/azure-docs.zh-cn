@@ -2,14 +2,14 @@
 title: 已启用 Azure Arc 的服务器概述
 description: 了解如何使用已启用 Azure Arc 的服务器像管理 Azure 资源一样，管理托管在 Azure 外部的服务器。
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
-ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200961"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460846"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>什么是已启用 Azure Arc 的服务器？
 
@@ -29,7 +29,7 @@ ms.locfileid: "92200961"
 
 - 使用其他 Azure 服务（如使用受支持的 [Azure VM 扩展](manage-vm-extensions.md)的 Azure 自动化[状态配置](../../automation/automation-dsc-overview.md)和 Azure Monitor Log Analytics 工作区）为非 Azure Windows 或 Linux 计算机简化部署。 这包括使用自定义脚本扩展执行部署后配置或软件安装。
 
-- 使用 Azure 自动化中的[更新管理](../../automation/update-management/update-mgmt-overview.md)为 Windows 和 Linux 服务器管理操作系统更新。 首先部署“[混合 Runbook 辅助角色](../../automation/automation-hybrid-runbook-worker.md)”角色，然后按照相应步骤在非 Azure Windows 或 Linux 计算机上[启用更新管理](../../automation/update-management/update-mgmt-enable-portal.md)。
+- 使用 Azure 自动化中的[更新管理](../../automation/update-management/update-mgmt-overview.md)为 Windows 和 Linux 服务器管理操作系统更新。
 
 - 使用 [Azure 安全中心](../../security-center/security-center-introduction.md)将用于检测威胁的非 Azure 服务器包含在内，并主动监视潜在的安全威胁。
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 79f9b6f1ec801b67c8600df0131554cbb51f1030
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12988feeb26bc5821e8f08db3e688a2e1c429e19
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858195"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532622"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>快速入门：使用 ARM 模板在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -56,7 +56,7 @@ ms.locfileid: "91858195"
     |资源组|从下拉列表中选择现有资源组，或选择“新建”。|
     |位置|将使用用于资源组的位置自动填充此值。|
     |群集名称|输入任何全局唯一的名称。 对于此模板，请只使用小写字母和数字。|
-    |群集登录用户名|提供用户名，默认值为 **admin**。|
+    |群集登录用户名|提供用户名，默认值为 **admin** 。|
     |群集登录密码|提供密码。 密码长度不得少于 10 个字符，且至少必须包含一个数字、一个大写字母和一个小写字母、一个非字母数字字符（' " ` 字符除外）。 |
     |SSH 用户名|提供用户名，默认值为 **sshuser**|
     |SSH 密码|提供密码。|
@@ -151,7 +151,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
         
         在具有三个容错域的区域中，复制因子为 3 可让副本分布在容错域中。 在具有两个容错域的区域中，复制因子为 4 可将副本均匀分布在域中。
         
-        有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
+        有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
 
         Kafka 不识别 Azure 容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。
 

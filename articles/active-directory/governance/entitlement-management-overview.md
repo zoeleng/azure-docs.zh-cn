@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597374"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362461"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 权利管理是什么？
 
@@ -77,9 +77,9 @@ Azure AD 权利管理可以帮助解决这些难题。  若要了解有关客户
 
 你还可以控制对依赖于 Azure AD 安全组或 Microsoft 365 组的其他资源的访问权限。  例如：
 
-- 可以通过在访问包中使用 Azure AD 安全组，并为该组配置[基于组的许可](../users-groups-roles/licensing-groups-assign.md)，为用户提供 Microsoft 365 许可证。
+- 可以通过在访问包中使用 Azure AD 安全组，并为该组配置[基于组的许可](../enterprise-users/licensing-groups-assign.md)，为用户提供 Microsoft 365 许可证。
 - 可以通过在访问包中使用 Azure AD 安全组，并为该组创建 [Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)，为用户提供管理 Azure 资源的权限。
-- 可以使用可分配到访问包中 Azure AD 角色的组并向[该组分配 Azure AD 角色](../users-groups-roles/roles-groups-assign-role.md)，从而授予用户管理 Azure AD 角色的访问权限。
+- 可以使用可分配到访问包中 Azure AD 角色的组并向[该组分配 Azure AD 角色](../roles/groups-assign-role.md)，从而授予用户管理 Azure AD 角色的访问权限。
 
 ## <a name="how-do-i-control-who-gets-access"></a>如何控制谁获得访问权限？
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10e3f420a187d67e19392dd3647692b54a817fa5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090295"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475853"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 的 API for MongoDB 构建 Xamarin.Forms 应用
 
@@ -35,7 +35,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 若要运行该示例，需要 [Visual Studio](https://www.visualstudio.com/downloads/) 或 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) 和有效的 Azure CosmosDB 帐户。
 
-如果没有 Visual Studio，请在使用安装程序安装**具有 .NET 的移动开发**后，下载 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
+如果没有 Visual Studio，请在使用安装程序安装 **具有 .NET 的移动开发** 后，下载 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
 
 如果想要使用 Mac，请下载 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) 并运行安装程序。
 
@@ -184,7 +184,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 2. 单击“还原所有 NuGet 包”。
 3. 右键单击“TaskList.Android”，并选择“设为启动项目”。 
 4. 按 F5 开始调试应用程序。
-5. 如果想要在 iOS 上运行，首先请将计算机连接到 Mac（参阅操作[说明](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)）。
+5. 如果想要在 iOS 上运行，首先请将计算机连接到 Mac（参阅操作[说明](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)）。
 6. 右键单击“TaskList.iOS”项目，并选择“设为启动项目”。 
 7. 单击 F5 开始调试应用程序。
 
@@ -206,4 +206,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 本快速入门已介绍如何创建 Azure Cosmos DB 帐户和使用 API for MongoDB 运行 Xamarin.Forms 应用。 现在可以将其他数据导入 Cosmos DB 帐户。
 
 > [!div class="nextstepaction"]
-> [将数据导入到使用 Azure Cosmos DB 的用于 MongoDB 的 API 配置的 Azure Cosmos DB](mongodb-migrate.md)
+> [将数据导入到使用 Azure Cosmos DB 的用于 MongoDB 的 API 配置的 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
