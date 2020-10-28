@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3c5fc8e7ac4e61d44bb6cd54e1690d7c053526
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540207"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>教程：Azure Active Directory 单一登录 (SSO) 与 ServiceNow 集成
 
@@ -290,11 +290,11 @@ ms.locfileid: "88540207"
              > [!NOTE]
              > 如果测试连接失败并且无法激活此连接，则 ServiceNow 会提供替代开关。 你必须在“搜索导航”  中输入“Sys_properties.LIST”  ，它将打开新的系统属性页。 在这里，你必须创建一个名为“glide.authenticate.multisso.test.connection.mandatory”  的新属性，其“datatype”  为“True/False”  ，然后将“value”  设置为“False”  。
 
-             > ![“测试结果”页的屏幕截图](./media/servicenow-tutorial/testconnection-fail.png "配置单一登录")
+             > ![屏幕截图显示已标注测试连接的“系统属性”选项卡。](./media/servicenow-tutorial/testconnection-fail.png "配置单一登录")
         
           1. 当系统提示你输入凭据时，请输入凭据。 然后，会看到以下页面。 会发生“SSO 注销测试结果”  错误。 忽略此错误，然后选择“激活”  。
 
-             ![“测试结果”页的屏幕截图](./media/servicenow-tutorial/servicenowactivate.png "配置单一登录")
+             ![屏幕截图显示 S S O 登录测试结果和 S S O 注销测试结果，以及“激活”按钮。](./media/servicenow-tutorial/servicenowactivate.png "配置单一登录")
   
 1. 若要手动配置 ServiceNow  ，请执行以下步骤：
 
@@ -347,11 +347,11 @@ ms.locfileid: "88540207"
           > [!NOTE]
           > 如果测试连接失败并且无法激活此连接，则 ServiceNow 会提供替代开关。 你必须在“搜索导航”  中输入“Sys_properties.LIST”  ，它将打开新的系统属性页。 在这里，你必须创建一个名为“glide.authenticate.multisso.test.connection.mandatory”  的新属性，其“datatype”  为“True/False”  ，然后将“value”  设置为“False”  。
 
-          > ![“测试结果”页的屏幕截图](./media/servicenow-tutorial/testconnection-fail.png "配置单一登录")
+          > ![屏幕截图显示已标注测试连接的“系统属性”选项卡。](./media/servicenow-tutorial/testconnection-fail.png "配置单一登录")
 
         * 当系统提示你输入凭据时，请输入凭据。 然后，会看到以下页面。 会发生“SSO 注销测试结果”  错误。 忽略此错误，然后选择“激活”  。
 
-          ![“测试结果”页的屏幕截图](./media/servicenow-tutorial/servicenowactivate.png "配置单一登录")
+          ![屏幕截图显示 S S O 登录测试结果和 S S O 注销测试结果，以及“激活”按钮。](./media/servicenow-tutorial/servicenowactivate.png "配置单一登录")
 
 ### <a name="create-servicenow-test-user"></a>创建 ServiceNow 测试用户
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 131c282ab61f04ffa94921c2816886a35ea4b7ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936820"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221224"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>快速入门：使用 C# 向必应实体搜索 REST API 发送搜索请求
 
@@ -28,21 +28,20 @@ ms.locfileid: "88936820"
 ## <a name="prerequisites"></a>先决条件
 
 - 任何版本的 [Visual Studio 2017 或更高版本](https://www.visualstudio.com/downloads/)。
-
-- [Json.NET](https://www.newtonsoft.com/json) 框架，可以 NuGet 包的形式提供。 若要在 Visual Studio 中安装 NuGet 包，请执行以下操作：
-
-   1. 在“解决方案资源管理器”中右键单击项目。
-   2. 选择“管理 NuGet 包”。
-   3. 搜索并选择 Newtonsoft.Json，然后安装该包。
-
-- 如果使用的是 Linux/MacOS，则可使用 [Mono](https://www.mono-project.com/) 运行此应用程序。
+- 或者，如果使用的是 Linux 或 MacOS，则可以使用 [Visual Studio Code](https://code.visualstudio.com/) 和 [.NET Core](/dotnet/core/install/macos) 遵循此快速入门操作
+- [免费的 Azure 帐户](https://azure.microsoft.com/free/dotnet)
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>创建并初始化项目
 
-1. 在 Visual Studio 中创建一个新的 C# 控制台解决方案。 然后将以下命名空间添加到主代码文件：
+1. 在 Visual Studio 中创建一个新的 C# 控制台解决方案。 
+1. 添加 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet 包。
+    1. 在“解决方案资源管理器”中右键单击项目。
+    2. 选择“管理 NuGet 包”。
+    3. 搜索并选择 Newtonsoft.Json，然后安装该包。
+1. 然后将以下命名空间添加到主代码文件：
     
     ```csharp
     using Newtonsoft.Json;

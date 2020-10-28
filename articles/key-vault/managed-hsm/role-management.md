@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818028"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149103"
 ---
 # <a name="managed-hsm-role-management"></a>托管 HSM 角色管理
 
@@ -70,7 +70,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 使用 `az keyvault role assignment list` 列出角色分配。
 
-在范围 /（没有指定范围时的默认选择）中为所有用户（指定被分派人时的默认选择）执行的所有角色分配
+在作用域/（未指定 --scope 时则为默认作用域）中为所有用户（未指定 --assignee 时则为默认用户）执行的所有角色分配
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM

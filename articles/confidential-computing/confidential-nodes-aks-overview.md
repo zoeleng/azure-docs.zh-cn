@@ -7,21 +7,20 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940763"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125435"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Azure Kubernetes 服务 (AKS) 上的机密计算节点（公共预览版）
 
-使用敏感数据时，可使用 [Azure 机密计算](overview.md)保护敏感数据。 底层基础结构保护此数据不受其他应用程序、管理员和云提供商影响。 
+使用敏感数据时，可使用 [Azure 机密计算](overview.md)保护敏感数据。 底层基础结构通过硬件支持的受信任执行容器环境保护此数据不受其他应用程序、管理员和云提供商影响。
 
 ## <a name="overview"></a>概述
 
-Azure Kubernetes 服务 (AKS) 支持在 Intel SGX 上添加 [DCsv2 机密计算节点](confidential-computing-enclaves.md)。 这些节点通过允许用户级代码分配内存的专用区域，在基于硬件的可信执行环境 (TEE) 内运行敏感工作负载。 这些专用内存区域称为 enclave。 Enclave 旨在保护代码和数据不受以更高特权运行的进程的影响。 SGX 执行模型删除来宾 OS 和虚拟机监控程序的中间层。 这使你可以直接在 CPU 上执行容器应用程序，同时对特殊内存块进行加密。 
-
+Azure Kubernetes 服务 (AKS) 支持添加由 Intel SGX 提供支持的 [DCsv2 机密计算节点](confidential-computing-enclaves.md)。 这些节点通过允许用户级代码分配内存的专用区域，可在基于硬件的可信执行环境 (TEE) 内运行敏感工作负载。 这些专用内存区域称为 enclave。 Enclave 旨在保护代码和数据不受以更高特权运行的进程的影响。 SGX 执行模型删除来宾 OS、主机 OS 和虚拟机监控程序的中间层。 基于每个容器的硬件独立执行模型允许应用程序直接在 CPU 中执行，同时使特殊的内存块保持加密。 机密计算节点有助于提高 AKS 上容器应用程序的总体安全状况，并对深层防御容器策略提供极大帮助。 
 
 ![sgx 节点概述](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -36,7 +35,7 @@ Azure Kubernetes 服务 (AKS) 支持在 Intel SGX 上添加 [DCsv2 机密计算�
 - 通过 AKS DaemonSet 的进程外证明帮助程序
 - 通过 Ubuntu 18.04 Gen 2 VM 工作器节点的 Linux 容器支持
 
-## <a name="aks-provided-daemon-sets"></a>AKS 提供的守护程序集
+## <a name="aks-provided-daemon-sets-addon"></a>AKS 提供的守护程序集（加载项）
 
 #### <a name="sgx-device-plugin"></a>SGX 设备插件 <a id="sgx-plugin"></a>
 

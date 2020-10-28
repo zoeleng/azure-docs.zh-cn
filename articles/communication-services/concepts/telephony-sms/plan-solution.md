@@ -10,19 +10,19 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048213"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070344"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>规划电话服务和短信解决方案
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-借助 Azure 通信服务，可以使用电话号码通过公用电话交换网 (PSTN) 进行语音呼叫和发送短信。 在本文档中，我们将使用通信服务查看电话号码类型、套餐和适用区域，以规划电话服务和短信解决方案。
+借助 Azure 通信服务，可以使用电话号码通过公用电话交换网 (PSTN) 进行语音呼叫和发送短信。 在本文档中，我们将使用通信服务查看电话号码类型、配置选项和区域可用性，以规划电话服务和短信解决方案。
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -48,18 +48,18 @@ ms.locfileid: "92048213"
 | 电话号码类型 | 示例                              | 上市国家/地区    | 电话号码功能 |常见用例                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | 本地（地理）        | +1（本地区号）XXX XX XX  | US                      | 通话（拨出） | 将电话号码分配给应用程序中的用户  |
-| 免费电话         | +1（免费电话*区号*）XXX XX XX | US                      | 通话（拨出）、短信（传入/传出）| 将电话号码分配给互动语音响应 (IVR) 系统/机器人、短信应用程序                                        |
+| 免费电话         | +1（免费电话 *区号* ）XXX XX XX | US                      | 通话（拨出）、短信（传入/传出）| 将电话号码分配给互动语音响应 (IVR) 系统/机器人、短信应用程序                                        |
 
 
-## <a name="phone-number-plans-in-azure-communication-services"></a>Azure 通信服务中的电话号码套餐 
+## <a name="phone-number-features-in-azure-communication-services"></a>Azure 通信服务中的电话号码功能 
 
-对于大多数电话号码，我们允许配置“按菜单点菜”套餐。 某些开发人员只需要拨出通话套餐；而其他人可能会选择拨出通话和传出短信套餐。 你可以在 Azure 通信服务中租赁电话号码时选择这些套餐。
+对于大多数电话号码，我们允许配置“按菜单点菜”功能。 你可以在 Azure 通信服务中租赁电话号码时选择这些功能。
 
-你可以使用的套餐取决于你进行操作时所在的国家/地区、你的用例以及所选电话号码类型。 出于法规要求，这些套餐因国家/地区而异。 Azure 通信服务提供以下套餐：
+你可以使用的功能取决于你进行操作时所在的国家/地区、你的用例以及所选电话号码类型。 出于法规要求，这些功能因国家/地区而异。 Azure 通信服务提供以下电话号码功能：
 
-- **单向传出短信**：此套餐允许你向用户发送短信。 此套餐适用于通知和双重身份验证警报等方案。 
-- **双向传入和传出短信**：此套餐允许你使用电话号码向用户发送短信以及接收来自用户的短信。 此套餐适用于客户服务方案。
-- **单向外拨电话**：此套餐允许你向用户拨打电话，并为服务拨出的电话配置呼叫方 ID。 此套餐适用于客户服务和语音通知方案。
+- **单向传出短信** ：此选项允许你向用户发送短信。 这在通知和双因素身份验证方案中很有用。 
+- **双向传入和传出短信** ：此选项允许你使用电话号码向用户发送短信以及接收来自用户的短信。 这在客户服务方案中很有用。
+- **单向外拨电话** ：此选项允许你向用户拨打电话，并为服务拨出的电话配置呼叫方 ID。 这在客户服务和语音通知方案中很有用。
 
 ## <a name="countryregion-availability"></a>上市国家/地区
 

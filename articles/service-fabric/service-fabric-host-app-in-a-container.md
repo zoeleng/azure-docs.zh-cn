@@ -3,12 +3,12 @@ title: 将容器中的 .NET 应用部署到 Azure Service Fabric
 description: 了解如何使用 Visual Studio 将现有 .NET 应用程序容器化并在 Service Fabric 中本地调试容器。 容器化后的应用程序会被推送给 Azure 容器注册表，并部署到 Service Fabric 群集。 部署到 Azure 时，应用程序使用 Azure SQL DB 保存数据。
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91817630"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122057"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教程：将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
@@ -30,14 +30,14 @@ ms.locfileid: "91817630"
 1. 如果还没有 Azure 订阅，[创建一个免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. 安装 [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)，以便在 Windows 10 上运行容器。
 3. 安装 [Service Fabric 运行时版本 6.2 或更高版本](service-fabric-get-started.md)以及 [Service Fabric SDK 版本 3.1](service-fabric-get-started.md) 或更高版本。
-4. 安装 [Visual Studio 2019 版本 16.1](https://www.visualstudio.com/) 或更高版本，其中包含 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+4. 安装 [Visual Studio 2019 版本 16.1](https://www.visualstudio.com/) 或更高版本，其中包含 **Azure 开发** 以及 **ASP.NET 和 Web 开发** 工作负荷。
 5. 安装 [Azure PowerShell][link-azure-powershell-install]
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>下载并运行 Fabrikam Fiber CallCenter
 
 1. 下载 [Fabrikam Fiber CallCenter][link-fabrikam-github] 示例应用程序。  单击“下载存档”链接。  从“fabrikam.zip”文件的“sourceCode”目录中，提取“sourceCode.zip”文件，然后将“VS2015”目录提取至计算机   。
 
-2. 验证 Fabrikam Fiber CallCenter 应用程序是否能正确无误地生成和运行。  以**管理员身份**启动 Visual Studio，然后打开 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 文件。  按 F5 调试并运行应用程序。
+2. 验证 Fabrikam Fiber CallCenter 应用程序是否能正确无误地生成和运行。  以 **管理员身份** 启动 Visual Studio，然后打开 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 文件。  按 F5 调试并运行应用程序。
 
    ![本地主机上运行的 Fabrikam Fiber CallCenter 应用程序主页的屏幕截图。 该页显示一个仪表板，其中包含支持电话列表。][fabrikam-web-page]
 
@@ -118,7 +118,7 @@ Write-Host "Server name is $servername"
 ```
 
 >[!NOTE]
->可以使用选择的任何 SQL Server 进行本地调试，只要可通过主机访问。 但是，**localdb** 不支持 `container -> host` 通信。 如果想要在生成 Web 应用程序的发布版本时使用其他 SQL 数据库，可将另一个连接字符串添加到 web.release.config 文件。
+>可以使用选择的任何 SQL Server 进行本地调试，只要可通过主机访问。 但是， **localdb** 不支持 `container -> host` 通信。 如果想要在生成 Web 应用程序的发布版本时使用其他 SQL 数据库，可将另一个连接字符串添加到 web.release.config 文件。
 
 ## <a name="run-the-containerized-application-locally"></a>本地运行已容器化的应用程序
 
@@ -157,7 +157,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 1. 在解决方案资源管理器中右键单击“FabrikamFiber.CallCenterApplication”应用程序项目，然后选择“发布” 。
 2. 使用 Azure 帐户登录，以便访问订阅。
-3. 选择“连接终结点”对应的下拉列表，然后选择“新建群集...”选项 。
+3. 在“连接终结点”下拉列表下，选择“新建群集...”选项 。
 4. 在“创建群集”对话框中，修改以下设置：
 
     a. 在“群集名称”字段中指定群集的名称，并指定要使用的订阅和位置。 记下群集资源组的名称。
@@ -169,7 +169,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
     d. 选择“VM 详细信息”选项卡。指定一个密码，以便将其用于构成群集的虚拟机 (VM)。 可以使用用户名和密码远程连接到 VM。 此外还必须选择 VM 大小，并可根据需要更改 VM 映像。
 
     > [!IMPORTANT]
-    > 选择一个支持运行容器的 SKU。 群集节点上的 Windows Server OS 必须与容器的 Windows Server OS 兼容。 若要了解更多信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 默认情况下，本教程将创建基于 Windows Server 2016 LTSC 的 Docker 映像。 基于此映像的容器将运行在使用带容器的 Windows Server 2016 Datacenter 创建的群集上。 但是，如果基于带容器的 Windows Server Datacenter Core 1709 创建群集或使用现有群集，则必须更改容器所基于的 Windows Server OS 映像。 打开 **FabrikamFiber.Web** 项目中的 **Dockerfile**，注释掉现有 `FROM` 语句（基于 `windowsservercore-ltsc`），并取消注释基于 `windowsservercore-1709` 的 `FROM` 语句。
+    > 选择一个支持运行容器的 SKU。 群集节点上的 Windows Server OS 必须与容器的 Windows Server OS 兼容。 若要了解更多信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 默认情况下，本教程将创建基于 Windows Server 2016 LTSC 的 Docker 映像。 基于此映像的容器将运行在使用带容器的 Windows Server 2016 Datacenter 创建的群集上。 但是，如果基于带容器的 Windows Server Datacenter Core 1709 创建群集或使用现有群集，则必须更改容器所基于的 Windows Server OS 映像。 打开 **FabrikamFiber.Web** 项目中的 **Dockerfile** ，注释掉现有 `FROM` 语句（基于 `windowsservercore-ltsc`），并取消注释基于 `windowsservercore-1709` 的 `FROM` 语句。
 
     e. 在“高级”选项卡中，列出群集部署时要在负载均衡器中打开的应用程序端口。 这是在开始创建群集之前记下的端口。 还可以添加现有的 Application Insights 密钥，用于路由应用程序日志文件。
 

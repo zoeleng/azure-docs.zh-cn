@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: 2760e6a46801871a25ecbe23a2400211ae312650
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f87cf1ed9194ff74f85dcd11ed398824750ef696
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88921692"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217280"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>快速入门：使用必应 Web 搜索 REST API 和 C# 搜索网页
 
@@ -29,14 +29,14 @@ ms.locfileid: "88921692"
 下面是在开始本快速入门之前需要准备好的项目：
 
 * Windows：[Visual Studio 2017 或更高版本](https://www.visualstudio.com/downloads/)
-* Linux/macOS：[Mono](https://www.mono-project.com/)  
-* 订阅密钥
+* Linux/macOS：[Visual Studio Code](https://code.visualstudio.com/) 和 [.NET Core](https://dotnet.microsoft.com/download)
+* [免费的 Azure 订阅](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>创建项目并声明依赖项
 
-在 Visual Studio 或 Mono 中创建新项目。 使用以下代码导入所需命名空间和类型：
+在 Visual Studio 或 VS Code 中创建控制台项目。 使用以下代码导入所需命名空间和类型：
 
 ```csharp
 using System;

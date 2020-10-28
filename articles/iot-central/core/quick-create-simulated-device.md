@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001939"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170327"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>快速入门：将模拟设备添加到 IoT Central 应用程序
 
@@ -70,7 +70,7 @@ ms.locfileid: "87001939"
 
     | 显示名称      | 语义类型 | 架构 |
     | ----------------- | ------------- | ------ |
-    | 最后维修日期 | 无          | Date   |
+    | 最后维修日期 | 无          | 日期   |
     | 客户名称     | 无          | 字符串 |
 
 1. 选择“保存”以保存更改：
@@ -128,7 +128,7 @@ ms.locfileid: "87001939"
 
 1. 若要以操作员身份添加新设备，请在左侧窗格中选择“设备”  。 “设备”选项卡将显示“所有设备”和“MXChip IoT DevKit”设备模板。 选择“MXChip IoT DevKit”。
 
-1. 若要添加模拟的 DevKit 设备，请选择 **+** 。 使用建议的**设备 ID** 或输入自己的小写**设备 ID**。 也可输入新设备的名称。 确保“模拟”开关为“开”，然后选择“创建”。
+1. 若要添加模拟的 DevKit 设备，请选择 **+** 。 使用建议的“设备 ID”或输入自己的设备 ID。 设备 ID 中可以包含字母、数字和 `-` 字符。 也可输入新设备的名称。 确保“模拟”开关为“开”，然后选择“创建”。
 
     ![模拟设备](./media/quick-create-simulated-device/simulated-device.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "87001939"
 
     * “关于”视图将显示属性值，包括已添加到视图中的云属性。
 
-    * 在“命令”视图中可以运行命令，例如，针对设备运行 **blink**。
+    * 在“命令”视图中可以运行命令，例如，针对设备运行 **blink** 。
 
     * “管理设备”视图是你为操作员创建的用于管理设备的窗体。
 

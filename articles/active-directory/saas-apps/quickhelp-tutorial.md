@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 10803a16a2ceb84e084070d899b50360446710fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55ab6b339d6cb71bf46340e458bcc93cd73e2ba9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548917"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>教程：Azure Active Directory 与 QuickHelp 集成
 
@@ -43,7 +43,7 @@ ms.locfileid: "88548917"
 
 * QuickHelp 支持 **SP** 发起的 SSO
 
-* QuickHelp 支持**实时**用户预配
+* QuickHelp 支持 **实时** 用户预配
 
 ## <a name="adding-quickhelp-from-the-gallery"></a>从库中添加 QuickHelp
 
@@ -63,7 +63,7 @@ ms.locfileid: "88548917"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中键入 **QuickHelp**，在结果面板中选择“QuickHelp”，然后单击“添加”按钮添加该应用程序。  
+4. 在搜索框中键入 **QuickHelp** ，在结果面板中选择“QuickHelp”，然后单击“添加”按钮添加该应用程序。  
 
      ![结果列表中的“QuickHelp”](common/search-new-app.png)
 
@@ -91,7 +91,7 @@ ms.locfileid: "88548917"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -130,17 +130,17 @@ ms.locfileid: "88548917"
 
 2. 在顶部菜单中，单击“管理员”。 
    
-    ![配置单一登录][21]
+    ![显示 Brainstorm“管理”菜单项的屏幕截图。][21]
 
 3. 在“QuickHelp 管理员”  菜单上，单击“设置”  。
    
-    ![配置单一登录][22]
+    ![显示从“QuickHelp 管理员”菜单选择了“设置”的屏幕截图。][22]
 
 4. 单击“身份验证设置”  。
 
 5. 在“身份验证设置”  页上，执行以下步骤
    
-    ![配置单一登录][23]
+    ![显示“身份验证设置”页的屏幕截图，你可以在其中输入所述值。][23]
    
     a. 对于“SSO 类型”，选择“WSFederation”   。
    

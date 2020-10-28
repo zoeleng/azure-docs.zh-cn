@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c659af83034a2406449e586723341e1ae535934f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5927e19dfb6864d7edcde9dceadfd744d7ddbf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525354"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126612"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>教程：Azure Active Directory 与 Small Improvements 集成
 
@@ -73,10 +73,10 @@ ms.locfileid: "88525354"
 若要配置和测试 Small Improvements 的 Azure AD 单一登录，需要完成以下构建基块：
 
 1. **[配置 Azure AD 单一登录](#configure-azure-ad-single-sign-on)** - 使用户能够使用此功能。
-2. **配置 Small Improvements 单一登录[ - 在应用程序端配置单一登录设置](#configure-small-improvements-single-sign-on)** 。
+2. **配置 Small Improvements 单一登录 [ - 在应用程序端配置单一登录设置](#configure-small-improvements-single-sign-on)** 。
 3. **[创建 Azure AD 测试用户](#create-an-azure-ad-test-user)** - 使用 Britta Simon 测试 Azure AD 单一登录。
 4. **[分配 Azure AD 测试用户](#assign-the-azure-ad-test-user)** - 使 Britta Simon 能够使用 Azure AD 单一登录。
-5. **创建 Small Improvements 测试用户[ - 在 Small Improvements 中创建 Britta Simon 的对应用户，将其链接到用户的 Azure AD 表示形式](#create-small-improvements-test-user)** 。
+5. **创建 Small Improvements 测试用户 [ - 在 Small Improvements 中创建 Britta Simon 的对应用户，将其链接到用户的 Azure AD 表示形式](#create-small-improvements-test-user)** 。
 6. **[测试单一登录](#test-single-sign-on)** - 验证配置是否正常工作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>配置 Azure AD 单一登录
@@ -89,7 +89,7 @@ ms.locfileid: "88525354"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "88525354"
     > [!NOTE]
     > 这些不是实际值。 使用实际登录 URL 和标识符更新这些值。 请联系 [Small Improvements 客户端支持团队](mailto:support@small-improvements.com)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”  部分中显示的模式。
 
-5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -128,15 +128,15 @@ ms.locfileid: "88525354"
 
 1. 在主仪表板页中，单击左侧的“管理”  按钮。
 
-    ![配置单一登录](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
+    ![显示选择了“管理”按钮的屏幕截图。](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
 1. 在“集成”部分中，单击“SAML SSO”按钮。
 
-    ![配置单一登录](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
+    ![显示在“集成”中选择了“SAML SSO”图标的屏幕截图。](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
 1. 在“SSO 设置”页上，执行以下步骤：
 
-    ![配置单一登录](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
+    ![显示“SSO 设置”页的屏幕截图，可在其中输入所述值。](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. 在“HTTP 终结点”文本框中，粘贴从 Azure 门户复制的“登录 URL”值   。
 
@@ -211,15 +211,15 @@ ms.locfileid: "88525354"
 
 1. 从“用户管理”部分单击“用户目录”  按钮。
 
-    ![创建 Azure AD 测试用户](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![显示从“管理概述”中选择了“用户目录”的屏幕截图。](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 1. 单击“添加用户”  。
 
-    ![创建 Azure AD 测试用户](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![显示“添加用户”按钮的屏幕截图。](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
 1. 在“添加用户”对话框中，执行以下步骤  ： 
 
-    ![创建 Azure AD 测试用户](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![显示“添加用户”对话框的屏幕截图，可在其中输入所述值。](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
     a. 输入用户的名字，如 Britta   。
 

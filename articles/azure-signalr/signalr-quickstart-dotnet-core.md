@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: b5fc15815c9843c55bf31efe31e12e2de02d3be3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b5a2064e2fd80b895b0e801090c66d7119cf69dd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874010"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151007"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>快速入门：使用 SignalR 服务创建聊天室
 
-Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具有实时功能的 Web 应用程序。 此服务最初基于 [SignalR for ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1)，但现在支持更高版本。
+Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具有实时功能的 Web 应用程序。 此服务最初基于 [SignalR for ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1)，但现在支持更高版本。
 
 本文介绍如何开始使用 Azure SignalR 服务。 在本快速入门中，你将使用 ASP.NET Core MVC Web 应用创建一个聊天应用程序。 此应用将与 Azure SignalR 服务资源建立连接，以启用实时内容更新。 将在本地托管该 Web 应用程序并与多个浏览器客户端连接。 每个客户端都可以将内容更新推送到所有其他客户端。 
 
@@ -42,7 +42,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
 
 ## <a name="create-an-aspnet-core-web-app"></a>创建一个 ASP.NET Core Web 应用
 
-在本部分，你将使用 [.NET Core命令行接口 (CLI)](https://docs.microsoft.com/dotnet/core/tools/) 创建一个 ASP.NET Core MVC Web 应用项目。 通过 Visual Studio 使用 .NET Core CLI 的优点是，它可用于 Windows、macOS 和 Linux 平台。 
+在本部分，你将使用 [.NET Core命令行接口 (CLI)](/dotnet/core/tools/) 创建一个 ASP.NET Core MVC Web 应用项目。 通过 Visual Studio 使用 .NET Core CLI 的优点是，它可用于 Windows、macOS 和 Linux 平台。 
 
 1. 为项目创建一个文件夹。 本快速入门使用 *E:\Testing\chattest* 文件夹。
 
@@ -56,7 +56,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
 
 ## <a name="add-secret-manager-to-the-project"></a>向项目添加机密管理器
 
-在本部分，你要将[机密管理器工具](https://docs.microsoft.com/aspnet/core/security/app-secrets)添加到项目。 机密管理器工具存储敏感数据，以用于项目树外部的开发工作。 此方法有助于防止意外共享源代码中的应用机密。
+在本部分，你要将[机密管理器工具](/aspnet/core/security/app-secrets)添加到项目。 机密管理器工具存储敏感数据，以用于项目树外部的开发工作。 此方法有助于防止意外共享源代码中的应用机密。
 
 1. 打开 .csproj 文件  。 添加 `DotNetCliToolReference` 元素以包含 Microsoft.Extensions.SecretManager.Tools  。 另外，为 *chattest.csproj* 添加以下代码中所示的 `UserSecretsId` 元素，并保存文件。
 
@@ -107,16 +107,17 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
     此机密使用配置 API 进行访问。 在所有支持的平台上，冒号 (:) 可以在配置 API 的配置名称中使用。 请参阅[按环境进行的配置](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider)。
 
 
-4. 打开 Startup.cs，并通过调用 `AddSignalR()` 方法更新 `ConfigureServices` 方法，从而使用 Azure SignalR 服务  ：
+4. 打开 Startup.cs，并通过调用 `AddSignalR()` 和 `AddAzureSignalR()` 方法更新 `ConfigureServices` 方法，从而使用 Azure SignalR 服务：
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAzureSignalR();
+        services.AddSignalR()
+                .AddAzureSignalR();
     }
     ```
 
-    此代码不会向 `AddAzureSignalR()` 传递参数，而是使用默认配置密钥作为 SignalR 服务资源连接字符串。 默认配置密钥为 *Azure:SignalR:ConnectionString*。
+    此代码不会向 `AddAzureSignalR()` 传递参数，而是使用默认配置密钥作为 SignalR 服务资源连接字符串。 默认配置密钥为 *Azure:SignalR:ConnectionString* 。
 
 5. 在 Startup.cs 中，更新 `Configure` 方法并将其替换为以下代码。
 
@@ -325,7 +326,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
 
 ## <a name="add-a-development-runtime-profile"></a>添加开发运行时配置文件
 
-在本部分，你将为 ASP.NET Core 添加开发运行时环境。 有关详细信息，请参阅[在 ASP.NET Core 中使用多个环境](https://docs.microsoft.com/aspnet/core/fundamentals/environments)。
+在本部分，你将为 ASP.NET Core 添加开发运行时环境。 有关详细信息，请参阅[在 ASP.NET Core 中使用多个环境](/aspnet/core/fundamentals/environments)。
 
 1. 在项目中创建名为 *Properties* 的文件夹。
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 934953437c2d156f220d5b0a1847e16358e3bfb8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524525"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126869"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Splashtop 的集成
 
@@ -51,7 +51,7 @@ ms.locfileid: "88524525"
 1. 在左侧导航窗格中，选择“Azure Active Directory”服务  。
 1. 导航到“企业应用程序”，选择“所有应用程序”   。
 1. 若要添加新的应用程序，请选择“新建应用程序”  。
-1. 在“从库中添加”部分的搜索框中，键入 **Splashtop**。 
+1. 在“从库中添加”部分的搜索框中，键入 **Splashtop** 。 
 1. 在结果面板中选择“Splashtop”，然后添加该应用。  在该应用添加到租户时等待几秒钟。
 
 
@@ -82,9 +82,9 @@ ms.locfileid: "88524525"
 
     在“登录 URL”文本框中，键入 URL：  `https://my.splashtop.com/login/sso`
 
-1. Splashtop 应用程序需要特定格式的 SAML 断言，因此，需要在 SAML 令牌属性配置中添加自定义属性映射。 以下屏幕截图显示了默认属性的列表，其中的 **nameidentifier** 映射到 **user.userprincipalname**。 TicketManager 应用程序要求通过 **user.mail** 对 **nameidentifier** 进行映射，因此需单击“编辑”图标对属性映射进行编辑，然后更改属性映射。 
+1. Splashtop 应用程序需要特定格式的 SAML 断言，因此，需要在 SAML 令牌属性配置中添加自定义属性映射。 以下屏幕截图显示了默认属性的列表，其中的 **nameidentifier** 映射到 **user.userprincipalname** 。 TicketManager 应用程序要求通过 **user.mail** 对 **nameidentifier** 进行映射，因此需单击“编辑”图标对属性映射进行编辑，然后更改属性映射。 
 
-    ![image](common/edit-attribute.png)
+    ![屏幕截图显示“用户属性”，并且已选择“编辑”图标。](common/edit-attribute.png)
 
 1. 在“设置 SAML 单一登录”页的“SAML 签名证书”部分，找到“证书(Base64)”，选择“下载”以下载该证书并将其保存到计算机上。    
 
@@ -129,27 +129,29 @@ ms.locfileid: "88524525"
 在本部分，需要从 [Splashtop Web 门户](https://my.splashtop.com/login)申请新的 SSO 方法。
 1. 在 Splashtop Web 门户中，转到“帐户信息” / “团队”选项卡，向下滚动并找到“单一登录”部分。    然后单击“申请新的 SSO 方法”。 
 
-    ![image](media/splashtop-tutorial/apply-for-new-SSO-method.png)
+    ![显示“单一登录”页的屏幕截图，可在其中选择“申请新的 SSO 方法”。](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
-1. 在申请窗口中指定 **SSO 名称**， 例如“新 Azure”。选择“Azure”作为 IDP 类型，插入从 Azure 门户上的 Splashtop 应用程序复制的“登录 URL”和“Azure AD 标识符”。   
+1. 在申请窗口中指定 **SSO 名称** ， 例如“新 Azure”。选择“Azure”作为 IDP 类型，插入从 Azure 门户上的 Splashtop 应用程序复制的“登录 URL”和“Azure AD 标识符”。   
 
-    ![image](media/splashtop-tutorial/azure-sso-1.png)
+    ![显示“申请 SSO 方法”页的屏幕截图，可在其中输入名称和其他信息。](media/splashtop-tutorial/azure-sso-1.png)
 
 1. 对于证书信息，请右键单击从 Azure 门户上的 Splashtop 应用程序下载的证书文件，使用记事本对其进行编辑，然后复制内容并将其粘贴到“下载证书(Base64)”字段中。 
 
-    ![插图](media/splashtop-tutorial/cert-1.png) ![插图](media/splashtop-tutorial/cert-2.png) ![插图](media/splashtop-tutorial/azure-sso-2.png)
+    ![显示选择了证书文件并使用记事本打开该文件的屏幕截图。](media/splashtop-tutorial/cert-1.png)
+    ![显示证书文件的内容的屏幕截图。](media/splashtop-tutorial/cert-2.png)
+    ![显示“下载证书”文本框的屏幕截图。](media/splashtop-tutorial/azure-sso-2.png)
 
-1. 就这么简单！ 单击“保存”，然后 Splashtop SSO 验证团队将就验证信息事宜与你取得联系，并激活该 SSO 方法。 
+1. 就这么简单！ 单击“保存”，然后 Splashtop SSO 验证团队将就验证信息事宜与你取得联系，并激活该 SSO 方法。
 
 ### <a name="create-splashtop-test-user"></a>创建 Splashtop 测试用户
 
-1. 激活 SSO 方法后，请检查新建的 SSO 方法，并在“单一登录”部分启用该方法。 
+1. 激活 SSO 方法后，请检查新建的 SSO 方法，并在“单一登录”部分启用该方法。
 
-    ![image](media/splashtop-tutorial/enable.png)
+    ![显示“单一登录”页的屏幕截图，可在其中启用新方法。](media/splashtop-tutorial/enable.png)
 
 1. 使用新建的 SSO 方法邀请测试用户（例如 `B.Simon@contoso.com`）加入 Splashtop 团队。
 
-    ![image](media/splashtop-tutorial/invite.png)
+    ![显示“邀请用户”页的屏幕截图，可在其中选择新方法。](media/splashtop-tutorial/invite.png)
 
 1. 还可以将现有的 Splashtop 帐户更改为 SSO 帐户，具体请参阅[说明](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-)。
 

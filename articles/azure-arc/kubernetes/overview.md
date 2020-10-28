@@ -9,12 +9,12 @@ ms.author: mlearned
 description: 本文提供已启用 Azure Arc 的 Kubernetes 的概述。
 keywords: Kubernetes、Arc、Azure、容器
 ms.custom: references_regions
-ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858415"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216073"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>什么是已启用 Azure Arc 的 Kubernetes 预览版？
 
@@ -72,7 +72,7 @@ ms.locfileid: "91858415"
 
     否。 已启用 Azure Arc 的 Kubernetes 的所有功能（如 Azure Monitor、Azure Policy (Gatekeeper)）都可通过 AKS（已在 Azure 中具有资源表示形式）本机可用。
     
-* 是否应将 Azure Stack HCI 的 AKS 群集连接到 Azure Arc？ Azure Stack Hub 或 Azure Stack 引擎上运行的 Kubernetes 群集呢，连接它们会怎么样？
+* 是否应将 Azure Stack HCI 的 AKS 群集连接到 Azure Arc？ Azure Stack Hub 或 Azure Stack Edge 上运行的 Kubernetes 群集呢，连接它们会怎么样？
 
     是的，将这些群集连接到 Azure Arc 的确有好处。 它可在 Azure 资源管理器中提供这些 Kubernetes 群集的资源表示形式。 使用此资源表示形式，可以将群集配置、Azure Monitor、Azure Policy (Gatekeeper) 等功能扩展到这些 Kubernetes 群集
 

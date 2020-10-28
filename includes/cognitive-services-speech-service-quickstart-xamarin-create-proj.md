@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/13/2019
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d20df031633df4642ce9fb5cbbc469fd7f0a5da
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654428"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097229"
 ---
 若要创建 Visual Studio 项目，以便使用 Xamarin 进行跨平台移动应用 .NET 开发，需要：
 - 设置 Visual Studio 开发选项。
@@ -50,11 +50,11 @@ ms.locfileid: "91654428"
 
 1. 选择“创建”  以转到“新建移动应用 Xamarin Forms 项目”  窗口。
 
-   ![屏幕截图显示 Visual Studio 中的“新建通用 Windows 平台项目”对话框。](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![显示 Visual Studio 中“新建移动应用 Xamarin Forms 项目”对话框的屏幕截图。](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. 选择“空白”模板。 
 
-1. 在“平台”中，  选择 **Android**、**iOS** 和 **Windows (UWP)** 对应的框。
+1. 在“平台”中，  选择 **Android** 、 **iOS** 和 **Windows (UWP)** 对应的框。
 
 1. 选择“确定”  。 返回到 Visual Studio IDE，其中新项目已创建并显示在“解决方案资源管理器  ”窗格中。
 
@@ -66,7 +66,7 @@ ms.locfileid: "91654428"
 
 安装[语音 SDK NuGet 包](https://aka.ms/csspeech/nuget)，并在项目中引用语音 SDK。
 
-1. 在**解决方案资源管理器**中，右键单击解决方案。 选择“管理解决方案的 NuGet 包”  ，转到“NuGet - 解决方案”窗口。 
+1. 在 **解决方案资源管理器** 中，右键单击解决方案。 选择“管理解决方案的 NuGet 包”  ，转到“NuGet - 解决方案”窗口。 
 
 1. 选择“浏览”  。
 
@@ -74,14 +74,14 @@ ms.locfileid: "91654428"
 
 1. 在“包源”  中，选择“nuget.org”。
 
-1. 在“搜索”框中，输入 *Microsoft.CognitiveServices.Speech*。  然后在该包显示在搜索结果中之后选择该包。
+1. 在“搜索”框中，输入 *Microsoft.CognitiveServices.Speech* 。  然后在该包显示在搜索结果中之后选择该包。
 
    ![屏幕截图突出显示 Microsoft.CognitiveServices.Speech 包。](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
    > [!NOTE] 
    > `Microsoft.CognitiveServices.Speech` NuGet 中的 iOS 库未启用 Bitcode。 如果需要为应用程序启用 Bitcode 库，请专门使用 iOS 项目的 `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet。
 
-1. 在搜索结果旁的“包状态”窗格中，选择所有项目：**helloworld**、**helloworld.Android**、**helloworld.iOS** 和 **helloworld.UWP**。
+1. 在搜索结果旁的“包状态”窗格中，选择所有项目： **helloworld** 、 **helloworld.Android** 、 **helloworld.iOS** 和 **helloworld.UWP** 。
 
 1. 选择“安装”  。
 

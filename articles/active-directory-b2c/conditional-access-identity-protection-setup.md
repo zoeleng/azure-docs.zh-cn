@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5554cfcde9aba1b0e5c9c8b60e2e6a7e9a8ba378
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270644"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309789"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>在 Azure AD B2C 中设置标识保护和条件访问
 
@@ -41,10 +41,12 @@ Azure AD B2C 当前支持以下风险检测：
 |风险检测类型  |说明  |
 |---------|---------|
 | 异常位置登录     | 从异常位置（基于用户最近的登录）进行登录。        |
-|匿名 IP 地址     | 从匿名 IP 地址登录（例如：Tor 浏览器，匿名程序 VPN）        |
+|匿名 IP 地址     | 从匿名 IP 地址登录（例如：Tor 浏览器，匿名程序 VPN）。        |
+|受恶意软件感染的 IP 地址     | 从受恶意软件感染的 IP 地址进行登录。         |
 |不熟悉的登录属性     | 使用给定用户最近未曾出现过的属性进行登录。        |
-|受恶意软件感染的 IP 地址     | 从受恶意软件感染的 IP 地址进行登录         |
-|Azure AD 威胁智能     | Microsoft 的内部和外部威胁智能源已识别出已知的攻击模式        |
+|管理员确认用户遭入侵    | 管理员已表明，用户遭到了入侵。             |
+|密码喷射     | 通过密码喷射攻击进行登录。      |
+|Azure AD 威胁智能     | Microsoft 的内部和外部威胁智能源已识别出已知的攻击模式。        |
 
 ## <a name="view-risk-events-for-your-azure-ad-b2c-tenant"></a>查看 Azure AD B2C 租户的风险事件
 
@@ -134,8 +136,8 @@ Azure AD B2C 当前支持以下风险检测：
 
 6. 查看最多过去 7 天的审核活动。 包括以下类型的活动：
 
-   - **评估条件访问策略**：此审核日志条目指示在身份验证过程中执行了条件访问评估。
-   - **修正用户**：此条目指示最终用户符合条件访问策略的授权或要求，并已向风险引擎报告此活动以降低（缓解）用户风险。
+   - **评估条件访问策略** ：此审核日志条目指示在身份验证过程中执行了条件访问评估。
+   - **修正用户** ：此条目指示最终用户符合条件访问策略的授权或要求，并已向风险引擎报告此活动以降低（缓解）用户风险。
 
 7. 在列表中选择“评估条件访问策略”日志条目以打开“活动详细信息：审核日志” 页，其中显示审核日志标识符，以及“其他详细信息”部分中的以下信息：
 

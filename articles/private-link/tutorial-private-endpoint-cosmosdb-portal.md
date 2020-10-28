@@ -1,18 +1,18 @@
 ---
 title: 教程：使用 Azure 专用终结点连接到 Azure Cosmos 帐户
 titleSuffix: Azure Private Link
-description: 开始使用 Azure 专用终结点以私密方式连接到 Azure Cosmos 帐户。
+description: 在本教程中开始使用 Azure 专用终结点以私密方式连接到 Azure Cosmos 帐户。
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 8b38c72efff5b76392d23837696c340e3cfb58de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd534fff5bfc56dbc4040db016563b06bef6d047
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843485"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145686"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>教程：使用 Azure 专用终结点连接到 Azure Cosmos 帐户
 
@@ -27,6 +27,10 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 > * 测试与 Cosmos DB 帐户专用终结点的连接。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+
+## <a name="prerequisites"></a>先决条件
+
+* Azure 订阅
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -70,7 +74,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 7. 选择“保存” 。
 
-8. 选择“安全”**** 选项卡。
+8. 选择“安全”  选项卡。
 
 9. 在“BastionHost”下，选择“启用” 。 输入此信息：
 
@@ -93,7 +97,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
@@ -114,7 +118,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -135,7 +139,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 2. 在“创建 Cosmos DB 帐户”的“基本信息”选项卡中，输入或选择以下信息 ：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅。 |
@@ -165,7 +169,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 6. 在“创建专用终结点”中，输入或选择以下信息：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | 订阅 | 选择 Azure 订阅 |
     | 资源组 | 选择“myResourceGroup” |
@@ -181,7 +185,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 7. 选择“确定”  。
 
-8. 选择“查看 + 创建”  。
+8. 选择“查看 + 创建”。
 
 9. 选择“创建”  。
 
@@ -222,7 +226,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 3. 选择“myVM”。
 
-4. 在 **myVM**的“概述”页上，选择“连接”，然后选择“堡垒”。
+4. 在 **myVM** 的“概述”页上，选择“连接”，然后选择“堡垒”。
 
 5. 选择蓝色的“使用堡垒”按钮。
 
@@ -256,7 +260,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 14. 在“连接字符串”下的框中，粘贴在前面步骤中复制的 Cosmos DB 帐户的连接字符串。
 
-15. 选择“**下一页**”。
+15. 选择“ **下一页** ”。
 
 16. 在“连接摘要”中验证设置是否正确。  
 
@@ -273,7 +277,7 @@ Azure 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure �
 
 2. 选择“myResourceGroup”。
 
-3. 选择“删除资源组”****。
+3. 选择“删除资源组”  。
 
 4. 在“键入资源组名称”中输入“myResourceGroup”。 
 

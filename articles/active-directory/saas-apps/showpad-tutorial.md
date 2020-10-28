@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 613f42905c88da7669881dfcae7ae038341b2434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeeb421104a09fe164c8bc93e47d7cf254a802e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548634"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>教程：Azure Active Directory 与 Showpad 集成
 
@@ -42,7 +42,7 @@ ms.locfileid: "88548634"
 本教程会在测试环境中配置和测试 Azure AD 单一登录。
 
 * Showpad 支持 **SP** 发起的 SSO
-* Showpad 支持**实时**用户预配
+* Showpad 支持 **实时** 用户预配
 
 ## <a name="adding-showpad-from-the-gallery"></a>从库中添加 Showpad
 
@@ -90,7 +90,7 @@ ms.locfileid: "88548634"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -129,15 +129,15 @@ ms.locfileid: "88548634"
 
 1. 在顶部菜单中，单击“设置”  。
 
-    ![在应用端配置单一登录](./media/showpad-tutorial/tutorial_showpad_001.png)
+    ![显示从“设置”菜单中选择了“设置”的屏幕截图。](./media/showpad-tutorial/tutorial_showpad_001.png)
 
 1. 导航到“单一登录”并单击“启用”   。
 
-    ![在应用端配置单一登录](./media/showpad-tutorial/tutorial_showpad_002.png)
+    ![显示在“启用”选项中选择了“单一登录”的屏幕截图。](./media/showpad-tutorial/tutorial_showpad_002.png)
 
 1. 在“添加 SAML 2.0 服务”  对话框中，执行以下步骤：
 
-    ![在应用端配置单一登录](./media/showpad-tutorial/tutorial_showpad_003.png) 
+    ![显示“添加 SAML 2.0 服务”对话框的屏幕截图，可在其中输入所述值。](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
     a. 在“名称”文本框中，键入标识符提供者的名称（例如：你的公司名称）  。
 

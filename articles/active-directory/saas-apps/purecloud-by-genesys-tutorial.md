@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d2953710c559deb094761410e6d46401e103d8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553268"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>教程：Azure Active Directory 单一登录 (SSO) 与 PureCloud by Genesys 集成
 
@@ -167,11 +167,11 @@ ms.locfileid: "88553268"
 
 1. 选择顶部的“管理员”，然后转到“集成”下的“单一登录”    。
 
-    ![配置单一登录](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![屏幕截图显示“PureCloud 管理”窗口，可在其中选择“单一登录”。](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. 切换到“ADFS/Azure AD(Premium)”选项卡，然后执行以下这些步骤  ：
 
-    ![配置单一登录](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![屏幕截图显示了“集成”页面，你可以在其中输入所述值。](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. 选择“浏览”，将从 Azure 门户下载的 base-64 编码证书上传到“ADFS 证书”   。
 
@@ -181,7 +181,7 @@ ms.locfileid: "88553268"
 
     d. 对于“信赖方标识符”值，转到 Azure 门户，然后在 PureCloud by Genesys 应用程序集成页中，选择“属性”选项卡并复制“应用程序 ID”值     。 然后将其粘贴到“信赖方标识符”框中  。
 
-    ![配置单一登录](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![屏幕截图显示“属性”窗格，可在其中找到应用程序 ID 值。](./media/purecloud-by-genesys-tutorial/configure06.png)
 
     e. 选择“保存”。 
 
@@ -195,15 +195,15 @@ ms.locfileid: "88553268"
 
 1. 选择顶部的“管理员”并转到“人员和权限”下的“人员”    。
 
-    ![配置单一登录](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![屏幕截图显示“PureCloud 管理”窗口，可在其中选择“人员”。](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. 在“人员”页上，选择“添加人员”   。
 
-    ![配置单一登录](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![屏幕截图显示可在其中添加人员的“人员”页。](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. 在“将人员添加到组织”对话框中，执行以下这些步骤  ：
 
-    ![配置单一登录](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![屏幕截图显示了可以在其中输入所述值的页。](./media/purecloud-by-genesys-tutorial/configure05.png)
 
     a. 在“全名”  框中，输入用户的姓名。 例如：B.simon  .
 

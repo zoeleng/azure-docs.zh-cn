@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89292973"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150805"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight 中的企业安全性概述
 
@@ -82,14 +82,16 @@ Azure 合规性产品/服务基于各种类型的保证，包括独立的第三�
 |  | 请确保已启用[传输中加密](./encryption-in-transit.md)功能，以便使用 TLS 和 IPSec 进行群集内通信。 | 客户 |
 |  | 配置[客户管理的密钥](../../storage/common/storage-encryption-keys-portal.md)以进行 Azure 存储加密 | 客户 |
 |  | 使用[客户密码箱](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)控制对数据的访问权限 | 客户 |
-| 应用程序和中间件安全性 | 集成 AAD-DS 并[配置身份验证](apache-domain-joined-configure-using-azure-adds.md) | 客户 |
+| 应用程序和中间件安全性 | 与 AAD-DS 和[配置 ESP](apache-domain-joined-configure-using-azure-adds.md) 集成或使用 [HIB 进行 OAuth 身份验证](identity-broker.md)| 客户 |
 |  | 配置 [Apache Ranger 授权](apache-domain-joined-run-hive.md)策略 | 客户 |
 |  | 使用 [Azure Monitor 日志](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | 客户 |
 | 操作系统安全性 | 使用最新且安全的基础映像创建群集 | 客户 |
 |  | 确保定期进行 [OS 修补](../hdinsight-os-patching.md) | 客户 |
+|  | 确保[对 VM 进行 CMK 磁盘加密](../disk-encryption.md) | 客户 |
 | 网络安全 | 配置[虚拟网络](../hdinsight-plan-virtual-network-deployment.md) |
-|  | 配置[网络安全组 (NSG) 入站规则](../control-network-traffic.md) | 客户 |
+|  | 配置[网络安全组 (NSG) 入站规则](../control-network-traffic.md)或[专用链接](../hdinsight-private-link.md) | 客户 |
 |  | 使用防火墙配置[出站流量限制](../hdinsight-restrict-outbound-traffic.md) | 客户 |
+|  | 在群集节点之间配置 [IPSec 传输中加密](encryption-in-transit.md) | 客户 |
 | 虚拟化的基础结构 | 空值 | HDInsight（云提供商） |
 | 物理基础结构安全性 | 空值 | HDInsight（云提供商） |
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6732857e278285071c9d36c629920ad9e67368f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef8a93ebdc5eb389608ef3340b9707bfd040a295
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528516"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105713"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>教程：Azure Active Directory 与 RFPIO 集成
 
@@ -89,7 +89,7 @@ ms.locfileid: "88528516"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "88528516"
 
 4. 如果要在 IDP 发起的模式下配置应用程序，请在“基本 SAML 配置部分”中执行以下步骤   ：
 
-    ![RFPIO 域和 URL 单一登录信息](common/idp-identifier.png)
+    ![显示“基本 SAML 配置”的屏幕截图，你可以在其中输入“标识符”。](common/idp-identifier.png)
 
     a. 在“标识符”  文本框中，使用以下模式键入 URL：`https://www.rfpio.com`
 
@@ -107,7 +107,7 @@ ms.locfileid: "88528516"
 
     c. 在“中继状态”文本框中输入的字符串值  。 请联系 [RFPIO 支持团队](https://www.rfpio.com/contact/)获取此值。
 
-    ![RFPIO 域和 URL 单一登录信息](common/idp-preintegrated-relay.png)
+    ![显示“设置其他 URL”的屏幕截图。](common/idp-preintegrated-relay.png)
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
@@ -138,23 +138,23 @@ ms.locfileid: "88528516"
 
 1. 单击左下角的下拉列表。
 
-    ![配置单一登录](./media/rfpio-tutorial/app1.png)
+    ![显示窗格底部向下键的屏幕截图。](./media/rfpio-tutorial/app1.png)
 
 1. 单击“组织设置”  。 
 
-    ![配置单一登录](./media/rfpio-tutorial/app2.png)
+    ![显示选择了“组织设置”的屏幕截图。](./media/rfpio-tutorial/app2.png)
 
 1. 单击“功能和集成”  。
 
-    ![配置单一登录](./media/rfpio-tutorial/app4.png)
+    ![显示从“设置”选择了“功能和集成”的屏幕截图。](./media/rfpio-tutorial/app4.png)
 
 1. 在 SAML SSO 配置中，单击“编辑”   。
 
-    ![配置单一登录](./media/rfpio-tutorial/app3.png)
+    ![显示“SAML SSO 配置”的屏幕截图，其中着标记显示了“编辑”按钮。](./media/rfpio-tutorial/app3.png)
 
 1. 在本部分中，执行以下操作：
 
-    ![配置单一登录](./media/rfpio-tutorial/app5.png)
+    ![显示启用了“SAML”的“SAML SSO 配置”的屏幕截图。](./media/rfpio-tutorial/app5.png)
     
     a. 复制下载的元数据 XML 文件的内容，然后将其粘贴到“标识配置”字段   。
 
@@ -223,23 +223,23 @@ ms.locfileid: "88528516"
 
 1. 单击左下角的下拉列表。
 
-    ![配置单一登录](./media/rfpio-tutorial/app1.png)
+    ![显示窗格底部向下键的屏幕截图。](./media/rfpio-tutorial/app1.png)
 
 1. 单击“组织设置”  。 
 
-    ![配置单一登录](./media/rfpio-tutorial/app2.png)
+    ![显示选择了“组织设置”的屏幕截图。](./media/rfpio-tutorial/app2.png)
 
 1. 单击“团队成员”  。
 
-    ![配置单一登录](./media/rfpio-tutorial/app6.png)
+    ![显示从“设置”选择了“团队成员”的屏幕截图。](./media/rfpio-tutorial/app6.png)
 
 1. 单击“添加成员”  。
 
-    ![配置单一登录](./media/rfpio-tutorial/app7.png)
+    ![显示“添加成员”按钮的屏幕截图。](./media/rfpio-tutorial/app7.png)
 
 1. 在“添加新成员”部分  。 执行以下操作：
 
-    ![配置单一登录](./media/rfpio-tutorial/app8.png)
+    ![显示“添加新成员”的屏幕截图，你可以在其中输入所述值。](./media/rfpio-tutorial/app8.png)
 
     a. 在“每行输入一个电子邮件”字段输入电子邮件地址   。
 

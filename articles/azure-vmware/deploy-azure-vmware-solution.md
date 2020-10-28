@@ -4,12 +4,12 @@ description: 了解如何使用规划阶段中收集的信息部署 Azure VMware
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776419"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152025"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>部署和配置 Azure VMware 解决方案
 
@@ -35,7 +35,7 @@ ms.locfileid: "91776419"
 ## <a name="create-the-jump-box"></a>创建跳转盒
 
 >[!IMPORTANT]
->如果你在“创建私有云”屏幕上的初始预配步骤中将“虚拟网络”选项留空，则请在继续执行此部分**之前**完成[为 VMware 私有云配置网络](tutorial-configure-networking.md)教程。   
+>如果你在“创建私有云”屏幕上的初始预配步骤中将“虚拟网络”选项留空，则请在继续执行此部分 **之前** 完成 [为 VMware 私有云配置网络](tutorial-configure-networking.md)教程。   
 
 部署 Azure VMware 解决方案后，你将创建虚拟网络的跳转盒，用于连接到 vCenter 和 NSX。 配置 ExpressRoute 线路和 ExpressRoute Global Reach 后，不需要跳转盒。  但在 Azure VMware 解决方案中访问 vCenter 和 NSX 非常方便。  
 
@@ -82,7 +82,7 @@ ms.locfileid: "91776419"
 
 返回到[验证播发的网络路由](#verify-network-routes-advertised)步骤。 你会在列表中看到其他路由，它们代表你在上一步中创建的网段。  
 
-对于虚拟机，需分配在[验证播发的 NSX-T 网段](#verify-advertised-nsx-t-segment)步骤中创建的网段。  
+对于虚拟机，需要对[在 Azure VMware 解决方案中创建网段](#create-a-network-segment-on-azure-vmware-solution)步骤中创建的段进行分配。  
 
 由于 DNS 是必需的，因此请标识要使用的 DNS 服务器。  
 

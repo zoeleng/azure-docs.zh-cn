@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 019a9264beddafbd4585810967551e064592e94d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 4fbfbd1d578eb77d50d91413efb9f9fbf28e115f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602517"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146314"
 ---
 # <a name="whats-new-in-custom-vision"></a>自定义视觉中的新增功能
 
@@ -23,9 +23,9 @@ ms.locfileid: "90602517"
 
 ## <a name="july-2020"></a>2020 年 7 月
 
-### <a name="role-based-access-control"></a>基于角色的访问控制
+### <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
 
-* 自定义视觉支持 Azure 基于角色的访问控制 (Azure RBAC)，这是用于管理对 Azure 资源的个人访问权限的授权系统。 若要了解如何管理对自定义视觉项目的访问权限，请参阅[基于角色的访问控制](./role-based-access-control.md)。
+* 自定义视觉支持 Azure 基于角色的访问控制 (Azure RBAC)，这是用于管理对 Azure 资源的个人访问权限的授权系统。 若要了解如何管理对自定义视觉项目的访问权限，请参阅 [Azure 基于角色的访问控制](./role-based-access-control.md)。
 
 ### <a name="subset-training"></a>子集训练
 

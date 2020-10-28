@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: f11498812c3923f75ca84e66cab9098e86cc192e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fad9584f663675e9bf534a56bb223094479f39c5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660995"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148036"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>将数据从 SQL Server 数据库复制到 Azure Blob 存储
 
@@ -45,7 +45,7 @@ ms.locfileid: "84660995"
 ### <a name="azure-roles"></a>Azure 角色
 若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须分配有“参与者”或“所有者”角色，或者必须是 Azure 订阅的管理员。
 
-若要查看自己在订阅中的权限，请转到 Azure 门户。 在右上角选择自己的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 有关如何将用户添加到角色的示例说明，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。
+若要查看自己在订阅中的权限，请转到 Azure 门户。 在右上角选择自己的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 有关如何将用户添加到角色的示例说明，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)。
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014、2016 和 2017
 在本教程中，需将 SQL Server 数据库用作源数据存储。 在本教程中创建的数据工厂中的管道将数据从这个 SQL Server 数据库（源）复制到 Blob 存储（接收器）。 然后，你可以在 SQL Server 数据库中创建名为 **emp** 的表，并向表中插入几个示例条目。
@@ -100,9 +100,9 @@ ms.locfileid: "84660995"
 
 1. 在“容器”窗口中，选择“+ 容器”来新建容器。
 
-1. 在“新建容器”窗口的“名称”下，输入 **adftutorial**。  然后选择“创建”。
+1. 在“新建容器”窗口的“名称”下，输入 **adftutorial** 。  然后选择“创建”。
 
-1. 在容器列表中，选择你刚才创建的 **adftutorial**。
+1. 在容器列表中，选择你刚才创建的 **adftutorial** 。
 
 1. 让 **adftutorial** 的“容器”窗口保持打开状态。 在教程结束时使用它来验证输出。 数据工厂自动在该容器中创建输出文件夹，因此不需要你来创建。
 
@@ -120,7 +120,7 @@ ms.locfileid: "84660995"
 
    ![新建数据工厂名称](./media/doc-common-process/name-not-available-error.png)
 
-1. 选择要在其中创建数据工厂的 Azure **订阅**。
+1. 选择要在其中创建数据工厂的 Azure **订阅** 。
 1. 对于“资源组”，请执行以下步骤之一：
 
    - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。
@@ -146,20 +146,20 @@ ms.locfileid: "84660995"
 
 1. 在“常规”面板的“属性”中，将“名称”指定为 SQLServerToBlobPipeline  。 然后通过单击右上角的“属性”图标来折叠面板。
 
-1. 在“活动”工具箱中，展开“移动和转换”。 将“复制”活动拖放到管道设计图面。 将活动的名称设置为 **CopySqlServerToAzureBlobActivity**。
+1. 在“活动”工具箱中，展开“移动和转换”。 将“复制”活动拖放到管道设计图面。 将活动的名称设置为 **CopySqlServerToAzureBlobActivity** 。
 
 1. 在“属性”窗口中转到“源”选项卡，然后选择“+ 新建”。  
 
 1. 在“新建数据集”对话框中搜索“SQL Server”。  选择“SQL Server”，然后选择“继续”。
     ![新建 SqlServer 数据集](./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png)
 
-1. 在“设置属性”对话框中的“名称”下，输入 **SqlServerDataset**。 在“链接服务”下，选择“+新建”。 执行此步骤来与源数据存储（SQL Server 数据库）建立连接。
+1. 在“设置属性”对话框中的“名称”下，输入 **SqlServerDataset** 。 在“链接服务”下，选择“+新建”。 执行此步骤来与源数据存储（SQL Server 数据库）建立连接。
 
-1. 在“新建链接服务”对话框中，添加 **SqlServerLinkedService** 作为**名称**。 在“通过集成运行时连接”下选择“+新建”。   在本部分，请创建一个自承载 Integration Runtime，然后将其与安装了 SQL Server 数据库的本地计算机相关联。 自承载 Integration Runtime 是一个组件，用于将数据从计算机上的 SQL Server 数据库复制到 Blob 存储。
+1. 在“新建链接服务”对话框中，添加 **SqlServerLinkedService** 作为 **名称** 。 在“通过集成运行时连接”下选择“+新建”。   在本部分，请创建一个自承载 Integration Runtime，然后将其与安装了 SQL Server 数据库的本地计算机相关联。 自承载 Integration Runtime 是一个组件，用于将数据从计算机上的 SQL Server 数据库复制到 Blob 存储。
 
 1. 在“集成运行时安装”对话框中选择“自承载”，然后选择“继续”。 
 
-1. 在“名称”下，输入 **TutorialIntegrationRuntime**。 然后选择“创建”。
+1. 在“名称”下，输入 **TutorialIntegrationRuntime** 。 然后选择“创建”。
 
 1. 对于“设置”，选择“单击此处对此计算机启动快速安装”。 此操作在计算机上安装集成运行时，并将其注册到数据工厂。 或者，可以使用手动安装选项来下载安装文件、运行该文件，并使用密钥来注册集成运行时。
     ![集成运行时安装](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
@@ -168,9 +168,9 @@ ms.locfileid: "84660995"
 
     ![Integration Runtime(自承载)快速安装](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
-1. 在“新建链接服务(SQL Server)”对话框中，确认在“通过集成运行时连接”下选择了 **TutorialIntegrationRuntime**。 然后执行以下步骤：
+1. 在“新建链接服务(SQL Server)”对话框中，确认在“通过集成运行时连接”下选择了 **TutorialIntegrationRuntime** 。 然后执行以下步骤：
 
-    a. 在“名称”下输入 **SqlServerLinkedService**。
+    a. 在“名称”下输入 **SqlServerLinkedService** 。
 
     b. 在“服务器名称”下，输入 SQL Server 实例的名称。
 
@@ -178,7 +178,7 @@ ms.locfileid: "84660995"
 
     d. 在“身份验证类型”下，选择数据工厂在连接到 SQL Server 数据库时会使用的相应身份验证类型。
 
-    e. 在“用户名”和“密码”下，输入用户名和密码。  如需在用户帐户或服务器名称中使用反斜杠 (\\)，请在其前面加上转义字符 (\\)。 例如，使用 *mydomain\\\\myuser*。
+    e. 在“用户名”和“密码”下，输入用户名和密码。  如需在用户帐户或服务器名称中使用反斜杠 (\\)，请在其前面加上转义字符 (\\)。 例如，使用 *mydomain\\\\myuser* 。
 
     f. 选择“测试连接”。 执行此步骤是为了确认数据工厂是否可以使用已创建的自承载集成运行时连接到 SQL Server 数据库。
 
@@ -214,7 +214,7 @@ ms.locfileid: "84660995"
 
     a. 在“链接服务”中，确认选择了“AzureStorageLinkedService”。 
 
-    b. 在**文件路径**中，输入 **adfTutorial/fromonprem** 作为“容器/目录”部分。 如果 adftutorial 容器中不包含 output 文件夹，数据工厂会自动创建 output 文件夹。
+    b. 在 **文件路径** 中，输入 **adfTutorial/fromonprem** 作为“容器/目录”部分。 如果 adftutorial 容器中不包含 output 文件夹，数据工厂会自动创建 output 文件夹。
 
     c. 对于“文件”部分，选择“添加动态内容”。
     ![用于解析文件名的动态表达式](./media/tutorial-hybrid-copy-portal/file-name.png)
