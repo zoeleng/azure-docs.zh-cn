@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 82d482cd0a1b3a5b6028b9249030b7b1a093d22d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570550"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747781"
 ---
 # <a name="enable-shared-disk"></a>启用共享磁盘
 
@@ -126,7 +126,7 @@ $datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -A
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
 ```
 
-# <a name="resource-manager-template"></a>[Resource Manager 模板](#tab/azure-resource-manager)
+# <a name="resource-manager-template"></a>[资源管理器模板](#tab/azure-resource-manager)
 
 ##### <a name="regional-disk-example"></a>地区性磁盘示例
 
@@ -209,6 +209,6 @@ PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 ## <a name="next-steps"></a>后续步骤
 
 如果希望使用 Azure 资源管理器模板来部署磁盘，可使用以下示例模板：
-- [高级 SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
+- [高级·SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
 - [区域超磁盘](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 - [区域性超磁盘](https://aka.ms/SharedUltraDiskARMtemplateZonal)

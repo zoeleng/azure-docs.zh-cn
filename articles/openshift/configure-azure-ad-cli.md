@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro、openshift、az aro、red hat、cli
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469416"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748039"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>为 Azure Red Hat OpenShift 4 群集 (CLI 配置 Azure Active Directory 身份验证) 
 
@@ -21,7 +21,7 @@ ms.locfileid: "89469416"
 
 检索用于配置 Azure Active Directory 应用程序的特定于群集的 Url。
 
-构造群集的 OAuth 回调 URL，并将其存储在变量 **oauthCallbackURL**中。 请确保将 **aro-rg** 替换为资源组的名称，并将 **aro 群集** 名称替换为群集的名称。
+构造群集的 OAuth 回调 URL，并将其存储在变量 **oauthCallbackURL** 中。 请确保将 **aro-rg** 替换为资源组的名称，并将 **aro 群集** 名称替换为群集的名称。
 
 > [!NOTE]
 > `AAD`Oauth 回调 URL 中的部分应与稍后要设置的 oauth 标识提供者名称相匹配。
@@ -76,7 +76,7 @@ az account show --query tenantId -o tsv
 
 我们会将 OpenShift 配置为使用 `email` 声明，并回退到 `upn` 以设置首选用户名，方法是将添加 `upn` 为 AZURE ACTIVE DIRECTORY 返回的 ID 令牌的一部分。
 
-在文件 ** 上创建manifest.js** ，以配置 Azure Active Directory 应用程序。
+在文件 **上创建manifest.js** ，以配置 Azure Active Directory 应用程序。
 
 ```bash
 cat > manifest.json<< EOF
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>验证登录名 Azure Active Directory
 
-如果你现在注销了 OpenShift Web 控制台并尝试再次登录，则会看到一个新选项，用于使用 **AAD**登录。 可能需要等待几分钟时间。
+如果你现在注销了 OpenShift Web 控制台并尝试再次登录，则会看到一个新选项，用于使用 **AAD** 登录。 可能需要等待几分钟时间。
 
 ![Azure Active Directory 选项的登录屏幕](media/aro4-login-2.png)

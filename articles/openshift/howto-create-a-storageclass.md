@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Red Hat OpenShift 4 上创建 Azure 文件 StorageClass
+title: 在 Azure Red Hat OpenShift 4 上创建 Azure 文件存储 StorageClass
 description: 了解如何在 Azure Red Hat OpenShift 上创建 Azure 文件 StorageClass
 ms.service: container-service
 ms.topic: article
@@ -8,14 +8,14 @@ author: grantomation
 ms.author: b-grodel
 keywords: aro，openshift，az aro，red hat，cli，azure 文件
 ms.custom: mvc
-ms.openlocfilehash: c0d809324baa095b2ce8262170289e0dfec8bfd1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428819"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747877"
 ---
-# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>在 Azure Red Hat OpenShift 4 上创建 Azure 文件 StorageClass
+# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>在 Azure Red Hat OpenShift 4 上创建 Azure 文件存储 StorageClass
 
 在本文中，你将创建一个 StorageClass for Azure Red Hat OpenShift 4，使用 Azure 文件动态预配 ReadWriteMany (RWX) 存储。 你将了解如何执行以下操作：
 
@@ -32,7 +32,7 @@ ms.locfileid: "92428819"
 
 ### <a name="set-up-azure-storage-account"></a>设置 Azure 存储帐户
 
-此步骤将在 Azure Red Hat OpenShift 群集的资源组外部创建一个资源组。 此资源组将包含由 Azure Red Hat OpenShift 的动态配置程序创建的 Azure 文件共享。
+此步骤将在 Azure Red Hat OpenShift (ARO) 群集资源组外创建资源组。 此资源组将包含由 Azure Red Hat OpenShift 的动态配置程序创建的 Azure 文件共享。
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

@@ -3,13 +3,13 @@ title: 将 Azure 文件卷装载到容器组
 description: 了解如何装载 Azure 文件卷以保持 Azure 容器实例的状态
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259469"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746872"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>在 Azure 容器实例中装载 Azure 文件共享
 
@@ -235,7 +235,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 若要在容器实例中装载多个卷，必须使用 [Azure 资源管理器模板](/azure/templates/microsoft.containerinstance/containergroups)、YAML 文件或其他编程方法进行部署。 若要使用模板或 YAML 文件，请提供共享详细信息，并通过在文件的 `properties` 部分填充 `volumes` 数组来定义卷。 
 
-例如，如果已在存储帐户 *myStorageAccount* 中创建两个 Azure 文件存储（名为 *share1* 和 *share2*），资源管理器模板中的 `volumes` 数组将类似于以下内容：
+例如，如果已在存储帐户 *myStorageAccount* 中创建两个 Azure 文件存储（名为 *share1* 和 *share2* ），资源管理器模板中的 `volumes` 数组将类似于以下内容：
 
 ```JSON
 "volumes": [{

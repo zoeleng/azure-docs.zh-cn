@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984178"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746581"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>创建一个存储帐户，该帐户具有启用了基础结构加密的数据进行双重加密
 
@@ -31,7 +32,7 @@ Azure 存储使用256位 AES 加密（可用的最强块密码之一），在服
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
-不适用
+空值
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -79,7 +80,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[模板](#tab/template)
 
-不适用
+空值
 
 ---
 
@@ -95,7 +96,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 1. 在 Azure 门户中，导航到 " **存储帐户** " 页。
 1. 选择 " **添加** " 按钮，添加新的常规用途 v2 存储帐户。
-1. 在 " **高级** " 选项卡上，找到 " **基础结构** 加密"，并选择 " **启用**"。
+1. 在 " **高级** " 选项卡上，找到 " **基础结构** 加密"，并选择 " **启用** "。
 1. 选择 " **查看 + 创建** "，完成存储帐户的创建。
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="显示如何在创建帐户时启用基础结构加密的屏幕截图":::
@@ -178,7 +179,7 @@ az storage account create \
 若要验证是否为具有 Azure 门户的存储帐户启用了基础结构加密，请执行以下步骤：
 
 1. 导航到 Azure 门户中的存储帐户。
-1. 在 " **设置**" 下，选择 " **加密**"。
+1. 在 " **设置** " 下，选择 " **加密** "。
 
     :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="显示如何在创建帐户时启用基础结构加密的屏幕截图":::
 
@@ -208,7 +209,7 @@ az storage account show /
 
 # <a name="template"></a>[模板](#tab/template)
 
-不适用
+空值
 
 ---
 

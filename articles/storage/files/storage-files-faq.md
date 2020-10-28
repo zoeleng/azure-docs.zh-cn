@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563686"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746827"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md) 在云中提供完全托管的文件共享，这些共享可通过行业标准的 [服务器消息块进行访问， (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 和 [网络文件系统 (NFS) 协议](https://en.wikipedia.org/wiki/Network_File_System) (预览版) 。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -76,7 +76,7 @@ ms.locfileid: "90563686"
     Azure 文件支持两种存储层：高级存储层和标准存储层。 标准文件共享是在常规用途（GPv1 或 GPv2）存储帐户中创建的，高级文件共享是在 FileStorage 存储帐户中创建的。 详细了解如何创建[标准文件共享](storage-how-to-create-file-share.md)和[高级文件共享](storage-how-to-create-premium-fileshare.md)。 
     
     > [!NOTE]
-    > 你无法使用 Blob 存储帐户或高级常规用途（GPv1 或 GPv2）存储帐户创建 Azure 文件共享。 标准 Azure 文件共享必须只能在标准常规用途帐户中创建，高级 Azure 文件共享必须只能在 FileStorage 存储帐户中创建。 *高级*常规用途（GPv1 和 GPv2）存储帐户仅适用于高级页 Blob。 
+    > 你无法使用 Blob 存储帐户或高级常规用途（GPv1 或 GPv2）存储帐户创建 Azure 文件共享。 标准 Azure 文件共享必须只能在标准常规用途帐户中创建，高级 Azure 文件共享必须只能在 FileStorage 存储帐户中创建。 *高级* 常规用途（GPv1 和 GPv2）存储帐户仅适用于高级页 Blob。 
 
 * <a id="file-locking"></a>
   **Azure 文件是否支持文件锁定？**  
@@ -107,7 +107,7 @@ ms.locfileid: "90563686"
     性能将取决于你的环境设置和配置，以及这是初始同步还是正在进行的同步。有关详细信息，请参阅 [Azure 文件同步性能指标](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**如果在两个服务器上几乎同时对同一文件进行了更改后，会发生什么情况？**  
-    Azure 文件同步使用简单的冲突解决策略：我们将同时更改两个终结点中的文件更改。 最新写入的更改保留原始文件名称。 旧文件 (由 LastWriteTime) 确定，该文件的终结点名称和冲突号都追加到文件名。 对于服务器终结点，终结点名称是服务器的名称。 对于云终结点，终结点名称为 **cloud**。 此分类的名称如下所示： 
+    Azure 文件同步使用简单的冲突解决策略：我们将同时更改两个终结点中的文件更改。 最新写入的更改保留原始文件名称。 旧文件 (由 LastWriteTime) 确定，该文件的终结点名称和冲突号都追加到文件名。 对于服务器终结点，终结点名称是服务器的名称。 对于云终结点，终结点名称为 **cloud** 。 此分类的名称如下所示： 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -118,7 +118,7 @@ ms.locfileid: "90563686"
     是的，Azure 文件支持本地冗余存储 (LRS) 和异地冗余存储 (GRS)。 如果通过为 GRS 配置的帐户发起配对区域之间的存储帐户故障转移，Microsoft 建议仅将新区域视为数据的备份。 Azure 文件同步不会自动开始与新的主区域进行同步。 
 
 * <a id="sizeondisk-versus-size"></a>
-  **使用 Azure 文件共享后，为什么文件的占用空间属性与大小属性不一致？ **  
+  **使用 Azure 文件共享后，为什么文件的占用空间属性与大小属性不一致？**  
   请参阅[了解云分层](storage-sync-cloud-tiering.md#sizeondisk-versus-size)。
 
 * <a id="is-my-file-tiered"></a>
@@ -257,7 +257,25 @@ ms.locfileid: "90563686"
 * <a id="ad-multiple-forest"></a>
 **用于 Azure 文件共享的本地 AD DS 身份验证是否支持使用多个林与 AD DS 环境集成？**    
 
-    Azure 文件的本地 AD DS 身份验证仅与存储帐户所注册的域服务的对应林集成。 若要支持从其他林进行身份验证，环境必须正确配置林信任。 Azure 文件在 AD DS 中注册的方式与常规文件服务器几乎相同，它在其中创建标识（计算机或服务登录帐户）以用于身份验证。 唯一的区别是，存储帐户的注册 SPN 以“file.core.windows.net”结尾，这与域后缀不匹配。 请咨询域管理员，查看是否需要对 DNS 路由策略进行任何更新，以启用由于域后缀不同而带来的多林身份验证。
+    Azure 文件的本地 AD DS 身份验证仅与存储帐户所注册的域服务的对应林集成。 若要支持从其他林进行身份验证，环境必须正确配置林信任。 Azure 文件在 AD DS 中注册的方式与常规文件服务器几乎相同，它在其中创建标识（计算机或服务登录帐户）以用于身份验证。 唯一的区别是，存储帐户的注册 SPN 以“file.core.windows.net”结尾，这与域后缀不匹配。 请咨询域管理员，查看是否需要对后缀路由策略进行任何更新以启用多林身份验证，因为存在不同的域后缀。 我们提供了下面的示例来配置后缀路由策略。
+    
+    示例：如果林中的用户要访问的文件共享的存储帐户是针对林 B 中的域注册的，则此操作不会自动运行，因为存储帐户的服务主体没有与林中的任何域的后缀相匹配的后缀。我们可以通过手动将后缀路由规则从林 A 配置为 "file.core.windows.net" 的自定义后缀，来解决此问题。
+    首先，必须在林 B 上添加新的自定义后缀。请确保具有相应的管理权限来更改配置，然后执行以下步骤：   
+    1. 登录到已加入到林 B 的计算机域
+    2.  打开 "Active Directory 域和信任" 控制台
+    3.  右键单击 "Active Directory 域和信任"
+    4.  单击 "属性"
+    5.  单击 "添加"
+    6.  添加 "file.core.windows.net" 作为 UPN 后缀
+    7.  单击 "应用"，然后单击 "确定" 关闭向导
+    
+    接下来，在林 A 上添加后缀路由规则，以便将其重定向到林 B。
+    1.  登录到加入林 A 的计算机域
+    2.  打开 "Active Directory 域和信任" 控制台
+    3.  右键单击要访问文件共享的域，然后单击 "信任" 选项卡，然后选择 "林 B 域" "传出信任"。 如果你尚未在两个林之间配置信任，则需要先设置信任
+    4.  单击 "属性 ..."then "名称后缀路由"
+    5.  检查 "*. file.core.windows.net" surffix 是否显示。 如果没有，请单击 "刷新"
+    6.  选择 "file.core.windows.net"，然后单击 "启用" 和 "应用"
 
 * <a id=""></a>
 **哪些区域适用于 Azure 文件 AD DS 身份验证？**
@@ -311,7 +329,7 @@ ms.locfileid: "90563686"
 * <a id="expressroute-not-required"></a>
 **必须使用 Azure ExpressRoute 才能在本地连接到 Azure 文件或使用 Azure 文件同步吗？**  
 
-    不是。 ExpressRoute 不是访问 Azure 文件共享的必要条件。 如果要直接在本地装载 Azure 文件共享，则只需打开端口 445（TCP 出站）即可进行 Internet 访问（这是 SMB 用于进行通信的端口）。 如果正在使用 Azure 文件同步，则只需端口 443（TCP 出站）即可进行 HTTPS 访问（无需 SMB）。 但是，你可以将 ExpressRoute 与这些访问选项中任意一项一起使用。
+    否。 ExpressRoute 不是访问 Azure 文件共享的必要条件。 如果要直接在本地装载 Azure 文件共享，则只需打开端口 445（TCP 出站）即可进行 Internet 访问（这是 SMB 用于进行通信的端口）。 如果正在使用 Azure 文件同步，则只需端口 443（TCP 出站）即可进行 HTTPS 访问（无需 SMB）。 但是，你可以将 ExpressRoute 与这些访问选项中任意一项一起使用。
 
 * <a id="mount-locally"></a>
 **如何才能在本地计算机上装载 Azure 文件共享？**  
@@ -444,7 +462,7 @@ ms.locfileid: "90563686"
 
 * <a id="nested-shares"></a>
 **是否可以设置嵌套共享？也就是说，能否在共享下使用共享？**  
-    不是。 文件共享是可以装载的虚拟驱动程序，因此不支持嵌套共享。
+    否。 文件共享是可以装载的虚拟驱动程序，因此不支持嵌套共享。
 
 * <a id="ibm-mq"></a>
 **如何将 Azure 文件与 IBM MQ 配合使用？**  

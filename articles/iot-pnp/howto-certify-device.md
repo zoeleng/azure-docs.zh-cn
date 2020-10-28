@@ -5,15 +5,15 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042960"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748477"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>如何认证 IoT 即插即用设备
 
@@ -182,12 +182,12 @@ az iot product test task create --type QueueTestRun --test-id d45d53d9-656d-4be7
 
 若要验证设备，必须首先创建一个新项目。
 
-导航到 [证书门户](https://aka.ms/acdp)。 在 " **项目** " 页上，选择 " *+ 创建新项目*"。 然后，输入项目的名称和设备名称，然后选择设备类。
+导航到 [证书门户](https://aka.ms/acdp)。 在 " **项目** " 页上，选择 " *+ 创建新项目* "。 然后，输入项目的名称和设备名称，然后选择设备类。
 
 在认证过程中提供的产品信息分为四类：
 
 - 设备信息。 收集有关设备的信息，例如设备的名称、描述、证书和操作系统。
-- **入门**指南。 在发布设备之前，你必须以 PDF 文档的形式提交指南以供系统管理员批准。
+- **入门** 指南。 在发布设备之前，你必须以 PDF 文档的形式提交指南以供系统管理员批准。
 - 市场营销详细信息。 为设备提供客户可用的营销信息。 营销信息包括为说明、照片和分销商。
 - 其他行业认证。 此可选部分允许你提供有关设备已获取的任何其他证书的其他信息。
 

@@ -4,13 +4,13 @@ description: 了解 Azure Kubernetes 服务 (AKS) API 服务器的可选运行�
 services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: references_regions
-ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749117"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748876"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Azure Kubernetes 服务 (AKS) 运行时间 SLA
 
@@ -48,7 +48,7 @@ ms.locfileid: "88749117"
 
 若要创建具有运行时间 SLA 的群集，请使用 Azure CLI。
 
-以下示例在 eastus 位置创建名为 myResourceGroup 的资源组：  
+以下示例在 eastus 位置创建名为 myResourceGroup 的资源组：
 
 ```azurecli-interactive
 # Create a resource group
@@ -112,7 +112,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
   },
   ```
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up"></a>清理
 
 若要避免收费，请清除创建的所有资源。 若要删除群集，请使用 [`az group delete`][az-group-delete] 命令删除 AKS 资源组：
 

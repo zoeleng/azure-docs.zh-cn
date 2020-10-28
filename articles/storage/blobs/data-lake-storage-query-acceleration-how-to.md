@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659870"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746431"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>使用 Azure Data Lake Storage 查询加速来筛选数据
 
@@ -26,7 +26,7 @@ ms.locfileid: "89659870"
 
 - 若要访问 Azure 存储，需要一个 Azure 订阅。 如果还没有订阅，请在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- **常规用途 v2**存储帐户。 请参阅 [创建存储帐户](../common/storage-quickstart-create-account.md)。
+- **常规用途 v2** 存储帐户。 请参阅 [创建存储帐户](../common/storage-quickstart-create-account.md)。
 
 - 选择一个选项卡以查看任何特定于 SDK 的必备组件。
 

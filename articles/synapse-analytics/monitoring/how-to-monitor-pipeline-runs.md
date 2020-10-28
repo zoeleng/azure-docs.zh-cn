@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/27/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387313"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746378"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>使用 Synapse Studio 监视工作区管道运行
 
-借助 Azure Synapse Analytics，可以创建复杂的管道，使其能够在解决方案中自动化和协调数据移动、数据转换和计算活动。 可以使用 Synapse Studio (preview) 创作和监视这些管道。
+借助 Azure Synapse Analytics，你可以创建复杂的管道，使你能够在解决方案中自动化和集成数据移动、数据转换和计算活动。 可以使用 Synapse Studio (preview) 创作和监视这些管道。
 
 本文介绍如何监视管道运行，从而使你能够关注管道的最新状态、问题和进度。
 

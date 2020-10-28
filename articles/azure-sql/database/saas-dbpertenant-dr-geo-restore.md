@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618992"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330098"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>使用异地还原通过数据库备份恢复多租户 SaaS 应用程序
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -184,7 +184,7 @@ ms.locfileid: "91618992"
 
 3. 在 PowerShell 窗口中监视恢复进程的状态。
 
-    ![恢复过程](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+    ![显示 PowerShell 窗口的屏幕截图，可以在该窗口中监视恢复过程的状态。](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > 要了解恢复作业的代码，请查看 ...\Learning Modules\Business Continuity 和 Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs 文件夹中的 PowerShell 脚本。
@@ -202,7 +202,7 @@ ms.locfileid: "91618992"
 
   * 如果在租户脱机时直接打开租户的事件页，页面将显示租户脱机通知。 例如，在 Contoso Concert Hall 处于脱机状态时，尝试打开 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall。
 
-    ![恢复过程](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+    ![显示脱机事件页的屏幕截图。](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>在恢复区域中预配新租户
 即使未还原租户数据库，也可以在恢复区域中预配新租户。 在恢复区域中预配的新租户数据库稍后将与恢复的数据库一起遣返。   

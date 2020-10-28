@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1
-ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: 906ec80ecc198675fdb5b163403267be1d13de00
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500311"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746844"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>启用 Azure 文件上 Azure Active Directory 域服务身份验证
 
@@ -25,7 +25,7 @@ ms.locfileid: "89500311"
 > Azure 文件支持通过具有 RC4-HMAC 加密 Azure AD DS 进行 Kerberos 身份验证。 目前尚不支持 AES Kerberos 加密。
 > Azure 文件支持对 Azure AD DS 进行身份验证，与 Azure AD 完全同步。 如果已在 Azure AD DS 中启用范围内同步，仅同步 Azure AD 的有限标识，则不支持身份验证和授权。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在 Azure 文件共享的 SMB 上启用 Azure AD 之前，请确保已完成以下先决条件：
 
@@ -39,7 +39,7 @@ ms.locfileid: "89500311"
 
     若要支持使用 Azure AD 凭据进行身份验证，必须启用 Azure AD 租户的 Azure AD 域服务。 如果你不是 Azure AD 租户的管理员，请与管理员联系并按照分步指南操作，以[使用 Azure 门户启用 Azure Active Directory 域服务](../../active-directory-domain-services/tutorial-create-instance.md)。
 
-    完成 Azure AD DS 部署通常需要大约15分钟。 在继续下一步之前，请验证 Azure AD DS **的运行状况状态显示为**"已启用密码哈希同步"。
+    完成 Azure AD DS 部署通常需要大约15分钟。 在继续下一步之前，请验证 Azure AD DS **的运行状况状态显示为** "已启用密码哈希同步"。
 
 1.  **使用 Azure AD DS 将 Azure VM 加入域。**
 
@@ -87,9 +87,9 @@ ms.locfileid: "89500311"
 若要通过 [Azure 门户](https://portal.azure.com)启用 SMB Azure AD DS 身份验证，请执行以下步骤：
 
 1. 在 Azure 门户中，请前往现有的存储帐户，或者 [创建一个存储帐户](../common/storage-account-create.md)。
-1. 在“设置”部分选择“配置”。********
-1. 在 " **文件共享基于标识的访问** " 下，将 **Azure Active Directory 域服务)  (** 的切换切换到 " **已启用**"。
-1. 选择“保存”。
+1. 在“设置”部分选择“配置”。 
+1. 在 " **文件共享基于标识的访问** " 下，将 **Azure Active Directory 域服务)  (** 的切换切换到 " **已启用** "。
+1. 选择“保存” 。
 
 下图显示了如何为存储帐户启用通过 SMB 进行的 Azure AD DS 身份验证。
 
@@ -99,7 +99,7 @@ ms.locfileid: "89500311"
 
 若要启用 Azure PowerShell 的 SMB Azure AD DS 身份验证，请安装最新 Az 模块 (2.4 或更高版本) 或 (1.5 或更高版本的) 。 有关安装 PowerShell 的详细信息，请参阅 [在 Windows 上通过 PowerShellGet 安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
-若要创建新的存储帐户，请调用 [AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)，然后将 **EnableAzureActiveDirectoryDomainServicesForFile** 参数设置为 **true**。 在下面的示例中，请记住将占位符值替换为自己的值。  (如果你使用的是以前的预览模块，则启用该功能的参数为 **EnableAzureFilesAadIntegrationForSMB**。 ) 
+若要创建新的存储帐户，请调用 [AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)，然后将 **EnableAzureActiveDirectoryDomainServicesForFile** 参数设置为 **true** 。 在下面的示例中，请记住将占位符值替换为自己的值。  (如果你使用的是以前的预览模块，则启用该功能的参数为 **EnableAzureFilesAadIntegrationForSMB** 。 ) 
 
 ```powershell
 # Create a new storage account
@@ -125,7 +125,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 若要启用 Azure CLI 通过 SMB 进行 Azure AD 身份验证，请安装最新的 CLI 版本 (版本2.0.70 或更高版本) 。 有关安装 Azure CLI 的详细信息，请参阅 [安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
-若要创建新的存储帐户，请调用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)，并将 `--enable-files-aadds` 属性设置为 **true**。 在下面的示例中，请记住将占位符值替换为自己的值。  (如果你使用的是以前的预览模块，则功能启用参数为 **文件-aad**。 ) 
+若要创建新的存储帐户，请调用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)，并将 `--enable-files-aadds` 属性设置为 **true** 。 在下面的示例中，请记住将占位符值替换为自己的值。  (如果你使用的是以前的预览模块，则功能启用参数为 **文件-aad** 。 ) 
 
 ```azurecli-interactive
 # Create a new storage account

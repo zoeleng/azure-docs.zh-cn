@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: a0fe5c2af42e8d8095963e29149e1338cc064c90
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495185"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748495"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>如何启用软删除和清除保护
 
@@ -23,11 +23,11 @@ ms.locfileid: "92495185"
 
 软删除和清除保护是两种不同的密钥保管库恢复功能。
 > [!IMPORTANT]
-> 需要在所有密钥保管库上启用软删除保护。 2020年12月将弃用禁用软删除保护的功能。 请 [**在此处**查看完整的详细信息。](soft-delete-change.md)
+> 需要在所有密钥保管库上启用软删除保护。 2020年12月将弃用禁用软删除保护的功能。 请 [**在此处** 查看完整的详细信息。](soft-delete-change.md)
 
 **软删除** 旨在防止意外删除密钥保管库、密钥、机密以及密钥保管库中存储的证书。 像回收站一样，将软删除视为软删除。 删除 key vault 或 key vault 对象时，它将保持可恢复的用户可配置的保留期，或默认为90天。 还可以 **清除** 软删除状态的密钥保管库，这意味着它们将被永久删除。 这样，便可以重新创建具有相同名称的密钥保管库和密钥保管库对象。 恢复和删除密钥保管库和对象都需要提升的访问策略权限。 **启用软删除后，将无法禁用。**
 
-请务必注意， **密钥保管库名称是全局唯一**的，因此无法在软删除状态下创建与密钥保管库同名的密钥保管库。 同样，密钥、机密和证书的名称在密钥保管库中是唯一的。 你将无法使用 "软删除" 状态中的其他名称创建机密、密钥或证书。
+请务必注意， **密钥保管库名称是全局唯一** 的，因此无法在软删除状态下创建与密钥保管库同名的密钥保管库。 同样，密钥、机密和证书的名称在密钥保管库中是唯一的。 你将无法使用 "软删除" 状态中的其他名称创建机密、密钥或证书。
 
 **清除保护** 旨在防止恶意内部成员删除密钥保管库、密钥、机密和证书。 使用基于时间的锁将此视为回收站。 可在可配置的保留期内随时恢复项。 **在保留期结束之前，你将无法永久删除或清除密钥保管库。** 保持期结束后，将自动清除密钥保管库或 key vault 对象。
 
@@ -125,7 +125,7 @@ ms.locfileid: "92495185"
     az keyvault recover --subscription {SUBSCRIPTION ID} -n {VAULT NAME}
     ```
 
-* 清除软删除的密钥保管库 ** (警告！此操作将永久删除密钥保管库) **
+* 清除软删除的密钥保管库 **(警告！此操作将永久删除密钥保管库)**
 
     ```azurecli
     az keyvault purge --subscription {SUBSCRIPTION ID} -n {VAULT NAME}
@@ -163,7 +163,7 @@ ms.locfileid: "92495185"
     az keyvault certificate recover --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
     ```
 
-* 清除软删除的证书 ** (警告！此操作将永久删除你的证书) **
+* 清除软删除的证书 **(警告！此操作将永久删除你的证书)**
 
     ```azurecli
     az keyvault certificate purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
@@ -195,7 +195,7 @@ ms.locfileid: "92495185"
     az keyvault key recover --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {KEY NAME}
     ```
 
-* 清除软删除的密钥 ** (警告！此操作将永久删除你的密钥) **
+* 清除软删除的密钥 **(警告！此操作将永久删除你的密钥)**
 
     ```azurecli
     az keyvault key purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {KEY NAME}
@@ -227,7 +227,7 @@ ms.locfileid: "92495185"
     az keyvault secret recover --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
     ```
 
-* 清除软删除的机密 ** (警告！此操作将永久删除你的机密) **
+* 清除软删除的机密 **(警告！此操作将永久删除你的机密)**
 
     ```azurecli
     az keyvault secret purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
@@ -241,14 +241,6 @@ ms.locfileid: "92495185"
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
-    ```
-
-* 在密钥保管库上启用软删除
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
 * 删除密钥保管库
@@ -269,7 +261,7 @@ ms.locfileid: "92495185"
     Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
     ```
 
-* 清除软删除的密钥保管库 ** (警告！此操作将永久删除密钥保管库) **
+* 清除软删除的密钥保管库 **(警告！此操作将永久删除密钥保管库)**
 
     ```powershell
     Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
@@ -309,7 +301,7 @@ ms.locfileid: "92495185"
   Undo-AzKeyVaultCertificateRemoval -VaultName ContosoVault -Name 'MyCert'
   ```
 
-* 清除软删除的证书 ** (WARNING！此操作将永久删除你的证书) **
+* 清除软删除的证书 **(WARNING！此操作将永久删除你的证书)**
 
   ```powershell
   Remove-AzKeyVaultcertificate -VaultName ContosoVault -Name 'MyCert' -InRemovedState
@@ -341,7 +333,7 @@ ms.locfileid: "92495185"
     Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
     ```
 
-* 清除软删除的密钥 ** (警告！此操作将永久删除你的密钥) **
+* 清除软删除的密钥 **(警告！此操作将永久删除你的密钥)**
 
     ```powershell
     Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
@@ -373,7 +365,7 @@ ms.locfileid: "92495185"
   Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   ```
 
-* 清除处于已删除状态的机密 ** (警告！此操作将永久删除你的密钥) **
+* 清除处于已删除状态的机密 **(警告！此操作将永久删除你的密钥)**
 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword

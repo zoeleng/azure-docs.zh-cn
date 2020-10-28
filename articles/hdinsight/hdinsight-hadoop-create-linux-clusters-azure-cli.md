@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: bf292ccd185ad2c6a85cb6d2f097bb8a7fa9e173
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4daac353c69677021245e95c0b11550372f5d4ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489653"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748782"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 创建 HDInsight 群集
 
@@ -44,7 +44,7 @@ Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/azu
 
 2. 设置环境变量。 本文中的变量用法基于 Bash。 在其他环境中需要进行细微的更改。 有关用于群集创建的可能参数的完整列表，请参见 [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create)。
 
-    |参数 | 描述 |
+    |参数 | 说明 |
     |---|---|
     |`--workernode-count`| 群集中的工作器节点数。 本文使用变量 `clusterSizeInNodes` 作为传递给 `--workernode-count` 的值。 |
     |`--version`| HDInsight 群集版本。 本文使用变量 `clusterVersion` 作为传递给 `--version` 的值。 另请参阅： [支持的 HDInsight 版本](./hdinsight-component-versioning.md#supported-hdinsight-versions)。|

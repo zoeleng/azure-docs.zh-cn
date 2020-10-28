@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630502"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747902"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>使用通用事件格式连接外部解决方案
 
@@ -44,25 +44,25 @@ ms.locfileid: "91630502"
 
 ## <a name="security-considerations"></a>安全注意事项
 
-请确保根据组织的安全策略配置计算机的安全性。 例如，你可以将网络配置为与你的企业网络安全策略一致，并更改守护程序中的端口和协议以符合你的要求。 你可以使用以下说明来改善计算机安全配置：  [Azure 中的安全 VM](../virtual-machines/security-policy.md)、 [网络安全的最佳做法](../security/fundamentals/network-best-practices.md)。
+请确保根据组织的安全策略配置计算机的安全性。 例如，你可以将网络配置为与你的企业网络安全策略一致，并更改守护程序中的端口和协议以符合你的要求。 你可以使用以下说明来改善计算机安全配置：  [Azure 中的安全 VM](../virtual-machines/security-policy.md)、 [网络安全的最佳做法](../security/fundamentals/network-best-practices.md)。
 
 若要在 Syslog 源和 Syslog 转发器之间使用 TLS 通信，则需要将 Syslog 守护程序 (rsyslog 或 syslog-ng) 配置为在 TLS 中进行通信： [使用 Rsyslog 加密 Syslog 流量](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)，使用 [tls 加密日志消息– Syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)。
  
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 请确保用作代理的 Linux 计算机运行的是以下操作系统之一：
 
 - 64 位
   - CentOS 7 和子版本， (不是 6) 
   - Amazon Linux 2017.09
-  - Oracle Linux 6 和 7
+  - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 和子版本， (不是 6) 
   - Debian GNU/Linux 8 和 9
   - Ubuntu Linux 14.04 LTS、16.04 LTS 和 18.04 LTS
   - SUSE Linux Enterprise Server 12
 - 32 位
    - CentOS 7
-   - Oracle Linux 6
+   - Oracle Linux 7
    - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 和 9
    - Ubuntu Linux 14.04 LTS 和 16.04 LTS
@@ -79,7 +79,7 @@ ms.locfileid: "91630502"
 - 权限
     - 你的计算机上必须具有提升的权限 (sudo) 。 
 - 软件要求
-    - 请确保你的计算机上正在运行 Python (2.7 或更高) 版本
+    - 请确保已在计算机上运行 python 2.7。
 
 ## <a name="next-steps"></a>后续步骤
 

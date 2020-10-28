@@ -6,15 +6,15 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2b8dbd20e79b9a6f48ca2d39079ebb452a3b46b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72fe7965f3e2b7ce0cdd53e4ec6e122e5bcbc6ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530805"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746261"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>使用 Synapse Studio (预览) 来监视你的 Apache Spark 应用程序
 
@@ -34,7 +34,7 @@ ms.locfileid: "90530805"
 
 选择 **Apache Spark 应用程序** 以查看 Apache Spark 应用程序的列表。
 
- ![选择 Spark 应用程序](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
+ ![选择 Spark 应用程序](./media/how-to-monitor-spark-applications/monitor-hub-nav-spark-applications.png)
 
 ## <a name="filter-your-apache-spark-applications"></a>筛选 Apache Spark 应用程序
 

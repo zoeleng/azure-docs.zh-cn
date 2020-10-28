@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: 了解如何配置 Azure Dev Spaces 以使用自定义 traefik 入口控制器并使用该入口控制器配置 HTTPS
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes 服务, 容器, Helm, 服务网格, 服务网格路由, kubectl, k8s
-ms.custom: devx-track-js
-ms.openlocfilehash: a30dae3b65a7e877dc20b4d6fae8de338024d3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: fb45c310d306813dc10b667db6ce36048eccf217
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973047"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746121"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>使用自定义 traefik 入口控制器并配置 HTTPS
 
@@ -61,7 +61,7 @@ helm install traefik stable/traefik --namespace traefik --set kubernetes.ingress
 ```
 
 > [!NOTE]
-> 上面的示例为入口控制器创建一个公共终结点。 如果需要改用入口控制器的专用终结点，请添加 *--set 服务。helm install 命令的 \\ \\ kubernetes \\ /azure-load--internal "= true*参数。 *helm install*
+> 上面的示例为入口控制器创建一个公共终结点。 如果需要改用入口控制器的专用终结点，请添加 *--set 服务。helm install 命令的 \\ \\ kubernetes \\ /azure-load--internal "= true* 参数。 *helm install*
 > ```console
 > helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
 > ```
@@ -82,7 +82,7 @@ traefik   LoadBalancer   10.0.205.78   <pending>     80:32484/TCP,443:30620/TCP 
 traefik   LoadBalancer   10.0.205.78   MY_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
 ```
 
-使用[az network DNS record][az-network-dns-record-set-a-add-record]将*a*记录添加到 DNS 区域，使用 TRAEFIK 服务的外部 IP 地址，并设置添加记录。
+使用 [az network DNS record][az-network-dns-record-set-a-add-record]将 *a* 记录添加到 DNS 区域，使用 TRAEFIK 服务的外部 IP 地址，并设置添加记录。
 
 ```azurecli
 az network dns record-set a add-record \
@@ -102,8 +102,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 打开 [yaml][values-yaml] 并进行以下更新：
-* 将 *<REPLACE_ME_WITH_HOST_SUFFIX>* 的所有实例替换为 *traefik。MY_CUSTOM_DOMAIN* 使用域进行 *MY_CUSTOM_DOMAIN*。 
-* 替换 *kubernetes.io/ingress.class： traefik-azds # Dev Spaces-特定于* *kubernetes.io/ingress.class： Traefik # 自定义入口*。 
+* 将 *<REPLACE_ME_WITH_HOST_SUFFIX>* 的所有实例替换为 *traefik。MY_CUSTOM_DOMAIN* 使用域进行 *MY_CUSTOM_DOMAIN* 。 
+* 替换 *kubernetes.io/ingress.class： traefik-azds # Dev Spaces-特定于* *kubernetes.io/ingress.class： Traefik # 自定义入口* 。 
 
 下面是已更新文件的示例 `values.yaml` ：
 
@@ -157,10 +157,10 @@ http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-通过 `azds list-uris` 命令打开公共 URL，导航到 *bikesharingweb* 服务。 在以上示例中，*bikesharingweb* 服务的公共 URL 为 `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`。
+通过 `azds list-uris` 命令打开公共 URL，导航到 *bikesharingweb* 服务。 在以上示例中， *bikesharingweb* 服务的公共 URL 为 `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`。
 
 > [!NOTE]
-> 如果看到错误页面而不是*bikesharingweb*服务，请验证是否已在*yaml*文件**中更新** *kubernetes.io/ingress.class*批注和主机。
+> 如果看到错误页面而不是 *bikesharingweb* 服务，请验证是否已在 *yaml* 文件 **中更新** *kubernetes.io/ingress.class* 批注和主机。
 
 使用 `azds space select` 命令在 " *开发* " 下创建子空间，并列出用于访问子开发人员空间的 url。
 
@@ -178,7 +178,7 @@ http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-通过从命令中打开公共 URL，导航到*azureuser1*子 dev 空间中的*bikesharingweb*服务 `azds list-uris` 。 在上面的示例中， *azureuser1*子开发人员空间中*bikesharingweb*服务的公共 URL 是 `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/` 。
+通过从命令中打开公共 URL，导航到 *azureuser1* 子 dev 空间中的 *bikesharingweb* 服务 `azds list-uris` 。 在上面的示例中， *azureuser1* 子开发人员空间中 *bikesharingweb* 服务的公共 URL 是 `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/` 。
 
 ## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>将 traefik 入口控制器配置为使用 HTTPS
 
@@ -212,7 +212,7 @@ spec:
 ```
 
 > [!NOTE]
-> 对于测试，还有一个可用于*ClusterIssuer*的[过渡服务器][letsencrypt-staging-issuer]。
+> 对于测试，还有一个可用于 *ClusterIssuer* 的 [过渡服务器][letsencrypt-staging-issuer]。
 
 使用 `kubectl` 应用 `letsencrypt-clusterissuer.yaml` 。
 
@@ -220,7 +220,7 @@ spec:
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-删除以前的 *traefik* *ClusterRole* 和 *ClusterRoleBinding*，然后将 traefik 升级到使用 HTTPS `helm` 。
+删除以前的 *traefik* *ClusterRole* 和 *ClusterRoleBinding* ，然后将 traefik 升级到使用 HTTPS `helm` 。
 
 > [!NOTE]
 > 如果 AKS 群集未启用 RBAC，请删除 *--set RBAC. enabled = true* 参数。
@@ -246,7 +246,7 @@ traefik   LoadBalancer   10.0.205.78   <pending>            80:32484/TCP,443:306
 traefik   LoadBalancer   10.0.205.78   MY_NEW_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
 ```
 
-使用[az network dns record][az-network-dns-record-set-a-add-record]将*a*记录添加到 DNS 区域，并使用 traefik 服务的新外部 IP 地址，并使用 az network Dns record 删除上*一*条记录[-设置删除记录][az-network-dns-record-set-a-remove-record]。
+使用 [az network dns record][az-network-dns-record-set-a-add-record]将 *a* 记录添加到 DNS 区域，并使用 traefik 服务的新外部 IP 地址，并使用 az network Dns record 删除上 *一* 条记录 [-设置删除记录][az-network-dns-record-set-a-remove-record]。
 
 ```azurecli
 az network dns record-set a add-record \
@@ -262,7 +262,7 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-上面的示例将*MY_CUSTOM_DOMAIN* DNS 区域中的*A*记录更新为使用*PREVIOUS_EXTERNAL_IP*。
+上面的示例将 *MY_CUSTOM_DOMAIN* DNS 区域中的 *A* 记录更新为使用 *PREVIOUS_EXTERNAL_IP* 。
 
 将 [yaml][values-yaml] 更新为包含使用 *证书管理器* 和 HTTPS 的详细信息。 下面是已更新文件的示例 `values.yaml` ：
 
@@ -312,7 +312,7 @@ helm upgrade bikesharingsampleapp . --namespace dev --atomic
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-若要修复此错误，请更新 [BikeSharingWeb/azds][azds-yaml] ，以将 *traefik* 用于 *kubernetes.io/ingress.class* ，并使用自定义域 *) $ (hostSuffix *。 例如：
+若要修复此错误，请更新 [BikeSharingWeb/azds][azds-yaml] ，以将 *traefik* 用于 *kubernetes.io/ingress.class* ，并使用自定义域 *) $ (hostSuffix* 。 例如：
 
 ```yaml
 ...
@@ -325,7 +325,7 @@ Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_C
 ...
 ```
 
-使用*url*包的依赖项更新[上的 BikeSharingWeb/package.js][package-json] 。
+使用 *url* 包的依赖项更新 [上的 BikeSharingWeb/package.js][package-json] 。
 
 ```json
 {
@@ -337,7 +337,7 @@ Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_C
 ...
 ```
 
-更新[BikeSharingWeb/lib/helpers.js][helpers-js]中的*getApiHostAsync*方法，以使用 HTTPS：
+更新 [BikeSharingWeb/lib/helpers.js][helpers-js]中的 *getApiHostAsync* 方法，以使用 HTTPS：
 
 ```javascript
 ...
