@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f6131232d9f6f98095d073672e201cfb591b540
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 60bc4623416eeb491d073dba9517ac13861a3e9e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054774"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633444"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略添加 ADFS 作为 SAML 标识提供者
 
@@ -27,7 +27,7 @@ ms.locfileid: "92054774"
 ## <a name="prerequisites"></a>先决条件
 
 - 完成 [Azure Active Directory B2C 中的自定义策略入门](custom-policy-get-started.md)中的步骤。
-- 请确保你有权访问包含私钥的证书 .pfx 文件。 可以生成自己的签名证书并将其上传到 Azure AD B2C。 Azure AD B2C 使用此证书对发送到 SAML 标识提供者的 SAML 请求进行签名。
+- 请确保你有权访问包含私钥的证书 .pfx 文件。 可以生成自己的签名证书并将其上传到 Azure AD B2C。 Azure AD B2C 使用此证书对发送到 SAML 标识提供者的 SAML 请求进行签名。 有关如何生成证书的详细信息，请参阅 [生成签名证书](identity-provider-salesforce-custom.md#generate-a-signing-certificate)。
 - 为了使 Azure 接受 .pfx 文件密码，必须通过 Windows 证书存储导出实用工具中的 TripleDES-SHA1 选项（而不是 AES256-SHA256）对密码进行加密。
 
 ## <a name="create-a-policy-key"></a>创建策略密钥
@@ -40,7 +40,7 @@ ms.locfileid: "92054774"
 4. 在“概述”页上选择“标识体验框架”。
 5. 选择“策略密钥”，然后选择“添加”。
 6. 对于“选项”，请选择 `Upload`。
-7. 输入策略密钥的**名称**。 例如，`SamlCert`。 前缀 `B2C_1A_` 会自动添加到密钥名称。
+7. 输入策略密钥的 **名称** 。 例如，`SamlCert`。 前缀 `B2C_1A_` 会自动添加到密钥名称。
 8. 浏览并选择带有私钥的证书 .pfx 文件。
 9. 单击“创建”。
 
@@ -50,9 +50,9 @@ ms.locfileid: "92054774"
 
 可以通过在策略的扩展文件中将 ADFS 帐户添加到 **ClaimsProvider** 元素，将该帐户定义为声明提供程序。 有关详细信息，请参阅[定义 SAML 标识提供者技术配置文件](saml-identity-provider-technical-profile.md)。
 
-1. 打开 *TrustFrameworkExtensions.xml*。
+1. 打开 *TrustFrameworkExtensions.xml* 。
 1. 找到 **ClaimsProviders** 元素。 如果该元素不存在，请在根元素下添加它。
-1. 如下所示添加新的 **ClaimsProvider**：
+1. 如下所示添加新的 **ClaimsProvider** ：
 
     ```xml
     <ClaimsProvider>
@@ -69,7 +69,7 @@ ms.locfileid: "92054774"
             <Item Key="XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
-            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlCert"/>
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userPrincipalName" />
@@ -151,7 +151,7 @@ ms.locfileid: "92054774"
 
 准备好按钮后，需将它链接到某个操作。 在本例中，Azure AD B2C 使用该操作来与 ADFS 帐户通信以接收令牌。
 
-1. 在用户旅程中找到包含 `Order="2"` 的 **OrchestrationStep**。
+1. 在用户旅程中找到包含 `Order="2"` 的 **OrchestrationStep** 。
 2. 添加以下 **ClaimsExchange** 元素，确保在 ID 和 **TargetClaimsExchangeId** 处使用相同的值：
 
     ```xml
@@ -173,23 +173,23 @@ https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-poli
 
 请替换以下值：
 
-- 将 your-tenant**** 替换为你的租户名称，例如 your-tenant.onmicrosoft.com。
+- 将 your-tenant  替换为你的租户名称，例如 your-tenant.onmicrosoft.com。
 - 将 your-policy 替换为你的策略名称。 例如，B2C_1A_signup_signin_adfs。
 - **你的技术配置文件** ，其中包含 SAML 标识提供者技术配置文件的名称。 例如，Contoso-SAML2。
 
-打开浏览器并导航到此 URL。 确保键入正确的 URL 并且你有权访问 XML 元数据文件。 要通过使用 ADFS 管理管理单元添加新的依赖方信任并手动配置设置，请在联合服务器上执行以下过程。 本地计算机上“管理员”**** 中的成员身份或同等身份是完成此过程所需的最低要求。
+打开浏览器并导航到此 URL。 确保键入正确的 URL 并且你有权访问 XML 元数据文件。 要通过使用 ADFS 管理管理单元添加新的依赖方信任并手动配置设置，请在联合服务器上执行以下过程。 本地计算机上“管理员”  中的成员身份或同等身份是完成此过程所需的最低要求。
 
-1. 在“服务器管理器”中，选择“工具”****，然后选择“ADFS 管理”****。
-2. 选择“添加信赖方信任”****。
-3. 在“欢迎”**** 页上，选择“声明感知”****，然后单击“启动”****。
-4. 在“选择数据源”**** 页上，选择“导入有关依赖方在线或在本地网络上发布的数据”**** 提供 Azure AD B2C 元数据 URL，然后单击“下一步”****。
-5. 在“指定显示名称”**** 页上，输入一个“显示名称”****，在“说明”**** 下输入有关此信赖方信任的描述，然后单击“下一步”****。
-6. 在“选择访问控制策略”**** 页上选择一个策略，然后单击“下一步”****。
-7. 在“准备好添加信任”**** 页上，复查设置，然后单击“下一步”**** 来保存信赖方信任的信息。
-8. 在“完成”**** 页上，单击“关闭”****，此操作将自动显示“编辑声明规则”**** 对话框。
-9. 选择 " **添加规则**"。
-10. 在“声明规则模板”**** 中，选择“以声明方式发送 LDAP 特性”****。
-11. 提供“声明规则名称”****。 有关“属性存储”****，选择“选择 Active Directory”**** 添加以下声明，然后单击“完成”**** 和“确定”****。
+1. 在“服务器管理器”中，选择“工具”  ，然后选择“ADFS 管理”  。
+2. 选择“添加信赖方信任”  。
+3. 在“欢迎”  页上，选择“声明感知”  ，然后单击“启动”  。
+4. 在“选择数据源”  页上，选择“导入有关依赖方在线或在本地网络上发布的数据”  提供 Azure AD B2C 元数据 URL，然后单击“下一步”  。
+5. 在“指定显示名称”  页上，输入一个“显示名称”  ，在“说明”  下输入有关此信赖方信任的描述，然后单击“下一步”  。
+6. 在“选择访问控制策略”  页上选择一个策略，然后单击“下一步”  。
+7. 在“准备好添加信任”  页上，复查设置，然后单击“下一步”  来保存信赖方信任的信息。
+8. 在“完成”  页上，单击“关闭”  ，此操作将自动显示“编辑声明规则”  对话框。
+9. 选择 " **添加规则** "。
+10. 在“声明规则模板”  中，选择“以声明方式发送 LDAP 特性”  。
+11. 提供“声明规则名称”  。 有关“属性存储”  ，选择“选择 Active Directory”  添加以下声明，然后单击“完成”  和“确定”  。
 
     | LDAP 属性 | 传出声明类型 |
     | -------------- | ------------------- |
@@ -201,9 +201,9 @@ https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-poli
 
     请注意，这些名称将不会显示在 "传出声明类型" 下拉列表中。 需要在中手动键入。  (下拉列表实际上) 可编辑。
 
-12.  根据证书类型，可能需要设置哈希算法。 在信赖方信任（B2C 演示）属性窗口上，选择“高级”选项卡并将“安全哈希算法”更改为 `SHA-256`，然后单击“确定”************。
-13. 在“服务器管理器”中，选择“工具”****，然后选择“ADFS 管理”****。
-14. 选择所创建的信赖方信任，选择“从联合元数据更新”****，然后单击“更新”****。
+12.  根据证书类型，可能需要设置哈希算法。 在信赖方信任（B2C 演示）属性窗口上，选择“高级”选项卡并将“安全哈希算法”更改为 `SHA-256`，然后单击“确定”  。
+13. 在“服务器管理器”中，选择“工具”  ，然后选择“ADFS 管理”  。
+14. 选择所创建的信赖方信任，选择“从联合元数据更新”  ，然后单击“更新”  。
 
 ## <a name="create-an-azure-ad-b2c-application"></a>创建 Azure AD B2C 应用程序
 
@@ -215,7 +215,7 @@ https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-poli
 
 更新用于启动创建的用户旅程的信赖方 (RP) 文件。
 
-1. 在工作目录中创建 *SignUpOrSignIn.xml* 的副本并将其重命名。 例如，将其重命名为 *SignUpSignInADFS.xml*。
+1. 在工作目录中创建 *SignUpOrSignIn.xml* 的副本并将其重命名。 例如，将其重命名为 *SignUpSignInADFS.xml* 。
 2. 打开新文件，并将 **TrustFrameworkPolicy** 的 **PolicyId** 属性的值更新为唯一的值。 例如，`SignUpSignInADFS`。
 3. 将 **PublicPolicyUri** 的值更新为策略的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_adfs`
 4. 更新 **DefaultUserJourney** 中的 **ReferenceId** 属性的值，以匹配所创建的新用户旅程的 ID (SignUpSignInADFS)。

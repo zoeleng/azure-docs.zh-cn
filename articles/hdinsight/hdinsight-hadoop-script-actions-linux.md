@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629436"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -239,7 +239,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |将文件从源 URI 下载到指定的文件路径。 默认情况下，它不会覆盖现有文件。 |
 | `untar_file TARFILE DESTDIR` |将 tar 文件解压缩（使用 `-xf`）到目标目录。 |
-| `test_is_headnode` |如果在群集头节点上运行，则返回 1；否则返回 0。 |
+| `test_is_headnode` |如果该脚本在群集头节点上运行，则返回 1;否则为0。 |
 | `test_is_datanode` |如果当前节点是数据（辅助角色）节点，则返回 1；否则返回 0。 |
 | `test_is_first_datanode` |如果当前节点是第一个数据（辅助角色）节点（名为 workernode0），则返回 1；否则返回 0。 |
 | `get_headnodes` |返回群集中头节点的完全限定域名。 名称以逗号分隔。 出错时返回空字符串。 |
@@ -268,7 +268,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 VARIABLENAME=value
 ```
 
-其中，VARIABLENAME 是变量的名称。 若要访问变量，请使用 `$VARIABLENAME`。 例如，若要将位置参数提供的值指定为名为 PASSWORD 的环境变量，请使用以下语句：
+在前面的示例中， `VARIABLENAME` 是变量的名称。 若要访问变量，请使用 `$VARIABLENAME`。 例如，若要将位置参数提供的值指定为名为 PASSWORD 的环境变量，请使用以下语句：
 
 ```bash
 PASSWORD=$1

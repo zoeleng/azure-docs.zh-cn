@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 7cc8e2e02aef9e323da9859ce6fd0bebea2ce036
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 85dd75b2af5d14d835db8aacc415069a2d67298e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368904"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631829"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure 数据工厂中的 Hadoop 流式处理活动转换数据
 > [!div class="op_single_selector" title1="选择所使用的数据工厂服务版本："]
@@ -69,7 +69,7 @@ ms.locfileid: "92368904"
 
 ## <a name="syntax-details"></a>语法详细信息
 
-| 属性          | 描述                              | 必须 |
+| properties          | 说明                              | 必选 |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | 活动名称                     | 是      |
 | description       | 描述活动用途的文本 | 否       |
@@ -78,7 +78,7 @@ ms.locfileid: "92368904"
 | mapper            | 指定映射器可执行文件的名称 | 是      |
 | reducer           | 指定化简器可执行文件的名称 | 是      |
 | combiner          | 指定合并器可执行文件的名称 | 否       |
-| fileLinkedService | 对 Azure 存储链接服务的引用，该服务用于存储要执行的映射器、合并器和化简器程序。 此处仅支持 [Azure Blob 存储](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)和 [ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage) 链接服务 。 如果未指定此链接服务，则使用 HDInsight 链接服务中定义的 Azure 存储链接服务。 | 否       |
+| fileLinkedService | 对 Azure 存储链接服务的引用，该服务用于存储要执行的映射器、合并器和化简器程序。 此处仅支持 [Azure Blob 存储](./connector-azure-blob-storage.md)和 [ADLS Gen2](./connector-azure-data-lake-storage.md) 链接服务 。 如果未指定此链接服务，则使用 HDInsight 链接服务中定义的 Azure 存储链接服务。 | 否       |
 | filePath          | 提供由 fileLinkedService 引用的 Azure 存储中存储的映射器、合并器和化简器程序的路径数组。 此路径区分大小写。 | 是      |
 | input             | 指定映射器输入文件的 WASB 路径。 | 是      |
 | output            | 指定化简器输出文件的 WASB 路径。 | 是      |

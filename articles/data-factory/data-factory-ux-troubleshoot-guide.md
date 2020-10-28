@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426210"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632561"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>排查 Azure 数据工厂 UX 问题
 
@@ -77,11 +77,11 @@ ADF UX 使用浏览器 Cookie 来保留用户会话并启用交互式开发和�
 
 在这种情况下，你可以先在浏览器中使用 InPrivate 浏览模式尝试相同的操作。
 
-如果它仍不工作，请在浏览器中按 F12 打开 **开发人员工具**。 转到“网络”选项卡，选中“禁用缓存”，重试失败的操作，并找到失败的请求（红色） 。
+如果它仍不工作，请在浏览器中按 F12 打开 **开发人员工具** 。 转到“网络”选项卡，选中“禁用缓存”，重试失败的操作，并找到失败的请求（红色） 。
 
 ![失败的请求](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-然后，在这种情况下查找 **主机名** (， **dpnortheurope.svc.datafactory.azure.com** 从失败请求的 **请求 URL**) 。
+然后，在这种情况下查找 **主机名** (， **dpnortheurope.svc.datafactory.azure.com** 从失败请求的 **请求 URL** ) 。
 
 直接在浏览器的地址栏中键入该主机名。 如果你在浏览器中看到 404，这通常意味着客户端正常，问题出在 ADF 服务端。 通过 ADF UX 错误消息中的“活动 ID”提交支持票证。
 
@@ -91,7 +91,7 @@ ADF UX 使用浏览器 Cookie 来保留用户会话并启用交互式开发和�
 
 ![客户端错误](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-打开 " **命令提示符** " 并键入 " **nslookup dpnortheurope.svc.datafactory.azure.com**"。 正常响应应如下所示：
+打开 " **命令提示符** " 并键入 " **nslookup dpnortheurope.svc.datafactory.azure.com** "。 正常响应应如下所示：
 
 ![命令响应 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
@@ -120,4 +120,4 @@ ADF UX 使用浏览器 Cookie 来保留用户会话并启用交互式开发和�
 * [数据工厂 Stack Overflow 论坛](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter 中有关数据工厂的信息](https://twitter.com/hashtag/DataFactory)
 * [Azure 视频](https://azure.microsoft.com/resources/videos/index/)
-* [Microsoft 问答页](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Microsoft 问答页](/answers/topics/azure-data-factory.html)

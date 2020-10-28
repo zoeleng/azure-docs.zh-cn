@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123743"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632798"
 ---
 # <a name="managed-identity-for-data-factory"></a>数据工厂的托管标识
 
@@ -79,7 +79,7 @@ ProvisioningState : Succeeded
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**请求正文**：添加 "identity": { "type": "SystemAssigned" }。
+**请求正文** ：添加 "identity": { "type": "SystemAssigned" }。
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**响应**：自动创建托管标识并相应地填充 "identity" 部分。
+**响应** ：自动创建托管标识并相应地填充 "identity" 部分。
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板生成托管标识
 
-**模版**：添加 "identity": { "type": "SystemAssigned" }。
+**模版** ：添加 "identity": { "type": "SystemAssigned" }。
 
 ```json
 {
@@ -201,7 +201,7 @@ Type                  : ServicePrincipal
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**响应**：你将获得如下所示的响应。 “标识”部分会相应进行填充。
+**响应** ：你将获得如下所示的响应。 “标识”部分会相应进行填充。
 
 ```json
 {
@@ -252,4 +252,4 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 - [在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)
 - [使用 Azure 资源的托管标识身份验证从/向 Azure Data Lake Store 复制数据](connector-azure-data-lake-store.md)
 
-有关数据工厂托管标识所基于的 Azure 资源的托管标识的更多背景信息，请参阅 [Azure 资源的托管标识概述](/azure/active-directory/managed-identities-azure-resources/overview)。 
+有关数据工厂托管标识所基于的 Azure 资源的托管标识的更多背景信息，请参阅 [Azure 资源的托管标识概述](../active-directory/managed-identities-azure-resources/overview.md)。

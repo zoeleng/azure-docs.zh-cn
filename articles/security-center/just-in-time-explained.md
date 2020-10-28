@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fe358e35f2d68a3e55e9d9bb4ac57a13f42085e3
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340013"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629232"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>了解实时 (JIT) VM 访问
 
@@ -66,6 +66,10 @@ ms.locfileid: "92340013"
 ## <a name="faq---questions-about-just-in-time-virtual-machine-access"></a>常见问题 - 有关实时虚拟机访问的问题
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>配置和使用 JIT 时需要哪些权限？
+
+JIT 要求在订阅上启用 [服务器的 Azure Defender](defender-for-servers-introduction.md) 。 
+
+“读取者”角色和“安全读取者”角色都可以查看 JIT 状态和参数。
 
 如果要创建可用于 JIT 的自定义角色，则需要下表中的详细信息。
 

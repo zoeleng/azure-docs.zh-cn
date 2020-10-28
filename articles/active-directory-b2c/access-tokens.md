@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 937041bbb48f112e2c8ed7d222dc7c7ef7ea8d81
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309017"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631387"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中请求访问令牌
 
@@ -57,7 +57,7 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_acce
 OpenID Connect 标准指定了多个特殊的作用域值。 以下作用域表示访问用户配置文件的权限：
 
 - **openid** - 请求 ID 令牌。
-- **offline_access** - 使用[授权代码流](authorization-code-flow.md)请求刷新令牌。
+- **offline_access** - 使用 [授权代码流](authorization-code-flow.md)请求刷新令牌。
 - **00000000-0000-0000-0000-000000000000** -使用客户端 id 作为范围表示你的应用需要一个访问令牌，该令牌可用于你自己的服务或 web API （由同一客户端 ID 表示）。
 
 如果 `/authorize` 请求中的 **response_type** 参数包含 `token`，那么 **scope** 参数必须包含至少一个将被授予的资源作用域（除 `openid` 和 `offline_access` 以外）。 否则，`/authorize` 请求会失败。
@@ -74,7 +74,7 @@ OpenID Connect 标准指定了多个特殊的作用域值。 以下作用域表�
 - `<redirect-uri>` - 注册客户端应用程序时输入的重定向 URI。
 
 ```http
-GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms

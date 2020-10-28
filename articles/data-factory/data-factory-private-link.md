@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546664"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632679"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure 数据工厂的 azure 专用链接
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-使用 Azure 专用链接，可以通过专用终结点连接到各种平台即服务 (PaaS) Azure 部署。 专用终结点是特定虚拟网络和子网中的专用 IP 地址。 有关支持 Private Link 功能的 PaaS 部署的列表，请参阅 [私有链接文档](https://docs.microsoft.com/azure/private-link/)。 
+使用 Azure 专用链接，可以通过专用终结点连接到各种平台即服务 (PaaS) Azure 部署。 专用终结点是特定虚拟网络和子网中的专用 IP 地址。 有关支持 Private Link 功能的 PaaS 部署的列表，请参阅 [私有链接文档](../private-link/index.yml)。 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>保护客户网络与 Azure 数据工厂之间的通信 
 你可以在云中将 Azure 虚拟网络设置为网络的逻辑表示形式。 这样做具有以下优势：
@@ -67,7 +67,7 @@ Azure 数据工厂与客户虚拟网络之间需要几个信道，如下表所�
 > 创建链接服务时，请确保你的凭据存储在 Azure 密钥保管库中。 否则，在 Azure 数据工厂中启用专用链接时，凭据将不起作用。
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>为 Azure 数据工厂设置专用链接
-您可以使用 [Azure 门户](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)创建专用终结点。
+您可以使用 [Azure 门户](../private-link/create-private-endpoint-portal.md)创建专用终结点。
 
 你还可以在 Azure 门户中中转到 Azure 数据工厂，并创建专用终结点，如下所示：
 
@@ -89,4 +89,3 @@ Azure 数据工厂与客户虚拟网络之间需要几个信道，如下表所�
 - [使用 Azure 数据工厂 UI 创建数据工厂](quickstart-create-data-factory-portal.md)
 - [Azure 数据工厂简介](introduction.md)
 - [Azure 数据工厂中的视觉对象创作](author-visually.md)
-

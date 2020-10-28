@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202202"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631268"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -40,9 +40,10 @@ ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 的典型连�
 
 不是。 可以从服务提供商购买任何速度的 VPN 连接。 但是，与 Azure 的连接速度限制为购买的 ExpressRoute 线路带宽。
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我购买了具有给定带宽的 ExpressRoute 线路，是否可以根据需要提升到更高的速度？
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>如果我为给定带宽的 ExpressRoute 线路付费，我是否能够使用超过我的采购带宽？
 
-是的。 ExpressRoute 线路的配置允许免费将速度提升到所购带宽限制的两倍。 请咨询你的服务提供商，确定他们是否支持此功能。 这不会持续一段时间，因此不能保证。  如果流量流过 ExpressRoute 网关，则 sku 的带宽是固定的，不可提升。
+是的，你最多可以使用 ExpressRoute 线路的辅助连接上可用的带宽来获得所购带宽限制的两倍。 线路的内置冗余配置为使用主连接和辅助连接，每个采购带宽为两个 Microsoft 企业边缘路由器 (Msee) 。 如果需要，可通过辅助连接使用的带宽用于额外的流量。 不过，由于辅助连接是为了实现冗余，因此不能保证它，并且不应在持续时间内用于额外的流量。 若要详细了解如何使用这两个连接来传输流量，请参阅 [此处](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)。
+如果计划仅使用主连接来传输流量，则连接的带宽是固定的，尝试过度订阅会导致数据包丢弃。 如果流量流过 ExpressRoute 网关，则 SKU 的带宽是固定的，而不是可突增。
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>能否同时与虚拟网络和其他 Azure 服务使用同一专用网络连接？
 
@@ -118,7 +119,7 @@ Microsoft 会验证指定的“播发的公用前缀”和“对等 ASN”（或
 Dynamics 365 和 Common Data Service (CDS) 环境托管在 Azure 上，因此客户可以受益于针对 Azure 资源的底层 ExpressRoute 支持。 如果路由器筛选器包含在其中托管 Dynamics 365/CDS 环境的 Azure 区域，则可以连接到其服务终结点。
 
 > [!NOTE]
-> 如果在同一[地缘政治区域](./expressroute-locations-providers.md#expressroute-locations)内部署了 expressroute 线路[，则](#expressroute-premium)**不**需要通过 Azure expressroute 进行 Dynamics 365 连接。
+> 如果在同一 [地缘政治区域](./expressroute-locations-providers.md#expressroute-locations)内部署了 expressroute 线路 [，则](#expressroute-premium)**不** 需要通过 Azure expressroute 进行 Dynamics 365 连接。
 
 ## <a name="data-and-connections"></a>数据和连接
 
