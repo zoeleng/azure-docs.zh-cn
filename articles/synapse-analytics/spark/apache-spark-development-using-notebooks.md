@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893078"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738737"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中创建、开发和维护 Synapse Studio (预览版) 笔记本
 
@@ -294,7 +294,7 @@ df = spark.read.option("header", "true") \
 
 ### <a name="render-html-or-interactive-libraries"></a>呈现 HTML 或交互式库
 
-使用**displayHTML ( # B1 **，可以呈现 HTML 代码（包括 JAVASCRIPT、CSS、D3 或交互式库，如**bokeh**）。
+使用 **displayHTML ( # B1** ，可以呈现 HTML 代码（包括 JAVASCRIPT、CSS、D3 或交互式库，如 **bokeh** ）。
 
 下图是使用 bokeh 在地图上绘制字形的示例。
 
@@ -357,7 +357,7 @@ displayHTML(html)
 可用单元格 magic：[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time)、[%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)、[%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture)、[%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile)、[%%sql](#use-multiple-languages)、[%%pyspark](#use-multiple-languages)、[%%spark](#use-multiple-languages)、[%%csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>安排笔记本
+## <a name="integrate-a-notebook"></a>集成笔记本
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>向管道添加笔记本
 
@@ -375,7 +375,7 @@ Azure 数据工厂将查找参数单元，并将此单元格视为执行时传�
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>从管道分配参数值
 
-创建带参数的笔记本后，可以使用 Azure Synapse 笔记本活动通过管道执行此操作。 将活动添加到管道画布后，你将能够在 "**设置**" 选项卡上的 "**基本参数**" 部分下设置参数值。 
+创建带参数的笔记本后，可以使用 Azure Synapse 笔记本活动通过管道执行此操作。 将活动添加到管道画布后，你将能够在 " **设置** " 选项卡上的 " **基本参数** " 部分下设置参数值。 
 
 ![分配参数](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 

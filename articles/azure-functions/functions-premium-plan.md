@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490741"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736801"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 高级计划
 
@@ -47,14 +48,14 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 > [!NOTE]
 > 每个高级计划将至少有一个活动 (计费) 实例。
 
-你可以通过以下方式在 Azure 门户中配置始终就绪实例的数目：选择你的**函数应用**，转到“平台功能”选项卡，然后选择“横向扩展”选项。 在函数应用编辑窗口中，始终就绪实例是该应用特有的。
+你可以通过以下方式在 Azure 门户中配置始终就绪实例的数目：选择你的 **函数应用** ，转到“平台功能”选项卡，然后选择“横向扩展”选项。 在函数应用编辑窗口中，始终就绪实例是该应用特有的。
 
 ![弹性缩放设置](./media/functions-premium-plan/scale-out.png)
 
 你还可以使用 Azure CLI 为应用配置始终就绪实例。
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>预热实例
@@ -68,7 +69,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 可以使用 Azure CLI 为应用修改预热实例数。
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>应用的最大实例数
@@ -122,7 +123,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ### <a name="available-instance-skus"></a>可用的实例 SKU
 
-创建或缩放计划时，可以在三个实例大小之间进行选择。  将按每秒分配给你的核心和内存总量来计费。  你的应用可以根据需要自动横向扩展到多个实例。  
+创建或缩放计划时，可以在三个实例大小之间进行选择。  将按每秒分配给你的核心和内存总量来计费。  你的应用可以根据需要自动横向扩展到多个实例。
 
 |SKU|核心数|内存|存储|
 |--|--|--|--|

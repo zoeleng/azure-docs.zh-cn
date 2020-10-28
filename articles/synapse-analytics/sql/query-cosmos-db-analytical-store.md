@@ -9,23 +9,23 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c5fa326fa05a34ae5b51054b867a766489b85c16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670706"
+ms.locfileid: "92737839"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>在 Azure Synapse 链接 (预览版中利用无服务器 SQL 池查询 Azure Cosmos DB 数据) 
 
-Synapse 无服务器 SQL 池 (以前的 SQL 点播) 使你能够以近实时的方式分析通过 [Azure Synapse 链接](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 启用的 Azure Cosmos DB 容器中的数据，而不会影响事务工作负荷的性能。 它提供了一种熟悉的 T-sql 语法，用于查询 [分析存储](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 中的数据，并通过 t-sql 接口集成到各种 BI 和即席查询工具。
+Synapse 无服务器 SQL 池允许分析以近乎实时的方式启用了 [Azure Synapse 链接](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 的 Azure Cosmos DB 容器中的数据，而不会影响事务工作负荷的性能。 它提供了一种熟悉的 T-sql 语法，用于查询 [分析存储](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 中的数据，并通过 t-sql 接口集成到各种 BI 和即席查询工具。
 
 对于查询 Azure Cosmos DB，可通过[OPENROWSET](develop-openrowset.md)函数（包括大多数[SQL 函数和运算符](overview-features.md)）支持完整的[SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area。 还可以存储从 Azure Cosmos DB 读取数据的查询的结果，以及 Azure Blob 存储中的数据，或使用 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)Azure Data Lake Storage。 当前无法使用 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)将无服务器 SQL 池查询结果存储到 Azure Cosmos DB。
 
 在本文中，你将学习如何编写包含无服务器 SQL 池的查询，该查询将从启用 Synapse 链接的 Azure Cosmos DB 容器中查询数据。 然后，你可以在 [本](./tutorial-data-analyst.md) 教程中详细了解如何通过 Azure Cosmos DB 容器构建无服务器 SQL 池视图并将其连接到 Power BI 模型。 
 
 > [!IMPORTANT]
-> 本教程使用一个容器，其中包含 [Azure Cosmos DB 定义完善的架构](../../cosmos-db/analytical-store-introduction.md#schema-representation) ，该架构提供未来将支持的查询体验。 无服务器 SQL 池为 [Azure Cosmos DB 完全保真架构](#full-fidelity-schema) 提供的查询体验是临时性的行为，将根据预览反馈进行更改。 不要依赖于 `OPENROWSET` 公共预览版期间函数为完全保真容器提供的架构，因为查询 experinece 可能会更改并与定义完善的架构对齐。 请联系 [Synapse 链接产品团队](mailto:cosmosdbsynapselink@microsoft.com) 提供反馈。
+> 本教程使用具有 [Azure Cosmos DB 定义完善的架构](../../cosmos-db/analytical-store-introduction.md#schema-representation)的容器。 无服务器 SQL 池为 [Azure Cosmos DB 完全保真架构](#full-fidelity-schema) 提供的查询体验是临时性的行为，将根据预览反馈进行更改。 不要依赖于函数的结果集架构 `OPENROWSET` `WITH` ，该架构从具有完全保真架构的容器中读取数据，因为查询体验可能更改并与定义完善的架构对齐。 请在 [Azure Synapse Analytics 反馈论坛](https://feedback.azure.com/forums/307516-azure-synapse-analytics) 上发布反馈，或联系 [synapse 链接产品团队](mailto:cosmosdbsynapselink@microsoft.com) 以提供反馈。
 
 ## <a name="overview"></a>概述
 
@@ -76,7 +76,15 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-在上面的示例中，我们将指导无服务器 SQL 池连接到 `covid` Azure Cosmos DB 帐户 `MyCosmosDbAccount` 使用 Azure Cosmos DB 密钥进行身份验证的身份验证，) 上述示例中 (虚拟。 接下来，我们将访问 `EcdcCases` 该容器的分析存储区 `West US 2` 。 由于没有特定属性的投影，因此 `OPENROWSET` 函数将返回 Azure Cosmos DB 项中的所有属性。
+在上面的示例中，我们将指导无服务器 SQL 池连接到 `covid` Azure Cosmos DB 帐户 `MyCosmosDbAccount` 使用 Azure Cosmos DB 密钥进行身份验证的身份验证，) 上述示例中 (虚拟。 接下来，我们将访问 `EcdcCases` 该容器的分析存储区 `West US 2` 。 由于没有特定属性的投影，因此 `OPENROWSET` 函数将返回 Azure Cosmos DB 项中的所有属性。 
+
+假定 Cosmos DB 容器中的项具有 `date_rep` 、 `cases` 和 `geo_id` 属性，下表显示了此查询的结果：
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| 2020-08-13 | 254 | RS |
+| 2020-08-12 | 235 | RS |
+| 2020-08-11 | 163 | RS |
 
 如果需要从同一个 Azure Cosmos DB 数据库的另一个容器浏览数据，则可以使用相同的连接字符串，并将所需的容器引用为第三个参数：
 
@@ -180,7 +188,6 @@ FROM
 > [!IMPORTANT]
 > 如果你的文本（而不是）中出现意外字符， `MÃƒÂ©lade` `Mélade` 则数据库排序规则不会设置为 [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) 排序规则。 
 > 使用某些 SQL 语句（如）[将数据库的排序规则更改](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation)为某种 UTF8 排序规则 `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` 。
-
 
 ## <a name="flattening-nested-arrays"></a>平展嵌套数组
 
@@ -286,12 +293,16 @@ FROM OPENROWSET(
 事例数是存储为值的信息 `int32` ，但有一个输入为十进制数的值。 此值的 `float64` 类型为。 如果某些值超过了最大值 `int32` ，则会将其存储为 `int64` 类型。 `geo_id`此示例中的所有值都存储为 `string` 类型。
 
 > [!IMPORTANT]
-> 完全保真架构同时公开了具有预期类型的值和输入了输入错误类型的值。
+> `OPENROWSET` 不带 `WITH` 子句的函数同时公开具有预期类型的值和输入类型不正确的值。 此 funcion 设计用于数据浏览，而不用于报告。 请勿分析从此函数返回的 JSON 值以生成报表，并使用 explicit [WITH 子句](#querying-items-with-full-fidelity-schema) 来创建报表。
 > 应该清除 Azure Cosmos DB 容器中具有错误类型的值，以便在完全保真分析存储中应用 corection。 
 
 若要查询 Mongo DB API 类型 Azure Cosmos DB 帐户，可以在 [此处](../../cosmos-db/analytical-store-introduction.md#analytical-schema)了解有关分析存储中的完全保真架构表示形式的详细信息以及要使用的扩展属性名称。
 
-查询完全保真架构时，需要显式指定 SQL 类型，并在子句中指定 Cosmos DB 属性类型 `WITH` 。 在下面的示例中，我们假定 `string` `geo_id` 属性的属性和正确类型的类型正确 `int32` `cases` ：
+### <a name="querying-items-with-full-fidelity-schema"></a>查询具有完全保真架构的项
+
+查询完全保真架构时，需要显式指定 SQL 类型，并在子句中指定 Cosmos DB 属性类型 `WITH` 。 请不要 `OPENROWSET` `WITH` 在报表中使用 not 子句，因为结果集的格式可能根据反馈在预览中进行更改。
+
+在下面的示例中，我们假定 `string` `geo_id` 属性的属性和正确类型的类型正确 `int32` `cases` ：
 
 ```sql
 SELECT geo_id, cases = SUM(cases)
@@ -305,7 +316,9 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-与其他类型的值将不会在 `geo_id` 和 `cases` 列中返回，并且查询将 `NULL` 在这些单元格中返回值。 此查询将只引用 `cases` 表达式中具有指定类型的 (`cases.int32`) 。 如果具有其他类型 (的值 `cases.int64` ， `cases.float64` 则无法在 Cosmos DB 容器中清除表示的) ，则需要在子句中显式引用这些值 `WITH` 并将结果组合在一起。 下面的查询将聚合 `int32` 、 `int64` 和，并 `float64` 将其存储在 `cases` 列中：
+`geo_id` `cases` 具有其他类型的和的值将作为值返回 `NULL` 。 此查询将只引用 `cases` 表达式中具有指定类型的 (`cases.int32`) 。
+
+如果具有其他类型 (的值 `cases.int64` ， `cases.float64` 则无法在 Cosmos DB 容器中清除) ，则需要在子句中显式引用这些值 `WITH` 并将结果组合在一起。 下面的查询将聚合 `int32` 、 `int64` 和，并 `float64` 将其存储在 `cases` 列中：
 
 ```sql
 SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
@@ -326,7 +339,7 @@ GROUP BY geo_id
 ## <a name="known-issues"></a>已知问题
 
 - **必须** 在函数 (之后指定别名 `OPENROWSET` ，例如 `OPENROWSET (...) AS function_alias`) 。 省略别名可能会导致连接问题，Synapse 无服务器 SQL 终结点可能暂时不可用。 此问题将在11月2020中解决。
-- 无服务器 SQL 池为 [Azure Cosmos DB 完全保真架构](#full-fidelity-schema) 提供的查询体验是临时行为，将根据预览反馈进行更改。 不要依赖于 `OPENROWSET` 公共预览版期间函数提供的架构，因为查询体验可能与定义完善的架构匹配。 请联系 [Synapse 链接产品团队](mailto:cosmosdbsynapselink@microsoft.com) 提供反馈。
+- 无服务器 SQL 池为 [Azure Cosmos DB 完全保真架构](#full-fidelity-schema) 提供的查询体验是临时行为，将根据预览反馈进行更改。 不要依赖于在 `OPENROWSET` 公共预览期间不含子句的函数提供的架构， `WITH` 因为查询体验可能与基于客户反馈的定义完善的架构相一致。 请联系 [Synapse 链接产品团队](mailto:cosmosdbsynapselink@microsoft.com) 提供反馈。
 
 下表列出了可能的错误和故障排除操作：
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: ce6f0ff97b1dfa8757b05b13dff653a1d34f4531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6629f02178b7c00ccc849e2ccfc3f0a48f419a7f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315294"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735566"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>使用 Azure Migrate 构建迁移计划
 
@@ -20,7 +20,7 @@ ms.locfileid: "92315294"
 - 有关 Azure Migrate 的[一般问题](resources-faq.md)
 - 关于[Azure Migrate 设备](common-questions-appliance.md)的问题
 - 有关[服务器迁移](common-questions-server-migration.md)的问题
-- 在[Azure Migrate 论坛](https://aka.ms/AzureMigrateForum)中获取问题答案
+- 在[Azure Migrate 论坛](https://docs.microsoft.com/answers/topics/azure-migrate.html)中获取问题答案
 
 ## <a name="define-the-goals-of-cloud-migration"></a>定义云迁移的目标
 
@@ -75,13 +75,13 @@ ms.locfileid: "92315294"
 ### <a name="readiness-and-suitability-analysis-for-azure"></a>Azure 的就绪性和适用性分析
 导出 Azure VM 评估报表并按以下准备情况类别进行筛选，以了解 Azure 的 VM 准备情况：
 
-- **适用于 azure**：你可以将这些计算机原样迁移到 Azure，而无需进行任何更改  
+- **适用于 azure** ：你可以将这些计算机原样迁移到 Azure，而无需进行任何更改  
 
-- **Azure 有条件的就绪**：你可以将这些计算机迁移到 azure，但你需要在这些服务器上进行少量更改，如评估
+- **Azure 有条件的就绪** ：你可以将这些计算机迁移到 azure，但你需要在这些服务器上进行少量更改，如评估
 
-- **未准备好进行 azure**：你不能按原样将这些计算机迁移到 Azure，并且需要在迁移前按照修正指南解决问题
+- **未准备好进行 azure** ：你不能按原样将这些计算机迁移到 Azure，并且需要在迁移前按照修正指南解决问题
 
-- **准备情况未知**：由于元数据不足，Azure Migrate 无法确定计算机的就绪性
+- **准备情况未知** ：由于元数据不足，Azure Migrate 无法确定计算机的就绪性
 
 使用数据库评估，可以评估将 SQL Server 数据空间迁移到 Azure SQL 数据库或 Azure SQL 托管实例的准备情况。 可以查看每个 SQL server 实例的迁移准备状态百分比。 此外，对于每个实例，你都可以在 Azure 中看到推荐的目标、可能的迁移阻止程序、重大更改计数、Azure SQL DB/Azure SQL VM 的准备情况和兼容性级别。 你可以更深入地了解迁移阻止程序的影响和修复方法的建议。
 
@@ -95,19 +95,19 @@ ms.locfileid: "92315294"
 
 评估中的 *基于性能* 的大小调整选项可让你为 Azure 优化工作负荷。 除了合理精简以外，还有其他一些途径可帮助节省成本：
 
-- **保留实例**：对于保留实例，你可以通过 Windows 和 Linux (vm 上的1年或3年的即用即付定价显著降低成本) 
+- **保留实例** ：对于保留实例，你可以通过 Windows 和 Linux (vm 上的1年或3年的即用即付定价显著降低成本) 
 
-- **Azure 混合权益**：你可以将具有软件保障的 Windows Server 本地许可证带到 Azure，并将其与保留实例选项组合
+- **Azure 混合权益** ：你可以将具有软件保障的 Windows Server 本地许可证带到 Azure，并将其与保留实例选项组合
 
-- **企业协议提供 (EA) **：企业协议提供适用于你的订阅的内置节省
+- **企业协议提供 (EA)** ：企业协议提供适用于你的订阅的内置节省
 
-- **产品/服务**：有多个 Azure 产品/服务，例如即用即付开发/测试和 Enterprise 开发/测试，为开发或测试 vm 提供较低的费率
+- **产品/服务** ：有多个 Azure 产品/服务，例如即用即付开发/测试和 Enterprise 开发/测试，为开发或测试 vm 提供较低的费率
 
-- **VM 运行时间**：你可以在运行 Azure vm 时说每个月的每月和小时的持续时间，以降低成本， (不适用于 RI) 
+- **VM 运行时间** ：你可以在运行 Azure vm 时说每个月的每月和小时的持续时间，以降低成本， (不适用于 RI) 
 
-- **目标区域**：你可以在不同区域中创建多个评估，以比较在地理位置迁移到某个区域是否可能更具成本效益
+- **目标区域** ：你可以在不同区域中创建多个评估，以比较在地理位置迁移到某个区域是否可能更具成本效益
 
-- **基于性能的建议**：作为最佳做法，请尝试使用 RIGHTSIZED Azure VM 建议，这些建议可帮助你节省云成本
+- **基于性能的建议** ：作为最佳做法，请尝试使用 RIGHTSIZED Azure VM 建议，这些建议可帮助你节省云成本
 
 ### <a name="visualize-data"></a>可视化数据
 
@@ -125,7 +125,7 @@ ms.locfileid: "92315294"
 
 以下是一些建议的迁移策略：
 
-- **确定快速 wins 的优先级**：你可以使用评估报告来确定低挂起的水果，包括完全准备就绪的服务器和数据库，并需要最少的工作量迁移到 Azure：
+- **确定快速 wins 的优先级** ：你可以使用评估报告来确定低挂起的水果，包括完全准备就绪的服务器和数据库，并需要最少的工作量迁移到 Azure：
     - Azure 迁移就绪：导出评估报告并筛选 "适用于 Azure 的所有计算机"。 这可以是你的第一组计算机，你可以通过 Azure Migrate：服务器迁移工具来抬起和切换。
     - 操作系统支持终止：导出你的评估报告并筛选运行 Windows Server 2008 和 Windows Server 2008 R2 操作系统的所有计算机。 这些 Sku 已结束支持，只有 Azure 会在你将其迁移到 Azure 时提供免费的3年安全更新。 当您组合、Azure 混合权益和使用预订实例时，保存可能会高得多。
     - SQL Server 迁移：对于 Azure SQL 数据库，请使用数据库评估建议为 Azure SQL Azure Migrate 数据库迁移准备就绪的数据库，并使用 Azure Migrate： Server 迁移为 Azure SQL VM 准备好使用 Azure SQL VM。
@@ -133,9 +133,9 @@ ms.locfileid: "92315294"
     - 过度预配的 Vm：导出评估报告并筛选出 CPU 使用率低的计算机 (% ) 和内存利用率 (% ) 。  可以使用此机会迁移到 Azure 中的 rightsized VM，并保存已为未充分利用的资源付费。
     - 容量限制：导出评估报告并筛选出 CPU 使用率高 (% ) 和内存利用率 (% ) 的计算机。  可以通过将 overstrained Vm 迁移到 Azure 并利用自动缩放功能满足需求，来防止这些 Vm 中断和提高性能。 你还可以通过分析磁盘 IOPS 和吞吐量来了解你的存储约束，并找到最适合你的需求的建议磁盘类型。
 
-- 从小到**大**一点：开始移动应用程序和工作负荷，这是最小的风险和不太复杂的工作负载，以便在迁移策略中建立信心。 你还可以将你的 Azure Migrate 评估建议与组织的 CMDB 存储库交叉，以便在试点迁移中查找和迁移开发/测试环境工作负荷。 在迁移生产工作负荷时，可以使用这些试验中的知识。  
+- 从小到 **大** 一点：开始移动应用程序和工作负荷，这是最小的风险和不太复杂的工作负载，以便在迁移策略中建立信心。 你还可以将你的 Azure Migrate 评估建议与组织的 CMDB 存储库交叉，以便在试点迁移中查找和迁移开发/测试环境工作负荷。 在迁移生产工作负荷时，可以使用这些试验中的知识。  
 
-- **遵守你的法规/行业要求**： Azure 在产品/服务的广度和深度方面维持业内最大的合规性组合。 使用此过程可以确定迁移到 Azure 的优先级，并遵守您的国家、地区和行业特定的标准和法律。 对于处理业务关键或保存敏感信息的组织，或在受管控行业（其中的标准和法规在某些情况下可能会发生变化，abound 和在某些情况下可能发生变化），尤其如此。  
+- **遵守你的法规/行业要求** ： Azure 在产品/服务的广度和深度方面维持业内最大的合规性组合。 使用此过程可以确定迁移到 Azure 的优先级，并遵守您的国家、地区和行业特定的标准和法律。 对于处理业务关键或保存敏感信息的组织，或在受管控行业（其中的标准和法规在某些情况下可能会发生变化，abound 和在某些情况下可能发生变化），尤其如此。  
 
 ## <a name="finalize-the-migration-planandprepare-formigration"></a>完成迁移计划并准备迁移
 

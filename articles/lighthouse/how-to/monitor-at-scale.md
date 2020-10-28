@@ -1,23 +1,23 @@
 ---
 title: 大规模监视委托的资源
 description: 了解如何在你管理的客户租户之间以可伸缩方式有效地使用 Azure Monitor 日志。
-ms.date: 08/12/2020
+ms.date: 10/26/2020
 ms.topic: how-to
-ms.openlocfilehash: fdd0147737da47613d6b7ef1bf6005e4c03de0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e5c98b3b62a8fbc953a29cf51ac527e5de21110
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163282"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735842"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>大规模监视委托的资源
 
 作为服务提供商，你可能已将多个客户租户载入 [Azure Lighthouse](../overview.md)。 Azure Lighthouse 允许服务提供商同时在多个租户之间大规模执行操作，从而提高管理任务的效率。
 
-本主题说明如何在你管理的客户租户之间以可伸缩方式使用 [Azure Monitor 日志](../../azure-monitor/platform/data-platform-logs.md) 。
+本主题说明如何在你管理的客户租户之间以可伸缩方式使用 [Azure Monitor 日志](../../azure-monitor/platform/data-platform-logs.md) 。 尽管我们指的是本主题中的服务提供商和客户，但本指南也适用于 [使用 Azure Lighthouse 管理多个租户的企业](../concepts/enterprise.md)。
 
-> [!TIP]
-> 尽管我们指的是本主题中的服务提供商和客户，但本指南也适用于 [使用 Azure Lighthouse 管理多个租户的企业](../concepts/enterprise.md)。
+> [!NOTE]
+> 请确保已向管理租户中的用户授予在委派的客户订阅上 [管理 Log Analytics 工作区所需的角色](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) 。
 
 ## <a name="create-log-analytics-workspaces"></a>创建 Log Analytics 工作区
 
@@ -26,6 +26,9 @@ ms.locfileid: "88163282"
 建议直接在客户租户中创建这些工作区。 这样，它们的数据将保留在其租户中，而不是导出到您的租户中。 这也允许对 Log Analytics 支持的任何资源或服务进行集中监视，从而更灵活地了解所监视的数据类型。
 
 您可以通过使用 [Azure 门户](../../azure-monitor/learn/quick-create-workspace.md)、 [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)或使用 [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)来创建 Log Analytics 工作区。
+
+> [!IMPORTANT]
+> 即使在客户租户中创建了所有工作区，也必须在管理租户中的订阅上注册 Microsoft Insights 资源提供程序。
 
 ## <a name="deploy-policies-that-log-data"></a>部署日志数据的策略
 

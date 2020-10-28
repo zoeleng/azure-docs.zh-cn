@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: bce02917acb05c06b8f506871c1f3b8500622d61
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596448"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735529"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中启动、监视和取消训练运行
 
@@ -276,9 +276,9 @@ with exp.start_logging() as parent_run:
 
 也可以从父运行提交子运行。 通过此操作可创建父运行和子运行的层次结构。 
 
-你可能会希望子运行使用与父运行不同的运行配置。 例如，对父运行使用常规的基于 CPU 的配置，而对子运行使用基于 GPU 的配置。 另一种常见的需求是向每个子运行传递不同的参数和数据。 若要自定义子运行，请为 `ScriptRunConfig` 子运行创建一个对象。 下面的代码执行以下操作：
+你可能会希望子运行使用与父运行不同的运行配置。 例如，对父运行使用常规的基于 CPU 的配置，而对子运行使用基于 GPU 的配置。 另一种常见的需求是向每个子运行传递不同的参数和数据。 若要自定义子运行，请为该子运行创建一个 `ScriptRunConfig` 对象。 下面的代码执行以下操作：
 
-- 从工作区中检索名为的计算资源 `"gpu-cluster"``ws`
+- 从工作区 `ws` 中检索名为 `"gpu-cluster"` 的计算资源
 - 循环访问要传递给子 `ScriptRunConfig` 对象的不同参数值
 - 使用自定义计算资源和参数创建并提交新的子运行
 - 阻止至所有子运行完成为止
@@ -397,7 +397,7 @@ print(parent_run.get_children())
     
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     
-    Azure CLI 支持 [JMESPath](http://jmespath.org) 查询，可以使用这些查询基于属性和标记来筛选运行。 若要在 Azure CLI 中使用 JMESPath 查询，请使用 `--query` 参数指定该查询。 下面的示例演示了一些使用属性和标记的查询：
+    Azure CLI 支持 [JMESPath](http://jmespath.org) 查询，可以使用这些查询基于属性和标记来筛选运行。 若要在 Azure CLI 中使用 JMESPath 查询，请使用 `--query` 参数指定该查询。 以下示例演示了一些使用属性和标记的查询：
     
     ```azurecli-interactive
     # list runs where the author property = 'azureml-user'

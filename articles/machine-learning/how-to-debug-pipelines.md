@@ -9,17 +9,17 @@ author: lobrien
 ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: d31dffe6ee4190e72f413444621eb9f10791d4fc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: troubleshooting, devx-track-python, contperfq2
+ms.openlocfilehash: ce32871620cc0a471e56a5b65191834d7c23b88d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370264"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735707"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>对机器学习管道进行调试和故障排除
 
-本文介绍如何在[AZURE 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)和[Azure 机器学习设计器](https://docs.microsoft.com/azure/machine-learning/concept-designer)中对[计算机学习管道](concept-ml-pipelines.md)进行调试和故障排除。 
+在本文中，你将在 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 和 [Azure 机器学习设计器](https://docs.microsoft.com/azure/machine-learning/concept-designer)中了解如何对[机器学习管道](concept-ml-pipelines.md)进行调试和故障排除。 
 
 ## <a name="troubleshooting-tips"></a>故障排除提示
 
@@ -32,7 +32,7 @@ ms.locfileid: "92370264"
 | 计算目标出现不明确的错误 | 请尝试删除并重新创建计算目标。 重新创建计算目标是很快的，并且可以解决某些暂时性问题。 |
 | 管道未重复使用步骤 | 默认已启用步骤重复使用，但是，请确保未在管道步骤中禁用它。 如果已禁用重复使用，则步骤中的 `allow_reuse` 参数将设置为 `False`。 |
 | 管道不必要地重新运行 | 为了确保步骤只在其基础数据或脚本发生更改时才重新运行，请分离每个步骤的源代码目录。 如果对多个步骤使用同一个源目录，则可能会遇到不必要的重新运行。 在管道步骤对象中使用 `source_directory` 参数以指向该步骤的隔离目录，并确保未对多个步骤使用同一个 `source_directory` 路径。 |
-| 逐步降低定型时期或其他循环行为 | 尝试将所有文件写入（包括日志记录）从转换 `as_mount()` 为 `as_upload()` 。 **装载**模式使用远程虚拟文件系统，并在每次将其追加到时上载整个文件。 |
+| 在训练时期或其他循环行为中逐步减速 | 尝试将任何文件写入操作（包括日志记录）从 `as_mount()` 切换到 `as_upload()`。 “装载”模式使用远程虚拟化文件系统，在每次将文件追加到该系统时上传整个文件。 |
 
 ## <a name="troubleshooting-parallelrunstep"></a>有关 `ParallelRunStep` 
 

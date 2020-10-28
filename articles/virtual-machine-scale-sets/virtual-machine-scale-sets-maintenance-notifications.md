@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837170"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736984"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虚拟机规模集的计划内维护通知
 
@@ -50,7 +50,7 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 - 如果担心暂时性丢失部分容量（1/更新域计数），通过在维护期间分配更多的实例即可轻松弥补容量丢失。
 - 对于无需重启的维护，将在容错域级别应用更新。 
     
-以下情况**请勿**使用自助维护： 
+以下情况 **请勿** 使用自助维护： 
 
 - 通过手动方式、开发测试实验室、自动关闭或按照一定时间计划频繁关闭虚拟机。 在这些情况下，自助维护可能还原维护状态和造成额外故障事件。
 - VM 的生存期短，已确定在维护结束之前就会被删除。 
@@ -95,9 +95,9 @@ Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划�
 2. 在左侧菜单中，选择“监视”  。 
 3. 在“监视 - 警报(经典)”窗格中，选择“+添加活动日志警报”   。
 4. 在“添加活动日志警报”页面中，选择或输入要求的信息  。 在“条件”中，确保设置以下值  ：
-   - **事件类别**：选择“服务运行状况”  。
-   - **服务**：选择“虚拟机规模集和虚拟机”  。
-   - **类型**：选择“计划内维护”  。 
+   - **事件类别** ：选择“服务运行状况”  。
+   - **服务** ：选择“虚拟机规模集和虚拟机”  。
+   - **类型** ：选择“计划内维护”  。 
     
 要详细了解如何配置活动日志警报，请参阅[创建活动日志警报](../azure-monitor/platform/activity-log-alerts.md)
     
@@ -212,7 +212,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
    - 我们已取消这次维护，并使用不同的有效负载重新启动它。 可能是我们已检测到出错的有效负载，只需部署其他有效负载。
    - 由于硬件故障，已在另一个节点上对 VM 进行服务修复。 
    - 选择了停止（解除分配）VM 并将其重启。
-   - 已经为 VM 启用了**自动关闭**。
+   - 已经为 VM 启用了 **自动关闭** 。
 
 ## <a name="next-steps"></a>后续步骤
 

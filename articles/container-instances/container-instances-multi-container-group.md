@@ -3,13 +3,13 @@ title: 教程 - 部署多容器组 - 模板
 description: 本教程介绍如何通过 Azure CLI 使用 Azure 资源管理器模板在 Azure 容器实例中部署包含多个容器的容器组。
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: cb085112c6e6458d897f52f19988e6301d4ae6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 5238d16af31e30a4ae3a7d4cc01fbbd93373cfeb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259573"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737575"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>教程：使用资源管理器模板部署多容器组
 

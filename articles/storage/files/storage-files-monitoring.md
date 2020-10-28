@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfc554a57e99fa4ccd66b1bbeec0be46e463988f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772662"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738613"
 ---
 # <a name="monitoring-azure-files"></a>监视 Azure 文件
 
@@ -51,20 +51,9 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
 
 ## <a name="collection-and-routing"></a>集合和路由
 
-平台指标和活动日志是自动收集的，但可以使用诊断设置将其路由到其他位置。 必须创建诊断设置以收集资源日志。 
+平台指标和活动日志是自动收集的，但可以使用诊断设置将其路由到其他位置。 
 
-> [!NOTE]
-> Azure Monitor 中的 Azure 存储日志目前为公共预览版，可在所有公有云区域中进行预览测试。 若要注册预览版，请参阅[此页](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)。 此预览版为常规用途 v1 和常规用途 v2 存储帐户中的 Blob（包括 Azure Data Lake Storage Gen2）、文件、队列、表和高级存储帐户启用日志。 经典存储帐户不受支持。
-
-若要使用 Azure 门户、Azure CLI 或 PowerShell 创建诊断设置，请参阅 [创建诊断设置以在 Azure 中收集平台日志和指标](../../azure-monitor/platform/diagnostic-settings.md)。 
-
-若要查看创建诊断设置的 Azure 资源管理器模板，请参阅 [Azure 存储的诊断设置](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage)。
-
-创建诊断设置时，请选择要为其启用日志的存储类型，如 blob、队列、表或文件。 对于 Azure 文件，请选择 " **文件**"。 
-
-如果在 Azure 门户中创建诊断设置，则可以从列表中选择资源。 如果使用 PowerShell 或 Azure CLI，需要使用 Azure 文件终结点的资源 ID。 通过打开存储帐户的“属性”页，可在 Azure 门户中找到资源 ID。
-
-您还必须指定要为其收集日志的下列操作之一。 
+若要收集资源日志，必须创建一个诊断设置。 创建设置时，选择 " **文件** " 作为要为其启用日志的存储类型。 然后，指定要为其收集日志的下列操作之一。 
 
 | 类别 | 说明 |
 |:---|:---|
@@ -73,6 +62,191 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
 | StorageDelete | 对象上的删除操作。 |
 
 若要获取记录的 SMB 和 REST 操作的列表，请参阅 [存储记录的操作和状态消息](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 和 [Azure 文件监视数据引用](storage-files-monitoring-reference.md)。
+
+## <a name="creating-a-diagnostic-setting"></a>创建诊断设置
+
+可以使用 Azure 门户、PowerShell、Azure CLI 或 Azure 资源管理器模板创建诊断设置。 
+
+有关一般指南，请参阅 [创建诊断设置以在 Azure 中收集平台日志和指标](../../azure-monitor/platform/diagnostic-settings.md)。
+
+### <a name="azure-portal"></a>[Azure 门户](#tab/azure-portal)
+
+1. 登录到 Azure 门户。
+
+2. 导航到自己的存储帐户。
+
+3. 在 " **监视** " 部分中，单击 " **诊断设置" (预览 ")** 。
+
+   > [!div class="mx-imgBorder"]
+   > ![门户 - 诊断日志](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
+
+4. 选择 " **文件** " 作为要为其启用日志的存储类型。
+
+5. 单击“添加诊断设置”  。
+
+   > [!div class="mx-imgBorder"]
+   > ![门户-资源日志-添加诊断设置](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
+
+   此时将显示 " **诊断设置** " 页。
+
+   > [!div class="mx-imgBorder"]
+   > ![资源日志页](media/storage-files-monitoring/diagnostic-logs-page.png)
+
+6. 在该页的 " **名称** " 字段中，输入此资源日志设置的名称。 然后，选择要记录的操作 ("读取"、"写入" 和 "删除" 操作) ，以及要将日志发送到的位置。
+
+#### <a name="archive-logs-to-a-storage-account"></a>将日志存档到存储帐户
+
+1. 选中 " **存档到存储帐户** " 复选框，然后单击 " **配置** " 按钮。
+
+   > [!div class="mx-imgBorder"]   
+   > ![诊断设置页面存档存储](media/storage-files-monitoring/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. 在 " **存储帐户** " 下拉列表中，选择要将日志存档到的存储帐户，单击 " **确定"** 按钮，然后单击 " **保存** " 按钮。
+
+   > [!NOTE]
+   > 选择存储帐户作为导出目标之前，请参阅将 [Azure 资源日志存档](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) 以了解存储帐户的先决条件。
+
+#### <a name="stream-logs-to-azure-event-hubs"></a>将日志流式传输到 Azure 事件中心
+
+1. 选中 " **到事件中心的流** " 复选框，然后单击 " **配置** " 按钮。
+
+2. 在 " **选择事件中心** " 窗格中，选择要将日志流式传输到的事件中心的命名空间、名称和策略名称。 
+
+   > [!div class="mx-imgBorder"]
+   > ![诊断设置页事件中心](media/storage-files-monitoring/diagnostic-logs-settings-pane-event-hub.png)
+
+3. 单击 " **确定"** 按钮，然后单击 " **保存** " 按钮。
+
+#### <a name="send-logs-to-azure-log-analytics"></a>向 Azure Log Analytics 发送日志
+
+1. 选择 " **发送到 Log Analytics** " 复选框，选择 Log Analytics 工作区，然后单击 " **保存** " 按钮。
+
+   > [!div class="mx-imgBorder"]   
+   > ![诊断设置页日志分析](media/storage-files-monitoring/diagnostic-logs-settings-pane-log-analytics.png)
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. 打开 Windows PowerShell 命令窗口，并使用命令登录到 Azure 订阅 `Connect-AzAccount` 。 然后，按照屏幕上的说明进行操作。
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. 将活动订阅设置为要为其启用日志记录的存储帐户的订阅。
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### <a name="archive-logs-to-a-storage-account"></a>将日志存档到存储帐户
+
+使用 [AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet 和参数来启用日志 `StorageAccountId` 。
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+将 `<storage-service-resource--id>` 此代码段中的占位符替换为 Azure 文件服务的资源 ID。 通过打开存储帐户的“属性”页，可在 Azure 门户中找到资源 ID。
+
+`StorageRead` `StorageWrite` `StorageDelete` 对于 **Category** 参数的值，可以使用、和。
+
+下面是一个示例：
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+有关每个参数的说明，请参阅 [通过 Azure PowerShell 存档 Azure 资源日志](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell)。
+
+#### <a name="stream-logs-to-an-event-hub"></a>将日志流式传输到事件中心
+
+通过 [将 AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet 与参数一起使用来启用日志 `EventHubAuthorizationRuleId` 。
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+下面是一个示例：
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+有关每个参数的说明，请参阅 [通过 PowerShell cmdlet 将数据流式传输到事件中心](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets)。
+
+#### <a name="send-logs-to-log-analytics"></a>将日志发送到 Log Analytics
+
+通过 [将 AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet 与参数一起使用来启用日志 `WorkspaceId` 。
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+下面是一个示例：
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+有关详细信息，请参阅 [在 Azure Monitor 中将 Azure 资源日志流式传输到 Log Analytics 工作区](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store)。
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. 首先，打开 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)，或者，如果已在本地[安装](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI，请打开命令控制台应用程序，如 Windows PowerShell。
+
+2. 如果你的标识与多个订阅相关联，请将你的活动订阅设置为要为其启用日志的存储帐户的订阅。
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   将 `<subscription-id>` 占位符值替换为你的订阅 ID。
+
+#### <a name="archive-logs-to-a-storage-account"></a>将日志存档到存储帐户
+
+使用 [az monitor 诊断设置 create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令启用日志。
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+`<storage-service-resource--id>`将此代码段中的占位符替换为资源 ID Blob 存储服务。 通过打开存储帐户的“属性”页，可在 Azure 门户中找到资源 ID。
+
+`StorageRead` `StorageWrite` `StorageDelete` 对于 **category** 参数的值，可以使用、和。
+
+下面是一个示例：
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+有关每个参数的说明，请参阅 [通过 Azure CLI 存档资源日志](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli)。
+
+#### <a name="stream-logs-to-an-event-hub"></a>将日志流式传输到事件中心
+
+使用 [az monitor 诊断设置 create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令启用日志。
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+下面是一个示例：
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+有关每个参数的说明，请参阅 [通过 Azure CLI 将数据流式传输到事件中心](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli)。
+
+#### <a name="send-logs-to-log-analytics"></a>将日志发送到 Log Analytics
+
+使用 [az monitor 诊断设置 create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令启用日志。
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+下面是一个示例：
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ 有关详细信息，请参阅 [在 Azure Monitor 中将 Azure 资源日志流式传输到 Log Analytics 工作区](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store)。
+
+### <a name="template"></a>[模板](#tab/template)
+
+若要查看创建诊断设置的 Azure 资源管理器模板，请参阅 [Azure 存储的诊断设置](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage)。
+
+---
 
 ## <a name="analyzing-metrics"></a>分析指标
 
@@ -132,7 +306,7 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/azure-portal)
 
 Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)，用于读取指标定义和值。 [示例代码](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)演示如何通过不同的参数来使用 SDK。 对于存储指标，需使用 `0.18.0-preview` 或更高版本。
  
@@ -272,6 +446,10 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 ```
 
+# <a name="template"></a>[模板](#tab/template)
+
+不适用。
+
 ---
 
 ## <a name="analyzing-logs"></a>分析日志
@@ -283,7 +461,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 > [!NOTE]
 > Azure Monitor 中的 Azure 存储日志目前为公共预览版，可在所有公有云区域中进行预览测试。 若要注册预览版，请参阅[此页](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)。 此预览版为常规用途 v1 和常规用途 v2 存储帐户中的 Blob（包括 Azure Data Lake Storage Gen2）、文件、队列、表和高级存储帐户启用日志。 经典存储帐户不受支持。
 
-仅在针对服务终结点发出请求时才会创建日志条目。 例如，如果存储帐户在其文件终结点中具有活动，而在其表或队列终结点中没有活动，则仅创建与文件服务相关的日志。 Azure 存储日志包含有关成功和失败的存储服务请求的详细信息。 可以使用该信息监视各个请求和诊断存储服务问题。 将最大程度地记录请求。
+仅在针对服务终结点发出请求时才会创建日志条目。 例如，如果存储帐户在其文件终结点中具有活动，而在其表或队列终结点中没有活动，则只会创建与 Azure 文件服务相关的日志。 Azure 存储日志包含有关成功和失败的存储服务请求的详细信息。 可以使用该信息监视各个请求和诊断存储服务问题。 将最大程度地记录请求。
 
 ### <a name="log-authenticated-requests"></a>记录经过身份验证的请求
 
@@ -336,7 +514,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 下面是一些可以在 **日志搜索** 栏中输入以帮助你监视 Azure 文件的查询。 这些查询使用[新语言](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
 
 > [!IMPORTANT]
-> 从存储帐户资源组菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前资源组。 这意味着日志查询只包含来自该资源组的数据。 如果要运行的查询包含来自其他资源或来自其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 "**日志**"。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](/azure/azure-monitor/log-query/scope/)。
+> 从存储帐户资源组菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前资源组。 这意味着日志查询只包含来自该资源组的数据。 如果要运行的查询包含来自其他资源或来自其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 " **日志** "。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](/azure/azure-monitor/log-query/scope/)。
 
 使用以下查询来帮助你监视 Azure 文件共享：
 
@@ -395,9 +573,9 @@ StorageFileLogs
 
 1. 在 Azure 门户 中转到自己的存储帐户。 
 
-2. 单击 " **警报** "，然后单击 " **+ 新建警报规则**"。
+2. 单击 " **警报** "，然后单击 " **+ 新建警报规则** "。
 
-3. 单击 " **编辑资源**"，选择 **文件资源类型** ，然后单击 " **完成**"。 
+3. 单击 " **编辑资源** "，选择 **文件资源类型** ，然后单击 " **完成** "。 
 
 4. 单击 " **选择条件** " 并为警报提供以下信息： 
 
@@ -407,7 +585,7 @@ StorageFileLogs
 
 5. 单击 " **选择操作组** "，并将操作组 (电子邮件、短信等 ) 添加到警报，方法是选择现有操作组或创建新的操作组。
 
-6. 填写警报 **详细信息** ，如 **警报规则名称**、 **描述**和 **严重性**。
+6. 填写警报 **详细信息** ，如 **警报规则名称** 、 **描述** 和 **严重性** 。
 
 7. 单击“创建警报规则”以创建警报。
 
@@ -417,7 +595,7 @@ StorageFileLogs
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>如何创建文件共享受到限制时的警报
 
 1. 在 Azure 门户 中转到自己的存储帐户。
-2. 在 " **监视** " 部分中，单击 " **警报**"，然后单击 " **+ 新建警报规则**"。
+2. 在 " **监视** " 部分中，单击 " **警报** "，然后单击 " **+ 新建警报规则** "。
 3. 单击“编辑资源”，为存储帐户选择“文件资源类型”，然后单击“完成”。 例如，如果存储帐户名称为，则 `contoso` 选择 `contoso/file` 资源。
 4. 单击“选择条件”以添加条件。
 5. 你将看到存储帐户支持的信号列表，请选择“事务”指标。
@@ -425,7 +603,7 @@ StorageFileLogs
 7. 单击“维度值”下拉列表，并选择“SuccessWithThrottling”（对于 SMB）或“ClientThrottlingError”（对于 REST）。
 
    > [!NOTE]
-   > 如果 SuccessWithThrottling 或 ClientThrottlingError 维度值未列出，则意味着资源尚未受到限制。 若要添加维度值，请单击 "**维度值**" 下拉箭头旁边的 "**添加自定义值**"，键入 " **SuccessWithThrottling** " 或 " **ClientThrottlingError**"，然后单击 **"确定"** ，然后重复步骤 #7。
+   > 如果 SuccessWithThrottling 或 ClientThrottlingError 维度值未列出，则意味着资源尚未受到限制。 若要添加维度值，请单击 " **维度值** " 下拉箭头旁边的 " **添加自定义值** "，键入 " **SuccessWithThrottling** " 或 " **ClientThrottlingError** "，然后单击 **"确定"** ，然后重复步骤 #7。
 
 8. 单击“维度名称”下拉列表并选择“文件共享”。
 9. 单击“维度值”下拉列表，并选择要对其发出警报的文件共享。
@@ -439,26 +617,26 @@ StorageFileLogs
     > 如果你使用的是静态阈值，并且文件共享当前受到限制，则可通过指标图表来确定合理的阈值。 如果使用的是动态阈值，则指标图表将显示基于最新数据计算出的阈值。
 
 11. 单击“选择操作组”，通过选择现有操作组或创建新的操作组，将一个操作组（电子邮件、短信等）添加到警报中。
-12. 填写警报 **详细信息** ，如 **警报规则名称**、* * 说明和 **严重性**。
+12. 填写警报 **详细信息** ，如 **警报规则名称** 、* * 说明和 **严重性** 。
 13. 单击“创建警报规则”以创建警报。
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>如何在 Azure 文件共享大小为容量的80% 时创建警报
 
 1. 在 Azure 门户 中转到自己的存储帐户。
-2. 在 " **监视** " 部分中，单击 " **警报** "，然后单击 " **+ 新建警报规则**"。
+2. 在 " **监视** " 部分中，单击 " **警报** "，然后单击 " **+ 新建警报规则** "。
 3. 单击“编辑资源”，为存储帐户选择“文件资源类型”，然后单击“完成”。 例如，如果存储帐户名称为，则 `contoso` 选择 `contoso/file` 资源。
 4. 单击“选择条件”以添加条件。
 5. 你会看到存储帐户支持的信号列表，请选择 " **文件容量** " 指标。
-6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享**"。
+6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享** "。
 7. 单击“维度值”下拉列表，并选择要对其发出警报的文件共享。
 
    > [!NOTE]
    > 如果文件共享是标准文件共享，请选择“所有当前值和将来值”。 “维度值”下拉列表不会列出文件共享，因为每共享指标不可用于标准文件共享。 标准文件共享的警报基于存储帐户中的所有文件共享。 因为每共享指标不可用于标准文件共享，所以建议为每个存储帐户使用一个文件共享。
 
 8. 输入 **阈值** （以字节为单位）。 例如，如果文件共享大小为 100 TiB，并且你希望在文件共享大小为容量80% 时收到警报，则阈值为87960930222080。
-9. 定义其余的 **警报参数** (聚合粒度和计算频率) 并单击 " **完成**"。
+9. 定义其余的 **警报参数** (聚合粒度和计算频率) 并单击 " **完成** "。
 10. 单击“选择操作组”，通过选择现有操作组或创建新的操作组，将一个操作组（电子邮件、短信等）添加到警报中。
-11. 填写警报 **详细信息** ，如 **警报规则名称**、* * 说明和 **严重性**。
+11. 填写警报 **详细信息** ，如 **警报规则名称** 、* * 说明和 **严重性** 。
 12. 单击“创建警报规则”以创建警报。
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>如果 Azure 文件共享出口在一天内超过 500 GiB，如何创建警报
@@ -468,17 +646,17 @@ StorageFileLogs
 3. 单击“编辑资源”，为存储帐户选择“文件资源类型”，然后单击“完成”。 例如，如果存储帐户名称为“contoso”，则选择“contoso/文件”资源。
 4. 单击“选择条件”以添加条件。
 5. 你会看到存储帐户支持的信号列表，请选择 **出口** 指标。
-6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享**"。
+6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享** "。
 7. 单击“维度值”下拉列表，并选择要对其发出警报的文件共享。
 
    > [!NOTE]
    > 如果文件共享是标准文件共享，请选择“所有当前值和将来值”。 “维度值”下拉列表不会列出文件共享，因为每共享指标不可用于标准文件共享。 标准文件共享的警报基于存储帐户中的所有文件共享。 因为每共享指标不可用于标准文件共享，所以建议为每个存储帐户使用一个文件共享。
 
 8. 为 "阈值" 输入 **536870912000** 字节。 
-9. 单击 " **聚合粒度** " 下拉箭头，然后选择 " **24 小时**"。
-10. 选择 **评估频率** ，并 **单击 "完成**"。
+9. 单击 " **聚合粒度** " 下拉箭头，然后选择 " **24 小时** "。
+10. 选择 **评估频率** ，并 **单击 "完成** "。
 11. 单击“选择操作组”，通过选择现有操作组或创建新的操作组，将一个操作组（电子邮件、短信等）添加到警报中。
-12. 填写警报 **详细信息** ，如 **警报规则名称**、* * 说明和 **严重性**。
+12. 填写警报 **详细信息** ，如 **警报规则名称** 、* * 说明和 **严重性** 。
 13. 单击“创建警报规则”以创建警报。
 
 ## <a name="next-steps"></a>后续步骤
@@ -486,7 +664,7 @@ StorageFileLogs
 - [Azure 文件监视数据引用](storage-files-monitoring.md)
 - [利用 Azure Monitor 监视 Azure 资源](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure 存储指标迁移](../common/storage-metrics-migration.md)
-- [规划 Azure 文件部署](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
+- [规划 Azure 文件存储部署](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
 - [如何部署 Azure 文件](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
 - [排查 Windows 上的 Azure 文件问题](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)
 - [排查 Linux 上的 Azure 文件问题](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-linux-file-connection-problems)

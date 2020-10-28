@@ -10,17 +10,17 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425635"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736618"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理对 Azure 机器学习工作区的访问权限
 
-本文介绍了如何管理对 Azure 机器学习工作区的访问权限。 使用 azure [RBAC)  (azure 基于角色的访问控制](/azure/role-based-access-control/overview)来管理对 Azure 资源的访问。 Azure Active Directory 中的用户可获得特定角色，这些角色授予了对资源的访问权限。 Azure 提供内置角色和创建自定义角色的功能。
+本文介绍了如何管理对 Azure 机器学习工作区的访问权限。 [Azure 基于角色的访问控制 (Azure RBAC)](/azure/role-based-access-control/overview) 用于管理对 Azure 资源的访问权限。 Azure Active Directory 中的用户可获得特定角色，这些角色授予了对资源的访问权限。 Azure 提供内置角色和创建自定义角色的功能。
 
 ## <a name="default-roles"></a>默认角色
 
@@ -145,7 +145,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 下表汇总了 Azure 机器学习活动以及在最小作用域内执行它们所需的权限。 例如，如果可以使用某个工作区作用域（第 4 列）执行某个活动，自然也可以使用具有该权限的所有更高的作用域：
 
 > [!IMPORTANT]
-> 此表中以 `/` 开头的所有路径都是相对于 `Microsoft.MachineLearningServices/` 的**相对路径**：
+> 此表中以 `/` 开头的所有路径都是相对于 `Microsoft.MachineLearningServices/` 的 **相对路径** ：
 
 | 活动 | 订阅级作用域 | 资源组级作用域 | 工作区级作用域 |
 | ----- | ----- | ----- | ----- |
@@ -156,7 +156,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 | 提交任何类型的运行 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | 发布管道终结点 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | 在 AKS/ACI 资源上部署已注册的模型 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| 针对已部署的 AKS 终结点进行评分 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：在使用 `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` `"/workspaces/read"` 令牌) 身份验证时不使用 Azure Active Directory AUTH) 或 (时 ( |
+| 针对已部署的 AKS 终结点进行评分 | 不是必需 | 不是必需 | 允许以下权限的“所有者”角色、“参与者”角色或自定义角色：`"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"`（未使用 Azure Active Directory 身份验证时）或 `"/workspaces/read"`（使用令牌身份验证时） |
 | 使用交互式笔记本访问存储 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | 创建新的自定义角色 | 所有者、参与者或自定义角色允许 `Microsoft.Authorization/roleDefinitions/write` | 不是必需 | 所有者、参与者或自定义角色允许：`/workspaces/computes/write` |
 
@@ -173,7 +173,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 有。下面的一些常见方案具有建议的自定义角色定义，你可以将其作为基础来定义自己的自定义角色：
 
-* __Data Scientist Custom__：允许数据科学家在工作区中执行所有操作，但以下操作**除外**：
+* __Data Scientist Custom__ ：允许数据科学家在工作区中执行所有操作，但以下操作 **除外** ：
 
     * 创建计算
     * 将模型部署到生产 AKS 群集
@@ -209,7 +209,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
 
-* __Data Scientist Restricted Custom__：一个限制性更强的角色定义，允许的操作中不包含通配符。 它可以在工作区中执行所有操作，但以下操作**除外**：
+* __Data Scientist Restricted Custom__ ：一个限制性更强的角色定义，允许的操作中不包含通配符。 它可以在工作区中执行所有操作，但以下操作 **除外** ：
 
     * 创建计算
     * 将模型部署到生产 AKS 群集
@@ -270,7 +270,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
      
-* __MLflow 数据科学家定制__：允许数据科研人员执行所有 MLflow AzureML 支持的操作，但以下情况 **除外**：
+* __MLflow 数据科学家定制__ ：允许数据科研人员执行所有 MLflow AzureML 支持的操作，但以下情况 **除外** ：
 
    * 创建计算
    * 将模型部署到生产 AKS 群集
@@ -310,7 +310,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```   
 
-* __MLOps Custom__：允许将角色分配给服务主体，并使用该角色自动执行 MLOps 管道。 例如，若要针对已发布的管道提交运行，可使用以下代码：
+* __MLOps Custom__ ：允许将角色分配给服务主体，并使用该角色自动执行 MLOps 管道。 例如，若要针对已发布的管道提交运行，可使用以下代码：
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
 
-* __Workspace Admin__：允许在工作区范围中执行所有操作，但以下操作**除外**：
+* __Workspace Admin__ ：允许在工作区范围中执行所有操作，但以下操作 **除外** ：
 
     * 创建一个新工作区
     * 分配订阅或工作区级别配额
@@ -381,7 +381,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     ```
 
 <a name="labeler"></a>
-* __Labeler Custom__：允许你定义一个只能在作用域内标记数据的角色：
+* __Labeler Custom__ ：允许你定义一个只能在作用域内标记数据的角色：
 
     `labeler_custom_role.json` :
     ```json
@@ -438,7 +438,7 @@ az provider operation show –n Microsoft.MachineLearningServices
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>问： 我需要具有哪些权限才能将用户分配的托管标识用于我的 Amlcompute 群集？
 
-若要在 Amlcompute 群集上分配用户分配的标识，必须有写入权限才能创建计算，并拥有 [托管标识操作员角色](/azure/role-based-access-control/built-in-roles#managed-identity-operator)。 有关具有托管标识的 Azure RBAC 的详细信息，请参阅 [如何管理用户分配的标识](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+若要在 Amlcompute 群集上分配用户分配的标识，必须具有创建计算所需的写入权限，并且必须具有[“托管标识操作员”角色](/azure/role-based-access-control/built-in-roles#managed-identity-operator)。 有关具有托管标识的 Azure RBAC 的详细信息，请参阅 [如何管理用户分配的标识](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>问： 工作室门户上是否支持基于角色的访问控制？

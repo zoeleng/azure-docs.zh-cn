@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567445"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736565"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>将机器学习模型部署到 Azure Functions（预览版）
 
@@ -58,9 +58,9 @@ ms.locfileid: "91567445"
 
 有关入口脚本的详细信息，请参阅[定义评分代码](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
-* 依赖项，如运行入口脚本或模型所需的帮助程序脚本或 Python/Conda 包****
+* 依赖项，如运行入口脚本或模型所需的帮助程序脚本或 Python/Conda 包 
 
-这些实体被封装到推理配置中____。 推理配置引用入口脚本和其他依赖项。
+这些实体被封装到推理配置中  。 推理配置引用入口脚本和其他依赖项。
 
 > [!IMPORTANT]
 > 创建用于 Azure Functions 的推理配置时，需要使用 [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
@@ -84,7 +84,7 @@ ms.locfileid: "91567445"
 有关推理配置的详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
 
 > [!IMPORTANT]
-> 部署到 Azure Functions 时，无需创建部署配置____。
+> 部署到 Azure Functions 时，无需创建部署配置  。
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>安装 SDK 预览版包以获取函数支持
 
@@ -144,7 +144,7 @@ print(blob.location)
     }
     ```
 
-    保存“用户名”和某个“密码”的值____ ____。
+    保存“用户名”和某个“密码”的值   。
 
 1. 如果你还没有资源组或应用服务计划来部署服务，以下命令将演示如何创建这两项：
 

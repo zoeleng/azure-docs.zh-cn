@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279082"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737859"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>使用 Synapse SQL 中的存储过程
 
@@ -24,6 +24,9 @@ ms.locfileid: "92279082"
 ## <a name="what-to-expect"></a>期望
 
 Synapse SQL 支持许多 SQL Server 中使用的 T-sql 功能。 更重要的是，可使用特定的横向扩展功能将解决方案的性能最大化。
+
+> [!NOTE]
+> 在过程主体中，你只能使用 Synapse SQL surface 区域中支持的功能。 查看 [本文](overview-features.md) ，确定可用于存储过程的对象和语句。 在这些文章中的示例中，使用了可在无服务器和预配 surface 区域中使用的通用功能。
 
 为了保持 SQL 池的缩放性和性能，还有一些特性和功能存在行为差异，其他功能并不受支持。
 

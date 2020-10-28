@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496025"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735470"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -117,10 +117,10 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 ## <a name="secure-vnet-traffic"></a>保护 VNet 流量
 
-可以通过两种方法将流量与 AKS 群集隔离到虚拟网络：
+有两种方法可以将往返于 AKS 群集的流量隔离到虚拟网络：
 
-* __私有 AKS 群集__：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
-* __内部 AKS 负载均衡器__：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
+* __私有 AKS 群集__ ：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
+* __内部 AKS 负载均衡器__ ：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
 
 > [!WARNING]
 > 内部负载均衡器不适用于使用 kubenet 的 AKS 群集。 如果要同时使用内部负载均衡器和专用 AKS 群集，请使用 Azure Container 网络接口 (CNI) 配置专用 AKS 群集。 有关详细信息，请参阅 [在 Azure Kubernetes Service 中配置 AZURE CNI 网络](../aks/configure-azure-cni.md)。
@@ -132,7 +132,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 创建专用 AKS 群集之后，[将群集连接到虚拟网络](how-to-create-attach-kubernetes.md)以便用于 Azure 机器学习。
 
 > [!IMPORTANT]
-> 在将启用了专用链接的 AKS 群集与 Azure 机器学习一起使用之前，你必须打开支持事件才能启用此功能。 有关详细信息，请参阅 [管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
+> 在将启用了专用链接的 AKS 群集用于 Azure 机器学习之前，必须建立一个支持事件案例，否则无法启用此功能。 有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
 
 ### <a name="internal-aks-load-balancer"></a>内部 AKS 负载均衡器
 
@@ -143,7 +143,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 #### <a name="network-contributor-role"></a>网络参与者角色
 
 > [!IMPORTANT]
-> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的_网络参与者_角色。 必须在尝试将内部负载均衡器更改为专用 IP 之前完成此操作。
+> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的 _网络参与者_ 角色。 必须在尝试将内部负载均衡器更改为专用 IP 之前完成此操作。
 >
 > 若要将标识添加为网络参与者，请执行以下步骤：
 
@@ -175,9 +175,9 @@ aks_target = ComputeTarget.create(workspace=ws,
 #### <a name="enable-private-load-balancer"></a>启用专用负载均衡器
 
 > [!IMPORTANT]
-> 在 Azure 机器学习 studio 中创建 Azure Kubernetes Service 群集时，无法启用专用 IP。 使用 Python SDK 或计算机学习 Azure CLI 扩展时，可以使用内部负载均衡器创建一个。
+> 在 Azure 机器学习工作室中创建 Azure Kubernetes 服务群集时，无法启用专用 IP。 使用 Python SDK 或 Azure CLI 扩展进行机器学习时，可以创建一个具有内部负载均衡器的 AKS 群集。
 
-以下示例演示了如何使用 SDK 和 CLI 通过 __专用 IP/内部负载均衡器创建新的 AKS 群集__ ：
+以下示例演示如何使用 SDK 和 CLI __创建具有专用 IP/内部负载均衡器的新 AKS 群集__ ：
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -223,7 +223,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 
 将现有群集附加到工作区时，必须等到附加操作完成后才能配置负载均衡器。 有关附加群集的信息，请参阅[附加现有的 AKS 群集](how-to-create-attach-kubernetes.md)。
 
-附加现有群集后，你可以更新群集以使用内部负载均衡器/专用 IP：
+附加现有群集后，可以更新群集以使用内部负载均衡器/专用 IP：
 
 ```python
 import azureml.core

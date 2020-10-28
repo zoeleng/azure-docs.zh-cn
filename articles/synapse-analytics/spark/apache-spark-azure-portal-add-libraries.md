@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826734"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737985"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>在 Azure Synapse 分析中管理 Apache Spark 的库
 
@@ -58,7 +58,7 @@ alabaster==0.7.10
    
 3. 使用页面的 " **包** " 部分中的文件选择器上载环境配置文件。 
    
-![创建池时添加 Python 库](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "添加 Python 库")
+    ![创建池时添加 Python 库](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "添加 Python 库")
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>从 Synapse 工作区安装包
@@ -68,11 +68,11 @@ alabaster==0.7.10
    
 2.  从 Azure 门户启动 Azure Synapse Analytics 工作区。
 
-3.  从主导航面板中选择 " **管理** "，然后选择 " **Apache Spark 池**"。
+3.  从主导航面板中选择 " **管理** "，然后选择 " **Apache Spark 池** "。
    
 4. 选择单个 Spark 池，并使用页面的 "  **包** " 部分中的文件选择器上载环境配置文件。
 
-![在 synapse 中添加 Python 库](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "添加 Python 库")
+    ![在 synapse 中添加 Python 库](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>从 Azure 门户安装包
 若要将库安装到 Spark 池 (预览直接从 Azure 门户中) ：
@@ -81,11 +81,11 @@ alabaster==0.7.10
    
  2. 在 " **Synapse 资源** " 部分下，选择 " **Apache Spark 池** " 选项卡，然后从列表中选择一个 Spark 池。
    
- 3. 从 Spark 池的 "**设置**" 部分中选择 "**包**"。 
+ 3. 从 Spark 池的 " **设置** " 部分中选择 " **包** "。 
 
  4. 使用文件选择器上载环境配置文件。
 
-![突出显示 "上传环境配置文件" 按钮的屏幕截图。](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "添加 Python 库")
+    ![突出显示 "上传环境配置文件" 按钮的屏幕截图。](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "添加 Python 库")
 
 ### <a name="verify-installed-libraries"></a>验证安装的库
 
@@ -106,13 +106,13 @@ for i in pip.get_installed_distributions(local_only=True):
 
 3. 导航到 " **包** " 部分，并上传新的环境配置文件
    
-4. 保存更改后，你将需要结束活动会话并等待池重新启动。 或者，您可以通过选中相应的复选框强制 **新的设置**来强制结束活动会话。
+4. 保存更改后，你将需要结束活动会话并等待池重新启动。 或者，您可以通过选中相应的复选框强制 **新的设置** 来强制结束活动会话。
 
-![添加 Python 库](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "添加 Python 库")
+    ![添加 Python 库](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "添加 Python 库")
    
 
 > [!IMPORTANT]
-> 通过选择 **强制新设置**的选项，你将结束所选 Spark 池的所有当前会话。 会话结束后，需要等待池重新启动。 
+> 通过选择 **强制新设置** 的选项，你将结束所选 Spark 池的所有当前会话。 会话结束后，需要等待池重新启动。 
 >
 > 如果未选中此设置，则需要等待当前 Spark 会话手动结束或停止。 会话结束后，需要重新启动池。 
 

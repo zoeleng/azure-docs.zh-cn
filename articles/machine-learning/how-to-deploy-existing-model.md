@@ -10,13 +10,13 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 64180320ab57996984f5e886639dfd4977ae5e7c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: e8f789819c762702061465e01cf1e64b349c3344
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999060"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735537"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>使用 Azure 机器学习部署现有模型
 
@@ -274,7 +274,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 ## <a name="request-response-consumption"></a>请求-响应的使用
 
-部署完成后将显示评分 URI。 客户端可使用此 URI 将请求提交到服务。 下面的示例是一个简单的 Python 客户端，它将数据提交到服务并显示响应：
+部署完成后将显示评分 URI。 客户端可使用此 URI 将请求提交到服务。 以下示例是一个简单的 Python 客户端，该客户端将数据提交到服务并显示响应：
 
 ```python
 import requests
