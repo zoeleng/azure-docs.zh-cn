@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398606"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781441"
 ---
 # <a name="dynamic-data-masking"></a>动态数据屏蔽 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 支持�
 
 ### <a name="dynamic-data-masking-permissions"></a>动态数据掩码权限
 
-Azure SQL 数据库管理员、服务器管理员或 [SQL 安全管理员](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)角色可以配置动态数据掩码。
+Azure SQL 数据库管理员、服务器管理员或 [SQL 安全管理员](../../role-based-access-control/built-in-roles.md#sql-security-manager)角色可以配置动态数据掩码。
 
 ### <a name="dynamic-data-masking-policy"></a>动态数据掩码策略
 
@@ -45,10 +45,10 @@ Azure SQL 数据库管理员、服务器管理员或 [SQL 安全管理员](https
 | 掩码函数 | 掩码逻辑 |
 | --- | --- |
 | **默认** |**根据指定字段的数据类型完全掩码**<br/><br/>对于字符串数据类型（nchar、ntext、nvarchar），使用 XXXX；如果字段大小小于 4 个字符，则使用更少的 X。<br/>• 对于数字数据类型（bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real），使用零值。<br/>对于日期/时间数据类型（date、datetime2、datetime、datetimeoffset、smalldatetime、time），使用 1900-01-01。<br/>• 对于 SQL 变量，使用当前类型的默认值。<br/>• 对于 XML，使用文档 \<masked/>。<br/>• 对于特殊数据类型（timestamp、table、hierarchyid、GUID、binary、image、varbinary 空间类型），将使用空值。 |
-| **信用卡** |**此掩码方法公开指定字段的最后四位数**，并添加一个信用卡格式的常量字符串作为前缀。<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **电子邮件** |**此掩码方法公开第一个字母并将域替换为 XXX.com**，并使用一个电子邮件地址格式的常量字符串作为前缀。<br/><br/>aXX@XXXX.com |
-| **随机数** |**此掩码方法根据选定边界和实际数据类型生成随机数**。 如果指定的边界相等，则掩码函数是常数。<br/><br/>![显示用于生成随机数的屏蔽方法的屏幕截图。](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
-| **自定义文本** |**此掩码方法公开第一个和最后一个字符**，并在中间添加一个自定义填充字符串。 如果原始字符串短于公开的前缀和后缀，则只使用填充字符串。 <br/>前缀 [填充] 后缀<br/><br/>![导航窗格](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
+| **信用卡** |**此掩码方法公开指定字段的最后四位数** ，并添加一个信用卡格式的常量字符串作为前缀。<br/><br/>XXXX-XXXX-XXXX-1234 |
+| **电子邮件** |**此掩码方法公开第一个字母并将域替换为 XXX.com** ，并使用一个电子邮件地址格式的常量字符串作为前缀。<br/><br/>aXX@XXXX.com |
+| **随机数** |**此掩码方法根据选定边界和实际数据类型生成随机数** 。 如果指定的边界相等，则掩码函数是常数。<br/><br/>![此屏幕截图显示了用于生成随机数的掩码方法。](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
+| **自定义文本** |**此掩码方法公开第一个和最后一个字符** ，并在中间添加一个自定义填充字符串。 如果原始字符串短于公开的前缀和后缀，则只使用填充字符串。 <br/>前缀 [填充] 后缀<br/><br/>![导航窗格](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 
@@ -60,15 +60,15 @@ DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段�
 
 ### <a name="data-masking-policies"></a>数据掩码策略
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>数据掩码规则
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>使用 REST API 为数据库设置动态数据掩码
 
@@ -76,10 +76,10 @@ DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段�
 
 ### <a name="data-masking-policies"></a>数据掩码策略
 
-- [创建或更新](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate)：创建或更新数据库的数据掩码策略。
-- [获取](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get)：获取数据库的数据掩码策略。 
+- [创建或更新](/rest/api/sql/datamaskingpolicies/createorupdate)：创建或更新数据库的数据掩码策略。
+- [获取](/rest/api/sql/datamaskingpolicies/get)：获取数据库的数据掩码策略。 
 
 ### <a name="data-masking-rules"></a>数据掩码规则
 
-- [创建或更新](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate)：创建或更新数据库的数据掩码规则。
-- [按数据库列出](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase)：获取数据库的数据掩码规则列表。
+- [创建或更新](/rest/api/sql/datamaskingrules/createorupdate)：创建或更新数据库的数据掩码规则。
+- [按数据库列出](/rest/api/sql/datamaskingrules/listbydatabase)：获取数据库的数据掩码规则列表。

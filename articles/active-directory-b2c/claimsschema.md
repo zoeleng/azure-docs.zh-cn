@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201355"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781713"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -228,7 +228,7 @@ Pattern  元素可以包含以下属性：
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -239,7 +239,7 @@ Pattern  元素可以包含以下属性：
 
 ### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C 支持各种用户输入类型，例如在手动输入声明类型的声明数据时可以使用的文本框、密码和下拉列表。 使用[自断言技术配置文件](self-asserted-technical-profile.md)和[显示控件](display-controls.md)从用户收集信息时，必须指定 **UserInputType**。
+Azure AD B2C 支持各种用户输入类型，例如在手动输入声明类型的声明数据时可以使用的文本框、密码和下拉列表。 使用 [自断言技术配置文件](self-asserted-technical-profile.md)和 [显示控件](display-controls.md)从用户收集信息时，必须指定 **UserInputType** 。
 
 **UserInputType** 元素可用的用户输入类型：
 
@@ -284,7 +284,7 @@ EmailBox  用户输入类型用于提供基本电子邮件输入字段。
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```

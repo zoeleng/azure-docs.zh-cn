@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676821"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782410"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Azure SQL 托管实例 (预览版中的机器学习服务) 
 
@@ -44,7 +44,7 @@ ms.locfileid: "92676821"
 
 - **在存储过程中将模型和脚本部署到生产环境中** ，可以通过在 t-sql 存储过程中嵌入脚本和定型模型来操作化它们。 通过只调用存储过程，连接到 Azure SQL 托管实例的应用程序可以受益于这些模型中的预测和智能。 你还可以使用本机 T-sql 预测函数来操作模型，以便在高度并发的实时评分方案中快速计分。
 
-Python 和 R 的基本分发包含在机器学习服务中。 除了用于 Python 的 [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) 和 [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml) Microsoft 包，以及用于 R 的 [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler)、[MicrosoftML](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml)、[olapR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr) 和 [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) 外，还可以安装和使用开源包和框架，如 PyTorch、TensorFlow 和 scikit-learn。
+Python 和 R 的基本分发包含在机器学习服务中。 除了用于 Python 的 [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) 和 [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) Microsoft 包，以及用于 R 的 [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler)、[MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml)、[olapR](/sql/advanced-analytics/r/ref-r-olapr) 和 [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) 外，还可以安装和使用开源包和框架，如 PyTorch、TensorFlow 和 scikit-learn。
 
 <a name="signup"></a>
 
@@ -85,6 +85,6 @@ Python 和 R 的基本分发包含在机器学习服务中。 除了用于 Pytho
 ## <a name="next-steps"></a>后续步骤
 
 - 请参阅 [SQL Server 机器学习服务的主要区别](machine-learning-services-differences.md)。
-- 若要了解如何在机器学习服务中使用 Python，请参阅 [运行 python 脚本](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15)。
-- 若要了解如何在机器学习服务中使用 R，请参阅 [运行 r 脚本](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15)。
-- 有关其他 SQL 平台上的机器学习的详细信息，请参阅 [SQL 机器学习文档](https://docs.microsoft.com/sql/machine-learning/)。
+- 若要了解如何在机器学习服务中使用 Python，请参阅 [运行 python 脚本](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15)。
+- 若要了解如何在机器学习服务中使用 R，请参阅 [运行 r 脚本](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15)。
+- 有关其他 SQL 平台上的机器学习的详细信息，请参阅 [SQL 机器学习文档](/sql/machine-learning/)。

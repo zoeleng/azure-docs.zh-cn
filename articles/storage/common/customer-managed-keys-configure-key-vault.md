@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994137"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782376"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>用 Azure Key Vault 中存储的客户托管密钥配置加密
 
@@ -35,15 +35,15 @@ Azure 存储对静态存储帐户中的所有数据进行加密。 默认情况�
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
-若要了解如何使用 Azure 门户创建密钥保管库，请参阅 [快速入门：使用 Azure 门户创建密钥保管库](../../key-vault/general/quick-create-portal.md)。 创建密钥保管库时，请选择 " **启用清除保护**"，如下图所示。
+若要了解如何使用 Azure 门户创建密钥保管库，请参阅 [快速入门：使用 Azure 门户创建密钥保管库](../../key-vault/general/quick-create-portal.md)。 创建密钥保管库时，请选择 " **启用清除保护** "，如下图所示。
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="显示如何在创建密钥保管库时启用清除保护的屏幕截图&quot;:::
 
 若要对现有密钥保管库启用清除保护，请执行以下步骤：
 
 1. 在 Azure 门户中导航到密钥保管库。
-1. 在“设置”下面，选择“属性”。********
-1. 在 &quot; **清除保护** &quot; 部分中，选择 " **启用清除保护**"。
+1. 在“设置”下面，选择“属性”。 
+1. 在 &quot; **清除保护** &quot; 部分中，选择 " **启用清除保护** "。
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-若要了解如何使用 PowerShell 对现有密钥保管库启用清除保护，请参阅 [如何将软删除与 powershell 配合使用](../../key-vault/general/soft-delete-powershell.md)。
+若要了解如何使用 PowerShell 对现有密钥保管库启用清除保护，请参阅 [如何将软删除与 powershell 配合使用](../../key-vault/general/key-vault-recovery.md)。
 
 接下来，向存储帐户分配系统分配的托管标识。 将使用此托管标识授予存储帐户访问 Key Vault 的权限。 有关系统分配的托管标识的详细信息，请参阅 [Azure 资源的托管标识是什么？](../../active-directory/managed-identities-azure-resources/overview.md)。
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-若要了解如何在 Azure CLI 的现有密钥保管库上启用清除保护，请参阅 [如何将软删除与 CLI 配合使用](../../key-vault/general/soft-delete-cli.md)。
+若要了解如何在 Azure CLI 的现有密钥保管库上启用清除保护，请参阅 [如何将软删除与 CLI 配合使用](../../key-vault/general/key-vault-recovery.md)。
 
 接下来，向存储帐户分配系统分配的托管标识。 将使用此托管标识授予存储帐户访问 Key Vault 的权限。 有关系统分配的托管标识的详细信息，请参阅 [Azure 资源的托管标识是什么？](../../active-directory/managed-identities-azure-resources/overview.md)。
 
@@ -129,7 +129,7 @@ az keyvault set-policy \
 
 接下来，在密钥保管库中添加一个密钥。
 
-Azure 存储加密支持2048、3072和4096大小的 RSA 和 RSA-HSM 密钥。 有关密钥的详细信息，请参阅[关于 Azure Key Vault 密钥、机密和证书](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)中的“Key Vault 密钥”。
+Azure 存储加密支持2048、3072和4096大小的 RSA 和 RSA-HSM 密钥。 有关密钥的详细信息，请参阅 [关于密钥](../../key-vault/keys/about-keys.md)。
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
@@ -195,7 +195,7 @@ Azure 存储可以自动更新客户管理的密钥（用于加密），以使�
 若要对现有密钥保管库启用清除保护，请执行以下步骤：
 
 1. 在 Azure 门户中导航到密钥保管库。
-1. 在“设置”下面，选择“属性”。********
+1. 在“设置”下面，选择“属性”。 
 1. 在 &quot; **清除保护** &quot; 部分中，选择 ":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9b69cef5741ab609b72f6c2c34e3aa50b45648
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054069"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782070"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>设置 Azure 导入/导出工具 v1
 Microsoft Azure 导入/导出工具是可与 Microsoft Azure 导入/导出服务配合使用的驱动器准备和修复工具。 可以使用该工具实现以下功能：  
@@ -249,8 +249,8 @@ Examples:
 
 ## <a name="next-steps"></a>后续步骤
 
-* [为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [预览导出作业的驱动器使用情况](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [使用复制日志文件查看作业状态](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [修复导入作业](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [修复导出作业](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [为导入作业准备硬盘驱动器](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [预览导出作业的驱动器使用情况](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [使用复制日志文件查看作业状态](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [修复导入作业](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [修复导出作业](./storage-import-export-tool-repairing-an-export-job-v1.md)

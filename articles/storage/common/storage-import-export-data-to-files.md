@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5eacd84d2ff37c10702896127adcb67f5459b6be
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1cd1145411fbf4ec4441d612f9552997704f9e5e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461662"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782393"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -50,14 +50,14 @@ ms.locfileid: "92461662"
 2. 在每个驱动器上创建一个 NTFS 卷。 为卷分配驱动器号。 不要使用装入点。
 3. 修改工具所在的根文件夹中的 *dataset.csv* 文件。 根据是要导入文件还是文件夹还是同时导入两者，在 *dataset.csv* 文件中添加类似于以下示例的条目。  
 
-   - **导入文件**：在下面的示例中，要复制的数据驻留在 F：驱动器中。 文件 *MyFile1.txt* 将被复制到根目录 *MyAzureFileshare1* 中。 如果 *MyAzureFileshare1* 不存在，则会在 Azure 存储帐户中创建该目录。 文件夹结构保持不变。
+   - **导入文件** ：在下面的示例中，要复制的数据驻留在 F：驱动器中。 文件 *MyFile1.txt* 将被复制到根目录 *MyAzureFileshare1* 中。 如果 *MyAzureFileshare1* 不存在，则会在 Azure 存储帐户中创建该目录。 文件夹结构保持不变。
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **导入文件夹**：*MyFolder2* 下的所有文件和文件夹将以递归方式复制到该文件共享。 文件夹结构保持不变。
+   - **导入文件夹** ： *MyFolder2* 下的所有文件和文件夹将以递归方式复制到该文件共享。 文件夹结构保持不变。
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
@@ -70,28 +70,28 @@ ms.locfileid: "92461662"
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
 
        ```
-     详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md)。
+     详细了解如何[准备数据集 CSV 文件](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import)。
 
 
 4. 修改工具所在的根文件夹中的 *driveset.csv* 文件。 在 *driveset.csv* 文件中添加类似于以下示例的条目。 此驱动器集文件包含磁盘列表和对应的驱动器号，因此，工具可以正确地选取要准备的磁盘列表。
 
     此示例假定将附加两个磁盘并创建基本 NTFS 卷 G:\ 和 H:\。 H:\ 未加密，而 G: 已加密。 该工具仅会对承载着 H:\（不会对承载着 G:\)）的磁盘进行格式化和加密。
 
-   - **对于未加密的磁盘**：请指定 *Encrypt* 以在磁盘上启用 BitLocker 加密。
+   - **对于未加密的磁盘** ：请指定 *Encrypt* 以在磁盘上启用 BitLocker 加密。
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        H,Format,SilentMode,Encrypt,
        ```
 
-   - **对于已加密的磁盘**：请指定 *AlreadyEncrypted* 并提供 BitLocker 密钥。
+   - **对于已加密的磁盘** ：请指定 *AlreadyEncrypted* 并提供 BitLocker 密钥。
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     可以在同一文件中创建与多个驱动器对应的多个条目。 详细了解如何[准备驱动器集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md)。
+     可以在同一文件中创建与多个驱动器对应的多个条目。 详细了解如何[准备驱动器集 CSV 文件](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import)。
 
 5. 使用 `PrepImport` 选项将数据复制到磁盘驱动器并做好准备。 为了使第一个复制会话通过新的复制会话复制目录和/或文件，请运行以下命令：
 
@@ -160,7 +160,7 @@ ms.locfileid: "92461662"
 5. 在“摘要”中：
 
     - 提供用来将磁盘寄回 Azure 的 Azure 数据中心送货地址。 请确保寄送标签上标明了作业名称和完整地址。
-    - 单击“确定”以完成导入作业创建。****
+    - 单击“确定”以完成导入作业创建。 
 
         ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
@@ -258,9 +258,9 @@ ms.locfileid: "92461662"
 
 ## <a name="samples-for-journal-files"></a>日志文件示例
 
-若要**添加更多驱动器**，请创建一个新的驱动器集文件并运行以下命令。
+若要 **添加更多驱动器** ，请创建一个新的驱动器集文件并运行以下命令。
 
-如果后续复制会话中的磁盘驱动器与 *InitialDriveset .csv* 文件中指定的不同，请指定一个新的驱动器集 *.csv* 文件并将其提供为参数 `AdditionalDriveSet` 的值。 使用**同一日记文件**的名称并提供**新的会话 ID**。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
+如果后续复制会话中的磁盘驱动器与 *InitialDriveset .csv* 文件中指定的不同，请指定一个新的驱动器集 *.csv* 文件并将其提供为参数 `AdditionalDriveSet` 的值。 使用 **同一日记文件** 的名称并提供 **新的会话 ID** 。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -275,7 +275,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 
 若要向同一驱动器集添加更多数据，请为后续复制会话使用 PrepImport 命令来复制更多文件/目录。
 
-在后续复制会话中将数据复制到 *InitialDriveset.csv* 文件中指定的同一组硬盘驱动器时，请指定**同一日志文件**名称并提供**新的会话 ID**；不需要提供存储帐户密钥。
+在后续复制会话中将数据复制到 *InitialDriveset.csv* 文件中指定的同一组硬盘驱动器时，请指定 **同一日志文件** 名称并提供 **新的会话 ID** ；不需要提供存储帐户密钥。
 
 ```cmd
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

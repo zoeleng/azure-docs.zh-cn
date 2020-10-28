@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490792"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781951"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>核心 Azure 存储服务简介
 
@@ -46,7 +46,7 @@ Azure 存储平台包括以下数据服务：
 | **Azure 文件** |提供完全托管的云文件共享，让你能从任何位置通过行业标准服务器消息块 (SMB) 协议进行访问。<br><br>你可以在云或 Windows、Linux 和 macOS 的本地部署装载 Azure 文件共享。 | 希望将已使用本机文件系统 API 的应用程序直接迁移到云中，以在该应用程序与 Azure 中运行的其他应用程序之间共享数据。<br/><br/>希望替换或补充本地文件服务器或 NAS 设备。<br><br> 希望存储需要从多个虚拟机访问的开发和调试工具时。 |
 | Azure Blob | 允许在块 blob 中大规模存储和访问非结构化数据。<br/><br/>还支持 [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)，用于企业大数据分析解决方案。 | 希望应用程序支持流式处理和随机访问方案时。<br/><br/>希望可以从任何位置访问应用程序数据时。<br/><br/>想要在 Azure 上生成企业数据湖并执行大数据分析。 |
 | **Azure 磁盘** | 允许数据永久存储在附加虚拟硬盘中并从中进行访问。 | 希望直接迁移使用本机文件系统 API 将数据读写到永久磁盘中的应用程序。<br/><br/>希望存储不要求从附加磁盘的虚拟机外进行访问的数据时。 |
-| **Azure 队列** | 允许应用程序组件之间存在异步消息队列。 | 希望分离应用程序组件，并传递异步消息以实现这些组件间的通信。<br><br>要查看关于何时使用队列存储和服务总线队列的指南，请参阅[存储队列和服务总线队列 - 比较与对照](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)。 |
+| **Azure 队列** | 允许应用程序组件之间存在异步消息队列。 | 希望分离应用程序组件，并传递异步消息以实现这些组件间的通信。<br><br>要查看关于何时使用队列存储和服务总线队列的指南，请参阅[存储队列和服务总线队列 - 比较与对照](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)。 |
 | **Azure 表** | 允许在云中存储结构化 NoSQL 数据，通过无架构设计提供键/属性存储。 | 希望存储灵活的数据集，例如 Web 应用程序的用户数据、通讯簿、设备信息，或者服务需要的其他类型的元数据。 <br/><br/>要查看关于何时使用表存储与 Azure Cosmos DB 表 API 的指南，请参阅[使用 Azure Cosmos DB 表 API 和 Azure 表存储进行开发](../../cosmos-db/table-support.md)。 |
 
 ## <a name="blob-storage"></a>Blob 存储
@@ -93,7 +93,7 @@ Azure 队列服务用于存储和检索消息。 队列消息最大可以为 64 
 
 ## <a name="table-storage"></a>表存储
 
-Azure 表存储现在是 Azure Cosmos DB 的一部分。 若要查看 Azure 表存储文档，请参阅 [Azure 表存储概述](../tables/table-storage-overview.md)。 除了现有的 Azure 表存储服务，还有新的 Azure Cosmos DB 表 API 产品/服务，后者提供吞吐量优化表、全局分发和自动辅助索引。 要详细了解并尝试新的高级体验，请查看 [Azure Cosmos DB 表 API](https://aka.ms/premiumtables)。
+Azure 表存储现在是 Azure Cosmos DB 的一部分。 若要查看 Azure 表存储文档，请参阅 [Azure 表存储概述](../tables/table-storage-overview.md)。 除了现有的 Azure 表存储服务，还有新的 Azure Cosmos DB 表 API 产品/服务，后者提供吞吐量优化表、全局分发和自动辅助索引。 要详细了解并尝试新的高级体验，请查看 [Azure Cosmos DB 表 API](../../cosmos-db/table-introduction.md)。
 
 有关表存储的详细信息，请参阅 [Azure 表存储概述](../tables/table-storage-overview.md)。
 
@@ -115,7 +115,7 @@ Azure 存储提供多种类型的存储帐户。 每种类型支持不同的功�
 - **Azure AD Azure 文件的 SMB 的授权。** Azure 文件支持通过 SMB (服务器消息块进行基于标识的授权) 通过 Azure Active Directory 域服务 (Azure AD DS) 或本地 Active Directory 域服务 (预览版) 。 已加入域的 Windows Vm 可使用 Azure AD 凭据访问 Azure 文件共享。 有关详细信息，请参阅 [Azure 文件基于标识的身份验证支持概述，了解如何使用](../files/storage-files-active-directory-overview.md) [azure 文件部署和规划 azure 文件部署](../files/storage-files-planning.md#identity)。
 - **通过共享密钥进行授权。** Azure 存储 Blob、文件、队列和表服务支持通过共享密钥授权。 使用共享密钥授权的客户端会随使用存储帐户访问密钥签名的每个请求传递一个标头。 有关详细信息，请参阅[通过共享密钥进行授权](/rest/api/storageservices/authorize-with-shared-key)。
 - **使用共享访问签名 (SAS) 进行授权。** 共享访问签名 (SAS) 是一个字符串，其中包含的安全令牌可以追加到存储资源的 URI。 安全令牌封装了各种约束，例如权限、访问时间间隔。 有关详细信息，请参阅[使用共享访问签名 (SAS)](storage-sas-overview.md)。
-- **对容器和 Blob 的匿名访问。** 容器及其 Blob 也许可以公开使用。 指定某个容器或 Blob 为公用的时，任何人都可以匿名读取它，不需要进行身份验证。 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)。
+- **对容器和 Blob 的匿名访问。** 容器及其 Blob 也许可以公开使用。 指定某个容器或 Blob 为公用的时，任何人都可以匿名读取它，不需要进行身份验证。 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../blobs/anonymous-read-access-configure.md)。
 
 ## <a name="encryption"></a>Encryption
 
@@ -131,7 +131,7 @@ Azure 存储客户端库提供的方法用于加密客户端库的数据，然�
 
 ## <a name="redundancy"></a>冗余
 
-为了确保数据的持久性，Azure 存储会存储多个数据副本。 设置存储帐户时，可选择冗余选项。 有关详细信息，请参阅 [Azure 存储冗余](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json)。
+为了确保数据的持久性，Azure 存储会存储多个数据副本。 设置存储帐户时，可选择冗余选项。 有关详细信息，请参阅 [Azure 存储冗余](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)。
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>将数据传入和传出 Azure 存储
 
@@ -160,7 +160,7 @@ Azure 存储客户端库提供的方法用于加密客户端库的数据，然�
 
 - [存储资源提供程序 REST API](/rest/api/storagerp/)
 - [适用于 .NET 的存储资源提供程序客户端库](/dotnet/api/overview/azure/storage/management)
-- [存储服务管理 REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [存储服务管理 REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure 存储数据移动 API 和库参考
 

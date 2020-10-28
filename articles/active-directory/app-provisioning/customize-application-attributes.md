@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069868"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781475"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射
 
@@ -107,9 +107,12 @@ Azure AD 用户对象与每个 SaaS 应用的用户对象之间存在一组预�
 
 - Salesforce
 - ServiceNow
-- Workday
+- Workday 到 Active Directory/Workday 到 Azure Active Directory
+- SuccessFactors to Azure Active Directory Active Directory/SuccessFactors
 - Azure Active Directory（支持 [Azure AD 图形 API 默认属性](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity)和自定义目录扩展）
 - 支持 [SCIM 2.0](https://tools.ietf.org/html/rfc7643) 的应用（需要添加[核心架构](https://tools.ietf.org/html/rfc7643)中定义的属性）
+- 对于 Azure Active Directory 写回 Workday 或 SuccessFactors，支持 (XPATH 和 JSONPath) 为受支持的属性更新相关的元数据，但不支持将新的 Workday 或 SuccessFactors 属性添加到默认架构中包含的属性以外
+
 
 > [!NOTE]
 > 建议只让自定义了其应用程序和系统的架构，并且原本就知道自定义属性定义方式的管理员来编辑受支持属性的列表。 有时，需要熟悉应用程序或系统提供的 API 和开发人员工具才能执行此操作。
@@ -142,7 +145,7 @@ SCIM RFC 定义一个核心用户和组模式，同时还允许对模式进行�
 对于 SCIM 应用程序，属性名称必须遵循以下示例所示的模式。 可以根据应用程序的要求自定义“CustomExtensionName”和“CustomAttribute”，例如：  
  * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
  * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
+ * urn： ietf： params： scim：架构：扩展： CustomExtensionName：2.0：用户： CustomAttributeName：值
 
 这些说明仅适用于启用了 SCIM 的应用程序。 诸如 ServiceNow 和 Salesforce 之类的应用程序不与使用 SCIM 的 Azure AD 集成，因此它们在添加自定义属性时不需要这一特定的命名空间。
 
@@ -174,7 +177,7 @@ SCIM RFC 定义一个核心用户和组模式，同时还允许对模式进行�
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "CustomAttribute": "701984",
    },
    "meta": {

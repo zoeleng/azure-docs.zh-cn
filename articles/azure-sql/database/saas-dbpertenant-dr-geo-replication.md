@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330115"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781016"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>使用数据库异地复制实现多租户 SaaS 应用程序的灾难恢复
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "92330115"
 
 开始学习本教程之前，请确保满足以下先决条件：
 * 已部署 Wingtip Tickets SaaS“每租户一个数据库”应用。 若要在五分钟内完成部署，请参阅[部署和浏览 Wingtip Tickets SaaS 租户各有数据库应用程序](saas-dbpertenant-get-started-deploy.md)  
-* Azure PowerShell 已安装。 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell 已安装。 有关详细信息，请参阅 [Azure PowerShell 入门](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>异地复制恢复模式简介
 
@@ -66,11 +66,11 @@ ms.locfileid: "92330115"
 
 本教程使用 Azure SQL 数据库和 Azure 平台的功能解决这些问题：
 
-* [Azure 资源管理器模板](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)可用于尽快预留全部所需容量。 Azure 资源管理器模板用于在恢复区域中预配生产服务器和弹性池的镜像映像。
+* [Azure 资源管理器模板](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)可用于尽快预留全部所需容量。 Azure 资源管理器模板用于在恢复区域中预配生产服务器和弹性池的镜像映像。
 * [异地复制](active-geo-replication-overview.md)：为所有数据库创建以异步方式复制的只读辅助副本。 在中断期间，故障转移到恢复区域中的副本。  解决中断后，故障回复到原始生产区域中的数据库，且不会丢失任何数据。
-* [异步](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)故障转移操作按租户的优先顺序，以最大程度地减少大量数据库的故障转移时间。
+* [异步](../../azure-resource-manager/management/async-operations.md)故障转移操作按租户的优先顺序，以最大程度地减少大量数据库的故障转移时间。
 * [分片管理恢复功能](elastic-database-recovery-manager.md)：在恢复和遣返期间更改目录中的数据库条目。 无需重新配置应用，这些功能就能让应用连接到租户数据库，而不管位置如何。
-* [SQL Server DNS 别名](../../sql-database/dns-alias-overview.md)：实现新租户的无缝预配，不管应用在哪个区域中运行。 使用 DNS 别名还能让目录同步进程连接到活动目录，而不管该目录位于哪个位置。
+* [SQL Server DNS 别名](./dns-alias-overview.md)：实现新租户的无缝预配，不管应用在哪个区域中运行。 使用 DNS 别名还能让目录同步进程连接到活动目录，而不管该目录位于哪个位置。
 
 ## <a name="get-the-disaster-recovery-scripts"></a>获取灾难恢复脚本 
 
@@ -85,7 +85,7 @@ ms.locfileid: "92330115"
 在稍后的单独遣返步骤中，我们将恢复区域中的目录和租户数据库故障转移到原始区域。 在整个遣返过程中，应用程序和数据库都会保持可用。 完成上述过程后，该应用程序将在原始区域中完全正常运行。
 
 > [!Note]
-> 将应用程序恢复到部署该应用程序的区域的“配对区域”中。 有关详细信息，请参阅 [Azure 配对区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
+> 将应用程序恢复到部署该应用程序的区域的“配对区域”中。 有关详细信息，请参阅 [Azure 配对区域](../../best-practices-availability-paired-regions.md)。
 
 ## <a name="review-the-healthy-state-of-the-application"></a>查看应用程序的健康状态
 
@@ -106,7 +106,7 @@ ms.locfileid: "92330115"
 此任务启动一个过程，将服务器、弹性池和数据库的配置同步到租户目录中。 该过程能在目录中使此信息保持最新。  该过程将处理原始区域或恢复区域中的活动目录。 恢复过程中将使用配置信息来确保恢复环境与原始环境保持一致，并且在稍后的遣返过程中，确保原始区域与恢复环境中所做的任何更改保持一致。 目录还可用于跟踪租户资源的恢复状态
 
 > [!IMPORTANT]
-> 为简单起见，同步过程和其他长时间运行的恢复和遣返过程在这些教程中作为本地 PowerShell 作业或会话来实现，这些作业或会话在客户端用户登录名下运行。 在若干小时后，登录时颁发的身份验证令牌将会过期，因而作业将会失败。 在生产场景中，长时间运行的进程应作为以服务主体身份运行的某种可靠 Azure 服务来实现。 请参阅[使用 Azure PowerShell 创建具有证书的服务主体](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
+> 为简单起见，同步过程和其他长时间运行的恢复和遣返过程在这些教程中作为本地 PowerShell 作业或会话来实现，这些作业或会话在客户端用户登录名下运行。 在若干小时后，登录时颁发的身份验证令牌将会过期，因而作业将会失败。 在生产场景中，长时间运行的进程应作为以服务主体身份运行的某种可靠 Azure 服务来实现。 请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
 1. 在 PowerShell ISE 中，打开 ...\Learning Modules\UserConfig.psm1 文件。 将第 10 行和第 11 行中的 `<resourcegroup>` 和 `<user>` 替换为部署应用时使用的值。  保存该文件！
 
@@ -186,7 +186,7 @@ ms.locfileid: "92330115"
 
 2. 按 **F5** 运行脚本。  
     * 该脚本将在新 PowerShell 窗口中打开，然后启动一系列并行运行的 PowerShell 作业。 这些作业将租户数据库故障转移到恢复区域。
-    * 恢复区域是与部署应用程序的 Azure 区域相关联的配对区域。 有关详细信息，请参阅 [Azure 配对区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
+    * 恢复区域是与部署应用程序的 Azure 区域相关联的配对区域。 有关详细信息，请参阅 [Azure 配对区域](../../best-practices-availability-paired-regions.md)。 
 
 3. 在 PowerShell 窗口中监视恢复进程的状态。
     ![故障转移过程](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)

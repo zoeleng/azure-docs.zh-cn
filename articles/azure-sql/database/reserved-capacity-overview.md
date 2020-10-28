@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
-ms.openlocfilehash: c1bedf56896332430c6f4b937aab37764a0c6a43
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b4a8b809fc135a4af26fae10912890f2017153f4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058261"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780914"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>利用保留容量节省资源成本-Azure SQL 数据库 & SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -31,7 +31,7 @@ ms.locfileid: "92058261"
 可以在 [Azure 门户](https://portal.azure.com)中购买保留容量。 通过[提前付款或按月付款](../../cost-management-billing/reservations/prepare-buy-reservation.md)的方式为预留付款。 购买预留容量：
 
 - 对于至少一个企业或个人订阅，你必须以即用即付费率作为所有者角色。
-- 对于企业订阅，必须在 [EA 门户](https://ea.azure.com)中启用“添加预留实例”****。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。 保留容量。
+- 对于企业订阅，必须在  。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。 保留容量。
 
 有关企业客户和即用即付客户如何针对预订购买付费的详细信息，请参阅 [了解企业注册的 azure 保留使用情况](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 和 [了解即用即付订阅的 azure 保留使用情况](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)。
 
@@ -58,7 +58,7 @@ ms.locfileid: "92058261"
     | 字段      | 说明|
     |------------|--------------|
     |订阅|用于支付产能预留的订阅。 将向订阅的付款方式收取预订的预付费用。 订阅类型必须是企业协议 (产品/服务的 Ms-azr-0017p 或 BC-OP-NT-AZR-Ms-azr-0148p) ，或具有即用即付定价的单个协议 (产品编号为 MS-BC-OP-NT-AZR 或 bc-op-nt-azr-ms-azr-0003p) 。 对于企业订阅，从注册的货币承诺余额中扣除费用或作为超额收取费用。 对于使用即用即付定价的单个订阅，将对订阅上的信用卡或发票付款方式收取费用。|
-    |范围       |VCore 预订的范围可以包含一个订阅或多个订阅 (共享范围) 。 如果选择 <br/><br/>**共享**，vCore 预订折扣应用于计费上下文内任何订阅中运行的数据库或托管实例。 对于企业客户，共享范围是注册范围，包括注册中的所有订阅。 对于即用即付客户，共享范围是由帐户管理员创建的所有即用即付订阅。<br/><br/>**单个订阅**，vCore 预订折扣将应用到此订阅中的数据库或托管实例。 <br/><br/>**单个资源组**，预订折扣应用于所选订阅中的数据库实例或托管实例，以及该订阅内的所选资源组。|
+    |范围       |VCore 预订的范围可以包含一个订阅或多个订阅 (共享范围) 。 如果选择 <br/><br/>**共享** ，vCore 预订折扣应用于计费上下文内任何订阅中运行的数据库或托管实例。 对于企业客户，共享范围是注册范围，包括注册中的所有订阅。 对于即用即付客户，共享范围是由帐户管理员创建的所有即用即付订阅。<br/><br/>**单个订阅** ，vCore 预订折扣将应用到此订阅中的数据库或托管实例。 <br/><br/>**单个资源组** ，预订折扣应用于所选订阅中的数据库实例或托管实例，以及该订阅内的所选资源组。|
     |区域      |容量保留所涵盖的 Azure 区域。|
     |部署类型|要为其购买预留容量的 SQL 资源类型。|
     |性能层|数据库或托管实例的服务层。 |
@@ -67,7 +67,7 @@ ms.locfileid: "92058261"
 
 1. 在 " **成本** " 部分中查看容量预留的成本。
 1. 选择“购买”。
-1. 选择“查看此预订”**** 以查看购买的状态。
+1. 选择“查看此预订”  以查看购买的状态。
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>对预留执行取消、交换或退款操作
 
@@ -98,4 +98,4 @@ VCore 预订折扣将自动应用于与容量预留范围和属性匹配的数�
 - [了解 Azure 预留折扣](../../cost-management-billing/reservations/understand-reservation-charges.md)
 - [了解即用即付订阅的预留使用情况](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [了解企业合约的预留使用情况](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
-- [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](https://docs.microsoft.com/partner-center/azure-reservations)
+- [合作伙伴中心云解决方案提供商 (CSP) 计划中的 Azure 预订](/partner-center/azure-reservations)

@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: f0f5069ca063f95cb845921c0d716b6c013c9e83
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479742"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781832"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>规划和管理 Azure Blob 存储的成本
 
@@ -56,19 +56,19 @@ ms.locfileid: "92479742"
 
 你可以通过 Azure 存储预留容量节省 blob 数据的存储成本。 当你在一年或三年内提交到保留时，Azure 存储空间保留容量提供针对块 blob 和标准存储帐户中的 Azure Data Lake Storage Gen2 数据的容量折扣。 预订为保留期提供固定量的存储容量。 Azure 存储预留容量可显著降低块 blob 和 Azure Data Lake Storage Gen2 数据的容量成本。 
 
-若要了解详细信息，请参阅 [采用预留容量优化 Blob 存储的成本](/azure/storage/blobs/storage-blob-reserved-capacity)。
+若要了解详细信息，请参阅 [采用预留容量优化 Blob 存储的成本](../blobs/storage-blob-reserved-capacity.md)。
 
 #### <a name="organize-data-into-access-tiers"></a>将数据组织到访问层
 
 可以通过将 blob 数据置于最经济高效的访问层中来降低成本。 从三个层中进行选择，这些层旨在优化数据使用的成本。 例如，" *热* " 层的存储成本较高，但访问成本更低。 因此，如果你计划经常访问数据，则热层可能是最经济高效的选择。 如果你计划更少地访问数据， *冷* 层或 *存档* 层可能会发挥最大的作用，因为它会提高访问数据的成本，同时降低存储数据的成本。    
 
-若要了解详细信息，请参阅 [Azure Blob 存储：热、冷和存档访问层](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)。
+若要了解详细信息，请参阅 [Azure Blob 存储：热、冷和存档访问层](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal)。
 
 #### <a name="automatically-move-data-between-access-tiers"></a>在访问层之间自动移动数据
 
 使用生命周期管理策略在各层之间定期移动数据以节省资金。 这些策略可以使用您指定的规则将数据移到。 例如，如果未在90天内修改 blob，则可以创建一个将 blob 移到存档层的规则。 通过创建调整你的数据访问层的策略，你可以根据需要设计开销最少的存储选项。
 
-若要了解详细信息，请参阅 [管理 Azure Blob 存储生命周期](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+若要了解详细信息，请参阅 [管理 Azure Blob 存储生命周期](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## <a name="create-budgets"></a>创建预算
 
@@ -87,11 +87,11 @@ ms.locfileid: "92479742"
 
 1. 登录到 [Azure 门户](https://portal.azure.com)。
 
-2. 打开 " **成本管理 + 计费** " 窗口，从菜单中选择 " **成本管理** "，然后选择 " **成本分析**"。 然后，可以从 " **作用域** " 下拉列表中更改特定订阅的作用域。
+2. 打开 " **成本管理 + 计费** " 窗口，从菜单中选择 " **成本管理** "，然后选择 " **成本分析** "。 然后，可以从 " **作用域** " 下拉列表中更改特定订阅的作用域。
 
    ![显示范围的屏幕截图](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. 若要仅查看 Azure 存储的成本，请选择 " **添加筛选器** "，然后选择 " **服务名称**"。 然后从列表中选择 " **存储** "。 
+4. 若要仅查看 Azure 存储的成本，请选择 " **添加筛选器** "，然后选择 " **服务名称** "。 然后从列表中选择 " **存储** "。 
 
    以下示例显示了 Azure 存储空间的成本：
 

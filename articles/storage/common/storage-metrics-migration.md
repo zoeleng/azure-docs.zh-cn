@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490758"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781917"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>转换到 Azure Monitor 中的指标
 
-**2023 年8月 31**日存储分析度量值，也称为*经典指标*。 有关详细信息，请查看[官方公告](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)。 如果使用经典指标，请确保在该日期之前转换到 Azure Monitor 中的指标。 本文可帮助你进行转换。 
+**2023 年8月 31** 日存储分析度量值，也称为 *经典指标* 。 有关详细信息，请查看[官方公告](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)。 如果使用经典指标，请确保在该日期之前转换到 Azure Monitor 中的指标。 本文可帮助你进行转换。 
 
 ## <a name="steps-to-complete-the-transition"></a>完成转换的步骤
 
@@ -35,7 +35,7 @@ ms.locfileid: "92490758"
    > [!NOTE]
    > 默认情况下，Azure Monitor 中的指标处于启用状态，因此无需执行任何操作来开始捕获指标。 但是，你必须创建图表或仪表板才能查看这些指标。 
  
-5. 如果已创建基于经典存储指标的警报规则，则会根据 Azure Monitor 中的指标[创建警报规则](/azure/azure-monitor/platform/alerts-overview)。 
+5. 如果已创建基于经典存储指标的警报规则，则会根据 Azure Monitor 中的指标[创建警报规则](../../azure-monitor/platform/alerts-overview.md)。 
 
 6. 在 Azure Monitor 中查看所有指标后，可以关闭经典日志记录。 
 
@@ -53,7 +53,7 @@ ms.locfileid: "92490758"
 
 如果帐户中的活动未触发指标，则经典指标将显示该指标的值为零 (0)。 Azure Monitor 中的指标将完全省略数据，让报告更简洁。 例如，对于经典指标，如果未报告服务器超时错误，则度量值表中的 `ServerTimeoutError` 值将设置为 0。 当你查询维度 `ResponseType` 等于 `ServerTimeoutError` 的指标 `Transactions` 的值时，Azure Monitor 不会返回任何数据。 
 
-若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](/azure/azure-monitor/platform/data-platform-metrics)。
+若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](../../azure-monitor/platform/data-platform-metrics.md)。
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -70,7 +70,7 @@ ms.locfileid: "92490758"
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> 还有一些新的容量指标不能作为经典指标提供。 若要查看完整列表，请参阅[指标](../common/monitor-storage-reference.md#metrics)。
+> 还有一些新的容量指标不能作为经典指标提供。 若要查看完整列表，请参阅[指标](../blobs/monitor-blob-storage-reference.md#metrics)。
 
 **事务指标**
 
@@ -117,5 +117,4 @@ ms.locfileid: "92490758"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-
+* [Azure Monitor](../../azure-monitor/overview.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578217"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782223"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>用于 Azure 存储加密的客户托管密钥
 
@@ -65,7 +65,7 @@ ms.locfileid: "91578217"
 > [!IMPORTANT]
 > 客户托管密钥依赖于 Azure 资源的托管标识，后者是Azure AD 的一项功能。 托管标识当前不支持跨目录方案。 在 Azure 门户中配置客户管理的密钥时，系统会在幕后自动将一个托管标识分配到你的存储帐户。 如果随后将订阅、资源组或存储帐户从一个 Azure AD 目录移到另一个目录，与存储帐户关联的托管标识不会传输到新租户，因此客户管理的密钥可能不再起作用。 有关详细信息，请参阅 [Azure 资源的常见问题解答和已知问题](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)中的“在 Azure AD 目录之间转移订阅”。  
 
-Azure 存储加密支持2048、3072和4096大小的 RSA 和 RSA-HSM 密钥。 有关密钥的详细信息，请参阅[关于 Azure Key Vault 密钥、机密和证书](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)中的“Key Vault 密钥”。
+Azure 存储加密支持2048、3072和4096大小的 RSA 和 RSA-HSM 密钥。 有关密钥的详细信息，请参阅 [关于密钥](../../key-vault/keys/about-keys.md)。
 
 使用密钥保管库或托管 HSM 具有相关成本。 有关详细信息，请参阅 [Key Vault 定价](https://azure.microsoft.com/pricing/details/key-vault/)。
 
@@ -109,7 +109,7 @@ Azure 存储加密支持2048、3072和4096大小的 RSA 和 RSA-HSM 密钥。 �
 
 此部分中未列出的所有数据操作可以在撤销客户托管密钥或者禁用或删除某个密钥后继续。
 
-若要撤销对客户托管密钥的访问权限，请使用 [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) 或 [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys)。
+若要撤销对客户托管密钥的访问权限，请使用 [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) 或 [Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys)。
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Azure 托管磁盘的客户托管密钥
 

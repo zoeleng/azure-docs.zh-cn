@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 14edb8db945a9b69ba77d56cd19a4524876ede03
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676811"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782002"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
@@ -27,7 +27,7 @@ ms.locfileid: "92676811"
 >
 > Azure 文件目前支持存储分析指标，但尚不支持日志记录。
 >
-> 高级性能块 blob 存储帐户不支持存储分析指标，但支持日志记录。 可以通过 REST API 或客户端库以编程方式启用日志记录。 若要使用高级性能 blob 存储帐户查看指标，不妨参阅 [Azure Monitor 中的 Azure 存储指标](storage-metrics-in-azure-monitor.md)。
+> 高级性能块 blob 存储帐户不支持存储分析指标，但支持日志记录。 可以通过 REST API 或客户端库以编程方式启用日志记录。 若要使用高级性能 blob 存储帐户查看指标，不妨参阅 [Azure Monitor 中的 Azure 存储指标](../blobs/monitor-blob-storage.md)。
 >
 > 有关使用存储分析及其他工具来识别、诊断和排查 Azure 存储相关问题的深入指导，请参阅[监视、诊断和排查 Microsoft Azure 存储问题](storage-monitoring-diagnosing-troubleshooting.md)。
 >

@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782648"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>什么是 Azure SQL 托管实例池 (预览版) ？
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Azure SQL 托管实例中的实例池可提供一种方便且经济高效的方�
 
 实例池具有以下优势：
 
-1. 承载2个 vCore 实例的能力。 * \* 仅适用于实例池中的实例*。
+1. 承载2个 vCore 实例的能力。 *\* 仅适用于实例池中的实例* 。
 2. 可预测且快速的实例部署时间 (最多5分钟) 。
 3. 最小 IP 地址分配。
 
@@ -53,15 +53,15 @@ Azure SQL 托管实例中的实例池可提供一种方便且经济高效的方�
 以下列表提供了应考虑实例池的主要用例：
 
 - 同时迁移 *一组 SQL Server 实例* ，其中多数大小较小 (例如2个或4个 vcore) 。
-- *可预测和短实例创建或缩放*的情况非常重要。 例如，在需要实例级功能的多租户 SaaS 应用程序环境中部署新租户。
+- *可预测和短实例创建或缩放* 的情况非常重要。 例如，在需要实例级功能的多租户 SaaS 应用程序环境中部署新租户。
 - 具有 *固定成本* 或 *支出限制* 的情况非常重要。 例如，运行固定 (的共享开发测试或演示环境，或者不经常更改) 大小，在需要时定期部署托管实例。
 - VNet 子网中的 *最小 IP 地址分配* 非常重要的方案。 池中的所有实例都共享一个虚拟机，因此，分配的 IP 地址的数量低于单个实例的情况。
 
 ## <a name="architecture"></a>体系结构
 
-实例池具有类似于常规 (*单个*) 托管实例的体系结构。 为了支持 [Azure 虚拟网络中的部署](../../virtual-network/virtual-network-for-azure-services.md)   并为客户提供隔离和安全性，实例池还依赖于 [虚拟群集](connectivity-architecture-overview.md#high-level-connectivity-architecture)。 虚拟群集表示在客户的虚拟网络子网中部署的一组专用虚拟机。
+实例池具有类似于常规 ( *单个* ) 托管实例的体系结构。 为了支持 [Azure 虚拟网络中的部署](../../virtual-network/virtual-network-for-azure-services.md) 并为客户提供隔离和安全性，实例池还依赖于 [虚拟群集](connectivity-architecture-overview.md#high-level-connectivity-architecture)。 虚拟群集表示在客户的虚拟网络子网中部署的一组专用虚拟机。
 
-这两个部署模型之间的主要区别在于，实例池允许多个 SQL Server 进程部署在同一虚拟机节点上（这是使用 [Windows 作业对象](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)管理的资源），而单个实例在虚拟机节点上始终是唯一的。
+这两个部署模型之间的主要区别在于，实例池允许多个 SQL Server 进程部署在同一虚拟机节点上（这是使用 [Windows 作业对象](/windows/desktop/ProcThread/job-objects)管理的资源），而单个实例在虚拟机节点上始终是唯一的。
 
 下图显示了在同一子网中部署的实例池和两个单独的实例，并阐释了这两种部署模型的主要体系结构详细信息：
 
@@ -76,7 +76,7 @@ Azure SQL 托管实例中的实例池可提供一种方便且经济高效的方�
 - 实例池仅在 Gen5 硬件上可用。
 - 池中的托管实例具有专用的 CPU 和 RAM，因此，所有实例中的 Vcore 聚合数量必须小于或等于分配给池的 Vcore 数。
 - 所有 [实例级别的限制](resource-limits.md#service-tier-characteristics) 都适用于在池中创建的实例。
-- 除了实例级别限制之外，还在 *实例池级别*施加了两个限制：
+- 除了实例级别限制之外，还在 *实例池级别* 施加了两个限制：
   - 每个池的总存储大小 (8 TB) 。
   - 每个池 (100) 的数据库总数。
 - 无法为实例池中部署的实例设置 AAD 管理员，因此无法使用 AAD 身份验证。
@@ -121,7 +121,7 @@ Azure SQL 托管实例中的实例池可提供一种方便且经济高效的方�
 
 为 [Azure 门户](https://portal.azure.com)中的实例池创建和管理支持请求。
 
-如果遇到与 (创建或删除) 相关的实例池部署的问题，请确保在 "**问题子类型**" 字段中指定**实例池**。
+如果遇到与 (创建或删除) 相关的实例池部署的问题，请确保在 " **问题子类型** " 字段中指定 **实例池** 。
 
 ![实例池支持请求](./media/instance-pools-overview/support-request.png)
 
@@ -137,8 +137,8 @@ Azure SQL 托管实例中的实例池可提供一种方便且经济高效的方�
 
 对于计算价格 (在 Vcore) 中测量，提供两个定价选项：
 
-  1. *包含许可证*：包含 SQL Server 许可证的价格。 这适用于选择不应用现有 SQL Server 许可证和软件保障的客户。
-  2. *Azure 混合权益*：为 SQL Server 提供 Azure 混合权益的减少价格。 客户可以通过使用具有软件保障的现有 SQL Server 许可证来选择此价格。 有关资格和其他详细信息，请参阅 [Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/)。
+  1. *包含许可证* ：包含 SQL Server 许可证的价格。 这适用于选择不应用现有 SQL Server 许可证和软件保障的客户。
+  2. *Azure 混合权益* ：为 SQL Server 提供 Azure 混合权益的减少价格。 客户可以通过使用具有软件保障的现有 SQL Server 许可证来选择此价格。 有关资格和其他详细信息，请参阅 [Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/)。
 
 对于池中的单个实例，不能设置不同的定价选项。 父池中的所有实例都必须是许可证附带价格或 Azure 混合权益价格。 创建池后，可以更改池的许可证模型。
 
@@ -147,7 +147,7 @@ Azure SQL 托管实例中的实例池可提供一种方便且经济高效的方�
 
 如果在可 [用于开发测试权益的订阅](https://azure.microsoft.com/pricing/dev-test/)上创建实例池，则可在 Azure SQL 托管实例上自动获得最高55% 的折扣率。
 
-有关实例池定价的完整详细信息，请参阅[SQL 托管实例定价页](https://azure.microsoft.com/pricing/details/sql-database/managed/)上的*实例池*部分。
+有关实例池定价的完整详细信息，请参阅 [SQL 托管实例定价页](https://azure.microsoft.com/pricing/details/sql-database/managed/)上的 *实例池* 部分。
 
 ## <a name="next-steps"></a>后续步骤
 
