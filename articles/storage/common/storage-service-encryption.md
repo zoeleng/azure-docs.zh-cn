@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488565"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785776"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>静态数据的 Azure 存储加密
 
@@ -38,7 +38,7 @@ Azure 存储中的数据将使用 256 位 [AES 加密法](https://en.wikipedia.o
 
 默认情况下，新存储帐户中的数据使用 Microsoft 管理的密钥进行加密。 你可以继续依赖于使用 Microsoft 管理的密钥来加密数据，也可以使用你自己的密钥来管理加密。 如果你选择使用自己的密钥来管理加密，则有两种选择。 可以使用任何一种类型的密钥管理，或者使用这两种类型：
 
-- 可以指定 *客户托管的密钥* ，以用于在 Blob 存储和 Azure 文件中对数据进行加密和解密。<sup>1，</sup> 必须将客户托管的密钥存储在 Azure Key Vault 或 Azure Key Vault 托管的硬件安全模型 (HSM)  (预览版) 。 有关客户管理的密钥的详细信息，请参阅 [使用客户托管密钥进行 Azure 存储加密](encryption-customer-managed-keys.md)。
+- 可以指定 *客户托管的密钥* ，以用于在 Blob 存储和 Azure 文件中对数据进行加密和解密。 <sup>1，</sup> 必须将客户托管的密钥存储在 Azure Key Vault 或 Azure Key Vault 托管的硬件安全模型 (HSM)  (预览版) 。 有关客户管理的密钥的详细信息，请参阅 [使用客户托管密钥进行 Azure 存储加密](./customer-managed-keys-overview.md)。
 - 可以在 Blob 存储操作中指定客户提供的密钥。 对 Blob 存储发出读取或写入请求的客户端可以在请求中包含加密密钥，以便精细控制 Blob 数据的加密和解密方式。 有关客户提供的密钥的详细信息，请参阅[在对 Blob 存储的请求中提供加密密钥](../blobs/encryption-customer-provided-keys.md)。
 
 下表比较了 Azure 存储加密的密钥管理选项。
@@ -101,8 +101,8 @@ Azure 存储中的数据将使用 256 位 [AES 加密法](https://en.wikipedia.o
 
 如果你的加密范围受 Azure Key Vault 的客户管理的密钥保护，则还可以删除密钥保管库中的关联密钥来禁用加密范围。 请记住，Azure Key Vault 中的客户管理的密钥受到软删除和清除保护的保护，删除的密钥受这些属性定义的行为的约束。 有关详细信息，请参阅 Azure Key Vault 文档中的以下主题之一：
 
-- [如何在 PowerShell 中使用软删除](../../key-vault/general/soft-delete-powershell.md)
-- [如何在 CLI 中使用软删除](../../key-vault/general/soft-delete-cli.md)
+- [如何在 PowerShell 中使用软删除](../../key-vault/general/key-vault-recovery.md)
+- [如何在 CLI 中使用软删除](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > 不能删除加密范围。

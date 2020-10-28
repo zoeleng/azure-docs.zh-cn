@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b09d808201d58b571b2fe5ceb2e228d4e1c21d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28ab0a158507e3f29ecfdc026203d92d71877633
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316947"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786507"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>在 Azure 中更改 SQL 虚拟机的许可模式
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,7 +49,7 @@ Azure 混合权益允许在 Azure 虚拟机上使用带有软件保障（“合�
 更改 SQL Server VM 的许可模式具有以下要求： 
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
-- 已注册到 [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 的 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。
+- 已注册到 [SQL Server VM](./create-sql-vm-portal.md) 的 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。
 - [软件保障](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)是利用 [Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/)的一项要求。 
 
 
@@ -83,7 +83,7 @@ Azure 混合权益允许在 Azure 虚拟机上使用带有软件保障（“合�
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-**即用即付**： 
+**即用即付** ： 
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -180,5 +180,3 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 * [Windows VM 上的 SQL Server 常见问题解答](frequently-asked-questions-faq.md)
 * [Windows VM 上的 SQL Server 定价指南](pricing-guidance.md)
 * [Windows VM 上的 SQL Server 发行说明](../../database/doc-changes-updates-release-notes.md)
-
-

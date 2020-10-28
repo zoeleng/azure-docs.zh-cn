@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018571"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785793"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>为存储帐户请求强制执行最低要求的传输层安全性版本 (TLS) 
 
@@ -33,7 +33,7 @@ Azure 存储目前支持三种版本的 TLS 协议：1.0、1.1 和1.2。 Azure �
 
 当你为你的存储帐户强制实施最低 TLS 版本时，可能会拒绝使用较旧版本的 TLS 发送数据的客户端发出的请求。 为了了解如何配置最低 TLS 版本可能会影响客户端应用程序，Microsoft 建议你为 Azure 存储帐户启用日志记录，并在时间间隔后分析日志，以检测 TLS 客户端应用程序正在使用的版本。
 
-若要将请求记录到 Azure 存储帐户并确定客户端使用的 TLS 版本，可以使用 Azure 存储日志记录 Azure Monitor (预览 ") "。 有关详细信息，请参阅 [监视 Azure 存储](monitor-storage.md)。
+若要将请求记录到 Azure 存储帐户并确定客户端使用的 TLS 版本，可以使用 Azure 存储日志记录 Azure Monitor (预览 ") "。 有关详细信息，请参阅 [监视 Azure 存储](../blobs/monitor-blob-storage.md)。
 
 Azure Monitor 中的 Azure 存储日志记录支持使用日志查询来分析日志数据。 若要查询日志，可以使用 Azure Log Analytics 工作区。 若要了解有关日志查询的详细信息，请参阅 [教程： Log Analytics 查询入门](../../azure-monitor/log-query/get-started-portal.md)。
 
@@ -42,18 +42,18 @@ Azure Monitor 中的 Azure 存储日志记录支持使用日志查询来分析�
 1. [在 Azure Monitor 预览中注册 Azure 存储日志记录](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)。
 1. 在订阅中创建一个包含你的 Azure 存储帐户的新 Log Analytics 工作区。 配置存储帐户的日志记录后，日志将在 "Log Analytics" 工作区中可用。 有关详细信息，请参阅[在 Azure 门户中创建 Log Analytics 工作区](../../azure-monitor/learn/quick-create-workspace.md)。
 1. 导航到 Azure 门户中的存储帐户。
-1. 在 "监视" 部分，选择 " **诊断设置" (预览 ") **。
+1. 在 "监视" 部分，选择 " **诊断设置" (预览 ")** 。
 1. 选择要为其记录请求的 Azure 存储服务。 例如，选择 " **blob** " 将请求记录到 blob 存储中。
 1. 选择“添加诊断设置”。
 1. 提供诊断设置的名称。
-1. 在 " **类别详细信息**" 下的 " **日志** " 部分中，选择要记录的请求的类型。 可以记录读取、写入和删除请求。 例如，选择 **StorageRead** 和 **StorageWrite** 会记录对所选服务的读取和写入请求。
-1. 在 " **目标详细信息**" 下，选择 " **发送到 Log Analytics**"。 选择之前创建的 "订阅" 和 "Log Analytics" 工作区，如下图所示。
+1. 在 " **类别详细信息** " 下的 " **日志** " 部分中，选择要记录的请求的类型。 可以记录读取、写入和删除请求。 例如，选择 **StorageRead** 和 **StorageWrite** 会记录对所选服务的读取和写入请求。
+1. 在 " **目标详细信息** " 下，选择 " **发送到 Log Analytics** "。 选择之前创建的 "订阅" 和 "Log Analytics" 工作区，如下图所示。
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="显示如何为日志记录请求创建诊断设置的屏幕截图":::
 
 创建诊断设置后，随后会根据该设置记录对存储帐户的请求。 有关详细信息，请参阅 [创建诊断设置以收集 Azure 中的资源日志和指标](../../azure-monitor/platform/diagnostic-settings.md)。
 
-有关 Azure Monitor 中的 Azure 存储日志中可用的字段的参考，请参阅 [资源日志 (预览版) ](monitor-storage-reference.md#resource-logs-preview)。
+有关 Azure Monitor 中的 Azure 存储日志中可用的字段的参考，请参阅 [资源日志 (预览版) ](../blobs/monitor-blob-storage-reference.md#resource-logs-preview)。
 
 ### <a name="query-logged-requests-by-tls-version"></a>按 TLS 版本查询记录的请求
 
@@ -91,9 +91,6 @@ StorageBlobLogs
 
 若要为存储帐户配置最低 TLS 版本，请设置帐户的 **MinimumTlsVersion** 版本。 此属性适用于使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关 Azure 资源管理器部署模型的详细信息，请参阅 [存储帐户概述](storage-account-overview.md)。
 
-> [!NOTE]
-> **MinimumTlsVersion**属性当前仅适用于 Azure 公有云中的存储帐户。
-
 # <a name="portal"></a>[门户](#tab/portal)
 
 创建具有 Azure 门户的存储帐户时，默认情况下，最低 TLS 版本设置为1.2。
@@ -101,16 +98,16 @@ StorageBlobLogs
 若要为现有存储帐户配置 Azure 门户的最低 TLS 版本，请执行以下步骤：
 
 1. 导航到 Azure 门户中的存储帐户。
-1. 选择**配置**设置。
-1. 在 " **最低 tls 版本**" 下，使用下拉选择访问此存储帐户中的数据所需的最低 tls 版本，如下图所示。
+1. 选择 **配置** 设置。
+1. 在 " **最低 tls 版本** " 下，使用下拉选择访问此存储帐户中的数据所需的最低 tls 版本，如下图所示。
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="显示如何为日志记录请求创建诊断设置的屏幕截图":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-若要使用 PowerShell 配置存储帐户的最低 TLS 版本，请安装 [Azure PowerShell 版本 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 或更高版本。 接下来，为新的或现有的存储帐户配置 **MinimumTLSVersion** 属性。 **MinimumTlsVersion**的有效值为 `TLS1_0` 、 `TLS1_1` 和 `TLS1_2` 。
+若要使用 PowerShell 配置存储帐户的最低 TLS 版本，请安装 [Azure PowerShell 版本 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 或更高版本。 接下来，为新的或现有的存储帐户配置 **MinimumTLSVersion** 属性。 **MinimumTlsVersion** 的有效值为 `TLS1_0` 、 `TLS1_1` 和 `TLS1_2` 。
 
-使用 PowerShell 创建存储帐户时，默认情况下不会设置 **MinimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null**，则存储帐户允许以 TLS 版本1.0 或更高版本发送的请求。
+使用 PowerShell 创建存储帐户时，默认情况下不会设置 **MinimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null** ，则存储帐户允许以 TLS 版本1.0 或更高版本发送的请求。
 
 以下示例创建了一个存储帐户并将 **MinimumTLSVersion** 设置为 tls 1.1，然后更新该帐户并将 **MINIMUMTLSVERSION** 设置为 tls 1.2。 该示例还检索每个事例中的属性值。 请记住，用自己的值替换括号中的占位符值：
 
@@ -140,9 +137,9 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要为具有 Azure CLI 的存储帐户配置最低 TLS 版本，请安装 Azure CLI 2.9.0 或更高版本。 有关详细信息，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 接下来，为新的或现有的存储帐户配置 **minimumTlsVersion** 属性。 **MinimumTlsVersion**的有效值为 `TLS1_0` 、 `TLS1_1` 和 `TLS1_2` 。
+若要为具有 Azure CLI 的存储帐户配置最低 TLS 版本，请安装 Azure CLI 2.9.0 或更高版本。 有关详细信息，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 接下来，为新的或现有的存储帐户配置 **minimumTlsVersion** 属性。 **MinimumTlsVersion** 的有效值为 `TLS1_0` 、 `TLS1_1` 和 `TLS1_2` 。
 
-创建 Azure CLI 的存储帐户时，默认情况下不会设置 **minimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null**，则存储帐户允许以 TLS 版本1.0 或更高版本发送的请求。
+创建 Azure CLI 的存储帐户时，默认情况下不会设置 **minimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null** ，则存储帐户允许以 TLS 版本1.0 或更高版本发送的请求。
 
 以下示例创建了一个存储帐户，并将 **minimumTLSVersion** 设置为 TLS 1.1。 然后更新帐户并将 **minimumTLSVersion** 属性设置为 TLS 1.2。 该示例还检索每个事例中的属性值。 请记住，用自己的值替换括号中的占位符值：
 
@@ -177,8 +174,8 @@ az storage account show \
 若要为带有模板的存储帐户配置最低 TLS 版本，请创建 **MinimumTLSVersion** 属性设置为、或的模板 `TLS1_0` `TLS1_1` `TLS1_2` 。 以下步骤介绍如何在 Azure 门户中创建模板。
 
 1. 在 Azure 门户中，选择“创建资源”。
-1. 在“搜索市场”中键入“模板部署”，然后按 **ENTER**。 
-1. 选择 " **使用自定义模板 (部署")  (预览) **"，选择" **创建**"，然后选择 **" 在编辑器中生成自己的模板 "** 模板部署。
+1. 在“搜索市场”中键入“模板部署”，然后按 **ENTER** 。 
+1. 选择 " **使用自定义模板 (部署")  (预览)** "，选择" **创建** "，然后选择 **" 在编辑器中生成自己的模板 "** 模板部署。
 1. 在模板编辑器中，粘贴以下 JSON 以创建新帐户，并将最低 TLS 版本设置为 TLS 1.2。 请记得将尖括号中的占位符替换为自己的值。
 
     ```json
@@ -221,7 +218,7 @@ az storage account show \
 
 ### <a name="check-the-minimum-required-tls-version-for-multiple-accounts"></a>检查多个帐户的所需最小 TLS 版本
 
-若要在具有最佳性能的一组存储帐户中检查所需的最低 TLS 版本，可以使用 Azure 门户中的 Azure 资源图资源管理器。 若要了解有关使用资源图资源管理器的详细信息，请参阅 [快速入门：使用 Azure 资源关系图资源管理器运行第一个资源图形查询](/azure/governance/resource-graph/first-query-portal)。
+若要在具有最佳性能的一组存储帐户中检查所需的最低 TLS 版本，可以使用 Azure 门户中的 Azure 资源图资源管理器。 若要了解有关使用资源图资源管理器的详细信息，请参阅 [快速入门：使用 Azure 资源关系图资源管理器运行第一个资源图形查询](../../governance/resource-graph/first-query-portal.md)。
 
 在资源图资源管理器中运行以下查询将返回存储帐户的列表，并显示每个帐户的最低 TLS 版本：
 
@@ -249,11 +246,11 @@ Azure 策略支持确定对资源评估策略规则时会发生什么情况的�
 若要使用 Azure 门户为最低 TLS 版本创建策略，请执行以下步骤：
 
 1. 在 Azure 门户中，导航到 "Azure 策略服务"。
-1. 在 " **创作** " 部分下，选择 " **定义**"。
+1. 在 " **创作** " 部分下，选择 " **定义** "。
 1. 选择 " **添加策略定义** "，创建新策略定义。
 1. 对于 " **定义位置** " 字段，请选择 " **更多** " 按钮以指定审核策略资源所在的位置。
 1. 指定策略的名称。 您可以根据需要指定描述和类别。
-1. 在 " **策略规则**" 下，将以下策略定义添加到 " **policyRule** " 部分。
+1. 在 " **策略规则** " 下，将以下策略定义添加到 " **policyRule** " 部分。
 
     ```json
     {
@@ -286,12 +283,12 @@ Azure 策略支持确定对资源评估策略规则时会发生什么情况的�
 若要将策略分配到 Azure 门户，请执行以下步骤：
 
 1. 在 Azure 门户中，导航到 "Azure 策略服务"。
-1. 在 " **创作** " 部分下，选择 " **分配**"。
+1. 在 " **创作** " 部分下，选择 " **分配** "。
 1. 选择 " **分配策略** " 以创建新的策略分配。
 1. 对于 " **作用域** " 字段，请选择策略分配的作用域。
 1. 对于 " **策略定义** " 字段，请选择 " **更多** " 按钮，然后从列表中选择在上一部分中定义的策略。
 1. 提供策略分配的名称。 说明是可选的。
-1. 将 " **策略强制** 集" 设置为 " *已启用*"。 此设置不影响审核策略。
+1. 将 " **策略强制** 集" 设置为 " *已启用* "。 此设置不影响审核策略。
 1. 选择 " **查看 + 创建** " 创建分配。
 
 ### <a name="view-compliance-report"></a>查看相容性报告

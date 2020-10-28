@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34b486dc4ccfb116b49cf57217c5b7e5aedbd992
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4cec356b8438952327624e71deebb5e23db281a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488837"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787799"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升级到常规用途 v2 存储帐户
 
@@ -78,17 +78,17 @@ Blob 访问层允许根据预期使用模式选择最具经济效益的存储。
 
 所有存储帐户使用的定价模型都适用于 Blob 存储，具体取决于每个 Blob 的层。 使用存储帐户时，需要考虑到以下计费因素：
 
-* **存储成本**：除了存储的数据量，存储数据的成本将因存储访问层而异。 层越冷，单 GB 成本越低。
+* **存储成本** ：除了存储的数据量，存储数据的成本将因存储访问层而异。 层越冷，单 GB 成本越低。
 
-* **数据访问成本**：层越冷，数据访问费用越高。 对于冷存储访问层和存档存储访问层中的数据，需要按 GB 支付读取方面的数据访问费用。
+* **数据访问成本** ：层越冷，数据访问费用越高。 对于冷存储访问层和存档存储访问层中的数据，需要按 GB 支付读取方面的数据访问费用。
 
-* **事务成本**：层越冷，每个层的按事务收费越高。
+* **事务成本** ：层越冷，每个层的按事务收费越高。
 
-* **异地复制数据传输成本**：此费用仅适用于配置了异地复制的帐户，包括 GRS 和 RA-GRS。 异地复制数据传输会产生每 GB 费用。
+* **异地复制数据传输成本** ：此费用仅适用于配置了异地复制的帐户，包括 GRS 和 RA-GRS。 异地复制数据传输会产生每 GB 费用。
 
-* **出站数据传输成本**：出站数据传输（传出 Azure 区域的数据）会按每 GB 产生带宽使用费，与通用存储帐户一致。
+* **出站数据传输成本** ：出站数据传输（传出 Azure 区域的数据）会按每 GB 产生带宽使用费，与通用存储帐户一致。
 
-* **更改存储访问层**：将帐户存储访问层从“冷”更改为“热”会产生费用，费用等于读取存储帐户中存在的所有数据的费用。 但是，将帐户访问层从“热”更改为“冷”产生的费用则相当于将所有数据写入冷层（仅限 GPv2 帐户）。
+* **更改存储访问层** ：将帐户存储访问层从“冷”更改为“热”会产生费用，费用等于读取存储帐户中存在的所有数据的费用。 但是，将帐户访问层从“热”更改为“冷”产生的费用则相当于将所有数据写入冷层（仅限 GPv2 帐户）。
 
 > [!NOTE]
 > 有关存储帐户的定价模型的详细信息，请参阅 [Azure 存储定价](https://azure.microsoft.com/pricing/details/storage/)页。 有关出站数据传输收费的详细信息，请参阅[数据传输定价详细信息](https://azure.microsoft.com/pricing/details/data-transfers/)页。
@@ -111,7 +111,7 @@ Blob 访问层允许根据预期使用模式选择最具经济效益的存储。
 
 若要监视现有存储帐户并收集该数据，可以利用 Azure 存储分析进行日志记录，并为存储帐户提供指标数据。 存储分析可存储一些指标，这些指标包括有关存储服务请求的聚合事务统计信息和容量数据，适用于 GPv1、GPv2 和 Blob 存储帐户类型。 该数据存储在同一存储帐户中的已知表中。
 
-有关详细信息，请参阅 [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx)（关于存储分析指标）和 [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)（存储分析指标表架构）
+有关详细信息，请参阅 [About Storage Analytics Metrics](../blobs/monitor-blob-storage.md)（关于存储分析指标）和 [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)（存储分析指标表架构）
 
 > [!NOTE]
 > Blob 存储帐户公开表服务终结点的目的只是为了存储和访问该帐户的指标数据。

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855916"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787459"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>将 Async-Await 模式与公用队列存储 API 配合使用
 
-此示例演示如何将 Async-Await 模式和公用队列存储 API 配合使用。 示例调用每个给定方法的异步版本，如每个方法的 *Async* 后缀所示。 使用异步方法时，async-await 模式暂停本地执行，直到调用完成。 此行为允许当前的线程执行其他工作，这有助于避免性能瓶颈并提高应用程序的整体响应能力。 有关在 .NET 中使用 Async-Await 模式的详细信息，请参阅 [Async 和 Await（C# 和 Visual Basic）](https://msdn.microsoft.com/library/hh191443.aspx)
+此示例演示如何将 Async-Await 模式和公用队列存储 API 配合使用。 示例调用每个给定方法的异步版本，如每个方法的 *Async* 后缀所示。 使用异步方法时，async-await 模式暂停本地执行，直到调用完成。 此行为允许当前的线程执行其他工作，这有助于避免性能瓶颈并提高应用程序的整体响应能力。 有关在 .NET 中使用 Async-Await 模式的详细信息，请参阅 [Async 和 Await（C# 和 Visual Basic）](/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
 - 查看队列服务参考文档，了解有关可用 API 的完整详细信息：
-  - [.NET 存储客户端库参考](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [REST API 参考](https://msdn.microsoft.com/library/azure/dd179355)
+  - [.NET 存储客户端库参考](/dotnet/api/overview/azure/storage)
+  - [REST API 参考](/rest/api/storageservices/)
 - 查看更多功能指南，以了解在 Azure 中存储数据的其他方式。
-  - [通过 .NET 开始使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-dotnet.md) 来存储结构化数据。
-  - [通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md) 来存储非结构化数据。
+  - [通过 .NET 开始使用 Azure 表存储](../../cosmos-db/tutorial-develop-table-dotnet.md) 来存储结构化数据。
+  - [通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-quickstart-blobs-dotnet.md) 来存储非结构化数据。
   - [使用.NET (C#) 连接到 SQL 数据库](../../azure-sql/database/connect-query-dotnet-core.md)，存储关系数据。
 - 了解如何通过使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 简化为使用 Azure 存储而写的代码。

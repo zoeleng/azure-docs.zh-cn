@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612177"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786269"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>使用 Key Vault 和 Azure CLI 管理存储帐户密钥
 
@@ -32,13 +32,13 @@ Azure 存储帐户使用由帐户名和密钥构成的凭据。 密钥是自动�
 
 我们建议使用 Azure 存储与 Azure Active Directory (Azure AD) 的集成，这是 Microsoft 推出的基于云的标识和访问管理服务。 Azure AD 集成适用于 [Azure Blob 和队列](../../storage/common/storage-auth-aad.md)，提供对 Azure 存储的基于 OAuth2 令牌的访问（类似于 Azure Key Vault）。
 
-Azure AD 允许使用应用程序标识或用户标识（而不是存储帐户凭据）对客户端应用程序进行身份验证。 在 Azure 上运行时，可以使用 [Azure AD 托管标识](/azure/active-directory/managed-identities-azure-resources/)。 托管标识消除了客户端身份验证的需要，并可以在应用程序中存储凭据，或者将凭据与应用程序一同存储。
+Azure AD 允许使用应用程序标识或用户标识（而不是存储帐户凭据）对客户端应用程序进行身份验证。 在 Azure 上运行时，可以使用 [Azure AD 托管标识](../../active-directory/managed-identities-azure-resources/index.yml)。 托管标识消除了客户端身份验证的需要，并可以在应用程序中存储凭据，或者将凭据与应用程序一同存储。
 
 Azure AD 使用同样受 Key Vault 支持的基于角色的访问控制 (RBAC) 来管理授权。
 
 ## <a name="service-principal-application-id"></a>服务主体应用程序 ID
 
-Azure AD 租户为每个已注册的应用程序提供[服务主体](/azure/active-directory/develop/developer-glossary#service-principal-object)。 该服务主体充当应用程序 ID，通过 RBAC 设置访问其他 Azure 资源的授权期间，将使用它。
+Azure AD 租户为每个已注册的应用程序提供[服务主体](../../active-directory/develop/developer-glossary.md#service-principal-object)。 该服务主体充当应用程序 ID，通过 RBAC 设置访问其他 Azure 资源的授权期间，将使用它。
 
 Key Vault 是已在所有 Azure AD 租户中预先注册的 Microsoft 应用程序。 Key Vault 注册到每个 Azure 云中的同一个应用程序 ID 下。
 
@@ -163,6 +163,6 @@ az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解[密钥、机密和证书](https://docs.microsoft.com/rest/api/keyvault/)。
-- 查看 [Azure Key Vault 团队博客](https://blogs.technet.microsoft.com/kv/)中的文章。
-- 参阅 [az keyvault storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) 参考文档。
+- 详细了解[密钥、机密和证书](/rest/api/keyvault/)。
+- 查看 [Azure Key Vault 团队博客](/archive/blogs/kv/)中的文章。
+- 参阅 [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest) 参考文档。

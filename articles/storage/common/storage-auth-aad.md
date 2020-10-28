@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 391cbbca79560ba57ae2be62accdad8451446227
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488718"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787578"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授予对 Blob 和队列的访问权限
 
@@ -37,7 +37,7 @@ Azure 表存储不支持通过 Azure AD 进行授权。 使用共享密钥授权
 
 身份验证步骤要求应用程序在运行时请求 OAuth 2.0 访问令牌。 如果应用程序在 Azure 实体（如 Azure VM、虚拟机规模集或 Azure Functions 应用）中运行，则可以使用[托管标识](../../active-directory/managed-identities-azure-resources/overview.md)访问 blob 或队列。 若要了解如何授权托管标识向 Azure Blob 或队列服务发出的请求，请参阅[使用 Azure Active Directory 和 Azure 资源的托管标识授权访问 Blob 和队列](storage-auth-aad-msi.md)。
 
-授权步骤要求将一个或多个 Azure 角色分配给安全主体。 Azure 存储提供了 Azure 角色，这些角色涵盖了针对 Blob 和队列数据的通用权限集。 分配给安全主体的角色确定了该主体拥有的权限。 若要了解有关为 Azure 存储分配 Azure 角色的详细信息，请参阅 [使用 AZURE RBAC 管理对存储数据的访问权限](storage-auth-aad-rbac.md)。
+授权步骤要求将一个或多个 Azure 角色分配给安全主体。 Azure 存储提供了 Azure 角色，这些角色涵盖了针对 Blob 和队列数据的通用权限集。 分配给安全主体的角色确定了该主体拥有的权限。 若要了解有关为 Azure 存储分配 Azure 角色的详细信息，请参阅 [使用 AZURE RBAC 管理对存储数据的访问权限](./storage-auth-aad-rbac-portal.md)。
 
 向 Azure Blob 或队列服务发出请求的本机应用程序和 Web 应用程序也可以使用 Azure AD 进行访问授权。 若要了解如何请求访问令牌并使用它来授权对 Blob 或队列数据的请求，请参阅[从 Azure 存储应用程序使用 Azure AD 授予对 Azure 存储的访问权限](storage-auth-aad-app.md)。
 
@@ -83,7 +83,7 @@ Azure 门户可以使用 Azure AD 帐户或帐户访问密钥来访问 Azure 存
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>通过 PowerShell 或 Azure CLI 访问数据
 
-Azure CLI 和 PowerShell 支持使用 Azure AD 凭据登录。 登录后，会话将在这些凭据下运行。 有关详细信息，请参阅[使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据](authorize-active-directory-powershell.md)。
+Azure CLI 和 PowerShell 支持使用 Azure AD 凭据登录。 登录后，会话将在这些凭据下运行。 有关详细信息，请参阅[使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据](../blobs/authorize-active-directory-powershell.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

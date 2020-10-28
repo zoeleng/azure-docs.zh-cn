@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f1ab2be598a24a2448fed44742733633a8e0fc8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518729"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787595"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 存储分析指标（经典）
 
@@ -23,11 +23,11 @@ Azure 存储使用存储分析解决方案存储一些指标，这些指标包�
 - 通过针对存储服务发出的请求诊断问题。
 - 提高使用服务的应用程序的性能。
 
- 默认为新存储帐户启用存储分析指标。 可以在 [Azure 门户](https://portal.azure.com/)中配置指标。 有关详细信息，请参阅[在 Azure 门户中监视存储帐户](/azure/storage/storage-monitor-storage-account)。 还可以通过 REST API 或客户端库以编程方式启用存储分析。 使用“获取服务属性”操作为每项服务启用存储分析。  
+ 默认为新存储帐户启用存储分析指标。 可以在 [Azure 门户](https://portal.azure.com/)中配置指标。 有关详细信息，请参阅[在 Azure 门户中监视存储帐户](./storage-monitor-storage-account.md)。 还可以通过 REST API 或客户端库以编程方式启用存储分析。 使用“获取服务属性”操作为每项服务启用存储分析。  
 
 > [!NOTE]
 > 存储分析指标可用于 Azure Blob 存储、Azure 队列存储、Azure 表存储以及 Azure 文件。
-> 存储分析指标现在是经典指标。 建议你使用 [Azure Monitor 中的存储指标](monitor-storage.md)，而不是存储分析指标。
+> 存储分析指标现在是经典指标。 建议你使用 [Azure Monitor 中的存储指标](../blobs/monitor-blob-storage.md)，而不是存储分析指标。
 
 ## <a name="transaction-metrics"></a>事务指标  
  对于每个存储服务和请求的 API 操作，将按小时或分钟为间隔记录一组可靠的数据，其中包括入口和出口、可用性、错误和分类请求百分比。 有关事务详细信息的完整列表，请参阅[存储分析指标表架构](/rest/api/storageservices/storage-analytics-metrics-table-schema)。  
@@ -45,9 +45,9 @@ Azure 存储使用存储分析解决方案存储一些指标，这些指标包�
 
  每天记录存储帐户的 Blob 服务的容量数据，并写入两个表实体。 一个条目提供用户数据的统计信息，另一个条目提供有关存储分析所使用的 `$logs` Blob 容器的统计信息。 *$MetricsCapacityBlob* 表包含以下统计信息：  
 
-- **容量**：存储帐户的 Blob 服务使用的存储量（以字节为单位）。  
-- **ContainerCount**：存储帐户的 Blob 服务中的 blob 容器数。  
-- **ObjectCount**：存储帐户的 Blob 服务中已提交和未提交的块 blob 或页 blob 数量。  
+- **容量** ：存储帐户的 Blob 服务使用的存储量（以字节为单位）。  
+- **ContainerCount** ：存储帐户的 Blob 服务中的 blob 容器数。  
+- **ObjectCount** ：存储帐户的 Blob 服务中已提交和未提交的块 blob 或页 blob 数量。  
 
   有关容量指标的详细信息，请参阅[存储分析指标表架构](/rest/api/storageservices/storage-analytics-metrics-table-schema)。  
 
@@ -86,8 +86,8 @@ Azure 存储使用存储分析解决方案存储一些指标，这些指标包�
 * ServiceType：可能值为 Blob、Queue、Table 和 File。
 * MetricsType：可能值为 Hour 和 Minute。  
 * MetricsLevel：可能的值包括：
-   * **无**：禁用监视。
-   * **服务**：收集经过汇总的有关 Blob、队列、表和文件服务的入口和出口、可用性、延迟及成功百分比等指标。
+   * **无** ：禁用监视。
+   * **服务** ：收集经过汇总的有关 Blob、队列、表和文件服务的入口和出口、可用性、延迟及成功百分比等指标。
    * ServiceAndApi：除服务指标外，在 Azure 存储服务 API 中为每项存储操作收集一组相同的指标。
 
 例如，以下命令在存储帐户中打开 blob 服务的分钟指标，并将保留期设置为五天： 
@@ -112,7 +112,7 @@ Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -Metri
 Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
-若要了解如何配置 Azure PowerShell cmdlet 来使用 Azure 订阅并了解如何选择要使用的默认存储帐户，请参阅：[安装和配置 Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/)。  
+若要了解如何配置 Azure PowerShell cmdlet 来使用 Azure 订阅并了解如何选择要使用的默认存储帐户，请参阅：[安装和配置 Azure PowerShell](/powershell/azure/)。  
 
 ## <a name="enable-storage-metrics-programmatically"></a>以编程方式启用存储指标  
 除了使用 Azure 门户或 Azure PowerShell cmdlet 控制存储指标，你还可以使用 Azure 存储 API 之一。 例如，如果你使用 .NET 语言，则可以使用 Azure 存储客户端库。  
@@ -130,7 +130,7 @@ serviceProperties.HourMetrics.RetentionDays = 10;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
-有关使用 .NET 语言配置存储指标的详细信息，请参阅[用于 .NET 的 Azure 存储客户端库](https://msdn.microsoft.com/library/azure/mt347887.aspx)。  
+有关使用 .NET 语言配置存储指标的详细信息，请参阅[用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/azure/storage)。  
 
 有关使用 REST API 配置存储指标的一般信息，请参阅[启用和配置存储分析](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)。  
 
@@ -144,7 +144,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 在 Azure 门户的存储帐户菜单窗格的“监视（经典）”部分中，你可以配置[警报规则](#metrics-alerts)。 例如，你可以发送电子邮件警报，以在特定指标达到某值时通知你。
 
-如果要为长期存储下载指标或在本地分析这些指标，则需要使用工具或编写一些代码来读取表。 必须下载分析用的分钟指标。 如果在存储帐户中列出所有表，则这些表不会显示，但可以按名称直接访问。 很多存储浏览工具可识别这些表，并可用于直接查看这些表。 有关可用工具的列表，请参阅 [Azure 存储客户端工具](/azure/storage/storage-explorers)。
+如果要为长期存储下载指标或在本地分析这些指标，则需要使用工具或编写一些代码来读取表。 必须下载分析用的分钟指标。 如果在存储帐户中列出所有表，则这些表不会显示，但可以按名称直接访问。 很多存储浏览工具可识别这些表，并可用于直接查看这些表。 有关可用工具的列表，请参阅 [Azure 存储客户端工具](./storage-explorers.md)。
 
 |指标|表名|备注| 
 |-|-|-|  
@@ -169,7 +169,7 @@ queueClient.SetServiceProperties(serviceProperties);
 此示例数据显示一分钟的所有记录（从上午 11:00 开始），因此，QueryEntities 请求数加 QueryEntity 请求数再加 UpdateEntity 请求数的和为 7。 这是显示在 user:All 行上的总数。 同样，通过计算 ((143.8 * 5) + 3 + 9)/7，可以在 user:All 行得到平均端到端延迟为 104.4286。  
 
 ## <a name="metrics-alerts"></a>度量警报
-考虑在 [Azure 门户](https://portal.azure.com)中设置警报，以在存储服务行为发生重要更改时自动通知你。 如果使用存储资源管理器工具下载这种采用分隔格式的指标数据，则可以使用 Microsoft Excel 分析数据。 有关可用存储资源管理器工具的列表，请参阅 [Azure 存储客户端工具](/azure/storage/storage-explorers)。 可以在“警报（经典）”窗格中（可在存储帐户菜单窗格中的“监视（经典）”下进行访问）配置警报。
+考虑在 [Azure 门户](https://portal.azure.com)中设置警报，以在存储服务行为发生重要更改时自动通知你。 如果使用存储资源管理器工具下载这种采用分隔格式的指标数据，则可以使用 Microsoft Excel 分析数据。 有关可用存储资源管理器工具的列表，请参阅 [Azure 存储客户端工具](./storage-explorers.md)。 可以在“警报（经典）”窗格中（可在存储帐户菜单窗格中的“监视（经典）”下进行访问）配置警报。
 
 > [!IMPORTANT]
 > 在存储事件与记录对应每小时或分钟指标数据的时间之间可能存在延迟。 对于分钟指标，可能会一次写入几分钟的数据。 此问题可能会导致将前面几分钟的事务聚合到当前分钟的事务中。 发生此问题时，警报服务可能没有已配置警报间隔内的所有可用指标数据，这可能会导致意外触发警报。
@@ -179,7 +179,7 @@ queueClient.SetServiceProperties(serviceProperties);
 以下列表显示示例 C# 代码，该代码用于访问分钟范围的分钟指标，并在控制台窗口中显示结果。 代码示例使用 Azure 存储客户端库版本 4.x 或更高版本，其中包括 CloudAnalyticsClient 类，用于简化访问存储中的指标表的过程。 
 
 > [!NOTE]
-> **CloudAnalyticsClient**类不包括在适用于 .Net 的 Azure Blob 存储客户端库 v12 中。 **2023 年8月 31**日存储分析度量值，也称为*经典指标*。 有关详细信息，请查看[官方公告](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)。 如果使用经典指标，建议你在该日期之前过渡到 Azure Monitor 中的指标。 
+> **CloudAnalyticsClient** 类不包括在适用于 .Net 的 Azure Blob 存储客户端库 v12 中。 **2023 年8月 31** 日存储分析度量值，也称为 *经典指标* 。 有关详细信息，请查看[官方公告](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)。 如果使用经典指标，建议你在该日期之前过渡到 Azure Monitor 中的指标。 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

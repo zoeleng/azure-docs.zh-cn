@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566986"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786490"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure VM 上的 SQL Server 常见问题解答
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ ms.locfileid: "91566986"
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > Azure VM 上的 SQL Server，包括那些从自定义的通用化映像部署的 SQL Server，应该[注册到 SQL VM 资源提供程序](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash)，以便能够满足符合性要求和使用可选功能（如自动修补和自动备份）。 资源提供程序还允许为每个 SQL Server VM [指定许可证类型](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal)。
+   > Azure VM 上的 SQL Server，包括那些从自定义的通用化映像部署的 SQL Server，应该[注册到 SQL VM 资源提供程序](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash)，以便能够满足符合性要求和使用可选功能（如自动修补和自动备份）。 资源提供程序还允许为每个 SQL Server VM [指定许可证类型](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal)。
 
 1. 我是否可以使用自己的 VHD 来部署 SQL Server VM？
 
@@ -162,7 +162,7 @@ ms.locfileid: "91566986"
 
 1. **是否可以在同一 VM 上安装另一个 SQL Server 实例？是否可以更改默认实例的已安装功能？**
 
-   是的。 SQL Server 安装介质位于 **C** 驱动器上的某个文件夹中。 可从该位置运行 **Setup.exe** 以添加新的 SQL Server 实例，或更改计算机上 SQL Server 的其他已安装功能。 请注意，某些功能（例如自动备份、自动修补和 Azure Key Vault 集成）仅对默认实例或配置正确的命名实例起作用（请参阅问题 3）。 [通过 "Azure 混合权益"](licensing-model-azure-hybrid-benefit-ahb-change.md)或 "即用**即付**" 许可模式使用软件保障的客户可以在虚拟机上安装 SQL Server 的多个实例，而不会产生额外的许可成本。 如果配置不正确，则其他 SQL Server 实例可能会导致系统资源的负担。 
+   是的。 SQL Server 安装介质位于 **C** 驱动器上的某个文件夹中。 可从该位置运行 **Setup.exe** 以添加新的 SQL Server 实例，或更改计算机上 SQL Server 的其他已安装功能。 请注意，某些功能（例如自动备份、自动修补和 Azure Key Vault 集成）仅对默认实例或配置正确的命名实例起作用（请参阅问题 3）。 [通过 "Azure 混合权益"](licensing-model-azure-hybrid-benefit-ahb-change.md)或 "即用 **即付** " 许可模式使用软件保障的客户可以在虚拟机上安装 SQL Server 的多个实例，而不会产生额外的许可成本。 如果配置不正确，则其他 SQL Server 实例可能会导致系统资源的负担。 
 
 1. **VM 上的最大实例数是多少？**
    SQL Server 2012 到 SQL Server 2019 可以支持在独立服务器上使用 [50 实例](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) 。 此限制与在本地 Azure 中的情况相同。 请参阅 [最佳实践](performance-guidelines-best-practices.md#multiple-instances) 以了解如何更好地准备环境。 
@@ -191,7 +191,7 @@ ms.locfileid: "91566986"
 
 1. **是否可以使用 Azure 门户来管理同一 VM 上的多个实例？**
 
-   不是。 门户管理由 SQL VM 资源提供程序提供，该提供程序依赖于 SQL Server IaaS 代理扩展。 同样，此限制也适用于资源提供程序作为扩展。 只要一个默认实例或一个命名实例的配置正确，门户就只能管理一个默认实例。 有关详细信息，请参阅 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md) 
+   否。 门户管理由 SQL VM 资源提供程序提供，该提供程序依赖于 SQL Server IaaS 代理扩展。 同样，此限制也适用于资源提供程序作为扩展。 只要一个默认实例或一个命名实例的配置正确，门户就只能管理一个默认实例。 有关详细信息，请参阅 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md) 
 
 
 ## <a name="updating-and-patching"></a>更新和修补
@@ -225,7 +225,7 @@ ms.locfileid: "91566986"
    是的。 可以使用存储子系统的[高级文件共享 (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) 或[存储空间直通 (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 安装故障转移群集实例。 高级文件共享提供可满足许多工作负载需求的 IOPS 和吞吐量。 对于 IO 密集型工作负载，请考虑使用存储空间直通（基于托管的高级磁盘或超级磁盘）。 或者，你可以使用第三方群集或存储解决方案，如 [Azure 虚拟机上 SQL Server 的高可用性和灾难恢复](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions)中所述。
 
    > [!IMPORTANT]
-   > 目前，Azure 上的 SQL Server FCI 不支持_完整的_ [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 我们建议你从参与 FCI 的 VM 中卸载_完整_扩展，并改为在_轻型_模式下安装该扩展。 此扩展支持自动备份和修补等功能，以及 SQL Server 的一些门户功能。 卸载_完整_代理以后，这些功能将不适用于 SQL Server VM。
+   > 目前，Azure 上的 SQL Server FCI 不支持 _完整的_ [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 我们建议你从参与 FCI 的 VM 中卸载 _完整_ 扩展，并改为在 _轻型_ 模式下安装该扩展。 此扩展支持自动备份和修补等功能，以及 SQL Server 的一些门户功能。 卸载 _完整_ 代理以后，这些功能将不适用于 SQL Server VM。
 
 1. SQL Server VM 与 SQL 数据库服务之间的差别是什么？
 
@@ -241,7 +241,7 @@ ms.locfileid: "91566986"
 
 ## <a name="resources"></a>资源
 
-**Windows VM**：
+**Windows VM** ：
 
 * [Windows VM 上的 SQL Server 概述](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [在 Windows VM 上预配 SQL Server](create-sql-vm-portal.md)
@@ -250,9 +250,9 @@ ms.locfileid: "91566986"
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](performance-guidelines-best-practices.md)
 * [Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略](application-patterns-development-strategies.md)
 
-**Linux VM**：
+**Linux VM** ：
 
 * [Linux VM 上的 SQL Server 概述](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [在 Linux VM 上预配 SQL Server](../linux/sql-vm-create-portal-quickstart.md)
 * [常见问题 (Linux)](../linux/frequently-asked-questions-faq.md)
-* [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [“Linux 上的 SQL Server”文档](/sql/linux/sql-server-linux-overview)

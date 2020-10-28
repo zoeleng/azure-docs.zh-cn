@@ -4,14 +4,14 @@ description: 了解如何在 Azure App Service 中配置自定义容器。 本�
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264569"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787051"
 ---
-# <a name="configure-a-custom-container-for-azure-app-service"></a>为 Azure App Service 配置自定义容器
+# <a name="configure-a-custom-container-for-azure-app-service"></a>为 Azure 应用服务配置自定义容器
 
 本文介绍如何配置在 Azure App Service 上运行的自定义容器。
 
@@ -212,7 +212,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WE
 
 ### <a name="in-azure-portal"></a>在 Azure 门户中配置
 
-Docker 日志显示在门户中应用程序的 " **容器设置** " 页上。 日志将被截断，但你可以下载所有日志单击 " **下载**"。 
+Docker 日志显示在门户中应用程序的 " **容器设置** " 页上。 日志将被截断，但你可以下载所有日志单击 " **下载** "。 
 
 ### <a name="from-the-kudu-console"></a>从 Kudu 控制台
 
@@ -242,7 +242,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-该值以 MB 为单位定义，并且必须小于或等于主机的总物理内存。 例如，在具有 8 GB RAM 的应用服务计划中，所有应用的累积总数 `WEBSITE_MEMORY_LIMIT_MB` 不得超过 8 gb。 有关可用于每个定价层的内存量的信息，请参阅**高级容器 (Windows) 计划**部分的[应用服务定价](https://azure.microsoft.com/pricing/details/app-service/windows/)。
+该值以 MB 为单位定义，并且必须小于或等于主机的总物理内存。 例如，在具有 8 GB RAM 的应用服务计划中，所有应用的累积总数 `WEBSITE_MEMORY_LIMIT_MB` 不得超过 8 gb。 有关可用于每个定价层的内存量的信息，请参阅 **高级容器 (Windows) 计划** 部分的 [应用服务定价](https://azure.microsoft.com/pricing/details/app-service/windows/)。
 
 ## <a name="customize-the-number-of-compute-cores"></a>自定义计算核心数
 
@@ -268,11 +268,11 @@ Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logi
 Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 ```
 
-处理器可能是多核处理器或超线程处理器。 有关可用于每个定价层的内核数的信息，请参阅 "**高级容器 (Windows) 计划**" 部分中的 "[应用服务定价](https://azure.microsoft.com/pricing/details/app-service/windows/)"。
+处理器可能是多核处理器或超线程处理器。 有关可用于每个定价层的内核数的信息，请参阅 " **高级容器 (Windows) 计划** " 部分中的 " [应用服务定价](https://azure.microsoft.com/pricing/details/app-service/windows/)"。
 
 ## <a name="customize-health-ping-behavior"></a>自定义运行状况 ping 行为
 
-应用服务认为容器在容器启动时成功启动并响应 HTTP ping。 运行状况 ping 请求会容器标头 `User-Agent= "App Service Hyper-V Container Availability Check"` 。 如果容器在一段时间后启动但不响应 ping，应用服务会在 Docker 日志中记录一个事件，指出容器未启动。 
+应用服务认为容器在容器启动时成功启动并响应 HTTP ping。 运行状况 ping 请求包含标头 `User-Agent= "App Service Hyper-V Container Availability Check"` 。 如果容器在一段时间后启动但不响应 ping，应用服务会在 Docker 日志中记录一个事件，指出容器未启动。 
 
 如果你的应用程序占用大量资源，则容器可能无法及时响应 HTTP ping。 若要控制 HTTP ping 失败时的操作，请设置 `CONTAINER_AVAILABILITY_CHECK_MODE` 应用设置。 可以通过 [Cloud Shell](https://shell.azure.com)设置。 在 Bash 中：
 
@@ -290,7 +290,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CO
 
 | 值 | 说明 |
 | - | - |
-| **修正** | 三次连续可用性检查后重启容器 |
+| **Repair** | 三次连续可用性检查后重启容器 |
 | **ReportOnly** | 默认值。 请不要重启容器，但在三次连续的可用性检查后，会在 Docker 日志中报告容器。 |
 | 关闭 | 不检查可用性。 |
 
@@ -325,7 +325,7 @@ SSH 实现容器和客户端之间的安全通信。 为了使自定义容器支
     ```
 
     > [!NOTE]
-    > sshd_config 文件必须包括以下项**：
+    > sshd_config 文件必须包括以下项  ：
     > - `Ciphers` 必须至少包含此列表中的一项：`aes128-cbc,3des-cbc,aes256-cbc`。
     > - `MACs` 必须至少包含此列表中的一项：`hmac-sha1,hmac-sha1-96`。
 
@@ -392,7 +392,7 @@ wordpress:
 
 - command
 - entrypoint
-- environment
+- 环境
 - image
 - ports
 - restart

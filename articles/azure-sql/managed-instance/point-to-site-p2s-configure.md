@@ -12,25 +12,25 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 3baf2d7ed7c326895ae40948fc2d0a4cc03021f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331900"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788360"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>快速入门：配置从本地到 Azure SQL 托管实例的点到站点连接
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-本快速入门演示如何使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)，通过点到站点连接从本地客户端计算机连接到 Azure SQL 托管实例。 有关点到站点连接的信息，请参阅[关于点到站点 VPN](../../vpn-gateway/point-to-site-about.md)
+本快速入门演示如何使用 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)，通过点到站点连接从本地客户端计算机连接到 Azure SQL 托管实例。 有关点到站点连接的信息，请参阅[关于点到站点 VPN](../../vpn-gateway/point-to-site-about.md)
 
 ## <a name="prerequisites"></a>先决条件
 
 本快速入门：
 
 - 从[创建托管实例](instance-create-quickstart.md)中创建的资源着手。
-- 本地客户端计算机需要 PowerShell 5.1 和 Azure PowerShell 1.4.0 或更高版本。 必要时，请根据说明来[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module)。
-- 本地客户端计算机上需要最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)。
+- 本地客户端计算机需要 PowerShell 5.1 和 Azure PowerShell 1.4.0 或更高版本。 必要时，请根据说明来[安装 Azure PowerShell 模块](/powershell/azure/install-az-ps#install-the-azure-powershell-module)。
+- 本地客户端计算机上需要最新版本的 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)。
 
 ## <a name="attach-a-vpn-gateway-to-a-virtual-network"></a>将 VPN 网关连接到虚拟网络
 

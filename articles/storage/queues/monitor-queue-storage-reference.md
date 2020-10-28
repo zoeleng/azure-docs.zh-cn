@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 396d2785d80ff29212dddcfb97adbff8ba9ce4c8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425161"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787476"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Azure 队列存储监视数据引用
 
@@ -36,7 +36,7 @@ Azure 存储在 Azure Monitor 中提供以下容量指标。
 
 #### <a name="queue-storage"></a>队列存储
 
-下表显示[队列存储指标](/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)。
+下表显示[队列存储指标](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)。
 
 | 指标 | 说明 |
 | ------------------- | ----------------- |

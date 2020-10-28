@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20ebfc571d72b79b61a61fb633feb63c4cc58fdd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488803"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787680"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>从 Azure AD 获取用于从客户端应用程序授权请求的令牌
 
@@ -31,33 +31,33 @@ ms.locfileid: "92488803"
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>将角色分配给 Azure AD 安全主体
 
-若要从 Azure 存储应用程序对安全主体进行身份验证，请先为该安全主体配置 azure RBAC) 设置 (azure 基于角色的访问控制。 Azure 存储空间定义了包含容器和队列权限的内置角色。 如果将 Azure 角色分配给安全主体，该安全主体会获得该资源的访问权限。 有关详细信息，请参阅 [使用 AZURE RBAC 管理 Azure Blob 和队列数据的访问权限](storage-auth-aad-rbac.md)。
+若要从 Azure 存储应用程序对安全主体进行身份验证，请先为该安全主体配置 azure RBAC) 设置 (azure 基于角色的访问控制。 Azure 存储空间定义了包含容器和队列权限的内置角色。 如果将 Azure 角色分配给安全主体，该安全主体会获得该资源的访问权限。 有关详细信息，请参阅 [使用 AZURE RBAC 管理 Azure Blob 和队列数据的访问权限](./storage-auth-aad-rbac-portal.md)。
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>将应用程序注册到 Azure AD 租户
 
-使用 Azure AD 授予存储资源访问权限的第一步是，通过 [Azure 门户](https://portal.azure.com)在 Azure AD 租户中注册客户端应用程序。 注册客户端应用程序时，需要向 Azure AD 提供关于应用程序的信息。 Azure AD 随后会提供客户端 ID（也称为*应用程序 ID*）。在运行时，可以使用该 ID 将应用程序与 Azure AD 关联。 若要详细了解客户端 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../../active-directory/develop/app-objects-and-service-principals.md)。 若要注册 Azure 存储应用程序，请遵循以下文章中所述的步骤：[快速入门：将应用程序注册到 Microsoft 标识平台](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)。 
+使用 Azure AD 授予存储资源访问权限的第一步是，通过 [Azure 门户](https://portal.azure.com)在 Azure AD 租户中注册客户端应用程序。 注册客户端应用程序时，需要向 Azure AD 提供关于应用程序的信息。 Azure AD 随后会提供客户端 ID（也称为 *应用程序 ID* ）。在运行时，可以使用该 ID 将应用程序与 Azure AD 关联。 若要详细了解客户端 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../../active-directory/develop/app-objects-and-service-principals.md)。 若要注册 Azure 存储应用程序，请遵循以下文章中所述的步骤：[快速入门：将应用程序注册到 Microsoft 标识平台](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)。 
 
 下图显示了用于注册 web 应用程序的常见设置。 请注意，在此示例中，重定向 URI 设置为， `http://localhost:5000/signin-oidc` 用于测试开发环境中的示例应用程序。 稍后可以在 Azure 门户中的已注册应用程序的 **身份验证** 设置下修改此设置：
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="显示如何向 Azure AD 注册存储应用程序的屏幕截图":::
 
 > [!NOTE]
-> 如果将应用程序注册为本机应用程序，可以为**重定向 URI** 指定任何有效的 URI。 对于本机应用程序，此值不一定要是实际的 URL。 对于 Web 应用程序，重定向 URI 必须是有效的 URI，因为它指定了要向哪个 URL 提供令牌。
+> 如果将应用程序注册为本机应用程序，可以为 **重定向 URI** 指定任何有效的 URI。 对于本机应用程序，此值不一定要是实际的 URL。 对于 Web 应用程序，重定向 URI 必须是有效的 URI，因为它指定了要向哪个 URL 提供令牌。
 
 注册应用程序后，可在“设置”下看到应用程序 ID（或客户端 ID）：
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="显示如何向 Azure AD 注册存储应用程序的屏幕截图":::
 
-有关向 Azure AD 注册应用程序的详细信息，请参阅[将应用程序与 Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md) 集成。
+有关向 Azure AD 注册应用程序的详细信息，请参阅[将应用程序与 Azure Active Directory](../../active-directory/develop/quickstart-register-app.md) 集成。
 
 ### <a name="grant-your-registered-app-permissions-to-azure-storage"></a>向 Azure 存储授予注册应用权限
 
 接下来，授予应用程序权限以调用 Azure 存储 API。 借助此步骤，应用程序可授权使用 Azure AD 请求 Azure 存储。
 
-1. 在已注册应用程序的 " **API 权限** " 页上，选择 " **添加权限**"。
-1. 在 " **Microsoft api** " 选项卡下，选择 " **Azure 存储**"。
-1. 在 " **请求 API 权限** " 窗格上，在 " **应用程序需要何种类型的权限"** 下，观察可用权限类型是否为 " **委托权限**"。 默认已自动选择此选项。
-1. 在 " **权限**" 下，选中 " **user_impersonation**" 旁边的复选框，然后选择 " **添加权限** " 按钮。
+1. 在已注册应用程序的 " **API 权限** " 页上，选择 " **添加权限** "。
+1. 在 " **Microsoft api** " 选项卡下，选择 " **Azure 存储** "。
+1. 在 " **请求 API 权限** " 窗格上，在 " **应用程序需要何种类型的权限"** 下，观察可用权限类型是否为 " **委托权限** "。 默认已自动选择此选项。
+1. 在 " **权限** " 下，选中 " **user_impersonation** " 旁边的复选框，然后选择 " **添加权限** " 按钮。
 
     :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="显示如何向 Azure AD 注册存储应用程序的屏幕截图" 向管理员授予对这些权限的许可。
 
@@ -91,7 +91,7 @@ ms.locfileid: "92488803"
 
 注册应用程序并向其授予 Azure Blob 存储或队列存储中的数据的访问权限后，可将代码添加到应用程序，以便对安全主体进行身份验证并获取 OAuth 2.0 令牌。 若要进行身份验证并获取令牌，可以使用 [Microsoft 标识平台身份验证库](../../active-directory/develop/reference-v2-libraries.md)，或其他支持 OpenID Connect 1.0 的开源库。 然后，应用程序可以使用访问令牌来授权针对 Azure Blob 存储或队列存储发出的请求。
 
-有关获取令牌支持的方案的列表，请参阅[Microsoft 身份验证库 (MSAL) ](/azure/active-directory/develop/msal-overview)文档中的 "[身份验证流](/en-us/azure/active-directory/develop/msal-authentication-flows)" 部分。
+有关获取令牌支持的方案的列表，请参阅[Microsoft 身份验证库 (MSAL) ](../../active-directory/develop/msal-overview.md)文档中的 "[身份验证流](../../active-directory/develop/msal-authentication-flows.md)" 部分。
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>使用 Azure AD 进行身份验证的已知值
 
@@ -253,7 +253,7 @@ public async Task<IActionResult> Blob()
 
 ### <a name="provide-values-in-the-settings-file"></a>在设置文件中提供值
 
-用自己的值更新文件 * 上的appsettings.js* ，如下所示：
+用自己的值更新文件 *上的appsettings.js* ，如下所示：
 
 ```json
 {
@@ -288,6 +288,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Microsoft 标识平台](/azure/active-directory/develop/)
-- [使用 Azure RBAC 管理对存储数据的访问权限](storage-auth-aad-rbac.md)
+- [Microsoft 标识平台](../../active-directory/develop/index.yml)
+- [使用 Azure RBAC 管理对存储数据的访问权限](./storage-auth-aad-rbac-portal.md)
 - [使用 Azure Active Directory 和 Azure 资源的托管标识验证对 blob 和队列的访问权限](storage-auth-aad-msi.md)

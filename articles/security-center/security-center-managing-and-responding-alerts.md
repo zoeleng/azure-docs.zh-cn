@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e17c7d6618d67d66c89875696c5c529af3a85ea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440553"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785912"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>在 Azure 安全中心管理和响应安全警报
 
@@ -75,9 +75,9 @@ ms.locfileid: "91440553"
 
 
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 本文档介绍了如何查看安全警报。 有关相关材料，请参阅以下页面：
 
 - [配置警报抑制规则](alerts-suppression-rules.md)
-- [通过工作流自动化，自动响应警报和建议](workflow-automation.md)
+- [自动响应安全中心触发器](workflow-automation.md)
