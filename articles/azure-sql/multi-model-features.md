@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073314"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791641"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例的多模型功能
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Azure SQL 系列产品提供以下多模型功能：
 - [键值对](#key-value-pairs)未明确作为特殊功能受到支持，因为键值对本身可作为包含两个列的表建模。
 
   > [!Note]
-  > 可以在同一个 Transact-SQL 查询中使用 JSON Path 表达式、XQuery/XPath 表达式、空间函数和图形查询表达式来访问数据库中存储的任何数据。 此外，可执行 Transact-SQL 查询的任何工具或编程语言也可以使用该查询接口来访问多模型数据。 这是与 [Azure Cosmos DB](/azure/cosmos-db/) 等多模型数据库之间的主要差别，后者为不同的数据模型提供专用的 API。
+  > 可以在同一个 Transact-SQL 查询中使用 JSON Path 表达式、XQuery/XPath 表达式、空间函数和图形查询表达式来访问数据库中存储的任何数据。 此外，可执行 Transact-SQL 查询的任何工具或编程语言也可以使用该查询接口来访问多模型数据。 这是与 [Azure Cosmos DB](../cosmos-db/index.yml) 等多模型数据库之间的主要差别，后者为不同的数据模型提供专用的 API。
 
 以下部分将会介绍 Azures SQL 系列产品中最重要的多模型功能。
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 可根据需求，不受约束地自定义此键值结构。 例如，值可以是 XML 文档而不是 `nvarchar(max)` 类型，如果值为 JSON 文档，则你可以施加 `CHECK` 约束用于验证 JSON 内容的有效性。 可在附加的列中放置与某个键相关的任意数目的值、添加计算列与索引来简化和优化数据访问、将表定义为内存表/优化的仅限架构表以提高性能，等等。
 
-请参阅 [BWin 如何使用内存中 OLTP 实现前所未有的性能和处理规模](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)，其中提到 BWin 的 ASP.NET 缓存解决方案每秒可以实现 1.200.000 次批处理，并举例说明如何在实践中有效地将关系模型用作键值对解决方案。
+请参阅 [BWin 如何使用内存中 OLTP 实现前所未有的性能和处理规模](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale)，其中提到 BWin 的 ASP.NET 缓存解决方案每秒可以实现 1.200.000 次批处理，并举例说明如何在实践中有效地将关系模型用作键值对解决方案。
 
 ## <a name="next-steps"></a>后续步骤
 

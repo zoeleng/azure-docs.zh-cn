@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d67046f799e60db3101dfeb27dee10f92f9aad79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0454e7bcc81c71cdffcddcd859bb6d335cc8aef2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052420"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791811"
 ---
 # <a name="repairing-an-import-job"></a>修复导入作业
 Microsoft Azure 导入/导出服务可能无法将某些文件或某个文件的部分内容复制到 Windows Azure Blob 服务。 失败的部分原因包括：  
@@ -33,14 +33,14 @@ Microsoft Azure 导入/导出服务可能无法将某些文件或某个文件的
 |||  
 |-|-|  
 |**/r:** <RepairFile\>|**必需。** 修复文件的路径。该文件用于跟踪修复进度，以及恢复已中断的修复。 每个驱动器都必须有且仅有一个修复文件。 在开始对给定驱动器进行修复时，会传入尚不存在的修复文件的路径。 若要恢复已中断的修复，应该传入现有修复文件的名称。 始终指定与目标驱动器对应的修复文件。|  
-|**/logdir:**<LogDirectory\>|**可选。** 日志目录。 详细日志文件将写入此目录。 如果未指定任何日志目录，将使用当前目录作为日志目录。|  
-|**/d:**<TargetDirectories\>|**必需。** 包含已导入的原始文件的一个或多个目录（以分号分隔）。 也可以使用导入驱动器，但如果原始文件的备用位置可用，则无需使用该驱动器。|  
+|**/logdir:** <LogDirectory\>|**可选。** 日志目录。 详细日志文件将写入此目录。 如果未指定任何日志目录，将使用当前目录作为日志目录。|  
+|**/d:** <TargetDirectories\>|**必需。** 包含已导入的原始文件的一个或多个目录（以分号分隔）。 也可以使用导入驱动器，但如果原始文件的备用位置可用，则无需使用该驱动器。|  
 |**/bk:** <BitLockerKey\>|**可选。** 如果希望工具将原始文件所在的已加密驱动器解锁，请指定 BitLocker 密钥。|  
-|**/sn:**<StorageAccountName\>|**必需。** 导入作业的存储帐户的名称。|  
-|**/sk:**<StorageAccountKey\>|当且仅当未指定容器 SAS 时才是必需的。 导入作业的存储帐户的帐户密钥。|  
-|**/csas:**<ContainerSas\>|当且仅当未指定存储帐户密钥时才是必需的。 用于访问与导入作业关联的 Blob 的容器 SAS。|  
-|**/CopyLogFile:**<DriveCopyLogFile\>|**必需。** 驱动器复制日志文件（详细日志或错误日志）的路径。 该文件由 Microsoft Azure 导入/导出服务生成，可以从与该作业关联的 Blob 存储下载。 复制日志文件包含有关要修复的失败 Blob 或文件的信息。|  
-|**/PathMapFile:**<DrivePathMapFile\>|**可选。** 用于解决歧义（如果在同一作业中导入多个同名文件）的文本文件的路径。 工具首次运行时，会在此文件中填充所有不明确的名称。 工具以后运行时会使用此文件来解决歧义。|  
+|**/sn:** <StorageAccountName\>|**必需。** 导入作业的存储帐户的名称。|  
+|**/sk:** <StorageAccountKey\>|当且仅当未指定容器 SAS 时才是必需的。 导入作业的存储帐户的帐户密钥。|  
+|**/csas:** <ContainerSas\>|当且仅当未指定存储帐户密钥时才是必需的。 用于访问与导入作业关联的 Blob 的容器 SAS。|  
+|**/CopyLogFile:** <DriveCopyLogFile\>|**必需。** 驱动器复制日志文件（详细日志或错误日志）的路径。 该文件由 Microsoft Azure 导入/导出服务生成，可以从与该作业关联的 Blob 存储下载。 复制日志文件包含有关要修复的失败 Blob 或文件的信息。|  
+|**/PathMapFile:** <DrivePathMapFile\>|**可选。** 用于解决歧义（如果在同一作业中导入多个同名文件）的文本文件的路径。 工具首次运行时，会在此文件中填充所有不明确的名称。 工具以后运行时会使用此文件来解决歧义。|  
   
 ## <a name="using-the-repairimport-command"></a>使用 RepairImport 命令  
 若要通过网络流式传输导入数据来修复这些数据，必须使用 `/d` 参数指定包含导入的原始文件的目录。 此外，指定从存储帐户下载的复制日志文件。 下面显示了一个用于修复部分失败的导入作业的典型命令行：  
@@ -100,6 +100,6 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
 ## <a name="next-steps"></a>后续步骤
  
 * [设置 Azure 导入/导出工具](storage-import-export-tool-setup-v1.md)   
-* [为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [为导入作业准备硬盘驱动器](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [修复导出作业](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [修复导出作业](./storage-import-export-tool-repairing-an-export-job-v1.md)

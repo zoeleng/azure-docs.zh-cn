@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042790"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793052"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>如何将在 Linux 或 Windows 上运行的 IoT 即插即用 bridge 示例连接到 IoT 中心
 
@@ -107,9 +107,13 @@ git submodule update --init --recursive
 
 将 IoT 即插即用桥存储库克隆到计算机后，请导航到 `pnpbridge/docs/schema` 克隆的存储库的目录，在该目录中可以找到网桥的 [配置 JSON](https://aka.ms/iot-pnp-bridge-env-config) 或 `config.json` 环境传感器示例。 可以在 [IoT 即插即用 bridge 概念文档](concepts-iot-pnp-bridge.md)中了解有关配置文件的详细信息。
 
-对于 `root-_interface_model_id` 字段，需要复制用于标识设备型号的 IoT 即插即用型号 ID。 在此示例中，它是 `dtmi:com:example:SampleDevice;1`。 修改 "" 中的文件 **pnp_bridge_parameters** "节点下的以下参数 `config.json` ：
+对于 `root-_interface_model_id` 字段，需要复制用于标识设备型号的 IoT 即插即用型号 ID。 在此示例中，它是 `dtmi:com:example:SampleDevice;1`。 在文件中 **pnp_bridge_parameters** "节点下修改以下参数 `config.json` ：
 
-  使用连接字符串 (注意： symmetric_key 必须与连接字符串中的 SAS 密钥匹配) ：
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> Symmetric_key 必须与连接字符串中的 SAS 密钥匹配。
 
   ```JSON
     {

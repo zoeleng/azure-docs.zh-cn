@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324380"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791709"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL 超大规模服务层级性能故障排除诊断
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ ms.locfileid: "84324380"
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>资源利用率统计信息中的数据 IO
 
-在非超大规模数据库中，将在列中的[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)和[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)视图中报告针对数据文件（相对于[资源调控](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance)数据 IOPS 限制）的读取和写入 IOPS `avg_data_io_percent` 。 在 Azure 门户中将同一值报告为 _数据 IO 百分比_。
+在非超大规模数据库中，将在列中的[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)和[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)视图中报告针对数据文件（相对于[资源调控](./resource-limits-logical-server.md#resource-governance)数据 IOPS 限制）的读取和写入 IOPS `avg_data_io_percent` 。 在 Azure 门户中将同一值报告为 _数据 IO 百分比_ 。
 
 在超大规模数据库中，此列将报告相对于仅限计算副本上本地存储的限制的数据 IOPS 利用率，特别是针对 RBPEX 和的 IO `tempdb` 。 此列中的100% 值表示资源调控限制了本地存储 IOPS。 如果这与性能问题相关，请优化工作负荷以生成较少的 IO，或提高数据库服务目标以提高资源调控 _最大数据 IOPS_ [限制](resource-limits-vcore-single-databases.md)。 对于 RBPEX 读取和写入的资源管理，系统会对单个 8 KB Io 进行计数，而不是由 SQL Server 数据库引擎颁发的较大 Io 计数。
 

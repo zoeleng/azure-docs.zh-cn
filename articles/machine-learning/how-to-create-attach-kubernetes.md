@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667854"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791998"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>创建并附加 Azure Kubernetes 服务群集
 
@@ -34,7 +34,7 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
 - 如果群集中需要部署的是标准负载均衡器 (SLB)，而不是基本负载均衡器 (BLB)，请在 AKS 门户/CLI/SDK 中创建群集，然后将该群集附加到 AML 工作区 。
 
-- 如果你的 Azure Policy 限制创建公共 IP 地址，则无法创建 AKS 群集。 AKS 需要一个公共 IP 用于[出口流量](/azure/aks/limit-egress-traffic)。 出口流量一文还指导如何通过公共 IP（几个完全限定域名的 IP 除外）锁定来自群集的出口流量。 启用公共 IP 有两种方法：
+- 如果你的 Azure Policy 限制创建公共 IP 地址，则无法创建 AKS 群集。 AKS 需要一个公共 IP 用于[出口流量](/azure/aks/limit-egress-traffic)。 出口流量一文还提供了通过公共 IP 锁定群集传出流量的指导，但少数完全限定的域名除外。 启用公共 IP 有两种方法：
     - 群集可以使用在默认情况下与 BLB 或 SLB 一起创建的公共 IP，或者
     - 可以在没有公共 IP 的情况下创建群集，然后为公共 IP 配置一个带有用户定义路由的防火墙。 有关详细信息，请参阅[使用用户定义的路由自定义群集出口](/azure/aks/egress-outboundtype)。
     
@@ -70,26 +70,26 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
 ## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes 服务版本
 
-Azure Kubernetes 服务允许使用各种 Kubernetes 版本创建群集。 有关可用版本的详细信息，请参阅 [Azure Kubernetes Service 中支持的 Kubernetes 版本](/azure/aks/supported-kubernetes-versions)。
+Azure Kubernetes 服务允许使用各种 Kubernetes 版本创建群集。 有关可用版本的详细信息，请参阅 [Azure Kubernetes 服务支持的 Kubernetes 版本](/azure/aks/supported-kubernetes-versions)。
 
-使用以下方法之一 **创建** Azure Kubernetes Service 群集时， *不能在* 创建的群集版本中进行选择：
+使用以下方法之一创建 Azure Kubernetes 服务群集时，无法选择创建的群集的版本：
 
-* Azure 机器学习 studio 或 Azure 门户的 Azure 机器学习部分。
-* Azure CLI 的机器学习扩展。
+* Azure 机器学习工作室，或 Azure 门户的“Azure 机器学习”部分。
+* 适用于 Azure CLI 的机器学习扩展。
 * Azure 机器学习 SDK。
 
-这种创建 AKS 群集的方法使用群集的 __默认__ 版本。 新的 Kubernetes 版本可用*时，默认版本会随时间而改变*。
+这些创建 AKS 群集的方法使用默认的群集版本。 当有新的 Kubernetes 版本可用时，默认版本会随时间的推移而改变。
 
-**附加**现有的 AKS 群集时，我们支持当前支持的所有 AKS 版本。
+附加现有 AKS 群集时，我们为当前受支持的所有 AKS 版本提供支持。
 
 > [!NOTE]
-> 在某些情况下，你有一个不再受支持的旧群集。 在这种情况下，附加操作将返回一个错误，并列出当前支持的版本。
+> 可能会出现旧群集不再受支持的极端情况。 在这种情况下，附加操作会返回一个错误，并会列出当前受支持的版本。
 >
-> 您可以附加 **预览** 版本。 提供的预览版功能不附带服务级别协议，我们不建议将其用于生产工作负载。 某些功能可能不受支持或者受限。 对使用预览版本的支持可能会受到限制。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 你可以附加预览版。 提供的预览版功能不附带服务级别协议，我们不建议将其用于生产工作负载。 某些功能可能不受支持或者受限。 对使用预览版的支持可能会受到限制。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-### <a name="available-and-default-versions"></a>可用和默认版本
+### <a name="available-and-default-versions"></a>可用版本和默认版本
 
-若要查找可用的和默认的 AKS 版本，请使用 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 命令 [az AKS get-版本](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions)。 例如，以下命令返回美国西部区域中提供的版本：
+若要查找可用的和默认的 AKS 版本，请使用 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 命令 [az aks get-versions](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions)。 例如，以下命令返回美国西部区域中提供的版本：
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -110,7 +110,7 @@ KubernetesVersion    Upgrades
 1.15.11              1.15.12, 1.16.10, 1.16.13
 ```
 
-若要查找通过 Azure 机器学习 **创建** 群集时使用的默认版本，可以使用 `--query` 参数选择默认版本：
+若要查找通过 Azure 机器学习创建群集时使用的默认版本，可以使用 `--query` 参数选择默认版本：
 
 ```azurecli-interactive
 az aks get-versions -l westus --query "orchestrators[?default == `true`].orchestratorVersion" -o table
@@ -124,9 +124,9 @@ Result
 1.16.13
 ```
 
-如果要 **以编程方式检查可用的版本**，请使用 [容器服务客户端-列表协调器](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API。 若要查找可用版本，请查看中的条目 `orchestratorType` `Kubernetes` 。 关联 `orchestrationVersion` 项包含可 **附加** 到工作区的可用版本。
+若要以编程方式检查可用版本，请使用[容器服务客户端 - 列出业务流程协调程序](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API。 若要查找可用版本，请查看 `orchestratorType` 为 `Kubernetes` 的条目。 关联的 `orchestrationVersion` 条目包含可附加到你的工作区的可用版本。
 
-若要查找通过 Azure 机器学习 **创建** 群集时使用的默认版本，请查找其中 `orchestratorType` 为 `Kubernetes` 和 `default` 的条目 `true` 。 关联的 `orchestratorVersion` 值为默认版本。 下面的 JSON 代码段显示了一个示例条目：
+若要查找通过 Azure 机器学习创建群集时使用的默认版本，请找到其中的 `orchestratorType` 为 `Kubernetes` 且 `default` 为 `true` 的条目。 关联的 `orchestratorVersion` 值为默认版本。 下面的 JSON 代码片段显示了一个示例条目：
 
 ```json
 ...
@@ -147,7 +147,7 @@ Result
 
 ## <a name="create-a-new-aks-cluster"></a>创建新的 AKS 群集
 
-**时间估计**：大约 10 分钟。
+**时间估计** ：大约 10 分钟。
 
 对于工作区而言，创建或附加 AKS 群集是一次性过程。 可以将此群集重复用于多个部署。 如果删除该群集或包含该群集的资源组，则在下次需要进行部署时必须创建新群集。 可将多个 AKS 群集附加到工作区。
 
@@ -204,7 +204,7 @@ az ml computetarget create aks -n myaks
 
 ## <a name="attach-an-existing-aks-cluster"></a>附加现有的 AKS 群集
 
-时间估计****：大约 5 分钟。
+时间估计  ：大约 5 分钟。
 
 如果 Azure 订阅中已有 AKS 群集并且其版本为 1.17 或更低版本，则可以使用该群集来部署映像。
 
@@ -284,7 +284,7 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 若要从工作区中分离群集，请使用以下方法之一：
 
 > [!WARNING]
-> 使用用于机器学习的 Azure 机器学习 studio、SDK 或 Azure CLI 扩展分离 AKS 群集不 **会删除 AKS 群集**。 若要删除群集，请参阅 [将 Azure CLI 与 AKS 一起使用](/azure/aks/kubernetes-walkthrough#delete-the-cluster)。
+> 使用用于机器学习的 Azure 机器学习 studio、SDK 或 Azure CLI 扩展分离 AKS 群集不 **会删除 AKS 群集** 。 若要删除群集，请参阅 [将 Azure CLI 与 AKS 一起使用](/azure/aks/kubernetes-walkthrough#delete-the-cluster)。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -302,7 +302,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-在 Azure 机器学习 studio 中，选择 " __计算__"、" __推理群集__" 和要删除的群集。 使用 " __分离__ " 链接分离群集。
+在 Azure 机器学习 studio 中，选择 " __计算__ "、" __推理群集__ " 和要删除的群集。 使用 " __分离__ " 链接分离群集。
 
 ## <a name="next-steps"></a>后续步骤
 

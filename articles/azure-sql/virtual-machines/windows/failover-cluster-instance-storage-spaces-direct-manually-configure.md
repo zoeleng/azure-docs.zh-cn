@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165227"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792508"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>在 Azure Vm 上使用存储空间直通 (SQL Server 创建 FCI) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "92165227"
    若要从 UI 安装故障转移群集，请在两个虚拟机上执行以下操作：
 
    1. 在“服务器管理器”中选择“管理”，然后选择“添加角色和功能”。  
-   1. 在 " **添加角色和功能** 向导" 中，选择 " **下一步** "，直到你 **选择 "功能**"。
+   1. 在 " **添加角色和功能** 向导" 中，选择 " **下一步** "，直到你 **选择 "功能** "。
    1. 在“选择功能”中，选择“故障转移群集”。  请包含所有所需的功能和管理工具。 
    1. 选择“添加功能”。
    1. 选择“下一步”，然后选择“完成”安装这些功能。 
@@ -81,7 +81,7 @@ ms.locfileid: "92165227"
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-有关后续步骤的详细信息，请参阅 [使用 Windows Server 2016 中的存储空间直通超聚合解决方案](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct)的 "步骤3：配置存储空间直通" 部分中的说明。
+有关后续步骤的详细信息，请参阅 [使用 Windows Server 2016 中的存储空间直通超聚合解决方案](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct)的 "步骤3：配置存储空间直通" 部分中的说明。
 
 
 ## <a name="validate-the-cluster"></a>验证群集
@@ -92,15 +92,15 @@ ms.locfileid: "92165227"
 
 1. 在“服务器管理器”下，依次选择“工具”、“故障转移群集管理器”。  
 1. 在“故障转移群集管理器”下，依次选择“操作”、“验证配置”。  
-1. 选择“**下一页**”。
+1. 选择“ **下一页** ”。
 1. 在“选择服务器或群集”下，输入两个虚拟机的名称。
 1. 在“测试选项”下，选择“仅运行选择的测试”。  
-1. 选择“**下一页**”。
+1. 选择“ **下一页** ”。
 1. 在“测试选择”下，选择除“存储”以外的所有测试，如下所示： 
 
    ![选择群集验证测试](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. 选择“**下一页**”。
+1. 选择“ **下一页** ”。
 1. 在“确认”下，选择“下一步”。 
 
     " **验证配置** 向导" 将运行验证测试。
@@ -150,9 +150,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="add-storage"></a>添加存储
 
-存储空间直通的磁盘需是空的。 它们不能包含分区或其他数据。 若要清除磁盘，请按照 [部署存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives)中的说明进行操作。
+存储空间直通的磁盘需是空的。 它们不能包含分区或其他数据。 若要清除磁盘，请按照 [部署存储空间直通](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives)中的说明进行操作。
 
-1. [启用存储空间直通](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct)。
+1. [启用存储空间直通](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct)。
 
    以下 PowerShell 脚本启用存储空间直通：  
 
@@ -162,7 +162,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
    现在，“故障转移群集管理器”中会显示存储池。
 
-1. [创建卷](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes)。
+1. [创建卷](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes)。
 
    启用存储空间直通后，它会自动创建存储池。 接下来，可以创建卷。 PowerShell cmdlet `New-Volume` 自动完成卷的创建过程。 此过程包括格式化、将卷添加到群集，以及创建 CSV。 此示例将创建 800 gb (GB) CSV：
 
@@ -180,7 +180,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="test-cluster-failover"></a>测试群集故障转移
 
-测试群集的故障转移。 在**故障转移群集管理器**中，右键单击群集，选择 "**更多操作**" "  >  **移动核心群集资源**  >  " "**选择节点**"，然后选择群集的其他节点。 将核心群集资源移到群集的每个节点，再将它移回主节点。 如果可以成功将群集移到每个节点，则表示你已为安装 SQL Server 做好了准备。  
+测试群集的故障转移。 在 **故障转移群集管理器** 中，右键单击群集，选择 " **更多操作** " "  >  **移动核心群集资源**  >  " " **选择节点** "，然后选择群集的其他节点。 将核心群集资源移到群集的每个节点，再将它移回主节点。 如果可以成功将群集移到每个节点，则表示你已为安装 SQL Server 做好了准备。  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="通过将核心资源移到其他节点来测试群集故障转移":::
 
@@ -190,7 +190,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 使用 RDP 连接到第一个虚拟机。
 
-1. 在 **故障转移群集管理器**中，请确保所有核心群集资源位于第一个虚拟机上。 如有必要，请将所有资源移到该虚拟机。
+1. 在 **故障转移群集管理器** 中，请确保所有核心群集资源位于第一个虚拟机上。 如有必要，请将所有资源移到该虚拟机。
 
 1. 找到安装媒体。 如果虚拟机使用某个 Azure 市场映像，该媒体将位于 `C:\SQLServer_<version number>_Full`。 选择“设置”。
 
@@ -211,7 +211,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 1. 选择“将节点添加到 SQL Server 故障转移群集”。 按照向导中的说明安装 SQL Server 并将此服务器添加到 FCI。
 
    >[!NOTE]
-   >如果使用了包含 SQL Server 的 Azure 市场库映像，该映像已随附 SQL Server 工具。 如果未使用其中的某个映像，请单独安装 SQL Server 工具。 有关详细信息，请参阅 [下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)。
+   >如果使用了包含 SQL Server 的 Azure 市场库映像，该映像已随附 SQL Server 工具。 如果未使用其中的某个映像，请单独安装 SQL Server 工具。 有关详细信息，请参阅 [下载 SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)。
    >
 
 
@@ -237,7 +237,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="limitations"></a>限制
 
-- Azure 虚拟机支持 Windows Server 2019 上的 Microsoft 分布式事务处理协调器 (MSDTC) ，以及 Csv 上的存储和 [标准负载均衡器](../../../load-balancer/load-balancer-standard-overview.md)。
+- Azure 虚拟机支持 Windows Server 2019 上的 Microsoft 分布式事务处理协调器 (MSDTC) ，以及 Csv 上的存储和 [标准负载均衡器](../../../load-balancer/load-balancer-overview.md)。
 - 仅当在将存储添加到群集时，如果未选中或未选中，则已作为 NTFS 格式的磁盘附加的磁盘才能与存储空间直通一起使用。 
 - 仅支持在 [轻型管理模式下](sql-vm-resource-provider-register.md#management-modes) 注册 SQL VM 资源提供程序。
 

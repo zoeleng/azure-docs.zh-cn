@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278628"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791539"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>应用程序网关常见问题
 
@@ -49,9 +49,9 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>应用程序网关已在哪些区域推出？
 
-应用程序网关 v1 (标准版和 WAF) 适用于全球 Azure 的所有区域。 在 [Azure 中国世纪互联](https://www.azure.cn/)和 [Azure 政府](https://azure.microsoft.com/overview/clouds/government/)中也已推出。
+应用程序网关 v1（Standard 和 WAF）已在国际版 Azure 的所有区域推出。 在 [Azure 中国世纪互联](https://www.azure.cn/)和 [Azure 政府](https://azure.microsoft.com/overview/clouds/government/)中也已推出。
 
-对于应用程序网关 v2 (Standard_v2 和 WAF_v2) 可用性，请参阅 [应用程序网关 v2 支持的区域](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
+有关应用程序网关 v2（Standard_v2 和 WAF_v2）可用性，请参阅[应用程序网关 v2 支持的区域](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>此部署是专门于订阅，还是在所有客户之间共享？
 
@@ -138,7 +138,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>应用程序网关关联 Cookie 是否支持 SameSite 属性？
 是的，[Chromium 浏览器](https://www.chromium.org/Home) [v80 更新](https://chromiumdash.appspot.com/schedule)引入了对 HTTP Cookie 的强制要求，不会将 SameSite 属性视为 SameSite = Lax。 这意味着，浏览器不会将应用程序网关关联 Cookie 发送到第三方上下文中。 
 
-为了支持此方案，除了现有的“ApplicationGatewayAffinity”Cookie 外，应用程序网关还会注入另一个名为“ApplicationGatewayAffinityCORS”的 Cookie。  这两个 Cookie 类似，但 ApplicationGatewayAffinityCORS Cookie 中添加了两个附加属性：*SameSite=None; Secure*。 这些属性甚至可以为跨源请求维护粘性会话。 有关详细信息，请参阅[基于 Cookie 的关联部分](configuration-http-settings.md#cookie-based-affinity)。
+为了支持此方案，除了现有的“ApplicationGatewayAffinity”Cookie 外，应用程序网关还会注入另一个名为“ApplicationGatewayAffinityCORS”的 Cookie。  这两个 Cookie 类似，但 ApplicationGatewayAffinityCORS Cookie 中添加了两个附加属性： *SameSite=None; Secure* 。 这些属性甚至可以为跨源请求维护粘性会话。 有关详细信息，请参阅[基于 Cookie 的关联部分](configuration-http-settings.md#cookie-based-affinity)。
 
 ## <a name="performance"></a>性能
 
@@ -190,9 +190,9 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 请参阅[应用程序网关子网中支持的用户定义的路由](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes)。
 
-### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>应用程序网关子网是否支持服务终结点策略？
+### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>应用程序网关子网中是否支持服务终结点策略？
 
-不是。 应用程序网关子网中不支持存储帐户的[服务终结点策略](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)，配置它将阻止 Azure 基础结构流量。
+错误。 应用程序网关子网中不支持存储帐户的[服务终结点策略](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)，对其进行配置将阻止 Azure 基础结构流量。
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>应用程序网关有哪些限制？ 是否可以提高这些限制？
 
@@ -249,7 +249,7 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 2. 不要为公共前端 IP 地址创建任何侦听器。 应用程序网关不会侦听公共 IP 地址上的任何流量，但前提是没有为其创建侦听器。
 3. 为应用程序网关子网创建并附加一个[网络安全组](https://docs.microsoft.com/azure/virtual-network/security-overview)，使用以下配置（按优先级顺序排列）：
     
-    a. 允许的流量来自使用 **GatewayManager** 服务标记的“源”，其“目标”为“任意”，“目标端口”为 **65200-65535**。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口通过证书身份验证进行保护（锁定）。 如果没有适当的证书，外部实体（包括网关用户管理员）将无法对这些终结点做出任何更改
+    a. 允许的流量来自使用 **GatewayManager** 服务标记的“源”，其“目标”为“任意”，“目标端口”为 **65200-65535** 。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口通过证书身份验证进行保护（锁定）。 如果没有适当的证书，外部实体（包括网关用户管理员）将无法对这些终结点做出任何更改
     
     b. 允许的流量来自使用 **AzureLoadBalancer** 服务标记的“源”，“目标”和“目标端口”为“任意”
     
@@ -434,9 +434,9 @@ AGIC 会尝试自动将路由表资源关联到应用程序网关子网，但 AG
 
 应用程序网关提供三种日志： 
 
-* **ApplicationGatewayAccessLog**：访问日志包含提交到应用程序网关前端的每个请求。 数据包括调用方的 IP、请求的 URL、响应延迟、返回代码，以及传入和传出的字节数。它针对每个应用程序网关包含一条记录。
-* **ApplicationGatewayPerformanceLog**：性能日志捕获每个应用程序网关的性能信息。 信息包括吞吐量（以字节为单位）、服务的请求总数、失败的请求计数，以及正常和不正常的后端实例计数。
-* **ApplicationGatewayFirewallLog**：对于使用 WAF 配置的应用程序网关，防火墙日志包含通过检测模式或阻止模式记录的请求。
+* **ApplicationGatewayAccessLog** ：访问日志包含提交到应用程序网关前端的每个请求。 数据包括调用方的 IP、请求的 URL、响应延迟、返回代码，以及传入和传出的字节数。它针对每个应用程序网关包含一条记录。
+* **ApplicationGatewayPerformanceLog** ：性能日志捕获每个应用程序网关的性能信息。 信息包括吞吐量（以字节为单位）、服务的请求总数、失败的请求计数，以及正常和不正常的后端实例计数。
+* **ApplicationGatewayFirewallLog** ：对于使用 WAF 配置的应用程序网关，防火墙日志包含通过检测模式或阻止模式记录的请求。
 
 所有日志每 60 秒收集一次。 有关详细信息，请参阅[应用程序网关的后端运行状况、诊断日志和指标](application-gateway-diagnostics.md)。
 
@@ -454,7 +454,7 @@ AGIC 会尝试自动将路由表资源关联到应用程序网关子网，但 AG
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>是否可以使用应用程序网关设置警报？
 
-是的。 在应用程序网关中，会在指标上配置警报。 有关详细信息，请参阅[应用程序网关指标](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics)和[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
+是的。 在应用程序网关中，警报是针对指标配置的。 有关详细信息，请参阅[应用程序网关指标](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics)和[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>如何分析应用程序网关的流量统计信息？
 
@@ -472,6 +472,10 @@ AGIC 会尝试自动将路由表资源关联到应用程序网关子网，但 AG
 - 已部署了应用程序网关 v2
 - 应用程序网关子网上有 NSG
 - 已在该 NSG 上启用 NSG 流日志
+
+### <a name="does-application-gateway-store-customer-data"></a>应用程序网关是否存储客户数据？
+
+不，应用程序网关不存储客户数据。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829427"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793426"
 ---
 # <a name="split-merge-security-configuration"></a>拆分/合并安全配置
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,18 +32,18 @@ ms.locfileid: "85829427"
 
 ## <a name="to-obtain-certificates"></a>获取证书
 
-可从公共证书颁发机构 (CA) 或 [Windows 证书服务](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)获取证书。 这些方法是获取证书的首选方法。
+可从公共证书颁发机构 (CA) 或 [Windows 证书服务](/windows/win32/seccrypto/certificate-services)获取证书。 这些方法是获取证书的首选方法。
 
-如果这些选项不可用，可以生成 **自签名证书**。
+如果这些选项不可用，可以生成 **自签名证书** 。
 
 ## <a name="tools-to-generate-certificates"></a>用于生成证书的工具
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### <a name="to-run-the-tools"></a>运行工具
 
-* 有关适用于 Visual Studio 的开发人员命令提示符，请参阅 [Visual Studio 命令提示符](https://msdn.microsoft.com/library/ms229859.aspx) 
+* 有关适用于 Visual Studio 的开发人员命令提示符，请参阅 [Visual Studio 命令提示符](/dotnet/framework/tools/developer-command-prompt-for-vs) 
   
     如果已安装工具，请转到：
   
@@ -124,7 +124,7 @@ ms.locfileid: "85829427"
 默认配置允许对 HTTPS 终结点的所有访问。 可能会进一步限制此设置。
 
 ### <a name="changing-the-configuration"></a>更改配置
-在**服务配置文件**的 **\<EndpointAcls>** 节中配置应用的访问控制组规则和终结点。
+在 **服务配置文件** 的 **\<EndpointAcls>** 节中配置应用的访问控制组规则和终结点。
 
 ```xml
 <EndpointAcls>
@@ -508,4 +508,3 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 对此数据库中存储的凭据进行加密。 但是，最佳实践是，确保服务部署的 Web 角色和辅助角色保持最新且是安全的，因为它们都有权访问元数据数据库和用于加密和解密存储凭据的证书。 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034648"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793460"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-如果是软件即服务开发人员，并且应用突然遇到巨大需求，那么需要适应该需求增长。 因此，你添加了更多数据库（分片）。 如何在不破坏数据完整性的情况下将数据重新分配到新数据库？ 使用**拆分/合并工具**将数据从受约束的数据库移到新数据库。  
+如果是软件即服务开发人员，并且应用突然遇到巨大需求，那么需要适应该需求增长。 因此，你添加了更多数据库（分片）。 如何在不破坏数据完整性的情况下将数据重新分配到新数据库？ 使用 **拆分/合并工具** 将数据从受约束的数据库移到新数据库。  
 
 将拆分/合并工具作为 Azure web 服务运行。 管理员或开发人员使用该工具在不同数据库 （分片）之间移动 shardlet（一个分片中的数据）。 该工具使用分片映射管理来维护服务元数据数据库，并确保一致的映射。
 
@@ -220,7 +220,7 @@ ms.locfileid: "84034648"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> 仍然支持 PowerShell Azure 资源管理器模块，但是所有未来的开发都是针对 Az.Sql 模块。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> 仍然支持 PowerShell Azure 资源管理器模块，但是所有未来的开发都是针对 Az.Sql 模块。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 针对 NuGet 包所提供的 Web 和辅助角色，若要使用诊断配置启用监视和诊断，请使用 Azure PowerShell 运行以下命令：
 
@@ -244,7 +244,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 ## <a name="retrieve-diagnostics"></a>检索诊断
 
-可以从服务器资源管理器树的 Azure 部分中的 Visual Studio 服务器资源管理器轻松访问诊断。 打开 Visual Studio 实例，并在菜单栏中，依次单击“视图”和“服务器资源管理器”。 单击 Azure 图标连接到 Azure 订阅。 然后，导航到“Azure”->“存储”->“`<your storage account>`”->“表”->“WADLogsTable”。 有关详细信息，请参阅[服务器资源管理器](https://msdn.microsoft.com/library/x603htbk.aspx)。
+可以从服务器资源管理器树的 Azure 部分中的 Visual Studio 服务器资源管理器轻松访问诊断。 打开 Visual Studio 实例，并在菜单栏中，依次单击“视图”和“服务器资源管理器”。 单击 Azure 图标连接到 Azure 订阅。 然后，导航到“Azure”->“存储”->“`<your storage account>`”->“表”->“WADLogsTable”。 有关详细信息，请参阅[服务器资源管理器](/previous-versions/x603htbk(v=vs.140))。
 
 ![WADLogsTable][2]
 

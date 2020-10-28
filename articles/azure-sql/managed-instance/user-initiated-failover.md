@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791624"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL 托管实例上用户启动的手动故障转移
 
@@ -37,12 +37,12 @@ ms.locfileid: "91617751"
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>在 SQL 托管实例上启动手动故障转移
 
-### <a name="rbac-permissions-required"></a>需要 RBAC 权限
+### <a name="rbac-permissions-required"></a>所需的 RBAC 权限
 
 启动故障转移的用户需要具有下列 RBAC 角色之一：
 
-- 订阅所有者角色或
-- 托管实例参与者角色，或
+- “订阅所有者”角色或
+- “托管实例参与者”角色或
 - 具有以下权限的自定义角色：
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-将 PowerShell 命令 [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) 与以下示例结合使用以启动主节点的故障转移（适用于 BC 和 GP 服务层）。
+将 PowerShell 命令 [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) 与以下示例结合使用以启动主节点的故障转移（适用于 BC 和 GP 服务层）。
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>使用 REST API
 
-对于可能需要对其 SQL 托管实例进行自动故障转移以实现持续测试管道的高级用户，或是自动性能缓冲器，可以通过使用 API 调用启动故障转移来实现此功能。 有关详细信息，请参阅[托管实例 - 故障转移 REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)。
+对于可能需要对其 SQL 托管实例进行自动故障转移以实现持续测试管道的高级用户，或是自动性能缓冲器，可以通过使用 API 调用启动故障转移来实现此功能。 有关详细信息，请参阅[托管实例 - 故障转移 REST API](/rest/api/sql/managed%20instances%20-%20failover/failover)。
 
 若要使用 REST API 调用启动故障转移，请首先使用所选的 API 客户端生成身份验证令牌。 生成的身份验证令牌将用作 API 请求标头中的授权属性，它是必需的。
 

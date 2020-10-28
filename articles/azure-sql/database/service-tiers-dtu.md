@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102993"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793171"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>基于 DTU 的购买模型中的服务层
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "92102993"
 |**运行时间 SLA**|99.99%|99.99%|99.99%|
 |**最大备份保留期**|7 天|35 天|35 天|
 |**CPU**|低|低、中、高|中、高|
-|** (大致) 的 IOPS **\* |每个 DTU 1-4 IOPS| 每个 DTU 1-4 IOPS | 每个 DTU 25 IOPS|
+|**(大致) 的 IOPS**\* |每个 DTU 1-4 IOPS| 每个 DTU 1-4 IOPS | 每个 DTU 25 IOPS|
 |**IO 延迟（近似）**|5 毫秒（读取），10 毫秒（写入）|5 毫秒（读取），10 毫秒（写入）|2 毫秒（读取/写入）|
 |**列存储索引** |空值|S3 及更高版本|支持|
 |**内存中 OLTP**|空值|空值|支持|
@@ -54,7 +54,7 @@ ms.locfileid: "92102993"
 >
 
 > [!TIP]
-> 若要查看数据库或弹性池的实际 [资源调控](resource-limits-logical-server.md#resource-governance) 限制，请查询 [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 视图。
+> 若要查看数据库或弹性池的实际 [资源调控](resource-limits-logical-server.md#resource-governance) 限制，请查询 [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 视图。
 
 > [!NOTE]
 > 你可以在 azure SQL 数据库中的 Azure SQL 数据库中获取免费数据库，并将其与 Azure 免费帐户结合使用以浏览 Azure。 有关信息，请参阅[使用 Azure 免费帐户创建托管的云数据库](https://azure.microsoft.com/free/services/sql-database/)。
@@ -63,7 +63,7 @@ ms.locfileid: "92102993"
 
 单一数据库的计算大小以数据库事务单位 (DTU) 表示，弹性池则以弹性数据库事务单位 (eDTU) 表示。 有关 DTU 和 eDTU 的更多信息，请参阅[基于 DTU 的购买模型](purchasing-models.md#dtu-based-purchasing-model)。
 
-||基本|标准|高级|
+||基本|Standard|高级|
 | :-- | --: | --: | --: |
 | **最大存储大小** | 2 GB | 1 TB | 4 TB  |
 | **最大 DTU** | 5 | 3000 | 4000 |

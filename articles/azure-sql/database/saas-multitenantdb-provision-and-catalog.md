@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331934"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793324"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>在使用分片多租户 Azure SQL 数据库的 SaaS 应用程序中预配和编录新租户
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -127,9 +127,9 @@ ms.locfileid: "92331934"
 
 若要完成本教程，请确保已完成了以下先决条件：
 
-- Azure PowerShell 已安装。 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- Azure PowerShell 已安装。 有关详细信息，请参阅 [Azure PowerShell 入门](/powershell/azure/get-started-azureps)
 
-- 已部署 Wingtip Tickets SaaS 多租户数据库应用。 若要在五分钟内完成部署，请参阅[部署和浏览 Wingtip Tickets SaaS 多租户数据库应用程序](../../sql-database/saas-multitenantdb-get-started-deploy.md)。
+- 已部署 Wingtip Tickets SaaS 多租户数据库应用。 若要在五分钟内完成部署，请参阅[部署和浏览 Wingtip Tickets SaaS 多租户数据库应用程序](./saas-multitenantdb-get-started-deploy.md)。
 
 - 获取 Wingtip 脚本和源代码：
     - 在 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 存储库中提供了 Wingtip Tickets SaaS 多租户数据库脚本和应用程序源代码。
@@ -173,7 +173,7 @@ ms.locfileid: "92331934"
 
 5. 使用“调试”菜单选项（F10 和 F11）逐过程或单步执行调用的函数，跟踪脚本的执行  。
 
-有关调试 PowerShell 脚本的详细信息，请参阅[有关使用和调试 PowerShell 脚本的提示](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)。
+有关调试 PowerShell 脚本的详细信息，请参阅[有关使用和调试 PowerShell 脚本的提示](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)。
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>在租户自身的数据库中预配该租户
 
@@ -263,9 +263,9 @@ ms.locfileid: "92331934"
 
 ## <a name="additional-resources"></a>其他资源
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [弹性数据库客户端库](elastic-database-client-library.md)
-- [如何在 Windows PowerShell ISE 中调试脚本](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [如何在 Windows PowerShell ISE 中调试脚本](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -277,5 +277,4 @@ ms.locfileid: "92331934"
 > * 预配一批其他租户
 > * 逐步讲解预配租户以及将它们注册到目录的详细信息
 
-试着学习[性能监视教程](../../sql-database/saas-multitenantdb-performance-monitoring.md)。
-
+试着学习[性能监视教程](./saas-multitenantdb-performance-monitoring.md)。

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a40ffab652a6ae8671d6cd1c0dd9336764ce2c4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448333"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791930"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>响应适用于 Key Vault 的 Azure Defender 警报
 收到来自 Azure Defender for Key Vault 的警报时，建议你按下述方式调查和响应警报。 Azure Defender for Key Vault 保护应用程序和凭据，因此即使你熟悉触发警报的应用程序或用户，也必须验证每个警报的情况。  
@@ -72,4 +72,4 @@ ms.locfileid: "91448333"
 
 - [用于 Key Vault 的 Azure Defender 简介](defender-for-key-vault-introduction.md)
 - [禁止来自 Azure Defender 的警报](alerts-suppression-rules.md)
-- [导出安全警报](continuous-export.md)
+- [持续导出安全中心数据](continuous-export.md)

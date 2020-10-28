@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970378"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792797"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件
 
@@ -154,6 +154,10 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 > [!NOTE] 
 > 在某些情况下，由于硬件降级，Azure 能够预测主机故障，并会尝试通过对迁移进行计划来缓解服务中断。 受影响的虚拟机会收到计划事件，该事件的 `NotBefore` 通常是将来几天的时间。 实际时间因预测的故障风险评估而异。 Azure 会尽可能提前 7 天发出通知，但实际时间可能会有变化，如果预测硬件即将发生故障的可能性很大，则实际时间可能更早。 为了在系统启动迁移之前硬件出现故障时将服务风险降至最低，我们建议你尽快自行重新部署虚拟机。
+
+### <a name="polling-frequency"></a>轮询频率
+
+你可以根据自己的需要，轮询终结点的更新频率。 但是，请求之间的时间越长，可能会出现响应即将发生的事件的时间。 大多数事件都有5到15分钟的提前通知，不过，在某些情况下，提前通知可能只需30秒。 为了确保尽可能多地采取缓解措施，建议你每秒轮询一次服务。
 
 ### <a name="start-an-event"></a>启动事件 
 

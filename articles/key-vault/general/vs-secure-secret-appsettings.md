@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57cda5104551f8b62d157e443a42c5e3c75e4ddf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372049"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792406"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -30,7 +30,7 @@ ms.locfileid: "92372049"
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 和 .NET Core 应用程序
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>将密钥设置保存在源代码管理文件夹外部的用户密钥存储中。
-如果你正在快速建立原型或无法访问 Internet，请先将源代码管理文件夹外部的密钥设置移动到用户密钥存储。 用户密钥存储是保存在用户探查器文件夹下的一个文件，因此密钥不会签入到源代码管理。 下图演示了[用户密钥](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio)的工作原理。
+如果你正在快速建立原型或无法访问 Internet，请先将源代码管理文件夹外部的密钥设置移动到用户密钥存储。 用户密钥存储是保存在用户探查器文件夹下的一个文件，因此密钥不会签入到源代码管理。 下图演示了[用户密钥](/aspnet/core/security/app-secrets?tabs=visual-studio)的工作原理。
 
 ![用户密钥将密钥设置保持在源代码管理外部](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -43,7 +43,7 @@ ms.locfileid: "92372049"
 
     ![创建 Azure Key Vault](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. 授予你和团队成员访问密钥保管库的权限。 如果你的团队规模较大，可以创建 [Azure Active Directory 组](../../active-directory/active-directory-groups-create-azure-portal.md)并将该安全组访问权限添加到密钥保管库。 在“密钥权限”  下拉列表中，检查“密钥管理操作”  下的“获取”  和“列表”  。
+2. 授予你和团队成员访问密钥保管库的权限。 如果你的团队规模较大，可以创建 [Azure Active Directory 组](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)并将该安全组访问权限添加到密钥保管库。 在“密钥权限”  下拉列表中，检查“密钥管理操作”  下的“获取”  和“列表”  。
 如果已创建 Web 应用，请向 Web 应用授予对 Key Vault 的访问权限，以便它可以访问密钥保管库，而无需在应用设置或文件中存储机密配置。 按名称搜索 Web 应用，并以向用户授予访问权限的相同方式添加该应用。
 
     ![添加密钥保管库访问策略](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165225"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792474"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server 故障转移群集实例 (FCI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,8 +30,8 @@ Azure VM 上的 SQL Server 使用 Windows Server 故障转移群集 (WSFC) 功�
 
 本文的其余部分重点介绍在将故障转移群集实例与 Azure VM 上的 SQL Server 一起使用时这些实例的区别。 若要详细了解故障转移群集技术，请参阅： 
 
-- [Windows 群集技术](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server 故障转移群集实例](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Windows 群集技术](/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server 故障转移群集实例](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
 ## <a name="quorum"></a>Quorum
 
@@ -60,8 +60,8 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 
 [Azure 共享磁盘](../../../virtual-machines/windows/disks-shared.md)是 [Azure 托管磁盘](../../../virtual-machines/managed-disks-overview.md)的一项功能。 Windows Server 故障转移群集支持将 Azure 共享磁盘与故障转移群集实例一起使用。 
 
-**支持的操作系统**：All   
-**支持的 SQL 版本**：All     
+**支持的操作系统** ：All   
+**支持的 SQL 版本** ：All     
 
 **优点：** 
 - 适用于希望迁移到 Azure，同时保持其高可用性和灾难恢复 (HADR) 体系结构不变的应用程序。 
@@ -71,7 +71,7 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 - 支持文件流。
 
 
-**限制**： 
+**限制** ： 
 - 虚拟机必须位于同一可用性集和邻近放置组中。
 - 不支持可用性区域。
 - 不支持高级 SSD 磁盘缓存。
@@ -82,8 +82,8 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 
 [存储空间直通](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)是一项 Windows Server 功能，可用于 Azure 虚拟机上的故障转移群集。 它提供基于软件的虚拟 SAN。
 
-**支持的操作系统**：Windows Server 2016 及更高版本   
-**支持的 SQL 版本**：SQL Server 2016 及更高版本   
+**支持的操作系统** ：Windows Server 2016 及更高版本   
+**支持的 SQL 版本** ：SQL Server 2016 及更高版本   
 
 
 **优点：** 
@@ -104,8 +104,8 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 
 [高级文件共享](../../../storage/files/storage-how-to-create-premium-fileshare.md)是 [Azure 文件存储](../../../storage/files/index.yml)的一项功能。 高级文件共享由 SSD 提供支持，始终具有低延迟。 它们完全支持在 Windows Server 2012 或更高版本上用于 SQL Server 2012 或更高版本的故障转移群集实例。 高级文件共享提供更高的灵活性，使你能在不停机的情况下对文件共享进行大小调整和缩放。
 
-**支持的操作系统**：Windows Server 2012 和更高版本   
-**支持的 SQL 版本**：SQL Server 2012 和更高版本   
+**支持的操作系统** ：Windows Server 2012 和更高版本   
+**支持的 SQL 版本** ：SQL Server 2012 和更高版本   
 
 **优点：** 
 - 只有适合虚拟机的共享存储解决方案跨多个可用性区域分布。 
@@ -122,8 +122,8 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 
 有一些合作伙伴群集解决方案采用受支持的存储。 
 
-**支持的操作系统**：All   
-**支持的 SQL 版本**：All   
+**支持的操作系统** ：All   
+**支持的 SQL 版本** ：All   
 
 一个示例是将 SIOS DataKeeper 用作存储。 有关详细信息，请参阅[故障转移群集和 SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) 博客文章。
 
@@ -131,8 +131,8 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 
 还可通过 Azure ExpressRoute 公开 iSCSI 目标共享块存储。 
 
-**支持的操作系统**：All   
-**支持的 SQL 版本**：All   
+**支持的操作系统** ：All   
+**支持的 SQL 版本** ：All   
 
 例如，NetApp 专用存储 (NPS) 使用 Equinix 通过 ExpressRoute 向 Azuer VM 公开 iSCSI 目标。
 
@@ -155,7 +155,7 @@ Azure 虚拟机上的 SQL Server 故障转移群集实例使用[分布式网络�
 
 ### <a name="msdtc"></a>MSDTC 
 
-Azure 虚拟机支持 Windows Server 2019 上的 Microsoft 分布式事务处理协调器 (MSDTC)，其中存储位于群集共享卷 (CSV) 和[标准负载均衡器](../../../load-balancer/load-balancer-standard-overview.md)上，或者位于正在使用 Azure 共享磁盘的 SQL Server VM 上。 
+Azure 虚拟机支持 Windows Server 2019 上的 Microsoft 分布式事务处理协调器 (MSDTC)，其中存储位于群集共享卷 (CSV) 和[标准负载均衡器](../../../load-balancer/load-balancer-overview.md)上，或者位于正在使用 Azure 共享磁盘的 SQL Server VM 上。 
 
 在 Azure 虚拟机上，具有群集共享卷的 Windows Server 2016 或更早版本不支持 MSDTC，因为：
 
@@ -171,4 +171,3 @@ Azure 虚拟机支持 Windows Server 2019 上的 Microsoft 分布式事务处理
 
 - [Windows 群集技术](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server 故障转移群集实例](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 26052441d19abb6a0c423a3b3d6f6c2d21478814
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8bee990074debf09cc9bfd19f96470a029b50c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272049"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793120"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>连接到 Azure 上的 SQL Server 虚拟机
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -138,9 +138,9 @@ Server=mysqlvm;Integrated Security=true
 | 要求 | 说明 |
 |---|---|
 | [启用 SQL Server 身份验证模式](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | 除非已在虚拟网络上配置 Active Directory，否则需要进行 SQL Server 身份验证才能连接到远程 VM。 |
-| [创建 SQL 登录名](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | 如果使用的是 SQL 身份验证，则需要提供带有用户名和密码的 SQL 登录名，并且该登录名还有权访问目标数据库。 |
+| [创建 SQL 登录名](/sql/relational-databases/security/authentication-access/create-a-login) | 如果使用的是 SQL 身份验证，则需要提供带有用户名和密码的 SQL 登录名，并且该登录名还有权访问目标数据库。 |
 | [启用 TCP/IP 协议](#manualtcp) | SQL Server 必须允许通过 TCP 连接。 |
-| [启用 SQL Server 端口的防火墙规则](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM 上的防火墙必须允许 SQL Server 端口（默认为 1433）上的入站流量。 |
+| [启用 SQL Server 端口的防火墙规则](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM 上的防火墙必须允许 SQL Server 端口（默认为 1433）上的入站流量。 |
 | [创建 TCP 1433 的网络安全组规则](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | 如果希望通过 Internet 连接，必须允许 VM 接收 SQL Server 端口（默认为 1433）上的流量。 本地和仅虚拟网路连接对此无要求。 这是在 Azure 门户中所要求的唯一步骤。 |
 
 > [!TIP]

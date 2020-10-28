@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 93e9ad28b14a51432fd9ccd32d1a155eaff2e190
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427130"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791777"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例的高可用性
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,7 +63,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 > 有关支持区域冗余数据库的区域的最新信息，请参阅 [按区域提供的服务支持](../../availability-zones/az-region.md)。 仅当选择 Gen5 计算硬件后，区域冗余配置才可用。 此功能在 SQL 托管实例中不可用。
 
 > [!NOTE]
-> 常规用途大小为 80 vcore 的数据库可能会遇到使用区域冗余配置时的性能下降。 备份、还原、数据库复制和设置异地灾难恢复关系等操作对于超过 1 TB 的单一数据库可能会遇到较慢的性能。 
+> 常规用途大小为 80 vcore 的数据库可能会遇到使用区域冗余配置时的性能下降。 此外，对于超过 1 TB 的任何单个数据库，诸如备份、还原、数据库复制和设置异地灾难恢复关系之类的操作可能会遇到较慢的性能。 
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>高级和业务关键服务层本地冗余可用性
 
@@ -71,7 +71,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 ![数据库引擎节点群集](./media/high-availability-sla/business-critical-service-tier.png)
 
-底层数据库文件 (.mdf/.ldf) 放在附加的 SSD 存储中，以便为工作负荷提供延迟极低的 IO。 高可用性是使用类似于 SQL Server [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)的技术来实现的。 群集包含可供读/写客户工作负载访问的单个主要副本，最多包含三个次要副本（计算和存储），这些副本包含数据的副本。 主要节点不断地将更改按顺序推送到辅助节点，在提交每个事务之前，它可确保数据已至少同步到一个次要副本。 此过程可以保证当主要节点出于任何原因而崩溃时，始终可以故障转移到某个完全同步的节点。 故障转移由 Azure Service Fabric 启动。 次要副本变成新的主要节点后，会创建另一个次要副本，以确保群集中有足够的节点（仲裁集）。 故障转移后，Azure SQL 连接会自动重定向到新的主要节点。
+底层数据库文件 (.mdf/.ldf) 放在附加的 SSD 存储中，以便为工作负荷提供延迟极低的 IO。 高可用性是使用类似于 SQL Server [Always On 可用性组](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)的技术来实现的。 群集包含可供读/写客户工作负载访问的单个主要副本，最多包含三个次要副本（计算和存储），这些副本包含数据的副本。 主要节点不断地将更改按顺序推送到辅助节点，在提交每个事务之前，它可确保数据已至少同步到一个次要副本。 此过程可以保证当主要节点出于任何原因而崩溃时，始终可以故障转移到某个完全同步的节点。 故障转移由 Azure Service Fabric 启动。 次要副本变成新的主要节点后，会创建另一个次要副本，以确保群集中有足够的节点（仲裁集）。 故障转移后，Azure SQL 连接会自动重定向到新的主要节点。
 
 作为一项额外的优势，高级可用性模型提供用于将只读 Azure SQL 连接重定向到某个次要副本的功能。 此功能称为[读取扩展](read-scale-out.md)。它通过主要副本免费提供 100% 的额外计算容量，以减轻分析工作负荷等只读操作的负担。
 
@@ -82,7 +82,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 由于区域冗余数据库的副本在不同的数据中心具有一定距离，因此增加的网络延迟可能会增加提交时间，从而影响某些 OLTP 工作负载的性能。 始终可以通过禁用区域冗余设置返回到单个区域配置。 此过程是一种联机操作，类似于常规的服务层升级。 在此进程结束时，该数据库或池将从区域冗余环迁移到单个区域环，反之亦然。
 
 > [!IMPORTANT]
-> 目前，只有在 "高级" 和 "业务关键" 服务层中，才支持区域冗余数据库和弹性池。 使用业务关键层时，区域冗余配置仅在选择 Gen5 计算硬件时可用。 有关支持区域冗余数据库的区域的最新信息，请参阅 [按区域提供的服务支持](../../availability-zones/az-region.md)。
+> 使用业务关键层时，区域冗余配置仅在选择 Gen5 计算硬件时可用。 有关支持区域冗余数据库的区域的最新信息，请参阅 [按区域提供的服务支持](../../availability-zones/az-region.md)。
 
 > [!NOTE]
 > 此功能在 SQL 托管实例中不可用。
@@ -122,9 +122,9 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 |部署类型|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
-|数据库|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[数据库故障转移](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) 可用于从 Azure CLI 调用 REST API 调用|
-|弹性池|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[弹性池故障转移](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) 可用于从 Azure CLI 调用 REST API 调用|
-|托管实例|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[托管实例 - 故障转移](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|数据库|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[数据库故障转移](/rest/api/sql/databases(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) 可用于从 Azure CLI 调用 REST API 调用|
+|弹性池|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[弹性池故障转移](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) 可用于从 Azure CLI 调用 REST API 调用|
+|托管实例|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[托管实例 - 故障转移](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > 故障转移命令不可用于超大规模数据库的可读次要副本。

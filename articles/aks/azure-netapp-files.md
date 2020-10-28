@@ -4,12 +4,12 @@ description: 了解如何将 Azure NetApp 文件与 Azure Kubernetes 服务集�
 services: container-service
 ms.topic: article
 ms.date: 09/26/2019
-ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bbf0ccaffecd05570848ab487f6d35f5ae5f01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465637"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791556"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>将 Azure NetApp 文件与 Azure Kubernetes 服务集成
 
@@ -21,7 +21,7 @@ ms.locfileid: "84465637"
 > [!IMPORTANT]
 > AKS 群集还必须 [位于支持 Azure NetApp 文件的区域中][anf-regions]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ### <a name="limitations"></a>限制
 
@@ -36,7 +36,7 @@ ms.locfileid: "84465637"
 ## <a name="configure-azure-netapp-files"></a>配置 Azure NetApp 文件
 
 > [!IMPORTANT]
-> 必须先完成订阅的[Azure NetApp 文件候补提交窗体][anf-waitlist]，才能注册*Microsoft netapp*资源提供程序。 在从 Azure NetApp 文件团队收到官方确认电子邮件之前，无法注册资源提供。
+> 必须先完成订阅的 [Azure NetApp 文件候补提交窗体][anf-waitlist]，才能注册 *Microsoft netapp* 资源提供程序。 在从 Azure NetApp 文件团队收到官方确认电子邮件之前，无法注册资源提供。
 
 注册 *Microsoft NetApp* 资源提供程序：
 
@@ -47,7 +47,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > 此操作需要一段时间才能完成。
 
-创建用于 AKS 的 Azure NetApp 帐户时，需要在 **节点** 资源组中创建该帐户。 首先，使用 [az aks show][az-aks-show] 命令获取资源组名称并添加 `--query nodeResourceGroup` 查询参数。 以下示例获取资源组名称*myResourceGroup*中名为*myAKSCluster*的 AKS 群集的节点资源组：
+创建用于 AKS 的 Azure NetApp 帐户时，需要在 **节点** 资源组中创建该帐户。 首先，使用 [az aks show][az-aks-show] 命令获取资源组名称并添加 `--query nodeResourceGroup` 查询参数。 以下示例获取资源组名称 *myResourceGroup* 中名为 *myAKSCluster* 的 AKS 群集的节点资源组：
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -57,7 +57,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-使用[az netappfiles account create][az-netappfiles-account-create]在**节点**资源组和与 AKS 群集相同的区域中创建 Azure NetApp 文件帐户。 以下示例在*MC_myResourceGroup_myAKSCluster_eastus*资源组和*eastus*区域中创建名为*myaccount1*的帐户：
+使用 [az netappfiles account create][az-netappfiles-account-create]在 **节点** 资源组和与 AKS 群集相同的区域中创建 Azure NetApp 文件帐户。 以下示例在 *MC_myResourceGroup_myAKSCluster_eastus* 资源组和 *eastus* 区域中创建名为 *myaccount1* 的帐户：
 
 ```azurecli
 az netappfiles account create \
@@ -106,7 +106,7 @@ VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAM
 SUBNET_NAME=MyNetAppSubnet
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
 VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+UNIQUE_FILE_PATH="myfilepath2" # Please note that file path needs to be unique within all ANF Accounts
 
 az netappfiles volume create \
     --resource-group $RESOURCE_GROUP \
@@ -118,7 +118,7 @@ az netappfiles volume create \
     --vnet $VNET_ID \
     --subnet $SUBNET_ID \
     --usage-threshold $VOLUME_SIZE_GiB \
-    --creation-token $UNIQUE_FILE_PATH \
+    --file-path $UNIQUE_FILE_PATH \
     --protocol-types "NFSv3"
 ```
 
@@ -170,7 +170,7 @@ spec:
 kubectl apply -f pv-nfs.yaml
 ```
 
-使用[kubectl 说明][kubectl-describe]命令验证 PersistentVolume 的*Available* *状态*：
+使用 [kubectl 说明][kubectl-describe]命令验证 PersistentVolume 的 *Available* *状态* ：
 
 ```console
 kubectl describe pv pv-nfs
@@ -200,7 +200,7 @@ spec:
 kubectl apply -f pvc-nfs.yaml
 ```
 
-使用[kubectl 说明][kubectl-describe]命令验证 PersistentVolumeClaim 的*Bound* *状态*：
+使用 [kubectl 说明][kubectl-describe]命令验证 PersistentVolumeClaim 的 *Bound* *状态* ：
 
 ```console
 kubectl describe pvc pvc-nfs
@@ -238,7 +238,7 @@ spec:
 kubectl apply -f nginx-nfs.yaml
 ```
 
-使用[kubectl 说明][kubectl-describe]命令验证 Pod 是否*正在运行*：
+使用 [kubectl 说明][kubectl-describe]命令验证 Pod 是否 *正在运行* ：
 
 ```console
 kubectl describe pod nginx-nfs

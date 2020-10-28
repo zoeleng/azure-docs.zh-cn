@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096090"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791573"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>排查 Azure Database for MySQL 中的复制延迟问题
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 使用 [读取副本](concepts-read-replicas.md) 功能，可以将 Azure Database for MySQL 服务器中的数据复制到只读副本服务器。 可以通过将读取和报告查询从应用程序路由到副本服务器来扩大工作负荷。 此设置可减少对源服务器的压力。 它还改进了应用程序在缩放时的整体性能和延迟。 
 
@@ -31,9 +33,9 @@ ms.locfileid: "92096090"
 
 ## <a name="replication-concepts"></a>复制概念
 
-启用二进制日志时，源服务器会将已提交的事务写入二进制日志中。 二进制日志用于复制。 默认情况下，它为最多支持 16 TB 存储的所有新预配的服务器启用。 在副本服务器上，两个线程在每个副本服务器上运行。 一个线程是 *IO 线程*，另一个线程是 *SQL 线程*：
+启用二进制日志时，源服务器会将已提交的事务写入二进制日志中。 二进制日志用于复制。 默认情况下，它为最多支持 16 TB 存储的所有新预配的服务器启用。 在副本服务器上，两个线程在每个副本服务器上运行。 一个线程是 *IO 线程* ，另一个线程是 *SQL 线程* ：
 
-- IO 线程连接到源服务器并请求更新的二进制日志。 此线程接收二进制日志更新。 这些更新保存在副本服务器上，该服务器位于名为 *中继日志*的本地日志中。
+- IO 线程连接到源服务器并请求更新的二进制日志。 此线程接收二进制日志更新。 这些更新保存在副本服务器上，该服务器位于名为 *中继日志* 的本地日志中。
 - SQL 线程读取中继日志，然后在副本服务器上应用数据更改。
 
 ## <a name="monitoring-replication-latency"></a>监视复制延迟

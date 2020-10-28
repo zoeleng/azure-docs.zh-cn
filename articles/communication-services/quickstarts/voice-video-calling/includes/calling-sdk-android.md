@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126785"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886481"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -114,11 +114,21 @@ Call groupCall = callAgent.call(participants, startCallOptions);
 > 目前仅支持一个传出的本地视频流来向视频发出呼叫，你必须使用 API 枚举本地相机 `deviceManager` `getCameraList` 。
 选择所需的照相机后，可以使用它来构造 `LocalVideoStream` 实例，并将其 `videoOptions` 作为数组中的项传递 `localVideoStream` 给 `call` 方法。
 呼叫连接后，会自动开始将视频流从所选照相机发送到其他 () 的参与者。
+
+> [!NOTE]
+> 由于隐私方面的问题，如果未在本地预览视频，则不会将视频共享到呼叫。
+有关更多详细信息，请参阅 [本地相机预览](#local-camera-preview) 。
 ```java
 Context appContext = this.getApplicationContext();
 VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentVideoStream);
+
+// Render a local preview of video so the user knows that their video is being shared
+Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+// Attach the uiView to a viewable location on the app at this point
+layout.addView(uiView);
 
 CommunicationUser[] participants = new CommunicationUser[]{ new CommunicationUser("<acs user id>") };
 StartCallOptions startCallOptions = new StartCallOptions();
@@ -141,7 +151,7 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 ### <a name="overview"></a>概述
 移动推送通知是在移动设备上看到的弹出通知。 对于调用，我们将重点介绍 VoIP (通过 Internet 协议) 推送通知。 我们将注册推送通知，处理推送通知，然后取消注册推送通知。
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 
 使用云消息 (FCM) 启用，并将 Firebase 云消息服务连接到 Azure 通知中心实例来设置 Firebase 帐户。 有关详细信息，请参阅 [通信服务通知](https://docs.microsoft.com/azure/communication-services/concepts/notifications) 。
 此外，本教程假定你使用 Android Studio 版本3.6 或更高版本来生成应用程序。
@@ -220,7 +230,7 @@ catch(Exception e) {
 
 ### <a name="push-notification-handling"></a>推送通知处理
 
-若要接收传入的调用推送通知，请在具有有效负载的*CallAgent*实例上调用*HandlePushNotification ( # B1* 。
+若要接收传入的调用推送通知，请在具有有效负载的 *CallAgent* 实例上调用 *HandlePushNotification ( # B1* 。
 
 若要从 Firebase 云消息传送中获取有效负载，请首先创建一个新的服务 (文件 > 新的 > 服务 > 服务) 扩展 *FirebaseMessagingService* Firebase 客户端库类，并重写 `onMessageReceived` 方法。 此方法是在 Firebase Cloud 消息传递将推送通知传递到应用程序时调用的事件处理程序。
 
@@ -252,7 +262,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- 检索有效负载后，可以通过对*CallAgent*实例调用*handlePushNotification*方法，将其传递给*通信服务*客户端库。 `CallAgent`通过 `createCallAgent(...)` 在类上调用方法来创建实例 `CallClient` 。
+- 检索有效负载后，可以通过对 *CallAgent* 实例调用 *handlePushNotification* 方法，将其传递给 *通信服务* 客户端库。 `CallAgent`通过 `createCallAgent(...)` 在类上调用方法来创建实例 `CallClient` 。
 
 ```java
 try {
@@ -607,9 +617,9 @@ currentVideoStream = new LocalVideoStream(videoDevice, appContext);
 videoOptions = new VideoOptions(currentVideoStream);
 
 Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
-View uiView previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 
-// Attach the renderingSurface to a viewable location on the app at this point
+// Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
 

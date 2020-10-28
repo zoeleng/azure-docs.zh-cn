@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c54da3621df1e5d49e7269781e6ae33fc9c0923
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675669"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791947"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>如何在 c # .NET 应用程序中使用 Azure.Search.Documents
 
@@ -23,7 +23,7 @@ ms.locfileid: "92675669"
 
 ## <a name="about-version-11"></a>关于版本11
 
-适用于 .NET 的 azure SDK 添加了一个新的客户端库，该程序与在功能上等效于 [Microsoft](/dotnet/api/overview/azure/search/client10) Azure 的 azure sdk 团队的客户端库。 一些示例包括 [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) 密钥身份验证和 [System.Text.Js。JSON 序列化的序列化](/dotnet/api/system.text.json.serialization) 。
+适用 [于 .net](/dotnet/api/overview/azure/search/client10)的 azure sdk 添加了一个来自 azure sdk 团队的新 [**Azure.Search.Documents**](/dotnet/api/overview/azure/search)客户端库，此库在功能上与 一些示例包括 [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) 密钥身份验证和 [System.Text.Js。JSON 序列化的序列化](/dotnet/api/system.text.json.serialization) 。
 
 与以前的版本一样，你可以使用此库来执行以下操作：
 

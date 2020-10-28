@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 3330b4d5df366a5e886157e875f40d7e370c7442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542872"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791981"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>如何在认知搜索 Azure 中使用 blob 索引器和技能集为加密的 blob 编制索引
 
@@ -52,11 +52,11 @@ ms.locfileid: "91542872"
 
 在操作上，DecryptBlobFile 技能采用每个 blob 的 URL 和 SAS 令牌作为输入，并使用 Azure 认知搜索需要的文件引用协定输出下载的解密文件。 请记住，DecryptBlobFile 需要加密密钥才能执行解密。 在设置过程中，你还将创建一个访问策略，用于授予对 Azure Key Vault 中的加密密钥的 DecryptBlobFile 函数访问权限。
 
-1. 单击 " [DecryptBlobFile 登陆" 页](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment)上的 "**部署到 Azure** " 按钮，该按钮将在 Azure 门户中打开提供的资源管理器模板。
+1. 单击 " [DecryptBlobFile 登陆" 页](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment)上的 " **部署到 Azure** " 按钮，该按钮将在 Azure 门户中打开提供的资源管理器模板。
 
 1. 选择 **Azure Key Vault 实例所在的订阅** (本指南在你选择不同的订阅) 时不起作用，请选择现有资源组或创建新的资源组 (如果你创建新的资源组，则还需要选择要部署到) 的区域。
 
-1. 选择 "查看" 和 " **创建**"，确保同意条款，然后选择 " **创建** " 以部署 Azure 功能。
+1. 选择 "查看" 和 " **创建** "，确保同意条款，然后选择 " **创建** " 以部署 Azure 功能。
 
     ![门户中的 ARM 模板](media/indexing-encrypted-blob-files/arm-template.jpg "门户中的 ARM 模板")
 
@@ -64,13 +64,13 @@ ms.locfileid: "91542872"
 
 1. 导航到门户中的 Azure Key Vault 实例。 在 Azure Key Vault 中[创建一个访问策略](../key-vault/general/assign-access-policy-portal.md)，用于授予对自定义技能的密钥访问权限。
  
-    1. 在 "**设置**" 下，选择 "**访问策略**"，然后选择 "**添加访问策略**"
+    1. 在 " **设置** " 下，选择 " **访问策略** "，然后选择 " **添加访问策略** "
      
        ![Keyvault 添加访问策略](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Keyvault 访问策略")
 
-    1. 在 " **从模板配置**" 下，选择 **Azure Data Lake Storage 或 Azure 存储**。
+    1. 在 " **从模板配置** " 下，选择 **Azure Data Lake Storage 或 Azure 存储** 。
 
-    1. 对于 "主体"，请选择已部署的 Azure 函数实例。 你可以使用在步骤2中用于创建它的资源前缀（其默认前缀值为 " **psdbf**"）来搜索它。
+    1. 对于 "主体"，请选择已部署的 Azure 函数实例。 你可以使用在步骤2中用于创建它的资源前缀（其默认前缀值为 " **psdbf** "）来搜索它。
 
     1. 不要选择 "授权应用程序的任何内容" 选项。
      
@@ -86,7 +86,7 @@ ms.locfileid: "91542872"
     
         ![函数 URL](media/indexing-encrypted-blob-files/function-uri.jpg "在哪里可以找到 Azure Function URL")
 
-    1. 主机密钥代码，可通过导航到 " **应用密钥**" 找到，单击此项可显示 **默认** 密钥并复制值。
+    1. 主机密钥代码，可通过导航到 " **应用密钥** " 找到，单击此项可显示 **默认** 密钥并复制值。
      
         ![函数主机键代码](media/indexing-encrypted-blob-files/function-host-key.jpg "在哪里可以找到 Azure 函数主机键代码")
 
@@ -108,7 +108,7 @@ AI 扩充和技能组合执行由认知服务提供支持，其中包括用于�
 
 2. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥 。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-javascript/service-name-and-keys.png)
 
 所有请求要求在发送到服务的每个请求的标头中指定 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -128,7 +128,7 @@ AI 扩充和技能组合执行由认知服务提供支持，其中包括用于�
 
 在“变量”选项卡上，可以添加 Postman 每次在遇到双大括号中的值时要替换成的值。 例如，Postman 会将符号 `{{admin-key}}` 替换成为 `admin-key` 设置的当前值。 Postman 将在 URL、标头和请求正文等内容中进行这种替换。 
 
-若要获取的值 `admin-key` ，请使用前面记下的 Azure 认知搜索管理 api 密钥。 设置 `search-service-name` 为要使用的 Azure 认知搜索服务的名称。 `storage-connection-string`使用存储帐户的 "**访问密钥**" 选项卡上的值进行设置，并将设置 `storage-container-name` 为存储加密文件的存储帐户上的 blob 容器的名称。 设置 `function-uri` 为之前记下的 Azure FUNCTION URL，并将设置 `function-code` 为之前记下的 azure 函数主机密钥代码。 其他值可保留默认设置。
+若要获取的值 `admin-key` ，请使用前面记下的 Azure 认知搜索管理 api 密钥。 设置 `search-service-name` 为要使用的 Azure 认知搜索服务的名称。 `storage-connection-string`使用存储帐户的 " **访问密钥** " 选项卡上的值进行设置，并将设置 `storage-container-name` 为存储加密文件的存储帐户上的 blob 容器的名称。 设置 `function-uri` 为之前记下的 Azure FUNCTION URL，并将设置 `function-code` 为之前记下的 azure 函数主机密钥代码。 其他值可保留默认设置。
 
 ![Postman 应用变量选项卡](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Postman 的变量窗口")
 
@@ -140,21 +140,21 @@ AI 扩充和技能组合执行由认知服务提供支持，其中包括用于�
 | `storage-connection-string` | 在存储帐户中的“访问密钥”选项卡上，选择“密钥 1” > “连接字符串”。 | 
 | `storage-container-name` | 包含要编制索引的加密文件的 blob 容器的名称。 | 
 | `function-uri` |  在主页上的 " **Essentials** " 下的 Azure 函数中。 | 
-| `function-code` | 在 Azure 函数中，导航到 " **应用程序密钥**"，单击 "显示 **默认** 密钥"，然后复制值。 | 
+| `function-code` | 在 Azure 函数中，导航到 " **应用程序密钥** "，单击 "显示 **默认** 密钥"，然后复制值。 | 
 | `api-version` | 保留为“2020-06-30”。 |
-| `datasource-name` | 保留为 **加密 blob-ds**。 | 
-| `index-name` | 保留为 **加密 blob-idx**。 | 
-| `skillset-name` | 保留为 **加密 blob-ss**。 | 
-| `indexer-name` | 保留为 **加密 blob-ixr**。 | 
+| `datasource-name` | 保留为 **加密 blob-ds** 。 | 
+| `index-name` | 保留为 **加密 blob-idx** 。 | 
+| `skillset-name` | 保留为 **加密 blob-ss** 。 | 
+| `indexer-name` | 保留为 **加密 blob-ixr** 。 | 
 
 ### <a name="review-the-request-collection-in-postman"></a>查看 Postman 中的请求集合
 
 运行本指南时，必须发出四个 HTTP 请求： 
 
-- **创建索引的 PUT 请求**：此索引保存 Azure 认知搜索使用和返回的数据。
-- **POST 请求以创建数据源**：此数据源会将 Azure 认知搜索服务连接到你的存储帐户，从而将加密的 blob 文件连接起来。 
-- **PUT 请求以创建技能组合**：技能组合指定将解密 blob 文件数据的 Azure 函数的自定义技能定义，以及在解密后从每个文档中提取文本的 [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) 。
-- **创建索引器的 PUT 请求**：运行索引器可读取数据、应用技能集并存储结果。 必须在最后运行此请求。
+- **创建索引的 PUT 请求** ：此索引保存 Azure 认知搜索使用和返回的数据。
+- **POST 请求以创建数据源** ：此数据源会将 Azure 认知搜索服务连接到你的存储帐户，从而将加密的 blob 文件连接起来。 
+- **PUT 请求以创建技能组合** ：技能组合指定将解密 blob 文件数据的 Azure 函数的自定义技能定义，以及在解密后从每个文档中提取文本的 [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) 。
+- **创建索引器的 PUT 请求** ：运行索引器可读取数据、应用技能集并存储结果。 必须在最后运行此请求。
 
 [源代码](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json)包含具有四个请求的 Postman 集合以及一些有用的跟进请求。 若要发出请求，请在 Postman 中选择请求的选项卡，并为每个请求选择 " **发送** "。
 

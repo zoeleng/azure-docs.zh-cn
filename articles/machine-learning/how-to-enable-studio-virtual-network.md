@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503209"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792015"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -36,7 +36,7 @@ ms.locfileid: "92503209"
 
 
 > [!IMPORTANT]
-> 如果你的工作区位于 __主权云中__，例如 azure 政府版或 Azure 中国世纪互联，则集成笔记本 _不_ 支持使用虚拟网络中的存储。 但你可以从计算实例使用 Jupyter Notebook。 有关详细信息，请参阅[访问计算实例笔记本中的数据](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)部分。
+> 如果你的工作区位于 __主权云中__ ，例如 azure 政府版或 Azure 中国世纪互联，则集成笔记本 _不_ 支持使用虚拟网络中的存储。 但你可以从计算实例使用 Jupyter Notebook。 有关详细信息，请参阅[访问计算实例笔记本中的数据](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)部分。
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -53,7 +53,7 @@ ms.locfileid: "92503209"
 
 如果要从虚拟网络内的资源（例如，计算实例或虚拟机）访问工作室，则必须允许从虚拟网络到工作室的出站流量。 
 
-例如，如果使用网络安全组 (NSG) 来限制出站流量，请将一条规则添加到__服务标记__目标 __AzureFrontDoor.Frontend__。
+例如，如果使用网络安全组 (NSG) 来限制出站流量，请将一条规则添加到 __服务标记__ 目标 __AzureFrontDoor.Frontend__ 。
 
 ## <a name="access-data-using-the-studio"></a>使用工作室访问数据
 
@@ -66,9 +66,6 @@ ms.locfileid: "92503209"
 * 提交 AutoML 试验。
 * 启动标记项目。
 
-> [!NOTE]
-> [ML 辅助数据标签](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 不支持虚拟网络后保护的默认存储帐户。 对于 ML 辅助数据标记，必须使用非默认存储帐户。 可在虚拟网络后面保护非默认存储帐户。 
-
 工作室支持从虚拟网络中的以下数据存储类型读取数据：
 
 * Azure Blob
@@ -76,7 +73,11 @@ ms.locfileid: "92503209"
 * Azure Data Lake Storage Gen2
 * Azure SQL 数据库
 
-### <a name="configure-datastores-to-use-managed-identity"></a>将数据存储配置为使用托管标识
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>授予工作区托管标识 __读取__ 者访问存储专用链接的权限
+
+仅当使用 [专用终结点](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)将 Azure 存储帐户添加到虚拟网络时，才需要执行此步骤。 有关详细信息，请参阅 [读者](../role-based-access-control/built-in-roles.md#reader) 内置角色。
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>配置数据存储以使用工作区托管标识
 
 Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存储帐户。 使用以下步骤，将数据存储配置为使用托管标识。 
 
@@ -127,7 +128,7 @@ Azure Data Lake Storage Gen1 仅支持 POSIX 样式的访问控制列表。 可�
 若要为管道设置新的默认存储，请执行以下操作：
 
 1. 在管道草稿中，选择管道标题附近的“设置”齿轮图标。
-1. 选择 " **选择默认数据存储**"。
+1. 选择 " **选择默认数据存储** "。
 1. 指定新的数据存储。
 
 还可以基于每个模块替代默认数据存储。 这使你可以控制每一单个模块的存储位置。

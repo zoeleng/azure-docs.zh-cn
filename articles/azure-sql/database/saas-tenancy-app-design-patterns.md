@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250684"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793222"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>多租户 SaaS 数据库租户模式
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,11 +26,11 @@ ms.locfileid: "85250684"
 
 ## <a name="a-saas-concepts-and-terminology"></a>A. SaaS 概念和术语
 
-在软件即服务 (SaaS) 模型中，贵公司不会销售软件的*许可证*。 而是，每个客户都会向贵公司支付租金，使每个客户成为贵公司的*租户*。
+在软件即服务 (SaaS) 模型中，贵公司不会销售软件的 *许可证* 。 而是，每个客户都会向贵公司支付租金，使每个客户成为贵公司的 *租户* 。
 
 作为支付租金的回报，每个租户都可以访问 SaaS 应用程序组件，并将数据存储在 SaaS 系统中。
 
-术语*租户模型*是指租户存储数据的组织方式：
+术语 *租户模型* 是指租户存储数据的组织方式：
 
 - *单租户：* &nbsp;每个数据库仅存储一个租户的数据。
 - *多租户：* &nbsp;每个数据库都存储来自多个单独租户 (的数据，以及用于保护数据隐私) 的机制。
@@ -62,7 +62,7 @@ ms.locfileid: "85250684"
 
 - **可定制性：** &nbsp;支持特定于租户或特定于租户的架构自定义。
 
-有关租户的讨论侧重于数据层。**  但是，请花费片刻时间思考一下应用程序层。**  应用程序层被视为单一实体。  如果将应用程序划分成多个小型组件，所选的租户模型可能会更改。  在所用的租户和存储技术或平台方面，可以不同的方式对待某些组件。
+有关租户的讨论侧重于数据层。   但是，请花费片刻时间思考一下应用程序层。   应用程序层被视为单一实体。  如果将应用程序划分成多个小型组件，所选的租户模型可能会更改。  在所用的租户和存储技术或平台方面，可以不同的方式对待某些组件。
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. 包含单租户数据库的独立单租户应用
 
@@ -82,7 +82,7 @@ ms.locfileid: "85250684"
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. 采用“每个租户各有数据库”模型的多租户应用
 
-接下来的这个模式使用包含许多数据库的多租户应用程序，这些数据库都是单租户数据库。  针对每个新租户预配一个新数据库。  可通过为每个节点添加更多的资源来纵向扩展应用程序层。**  或者，可通过添加更多的节点来横向扩展应用。**  缩放基于工作负荷，不受各个数据库的数目或规模的影响。
+接下来的这个模式使用包含许多数据库的多租户应用程序，这些数据库都是单租户数据库。  针对每个新租户预配一个新数据库。  可通过为每个节点添加更多的资源来纵向扩展应用程序层。   或者，可通过添加更多的节点来横向扩展应用。   缩放基于工作负荷，不受各个数据库的数目或规模的影响。
 
 ![设计采用“每个租户各有数据库”模型的多租户应用。][image-mt-app-db-per-tenant-132d]
 
@@ -204,7 +204,7 @@ SQL 数据库提供一个可与分片库和目录数据库结合使用的拆分/
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -221,4 +221,3 @@ SQL 数据库提供一个可与分片库和目录数据库结合使用的拆分/
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "使用弹性池设计采用“每个租户各有数据库”模型的多租户应用。"
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "设计包含分片多租户数据库的多租户应用。"
-

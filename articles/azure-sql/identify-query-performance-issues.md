@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619757"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791743"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL 数据库中可检测的查询性能瓶颈类型
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ ms.locfileid: "91619757"
 
 ![工作负荷状态](./media/identify-query-performance-issues/workload-states.png)
 
-**与运行相关的问题**：与运行相关的问题通常与编译问题相关，这些编译问题导致查询计划欠佳，或导致与资源不足或过度使用相关的执行问题。
-**与等待相关的问题**：与等待相关的问题通常与以下因素有关：
+**与运行相关的问题** ：与运行相关的问题通常与编译问题相关，这些编译问题导致查询计划欠佳，或导致与资源不足或过度使用相关的执行问题。
+**与等待相关的问题** ：与等待相关的问题通常与以下因素有关：
 
 - 锁（阻塞）
 - I/O
@@ -44,15 +44,15 @@ SQL 查询优化器生成的欠佳计划可能是查询性能缓慢的原因。 
   - 使用[智能见解](database/intelligent-insights-troubleshoot-performance.md#missing-index)。
   - 适用于单一数据库和共用数据库的[数据库顾问](database/database-advisor-implement-performance-recommendations.md)。
   - DMV。 此示例演示了缺少索引的影响、如何使用 DMV 检测[缺少的索引](database/performance-guidance.md#identifying-and-adding-missing-indexes)，以及实施有关缺少索引的建议所带来的影响。
-- 尝试应用[查询提示](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)、[更新统计信息](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql)或[重新生成索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)，以获得更好的计划。 在 Azure SQL 数据库中启用[自动计划更正](../azure-sql/database/automatic-tuning-overview.md)，以自动缓解这些问题。
+- 尝试应用[查询提示](/sql/t-sql/queries/hints-transact-sql-query)、[更新统计信息](/sql/t-sql/statements/update-statistics-transact-sql)或[重新生成索引](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)，以获得更好的计划。 在 Azure SQL 数据库中启用[自动计划更正](../azure-sql/database/automatic-tuning-overview.md)，以自动缓解这些问题。
 
   此[示例](database/performance-guidance.md#query-tuning-and-hinting)演示了参数化查询导致查询计划欠佳的影响、如何检测此状况，以及如何使用查询提示解决问题。
 
-- 尝试更改数据库兼容性级别并实施智能查询处理。 SQL 查询优化器可能会生成不同的查询计划，具体取决于数据库的兼容性级别。 更高的兼容性级别提供更多的[智能查询处理功能](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing)。
+- 尝试更改数据库兼容性级别并实施智能查询处理。 SQL 查询优化器可能会生成不同的查询计划，具体取决于数据库的兼容性级别。 更高的兼容性级别提供更多的[智能查询处理功能](/sql/relational-databases/performance/intelligent-query-processing)。
 
-  - 有关查询处理的详细信息，请参阅[查询处理体系结构指南](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide)。
-  - 若要更改数据库兼容性级别并详细了解兼容性级别之间的差异，请参阅 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)。
-  - 若要详细了解基数估计，请参阅[基数估计](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server)
+  - 有关查询处理的详细信息，请参阅[查询处理体系结构指南](/sql/relational-databases/query-processing-architecture-guide)。
+  - 若要更改数据库兼容性级别并详细了解兼容性级别之间的差异，请参阅 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)。
+  - 若要详细了解基数估计，请参阅[基数估计](/sql/relational-databases/performance/cardinality-estimation-sql-server)
 
 ## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>解析存在欠佳查询执行计划的查询
 
@@ -66,19 +66,19 @@ SQL 查询优化器生成的欠佳计划可能是查询性能缓慢的原因。 
 
 有多种解决方法可以缓解 PSP 问题。 每种解决方法各有利弊：
 
-- 在每次执行查询时使用 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查询提示。 此解决方法以编译时间和 CPU 增加为代价来换取更好的计划质量。 对于需要高吞吐量的工作负荷，通常无法使用 `RECOMPILE` 选项。
-- 使用 [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查询提示将实际参数值替代为典型的参数值，以便为大部分可能的参数值生成一个足够好的计划。 此选项要求充分了解最佳参数值和相关的计划特征。
-- 使用 [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查询提示替代实际参数值，并改用密度向量平均值。 还可以将传入的参数值捕获到局部变量中，然后在谓词内使用局部变量，而不是使用参数本身。 对于此修复方法，平均密度必须足够好。
-- 使用 [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查询提示完全禁用参数探查。
-- 使用 [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查询提示防止在缓存中重新编译。 此解决方法假定缓存中已有的通用计划已经足够好。 还可以禁用统计信息自动更新，以减少逐出良好计划而编译新的不良计划的可能性。
-- 显式使用 [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查询提示，通过重写查询并在查询文本中添加提示来强制执行计划。 或者，使用查询存储或启用[自动优化](../azure-sql/database/automatic-tuning-overview.md)来设置特定的计划。
+- 在每次执行查询时使用 [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) 查询提示。 此解决方法以编译时间和 CPU 增加为代价来换取更好的计划质量。 对于需要高吞吐量的工作负荷，通常无法使用 `RECOMPILE` 选项。
+- 使用 [OPTION (OPTIMIZE FOR…)](/sql/t-sql/queries/hints-transact-sql-query) 查询提示将实际参数值替代为典型的参数值，以便为大部分可能的参数值生成一个足够好的计划。 此选项要求充分了解最佳参数值和相关的计划特征。
+- 使用 [OPTION (OPTIMIZE FOR UNKNOWN)](/sql/t-sql/queries/hints-transact-sql-query) 查询提示替代实际参数值，并改用密度向量平均值。 还可以将传入的参数值捕获到局部变量中，然后在谓词内使用局部变量，而不是使用参数本身。 对于此修复方法，平均密度必须足够好。
+- 使用 [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query) 查询提示完全禁用参数探查。
+- 使用 [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) 查询提示防止在缓存中重新编译。 此解决方法假定缓存中已有的通用计划已经足够好。 还可以禁用统计信息自动更新，以减少逐出良好计划而编译新的不良计划的可能性。
+- 显式使用 [USE PLAN](/sql/t-sql/queries/hints-transact-sql-query) 查询提示，通过重写查询并在查询文本中添加提示来强制执行计划。 或者，使用查询存储或启用[自动优化](../azure-sql/database/automatic-tuning-overview.md)来设置特定的计划。
 - 将单个过程替换为一组嵌套的过程，可以根据条件逻辑和关联的参数值来使用其中每个过程。
 - 创建动态字符串执行来替代静态过程定义。
 
 有关解决 PSP 问题的详细信息，请参阅以下博客文章：
 
-- [I smell a parameter](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)（探查参数）
-- [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)（参数化查询的 Conor 与动态 SQL、过程与计划质量）
+- [I smell a parameter](/archive/blogs/queryoptteam/i-smell-a-parameter)（探查参数）
+- [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)（参数化查询的 Conor 与动态 SQL、过程与计划质量）
 - [SQL query optimization techniques in SQL Server:Parameter sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)（SQL Server 中的 SQL 查询优化方法：参数探查）
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>参数化不当而导致的编译活动
@@ -137,13 +137,13 @@ ORDER BY count (distinct p.query_id) DESC
 
 重新编译（或者在缓存逐出后重新编译）仍可能导致从生成与原始计划相同的查询执行计划。 如果计划与以前的或原始的计划不同，可能的解释如下：
 
-- **更改了物理设计**：例如，新建的索引可以更有效地解决查询要求。 如果查询优化器认为利用这些新索引比最初选择用于第一个版本的查询执行的数据结构更有利，则可以在新的编译中使用这些新索引。 对引用的对象进行任何物理更改可能会导致在编译时生成新的计划选项。
+- **更改了物理设计** ：例如，新建的索引可以更有效地解决查询要求。 如果查询优化器认为利用这些新索引比最初选择用于第一个版本的查询执行的数据结构更有利，则可以在新的编译中使用这些新索引。 对引用的对象进行任何物理更改可能会导致在编译时生成新的计划选项。
 
-- **服务器资源差异**：如果一个系统中的计划不同于另一个系统中的计划，则资源可用性（例如可用的处理器数）可能会影响生成的计划。 例如，如果一个系统的处理器数较多，则可能会选择并行计划。
+- **服务器资源差异** ：如果一个系统中的计划不同于另一个系统中的计划，则资源可用性（例如可用的处理器数）可能会影响生成的计划。 例如，如果一个系统的处理器数较多，则可能会选择并行计划。
 
-- **不同的统计信息**：与引用的对象关联的统计信息发生了更改，或者与原始系统的统计信息有本质的差别。 如果统计信息发生更改并重新编译，则查询优化器将使用从更改时间开始的统计信息。 修改后的统计信息的数据分布和频率可能不同于原始编译中的情况。 这些更改用于创建基数估算。 （基数估算是预计要流经逻辑查询树的行数。）更改基数估算值可以引导我们选择不同的物理运算符和关联的操作顺序。 即使对统计信息进行少量的更改，也可能会导致查询执行计划发生变化。
+- **不同的统计信息** ：与引用的对象关联的统计信息发生了更改，或者与原始系统的统计信息有本质的差别。 如果统计信息发生更改并重新编译，则查询优化器将使用从更改时间开始的统计信息。 修改后的统计信息的数据分布和频率可能不同于原始编译中的情况。 这些更改用于创建基数估算。 （基数估算是预计要流经逻辑查询树的行数。）更改基数估算值可以引导我们选择不同的物理运算符和关联的操作顺序。 即使对统计信息进行少量的更改，也可能会导致查询执行计划发生变化。
 
-- **更改了数据库兼容性级别或基数估算器版本**：更改数据库兼容性级别可以启用新的策略和功能，从而可能导致生成不同的查询执行计划。 除了数据库兼容性级别以外，禁用或启用跟踪标志 4199 或更改数据库范围的配置 QUERY_OPTIMIZER_HOTFIXES 的状态也可能会影响编译时的查询执行计划选项。 跟踪标志 9481（强制旧式 CE）和 2312（强制默认 CE）也会影响计划。
+- **更改了数据库兼容性级别或基数估算器版本** ：更改数据库兼容性级别可以启用新的策略和功能，从而可能导致生成不同的查询执行计划。 除了数据库兼容性级别以外，禁用或启用跟踪标志 4199 或更改数据库范围的配置 QUERY_OPTIMIZER_HOTFIXES 的状态也可能会影响编译时的查询执行计划选项。 跟踪标志 9481（强制旧式 CE）和 2312（强制默认 CE）也会影响计划。
 
 ## <a name="resource-limits-issues"></a>资源限制问题
 
@@ -173,11 +173,11 @@ ORDER BY count (distinct p.query_id) DESC
 
 要得出是工作负荷量变化导致 CPU 问题的结论并不容易。 请考虑以下因素：
 
-- **资源使用率发生了变化**：以 CPU 使用率长时间增加到 80% 的情况为例。 单凭 CPU 使用率并不能说明工作负荷量发生了变化。 即使应用程序执行的工作负荷完全相同，查询执行计划的回归和数据分布的变化也有可能导致资源使用率的增加。
+- **资源使用率发生了变化** ：以 CPU 使用率长时间增加到 80% 的情况为例。 单凭 CPU 使用率并不能说明工作负荷量发生了变化。 即使应用程序执行的工作负荷完全相同，查询执行计划的回归和数据分布的变化也有可能导致资源使用率的增加。
 
-- **出现了新查询**：应用程序有可能在不同时间发出一组新的查询。
+- **出现了新查询** ：应用程序有可能在不同时间发出一组新的查询。
 
-- **请求数量增加或减少**：这种情况最能说明工作负荷量的变化。 查询数量并不一定与资源利用率增加相对应。 但是，在其他因素不变的前提下，该指标仍然是一个重要信号。
+- **请求数量增加或减少** ：这种情况最能说明工作负荷量的变化。 查询数量并不一定与资源利用率增加相对应。 但是，在其他因素不变的前提下，该指标仍然是一个重要信号。
 
 使用智能见解检测[工作负荷增大](database/intelligent-insights-troubleshoot-performance.md#workload-increase)和[计划回归](database/intelligent-insights-troubleshoot-performance.md#plan-regression)。
 
@@ -185,7 +185,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 消除与执行问题相关的欠佳计划和等待相关问题后，性能问题通常与查询可能正在等待某个资源有关。 等待相关的问题的可能原因如下：
 
-- **阻塞**：
+- **阻塞** ：
 
   一个查询可能持有数据库中某些对象的锁，而其他查询正在尝试访问相同的对象。 可以使用 [DMV](database/monitoring-with-dmvs.md#monitoring-blocked-queries) 或[智能见解](database/intelligent-insights-troubleshoot-performance.md#locking)来识别阻塞的查询。
 - **IO 问题**
@@ -203,16 +203,16 @@ ORDER BY count (distinct p.query_id) DESC
 用于显示最常见等待类别的最常用方法如下：
 
 - 使用智能见解识别由于[等待时间增加](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)而出现性能降低的查询
-- 使用[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)查找每个查询在不同时间段的等待统计信息。 在查询存储中，等待类型合并成等待类别。 可在 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table) 中找到等待类别到等待类型的映射。
-- 使用 [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) 返回有关查询操作期间执行的线程遇到的所有等待的信息。 可以使用此聚合视图来诊断 Azure SQL 数据库以及特定查询和批的性能问题。 查询可能正在等待资源，发生了队列等待或外部等待。
-- 使用 [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) 返回有关正在等待某个资源的任务队列的信息。
+- 使用[查询存储](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)查找每个查询在不同时间段的等待统计信息。 在查询存储中，等待类型合并成等待类别。 可在 [sys.query_store_wait_stats](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table) 中找到等待类别到等待类型的映射。
+- 使用 [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) 返回有关查询操作期间执行的线程遇到的所有等待的信息。 可以使用此聚合视图来诊断 Azure SQL 数据库以及特定查询和批的性能问题。 查询可能正在等待资源，发生了队列等待或外部等待。
+- 使用 [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) 返回有关正在等待某个资源的任务队列的信息。
 
 在 CPU 使用率偏高时，如果存在以下情况，查询存储和等待统计信息可能不会反映 CPU 使用率：
 
 - CPU 消耗量较高的查询仍在执行。
 - 发生故障转移时，正在运行 CPU 消耗量较高的查询。
 
-跟踪查询存储和等待统计信息的 DMV 仅显示成功完成的查询和超时查询的结果。 它们不显示当前正在执行的语句的数据（直到其完成）。 使用动态管理视图 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 跟踪当前正在执行的查询以及相关的工作线程时间。
+跟踪查询存储和等待统计信息的 DMV 仅显示成功完成的查询和超时查询的结果。 它们不显示当前正在执行的语句的数据（直到其完成）。 使用动态管理视图 [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 跟踪当前正在执行的查询以及相关的工作线程时间。
 
 > [!TIP]
 > 其他工具：

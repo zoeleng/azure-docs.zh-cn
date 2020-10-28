@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
-ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321333"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793154"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL 数据库和 Azure SQL 托管实例服务层级
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,12 +43,12 @@ Azure SQL 数据库还有一个服务层级：
 |  **在以下资源类型中可用：** ||SQL 数据库/ SQL 托管实例 | 单一 Azure SQL 数据库 | SQL 数据库/ SQL 托管实例 |
 | **计算大小**| SQL 数据库 | 1 - 80 个 vCore | 1 - 80 个 vCore | 1 - 80 个 vCore |
 | | SQL 托管实例 | 4、8、16、24、32、40、64、80 个 vCore | 空值 | 4、8、16、24、32、40、64、80 个 vCore |
-| | SQL 托管实例池 | 2，4，8，16，24，32，40，64，80 Vcore | 不适用 | 不适用 |
+| | SQL 托管实例池 | 2，4，8，16，24，32，40，64，80 Vcore | 空值 | 空值 |
 | **存储类型** | 全部 | 高级远程存储（每个实例） | 具有本地 SSD 缓存的分离的存储（每个实例） | 超快的本地 SSD 存储（每个实例） |
 | **数据库大小** | SQL 数据库 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
-| | SQL 托管实例  | 32 GB – 8 TB | 不适用 | 32 GB – 4 TB |
+| | SQL 托管实例  | 32 GB – 8 TB | 空值 | 32 GB – 4 TB |
 | **存储大小** | SQL 数据库 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
-| | SQL 托管实例  | 32 GB – 8 TB | 不适用 | 32 GB – 4 TB |
+| | SQL 托管实例  | 32 GB – 8 TB | 空值 | 32 GB – 4 TB |
 | **TempDB 大小** | SQL 数据库 | [每个 vCore 32 GB](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [每个 vCore 32 GB](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [每个 vCore 32 GB](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | SQL 托管实例  | [每个 vCore 24 GB](../managed-instance/resource-limits.md#service-tier-characteristics) | 空值 | 最大 4 TB - [受存储大小限制](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **日志写入吞吐量** | SQL 数据库 | [每个 vCore 1.875 MB/秒（最大 30 MB/秒）](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/秒 | [每个 vCore 6 MB/秒（最大 96 MB/秒）](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
@@ -58,7 +58,7 @@ Azure SQL 数据库还有一个服务层级：
 |**内存中 OLTP** | | 空值 | 空值 | 可用 |
 |**只读副本**| | 0 内置 <br> 0 - 4 使用[异地复制](active-geo-replication-overview.md) | 0 - 4 内置 | 1 内置，包含在价格中 <br> 0 - 4 使用[异地复制](active-geo-replication-overview.md) |
 |**定价/计费** | SQL 数据库 | [vCore、保留存储和备份存储](https://azure.microsoft.com/pricing/details/sql-database/single/)收费。 <br/>IOPS 不收取费用。 | [每个副本的 vCore 和已用存储](https://azure.microsoft.com/pricing/details/sql-database/single/)收费。 <br/>尚未收费的 IOPS。 | [vCore、保留存储和备份存储](https://azure.microsoft.com/pricing/details/sql-database/single/)收费。 <br/>IOPS 不收取费用。 |
-|| SQL 托管实例 | [vCore、保留存储和备份存储](https://azure.microsoft.com/pricing/details/sql-database/managed/)收费。 <br/>IOPS 不收取费用| 不适用 | [vCore、保留存储和备份存储](https://azure.microsoft.com/pricing/details/sql-database/managed/)收费。 <br/>IOPS 不收取费用。| 
+|| SQL 托管实例 | [vCore、保留存储和备份存储](https://azure.microsoft.com/pricing/details/sql-database/managed/)收费。 <br/>IOPS 不收取费用| 空值 | [vCore、保留存储和备份存储](https://azure.microsoft.com/pricing/details/sql-database/managed/)收费。 <br/>IOPS 不收取费用。| 
 |**折扣模型**| | [预留实例](reserved-capacity-overview.md)<br/>[Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[企业](https://azure.microsoft.com/offers/ms-azr-0148p/) 和即 [用即付](https://azure.microsoft.com/offers/ms-azr-0023p/) 开发/测试订阅| [Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[企业](https://azure.microsoft.com/offers/ms-azr-0148p/) 和即 [用即付](https://azure.microsoft.com/offers/ms-azr-0023p/) 开发/测试订阅| [预留实例](reserved-capacity-overview.md)<br/>[Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[企业](https://azure.microsoft.com/offers/ms-azr-0148p/) 和即 [用即付](https://azure.microsoft.com/offers/ms-azr-0023p/) 开发/测试订阅|
 
 有关详细信息，请参阅 [Azure SQL 数据库 (vCore)](resource-limits-vcore-single-databases.md)、[单一 Azure SQL 数据库 (DTU)](resource-limits-dtu-single-databases.md)、[共用 Azure SQL 数据库 (DTU)](resource-limits-dtu-single-databases.md) 和 [Azure SQL 托管实例](../managed-instance/resource-limits.md)页，了解服务层级之间的详细差异。
@@ -84,7 +84,7 @@ Azure SQL 数据库还有一个服务层级：
 > [!IMPORTANT]
 > 需要支付分配给 MDF 和 LDF 文件的总存储费用。
 
-若要监视 MDF 和 LDF 文件的当前总大小，请使用 [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)。 若要监视单个 MDF 和 LDF 文件的当前大小，请使用 [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)。
+若要监视 MDF 和 LDF 文件的当前总大小，请使用 [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)。 若要监视单个 MDF 和 LDF 文件的当前大小，请使用 [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)。
 
 > [!IMPORTANT]
 > 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](file-space-manage.md)。
@@ -93,8 +93,8 @@ Azure SQL 数据库还有一个服务层级：
 
 为数据库备份分配存储，以支持 SQL 数据库和 SQL 托管实例的时间点还原 (PITR) 和[长期保留 (LTR)](long-term-retention-overview.md) 功能。 此存储空间针对每个数据库单独分配，并根据数据库费用分开计费。
 
-- **PITR**：自动将各个数据库备份复制到[读取访问权限异地冗余存储 (RA-GRS)](../../storage/common/geo-redundant-design.md)。 创建新备份时，存储大小动态递增。 存储由每周完整备份、每日差异备份和 5 分钟复制一次的事务日志备份使用。 存储消耗量取决于数据库变化率和备份保留期。 可单独为每个数据库配置 7 到 35 天的保留期。 提供与 100%（1 倍）数据库大小相等的最小存储量，不收取额外费用。 对于大多数数据库而言，此容量足以将备份存储 7 天。
-- **LTR**：还可以选择将完整备份的长期保留时长配置为最长 10 年（此功能现通过 [SQL 托管实例的有限公共预览版](long-term-retention-overview.md#sql-managed-instance-support)提供。 如果设置了 LTR 策略，则这些备份将自动存储在 RA-GRS 存储中，但你可以控制备份的复制频率。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 所选配置决定了多少存储将用于 LTR 备份。 若要估算 LTR 存储成本，可以使用 LTR 定价计算器。 有关详细信息，请参阅 [SQL 数据库长期保留](long-term-retention-overview.md)。
+- **PITR** ：自动将各个数据库备份复制到 [读取访问权限异地冗余存储 (RA-GRS)](../../storage/common/geo-redundant-design.md)。 创建新备份时，存储大小动态递增。 存储由每周完整备份、每日差异备份和 5 分钟复制一次的事务日志备份使用。 存储消耗量取决于数据库变化率和备份保留期。 可单独为每个数据库配置 7 到 35 天的保留期。 提供与 100%（1 倍）数据库大小相等的最小存储量，不收取额外费用。 对于大多数数据库而言，此容量足以将备份存储 7 天。
+- **LTR** ：还可以选择将完整备份的长期保留时长配置为最长 10 年（此功能现通过 [SQL 托管实例的有限公共预览版](long-term-retention-overview.md#sql-managed-instance-support)提供。 如果设置了 LTR 策略，则这些备份将自动存储在 RA-GRS 存储中，但你可以控制备份的复制频率。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 所选配置决定了多少存储将用于 LTR 备份。 若要估算 LTR 存储成本，可以使用 LTR 定价计算器。 有关详细信息，请参阅 [SQL 数据库长期保留](long-term-retention-overview.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -102,5 +102,4 @@ Azure SQL 数据库还有一个服务层级：
 
 - [Azure SQL 数据库的基于 vCore 的资源限制](resource-limits-vcore-single-databases.md)。
 - [Azure SQL 数据库中共用数据库的基于 vCore 的资源限制](resource-limits-vcore-elastic-pools.md)。
-- [Azure SQL 托管实例的基于 vCore 的资源限制](../managed-instance/resource-limits.md)。 
-
+- [Azure SQL 托管实例的基于 vCore 的资源限制](../managed-instance/resource-limits.md)。

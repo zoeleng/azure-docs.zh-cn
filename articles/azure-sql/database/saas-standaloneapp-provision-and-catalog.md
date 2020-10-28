@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332172"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793239"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>使用“每租户一个应用程序”的 SaaS 模式预配和编录新租户
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "92332172"
 
 ## <a name="standalone-application-per-tenant-pattern"></a>“每租户一个独立应用程序”模式
 
-“每租户一个独立应用”模式是多租户 SaaS 应用程序的诸多模式之一。  在此模式中，将为每个租户预配一个独立应用。 该应用程序包含应用程序级别组件和一个 Azure SQL 数据库。  每个租户应用都可在供应商的订阅中进行部署。  或者，应用也可通过 Azure 提供的[托管应用程序计划](https://docs.microsoft.com/azure/managed-applications/overview)，在租户的订阅中进行部署，并由供应商代表租户进行管理。
+“每租户一个独立应用”模式是多租户 SaaS 应用程序的诸多模式之一。  在此模式中，将为每个租户预配一个独立应用。 该应用程序包含应用程序级别组件和一个 Azure SQL 数据库。  每个租户应用都可在供应商的订阅中进行部署。  或者，应用也可通过 Azure 提供的[托管应用程序计划](../../azure-resource-manager/managed-applications/overview.md)，在租户的订阅中进行部署，并由供应商代表租户进行管理。
 
    ![“每租户一个应用”模式](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ Azure 资源管理器模板可用于部署和配置应用程序，创建租户�
 
 若要完成本教程，请确保已完成了以下先决条件：
 
-* Azure PowerShell 已安装。 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* 部署三个示例租户应用。 若要在五分钟内完成这些部署，请参阅[部署和浏览 Wingtip Tickets SaaS 独立应用程序模式](../../sql-database/saas-standaloneapp-get-started-deploy.md)。
+* Azure PowerShell 已安装。 有关详细信息，请参阅 [Azure PowerShell 入门](/powershell/azure/get-started-azureps)
+* 部署三个示例租户应用。 若要在五分钟内完成这些部署，请参阅[部署和浏览 Wingtip Tickets SaaS 独立应用程序模式](./saas-standaloneapp-get-started-deploy.md)。
 
 ## <a name="provision-the-catalog"></a>预配目录
 
@@ -92,7 +92,7 @@ Azure 资源管理器模板可用于部署和配置应用程序，创建租户�
 1. 按 **F5** 运行脚本。
 1.  脚本执行在断点处停止之后，按 F11 单步执行 New-Catalog.ps1 脚本  。
 1.  使用“调试”菜单选项（F10 和 F11）逐过程或单步执行调用的函数，跟踪脚本的执行。
-    *   有关调试 PowerShell 脚本的详细信息，请参阅[有关使用和调试 PowerShell 脚本的提示](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)。
+    *   有关调试 PowerShell 脚本的详细信息，请参阅[有关使用和调试 PowerShell 脚本的提示](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)。
 
 脚本完成后，目录的创建也随即完成并且将注册所有示例租户。
 
@@ -156,4 +156,4 @@ Azure 资源管理器模板可用于部署和配置应用程序，创建租户�
 > * 关于构成该应用的服务器和数据库。
 > * 如何删除示例资源以停止相关计费。
 
-可使用“每租户一个数据库”版本的 [Wingtip Tickets SaaS 应用程序](../../sql-database/saas-dbpertenant-wingtip-app-overview.md)了解如何使用目录支持各种跨租户方案。
+可使用“每租户一个数据库”版本的 [Wingtip Tickets SaaS 应用程序](./saas-dbpertenant-wingtip-app-overview.md)了解如何使用目录支持各种跨租户方案。

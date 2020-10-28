@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488854"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793001"
 ---
 # <a name="storage-account-overview"></a>存储帐户概述
 
@@ -60,7 +60,7 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 - 应用程序为事务密集型，或者使用很大的异地复制带宽，但不需要大的容量。 在这种情况下，常规用途 v1 可能是最经济的选择。
 
-- 使用的[存储服务 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 版本早于 2014-02-14，或使用的客户端库的版本低于 4.x， 并且无法升级应用程序。
+- 使用的[存储服务 REST API](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) 版本早于 2014-02-14，或使用的客户端库的版本低于 4.x， 并且无法升级应用程序。
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 帐户
 
@@ -106,9 +106,9 @@ Azure 存储提供不同的选项，适用于根据使用模型访问块 Blob �
 
 可用的访问层包括：
 
-- **热**访问层。 此层已优化，适合频繁访问存储帐户中的对象。 访问热层中的数据最经济高效，但存储费用较高。 新的存储帐户默认在热层中创建。
-- **冷**访问层。 此层已优化，适合存储大量不常访问且存储时间至少为 30 天的数据。 将数据存储在冷层中更经济高效，但与访问热层中的数据相比，访问该数据的费用可能较高。
-- **存档**层。 此层仅适用于单个块 Blob。 存档层已针对可以容忍数小时的检索延迟且会保留在存档层至少 180 天的数据进行优化。 存档层是最经济高效的数据存储选项。 但是，访问这些数据的开销比访问热层或冷层中的数据要高。
+- **热** 访问层。 此层已优化，适合频繁访问存储帐户中的对象。 访问热层中的数据最经济高效，但存储费用较高。 新的存储帐户默认在热层中创建。
+- **冷** 访问层。 此层已优化，适合存储大量不常访问且存储时间至少为 30 天的数据。 将数据存储在冷层中更经济高效，但与访问热层中的数据相比，访问该数据的费用可能较高。
+- **存档** 层。 此层仅适用于单个块 Blob。 存档层已针对可以容忍数小时的检索延迟且会保留在存档层至少 180 天的数据进行优化。 存档层是最经济高效的数据存储选项。 但是，访问这些数据的开销比访问热层或冷层中的数据要高。
 
 如果数据的使用模式有所更改，可以随时在这些访问层之间切换。 有关访问层的详细信息，请参阅 [Azure Blob 存储：热、冷和存档访问层](../blobs/storage-blob-storage-tiers.md)。
 
@@ -127,18 +127,18 @@ Azure 存储提供不同的选项，适用于根据使用模型访问块 Blob �
 
 存储帐户在 Azure 中为数据提供唯一的命名空间。 存储在 Azure 存储中的每个对象都有一个地址，其中包含唯一的帐户名称。 将帐户名称与 Azure 存储服务终结点组合在一起，即可构成适用于存储帐户的终结点。
 
-例如，如果常规用途存储帐户名为 *mystorageaccount*，则该帐户的默认终结点为：
+例如，如果常规用途存储帐户名为 *mystorageaccount* ，则该帐户的默认终结点为：
 
 - Blob 存储：`https://*mystorageaccount*.blob.core.windows.net`
 - 表存储：`https://*mystorageaccount*.table.core.windows.net`
 - 队列存储：`https://*mystorageaccount*.queue.core.windows.net`
 - Azure 文件存储：`https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2： `https://*mystorageaccount*.dfs.core.windows.net` (使用 [专门针对大数据进行优化的 ABFS 驱动程序](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)。 ) 
+- Azure Data Lake Storage Gen2： `https://*mystorageaccount*.dfs.core.windows.net` (使用 [专门针对大数据进行优化的 ABFS 驱动程序](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)。 ) 
 
 > [!NOTE]
 > 块 blob 和 blob 存储帐户仅公开 Blob 服务终结点。
 
-构造用于访问存储帐户中某个对象的 URL，方法是：将对象在存储帐户中的位置追加到终结点。 例如，Blob 地址可能具有以下格式： http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
+构造用于访问存储帐户中某个对象的 URL，方法是：将对象在存储帐户中的位置追加到终结点。 例如，Blob 地址可能具有以下格式： http:// *mystorageaccount* .blob.core.windows.net/ *mycontainer*/*myblob* 。
 
 也可将存储帐户配置为对 Blob 使用自定义域。 有关详细信息，请参阅[为 Azure 存储帐户配置自定义域名](../blobs/storage-custom-domain-name.md)。  
 
@@ -167,7 +167,7 @@ Microsoft 提供了用于从本地存储设备或第三方云存储提供程序�
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy 是一个 Windows 命令行实用程序，用于将数据高性能复制到 Azure 存储（或从中进行复制）。 可以使用 AzCopy 将数据从现有的常规用途存储帐户复制到 Blob 存储帐户，或者将数据从本地存储设备上传。 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+AzCopy 是一个 Windows 命令行实用程序，用于将数据高性能复制到 Azure 存储（或从中进行复制）。 可以使用 AzCopy 将数据从现有的常规用途存储帐户复制到 Blob 存储帐户，或者将数据从本地存储设备上传。 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)。
 
 ### <a name="data-movement-library"></a>数据移动库
 

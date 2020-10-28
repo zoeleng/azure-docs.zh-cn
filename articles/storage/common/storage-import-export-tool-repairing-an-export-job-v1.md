@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35738db5b7bd4a1ac7aaf94e2dc5f1d26a075cdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056333"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791828"
 ---
 # <a name="repairing-an-export-job"></a>修复导出作业
 在完成导出作业后，可以在本地运行 Microsoft Azure 导入/导出工具来执行以下操作：  
@@ -24,7 +24,7 @@ ms.locfileid: "90056333"
   
 若要使用此功能，必须与 Azure 存储建立连接。  
   
-用于修复导入作业的命令是 **RepairExport**。
+用于修复导入作业的命令是 **RepairExport** 。
 
 ## <a name="repairexport-parameters"></a>RepairExport 参数
 
@@ -81,7 +81,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ## <a name="using-repairexport-to-validate-drive-contents"></a>使用 RepairExport 验证驱动器内容  
 你还可以使用具有 **RepairExport** 选项的 Azure 导入/导出验证驱动器上的内容是否正确。 每个导出驱动器上的清单文件包含驱动器内容的 MD5 哈希。  
   
-Azure 导入/导出服务还可以在导出过程中将清单文件保存到某个存储帐户。 完成作业后，可通过[获取作业](/rest/api/storageimportexport/jobs)操作获得清单文件的位置。 有关驱动器清单文件的格式的详细信息，请参阅[导入/导出服务清单文件格式](storage-import-export-file-format-metadata-and-properties.md)。  
+Azure 导入/导出服务还可以在导出过程中将清单文件保存到某个存储帐户。 完成作业后，可通过[获取作业](/rest/api/storageimportexport/jobs)操作获得清单文件的位置。 有关驱动器清单文件的格式的详细信息，请参阅[导入/导出服务清单文件格式](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties)。  
   
 以下示例演示如何结合 **/ManifestFile** 和 **/CopyLogFile** 参数运行 Azure 导入/导出工具：  
   
@@ -153,6 +153,6 @@ G:\pictures\wild\canyon.jpg.properties
 ## <a name="next-steps"></a>后续步骤
  
 * [设置 Azure 导入/导出工具](storage-import-export-tool-setup-v1.md)   
-* [为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [为导入作业准备硬盘驱动器](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [修复导入作业](storage-import-export-tool-repairing-an-import-job-v1.md)

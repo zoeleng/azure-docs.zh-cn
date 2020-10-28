@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 10/26/2020
+ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537960"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791964"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -36,9 +36,6 @@ ms.locfileid: "92537960"
 由于副本是只读的，它们不能直接缓解主服务器上的写入容量负担。 此功能并非面向写入密集型工作负荷。
 
 只读副本功能使用 MySQL 本机异步复制。 该功能不适用于同步复制方案。 源和副本之间将有可度量的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
-
-> [!IMPORTANT]
-> Azure Database for MySQL 使用基于 ROW 的二进制日志记录。 如果表缺少主键，则会扫描表中的所有行来进行 DML 操作。 这会导致复制延迟时间增加。 若要确保副本服务器能够与源服务器中的更改保持同步，我们通常建议在创建副本服务器之前在源服务器中的表上添加主键，或者在已有副本服务器时重新创建副本服务器。
 
 ## <a name="cross-region-replication"></a>跨区域复制
 你可以在源服务器的其他区域中创建读取副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
@@ -79,7 +76,7 @@ ms.locfileid: "92537960"
 
 ## <a name="connect-to-a-replica"></a>连接到副本
 
-创建副本时，副本会继承源服务器的防火墙规则。 之后，这些规则独立于源服务器。
+创建副本时，副本会继承源服务器的防火墙规则。 之后，这些规则与源服务器无关。
 
 副本从源服务器继承管理员帐户。 源服务器上的所有用户帐户都将复制到读取副本。 您只能通过使用源服务器上提供的用户帐户连接到读取副本。
 
@@ -95,7 +92,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)”指标。 此指标仅适用于副本。 此指标是使用 MySQL 的 `SHOW SLAVE STATUS` 命令中可用的 `seconds_behind_master` 指标计算得出的。 请设置警报，以便在复制滞后时间达到工作负载不可接受的值时收到通知。
 
-如果你看到增加了复制滞后时间，请参阅 [排查复制延迟](howto-troubleshoot-replication-latency.md) 问题，并了解可能的原因。
+如果发现复制滞后时间增加，请参阅 [故障排除复制延迟](howto-troubleshoot-replication-latency.md) 以排除故障并了解可能的原因。
 
 ## <a name="stop-replication"></a>停止复制
 

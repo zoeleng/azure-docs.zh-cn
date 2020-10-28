@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse
-ms.openlocfilehash: ae92d2000bb2c0dfd7e7a42c6070c143e5b787e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32599c9d289c8fc5e86eb8c7b0574d9703a6dd4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84170862"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792661"
 ---
 # <a name="powershell-create-a-virtual-service-endpoint-and-vnet-rule-for-azure-sql-database"></a>PowerShell：创建适用于 Azure SQL 数据库的虚拟网络服务终结点和 VNet 规则
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "84170862"
 
 本文将演示执行以下操作的 PowerShell 脚本：
 
-1. 在子网上创建 Microsoft Azure 虚拟服务终结点**。
+1. 在子网上创建 Microsoft Azure 虚拟服务终结点  。
 2. 将终结点添加到服务器的防火墙，以创建虚拟网络规则。
 
 有关更多背景信息，请参阅[适用于 Azure SQL 数据库的虚拟服务终结点][sql-db-vnet-service-endpoint-rule-overview-735r]。
@@ -40,20 +40,20 @@ ms.locfileid: "84170862"
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 [`Az.Sql` Cmdlet](/powershell/module/az.sql) 的。 对于较旧的模块，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 [`Az.Sql` Cmdlet](/powershell/module/az.sql) 的。 对于较旧的模块，请参阅 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 ## <a name="major-cmdlets"></a>主要 cmdlet
 
-本文将着重介绍 [New-AzSqlServerVirtualNetworkRule cmdlet](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule)，它用于将子网终结点添加到服务器的访问控制列表 (ACL)，从而创建规则。
+本文将着重介绍 [New-AzSqlServerVirtualNetworkRule cmdlet](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule)，它用于将子网终结点添加到服务器的访问控制列表 (ACL)，从而创建规则。
 
 下面的列表显示准备对 New-AzSqlServerVirtualNetworkRule 进行调用时必须运行的其他主要 cmdlet 的序列。 在本文中，这些调用出现在[脚本 3 虚拟网络规则](#a-script-30) 中：
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig)：创建子网对象。
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)：创建虚拟网络，向其提供子网。
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig)：为子网分配虚拟服务终结点。
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork)：持续更新虚拟网络。
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule)：在子网成为终结点之后，将子网作为虚拟网络规则添加到服务器的 ACL 中。
-   - 从 Azure RM PowerShell 模块 5.1.1 版开始，此模块提供参数 **-IgnoreMissingVNetServiceEndpoint**。
+1. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)：创建子网对象。
+2. [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)：创建虚拟网络，向其提供子网。
+3. [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig)：为子网分配虚拟服务终结点。
+4. [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)：持续更新虚拟网络。
+5. [New-AzSqlServerVirtualNetworkRule](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule)：在子网成为终结点之后，将子网作为虚拟网络规则添加到服务器的 ACL 中。
+   - 从 Azure RM PowerShell 模块 5.1.1 版开始，此模块提供参数 **-IgnoreMissingVNetServiceEndpoint** 。
 
 ## <a name="prerequisites-for-running-powershell"></a>运行 PowerShell 的先决条件
 

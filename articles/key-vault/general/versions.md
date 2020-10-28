@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230819"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792372"
 ---
 # <a name="key-vault-versions"></a>Key Vault 版本
 
@@ -33,7 +33,7 @@ Key Vault“创建自己的密钥”(BYOK) 现已正式发布。 请参阅 [Azur
 ## <a name="2019"></a>2019
 
 - 发布下一代 Azure Key Vault SDK。 有关其用法的示例，请参阅适用于 [Python](../secrets/quick-create-python.md)、[.NET](../secrets/quick-create-net.md)、[Java](../secrets/quick-create-java.md) 和 [Node.js](../secrets/quick-create-node.md) 的 Azure Key Vault 机密快速入门
-- 用于管理 Key Vault 证书的新 Azure 策略。 请参阅 [Key Vault 的 Azure Policy 内置定义](../policy-samples.md)。
+- 用于管理 Key Vault 证书的新 Azure 策略。 请参阅 [Key Vault 的 Azure Policy 内置定义](../policy-reference.md)。
 - Azure Key Vault 虚拟机扩展现已正式发布。  请参阅[适用于 Linux 的 Key Vault 虚拟机扩展](../../virtual-machines/extensions/key-vault-linux.md)和[适用于 Windows 的 Key Vault 虚拟机扩展](../../virtual-machines/extensions/key-vault-windows.md)。
 - Azure 事件网格中现在提供适用于 Azure Key Vault 的事件驱动机密管理。 有关详细信息，请参阅 [Azure Key Vault 中用于事件的事件网格架构](../../event-grid/event-schema-key-vault.md]，并了解如何[通过 Azure 事件网格接收和响应 Key Vault 通知](event-grid-tutorial.md)。
 
@@ -49,8 +49,8 @@ Key Vault“创建自己的密钥”(BYOK) 现已正式发布。 请参阅 [Azur
 
 本年度发布的新功能：
 
-- 托管存储帐户密钥。 新增了存储帐户密钥功能，可更轻松地与 Azure 存储集成。 参阅概述主题[托管存储帐户密钥概述](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)，了解详细信息。
-- 软删除。 软删除功能增强了 Key Vault 和 Key Vault 对象的数据保护。 参阅概述主题[软删除概述](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)，了解详细信息。
+- 托管存储帐户密钥。 新增了存储帐户密钥功能，可更轻松地与 Azure 存储集成。 参阅概述主题[托管存储帐户密钥概述](../secrets/overview-storage-keys.md)，了解详细信息。
+- 软删除。 软删除功能增强了 Key Vault 和 Key Vault 对象的数据保护。 参阅概述主题[软删除概述](./soft-delete-overview.md)，了解详细信息。
 
 ## <a name="2015"></a>2015
 
@@ -64,7 +64,7 @@ Key Vault“创建自己的密钥”(BYOK) 现已正式发布。 请参阅 [Azur
 - 还原密钥 - 删除了“使用”字段。     
 - 将“RSA_OAEP”改为 RSA 算法的“RSA-OAEP”。 请参阅[关于密钥、机密和证书](about-keys-secrets-certificates.md)。    
  
-2015 年 4 月 20 日发布了第二版预览版（版本 2015-02-01-preview）。 有关详细信息，请参阅 [REST API 更新](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) 博客文章。 更新了以下任务：
+2015 年 4 月 20 日发布了第二版预览版（版本 2015-02-01-preview）。 有关详细信息，请参阅 [REST API 更新](/archive/blogs/kv/rest-api-update) 博客文章。 更新了以下任务：
  
 - 列出保管库中的密钥 - 向操作添加了分页支持。
 - 列出密钥版本 - 添加了列出密钥版本的操作。  

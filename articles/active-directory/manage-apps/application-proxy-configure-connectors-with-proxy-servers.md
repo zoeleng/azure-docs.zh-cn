@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426456"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792746"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>使用现有的本地代理服务器
 
@@ -77,7 +77,7 @@ OS 组件尝试通过针对 wpad.domainsuffix 执行 DNS 查找来查找代理�
 
 如果在环境中启用并正确配置了 WPAD，连接器会自动发现出站代理服务器并尝试使用它。 但是，可以显式将连接器配置为通过出站代理。
 
-为此，请编辑 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 文件并添加 system.net 节，如以下代码示例中所示。 更改 *proxyserver:8080*，反映本地代理服务器的名称或 IP 地址及其侦听的端口。 即使使用 IP 地址，值也必须具有前缀 http://。
+为此，请编辑 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 文件并添加 system.net 节，如以下代码示例中所示。 更改 *proxyserver:8080* ，反映本地代理服务器的名称或 IP 地址及其侦听的端口。 即使使用 IP 地址，值也必须具有前缀 http://。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -111,11 +111,12 @@ OS 组件尝试通过针对 wpad.domainsuffix 执行 DNS 查找来查找代理�
 
 允许访问以下 URL：
 
-| 代码 | 用途 |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | 连接器与应用程序代理云服务之间的通信 |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 连接器使用这些 URL 来验证证书。 |
-| login.windows.net<br>secure.aadcdn.microsoftonline p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | 在注册过程中，连接器将使用这些 URL。 |
+| 代码 | 端口 |  用途 |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | 连接器与应用程序代理云服务之间的通信 |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | 连接器使用这些 URL 来验证证书。 |
+| login.windows.net<br>secure.aadcdn.microsoftonline p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | 在注册过程中，连接器将使用这些 URL。 |
+| ctldl.windowsupdate.com | 80/HTTP | 连接器在注册过程中使用此 URL。 |
 
 如果防火墙或代理允许你配置 DNS 允许列表，则你可以允许与 \*.msappproxy.net 和 \*.servicebus.windows.net 建立连接。
 

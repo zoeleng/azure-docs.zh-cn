@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 6ffb6ced6fc828733dd627943a3d4b54e8293ad2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341798"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791896"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>将警报流式传输到 SIEM、之忠诚度或 IT 服务管理解决方案
 
@@ -63,14 +63,14 @@ Azure Sentinel 包括 Azure 安全中心在订阅和租户级别的内置连接�
 - **Power BI**  - [连接到 Power BI Desktop 中的 Microsoft Graph 安全 API](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  - [按照说明从 ServiceNow 存储安装和配置 Microsoft Graph 安全 API 应用程序](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar**  - [Azure 安全中心的 IBM 设备支持模块（通过 MICROSOFT GRAPH API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) ） 
-- **Palo Alto 网络**、 **Anomali**、 **Lookout**、 **InSpark**和更 [Microsoft Graph 安全 API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
+- **Palo Alto 网络** 、 **Anomali** 、 **Lookout** 、 **InSpark** 和更 [Microsoft Graph 安全 API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
 [详细了解 Microsoft Graph 安全 API](https://www.microsoft.com/security/business/graph-security-api)。
 
 
 ## <a name="stream-alerts-with-azure-monitor"></a>Azure Monitor 传输警报 
 
-将警报流式传输到 **ArcSight**、 **Splunk**、 **SumoLogic**、Syslog 服务器、 **LogRhythm**、 **Logz.io Cloud 可观察性平台**和其他监视解决方案。 通过 Azure 事件中心将安全中心与 Azure monitor 连接：
+将警报流式传输到 **ArcSight** 、 **Splunk** 、 **SumoLogic** 、Syslog 服务器、 **LogRhythm** 、 **Logz.io Cloud 可观察性平台** 和其他监视解决方案。 通过 Azure 事件中心将安全中心与 Azure monitor 连接：
 
 1. 启用 [连续导出](continuous-export.md) 以在订阅级别将安全中心警报流式传输到专用 Azure 事件中心。 
     > [!TIP]
@@ -90,4 +90,4 @@ Azure Sentinel 包括 Azure 安全中心在订阅和租户级别的内置连接�
 
 - [什么是 Azure Sentinel？](../sentinel/overview.md)
 - [Azure 安全中心的警报验证](security-center-alert-validation.md) -验证是否正确配置了警报
-- [持续导出安全警报和建议](continuous-export.md)
+- [持续导出安全中心数据](continuous-export.md)

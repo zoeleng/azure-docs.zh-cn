@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 5fca46e7bf80504632e0894deefa1805a080b3b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4709bf901ed74e0ea7589824a280651f8b73866
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442738"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793375"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>教程：将 Azure SQL 数据库添加到自动故障转移组
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ ms.locfileid: "91442738"
 
 1. 在 [Azure 门户](https://portal.azure.com)的左侧菜单中选择“Azure SQL”。 如果 Azure SQL 不在列表中，请选择“所有服务”，然后在搜索框中键入“Azure SQL” 。 （可选）选择“Azure SQL”旁边的星号将其收藏并将其添加为左侧导航栏中的项。
 1. 选择在第 1 部分中创建的数据库，例如 `mySampleDatabase`。
-1. 可以在服务器级别配置故障转移组。 在**服务器名称**下选择服务器的名称以打开服务器的设置。
+1. 可以在服务器级别配置故障转移组。 在 **服务器名称** 下选择服务器的名称以打开服务器的设置。
 
    ![打开服务器上的数据库](./media/failover-group-add-single-database-tutorial/open-sql-db-server.png)
 
@@ -77,11 +77,11 @@ ms.locfileid: "91442738"
 
 1. 在“故障转移组”页上输入或选择以下值，然后选择“创建”： 
 
-   - **故障转移组名称**：键入唯一的故障转移组名称，例如 `failovergrouptutorial`。
-   - **辅助服务器**：选择“配置所需设置”选项，然后选择“创建新服务器”。 或者，可以选择现有的服务器作为辅助服务器。 输入以下值后，选择“选择”。
-      - **服务器名称**：键入辅助服务器的唯一名称，例如 `mysqlsecondary`。
-      - **服务器管理员登录名**：键入 `azureuser`
-      - **密码**：键入符合密码要求的复杂密码。
+   - **故障转移组名称** ：键入唯一的故障转移组名称，例如 `failovergrouptutorial`。
+   - **辅助服务器** ：选择“配置所需设置”选项，然后选择“创建新服务器”。 或者，可以选择现有的服务器作为辅助服务器。 输入以下值后，选择“选择”。
+      - **服务器名称** ：键入辅助服务器的唯一名称，例如 `mysqlsecondary`。
+      - **服务器管理员登录名** ：键入 `azureuser`
+      - **密码** ：键入符合密码要求的复杂密码。
       - 位置：从下拉列表中选择一个位置，例如 `East US`。 此位置不能与主服务器的位置相同。
 
      > [!NOTE]
@@ -89,7 +89,7 @@ ms.locfileid: "91442738"
 
      ![为故障转移组创建辅助服务器](./media/failover-group-add-single-database-tutorial/create-secondary-failover-server.png)
 
-   - **组中的数据库**：选择辅助服务器后，此选项将解除锁定。 使用该选项来**选择要添加的数据库**：请选择在第 1 部分创建的数据库。 将数据库添加到故障转移组的操作会自动启动异地复制过程。
+   - **组中的数据库** ：选择辅助服务器后，此选项将解除锁定。 使用该选项来 **选择要添加的数据库** ：请选择在第 1 部分创建的数据库。 将数据库添加到故障转移组的操作会自动启动异地复制过程。
 
    ![将 SQL 数据库添加到故障转移组](./media/failover-group-add-single-database-tutorial/add-sqldb-to-failover-group.png)
 
@@ -213,7 +213,7 @@ ms.locfileid: "91442738"
 
 1. 在 [Azure 门户](https://portal.azure.com)的左侧菜单中选择“Azure SQL”。 如果 Azure SQL 不在列表中，请选择“所有服务”，然后在搜索框中键入“Azure SQL” 。 （可选）选择“Azure SQL”旁边的星号将其收藏并将其添加为左侧导航栏中的项。
 1. 选择在第 2 部分中创建的数据库，例如 `mySampleDatbase`。
-1. 在**服务器名称**下选择服务器的名称以打开服务器的设置。
+1. 在 **服务器名称** 下选择服务器的名称以打开服务器的设置。
 
    ![打开服务器上的数据库](./media/failover-group-add-single-database-tutorial/open-sql-db-server.png)
 
@@ -373,7 +373,7 @@ ms.locfileid: "91442738"
 
 | 命令 | 注释 |
 |---|---|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ---
 
@@ -417,7 +417,7 @@ ms.locfileid: "91442738"
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | 在 Azure SQL 数据库中创建一个故障转移组。 |
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 列出 Azure SQL 数据库中服务器中的故障转移组。 |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 通过对当前主服务器上的所有数据库进行故障转移来设置故障转移组的主服务器。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 # <a name="the-portal"></a>[门户](#tab/azure-portal)
 

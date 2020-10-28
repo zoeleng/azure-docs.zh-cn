@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514480"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791590"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒体服务 v3 发行说明
 
@@ -46,6 +46,16 @@ ms.locfileid: "92514480"
 使用索引器 v1 和索引器 v2 的客户应该迁移到基本的音频分析预设。
 
 有关基本音频分析器模式的详细信息，请参阅 [分析视频和音频文件](analyzing-video-audio-files-concept.md)。  若要了解如何使用 REST API 的基本音频分析器模式，请参阅 [如何创建基本音频转换](how-to-create-basic-audio-transform.md)。
+
+## <a name="live-events"></a>直播活动
+
+当实时事件停止时，现在允许更新大多数属性。 此外，还允许用户为实时事件的输入和预览 Url 指定静态主机名的前缀。 现在调用 VanityUrl `useStaticHostName` ，以更好地反映属性的意图。
+
+实时事件现在具有待机状态。  请参阅 [媒体服务中的实时事件和实时输出](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept)。
+
+实时事件支持接收各种输入纵横比。 Stretch 模式允许客户为输出指定拉伸行为。
+
+实时编码现在添加了将固定关键帧间隔碎片输出到0.5 到20秒的功能。
 
 ## <a name="august-2020"></a>2020 年 8 月
 
@@ -268,7 +278,7 @@ V3 API 的正式版中的更新包括：
 * **PresentationTimeRange** 属性不再是 **AssetFilters** 和 **AccountFilters** 所必需的。 
 * 已删除 **Jobs** 和 **Transforms** 的 $top 和 $skip 查询选项，并添加了 $orderby。 在添加新排序功能的过程中，我们发现之前意外地公开了 $top 和 $skip 选项，尽管它们并未实现。
 * 重新启用了枚举可扩展性。 此功能在 SDK 的预览版中已启用，但在正式版中被意外禁用。
-* 已重命名两个预定义的流式处理策略。 **SecureStreaming** 现在名为 **MultiDrmCencStreaming**。 **SecureStreamingWithFairPlay** 现在名为 **Predefined_MultiDrmStreaming**。
+* 已重命名两个预定义的流式处理策略。 **SecureStreaming** 现在名为 **MultiDrmCencStreaming** 。 **SecureStreamingWithFairPlay** 现在名为 **Predefined_MultiDrmStreaming** 。
 
 ## <a name="november-2018"></a>2018 年 11 月
 
@@ -398,11 +408,11 @@ CMAF 和“cbcs”加密支持 Apple HLS (iOS 11+) 以及支持 CMAF 的 MPEG-DA
 .NET SDK 中提供了以下功能：
 
 * 转换和作业，用于对媒体内容来进行编码或分析 。 有关示例，请参阅[流式传输文件](stream-files-tutorial-with-api.md)和[分析](analyze-videos-tutorial-with-api.md)。
-* **流式处理定位符**，用于发布内容并将其流式传输到最终用户设备
-* **流式处理策略**和**内容密钥策略**，用于在传送内容时配置密钥传递和内容保护 (DRM)。
-* **直播活动**和**实时输出**，用于配置实时传送视频流内容的引入和归档。
+* **流式处理定位符** ，用于发布内容并将其流式传输到最终用户设备
+* **流式处理策略** 和 **内容密钥策略** ，用于在传送内容时配置密钥传递和内容保护 (DRM)。
+* **直播活动** 和 **实时输出** ，用于配置实时传送视频流内容的引入和归档。
 * 资产，用于在 Azure 存储中存储和发布媒体内容。 
-* **流式处理终结点**，用于配置和缩放实时和点播媒体内容的动态打包、加密和流式处理。
+* **流式处理终结点** ，用于配置和缩放实时和点播媒体内容的动态打包、加密和流式处理。
 
 ### <a name="known-issues"></a>已知问题
 
