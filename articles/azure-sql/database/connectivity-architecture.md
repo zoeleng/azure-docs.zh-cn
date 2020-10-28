@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479079"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672505"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL 数据库和 Azure Synapse Analytics 连接体系结构
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "92479079"
 本文介绍了将网络流量定向到 Azure SQL 数据库或 Azure Synapse Analytics 的服务器的各种组件的体系结构。 它还介绍了不同的连接策略，以及这些策略如何影响从 Azure 内部连接的客户端以及从 Azure 外部连接的客户端。
 
 > [!IMPORTANT]
-> 本文不适用于 **Azure SQL 托管实例**。 请参阅 [托管实例的连接体系结构](../managed-instance/connectivity-architecture-overview.md)。
+> 本文不适用于 **Azure SQL 托管实例** 。 请参阅 [托管实例的连接体系结构](../managed-instance/connectivity-architecture-overview.md)。
 
 ## <a name="connectivity-architecture"></a>连接体系结构
 
@@ -51,7 +51,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 
 - 默认值：除非显式将连接策略更改为 `Proxy` 或 `Redirect`，否则，在创建后，此连接策略将在所有服务器上生效。 对于所有源自 Azure 内部的客户端连接（例如，源自 Azure 虚拟机的连接），默认策略为 `Redirect`；对于所有源自外部的客户端连接（例如，源自本地工作站的连接），默认策略为 `Proxy`。
 
-我们强烈建议使用 `Redirect` 连接策略而不要使用 `Proxy` 连接策略，以最大程度地降低延迟和提高吞吐量。 但是，你需要满足上述允许网络流量的附加要求。 如果客户端为 Azure 虚拟机，则可将网络安全组 (NSG) 与[服务标记](../../virtual-network/security-overview.md#service-tags)配合使用来实现它。 如果客户端从本地工作站进行连接，则可能需要联系网络管理员，让其允许网络流量通过公司防火墙。
+我们强烈建议使用 `Redirect` 连接策略而不要使用 `Proxy` 连接策略，以最大程度地降低延迟和提高吞吐量。 但是，你需要满足上述允许网络流量的附加要求。 如果客户端为 Azure 虚拟机，则可将网络安全组 (NSG) 与[服务标记](../../virtual-network/network-security-groups-overview.md#service-tags)配合使用来实现它。 如果客户端从本地工作站进行连接，则可能需要联系网络管理员，让其允许网络流量通过公司防火墙。
 
 ## <a name="connectivity-from-within-azure"></a>从 Azure 内连接
 
@@ -66,7 +66,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 ![此图显示了如何通过 Azure SQL 数据库网关建立 TCP 会话，并通过网关流过所有后续数据包。](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> 另请打开 TCP 端口 1434 和 14000-14999，以便[使用 DAC 进行连接](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> 另请打开 TCP 端口 1434 和 14000-14999，以便[使用 DAC 进行连接](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>网关 IP 地址
 
@@ -80,7 +80,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 | 澳大利亚 Central2   | 20.36.113.0 |
 | 澳大利亚东部       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | 澳大利亚东南部 | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Brazil South         | 104.41.11.5, 191.233.200.14 |
+| 巴西南部         | 104.41.11.5, 191.233.200.14 |
 | 加拿大中部       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | 加拿大东部          | 40.86.226.166, 52.242.30.154 |
 | 美国中部           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
@@ -124,6 +124,6 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关如何更改服务器的 Azure SQL 数据库连接策略的信息，请参阅 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)。
+- 有关如何更改服务器的 Azure SQL 数据库连接策略的信息，请参阅 [conn-policy](/cli/azure/sql/server/conn-policy)。
 - 若要了解使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为，请参阅[用于 ADO.NET 4.5 的非 1433 端口](adonet-v12-develop-direct-route-ports.md)。
 - 若要了解常规应用程序开发的概述信息，请参阅[SQL 数据库应用程序开发概述](develop-overview.md)。

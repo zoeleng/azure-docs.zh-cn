@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289865"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671114"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>在 Azure 存储中托管静态网站
 
@@ -38,15 +38,15 @@ ms.locfileid: "91289865"
 
 4. 选择“启用”，启用针对存储帐户的静态网站托管功能。
 
-5. 在“索引文档名称”字段中，指定一个默认索引页（例如：*index.html*）。 
+5. 在“索引文档名称”字段中，指定一个默认索引页（例如： *index.html* ）。 
 
    当用户导航到静态网站的根目录时，会显示默认索引页。  
 
-6. 在“错误文档路径”字段中，指定一个默认错误页（例如：*404.html*）。 
+6. 在“错误文档路径”字段中，指定一个默认错误页（例如： *404.html* ）。 
 
    当用户尝试导航到静态网站中不存在的页面时，会显示默认错误页。
 
-7. 单击“保存” 。 Azure 门户现在会显示静态网站终结点。 
+7. 单击“ **保存** ”。 Azure 门户现在会显示静态网站终结点。 
 
     ![启用针对存储帐户的静态网站托管功能](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -259,7 +259,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 4. 然后选择“传出”指标。
 
-   ![Azure 存储静态网站指标 - 指标](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![显示 Azure 存储静态网站出口指标的屏幕截图。](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. 从“聚合”选择器中选择“总和”。
 

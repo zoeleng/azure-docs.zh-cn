@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761220"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126184"
 ---
 # <a name="pricing-scenarios"></a>定价方案
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Azure 通信服务的价格基于即用即付模型，无需预付费用。 你只需为服务的消耗和使用付费。
+Azure 通信服务的价格通常基于即用即付模型。
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>语音/视频呼叫和屏幕共享
 
@@ -84,6 +79,16 @@ Rose 会看到消息并开始聊天。 与此同时，Casey 收到了一个电�
 ## <a name="price"></a>价格 
 
 电话服务按每分钟计费，短信服务按每条短信计费。 定价取决于所用号码的类型和位置以及呼叫和短信的目的地。
+
+### <a name="telephone-number-leasing"></a>电话号码租赁
+
+先收取电话号码租赁预付费用，然后按月定期收费：
+
+|数字类型   |每月费用   |
+|--------------|-----------|
+|本地（美国）     |1 美元/月        |
+|免费电话（美国） |2 美元/月 |
+
 
 ### <a name="telephone-calling"></a>电话呼叫
 

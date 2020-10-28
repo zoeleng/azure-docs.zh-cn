@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570421"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670103"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的策略密钥概述
 
@@ -34,7 +34,7 @@ Azure Active Directory B2C (Azure AD B2C) 以策略密钥的形式存储机密�
 
 ## <a name="policy-keyset-and-keys"></a>策略密钥集和密钥
 
-Azure AD B2C 中的策略密钥的顶层资源是**密钥集**容器。 每个密钥集都包含至少一个**密钥**。 密钥具有以下属性：
+Azure AD B2C 中的策略密钥的顶层资源是 **密钥集** 容器。 每个密钥集都包含至少一个 **密钥** 。 密钥具有以下属性：
 
 | Attribute |  必需 | 备注 |
 | --- | --- |--- |
@@ -58,7 +58,7 @@ Azure AD B2C 中的策略密钥的顶层资源是**密钥集**容器。 每个�
 
 如果某个 Azure AD B2C 密钥集包含多个密钥，则每次只有其中一个密钥处于活动状态，具体取决于以下条件：
 
-- 密钥激活基于**激活日期**。
+- 密钥激活基于 **激活日期** 。
   - 密钥按激活日期以升序排序。 激活日期越靠后，密钥在列表中的位置越靠后。 没有激活日期的密钥位于列表底部。
   - 如果当前日期和时间晚于密钥的激活日期，Azure AD B2C 将激活密钥并停止使用以前的有效密钥。
 - 如果当前密钥的到期时间已过，并且密钥容器包含的新密钥具有有效的“不早于”和“到期”时间，则新密钥将自动变为激活状态。 
@@ -78,6 +78,13 @@ Azure AD B2C 中的策略密钥的顶层资源是**密钥集**容器。 每个�
 1. 选择“策略密钥” 
     1. 若要添加新密钥，请选择“添加”。
     1. 若要删除新密钥，请选择该密钥，然后选择“删除”。 若要删除密钥，请键入要删除的密钥容器的名称。 Azure AD B2C 将删除密钥，并创建一个后缀为 .bak 的密钥副本。
+
+### <a name="replace-a-key"></a>替换密钥
+
+键集中的键不可替换或可移动。 如果需要更改现有密钥，请执行以下操作：
+
+- 建议将 **激活日期** 设置为当前日期和时间的新密钥。 Azure AD B2C 将激活新密钥并停止使用以前的 active key。
+- 或者，可以使用正确的密钥创建一个新的键集。 更新策略以使用新的密钥集，然后删除旧的密钥集。 
 
 ## <a name="next-steps"></a>后续步骤
 

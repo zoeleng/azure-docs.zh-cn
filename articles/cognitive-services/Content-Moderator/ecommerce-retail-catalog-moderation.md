@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 017dabf16384e53d924ed69f36b64050fcacb5bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934780"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504150"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教程：使用 Azure 内容审查器审查电子商务产品图像
 
@@ -55,10 +55,10 @@ GitHub 上的[电子商务目录审查示例](https://github.com/MicrosoftConten
 ## <a name="create-visual-studio-project"></a>创建 Visual Studio 项目
 
 1. 在 Visual Studio 中打开“新建项目”对话框。 依次展开“已安装”、“Visual C#”，然后选择“控制台应用(.NET Framework)”。   
-1. 将应用程序命名为 **EcommerceModeration**，然后单击“确定”。 
+1. 将应用程序命名为 **EcommerceModeration** ，然后单击“确定”。 
 1. 如果要将此项目添加到现有的解决方案，请将此项目选作单一启动项目。
 
-本教程会突出显示项目的核心代码，但不会介绍每个代码行。 将示例项目（[电子商务目录审查示例](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)）中 _Program.cs_ 的整个内容复制到新项目的 _Program.cs_ 文件。 然后，逐步完成以下各个部分，以了解项目的工作原理以及如何自行使用该项目。
+本教程会突出显示项目的核心代码，但不会介绍每个代码行。 将示例项目（ [电子商务目录审查示例](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)）中 _Program.cs_ 的整个内容复制到新项目的 _Program.cs_ 文件。 然后，逐步完成以下各个部分，以了解项目的工作原理以及如何自行使用该项目。
 
 ## <a name="define-api-keys-and-endpoints"></a>定义 API 密钥和终结点
 
@@ -78,13 +78,13 @@ GitHub 上的[电子商务目录审查示例](https://github.com/MicrosoftConten
 
 ## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy 方法
 
-查看 **Program** 类中的 **EvaluateAdultRacy** 方法。 此方法将图像 URL 和键值对数组用作参数。 它调用内容审查器的图像 API（使用 REST）获取图像的成人和不雅评分。 如果评分大于 0.4（范围为 0 到 1），则将 **ReviewTags** 数组中的相应值设置为 **True**。
+查看 **Program** 类中的 **EvaluateAdultRacy** 方法。 此方法将图像 URL 和键值对数组用作参数。 它调用内容审查器的图像 API（使用 REST）获取图像的成人和不雅评分。 如果评分大于 0.4（范围为 0 到 1），则将 **ReviewTags** 数组中的相应值设置为 **True** 。
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
 ## <a name="evaluatecomputervisiontags-method"></a>EvaluateComputerVisionTags 方法
 
-下一个方法采用图像 URL 和计算机视觉订阅信息，并分析图像中是否存在名人。 如果找到一个或多个名人，则将 **ReviewTags** 数组中的相应值设置为 **True**。
+下一个方法采用图像 URL 和计算机视觉订阅信息，并分析图像中是否存在名人。 如果找到一个或多个名人，则将 **ReviewTags** 数组中的相应值设置为 **True** 。
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
@@ -94,7 +94,7 @@ GitHub 上的[电子商务目录审查示例](https://github.com/MicrosoftConten
 
 ![包含笔、玩具和国旗训练图像的自定义视觉网页](images/tutorial-ecommerce-custom-vision.PNG)
 
-训练分类器后，获取预测密钥和预测终结点 URL（检索这些信息时如需帮助，请参阅[获取 URL 和预测密钥](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key)），并将这些值分别分配到 `CustomVisionKey` 和 `CustomVisionUri` 字段。 该方法使用这些值来查询分类器。 如果分类器在图像中找到一个或多个自定义标记，此方法会将 **ReviewTags** 数组中的相应值设置为 **True**。
+训练分类器后，获取预测密钥和预测终结点 URL（检索这些信息时如需帮助，请参阅[获取 URL 和预测密钥](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key)），并将这些值分别分配到 `CustomVisionKey` 和 `CustomVisionUri` 字段。 该方法使用这些值来查询分类器。 如果分类器在图像中找到一个或多个自定义标记，此方法会将 **ReviewTags** 数组中的相应值设置为 **True** 。
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978248"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670664"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 虚拟机存储配置
 
@@ -42,11 +42,11 @@ Azure 为 Azure 标准和高级存储上的 Vhd 提供了两种部署方法。 �
 
 不同存储类型的最低 SAP HANA 认证条件为： 
 
-- Azure 高级存储- **/hana/log** 需要受 azure [写入加速器](../../how-to-enable-write-accelerator.md)支持。 **/Hana/data**卷可放置在不带 Azure 写入加速器的高级存储或超磁盘上
-- Azure Ultra 磁盘至少适用于 **/hana/log** 卷。 **/Hana/data**卷可放置在无 Azure 写入加速器的高级存储上，或者用于获取超磁盘的重新启动时间
-- **NFS** v2.0 上 **/hana/log 和/Hana/data**的 Azure NetApp 文件的卷。 /Hana/shared 的卷可以使用 NFS v3 或 NFS v2.0 协议
+- Azure 高级存储- **/hana/log** 需要受 azure [写入加速器](../../how-to-enable-write-accelerator.md)支持。 **/Hana/data** 卷可放置在不带 Azure 写入加速器的高级存储或超磁盘上
+- Azure Ultra 磁盘至少适用于 **/hana/log** 卷。 **/Hana/data** 卷可放置在无 Azure 写入加速器的高级存储上，或者用于获取超磁盘的重新启动时间
+- **NFS** v2.0 上 **/hana/log 和/Hana/data** 的 Azure NetApp 文件的卷。 /Hana/shared 的卷可以使用 NFS v3 或 NFS v2.0 协议
 
-可以组合某些存储类型。 例如，可以将 **/hana/data** 放在高级存储上，而 **/hana/log** 可放置在超小型磁盘存储上，以便达到所需的低延迟。 如果将基于和的卷用于 **/hana/data**，则  **/hana/log** 卷也需要基于和顶层的 NFS。 **不支持**在和上将 NFS 用于某个卷 (例如/hana/data) 、Azure 高级存储或超磁盘 (如 **/hana/log**) ）。
+可以组合某些存储类型。 例如，可以将 **/hana/data** 放在高级存储上，而 **/hana/log** 可放置在超小型磁盘存储上，以便达到所需的低延迟。 如果将基于和的卷用于 **/hana/data** ，则  **/hana/log** 卷也需要基于和顶层的 NFS。 **不支持** 在和上将 NFS 用于某个卷 (例如/hana/data) 、Azure 高级存储或超磁盘 (如 **/hana/log** ) ）。
 
 在本地环境中，很少需要考虑 I/O 子系统及其功能。 原因在于，设备供应商会确保满足 SAP HANA 的最低存储要求。 在自行构建 Azure 基础结构时，你应该注意其中的一些 SAP 颁发的要求。 SAP 所建议的一些最小吞吐量特征包括：
 
@@ -75,7 +75,7 @@ Linux 提供多种不同的 I/O 计划模式。 Linux 供应商和 SAP 的常见
 Azure 写入加速器是可用于 Azure M 系列 VM 的一项功能。 作为名称状态，该功能的目的是改善针对 Azure 高级存储的写入操作的 i/o 延迟。 在 SAP HANA 中，预期只能对 **/hana/log** 卷使用写入加速器。 因此，/hana/data 和 /hana/log 是单独的卷，其中 Azure 写入加速器仅支持 /hana/log 卷  。 
 
 > [!IMPORTANT]
-> 使用 Azure 高级存储时，对 **/hana/log**卷使用 azure[写入加速器](../../how-to-enable-write-accelerator.md)是必需的。 写入加速器仅适用于高级存储、M 系列和 Mv2-Series Vm。 写入加速器与其他 Azure VM 系列（如 Esv3 或 Edsv4）不结合工作。
+> 使用 Azure 高级存储时，对 **/hana/log** 卷使用 azure [写入加速器](../../how-to-enable-write-accelerator.md)是必需的。 写入加速器仅适用于高级存储、M 系列和 Mv2-Series Vm。 写入加速器与其他 Azure VM 系列（如 Esv3 或 Edsv4）不结合工作。
 
 下面列出了适用于 Azure 高级磁盘的缓存建议，这些建议如下所示 SAP HANA：
 
@@ -93,13 +93,13 @@ Azure 写入加速器是可用于 Azure M 系列 VM 的一项功能。 作为名
 - **OS 磁盘** -不要更改 Azure 在创建 VM 时设置的默认缓存
 
 
-如果使用 LVM 或 mdadm 跨多个 Azure 高级磁盘构建条带集，则需要定义条带大小。 这些大小在 **/hana/data** 和 **/hana/log**之间有所不同。 **建议：作为条带大小，建议使用：**
+如果使用 LVM 或 mdadm 跨多个 Azure 高级磁盘构建条带集，则需要定义条带大小。 这些大小在 **/hana/data** 和 **/hana/log** 之间有所不同。 **建议：作为条带大小，建议使用：**
 
 - 256 KB 的 /hana/data
 - **/hana/log** 64 KB
 
 > [!NOTE]
-> **/Hana/data**的条带大小已从较早的建议中更改为 64 kb 或 128 kb 256，并基于具有更多最新 Linux 版本的客户体验。 256 KB 的大小是提供略微改善的性能。 我们还将 **/hana/log** 的条带大小建议从 32 kb 改为 64 kb，以获得具有更大 i/o 大小的足够吞吐量。
+> **/Hana/data** 的条带大小已从较早的建议中更改为 64 kb 或 128 kb 256，并基于具有更多最新 Linux 版本的客户体验。 256 KB 的大小是提供略微改善的性能。 我们还将 **/hana/log** 的条带大小建议从 32 kb 改为 64 kb，以获得具有更大 i/o 大小的足够吞吐量。
 
 > [!NOTE]
 > 不需要使用 RAID 卷配置任何冗余级别，因为 Azure 块存储会保留 VHD 的三个映像。 使用带 Azure 高级磁盘的带区集纯粹用于配置提供足够的 IOPS 和/或 i/o 吞吐量的卷。
@@ -143,36 +143,36 @@ Azure 写入加速器是可用于 Azure M 系列 VM 的一项功能。 作为名
 
 SAP **/hana/data** 卷的配置：
 
-| VM SKU | RAM | 最大 VM I/O<br /> 吞吐量 | /hana/data | 最大突发吞吐量 | IOPS | 突发 IOPS |
+| VM SKU | RAM | 最大 VM I/O<br /> 吞吐量 | /hana/data | 预配的吞吐量 | 最大突发吞吐量 | IOPS | 突发 IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14,000 |
-| M32ls | 256 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14,000 |
-| M64ls | 512 GiB | 1,000 MBps | 4 x P10 |  680 MBps | 2,000 | 14,000 |
-| M64s | 1,000 GiB | 1,000 MBps | 4 x P15 | 680 MBps | 4400 | 14,000 |
-| M64ms | 1,750 GiB | 1,000 MBps | 4 x P20 | 680 MBps | 9200 | 14,000 |  
-| M128s | 2,000 GiB | 2000 MBps | 4 x P20 | 680 MBps | 9200| 14,000 | 
-| M128ms | 3,800 GiB | 2000 MBps | 4 x P30 | 800 MBps (预配)  | 20,000 | 无突发 | 
-| M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps (预配)  | 20,000| 无突发 | 
-| M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1000 MBps (预配)  | 25,000 | 无突发 |
-| M416s_v2 | 5,700 GiB | 2000 MBps | 4 x P40 | 1000 MBps (预配)  | 25,000 | 无突发 |
-| M416ms_v2 | 11,400 GiB | 2000 MBps | 4 x P50 | 2000 MBps (预配)  | 25,000 | 无突发 |
+| M32ts | 192 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14,000 |
+| M32ls | 256 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14,000 |
+| M64ls | 512 GiB | 1,000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2,000 | 14,000 |
+| M64s | 1,000 GiB | 1,000 MBps | 4 x P15 | 500 MBps | 680 MBps | 4400 | 14,000 |
+| M64ms | 1,750 GiB | 1,000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9200 | 14,000 |  
+| M128s | 2,000 GiB | 2000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9200| 14,000 | 
+| M128ms | 3,800 GiB | 2000 MBps | 4 x P30 | 800 MBps | 无突发 | 20,000 | 无突发 | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps | 无突发 | 20,000| 无突发 | 
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps | 无突发 | 30,000 | 无突发 |
+| M416s_v2 | 5,700 GiB | 2000 MBps | 4 x P40 | 1,000 MBps | 无突发 | 30,000 | 无突发 |
+| M416ms_v2 | 11,400 GiB | 2000 MBps | 4 x P50 | 2000 MBps | 无突发 | 30,000 | 无突发 |
 
 
 对于 **/hana/log** 卷。 此配置如下所示：
 
-| VM SKU | RAM | 最大 VM I/O<br /> 吞吐量 | **/hana/log** 卷 | 最大突发吞吐量 | IOPS | 突发 IOPS |
+| VM SKU | RAM | 最大 VM I/O<br /> 吞吐量 | **/hana/log** 卷 | 预配的吞吐量 | 最大突发吞吐量 | IOPS | 突发 IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MBps | 3 x P10 | 510 MBps | 1,500 | 10500 | 
-| M32ls | 256 GiB | 500 MBps | 3 x P10 | 510 MBps | 1,500 | 10500 | 
-| M64ls | 512 GiB | 1,000 MBps | 3 x P10 | 510 MBps | 1,500 | 10500 | 
-| M64s | 1,000 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 | 
-| M64ms | 1,750 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M128s | 2,000 GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500|  
-| M128ms | 3,800 GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 | 
-| M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M416s_v2 | 5,700 GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M416ms_v2 | 11,400 GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 | 
+| M32ts | 192 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 | 
+| M32ls | 256 GiB | 500 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 | 
+| M64ls | 512 GiB | 1,000 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 | 
+| M64s | 1,000 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 | 
+| M64ms | 1,750 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M128s | 2,000 GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500|  
+| M128ms | 3,800 GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M416s_v2 | 5,700 GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M416ms_v2 | 11,400 GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 | 
 
 
 对于其他卷，配置如下所示：
@@ -192,19 +192,19 @@ SAP **/hana/data** 卷的配置：
 | M416ms_v2 | 11,400 GiB | 2000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-检查建议的不同卷的存储吞吐量是否满足所要运行的工作负载。 如果工作负荷需要更高的 **/hana/data** 和 **/hana/log**卷，则需要增加 Azure 高级存储 vhd 的数量。 对于包含的 VHD 数目比所列数目更多的卷，调整其大小会在 Azure 虚拟机类型的限制范围内增大 IOPS 和 I/O 吞吐量。
+检查建议的不同卷的存储吞吐量是否满足所要运行的工作负载。 如果工作负荷需要更高的 **/hana/data** 和 **/hana/log** 卷，则需要增加 Azure 高级存储 vhd 的数量。 对于包含的 VHD 数目比所列数目更多的卷，调整其大小会在 Azure 虚拟机类型的限制范围内增大 IOPS 和 I/O 吞吐量。
 
 只能配合 [Azure 托管磁盘](https://azure.microsoft.com/services/managed-disks/)使用 Azure 写入加速器。 至少需要将构成 **/hana/log** 卷的 Azure 高级存储磁盘部署为托管磁盘。 可在 [写入加速器](../../how-to-enable-write-accelerator.md)一文中找到更详细的 Azure 写入加速器说明和限制。
 
 对于 Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) 系列和 [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)的 HANA 认证的 vm，需要对 **/HANA/DATA** 和 **/hana/log** 卷进行和。 或者，需要对 **/hana/log** 卷使用 azure Ultra 磁盘存储而不是 azure 高级存储。 因此，Azure 高级存储上的 **/hana/data** 卷的配置可能如下所示：
 
-| VM SKU | RAM | 最大 VM I/O<br /> 吞吐量 | /hana/data | 最大突发吞吐量 | IOPS | 突发 IOPS |
+| VM SKU | RAM | 最大 VM I/O<br /> 吞吐量 | /hana/data | 预配的吞吐量 | 最大突发吞吐量 | IOPS | 突发 IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
-| E20ds_v4 | 160 GiB | 480 MBps | 3 x P10 | 510 MBps | 1,500 | 10500 |
-| E32ds_v4 | 256 GiB | 768 MBps | 3 x P10 |  510 MBps | 1,500 | 10500|
-| E48ds_v4 | 384 GiB | 1152 MBps | 3 x P15 |  510 MBps | 3300  | 10500 | 
-| E64ds_v4 | 504 GiB | 1,200 MBps | 3 x P15 |  510 MBps | 3300 | 10500 | 
-| E64s_v3 | 432 GiB | 1,200 MB/秒 | 3 x P15 |  510 MBps | 3300 | 10500 | 
+| E20ds_v4 | 160 GiB | 480 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 |
+| E32ds_v4 | 256 GiB | 768 MBps | 3 x P10 |  300 MBps | 510 MBps | 1,500 | 10500|
+| E48ds_v4 | 384 GiB | 1152 MBps | 3 x P15 |  375 MBps |510 MBps | 3300  | 10500 | 
+| E64ds_v4 | 504 GiB | 1,200 MBps | 3 x P15 |  375 MBps | 510 MBps | 3300 | 10500 | 
+| E64s_v3 | 432 GiB | 1,200 MB/秒 | 3 x P15 |  375 MBps | 510 MBps | 3300 | 10500 | 
 
 对于其他卷（包括超磁盘上的 **/hana/log** ），配置可能如下所示：
 

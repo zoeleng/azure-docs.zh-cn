@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048485"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460778"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>教程：使用示例客户端应用了解 Azure 数字孪生
 
-本教程介绍实现了命令行客户端应用程序的示例应用程序，用于与 Azure 数字孪生实例进行交互。 客户端应用与[*教程：编写客户端应用*](tutorial-code.md)中编写的应用类似。
+本教程介绍实现了命令行客户端应用程序的示例应用程序，用于与 Azure 数字孪生实例进行交互。 客户端应用与 [*教程：编写客户端应用*](tutorial-code.md)中编写的应用类似。
 
 可以使用此示例执行基本的 Azure 数字孪生操作，例如上传模型、创建和修改孪生以及创建关系。 还可以查看示例的代码，以了解 Azure 数字孪生 API，并通过修改示例项目等各种方式来练习实现你自己的命令。
 
@@ -79,7 +79,7 @@ ms.locfileid: "92048485"
 > 如果想尝试创建自己的模型，可以将 Room 模型代码粘贴到新文件中，该文件以 .json 为扩展名，并保存在 AdtSampleApp\SampleClientApp\Models 文件夹中  。 然后，尝试添加属性和关系以表示想要的任何内容。 也可以查看此文件夹中的其他示例模型以获得灵感。
 
 > [!TIP] 
-> 有一种与语言无关的 [DTDL 验证程序示例](/samples/azure-samples/dtdl-validator/dtdl-validator)，可用来检查模型文件，以确保 DTDL 有效。 它是在 DTDL 分析程序库的基础上构建的，详情请参阅[*操作方法：分析和验证模型*](how-to-parse-models.md)。
+> 有一种与语言无关的 [DTDL 验证程序示例](/samples/azure-samples/dtdl-validator/dtdl-validator)，可用来检查模型文件，以确保 DTDL 有效。 它是在 DTDL 分析程序库的基础上构建的，详情请参阅 [*操作方法：分析和验证模型*](how-to-parse-models.md)。
 
 ### <a name="get-started-with-the-command-line-app"></a>命令行应用入门
 
@@ -130,7 +130,7 @@ CreateModels Room
 ```
 
 由于无法覆盖模型，此操作现在将返回服务错误。
-有关如何删除现有模型的详细信息，请参阅[*操作说明：管理自定义模型*](how-to-manage-model.md)。
+有关如何删除现有模型的详细信息，请参阅 [*操作说明：管理自定义模型*](how-to-manage-model.md)。
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -242,7 +242,7 @@ Azure 数字孪生的主要功能是能够轻松有效地[查询](concepts-query
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="编辑了更新版本号、HumidityLevel 和 RoomName 属性和包含关系的 Room.json":::
 
     >[!NOTE]
-    >在示例项目中，不带任何附加参数的命令 `Query` 相当于 `Query SELECT * FROM DIGITALTWINS`。 若要使用[查询 API](how-to-use-apis-sdks.md) 或 [CLI 命令](how-to-use-cli.md)查询实例中的所有孪生体，请使用较长的（完整）查询。
+    >在示例项目中，不带任何附加参数的命令 `Query` 相当于 `Query SELECT * FROM DIGITALTWINS`。 若要使用[查询 API](/rest/api/digital-twins/dataplane/query) 或 [CLI 命令](how-to-use-cli.md)查询实例中的所有孪生体，请使用较长的（完整）查询。
 
 * **我的环境中的所有房间都有哪些？** （按模型查询）
 
@@ -286,7 +286,7 @@ Azure 数字孪生的主要功能是能够轻松有效地[查询](concepts-query
 
 ## <a name="clean-up-resources"></a>清理资源
 
-本教程中的项目为下一个教程（即[*教程：连接端到端解决方案*](tutorial-end-to-end.md)）奠定基础。 如果打算继续学习下一个教程，则可以保留此处设置的资源，以便继续使用此 Azure 数字孪生实例和已配置的示例应用。
+本教程中的项目为下一个教程（即 [*教程：连接端到端解决方案*](tutorial-end-to-end.md)）奠定基础。 如果打算继续学习下一个教程，则可以保留此处设置的资源，以便继续使用此 Azure 数字孪生实例和已配置的示例应用。
 * 在本例中，可以使用示例应用的 `DeleteAllTwins` 和 `DeleteAllModels` 命令分别清除实例中的孪生和模型。 这将为下一个教程奠定基础。
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]

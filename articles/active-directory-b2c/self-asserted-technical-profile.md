@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096209"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670120"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定义采用 Azure Active Directory B2C 中自定义策略的自断言技术配置文件
 
@@ -136,7 +136,7 @@ ms.locfileid: "92096209"
 - 声明由输出声明转换输出  。
 - 在输出声明中设置默认值无需从用户处收集数据或从验证技术配置文件返回数据  。 `LocalAccountSignUpWithLogonEmail` 自断言技术配置文件将“executed-SelfAsserted-Input”  声明设置为 `true`。
 - **验证技术配置文件返回输出声明** - 你的技术配置文件可以调用返回某些声明的验证技术配置文件。 你需要发出声明并将其返回到用户旅程中的下一个业务流程步骤。 例如，当使用本地帐户登录时，名为 `SelfAsserted-LocalAccountSignin-Email` 的自断言技术配置文件会调用名为 `login-NonInteractive` 的验证技术配置文件。 此技术配置文件将验证用户凭据，并返回用户配置文件。 例如“userPrincipalName”、“displayName”、“givenName”和“surName”。
-- **显示控件返回输出声明** - 技术配置文件可能引用[显示控件](display-controls.md)。 显示控件返回某些声明，如已验证的电子邮件地址。 你需要发出声明并将其返回到用户旅程中的下一个业务流程步骤。 此显示控件功能目前以预览版提供  。
+- **显示控件返回输出声明** - 技术配置文件可能引用 [显示控件](display-controls.md)。 显示控件返回某些声明，如已验证的电子邮件地址。 你需要发出声明并将其返回到用户旅程中的下一个业务流程步骤。 此显示控件功能目前以预览版提供  。
 
 以下示例演示如何使用同时包含显示声明和输出声明的自断言技术配置文件。
 
@@ -175,9 +175,17 @@ ms.locfileid: "92096209"
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>输出声明注册或登录页
+
+在组合注册和登录页中，使用内容定义 [DataUri](contentdefinitions.md#datauri) 元素时，请注意以下 `unifiedssp` `unifiedssd` 事项：指定或页类型：
+
+- 仅呈现用户名和密码声明。
+- 前两个输出声明必须是用户名并且密码 (按此顺序) 。 
+- 不呈现任何其他声明;对于这些声明，您需要设置 `defaultValue` 或调用声明窗体验证技术配置文件。 
+
 ## <a name="persist-claims"></a>保存声明
 
-不使用 PersistedClaims 元素。 自断言技术配置文件不会将数据持久保存到 Azure AD B2C。 而是改为调用负责保留数据的验证技术配置文件。 例如，注册策略使用 `LocalAccountSignUpWithLogonEmail` 自断言技术配置文件来收集新用户配置文件。 `LocalAccountSignUpWithLogonEmail` 技术配置文件调用验证技术配置文件来在 Azure AD B2C 中创建帐户。
+不使用 PersistedClaims 元素。 自断言技术配置文件不会将数据保存到 Azure AD B2C。 而是改为调用负责保留数据的验证技术配置文件。 例如，注册策略使用 `LocalAccountSignUpWithLogonEmail` 自断言技术配置文件来收集新用户配置文件。 `LocalAccountSignUpWithLogonEmail` 技术配置文件调用验证技术配置文件来在 Azure AD B2C 中创建帐户。
 
 ## <a name="validation-technical-profiles"></a>验证技术配置文件
 
@@ -189,21 +197,21 @@ ms.locfileid: "92096209"
 
 ## <a name="metadata"></a>元数据
 
-| Attribute | 必选 | 说明 |
+| 属性 | 必选 | 说明 |
 | --------- | -------- | ----------- |
-| setting.operatingMode <sup>1</sup>| 否 | 对于登录页面，此属性可控制用户名字段的行为，如输入验证和错误消息。 预期的值为 `Username` 或 `Email`。  |
-| AllowGenerationOfClaimsWithNullValues| 否| 允许生成值为 NULL 的声明。 例如，在用户未选中复选框的情况下。|
+| 设置。 operatingMode <sup>1</sup>| 否 | 对于登录页面，此属性可控制用户名字段的行为，如输入验证和错误消息。 预期的值为 `Username` 或 `Email`。  |
+| AllowGenerationOfClaimsWithNullValues| 否| 允许生成 null 值声明。 例如，如果用户未选中复选框，则为。|
 | ContentDefinitionReferenceId | 是 | 与此技术配置文件关联的[内容定义](contentdefinitions.md)的标识符。 |
 | EnforceEmailVerification | 否 | 对于注册或配置文件编辑，强制实施电子邮件验证。 可能的值为 `true`（默认）或 `false`。 |
-| setting.retryLimit | 否 | 控制用户可以尝试提供数据的次数，所提供数据将根据验证技术配置文件进行检查。 例如，用户尝试注册已经存在的帐户，而且一直尝试，直到达到限制。
+| setting.retryLimit | 否 | 控制用户可以尝试提供对照验证技术配置文件检查的数据的次数。 例如，用户尝试注册已经存在的帐户，而且一直尝试，直到达到限制。
 | SignUpTarget <sup>1</sup>| 否 | 注册目标交换标识符。 当用户单击“注册”按钮时，Azure AD B2C 将执行指定的交换标识符。 |
 | setting.showCancelButton | 否 | 显示“取消”按钮。 可能的值为 `true`（默认）或 `false` |
 | setting.showContinueButton | 否 | 显示“继续”按钮。 可能的值为 `true`（默认）或 `false` |
-| setting.showSignupLink <sup>2</sup>| 否 | 显示“注册”按钮。 可能的值为 `true`（默认）或 `false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| 否| 显示“忘记密码”链接。 可能的值：`AfterInput`（默认值）链接显示在页面底部，或者 `None`（删除“忘记密码”链接）。|
-| setting.enableRememberMe <sup>2</sup>| 否| 显示 " [使我保持登录](custom-policy-keep-me-signed-in.md) " 复选框。 可能的值：`true` 或 `false`（默认值）。 |
+| 设置。 showSignupLink <sup>2</sup>| 否 | 显示“注册”按钮。 可能的值为 `true`（默认）或 `false` |
+| 设置。 forgotPasswordLinkLocation <sup>2</sup>| 否| 显示 "忘记密码" 链接。 可能的值： `AfterInput` (默认值) 链接会显示在页面底部，或 `None` 删除 "忘记密码" 链接。|
+| 设置。 enableRememberMe <sup>2</sup>| 否| 显示 " [使我保持登录](custom-policy-keep-me-signed-in.md) " 复选框。 可能的值： `true` 或 `false` (默认) 。 |
 | inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 否| 通过等待用户停止键入并验证该值来改善用户体验。 默认值为2000毫秒。 |
-| IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false` （默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
+| IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false`（默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
 
 说明：
 1. 可用于内容定义 [DataUri](contentdefinitions.md#datauri) 类型 `unifiedssp` 或 `unifiedssd` 。

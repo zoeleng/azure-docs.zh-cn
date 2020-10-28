@@ -3,14 +3,14 @@ title: Azure 自动化 - 更改跟踪和库存概述
 description: 本文介绍了更改跟踪和清单功能，可帮助你在环境中识别软件和 Microsoft 服务的更改。
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9654529723b5b69c15358be9e06db4f8cbed35e3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209589"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670739"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>更改跟踪和库存概述
 
@@ -48,7 +48,7 @@ ms.locfileid: "92209589"
 - Windows 注册表跟踪递归
 - 网络文件系统
 - 不同的安装方法
-- *Windows 上存储的 **.exe**文件
+- *Windows 上存储的 *_.exe_* 文件
 - 未在当前实现中使用“最大文件大小”列和值。
 - 如果尝试在30分钟的收集周期内收集超过2500个文件，更改跟踪和清单性能可能会下降。
 - 如果网络流量较高，则可能需要长达6小时的时间才能显示更改记录。
@@ -77,13 +77,15 @@ ms.locfileid: "92209589"
 
 ## <a name="enable-change-tracking-and-inventory"></a>启用更改跟踪和库存
 
-可以通过以下方式启用更改跟踪和清点，并选择要管理的计算机：
+可以通过以下方式启用更改跟踪和清单：
 
-* [从 Azure 虚拟机中](enable-from-vm.md)。
-* [浏览多个 Azure 虚拟机](enable-from-portal.md)。
-* [通过 Azure 自动化帐户](enable-from-automation-account.md)。
-* 对于启用了 Arc 的服务器或非 Azure 计算机，请使用 [VM 扩展](../../azure-arc/servers/manage-vm-extensions.md) 从启用了 Azure arc 的服务器安装 Log Analytics 代理，然后 [在工作区中启用计算机](enable-from-automation-account.md#enable-machines-in-the-workspace) 以更改跟踪和清点。
-* [使用自动化 runbook](enable-from-runbook.md)。
+- 从你的 [自动化帐户](enable-from-automation-account.md) ，为一个或多个 azure 和非 azure 计算机。
+
+- 为非 Azure 计算机手动执行，包括注册到 [启用了 Azure Arc 的服务器](../../azure-arc/servers/overview.md)的计算机或服务器。 对于混合计算机，我们建议通过首先将计算机连接到 [启用了 Azure arc 的服务器](../../azure-arc/servers/overview.md)，然后使用 Azure 策略将 [部署 Log Analytics 代理分配到 *Linux* 或 *Windows* Azure arc 计算机](../../governance/policy/samples/built-in-policies.md#monitoring) 内置策略，来安装适用于 Windows 的 Log Analytics 代理。 如果还计划使用用于 VM 的 Azure Monitor 监视计算机，请改用 [启用用于 VM 的 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 计划。
+
+- 对于 "Azure 门户中的" [虚拟机 "页](enable-from-vm.md) 上的单个 Azure VM。 此方案适用于 Linux 和 Windows VM。
+
+- 对于[多个 Azure VM](enable-from-portal.md)，从 Azure 门户的“虚拟机”页中选择它们进行启用。
 
 ## <a name="tracking-file-changes"></a>跟踪文件更改
 
@@ -106,8 +108,8 @@ ms.locfileid: "92209589"
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | 监视关机时运行的脚本。
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | 监视用户登录 Windows 帐户之前加载的注册表项。 该注册表项用于在 64 位计算机上运行的 32 位应用程序。
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | 监视应用程序设置的更改。
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | 监视直接挂钩到 Windows 资源管理器中的上下文菜单处理程序，并且通常与 **explorer.exe**在进程内运行。
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | 监视直接挂钩到 Windows 资源管理器并在 **explorer.exe**中运行的复制挂钩处理程序。
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | 监视直接挂钩到 Windows 资源管理器中的上下文菜单处理程序，并且通常与 **explorer.exe** 在进程内运行。
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | 监视直接挂钩到 Windows 资源管理器并在 **explorer.exe** 中运行的复制挂钩处理程序。
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 监视图标覆盖处理程序注册。
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 监视在 64 位计算机上运行的 32 位应用程序的图标覆盖处理程序注册。
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | 监视 Internet Explorer 的新浏览器帮助程序对象插件。 用于访问当前页的文档对象模型 (DOM) 并控制导航。
@@ -125,7 +127,7 @@ ms.locfileid: "92209589"
 
 - 跟踪多个文件需要使用通配符。
 
-- 只能在文件路径的最后一段中使用通配符，例如， **c:\folder \\ file*** 或 **/etc/*.**
+- 只能在文件路径的最后一段中使用通配符，例如， **c:\folder \\ file** _ 或 _ */etc/* * *。
 
 - 如果环境变量具有无效路径，验证会成功，但在执行过程中路径会失败。
 

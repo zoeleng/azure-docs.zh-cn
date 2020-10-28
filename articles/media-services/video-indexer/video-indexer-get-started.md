@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 10/19/2020
 ms.author: juliako
-ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85130749"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219780"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>快速入门：如何注册并上传第一个视频
 
@@ -39,24 +39,28 @@ ms.locfileid: "85130749"
 ### <a name="upload-a-video"></a>上传视频
 
 1. 登录到[视频索引器](https://www.videoindexer.ai/)网站。
-2. 若要上传视频，请按“上传”按钮或链接。 
+1. 若要上传视频，请按“上传”按钮或链接。 
 
     > [!NOTE]
     > 视频的名称长度不得超过 80 个字符。
 
-    ![上载](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="上载":::
+1. 视频上传以后，视频索引器就会开始对视频进行索引编制和分析。 你会看到进度。 
 
-    视频上传以后，视频索引器就会开始对视频进行索引编制和分析。
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="上载":::
+1. 当视频索引器分析完成后，你会获得一封电子邮件，其中包含视频链接以及对视频中找到的内容的简短说明。 例如：人员、口语和书面语、主题和命名实体。
+1. 稍后可以在库列表中找到视频并执行不同的操作。 例如：搜索、重新索引、编辑。
 
-    ![已上传](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    当视频索引器分析完以后，你会获得一个通知，其中包含视频链接以及对视频中找到的内容的简短说明。 例如：人物、主题、OCR。
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="上载":::
+ 
 ## <a name="see-also"></a>另请参阅
 
 有关更多详细信息，请参阅[上传视频并为其编制索引](upload-index-videos.md)。
 
-上传视频并为其编制索引后，可以开始使用[视频索引器](video-indexer-view-edit.md)网站或[视频索引器开发人员门户](video-indexer-use-apis.md)查看视频见解。 
+上传视频并为其编制索引后，可以开始使用[视频索引器网站](video-indexer-view-edit.md)或[视频索引器开发人员门户](video-indexer-use-apis.md)查看视频见解。 
 
 [开始使用 API](video-indexer-use-apis.md)
 

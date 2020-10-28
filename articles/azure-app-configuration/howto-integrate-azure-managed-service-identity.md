@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078164"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671607"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>使用托管标识来访问应用程序配置
 
@@ -49,9 +49,9 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
 
 1. 按常规在 [Azure 门户](https://portal.azure.com)中创建应用服务实例。 在门户网站中转到它。
 
-1. 在左侧窗格向下滚动到“设置”组，然后选择“标识”********。
+1. 在左侧窗格向下滚动到“设置”组，然后选择“标识”  。
 
-1. 在“系统分配”选项卡中，将“状态”切换为“启用”并选择“保存”****************。
+1. 在“系统分配”选项卡中，将“状态”切换为“启用”并选择“保存”  。
 
 1. 当提示启用系统分配的托管标识时，选择“是”。
 
@@ -63,11 +63,11 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
 
 1. 选择“访问控制(IAM)”。
 
-1. 在“检查访问权限”选项卡中，选择“添加角色分配”卡 UI 中的“添加”************。
+1. 在“检查访问权限”选项卡中，选择“添加角色分配”卡 UI 中的“添加”  。
 
-1. 在“角色”下，选择“应用程序配置数据读取者” 。 将“访问权限分配对象”下，选择“应用服务”（在“系统分配的托管标识”下）************。
+1. 在“角色”下，选择“应用程序配置数据读取者” 。 将“访问权限分配对象”下，选择“应用服务”（在“系统分配的托管标识”下）  。
 
-1. 在“订阅”下，选择 Azure 订阅****。 选择应用的应用服务资源。
+1. 在“订阅”下，选择 Azure 订阅  。 选择应用的应用服务资源。
 
 1. 选择“保存”。
 
@@ -85,7 +85,7 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
 
 1. 查找应用程序配置存储区的终结点。 此 URL 列于 Azure 门户中的存储的“访问密钥”选项卡上。
 
-1. 打开“appsettings.json”，并添加以下脚本**。 将 \<service_endpoint>（含括号）替换为应用程序配置存储区的 URL。
+1. 打开“appsettings.json”，并添加以下脚本  。 将 \<service_endpoint>（含括号）替换为应用程序配置存储区的 URL。
 
     ```json
     "AppConfig": {
@@ -107,30 +107,32 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   config.AddAzureAppConfiguration(options =>
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
-                var settings = config.Build();
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
                     config.AddAzureAppConfiguration(options =>
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -139,46 +141,48 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-            public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-                WebHost.CreateDefaultBuilder(args)
-                    .ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>();
+                   config.AddAzureAppConfiguration(options =>
+                   {
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                           .ConfigureKeyVault(kv =>
+                           {
+                              kv.SetCredential(credentials);
+                           });
+                   });
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+            {
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>());
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(credentials);
+                            });
+                    });
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -222,7 +226,7 @@ az webapp deployment source config-local-git --name <app_name> --resource-group 
 
 ### <a name="deploy-your-project"></a>部署项目
 
-在_本地终端窗口_中，将 Azure 远程功能添加到本地 Git 存储库。 使用从[使用 Kudu 启用本地 Git](#enable-local-git-with-kudu) 中获取的 Git 远程 URL 替换 \<url>。
+在 _本地终端窗口_ 中，将 Azure 远程功能添加到本地 Git 存储库。 使用从[使用 Kudu 启用本地 Git](#enable-local-git-with-kudu) 中获取的 Git 远程 URL 替换 \<url>。
 
 ```bash
 git remote add azure <url>
