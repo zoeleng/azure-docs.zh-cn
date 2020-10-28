@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 297190a99f9231cd07cffe1364202a1acbe75323
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489993"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777922"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>使用 CLI 创建和管理 Azure Database for PostgreSQL 单服务器的专用链接
 
@@ -70,7 +70,7 @@ az vm create \
  记下 VM 的公共 IP 地址。 在下一步中，此地址将用于从 Internet 连接到 VM。
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>创建 Azure Database for PostgreSQL 单服务器 
-使用 az postgres server create 命令创建 Azure Database for PostgreSQL。 请记住，PostgreSQL 服务器的名称必须在 Azure 中是唯一的，因此请将占位符中的占位符值替换为你自己的唯一值： 
+使用 az postgres server create 命令创建 Azure Database for PostgreSQL。 请记住，PostgreSQL 服务器的名称必须在 Azure 中是唯一的，因此请将占位符值替换为你在上面使用的唯一值： 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -130,15 +130,15 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
-从 Internet 连接到 VM *myVm*，如下所示：
+从 Internet 连接到 VM *myVm* ，如下所示：
 
-1. 在门户的搜索栏中，输入 *myVm*。
+1. 在门户的搜索栏中，输入 *myVm* 。
 
-1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开**** ****。
+1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开   。
 
-1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp*) 文件，并将其下载到计算机。
+1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp* ) 文件，并将其下载到计算机。
 
-1. 打开 downloaded.rdp** 文件。
+1. 打开 downloaded.rdp  文件。
 
     1. 出现提示时，选择“连接”  。
 
@@ -170,15 +170,15 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 3. 使用任何可用的客户端测试 PostgreSQL 服务器的专用链接连接。 在下面的示例中，我使用 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) 执行此操作。
 
-4. 在 " **新建连接**" 中，输入或选择以下信息：
+4. 在 " **新建连接** " 中，输入或选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
-    | 服务器类型| 选择 **PostgreSQL**。|
+    | 服务器类型| 选择 **PostgreSQL** 。|
     | 服务器名称| 选择 *mydemopostgresserver.privatelink.postgres.database.azure.com* |
     | 用户名 | 输入在 username@servername PostgreSQL 服务器创建过程中提供的用户名。 |
     |密码 |输入在创建 PostgreSQL 服务器期间提供的密码。 |
-    |SSL|选择 " **必需**"。|
+    |SSL|选择 " **必需** "。|
     ||
 
 5. 选择“连接”。

@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2c8c094efdfa9f46c6e6c42e34fd4010e43fa972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2969ce6ceda0d1b71ec991b32f5b10acf9bfa12
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84039898"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780370"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 应用程序
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-三个示例均实现了同一个 Wingtip Tickets SaaS ** 应用程序。 该应用是一个简单的事件列表和票证 SaaS 应用，面向小型会场、俱乐部等。每个地点都是应用的租户，并有自己的数据：地点详细信息、事件列表、客户、票证订单等。 该应用与管理脚本和教程一起展示了一个端到端 SaaS 方案。 此方案包括预配租户、监视并管理性能、架构管理和跨租户报告和分析。
+三个示例均实现了同一个 Wingtip Tickets SaaS  应用程序。 该应用是一个简单的事件列表和票证 SaaS 应用，面向小型会场、俱乐部等。每个地点都是应用的租户，并有自己的数据：地点详细信息、事件列表、客户、票证订单等。 该应用与管理脚本和教程一起展示了一个端到端 SaaS 方案。 此方案包括预配租户、监视并管理性能、架构管理和跨租户报告和分析。
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>三种 SaaS 应用程序和租户模式
 
@@ -84,12 +84,11 @@ ms.locfileid: "84039898"
 
 <!-- WWWeb http references. -->
 
-[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[docs-tutorials-for-wingtip-sa]: ./saas-standaloneapp-get-started-deploy.md
 [github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[docs-tutorials-for-wingtip-dpt]: ./saas-dbpertenant-wingtip-app-overview.md
 [github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[docs-tutorials-for-wingtip-mt]: ./saas-multitenantdb-get-started-deploy.md
 [github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
-

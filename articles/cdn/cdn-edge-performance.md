@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887700"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778654"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>分析 Microsoft Azure CDN 中的边缘节点性能
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -50,12 +50,12 @@ CDN 活动数据必须由“边缘性能分析”模块收集，才能为其生�
 * 关键指标和关于我们的 CDN 网络如何提高站点流量（衡量标准是总体性能、使用情况和效率）的统计信息。
 
 ### <a name="accessing-the-edge-performance-dashboard"></a>访问边缘性能仪表板
-1. 从 CDN 配置文件的边栏选项卡，单击“**管理**”按钮。
+1. 从 CDN 配置文件的边栏选项卡，单击“ **管理** ”按钮。
    
     ![CDN 配置文件边栏选项卡管理按钮](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     CDN 管理门户打开。
-2. 将鼠标悬停在“分析”选项卡，然后悬停在“边缘性能分析”浮出控件********。  单击“**仪表板**”。
+2. 将鼠标悬停在“分析”选项卡，然后悬停在“边缘性能分析”浮出控件  。  单击“ **仪表板** ”。
    
     将显示边缘节点分析仪表板。
 
@@ -138,12 +138,12 @@ CDN 活动数据必须由“边缘性能分析”模块收集，才能为其生�
 此模块中的每个报告都包含有关不同类型指标的带宽和流量使用情况的图表和统计信息（例如，HTTP 状态代码，缓存状态代码，请求 URL 等）。 此信息可用于深入了解内容是如何提供给客户端以及如何微调 CDN 行为以提高数据传输性能。
 
 ### <a name="accessing-the-edge-performance-reports"></a>访问边缘性能报告
-1. 从 CDN 配置文件的边栏选项卡，单击“**管理**”按钮。
+1. 从 CDN 配置文件的边栏选项卡，单击“ **管理** ”按钮。
    
     ![CDN 配置文件边栏选项卡管理按钮](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     CDN 管理门户打开。
-2. 将鼠标悬停在“分析”选项卡，然后悬停在“边缘性能分析”浮出控件********。  单击“**HTTP 大型对象**”。
+2. 将鼠标悬停在“分析”选项卡，然后悬停在“边缘性能分析”浮出控件  。  单击“ **HTTP 大型对象** ”。
    
     将显示边缘节点分析报告屏幕。
 
@@ -183,9 +183,8 @@ CDN 活动数据必须由“边缘性能分析”模块收集，才能为其生�
 | 502 错误 |包含一个条形图，允许查看导致 502 Bad Gateway 响应代码的前 10 个请求。 当服务器和 HTTP 代理之间发生 HTTP 协议故障时，会出现 502 Bad Gateway 响应代码。 在我们的 CDN 中，当客户源服务器向边缘服务器返回无效响应时，通常出现发生 502 Bad Gateway 响应代码。 如果响应无法解析或不完整，则该响应无效。 |
 | 5xx 错误 |包含一个条形图，允许查看导致 500 范围内响应代码的前 10 个请求。  此报告中排除 502 Bad Gateway 和 504 Gateway Timeout 响应代码。 |
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 * [Azure CDN 概述](cdn-overview.md)
 * [Microsoft Azure CDN 中的实时统计信息](cdn-real-time-stats.md)
-* [使用规则引擎重写默认 HTTP 行为](cdn-rules-engine.md)
+* [使用规则引擎重写默认 HTTP 行为](./cdn-verizon-premium-rules-engine.md)
 * [高级 HTTP 报告](cdn-advanced-http-reports.md)
-

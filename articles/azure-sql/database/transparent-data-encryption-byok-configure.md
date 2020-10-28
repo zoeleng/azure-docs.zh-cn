@@ -5,19 +5,19 @@ description: 了解如何配置 Azure SQL 数据库和 Azure Synapse Analytics�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619111"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779962"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 Azure CLI：使用 Azure Key Vault 中由客户管理的密钥启用透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "91619111"
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-有关 Az 模块安装说明，请参阅[安装 Azure PowerShell](/powershell/azure/install-az-ps)。 若要了解具体的 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。
+有关 Az 模块安装说明，请参阅[安装 Azure PowerShell](/powershell/azure/install-az-ps)。 若要了解具体的 cmdlet，请参阅 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)。
 
 有关 Key Vault 的具体信息，请参阅 [Key Vault 的 PowerShell 说明](../../key-vault/secrets/quick-create-powershell.md)和[如何将 Key Vault 软删除与 PowerShell 配合使用](../../key-vault/general/soft-delete-powershell.md)。
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要安装所需的 Azure CLI 版本（版本 2.0 或更高版本）并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行界面 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+若要安装所需的 Azure CLI 版本（版本 2.0 或更高版本）并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行界面 2.0](/cli/azure/install-azure-cli)。
 
 有关 Key Vault 的具体信息，请参阅[使用 CLI 2.0 管理 Key Vault](../../key-vault/general/manage-with-cli2.md) 和[如何将 Key Vault 软删除与 CLI 配合使用](../../key-vault/general/soft-delete-cli.md)。
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: db47849575c097cf56824b623dddbb6e0835d1b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5c641ce9b224aecc3d199427bf27b804f7dd2dd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543595"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102079"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>教程：将 RunMyProcess 与 Azure Active Directory 集成
 
@@ -49,7 +49,7 @@ ms.locfileid: "88543595"
 1. 在左侧导航窗格中，选择“Azure Active Directory”服务  。
 1. 导航到“企业应用程序”，选择“所有应用程序”   。
 1. 若要添加新的应用程序，请选择“新建应用程序”  。
-1. 在“从库中添加”部分的搜索框中，键入 **RunMyProcess**。 
+1. 在“从库中添加”部分的搜索框中，键入 **RunMyProcess** 。 
 1. 在结果面板中选择“RunMyProcess”，然后添加该应用。  在该应用添加到租户时等待几秒钟。
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>配置和测试 Azure AD 单一登录
@@ -96,11 +96,11 @@ ms.locfileid: "88543595"
 
 1. 在左侧导航面板中，单击“帐户”  ，并选择“配置”  。
 
-    ![在应用端配置单一登录](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+    ![显示从“帐户”选择了“配置”的屏幕截图。](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
 1. 转到“身份验证方法”  部分，并执行以下步骤：
 
-    ![在应用端配置单一登录](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![显示“身份验证方法”的屏幕截图，可在其中输入所述值。](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
     a. 对于“方法”  ，选择“使用 Samlv2 的 SSO”  。
 
@@ -166,7 +166,7 @@ ms.locfileid: "88543595"
 
     c. 选择“将帐户创建电子邮件发送给我”  。
 
-    d. 单击“ **保存**”。
+    d. 单击“ **保存** ”。
 
     > [!NOTE]
     > 可以使用任何其他 RunMyProcess 用户帐户创建工具或 RunMyProcess 提供的 API 来预配 AAD 用户帐户。

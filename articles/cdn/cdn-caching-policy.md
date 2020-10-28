@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: 6beaee98e78e79c48270801f5696e4e487b0a2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5807d38e22d8cecf40b5ad4262f9e4662b77ec4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84883705"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779129"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>在 Azure 媒体服务中管理 Azure CDN 缓存策略
 Azure 媒体服务提供基于 HTTP 的自适应流式处理和渐进式下载。 基于 HTTP 的流式处理是高度可缩放的功能，具有可以在代理和 CDN 层中缓存以及在客户端缓存的优点。 流式处理终结点提供常用的流式处理功能以及针对 HTTP 缓存标头的配置。 流式处理终结点设置 HTTP Cache-Control: max-age 和 Expires 标头。 可以从 [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html) 获取更多有关 HTTP 缓存标头的信息。
@@ -40,10 +40,9 @@ Azure 媒体服务为流式处理终结点提供[集成 CDN](https://azure.micro
 
 1. 若要使用 Azure 门户配置缓存标头，请参阅[如何管理流式处理终结点](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)部分配置流式处理终结点。
 2. Azure 媒体服务 REST API，[StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl)。
-3. Azure 媒体服务 .NET SDK，[StreamingEndpointCacheControl Properties](https://go.microsoft.com/fwlink/?LinkId=615302)。
+3. Azure 媒体服务 .NET SDK，[StreamingEndpointCacheControl Properties](/dotnet/api/microsoft.windowsazure.mediaservices.client.streamingendpointcachecontrol)。
 
 ## <a name="cache-configuration-precedence-order"></a>缓存配置优先顺序
 1. Azure 媒体服务配置的缓存值将覆盖默认值。
 2. 如果没有进行手动配置，将应用默认值。
 3. 默认情况下，不管 Azure 媒体或 Azure 存储的配置如何，缓存 2 秒的标头适用于实时流式处理清单（播放列表），无法覆盖此值。
-

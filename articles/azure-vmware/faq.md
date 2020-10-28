@@ -4,12 +4,12 @@ description: 提供有关 Azure VMware 解决方案的一些常见问题的解�
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461645"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779435"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>有关 Azure VMware 解决方案的常见问题
 
@@ -19,7 +19,7 @@ ms.locfileid: "92461645"
 
 #### <a name="what-is-azure-vmware-solution"></a>什么是 Azure VMware 解决方案？
 
-随着企业采用 IT 现代化策略来提高业务敏捷性、降低成本和加速创新，混合云平台已成为客户数字化转型的关键推动力。 Azure VMware 解决方案将 VMware 的软件定义数据中心 (SDDC) 软件与 Microsoft Azure 全局云服务生态系统相结合。 Azure VMware 解决方案经过管理，以满足性能、可用性、安全性和合规性要求。
+随着企业采用 IT 现代化策略来提高业务灵活性、降低成本和加速创新，混合云平台已成为客户数字转换的关键启用能力。 Azure VMware 解决方案将 VMware 的 Software-Defined 数据中心 (SDDC) 软件与 Microsoft Azure 全局云服务生态系统相结合。 Azure VMware 解决方案经过管理，以满足性能、可用性、安全性和合规性要求。
 
 ## <a name="azure-vmware-solution-service"></a>Azure VMware 解决方案服务
 
@@ -45,19 +45,19 @@ ms.locfileid: "92461645"
 
 #### <a name="can-i-migrate-vsphere-vms-from-on-premises-environments-to-azure-vmware-solution-private-clouds"></a>能否将 vSphere Vm 从本地环境迁移到 Azure VMware 解决方案私有云？
 
-是。 如果满足标准跨 vCenter [vMotion 要求](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) ，则可以使用 VM 迁移和 VMotion 将 vm 移到私有云。
+是的。 如果满足标准跨 vCenter [vMotion 要求](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) ，则可以使用 VM 迁移和 VMotion 将 vm 移到私有云。
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>本地环境中是否需要特定版本的 vSphere？
 
-由于所有云环境都附带了 VMware HCX，vSphere 5.5 或更高版本，用于 vMotion 的本地环境。
+所有云环境均随附于本地环境中的 HCX、vSphere 5.5 或更高版本。
 
 #### <a name="what-does-the-change-control-process-look-like"></a>变更控制过程是怎样的？
 
-对服务本身进行的更新将遵循 Microsoft Azure 的标准变更管理过程。 所有工作负载管理任务和关联的变更管理过程均由客户负责。
+对服务本身所做的更新将遵循 Microsoft Azure 的标准更改管理流程。 所有工作负载管理任务和关联的变更管理过程均由客户负责。
 
 #### <a name="how-is-this-different-from-azure-vmware-solution-by-cloudsimple"></a>这与 Azure VMware Solution by CloudSimple 有何不同？
 
-对于新的 Azure VMware 解决方案，Microsoft 与 VMware 具有云服务提供商直接合作伙伴关系。 新解决方案完全是由 Microsoft 设计、构建和支持的，并由 VMware 认可。 两种解决方案的体系结构是一致的，VMware 技术堆栈在 Azure 专用基础结构上运行。
+对于新的 Azure VMware 解决方案，Microsoft 与 VMware 具有云服务提供商直接合作伙伴关系。 新解决方案完全是由 Microsoft 设计、构建和支持的，并由 VMware 认可。 从体系结构上来说，解决方案是一致的，VMware 技术堆栈是在专用的 Azure 基础结构上运行的。
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Azure VMware 解决方案是否支持 Red Hat 解决方案？
 
@@ -68,7 +68,7 @@ Microsoft 和 Red Hat 共享集成的定位支持团队，为在 Azure 平台上
 Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX Enterprise Edition (EE)。 虽然适用于 Azure VMware 解决方案的 VMware HCX EE 处于预览状态，但它是免费的功能/服务，并受预览版服务条款和条件的约束。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你可以关闭或退出服务。
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Azure VMware 解决方案 Vm 是否可以通过 VMRC 来管理？
-是的，如果安装它的系统可以访问私有云 vCenter，并使用公共 DNS (以便可以) 解析 ESXi 主机名。
+是的，如果安装它的系统可以访问私有云 vCenter，并使用公共 DNS 来解析 ESXi 主机名。
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>是否有关于在 Azure VMware 解决方案 Vm 中安装和使用 VMRC 的特殊说明？
 否，使用 [VMware 提供的说明](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) ，并满足这些说明中指定的 VM 先决条件。 
@@ -102,7 +102,7 @@ Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet �
 
 #### <a name="how-much-network-bandwidth-is-available-in-each-esxi-host"></a>每个 ESXi 主机中提供多少网络带宽？
 
-每个 ESXi 主机都是配置了 4 25 Gbps Nic 的 Azure VMware 解决方案，为 ESXi 系统流量预配了两个 Nic，为工作负荷流量预配了两个 nic。 
+Azure VMware 解决方案中的每个 ESXi 主机都配置了 4 25 Gbps Nic，为 ESXi 系统流量预配了两个 Nic，为工作负荷流量配置了两个 Nic。 
 
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>VSAN 数据存储上存储的数据是否静态加密？
 
@@ -116,13 +116,13 @@ Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet �
 
 由于这些备份解决方案由客户进行安装和管理，因此他们可以联系到相应的 ISV 提供支持。 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>重复数据删除设置的正确存储策略是什么？
+#### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>重复值设置的正确存储策略是什么？
 
-使用 VM 模板的 *thin_provision* 存储策略。  默认值为 *thick_provision*。
+使用 VM 模板的 *thin_provision* 存储策略。  默认值为 *thick_provision* 。
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>SNMP 基础结构日志是否共享？
 
-错误。
+否。
 
 ## <a name="hosts-clusters-and-private-clouds"></a>主机、群集和私有云
 
@@ -130,17 +130,17 @@ Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet �
 
 没有，私有云主机和群集是专用的，在使用前后都会安全擦除。
 
-#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>每个群集的最小和最大主机数是多少？
+#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>每个群集的最小和最大主机数是多少？
 
 群集可以在 3 到 16 个 ESXi 主机之间缩放。 试用群集限制为 3 个主机。
 
 #### <a name="can-i-scale-my-private-cloud-clusters"></a>可以缩放私有云群集吗？
 
-可以，群集可在最小和最大 ESXi 主机数之间缩放。 试用群集限制为 3 个主机。
+是的，群集在最小和最大 ESXi 主机数之间进行缩放。 试用群集限制为 3 个主机。
 
 #### <a name="what-are-trial-clusters"></a>什么是试用群集？
 
-试用群集是三个主机群集，用于一个月评估 Azure VMware 解决方案私有云。
+试用群集是三个主机群集，用于 Azure VMware 解决方案私有云的一个月评估版。
 
 #### <a name="can-i-use-high-end-hosts-for-trial-clusters"></a>可以为试用群集使用高端主机吗？
 
@@ -166,11 +166,11 @@ Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet �
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>在私有云中，VMware 软件的升级和更新计划是什么？
 
-私有云软件捆绑升级的目的是将软件保存到 VMware 的软件捆绑版本的最新版本中。 私有云软件版本可能不同于各个软件组件的最新版本， (ESXi，，NSX，vCenter，vSAN) 。
+私有云软件捆绑升级的目的是将软件保存到 VMware 的最新软件捆绑版本之一。 私有云软件版本可能不同于各个软件组件的最新版本， (ESXi，NSX-T，vCenter，vSAN) 。
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>私有云软件堆栈的更新频率是多少？
 
-私有云软件按计划升级，该计划将跟踪 VMware 发布的软件捆绑包。 私有云无需停机即可升级。
+私有云软件将按计划升级，以跟踪 VMware 的软件捆绑版本。 私有云无需停机即可升级。
 
 ## <a name="connectivity"></a>连接
 
@@ -183,7 +183,7 @@ Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet �
 可以通过以下两种方法之一连接到服务： 
 
 - 使用 Azure 虚拟网络上部署的 VM 或应用程序网关，通过 ExpressRoute 对等互连到私有云。
-- 通过 ExpressRoute Global Reach 从本地数据中心连接到 Azure ExpressRoute 线路。
+- 通过 ExpressRoute Global Reach 从本地数据中心到 Azure ExpressRoute 线路。
 
 #### <a name="how-do-i-connect-a-workload-vm-to-the-internet-or-an-azure-service-endpoint"></a>如何将工作负载 VM 连接到 Internet 或 Azure 服务终结点？
 
@@ -239,10 +239,10 @@ Microsoft 提供对 Azure VMware 解决方案的支持。 你可以提交 [支�
 * 你需要与 Microsoft [ (EA) 的 Azure 企业协议 ](../cost-management-billing/manage/ea-portal-agreements.md) 。
 * 需要 Azure 订阅中的 Azure 帐户。
 
-在创建 Azure VMware 解决方案资源之前，必须提交支持票证才能分配节点。 最多需要五个工作日内确认请求并分配节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。
+在创建 Azure VMware 解决方案资源之前，必须提交支持票证来分配节点。 最多需要五个工作日内确认请求并分配节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。
 
 
-1. 在 Azure 门户中，在 " **帮助 + 支持**" 下创建 **[新的支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)** ，并为票证提供以下信息：
+1. 在 Azure 门户中，在 " **帮助 + 支持** " 下创建 **[新的支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)** ，并为票证提供以下信息：
    - **问题类型：** 技术方面
    - **订阅：** 选择你的订阅
    - **服务：** 所有服务 > Azure VMware 解决方案
@@ -272,9 +272,9 @@ Microsoft 提供对 Azure VMware 解决方案的支持。 你可以提交 [支�
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   ```
+   `"
 
-   有关注册资源提供程序的其他方式，请参阅 [Azure 资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md)。
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

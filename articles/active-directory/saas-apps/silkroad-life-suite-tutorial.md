@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 49dd333454f0eb92f5fb0dddc40390ec1baa91c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a40d4c82391f8f8cb55374c8c2d02bee5bf24ae4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525439"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>教程：Azure Active Directory 与 SilkRoad Life Suite 集成
 
@@ -89,7 +89,7 @@ ms.locfileid: "88525439"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -97,29 +97,29 @@ ms.locfileid: "88525439"
 
     ![编辑基本 SAML 配置](common/edit-urls.png)
 
-4. 在“基本 SAML 配置”  部分，如果有**服务提供程序元数据文件**，请执行以下步骤：
+4. 在“基本 SAML 配置”  部分，如果有 **服务提供程序元数据文件** ，请执行以下步骤：
 
     > [!NOTE]
-    > 你将获取本教程中稍后介绍的**服务提供程序元数据文件**。
+    > 你将获取本教程中稍后介绍的 **服务提供程序元数据文件** 。
 
     a. 单击“上传元数据文件”  。
 
-    ![image](common/upload-metadata.png)
+    ![屏幕截图显示了“基本 SAML 配置”，其中包含“上传元数据文件”链接。](common/upload-metadata.png)
 
     b. 单击“文件夹徽标”  来选择元数据文件并单击“上传”。 
 
-    ![image](common/browse-upload-metadata.png)
+    ![屏幕截图显示了可在其中选择并上传文件的对话框。](common/browse-upload-metadata.png)
 
     c. 成功上传元数据文件后，“标识符”  和“回复 URL”  值会自动填充在“基本 SAML 配置”部分：
 
-    ![image](common/sp-identifier-reply.png)
+    ![显示“基本 SAML 配置”的屏幕截图，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/sp-identifier-reply.png)
 
     > [!Note]
-    > 如果**标识符**和**回复 URL** 值未自动填充，则请按要求手动填充这些值。
+    > 如果 **标识符** 和 **回复 URL** 值未自动填充，则请按要求手动填充这些值。
 
     d. 在“登录 URL”  文本框中，使用以下模式键入 URL：`https://<subdomain>.silkroad-eng.com/Authentication/`。
 
-5. 在“基本 SAML 配置”  部分中，如果你没有**服务提供程序元数据文件**，请执行以下步骤：
+5. 在“基本 SAML 配置”  部分中，如果你没有 **服务提供程序元数据文件** ，请执行以下步骤：
 
     ![SilkRoad Life Suite 域和 URL 单一登录信息](common/sp-identifier-reply.png)
 
@@ -161,23 +161,23 @@ ms.locfileid: "88525439"
 
 1. 转到“服务提供商”  ，并单击“联合身份验证详细信息”  。
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
+    ![屏幕截图显示从“服务提供商”中选择的“联合身份验证详细信息”。](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
-1. 单击“下载联合元数据”  ，并在计算机上保存该元数据文件。 在 Azure 门户的“基本 SAML 配置”部分中，使用所下载的联合元数据作为**服务提供程序元数据文件**。
+1. 单击“下载联合元数据”  ，并在计算机上保存该元数据文件。 在 Azure 门户的“基本 SAML 配置”部分中，使用所下载的联合元数据作为 **服务提供程序元数据文件** 。
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
+    ![屏幕截图显示“下载联合元数据”链接。](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
 1. 在 **SilkRoad** 应用程序中，单击“身份验证源”  。
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
+    ![屏幕截图显示选择的“身份验证源”。](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
 1. 单击“添加身份验证源”  。
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
+    ![屏幕截图显示“添加身份验证源”链接。](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
 
 1. 在“添加身份验证源”  部分中，执行以下步骤：
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
+    ![屏幕截图显示包含已选择的“使用文件数据创建标识提供者”按钮的“添加身份验证源”。](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
     a. 在“选项 2 - 元数据文件”  下，单击“浏览”  上传从 Azure 门户下载的元数据文件。
   
@@ -185,21 +185,21 @@ ms.locfileid: "88525439"
 
 1. 在“身份验证源”  部分中，单击“编辑”  。
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
+    ![屏幕截图显示包含已选择的“编辑”选项的“身份验证源”。](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
 
 1. 在“编辑身份验证源”  对话框中，执行以下步骤：
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
+    ![屏幕截图显示“编辑身份验证源”对话框，你可以在其中输入所述的值。](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
     a. 对于“启用”  ，请选择“是”  。
 
     b. 在“实体 ID”文本框中，粘贴从 Azure 门户复制的“Azure AD 标识符”值。  
 
-    c. 在“IdP 说明”  文本框中，键入配置说明（例如：*Azure AD SSO*）。
+    c. 在“IdP 说明”  文本框中，键入配置说明（例如： *Azure AD SSO* ）。
 
-    d. 在“元数据文件”  文本框中，上传从 Azure 门户下载的**元数据**文件。
+    d. 在“元数据文件”  文本框中，上传从 Azure 门户下载的 **元数据** 文件。
   
-    e. 在“IdP 名称”  文本框中，键入特定于配置的名称（例如：*Azure SP*）。
+    e. 在“IdP 名称”  文本框中，键入特定于配置的名称（例如： *Azure SP* ）。
   
     f. 在“注销服务 URL”文本框中，粘贴从 Azure 门户复制的“注销 URL”值   。
 
@@ -209,7 +209,7 @@ ms.locfileid: "88525439"
 
 1. 禁用所有其他身份验证源。
 
-    ![Azure AD 单一登录](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
+    ![屏幕截图显示“身份验证源”，可在其中禁用其他源。 ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321108"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778027"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>监视指标和 Microsoft Azure CDN 的原始日志
 利用 Microsoft 提供的 Azure CDN，你可以通过以下方式监视资源，以帮助你排查、跟踪和调试问题。 
@@ -38,7 +38,7 @@ ms.locfileid: "91321108"
 
 为 Microsoft 配置文件中的 Azure CDN 配置原始日志： 
 
-1. 从 "Azure 门户" 菜单中，选择 "**所有资源**"  >>  **\<your-CDN-profile>** 。
+1. 从 "Azure 门户" 菜单中，选择 " **所有资源** "  >>  **\<your-CDN-profile>** 。
 
 2. 在“监视”下，选择“诊断设置” 。
 
@@ -63,11 +63,11 @@ ms.locfileid: "91321108"
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::
 
-7. 选择“保存”。
+7. 选择“保存” 。
 
 ## <a name="configuration---azure-powershell"></a>配置-Azure PowerShell
 
-使用 [AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) 配置原始日志的诊断设置。
+使用 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) 配置原始日志的诊断设置。
 
 保留数据由命令中的 **-RetentionInDays** 选项定义。
 
@@ -178,7 +178,7 @@ Microsoft 服务中的 Azure CDN 当前提供原始日志。 原始日志提供�
     ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>已发送到源防护板弃用
-原始日志属性 **isSentToOriginShield** 已弃用，并已替换为新的字段 **isReceivedFromClient**。 如果已在使用已弃用的字段，请使用新字段。 
+原始日志属性 **isSentToOriginShield** 已弃用，并已替换为新的字段 **isReceivedFromClient** 。 如果已在使用已弃用的字段，请使用新字段。 
 
 原始日志包括从 CDN 边缘 (子 POP) 和源盾牌生成的日志。 源盾牌是指在全球上战略定位的父节点。 这些节点与源服务器通信，并减少源上的流量负载。 
 
@@ -211,7 +211,7 @@ Microsoft Azure CDN 与 Azure Monitor 集成，并发布四个 CDN 指标来帮�
 
 从 Microsoft 度量值 Azure CDN，并以60秒为间隔发送指标。 此指标最多可能需要3分钟才能在门户中显示。 
 
-有关详细信息，请参阅 [Azure Monitor 指标](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)。
+有关详细信息，请参阅 [Azure Monitor 指标](../azure-monitor/platform/data-platform-metrics.md)。
 
 **Microsoft Azure CDN 支持的指标**
 
@@ -220,9 +220,9 @@ Microsoft Azure CDN 与 Azure Monitor 集成，并发布四个 CDN 指标来帮�
 | 字节命中率 * | 针对传出总数计算的 CDN 缓存中的出口百分比。                                      | 端点                                                                                    |
 | RequestCount    | CDN 提供的客户端请求数。                                                                     | 端点 </br> 客户端国家/地区。 </br> 客户端区域。 </br> HTTP 状态。 </br> HTTP 状态组。 |
 | ResponseSize    | 从 CDN 边缘到客户端的响应发送的字节数。                                                  |端点 </br> 客户端国家/地区。 </br> 客户端区域。 </br> HTTP 状态。 </br> HTTP 状态组。                                                                                          |
-| TotalLatency    | CDN 从 **cdn 发送到客户端之前**，CDN 收到的客户端请求的总时间。 |端点 </br> 客户端国家/地区。 </br> 客户端区域。 </br> HTTP 状态。 </br> HTTP 状态组。                                                                                             |
+| TotalLatency    | CDN 从 **cdn 发送到客户端之前** ，CDN 收到的客户端请求的总时间。 |端点 </br> 客户端国家/地区。 </br> 客户端区域。 </br> HTTP 状态。 </br> HTTP 状态组。                                                                                             |
 
-***Bytes r = 从起源) /egress 的边缘出口 (出口**
+**_Bytes r = 从起源) /egress 的边缘出口 (出口_*
 
 排除的方案数（按字节数计算）：
 
@@ -231,13 +231,13 @@ Microsoft Azure CDN 与 Azure Monitor 集成，并发布四个 CDN 指标来帮�
 
 ### <a name="metrics-configuration"></a>指标配置
 
-1. 从 "Azure 门户" 菜单中，选择 "**所有资源**"  >>  **\<your-CDN-profile>** 。
+1. 从 "Azure 门户" 菜单中，选择 " **所有资源** "  >>  **\<your-CDN-profile>** 。
 
-2. 在 " **监视**" 下，选择 " **指标**"：
+2. 在 " **监视** " 下，选择 " **指标** "：
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::
 
-3. 选择 " **添加度量**值"，然后选择要添加的度量值：
+3. 选择 " **添加度量** 值"，然后选择要添加的度量值：
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::
 
@@ -255,13 +255,13 @@ Microsoft Azure CDN 与 Azure Monitor 集成，并发布四个 CDN 指标来帮�
 
 ### <a name="alerts"></a>警报
 
-可以通过选择 "**监视**警报" 在 Microsoft CDN 上设置警报  >>  **Alerts**。
+可以通过选择 " **监视** 警报" 在 Microsoft CDN 上设置警报  >>  **Alerts** 。
 
 为 "度量值" 部分中列出的指标选择 **新的警报规则** ：
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::
 
-将根据 Azure Monitor 对警报进行收费。 有关警报的详细信息，请参阅 [Azure Monitor 警报](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)。
+将根据 Azure Monitor 对警报进行收费。 有关警报的详细信息，请参阅 [Azure Monitor 警报](../azure-monitor/platform/alerts-overview.md)。
 
 ### <a name="additional-metrics"></a>其他指标
 可以使用 Azure Log Analytics 和原始日志启用其他度量值，以实现额外的费用。
@@ -272,17 +272,17 @@ Microsoft Azure CDN 与 Azure Monitor 集成，并发布四个 CDN 指标来帮�
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::   
 
-3. 在 log analytics 工作区中，选择 "**常规**" 下的 "**日志**"。  然后选择 " **开始**"：
+3. 在 log analytics 工作区中，选择 " **常规** " 下的 " **日志** "。  然后选择 " **开始** "：
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::   
  
-4. 选择 " **CDN 配置文件**"。  选择一个示例查询以运行或关闭示例屏幕以输入自定义查询：
+4. 选择 " **CDN 配置文件** "。  选择一个示例查询以运行或关闭示例屏幕以输入自定义查询：
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::   
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true":::   
 
-4. 若要按图表查看数据，请选择 " **图表**"。  选择 " **固定到仪表板** "，将图表固定到 Azure 仪表板：
+4. 若要按图表查看数据，请选择 " **图表** "。  选择 " **固定到仪表板** "，将图表固定到 Azure 仪表板：
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="添加 CDN 配置文件的诊断设置。" border="true"::: 
 
@@ -293,6 +293,6 @@ Microsoft Azure CDN 与 Azure Monitor 集成，并发布四个 CDN 指标来帮�
 
 * [分析](cdn-log-analysis.md) Azure CDN 使用模式。
 
-* 详细了解 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)。
+* 详细了解 [Azure Monitor](../azure-monitor/overview.md)。
 
-* 配置 [Azure Monitor 中的 Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)。
+* 配置 [Azure Monitor 中的 Log Analytics](../azure-monitor/log-query/get-started-portal.md)。

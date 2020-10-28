@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 71150ea5ba7d6f25b07a9afaa1f1dc60adcb3e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72aaa1a19ef5a375ec1ee6c2938f64cb37aac139
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518632"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>教程：Azure Active Directory 与 SkyDesk Email 集成
 
@@ -76,7 +76,7 @@ ms.locfileid: "88518632"
 2. **[配置 SkyDesk Email 单一登录](#configure-skydesk-email-single-sign-on)** - 在应用程序端配置单一登录设置。
 3. **[创建 Azure AD 测试用户](#create-an-azure-ad-test-user)** - 使用 Britta Simon 测试 Azure AD 单一登录。
 4. **[分配 Azure AD 测试用户](#assign-the-azure-ad-test-user)** - 使 Britta Simon 能够使用 Azure AD 单一登录。
-5. **创建 SkyDesk Email 测试用户[ - 在 SkyDesk Email 中有一个与 Azure AD 中的 Britta Simon 相对应的关联用户](#create-skydesk-email-test-user)** 。
+5. **创建 SkyDesk Email 测试用户 [ - 在 SkyDesk Email 中有一个与 Azure AD 中的 Britta Simon 相对应的关联用户](#create-skydesk-email-test-user)** 。
 6. **[测试单一登录](#test-single-sign-on)** - 验证配置是否正常工作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>配置 Azure AD 单一登录
@@ -89,7 +89,7 @@ ms.locfileid: "88518632"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -106,7 +106,7 @@ ms.locfileid: "88518632"
     > [!NOTE]
     > 此值不是真实值。 请使用实际登录 URL 更新此值。 请联系 [SkyDesk Email 客户端支持团队](https://www.skydesk.jp/apps/support/)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”  部分中显示的模式。
 
-5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -126,32 +126,32 @@ ms.locfileid: "88518632"
 
 1. 在顶部菜单中，单击“设置”，并选择“组织”   。
 
-    ![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
+    ![显示从“设置”菜单中选择了“组织”的屏幕截图。](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
 1. 在左侧面板中，单击“域”  。
 
-    ![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+    ![显示从“控制面板”中选择了“域”的屏幕截图。](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
 1. 单击“添加域”  。
 
-    ![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+    ![显示已选择“添加域”的屏幕截图。](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
 1. 输入域名，并验证域。
 
-    ![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+    ![显示“添加域”选项卡的屏幕截图，可在其中输入域。](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
 1. 在左侧面板中，单击“SAML 身份验证”  。
 
-    ![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+    ![显示从“控制面板”中选择了“SAML 身份验证”的屏幕截图。](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
 1. 在“SAML 身份验证”  对话框页上，执行以下步骤：
 
-    ![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+    ![显示“SAML 身份验证详细信息”对话框的屏幕截图，可在其中输入所述的值。](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
     > [!NOTE]
-    > 若要使用基于 SAML 的身份验证，应已**验证域**或已设置**门户 URL**。 可以设置具有唯一名称的门户 URL。
+    > 若要使用基于 SAML 的身份验证，应已 **验证域** 或已设置 **门户 URL** 。 可以设置具有唯一名称的门户 URL。
 
-    ![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
+    ![显示“门户 URL”的屏幕截图，可在其中输入名称。](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
     a. 在“登录 URL”文本框中，粘贴从 Azure 门户复制的“登录 URL”值   。
 
@@ -161,7 +161,7 @@ ms.locfileid: "88518632"
 
     d. 单击“从文件获取密钥”，从 Azure 门户选择已下载的证书，并单击“打开”上传证书   。
 
-    e. 选择“RSA”，作为**算法**。
+    e. 选择“RSA”，作为 **算法** 。
 
     f. 单击“确定”以保存更改  。
 
@@ -222,7 +222,7 @@ ms.locfileid: "88518632"
 
 在 SkyDesk Email 的左侧面板中，单击“用户访问”  ，并输入用户名。
 
-![配置单一登录](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
+![显示从“控制面板”中选择了“用户访问权限”的屏幕截图。](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 > [!NOTE]
 > 如果需要批量创建用户，则需要联系 [SkyDesk Email 客户端支持团队](https://www.skydesk.jp/apps/support/)。

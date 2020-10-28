@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84886057"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779316"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>使用 Azure CDN 高级 HTTP 报告分析使用情况统计信息
 ## <a name="overview"></a>概述
@@ -28,12 +28,12 @@ ms.locfileid: "84886057"
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="accessing-advanced-http-reports"></a>访问高级 HTTP 报告
-1. 从 CDN 配置文件的边栏选项卡，单击“**管理**”按钮。
+1. 从 CDN 配置文件的边栏选项卡，单击“ **管理** ”按钮。
    
     ![CDN 配置文件边栏选项卡管理按钮](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     CDN 管理门户打开。
-2. 将鼠标悬停在“**分析**”选项卡，然后悬停在“**高级 HTTP 报告**”浮出控件。  单击“**HTTP 大型平台**”。
+2. 将鼠标悬停在“ **分析** ”选项卡，然后悬停在“ **高级 HTTP 报告** ”浮出控件。  单击“ **HTTP 大型平台** ”。
    
     ![CDN 管理门户 - 高级报告菜单](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -199,9 +199,8 @@ ms.locfileid: "84886057"
 
 在条形图正下方，将列出前 250 个最常请求资产的以下信息：相对路径（包括文件名）、导致 404 Not Found 状态代码的请求数、资产的总请求次数，以及导致 404 Not Found 状态代码的请求的百分比。
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 * [Azure CDN 概述](cdn-overview.md)
 * [Microsoft Azure CDN 中的实时统计信息](cdn-real-time-stats.md)
-* [使用规则引擎重写默认 HTTP 行为](cdn-rules-engine.md)
+* [使用规则引擎重写默认 HTTP 行为](./cdn-verizon-premium-rules-engine.md)
 * [分析边缘性能](cdn-edge-performance.md)
-

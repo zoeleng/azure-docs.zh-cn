@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 02b9adcb72b4d26a19b6514d19ce94a70a2415ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6a7784d052a03971fad84c90cdd70cd16b4a872
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534143"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>教程：Azure Active Directory 与 Sprinklr 集成
 
@@ -89,7 +89,7 @@ ms.locfileid: "88534143"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "88534143"
     > [!NOTE]
     > 这些不是实际值。 使用实际登录 URL 和标识符更新这些值。 请联系 [Sprinklr 客户端支持团队](https://www.sprinklr.com/contact-us/)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”  部分中显示的模式。
 
-5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -136,11 +136,11 @@ ms.locfileid: "88534143"
 
 1. 单击“+添加单一登录”  。
 
-    ![单一登录](./media/sprinklr-tutorial/ic782909.png "单一登录")
+    ![显示“添加单一登录”按钮的屏幕截图。](./media/sprinklr-tutorial/ic782909.png "单一登录")
 
 1. 在“单一登录”  页上，执行以下步骤：
 
-    ![单一登录](./media/sprinklr-tutorial/ic782910.png "单一登录")
+    ![显示“单一登录”页的屏幕截图，可在其中输入所述的值。](./media/sprinklr-tutorial/ic782910.png "单一登录")
 
     a. 在“名称”文本框中，键入配置名称（例如  ：WAADSSOTest)  。
 
@@ -160,7 +160,7 @@ ms.locfileid: "88534143"
 
     i. 对于“SAML 用户 ID 位置”，请选择“用户 ID 位于 Subject 语句的 NameIdentifier 元素中”   。
 
-    j. 单击“ **保存**”。
+    j. 单击“ **保存** ”。
 
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
@@ -225,11 +225,11 @@ ms.locfileid: "88534143"
 
 1. 从左侧窗格转到“管理客户端”\>“用户”  。
 
-    ![设置](./media/sprinklr-tutorial/ic782914.png "设置")
+    ![显示“设置/用户”中的“添加用户”按钮的屏幕截图。](./media/sprinklr-tutorial/ic782914.png "设置")
 
 1. 单击“添加用户”  。
 
-    ![设置](./media/sprinklr-tutorial/ic782915.png "设置")
+    ![显示“编辑用户”对话框的屏幕截图，可在其中输入所述的值。](./media/sprinklr-tutorial/ic782915.png "设置")
 
 1. 在“编辑用户”  对话框中，执行以下步骤：
 
@@ -252,7 +252,7 @@ ms.locfileid: "88534143"
 
     ![合作伙伴角色](./media/sprinklr-tutorial/ic782917.png "合作伙伴角色")
 
-    a. 从“全局”  列表中，选择 **ALL_Permissions**。  
+    a. 从“全局”  列表中，选择 **ALL_Permissions** 。  
 
     b. 单击“更新”  。
 

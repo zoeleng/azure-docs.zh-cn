@@ -3,20 +3,20 @@ title: 完成虚拟机的灾难恢复
 description: 本文介绍如何使用 Azure VMware 解决方案完成虚拟机的灾难恢复
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508428"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779605"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>使用 Azure VMware 解决方案完成虚拟机灾难恢复
+# <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>使用 Azure VMware 解决方案完成虚拟机灾难恢复
 
-本文包含使用 VMware HCX 解决方案完成虚拟机的灾难恢复 () Vm 的过程，并使用 Azure VMware 解决方案私有云作为恢复或目标站点。
+本文包含使用 VMware HCX 解决方案) 虚拟机 (Vm 进行灾难恢复的过程，并使用 Azure VMware 解决方案私有云作为恢复或目标站点。
 
 VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。 可用的操作包括：
 
-- **反向** –发生灾难后。 Reverse 有助于使站点 B 成为受保护 VM 现在所在的源站点和站点 A。
+- **反向** –发生灾难后。 "反向" 有助于使站点 B 成为源站点和站点 A，受保护的 VM 现在位于此位置。
 
 - **暂停** –暂停与所选 VM 关联的当前复制策略。
 
@@ -38,11 +38,11 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
 ## <a name="protect-vms"></a>保护 VM
 
-1. 登录到源站点上的 **VSphere 客户端** ，并访问 **HCX 插件**。
+1. 登录到源站点上的 **VSphere 客户端** ，并访问 **HCX 插件** 。
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="VSphere 中的 HCX 选项" border="true":::
 
-1. 输入 " **灾难恢复** " 区域，然后选择 " **保护 vm**"。
+1. 输入 " **灾难恢复** " 区域，然后选择 " **保护 vm** "。
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
@@ -56,13 +56,13 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
    - **启用静默：** 暂停 VM，以确保将一致的副本同步到远程站点。
 
-   - **目标存储：** 受保护的 Vm 的远程数据存储，在 Azure VMware 解决方案私有云中，这应该是 vSAN 数据存储。
+   - **目标存储：** 受保护的 Vm 的远程数据存储，以及 Azure VMware 解决方案私有云中的远程数据存储，应为 vSAN 数据存储。
 
    - **计算容器：** 远程 vSphere 群集或资源池。
 
-   - **目标文件夹：** 远程目标文件夹，这是可选的，如果未选择任何文件夹，则 Vm 将直接放置在选定的群集下。
+   - **目标文件夹：** 远程目标文件夹，这是可选的，如果未选择任何文件夹，则 Vm 直接放置在选定群集的下面。
 
-   - **RPO：** 源 VM 与受保护的 VM 之间的同步间隔时间可以介于5分钟到24小时之间。
+   - **RPO：** 源 VM 与受保护的 VM 之间的同步间隔。 它可以介于5分钟到24小时之间。
 
    - **快照间隔：** 快照之间的间隔。
 
@@ -84,14 +84,14 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
-   黄色三角形表示快照和虚拟尚未在测试恢复操作中进行测试。
+   黄色三角形表示快照和虚拟机未在测试恢复操作中进行测试。
 
-   关闭电源的 VM 与开机的 VM 之间存在重要差异。 此图显示了已开机的 VM 的同步过程。 它会启动同步过程，直到它完成第一个快照（VM 的完整副本），然后在配置的时间间隔内完成下一个快照。 对于关闭的 VM，它将同步副本，然后 VM 显示为 "不活动"，"保护" 操作显示为 "已完成"。  当 VM 开机时，它将启动到远程站点的同步过程。
+   关闭电源的 VM 与开机的 VM 之间存在重要差异。 此图显示了已开机的 VM 的同步过程。 它会启动同步过程，直到它完成第一个快照（VM 的完整副本），然后在配置的时间间隔内完成下一个快照。 它为已关闭的 VM 同步副本，然后 VM 显示为 "不活动"，"保护" 操作显示为 "已完成"。  当 VM 开机时，它将启动到远程站点的同步过程。
 
 ## <a name="complete-a-test-recover-of-vms"></a>完成 Vm 的测试恢复
 
 1. 在远程站点（即 Azure VMware 解决方案私有云）上登录到 **VSphere 客户端** 。 
-1. 在 **HCX 插件**内的 "灾难恢复" 区域中，选择任何 VM 上的垂直省略号以显示 "操作" 菜单，然后选择 " **测试恢复 VM**"。
+1. 在 **HCX 插件** 内的 "灾难恢复" 区域中，选择任何 VM 上的垂直省略号以显示 "操作" 菜单，然后选择 " **测试恢复 VM** "。
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="VSphere 中的 HCX 选项" border="true":::
 
@@ -99,7 +99,7 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="VSphere 中的 HCX 选项" border="true":::
 
-1. 选择 " **测试**" 后，恢复操作开始。
+1. 选择 " **测试** " 后，恢复操作开始。
 
 1. 完成后，可以在 Azure VMware 解决方案私有云 vCenter 中查看新 VM。
 
@@ -111,11 +111,11 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
 ## <a name="recover-vms"></a>恢复 Vm
 
-1. 登录到远程站点上的 **VSphere 客户端** （Azure VMware 解决方案私有云），并访问 **HCX 插件**。
+1. 登录到远程站点上的 **VSphere 客户端** （Azure VMware 解决方案私有云），并访问 **HCX 插件** 。
 
    对于恢复方案，为此示例使用的一组 Vm。
 
-1. 从列表中选择要恢复的 VM，打开 " **操作** " 菜单，然后选择 " **恢复 vm**"。
+1. 从列表中选择要恢复的 VM，打开 " **操作** " 菜单，然后选择 " **恢复 vm** "。
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="VSphere 中的 HCX 选项" border="true":::
 
@@ -127,12 +127,12 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
 ## <a name="complete-a-reverse-replication-on-vms"></a>在 Vm 上完成反向复制
 
-1. 登录到 Azure VMware 解决方案私有云上的 **VSphere 客户端** ，并访问 **HCX 插件**。
+1. 登录到 Azure VMware 解决方案私有云上的 **VSphere 客户端** ，并访问 **HCX 插件** 。
    
    >[!NOTE]
-   >请确保在开始反向复制之前，已关闭源站点上的原始 Vm。 如果 Vm 未关闭电源，则操作将失败。
+   > 确保在开始反向复制之前，已关闭源站点上的原始 Vm。 如果 Vm 未关闭电源，则操作将失败。
 
-1. 从列表中，选择要复制回源站点的 Vm，打开 " **操作** " 菜单，然后选择 " **反向**"。 
+1. 从列表中，选择要复制回源站点的 Vm，打开 " **操作** " 菜单，然后选择 " **反向** "。 
 1. 选择 " **反向** " 开始复制。
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="VSphere 中的 HCX 选项" border="true":::
@@ -241,4 +241,4 @@ VMware HCX 目前没有用于创建和自动化灾难恢复计划的内置机制
 ]
 ```
 
-通过使用这些 Api，客户可以构建一种自定义机制来自动创建和执行灾难恢复计划。
+使用这些 Api，你可以构建自定义机制，以自动执行灾难恢复计划的创建和执行。

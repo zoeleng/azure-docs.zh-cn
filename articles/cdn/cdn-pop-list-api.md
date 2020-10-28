@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 13d4587a80cbbe66e18eb1bec8f3154221ac62b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b4bcaee447d84efa088e84340ccfc717fe2777
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192548"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778323"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>检索 Azure CDN 的当前 POP IP 列表
 
 ## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>检索 Azure CDN 的当前 Verizon POP IP 列表
 
-REST API 可用于检索 Verizon 入网点 (POP) 服务器的 IP 集。 这些 POP 服务器向源服务器发出请求，源服务器与 Verizon 配置文件（Verizon 提供的 Azure CDN 标准版**** 或 Verizon 提供的 Azure CDN 高级版****）上的 Azure 内容分发网络 (CDN) 终结点相关联。 请注意，此 IP 集与客户端在向 POP 发出请求时看到的 IP 不同。 
+REST API 可用于检索 Verizon 入网点 (POP) 服务器的 IP 集。 这些 POP 服务器向源服务器发出请求，源服务器与 Verizon 配置文件（Verizon 提供的 Azure CDN 标准版  或 Verizon 提供的 Azure CDN 高级版  ）上的 Azure 内容分发网络 (CDN) 终结点相关联。 请注意，此 IP 集与客户端在向 POP 发出请求时看到的 IP 不同。 
 
-有关用于检索 POP 列表的 REST API 操作语法，请参阅[边缘节点 - 列表](https://docs.microsoft.com/rest/api/cdn/edgenodes/list)。
+有关用于检索 POP 列表的 REST API 操作语法，请参阅[边缘节点 - 列表](/rest/api/cdn/edgenodes/list)。
 
 ## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>检索 Azure CDN 的当前 Microsoft POP IP 列表
 
@@ -48,4 +48,4 @@ REST API 可用于检索 Verizon 入网点 (POP) 服务器的 IP 集。 这些 P
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解 REST API，请参阅 [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/)。
+若要了解 REST API，请参阅 [Azure CDN REST API](/rest/api/cdn/)。
