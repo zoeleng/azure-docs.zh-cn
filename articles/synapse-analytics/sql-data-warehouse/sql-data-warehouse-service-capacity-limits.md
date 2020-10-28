@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204976"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742460"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Azure Synapse Analytics（以前称为 SQL DW）容量限制
 
@@ -43,7 +43,7 @@ Azure Synapse 的各种组件允许的最大值。
 | 表 |每个数据库的表数 | 100,000 |
 | 表 |每个表的列数 |1024 个列 |
 | 表 |每个列的字节数 |取决于列[数据类型](sql-data-warehouse-tables-data-types.md)。 char 数据类型的限制为 8000，nvarchar 数据类型的限制为 4000，MAX 数据类型的限制为 2 GB。 |
-| 表 |每行的字节数，定义的大小 |8060 字节<br/><br/>每行字节数的计算方式同于使用页面压缩的 SQL Server。 与 SQL Server 一样，支持行溢出存储，这样可以将**可变长度列**脱行推送。 对可变长度行进行拖行推送时，只将 24 字节的根存储在主记录中。 有关详细信息，请参阅[超过 8 KB 的行溢出数据](https://msdn.microsoft.com/library/ms186981.aspx)。 |
+| 表 |每行的字节数，定义的大小 |8060 字节<br/><br/>每行字节数的计算方式同于使用页面压缩的 SQL Server。 与 SQL Server 一样，支持行溢出存储，这样可以将 **可变长度列** 脱行推送。 对可变长度行进行拖行推送时，只将 24 字节的根存储在主记录中。 有关详细信息，请参阅[超过 8 KB 的行溢出数据](https://msdn.microsoft.com/library/ms186981.aspx)。 |
 | 表 |每个表的分区数 |15,000<br/><br/>为了实现高性能，建议在满足业务需求的情况下尽量减少所需的分区数。 随着分区数目的增长，数据定义语言 (DDL) 和数据操作语言 (DML) 操作的开销也会增长，导致性能下降。 |
 | 表 |每个分区边界值的字符数。 |4000 |
 | 索引 |每个表的非聚集索引数。 |50<br/><br/>仅适用于行存储表。 |
@@ -61,8 +61,8 @@ Azure Synapse 的各种组件允许的最大值。
 
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
-| Polybase 加载 |每行 MB 数 |1<br/><br/>Polybase 加载小于 1 MB 的行。 不支持将 LOB 数据类型加载到具有聚集列存储索引 (CCI) 的表。<br/><br/> |
-||||
+| Polybase 加载 |每行 MB 数 |1<br/><br/>Polybase 加载小于 1 MB 的行。 不支持将 LOB 数据类型加载到具有聚集列存储索引 (CCI) 的表。<br/> |
+|Polybase 加载|文件总数|1,000,000<br/><br/>Polybase 加载不能超过1M 个文件。 你可能会遇到以下错误： **操作失败，因为拆分计数超过1000000的上限** 。|
 
 ## <a name="queries"></a>查询
 

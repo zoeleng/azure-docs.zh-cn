@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4db53b806adc2e29ae9c9a950faf8fc822c9d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 5a7d33e163c10a6d56416ea474d7e3a9e8624219
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743975"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744425"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>在 Azure 机器学习中创建和使用软件环境
 
@@ -36,7 +36,7 @@ ms.locfileid: "91743975"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [用于 Python 的 AZURE 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) ( # B0 = 1.13.0) 
+* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)
 
 ## <a name="create-an-environment"></a>创建环境
@@ -110,7 +110,7 @@ myenv = Environment.from_pip_requirements(name = "myenv"
 myenv.docker.enabled = True
 ```
 
-默认情况下，新生成的 Docker 映像显示在与工作区关联的容器注册表中。  存储库名称的格式为“azureml/azureml_\<uuid\>”。 该名称的唯一标识符 (*uuid*) 部分对应于基于环境配置计算出的哈希。 这种对应使得服务能够确定给定的环境是否已存在可重复使用的映像。
+默认情况下，新生成的 Docker 映像显示在与工作区关联的容器注册表中。  存储库名称的格式为“azureml/azureml_\<uuid\>”。 该名称的唯一标识符 ( *uuid* ) 部分对应于基于环境配置计算出的哈希。 这种对应使得服务能够确定给定的环境是否已存在可重复使用的映像。
 
 #### <a name="use-a-prebuilt-docker-image"></a>使用预生成的 Docker 映像
 
@@ -126,7 +126,7 @@ myenv.docker.base_image_registry="your_registry_location"
 > Azure 机器学习仅支持提供以下软件的 Docker 映像：
 > * Ubuntu 16.04 或更高版本。
 > * Conda 4.5.# 或更高版本。
-> * Python 3.5 +。
+> * Python 3.5+。
 
 #### <a name="use-your-own-dockerfile"></a>使用你自己的 Dockerfile 
 

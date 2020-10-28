@@ -2,15 +2,15 @@
 title: 在 Azure Kubernetes 服务 (AKS) 中使用可用性区域
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 中创建跨可用性区域分发节点的群集
 services: container-service
-ms.custom: fasttrack-edit, references_regions
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165802"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745818"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>创建使用可用性区域的 Azure Kubernetes 服务 (AKS) 群集
 
@@ -22,7 +22,7 @@ Azure Kubernetes 服务 (AKS) 群集跨基础 Azure 基础结构的逻辑部分�
 
 ## <a name="before-you-begin"></a>开始之前
 
-需要安装并配置 Azure CLI 2.0.76 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+需要安装并配置 Azure CLI 2.0.76 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="limitations-and-region-availability"></a>限制和地区可用性
 
@@ -56,7 +56,7 @@ Azure Kubernetes 服务 (AKS) 群集跨基础 Azure 基础结构的逻辑部分�
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 群集的可用性区域概述
 
-可用性区域是一种高可用性产品/服务，在数据中心发生故障时可以保护应用程序和数据。 这些区域是 Azure 地区中独特的物理位置。 每个区域由一个或多个数据中心组成，这些数据中心配置了独立电源、冷却和网络。 为确保能够进行复原，所有已启用的地区中必须至少有三个单独的区域。 数据中心发生故障时，区域中的可用性区域的物理隔离可保护应用程序和数据。
+可用性区域是一种高可用性产品/服务，在数据中心发生故障时可以保护应用程序和数据。 这些区域是 Azure 地区中独特的物理位置。 每个区域由一个或多个数据中心组成，这些数据中心配置了独立电源、冷却和网络。 为了确保复原能力，所有启用区域的区域中始终有多个区域。 数据中心发生故障时，区域中的可用性区域的物理隔离可保护应用程序和数据。
 
 有关详细信息，请参阅 [Azure 中的可用性区域是什么？][az-overview]。
 
@@ -68,7 +68,7 @@ Azure Kubernetes 服务 (AKS) 群集跨基础 Azure 基础结构的逻辑部分�
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>跨可用性区域创建 AKS 群集
 
-使用 [az aks create][az-aks-create] 命令创建群集时，`--zones` 参数定义代理节点部署到的区域。 如果在创建群集时定义 `--zones` 参数，则控制平面组件（如 etcd）将分布在三个区域。 控制平面组件所分布到的特定区域与为初始节点池选择的显式区域无关。
+使用 [az aks create][az-aks-create] 命令创建群集时，`--zones` 参数定义代理节点部署到的区域。 如果在创建群集时定义参数，则控制平面组件（如 etcd 或 API）将分散到区域中的可用区域 `--zones` 。 控制平面组件所分布到的特定区域与为初始节点池选择的显式区域无关。
 
 如果在创建 AKS 群集时未为默认代理池定义任何区域，则不能保证控制平面组件分布到可用性区域。 可以使用 [az aks nodepool add][az-aks-nodepool-add] 命令添加更多节点池，并为新节点指定 `--zones`，但这不会更改控制平面在各个区域中的分布方式。 可用性区域设置只能在群集或节点池创建时定义。
 

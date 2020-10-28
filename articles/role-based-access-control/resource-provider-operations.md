@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 955e80f31cf08dd703f089d26a03b7f97242eab0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 905bdf95222a03514b5c5e76e18330cf27da0d3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631098"
+ms.locfileid: "92745135"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 资源提供程序操作
 
@@ -158,6 +158,7 @@ ms.locfileid: "92631098"
 | [Microsoft.Intune](#microsoftintune) |
 | **其他** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 
 
 ## <a name="general"></a>常规
@@ -9663,6 +9664,45 @@ Azure 服务：[必应地图](https://docs.microsoft.com/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listSecrets/action | 列出 Microsoft.BingMaps/mapApis 的机密 |
 > | Microsoft.BingMaps/mapApis/listUsageMetrics/action | 列出 Microsoft.BingMaps/mapApis 的指标 |
 > | Microsoft.BingMaps/Operations/read | 列出 Microsoft.BingMaps 的操作 |
+
+### <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
+
+Azure 服务： [Azure 数字孪生](../digital-twins/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | 操作 | 说明 |
+> | --- | --- |
+> | DigitalTwins/注册/操作 | 注册数字孪生资源提供程序的订阅，并启用数字孪生实例的创建。 |
+> | DigitalTwins/注销/操作 | 取消注册数字孪生资源提供程序的订阅 |
+> | DigitalTwins/digitalTwinsInstances/read | 读取任何 DigitalTwins/digitalTwinsInstances 资源 |
+> | DigitalTwins/digitalTwinsInstances/write | 创建或更新任何 DigitalTwins/digitalTwinsInstances 资源 |
+> | DigitalTwins/digitalTwinsInstances/delete | 删除 DigitalTwins/digitalTwinsInstances 资源 |
+> | DigitalTwins/digitalTwinsInstances/diagnosticSettings/read | 获取资源的诊断设置 |
+> | DigitalTwins/digitalTwinsInstances/diagnosticSettings/write | 设置资源的诊断设置 |
+> | DigitalTwins/digitalTwinsInstances/终结点/删除 | 删除数字孪生资源的任何终结点 |
+> | DigitalTwins/digitalTwinsInstances/终结点/读取 | 读取数字孪生资源的任何终结点 |
+> | DigitalTwins/digitalTwinsInstances/终结点/写入 | 创建或更新数字孪生资源的任何终结点 |
+> | DigitalTwins/digitalTwinsInstances/logDefinitions/read | 获取资源的 Azure Monitor 的日志设置 |
+> | DigitalTwins/digitalTwinsInstances/metricDefinitions/read | 获取资源的 Azure Monitor 的度量值设置 |
+> | DigitalTwins/digitalTwinsInstances/operationsResults/read | 读取操作结果 |
+> | DigitalTwins/位置/checkNameAvailability/action | 在数字孪生资源提供程序中检查资源的名称可用性 |
+> | DigitalTwins/位置/operationsResults/读取 | 读取操作结果 |
+> | DigitalTwins/操作/读取 | 读取所有操作 |
+> | **DataAction** | **说明** |
+> | DigitalTwins/查询/操作 | 查询任何数字孪生图 |
+> | DigitalTwins/DigitalTwins/read | 读取任何数字克隆 |
+> | DigitalTwins/DigitalTwins/write | 创建或更新任何数字克隆 |
+> | DigitalTwins/DigitalTwins/delete | 删除任何数字克隆 |
+> | DigitalTwins/DigitalTwins/命令/操作 | 在数字克隆上调用任何命令 |
+> | DigitalTwins/DigitalTwins/关系/读取 | 读取任何数字克隆关系 |
+> | DigitalTwins/DigitalTwins/关系/写入 | 创建或更新任何数字克隆关系 |
+> | DigitalTwins/DigitalTwins/关系/delete | 删除任何数字克隆关系 |
+> | DigitalTwins/eventroutes/read | 读取任何事件路由 |
+> | DigitalTwins/eventroutes/delete | 删除任何事件路由 |
+> | DigitalTwins/eventroutes/write | 创建或更新任何事件路由 |
+> | DigitalTwins/模型/读取 | 读取任何模型 |
+> | DigitalTwins/模型/写入 | 创建或更新任何模型 |
+> | DigitalTwins/模型/删除 | 删除任何模型 |
 
 ## <a name="next-steps"></a>后续步骤
 

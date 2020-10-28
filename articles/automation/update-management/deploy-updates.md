@@ -3,14 +3,14 @@ title: 如何为 Azure 自动化更新管理创建更新部署
 description: 本文介绍如何计划更新部署并查看其状态。
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637592"
+ms.locfileid: "92742292"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>如何部署更新和查看结果
 
@@ -75,9 +75,6 @@ ms.locfileid: "92637592"
 
    > [!NOTE]
    > 你不能指定将已被取代的更新包含在更新部署中。
-
-   > [!IMPORTANT]
-   > 对于 Red Hat Enterprise，内核升级还会显示为 YUM 中的包。 如果不排除包含内核升级的更新，更新管理将应用这些更新。
 
 9. 选择“计划设置”。 默认开始时间为晚于当前时间 30 分钟。 可以将开始时间设置为 10 分钟之后的任何将来时间。
 

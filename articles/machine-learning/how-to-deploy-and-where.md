@@ -10,13 +10,13 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 40d8d4596e7d93b589e44f2dde2d1cb453566d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 2642af3490cd69a3e793f020c193d83d2966e1ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999235"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744619"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure 机器学习部署模型
 
@@ -24,12 +24,12 @@ ms.locfileid: "91999235"
 
 无论你在何处部署模型，工作流都是类似的：
 
-1.  (可选中注册模型，请参阅下面) 。
-1. 准备推理配置 (除非使用 [无代码部署](./how-to-deploy-no-code-deployment.md)) 。
-1. 准备条目脚本 (，除非使用 [无代码部署](./how-to-deploy-no-code-deployment.md)) 。
+1. 注册模型（可选，请参见下文）。
+1. 准备推理配置（使用[无代码部署](./how-to-deploy-no-code-deployment.md)的情况除外）。
+1. 准备入口脚本（使用[无代码部署](./how-to-deploy-no-code-deployment.md)的情况除外）。
 1. 选择计算目标。
 1. 将模型部署到计算目标。
-1. 测试生成的 web 服务。
+1. 测试生成的 Web 服务。
 
 有关部署工作流涉及的概念的详细信息，请参阅[使用 Azure 机器学习管理、部署和监视模型](concept-model-management-and-deployment.md)。
 
@@ -76,12 +76,12 @@ ws = Workspace.from_config(path=".file-path/ws_config.json")
 ---
 
 
-## <a name="register-your-model-optional"></a><a id="registermodel"></a> (可选) 注册模型
+## <a name="register-your-model-optional"></a><a id="registermodel"></a> 注册模型（可选）
 
 已注册的模型是组成模型的一个或多个文件的逻辑容器。 例如，如果有一个存储在多个文件中的模型，则可以在工作区中将这些文件注册为单个模型。 注册这些文件后，可以下载或部署已注册的模型，并接收注册的所有文件。
 
 > [!TIP] 
-> 建议为版本跟踪注册模型，但不是必需的。 如果要在不注册模型的情况下继续操作，则需要在 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) 中指定一个源目录或 [ 在上inferenceconfig.js](./reference-azure-machine-learning-cli.md#inference-configuration-schema) ，并确保您的模型位于该源目录内。
+> 建议注册模型以进行版本跟踪，但这不是必需的。 如果要在不注册模型的情况下继续操作，则需要在 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) 或 [inferenceconfig.json](./reference-azure-machine-learning-cli.md#inference-configuration-schema) 中指定源目录，并确保模型位于该源目录中。
 
 > [!TIP]
 > 注册模型时，请提供云位置（来自训练运行）或本地目录的路径。 此路径仅用于在注册过程中查找要上传的文件。 它不需要与入口脚本中使用的路径匹配。 有关详细信息，请参阅[在入口脚本中查找模型文件](./how-to-deploy-advanced-entry-script.md#load-registered-models)。
@@ -194,18 +194,18 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 }
 ```
 
-这指定部署将使用目录中的文件 `score.py` `./working_dir` 来处理传入的请求。
+这指定部署将使用 `./working_dir` 目录中的 `score.py` 文件来处理传入请求。
 
-[请参阅此文](./reference-azure-machine-learning-cli.md#inference-configuration-schema) ，了解有关推理配置的更详尽讨论。 
+有关推理配置的更详细讨论，[请参阅此文](./reference-azure-machine-learning-cli.md#inference-configuration-schema)。 
 
 # <a name="python"></a>[Python](#tab/python)
 
-下面的示例演示：
+以下示例演示了：
 
-1. 从工作区加载[特选环境](resource-curated-environments.md)
-1. 克隆环境
-1. 指定 `scikit-learn` 为依赖项。
-1. 使用环境创建 InferenceConfig
+1. 从工作区加载一个[特选环境](resource-curated-environments.md)
+1. 克隆该环境
+1. 将 `scikit-learn` 指定为依赖项。
+1. 使用该环境创建 InferenceConfig
 
 ```python
 from azureml.core.environment import Environment
@@ -242,11 +242,11 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
 
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
-有关详细信息，请参阅 [此参考](./reference-azure-machine-learning-cli.md#deployment-configuration-schema)。
+有关详细信息，请参阅[此参考](./reference-azure-machine-learning-cli.md#deployment-configuration-schema)。
 
 # <a name="python"></a>[Python](#tab/python)
 
-在部署模型之前，必须定义部署配置。 部署配置特定于将托管 Web 服务的计算目标**。 例如，在本地部署模型时，必须指定服务接受请求的端口。 该部署配置不属于入口脚本。 它用于定义将托管模型和入口脚本的计算目标的特征。
+在部署模型之前，必须定义部署配置。 部署配置特定于将托管 Web 服务的计算目标  。 例如，在本地部署模型时，必须指定服务接受请求的端口。 该部署配置不属于入口脚本。 它用于定义将托管模型和入口脚本的计算目标的特征。
 
 例如，如果没有与工作区关联的 Azure Kubernetes 服务 (AKS) 实例，则可能还需要创建计算资源。
 

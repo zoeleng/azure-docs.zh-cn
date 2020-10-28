@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152076"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742489"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
@@ -37,7 +37,7 @@ ms.locfileid: "92152076"
 
 3. 选择“标识”。
 
-4. 在“系统分配的”选项卡中，将“状态”切换为“启用”  。 单击“ **保存**”。
+4. 在“系统分配的”选项卡中，将“状态”切换为“启用”  。 单击“保存” 。
 
     ![应用服务中的托管标识](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -204,7 +204,7 @@ tenantId 属性标识该标识所属的 Azure AD 租户。 principalId 是应用
 
 5. 在“用户分配”选项卡中，单击“添加” 。
 
-6. 搜索之前创建的标识并选择它。 单击“添加” 。
+6. 搜索之前创建的标识并选择它。 单击“添加”。
 
     ![应用服务中的托管标识](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -395,7 +395,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
         uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,
@@ -440,7 +440,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="using-the-microsoftazureservicesappauthentication-library-for-net"></a><a name="asal"></a>使用用于.NET 的 Microsoft.Azure.Services.AppAuthentication 库
 
-对于 .NET 应用程序和函数，使用托管标识最简单的方法是通过 Microsoft.Azure.Services.AppAuthentication 包。 此库还允许通过 Visual Studio、[Azure CLI](/cli/azure) 或 Active Directory 集成身份验证使用用户帐户，在开发计算机上对代码进行本地测试。 在云中托管时，将默认使用系统分配的标识，但你可以使用引用用户分配的标识的客户端 ID 的连接字符串环境变量自定义此行为。 有关此库的开发选项的详细信息，请参阅 [microsoft.azure.services.appauthentication 参考]。 本部分演示如何开始在代码中使用此库。
+对于 .NET 应用程序和函数，使用托管标识最简单的方法是通过 Microsoft.Azure.Services.AppAuthentication 包。 此库还允许通过 Visual Studio、[Azure CLI](/cli/azure) 或 Active Directory 集成身份验证使用用户帐户，在开发计算机上对代码进行本地测试。 在云中托管时，将默认使用系统分配的标识，但可通过使用引用用户分配的标识的客户端 ID 的连接字符串环境变量对此行为进行自定义。 若要详细了解此库的开发选项，请参阅 [Microsoft.Azure.Services.AppAuthentication 参考]。 本部分演示如何开始在代码中使用此库。
 
 1. 向应用程序添加对 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 和任何其他必需 NuGet 包的引用。 以下示例还使用 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)。
 

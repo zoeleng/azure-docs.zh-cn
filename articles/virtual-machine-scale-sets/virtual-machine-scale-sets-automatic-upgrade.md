@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229831"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744745"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure 虚拟机规模集自动 OS 映像升级
 
@@ -99,7 +99,7 @@ ms.locfileid: "89229831"
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>配置自动 OS 映像升级
-若要配置自动 OS 映像升级，请确保在规模集模型定义中将 *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* 属性设置为 *true*。
+若要配置自动 OS 映像升级，请确保在规模集模型定义中将 *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* 属性设置为 *true* 。
 
 ### <a name="rest-api"></a>REST API
 以下示例说明如何在规模集模型上设置自动 OS 升级：
@@ -148,7 +148,7 @@ OS 升级过程中，规模集中的 VM 实例每次只升级一批。 只有客
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>在规模集上将自定义负载均衡器探测配置为应用程序运行状况探测
 最佳做法是为规模集运行状况显式创建负载均衡器探测。 运行状况探测可使用与现有 HTTP 探测或 TCP 探测相同的终结点，但所需的行为可能与传统负载均衡器探测不同。 例如，如果实例的负载过高，传统负载均衡器探测可能返回“不正常”，但是，这不符合自动 OS 升级过程中实际的实例运行状况。 请将探测配置为不超过两分钟的高探测速率。
 
-可以在规模集的 networkProfile 中引用负载均衡器探测**，并可将探测与内部或公共的负载均衡器相关联，如下所示：
+可以在规模集的 networkProfile 中引用负载均衡器探测  ，并可将探测与内部或公共的负载均衡器相关联，如下所示：
 
 ```json
 "networkProfile": {

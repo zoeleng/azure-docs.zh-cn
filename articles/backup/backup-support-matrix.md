@@ -4,12 +4,12 @@ description: 汇总 Azure 备份服务的支持设置和限制。
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332706"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743129"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 备份的支持矩阵
 
@@ -109,7 +109,7 @@ Azure 备份支持针对传输中数据和静态数据的加密。
 - 备份数据以加密格式存储在恢复服务保管库中。
 - 使用 MARS 代理从本地服务器备份数据时，在将数据上传到 Azure 备份之前，将使用密码对数据进行加密，并且仅在从 Azure 备份下载数据后才对其解密。
 - 备份 Azure VM 时，需要在虚拟机内部设置加密。
-- Azure 备份支持 Azure 磁盘加密，后者在 Windows 虚拟机上使用 BitLocker，在 Linux 虚拟机上使用 **dm-crypt**。
+- Azure 备份支持 Azure 磁盘加密，后者在 Windows 虚拟机上使用 BitLocker，在 Linux 虚拟机上使用 **dm-crypt** 。
 - 在后端，Azure 备份使用 [Azure 存储服务加密](../storage/common/storage-service-encryption.md)来保护静态数据。
 
 **计算机** | **传输中** | **静态**
@@ -128,8 +128,8 @@ Azure 备份支持对备份流量进行压缩，详细情况汇总在下表中�
 
 **计算机** | **压缩到 MABS/DPM (TCP)** | **压缩到保管库 (HTTPS)**
 --- | --- | ---
-**直接备份本地 Windows 计算机** | NA | ![是][green]
-**使用 VM 扩展的 Azure VM 备份** | NA | NA
+**直接备份本地 Windows 计算机** | 不可用 | ![是][green]
+**使用 VM 扩展的 Azure VM 备份** | 不可用 | 不可用
 **使用 MABS/DPM 在本地计算机/Azure 计算机上备份** | ![是][green] | ![是][green]
 
 ## <a name="retention-limits"></a>保留期限制
@@ -151,9 +151,9 @@ Azure 备份添加了跨区域还原功能来增强数据可用性和复原能�
 | 备份管理类型 | 支持                                                    | 支持的区域 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | 是的。   支持用于加密的 VM 和磁盘小于 4 TB 的 VM | 所有 Azure 公共区域和主权云。  |
-| SQL/SAP HANA | 是                                                          | 美国西部 2 (WUS2) ，美国中部 (WCUS) ，加拿大中部 (CNC) ，加拿大东部 (CNE) ，美国东部 (EUS) 、美国西部 (WUS) 、日本东部 (JPE) 、日本东部 (JPE)  |
-| MARS 代理/本地  | 否                                                           | 不适用               |
-|  (Azure 文件共享的 AFS)                  | 否                                                           | 不适用               |
+| SQL/SAP HANA | 是                                                          | 除法国以外的所有公共区域 |
+| MARS 代理/本地  | 否                                                           | 空值               |
+|  (Azure 文件共享的 AFS)                  | 否                                                           | 空值               |
 
 ## <a name="next-steps"></a>后续步骤
 

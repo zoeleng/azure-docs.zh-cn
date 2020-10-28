@@ -3,13 +3,13 @@ title: 使用 GitHub Actions 部署资源管理器模板
 description: 介绍如何使用 GitHub Actions 部署资源管理器模板。
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282851"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746094"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>使用 GitHub Actions 部署 Azure 资源管理器模板
 
@@ -32,13 +32,13 @@ ms.locfileid: "92282851"
 
 |部分  |任务  |
 |---------|---------|
-|**身份验证** | 1. 定义服务主体。 <br /> 2. 创建 GitHub 机密。 |
+|**身份验证** | 1.定义服务主体。 <br /> 2.创建 GitHub 机密。 |
 |**部署** | 1. 部署资源管理器模板。 |
 
 ## <a name="generate-deployment-credentials"></a>生成部署凭据
 
 
-可以在[Azure CLI](/cli/azure/)中使用[az ad sp 创建-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true)命令创建[服务主体](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 使用 Azure 门户中 [Azure Cloud Shell](https://shell.azure.com/) 或选择 " **试用** " 按钮来运行此命令。
+可以使用 [Azure CLI](/cli/azure/) 中的 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 命令创建[服务主体](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 请使用 Azure 门户中的 [Azure Cloud Shell](https://shell.azure.com/) 或选择“试用”按钮运行此命令。
 
 如果还没有资源组，请创建一个。 
 
@@ -73,11 +73,11 @@ ms.locfileid: "92282851"
 
 需要为 Azure 凭据、资源组和订阅创建机密。 
 
-1. 在 [GitHub](https://github.com/)中，浏览存储库。
+1. 在 [GitHub](https://github.com/) 中，浏览存储库。
 
-1. 选择 " **设置" > 机密 > 新机密**。
+1. 选择“设置”>“机密”>“新的机密”。
 
-1. 将 Azure CLI 命令的整个 JSON 输出粘贴到机密的值字段中。 为机密指定名称 `AZURE_CREDENTIALS` 。
+1. 将 Azure CLI 命令的整个 JSON 输出粘贴到机密的值字段中。 为机密指定名称 `AZURE_CREDENTIALS`。
 
 1. 创建另一个名为 `AZURE_RG` 的机密。 将资源组的名称添加到机密的值字段中 (例如： `myResourceGroup`) 。 
 
@@ -91,7 +91,7 @@ ms.locfileid: "92282851"
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-你可以将该文件放到存储库中的任何位置。 下一节中的 "工作流" 示例假定模板文件命名为 " **azuredeploy.js**"，并存储在存储库的根目录中。
+你可以将该文件放到存储库中的任何位置。 下一节中的 "工作流" 示例假定模板文件命名为 " **azuredeploy.js** "，并存储在存储库的根目录中。
 
 ## <a name="create-workflow"></a>创建工作流
 
@@ -136,7 +136,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 
     工作流文件的第一部分包括：
 
-    - **name**：工作流的名称。
+    - **name** ：工作流的名称。
     - 事件：触发工作流的 GitHub 事件的名称。 当主分支上有推送事件时，将触发工作流，修改所指定的两个文件中的至少一个。 这两个文件分别是工作流文件和模板文件。
 
 1. 选择“开始提交”。

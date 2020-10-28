@@ -7,17 +7,17 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836235"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742432"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>使用 Azure AD 对 Windows VM 进行 Azure 磁盘加密（以前版本）
 
-**新版本的 Azure 磁盘加密无需提供 Azure AD 应用程序参数即可启用 VM 磁盘加密。使用新版本，在执行启用加密步骤时，不再需要提供 Azure AD 凭据。所有新 VM 都必须使用新版本在没有 Azure AD 应用程序参数的情况下进行加密。若要查看使用新版本启用 VM 磁盘加密的说明，请参阅[适用于 Windows VMS 的 Azure 磁盘加密](disk-encryption-windows.md)。已使用 Azure AD 应用程序参数加密的 VM 仍受支持，应继续使用 AAD 语法进行维护。**
+**新版本的 Azure 磁盘加密无需提供 Azure AD 应用程序参数即可启用 VM 磁盘加密。使用新版本，在执行启用加密步骤时，不再需要提供 Azure AD 凭据。所有新 VM 都必须使用新版本在没有 Azure AD 应用程序参数的情况下进行加密。若要查看使用新版本启用 VM 磁盘加密的说明，请参阅 [适用于 Windows VMS 的 Azure 磁盘加密](disk-encryption-windows.md)。已使用 Azure AD 应用程序参数加密的 VM 仍受支持，应继续使用 AAD 语法进行维护。**
 
 
 可启用多种磁盘加密方案，具体步骤因方案而异。 以下部分更详细介绍了适用于 Windows IaaS VM 的方案。 在使用磁盘加密之前，需要先完成 [Azure 磁盘加密先决条件](disk-encryption-overview-aad.md)。 

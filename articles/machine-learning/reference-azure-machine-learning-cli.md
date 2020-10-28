@@ -9,13 +9,13 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
-ms.custom: seodec18
-ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8ce32ab1e7dac6fd1a154fc6e730113428a8291b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708265"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744480"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>安装和使用 Azure 机器学习的 CLI 扩展
 
@@ -34,7 +34,7 @@ CLI 不能取代 Azure 机器学习 SDK。 它是一个经过优化的补充工�
 
 * 若要使用 CLI，必须拥有 Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
 
-* 若要在**本地环境**中使用本文档所述的 CLI 命令，需要安装 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
+* 若要在 **本地环境** 中使用本文档所述的 CLI 命令，需要安装 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 
     如果使用的是 [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)，则可通过浏览器访问 CLI（它位于云端）。
 

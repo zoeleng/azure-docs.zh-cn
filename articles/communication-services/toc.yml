@@ -84,6 +84,8 @@
       href: concepts/logging-and-diagnostics.md
     - name: 指标
       href: concepts/metrics.md
+    - name: 疑难解答
+      href: concepts/troubleshooting-info.md
 - name: 示例
   items:
     - name: 出色的分组呼叫示例
@@ -105,4 +107,4 @@
 - name: 资源
   items:
     - name: 发行说明
-      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes'

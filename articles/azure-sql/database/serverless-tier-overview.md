@@ -4,19 +4,19 @@ description: 本文介绍新的无服务器计算层，并将它与现有的 Azu
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
-ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321401"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743165"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL 数据库无服务器
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Azure SQL 数据库中单一数据库的无服务器计算层由计算自动缩�
 ### <a name="performance-configuration"></a>性能配置
 
 - “最小 vCore 数”和“最大 vCore 数”是可配置的参数，用于定义数据库可用的计算容量范围。  内存和 IO 限制与指定的 vCore 范围成正比。  
-- **自动暂停延迟**是可配置的参数，用于定义数据库在自动暂停之前必须处于非活动状态的时间段。 发生下次登录或其他活动时，数据库会自动恢复。  或者，可以禁用自动暂停。
+- **自动暂停延迟** 是可配置的参数，用于定义数据库在自动暂停之前必须处于非活动状态的时间段。 发生下次登录或其他活动时，数据库会自动恢复。  或者，可以禁用自动暂停。
 
 ### <a name="cost"></a>成本
 
@@ -97,7 +97,7 @@ Azure SQL 数据库中单一数据库的无服务器计算层由计算自动缩�
 
 在无服务器数据库和预配的计算数据库中，如果使用了所有可用内存，则可能会逐出缓存条目。
 
-请注意，当 CPU 使用率较低时，主动缓存利用率可能会保持较高水平（具体取决于使用模式），并会阻止内存回收。  此外，用户活动停止后，在内存回收之前，可能会有额外的延迟，因为后台进程会定期响应先前的用户活动。  例如，"删除操作" 和 "QDS 清除任务" 生成标记为删除的虚影记录，但在虚影清除进程运行之前不会将其物理删除，这可能涉及到将数据页读入缓存。
+请注意，当 CPU 使用率较低时，主动缓存利用率可能会保持较高水平（具体取决于使用模式），并会阻止内存回收。  此外，用户活动停止后，在内存回收之前，可能会有额外的延迟，因为后台进程会定期响应先前的用户活动。  例如，删除操作和 QDS 清除任务会生成标记为“需删除”的虚影记录，但在虚影清除进程运行（这可能涉及到将数据页读入缓存）之前不会进行物理删除。
 
 #### <a name="cache-hydration"></a>缓存合成
 
@@ -114,7 +114,7 @@ Azure SQL 数据库中单一数据库的无服务器计算层由计算自动缩�
 
 如有需要，系统也提供了禁用自动暂停的选项。
 
-以下功能不支持自动暂停，但支持自动缩放。  如果使用了下列任一功能，则应禁用 autopausing 并且数据库将保持联机状态，而不考虑数据库的非活动持续时间：
+以下功能不支持自动暂停，但支持自动缩放。  如果使用了以下任意功能，那么无论数据库处于不活动状态的时间有多长，都应禁用自动暂停，让数据库保持联机状态：
 
 - 异地复制（活动异地复制和自动故障转移组）。
 - 长期备份保留 (LTR)。
@@ -314,17 +314,17 @@ az sql db show --name $databasename --resource-group $resourcegroupname --server
 
 计费的计算量是每秒使用的最大 CPU 和内存量。 如果所用的 CPU 和内存量分别少于最小预配量，则对预配量进行计费。 为了比较 CPU 与内存以进行计费，可通过将内存量 (GB) 按照每个 vCore 3 GB 进行重新缩放，将内存归一化为以 vCore 数为单位。
 
-- **计费的资源**：CPU 和内存
-- **计费量**：vCore 单位价格 * 最大值（最小 vCore 数、使用的 vCore 数、最小内存量 (GB) * 1/3、使用的内存量量 (GB) * 1/3） 
-- **计费频率**：每秒
+- **计费的资源** ：CPU 和内存
+- **计费量** ：vCore 单位价格 * 最大值（最小 vCore 数、使用的 vCore 数、最小内存量 (GB) * 1/3、使用的内存量量 (GB) * 1/3） 
+- **计费频率** ：每秒
 
 vCore 单位价格是每个 vCore 每秒的费用。 请参考 [Azure SQL 数据库定价页](https://azure.microsoft.com/pricing/details/sql-database/single/)，获取给定区域的特定单位价格。
 
 计费的计算量按以下指标进行公开：
 
-- **指标**：app_cpu_billed（vCore 秒）
-- **定义**：最大值（最小 vCore 数、使用的 vCore 数、最小内存量(GB) * 1/3、使用的内存量 * 1/3）
-- **报告频率**：每分钟
+- **指标** ：app_cpu_billed（vCore 秒）
+- **定义** ：最大值（最小 vCore 数、使用的 vCore 数、最小内存量(GB) * 1/3、使用的内存量 * 1/3）
+- **报告频率** ：每分钟
 
 此数量每秒计算一次，按 1 分钟进行汇总。
 

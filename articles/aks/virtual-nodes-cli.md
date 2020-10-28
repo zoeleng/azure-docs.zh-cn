@@ -5,13 +5,13 @@ description: 了解如何通过 Azure CLI 创建使用虚拟节点运行 Pod 的
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 96c47ed59fd904f1523347d9f0ef7bc00edb866f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543072"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745666"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为通过 Azure CLI 使用虚拟节点
 
@@ -81,7 +81,7 @@ Azure Cloud Shell 是免费的交互式 shell，可以使用它运行本文中�
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-Azure 资源组是一个逻辑组，用于部署和管理 Azure 资源。 使用“[az group create][az-group-create]”命令创建资源组。 以下示例在*westus*位置创建名为*myResourceGroup*的资源组。
+Azure 资源组是一个逻辑组，用于部署和管理 Azure 资源。 使用“[az group create][az-group-create]”命令创建资源组。 以下示例在 *westus* 位置创建名为 *myResourceGroup* 的资源组。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-使用 [az network vnet create][az-network-vnet-create] 命令创建虚拟网络。 以下示例使用 10.0.0.0/8** 地址前缀创建一个名为 myVnet** 的虚拟网络和一个名为 myAKSSubnet** 的子网。 此子网的地址前缀默认为 10.240.0.0/16**：
+使用 [az network vnet create][az-network-vnet-create] 命令创建虚拟网络。 以下示例使用 10.0.0.0/8  地址前缀创建一个名为 myVnet  的虚拟网络和一个名为 myAKSSubnet  的子网。 此子网的地址前缀默认为 10.240.0.0/16  ：
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-现在，使用 [az network vnet subnet create][az-network-vnet-subnet-create] 命令为虚拟节点创建其他子网。 以下示例使用 10.241.0.0/16** 地址前缀创建一个名为 myVirtualNodeSubnet** 的子网。
+现在，使用 [az network vnet subnet create][az-network-vnet-subnet-create] 命令为虚拟节点创建其他子网。 以下示例使用 10.241.0.0/16  地址前缀创建一个名为 myVirtualNodeSubnet  的子网。
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +132,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-记下 *appId* 和 *password*。 后续步骤会用到这些值。
+记下 *appId* 和 *password* 。 后续步骤会用到这些值。
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>分配对虚拟网络的权限
 
@@ -178,7 +178,7 @@ az aks create \
 
 ## <a name="enable-virtual-nodes-addon"></a>启用虚拟节点加载项
 
-若要启用虚拟节点，现在使用 [az aks enable-addons][az-aks-enable-addons] 命令。 以下示例使用上一步中创建的名为 myVirtualNodeSubnet ** 的子网：
+若要启用虚拟节点，现在使用 [az aks enable-addons][az-aks-enable-addons] 命令。 以下示例使用上一步中创建的名为 myVirtualNodeSubnet  的子网：
 
 ```azurecli-interactive
 az aks enable-addons \

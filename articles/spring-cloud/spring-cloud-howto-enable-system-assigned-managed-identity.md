@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 1802708c3b9e15a2459f29d15da72f2dc1da1a4f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742798"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>如何为 Azure Spring Cloud 应用程序启用系统分配的托管标识
 
@@ -35,7 +35,7 @@ Azure 资源的托管标识提供了自动管理的标识，可在 Azure Active 
 1. 按常规在门户中创建应用。 在门户中导航到该应用。
 2. 向下滚动到左侧导航窗格中的 " **设置** " 组。
 3. 选择“标识”。
-4. 在“系统分配的”选项卡中，将“状态”切换为“启用”  。 单击“保存”  。
+4. 在“系统分配的”选项卡中，将“状态”切换为“启用”  。 单击“ **保存** ”。
 
  ![门户中的托管标识](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -72,8 +72,8 @@ Azure 春季云与 Azure 虚拟机共享用于令牌的相同终结点。 建议
 若要从不再需要的应用程序中删除系统分配的托管标识：
 
 1. 使用与包含 Azure 春季云实例的 Azure 订阅关联的帐户登录到 [Azure 门户](https://portal.azure.com/) 。
-1. 导航到所需的虚拟机，然后选择“标识”。****
-1. 在 "**系统已分配** / **状态**" 下，选择 "**关闭**"，然后单击 "**保存**"：
+1. 导航到所需的虚拟机，然后选择“标识”。 
+1. 在 " **系统已分配** / **状态** " 下，选择 " **关闭** "，然后单击 " **保存** "：
 
  ![托管标识](./media/spring-cloud-managed-identity/remove-identity.png)
 

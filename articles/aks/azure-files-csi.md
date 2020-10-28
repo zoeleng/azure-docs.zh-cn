@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078351"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745792"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>使用 azure 文件容器存储接口 (CSI) Azure Kubernetes Service 中的驱动程序 (AKS)  (预览版) 
 
@@ -33,13 +33,13 @@ CSI 是一种将任意块和文件存储系统公开给 Kubernetes 上容器化�
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>使用内置存储类动态创建 Azure 文件 PVs
 
-存储类用于定义如何创建 Azure 文件共享。 将在 [节点资源组][node-resource-group] 中自动创建一个存储帐户，以便与存储类一起用于保存 Azure 文件共享。 选择以下适用于*skuName*的[Azure 存储冗余 sku][storage-skus]之一：
+存储类用于定义如何创建 Azure 文件共享。 将在 [节点资源组][node-resource-group] 中自动创建一个存储帐户，以便与存储类一起用于保存 Azure 文件共享。 选择以下适用于 *skuName* 的 [Azure 存储冗余 sku][storage-skus]之一：
 
-* **Standard_LRS**：标准本地冗余存储
-* **Standard_GRS**：标准异地冗余存储
-* **Standard_ZRS**：标准区域冗余存储
-* **Standard_RAGRS**：标准读取访问异地冗余存储
-* **Premium_LRS**：高级本地冗余存储
+* **Standard_LRS** ：标准本地冗余存储
+* **Standard_GRS** ：标准异地冗余存储
+* **Standard_ZRS** ：标准区域冗余存储
+* **Standard_RAGRS** ：标准读取访问异地冗余存储
+* **Premium_LRS** ：高级本地冗余存储
 
 > [!NOTE]
 > Azure 文件支持 Azure 高级存储。 最低级别的高级文件共享为 100 GB。
@@ -76,7 +76,7 @@ total 29
 
 默认存储类适合最常见的方案，但并非全部。 在某些情况下，你可能希望使用自己的参数自定义自己的存储类。 例如，使用以下清单来配置 `mountOptions` 文件共享的。
 
-对于 Kubernetes 装入的文件共享，"DirMode *" 和 "* *dirMode* " 的默认值为*0777* 。 可以在存储类对象上指定不同的装载选项。
+对于 Kubernetes 装入的文件共享，"DirMode *" 和 "* *dirMode* " 的默认值为 *0777* 。 可以在存储类对象上指定不同的装载选项。
 
 创建一个名为 `azure-file-sc.yaml` 的文件，并粘贴下面的示例清单：
 
@@ -212,13 +212,13 @@ Filesystem                                                                      
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-状态显示为“已注册”需要几分钟时间**。 使用 [az feature list][az-feature-list] 命令验证注册状态：
+状态显示为“已注册”需要几分钟时间  。 使用 [az feature list][az-feature-list] 命令验证注册状态：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
 ```
 
-准备就绪后，请使用[az provider register][az-provider-register]命令刷新*Microsoft 存储*资源提供程序的注册：
+准备就绪后，请使用 [az provider register][az-provider-register]命令刷新 *Microsoft 存储* 资源提供程序的注册：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Storage
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 可以[stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) `data.txt` 通过使用[kubectl apply][kubectl-apply]命令部署以下命令，部署将时间戳保存到文件中的示例有状态集：
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

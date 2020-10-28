@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356879"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744758"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>开发用于确保云一致性的 ARM 模板
 
@@ -205,7 +205,7 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 }
 ```
 
-使用此方法，包括配置脚本在内的所有部署项目均可存储在模板本身所在的位置。 若要更改所有链接的位置，只需为 _artifactsLocation 参数_指定其他基 URL。
+使用此方法，包括配置脚本在内的所有部署项目均可存储在模板本身所在的位置。 若要更改所有链接的位置，只需为 _artifactsLocation 参数_ 指定其他基 URL。
 
 ## <a name="factor-in-differing-regional-capabilities"></a>区分区域功能的因素
 
@@ -655,7 +655,7 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 下图展示了团队使用集成开发环境 (IDE) 的开发过程的典型示例。 在时间线中的不同阶段执行不同的测试类型。 在这里，两名开发者正在处理同一解决方案，但这种情况同样适用于单个开发者或一个大型团队。 每个开发者通常会创建中央存储库的本地副本，这样每个人都可以处理本地副本，并且不会影响可能使用同一文件的其他用户。
 
-![关系图显示了在本地 I D E 上并行执行的两组单元测试和集成测试，将 C I/C D 开发流程合并到单元测试中，然后进行集成测试，然后测试部署，然后部署。](./media/templates-cloud-consistency/workflow.png)
+![图显示了在本地 I D E 上并行的两组单元测试和集成测试，它们在 C I / C D 开发流中合并为单元测试，然后是集成测试，然后是测试部署，然后是部署。](./media/templates-cloud-consistency/workflow.png)
 
 请考虑以下用于测试和自动化的提示：
 

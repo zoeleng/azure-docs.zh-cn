@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 28de993f51b13e973edb0e42f138217cd35ab8dd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ed5d7c3007cf8471da453db93be0ab716805908c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636691"
+ms.locfileid: "92742954"
 ---
 # <a name="azure-built-in-roles"></a>Azure 内置角色
 
@@ -207,6 +207,8 @@ ms.locfileid: "92636691"
 > | [支持请求参与者](#support-request-contributor) | 允许创建和管理支持请求 | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [标记参与者](#tag-contributor) | 允许你管理实体上的标记，而无需提供对实体本身的访问权限。 | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **其他** |  |  |
+> | [Azure 数字孪生数据所有者](#azure-digital-twins-data-owner) | 数字孪生数据平面的完全访问权限 | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+> | [Azure 数字孪生数据读取器](#azure-digital-twins-data-reader) | "数字孪生" 数据平面属性的只读角色 | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [BizTalk 参与者](#biztalk-contributor) | 允许管理 BizTalk 服务，但不允许访问这些服务。 | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [桌面虚拟化用户](#desktop-virtualization-user) | 允许用户使用应用程序组中的应用程序。 | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
 > | [计划程序作业集合参与者](#scheduler-job-collections-contributor) | 允许管理计划程序作业集合，但不允许访问这些集合。 | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
@@ -9211,6 +9213,102 @@ Azure Sentinel 响应程序 [了解详细信息](../sentinel/roles.md)
 
 ## <a name="other"></a>其他
 
+
+### <a name="azure-digital-twins-data-owner"></a>Azure 数字孪生数据所有者
+
+用于数字孪生数据平面的完全访问角色 [了解更多](../digital-twins/concepts-security.md)
+
+> [!div class="mx-tableFixed"]
+> | 操作 | 描述 |
+> | --- | --- |
+> | *无* |  |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access role for Digital Twins data-plane",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/bcd981a7-7f74-457b-83e1-cceb9e632ffe",
+  "name": "bcd981a7-7f74-457b-83e1-cceb9e632ffe",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/eventroutes/*",
+        "Microsoft.DigitalTwins/digitaltwins/*",
+        "Microsoft.DigitalTwins/digitaltwins/commands/*",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/*",
+        "Microsoft.DigitalTwins/models/*",
+        "Microsoft.DigitalTwins/query/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Digital Twins Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-digital-twins-data-reader"></a>Azure 数字孪生数据读取器
+
+"数字孪生" 数据平面属性的只读角色 [了解详细信息](../digital-twins/concepts-security.md)
+
+> [!div class="mx-tableFixed"]
+> | 操作 | 描述 |
+> | --- | --- |
+> | *无* |  |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | 读取任何数字克隆 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | 读取任何数字克隆关系 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | 读取任何事件路由 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | 读取任何模型 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | 查询任何数字孪生图 |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only role for Digital Twins data-plane properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "name": "d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/digitaltwins/read",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/read",
+        "Microsoft.DigitalTwins/eventroutes/read",
+        "Microsoft.DigitalTwins/models/read",
+        "Microsoft.DigitalTwins/query/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Digital Twins Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ### <a name="biztalk-contributor"></a>BizTalk 参与者
 

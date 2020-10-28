@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 03b112466ef094a578d47586a44ab383a5da1a9b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151236"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744889"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR 服务身份验证
 

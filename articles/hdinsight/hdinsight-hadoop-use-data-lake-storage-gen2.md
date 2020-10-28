@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332019"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744584"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集
 
@@ -28,7 +28,7 @@ ms.locfileid: "92332019"
 Data Lake Storage Gen2 能够以默认存储和附加存储帐户的形式用作几乎所有 Azure HDInsight 群集类型的存储选项。 但是，HBase 只能有一个具有 Data Lake Storage Gen2 的帐户。
 
 > [!Note]  
-> 选择 "Data Lake Storage Gen2 作为 **主存储类型**后，将无法选择 Data Lake Storage Gen1 作为附加存储。
+> 选择 "Data Lake Storage Gen2 作为 **主存储类型** 后，将无法选择 Data Lake Storage Gen1 作为附加存储。
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>使用 Data Lake Storage Gen2 创建 HDInsight 群集
 
@@ -66,19 +66,19 @@ Azure 服务有两种类型的托管标识：系统分配的托管标识和用�
 
 可以通过多种方法从 HDInsight 群集访问 Data Lake Storage Gen2 中的文件。
 
-* **使用完全限定的名称**。 使用此方法时，需提供要访问的文件的完整路径。
+* **使用完全限定的名称** 。 使用此方法时，需提供要访问的文件的完整路径。
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **使用缩短的路径格式**。 使用此方法时，需将群集根的路径替换为：
+* **使用缩短的路径格式** 。 使用此方法时，需将群集根的路径替换为：
 
     ```
     abfs:///<file.path>/
     ```
 
-* **使用相对路径**。 使用此方法时，仅需提供要访问的文件的相对路径。
+* **使用相对路径** 。 使用此方法时，仅需提供要访问的文件的相对路径。
 
     ```
     /<file.path>/

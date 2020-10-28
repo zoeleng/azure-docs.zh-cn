@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029291"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745833"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虚拟机规模集
 
@@ -348,7 +348,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>只能在当前值的基础上更改的属性
 某些属性可以更改，但也有例外，具体取决于当前值。 这些属性包括：
 
-- **singlePlacementGroup** - 如果 singlePlacementGroup 为 true，则可将其修改为 false。 但是，如果 singlePlacementGroup 为 false，则**不可**将其修改为 true。
+- **singlePlacementGroup** - 如果 singlePlacementGroup 为 true，则可将其修改为 false。 但是，如果 singlePlacementGroup 为 false，则 **不可** 将其修改为 true。
 - **subnet** - 修改规模集的子网的前提是，原始子网和新子网在同一虚拟网络中。
 
 ### <a name="properties-that-require-deallocation-to-change"></a>需要解除分配才能更改的属性
@@ -364,7 +364,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="scenarios"></a>方案
 
 ### <a name="application-updates"></a>应用程序更新
-如果应用程序已通过扩展部署到规模集，则更新扩展配置会导致应用程序按升级策略进行更新。 例如，如果新版脚本在自定义脚本扩展中运行，则可更新 *fileUris* 属性，使之指向新脚本。 在某些情况下，可能需要强制进行更新，即使扩展配置未更改（例如，在未更改脚本 URI 的情况下更新脚本）。 在这些情况下，可以通过修改 *forceUpdateTag* 来强制进行更新。 Azure 平台不解释此属性。 如果更改此值，不会影响扩展的运行方式。 更改只是会强制扩展重新运行。 有关 *forceUpdateTag* 的详细信息，请参阅[针对扩展的 REST API 文档](/rest/api/compute/virtualmachineextensions/createorupdate)。 请注意，*forceUpdateTag* 可用于所有扩展，而不仅仅是自定义脚本扩展。
+如果应用程序已通过扩展部署到规模集，则更新扩展配置会导致应用程序按升级策略进行更新。 例如，如果新版脚本在自定义脚本扩展中运行，则可更新 *fileUris* 属性，使之指向新脚本。 在某些情况下，可能需要强制进行更新，即使扩展配置未更改（例如，在未更改脚本 URI 的情况下更新脚本）。 在这些情况下，可以通过修改 *forceUpdateTag* 来强制进行更新。 Azure 平台不解释此属性。 如果更改此值，不会影响扩展的运行方式。 更改只是会强制扩展重新运行。 有关 *forceUpdateTag* 的详细信息，请参阅 [针对扩展的 REST API 文档](/rest/api/compute/virtualmachineextensions/createorupdate)。 请注意， *forceUpdateTag* 可用于所有扩展，而不仅仅是自定义脚本扩展。
 
 通过自定义映像来部署应用程序也很常见。 以下部分介绍此情景。
 
@@ -372,14 +372,14 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 如果使用 Azure 平台映像，可以通过修改 *imageReference* 来更新映像（有关详细信息，请参阅 [REST API 文档](/rest/api/compute/virtualmachinescalesets/createorupdate)）。
 
 >[!NOTE]
-> 使用平台映像时，通常指定 "latest" 作为映像引用版本。 在你执行创建、横向扩展和重置映像操作时，将使用最新发布的脚本创建 VM。 但是，这**并不**意味着 OS 映像会随新映像版本的发布自动进行更新。 当前处于预览版状态的一个独立功能提供了自动 OS 升级功能。 有关详细信息，请参阅[自动 OS 升级文档](virtual-machine-scale-sets-automatic-upgrade.md)。
+> 使用平台映像时，通常指定 "latest" 作为映像引用版本。 在你执行创建、横向扩展和重置映像操作时，将使用最新发布的脚本创建 VM。 但是，这 **并不** 意味着 OS 映像会随新映像版本的发布自动进行更新。 当前处于预览版状态的一个独立功能提供了自动 OS 升级功能。 有关详细信息，请参阅[自动 OS 升级文档](virtual-machine-scale-sets-automatic-upgrade.md)。
 
 如果使用自定义映像，可以通过更新 *imageReference* ID 来更新映像（有关详细信息，请参阅 [REST API 文档](/rest/api/compute/virtualmachinescalesets/createorupdate)）。
 
 ## <a name="examples"></a>示例
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>更新规模集的 OS 映像
-你可能具有运行旧版 Ubuntu LTS 16.04 的规模集。 你希望将其更新到新版 Ubuntu LTS 16.04，例如版本 *16.04.201801090*。 映像引用版本属性不是列表的一部分，因此可以使用下列命令之一直接修改这些属性：
+你可能具有运行旧版 Ubuntu LTS 16.04 的规模集。 你希望将其更新到新版 Ubuntu LTS 16.04，例如版本 *16.04.201801090* 。 映像引用版本属性不是列表的一部分，因此可以使用下列命令之一直接修改这些属性：
 
 - 如下所示，通过 Azure PowerShell 使用 [Update-AzVmss](/powershell/module/az.compute/update-azvmss)：
 

@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: a54dfa0f2b072d30cac605937a1b623ef9d4051d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631488"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742831"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>步骤1：部署日志转发器
 
 
 在此步骤中，你将指定并配置将日志从安全解决方案转发到 Azure Sentinel 工作区的 Linux 计算机。 此计算机可以是本地环境中的物理计算机、Azure VM 或另一个云中的虚拟机。 使用提供的链接，你将在执行以下任务的指定计算机上运行脚本：
+
 - 安装适用于 Linux 的 Log Analytics agent (也称为 OMS 代理) ，并将其配置为以下目的：
     - 在 TCP 端口25226上侦听内置 Linux Syslog Syslog 后台程序中的 CEF 消息
     - 将消息通过 TLS 安全地发送到 Azure Sentinel 工作区，并在其中进行分析和控制
@@ -33,21 +34,28 @@ ms.locfileid: "91631488"
     - 在 TCP 端口514上的安全解决方案中侦听 Syslog 消息
     - 使用 TCP 端口25226只将其标识为 CEF 的消息转发到 localhost 上的 Log Analytics 代理
  
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - 在指定的 Linux 计算机上，您必须具有提升的权限 (sudo) 。
-- 必须在 Linux 计算机上安装 python。<br>使用 `python -version` 命令检查。
+
+- 必须在 Linux 计算机上安装 **python 2.7** 。<br>使用 `python -version` 命令检查。
+
 - 安装 Log Analytics 代理之前，Linux 计算机不得连接到任何 Azure 工作区。
+
+- 在此过程中的某个时间点，可能需要工作区 ID 和工作区主键。 可以在工作区资源的 " **代理管理** " 下找到它们。
 
 ## <a name="run-the-deployment-script"></a>运行部署脚本
  
-1. 在 Azure Sentinel 导航菜单中，单击 " **数据连接器**"。 在连接器列表中，单击 " **常见事件格式" (CEF) ** "磁贴，然后单击右下角的" **打开连接器页** "按钮。 
+1. 在 Azure Sentinel 导航菜单中，单击 " **数据连接器** "。 在连接器列表中，单击 " **常见事件格式" (CEF)** "磁贴，然后单击右下角的" **打开连接器页** "按钮。 
 
-1. 在 "1.2" 下，在 **Linux 计算机上安装 CEF 收集器**，复制 "运行以下脚本" 下提供的链接 **以安装和应用 CEF 收集器**，或从以下文本中进行复制：
+1. **1.2 在 Linux 计算机上安装 CEF 收集器** 后，复制 " **运行以下脚本以安装和应用 CEF 收集器** " 下提供的链接，或从下面的文本中 (应用工作区 ID 和主密钥来替换占位符) ：
 
-     `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```
 
 1. 脚本运行时，请检查以确保没有收到任何错误或警告消息。
+    - 你可能会收到一条消息，指导你运行命令来更正 " *计算机* " 字段映射的问题。 有关详细信息，请参阅 [部署脚本中的说明](#mapping-command) 。
 
 > [!NOTE]
 > **使用同一台计算机转发普通 Syslog *和* CEF 消息**
@@ -122,12 +130,15 @@ ms.locfileid: "91631488"
 
 1. **按预期验证 " *计算机* " 字段的映射：**
 
-    - 通过运行此命令并重新启动代理，确保 syslog 源中的 " *计算机* " 字段已正确映射到 Log Analytics 代理。
+    - 使用以下命令确保 syslog 源中的 " *计算机* " 字段已正确映射到 Log Analytics 代理中： 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
+        ```
+    - <a name="mapping-command"></a>如果映射出现问题，该脚本将生成一条错误消息，指导您 **手动运行以下命令** (将工作区 ID 替换为占位符) 。 命令将确保正确的映射，然后重新启动代理。
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 # <a name="syslog-ng-daemon"></a>[syslog-ng 守护程序](#tab/syslogng)
@@ -187,15 +198,16 @@ ms.locfileid: "91631488"
 
 1. **按预期验证 " *计算机* " 字段的映射：**
 
-    - 通过运行此命令并重新启动代理，确保 syslog 源中的 " *计算机* " 字段已正确映射到 Log Analytics 代理。
+    - 使用以下命令确保 syslog 源中的 " *计算机* " 字段已正确映射到 Log Analytics 代理中： 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-
-
+    - <a name="mapping-command"></a>如果映射出现问题，该脚本将生成一条错误消息，指导您 **手动运行以下命令** (将工作区 ID 替换为占位符) 。 命令将确保正确的映射，然后重新启动代理。
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 ## <a name="next-steps"></a>后续步骤
 本文档介绍了如何部署 Log Analytics 代理，将 CEF 设备连接到 Azure Sentinel。 要详细了解 Azure Sentinel，请参阅以下文章：

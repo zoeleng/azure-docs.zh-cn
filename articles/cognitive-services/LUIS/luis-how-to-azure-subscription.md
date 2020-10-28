@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eecc93558625d3ae891ca589424aec218036adae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151592"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744701"
 ---
 # <a name="create-luis-resources"></a>创建 LUIS 资源
 
@@ -29,7 +29,7 @@ LUIS 允许三类 Azure 资源和一类非 Azure 资源：
 
 |资源|目的|认知服务 `kind`|认知服务 `type`|
 |--|--|--|--|
-|创作资源|允许您创建、管理、定型、测试和发布您的应用程序。 如果打算在 programtically 或 LUIS 门户中创作 LUIS apps，请[创建 LUIS 创作资源](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal)。 需要首先 [迁移 LUIS 帐户](luis-migration-authoring.md#what-is-migration) ，才能将 Azure authroring 资源链接到应用程序。 可以通过将用户分配到 ["参与者" 角色](#contributions-from-other-authors)来控制对创作资源的权限。 <br><br> LUIS 创作资源有一个层在：<br> * **免费 F0 创作资源** ，可提供1m 免费创作事务，每月免费测试预测终结点请求1000。 |`LUIS.Authoring`|`Cognitive Services`|
+|创作资源|允许您创建、管理、定型、测试和发布您的应用程序。 如果打算在 programtically 或 LUIS 门户中创作 LUIS apps，请[创建 LUIS 创作资源](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal)。 需要首先 [迁移 LUIS 帐户](luis-migration-authoring.md#what-is-migration) ，才能将 Azure 创作资源链接到应用程序。 可以通过将用户分配到 ["参与者" 角色](#contributions-from-other-authors)来控制对创作资源的权限。 <br><br> 有一个可用于 LUIS 创作资源的层：<br> * **免费 F0 创作资源** ，可提供1m 免费创作事务，每月免费测试预测终结点请求1000。 |`LUIS.Authoring`|`Cognitive Services`|
 |预测资源| 发布 LUIS 应用程序后，使用预测资源/键查询预测终结点请求。 在客户端应用程序请求除由创作或 starter 资源提供的1000请求之外的预测之前，请创建 LUIS 预测资源。 <br><br> 预测资源有两个层可用：<br> * **免费 F0 预测资源** ，每月提供10000免费预测终结点请求<br> * **标准 S0 预测资源** ，是付费层。 [了解有关定价详细信息的详细信息](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Starter/试用资源|允许您创建、管理、定型、测试和发布您的应用程序。 如果在第一次注册 tp LUIS 时选择了 "starter 资源" 选项，则会通过默认创建此项。 但是，此入门密钥最终将被弃用，并且所有 LUIS 用户将需要 [迁移其帐户](luis-migration-authoring.md#what-is-migration) 并将其 LUIS 应用程序链接到创作资源。 此资源不会为你提供 Azure 基于角色的访问控制（如创作资源）的权限。 <br><br> 就像创作资源一样，starter 资源可提供1M 免费创作事务和1000免费测试预测终结点请求。|-|不是 Azure 资源|
 |[认知服务多服务资源密钥](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|与 LUIS 和其他受支持的认知服务共享的查询预测终结点请求。|`CognitiveServices`|`Cognitive Services`|
@@ -94,13 +94,13 @@ Azure 资源（如 LUIS）由包含资源的订阅所有。
 
 ### <a name="contributions-from-other-authors"></a>其他作者的贡献
 
-对于[创作资源迁移](luis-migration-authoring.md)的应用：使用**访问控制 (IAM) **页，在创作资源的 Azure 门户中管理_参与者_。 了解如何使用协作者的电子邮件地址和_参与者_角色[添加用户](luis-how-to-collaborate.md)。
+对于 [创作资源迁移](luis-migration-authoring.md)的应用：使用 **访问控制 (IAM)** 页，在创作资源的 Azure 门户中管理 _参与者_ 。 了解如何使用协作者的电子邮件地址和 _参与者_ 角色 [添加用户](luis-how-to-collaborate.md)。
 
 对于尚未迁移的应用：所有协作者都在 LUIS 门户中通过“管理 -> 协作者”页面进行管理。
 
 ### <a name="query-prediction-access-for-private-and-public-apps"></a>专用和公共应用的查询预测访问权限
 
-对于“专用”应用，所有者和参与者可以使用查询预测运行时访问权限。 对于**公共**应用，任何具有自己的 Azure [认知服务](../cognitive-services-apis-create-account.md)或 [LUIS](#create-resources-in-the-azure-portal) 运行时资源和公共应用 ID 的人员均可使用运行时访问权限。
+对于“专用”应用，所有者和参与者可以使用查询预测运行时访问权限。 对于 **公共** 应用，任何具有自己的 Azure [认知服务](../cognitive-services-apis-create-account.md)或 [LUIS](#create-resources-in-the-azure-portal) 运行时资源和公共应用 ID 的人员均可使用运行时访问权限。
 
 目前没有公共应用的目录。
 
@@ -125,7 +125,7 @@ Azure 资源（如 LUIS）由包含资源的订阅所有。
 
 ### <a name="prediction-endpoint-runtime-access"></a>预测终结点运行时访问权限
 
-查询预测终结点所需的访问权限由“应用程序信息”**** 页上“管理”**** 部分的设置进行控制。
+查询预测终结点所需的访问权限由“应用程序信息”  页上“管理”  部分的设置进行控制。
 
 |[专用终结点](#runtime-security-for-private-apps)|[公共终结点](#runtime-security-for-public-apps)|
 |:--|:--|
@@ -145,9 +145,9 @@ Azure 资源（如 LUIS）由包含资源的订阅所有。
 
 ### <a name="runtime-security-for-public-apps"></a>公共应用的运行时安全性
 
-应用配置为公共后，任何有效的 LUIS 创作密钥或 LUIS 终结点密钥都可以查询应用，只要该密钥未使用整个终结点配额__。
+应用配置为公共后，任何有效的 LUIS 创作密钥或 LUIS 终结点密钥都可以查询应用，只要该密钥未使用整个终结点配额  。
 
-不是所有者或参与者的用户只有在获得应用 ID 时才能访问公共应用的运行时。 LUIS 不提供公共市场或其他搜索公共应用的方式__。
+不是所有者或参与者的用户只有在获得应用 ID 时才能访问公共应用的运行时。 LUIS 不提供公共市场或其他搜索公共应用的方式  。
 
 公共应用在所有区域中发布，以便有基于区域的 LUIS 资源密钥的用户可以在与资源密钥关联的任何区域中访问该应用。
 
@@ -190,13 +190,13 @@ Azure 资源（如 LUIS）由包含资源的订阅所有。
 
     此时会打开一个浏览器，让你可以选择正确的帐户并提供身份验证。
 
-1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS.Authoring`、名称为 `my-luis-authoring-resource` 的 **LUIS 创作资源**。
+1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS.Authoring`、名称为 `my-luis-authoring-resource` 的 **LUIS 创作资源** 。
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS`、名称为 `my-luis-prediction-resource` 的 **LUIS 预测终结点资源**。 如果需要比免费层更高的吞吐量，请将 `F0` 更改为 `S0`。 详细了解[定价层和吞吐量](luis-limits.md#key-limits)。
+1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS`、名称为 `my-luis-prediction-resource` 的 **LUIS 预测终结点资源** 。 如果需要比免费层更高的吞吐量，请将 `F0` 更改为 `S0`。 详细了解[定价层和吞吐量](luis-limits.md#key-limits)。
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -227,7 +227,7 @@ Azure 资源（如 LUIS）由包含资源的订阅所有。
     ![在 LUIS 门户中选择“管理 -> Azure 资源”，以便为应用分配资源。](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
 1. 选择 "预测或创作资源" 选项卡，然后选择 " **添加预测资源** " 或 " **添加创作资源** " 按钮
-1. 选择窗体中的字段以查找正确的资源，然后选择 "**保存**"
+1. 选择窗体中的字段以查找正确的资源，然后选择 " **保存** "
 1. 如果没有现有资源，可以选择 "创建新的 LUIS 资源？" 来创建一个资源。 从窗口底部
 
 

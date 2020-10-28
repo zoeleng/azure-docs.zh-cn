@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677005"
+ms.locfileid: "92745692"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -125,7 +125,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 1. 在 Azure 门户中，单击 "  **警报** "。
 2. 在顶部窗格中，单击 "  **管理操作** "。 “添加操作组”窗口随即显示。
 
-    ![操作组](media/itsmc-overview/action-groups.png)
+    [![操作组](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
 3. 选择要在其中创建操作组的 **订阅** 和 **资源组** 。 为操作组提供 " **操作组名称** " 和 " **显示名称** "。 单击 " **下一步：通知** "。
 
@@ -135,7 +135,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 5. 在“操作”列表中，从“操作类型”下拉列表菜单中选择“ITSM”。 提供操作的 **名称** ，然后单击表示 **编辑详细信息** 的笔。
 6. 选择 Log Analytics 工作区所在的“订阅”。 选择后跟工作区名称的“连接”名称（你的 ITSM 连接器名称）。 例如，“MyITSMMConnector(MyWorkspace)。”
 
-    ![ITSM 操作详细信息](media/itsmc-overview/itsm-action-details.png)
+    ![ITSM 操作详细信息](media/itsmc-overview/itsm-action-configuration.png)
 
 7. 从下拉列表菜单中选择“工作项”类型。
 

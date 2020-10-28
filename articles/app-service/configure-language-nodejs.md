@@ -1,17 +1,17 @@
 ---
 title: 配置 Node.js 应用
 description: 了解如何在原生 Windows 实例、预构建的 Linux 容器或 Azure 应用服务中配置 Node.js 应用。 本文介绍最常见的配置任务。
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311829"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744064"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>为 Azure 应用服务配置 Node.js 应用
 
@@ -123,7 +123,7 @@ Node.js 容器附带了 [PM2](https://pm2.keymetrics.io/)（一个生产流程�
 
 ### <a name="run-custom-command"></a>运行自定义命令
 
-应用服务可以使用自定义命令（如 *run.sh*等可执行文件）启动应用。例如，若要运行 `npm run start:prod` ，请在 [Cloud Shell](https://shell.azure.com)中运行以下命令：
+应用服务可以使用自定义命令（如 *run.sh* 等可执行文件）启动应用。例如，若要运行 `npm run start:prod` ，请在 [Cloud Shell](https://shell.azure.com)中运行以下命令：
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -164,7 +164,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 你还可以配置具有以下扩展名的自定义启动文件：
 
 - .js 文件
-- 扩展名为 *.json*、 *.config.js*、 *.yaml* 或 *.yml* 的 [PM2 文件](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)
+- 扩展名为 *.json* 、 *.config.js* 、 *.yaml* 或 *.yml* 的 [PM2 文件](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)
 
 若要添加自定义起始文件，请在 [Cloud Shell](https://shell.azure.com)中运行以下命令：
 

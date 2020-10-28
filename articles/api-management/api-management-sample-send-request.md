@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2f4bd040d7e5858fd561444f56dbce7b3f940d9a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742398"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>通过 Azure API 管理服务使用外部服务
 Azure API 管理服务中的策略可以单纯根据传入的请求、传出的响应以及基本配置信息执行多种不同的有用工作。 但是，如果能够与 API 管理策略中的外部服务进行交互，则可以使更多的想法成为可能。
@@ -103,9 +103,9 @@ API 管理的主要功能是保护后端资源。 如果 API 使用的授权服�
 
 从响应对象中可以检索主体，RFC 7622 会告知 API 管理，响应必须是 JSON 对象，并且必须至少包含一个名为 `active` 的属性（布尔值）。 当 `active` 为 true，则令牌被视为有效。
 
-或者，如果授权服务器不包含用于指示令牌是否有效的 "活动" 字段，请使用 Postman 等工具来确定有效令牌中设置的属性。 例如，如果有效的令牌响应中包含一个名为 "expires_in" 的属性，请按照以下方式检查授权服务器响应中是否存在此属性名称：
+或者，如果授权服务器不包含用于指示令牌是否有效的“活动”字段，请使用 Postman 等工具来确定有效令牌中设置的属性。 例如，如果有效的令牌响应中包含一个名为“expires_in”的属性，请按照以下方式检查授权服务器响应中是否存在此属性名称：
 
-<条件 = "@ ( # A2 # B3 IResponse) 上下文。变量 ["tokenstate"] ) 。Body.As <JObject> ( # A7。属性 ( "expires_in" ) = = null) ">
+<when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
 
 ### <a name="reporting-failure"></a>报告失败
 可以使用 `<choose>` 策略来检测令牌是否无效，如果无效，则返回 401 响应。
@@ -286,5 +286,5 @@ API 管理的主要功能是保护后端资源。 如果 API 使用的授权服�
 
 在配置占位符操作时，可以将仪表板资源配置为至少缓存一小时。 
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 Azure API 管理服务提供可根据需要应用到 HTTP 流量的灵活策略，并支持后端服务的组合。 不管是要使用警报、校验、验证功能还是基于多个后端服务创建新的复合资源来增强 API 网关，`send-request` 和相关策略都能使这种想法成为可能。

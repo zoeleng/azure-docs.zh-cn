@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 5d0a86a966cacfdeac291c66fa245a613b383a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 52344b665b00329c80fb651657fbbd19d5ffd7a4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629517"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743098"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>使用 TLS 保护通过 Azure 机器学习部署的 Web 服务
 

@@ -3,12 +3,12 @@ title: 有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 description: 查找有关 Azure Kubernetes 服务 (AKS) 的某些常见问题的解答。
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494522"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745755"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -95,12 +95,15 @@ AKS 支持以下[许可控制器][admission-controllers]：
 - MutatingAdmissionWebhook
 - ValidatingAdmissionWebhook
 - ResourceQuota
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 目前无法修改 AKS 中的准入控制器列表。
 
 ## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>是否可以在 AKS 上使用许可控制器 Webhook？
 
-是的，可以在 AKS 上使用许可控制器 Webhook。 建议你不要使用标记有**控制平面标签**的内部 AKS 命名空间。 例如，可以将以下内容添加到 Webhook 配置：
+是的，可以在 AKS 上使用许可控制器 Webhook。 建议你不要使用标记有 **控制平面标签** 的内部 AKS 命名空间。 例如，可以将以下内容添加到 Webhook 配置：
 
 ```
 namespaceSelector:
@@ -109,9 +112,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
+AKS 使 API 服务器进入防火墙，因此，需要从群集内访问许可控制器 webhook。
+
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>许可控制器 Webhook 是否会影响 kube 系统和内部 AKS 命名空间？
 
-为了保护系统的稳定性，并防止自定义的许可控制器影响 kube 系统中的内部服务，我们在命名空间 AKS 中设置了一个**许可执行程序**，它自动排除 kube 系统和 AKS 内部命名空间。 此服务确保自定义许可控制器不会影响在 kube 系统中运行的服务。
+为了保护系统的稳定性，并防止自定义的许可控制器影响 kube 系统中的内部服务，我们在命名空间 AKS 中设置了一个 **许可执行程序** ，它自动排除 kube 系统和 AKS 内部命名空间。 此服务确保自定义许可控制器不会影响在 kube 系统中运行的服务。
 
 如果你有一个用于在 kube 系统上部署某些内容的关键用例（不建议这样做），并且需要使用自定义许可 Webhook 来涵盖该系统，则可添加以下标签或注释，这样许可执行程序就会忽略该系统。
 
