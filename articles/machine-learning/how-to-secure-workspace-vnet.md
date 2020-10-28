@@ -1,7 +1,7 @@
 ---
 title: 使用虚拟网络保护 Azure 机器学习工作区
 titleSuffix: Azure Machine Learning
-description: 使用独立的 Azure 虚拟网络来保护 Azure 机器学习工作区和关联的资源。
+description: 使用独立的 Azure 虚拟网络保护 Azure 机器学习工作区和关联资源。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,25 +11,25 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460983"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672866"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习工作区
 
-本文介绍如何在虚拟网络中保护 Azure 机器学习工作区及其关联的资源。
+本文中介绍如何在虚拟网络中保护 Azure 机器学习工作区及其关联资源。
 
 
-本文是由五部分组成的系列文章中的第二部分，指导你完成保护 Azure 机器学习工作流的工作。 强烈建议您通读第 [一部分： VNet 概述](how-to-network-security-overview.md) 以首先了解总体体系结构。 
+本文是由两部分组成的系列文章的第五部分，指导你如何保护 Azure 机器学习工作流。 强烈建议您通读第 [一部分： VNet 概述](how-to-network-security-overview.md) 以首先了解总体体系结构。 
 
 请参阅本系列中的其他文章：
 
 [1. VNet 概述](how-to-network-security-overview.md)  >  **2。保护工作区**  >  [3。保护定型环境](how-to-secure-training-vnet.md)  >  [4。保护推断环境](how-to-secure-inferencing-vnet.md)  >  [5。启用 studio 功能](how-to-enable-studio-virtual-network.md)
 
-本文介绍如何在虚拟网络中启用以下工作区资源：
+本文介绍如何在虚拟网络中保护以下工作区资源：
 > [!div class="checklist"]
 > - Azure 机器学习工作区
 > - Azure 存储帐户
@@ -85,7 +85,12 @@ Azure 机器学习支持配置为使用服务终结点或专用终结点的存�
         > [!IMPORTANT]
         > 存储帐户必须与用于训练或推理的计算实例或群集位于同一虚拟网络和子网中。
 
-    1. 选中“允许受信任的 Microsoft 服务访问此存储帐户”复选框。
+    1. 选中“允许受信任的 Microsoft 服务访问此存储帐户”复选框。 这不会向所有 Azure 服务授予对你的存储帐户的访问权限。
+    
+        * 在 **订阅中注册** 的某些服务的资源可以访问用于选择操作的 **同一订阅中** 的存储帐户。 例如，写入日志或创建备份。
+        * 可通过向其系统分配的托管标识分配 Azure 角色，向某些服务的资源授予对存储帐户的显式访问权限。
+
+        有关详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](../storage/common/storage-network-security.md#trusted-microsoft-services)。
 
     > [!IMPORTANT]
     > 使用 Azure 机器学习 SDK 时，开发环境必须能够连接到 Azure 存储帐户。 当存储帐户位于虚拟网络中时，防火墙必须允许从开发环境的 IP 地址进行访问。
@@ -98,7 +103,7 @@ Azure 机器学习支持配置为使用服务终结点或专用终结点的存�
 
 Azure 机器学习支持配置为使用服务终结点或专用终结点的存储帐户。 如果存储帐户使用专用终结点，则必须为默认存储帐户配置两个专用终结点：
 1. 具有 **blob** 目标子资源的专用终结点。
-1. 具有文件目标子资源 (**文件** 共享) 的专用终结点。
+1. 具有文件目标子资源 ( **文件** 共享) 的专用终结点。
 
 ![显示具有 blob 和文件选项的专用终结点配置页的屏幕截图](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
@@ -108,9 +113,9 @@ Azure 机器学习支持配置为使用服务终结点或专用终结点的存�
 
 ## <a name="secure-datastores-and-datasets"></a>保护数据存储和数据集
 
-本部分介绍如何在虚拟网络中使用 SDK 体验中的数据存储和数据集。 有关 studio 体验的详细信息，请参阅在 [虚拟网络中使用 Azure 机器学习 studio](how-to-enable-studio-virtual-network.md)。
+本部分介绍如何在虚拟网络中使用 SDK 体验中的数据存储和数据集。 有关工作室体验的详细信息，请参阅[在 Azure 虚拟网络中使用机器学习工作室](how-to-enable-studio-virtual-network.md)。
 
-若要使用 SDK 访问数据，必须使用存储数据的单个服务所需的身份验证方法。 例如，如果注册数据存储以访问 Azure Data Lake Store Gen2，则仍需使用 " [连接到 Azure 存储服务](how-to-access-data.md#azure-data-lake-storage-generation-2)" 中所述的服务主体。
+若要使用 SDK 访问数据，必须使用存储数据的单个服务所需的身份验证方法。 例如，如果注册数据存储区以访问 Azure Data Lake Store Gen2，则仍必须使用[连接到 Azure 存储服务](how-to-access-data.md#azure-data-lake-storage-generation-2)中所述的服务主体。
 
 ### <a name="disable-data-validation"></a>禁用数据验证
 
@@ -159,29 +164,29 @@ validate=False)
 
 ```
 
-## <a name="secure-azure-key-vault"></a>安全 Azure Key Vault
+## <a name="secure-azure-key-vault"></a>保护 Azure Key Vault
 
-Azure 机器学习使用关联 Key Vault 实例存储以下凭据：
+Azure 机器学习使用关联的 Key Vault 实例存储以下凭据：
 * 关联的存储帐户连接字符串
 * Azure 容器存储库实例的密码
 * 数据存储的连接字符串
 
 若要在虚拟网络的后面将 Azure 机器学习试验功能与 Azure Key Vault 配合使用，请执行以下步骤：
 
-1. 中转到与工作区关联的 Key Vault。
+1. 转到与工作区关联的 Key Vault。
 
-1. 在 " __Key Vault__ " 页上的左窗格中，选择 " __网络__"。
+1. 在“Key Vault”页上的左侧窗格中，选择“网络” 。
 
-1. 在 " __防火墙和虚拟网络__ " 选项卡上，执行以下操作：
-    1. 在 " __允许访问__" 下，选择 " __专用终结点和所选网络__"。
+1. 在“防火墙和虚拟网络”选项卡上执行以下操作：
+    1. 在“允许访问来源”下，选择“专用终结点和所选网络” 。
     1. 在“虚拟网络”下，选择“添加现有的虚拟网络”，以添加试验计算资源所在的虚拟网络。 
-    1. 在 " __允许受信任的 Microsoft 服务跳过此防火墙？__" 下，选择 __"是"__。
+    1. 在“允许受信任的 Microsoft 服务跳过此防火墙？”下选择“是” 。
 
    [![“Key Vault”窗格中的“防火墙和虚拟网络”部分](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
-## <a name="enable-azure-container-registry-acr"></a> (ACR) 启用 Azure 容器注册表
+## <a name="enable-azure-container-registry-acr"></a>启用 Azure 容器注册表 (ACR)
 
-若要在虚拟网络中使用 Azure 容器注册表，必须满足以下要求：
+若要在虚拟网络内部使用 Azure 容器注册表，必须先满足以下要求：
 
 * Azure 容器注册表必须是高级版。 若要详细了解如何升级，请参阅[更改 SKU](/azure/container-registry/container-registry-skus#changing-skus)。
 
@@ -191,11 +196,11 @@ Azure 机器学习使用关联 Key Vault 实例存储以下凭据：
 
     如果 ACR 位于虚拟网络后面，Azure 机器学习无法使用它来直接生成 Docker 映像。 而是使用计算群集来生成映像。
 
-* 在虚拟网络中将 ACR 与 Azure 机器学习一起使用之前，你必须打开支持事件才能启用此功能。 有关详细信息，请参阅 [管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
+* 在虚拟网络中使用 ACR 与 Azure 机器学习之前，必须创建支持事件以启用此功能。 有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
 
 满足这些要求后，请使用以下步骤启用 Azure 容器注册表。
 
-1. 使用以下方法之一查找工作区的 Azure 容器注册表的名称：
+1. 请使用以下方法之一查找工作区的 Azure 容器注册表的名称：
 
     __Azure 门户__
 
@@ -213,7 +218,7 @@ Azure 机器学习使用关联 Key Vault 实例存储以下凭据：
 
     此命令会返回类似于 `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"` 的值。 此字符串的最后一部分是工作区的 Azure 容器注册表的名称。
 
-1. 使用 [为注册表配置网络访问](../container-registry/container-registry-vnet.md#configure-network-access-for-registry)中的步骤限制对虚拟网络的访问。 添加虚拟网络时，为 Azure 机器学习资源选择虚拟网络和子网。
+1. 使用[配置注册表的网络访问权限](../container-registry/container-registry-vnet.md#configure-network-access-for-registry)中的步骤来限制对虚拟网络的访问。 添加虚拟网络时，为 Azure 机器学习资源选择虚拟网络和子网。
 
 1. 使用 Azure 机器学习 Python SDK 将计算群集配置为生成 Docker 映像。 下面的代码片段展示了如何执行此操作：
 

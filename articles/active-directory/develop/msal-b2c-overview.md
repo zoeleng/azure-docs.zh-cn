@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: ab072fa53d3ecc3f856b6765acfb8c19da3ff298
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442246"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673500"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>通过适用于 JavaScript 的 Microsoft 身份验证库来使用 Azure AD B2C
 
@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>步骤 3：配置身份验证
 
-1. 在示例中打开 `config.json` 文件。
+1. 打开示例中文件的 *config.js* 。
 
 2. 注册应用程序时，请使用前面获取的应用程序凭据配置示例。 通过将值替换为你的租户名称、客户端 ID 和策略名称来更改以下代码行。
 

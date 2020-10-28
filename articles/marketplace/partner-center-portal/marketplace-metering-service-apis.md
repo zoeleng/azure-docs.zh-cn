@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278027"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674625"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 计费 Api
 
@@ -34,7 +34,7 @@ TLS 版本1.2 版本作为 HTTPS 通信的最小版本强制执行。 请确保�
 
 每个资源的日历日每小时只能发出一个使用事件。 如果在一小时内消耗了多个单位，则累积在一小时内消耗的所有单位，然后在单个事件中发出。 只能在过去24小时内发出使用情况事件。 如果你在8:00 和8:59:59 之间的任何时间都发出使用事件 (并且该事件被接受) 并在8:00 与8:59:59 之间的同一天发送额外事件，则它将被拒绝为重复。
 
-**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *查询参数：*
 
@@ -67,7 +67,7 @@ TLS 版本1.2 版本作为 HTTPS 通信的最小版本强制执行。 请确保�
 >[!NOTE]
 >`resourceId` 对于 SaaS 应用和发出自定义计量的托管应用具有不同的含义。 
 
-对于 Azure 应用程序托管应用计划，`resourceId` 是在托管应用元数据对象的 `billingDetails` 下找到的 `resourceUsageId`。 可在[使用 Azure 管理的标识令牌](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)中找到用于提取它的示例脚本。 
+对于 Azure 应用程序托管应用计划， `resourceId` 是托管应用 `resource group Id` 。 可在[使用 Azure 管理的标识令牌](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)中找到用于提取它的示例脚本。 
 
 对于 SaaS 产品/服务，`resourceId` 是 SaaS 订阅 ID。 有关 SaaS 订阅的更多详细信息，请参阅[列出订阅](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)。
 
@@ -191,7 +191,7 @@ Batch 用量事件 API 允许一次为多个已购买的资源发出使用事件
 >[!NOTE]
 >`resourceId` 对于 SaaS 应用和发出自定义计量的托管应用具有不同的含义。 
 
-对于 Azure 应用程序托管应用计划，`resourceId` 是在托管应用元数据对象的 `billingDetails` 下找到的 `resourceUsageId`。 可在[使用 Azure 管理的标识令牌](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)中找到用于提取它的示例脚本。 
+对于 Azure 应用程序托管应用计划， `resourceId` 是托管应用 `resource group Id` 。 可在[使用 Azure 管理的标识令牌](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)中找到用于提取它的示例脚本。 
 
 对于 SaaS 产品/服务，`resourceId` 是 SaaS 订阅 ID。 有关 SaaS 订阅的更多详细信息，请参阅[列出订阅](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)。
 

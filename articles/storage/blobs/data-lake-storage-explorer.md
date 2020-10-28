@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 088618c0f23f5cfd1b14c3c946ef735fadb893d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 214cdbd5ad30ad096cb6c9d1442936eefb2b2054
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086092"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674870"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Azure 存储资源管理器管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -38,7 +38,7 @@ ms.locfileid: "87086092"
 
 选择“添加 Azure 帐户”  ，并单击“登录”  。遵照屏幕提示登录到 Azure 帐户。
 
-![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![显示 Microsoft Azure 存储资源管理器的屏幕截图，并突出显示 "添加 Azure 帐户" 选项和 "登录" 按钮。](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 完成连接后，将会加载 Azure 存储资源管理器并显示“资源管理器”选项卡。  以下视图可以查看通过 [Azure 存储模拟器](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)、[Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 帐户或 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 环境配置的所有 Azure 存储帐户和本地存储。
 
@@ -74,7 +74,7 @@ ms.locfileid: "87086092"
 
 ## <a name="download-blobs"></a>下载 Blob
 
-若要使用 **Azure 存储资源管理器**下载文件，请选择所需的文件，然后在功能区中选择“下载”。  此时将打开文件对话框，可在其中输入文件名。 选择“保存”，开始将文件下载到本地位置。 
+若要使用 **Azure 存储资源管理器** 下载文件，请选择所需的文件，然后在功能区中选择“下载”。  此时将打开文件对话框，可在其中输入文件名。 选择“保存”，开始将文件下载到本地位置。 
 
 ## <a name="managing-access"></a>管理访问权限
 
@@ -95,9 +95,9 @@ ms.locfileid: "87086092"
 
 有两类权限可以分配：访问 ACL 和默认 ACL。
 
-* **访问权限**：访问 ACL 控制对某个对象的访问权限。 文件和目录都具有访问 ACL。
+* **访问权限** ：访问 ACL 控制对某个对象的访问权限。 文件和目录都具有访问 ACL。
 
-* **默认**：与目录关联的 ACL 模板，用于确定在该目录下创建的任何子项的访问 ACL。 文件没有默认 ACL。
+* **默认** ：与目录关联的 ACL 模板，用于确定在该目录下创建的任何子项的访问 ACL。 文件没有默认 ACL。
 
 在这两个类别中，你可以对文件或目录分配三种权限：“读取”、“写入”和“执行”    。
 

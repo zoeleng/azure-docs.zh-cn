@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027030"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674083"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>使用 MSAL.js 初始化客户端应用程序
 

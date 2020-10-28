@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536566"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674506"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats Api
 
@@ -29,7 +29,7 @@ FarmBeats Api 包含 Swagger 技术文档。 有关所有 Api 及其相应的请
 
 下表汇总了 FarmBeats Datahub 中的所有对象和资源：
 
-| 对象和资源 | 描述
+| 对象和资源 | 说明
 --- | ---|
 Farm | 场对应于 FarmBeats 系统中感兴趣的物理位置。 每个场都有场名称和唯一场 ID。 |
 设备  | 设备对应于在场上存在的物理设备。 每台设备都具有唯一的设备 ID。 通常会将设备设置为具有场 ID 的场。
@@ -143,24 +143,24 @@ Azure FarmBeats Datahub Api 返回标准 HTTP 错误。 最常见的错误代码
 
 可以通过 Azure Active Directory 中的用户或应用注册来访问 Azure FarmBeats Api。 若要在 Azure Active Directory 中创建应用注册，请按照以下步骤操作：
 
-1. 中转到[Azure 门户](https://portal.azure.com)，选择 " **Azure Active Directory**"  >  **应用注册**"  >  **新注册**"。 或者，您可以使用现有帐户。
+1. 中转到 [Azure 门户](https://portal.azure.com)，选择 " **Azure Active Directory** "  >  **应用注册** "  >  **新注册** "。 或者，您可以使用现有帐户。
 2. 对于新帐户，请执行以下操作：
 
     - 输入名称。
-    - **仅 (单租户) 选择此组织目录中的帐户**。
+    - **仅 (单租户) 选择此组织目录中的帐户** 。
     - 使用其余字段中的默认值。
     - 选择“注册”。
 
 3. 在 "新建和现有应用注册 **概述** " 窗格中，执行以下操作：
 
-    - 捕获 **客户端 id** 和 **租户 id**。
-    - 请参阅 **证书和机密** 以生成新的客户端密钥并捕获 **客户端密钥**。
-    - 返回到 " **概述**"，并选择 " **管理本地目录中的应用程序**" 旁边的链接。
-    - 请参阅 " **属性** " 以捕获 **对象 ID**。
+    - 捕获 **客户端 id** 和 **租户 id** 。
+    - 请参阅 **证书和机密** 以生成新的客户端密钥并捕获 **客户端密钥** 。
+    - 返回到 " **概述** "，并选择 " **管理本地目录中的应用程序** " 旁边的链接。
+    - 请参阅 " **属性** " 以捕获 **对象 ID** 。
 
 4. 中转到 Datahub Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) 并执行以下操作：
-    - 请参阅 **ROLEASSIGNMENT API**。
-    - 执行 POST，为刚创建的**对象 ID**创建**RoleAssignment**对象。
+    - 请参阅 **ROLEASSIGNMENT API** 。
+    - 执行 POST，为刚创建的 **对象 ID** 创建 **RoleAssignment** 对象。
  
 ```json
 {
@@ -172,7 +172,7 @@ Azure FarmBeats Datahub Api 返回标准 HTTP 错误。 最常见的错误代码
 ```
 
   > [!NOTE]
-  > 有关如何添加用户和 Active Directory 注册的详细信息，请参阅 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+  > 有关如何添加用户和 Active Directory 注册的详细信息，请参阅 [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
 完成前面的步骤后，应用注册 (客户端) 可以通过使用者身份验证使用访问令牌调用 Azure FarmBeats Api。
 

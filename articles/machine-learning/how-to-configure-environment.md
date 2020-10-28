@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: ee1753932018d0ea3a627ff2a6c7b85dc0a65de1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495237"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674853"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>为 Azure 机器学习设置开发环境
 
@@ -43,7 +43,7 @@ ms.locfileid: "92495237"
 
 ### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> (Local and DSVM 仅) 创建工作区配置文件
 
-工作区配置文件是一个 JSON 文件，用于告知 SDK 如何与 Azure 机器学习工作区进行通信。 该文件命名为 *config.json*，其格式如下：
+工作区配置文件是一个 JSON 文件，用于告知 SDK 如何与 Azure 机器学习工作区进行通信。 该文件命名为 *config.json* ，其格式如下：
 
 ```json
 {
@@ -61,13 +61,13 @@ ms.locfileid: "92495237"
 
 * Azure 门户
 
-    **下载文件**：在[Azure 门户](https://ms.portal.azure.com)中，选择工作区的“概览”部分中的“**下载 config.json”** 。
+    **下载文件** ：在 [Azure 门户](https://ms.portal.azure.com)中，选择工作区的“概览”部分中的“ **下载 config.json”** 。
 
     ![Azure 门户](./media/how-to-configure-environment/configure.png)
 
 * Azure 机器学习 Python SDK
 
-    创建一个脚本，用于连接到 Azure 机器学习工作区，并使用 [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 方法生成文件并将其另存为 *azureml/config.js*。 请确保将 `subscription_id` 、和替换为 `resource_group` 自己的 `workspace_name` 。
+    创建一个脚本，用于连接到 Azure 机器学习工作区，并使用 [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 方法生成文件并将其另存为 *azureml/config.js* 。 请确保将 `subscription_id` 、和替换为 `resource_group` 自己的 `workspace_name` 。
 
     ```python
     from azureml.core import Workspace
@@ -121,6 +121,9 @@ ms.locfileid: "92495237"
 1. 启动 Jupyter Notebook 服务器
 
 请参阅 [Azure 机器学习笔记本存储库](https://github.com/Azure/MachineLearningNotebooks) ，开始处理 Azure 机器学习和 Jupyter 笔记本。
+
+> [!NOTE]
+> 可在中找到社区驱动的示例存储库 https://github.com/Azure/azureml-examples 。
 
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
@@ -284,7 +287,7 @@ Azure Databricks 如何使用 Azure 机器学习：
 ### <a name="start-exploring"></a>开始探索
 
 尝试以下操作：
-+ 尽管有许多示例笔记本可用，但**只有[这些示例笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)适用于 Azure Databricks。**
++ 尽管有许多示例笔记本可用，但 **只有 [这些示例笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)适用于 Azure Databricks。**
 
 + 直接从工作区导入这些示例。 请参见下图：![选择“导入”](./media/how-to-configure-environment/azure-db-screenshot.png)
 ![导入面板](./media/how-to-configure-environment/azure-db-import.png)

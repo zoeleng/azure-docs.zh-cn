@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638323"
+ms.locfileid: "92674745"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>监视 Azure Monitor 中 Log Analytics 工作区的运行状况
 若要在 Azure Monitor 中维护 Log Analytics 工作区的性能和可用性，需要能够主动检测出现的任何问题。 本文介绍如何使用 [操作](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 表中的数据监视 Log Analytics 工作区的运行状况。 此表包含在每个 Log Analytics 工作区中，并包含工作区中发生的错误和警告。 你应定期查看此数据，并创建警报，以便在工作区中有任何重要事件时主动收到通知。
 
 ## <a name="_logoperation-function"></a>_LogOperation 函数
+
 Azure Monitor 日志会将有关任何问题的详细信息发送到出现问题的工作区中的 [操作](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 表。 **_LogOperation** 系统函数基于 **操作** 表，并提供一组简化的信息用于分析和警报。
 
 ## <a name="columns"></a>列
@@ -36,6 +37,7 @@ Azure Monitor 日志会将有关任何问题的详细信息发送到出现问题
 
 
 ## <a name="categories"></a>类别
+
 下表描述了 _LogOperation 函数的类别。 
 
 | 类别 | 说明 |

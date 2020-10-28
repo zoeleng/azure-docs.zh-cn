@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078917"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674328"
 ---
 # <a name="sensor-partner-integration"></a>传感器合作伙伴集成
 
@@ -48,7 +48,7 @@ API 包含 Swagger 技术文档。 有关 API 及其相应的请求或响应的�
 
 FarmBeats 使用 Microsoft Azure Active Directory 身份验证。 Azure 应用服务提供内置的身份验证和授权支持。
 
-有关详细信息，请参阅 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)。
+有关详细信息，请参阅 [Azure Active Directory](../../app-service/overview-authentication-authorization.md)。
 
 FarmBeats 数据中心使用持有者身份验证，该验证方法需要以下凭据：
    - 客户端 ID
@@ -126,10 +126,10 @@ JSON 是一种与语言无关的常见数据格式，该格式提供任意数据
 
 FarmBeats 数据中心具有以下 API，设备合作伙伴可通过这些 API 创建和管理设备或传感器元数据。
 
-- /**DeviceModel**：DeviceModel 对应于设备的元数据，如制造商和设备类型（网关或节点）。
-- /**Device**：Device 对应于存在于场上的物理设备。
-- /**SensorModel**：SensorModel 对应于传感器的元数据，如制造商、传感器类型（模拟或数字）以及传感器度量值（如环境温度和压力）。
-- /**Sensor**：Sensor 对应于记录值的物理传感器。 传感器通常连接到具有设备 ID 的设备。
+- /**DeviceModel** ：DeviceModel 对应于设备的元数据，如制造商和设备类型（网关或节点）。
+- /**Device** ：Device 对应于存在于场上的物理设备。
+- /**SensorModel** ：SensorModel 对应于传感器的元数据，如制造商、传感器类型（模拟或数字）以及传感器度量值（如环境温度和压力）。
+- /**Sensor** ：Sensor 对应于记录值的物理传感器。 传感器通常连接到具有设备 ID 的设备。
 
   DeviceModel | 说明 |
   --- | ---
@@ -140,7 +140,7 @@ FarmBeats 数据中心具有以下 API，设备合作伙伴可通过这些 API �
   名称  | 用于标识资源的名称。 例如，模型名称或产品名称。 |
   说明  | 提供对模型的有意义说明。 |
   属性  | 制造商提供的其他属性。 |
-  **设备** | **描述** |
+  **设备** | **说明** |
   DeviceModelId  |关联的设备模型的 ID。 |
   HardwareId   |设备的唯一 ID，如 MAC 地址。  |
   ReportingInterval |以秒为单位的报告间隔。 |
@@ -149,7 +149,7 @@ FarmBeats 数据中心具有以下 API，设备合作伙伴可通过这些 API �
   名称  | 用于标识资源的名称。 设备合作伙伴需要发送与设备伙伴端的设备名称一致的名称。 如果设备伙伴端的设备名称是用户定义的，则应将同一用户定义的名称传播到 FarmBeats。  |
   说明  | 提供有意义的说明。  |
   属性  |制造商提供的其他属性。  |
-  **SensorModel** | **描述** |
+  **SensorModel** | **说明** |
   类型（模拟、数字）  |提及模拟或数字传感器。|
   制造商  | 制造商的名称。 |
   ProductCode  | 产品代码或模型名称或编号。 例如 RS-CO2-N01。  |
@@ -163,7 +163,7 @@ FarmBeats 数据中心具有以下 API，设备合作伙伴可通过这些 API �
   名称  | 用于标识资源的名称。 例如，模型名称或产品名称。
   说明  | 提供对模型的有意义说明。
   属性  | 制造商提供的其他属性。
-  **传感器**  | **描述** |
+  **传感器**  | **说明** |
   HardwareId  | 制造商设置的传感器的唯一 ID。
   SensorModelId  | 关联的传感器模型的 ID。
   位置  | 传感器纬度（-90 到 +90）、经度（-180 到 180）和海拔（以米为单位）。
@@ -201,7 +201,7 @@ FarmBeats 支持添加新的传感器度量值类型和单位。 有关 /Extende
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>将遥测数据发送到 FarmBeats
 
-若要将遥测数据发送到 FarmBeats，请创建一个客户端，将消息发送到 FarmBeats 中的事件中心。 有关遥测数据的详细信息，请参阅[将遥测发送到事件中心](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)。
+若要将遥测数据发送到 FarmBeats，请创建一个客户端，将消息发送到 FarmBeats 中的事件中心。 有关遥测数据的详细信息，请参阅[将遥测发送到事件中心](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)。
 
 下面是一个示例 Python 代码，它将遥测作为客户端发送到指定的事件中心。
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9444291c40ef504a674ee18351ba581695d1dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394511"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673853"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure 资源管理器部署模型配置强制隧道
 
@@ -53,6 +53,7 @@ ms.locfileid: "89394511"
 * 此过程使用用户定义路由 (UDR) 来创建路由表以添加默认路由，并将路由表关联到 VNet 子网，在这些子网中启用强制隧道。
 * 强制隧道必须关联到具有基于路由的 VPN 网关的 VNet。 需要在连接到虚拟网络的跨界本地站点中，设置一个“默认站点”。 此外，必须使用 0.0.0.0/0 作为流量选择器配置本地 VPN 设备。 
 * ExpressRoute 强制隧道不是通过此机制配置的，而是通过 ExpressRoute BGP 对等会话播发默认路由来启用的。 有关详细信息，请参阅 [ExpressRoute 文档](https://azure.microsoft.com/documentation/services/expressroute/)。
+* 将 VPN 网关和 ExpressRoute 网关部署在同一 VNet 中时，不再需要用户定义的路由 (UDR) ，因为 ExpressRoute 网关会将配置的 "默认站点" 播发到 VNet 中。
 
 ## <a name="configuration-overview"></a>配置概述
 

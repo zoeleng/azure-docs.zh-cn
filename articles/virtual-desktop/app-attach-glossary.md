@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556220"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674944"
 ---
 # <a name="msix-app-attach-glossary"></a>.MSIX 应用附加术语表
 
@@ -25,7 +25,7 @@ ms.locfileid: "88556220"
 
 ## <a name="msix-application"></a>.MSIX 应用程序 
 
-存储在 .MSIX 文件中的应用程序。
+存储在中的应用程序。.MSIX 文件。
 
 ## <a name="msix-package"></a>.MSIX 包 
 
@@ -35,13 +35,17 @@ ms.locfileid: "88556220"
 
 .MSIX 共享是保存扩展的 .MSIX 包的网络共享。 .MSIX 共享支持 SMB 3 或更高版本。 应用程序从该 .MSIX 共享进行过渡，无需将应用程序文件移到系统驱动器。
 
+## <a name="msix-image"></a>.MSIX 图
+
+.MSIX 映像为 VHD、VHDx 或 CIM 文件，其中包含一个或多个 .MSIX 封装应用程序。 每个应用程序都使用 MSIXMGR 工具在 .MSIX 映像中提供。
+
 ## <a name="repackage"></a>重新打包
 
 重新打包将使用 .MSIX 打包工具 () ，从而将其转换为 .MSIX。 有关详细信息，请参阅 [.Msix 打包工具概述](/windows/msix/packaging-tool/tool-overview)。
 
-## <a name="expand"></a>展开
+## <a name="expand-an-msix-package"></a>展开 .MSIX 包
 
-扩展 .MSIX 包是一个多步骤过程。 它采用 .MSIX 文件，并将其内容置于 VHD (x) 或 CIM 文件中。 
+展开 .MSIX 包是一个多步骤过程。 展开操作将获取 .MSIX 文件，并将其内容置于 VHD (x) 或 CIM 文件中。 
 
 展开 .MSIX 包：
 
@@ -63,11 +67,11 @@ ms.locfileid: "88556220"
 
 在 Windows 虚拟桌面中，每个 .MSIX 共享发生一次上传。 上传包后，同一订阅中的所有主机池都可以引用它。
 
-## <a name="publish-an-msix-package"></a>发布 .MSIX 包
+## <a name="add-an-msix-package"></a>添加 .MSIX 包
 
-在 Windows 虚拟桌面中，发布 .MSIX 包会将其链接到远程应用或桌面。
+在 Windows 虚拟桌面中，添加 .MSIX 包会将其链接到主机池。
 
-## <a name="assign-an-msix-package"></a>分配 .MSIX 包 
+## <a name="publish-an-msix-package"></a>发布 .MSIX 包 
 
 在 Windows 虚拟桌面中，必须将发布的 .MSIX 包分配到 Active Directory 域服务 (AD DS) 或 Azure Active Directory (Azure AD) 用户或用户组。
 
@@ -118,4 +122,3 @@ Destaging 通知 OS：无法卸载当前未运行且未为任何用户暂存的 
 ## <a name="next-steps"></a>后续步骤
 
 若要了解有关 .MSIX 应用附加的详细信息，请参阅 [概述](what-is-app-attach.md) 和 [常见问题解答](app-attach-faq.md)。 否则，开始 [安装应用程序](app-attach.md)。
-
