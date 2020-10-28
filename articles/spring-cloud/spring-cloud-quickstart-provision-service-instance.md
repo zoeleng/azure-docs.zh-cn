@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a248699b47cf99980c9490bf16c10e7196ee6ecf
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 22abdb64a2349045923e148db57f683b4be87636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091077"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742699"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>快速入门：预配 Azure Spring Cloud 服务
 
@@ -116,7 +116,7 @@ az extension add --name spring-cloud
 5. 在 Azure Spring Cloud“创建”页中填写表单。  遵循以下指南：
     - 订阅：选择要在其中收取此资源费用的订阅。
     - 资源组：最佳做法是为新资源创建新的资源组。 请注意，后面的步骤会将其用作 \<resource group name\>。
-    - **服务详细信息/名称**：指定 \<service instance name\>。  该名称必须为 4 到 32 个字符，只能包含小写字母、数字及连字符。  服务名称的第一个字符必须是字母，最后一个字符必须是字母或数字。
+    - **服务详细信息/名称** ：指定 \<service instance name\>。  该名称必须为 4 到 32 个字符，只能包含小写字母、数字及连字符。  服务名称的第一个字符必须是字母，最后一个字符必须是字母或数字。
     - 位置：选择服务实例的位置。
 
     ![ASC 门户启动](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)

@@ -7,13 +7,13 @@ ms.date: 7/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: 187a0598dfc26394d1fd48e67d83ef7e98ef6226
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574005"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737310"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>快速入门：将示例 IoT 即插即用设备应用程序连接到 IoT 中心 (Python)
 

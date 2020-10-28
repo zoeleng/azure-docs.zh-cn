@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3438293bcbf656a371b55605c64a005ae4d599a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906558"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541394"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure Database for MySQL 服务器
 
@@ -24,7 +24,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 打开 Web 浏览器，然后访问 [Azure 门户](https://portal.azure.com/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
-创建 Azure Database for MySQL 服务器时，请使用定义好的一组[计算和存储资源](./concepts-compute-unit-and-storage.md)。 请在 [Azure 资源组](../azure-resource-manager/management/overview.md)中创建该服务器。
+创建 Azure Database for MySQL 服务器时，请使用定义好的一组[计算和存储资源](./concepts-pricing-tiers.md)。 请在 [Azure 资源组](../azure-resource-manager/management/overview.md)中创建该服务器。
 
 按照以下步骤创建 Azure Database for MySQL 服务器：
 
@@ -52,7 +52,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 确认密码 | *由用户决定*| 确认管理员帐户密码。
 位置 | *离用户最近的区域*| 选择最靠近用户或其他 Azure 应用程序的位置。
 版本 | *最新主版本*| 最新主版本（除非你有需要其他版本的特定需求）。
-计算 + 存储 | **常规用途**、**第 5 代**、**2 vCore**、**5 GB**、**7 天**、**异地冗余** |新服务器的计算、存储和备份配置。 选择“配置服务器”。 接下来，选择适当的定价层，有关详细信息，请参阅[定价页面](https://azure.microsoft.com/pricing/details/mysql/)。 若要在异地冗余存储中启用服务器备份，请从**备份冗余选项**中选择“异地冗余”。 选择“确定”。
+计算 + 存储 | **常规用途** 、 **第 5 代** 、 **2 vCore** 、 **5 GB** 、 **7 天** 、 **异地冗余** |新服务器的计算、存储和备份配置。 选择“配置服务器”。 接下来，选择适当的定价层，有关详细信息，请参阅[定价页面](https://azure.microsoft.com/pricing/details/mysql/)。 若要在异地冗余存储中启用服务器备份，请从 **备份冗余选项** 中选择“异地冗余”。 选择“确定”。
 
    > [!NOTE]
    > 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用“基本”定价层。 请注意，在“基本”定价层中创建的服务器以后不能扩展到“常规用途”或“内存优化”定价层。 
@@ -61,10 +61,10 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
    
 5. 在工具栏上选择“通知”（钟形图标）以监视部署过程。
    
-默认情况下，将在服务器下创建以下数据库：**information_schema**、**mysql**、**performance_schema** 和 **sys**。
+默认情况下，将在服务器下创建以下数据库： **information_schema** 、 **mysql** 、 **performance_schema** 和 **sys** 。
 
 ## <a name="configure-a-server-level-firewall-rule"></a>配置服务器级防火墙规则
-默认情况下，创建的服务器使用防火墙进行保护，并且无法公开。 若要授予对 IP 的访问权限，请转到 Azure 门户中的服务器资源，然后从左侧菜单中为服务器资源选择“连接安全性”。 不知道如何找到资源时，请参阅[如何打开资源](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)。
+默认情况下，创建的服务器使用防火墙进行保护，并且无法公开。 若要授予对 IP 的访问权限，请转到 Azure 门户中的服务器资源，然后从左侧菜单中为服务器资源选择“连接安全性”。 不知道如何找到资源时，请参阅[如何打开资源](../azure-resource-manager/management/manage-resources-portal.md#open-resources)。
 
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Azure Database for MySQL 选项":::
@@ -75,7 +75,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 > 检查网络是否允许通过端口 3306 送出出站流量，该端口由 Azure Database for MySQL 使用，旨在避免连接问题。  
 
 ## <a name="connect-to-azure-database-for-mysql-server-using-mysql-command-line-client"></a>使用 mysql 命令行客户端连接到 Azure Database for MySQL 服务器
-可以选择 [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 或 [MySQL Workbench](./connect-workbench.md)，以从本地环境连接到服务器。 在本快速入门中，我们将在 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中运行 mysql.exe 以连接到服务器。
+可以选择 [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 或 [MySQL Workbench](./connect-workbench.md)，以从本地环境连接到服务器。 在本快速入门中，我们将在 [Azure Cloud Shell](../cloud-shell/overview.md) 中运行 mysql.exe 以连接到服务器。
 
 1. 通过单击左上角突出显示的图标在门户中启动 Azure Cloud Shell。 通过“概述”部分记录下你的服务器名称、服务器管理员登录名、密码和新创建的服务器的订阅，如下图所示。
 
@@ -140,6 +140,6 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
->[使用 MySQL 在 Windows 上生成 PHP 应用](../app-service/app-service-web-tutorial-php-mysql.md)
->[使用 MySQL 在 Linux 上生成 PHP 应用](../app-service/containers/tutorial-php-mysql-app.md)
->[使用 MySQL 生成基于 Java 的 Spring 应用](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[使用 MySQL 在 Windows 上生成 PHP 应用](../app-service/tutorial-php-mysql-app.md)
+>[使用 MySQL 在 Linux 上生成 PHP 应用](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
+>[使用 MySQL 生成基于 Java 的 Spring 应用](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

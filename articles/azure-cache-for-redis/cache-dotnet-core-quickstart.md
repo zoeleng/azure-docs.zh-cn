@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89662361"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547718"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>快速入门：将 Azure Redis 缓存与 .NET Core 应用配合使用
 
@@ -29,7 +29,7 @@ ms.locfileid: "89662361"
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-记下**主机名**和**主**访问密钥。 稍后将使用这些值来构造 *CacheConnection* 机密。
+记下 **主机名** 和 **主** 访问密钥。 稍后将使用这些值来构造 *CacheConnection* 机密。
 
 
 
@@ -47,7 +47,7 @@ dotnet new console -o Redistest
 
 ## <a name="add-secret-manager-to-the-project"></a>向项目添加机密管理器
 
-在本部分中，将向项目添加[机密管理器工具](https://docs.microsoft.com/aspnet/core/security/app-secrets)。 机密管理器工具存储敏感数据，以便用于项目树之外的开发工作。 此方法有助于防止意外共享源代码中的应用密码。
+在本部分中，将向项目添加[机密管理器工具](/aspnet/core/security/app-secrets)。 机密管理器工具存储敏感数据，以便用于项目树之外的开发工作。 此方法有助于防止意外共享源代码中的应用密码。
 
 打开 *Redistest.csproj* 文件。 添加 `DotNetCliToolReference` 元素以包含 Microsoft.Extensions.SecretManager.Tools  。 同时添加 `UserSecretsId` 元素（如下所示），并保存文件。
 
@@ -82,7 +82,7 @@ dotnet restore
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
 ```
 
-将以下 `using` 语句添加到 *Program.cs*：
+将以下 `using` 语句添加到 *Program.cs* ：
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -113,12 +113,12 @@ private static void InitializeConfiguration()
 dotnet add package StackExchange.Redis
 ```
 
-完成安装后，*StackExchange.Redis* 缓存客户端可供与项目一起使用。
+完成安装后， *StackExchange.Redis* 缓存客户端可供与项目一起使用。
 
 
 ## <a name="connect-to-the-cache"></a>连接到缓存
 
-将以下 `using` 语句添加到 *Program.cs*：
+将以下 `using` 语句添加到 *Program.cs* ：
 
 ```csharp
 using StackExchange.Redis;
@@ -234,7 +234,7 @@ dotnet add package Newtonsoft.json
 using Newtonsoft.Json;
 ```
 
-将以下 `Employee` 类定义添加到 *Program.cs*：
+将以下 `Employee` 类定义添加到 *Program.cs* ：
 
 ```csharp
 class Employee
@@ -317,4 +317,4 @@ dotnet run
 希望优化并节省云支出？
 
 > [!div class="nextstepaction"]
-> [使用成本管理开始分析成本](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [使用成本管理开始分析成本](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 091f73aa2383094973db35efb05c5f93034efa39
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249496"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738106"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 托管专用终结点（预览版）
 
@@ -52,6 +52,7 @@ SQL 池和 SQL 按需版本是 Azure Synapse 工作区中的分析功能。 这�
 这两个托管专用终结点会在 Azure Synapse Studio 中列出。 在 Studio 的左侧导航栏中选择“管理”，然后选择“托管虚拟网络”即可查看它们。
 
 面向 SQL 池的托管专用终结点名为 synapse-ws-sql--\<workspacename\>，面向 SQL 按需版本的托管专用终结点名为 synapse-ws-sqlOnDemand--\<workspacename\> 。
+
 ![SQL 池和 SQL 按需版本的托管专用终结点](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 创建 Azure Synapse 工作区时，会自动为你创建这两个托管专用终结点。 对于这两个托管专用终结点，你无需付费。

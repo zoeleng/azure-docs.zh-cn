@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167043"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537943"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 灵活服务器（预览版）
 
@@ -99,7 +99,7 @@ Azure Database for MySQL 灵活服务器是一种完全托管的数据库服务�
 
 有关详细信息，请参阅[如何使用与灵活服务器的加密连接](https://docs.mongodb.com/manual/tutorial/configure-ssl)。
 
-灵活服务器允许使用 [Azure 虚拟网络](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) 集成对服务器进行完全专用访问。 只能通过专用 IP 地址才能访问和连接 Azure 虚拟网络中的服务器。 使用 VNet 集成，公共访问遭到拒绝，使用公共终结点无法访问服务器。 
+灵活服务器允许使用 [Azure 虚拟网络](../../virtual-network/virtual-networks-overview.md) (VNet) 集成对服务器进行完全专用访问。 只能通过专用 IP 地址才能访问和连接 Azure 虚拟网络中的服务器。 使用 VNet 集成，公共访问遭到拒绝，使用公共终结点无法访问服务器。 
 
 有关详细信息，请参阅[网络概念](concepts-networking.md)。
 
@@ -115,7 +115,7 @@ Azure Database for MySQL 灵活服务器是一种完全托管的数据库服务�
 该服务运行 MySQL 的社区版本。 这样可以实现完全的应用程序兼容性，并且只需最小的重构成本就能将在 MySQL 引擎上开发的现有应用程序迁移到单一服务器服务。 可以使用以下任一选项来执行向单一服务器的迁移：
 
 - 转储和还原 - 对于脱机迁移（在此情况下，用户可承受一定的故障时间），使用社区工具（如 mysqldump/mydumper）的转储和还原可以提供最快的迁移方式。 有关详细信息，请参阅“使用转储和还原进行迁移”。 
-- Azure 数据库迁移服务 - 为了在最短的故障时间内实现向单一服务器的无缝简化迁移，可以利用 [Azure 数据库迁移服务](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online)。 
+- Azure 数据库迁移服务 - 为了在最短的故障时间内实现向单一服务器的无缝简化迁移，可以利用 [Azure 数据库迁移服务](../../dms/tutorial-mysql-azure-mysql-online.md)。 
 
 ## <a name="azure-regions"></a>Azure 区域
 
@@ -131,7 +131,7 @@ Azure Database for MySQL 灵活服务器是一种完全托管的数据库服务�
 - 加拿大中部
 - 东南亚
 - 韩国中部
-- Japan East
+- 日本东部
 - 澳大利亚东部
 
 即将添加新的服务器。

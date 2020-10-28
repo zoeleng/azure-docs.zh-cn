@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 47450b85412e75cf632d9c2873289e9a0820beb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fd7300fd21d20476305dc5404158f255d533ffed
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91537763"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539320"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Spark 群集
 
@@ -26,7 +26,7 @@ ms.locfileid: "91537763"
 ## <a name="prerequisite"></a>先决条件
 
 - 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- [PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+- [PowerShell Az 模块](/powershell/azure/install-az-ps)。
 
 ## <a name="create-an-apache-spark-cluster-in-hdinsight"></a>在 HDInsight 中创建 Apache Spark 群集
 
@@ -36,7 +36,7 @@ ms.locfileid: "91537763"
 创建 HDInsight 群集包括创建以下 Azure 对象和资源：
 
 - Azure 资源组。 Azure 资源组是 Azure 资源的容器。
-- Azure 存储帐户或 Azure Data Lake Storage。  每个 HDInsight 群集都需要依赖的数据存储。 在本快速入门中，我们创建的群集使用 Azure 存储 Blob 作为群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+- Azure 存储帐户或 Azure Data Lake Storage。  每个 HDInsight 群集都需要依赖的数据存储。 在本快速入门中，我们创建的群集使用 Azure 存储 Blob 作为群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 - 在 HDInsight 上的一个群集类型不同的群集。  在本快速入门中，你将创建 Spark 2.3 群集。
 
 使用 PowerShell 脚本创建资源。 

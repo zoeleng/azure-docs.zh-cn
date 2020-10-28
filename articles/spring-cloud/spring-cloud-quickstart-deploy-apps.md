@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092947"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735584"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>快速入门：生成应用并将其部署到 Azure Spring Cloud
 
@@ -248,7 +248,7 @@ https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
     az spring-cloud app update -n gateway --is-public true
     ```
 
-2. 查询**网关**应用程序的公共 IP，这样就可以验证该应用程序是否正在运行：
+2. 查询 **网关** 应用程序的公共 IP，这样就可以验证该应用程序是否正在运行：
 
     ```azurecli
     az spring-cloud app show --name gateway --query properties.url

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
 ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92131133"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>添加或更新用于 Azure 的信用卡
@@ -50,7 +50,7 @@ Microsoft Azure 支持的付款方式为信用卡和支票/电汇。 若要获�
 1. 输入信用卡的详细信息。  
     ![演示如何添加新卡的屏幕截图](./media/change-credit-card/sub-add-new-x.png)
 1. 若要将该卡设置为有效付款方式，请勾选窗体上方“将此设置为我的可用付款方式”旁边的框。 对于所使用的卡与所选订阅的卡相同的所有订阅，此卡将成为有效付款方式。
-1. 选择“**下一页**”。
+1. 选择“ **下一页** ”。
 
 ### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>将订阅的信用卡更改为之前保存的信用卡
 

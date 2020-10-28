@@ -7,14 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.custom: contentperfq2
+ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653275"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678123"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>教程：查看单独的 Azure 订阅账单
 
@@ -32,9 +33,9 @@ ms.locfileid: "91653275"
 
 ## <a name="prerequisites"></a>先决条件
 
-必须有付费的 Microsoft Online Services 计划计费帐户。 此帐户在你通过 Azure 网站注册获取 Azure 时创建。 例如，如果你有一个[采用即用即付费率的帐户](https://azure.microsoft.com/offers/ms-azr-0003p/)，或者你是 [Visual Studio 订阅者](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)。
+必须有付费的 Microsoft Online Services 计划计费帐户。 此帐户在你通过 Azure 网站注册获取 Azure 时创建。 例如，如果你有一个采用即用即付费率的帐户，或者你是 Visual Studio 订阅者。
 
-仅当超过每月信用额度时，才会创建 [Azure 免费帐户](https://azure.microsoft.com/offers/ms-azr-0044p/)的发票。
+仅当超过每月信用额度时，才会创建 Azure 免费帐户的发票。
 
 在时间上必须超过 30 天，从订阅 Azure 那天算起。 在发票周期结束时，Azure 会向你开具账单。
 
@@ -48,7 +49,7 @@ ms.locfileid: "91653275"
 
 若要比较使用情况和成本，第一步是下载发票和使用情况文件。 使用情况明细 CSV 文件按计费周期和每日使用情况显示费用信息。 它不包含任何税务信息。 若要下载文件，你必须是帐户管理员或拥有“所有者”角色。
 
-在 Azure 门户的搜索框中键入“订阅”，然后单击“[订阅](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)”。
+在 Azure 门户的搜索框中键入“订阅”，然后单击“ **订阅** ”。
 
 [![导航到订阅](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
@@ -69,7 +70,7 @@ ms.locfileid: "91653275"
 - 从订阅 Azure 开始算还不到 30 天。
 - 此计费周期没有任何使用量。
 - 尚未生成发票。 请等到计费周期结束。
-- 你无权查看发票。 除非你是帐户管理员，否则可能看不到旧发票。 若要详细了解如何获取计费信息，请参阅[使用角色管理对 Azure 计费的访问](../manage/manage-billing-access.md)。
+- 你无权查看发票。 除非你是帐户管理员，否则可能看不到旧发票。
 - 如果使用免费试用版，或者尚未超过订阅的每月信用额度，则不会收到发票，除非你有 Microsoft 客户协议。
 
 接下来，查看费用。 发票显示税费值和使用费。
@@ -107,11 +108,9 @@ ms.locfileid: "91653275"
 
 求和“成本”值应与发票上已收费的单项资源的“使用费”成本精确匹配。
 
-有关详细信息，请参阅[了解 Azure 发票](understand-invoice.md)和[了解 Azure 详细使用情况](understand-usage.md)。
-
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>在成本分析中比较计费费用和使用情况
 
-还可以通过 Azure 门户中的成本分析验证费用。 若要快速了解已开票的使用情况和费用，请从 Azure 门户中的[“订阅”页面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)选择订阅。 接下来单击“成本分析”，然后在“视图”列表中单击“发票详细信息”。
+还可以通过 Azure 门户中的成本分析验证费用。 若要快速了解已开票的使用情况和费用，请从 Azure 门户中的“订阅”页面选择订阅。 接下来单击“成本分析”，然后在“视图”列表中单击“发票详细信息”。
 
 ![显示发票详细信息选择的示例](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -129,7 +128,7 @@ ms.locfileid: "91653275"
 
 外部服务或市场费用针对的是由第三方软件供应商创建的资源。 这些资源可以从 Azure 市场使用。 例如，Barracuda 防火墙是由第三方提供的 Azure 市场资源。 此防火墙的所有费用及其对应的计量指标都将显示为外部服务费用。
 
-外部服务单独计费。 Azure 发票上不会记录该费用。 若要了解详细信息，请参阅[了解 Azure 外部服务收费](understand-azure-marketplace-charges.md)。
+外部服务单独计费。 Azure 发票上不会记录该费用。
 
 ### <a name="resources-are-billed-by-usage-meters"></a>资源按使用计量计费
 
@@ -158,13 +157,9 @@ Azure 不直接根据资源成本计费。 资源费用按一个或多个计量�
 
 <a name="payment"></a>
 
-如果已将信用卡设置为付款方式，则会在计费周期结束后的 10 天内自动付款。 在信用卡对帐单上，行项会显示 **MSFT Azure**。
+如果已将信用卡设置为付款方式，则会在计费周期结束后的 10 天内自动付款。 在信用卡对帐单上，行项会显示 **MSFT Azure** 。
 
 若要更改用于付款的信用卡，请参阅[添加、更新或删除用于 Azure 的信用卡](../manage/change-credit-card.md)。
-
-如果[按发票付款](../manage/pay-by-invoice.md)，可将款项寄送到发票底部列出的地点。
-
-若要查看付款状态，请[创建支持票证](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ## <a name="next-steps"></a>后续步骤
 

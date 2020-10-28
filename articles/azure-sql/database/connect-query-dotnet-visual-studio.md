@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 30cf90f6020ecd4eb560ac0fe2886ff03c552d13
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a864b2b3e0379a8b0a1d67c97a63b3d5c52f9e58
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825581"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669720"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>快速入门：使用 Visual Studio 中的 .NET 和 C# 来连接和查询 Azure SQL 数据库中的数据库或 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,11 +147,10 @@ ms.locfileid: "91825581"
 - 了解如何在 Windows/Linux/macOS 中[使用 .NET Core 连接和查询 Azure SQL 数据库中的数据库](connect-query-dotnet-core.md)。  
 - 了解[在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 SSMS 在 Azure SQL 数据库中设计你的第一个数据库](design-first-database-tutorial.md)，或者如何[使用 .NET 在 Azure SQL 数据库中设计你的第一个数据库](design-first-database-csharp-tutorial.md)。
-- 有关 .NET 的详细信息，请参阅 [.NET 文档](https://docs.microsoft.com/dotnet/)。
+- 有关 .NET 的详细信息，请参阅 [.NET 文档](/dotnet/)。
 - 重试逻辑示例：[使用 ADO.NET 弹性连接到 Azure SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]。
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

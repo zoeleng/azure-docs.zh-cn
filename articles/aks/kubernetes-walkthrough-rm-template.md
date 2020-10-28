@@ -4,13 +4,13 @@ description: 了解如何使用 Azure 资源管理器模板快速创建 Kubernet
 services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2695126b8ad515735907558e3c316b87ac5dfbdc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc,subject-armqs, devx-track-azurecli
+ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070735"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740292"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>快速入门：使用 ARM 模板部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -70,7 +70,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-记下 *appId* 和 *password*。 后续步骤会用到这些值。
+记下 *appId* 和 *password* 。 后续步骤会用到这些值。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -91,15 +91,15 @@ az ad sp create-for-rbac --skip-assignment
     对于本快速入门，请保留“OS 磁盘大小(GB)”、“代理计数”、“代理 VM 大小”、“OS 类型”和“Kubernetes 版本”的默认值。     为以下模板参数提供自己的值：
 
     * 订阅：选择 Azure 订阅。
-    * 资源组：选择“新建”。 输入资源组的唯一名称（例如 *myResourceGroup*），然后选择“确定”。
+    * 资源组：选择“新建”。 输入资源组的唯一名称（例如 *myResourceGroup* ），然后选择“确定”。
     * 位置：选择一个位置，例如“美国东部”。
-    * **群集名称**：输入 AKS 群集的唯一名称，例如 *myAKSCluster*。
-    * **DNS 前缀**：输入群集的唯一 DNS 前缀，例如 *myakscluster*。
-    * **Linux 管理员用户名**：输入一个用户名用于通过 SSH 进行连接，例如 *azureuser*。
-    * **SSH RSA 公钥**：复制并粘贴 SSH 密钥对的 *public* 部分（默认为 *~/.ssh/id_rsa.pub* 的内容）。
-    * **服务主体客户端 ID**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *appId*。
-    * **服务主体客户端机密**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *password*。
-    * **我同意上述条款和条件**：选中此框表示同意。
+    * **群集名称** ：输入 AKS 群集的唯一名称，例如 *myAKSCluster* 。
+    * **DNS 前缀** ：输入群集的唯一 DNS 前缀，例如 *myakscluster* 。
+    * **Linux 管理员用户名** ：输入一个用户名用于通过 SSH 进行连接，例如 *azureuser* 。
+    * **SSH RSA 公钥** ：复制并粘贴 SSH 密钥对的 *public* 部分（默认为 *~/.ssh/id_rsa.pub* 的内容）。
+    * **服务主体客户端 ID** ：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *appId* 。
+    * **服务主体客户端机密** ：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *password* 。
+    * **我同意上述条款和条件** ：选中此框表示同意。
 
     ![用于在门户中创建 Azure Kubernetes 服务群集的资源管理器模板](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
@@ -257,7 +257,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*。
+最初， *azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending* 。
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE

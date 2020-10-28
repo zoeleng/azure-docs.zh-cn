@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f88960207188779949560218b298fd36d6a8f25e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90985238"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633716"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -22,6 +22,7 @@ ms.locfileid: "90985238"
 ## <a name="prerequisites"></a>先决条件
 
 - 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension)。
+- <a href="https://git-scm.com/" target="_blank">安装 Git</a>
 - [Node.js 和 npm](https://nodejs.org)。 运行命令 `node --version` 验证是否已安装 Node.js。
 - [Visual Studio Code](https://code.visualstudio.com/)。
 - Visual Studio Code 的 [Azure 应用服务扩展](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)。
@@ -67,7 +68,7 @@ ms.locfileid: "90985238"
 
     ![登录 Azure](media/quickstart-nodejs/sign-in.png)
 
-1. 在 VS Code 的“AZURE 应用服务”资源管理器中，选择蓝色的向上箭头图标，将应用部署到 Azure。 （也可以从“命令面板”调用相同的命令 (**Ctrl**+**Shift**+**P**)，方法是键入“部署到 Web 应用”，并选择“Azure 应用服务: 部署到 Web 应用”）。
+1. 在 VS Code 的“AZURE 应用服务”资源管理器中，选择蓝色的向上箭头图标，将应用部署到 Azure。 （也可以从“命令面板”调用相同的命令 ( **Ctrl**+**Shift**+**P** )，方法是键入“部署到 Web 应用”，并选择“Azure 应用服务: 部署到 Web 应用”）。
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。&quot;:::
         
@@ -78,7 +79,7 @@ ms.locfileid: "90985238"
     - Linux：选择“创建新 Web 应用”
     - Windows：选择“创建新 Web 应用...高级”
 
-1. 键入 Web 应用的全局唯一名称，然后按 **Enter**。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
+1. 键入 Web 应用的全局唯一名称，然后按 **Enter** 。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
 
 1. 如果以 Linux 为目标，请在出现提示时选择 Node.js 版本。 建议使用 **LTS** 版本。
 
@@ -150,7 +151,7 @@ export HTTP_PROXY=http://username:password@proxy:8080
     - Linux：选择“创建新 Web 应用”
     - Windows：选择“创建新 Web 应用...高级”
 
-1. 键入 Web 应用的全局唯一名称，然后按 **Enter**。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
+1. 键入 Web 应用的全局唯一名称，然后按 **Enter** 。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
 
 1. 如果以 Linux 为目标，请在出现提示时选择 Node.js 版本。 建议使用 **LTS** 版本。
 
@@ -298,7 +299,7 @@ code .
     - Linux：选择“创建新 Web 应用”
     - Windows：选择“创建新 Web 应用...高级”
 
-1. 键入 Web 应用的全局唯一名称，然后按 **Enter**。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
+1. 键入 Web 应用的全局唯一名称，然后按 **Enter** 。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
 
 1. 如果以 Linux 为目标，请在出现提示时选择 Node.js 版本。 建议使用 **LTS** 版本。
 
@@ -318,7 +319,7 @@ code .
 1. 当系统提示你“始终将工作区 &quot;nodejs-docs-hello-world":::
 
 > [!TIP]
-> 也可以从**命令面板** (CTRL + SHIFT + P) 进行部署，方法是键入“deploy to web app”并运行“Azure App Service:  Deploy to Web App”命令。
+> 也可以从 **命令面板** (CTRL + SHIFT + P) 进行部署，方法是键入“deploy to web app”并运行“Azure App Service:  Deploy to Web App”命令。
 
 1. 选择当前已打开的目录 `myExpressApp`。
 
@@ -326,7 +327,7 @@ code .
 
 1. 键入 Web 应用的全局唯一名称，然后按 ENTER。 应用名称的有效字符为“a-z”、“0-9”和“-”。
 
-1. 选择 **Node.js 版本**，建议使用“LTS”。
+1. 选择 **Node.js 版本** ，建议使用“LTS”。
 
     通知通道将显示正在为应用创建 Azure 资源。
 
@@ -341,7 +342,7 @@ code .
     - Linux：选择“创建新 Web 应用”
     - Windows：选择“创建新 Web 应用...高级”
 
-1. 键入 Web 应用的全局唯一名称，然后按 **Enter**。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
+1. 键入 Web 应用的全局唯一名称，然后按 **Enter** 。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
 
 1. 如果以 Linux 为目标，请在出现提示时选择 Node.js 版本。 建议使用 **LTS** 版本。
 
@@ -371,7 +372,7 @@ code .
     - Linux：选择“创建新 Web 应用”
     - Windows：选择“创建新 Web 应用...高级”
 
-1. 键入 Web 应用的全局唯一名称，然后按 **Enter**。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
+1. 键入 Web 应用的全局唯一名称，然后按 **Enter** 。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
 
 1. 如果以 Linux 为目标，请在出现提示时选择 Node.js 版本。 建议使用 **LTS** 版本。
 
@@ -427,7 +428,7 @@ code .
     - Linux：选择“创建新 Web 应用”
     - Windows：选择“创建新 Web 应用...高级”
 
-1. 键入 Web 应用的全局唯一名称，然后按 **Enter**。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
+1. 键入 Web 应用的全局唯一名称，然后按 **Enter** 。 该名称必须在整个 Azure 中保持唯一，且只能使用字母数字字符（“A-Z”、“a-z”和“0-9”）和连字符（“-”）。
 
 1. 如果以 Linux 为目标，请在出现提示时选择 Node.js 版本。 建议使用 **LTS** 版本。
 

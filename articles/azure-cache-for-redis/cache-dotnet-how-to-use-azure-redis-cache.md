@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b64fd82ab6050d6f4a9f0f91c2b8336ce03ab1d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88211364"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537059"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>快速入门：将 Azure Redis 缓存与 .NET Framework 应用程序配合使用
 
@@ -30,7 +30,7 @@ ms.locfileid: "88211364"
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-在计算机上创建名为 *CacheSecrets.config* 的文件，将其放到不会连同示例应用程序源代码一起签入的位置。 在本快速入门中，*CacheSecrets.config* 文件的路径为 *C:\AppSecrets\CacheSecrets.config*。
+在计算机上创建名为 *CacheSecrets.config* 的文件，将其放到不会连同示例应用程序源代码一起签入的位置。 在本快速入门中， *CacheSecrets.config* 文件的路径为 *C:\AppSecrets\CacheSecrets.config* 。
 
 编辑 *CacheSecrets.config* 文件，添加以下内容：
 
@@ -49,7 +49,7 @@ ms.locfileid: "88211364"
 
 在 Visual Studio 中，单击“文件”   > “新建”   > “项目”  。
 
-选择“控制台应用(.NET Framework)”  ，然后选择“下一步”  以配置应用。 输入**项目名称**，然后单击“创建”  以创建新的控制台应用程序。
+选择“控制台应用(.NET Framework)”  ，然后选择“下一步”  以配置应用。 输入 **项目名称** ，然后单击“创建”  以创建新的控制台应用程序。
 
 <a name="configure-the-cache-clients"></a>
 
@@ -63,7 +63,7 @@ ms.locfileid: "88211364"
 Install-Package StackExchange.Redis
 ```
 
-完成安装后，*StackExchange.Redis* 缓存客户端可供与项目一起使用。
+完成安装后， *StackExchange.Redis* 缓存客户端可供与项目一起使用。
 
 
 ## <a name="connect-to-the-cache"></a>连接到缓存
@@ -83,7 +83,7 @@ Install-Package StackExchange.Redis
 
 在解决方案资源管理器中右键单击“引用”，然后单击“添加引用”。   添加对 **System.Configuration** 程序集的引用。
 
-将以下 `using` 语句添加到 *Program.cs*：
+将以下 `using` 语句添加到 *Program.cs* ：
 
 ```csharp
 using StackExchange.Redis;
@@ -92,7 +92,7 @@ using System.Configuration;
 
 与 Azure Redis 缓存的连接由 `ConnectionMultiplexer` 类管理。 应当在整个客户端应用程序中共享和重用此类。 不要为每个操作创建新连接。 
 
-切勿将凭据存储在源代码中。 为了使此示例简单明了，我将只使用外部机密配置文件。 更好的方法是[将 Azure Key Vault 与证书配合使用](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios)。
+切勿将凭据存储在源代码中。 为了使此示例简单明了，我将只使用外部机密配置文件。 更好的方法是[将 Azure Key Vault 与证书配合使用](/rest/api/keyvault/certificate-scenarios)。
 
 在 *Program.cs* 中，将以下成员添加到控制台应用程序的 `Program` 类：
 
@@ -198,7 +198,7 @@ Install-Package Newtonsoft.Json
 using Newtonsoft.Json;
 ```
 
-将以下 `Employee` 类定义添加到 *Program.cs*：
+将以下 `Employee` 类定义添加到 *Program.cs* ：
 
 ```csharp
 class Employee
@@ -271,4 +271,4 @@ class Employee
 希望优化并节省云支出？
 
 > [!div class="nextstepaction"]
-> [使用成本管理开始分析成本](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [使用成本管理开始分析成本](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

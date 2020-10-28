@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946070"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741496"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>快速入门：与已连接到解决方案的 IoT 即插即用设备交互 (Python)
 
@@ -86,8 +86,8 @@ pip install azure-iot-hub
 
 在[为 IoT 即插即用快速入门和教程设置环境](set-up-environment.md)中，已创建了两个环境变量以将示例配置为连接到 IoT 中心和设备：
 
-* **IOTHUB_CONNECTION_STRING**：之前记下的 IoT 中心连接字符串。
-* **IOTHUB_DEVICE_ID**：`"my-pnp-device"`。
+* **IOTHUB_CONNECTION_STRING** ：之前记下的 IoT 中心连接字符串。
+* **IOTHUB_DEVICE_ID** ：`"my-pnp-device"`。
 
 在服务终端中使用以下命令运行此示例：
 
