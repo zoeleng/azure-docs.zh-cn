@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540347"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791216"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>快速入门：使用 REST API 在 Java 中创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
+> * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [门户](search-get-started-portal.md)
@@ -53,7 +53,7 @@ ms.locfileid: "91540347"
 
    也可以创建查询密钥。 最好使用只读权限发出查询请求。
 
-:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="获取服务名称以及管理密钥和查询密钥" border="false":::
+:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="获取服务名称以及管理密钥和查询密钥" border="false":::
 
 发送到服务的每个请求都需要一个 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 

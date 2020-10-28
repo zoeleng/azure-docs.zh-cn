@@ -2,18 +2,18 @@
 title: 快速入门 - 适用于 Java 的 Azure Key Vault 客户端库
 description: 提供编写 Azure SDK 客户端库快速入门时要遵循的格式和内容准则。
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4008b43c487f9dd1c8cfe5e5b67a250ff849daf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019624"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786201"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>快速入门：适用于 Java 的 Azure Key Vault 机密客户端库
 
@@ -37,7 +37,7 @@ ms.locfileid: "92019624"
 
 ## <a name="setting-up"></a>设置
 
-本快速入门结合使用 Azure Identity 库和 Azure CLI，向 Azure 服务验证用户身份。 开发人员还可以使用 Visual Studio 或 Visual Studio Code 来验证其调用。有关详细信息，请参阅[使用 Azure Identity 客户端库对客户端进行身份验证](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+本快速入门结合使用 Azure Identity 库和 Azure CLI，向 Azure 服务验证用户身份。 开发人员还可以使用 Visual Studio 或 Visual Studio Code 来验证其调用。有关详细信息，请参阅[使用 Azure Identity 客户端库对客户端进行身份验证](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 

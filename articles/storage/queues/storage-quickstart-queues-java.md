@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90015018"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783430"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>快速入门：适用于 Java 的 Azure 队列存储客户端库 v12
 
@@ -33,14 +33,14 @@ ms.locfileid: "90015018"
 * [API 参考文档](/java/api/overview/azure/storage-queue-readme)
 * [库源代码](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [示例](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [示例](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
 * [Java 开发工具包 (JDK)](/java/azure/jdk/) 8 或更高版本
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure 订阅 - [创建免费帐户](https://azure.microsoft.com/free/)
-* Azure 存储帐户 - [创建存储帐户](/azure/storage/common/storage-quickstart-create-account)
+* Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>设置
 

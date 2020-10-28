@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 64af62cb6c2c56ca8c7e67e2f1467d4a7e8335a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4d825d2e4daee5778c7f8e3ef216c3e72d89b1c4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "78675518"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747469"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入门：通过 IoT 中心设备流（预览版）使用 C# 与设备应用程序进行通信
 
@@ -66,13 +66,13 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
    > [!NOTE]
    > * 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
-   > * 对于正在注册的设备的名称，建议使用 *MyDevice*，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   > * 对于正在注册的设备的名称，建议使用 *MyDevice* ，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. 若要获取刚刚注册的设备的*设备连接字符串*，请在 Cloud Shell 中运行以下命令：
+1. 若要获取刚刚注册的设备的 *设备连接字符串* ，请在 Cloud Shell 中运行以下命令：
 
    > [!NOTE]
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。

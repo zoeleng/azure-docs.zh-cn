@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91297141"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748096"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板设置 IoT 中心设备预配服务
 
@@ -135,7 +135,7 @@ ms.locfileid: "91297141"
 
 5. 若要创建预配服务，请将以下行添加到 **resources** 集合中的 IoT 中心规格后面。 预配服务的名称和位置将作为参数传递   。 iotHubs 集合指定要链接到预配服务的 IoT 中心  。 至少必须指定每个链接的 IoT 中心的 **connectionString** 和 **location** 属性。 也可在每个 IoT 中心设置 **allocationWeight** 和 **applyAllocationPolicy** 之类的属性，以及在预配服务中设置 **allocationPolicy** 和 **authorizationPolicies** 之类的属性。 若要进行详细了解，请参阅 [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices)（Microsoft.Devices/provisioningServices 模板参考）。
 
-   使用 **dependsOn** 属性是为了确保资源管理器先创建 IoT 中心，然后再创建预配服务。 模板要求 IoT 中心的连接字符串指定其到预配服务的链接，因此必须先创建该中心及其密钥。 模板使用 concat 和 listKeys 之类的函数通过参数化的变量来创建连接字符串********。 若要进行详细了解，请参阅 [Azure 资源管理器模板函数](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)。
+   使用 **dependsOn** 属性是为了确保资源管理器先创建 IoT 中心，然后再创建预配服务。 模板要求 IoT 中心的连接字符串指定其到预配服务的链接，因此必须先创建该中心及其密钥。 模板使用 concat 和 listKeys 之类的函数通过参数化的变量来创建连接字符串  。 若要进行详细了解，请参阅 [Azure 资源管理器模板函数](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)。
 
    ```json
         {

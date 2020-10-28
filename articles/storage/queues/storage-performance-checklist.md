@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008397"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787374"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>队列存储的性能与可伸缩性查检表
 
@@ -52,7 +52,7 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 
 如果应用程序接近或超过任何可伸缩性目标，则可能会出现事务处理延迟或限制越来越严重的现象。 当 Azure 存储对应用程序进行限制时，该服务将开始返回 503（服务器繁忙）或 500（操作超时）错误代码。 保持在可伸缩性目标限制范围内，以避免这些错误，是增强应用程序性能的重要组成部分。
 
-有关队列服务可伸缩性目标的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage)。
+有关队列服务可伸缩性目标的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](./scalability-targets.md#scale-targets-for-queue-storage)。
 
 ### <a name="maximum-number-of-storage-accounts"></a>最大存储帐户数
 
@@ -128,7 +128,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 对于其他编程语言，请参阅该语言的文档以确定如何设置连接限制。  
 
-有关详细信息，请参阅博客文章 [Web 服务：并发连接](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)。  
+有关详细信息，请参阅博客文章 [Web 服务：并发连接](/archive/blogs/darrenj/web-services-concurrent-connections)。  
 
 ### <a name="increase-minimum-number-of-threads"></a>增大最小线程数
 
@@ -146,7 +146,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>客户端库和工具
 
-为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。 有关详细信息，请参阅 [Azure 存储参考文档](/azure/storage/#reference)。
+为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。 有关详细信息，请参阅 [Azure 存储参考文档](./reference.md)。
 
 ## <a name="handle-service-errors"></a>处理服务错误
 
@@ -184,7 +184,7 @@ Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网
 
 ## <a name="use-update-message"></a>使用“更新消息”
 
-可以使用“更新消息”操作来增大不可见性超时或更新消息的状态信息。**** 与作业每完成一步就将其从一个队列传到下一个队列的工作流相比，使用“更新消息”可能更高效。**** 应用程序可将作业状态保存到消息，然后可以继续工作，而不必在作业的每一步完成时，为了执行作业的下一步而将消息重新排队。 请注意，每个“更新消息”操作将计入到可伸缩性目标。****
+可以使用“更新消息”操作来增大不可见性超时或更新消息的状态信息。  与作业每完成一步就将其从一个队列传到下一个队列的工作流相比，使用“更新消息”可能更高效。  应用程序可将作业状态保存到消息，然后可以继续工作，而不必在作业的每一步完成时，为了执行作业的下一步而将消息重新排队。 请注意，每个“更新消息”操作将计入到可伸缩性目标。 
 
 ## <a name="application-architecture"></a>应用程序体系结构
 

@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093049"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746651"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>快速入门：通过日志、指标和跟踪来监视 Azure Spring Cloud 应用
 

@@ -6,14 +6,14 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152350"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746186"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>快速入门：使用 ARM 模板创建应用服务应用
 
@@ -136,16 +136,16 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 > 从本地 Git 进行部署
 
 > [!div class="nextstepaction"]
-> 将 ASP.NET Core 与 SQL 数据库配合使用
+> [将 ASP.NET Core 与 SQL 数据库配合使用](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > 将 Python 与 Postgres 配合使用
 
 > [!div class="nextstepaction"]
->  [带 MySQL 的 PHP](tutorial-php-mysql-app.md)
+> [带 MySQL 的 PHP](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
->  [使用 Java 连接到 Azure SQL 数据库](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [使用 Java 连接到 Azure SQL 数据库](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
-> 映射自定义域
+> [映射自定义域](app-service-web-tutorial-custom-domain.md)

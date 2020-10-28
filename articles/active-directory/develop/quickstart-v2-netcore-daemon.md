@@ -11,13 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
+ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e1df230a49ca5483d0ab091da11530786c829ca8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042637"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896508"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>快速入门：使用控制台应用的标识获取令牌并调用 Microsoft Graph API
 
@@ -89,9 +90,9 @@ ms.locfileid: "92042637"
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>步骤 3：配置 Visual Studio 项目
 >
-> 1. 将 zip 文件提取到靠近磁盘根目录的本地文件夹，例如 **C:\Azure-Samples**。
-> 1. 在 Visual Studio 中打开解决方案 - **1-Call-MSGraph\daemon-console.sln**（可选）。
-> 1. 编辑 **appsettings.json**，将字段 `ClientId`、`Tenant`、`ClientSecret` 的值替换为以下内容：
+> 1. 将 zip 文件提取到靠近磁盘根目录的本地文件夹，例如 **C:\Azure-Samples** 。
+> 1. 在 Visual Studio 中打开解决方案 - **1-Call-MSGraph\daemon-console.sln** （可选）。
+> 1. 编辑 **appsettings.json** ，将字段 `ClientId`、`Tenant`、`ClientSecret` 的值替换为以下内容：
 >
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
@@ -99,8 +100,8 @@ ms.locfileid: "92042637"
 >    "ClientSecret": "Enter_the_Client_Secret_Here"
 >    ```
 >   其中：
->   - `Enter_the_Application_Id_Here` - 是已注册应用程序的**应用程序（客户端）ID**。
->   - `Enter_the_Tenant_Id_Here` - 将此值替换为**租户 ID** 或**租户名称**（例如 contoso.microsoft.com）
+>   - `Enter_the_Application_Id_Here` - 是已注册应用程序的 **应用程序（客户端）ID** 。
+>   - `Enter_the_Tenant_Id_Here` - 将此值替换为 **租户 ID** 或 **租户名称** （例如 contoso.microsoft.com）
 >   - `Enter_the_Client_Secret_Here` - 将此值替换为在步骤 1 中创建的客户端机密。
 
 > [!div renderon="docs"]
@@ -135,8 +136,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> 其中：
->> * `Enter_the_Tenant_Id_Here` - 将此值替换为**租户 ID** 或**租户名称**（例如 contoso.microsoft.com）
->> * `Enter_the_Application_Id_Here` - 是已注册应用程序的**应用程序（客户端）ID**。
+>> * `Enter_the_Tenant_Id_Here` - 将此值替换为 **租户 ID** 或 **租户名称** （例如 contoso.microsoft.com）
+>> * `Enter_the_Application_Id_Here` - 是已注册应用程序的 **应用程序（客户端）ID** 。
 
 > [!NOTE]
 > 在使用前面的 URL 授予应用许可以后，可能会出现错误“AADSTS50011: 未为应用程序注册回复地址”。 之所以发生该错误，是因为此应用程序和 URL 没有重定向 URI - 请忽略该错误。
@@ -149,7 +150,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 如果你正在使用 Visual Studio 或 Visual Studio for Mac，请按 F5 运行该应用程序；否则，请通过命令提示符、控制台或终端运行该应用程序：
 
-```console
+```dotnetcli
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
@@ -173,8 +174,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
 
  可在 Visual Studio 的包管理器控制台中运行以下命令，以便安装 MSAL.NET：
 
-```powershell twhitney
-```console
+```dotnetcli
 dotnet add package Microsoft.Identity.Client
 ```
 
@@ -199,7 +199,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | 其中： | 说明 |
 > |---------|---------|
 > | `config.ClientSecret` | 是在 Azure 门户中为应用程序创建的客户端机密。 |
-> | `config.ClientId` | 是在 Azure 门户中注册的应用程序的**应用程序(客户端) ID**。 可以在 Azure 门户的应用的“概览”页中找到此值。 |
+> | `config.ClientId` | 是在 Azure 门户中注册的应用程序的 **应用程序(客户端) ID** 。 可以在 Azure 门户的应用的“概览”页中找到此值。 |
 > | `config.Authority`    | （可选）用户要进行身份验证的 STS 终结点。 对于公有云，通常为 `https://login.microsoftonline.com/{tenant}`，其中 {tenant} 是租户名称或租户 ID。|
 
 有关详细信息，请参阅 [`ConfidentialClientApplication` 的参考文档](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication)

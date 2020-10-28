@@ -14,13 +14,14 @@ ms.custom:
 - seo-java-september2019
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 05/26/2020
-ms.openlocfilehash: 53f20f5f909e8b24ba7279dabfb421053d5c5449
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 663c79ffb5f5ca9cca8e1df77fc2ccd73d9e4bac
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150641"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748606"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>快速入门：将遥测数据发送到 Azure IoT 中心并使用 Java 应用程序读取它
 
@@ -74,17 +75,17 @@ az extension add --name azure-iot
 
 1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyJavaDevice**：这是所注册的设备的名称。 建议使用 **MyJavaDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyJavaDevice** ：这是所注册的设备的名称。 建议使用 **MyJavaDevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
 
-2. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的_设备连接字符串_：
+2. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的 _设备连接字符串_ ：
 
-    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -98,7 +99,7 @@ az extension add --name azure-iot
 
 3. 还需要使用与事件中心兼容的终结点、与事件中心兼容的路径和 IoT 中心的服务主密钥，确保后端应用程序能连接到 IoT 中心并检索消息  。 以下命令可检索 IoT 中心的这些值：
 
-     **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+     **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -118,7 +119,7 @@ az extension add --name azure-iot
 
 2. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java 文件。
 
-    将 `connString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.java**。
+    将 `connString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.java** 。
 
 3. 在本地终端窗口中，运行以下命令以安装所需的库，并生成模拟设备应用程序：
 

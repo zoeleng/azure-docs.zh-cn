@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/12/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28397d36a611f26544fefb9f4fa7593a0fdf3f73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014522"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748171"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>通过最新的 API 以编程方式创建 Azure 订阅
 
@@ -47,7 +47,7 @@ ms.locfileid: "92014522"
 
 将你添加到与帐户所有者关联的注册帐户后，Azure 通过帐户到注册关系确定订阅收费对象。 在该帐户下创建的所有订阅均向该帐户所在的 EA 注册收费。 若要创建订阅，必须传入拥有订阅所需的合约帐户和用户主体的相关值。
 
-若要运行以下命令，必须登录到帐户所有者的主目录（默认在该目录中创建订阅）。**
+若要运行以下命令，必须登录到帐户所有者的主目录（默认在该目录中创建订阅）。 
 
 ### <a name="rest"></a>[REST](#tab/rest-getEnrollments)
 
@@ -183,7 +183,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 若要安装包含 `New-AzSubscriptionAlias` cmdlet 的模块的最新版本，请运行 `Install-Module Az.Subscription`。 若要安装最新版本的 PowerShellGet，请参阅[获取 PowerShellGet 模块](/powershell/scripting/gallery/installing-psget)。
 
-使用计费范围 `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"` 运行以下 [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) 命令。 
+使用计费范围 `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"` 运行以下 [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) 命令。 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
@@ -463,7 +463,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 若要安装包含 `New-AzSubscriptionAlias` cmdlet 的模块的最新版本，请运行 `Install-Module Az.Subscription`。 若要安装最新版本的 PowerShellGet，请参阅[获取 PowerShellGet 模块](/powershell/scripting/gallery/installing-psget)。
 
-使用以下 [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) 命令和计费范围 `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`。 
+使用以下 [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) 命令和计费范围 `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`。 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
@@ -742,7 +742,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 若要安装包含 `New-AzSubscriptionAlias` cmdlet 的模块的最新版本，请运行 `Install-Module Az.Subscription`。 若要安装最新版本的 PowerShellGet，请参阅[获取 PowerShellGet 模块](/powershell/scripting/gallery/installing-psget)。
 
-使用计费范围 `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` 运行以下 [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) 命令。 
+使用计费范围 `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` 运行以下 [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) 命令。 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"

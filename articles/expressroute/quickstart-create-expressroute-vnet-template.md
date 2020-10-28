@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 37f0b890cd4942e5dcb47b496d661eb7c54db94d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093508"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789720"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>快速入门：使用 ARM 模板创建具有专用对等互连的 ExpressRoute 线路
 
@@ -36,14 +36,14 @@ ms.locfileid: "92093508"
 
 在本快速入门中，你将创建一个以 Equinix 为服务提供商的 ExpressRoute 线路。 该线路将使用高级 SKU，其带宽为 50 Mbps，对等互连位置为华盛顿特区  。 将使用主要子网 192.168.10.16/30 和辅助子网 192.168.10.20/30 来启用专用对等互连 。 还将创建虚拟网络以及 HighPerformance ExpressRoute 网关。
 
-:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json" range="001-351" highlight="183-219":::
+:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
 该模板中已定义了多个 Azure 资源：
 
 * [**Microsoft.Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft.Network/expressRouteCircuits/peerings**](/azure/templates/microsoft.network/expressRouteCircuits/peerings)（用于线路上已启用的专用对等互连）
 * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networkSecurityGroups)（网络安全组应用于虚拟网络中的子网）
-* [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks) 
+* [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
 * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicIPAddresses)（公共 IP 由 ExpressRoute 网关使用）
 * [**Microsoft.Network/virtualNetworkGateways**](/azure/templates/microsoft.network/virtualNetworkGateways)（ExpressRoute 网关用于将 VNet 链接到线路）
 
@@ -51,7 +51,7 @@ ms.locfileid: "92093508"
 
 ## <a name="deploy-the-template"></a>部署模板
 
-1. 从以下代码块中选择“试用”，以打开 Azure Cloud Shell，然后按照相关说明登录到 Azure。 
+1. 从以下代码块中选择“试用”，以打开 Azure Cloud Shell，然后按照相关说明登录到 Azure。
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -114,6 +114,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>后续步骤
 
 在本快速入门中，我们创建了：
+
 * ExpressRoute 线路
 * 虚拟网络
 * VPN 网关

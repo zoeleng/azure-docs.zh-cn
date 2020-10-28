@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 7401bc0661459e1322c9b2f2226d45794f814732
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ef362b34fe99212ee6648830ac442e507515719f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91302921"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747522"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>快速入门：通过 IoT 中心设备流在 Node.js 中与设备应用程序通信（预览）
 
@@ -74,9 +74,9 @@ az extension add --name azure-iot
 
 1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyDevice**：这是所注册的设备的名称。 建议使用 **MyDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyDevice** ：这是所注册的设备的名称。 建议使用 **MyDevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
@@ -84,7 +84,7 @@ az extension add --name azure-iot
 
 2. 还需一个服务连接字符串，以便后端应用程序能够连接到 IoT 中心并检索消息  。 以下命令检索 IoT 中心的服务连接字符串：
 
-    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table

@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 57baa06803e9d8c23c04170626b38c47542a4c2f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ad31eb04f53197c4c3ccdd173cd57564c65d5a35
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150686"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747463"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入门：通过 IoT 中心设备流在 C 中与设备应用程序通信（预览）
 
@@ -44,7 +44,7 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
 需要具备以下先决条件：
 
-* 安装 [Visual Studio 2019](https://www.visualstudio.com/vs/) 并启用**使用 C++ 的桌面开发**工作负荷。
+* 安装 [Visual Studio 2019](https://www.visualstudio.com/vs/) 并启用 **使用 C++ 的桌面开发** 工作负荷。
 
 * [安装最新版本的 Git](https://git-scm.com/download/)。
 
@@ -126,13 +126,13 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
    > [!NOTE]
    > * 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
-   > * 对于正在注册的设备的名称，建议使用 *MyDevice*，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   > * 对于正在注册的设备的名称，建议使用 *MyDevice* ，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. 若要获取刚刚注册的设备的*设备连接字符串*，请在 Cloud Shell 中运行以下命令：
+1. 若要获取刚刚注册的设备的 *设备连接字符串* ，请在 Cloud Shell 中运行以下命令：
 
    > [!NOTE]
    > 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。

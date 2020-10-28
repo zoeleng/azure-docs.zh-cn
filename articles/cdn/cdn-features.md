@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8d8b01e8c5f4ea3054e639ecc9dd8b14bbf048b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f1ea8d16a441230323b4f0213229d223a0b035bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148732"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778638"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Azure CDN 产品功能之间有哪些比较？
 
@@ -29,22 +29,22 @@ Azure 内容分发网络 (CDN) 包括四个产品：
 
 | **性能特色和优化** | **标准版 Microsoft** | **标准 Akamai** | **标准 Verizon** | **高级 Verizon** |
 | --- | --- | --- | --- | --- |
-| [动态站点加速](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  | 通过 [Azure Front Door 服务](https://docs.microsoft.com/azure/frontdoor/front-door-overview)提供 | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[动态站点加速 - 自适应图像压缩](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[动态站点加速 - 对象预提取](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| [常规 Web 传送优化](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;** ，如果平均文件大小小于 10 MB，请选择此优化类型  | **&#x2713;** |  **&#x2713;** |
-| [视频流式处理优化](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | 通过常规 Web 传送 | **&#x2713;**  | 通过常规 Web 传送 |  通过常规 Web 传送 |
-| [大型文件优化](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | 通过常规 Web 传送 | **&#x2713;** ，如果平均文件大小大于 10 MB，请选择此优化类型   | 通过常规 Web 传送 |  通过常规 Web 传送 |
+| [动态站点加速](./cdn-dynamic-site-acceleration.md)  | 通过 [Azure Front Door 服务](../frontdoor/front-door-overview.md)提供 | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[动态站点加速 - 自适应图像压缩](./cdn-dynamic-site-acceleration.md#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[动态站点加速 - 对象预提取](./cdn-dynamic-site-acceleration.md#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
+| [常规 Web 传送优化](./cdn-optimization-overview.md#general-web-delivery)  | **&#x2713;** | **&#x2713;** ，如果平均文件大小小于 10 MB，请选择此优化类型  | **&#x2713;** |  **&#x2713;** |
+| [视频流式处理优化](./cdn-media-streaming-optimization.md)  | 通过常规 Web 传送 | **&#x2713;**  | 通过常规 Web 传送 |  通过常规 Web 传送 |
+| [大型文件优化](./cdn-large-file-optimization.md)  | 通过常规 Web 传送 | **&#x2713;** ，如果平均文件大小大于 10 MB，请选择此优化类型   | 通过常规 Web 传送 |  通过常规 Web 传送 |
 | 更改优化类型 | |**&#x2713;** | | |
-| 原点端口 |所有 TCP 端口 |[允许的原点端口](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |所有 TCP 端口 |所有 TCP 端口 |
-| [全局服务器负载均衡 (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| 原点端口 |所有 TCP 端口 |[允许的原点端口](/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |所有 TCP 端口 |所有 TCP 端口 |
+| [全局服务器负载均衡 (GSLB)](../traffic-manager/traffic-manager-load-balancing-azure.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [快速清除](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** ，目前 Akamai 的 Azure CDN 不支持全部清除和通配符清除 |**&#x2713;** |**&#x2713;** |
 | [资产预加载](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | 缓存/标头设置（使用[缓存规则](cdn-caching-rules.md)）  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
-| 可自定义的、基于规则的内容分发引擎 |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用 [规则引擎](cdn-rules-engine.md) |
-| 缓存/标头设置  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用 [高级规则引擎](cdn-rules-engine.md) |
-| URL 重定向/重写 |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用 [高级规则引擎](cdn-rules-engine.md) |
-| 移动设备规则  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用 [高级规则引擎](cdn-rules-engine.md) |
+| 可自定义的、基于规则的内容分发引擎 |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用 [规则引擎](./cdn-verizon-premium-rules-engine.md) |
+| 缓存/标头设置  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用 [高级规则引擎](./cdn-verizon-premium-rules-engine.md) |
+| URL 重定向/重写 |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md)  | | |**&#x2713;** 使用 [高级规则引擎](./cdn-verizon-premium-rules-engine.md) |
+| 移动设备规则  |**&#x2713;** 使用 [标准规则引擎](cdn-standard-rules-engine.md) | | |**&#x2713;** 使用 [高级规则引擎](./cdn-verizon-premium-rules-engine.md) |
 | [查询字符串缓存](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 双协议栈 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 支持](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -57,7 +57,7 @@ Azure 内容分发网络 (CDN) 包括四个产品：
 | [令牌身份验证](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS 保护](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [使用自己的证书](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
-| 支持的 TLS 版本 | TLS 1.2、TLS 1.0/1.1 - [可配置](https://docs.microsoft.com/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
+| 支持的 TLS 版本 | TLS 1.2、TLS 1.0/1.1 - [可配置](/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||
 | **分析和报告** | **标准版 Microsoft** | **标准 Akamai** | **标准 Verizon** | **高级 Verizon** | 
 | [Azure 诊断日志](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -69,9 +69,9 @@ Azure 内容分发网络 (CDN) 包括四个产品：
 | [实时警报](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **易于使用** | **标准版 Microsoft** | **标准 Akamai** | **标准 Verizon** | **高级 Verizon** | 
-| 轻松与[存储](cdn-create-a-storage-account-with-cdn.md)、[Web 应用](cdn-add-to-web-app.md)和[媒体服务](../media-services/media-services-portal-manage-streaming-endpoints.md)等 Azure 服务集成  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| 轻松与[存储](cdn-create-a-storage-account-with-cdn.md)、[Web 应用](cdn-add-to-web-app.md)和[媒体服务](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)等 Azure 服务集成  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | 通过 [REST API](/rest/api/cdn/)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 进行管理  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [压缩 MIME 类型](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |仅限默认值 |可配置性 |可配置  |可配置性  |
+| [压缩 MIME 类型](./cdn-improve-performance.md)  |仅限默认值 |可配置性 |可配置  |可配置性  |
 | 压缩编码  |gzip、brotli |gzip |gzip、deflate、bzip2、brotili  |gzip、deflate、bzip2、brotili  |
 
 ## <a name="migration"></a>迁移
@@ -84,6 +84,3 @@ Azure 内容分发网络 (CDN) 包括四个产品：
 ## <a name="next-steps"></a>后续步骤
 
 * 了解有关 [Azure CDN](cdn-overview.md) 的详细信息。
-
-
-

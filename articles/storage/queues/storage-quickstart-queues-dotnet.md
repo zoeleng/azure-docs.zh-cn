@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939196"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783464"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>快速入门：适用于 .NET 的 Azure 队列存储客户端库 v12
 
@@ -34,12 +34,12 @@ ms.locfileid: "91939196"
 * [API 参考文档](/dotnet/api/azure.storage.queues)
 * [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [包 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [示例](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [示例](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [创建免费帐户](https://azure.microsoft.com/free/)
-* Azure 存储帐户 - [创建存储帐户](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 * 适用于操作系统的最新 [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。 确保获取 SDK，而不是运行时。
 
 ## <a name="setting-up"></a>设置
@@ -50,7 +50,7 @@ ms.locfileid: "91939196"
 
 创建名为 QueuesQuickstartV12 的 .NET Core 应用程序。
 
-1. 在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 QueuesQuickstartV12 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：*Program.cs*。
+1. 在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 QueuesQuickstartV12 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目： *Program.cs* 。
 
    ```console
    dotnet new console -n QueuesQuickstartV12
@@ -77,7 +77,7 @@ dotnet add package Azure.Storage.Queues
 1. 在编辑器中打开 Program.cs 文件
 1. 删除 `Console.WriteLine("Hello World!");` 语句
 1. 添加 `using` 指令
-1. 更新 `Main` 方法声明以[支持异步代码](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
+1. 更新 `Main` 方法声明以[支持异步代码](/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 
@@ -334,7 +334,7 @@ Done
 有关教程、示例、快速入门和其他文档，请访问：
 
 > [!div class="nextstepaction"]
-> [面向 .NET 和 .NET Core 开发人员的 Azure](https://docs.microsoft.com/dotnet/azure/)
+> [面向 .NET 和 .NET Core 开发人员的 Azure](/dotnet/azure/)
 
 * 若要了解详细信息，请参阅[适用于 .NET 的 Azure 存储库](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage)。
 * 若要查看更多 Azure 队列存储示例应用，请继续学习 [Azure 队列存储 v12 .NET 客户端库示例](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)。

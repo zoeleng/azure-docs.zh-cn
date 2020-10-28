@@ -4,19 +4,19 @@ description: 使用 Azure 门户、PowerShell 或 Azure CLI 在 Azure SQL 数据
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1
+ms.custom: contperfq1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 6a0d81cc9954f934395bc275785bda34c55c35bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91263396"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791505"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>快速入门：创建 Azure SQL 数据库单一数据库
 
@@ -45,9 +45,9 @@ ms.locfileid: "91263396"
 1. 对于“资源组”，选择“新建”，输入“myResourceGroup”，然后选择“确定” 。
 1. 对于“数据库名称”，输入“mySampleDatabase”。
 1. 对于“服务器”，选择“新建”，并使用以下值填写“新服务器”窗体  ：
-   - **服务器名称**：输入“mysqlserver”并添加一些字符以实现唯一性。 我们无法提供要使用的确切服务器名称，因为对于 Azure 中的所有服务器，服务器名称必须全局唯一，而不只是在订阅中唯一。 因此，输入类似于 mysqlserver12345 的名称，然后门户会告知你是否可用。
-   - **服务器管理员登录名**：输入“azureuser”。
-   - **密码**：输入符合要求的密码，然后在“确认密码”字段中再次输入该密码。
+   - **服务器名称** ：输入“mysqlserver”并添加一些字符以实现唯一性。 我们无法提供要使用的确切服务器名称，因为对于 Azure 中的所有服务器，服务器名称必须全局唯一，而不只是在订阅中唯一。 因此，输入类似于 mysqlserver12345 的名称，然后门户会告知你是否可用。
+   - **服务器管理员登录名** ：输入“azureuser”。
+   - **密码** ：输入符合要求的密码，然后在“确认密码”字段中再次输入该密码。
    - 位置：从下拉列表中选择一个位置。
 
    选择“确定”。
@@ -82,7 +82,7 @@ ms.locfileid: "91263396"
 
 Azure Cloud Shell 是免费的交互式 shell，可以使用它运行本文中的步骤。 它预安装有常用 Azure 工具并将其配置与帐户一起使用。 
 
-若要打开 Cloud Shell，只需要从代码块的右上角选择“试一试”。 也可以通过转到 [https://shell.azure.com](https://shell.azure.com) 在单独的浏览器标签页中启动 Cloud Shell。 选择“复制”以复制代码块，将其粘贴到 Cloud Shell 中，然后按 Enter 来运行它。
+若要打开 Cloud Shell，只需要从代码块的右上角选择“试一试”。  也可以通过转到 [https://shell.azure.com](https://shell.azure.com) 在单独的浏览器标签页中启动 Cloud Shell。 选择“复制”以复制代码块，将其粘贴到 Cloud Shell 中，然后按 Enter 来运行它。
 
 ## <a name="set-parameter-values"></a>设置参数值
 
@@ -167,7 +167,7 @@ az sql db create \
 
 Azure Cloud Shell 是免费的交互式 shell，可以使用它运行本文中的步骤。 它预安装有常用 Azure 工具并将其配置与帐户一起使用。 
 
-若要打开 Cloud Shell，只需要从代码块的右上角选择“试一试”。 也可以通过转到 [https://shell.azure.com](https://shell.azure.com) 在单独的浏览器标签页中启动 Cloud Shell。 选择“复制”以复制代码块，将其粘贴到 Cloud Shell 中，然后按 Enter 来运行它。
+若要打开 Cloud Shell，只需要从代码块的右上角选择“试一试”。  也可以通过转到 [https://shell.azure.com](https://shell.azure.com) 在单独的浏览器标签页中启动 Cloud Shell。 选择“复制”以复制代码块，将其粘贴到 Cloud Shell 中，然后按 Enter 来运行它。
 
 ## <a name="set-parameter-values"></a>设置参数值
 
@@ -289,7 +289,7 @@ Azure Cloud Shell 是免费的交互式 shell，可以使用它运行本文中�
 
 1. 在 Azure 门户中搜索并选择“资源组”，然后从列表中选择“myResourceGroup”。 
 1. 在资源组页上，选择“删除资源组”。
-1. 在“键入资源组名称”下输入 *myResourceGroup*，然后选择“删除”。 
+1. 在“键入资源组名称”下输入 *myResourceGroup* ，然后选择“删除”。 
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -320,4 +320,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 希望优化并节省云支出？
 
 > [!div class="nextstepaction"]
-> [使用成本管理开始分析成本](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [使用成本管理开始分析成本](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

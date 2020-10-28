@@ -12,13 +12,14 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-python
+- devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: d5ee18895eeac6c7444e11c3714855bd038b07ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: edbce93036652b338f192df237e8c5b09017ad33
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90530465"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747487"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>快速入门：控制连接到 IoT 中心的设备 (Python)
 
@@ -62,17 +63,17 @@ az extension add --name azure-iot
 
 1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
-    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-    **MyPythonDevice**：这是所注册的设备的名称。 建议使用 **MyPythonDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+    **MyPythonDevice** ：这是所注册的设备的名称。 建议使用 **MyPythonDevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
-2. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的_设备连接字符串_：
+2. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的 _设备连接字符串_ ：
 
-    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
@@ -86,7 +87,7 @@ az extension add --name azure-iot
 
 3. 还需一个服务连接字符串，以便后端应用程序能够连接到 IoT 中心并检索消息  。 以下命令检索 IoT 中心的服务连接字符串：
 
-    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub show-connection-string \
@@ -109,7 +110,7 @@ az extension add --name azure-iot
 
 1. 在所选文本编辑器中打开 SimulatedDevice.py 文件  。
 
-    将 `CONNECTION_STRING` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.py**。
+    将 `CONNECTION_STRING` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.py** 。
 
 1. 在本地终端窗口中，运行以下命令，为模拟设备应用程序安装所需的库：
 
@@ -135,7 +136,7 @@ az extension add --name azure-iot
 
 1. 在所选文本编辑器中打开 BackEndApplication.py 文件  。
 
-    将 `CONNECTION_STRING` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 **BackEndApplication.py**。
+    将 `CONNECTION_STRING` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 **BackEndApplication.py** 。
 
 1. 在本地终端窗口中，运行以下命令，为模拟设备应用程序安装所需的库：
 

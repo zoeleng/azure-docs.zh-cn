@@ -7,19 +7,19 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 045589d3b1f0e376eaf854562d271a4483702997
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 35713a2e854cf65054d162ce0191bf2dfde4e90b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047890"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786133"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>快速入门：适用于 JavaScript 的 Azure Key Vault 客户端库 (v4)
 
 适用于 JavaScript 的 Azure Key Vault 机密客户端库入门。 请遵循以下步骤安装包并试用基本任务的示例代码。
 
-[API 参考文档](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index) | [库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [包 (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[API 参考文档](/javascript/api/overview/azure/key-vault-index) | [库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [包 (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -30,7 +30,7 @@ ms.locfileid: "92047890"
 本快速入门假设你在 Linux 终端窗口中运行 [Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="setting-up"></a>设置
-本快速入门结合使用 Azure Identity 库和 Azure CLI，向 Azure 服务验证用户身份。 开发人员还可以使用 Visual Studio 或 Visual Studio Code 来验证其调用。有关详细信息，请参阅[使用 Azure Identity 客户端库对客户端进行身份验证](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)。
+本快速入门结合使用 Azure Identity 库和 Azure CLI，向 Azure 服务验证用户身份。 开发人员还可以使用 Visual Studio 或 Visual Studio Code 来验证其调用。有关详细信息，请参阅[使用 Azure Identity 客户端库对客户端进行身份验证](/javascript/api/overview/azure/identity-readme)。
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 

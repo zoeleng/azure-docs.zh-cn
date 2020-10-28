@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88660201"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789771"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 SQL Server VM
 
@@ -60,21 +60,21 @@ SQL Server VM ARM 模板需要以下内容：
 
     * 订阅：选择 Azure 订阅。
     * 资源组：SQL Server VM 的已准备就绪的资源组。 
-    * **区域**：选择区域。  例如“美国中部”。
-    * **虚拟机名称**：输入 SQL Server 虚拟机的名称。 
-    * **虚拟机大小**：从下拉列表中为虚拟机选择适当的大小。
-    * **现有虚拟网络名称**：输入 SQL Server VM 的已准备就绪的虚拟网络的名称。 
-    * **现有 Vnet 资源组**：输入虚拟网络已准备就绪的资源组。 
-    * **现有子网名称**：已准备就绪的子网的名称。 
-    * **映像产品/服务**：选择最适合你的业务需求的 SQL Server 和 Windows Server 映像。 
-    * **SQL SKU**：选择最适合你的业务需求的 SQL Server SKU 版本。 
-    * **管理员用户名**：虚拟机管理员的用户名。 
-    * **管理员密码**：VM 管理员帐户使用的密码。 
-    * **存储工作负载类型**：最适合你的业务的工作负载存储类型。 
-    * **SQL 数据磁盘计数**：SQL Server 用于数据文件的磁盘数。  
-    * **数据路径**：SQL Server 数据文件的路径。 
-    * **SQL 日志磁盘计数**：SQL Server 用于日志文件的磁盘数。 
-    * **日志路径**：SQL Server 日志文件的路径。 
+    * **区域** ：选择区域。  例如“美国中部”。
+    * **虚拟机名称** ：输入 SQL Server 虚拟机的名称。 
+    * **虚拟机大小** ：从下拉列表中为虚拟机选择适当的大小。
+    * **现有虚拟网络名称** ：输入 SQL Server VM 的已准备就绪的虚拟网络的名称。 
+    * **现有 Vnet 资源组** ：输入虚拟网络已准备就绪的资源组。 
+    * **现有子网名称** ：已准备就绪的子网的名称。 
+    * **映像产品/服务** ：选择最适合你的业务需求的 SQL Server 和 Windows Server 映像。 
+    * **SQL SKU** ：选择最适合你的业务需求的 SQL Server SKU 版本。 
+    * **管理员用户名** ：虚拟机管理员的用户名。 
+    * **管理员密码** ：VM 管理员帐户使用的密码。 
+    * **存储工作负载类型** ：最适合你的业务的工作负载存储类型。 
+    * **SQL 数据磁盘计数** ：SQL Server 用于数据文件的磁盘数。  
+    * **数据路径** ：SQL Server 数据文件的路径。 
+    * **SQL 日志磁盘计数** ：SQL Server 用于日志文件的磁盘数。 
+    * **日志路径** ：SQL Server 日志文件的路径。 
     * 位置：所有资源的位置，此值应保留默认值 `[resourceGroup().location]`。 
 
 3. 选择“查看 + 创建”。 成功部署 SQL Server VM 后，你会收到通知。
@@ -120,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 有关引导你完成模板创建过程的分步教程，请参阅：
 
 > [!div class="nextstepaction"]
-> [教程：创建和部署你的第一个 ARM 模板](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [教程：创建和部署你的第一个 ARM 模板](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 有关部署 SQL Server VM 的其他方法，请参阅： 
 - [Azure 门户](create-sql-vm-portal.md)

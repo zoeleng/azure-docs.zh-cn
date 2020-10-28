@@ -14,13 +14,14 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - devx-track-js
+- devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 07508046e1689c3b8c2a3bb323a98994d10df8a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0452e117b733d4e5363fe4a6d6a94ee45c34d57d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334117"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748585"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Node.js)
 
@@ -66,17 +67,17 @@ az extension add --name azure-iot
 
 1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyNodeDevice**：这是所注册的设备的名称。 建议使用 **MyNodeDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyNodeDevice** ：这是所注册的设备的名称。 建议使用 **MyNodeDevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
 
-1. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的_设备连接字符串_：
+1. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的 _设备连接字符串_ ：
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
@@ -90,7 +91,7 @@ az extension add --name azure-iot
 
 1. 还需要使用与事件中心兼容的终结点、与事件中心兼容的路径和 IoT 中心的服务主密钥，确保后端应用程序能连接到 IoT 中心并检索消息  。 以下命令可检索 IoT 中心的这些值：
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -110,7 +111,7 @@ az extension add --name azure-iot
 
 1. 在所选文本编辑器中打开 SimulatedDevice.js 文件。
 
-    将 `connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.js**。
+    将 `connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.js** 。
 
 1. 在本地终端窗口中，运行以下命令以安装所需的库，并运行模拟设备应用程序：
 
@@ -131,7 +132,7 @@ az extension add --name azure-iot
 
 1. 在所选文本编辑器中打开 ReadDeviceToCloudMessages.js 文件。 更新以下变量并保存对文件所做的更改。
 
-    | 变量 | Value |
+    | 变量 | 值 |
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | 将变量的值替换为之前记下的与事件中心兼容的终结点。 |
     | `eventHubsCompatiblePath`     | 将变量的值替换为之前记下的与事件中心兼容的路径。 |

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327489"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895195"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建专用终结点
 
@@ -50,7 +50,7 @@ ms.locfileid: "92327489"
     | 资源组   | 选择“CreatePrivateEndpointQS-rg” |
     | **实例详细信息** |                                                                 |
     | 名称             | 输入“myVNet”                                    |
-    | 区域           | 选择 \<your-web-app-region>。 </br> 选择要在其中部署 Web 应用的区域。|
+    | 区域           | 选择“西欧”。|
 
 3. 选择“IP 地址”选项卡，或选择页面底部的“下一步:IP 地址”按钮。
 
@@ -94,14 +94,14 @@ ms.locfileid: "92327489"
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
     | 资源组 | 选择“CreatePrivateEndpointQS-rg” |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入“myVM” |
-    | 区域 | 选择 \<your-web-app-region>。 </br> 选择要在其中部署 Web 应用的区域。 |
+    | 区域 | 选择“西欧”。 |
     | 可用性选项 | 选择“无需基础结构冗余” |
     | 映像 | 选择“Windows Server 2019 Datacenter - Gen1” |
     | Azure Spot 实例 | 请选择“否” |
@@ -115,7 +115,7 @@ ms.locfileid: "92327489"
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -149,7 +149,7 @@ ms.locfileid: "92327489"
     | 资源组 | 选择“CreatePrivateEndpointQS-rg”。 我们在上一部分创建了此资源组。|
     | **实例详细信息** |  |
     | 名称  | 输入“myPrivateEndpoint”  。 |
-    | 区域 | 选择 \<your-web-app-region>。 </br> 选择要在其中部署 Web 应用的区域。 |
+    | 区域 | 选择“西欧”。 |
 
 6. 选择“资源”选项卡或页面底部的“下一步: 资源”按钮。
     

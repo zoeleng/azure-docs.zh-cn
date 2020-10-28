@@ -3,13 +3,13 @@ title: 快速入门 - 在门户中创建注册表
 description: 快速了解如何通过 Azure 门户创建专用 Azure 容器注册表。
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031762"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746678"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>快速入门：通过 Azure 门户创建 Azure 容器注册表
 
@@ -29,7 +29,7 @@ Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中�
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="在门户中导航到容器注册表":::
 
-在“基本信息”选项卡中，输入“资源组”和“注册表名称”的值 。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 对于本快速入门，在 `West US` 位置创建名为 `myResourceGroup` 的新资源组，对于 **SKU**，选择“基本”。
+在“基本信息”选项卡中，输入“资源组”和“注册表名称”的值 。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 对于本快速入门，在 `West US` 位置创建名为 `myResourceGroup` 的新资源组，对于 **SKU** ，选择“基本”。
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="在门户中导航到容器注册表":::
 

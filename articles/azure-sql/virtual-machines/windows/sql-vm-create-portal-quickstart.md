@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb10e85b07037805d59dcba91ff20a4bc2a6574e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84667635"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791063"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：通过 Azure 门户在 Windows 虚拟机上创建 SQL Server 2017
 
@@ -62,15 +62,15 @@ ms.locfileid: "84667635"
    ![订阅](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
 
 1. 在“实例详细信息”下：
-    1. 键入 _SQLVM_ 作为**虚拟机名称**。 
+    1. 键入 _SQLVM_ 作为 **虚拟机名称** 。 
     1. 为“区域”选择一个位置。 
-    1. 本快速入门将“可用性选项”保留设置为“无需基础结构冗余”。 有关可用性选项的详细信息，请参阅[可用性](../../../virtual-machines/windows/availability.md)。 
+    1. 本快速入门将“可用性选项”保留设置为“无需基础结构冗余”。 有关可用性选项的详细信息，请参阅[可用性](../../../virtual-machines/availability.md)。 
     1. 在“映像”列表中，选择“免费 SQL Server 许可证:Windows Server 2016 上的 SQL Server 2017 Developer”的映像。 
-    1. 对于虚拟机**大小**，请选择“更改大小”，然后选择“A2 基本”产品/服务。  用完资源后，请务必清理资源，以免产生任何意外的费用。 
+    1. 对于虚拟机 **大小** ，请选择“更改大小”，然后选择“A2 基本”产品/服务。  用完资源后，请务必清理资源，以免产生任何意外的费用。 
 
    ![实例详细信息](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. 在“管理员帐户”下提供用户名（例如 _azureuser_）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+1. 在“管理员帐户”下提供用户名（例如 _azureuser_ ）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
    ![管理员帐户](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 
@@ -114,7 +114,7 @@ ms.locfileid: "84667635"
 
 1. 在“密码”  框中，键入登录的密码。
 
-1. 选择“连接” 。
+1. 选择“连接”。
 
     ![ssms 连接](./media/sql-vm-create-portal-quickstart/ssms-connect.png)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c017ae8044c14a579190f5f1e76cfb1a73e3ce66
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91264280"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896185"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>快速入门：使用 Azure Maps 创建交互式搜索地图
 
@@ -60,19 +60,19 @@ ms.locfileid: "91264280"
 3. 将“主密钥”复制到剪贴板。 本地保存它以便稍后在本教程中使用。
 
 >[!NOTE]
-> 如果使用订阅密钥而不是主密钥，则映射不会正确呈现。 此外，出于安全考虑，建议轮换使用主密钥和辅助密钥。 若要轮换密钥，请更新应用以使用辅助密钥、进行部署，然后按主密钥旁边的循环/刷新按钮以生成新的主密钥。 将禁用旧的主密钥。 有关密钥轮换的详细信息，请参阅[使用密钥轮换和审核功能设置 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> 如果使用订阅密钥而不是主密钥，则映射不会正确呈现。 此外，出于安全考虑，建议轮换使用主密钥和辅助密钥。 若要轮换密钥，请更新应用以使用辅助密钥、进行部署，然后按主密钥旁边的循环/刷新按钮以生成新的主密钥。 将禁用旧的主密钥。 有关密钥轮换的详细信息，请参阅[使用密钥轮换和审核功能设置 Azure Key Vault](../key-vault/secrets/tutorial-rotation-dual.md)
 
 :::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="在门户中创建 Maps 帐户":::
 
 ## <a name="download-the-demo-application"></a>下载演示应用程序
 
 1. 转到 [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html)。 复制文件的内容。
-2. 在本地将此文件的内容另存为 **AzureMapDemo.html**。 在文本编辑器中将其打开。
-3. 搜索字符串 `<Your Azure Maps Key>`。 将其替换为在上一部分获取的**主密钥**值。
+2. 在本地将此文件的内容另存为 **AzureMapDemo.html** 。 在文本编辑器中将其打开。
+3. 搜索字符串 `<Your Azure Maps Key>`。 将其替换为在上一部分获取的 **主密钥** 值。
 
 ## <a name="open-the-demo-application"></a>打开演示版应用程序
 
-1. 在所选的浏览器中打开文件 **AzureMapDemo.html**。
+1. 在所选的浏览器中打开文件 **AzureMapDemo.html** 。
 2. 观察显示的洛杉矶市地图。 进行缩放，查看地图如何自动根据缩放级别呈现更多或更少信息。
 3. 更改地图的默认中心。 在“AzureMapDemo.html”文件中，搜索名为“center”的变量 。 将此变量的经度、纬度对值替换为新值“[-74.0060, 40.7128]”。 保存文件并刷新浏览器。
 4. 尝试交互式搜索体验。 在演示版 Web 应用程序左上角的搜索框中，搜索“餐厅”。

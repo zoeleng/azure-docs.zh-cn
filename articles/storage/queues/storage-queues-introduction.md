@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87826494"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781458"
 ---
 # <a name="what-are-azure-queues"></a>什么是 Azure 队列？
 
@@ -35,11 +35,11 @@ Azure 队列存储是一项可存储大量消息的服务。 可以使用 HTTP �
 
 * **存储帐户：** 对 Azure 存储进行的所有访问都要通过存储帐户完成。 有关存储帐户容量的信息，请参阅[标准存储帐户的可伸缩性和性能目标](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)。
 
-* **队列：** 一个队列包含一组消息。 队列名称**必须**全部小写。 有关命名队列的信息，请参阅 [命名队列和元数据](https://msdn.microsoft.com/library/azure/dd179349.aspx)。
+* **队列：** 一个队列包含一组消息。 队列名称 **必须** 全部小写。 有关命名队列的信息，请参阅 [命名队列和元数据](/rest/api/storageservices/Naming-Queues-and-Metadata)。
 
 * **消息：** 一条消息（无论哪种格式）的最大大小为 64 KB。 在 2017-07-29 以前的版本中，允许的最大生存时间为 7 天。 在 2017-07-29 或更高版本中，最大生存时间可以是任何正数，或者是 -1（表示消息不会过期）。 如果省略此参数，则默认的生存时间为 7 天。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [创建存储帐户](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [创建存储帐户](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
 * [使用 .NET 的队列入门](storage-dotnet-how-to-use-queues.md)

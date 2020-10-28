@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 5af929991e96d1307c32d219a9807c6e6a58387c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7b2a302d491ee7985207943f08e8a47afd1d7f3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253269"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747276"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 
@@ -115,7 +115,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 创建 Azure Cosmos DB 帐户后，Azure CLI 会显示类似于以下示例的信息： 
 
 > [!NOTE]
-> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 命令的输出格式](https://docs.microsoft.com/cli/azure/format-output-azure-cli)。
+> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 命令的输出格式](/cli/azure/format-output-azure-cli)。
 
 ```json
 {
@@ -210,7 +210,7 @@ Cosmos 数据库中存储的数据可用于在 Azure 门户中查看和查询。
 
 若要查看、查询和处理在上一步骤中创建的用户数据，请在 Web 浏览器中登录到 [Azure 门户](https://portal.azure.com)。
 
-在顶部搜索框中，输入 **Azure Cosmos DB**。 打开 Cosmos 帐户边栏选项卡后，请选择 Cosmos 帐户。 在左侧导航栏中，选择“数据资源管理器”。 在“集合”窗格中展开你的集合，即可查看该集合中的文档，查询数据，甚至可以创建和运行存储过程、触发器与 UDF。 
+在顶部搜索框中，输入 **Azure Cosmos DB** 。 打开 Cosmos 帐户边栏选项卡后，请选择 Cosmos 帐户。 在左侧导航栏中，选择“数据资源管理器”。 在“集合”窗格中展开你的集合，即可查看该集合中的文档，查询数据，甚至可以创建和运行存储过程、触发器与 UDF。 
 
 :::image type="content" source="./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png" alt-text="MEAN.js 成功连接至 MongoDB":::
 
@@ -249,4 +249,4 @@ git commit -m "configured MongoDB connection string"
 在本快速入门中，你已了解了如何使用 Azure Cloud Shell 创建 Azure Cosmos DB MongoDB API 帐户，以及如何创建和运行 MEAN.js 应用，以将用户添加到该帐户。 现在可以将其他数据导入 Azure Cosmos DB 帐户了。
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

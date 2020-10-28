@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c54a112a85ad930dde524ba4293a3ad0b700a22f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91302956"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747438"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>快速入门：使用 Node.js 代理应用程序通过 IoT 中心设备流实现 SSH 和 RDP 方案（预览）
 
@@ -76,7 +76,7 @@ az extension add --name azure-iot
 
    > [!NOTE]
    > * 请将 *YourIoTHubName* 占位符替换为你为 IoT 中心选择的名称。
-   > * 对于正在注册的设备的名称，建议使用 *MyDevice*，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   > * 对于正在注册的设备的名称，建议使用 *MyDevice* ，如下所示。 如果为设备选择其他名称，请在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice

@@ -10,13 +10,14 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- devx-track-azurecli
 ms.date: 04/03/2019
-ms.openlocfilehash: c5df389d9bb22fca72f2ff3b65c417f592208d58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 728218959c385c768804f8890157a8b2ec794170
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87061563"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748622"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>快速入门：将遥测数据从设备发送到 IoT 中心 (iOS)
 
@@ -59,17 +60,17 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **myiOSdevice**：这是所注册的设备的名称。 建议使用 **myiOSdevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **myiOSdevice** ：这是所注册的设备的名称。 建议使用 **myiOSdevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
    ```azurecli-interactive
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
 
-1. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的_设备连接字符串_：
+1. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的 _设备连接字符串_ ：
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
@@ -112,7 +113,7 @@ pod install
    ```
 
 2. 展开“MQTT 客户端示例”项目，然后展开同一名称的文件夹。  
-3. 打开 **ViewController.swift**，以便在 XCode 中进行编辑。 
+3. 打开 **ViewController.swift** ，以便在 XCode 中进行编辑。 
 4. 搜索 **connectionString** 变量，并使用以前记下的设备连接字符串更新其值。
 5. 保存所做更改。 
 6. 使用“生成并运行”按钮或“Command + R”组合键在设备模拟器中运行项目。 
@@ -127,7 +128,7 @@ pod install
 
 ## <a name="read-the-telemetry-from-your-hub"></a>从中心读取遥测数据
 
-在 XCode 模拟器上运行过的示例应用显示从设备发送的消息的相关数据。 也可通过 IoT 中心查看接收的数据。 IoT 中心 CLI 扩展可以连接到 IoT 中心上的服务端**事件**终结点。 扩展会接收模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
+在 XCode 模拟器上运行过的示例应用显示从设备发送的消息的相关数据。 也可通过 IoT 中心查看接收的数据。 IoT 中心 CLI 扩展可以连接到 IoT 中心上的服务端 **事件** 终结点。 扩展会接收模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
 
 在 Azure Cloud Shell 中运行以下命令，并将 `YourIoTHubName` 替换为 IoT 中心的名称：
 
