@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979839"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676610"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>教程：配置 SAP SuccessFactors 以 Active Directory 用户预配 
 本教程的目的是说明将用户从 SuccessFactors Employee Central 预配到 Active Directory (AD) 和 Azure AD 时需要执行的步骤，并提供 SuccessFactors 的可选回发电子邮件地址。 
@@ -95,18 +95,18 @@ Active Directory 用户预配解决方案的这一 SuccessFactors 非常适合�
 ### <a name="create-an-api-permissions-role"></a>创建 API 权限角色
 
 * 使用有权访问管理中心的用户帐户登录到 SAP SuccessFactors。
-* 搜索 " *管理权限角色*"，然后从搜索结果中选择 " **管理权限角色** "。
+* 搜索 " *管理权限角色* "，然后从搜索结果中选择 " **管理权限角色** "。
   ![管理权限角色](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* 从 "权限角色" 列表中，单击 " **新建**"。
+* 从 "权限角色" 列表中，单击 " **新建** "。
   > [!div class="mx-imgBorder"]
   > ![创建新的权限角色](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * 为新的权限角色添加 **角色名称** 和 **描述** 。 名称和描述应表示角色用于 API 使用权限。
   > [!div class="mx-imgBorder"]
   > ![权限角色详细信息](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* 在 "权限设置" 下，单击 " **权限 ...**"，在权限列表中向下滚动，然后单击 " **管理集成工具**"。 选中 " **允许管理员通过基本身份验证访问 ODATA API**" 框。
+* 在 "权限设置" 下，单击 " **权限 ...** "，在权限列表中向下滚动，然后单击 " **管理集成工具** "。 选中 " **允许管理员通过基本身份验证访问 ODATA API** " 框。
   > [!div class="mx-imgBorder"]
   > ![管理集成工具](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* 在同一框中向下滚动，然后选择 " **员工中心 API**"。 添加权限，如下所示，使用 odata api 并使用 ODATA API 进行编辑。 如果你计划使用同一帐户进行写回 SuccessFactors 方案，请选择 "编辑" 选项。 
+* 在同一框中向下滚动，然后选择 " **员工中心 API** "。 添加权限，如下所示，使用 odata api 并使用 ODATA API 进行编辑。 如果你计划使用同一帐户进行写回 SuccessFactors 方案，请选择 "编辑" 选项。 
   > [!div class="mx-imgBorder"]
   > ![读取写入权限](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
@@ -117,10 +117,10 @@ Active Directory 用户预配解决方案的这一 SuccessFactors 非常适合�
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>为 API 用户创建权限组
 
-* 在 SuccessFactors 管理中心，搜索 " *管理权限组*"，然后从搜索结果中选择 " **管理权限组** "。
+* 在 SuccessFactors 管理中心，搜索 " *管理权限组* "，然后从搜索结果中选择 " **管理权限组** "。
   > [!div class="mx-imgBorder"]
   > ![管理权限组](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* 从 "管理权限组" 窗口中，单击 " **新建**"。
+* 从 "管理权限组" 窗口中，单击 " **新建** "。
   > [!div class="mx-imgBorder"]
   > ![添加新组](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * 为新组添加组名称。 组名称应指示组适用于 API 用户。
@@ -133,9 +133,9 @@ Active Directory 用户预配解决方案的这一 SuccessFactors 非常适合�
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>向权限组授予权限角色
 
-* 在 SuccessFactors 管理中心，搜索 " *管理权限角色*"，然后从搜索结果中选择 " **管理权限角色** "。
-* 从 " **权限角色" 列表**中，选择为 API 使用权限创建的角色。
-* 在 "将 **此角色授予 ...**" 下，单击 " **添加 ...** " 按钮。
+* 在 SuccessFactors 管理中心，搜索 " *管理权限角色* "，然后从搜索结果中选择 " **管理权限角色** "。
+* 从 " **权限角色" 列表** 中，选择为 API 使用权限创建的角色。
+* 在 "将 **此角色授予 ...** " 下，单击 " **添加 ...** " 按钮。
 * 从下拉菜单中选择 " **权限组 ...** "，然后单击 " **选择 ...** " 以打开 "组" 窗口以搜索并选择上面创建的组。 
   > [!div class="mx-imgBorder"]
   > ![添加权限组](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
@@ -160,17 +160,17 @@ Active Directory 用户预配解决方案的这一 SuccessFactors 非常适合�
 
 1. 转到 <https://portal.azure.com>
 
-2. 在左侧导航栏中选择“Azure Active Directory”。****
+2. 在左侧导航栏中选择“Azure Active Directory”。 
 
 3. 依次选择“企业应用程序”、“所有应用程序”。 
 
 4. 依次选择“添加应用程序”、“所有”类别。 
 
-5. 搜索 **SuccessFactors 以 Active Directory 用户预配**，并从库中添加该应用。
+5. 搜索 **SuccessFactors 以 Active Directory 用户预配** ，并从库中添加该应用。
 
-6. 添加应用并显示 "应用详细信息" 屏幕后，选择 "**预配**"
+6. 添加应用并显示 "应用详细信息" 屏幕后，选择 " **预配** "
 
-7. 将**设置****模式**更改为**自动**
+7. 将 **设置****模式** 更改为 **自动**
 
 8. 单击显示的信息横幅以下载预配代理。 
    > [!div class="mx-imgBorder"]
@@ -182,7 +182,7 @@ Active Directory 用户预配解决方案的这一 SuccessFactors 非常适合�
 要预配到本地 Active Directory，必须在具有 .NET 4.7.1 Framework 或更高版本且可通过网络访问所需 Active Directory 域的服务器上安装预配代理。
 
 > [!TIP]
-> 可以使用[此处](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)提供的说明来检查服务器上的 .NET framework 版本。
+> 可以使用[此处](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)提供的说明来检查服务器上的 .NET framework 版本。
 > 如果服务器未安装 .NET 4.7.1 或更高版本，可从[此处](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)下载。  
 
 将下载的代理安装程序传输到服务器主机，并按照以下步骤完成代理配置。
@@ -247,7 +247,7 @@ Active Directory 用户预配解决方案的这一 SuccessFactors 非常适合�
 
    * **管理员密码–** 输入 SuccessFactors API 用户帐户的密码。 
 
-   * **租户 URL –** 输入 SuccessFactors OData API 服务终结点的名称。 仅输入不带 http 或 https 的服务器的主机名。 此值应如下所示： **<api-successfactors.com>**。
+   * **租户 URL –** 输入 SuccessFactors OData API 服务终结点的名称。 仅输入不带 http 或 https 的服务器的主机名。 此值应如下所示： **<api-successfactors.com>** 。
 
    * **Active Directory 林 -** 向代理注册时使用的 Active Directory 域的“名称”。 使用下拉列表选择用于预配的目标域。 此值通常为如下所示的字符串：contoso.com
 
@@ -258,19 +258,19 @@ Active Directory 用户预配解决方案的这一 SuccessFactors 非常适合�
 
    * **通知电子邮件 -** 输入电子邮件地址，然后选中“如果失败，则发送电子邮件”复选框。
     > [!NOTE]
-    > 如果预配作业进入[隔离](/azure/active-directory/manage-apps/application-provisioning-quarantine-status)状态，Azure AD 预配服务将发送电子邮件通知。
+    > 如果预配作业进入[隔离](../app-provisioning/application-provisioning-quarantine-status.md)状态，Azure AD 预配服务将发送电子邮件通知。
 
    * 单击“测试连接”按钮。 如果连接测试成功，请单击顶部的“保存”按钮。 如果该操作失败，请仔细检查在代理设置上配置的 SuccessFactors 凭据和 AD 凭据是否有效。
     >[!div class="mx-imgBorder"]
     >![Azure 门户](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
-   * 成功保存凭据后，"**映射**" 部分会显示 "将**SuccessFactors 用户同步到本地**" 默认映射 Active Directory
+   * 成功保存凭据后，" **映射** " 部分会显示 "将 **SuccessFactors 用户同步到本地** " 默认映射 Active Directory
 
 ### <a name="part-4-configure-attribute-mappings"></a>第 4 部分：配置属性映射
 
 在本部分中，你将配置用户数据如何从 SuccessFactors 流向 Active Directory。
 
-1. 在 " **映射**" 下的 "设置" 选项卡上，单击 " **将 SuccessFactors 用户同步到本地 Active Directory**。
+1. 在 " **映射** " 下的 "设置" 选项卡上，单击 " **将 SuccessFactors 用户同步到本地 Active Directory** 。
 
 1. 在 " **源对象范围** " 字段中，可以通过定义一组基于属性的筛选器，选择要在 SuccessFactors 中设置为 AD 的用户的范围。 默认作用域为 "SuccessFactors 中的所有用户"。 示例筛选器：
 
@@ -342,7 +342,7 @@ SuccessFactors 预配应用配置完成后，即可在 Azure 门户中打开预�
 
 1. 在“预配”选项卡中，将“预配状态”设置为“打开”。  
 
-2. 单击“ **保存**”。
+2. 单击“ **保存** ”。
 
 3. 此操作将启动初始同步，这可能会花费几小时的时间，具体取决于 SuccessFactors 租户中的用户数量。 您可以查看进度栏，以跟踪同步周期的进度。 
 

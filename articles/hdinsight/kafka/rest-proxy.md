@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: a99c6412650cac565414817c91752ae85b8ad37d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539592"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676181"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>使用 REST 代理与 Azure HDInsight 中的 Apache Kafka 群集交互
 
-使用 Kafka REST 代理可以通过基于 HTTP 的 REST API 来与 Kafka 群集交互。 此操作表示你的 Kafka 客户端可位于虚拟网络之外。 客户端可以对 Kafka 群集进行简单的 HTTP 调用，而不必依赖 Kafka 库。 本文将演示如何创建启用了 REST 代理的 Kafka 群集。 另外还提供了一个示例代码，演示如何调用 REST 代理。
+Kafka REST Proxy 使你可以通过 HTTPS 上的 REST API 与 Kafka 群集进行交互。 此操作表示你的 Kafka 客户端可位于虚拟网络之外。 客户端可以对 Kafka 群集进行简单、安全的 HTTPS 调用，而不是依赖 Kafka 库。 本文将演示如何创建启用了 REST 代理的 Kafka 群集。 另外还提供了一个示例代码，演示如何调用 REST 代理。
 
 ## <a name="rest-api-reference"></a>REST API 参考
 
@@ -37,7 +37,7 @@ ms.locfileid: "92539592"
 
 使用 Azure Active Directory 安全组来管理对 Kafka REST 代理的访问。 创建 Kafka 群集时，请为 Azure AD 安全组提供 REST 终结点访问权限。 需要访问 REST 代理的 Kafka 客户端应由组所有者注册到此组。 组所有者可通过门户或 PowerShell 注册。
 
-对于 REST 代理终结点请求，客户端应用程序应获取 OAuth 令牌。 令牌用于验证安全组成员身份。 查找下面的[客户端应用程序示例](#client-application-sample)，其中演示了如何获取 OAuth 令牌。 客户端应用程序会在 HTTP 请求中将 OAuth 令牌传递给 REST 代理。
+对于 REST 代理终结点请求，客户端应用程序应获取 OAuth 令牌。 令牌用于验证安全组成员身份。 查找下面的[客户端应用程序示例](#client-application-sample)，其中演示了如何获取 OAuth 令牌。 客户端应用程序将 HTTPS 请求中的 OAuth 令牌传递给 REST 代理。
 
 > [!NOTE]
 > 请参阅[使用 Azure Active Directory 组管理应用和资源访问](../../active-directory/fundamentals/active-directory-manage-groups.md)来详细了解 AAD 安全组。 有关 OAuth 令牌工作原理的详细信息，请参阅[使用 OAuth 2.0 代码授权流来授权访问 Azure Active Directory Web 应用程序](../../active-directory/azuread-dev/v1-protocols-oauth-code.md)。
@@ -83,7 +83,7 @@ ms.locfileid: "92539592"
 1. 通过执行 `pip3 install msal` 安装所需的 Python 依赖项。
 1. 修改 **Configure these properties** 代码部分，并更新你的环境的以下属性：
 
-    |属性 |说明 |
+    |properties |说明 |
     |---|---|
     |租户 ID|订阅所在的 Azure 租户。|
     |客户端 ID|在安全组中注册的应用程序的 ID。|

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627219"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675284"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -153,7 +153,7 @@ ms.locfileid: "91627219"
 
 自动故障转移组必须在主服务器上进行配置，需将其连接到不同 Azure 区域中的辅助服务器。 组可以包含这些服务器中的所有或部分数据库。 下图演示了使用多个数据库和自动故障转移组的异地冗余云应用程序的典型配置。
 
-![关系图显示了使用多个数据库和自动故障转移组的异地冗余云应用程序的典型配置。](./media/auto-failover-group-overview/auto-failover-group.png)
+![此图演示了使用多个数据库和自动故障转移组的异地冗余云应用程序的典型配置。](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > 有关将 SQL 数据库中的数据库添加到故障转移组的详细分步教程，请参阅[将 SQL 数据库添加到故障转移组](failover-group-add-single-database-tutorial.md)。
@@ -243,7 +243,7 @@ ms.locfileid: "91627219"
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>在不同订阅中的托管实例之间创建故障转移组
 
-可以在两个不同订阅中的 SQL 托管实例之间创建故障转移组，前提是订阅与相同的 [Azure Active Directory 租户](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)关联。 使用 PowerShell API 时，可以通过为辅助 SQL 托管实例指定 `PartnerSubscriptionId` 参数来执行此操作。 使用 REST API 时，`properties.managedInstancePairs` 参数中包含的每个实例 ID 都可以有自己的订阅 ID。
+可以在两个不同订阅中的 SQL 托管实例之间创建故障转移组，前提是订阅与相同的 [Azure Active Directory 租户](../../active-directory/fundamentals/active-directory-whatis.md#terminology)关联。 使用 PowerShell API 时，可以通过为辅助 SQL 托管实例指定 `PartnerSubscriptionId` 参数来执行此操作。 使用 REST API 时，`properties.managedInstancePairs` 参数中包含的每个实例 ID 都可以有自己的订阅 ID。
   
 > [!IMPORTANT]
 > Azure 门户不支持创建跨不同订阅的故障转移组。 此外，对于跨不同订阅和/或资源组的现有故障转移组，无法通过门户从主要 SQL 托管实例手动启动故障转移。 改为从异地辅助实例启动它。
@@ -332,7 +332,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 4. 检测到服务中断时启动手动故障转移。 此选项针对需要在前端和数据层之间保持一致延迟的应用程序进行了优化，并支持在前端和/或数据层受到服务中断的影响时进行恢复。
 
 > [!NOTE]
-> 如果使用**只读侦听器**对只读工作负荷进行负载均衡，请确保在次要区域中的 VM 或其他资源上执行此工作负荷，以便它可以连接到辅助数据库。
+> 如果使用 **只读侦听器** 对只读工作负荷进行负载均衡，请确保在次要区域中的 VM 或其他资源上执行此工作负荷，以便它可以连接到辅助数据库。
 
 ### <a name="use-failover-groups-and-firewall-rules"></a>使用故障转移组和防火墙规则
 
@@ -341,8 +341,8 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 1. [创建公共 IP](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [创建公共负载均衡器](../../load-balancer/quickstart-load-balancer-standard-public-portal.md)并为其分配公共 IP。
 3. 为前端组件[创建虚拟网络和虚拟机](../../load-balancer/quickstart-load-balancer-standard-public-portal.md)
-4. [创建网络安全组](../../virtual-network/security-overview.md)并配置入站连接。
-5. 使用“Sql”[服务标记](../../virtual-network/security-overview.md#service-tags)确保出站连接向 Azure SQL 数据库开放。
+4. [创建网络安全组](../../virtual-network/network-security-groups-overview.md)并配置入站连接。
+5. 使用“Sql”[服务标记](../../virtual-network/network-security-groups-overview.md#service-tags)确保出站连接向 Azure SQL 数据库开放。
 6. 创建 [SQL 数据库防火墙规则](firewall-configure.md)，以允许来自步骤 1 中创建的公共 IP 地址的入站流量。
 
 有关如何配置出站访问以及在防火墙规则中使用哪个 IP 的详细信息，请参阅[负载均衡器出站连接](../../load-balancer/load-balancer-outbound-connections.md)。
@@ -362,7 +362,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 - 需要通过 [VPN 网关](../../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 来连接 SQL 托管实例的实例使用的虚拟网络。 当两个虚拟网络通过本地网络连接时，请确保没有任何防火墙规则阻止端口 5022 和 11000-11999。 下面的说明中所述的限制支持全局 VNet 对等互连。
 
    > [!IMPORTANT]
-   > [在9/22/2020 中，我们为新创建的虚拟群集宣布了全局虚拟网络对等互连](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)。 这意味着，对于在公告日期之后在空子网中创建的 SQL 托管实例，以及在这些子网中创建的所有后续托管实例，都支持全局虚拟网络对等互连。 对于所有其他 SQL 托管实例的对等互连，都将限制为同一区域的网络，因为 [全局虚拟网络对等互连的限制](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
+   > [在9/22/2020 中，我们为新创建的虚拟群集宣布了全局虚拟网络对等互连](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)。 这意味着，对于在公告日期之后在空子网中创建的 SQL 托管实例，以及在这些子网中创建的所有后续托管实例，都支持全局虚拟网络对等互连。 对于所有其他 SQL 托管实例的对等互连，都将限制为同一区域的网络，因为 [全局虚拟网络对等互连的限制](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
 
 - 两个 SQL 托管实例 VNet 的 IP 地址不能重叠。
 - 需要设置网络安全组 (NSG)，使端口 5022 和端口范围 11000~12000 保持打开，以便能够从其他托管实例的子网建立入站和出站连接。 目的是允许实例之间的复制流量。
@@ -406,7 +406,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 ## <a name="programmatically-managing-failover-groups"></a>以编程方式管理故障转移组
 
-如上所述，也可以使用 Azure PowerShell 和 REST API 以编程方式管理自动故障转移组和活动异地复制。 下表描述了可用的命令集。 活动异地复制包括一组用于管理的 Azure 资源管理器 API，其中包括 [Azure SQL 数据库 REST API](https://docs.microsoft.com/rest/api/sql/) 和 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/)。 这些 API 需要使用资源组，并支持基于角色的安全性 (RBAC)。 有关如何实现访问角色的详细信息，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。
+如上所述，也可以使用 Azure PowerShell 和 REST API 以编程方式管理自动故障转移组和活动异地复制。 下表描述了可用的命令集。 活动异地复制包括一组用于管理的 Azure 资源管理器 API，其中包括 [Azure SQL 数据库 REST API](/rest/api/sql/) 和 [Azure PowerShell cmdlet](/powershell/azure/)。 这些 API 需要使用资源组，并支持基于角色的安全性 (RBAC)。 有关如何实现访问角色的详细信息，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。
 
 ### <a name="manage-sql-database-failover"></a>管理 SQL 数据库故障转移
 
@@ -435,13 +435,13 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 | API | 说明 |
 | --- | --- |
-| [创建或更新故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 创建或更新故障转移组 |
-| [删除故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 从服务器中删除故障转移组 |
-| [故障转移（计划内）](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | 在完全同步数据的情况下，触发从当前主服务器到辅助服务器的故障转移。|
-| [强制故障转移允许数据丢失](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | 在不同步数据的情况下，触发从当前主服务器到辅助服务器的故障转移。 此操作可能导致数据丢失。 |
-| [获取故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | 检索故障转移组的配置。 |
-| [按服务器列出故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | 列出服务器上的故障转移组。 |
-| [更新故障转移组](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | 更新故障转移组的配置。 |
+| [创建或更新故障转移组](/rest/api/sql/failovergroups/createorupdate) | 创建或更新故障转移组 |
+| [删除故障转移组](/rest/api/sql/failovergroups/delete) | 从服务器中删除故障转移组 |
+| [故障转移（计划内）](/rest/api/sql/failovergroups/failover) | 在完全同步数据的情况下，触发从当前主服务器到辅助服务器的故障转移。|
+| [强制故障转移允许数据丢失](/rest/api/sql/failovergroups/forcefailoverallowdataloss) | 在不同步数据的情况下，触发从当前主服务器到辅助服务器的故障转移。 此操作可能导致数据丢失。 |
+| [获取故障转移组](/rest/api/sql/failovergroups/get) | 检索故障转移组的配置。 |
+| [按服务器列出故障转移组](/rest/api/sql/failovergroups/listbyserver) | 列出服务器上的故障转移组。 |
+| [更新故障转移组](/rest/api/sql/failovergroups/update) | 更新故障转移组的配置。 |
 
 ---
 
@@ -473,12 +473,12 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 | API | 说明 |
 | --- | --- |
-| [创建或更新故障转移组](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 创建或更新故障转移组的配置 |
-| [删除故障转移组](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 从实例中删除故障转移组 |
-| [故障转移（计划内）](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | 在完全同步数据的情况下，触发从当前主实例到此实例的故障转移。 |
-| [强制故障转移允许数据丢失](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | 在不同步数据的情况下，触发从当前主实例到辅助实例的故障转移。 此操作可能导致数据丢失。 |
-| [获取故障转移组](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | 检索故障转移组的配置。 |
-| [列出故障转移组 - 按位置列出](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | 列出某个位置中的故障转移组。 |
+| [创建或更新故障转移组](/rest/api/sql/instancefailovergroups/createorupdate) | 创建或更新故障转移组的配置 |
+| [删除故障转移组](/rest/api/sql/instancefailovergroups/delete) | 从实例中删除故障转移组 |
+| [故障转移（计划内）](/rest/api/sql/instancefailovergroups/failover) | 在完全同步数据的情况下，触发从当前主实例到此实例的故障转移。 |
+| [强制故障转移允许数据丢失](/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | 在不同步数据的情况下，触发从当前主实例到辅助实例的故障转移。 此操作可能导致数据丢失。 |
+| [获取故障转移组](/rest/api/sql/instancefailovergroups/get) | 检索故障转移组的配置。 |
+| [列出故障转移组 - 按位置列出](/rest/api/sql/instancefailovergroups/listbylocation) | 列出某个位置中的故障转移组。 |
 
 ---
 

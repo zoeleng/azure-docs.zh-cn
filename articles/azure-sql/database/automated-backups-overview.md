@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124180"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675301"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>自动备份 - Azure SQL 数据库和 SQL 托管实例
 
@@ -30,7 +30,7 @@ ms.locfileid: "92124180"
 
 ### <a name="backup-frequency"></a>备份频率
 
-SQL 数据库和 SQL 托管实例都使用 SQL Server 技术，每周创建[完整备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server)，每 12-24 小时创建[差异备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)，每 5 到 10 分钟创建[事务日志备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server)。 事务日志备份的频率取决于计算大小和数据库活动量。
+SQL 数据库和 SQL 托管实例都使用 SQL Server 技术，每周创建[完整备份](/sql/relational-databases/backup-restore/full-database-backups-sql-server)，每 12-24 小时创建[差异备份](/sql/relational-databases/backup-restore/differential-backups-sql-server)，每 5 到 10 分钟创建[事务日志备份](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server)。 事务日志备份的频率取决于计算大小和数据库活动量。
 
 还原数据库时，服务会确定需要还原哪些完整备份、差异备份和事务日志备份。
 
@@ -56,7 +56,7 @@ SQL 数据库和 SQL 托管实例都使用 SQL Server 技术，每周创建[完�
 
 可使用这些备份：
 
-- 现有数据库的时间点还原 - 通过使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API，[将现有的数据库还原到过去的某个时间点](recovery-using-backups.md#point-in-time-restore)。 对于 SQL 数据库，此操作会在与原始数据库相同的服务器上创建新的数据库，但会使用不同的名称，以避免覆盖原始数据库。 还原完成后，可删除原始数据库。 另外，可以[重命名](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database)还原的数据库，然后使其具有原始数据库的名称。 同样，对于 SQL 托管实例，此操作可以在同一订阅和同一区域中的相同或不同的托管实例上创建数据库地副本。
+- 现有数据库的时间点还原 - 通过使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API，[将现有的数据库还原到过去的某个时间点](recovery-using-backups.md#point-in-time-restore)。 对于 SQL 数据库，此操作会在与原始数据库相同的服务器上创建新的数据库，但会使用不同的名称，以避免覆盖原始数据库。 还原完成后，可删除原始数据库。 另外，可以[重命名](/sql/relational-databases/databases/rename-a-database)还原的数据库，然后使其具有原始数据库的名称。 同样，对于 SQL 托管实例，此操作可以在同一订阅和同一区域中的相同或不同的托管实例上创建数据库地副本。
 - 删除的数据库的时间点还原 - [将已删除的数据库还原到删除时间](recovery-using-backups.md#deleted-database-restore)或者还原到保留期内的任意时间点。 仅可在创建原始数据库所在的同一服务器或托管实例上还原已删除的数据库。 删除数据库时，该服务会在删除前执行最终事务日志备份，以防止任何数据丢失。
 - 异地还原 - [将数据库还原到其他地理区域](recovery-using-backups.md#geo-restore)。 在无法访问主要区域中的数据库和备份时，异地还原可帮助从地理位置灾难中恢复。 它可在任何 Azure 区域中的任意现有服务器或托管实例上创建新的数据库。
    > [!IMPORTANT]
@@ -72,11 +72,11 @@ SQL 数据库和 SQL 托管实例都使用 SQL Server 技术，每周创建[完�
 
 | 操作 | Azure 门户 | Azure PowerShell |
 |---|---|---|
-| **更改备份保留** | [SQL 数据库](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL 托管实例](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 数据库](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL 托管实例](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **更改备份保留** | [SQL 数据库](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL 托管实例](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 数据库](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL 托管实例](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **更改长期备份保留** | [SQL 数据库](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL 托管实例 - N/A  | [SQL 数据库](long-term-backup-retention-configure.md)<br/>[SQL 托管实例](../managed-instance/long-term-backup-retention-configure.md)  |
-| **从某个时间点还原数据库** | [SQL 数据库](recovery-using-backups.md#point-in-time-restore)<br>[SQL 托管实例](../managed-instance/point-in-time-restore.md) | [SQL 数据库](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL 托管实例](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **还原已删除的数据库** | [SQL 数据库](recovery-using-backups.md)<br>[SQL 托管实例](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL 数据库](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL 托管实例](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **从 Azure Blob 存储还原数据库** | SQL 数据库 - N/A <br/>SQL 托管实例 - N/A  | SQL 数据库 - N/A <br/>[SQL 托管实例](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **从某个时间点还原数据库** | [SQL 数据库](recovery-using-backups.md#point-in-time-restore)<br>[SQL 托管实例](../managed-instance/point-in-time-restore.md) | [SQL 数据库](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL 托管实例](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **还原已删除的数据库** | [SQL 数据库](recovery-using-backups.md)<br>[SQL 托管实例](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL 数据库](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL 托管实例](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **从 Azure Blob 存储还原数据库** | SQL 数据库 - N/A <br/>SQL 托管实例 - N/A  | SQL 数据库 - N/A <br/>[SQL 托管实例](../managed-instance/restore-sample-database-quickstart.md) |
 
 ## <a name="backup-scheduling"></a>备份计划
 
@@ -115,7 +115,7 @@ SQL 数据库和 SQL 托管实例按累积值形式计算使用的总备份存�
 
 - 将[备份保留期](#change-the-pitr-backup-retention-period-by-using-the-azure-portal)减少到所需的最小值。
 - 避免以超过需要的频率执行大型写入操作，例如索引重建。
-- 对于大规模数据加载操作，请考虑使用[聚集列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)以及下列相关[最佳做法](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)，和/或减少非聚集索引的数目。
+- 对于大规模数据加载操作，请考虑使用[聚集列存储索引](/sql/relational-databases/indexes/columnstore-indexes-overview)以及下列相关[最佳做法](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)，和/或减少非聚集索引的数目。
 - 在常规用途服务层级中，预配数据存储的价格低于备份存储的价格。 如果额外备份存储成本一直较高，可以考虑增大数据存储，以便节省备份存储的费用。
 - 在应用程序逻辑中使用 TempDB 而不是永久性表来存储临时结果和/或暂时性数据。
 - 尽可能使用本地冗余备份存储（例如开发/测试环境）
@@ -190,9 +190,9 @@ SQL 数据库和 SQL 托管实例按累积值形式计算所有备份文件的�
 
 ### <a name="monitor-costs"></a>监视成本
 
-要了解备份存储成本，请在 Azure 门户中的 " **成本管理 + 计费** " 下，选择 " **成本管理**"，然后选择 " **成本分析**"。 选择所需的订阅作为 **作用域**，然后筛选所需的时间段和服务。
+要了解备份存储成本，请在 Azure 门户中的 " **成本管理 + 计费** " 下，选择 " **成本管理** "，然后选择 " **成本分析** "。 选择所需的订阅作为 **作用域** ，然后筛选所需的时间段和服务。
 
-为 " **服务名称**" 添加筛选器，然后在下拉列表中选择 " **sql 数据库** "。 使用 " **计量子类别** " 筛选器选择服务的帐单计数器。 对于单一数据库或弹性数据库池，请选择 " **单一/弹性池 PITR 备份存储**"。 对于托管实例，请选择 " **MI PITR 备份存储**"。 **存储**和**计算**子类别可能也会给您带来兴趣，但它们并不与备份存储成本相关联。
+为 " **服务名称** " 添加筛选器，然后在下拉列表中选择 " **sql 数据库** "。 使用 " **计量子类别** " 筛选器选择服务的帐单计数器。 对于单一数据库或弹性数据库池，请选择 " **单一/弹性池 PITR 备份存储** "。 对于托管实例，请选择 " **MI PITR 备份存储** "。 **存储** 和 **计算** 子类别可能也会给您带来兴趣，但它们并不与备份存储成本相关联。
 
 ![备份存储成本分析](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -249,7 +249,7 @@ Azure SQL 工程团队持续不断地自动测试自动数据库备份的还原�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell AzureRM 模块仍受 SQL 数据库和 SQL 托管实例的支持，但所有未来的开发都是针对 Az.Sql 模块的。 有关详细信息，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> PowerShell AzureRM 模块仍受 SQL 数据库和 SQL 托管实例的支持，但所有未来的开发都是针对 Az.Sql 模块的。 有关详细信息，请参阅 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 #### <a name="sql-database"></a>[SQL 数据库](#tab/single-database)
 
@@ -333,7 +333,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-有关详细信息，请参阅[备份保持期 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)。
+有关详细信息，请参阅[备份保持期 REST API](/rest/api/sql/backupshorttermretentionpolicies)。
 
 #### <a name="sample-request"></a>示例请求
 
@@ -366,7 +366,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-有关详细信息，请参阅[备份保持期 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)。
+有关详细信息，请参阅[备份保持期 REST API](/rest/api/sql/backupshorttermretentionpolicies)。
 
 ## <a name="configure-backup-storage-redundancy"></a>配置备份存储冗余
 
@@ -403,7 +403,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
 ```
 
-有关详细信息，请访问 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)。
+有关详细信息，请访问 [AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)。
 
 若要更新现有数据库的备份存储冗余，可以使用-BackupStorageRedundancy 参数。 可能的值为 "地理区域"、"区域" 和 "本地"。
 请注意，将对数据库应用所做的更改可能需要长达48小时。 从异地冗余备份存储切换到本地或区域冗余存储将禁用异地还原。 
@@ -413,7 +413,7 @@ New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -D
 Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
 ```
 
-有关详细信息，请访问 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
+有关详细信息，请访问 [AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)
 
 > [!NOTE]
 > 若要将-BackupStorageRedundancy 参数与数据库还原、数据库复制或创建辅助操作一起使用，请使用 Azure PowerShell 版本 Az .Sql 2.11.0。 
@@ -427,13 +427,13 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
 ```
 
-有关更多详细信息，请访问 [AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)。
+有关更多详细信息，请访问 [AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)。
 
 ---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>使用 Azure 策略强制实施备份存储冗余
 
-如果数据驻留要求需要将所有数据保留在单个 Azure 区域中，则可能要使用 Azure 策略为 SQL 数据库或托管实例强制实施区域冗余或本地冗余备份。 Azure 策略是一种服务，可用于创建、分配和管理将规则应用于 Azure 资源的策略。 Azure 策略可帮助确保这些资源符合公司标准和服务级别协议。 有关详细信息，请参阅 [Azure Policy 概述](https://docs.microsoft.com/azure/governance/policy/overview)。 
+如果数据驻留要求需要将所有数据保留在单个 Azure 区域中，则可能要使用 Azure 策略为 SQL 数据库或托管实例强制实施区域冗余或本地冗余备份。 Azure 策略是一种服务，可用于创建、分配和管理将规则应用于 Azure 资源的策略。 Azure 策略可帮助确保这些资源符合公司标准和服务级别协议。 有关详细信息，请参阅 [Azure Policy 概述](../../governance/policy/overview.md)。 
 
 ### <a name="built-in-backup-storage-redundancy-policies"></a>内置备份存储冗余策略 
 
@@ -443,14 +443,14 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 
 [SQL 托管实例应避免使用 GRS 备份冗余](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
-可在 [此处](https://docs.microsoft.com/azure/azure-sql/database/policy-reference)找到 SQL 数据库和托管实例的内置策略定义的完整列表。
+可在 [此处](./policy-reference.md)找到 SQL 数据库和托管实例的内置策略定义的完整列表。
 
 若要在组织级别强制执行数据驻留要求，可以将这些策略分配到订阅。 在订阅级别分配这些数据后，给定订阅中的用户将无法通过 Azure 门户或 Azure PowerShell 创建具有异地冗余备份存储的数据库或托管实例。 
 
 > [!IMPORTANT]
-> 通过 T-sql 创建数据库时，不会强制实施 Azure 策略。 若要在使用 T-sql 创建数据库时强制数据驻留，请 [在 CREATE database 语句中使用 "LOCAL" 或 "ZONE" 作为 BACKUP_STORAGE_REDUNDANCY 参数的输入](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups)。
+> 通过 T-sql 创建数据库时，不会强制实施 Azure 策略。 若要在使用 T-sql 创建数据库时强制数据驻留，请 [在 CREATE database 语句中使用 "LOCAL" 或 "ZONE" 作为 BACKUP_STORAGE_REDUNDANCY 参数的输入](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups)。
 
-了解如何使用[Azure 门户](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal)或[Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)分配策略
+了解如何使用[Azure 门户](../../governance/policy/assign-policy-portal.md)或[Azure PowerShell](../../governance/policy/assign-policy-powershell.md)分配策略
 
 
 ## <a name="next-steps"></a>后续步骤

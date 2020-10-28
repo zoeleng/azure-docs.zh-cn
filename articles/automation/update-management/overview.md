@@ -3,14 +3,14 @@ title: Azure 自动化更新管理概述
 description: 本文概述了为 Windows 和 Linux 计算机实现更新的更新管理功能。
 services: automation
 ms.subservice: update-management
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92d8c52ee9da1df67be27ea0867e788e2aaed37b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 217ccbcef28545710ea0875a318bcf5b4b555825
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221973"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677706"
 ---
 # <a name="update-management-overview"></a>更新管理概述
 
@@ -18,15 +18,18 @@ ms.locfileid: "92221973"
 
 可以通过以下方式为 VM 启用更新管理功能：
 
-* 从 [Azure 自动化帐户](enable-from-automation-account.md)为一个或多个 Azure 和非 Azure 计算机启用。
-* 对于非 Azure 计算机（包括在 [启用了 Azure Arc 的服务器](../../azure-arc/servers/overview.md) 上注册的计算机或服务器）， (预览) 。
-* 对于单个 Azure VM，通过 Azure 门户中的“虚拟机”页启用。 此方案适用于 [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) 和 [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VM。
-* 对于[多个 Azure VM](enable-from-portal.md)，从 Azure 门户的“虚拟机”页中选择它们进行启用。
+- 从 [Azure 自动化帐户](enable-from-automation-account.md)为一个或多个 Azure 和非 Azure 计算机启用。
+
+- 为非 Azure 计算机手动执行，包括注册到 [启用了 Azure Arc 的服务器](../../azure-arc/servers/overview.md)的计算机或服务器。
+
+- 对于 "Azure 门户中的" [虚拟机 "页](enable-from-vm.md) 上的单个 Azure VM。 此方案适用于 Linux 和 Windows VM。
+
+- 对于[多个 Azure VM](enable-from-portal.md)，从 Azure 门户的“虚拟机”页中选择它们进行启用。
 
 > [!NOTE]
 > 更新管理要求将 Log Analytics 工作区链接到自动化帐户。 有关受支持区域的明确列表，请参阅 [Azure 工作区映射](../how-to/region-mappings.md)。 区域映射不会影响在单独的区域中管理自动化帐户内 VM 的功能。
 
-[Azure 资源管理器模板](enable-from-template.md)可帮助将更新管理部署到新的或现有的自动化帐户以及订阅中的 Log Analytics 工作区。
+[Azure 资源管理器模板](enable-from-template.md)可帮助你在新的或现有的自动化帐户中启用更新管理功能，并在你的订阅中 Log Analytics 工作区。 它不会启用具有此功能的 Azure 或非 Azure Vm，该步骤使用前面列出的方法之一执行。
 
 > [!NOTE]
 > 不能使用配置了更新管理功能的计算机从 Azure 自动化运行自定义脚本。 此计算机只能运行 Microsoft 签名的更新脚本。
@@ -106,7 +109,7 @@ ms.locfileid: "92221973"
 
 #### <a name="windows"></a>Windows
 
-Windows 代理必须配置为与 WSUS 服务器通信或需要有权访问 Microsoft 更新。 有关如何安装适用于 Windows 的 Log Analytics 代理的信息，请参阅[将 Windows 计算机连接到 Azure Monitor](../../azure-monitor/platform/agent-windows.md)。
+Windows 代理必须配置为与 WSUS 服务器通信或需要有权访问 Microsoft 更新。 有关如何安装适用于 Windows 的 Log Analytics 代理的信息，请参阅[将 Windows 计算机连接到 Azure Monitor](../../azure-monitor/platform/agent-windows.md)。 对于混合计算机，我们建议通过首先将计算机连接到 [启用了 Azure arc 的服务器](../../azure-arc/servers/overview.md)，然后使用 Azure 策略将 [部署 Log Analytics 代理分配到 windows Azure arc 计算机](../../governance/policy/samples/built-in-policies.md#monitoring) 内置策略，来安装适用于 windows 的 Log Analytics 代理。 如果还计划使用用于 VM 的 Azure Monitor 来监视计算机，请改用 [启用用于 VM 的 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 计划。
 
 可以将更新管理与 Microsoft Endpoint Configuration Manager 配合使用。 若要了解有关集成方案的详细信息，请参阅[将更新管理与 Microsoft Endpoint Configuration Manager](mecmintegration.md)。 对于由 Configuration Manager 环境中的站点托管的 Windows 服务器，需要[适用于 Windows 的 Log Analytics 代理](../../azure-monitor/platform/agent-windows.md)。 
 
@@ -122,7 +125,7 @@ Windows 代理必须配置为与 WSUS 服务器通信或需要有权访问 Micro
 > [!NOTE]
 > 仅特定区域支持 Linux 计算机的更新评估。 请参阅自动化帐户和 Log Analytics 工作区[映射表](../how-to/region-mappings.md#supported-mappings)。
 
-有关如何安装适用于 Linux 的 Log Analytics 代理以及如何下载最新版本的信息，请参阅[适用于 Linux 的 Log Analytics 代理](../../azure-monitor/platform/agent-linux.md)。
+有关如何安装适用于 Linux 的 Log Analytics 代理以及如何下载最新版本的信息，请参阅[适用于 Linux 的 Log Analytics 代理](../../azure-monitor/platform/agent-linux.md)。 对于混合计算机，我们建议通过首先将计算机连接到 [启用了 Azure arc 的服务器](../../azure-arc/servers/overview.md)，然后使用 Azure 策略将 [部署 Log Analytics 代理分配到 Linux Azure arc 计算机](../../governance/policy/samples/built-in-policies.md#monitoring) 内置策略，来安装适用于 Windows 的 Log Analytics 代理。 如果还计划使用用于 VM 的 Azure Monitor 监视计算机，请改用 [启用用于 VM 的 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 计划。
 
 通过 Azure Marketplace 中提供的按需 Red Hat Enterprise Linux (RHEL) 映像创建的 Vm 将被注册，以访问 Azure 中部署的 [Red Hat 更新基础结构 (RHUI) ](../../virtual-machines/workloads/redhat/redhat-rhui.md) 。 对于任何其他 Linux 发行版，必须使用发行版支持的方法从发行版联机文件存储库对其进行更新。
 

@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987482"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677745"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>在 Azure 上安装 TmaxSoft OpenFrame
 
@@ -96,7 +96,7 @@ WinSCP：可使用的常用 SFTP 客户端和 FTP 客户端<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 计划花费几天时间来收集所有必需的软件并完成所有手动过程。
 
@@ -118,15 +118,15 @@ WinSCP：可使用的常用 SFTP 客户端和 FTP 客户端<br/>
 
 1. 中转到 Azure 门户 <https://portal.azure.com> ，并登录到你的帐户。
 
-2. 单击“虚拟机”****。
+2. 单击“虚拟机”  。
 
     ![Azure 门户中的资源列表](media/vm-01.png)
 
-3. 单击“添加”。
+3. 单击“添加”  。
 
     ![Azure 门户中的 "添加" 选项](media/vm-02.png)
 
-4. 在 " **操作系统**" 右侧，单击 " **更多**"。
+4. 在 " **操作系统** " 右侧，单击 " **更多** "。
 
      ![Azure 门户中的更多选项](media/vm-03.png)
 
@@ -134,12 +134,12 @@ WinSCP：可使用的常用 SFTP 客户端和 FTP 客户端<br/>
 
      ![Azure 门户中的操作系统选项](media/vm-04.png)
 
-6. 在 " **基本** 设置" 中，输入 " **名称**"、" **用户名**"、" **身份验证类型**"、" **订阅** (即用即付") 和 " **资源组** (使用现有样式" 或 "创建 TmaxSoft 组") 。
+6. 在 " **基本** 设置" 中，输入 " **名称** "、" **用户名** "、" **身份验证类型** "、" **订阅** (即用即付") 和 " **资源组** (使用现有样式" 或 "创建 TmaxSoft 组") 。
 
-7. 完成 (包括 **身份验证类型**) 的公钥/私钥对时，单击 " **提交**"。
+7. 完成 (包括 **身份验证类型** ) 的公钥/私钥对时，单击 " **提交** "。
 
 > [!NOTE]
-> 如果对 **身份验证类型**使用 SSH 公钥，请参阅下一节中的步骤，以生成公钥/私钥对，并继续执行此处的步骤。
+> 如果对 **身份验证类型** 使用 SSH 公钥，请参阅下一节中的步骤，以生成公钥/私钥对，并继续执行此处的步骤。
 
 ### <a name="generate-a-publicprivate-key-pair"></a>生成公钥/私钥对
 
@@ -162,11 +162,11 @@ WinSCP：可使用的常用 SFTP 客户端和 FTP 客户端<br/>
 
     ![PuTTY 接口](media/puttygen-01.png)
 
-3.  单击“生成”。
+3.  单击“生成”  。
 
-    !["PuTTY 密钥生成器" 对话框](media/puttygen-02.png)
+    ![屏幕截图，显示 "PuTTY 密钥生成器" 对话框，并突出显示 "生成" 按钮。](media/puttygen-02.png)
 
-4.  生成后，保存公钥和私钥。 将公钥的内容粘贴到 "**创建虚拟机 \> 基础知识**" 窗格的 " **SSH 公钥**" 部分中， (前面一节) 的步骤6和7中所示。
+4.  生成后，保存公钥和私钥。 将公钥的内容粘贴到 " **创建虚拟机 \> 基础知识** " 窗格的 " **SSH 公钥** " 部分中， (前面一节) 的步骤6和7中所示。
 
     !["PuTTY 密钥生成器" 对话框](media/puttygen-03.png)
 
@@ -183,23 +183,23 @@ WinSCP：可使用的常用 SFTP 客户端和 FTP 客户端<br/>
 
 4. 提交你的选择。 Azure 会开始部署 VM。 此过程通常需要几分钟时间。
 
-5. 部署 VM 时，将显示其仪表板，并显示在配置期间选择的所有设置。 记下 " **公共 IP 地址**"。
+5. 部署 VM 时，将显示其仪表板，并显示在配置期间选择的所有设置。 记下 " **公共 IP 地址** "。
 
     ![Azure 仪表板上的 tmax](media/create-vm-03.png)
 
 6. 打开 PuTTY。
 
-7. 对于 " **主机名**"，请键入您的用户名和复制的公共 IP 地址。 例如， **用户名 \@ publicip**。
+7. 对于 " **主机名** "，请键入您的用户名和复制的公共 IP 地址。 例如， **用户名 \@ publicip** 。
 
-    !["PuTTY 配置" 对话框](media/putty-01.png)
+    ![屏幕截图，显示 "PuTTY 配置" 对话框，并突出显示 "主机名" (或 "IP 地址") 字段。](media/putty-01.png)
 
-8. 在 " **类别** " 框中，单击 " **连接 \> SSH \> 身份验证**"。提供 **私钥** 文件的路径。
+8. 在 " **类别** " 框中，单击 " **连接 \> SSH \> 身份验证** "。提供 **私钥** 文件的路径。
 
     !["PuTTY 配置" 对话框](media/putty-02.png)
 
 9. 单击 " **打开** " 以启动 "PuTTY" 窗口。 如果成功，则连接到在 Azure 上运行的新 CentOS VM。
 
-10. 若要以 root 用户身份登录，请键入 **sudo bash**。
+10. 若要以 root 用户身份登录，请键入 **sudo bash** 。
 
     ![Root 用户在命令窗口中登录](media/putty-03.png)
 
@@ -207,7 +207,7 @@ WinSCP：可使用的常用 SFTP 客户端和 FTP 客户端<br/>
 
 创建 VM 并登录后，必须执行一些安装步骤并安装所需的预安装包。
 
-1. 使用 vi)  (**将名称映射** 到本地 IP 地址 `vi /etc/hosts` 。 假设我们的 IP 是 192.168.96.148 ofdemo，这是在更改之前：
+1. 使用 vi)  ( **将名称映射** 到本地 IP 地址 `vi /etc/hosts` 。 假设我们的 IP 是 192.168.96.148 ofdemo，这是在更改之前：
 
     ```vi
     127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
@@ -1389,11 +1389,11 @@ JEUS (Java 企业用户解决方案) 提供 OpenFrame web 应用程序服务器�
      > [!NOTE]
      > 如果你遇到与端口安全有关的任何问题，请打开端口9736或禁用防火墙 (`systemctl stop firewall`) 。
 
-14. 若要更改 server1 的主机名，请单击 " **锁定 & 编辑**"，然后单击 " **server1**"。 在服务器窗口中，按如下所示更改主机名：
+14. 若要更改 server1 的主机名，请单击 " **锁定 & 编辑** "，然后单击 " **server1** "。 在服务器窗口中，按如下所示更改主机名：
 
-    1.  将 **Nodename** 更改为 **ofdemo**。
+    1.  将 **Nodename** 更改为 **ofdemo** 。
     2.  在窗口右侧单击 **"确定"** 。
-    3.  单击窗口左下方的 " **应用更改** "，并为 "说明" 输入 *主机名更改*。
+    3.  单击窗口左下方的 " **应用更改** "，并为 "说明" 输入 *主机名更改* 。
 
     ![JEUS WebAdmin 屏幕](media/jeus-02.png)
 

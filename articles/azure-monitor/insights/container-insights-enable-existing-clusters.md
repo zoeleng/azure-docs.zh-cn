@@ -3,13 +3,13 @@ title: 监视已部署的 Azure Kubernetes 服务 (AKS) 群集 | Microsoft Docs
 description: 了解如何使用用于容器的 Azure Monitor 启用对订阅中已部署的 Azure Kubernetes 服务 (AKS) 群集的监视。
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 9f3b9240bc10f4eaa4c9967d8c7bbb956eeab4e1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165394"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735126"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -135,7 +135,7 @@ provisioningState       : Succeeded
     
 4. 在 Kubernetes services 列表中，选择一个服务。
 
-5. 在 "Kubernetes 服务概述" 页上，选择 " **监视-Insights**"。
+5. 在 "Kubernetes 服务概述" 页上，选择 " **监视-Insights** "。
 
 6. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区  。
     列表预先选择了 AKS 容器在订阅中部署到的默认工作区和位置。

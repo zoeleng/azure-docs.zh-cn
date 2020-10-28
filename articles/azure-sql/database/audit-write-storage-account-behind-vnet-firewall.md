@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444540"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677245"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>将审核内容写入到 VNet 和防火墙后面的存储帐户
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -93,7 +93,7 @@ ms.locfileid: "91444540"
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)：
+   [**REST API**](/rest/api/sql/servers/createorupdate)：
 
    示例请求
 

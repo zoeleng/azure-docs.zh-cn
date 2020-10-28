@@ -11,22 +11,22 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 09/21/2020
-ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321418"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676139"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL 数据库和 Azure SQL 托管实例安全功能概述
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 本文概述使用 [Azure SQL 数据库](sql-database-paas-overview.md)和 [Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)保护应用程序数据层的基础知识。 所述的安全策略遵循如下图所示的分层深度防御方法，并从外向内移动：
 
-![分层深层防御关系图。 客户数据 try 网络安全、访问管理和威胁和信息保护层。](./media/security-overview/sql-security-layer.png)
+![分层深度防御的关系图。 客户数据将包含在网络安全层、访问管理层以及威胁和信息保护层中。](./media/security-overview/sql-security-layer.png)
 
-## <a name="network-security"></a>网络安全
+## <a name="network-security"></a>网络安全性
 
 Microsoft Azure SQL 数据库和 SQL 托管实例为云和企业应用程序提供关系数据库服务。 为了帮助保护客户数据，防火墙会阻止对服务器的网络访问，直到根据 IP 地址或 Azure 虚拟网络流量源显式授予访问权限。
 
@@ -52,11 +52,11 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对数据库的访�
 
 身份验证是证明用户所声明身份的过程。 Azure SQL 数据库和 SQL 托管实例支持两种类型的身份验证：
 
-- **SQL 身份验证**：
+- **SQL 身份验证** ：
 
     SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 Azure SQL 托管实例时对用户进行的身份验证。 在创建服务器时，需要指定含用户名和密码的“服务器管理员”登录名。 借助这些凭据，“服务器管理员”可以使用数据库所有者的身份向服务器或实例上的任何数据库进行身份验证。 之后，服务器管理员可以创建额外的 SQL 登录和用户，以允许用户使用用户名和密码进行连接。
 
-- **Azure Active Directory 身份验证**：
+- **Azure Active Directory 身份验证** ：
 
     Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 [Azure SQL 数据库](sql-database-paas-overview.md)、[Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 的一种机制。 使用 Azure AD 身份验证，管理员可在一个中心位置集中管理数据库用户以及其他 Azure 服务的标识和权限。 这包括最小化密码存储并启用集中式密码轮换策略。
 
@@ -77,7 +77,7 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对数据库的访�
 
 行级别安全性使客户可以基于执行查询的用户的特性（例如，组成员身份或执行上下文）来控制对数据库表进行的访问。 行级别安全性也可用于实现基于自定义标签的安全概念。 有关详细信息，请参阅[行级别安全性](/sql/relational-databases/security/row-level-security)。
 
-![显示 Row-Level 安全性阻止用户通过客户端应用访问的单个 SQL 数据库行的关系图。](./media/security-overview/azure-database-rls.png)
+![此图显示了行级别安全性屏蔽了 SQL 数据库的各个行，以防用户通过客户端应用进行访问。](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>威胁防护
 
@@ -91,17 +91,17 @@ SQL 数据库和 SQL 托管实例审核可跟踪数据库活动，通过将数�
 
 高级威胁防护通过对你的日志进行分析来检测异常行为和对数据库的潜在恶意访问或利用。 针对可疑活动（例如 SQL注入、潜在的数据渗透和暴力攻击）或访问模式中的异常情况创建警报，以捕获特权提升和违规的凭据使用。 可以从 [Azure 安全中心](https://azure.microsoft.com/services/security-center/)查看警报，其中提供了可疑活动的详细信息，并给出了进一步调查建议以及缓解威胁的措施。 可以为每台服务器启用高级威胁防护，但需要额外付费。 有关详细信息，请参阅 [SQL 数据库高级威胁防护入门](threat-detection-configure.md)。
 
-![显示 SQL 威胁检测的关系图：监视从外部攻击者和恶意内部的 web 应用对 SQL 数据库的访问。](./media/security-overview/azure-database-td.jpg)
+![此图显示了 SQL 威胁检测正在监视外部攻击者和恶意内部人员对 Web 应用的 SQL 数据库的访问。](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>信息保护和加密
 
 ### <a name="transport-layer-security-encryption-in-transit"></a>传输层安全性（传输中加密）
 
-SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 加密动态数据来保护客户数据。
+SQL Database、SQL 托管实例和 Azure Synapse Analytics 通过使用 [传输层安全性 (TLS) ](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)对运动中的数据进行加密来保护客户数据。
 
-对于所有连接，SQL 数据库和 SQL 托管实例始终强制执行加密 (SSL/TLS)。 这样可以确保在客户端与服务器之间传输的所有数据经过加密，而不管连接字符串中的 **Encrypt** 或 **TrustServerCertificate** 设置如何。
+SQL Database、SQL 托管实例和 Azure Synapse 会对所有连接始终强制加密 (SSL/TLS) 。 这样可以确保在客户端与服务器之间传输的所有数据经过加密，而不管连接字符串中的 **Encrypt** 或 **TrustServerCertificate** 设置如何。
 
-作为最佳做法，建议在应用程序使用的连接字符串中指定加密的连接，而“不要”信任服务器证书__。 这会强制应用程序验证服务器证书，从而防止应用程序容易受到中间人类型的攻击。
+作为最佳做法，建议在应用程序使用的连接字符串中指定加密的连接，而“不要”信任服务器证书  。 这会强制应用程序验证服务器证书，从而防止应用程序容易受到中间人类型的攻击。
 
 例如，在使用 ADO.NET 驱动程序时，这是通过 **Encrypt=True** 和 **TrustServerCertificate=False** 实现的。 如果是从 Azure 门户中获取连接字符串，则它将具有正确的设置。
 
@@ -112,7 +112,7 @@ SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>透明数据加密（静态加密）
 
-[Azure SQL 数据库和 SQL 托管实例的透明数据加密 (TDE)](transparent-data-encryption-tde-overview.md) 进一步加强了安全性，帮助保护静态数据不受未经授权或脱机访问原始文件或备份的影响。 常见方案包括数据中心被盗或对硬件或媒体（如磁盘驱动器和备份磁带）的不安全处置。 TDE 使用 AES 加密算法加密整个数据库，无需应用程序开发人员对现有应用程序进行任何更改。
+[透明数据加密 (适用于 Sql 数据库的 TDE) 、sql 托管实例和 Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) 增加了一层安全保护，以帮助保护静态数据，防止未经授权或脱机访问原始文件或备份。 常见方案包括数据中心被盗或对硬件或媒体（如磁盘驱动器和备份磁带）的不安全处置。 TDE 使用 AES 加密算法加密整个数据库，无需应用程序开发人员对现有应用程序进行任何更改。
 
 在 Azure 中，所有新创建的数据库都默认处于加密状态，且数据库加密密钥通过一个内置的服务器证书保护。  证书维护和轮换由服务管理，无需用户输入。 喜欢控制加密密钥的客户可以管理 [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md) 中的密钥。
 
@@ -122,13 +122,13 @@ SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted（使用中加密）
 
-![显示 Always Encrypted 功能基础知识的关系图。 只有包含密钥的应用才能访问带有锁的 SQL 数据库。](./media/security-overview/azure-database-ae.png)
+![此图显示了 Always Encrypted 功能的基础知识。 只有包含密钥的应用才能访问带锁的 SQL 数据库。](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 功能旨在保护特定数据库列中存储的敏感数据不被访问（如信用卡号或、国民身份证号或视需要而定的数据）。 这包括数据库管理员或其他特权用户，他们被授权访问数据库以执行管理任务，但不需要访问加密列中的特定数据。 数据始终处于加密状态，这意味着加密数据只在有权访问加密密钥的客户端应用程序需要处理数据时才解密。 加密密钥从不暴露给 SQL 数据库或 SQL 托管实例，而且可以存储在 [Windows 证书存储](always-encrypted-certificate-store-configure.md)或 [Azure Key Vault](always-encrypted-azure-key-vault-configure.md) 中。
 
 ### <a name="dynamic-data-masking"></a>动态数据屏蔽
 
-![显示动态数据掩码的关系图。 企业应用将数据发送到 SQL 数据库，该数据库会在将数据发送回业务应用之前对其进行屏蔽。](./media/security-overview/azure-database-ddm.png)
+![此图显示了动态数据掩码。 商业应用将数据发送到 SQL 数据库，该数据库会对数据进行掩码，然后再将其发送回商业应用。](./media/security-overview/azure-database-ddm.png)
 
 动态数据屏蔽通过对非特权用户屏蔽敏感数据来限制敏感数据的公开。 动态数据掩码可自动发现 Azure SQL 数据库和 SQL 托管实例中潜在的敏感数据，提供可行的建议来掩码这些字段，对应用程序层造成的影响可忽略不计。 它的工作原理是在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 有关详细信息，请参阅 [SQL 数据库和 SQL 托管实例动态数据掩码入门](dynamic-data-masking-overview.md)。
 
@@ -136,7 +136,7 @@ SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://
 
 ### <a name="vulnerability-assessment"></a>漏洞评估
 
-[漏洞评估](sql-vulnerability-assessment.md)是一项易于配置的服务，可以发现、跟踪和帮助修正潜在的数据库漏洞，旨在主动提高整体数据库安全性。 漏洞评估 (VA) 是适用于 SQL 的 Azure Defender 产品/服务的一部分，它是一个用于高级 SQL 安全功能的统一软件包。 可以通过用于 SQL 的中央 Azure Defender 门户访问和管理漏洞评估。
+[漏洞评估](sql-vulnerability-assessment.md)是一项易于配置的服务，可以发现、跟踪和帮助修正潜在的数据库漏洞，旨在主动提高整体数据库安全性。 漏洞评估 (VA) 是 Azure Defender for SQL 产品/服务（高级 SQL 安全功能的统一包）的一部分。 可通过中心 Azure Defender for SQL 门户访问和管理漏洞评估。
 
 ### <a name="data-discovery-and-classification"></a>数据发现和分类
 

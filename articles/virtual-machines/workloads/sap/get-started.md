@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ea5995dbd6397c37f88c302754bc7ac1e5ef089
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e9b27224058b41e34995fc0ea8104301c426ea9a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478263"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676080"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 托管和运行 SAP 工作负荷方案
 
@@ -79,6 +79,7 @@ SAP 应用程序层和 DBMS 的高可用性记录在有关[Sap NetWeaver 的 Azu
 
 ## <a name="change-log"></a>更改日志
 
+- 10/26/2020：更改 Azure 高级存储配置的某些表，以明确预配与突发吞吐量 [SAP HANA azure 虚拟机存储配置](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/22/2020：在 [适用于 sap 应用程序的 Azure vm](./high-availability-guide-suse.md)上针对 sap nw 进行的 ha 更改，适用于基于 [和](./high-availability-guide-suse-netapp-files.md)的 azure vm 上的 sap nw 的 HA，适用于 [rhel](./high-availability-guide-rhel.md) 上的 azure vm 上的 sap nw 的 ha，适用于基于 [和](./high-availability-guide-rhel-netapp-files.md) 的 azure vm 上的 sap nw 的 ha，用于调整 net.ipv4.tcp_keepalive_time 的建议  
 - 10/16/2020：在 SLES 上的 LUW 中更改[了 Azure 虚拟机上的 Azure Db2 的 ha](./dbms-guide-ha-ibm.md)，在 rhel 上通过 Pacemaker[实现了 sap nw](./high-availability-guide-rhel.md)的 ha，在 rhel 上，azure VM 上的 sap nw 的 ha，azure vm 上的 sap nw [HA，在](./high-availability-guide-rhel-ibm-db2-luw.md)rhel[多 SID 指南](./high-availability-guide-rhel-multi-sid.md)[上，azure](./high-availability-guide-rhel-netapp-files.md)Vm 上[的](./sap-hana-high-availability-netapp-files-red-hat.md) [sap](./sap-hana-high-availability.md)nw ha，针对 azure vm 上的 sap nw 的[ha，适用于 sap 应用程序的 ha](./high-availability-guide-suse.md)，适用于 azure 上的 SAP NNW 的 ha 多 SID[指南中的](./high-availability-guide-suse-multi-sid.md)azure VM 上的 sap nw ha，适用于 azure 上的 azure VM 上的 sap nw[的 ha](./high-availability-guide-suse-netapp-files.md)，适用于 azure 上[的 azure vm](./high-availability-guide-suse-nfs.md)的和 SAP HANA SAP HANA，[在 RHEL 上，Azure vm 上的 SAP HANA HA](./sap-hana-high-availability-rhel.md)， [RHEL 上的 azure Vm 上使用 Pacemaker SAP HANA 向外扩展 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md)，使用 wsfc 和[共享磁盘为 Sap ASCS/scs 准备 Azure 基础结构](./sap-high-availability-infrastructure-wsfc-shared-disk.md)，使用 wsfc 和[AZURE 共享磁盘为 SAP ASCS/scs 准备多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)，并[使用 wsfc 和共享磁盘为 sap ASCS/scs 启用多 sid ha 指南](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)。 
 - 10/16/2020：添加文档来控制 hana 大型实例的存储快照，以便在 [Hana 大型实例上备份和还原 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)

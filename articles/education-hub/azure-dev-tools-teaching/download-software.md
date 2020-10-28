@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: dbfb2d32b6aab7660f4fc11865122ad44e9732fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095948"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675340"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>帮助学生从 Azure 教育中心下载软件开发人员工具
 
@@ -26,7 +26,7 @@ ms.locfileid: "87095948"
 1. 用面向学生的 Azure 订阅凭据登录。
 1. 在教育中心中选择任何软件开发人员工具，以打开下载窗格。
 1. 阅读软件信息以确保软件与您的计算机系统兼容。
-1. 确认软件与系统兼容后，选择 " **下载**"。
+1. 确认软件与系统兼容后，选择 " **下载** "。
 1. 按照屏幕上的说明下载并安装软件。
 
    面向学生的 Azure 提供为期 12 个月价值 100 美元的额度。 可用于访问超过 25 种免费服务，其中包括计算、网络、存储和数据库。 此期间产生的任何费用都将从额度中扣除。 
@@ -36,5 +36,5 @@ ms.locfileid: "87095948"
 - [获取有关登录错误的帮助](troubleshoot-login.md)
 - [面向学生的 Azure](azure-students-program.md)
 - [面向学生的 Azure 入门版](azure-students-starter-program.md)
-- [Microsoft Learn：免费联机学习平台](https://docs.microsoft.com/learn/)
+- [Microsoft Learn：免费联机学习平台](/learn/)
 - [常见问题解答](program-faq.md#azure-for-students)

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 4c2faa6f015a8c1ce8f360155abdc14367d3057b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330734"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675219"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL 数据库与 Azure SQL 托管实例中的自动优化
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -46,7 +46,7 @@ Azure SQL 数据库和 Azure SQL 托管实例自动优化可能是可用于提�
 
 ![自动优化的工作原理](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-Azure SQL 数据库自动优化与数据库引擎中的 SQL Server 自动优化功能共享其核心逻辑。 有关内置智能机制的其他技术信息，请参阅 [SQL Server 自动优化](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)。
+Azure SQL 数据库自动优化与数据库引擎中的 SQL Server 自动优化功能共享其核心逻辑。 有关内置智能机制的其他技术信息，请参阅 [SQL Server 自动优化](/sql/relational-databases/automatic-tuning/automatic-tuning)。
 
 若要了解自动优化工作原理的概述以及典型使用方案，请观看嵌入视频：
 
@@ -54,8 +54,8 @@ Azure SQL 数据库自动优化与数据库引擎中的 SQL Server 自动优化�
 
 ## <a name="enable-automatic-tuning"></a>启用自动优化
 
-- [在 Azure 门户中为 Azure SQL 数据库启用自动优化](automatic-tuning-enable.md)或使用 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL 语句来启用。
-- 通过使用 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL 语句为 Azure SQL 托管实例启用自动优化。
+- [在 Azure 门户中为 Azure SQL 数据库启用自动优化](automatic-tuning-enable.md)或使用 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL 语句来启用。
+- 通过使用 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL 语句为 Azure SQL 托管实例启用自动优化。
 
 ## <a name="automatic-tuning-options"></a>自动优化选项
 
@@ -65,11 +65,11 @@ Azure SQL 数据库和 Azure SQL 托管实例中可用的自动优化选项包�
 | :----------------------------- | ----- | ----- |
 | **创建索引** - 标识可提高工作负载性能的索引，创建索引，并自动验证查询性能是否有所提高。 | 是 | 否 |
 | **删除索引** - 每日识别冗余和重复的索引，但不包括唯一索引和长时间（>90 天）未使用的索引。 请注意，此选项与使用分区切换和索引提示的应用程序不兼容。 高级和业务关键服务层不支持删除未使用的索引。 | 是 | 否 |
-| **强制执行上一卓越计划**（自动更正计划）- 标识使用执行计划的 Azure SQL 查询（该执行计划速度慢于上一卓越计划），并标识使用上一已知卓越计划的查询而不是回归计划。 | 是 | 是 |
+| **强制执行上一卓越计划** （自动更正计划）- 标识使用执行计划的 Azure SQL 查询（该执行计划速度慢于上一卓越计划），并标识使用上一已知卓越计划的查询而不是回归计划。 | 是 | 是 |
 
 ### <a name="automatic-tuning-for-sql-database"></a>SQL 数据库的自动优化
 
-Azure SQL 数据库的自动优化使用“创建索引”、“删除索引”和“强制执行上一个卓越计划”数据库顾问建议来优化你的数据库性能  。 有关详细信息，请参阅 [Azure 门户中的](database-advisor-find-recommendations-portal.md)、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 中的和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 中的数据库顾问建议。
+Azure SQL 数据库的自动优化使用“创建索引”、“删除索引”和“强制执行上一个卓越计划”数据库顾问建议来优化你的数据库性能  。 有关详细信息，请参阅 [Azure 门户中的](database-advisor-find-recommendations-portal.md)、[PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 中的和 [REST API](/rest/api/sql/serverautomatictuning) 中的数据库顾问建议。
 
 可以使用 Azure 门户手动应用优化建议，也可以让“自动优化”自主为你应用优化建议。 让系统自主为你应用优化建议的好处是，它会自动验证对工作负荷性能是否有正向提升，如果检测不到显著的性能改进，它会自动还原优化建议。 请注意，按照设计，如果受优化建议影响的查询不是频繁执行，则验证阶段可能要花费长达 72 小时。
 
@@ -90,7 +90,7 @@ Azure SQL 数据库的自动优化使用“创建索引”、“删除索引”�
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Azure SQL 托管实例的自动优化
 
-SQL 托管实例的自动优化仅支持“强制执行上一个卓越计划”。 有关通过 T-SQL 配置自动优化选项的详细信息，请参阅[自动优化引入了自动计划更正](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)和[自动计划更正](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction)。
+SQL 托管实例的自动优化仅支持“强制执行上一个卓越计划”。 有关通过 T-SQL 配置自动优化选项的详细信息，请参阅[自动优化引入了自动计划更正](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)和[自动计划更正](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction)。
 
 ## <a name="next-steps"></a>后续步骤
 

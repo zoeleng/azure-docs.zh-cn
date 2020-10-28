@@ -8,20 +8,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: d514460f3cd80b5b85604251743abbbbcd1adc8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2611c9535b9721cccadf35e56bdd21a3020257
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907009"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677443"
 ---
 ### <a name="container-repositories-and-images"></a>容器存储库和映像
 
-下表列出了 Azure 认知服务提供的可用容器映像。 有关所有可用容器映像名称及其可用标记的完整列表，请参阅 [认知服务容器映像标记](../container-image-tags.md)。 
+下表是 Azure 认知服务提供的可用容器映像的列表。 有关所有可用容器映像名称及其可用标记的完整列表，请参阅 [认知服务容器映像标记](../container-image-tags.md)。 
 
 #### <a name="generally-available"></a>正式发布 
 
-Microsoft 容器注册表 (MCR) syndicates 了所有可用于认知服务的通用容器。 还可以直接从 [Docker 中心](https://hub.docker.com/_/microsoft-azure-cognitive-services)获取容器。
+Microsoft 容器注册表 (MCR) 同步发布了认知服务的所有正式发布的容器。 还可直接从 [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services) 获取容器。
 
 **LUIS**
 
@@ -29,24 +29,24 @@ Microsoft 容器注册表 (MCR) syndicates 了所有可用于认知服务的通�
 |--|--|
 | LUIS | `mcr.microsoft.com/azure-cognitive-services/language/luis` |
 
-有关详细信息，请参阅 [如何运行和安装 LUIS 容器](../../LUIS/luis-container-howto.md) 。
+有关详细信息，请参阅[如何运行和安装 LUIS 容器](../../LUIS/luis-container-howto.md)。
 
 **文本分析**
 
 | 容器 | 容器注册表/存储库/映像名称 |
 |--|--|
-| 情绪分析 v3 (英语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en` |
-| 情绪分析 v3 (西班牙语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-es` |
-| 情绪分析 v3 (法语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-fr` |
-| 情绪分析 v3 (意大利语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-it` |
-| 情绪分析 v3 (德语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-de` |
-| 情绪分析 v3 (简体中文)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zh` |
-| 情绪分析 v3 (中文-繁体)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zht` |
-| 情绪分析 v3 (日语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-ja` |
-| 情绪分析 v3 (葡萄牙语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-pt` |
-| 情绪分析 v3 (荷兰语)  | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-nl` |
+| 情绪分析 v3（英语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en` |
+| 情绪分析 v3（西班牙语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-es` |
+| 情绪分析 v3（法语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-fr` |
+| 情绪分析 v3（意大利语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-it` |
+| 情绪分析 v3（德语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-de` |
+| 情绪分析 v3（简体中文） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zh` |
+| 情绪分析 v3（繁体中文） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zht` |
+| 情绪分析 v3（日语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-ja` |
+| 情绪分析 v3（葡萄牙语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-pt` |
+| 情绪分析 v3（荷兰语） | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-nl` |
 
-有关详细信息，请参阅 [如何运行和安装文本分析容器](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) 。
+有关详细信息，请参阅[如何运行和安装文本分析容器](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md)。
 
 **异常检测器** 
 
@@ -63,13 +63,13 @@ Microsoft 容器注册表 (MCR) syndicates 了所有可用于认知服务的通�
 
 | 容器 | 容器注册表/存储库/映像名称 |
 |--|--|
-| [语音到文本](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
+| [语音转文本](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
 | [自定义语音转文本](../../speech-service/speech-container-howto.md?tab=cstt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text` |
-| [文本到语音转换](../../speech-service/speech-container-howto.md?tab=tts) | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` |
+| [文本转语音](../../speech-service/speech-container-howto.md?tab=tts) | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` |
 
 #### <a name="ungated-preview"></a>"无选通" 预览版 
 
-以下预览容器是公开提供的。 Microsoft 容器注册表 (MCR) syndicates 用于认知服务的所有公开的无选通容器。 还可以直接从 [Docker 中心](https://hub.docker.com/_/microsoft-azure-cognitive-services)获取容器。
+以下预览版容器现已公开提供。 Microsoft 容器注册表 (MCR) 同步发布了认知服务的所有公共可用的“非门控式”容器。 还可直接从 [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services) 获取容器。
 
 | 服务 | 容器 | 容器注册表/存储库/映像名称 |
 |--|--|--|
@@ -87,7 +87,7 @@ Microsoft 容器注册表 (MCR) syndicates 了所有可用于认知服务的通�
 
 | 服务 | 容器 | 容器注册表/存储库/映像名称 |
 |--|--|--|
-| [计算机视觉](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| [计算机视觉](../../Computer-vision/computer-vision-how-to-install-containers.md) | 读取 v2。0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | [计算机视觉](../../Computer-vision/computer-vision-how-to-install-containers.md) | 读取3.1 版 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 | [计算机视觉](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | 空间分析 | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [语音服务 API](../../speech-service/speech-container-howto.md?tab=ctts) | 自定义文本到语音转换 | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |

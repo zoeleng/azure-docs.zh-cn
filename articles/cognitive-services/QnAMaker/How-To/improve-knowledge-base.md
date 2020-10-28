@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776487"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678364"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>接受知识库中的活动学习建议问题
 
@@ -22,15 +22,15 @@ ms.locfileid: "91776487"
 
 ## <a name="turn-on-active-learning"></a>启用主动学习
 
-若要查看建议的问题，必须打开 QnA Maker 资源的 [活动学习](use-active-learning.md) 。
+若要查看建议的问题，必须打开 QnA Maker 资源的 [活动学习](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) 。
 
 ## <a name="view-suggested-questions"></a>查看建议的问题
 
-1. 若要查看建议的问题，请在 " **编辑** 知识库" 页上选择 " **查看选项**"，然后选择 " **显示活动的学习建议**"。
+1. 若要查看建议的问题，请在 " **编辑** 知识库" 页上选择 " **查看选项** "，然后选择 " **显示活动的学习建议** "。
 
     [![在门户的 "编辑" 部分中，选择 "显示建议"，以查看活动学习的新问题备选方案。](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. 通过选择 " **按建议筛选**" 来使用问题和答案对筛选知识库，以便仅显示建议。
+1. 通过选择 " **按建议筛选** " 来使用问题和答案对筛选知识库，以便仅显示建议。
 
     [![使用 "按建议筛选" 切换来仅查看活动学习的建议问题备选方案。](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -38,9 +38,9 @@ ms.locfileid: "91776487"
 
     [![选择或拒绝活动学习的建议问题，方法是选择绿色复选标记或红色删除标记。](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
-    您可以通过在上下文工具栏中选择 "**全部添加**" 或 "**全部拒绝**" 来添加或删除_所有建议_。
+    您可以通过在上下文工具栏中选择 " **全部添加** " 或 " **全部拒绝** " 来添加或删除 _所有建议_ 。
 
-1. 选择“保存并训练”****，将所做的更改保存到知识库。
+1. 选择“保存并训练”  ，将所做的更改保存到知识库。
 
 1. 选择 " **发布** " 以允许在 [GenerateAnswer API](metadata-generateanswer-usage.md#generateanswer-request-configuration)中提供更改。
 
@@ -134,8 +134,8 @@ Content-Type: application/json
 |--|--|--|--|
 |URL 路由参数|知识库 ID|字符串|知识库的 GUID。|
 |自定义子域|QnAMaker 资源名称|字符串|资源名称用作 QnA Maker 的自定义子域。 发布知识库后，可以在 "设置" 页上找到此功能。 它作为列出 `host` 。|
-|Header|Content-Type|字符串|发送到 API 的正文的媒体类型。 默认值为： `application/json`|
-|Header|授权|字符串|终结点密钥 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
+|标头|Content-Type|字符串|发送到 API 的正文的媒体类型。 默认值为： `application/json`|
+|标头|授权|字符串|终结点密钥 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
 |POST 正文|JSON 对象|JSON|培训反馈|
 
 JSON 正文具有几个设置：

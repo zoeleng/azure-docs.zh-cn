@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489837"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676261"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>快速入门：使用 Azure CLI 将存储事件路由到 Web 终结点
 
@@ -24,7 +24,7 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，请使用 
 
 完成本文所述步骤后，即可看到事件数据已发送到 Web 应用。
 
-![查看订阅事件](./media/storage-blob-event-quickstart/view-results.png)
+![Azure 事件网格查看器的屏幕截图，显示已发送到 web 应用的事件数据。](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，请使用 
 
 使用 [az group create](/cli/azure/group) 命令创建资源组。 
 
-下面的示例在 westcentralus 位置创建了一个名为 `<resource_group_name>` 的资源组**。  将 `<resource_group_name>` 替换为资源组的唯一名称。
+下面的示例在 westcentralus 位置创建了一个名为 `<resource_group_name>` 的资源组  。  将 `<resource_group_name>` 替换为资源组的唯一名称。
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus

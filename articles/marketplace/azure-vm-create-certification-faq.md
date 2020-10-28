@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331288"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677802"
 ---
 # <a name="vm-certification-troubleshooting"></a>VM 认证故障排除
 
@@ -37,6 +37,9 @@ ms.locfileid: "92331288"
 > [!Note]
 > 如果使用的是不是从 Azure Marketplace 获取的 Linux 基础映像，则可以将第一个分区偏移 2048 KB。 这允许使用未格式化的空间来添加新的计费信息，并允许 Azure 将 VM 发布到 Azure Marketplace。  
 
+> [!Note]
+> 如果使用的是不是从 Marketplace 获取的 Linux 基础映像，则可以将第一个分区偏移 2048 KB。 这允许使用未格式化的空间来添加新的计费信息，并允许 Azure 将 VM 发布到 Marketplace。  
+
 ## <a name="vm-extension-failure"></a>VM 扩展失败
 
 查看映像是否支持 VM 扩展。
@@ -44,18 +47,18 @@ ms.locfileid: "92331288"
 若要启用 VM 扩展，请执行以下操作：
 
 1. 选择你的 Linux VM。
-1. 请参阅 " **诊断设置**"。
-1. 通过更新 **存储帐户**启用基本矩阵。
-1. 选择“保存”。
+1. 请参阅 " **诊断设置** "。
+1. 通过更新 **存储帐户** 启用基本矩阵。
+1. 选择“保存” 。
 
    ![启用来宾级监视](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 若要验证是否已正确激活 VM 扩展，请执行以下操作：
 
-1. 在 VM 中，选择 " **vm 扩展** " 选项卡，然后验证 **Linux 诊断扩展**的状态。
+1. 在 VM 中，选择 " **vm 扩展** " 选项卡，然后验证 **Linux 诊断扩展** 的状态。
 1. 
-    * 如果 "状态" *设置*为 "已成功"，则已通过扩展测试用例。  
-    * 如果状态为 " *预配失败*"，则扩展测试用例失败，需要设置强化标志。
+    * 如果 "状态" *设置* 为 "已成功"，则已通过扩展测试用例。  
+    * 如果状态为 " *预配失败* "，则扩展测试用例失败，需要设置强化标志。
 
       ![显示预配已成功的屏幕截图](./media/create-vm/vm-certification-issues-solutions-2.png)
 
@@ -67,7 +70,7 @@ ms.locfileid: "92331288"
 
 预配问题可能包括以下故障方案：
 
-|场景|错误|Reason|解决方案|
+|方案|错误|Reason|解决方案|
 |---|---|---|---|
 |1|虚拟硬盘 (VHD 无效) |如果 VHD 页脚中的指定 cookie 值不正确，则 VHD 将被视为无效。|重新创建映像并提交请求。|
 |2|无效的 blob 类型|VM 预配失败，因为使用的块是 blob 类型而不是页类型。|重新创建映像并提交请求。|
@@ -99,7 +102,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 下表列出了工具包将运行的 Linux 测试用例。 说明中说明了测试验证。
 
-|场景|测试用例|说明|
+|方案|测试用例|说明|
 |---|---|---|
 |1|Bash 历史记录|在创建 VM 映像之前，应清除 Bash 历史记录文件。|
 |2|Linux 代理版本|应安装 Azure Linux 代理2.2.41 或更高版本。|
@@ -116,18 +119,18 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 下表列出了在执行前面的测试用例时发现的常见错误：
  
-|场景|测试用例|错误|解决方案|
+|方案|测试用例|错误|解决方案|
 |---|---|---|---|
 |1|Linux 代理版本测试用例|最低 Linux 代理版本为2.2.41 或更高版本。 此要求是必需的，因为2020年5月1日。|请更新 Linux 代理版本，该版本应为2.241 或更高版本。 有关详细信息，可以访问 [Linux 代理版本更新页](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。|
 |2|Bash 历史记录测试用例|如果提交图像的 bash 历史记录大小超过 1 kb (KB) ，将会出现错误。 大小限制为 1 KB，以确保不会在 bash 历史记录文件中捕获任何潜在的敏感信息。|若要解决此问题，请将 VHD 装载到任何其他工作 VM，并进行所需的任何更改 (例如，删除 *bash* history 文件) 将大小减小到小于或等于 1 KB。|
-|3|必需的内核参数测试用例|如果 **console** 的值未设置为 **ttyS0**，则会收到此错误。 通过运行以下命令进行检查：<br>`cat /proc/cmdline`|将 **console** 的值设置为 **ttyS0**，然后重新提交请求。|
-|4|ClientAlive 间隔测试用例|如果该测试用例的工具包结果提供了失败的结果，则 **ClientAliveInterval**的值不正确。|将 **ClientAliveInterval** 的值设置为小于或等于235，然后重新提交请求。|
+|3|必需的内核参数测试用例|如果 **console** 的值未设置为 **ttyS0** ，则会收到此错误。 通过运行以下命令进行检查：<br>`cat /proc/cmdline`|将 **console** 的值设置为 **ttyS0** ，然后重新提交请求。|
+|4|ClientAlive 间隔测试用例|如果该测试用例的工具包结果提供了失败的结果，则 **ClientAliveInterval** 的值不正确。|将 **ClientAliveInterval** 的值设置为小于或等于235，然后重新提交请求。|
 
 ### <a name="windows-test-cases"></a>Windows 测试用例
 
 下表列出了工具包将运行的 Windows 测试用例，以及测试验证的说明：
 
-|场景 |测试事例|说明|
+|方案 |测试事例|说明|
 |---|---|---|---|
 |1|OS 体系结构|Azure 仅支持64位操作系统。|
 |2|用户帐户依赖项|应用程序的执行不应依赖于管理员帐户。|
@@ -148,7 +151,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 |17|无线 LAN 服务|无线 LAN 服务。 此服务器功能尚不受支持。 应用程序不应依赖于此功能。|
 |
 
-如果前面的测试用例遇到任何故障，请参阅该解决方案的表中的 " **说明** " 列。 如果需要详细信息，请与支持团队联系。
+如果前面的测试用例遇到任何故障，请参阅该解决方案的表中的 " **说明** " 列。 如果需要详细信息，请与支持团队联系。 
 
 ## <a name="data-disk-size-verification"></a>数据磁盘大小验证
 
@@ -170,7 +173,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 |VHD 大小|实际占用的大小|解决方案|
 |---|---|---|
-|>500 tib (TiB) |不适用|请联系支持团队以获取异常批准。|
+|>500 tib (TiB) |n/a|请联系支持团队以获取异常批准。|
 |250-500 TiB|>200 gb (GiB) 与 blob 大小的差异|请联系支持团队以获取异常批准。|
 |
 
@@ -181,7 +184,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 若要防止与 WannaCry 病毒相关的潜在攻击，请确保使用最新修补程序更新所有 Windows 映像请求。
 
-若要查看 Windows Server 修补版本的操作系统详细信息及其支持的最低版本，请参阅下表：
+若要查看 Windows Server 修补版本的操作系统详细信息及其支持的最低版本，请参阅下表： 
 
 可以通过或验证图像文件版本 `C:\windows\system32\drivers\srv.sys` `srv2.sys` 。
 
@@ -205,20 +208,20 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 如果映像未与以下某个内核版本一起安装，请将其更新为正确的修补程序。 在用以下必需的修补程序更新映像后，请求支持团队提供必要的批准：
 
-- CVE-2019-11477
-- CVE-2019-11478
+- CVE-2019-11477 
+- CVE-2019-11478 
 - CVE-2019-11479
 
 |OS 系列|版本|内核|
 |---|---|---|
-|Ubuntu|14.04 LTS|4.4.0-151|
+|Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049-*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
-||18.10 |4.18.0-1023|
-||19.04 |5.0.0-1010|
-||19.04 |5.3.0-1004|
+||18.10|4.18.0-1023|
+||19.04|5.0.0-1010|
+||19.04|5.3.0-1004|
 |RHEL 和美分 OS|6.10|2.6.32-754.15。3|
 ||7.2|3.10.0-327.79。2|
 ||7.3|3.10.0-514.66。2|
@@ -230,8 +233,8 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 ||8.1|4.18.0-147|
 ||"7-RAW" (7.6) ||
 ||"7-LVM" (7.6) |3.10.0-957.21。3|
-||RHEL-SAP 7。4|TBD|
-||RHEL-SAP 7。5|TBD|
+||RHEL-SAP 7。4|待定|
+||RHEL-SAP 7。5|待定|
 |SLES|SLES11SP4 (包括 SAP) |3.0.101-108.95.2|
 ||适用于 SAP 的 SLES12SP1|3.12.74-60.64.115.1|
 ||适用于 SAP 的 SLES12SP2|4.4.121-92.114.1|
@@ -242,7 +245,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 ||SLES15|4.12.14-5.30.1 (内核-azure) |
 ||适用于 SAP 的 SLES15|4.12.14-5.30.1 (内核-azure) |
 ||SLES15SP1|4.12.14-5.30.1 (内核-azure) |
-|Oracle|6.10|UEK2 2.6.39-400.312。2<br>UEK3 3.8.13-118.35。2<br>RHCK 2.6.32-754.15。3
+|Oracle|6.10|UEK2 2.6.39-400.312。2<br>UEK3 3.8.13-118.35。2<br>RHCK 2.6.32-754.15。3 
 ||7.0-7。5|UEK3 3.8.13-118.35。2<br>UEK4 4.1.12-124.28。3<br>RHCK 遵循 RHEL|
 ||7.6|RHCK 3.10.0-957.21。3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS 稳定2079.6。0|4.19.43*|
@@ -267,13 +270,22 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 
 检查是否为运行自测事例的帐户启用了正确的访问权限。 如果未启用访问权限，请启用它以运行测试用例。 如果你不想启用访问，则可能会与支持团队共享自测用例结果。
 
-## <a name="download-failure"></a>下载失败
+如果你想要提交针对认证过程的 SSH 禁用映像请求，请遵循以下步骤
 
+1. 在映像中执行 Azure 工具包。  (请下载 [最新工具包](https://aka.ms/AzureCertificationTestTool)
+
+2. 提起 [支持票证](https://aka.ms/marketplacepublishersupport)，附加工具包报告并提供产品/服务详细信息-产品/服务名称、发布者名称、计划 ID/SKU 和版本。
+
+3. 请重新提交证书申请。
+
+
+## <a name="download-failure"></a>下载失败
+    
 请参阅下表，了解当你使用共享访问签名 (SAS) URL 下载 VM 映像时出现的任何问题。
 
-|场景|错误|Reason|解决方案|
+|方案|错误|Reason|解决方案|
 |---|---|---|---|
-|1|找不到 Blob|VHD 可以从指定位置删除或移动。||
+|1|找不到 Blob|VHD 可以从指定位置删除或移动。|| 
 |2|Blob 正在使用中|VHD 由其他内部进程使用。|使用 SAS URL 下载 VHD 时，VHD 应处于已使用状态。|
 |3|无效 SAS URL|VHD 的关联 SAS URL 不正确。|获取正确的 SAS URL。|
 |4|签名无效|VHD 的关联 SAS URL 不正确。|获取正确的 SAS URL。|
@@ -288,13 +300,98 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 >[!NOTE]
 >* 对于某些特殊的映像，例如从 Azure Marketplace 获取的 Azure Windows 基准映像的基础，我们将检查计费标记，如果计费标记存在并且与我们的内部可用值匹配，则忽略 MB 分区。
 
+
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-on-an-empty-vhd"></a> (2048 KB) 分区 (仅用于在空 VHD 上的 Linux) 中创建第一个 MB 的步骤
+
+步骤1：创建任意类型的 VM (例如： Ubuntu、分币 OS 等) 。 填写必填字段，然后单击 "下一步：磁盘>" \
+![下一步：磁盘命令](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+步骤2：为上述 VM 创建非托管磁盘。
+![创建非托管磁盘](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+请注意，可以采用默认值，也可以指定 NSG 和公共 IP 等字段的任何值。
+
+步骤3：创建 VM 后，请单击左侧的 "磁盘"，如下所示 ![ 单击 "磁盘"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+步骤4：请将 VHD 作为数据磁盘附加到上述 VM，以创建分区表，如下所示。
+![附加 VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+单击 "添加 DataDisk-> 现有 Blob-> 浏览 VHD 存储帐户-> 容器-> 选择 VHD-> 单击" 确定 "，如下所示 \
+![选择 VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+你的 VHD 将作为数据磁盘 LUN 0 添加，请在添加磁盘后重新启动 VM
+
+步骤5：重新启动 VM 后，使用 Putty (或任何其他客户端) 登录到 VM，并运行 "sudo-i" 命令获取根访问权限。
+
+![登录到 VM](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+步骤6：按照以下步骤在 VHD 上创建分区。
+
+) 类型 fdisk/dev/sdb 命令
+
+b) 从 VHD 查看现有分区列表，请键入 p
+
+c) 键入 d 以删除 VHD 中的所有现有分区 (如果不需要此步骤) ![ 删除所有现有分区，则可以跳过此步骤](./media/create-vm/vm-certification-issues-solutions-21.png)
+
+d) 键入 n 创建新分区，并为 (主分区) 选择 p。
+
+e) 请输入2048作为 "第一个扇区" 值，可以保留 "last 扇区"，因为它将采用默认值。请注意，所有数据都将被清除到 2048 KB 之间。
+           
+>[!NOTE]
+>* 请注意，通过创建分区时，所有现有数据都将被清除到 2048 KB，因此建议在执行上述命令之前对 VHD 进行备份。
+
+请在下面的屏幕截图中查找参考。
+![擦除的数据](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+f) 键入 w 以确认分区的创建。 
+
+![创建分区](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+g) 你可以通过运行命令 "/dev/sdb" 和键入 p 来验证分区表，然后你可以看到如下所示的分区，其中包含 2048 offset 值。 
+
+ ![2048偏移](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+步骤7：请从 VM 分离 VHD，并删除 VM。
+
+         
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-by-moving-the-existing-data-on-vhd"></a>通过移动 VHD 上的现有数据，创建第一个 MB (2048 KB) 分区)  (的步骤
+
+步骤1：创建任意类型的 VM (例如： Ubuntu、分币 OS 等) 。 填写必填字段，然后单击 "下一步：磁盘>" \
+![单击 "下一步：磁盘>"](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+步骤2：为上述 VM 创建非托管磁盘。
+![创建非托管磁盘](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+请注意，可以采用默认值，也可以指定 NSG 和公共 IP 等字段的任何值。
+
+步骤3：创建 VM 后，请单击左侧的 "磁盘"，如下所示 ![ 单击 "磁盘"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+步骤4：请将 VHD 作为数据磁盘附加到上述 VM，以创建分区表，如下所示。
+![分区表](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+单击 "添加 DataDisk-> 现有 Blob-> 浏览 VHD 存储帐户-> 容器-> 选择 VHD-> 单击" 确定 "，如下所示 \
+![选择 VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+你的 VHD 将作为数据磁盘 LUN 0 添加，请在添加磁盘后重新启动 VM
+
+步骤5：重新启动 VM 后，使用 Putty 登录到 VM，并运行 "sudo-i" 命令获取根访问权限。 \
+![重新启动后登录](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+步骤6：请 excute 命令回显 "+ 1M" |sfdisk--/dev/sdc-N ![ Execute 命令](./media/create-vm/vm-certification-issues-solutions-25.png)
+
+>[!NOTE]
+>* 请注意，上面的命令可能需要更长时间才能完成，因为它取决于磁盘的大小
+
+步骤7：请从 VM 分离 VHD，并删除 VM。
+
+
 ## <a name="default-credentials"></a>默认凭据
 
 请始终确保不会随提交的 VHD 一起发送默认凭据。 添加默认凭据会使 VHD 更容易受到安全威胁。 请改为在提交 VHD 时创建自己的凭据。
   
 ## <a name="datadisk-mapped-incorrectly"></a>DataDisk 映射不正确
 
-当使用多个数据磁盘提交请求，但未按顺序排列时，这会被视为映射问题。 例如，如果有三个数据磁盘，则编号顺序必须是 *0、1、2*。 任何其他订单都被视为一个映射问题。
+当使用多个数据磁盘提交请求，但未按顺序排列时，这会被视为映射问题。 例如，如果有三个数据磁盘，则编号顺序必须是 *0、1、2* 。 任何其他订单都被视为一个映射问题。
 
 请重新提交请求，并对数据磁盘进行适当的排序。
 
@@ -306,11 +403,11 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 
 如果要重复使用从 Azure Marketplace 获取的所有映像，则必须通用化操作系统 VHD。
 
-* 对于 **linux**，以下过程通用化 linux vm，并将其重新部署为单独的 vm。
+* 对于 **linux** ，以下过程通用化 linux vm，并将其重新部署为单独的 vm。
 
   在 SSH 窗口中，输入以下命令： `sudo waagent -deprovision+user`
 
-* 对于 **windows**，你使用来通用化 windows 映像 `sysreptool` 。
+* 对于 **windows** ，你使用来通用化 windows 映像 `sysreptool` 。
 
 有关此工具的详细信息，请参阅 [系统准备 (Sysprep) 概述]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)。
 
@@ -326,7 +423,7 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 
 ## <a name="remote-access-issue"></a>远程访问问题
 
-如果没有为 Windows 映像启用远程桌面协议 (RDP) 选项，将收到此错误。
+如果没有为 Windows 映像启用远程桌面协议 (RDP) 选项，将收到此错误。 
 
 提交 Windows 映像之前对其启用 RDP 访问。
 
@@ -404,10 +501,10 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 若要完成这些步骤，需要为要添加的 VM 映像准备技术资产。 有关详细信息，请参阅 [使用已批准的基础创建虚拟机](azure-vm-create-using-approved-base.md) 或 [使用自己的映像创建虚拟机](azure-vm-create-using-own-image.md)，并 [为 VM 映像生成 SAS URI](azure-vm-get-sas-uri.md)。
 
 1. 登录[合作伙伴中心](https://partner.microsoft.com/dashboard/home)。
-2. 在左侧导航菜单中，选择 "**商业市场**  >  **概述**"。
+2. 在左侧导航菜单中，选择 " **商业市场**  >  **概述** "。
 3. 在 " **产品/服务别名** " 列中，选择产品/服务。
 4. 在 " **计划概述** " 选项卡上的 " **名称** " 列中，选择要将 VM 添加到其中的计划。
-5. 在 " **技术配置** " 选项卡上的 " **VM 映像** " 下，选择 " **+ 添加 VM 映像**"。
+5. 在 " **技术配置** " 选项卡上的 " **VM 映像** " 下，选择 " **+ 添加 VM 映像** "。
 
 > [!NOTE]
 > 一次只能向一个计划添加一个 VM 映像。 要添加多个 VM 映像，请先发布第一个 VM 映像，然后再添加下一个 VM 映像。
@@ -420,20 +517,20 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>删除具有安全漏洞或攻击的 VM 映像
 
 1. 登录[合作伙伴中心](https://partner.microsoft.com/dashboard/home)。
-2. 在左侧导航菜单中，选择 "**商业市场**  >  **概述**"。
+2. 在左侧导航菜单中，选择 " **商业市场**  >  **概述** "。
 3. 在 " **产品/服务别名** " 列中，选择产品/服务。
 4. 在 " **计划概述** " 选项卡上的 " **名称** " 列中，选择包含要删除的 VM 的计划。
-5. 在 " **技术配置** " 选项卡上的 " **vm 映像** " 下，在要删除的 vm 映像旁边，选择 " **删除 vm 映像**"。
-6. 在出现的对话框中，选择 " **继续**"。
+5. 在 " **技术配置** " 选项卡上的 " **vm 映像** " 下，在要删除的 vm 映像旁边，选择 " **删除 vm 映像** "。
+6. 在出现的对话框中，选择 " **继续** "。
 7. 选择“保存草稿”。
 
 请继续下一节来重新发布产品/服务。
 
 #### <a name="republish-the-offer"></a>重新发布产品/服务
 
-1. 选择 " **查看并发布**"。
+1. 选择 " **查看并发布** "。
 2. 如果需要向证书团队提供任何信息，请将其添加到 " **证书的说明** " 框。
-3. 选择“发布”。
+3. 选择“发布”  。
 
 若要完成发布过程，请参阅 [查看和发布产品/服务](review-publish-offer.md)。
 

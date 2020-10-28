@@ -3,12 +3,12 @@ title: 了解适用于 Kubernetes 的 Azure 策略
 description: 了解 Azure Policy 如何使用 Rego 和 Open Policy Agent 来管理在 Azure 或本地运行 Kubernetes 的群集。
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1747e770da420a3448e97628806733459fe07a49
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366983"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676698"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>了解用于 Kubernetes 群集的 Azure Policy
 
@@ -25,7 +25,7 @@ Azure Policy 将扩展 [Gatekeeper](https://github.com/open-policy-agent/gatekee
 - [AKS 引擎](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> AKS 引擎和启用了 Arc 的 Kubernetes 的外接程序处于 **预览**状态。 适用于 Kubernetes 的 Azure 策略仅支持 Linux 节点池和内置策略定义。 内置策略定义属于“Kubernetes”类别。 不_推荐_使用**EnforceOPAConstraint**和**EnforceRegoPolicy**效果和相关**Kubernetes 服务**类别的有限预览策略定义。 请改用 "使用 _审核_ 和 _拒绝_ " 作为资源提供程序模式 `Microsoft.Kubernetes.Data` 。
+> AKS 引擎和启用了 Arc 的 Kubernetes 的外接程序处于 **预览** 状态。 适用于 Kubernetes 的 Azure 策略仅支持 Linux 节点池和内置策略定义。 内置策略定义属于“Kubernetes”类别。 不 _推荐_ 使用 **EnforceOPAConstraint** 和 **EnforceRegoPolicy** 效果和相关 **Kubernetes 服务** 类别的有限预览策略定义。 请改用 "使用 _审核_ 和 _拒绝_ " 作为资源提供程序模式 `Microsoft.Kubernetes.Data` 。
 
 ## <a name="overview"></a>概述
 
@@ -62,7 +62,7 @@ Azure Policy 将扩展 [Gatekeeper](https://github.com/open-policy-agent/gatekee
 以下限制仅适用于 AKS 的 Azure 策略外接程序：
 
 - [AKS Pod 安全策略](../../../aks/use-pod-security-policies.md) 和用于 AKS 的 Azure 策略外接程序不能同时启用。 有关详细信息，请参阅 [AKS pod 安全限制](../../../aks/use-pod-security-on-azure-policy.md#limitations)。
-- 用于评估的 Azure 策略外接程序自动排除的命名空间： _kube_、 _gatekeeper-system_ _aks 和 periscope_。
+- 用于评估的 Azure 策略外接程序自动排除的命名空间： _kube_ 、 _gatekeeper-system_ _aks 和 periscope_ 。
 
 ## <a name="recommendations"></a>建议
 
@@ -107,7 +107,7 @@ Azure Policy 将扩展 [Gatekeeper](https://github.com/open-policy-agent/gatekee
      az provider register --namespace Microsoft.PolicyInsights
      ```
 
-1. 如果安装了有限的预览策略定义，请在 "**策略**" 页下的 AKS 群集中删除带 "**禁用**" 按钮的外接程序。
+1. 如果安装了有限的预览策略定义，请在 " **策略** " 页下的 AKS 群集中删除带 " **禁用** " 按钮的外接程序。
 
 1. AKS 群集的版本必须是 1.14 或更高版本。 使用以下脚本验证 AKS 群集版本：
 
@@ -124,7 +124,7 @@ Azure Policy 将扩展 [Gatekeeper](https://github.com/open-policy-agent/gatekee
 
 - Azure 门户
 
-  1. 通过选择 " **所有服务**"，然后搜索并选择 " **Kubernetes 服务**"，在 Azure 门户中启动 AKS 服务。
+  1. 通过选择 " **所有服务** "，然后搜索并选择 " **Kubernetes 服务** "，在 Azure 门户中启动 AKS 服务。
 
   1. 选择 AKS 群集之一。
 
@@ -160,7 +160,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-最后，通过运行此 Azure CLI 命令，并将 `<rg>` 替换为资源组名称，将 `<cluster-name>` 替换为 AKS 群集名称 `az aks show -g <rg> -n <cluster-name>`，来验证是否已安装最新的加载项。 结果应类似于以下输出，config.version 应为 `v2`：
+最后，通过运行此 Azure CLI 命令，并将 `<rg>` 替换为资源组名称，将 `<cluster-name>` 替换为 AKS 群集名称 `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`，来验证是否已安装最新的加载项。 结果应类似于以下输出，config.version 应为 `v2`：
 
 ```output
 "addonProfiles": {
@@ -374,7 +374,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Policy 语言
 
-用于管理 Kubernetes 的 Azure Policy 语言结构遵循现有策略定义。 使用的 [资源提供程序模式](./definition-structure.md#resource-provider-modes) `Microsoft.Kubernetes.Data` ，会使用 " [审核](./effects.md#audit) " 和 " [拒绝](./effects.md#deny) " 来管理你的 Kubernetes 群集。 _审核_和_拒绝_必须提供特定于使用[OPA 约束框架](https://github.com/open-policy-agent/frameworks/tree/master/constraint)和网关守卫 v3 的**详细信息**属性。
+用于管理 Kubernetes 的 Azure Policy 语言结构遵循现有策略定义。 使用的 [资源提供程序模式](./definition-structure.md#resource-provider-modes) `Microsoft.Kubernetes.Data` ，会使用 " [审核](./effects.md#audit) " 和 " [拒绝](./effects.md#deny) " 来管理你的 Kubernetes 群集。 _审核_ 和 _拒绝_ 必须提供特定于使用 [OPA 约束框架](https://github.com/open-policy-agent/frameworks/tree/master/constraint)和网关守卫 v3 的 **详细信息** 属性。
 
 作为策略定义中 details.constraintTemplate 和 details.constraint 属性的一部分，Azure Policy 将这些 [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) 的 URI 传递给加载项 。 Rego 是 OPA 和 Gatekeeper 支持的语言，用于验证对 Kubernetes 群集的请求。 通过支持 Kubernetes 管理的现有标准，Azure Policy 可重用现有规则并将其与 Azure Policy 配对以获得统一的云符合性报告体验。 有关详细信息，请参阅[什么是 Rego？](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)。
 
@@ -405,7 +405,7 @@ kubectl get pods -n gatekeeper-system
 
    - 已禁用 - 不在群集上强制实施策略。 不拒绝带有冲突的 Kubernetes 许可请求。 符合性评估结果仍可用。 向运行群集推出新策略定义时，“已禁用”选项可用于测试策略定义，因为不拒绝带有冲突的许可请求。
 
-1. 选择“**下一页**”。
+1. 选择“ **下一页** ”。
 
 1. 设置参数值
 
@@ -461,7 +461,7 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 
 - Azure 门户
 
-  1. 通过选择 " **所有服务**"，然后搜索并选择 " **Kubernetes 服务**"，在 Azure 门户中启动 AKS 服务。
+  1. 通过选择 " **所有服务** "，然后搜索并选择 " **Kubernetes 服务** "，在 Azure 门户中启动 AKS 服务。
 
   1. 选择要在其中禁用 Azure Policy 加载项的 AKS 群集。
 

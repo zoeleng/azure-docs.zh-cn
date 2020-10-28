@@ -4,12 +4,12 @@ description: 了解如何创建适用于 Linux 的 Azure Policy 来宾配置策�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9d80ae44e5cc34ec3b3378f8ed4a68cc02464216
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542890"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676643"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>如何创建适用于 Linux 的来宾配置策略
 
@@ -116,6 +116,9 @@ end
 最后，创建一个配置，导入 PSDesiredStateConfiguration 资源模块，然后编译配置。
 
 ```powershell
+# import PSDesiredStateConfiguration module
+import-module PSDesiredStateConfiguration
+
 # Define the configuration and import GuestConfiguration
 Configuration AuditFilePathExists
 {
@@ -131,7 +134,6 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
@@ -146,7 +148,7 @@ AuditFilePathExists -out ./Config
     / Config
         AuditFilePathExists.mof
     / linux-path
-        linux-path.yml
+        inspec.yml
         / controls
             linux-path.rb 
 ```
@@ -237,7 +239,7 @@ cmdlet 输出中会返回一个对象，其中包含策略文件的计划显示�
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+  -Path './policies'
 ```
 
  `Publish-GuestConfigurationPolicy` cmdlet 接受来自 PowerShell 管道的路径。 此功能意味着可以创建策略文件，并在一组管道命令中发布它们。

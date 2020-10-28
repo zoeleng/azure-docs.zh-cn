@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547633"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677005"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -65,7 +65,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
    >[!NOTE]
    >作为从 Microsoft Operations Management Suite (OMS) 到 Azure Monitor 的持续过渡的一部分，OMS 现工作区在称为 Log Analytics 工作区。
 
-5. 单击“创建”。
+5. 单击 **“确定”** 。
 
 部署解决方案资源时，窗口右上角会显示通知。
 
@@ -122,28 +122,29 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 
 请按以下过程操作：
 
-1. 在 Azure 门户中，单击“监视器”。
-2. 在左窗格中，单击“操作组”。 “添加操作组”窗口随即显示。
+1. 在 Azure 门户中，单击 "  **警报** "。
+2. 在顶部窗格中，单击 "  **管理操作** "。 “添加操作组”窗口随即显示。
 
     ![操作组](media/itsmc-overview/action-groups.png)
 
-3. 为操作组提供“名称”和“短名称”。 选择要创建操作组的“资源组”和“订阅”。
+3. 选择要在其中创建操作组的 **订阅** 和 **资源组** 。 为操作组提供 " **操作组名称** " 和 " **显示名称** "。 单击 " **下一步：通知** "。
 
     ![操作组详细信息](media/itsmc-overview/action-groups-details.png)
 
-4. 在“操作”列表中，从“操作类型”下拉列表菜单中选择“ITSM”。 提供操作的“名称”并单击“编辑详细信息”。
-5. 选择 Log Analytics 工作区所在的“订阅”。 选择后跟工作区名称的“连接”名称（你的 ITSM 连接器名称）。 例如，“MyITSMMConnector(MyWorkspace)。”
+4. 在通知列表中，单击 " **嵌套：操作** "。
+5. 在“操作”列表中，从“操作类型”下拉列表菜单中选择“ITSM”。 提供操作的 **名称** ，然后单击表示 **编辑详细信息** 的笔。
+6. 选择 Log Analytics 工作区所在的“订阅”。 选择后跟工作区名称的“连接”名称（你的 ITSM 连接器名称）。 例如，“MyITSMMConnector(MyWorkspace)。”
 
     ![ITSM 操作详细信息](media/itsmc-overview/itsm-action-details.png)
 
-6. 从下拉列表菜单中选择“工作项”类型。
+7. 从下拉列表菜单中选择“工作项”类型。
 
-7. 如果要使用固定值填写 box 字段，应选中 "使用自定义模板" 复选框，否则请选择使用下拉列表中的现有 [模板](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) ，并使用固定值填充模板字段。
+8. 如果要使用固定值填写 box 字段，应选中 "使用自定义模板" 复选框，否则请选择使用下拉列表中的现有 [模板](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) ，并使用固定值填充模板字段。
 
-8. 通过选择 " **为每个配置项目创建单独的工作项** " 复选框，每个配置项目将有自己的工作项。 也就是说，每个配置项目都有一个工作项，并且将根据要创建的警报更新该工作项。
+9. 通过选择 " **为每个配置项目创建单独的工作项** " 复选框，每个配置项目将有自己的工作项。 也就是说，每个配置项目都有一个工作项，并且将根据要创建的警报更新该工作项。
 如果您取消选中复选框 " **为每个配置项目创建单独的工作项** "，则每个警报都将创建新的工作项，这意味着每个配置项目可能有1个以上的警报。
 
-9. 单击“确定”。
+10. 单击“确定”。
 
 创建/编辑 Azure 警报规则时，使用具有 ITSM 操作的操作组。 警报触发时，会在 ITSM 工具中创建/更新工作项。
 
@@ -162,7 +163,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 
 可以在解决方案中使用 ITSM 连接器仪表板将事件和更改请求数据可视化。
 
-![Log Analytics 屏幕](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![显示 ITSM 连接器仪表板的屏幕截图。](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 仪表板还提供有关连接器状态的信息，在分析任何连接问题时，可以从这些信息着手。
 

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669097"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677673"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>在 Azure 专用主机上运行 SQL Server VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,15 +30,14 @@ ms.locfileid: "84669097"
 
 ## <a name="limitations"></a>限制
 
-- 虚拟机规模集目前在专用主机上不受支持。
-- 支持以下 VM 系列：DSv3 和 ESv3。 
+- 并非所有 VM 系列在专用主机上都受支持，并且 VM 系列可用性因区域而异。 有关详细信息，请参阅 [Azure 专用主机概述](../../../virtual-machines/dedicated-hosts.md)。
 
 ## <a name="licensing"></a>授权
 
 将 SQL Server VM 放置在 Azure 专用主机中后，有两个不同的许可选项可供选择。 
 
-  - **SQL VM 许可**：这是现有的许可选项，选择它后，可以单独为每个 SQL Server VM 许可付费。 
-  - **专用主机许可**：这是适用于 Azure 专用主机的新许可模型，这种模式将 SQL Server 许可证进行捆绑并在主机级别付费。 
+  - **SQL VM 许可** ：这是现有的许可选项，选择它后，可以单独为每个 SQL Server VM 许可付费。 
+  - **专用主机许可** ：这是适用于 Azure 专用主机的新许可模型，这种模式将 SQL Server 许可证进行捆绑并在主机级别付费。 
 
 
 用于使用现有 SQL Server 许可证的主机级选项： 

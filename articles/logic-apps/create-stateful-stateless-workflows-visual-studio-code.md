@@ -5,34 +5,34 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/26/2020
-ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597785"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676309"
 ---
-# <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>在 Azure 逻辑应用 Visual Studio Code 中创建有状态或无状态的工作流 (预览版) 扩展
+# <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>通过 Azure 逻辑应用（预览版）扩展在 Visual Studio Code 中创建有状态或无状态工作流
 
 > [!IMPORTANT]
-> 此功能以公共预览版提供，不提供服务级别协议，不建议用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此功能现为公共预览版，在提供时不附带服务级别协议，建议不要用于生产工作负载。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 若要创建跨应用、数据、云服务和系统集成的逻辑应用工作流，可以使用 Visual Studio Code 和 Azure 逻辑应用 (预览版) 扩展，在开发环境中生成和本地运行有 [*状态* 和 *无状态* 逻辑应用工作流](#stateful-stateless) 。
 
 ![显示 Visual Studio Code 和逻辑应用工作流的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-使用公共预览版扩展创建的逻辑应用使用新的 **逻辑应用 (预览) ** 资源类型，并由本地环境中的 [Azure Functions](../azure-functions/functions-overview.md) 运行时提供支持。 此新资源类型可以包含多个工作流，并且在某些方面与 **Function App** 资源类型类似，其中可能包括多个函数。
+使用公共预览版扩展创建的逻辑应用使用新的 **逻辑应用 (预览)** 资源类型，并由本地环境中的 [Azure Functions](../azure-functions/functions-overview.md) 运行时提供支持。 此新资源类型可以包含多个工作流，并且在某些方面与 **Function App** 资源类型类似，其中可能包括多个函数。
 
-同时，原始 **逻辑应用** 资源类型仍存在，你可以在 Visual Studio Code 和 Azure 门户中创建和使用。 不过，原始资源类型的体验与新资源类型不同。 此时， **逻辑应用** 和 **逻辑应用 (预览) ** 资源类型在 Visual Studio Code 和 Azure 门户中都可以同时存在。 你可以在 Azure 订阅中查看和访问所有已部署的逻辑应用，但它们会在其自己的类别和部分中单独保存并保存。
+同时，原始 **逻辑应用** 资源类型仍存在，你可以在 Visual Studio Code 和 Azure 门户中创建和使用。 不过，原始资源类型的体验与新资源类型不同。 此时， **逻辑应用** 和 **逻辑应用 (预览)** 资源类型在 Visual Studio Code 和 Azure 门户中都可以同时存在。 你可以在 Azure 订阅中查看和访问所有已部署的逻辑应用，但它们会在其自己的类别和部分中单独保存并保存。
 
-本文提供了 [有关此公共预览版](#whats-new)的高级概述，其中介绍了有关 **逻辑应用 (预览) ** 资源类型的各个方面，以及如何使用 Visual Studio Code 创建此资源：
+本文提供了 [有关此公共预览版](#whats-new)的高级概述，其中介绍了有关 **逻辑应用 (预览)** 资源类型的各个方面，以及如何使用 Visual Studio Code 创建此资源：
 
 * 有 [状态和无状态](#stateful-stateless) 逻辑应用之间的差异。
 
 * 如何满足 [设置要求](#prerequisites) 并设置公共预览版扩展 [Visual Studio Code](#set-up) 。
 
-* 如何通过[创建项目和选择工作流模板](#create-project)来构建新的**逻辑应用 (预览) **工作流。
+* 如何通过 [创建项目和选择工作流模板](#create-project)来构建新的 **逻辑应用 (预览)** 工作流。
 
 * 如何在 Visual Studio Code 中本地运行和调试新的逻辑应用。
 
@@ -51,7 +51,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
   * 创建和部署可在任何位置运行的逻辑应用，因为 Azure 逻辑应用服务会生成 (SAS) 连接字符串的共享访问签名，这些逻辑应用可使用这些连接字符串向云连接运行时终结点发送请求。 逻辑应用服务会将这些连接字符串与其他应用程序设置一起保存，因此，在部署到 Azure 时，可以轻松地将这些值存储在 Azure Key Vault 中。
 
     > [!NOTE]
-    > 默认情况下， **逻辑应用 (预览) ** 资源已自动启用 [系统分配的托管标识](../logic-apps/create-managed-service-identity.md) ，以在运行时对连接进行身份验证。 此标识不同于在创建连接时使用的身份验证凭据或连接字符串。 如果禁用此标识，则连接在运行时不起作用。
+    > 默认情况下， **逻辑应用 (预览)** 资源已自动启用 [系统分配的托管标识](../logic-apps/create-managed-service-identity.md) ，以在运行时对连接进行身份验证。 此标识不同于在创建连接时使用的身份验证凭据或连接字符串。 如果禁用此标识，则连接在运行时不起作用。
 
 * 创建仅在内存中运行的无状态逻辑应用，以便这些应用程序能够更快地完成、响应速度更高、吞吐量更高且运行成本更高，因为在外部存储中不会保留运行历史记录和数据。 还可以选择启用运行历史记录，以便更轻松地进行调试。 有关详细信息，请参阅有 [状态和无状态逻辑应用](#stateful-stateless)。
 
@@ -66,7 +66,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="stateful-versus-stateless-logic-apps"></a>有状态和无状态逻辑应用
 
-* *有状态*
+* *有*
 
   如果需要保留、查看或引用以前事件中的数据，请创建有状态逻辑应用。 这些逻辑应用保留每个操作的输入和输出以及它们在外部存储中的工作流状态，从而在每次运行完成后查看运行详细信息和历史记录。 有状态逻辑应用在发生中断时提供高复原能力。 还原服务和系统后，可以从已保存状态重新构造中断的逻辑应用运行，并重新运行逻辑应用以完成。 有状态工作流的运行时间最多可达一年。
 
@@ -74,7 +74,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
   如果不需要保存、查看或引用外部存储中以前事件的数据以供以后查看，请创建无状态逻辑应用。 这些逻辑应用保留每个操作的输入和输出，并将其工作流状态仅保留在内存中，而不是将此信息传输到外部存储。 因此，无状态逻辑应用程序的运行时间通常不超过5分钟，更快的响应时间更快，吞吐量较高，降低了运行成本，因为运行详细信息和历史记录不会保存在外部存储中。 但是，如果发生中断，中断的运行将不会自动还原，因此调用方需要手动重新提交中断的运行。 这些逻辑应用只能以同步方式运行，若要更轻松地进行调试，你可以 [启用运行历史记录](#run-history)，这会对性能产生影响。
 
-  无状态工作流目前只支持 [托管连接器](../connectors/apis-list.md#managed-api-connectors)的操作，而不支持触发器。 若要启动工作流，请选择 [内置请求、事件中心或服务总线触发器](../connectors/apis-list.md#built-ins)。 有关不支持的触发器、操作和连接器的详细信息，请参阅 [不支持的功能](#unsupported)。
+  无状态工作流目前只支持 [托管连接器](../connectors/apis-list.md#managed-api-connectors)的操作，这些 *操作* 部署在 Azure 中，而不支持触发器。 若要启动工作流，请选择内置的 " [请求"、"事件中心" 或 "服务总线" 触发器](../connectors/apis-list.md#built-ins)，该触发器在本机上与逻辑应用运行时一起运行。 有关不支持的触发器、操作和连接器的详细信息，请参阅 [不受支持或不可用的功能](#unsupported)。
 
 有关嵌套的逻辑应用在有状态和无状态逻辑应用之间的行为方式的信息，请参阅有 [状态和无状态逻辑应用之间的嵌套行为差异](#nested-behavior)。
 
@@ -82,7 +82,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="pricing-model"></a>定价模型
 
-当你部署新的 **逻辑应用 (预览) ** 资源类型时，系统将提示你选择一个托管计划，具体来说就是 [应用服务计划或高级计划](../azure-functions/functions-scale.md) 用作定价模型。 如果选择 "应用服务计划"，系统还会提示你选择 [定价层](../app-service/overview-hosting-plans.md)。 公共预览期间，在应用服务上运行逻辑应用不会在所选计划的顶部产生 *额外* 的费用。
+当你部署新的 **逻辑应用 (预览)** 资源类型时，系统将提示你选择一个托管计划，具体来说就是 [应用服务计划或高级计划](../azure-functions/functions-scale.md) 用作定价模型。 如果选择 "应用服务计划"，系统还会提示你选择 [定价层](../app-service/overview-hosting-plans.md)。 公共预览期间，在应用服务上运行逻辑应用不会在所选计划的顶部产生 *额外* 的费用。
 
 有状态逻辑应用使用 [外部存储](../azure-functions/functions-scale.md#storage-account-requirements)，因此 azure 存储定价模型适用于 Azure 逻辑应用运行时执行的存储事务。 例如，队列用于计划，而表和 blob 用于存储工作流状态。
 
@@ -100,19 +100,19 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 对于此公共预览版，这些功能不可用或不受支持：
 
-*  (预览创建新的 **逻辑应用) ** 资源当前在 macOS 上不可用。
+*  (预览创建新的 **逻辑应用)** 资源当前在 macOS 上不可用。
 
 * 目前尚不支持所有 Azure 区域。 对于当前可用的区域，请选中 " [区域" 列表](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)。
 
-* 若要启动工作流，请使用 [请求、HTTP、事件中心或服务总线触发器](../connectors/apis-list.md)。 目前，在此预览版中， [企业连接器](../connectors/apis-list.md#enterprise-connectors)、 [本地数据网关触发器](../connectors/apis-list.md#on-premises-connectors)、基于 Webhook 的触发器、滑动窗口触发器、 [自定义连接器](../connectors/apis-list.md#custom-apis-and-connectors)、集成帐户、项目和 [其连接器](../connectors/apis-list.md#integration-account-connectors) 不受支持。 "调用 Azure function" 功能不可用，因此目前请使用 HTTP *操作* 调用 Azure 函数的请求 URL。
+* 若要启动工作流，请使用 [内置的请求、HTTP、事件中心或服务总线触发器](../connectors/apis-list.md)，该触发器使用逻辑应用运行时在本机上运行。 目前，在此预览版中， [企业连接器](../connectors/apis-list.md#enterprise-connectors)、 [本地数据网关触发器](../connectors/apis-list.md#on-premises-connectors)、基于 Webhook 的触发器、滑动窗口触发器、 [自定义连接器](../connectors/apis-list.md#custom-apis-and-connectors)、集成帐户、项目和 [其连接器](../connectors/apis-list.md#integration-account-connectors) 不受支持。 "调用 Azure function" 功能不可用，因此目前请使用 HTTP *操作* 调用 Azure 函数的请求 URL。
 
-  无状态逻辑应用工作流只能对 [托管连接器](../connectors/apis-list.md#managed-api-connectors)使用操作，而不能使用触发器。 除了之前指定的触发器，有状态工作流可以同时使用托管连接器的触发器和操作。
+  除了前面指定的触发器外，有 *状态* 工作流可以对部署在 Azure 中的 [托管连接器](../connectors/apis-list.md#managed-api-connectors)使用触发器和操作。 但是， *无状态* 工作流目前只支持托管连接器的 *操作* ，而不支持触发器。 尽管你可以选择在 Azure 中为无状态工作流启用连接器，但设计器不会显示任何托管的连接器触发器供你选择。
 
-* 你可以将新的 **逻辑应用 (预览版仅) ** 资源类型部署到 [Azure 中的高级或应用服务托管计划](#publish-azure) ，或部署到 [Docker 容器](#deploy-docker)，而不是 [集成服务环境 (ISEs) ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 **消耗** 托管计划不受支持，也不能用于部署此资源类型。
+* 你可以将新的 **逻辑应用 (预览版仅)** 资源类型部署到 [Azure 中的高级或应用服务托管计划](#publish-azure) ，或部署到 [Docker 容器](#deploy-docker)，而不是 [集成服务环境 (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 **消耗** 托管计划不受支持，也不能用于部署此资源类型。
 
-* 在 Azure 门户中，无法通过新 **逻辑应用 (预览版) ** 资源类型创建新的逻辑应用。 只能在 Visual Studio Code 中创建这些逻辑应用。 但是，将具有此资源类型的逻辑应用从 Visual Studio Code 部署到 Azure 后，可以 [将新工作流添加到这些逻辑应用](#add-workflows)。
+* 在 Azure 门户中，无法通过新 **逻辑应用 (预览版)** 资源类型创建新的逻辑应用。 只能在 Visual Studio Code 中创建这些逻辑应用。 但是，将具有此资源类型的逻辑应用从 Visual Studio Code 部署到 Azure 后，可以 [将新工作流添加到这些逻辑应用](#add-workflows)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 ### <a name="access-and-connectivity"></a>访问和连接
 
@@ -152,28 +152,28 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
   * [适用于 Visual Studio Code 的 Azure 逻辑应用 (预览) 扩展](https://go.microsoft.com/fwlink/p/?linkid=2143167)。 此公共预览版扩展提供了创建有状态和无状态逻辑应用并在 Visual Studio Code 本地运行这些应用的能力。
 
-    目前，可以在 Visual Studio Code 中同时安装原始 **Azure 逻辑应用** 扩展和新的 **azure 逻辑应用 (预览版) ** 扩展。 通过在 Visual Studio Code 工具栏上选择 "Azure" 图标，可以查看 Azure 中部署的所有逻辑应用，但每种资源类型都显示在其自己的扩展部分、 **逻辑应用** 和 **Azure 逻辑应用 (预览版) **中。
+    目前，可以在 Visual Studio Code 中同时安装原始 **Azure 逻辑应用** 扩展和新的 **azure 逻辑应用 (预览版)** 扩展。 通过在 Visual Studio Code 工具栏上选择 "Azure" 图标，可以查看 Azure 中部署的所有逻辑应用，但每种资源类型都显示在其自己的扩展部分、 **逻辑应用** 和 **Azure 逻辑应用 (预览版)** 中。
 
     > [!IMPORTANT]
-    > 如果使用 **Azure 逻辑应用 (专用预览版) ** 扩展创建了逻辑应用，则这些逻辑应用将不会使用公共预览版扩展。 但是，你可以通过卸载专用预览扩展、执行所需的清除以及安装公共预览版扩展来迁移这些逻辑应用。 然后，你可以在 Visual Studio Code 中创建新的项目，并将以前创建的逻辑应用的 **工作流定义** 文件复制到你的新项目中。
+    > 如果使用 **Azure 逻辑应用 (专用预览版)** 扩展创建了逻辑应用，则这些逻辑应用将不会使用公共预览版扩展。 但是，你可以通过卸载专用预览扩展、执行所需的清除以及安装公共预览版扩展来迁移这些逻辑应用。 然后，你可以在 Visual Studio Code 中创建新的项目，并将以前创建的逻辑应用的 **工作流定义** 文件复制到你的新项目中。
     >
     > 因此，在安装公共预览版扩展之前，请确保卸载所有早期版本，并删除这些项目：
     >
-    > * **ExtensionBundle**文件夹，其中包含以前的扩展捆绑，位于以下路径中的任一路径：
+    > * **ExtensionBundle** 文件夹，其中包含以前的扩展捆绑，位于以下路径中的任一路径：
     >
     >   * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
     >
     >   * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
     >
-    > * 作为专用预览扩展插件的[NuGet](/nuget/what-is-nuget)缓存，并位于此路径中，则为**microsoft.**
+    > * 作为专用预览扩展插件的 [NuGet](/nuget/what-is-nuget)缓存，并位于此路径中，则为 **microsoft.**
     >
     >   `C:\Users\{userName}\.nuget\packages`
 
-    若要安装 **Azure 逻辑应用 (预览) ** 扩展，请执行以下步骤：
+    若要安装 **Azure 逻辑应用 (预览)** 扩展，请执行以下步骤：
 
-    1. 在 Visual Studio Code 的左侧工具栏中，选择 " **扩展**"。
+    1. 在 Visual Studio Code 的左侧工具栏中，选择 " **扩展** "。
 
-    1. 在 "扩展" 搜索框中输入 `azure logic apps preview` 。 在结果列表中，选择 " **Azure 逻辑应用 (预览") ** " **>** **安装**"。
+    1. 在 "扩展" 搜索框中输入 `azure logic apps preview` 。 在结果列表中，选择 " **Azure 逻辑应用 (预览")** " **>** **安装** "。
 
        安装完成后，公共预览版扩展将出现在 " **扩展：已安装** " 列表中。
 
@@ -193,22 +193,22 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    若要检查此设置，请执行以下步骤：
 
-   1. 在 " **文件** " 菜单上，中转到 " **首选项**" " **>** **设置**"。
+   1. 在 " **文件** " 菜单上，中转到 " **首选项** " " **>** **设置** "。
 
-   1. 在 " **用户** " 选项卡上，中转到 " **功能** **>** **扩展**"。
+   1. 在 " **用户** " 选项卡上，中转到 " **功能** **>** **扩展** "。
 
    1. 确认已选中 " **自动检查更新** 并 **自动更新** "。
 
-1. 启用或检查是否已在 Visual Studio Code 中设置这些 **Azure 逻辑应用 (预览) ** 扩展设置：
+1. 启用或检查是否已在 Visual Studio Code 中设置这些 **Azure 逻辑应用 (预览)** 扩展设置：
 
    * **Azure 逻辑应用 V2： Panel 模式**
    * **Azure 逻辑应用 V2：项目运行时**
 
-   1. 在 " **文件** " 菜单上，中转到 " **首选项**" " **>** **设置**"。
+   1. 在 " **文件** " 菜单上，中转到 " **首选项** " " **>** **设置** "。
 
-   1. 在 "**用户**" 选项卡上，中转到 " **>** **Extensions** **>** **Azure 逻辑应用 (预览") **。
+   1. 在 " **用户** " 选项卡上，中转到 " **>** **Extensions** **>** **Azure 逻辑应用 (预览")** 。
 
-   1. 在 **"Azure 逻辑应用 V2：面板模式**" 下，确认已选中 **"启用面板模式"** 。 在 " **Azure 逻辑应用 V2：项目运行时**" 下，根据你之前安装的[Azure Functions Core Tools 版本](#prerequisites)将版本设置为 **~ 3**或 **~ 2**。
+   1. 在 **"Azure 逻辑应用 V2：面板模式** " 下，确认已选中 **"启用面板模式"** 。 在 " **Azure 逻辑应用 V2：项目运行时** " 下，根据你之前安装的 [Azure Functions Core Tools 版本](#prerequisites)将版本设置为 **~ 3** 或 **~ 2** 。
 
       > [!IMPORTANT]
       > 如果要使用 [**内联代码** 操作](../logic-apps/logic-apps-add-run-inline-code.md) 来运行 JavaScript 代码，请确保使用项目运行时版本3，因为该操作不支持版本2。 此外，目前不支持在 Linux 操作系统上执行此操作。
@@ -223,11 +223,11 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    ![显示 Visual Studio Code 工具栏和所选 Azure 图标的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. 在 Azure 窗格中的 " **azure：逻辑应用 (预览") **中，选择 " **登录到 Azure**"。 出现 "Visual Studio Code 身份验证" 页面时，请用 Azure 帐户登录。
+1. 在 Azure 窗格中的 " **azure：逻辑应用 (预览")** 中，选择 " **登录到 Azure** "。 出现 "Visual Studio Code 身份验证" 页面时，请用 Azure 帐户登录。
 
    ![显示 azure 窗格和 Azure 登录的所选链接的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   登录后，Azure 窗格将显示 Azure 帐户中的订阅。 如果你具有公开发布的逻辑应用扩展，则可以使用已发布的扩展 **逻辑应用** 部分中的原始扩展创建的任何原始逻辑应用资源，而不是预览扩展的 **逻辑应用 (预览** "部分。
+   登录后，Azure 窗格将显示 Azure 帐户中的订阅。 如果你具有公开发布的逻辑应用扩展，则可以使用已发布的扩展 **逻辑应用** 部分中的原始扩展创建的任何原始逻辑应用资源，而不是预览扩展的 **逻辑应用 (预览)** 部分。
    
    如果预期的订阅未显示，或者您希望该窗格仅显示特定订阅，请执行以下步骤：
 
@@ -237,7 +237,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
       或者，在 "Visual Studio Code" 状态栏中，选择 Azure 帐户。 
 
-   1. 如果出现其他订阅列表，请选择所需的订阅，然后确保选择 **"确定"**。
+   1. 如果出现其他订阅列表，请选择所需的订阅，然后确保选择 **"确定"** 。
 
 <a name="create-project"></a>
 
@@ -249,17 +249,17 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 1. 在 Visual Studio Code 中，关闭所有打开的文件夹。
 
-1. 在 Azure 窗格中的 " **azure：逻辑应用 (预览") **上，选择 " **新建项目** " (图标，该图标显示文件夹和闪电) 。
+1. 在 Azure 窗格中的 " **azure：逻辑应用 (预览")** 上，选择 " **新建项目** " (图标，该图标显示文件夹和闪电) 。
 
    ![显示选中了 "创建新项目" 的 Azure 窗格工具栏的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
 
-1. 如果 Windows Defender 防火墙提示你授予的网络访问权限 `Code.exe` ，这是 Visual Studio Code 的，而对于 `func.exe` Azure Functions Core Tools，则选择 " **专用网络"，例如 "我的家庭" 或 "工作网络** **>** **允许访问**"。
+1. 如果 Windows Defender 防火墙提示你授予的网络访问权限 `Code.exe` ，这是 Visual Studio Code 的，而对于 `func.exe` Azure Functions Core Tools，则选择 " **专用网络"，例如 "我的家庭" 或 "工作网络** **>** **允许访问** "。
 
 1. 浏览到创建项目文件夹的位置，选择该文件夹，然后继续。
 
    ![显示 "选择文件夹" 对话框并选择新创建的项目文件夹和 "选择" 按钮的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-folder.png)
 
-1. 从显示的 "模板" 列表中，选择有 **状态工作流** 或 **无状态工作流**。 此示例选择有 **状态工作流**。
+1. 从显示的 "模板" 列表中，选择有 **状态工作流** 或 **无状态工作流** 。 此示例选择有 **状态工作流** 。
 
    ![显示工作流模板列表的屏幕截图，其中选择了 "有状态工作流"。](./media/create-stateful-stateless-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
 
@@ -267,7 +267,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    ![屏幕截图显示 "创建新的有状态工作流 (3/4) " 框和 "示例-workflow" 作为工作流名称。](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
 
-1. 从显示的下一个列表中，选择 " **在当前窗口中打开**"。
+1. 从显示的下一个列表中，选择 " **在当前窗口中打开** "。
 
    ![显示 "在当前窗口中打开" 列表的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
@@ -294,11 +294,11 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
    }
    ```
 
-   请确保 expliclitly 将文件 **global.js** 添加到项目中，从 Visual Studio Code 内的根位置。 否则，设计器将不会打开。
+   请确保从 Visual Studio Code 内的根位置将文件中的 **global.js** 显式添加到项目。 否则，设计器将不会打开。
 
 1. 如果 Visual Studio Code 在 Windows 或 Linux 上运行，请确保 Azure 存储模拟器正在运行。 有关详细信息，请参阅 [先决条件](#prerequisites)。
 
-1. 展开工作流的项目文件夹。 打开文件快捷菜单上的 " **workflow.js** ，然后选择" **在设计器中打开**"。
+1. 展开工作流的项目文件夹。 打开文件快捷菜单上的 " **workflow.js** ，然后选择" **在设计器中打开** "。
 
    ![显示 "在设计器中打开" 的文件上的 workflow.js的 "资源管理器" 窗格和快捷窗口的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
@@ -306,7 +306,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    在 Visual Studio Code 中，检查预览扩展的输出。
 
-   1. 从 " **视图** " 菜单中选择 " **输出**"。
+   1. 从 " **视图** " 菜单中选择 " **输出** "。
 
    1. 从 " **输出** " 标题栏上的列表中，选择 " **Azure 逻辑应用** "，以便可以查看预览扩展的输出，例如：
 
@@ -326,13 +326,16 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
       Host shutdown completed.
       ```
 
-      如果以前尝试打开设计器，然后停用或删除了项目，则会发生此错误。 若要解决此错误，请删除位于此位置的 **ExtensionBundles** 文件夹 **。 ..\Users \\ {用户名} \AppData\Local\Temp\Functions\ExtensionBundles**，然后重试在设计器中打开文件 ** 上的workflow.js** 。
+      如果以前尝试打开设计器，然后停用或删除了项目，则会发生此错误。 若要解决此错误，请删除位于此位置的 **ExtensionBundles** 文件夹 **。 ..\Users \\ {用户名} \AppData\Local\Temp\Functions\ExtensionBundles** ，然后重试在设计器中打开文件 **上的workflow.js** 。
 
-1. 从 " **在 azure 中启用连接器** " 列表中，选择 " **使用 azure**中的连接器"，此功能适用于 Azure 门户中可用的所有托管连接器，而不是仅适用于 Azure 服务的连接器。
+1. 从 " **在 azure 中启用连接器** " 列表中，选择 " **使用 azure** 中的连接器"，此功能适用于 azure 中提供并部署的所有托管连接器，而不只是 azure 服务的连接器。
 
    ![屏幕截图显示 "在 Azure 中启用连接器" 列表，并选择 "使用 Azure 中的连接器"。](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
-1. 从 "资源组" 列表中，选择 " **新建资源组**"。
+   > [!NOTE]
+   > 无状态工作流目前只支持 [托管连接器](../connectors/apis-list.md#managed-api-connectors)的操作，这些 *操作* 部署在 Azure 中，而不支持触发器。 尽管你可以选择在 Azure 中为无状态工作流启用连接器，但设计器不会显示任何托管的连接器触发器供你选择。
+
+1. 从 "资源组" 列表中，选择 " **新建资源组** "。
 
    ![显示 "资源组" 列表并选择 "新建资源组" 的 "资源管理器" 窗格的屏幕截图](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
 
@@ -340,7 +343,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    ![显示 "资源管理器" 窗格和 "资源组名称" 框的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. 从 "位置" 列表中，找到并选择要用于创建资源组和资源的 [受支持的 Azure 区域](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) 。 此示例使用 **美国西部**。
+1. 从 "位置" 列表中，找到并选择要用于创建资源组和资源的 [受支持的 Azure 区域](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) 。 此示例使用 **美国西部** 。
 
    > [!IMPORTANT]
    > 目前并非所有区域都受支持，但添加更多区域的更新正在进行。 选择不受支持的区域可能会导致问题，例如创建连接。 对于当前支持的区域，请查看预览扩展的 " [已知问题" GitHub 页](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)。
@@ -350,7 +353,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
    执行此步骤后，Visual Studio Code 打开逻辑应用设计器。
 
    > [!NOTE]
-   > 当 Visual Studio Code 启动工作流设计时 API 时，会出现一条消息，指示启动可能需要几秒钟时间。 您可以忽略此消息，也可以选择 **"确定"**。
+   > 当 Visual Studio Code 启动工作流设计时 API 时，会出现一条消息，指示启动可能需要几秒钟时间。 您可以忽略此消息，也可以选择 **"确定"** 。
 
    逻辑应用设计器出现后，设计器上会出现 " **选择操作** " 提示，并在默认情况下选中，其中显示了 " **添加操作** " 窗格。
 
@@ -366,9 +369,9 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 此示例中的逻辑应用工作流使用此触发器和以下操作：
 
-* 内置 [请求触发器](../connectors/connectors-native-reqres.md)： **收到 HTTP 请求时**，接收入站调用或请求，并创建其他服务或逻辑应用可调用的终结点。
+* 内置 [请求触发器](../connectors/connectors-native-reqres.md)： **收到 HTTP 请求时** ，接收入站调用或请求，并创建其他服务或逻辑应用可调用的终结点。
 
-* [Office 365 Outlook 操作](../connectors/connectors-create-api-office365-outlook.md)**发送电子邮件**。
+* [Office 365 Outlook 操作](../connectors/connectors-create-api-office365-outlook.md)**发送电子邮件** 。
 
 * 内置 [响应操作](../connectors/connectors-native-reqres.md)，用于发送答复并将数据返回给调用方。
 
@@ -376,7 +379,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 1. 在设计器旁的 " **添加触发器** " 窗格的 " **选择操作** " 搜索框下，确保已选中 " **内置** "，以便可以选择本机运行的触发器。
 
-1. 在 " **选择操作** " 搜索框中输入 `when a http request` ，并选择在 **收到 HTTP 请求时**命名的内置请求触发器。
+1. 在 " **选择操作** " 搜索框中输入 `when a http request` ，并选择在 **收到 HTTP 请求时** 命名的内置请求触发器。
 
    ![显示逻辑应用设计器的屏幕截图，并在选择 "收到 HTTP 请求时" 触发器 * * 添加触发器 * * 窗格。](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
 
@@ -391,21 +394,21 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    1. 在设计器中，选择项，该项将在右侧打开该项的详细信息窗格。
 
-   1. 更广泛地展开 "Visual Studio Code" 窗口，使其位于 "触发器" 或 "操作名称" 旁边，"省略号 (**...**) " 按钮显示在最上方。 
+   1. 更广泛地展开 "Visual Studio Code" 窗口，使其位于 "触发器" 或 "操作名称" 旁边，"省略号 ( **...** ) " 按钮显示在最上方。 
 
-   1. 打开 "省略号 (**...** ") 菜单，然后选择 " **删除**"。 若要确认删除，请选择 **"确定"**。
+   1. 打开 "省略号 ( **...** ") 菜单，然后选择 " **删除** "。 若要确认删除，请选择 **"确定"** 。
 
       ![用 "打开详细信息" 窗格以及所选省略号按钮和 "删除" 选项在设计器上显示选定项的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
 ### <a name="add-the-office-365-outlook-action"></a>添加 Office 365 Outlook 操作
 
-1. 在设计器的已添加的触发器下，选择 " **新建步骤**"。
+1. 在设计器的已添加的触发器下，选择 " **新建步骤** "。
 
    设计器上将显示 " **选择操作** " 提示，并重新打开 " **添加操作" 窗格** ，以便您可以选择下一个操作。
 
 1. 在 " **添加操作** " 窗格中的 " **选择操作** " 搜索框下，选择 " **Azure** "，以便查找并选择在 azure 中部署的托管连接器的操作。
 
-   此示例选择并使用 Office 365 Outlook 操作， ** (V2) 发送电子邮件 **。
+   此示例选择并使用 Office 365 Outlook 操作， **(V2) 发送电子邮件** 。
 
    ![显示逻辑应用设计器的屏幕截图，并使用 Office 365 Outlook 的 "发送电子邮件" 操作选择 "添加操作" * * 窗格。](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
 
@@ -416,7 +419,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
    > [!NOTE]
    > 如果收到错误， `Failed to create connection...` 则可能是为逻辑应用选择了当前不受支持的区域。 添加更多区域的更新正在进行。 同时，对于目前支持的区域，请查看预览扩展的 " [已知问题" GitHub 页](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)。
 
-1. 如果 Visual Studio Code 提示你同意访问你的电子邮件帐户，请选择 " **打开**"。
+1. 如果 Visual Studio Code 提示你同意访问你的电子邮件帐户，请选择 " **打开** "。
 
    ![屏幕截图，显示允许访问的 Visual Studio Code 提示。](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
 
@@ -428,12 +431,12 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
    > [!NOTE]
    > 如果在完成提示之前经过了太多的时间，则身份验证过程将超时并失败。 在这种情况下，请返回到设计器，然后重试登录以创建连接。
 
-1. 当 Azure 逻辑应用预览扩展提示你同意访问你的电子邮件帐户时，请选择 " **打开**"。 遵循后续提示以允许访问。
+1. 当 Azure 逻辑应用预览扩展提示你同意访问你的电子邮件帐户时，请选择 " **打开** "。 遵循后续提示以允许访问。
 
    ![屏幕截图，显示允许访问的预览扩展提示。](./media/create-stateful-stateless-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
 
    > [!TIP]
-   > 若要防止将来出现提示，请选择 " **不再询问此扩展**"。
+   > 若要防止将来出现提示，请选择 " **不再询问此扩展** "。
 
    Visual Studio Code 创建连接后，某些连接器会显示消息， `The connection will be valid for {n} days only.` 此时间限制仅适用于在 Visual Studio Code 中创作逻辑应用时的持续时间。 部署之后，此限制不再适用，因为逻辑应用可以在运行时通过使用其自动启用 [系统分配的托管标识](../logic-apps/create-managed-service-identity.md)进行身份验证。 此托管标识不同于在创建连接时使用的身份验证凭据或连接字符串。 如果禁用此系统分配的托管标识，则连接在运行时不起作用。
 
@@ -443,7 +446,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    ![显示逻辑应用设计器的屏幕截图，其中包含 Office 365 Outlook "发送电子邮件" 操作的详细信息。](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
 
-   | 属性 | 必须 | 值 | 说明 |
+   | properties | 必选 | 值 | 说明 |
    |----------|----------|-------|-------------|
    | **收件人** | 是 | <*your-email-address*> | 电子邮件收件人，可以是你的电子邮件地址，用于测试目的。 此示例使用虚构电子邮件 `sophiaowen@fabrikam.com` 。 |
    | **主题** | 是 | `An email from your example workflow` | 电子邮件主题 |
@@ -451,9 +454,9 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
    ||||
 
    > [!NOTE]
-   > 如果要在 " **设置**"、" **运行**" 或 " **静态结果** " 选项卡上的 "详细信息" 窗格中进行任何更改，请确保选择 " **完成** " 以在切换选项卡或将焦点更改为设计器之前提交这些更改。 否则，Visual Studio Code 不会保留你的更改。 有关详细信息，请查看预览扩展的 [已知问题 GitHub 页](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)。
+   > 如果要在 " **设置** "、" **运行** " 或 " **静态结果** " 选项卡上的 "详细信息" 窗格中进行任何更改，请确保选择 " **完成** " 以在切换选项卡或将焦点更改为设计器之前提交这些更改。 否则，Visual Studio Code 不会保留你的更改。 有关详细信息，请查看预览扩展的 [已知问题 GitHub 页](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)。
 
-1. 在设计器中，选择 " **保存**"。
+1. 在设计器中，选择 " **保存** "。
 
 接下来，在 Visual Studio Code 中本地运行和调试工作流。
 
@@ -473,7 +476,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    1. 重新打开 "资源管理器" 窗格，以便可以查看项目。
 
-   1. 从文件快捷菜单上的 " **workflow.js** " 中，选择 " **概述**"。
+   1. 从文件快捷菜单上的 " **workflow.js** " 中，选择 " **概述** "。
 
       ![显示 "概述" 选定的文件上的 "资源管理器" 窗格和快捷 workflow.js窗口的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/open-workflow-overview.png)
 
@@ -487,17 +490,17 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    此示例通过使用 Postman 继续进行。 有关详细信息，请参阅 [Postman 入门](https://learning.postman.com/docs/getting-started/introduction/)。
 
-   1. 在 Postman 工具栏上，选择 " **新建**"。
+   1. 在 Postman 工具栏上，选择 " **新建** "。
 
       ![显示 Postman 并选择 "新建" 按钮的屏幕截图](./media/create-stateful-stateless-workflows-visual-studio-code/postman-create-request.png)
 
-   1. 在 " **新建** " 窗格的 " **构建基块**" 下，选择 " **请求**"。
+   1. 在 " **新建** " 窗格的 " **构建基块** " 下，选择 " **请求** "。
 
-   1. 在 " **保存请求** " 窗口中的 " **请求名称**" 下，提供请求的名称，例如 `Test workflow trigger` 。
+   1. 在 " **保存请求** " 窗口中的 " **请求名称** " 下，提供请求的名称，例如 `Test workflow trigger` 。
 
-   1. 在 " **选择要保存到的集合或文件夹**" 下，选择 " **创建集合**"。
+   1. 在 " **选择要保存到的集合或文件夹** " 下，选择 " **创建集合** "。
 
-   1. 在 "**所有集合**" 下，提供要创建的集合的名称以组织你的请求，按 enter，然后选择 "**保存到 <*集合名称* > **"。 此示例使用 `Logic Apps requests` 作为集合名称。
+   1. 在 " **所有集合** " 下，提供要创建的集合的名称以组织你的请求，按 enter，然后选择 " **保存到 < *集合名称* >** "。 此示例使用 `Logic Apps requests` 作为集合名称。
 
       此时将打开 Postman 的请求窗格，以便可以将请求发送到请求触发器的回调 URL。
 
@@ -505,7 +508,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    1. 返回 Visual Studio Code。 在工作流的 "概述" 页中，复制 " **回调 URL** " 属性值。
 
-   1. 返回到 Postman。 在 "请求" 窗格中，单击 "方法列表"， **当前显示为** 默认请求方法，粘贴之前在 "地址" 框中复制的回调 URL，然后选择 " **发送**"。
+   1. 返回到 Postman。 在 "请求" 窗格中，单击 "方法列表"， **当前显示为** 默认请求方法，粘贴之前在 "地址" 框中复制的回调 URL，然后选择 " **发送** "。
 
       ![屏幕截图，显示已选中 "发送" 按钮的 "地址" 框中的 Postman 和回叫 URL](./media/create-stateful-stateless-workflows-visual-studio-code/postman-test-call-back-url.png)
 
@@ -515,22 +518,62 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 1. 在 Visual Studio Code 中，返回到工作流的 "概述" 页。
 
-   如果创建了有状态的工作流，则在发送的请求触发工作流后，"概述" 页将显示工作流的运行状态和历史记录。 有关运行状态的详细信息，请参阅 [查看运行历史记录](../logic-apps/monitor-logic-apps.md#review-runs-history)。
+   如果创建了有状态的工作流，则在发送的请求触发工作流后，"概述" 页将显示工作流的运行状态和历史记录。
+
+   > [!TIP]
+   > 如果未显示运行状态，请尝试通过选择 " **刷新** " 来刷新 "概述" 页。 由于不符合条件或找不到任何数据而跳过的触发器不会运行。
 
    ![显示运行状态和历史记录的工作流的 "概述" 页的屏幕截图](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   > [!TIP]
-   > 如果未显示运行状态，请尝试通过选择 " **刷新**" 来刷新 "概述" 页。
+   | 运行状态 | 说明 |
+   |------------|-------------|
+   | **Aborted** | 由于外部问题（例如，系统中断或过期的 Azure 订阅），运行已停止或未完成。 |
+   | 已取消 | 运行已触发并已启动，但收到了取消请求。 |
+   | 失败 | 运行中的至少一个操作失败。 未设置工作流中的后续操作来处理失败。 |
+   | **正在运行** | 运行已触发并正在进行中，但对于由于 [操作限制](logic-apps-limits-and-config.md) 或 [当前定价计划](https://azure.microsoft.com/pricing/details/logic-apps/)而受到限制的运行，也可能显示此状态。 <p><p>**提示** ：如果设置 [诊断日志记录](monitor-logic-apps-log-analytics.md)，则可以获取发生的任何限制事件的相关信息。 |
+   | 成功 | 运行成功。 如果任何操作失败，工作流中的后续操作会处理失败。 |
+   | **已超时** | 运行超时，因为当前持续时间超过了运行持续时间限制，该限制由 " [**运行历史记录保持期（天**](logic-apps-limits-and-config.md#run-duration-retention-limits)）" 设置控制。 运行的持续时间是使用运行的开始时间和开始时间的运行持续时间限制来计算的。 <p><p>**注意** ：如果此运行的持续时间还超出了当前 *运行历史记录保留限制* ，而此限制也是由 " [**运行历史记录保持期（天**](logic-apps-limits-and-config.md#run-duration-retention-limits)）" 设置控制的，则每日清除作业将从运行历史记录中清除运行。 无论运行超时还是完成，始终都将使用运行的开始时间和 *当前* 保留限制来计算保持期。 因此，如果您缩短正在进行的运行的持续时间限制，则运行将超时。但是，运行会根据运行的持续时间是否超出保留限制，从运行历史记录中清除运行。 |
+   | **正在等待** | 运行未启动或已暂停，例如，由于仍在运行的工作流实例较早而暂停。 |
+   |||
 
-1. 若要查看特定运行中每个步骤的状态和步骤的输入和输出，请选择该运行的 "省略号 (**...** ") 按钮，然后选择 " **显示运行**"。
+1. 若要查看特定运行中每个步骤的状态和步骤的输入和输出，请选择该运行的 "省略号 ( **...** ") 按钮，然后选择 " **显示运行** "。
 
    ![显示工作流的运行历史记录行并选中 "显示运行" 的屏幕截图](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
-   Visual Studio Code 显示每个操作的运行状态。
+   Visual Studio Code 打开 "监视" 视图并显示运行中每个步骤的状态。
 
-1. 若要查看每个步骤的输入和输出，请展开要检查的步骤。 若要进一步查看该步骤的原始输入和输出，请选择 " **显示原始输入** " 或 " **显示原始输出**"。
+   ![显示工作流运行和状态的每个步骤的屏幕截图](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   下面是工作流中每个步骤可以具有的可能状态：
+
+   | 操作状态 | 图标 | 说明 |
+   |---------------|------|-------------|
+   | Aborted | !["中止" 操作状态的图标][aborted-icon] | 操作已停止或未完成，原因是外部问题，例如，系统中断或过期的 Azure 订阅。 |
+   | 已取消 | !["已取消" 操作状态的图标][cancelled-icon] | 操作正在运行，但收到了取消请求。 |
+   | 已失败 | !["失败" 操作状态的图标][failed-icon] | 操作失败。 |
+   | 运行 | !["正在运行" 操作状态的图标][running-icon] | 操作当前正在运行。 |
+   | 已跳过 | !["跳过" 操作状态的图标][skipped-icon] | 此操作已被跳过，因为前一个操作失败。 操作具有要求在 `runAfter` 当前操作运行之前成功完成前面的操作的条件。 |
+   | 已成功 | !["成功" 操作状态的图标][succeeded-icon] | 操作成功。 |
+   | 已成功重试 | !["已成功重试" 操作状态的图标][succeeded-with-retries-icon] | 操作成功，但仅在一个或多个重试后。 若要查看重试历史记录，请在 "运行历史记录详细信息" 视图中选择该操作，以便可以查看输入和输出。 |
+   | 已超时 | !["超时" 操作状态的图标][timed-out-icon] | 由于操作的设置指定的超时限制，操作已停止。 |
+   | 等待 | !["等待" 操作状态的图标][waiting-icon] | 适用于正在等待来自调用方的入站请求的 webhook 操作。 |
+   ||||
+
+   [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
+   [cancelled-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/cancelled.png
+   [failed-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/failed.png
+   [running-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/running.png
+   [skipped-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/skipped.png
+   [succeeded-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/timed-out.png
+   [waiting-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/waiting.png
+
+1. 若要查看每个步骤的输入和输出，请选择要检查的步骤。
 
    ![屏幕截图，显示工作流中每个步骤的状态，以及展开的 "发送电子邮件" 操作中的输入和输出](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details.png)
+
+1. 若要进一步查看该步骤的原始输入和输出，请选择 " **显示原始输入** " 或 " **显示原始输出** "。
 
 1. 若要停止调试会话，请在 " **运行** " 菜单上，选择 " **停止调试** " (Shift + F5) 。
 
@@ -540,7 +583,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 若要将响应返回给向逻辑应用发送请求的调用方，可以将内置 [响应操作](../connectors/connectors-native-reqres.md) 用于以请求触发器开头的工作流。
 
-1. 在逻辑应用设计器的 " **发送电子邮件** " 操作下，选择 " **新建步骤**"。
+1. 在逻辑应用设计器的 " **发送电子邮件** " 操作下，选择 " **新建步骤** "。
 
    设计器上将显示 " **选择操作** " 提示，并重新打开 " **添加操作" 窗格** ，以便您可以选择下一个操作。
 
@@ -554,13 +597,13 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 1. 在 " **参数** " 选项卡上，提供要调用的函数所需的信息。
 
-   此示例返回 "**发送电子邮件**" 操作的输出的**正文**属性值。
+   此示例返回 " **发送电子邮件** " 操作的输出的 **正文** 属性值。
 
    1. 在 " **正文** " 属性框中单击，以便显示动态内容列表，并显示前面的触发器中的可用输出值以及工作流中的操作。
 
       ![屏幕截图显示 "响应" 操作的详细信息窗格，其中鼠标指针位于 "Body" 属性内，以便显示动态内容列表。](./media/create-stateful-stateless-workflows-visual-studio-code/open-dynamic-content-list.png)
 
-   1. 在动态内容列表的 " **发送电子邮件**" 下，选择 " **正文**"。
+   1. 在动态内容列表的 " **发送电子邮件** " 下，选择 " **正文** "。
 
       ![屏幕截图，显示打开的动态内容列表。 在列表中的 "发送电子邮件" 标头下，选择 "正文" 输出值。](./media/create-stateful-stateless-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
@@ -568,7 +611,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
       ![屏幕截图，显示工作流中每个步骤的状态，以及展开的 "响应" 操作中的输入和输出。](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details-body-property.png)
 
-1. 在设计器中，选择 " **保存**"。
+1. 在设计器中，选择 " **保存** "。
 
 <a name="retest-workflow"></a>
 
@@ -580,7 +623,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 1. 在 Postman 或用于创建和发送请求的工具中，发送另一个请求来触发工作流。
 
-1. 如果创建有状态工作流，则在工作流的 "概述" 页上，检查最近运行的状态。 若要查看该运行中每个步骤的状态、输入和输出，请选择该运行的 "省略号 (**...** ") 按钮，然后选择 " **显示运行**"。
+1. 如果创建有状态工作流，则在工作流的 "概述" 页上，检查最近运行的状态。 若要查看该运行中每个步骤的状态、输入和输出，请选择该运行的 "省略号 ( **...** ") 按钮，然后选择 " **显示运行** "。
 
    例如，下面是在使用响应操作更新示例工作流之后运行的分步状态。
 
@@ -592,42 +635,42 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="publish-to-azure"></a>发布到 Azure
 
-从 Visual Studio Code 中，可以直接将项目部署到 Azure，这将使用新的 **逻辑应用 (预览版) ** 资源类型发布逻辑应用。 与 Azure Functions 中的函数应用资源类似，此新资源类型的部署要求你选择 [托管计划和定价层](../app-service/overview-hosting-plans.md)，你可以在部署期间进行设置。 有关托管计划和定价的详细信息，请参阅以下主题：
+从 Visual Studio Code 中，可以直接将项目部署到 Azure，这将使用新的 **逻辑应用 (预览版)** 资源类型发布逻辑应用。 与 Azure Functions 中的函数应用资源类似，此新资源类型的部署要求你选择 [托管计划和定价层](../app-service/overview-hosting-plans.md)，你可以在部署期间进行设置。 有关托管计划和定价的详细信息，请参阅以下主题：
 
 * [向上缩放 Azure App Service](../app-service/manage-scale-up.md)
 * [Azure Functions 的缩放和托管](../azure-functions/functions-scale.md)
 
-你可以将逻辑应用作为新资源发布，这将自动创建任何其他必要的资源，例如 [Azure 存储帐户，这与函数应用要求类似](../azure-functions/storage-considerations.md)。 或者，你可以将逻辑应用发布到以前部署的 **逻辑应用 (预览) ** 资源，这将覆盖该逻辑应用。
+你可以将逻辑应用作为新资源发布，这将自动创建任何其他必要的资源，例如 [Azure 存储帐户，这与函数应用要求类似](../azure-functions/storage-considerations.md)。 或者，你可以将逻辑应用发布到以前部署的 **逻辑应用 (预览)** 资源，这将覆盖该逻辑应用。
 
 ### <a name="publish-as-a-new-logic-app-preview-resource"></a>作为新的逻辑应用发布 (预览) 资源
 
 1. 在 Visual Studio Code 工具栏上，选择 Azure 图标。
 
-1. 在 **Azure：逻辑应用 (预览) ** 窗格工具栏上，选择 " **部署到逻辑应用**"。
+1. 在 **Azure：逻辑应用 (预览)** 窗格工具栏上，选择 " **部署到逻辑应用** "。
 
    ![屏幕截图，显示 "Azure：逻辑应用 (预览") "窗格和窗格工具栏，并选中" 部署到逻辑应用 "。](./media/create-stateful-stateless-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. 从 Visual Studio Code 打开的列表中，从以下选项中进行选择：
 
-   * **在 Azure 中创建新的逻辑应用 (预览) ** (快速) 
-   * **在 Azure Advanced 中创建新的逻辑应用 (预览) **
-   * 以前部署的 **逻辑应用 (预览) ** 资源（如果存在）
+   * **在 Azure 中创建新的逻辑应用 (预览)** (快速) 
+   * **在 Azure Advanced 中创建新的逻辑应用 (预览)**
+   * 以前部署的 **逻辑应用 (预览)** 资源（如果存在）
 
-   此示例将继续 **创建新的逻辑应用 (预览版) Azure Advanced**。
+   此示例将继续 **创建新的逻辑应用 (预览版) Azure Advanced** 。
 
    ![屏幕截图显示 "Azure：逻辑应用 (预览) " 窗格，其中包含一个列表，其中列出了 "在 Azure 中创建新的逻辑应用 (预览) "。](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
 
-1. 若要创建新的 **逻辑应用 (预览) ** 资源，请执行以下步骤：
+1. 若要创建新的 **逻辑应用 (预览)** 资源，请执行以下步骤：
 
-   1. 为新的逻辑应用提供全局唯一的名称，此名称是 **逻辑应用 (预览) ** 资源中使用的名称。 本示例使用 `example-logic-app-preview`。
+   1. 为新的逻辑应用提供全局唯一的名称，此名称是 **逻辑应用 (预览)** 资源中使用的名称。 本示例使用 `example-logic-app-preview`。
 
       ![屏幕截图，显示 "Azure：逻辑应用 () 预览" 窗格，并提示提供要创建的新逻辑应用的名称。](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. 为新逻辑应用选择托管计划，" [**应用服务计划**](../azure-functions/functions-scale.md#app-service-plan) " 或 " [**高级**](../azure-functions/functions-scale.md#premium-plan)"。 此示例选择 " **应用服务计划**"。
+   1. 为新逻辑应用选择托管计划，" [**应用服务计划**](../azure-functions/functions-scale.md#app-service-plan) " 或 " [**高级**](../azure-functions/functions-scale.md#premium-plan)"。 此示例选择 " **应用服务计划** "。
 
       ![屏幕截图显示 "Azure：逻辑应用 (预览") "窗格，并提示选择" 应用服务计划 "或" 高级 "。](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
-   1. 创建新的应用服务计划或选择现有计划。 此示例选择 " **创建新的应用服务计划**"。
+   1. 创建新的应用服务计划或选择现有计划。 此示例选择 " **创建新的应用服务计划** "。
 
       ![屏幕截图，显示 "Azure：逻辑应用 () 预览" 窗格，并提示 "创建新应用服务计划" 或选择现有的应用服务计划。](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
 
@@ -644,7 +687,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
       ![屏幕截图显示 "Azure：逻辑应用 (预览") "窗格，并提示创建或选择存储帐户。](./media/create-stateful-stateless-workflows-visual-studio-code/create-storage-account.png)
 
-   1. 为了更轻松地进行诊断日志记录和跟踪功能，你可以选择现有 Application Insights 资源。 否则，可以选择 " **创建新的 Application Insights 资源**"，或在部署应用后在 Azure 门户中设置 Application Insights。
+   1. 为了更轻松地进行诊断日志记录和跟踪功能，你可以选择现有 Application Insights 资源。 否则，可以选择 " **创建新的 Application Insights 资源** "，或在部署应用后在 Azure 门户中设置 Application Insights。
 
       在部署之前，请确保将 `logLevel` 对象添加到位于 `logging` 项目根级别的 **host.js** 文件中的对象，并将设置 `Host.Triggers.Workflow` 为 `Information` ，例如：
 
@@ -675,7 +718,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    完成后，Visual Studio Code 开始创建和部署发布逻辑应用所需的资源。
 
-1. 若要查看和监视部署过程，请在 " **视图** " 菜单上选择 " **输出**"。 从 "输出" 窗口的工具栏列表中，选择 " **Azure 逻辑应用**"。
+1. 若要查看和监视部署过程，请在 " **视图** " 菜单上选择 " **输出** "。 从 "输出" 窗口的工具栏列表中，选择 " **Azure 逻辑应用** "。
 
    ![屏幕截图，显示 "输出" 窗口，其中包含在工具栏列表中选择的 "Azure 逻辑应用" 以及部署进度和状态。](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
@@ -691,15 +734,15 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 * [启用无状态逻辑应用工作流的运行历史记录](#run-history)。
 
-* [在已部署的逻辑应用上启用监视 ** (预览) ** 资源](#enable-monitoring)。
+* [在已部署的逻辑应用上启用监视 **(预览)** 资源](#enable-monitoring)。
 
 <a name="find-manage-deployed-workflows-vs-code"></a>
 
 ## <a name="find-and-manage-deployed-logic-apps-in-visual-studio-code"></a>在 Visual Studio Code 中查找和管理已部署的逻辑应用
 
-在 Visual Studio Code 中，可以查看 Azure 订阅中的所有已部署逻辑应用，无论它们是原始 **逻辑应用** 还是 **逻辑应用 (预览版) ** 资源类型，然后选择可帮助你管理这些逻辑应用的任务。 但是，若要访问这两种资源类型，需要使用 **Azure 逻辑应用** 和 **azure 逻辑应用 (预览) ** 扩展 Visual Studio Code。
+在 Visual Studio Code 中，可以查看 Azure 订阅中的所有已部署逻辑应用，无论它们是原始 **逻辑应用** 还是 **逻辑应用 (预览版)** 资源类型，然后选择可帮助你管理这些逻辑应用的任务。 但是，若要访问这两种资源类型，需要使用 **Azure 逻辑应用** 和 **azure 逻辑应用 (预览)** 扩展 Visual Studio Code。
 
-1. 在左侧工具栏上，选择 "Azure" 图标。 在 " **Azure：逻辑应用 (预览") ** 窗格中，展开订阅，其中显示了该订阅的所有已部署的逻辑应用。
+1. 在左侧工具栏上，选择 "Azure" 图标。 在 " **Azure：逻辑应用 (预览")** 窗格中，展开订阅，其中显示了该订阅的所有已部署的逻辑应用。
 
 1. 找到并选择要管理的逻辑应用。 打开逻辑应用的快捷菜单，并选择要执行的任务。
 
@@ -709,7 +752,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 1. 若要查看逻辑应用中的所有工作流，请展开逻辑应用，然后展开 " **工作流** " 节点。
 
-1. 若要查看特定工作流，请打开工作流的快捷菜单，然后选择 " **在设计器中打开**" （在只读模式下打开工作流）。
+1. 若要查看特定工作流，请打开工作流的快捷菜单，然后选择 " **在设计器中打开** " （在只读模式下打开工作流）。
 
    若要编辑工作流，可以使用以下选项：
 
@@ -717,7 +760,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    * 在 Azure 门户中，[找到并打开你的逻辑应用](#find-manage-deployed-workflows-portal)。 查找、编辑和保存工作流。
 
-1. 若要在 Azure 门户中打开已部署的逻辑应用，请打开逻辑应用的快捷菜单，然后选择 " **在门户中打开**"。
+1. 若要在 Azure 门户中打开已部署的逻辑应用，请打开逻辑应用的快捷菜单，然后选择 " **在门户中打开** "。
 
    Azure 门户在浏览器中打开，如果登录到 Visual Studio Code 并显示逻辑应用，则会自动登录到门户。
 
@@ -731,18 +774,18 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>在门户中查找和管理已部署的逻辑应用
 
-在 Azure 门户中，可以查看 Azure 订阅中的所有已部署逻辑应用，无论它们是原始 **逻辑应用** 资源类型还是 **逻辑应用 (预览版) ** 资源类型。 目前，在 Azure 中，每种资源类型都作为单独的类别进行组织和管理。
+在 Azure 门户中，可以查看 Azure 订阅中的所有已部署逻辑应用，无论它们是原始 **逻辑应用** 资源类型还是 **逻辑应用 (预览版)** 资源类型。 目前，在 Azure 中，每种资源类型都作为单独的类别进行组织和管理。
 
 > [!NOTE]
-> 对于公共预览版，只能在 Azure 门户 ** () 预览 ** 中查看已部署的逻辑应用，而不能 ** (预览) ** 资源创建新的逻辑应用。 只能在 Visual Studio Code 中创建这些逻辑应用。 但是，可以 [将工作流添加](#add-workflows) 到具有此资源类型的已部署逻辑应用。
+> 对于公共预览版，只能在 Azure 门户 **() 预览** 中查看已部署的逻辑应用，而不能 **(预览)** 资源创建新的逻辑应用。 只能在 Visual Studio Code 中创建这些逻辑应用。 但是，可以 [将工作流添加](#add-workflows) 到具有此资源类型的已部署逻辑应用。
 
-若要查找逻辑 **应用 (预览) ** 资源类型的逻辑应用，请执行以下步骤：
+若要查找逻辑 **应用 (预览)** 资源类型的逻辑应用，请执行以下步骤：
 
-1. 在 Azure 门户搜索框中输入 `logic app preview` 。 出现 "结果" 列表时，请在 " **服务**" 下选择 " **逻辑应用 (预览") **。
+1. 在 Azure 门户搜索框中输入 `logic app preview` 。 出现 "结果" 列表时，请在 " **服务** " 下选择 " **逻辑应用 (预览")** 。
 
    ![屏幕截图，显示带有 "逻辑应用预览" 搜索文本的 Azure 门户搜索框。](./media/create-stateful-stateless-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
-1. 在 " **逻辑应用 (预览") ** 窗格中，查找并选择从 Visual Studio Code 部署的逻辑应用。
+1. 在 " **逻辑应用 (预览")** 窗格中，查找并选择从 Visual Studio Code 部署的逻辑应用。
 
    ![显示在 Azure 中部署) 资源的 Azure 门户和逻辑应用 (预览的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-preview-resources-pane.png)
 
@@ -750,7 +793,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    ![在 Azure 门户中显示逻辑应用工作流的资源页的屏幕截图。](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
 
-1. 若要查看此逻辑应用的工作流，请在逻辑应用菜单上选择 " **工作流**"。
+1. 若要查看此逻辑应用的工作流，请在逻辑应用菜单上选择 " **工作流** "。
 
    " **工作流** " 窗格显示当前逻辑应用中的所有工作流。 此示例显示了你在 Visual Studio Code 中创建的工作流。
 
@@ -760,7 +803,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    "工作流" 窗格将打开，并显示可对该工作流执行的详细信息和任务。
 
-   例如，若要查看工作流中的步骤，请选择 " **设计器**"。
+   例如，若要查看工作流中的步骤，请选择 " **设计器** "。
 
    ![屏幕截图，显示所选工作流的 "概述" 窗格，而工作流菜单显示选定的 "设计器" 命令。](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
@@ -772,15 +815,15 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="add-a-workflow-to-deployed-logic-apps"></a>将工作流添加到已部署的逻辑应用
 
-通过 Azure 门户，您可以将空白工作流添加到 **逻辑应用中， (预览 ** 从 Visual Studio Code 部署) 资源并在 Azure 门户中生成这些工作流。
+通过 Azure 门户，您可以将空白工作流添加到 **逻辑应用中， (预览** 从 Visual Studio Code 部署) 资源并在 Azure 门户中生成这些工作流。
 
-1. 在 [Azure 门户](https://portal.azure.com)中，查找并选择已部署的 **逻辑应用 (预览版) ** 资源。
+1. 在 [Azure 门户](https://portal.azure.com)中，查找并选择已部署的 **逻辑应用 (预览版)** 资源。
 
-1. 在逻辑应用的菜单中，选择 " **工作流**"。 在 " **工作流** " 窗格上，选择 " **添加**"。
+1. 在逻辑应用的菜单中，选择 " **工作流** "。 在 " **工作流** " 窗格上，选择 " **添加** "。
 
    ![屏幕截图，显示所选逻辑应用的 "工作流" 窗格和工具栏，并选中 "添加" 命令。](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. 在 " **新建工作流** " 窗格中，提供工作流的名称。 选择有 **状态** 或 **无状态** **>** **创建**。
+1. 在 " **新建工作流** " 窗格中，提供工作流的名称。 选择有 **状态** 或 **无状态** **>** **创建** 。
 
    在 Azure 部署新工作流后（显示在 " **工作流** " 窗格上），选择该工作流以执行管理和其他任务，例如打开逻辑应用设计器或代码视图。
 
@@ -800,7 +843,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 如果在 Visual Studio Code 中本地处理并运行无状态逻辑应用工作流，请执行以下步骤：
 
-1. 在项目中，找到并展开 **designtime** 文件夹。 查找并打开文件 ** 上的local.settings.js** 。
+1. 在项目中，找到并展开 **designtime** 文件夹。 查找并打开文件 **上的local.settings.js** 。
 
 1. 添加 `Workflows.{yourWorkflowName}.operationOptions` 属性，并将值设置为 `WithStatelessRunHistory` ，例如：
 
@@ -821,11 +864,11 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 如果已将项目部署到 Azure 门户，请执行以下步骤：
 
-1. 在 [Azure 门户](https://portal.azure.com)中，查找并打开 **逻辑应用 (预览) ** 资源。
+1. 在 [Azure 门户](https://portal.azure.com)中，查找并打开 **逻辑应用 (预览)** 资源。
 
-1. 在逻辑应用的菜单的 " **设置**" 下，选择 " **配置**"。
+1. 在逻辑应用的菜单的 " **设置** " 下，选择 " **配置** "。
 
-1. 在 " **应用程序设置** " 选项卡上，选择 " **新建应用程序设置**"。
+1. 在 " **应用程序设置** " 选项卡上，选择 " **新建应用程序设置** "。
 
 1. 在 " **添加/编辑应用程序设置** " 窗格上的 " **名称** " 框中，输入此操作选项名称： 
 
@@ -837,7 +880,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    ![屏幕截图，显示 Azure 门户和逻辑应用 (预览版) 资源，其中 "配置" > "新应用程序设置" < "添加/编辑应用程序设置" 窗格打开和 "工作流"。{yourWorkflowName}.OperationOptions "选项设置为" WithStatelessRunHistory "。](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 
-1. 完成后，请选择“确定”。 在 " **配置** " 窗格上，选择 " **保存**"。
+1. 完成后，请选择“确定”。 在 " **配置** " 窗格上，选择 " **保存** "。
 
 若要在已部署的逻辑应用上启用监视 (预览) 资源，请转到下一部分。
 
@@ -845,15 +888,15 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="enable-monitoring-for-deployed-logic-app-preview-resources"></a>为已部署的逻辑应用 (预览启用监视) 资源
 
-若要在已部署的 **逻辑应用上启用监视 (预览) ** 资源，请执行以下步骤：
+若要在已部署的 **逻辑应用上启用监视 (预览)** 资源，请执行以下步骤：
 
-1. 在 [Azure 门户](https://portal.azure.com)中，查找并选择已部署的 **逻辑应用 (预览版) ** 资源。
+1. 在 [Azure 门户](https://portal.azure.com)中，查找并选择已部署的 **逻辑应用 (预览版)** 资源。
 
-1. 在该资源的菜单中的 " **API**" 下，选择 " **CORS**"。
+1. 在该资源的菜单中的 " **API** " 下，选择 " **CORS** "。
 
-1. 在 " **CORS** " 窗格的 " **允许的来源**" 下，将通配符添加 ( * ) 。
+1. 在 " **CORS** " 窗格的 " **允许的来源** " 下，将通配符添加 ( * ) 。
 
-1. 完成后，在 " **CORS** " 工具栏上，选择 " **保存**"。
+1. 完成后，在 " **CORS** " 工具栏上，选择 " **保存** "。
 
    ![屏幕截图，显示 (预览版) 资源的已部署逻辑应用的 Azure 门户。 在 "资源" 菜单中，选择 "CORS"，并将 "允许的来源" 的新条目设置为通配符 "*" 字符。](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
@@ -921,7 +964,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   在 Azure *master-key*存储帐户（在中为文件中的 " `AzureWebJobsStorage` **azure web 作业-密码/{部署名称}/host.js**" 设置）中定义 <主密钥> 值，可在其中找到此部分中的值：
+   在 Azure *master-key* 存储帐户（在中为文件中的 " `AzureWebJobsStorage` **azure web 作业-密码/{部署名称}/host.js** " 设置）中定义 <主密钥> 值，可在其中找到此部分中的值：
 
    ```json
    {
@@ -939,7 +982,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>有状态和无状态逻辑应用之间的嵌套行为差异
 
-可以通过使用[请求](../connectors/connectors-native-reqres.md)触发器、 [HTTP Webhook](../connectors/connectors-native-webhook.md)触发器或具有[APICONNECTIONWEHOOK 类型](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger)并且可以接收 HTTPS 请求的托管连接器触发器，[使逻辑应用工作流](../logic-apps/logic-apps-http-endpoint.md)可从同一逻辑应用中存在的其他逻辑应用工作流调用， ** (预览) **资源。
+可以通过使用 [请求](../connectors/connectors-native-reqres.md)触发器、 [HTTP Webhook](../connectors/connectors-native-webhook.md)触发器或具有 [APICONNECTIONWEHOOK 类型](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger)并且可以接收 HTTPS 请求的托管连接器触发器， [使逻辑应用工作流](../logic-apps/logic-apps-http-endpoint.md)可从同一逻辑应用中存在的其他逻辑应用工作流调用， **(预览)** 资源。
 
 下面是嵌套的逻辑应用工作流在父工作流调用子工作流之后可遵循的行为模式：
 

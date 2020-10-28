@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82613279"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675934"
 ---
 # <a name="imagery-partner-integration"></a>图像合作伙伴集成
 
@@ -43,9 +43,9 @@ API 包含 Swagger 技术文档。 有关 Api 和相应的请求或响应的信�
 
 ## <a name="authentication"></a>身份验证
 
-FarmBeats 使用 Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD) 。  Azure 应用服务提供内置的身份验证和授权支持。 
+FarmBeats 使用 Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure AD) 。  Azure 应用服务提供内置的身份验证和授权支持。 
 
-有关 Azure AD 的详细信息，请参阅 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)。   
+有关 Azure AD 的详细信息，请参阅 [Azure Active Directory](../../app-service/overview-authentication-authorization.md)。   
 
 FarmBeats 数据中心使用持有者身份验证，该验证方法需要以下凭据：
 
@@ -138,10 +138,10 @@ JSON 是一种与语言无关的常见数据格式，该格式提供任意数据
 
 1.  根据要上传的图像的类型，为以下字段创建新的扩展类型：
 
-    - **场景源**：例如，drone_partner_name
-    - **场景类型**：例如，无人机
-    - **场景文件类型**：例如，chlorophyll index
-    - **场景文件内容类型**：例如，image/tiff
+    - **场景源** ：例如，drone_partner_name
+    - **场景类型** ：例如，无人机
+    - **场景文件类型** ：例如，chlorophyll index
+    - **场景文件内容类型** ：例如，image/tiff
 
 2.  调用/Farms API，从 Azure FarmBeats 系统中获取场列表。
 3.  让客户能够从场列表中选择单个场。

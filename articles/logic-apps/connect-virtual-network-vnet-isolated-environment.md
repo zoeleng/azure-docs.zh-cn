@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 7fee95a435b477639fe2b98cf2c9cbf500df5941
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/25/2020
+ms.openlocfilehash: cf8ce541c069f78adbb138fa38e2efc506e095ea
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310023"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675194"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>使用集成服务环境 (ISE) 从 Azure 逻辑应用连接到 Azure 虚拟网络
 
@@ -67,9 +67,9 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
   * 如果使用或需要与[强制隧道](../firewall/forced-tunneling.md)一起使用[ExpressRoute](../expressroute/expressroute-introduction.md) ，则必须使用以下特定路由[创建路由表](../virtual-network/manage-route-table.md)，并将路由表链接到你的 ISE 使用的每个子网：
 
-    **名称**：<*route-name*><br>
-    **地址前缀**：0.0.0.0/0<br>
-    **下一跃点**：Internet
+    **名称** ：< *route-name*><br>
+    **地址前缀** ：0.0.0.0/0<br>
+    **下一跃点** ：Internet
     
     需要此特定的路由表，以便逻辑应用组件可以与其他依赖 Azure 服务（如 Azure 存储和 Azure SQL DB）进行通信。 有关此路由的详细信息，请参阅 [0.0.0.0/0 地址前缀](../virtual-network/virtual-networks-udr-overview.md#default-route)。 如果不对 ExpressRoute 使用强制隧道，则不需要此特定的路由表。
     
@@ -116,8 +116,8 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
 | 目的 | 源服务标记或 IP 地址 | 源端口 | 目标服务标记或 IP 地址 | 目标端口 | 说明 |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
-| 在虚拟网络中进行子网间通信 | 具有 ISE 子网的虚拟网络的地址空间 | * | 具有 ISE 子网的虚拟网络的地址空间 | * | 虚拟网络中子网之间流量流动所必需。 <p><p>**重要说明**：为了使流量在每个子网的组件之间流动，请确保打开每个子网中的所有端口。 |
-| 两者： <p>与逻辑应用进行通信 <p><p>逻辑应用的运行历史记录| 内部 ISE： <br>**VirtualNetwork** <p><p>外部 ISE：Internet 或参阅“说明”  | * | **VirtualNetwork** | 443 | 可以指定这些项的源 IP 地址，而不使用 Internet 服务标记： <p><p>- 在逻辑应用中调用任何请求触发器或 Webhook 的计算机或服务 <p>- 要从中访问逻辑应用运行历史记录的计算机或服务 <p><p>**重要说明**：关闭或阻止此端口可防止调用具有请求触发器或 Webhook 的逻辑应用。 还可以阻止你访问运行历史记录中每个步骤的输入和输出。 但是，不会阻止你访问逻辑应用运行历史记录。|
+| 在虚拟网络中进行子网间通信 | 具有 ISE 子网的虚拟网络的地址空间 | * | 具有 ISE 子网的虚拟网络的地址空间 | * | 虚拟网络中子网之间流量流动所必需。 <p><p>**重要说明** ：为了使流量在每个子网的组件之间流动，请确保打开每个子网中的所有端口。 |
+| 两者： <p>与逻辑应用进行通信 <p><p>逻辑应用的运行历史记录| 内部 ISE： <br>**VirtualNetwork** <p><p>外部 ISE：Internet 或参阅“说明”  | * | **VirtualNetwork** | 443 | 可以指定这些项的源 IP 地址，而不使用 Internet 服务标记： <p><p>- 在逻辑应用中调用任何请求触发器或 Webhook 的计算机或服务 <p>- 要从中访问逻辑应用运行历史记录的计算机或服务 <p><p>**重要说明** ：关闭或阻止此端口可防止调用具有请求触发器或 Webhook 的逻辑应用。 还可以阻止你访问运行历史记录中每个步骤的输入和输出。 但是，不会阻止你访问逻辑应用运行历史记录。|
 | 逻辑应用设计器 - 动态属性 | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | 请求来自该区域的逻辑应用访问终结点的[入站 IP 地址](../logic-apps/logic-apps-limits-and-config.md#inbound)。 |
 | 连接器部署 | **AzureConnectors** | * | **VirtualNetwork** | 454 | 部署和更新连接器需要。 关闭或阻止此端口会导致 ISE 部署失败，并阻止连接器更新和修复。 |
 | 网络运行状况检查 | **LogicApps** | * | **VirtualNetwork** | 454 | 请求来自该区域的逻辑应用访问终结点的[入站 IP 地址](../logic-apps/logic-apps-limits-and-config.md#inbound)和[出站 IP 地址](../logic-apps/logic-apps-limits-and-config.md#outbound)。 |
@@ -131,7 +131,7 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
 | 目的 | 源服务标记或 IP 地址 | 源端口 | 目标服务标记或 IP 地址 | 目标端口 | 说明 |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
-| 在虚拟网络中进行子网间通信 | 具有 ISE 子网的虚拟网络的地址空间 | * | 具有 ISE 子网的虚拟网络的地址空间 | * | 虚拟网络中子网之间流量流动所必需。 <p><p>**重要说明**：为了使流量在每个子网的组件之间流动，请确保打开每个子网中的所有端口。 |
+| 在虚拟网络中进行子网间通信 | 具有 ISE 子网的虚拟网络的地址空间 | * | 具有 ISE 子网的虚拟网络的地址空间 | * | 虚拟网络中子网之间流量流动所必需。 <p><p>**重要说明** ：为了使流量在每个子网的组件之间流动，请确保打开每个子网中的所有端口。 |
 | 来自逻辑应用的通信 | **VirtualNetwork** | * | 取决于目标 | 80、443 | 目标因逻辑应用需要与之通信的外部服务的终结点而异。 |
 | Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80、443 ||
 | Azure 存储依赖项 | **VirtualNetwork** | * | **存储** | 80、443、445 ||
@@ -148,7 +148,7 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
 * 如果使用 Azure 防火墙，需要使用应用服务环境 (ASE) [完全限定的域名 (FQDN) 标记](../firewall/fqdn-tags.md#current-fqdn-tags)设置防火墙，这允许出站访问 ASE 平台通信。
 
-* 如果使用除 Azure 防火墙以外的防火墙设备，则需要使用应用服务环境所需的[防火墙集成依赖项](../app-service/environment/firewall-integration.md#dependencies)中列出的*所有*规则设置防火墙。
+* 如果使用除 Azure 防火墙以外的防火墙设备，则需要使用应用服务环境所需的 [防火墙集成依赖项](../app-service/environment/firewall-integration.md#dependencies)中列出的 *所有* 规则设置防火墙。
 
 <a name="forced-tunneling"></a>
 
@@ -188,17 +188,17 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
    ![提供环境详细信息](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | properties | 必须 | 值 | 说明 |
+   | properties | 必选 | 值 | 说明 |
    |----------|----------|-------|-------------|
    | **订阅** | 是 | <*Azure-subscription-name*> | 用于环境的 Azure 订阅 |
    | **资源组** | 是 | <*Azure-resource-group-name*> | 要在其中创建环境的新的或现有的 Azure 资源组 |
    | **集成服务环境名称** | 是 | <*environment-name*> | ISE 名称，只能包含字母、数字、连字符 (`-`)、下划线 (`_`) 和句点 (`.`)。 |
    | **位置** | 是 | <*Azure-datacenter-region*> | 要在其中部署环境的 Azure 数据中心区域 |
-   | **SKU** | 是 | “高级”或“开发人员（无 SLA）”  | 要创建和使用的 ISE SKU。 有关这些 SKU 之间的差异，请参阅 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)。 <p><p>**重要说明**：此选项仅在创建 ISE 时可用，以后不能更改。 |
+   | **SKU** | 是 | “高级”或“开发人员（无 SLA）”  | 要创建和使用的 ISE SKU。 有关这些 SKU 之间的差异，请参阅 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)。 <p><p>**重要说明** ：此选项仅在创建 ISE 时可用，以后不能更改。 |
    | **额外容量** | 高级： <br>是 <p><p>开发人员： <br>不适用 | 高级： <br>0 到 10 <p><p>开发人员： <br>不适用 | 用于此 ISE 资源的额外处理单元的数量。 若要在创建后添加容量，请参阅[添加 ISE 容量](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)。 |
-   | 访问终结点 | 是 | “内部”或“外部”  | 用于 ISE 的访问终结点的类型。 这些终结点确定 ISE 中逻辑应用上的请求或 Webhook 触发器是否可以接收来自虚拟网络外部的调用。 <p><p>你的选择还会影响在逻辑应用运行历史记录中查看和访问输入和输出的方式。 有关详细信息，请参阅 [ISE 终结点访问](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)。 <p><p>**重要说明**：只能在创建 ISE 的过程中选择访问终结点，以后不能更改此选项。 |
-   | **虚拟网络** | 是 | <Azure-virtual-network-name> | 要注入环境以便该环境中的逻辑应用可以访问虚拟网络的 Azure 虚拟网络。 如果没有网络，请先[创建 Azure 虚拟网络](../virtual-network/quick-create-portal.md)。 <p><p>**重要说明**：创建 ISE 时可以仅执行此注入。 |
-   | **子网** | 是 | <*subnet-resource-list*> | ISE 需要四个 *空白* 子网，这些子网是在 ISE 中创建和部署资源所必需的，由内部逻辑应用组件（如连接器和缓存）用于性能。 <p>**重要提示**：请确保 [先查看子网要求，然后再继续执行这些步骤，以创建子网](#create-subnet)。 |
+   | 访问终结点 | 是 | “内部”或“外部”  | 用于 ISE 的访问终结点的类型。 这些终结点确定 ISE 中逻辑应用上的请求或 Webhook 触发器是否可以接收来自虚拟网络外部的调用。 <p><p>你的选择还会影响在逻辑应用运行历史记录中查看和访问输入和输出的方式。 有关详细信息，请参阅 [ISE 终结点访问](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)。 <p><p>**重要说明** ：只能在创建 ISE 的过程中选择访问终结点，以后不能更改此选项。 |
+   | **虚拟网络** | 是 | <Azure-virtual-network-name> | 要注入环境以便该环境中的逻辑应用可以访问虚拟网络的 Azure 虚拟网络。 如果没有网络，请先[创建 Azure 虚拟网络](../virtual-network/quick-create-portal.md)。 <p><p>**重要说明** ：创建 ISE 时可以仅执行此注入。 |
+   | **子网** | 是 | <*subnet-resource-list*> | ISE 需要四个 *空白* 子网，这些子网是在 ISE 中创建和部署资源所必需的，由内部逻辑应用组件（如连接器和缓存）用于性能。 <p>**重要提示** ：请确保 [先查看子网要求，然后再继续执行这些步骤，以创建子网](#create-subnet)。 |
    |||||
 
    <a name="create-subnet"></a>
@@ -227,9 +227,9 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
    * 如果使用 [ExpressRoute](../expressroute/expressroute-introduction.md)，则必须[创建具有以下路由的路由表](../virtual-network/manage-route-table.md)，并将该表与 ISE 使用的每个子网链接：
 
-     **名称**：<*route-name*><br>
-     **地址前缀**：0.0.0.0/0<br>
-     **下一跃点**：Internet
+     **名称** ：< *route-name*><br>
+     **地址前缀** ：0.0.0.0/0<br>
+     **下一跃点** ：Internet
 
    1. 在“子网”列表下，选择“管理子网配置” 。
 
@@ -241,7 +241,7 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
    1. 在“添加子网”窗格中，提供此信息。
 
-      * **Name**：子网的名称
+      * **Name** ：子网的名称
       * **地址范围(CIDR 块)** ：虚拟网络采用 CIDR 格式的子网范围
 
       ![添加子网详细信息](./media/connect-virtual-network-vnet-isolated-environment/provide-subnet-details.png)
@@ -280,25 +280,18 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
 1. 要检查 ISE 的网络运行状况，请参阅[管理集成服务环境](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)。
 
+   > [!CAUTION]
+   > 如果 ISE 的网络变得不正常，则 ISE 使用的内部应用服务环境 (ASE) 也可能会变得不正常。 如果 ASE 的运行时间超过7天，则会挂起 ASE。 若要解决此状态，请检查虚拟网络设置。 解决发现的任何问题，然后重启 ISE。 否则，90天后，将删除挂起的 ASE，并使 ISE 变为不可用。 因此，请确保你的 ISE 始终处于正常状态，以允许所需的流量。
+   > 
+   > 有关详细信息，请参阅以下主题：
+   >
+   > * [Azure 应用服务诊断概述](../app-service/overview-diagnostics.md)
+   > * [Azure 应用服务环境的消息日志记录](../app-service/environment/using-an-ase.md#logging)
+
 1. 要开始在 ISE 中创建逻辑应用和其他项目，请参阅[向集成服务环境添加资源](../logic-apps/add-artifacts-integration-service-environment-ise.md)。
 
    > [!IMPORTANT]
-   > 创建 ISE 后可用的托管 ISE 连接器不会自动出现在逻辑应用设计器的连接器选择器中。 必须手动[将 ISE 连接器添加到 ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment)，使其出现在逻辑应用设计器中，才能使用这些连接器。
-
-   > [!IMPORTANT]
-   > 托管 ISE 连接器目前不支持 [标记](../azure-resource-manager/management/tag-support.md)。 如果设置了强制执行标记的策略，请尝试添加 ISE 连接器  
-   > 可能会失败并出现类似于以下示例的错误： 
-   > 
-   > ```json
-   > {
-   >    "error": { 
-   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
-   >       "message": "The tags are not supported in the managed API 'azureblob'."
-   >    }
-   > }
-   > ```
-   > 若要添加 ISE 连接器，必须禁用或删除策略。
-   > 
+   > 创建 ISE 后，托管的 ISE 连接器可供使用，但不会自动显示在逻辑应用设计器上的连接器选取器中。 在可以使用这些 ISE 连接器之前，必须手动 [将这些连接器添加并部署到 ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) ，使其显示在逻辑应用设计器中。
 
 ## <a name="next-steps"></a>后续步骤
 

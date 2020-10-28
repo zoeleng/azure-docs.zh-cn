@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284075"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677726"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用在 Azure Blob 存储中创建和管理 Blob
 
@@ -183,9 +183,9 @@ ms.locfileid: "87284075"
 
 若要设置异常和托管标识支持，请执行下列常规步骤：
 
-1. 在存储帐户的 " **设置**" 下，选择 " **防火墙和虚拟网络**"。 在 " **允许访问**" 下，选择 " **所选网络** " 选项，以便显示相关设置。
+1. 在存储帐户的 " **设置** " 下，选择 " **防火墙和虚拟网络** "。 在 " **允许访问** " 下，选择 " **所选网络** " 选项，以便显示相关设置。
 
-1. 在 " **例外**" 下，选择 " **允许受信任的 Microsoft 服务访问此存储帐户**"，然后选择 " **保存**"。
+1. 在 " **例外** " 下，选择 " **允许受信任的 Microsoft 服务访问此存储帐户** "，然后选择 " **保存** "。
 
    ![选择允许 Microsoft 受信任服务的例外](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
@@ -202,9 +202,8 @@ ms.locfileid: "87284075"
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>通过 Azure API 管理访问存储帐户
 
-如果使用专用层进行 [Api 管理](../api-management/api-management-key-concepts.md)，则可以通过使用 api 管理并允许通过防火墙使用后端的 IP 地址，来存储 api 的前端。 基本上，将 API 管理使用的 Azure 虚拟网络添加到存储帐户的防火墙设置。 然后使用 API 管理操作或 HTTP 操作调用 Azure 存储 API 即可。 但是，如果选择此选项，则需自行处理身份验证过程。 有关详细信息，请参阅[简单的企业集成体系结构](https://aka.ms/aisarch)。
+如果使用专用层进行 [Api 管理](../api-management/api-management-key-concepts.md)，则可以通过使用 api 管理并允许通过防火墙使用后端的 IP 地址，来存储 api 的前端。 基本上，将 API 管理使用的 Azure 虚拟网络添加到存储帐户的防火墙设置。 然后使用 API 管理操作或 HTTP 操作调用 Azure 存储 API 即可。 但是，如果选择此选项，则需自行处理身份验证过程。 有关详细信息，请参阅[简单的企业集成体系结构](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 了解其他[逻辑应用连接器](../connectors/apis-list.md)
-

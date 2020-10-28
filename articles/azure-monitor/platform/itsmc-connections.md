@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 7de9de7e1ba8028cbdb24744775294a4890afe40
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547735"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677147"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>将 ITSM 产品/服务与 IT 服务管理连接器相连接
 本文介绍如何配置 ITSM 产品/服务与 Log Analytics 中的 IT 服务管理连接器 (ITSMC) 之间的连接，以便集中管理工作项。 有关 ITSMC 的详细信息，请参阅[概述](./itsmc-overview.md)。
@@ -350,7 +350,7 @@ ms.locfileid: "92547735"
 | **同步数据** | 键入检索数据的过去天数。 **最大限制** ：120 天。 |
 | **在 ITSM 解决方案中创建新的配置项** | 如果想要在 ITSM 产品中创建配置项，请选择此选项。 选择此选项后，ITSMC 会在支持的 ITSM 系统中创建受影响的 CI 作为配置项（如果不存在 CI）。 **默认** ：已禁用。|
 
-![Provance 连接](media/itsmc-connections/itsm-connections-provance-latest.png)
+![突出显示 "连接名称" 和 "合作伙伴类型" 列表的屏幕截图。](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 成功连接并同步后：
 

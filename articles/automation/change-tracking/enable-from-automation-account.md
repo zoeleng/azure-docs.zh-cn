@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c3630105e70ac28e7e9041aa9d5400f724401a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 50188ad5fea0ee34a6896f0045e3bbcbfb553aaa
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209448"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677301"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>从自动化帐户启用更改跟踪和清单
 
@@ -49,7 +49,7 @@ ms.locfileid: "92209448"
 
 ## <a name="enable-non-azure-vms"></a>启用非 Azure VM
 
-需要手动添加 Azure 中没有的计算机。
+需要手动添加 Azure 中没有的计算机。 建议安装适用于 Windows 或 Linux 的 Log Analytics 代理，方法是先将计算机连接到 [已启用 Azure Arc 的服务器](../../azure-arc/servers/overview.md)，然后使用 Azure 策略将 [部署 Log Analytics 代理分配到 *Linux* 或 *Windows* Azure arc 计算机](../../governance/policy/samples/built-in-policies.md#monitoring) 内置策略。 如果还计划使用用于 VM 的 Azure Monitor 来监视计算机，请改用 [启用用于 VM 的 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 计划。
 
 1. 在你的自动化帐户中，在“配置管理”下选择“库存”或“更改跟踪”  。
 
@@ -61,11 +61,11 @@ ms.locfileid: "92209448"
 
 1. 在你的自动化帐户中，在“配置管理”下选择“库存”或“更改跟踪”  。
 
-2. 选择“管理计算机”。 如果以前在**所有可用的和未来的计算机上**选择了 "启用" 选项，则 "**管理计算机**" 选项可能灰显
+2. 选择“管理计算机”。 如果以前在 **所有可用的和未来的计算机上** 选择了 "启用" 选项，则 " **管理计算机** " 选项可能灰显
 
     ![保存的搜索](media/enable-from-automation-account/manage-machines.png)
 
-3. 若要为所有可用的计算机启用更改跟踪和清单，请在 "**管理计算机**" 页上选择 "**在所有可用计算机上启用**"。 此操作禁止控件单独添加计算机，并将向工作区报告的所有计算机添加到计算机组保存的搜索查询。 如果选择此项，此操作将禁用 " **管理计算机** " 选项。
+3. 若要为所有可用的计算机启用更改跟踪和清单，请在 " **管理计算机** " 页上选择 " **在所有可用计算机上启用** "。 此操作禁止控件单独添加计算机，并将向工作区报告的所有计算机添加到计算机组保存的搜索查询。 如果选择此项，此操作将禁用 " **管理计算机** " 选项。
 
 4. 若要为所有可用的计算机和将来的计算机启用该功能，请选择“在所有可用的和将来的计算机上启用”。 此选项从工作区中删除保存的搜索和作用域配置，并为向工作区报告的所有 Azure 和非 Azure 计算机打开该功能。 如果选择此选项，此操作将永久禁用 " **管理计算机** " 选项，因为没有剩余的作用域配置。
 

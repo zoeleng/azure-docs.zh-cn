@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb177afa804788632f22d24bbd376d64cbe1c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250685"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676654"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>跟踪试验运行并通过 MLflow 和 Azure 机器学习 (预览版部署 ML 模型) 
 
@@ -353,13 +353,16 @@ webservice.wait_for_deployment()
 
 1. 从列表中选择已创建的资源组。
 
-1. 选择“删除资源组”。
+1. 选择“删除资源组”  。
 
 1. 输入资源组名称。 然后选择“删除”。
 
 ## <a name="example-notebooks"></a>示例笔记本
 
 [将 MLflow 与 Azure ML 笔记本配合使用](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow)演示了本文中所述的概念，并在这些概念的基础上有所延伸。
+
+> [!NOTE]
+> 使用 mlflow 的示例社区驱动的存储库可在中找到 https://github.com/Azure/azureml-examples 。
 
 ## <a name="next-steps"></a>后续步骤
 

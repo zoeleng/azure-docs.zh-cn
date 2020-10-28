@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
-ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505802"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677320"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>使用 Azure Active Directory (Azure AD) Identity Governance 查看并删除不再具有资源访问权限的外部用户
 
@@ -67,7 +67,7 @@ ms.locfileid: "89505802"
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>使用 Azure AD 访问评审（预览版）禁用并删除外部标识
 
-除了提供用于从资源（例如组或应用程序）中删除不需要的外部标识的选项以外，Azure AD 访问评审还可以阻止外部标识登录你的租户，并可以在 30 天后删除你的租户中的外部标识。
+除了提供用于从资源（例如组或应用程序）中删除不需要的外部标识的选项以外，Azure AD 访问评审还可以阻止外部标识登录你的租户，并可以在 30 天后删除你的租户中的外部标识。 选择 " **阻止用户登录30天后"，然后从租户中删除用户** 后，评审会处于 "正在应用" 状态30天。 在此期间，当前评审下的 "设置"、"结果"、"审阅者" 或 "审核日志" 不可查看或配置。 
 
 ![完成后的设置](media/access-reviews-external-users/upon-completion-settings.png)
 

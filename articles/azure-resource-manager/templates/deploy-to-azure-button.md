@@ -2,17 +2,24 @@
 title: “部署到 Azure”按钮
 description: 使用此按钮从 GitHub 存储库部署 Azure 资源管理器模板。
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079475"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675392"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>使用部署按钮从 GitHub 存储库部署模板
 
-本文介绍了如何使用“部署到 Azure”按钮从 GitHub 存储库部署模板。 可以直接将此按钮添加到你的 GitHub 存储库中的 README.md 文件，也可以将其添加到引用该存储库的网页。 此方法仅支持资源组级别的部署。
+本文介绍了如何使用“部署到 Azure”按钮从 GitHub 存储库部署模板。 可以直接将该按钮添加到 GitHub 存储库中的 README.md 文件。 或者，您可以将该按钮添加到引用该存储库的网页中。
+
+部署范围由模板架构确定。 有关详细信息，请参阅：
+
+* [资源组](deploy-to-resource-group.md)
+* [subscriptions](deploy-to-subscription.md)
+* [管理组](deploy-to-management-group.md)
+* [租户](deploy-to-tenant.md)。
 
 ## <a name="use-common-image"></a>使用常用图像
 
@@ -38,7 +45,7 @@ URL 的格式为：
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-然后，对其进行 URL 编码。 可以使用联机编码器，也可以运行一个命令。 以下 PowerShell 示例展示了如何对值进行 URL 编码。
+然后，将 URL 转换为 URL 编码的值。 可以使用联机编码器，也可以运行一个命令。 以下 PowerShell 示例展示了如何对值进行 URL 编码。
 
 ```powershell
 [uri]::EscapeDataString($url)

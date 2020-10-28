@@ -4,12 +4,12 @@ description: 在 Linux 上安装运行时和 SDK 并创建本地开发群集。 
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168403"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675272"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -17,9 +17,9 @@ ms.locfileid: "92168403"
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-若要在 Linux 开发计算机上部署和运行 (Azure Service Fabric 应用程序) [service-fabric-application-model.md]，请安装运行时和通用 SDK。 还可以安装用于 Java 和 .NET Core 开发的可选 SDK。 
+若要在 Linux 开发计算机上部署和运行 [Azure Service Fabric 应用程序](service-fabric-application-model.md)，请安装运行时和常用 SDK。 还可以安装用于 Java 和 .NET Core 开发的可选 SDK。 
 
-本文中的步骤假设你已在 Linux 上本机安装，或者使用 (Service Fabric OneBox 容器映像) [ https://hub.docker.com/_/microsoft-service-fabric-onebox ]，即。 `mcr.microsoft.com/service-fabric/onebox:u18`
+本文中的步骤假设你是在 Linux 上本机安装的，或者使用 [Service Fabric OneBox 容器映像](https://hub.docker.com/_/microsoft-service-fabric-onebox)，例如 `mcr.microsoft.com/service-fabric/onebox:u18` 。
 
 可以通过 Azure Service Fabric 命令行界面 (CLI) 来管理在云中或本地托管的 Service Fabric 实体。 有关如何安装 CLI 的信息，请参阅[设置 Service Fabric CLI](./service-fabric-cli.md)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "92168403"
 
 ## <a name="script-installation"></a>脚本安装
 
-为方便起见，提供了一个脚本，用于将 Service Fabric 运行时和 Service Fabric 通用 SDK 与[ **sfctl** CLI](service-fabric-cli.md)一起安装。 运行该脚本即认为你同意所要安装的所有软件的许可条款。 或者，你可以在下一节中运行 [手动安装](#manual-installation) 步骤，其中将显示关联的许可证以及要安装的组件。
+为方便起见，提供了一个脚本，用于将 Service Fabric 运行时和 Service Fabric 通用 SDK 与 [ **sfctl** CLI](service-fabric-cli.md)一起安装。 运行该脚本即认为你同意所要安装的所有软件的许可条款。 或者，你可以在下一节中运行 [手动安装](#manual-installation) 步骤，其中将显示关联的许可证以及要安装的组件。
 
 成功运行脚本后，可以跳转到[设置本地群集](#set-up-a-local-cluster)。
 

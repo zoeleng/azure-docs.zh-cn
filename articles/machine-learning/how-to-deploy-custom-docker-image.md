@@ -11,22 +11,22 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6aa08f91a9289984d15beac5fb215d112a5558da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999113"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676048"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自定义 Docker 基础映像部署模型
 
 了解如何在使用 Azure 机器学习部署已训练的模型时使用自定义 Docker 基础映像。
 
-如果未指定，Azure 机器学习将使用默认的基本 Docker 映像。 你可以找到与一起使用的特定 Docker 映像 `azureml.core.runconfig.DEFAULT_CPU_IMAGE` 。 你还可以使用 Azure 机器学习环境来选择特定的基础映像，或者使用自己的基础映像。
+如果未指定 Docker 基础映像，Azure 机器学习将使用默认的 Docker 基础映像。 可以找到与 `azureml.core.runconfig.DEFAULT_CPU_IMAGE` 一起使用的特定 Docker 映像。 你还可以使用 Azure 机器学习环境来选择特定的基础映像，或者使用自己的基础映像。
 
-为部署创建映像时，可以从基础映像着手。 基础映像提供基本的操作系统和组件。 然后，部署过程会将其他组件（如模型、conda 环境和其他资产）添加到映像。
+为部署创建映像时，可以从基础映像着手。 基础映像提供基本的操作系统和组件。 然后，部署过程会将其他组件（如模型、Conda 环境和其他资产）添加到该映像中。
 
-通常，当你想要使用 Docker 来管理依赖项时，请创建一个自定义的基本映像，维护组件版本的更紧密控制，或在部署期间节省时间。 你可能还希望安装模型所需的软件，而安装过程需要很长时间。 如果在创建基础映像时安装软件，你就不必为每个部署安装它。
+通常情况下，如果希望使用 Docker 来管理依赖项、对组件版本进行更严格的控制或节省部署时间，则可以创建自定义基础映像。 你可能还希望安装模型所需的软件，而安装过程需要很长时间。 如果在创建基础映像时安装软件，你就不必为每个部署安装它。
 
 > [!IMPORTANT]
 > 部署模型时，不能覆盖核心组件，如 Web 服务器或 IoT Edge 组件。 这些组件提供已知的工作环境并由 Microsoft 进行测试和支持。
@@ -41,7 +41,7 @@ ms.locfileid: "91999113"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 机器学习工作组。 有关详细信息，请参阅[创建工作区](how-to-manage-workspace.md)一文。
+* Azure 机器学习工作区。 有关详细信息，请参阅[创建工作区](how-to-manage-workspace.md)一文。
 * [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 * [用于 Azure 机器学习的 CLI 扩展](reference-azure-machine-learning-cli.md)。
@@ -72,24 +72,24 @@ ms.locfileid: "91999113"
 Azure 机器学习仅支持提供以下软件的 Docker 映像：
 * Ubuntu 16.04 或更高版本。
 * Conda 4.5.# 或更高版本。
-* Python 3.5 +。
+* Python 3.5+。
 
-若要使用数据集，请安装 libfuse 包。 另外，请确保安装你可能需要的任何用户空间包。
+若要使用数据集，请安装 libfuse-dev 包。 另外，请确保安装你可能需要的所有用户空间包。
 
-Azure ML 维护一组在 Microsoft 容器注册表中发布的 CPU 和 GPU 基础映像，你可以选择利用 (或引用) 而不是创建你自己的自定义映像。 若要查看这些映像的 Dockerfile，请参阅 [Azure/AzureML 容器](https://github.com/Azure/AzureML-Containers) GitHub 存储库。
+Azure ML 会维护一组发布到 Microsoft 容器注册表的 CPU 和 GPU 基础映像，你可以选择利用（或引用）这些映像，而不是创建自己的自定义映像。 若要查看这些映像的 Dockerfile，请参考 [Azure/AzureML-Container](https://github.com/Azure/AzureML-Containers) GitHub 存储库。
 
-对于 GPU 映像，Azure ML 目前提供了 cuda9 和 cuda10 基本映像。 这些基本映像中安装的主要依赖项包括：
+对于 GPU 映像，Azure ML 目前同时提供了 cuda9 和 cuda10 基础映像。 这些基础映像中安装的主要依赖项包括：
 
 | 依赖项 | IntelMPI CPU | OpenMPI CPU | IntelMPI GPU | OpenMPI GPU |
 | --- | --- | --- | --- | --- |
-| miniconda） | = = 4.5.11 | = = 4.5.11 | = = 4.5.11 | = = 4.5.11 |
-| mpi | intelmpi = = 2018.3.222 |openmpi = = 3.1。2 |intelmpi = = 2018.3.222| openmpi = = 3.1。2 |
-| cuda | - | - | 9.0/10。0 | 9.0/10.0/10。1 |
-| cudnn | - | - | 7.4/7。5 | 7.4/7。5 |
+| miniconda | ==4.5.11 | ==4.5.11 | ==4.5.11 | ==4.5.11 |
+| mpi | intelmpi==2018.3.222 |openmpi==3.1.2 |intelmpi==2018.3.222| openmpi==3.1.2 |
+| cuda | - | - | 9.0/10.0 | 9.0/10.0/10.1 |
+| cudnn | - | - | 7.4/7.5 | 7.4/7.5 |
 | nccl | - | - | 2.4 | 2.4 |
 | git | 2.7.4 | 2.7.4 | 2.7.4 | 2.7.4 |
 
-CPU 映像是从 ubuntu 16.04 生成的。 Cuda9 的 GPU 映像是从 nvidia/cuda： 9.0-cudnn7-unixodbc-devel-ubuntu 16.04 构建的。 Cuda10 的 GPU 映像是从 nvidia/cuda： 10.0-cudnn7-unixodbc-devel-ubuntu 16.04 构建的。
+CPU 映像从 ubuntu16.04 生成。 cuda9 的 GPU 映像从 nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04 生成。 cuda10 的 GPU 映像从 nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04 生成。
 <a id="getname"></a>
 
 ### <a name="get-container-registry-information"></a>获取容器注册表信息
@@ -129,7 +129,7 @@ CPU 映像是从 ubuntu 16.04 生成的。 Cuda9 的 GPU 映像是从 nvidia/cud
 
 ### <a name="build-a-custom-base-image"></a>生成自定义基础映像
 
-本部分中的步骤将介绍如何在 Azure 容器注册表中创建自定义 Docker 映像。 有关示例 dockerfile，请参阅 [Azure/AzureML 容器](https://github.com/Azure/AzureML-Containers) GitHub 存储库) 。
+本部分中的步骤将介绍如何在 Azure 容器注册表中创建自定义 Docker 映像。 有关示例 dockerfile，请参阅 [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub 存储库。
 
 1. 创建名为 `Dockerfile` 的新文本文件，并将以下文本用作内容：
 
@@ -197,7 +197,7 @@ CPU 映像是从 ubuntu 16.04 生成的。 Cuda9 的 GPU 映像是从 nvidia/cud
 
 若要使用自定义映像，需要以下信息：
 
-* 映像名称。 例如， `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` 是 Microsoft 提供的简单 Docker 映像的路径。
+* 映像名称。 例如，`mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` 是 Microsoft 提供的简单 Docker 映像的路径。
 
     > [!IMPORTANT]
     > 对于已创建的自定义映像，请确保包含用于该映像的任何标记。 例如，如果映像是使用特定标记（如 `:v1`）创建的。 如果创建映像时未使用特定标记，则应用标记 `:latest`。

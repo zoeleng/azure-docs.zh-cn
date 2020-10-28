@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335528"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735057"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中支持的 Kubernetes 版本
 
@@ -103,12 +103,12 @@ New Supported Version List
 
 你可以在 [AKS Kubernetes 发布日历](#aks-kubernetes-release-calendar)上参考即将推出的版本发布和弃用。
 
-对于 Kubernetes 的新**次要**版本
+对于 Kubernetes 的新 **次要** 版本
 1. AKS 至少在删除前 30 天在 [AKS 发行说明](https://aka.ms/aks/releasenotes)中发布预告，其中包含新版本发布的计划日期以及相应的旧版本弃用。
 2. AKS 会向具有 AKS 和门户访问权限的所有用户发布一个[服务运行状况通知](../service-health/service-health-overview.md)，并向订阅管理员发送一封电子邮件，其中包含计划的版本删除日期。
 3. 自版本删除起，用户有 30 天的时间升级到受支持的次要版本发布，以继续获得支持。
 
-对于 Kubernetes 的新**修补程序**版本
+对于 Kubernetes 的新 **修补程序** 版本
   * 由于修补程序版本的紧急性质，可以在修补程序变为可用时将其引入到服务中。
   * 通常情况下，对于新修补程序版本的发布，AKS 不会进行广泛的通信。 但是，AKS 会持续监视和验证可用的 CVE 修补程序，以便及时在 AKS 中支持它们。 如果发现修补程序或需要用户进行操作，AKS 将通知用户升级到新发布的修补程序。
   * 自从 AKS 中删除修补程序版本之时起，用户有 30 天的时间升级到受支持的修补程序并继续获取支持。
@@ -135,11 +135,12 @@ az aks get-versions --location eastus --output table
 
 |  K8s 版本 | 上游版本  | AKS 预览版  | AKS GA  | 生命周期终止 |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 09月19-19  | 2019 年 1 月   | 2020 年 3 月  | 1.19 GA | 
+| 1.16  | 2019 年 9 月 19 日  | 2019 年 1 月   | 2020 年 3 月  | 2021年1月 * | 
 | 1.17  | 19-12-09  | 2019 年 1 月   | 2020 年 7 月  | 1.20 GA | 
 | 1.18  | 20-03-23  | 2020 年 5 月   | 2020 年 8 月  | 1.21 GA | 
-| 1.19  | 20-08-04  | 09月2020   | 2020 年 11 月  | 1.22 GA | 
-| 1.20  | 08-20 年12月  | Jan 2021   | 三月2021  | 1.23 GA | 
+| 1.19  | 20-08-04  | 2020 年 9 月   | 2020 年 11 月  | 1.22 GA | 
+| 1.20  | 2020 年 12 月 8 日  | 2021 年 1 月   | 2021 年 3 月  | 1.23 GA | 
+\* 由于假日季节 AKS 延长了1.16 年 11 2020 月到2021年11月的生活。 在[此处](https://github.com/Azure/AKS/releases/tag/2020-10-12)了解详细信息
 
 ## <a name="faq"></a>常见问题解答
 

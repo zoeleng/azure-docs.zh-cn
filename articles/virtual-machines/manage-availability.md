@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961334"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734937"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>管理 Linux 虚拟机的可用性
 
@@ -97,7 +97,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 如果计划使用包含非托管磁盘的 VM，请按下述针对存储帐户的最佳做法进行操作。在这些存储帐户中，VM 的虚拟硬盘 (VHD) 以[页 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) 形式存储。
 
 1. 将与同一 VM 关联的所有磁盘（OS 和数据）放置在同一存储帐户中
-2. 在向存储帐户中添加更多 VHD 之前，请**查看 Azure 存储帐户中非托管磁盘的数量[限制](../storage/blobs/scalability-targets-premium-page-blobs.md)**
+2. 在向存储帐户中添加更多 VHD 之前，请 **查看 Azure 存储帐户中非托管磁盘的数量 [限制](../storage/blobs/scalability-targets-premium-page-blobs.md)**
 3. **为可用性集中的每个 VM 使用单独的存储帐户。** 同一可用性集中的多个 VM 不能共享存储帐户。 不同可用性集中的 VM 共享存储帐户是可以接受的，只要遵循上述最佳做法即可 ![托管磁盘 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>使用计划事件主动响应影响事件的 VM
@@ -106,7 +106,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>将负载均衡器与可用性区域或可用性集组合在一起
-将 [Azure 负载均衡器](../load-balancer/load-balancer-overview.md)与可用性区域或可用性集组合在一起，以获取最高的应用程序复原能力。 Azure 负载均衡器将流量分布到多个虚拟机中。 对于标准层虚拟机来说，Azure 负载均衡器已包括在内。 并非所有虚拟机层都包括 Azure 负载均衡器。 有关对虚拟机进行负载均衡的详细信息，请参阅对[Linux](linux/tutorial-load-balancer.md)或[Windows](windows/tutorial-load-balancer.md)的**虚拟机进行负载平衡**。
+将 [Azure 负载均衡器](../load-balancer/load-balancer-overview.md)与可用性区域或可用性集组合在一起，以获取最高的应用程序复原能力。 Azure 负载均衡器将流量分布到多个虚拟机中。 对于标准层虚拟机来说，Azure 负载均衡器已包括在内。 并非所有虚拟机层都包括 Azure 负载均衡器。 有关对虚拟机进行负载均衡的详细信息，请参阅对 [Linux](linux/tutorial-load-balancer.md)或 [Windows](windows/tutorial-load-balancer.md)的 **虚拟机进行负载平衡** 。
 
 如果没有将负载均衡器配置为对多个虚拟机上的流量进行平衡，则任何计划内维护事件都会影响唯一的那个处理流量的虚拟机，导致应用程序层中断。 将同一层的多个虚拟机置于相同的负载均衡器和可用性集下可以确保至少有一个虚拟机实例能够持续处理流量。
 

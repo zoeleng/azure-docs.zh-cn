@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257310"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675639"
 ---
 # <a name="scenario-single-page-application"></a>方案：单页应用程序
 
@@ -24,7 +24,7 @@ ms.locfileid: "91257310"
 
 ## <a name="getting-started"></a>入门
 
-如果尚未这样做，请先完成 JavaScript SPA 快速入门：
+如果尚未创建你的首个应用，请通过完成 Javascript SPA 快速入门创建：
 
 [快速入门：单页应用程序](./quickstart-v2-javascript.md)
 
@@ -32,13 +32,13 @@ ms.locfileid: "91257310"
 
 许多新式 Web 应用程序都是作为客户端单页应用程序构建的。 开发人员使用 JavaScript 或 SPA 框架（例如 Angular、Vue 和 React）来编写它们。 这些应用程序在 Web 浏览器上运行，与传统的服务器端 Web 应用程序相比，它们具有不同的身份验证特征。
 
-Microsoft 标识平台提供了**两个**选项来允许单页应用程序登录用户并获取用于访问后端服务或 Web API 的令牌。
+Microsoft 标识平台提供了 **两个** 选项来允许单页应用程序登录用户并获取用于访问后端服务或 Web API 的令牌。
 
-- [OAuth 2.0 授权代码流（使用 PKCE）](./v2-oauth2-auth-code-flow.md)。 授权代码流允许应用程序用授权代码来交换 **ID** 令牌（表示已经过身份验证的用户），以及交换调用受保护 API 所需的**访问**令牌。 此外，它还返回**刷新**令牌，这类令牌提供以用户身份长期访问资源而无需与这些用户交互的权限。 这是**建议的**做法。
+- [OAuth 2.0 授权代码流（使用 PKCE）](./v2-oauth2-auth-code-flow.md)。 授权代码流允许应用程序用授权代码来交换 **ID** 令牌（表示已经过身份验证的用户），以及交换调用受保护 API 所需的 **访问** 令牌。 此外，它还返回 **刷新** 令牌，这类令牌提供以用户身份长期访问资源而无需与这些用户交互的权限。 这是 **建议的** 做法。
 
 ![单页应用程序 - 授权](./media/scenarios/spa-app-auth.svg)
 
-- [OAuth 2.0 隐式流](./v2-oauth2-implicit-grant-flow.md)。 隐式授权流允许应用程序获取 **ID** 和**访问**令牌。 与授权代码流不同，隐式授权流不会返回**刷新令牌**。
+- [OAuth 2.0 隐式流](./v2-oauth2-implicit-grant-flow.md)。 隐式授权流允许应用程序获取 **ID** 和 **访问** 令牌。 与授权代码流不同，隐式授权流不会返回 **刷新令牌** 。
 
 ![单页应用程序 - 隐式](./media/scenarios/spa-app.svg)
 

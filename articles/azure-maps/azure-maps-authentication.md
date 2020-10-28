@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091400"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678174"
 ---
 # <a name="authentication-with-azure-maps"></a>使用 Azure Maps 进行身份验证
 
@@ -43,7 +43,7 @@ Azure Maps 支持通过两种方式对请求进行身份验证：共享密钥身
 * 使用用户委派的权限的合作伙伴应用程序
 * Azure 资源的托管标识
 
-Azure Maps 为每个 Azure Maps 帐户生成一个唯一的标识符（客户端 ID）。** 当你将此客户端 ID 与其他参数组合时，你可以从 Azure AD 请求令牌。
+Azure Maps 为每个 Azure Maps 帐户生成一个唯一的标识符（客户端 ID）。  当你将此客户端 ID 与其他参数组合时，你可以从 Azure AD 请求令牌。
 
 有关如何为 Azure Maps 配置 Azure AD 和请求令牌的详细信息，请参阅[在 Azure Maps 中管理身份验证](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)。
 
@@ -104,7 +104,7 @@ Azure Maps 支持对 azure [RBAC)  (azure RBAC ](https://docs.microsoft.com/azur
 | 创建者            | Azure Maps 数据参与者 |
 | 空间            | Azure Maps 数据参与者 |
 
-有关查看 Azure RBAC 设置的信息，请参阅 [如何为 Azure Maps 配置 AZURE rbac](https://aka.ms/amrbac)。
+有关查看 Azure RBAC 设置的信息，请参阅 [如何为 Azure Maps 配置 AZURE rbac](./how-to-manage-authentication.md)。
 
 #### <a name="custom-role-definitions"></a>自定义角色定义
 

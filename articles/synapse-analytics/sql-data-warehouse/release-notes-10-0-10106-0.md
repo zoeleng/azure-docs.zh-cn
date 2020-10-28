@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457985"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676131"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 发行说明
 
@@ -39,6 +39,13 @@ ms.locfileid: "89457985"
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>Oct 2020
+
+| 服务改进 | 详细信息 |
+| --- | --- |
+|**T-sql 内联 Table-Valued 函数 (预览版)**|在此版本中，现在可以使用 Transact-sql 创建内联表值函数，并按对表的查询结果进行查询。 此功能目前处于预览状态，将在正式发布的工具中受支持。 有关详细信息，请参阅 [CREATE FUNCTION (Azure Synapse Analytics) ](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest)。|
+|**合并命令 (预览)**|你现在可以从源表的联接结果对目标表运行 insert、update 或 delete 操作。 例如，根据在另一个表中找到的差异在一个表中插入、更新或删除行，可以对两个表进行同步。  检查 [合并](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) 以了解详细信息。|
 
 ## <a name="aug-2020"></a>2020 年 8 月
 
@@ -114,7 +121,7 @@ ms.locfileid: "89457985"
 | 服务改进 | 详细信息 |
 | --- | --- |
 |**Azure 专用链接（预览）**|通过 [Azure 专用链接](https://azure.microsoft.com/blog/announcing-azure-private-link/)，可以在虚拟网络 (VNet) 中创建专用终结点，并将它映射到 SQL 池。 然后，可通过 VNet 中的专用 IP 地址访问这些资源，从而能够通过 Azure ExpressRoute 专用对等互连和/或 VPN 网关从本地连接。 总的来说，这简化了网络配置，因为不需要向公共 IP 地址开放它。 这还可以规避数据外泄风险。 如需了解更多详情，请参阅[概述](../../private-link/private-link-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)和 [SQL Analytics](../../azure-sql/database/private-endpoint-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 文档。|
-|**数据发现和分类 (GA)**|[数据发现和分类](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)功能现已推出正式版。 此功能提供高级功能用于**发现、分类、标记和保护**数据库中的敏感数据。|
+|**数据发现和分类 (GA)**|[数据发现和分类](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)功能现已推出正式版。 此功能提供高级功能用于 **发现、分类、标记和保护** 数据库中的敏感数据。|
 |**Azure 顾问一键式集成**|现在，Azure Synapse 中的 SQL Analytics 直接在概览边栏选项卡中与 Azure 顾问建议集成，并提供一键式体验。 现在可以在概述边栏选项卡中发现建议，而无需转到 Azure 顾问边栏选项卡。 在[此处](sql-data-warehouse-concept-recommendations.md)详细了解建议。|
 |**读取提交的快照隔离（预览）**|可以使用 ALTER DATABASE 为用户数据库启用或禁用快照隔离。  为了避免对当前工作负荷造成影响，不妨在数据库维护时段期间设置此选项，或等到数据库没有其他任何活动连接时设置此选项。 有关详细信息，请参阅 [ALTER DATABASE SET 选项](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。|
 |**EXECUTE AS (Transact-SQL)**| 现已提供 [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 支持，使客户能够将会话的执行上下文设置为指定的用户。|
