@@ -8,24 +8,25 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2069d56b6bc0507478714eda575ab38fec41b8a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92207594"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479529"
 ---
-1. 在 [Azure 门户](https://portal.azure.com)菜单中，选择“创建资源”  。
+1. 在 [Azure 门户](https://portal.azure.com)的“搜索资源、服务和文档(G+/)”中，键入“虚拟网络网关” 。 在搜索结果中找到“虚拟网络网关”，并选中它。
 
-   ![在 Azure 门户中创建资源](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
-1. 在“在市场中搜索”字段中，键入“虚拟网关”。  在搜索返回的结果中找到“虚拟网关”，并选择该条目  。 在“虚拟网关”页上，选择“创建”   。 这会打开“创建虚拟网关”页  。
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="搜索字段" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+
+1. 在“虚拟网络网关”页上选择“+ 添加” 。 这会打开“创建虚拟网关”页  。
+
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="搜索字段":::
 1. 在“基本信息”选项卡上，填写虚拟网关的值。 
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="网关字段":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="搜索字段":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="网关字段":::
-
-   **项目详细信息**
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="搜索字段":::
 
    * 订阅：从下拉列表中选择要使用的订阅。
    * **资源组** ：在此页上选择虚拟网络后，此设置将自动进行填充。
@@ -48,10 +49,8 @@ ms.locfileid: "92207594"
      * **公共 IP 地址** ：让“新建”  保持选中状态。
      * **公共 IP 地址名称** ：在文本框中，键入公共 IP 地址实例的名称。
      * **分配** ：VPN 网关仅支持“动态”。
-
-   **主动-主动模式** ：仅当要创建主动-主动网关配置时，才选择“启用主动-主动模式”  。 否则，请让此设置保留“禁用”状态。
-
-   让“配置 BGP ASN”保留“禁用”状态，除非你的配置特别需要此设置 。 如果确实需要此设置，则默认 ASN 为 65515，但可以更改此值。
+     * **启用主动-主动模式** ：仅当要创建主动-主动网关配置时，才选择“启用主动-主动模式”。 否则，请让此设置保留“禁用”状态。
+     * 让“配置 BGP”保留“禁用”状态，除非你的配置特别需要此设置 。 如果确实需要此设置，则默认 ASN 为 65515，但可以更改此值。
 1. 选择“查看 + 创建”  ，运行验证。
 1. 验证通过后，选择“创建”  以部署 VPN 网关。 网关可能需要长达 45 分钟才能完全创建和部署。 可以在网关的“概述”页上查看部署状态。
 

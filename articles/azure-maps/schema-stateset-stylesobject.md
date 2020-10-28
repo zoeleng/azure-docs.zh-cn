@@ -8,16 +8,16 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b085fbc6e330d38b59fce0c494f672b00c712b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85120476"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891693"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>动态映射的 StylesObject 架构参考指南
 
-本文是对的 JSON 架构和语法的参考指南 `StylesObject` 。 `StylesObject`是 `StyleObject` 表示 stateset 样式的数组。 使用 Azure Maps 创建者 [功能状态服务](https://docs.microsoft.com/rest/api/maps/featurestate) 将 stateset 样式应用到室内地图数据功能。 一旦创建了 stateset 样式，并将其与室内地图功能关联，就可以使用它们来创建动态室内地图。 有关创建动态室内地图的详细信息，请参阅 [实现 Creator 室内地图的动态样式](indoor-map-dynamic-styling.md)。
+本文是对的 JSON 架构和语法的参考指南 `StylesObject` 。 `StylesObject`是 `StyleObject` 表示 stateset 样式的数组。 使用 Azure Maps 创建者 [功能状态服务](/rest/api/maps/featurestate) 将 stateset 样式应用到室内地图数据功能。 一旦创建了 stateset 样式，并将其与室内地图功能关联，就可以使用它们来创建动态室内地图。 有关创建动态室内地图的详细信息，请参阅 [实现 Creator 室内地图的动态样式](indoor-map-dynamic-styling.md)。
 
 ## <a name="styleobject"></a>StyleObject
 
@@ -66,7 +66,7 @@ ms.locfileid: "85120476"
 
 | properties | 类型 | 说明 | 必须 |
 |-----------|----------|-------------|-------------|
-| `keyName` | string | *状态*或动态属性名称。 在 `keyName` 数组中应是唯一的 `StyleObject` 。| 是 |
+| `keyName` | string | *状态* 或动态属性名称。 在 `keyName` 数组中应是唯一的 `StyleObject` 。| 是 |
 | `type` | 字符串 | 值为 "数值"。 | 是 |
 | `rules` | [`NumberRuleObject`](#numberruleobject)[]| 具有关联颜色的数字样式范围的数组。 每个范围都定义一个颜色，当 *状态值* 满足此范围时，将使用该颜色。| 是 |
 
@@ -101,16 +101,16 @@ ms.locfileid: "85120476"
 ]
 ```
 
-| properties | 类型 | 说明 | 必须 |
+| properties | 类型 | 说明 | 必需 |
 |-----------|----------|-------------|-------------|
-| `range` | [RangeObject](#rangeobject) | [RangeObject](#rangeobject)定义一组逻辑范围条件，如果为 `true` ，则将*状态*的显示颜色更改为属性中指定的颜色 `color` 。 如果未 `range` 指定， `color` 将始终使用在属性中定义的颜色。   | 否 |
+| `range` | [RangeObject](#rangeobject) | [RangeObject](#rangeobject)定义一组逻辑范围条件，如果为 `true` ，则将 *状态* 的显示颜色更改为属性中指定的颜色 `color` 。 如果未 `range` 指定， `color` 将始终使用在属性中定义的颜色。   | 否 |
 | `color` | 字符串 | 状态值落到范围中时要使用的颜色。 `color`属性是采用以下任意一种格式的 JSON 字符串： <ul><li> HTML 样式的十六进制值 </li><li> RGB ( "#ff0"、"#ffff00"、"rgb (255、255、0) " ) </li><li> RGBA ( "rgba (255、255、0、1) " ) </li><li> HSL ( "hsl (100、50%、50% ) " ) </li><li> HSLA ( "HSLA (100，50%，50%，1) " ) </li><li> 预定义的 HTML 颜色名称，如黄色和蓝色。</li></ul> | 是 |
 
 ### <a name="rangeobject"></a>RangeObject
 
 `RangeObject`定义的数值范围值 [`NumberRuleObject`](#numberruleobject) 。 要使 *状态值* 进入范围，所有定义的条件都必须为 true。 
 
-| properties | 类型 | 说明 | 必须 |
+| properties | 类型 | 说明 | 必需 |
 |-----------|----------|-------------|-------------|
 | `minimum` | double | X ≥的所有数字 x `minimum` 。| 否 |
 | `maximum` | double | X ≤的所有数字 x `maximum` 。 | 否 |
@@ -150,7 +150,7 @@ ms.locfileid: "85120476"
 
 | properties | 类型 | 说明 | 必须 |
 |-----------|----------|-------------|-------------|
-| `keyName` | string |  *状态*或动态属性名称。  在 `keyName` style 数组中应该是唯一的。| 是 |
+| `keyName` | string |  *状态* 或动态属性名称。  在 `keyName` style 数组中应该是唯一的。| 是 |
 | `type` | 字符串 |值为 "boolean"。 | 是 |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)2| 具有和状态值的颜色的布尔对 `true` `false` *state* 。| 是 |
 
@@ -160,8 +160,8 @@ ms.locfileid: "85120476"
 
 | properties | 类型 | 说明 | 必须 |
 |-----------|----------|-------------|-------------|
-| `true` | string | *状态*值为时要使用的颜色 `true` 。 `color`属性是采用以下任意一种格式的 JSON 字符串： <ul><li> HTML 样式的十六进制值 </li><li> RGB ( "#ff0"、"#ffff00"、"rgb (255、255、0) " ) </li><li> RGBA ( "rgba (255、255、0、1) " ) </li><li> HSL ( "hsl (100、50%、50% ) " ) </li><li> HSLA ( "HSLA (100，50%，50%，1) " ) </li><li> 预定义的 HTML 颜色名称，如黄色和蓝色。</li></ul>| 是 |
-| `false` | 字符串 | *状态*值为时要使用的颜色 `false` 。 | 是 |
+| `true` | string | *状态* 值为时要使用的颜色 `true` 。 `color`属性是采用以下任意一种格式的 JSON 字符串： <ul><li> HTML 样式的十六进制值 </li><li> RGB ( "#ff0"、"#ffff00"、"rgb (255、255、0) " ) </li><li> RGBA ( "rgba (255、255、0、1) " ) </li><li> HSL ( "hsl (100、50%、50% ) " ) </li><li> HSLA ( "HSLA (100，50%，50%，1) " ) </li><li> 预定义的 HTML 颜色名称，如黄色和蓝色。</li></ul>| 是 |
+| `false` | 字符串 | *状态* 值为时要使用的颜色 `false` 。 | 是 |
 
 ### <a name="example-of-booleantypestylerule"></a>BooleanTypeStyleRule 的示例
 

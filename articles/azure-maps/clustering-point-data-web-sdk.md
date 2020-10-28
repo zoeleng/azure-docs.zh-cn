@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 6d0cb0c6a9cc3080ec4b2fbd2c4b707a52a88319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecde4cb0c8a3bfe3dd8fb2edb59423838e0751c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285105"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889861"
 ---
 # <a name="clustering-point-data"></a>聚类点数据
 
@@ -132,13 +132,13 @@ var datasource = new atlas.source.DataSource(null, {
 详细了解本文中使用的类和方法：
 
 > [!div class="nextstepaction"]
-> [DataSource 类](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource 类](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions 对象](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [DataSourceOptions 对象](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [atlas.math 命名空间](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)
+> [atlas.math 命名空间](/javascript/api/azure-maps-control/atlas.math)
 
 请参阅向应用添加功能的代码示例：
 

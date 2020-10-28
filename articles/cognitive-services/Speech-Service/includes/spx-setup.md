@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92323352"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470830"
 ---
 ## <a name="download-and-install"></a>下载并安装
 
@@ -107,7 +107,8 @@ pwd
 
 ## <a name="create-subscription-config"></a>创建订阅配置
 
-若要开始使用语音 CLI，首先需要输入语音订阅密钥和区域信息。 请查看[区域支持](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk)页，找到你的区域标识符。 获得订阅密钥和区域标识符后（例如 `eastus` 和 `westus`），运行以下命令。
+若要开始使用语音 CLI，需要输入语音订阅密钥和区域标识符。 按照[免费试用语音服务](../overview.md#try-the-speech-service-for-free)中的步骤获取这些凭据。
+获得订阅密钥和区域标识符后（例如 `eastus` 和 `westus`），运行以下命令。
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY

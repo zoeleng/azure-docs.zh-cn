@@ -1,24 +1,20 @@
 ---
 title: 使用 PowerShell 将混合计算机连接到 Azure
 description: 本文介绍如何安装代理，以及如何通过 PowerShell 使用启用了 Azure Arc 的服务器将计算机连接到 Azure。
-ms.date: 10/21/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d36fd174606b49b28b1d8343bff6ccc1f62e5194
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb114ec3e279a7ea696d834af8eb7240cb892dc1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374503"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891935"
 ---
 # <a name="connect-hybrid-machines-to-azure-using-powershell"></a>使用 PowerShell 将混合计算机连接到 Azure
 
-你可以通过手动执行一组步骤，为你的环境中的一台或多台 Windows 或 Linux 计算机启用启用了 Azure Arc 的服务器。 或者，可以使用 PowerShell cmdlet [AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine)。 该 cmdlet 将执行以下操作：
+可以通过执行一系列手动步骤为环境中的一个或多个 Windows 或 Linux 计算机启用启用了 Azure Arc 的服务器。 或者，可以使用 PowerShell cmdlet [AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) 下载连接的计算机代理、安装代理，并使用 Azure Arc 注册计算机。Cmdlet 从 Microsoft 下载中心下载 Windows 代理 Windows Installer 包，并从 Microsoft 的包存储库下载 Linux 代理包。
 
-- 将主机配置为从 Microsoft 下载中心下载 Windows 代理，并从 packages.microsoft.com 下载 Linux 代理包。
-- 安装已连接的计算机代理。
-- 向 Azure Arc 注册计算机
-
-这种安装和配置代理的方法要求你在计算机上拥有管理员权限。 在 Linux 上，需使用 root 帐户；在 Windows 上，你需是“本地管理员组”的成员。
+这种安装和配置代理的方法要求你在计算机上拥有管理员权限。 在 Linux 上，需使用 root 帐户；在 Windows 上，你需是“本地管理员组”的成员。 你可以使用 [PowerShell 远程](/powershell/scripting/learn/ps101/08-powershell-remoting)处理在 Windows server 上以交互方式或远程方式完成此过程。
 
 在开始之前，请务必查看[先决条件](agent-overview.md#prerequisites)，并验证你的订阅和资源是否符合要求。 有关支持的区域和其他相关注意事项的信息，请参阅 [支持的 Azure 区域](overview.md#supported-regions)。
 
@@ -38,7 +34,31 @@ Install-Module -Name Az.ConnectedMachine
 
 `The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
 
-## <a name="install-and-validate-the-agent-on-windows"></a>在 Windows 上安装并验证代理
+## <a name="install-the-agent-and-connect-to-azure"></a>安装代理并连接到 Azure
+
+1. 使用提升的权限打开 PowerShell 控制台。
+
+2. 通过运行命令登录到 Azure `Connect-AzAccount` 。
+
+3. 若要安装已连接的计算机代理，请将 `Connect-AzConnectedMachine` 与 `-Name` 、 `-ResourceGroupName` 和参数一起使用 `-Location` 。 使用 `-SubscriptionId` 参数重写默认订阅，作为在登录后创建的 Azure 上下文的结果。 运行下列命令之一：
+
+    * 若要在可直接与 Azure 通信的目标计算机上安装已连接的计算机代理，请运行：
+
+    ```azurepowershell
+    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+    ```
+    
+    * 若要在通过代理服务器进行通信的目标计算机上安装连接的计算机代理，请运行：
+    
+    ```azurepowershell
+    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+    ```
+
+如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 在 Windows 上的 *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* ，在 Linux 的 */var/opt/azcmagent/log/himds.log* 中。
+
+## <a name="install-and-connect-using-powershell-remoting"></a>使用 PowerShell 远程处理进行安装和连接
+
+执行以下步骤，通过启用了 Azure Arc 的服务器配置目标 Windows server 或计算机。 必须在远程计算机上启用 PowerShell 远程处理。 使用 `Enable-PSRemoting` cmdlet 启用 PowerShell 远程处理。
 
 1. 以管理员身份打开 PowerShell 控制台。
 
@@ -46,19 +66,25 @@ Install-Module -Name Az.ConnectedMachine
 
 3. 若要安装已连接的计算机代理，请将 `Connect-AzConnectedMachine` 与 `-Name` 、 `-ResourceGroupName` 和参数一起使用 `-Location` 。 使用 `-SubscriptionId` 参数重写默认订阅，作为在登录后创建的 Azure 上下文的结果。
 
-    若要在可直接与 Azure 通信的目标计算机上安装已连接的计算机代理，请运行以下命令：
+若要在可直接与 Azure 通信的目标计算机上安装已连接的计算机代理，请运行以下命令：
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
-    
-    如果目标计算机通过代理服务器进行通信，请运行以下命令：
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+```azurepowershell
+$session = Connect-PSSession -ComputerName myMachineName
+Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+```
 
-    如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 在 Windows 上的 *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*，在 Linux 的 */var/opt/azcmagent/log/himds.log*中。
+下面的示例是命令的结果：
+
+```azurepowershell
+time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
+
+Name           Location OSName   Status     ProvisioningState
+----           -------- ------   ------     -----------------
+myMachineName  eastus   windows  Connected  Succeeded
+```
 
 ## <a name="verify-the-connection-with-azure-arc"></a>验证是否与 Azure Arc 连接
 

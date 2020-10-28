@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2020
-ms.openlocfilehash: 5845ab6419d6914b9221df1ae1280d31aba0ae7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/27/2020
+ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737537"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891342"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>映射数据流中的接收器转换
 
@@ -68,6 +68,10 @@ Azure 数据工厂可以访问90多个 [本机连接器](connector-overview.md)�
 **架构偏差** ： [架构偏差](concepts-data-flow-schema-drift.md) 是指在无需显式定义列更改的情况下，数据工厂以本机方式处理数据流中的灵活架构的能力。 启用 " **允许架构偏移** " 可以在接收器数据架构中定义的内容的基础上写入其他列。
 
 **验证架构** ：如果选择 "验证架构"，则在源投影中找不到传入源架构的任何列或数据类型不匹配时，数据流将失败。 使用此设置可强制源数据满足定义投影的协定。 这在数据库源方案中非常有用，用来指示列名称或类型已更改。
+
+**使用 TempDB：** 默认情况下，在加载过程中，数据工厂将使用一个全局临时表来存储数据。 您也可以取消选中 "使用 TempDB" 选项，并将临时保存表存储在用于该接收器的数据库中的用户数据库中。
+
+![TempDB](media/data-flow/tempdb.png "TempDB")
 
 ## <a name="field-mapping"></a>字段映射
 

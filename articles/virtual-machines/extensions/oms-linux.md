@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 1193bfe74e8b5e20d2189c143f6ca0cb09abfd49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: fc9c5e1f5922543ea14b13e3e5b424190dbbfb7a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329638"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892190"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>适用于 Linux 的 Log Analytics 虚拟机扩展
 
@@ -74,7 +74,7 @@ Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订�
 
 ## <a name="extension-schema"></a>扩展架构
 
-以下 JSON 显示 Log Analytics 代理扩展的架构。 此扩展需要目标 Log Analytics 工作区的工作区 ID 和工作区密钥，这些值可在 Azure 门户中的 [Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 工作区中找到。 由于工作区密钥应视为敏感数据，因此将它存储在受保护的设置配置中。 Azure VM 扩展的受保护设置数据已加密，并且只能在目标虚拟机上解密。 请注意，**workspaceId** 和 **workspaceKey** 区分大小写。
+以下 JSON 显示 Log Analytics 代理扩展的架构。 此扩展需要目标 Log Analytics 工作区的工作区 ID 和工作区密钥，这些值可在 Azure 门户中的 [Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 工作区中找到。 由于工作区密钥应视为敏感数据，因此将它存储在受保护的设置配置中。 Azure VM 扩展的受保护设置数据已加密，并且只能在目标虚拟机上解密。 请注意， **workspaceId** 和 **workspaceKey** 区分大小写。
 
 ```json
 {
@@ -110,12 +110,15 @@ Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订�
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.7 |
+| typeHandlerVersion | 1.13 |
 | workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>模板部署
+
+>[!NOTE]
+>[诊断 vm 扩展](./diagnostics-linux.md)中也附带了 Log Analytics VM 扩展的某些组件。 由于此体系结构，如果在同一 ARM 模板中实例化两个扩展，则可能会发生冲突。 若要避免这些安装时冲突，请使用[ `dependsOn` 指令](../../azure-resource-manager/templates/define-resource-dependency.md#dependson)确保按顺序安装扩展。 可以按任意顺序安装这些扩展。
 
 可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要进行部署后配置（例如，载入 Azure Monitor 日志）的一个或多个虚拟机时，模板是理想选择。 包含 Log Analytics 代理 VM 扩展的示例资源管理器模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)中找到。 
 
@@ -135,7 +138,7 @@ Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -160,7 +163,7 @@ Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -181,7 +184,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
   --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
@@ -212,9 +215,9 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 19 | OMI 包安装失败 | 
 | 20 | SCX 包安装失败 |
 | 51 | VM 的操作系统不支持此扩展 | |
-| 52 | 由于缺少依赖关系，此扩展失败 | 有关缺少的依赖项的详细信息，请查看输出和日志。 |
-| 53 | 由于缺少配置参数或配置参数错误，此扩展失败 | 有关错误的详细信息，请查看输出和日志。 此外，请检查工作区 ID 的正确性，并验证计算机是否已连接到 internet。 |
-| 55 | 无法连接到 Azure Monitor 服务或缺少所需的包或 dpkg 包管理器已锁定| 请检查系统是否可以访问 internet，或是否提供了有效的 HTTP 代理。 此外，请检查工作区 ID 的正确性，并验证是否安装了卷曲和 tar 实用程序。 |
+| 52 | 由于缺少依赖项，此扩展失败 | 若要详细了解缺少的依赖项，请查看输出和日志。 |
+| 53 | 由于配置参数缺失或错误，此扩展失败 | 若要详细了解错误原因，请查看输出和日志。 此外，检查工作区 ID 的正确性，并验证计算机是否连接到 Internet。 |
+| 55 | 无法连接到 Azure Monitor 服务或缺少所需的包或 dpkg 包管理器已锁定| 确保系统具有 Internet 访问权限，或已提供有效 HTTP 代理。 此外，检查工作区 ID 的正确性，并验证是否已安装 curl 和 tar 实用程序。 |
 
 有关其他故障排除信息，可查看 [Log Analytics-Agent-for-Linux 故障排除指南](../../azure-monitor/platform/vmext-troubleshoot.md)。
 

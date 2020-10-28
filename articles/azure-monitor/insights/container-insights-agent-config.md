@@ -3,12 +3,12 @@ title: 配置用于容器的 Azure Monitor 的代理数据收集 | Microsoft Doc
 description: 本主题介绍如何配置用于容器的 Azure Monitor 代理，以控制 stdout/stderr 和环境变量日志收集。
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320407"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890490"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>配置用于容器的 Azure Monitor 的代理数据收集
 
@@ -57,7 +57,7 @@ ConfigMap 是一个全局列表，只能将一个 ConfigMap 应用到代理。 �
 
 执行以下步骤，以配置 ConfigMap 配置文件并将其部署到群集。
 
-1. 下载 [模板 CONFIGMAP YAML 文件](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) 并将其另存为容器 azm-agentconfig. YAML。 
+1. 下载 [模板 CONFIGMAP YAML 文件](https://aka.ms/container-azm-ms-agentconfig) 并将其另存为容器 azm-agentconfig. YAML。 
 
    > [!NOTE]
    > 使用 Azure Red Hat OpenShift 时，此步骤不是必需的，因为 ConfigMap 模板在群集上已存在。

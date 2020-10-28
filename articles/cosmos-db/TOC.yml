@@ -59,13 +59,13 @@
         - name: 基于角色的访问控制
           displayName: rbac
           href: role-based-access-control.md
+        - name: Azure Policy 支持
+          href: policy.md
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: 安全基线
           href: security-baseline.md
-        - name: Azure Policy 支持
-          href: policy.md
     - name: 使用 Azure Synapse Link 进行分析
       items:
         - name: Azure Synapse Link for Cosmos DB
@@ -202,11 +202,14 @@
           href: templates-samples-sql.md
     - name: 概念
       items:
-        - name: 模型文档数据
-          displayName: document
-          href: modeling-data.md
-        - name: 分区
+        - name: 建模和分区
           items:
+            - name: 模型文档数据
+              displayName: document
+              href: modeling-data.md
+            - name: 建模和分区 - 实际示例
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
             - name: 合成分区键
               href: synthetic-partition-keys.md
         - name: SQL 查询 (SQL query)
@@ -631,13 +634,13 @@
           items:
             - name: 预配的吞吐量
               items:
-                - name: 在容器上预配标准（手动）吞吐量
+                - name: 预配标准（手动）吞吐量 - 容器
                   displayName: 'request units, RUs, RU, collection level'
                   href: how-to-provision-container-throughput.md
-                - name: 在数据库上预配标准（手动）吞吐量
+                - name: 预配标准（手动）吞吐量 - 数据库
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: how-to-provision-database-throughput.md
-                - name: 在数据库或容器上预配自动缩放吞吐量
+                - name: 预配自动缩放吞吐量 - 数据库或容器
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
                 - name: 使用 Cosmos 容量规划器估算 RU/秒
@@ -657,9 +660,6 @@
               href: large-partition-keys.md
             - name: 查询容器
               href: how-to-query-container.md
-            - name: 数据建模和分区 - 实际示例
-              displayName: 'model, partition, example'
-              href: how-to-model-partition-example.md
             - name: 迁移到分区的容器
               href: migrate-containers-partitioned-to-nonpartitioned.md
             - name: 配置生存时间
@@ -1179,8 +1179,6 @@
       items:
         - name: 响应标头
           href: gremlin-headers.md
-        - name: 限制
-          href: gremlin-limits.md
         - name: REST 资源提供程序
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: 资源管理器模板

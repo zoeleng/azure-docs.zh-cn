@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313146"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460965"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>教程：通过 Azure 门户使用 DMS 以联机方式将 Azure DB for PostgreSQL 单一服务器迁移到 Azure DB for PostgreSQL 单一服务器
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>教程：通过 Azure 门户使用 DMS 以联机方式将 Azure DB for PostgreSQL 单一服务器迁移/升级到 Azure DB for PostgreSQL 单一服务器
 
 可以使用 Azure 数据库迁移服务在尽量缩短停机时间的情况下，将数据库从 [Azure Database for PostgreSQL 单一服务器](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)实例迁移到相同或不同版本的 Azure Database for PostgreSQL 单一服务器实例或 Azure Database for PostgreSQL 灵活服务器。 本教程介绍如何在 Azure 数据库迁移服务中使用联机迁移活动，将“DVD Rental”示例数据库从 Azure Database for PostgreSQL v10 迁移到 Azure Database for PostgreSQL 单一服务器。
 
@@ -47,7 +47,7 @@ ms.locfileid: "92313146"
 要完成本教程，需要：
 
 * 请检查 [Azure 数据库迁移服务支持的迁移方案的状态](https://docs.microsoft.com/azure/dms/resource-scenario-status)，以了解支持的迁移和版本组合。 
-* 现有的 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) 版本 10 和更高版本的实例，以及“DVD Rental”数据库。 Azure 数据库迁移服务不支持从 Azure DB for PostgreSQL 9.5 或 9.6 进行迁移。
+* 现有的 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) 版本 10 和更高版本的实例，以及“DVD Rental”数据库。 
 
     另请注意，目标 Azure Database for PostgreSQL 版本必须等于或晚于本地 PostgreSQL 版本。 例如，PostgreSQL 10 可以迁移到 Azure Database for PostgreSQL 10 或 11，但不能迁移到 Azure Database for PostgreSQL 9.6。
 

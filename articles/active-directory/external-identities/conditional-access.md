@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47ec082daa6eee4ab593fdb5523087f9eb5b038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274140"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892445"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 协作用户的条件访问
 
@@ -110,5 +110,5 @@ ms.locfileid: "91274140"
 请参阅以下有关 Azure AD B2B 协作的文章：
 
 * [什么是 Azure AD B2B 协作？](what-is-b2b.md)
-* [Azure AD B2B 协作授权](licensing-guidance.md)
+* [外部标识定价](external-identities-pricing.md)
 * [Azure Active Directory B2B 协作常见问题 (FAQ)](faq.md)

@@ -317,16 +317,10 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: 使用 Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: Azure Monitor 中的指标
-          href: iot-hub-metrics.md
-        - name: 设置诊断日志
-          href: iot-hub-monitor-resource-health.md
         - name: 使用 X.509 证书来保护中心
           href: iot-hub-security-x509-get-started.md
         - name: 升级 IoT 中心
           href: iot-hub-upgrade.md
-        - name: 启用消息跟踪
-          href: iot-hub-distributed-tracing.md
         - name: 配置 IP 筛选
           href: iot-hub-ip-filtering.md
         - name: 管理公用网络访问
@@ -339,6 +333,16 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: 批量导入和导出 IoT 设备
           href: iot-hub-bulk-identity-mgmt.md
+    - name: 监视
+      items:
+        - name: 监视 IoT 中心
+          href: monitor-iot-hub.md
+        - name: 监视数据参考
+          href: monitor-iot-hub-reference.md
+        - name: 启用消息跟踪
+          href: iot-hub-distributed-tracing.md
+        - name: IoT 中心服务和资源运行状况
+          href: iot-hub-azure-service-health-integration.md
     - name: 使用真实设备
       items:
         - name: 使用联机模拟器

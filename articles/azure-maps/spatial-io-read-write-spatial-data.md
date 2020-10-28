@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 133674e6764e12742f5b238946e943d9b5011cd2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333318"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891323"
 ---
 # <a name="read-and-write-spatial-data"></a>读取和写入空间数据
 
@@ -164,17 +164,17 @@ GML 是一个空间 XML 文件规范，通常用作其他 XML 规范的扩展。
 
 详细了解本文中使用的类和方法：
 
-[atlas.io 静态函数](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[atlas.io 静态函数](/javascript/api/azure-maps-spatial-io/atlas.io)
 
-[SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-[SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
+[GmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
+[GmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-[ogc. WKT 函数](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[ogc. WKT 函数](/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
 
 [连接到 WFS 服务](spatial-io-connect-wfs-service.md)
 

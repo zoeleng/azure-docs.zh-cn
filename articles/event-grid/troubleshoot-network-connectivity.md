@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118998"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892309"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>排查连接问题-Azure 事件网格
 
@@ -22,7 +22,7 @@ ms.locfileid: "86118998"
 
 如果应用程序根本无法连接到事件网格，请按照此部分中的步骤进行操作以解决此问题。
 
-### <a name="check-if-there-is-a-service-outage"></a>检查是否存在服务中断
+### <a name="check-if-theres-a-service-outage"></a>检查是否存在服务中断
 
 在 [azure 服务状态站点](https://azure.microsoft.com/status/)上检查 Azure 事件网格服务是否中断。
 
@@ -48,7 +48,9 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>验证你的企业防火墙中是否允许使用这些 IP 地址
 
-使用 Azure 时，有时必须在公司防火墙或代理中允许特定的 IP 地址范围或 URL 才能访问你正在使用或尝试使用的所有 Azure 服务。 验证事件网格所使用的 IP 地址是否允许流量。 对于 Azure 事件网格所使用的 IP 地址：请参阅 [AZURE IP 范围和服务标记-公有云](https://www.microsoft.com/download/details.aspx?id=56519) 和 [服务标记-AzureEventGrid](network-security.md#service-tags)。
+使用 Azure 时，有时必须允许企业防火墙或代理中的特定 IP 地址范围或 Url 访问正在使用或尝试使用的所有 Azure 服务。 验证事件网格所使用的 IP 地址是否允许流量。 对于 Azure 事件网格所使用的 IP 地址：请参阅 [AZURE IP 范围和服务标记-公有云](https://www.microsoft.com/download/details.aspx?id=56519) 和 [服务标记-AzureEventGrid](network-security.md#service-tags)。
+
+[AZURE IP 范围和服务标记-公有云](https://www.microsoft.com/download/details.aspx?id=56519)文档还 **按区域** 列出 IP 地址。 你可以允许在公司防火墙或代理中为 **主题的区域** 和 **配对区域** 提供地址范围。 有关区域的配对区域，请参阅 [业务连续性和灾难恢复 (BCDR) ： Azure 配对区域](/azure/best-practices-availability-paired-regions)。 
 
 > [!NOTE]
 > 可以将新的 IP 地址添加到 AzureEventGrid 服务标记中，但这并不是正常的。 因此，最好是对服务标记执行每周一次检查。
@@ -69,7 +71,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 #### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>查找被 IP 防火墙阻止的 IP 地址
 
-启用事件网格的诊断日志主题/域 [启用诊断日志](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic)。 你会看到连接遭到拒绝的 IP 地址。
+启用事件网格的诊断日志主题/域 [启用诊断日志](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic)。 你将看到已拒绝的连接的 IP 地址。
 
 ```json
 {
@@ -83,7 +85,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 ### <a name="check-if-the-eventgrid-topicdomain-can-be-accessed-using-only-a-private-endpoint"></a>检查是否只能使用专用终结点访问 EventGrid 主题/域
 
-如果事件网格主题/域配置为仅可通过专用终结点访问，请确认该客户端应用程序正在通过专用终结点访问主题/域。 若要确认此情况，请检查客户端应用程序是否在子网内运行，以及该子网中的事件网格主题/域是否有专用终结点。
+如果事件网格主题/域配置为仅可通过专用终结点访问，请确认该客户端应用程序正在通过专用终结点访问主题/域。 若要进行确认，请检查客户端应用程序是否在子网内运行，以及该子网中的事件网格主题/域是否有专用终结点。
 
 [Azure 专用链接服务](../private-link/private-link-overview.md) 使你能够通过虚拟网络中的 **专用终结点** 访问 azure 事件网格。 专用终结点是一个网络接口，可以通过专用且安全的方式将你连接到 Azure 专用链接支持的服务。 专用终结点使用 VNet 中的专用 IP 地址将服务有效接入 VNet 中。 发往服务的所有流量都可以通过专用终结点路由，因此不需要网关、NAT 设备、ExpressRoute 或 VPN 连接或公共 IP 地址。 虚拟网络与服务之间的流量将通过 Microsoft 主干网络，因此不会从公共 Internet 泄露。 可以连接到 Azure 资源的实例，从而获得最高级别的访问控制粒度。
 
@@ -91,7 +93,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 ## <a name="troubleshoot-transient-connectivity-issues"></a>排查暂时性连接问题
 
-如果遇到间歇性连接问题，请参阅以下部分来了解排查技巧。
+如果遇到间歇性连接问题，请参阅以下部分，了解故障排除提示。
 
 ### <a name="run-the-command-to-check-dropped-packets"></a>运行命令来检查丢弃的数据包
 

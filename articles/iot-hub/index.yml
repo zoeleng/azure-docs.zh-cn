@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 91e3ff9dc19fdc33699fc6237cb5b6e51dbb9b52
-  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+  ms.openlocfilehash: 5459129d5d49324839bfe36e2031d5be8d1e0521
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/17/2020
-  ms.locfileid: "92148890"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92545372"
 landingContent:
 - title: 入门
   linkLists:
@@ -40,10 +40,10 @@ landingContent:
     links:
     - text: 通过 Node.js 使用设备孪生
       url: iot-hub-node-node-twin-getstarted.md
-    - text: 了解 IoT 指标
-      url: iot-hub-metrics.md
-    - text: 诊断日志记录
-      url: iot-hub-monitor-resource-health.md
+    - text: 监视 IoT 中心
+      url: monitor-iot-hub.md
+    - text: 监视 IoT 中心数据引用
+      url: monitor-iot-hub-reference.md
     - text: 针对与 IoT 的连接断开进行监视、诊断和故障排除
       url: iot-hub-troubleshoot-connectivity.md
 - title: 缩放解决方案

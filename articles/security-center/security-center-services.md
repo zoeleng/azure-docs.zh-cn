@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342291"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425157"
 ---
 # <a name="feature-coverage-for-machines"></a>适用于计算机的功能覆盖范围
 
@@ -30,7 +30,7 @@ ms.locfileid: "92342291"
 
 |**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**已启用 Azure Arc 的计算机**|**需要 Azure Defender**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP 集成](security-center-wdatp.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|是|
+|[Microsoft Defender for Endpoint 集成](security-center-wdatp.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|是|
 |[虚拟机行为分析（和安全警报）](alerts-reference.md)|✔|✔|✔|是|
 |[无文件安全警报](alerts-reference.md#alerts-windows)|✔|✔|✔|是|
 |[基于网络的安全警报](other-threat-protections.md#network-layer)|✔|✔|-|是|
@@ -54,7 +54,7 @@ ms.locfileid: "92342291"
 
 |**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**已启用 Azure Arc 的计算机**|**需要 Azure Defender**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP 集成](security-center-wdatp.md)|-|-|-|是|
+|[Microsoft Defender for Endpoint 集成](security-center-wdatp.md)|-|-|-|是|
 |[虚拟机行为分析（和安全警报）](./azure-defender.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|是|
 |[无文件安全警报](alerts-reference.md#alerts-windows)|-|-|-|是|
 |[基于网络的安全警报](other-threat-protections.md#network-layer)|✔|✔|-|是|

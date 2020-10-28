@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: ab6eb4851b9f2574fc235056f8f512edcb2054bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75a7da41e4f0d5356ca135eb3cb4cbe5f29e8116
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321775"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891442"
 ---
 # <a name="connect-to-a-wfs-service"></a>连接到 WFS 服务
 
@@ -27,7 +27,7 @@ Web 功能服务 (WF) 是一项 web 服务，用于查询具有标准化 API （
 - 仅使用发出的请求 `HTTP GET` 。
 - 支持的操作：
 
-    | 操作 | 说明 |
+    | Operation | 说明 |
     | :-- | :-- |
     | GetCapabilities | 使用有效的 WF 操作和参数生成元数据文档 |
     | GetFeature | 返回数据源中的选定功能 |
@@ -110,10 +110,10 @@ client = new atlas.io.ogc.WfsClient({
 详细了解本文中使用的类和方法：
 
 > [!div class="nextstepaction"]
-> [WfsClient](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient](/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
 
 > [!div class="nextstepaction"]
-> [WfsServiceOptions](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
+> [WfsServiceOptions](/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
 
 有关可向地图添加的更多代码示例，请参阅以下文章：
 
