@@ -10,12 +10,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091604"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783872"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 
@@ -35,7 +35,7 @@ ms.locfileid: "92091604"
 
 * 可以将连接字符串存储在环境变量中。
 * 在桌面或设备上运行的应用程序可在 **app.config** 或 **web.config** 文件中存储连接字符串。 将连接字符串添加到这些文件中的 **AppSettings** 节。
-* 在 Azure 云服务中运行的应用程序可在 [Azure 服务配置架构 (.cscfg) 文件](https://msdn.microsoft.com/library/ee758710.aspx)中存储连接字符串。 将连接字符串添加到服务配置文件的 **ConfigurationSettings** 节。
+* 在 Azure 云服务中运行的应用程序可在 [Azure 服务配置架构 (.cscfg) 文件](/previous-versions/azure/reference/ee758710(v=azure.100))中存储连接字符串。 将连接字符串添加到服务配置文件的 **ConfigurationSettings** 节。
 
 在一个配置文件中存储连接字符串可以轻松地更新连接字符串，从而在 [Azurite 存储模拟器](../common/storage-use-azurite.md)和云中的 Azure 存储帐户之间切换。 只需编辑连接字符串，使其指向目标环境。
 
@@ -57,7 +57,7 @@ ms.locfileid: "92091604"
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-尽管 Azure 存储支持在连接字符串中使用 HTTP 和 HTTPS，但我们*强烈建议使用 HTTPS*。
+尽管 Azure 存储支持在连接字符串中使用 HTTP 和 HTTPS，但我们 *强烈建议使用 HTTPS* 。
 
 > [!TIP]
 > 可以在 [Azure 门户](https://portal.azure.com)中找到存储帐户的连接字符串。 在存储帐户的菜单边栏选项卡中导航到“设置” > “访问密钥”，即可看到主访问密钥和辅助访问密钥的连接字符串。 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425465"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785572"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,20 +22,20 @@ ms.locfileid: "92425465"
 
 ## <a name="overview"></a>概述
 本指南演示如何使用 Microsoft Azure 队列存储服务执行常见方案。 相关示例是使用 Ruby Azure API 编写的。
-介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建和删除队列**。
+介绍的方案包括 **插入** 、 **扫视** 、 **获取** 和 **删除** 队列消息以及 **创建和删除队列** 。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
-创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](/azure/app-service/quickstart-ruby)。
+创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](../../app-service/quickstart-ruby.md)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
 要使用 Azure 存储，需要下载和使用 Ruby azure 包，其中包括一组便于与存储 REST 服务进行通信的库。
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>使用 RubyGems 获取该程序包
-1. 使用命令行接口，例如 **PowerShell** (Windows)、**Terminal** (Mac) 或 **Bash** (Unix)。
+1. 使用命令行接口，例如 **PowerShell** (Windows)、 **Terminal** (Mac) 或 **Bash** (Unix)。
 2. 在命令窗口中键入“gem install azure”以安装 gem 和依赖项。
 
 ### <a name="import-the-package"></a>导入包
@@ -79,14 +79,14 @@ end
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>如何：在队列中插入消息
-若要在队列中插入消息，请使用 **create_message ( # B1 ** 方法来创建新消息并将其添加到队列中。
+若要在队列中插入消息，请使用 **create_message ( # B1** 方法来创建新消息并将其添加到队列中。
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>如何：扫视下一条消息
-通过调用 **速览 \_ 消息 ( # B1 ** 方法，你可以扫视队列前面的消息，而不必从队列中将其删除。 默认情况下， **扫视 \_ 消息 ( # B1 ** 查看单个消息。 也可以指定要扫视的消息数。
+通过调用 **速览 \_ 消息 ( # B1** 方法，你可以扫视队列前面的消息，而不必从队列中将其删除。 默认情况下， **扫视 \_ 消息 ( # B1** 查看单个消息。 也可以指定要扫视的消息数。
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -97,9 +97,9 @@ result = azure_queue_service.peek_messages("test-queue",
 可通过两个步骤从队列中删除消息。
 
 1. 在调用 **list\_messages()** 时，默认情况下会获取队列中的下一条消息。 也可以指定要获取的消息数。 从 **list\_messages()** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 将传递以秒为单位的可见性超时值作为参数。
-2. 若要完成从队列中删除消息，还必须 ** ( # B1 delete_message **调用。
+2. 若要完成从队列中删除消息，还必须 **( # B1 delete_message** 调用。
 
-此删除消息的两步过程可确保当代码因硬件或软件故障而无法处理消息时，其他代码实例可以获取同一消息并重试。 处理消息后，你的代码将调用 ** \_ ( # B1 的删除消息 ** 。
+此删除消息的两步过程可确保当代码因硬件或软件故障而无法处理消息时，其他代码实例可以获取同一消息并重试。 处理消息后，你的代码将调用 **\_ ( # B1 的删除消息** 。
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -108,7 +108,7 @@ azure_queue_service.delete_message("test-queue",
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>如何：更改已排队消息的内容
-可以更改队列中现有消息的内容。 下面的代码使用 **update_message ( # B1 ** 方法来更新消息。 该方法将返回一个元组，其中包含队列消息的 pop 接收方，以及一个 UTC 日期时间值，表示消息会在队列中可见的时间。
+可以更改队列中现有消息的内容。 下面的代码使用 **update_message ( # B1** 方法来更新消息。 该方法将返回一个元组，其中包含队列消息的 pop 接收方，以及一个 UTC 日期时间值，表示消息会在队列中可见的时间。
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)
@@ -142,7 +142,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 ```
 
 ## <a name="how-to-delete-a-queue"></a>如何：删除队列
-若要删除队列及其中包含的所有消息，请对队列对象调用 **delete \_ queue ( # B1 ** 方法。
+若要删除队列及其中包含的所有消息，请对队列对象调用 **delete \_ queue ( # B1** 方法。
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")

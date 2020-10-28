@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654253"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785606"
 ---
 # <a name="migrate-to-azure-file-shares"></a>迁移到 Azure 文件共享
 
@@ -34,8 +34,8 @@ Azure 有多种可用的云存储类型。 文件迁移到 Azure 的一个重要
 
 下面是文件的两个基本组件：
 
-- **数据流：文件**的数据流存储文件内容。
-- **文件元数据**：文件元数据具有以下子组件：
+- **数据流：文件** 的数据流存储文件内容。
+- **文件元数据** ：文件元数据具有以下子组件：
    * 文件属性，如只读
    * 文件权限，可称为 *NTFS 权限* 或 *文件和文件夹 acl*
    * 时间戳，最值得注意的是创建和上次修改的时间戳
@@ -111,19 +111,19 @@ Microsoft 和其他工具提供了多个文件复制工具。 若要为迁移方
 
     首次运行该工具时，它会复制大量数据。 此初始运行可能会持续一段时间。 它通常比您为业务流程使数据源脱机所需的时间要长。
 
-    通过将源镜像到目标 (与 **robocopy/MIR**) 一样，你可以在该相同源和目标上再次运行该工具。 运行速度要快得多，因为它只需要传输在上一次运行之后发生的源更改。 通过这种方式重新运行复制工具可显著减少停机时间。
+    通过将源镜像到目标 (与 **robocopy/MIR** ) 一样，你可以在该相同源和目标上再次运行该工具。 运行速度要快得多，因为它只需要传输在上一次运行之后发生的源更改。 通过这种方式重新运行复制工具可显著减少停机时间。
 
 下表对 Microsoft 工具及其当前适用于 Azure 文件共享的适用性进行分类：
 
 | 建议 | 工具 | 支持 Azure 文件共享 | 保存文件保真 |
 | :-: | :-- | :---- | :---- |
-|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | 支持。 可以将 Azure 文件共享装载为网络驱动器。 | 完全保真。 * |
+|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | 。 可以将 Azure 文件共享装载为网络驱动器。 | 完全保真。 * |
 |![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure 文件同步 | 本机集成到 Azure 文件共享中。 | 完全保真。 * |
 |![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| 存储迁移服务 | 间接支持。 在 SMS 目标服务器上，可以将 Azure 文件共享装载为网络驱动器。 | 完全保真。 * |
-|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy 版本10.4 或更高版本| 支持。 | 完全保真。 * |
-|![不完全推荐](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | 支持。 | 不复制元数据。 [Data Box 可以与 Azure 文件同步一起使用](storage-sync-offline-data-transfer.md)。 |
-|![不完全推荐](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure 存储资源管理器，版本1.14 | 支持。 | 不复制 Acl。 支持时间戳。  |
-|![不推荐](media/storage-files-migration-overview/circle-red-x.png)| Azure 数据工厂 | 支持。 | 不复制元数据。 |
+|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy 版本10.4 或更高版本| 。 | 完全保真。 * |
+|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | 。 | DataBox 现在完全支持元数据。 [Data Box 还可以与 Azure 文件同步结合使用](storage-sync-offline-data-transfer.md)。 |
+|![不完全推荐](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure 存储资源管理器，版本1.14 | 。 | 不复制 Acl。 支持时间戳。  |
+|![不推荐](media/storage-files-migration-overview/circle-red-x.png)| Azure 数据工厂 | 。 | 不复制元数据。 |
 |||||
 
 *\* 完全保真：满足或超过 Azure 文件共享功能。*

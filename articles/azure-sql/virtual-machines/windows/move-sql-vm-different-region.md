@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4252528020dde731dd7bf14ae8f7a03467ba953a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 131deabfbd29e4d55a3f34252e3ba68261872ca0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298569"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785487"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>使用 Azure Site Recovery 将 SQL Server VM 移到 Azure 中的另一个区域
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ ms.locfileid: "91298569"
     - 为源 VM 启用复制时，Azure Site Recovery 会自动发现并创建虚拟网络。 此外可以预先创建网络，并将其分配到用户流中的 VM 以启用复制。 需要手动创建目标区域中的其他任何资源。
 - 若要根据源 VM 配置创建最常用的相关网络资源，请参阅以下文档： 
     - [网络安全组](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [负载均衡器](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
+    - [负载均衡器](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
     - [公共 IP 地址](../../../virtual-network/virtual-network-public-ip-address.md)
     - 对于其他任何网络组件，请参阅[网络文档](../../../virtual-network/virtual-networks-overview.md)。
 - 若要在最终移动到目标区域之前测试配置，请在目标区域中手动创建非生产网络。 我们建议执行此步骤，因为这可以确保尽量减少对生产网络造成的干扰。 
@@ -126,7 +126,7 @@ ms.locfileid: "91298569"
    ![启动故障转移](./media/move-sql-vm-different-region/initiate-failover.png)
 
 1. 在“恢复点”下选择“最新的应用一致”恢复点 。 
-1. 选中 " **在开始故障转移之前关闭计算机**" 旁边的复选框。 Site Recovery 在触发故障转移之前会尝试关闭源 VM。 即使关闭失败，故障转移也仍会继续。 
+1. 选中 " **在开始故障转移之前关闭计算机** " 旁边的复选框。 Site Recovery 在触发故障转移之前会尝试关闭源 VM。 即使关闭失败，故障转移也仍会继续。 
 1. 选择“确定”以启动故障转移。
 1. 可以从上一节中监视故障转移测试时查看的同一“Site Recovery 作业”页监视故障转移过程。 
 1. 该作业完成后，检查 SQL Server VM 是否按预期显示在目标区域中。 
@@ -156,5 +156,3 @@ ms.locfileid: "91298569"
 * [Windows VM 上的 SQL Server 常见问题解答](frequently-asked-questions-faq.md)
 * [Windows VM 上的 SQL Server 定价指南](pricing-guidance.md)
 * [Windows VM 上的 SQL Server 发行说明](doc-changes-updates-release-notes.md)
-
-

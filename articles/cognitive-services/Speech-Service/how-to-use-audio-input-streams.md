@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3baedd49843c7721b6dba464054d5535b4c4f1cd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934117"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785334"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>语音 SDK 的音频输入流 API 简介
 
@@ -26,7 +26,7 @@ ms.locfileid: "88934117"
 
 - 识别音频流的格式。 格式必须受语音 SDK 和语音服务支持。 目前仅支持以下配置：
 
-  PCM 格式的音频样本、一个频道、每个样本 16 位、每秒 8000 或 16000 次采样（每秒 16000 或 32000 字节）、两个块对齐（16 位，包括样本的内边距）。
+  音频示例采用 PCM 格式，一个通道，每个样本16位，8000或每秒16000个样本 (16000 或每秒32000字节数) ，两个块对齐 (16 位，其中包含样本) 的空白。
 
   SDK 中用于创建音频格式的相应代码如下所示：
 
@@ -37,7 +37,7 @@ ms.locfileid: "88934117"
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- 请确保代码可根据上述规格提供 RAW 音频数据。 如果音频源数据不符合支持的格式，则必须将音频转码为所需格式。
+- 请确保您的代码根据这些规范提供原始音频数据。 还要确保16位示例以小字节序格式到达。 还支持签名的示例。 如果音频源数据不符合支持的格式，则必须将音频转码为所需格式。
 
 - 自行创建派生自 `PullAudioInputStreamCallback` 的音频输入流类。 实现 `Read()` 和 `Close()` 元素。 确切的函数签名取决于语言，但代码可能与如下代码示例类似：
 

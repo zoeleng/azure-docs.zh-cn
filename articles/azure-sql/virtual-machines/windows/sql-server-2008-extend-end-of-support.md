@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668740"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784858"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>使用 Azure 扩展对 SQL Server 2008 和 SQL Server 2008 R2 的支持
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,21 +54,21 @@ SQL Server 2008 客户需要自行安装或升级到 SQL Server 2008 R2。 同�
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-对于批量迁移，我们建议使用 [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) 服务。 客户可以使用 Azure Site Recovery 将整个 VM（包括 SQL Server）从本地复制到 Azure VM。
+对于批量迁移，我们建议使用 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) 服务。 客户可以使用 Azure Site Recovery 将整个 VM（包括 SQL Server）从本地复制到 Azure VM。
 
 SQL Server 需要使用应用一致的 Azure Site Recovery 快照来保证成功恢复。 Azure Site Recovery 支持最少 1 小时间隔的应用一致性快照。 使用 Azure Site Recovery 迁移 SQL Server 可以实现的最小恢复点目标 (RPO) 为 1 小时。 恢复时间目标 (RTO) 为 2 个小时加上 SQL Server 恢复时间。
 
 ### <a name="database-migration-service"></a>数据库迁移服务
 
-如果客户通过将 SQL Server 升级到 2012 或更高版本来从本地迁移到 Azure VM，可以选用 [Azure 数据库迁移服务](/azure/dms/dms-overview)。
+如果客户通过将 SQL Server 升级到 2012 或更高版本来从本地迁移到 Azure VM，可以选用 [Azure 数据库迁移服务](../../../dms/dms-overview.md)。
 
 ## <a name="disaster-recovery"></a>灾难恢复
 
 适用于 Azure VM 上的 EOS SQL Server 的灾难恢复解决方案如下：
 
-- **SQL Server 备份**：使用 Azure 备份，通过 15 分钟的 RPO 和时点恢复，帮助保护 EOS SQL Server 2008 和 2008 R2 不受勒索软件侵害、不遭到意外删除和损坏。 有关详细信息，请参阅[本文](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support)。
-- **日志传送**：你可以在另一个区域或 Azure 区域中创建一个日志传送副本，并通过连续还原来减少 RTO。 需要手动配置日志传送。
-- **Azure Site Recovery**：你可以通过 Azure Site Recovery 复制在区域和区域之间复制 VM。 SQL Server 需要使用应用一致的快照来保证在发生灾难时成功恢复。 对于 EOS SQL Server 灾难恢复，Azure Site Recovery 提供最小 1 小时的 RPO，以及 2 小时（加上 SQL Server 恢复时间）的 RTO。
+- **SQL Server 备份** ：使用 Azure 备份，通过 15 分钟的 RPO 和时点恢复，帮助保护 EOS SQL Server 2008 和 2008 R2 不受勒索软件侵害、不遭到意外删除和损坏。 有关详细信息，请参阅[本文](../../../backup/sql-support-matrix.md#scenario-support)。
+- **日志传送** ：你可以在另一个区域或 Azure 区域中创建一个日志传送副本，并通过连续还原来减少 RTO。 需要手动配置日志传送。
+- **Azure Site Recovery** ：你可以通过 Azure Site Recovery 复制在区域和区域之间复制 VM。 SQL Server 需要使用应用一致的快照来保证在发生灾难时成功恢复。 对于 EOS SQL Server 灾难恢复，Azure Site Recovery 提供最小 1 小时的 RPO，以及 2 小时（加上 SQL Server 恢复时间）的 RTO。
 
 ## <a name="security-patching"></a>安全修补
 在向 SQL VM [资源提供程序](sql-vm-resource-provider-register.md)注册 SQL Server VM 后，通过“Microsoft 更新”通道传递 SQL Server VM 的扩展安全更新程序。 修补程序可手动下载，也可自动下载。

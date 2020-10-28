@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 33249da6772d146de3e5e7351bc82c203674ddff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4ef77dee8eb3cad753aca54a77aeedd166f142
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532131"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784552"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>将 HSM 保护的密钥导入 Key Vault
 
@@ -43,4 +43,4 @@ ms.locfileid: "90532131"
 ## <a name="next-steps"></a>后续步骤
 
 * 按照 [Key Vault 最佳做法](../general/best-practices.md)，确保密钥的安全性、持久性和监视性。
-* 有关新的 BYOK 方法的完整说明，请参阅 [BYOK 规范](https://docs.microsoft.com/azure/key-vault/keys/byok-specification)
+* 有关新的 BYOK 方法的完整说明，请参阅 [BYOK 规范](./byok-specification.md)

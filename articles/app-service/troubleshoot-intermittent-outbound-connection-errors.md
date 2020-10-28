@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b4408b2f8c631453281ecf6f214d49318252a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408209"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785045"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>排查 Azure 应用服务中的间歇性出站连接错误
 
@@ -32,7 +32,7 @@ ms.locfileid: "91408209"
 出现这种症状的主要原因是，应用程序实例已达到以下限制之一，因此无法与外部终结点打开新的连接：
 
 * TCP 连接数：可以建立的出站连接数有限制。 此数字与所用辅助角色的大小相关联。
-* SNAT 端口：如 Azure 中的 [出站连接](../load-balancer/load-balancer-outbound-connections.md)中所述，azure 使用源网络地址转换 (SNAT) 和负载均衡器 (不向客户公开，) 在公共 IP 地址空间中与 azure 外部的终结点进行通信，以及未利用服务终结点的 azure 内部点。 最初为 Azure 应用服务中的每个实例预分配了 128 个 SNAT 端口。  该限制会影响与同一个主机/端口组合打开的连接数。 如果应用与混合的地址/端口组合建立了连接，则不会用尽 SNAT 端口。 重复调用同一个地址/端口组合时，会用尽 SNAT 端口。 释放某个端口以后，即可根据需要重复使用该端口。 只有在等待 4 分钟后，Azure 网络负载均衡器才会从关闭的连接回收 SNAT 端口。
+* SNAT 端口：如 Azure 中的 [出站连接](../load-balancer/load-balancer-outbound-connections.md)中所述，azure 使用源网络地址转换 (SNAT) 和负载均衡器 (不向客户公开，) 在公共 IP 地址空间中与 azure 外部的终结点进行通信，以及不利用服务/专用终结点的 azure 内部终结点。 最初为 Azure 应用服务中的每个实例预分配了 128 个 SNAT 端口。  该限制会影响与同一个主机/端口组合打开的连接数。 如果应用与混合的地址/端口组合建立了连接，则不会用尽 SNAT 端口。 重复调用同一个地址/端口组合时，会用尽 SNAT 端口。 释放某个端口以后，即可根据需要重复使用该端口。 只有在等待 4 分钟后，Azure 网络负载均衡器才会从关闭的连接回收 SNAT 端口。
 
 当应用程序或功能快速打开新的连接时，它们可能很快就会耗尽预分配的配额（128 个端口）。 然后，应用程序或功能会一直受到阻止，直到通过动态分配额外的 SNAT 端口或者通过重复使用回收的 SNAT 端口提供了新的 SNAT 端口为止。 由于无法创建新连接而被阻止的应用程序或功能将开始遇到本文的“症状”部分所述的一种或多种问题。 
 
@@ -110,7 +110,7 @@ HTTP 连接池
 * [负载测试](/azure/devops/test/load-test/app-service-web-app-performance-test)应以稳定的供电速度模拟实际数据。 在真实环境中测试应用和功能可以提前识别和解决 SNAT 端口耗尽问题。
 * 确保后端服务可以快速返回响应。 若要排查 Azure SQL 数据库的性能问题，请查看[使用智能见解排查 Azure SQL 数据库性能问题](../azure-sql/database/intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)。
 * 将应用服务计划横向扩展为更多实例。 有关缩放的详细信息，请参阅[缩放 Azure 应用服务中的应用](./manage-scale-up.md)。 应用服务计划中的每个辅助角色实例分配有多个 SNAT 端口。 如果将用量分散在多个实例之间，可能会使每个实例的 SNAT 端口用量不超过每个独特远程终结点的建议出站连接数限制（100 个）。
-* 考虑转移到[应用服务环境 (ASE)](./environment/using-an-ase.md)，其中分配了单个出站 IP 地址，且连接数和 SNAT 端口数限制要高得多。 在 ASE 中，每个实例的 SNAT 端口数基于 [Azure 负载平衡器预先分配表](../load-balancer/load-balancer-outbound-connections.md#snatporttable) （例如，含1-50 个工作线程的 ase）每个实例有1024个预先分配的端口，而具有51-100 辅助角色实例的 ase 的每个实例都有512个预分配端口。
+* 考虑转移到[应用服务环境 (ASE)](./environment/using-an-ase.md)，其中分配了单个出站 IP 地址，且连接数和 SNAT 端口数限制要高得多。 在 ASE 中，每个实例的 SNAT 端口数基于 [Azure 负载均衡器预先分配表](../load-balancer/load-balancer-outbound-connections.md#snatporttable) - 例如，具有 1-50 个辅助角色实例的 ASE 的每个实例都有 1024 个预先分配端口，而具有 51-100 个辅助角色实例的 ASE 的每个实例都有 512 个预先分配的端口。
 
 避免超过出站 TCP 限制要更容易一些，因为这些限制是按辅助角色的大小设置的。 可以在[沙盒跨 VM 数字限制 - TCP 连接](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)中查看限制
 

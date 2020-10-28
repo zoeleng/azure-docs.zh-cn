@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 38e1fc7f062908f8c4a4b9aa903ca09dd7fb9ea5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342325"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784161"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure 安全中心就绪情况路线图
 本文档提供的就绪情况路线图有助于 Azure 安全中心入门。
@@ -78,7 +78,7 @@ Azure 安全中心为 Azure、本地和其他云中运行的工作负载提供�
 
 项目    
 * [利用 Azure 安全中心进行事件响应](./tutorial-security-incident.md)
-* [通过工作流自动化自动响应](workflow-automation.md)
+* [使用自动化来响应安全中心触发器](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>高级云防御
 

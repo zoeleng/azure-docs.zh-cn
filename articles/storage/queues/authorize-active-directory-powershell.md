@@ -10,18 +10,18 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 27a742b5f683a7e542ca8d51a711d903b00bda61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715483"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785657"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>使用 Azure AD 凭据运行 PowerShell 命令以访问队列数据
 
 Azure 存储为 PowerShell 提供扩展，使用户可使用 Azure Active Directory (Azure AD) 凭据登录并运行脚本命令。 使用 Azure AD 凭据登录 PowerShell 时，会返回 OAuth 2.0 访问令牌。 PowerShell 会自动使用该令牌对队列存储的后续数据操作授权。 对于支持的操作，无需再通过命令传递帐户密钥或 SAS 令牌。
 
-可以通过 Azure RBAC)  (Azure 基于角色的访问控制将数据排队到 Azure AD 安全主体。 有关 azure 存储空间中的 Azure 角色的详细信息，请参阅 [使用 AZURE RBAC 管理对 Azure 存储数据的访问权限](../common/storage-auth-aad-rbac.md)。
+可以通过 Azure RBAC)  (Azure 基于角色的访问控制将数据排队到 Azure AD 安全主体。 有关 azure 存储空间中的 Azure 角色的详细信息，请参阅 [使用 AZURE RBAC 管理对 Azure 存储数据的访问权限](../common/storage-auth-aad-rbac-portal.md)。
 
 ## <a name="supported-operations"></a>支持的操作
 
@@ -68,7 +68,7 @@ Azure 存储为 PowerShell 提供扩展，使用户可使用 Azure Active Direct
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 在创建队列之前，请将 " [存储队列数据参与者](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) " 角色分配给自己。 即使你是帐户所有者，也需要显式权限才能针对存储帐户执行数据操作。 有关分配 Azure 角色的详细信息，请参阅 [使用 Azure 门户分配 azure 角色以访问 blob 和队列数据](../common/storage-auth-aad-rbac.md)。
+1. 在创建队列之前，请将 " [存储队列数据参与者](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) " 角色分配给自己。 即使你是帐户所有者，也需要显式权限才能针对存储帐户执行数据操作。 有关分配 Azure 角色的详细信息，请参阅 [使用 Azure 门户分配 azure 角色以访问 blob 和队列数据](../common/storage-auth-aad-rbac-portal.md)。
 
     > [!IMPORTANT]
     > 传播 Azure 角色分配可能需要花费几分钟时间。

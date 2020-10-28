@@ -10,12 +10,12 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488888"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784348"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -106,7 +106,7 @@ az login
 
 每个存储帐户都必须属于 Azure 资源组。 资源组是对 Azure 资源进行分组的逻辑容器。 在创建存储帐户时，可以选择创建新的资源组，也可以使用现有资源组。 本文介绍如何创建新资源组。
 
-可以使用常规用途 v2 存储帐户访问所有 Azure 存储服务：Blob、文件、队列、表和磁盘****。 本文所述的步骤将创建常规用途 v2 存储帐户，但创建任何类型的存储帐户的步骤都相似。 有关存储帐户类型和其他存储帐户设置的详细信息，请参阅 [Azure 存储帐户概述](storage-account-overview.md)。
+可以使用常规用途 v2 存储帐户访问所有 Azure 存储服务：Blob、文件、队列、表和磁盘  。 本文所述的步骤将创建常规用途 v2 存储帐户，但创建任何类型的存储帐户的步骤都相似。 有关存储帐户类型和其他存储帐户设置的详细信息，请参阅 [Azure 存储帐户概述](storage-account-overview.md)。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 若要了解如何修改此模板或创建新模板，请参阅：
 
-- [Azure 资源管理器文档](/azure/azure-resource-manager/)。
+- [Azure 资源管理器文档](../../azure-resource-manager/index.yml)。
 - [存储帐户模板参考](/azure/templates/microsoft.storage/allversions)。
 - [其他存储帐户模板示例](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)。
 
@@ -279,7 +279,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 > [!WARNING]
 > 无法恢复已删除的存储帐户，也无法检索删除之前该存储帐户包含的任何内容。 请在删除帐户之前务必备份要保存的任何内容。 对于帐户中的任务资源也是如此 — 一旦你删除了一个 Blob、表、队列或文件，则它会被永久删除。
 >
-> 如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关排除此错误的帮助信息，请参阅[删除存储帐户时排除错误](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
+> 如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关排除此错误的帮助信息，请参阅[删除存储帐户时排除错误](../../virtual-machines/troubleshooting/index.yml)。
 
 ## <a name="next-steps"></a>后续步骤
 

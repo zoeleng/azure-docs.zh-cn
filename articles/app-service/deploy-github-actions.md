@@ -7,18 +7,18 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108042"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783073"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>使用 GitHub Actions 部署到应用服务
 
 通过 [Github 操作](https://help.github.com/en/articles/about-github-actions) 开始，可自动执行工作流，并从 GitHub 部署到 [Azure App Service](overview.md) 。 
 
-## <a name="prerequisites"></a>必备条件 
+## <a name="prerequisites"></a>先决条件 
 
 - 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 - 一个 GitHub 帐户。 如果没有，请 [免费](https://github.com/join)注册。  
@@ -37,7 +37,7 @@ ms.locfileid: "92108042"
 
 |部分  |任务  |
 |---------|---------|
-|**身份验证** | 1. 定义服务主体或发布配置文件。 <br /> 2. 创建 GitHub 机密。 |
+|**身份验证** | 1. 定义服务主体或发布配置文件。 <br /> 2.创建 GitHub 机密。 |
 |**生成** | 1. 设置环境。 <br /> 2. 生成 web 应用。 |
 |**部署** | 1. 部署 web 应用。 |
 
@@ -46,12 +46,12 @@ ms.locfileid: "92108042"
 你可以使用应用服务部署中心快速开始使用 GitHub 操作。 这会根据应用程序堆栈自动生成工作流文件，并将其提交到正确目录中的 GitHub 存储库。
 
 1. 导航到 Azure 门户中的 webapp
-1. 在左侧，单击 "**部署中心**"
-1. 在 " **连续部署 (CI/CD") **中，选择 **GitHub**
+1. 在左侧，单击 " **部署中心** "
+1. 在 " **连续部署 (CI/CD")** 中，选择 **GitHub**
 1. 接下来，选择 **GitHub 操作**
 1. 使用 dropdown 选择 GitHub 存储库、分支和应用程序堆栈
     - 如果所选分支受到保护，则仍可继续添加工作流文件。 继续操作之前，请务必查看分支保护。
-1. 在最后一个屏幕上，可以查看所选内容并预览将提交到存储库的工作流文件。 如果选择正确，请单击 "**完成**"
+1. 在最后一个屏幕上，可以查看所选内容并预览将提交到存储库的工作流文件。 如果选择正确，请单击 " **完成** "
 
 这会将工作流文件提交到存储库。 用于生成和部署应用的工作流将立即启动。
 
@@ -71,13 +71,13 @@ ms.locfileid: "92108042"
 
 1. 在 Azure 门户中，请参阅应用服务。 
 
-1. 在 " **概述** " 页上，选择 " **获取发布配置文件**"。
+1. 在 " **概述** " 页上，选择 " **获取发布配置文件** "。
 
 1. 保存下载的文件。 你将使用该文件的内容来创建 GitHub 机密。
 
 # <a name="service-principal"></a>[服务主体](#tab/userlevel)
 
-可以在[Azure CLI](/cli/azure/)中使用[az ad sp 创建-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true)命令创建[服务主体](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 使用 Azure 门户中 [Azure Cloud Shell](https://shell.azure.com/) 或选择 " **试用** " 按钮来运行此命令。
+可以使用 [Azure CLI](/cli/azure/) 中的 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 命令创建[服务主体](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 请使用 Azure 门户中的 [Azure Cloud Shell](https://shell.azure.com/) 或选择“试用”按钮运行此命令。
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -107,7 +107,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 # <a name="publish-profile"></a>[发布配置文件](#tab/applevel)
 
-在 [GitHub](https://github.com/)中，浏览存储库，选择 " **设置" > 机密 > 添加新机密**。
+在 [GitHub](https://github.com/)中，浏览存储库，选择 " **设置" > 机密 > 添加新机密** 。
 
 若要使用 [应用级凭据](#generate-deployment-credentials)，请将下载的发布配置文件的内容粘贴到机密的值字段中。 命名机密 `AZURE_WEBAPP_PUBLISH_PROFILE` 。
 
@@ -121,11 +121,11 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 # <a name="service-principal"></a>[服务主体](#tab/userlevel)
 
-在 [GitHub](https://github.com/)中，浏览存储库，选择 " **设置" > 机密 > 添加新机密**。
+在 [GitHub](https://github.com/)中，浏览存储库，选择 " **设置" > 机密 > 添加新机密** 。
 
-要使用 [用户级凭据](#generate-deployment-credentials)，请将 Azure CLI 命令的整个 JSON 输出粘贴到机密的值字段中。 为机密指定名称，如 `AZURE_CREDENTIALS` 。
+要使用 [用户级凭据](#generate-deployment-credentials)，请将 Azure CLI 命令的整个 JSON 输出粘贴到机密的值字段中。 为机密指定名称 `AZURE_CREDENTIALS`。
 
-以后配置工作流文件时，请使用机密来输入 `creds` Azure 登录操作。 例如：
+以后配置工作流文件时，请使用该机密作为 Azure 登录操作的输入 `creds`。 例如：
 
 ```yaml
 - uses: azure/login@v1
