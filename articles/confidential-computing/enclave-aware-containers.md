@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01f10d3ba83d23478a7113cf4935181ee34959e3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998303"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125280"
 ---
 # <a name="enclave-aware-containers"></a>Enclave 感知容器
 
@@ -51,14 +51,19 @@ Intel 维护着一个软件开发工具包，用于生成适用于 Linux 和 Win
 
 从[此处](https://aka.ms/confidentialinference)开始将 ML 模型直接迁移到 ONNX 运行时
 
-## <a name="container-samples-implementations"></a>容器示例实现
+### <a name="edgeless-rt"></a>Edgeless RT
 
-[AKS 上 enclave 感知容器的 Azure 示例](https://github.com/Azure-Samples/enclave-aware-container-samples)
+Edgeless RT 是一项在 Open Enclave SDK 上构建的开放源代码项目。 它添加了对 Go 和其他 C++ 功能的支持。 在[此处](https://github.com/edgelesssys/edgelessrt)使用熟悉的 VS Code 环境开始使用简单机密的 Go 应用程序。 对于 AKS 上的 Edgeless 应用程序，请遵循[此处](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)的说明
+
+
+## <a name="container-based-sample-implementations"></a>基于容器的示例实现
+
+[AKS 上 enclave 感知容器的 Azure 示例](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure 证明](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[DC 虚拟机](/confidential-computing/virtual-machine-solutions)
+[机密容器](/confidential-computing/containercompute/confidential-containers)

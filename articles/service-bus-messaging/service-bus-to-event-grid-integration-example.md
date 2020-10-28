@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f64c8155724a1306f5074a9164bcf97391dfbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7f177b8738fdaf8d0975877d9af094b6f0a49a9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000339"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328141"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>教程：使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应
 本教程介绍如何使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应。 
@@ -37,7 +37,7 @@ ms.locfileid: "89000339"
 ## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 请遵照以下教程中的说明：[快速入门：使用 Azure 门户创建服务总线主题和主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来执行以下任务：
 
-- 创建一个**高级**服务总线命名空间。 
+- 创建一个 **高级** 服务总线命名空间。 
 - 获取连接字符串。 
 - 创建服务总线主题。
 - 创建主题的两个订阅。 
@@ -47,7 +47,7 @@ ms.locfileid: "89000339"
 
 1. 克隆 [GitHub azure-service-bus 存储库](https://github.com/Azure/azure-service-bus/)。
 2. 在 Visual Studio 中转到 *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* 文件夹，然后打开 *SBEventGridIntegration.sln* 文件。
-3. 转到 **MessageSender** 项目，然后选择 **Program.cs**。
+3. 转到 **MessageSender** 项目，然后选择 **Program.cs** 。
 4. 填写服务总线主题名称，以及在上一步骤中获取的连接字符串：
 
     ```csharp
@@ -62,10 +62,10 @@ ms.locfileid: "89000339"
 
 1. 在 Azure 门户中创建逻辑应用。
     1. 依次选择“+ 创建资源”、“集成”、“逻辑应用”。 
-    2. 在“逻辑应用 - 创建”页上，输入逻辑应用的**名称**。
-    3. 选择 **Azure 订阅**。 
+    2. 在“逻辑应用 - 创建”页上，输入逻辑应用的 **名称** 。
+    3. 选择 **Azure 订阅** 。 
     4. 为“资源组”选择“使用现有项”，然后选择以前创建的、用于其他资源（例如 Azure 函数、服务总线命名空间）的资源组。 
-    5. 选择逻辑应用的**位置**。 
+    5. 选择逻辑应用的 **位置** 。 
     6. 选择“创建”以创建逻辑应用。 
 2. 在“逻辑应用设计器”页上，选择“模板”下的“空白逻辑应用”。 
 3. 在设计器中执行以下步骤：
@@ -88,7 +88,7 @@ ms.locfileid: "89000339"
     4. 选择“从主题订阅中获取消息(扫视锁定)”。 
 
         ![逻辑应用设计器 - 获取消息操作](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. 输入**连接的名称**。 例如：**从主题订阅中获取消息**，并选择服务总线命名空间。 
+    5. 输入 **连接的名称** 。 例如： **从主题订阅中获取消息** ，并选择服务总线命名空间。 
 
         ![逻辑应用设计器 - 选择服务总线命名空间](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. 选择“RootManageSharedAccessKey”，然后选择“创建” 。
@@ -96,12 +96,12 @@ ms.locfileid: "89000339"
         ![逻辑应用设计器 - 选择共享访问密钥](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
     8. 选择你的主题和订阅 。 
     
-        ![逻辑应用设计器 - 选择你的服务总线主题和订阅](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+        ![显示选择主题和订阅的位置的屏幕截图。](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
 7. 选择“+ 新建步骤”，然后执行以下步骤： 
     1. 选择“服务总线”。
     2. 在操作列表中选择“完成主题订阅中的消息”。 
-    3. 选择你的服务总线**主题**。
-    4. 选择主题的第二个**订阅**。
+    3. 选择你的服务总线 **主题** 。
+    4. 选择主题的第二个 **订阅** 。
     5. 对于“消息的锁定标记”，请从“动态内容”中选择“锁定标记”。 
 
         ![逻辑应用设计器 - 选择你的服务总线主题和订阅](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
@@ -275,7 +275,7 @@ ms.locfileid: "89000339"
     ![服务总线 - 事件页](./media/service-bus-to-event-grid-integration-example/service-bus-events-page.png)
 2. 在工具栏上选择“+ 事件订阅”。 
 3. 在“创建事件订阅”页中执行以下步骤：
-    1. 输入订阅的**名称**。 
+    1. 输入订阅的 **名称** 。 
     2. 输入系统主题的名称 。 系统主题是为 Azure 资源（如 Azure 存储帐户和 Azure 服务总线）创建的主题。 若要详细了解系统主题，请参阅[系统主题概述](../event-grid/system-topics.md)。
     2. 为“终结点类型”选择“Web Hook”。 
 
@@ -309,13 +309,13 @@ ms.locfileid: "89000339"
 此部分将介绍如何在收到事件后接收和处理消息。
 
 ### <a name="publish-a-function-from-visual-studio"></a>从 Visual Studio 发布函数
-1. 在打开的同一个 Visual Studio 解决方案 (**SBEventGridIntegration**) 中，选择 **SBEventGridIntegration** 项目中的 **ReceiveMessagesOnEvent.cs**。 
+1. 在打开的同一个 Visual Studio 解决方案 ( **SBEventGridIntegration** ) 中，选择 **SBEventGridIntegration** 项目中的 **ReceiveMessagesOnEvent.cs** 。 
 2. 在以下代码中输入服务总线连接字符串：
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
-3. 下载函数的**发布配置文件**：
+3. 下载函数的 **发布配置文件** ：
     1. 选择你的函数应用。 
     2. 选择“概述”选项卡（如果尚未选择）。 
     3. 在工具栏上选择“获取发布配置文件”。 
@@ -326,7 +326,7 @@ ms.locfileid: "89000339"
 5. 在“发布”上，执行以下步骤： 
     1. 在“发布”页面上选择“启动” 
     2. 对于“目标”，请选择“导入配置文件” 。 
-    3. 选择“**下一页**”。 
+    3. 选择“ **下一页** ”。 
 
         ![Visual Studio -“导入配置文件”按钮](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
 7. 选择前面下载的“发布配置文件”，然后选择“完成” 。
@@ -335,7 +335,7 @@ ms.locfileid: "89000339"
 8. 在“发布”页上选择“发布”。 
 
     ![Visual Studio - 发布](./media/service-bus-to-event-grid-integration-example/select-publish.png)
-9. 确认看到了新的 Azure 函数 **ReceiveMessagesOnEvent**。 根据需要刷新页面。 
+9. 确认看到了新的 Azure 函数 **ReceiveMessagesOnEvent** 。 根据需要刷新页面。 
 
     ![确认已创建新函数](./media/service-bus-to-event-grid-integration-example/function-receive-messages.png)
 10. 获取并记下新函数的 URL。 

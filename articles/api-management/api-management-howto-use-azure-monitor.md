@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243233"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093576"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -61,7 +61,7 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 2. 从下拉列表中选择所需的指标。 例如，“请求”。 
 3. 该图显示 API 调用总数。
-4. 可以使用**请求**指标的维度来筛选该图表。 例如，单击“添加筛选器”，选择“后端响应代码”，输入 500 作为值。 现在，该图表显示了 API 后端中失败的请求数。   
+4. 可以使用 **请求** 指标的维度来筛选该图表。 例如，单击“添加筛选器”，选择“后端响应代码”，输入 500 作为值。 现在，该图表显示了 API 后端中失败的请求数。   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>针对未经授权的请求设置警报规则
 
@@ -75,18 +75,18 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 1. 在靠近页面底部的菜单栏中选择“警报”。
 
-    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![屏幕截图显示靠近页面底部的菜单中的“警报”。](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. 对于此警报，请单击“新建警报规则”。
 3. 单击“添加条件”。
 4. 在“信号类型”下拉列表中选择“指标”。
 5. 选择“未经授权的网关请求”作为要监视的信号。
 
-    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+    ![屏幕截图突出显示“信号类型”字段和“未经授权的网关请求”信号名称。](./media/api-management-azure-monitor/signal-type.png)
 
 6. 在“配置信号逻辑”视图中指定触发警报的阈值，然后单击“完成”。 
 
-    ![alerts](./media/api-management-azure-monitor/threshold.png)
+    ![屏幕截图显示“配置信号逻辑”视图。](./media/api-management-azure-monitor/threshold.png)
 
 7. 选择现有的操作组或创建新组。 在下面的示例中，将向管理员发送电子邮件。 
 

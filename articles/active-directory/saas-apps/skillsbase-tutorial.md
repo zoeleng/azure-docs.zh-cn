@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c8135f39517a5983f700c35f08a5c0749113450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e93827278fb501bc6d857d3cb39f9e0ba24d5d0a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552231"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125075"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>教程：Azure Active Directory 与 Skills Base 集成
 
@@ -93,7 +93,7 @@ ms.locfileid: "88552231"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -132,20 +132,20 @@ ms.locfileid: "88552231"
 
     ![管理员](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
 
-3. 在“身份验证”页上，选择“单一登录”作为 **SAML 2**。
+3. 在“身份验证”页上，选择“单一登录”作为 **SAML 2** 。
 
-    ![单人](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![显示“身份验证”页的屏幕截图，其中已选择用于“单一登录”的“SAML 2”。](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
 4. 在“身份验证”页上，执行以下步骤：
 
-    ![单人](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![显示“身份验证”页的屏幕截图，你可以在其中输入所述值。](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
     a. 单击“状态”选项旁边的“更新 IdP 元数据”按钮，并将从 Azure 门户下载的元数据 XML 的内容粘贴到指定的文本框中。
 
     > [!Note]
     > 还可以通过上面屏幕截图中突出显示的“元数据验证器”工具验证 idp 元数据。
 
-    b. 单击“ **保存**”。
+    b. 单击“ **保存** ”。
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c960a7b509f365ad7fd6b04267cfec6bf41c4e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fddf5cb77cbcb1fb061ffd958fba4bf4ab2c9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542558"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>教程：Azure Active Directory 与 SmartRecruiters 的集成
 
@@ -89,7 +89,7 @@ ms.locfileid: "88542558"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "88542558"
 
 4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分中执行以下步骤：
 
-    ![SmartRecruiters 域和 URL 单一登录信息](common/idp-intiated.png)
+    ![显示“基本 SAML 配置”的屏幕截图，可在其中输入“标识符”、“回复 URL”，并选择“保存”。](common/idp-intiated.png)
 
     a. 在“标识符”  文本框中，使用以下模式键入 URL：`https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
@@ -107,14 +107,14 @@ ms.locfileid: "88542558"
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
-    ![SmartRecruiters 域和 URL 单一登录信息](common/metadata-upload-additional-signon.png)
+    ![显示“设置其他 URL”的屏幕截图，可在其中输入登录 URL。](common/metadata-upload-additional-signon.png)
 
     在“登录 URL”  文本框中，使用以下模式键入 URL：`https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
 
     > [!NOTE]
     > 这些不是实际值。 请使用实际的“标识符”、“回复 URL”和“登录 URL”更新这些值。 请联系 [SmartRecruiters 客户端支持团队](https://www.smartrecruiters.com/about-us/contact-us/)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”  部分中显示的模式。
 
-6. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+6. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -134,19 +134,19 @@ ms.locfileid: "88542558"
 
 1. 转到“设置/管理”。 
 
-    ![SmartRecruiters 配置](./media/smartrecruiters-tutorial/configure.png)
+    ![显示从菜单选择了“设置/管理”的屏幕截图。](./media/smartrecruiters-tutorial/configure.png)
 
 1. 在“配置”部分中，单击“Web SSO”。  
 
-    ![SmartRecruiters 配置](./media/smartrecruiters-tutorial/configure1.png)
+    ![显示从“配置”选择了“Web SSO”的屏幕截图。](./media/smartrecruiters-tutorial/configure1.png)
 
 1. 切换“启用 Web SSO”。 
 
-    ![SmartRecruiters 配置](./media/smartrecruiters-tutorial/configure2.png)
+    ![显示“启用 Web SSO”控件的屏幕截图。](./media/smartrecruiters-tutorial/configure2.png)
 
 1. 在“标识提供者配置”中执行以下步骤： 
 
-    ![SmartRecruiters 配置](./media/smartrecruiters-tutorial/configure4.png)
+    ![显示“标识提供者配置”的屏幕截图，可在其中输入所述值。](./media/smartrecruiters-tutorial/configure4.png)
 
     a. 在“标识提供者 URL”文本框中，粘贴已从 Azure 门户中复制的“登录 URL”值   。
 

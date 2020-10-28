@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522901"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634906"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>复制活动中的数据一致性验证（预览版）
 
@@ -79,7 +79,7 @@ linkedServiceName | [Azure Blob 存储](connector-azure-blob-storage.md#linked-s
 path | 日志文件的路径。 | 指定用于存储日志文件的路径。 如果未提供路径，服务会为用户创建一个容器。 | 否
 
 >[!NOTE]
->- 从/向 Azure Blob 或 Azure Data Lake Storage Gen2 复制二进制文件时，ADF 会利用 [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) 和 [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) 来进行块级 MD5 校验和验证。 如果 Azure Blob 或 Azure Data Lake Storage Gen2 上存在用作数据源的基于文件的 ContentMD5，则 ADF 在读取文件后也会进行文件级 MD5 校验和验证。 将文件复制到作为数据目标的 Azure Blob 或 Azure Data Lake Storage Gen2 之后，ADF 会将 ContentMD5 写入 Azure Blob 或 Azure Data Lake Storage Gen2，下游应用程序可以进一步使用 ContentMD5 进行数据一致性验证。
+>- 从/向 Azure Blob 或 Azure Data Lake Storage Gen2 复制二进制文件时，ADF 会利用 [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) 和 [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) 来进行块级 MD5 校验和验证。 如果 Azure Blob 或 Azure Data Lake Storage Gen2 上存在用作数据源的基于文件的 ContentMD5，则 ADF 在读取文件后也会进行文件级 MD5 校验和验证。 将文件复制到作为数据目标的 Azure Blob 或 Azure Data Lake Storage Gen2 之后，ADF 会将 ContentMD5 写入 Azure Blob 或 Azure Data Lake Storage Gen2，下游应用程序可以进一步使用 ContentMD5 进行数据一致性验证。
 >- ADF 在任何存储区存储之间复制二进制文件时，会进行文件大小验证。
 
 ## <a name="monitoring"></a>监视
@@ -107,14 +107,14 @@ path | 日志文件的路径。 | 指定用于存储日志文件的路径。 如
 可以从“dataConsistencyVerification 属性”中查看数据一致性验证的详细信息。
 
 VerificationResult 的值： 
--   **已验证**：已验证复制的数据在源存储和目标存储之间是否一致。 
--   **未验证**：由于未在复制活动中启用 validateDataConsistency，因此尚未验证复制的数据是否一致。 
--   **不支持**：尚未验证复制的数据是否一致，因为此特定副本对不支持数据一致性验证。 
+-   **已验证** ：已验证复制的数据在源存储和目标存储之间是否一致。 
+-   **未验证** ：由于未在复制活动中启用 validateDataConsistency，因此尚未验证复制的数据是否一致。 
+-   **不支持** ：尚未验证复制的数据是否一致，因为此特定副本对不支持数据一致性验证。 
 
 InconsistentData 的值： 
--   **已发现**：ADF 复制活动发现了不一致的数据。 
--   **已跳过**：ADF 复制活动发现并跳过了不一致的数据。 
--   **无**：ADF 复制活动未发现任何不一致的数据。 这可能是因为已验证你的数据在源存储和目标存储之间是一致的，也可能是因为你在复制活动中禁用了 validateDataConsistency。 
+-   **已发现** ：ADF 复制活动发现了不一致的数据。 
+-   **已跳过** ：ADF 复制活动发现并跳过了不一致的数据。 
+-   **无** ：ADF 复制活动未发现任何不一致的数据。 这可能是因为已验证你的数据在源存储和目标存储之间是一致的，也可能是因为你在复制活动中禁用了 validateDataConsistency。 
 
 ### <a name="session-log-from-copy-activity"></a>复制活动的会话日志
 
@@ -144,5 +144,3 @@ Timestamp, Level, OperationName, OperationItem, Message
 
 - [复制活动概述](copy-activity-overview.md)
 - [复制活动容错](copy-activity-fault-tolerance.md)
-
-

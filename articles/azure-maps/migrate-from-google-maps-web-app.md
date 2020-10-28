@@ -9,16 +9,34 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d7e6c5229fa6f8204ba363d9868ffa80d78ccba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fb99afef2d5e210b8aa166f016bd2b9ec409c2a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876492"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518953"
 ---
-# <a name="migrate-a-web-app-from-google-maps"></a>从 Google Maps 迁移 Web 应用
+# <a name="tutorial---migrate-a-web-app-from-google-maps"></a>教程 - 从 Google Maps 迁移 Web 应用
 
-使用 Google Maps 的大多数 Web 应用都是使用 Google Maps V3 JavaScript SDK。 Azure Maps Web SDK 是适合用于迁移目标的基于 Azure 的 SDK。 Azure Maps Web SDK 允许你使用自己的内容和图像自定义交互式地图。 你可以在 Web 或移动应用程序中运行自己的应用。 此控件使用 WebGL，因此可以渲染大型数据集，同时保持很高的性能。 使用 JavaScript 或 TypeScript 通过此 SDK 进行开发。
+使用 Google Maps 的大多数 Web 应用都是使用 Google Maps V3 JavaScript SDK。 Azure Maps Web SDK 是适合用于迁移目标的基于 Azure 的 SDK。 Azure Maps Web SDK 允许你使用自己的内容和图像自定义交互式地图。 你可以在 Web 或移动应用程序中运行自己的应用。 此控件使用 WebGL，因此可以渲染大型数据集，同时保持很高的性能。 使用 JavaScript 或 TypeScript 通过此 SDK 进行开发。 在本教程中，您将学习如何执行以下操作：
+
+> [!div class="checklist"]
+> * 加载地图
+> * 将地图本地化
+> * 添加标记、折线和多边形。
+> * 在弹出窗口或信息窗口中显示信息
+> * 加载并显示 KML 和 GeoJSON 数据
+> * 聚集标记
+> * 叠加图块层
+> * 显示交通情况数据
+> * 添加地面叠加层
+
+你还将了解： 
+
+> [!div class="checklist"]
+> * 如何使用 Azure Maps Web SDK 完成常见映射任务
+> * 改善性能和用户体验的最佳做法
+> * 有关如何使用 Azure Maps 中提供的更多高级功能创建应用程序的提示
 
 如果迁移现有的 Web 应用程序，请检查该应用程序是否使用开源地图控件库。 开源地图控件库的示例包括：Cesium、Leaflet 和 OpenLayers。 即使应用程序使用开源地图控件库，而你不想要使用 Azure Maps Web SDK，也仍可以迁移该应用程序。 在这种情况下，请将应用程序连接到 Azure Maps 图块服务（[道路图块](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [卫星图块](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)）。 下面指出了有关如何在某些常用开源地图控件库中使用 Azure Maps 的详细信息。
 
@@ -33,6 +51,11 @@ ms.locfileid: "91876492"
 - [Azure Maps React 组件](https://github.com/WiredSolutions/react-azure-maps) - Azure Maps 控件的 React 包装器。
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Vue 应用程序的 Azure Maps 组件。
 
+## <a name="prerequisites"></a>先决条件 
+
+1. 登录 [Azure 门户](https://portal.azure.com)。 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
+2. [创建 Azure Maps 帐户](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [获取主订阅密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account)（亦称为“主密钥”或“订阅密钥”）。 有关 Azure Maps 中身份验证的详细信息，请参阅[在 Azure Maps 中管理身份验证](how-to-manage-authentication.md)。
 
 ## <a name="key-features-support"></a>重要功能支持
 
@@ -72,7 +95,6 @@ ms.locfileid: "91876492"
 
 此集合包含每个平台的代码示例，其中每个示例涵盖了常见用例。 此集合旨在帮助你将 Web 应用程序从 Google Maps V3 JavaScript SDK 迁移到 Azure Maps Web SDK。 与 Web 应用程序相关的代码示例以 JavaScript 提供。 但是，Azure Maps 还通过 [NPM 模块](how-to-use-map-control.md)提供 TypeScript 定义作为附加选项。
 
-
 **主题**
 
 - [加载地图](#load-a-map)
@@ -90,7 +112,6 @@ ms.locfileid: "91876492"
 - [显示交通情况数据](#show-traffic-data)
 - [添加地面叠加层](#add-a-ground-overlay)
 - [将 KML 数据添加到地图](#add-kml-data-to-the-map)
-
 
 ### <a name="load-a-map"></a>加载地图
 
@@ -1011,7 +1032,7 @@ GeoJSON 是 Azure Maps 中的基础数据类型。 使用 `datasource.importFrom
 
 启用聚类后，数据源会将已聚类和未聚类的数据点发送到层进行呈现。 数据源能够聚类数十万个数据点。 聚类的数据点包含以下属性：
 
-| 属性名称             | 类型    | 说明   |
+| 属性名称             | 类型    | 描述   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 指示特征是否表示聚类。 |
 | `cluster_id`              | 字符串  | 可与数据源 `getClusterExpansionZoom`、`getClusterChildren` 和 `getClusterLeaves` 方法结合使用的群集唯一 ID。 |
@@ -1720,9 +1741,18 @@ Azure Maps Web SDK 包含一个可单独加载的服务模块。 此模块使用
 | 几何库      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | 可视化库 | [热度地图层](map-add-heat-map-layer.md) |
 
-若要详细了解如何迁移 Google Maps，请参阅：
+## <a name="next-steps"></a>后续步骤
 
-* [如何使用服务模块](how-to-use-services-module.md) 
-* [如何使用绘图工具模块](set-drawing-options.md)
-* [如何使用服务模块](how-to-use-services-module.md)
-* [如何使用地图控件](how-to-use-map-control.md)
+详细了解 Azure Maps Web SDK：
+
+> [!div class="nextstepaction"]
+> [如何使用地图控件](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [如何使用绘图工具模块](set-drawing-options.md)
+
+> [!div class="nextstepaction"]
+> [如何使用服务模块](how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [如何使用空间 IO 模块](how-to-use-spatial-io-module.md)

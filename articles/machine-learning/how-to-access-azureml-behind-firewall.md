@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604404"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629453"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>将防火墙后的工作区用于 Azure 机器学习
 
@@ -63,10 +63,12 @@ ms.locfileid: "90604404"
 | **mcr.microsoft.com** | 用于 docker 基础映像的 Microsoft 容器注册表 |
 | **your-acr-server-name.azurecr.io** | 仅当 Azure 容器注册表位于虚拟网络后面时才需要。 通过此配置，将创建从 Microsoft 环境到订阅中的 ACR 实例的专用链接。 将 ACR 服务器名称用于 Azure 机器学习工作区。 |
 | **\*.notebooks.azure.net** | Azure 机器学习工作室中的笔记本需要。 |
+| **\*。 file.core.windows.net** | Azure 机器学习 studio 中的文件资源管理器需要。 |
+| **\*。 dfs.core.windows.net** | Azure 机器学习 studio 中的文件资源管理器需要。 |
 | **graph.windows.net** | 笔记本所需 |
 
 > [!TIP]
-> 如果你计划使用联合标识，请遵循 [保护 Active Directory 联合身份验证服务文章的最佳实践](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) 。
+> 如果计划使用联合标识，请按照[保护 Active Directory 联合身份验证服务的最佳做法](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)一文的说明进行操作。
 
 ## <a name="python-hosts"></a>Python 主机
 
@@ -74,7 +76,7 @@ ms.locfileid: "90604404"
 
 | **主机名** | **用途** |
 | ---- | ---- |
-| **anaconda.com**</br>**\*。 anaconda.com** | 用于安装默认包。 |
+| **anaconda.com**</br>**\*.anaconda.com** | 用于安装默认包。 |
 | \*.anaconda.org | 用于获取存储库数据。 |
 | **pypi.org** | 用于列出默认索引的依赖项（如果有），索引不会被用户设置覆盖。 如果索引被覆盖，则还必须允许“\*.pythonhosted.org”。 |
 

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220741"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633495"
 ---
 # <a name="how-to-create-an-nfs-share"></a>如何创建 NFS 共享
 
@@ -82,21 +82,21 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 ## <a name="create-an-nfs-share"></a>创建 NFS 共享
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 现在，你已创建 FileStorage 帐户并配置了网络，接下来可以创建一个 NFS 文件共享。 此过程类似于创建 SMB 共享，在创建共享时选择 **NFS** 而不是 **smb** 。
 
 1. 导航到存储帐户，然后选择“文件共享”。
 1. 选择“+ 文件共享”创建新的文件共享。
 1. 命名文件共享，选择预配的容量。
-1. 对于 **协议** ，请选择 " **NFS (预览") **。
+1. 对于 **协议** ，请选择 " **NFS (预览")** 。
 1. 对于 **Root Squash** 进行选择。
 
     - 根 squash (默认) -远程超级用户 (根) 的访问权限映射到 UID (65534) 和 GID (65534) 。
     - 根 squash-远程超级用户 (根) 以 root 身份接收访问权限。
     - 所有 squash-所有用户访问映射到 UID (65534) 和 GID (65534) 。
     
-1. 选择“创建” 。
+1. 选择“创建”  。
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="文件共享创建边栏选项卡的屏幕截图":::
 
@@ -120,7 +120,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 1. 关闭 PowerShell 控制台，然后重新将其打开。
 
-1. 安装 **Az** 预览 module **2.5.2**。
+1. 安装 **Az** 预览 module **2.5.2** 。
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

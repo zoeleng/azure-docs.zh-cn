@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e0a8e6786dbce1015d587cf8015e3624c97a5817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea69f1e634c66bff98462d41f3eeef19f8e15eb0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553608"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>教程：Azure Active Directory 与 Procore SSO 的集成
 
@@ -89,7 +89,7 @@ ms.locfileid: "88553608"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -121,21 +121,21 @@ ms.locfileid: "88553608"
 
 2. 在工具箱下拉菜单中，单击“管理员”  以打开 SSO 设置页。
 
-    ![配置单一登录](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![显示选择了“目录”的 Procore 公司站点的屏幕截图。](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. 按如下所述在框中粘贴值-
 
-    ![配置单一登录](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![显示“添加人员”对话框的屏幕截图。](./media/procoresso-tutorial/procore_setting_admin.png) 
 
     a. 在“单一登录颁发者 URL”文本框中，粘贴从 Azure 门户复制的“Azure AD 标识符”值   。
 
     b. 在“SAML 登录目标 URL”框中，粘贴从 Azure 门户复制的“登录 URL”值   。
 
-    c. 现在打开上面从 Azure 门户下载的**联合元数据 XML**，并复制名为 **X509Certificate** 的标记中的证书。 将复制的值粘贴到“单一登录 x509 证书”  框中。
+    c. 现在打开上面从 Azure 门户下载的 **联合元数据 XML** ，并复制名为 **X509Certificate** 的标记中的证书。 将复制的值粘贴到“单一登录 x509 证书”  框中。
 
 4. 单击“保存更改”  。
 
-5. 进行这些设置之后，需要将用于登录到 Procore 的**域名**（例如 **contoso.com**）发送给 [Procore 支持团队](https://support.procore.com/)，他们会为该域激活联合 SSO。
+5. 进行这些设置之后，需要将用于登录到 Procore 的 **域名** （例如 **contoso.com** ）发送给 [Procore 支持团队](https://support.procore.com/)，他们会为该域激活联合 SSO。
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户 
 
@@ -195,15 +195,15 @@ ms.locfileid: "88553608"
 
 2. 从工具箱下拉菜单中，单击“目录”  以打开公司目录页。
 
-    ![配置单一登录](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![显示从工具箱选择了“目录”的 Procore 公司站点的屏幕截图。](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. 单击“添加人员”选项以打开窗体，并执行以下选项 -
 
-    ![配置单一登录](./media/procoresso-tutorial/Procore_user_add.png)
+    ![显示“将人员添加到 Boylan 构造”的屏幕截图，可在其中输入用户信息。](./media/procoresso-tutorial/Procore_user_add.png)
 
-    a. 在“名字”  文本框中，输入用户的名字（如 **Britta**）。
+    a. 在“名字”  文本框中，输入用户的名字（如 **Britta** ）。
 
-    b. 在“姓氏”  文本框中，输入用户的姓氏（如 **Simon**）。
+    b. 在“姓氏”  文本框中，输入用户的姓氏（如 **Simon** ）。
 
     c. 在“电子邮件地址”文本框中，输入用户的电子邮件地址（如 BrittaSimon@contoso.com）。
 
@@ -213,11 +213,11 @@ ms.locfileid: "88553608"
 
 4. 检查并更新新添加的联系人的详细信息。
 
-    ![配置单一登录](./media/procoresso-tutorial/Procore_user_check.png)
+    ![显示“编辑”页的屏幕截图，可在其中验证用户设置。](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. 单击“保存和发送邀请”（如果需要通过邮件发送邀请）或“保存”（直接保存）以完成用户注册   。
     
-    ![配置单一登录](./media/procoresso-tutorial/Procore_user_save.png)
+    ![显示“当前项目设置”的屏幕截图，可在其中“保存”和“发送邀请”。](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>测试单一登录 
 

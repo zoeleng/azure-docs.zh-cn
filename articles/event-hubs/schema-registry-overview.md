@@ -4,12 +4,12 @@ description: 本文概述了 Azure 事件中心（预览版）支持的架构注
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938791"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330489"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>事件中心中的 Azure 架构注册表（预览版）
 在许多事件流式处理和消息传送场景中，事件或消息有效负载都包含结构化数据，这些数据使用架构驱动格式（例如 Apache Avro）进行序列化或反序列化。 发送方和接收方可能都需要使用与 JSON 架构相同的架构文档来验证数据的完整性。 对于架构驱动格式，消息使用者必须能够使用该架构，才能反序列化数据。 
@@ -50,8 +50,8 @@ Azure 架构注册表是事件中心的一项功能，它为事件驱动的应�
 ## <a name="standard-vs-dedicated-limits"></a>标准限制与专用限制
 对于事件中心标准层和专用层的相同和不同限制（例如命名空间中的架构组的数目），请参阅[架构注册表限制](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
 
-## <a name="role-based-access-control"></a>基于角色的访问控制
-以编程方式访问架构注册表时，需要在 Azure Active Directory (Azure AD) 中注册应用程序，并将应用程序的安全主体添加到以下基于角色的访问控制 (RBAC) 角色之一：
+## <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
+以编程方式访问架构注册表时，需要在 Azure Active Directory (Azure AD) 中注册应用程序，并将应用程序的安全主体添加到以下 Azure 基于角色的访问控制 (Azure RBAC) 角色之一：
 
 | 角色 | 说明 | 
 | ---- | ----------- | 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: abc2367c309f46ee1b29a51145c67e8d71919774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e68e65a5c2ed73a8fb6d8e5d01c645e05ca5157
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665389"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320716"
 ---
 # <a name="communication-services-notifications"></a>通信服务通知
 
@@ -40,13 +40,20 @@ Azure 通信服务与 [Azure 事件网格](https://azure.microsoft.com/services/
 
 通信服务使用 Azure 通知中心作为直通服务，以便使用[直接发送](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) API 与各种特定于平台的推送通知服务进行通信。 这使你可以重复使用现有 Azure 通知中心资源和配置，向你的应用程序传递低延迟、可靠的呼叫通知。
 
+> [!NOTE]
+> 目前仅支持调用推送通知。
+
 ### <a name="notification-hub-provisioning"></a>通知中心预配 
 
-若要使用通知中心将推送通知传递到客户端设备，请在与通信服务资源相同的订阅中[创建通知中心](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal)。 必须为想要使用的平台通知服务配置 Azure 通知中心。 若要了解如何从通知中心获取客户端应用程序中的推送通知，请参阅[通知中心入门](https://docs.microsoft.com/azure/notification-hubs/ios-sdk-get-started)，并从页面顶部附近的下拉列表中选择目标客户端平台。
+若要使用通知中心将推送通知传递到客户端设备，请在与通信服务资源相同的订阅中[创建通知中心](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal)。 必须为想要使用的平台通知服务配置 Azure 通知中心。 若要了解如何从通知中心获取客户端应用程序中的推送通知，请参阅[通知中心入门](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started)，并从页面顶部附近的下拉列表中选择目标客户端平台。
+
+> [!NOTE]
+> 目前支持 APN 和 FCM 平台。
 
 通知中心配置完成后，便可以使用 Azure 资源管理器客户端或通过 Azure 门户为中心提供连接字符串，从而将它关联到通信服务资源。 连接字符串应包含“发送”权限。 建议专门为中心创建另一个仅具有“发送”权限的访问策略。 详细了解[通知中心安全和访问策略](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
 
-> 注意：若要启用 Apple Push Notification 服务 VOIP 通知，必须使用 `.voip` 后缀将通知中心的名称设置为应用程序捆绑 ID。 请参阅[通过通知中心使用 APNS VOIP](https://docs.microsoft.com/azure/notification-hubs/voip-apns)。
+> [!IMPORTANT]
+> 若要启用 Apple Push Notification 服务 VOIP 通知，必须使用 `.voip` 后缀将通知中心的名称设置为应用程序捆绑 ID。 请参阅[通过通知中心使用 APNS VOIP](https://docs.microsoft.com/azure/notification-hubs/voip-apns)。
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>使用 Azure 资源管理器客户端配置通知中心
 
@@ -67,6 +74,9 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 在门户中，导航到 Azure 通信服务资源。 在通信服务资源中，从“通信服务”页的左侧菜单中选择“推送通知”，并连接之前预配的通知中心。 你需要在此处提供连接字符串和资源 ID：
 
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="显示通信服务如何与事件网格集成的关系图。":::
+
+> [!NOTE]
+> 如果更新了 Azure 通知中心连接字符串，还必须更新通信服务资源。
 
 #### <a name="device-registration"></a>设备注册 
 

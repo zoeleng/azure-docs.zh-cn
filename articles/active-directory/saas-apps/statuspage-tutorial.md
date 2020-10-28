@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ee2eb7586489527272d92dd1eaef6976bc41f94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532983f2df6689f840b71673ede3fd86842c1d22
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524729"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>教程：Azure Active Directory 与 StatusPage 集成
 
@@ -61,7 +61,7 @@ ms.locfileid: "88524729"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中键入 **StatusPage**，在结果面板中选择“StatusPage”，然后单击“添加”按钮添加该应用程序。  
+4. 在搜索框中键入 **StatusPage** ，在结果面板中选择“StatusPage”，然后单击“添加”按钮添加该应用程序。  
 
     ![结果列表中的“StatusPage”](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ ms.locfileid: "88524729"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -118,7 +118,7 @@ ms.locfileid: "88524729"
     >
     > b. 从元数据复制回复 URL，并将其粘贴到“回复 URL”  文本框中。
 
-5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+5. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -138,17 +138,17 @@ ms.locfileid: "88524729"
 
 1. 在主工具栏中，单击“管理帐户”  。
 
-    ![配置单一登录](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![显示从 StatusPage 公司站点选择了“管理帐户”的屏幕截图。](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. 单击“单一登录”  选项卡。
 
-    ![配置单一登录](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![显示“单一登录”选项卡的屏幕截图。](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
 1. 在“SSO 设置”页上，执行以下步骤：
 
-    ![配置单一登录](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![显示“SSO 设置”页的屏幕截图，可在其中输入所述值。](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
-    ![配置单一登录](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![显示“保存配置”按钮的屏幕截图。](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
     a. 在“SSO 目标 URL”文本框中，粘贴从 Azure 门户复制的“登录 URL”值   。
 
@@ -219,21 +219,21 @@ StatusPage 支持实时预配。 已在[配置 Azure AD 单一登录](#configure
 
 1. 在顶部菜单中，单击“管理帐户”  。
 
-    ![配置单一登录](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![显示从 StatusPage 公司站点选择了“管理帐户”的屏幕截图。](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. 单击“团队成员”选项卡  。
   
-    ![创建 Azure AD 测试用户](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![显示“团队成员”选项卡的屏幕截图。](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
 
 1. 单击“添加团队成员”  。
   
-    ![创建 Azure AD 测试用户](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![显示“添加团队成员”按钮的屏幕截图。](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
 1. 在相关文本框中键入要预配的有效用户的“电子邮件地址”、“名字”和“姓氏”    。 
 
-    ![创建 Azure AD 测试用户](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![显示“添加用户”对话框的屏幕截图，可在其中输入所述值。](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
-1. 选择“客户端管理员”作为**角色**。
+1. 选择“客户端管理员”作为 **角色** 。
 
 1. 单击“创建帐户”  。
 

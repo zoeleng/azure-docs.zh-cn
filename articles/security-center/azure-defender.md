@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576842"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331679"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 简介
 
@@ -36,13 +36,14 @@ Azure Defender 为虚拟机、SQL 数据库、容器、web 应用程序、网络
 - [适用于应用服务的 Azure Defender](defender-for-app-service-introduction.md)
 - [适用于存储的 Azure Defender](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [适用于 IoT 的 Azure Defender](defender-for-iot-introduction.md)
 - [适用于 Kubernetes 的 Azure Defender](defender-for-kubernetes-introduction.md)
 - [适用于容器注册表的 Azure Defender](defender-for-container-registries-introduction.md)
 - [适用于 Key Vault 的 Azure Defender](defender-for-key-vault-introduction.md)
 
 安全中心的文档对其中每个计划单独进行了介绍。
 
+> [!TIP]
+> Azure Defender for IoT（预览版）是一种单独的产品。 可在 [Azure Defender for IoT（预览版）简介](../defender-for-iot/overview.md)中找到所有详细信息。 
 
 ## <a name="hybrid-cloud-protection"></a>混合云保护
 
@@ -50,7 +51,6 @@ Azure Defender 为虚拟机、SQL 数据库、容器、web 应用程序、网络
 
 - 保护非 Azure 服务器
 - 保护其他云中的虚拟机（例如 AWS 和 GCP）
-- 保护 IoT 设备
 
 可根据你的特定环境获取自定义威胁智能和设置了优先级别的警报，这样你便能够专注于最重要的事务。
 

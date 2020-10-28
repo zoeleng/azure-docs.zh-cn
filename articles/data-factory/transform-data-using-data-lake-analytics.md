@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: ab5a76a9734ca879e468a1921554f91680be8339
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370655"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632118"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>通过在 Azure Data Lake Analytics 上运行 U SQL 脚本来处理数据 
 > [!div class="op_single_selector" title1="选择所使用的数据工厂服务版本："]
@@ -26,7 +26,7 @@ ms.locfileid: "92370655"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure 数据工厂中的管道通过使用链接计算服务来处理链接存储服务中的数据。 它包含一系列活动，其中每个活动执行特定的处理操作。 本文介绍在 **Azure Data Lake Analytics** 计算链接服务上运行 **U-SQL** 脚本的 **Data Lake Analytics U-SQL 活动**。 
+Azure 数据工厂中的管道通过使用链接计算服务来处理链接存储服务中的数据。 它包含一系列活动，其中每个活动执行特定的处理操作。 本文介绍在 **Azure Data Lake Analytics** 计算链接服务上运行 **U-SQL** 脚本的 **Data Lake Analytics U-SQL 活动** 。 
 
 在使用 Data Lake Analytics U-SQL 活动创建管道之前，先创建 Azure Data Lake Analytics 帐户。 若要了解 Azure Data Lake Analytics，请参阅 [Azure Data Lake Analytics 入门](../data-lake-analytics/data-lake-analytics-get-started-portal.md)。
 
@@ -45,7 +45,7 @@ Azure 数据工厂中的管道通过使用链接计算服务来处理链接存�
 | **resourceGroupName**    | Azure 资源组名称                | 否                                       |
 
 ### <a name="service-principal-authentication"></a>服务主体身份验证
-Azure Data Lake Analytics 链接服务需要进行服务主体身份验证，才能连接到 Azure Data Lake Analytics 服务。 若要使用服务主体身份验证，请在 Azure Active Directory (Azure AD) 中注册一个应用程序实体并授予其访问 Data Lake Analytics 和它使用的 Data Lake Store 的权限。 有关详细步骤，请参阅[服务到服务身份验证](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。 记下下面的值，这些值用于定义链接服务：
+Azure Data Lake Analytics 链接服务需要进行服务主体身份验证，才能连接到 Azure Data Lake Analytics 服务。 若要使用服务主体身份验证，请在 Azure Active Directory (Azure AD) 中注册一个应用程序实体并授予其访问 Data Lake Analytics 和它使用的 Data Lake Store 的权限。 有关详细步骤，请参阅[服务到服务身份验证](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md)。 记下下面的值，这些值用于定义链接服务：
 
 * 应用程序 ID
 * 应用程序密钥 
@@ -123,15 +123,15 @@ Azure Data Lake Analytics 链接服务需要进行服务主体身份验证，才
 | :------------------ | :--------------------------------------- | :------- |
 | name                | 管道中活动的名称     | 是      |
 | description         | 描述活动用途的文本。  | 否       |
-| type                | 对于 Data Lake Analytics U-SQL 活动，活动类型是 **DataLakeAnalyticsU-SQL**。 | 是      |
+| type                | 对于 Data Lake Analytics U-SQL 活动，活动类型是 **DataLakeAnalyticsU-SQL** 。 | 是      |
 | linkedServiceName   | Azure Data Lake Analytics 的链接服务。 若要了解此链接服务，请参阅[计算链接服务](compute-linked-services.md)一文。  |是       |
 | scriptPath          | 包含 U-SQL 脚本的文件夹路径。 文件的名称区分大小写。 | 是      |
-| scriptLinkedService | 将包含脚本的 **Azure Data Lake Store** 或 **Azure 存储**链接到数据工厂的链接服务 | 是      |
+| scriptLinkedService | 将包含脚本的 **Azure Data Lake Store** 或 **Azure 存储** 链接到数据工厂的链接服务 | 是      |
 | degreeOfParallelism | 同时用于运行作业的最大节点数。 | 否       |
 | priority            | 确定应在所有排队的作业中选择哪些作业首先运行。 编号越低，优先级越高。 | 否       |
 | parameters          | 要传入 U-SQL 脚本的参数。    | 否       |
 | runtimeVersion      | 要使用的 U-SQL 引擎的运行时版本。 | 否       |
-| compilationMode     | <p>U-SQL 编译模式。 必须是这些值之一：**Semantic：** 只执行语义检查和必要的健全性检查；**Full：** 执行完整编译，包括语法检查、优化、代码生成等；**SingleBox：** 执行完整编译，且 TargetType 设置为 SingleBox。 如果该属性未指定值，则服务器将确定最佳编译模式。 | 否 |
+| compilationMode     | <p>U-SQL 编译模式。 必须是这些值之一： **Semantic：** 只执行语义检查和必要的健全性检查； **Full：** 执行完整编译，包括语法检查、优化、代码生成等； **SingleBox：** 执行完整编译，且 TargetType 设置为 SingleBox。 如果该属性未指定值，则服务器将确定最佳编译模式。 | 否 |
 
 请参阅 [SearchLogProcessing.txt](#sample-u-sql-script) 了解有关脚本定义的信息。 
 

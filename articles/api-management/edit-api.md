@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076923"
+ms.locfileid: "92092692"
 ---
 # <a name="edit-an-api"></a>编辑 API
 
@@ -35,22 +35,22 @@ ms.locfileid: "92076923"
 
 ## <a name="edit-an-api-in-apim"></a>在 APIM 中编辑 API
 
-![编辑 API](./media/edit-api/edit-api001.png)
+![屏幕截图突出显示在 APIM 中编辑 API 的过程。](./media/edit-api/edit-api001.png)
 
-1. 单击“API”选项卡。****
+1. 单击“API”选项卡。 
 2. 选择以前导入的某个 API。
 3. 选择“设计”选项卡。
 4. 选择要编辑的操作。
-5. 若要重命名该操作，请在“前端”**** 窗口中选择“铅笔”****。
+5. 若要重命名该操作，请在“前端”  窗口中选择“铅笔”  。
 
 ## <a name="update-the-swagger"></a>更新 swagger
 
 可以通过执行以下步骤来从 Azure 门户更新后端 API：
 
 1. 选择“所有操作”
-2. 单击“前端”**** 窗口中的铅笔。
+2. 单击“前端”  窗口中的铅笔。
 
-    ![编辑 API](./media/edit-api/edit-api002.png)
+    ![屏幕截图突出显示“前端”屏幕上的铅笔图标。](./media/edit-api/edit-api002.png)
 
     将显示 API 的 swagger。
 

@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: aee6e6d8ca505bfdcfd4a51e4693779f44b2b0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8c0aef1817581e2b09297d8807676cf0049e1d3e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226320"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169083"
 ---
 本快速入门介绍如何使用适用于 Linux 的语音设备 SDK 来生成支持语音的产品，或将其用作[对话听录](../conversation-transcription-service.md)设备。 目前，只有 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) 受支持。
 
@@ -70,13 +70,13 @@ ms.locfileid: "88226320"
 
 1. 在 Eclipse IDE Launcher 的“工作区”字段中，输入新工作区目录的名称 。 然后选择“启动”。
 
-   ![Eclipse Launcher 的屏幕截图](../media/speech-devices-sdk/eclipse-launcher-linux.png)
+   ![显示“Eclipse Launcher”的屏幕截图。](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
 1. 片刻之后，Eclipse IDE 的主窗口将会显示。 如果出现了欢迎屏幕，请将其关闭。
 
 1. 从 Eclipse 菜单栏上，依次选择“文件” > “新建” > “Java 项目”以新建一个项目。 如果不可用，请依次选择“项目”和“Java 项目”。
 
-1. 此时将启动“新建 Java 项目”向导。 **浏览**示例项目所在的位置。 选择“完成”  。
+1. 此时将启动“新建 Java 项目”向导。 **浏览** 示例项目所在的位置。 选择“完成”  。
 
    ![“新建 Java 项目”向导的屏幕截图](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
@@ -105,15 +105,15 @@ ms.locfileid: "88226320"
     </dependencies>
    ```
 
-1. 在“包资源管理器”中，右键单击你的项目。 选择“属性”，然后依次选择“运行/调试设置” > “新建...” > **Java 应用程序**。 
+1. 在“包资源管理器”中，右键单击你的项目。 选择“属性”，然后依次选择“运行/调试设置” > “新建...” > **Java 应用程序** 。 
 
-1. 此时将显示“编辑配置”窗口。 在“名称”字段中，输入 **Main**，并对“Main 类”使用“搜索” ，以查找和选择 **com.microsoft.cognitiveservices.speech.samples.FunctionsList**。
+1. 此时将显示“编辑配置”窗口。 在“名称”字段中，输入 **Main** ，并对“Main 类”使用“搜索” ，以查找和选择 **com.microsoft.cognitiveservices.speech.samples.FunctionsList** 。
 
    ![“编辑启动配置”的屏幕截图](../media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
 1. 从 **Linux-arm** 或 **Linux-x64** 中将目标体系结构的音频二进制文件复制到 Java 项目位置，例如 /home/wcaltest/JRE-Sample-Release
 
-1. 同样从“编辑配置”窗口中，选择“环境”页和“新建”。 此时将显示“新环境变量”窗口。 在“名称”字段中输入 **LD_LIBRARY_PATH**，并在“值”字段中输入包含 *.so 文件的文件夹，例如 **/home/wcaltest/JRE-Sample-Release**
+1. 同样从“编辑配置”窗口中，选择“环境”页和“新建”。 此时将显示“新环境变量”窗口。 在“名称”字段中输入 **LD_LIBRARY_PATH** ，并在“值”字段中输入包含 *.so 文件的文件夹，例如 **/home/wcaltest/JRE-Sample-Release**
 
 1. 将 `kws.table` 和 `participants.properties` 复制到项目文件夹 **target/classes**
 
@@ -161,22 +161,22 @@ ms.locfileid: "88226320"
 
 1. 语音设备 SDK 示例应用程序将会启动，并显示以下选项：
 
-   ![示例语音设备 SDK 的示例应用程序和选项](../media/speech-devices-sdk/java-sample-app-linux.png)
+   ![显示语音设备 SDK 示例应用程序和选项的屏幕截图。](../media/speech-devices-sdk/java-sample-app-linux.png)
 
 1. 试用新的“对话听录”演示。 通过“会话” > “启动”来启动听录。 默认情况下，每个人都是来宾。 但是，如果你拥有参与者的语音签名，则这些签名可以放入项目文件夹 target/classes 的 `participants.properties` 中。 若要生成语音签名，请查看[听录对话 (SDK)](../how-to-use-conversation-transcription-service.md)。
 
-   ![演示对话听录应用程序](../media/speech-devices-sdk/cts-sample-app-linux.png)
+   ![显示演示对话听录应用程序的屏幕截图。](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>创建并运行独立应用程序
 
 1. 在“包资源管理器”中，右键单击你的项目。 选择“导出”。 
 1. 此时将显示“导出”窗口。 展开“Java”，选择“可运行的 JAR 文件”，然后选择“下一步”。
 
-   ![“导出”窗口的屏幕截图](../media/speech-devices-sdk/eclipse-export-linux.png) 
+   ![显示“导出”窗口的屏幕截图。](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
 1. 此时将显示“可运行的 JAR 文件导出”窗口。 为应用程序选择“导出目标”，然后选择“完成”。
  
-   ![“可运行的 JAR 文件导出”的屏幕截图](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
+   ![显示“可运行的 JAR 文件导出”窗口的屏幕截图。](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
 1. 请将 `kws.table` 和 `participants.properties` 放入上面选择的目标文件夹中，因为该应用程序需要这些文件。
 

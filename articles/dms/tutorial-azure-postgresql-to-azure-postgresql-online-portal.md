@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: ef840abdfdb51e2472615ffabf0b49545b6fef3f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938417"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313146"
 ---
 # <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>教程：通过 Azure 门户使用 DMS 以联机方式将 Azure DB for PostgreSQL 单一服务器迁移到 Azure DB for PostgreSQL 单一服务器
 
@@ -171,7 +171,7 @@ ms.locfileid: "91938417"
 
 ## <a name="create-a-dms-instance"></a>创建 DMS 实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择**Azure 数据库迁移服务**。
+1. 在 Azure 门户中，选择 **+ 创建资源** ，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务** 。
 
     ![Azure 市场](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-marketplace.png)
 
@@ -258,11 +258,22 @@ ms.locfileid: "91938417"
 
 * 选择“运行迁移”。
 
-    迁移活动窗口随即出现，活动的“状态”应更新并显示为“正在进行备份” 。
+迁移活动窗口随即出现，活动的“状态”应更新并显示为“正在进行备份” 。 从 Azure DB for PostgreSQL 9.5 或 9.6 进行升级时，可能会遇到以下错误：
+
+一个方案报告了未知错误。28000：主机“40.121.141.121”、用户“sr”没有复制连接的 pg_hba.conf 条目
+
+这是因为 PostgreSQL 没有适当的权限来创建所需的逻辑复制项目。 要启用所需权限，可以执行以下操作：
+
+1. 为尝试迁移/升级的源 Azure DB for PostgreSQL 服务器打开“连接安全”设置。
+2. 添加一个名称以“_replrule”结尾的新防火墙规则，并将该 IP 地址从错误消息添加到“起始 IP”和“结束 IP”字段。 对于上述错误示例：
+> 防火墙规则名称 = sr_replrule；起始 IP = 40.121.141.121；结束 IP = 40.121.141.121
+
+3. 单击“保存”完成更改。 
+4. 重试 DMS 活动。 
 
 ## <a name="monitor-the-migration"></a>监视迁移
 
-1. 在迁移活动屏幕上选择“刷新”****，以便更新显示，直到迁移的“状态”**** 显示为“完成”****。
+1. 在迁移活动屏幕上选择“刷新”  ，以便更新显示，直到迁移的“状态”  显示为“完成”  。
 
      ![监视迁移过程](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration.png)
 

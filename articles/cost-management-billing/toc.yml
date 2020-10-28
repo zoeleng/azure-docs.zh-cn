@@ -48,8 +48,6 @@
           href: costs/manage-automation.md
         - name: 面向合作伙伴的成本管理
           href: costs/get-started-partners.md
-        - name: 在成本管理与 Cloudyn 之间进行选择
-          href: costs/choose-between-azure-cost-management-cloudyn.md
     - name: 预留
       items:
         - name: 什么是 Azure 预留项？
@@ -440,10 +438,6 @@
           href: cloudyn/overview.md
     - name: 快速入门
       items:
-        - name: 查看成本数据
-          href: cloudyn/quick-register-azure-sub.md
-        - name: 查看成本数据 - EA
-          href: cloudyn/quick-register-ea.md
         - name: 查看成本数据 - CSP
           href: cloudyn/quick-register-csp.md
     - name: 教程
@@ -468,8 +462,6 @@
           href: cloudyn/activate-subs-accounts.md
         - name: 为 VM 添加扩展的指标
           href: cloudyn/azure-vm-extended-metrics.md
-        - name: 连接 Google 帐户
-          href: cloudyn/connect-google-account.md
         - name: 连接 AWS 帐户
           href: cloudyn/connect-aws-account.md
         - name: 配置存储帐户

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627705"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108127"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>教程：转换和保护 API
 
@@ -70,7 +70,7 @@ ms.locfileid: "91627705"
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="门户中的策略" border="false":::
 
 1. 将光标置于“&lt;出站&gt;”元素内，然后选择上角的“显示片段” 。
-1. 在右侧窗口中的“转换策略”下，选择”设置 HTTP 标头”两次（以插入两个策略片段）。
+1. 在右侧窗口中的“转换策略”下，选择”设置 HTTP 标头”两次（以插入两个策略片段） 。
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="门户中的策略":::
 
@@ -115,7 +115,7 @@ ms.locfileid: "91627705"
 
 1.  选择“演示会议 API” > “所有操作” > “设计”  。
 1.  在“入站处理”部分中，选择代码编辑器 (</>) 图标 。
-1.  将光标置于 **&lt;inbound&gt;** 元素内。
+1.  将光标置于“&lt;&gt;”元素内，然后选择上角的“显示片段” 。
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="门户中的策略" border="false":::
 

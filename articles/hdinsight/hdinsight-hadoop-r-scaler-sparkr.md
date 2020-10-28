@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546035"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628688"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中将 ScaleR 和 SparkR 合并
 
@@ -218,7 +218,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## <a name="data-cleansing-and-transformation"></a>数据清理和和转换
 
-接下来，针对导入的航班数据执行一些清理工作，以便重命名列。 仅保留所需的变量，将计划的出发时间向下舍入为最接近的小时，以便与出发前的最新天气数据合并：
+接下来，我们对航班数据执行一些清理，然后重命名列。 仅保留所需的变量，将计划的出发时间向下舍入为最接近的小时，以便与出发前的最新天气数据合并：
 
 ```
 logmsg('clean the airline data') 
@@ -459,7 +459,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>训练并测试逻辑回归模型
 
-现在，我们已准备好构建模型。 为了查看天气数据对延误抵达时间的影响，将使用 ScaleR 的逻辑回归例程。 我们用它来建模，确定超过 15 分钟的抵达延误是否受到了出发地和目的地机场天气的影响：
+现在，我们已准备好构建模型。 为了查看天气数据对抵达时间延迟的影响，我们使用了 ScaleR 的逻辑回归例程。 我们用它来建模，确定超过 15 分钟的抵达延误是否受到了出发地和目的地机场天气的影响：
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>在其他位置评分
 
-还可以使用该模型在另一个平台上为数据评分： 将数据保存到 RDS 文件，然后将该 RDS 传输并导入到 MIcrosoft SQL Server R Services 等目标评分环境。 必须确保要评分的数据的系数级别与构建模型的数据级别相匹配。 为此，可以通过 ScaleR 的 `rxCreateColInfo()` 函数来提取并保存与建模数据关联的列信息，然后将该列信息应用到预测用的输入数据源。 下面保存了测试数据集的几行数据，接下来将从此示例中提取列信息并在预测脚本中使用：
+还可以使用该模型在另一个平台上为数据评分： 将其保存到 RDS 文件，然后将该 RDS 传输并导入到目标计分环境（例如 Microsoft SQL Server R Services）。 必须确保要评分的数据的系数级别与构建模型的数据级别相匹配。 为此，可以通过 ScaleR 的 `rxCreateColInfo()` 函数来提取并保存与建模数据关联的列信息，然后将该列信息应用到预测用的输入数据源。 在下面的代码示例中，我们保存几行测试数据集，并在预测脚本中提取并使用本示例中的列信息：
 
 ```
 # save the model and a sample of the test dataset 
@@ -529,7 +529,7 @@ elapsed <- (proc.time() - t0)[3]
 logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 ```
 
-## <a name="summary"></a>总结
+## <a name="summary"></a>摘要
 
 在本文中，我们展示了如何在 Hadoop Spark 中将用于数据操作的 SparkR 和用于模型开发的 ScaleR 配合使用。 此方案要求保留单独的 Spark 会话，一次只运行一个会话，并通过 CSV 文件交换数据。 尽管此过程现已相当简单直接，但在将来的 ML Services 版本中还会得到进一步简化，因为到时 SparkR 和 ScaleR 可以共享 Spark 会话，因而也能共享 Spark DataFrame。
 

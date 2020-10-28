@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003212"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167179"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS)
 
@@ -63,6 +63,12 @@ Azure Kubernetes 服务提供多个 Kubernetes 版本。 新版本在 AKS 中可
 AKS 支持创建启用了 GPU 的节点池。 Azure 目前提供单个或多个启用了 GPU 的 VM。 启用了 GPU 的 VM 是针对计算密集型、图形密集型和可视化工作负荷设计的。
 
 有关详细信息，请参阅[使用 AKS 上的 GPU][aks-gpu]。
+
+### <a name="confidential-computing-nodes-public-preview"></a>机密计算节点（公共预览版）
+
+AKS 支持创建基于 Intel SGX 的机密计算节点池 (DCSv2 VM)。 机密计算节点允许容器在基于硬件的受信任隔离执行环境 (enclave) 中运行。 通过证明合并代码完整性的容器之间的隔离可提供深层防御容器安全策略方面的帮助。 机密计算节点支持机密容器（现有 docker 应用）和 enclave 感知容器。
+
+有关详细信息，请参阅 [AKS 上的机密计算节点][conf-com-node]
 
 ### <a name="storage-volume-support"></a>存储卷支持
 
@@ -143,3 +149,4 @@ Azure Kubernetes 服务 (AKS) 符合 SOC、ISO、PCI DSS 和 HIPAA 规范。 有
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

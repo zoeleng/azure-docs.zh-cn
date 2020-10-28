@@ -9,15 +9,15 @@ ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9faca55f8440a28a845e892ee38df2de3489f97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b4fff4a58685873e99332b00864ee95f569416
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259486"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628586"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>用于 Azure Active Directory B2C 中的 JavaScript 示例
 
@@ -42,14 +42,14 @@ ms.locfileid: "91259486"
 
 * 为应用程序的用户界面元素选择[页面布局](contentdefinitions.md#select-a-page-layout)。
 
-    如果打算使用 JavaScript，则需要为自定义策略中的所有内容定义[定义页面布局版本](contentdefinitions.md#migrating-to-page-layout)和页面`contract`版本  。
+    如果打算使用 JavaScript，则需要为自定义策略中的所有内容定义[定义页面布局版本](contentdefinitions.md#migrating-to-page-layout)和页面`contract`版本  。 了解如何在页面版本中 [迁移到页面布局](contentdefinitions.md#migrating-to-page-layout) 。 
 
 ## <a name="add-the-scriptexecution-element"></a>添加 ScriptExecution 元素
 
-通过向 [RelyingParty](relyingparty.md)元素添加 ScriptExecution 元素来启用脚本执行。
+通过向  。
 
 1. 打开自定义策略文件。 例如，SignUpOrSignin.xml  。
-2. 向 RelyingParty 的 UserJourneyBehaviors 元素添加 ScriptExecution 元素    ：
+2. 向 RelyingParty 的 UserJourneyBehaviors 元素添加 ScriptExecution 元素  ：
 
     ```xml
     <RelyingParty>

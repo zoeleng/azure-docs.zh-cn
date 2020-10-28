@@ -1,18 +1,18 @@
 ---
 title: 用于在 Azure HDInsight 中查询 Apache HBase 的 REST API
-description: ''
+description: 本文介绍与 Azure HDInsight 群集上的 Apache HBase 组件交互时的故障排除步骤。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/08/2020
-ms.openlocfilehash: 361eefa9b0dce811533bb4da9c236c207e31c61c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1091366ac4d0445a465bc75913baf0f812e6a635
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547871"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629283"
 ---
 # <a name="rest-api-to-query-apache-hbase-in-azure-hdinsight"></a>用于在 Azure HDInsight 中查询 Apache HBase 的 REST API
 

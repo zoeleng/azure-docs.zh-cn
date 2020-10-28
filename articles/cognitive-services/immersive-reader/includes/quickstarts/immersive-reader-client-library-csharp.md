@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08996d7343ccab4c5d6e688b580a8e6e1ca5bceb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376320"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116760"
 ---
 [沉浸式阅读器](https://www.onenote.com/learningtools)是一款经过广泛设计的工具，它实现了可靠的技术，旨在提高新的读者、语言学习者和有学习差异（如阅读障碍）的用户的阅读理解能力。 你可在应用程序中使用沉浸式阅读器来隔离文本，以改进焦点、显示常用词的图片、突出显示语音的各个部分、大声朗读所选文本、实时翻译字词和短语等等。
 
@@ -42,7 +42,7 @@ ms.locfileid: "91376320"
 
 ### <a name="configure-authentication-values"></a>配置身份验证值
 
-右键单击_解决方案资源管理器_中的项目，然后选择“管理用户机密”。 这将打开一个名为 _secrets.json_ 的文件。 此文件未签入到源代码管理中。 在[此处](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)了解更多信息。 将 _secrets.json_ 的内容替换为以下内容，并提供在创建沉浸式阅读器资源时给出的值。
+右键单击 _解决方案资源管理器_ 中的项目，然后选择“管理用户机密”。 这将打开一个名为 _secrets.json_ 的文件。 此文件未签入到源代码管理中。 在[此处](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)了解更多信息。 将 _secrets.json_ 的内容替换为以下内容，并提供在创建沉浸式阅读器资源时给出的值。
 
 ```json
 {
@@ -53,7 +53,7 @@ ms.locfileid: "91376320"
 }
 ```
 
-### <a name="install-active-directory"></a>安装 Active Directory
+### <a name="install-active-directory-nuget-package"></a>安装 Active Directory NuGet 包
 
 以下代码使用 **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet 包中的对象，因此将需要在项目中添加对该包的引用。
 
@@ -65,7 +65,7 @@ ms.locfileid: "91376320"
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>更新控制器以获取令牌 
 
-打开 _Controllers\HomeController.cs_，然后在该文件顶部的 _using_ 语句后添加以下代码。
+打开 _Controllers\HomeController.cs_ ，然后在该文件顶部的 _using_ 语句后添加以下代码。
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -142,13 +142,13 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## <a name="add-sample-content"></a>添加示例内容
-首先，打开 _Views\Shared\Layout.cshtml_。 在行 ```</head>``` 之前，添加以下代码：
+首先，打开 _Views\Shared\Layout.cshtml_ 。 在行 ```</head>``` 之前，添加以下代码：
 
 ```html
 @RenderSection("Styles", required: false)
 ```
 
-现在，我们将向此 Web 应用添加示例内容。 打开 _Views\Home\Index.cshtml_，并将所有自动生成的代码替换为以下示例：
+现在，我们将向此 Web 应用添加示例内容。 打开 _Views\Home\Index.cshtml_ ，并将所有自动生成的代码替换为以下示例：
 
 ```html
 @{
