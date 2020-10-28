@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dd5d05ff6ed2368308f90f61ea0a6f107e43acd7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674922"
+ms.locfileid: "92740786"
 ---
 # <a name="weather-partner-integration"></a>天气应用合作伙伴集成
 
@@ -180,7 +180,7 @@ Docker 程序需要有两个组件： **启动** 和 **作业** 。 可以有多
 
 ## <a name="weather-data-telemetry-specifications"></a>天气数据 (遥测) 规范
 
-天气数据映射到一个规范消息，该消息将被推送到 Azure 事件中心进行处理。 Azure EventHub 是一项服务，可用于从连接的设备和应用程序) 引入实时数据 (遥测数据。 若要将天气数据发送到 FarmBeats，需要创建将消息发送到 FarmBeats 中的事件中心的客户端。 若要了解有关发送遥测数据的详细信息，请参阅向[事件中心发送遥测](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)数据
+天气数据映射到一个规范消息，该消息将被推送到 Azure 事件中心进行处理。 Azure 事件中心是一个服务，可用于从连接的设备和应用程序引入实时数据（遥测）。 若要将天气数据发送到 FarmBeats，需要创建将消息发送到 FarmBeats 中的事件中心的客户端。 若要了解有关发送遥测数据的详细信息，请参阅向[事件中心发送遥测](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)数据
 
 下面是一个示例 Python 代码，它将遥测作为客户端发送到指定的事件中心。
 

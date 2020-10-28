@@ -5,13 +5,13 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
-ms.custom: seodec18
-ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 9650633e1eaffdb588b3a31cd5a2f305c36e7a25
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77152986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741298"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -82,7 +82,7 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
    
 1. 使用 `git push azure master` 推送到 Azure 远程实例。 
    
-1. 在[Git 凭据管理器](#configure-a-deployment-user)窗口中，输入 部署用户密码 而不是 Azure 登录密码。****
+1. 在 
    
 1. 查看输出。 你可能会看到特定于运行时的自动化，例如 MSBuild for ASP.NET、`npm install` for Node.js 和 `pip install` for Python。 
    
@@ -104,22 +104,22 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
 
 1. 选择 Azure App Service 应用，并选择左侧菜单中的 " **部署中心** "。
    
-1. 在 " **部署中心** " 页上，选择 " **本地 Git**"，然后选择 " **继续**"。 
+1. 在 " **部署中心** " 页上，选择 " **本地 Git** "，然后选择 " **继续** "。 
    
    ![选择 "本地 Git"，然后选择 "继续"](media/app-service-deploy-local-git/portal-enable.png)
    
-1. 在 " **生成提供程序** " 页上，选择 " **Azure Pipelines (预览") **，然后选择 " **继续**"。 
+1. 在 " **生成提供程序** " 页上，选择 " **Azure Pipelines (预览")** ，然后选择 " **继续** "。 
    
    ![选择 Azure Pipelines (预览 ") ，然后选择" 继续 "。](media/app-service-deploy-local-git/pipeline-builds.png)
 
-1. 在 " **配置** " 页上，配置新的 Azure DevOps 组织或指定现有组织，然后选择 " **继续**"。
+1. 在 " **配置** " 页上，配置新的 Azure DevOps 组织或指定现有组织，然后选择 " **继续** "。
    
    > [!NOTE]
    > 如果未列出现有的 Azure DevOps 组织，可能需要将其链接到 Azure 订阅。 有关详细信息，请参阅 [定义 CD 发布管道](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd)。
    
-1. 根据你的应用服务计划 [定价层](https://azure.microsoft.com/pricing/details/app-service/plans/)，你可能会看到 " **部署到过渡** " 页。 选择是否 [启用部署槽位](deploy-staging-slots.md)，然后选择 " **继续**"。
+1. 根据你的应用服务计划 [定价层](https://azure.microsoft.com/pricing/details/app-service/plans/)，你可能会看到 " **部署到过渡** " 页。 选择是否 [启用部署槽位](deploy-staging-slots.md)，然后选择 " **继续** "。
    
-1. 在 " **摘要** " 页上，查看设置，然后选择 " **完成**"。
+1. 在 " **摘要** " 页上，查看设置，然后选择 " **完成** "。
    
 1. Azure 管道准备就绪后，从 **部署中心** 页面复制 Git 存储库 URL，以便在下一步中使用。 
    
@@ -145,14 +145,14 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
 
 使用 Git 发布到 Azure 中的应用服务应用时，你可能会看到以下常见错误消息：
 
-|Message|原因|解决方法
+|消息|原因|解决方法
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|应用未正常运行。|在 Azure 门户中启动应用。 如果 Web 应用已停止，Git 部署将不可用。|
 |`Couldn't resolve host 'hostname'`|“azure”远程实例的地址信息不正确。|使用 `git remote -v` 命令列出所有远程网站以及关联的 URL。 确认“azure”远程网站的 URL 正确。 如果需要，请删除此远程网站并使用正确的 URL 重新创建它。|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|在运行 `git push` 期间未指定分支，或者未在 `.gitconfig` 中设置 `push.default` 值。|再次运行 `git push`，并指定主分支：`git push azure master`。|
 |`src refspec [branchname] does not match any.`|你已尝试推送到“azure”远程实例上除主节点以外的分支。|再次运行 `git push`，并指定主分支：`git push azure master`。|
 |`RPC failed; result=22, HTTP code = 5xx.`|如果尝试通过 HTTPS 推送大型 Git 存储库，则可能出现此错误。|在本地计算机上更改 Git 配置，以增大 `postBuffer`。 例如：`git config --global http.postBuffer 524288000`。|
-|`Error - Changes committed to remote repository but your web app not updated.`|你已使用一个指定了其他所需模块的 _package.json_ 文件部署了 Node.js 应用。|检查发生此错误之前出现的 `npm ERR!` 错误消息，以了解有关失败的更多上下文。 下面是此错误的已知原因，以及相应的 `npm ERR!` 消息：<br /><br />**文件上的格式不正确 package.js**： `npm ERR! Couldn't read dependencies.`<br /><br />**本机模块没有适用于 Windows 的二进制分发版**：<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />或 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|你已使用一个指定了其他所需模块的 _package.json_ 文件部署了 Node.js 应用。|检查发生此错误之前出现的 `npm ERR!` 错误消息，以了解有关失败的更多上下文。 下面是此错误的已知原因，以及相应的 `npm ERR!` 消息：<br /><br />**文件上的格式不正确 package.js** ： `npm ERR! Couldn't read dependencies.`<br /><br />**本机模块没有适用于 Windows 的二进制分发版** ：<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />或 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>其他资源
 

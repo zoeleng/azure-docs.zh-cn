@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368224"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741071"
 ---
 # <a name="troubleshoot-azure-rbac"></a>排查 Azure RBAC 的问题
 
@@ -179,7 +179,7 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 添加或�
 
 ## <a name="web-app-features-that-require-write-access"></a>需要写访问权限的 Web 应用功能
 
-如果为用户授予单个 Web 应用的只读访问权限，某些功能可能会被禁用，这可能不是你所期望的。 以下管理功能需要对 Web 应用具有**写**访问权限（参与者或所有者），并且在任何只读方案中不可用。
+如果为用户授予单个 Web 应用的只读访问权限，某些功能可能会被禁用，这可能不是你所期望的。 以下管理功能需要对 Web 应用具有 **写** 访问权限（参与者或所有者），并且在任何只读方案中不可用。
 
 * 命令（例如启动、停止等。）
 * 更改设置（如常规配置、缩放设置、备份设置和监视设置）
