@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503328"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791420"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>什么是 Azure SQL 数据同步？
 
@@ -62,7 +62,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 |----------|----------------------------|
 | 灾难恢复 | [Azure 异地冗余备份](automated-backups-overview.md) |
 | 读取缩放 | [使用只读副本对只读的查询工作负荷进行负载均衡（预览版）](read-scale-out.md) |
-| ETL（OLTP 到 OLAP） | [Azure 数据工厂](https://azure.microsoft.com/services/data-factory/)或 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL（OLTP 到 OLAP） | [Azure 数据工厂](https://azure.microsoft.com/services/data-factory/)或 [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | 从 SQL Server 迁移到 Azure SQL 数据库 | [Azure 数据库迁移服务](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -101,7 +101,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 ### <a name="did-something-go-wrong"></a>出现了错误
 
-- [Azure SQL 数据同步问题疑难解答](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Azure SQL 数据同步问题疑难解答](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>一致性和性能
 
@@ -126,7 +126,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 > - 即使同步未报告任何问题，中心和成员之间的数据也会丢失。
 > - 由于主键更改，跟踪表的源行不存在，同步可能会失败。
 
-- 必须同时为同步成员和中心启用快照隔离。 有关详细信息，请参阅 [SQL Server 中的快照隔离](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
+- 必须同时为同步成员和中心启用快照隔离。 有关详细信息，请参阅 [SQL Server 中的快照隔离](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
 
 ### <a name="general-limitations"></a>一般限制
 
@@ -175,8 +175,8 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 
 在建立同步组后，数据同步服务需要连接到中心数据库。 建立同步组时，Azure SQL server 的设置中必须具有以下配置 `Firewalls and virtual networks` ：
 
- * *拒绝公共网络访问* 必须设置为 *Off*。
- * "*允许 Azure 服务和资源访问此服务器*" 必须设置为 *"是"*，或者必须为[数据同步服务使用的 ip 地址](network-access-controls-overview.md#data-sync)创建 ip 规则。
+ * *拒绝公共网络访问* 必须设置为 *Off* 。
+ * " *允许 Azure 服务和资源访问此服务器* " 必须设置为 *"是"* ，或者必须为 [数据同步服务使用的 ip 地址](network-access-controls-overview.md#data-sync)创建 ip 规则。
 
 创建并设置了同步组后，你可以禁用这些设置。 同步代理将直接连接到中心数据库，你可以使用服务器的 [防火墙 IP 规则](firewall-configure.md) 或 [专用终结点](private-endpoint-overview.md) 来允许代理访问中心服务器。
 
@@ -248,20 +248,19 @@ SQL 数据同步在所有区域中都可用。
 
 是否必须更新同步组中数据库的架构？ 不会自动复制架构更改。 有关某些解决方案，请参阅以下文章：
 
-- [在 Azure SQL 数据同步中自动复制架构更改](../../sql-database/sql-database-update-sync-schema.md)
+- [在 Azure SQL 数据同步中自动复制架构更改](./sql-data-sync-update-sync-schema.md)
 - [使用 PowerShell 更新现有同步组中的同步架构](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>监视和故障排除
 
 SQL 数据同步是否按预期执行？ 若要监视活动和排查问题，请参阅以下文章：
 
-- [使用 Azure Monitor 日志监视 SQL 数据同步](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Azure SQL 数据同步问题疑难解答](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [使用 Azure Monitor 日志监视 SQL 数据同步](./monitor-tune-overview.md)
+- [Azure SQL 数据同步问题疑难解答](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>了解有关 Azure SQL 数据库的详细信息
 
 有关 Azure SQL 数据库的详细信息，请参阅以下文章：
 
 - [SQL 数据库概述](sql-database-paas-overview.md)
-- [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [数据库生命周期管理](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

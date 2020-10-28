@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474846"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789006"
 ---
 # <a name="configure-azure-defender-for-storage"></a>配置用于存储的 Azure Defender
 
@@ -23,7 +23,7 @@ ms.locfileid: "92474846"
 
 当活动出现异常时，会触发安全警报。 这些安全警报与 [Azure 安全中心](https://azure.microsoft.com/services/security-center/)集成，还会通过电子邮件发送给订阅管理员，并详细介绍了可疑活动以及如何调查和修正威胁的建议。
 
-服务引入对 Blob 存储和 Azure 文件的读取、写入和删除请求的资源日志，用于威胁检测。 若要调查来自 Azure Defender 的警报，可以使用存储分析日志记录查看相关的存储活动。 有关详细信息，请参阅在[Azure 门户中监视存储帐户](storage-monitor-storage-account.md#configure-logging)中的 "**配置日志记录**"。
+服务引入对 Blob 存储和 Azure 文件的读取、写入和删除请求的资源日志，用于威胁检测。 若要调查来自 Azure Defender 的警报，可以使用存储分析日志记录查看相关的存储活动。 有关详细信息，请参阅在 [Azure 门户中监视存储帐户](storage-monitor-storage-account.md#configure-logging)中的 " **配置日志记录** "。
 
 ## <a name="availability"></a>可用性
 
@@ -37,7 +37,7 @@ ms.locfileid: "92474846"
 
 - 发布状态：
   - [Blob 存储](https://azure.microsoft.com/services/storage/blobs/) (公开上市) 
-  - [Azure 文件](/azure/storage/files/storage-files-introduction) (公开发布) 
+  - [Azure 文件](../files/storage-files-introduction.md) (公开发布) 
   - Azure Data Lake Storage Gen2 (公开上市) 
 - 云：<br>
     ✔ 商业云<br>
@@ -52,11 +52,11 @@ ms.locfileid: "92474846"
 
 当你订阅 Azure 安全中心的标准层时，Azure Defender 会自动设置在你的所有存储帐户上。 可以在特定订阅下为存储帐户启用或禁用 Azure Defender，如下所示：
 
-1. 在[Azure 门户](https://portal.azure.com)中启动**Azure 安全中心**。
-1. 在主菜单中的 " **管理**" 下，选择 " **定价 & 设置**"。
+1. 在 [Azure 门户](https://portal.azure.com)中启动 **Azure 安全中心** 。
+1. 在主菜单中的 " **管理** " 下，选择 " **定价 & 设置** "。
 1. 选择要为其启用或禁用 Azure Defender 的订阅。
 1. 选择 " **打开 Azure defender** "，为订阅启用 azure defender。
-1. 在 "**按资源类型选择 Azure Defender 计划**" 下，找到 "**存储**" 行，然后在 "**计划**" 列中选择 "**已启用**"。
+1. 在 " **按资源类型选择 Azure Defender 计划** " 下，找到 " **存储** " 行，然后在 " **计划** " 列中选择 " **已启用** "。
 1. 保存所做更改。
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="显示如何在安全中心启用 Azure Defender 以实现存储的屏幕截图":::
@@ -66,8 +66,8 @@ ms.locfileid: "92474846"
 ### <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 启动 [Azure 门户](https://portal.azure.com/)。
-1. 导航到自己的存储帐户。 在 " **设置**" 下，选择 " **高级安全**"。
-1. 选择 " **启用用于存储的 Azure Defender**"。
+1. 导航到自己的存储帐户。 在 " **设置** " 下，选择 " **高级安全** "。
+1. 选择 " **启用用于存储的 Azure Defender** "。
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="显示如何在安全中心启用 Azure Defender 以实现存储的屏幕截图":::
 
@@ -136,4 +136,4 @@ ms.locfileid: "92474846"
 ## <a name="next-steps"></a>后续步骤
 
 - 了解有关[Azure 存储帐户中的日志的](/rest/api/storageservices/About-Storage-Analytics-Logging)详细信息
-- 了解有关 [Azure 安全中心](../../security-center/security-center-intro.md)的详细信息
+- 了解有关 [Azure 安全中心](../../security-center/security-center-introduction.md)的详细信息

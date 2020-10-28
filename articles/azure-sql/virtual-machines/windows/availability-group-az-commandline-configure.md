@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 78414e26836d1547fe195a0a7844b6a98bb0dfc8
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: a85c1326501a362371d3bc961f5c5ae448e8d22e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168250"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790077"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>使用 PowerShell 或 Az CLI 为 Azure VM 上的 SQL Server 配置可用性组 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "92168250"
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
 - 一个具有域控制器的资源组。 
-- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或更高版本](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) ，在 *同一* 可用性集或 *不同* 的可用性区域中) ENTERPRISE edition 已 [注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。  
+- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或更高版本](./create-sql-vm-portal.md) ，在 *同一* 可用性集或 *不同* 的可用性区域中) ENTERPRISE edition 已 [注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。  
 - 最新版本的 [PowerShell](/powershell/scripting/install/installing-powershell) 或 [Azure CLI](/cli/azure/install-azure-cli)。 
 - 两个可用的（未被任何实体使用的）IP 地址。 一个用于内部负载均衡器。 另一个用于与可用性组位于同一子网中的可用性组侦听器。 如果使用现有的负载均衡器，则只需一个可用性组侦听器的可用 IP 地址。 
 
@@ -64,7 +64,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> 如果使用的是过时的 Azure CLI 版本，可能会看到错误 `az sql: 'vm' is not in the 'az sql' command group`。 下载[最新版本的 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)，以跳过此错误。
+> 如果使用的是过时的 Azure CLI 版本，可能会看到错误 `az sql: 'vm' is not in the 'az sql' command group`。 下载[最新版本的 Azure CLI](/cli/azure/install-azure-cli-windows)，以跳过此错误。
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -84,7 +84,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## <a name="define-cluster-metadata"></a>定义分类元数据
 
-Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group) 命令组管理托管可用性组的 Windows Server 故障转移群集 (WSFC) 服务的元数据。 群集元数据包括 Active Directory 域、群集帐户、要用作云见证的存储帐户和 SQL Server 版本。 使用 [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group#az-sql-vm-group-create) 定义 WSFC 的元数据，以便在添加第一个 SQL Server VM 时，按定义创建群集。 
+Azure CLI [az sql vm group](/cli/azure/sql/vm/group) 命令组管理托管可用性组的 Windows Server 故障转移群集 (WSFC) 服务的元数据。 群集元数据包括 Active Directory 域、群集帐户、要用作云见证的存储帐户和 SQL Server 版本。 使用 [az sql vm group create](/cli/azure/sql/vm/group#az-sql-vm-group-create) 定义 WSFC 的元数据，以便在添加第一个 SQL Server VM 时，按定义创建群集。 
 
 下面的代码片段定义群集的元数据：
 
@@ -129,7 +129,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>将 Vm 添加到群集
 
-将第一个 SQL Server VM 添加到群集将创建群集。 [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm#az-sql-vm-add-to-group) 命令使用先前指定的名称创建群集，在 SQL Server VM 上安装群集角色，然后将其添加到群集中。 继续使用 `az sql vm add-to-group` 命令将更多 SQL Server VM 添加到新创建的群集中。 
+将第一个 SQL Server VM 添加到群集将创建群集。 [az sql vm add-to-group](/cli/azure/sql/vm#az-sql-vm-add-to-group) 命令使用先前指定的名称创建群集，在 SQL Server VM 上安装群集角色，然后将其添加到群集中。 继续使用 `az sql vm add-to-group` 命令将更多 SQL Server VM 添加到新创建的群集中。 
 
 以下代码片段会创建群集，并将第一个 SQL Server VM 添加到其中： 
 
@@ -521,4 +521,4 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 * [管理可用性组 (SQL Server)](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
 * [监视可用性组 (SQL Server)](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [AlwaysOn 可用性组的 Transact-SQL 语句概述 (SQL Server)](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [AlwaysOn 可用性组的 PowerShell cmdlet 概述 (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+* [AlwaysOn 可用性组的 PowerShell cmdlet 概述 (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)

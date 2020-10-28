@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168233"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789754"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>在 Azure Vm 上创建 FCI 和 Azure 共享磁盘 (SQL Server) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "92168233"
 通过执行以下操作添加 Azure 共享磁盘： 
 
 
-1. 将以下脚本保存为 *SharedDiskConfig.js上*的： 
+1. 将以下脚本保存为 *SharedDiskConfig.js上* 的： 
 
    ```JSON
    { 
@@ -86,7 +86,7 @@ ms.locfileid: "92168233"
    ```
 
 
-2. 使用 PowerShell * 在上运行SharedDiskConfig.js* ： 
+2. 使用 PowerShell *在上运行SharedDiskConfig.js* ： 
 
    ```powershell
    $rgName = < specify your resource group name>
@@ -153,15 +153,15 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 在“服务器管理器”下，依次选择“工具”、“故障转移群集管理器”。  
 1. 在“故障转移群集管理器”下，依次选择“操作”、“验证配置”。  
-1. 选择“**下一页**”。
+1. 选择“ **下一页** ”。
 1. 在“选择服务器或群集”下，输入两个虚拟机的名称。
 1. 在“测试选项”下，选择“仅运行选择的测试”。  
-1. 选择“**下一页**”。
-1. 在 "**测试选择**" 下，选择 "**存储**"*以外*的所有测试
+1. 选择“ **下一页** ”。
+1. 在 " **测试选择** " 下，选择 " **存储** " *以外* 的所有测试
 
 ## <a name="test-cluster-failover"></a>测试群集故障转移
 
-测试群集的故障转移。 在**故障转移群集管理器**中，右键单击群集，选择 "**更多操作**" "  >  **移动核心群集资源**  >  " "**选择节点**"，然后选择群集的其他节点。 将核心群集资源移到群集的每个节点，再将它移回主节点。 如果可以成功将群集移到每个节点，则表示你已为安装 SQL Server 做好了准备。  
+测试群集的故障转移。 在 **故障转移群集管理器** 中，右键单击群集，选择 " **更多操作** " "  >  **移动核心群集资源**  >  " " **选择节点** "，然后选择群集的其他节点。 将核心群集资源移到群集的每个节点，再将它移回主节点。 如果可以成功将群集移到每个节点，则表示你已为安装 SQL Server 做好了准备。  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="通过将核心资源移到其他节点来测试群集故障转移":::
 
@@ -171,7 +171,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 使用远程桌面协议 (RDP) 连接到第一个虚拟机。
 
-1. 在 **故障转移群集管理器**中，请确保所有核心群集资源位于第一个虚拟机上。 如有必要，请将所有资源移到该虚拟机。
+1. 在 **故障转移群集管理器** 中，请确保所有核心群集资源位于第一个虚拟机上。 如有必要，请将所有资源移到该虚拟机。
 
 1. 找到安装媒体。 如果虚拟机使用某个 Azure 市场映像，该媒体将位于 `C:\SQLServer_<version number>_Full`。 
 
@@ -187,12 +187,12 @@ FCI 数据目录需位于 Azure 共享磁盘上。
 
 1. 安装程序在第一个节点上安装 FCI 后，请使用 RDP 连接到第二个节点。
 
-1. 打开 **SQL Server 安装中心**，然后选择 " **安装**"。
+1. 打开 **SQL Server 安装中心** ，然后选择 " **安装** "。
 
 1. 选择“将节点添加到 SQL Server 故障转移群集”。 按照向导中的说明安装 SQL Server 并将此服务器添加到 FCI。
 
    >[!NOTE]
-   >如果使用了包含 SQL Server 的 Azure 市场库映像，该映像已随附 SQL Server 工具。 如果未使用其中的某个映像，请单独安装 SQL Server 工具。 有关详细信息，请参阅 [下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)。
+   >如果使用了包含 SQL Server 的 Azure 市场库映像，该映像已随附 SQL Server 工具。 如果未使用其中的某个映像，请单独安装 SQL Server 工具。 有关详细信息，请参阅 [下载 SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)。
    >
 
 ## <a name="register-with-the-sql-vm-rp"></a>向 SQL VM RP 注册

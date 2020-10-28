@@ -11,20 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 1e8810e8b0c02aec33f55fb8f0689eec3c5bad8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616697"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791318"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>使用适用于 Azure SQL 数据库中的服务器的虚拟网络服务终结点和规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*虚拟网络规则*是一种防火墙安全功能，用于控制是否允许 Azure [SQL 数据库](sql-database-paas-overview.md)中的数据库和弹性池的服务器或 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 中数据库的数据库服务器接受从虚拟网络中的特定子网发送的通信。 本文介绍虚拟网络规则功能有时是安全允许与 Azure SQL 数据库中的数据库和 Azure Synapse Analytics 进行通信的最佳选项， (以前的 SQL 数据仓库) 。
+*虚拟网络规则* 是一种防火墙安全功能，用于控制是否允许 Azure [SQL 数据库](sql-database-paas-overview.md)中的数据库和弹性池的服务器或 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 中数据库的数据库服务器接受从虚拟网络中的特定子网发送的通信。 本文说明了为何有时候最好选择虚拟网络规则功能来安全地启用到 Azure SQL 数据库中的数据库和 Azure Synapse Analytics（旧称为 SQL 数据仓库）的通信。
 
 > [!NOTE]
-> 本文适用于 Azure SQL 数据库和 Azure Synapse 分析。 为简单起见，术语“数据库”是指 Azure SQL 数据库中的数据库和 Azure Synapse Analytic 中的数据库。 同样，无论何时提及“服务器”，都是指托管 Azure SQL 数据库和 Azure Synapse Analytics[ 的逻辑 SQL Server](logical-servers.md)。
+> 本文同时适用于 Azure SQL 数据库和 Azure Synapse Analytics。 为简单起见，术语“数据库”是指 Azure SQL 数据库中的数据库和 Azure Synapse Analytic 中的数据库。 同样，无论何时提及“服务器”，都是指托管 Azure SQL 数据库和 Azure Synapse Analytics[ 的逻辑 SQL Server](logical-servers.md)。
 
 若要创建虚拟网络规则，首先必须具有可供规则引用的[虚拟网络服务终结点][vm-virtual-network-service-endpoints-overview-649d]。
 
@@ -89,7 +89,7 @@ RBAC 备用：
 
 在使用 Azure SQL 数据库的服务终结点时，请查看以下注意事项：
 
-- **需要到 Azure SQL 数据库公共 IP 的出站连接**：必须为 Azure SQL 数据库 IP 启用网络安全组 (NSG) 才能进行连接。 可以使用 Azure SQL 数据库的 NSG [服务标记](../../virtual-network/security-overview.md#service-tags)执行此操作。
+- **需要到 Azure SQL 数据库公共 IP 的出站连接** ：必须为 Azure SQL 数据库 IP 启用网络安全组 (NSG) 才能进行连接。 可以使用 Azure SQL 数据库的 NSG [服务标记](../../virtual-network/network-security-groups-overview.md#service-tags)执行此操作。
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -112,9 +112,9 @@ PolyBase 和 COPY 语句通常用于将数据从 Azure 存储帐户加载到 Azu
 
 #### <a name="prerequisites"></a>先决条件
 
-- 按照此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安装 Azure PowerShell。
-- 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)将该帐户升级到常规用途 v2 帐户。
-- 必须在 Azure 存储帐户的“防火墙和虚拟网络”设置菜单下启用“允许受信任的 Microsoft 服务访问此存储帐户”。 启用此配置将允许 PolyBase 和 COPY 语句使用强身份验证连接到存储帐户，而网络流量仍保留在 Azure 主干上。 有关详细信息，请参阅此[指南](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
+- 按照此[指南](/powershell/azure/install-az-ps)安装 Azure PowerShell。
+- 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](../../storage/common/storage-account-upgrade.md)将该帐户升级到常规用途 v2 帐户。
+- 必须在 Azure 存储帐户的“防火墙和虚拟网络”设置菜单下启用“允许受信任的 Microsoft 服务访问此存储帐户”。 启用此配置将允许 PolyBase 和 COPY 语句使用强身份验证连接到存储帐户，而网络流量仍保留在 Azure 主干上。 有关详细信息，请参阅此[指南](../../storage/common/storage-network-security.md#exceptions)。
 
 > [!IMPORTANT]
 > PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 AzureRM 模块至少在 2020 年 12 月之前将继续接收 bug 修补程序。  Az 模块和 AzureRm 模块中的命令参数大体上是相同的。 若要详细了解其兼容性，请参阅[新 Azure PowerShell Az 模块简介](/powershell/azure/new-azureps-module-az)。
@@ -129,21 +129,21 @@ PolyBase 和 COPY 语句通常用于将数据从 Azure 存储帐户加载到 Azu
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. 按照此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)创建**常规用途 v2 存储帐户**。
+1. 按照此 [指南](../../storage/common/storage-account-create.md)创建 **常规用途 v2 存储帐户** 。
 
    > [!NOTE]
    >
-   > - 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)将该帐户**升级到 v2** 帐户。
-   > - 若要了解 Azure Data Lake Storage Gen2 的已知问题，请参阅此[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)。
+   > - 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此 [指南](../../storage/common/storage-account-upgrade.md)将该帐户 **升级到 v2** 帐户。
+   > - 若要了解 Azure Data Lake Storage Gen2 的已知问题，请参阅此[指南](../../storage/blobs/data-lake-storage-known-issues.md)。
 
 1. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后选择“添加角色分配”。  将“存储 Blob 数据参与者”Azure 角色分配给托管 Azure Synapse Analytics 的服务器，后者已在步骤 #1 中向 Azure Active Directory (AAD) 注册。
 
    > [!NOTE]
-   > 只有对存储帐户具有“所有者”权限的成员才能执行此步骤。 有关各种 Azure 内置角色，请参阅此[指南](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
+   > 只有对存储帐户具有“所有者”权限的成员才能执行此步骤。 有关各种 Azure 内置角色，请参阅此[指南](../../role-based-access-control/built-in-roles.md)。
   
 1. **通过 Polybase 连接到 Azure 存储帐户：**
 
-   1. 创建数据库 **[主密钥](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** （如果此前尚未创建）：
+   1. 创建数据库 **[主密钥](/sql/t-sql/statements/create-master-key-transact-sql)** （如果此前尚未创建）：
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
@@ -157,7 +157,7 @@ PolyBase 和 COPY 语句通常用于将数据从 Azure 存储帐户加载到 Azu
 
        > [!NOTE]
        >
-       > - 使用 Azure 存储访问密钥时，不需指定 SECRET，因为此机制在后台使用[托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。
+       > - 使用 Azure 存储访问密钥时，不需指定 SECRET，因为此机制在后台使用[托管标识](../../active-directory/managed-identities-azure-resources/overview.md)。
        > - 使用 Azure 存储帐户以安全方式连接到 VNet 时，IDENTITY 名称应该为 **'托管服务标识'** ，以便通过 PolyBase 进行连接。
 
    1. 使用 `abfss://` 方案创建外部数据源，以便通过 PolyBase 连接到常规用途 v2 存储帐户：
@@ -168,11 +168,11 @@ PolyBase 和 COPY 语句通常用于将数据从 Azure 存储帐户加载到 Azu
 
        > [!NOTE]
        >
-       > - 如果已经有外部表关联到常规用途 v1 或 Blob 存储帐户，则应先删除这些外部表，然后删除相应的外部数据源。 然后，使用 `abfss://` 方案按照上面的步骤创建连接到常规用途 v2 存储帐户的外部数据源，并使用此新的外部数据源重新创建所有外部表。 可以通过[生成和发布脚本向导](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard)为所有外部表生成 create-script，以方便使用。
-       > - 有关 `abfss://` 方案的详细信息，请参阅此[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri)。
-       > - 有关 CREATE EXTERNAL DATA SOURCE 的详细信息，请参阅此[指南](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)。
+       > - 如果已经有外部表关联到常规用途 v1 或 Blob 存储帐户，则应先删除这些外部表，然后删除相应的外部数据源。 然后，使用 `abfss://` 方案按照上面的步骤创建连接到常规用途 v2 存储帐户的外部数据源，并使用此新的外部数据源重新创建所有外部表。 可以通过[生成和发布脚本向导](/sql/ssms/scripting/generate-and-publish-scripts-wizard)为所有外部表生成 create-script，以方便使用。
+       > - 有关 `abfss://` 方案的详细信息，请参阅此[指南](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md)。
+       > - 有关 CREATE EXTERNAL DATA SOURCE 的详细信息，请参阅此[指南](/sql/t-sql/statements/create-external-data-source-transact-sql)。
 
-   1. 使用[外部表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)进行正常查询。
+   1. 使用[外部表](/sql/t-sql/statements/create-external-table-transact-sql)进行正常查询。
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL 数据库 Blob 审核
 
@@ -298,12 +298,12 @@ Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储�
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 
 <!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
+[rest-api-virtual-network-rules-operations-862r]: /rest/api/sql/virtualnetworkrules
 
 <!-- ??2
 #### Syntax related articles

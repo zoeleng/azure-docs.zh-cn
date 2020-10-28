@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166533"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789907"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM 上的 SQL Server 的 Always On 可用性组
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Azure 虚拟机上的 Always On 可用性组类似于[本地的 Always On 可用
 
 ## <a name="vm-redundancy"></a>VM 冗余 
 
-要增加冗余和提高可用性，SQL Server VM 应位于相同的[可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)或不同的[可用性区域](/azure/availability-zones/az-overview)中。
+要增加冗余和提高可用性，SQL Server VM 应位于相同的[可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)或不同的[可用性区域](../../../availability-zones/az-overview.md)中。
 
 可用性集是一组资源；根据这些资源的配置，同一可用性区域中没有两个地区。 这可防止在部署推出期间影响组中的多个资源。 
 
@@ -74,7 +74,7 @@ DNN 侦听器是 Azure 中推荐的 HADR 连接解决方案，它可简化部署
 
 下表提供了可用选项的比较： 
 
-| |**[Azure 门户](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[快速启动模板](availability-group-quickstart-template-configure.md)**|**[手动](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Azure 门户](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[快速启动模板](availability-group-quickstart-template-configure.md)**|**[手动](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**SQL Server 版本** |2016+ |2016+|2016+|2012+|
 |**SQL Server 版本** |Enterprise |Enterprise |Enterprise |Enterprise、Standard|
@@ -100,6 +100,6 @@ DNN 侦听器是 Azure 中推荐的 HADR 连接解决方案，它可简化部署
 
 ## <a name="next-steps"></a>后续步骤
 
-查看 [HADR 最佳做法](hadr-cluster-best-practices.md)，然后使用 [Azure 门户](availability-group-azure-portal-configure.md)、[Azure CLI/PowerShell](availability-group-az-cli-configure.md)、[快速入门模板](availability-group-quickstart-template-configure.md)或通过[手动](availability-group-manually-configure-prerequisites-tutorial.md)操作开始部署可用性组。
+查看 [HADR 最佳做法](hadr-cluster-best-practices.md)，然后使用 [Azure 门户](availability-group-azure-portal-configure.md)、[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)、[快速入门模板](availability-group-quickstart-template-configure.md)或通过[手动](availability-group-manually-configure-prerequisites-tutorial.md)操作开始部署可用性组。
 
-或者，可部署[无群集的可用性组](availability-group-clusterless-workgroup-configure.md)或者[多个区域](availability-group-manually-configure-multiple-regions.md)中的可用性组。 
+或者，可部署[无群集的可用性组](availability-group-clusterless-workgroup-configure.md)或者[多个区域](availability-group-manually-configure-multiple-regions.md)中的可用性组。

@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439769"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789567"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>云中的新 DBA - 在迁移后管理 Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "89439769"
 
 ![在服务层监视数据库性能。](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
-还可针对性能指标配置警报。 在“指标”**** 窗口中单击“添加警报”**** 按钮。 按照向导说明来配置警报。 可选择在指标超出或低于特定阈值时显示警报。
+还可针对性能指标配置警报。 在“指标”  窗口中单击“添加警报”  按钮。 按照向导说明来配置警报。 可选择在指标超出或低于特定阈值时显示警报。
 
 例如，如果期望数据库上的工作负荷增长，可选择配置在数据库的任意性能指标达到 80% 时发出电子邮件警报。 可以将此警报用作预警，以确定你何时需要切换到下一个更高的计算大小。
 
@@ -102,18 +102,18 @@ SQL 数据库严肃对待安全性和隐私性。 SQL 数据库中的安全性�
 SQL 数据库中提供了两种身份验证方法：
 
 - [Azure Active Directory 身份验证](authentication-aad-overview.md)
-- [SQL 身份验证](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
+- [SQL 身份验证](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 不支持传统的 Windows 身份验证。 Azure Active Directory (Azure AD) 是集中式的标识和访问管理服务。 通过此服务可非常方便地为组织中的所有人员提供单一登录访问 (SSO)。 这意味着，为简化身份验证，凭据将在所有 Azure 服务之间共享。 
 
 Azure AD 支持 [Azure 多重身份验证](authentication-mfa-ssms-overview.md)，只需[点击几下鼠标](../../active-directory/hybrid/how-to-connect-install-express.md)，Azure AD 就能与 Windows Server Active Directory 集成。 SQL 身份验证的工作方式与之前完全相同。 只需提供用户名/密码，就能让用户在给定服务器上的任何数据库中进行身份验证。 这还允许 SQL 数据库和 Azure Synapse Analytics (以前的 SQL 数据仓库) 在 Azure AD 域中提供多重身份验证和来宾用户帐户。 如果你已经有一个本地 Active Directory，则可以将该目录与 Azure Active Directory 联合在一起，以将目录扩展到 Azure。
 
-|**如果你…**|**SQL Database/Azure Synapse Analytics**|
+|**如果你…**|**SQL 数据库/Azure Synapse Analytics**|
 |---|---|
 |不想在 Azure 中使用 Azure Active Directory (Azure AD)|使用 [SQL 身份验证](security-overview.md)|
 |在本地 SQL Server 上使用 AD|[将 AD 与 Azure AD 联合](../../active-directory/hybrid/whatis-hybrid-identity.md)，并使用 Azure AD 身份验证。 借此，你可以使用单一登录。|
 |需要强制实施多重身份验证|需要多重身份验证作为策略通过 [Microsoft 条件访问](conditional-access-configure.md)，并使用 [Azure AD 通用身份验证和多重身份验证支持](authentication-mfa-ssms-overview.md)。|
-|有来自 Microsoft 帐户（live.com、outlook.com）或其他域 (gmail.com) 的来宾帐户|在利用 [Azure AD B2B 协作](../../active-directory/b2b/what-is-b2b.md)的 SQL 数据库/数据仓库中使用 [Azure AD 通用身份验证](authentication-mfa-ssms-overview.md)。|
+|有来自 Microsoft 帐户（live.com、outlook.com）或其他域 (gmail.com) 的来宾帐户|在利用 [Azure AD B2B 协作](../../active-directory/external-identities/what-is-b2b.md)的 SQL 数据库/数据仓库中使用 [Azure AD 通用身份验证](authentication-mfa-ssms-overview.md)。|
 |使用来自联合域的 Azure AD 凭据登录到 Windows|使用 [Azure AD 集成身份验证](authentication-aad-configure.md)。|
 |使用来自未与 Azure 联合的域的凭据登录到 Windows|使用 [Azure AD 集成身份验证](authentication-aad-configure.md)。|
 |具有需要连接到 SQL 数据库或 Azure Synapse Analytics 的中间层服务|使用 [Azure AD 集成身份验证](authentication-aad-configure.md)。|
@@ -320,11 +320,11 @@ SQL 数据库使用某些智能技术来自动处理特定类型的数据损坏�
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database-using-the-azure-portal"></a>如何使用 Azure 门户在 SQL 数据库中将数据作为 BACPAC 文件导出和导入
 
-- **导出**：可通过 Azure 门户将 Azure SQL 数据库中的数据库作为 BACPAC 文件导出
+- **导出** ：可通过 Azure 门户将 Azure SQL 数据库中的数据库作为 BACPAC 文件导出
 
    ![数据库导出](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **导入**：还可使用 Azure 门户将数据作为 BACPAC 文件导入到 Azure SQL 数据库中的数据库。
+- **导入** ：还可使用 Azure 门户将数据作为 BACPAC 文件导入到 Azure SQL 数据库中的数据库。
 
    ![数据库导入](./media/manage-data-after-migrating-to-database/import1.png)
 

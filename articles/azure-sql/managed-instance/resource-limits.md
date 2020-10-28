@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618108"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790757"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL 托管实例资源限制概述
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ SQL 托管实例的某些特征和资源限制取决于底层基础结构和体�
 SQL 托管实例有两个服务层级：[常规用途](../database/service-tier-general-purpose.md)和[业务关键](../database/service-tier-business-critical.md)。 这些层级提供[不同的功能](../database/service-tiers-general-purpose-business-critical.md)，如下表中所述。
 
 > [!Important]
-> 业务关键服务层提供了 SQL 托管实例的附加内置副本（次要副本），可用于只读工作负载。 如果可以隔离读写查询和只读/分析/报告查询，则能够以相同的价格获得两倍的 vCore 和内存。 次要副本可能滞后于主要实例几秒，因此它旨在卸载不需要确切的当前数据状态的报告/分析工作负荷。 在下表中，**只读查询**是在次要副本上执行的查询。
+> 业务关键服务层提供了 SQL 托管实例的附加内置副本（次要副本），可用于只读工作负载。 如果可以隔离读写查询和只读/分析/报告查询，则能够以相同的价格获得两倍的 vCore 和内存。 次要副本可能滞后于主要实例几秒，因此它旨在卸载不需要确切的当前数据状态的报告/分析工作负荷。 在下表中， **只读查询** 是在次要副本上执行的查询。
 
 | **功能** | **常规用途** | **业务关键** |
 | --- | --- | --- |
@@ -89,7 +89,7 @@ SQL 托管实例有两个服务层级：[常规用途](../database/service-tier-
 
 一些其他注意事项： 
 
-- **当前可用实例存储大小**是预留实例大小与已用存储空间之差。
+- **当前可用实例存储大小** 是预留实例大小与已用存储空间之差。
 - 与最大存储大小限制进行比较的实例存储大小同时包括用户数据库和系统数据库中的数据和日志文件大小。 可以使用 [sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) 系统视图来确定数据库使用的空间总量。 错误日志不会持久保存，不包括在大小中。 备份不包括在存储大小中。
 - 常规用途层上的吞吐量和 IOPS 还要取决于未显式受到 SQL 托管实例限制的[文件大小](#file-io-characteristics-in-general-purpose-tier)。
   可以使用[自动故障转移组](../database/auto-failover-group-configure.md)在不同的 Azure 区域中创建另一个可读副本
@@ -99,9 +99,9 @@ SQL 托管实例有两个服务层级：[常规用途](../database/service-tier-
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>“常规用途”层级中的文件 IO 特征
 
-在常规用途服务层中，每个数据库文件都将获得专用 IOPS 和吞吐量，具体取决于文件大小。 较大的文件可以获得更多的 IOPS 和吞吐量。 下表显示了数据库文件的 IO 特征：
+在常规用途服务层中，每个数据库文件都将获得专用 IOPS 和吞吐量，具体取决于文件大小。 较大的文件会获得更多的 IOPS 和吞吐量。 下表显示了数据库文件的 IO 特征：
 
-| 文件大小 | >=0 且 <=128 GiB | >128 和 <= 512 GiB | >0.5 且 <=1 TiB    | >1 且 <=2 TiB    | >2 且 <=4 TiB | >4 且 <=8 TiB |
+| 文件大小 | >=0 且 <=128 GiB | >128 且 <= 512 GiB | >0.5 且 <=1 TiB    | >1 且 <=2 TiB    | >2 且 <=4 TiB | >4 且 <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | 每个文件的 IOPS       | 500   | 2300              | 5000              | 7500              | 7500              | 12,500   |
 | 每个文件的吞吐量 | 100 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 
@@ -120,7 +120,7 @@ SQL 托管实例当前仅支持以下类型的订阅上的部署：
 
 - [企业协议 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [即用即付](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [云服务提供商 (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [云服务提供商 (CSP)](/partner-center/csp-documents-and-learning-resources)
 - [Enterprise 开发/测试](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [即用即付开发/测试](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio 订阅者每月 Azure 信用额度的订阅](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
@@ -132,13 +132,13 @@ SQL 托管实例当前仅支持以下类型的订阅上的部署：
 
 支持的订阅类型可以包含每个区域的有限数量的资源。 对于每个 Azure 区域，SQL 托管实例有两个默认的限制 (根据订阅类型的类型，可以通过在 Azure 门户中创建特殊的 [支持请求](../database/quota-increase-request.md) 来提高按需增加的数量：
 
-- **子网限制**：在单个区域中部署 SQL 托管实例的实例的子网数目上限。
-- **vCore 单元限制**：可跨单一区域的所有实例部署的 vCore 单元数上限。 一个 GP vCore 使用一个 vCore 单元，一个 BC vCore 采用 4 个 vCore 单位。 实例总数不受限制，只要在 vCore 单元限制内即可。
+- **子网限制** ：在单个区域中部署 SQL 托管实例的实例的子网数目上限。
+- **vCore 单元限制** ：可跨单一区域的所有实例部署的 vCore 单元数上限。 一个 GP vCore 使用一个 vCore 单元，一个 BC vCore 采用 4 个 vCore 单位。 实例总数不受限制，只要在 vCore 单元限制内即可。
 
 > [!Note]
 > 这些限制是默认设置，不是技术限制。 如果在当前区域中需要更多实例，则可以通过在 [Azure 门户中创建特殊支持请求](../database/quota-increase-request.md) 来提高限制。 或者，可以在另一个 Azure 区域中创建 SQL 托管实例的新实例，而无需发送支持请求。
 
-下表显示了支持的订阅类型的**默认区域限制**（可以使用下面所述的支持请求扩展默认限制）：
+下表显示了支持的订阅类型的 **默认区域限制** （可以使用下面所述的支持请求扩展默认限制）：
 
 |订阅类型| SQL 托管实例子网的最大数目 | vCore 单元数目上限* |
 | :---| :--- | :--- |
@@ -150,7 +150,7 @@ SQL 托管实例当前仅支持以下类型的订阅上的部署：
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 和 MSDN 平台|2|32|
 
-\* 在规划部署时，请考虑业务关键 (BC) 服务层需要四 (4) 倍于常规用途 (GP) 服务层的容量。 例如： 1 GP vCore = 1 vCore unit 和 1 BC vCore = 4 vCore 单位。 若要简化对默认限制的消耗分析，请汇总部署了 SQL 托管实例的区域中所有子网的 vCore 单位，并将结果与订阅类型的实例单位限制进行比较。 **VCore 单位限制的最大数量** 适用于区域中的每个订阅。 每个子网没有任何限制，只不过跨多个子网部署的所有 Vcore 的总和必须小于或等于 **vCore 单元的最大数目**。
+\* 在规划部署时，请考虑业务关键 (BC) 服务层需要四 (4) 倍于常规用途 (GP) 服务层的容量。 例如： 1 GP vCore = 1 vCore unit 和 1 BC vCore = 4 vCore 单位。 若要简化对默认限制的消耗分析，请汇总部署了 SQL 托管实例的区域中所有子网的 vCore 单位，并将结果与订阅类型的实例单位限制进行比较。 **VCore 单位限制的最大数量** 适用于区域中的每个订阅。 每个子网没有任何限制，只不过跨多个子网部署的所有 Vcore 的总和必须小于或等于 **vCore 单元的最大数目** 。
 
 \*\* 以下区域提供了更大的子网和 vCore 限制：澳大利亚东部、美国东部、美国东部2、北欧、美国中南部、东南亚、英国南部、西欧、美国西部2。
 

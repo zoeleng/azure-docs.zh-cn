@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 81a5b5d8b9cb56b41d051de52f1496e30fb4900f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168131"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790060"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>教程：手动配置可用性组（Azure VM 上的 SQL Server）
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,12 +29,12 @@ ms.locfileid: "92168131"
 尽管本文手动配置可用性组环境，但也可使用 [Azure 门户](availability-group-azure-portal-configure.md)、[PowerShell 或 Azure CLI](availability-group-az-commandline-configure.md)，或者 [Azure 快速入门模板](availability-group-quickstart-template-configure.md)进行配置。 
 
 
-**时间估计** ：如果满足[先决条件](availability-group-manually-configure-prerequisites-tutorial.md)，完成本教程大约需要 30 分钟。
+**时间估计** ：如果满足 [先决条件](availability-group-manually-configure-prerequisites-tutorial.md)，完成本教程大约需要 30 分钟。
 
 
 ## <a name="prerequisites"></a>先决条件
 
-本教程假设你已基本了解 SQL Server Always On 可用性组。 如需更多信息，请参阅 [Always On 可用性组概述 (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)。
+本教程假设你已基本了解 SQL Server Always On 可用性组。 如需更多信息，请参阅 [Always On 可用性组概述 (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)。
 
 开始本教程之前，需要[完成先决条件以便在 Azure 虚拟机中创建 Always On 可用性组](availability-group-manually-configure-prerequisites-tutorial.md)。 如果已满足这些先决条件，可转到 [创建群集](#CreateCluster)。
 
@@ -51,7 +51,7 @@ ms.locfileid: "92168131"
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **安装域帐户** | - 每个 SQL Server 上的本地管理员帐户 <br/> - 每个 SQL Server 实例的 SQL Server sysadmin 固定服务器角色的成员  |
 
 >[!NOTE]
-> 本教程中提供的许多步骤现可通过 [Azure 门户](availability-group-azure-portal-configure.md)、[PowerShell 或 Az CLI](availability-group-az-cli-configure.md)，以及 [Azure 快速入门模板](availability-group-quickstart-template-configure.md)来自动执行。
+> 本教程中提供的许多步骤现可通过 [Azure 门户](availability-group-azure-portal-configure.md)、[PowerShell 或 Az CLI](./availability-group-az-commandline-configure.md)，以及 [Azure 快速入门模板](availability-group-quickstart-template-configure.md)来自动执行。
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -114,7 +114,7 @@ ms.locfileid: "92168131"
    ![添加节点确认](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >如果正在使用存储空间，且选中了“将所有符合条件的存储添加到群集”，Windows 将在群集进程中分离虚拟磁盘。 这样一来，这些虚拟磁盘不会出现在磁盘管理器或资源管理器之中，除非从群集中删除存储空间，并使用 PowerShell 将其重新附加。 存储空间会将多个磁盘分组到存储池。 有关详细信息，请参阅[存储空间](https://technet.microsoft.com/library/hh831739)。
+   >如果正在使用存储空间，且选中了“将所有符合条件的存储添加到群集”，Windows 将在群集进程中分离虚拟磁盘。 这样一来，这些虚拟磁盘不会出现在磁盘管理器或资源管理器之中，除非从群集中删除存储空间，并使用 PowerShell 将其重新附加。 存储空间会将多个磁盘分组到存储池。 有关详细信息，请参阅[存储空间](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11))。
    >
 
 1. 选择“ **下一步** ”。
@@ -127,7 +127,7 @@ ms.locfileid: "92168131"
 
 ### <a name="add-a-cluster-quorum-file-share"></a>添加群集仲裁文件共享
 
-在本示例中，Windows 群集将使用文件共享来创建群集仲裁。 本教程使用“节点和文件共享多数”仲裁。 有关详细信息，请参阅[了解故障转移群集中的仲裁配置](https://technet.microsoft.com/library/cc731739.aspx)。
+在本示例中，Windows 群集将使用文件共享来创建群集仲裁。 本教程使用“节点和文件共享多数”仲裁。 有关详细信息，请参阅[了解故障转移群集中的仲裁配置](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11))。
 
 1. 使用远程桌面会话连接到文件共享见证成员服务器。
 
@@ -176,7 +176,7 @@ ms.locfileid: "92168131"
 1. 在“选择仲裁见证”上，选择“配置文件共享见证” 。
 
    >[!TIP]
-   >Windows Server 2016 支持云见证。 如果选择此类见证，则不需要文件共享见证。 有关详细信息，请参阅 [Deploy a cloud witness for a Failover Cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)（为故障转移群集部署云见证）。 本教程使用早期操作系统也支持的文件共享见证。
+   >Windows Server 2016 支持云见证。 如果选择此类见证，则不需要文件共享见证。 有关详细信息，请参阅 [Deploy a cloud witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness)（为故障转移群集部署云见证）。 本教程使用早期操作系统也支持的文件共享见证。
    >
 
 1. 在“配置文件共享见证”上键入所创建的共享的路径。 选择“ **下一步** ”。
@@ -347,7 +347,7 @@ Repeat these steps on the second SQL Server.
    ![故障转移群集管理器中的可用性组](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > 请勿尝试从故障转移群集管理器对可用性组进行故障转移。 所有故障转移操作都应在 SSMS 中的 **AlwaysOn 仪表板** 内进行。 有关详细信息，请参阅[将故障转移群集管理器用于可用性组的限制](https://msdn.microsoft.com/library/ff929171.aspx)。
+   > 请勿尝试从故障转移群集管理器对可用性组进行故障转移。 所有故障转移操作都应在 SSMS 中的 **AlwaysOn 仪表板** 内进行。 有关详细信息，请参阅[将故障转移群集管理器用于可用性组的限制](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server)。
     >
 
 此时，你有一个副本在两个 SQL Server 实例上的可用性组。 你可在这两个实例之间移动该可用性组。 但无法连接到该可用性组，因为你没有侦听器。 在 Azure 虚拟机中，侦听器需要负载均衡器。 下一步是在 Azure 中创建负载均衡器。
@@ -535,7 +535,7 @@ WSFC IP 地址也必须在负载均衡器上。
 SQLCMD 连接自动连接到托管主副本的 SQL Server 实例。
 
 > [!TIP]
-> 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx)（添加或编辑防火墙规则）。
+> 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [Add or Edit Firewall Rule](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11))（添加或编辑防火墙规则）。
 >
 
 ## <a name="next-steps"></a>后续步骤

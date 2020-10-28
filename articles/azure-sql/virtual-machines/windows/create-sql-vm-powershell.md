@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb3fd9136f78a332a22f973d211dec748c4fb260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317066"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789805"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>如何使用 Azure PowerShell 在 Azure 虚拟机上预配 SQL Server
 
@@ -135,7 +135,7 @@ $OSDiskName = $VMName + "OSDisk"
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
-1. 对于本教程，请使用 SQL Server 2017 Developer Edition (**SQLDEV**)。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
+1. 对于本教程，请使用 SQL Server 2017 Developer Edition ( **SQLDEV** )。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
 
    ```powershell
    $Sku = "SQLDEV"
@@ -143,7 +143,7 @@ $OSDiskName = $VMName + "OSDisk"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-若使用 Resource Manager 部署模型，创建的第一个对象就是资源组。 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 Azure 资源组及其资源。 指定前面初始化的资源组名称和位置变量。
+若使用 Resource Manager 部署模型，创建的第一个对象就是资源组。 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 Azure 资源组及其资源。 指定前面初始化的资源组名称和位置变量。
 
 运行此 cmdlet 来创建新的资源组。
 
@@ -153,7 +153,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-虚拟机需要使用存储资源来存储操作系统磁盘及 SQL Server 数据和日志文件。 为简单起见，我们将为两者创建单个磁盘。 稍后可以使用 [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet 来附加其他磁盘，以便将 SQL Server 数据和日志文件放在专用磁盘上。 使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet 在新资源组中创建标准存储帐户。 指定前面初始化的存储帐户名称、存储 SKU 名称和位置变量。
+虚拟机需要使用存储资源来存储操作系统磁盘及 SQL Server 数据和日志文件。 为简单起见，我们将为两者创建单个磁盘。 稍后可以使用 [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet 来附加其他磁盘，以便将 SQL Server 数据和日志文件放在专用磁盘上。 使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet 在新资源组中创建标准存储帐户。 指定前面初始化的存储帐户名称、存储 SKU 名称和位置变量。
 
 运行此 cmdlet 来创建新的存储帐户。
 
@@ -176,7 +176,7 @@ $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>创建虚拟网络子网配置
 
-首先创建虚拟网络的子网配置。 本教程使用 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet 创建默认子网。 指定前面初始化的子网名称和地址前缀变量。
+首先创建虚拟网络的子网配置。 本教程使用 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet 创建默认子网。 指定前面初始化的子网名称和地址前缀变量。
 
 > [!NOTE]
 > 可以使用此 cmdlet 来定义虚拟网络子网配置的其他属性，但这已超出本教程的范围。
@@ -189,7 +189,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 
-接下来，使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) cmdlet 在新资源组中创建虚拟网络。 指定前面初始化的名称、位置和地址前缀变量。 使用在上一步骤中定义的子网配置。
+接下来，使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet 在新资源组中创建虚拟网络。 指定前面初始化的名称、位置和地址前缀变量。 使用在上一步骤中定义的子网配置。
 
 运行此 cmdlet 来创建虚拟网络。
 
@@ -201,7 +201,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 ### <a name="create-the-public-ip-address"></a>创建公共 IP 地址
 
-定义虚拟网络后，必须配置 IP 地址才能连接到虚拟机。 本教程使用动态 IP 地址创建公共 IP 地址，以支持 Internet 连接。 使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) cmdlet 在新资源组中创建公共 IP 地址。 指定前面初始化的名称、位置、分配方法和 DNS 域名标签变量。
+定义虚拟网络后，必须配置 IP 地址才能连接到虚拟机。 本教程使用动态 IP 地址创建公共 IP 地址，以支持 Internet 连接。 使用 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) cmdlet 在新资源组中创建公共 IP 地址。 指定前面初始化的名称、位置、分配方法和 DNS 域名标签变量。
 
 > [!NOTE]
 > 可以使用此 cmdlet 来定义公共 IP 地址的其他属性，但这已超出本初步教程的范围。 也可以创建专用地址或具有静态地址的地址，但这也超出了本教程的范围。
@@ -243,7 +243,7 @@ $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
 
 ### <a name="create-the-network-interface"></a>创建网络接口
 
-现在，可为虚拟机创建网络接口。 使用 [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) cmdlet 在新资源组中创建网络接口。 指定前面定义的名称、位置、子网和公共 IP 地址。
+现在，可为虚拟机创建网络接口。 使用 [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) cmdlet 在新资源组中创建网络接口。 指定前面定义的名称、位置、子网和公共 IP 地址。
 
 运行此 cmdlet 来创建网络接口。
 
@@ -265,7 +265,7 @@ $Interface = New-AzNetworkInterface -Name $InterfaceName `
 
 ### <a name="create-the-vm-object"></a>创建 VM 对象
 
-首先指定虚拟机大小。 本教程指定了 DS13。 使用 [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) cmdlet 创建可配置的虚拟机对象。 指定前面初始化的名称和大小变量。
+首先指定虚拟机大小。 本教程指定了 DS13。 使用 [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) cmdlet 创建可配置的虚拟机对象。 指定前面初始化的名称和大小变量。
 
 运行此 cmdlet 来创建虚拟机对象。
 
@@ -275,7 +275,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>创建一个凭据对象，以保留本地管理员凭据的名称和密码
 
-必须先提供本地管理员帐户的凭据作为安全字符串，才能设置虚拟机的操作系统属性。 若要实现此目的，可使用 [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet。
+必须先提供本地管理员帐户的凭据作为安全字符串，才能设置虚拟机的操作系统属性。 若要实现此目的，可使用 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet。
 
 运行以下 cmdlet。 需要在 PowerShell 凭据请求窗口中键入 VM 的本地管理员用户名和密码。
 
@@ -285,7 +285,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>设置虚拟机的操作系统属性
 
-现在，可以使用 [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet 设置虚拟机的操作系统属性。
+现在，可以使用 [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet 设置虚拟机的操作系统属性。
 
 - 将操作系统类型设置为 Windows。
 - 要求安装[虚拟机代理](../../../virtual-machines/extensions/agent-windows.md)。
@@ -302,7 +302,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>将网络接口添加到虚拟机
 
-接下来，运行 [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) cmdlet，以使用前面定义的变量来添加网络接口。
+接下来，运行 [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) cmdlet，以使用前面定义的变量来添加网络接口。
 
 运行此 cmdlet 来设置虚拟机的网络接口。
 
@@ -322,7 +322,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>设置虚拟机的操作系统磁盘属性
 
-接下来，使用 [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) cmdlet 设置虚拟机的操作系统磁盘属性。 
+接下来，使用 [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) cmdlet 设置虚拟机的操作系统磁盘属性。 
 
 - 指定来自映像的虚拟机的操作系统。
 - 将缓存设置为只读（因为 SQL Server 将安装在同一磁盘上）。
@@ -337,7 +337,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>指定虚拟机的平台映像
 
-最后一个配置步骤是指定虚拟机的平台映像。 本教程使用最新的 SQL Server 2016 CTP 映像。 运行 [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) cmdlet，以通过前面定义的变量来使用此映像。
+最后一个配置步骤是指定虚拟机的平台映像。 本教程使用最新的 SQL Server 2016 CTP 映像。 运行 [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) cmdlet，以通过前面定义的变量来使用此映像。
 
 运行此 cmdlet 来指定虚拟机的平台映像。
 
@@ -349,7 +349,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 ## <a name="create-the-sql-vm"></a>创建 SQL VM
 
-完成配置步骤后，接下来可以创建虚拟机。 运行 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet，以使用你定义的变量来创建虚拟机。
+完成配置步骤后，接下来可以创建虚拟机。 运行 [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet，以使用你定义的变量来创建虚拟机。
 
 > [!TIP]
 > 创建 VM 可能需要几分钟时间。

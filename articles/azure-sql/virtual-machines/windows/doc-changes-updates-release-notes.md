@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168318"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789737"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上 SQL Server 的文档更改
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,9 +56,9 @@ Azure 允许你使用内置的 SQL Server 映像部署虚拟机 (VM)。 本文�
 
 | 更改 | 详细信息 |
 | --- | --- |
-| **分布式网络名称 (DNN) ** | Windows Server 2016 上的 SQL Server 2019 现在正在通过使用 [分布式网络名称](hadr-distributed-network-name-dnn-configure.md) （而不是使用 Azure 负载均衡器）来预览将流量路由到故障转移群集实例 (FCI) 的支持。 此支持简化并简化了连接到 Azure 中的高可用性 (HA) 解决方案。 | 
+| **分布式网络名称 (DNN)** | Windows Server 2016 上的 SQL Server 2019 现在正在通过使用 [分布式网络名称](./failover-cluster-instance-distributed-network-name-dnn-configure.md) （而不是使用 Azure 负载均衡器）来预览将流量路由到故障转移群集实例 (FCI) 的支持。 此支持简化并简化了连接到 Azure 中的高可用性 (HA) 解决方案。 | 
 | **Azure 共享磁盘的 FCI** | 现在可以使用[Azure 共享磁盘](failover-cluster-instance-azure-shared-disks-manually-configure.md) [)  (FCI 部署故障转移群集实例](failover-cluster-instance-overview.md)。 |
-| **重新组织的 FCI 文档** | 为清楚起见，重写并重新组织了有关 [Azure vm 上 SQL Server 的故障转移群集实例](failover-cluster-instance-overview.md) 的文档。 我们已将一些配置内容（如 [群集配置最佳做法](hadr-cluster-best-practices.md)、如何为 [SQL Server FCI 准备虚拟机](failover-cluster-instance-prepare-vm.md)，以及如何配置 [Azure 负载均衡器](hadr-vnn-azure-load-balancer-configure.md)）分开。 | 
+| **重新组织的 FCI 文档** | 为清楚起见，重写并重新组织了有关 [Azure vm 上 SQL Server 的故障转移群集实例](failover-cluster-instance-overview.md) 的文档。 我们已将一些配置内容（如 [群集配置最佳做法](hadr-cluster-best-practices.md)、如何为 [SQL Server FCI 准备虚拟机](failover-cluster-instance-prepare-vm.md)，以及如何配置 [Azure 负载均衡器](./availability-group-vnn-azure-load-balancer-configure.md)）分开。 | 
 | &nbsp; | &nbsp; |
 
 
@@ -96,7 +96,7 @@ Azure 允许你使用内置的 SQL Server 映像部署虚拟机 (VM)。 本文�
 | **命名实例可支持性** | 现在，如果已正确卸载默认实例，可以将 [SQL Server IaaS 扩展](sql-server-iaas-agent-extension-automate-management.md#installation)与命名实例一起使用。 | 
 | **门户增强功能** | 改进了 Azure 门户的 SQL Server VM 部署体验，从而提高了可用性。 有关详细信息，请参见简要的[快速入门](sql-vm-create-portal-quickstart.md)和更详尽的[操作指南](create-sql-vm-portal.md)，以部署 SQL Server VM。|
 | **门户改进** | 现在，可以使用 [Azure 门户网站](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider)将 SQL Server VM 的许可模式从“即用即付”更改为“自带许可”。|
-| **通过 Azure CLI 简化对 SQL Server VM 的可用性组部署** | 现在，将可用性组部署到 Azure 中的 SQL Server VM 比以往更加容易。 你可以使用 [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) 从命令行创建 Windows 故障转移群集、内部负载均衡器和可用性组侦听器。 有关详细信息，请参阅 [使用 Azure CLI 为 AZURE VM 上的 SQL Server 配置 Always On 可用性组](availability-group-az-cli-configure.md)。 | 
+| **通过 Azure CLI 简化对 SQL Server VM 的可用性组部署** | 现在，将可用性组部署到 Azure 中的 SQL Server VM 比以往更加容易。 你可以使用 [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) 从命令行创建 Windows 故障转移群集、内部负载均衡器和可用性组侦听器。 有关详细信息，请参阅 [使用 Azure CLI 为 AZURE VM 上的 SQL Server 配置 Always On 可用性组](./availability-group-az-commandline-configure.md)。 | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -112,7 +112,7 @@ Azure 允许你使用内置的 SQL Server 映像部署虚拟机 (VM)。 本文�
 
 ## <a name="additional-resources"></a>其他资源
 
-**Windows VM**：
+**Windows VM** ：
 
 * [Windows VM 上的 SQL Server 概述](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [在 Windows VM 上预配 SQL Server](create-sql-vm-portal.md)
@@ -121,9 +121,9 @@ Azure 允许你使用内置的 SQL Server 映像部署虚拟机 (VM)。 本文�
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](performance-guidelines-best-practices.md)
 * [Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略](application-patterns-development-strategies.md)
 
-**Linux VM**：
+**Linux VM** ：
 
 * [Linux VM 上的 SQL Server 概述](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [在 Linux 虚拟机上预配 SQL Server](../linux/sql-vm-create-portal-quickstart.md)
 * [常见问题 (Linux)](../linux/frequently-asked-questions-faq.md)
-* [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [“Linux 上的 SQL Server”文档](/sql/linux/sql-server-linux-overview)

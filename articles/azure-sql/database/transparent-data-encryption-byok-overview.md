@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441124"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790876"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>使用客户管理的密钥进行 Azure SQL 透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Azure SQL [透明数据加密 (TDE)](/sql/relational-databases/security/encrypti
 > 对于当前正在使用服务托管的 TDE 并想要开始使用客户管理的 TDE 的用户，在切换过程中数据将保持加密状态，且不会造成停机，也不需要重新加密数据库文件。 从服务托管的密钥切换到客户管理的密钥只需重新加密 DEK，此操作非常快捷且可在线完成。
 
 > [!NOTE]
-> 若要为 Azure SQL 客户提供静态数据的两个级别的加密，请使用256加密算法 (使用 AES-加密算法) 使用平台托管密钥。这会提供静态加密的一层，以及包含客户管理密钥（已提供）的 TDE。 对于 Azure SQL 数据库和托管实例，当基础结构加密打开时，将对所有数据库（包括 master 数据库和其他系统数据库）进行加密。 此时，客户必须请求对此功能的访问权限。 如果你对此功能感兴趣，请联系 AzureSQLDoubleEncryptionAtRest@service.microsoft.com 。
+> <a id="doubleencryption"></a> 若要为 Azure SQL 客户提供静态数据的两个级别的加密，请使用256加密算法 (使用 AES-加密算法) 使用平台托管密钥。这会提供静态加密的一层，以及包含客户管理密钥（已提供）的 TDE。 对于 Azure SQL 数据库和托管实例，当基础结构加密打开时，将对所有数据库（包括 master 数据库和其他系统数据库）进行加密。 此时，客户必须请求对此功能的访问权限。 如果你对此功能感兴趣，请联系 AzureSQLDoubleEncryptionAtRest@service.microsoft.com 。
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>客户管理的 TDE 的优势
 
@@ -95,7 +95,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 - 如果将现有的密钥导入 Key Vault，请确保以支持的文件格式（.pfx、.byok 或 .backup）提供该密钥。
 
 > [!NOTE]
-> Azure SQL 现在支持使用存储在托管 HSM 中的 RSA 密钥作为 TDE 保护程序。 此功能 **公开预览版**。 Azure Key Vault 托管 HSM 是一项完全托管的、高度可用的单租户标准云服务，可让你使用 FIPS 140-2 第3级验证后的 Hsm 保护云应用程序的加密密钥。 详细了解 [托管的 hsm](https://aka.ms/mhsm)。
+> Azure SQL 现在支持使用存储在托管 HSM 中的 RSA 密钥作为 TDE 保护程序。 此功能 **公开预览版** 。 Azure Key Vault 托管 HSM 是一项完全托管的、高度可用的单租户标准云服务，可让你使用 FIPS 140-2 第3级验证后的 Hsm 保护云应用程序的加密密钥。 详细了解 [托管的 hsm](../../key-vault/managed-hsm/index.yml)。
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>有关配置客户管理的 TDE 的建议
@@ -106,7 +106,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 - 在 Key Vault 中设置资源锁可以控制谁能删除此关键资源，并防止意外或未经授权的删除。 详细了解[资源锁](../../azure-resource-manager/management/lock-resources.md)。
 
-- 对所有加密密钥启用审核和报告：Key Vault 提供可以轻松注入到其他安全信息和事件管理工具的日志。 Operations Management Suite [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) 是已集成的服务的一个示例。
+- 对所有加密密钥启用审核和报告：Key Vault 提供可以轻松注入到其他安全信息和事件管理工具的日志。 Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) 是已集成的服务的一个示例。
 
 - 将每个服务器链接到位于不同区域中包含相同密钥材料的两个 Key Vault，以确保已加密数据库的高可用性。 仅将同一区域的 Key Vault 中的密钥标记为 TDE 保护程序。 如果同一区域中的密钥保管库受到服务中断影响，则系统将自动切换到远程区域中的密钥保管库。
 
@@ -118,7 +118,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 - 每次对密钥进行了任何更改（例如，密钥属性、标记、ACL）后，都创建新的备份。
 
-- 轮换密钥时保留 Key Vault 中密钥的**先前版本**，以便可以还原旧数据库备份。 更改数据库的 TDE 保护器后，数据库的旧备份**不会更新**为使用最新的 TDE 保护器。 在还原时，每个备份需要包含创建该备份时用于加密该备份的 TDE 保护器。 可以遵照[使用 PowerShell 轮换透明数据加密保护器](transparent-data-encryption-byok-key-rotation.md)中的说明执行密钥轮换。
+- 轮换密钥时保留 Key Vault 中密钥的 **先前版本** ，以便可以还原旧数据库备份。 更改数据库的 TDE 保护器后，数据库的旧备份 **不会更新** 为使用最新的 TDE 保护器。 在还原时，每个备份需要包含创建该备份时用于加密该备份的 TDE 保护器。 可以遵照[使用 PowerShell 轮换透明数据加密保护器](transparent-data-encryption-byok-key-rotation.md)中的说明执行密钥轮换。
 
 - 即使是在切换到服务管理的密钥之后，也应该保留 AKV 中以前使用的所有密钥。 这可以确保能够使用 AKV 中存储的 TDE 保护器还原数据库备份。  通过 Azure Key Vault 创建的 TDE 保护器必须一直保留到使用服务托管的密钥创建所有剩余存储的备份为止。 使用 [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/backup-azkeyvaultkey) 创建这些密钥的可恢复备份副本。
 
@@ -135,7 +135,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 - 如果在 8 小时内恢复了密钥访问权限，数据库将在下一小时自动修复。
 
-- 如果超过 8 小时后还原了密钥访问权限，数据库将无法自动修复，并且要使数据库恢复正常运行，需要在门户上执行其他步骤，并且可能会花费大量时间，具体取决于数据库的大小。 数据库恢复联机后，先前配置的服务器级别设置（例如[故障转移组](auto-failover-group-overview.md)配置、时间点还原历史记录和标记）**将丢失**。 因此，建议实现一个通知系统，以便在 8 小时内识别和解决基础密钥访问问题。
+- 如果超过 8 小时后还原了密钥访问权限，数据库将无法自动修复，并且要使数据库恢复正常运行，需要在门户上执行其他步骤，并且可能会花费大量时间，具体取决于数据库的大小。 数据库恢复联机后，先前配置的服务器级别设置（例如 [故障转移组](auto-failover-group-overview.md)配置、时间点还原历史记录和标记） **将丢失** 。 因此，建议实现一个通知系统，以便在 8 小时内识别和解决基础密钥访问问题。
 
 下面是一个视图，其中介绍了在门户中将无法访问的数据库重新联机所需的其他步骤。
 
@@ -163,12 +163,12 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 若要监视数据库的状态并针对 TDE 保护器访问权限的丢失启用警报，请配置以下 Azure 功能：
 
 - [Azure 资源运行状况](../../service-health/resource-health-overview.md)。 首次与失去 TDE 保护器访问权限的不可访问的数据库建立连接遭到拒绝后，该数据库将显示为“不可用”。
-- [活动日志](../../service-health/alerts-activity-log-service-notifications.md)。访问客户管理的 Key Vault 中的 TDE 保护器失败时，会将相应的条目添加到活动日志。  为这些事件创建警报可以尽快恢复访问权限。
+- [活动日志](../../service-health/alerts-activity-log-service-notifications-portal.md)。访问客户管理的 Key Vault 中的 TDE 保护器失败时，会将相应的条目添加到活动日志。  为这些事件创建警报可以尽快恢复访问权限。
 - [操作组](../../azure-monitor/platform/action-groups.md) 可以定义为根据你的偏好发送通知和警报，例如电子邮件/短信/推送/语音、逻辑应用、WEBHOOK、ITSM 或自动化 Runbook。
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>使用客户管理的 TDE 进行数据库备份和还原
 
-使用 Key Vault 中的密钥通过 TDE 加密数据库后，所有新生成的备份也会使用同一个 TDE 保护器进行加密。 更改 TDE 保护器后，数据库的旧备份**不会更新**为使用最新的 TDE 保护器。
+使用 Key Vault 中的密钥通过 TDE 加密数据库后，所有新生成的备份也会使用同一个 TDE 保护器进行加密。 更改 TDE 保护器后，数据库的旧备份 **不会更新** 为使用最新的 TDE 保护器。
 
 若要还原使用 Key Vault 中的 TDE 保护器加密的备份，请确保密钥材料可供目标服务器使用。 因此，我们建议在 Key Vault 中保留所有旧版 TDE 保护器，以便可以还原数据库备份。
 

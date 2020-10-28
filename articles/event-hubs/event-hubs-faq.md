@@ -2,13 +2,13 @@
 title: 常见问题 - Azure 事件中心 | Microsoft Docs
 description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518018"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789363"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -65,7 +65,7 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
 - HTTP
 - Apache Kafka
 
-请参阅下表，了解需要打开的出站端口，以使用这些协议与 Azure 事件中心通信。 
+请查看下表，了解需要打开哪些出站端口，以便使用这些协议与 Azure 事件中心通信。 
 
 | 协议 | 端口 | 详细信息 | 
 | -------- | ----- | ------- | 
@@ -83,7 +83,7 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
     ```
 2. 记下 `Non-authoritative answer` 中返回的 IP 地址。 
 
-如果对命名空间使用 **区域冗余** ，则需要执行一些附加步骤： 
+如果对命名空间使用区域冗余，则需执行一些额外的步骤： 
 
 1. 首先，在命名空间中运行 nslookup。
 
@@ -100,7 +100,7 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
 3. 为每一个运行 nslookup，使用后缀 s1、s2 和 s3 获取所有三个在三个可用性区域中运行的实例的 IP 地址。 
 
     > [!NOTE]
-    > 命令返回的 IP 地址 `nslookup` 不是静态 ip 地址。 但是，在将基础部署删除或移动到其他群集之前，它将保持不变。
+    > `nslookup` 命令返回的 IP 地址不是静态 IP 地址。 但是，在删除基础部署或将其移至其他群集之前，该地址保持不变。
 
 ### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>在哪里可以找到客户端 IP 发送或接收到命名空间的消息？
 首先，在命名空间上启用 [IP 筛选](event-hubs-ip-filtering.md)。 
@@ -170,12 +170,12 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 可以从最少的一个吞吐量单位 (TU) 着手，并启用[自动扩充](event-hubs-auto-inflate.md)。 自动扩充功能可让你在流量/有效负载增大时扩展 TU。 还可以针对 TU 数量设置上限。
 
 ### <a name="how-does-auto-inflate-feature-of-event-hubs-work"></a>事件中心自动扩充功能的工作原理是什么？
-使用自动扩充功能可以纵向扩展吞吐量单位 (TU)。 这意味着，一开始可以购买较低的 TU，自动扩充会在入口流量增大时纵向扩展 TU。 自动扩充是一种经济高效的选项，可让你完全控制 TU 数量。 这是一个**仅限纵向扩展**的功能，可以通过更新来完全控制 TU 数量的缩减。 
+使用自动扩充功能可以纵向扩展吞吐量单位 (TU)。 这意味着，一开始可以购买较低的 TU，自动扩充会在入口流量增大时纵向扩展 TU。 自动扩充是一种经济高效的选项，可让你完全控制 TU 数量。 这是一个 **仅限纵向扩展** 的功能，可以通过更新来完全控制 TU 数量的缩减。 
 
 可以从较低的吞吐量单位 (TU) 着手，例如 2 个 TU。 如果预测流量可能会增大到 15 TU，请对命名空间启用自动扩充功能，并将最大限制设置为 15 TU。 现在，当流量增大时可以自动扩展 TU。
 
 ### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>启用自动扩充功能是否会产生相关的费用？
-此功能**不会**产生相关的费用。 
+此功能 **不会** 产生相关的费用。 
 
 ### <a name="how-are-throughput-limits-enforced"></a>如何强制实施吞吐量限制？
 如果某个命名空间中所有事件中心间的总入口吞吐量或总入口事件率超过了聚合吞吐量单位限额，那么发送方会受到限制，并会收到指明已超出入口配额的错误信息。
@@ -184,8 +184,19 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 入口和出口配额是分开强制实施的，因此，任何发送方都不会使事件耗用速度减慢，并且接收方也无法阻止事件发送到事件中心。
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>可预留/选择的吞吐量单位 (TU) 数量是否有限制？
-在多租户产品/服务中，吞吐量单位最多可扩展到 40 TU（可在门户中最多选择 20 TU，然后提出支持票证，在同一命名空间中将数目提高到 40 TU）。 如果超出 40 TU，事件中心可提供名为“事件中心专用群集”的基于资源/容量的模型。 专用群集按容量单位 (CU) 销售。
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>可保留/选择的吞吐量单位数是否有限制？
+
+在 Azure 门户中创建基本或标准层命名空间时，可以为命名空间最多选择20个 Tu。 若要将其 **准确** 提升为 40 tu，请提交  [支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。  
+
+1. 在 " **事件总线命名空间** " 页上，从左侧菜单中选择 " **新建支持请求** "。 
+1. 在 " **新建支持请求** " 页上，执行以下步骤：
+    1. **总而言之** ，用几个词来描述问题。 
+    1. 对于“问题类型”，请选择“配额”。  
+    1. 对于 **问题子类型** ，选择 " **请求增加或减少吞吐量单位** "。 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="支持请求页面":::
+
+如果超出 40 TU，事件中心可提供名为“事件中心专用群集”的基于资源/容量的模型。 专用群集按容量单位 (CU) 销售。 有关详细信息，请参阅 [事件中心专用层-概述](event-hubs-dedicated-overview.md)。
 
 ## <a name="dedicated-clusters"></a>专用群集
 
@@ -199,7 +210,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## <a name="best-practices"></a>最佳做法
+## <a name="partitions"></a>分区
 
 ### <a name="how-many-partitions-do-i-need"></a>需要多少分区？
 分区数在创建时指定，并且必须介于1到32之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 有关分区的详细信息，请参阅[分区](event-hubs-features.md#partitions)。
@@ -209,6 +220,21 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 事件中心设计用于允许每个用户组使用单个分区读取器。 在大多数用例中，四个分区的默认设置就足够了。 如果希望扩展事件处理，则可以考虑添加其他分区。 对分区没有特定的吞吐量限制，但是命名空间中的聚合吞吐量受吞吐量单位数限制。 增加命名空间中吞吐量单位的数量时，可能需要添加额外分区来允许并发读取器实现其自身的最大吞吐量。
 
 但是，如果有一个模型，其中应用程序具有到特定分区的关联性，则增加分区数可能对你没有任何益处。 有关详细信息，请参阅[可用性和一致性](event-hubs-availability-and-consistency.md)。
+
+### <a name="increase-partitions"></a>增加分区
+可以通过提交支持请求来请求将分区计数提高到 40 (精确) 。 
+
+1. 在 " **事件总线命名空间** " 页上，从左侧菜单中选择 " **新建支持请求** "。 
+1. 在 " **新建支持请求** " 页上，执行以下步骤：
+    1. **总而言之** ，用几个词来描述问题。 
+    1. 对于“问题类型”，请选择“配额”。  
+    1. 对于 **问题子类型** ，选择 " **请求进行分区更改** "。 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="支持请求页面":::
+
+分区计数可以增加到完全40。 在这种情况下，还必须将 Tu 数增加到40。 如果稍后决定将 TU 限制降低到 <= 20，则最大分区限制也会减少到32。 
+
+分区减少不会影响现有事件中心，因为分区是在事件中心级别应用的，并且在创建该中心后它们是不可变的。 
 
 ## <a name="pricing"></a>定价
 
@@ -222,7 +248,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>怎样对事件中心存储区大小进行计算和收费？
 
-所有存储的事件的总大小（包括所有事件中心内事件标头或磁盘存储器结构上的所有内部开销）按整天计量。 在一天结束时，计算存储区大小峰值。 每天的存储限制根据在当天所选择的吞吐量单元的最小数量（每个吞吐量单元提供 84 GB 的限制）来计算。 如果总大小超过计算出的每日存储限额，超出的存储量会采用 Azure Blob 存储费率（按**本地冗余存储**费率）来计费。
+所有存储的事件的总大小（包括所有事件中心内事件标头或磁盘存储器结构上的所有内部开销）按整天计量。 在一天结束时，计算存储区大小峰值。 每天的存储限制根据在当天所选择的吞吐量单元的最小数量（每个吞吐量单元提供 84 GB 的限制）来计算。 如果总大小超过计算出的每日存储限额，超出的存储量会采用 Azure Blob 存储费率（按 **本地冗余存储** 费率）来计费。
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>事件中心入口事件是怎样计算的？
 
@@ -248,7 +274,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 如需所有事件中心配额的列表，请参阅[配额](event-hubs-quotas.md)。
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>为什么在从其他订阅中删除命名空间后无法创建该命名空间？ 
 从订阅中删除命名空间时，请等待 4 个小时，然后才能在另一个订阅中使用相同的名称重新创建它。 否则，可能会收到以下错误消息：`Namespace already exists`。 
@@ -270,7 +296,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>使用 Azure Blob 存储作为检查点存储时，如何以特定版本的 Azure 存储 SDK 为目标？
-如果在 Azure Stack Hub 上运行此代码，除非将特定的存储 API 版本作为目标，否则会遇到运行时错误。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack 中心可能支持的存储 Blob SDK 版本不同于 Azure 上通常可用的版本。 如果正在将 Azure Blob 存储用作检查点存储，请检查[支持用于你的 Azure Stack Hub 版本的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version)，并在你的代码中面向该版本。 
+如果在 Azure Stack Hub 上运行此代码，则将遇到运行时错误，除非你面向特定的存储 API 版本。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack 中心可能支持的存储 Blob SDK 版本不同于 Azure 上通常可用的版本。 如果正在将 Azure Blob 存储用作检查点存储，请检查[支持用于你的 Azure Stack Hub 版本的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version)，并在你的代码中面向该版本。 
 
 例如，如果在 Azure Stack Hub 版本2005上运行，则存储服务的最高可用版本为2019-02-02 版。 默认情况下，事件中心 SDK 客户端库使用 Azure 上的最高可用版本（在 SDK 发布时为 2019-07-07）。 在这种情况下，除了执行本部分中的步骤以外，还需要添加相关代码，将存储服务 API 版本 2019-02-02 作为目标。 有关如何以特定存储 API 版本为目标的示例，请参阅 c #、Java、Python 和 JavaScript/TypeScript 的以下示例。  
 

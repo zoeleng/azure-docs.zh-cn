@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425536"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791131"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>检索位置列表
 
-如果你不知道要使用哪个位置，可以列出可用的位置。 显示列表后，找到要使用的位置。 本练习使用 **eastus**。 将此内容存储在变量 location 中，以供以后使用。
+如果你不知道要使用哪个位置，可以列出可用的位置。 显示列表后，找到要使用的位置。 本练习使用 **eastus** 。 将此内容存储在变量 location 中，以供以后使用。
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -56,7 +56,7 @@ $location = "eastus"
 
 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。
 
-Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 将资源组名称存储在变量中，以供以后使用。 本示例在 eastus** 区域中创建名为 howtoqueuesrg** 的资源组。
+Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 将资源组名称存储在变量中，以供以后使用。 本示例在 eastus  区域中创建名为 howtoqueuesrg  的资源组。
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -86,7 +86,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-有关命名 Azure 队列服务命名约定的信息，请参阅 [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx)（命名队列和元数据）。
+有关命名 Azure 队列服务命名约定的信息，请参阅 [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata)（命名队列和元数据）。
 
 ## <a name="retrieve-a-queue"></a>检索队列
 
@@ -129,7 +129,7 @@ $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 尽量以先进先出的顺序读取消息。 但不能保证完全这样做。 从队列中读取消息时，消息将对查看此队列的所有其他进程不可见。 这可确保如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。  
 
-**不可见超时**定义了消息在再次可供处理之前保持不可见的时间。 默认为 30 秒。
+**不可见超时** 定义了消息在再次可供处理之前保持不可见的时间。 默认为 30 秒。
 
 代码分两步从队列中读取消息。 调用 [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) 方法时，将获取队列中的下一条消息。 从 **GetMessage** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 若要完成从队列中删除消息，请调用 [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) 方法。
 

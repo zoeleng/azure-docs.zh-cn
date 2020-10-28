@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145656"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790485"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL 数据库的 DNS 别名
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -71,7 +71,7 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
 
 以下网页中提供了 REST API 的文档：
 
-- [Azure SQL 数据库 REST API](https://docs.microsoft.com/rest/api/sql/)
+- [Azure SQL 数据库 REST API](/rest/api/sql/)
 
 另外，GitHub 中也提供了 REST API：
 
@@ -83,7 +83,7 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> 仍然支持 PowerShell Azure 资源管理器模块，但是所有未来的开发都是针对 Az.Sql 模块。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> 仍然支持 PowerShell Azure 资源管理器模块，但是所有未来的开发都是针对 Az.Sql 模块。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 可以使用 PowerShell cmdlet 来调用 REST API。
 
@@ -93,10 +93,10 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
 
 代码示例中使用的 cmdlet 如下：
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL 数据库服务系统中创建新的 DNS 别名。 该别名指代服务器 1。
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias)：获取并列出分配给服务器 1 的所有 DNS 别名。
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias)：将别名根据配置引用的服务器名称从“服务器 1”修改为“服务器 2”。
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)：使用别名从服务器 2 删除 DNS 别名。
+- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL 数据库服务系统中创建新的 DNS 别名。 该别名指代服务器 1。
+- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias)：获取并列出分配给服务器 1 的所有 DNS 别名。
+- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias)：将别名根据配置引用的服务器名称从“服务器 1”修改为“服务器 2”。
+- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)：使用别名从服务器 2 删除 DNS 别名。
 
 ## <a name="limitations-during-preview"></a>预览期间的限制
 
@@ -104,7 +104,7 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
 
 - 延迟最长为 2 分钟：最长需要 2 分钟才能更新或删除 DNS 别名。
   - 不管延迟时间有多短，别名都会使客户端连接立即停止引用旧服务器。
-- DNS 查找：目前，检查给定 DNS 别名引用哪台服务器的唯一权威方法是执行 [DNS 查找](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)。
+- DNS 查找：目前，检查给定 DNS 别名引用哪台服务器的唯一权威方法是执行 [DNS 查找](/windows-server/administration/windows-commands/nslookup)。
 - _不支持表审核：_ 在已对数据库启用了表审核的服务器上，无法使用 DNS 别名。
   - 表审核已弃用。
   - 我们建议改用 [Blob 审核](../../azure-sql/database/auditing-overview.md)。
@@ -112,8 +112,8 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
 ## <a name="related-resources"></a>相关资源
 
 - [使用 Azure SQL 数据库实现业务连续性的概述](business-continuity-high-availability-disaster-recover-hadr-overview.md)，其中包括灾难恢复方案。
-- [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure/)
-- [服务器 DNS 别名 API](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
+- [Azure REST API 参考](/rest/api/azure/)
+- [服务器 DNS 别名 API](/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>后续步骤
 

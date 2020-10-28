@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533948"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790944"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制
 
@@ -24,7 +24,11 @@ ms.locfileid: "92533948"
 
 访问限制功能是在应用服务前端角色（即代码运行所在的辅助角色主机中的上游）中实现的。 因此，访问限制是有效的网络 ACL。
 
-限制从 Azure 虚拟网络 (VNet) 访问 Web 应用的功能称为[服务终结点][serviceendpoints]。 使用服务终结点可以限制为从选定的子网对多租户服务进行访问。 必须在网络端以及用于启用该功能的服务中启用该功能。 它不能用于将流量限制到应用服务环境中托管的应用。 如果处于应用服务环境中，则可以使用 IP 地址规则控制对应用的访问。
+限制从 Azure 虚拟网络 (VNet) 访问 Web 应用的功能称为[服务终结点][serviceendpoints]。 使用服务终结点可以限制为从选定的子网对多租户服务进行访问。 它不能用于将流量限制到应用服务环境中托管的应用。 如果处于应用服务环境中，则可以使用 IP 地址规则控制对应用的访问。
+
+> [!NOTE]
+> 必须在网络端和正在启用的 Azure 服务上启用服务终结点。 有关支持服务终结点的 Azure 服务的列表，请参阅 [虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)。
+>
 
 ![访问限制流](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -36,7 +40,7 @@ ms.locfileid: "92533948"
 
 从访问限制 UI 可以查看为应用定义的访问限制规则列表。
 
-![Azure 门户中的 "访问限制" 屏幕屏幕截图，显示为所选应用定义的访问限制规则列表。](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Azure 门户中“访问限制”屏幕的屏幕截图，显示为所选应用定义的访问限制规则列表。](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 该列表将显示应用中的所有当前限制。 如果应用中存在 VNet 限制，该表将显示是否为 Microsoft.Web 启用了服务终结点。 如果应用中未定义限制，则可以从任何位置访问应用。  
 
@@ -69,7 +73,7 @@ ms.locfileid: "92533948"
 
 单击任一行，可编辑现有访问限制规则。 编辑的内容会立即生效，包括在优先级排序方面的变化。
 
-![Azure 门户显示现有访问限制规则的字段的 "编辑 IP 限制" 对话框的屏幕截图。](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Azure 门户中“编辑 IP 限制”对话框的屏幕截图，显示现有访问限制规则的字段。](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 编辑规则时，无法更改 IP 地址规则与虚拟网络规则这两种类型。 
 
@@ -91,7 +95,7 @@ ms.locfileid: "92533948"
 
 除了能够控制对应用的访问以外，还可以限制对应用所用的 scm 站点的访问。 scm 站点是 Web 部署终结点，也是 Kudu 控制台。 对于 scm 站点，可以分配不同于应用的访问限制；也可以对应用和 scm 站点使用相同的设置。 选中相应的框来使用与应用相同的限制时，所有设置都会留空。如果取消选中该框，将应用前面针对 scm 站点指定的所有设置。 
 
-![Azure 门户中的访问限制屏幕的屏幕截图，显示没有为 scm 站点或应用设置任何访问限制。](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Azure 门户中“访问限制”屏幕的屏幕截图，显示没有为 scm 站点或应用设置访问限制。](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>访问限制规则的编程操作 ##
 

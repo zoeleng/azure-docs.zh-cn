@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 9e7a9beec101354672bffd558bdb0714eaf97ece
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746758"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790094"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>使用 Azure 门户为 Azure VM 上的 SQL Server 配置可用性组 (预览)  
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "92746758"
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
 - 一个具有域控制器的资源组。 
-- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或) 更高版本](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 在 *同一* 可用性集或 *不同* 的可用性区域中，这些虚拟 [机已在完全可管理性模式下注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md) ，并在每个 VM 上为 SQL Server 服务使用同一域帐户。
+- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或) 更高版本](./create-sql-vm-portal.md) 在 *同一* 可用性集或 *不同* 的可用性区域中，这些虚拟 [机已在完全可管理性模式下注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md) ，并在每个 VM 上为 SQL Server 服务使用同一域帐户。
 - 两个可用的（未被任何实体使用的）IP 地址。 一个用于内部负载均衡器。 另一个用于与可用性组位于同一子网中的可用性组侦听器。 如果使用现有的负载均衡器，则只需一个可用性组侦听器的可用 IP 地址。 
 
 ## <a name="permissions"></a>权限
@@ -70,7 +70,7 @@ ms.locfileid: "92746758"
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 以提供 SQL Server 服务帐户的 [凭据](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) ，以及群集操作员和启动帐户（如果它们与用于 SQL Server 服务的帐户不同）。 
+1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 以提供 SQL Server 服务帐户的 [凭据](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) ，以及群集操作员和启动帐户（如果它们与用于 SQL Server 服务的帐户不同）。 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
 

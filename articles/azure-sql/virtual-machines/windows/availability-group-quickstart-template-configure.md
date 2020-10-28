@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 204c7d756a13ed0427f06abfb56e3f1256df48bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167979"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789941"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>使用 Azure 快速启动模板为 Azure VM 上的 SQL Server 配置可用性组
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "92167979"
 若要使用快速启动模板自动设置 Always On 可用性组，必须满足以下先决条件： 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
 - 一个具有域控制器的资源组。 
-- Azure 中的一个或多个已加入域的 VM，它们[运行 SQL Server 2016 Enterprise Edition（或更高版本）](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)，位于[已注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md)的同一个可用性集或可用性区域中。  
+- Azure 中的一个或多个已加入域的 VM，它们[运行 SQL Server 2016 Enterprise Edition（或更高版本）](./create-sql-vm-portal.md)，位于[已注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md)的同一个可用性集或可用性区域中。  
 - 两个可用的（未经任何实体使用的）IP 地址：一个用于内部负载均衡器，另一个用于与可用性组位于同一子网内的可用性组侦听程序。 如果已在使用负载均衡器，则只需要一个可用的 IP 地址。  
 
 ## <a name="permissions"></a>权限
@@ -123,7 +123,7 @@ Always On 可用性组侦听器需要 Azure 负载均衡器的内部实例。 �
    | 设置 | 值 |
    | --- | --- |
    | **名称** |输入用于表示负载均衡器的文本名称。 例如，输入“sqlLB”。 |
-   | 类型 |**内部**：大多数实施方案使用内部负载均衡器，它可让同一虚拟网络中的应用程序连接到可用性组。  </br> **外部**：可让应用程序通过公共 Internet 连接连接到可用性组。 |
+   | 类型 |**内部** ：大多数实施方案使用内部负载均衡器，它可让同一虚拟网络中的应用程序连接到可用性组。  </br> **外部** ：可让应用程序通过公共 Internet 连接连接到可用性组。 |
    | **虚拟网络** | 选择 SQL Server 实例所在的虚拟网络。 |
    | **子网** | 选择 SQL Server 实例所在的子网。 |
    | IP 地址分配 |**静态** |
@@ -192,7 +192,7 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 ## <a name="common-errors"></a>常见错误
 本部分讨论一些已知问题及其可能的解决方法。 
 
-可用性**组 "" 的可用性组侦听器 \<AG-Name> 已存在**：用于可用性组侦听器的 Azure 快速入门模板中所选的可用性组已包含一个侦听器。 这表明侦听程序在物理上位于可用性组内，或者其元数据仍保留在 SQL VM 资源提供程序内。 使用 [PowerShell](#remove-listener) 删除该侦听程序，然后重新部署 101-sql-vm-aglistener-setup 快速启动模板。 
+可用性 **组 "" 的可用性组侦听器 \<AG-Name> 已存在** ：用于可用性组侦听器的 Azure 快速入门模板中所选的可用性组已包含一个侦听器。 这表明侦听程序在物理上位于可用性组内，或者其元数据仍保留在 SQL VM 资源提供程序内。 使用 [PowerShell](#remove-listener) 删除该侦听程序，然后重新部署 101-sql-vm-aglistener-setup 快速启动模板。 
 
 **连接仅适用于主副本** 此行为可能来自已导致内部负载均衡器配置处于不一致状态的失败的 **101-aglistener** 模板部署。 验证后端池是否列出可用性集，并且是否存在运行状况探测规则和负载均衡规则。 如果缺少任何内容，则内部负载均衡器的配置将处于不一致状态。 
 
@@ -226,6 +226,3 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 * [SQL Server VM 的定价指南](pricing-guidance.md)
 * [SQL Server VM 的发行说明](../../database/doc-changes-updates-release-notes.md)
 * [切换 SQL Server VM 的许可模型](licensing-model-azure-hybrid-benefit-ahb-change.md)
-
-
-

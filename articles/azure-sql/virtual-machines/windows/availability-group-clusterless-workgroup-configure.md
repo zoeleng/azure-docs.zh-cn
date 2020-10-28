@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298821"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790026"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>配置工作组可用性组 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -291,6 +291,4 @@ GO
 
 ## <a name="next-steps"></a>后续步骤
 
-还可以使用 [Az SQL VM CLI](availability-group-az-cli-configure.md) 配置可用性组。 
-
-
+还可以使用 [Az SQL VM CLI](./availability-group-az-commandline-configure.md) 配置可用性组。

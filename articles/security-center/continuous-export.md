@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342053"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789176"
 ---
-# <a name="continuously-export-security-alerts-and-recommendations"></a>持续导出安全警报和建议
+# <a name="continuously-export-security-center-data"></a>持续导出安全中心数据
 
 Azure 安全中心会生成详细的安全警报和建议。 可以通过门户或编程工具查看它们。 你可能还需要导出部分或全部信息，以便与环境中的其他监视工具进行跟踪。 
 
@@ -28,7 +28,7 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
 本文介绍如何配置 Log Analytics 工作区或 Azure 事件中心的连续导出。
 
 > [!NOTE]
-> 如果需要将安全中心与 SIEM 集成，请查看将 [警报发送到 SIEM](export-to-siem.md) 以获取选项。
+> 如果需要将安全中心与 SIEM 集成，请参阅将 [警报流式传输到 SIEM、之忠诚度或 IT 服务管理解决方案](export-to-siem.md)。
 
 > [!TIP]
 > 安全中心还提供了用于执行一次性的手动导出到 CSV 的选项。 有关详细信息 [，请参阅及时导出警报和建议](#manual-one-time-export-of-alerts-and-recommendations)。
@@ -40,7 +40,7 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
 |----|:----|
 |发布状态：|正式发布 (GA)|
 |定价：|免费|
-|所需角色和权限：|<ul><li>资源组上的**安全管理员**或**所有者**</li><li>目标资源的写入权限</li><li>如果你使用下面所述的 Azure 策略 "DeployIfNotExist" 策略，你还需要分配策略的权限</li></ul>|
+|所需角色和权限：|<ul><li>资源组上的 **安全管理员** 或 **所有者**</li><li>目标资源的写入权限</li><li>如果你使用下面所述的 Azure 策略 "DeployIfNotExist" 策略，你还需要分配策略的权限</li></ul>|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) US Gov<br>![是](./media/icons/yes-icon.png) 中国 Gov (到事件中心) ，其他 Gov|
 |||
 
@@ -124,11 +124,11 @@ API 提供了 Azure 门户中没有的其他功能，例如：
     > [!TIP]
     > 还可以通过搜索 Azure 策略来查找这些内容：
     > 1. 打开 Azure 策略。
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="在连续导出配置中包括安全结果开关" **分配**"。
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="在连续导出配置中包括安全结果开关" **分配** "。
     :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="在连续导出配置中包括安全结果开关" 选项卡 (1) 提供对类似配置选项的访问，如安全中心的连续导出页面 (2) 。
         > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="在连续导出配置中包括安全结果开关" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. （可选）若要将此分配应用于现有订阅，请打开 " **修正** " 选项卡，然后选择用于创建修正任务的选项。
-1. 查看 "摘要" 页，然后选择 " **创建**"。
+1. 查看 "摘要" 页，然后选择 " **创建** "。
 
 --- 
 
@@ -143,7 +143,7 @@ API 提供了 Azure 门户中没有的其他功能，例如：
 包含这些表的 Log Analytics 解决方案的名称取决于是否已启用 Azure Defender：安全 ( "安全和审核" ) 或 SecurityCenterFree。 
 
 > [!TIP]
-> 若要查看目标工作区中的数据，必须启用其中一个解决方案 **安全和审核** 或 **SecurityCenterFree**。
+> 若要查看目标工作区中的数据，必须启用其中一个解决方案 **安全和审核** 或 **SecurityCenterFree** 。
 
 ![Log Analytics 中的 * SecurityAlert * 表](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -158,15 +158,15 @@ Azure Monitor 提供了一种统一的警报体验，包括诊断日志、指标
 
 若要在 Azure Monitor 中查看安全中心的警报和建议，请根据 Log Analytics 查询 (日志警报) 来配置警报规则：
 
-1. 在 Azure Monitor 的 " **警报** " 页中，选择 " **新建警报规则**"。
+1. 在 Azure Monitor 的 " **警报** " 页中，选择 " **新建警报规则** "。
 
     ![Azure Monitor 的 "警报" 页](./media/continuous-export/azure-monitor-alerts.png)
 
 1. 在 "创建规则" 页中，配置新的规则 (采用 Azure Monitor) 中配置 [日志警报规则](../azure-monitor/platform/alerts-unified-log.md) 的相同方式：
 
-    * 对于 " **资源**"，请选择要向其中导出安全警报和建议的 "Log Analytics" 工作区。
+    * 对于 " **资源** "，请选择要向其中导出安全警报和建议的 "Log Analytics" 工作区。
 
-    * 对于 " **条件**"，选择 " **自定义日志搜索**"。 在出现的页中，配置查询、lookback 周期和频率时间段。 在搜索查询中，你可以键入 *SecurityAlert* 或 *SecurityRecommendation* ，以在你启用连续导出到 Log Analytics 功能时查询安全中心持续导出到的数据类型。 
+    * 对于 " **条件** "，选择 " **自定义日志搜索** "。 在出现的页中，配置查询、lookback 周期和频率时间段。 在搜索查询中，你可以键入 *SecurityAlert* 或 *SecurityRecommendation* ，以在你启用连续导出到 Log Analytics 功能时查询安全中心持续导出到的数据类型。 
     
     * 还可以配置要触发的 [操作组](../azure-monitor/platform/action-groups.md) 。 操作组可以触发电子邮件发送、ITSM 票证、Webhook 等。
     ![Azure Monitor 预警规则](./media/continuous-export/azure-monitor-alert-rule.png)
@@ -193,6 +193,29 @@ Azure Monitor 提供了一种统一的警报体验，包括诊断日志、指标
 
 详细了解 [Azure 事件中心定价](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
+
+### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>导出是否包含有关所有资源的当前状态的数据？
+
+否。 为 **事件** 流式处理生成连续导出：
+
+- 不会导出启用导出之前收到的 **警报** 。
+- 只要资源的符合性状态发生变化，就会发送 **建议** 。 例如，当某个资源的状态从正常变为不正常时。 因此，与警报一样，对尚未更改状态的资源的建议不会被导出。
+
+
+### <a name="why-are-recommendations-sent-at-different-intervals"></a>为什么建议以不同的时间间隔发送？
+
+不同的建议有不同的符合性评估间隔，每隔几分钟就会有不同的要求。 因此，建议会在导出过程中出现的时间量上有所不同。
+
+### <a name="does-continuous-export-support-any-business-continuity-or-disaster-recovery-bcdr-scenarios"></a>连续导出是否支持任何业务连续性或灾难恢复 (BCDR) 的方案？
+
+在为 BCDR 方案（其中目标资源遇到中断或其他灾难）准备环境时，组织应负责根据 Azure 事件中心、Log Analytics 工作区和逻辑应用中的准则建立备份，以防止数据丢失。
+
+有关详细信息，请参阅 [Azure 事件中心-异地灾难恢复](../event-hubs/event-hubs-geo-dr.md)。
+
+
+### <a name="is-continuous-export-available-with-azure-security-center-free"></a>Azure 安全中心是否可免费使用连续导出？
+
+可以！ 请注意，仅当你启用了 Azure Defender 时才会提供许多安全中心警报。 预览所导出数据中所显示的警报的一个好方法是，查看 Azure 门户的安全中心页面中显示的警报。
 
 
 

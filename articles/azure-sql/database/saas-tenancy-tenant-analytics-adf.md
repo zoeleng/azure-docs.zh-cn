@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8ee440c77ec94a7c3e61c37e589aa5ef23031ca7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 860fcb2948869d21eb78d0b318074b9a5e2ba0b9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332410"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790315"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>探索如何使用 Azure SQL 数据库、Azure Synapse Analytics、数据工厂和 Power BI 进行 SaaS 分析
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ SaaS 应用程序在云中保存租户数据，这些数据可能非常庞大。
 
 如果所有数据只是在一个多租户数据库中，则访问所有租户的数据就很简单。 但是，如果数据大量分散在几千个数据库中，则访问就会变得更复杂。 克服复杂性的方法之一是将数据提取到分析数据库或数据仓库进行查询。
 
-本教程演示一个针对 Wingtip Tickets 应用程序的端到端分析方案。 首先，使用 [Azure 数据工厂 (ADF)](../../data-factory/introduction.md) 作为业务流程工具，从每个租户数据库中提取门票销量和相关数据。 此数据将载入到分析存储中的临时表。 分析存储可以是 SQL 数据库或 SQL 池。 本教程使用 [Azure Synapse Analytics（以前称为“SQL 数据仓库”）](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)作为分析存储。
+本教程演示一个针对 Wingtip Tickets 应用程序的端到端分析方案。 首先，使用 [Azure 数据工厂 (ADF)](../../data-factory/introduction.md) 作为业务流程工具，从每个租户数据库中提取门票销量和相关数据。 此数据将载入到分析存储中的临时表。 分析存储可以是 SQL 数据库或 SQL 池。 本教程使用 [Azure Synapse Analytics（以前称为“SQL 数据仓库”）](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)作为分析存储。
 
 接下来，转换提取的数据，并将其载入到一组[星型架构](https://www.wikipedia.org/wiki/Star_schema)表。 这些表由一个中心事实数据表和相关的维度表组成：
 
@@ -70,10 +70,10 @@ SaaS 应用程序在云中保存租户数据，这些数据可能非常庞大。
 
 若要完成本教程，请确保满足以下先决条件：
 
-- 已部署 Wingtip Tickets SaaS Database Per Tenant 应用程序。 若要在五分钟内进行部署，请参阅[部署并探究 Wingtip SaaS 应用程序](../../sql-database/saas-dbpertenant-get-started-deploy.md)。
+- 已部署 Wingtip Tickets SaaS Database Per Tenant 应用程序。 若要在五分钟内进行部署，请参阅[部署并探究 Wingtip SaaS 应用程序](./saas-dbpertenant-get-started-deploy.md)。
 - 已从 GitHub 下载 Wingtip Tickets SaaS Database Per Tenant 脚本和应用程序[源代码](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)。 请参阅下载说明。 在提取 zip 文件的内容之前，请务必取消阻止该 zip 文件。 
 - 已安装 Power BI Desktop。 [下载 Power BI Desktop](https://powerbi.microsoft.com/downloads/)。
-- 已预配其他租户批，具体请参阅 [**有关预配租户的教程**](../../sql-database/saas-dbpertenant-provision-and-catalog.md)。
+- 已预配其他租户批，具体请参阅 [**有关预配租户的教程**](./saas-dbpertenant-provision-and-catalog.md)。
 
 ### <a name="create-data-for-the-demo"></a>创建用于演示的数据
 
@@ -85,7 +85,7 @@ SaaS 应用程序在云中保存租户数据，这些数据可能非常庞大。
 
 ### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>部署 Azure Synapse Analytics、数据工厂和 Blob 存储
 
-在 Wingtip Tickets 应用中，租户的事务数据分散在多个数据库中。 Azure 数据工厂 (ADF) 用于在数据仓库中协调此数据的提取、加载和转换 (ELT)。 为了最有效地将数据加载到 Azure Synapse Analytics（以前称为“SQL 数据仓库”），ADF 会将数据提取到中间 blob 文件，然后使用 [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) 将数据加载到数据仓库中。
+在 Wingtip Tickets 应用中，租户的事务数据分散在多个数据库中。 Azure 数据工厂 (ADF) 用于在数据仓库中协调此数据的提取、加载和转换 (ELT)。 为了最有效地将数据加载到 Azure Synapse Analytics（以前称为“SQL 数据仓库”），ADF 会将数据提取到中间 blob 文件，然后使用 [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) 将数据加载到数据仓库中。
 
 此步骤将部署本教程中使用的其他资源：名为“tenantanalytics”的 SQL 池、名为“dbtodwload-\<user\>”的 Azure 数据工厂，以及名为“wingtipstaging\<user\>”的 Azure 存储帐户。 存储帐户用于暂时保存提取的数据文件，然后这些文件将会载入数据仓库。 此步骤还会部署数据仓库架构，并定义用于协调 ELT 过程的 ADF 管道。
 
@@ -97,7 +97,7 @@ SaaS 应用程序在云中保存租户数据，这些数据可能非常庞大。
 
 #### <a name="tenant-databases-and-analytics-store"></a>租户数据库和分析存储
 
-使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 连接到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 服务器。 将 &lt;user&gt; 替换为部署应用时使用的值。 使用登录名“developer”和密码“P\@ssword1”。 有关更多指导，请参阅[简介教程](../../sql-database/saas-dbpertenant-wingtip-app-overview.md)。
+使用 [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) 连接到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 服务器。 将 &lt;user&gt; 替换为部署应用时使用的值。 使用登录名“developer”和密码“P\@ssword1”。 有关更多指导，请参阅[简介教程](./saas-dbpertenant-wingtip-app-overview.md)。
 
 ![从 SSMS 连接到 SQL 数据库](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
@@ -155,7 +155,7 @@ Azure 数据工厂用于协调数据的提取、加载和转换。 从本教程�
 
 **管道 1 - SQLDBToDW** 查找目录数据库中存储的租户数据库的名称（表名称：[__ShardManagement].[ShardsGlobal]），查找每个租户数据库，并执行 **DBCopy** 管道。 完成后，将执行提供的 **sp_TransformExtractedData** 存储过程架构。 此存储过程转换临时表中加载的数据，并填充星型架构表。
 
-**管道 2 - DBCopy** 查找 Blob 存储中存储的配置文件中的源表和列的名称。  然后，针对以下四个表中的每一个运行 **TableCopy** 管道：TicketFacts、CustomerFacts、EventFacts 和 VenueFacts。 对所有 20 个数据库并行执行 **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 活动。 ADF 允许并行运行最多 20 个循环迭代。 请考虑为其他数据库创建多个管道。
+**管道 2 - DBCopy** 查找 Blob 存储中存储的配置文件中的源表和列的名称。  然后，针对以下四个表中的每一个运行 **TableCopy** 管道：TicketFacts、CustomerFacts、EventFacts 和 VenueFacts。 对所有 20 个数据库并行执行 **[Foreach](../../data-factory/control-flow-for-each-activity.md)** 活动。 ADF 允许并行运行最多 20 个循环迭代。 请考虑为其他数据库创建多个管道。
 
 **管道 3 - TableCopy** 使用 SQL 数据库中的行版本号 ( _rowversion_ ) 来识别已更改或更新的行。 此活动将会查找用于从源表提取行的起始和结束行版本。 每个租户数据库中存储的 **CopyTracker** 表跟踪在每次运行时从每个源表提取的最后一行。 新的或已更改的行将复制到数据仓库中的相应临时表： **raw_Tickets** 、 **raw_Customers** 、 **raw_Venues** 和 **raw_Events** 。 最后，将在 **CopyTracker** 表中保存最后一个行版本，用作下次提取操作的初始行版本。
 
@@ -276,4 +276,4 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="additional-resources"></a>其他资源
 
-- 其他[基于 Wingtip SaaS 应用程序编写的教程](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)。
+- 其他[基于 Wingtip SaaS 应用程序编写的教程](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)。

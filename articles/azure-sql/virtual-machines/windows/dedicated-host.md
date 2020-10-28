@@ -13,20 +13,20 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677673"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789788"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>在 Azure 专用主机上运行 SQL Server VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-本文详细介绍了如何将 SQL Server 虚拟机 (VM) 和 [Azure 专用主机](/azure/virtual-machines/windows/dedicated-hosts)结合使用。 有关 Azure 专用主机的其他信息，请参阅博客文章 [Azure 专用主机简介](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/)。 
+本文详细介绍了如何将 SQL Server 虚拟机 (VM) 和 [Azure 专用主机](../../../virtual-machines/dedicated-hosts.md)结合使用。 有关 Azure 专用主机的其他信息，请参阅博客文章 [Azure 专用主机简介](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/)。 
 
 ## <a name="overview"></a>概述
-[Azure 专用主机](/azure/virtual-machines/windows/dedicated-hosts) 是一种提供物理服务器的服务，物理服务器可托管专用于一个 Azure 订阅的一个或多个虚拟机。 专用主机是 Microsoft 数据中心使用的物理服务器并作为资源提供。 你可以在区域、可用性区域和容错域中预配专用主机。 然后，可以按照最能满足你的需要的配置将 VM 直接放入预配的主机中。
+[Azure 专用主机](../../../virtual-machines/dedicated-hosts.md) 是一种提供物理服务器的服务，物理服务器可托管专用于一个 Azure 订阅的一个或多个虚拟机。 专用主机是 Microsoft 数据中心使用的物理服务器并作为资源提供。 你可以在区域、可用性区域和容错域中预配专用主机。 然后，可以按照最能满足你的需要的配置将 VM 直接放入预配的主机中。
 
 ## <a name="limitations"></a>限制
 
@@ -54,7 +54,7 @@ ms.locfileid: "92677673"
 
 
 ## <a name="provisioning"></a>设置  
-将 SQL Server VM 预配到专用主机的操作与其他任何 Azure 虚拟机一样。 可以使用 [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md)、[Azure 门户](../../../virtual-machines/windows/dedicated-hosts-portal.md)和 [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md) 执行此操作。
+将 SQL Server VM 预配到专用主机的操作与其他任何 Azure 虚拟机一样。 可以使用 [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md)、[Azure 门户](../../../virtual-machines/dedicated-hosts-portal.md)和 [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md) 执行此操作。
 
 将现有 SQL Server VM 添加到专用主机的过程需要停机，但不会影响数据，也不会造成数据丢失。 尽管如此，所有数据库（包括系统数据库）在移动之前都应进行备份。
 
@@ -78,5 +78,3 @@ ms.locfileid: "92677673"
 * [Windows VM 上的 SQL Server 常见问题解答](frequently-asked-questions-faq.md)
 * [Windows VM 上的 SQL Server 定价指南](pricing-guidance.md)
 * [Windows VM 上的 SQL Server 发行说明](doc-changes-updates-release-notes.md)
-
-

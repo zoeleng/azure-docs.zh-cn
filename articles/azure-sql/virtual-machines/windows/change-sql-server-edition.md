@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293350"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789839"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Azure VM 上 SQL Server 版的就地更改
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,8 +34,8 @@ SQL Server 的版本由产品密钥确定，并在使用安装媒体的安装过
 若要对 SQL Server 版本进行就地更改，需要满足以下要求： 
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
-- 已注册到 [Windows 上的 SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 的 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。
-- 具有**所需版本** SQL Server 的安装介质。 如果客户有[软件保障](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)，则可以从[批量许可中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)获取其安装介质。 没有软件保障的客户可以使用具有所需版本的 Azure 市场 SQL Server VM 映像中的安装介质（通常位于 `C:\SQLServerFull` 中）。 
+- 已注册到 [Windows 上的 SQL Server VM](./create-sql-vm-portal.md) 的 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。
+- 具有 **所需版本** SQL Server 的安装介质。 如果客户有[软件保障](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)，则可以从[批量许可中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)获取其安装介质。 没有软件保障的客户可以使用具有所需版本的 Azure 市场 SQL Server VM 映像中的安装介质（通常位于 `C:\SQLServerFull` 中）。 
 
 
 ## <a name="upgrade-an-edition"></a>升级版本
@@ -46,7 +46,7 @@ SQL Server 的版本由产品密钥确定，并在使用安装媒体的安装过
 若要升级 SQL Server 的版本，请获取所需版本 SQL Server 的 SQL Server 安装介质，然后执行以下操作：
 
 1. 从 SQL Server 安装介质打开 Setup.exe。 
-1. 转到**维护**并选择**版本升级**选项。 
+1. 转到 **维护** 并选择 **版本升级** 选项。 
 
    ![用于升级 SQL Server 版本的选择](./media/change-sql-server-edition/edition-upgrade.png)
 
@@ -79,12 +79,12 @@ SQL Server 的版本由产品密钥确定，并在使用安装媒体的安装过
 
 1. 登录 [Azure 门户](https://portal.azure.com)。 
 1. 转到 SQL Server 虚拟机资源。 
-1. 在“设置”下，选择“配置” 。 然后从**版本**下的下拉列表中选择所需的 SQL Server 版本。 
+1. 在“设置”下，选择“配置” 。 然后从 **版本** 下的下拉列表中选择所需的 SQL Server 版本。 
 
    ![更改版本元数据](./media/change-sql-server-edition/edition-change-in-portal.png)
 
 1. 查看警告，指出必须先更改 SQL Server 版本，并且版本属性必须与 SQL Server 版本相匹配。 
-1. 选择**应用**以应用版本元数据更改。 
+1. 选择 **应用** 以应用版本元数据更改。 
 
 
 ## <a name="remarks"></a>备注
@@ -102,5 +102,3 @@ SQL Server 的版本由产品密钥确定，并在使用安装媒体的安装过
 * [Windows VM 上的 SQL Server 常见问题解答](frequently-asked-questions-faq.md)
 * [Windows VM 上的 SQL Server 定价指南](pricing-guidance.md)
 * [Windows VM 上的 SQL Server 发行说明](doc-changes-updates-release-notes.md)
-
-

@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588172"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790553"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -44,7 +44,7 @@ Microsoft Azure 存储模拟器是一种用于模拟 Azure Blob、队列和表�
 
 若要启动 Azure 存储模拟器：
 
-1. 选择“开始”**** 按钮或按“Windows”**** 键。
+1. 选择“开始”  按钮或按“Windows”  键。
 2. 开始键入 `Azure Storage Emulator`。
 3. 从所示应用程序的列表中选择该模拟器。
 
@@ -85,7 +85,7 @@ Microsoft Azure 存储模拟器是一种用于模拟 Azure Blob、队列和表�
 有关这些命令的详细信息，请参阅[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)。
 
 > [!TIP]
-> 可使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”**** 对话框的“服务器名称:”**** 字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
+> 可使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”  对话框的“服务器名称:”  字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>针对存储模拟器对请求进行身份验证
 
@@ -95,7 +95,7 @@ Microsoft Azure 存储模拟器是一种用于模拟 Azure Blob、队列和表�
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-有关连接字符串的详细信息，请参阅[配置 Azure 存储连接字符串](../storage-configure-connection-string.md)。
+有关连接字符串的详细信息，请参阅[配置 Azure 存储连接字符串](./storage-configure-connection-string.md)。
 
 ### <a name="authorize-with-a-shared-access-signature"></a>使用共享访问签名进行授权
 
@@ -161,7 +161,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> 若要使用存储模拟器以编程方式访问次要副本，请使用适用于 .NET 的存储客户端库 3.2 版或更高版本。 请参阅[适用于 .NET 的 Microsoft Azure 存储客户端库](https://msdn.microsoft.com/library/azure/dn261237.aspx)，获取详细信息。
+> 若要使用存储模拟器以编程方式访问次要副本，请使用适用于 .NET 的存储客户端库 3.2 版或更高版本。 请参阅[适用于 .NET 的 Microsoft Azure 存储客户端库](/previous-versions/azure/dn261237(v=azure.100))，获取详细信息。
 >
 >
 
@@ -184,11 +184,11 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 | 选项 | 说明 | 命令 | 自变量 |
 | --- | --- | --- | --- |
-| **启动** |启动存储模拟器。 |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*：在当前进程中启动仿真器，而不是创建新的进程。 |
+| **启动** |启动存储模拟器。 |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess* ：在当前进程中启动仿真器，而不是创建新的进程。 |
 | **停止** |停止存储模拟器。 |`AzureStorageEmulator.exe stop` | |
 | **Status** |输出存储模拟器的状态。 |`AzureStorageEmulator.exe status` | |
-| **Clear** |清除命令行上指定的所有服务中的数据。 |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*：清除 blob 数据。 <br/>*queue*：清除队列数据。 <br/>*table*：清除表数据。 <br/>*all*：清除所有服务中的所有数据。 |
-| **Init** |执行一次性初始化以设置模拟器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*：指定托管 SQL 实例的服务器。 <br/>*-sqlinstance instanceName*：指定要在默认服务器实例中使用的 SQL 实例的名称。 <br/>*-forcecreate*：强制创建 SQL 数据库，即使它已存在。 <br/>*-skipcreate*：跳过创建 SQL 数据库的步骤。 此命令优先于 -forcecreate。<br/>*-reserveports*：尝试保留与服务关联的 HTTP 端口。<br/>*-unreserveports*：尝试取消预留与服务关联的 HTTP 端口。 此命令优先于 -reserveports。<br/>*-inprocess*：在当前进程中执行初始化，而不是生成新的进程。 如果更改端口预留，必须使用提升的权限启动当前进程。 |
+| **Clear** |清除命令行上指定的所有服务中的数据。 |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* ：清除 blob 数据。 <br/>*queue* ：清除队列数据。 <br/>*table* ：清除表数据。 <br/>*all* ：清除所有服务中的所有数据。 |
+| **Init** |执行一次性初始化以设置模拟器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* ：指定托管 SQL 实例的服务器。 <br/>*-sqlinstance instanceName* ：指定要在默认服务器实例中使用的 SQL 实例的名称。 <br/>*-forcecreate* ：强制创建 SQL 数据库，即使它已存在。 <br/>*-skipcreate* ：跳过创建 SQL 数据库的步骤。 此命令优先于 -forcecreate。<br/>*-reserveports* ：尝试保留与服务关联的 HTTP 端口。<br/>*-unreserveports* ：尝试取消预留与服务关联的 HTTP 端口。 此命令优先于 -reserveports。<br/>*-inprocess* ：在当前进程中执行初始化，而不是生成新的进程。 如果更改端口预留，必须使用提升的权限启动当前进程。 |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>存储模拟器与 Azure 存储之间的差异
 
@@ -310,7 +310,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ### <a name="version-40"></a>4.0 版
 
-* 存储模拟器可执行文件已重命名为 *AzureStorageEmulator.exe*。
+* 存储模拟器可执行文件已重命名为 *AzureStorageEmulator.exe* 。
 
 ### <a name="version-32"></a>版本 3.2
 
@@ -329,7 +329,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 ## <a name="next-steps"></a>后续步骤
 
 * 评估跨平台的、由社区维护的开源存储模拟器 [Azurite](https://github.com/azure/azurite)。 
-* [使用 .NET 的 Azure 存储示例](../storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
+* [使用 .NET 的 Azure 存储示例](./storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
 * 可使用 [Microsoft Azure 存储资源管理器](https://storageexplorer.com)处理云存储帐户和存储模拟器中的资源。
 
 ## <a name="see-also"></a>另请参阅

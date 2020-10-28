@@ -12,20 +12,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 9b6b0ee6fa33ecd0d677d7d075236517d85d4ab7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 802c126548a6fa7062a262e2f939c9a214480794
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335106"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789635"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL 数据库和 Azure Synapse IP 防火墙规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-例如，在 Azure SQL 数据库或名为 *mysqlserver*的 Azure Synapse Analytics 中创建新服务器时，服务器级防火墙会阻止对服务器 (的公共终结点的所有访问，可在 *mysqlserver.database.windows.net*) 访问。 为简单起见， *Sql 数据库* 用于将 sql 数据库和 Azure Synapse 分析引用为以前的 Sql 数据仓库)  (。
+例如，在 Azure SQL 数据库或名为 *mysqlserver* 的 Azure Synapse Analytics 中创建新服务器时，服务器级防火墙会阻止对服务器 (的公共终结点的所有访问，可在 *mysqlserver.database.windows.net* ) 访问。 为简单起见，在提到 SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）时，本文将其统称为“SQL 数据库”。
 
 > [!IMPORTANT]
-> 本文不适用于 *Azure SQL 托管实例*。 有关网络配置的信息，请参阅[将应用程序连接到 Azure SQL 托管实例](../managed-instance/connect-application-instance.md)。
+> 本文不适用于 *Azure SQL 托管实例* 。 有关网络配置的信息，请参阅[将应用程序连接到 Azure SQL 托管实例](../managed-instance/connect-application-instance.md)。
 >
 > Azure Synapse 只支持服务器级别 IP 防火墙规则。 不支持数据库级 IP 防火墙规则。
 
@@ -50,7 +50,7 @@ ms.locfileid: "91335106"
   
 - 只有在配置了第一个服务器级防火墙后，才只能使用 Transact-SQL 语句创建和管理用于 master 数据库和用户数据库的数据库级 IP 防火墙规则。
 - 如果在数据库级 IP 防火墙规则中指定的 IP 地址范围超出了在服务器级 IP 防火墙规则中指定的范围，只有 IP 地址处于数据库级范围内的客户端才能访问数据库。
-- 对于每个数据库，最多可以有 128 个数据库级别 IP 防火墙规则。 若要详细了解如何配置数据库级 IP 防火墙规则，请参阅本文后面部分中的示例，以及 [sp_set_database_firewall_rule（Azure SQL 数据库）](https://msdn.microsoft.com/library/dn270010.aspx)。
+- 对于每个数据库，最多可以有 128 个数据库级别 IP 防火墙规则。 若要详细了解如何配置数据库级 IP 防火墙规则，请参阅本文后面部分中的示例，以及 [sp_set_database_firewall_rule（Azure SQL 数据库）](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)。
 
 ### <a name="recommendations-for-how-to-set-firewall-rules"></a>有关如何设置防火墙规则的建议
 
@@ -107,18 +107,18 @@ IP 地址用户是否需要访问所有数据库？
 
 若要能够为 Azure SQL Server 创建和管理 IP 防火墙规则，你需要：
 
-- 具有 [SQL Server 参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)角色
-- 具有 [SQL 安全管理员](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)角色
+- 具有 [SQL Server 参与者](../../role-based-access-control/built-in-roles.md#sql-server-contributor)角色
+- 具有 [SQL 安全管理员](../../role-based-access-control/built-in-roles.md#sql-security-manager)角色
 - 包含 Azure SQL Server 的资源的所有者
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>创建和管理 IP 防火墙规则
 
-使用 [Azure 门户](https://portal.azure.com/)创建第一个服务器级防火墙设置，或者使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) 以编程方式创建。 使用这些方法或 Transact-SQL 创建和管理其他服务器级 IP 防火墙规则。
+使用 [Azure 门户](https://portal.azure.com/)创建第一个服务器级防火墙设置，或者使用 [Azure PowerShell](/powershell/module/az.sql)、[Azure CLI](/cli/azure/sql/server/firewall-rule) 或 [REST API](/rest/api/sql/firewallrules/createorupdate) 以编程方式创建。 使用这些方法或 Transact-SQL 创建和管理其他服务器级 IP 防火墙规则。
 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级 IP 防火墙规则。
 
-为了提升性能，服务器级别 IP 防火墙规则暂时在数据库级别缓存。 若要刷新高速缓存，请参阅 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)。
+为了提升性能，服务器级别 IP 防火墙规则暂时在数据库级别缓存。 若要刷新高速缓存，请参阅 [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql)。
 
 > [!TIP]
 > 可以使用[数据库审核](../../azure-sql/database/auditing-overview.md)来审核服务器级别和数据库级别的防火墙更改。
@@ -144,7 +144,7 @@ IP 地址用户是否需要访问所有数据库？
 
 #### <a name="from-the-server-overview-page"></a>从服务器概述页
 
-此时会打开服务器的概述页。 它显示完全限定的服务器名称 (例如 *mynewserver20170403.database.windows.net*) ，并提供进一步配置的选项。
+此时会打开服务器的概述页。 它显示完全限定的服务器名称 (例如 *mynewserver20170403.database.windows.net* ) ，并提供进一步配置的选项。
 
 1. 若要在此页中设置服务器级规则，请在左侧的“设置”菜单中选择“防火墙”。 
 
@@ -174,7 +174,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-若要删除服务器级 IP 防火墙规则，请执行 *sp_delete_firewall_rule* 存储过程。 以下示例删除规则 *ContosoFirewallRule*：
+若要删除服务器级 IP 防火墙规则，请执行 *sp_delete_firewall_rule* 存储过程。 以下示例删除规则 *ContosoFirewallRule* ：
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
@@ -232,10 +232,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Level | 说明 |
 | --- | --- | --- |
-| [列出防火墙规则](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |服务器 |显示当前服务器级别 IP 防火墙规则 |
-| [创建或更新防火墙规则](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |服务器 |创建或更新服务器级别 IP 防火墙规则 |
-| [删除防火墙规则](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |服务器 |删除服务器级别 IP 防火墙规则 |
-| [获取防火墙规则](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | 服务器 | 获取服务器级别 IP 防火墙规则 |
+| [列出防火墙规则](/rest/api/sql/firewallrules/listbyserver) |服务器 |显示当前服务器级别 IP 防火墙规则 |
+| [创建或更新防火墙规则](/rest/api/sql/firewallrules/createorupdate) |服务器 |创建或更新服务器级别 IP 防火墙规则 |
+| [删除防火墙规则](/rest/api/sql/firewallrules/delete) |服务器 |删除服务器级别 IP 防火墙规则 |
+| [获取防火墙规则](/rest/api/sql/firewallrules/get) | 服务器 | 获取服务器级别 IP 防火墙规则 |
 
 ## <a name="troubleshoot-the-database-firewall"></a>排查数据库防火墙问题
 

@@ -5,19 +5,19 @@ description: 了解如何针对使用 TDE（支持“创建自己的密钥”(BY
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 77f2312438f3f9db7aa4e0dc7cc0f672644a87c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657e3967d9e34147364114cec4d946e900f60032
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617394"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791369"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 删除透明数据加密 (TDE) 保护器
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -30,12 +30,12 @@ ms.locfileid: "91617394"
 
 如果怀疑某个密钥已泄露，以致某个服务或用户在未经授权的情况下访问该密钥，则最好是删除该密钥。
 
-请记住，在 Key Vault 中删除了 TDE 保护器后，在长达 10 分钟的时间内，所有加密数据库将开始拒绝所有带有相应错误消息的连接，并将其状态更改为[无法访问](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector)。
+请记住，在 Key Vault 中删除了 TDE 保护器后，在长达 10 分钟的时间内，所有加密数据库将开始拒绝所有带有相应错误消息的连接，并将其状态更改为[无法访问](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector)。
 
 本操作指南根据事件响应泄露后的预期结果介绍了两种方法：
 
 - 使 Azure SQL 数据库/Azure Synapse Analytics 中的数据库无法访问。
-- 若要使 Azure SQL 数据库中的数据库 Synapse Analytics (以前的 SQL 数据仓库) **不可访问**。
+- 若要使 Azure SQL 数据库中的数据库 Synapse Analytics (以前的 SQL 数据仓库) **不可访问** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -45,7 +45,7 @@ ms.locfileid: "91617394"
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
- 有关 Az 模块安装说明，请参阅[安装 Azure PowerShell](/powershell/azure/install-az-ps)。 若要了解具体的 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。
+ 有关 Az 模块安装说明，请参阅[安装 Azure PowerShell](/powershell/azure/install-az-ps)。 若要了解具体的 cmdlet，请参阅 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)。
 
 > [!IMPORTANT]
 > 仍然支持 PowerShell Azure 资源管理器 (RM) 模块，但所有后续开发都针对 Az.Sql 模块。 AzureRM 模块至少在 2020 年 12 月之前将继续接收 bug 修补程序。  Az 模块和 AzureRm 模块中的命令参数大体上是相同的。 若要详细了解其兼容性，请参阅[新 Azure PowerShell Az 模块简介](/powershell/azure/new-azureps-module-az)。

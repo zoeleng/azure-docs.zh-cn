@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341934"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789210"
 ---
 # <a name="security-alerts-schemas"></a>安全警报架构
 
@@ -25,7 +25,7 @@ ms.locfileid: "92341934"
 可以在 Azure 安全中心的 **威胁防护** 页中查看这些安全警报，也可以通过以下外部工具查看：
 
 - [Azure Sentinel](../sentinel/index.yml) -Microsoft 的云本地 SIEM。 Sentinel 连接器从 Azure 安全中心获取警报，并将其发送到 Azure Sentinel 的 [Log Analytics 工作区](../azure-monitor/learn/quick-create-workspace.md) 。
-- 第三方 Siem-使用安全中心的 [连续导出](continuous-export.md) 工具将数据发送到 [Azure 事件中心](../event-hubs/index.yml)。 然后，将事件中心数据与第三方 SIEM 进行集成。
+- 第三方 Siem-将数据发送到 [Azure 事件中心](../event-hubs/index.yml)。 然后，将事件中心数据与第三方 SIEM 进行集成。 有关详细信息 [，请参阅将警报流式传输到 SIEM、之忠诚度或 IT 服务管理解决方案](export-to-siem.md)。
 - [REST API](/rest/api/securitycenter/) -如果你使用 REST API 访问警报，请参阅 [联机警报 API 文档](/rest/api/securitycenter/alerts)。
 
 如果使用任何编程方法来使用警报，将需要正确的架构来查找与您相关的字段。 此外，如果您要导出到事件中心或尝试使用泛型 HTTP 连接器来触发工作流自动化，请使用这些架构来正确分析 JSON 对象。
@@ -46,8 +46,9 @@ ms.locfileid: "92341934"
 - 在安全中心的工作流自动化中配置的 Azure 逻辑应用实例
 - 使用安全中心的连续导出功能的 Azure 事件中心
 
-有关工作流自动化功能的详细信息，请参阅 [自动响应警报和建议](workflow-automation.md)。
-有关连续导出的详细信息，请参阅 [导出警报和建议](continuous-export.md)。
+有关工作流自动化功能的详细信息，请参阅 [自动响应安全中心触发器](workflow-automation.md)。
+
+有关连续导出的详细信息，请参阅 [持续导出安全中心数据](continuous-export.md)。
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -185,5 +186,5 @@ Microsoft Graph 是 Microsoft 365 中的数据和智能的网关。 它提供了
 
 - [Azure Sentinel](../sentinel/index.yml) -Microsoft 的云-本机 SIEM
 - [Azure 事件中心](../event-hubs/index.yml) -Microsoft 的完全托管的实时数据引入服务
-- 安全中心的 [连续导出功能](continuous-export.md)
+- [持续导出安全中心数据](continuous-export.md)
 - [Log Analytics 工作区](../azure-monitor/learn/quick-create-workspace.md) -Azure Monitor 将日志数据存储在 Log Analytics 工作区中，包含数据和配置信息的容器

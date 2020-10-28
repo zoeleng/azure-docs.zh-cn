@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 66815dac145c8c30b770e831a002f6a0ee093675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be5729320f27e38907c4de6844bf3126cf41747b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714569"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789652"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>选择如何使用 Azure CLI 授权访问 Blob 或队列数据
 
@@ -43,7 +43,7 @@ Azure 存储提供适用于 Azure CLI 的扩展，使你能够指定如何授权
 
 使用 Azure AD 凭据登录 Azure CLI 时，会返回 OAuth 2.0 访问令牌。 Azure CLI 自动使用该令牌针对 Blob 或队列存储进行后续数据操作授权。 对于支持的操作，无需再通过命令传递帐户密钥或 SAS 令牌。
 
-可以通过 Azure RBAC)  (Azure 基于角色的访问控制，向 Azure AD 安全主体分配对 blob 和队列数据的权限。 有关 azure 存储空间中的 Azure 角色的详细信息，请参阅 [使用 AZURE RBAC 管理对 Azure 存储数据的访问权限](storage-auth-aad-rbac.md)。
+可以通过 Azure RBAC)  (Azure 基于角色的访问控制，向 Azure AD 安全主体分配对 blob 和队列数据的权限。 有关 azure 存储空间中的 Azure 角色的详细信息，请参阅 [使用 AZURE RBAC 管理对 Azure 存储数据的访问权限](./storage-auth-aad-rbac-portal.md)。
 
 ### <a name="permissions-for-calling-data-operations"></a>用于调用数据操作的权限
 
@@ -55,7 +55,7 @@ Azure 存储扩展支持针对 blob 和队列数据的操作。 可调用的操�
 
 以下示例演示如何在 Azure CLI 中使用 Azure AD 凭据创建容器。 若要创建容器，需要登录到 Azure CLI，并需要一个资源组和存储帐户。 若要了解如何创建这些资源，请参阅[快速入门：使用 Azure CLI 创建、下载和列出 Blob](../blobs/storage-quickstart-blobs-cli.md)。
 
-1. 创建容器之前，请向自己分配[存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)角色。 即使你是帐户所有者，也需要显式权限才能针对存储帐户执行数据操作。 有关分配 Azure 角色的详细信息，请参阅 [使用 Azure 门户分配 azure 角色以访问 blob 和队列数据](storage-auth-aad-rbac.md)。
+1. 创建容器之前，请向自己分配[存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)角色。 即使你是帐户所有者，也需要显式权限才能针对存储帐户执行数据操作。 有关分配 Azure 角色的详细信息，请参阅 [使用 Azure 门户分配 azure 角色以访问 blob 和队列数据](./storage-auth-aad-rbac-portal.md)。
 
     > [!IMPORTANT]
     > 传播 Azure 角色分配可能需要几分钟的时间。

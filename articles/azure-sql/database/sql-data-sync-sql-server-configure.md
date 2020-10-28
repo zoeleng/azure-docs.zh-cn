@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 90f1e068bf816ecf72bcc8a3ba9439883e69a069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a6779f8624cf744d99c819e77784f26fb4ac799
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616663"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790213"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>教程：设置 Azure SQL 数据库和 SQL Server 的数据库之间的 SQL 数据同步
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,7 +63,7 @@ ms.locfileid: "91616663"
    | **冲突解决方法** | 选择“中心胜出”或“成员胜出” 。<br/><br/>“中心胜出”表示发生冲突时，中心数据库中的数据将覆盖成员数据库中的冲突数据。<br/><br/>“成员胜出”表示发生冲突时，成员数据库中的数据将覆盖中心数据库中的冲突数据。 |
 
    > [!NOTE]
-   > Microsoft 建议新建空的数据库，以用作“同步元数据数据库”****。 SQL 数据同步在此数据库中创建表，并经常运行工作负载。 此数据库共享为选定区域和订阅中所有同步组的同步元数据数据库。 在未删除区域中所有同步组和同步代理的情况下，无法更改数据库或其名称。
+   > Microsoft 建议新建空的数据库，以用作“同步元数据数据库”  。 SQL 数据同步在此数据库中创建表，并经常运行工作负载。 此数据库共享为选定区域和订阅中所有同步组的同步元数据数据库。 在未删除区域中所有同步组和同步代理的情况下，无法更改数据库或其名称。
 
    选择“确定”，并等待创建和部署同步组。
 
@@ -239,10 +239,10 @@ SQL 数据同步是否能完全创建表？
 
 - [Azure SQL 数据同步的 Data Sync Agent](sql-data-sync-agent-overview.md)
 - [最佳做法](sql-data-sync-best-practices.md)和[如何解决 Azure SQL 数据同步问题](sql-data-sync-troubleshoot.md)
-- [使用 Azure Monitor 日志监视 SQL 数据同步](sql-data-sync-monitor-sync.md)
+- [使用 Azure Monitor 日志监视 SQL 数据同步](./monitor-tune-overview.md)
 - [使用 Transact-SQL 更新同步架构](sql-data-sync-update-sync-schema.md) 或使用 [PowerShell](scripts/update-sync-schema-in-sync-group.md) 更新同步架构
 
 有关 SQL 数据库的详细信息，请参阅：
 
 - [SQL 数据库概述](sql-database-paas-overview.md)
-- [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
+- [数据库生命周期管理](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

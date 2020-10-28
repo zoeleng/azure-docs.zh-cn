@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335052"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789618"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>教程：实现地理分散的数据库（Azure SQL 数据库）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "91335052"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要完成本教程，请确保已安装以下项目：
 
@@ -49,7 +49,7 @@ ms.locfileid: "91335052"
   > [!NOTE]
   > 本教程使用 *AdventureWorksLT* 示例数据库。
 
-- Java 和 Maven，请参阅 [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)（使用 SQL Server 生成应用），突出显示 **Java**，选择环境，然后按步骤操作。
+- Java 和 Maven，请参阅 [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)（使用 SQL Server 生成应用），突出显示 **Java** ，选择环境，然后按步骤操作。
 
 > [!IMPORTANT]
 > 请务必设置防火墙规则，以便使用要在其上执行本教程中步骤的计算机的公共 IP 地址。 数据库级防火墙规则会自动复制到辅助服务器。
@@ -132,7 +132,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. 键入 **Y**，然后按 **Enter**。
+1. 键入 **Y** ，然后按 **Enter** 。
 
 1. 将目录切换到新项目。
 

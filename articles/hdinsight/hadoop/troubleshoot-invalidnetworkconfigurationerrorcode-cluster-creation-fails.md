@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f30f92df505abeff108f8d1c503cb33162d2e409
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533540"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790910"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>在 Azure HDInsight 中创建群集失败并出现 InvalidNetworkConfigurationErrorCode
 
@@ -68,6 +68,19 @@ Azure 存储和 SQL 没有固定的 IP 地址，因此，我们需要允许与�
 
     如果定义了路由，请确保部署了群集的区域的 IP 地址存在路由，并且每个路由的 **NextHopType** 是 **Internet** 。 应该为上述文章中所述的每个所需 IP 地址定义一个路由。
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"无法建立来自群集的出站连接以便与 HDInsight 资源提供程序进行通信。 请确保允许出站连接。 "
+
+### <a name="issue"></a>问题
+
+错误说明包含 "无法建立来自群集的出站连接以便与 HDInsight 资源提供程序通信。 请确保允许出站连接。 "
+
+### <a name="cause"></a>原因
+
+使用专用链接的 HDInsight 群集时，必须将群集的出站访问权限配置为允许与 HDInsight 资源提供程序建立连接。
+
+### <a name="resolution"></a>解决方法
+
+* 若要解决此问题，请参阅[专用链接设置](../hdinsight-private-link.md)中的 HDInsight 专用链接设置步骤
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>“虚拟网络配置不符合 HDInsight 要求”

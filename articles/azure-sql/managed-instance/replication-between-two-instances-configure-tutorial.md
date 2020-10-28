@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5948f7adedfa430d7d0dac570910f662846464c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058210"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790859"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>教程：配置两个托管实例之间的复制
 
@@ -68,7 +68,7 @@ ms.locfileid: "92058210"
 
 ## <a name="3---create-an-azure-storage-account"></a>3 - 创建 Azure 存储帐户
 
-为工作目录[创建 Azure 存储帐户](/azure/storage/common/storage-create-storage-account#create-a-storage-account)，并在存储帐户中创建[文件共享](../../storage/files/storage-how-to-create-file-share.md)。 
+为工作目录[创建 Azure 存储帐户](../../storage/common/storage-account-create.md#create-a-storage-account)，并在存储帐户中创建[文件共享](../../storage/files/storage-how-to-create-file-share.md)。 
 
 复制采用 `\\storage-account-name.file.core.windows.net\file-share-name` 格式的文件共享路径
 
@@ -326,4 +326,4 @@ GO
 
 ## <a name="next-steps"></a>后续步骤
 
-你还可详细了解 [Azure SQL 托管实例的事务复制](replication-transactional-overview.md)的，或者了解如何[在 SQL 托管实例发布服务器/分发服务器与 Azure VM 订阅服务器上的 SQL](replication-two-instances-and-sql-server-configure-tutorial.md) 之间配置复制。 
+你还可详细了解 [Azure SQL 托管实例的事务复制](replication-transactional-overview.md)的，或者了解如何[在 SQL 托管实例发布服务器/分发服务器与 Azure VM 订阅服务器上的 SQL](replication-two-instances-and-sql-server-configure-tutorial.md) 之间配置复制。

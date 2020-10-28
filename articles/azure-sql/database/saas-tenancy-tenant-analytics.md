@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dd77305a1b2f7d11a2e371f7682855e15739ee7d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331662"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790927"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>使用提取的数据运行跨租户分析 - 单租户应用
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,11 +69,11 @@ ms.locfileid: "92331662"
 
 若要完成本教程，请确保满足以下先决条件：
 
-- 已部署 Wingtip Tickets SaaS Database Per Tenant 应用程序。 若要在五分钟内进行部署，请参阅[部署和浏览 Wingtip SaaS 应用程序](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+- 已部署 Wingtip Tickets SaaS Database Per Tenant 应用程序。 若要在五分钟内进行部署，请参阅[部署和浏览 Wingtip SaaS 应用程序](./saas-dbpertenant-get-started-deploy.md)
 - 已从 GitHub 下载 Wingtip Tickets SaaS Database Per Tenant 脚本和应用程序[源代码](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)。 请参阅下载说明。 在提取 zip 文件的内容之前，请务必取消阻止该 zip 文件。  有关下载和取消阻止 Wingtip Tickets SaaS 脚本的步骤，请参阅[常规指南](saas-tenancy-wingtip-app-guidance-tips.md)。
 - 已安装 Power BI Desktop。 [下载 Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- 已预配其他租户批，具体请参阅 [**有关预配租户的教程**](../../sql-database/saas-dbpertenant-provision-and-catalog.md)。
-- 已创建作业帐户和作业帐户数据库。 请参阅 [**架构管理教程**](../../sql-database/saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)中的相应步骤。
+- 已预配其他租户批，具体请参阅 [**有关预配租户的教程**](./saas-dbpertenant-provision-and-catalog.md)。
+- 已创建作业帐户和作业帐户数据库。 请参阅 [**架构管理教程**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)中的相应步骤。
 
 ### <a name="create-data-for-the-demo"></a>创建用于演示的数据
 
@@ -93,7 +93,7 @@ ms.locfileid: "92331662"
     - 若要使用包含列存储的 SQL 数据库，请设置 **$DemoScenario** = **3**  
 3. 按 **F5** 运行演示脚本（用于调用 *Deploy-TenantAnalytics\<XX>.ps1* 脚本），以创建租户分析存储。 
 
-部署应用程序并在其中填充所需的租户数据后，请使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 并指定登录名“developer”和密码“P\@ssword1”，来连接“tenants1-dpt-&lt;User&gt;”和“catalog-dpt-&lt;User&gt;”服务器。 有关更多指导，请参阅[简介教程](../../sql-database/saas-dbpertenant-wingtip-app-overview.md)。
+部署应用程序并在其中填充所需的租户数据后，请使用 [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) 并指定登录名“developer”和密码“P\@ssword1”，来连接“tenants1-dpt-&lt;User&gt;”和“catalog-dpt-&lt;User&gt;”服务器。 有关更多指导，请参阅[简介教程](./saas-dbpertenant-wingtip-app-overview.md)。
 
 ![显示连接到 SQL Server 所需的信息的屏幕截图。](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -240,6 +240,6 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 ## <a name="additional-resources"></a>其他资源
 
-- 其他[基于 Wingtip SaaS 应用程序编写的教程](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)。
-- [弹性作业](../../sql-database/elastic-jobs-overview.md)。
-- [使用提取的数据运行跨租户分析 - 多租户应用](../../sql-database/saas-multitenantdb-tenant-analytics.md)
+- 其他[基于 Wingtip SaaS 应用程序编写的教程](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)。
+- [弹性作业](./elastic-jobs-overview.md)。
+- [使用提取的数据运行跨租户分析 - 多租户应用](./saas-multitenantdb-tenant-analytics.md)

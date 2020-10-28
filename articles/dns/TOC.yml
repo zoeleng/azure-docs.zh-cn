@@ -18,6 +18,7 @@
         - name: 创建公用区域 - CLI
           href: dns-getstarted-cli.md
         - name: 创建公用区域 - ARM 模板
+          displayName: Resource Manager
           href: dns-get-started-template.md
     - name: 专用 DNS
       items:

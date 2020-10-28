@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973302"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790604"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server 与 Azure SQL 托管实例之间的 T-SQL 差异
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ Azure Blob 存储审核的主要 `CREATE AUDIT` 语法差异为：
 
 请参阅 [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) 和 [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql)。 
  
-**解决方法**：请勿在创建证书备份后再还原该备份，而应[先获取证书二进制文件内容和私钥，将其存储为 .sql 文件，然后从二进制文件创建证书](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)：
+**解决方法** ：请勿在创建证书备份后再还原该备份，而应 [先获取证书二进制文件内容和私钥，将其存储为 .sql 文件，然后从二进制文件创建证书](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)：
 
 ```sql
 CREATE CERTIFICATE  
@@ -220,7 +220,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 不支持多个日志文件。
 - “常规用途”服务层级不支持内存中对象。 
-- 每个“常规用途”实例限制为 280 个文件，这意味着，每个数据库最多只能有 280 个文件。 “常规用途”层级中的数据文件和日志文件都会计入此限制。 [“业务关键”层级支持每个数据库 32,767 个文件](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
+- 每个“常规用途”实例限制为 280 个文件，这意味着，每个数据库最多只能有 280 个文件。 “常规用途”层级中的数据文件和日志文件都会计入此限制。 [“业务关键”层级支持每个数据库 32,767 个文件](./resource-limits.md#service-tier-characteristics)。
 - 数据库中不能有包含文件流数据的文件组。 如果 .bak 包含 `FILESTREAM` 数据，还原将会失败。 
 - 每个文件都被放置在 Azure Blob 存储中。 每个文件的 IO 和吞吐量取决于每个单独文件的大小。
 
@@ -354,7 +354,7 @@ SQL 托管实例不支持 SQL Server 中启用的未记录 DBCC 语句。
 ### <a name="distributed-transactions"></a>分布式事务
 
 对 [分布式事务](../database/elastic-transactions-overview.md) 的部分支持目前为公共预览版。 支持的方案包括：
-* 参与者只是 [服务器信任组](https://aka.ms/mitrusted-groups)中的 Azure SQL 托管实例的事务。
+* 参与者只是 [服务器信任组](./server-trust-group-overview.md)中的 Azure SQL 托管实例的事务。
 * 从 .NET (TransactionScope 类启动的事务) 和 Transact-sql。
 
 Azure SQL 托管实例当前不支持本地或 Azure 虚拟机中的 MSDTC 定期支持的其他方案。
@@ -482,7 +482,7 @@ SQL 托管实例中的链接服务器支持有限数量的目标：
   - `remote proc trans`
 - 不支持 `sp_execute_external_scripts`。 请参阅 [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)。
 - 不支持 `xp_cmdshell`。 请参阅 [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
-- 不支持 `Extended stored procedures`，其中包括 `sp_addextendedproc` 和 `sp_dropextendedproc`。 请参阅[扩展存储过程](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)。
+- `Extended stored procedures` 不受支持，其中包括 `sp_addextendedproc` 和 `sp_dropextendedproc` 。 请参阅[扩展存储过程](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)。
 - 不支持 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 请参阅 [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
 
 ### <a name="system-functions-and-variables"></a>系统函数和变量
@@ -527,13 +527,13 @@ SQL 托管实例中的以下 MSDB 架构必须由其相应的预定义角色拥�
 
 - 常规角色
   - TargetServersRole
-- [固定数据库角色](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [固定数据库角色](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail 角色](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile)：
+- [DatabaseMail 角色](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile)：
   - DatabaseMailUserRole
-- [集成服务角色](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15)：
+- [集成服务角色](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15)：
   - msdb
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ SQL 托管实例中的以下 MSDB 架构必须由其相应的预定义角色拥�
 
 ### <a name="error-logs"></a>错误日志
 
-SQL 托管实例将详细信息放在错误日志中。 有很多内部系统事件记录在错误日志中。 使用自定义过程读取已筛选出某些不相关条目的错误日志。 有关详细信息，请参阅 [SQL 托管实例 - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) 或用于 Azure Data Studio 的 [SQL 托管实例扩展（预览版）](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs)。
+SQL 托管实例将详细信息放在错误日志中。 有很多内部系统事件记录在错误日志中。 使用自定义过程读取已筛选出某些不相关条目的错误日志。 有关详细信息，请参阅 [SQL 托管实例 - sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) 或用于 Azure Data Studio 的 [SQL 托管实例扩展（预览版）](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs)。
 
 ## <a name="next-steps"></a>后续步骤
 
