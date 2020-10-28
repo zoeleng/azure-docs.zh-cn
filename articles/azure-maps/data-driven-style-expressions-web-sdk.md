@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311370"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895964"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Web SDK (的数据驱动样式表达式) 
 
@@ -86,9 +86,9 @@ Azure Maps Web SDK 支持多种类型的表达式。 表达式可以单独使用
 
 数据表达式提供对功能中的属性数据的访问。 
 
-| Expression | 返回类型 | 说明 |
+| 表达式 | 返回类型 | 说明 |
 |------------|-------------|-------------|
-| `['at', number, array]` | object | 从数组中检索项。 |
+| `['at', number, array]` | 对象 (object) | 从数组中检索项。 |
 | `['geometry-type']` | 字符串 | 获取功能的几何图形类型： Point、MultiPoint、LineString、MultiLineString、多边形、MultiPolygon。 |
 | `['get', string]` | value | 从当前功能的属性获取属性值。 如果缺少请求的属性，则返回 null。 |
 | `['get', string, object]` | value | 从提供的对象的属性获取属性值。 如果缺少请求的属性，则返回 null。 |
@@ -179,7 +179,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 数学表达式提供数学运算符，用于在 expression framework 内执行数据驱动的计算。
 
-| Expression | 返回类型 | 说明 |
+| 表达式 | 返回类型 | 说明 |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | 数字 | 计算指定数字的和。 |
 | `['-', number]` | 数字 | 将0减去指定数字。 |
@@ -234,7 +234,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 比较值时，将严格类型化比较。 不同类型的值始终被视为不相等。 在分析时已知不同类型的情况被视为无效，并将生成分析错误。 
 
-| Expression | 返回类型 | 说明 |
+| 表达式 | 返回类型 | 说明 |
 |------------|-------------|-------------|
 | `['!', boolean]` | boolean | 逻辑求反。 `true`如果输入为，则返回 `false` ; `false` 如果输入为，则返回 `true` 。 |
 | `['!=', value, value]` | boolean | `true`如果输入值不相等，则返回 `false` ; 否则返回。 |
@@ -437,7 +437,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 类型表达式提供了用于测试和转换不同数据类型（如字符串、数字和布尔值）的工具。
 
-| Expression | 返回类型 | 说明 |
+| 表达式 | 返回类型 | 说明 |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | array \| 对象 | 返回文本数组或对象值。 使用此表达式可防止将数组或对象作为表达式进行计算。 当表达式需要返回数组或对象时，这是必需的。 |
 | `['image', string]` | 字符串 | 检查是否已将指定的映像 ID 加载到 maps 图像 sprite。 如果为，则返回 ID，否则返回 null。 |
@@ -473,15 +473,15 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 颜色表达式使您可以更轻松地创建和操作颜色值。
 
-| Expression | 返回类型 | 说明 |
+| 表达式 | 返回类型 | 说明 |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | 从 *红色*、 *绿色*和 *蓝色* 分量创建颜色值，该颜色值必须介于和之间， `0` `255` 并具有的 alpha 分量 `1` 。 如果任何组件超出范围，则表达式为错误。 |
-| `['rgba', number, number, number, number]` | color | 从 *红色*、 *绿色*、 *蓝色* 分量创建颜色值，这些分量必须介于和之间， `0` 并且在 `255` 和范围内的 alpha `0` 分量 `1` 。 如果任何组件超出范围，则表达式为错误。 |
-| `['to-rgba']` | \[number、number、number、number\] | 返回一个由四个元素组成的数组，其中包含输入颜色的 *红色*、 *绿色*、 *蓝色*和 *alpha* 分量，按顺序排列。 |
+| `['rgb', number, number, number]` | color | 从 *红色* 、 *绿色* 和 *蓝色* 分量创建颜色值，该颜色值必须介于和之间， `0` `255` 并具有的 alpha 分量 `1` 。 如果任何组件超出范围，则表达式为错误。 |
+| `['rgba', number, number, number, number]` | color | 从 *红色* 、 *绿色* 、 *蓝色* 分量创建颜色值，这些分量必须介于和之间， `0` 并且在 `255` 和范围内的 alpha `0` 分量 `1` 。 如果任何组件超出范围，则表达式为错误。 |
+| `['to-rgba']` | \[number、number、number、number\] | 返回一个由四个元素组成的数组，其中包含输入颜色的 *红色* 、 *绿色* 、 *蓝色* 和 *alpha* 分量，按顺序排列。 |
 
 **示例**
 
-下面的示例创建一个 RGB 颜色值，其 *红色* 值为 `255` ，而 *绿色* 和 *蓝色* 值是通过与属性的值相乘计算得出的 `2.5` `temperature` 。 温度变化时，颜色将变为不同的 *红色*阴影。
+下面的示例创建一个 RGB 颜色值，其 *红色* 值为 `255` ，而 *绿色* 和 *蓝色* 值是通过与属性的值相乘计算得出的 `2.5` `temperature` 。 温度变化时，颜色将变为不同的 *红色* 阴影。
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -501,7 +501,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 字符串运算符表达式对字符串执行转换操作，例如连接和转换大小写。 
 
-| Expression | 返回类型 | 说明 |
+| 表达式 | 返回类型 | 说明 |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | 字符串 | 将多个字符串连接在一起。 每个值必须是字符串。 如果需要，请使用 `to-string` 类型表达式将其他值类型转换为字符串。 |
 | `['downcase', string]` | 字符串 | 将指定的字符串转换为小写。 |
@@ -647,7 +647,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="heat-map-density-expression"></a>热度地图密度表达式
 
-热度地图密度表达式检索热度地图层中每个像素的热度地图密度值，并将其定义为 `['heatmap-density']` 。 此值是一个介于和之间的数字 `0` `1` 。 它与 `interpolation` or 表达式结合使用 `step` 来定义用于着色热度地图的颜色渐变。 此表达式只能用于热度地图层的 " [颜色" 选项](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) 。
+热度地图密度表达式检索热度地图层中每个像素的热度地图密度值，并将其定义为 `['heatmap-density']` 。 此值是一个介于和之间的数字 `0` `1` 。 它与 `interpolation` or 表达式结合使用 `step` 来定义用于着色热度地图的颜色渐变。 此表达式只能用于热度地图层的 " [颜色" 选项](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) 。
 
 > [!TIP]
 > 位于索引0、内插表达式或步骤颜色的默认颜色中的颜色定义了没有数据的区域的颜色。 索引0处的颜色可用于定义背景色。 很多用户喜欢将此值设置为透明或半透明黑色。
@@ -899,7 +899,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 变量绑定表达式将计算结果存储在变量中。 因此，可以多次在表达式中的其他地方引用计算结果。 对于涉及许多计算的表达式，它是一个有用的优化。
 
-| Expression | 返回类型 | 说明 |
+| 表达式 | 返回类型 | 说明 |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"let"，<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1： string，<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1： any、<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2： string，<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2： any，<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | 将一个或多个值作为变量存储，以供 `var` 返回结果的子表达式中的表达式使用。 |
 | `['var', name: string]` | any | 引用使用表达式创建的变量 `let` 。 |
@@ -954,16 +954,16 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 详细了解支持表达式的层选项：
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99821e51364eb9ffd75cda291c526c3c0b8c8f0e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524737"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895845"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>使用 Azure Maps 绘图错误可视化工具
 
-绘图错误可视化工具是一款独立 Web 应用，用于显示在转换过程中检测到的[绘图包警告和错误](drawing-conversion-error-codes.md)。 错误可视化工具 Web 应用由一个静态页组成，可以在不连接到 Internet 的情况下使用此页。  可以使用错误可视化工具来根据[绘图包要求](drawing-requirements.md)修复错误和警告。 只有在检测到错误时，[Azure Maps 转换 API](https://docs.microsoft.com/rest/api/maps/conversion) 才会返回包含错误可视化工具链接的响应。
+绘图错误可视化工具是一款独立 Web 应用，用于显示在转换过程中检测到的[绘图包警告和错误](drawing-conversion-error-codes.md)。 错误可视化工具 Web 应用由一个静态页组成，可以在不连接到 Internet 的情况下使用此页。  可以使用错误可视化工具来根据[绘图包要求](drawing-requirements.md)修复错误和警告。 只有在检测到错误时，[Azure Maps 转换 API](/rest/api/maps/conversion) 才会返回包含错误可视化工具链接的响应。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -88,7 +88,7 @@ ConversionWarningsAndErrors.json 文件已被置于下载目录的根目录下�
 
 ## <a name="next-steps"></a>后续步骤
 
-在[绘图包符合要求](drawing-requirements.md)后，你就可以使用 [Azure Maps 数据集服务](https://docs.microsoft.com/rest/api/maps/conversion)将绘图包转换为数据集了。 然后，可以使用“室内定位”Web 模块来开发应用。 若要了解详细信息，请阅读以下文章：
+在[绘图包符合要求](drawing-requirements.md)后，你就可以使用 [Azure Maps 数据集服务](/rest/api/maps/conversion)将绘图包转换为数据集了。 然后，可以使用“室内定位”Web 模块来开发应用。 若要了解详细信息，请阅读以下文章：
 
 > [!div class="nextstepaction"]
 > [绘图转换错误代码](drawing-conversion-error-codes.md)

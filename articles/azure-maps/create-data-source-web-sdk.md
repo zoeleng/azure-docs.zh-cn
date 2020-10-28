@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 75d2833a5b270fcfdcffa668ec0e308399edab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311444"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895913"
 ---
 # <a name="create-a-data-source"></a>创建数据源
 
 Azure Maps Web SDK 将数据存储在数据源中。 使用数据源优化用于查询和呈现的数据操作。 目前有两种类型的数据源：
 
-- **GeoJSON source**：在本地管理 GeoJSON 格式的原始位置数据。 适用于小型到中型数据集， (的) 的数量为几十万个形状。
-- **矢量图块源**：基于地图平铺系统，为当前地图视图加载格式为矢量图块的数据。 适用于大到大数据集 (数百万或数十亿个形状) 。
+- **GeoJSON source** ：在本地管理 GeoJSON 格式的原始位置数据。 适用于小型到中型数据集， (的) 的数量为几十万个形状。
+- **矢量图块源** ：基于地图平铺系统，为当前地图视图加载格式为矢量图块的数据。 适用于大到大数据集 (数百万或数十亿个形状) 。
 
 ## <a name="geojson-data-source"></a>GeoJSON 数据源
 
-基于 GeoJSON 的数据源使用类在本地加载和存储数据 `DataSource` 。 可以使用 [GeoJSON 命名空间](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) 中的帮助器类手动创建或创建数据。 `DataSource`类提供用于导入本地或远程 GeoJSON 文件的函数。 远程 GeoJSON 文件必须托管在已启用 CORs 的终结点上。 `DataSource`类为聚集点数据提供功能。 而且，可以通过类轻松地添加、删除和更新数据 `DataSource` 。 下面的代码演示如何在 Azure Maps 中创建 GeoJSON 数据。
+基于 GeoJSON 的数据源使用类在本地加载和存储数据 `DataSource` 。 可以使用 [GeoJSON 命名空间](/javascript/api/azure-maps-control/atlas.data) 中的帮助器类手动创建或创建数据。 `DataSource`类提供用于导入本地或远程 GeoJSON 文件的函数。 远程 GeoJSON 文件必须托管在已启用 CORs 的终结点上。 `DataSource`类为聚集点数据提供功能。 而且，可以通过类轻松地添加、删除和更新数据 `DataSource` 。 下面的代码演示如何在 Azure Maps 中创建 GeoJSON 数据。
 
 ```javascript
 //Create raw GeoJSON object.
@@ -46,7 +46,7 @@ var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
 }); 
 ```
 
-创建后，可以通过属性将数据源添加到地图 `map.sources` 中，这是一个 [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager)。 下面的代码演示如何创建 `DataSource` 并将其添加到地图中。
+创建后，可以通过属性将数据源添加到地图 `map.sources` 中，这是一个 [SourceManager](/javascript/api/azure-maps-control/atlas.sourcemanager)。 下面的代码演示如何创建 `DataSource` 并将其添加到地图中。
 
 ```javascript
 //Create a data source and add it to the map.
@@ -74,7 +74,7 @@ dataSource.setShapes(geoJsonData);
 
 ## <a name="vector-tile-source"></a>矢量磁贴源
 
-矢量图块源介绍如何访问矢量图块层。 使用 [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) 类实例化矢量图块源。 矢量图块层类似于图块层，但它们不同。 图块层是光栅图像。 矢量图块层是压缩文件，采用 **PBF** 格式。 此压缩文件包含向量映射数据以及一个或多个层。 基于每个层的样式，可以在客户端上呈现并设计文件样式。 矢量磁贴中的数据包含点、线条和多边形格式的地理功能。 使用矢量图块层（而不是光栅图块层）有多种优点：
+矢量图块源介绍如何访问矢量图块层。 使用 [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) 类实例化矢量图块源。 矢量图块层类似于图块层，但它们不同。 图块层是光栅图像。 矢量图块层是压缩文件，采用 **PBF** 格式。 此压缩文件包含向量映射数据以及一个或多个层。 基于每个层的样式，可以在客户端上呈现并设计文件样式。 矢量磁贴中的数据包含点、线条和多边形格式的地理功能。 使用矢量图块层（而不是光栅图块层）有多种优点：
 
  - 矢量磁贴的文件大小通常比等效的光栅磁贴小得多。 因此，使用的带宽更少。 这意味着延迟较低、更快的地图和更好的用户体验。
  - 由于矢量磁贴是在客户端上呈现的，因此它们会适应其所显示的设备的分辨率。 因此，呈现的地图的定义更清晰，并显示 crystal 清晰标签。
@@ -83,10 +83,10 @@ dataSource.setShapes(geoJsonData);
 
 Azure Maps 遵循 [Mapbox Vector 磁贴规范](https://github.com/mapbox/vector-tile-spec)，即开放标准。 Azure Maps 在平台中提供以下矢量图块服务：
 
-- 路标磁贴[文档](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [数据格式详细信息](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- 流量事件[文档](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [数据格式详细信息](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- 流量流[文档](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [数据格式详细信息](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator 还允许通过[获取磁贴呈现 V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)创建和访问自定义向量磁贴
+- 路标磁贴[文档](/rest/api/maps/renderv2/getmaptilepreview)  |  [数据格式详细信息](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- 流量事件[文档](/rest/api/maps/traffic/gettrafficincidenttile)  |  [数据格式详细信息](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- 流量流[文档](/rest/api/maps/traffic/gettrafficflowtile)  |  [数据格式详细信息](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- Azure Maps Creator 还允许通过[获取磁贴呈现 V2](/rest/api/maps/renderv2/getmaptilepreview)创建和访问自定义向量磁贴
 
 > [!TIP]
 > 使用 web SDK Azure Maps 呈现服务中的矢量或光栅图像磁贴时，可以 `atlas.microsoft.com` 将替换为占位符 `{azMapsDomain}` 。 此占位符将替换为映射所使用的相同域，并将自动附加相同的身份验证详细信息。 当使用 Azure Active Directory authentication 时，这大大简化了使用渲染服务进行的身份验证。
@@ -213,16 +213,16 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 详细了解本文中使用的类和方法：
 
 > [!div class="nextstepaction"]
-> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [DataSourceOptions](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource)
+> [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource)
 
 > [!div class="nextstepaction"]
-> [VectorTileSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
+> [VectorTileSourceOptions](/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
 
 有关可向地图添加的更多代码示例，请参阅以下文章：
 
@@ -248,4 +248,4 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 > [添加热度地图](map-add-heat-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [代码示例](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [代码示例](/samples/browse/?products=azure-maps)

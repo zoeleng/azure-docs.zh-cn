@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441617"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896066"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>将自定义审批工作流添加到自助注册
 
@@ -33,24 +33,24 @@ ms.locfileid: "92441617"
 
 1. 以 Azure AD 管理员身份登录到 [Azure 门户](https://portal.azure.com)。
 2. 在“Azure 服务”下，选择“Azure Active Directory”。
-3. 在左侧菜单中，选择 " **应用注册**"，然后选择 " **新注册**"。
-4. 输入应用程序的 **名称** ，例如 " _注册审批_"。
+3. 在左侧菜单中，选择 " **应用注册** "，然后选择 " **新注册** "。
+4. 输入应用程序的 **名称** ，例如 " _注册审批_ "。
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. 选择“注册”  。 可以将其他字段保留默认值。
+5. 选择“注册”。 可以将其他字段保留默认值。
 
-   ![注册应用程序页面](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![突出显示 "注册" 按钮的屏幕截图。](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. 在左侧菜单中的 " **管理** " 下，选择 " **API 权限**"，然后选择 " **添加权限**"。
-7. 在 " **请求 API 权限** " 页上，选择 " **Microsoft Graph**"，然后选择 " **应用程序权限**"。
-8. 在 " **选择权限**" 下，展开 " **用户**"，然后选择 " **用户** "。 此权限允许批准系统在批准时创建用户。 然后选择“添加权限”。
+6. 在左侧菜单中的 " **管理** " 下，选择 " **API 权限** "，然后选择 " **添加权限** "。
+7. 在 " **请求 API 权限** " 页上，选择 " **Microsoft Graph** "，然后选择 " **应用程序权限** "。
+8. 在 " **选择权限** " 下，展开 " **用户** "，然后选择 " **用户** "。 此权限允许批准系统在批准时创建用户。 然后选择“添加权限”。
 
    ![注册应用程序页面](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. 在 " **API 权限** " 页上，选择 " **授予管理员同意 (租户名称") **，然后选择 **"是"**。
-10. 在左侧菜单中的 " **管理** " 下，选择 " **证书 & 密码**"，然后选择 " **新建客户端密码**"。
-11. 输入机密的 **说明** （例如， _批准客户端机密_），并选择客户端密钥 **过期**的持续时间。 然后选择“添加”。
+9. 在 " **API 权限** " 页上，选择 " **授予管理员同意 (租户名称")** ，然后选择 **"是"** 。
+10. 在左侧菜单中的 " **管理** " 下，选择 " **证书 & 密码** "，然后选择 " **新建客户端密码** "。
+11. 输入机密的 **说明** （例如， _批准客户端机密_ ），并选择客户端密钥 **过期** 的持续时间。 然后选择“添加”。
 12. 复制 "客户端密钥" 的值。
 
     ![复制要在批准系统中使用的客户端机密](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -61,7 +61,7 @@ ms.locfileid: "92441617"
 
 接下来，你将为自助注册用户流 [创建 API 连接器](self-service-sign-up-add-api-connector.md#create-an-api-connector) 。 你的审批系统 API 需要两个连接器和对应的终结点，如下面所示的示例。 这些 API 连接器执行以下操作：
 
-- **检查审批状态**。 用户使用标识提供者登录后立即向审批系统发送调用，以检查用户是否具有现有审批请求或已被拒绝。 如果批准系统仅执行自动批准决策，则可能不需要此 API 连接器。 "检查批准状态" API 连接器的示例。
+- **检查审批状态** 。 用户使用标识提供者登录后立即向审批系统发送调用，以检查用户是否具有现有审批请求或已被拒绝。 如果批准系统仅执行自动批准决策，则可能不需要此 API 连接器。 "检查批准状态" API 连接器的示例。
 
   ![检查审批状态 API 连接器配置](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
@@ -78,11 +78,11 @@ ms.locfileid: "92441617"
 1. 以 Azure AD 管理员身份登录到 [Azure 门户](https://portal.azure.com/)。
 2. 在“Azure 服务”下，选择“Azure Active Directory”。
 3. 在左侧菜单中，选择“外部标识”。
-4. 选择 " **用户流 (预览") **，然后选择要为其启用 API 连接器的用户流。
-5. 选择 " **api 连接器**"，然后选择要在用户流中的以下步骤调用的 api 终结点：
+4. 选择 " **用户流 (预览")** ，然后选择要为其启用 API 连接器的用户流。
+5. 选择 " **api 连接器** "，然后选择要在用户流中的以下步骤调用的 api 终结点：
 
-   - **使用标识提供者登录后**：选择你的审批状态 API 连接器，例如 _检查批准状态_。
-   - **在创建用户之前**：选择你的审批请求 API 连接器，例如 _请求批准_。
+   - **使用标识提供者登录后** ：选择你的审批状态 API 连接器，例如 _检查批准状态_ 。
+   - **在创建用户之前** ：选择你的审批请求 API 连接器，例如 _请求批准_ 。
 
    ![向用户流添加 Api](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -207,7 +207,7 @@ Content-type: application/json
 
 如果出现以下情况， **请求审批** API 终结点应返回延续响应：
 
-- 用户可以 **_自动获得批准_**。
+- 用户可以 **_自动获得批准_** 。
 
 继续响应示例：
 
@@ -318,7 +318,7 @@ Content-type: application/json
 }
 ```
 
-| 参数                                           | 必需 | 描述                                                                                                                                                            |
+| 参数                                           | 必需 | 说明                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | 是      | 可以通过将 `email` 声明发送到 API，将该 `@` 字符替换 `_` 为，并预先将其挂起到来生成 `#EXT@<tenant-name>.onmicrosoft.com` 。 |
 | accountEnabled                                      | 是      | 必须设置为 `true`。                                                                                                                                                 |

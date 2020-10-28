@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361528"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895930"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>绘图转换错误和警告
 
-使用 [Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion)，可以将上传的绘图包转换为定位数据。 绘图包必须符合[绘图包要求](drawing-requirements.md)。 如果不符合一个或多个要求，转换服务就会返回错误或警告。 本文列出了转换错误和警告代码，以及关于如何解决这些问题的建议。 此外，还提供了一些可能会导致转换服务返回这些代码的绘图示例。
+使用 [Azure Maps 转换服务](/rest/api/maps/conversion)，可以将上传的绘图包转换为定位数据。 绘图包必须符合[绘图包要求](drawing-requirements.md)。 如果不符合一个或多个要求，转换服务就会返回错误或警告。 本文列出了转换错误和警告代码，以及关于如何解决这些问题的建议。 此外，还提供了一些可能会导致转换服务返回这些代码的绘图示例。
 
 如果有任何转换警告，转换服务也会成功。 尽管如此，仍建议你审阅并解决所有警告。 警告表示转换的一部分被忽略或自动修复。 如果不解决警告，可能会导致后续进程出错。
 

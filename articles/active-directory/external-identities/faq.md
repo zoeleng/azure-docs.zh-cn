@@ -12,25 +12,25 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441838"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896083"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 协作常见问题解答
 
 有关 Azure Active Directory (Azure AD) 企业到企业 (B2B) 协作的常见问题解答 (FAQ) 会定期更新，以包含新主题。
 
    > [!IMPORTANT]
-   > **从 2021 年 3 月 31 日起**，Microsoft 将不再支持通过创建用于 B2B 协作方案的非托管 Azure AD 帐户和租户进行邀请兑换。 在准备期间，我们鼓励客户选择参与[电子邮件一次性密码身份验证](one-time-passcode.md)。 我们欢迎你提供有关此公共预览版功能的反馈，并且很乐意创建更多的协作方式。
+   > **从 2021 年 3 月 31 日起** ，Microsoft 将不再支持通过创建用于 B2B 协作方案的非托管 Azure AD 帐户和租户进行邀请兑换。 在准备期间，我们鼓励客户选择参与[电子邮件一次性密码身份验证](one-time-passcode.md)。 我们欢迎你提供有关此公共预览版功能的反馈，并且很乐意创建更多的协作方式。
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>是否可以自定义登录页，以便 B2B 协作来宾用户获得更直观的体验？
 当然！ 请参阅[有关此功能的博客文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)。 有关如何自定义组织登录页的详细信息，请参阅[在登录页和访问面板页中添加公司品牌](../fundamentals/customize-branding.md)。
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B 协作用户能否访问 SharePoint Online 和 OneDrive？
-是的。 不过，在 SharePoint Online 中使用人员选取器搜索现有来宾用户的功能默认已**关闭**。 要启用该选项来搜索现有来宾用户，请将 **ShowPeoplePickerSuggestionsForGuestUsers** 为 **On**。 可以在租户级别或站点集合级别启用此设置。 可以使用 Set-SPOTenant 和 Set-SPOSite cmdlet 更改此设置。 使用这些 cmdlet，成员可以搜索目录中的所有现有来宾用户。 租户范围中的更改不会影响已经预配的 SharePoint Online 站点。
+是的。 不过，在 SharePoint Online 中使用人员选取器搜索现有来宾用户的功能默认已 **关闭** 。 要启用该选项来搜索现有来宾用户，请将 **ShowPeoplePickerSuggestionsForGuestUsers** 为 **On** 。 可以在租户级别或站点集合级别启用此设置。 可以使用 Set-SPOTenant 和 Set-SPOSite cmdlet 更改此设置。 使用这些 cmdlet，成员可以搜索目录中的所有现有来宾用户。 租户范围中的更改不会影响已经预配的 SharePoint Online 站点。
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>是否仍支持 CSV 上传功能？
 是的。 有关使用 .csv 文件上传功能的详细信息，请参阅[此 PowerShell 示例](code-samples.md)。
@@ -73,7 +73,7 @@ ms.locfileid: "92441838"
 9. 选择“完成”  。
 10. 在“新建”页的“分配”部分，选择“云应用或操作”    。
 11. 在“云应用或操作”页上，选择“选择应用”，然后选择“选择”    。
-12. 在“选择”页面上，选择“Microsoft Azure 管理”，然后勾选“选择”************。
+12. 在“选择”页面上，选择“Microsoft Azure 管理”，然后勾选“选择”  。
 13. 在“云应用或操作”页上，选择“完成”   。
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B 协作是否支持多重身份验证和使用者电子邮件帐户？
@@ -130,7 +130,7 @@ Azure AD 具有固定的字符集、密码强度和帐户锁定要求，同样�
 是的。 Azure AD B2B 协作支持允许列表和拒绝列表。 
 
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>使用 Azure AD B2B 需要哪些许可证？
-有关组织需要哪些许可证才能使用 Azure AD B2B 的信息，请参阅 [Azure Active Directory B2B 协作许可指南](licensing-guidance.md)。
+有关组织需要 Azure AD B2B 使用哪些许可证的信息，请参阅 [外部标识定价](external-identities-pricing.md)。
 
 ### <a name="next-steps"></a>后续步骤
 

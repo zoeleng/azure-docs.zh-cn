@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1f25aadf716b7768b6122a4fb165466aef7f8a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053386"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895828"
 ---
 # <a name="drawing-package-requirements"></a>绘图包要求
 
-您可以使用 [Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion)将上载的绘图包转换为映射数据。 本文介绍了适用于转换 API 的绘图包要求。 若要查看示例包，可以下载示例[绘图包](https://github.com/Azure-Samples/am-creator-indoor-data-examples)。
+您可以使用 [Azure Maps 转换服务](/rest/api/maps/conversion)将上载的绘图包转换为映射数据。 本文介绍了适用于转换 API 的绘图包要求。 若要查看示例包，可以下载示例[绘图包](https://github.com/Azure-Samples/am-creator-indoor-data-examples)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -25,7 +25,7 @@ ms.locfileid: "90053386"
 
 您可以选择任何 CAD 软件来生成绘图包中的绘图。  
 
-[Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion)可以将绘图包转换为定位数据。 转换服务与 AutoCAD DWG 文件格式一起使用。 `AC1032` 是 DWG 文件的内部格式版本，因此最好选择 `AC1032` 内部 dwg 文件格式版本。  
+[Azure Maps 转换服务](/rest/api/maps/conversion)可以将绘图包转换为定位数据。 转换服务与 AutoCAD DWG 文件格式一起使用。 `AC1032` 是 DWG 文件的内部格式版本，因此最好选择 `AC1032` 内部 dwg 文件格式版本。  
 
 ## <a name="glossary-of-terms"></a>术语词汇表
 
@@ -52,11 +52,11 @@ ms.locfileid: "90053386"
 
 设施的每个楼层都需要一个 DWG 文件。 楼层的数据必须包含在一个 DWG 文件中。 所有外部引用 (Xref) 都必须绑定到父绘图。 此外，每个 DWG 文件：
 
-* 必须定义 Exterior 和 Unit 图层。 它可以选择定义以下可选层： _墙壁_、 _门板_、 _UnitLabel_、 _Zone_和 _ZoneLabel_。
+* 必须定义 Exterior 和 Unit 图层。 它可以选择定义以下可选层： _墙壁_ 、 _门板_ 、 _UnitLabel_ 、 _Zone_ 和 _ZoneLabel_ 。
 * 不得包含来自多个楼层的特征。
 * 不得包含来自多个设施的特征。
 
-[Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion)可以从 DWG 文件中提取以下特征类：
+[Azure Maps 转换服务](/rest/api/maps/conversion)可以从 DWG 文件中提取以下特征类：
 
 * Levels
 * 单位
@@ -73,11 +73,11 @@ DWG 图层还必须遵循以下条件：
 
 * 所有 DWG 文件的绘图源都必须保持纬度和经度相同。
 * 每个楼层都必须与其他楼层的方向相同。
-* 自相交多边形会自动修复，并且 [Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion) 会引发警告。 你应手动检查修复后的结果，因为它们可能与预期的结果不匹配。
+* 自相交多边形会自动修复，并且 [Azure Maps 转换服务](/rest/api/maps/conversion) 会引发警告。 你应手动检查修复后的结果，因为它们可能与预期的结果不匹配。
 
 所有层实体都必须是以下类型之一：直线、折线、多边形、圆弧、圆圈或文本 (单行) 。 任何其他实体类型都将被忽略。
 
-下表概述了支持的实体类型和每个层支持的功能。 如果层包含不受支持的实体类型，则 [Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion) 将忽略这些实体。  
+下表概述了支持的实体类型和每个层支持的功能。 如果层包含不受支持的实体类型，则 [Azure Maps 转换服务](/rest/api/maps/conversion) 将忽略这些实体。  
 
 | 层 | 实体类型 | 功能 |
 | :----- | :-------------------| :-------
@@ -168,15 +168,15 @@ Azure Maps 数据集中的门开口表示为与多个单元边界重叠的单行
 
 ## <a name="manifest-file-requirements"></a>清单文件要求
 
-zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清单文件。 它描述了 DWG 文件，以便 [Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion)能够分析其内容。 仅引入清单标识的文件。 位于 zip 文件夹中但未在清单中正确列出的文件将被忽略。
+zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清单文件。 它描述了 DWG 文件，以便 [Azure Maps 转换服务](/rest/api/maps/conversion)能够分析其内容。 仅引入清单标识的文件。 位于 zip 文件夹中但未在清单中正确列出的文件将被忽略。
 
 清单文件的对象中的文件路径 `buildingLevels` 必须是相对于 zip 文件夹的根的路径。 DWG 文件名必须与设施楼层的名称完全匹配。 例如，"上" 级别的 DWG 文件为 ""。 级别2的 DWG 文件被命名为 "level_2 dwg"。 如果楼层名称中有空格，请使用下划线字符。
 
-尽管使用清单对象时有要求，但并不是所有的对象都是必需的。 下表显示 [Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion)版本1.1 的必需和可选对象。
+尽管使用清单对象时有要求，但并不是所有的对象都是必需的。 下表显示 [Azure Maps 转换服务](/rest/api/maps/conversion)版本1.1 的必需和可选对象。
 
 | 对象 | 必选 | 说明 |
 | :----- | :------- | :------- |
-| `version` | true |清单架构版本。 目前仅支持版本1.1。|
+| `version` | 是 |清单架构版本。 目前仅支持版本1.1。|
 | `directoryInfo` | true | 概述设施地理位置和联系人信息。 它还可用于概述居用者的地理位置和联系人信息。 |
 | `buildingLevels` | true | 指定建筑物的楼层，以及包含各楼层的设计的文件。 |
 | `georeference` | true | 包含设施绘图的数值地理信息。 |
@@ -188,7 +188,7 @@ zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清
 
 ### `directoryInfo`
 
-| 属性  | 类型 | 必须 | 说明 |
+| properties  | 类型 | 必需 | 说明 |
 |-----------|------|----------|-------------|
 | `name`      | 字符串 | true   |  建筑物名称。 |
 | `streetAddress`|    字符串 |    false    | 建筑物地址。 |
@@ -209,7 +209,7 @@ zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清
 
 `buildingLevels` 对象包含建筑物楼层的 JSON 数组。
 
-| properties  | 类型 | 必须 | 说明 |
+| properties  | 类型 | 必需 | 说明 |
 |-----------|------|----------|-------------|
 |`levelName`    |字符串    |true |    楼层的描述性名称。 例如：第1层、会议厅、蓝色停车场或一起。|
 |`ordinal` | integer |    true | 确定级别的垂直顺序。 每个设施都必须有序号为 0 的楼层。 |
@@ -219,7 +219,7 @@ zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清
 
 ### `georeference`
 
-| 属性  | 类型 | 必须 | 说明 |
+| properties  | 类型 | 必需 | 说明 |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    设施绘图的原点的纬度（用十进制表示）。 坐标原点必须位于 WGS84 Web Mercator (`EPSG:3857`)。|
 |`lon`    |numeric|    true|    设施绘图的原点的经度（用十进制表示）。 坐标原点必须位于 WGS84 Web Mercator (`EPSG:3857`)。 |
@@ -227,10 +227,10 @@ zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清
 
 ### `dwgLayers`
 
-| 属性  | 类型 | 必须 | 说明 |
+| properties  | 类型 | 必需 | 说明 |
 |-----------|------|----------|-------------|
-|`exterior`    |字符串数组|    true|    定义外部生成配置文件的层的名称。|
-|`unit`|    字符串数组|    true|    定义单位的层的名称。|
+|`exterior`    |字符串数组|    是|    定义外部生成配置文件的层的名称。|
+|`unit`|    字符串数组|    是|    定义单位的层的名称。|
 |`wall`|    字符串数组    |false|    定义墙壁的层的名称。|
 |`door`    |字符串数组|    false   | 定义门的层的名称。|
 |`unitLabel`    |字符串数组|    false    |定义单元名称的层的名称。|
@@ -241,27 +241,27 @@ zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清
 
 `unitProperties` 对象包含 unit 属性的 JSON 数组。
 
-| properties  | 类型 | 必须 | 说明 |
+| properties  | 类型 | 必需 | 说明 |
 |-----------|------|----------|-------------|
 |`unitName`    |字符串    |true    |要与此 `unitProperty` 记录关联的单元的名称。 仅当在层中找到标签匹配时，此记录才有效 `unitName` `unitLabel` 。 |
 |`categoryName`|    字符串|    false    |类别名称。 有关完整的类别列表，请参阅[类别](https://aka.ms/pa-indoor-spacecategories)。 |
 |`navigableBy`| 字符串数组 |    false    |指明可遍历单元的导航代理的类型。 此属性告知 wayfinding 功能。 允许的值为： `pedestrian` 、 `wheelchair` 、 `machine` 、 `bicycle` 、 `automobile` 、 `hiredAuto` 、 `bus` `railcar` `emergency` `ferry` `boat` 、、、、和 `disallowed` 。|
-|`routeThroughBehavior`|    字符串|    false    |单元的穿过行为。 允许的值为 `disallowed`、`allowed` 和 `preferred`。 默认值是 `allowed`。|
+|`routeThroughBehavior`|    字符串|    false    |单元的穿过行为。 允许的值为 `disallowed`、`allowed` 和 `preferred`。 默认值为 `allowed`。|
 |`occupants`    |directoryInfo 对象的数组 |false    |单元的居用者列表。 |
 |`nameAlt`|    字符串|    false|    单元的备用名称。 |
 |`nameSubtitle`|    字符串    |false|    单元的副标题。 |
 |`addressRoomNumber`|    字符串|    false|    设备的房间、单位、单元或套件编号。|
 |`verticalPenetrationCategory`|    字符串|    false| 如果定义了此属性，则生成的功能是 VRT) （而不是单元）的垂直渗透 (。 你可以使用 Vrt 来跳到它上面或下面的级别中的其他 VRT 功能。 垂直穿透是 [类别](https://aka.ms/pa-indoor-spacecategories) 名称。 如果定义了此属性，则 `categoryName` 属性会被重写 `verticalPenetrationCategory` 。 |
-|`verticalPenetrationDirection`|    字符串|    false    |如果定义了 `verticalPenetrationCategory`，则可以视需要选择定义有效的行进方向。 允许的值为： `lowToHigh` 、 `highToLow` 、 `both` 和 `closed` 。 默认值是 `both`。|
+|`verticalPenetrationDirection`|    字符串|    false    |如果定义了 `verticalPenetrationCategory`，则可以视需要选择定义有效的行进方向。 允许的值为： `lowToHigh` 、 `highToLow` 、 `both` 和 `closed` 。 默认值为 `both`。|
 | `nonPublic` | bool | false | 指明单元是否向公众开放。 |
-| `isRoutable` | bool | false | 如果将此属性设置为 `false` ，则不能通过单元进行切换。 默认值是 `true`。 |
+| `isRoutable` | bool | false | 如果将此属性设置为 `false` ，则不能通过单元进行切换。 默认值为 `true`。 |
 | `isOpenArea` | bool | false | 允许导航代理输入单位，而无需连接到设备。 默认情况下，此值设置为 `true` "对于没有开口的单位"，并将设置为 " `false` 带有开口的单位"。 如果 `isOpenArea` `false` 在没有打开的单元上手动设置为，则会出现警告。 这是因为导航代理无法访问结果单元。|
 
 ### `zoneProperties`
 
 `zoneProperties` 对象包含 zone 属性的 JSON 数组。
 
-| properties  | 类型 | 必须 | 说明 |
+| properties  | 类型 | 必需 | 说明 |
 |-----------|------|----------|-------------|
 |zoneName        |字符串    |true    |要与 `zoneProperty` 记录关联的区域的名称。 只有当在区域的 `zoneLabel` 图层中找到与 `zoneName` 匹配的标签时，此记录才有效。  |
 |categoryName|    字符串|    false    |类别名称。 有关完整的类别列表，请参阅[类别](https://aka.ms/pa-indoor-spacecategories)。 |
@@ -404,7 +404,7 @@ zip 文件夹必须在目录的根级别包含命名为“manifest.json”的清
 
 ## <a name="next-steps"></a>后续步骤
 
-当你的绘图包满足要求时，你可以使用 [Azure Maps 转换服务](https://docs.microsoft.com/rest/api/maps/conversion) 将包转换为地图数据集。 然后，可以使用该数据集，通过使用室内地图模块来生成室内地图。
+当你的绘图包满足要求时，你可以使用 [Azure Maps 转换服务](/rest/api/maps/conversion) 将包转换为地图数据集。 然后，可以使用该数据集，通过使用室内地图模块来生成室内地图。
 
 > [!div class="nextstepaction"]
 >[适用于室内定位的 Creator](creator-indoor-maps.md)
