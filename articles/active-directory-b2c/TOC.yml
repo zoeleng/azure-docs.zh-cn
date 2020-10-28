@@ -252,7 +252,7 @@
                   href: identity-provider-twitter-custom.md
             - name: SAML 提供程序
               items:
-                - name: ADFS
+                - name: AD FS
                   href: identity-provider-adfs2016-custom.md
                   displayName: SAML
                 - name: Salesforce
@@ -324,7 +324,7 @@
                       href: social-transformations.md
                     - name: StringCollection
                       href: stringcollection-transformations.md
-                    - name: String
+                    - name: 字符串
                       href: string-transformations.md
                 - name: 谓词
                   href: predicates.md

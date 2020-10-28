@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678094"
+ms.locfileid: "92739888"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>通过 Azure 门户为 SAP 解决方案部署 Azure Monitor
 
@@ -54,7 +54,7 @@ ms.locfileid: "92678094"
 
 4. 输入要使用的数据库租户的名称。 你可以选择任何租户，但我们建议使用 **SYSTEMDB** ，因为它支持更广泛的监视区域。 
 
-5. 输入与 HANA 数据库关联的 SQL 端口号。 端口号的格式应为 **[3]**  +  **[实例 #]**  +  **[13]** 或 **[3]**  +  **[实例 #]**  +  **[15]** 。 例如，30013或30015。 
+5. 输入与 HANA 数据库关联的 SQL 端口号。 端口号的格式应为 **[3]**  +  **[实例 #]**  +  **[13]** 。 例如，30013。 
 
 6. 输入要使用的数据库用户名。 确保数据库用户已分配 " **监视** " 和 " **目录读取** " 角色。 
 

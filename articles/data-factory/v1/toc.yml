@@ -200,7 +200,7 @@
     - name: 案例研究
       href: data-factory-customer-case-studies.md
     - name: Microsoft Q&A 问题页面
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+      href: /answers/topics/azure-data-factory.html
     - name: 定价
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: 定价计算器

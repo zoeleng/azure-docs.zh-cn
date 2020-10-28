@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209549"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740145"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>支持你开发的移动应用中的单一登录和应用保护策略
 
@@ -47,7 +47,7 @@ ms.locfileid: "92209549"
 
 对于 iOS 应用程序，我们提供了一个 [快速入门](quickstart-v2-ios.md) ，其中展示了如何使用 MSAL 设置登录，并提供了 [针对各种 SSO 方案配置 MSAL 的指南](single-sign-on-macos-ios.md)。
 
-对于 Android 应用程序，我们提供了一个 [快速入门](quickstart-v2-android.md) ，其中展示了如何使用 MSAL 设置登录，以及如何使用 [中转身份验证](brokered-auth.md) 或 [授权代理](authorization-agents.md)。
+对于 Android 应用程序，我们提供了一个 [快速入门](quickstart-v2-android.md) ，其中展示了如何使用 MSAL 设置登录，并指导 [如何使用 MSAL 在 Android 上启用跨应用 SSO](msal-android-single-sign-on.md)。
 
 ### <a name="use-the-system-web-browser"></a>使用系统 web 浏览器
 
