@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368853"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637677"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>在 Azure 数据工厂中转换数据
 
@@ -49,7 +49,7 @@ ms.locfileid: "92368853"
 
 ### <a name="wrangling-data-flows"></a>整理数据流
 
-通过 Azure 数据工厂中的整理数据流，可以在云规模上以迭代方式进行无代码的数据准备。 整理数据流与 [Power Query Online](https://docs.microsoft.com/power-query/) 集成，并通过 spark 执行将 Power Query M 功能提供给云规模的数据整理。 有关详细信息，请参阅 [整理 data](wrangling-data-flow-overview.md)flow。
+通过 Azure 数据工厂中的整理数据流，可以在云规模上以迭代方式进行无代码的数据准备。 整理数据流与 [Power Query Online](/power-query/) 集成，并通过 spark 执行将 Power Query M 功能提供给云规模的数据整理。 有关详细信息，请参阅 [整理 data](wrangling-data-flow-overview.md)flow。
 
 ## <a name="external-transformations"></a>外部转换
 
@@ -103,8 +103,8 @@ Data Lake Analytics U-SQL 活动在 Azure Data Lake Analytics 群集上运行 U-
 ### <a name="compute-environments"></a>计算环境
 为计算环境创建链接服务，并在定义转换活动时使用该服务。 数据工厂支持两类计算环境。 
 
-- **按需**：在这种情况下，计算环境由数据工厂完全托管。 作业提交到进程数据前，数据工厂服务会自动创建计算环境，作业完成后则自动将其删除。 针对作业执行、群集管理和启动操作，可以配置和控制按需计算环境的粒度设置。 
-- **自带**：在这种情况下，可将自己的计算环境（例如 HDInsight 群集）注册为数据工厂中的链接服务。 计算环境由用户进行管理，数据工厂服务使用它执行活动。 
+- **按需** ：在这种情况下，计算环境由数据工厂完全托管。 作业提交到进程数据前，数据工厂服务会自动创建计算环境，作业完成后则自动将其删除。 针对作业执行、群集管理和启动操作，可以配置和控制按需计算环境的粒度设置。 
+- **自带** ：在这种情况下，可将自己的计算环境（例如 HDInsight 群集）注册为数据工厂中的链接服务。 计算环境由用户进行管理，数据工厂服务使用它执行活动。 
 
 有关数据工厂支持的计算服务列表，请参阅 [计算链接服务](compute-linked-services.md)文章。 
 

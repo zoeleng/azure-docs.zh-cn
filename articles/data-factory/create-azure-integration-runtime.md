@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9615dc358b1c5bed0e48c07c2571ccce05fcdf2e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84659709"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637201"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>如何创建和配置 Azure 集成运行时
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,14 +41,14 @@ Azure IR 提供完全托管的计算，以本机执行数据移动和调度数�
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-Azure IR 的类型必须设置为**托管**。 无需指定计算详细信息，因为它在云中是完全弹性托管的。 如果要创建 Azure-SSIS IR，请指定计算详细信息，如节点大小和节点数量。 有关详细信息，请参阅[创建和配置 Azure-SSIS IR](create-azure-ssis-integration-runtime.md)。
+Azure IR 的类型必须设置为 **托管** 。 无需指定计算详细信息，因为它在云中是完全弹性托管的。 如果要创建 Azure-SSIS IR，请指定计算详细信息，如节点大小和节点数量。 有关详细信息，请参阅[创建和配置 Azure-SSIS IR](create-azure-ssis-integration-runtime.md)。
 
 可以使用 Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet 来配置现有 Azure IR 以更改其位置。 有关 Azure IR 的位置的详细信息，请参阅[集成运行时简介](concepts-integration-runtime.md)。
 
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>通过 Azure 数据工厂 UI 创建 Azure IR
 使用以下步骤通过 Azure 数据工厂 UI 创建 Azure IR。
 
-1. 在 Azure 数据工厂 UI 的“开始使用”页上，从最左侧的窗格选择[“管理”选项卡](https://docs.microsoft.com/azure/data-factory/author-management-hub)。
+1. 在 Azure 数据工厂 UI 的“开始使用”页上，从最左侧的窗格选择[“管理”选项卡](./author-management-hub.md)。
 
    ![主页“管理”按钮](media/doc-common-process/get-started-page-manage-button.png)
 
@@ -92,4 +92,3 @@ Azure IR 的类型必须设置为**托管**。 无需指定计算详细信息，
 
 - [创建自承载集成运行时](create-self-hosted-integration-runtime.md)
 - [创建 Azure-SSIS 集成运行时](create-azure-ssis-integration-runtime.md)
- 

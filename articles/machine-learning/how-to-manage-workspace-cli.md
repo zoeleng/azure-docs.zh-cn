@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 45f9f61712903436d63f483673705650f5470b3f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426353"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635943"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>使用 Azure CLI 创建 Azure 机器学习工作区
 
@@ -24,7 +24,7 @@ ms.locfileid: "92426353"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://aka.ms/AMLFree)。
+* 一个 **Azure 订阅** 。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://aka.ms/AMLFree)。
 
 * 若要从本地环境使用本文档中的 CLI 命令，需要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 
@@ -150,7 +150,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 * `--pe-auto-approval`：是否应自动批准与工作区的专用终结点连接。
 * `--pe-resource-group`：要在其中创建专用终结点的资源组。 必须是包含虚拟网络的同一个组。
 * `--pe-vnet-name`：要在其中创建专用终结点的现有虚拟网络。
-* `--pe-subnet-name`：要在其中创建专用终结点的子网的名称。 默认值是 `default`。
+* `--pe-subnet-name`：要在其中创建专用终结点的子网的名称。 默认值为 `default`。
 
 有关将专用终结点和虚拟网络与工作区结合使用的详细信息，请参阅 [虚拟网络隔离和隐私概述](how-to-network-security-overview.md)。
 
@@ -160,18 +160,17 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
 你可以使用 "提供你自己的密钥"，而不是使用 Microsoft 托管密钥。 这样做会创建在 Azure 订阅中存储指标和元数据的 Azure Cosmos DB 实例。 使用 `--cmk-keyvault` 参数指定包含密钥的 Azure Key Vault，并 `--resource-cmk-uri` 指定保管库中密钥的 URL。
 
-> [!IMPORTANT]
-> 使用 `--cmk-keyvault` 和参数之前 `--resource-cmk-uri` ，必须先执行以下操作：
->
-> 1. 在标识和访问管理) 中为订阅的 "参与者" 权限授权 __机器学习应用__ (。
-> 1. 按照 [将客户托管的密钥配置](/azure/cosmos-db/how-to-setup-cmk) 为：
->     * 注册 Azure Cosmos DB 提供程序
->     * 创建和配置 Azure Key Vault
->     * 生成密钥
->
->     您无需手动创建 Azure Cosmos DB 实例，而是在创建工作区时为您创建一个实例。 此 Azure Cosmos DB 实例将使用基于此模式的名称在单独的资源组中创建： `<your-resource-group-name>_<GUID>` 。
->
-> 在创建工作区后，不能更改此设置。 如果删除工作区使用的 Azure Cosmos DB，则还必须删除正在使用该工作区的工作区。
+使用 `--cmk-keyvault` 和参数之前 `--resource-cmk-uri` ，必须先执行以下操作：
+
+1. 在标识和访问管理) 中为订阅的 "参与者" 权限授权 __机器学习应用__ (。
+1. 按照 [将客户托管的密钥配置](/azure/cosmos-db/how-to-setup-cmk) 为：
+    * 注册 Azure Cosmos DB 提供程序
+    * 创建和配置 Azure Key Vault
+    * 生成密钥
+
+您无需手动创建 Azure Cosmos DB 实例，而是在创建工作区时为您创建一个实例。 此 Azure Cosmos DB 实例将使用基于此模式的名称在单独的资源组中创建： `<your-resource-group-name>_<GUID>` 。
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 若要限制 Microsoft 在你的工作区中收集的数据，请使用 `--hbi-workspace` 参数。 
 
@@ -187,7 +186,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 > [!IMPORTANT]
 > 无需指定所有现有资源。 可以指定一个或多个资源。 例如，可以指定某个现有存储帐户，工作区会创建其他资源。
 
-+ **Azure 存储帐户**：`az storage account show --name <storage-account-name> --query "id"`
++ **Azure 存储帐户** ：`az storage account show --name <storage-account-name> --query "id"`
 
     此命令的响应类似于以下文本，它是存储帐户的 ID：
 
@@ -196,7 +195,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
     > [!IMPORTANT]
     > 若要使用现有 Azure 存储帐户，则该帐户不能是高级帐户（Premium_LRS 和 Premium_GRS）。 它也不能具有分层命名空间（与 Azure Data Lake Storage Gen2 一起使用）。 工作区的默认存储帐户不支持高级存储和分层命名空间。 可以将高级存储或分层命名空间用于非默认存储帐户。
 
-+ **Azure Application Insights**：
++ **Azure Application Insights** ：
 
     1. 安装 Application Insights 扩展：
 
@@ -214,13 +213,13 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure 密钥保管库**：`az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure 密钥保管库** ：`az keyvault show --name <key-vault-name> --query "ID"`
 
     此命令的响应类似于以下文本，它是密钥保管库的 ID：
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure 容器注册表**：`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure 容器注册表** ：`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     此命令的响应类似于以下文本，它是容器注册表的 ID：
 

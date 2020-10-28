@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 43e3916e47aa0305209b8e6e32803426ac1ebe3d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637558"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure 数据工厂中的源代码管理
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "92101896"
     -   还原导致 bug 的更改的功能。
 -   **部分保存：** 在通过数据工厂服务进行创作时，不能将更改保存为草稿，所有发布都必须通过数据工厂验证。 无论是管道尚未完成还是你只是不想在计算机崩溃时丢失更改，git 集成都支持对数据工厂资源进行增量更改，无论资源处于何种状态均是如此。 配置 git 存储库可以保存更改，让你可以在执行满意的更改测试后才进行发布。
 -   **协作和控制：** 如果有多个团队成员参与同一工厂，则可能需要通过代码评审流程让团队成员相互协作。 你还可以对工厂进行设置，使参与者拥有不同的权限。 可以仅允许某些团队成员通过 Git 进行更改，并只允许团队中的某些人将更改“发布”到工厂。
--   **更好的 CI/CD：** 如果要通过[持续交付过程](continuous-integration-deployment.md)部署到多个环境中，git 集成可使某些操作更简单。 部分此类操作包括：
+-   **更好的 CI/CD：** 如果要通过 [持续交付过程](continuous-integration-deployment.md)部署到多个环境中，git 集成可使某些操作更简单。 部分此类操作包括：
     -   将发布管道配置为开发工厂中发生任何更改后立即自动触发。
     -   自定义工厂中可用作资源管理器模板的参数的属性。 仅将所需属性集保留为参数并将其他所有内容进行硬编码可能很有用。
 -   **性能更好：** 使用 git 集成的工厂平均加载速度是通过数据工厂服务创作的 10 倍。 性能提升的原因在于资源是通过 Git 下载的。
@@ -50,7 +50,7 @@ ms.locfileid: "92101896"
 
 ## <a name="author-with-azure-repos-git-integration"></a>使用 Azure Repos Git 集成进行创作
 
-使用 Azure Repos Git 集成进行创作允许在创作数据工厂管道时进行源代码管理和协作。 用户可以选择将数据工厂与 Azure Repos Git 组织存储库相关联，以进行源代码管理、协作和版本控制等。 单个 Azure Repos Git 组织可以有多个存储库，但 Azure Repos Git 存储库只能与一个数据工厂相关联。 如果没有 Azure Repos 组织或存储库，请按照[这些说明](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)创建资源。
+使用 Azure Repos Git 集成进行创作允许在创作数据工厂管道时进行源代码管理和协作。 用户可以选择将数据工厂与 Azure Repos Git 组织存储库相关联，以进行源代码管理、协作和版本控制等。 单个 Azure Repos Git 组织可以有多个存储库，但 Azure Repos Git 存储库只能与一个数据工厂相关联。 如果没有 Azure Repos 组织或存储库，请按照[这些说明](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)创建资源。
 
 > [!NOTE]
 > 可以在 Azure Repos Git 存储库中存储脚本和数据文件。 但是，必须手动将文件上传到 Azure 存储。 数据工厂管道不会自动将 Azure Repos Git 存储库中存储的脚本或数据文件上传到 Azure 存储。
@@ -93,13 +93,13 @@ ms.locfileid: "92101896"
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>使用不同的 Azure Active Directory 租户
 
-Azure Repos Git 存储库可以位于不同的 Azure Active Directory 租户中。 若要指定不同的 Azure AD 租户，必须对所用 Azure 订阅拥有管理员权限。 有关详细信息，请参阅 [更改订阅管理员](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator)
+Azure Repos Git 存储库可以位于不同的 Azure Active Directory 租户中。 若要指定不同的 Azure AD 租户，必须对所用 Azure 订阅拥有管理员权限。 有关详细信息，请参阅 [更改订阅管理员](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
 
 ### <a name="use-your-personal-microsoft-account"></a>使用 Microsoft 个人帐户
 
 若要将 Microsoft 个人帐户用于 Git 集成，可以将你的 Azure 个人存储库链接到贵组织的 Active Directory。
 
-1. 将你的 Microsoft 个人帐户添加到贵组织的 Active Directory 以作为来宾。 有关详细信息，请参阅[在 Azure 门户中添加 Azure Active Directory B2B 协作用户](../active-directory/b2b/add-users-administrator.md)。
+1. 将你的 Microsoft 个人帐户添加到贵组织的 Active Directory 以作为来宾。 有关详细信息，请参阅[在 Azure 门户中添加 Azure Active Directory B2B 协作用户](../active-directory/external-identities/add-users-administrator.md)。
 
 2. 使用 Microsoft 个人帐户登录 Azure 门户。 然后切换到贵组织的 Active Directory。
 
@@ -111,7 +111,7 @@ Azure Repos Git 存储库可以位于不同的 Azure Active Directory 租户中�
 
 ## <a name="author-with-github-integration"></a>使用 GitHub 集成进行创作
 
-使用 GitHub 集成进行创作允许在创作数据工厂管道时进行源代码管理和协作。 用户可以选择将数据工厂与 GitHub 帐户存储库相关联，以进行源代码管理、协作和版本控制。 单个的 GitHub 帐户可以有多个存储库，但 GitHub 存储库可以只有一个数据工厂与相关联。 如果没有 GitHub 帐户或存储库，请按照 [这些说明](https://github.com/join) 创建资源。
+使用 GitHub 集成进行创作允许在创作数据工厂管道时进行源代码管理和协作。 用户可以选择将数据工厂与 GitHub 帐户存储库相关联，以进行源代码管理、协作和版本控制。 单个的 GitHub 帐户可以有多个存储库，但 GitHub 存储库可以只有一个数据工厂与相关联。 如果你没有 GitHub 帐户或存储库，请按照[这些说明](https://github.com/join)创建资源。
 
 GitHub 与数据工厂的集成支持公共 GitHub（即 [https://github.com](https://github.com)）和 GitHub Enterprise。 只要你对 GitHub 中的存储库具有读写权限，就可以将公共和专用 GitHub 存储库与数据工厂一起使用。
 
@@ -169,7 +169,7 @@ GitHub 与数据工厂的集成支持公共 GitHub（即 [https://github.com](ht
 
 ## <a name="version-control"></a>版本控制
 
-版本控制（也称为_源代码管理_）系统允许开发人员协作处理代码并跟踪对基本代码所做的更改。 源代码管理是用于多开发人员项目的重要工具。
+版本控制（也称为 _源代码管理_ ）系统允许开发人员协作处理代码并跟踪对基本代码所做的更改。 源代码管理是用于多开发人员项目的重要工具。
 
 ### <a name="creating-feature-branches"></a>创建功能分支
 
@@ -216,7 +216,7 @@ Azure 数据工厂一次只能有一个发布分支。 当指定新的发布分�
 通常不希望每个团队成员都有权更新数据工厂。 建议使用以下权限设置：
 
 *   所有团队成员都应具有数据工厂的读取权限。
-*   只应允许一组选择的人员发布到数据工厂。 为此，它们必须具有包含数据工厂的**资源组**的 "**数据工厂参与者**" 角色。 有关权限的详细信息，请参阅 [Azure 数据工厂的角色和权限](concepts-roles-permissions.md)。
+*   只应允许一组选择的人员发布到数据工厂。 为此，它们必须具有包含数据工厂的 **资源组** 的 " **数据工厂参与者** " 角色。 有关权限的详细信息，请参阅 [Azure 数据工厂的角色和权限](concepts-roles-permissions.md)。
 
 建议不要允许直接签入到协作分支。 此限制有助于防止出现 bug，因为每个签入都将经历[创建功能分支](source-control.md#creating-feature-branches)中描述的拉取请求审阅过程。
 
@@ -244,7 +244,7 @@ Azure 数据工厂一次只能有一个发布分支。 当指定新的发布分�
 
 ## <a name="switch-to-a-different-git-repository"></a>切换到不同 Git 存储库
 
-若要切换到另一个 Git 存储库，请转到管理中心中的 " **源代码**管理" 下的 "Git 配置" 页。 选择 " **断开连接**"。 
+若要切换到另一个 Git 存储库，请转到管理中心中的 " **源代码** 管理" 下的 "Git 配置" 页。 选择 " **断开连接** "。 
 
 ![“Git”图标](media/author-visually/remove-repository.png)
 

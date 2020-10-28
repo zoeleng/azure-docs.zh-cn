@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147434"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635892"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure 数据工厂中的持续集成和交付
 
@@ -24,11 +24,11 @@ ms.locfileid: "92147434"
 
 ## <a name="overview"></a>概述
 
-持续集成是这样一种做法：自动尽早测试对代码库所做的每项更改。 在测试之后进行的持续交付可将更改推送到过渡或生产系统，而测试发生在持续集成期间。
+持续集成是这样一种做法：自动尽早测试对代码库所做的每项更改。  在测试之后进行的持续交付可将更改推送到过渡或生产系统，而测试发生在持续集成期间。
 
-在 Azure 数据工厂中，持续集成和交付 (CI/CD) 是指将数据工厂管道从一个环境（开发、测试、生产）移到另一个环境。 Azure 数据工厂利用 [Azure 资源管理器模板](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)存储各种 ADF 实体（管道、数据集、数据流等）的配置。 可通过两种建议的方式将数据工厂提升到另一个环境：
+在 Azure 数据工厂中，持续集成和交付 (CI/CD) 是指将数据工厂管道从一个环境（开发、测试、生产）移到另一个环境。 Azure 数据工厂利用 [Azure 资源管理器模板](../azure-resource-manager/templates/overview.md)存储各种 ADF 实体（管道、数据集、数据流等）的配置。 可通过两种建议的方式将数据工厂提升到另一个环境：
 
--    使用数据工厂与 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 的集成进行自动化部署
+-    使用数据工厂与 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 的集成进行自动化部署
 -    使用数据工厂 UX 与 Azure 资源管理器的集成手动上传资源管理器模板。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -62,11 +62,11 @@ ms.locfileid: "92147434"
 
 ### <a name="requirements"></a>要求
 
--   一个已链接到 Visual Studio Team Foundation Server 或 Azure Repos 并使用 [Azure 资源管理器服务终结点](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)的 Azure 订阅。
+-   链接到 Visual Studio 的 Azure 订阅 Team Foundation Server 或使用 [Azure 资源管理器服务终结点](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)Azure Repos。
 
 -   一个配置了 Azure Repos Git 集成的数据工厂。
 
--   一个 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)，其中包含每个环境的机密。
+-   一个 [Azure 密钥保管库](https://azure.microsoft.com/services/key-vault/) ，其中包含每个环境的机密。
 
 ### <a name="set-up-an-azure-pipelines-release"></a>设置 Azure Pipelines 发布
 
@@ -94,7 +94,7 @@ ms.locfileid: "92147434"
 
     ![阶段视图](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  创建新任务。 搜索 " **ARM 模板部署**"，然后选择 " **添加**"。
+    b.  创建新任务。 搜索 " **ARM 模板部署** "，然后选择 " **添加** "。
 
     c.  在“部署任务”中，选择目标数据工厂的订阅、资源组和位置。 根据需要提供凭据。
 
@@ -109,13 +109,13 @@ ms.locfileid: "92147434"
     h. 选择“增量”作为“部署模式”。 
 
     > [!WARNING]
-    > 在完整部署模式下，资源组中存在但在新资源管理器模板中未指定的资源将被 **删除**。 有关详细信息，请参阅 [Azure 资源管理器部署模式](../azure-resource-manager/templates/deployment-modes.md)
+    > 在完整部署模式下，资源组中存在但在新资源管理器模板中未指定的资源将被 **删除** 。 有关详细信息，请参阅 [Azure 资源管理器部署模式](../azure-resource-manager/templates/deployment-modes.md)
 
     ![数据工厂生产部署](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  保存发布管道。
 
-1. 若要触发发布，请选择“创建发布”。 若要自动创建发布，请参阅 [Azure DevOps 发布触发器](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. 若要触发发布，请选择“创建发布”。 若要自动创建发布，请参阅 [Azure DevOps 发布触发器](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![选择“创建发布”](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -151,9 +151,9 @@ ms.locfileid: "92147434"
 
     参数文件也需位于 publish 分支中。
 
-1. 在上一部分所述的 Azure 资源管理器部署任务的前面添加一个 [Azure Key Vault 任务](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault)：
+1. 在上一部分所述的 Azure 资源管理器部署任务的前面添加一个 [Azure Key Vault 任务](/azure/devops/pipelines/tasks/deploy/azure-key-vault)：
 
-    1.  在“任务”选项卡上创建一个新任务。 搜索并添加 **Azure Key Vault**。
+    1.  在“任务”选项卡上创建一个新任务。 搜索并添加 **Azure Key Vault** 。
 
     1.  在 Key Vault 任务中，选择在其中创建了密钥保管库的订阅。 根据需要提供凭据，然后选择该密钥保管库。
 
@@ -228,14 +228,14 @@ ms.locfileid: "92147434"
 下面是创建自定义参数文件 **arm-template-parameters-definition.json** 时要遵循的一些准则。 对于下述每个实体类型，该文件都包含一个节：触发器、管道、链接服务、数据集、集成运行时和数据流。
 
 * 输入相关实体类型下的属性路径。
-* 将属性名称设置为 `*` 表示要将其下的所有属性参数化（仅参数化到第一个级别，而不是递归性的参数化）。 还可为此配置提供例外情况。
-* 将属性值设置为字符串表示你希望参数化该属性。 使用格式 `<action>:<name>:<stype>`。
-   *  `<action>` 可以是以下字符之一：
-      * `=` 表示将当前值保留为参数的默认值。
-      * `-` 表示不保留参数的默认值。
-      * `|` 是 Azure Key Vault 中的机密的特例，用于连接字符串或密钥。
-   * `<name>` 是参数的名称。 如果为空，将采用属性的名称。 如果值以 `-` 字符开头，则会简写名称。 例如，`AzureStorage1_properties_typeProperties_connectionString` 将简写为 `AzureStorage1_connectionString`。
-   * `<stype>` 是参数的类型。 如果 `<stype>` 为空，则默认类型为 `string`。 支持的值：`string`、`bool`、`number`、`object` 和 `securestring`。
+* 将属性名称设置为，以指示要将 `*` 其下的所有属性参数化 (仅向下一级，而不是以递归方式) 。 还可为此配置提供例外情况。
+* 将属性值设置为字符串表示你希望参数化该属性。 使用格式 `<action>:<name>:<stype>`。
+   *  `<action>` 可以是下列字符之一：
+      * `=` 表示保留当前值作为参数的默认值。
+      * `-` 表示不要保留参数的默认值。
+      * `|` 是 Azure Key Vault 用于连接字符串或键的密码的特例。
+   * `<name>` 是参数的名称。 如果为空，将采用属性的名称。 如果值以 `-` 字符开头，则会简写名称。 例如，`AzureStorage1_properties_typeProperties_connectionString` 将简写为 `AzureStorage1_connectionString`。
+   * `<stype>` 参数的类型。 如果 `<stype>` 为空，则默认类型为 `string` 。 支持的值：`string`、`bool`、`number`、`object` 和 `securestring`。
 * 在定义文件中指定数组表示模板中匹配的属性是一个数组。 数据工厂使用数组的集成运行时对象中指定的定义来循环访问该数组中的所有对象。 第二个对象（一个字符串）成为属性的名称，这用作每次遍历的参数的名称。
 * 定义不能特定于资源实例。 任何定义都将应用到该类型的所有资源。
 * 默认情况下，会参数化 Key Vault 机密等安全字符串，以及连接字符串、密钥和令牌等安全字符串。
@@ -603,7 +603,7 @@ ms.locfileid: "92147434"
 
 链接的资源管理器模板通常包括一个主模板，以及一组链接到主模板的子模板。 父模板名为 ArmTemplate_master.json，子模板按照 ArmTemplate_0.json、ArmTemplate_1.json ... 的模式命名。 
 
-若要使用链接的模板而不是完整的资源管理器模板，请将 CI/CD 任务更新为指向 ArmTemplate_master.json 而不是 ArmTemplateForFactory.json（完整资源管理器模板）。 资源管理器还要求将链接的模板上传到存储帐户，使 Azure 能够在部署期间访问这些模板。 有关详细信息，请参阅[使用 VSTS 部署链接的资源管理器模板](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/)。
+若要使用链接的模板而不是完整的资源管理器模板，请将 CI/CD 任务更新为指向 ArmTemplate_master.json 而不是 ArmTemplateForFactory.json（完整资源管理器模板）。 资源管理器还要求将链接的模板上传到存储帐户，使 Azure 能够在部署期间访问这些模板。 有关详细信息，请参阅[使用 VSTS 部署链接的资源管理器模板](/archive/blogs/najib/deploying-linked-arm-templates-with-vsts)。
 
 不要忘记在执行部署任务之前和之后在 CI/CD 管道中添加数据工厂脚本。
 
@@ -637,15 +637,15 @@ ms.locfileid: "92147434"
 
 如果你使用数据工厂的 Git 集成，并且某个 CI/CD 管道会将更改从开发环境依次转移到测试和生产环境，则我们建议采用以下最佳做法：
 
--   **Git 集成**。 仅配置具有 Git 集成的开发数据工厂。 对测试和生产环境所做的更改将通过 CI/CD 进行部署，不需要 Git 集成。
+-   **Git 集成** 。 仅配置具有 Git 集成的开发数据工厂。 对测试和生产环境所做的更改将通过 CI/CD 进行部署，不需要 Git 集成。
 
--   **部署前和部署后脚本**。 在 CI/CD 中完成资源管理器部署步骤之前，需要先完成某些任务，例如停止再重启触发器并执行清理。 我们建议在执行部署任务之前和之后使用 PowerShell 脚本。 有关详细信息，请参阅[更新活动触发器](#updating-active-triggers)。 数据工厂团队已在本网页的末尾提供了一个可用的[脚本](#script)。
+-   **部署前和部署后脚本** 。 在 CI/CD 中完成资源管理器部署步骤之前，需要先完成某些任务，例如停止再重启触发器并执行清理。 我们建议在执行部署任务之前和之后使用 PowerShell 脚本。 有关详细信息，请参阅[更新活动触发器](#updating-active-triggers)。 数据工厂团队已在本网页的末尾提供了一个可用的[脚本](#script)。
 
--   **集成运行时和共享**。 集成运行时不经常更改，在 CI/CD 的所有阶段中都是类似的。 因此，数据工厂预期在 CI/CD 的所有阶段使用相同的集成运行时名称和类型。 若要在所有阶段中共享集成运行时，请考虑使用三元工厂，这只是为了包含共享的集成运行时。 可以在所有环境中将此共享工厂用作链接的集成运行时类型。
+-   **集成运行时和共享** 。 集成运行时不经常更改，在 CI/CD 的所有阶段中都是类似的。 因此，数据工厂预期在 CI/CD 的所有阶段使用相同的集成运行时名称和类型。 若要在所有阶段中共享集成运行时，请考虑使用三元工厂，这只是为了包含共享的集成运行时。 可以在所有环境中将此共享工厂用作链接的集成运行时类型。
 
--   **托管专用终结点部署**。 如果某个专用终结点在工厂中已存在，并且你尝试部署的 ARM 模板包含具有相同名称但带有修改的属性的专用终结点，则部署将失败。 换句话说，你可以成功部署专用终结点，前提是该终结点具有工厂中已存在的相同属性。 如果环境之间的任何属性不同，可以通过参数化该属性并在部署过程中提供相应的值来重写它。
+-   **托管专用终结点部署** 。 如果某个专用终结点在工厂中已存在，并且你尝试部署的 ARM 模板包含具有相同名称但带有修改的属性的专用终结点，则部署将失败。 换句话说，你可以成功部署专用终结点，前提是该终结点具有工厂中已存在的相同属性。 如果环境之间的任何属性不同，可以通过参数化该属性并在部署过程中提供相应的值来重写它。
 
--   **Key Vault**。 使用其连接信息存储在 Azure Key Vault 中的链接服务时，建议为不同的环境保留不同的密钥保管库。 此外，可为每个密钥保管库单独配置权限级别。 例如，你可能不希望团队成员有权访问生产机密。 如果采用此方法，我们建议在所有阶段中保留相同的机密名称。 如果保留相同的机密名称，则无需在 CI/CD 环境中参数化每个连接字符串，因为只需更改密钥保管库名称，而该名称是一个单独的参数。
+-   **Key Vault** 。 使用其连接信息存储在 Azure Key Vault 中的链接服务时，建议为不同的环境保留不同的密钥保管库。 此外，可为每个密钥保管库单独配置权限级别。 例如，你可能不希望团队成员有权访问生产机密。 如果采用此方法，我们建议在所有阶段中保留相同的机密名称。 如果保留相同的机密名称，则无需在 CI/CD 环境中参数化每个连接字符串，因为只需更改密钥保管库名称，而该名称是一个单独的参数。
 
 -  **资源命名** 由于 ARM 模板约束，如果资源包含名称中的空格，则可能会出现部署中的问题。 Azure 数据工厂团队建议使用 "_" 或 "-" 字符，而不是为资源使用空格。 例如，"Pipeline_1" 将是 "管道 1" 上的首选名称。
 

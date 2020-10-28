@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635365"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>映射数据流中的生成表达式
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-在映射数据流中，许多转换属性都作为表达式输入。 这些表达式由列值、参数、函数、运算符和在运行时计算为 Spark 数据类型的文本组成。 映射数据流具有专门的体验，旨在帮助您构建这些称为 " **表达式生成器**" 的表达式。 使用用于突出显示、语法检查和完成的  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) 代码完成功能，该表达式生成器旨在简化生成数据流。 本文介绍如何使用表达式生成器来有效地生成业务逻辑。
+在映射数据流中，许多转换属性都作为表达式输入。 这些表达式由列值、参数、函数、运算符和在运行时计算为 Spark 数据类型的文本组成。 映射数据流具有专门的体验，旨在帮助您构建这些称为 " **表达式生成器** " 的表达式。 使用用于突出显示、语法检查和完成的  [IntelliSense](/visualstudio/ide/using-intellisense) 代码完成功能，该表达式生成器旨在简化生成数据流。 本文介绍如何使用表达式生成器来有效地生成业务逻辑。
 
 ![表达式生成器](media/data-flow/expresion-builder.png "表达式生成器")
 
@@ -32,7 +32,7 @@ ms.locfileid: "90531000"
 
 ![蓝色表达式框](media/data-flow/expressionbox.png "表达式生成器")
 
-引用匹配或分组依据条件中的列时，表达式可以从列中提取值。 若要创建表达式，请选择 " **计算列**"。
+引用匹配或分组依据条件中的列时，表达式可以从列中提取值。 若要创建表达式，请选择 " **计算列** "。
 
 ![计算列选项](media/data-flow/computedcolumn.png "表达式生成器")
 

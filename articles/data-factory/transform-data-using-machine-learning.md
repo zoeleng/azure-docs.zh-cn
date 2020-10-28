@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: dabb7b8cd8023fe88a8c8d6dc507a09623bd11dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537674"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637728"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>使用 Azure 机器学习 Studio (经典) 和 Azure 数据工厂创建预测管道
 
@@ -27,9 +27,9 @@ ms.locfileid: "86537674"
 
 [Azure 机器学习 Studio (经典) ](https://azure.microsoft.com/documentation/services/machine-learning/) 使你能够生成、测试和部署预测分析解决方案。 从高层次的角度来看，这可通过三个步骤完成：
 
-1. **创建训练实验**。 可以通过使用 Azure 机器学习 Studio (经典) 执行此步骤。 Azure 机器学习 Studio (经典) 是一个协作式可视开发环境，可用于使用定型数据来定型和测试预测分析模型。
-2. **将其转换为预测实验**。 利用现有数据定型模型后，便可将其用于对新数据进行评分，为评分准备并简化实验。
-3. **将其部署为 Web 服务**。 可将评分实验作为 Azure Web 服务发布。 可通过此 Web 服务终结点向模型发送数据，并从模型接收结果预测。
+1. **创建训练实验** 。 可以通过使用 Azure 机器学习 Studio (经典) 执行此步骤。 Azure 机器学习 Studio (经典) 是一个协作式可视开发环境，可用于使用定型数据来定型和测试预测分析模型。
+2. **将其转换为预测实验** 。 利用现有数据定型模型后，便可将其用于对新数据进行评分，为评分准备并简化实验。
+3. **将其部署为 Web 服务** 。 可将评分实验作为 Azure Web 服务发布。 可通过此 Web 服务终结点向模型发送数据，并从模型接收结果预测。
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>数据工厂和 Azure 机器学习 Studio (经典) 结合在一起
 使用 Azure 数据工厂，可轻松创建使用已发布的 [Azure 机器学习 Studio (经典) ](https://azure.microsoft.com/documentation/services/machine-learning) web 服务进行预测分析的管道。 使用 Azure 数据工厂管道中的 **批处理执行活动** ，可以调用 Azure 机器学习 Studio (经典) web 服务，对批处理中的数据进行预测。
@@ -39,11 +39,11 @@ ms.locfileid: "86537674"
 1. 将训练实验（非预测实验）作为 Web 服务发布。 在 Azure 机器学习 Studio (经典) 执行此步骤，就像在前面的方案中将预测实验公开为 web 服务一样。
 2. 使用 Azure 机器学习 Studio (经典) 批处理执行活动为训练试验调用 web 服务。 基本上，你可以使用 Azure 机器学习 Studio (经典) 批处理执行活动来调用定型 web 服务和评分 web 服务。
 
-完成重新训练后，通过使用 **Azure 机器学习 Studio (经典) 更新资源活动**，将评分 web 服务 (使用新训练的模型公开为 web 服务的预测实验) 。 有关详细信息，请参阅[使用更新资源活动更新模型](update-machine-learning-models.md)一文。
+完成重新训练后，通过使用 **Azure 机器学习 Studio (经典) 更新资源活动** ，将评分 web 服务 (使用新训练的模型公开为 web 服务的预测实验) 。 有关详细信息，请参阅[使用更新资源活动更新模型](update-machine-learning-models.md)一文。
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure 机器学习 Studio (经典) 链接服务
 
-创建 **Azure 机器学习 Studio (经典) ** 链接服务，将 Azure 机器学习 Studio (经典) Web 服务链接到 Azure 数据工厂。 Azure 机器学习 Studio (经典) 批处理执行活动和 [更新资源活动](update-machine-learning-models.md)中使用此链接服务。
+创建 **Azure 机器学习 Studio (经典)** 链接服务，将 Azure 机器学习 Studio (经典) Web 服务链接到 Azure 数据工厂。 Azure 机器学习 Studio (经典) 批处理执行活动和 [更新资源活动](update-machine-learning-models.md)中使用此链接服务。
 
 ```JSON
 {
@@ -68,7 +68,7 @@ ms.locfileid: "86537674"
 
 请参阅[计算链接服务](compute-linked-services.md)一文，获取有关 JSON 定义中的属性的说明。
 
-Azure 机器学习 Studio (经典) 为预测实验支持经典 Web 服务和新的 Web 服务。 可以从数据工厂选择要使用的合适 Web 服务。 若要获取创建 Azure 机器学习 Studio (经典) 链接服务所需的信息，请转到 https://services.azureml.net ，其中列出了所有 (新) Web 服务和经典 Web 服务。 单击要访问的 Web 服务，然后单击“使用”**** 页。 复制**主密钥**作为 **apiKey** 属性，复制**批处理请求**作为 **mlEndpoint** 属性。
+Azure 机器学习 Studio (经典) 为预测实验支持经典 Web 服务和新的 Web 服务。 可以从数据工厂选择要使用的合适 Web 服务。 若要获取创建 Azure 机器学习 Studio (经典) 链接服务所需的信息，请转到 https://services.azureml.net ，其中列出了所有 (新) Web 服务和经典 Web 服务。 单击要访问的 Web 服务，然后单击“使用”  页。 复制 **主密钥** 作为 **apiKey** 属性，复制 **批处理请求** 作为 **mlEndpoint** 属性。
 
 ![Azure 机器学习 Studio (经典) Web 服务](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -126,11 +126,11 @@ Azure 机器学习 Studio (经典) 为预测实验支持经典 Web 服务和新�
 }
 ```
 
-| 属性          | 描述                              | 必须 |
+| properties          | 说明                              | 必选 |
 | :---------------- | :--------------------------------------- | :------- |
 | name              | 管道中活动的名称     | 是      |
 | description       | 描述活动用途的文本。  | 否       |
-| type              | 对于 Data Lake Analytics U-SQL 活动，活动类型为 **AzureMLBatchExecution**。 | 是      |
+| type              | 对于 Data Lake Analytics U-SQL 活动，活动类型为 **AzureMLBatchExecution** 。 | 是      |
 | linkedServiceName | 将服务链接到 Azure 机器学习 Studio (经典) 链接服务。 若要了解此链接服务，请参阅[计算链接服务](compute-linked-services.md)一文。 | 是      |
 | webServiceInputs  | 密钥、值对，用于映射 Azure 机器学习 Studio (经典) Web Services 输入的名称。 密钥必须与已发布的 Azure 机器学习 Studio (经典) Web 服务中定义的输入参数相匹配。 值是 Azure 存储链接服务和指定输入 Blob 位置的 FilePath 属性对。 | 否       |
 | webServiceOutputs | 密钥、值对，用于映射 Azure 机器学习 Studio (经典) Web 服务输出的名称。 密钥必须与已发布的 Azure 机器学习 Studio (经典) Web 服务中定义的输出参数相匹配。 值是 Azure 存储链接服务和指定输出 Blob 位置的 FilePath 属性对。 | 否       |
@@ -190,7 +190,7 @@ Azure 机器学习 Studio (经典) 为预测实验支持经典 Web 服务和新�
 }
 ```
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>方案 2：使用读取器/写入器模块引用各种存储中的数据的试验
-创建 Azure 机器学习 Studio (经典) 试验的另一种常见方案是使用 "导入数据" 和 "输出数据" 模块。 “导入数据”模块用于将数据加载到试验，“输出数据”模块用于保存试验中的数据。 有关“导入数据”和“输出数据”模块的详细信息，请参阅 MSDN 库中的[导入数据](https://msdn.microsoft.com/library/azure/dn905997.aspx)和[输出数据](https://msdn.microsoft.com/library/azure/dn905984.aspx)主题。
+创建 Azure 机器学习 Studio (经典) 试验的另一种常见方案是使用 "导入数据" 和 "输出数据" 模块。 “导入数据”模块用于将数据加载到试验，“输出数据”模块用于保存试验中的数据。 有关“导入数据”和“输出数据”模块的详细信息，请参阅 MSDN 库中的[导入数据](/azure/machine-learning/studio-module-reference/import-data)和[输出数据](/azure/machine-learning/studio-module-reference/export-data)主题。
 
 使用“导入数据”和“输出数据”模块时，最好对这些模块的每个属性使用 Web 服务参数。 使用这些 Web 参数，可在运行时配置值。 例如，可通过使用 Azure SQL 数据库 XXX.database.windows.net 的“导入数据”模块创建试验。 部署 web 服务后，你想要使 web 服务的使用者可以指定另一个名为的逻辑 SQL server `YYY.database.windows.net` 。 Web 服务参数可用于允许配置此值。
 
@@ -213,7 +213,7 @@ Azure 机器学习 Studio (经典) 为预测实验支持经典 Web 服务和新�
 > [!NOTE]
 > Web 服务参数区分大小写，因此请确保活动 JSON 中指定的名称与 Web 服务公开的名称相匹配。
 
-完成重新训练后，通过使用 **Azure 机器学习 Studio (经典) 更新资源活动**，将评分 web 服务 (使用新训练的模型公开为 web 服务的预测实验) 。 有关详细信息，请参阅[使用更新资源活动更新模型](update-machine-learning-models.md)一文。
+完成重新训练后，通过使用 **Azure 机器学习 Studio (经典) 更新资源活动** ，将评分 web 服务 (使用新训练的模型公开为 web 服务的预测实验) 。 有关详细信息，请参阅[使用更新资源活动更新模型](update-machine-learning-models.md)一文。
 
 ## <a name="next-steps"></a>后续步骤
 参阅以下文章了解如何以其他方式转换数据：

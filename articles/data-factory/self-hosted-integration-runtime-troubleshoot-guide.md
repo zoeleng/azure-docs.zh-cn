@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629354"
+ms.locfileid: "92637184"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -183,7 +183,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-有关 GAC 的详细信息，请参阅[本文](https://docs.microsoft.com/dotnet/framework/app-domains/gac)。
+有关 GAC 的详细信息，请参阅[本文](/dotnet/framework/app-domains/gac)。
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>如何审核自承载 IR 密钥丢失
@@ -468,7 +468,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 
 > [!NOTE] 
 > 代理注意事项：
-> *    检查是否需要将代理服务器放在“安全接收方”列表中。 如果是，请确保“安全接收方”列表中包含[这些域](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network)。
+> *    检查是否需要将代理服务器放在“安全接收方”列表中。 如果是，请确保“安全接收方”列表中包含[这些域](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network)。
 > *    检查 TLS/SSL 证书“wu2.frontend.clouddatahub.net/”在代理服务器上是否受信任。
 > *    如果在代理上使用 Active Directory 身份验证，请将服务帐户更改为能够以“Integration Runtime 服务”身份访问代理的用户帐户。
 
@@ -632,7 +632,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 如果使用本文档中所述的方法基于 FQDN 名称定义防火墙规则，则不会受到影响： " [防火墙配置和允许列表" 设置 "ip 地址](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)"。
 - 不过，如果你在公司防火墙上显式启用了出站 Ip 允许列表，则会受到影响。
 
-受影响的操作：通知网络基础结构团队更新网络配置，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
+受影响的操作：通知网络基础结构团队更新网络配置，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)。
 
 ##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>方案2：自承载 Integration Runtime 在客户管理的 Azure 虚拟网络内的 Azure VM 上运行的出站通信
 如何确定是否受影响：
@@ -641,14 +641,14 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
  ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 - 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式启用了出站 IP 地址的允许列表，则会受到影响。
 
-受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
+受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)。
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>方案3：来自客户托管的 Azure 虚拟网络中 SSIS Integration Runtime 的出站通信
 - 检查包含 SSIS Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不会产生任何影响。
 - 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。
 - 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式启用了出站 IP 地址的允许列表，则会受到影响。
 
-受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)。
+受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)。
 
 ### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>无法为 SSLTLS 安全通道建立信任关系 
 
@@ -709,7 +709,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 *  [数据工厂博客](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [数据工厂功能请求](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 视频](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft 问答页](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft 问答页](/answers/topics/azure-data-factory.html)
 *  [数据工厂 Stack Overflow 论坛](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [关于数据工厂的 Twitter 信息](https://twitter.com/hashtag/DataFactory)
 *  [映射数据流性能指南](concepts-data-flow-performance.md)

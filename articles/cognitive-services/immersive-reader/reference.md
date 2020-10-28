@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
-ms.author: metan
-ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761543"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636521"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>沉浸式读者 JavaScript SDK 参考 (1.1) 
 
@@ -161,7 +161,7 @@ Required: false
 | container | HTMLDivElement | 包含沉浸式读者 iframe 的 HTML 元素。 |
 | sessionID | 字符串 | 此会话的全局唯一标识符，用于调试。 |
  
-## <a name="error"></a>错误
+## <a name="error"></a>Error
 
 包含有关错误的信息。
 
@@ -240,7 +240,7 @@ Default value: null
 
 #### <a name="chunk-parameters"></a>块区参数
 
-| 名称 | 类型 | 说明 |
+| 名称 | 类型 | 描述 |
 | ---- | ---- |------------ |
 | 内容 | 字符串 | 包含发送到沉浸式读者的内容的字符串。 |
 | lang | 字符串 | 文本的语言，值为 IETF BCP 47 language 标记格式，如 en、es。 如果未指定，将自动检测语言。 请参阅 [支持的语言](#supported-languages)。 |
@@ -308,14 +308,14 @@ Default value: "text/plain"
 | 名称 | 类型 | 说明 |
 | ---- | ---- |------------ |
 | uiLang | 字符串 | UI 的语言，值为 IETF BCP 47 language 标记格式，如 en、es。 如果未指定，则默认为浏览器语言。 |
-| timeout | Number | 持续时间 (以毫秒为单位) ， [launchAsync](#launchasync) 失败并出现超时错误 (默认值为 15000 ms) 。 此超时仅适用于 "读取器" 页的初始启动，在这种情况下，将在读取器页打开并启动微调器时观察成功。 无需调整超时。 |
-| uiZIndex | Number | 默认 (为 1000) ，将创建的 iframe 的 Z 索引。 |
-| useWebview | 布尔值| 使用 web 视图标记而不是 iframe，以便与 Chrome 应用兼容 (默认值为 false) 。 |
+| timeout | 数字 | 持续时间 (以毫秒为单位) ， [launchAsync](#launchasync) 失败并出现超时错误 (默认值为 15000 ms) 。 此超时仅适用于 "读取器" 页的初始启动，在这种情况下，将在读取器页打开并启动微调器时观察成功。 无需调整超时。 |
+| uiZIndex | 数字 | 默认 (为 1000) ，将创建的 iframe 的 Z 索引。 |
+| useWebview | 布尔| 使用 web 视图标记而不是 iframe，以便与 Chrome 应用兼容 (默认值为 false) 。 |
 | onExit | 函数 | 当沉浸式读取器退出时执行。 |
-| allowFullscreen | 布尔值 | 切换全屏 (默认值为 true) 。 |
-| hideExitButton | 布尔值 | 是否隐藏沉浸式阅读器的退出按钮箭头 (默认值为 false) 。 只有在提供了一种替代机制来退出沉浸式读取器 (例如移动工具栏的后退箭头) 时，才应为 true。 |
-| cookiePolicy | [CookiePolicy](#cookiepolicy-options) |  (默认值为 "沉浸式读者的 cookie 使用情况" 设置为 " *CookiePolicy"。禁用*) 。 主机应用程序负责根据欧盟 Cookie 符合性策略获取任何必需的用户同意。 请参阅 [Cookie 策略选项](#cookiepolicy-options)。 |
-| disableFirstRun | 布尔值 | 禁用首次运行体验。 |
+| allowFullscreen | 布尔 | 切换全屏 (默认值为 true) 。 |
+| hideExitButton | 布尔 | 是否隐藏沉浸式阅读器的退出按钮箭头 (默认值为 false) 。 只有在提供了一种替代机制来退出沉浸式读取器 (例如移动工具栏的后退箭头) 时，才应为 true。 |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) |  (默认值为 "沉浸式读者的 cookie 使用情况" 设置为 " *CookiePolicy"。禁用* ) 。 主机应用程序负责根据欧盟 Cookie 符合性策略获取任何必需的用户同意。 请参阅 [Cookie 策略选项](#cookiepolicy-options)。 |
+| disableFirstRun | 布尔 | 禁用首次运行体验。 |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | 用于配置大声朗读的选项。 |
 | translationOptions | [TranslationOptions](#translationoptions) | 用于配置转换的选项。 |
 | displayOptions | [DisplayOptions](#displayoptions) | 用于配置文本大小、字体等的选项。 |
@@ -393,8 +393,8 @@ type ReadAloudOptions = {
 | 名称 | 类型 | 说明 |
 | ---- | ---- |------------ |
 | voice | 字符串 | 语音，"女性" 或 "男"。 请注意，并非所有语言都支持这两种性别。 |
-| 速度 | Number | 播放速度必须介于0.5 到2.5 （含）之间。 |
-| 功能 | 布尔值 | 当沉浸式读取器加载时，自动开始朗读。 |
+| 速度 | 数字 | 播放速度必须介于0.5 到2.5 （含）之间。 |
+| 功能 | 布尔 | 当沉浸式读取器加载时，自动开始朗读。 |
 
 ##### `voice`
 ```Parameters
@@ -432,8 +432,8 @@ type TranslationOptions = {
 | 名称 | 类型 | 说明 |
 | ---- | ---- |------------ |
 | 语言 | 字符串 | 设置转换语言，值为 IETF BCP 47 language 标记格式，例如 fr，es-mx，zh-chs-Hans-CN。 要求自动启用 word 或文档翻译。 |
-| autoEnableDocumentTranslation | 布尔值 | 自动翻译整篇文档。 |
-| autoEnableWordTranslation | 布尔值 | 自动启用 word 翻译。 |
+| autoEnableDocumentTranslation | 布尔 | 自动翻译整篇文档。 |
+| autoEnableWordTranslation | 布尔 | 自动启用 word 翻译。 |
 
 ##### `language`
 ```Parameters
@@ -459,8 +459,8 @@ type DisplayOptions = {
 
 | 名称 | 类型 | 说明 |
 | ---- | ---- |------------ |
-| textSize | Number | 设置所选的文本大小。 |
-| increaseSpacing | 布尔值 | 设置文本间距是打开还是关闭。 |
+| textSize | 数字 | 设置所选的文本大小。 |
+| increaseSpacing | 布尔 | 设置文本间距是打开还是关闭。 |
 | fontFamily | 字符串 |  ( "Calibri"、"ComicSans" 或 "Sitka" ) 设置选定的字体。 |
 
 ##### `textSize`
@@ -487,28 +487,28 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**下面列出的设置仅用于提供信息**。 沉浸式读取器将其设置或用户首选项存储在 cookie 中。 默认情况下，此 *cookiePolicy* 选项 **禁用** COOKIE，以符合欧盟 Cookie 遵从性法。 如果你想要重新启用 cookie 并还原沉浸式读者用户首选项的默认功能，你将需要确保你的网站或应用程序获得正确的许可，使用户能够启用 cookie。 然后，若要在沉浸式阅读器中重新启用 cookie，必须在启动沉浸式阅读器时将*cookiePolicy*选项显式设置为*cookiePolicy。* 下表描述了当启用 *cookiePolicy* 选项时，沉浸式读取器将在 cookie 中存储的设置。
+**下面列出的设置仅用于提供信息** 。 沉浸式读取器将其设置或用户首选项存储在 cookie 中。 默认情况下，此 *cookiePolicy* 选项 **禁用** COOKIE，以符合欧盟 Cookie 遵从性法。 如果你想要重新启用 cookie 并还原沉浸式读者用户首选项的默认功能，你将需要确保你的网站或应用程序获得正确的许可，使用户能够启用 cookie。 然后，若要在沉浸式阅读器中重新启用 cookie，必须在启动沉浸式阅读器时将 *cookiePolicy* 选项显式设置为 *cookiePolicy。* 下表描述了当启用 *cookiePolicy* 选项时，沉浸式读取器将在 cookie 中存储的设置。
 
 #### <a name="settings-parameters"></a>设置参数
 
 | 设置 | 类型 | 说明 |
 | ------- | ---- | ----------- |
-| textSize | Number | 设置所选的文本大小。 |
+| textSize | 数字 | 设置所选的文本大小。 |
 | fontFamily | 字符串 |  ( "Calibri"、"ComicSans" 或 "Sitka" ) 设置选定的字体。 |
-| textSpacing | Number | 设置文本间距是打开还是关闭。 |
-| formattingEnabled | 布尔值 | 设置是否打开或关闭 HTML 格式设置。 |
+| textSpacing | 数字 | 设置文本间距是打开还是关闭。 |
+| formattingEnabled | 布尔 | 设置是否打开或关闭 HTML 格式设置。 |
 | Theme — 主题 | 字符串 | 设置所选主题 (例如 "Light"、"深色" ... ) 。 |
-| syllabificationEnabled | 布尔值 | 设置 syllabification 是打开还是关闭。 |
-| nounHighlightingEnabled | 布尔值 | 这会设置是打开还是关闭名词突出显示。 |
+| syllabificationEnabled | 布尔 | 设置 syllabification 是打开还是关闭。 |
+| nounHighlightingEnabled | 布尔 | 这会设置是打开还是关闭名词突出显示。 |
 | nounHighlightingColor | 字符串 | 设置所选名词突出显示颜色。 |
-| verbHighlightingEnabled | 布尔值 | 设置是否对谓词突出显示进行切换。 |
+| verbHighlightingEnabled | 布尔 | 设置是否对谓词突出显示进行切换。 |
 | verbHighlightingColor | 字符串 | 设置所选谓词的突出显示颜色。 |
-| adjectiveHighlightingEnabled | 布尔值 | 设置是开启还是关闭形容词突出显示。 |
+| adjectiveHighlightingEnabled | 布尔 | 设置是开启还是关闭形容词突出显示。 |
 | adjectiveHighlightingColor | 字符串 | 设置所选的形容词突出显示颜色。 |
-| adverbHighlightingEnabled | 布尔值 | 设置副词突出显示是否切换为打开或关闭。 |
+| adverbHighlightingEnabled | 布尔 | 设置副词突出显示是否切换为打开或关闭。 |
 | adverbHighlightingColor | 字符串 | 设置所选的副词突出显示颜色。 |
-| pictureDictionaryEnabled | 布尔值 | 设置是打开还是关闭图片字典。 |
-| posLabelsEnabled | 布尔值 | 设置是否打开或关闭语音的每个突出显示部分的上标文本标签。  |
+| pictureDictionaryEnabled | 布尔 | 设置是打开还是关闭图片字典。 |
+| posLabelsEnabled | 布尔 | 设置是否打开或关闭语音的每个突出显示部分的上标文本标签。  |
 
 <br>
 

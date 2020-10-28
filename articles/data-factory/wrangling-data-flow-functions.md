@@ -7,18 +7,18 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921546"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636113"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>整理数据流中的转换函数
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-通过 Azure 数据工厂中的整理数据流，可以在云规模进行无代码的敏捷数据准备和整理。 整理数据流与 [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) 集成，使 Power Query M 功能可用于通过 spark 执行的数据整理。 
+通过 Azure 数据工厂中的整理数据流，可以在云规模进行无代码的敏捷数据准备和整理。 整理数据流与 [Power Query Online](/powerquery-m/power-query-m-reference) 集成，使 Power Query M 功能可用于通过 spark 执行的数据整理。 
 
 > [!NOTE]
 > 整理数据流当前在公共预览版中可用
@@ -31,60 +31,60 @@ ms.locfileid: "85921546"
 
 ## <a name="column-management"></a>列管理
 
-* 选择： [SelectColumns](https://docs.microsoft.com/powerquery-m/table-selectcolumns)
-* 删除： [table.removecolumns](https://docs.microsoft.com/powerquery-m/table-removecolumns)
-* 重命名： [RenameColumns](https://docs.microsoft.com/powerquery-m/table-renamecolumns)、 [PrefixColumns](https://docs.microsoft.com/powerquery-m/table-prefixcolumns)、 [TransformColumnNames](https://docs.microsoft.com/powerquery-m/table-transformcolumnnames)
-* 重新排序： [ReorderColumns](https://docs.microsoft.com/powerquery-m/table-reordercolumns)
+* 选择： [SelectColumns](/powerquery-m/table-selectcolumns)
+* 删除： [table.removecolumns](/powerquery-m/table-removecolumns)
+* 重命名： [RenameColumns](/powerquery-m/table-renamecolumns)、 [PrefixColumns](/powerquery-m/table-prefixcolumns)、 [TransformColumnNames](/powerquery-m/table-transformcolumnnames)
+* 重新排序： [ReorderColumns](/powerquery-m/table-reordercolumns)
 
 ## <a name="row-filtering"></a>行筛选
 
-使用 M 函数 [SelectRows](https://docs.microsoft.com/powerquery-m/table-selectrows) 根据以下条件进行筛选：
+使用 M 函数 [SelectRows](/powerquery-m/table-selectrows) 根据以下条件进行筛选：
 
 * 相等和不相等
 * 数值、文本和日期的比较 (但不是 DateTime) 
-* 数字信息，如[IsEven](https://docs.microsoft.com/powerquery-m/number-iseven) / [奇数](https://docs.microsoft.com/powerquery-m/number-iseven)
-* 使用 Text 的文本 [包含](https://docs.microsoft.com/powerquery-m/text-contains)、 [StartsWith](https://docs.microsoft.com/powerquery-m/text-startswith)或 [EndsWith。](https://docs.microsoft.com/powerquery-m/text-endswith)
-* 日期范围，包括所有 "IsIn' [Date 函数](https://docs.microsoft.com/powerquery-m/date-functions))  
+* 数字信息，如[IsEven](/powerquery-m/number-iseven) / [奇数](/powerquery-m/number-iseven)
+* 使用 Text 的文本 [包含](/powerquery-m/text-contains)、 [StartsWith](/powerquery-m/text-startswith)或 [EndsWith。](/powerquery-m/text-endswith)
+* 日期范围，包括所有 "IsIn' [Date 函数](/powerquery-m/date-functions))  
 * 使用 and、or 或 not 条件的组合
 
 ## <a name="adding-and-transforming-columns"></a>添加和转换列
 
-以下 M 函数添加或转换列： [AddColumn](https://docs.microsoft.com/powerquery-m/table-addcolumn)、 [table.transformcolumns](https://docs.microsoft.com/powerquery-m/table-transformcolumns)、 [ReplaceValue](https://docs.microsoft.com/powerquery-m/table-replacevalue)、 [DuplicateColumn](https://docs.microsoft.com/powerquery-m/table-duplicatecolumn)。 下面是受支持的转换函数。
+以下 M 函数添加或转换列： [AddColumn](/powerquery-m/table-addcolumn)、 [table.transformcolumns](/powerquery-m/table-transformcolumns)、 [ReplaceValue](/powerquery-m/table-replacevalue)、 [DuplicateColumn](/powerquery-m/table-duplicatecolumn)。 下面是受支持的转换函数。
 
 * 数值算术
 * 文本连接
-* 日期 andTime 算术运算 (算术运算符、 [AddDays](https://docs.microsoft.com/powerquery-m/date-adddays)、 [AddMonths](https://docs.microsoft.com/powerquery-m/date-addmonths)、 [AddQuarters](https://docs.microsoft.com/powerquery-m/date-addquarters)、 [AddWeeks](https://docs.microsoft.com/powerquery-m/date-addweeks)、 [AddYears) ](https://docs.microsoft.com/powerquery-m/date-addyears)
-* 持续时间可用于日期和时间算法，但必须转换为另一种类型，然后才能写入接收器 (算术运算符、 [#duration](https://docs.microsoft.com/powerquery-m/sharpduration)、 [duration](https://docs.microsoft.com/powerquery-m/duration-days)、Duration、 [duration、](https://docs.microsoft.com/powerquery-m/duration-hours) [TotalDays](https://docs.microsoft.com/powerquery-m/duration-totaldays)、 [Duration.Minutes](https://docs.microsoft.com/powerquery-m/duration-minutes) [TotalHours](https://docs.microsoft.com/powerquery-m/duration-totalhours) [、duration.](https://docs.microsoft.com/powerquery-m/duration-seconds) [totaldvrduration.totalminutes](https://docs.microsoft.com/powerquery-m/duration-totalminutes)、 [duration. timespan.totalseconds](https://docs.microsoft.com/powerquery-m/duration-totalseconds))     
-* 大多数标准、科学和三角数字函数 ([操作](https://docs.microsoft.com/powerquery-m/number-functions#operations)、[舍入](https://docs.microsoft.com/powerquery-m/number-functions#rounding)和三角函数下除 Number [Trigonometry](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) *之外*的所有函数。阶乘、数字和组合) 
-* 替换 ([替换器，ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext)， [替换器](https://docs.microsoft.com/powerquery-m/replacer-replacevalue) [，](https://docs.microsoft.com/powerquery-m/text-replace) [text. Remove](https://docs.microsoft.com/powerquery-m/text-remove)) 
-* 位置文本提取 ([PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof)、Text、 [Length](https://docs.microsoft.com/powerquery-m/text-length)、text. [Start](https://docs.microsoft.com/powerquery-m/text-start)、Text. [End](https://docs.microsoft.com/powerquery-m/text-end)、 [ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange)、 [Text.Middle](https://docs.microsoft.com/powerquery-m/text-middle) [RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange)) 
-* 基本文本格式 ([text. Lower](https://docs.microsoft.com/powerquery-m/text-lower)、 [text、text](https://docs.microsoft.com/powerquery-m/text-upper)。 [Trim](https://docs.microsoft.com/powerquery-m/text-trim) / [开始](https://docs.microsoft.com/powerquery-m/text-trimstart) / [结束](https://docs.microsoft.com/powerquery-m/text-trimend)、 [PadStart](https://docs.microsoft.com/powerquery-m/text-padstart) / [结束](https://docs.microsoft.com/powerquery-m/text-padend)、[文本。反向](https://docs.microsoft.com/powerquery-m/text-reverse)) 
-* 日期/时间函数 ([日期. 日](https://docs.microsoft.com/powerquery-m/date-day)、 [日期. 月](https://docs.microsoft.com/powerquery-m/date-month)、日. [年](https://docs.microsoft.com/powerquery-m/date-year) [、日](https://docs.microsoft.com/powerquery-m/time-hour)、日 [、时间](https://docs.microsoft.com/powerquery-m/time-minute) [、](https://docs.microsoft.com/powerquery-m/time-second) [DayOfWeek](https://docs.microsoft.com/powerquery-m/date-dayofweek)、 [DayOfYear](https://docs.microsoft.com/powerquery-m/date-dayofyear)、 [DaysInMonth](https://docs.microsoft.com/powerquery-m/date-daysinmonth)) 
+* 日期 andTime 算术运算 (算术运算符、 [AddDays](/powerquery-m/date-adddays)、 [AddMonths](/powerquery-m/date-addmonths)、 [AddQuarters](/powerquery-m/date-addquarters)、 [AddWeeks](/powerquery-m/date-addweeks)、 [AddYears) ](/powerquery-m/date-addyears)
+* 持续时间可用于日期和时间算法，但必须转换为另一种类型，然后才能写入接收器 (算术运算符、 [#duration](/powerquery-m/sharpduration)、 [duration](/powerquery-m/duration-days)、Duration、 [duration、](/powerquery-m/duration-hours) [TotalDays](/powerquery-m/duration-totaldays)、 [Duration.Minutes](/powerquery-m/duration-minutes) [TotalHours](/powerquery-m/duration-totalhours) [、duration.](/powerquery-m/duration-seconds) [totaldvrduration.totalminutes](/powerquery-m/duration-totalminutes)、 [duration. timespan.totalseconds](/powerquery-m/duration-totalseconds))     
+* 大多数标准、科学和三角数字函数 ( [操作](/powerquery-m/number-functions#operations)、 [舍入](/powerquery-m/number-functions#rounding)和三角函数下除 Number [Trigonometry](/powerquery-m/number-functions#trigonometry) *之外* 的所有函数。阶乘、数字和组合) 
+* 替换 ([替换器，ReplaceText](/powerquery-m/replacer-replacetext)， [替换器](/powerquery-m/replacer-replacevalue) [，](/powerquery-m/text-replace) [text. Remove](/powerquery-m/text-remove)) 
+* 位置文本提取 ([PositionOf](/powerquery-m/text-positionof)、Text、 [Length](/powerquery-m/text-length)、text. [Start](/powerquery-m/text-start)、Text. [End](/powerquery-m/text-end)、 [ReplaceRange](/powerquery-m/text-replacerange)、 [Text.Middle](/powerquery-m/text-middle) [RemoveRange](/powerquery-m/text-removerange)) 
+* 基本文本格式 ([text. Lower](/powerquery-m/text-lower)、 [text、text](/powerquery-m/text-upper)。 [Trim](/powerquery-m/text-trim) / [开始](/powerquery-m/text-trimstart) / [结束](/powerquery-m/text-trimend)、 [PadStart](/powerquery-m/text-padstart) / [结束](/powerquery-m/text-padend)、[文本。反向](/powerquery-m/text-reverse)) 
+* 日期/时间函数 ([日期. 日](/powerquery-m/date-day)、 [日期. 月](/powerquery-m/date-month)、日. [年](/powerquery-m/date-year) [、日](/powerquery-m/time-hour)、日 [、时间](/powerquery-m/time-minute) [、](/powerquery-m/time-second) [DayOfWeek](/powerquery-m/date-dayofweek)、 [DayOfYear](/powerquery-m/date-dayofyear)、 [DaysInMonth](/powerquery-m/date-daysinmonth)) 
 * 如果表达式 (但分支必须具有匹配的类型) 
 * 作为逻辑列的行筛选器
 * Number、text、logical、date 和 datetime 常量
 
 <a name="mergingjoining-tables"></a>合并/联接表
 ----------------------
-* Power Query 将生成嵌套联接 (NestedJoin;用户还可以手动写入 [AddJoinColumn](https://docs.microsoft.com/powerquery-m/table-addjoincolumn)) 。
+* Power Query 将生成嵌套联接 (NestedJoin;用户还可以手动写入 [AddJoinColumn](/powerquery-m/table-addjoincolumn)) 。
     然后，用户必须将嵌套的联接列展开为非嵌套联接 (Table.expandtablecolumn，在任何其他上下文) 中都不受支持。
-* 可以直接写入 M 函数   [表](https://docs.microsoft.com/powerquery-m/table-join) ，以避免需要额外的扩展步骤，但用户必须确保联接的表中没有重复的列名
-* 支持的联接类型：   [内部](https://docs.microsoft.com/powerquery-m/joinkind-inner)、   [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter)、   [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter)、   [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
-* 同时[Value.Equals](https://docs.microsoft.com/powerquery-m/value-equals)支持 NullableEquals 和值等[。](https://docs.microsoft.com/powerquery-m/value-nullableequals)
+* 可以直接写入 M 函数   [表](/powerquery-m/table-join) ，以避免需要额外的扩展步骤，但用户必须确保联接的表中没有重复的列名
+* 支持的联接类型：   [内部](/powerquery-m/joinkind-inner)、   [LeftOuter](/powerquery-m/joinkind-leftouter)、   [RightOuter](/powerquery-m/joinkind-rightouter)、   [FullOuter](/powerquery-m/joinkind-fullouter)
+* 同时[Value.Equals](/powerquery-m/value-equals)支持 NullableEquals 和值等[。](/powerquery-m/value-nullableequals)
 
 ## <a name="group-by"></a>Group by
 
-使用 " [表](https://docs.microsoft.com/powerquery-m/table-group) " 作为聚合值。
+使用 " [表](/powerquery-m/table-group) " 作为聚合值。
 * 必须与聚合函数一起使用
-* 支持的聚合函数[：表 RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount)，[列表. Sum](https://docs.microsoft.com/powerquery-m/list-sum)，[列表. 计数](https://docs.microsoft.com/powerquery-m/list-count)，[列表，平均值](https://docs.microsoft.com/powerquery-m/list-average)，列表，[最大](https://docs.microsoft.com/powerquery-m/list-max)[值](https://docs.microsoft.com/powerquery-m/list-min)，列表， [StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation)，列表，[列表，](https://docs.microsoft.com/powerquery-m/list-first)[最后一个](https://docs.microsoft.com/powerquery-m/list-last)
+* 支持的聚合函数[：表 RowCount](/powerquery-m/table-rowcount)，[列表. Sum](/powerquery-m/list-sum)，[列表. 计数](/powerquery-m/list-count)，[列表，平均值](/powerquery-m/list-average)，列表，[最大](/powerquery-m/list-max)[值](/powerquery-m/list-min)，列表， [StandardDeviation](/powerquery-m/list-standarddeviation)，列表，[列表，](/powerquery-m/list-first)[最后一个](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>排序
 
-使用 [表。](https://docs.microsoft.com/powerquery-m/table-sort) 对值进行排序。
+使用 [表。](/powerquery-m/table-sort) 对值进行排序。
 
 ## <a name="reducing-rows"></a>减少行
 
-保留并删除 Top，保留范围 (对应的 M 个函数，仅支持计数，而不支持条件： [Table.Skip](https://docs.microsoft.com/powerquery-m/table-skip) [FirstN](https://docs.microsoft.com/powerquery-m/table-firstn)、 [RemoveFirstN](https://docs.microsoft.com/powerquery-m/table-removefirstn)、[明尼苏达](https://docs.microsoft.com/powerquery-m/table-minn)、 [MaxN](https://docs.microsoft.com/powerquery-m/table-maxn)) [Table.Range](https://docs.microsoft.com/powerquery-m/table-range)
+保留并删除 Top，保留范围 (对应的 M 个函数，仅支持计数，而不支持条件： [Table.Skip](/powerquery-m/table-skip) [FirstN](/powerquery-m/table-firstn)、 [RemoveFirstN](/powerquery-m/table-removefirstn)、[明尼苏达](/powerquery-m/table-minn)、 [MaxN](/powerquery-m/table-maxn)) [Table.Range](/powerquery-m/table-range)
 
 ## <a name="known-unsupported-functions"></a>已知不受支持的函数
 

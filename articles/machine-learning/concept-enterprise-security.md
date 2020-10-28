@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496003"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637082"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure 机器学习的企业安全性
 
@@ -98,9 +98,9 @@ ms.locfileid: "92496003"
 
 不建议管理员撤销托管标识对上表中所述资源的访问权限。 可以使用重新同步密钥操作来恢复访问权限。
 
-Azure 机器学习将在订阅中为每个工作区区域创建一个额外的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头），该应用程序具有参与者级别的访问权限。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 通过这些应用程序，Azure 机器学习可帮助管理计算资源。
+对于每个工作区区域，Azure 机器学习将在订阅中创建一个拥有参与者级别访问权限的附加应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头）。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 Azure 机器学习可以通过这些应用程序来帮助你管理计算资源。
 
-## <a name="network-security"></a>网络安全
+## <a name="network-security"></a>网络安全性
 
 Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源（计算目标）用于训练和部署模型。 可以在虚拟网络中创建这些计算目标。 例如，可以使用 Azure Data Science Virtual Machine 来训练模型，然后将模型部署到 AKS。  
 
@@ -158,12 +158,7 @@ Azure 机器学习在 Azure Cosmos DB 实例中存储指标和元数据。 此�
         > [!NOTE]
         > 此密钥保管库实例可能不同于在预配工作区时 Azure 机器学习创建的密钥保管库。 如果要对工作区使用相同的密钥保管库实例，请在使用 [key_vault 参数](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)预配工作区时传递相同的密钥保管库。 
 
-此 Cosmos DB 实例及其所需的全部资源是在订阅的 Microsoft 托管资源组中创建的。 托管资源组的命名格式为 `<AML Workspace Resource Group Name><GUID>`。 如果 Azure 机器学习工作区使用专用终结点，则还会为 Cosmos DB 实例创建一个虚拟网络。 此 VNet 用于保护 Cosmos DB 与 Azure 机器学习之间的通信。
-
-> [!IMPORTANT]
-> * 请勿删除包含此 Cosmos DB 实例的资源组，也不要删除此组中自动创建的任何资源。 如果需要删除该资源组和 Cosmos DB 实例等内容，必须删除使用它的 Azure 机器学习工作区。 删除与资源组、Cosmos DB 实例和其他自动创建的资源相关联的工作区时，这些资源都将被删除。
-> * 此 Cosmos DB 帐户的默认[请求单位数](../cosmos-db/request-units.md)设置为“8000” 。 不支持更改此值。
-> * 不能提供自己的 VNet 来与创建的 Cosmos DB 实例一起使用。 也不能修改虚拟网络。 例如，你不能更改它使用的 IP 地址范围。
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 如果需要轮换或撤销密钥，则可以随时执行此操作。 轮换密钥时，Cosmos DB 将开始使用新密钥（最新版本）来加密静态数据。 撤消（禁用）密钥时，Cosmos DB 会处理失败的请求。 轮换或撤消操作通常需要一小时才能生效。
 
@@ -294,7 +289,7 @@ Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥�
 
 ### <a name="vulnerability-scanning"></a>漏洞扫描
 
-Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 对于 Azure 机器学习，应启用对 Azure 容器注册表资源和 Azure Kubernetes 服务资源的扫描。 请参阅安全中心和[Azure Kubernetes Services 与安全中心集成](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)[的 azure 容器注册表映像扫描](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)。
+Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 对于 Azure 机器学习，应启用对 Azure 容器注册表资源和 Azure Kubernetes 服务资源的扫描。 请参阅[通过安全中心扫描 Azure 容器注册表映像](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)和 [Azure Kubernetes 服务与安全中心的集成](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)。
 
 ## <a name="data-flow-diagrams"></a>数据流示意图
 
@@ -369,14 +364,14 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 
 ## <a name="audit-and-manage-compliance"></a>审核和管理合规性
 
-[Azure 策略](/azure/governance/policy) 是一种管理工具，可让你确保 Azure 资源符合你的策略。 通过 Azure 机器学习，您可以分配以下策略：
+[Azure Policy](/azure/governance/policy) 是一种管理工具，你可用它来确保 Azure 资源符合你的策略。 通过 Azure 机器学习，你可分配以下策略：
 
-* **客户托管的密钥**：审核或强制工作区是否必须使用客户管理的密钥。
-* **专用链接**：审核工作区是否使用专用终结点与虚拟网络通信。
+* **客户管理的密钥** ：审核或强制执行工作区是否必须使用客户管理的密钥。
+* **专用链接** ：审核工作区是否使用专用终结点与虚拟网络进行通信。
 
-有关 Azure 策略的详细信息，请参阅 [Azure 策略文档](/azure/governance/policy/overview)。
+有关 Azure Policy 的详细信息，请参阅 [Azure Policy 文档](/azure/governance/policy/overview)。
 
-有关特定于 Azure 机器学习的策略的详细信息，请参阅 [通过 Azure 策略审核和管理符合性](how-to-integrate-azure-policy.md)。
+若要详细了解特定于 Azure 机器学习的策略，请参阅[使用 Azure Policy 审核和管理合规性](how-to-integrate-azure-policy.md)。
 
 ## <a name="resource-locks"></a>资源锁
 

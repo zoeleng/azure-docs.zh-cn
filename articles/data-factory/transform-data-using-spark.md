@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: c4a7eabe35e501aa840693f6fad3803b73160a25
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d8cc934ebe8b465bc43e37d0d3a3fc58feda8c0a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368887"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637711"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换数据
 > [!div class="op_single_selector" title1="选择所使用的数据工厂服务版本："]
@@ -59,13 +59,13 @@ ms.locfileid: "92368887"
 
 下表描述了 JSON 定义中使用的 JSON 属性：
 
-| 属性              | 描述                              | 必须 |
+| properties              | 说明                              | 必选 |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | 管道中活动的名称。    | 是      |
 | description           | 描述活动用途的文本。  | 否       |
 | type                  | 对于 Spark 活动，活动类型是 HDInsightSpark。 | 是      |
 | linkedServiceName     | 运行 Spark 程序的 HDInsight Spark 链接服务的名称。 若要了解此链接服务，请参阅[计算链接服务](compute-linked-services.md)一文。 | 是      |
-| SparkJobLinkedService | 用于保存 Spark 作业文件、依赖项和日志的 Azure 存储链接服务。 此处仅支持 [Azure Blob 存储](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)和 [ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage) 链接服务 。 如果未指定此属性的值，将使用与 HDInsight 群集关联的存储。 此属性的值只能是 Azure 存储链接服务。 | 否       |
+| SparkJobLinkedService | 用于保存 Spark 作业文件、依赖项和日志的 Azure 存储链接服务。 此处仅支持 [Azure Blob 存储](./connector-azure-blob-storage.md)和 [ADLS Gen2](./connector-azure-data-lake-storage.md) 链接服务 。 如果未指定此属性的值，将使用与 HDInsight 群集关联的存储。 此属性的值只能是 Azure 存储链接服务。 | 否       |
 | rootPath              | 包含 Spark 文件的 Azure Blob 容器和文件夹。 文件名称需区分大小写。 有关此文件夹结构的详细信息，请参阅“文件夹结构”部分（下一部分）。 | 是      |
 | entryFilePath         | Spark 代码/包的根文件夹的相对路径 条目文件必须是 Python 文件或 .jar 文件。 | 是      |
 | className             | 应用程序的 Java/Spark main 类      | 否       |
@@ -79,7 +79,7 @@ ms.locfileid: "92368887"
 
 在 HDInsight 链接服务引用的 Azure Blob 存储中创建以下文件夹结构。 然后，将依赖文件上传到 **entryFilePath** 表示的根文件夹中的相应子文件夹。 例如，将 python 文件上传到根文件夹的 pyFiles 子文件夹，将 jar 文件上传到根文件夹的 jars 子文件夹。 在运行时，数据工厂服务需要 Azure Blob 存储中的以下文件夹结构：     
 
-| 路径                  | 描述                              | 必须 | 类型   |
+| 路径                  | 说明                              | 必选 | 类型   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.`（根）            | Spark 作业在存储链接服务中的根路径 | 是      | Folder |
 | &lt;用户定义&gt; | 指向 Spark 作业入口文件的路径 | 是      | 文件   |

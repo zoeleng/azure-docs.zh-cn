@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927551"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634532"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>如何在 Windows 容器中运行自承载集成运行时
 
@@ -26,7 +26,7 @@ ms.locfileid: "87927551"
 Azure 数据工厂当前提供对自承载集成运行时的官方 Windows 容器支持。 你可以下载 docker 生成源代码，并将生成和运行流程整合到自己的持续交付管道中。 
 
 ## <a name="prerequisites"></a>先决条件 
-- [Windows 容器要求](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
+- [Windows 容器要求](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker 版本 2.3 和更高版本 
 - 自承载集成运行时版本 4.11.7512.1 和更高版本 
 ## <a name="get-started"></a>入门 
@@ -61,7 +61,5 @@ docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATI
 - 自动更新 
 
 ### <a name="next-steps"></a>后续步骤
-- 查看 [Azure 数据工厂中的集成运行时概念](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)。
-- 了解如何[在 Azure 门户中创建自承载集成运行时](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)。
-
-
+- 查看 [Azure 数据工厂中的集成运行时概念](./concepts-integration-runtime.md)。
+- 了解如何[在 Azure 门户中创建自承载集成运行时](./create-self-hosted-integration-runtime.md)。

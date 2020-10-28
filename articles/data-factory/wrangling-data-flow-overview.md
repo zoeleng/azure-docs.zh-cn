@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082845"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636062"
 ---
 # <a name="what-are-wrangling-data-flows"></a>什么是整理数据流？
 
@@ -21,7 +21,7 @@ ms.locfileid: "87082845"
 
 组织需要进行数据准备和整理，以便准确分析每天持续增长的复杂数据。 需要进行数据准备，以便组织可以使用各种业务流程中的数据并缩短价值。
 
-通过 Azure 数据工厂中的整理数据流，可以在云规模上以迭代方式进行无代码的数据准备。 整理数据流与 [Power Query Online](https://docs.microsoft.com/power-query/) 集成，使 Power Query M 函数可供数据工厂用户使用。
+通过 Azure 数据工厂中的整理数据流，可以在云规模上以迭代方式进行无代码的数据准备。 整理数据流与 [Power Query Online](/power-query/) 集成，使 Power Query M 函数可供数据工厂用户使用。
 
 整理数据流将 Power Query Online 混合编辑器生成的 M 转换为用于云缩放执行的 spark 代码。
 

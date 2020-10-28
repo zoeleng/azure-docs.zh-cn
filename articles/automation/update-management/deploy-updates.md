@@ -3,14 +3,14 @@ title: 如何为 Azure 自动化更新管理创建更新部署
 description: 本文介绍如何计划更新部署并查看其状态。
 services: automation
 ms.subservice: update-management
-ms.date: 10/21/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426411"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637592"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>如何部署更新和查看结果
 
@@ -44,8 +44,8 @@ ms.locfileid: "92426411"
 2. 根据所选资源，若要导航到“更新管理”，请执行以下操作：
 
    * 如果选择了自动化帐户，请转到“更新管理”下的“更新管理”，然后选择“计划更新部署”  。
-   * 如果选择了 Azure VM，请参阅 " **来宾 + 主机更新**"，然后选择 " **前往更新管理**"。
-   * 如果选择了启用了 Arc 的服务器，请参阅 " **更新管理**"，然后选择 " **计划更新部署**"。
+   * 如果选择了 Azure VM，请参阅 " **来宾 + 主机更新** "，然后选择 " **前往更新管理** "。
+   * 如果选择了启用了 Arc 的服务器，请参阅 " **更新管理** "，然后选择 " **计划更新部署** "。
 
 3. 在“新建更新部署”下的“名称”字段中，输入部署的唯一名称 。
 
@@ -68,13 +68,16 @@ ms.locfileid: "92426411"
 
     如果你的部署打算只应用一组选定的更新，那么在配置“包含/排除更新”选项时，有必要取消选择所有预先选择的更新分类，如下一步所述。 这将确保在目标计算机上只安装你指定添加在此部署中的更新。
 
-8. 使用“包含/排除更新”区域可从部署中添加或排除选定的更新。 在“包括/排除”页上，你可以输入知识库文章 ID 号来进行添加或排除。
+8. 使用“包含/排除更新”区域可从部署中添加或排除选定的更新。 在 " **包括/排除** " 页上，输入要包括或排除的 Windows 更新的知识库文章 ID 号。 对于支持的 Linux 发行版，请指定包名称。
 
    > [!IMPORTANT]
    > 请记住，排除项会替代包含项。 例如，如果定义了 `*` 排除规则，更新管理会从安装中排除所有修补程序或包。 已排除的修补程序仍显示为计算机缺少此项。 对于 Linux 计算机，如果包含一个具有依赖包的包，而该依赖包已被排除，则更新管理不会安装主包。
 
    > [!NOTE]
    > 你不能指定将已被取代的更新包含在更新部署中。
+
+   > [!IMPORTANT]
+   > 对于 Red Hat Enterprise，内核升级还会显示为 YUM 中的包。 如果不排除包含内核升级的更新，更新管理将应用这些更新。
 
 9. 选择“计划设置”。 默认开始时间为晚于当前时间 30 分钟。 可以将开始时间设置为 10 分钟之后的任何将来时间。
 
@@ -109,7 +112,7 @@ ms.locfileid: "92426411"
     ![更新“计划设置”窗格](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
-    > 为启用了所选 Arc 的服务器配置完部署计划后，请选择 " **查看 + 创建**"。
+    > 为启用了所选 Arc 的服务器配置完部署计划后，请选择 " **查看 + 创建** "。
 
 15. 此时会回到状态仪表板。 选择“部署计划”以显示已创建的部署计划。 最多会列出500个计划。 如果计划超过500个，并且想要查看完整列表，请参阅 [软件更新配置-列出](/rest/api/automation/softwareupdateconfigurations/list) REST API 方法。 指定 API 版本2019-06-01 或更高版本。
 

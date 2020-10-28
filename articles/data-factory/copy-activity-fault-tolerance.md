@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440637"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634771"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure 数据工厂中复制活动的容错
 > [!div class="op_single_selector" title1="选择所使用的数据工厂服务版本："]
@@ -70,7 +70,7 @@ ADF 在复制二进制文件时支持以下容错方案。 在以下情况下，
      } 
 } 
 ```
-属性 | 说明 | 允许的值 | 必须
+properties | 说明 | 允许的值 | 必选
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | 一组属性，用于指定在数据移动过程中要跳过的失败类型。 | | 否
 fileMissing | SkipErrorFile 属性包中的一个键值对，用于确定是否要跳过在复制 ADF 时被其他应用程序删除的文件。 <br/> -True：跳过其他应用程序正在删除的文件，复制其余内容。 <br/> -False：在数据移动过程中，一旦从源存储中删除任何文件则中止复制活动。 <br/>默认情况下，该属性设置为 True。 | True（默认值） <br/>False | 否
@@ -93,7 +93,7 @@ path | 日志文件的路径。 | 指定用于存储日志文件的路径。 如
 > - 仅当在源数据集中指定多个文件（可以是文件夹、通配符或文件列表）时，复制活动才能跳过特定错误文件。 若要将源数据集中的单个文件指定为复制到目标，则如果出现任何错误，复制活动会失败。
 >
 > 若要在验证特定文件在源存储和目标存储之间是否不一致时跳过这些文件，必须满足以下条件：
-> - 可从[此处](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)的数据一致性文档获取更多详细信息。
+> - 可从[此处](./copy-activity-data-consistency.md)的数据一致性文档获取更多详细信息。
 
 ### <a name="monitoring"></a>监视 
 
@@ -126,11 +126,11 @@ path | 日志文件的路径。 | 指定用于存储日志文件的路径。 如
 
 列 | 说明 
 -------- | -----------  
-Timestamp | ADF 跳过文件时的时间戳。
-级别 | 此项的日志级别。 对于显示文件跳过的项，它将处于“警告”级别。
+时间戳 | ADF 跳过文件时的时间戳。
+Level | 此项的日志级别。 对于显示文件跳过的项，它将处于“警告”级别。
 OperationName | 每个文件上的 ADF 复制活动操作行为。 它将为“FileSkip”，以指定要跳过的文件。
 OperationItem | 要跳过的文件名。
-Message | 说明为何要跳过文件的详细信息。
+消息 | 说明为何要跳过文件的详细信息。
 
 日志文件的示例如下所示： 
 ```
@@ -146,11 +146,11 @@ Timestamp,Level,OperationName,OperationItem,Message
 ### <a name="supported-scenarios"></a>支持的方案
 复制活动支持三种检测、跳过和记录不兼容表格数据的方案：
 
-- **源数据类型与接收器本机类型不兼容**。 
+- **源数据类型与接收器本机类型不兼容** 。 
 
     例如：将数据从 Blob 存储中的 CSV 文件复制到具有架构定义的包含三个 INT 类型列的 SQL 数据库。 包含数值数据的 CSV 文件行（如 123,456,789）成功复制到接收器存储。 但是，包含非数字值的行（如 123,456, abc ）检测为不兼容，并被跳过。
 
-- **源与接收器之间的列数不匹配**。
+- **源与接收器之间的列数不匹配** 。
 
     例如：使用包含六个列的架构定义，将数据从 Blob 存储中的 CSV 文件复制到 SQL 数据库。 包含六个列的 CSV 文件行会成功复制到接收器存储。 包含多于六列的 CSV 文件行将检测为不兼容，并被跳过。
 
@@ -161,7 +161,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 >[!NOTE]
 >- 若要使用 PolyBase 将数据加载到 Azure Synapse Analytics（以前称为 SQL 数据仓库），请配置 PolyBase 的原生容错设置，方法是在复制活动中通过 [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) 指定拒绝策略。 同时，仍然可以正常启用将 PolyBase 不兼容行重定向到 Blob 或 ADLS，如下所示。
 >- 将复制活动配置为调用 [AmazonRedShift 卸载](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)时，此功能不适用。
->- 当复制活动配置为调用 [SQL 接收器中的存储过程](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)时，此功能不适用。
+>- 当复制活动配置为调用 [SQL 接收器中的存储过程](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink)时，此功能不适用。
 
 ### <a name="configuration"></a>配置
 下面的 JSON 定义示例用于配置在复制活动中跳过不兼容行：
@@ -185,7 +185,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 }, 
 ```
 
-属性 | 说明 | 允许的值 | 必须
+properties | 说明 | 允许的值 | 必选
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 指定是否在复制期间跳过不兼容的行。 | True<br/>False（默认值） | 否
 logStorageSettings | 若要记录不兼容行，可以指定的一组属性。 | &nbsp; | 否
@@ -215,11 +215,11 @@ path | 包含已跳过行的日志文件的路径。 | 指定要用于记录不�
 
 列 | 说明 
 -------- | -----------  
-Timestamp | ADF 跳过不兼容行时的时间戳
-级别 | 此项的日志级别。 如果此项显示跳过的行，它将处于“警告”级别
+时间戳 | ADF 跳过不兼容行时的时间戳
+Level | 此项的日志级别。 如果此项显示跳过的行，它将处于“警告”级别
 OperationName | 每个行上的 ADF 复制活动操作行为。 它将为“TabularRowSkip”以指定已跳过特定不兼容行
 OperationItem | 源数据存储中的已跳过行。
-Message | 说明此特定行不兼容性的详细信息。
+消息 | 说明此特定行不兼容性的详细信息。
 
 
 下面的示例展示了日志文件内容：
@@ -259,7 +259,7 @@ Timestamp, Level, OperationName, OperationItem, Message
 }
 ```
 
-属性 | 说明 | 允许的值 | 必须
+properties | 说明 | 允许的值 | 必选
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 指定是否在复制期间跳过不兼容的行。 | True<br/>False（默认值） | 否
 redirectIncompatibleRowSettings | 若要记录不兼容行，可以指定的一组属性。 | &nbsp; | 否
@@ -298,5 +298,3 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 
 - [复制活动概述](copy-activity-overview.md)
 - [复制活动性能](copy-activity-performance.md)
-
-

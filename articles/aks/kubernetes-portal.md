@@ -2,16 +2,14 @@
 title: '访问 Azure 门户 (预览版中的 Kubernetes 资源) '
 description: 了解如何与 Kubernetes 资源交互，以从 Azure 门户管理 Azure Kubernetes Service (AKS) 群集。
 services: container-service
-author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
-ms.author: lahugh
-ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070633"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635603"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>访问 Azure 门户 (预览版中的 Kubernetes 资源) 
 
@@ -60,7 +58,7 @@ Azure 门户中的 Kubernetes 资源视图将替换为弃用而设置的 [AKS �
 
 Kubernetes 资源视图还包括一个 YAML 编辑器。 内置的 YAML 编辑器意味着可以从门户中更新或创建服务和部署，并立即应用更改。
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Azure 门户中显示的 Kubernetes pod 信息。" **保存**"，确认更改，然后重新保存来应用更改。
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Azure 门户中显示的 Kubernetes pod 信息。" **保存** "，确认更改，然后重新保存来应用更改。
 
 >[!WARNING]
 > 不建议通过 UI 或 CLI 执行直接的生产更改， [ (CI) 和持续部署 (CD) 最佳实践](kubernetes-action.md)。 Azure 门户 Kubernetes 管理功能和 YAML 编辑器在开发和测试设置中用于学习和试验新部署。

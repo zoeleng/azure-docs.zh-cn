@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440501"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635756"
 ---
 # <a name="azure-data-factory-faq"></a>Azure 数据工厂常见问题解答
 
@@ -70,7 +70,7 @@ ms.locfileid: "89440501"
 在选择“调试”之前，不需要将所做的更改发布至数据工厂服务。 在开发、测试或生产环境中更新数据工厂工作流之前，如果想确保新添加的内容或更改能按预期工作，这一点就很有帮助。 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>将 SSIS 包部署到 Azure 的功能 
-如果想要移动 SSIS 工作负荷，可以创建一个数据工厂，并预配 Azure-SSIS 集成运行时。 Azure-SSIS Integration Runtime 是由 Azure VM（节点）构成的完全托管群集，专用于在云中运行 SSIS 包。 有关分步说明，请参阅[将 SSIS 包部署到 Azure](tutorial-create-azure-ssis-runtime-portal.md) 教程。 
+如果想要移动 SSIS 工作负荷，可以创建一个数据工厂，并预配 Azure-SSIS 集成运行时。 Azure-SSIS Integration Runtime 是由 Azure VM（节点）构成的完全托管群集，专用于在云中运行 SSIS 包。 有关分步说明，请参阅[将 SSIS 包部署到 Azure](./tutorial-deploy-ssis-packages-azure.md) 教程。 
  
 ### <a name="sdks"></a>SDK
 对于正在寻求编程接口的高级用户，数据工厂提供了一组丰富的 SDK，让用户在偏好的 IDE 中创作、管理和监视管道。 语言支持包括 .NET、PowerShell、Python 以及 REST。
@@ -95,9 +95,9 @@ ms.locfileid: "89440501"
 ## <a name="what-is-the-integration-runtime"></a>什么是 Integration Runtime？
 集成运行时是 Azure 数据工厂用于在各种网络环境之间提供以下数据集成功能的计算基础结构：
 
-- **数据移动**：就数据移动而言，集成运行时在源和目标数据存储之间移动数据，同时为内置连接器、格式转换、列映射和高性能可缩放数据传输提供支持。
-- **调动活动**：就转换而言，集成运行时提供本机执行 SSIS 包的能力。
-- **执行 SSIS 包**：Integration Runtime 在托管的 Azure 计算环境中本机执行 SSIS 包。 Integration Runtime 还支持调度和监视各种计算服务（如 Azure HDInsight、Azure 机器学习、SQL 数据库和 SQL Server）上运行的转换活动。
+- **数据移动** ：就数据移动而言，集成运行时在源和目标数据存储之间移动数据，同时为内置连接器、格式转换、列映射和高性能可缩放数据传输提供支持。
+- **调动活动** ：就转换而言，集成运行时提供本机执行 SSIS 包的能力。
+- **执行 SSIS 包** ：Integration Runtime 在托管的 Azure 计算环境中本机执行 SSIS 包。 Integration Runtime 还支持调度和监视各种计算服务（如 Azure HDInsight、Azure 机器学习、SQL 数据库和 SQL Server）上运行的转换活动。
 
 可以按需部署一个或多个集成运行时实例来移动和转换数据。 集成运行时可以在 Azure 公用网络或专用网络（本地、Azure 虚拟网络或 Amazon Web Services 虚拟私有云 [VPC]）中运行。 
 
@@ -127,7 +127,7 @@ ms.locfileid: "89440501"
 数据工厂中的链接服务有两个用途：
 
 - 代表数据存储，包括但不限于 SQL Server 实例、Oracle 数据库实例、文件共享或 Azure Blob 存储帐户。 有关支持的数据存储列表，请参阅 [Azure 数据工厂中的复制活动](copy-activity-overview.md)。
-- 代表可托管活动执行的*计算资源*。 例如，HDInsight Hive 活动在 HDInsight Hadoop 群集上运行。 有关转换活动列表和支持的计算环境，请参阅[在 Azure 数据工厂中转换数据](transform-data.md)。
+- 代表可托管活动执行的 *计算资源* 。 例如，HDInsight Hive 活动在 HDInsight Hadoop 群集上运行。 有关转换活动列表和支持的计算环境，请参阅[在 Azure 数据工厂中转换数据](transform-data.md)。
 
 ### <a name="triggers"></a>触发器
 触发器表示处理单元，确定何时启动管道执行。 不同类型的事件有不同类型的触发器类型。 
@@ -159,7 +159,7 @@ ms.locfileid: "89440501"
 有关 Azure 数据工厂的最新信息，请访问以下站点：
 
 - [博客](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [文档主页](/azure/data-factory)
+- [文档主页](./index.yml)
 - [产品主页](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>技术深入了解 
@@ -257,7 +257,7 @@ Azure 数据工厂 (ADF) 是一种托管的数据集成服务，它允许数据�
 * nchar
 * varchar
 * nvarchar
-* 整型
+* integer
 * int
 * bit
 * boolean
