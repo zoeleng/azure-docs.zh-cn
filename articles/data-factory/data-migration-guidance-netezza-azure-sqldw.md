@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 2197136b86d0bfbb2de79af6712c953339d46371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8192b1351d54acbb553bacb8b36474cba271cb05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442831"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638068"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>使用 Azure 数据工厂将数据从本地 Netezza 服务器迁移到 Azure 
 
@@ -41,13 +41,13 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
 
 上面的示意图可以解释为：
 
-- 单个复制活动可以利用可缩放的计算资源。 使用 Azure Integration Runtime 时，能够以无服务器方式为每个复制活动指定[最多 256 个 DIU](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units)。 使用自承载集成运行时（自承载 IR）时，可以手动纵向扩展计算机或横向扩展为多个计算机（[最多 4 个节点](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)），单个复制活动将在所有节点之间分布其分区。 
+- 单个复制活动可以利用可缩放的计算资源。 使用 Azure Integration Runtime 时，能够以无服务器方式为每个复制活动指定[最多 256 个 DIU](./copy-activity-performance.md#data-integration-units)。 使用自承载集成运行时（自承载 IR）时，可以手动纵向扩展计算机或横向扩展为多个计算机（[最多 4 个节点](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)），单个复制活动将在所有节点之间分布其分区。 
 
 - 单个复制活动使用多个线程读取和写入数据存储。 
 
-- Azure 数据工厂控制流可以同时启动多个复制活动。 例如，它可以使用 [For Each 循环](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)启动这些活动。 
+- Azure 数据工厂控制流可以同时启动多个复制活动。 例如，它可以使用 [For Each 循环](./control-flow-for-each-activity.md)启动这些活动。 
 
-有关详细信息，请参阅[复制活动性能和可伸缩性指南](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)。
+有关详细信息，请参阅[复制活动性能和可伸缩性指南](./copy-activity-performance.md)。
 
 ## <a name="resilience"></a>复原能力
 
@@ -95,33 +95,33 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
 
 ### <a name="manage-authentication-and-credentials"></a>管理身份验证和凭据 
 
-- 若要对 Netezza 进行身份验证，可以使用[通过连接字符串进行的 ODBC 身份验证](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties)。 
+- 若要对 Netezza 进行身份验证，可以使用[通过连接字符串进行的 ODBC 身份验证](./connector-netezza.md#linked-service-properties)。 
 
 - 若要对 Azure Blob 存储进行身份验证： 
 
-   - 我们强烈建议使用 [Azure 资源的托管标识](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity)。 托管标识构建在 Azure Active Directory (Azure AD) 中自动管理的 Azure 数据工厂标识基础之上，使你无需在链接服务定义中提供凭据，即可配置管道。  
+   - 我们强烈建议使用 [Azure 资源的托管标识](./connector-azure-blob-storage.md#managed-identity)。 托管标识构建在 Azure Active Directory (Azure AD) 中自动管理的 Azure 数据工厂标识基础之上，使你无需在链接服务定义中提供凭据，即可配置管道。  
 
-   - 或者，可以使用[服务主体](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication)、[共享访问签名](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)或[存储帐户密钥](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication)对 Azure Blob 存储进行身份验证。 
+   - 或者，可以使用[服务主体](./connector-azure-blob-storage.md#service-principal-authentication)、[共享访问签名](./connector-azure-blob-storage.md#shared-access-signature-authentication)或[存储帐户密钥](./connector-azure-blob-storage.md#account-key-authentication)对 Azure Blob 存储进行身份验证。 
 
 - 若要对 Azure Data Lake Storage Gen2 进行身份验证： 
 
-   - 我们强烈建议使用 [Azure 资源的托管标识](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity)。
+   - 我们强烈建议使用 [Azure 资源的托管标识](./connector-azure-data-lake-storage.md#managed-identity)。
    
-   - 也可以使用[服务主体](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication)或[存储帐户密钥](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication)。 
+   - 也可以使用[服务主体](./connector-azure-data-lake-storage.md#service-principal-authentication)或[存储帐户密钥](./connector-azure-data-lake-storage.md#account-key-authentication)。 
 
 - 若要向 Azure Synapse Analytics 进行身份验证：
 
-   - 我们强烈建议使用 [Azure 资源的托管标识](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity)。
+   - 我们强烈建议使用 [Azure 资源的托管标识](./connector-azure-sql-data-warehouse.md#managed-identity)。
    
-   - 也可以使用[服务主体](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication)或 [SQL 身份验证](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication)。
+   - 也可以使用[服务主体](./connector-azure-sql-data-warehouse.md#service-principal-authentication)或 [SQL 身份验证](./connector-azure-sql-data-warehouse.md#sql-authentication)。
 
-- 如果不使用 Azure 资源的托管标识，则我们强烈建议[在 Azure Key Vault 中存储凭据](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)，以便更轻松地集中管理和轮换密钥，而无需修改 Azure 数据工厂链接服务。 这也是 [CI/CD 的最佳做法](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)之一。 
+- 如果不使用 Azure 资源的托管标识，则我们强烈建议[在 Azure Key Vault 中存储凭据](./store-credentials-in-key-vault.md)，以便更轻松地集中管理和轮换密钥，而无需修改 Azure 数据工厂链接服务。 这也是 [CI/CD 的最佳做法](./continuous-integration-deployment.md#best-practices-for-cicd)之一。 
 
 ### <a name="migrate-initial-snapshot-data"></a>迁移初始快照数据 
 
 对于小型表（即，卷大小小于 100 GB，或者可以在两小时内迁移到 Azure 的表），可使每个复制作业加载每个表的数据。 若要提高吞吐量，可以运行多个 Azure 数据工厂复制作业来同时加载不同的表。 
 
-在每个复制作业中，若要运行并行查询并按分区复制数据，还可以结合以下任一数据分区选项使用 [`parallelCopies` 属性设置](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy)来达到一定的并行度：
+在每个复制作业中，若要运行并行查询并按分区复制数据，还可以结合以下任一数据分区选项使用 [`parallelCopies` 属性设置](./copy-activity-performance.md#parallel-copy)来达到一定的并行度：
 
 - 为帮助实现更高的效率，我们建议从数据切片开始。  确保 `parallelCopies` 设置中的值小于 Netezza 服务器上的表中的数据切片分区总数。  
 
@@ -192,18 +192,18 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
 有关详细信息，请参阅以下文章和指南：
 
 - [使用 Azure 数据工厂将数据从本地关系数据仓库数据库迁移到 Azure](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
-- [Netezza 连接器](https://docs.microsoft.com/azure/data-factory/connector-netezza)
-- [ODBC 连接器](https://docs.microsoft.com/azure/data-factory/connector-odbc)
-- [Azure Blob 存储连接器](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2 连接器](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure Synapse Analytics 连接器](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
-- [复制活动性能和优化指南](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [创建和配置自承载集成运行时](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [自承载集成运行时的高可用性和可伸缩性](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [数据移动安全注意事项](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [在 Azure Key Vault 中存储凭据](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [以增量方式从一个表复制数据](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
-- [以增量方式从多个表复制数据](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
+- [Netezza 连接器](./connector-netezza.md)
+- [ODBC 连接器](./connector-odbc.md)
+- [Azure Blob 存储连接器](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2 连接器](./connector-azure-data-lake-storage.md)
+- [Azure Synapse Analytics 连接器](./connector-azure-sql-data-warehouse.md)
+- [复制活动性能和优化指南](./copy-activity-performance.md)
+- [创建和配置自承载集成运行时](./create-self-hosted-integration-runtime.md)
+- [自承载集成运行时的高可用性和可伸缩性](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [数据移动安全注意事项](./data-movement-security-considerations.md)
+- [在 Azure Key Vault 中存储凭据](./store-credentials-in-key-vault.md)
+- [以增量方式从一个表复制数据](./tutorial-incremental-copy-portal.md)
+- [以增量方式从多个表复制数据](./tutorial-incremental-copy-multiple-tables-portal.md)
 - [Azure 数据工厂定价页](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>后续步骤

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874826"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637864"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>映射数据流性能和优化指南
 
@@ -109,7 +109,7 @@ Azure 数据工厂生成列哈希，以生成统一分区，使具有相似值�
 
 默认群集大小为四个驱动程序节点和四个辅助角色节点。  处理更多数据时，建议使用较大的群集。 下面是可能的大小调整选项：
 
-| 辅助角色核心 | 驱动程序核心 | 核心总数 | 注意 |
+| 辅助角色核心 | 驱动程序核心 | 核心总数 | 说明 |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | 不可用于计算优化 |
 | 8 | 8 | 16 | |
@@ -155,7 +155,7 @@ Azure SQL 数据库具有一个名为 "源" 分区的唯一分区选项。 启�
 
 #### <a name="isolation-level"></a>隔离级别
 
-Azure SQL 源系统上的读取隔离级别对性能有影响。 选择 "未提交读" 将提供最快的性能，并防止任何数据库锁。 若要了解有关 SQL 隔离级别的详细信息，请参阅 [了解隔离级别](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)。
+Azure SQL 源系统上的读取隔离级别对性能有影响。 选择 "未提交读" 将提供最快的性能，并防止任何数据库锁。 若要了解有关 SQL 隔离级别的详细信息，请参阅 [了解隔离级别](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)。
 
 #### <a name="read-using-query"></a>使用查询进行读取
 
@@ -163,7 +163,7 @@ Azure SQL 源系统上的读取隔离级别对性能有影响。 选择 "未提�
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse Analytics 源
 
-使用 Azure Synapse Analytics 时，源选项中存在称为 " **启用过渡** " 的设置。 这允许 ADF 使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)从 Synapse 读取，这大大提高了读取性能。 启用 PolyBase 需要在数据流活动设置中指定一个 Azure Blob 存储或 Azure Data Lake Storage gen2 暂存位置。
+使用 Azure Synapse Analytics 时，源选项中存在称为 " **启用过渡** " 的设置。 这允许 ADF 使用 [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)从 Synapse 读取，这大大提高了读取性能。 启用 PolyBase 需要在数据流活动设置中指定一个 Azure Blob 存储或 Azure Data Lake Storage gen2 暂存位置。
 
 ![启用暂存](media/data-flow/enable-staging.png "启用暂存")
 
@@ -198,7 +198,7 @@ Azure SQL 源系统上的读取隔离级别对性能有影响。 选择 "未提�
 ![禁用索引](media/data-flow/disable-indexes-sql.png "禁用索引")
 
 > [!WARNING]
-> 禁用索引时，数据流实际上会控制数据库并使查询在此时不可能成功。 因此，在晚间，会触发许多 ETL 作业，以避免此冲突。 有关详细信息，请参阅 [禁用索引的约束](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> 禁用索引时，数据流实际上会控制数据库并使查询在此时不可能成功。 因此，在晚间，会触发许多 ETL 作业，以避免此冲突。 有关详细信息，请参阅 [禁用索引的约束](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
 
 #### <a name="scaling-up-your-database"></a>扩展数据库
 
@@ -206,7 +206,7 @@ Azure SQL 源系统上的读取隔离级别对性能有影响。 选择 "未提�
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse 分析接收器
 
-写入 Azure Synapse Analytics 时，请确保将 " **启用过渡** " 设置为 "true"。 这使得 ADF 可以使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 进行编写，这会有效地批量加载数据。 使用 PolyBase 时，需要引用 Azure Data Lake Storage gen2 或 Azure Blob 存储帐户来暂存数据。
+写入 Azure Synapse Analytics 时，请确保将 " **启用过渡** " 设置为 "true"。 这使得 ADF 可以使用 [PolyBase](/sql/relational-databases/polybase/polybase-guide) 进行编写，这会有效地批量加载数据。 使用 PolyBase 时，需要引用 Azure Data Lake Storage gen2 或 Azure Blob 存储帐户来暂存数据。
 
 除 PolyBase 以外，相同的最佳做法也适用于 azure SQL 数据库的 Azure Synapse 分析。
 
@@ -226,7 +226,7 @@ Azure SQL 源系统上的读取隔离级别对性能有影响。 选择 "未提�
 
 设置命名 **模式** 会将每个分区文件重命名为用户友好的名称。 此操作在写入后发生，并稍慢于选择默认值。 每个分区允许您手动命名每个分区。
 
-如果列与数据的输出方式相对应，则可以选择 " **列中的数据" 作为数据**。 这会 reshuffles 数据，如果列不是均匀分布的，可能会影响性能。
+如果列与数据的输出方式相对应，则可以选择 " **列中的数据" 作为数据** 。 这会 reshuffles 数据，如果列不是均匀分布的，可能会影响性能。
 
 **输出到单个文件** 将所有数据组合到单个分区中。 这会导致长时间的写入时间，尤其是对于大型数据集。 除非有明确的业务原因，否则 Azure 数据工厂团队强烈建议 **不要** 选择此选项。
 
@@ -247,7 +247,7 @@ Azure SQL 源系统上的读取隔离级别对性能有影响。 选择 "未提�
 
 #### <a name="broadcasting"></a>广播
 
-在联接、查找和存在转换中，如果一个或两个数据流非常小，足以适应工作节点内存，则可以通过启用 **广播**来优化性能。 广播是指将小型数据帧发送到群集中的所有节点。 这使 Spark 引擎能够在不重新组织大流中的数据的情况下执行联接。 默认情况下，Spark 引擎将自动决定是否广播联接的一方。 如果你熟悉传入的数据，并知道一个流将明显小于另一个，则可以选择 " **固定** 广播"。 固定广播强制 Spark 广播选定流。 
+在联接、查找和存在转换中，如果一个或两个数据流非常小，足以适应工作节点内存，则可以通过启用 **广播** 来优化性能。 广播是指将小型数据帧发送到群集中的所有节点。 这使 Spark 引擎能够在不重新组织大流中的数据的情况下执行联接。 默认情况下，Spark 引擎将自动决定是否广播联接的一方。 如果你熟悉传入的数据，并知道一个流将明显小于另一个，则可以选择 " **固定** 广播"。 固定广播强制 Spark 广播选定流。 
 
 如果广播数据的大小对于 Spark 节点而言太大，则可能会出现内存不足错误。 若要避免内存不足错误，请使用 **内存优化** 群集。 如果在数据流执行期间遇到广播超时，可以关闭广播优化。 但是，这会导致数据流执行速度变慢。
 

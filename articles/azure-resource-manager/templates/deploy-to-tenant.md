@@ -2,15 +2,15 @@
 title: 将资源部署到租户
 description: 介绍如何在 Azure 资源管理器模板中的租户范围内部署资源。
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372385"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668690"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>在租户级别创建资源
+# <a name="tenant-deployments-with-arm-templates"></a>具有 ARM 模板的租户部署
 
 随着组织的成熟，你可能需要在 Azure AD 租户中定义和分配[策略](../../governance/policy/overview.md)或 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。 通过租户级模板，可以声明的方式在全局级别应用策略和分配角色。
 
@@ -49,13 +49,19 @@ ms.locfileid: "91372385"
 对于模板，请使用：
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 对于所有部署范围，参数文件的架构都相同。 对于参数文件，请使用：
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>所需访问权限
@@ -78,21 +84,11 @@ Azure Active Directory 的全局管理员不自动拥有分配角色的权限。
 
 主体现已具有部署模板所需的权限。
 
-## <a name="deployment-scopes"></a>部署范围
-
-部署到租户时，可以将租户或管理组、订阅和资源组定位到租户中。 部署模板的用户必须有权访问指定的作用域。
-
-在模板的资源部分中定义的资源将应用于租户。
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-若要以租户内的管理组为目标，请添加嵌套部署并指定 `scope` 属性。
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>部署命令
 
 用于租户部署的命令与资源组部署使用的命令不同。
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 对于 Azure CLI，请使用 [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)：
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 对于 Azure PowerShell，请使用 [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment)。
 
 ```azurepowershell-interactive
@@ -112,38 +110,58 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-对于 REST API，请使用[部署 - 在租户范围内创建或更新](/rest/api/resources/deployments/createorupdateattenantscope)。
+---
+
+有关部署 ARM 模板的部署命令和选项的更多详细信息，请参阅：
+
+* [使用 ARM 模板和 Azure 门户部署资源](deploy-portal.md)
+* [使用 ARM 模板和 Azure CLI 部署资源](deploy-cli.md)
+* [使用 ARM 模板和 Azure PowerShell 部署资源](deploy-powershell.md)
+* [利用 ARM 模板和 Azure 资源管理器部署资源 REST API](deploy-rest.md)
+* [使用部署按钮从 GitHub 存储库部署模板](deploy-to-azure-button.md)
+* [从 Cloud Shell 部署 ARM 模板](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>部署范围
+
+部署到管理组时，可以将资源部署到：
+
+* 租户
+* 租户内的管理组
+* subscriptions
+* 通过两个嵌套部署 (资源组) 
+* [扩展资源](scope-extension-resources.md) 可以应用于资源
+
+部署模板的用户必须有权访问指定的作用域。
+
+本部分说明如何指定不同的范围。 可以在单个模板中组合这些不同的范围。
+
+### <a name="scope-to-tenant"></a>作用域到租户
+
+在模板的资源部分中定义的资源将应用于租户。
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>作用域到管理组
+
+若要以租户内的管理组为目标，请添加嵌套部署并指定 `scope` 属性。
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>作用域到订阅
+
+你还可以针对租户中的订阅。 部署模板的用户必须有权访问指定的作用域。
+
+若要面向租户中的订阅，请使用嵌套部署和 `subscriptionId` 属性。
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>部署位置和名称
 
 对于租户级别的部署，必须提供部署位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
 
-可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
+可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy** 。
 
 每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
-
-## <a name="use-template-functions"></a>使用模板函数
-
-对于租户部署，在使用模板函数时有一些重要注意事项：
-
-* 不支持 [resourceGroup()](template-functions-resource.md#resourcegroup) 函数。
-* 不支持 [subscription()](template-functions-resource.md#subscription) 函数。
-* 支持 [reference()](template-functions-resource.md#reference) 和 [list()](template-functions-resource.md#list) 函数。
-* 请勿使用 [resourceId()](template-functions-resource.md#resourceid) 获取在租户级别部署的资源的资源 ID。
-
-  请改用 [tenantResourceId()](template-functions-resource.md#tenantresourceid) 函数。
-
-  例如，若要获取内置策略定义的资源 ID，请使用：
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  返回的资源 ID 具有以下格式：
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>创建管理组
 

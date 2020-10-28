@@ -4,13 +4,13 @@ description: 了解如何将 Azure Application Insights 和 Azure Functions 结�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2
-ms.openlocfilehash: 85851c896d32d2e15efa0a39260af4331f99f862
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js
+ms.openlocfilehash: 87c31df6ecb92acd5bedaee274f9886383e5c617
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217144"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668732"
 ---
 # <a name="monitor-azure-functions"></a>监视 Azure Functions
 
@@ -33,7 +33,7 @@ Application Insights 可收集日志、性能和错误数据。 通过自动检�
 
 ## <a name="application-insights-integration"></a>Application Insights 集成
 
-通常，在创建函数应用时创建 Application Insights 实例。 在这种情况下，集成所需的检测密钥已设置为名为 *APPINSIGHTS_INSTRUMENTATIONKEY*的应用程序设置。 如果由于某种原因，函数应用未设置检测密钥，则需要 [启用 Application Insights 集成](configure-monitoring.md#enable-application-insights-integration)。  
+通常，在创建函数应用时创建 Application Insights 实例。 在这种情况下，集成所需的检测密钥已设置为名为 *APPINSIGHTS_INSTRUMENTATIONKEY* 的应用程序设置。 如果由于某种原因，函数应用未设置检测密钥，则需要 [启用 Application Insights 集成](configure-monitoring.md#enable-application-insights-integration)。  
 
 ## <a name="collecting-telemetry-data"></a>收集遥测数据
 
@@ -95,9 +95,9 @@ Application Insights 生成收集的依赖项数据的 _应用程序映射_ 。 
 
 可以通过两种方式查看由函数执行生成的日志数据的流。
 
-* **内置日志流式处理**：借助应用服务平台即可查看应用程序日志文件流。 此流等效于在 [本地开发](functions-develop-local.md) 期间调试函数时以及在门户中使用 " **测试** " 选项卡时所显示的输出。 此时将显示所有基于日志的信息。 有关详细信息，请参阅[流式处理日志](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 这种流式处理方法仅支持单个实例，不能用于在消耗计划中的 Linux 上运行的应用。
+* **内置日志流式处理** ：借助应用服务平台即可查看应用程序日志文件流。 此流等效于在 [本地开发](functions-develop-local.md) 期间调试函数时以及在门户中使用 " **测试** " 选项卡时所显示的输出。 此时将显示所有基于日志的信息。 有关详细信息，请参阅[流式处理日志](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 这种流式处理方法仅支持单个实例，不能用于在消耗计划中的 Linux 上运行的应用。
 
-* **实时指标流**：当函数应用 [连接到 Application Insights](configure-monitoring.md#enable-application-insights-integration)时，你可以使用 [实时指标流](../azure-monitor/app/live-stream.md)以近乎实时的 Azure 门户查看日志数据和其他指标。 当监视在多个实例或消耗计划中的 Linux 上运行的函数时，请使用此方法。 此方法使用[抽样数据](configure-monitoring.md#configure-sampling)。
+* **实时指标流** ：当函数应用 [连接到 Application Insights](configure-monitoring.md#enable-application-insights-integration)时，你可以使用 [实时指标流](../azure-monitor/app/live-stream.md)以近乎实时的 Azure 门户查看日志数据和其他指标。 当监视在多个实例或消耗计划中的 Linux 上运行的函数时，请使用此方法。 此方法使用[抽样数据](configure-monitoring.md#configure-sampling)。
 
 可以在门户和大多数本地开发环境中查看日志流。 若要了解如何启用日志流，请参阅 [在 Azure Functions 中启用流式处理执行日志](streaming-logs.md)。
 

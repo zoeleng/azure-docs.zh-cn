@@ -2,24 +2,24 @@
 title: 使用 Azure 门户部署资源
 description: 使用 Azure 门户和 Azure 资源管理器将资源部署到订阅中的资源组。
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: b87ac48bbaec7f94d5e75939cf5ec17df0ff2d2f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255256"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668761"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>使用 ARM 模板和 Azure 门户部署资源
 
-了解如何将 [Azure 门户](https://portal.azure.com)与 [Azure 资源管理器 (ARM) 模板](overview.md)配合使用来部署 Azure 资源。 若要了解有关管理资源的信息，请参阅[通过 Azure 门户管理 Azure 资源](../management/manage-resources-portal.md)。
+了解如何结合使用 [Azure 门户](https://portal.azure.com) 与 [azure 资源管理器模板 (ARM 模板) ](overview.md) 来部署 Azure 资源。 若要了解有关管理资源的信息，请参阅[通过 Azure 门户管理 Azure 资源](../management/manage-resources-portal.md)。
 
 使用 Azure 门户部署 Azure 资源通常涉及两个步骤：
 
 - 创建资源组。
 - 将资源部署到资源组。
 
-此外，还可以部署 ARM 模板以创建 Azure 资源。
+此外，还可以创建自定义 ARM 模板来部署 Azure 资源。
 
 本文介绍了这两种方法。
 
@@ -35,14 +35,14 @@ ms.locfileid: "85255256"
 
 1. 选择或输入以下属性值：
 
-    - **订阅**：选择 Azure 订阅。
-    - **资源组**：为资源组指定名称。
-    - **区域**：指定 Azure 位置。 资源组在此处存储有关资源的元数据。 出于合规性原因，你可能会想要指定该元数据的存储位置。 一般情况下，建议指定大部分资源的驻留位置。 使用相同位置可简化模板。
+    - **订阅** ：选择 Azure 订阅。
+    - **资源组** ：为资源组指定名称。
+    - **区域** ：指定 Azure 位置。 此位置是资源组存储与资源有关的元数据的位置。 出于合规性原因，你可能会想要指定该元数据的存储位置。 通常，我们建议你指定大多数资源的位置。 使用相同位置可简化模板。
 
    ![设置组的值](./media/deploy-portal/set-group-properties.png)
 
 1. 选择“查看 + 创建”。
-1. 查看值，然后选择“创建”。
+1. 查看值，然后选择 " **创建** "。
 1. 选择“刷新”，然后才能在列表中看到新资源组。
 
 ## <a name="deploy-resources-to-a-resource-group"></a>将资源部署到资源组
@@ -61,7 +61,7 @@ ms.locfileid: "85255256"
 
    ![创建资源组](./media/deploy-portal/select-existing-group.png)
 
-   也可以在部署资源时创建资源组。 选择“新建”  并为资源组指定名称。
+   可以决定在部署资源时创建资源组。 选择“新建”  并为资源组指定名称。
 
 1. 部署开始。 部署可能需要几分钟的时间。 有些资源比其他资源需要更长的时间。 完成部署后，会看到一条通知。 选择“转到资源”以将其打开
 
@@ -70,6 +70,8 @@ ms.locfileid: "85255256"
 1. 部署资源后，可以通过选择“添加”将更多资源添加到资源组。
 
    ![添加资源](./media/deploy-portal/add-resource.png)
+
+尽管看不到它，但门户使用 ARM 模板来部署所选资源。 可以从部署历史记录中找到该模板。 有关详细信息，请参阅 [部署后导出模板](export-template-portal.md#export-template-after-deployment)。
 
 ## <a name="deploy-resources-from-custom-template"></a>从自定义模板部署资源
 
@@ -85,22 +87,22 @@ ms.locfileid: "85255256"
 1. 选择“创建” 。
 1. 此时，会看到用于创建模板的几个选项：
 
-    - **在编辑器中生成自己的模板**：使用门户模板编辑器创建一个模板。  编辑器能够添加源模板架构。
-    - **常用模板**：有四种常用模板，分别用于创建 Linux 虚拟机、Windows 虚拟机、Web 应用程序、Azure SQL 数据库中的数据库。
-    - **加载 GitHub 快速入门模板**：使用现有的[快速入门模板](https://azure.microsoft.com/resources/templates/)。
+    - **在编辑器中生成自己的模板** ：在门户模板编辑器中创建自己的模板。
+    - **常用模板** ：从常见解决方案中进行选择。
+    - **加载 GitHub 快速入门模板** ：从 [快速启动模板](https://azure.microsoft.com/resources/templates/)中选择。
 
    ![视图选项](./media/deploy-portal/see-options.png)
 
     本教程提供了加载快速入门模板的说明。
 
-1. 在“加载 GitHub 快速入门模板”下，键入或选择 **101-storage-account-create**。
+1. 在“加载 GitHub 快速入门模板”下，键入或选择 **101-storage-account-create** 。
 
     可以使用两个选项：
 
-    - **选择模板**：部署模板。
-    - **编辑模板**：在部署快速入门模板之前对其进行编辑。
+    - **选择模板** ：部署模板。
+    - **编辑模板** ：在部署快速入门模板之前对其进行编辑。
 
-1. 选择“编辑模板”，浏览门户模板编辑器。 模板会加载到编辑器中。 请注意，有两个参数：**storageAccountType** 和 **location**。
+1. 选择“编辑模板”，浏览门户模板编辑器。 模板会加载到编辑器中。 请注意，有两个参数： **storageAccountType** 和 **location** 。
 
    ![创建模板](./media/deploy-portal/show-json.png)
 
@@ -113,12 +115,12 @@ ms.locfileid: "85255256"
 1. 选择“保存” 。 现在会看到门户模板部署界面。 请注意在模板中定义的两个参数。
 1. 输入或选择属性值：
 
-    - **订阅**：选择 Azure 订阅。
-    - **资源组**：选择“新建”并指定名称。
-    - **位置**：选择 Azure 位置。
-    - **存储帐户类型**：使用默认值。
-    - **位置**：使用默认值。
-    - **我同意上述条款和条件**：（选中）
+    - **订阅** ：选择 Azure 订阅。
+    - **资源组** ：选择“新建”并指定名称。
+    - **位置** ：选择 Azure 位置。
+    - **存储帐户类型** ：使用默认值。
+    - **位置** ：使用默认值。
+    - **我同意上述条款和条件** ：（选中）
 
 1. 选择“购买”。
 

@@ -7,7 +7,7 @@
     - name: 快速入门
       href: quickstart-translator.md
     - name: 语言支持
-      href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
+      href: language-support.md
     - name: 教程
       items:
         - name: 通过 C# 创建一个使用翻译器的 WPF 应用

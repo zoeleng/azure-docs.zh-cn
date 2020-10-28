@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/09/2020
-ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867f12b026a56b7cab8530ef30c4a2f2c325f6b1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595013"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637779"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>自承载 IR 配置为 Azure 数据工厂中 Azure-SSIS IR 的代理
 
@@ -25,11 +25,11 @@ ms.locfileid: "89595013"
 
 本文介绍如何在将某个自承载集成运行时（自承载 IR）配置为代理的情况下，在 Azure 数据工厂中的 Azure-SSIS Integration Runtime (Azure-SSIS IR) 上运行 SQL Server Integration Services (SSIS) 包。 
 
-使用此功能可在本地访问数据，而无需[将 Azure-SSIS IR 加入虚拟网络](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 当企业网络的配置过于复杂，或者采用过于严格的策略，以致你很难在此网络中注入 Azure-SSIS IR 时，此功能将很有用。
+使用此功能可在本地访问数据，而无需[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。 当企业网络的配置过于复杂，或者采用过于严格的策略，以致你很难在此网络中注入 Azure-SSIS IR 时，此功能将很有用。
 
 此功能可将 SSIS 数据流任务分解为两个暂存任务（如果适用）： 
-* **本地暂存任务**：此任务运行连接到自承载 IR 上本地数据存储的数据流组件。 它在本地数据存储与 Azure Blob 存储中的暂存区域之间来回移动数据。
-* **云暂存任务**：此任务运行无法连接到 Azure-SSIS IR 上本地数据存储的数据流组件。 它在 Azure Blob 存储中的暂存区域与云数据存储之间来回移动数据。
+* **本地暂存任务** ：此任务运行连接到自承载 IR 上本地数据存储的数据流组件。 它在本地数据存储与 Azure Blob 存储中的暂存区域之间来回移动数据。
+* **云暂存任务** ：此任务运行无法连接到 Azure-SSIS IR 上本地数据存储的数据流组件。 它在 Azure Blob 存储中的暂存区域与云数据存储之间来回移动数据。
 
 如果数据流任务将数据从本地移动到云，则第一个和第二个暂存任务将分别为本地暂存任务和云暂存任务。 如果数据流任务将数据从云移动到本地，则第一个和第二个暂存任务将分别为云暂存任务和本地暂存任务。 如果数据流任务将数据从本地移动到本地，则第一个和第二个暂存任务将皆为本地暂存任务。 如果数据流任务将数据从云移动到云，则此功能不适用。
 
@@ -37,9 +37,9 @@ ms.locfileid: "89595013"
 
 ## <a name="prepare-the-self-hosted-ir"></a>准备自承载 IR
 
-若要使用此功能，请先创建一个数据工厂，然后在其中设置 Azure-SSIS IR。 如果尚未执行此操作，请按照[设置 Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) 中的说明操作。
+若要使用此功能，请先创建一个数据工厂，然后在其中设置 Azure-SSIS IR。 如果尚未执行此操作，请按照[设置 Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md) 中的说明操作。
 
-然后，在设置了 Azure-SSIS IR 的同一数据工厂中设置自承载 IR。 为此，请参阅[创建自承载 IR](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)。
+然后，在设置了 Azure-SSIS IR 的同一数据工厂中设置自承载 IR。 为此，请参阅[创建自承载 IR](./create-self-hosted-integration-runtime.md)。
 
 最后，按如下所述，在本地计算机或 Azure 虚拟机 (VM) 上下载并安装最新版本的自承载 IR 以及其他驱动程序和运行时：
 - 下载并安装最新版本的[自承载 IR](https://www.microsoft.com/download/details.aspx?id=39717)。
@@ -54,13 +54,13 @@ ms.locfileid: "89595013"
 
 ## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>准备用于暂存的 Azure Blob 存储链接服务
 
-如果尚未这样做，请在设置了 Azure-SSIS IR 的同一数据工厂中创建一个 Azure Blob 存储链接服务。 为此，请参阅[创建 Azure 数据工厂链接服务](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service)。 确保执行以下操作：
+如果尚未这样做，请在设置了 Azure-SSIS IR 的同一数据工厂中创建一个 Azure Blob 存储链接服务。 为此，请参阅[创建 Azure 数据工厂链接服务](./quickstart-create-data-factory-portal.md#create-a-linked-service)。 确保执行以下操作：
 - 对于“数据存储”，请选择“Azure Blob 存储”。    
 - 对于“通过集成运行时连接”  ，请选择“AutoResolveIntegrationRuntime”  （而非你的 Azure-SSIS IR 或自承载 IR），因为我们使用默认的 Azure IR 来获取 Azure Blob 存储的访问凭据。
 - 对于“身份验证方法”，请选择“帐户密钥”、“SAS URI”或“服务主体”。      
 
     >[!TIP]
-    >如果选择“服务主体”  方法，请至少为你的服务主体授予“存储 Blob 数据参与者” ** 角色。 有关详细信息，请参阅  [Azure Blob 存储连接器](connector-azure-blob-storage.md#linked-service-properties)。
+    >如果选择 **服务主体** 方法，请至少向服务主体授予 " *存储 Blob 数据参与者* " 角色。 有关详细信息，请参阅 [Azure Blob 存储连接器](connector-azure-blob-storage.md#linked-service-properties)。
 
 ![准备用于暂存的 Azure Blob 存储链接服务](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -122,26 +122,26 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 使用最新 SSDT 作为 Visual Studio 的 SSIS 项目扩展或独立安装程序，可以发现支持的数据流组件的连接管理器中已添加一个新的 `ConnectByProxy` 属性。
 * [下载适用于 Visual Studio 的 SSIS 项目扩展](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
-* [下载独立安装程序](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
+* [下载独立安装程序](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
 使用可在本地访问数据的组件设计包含数据流任务的新包时，可以通过在相关连接管理器的“属性”窗格中，将此属性设置为 True 来启用此属性。
 
 ![启用 ConnectByProxy 属性](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 还可以在运行现有包时启用此属性，而无需逐个手动更改其设置。  有两个选项：
-- **选项 A**：打开、重新生成并重新部署包含这些包的项目。这些包中包含要在 Azure-SSIS IR 上运行的最新 SSDT。 然后，可以针对相关的连接管理器，通过将此属性设置为 *True* 来启用此属性。 从 SSMS 运行包时，这些连接管理器将显示在“执行包”弹出窗口的“连接管理器”选项卡上。 
+- **选项 A** ：打开、重新生成并重新部署包含这些包的项目。这些包中包含要在 Azure-SSIS IR 上运行的最新 SSDT。 然后，可以针对相关的连接管理器，通过将此属性设置为 *True* 来启用此属性。 从 SSMS 运行包时，这些连接管理器将显示在“执行包”弹出窗口的“连接管理器”选项卡上。 
 
   ![启用 ConnectByProxy 属性 2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
-  在数据工厂管道中运行包时，对于[执行 SSIS 包活动](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)的“连接管理器”选项卡上显示的相关连接管理器，还可以通过将此属性设置为 True 来启用此属性。
+  在数据工厂管道中运行包时，对于[执行 SSIS 包活动](./how-to-invoke-ssis-package-ssis-activity.md)的“连接管理器”选项卡上显示的相关连接管理器，还可以通过将此属性设置为 True 来启用此属性。
   
   ![启用 ConnectByProxy 属性 3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- **选择 B**：重新部署包含这些包的项目，以在 SSIS IR 上运行。 然后，可以在从 SSMS 运行包时，通过在“执行包”弹出窗口的“高级”选项卡上提供此属性的属性路径 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，并将其设置为 *True* 作为属性重写，来启用此属性。  
+- **选择 B** ：重新部署包含这些包的项目，以在 SSIS IR 上运行。 然后，可以在从 SSMS 运行包时，通过在“执行包”弹出窗口的“高级”选项卡上提供此属性的属性路径 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，并将其设置为 *True* 作为属性重写，来启用此属性。  
 
   ![启用 ConnectByProxy 属性 4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  在数据工厂管道中运行包时，还可以通过在“[执行 SSIS 包活动](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)”的“属性重写”选项卡上提供此属性的属性路径 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，并将其设置为 True 作为属性重写，来启用此属性。  
+  在数据工厂管道中运行包时，还可以通过在“[执行 SSIS 包活动](./how-to-invoke-ssis-package-ssis-activity.md)”的“属性重写”选项卡上提供此属性的属性路径 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`，并将其设置为 True 作为属性重写，来启用此属性。  
   
   ![启用 ConnectByProxy 属性 5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
@@ -153,7 +153,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="use-windows-authentication-in-on-premises-staging-tasks"></a>在本地暂存任务中使用 Windows 身份验证
 
-如果自承载 IR 上的本地暂存任务需要 Windows 身份验证，请[将 SSIS 包配置为使用相同的 Windows 身份验证](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15)。 
+如果自承载 IR 上的本地暂存任务需要 Windows 身份验证，请[将 SSIS 包配置为使用相同的 Windows 身份验证](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15)。 
 
 将使用自承载 IR 服务帐户（默认为 NT SERVICE\DIAHostService）调用本地暂存任务，将使用 Windows 身份验证帐户访问数据存储。 需要向这两个帐户分配特定的安全策略。 在自承载 IR 计算机上，转到“本地安全策略” > “本地策略” > “用户权限分配”，然后执行以下操作：   
 
@@ -181,4 +181,4 @@ Azure-SSIS IR 上运行的云暂存任务不单独计费，但是运行中的 Az
 
 ## <a name="next-steps"></a>后续步骤
 
-将自承载 IR 配置为 Azure-SSIS IR 的代理后，可以部署并运行包，以便在数据工厂管道中以“执行 SSIS 包”活动的形式访问本地数据。 有关操作方法，请参阅[在数据工厂管道中以“执行 SSIS 包”活动的形式运行 SSIS 包](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)。
+将自承载 IR 配置为 Azure-SSIS IR 的代理后，可以部署并运行包，以便在数据工厂管道中以“执行 SSIS 包”活动的形式访问本地数据。 有关操作方法，请参阅[在数据工厂管道中以“执行 SSIS 包”活动的形式运行 SSIS 包](./how-to-invoke-ssis-package-ssis-activity.md)。
