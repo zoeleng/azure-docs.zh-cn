@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5008e3b11a7e00e8f831333551c892113f03dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310622"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896372"
 ---
 # <a name="add-a-heat-map-layer"></a>添加热度地图层
 
@@ -24,9 +24,9 @@ ms.locfileid: "91310622"
 
 可以在许多不同的方案中使用热度地图，其中包括：
 
-- **温度数据**：提供两个数据点之间温度的近似值。
-- **噪音传感器的数据**：不仅显示传感器的噪音强度，而且还可以提供距离内的散热。 任何一个站点的噪音级别可能不是高。 如果多个传感器的噪音范围区域重叠，则此重叠区域可能会出现更高的干扰级别。 因此，重叠区域将显示在热度地图中。
-- **GPS 跟踪**：将速度作为加权高度地图，其中每个数据点的强度基于速度。 例如，使用此功能可以查看车辆的加速位置。
+- **温度数据** ：提供两个数据点之间温度的近似值。
+- **噪音传感器的数据** ：不仅显示传感器的噪音强度，而且还可以提供距离内的散热。 任何一个站点的噪音级别可能不是高。 如果多个传感器的噪音范围区域重叠，则此重叠区域可能会出现更高的干扰级别。 因此，重叠区域将显示在热度地图中。
+- **GPS 跟踪** ：将速度作为加权高度地图，其中每个数据点的强度基于速度。 例如，使用此功能可以查看车辆的加速位置。
 
 > [!TIP]
 > 默认情况下，热度地图层会呈现数据源中所有几何的坐标。 若要将该层限制为仅呈现点几何特征，请将 `filter` 层的属性设置为 `['==', ['geometry-type'], 'Point']` 。 如果还需要包含 MultiPoint 功能，请将 `filter` 层的属性设置为 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 。
@@ -120,10 +120,10 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 详细了解本文中使用的类和方法：
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 有关可向地图添加的更多代码示例，请参阅以下文章：
 

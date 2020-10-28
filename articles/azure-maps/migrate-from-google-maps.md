@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3ece62e671caa0838bbf4713c0ad4a74f19fd6cb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 61b6f4a530ab1861c67b0bd4983167546e268957
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518868"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896321"
 ---
 # <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>教程 - 从 Google Maps 迁移到 Azure Maps
 
@@ -79,7 +79,7 @@ Google Maps 提供基本的基于密钥的身份验证。 Azure Maps 提供基�
 - [Azure Maps 定价页](https://azure.microsoft.com/pricing/details/azure-maps/)
 - [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 - [Azure Maps 使用条款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46)（包括在 Microsoft Online Services 条款中）
-- [在 Azure Maps 中选择适当的定价层](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+- [在 Azure Maps 中选择适当的定价层](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>建议的迁移计划
 
@@ -87,7 +87,7 @@ Google Maps 提供基本的基于密钥的身份验证。 Azure Maps 提供基�
 
 1. 获取应用程序使用的 Google 地图 SDK 和服务的清单。 验证 Azure Maps 是否提供备用的 SDK 和服务。
 2. 在 [https://azure.com](https://azure.com) 创建 Azure 订阅（如果还没有此订阅）。
-3. 创建 Azure Maps 帐户（[文档](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)）和身份验证密钥或 Azure Active Directory（[文档](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)）。
+3. 创建 Azure Maps 帐户（[文档](./how-to-manage-account-keys.md)）和身份验证密钥或 Azure Active Directory（[文档](./how-to-manage-authentication.md)）。
 4. 迁移应用程序代码。
 5. 测试已迁移的应用程序。
 6. 将已迁移的应用程序部署到生产环境。
@@ -98,17 +98,17 @@ Google Maps 提供基本的基于密钥的身份验证。 Azure Maps 提供基�
 
 1. 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
 2. 登录 [Azure 门户](https://portal.azure.com/)。
-3. 创建 [Azure Maps 帐户](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)。 
-4. [获取 Azure Maps 订阅密钥](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details)或设置 Azure Active Directory 身份验证来增强安全性。
+3. 创建 [Azure Maps 帐户](./how-to-manage-account-keys.md)。 
+4. [获取 Azure Maps 订阅密钥](./how-to-manage-authentication.md#view-authentication-details)或设置 Azure Active Directory 身份验证来增强安全性。
 
 ## <a name="azure-maps-technical-resources"></a>Azure Maps 技术资源
 
 下面是 Azure Maps 的有用技术资源的列表。
 
 - 概述：[https://azure.com/maps](https://azure.com/maps)
-- 文档：[https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)
+- 文档：[https://aka.ms/AzureMapsDocs](./index.yml)
 - Web SDK 代码示例：[https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
-- 开发人员论坛：[https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
+- 开发人员论坛：[https://aka.ms/AzureMapsForums](/answers/topics/azure-maps.html)
 - 视频：[https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - 博客：[https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - 技术博客：[https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
@@ -117,7 +117,7 @@ Google Maps 提供基本的基于密钥的身份验证。 Azure Maps 提供基�
 
 ## <a name="migration-support"></a>迁移支持
 
-开发人员可通过[论坛](https://aka.ms/AzureMapsForums)或众多 Azure 支持选项之一寻求迁移支持：[https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
+开发人员可通过[论坛](/answers/topics/azure-maps.html)或众多 Azure 支持选项之一寻求迁移支持：[https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
 ## <a name="next-steps"></a>后续步骤
 

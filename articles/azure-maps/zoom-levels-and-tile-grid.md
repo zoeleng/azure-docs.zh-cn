@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825307"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896576"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>缩放级别和磁贴网格
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-由于地图的宽度和高度在每个缩放级别都不同，因此是像素坐标。 地图左上角的像素始终具有像素坐标 (0，0) 。 地图右下角的像素坐标 * (width-1、height-1) *或引用上一部分中的方程式， * (tileSize \* 2<sup>zoom</sup>–1，tileSize \* 2<sup>zoom</sup>– 1) *。 例如，在级别2使用512正方形磁贴时，像素坐标范围为 (0，0) 到 (2047，2047) ，如下所示：
+由于地图的宽度和高度在每个缩放级别都不同，因此是像素坐标。 地图左上角的像素始终具有像素坐标 (0，0) 。 地图右下角的像素坐标 *(width-1、height-1)* 或引用上一部分中的方程式， *(tileSize \* 2 <sup>zoom</sup>–1，tileSize \* 2 <sup>zoom</sup>– 1)* 。 例如，在级别2使用512正方形磁贴时，像素坐标范围为 (0，0) 到 (2047，2047) ，如下所示：
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="世界地图磁贴":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-为每个图块指定了 XY 坐标，范围为从左上角的 (0，0) 到右下角 * (2<sup>zoom</sup>–1、2<sup>zoom</sup>-1) * 。 例如，在缩放级别3，磁贴坐标范围从 (0，0) 到 (7、7) 如下：
+为每个图块指定了 XY 坐标，范围为从左上角的 (0，0) 到右下角 *(2 <sup>zoom</sup>–1、2 <sup>zoom</sup>-1)* 。 例如，在缩放级别3，磁贴坐标范围从 (0，0) 到 (7、7) 如下：
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="世界地图磁贴":::
 
@@ -114,7 +114,7 @@ var tileY = Math.floor(pixelY / tileSize);
 
 磁贴由缩放级别调用。 X 和 y 坐标对应于该缩放级别在网格上的位置。
 
-确定要使用的缩放级别时，请记住每个位置都在其磁贴上的固定位置。 因此，显示给定范围的区域所需的磁贴数取决于世界地图上缩放网格的特定位置。 例如，如果有两个点相距 900 米，则可能仅在缩放级别 17 使用三个磁贴来显示这两点之间的路线。** 但是，如果西边的点在磁贴的右边，而东边的点在磁贴的左边，则需要四个磁贴：
+确定要使用的缩放级别时，请记住每个位置都在其磁贴上的固定位置。 因此，显示给定范围的区域所需的磁贴数取决于世界地图上缩放网格的特定位置。 例如，如果有两个点相距 900 米，则可能仅在缩放级别 17 使用三个磁贴来显示这两点之间的路线。  但是，如果西边的点在磁贴的右边，而东边的点在磁贴的左边，则需要四个磁贴：
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="世界地图磁贴":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Azure Maps SDK 中的交互式地图控件包含 helper 函数，用于在地理空间位置和视区之间进行转换。 
-> - [Web SDK：地图像素和位置计算](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Web SDK：地图像素和位置计算](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>后续步骤
 
 直接从 Azure Maps REST 服务访问地图磁贴：
 
 > [!div class="nextstepaction"]
-> [获取地图磁贴](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [获取地图磁贴](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [获取流量磁贴](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [获取流量磁贴](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [获取流量事件磁贴](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [获取流量事件磁贴](/rest/api/maps/traffic/gettrafficincidenttile)
 
 详细了解地理空间概念：
 

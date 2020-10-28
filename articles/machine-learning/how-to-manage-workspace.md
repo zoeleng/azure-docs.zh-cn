@@ -10,15 +10,14 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9abfbe03a4192411a3790bb6d6e488d674c13109
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633699"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897154"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>创建和管理 Azure 机器学习工作区 
-
 
 在本文中，你将使用 Azure 门户或 [适用于 Python 的 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)创建、查看和删除 [Azure 机器学习](overview-what-is-azure-ml.md) [**Azure 机器学习工作区**](concept-workspace.md)
 
@@ -33,48 +32,82 @@ ms.locfileid: "92633699"
 
 # <a name="python"></a>[Python](#tab/python)
 
-第一个示例只要求最小的规范，并且会自动创建所有相关资源以及资源组。
+* **默认规范。** 默认情况下，将自动创建从属资源以及资源组。 此代码将创建一个名为的工作区 `myworkspace` 和一个名为的资源组 `myresourcegroup` `eastus2` 。
+    
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.create(name='myworkspace',
+                   subscription_id='<azure-subscription-id>',
+                   resource_group='myresourcegroup',
+                   create_resource_group=True,
+                   location='eastus2'
+                   )
+    ```
+    `create_resource_group`如果你有要用于工作区的现有 Azure 资源组，则设置为 False。
 
-```python
-from azureml.core import Workspace
-   ws = Workspace.create(name='myworkspace',
-               subscription_id='<azure-subscription-id>',
-               resource_group='myresourcegroup',
-               create_resource_group=True,
-               location='eastus2'
-               )
-```
-`create_resource_group`如果你有要用于工作区的现有 Azure 资源组，则设置为 False。
+* <a name="create-multi-tenant"></a>**多个租户。**  如果有多个帐户，请添加要使用的 Azure Active Directory 的租户 ID。  从 " **Azure Active Directory"、"外部标识** " 下的 [Azure 门户](https://portal.azure.com)查找你的租户 ID。
 
-你还可以创建一个工作区，该工作区使用 Azure 资源 ID 格式的现有 Azure 资源。 在 Azure 门户或 SDK 中查找特定的 Azure 资源 Id。 此示例假设资源组、存储帐户、密钥保管库、App Insights 和容器注册表已存在。
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
 
-```python
-import os
+* **[主权 cloud](reference-machine-learning-cloud-parity.md)** 。 如果正在主权云中工作，则需要额外的代码向 Azure 进行身份验证。
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
+
+* **使用现有的 Azure 资源** 。  你还可以创建一个工作区，该工作区使用 Azure 资源 ID 格式的现有 Azure 资源。 在 Azure 门户或 SDK 中查找特定的 Azure 资源 Id。 此示例假设资源组、存储帐户、密钥保管库、App Insights 和容器注册表已存在。
+
+   ```python
+   import os
    from azureml.core import Workspace
    from azureml.core.authentication import ServicePrincipalAuthentication
 
    service_principal_password = os.environ.get("AZUREML_PASSWORD")
 
    service_principal_auth = ServicePrincipalAuthentication(
-       tenant_id="<tenant-id>",
-       username="<application-id>",
-       password=service_principal_password)
+      tenant_id="<tenant-id>",
+      username="<application-id>",
+      password=service_principal_password)
 
-   ws = Workspace.create(name='myworkspace',
-                         auth=service_principal_auth,
-                         subscription_id='<azure-subscription-id>',
-                         resource_group='myresourcegroup',
-                         create_resource_group=False,
-                         location='eastus2',
-                         friendly_name='My workspace',
-                         storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
-                         key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
-                         app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
-                         container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
-                         exist_ok=False)
-```
+                        auth=service_principal_auth,
+                             subscription_id='<azure-subscription-id>',
+                             resource_group='myresourcegroup',
+                             create_resource_group=False,
+                             location='eastus2',
+                             friendly_name='My workspace',
+                             storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
+                             key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
+                             app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
+                             container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
+                             exist_ok=False)
+   ```
 
-有关详细信息，请参阅 [工作区 SDK 参考](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
+有关详细信息，请参阅 [工作区 SDK 参考](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)。
+
+如果在访问订阅时遇到问题，请参阅为 [Azure 机器学习资源和工作流设置身份验证](how-to-setup-authentication.md)，以及 Azure 机器学习笔记本 [中的身份验证](https://aka.ms/aml-notebook-auth) 。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
@@ -239,6 +272,37 @@ ws.write_config()
 
 使用 Python 脚本或 Jupyter Notebook 将此文件放入到目录结构中。 它可以位于同一目录（名为 *.azureml* 的子目录）中，也可以位于父目录中。 创建计算实例时，此文件会添加到 VM 上的正确目录中。
 
+## <a name="connect-to-a-workspace"></a>连接到工作区
+
+在 Python 代码中，你将创建一个工作区对象以连接到工作区。  此代码将读取配置文件的内容以查找工作区。  如果尚未通过身份验证，则会提示你登录。
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+* <a name="connect-multi-tenant"></a>**多个租户。**  如果有多个帐户，请添加要使用的 Azure Active Directory 的租户 ID。  从 " **Azure Active Directory"、"外部标识** " 下的 [Azure 门户](https://portal.azure.com)查找你的租户 ID。
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+
+* **[主权 cloud](reference-machine-learning-cloud-parity.md)** 。 如果正在主权云中工作，则需要额外的代码向 Azure 进行身份验证。
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+    
+如果在访问订阅时遇到问题，请参阅为 [Azure 机器学习资源和工作流设置身份验证](how-to-setup-authentication.md)，以及 Azure 机器学习笔记本 [中的身份验证](https://aka.ms/aml-notebook-auth) 。
 
 ## <a name="find-a-workspace"></a><a name="view"></a>查找工作区
 

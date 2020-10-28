@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976880"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896610"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps 天气范围
 
-本文提供 Azure Maps [天气服务](https://aka.ms/AzureMapsWeatherService)的覆盖范围信息。 Azure Maps 天气数据服务将返回详细信息，如雷达图、当前天气情况、天气预测和沿着路线的天气。
+本文提供 Azure Maps [天气服务](/rest/api/maps/weather)的覆盖范围信息。 Azure Maps 天气数据服务将返回详细信息，如雷达图、当前天气情况、天气预测和沿着路线的天气。
 
 对于所有国家和地区，Azure Maps 没有相同级别的信息和准确性。
 
@@ -299,4 +299,4 @@ ms.locfileid: "90976880"
 | 土耳其                 | ✓ |   | | ✓| 
 | 乌克兰                | ✓ |   | | ✓| 
 | 英国         | ✓ | ✓ | ✓| ✓| 
-| 梵蒂冈           | ✓ |   |✓ | ✓| 
+| 梵蒂冈           | ✓ |   |✓ | ✓|

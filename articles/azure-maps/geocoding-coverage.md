@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037433"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897205"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 地理编码覆盖区域
 
-Azure Maps [搜索服务](https://docs.microsoft.com/rest/api/maps/search) 支持地理编码，这意味着 API 请求可以具有搜索词（如地址或位置名称），并将结果返回为纬度和经度坐标。 例如，Azure Maps [获取搜索地址 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) 接收包含位置信息的查询，并将结果返回为纬度和经度坐标。
+Azure Maps [搜索服务](/rest/api/maps/search) 支持地理编码，这意味着 API 请求可以具有搜索词（如地址或位置名称），并将结果返回为纬度和经度坐标。 例如，Azure Maps [获取搜索地址 API](/rest/api/maps/search/getsearchaddress) 接收包含位置信息的查询，并将结果返回为纬度和经度坐标。
 
-不过，Azure Maps [搜索服务](https://docs.microsoft.com/rest/api/maps/search) 对所有地区和国家没有相同级别的信息和准确性。 使用本文确定可在每个区域中可靠搜索的位置类型。
+不过，Azure Maps [搜索服务](/rest/api/maps/search) 对所有地区和国家没有相同级别的信息和准确性。 使用本文确定可在每个区域中可靠搜索的位置类型。
 
 在国家/地区地理编码的能力取决于地理编码服务的公路数据覆盖和地理编码精度。 以下分类用于在每个国家/地区指定地理编码支持的级别。
 
@@ -301,4 +301,4 @@ Azure Maps [搜索服务](https://docs.microsoft.com/rest/api/maps/search) 支�
 
 了解有关 Azure Maps 地理编码的详细信息：
 > [!div class="nextstepaction"]
-> [Azure Maps 搜索服务](https://docs.microsoft.com/rest/api/maps/search)
+> [Azure Maps 搜索服务](/rest/api/maps/search)

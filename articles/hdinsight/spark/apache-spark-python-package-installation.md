@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: dc1da641ba628cef92250549c1c6b6482cf18b51
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a0f9f9f972ec42987d6152c16e4377e399cdba5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547327"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896406"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>使用脚本操作在 Azure HDInsight 上安全管理 Python 环境
 
@@ -45,7 +45,7 @@ HDInsight Spark 群集是通过 Anaconda 安装创建的。 群集中有两个 P
 
 |设置 |Python 2.7|Python 3.5|
 |----|----|----|
-|`Path`|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
+|路径|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark 版本|默认设置为 2.7|可以将配置更改为3。5|
 |Livy 版本|默认设置为 2.7|可以将配置更改为3。5|
 |Jupyter|PySpark 内核|PySpark3 内核|
@@ -129,6 +129,24 @@ HDInsight 群集依赖于内置 Python 环境（Python 2.7 和 Python 3.5）。 
     4. 保存更改并重启受影响的服务。 需要重启 Spark2 服务才能使这些更改生效。 Ambari UI 将提示需要重启。单击“重启”以重启所有受影响的服务。
 
         ![重新启动服务](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+
+    5. 将两个属性设置到 Spark 会话，以确保作业指向更新的 Spark 配置： `spark.yarn.appMasterEnv.PYSPARK_PYTHON` 和 `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` 。 
+
+        使用终端或笔记本，使用 `spark.conf.set` 函数。
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        如果使用的是 livy，请将以下属性添加到请求正文：
+
+        ```
+        “conf” : {
+        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
+        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        }
+        ```
 
 4. 如果要在 Jupyter 上使用新创建的虚拟环境。 更改 Jupyter 配置并重启 Jupyter。 使用以下语句在所有头节点上运行脚本操作，使 Jupyter 指向新创建的虚拟环境。 请务必修改针对虚拟环境指定的前缀的路径。 运行此脚本操作后，通过 Ambari UI 重启 Jupyter 服务，使此项更改生效。
 

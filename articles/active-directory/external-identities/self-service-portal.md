@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72c255ddac1889131234fefd7d6b014b453d417
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441719"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896100"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>用于 Azure AD B2B 协作注册的自助服务
 
@@ -33,5 +33,5 @@ ms.locfileid: "92441719"
 ## <a name="next-steps"></a>后续步骤
 
 * [什么是 Azure AD B2B 协作？](what-is-b2b.md)
-* [Azure AD B2B 协作授权](licensing-guidance.md)
+* [外部标识定价](external-identities-pricing.md)
 * [Azure Active Directory B2B 协作常见问题 (FAQ)](faq.md)

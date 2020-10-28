@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ebe633bbfa8ec950e7726c127e38adecf0d1872f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938332"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896253"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps 社区-开源项目
 
@@ -24,7 +24,7 @@ ms.locfileid: "91938332"
 
 **机器人**
 
-| 项目名称 | 描述 |
+| 项目名称 | 说明 |
 |-|-|
 | [机器人框架-兴趣技能要点](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | 相关技能点使用 Azure Maps 与 Azure 机器人服务和机器人框架，为虚拟助手提供 POI 的相关功能。 |
 | [BotBuilder 位置](https://github.com/Microsoft/BotBuilder-Location) | 由 Bing 地图 REST 服务支持的 Microsoft Bot Framework 的开源位置选取器控件。 |
@@ -35,7 +35,7 @@ ms.locfileid: "91938332"
 
 下面列出了扩展 Azure Maps Web SDK 功能的开源项目。
 
-| 项目名称 | 描述 |
+| 项目名称 | 说明 |
 |-|-|
 | [Azure Maps 动画模块](https://github.com/Azure-Samples/azure-maps-animations) | 用于 Azure Maps Web SDK 的丰富动画库。 |
 | [Azure Maps 地理位置控制模块](https://github.com/Azure-Samples/azure-maps-geolocation-control) | 一个 Azure Maps Web SDK 模块，该模块提供了一个控件，该控件使用浏览器的地理位置 API 在地图上查找用户。 |
@@ -48,7 +48,7 @@ ms.locfileid: "91938332"
 
 **示例**
 
-| 项目名称 | 描述 |
+| 项目名称 | 说明 |
 |-|-|
 | [Azure Maps 代码示例](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 用于在基于 web 的应用中使用 Azure Maps 的代码示例的集合。 |
 | [Azure Maps Gov 云代码示例](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 用于通过 Azure 政府云使用 Azure Maps 的代码示例的集合。 |
@@ -59,7 +59,7 @@ ms.locfileid: "91938332"
 
 **工具和资源**
 
-| 项目名称 | 描述 |
+| 项目名称 | 说明 |
 |-|-|
 | [Azure Maps 文档](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | 所有 Azure Location Based Services 文档的源。 |
 | [Azure Maps 创建者工具](https://github.com/Azure-Samples/AzureMapsCreator) | 用于 Azure Maps 创建者工具的 Python 工具。 |
@@ -82,4 +82,4 @@ ms.locfileid: "91938332"
 查找更多开源 Azure Maps 项目。
 
 > [!div class="nextstepaction"]
-> [代码示例](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [代码示例](/samples/browse/?products=azure-maps)

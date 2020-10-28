@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311302"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897120"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>使用 Azure Maps 将形状添加到地图 Android SDK
 
 本文介绍如何使用 Azure Maps Android SDK 在地图上呈现形状。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-若要完成本文中的过程，需要安装 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 来加载地图。
+若要完成本文中的过程，需要安装 [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) 来加载地图。
 
 
 ## <a name="add-a-line-to-the-map"></a>向地图添加线条
 
-您可以使用 **线条层**向地图添加线条，按照以下步骤在地图上添加一行。
+您可以使用 **线条层** 向地图添加线条，按照以下步骤在地图上添加一行。
 
 1. 编辑 **res > 布局 > activity_main.xml** 如下所示：
 
@@ -51,7 +51,7 @@ ms.locfileid: "91311302"
     </FrameLayout>
     ```
 
-2. 将以下代码片段复制到类的 **onCreate ( # B1 ** 方法 `MainActivity.java` 。
+2. 将以下代码片段复制到类的 **onCreate ( # B1** 方法 `MainActivity.java` 。
 
     ```Java
     mapControl.onReady(map -> {
@@ -76,7 +76,7 @@ ms.locfileid: "91311302"
 
     ```
     
-    上面的代码段首先使用 **onReady ( # B1 ** 回调方法获取 Azure Maps 映射控件实例。 然后，它使用 **DataSource** 类创建数据源对象并将其添加到地图中。 然后创建 **点** 对象的列表。 将从点列表创建 **LineString** ，并将其添加到数据源。 **线条层**将在地图上的数据源中换行对象。 然后创建一个线条层并将数据源添加到其中。
+    上面的代码段首先使用 **onReady ( # B1** 回调方法获取 Azure Maps 映射控件实例。 然后，它使用 **DataSource** 类创建数据源对象并将其添加到地图中。 然后创建 **点** 对象的列表。 将从点列表创建 **LineString** ，并将其添加到数据源。 **线条层** 将在地图上的数据源中换行对象。 然后创建一个线条层并将数据源添加到其中。
 
     添加上述代码片段后，应如下 `MainActivity.java` 所示：
     
@@ -208,7 +208,7 @@ ms.locfileid: "91311302"
     </FrameLayout>
     ```
 
-2. 将以下代码片段复制到类的 **onCreate ( # B1 ** 方法 `MainActivity.java` 。
+2. 将以下代码片段复制到类的 **onCreate ( # B1** 方法 `MainActivity.java` 。
 
     ```Java
     mapControl.onReady(map -> {
@@ -238,7 +238,7 @@ ms.locfileid: "91311302"
     });
     ```
 
-    上面的代码段首先使用 **onReady ( # B1 ** 回调方法获取 Azure Maps 映射控件实例。 然后，它使用 **DataSource** 类创建数据源对象并将其添加到地图中。 然后，将从**点**对象的列表创建**多边形**对象并将其添加到数据源。 **多边形层**将在地图上的数据源中呈现数据。 然后，它创建一个多边形层，用于呈现多边形区域并向其中添加数据源。 **线条层**用于呈现在数据源中换行的行对象。 代码段的最后一部分将创建一个线条层，用于呈现多边形的轮廓并向其添加数据源。
+    上面的代码段首先使用 **onReady ( # B1** 回调方法获取 Azure Maps 映射控件实例。 然后，它使用 **DataSource** 类创建数据源对象并将其添加到地图中。 然后，将从 **点** 对象的列表创建 **多边形** 对象并将其添加到数据源。 **多边形层** 将在地图上的数据源中呈现数据。 然后，它创建一个多边形层，用于呈现多边形区域并向其中添加数据源。 **线条层** 用于呈现在数据源中换行的行对象。 代码段的最后一部分将创建一个线条层，用于呈现多边形的轮廓并向其添加数据源。
 
     添加上述代码片段后，应如下 `MainActivity.java` 所示：
 
