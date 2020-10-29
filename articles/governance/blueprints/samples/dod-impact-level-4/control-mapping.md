@@ -1,14 +1,14 @@
 ---
 title: DoD 影响级别 4 蓝图示例控制
 description: DoD 影响级别 4 蓝图示例的控制映射。 每个控制措施都映射到一个或多个协助评估的 Azure Policy 定义。
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 433e77775fdd28032db27c017fe370ab32074a95
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 376ddd68373026a93eaf08774cee0a1f8ce06bec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929517"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675727"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 影响级别 4 蓝图示例的控制映射
 

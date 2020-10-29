@@ -3,17 +3,17 @@ title: 教程 - 快速容器映像生成
 description: 本教程介绍如何使用 Azure 容器注册表任务（ACR 任务）在 Azure 中生成 Docker 容器映像，然后将其部署到 Azure 容器实例。
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259487"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739537"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>教程：使用 Azure 容器注册表任务在云中生成并部署容器映像
 
-**ACR 任务**是 Azure 容器注册表中的功能套件，用于在 Azure 中以简化、高效的方式生成 Docker 容器映像。 本文介绍如何使用 ACR 任务的快速任务功能。
+**ACR 任务** 是 Azure 容器注册表中的功能套件，用于在 Azure 中以简化、高效的方式生成 Docker 容器映像。 本文介绍如何使用 ACR 任务的快速任务功能。
 
 “内部循环”开发周期是指编写代码、生成和测试应用程序，然后提交到源代码管理的迭代过程。 快速任务可将内部循环扩展到云中，同时提供成功生成验证并自动将成功生成的映像推送到容器注册表。 映像将在云中本机生成，其位置靠近注册表，可加快部署。
 
@@ -188,7 +188,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 现在需要创建服务主体，并将其凭据存储在 Key Vault 中。
 
-请使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令创建服务主体，使用 [az keyvault secret set][az-keyvault-secret-set] 将服务主体的**密码**存储在保管库中：
+请使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令创建服务主体，使用 [az keyvault secret set][az-keyvault-secret-set] 将服务主体的 **密码** 存储在保管库中：
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)
@@ -217,8 +217,8 @@ az keyvault secret set \
 
 现已创建 Azure Key Vault 并在其中存储了两个机密：
 
-* `$ACR_NAME-pull-usr`：用作容器注册表**用户名**的服务主体 ID。
-* `$ACR_NAME-pull-pwd`：用作容器注册表**密码**的服务主体密码。
+* `$ACR_NAME-pull-usr`：用作容器注册表 **用户名** 的服务主体 ID。
+* `$ACR_NAME-pull-pwd`：用作容器注册表 **密码** 的服务主体密码。
 
 现在，当你或你的应用程序和服务从注册表提取映像时，可以按名称引用这些机密。
 

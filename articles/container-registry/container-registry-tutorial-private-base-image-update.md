@@ -3,13 +3,13 @@ title: 教程 - 通过基础映像更新触发映像生成
 description: 在本教程中，你将配置一个 Azure 容器注册表任务，以便在更新另一个专用 Azure 容器注册表中的基础映像时，在云中自动触发容器映像生成。
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7dda7c54c51c31e750083f302ca558ff7ef548ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270961"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739551"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>教程：在更新另一个专用 Azure 容器注册表中的基础映像时自动化容器映像生成 
 

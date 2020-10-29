@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: jeedes
-ms.openlocfilehash: b864f4204fa546fa1f06e50550376a8a899d5b8c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9512287f656c6c64399cb8749b7451a5a780bba8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337666"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677635"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsara"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Samsara 的集成
 
@@ -102,7 +102,7 @@ ms.locfileid: "91337666"
     c. 在“回复 URL”文本框中，使用以下模式键入 URL：`https://samsara-dev.auth0.com/login/callback?connection=samlp-orgid-<ORGID>`
 
     > [!NOTE]
-    > 这些不是实际值。 请使用实际登录 URL、回复 URL 和标识符来更新这些值。 请联系 [Samsara 客户端支持团队](mailto:support@samsara.com)以获取这些值，或者请在 Samsara 中转到“设置” > “单一登录” > ”新建 SAML 连接”，以获取 \<ORGID\>  。 还可参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式****。
+    > 这些不是实际值。 请使用实际登录 URL、回复 URL 和标识符来更新这些值。 请联系 [Samsara 客户端支持团队](mailto:support@samsara.com)以获取这些值，或者请在 Samsara 中转到“设置” > “单一登录” > ”新建 SAML 连接”，以获取 \<ORGID\>  。 还可参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式  。
 
 1. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分中，找到“证书(Base64)”，选择“下载”以下载该证书并将其保存到计算机上     。
 
@@ -152,11 +152,9 @@ ms.locfileid: "91337666"
 
 2. 直接转到 Samsara 登录 URL，并从那里启动登录流。
 
-3. 可以使用 Microsoft 访问面板。 在访问面板中单击 Samsara 磁贴时，将会重定向到 Samsara 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+3. 可以使用 Microsoft 访问面板。 在访问面板中单击 Samsara 磁贴时，将会重定向到 Samsara 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 Samsara 后，可以强制实施会话控制，以实时防止组织的敏感数据发生外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
-
-
+配置 Samsara 后，可以强制实施会话控制，以实时防止组织的敏感数据发生外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。

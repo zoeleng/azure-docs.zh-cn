@@ -3,13 +3,13 @@ title: 教程 - 创建异地复制注册表
 description: 创建 Azure 容器注册表，配置异地复制，准备 Docker 映像，并将该映像部署到注册表。 由三个部分构成的系列教程的第一部分。
 ms.topic: tutorial
 ms.date: 06/30/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 854b4eb35694f7498d0dc70567b19ccfdf7c8c82
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: c473e3cd891214c2c5789bd43b0d293cb25d660a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148389"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739484"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教程：准备异地复制的 Azure 容器注册表
 
@@ -50,16 +50,16 @@ Azure Cloud Shell 不包含完成本教程每个步骤所需的 Docker 组件。
 
 使用以下设置配置新注册表。 在“基本信息”选项卡中：
 
-* **注册表名称**：创建在 Azure 中全局唯一的、包含 5-50 个字母数字字符的注册表名称
-* **资源组**：**新建** > `myResourceGroup`
-* **位置**：`West US`
-* **SKU**：`Premium`（异地复制需要此项设置）
+* **注册表名称** ：创建在 Azure 中全局唯一的、包含 5-50 个字母数字字符的注册表名称
+* **资源组** ： **新建** > `myResourceGroup`
+* **位置** ：`West US`
+* **SKU** ：`Premium`（异地复制需要此项设置）
 
 依次选择“查看 + 创建”和“创建”来创建注册表实例 。
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="在 Azure 门户中创建容器注册表":::
 
-本教程的余下部分使用 `<acrName>` 作为所选**容器注册表名称**的占位符。
+本教程的余下部分使用 `<acrName>` 作为所选 **容器注册表名称** 的占位符。
 
 > [!TIP]
 > 由于 Azure 容器注册表通常是在多个容器主机上使用的长期生存的资源，因此我们建议在注册表自身所在的资源组中创建该注册表。 配置异地复制注册表和 Webhook 时，这些附加资源会放置在同一个资源组中。

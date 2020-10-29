@@ -3,13 +3,13 @@ title: 打包和部署容器
 description: 本教程介绍如何使用 Yeoman 生成 Azure Service Fabric 应用程序定义并将应用程序打包。
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539871"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738862"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>教程：使用 Yeoman 将容器打包并部署为 Service Fabric 应用程序
 
@@ -99,7 +99,7 @@ Service Fabric 提供基架工具，有助于使用 Yeoman 模板生成器从终
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-在本教程的其余部分中，将在“TestContainer”  目录中工作。 例如， *./TestContainer/TestContainer*。 此目录的内容应如下所示。
+在本教程的其余部分中，将在“TestContainer”  目录中工作。 例如， *./TestContainer/TestContainer* 。 此目录的内容应如下所示。
 
 ```bash
 $ ls
@@ -124,7 +124,7 @@ az acr login --name <acrName>
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-在“ApplicationManifest.xml”  中，会在前端服务的“ServiceManifestImport”  元素下添加代码片段。 为“AccountName”字段插入 **acrName**，从上一命令返回的密码将用于“密码”字段。 本文档末尾提供完整的“ApplicationManifest.xml”  。
+在“ApplicationManifest.xml”  中，会在前端服务的“ServiceManifestImport”  元素下添加代码片段。 为“AccountName”字段插入 **acrName** ，从上一命令返回的密码将用于“密码”字段。 本文档末尾提供完整的“ApplicationManifest.xml”  。
 
 ```xml
 <Policies>
@@ -152,7 +152,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ```
 
-同样，修改后端服务的服务清单。 打开 *./TestContainer/azurevotebackPkg/ServiceManifest.xml*，并在“ServiceManifest”  元素中声明终结点资源。 在本教程中，保留 redis 默认值 6379。 以下代码片段放置在资源中的 *ServiceManifest* 标记下。
+同样，修改后端服务的服务清单。 打开 *./TestContainer/azurevotebackPkg/ServiceManifest.xml* ，并在“ServiceManifest”  元素中声明终结点资源。 在本教程中，保留 redis 默认值 6379。 以下代码片段放置在资源中的 *ServiceManifest* 标记下。
 
 ```xml
 <Resources>

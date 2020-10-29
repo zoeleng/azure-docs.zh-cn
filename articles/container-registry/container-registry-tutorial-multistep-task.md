@@ -3,13 +3,13 @@ title: 教程 - 多步骤 ACR 任务
 description: 本教程介绍如何配置一个 Azure 容器注册表任务，以便在向 Git 存储库提交源代码时，在云中自动触发多步骤工作流来生成、运行和推送容器映像。
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402300"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739601"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时在云中运行多步骤容器工作流
 
@@ -282,7 +282,7 @@ cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:
 
 如果没有另一个注册表，请为此示例创建一个注册表。 如果需要注册表，请参阅[上一教程](container-registry-tutorial-quick-task.md)或[快速入门：使用 Azure CLI 创建容器注册表](container-registry-get-started-azure-cli.md)。
 
-若要创建任务，需要获取注册表登录服务器的名称，其格式为 *mycontainerregistrydate.azurecr.io*（全小写）。 此示例使用第二个注册表来存储按生成日期标记的映像。
+若要创建任务，需要获取注册表登录服务器的名称，其格式为 *mycontainerregistrydate.azurecr.io* （全小写）。 此示例使用第二个注册表来存储按生成日期标记的映像。
 
 ### <a name="yaml-file"></a>YAML 文件
 
@@ -332,7 +332,7 @@ az acr task create \
 
 若要将映像推送到 `regDate` 值标识的注册表，请使用 [az acr task credential add][az-acr-task-credential-add] 命令将该注册表的登录凭据添加到任务。
 
-对于此示例，我们建议创建一个有权访问该注册表且范围为 *AcrPush* 角色的[服务主体](container-registry-auth-service-principal.md)。 若要创建服务主体，请参阅此 [Azure CLI 脚本](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh)。
+对于此示例，我们建议创建一个有权访问该注册表且范围为 *AcrPush* 角色的 [服务主体](container-registry-auth-service-principal.md)。 若要创建服务主体，请参阅此 [Azure CLI 脚本](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh)。
 
 在以下 `az acr task credential add`命令中传递服务主体应用程序 ID 和密码：
 

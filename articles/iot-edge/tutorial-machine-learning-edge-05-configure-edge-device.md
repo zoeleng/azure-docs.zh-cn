@@ -8,13 +8,13 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: amqp, devx-track-azurecli
+ms.openlocfilehash: b85984207742e0b8991ab65875dd22505b918185
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974543"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736749"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>教程：配置 IoT Edge 设备
 
@@ -43,7 +43,7 @@ ms.locfileid: "91974543"
 
 6. 在“资源管理器”窗格中，右键单击 **dockerfile** 并选择“生成映像”  。
 
-7. 在对话框中，接受映像名称和标记的默认值：**createcertificates: latest**。
+7. 在对话框中，接受映像名称和标记的默认值： **createcertificates: latest** 。
 
     ![在 Visual Studio Code 中创建证书](media/tutorial-machine-learning-edge-05-configure-edge-device/create-certificates.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "91974543"
 
 3. 单击省略号并选择“创建 IoT Edge 设备”  。
 
-4. 向设备提供一个名称。 为方便起见，我们使用名称 **aaTurbofanEdgeDevice**，以便它排在所列出设备的顶部。
+4. 向设备提供一个名称。 为方便起见，我们使用名称 **aaTurbofanEdgeDevice** ，以便它排在所列出设备的顶部。
 
 5. 新设备将在设备列表中显示。
 
@@ -126,7 +126,7 @@ ms.locfileid: "91974543"
 
 1. 在市场搜索栏中，输入并选择“Azure IoT Edge on Ubuntu”  。
 
-1. 选择**入门**超链接以编程方式进行部署。
+1. 选择 **入门** 超链接以编程方式进行部署。
 
 1. 选择“启用”按钮，然后选择“保存”   。
 
@@ -152,11 +152,11 @@ ms.locfileid: "91974543"
 
 3. 出现提示时，为每个参数提供值。 建议在这整个教程中，所有资源的订阅、资源组和位置均保持一致。
 
-    * **Azure 订阅 ID**：参见 Azure 门户
-    * **资源组名称**：在本教程中，使用易记名称对资源进行分组整理
-    * **位置**：将在其中创建虚拟机的 Azure 位置， 例如 westus2 或 northeurope。 有关详细信息，请查看所有 [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。
-    * **AdminUsername**：管理员帐户的名称，你将用它来登录虚拟机
-    * **AdminPassword**：虚拟机上为 AdminUsername 设置的密码
+    * **Azure 订阅 ID** ：参见 Azure 门户
+    * **资源组名称** ：在本教程中，使用易记名称对资源进行分组整理
+    * **位置** ：将在其中创建虚拟机的 Azure 位置， 例如 westus2 或 northeurope。 有关详细信息，请查看所有 [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。
+    * **AdminUsername** ：管理员帐户的名称，你将用它来登录虚拟机
+    * **AdminPassword** ：虚拟机上为 AdminUsername 设置的密码
 
 4. 要使脚本能够设置 VM，你需要使用与当前所用的 Azure 订阅关联的凭据登录到 Azure。
 
@@ -230,9 +230,9 @@ ms.locfileid: "91974543"
 
 IoT Edge 运行时使用 `/etc/iotedge/config.yaml` 文件来保留其配置。 我们需要更新此文件中的三部分信息：
 
-* **设备连接字符串**：IoT 中心内来自此设备的标识的连接字符串
-* **证书**：用于通过下游设备建立的连接的证书
-* **主机名**：VM IoT Edge 设备的完全限定的域名 (FQDN)。
+* **设备连接字符串** ：IoT 中心内来自此设备的标识的连接字符串
+* **证书** ：用于通过下游设备建立的连接的证书
+* **主机名** ：VM IoT Edge 设备的完全限定的域名 (FQDN)。
 
 我们用来创建 IoT Edge VM 的 Azure IoT Edge on Ubuntu 映像随附了一个 shell 脚本，它会使用连接字符串更新 config.yaml  。
 

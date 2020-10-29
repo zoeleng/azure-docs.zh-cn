@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2bc1878739c9ce23cb1448eee87d71575823a2f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89011729"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740300"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>教程：监视 Azure 中的 Linux 虚拟机
 
@@ -168,7 +168,7 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 
 2. 在 VM 边栏选项卡上单击“警报规则”，然后单击警报边栏选项卡顶部的“添加指标警报”。
 
-3. 为警报提供**名称**，例如 *myAlertRule*
+3. 为警报提供 **名称** ，例如 *myAlertRule*
 
 4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
 

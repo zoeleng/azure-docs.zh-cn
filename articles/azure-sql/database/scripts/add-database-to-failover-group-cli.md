@@ -4,19 +4,19 @@ description: 使用 Azure CLI 示例脚本在 Azure SQL 数据库中创建一个
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 07/16/2019
-ms.openlocfilehash: 48f82dcc1fa9e1f6843df4e89daca6a01c57ed63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e102f0161a50fe6f65558fef77549b86c5c3eae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321440"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742242"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>使用 Azure CLI 将数据库添加到故障转移组
 
@@ -54,7 +54,7 @@ az group delete --name $resource
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 描述 |
+| Command | 描述 |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | 数据库命令。 |
 | [az sql failover-group](/cli/azure/sql/failover-group) | 故障转移组命令。 |
