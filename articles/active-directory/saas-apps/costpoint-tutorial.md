@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 16c9d64cc4dd49898245d74108cd6a4f2f0e4660
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91775654"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455164"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>教程：将 Costpoint 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91775654"
 * 让用户使用其 Azure AD 帐户自动登录到 Costpoint。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -104,7 +104,7 @@ ms.locfileid: "91775654"
       > [!NOTE]
       > 如果“标识符”  和“回复 URL”  值未自动填充，则请按要求手动输入这些值。 验证是否已正确设置“标识符(实体 ID)”和“回复 URL(断言使用者服务 URL)”，以及“ACS URL”是否是以 **/LoginServlet.cps** 结尾的有效 Costpoint URL。   
 
-   1. 选择“设置其他 URL”  。 对于“中继状态”  ，请按以下模式输入一个值：`system=[your system]`（例如 **system=DELTEKCP**）。
+   1. 选择“设置其他 URL”  。 对于“中继状态”  ，请按以下模式输入一个值：`system=[your system]`（例如 **system=DELTEKCP** ）。
 
 1. 在“使用 SAML 设置单一登录”页上的“SAML 签名证书”部分，选择“复制”图标，以复制“应用联合元数据 URL”，并将其保存到记事本     。
 
@@ -134,7 +134,7 @@ ms.locfileid: "91775654"
 
    ![“用户”对话框](common/user-properties.png)
 
-   1. 在“姓名”字段中输入 **B.Simon**。 
+   1. 在“姓名”字段中输入 **B.Simon** 。 
    
    1. 在“用户名”字段中输入 `b.simon\@yourcompanydomain.extension`  （例如 B.Simon@contoso.com）。
    
@@ -174,12 +174,12 @@ ms.locfileid: "91775654"
 
 ### <a name="test-sso"></a>测试 SSO
 
-选择访问面板中的“Costpoint”磁贴时，应当会自动登录到 Costpoint 应用程序，因为已设置 SSO。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+选择访问面板中的“Costpoint”磁贴时，应当会自动登录到 Costpoint 应用程序，因为已设置 SSO。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

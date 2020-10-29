@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 13edc0280f1a6f7e962e8e4593d8a17990dd9e6f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91775156"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454739"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>教程：将 Displayr 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91775156"
 * 让用户使用其 Azure AD 帐户自动登录到 Displayr。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -92,7 +92,7 @@ ms.locfileid: "91775156"
 
 1. 除了上述属性，Displayr 应用程序还要求在 SAML 响应中传递回更多的属性。 在“组声明(预览)”对话框中的“用户属性和声明”部分，执行以下步骤   ：
 
-    a. 单击“声明中返回的组”旁边的**笔**。 
+    a. 单击“声明中返回的组”旁边的 **笔** 。 
 
     ![屏幕截图显示“用户属性和声明”部分，其中已选择“声明中返回的组”旁边的“笔”图标。](./media/displayr-tutorial/config04.png)
 
@@ -106,7 +106,7 @@ ms.locfileid: "91775156"
 
     e. 勾选“将组作为角色声明发出”。 
 
-    f. 单击“ **保存**”。
+    f. 单击“ **保存** ”。
 
 1. 在“设置 Displayr”部分，根据要求复制相应的 URL  。
 
@@ -148,7 +148,7 @@ ms.locfileid: "91775156"
 
     f. “组映射”为可选。 
 
-    g. 单击“ **保存**”。  
+    g. 单击“ **保存** ”。  
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户
 
@@ -206,16 +206,16 @@ ms.locfileid: "91775156"
 
     c. 选择相应的“组成员身份”。 
 
-    d. 单击“ **保存**”。
+    d. 单击“ **保存** ”。
 
 ### <a name="test-sso"></a>测试 SSO
 
-在访问面板中选择“Displayr”磁贴时，应会自动登录到设置了 SSO 的 Displayr。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中选择“Displayr”磁贴时，应会自动登录到设置了 SSO 的 Displayr。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

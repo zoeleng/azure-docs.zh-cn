@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f8bc88cf34c3bbea168bd95d2d03bdc3373ad07
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 19378251408d55868ed844a5505ae48ece55dc3b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91817047"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92451472"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>教程：将 Freedcamp 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91817047"
 * 让用户使用其 Azure AD 帐户自动登录到 Freedcamp。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -178,12 +178,12 @@ ms.locfileid: "91817047"
 
 ### <a name="test-sso"></a>测试 SSO
 
-在访问面板中选择“Freedcamp”磁贴时，应会自动登录到设置了 SSO 的 Freedcamp。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中选择“Freedcamp”磁贴时，应会自动登录到设置了 SSO 的 Freedcamp。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

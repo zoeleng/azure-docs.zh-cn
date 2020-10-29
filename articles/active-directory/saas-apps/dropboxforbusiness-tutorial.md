@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: bf86656ff670df19162867d597a869d762a012e8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91775127"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454550"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>教程：将 Dropbox Business 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91775127"
 * 让用户使用其 Azure AD 帐户自动登录到 Dropbox Business。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,7 +43,7 @@ ms.locfileid: "91775127"
 * 本教程在测试环境中配置并测试 Azure AD SSO。 Dropbox Business 支持 SP 发起的 SSO
 
 * Dropbox Business 支持[自动用户预配和取消预配](dropboxforbusiness-tutorial.md)
-* 配置 Dropbox 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* 配置 Dropbox 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-dropbox-business-from-the-gallery"></a>从库中添加 Dropbox Business
 
@@ -88,7 +88,7 @@ ms.locfileid: "91775127"
     > [!NOTE]
     > 上面的登录 URL 值不是实际值。 需使用实际登录 URL 更新该值（本教程稍后将会介绍）。
 
-1. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+1. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -177,7 +177,7 @@ ms.locfileid: "91775127"
 
     d. 单击“复制链接”，并将复制的值粘贴到 Azure 门户上“Dropbox Business 域和 URL”部分的“登录 URL”文本框中  。
 
-    e. 单击“ **保存**”。
+    e. 单击“ **保存** ”。
 
 ### <a name="create-dropbox-business-test-user"></a>创建 Dropbox Business 测试用户
 
@@ -188,16 +188,16 @@ ms.locfileid: "91775127"
 
 ### <a name="test-sso"></a>测试 SSO
 
-选择访问面板中的 Dropbox Business 磁贴时，应当会自动登录到你为其设置了 SSO 的 Dropbox Business。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+选择访问面板中的 Dropbox Business 磁贴时，应当会自动登录到你为其设置了 SSO 的 Dropbox Business。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [什么是 Azure Active Directory 中的条件访问？](/cloud-app-security/proxy-intro-aad)
 
 - [通过 Azure AD 试用 Dropbox Business](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)

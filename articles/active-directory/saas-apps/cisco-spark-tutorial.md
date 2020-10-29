@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 49e92c485c1a6a66dfb12b3c7a91f29939851d82
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456095"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Cisco Webex 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91759768"
 * 让用户使用其 Azure AD 帐户自动登录到 Cisco Webex。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,8 +40,8 @@ ms.locfileid: "91759768"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Cisco Webex 支持 SP 发起的 SSO  。
-* Cisco Webex 支持**自动**用户预配。
-* 配置 Cisco Webex 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Cisco Webex 支持 **自动** 用户预配。
+* 配置 Cisco Webex 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>从库中添加 Cisco Webex
 
@@ -77,7 +77,7 @@ ms.locfileid: "91759768"
 
    ![编辑基本 SAML 配置](common/edit-urls.png)
 
-4. 在“基本 SAML 配置”  部分中，通过执行以下步骤上传已下载的**服务提供程序元数据**文件并配置应用程序：
+4. 在“基本 SAML 配置”  部分中，通过执行以下步骤上传已下载的 **服务提供程序元数据** 文件并配置应用程序：
 
     >[!Note]
     >你将从“配置 Cisco Webex”  部分获取服务提供商元数据文件，本教程稍后将对此进行说明。 
@@ -86,7 +86,7 @@ ms.locfileid: "91759768"
 
     b. 单击“文件夹徽标”  来选择元数据文件并单击“上传”。 
 
-    c. 成功完成服务提供程序元数据文件的上传后，**标识符**和**回复 URL** 值将自动填充在“基本 SAML 配置”部分： 
+    c. 成功完成服务提供程序元数据文件的上传后， **标识符** 和 **回复 URL** 值将自动填充在“基本 SAML 配置”部分： 
 
     在“登录 URL”文本框中，粘贴上传 SP 元数据文件后自动填充的“回复 URL”值。  
 
@@ -179,9 +179,9 @@ ms.locfileid: "91759768"
 
     ![屏幕截图显示“管理用户”对话框，可在其中手动添加或修改用户。](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
-    a. 在“名字”  文本框中，键入用户的名字，例如 **B**。
+    a. 在“名字”  文本框中，键入用户的名字，例如 **B** 。
 
-    b. 在“姓氏”  文本框中，键入用户的姓氏，例如 **Simon**。
+    b. 在“姓氏”  文本框中，键入用户的姓氏，例如 **Simon** 。
 
     c. 在“电子邮件地址”文本框中，键入用户的电子邮件地址，例如 b.simon@contoso.com。 
 
@@ -191,18 +191,18 @@ ms.locfileid: "91759768"
 
 ## <a name="test-sso"></a>测试 SSO
 
-选择访问面板中的 Cisco Webex 磁贴时，应当会自动登录到设置了 SSO 的 Cisco Webex。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+选择访问面板中的 Cisco Webex 磁贴时，应当会自动登录到设置了 SSO 的 Cisco Webex。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [通过 Azure AD 试用 Cisco Webex](https://aad.portal.azure.com)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)
 
-- [如何通过高级可见性和控制保护 Cisco Webex](https://docs.microsoft.com/cloud-app-security/protect-webex)
+- [如何通过高级可见性和控制保护 Cisco Webex](/cloud-app-security/protect-webex)
