@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
-ms.openlocfilehash: d487295e9aab1a56553dc9d31b0a8714688005c3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1e295075a5c1ae8daa6673757770bbef01208c1d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337745"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505699"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-virtual-traffic-manager"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Pulse Secure Virtual Traffic Manager 的集成
 
@@ -137,7 +137,7 @@ b. 添加新的 SAML 受信任标识提供者的详细信息，从“单一登�
 
 * 在“URL”文本框中，输入从 Azure 门户复制的“登录 URL”值 。 
 
-* 打开从 Azure 门户下载到记事本中的**证书**，将内容粘贴到“证书”文本框中。
+* 打开从 Azure 门户下载到记事本中的 **证书** ，将内容粘贴到“证书”文本框中。
 
 c. 验证是否已成功创建新的 SAML 标识提供者。 
 
@@ -203,8 +203,8 @@ c. 为虚拟服务器配置以下身份验证设置：
 
 2. 直接转到 Pulse Secure Virtual Traffic Manager 登录 URL，并在其中启动登录流。
 
-3. 可以使用 Microsoft 访问面板。 如果在访问面板中单击 Pulse Secure Virtual Traffic Manager 磁贴，则会重定向到 Pulse Secure Virtual Traffic Manager 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+3. 可以使用 Microsoft 访问面板。 如果在访问面板中单击 Pulse Secure Virtual Traffic Manager 磁贴，则会重定向到 Pulse Secure Virtual Traffic Manager 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 Pulse Secure Virtual Traffic Manager 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+配置 Pulse Secure Virtual Traffic Manager 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。

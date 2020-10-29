@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d7aa43a94c7b49eef5b3273617ad9038fd1202e4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108535"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505691"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>教程：Azure Active Directory 单一登录 (SSO) 与 PureCloud by Genesys 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "92108535"
 * 让用户使用其 Azure AD 帐户自动登录到 PureCloud by Genesys。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -215,14 +215,14 @@ ms.locfileid: "92108535"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-选择“访问面板”中的“PureCloud by Genesys”磁贴时，应当会自动登录到为其设置了 SSO 的 PureCloud by Genesys 帐户  。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+选择“访问面板”中的“PureCloud by Genesys”磁贴时，应当会自动登录到为其设置了 SSO 的 PureCloud by Genesys 帐户  。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用程序与 Azure AD 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用程序与 Azure AD 集成的教程列表](./tutorial-list.md)
 
-- [Azure AD 中的应用程序访问和单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure AD 中的应用程序访问和单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure AD 中的条件访问是什么？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure AD 中的条件访问是什么？](../conditional-access/overview.md)
 
 - [通过 Azure AD 试用 PureCloud by Genesys](https://aad.portal.azure.com/)
