@@ -161,6 +161,8 @@
       href: ../../service-bus-messaging/security-baseline.md
     - name: Service Fabric 基线
       href: ../../service-fabric/security-baseline.md
+    - name: Site Recovery 基线
+      href: ../../site-recovery/security-baseline.md
     - name: 流分析基线
       href: ../../stream-analytics/security-baseline.md
     - name: Synapse Analytics 安全基线

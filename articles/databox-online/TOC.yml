@@ -183,6 +183,8 @@
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: 参考
       items:
+        - name: 通过 API、SDK 和 PowerShell 使用的 IoT Edge 角色
+          href: azure-stack-edge-gpu-iot-edge-api-update.md
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
         - name: REST API

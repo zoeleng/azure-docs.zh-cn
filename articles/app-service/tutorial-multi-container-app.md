@@ -6,13 +6,13 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: cli-validate
-ms.openlocfilehash: 9c984daa380f1d4f0a7b067604ab66ba14a0b70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cli-validate, devx-track-azurecli
+ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88081894"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743448"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教程：在用于容器的 Web 应用中创建多容器（预览版）应用
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-在 Cloud Shell 中，使用 [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 下面的示例命令在“美国中南部”位置创建名为 *myResourceGroup* 的资源组。  若要查看**标准**层中 Linux 上的应用服务支持的所有位置，请运行 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) 命令。
+在 Cloud Shell 中，使用 [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 下面的示例命令在“美国中南部”位置创建名为 *myResourceGroup* 的资源组。  若要查看 **标准** 层中 Linux 上的应用服务支持的所有位置，请运行 [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) 命令。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -79,7 +79,7 @@ az group create --name myResourceGroup --location "South Central US"
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-以下示例在**标准**定价层 (`--sku S1`) 和 Linux 容器 (`--is-linux`) 中创建名为 `myAppServicePlan` 的应用服务计划。
+以下示例在 **标准** 定价层 (`--sku S1`) 和 Linux 容器 (`--is-linux`) 中创建名为 `myAppServicePlan` 的应用服务计划。
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
@@ -138,7 +138,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ![用于容器的 Web 应用中的示例多容器应用][1]
 
-**祝贺你**，现已在用于容器的 Web 应用中创建了多容器应用。 接下来，请将应用配置为使用 Azure Database for MySQL。 暂时不要安装 WordPress。
+**祝贺你** ，现已在用于容器的 Web 应用中创建了多容器应用。 接下来，请将应用配置为使用 Azure Database for MySQL。 暂时不要安装 WordPress。
 
 ## <a name="connect-to-production-database"></a>连接到生产数据库
 
@@ -482,11 +482,11 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 ![单击“启用对象缓存”按钮][5]
 
-WordPress 将连接到 Redis 服务器。 同一页面上会显示连接**状态**。
+WordPress 将连接到 Redis 服务器。 同一页面上会显示连接 **状态** 。
 
 ![WordPress 将连接到 Redis 服务器。 同一页面上会显示连接**状态**。][6]
 
-**祝贺你**，现已将 WordPress 连接到 Redis。 生产就绪的应用正在使用 **Azure Database for MySQL、持久性存储和 Redis**。 现在可以扩展应用服务计划以包含多个实例。
+**祝贺你** ，现已将 WordPress 连接到 Redis。 生产就绪的应用正在使用 **Azure Database for MySQL、持久性存储和 Redis** 。 现在可以扩展应用服务计划以包含多个实例。
 
 ## <a name="find-docker-container-logs"></a>查找 Docker 容器日志
 
