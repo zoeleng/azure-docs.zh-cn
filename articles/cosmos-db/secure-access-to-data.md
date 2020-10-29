@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0a68c2b9c857205dda7f5da846085f9f3823da20
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371726"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927628"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 
@@ -118,6 +118,12 @@ User user = await database.CreateUserAsync("User 1");
 
 > [!NOTE]
 > 为了运行存储过程，用户必须对将在其中运行存储过程的容器具有全部权限。
+
+如果 [对数据平面请求启用诊断日志](cosmosdb-monitor-resource-logs.md)，则会记录以下两个与该权限相对应的属性：
+
+* **resourceTokenPermissionId** -此属性指示指定的资源令牌权限 Id。 
+
+* **resourceTokenPermissionMode** -此属性指示在创建资源令牌时设置的权限模式。 权限模式的值可以是 "全部" 或 "读取"。
 
 ### <a name="code-sample-to-create-permission"></a>有关创建权限的代码示例
 

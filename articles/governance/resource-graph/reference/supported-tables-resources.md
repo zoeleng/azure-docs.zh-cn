@@ -1,15 +1,15 @@
 ---
 title: 支持的 Azure 资源管理器资源类型
 description: 提供 Azure Resource Graph 和更改历史记录支持的 Azure 资源管理器资源类型的列表。
-ms.date: 09/30/2020
+ms.date: 10/28/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 385ee96fa821b8d90ff529fecb52dbec9803dea2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e604fe7c5e3a7f40e31f43db64bcd59ae0545ac0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739997"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927560"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 表格和资源类型参考
 
@@ -30,14 +30,14 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 
 - microsoft.guestconfiguration/guestconfigurationassignments
 
-## <a name="healthresources"></a>healthresources
-
-- microsoft.resourcehealth/events
-
 ## <a name="maintenanceresources"></a>maintenanceresources
 
 - microsoft.maintenance/configurationassignments
 - microsoft.maintenance/updates
+
+## <a name="policyresources"></a>policyresources
+
+- policyinsights/policystates
 
 ## <a name="resourcecontainers"></a>resourcecontainers
 
@@ -71,6 +71,7 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
 - microsoft.apimanagement/service
+- appassessment/migrateprojects
 - microsoft.appconfiguration/configurationstores
 - microsoft.appplatform/spring
 - microsoft.archive/collections
@@ -107,6 +108,7 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.batchai/fileservers
 - microsoft.batchai/jobs
 - microsoft.batchai/workspaces
+- microsoft bing/accounts
 - microsoft.bingmaps/mapapis
 - microsoft.biztalkservices/biztalk
 - microsoft.blockchain/blockchainmembers
@@ -135,6 +137,7 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.cognition/syntheticsaccounts
 - microsoft.cognitiveservices/accounts
 - microsoft.compute/availabilitysets
+- cloudservices/计算
 - microsoft.compute/diskaccesses
 - microsoft.compute/diskencryptionsets
 - microsoft.compute/disks
@@ -202,6 +205,8 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.dbforpostgresql/servers
 - microsoft.dbforpostgresql/serversv2
 - microsoft.dbforpostgresql/singleservers
+- delegatednetwork/delegatedsubnets
+- delegatednetwork/orchestratorinstances
 - microsoft.deploymentmanager/artifactsources
 - microsoft.deploymentmanager/rollouts
 - microsoft.deploymentmanager/servicetopologies
@@ -251,8 +256,10 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.healthcareapis/services/privateendpointconnections
 - microsoft.hybridcompute/machines
 - microsoft.hybridcompute/machines/extensions
+- hybridcompute/privatelinkscopes
 - microsoft.hybriddata/datamanagers
 - microsoft.hybridnetwork/devices
+- hybridnetwork/networkfunctions
 - microsoft.hybridnetwork/virtualnetworkfunctions
 - microsoft.importexport/jobs
 - industrydatalifecycle/basemodels
@@ -297,6 +304,8 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.machinelearningservices/workspaces
 - microsoft.machinelearningservices/workspaces/inferenceendpoints
 - microsoft.machinelearningservices/workspaces/inferenceendpoints/deployments
+- machinelearningservices/工作区/onlineendpoints
+- machinelearningservices/工作区/onlineendpoints/部署
 - microsoft.maintenance/maintenanceconfigurations
 - microsoft.maintenance/maintenancepolicies
 - microsoft.managedidentity/groups
@@ -395,9 +404,12 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.objectstore/osnamespaces
 - microsoft.offazure/hypervsites
 - microsoft.offazure/importsites
+- offazure/mastersites
 - microsoft.offazure/serversites
 - microsoft.offazure/vmwaresites
+- openlogisticsplatform/工作区
 - microsoft.operationalinsights/clusters
+- microsoft.operationalinsights/querypacks
 - microsoft.operationalinsights/workspaces
 - microsoft.operationsmanagement/solutions
 - microsoft.operationsmanagement/views
@@ -417,6 +429,7 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.redhatopenshift/openshiftclusters
 - microsoft.relay/namespaces
 - microsoft.remoteapp/collections
+- microsoft 复原/chaosexperiments
 - microsoft.resourcegraph/queries
 - microsoft.resources/deploymentscripts
 - microsoft.resources/templatespecs
@@ -471,6 +484,7 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.streamanalytics/clusters
 - microsoft.streamanalytics/streamingjobs
 - microsoft.swiftlet/virtualmachines
+- swiftlet/virtualmachinesnapshots
 - microsoft.synapse/privatelinkhubs
 - microsoft.synapse/workspaces
 - microsoft.synapse/workspaces/bigdatapools
@@ -553,6 +567,10 @@ Azure Resource Graph 支持 [Azure 资源管理器](../../../azure-resource-mana
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
 - microsoft.security/securescores
 - microsoft.security/securescores/securescorecontrols
+
+## <a name="servicehealthresources"></a>servicehealthresources
+
+- microsoft.resourcehealth/events
 
 ## <a name="next-steps"></a>后续步骤
 

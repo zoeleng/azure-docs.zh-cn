@@ -4,12 +4,12 @@ description: 了解如何使用 Java 开发函数。
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736696"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927509"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -49,7 +49,7 @@ Java 函数是一个 `public` 方法，使用注释 `@FunctionName` 进行修饰
 
 以下命令使用此原型生成新的 Java 函数项目：
 
-```
+```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
