@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334542"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909941"
 ---
 # <a name="business-card-concepts"></a>名片概念
 
@@ -385,7 +385,7 @@ Azure 窗体识别器可以使用其预生成的模型之一来分析和提取�
 * 跟踪销售线索。  
 * 从现有的名片图像批量提取联系信息。 
 
-名片 API 还支持 [AIBuilder 名片处理功能](https://docs.microsoft.com/ai-builder/prebuilt-business-card)。
+名片 API 还支持 [AIBuilder 名片处理功能](/ai-builder/prebuilt-business-card)。
 
 ## <a name="next-steps"></a>后续步骤
 

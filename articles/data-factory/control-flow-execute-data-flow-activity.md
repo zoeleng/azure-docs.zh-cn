@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485031"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910757"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure 数据工厂中的数据流活动
 
@@ -54,13 +54,13 @@ ms.locfileid: "89485031"
 
 ## <a name="type-properties"></a>Type 属性
 
-属性 | 说明 | 允许的值 | 必须
+properties | 说明 | 允许的值 | 必选
 -------- | ----------- | -------------- | --------
 数据流 | 对正在执行的数据流的引用 | DataFlowReference | 是
 integrationRuntime | 运行数据流的计算环境。 如果未指定，将使用自动解析 Azure 集成运行时。 | IntegrationRuntimeReference | 否
 coreCount | Spark 群集中使用的内核数。 仅当使用自动解析 Azure 集成运行时，才能指定 | 8、16、32、48、80、144、272 | 否
 computeType | Spark 群集中使用的计算类型。 仅当使用自动解析 Azure 集成运行时，才能指定 | "常规"、"ComputeOptimized"、"MemoryOptimized" | 否
-暂存。 linkedService | 如果使用的是 Azure Synapse Analytics 源或接收器，则用于 PolyBase 暂存的存储帐户 | LinkedServiceReference | 仅当数据流读取或写入 Azure Synapse 分析时
+暂存。 linkedService | 如果使用的是 Azure Synapse Analytics 源或接收器，请指定用于 PolyBase 暂存的存储帐户。<br/><br/>如果 Azure 存储配置了 VNet 服务终结点，则必须在存储帐户上使用启用了 "允许受信任的 Microsoft 服务" 的托管标识身份验证，请参阅将 [VNet 服务终结点与 Azure 存储配合使用的影响](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 还分别了解 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 和 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 的所需配置。<br/> | LinkedServiceReference | 仅当数据流读取或写入 Azure Synapse 分析时
 暂存。 folderPath | 如果你使用的是 Azure Synapse Analytics 源或接收器，则用于 PolyBase 暂存的 blob 存储帐户中的文件夹路径 | 字符串 | 仅当数据流读取或写入到 Azure Synapse Analytics 时
 
 ![执行数据流](media/data-flow/activity-data-flow.png "执行数据流")
@@ -82,7 +82,7 @@ computeType | Spark 群集中使用的计算类型。 仅当使用自动解析 A
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
 > [!IMPORTANT]
-> 数据流活动中的 Integration Runtime 选择仅适用于管道的已触发执行。** 在调试会话中指定的群集上运行数据流时，调试管道。
+> 数据流活动中的 Integration Runtime 选择仅适用于管道的已触发执行。  在调试会话中指定的群集上运行数据流时，调试管道。
 
 ### <a name="polybase"></a>PolyBase
 
@@ -116,7 +116,7 @@ computeType | Spark 群集中使用的计算类型。 仅当使用自动解析 A
 
 ## <a name="monitoring-the-data-flow-activity"></a>监视数据流活动
 
-数据流活动具有特殊的监视体验，你可以在其中查看分区、阶段时间和数据沿袭信息。 通过 " **操作**" 下的 "眼镜" 图标打开 "监视" 窗格。 有关详细信息，请参阅 [监视数据流](concepts-data-flow-monitoring.md)。
+数据流活动具有特殊的监视体验，你可以在其中查看分区、阶段时间和数据沿袭信息。 通过 " **操作** " 下的 "眼镜" 图标打开 "监视" 窗格。 有关详细信息，请参阅 [监视数据流](concepts-data-flow-monitoring.md)。
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>在后续活动中使用数据流活动结果
 

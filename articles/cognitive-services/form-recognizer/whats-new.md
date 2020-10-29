@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9287e9661172480292a2214b231e7e5dac9c32f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970803"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912237"
 ---
 # <a name="whats-new-in-form-recognizer"></a>表单识别器的新增功能
 
@@ -28,24 +28,24 @@ ms.locfileid: "91970803"
 
 
 - **REST API 引用可用** -请参阅 ws [2.1-preview. 1 引用](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **除了英语以外**，还支持以下 [语言](language-support.md) ：对于 `Layout` 和 `Train Custom Model` ：英语 (`en`) ，中文 (简化)  () `zh-Hans` 、荷兰语 (`nl`) 、法语 () `fr` 、德语 (`de`) 、意大利语 (`it`) 、葡萄牙语 (`pt`) 和西班牙语 (`es`) 。
-- **复选框/选择标记检测** -窗体识别器支持检测和提取选中标记（如复选框和单选按钮）。 选择标记是在中提取的 `Layout` ，你现在还可以在 "带标签的定型" 中标记和定型， `Train Custom Model`  -  _Train with Labels_以便提取选择标记的键值对。 
-- **模型撰写** 允许使用单个模型 ID 编写和调用多个模型。 提交要使用组合模型 ID 分析的文档时，首先会执行分类步骤以将其路由到正确的自定义模型。 模型撰写可用于对 `Train Custom Model`  -  _标签进行定型_。
+- **除了英语以外** ，还支持以下 [语言](language-support.md) ：对于 `Layout` 和 `Train Custom Model` ：英语 (`en`) ，中文 (简化)  () `zh-Hans` 、荷兰语 (`nl`) 、法语 () `fr` 、德语 (`de`) 、意大利语 (`it`) 、葡萄牙语 (`pt`) 和西班牙语 (`es`) 。
+- **复选框/选择标记检测** -窗体识别器支持检测和提取选中标记（如复选框和单选按钮）。 选择标记是在中提取的 `Layout` ，你现在还可以在 "带标签的定型" 中标记和定型， `Train Custom Model`  -  _Train with Labels_ 以便提取选择标记的键值对。 
+- **模型撰写** 允许使用单个模型 ID 编写和调用多个模型。 提交要使用组合模型 ID 分析的文档时，首先会执行分类步骤以将其路由到正确的自定义模型。 模型撰写可用于对 `Train Custom Model`  -  _标签进行定型_ 。
 - **模型名称** 将友好名称添加到自定义模型，以便更轻松地进行管理和跟踪。
 - **[新的智能卡预建模型](concept-business-cards.md)** ，用于提取英语、语言名片中的公共字段。
-- 除 EN-US 外，**[预建收据的新区域设置](concept-receipts.md)** 现可用于 EN-US、en CA、EN-GB、en
-- **质量改进** `Layout` ， `Train Custom Model`  -  _无标签定型_，并_为标签定型_。
+- 除 EN-US 外， **[预建收据的新区域设置](concept-receipts.md)** 现可用于 EN-US、en CA、EN-GB、en
+- **质量改进** `Layout` ， `Train Custom Model`  -  _无标签定型_ ，并 _为标签定型_ 。
 
 
-v2.0**包含以下**更新：
+v2.0 **包含以下** 更新：
 
 - NET、Python、Java 和 JavaScript 的 [客户端库](quickstarts/client-library.md) 已输入公开上市。 
 
 
-GitHub 上提供了**新的示例**。 
+GitHub 上提供了 **新的示例** 。 
 - [知识提取食谱-窗体操作手册](https://github.com/microsoft/knowledge-extraction-recipes-forms)从真实的窗体识别器客户约定中收集最佳实践，并提供用于开发这些项目的可用代码示例、清单和示例管道。 
 - [示例标记工具](https://github.com/microsoft/OCR-Form-Tools)已更新，以支持新的2.1 版功能。 请参阅此 [快速入门](quickstarts/label-tool.md) ，了解如何开始学习此工具。 
-- [智能展台](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md)窗体识别器示例显示了如何集成 `Analyze Receipt` 和 `Train Custom Model`  -  _定型无标签_。
+- [智能展台](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md)窗体识别器示例显示了如何集成 `Analyze Receipt` 和 `Train Custom Model`  -  _定型无标签_ 。
 
 
 
@@ -53,14 +53,14 @@ GitHub 上提供了**新的示例**。
 
 ### <a name="new-features"></a>新增功能
 
-* **2.0 版本参考** 查看 v2.0 [API 参考](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 和更新的适用于 [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)、 [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)、 [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)和 [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)的 sdk。
-* **表增强和提取增强** 功能包括准确性改进和表提取增强功能，尤其是在 _不带标签的自定义训练_中了解表标头和结构的功能。 
+* **2.0 版本参考** 查看 v2.0 [API 参考](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 和更新的适用于 [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)、 [Python](/python/api/overview/azure/?view=azure-python)、 [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)和 [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest)的 sdk。
+* **表增强和提取增强** 功能包括准确性改进和表提取增强功能，尤其是在 _不带标签的自定义训练_ 中了解表标头和结构的功能。 
 
 * **货币支持** 全局货币符号的检测和提取。
 * **Azure Gov** 表单识别器现已在 Azure Gov 中提供。
-* **增强的安全功能**： 
-   * **自带密钥**  表单识别器会在保存到云时自动加密数据，以保护数据，并帮助你满足组织的安全性和符合性承诺。 默认情况下，订阅使用 Microsoft 托管的加密密钥。 你现在可以通过自己的加密密钥来管理你的订阅。 [客户管理的密钥 (CMK) ，也称为自带密钥 (BYOK) ](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)，提供更高的灵活性来创建、轮换、禁用和撤消访问控制。 此外，你还可以审核用于保护数据的加密密钥。  
-   * **专用终结点** –使你能够在虚拟网络 (VNet) [通过专用链接安全地访问数据。 ](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* **增强的安全功能** ： 
+   * **自带密钥**  表单识别器会在保存到云时自动加密数据，以保护数据，并帮助你满足组织的安全性和符合性承诺。 默认情况下，订阅使用 Microsoft 托管的加密密钥。 你现在可以通过自己的加密密钥来管理你的订阅。 [客户管理的密钥 (CMK) ，也称为自带密钥 (BYOK) ](./form-recognizer-encryption-of-data-at-rest.md)，提供更高的灵活性来创建、轮换、禁用和撤消访问控制。 此外，你还可以审核用于保护数据的加密密钥。  
+   * **专用终结点** –使你能够在虚拟网络 (VNet) [通过专用链接安全地访问数据。](../../private-link/private-link-overview.md)
 
 
 ## <a name="june-2020"></a>2020 年 6 月
@@ -78,10 +78,10 @@ GitHub 上提供了**新的示例**。
 
 ### <a name="new-features"></a>新增功能
 * **SDK 支持表单识别器 API V2.0 公共预览版** 本月，我们已将服务支持扩展为包含用于窗体识别器 v2.0 (预览) 版本的预览版 SDK。 使用以下链接开始使用你选择的语言： 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   新的 SDK 支持用于窗体识别器的 v2.0 REST API 的所有功能。 例如，你可以使用或不带标签来训练模型，并从窗体提取文本、键值对和表、从收据中提取数据以及预先生成的回执服务，并从文档中提取带有布局服务的文本和表。 可以通过 [Sdk 反馈窗体](https://aka.ms/FR_SDK_v1_feedback)在 sdk 上共享你的反馈。
  
@@ -91,8 +91,8 @@ GitHub 上提供了**新的示例**。
 
 ### <a name="security-improvements"></a>安全性改进
 
-* 客户托管的密钥现在可用于 FormRecognizer。 有关详细信息，请参阅 [窗体识别器的静态数据加密](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)。
-* 使用托管标识通过 Azure Active Directory 访问 Azure 资源。 有关详细信息，请参阅 [授予对托管标识的访问权限](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities)。
+* 客户托管的密钥现在可用于 FormRecognizer。 有关详细信息，请参阅 [窗体识别器的静态数据加密](./form-recognizer-encryption-of-data-at-rest.md)。
+* 使用托管标识通过 Azure Active Directory 访问 Azure 资源。 有关详细信息，请参阅 [授予对托管标识的访问权限](../authentication.md#authorize-access-to-managed-identities)。
 
 ## <a name="march-2020"></a>2020 年 3 月 
 

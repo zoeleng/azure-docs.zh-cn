@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 14a532e7809db3359d90a03c169c27a19cf89a9a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164221"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911624"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>对 Azure 文件同步进行故障排除
 使用 Azure 文件同步，即可将组织的文件共享集中在 Azure 文件中，同时又不失本地文件服务器的灵活性、性能和兼容性。 Azure 文件同步可将 Windows Server 转换为 Azure 文件共享的快速缓存。 可以使用 Windows Server 上可用的任意协议本地访问数据，包括 SMB、NFS 和 FTPS。 并且可以根据需要在世界各地具有多个缓存。
@@ -102,15 +102,18 @@ Reset-StorageSyncServer
 3. 运行 ServerRegistration.exe 并完成向导中的操作，将服务器注册到存储同步服务。
 
 ## <a name="sync-group-management"></a>同步组管理
+
+### <a name="cloud-endpoint-creation-errors"></a>云终结点创建错误
+
 <a id="cloud-endpoint-using-share"></a>**云终结点创建失败，并出现以下错误：“指定的 Azure 文件共享已被其他 CloudEndpoint 使用”**  
 如果 Azure 文件共享已被其他云终结点使用，则会发生此错误。 
 
 如果看到此消息，并且 Azure 文件共享当前未被云终结点使用，请完成以下步骤清除 Azure 文件共享上的 Azure 文件同步元数据：
 
 > [!Warning]  
-> 删除云终结点当前正在使用的 Azure 文件共享上的元数据会导致 Azure 文件同步操作失败。 
+> 删除云终结点当前正在使用的 Azure 文件共享上的元数据会导致 Azure 文件同步操作失败。 
 
-1. 在 Azure 门户中，转到 Azure 文件共享。  
+1. 在 Azure 门户中，转到 Azure 文件共享。  
 2. 右键单击该 Azure 文件共享，并选择“编辑元数据”。
 3. 右键单击“SyncService”，并选择“删除” 。
 
@@ -131,10 +134,12 @@ Reset-StorageSyncServer
 1. 在 Azure 门户中，选择“资源组”。
 2. 选择存储帐户所在的资源组，再选择“访问控制(IAM)”。
 3. 选择“角色分配”选项卡。
-4. 为用户帐户选择**角色**（例如“所有者”或“参与者”）。
+4. 为用户帐户选择 **角色** （例如“所有者”或“参与者”）。
 5. 在“资源提供程序”列表中，选择“Microsoft 授权”。  
     * “角色分配”应具有“读取”和“写入”权限。  
     * “角色定义”应具有“读取”和“写入”权限。  
+
+### <a name="server-endpoint-creation-and-deletion-errors"></a>服务器终结点创建和删除错误
 
 <a id="-2134375898"></a>**服务器终结点创建失败，并出现以下错误："MgmtServerJobFailed"（错误代码：-2134375898 或 0x80c80226）**  
 如果服务器终结点路径位于系统卷上并启用了云分层，则会出现此错误。 系统卷上不支持云分层。 要在系统卷上创建服务器终结点，请在创建服务器终结点时禁用云分层。
@@ -149,7 +154,7 @@ Reset-StorageSyncServer
 发生此错误的原因是，Azure 文件同步不支持具有压缩的“系统卷信息”文件夹的卷上的服务器终结点。 要解决此问题，请解压缩“系统卷信息”文件夹。 如果“系统卷信息”文件夹是在该卷上唯一压缩的文件夹，请执行以下步骤：
 
 1. 下载 [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) 工具。
-2. 在提升的命令提示符处运行以下命令，以启动在系统帐户下运行的命令提示符：**PsExec.exe -i -s -d cmd**
+2. 在提升的命令提示符处运行以下命令，以启动在系统帐户下运行的命令提示符： **PsExec.exe -i -s -d cmd**
 3. 在系统帐户下运行的命令提示符处，键入以下命令，然后按 Enter：   
     cd /d "drive letter:\System Volume Information"  
     compact /u /s
@@ -165,6 +170,8 @@ Reset-StorageSyncServer
 
 <a id="-2134347757"></a>**服务器终结点删除失败，并出现以下错误："MgmtServerJobExpired"（错误代码：-2134347757 或 0x80c87013）**  
 如果服务器处于离线状态或没有连接网络，则会发生此错误。 如果服务器不再可用，请在门户中注销要删除服务器终结点的服务器。 要删除服务器终结点，请按照[使用 Azure 文件同步注销服务器](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)中所述的步骤操作。
+
+### <a name="server-endpoint-health"></a>服务器终结点运行状况
 
 <a id="server-endpoint-provisioningfailed"></a>**无法打开服务器终结点属性页或更新云分层策略**  
 如果服务器终结点上的管理操作失败，则可能出现此问题。 如果未在 Azure 门户中打开服务器终结点属性页，则在服务器中使用 PowerShell 命令更新服务器终结点可修复此问题。 
@@ -338,14 +345,16 @@ PerItemErrorCount: 1006.
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 由于已达到冲突文件最大数量，文件无法同步。 Azure 文件同步支持每文件 100 个冲突文件。 若要了解有关文件冲突的详细信息，请参阅 Azure 文件同步[常见问题解答](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution)。 | 若要解决此问题，请减少冲突文件数。 冲突文件数小于 100 后，文件将同步。 |
 
 #### <a name="handling-unsupported-characters"></a>处理不受支持的字符
-如果 **FileSyncErrorsReport.ps1** PowerShell 脚本显示由于不支持的字符而导致的每项同步错误 (错误代码0x8007007b 或 0x80c80255) ，则应该从相应的文件名中删除或重命名出现错误的字符。 PowerShell 可能会以问号或空框的形式列显这些字符，因为其中的大多数字符没有标准的视觉编码。 [评估工具](storage-sync-files-planning.md#evaluation-cmdlet)可用于标识不受支持的字符。 如果数据集包含多个包含无效字符的文件，请使用 [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) 脚本重命名包含不支持的字符的文件。
+如果 **FileSyncErrorsReport.ps1** PowerShell 脚本显示由于不支持的字符而导致的每项同步错误 (错误代码0x8007007b 或 0x80c80255) ，则应该从相应的文件名中删除或重命名出现错误的字符。 PowerShell 可能会以问号或空框的形式列显这些字符，因为其中的大多数字符没有标准的视觉编码。 
+> [!Note]  
+> [评估工具](storage-sync-files-planning.md#evaluation-cmdlet)可用于标识不受支持的字符。 如果数据集包含多个包含无效字符的文件，请使用 [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) 脚本重命名包含不支持的字符的文件。
 
 下表包含 Azure 文件同步尚不支持的所有 Unicode 字符。
 
 | 字符集 | 字符计数 |
 |---------------|-----------------|
 | <ul><li>0x0000009D（osc 操作系统命令）</li><li>0x00000090（dcs 设备控制字符串）</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081（高八位字节预设）</li><li>0x0000007F（del 删除）</li><li>0x0000008D（ri 反向换行符）</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF（阿拉伯语显示格式 a） | 32 |
+| 0x0000FDD0-0x0000FDEF（阿拉伯语显示格式 a） | 32 |
 | 0x0000FFF0-0x0000FFFF（特殊字符） | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2（非字符）</li><li>0x0002FFFE - 0x0002FFFF = 2（非字符）</li><li>0x0003FFFE - 0x0003FFFF = 2（非字符）</li><li>0x0004FFFE - 0x0004FFFF = 2（非字符）</li><li>0x0005FFFE - 0x0005FFFF = 2（非字符）</li><li>0x0006FFFE - 0x0006FFFF = 2（非字符）</li><li>0x0007FFFE - 0x0007FFFF = 2（非字符）</li><li>0x0008FFFE - 0x0008FFFF = 2（非字符）</li><li>0x0009FFFE - 0x0009FFFF = 2（非字符）</li><li>0x000AFFFE - 0x000AFFFF = 2（非字符）</li><li>0x000BFFFE - 0x000BFFFF = 2（非字符）</li><li>0x000CFFFE - 0x000CFFFF = 2（非字符）</li><li>0x000DFFFE - 0x000DFFFF = 2（非字符）</li><li>0x000EFFFE - 0x000EFFFF = 2（未定义）</li><li>0x000FFFFE - 0x000FFFFF = 2（补充专用区域）</li></ul> | 30 |
 | 0x0010FFFE、0x0010FFFF | 2 |
@@ -843,10 +852,10 @@ PerItemErrorCount: 1006.
 若要解决此问题，请执行以下步骤：
 
 1. 下载 [Psexec](https://docs.microsoft.com/sysinternals/downloads/psexec) 工具。
-2. 在提升的命令提示符处运行以下命令，以使用系统帐户启动命令提示符：**PsExec.exe -i -s -d cmd** 
-3. 在命令提示符（在系统帐户下运行）处运行以下命令，确认 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹：**cacls "驱动器号:\system volume information" /T /C**
-4. 如果 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹，请运行以下命令：**cacls  "驱动器号:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
-    - 如果步骤 4 失败并出现访问被拒绝错误，请运行以下命令来获取 System Volume Information 文件夹的所有权，然后重复步骤 4：**takeown /A /R /F "驱动器号:\System Volume Information"**
+2. 在提升的命令提示符处运行以下命令，以使用系统帐户启动命令提示符： **PsExec.exe -i -s -d cmd** 
+3. 在命令提示符（在系统帐户下运行）处运行以下命令，确认 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹： **cacls "驱动器号:\system volume information" /T /C**
+4. 如果 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹，请运行以下命令： **cacls  "驱动器号:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
+    - 如果步骤 4 失败并出现访问被拒绝错误，请运行以下命令来获取 System Volume Information 文件夹的所有权，然后重复步骤 4： **takeown /A /R /F "驱动器号:\System Volume Information"**
 
 <a id="-2134375810"></a>**由于已删除并重新创建 Azure 文件共享，同步失败。**  
 
@@ -995,7 +1004,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**确保 Azure 文件同步有权访问存储帐户。**  
 # <a name="portal"></a>[门户](#tab/azure-portal)
 1. 在左侧的目录上单击“访问控制(IAM)”。
-1. 单击“角色分配”选项卡以列出有权访问你的存储帐户的用户和应用程序（*服务主体*）。
+1. 单击“角色分配”选项卡以列出有权访问你的存储帐户的用户和应用程序（ *服务主体* ）。
 1. 使用“读取器和数据访问”角色验证列表中是否显示“Microsoft.StorageSync”或“混合文件同步服务”（旧应用程序名称）。 
 
     ![存储帐户访问控制选项卡中的“混合文件同步服务”服务主体的屏幕截图](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
@@ -1269,9 +1278,9 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
     Debug-Afs c:\output # Note: Use the path created in step 1.
     ```
 
-3. 对于 Azure 文件同步内核模式跟踪级别，请输入 **1**（除非指定为创建更详细的跟踪）并按 Enter。
-4. 对于 Azure 文件同步用户模式跟踪级别，请输入 **1**（除非指定为创建更详细的跟踪）并按 Enter。
-5. 重现问题。 完成后，输入 **D**。
+3. 对于 Azure 文件同步内核模式跟踪级别，请输入 **1** （除非指定为创建更详细的跟踪）并按 Enter。
+4. 对于 Azure 文件同步用户模式跟踪级别，请输入 **1** （除非指定为创建更详细的跟踪）并按 Enter。
+5. 重现问题。 完成后，输入 **D** 。
 6. 随即会将一个包含日志和跟踪文件的 .zip 文件保存到指定的输出目录。
 
 ## <a name="see-also"></a>另请参阅

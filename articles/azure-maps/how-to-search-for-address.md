@@ -3,21 +3,22 @@ title: 使用 Azure Maps 搜索服务搜索位置
 description: 了解 Azure Maps 搜索服务。 请参阅如何将这组 Api 用于地理编码、反向地理编码、模糊搜索和反向交叉街道搜索。
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/21/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9628ecada2e427f6220ae2a5154cebb8e4958bd0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895692"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910978"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>使用 Azure Maps 搜索服务搜索位置
 
 [Azure Maps 搜索服务](/rest/api/maps/search)是一组 RESTful api，旨在帮助开发人员按姓名、类别和其他地理信息搜索地址、位置和业务列表。 除了支持传统的地理编码，服务还可以根据纬度和经度来反转地理编码地址和交叉街道。 搜索返回的纬度和经度值可用作其他 Azure Maps 服务（如 [路由](/rest/api/maps/route) 和 [天气](/rest/api/maps/weather) 服务）中的参数。
+
 
 本文将指导如何进行以下操作：
 
@@ -44,9 +45,7 @@ ms.locfileid: "92895692"
 
 2. 若要创建请求，请再次选择“新建”。 在“新建”窗口中，选择“请求”。 在“请求名称”中，输入请求名称。 选择在上一步中创建的集合，然后选择“保存”。
 
-3. 在 "生成器" 选项卡中选择 " **获取** HTTP" 方法，然后输入以下 URL。 在此请求中，我们要搜索特定的地址： `400 Braod St, Seattle, WA 98109` 。
-
-    对于此请求和本文中提到的其他请求，请将 `{Azure-Maps-Primary-Subscription-key}` 替换为你的主订阅密钥。 请求应如下面的 URL 所示：
+3. 在 "生成器" 选项卡中选择 " **获取** HTTP" 方法，然后输入以下 URL。 在此请求中，我们要搜索特定的地址： `400 Braod St, Seattle, WA 98109` 。 对于此请求和本文中提到的其他请求，请将 `{Azure-Maps-Primary-Subscription-key}` 替换为你的主订阅密钥。
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
@@ -60,7 +59,7 @@ ms.locfileid: "92895692"
 
 6. 接下来，尝试将 `query` 密钥设置为 `400 Broa` 。
 
-7. 单击“发送”按钮。  你现在可以看到响应包含来自多个国家/地区的响应。 若要将结果 geobias 到用户的相关区域，请始终向请求添加尽可能多的位置详细信息。
+7. 单击“发送”按钮。 你现在可以看到响应包含来自多个国家/地区的响应。 若要将结果 geobias 到用户的相关区域，请始终向请求添加尽可能多的位置详细信息。
 
 ## <a name="using-fuzzy-search-api"></a>使用模糊搜索 API
 
@@ -78,7 +77,7 @@ Azure Maps [模糊搜索 API](/rest/api/maps/search/getsearchfuzzy) 支持标准
 
 1. 打开 Postman 应用，单击 " **新建** "，然后选择 " **请求** "。 在“请求名称”中，输入请求名称。 选择在上一部分中创建的集合，或创建一个新集合，然后选择 " **保存** "。
 
-2. 在 "生成器" 选项卡中选择 " **获取** HTTP" 方法，然后输入以下 URL。 对于此请求和本文中提到的其他请求，请将 `{Azure-Maps-Primary-Subscription-key}` 替换为你的主订阅密钥。 请求应如下面的 URL 所示：
+2. 在 "生成器" 选项卡中选择 " **获取** HTTP" 方法，然后输入以下 URL。 对于此请求和本文中提到的其他请求，请将 `{Azure-Maps-Primary-Subscription-key}` 替换为你的主订阅密钥。
 
     ```http
    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
@@ -97,7 +96,7 @@ Azure Maps [模糊搜索 API](/rest/api/maps/search/getsearchfuzzy) 支持标准
 
     :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="搜索地址" 部分中，添加以下键/值对：
 
-     | 密钥 | 值 |
+     | 密钥 | “值” |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -130,7 +129,7 @@ Azure Maps [获取搜索地址反向 API]( https://docs.microsoft.com/rest/api/m
   
 4. 现在，我们将以下键/值对添加到 **Params** 节：
 
-    | 密钥 | 值 | 返回
+    | 密钥 | “值” | 返回
     |-----|------------|------|
     | 数字 | 1 |响应可能包含街道两侧 (左/右) 以及数字的偏移位置。|
     | returnSpeedLimit | 是 | 返回地址的速度限制。|

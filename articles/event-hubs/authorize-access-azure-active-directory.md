@@ -3,20 +3,20 @@ title: 使用 Azure Active Directory 授予访问权限
 description: 本文提供有关使用 Azure Active Directory 授权访问事件中心资源的信息。
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332393"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910791"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>使用 Azure Active Directory 授权访问事件中心资源
-Azure 事件中心支持使用 Azure Active Directory (Azure AD) 授权对事件中心资源的请求。 使用 Azure AD，你可以使用 Azure RBAC)  (Azure 基于角色的访问控制向安全主体（可以是用户或应用程序服务主体）授予权限。 若要详细了解角色和角色分配，请参阅[了解不同的角色](../role-based-access-control/overview.md)。
+Azure 事件中心支持使用 Azure Active Directory (Azure AD) 授权对事件中心资源的请求。 可以通过 Azure AD 使用 Azure 基于角色的访问控制 (Azure RBAC) 向安全主体授予权限，该安全主体可能是用户，也可能是应用程序服务主体。 若要详细了解角色和角色分配，请参阅[了解不同的角色](../role-based-access-control/overview.md)。
 
 ## <a name="overview"></a>概述
 当安全主体（用户或应用程序）尝试访问事件中心资源时，必须授权该请求。 使用 Azure AD 是，访问资源的过程包括两个步骤。 
 
- 1. 首先，验证安全主体的身份并返回 OAuth 2.0 令牌。 用于请求令牌的资源名称为 `https://eventhubs.azure.net/`。 对于 Kafka 客户端，请求令牌的资源为 `https://<namespace>.servicebus.windows.net`。
+ 1. 首先，验证安全主体的身份并返回 OAuth 2.0 令牌。 请求令牌的资源名称为 `https://eventhubs.azure.net/` ，所有云/租户的资源名称都是相同的。 对于 Kafka 客户端，请求令牌的资源为 `https://<namespace>.servicebus.windows.net`。
  1. 接下来，将该令牌作为请求的一部分传递给事件中心服务，用于授权访问指定的资源。
 
 身份验证步骤要求应用程序请求包含在运行时使用的 OAuth 2.0 访问令牌。 如果应用程序在 Azure 实体（如 Azure VM、虚拟机规模集或 Azure 函数应用）中运行，它可以使用托管标识来访问资源。 若要了解如何对托管标识向事件中心服务发出的请求进行身份验证，请参阅[对使用 Azure Active Directory 和 Azure 资源的托管标识访问 Azure 事件中心资源进行身份验证](authenticate-managed-identity.md)。 
@@ -46,11 +46,11 @@ Azure 提供了以下 Azure 内置角色，用于通过 Azure AD 和 OAuth 授�
 
 以下列表描述了可将事件中心资源访问权限限定到哪些级别，从最小的范围开始：
 
-- **使用者组**：在此范围，角色分配仅应用到此实体。 目前，Azure 门户不支持在此级别向安全主体分配 Azure 角色。 
-- **事件中心**：角色分配将应用到事件中心实体及其下面的使用者组。
-- **命名空间**：角色分配横跨命名空间下事件中心的整个拓扑，并延伸至与之关联的使用者组。
-- **资源组**：角色分配将应用到资源组下的所有事件中心资源。
-- **订阅**：角色分配将应用到订阅的所有资源组中的所有事件中心资源。
+- **使用者组** ：在此范围，角色分配仅应用到此实体。 目前，Azure 门户不支持在此级别向安全主体分配 Azure 角色。 
+- **事件中心** ：角色分配将应用到事件中心实体及其下面的使用者组。
+- **命名空间** ：角色分配横跨命名空间下事件中心的整个拓扑，并延伸至与之关联的使用者组。
+- **资源组** ：角色分配将应用到资源组下的所有事件中心资源。
+- **订阅** ：角色分配将应用到订阅的所有资源组中的所有事件中心资源。
 
 > [!NOTE]
 > - 请记住，Azure 角色分配可能需要最多五分钟的时间进行传播。 

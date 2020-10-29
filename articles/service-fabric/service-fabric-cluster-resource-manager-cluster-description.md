@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71629ebf1397c00face500f0bfd9c8e92deacc5e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173058"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911760"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>使用群集资源管理器描述 Service Fabric 群集
 
@@ -47,9 +47,7 @@ Azure Service Fabric 的群集资源管理器功能提供多种机制用于描�
 
 在下图中，我们已将构成容错域的所有实体着色，并列出了生成的所有不同容错域。 本示例列出了数据中心 (DC)、机架 (R) 和刀片服务器 (B)。 如果每个刀片服务器包含多个虚拟机，则容错域层次结构中可能有另一个层。
 
-<center>
 ![通过故障域组织的节点][Image1]
-</center>
 
 在运行时，Service Fabric 群集资源管理器会考虑群集中的容错域，并规划布局。 它会分发服务的有状态副本和无状态副本，使这些副本位于不同的容错域中。 容错域在层次结构的任一级别发生故障时，通过跨容错域分发服务可确保服务可用性不受影响。
 
@@ -62,13 +60,11 @@ Azure Service Fabric 的群集资源管理器功能提供多种机制用于描�
 
 失衡的域是什么样子？ 下图显示了两种不同的群集布局。 在第一个示例中，节点均匀分散到容错域。 在第二个示例中，某一容错域包含的节点比其他容错域多出许多。
 
-<center>
 ![两种不同的群集布局][Image2]
-</center>
 
 在 Azure 中，系统会为用户选择哪个容错域包含节点。 但是，根据预配的节点数目，仍然可能出现某容错域比其他容错域承载更多节点的情况。
 
-例如，假设群集中有 5 个容错域，但针对某个节点类型 (**NodeType**) 预配了 7 个节点。 在这种情况下，前两个容错域会承载更多的节点。 如果继续使用几个实例部署更多的 **NodeType** 实例，问题会变得更严重。 因此，我们建议将每个节点类型中的节点数配置为容错域数的倍数。
+例如，假设群集中有 5 个容错域，但针对某个节点类型 ( **NodeType** ) 预配了 7 个节点。 在这种情况下，前两个容错域会承载更多的节点。 如果继续使用几个实例部署更多的 **NodeType** 实例，问题会变得更严重。 因此，我们建议将每个节点类型中的节点数配置为容错域数的倍数。
 
 ## <a name="upgrade-domains"></a>升级域
 
@@ -78,9 +74,7 @@ Azure Service Fabric 的群集资源管理器功能提供多种机制用于描�
 
 下图显示了跨三个容错域条带化的三个升级域。 该图还显示了有状态服务的三个不同副本的一种可能的放置方式，即三个副本位于不同的容错域和升级域中。 这种放置方式容许在服务升级过程中丢失一个容错域，在这种情况下仍可运行一个代码和数据副本。  
 
-<center>
 ![包含容错域和升级域的布局][Image3]
-</center>
 
 有大量升级域既有利也有弊。 更多升级域意味着升级的每个步骤都更精细，影响的节点或服务数更少。 每次移动的服务越少，给系统带来的流失就越少。 这往往会提高可靠性，因为升级期间引入的任何问题对服务的影响更小。 更多升级域也意味着在其他节点上需要更少的可用缓冲区来处理升级的影响。
 
@@ -98,9 +92,7 @@ Azure Service Fabric 的群集资源管理器功能提供多种机制用于描�
 * 每个节点一个升级域（物理或虚拟 OS 实例）
 * "条带化" 或 "矩阵" 模型，其中的容错域和升级域构成一台计算机，其中的计算机通常按对角线
 
-<center>
 ![容错域和升级域的布局][Image4]
-</center>
 
 对于要选择的布局没有最佳答案。 每个选项都有各自的利与弊。 例如，1FD:1UD 模型很容易设置。 为每个节点配置一个升级域似乎是最常用的模型。 升级过程中会独立更新每个节点。 这类似于过去手动升级少量计算机的方式。
 
@@ -127,7 +119,7 @@ Azure Service Fabric 的群集资源管理器功能提供多种机制用于描�
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-现在，假设要创建一个 **TargetReplicaSetSize**（如果是无状态服务，则为 **InstanceCount**）值为 5 的服务。 副本驻留在 N1-N5 上。 事实上，无论创建多少个此类服务，都不会用到 N6。 为什么？ 看看当前布局和选择 N6 时所发生情况之间的差异。
+现在，假设要创建一个 **TargetReplicaSetSize** （如果是无状态服务，则为 **InstanceCount** ）值为 5 的服务。 副本驻留在 N1-N5 上。 事实上，无论创建多少个此类服务，都不会用到 N6。 为什么？ 看看当前布局和选择 N6 时所发生情况之间的差异。
 
 下面是获得的布局，以及每个容错域和升级域的副本总数：
 
@@ -357,21 +349,17 @@ Service Fabric 预期存在特定工作负荷需要在特定硬件配置上运�
 * 出于性能、规模或安全性隔离原因，某个工作负荷必须在特定硬件上运行。
 * 出于策略或资源消耗原因，某个工作负荷应该与其他工作负荷隔离。
 
-为了支持此类配置，Service Fabric 包含可应用于节点的标记。 这些标记称为*节点属性*。 放置约束是附加到单个服务的语句，这些服务专供 1 个或多个节点属性选择。  放置约束定义服务运行的位置。 约束集可扩展。 任何键/值对都适用。
+为了支持此类配置，Service Fabric 包含可应用于节点的标记。 这些标记称为 *节点属性* 。 放置约束是附加到单个服务的语句，这些服务专供 1 个或多个节点属性选择。  放置约束定义服务运行的位置。 约束集可扩展。 任何键/值对都适用。
 
-<center>
 ![群集布局中的不同工作负荷][Image5]
-</center>
 
 ### <a name="built-in-node-properties"></a>内置节点属性
 
-Service Fabric 定义了一些可自动使用的默认节点属性，你无需定义这些属性。 在每个节点上定义的默认属性是 **NodeType** 和 **NodeName**。
+Service Fabric 定义了一些可自动使用的默认节点属性，你无需定义这些属性。 在每个节点上定义的默认属性是 **NodeType** 和 **NodeName** 。
 
 例如，可将放置约束编写为 `"(NodeType == NodeType03)"`。 **NodeType** 是一个常用的属性。 它很有用，因为它与计算机的类型之间存在一一对应关系。 每种计算机类型都与一种传统 n 层应用程序的工作负荷类型相对应。
 
-<center>
 ![放置约束和节点属性][Image6]
-</center>
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>放置约束和节点属性语法
 
@@ -479,7 +467,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Service Fabric 使用“指标”表示资源。  指标是要向 Service Fabric 描述的任何逻辑或物理资源。 指标的示例包括 "WorkQueueDepth" 或 "MemoryInMb"。 若要了解 Service Fabric 可在节点上调控的物理资源，请参阅[资源调控](service-fabric-resource-governance.md)。 若要了解群集资源管理器使用的默认指标以及如何配置自定义指标，请参阅[此文](service-fabric-cluster-resource-manager-metrics.md)。
 
-指标与放置约束和节点属性不同。 节点属性是节点自身的静态描述符。 指标描述节点所含资源，以及当服务在节点上运行时服务所消耗的资源。 节点属性可能为 **HasSSD**，可设置为 true 或 false。 该 SSD 上的可用空间量和服务消耗的空间量是类似于 "DriveSpaceInMb" 的指标。
+指标与放置约束和节点属性不同。 节点属性是节点自身的静态描述符。 指标描述节点所含资源，以及当服务在节点上运行时服务所消耗的资源。 节点属性可能为 **HasSSD** ，可设置为 true 或 false。 该 SSD 上的可用空间量和服务消耗的空间量是类似于 "DriveSpaceInMb" 的指标。
 
 与放置约束和节点属性相同，Service Fabric 群集资源管理器不理解指标名称的含义。 指标名称只是字符串。 建议不明确时，将单位声明为创建的指标名称的一部分。
 
@@ -491,9 +479,7 @@ Service Fabric 使用“指标”表示资源。  指标是要向 Service Fabric
 
 在运行时，群集资源管理器会跟踪群集中和节点上的剩余容量。 群集资源管理器通过从运行服务的节点容量中减去每个服务的使用量来跟踪容量。 利用此信息，群集资源管理器可以确定放置或移动副本的位置，使节点不会超出容量。
 
-<center>
 ![群集节点和容量][Image7]
-</center>
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
@@ -580,7 +566,7 @@ Service Fabric 群集资源管理器如何防止整个群集过于饱和？ 使�
 
 指标不能同时为其指定节点缓冲区和 overbooking 容量。
 
-下面的示例演示如何在 *ClusterManifest.xml*中指定节点缓冲区或 overbooking 容量：
+下面的示例演示如何在 *ClusterManifest.xml* 中指定节点缓冲区或 overbooking 容量：
 
 ```xml
 <Section Name="NodeBufferPercentage">
