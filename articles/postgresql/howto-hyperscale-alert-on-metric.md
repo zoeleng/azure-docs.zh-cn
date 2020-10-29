@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8b59bcf3f25921a348e9c5f25e83619d8596ebd5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489857"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909907"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>使用 Azure 门户设置 Azure Database for PostgreSQL 超大规模 (Citus 的指标警报) 
 
@@ -33,35 +33,35 @@ ms.locfileid: "92489857"
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>通过 Azure 门户针对指标创建警报规则
 1. 在 [Azure 门户](https://portal.azure.com/)中，选择要监视的 Azure Database for PostgreSQL 服务器。
 
-2. 在边栏的“监视”部分，选择“警报”，如下所示********：
+2. 在边栏的“监视”部分，选择“警报”，如下所示   ：
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="选择警报规则":::
 
-3. 选择“新建警报规则”（+ 图标）。****
+3. 选择“新建警报规则”（+ 图标）。 
 
-4. 随即打开“创建规则”页面，如下所示****。 填写所需信息：
+4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="选择警报规则" **添加**"。
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="选择警报规则" **添加** "。
 
 6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 
    
-   完成后选择“完成”****。
+   完成后选择“完成”  。
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="选择警报规则":::
 
-8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知********。
+8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知   。
 
 9. 使用名称、短名称、订阅和资源组填写“添加操作组”表单。
 
     :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="选择警报规则":::
 
-10. 配置“电子邮件/短信/推送/语音”操作类型****。
+10. 配置“电子邮件/短信/推送/语音”操作类型  。
     
     选择 "电子邮件 Azure 资源管理器角色"，将通知发送到订阅所有者、参与者和读者。
    
-    完成后选择“确定”****。
+    完成后选择“确定”  。
 
     :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="选择警报规则":::
 
@@ -69,17 +69,17 @@ ms.locfileid: "92489857"
 
     :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="选择警报规则"::: 
 
-12. 选择“创建警报规则”可以创建警报****。
+12. 选择“创建警报规则”可以创建警报  。
 
-    在几分钟后，警报将如前所述激活并触发。
+    几分钟后，警报将处于活动状态，并按前面所述进行触发。
 
 ### <a name="managing-alerts"></a>管理警报
 
 创建警报后，可选择它并执行以下操作：
 
 * 查看图，了解与此警报相关的指标阈值和前一天实际值。
-* 编辑或删除预警规则********。
-* 如果要暂时停止或恢复接收通知，可禁用或启用警报********。
+* 编辑或删除预警规则   。
+* 如果要暂时停止或恢复接收通知，可禁用或启用警报   。
 
 ## <a name="suggested-alerts"></a>建议的警报
 
