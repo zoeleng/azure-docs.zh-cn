@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936004"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788054"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>教程：使用 REST 和 AI 从 Azure Blob 生成可搜索的内容
 
@@ -63,11 +63,11 @@ ms.locfileid: "88936004"
 
    + 资源组  。 选择现有的资源组或创建新资源组，但对于所有服务请使用相同的组，以便可以统一管理这些服务。
 
-   + **存储帐户名称**。 如果你认为将来可能会用到相同类型的多个资源，请使用名称来区分类型和区域，例如 *blobstoragewestus*。 
+   + **存储帐户名称** 。 如果你认为将来可能会用到相同类型的多个资源，请使用名称来区分类型和区域，例如 *blobstoragewestus* 。 
 
-   + **位置**。 如果可能，请选择 Azure 认知搜索和认知服务所用的相同位置。 使用一个位置可以避免带宽费用。
+   + **位置** 。 如果可能，请选择 Azure 认知搜索和认知服务所用的相同位置。 使用一个位置可以避免带宽费用。
 
-   + **帐户类型**。 选择默认设置“StorageV2 (常规用途 v2)”  。
+   + **帐户类型** 。 选择默认设置“StorageV2 (常规用途 v2)”  。
 
 1. 单击“查看 + 创建”以创建服务。 
 
@@ -75,7 +75,7 @@ ms.locfileid: "88936004"
 
 1. 单击“Blob”服务。 
 
-1. 单击“+ 容器”创建容器，并将其命名为 *cog-search-demo*。 
+1. 单击“+ 容器”创建容器，并将其命名为 *cog-search-demo* 。 
 
 1. 选择“cog-search-demo”，然后单击“上传”打开下载文件所保存到的文件夹。   选择所有的非图像文件。 应有 7 个文件。 单击“确定”以上传。 
 
@@ -115,7 +115,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
 
    此外，获取查询密钥。 最好使用只读权限发出查询请求。
 
-   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-javascript/service-name-and-keys.png)
 
 所有请求要求在发送到服务的每个请求的标头中指定 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -123,7 +123,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
 
 启动 Postman 并设置 HTTP 请求。 如果不熟悉此工具，请参阅[使用 Postman 探索 Azure 认知搜索 REST API](search-get-started-postman.md) 了解详细信息。
 
-本教程中使用的请求方法是 **POST**、**PUT** 和 **GET**。 你将使用这些方法对搜索服务发出四个 API 调用：创建数据源、创建技能集、创建索引和创建索引器。
+本教程中使用的请求方法是 **POST** 、 **PUT** 和 **GET** 。 你将使用这些方法对搜索服务发出四个 API 调用：创建数据源、创建技能集、创建索引和创建索引器。
 
 在标头中，将“Content-type”设置为 `application/json`，将 `api-key` 设置为 Azure 认知搜索服务的管理 API 密钥。 设置标头后，可将其用于本练习中的每个请求。
 
@@ -143,7 +143,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
    https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
-1. 在请求的**正文**中复制以下 JSON 定义（请将 `connectionString` 替换为存储帐户的实际连接）。 
+1. 在请求的 **正文** 中复制以下 JSON 定义（请将 `connectionString` 替换为存储帐户的实际连接）。 
 
    此外，请记得编辑容器名称。 在前一步骤中，我们已建议使用“cog-search-demo”作为容器名称。
 
@@ -173,7 +173,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
     https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
-1. 在请求的**正文**中复制以下 JSON 定义。 此技能集包括以下内置技能。
+1. 在请求的 **正文** 中复制以下 JSON 定义。 此技能集包括以下内置技能。
 
    | 技能                 | 说明    |
    |-----------------------|----------------|
@@ -258,7 +258,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
-1. 在请求的**正文**中复制以下 JSON 定义。 `content` 字段存储文档本身。 `languageCode`、`keyPhrases` 和 `organizations` 的附加字段表示技能集创建的新信息（字段和值）。
+1. 在请求的 **正文** 中复制以下 JSON 定义。 `content` 字段存储文档本身。 `languageCode`、`keyPhrases` 和 `organizations` 的附加字段表示技能集创建的新信息（字段和值）。
 
     ```json
     {
@@ -342,7 +342,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
    https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
-1. 在请求的**正文**中复制以下 JSON 定义。 请注意字段映射元素；这些映射非常重要，因为它们定义了数据流。 
+1. 在请求的 **正文** 中复制以下 JSON 定义。 请注意字段映射元素；这些映射非常重要，因为它们定义了数据流。 
 
    `fieldMappings` 在技能集之前处理，它将数据源中的内容发送到索引中的目标字段。 稍后要使用字段映射将未修改的现有内容发送到索引。 如果两端的字段名称和类型相同，则无需映射。
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c964e3c02148c461c601eab4bc5bfb0abb4ac052
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6a1a7e19e598980b21ee6c41f6984de38d6a6f2b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013298"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791607"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>教程：使用 .NET SDK 从多个数据源编制索引
 
@@ -70,11 +70,11 @@ Azure 认知搜索可以导入、分析来自多个数据源的数据，并将�
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="创建新数据库" border="false":::
 
-1. 输入名称 **hotel-rooms-db**。 对于剩余的设置，请接受默认值。
+1. 输入名称 **hotel-rooms-db** 。 对于剩余的设置，请接受默认值。
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="创建新数据库" border="false":::
 
-1. 创建新容器。 使用刚刚创建的现有数据库。 输入**hotels** 作为容器名称，输入 **/HotelId** 作为分区键。
+1. 创建新容器。 使用刚刚创建的现有数据库。 输入 **hotels** 作为容器名称，输入 **/HotelId** 作为分区键。
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="创建新数据库" border="false":::
 
@@ -112,7 +112,7 @@ Azure 认知搜索可以导入、分析来自多个数据源的数据，并将�
 
 1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥 。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="创建新数据库" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="创建新数据库" border="false":::
 
 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 

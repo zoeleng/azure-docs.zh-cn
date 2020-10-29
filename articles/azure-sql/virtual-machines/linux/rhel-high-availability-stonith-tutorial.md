@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358910"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790230"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>教程：在 Azure 中的 RHEL 虚拟机上为 SQL Server 配置可用性组 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -242,7 +242,7 @@ az vm availability-set create \
     done
     ```
 
-上述命令将创建 VM，并为这些 VM 创建默认的 VNet。 有关不同配置的详细信息，请参阅 [az vm create](https://docs.microsoft.com/cli/azure/vm) 一文。
+上述命令将创建 VM，并为这些 VM 创建默认的 VNet。 有关不同配置的详细信息，请参阅 [az vm create](/cli/azure/vm) 一文。
 
 针对每个 VM 完成该命令后，应会获得如下所示的结果：
 
@@ -304,7 +304,7 @@ ssh <username>@publicipaddress
 1. 使用以下命令在所有节点上更新并安装 Pacemaker 包：
 
     > [!NOTE]
-    > **nmap** 作为此命令块的一部分安装，它是一个用于在网络中查找可用 IP 地址的工具。 不一定要安装 **nmap**，但稍后在本教程中，此工具会很有帮助。
+    > **nmap** 作为此命令块的一部分安装，它是一个用于在网络中查找可用 IP 地址的工具。 不一定要安装 **nmap** ，但稍后在本教程中，此工具会很有帮助。
 
     ```bash
     sudo yum update -y
@@ -324,7 +324,7 @@ ssh <username>@publicipaddress
     sudo vi /etc/hosts
     ```
 
-    在 **vi** 编辑器中，输入 `i` 以插入文本，并在空白行中添加相应 VM 的**专用 IP**。 然后，在 IP 旁边的空格后面添加 VM 名称。 每行只能包含一个单独的条目。
+    在 **vi** 编辑器中，输入 `i` 以插入文本，并在空白行中添加相应 VM 的 **专用 IP** 。 然后，在 IP 旁边的空格后面添加 VM 名称。 每行只能包含一个单独的条目。
 
     ```output
     <IP1> <VM1>
@@ -333,7 +333,7 @@ ssh <username>@publicipaddress
     ```
 
     > [!IMPORTANT]
-    > 建议使用上述**专用 IP** 地址。 在此配置中使用公共 IP 地址会导致安装失败，并且我们不建议向外部网络公开 VM。
+    > 建议使用上述 **专用 IP** 地址。 在此配置中使用公共 IP 地址会导致安装失败，并且我们不建议向外部网络公开 VM。
 
     若要退出 **vi** 编辑器，请先按 **Esc** 键，然后输入命令 `:wq` 以写入文件并退出。
 
@@ -486,9 +486,9 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
  1. 转到 https://portal.azure.com
  2. 打开[“Azure Active Directory”边栏选项卡](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)。 转到“属性”并记下目录 ID。 此 ID 为 `tenant ID`
- 3. 单击[ **“应用注册”** ](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)。
+ 3. 单击 [ **“应用注册”**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)。
  4. 单击“新建注册”。
- 5. 输入一个**名称**（例如 `<resourceGroupName>-app`），选择“仅限此组织目录中的帐户”
+ 5. 输入一个 **名称** （例如 `<resourceGroupName>-app`），选择“仅限此组织目录中的帐户”
  6. 选择“Web”作为应用程序类型，输入登录 URL（例如 http://localhost) ，然后单击“添加”。 不使用登录 URL，它可以是任何有效的 URL。 完成后，单击“注册”
  7. 为新应用注册选择“证书和机密”，然后单击“新建客户端密码”
  8. 输入新密钥（客户端机密）的说明，选择“永不过期”，然后单击“添加”
@@ -699,7 +699,7 @@ sudo systemctl restart mssql-server
 
 目前不支持对 AG 终结点进行 AD 身份验证。 因此，必须使用证书来加密 AG 终结点。
 
-1. 使用 SQL Server Management Studio (SSMS) 或 SQL CMD 连接到**所有节点**。 运行以下命令，以启用 AlwaysOn_health 会话并创建主密钥：
+1. 使用 SQL Server Management Studio (SSMS) 或 SQL CMD 连接到 **所有节点** 。 运行以下命令，以启用 AlwaysOn_health 会话并创建主密钥：
 
     > [!IMPORTANT]
     > 如果远程连接到 SQL Server 实例，则需要在防火墙中打开端口 1433。 此外，需要在每个 VM 的 NSG 中允许与端口 1433 建立入站连接。 有关创建入站安全规则的详细信息，请参阅[创建安全规则](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)。

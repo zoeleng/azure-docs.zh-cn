@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 340cdd97e7097a9fe6f0653d9f50f5a5cc41f890
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740917"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787952"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>教程：AI 使用 .NET SDK 从 Azure Blob 生成可搜索内容
 
@@ -74,11 +74,11 @@ ms.locfileid: "91740917"
 
    * 资源组。 选择现有的资源组或创建新资源组，但对于所有服务请使用相同的组，以便可以统一管理这些服务。
 
-   * **存储帐户名称**。 如果你认为将来可能会用到相同类型的多个资源，请使用名称来区分类型和区域，例如 *blobstoragewestus*。 
+   * **存储帐户名称** 。 如果你认为将来可能会用到相同类型的多个资源，请使用名称来区分类型和区域，例如 *blobstoragewestus* 。 
 
-   * **位置**。 如果可能，请选择 Azure 认知搜索和认知服务所用的相同位置。 使用一个位置可以避免带宽费用。
+   * **位置** 。 如果可能，请选择 Azure 认知搜索和认知服务所用的相同位置。 使用一个位置可以避免带宽费用。
 
-   * **帐户类型**。 选择默认设置“StorageV2 (常规用途 v2)”。
+   * **帐户类型** 。 选择默认设置“StorageV2 (常规用途 v2)”。
 
 1. 单击“查看 + 创建”以创建服务。
 
@@ -86,7 +86,7 @@ ms.locfileid: "91740917"
 
 1. 单击“Blob”服务。
 
-1. 单击“+ 容器”创建容器，并将其命名为 *cog-search-demo*。
+1. 单击“+ 容器”创建容器，并将其命名为 *cog-search-demo* 。
 
 1. 选择“cog-search-demo”，然后单击“上传”打开下载文件所保存到的文件夹。 选择所有 14 个文件，然后单击“确定”以上传。
 
@@ -128,7 +128,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
 
    此外，获取查询密钥。 最好使用只读权限发出查询请求。
 
-   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-javascript/service-name-and-keys.png)
 
 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 

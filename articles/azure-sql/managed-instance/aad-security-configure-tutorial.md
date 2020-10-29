@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283864"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788615"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>教程：使用 Azure AD 服务器主体（登录名）确保 Azure SQL 托管实例中的安全性
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -120,7 +120,7 @@ Azure SQL 托管实例几乎提供最新 SQL Server（企业版）数据库引�
 
 - 要使新建的 Azure AD 服务器主体（登录名）能够为其他 Azure AD 用户、组或应用程序创建其他登录名，请向新建的登录名授予 `sysadmin` 或 `securityadmin` 服务器角色。
 - 最起码需要向 Azure AD 服务器主体（登录名）授予 **ALTER ANY LOGIN** 权限才能让其创建其他 Azure AD 服务器主体（登录名）。
-- 默认情况下，向 master 数据库中新建的 Azure AD 服务器主体（登录名）授予的标准权限为：**CONNECT SQL** 和 **VIEW ANY DATABASE**。
+- 默认情况下，向 master 数据库中新建的 Azure AD 服务器主体（登录名）授予的标准权限为： **CONNECT SQL** 和 **VIEW ANY DATABASE** 。
 - 可向托管实例中的多个 Azure AD 服务器主体（登录名）授予 `sysadmin` 服务器角色。
 
 将登录名添加到 `sysadmin` 服务器角色：
@@ -280,7 +280,7 @@ Azure SQL 托管实例几乎提供最新 SQL Server（企业版）数据库引�
     );
     ```
 
-1. 使用创建的用户在 SSMS 中创建连接。 你会注意到，无法看到 `sysadmin` 在以前创建的表 **TestTable**。 我们需要向该用户提供读取数据库中的数据的权限。
+1. 使用创建的用户在 SSMS 中创建连接。 你会注意到，无法看到 `sysadmin` 在以前创建的表 **TestTable** 。 我们需要向该用户提供读取数据库中的数据的权限。
 
 1. 可以执行以下命令来检查用户当前拥有的权限：
 
@@ -405,7 +405,7 @@ SQL 托管实例支持模拟 Azure AD 服务器级主体（登录名）。
     );
     ```
 
-1. 在新查询窗口中执行以下命令，在新数据库 **MyMITestDB2** 中创建用户 _mygroup_，并向 _mygroup_ 授予对该数据库的 SELECT 权限：
+1. 在新查询窗口中执行以下命令，在新数据库 **MyMITestDB2** 中创建用户 _mygroup_ ，并向 _mygroup_ 授予对该数据库的 SELECT 权限：
 
     ```sql
     USE MyMITestDB2
@@ -447,7 +447,7 @@ SQL 托管实例支持模拟 Azure AD 服务器级主体（登录名）。
 - [威胁检测](threat-detection-configure.md)
 - [动态数据屏蔽](/sql/relational-databases/security/dynamic-data-masking)
 - [行级安全](/sql/relational-databases/security/row-level-security)
-- [透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [透明数据加密 (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>SQL 托管实例功能
 

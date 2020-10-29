@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: a2e371ea49b9b2a0e7bd14e91a0b80c54f6c21ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e92f3e36b3dd7c407b9c490151f9b32446145771
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321451"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792763"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL 数据库中的多个数据库之间同步数据
 
@@ -281,7 +281,7 @@ Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 | [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  获取有关同步代理的所有信息。 |
 | [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  向同步组中添加新成员。 |
 | [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  刷新数据库架构信息。 |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  获取数据库架构信息。 |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/Get-azSqlSyncSchema) |  获取数据库架构信息。 |
 | [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  更新同步组。 |
 | [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | 触发同步。 |
 | [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  检查同步日志。 |
@@ -301,7 +301,7 @@ Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
     - 使用 PowerShell - [使用 PowerShell 在 Azure SQL 数据库中的数据库和 SQL Server 之间同步数据](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Azure 中 SQL 数据同步的 Data Sync Agent](../sql-data-sync-agent-overview.md)
 - 最佳做法 - [Azure 中 SQL 数据同步的最佳做法](../sql-data-sync-best-practices.md)
-- 监视 - [使用 Azure Monitor 日志监视 SQL 数据同步](../sql-data-sync-monitor-sync.md)
+- 监视 - [使用 Azure Monitor 日志监视 SQL 数据同步](../monitor-tune-overview.md)
 - 故障排除 - [排查 Azure 中的 SQL 数据同步问题](../sql-data-sync-troubleshoot.md)
 - 更新同步架构
     - 使用 Transact-SQL - [在 Azure 中的 SQL 数据同步中自动复制架构更改](../sql-data-sync-update-sync-schema.md)
@@ -310,4 +310,4 @@ Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 有关 SQL 数据库的详细信息，请参阅：
 
 - [SQL 数据库概述](../sql-database-paas-overview.md)
-- [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
+- [数据库生命周期管理](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

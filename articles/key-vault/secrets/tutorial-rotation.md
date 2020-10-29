@@ -10,13 +10,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 661622b296a7a81a8d4c203e86a7c8d61c386e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 0da0a56a64aa9b4500d36da2f6c86fc4c07f4c0f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843220"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786048"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>自动轮换使用一组身份验证凭据的资源的机密
 
@@ -115,7 +115,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-有关如何创建函数应用和使用托管标识访问密钥保管库的信息，请参阅[从 Azure 门户创建函数应用](/azure/azure-functions/functions-create-function-app-portal)、[如何将托管标识用于应用服务和 Azure Functions](/azure/app-service/overview-managed-identity) 以及[使用 Azure 门户分配密钥保管库访问策略](../general/assign-access-policy-portal.md)。
+有关如何创建函数应用和使用托管标识访问密钥保管库的信息，请参阅[从 Azure 门户创建函数应用](../../azure-functions/functions-create-function-app-portal.md)、[如何将托管标识用于应用服务和 Azure Functions](../../app-service/overview-managed-identity.md) 以及[使用 Azure 门户分配密钥保管库访问策略](../general/assign-access-policy-portal.md)。
 
 ### <a name="rotation-function"></a>轮换函数
 在先前步骤中部署的函数使用事件通过更新 Key Vault 和 SQL 数据库来触发机密轮替。 

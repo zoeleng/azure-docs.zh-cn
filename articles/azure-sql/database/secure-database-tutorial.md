@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9afb35a0e8a1c2513ce032030271599d181cd14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885410"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792678"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>教程：保护 Azure SQL 数据库中的数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,10 +39,10 @@ Azure SQL 数据库支持通过以下方式保护数据：
 > [!NOTE]
 > 可以根据 [Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和[连接体系结构](../managed-instance/connectivity-architecture-overview.md)中的说明，使用网络安全规则和专用终结点来确保 Azure SQL 托管实例的安全。
 
-若要了解详细信息，请参阅 [Azure SQL 数据库安全概述](/azure/sql-database/sql-database-security-index)和[功能](security-overview.md)这两篇文章。
+若要了解详细信息，请参阅 [Azure SQL 数据库安全概述](./security-overview.md)和[功能](security-overview.md)这两篇文章。
 
 > [!TIP]
-> 以下 Microsoft Learn 模块可帮助你免费学习如何[保护 Azure SQL 数据库中的数据库](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)。
+> 以下 Microsoft Learn 模块可帮助你免费学习如何[保护 Azure SQL 数据库中的数据库](/learn/modules/secure-your-azure-sql-database/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -62,7 +62,7 @@ Azure SQL 数据库支持通过以下方式保护数据：
 
 SQL 数据库中的数据库受 Azure 中防火墙的保护。 默认情况下，将拒绝与服务器和数据库的所有连接。 若要了解详细信息，请参阅[服务器级和数据库级防火墙规则](firewall-configure.md)。
 
-将“允许访问 Azure 服务”设置为“关闭”即可启用最安全的配置。  然后，为需要连接的资源（例如 Azure VM 或云服务）创建一个[保留 IP（经典部署）](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)，仅允许该 IP 地址通过防火墙进行访问。 如果使用[资源管理器](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)部署模型，则每个资源都需要一个专用的公共 IP 地址。
+将“允许访问 Azure 服务”设置为“关闭”即可启用最安全的配置。  然后，为需要连接的资源（例如 Azure VM 或云服务）创建一个[保留 IP（经典部署）](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)，仅允许该 IP 地址通过防火墙进行访问。 如果使用[资源管理器](../../virtual-network/public-ip-addresses.md)部署模型，则每个资源都需要一个专用的公共 IP 地址。
 
 > [!NOTE]
 > 通过端口 1433 进行的 SQL 数据库通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到服务器，除非管理员打开端口 1433。
@@ -78,7 +78,7 @@ SQL 数据库中的数据库受 Azure 中防火墙的保护。 默认情况下�
     ![服务器防火墙规则](./media/secure-database-tutorial/server-name.png)
 
     > [!NOTE]
-    > 确保复制完全限定的服务器名称（例如 *yourserver.database.windows.net*），以便稍后在本教程中使用。
+    > 确保复制完全限定的服务器名称（例如 *yourserver.database.windows.net* ），以便稍后在本教程中使用。
 
 1. 在“概览”页上，选择“设置服务器防火墙” 。 此时会打开服务器的“防火墙设置”页面。
 
@@ -155,9 +155,9 @@ SQL 数据库中的数据库受 Azure 中防火墙的保护。 默认情况下�
 
 若要添加用户，请选择数据库身份验证类型：
 
-- **SQL 身份验证**，使用用户名和密码登录，仅适用于服务器中存在特定数据库的情况
+- **SQL 身份验证** ，使用用户名和密码登录，仅适用于服务器中存在特定数据库的情况
 
-- **Azure AD 身份验证**，使用 Azure AD 托管的标识
+- **Azure AD 身份验证** ，使用 Azure AD 托管的标识
 
 ### <a name="sql-authentication"></a>SQL 身份验证
 
@@ -280,17 +280,17 @@ Azure Defender for SQL 功能可检测出现的可能威胁，并提供有关异
 
    1. 选择下述任意项作为“审核日志目标”：
 
-       - **存储**，一个 Azure 存储帐户，可以在其中保存事件日志，并可将其作为 *.xel* 文件下载
+       - **存储** ，一个 Azure 存储帐户，可以在其中保存事件日志，并可将其作为 *.xel* 文件下载
 
           > [!TIP]
           > 请对所有已审核的数据库使用同一存储帐户，以充分利用审核报告模板。
 
-       - **Log Analytics**，可以自动存储事件，这些事件用于查询或者在将来用于分析
+       - **Log Analytics** ，可以自动存储事件，这些事件用于查询或者在将来用于分析
 
            > [!NOTE]
-           > 需要使用 **Log Analytics 工作区**来支持高级功能，例如分析、自定义警报规则，以及 Excel 或 Power BI 导出。 在没有工作区的情况下，只能使用查询编辑器。
+           > 需要使用 **Log Analytics 工作区** 来支持高级功能，例如分析、自定义警报规则，以及 Excel 或 Power BI 导出。 在没有工作区的情况下，只能使用查询编辑器。
 
-       - **事件中心**，可以路由需要在其他应用程序中使用的事件
+       - **事件中心** ，可以路由需要在其他应用程序中使用的事件
 
    1. 选择“保存” 。
 

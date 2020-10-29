@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058550"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790791"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>教程：在 Azure SQL 托管实例和 SQL Server 之间配置事务复制
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "92058550"
 
 
 > [!NOTE]
-> 本文介绍了如何在 Azure SQL 托管实例中使用[事务复制](/sql/relational-databases/replication/transactional/transactional-replication)。 它与[故障转移组](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group)无关，这是一项 Azure SQL 托管实例功能，可用于创建单个实例的完整可读副本。 配置[故障转移组的事务复制](replication-transactional-overview.md#with-failover-groups)时还有其他注意事项。
+> 本文介绍了如何在 Azure SQL 托管实例中使用[事务复制](/sql/relational-databases/replication/transactional/transactional-replication)。 它与[故障转移组](../database/auto-failover-group-overview.md)无关，这是一项 Azure SQL 托管实例功能，可用于创建单个实例的完整可读副本。 配置[故障转移组的事务复制](replication-transactional-overview.md#with-failover-groups)时还有其他注意事项。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -182,7 +182,7 @@ Get-AzVirtualNetworkPeering `
 
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
-为工作目录[创建 Azure 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)，并在存储帐户中创建[文件共享](../../storage/files/storage-how-to-create-file-share.md)。
+为工作目录[创建 Azure 存储帐户](../../storage/common/storage-account-create.md#create-a-storage-account)，并在存储帐户中创建[文件共享](../../storage/files/storage-how-to-create-file-share.md)。
 
 复制采用 `\\storage-account-name.file.core.windows.net\file-share-name` 格式的文件共享路径
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -285,12 +285,12 @@ GO
 1. 连接到 `sql-mi-publisher` 托管实例。
 1. 在“对象资源管理器”中，展开“复制”节点，然后右键单击“本地发布”文件夹  。 单击“新建发布...”。
 1. 选择“下一步”，离开“欢迎”页。
-1. 在“发布数据库”页上，选择之前创建的 `ReplTutorial` 数据库。 选择“**下一步**”。
-1. 在“发布类型”页上，选择“事务发布” 。 选择“**下一页**”。
-1. 在“项目”页上，选中“表”旁边的框 。 选择“**下一页**”。
+1. 在“发布数据库”页上，选择之前创建的 `ReplTutorial` 数据库。 选择“ **下一步** ”。
+1. 在“发布类型”页上，选择“事务发布” 。 选择“ **下一页** ”。
+1. 在“项目”页上，选中“表”旁边的框 。 选择“ **下一页** ”。
 1. 在“筛选器表行”页上，选择“下一步”而不添加任何筛选器 。
-1. 在“快照代理”页上，选中“立即创建快照并使快照保持可用状态，以初始化订阅”旁边的框 。 选择“**下一页**”。
-1. 在“代理安全性”页上，选择“安全设置…” 。提供要用于快照代理的 SQL Server 登录凭据，并连接到发布服务器。 选择“确定”以关闭“快照代理安全性”页 。 选择“**下一页**”。
+1. 在“快照代理”页上，选中“立即创建快照并使快照保持可用状态，以初始化订阅”旁边的框 。 选择“ **下一页** ”。
+1. 在“代理安全性”页上，选择“安全设置…” 。提供要用于快照代理的 SQL Server 登录凭据，并连接到发布服务器。 选择“确定”以关闭“快照代理安全性”页 。 选择“ **下一页** ”。
 
    ![配置快照代理安全性](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -414,7 +414,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 - [威胁检测](threat-detection-configure.md)
 - [动态数据屏蔽](/sql/relational-databases/security/dynamic-data-masking)
 - [行级安全](/sql/relational-databases/security/row-level-security)
-- [透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [透明数据加密 (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>SQL 托管实例功能
 
