@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0045520849ea20d3e53a30101e6db0f5d495ab15
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873738"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897001"
 ---
 # <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>教程 - 从必应地图迁移到 Azure Maps
 
@@ -69,7 +69,7 @@ Azure Maps 为各行各业的开发人员提供强大的地理空间功能，并
 -   [Azure Maps 定价页](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 -   [Azure Maps 使用条款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)（包括在 Microsoft Online Services 条款中）
--   [在 Azure Maps 中选择适当的定价层](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+-   [在 Azure Maps 中选择适当的定价层](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>建议的迁移计划
 
@@ -77,7 +77,7 @@ Azure Maps 为各行各业的开发人员提供强大的地理空间功能，并
 
 1.  对应用程序所使用的必应地图 SDK 和服务进行清点，并验证 Azure Maps 是否提供可供你迁移到其中的替代 SDK 和服务。
 2.  在 <https://azure.com> 创建 Azure 订阅（如果还没有）。
-3.  创建 Azure Maps 帐户（[文档](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)）和身份验证密钥或 Azure Active Directory（[文档](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)）。
+3.  创建 Azure Maps 帐户（[文档](./how-to-manage-account-keys.md)）和身份验证密钥或 Azure Active Directory（[文档](./how-to-manage-authentication.md)）。
 4.  迁移应用程序代码。
 5.  测试已迁移的应用程序。
 6.  将已迁移的应用程序部署到生产环境。
@@ -88,8 +88,8 @@ Azure Maps 为各行各业的开发人员提供强大的地理空间功能，并
 
 1. 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
 2. 登录 [Azure 门户](https://portal.azure.com/)。
-3. 创建 [Azure Maps 帐户](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)。 
-4. [获取 Azure Maps 订阅密钥](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details)或设置 Azure Active Directory 身份验证来增强安全性。
+3. 创建 [Azure Maps 帐户](./how-to-manage-account-keys.md)。 
+4. [获取 Azure Maps 订阅密钥](./how-to-manage-authentication.md#view-authentication-details)或设置 Azure Active Directory 身份验证来增强安全性。
 
 ## <a name="azure-maps-technical-resources"></a>Azure Maps 技术资源
 
@@ -105,7 +105,7 @@ Azure Maps 为各行各业的开发人员提供强大的地理空间功能，并
 
 ## <a name="migration-support"></a>迁移支持
 
-开发人员可通过[论坛](https://aka.ms/AzureMapsForums)或众多 Azure 支持选项之一寻求迁移支持：<https://azure.microsoft.com/support/options/>
+开发人员可通过[论坛](/answers/topics/azure-maps.html)或众多 Azure 支持选项之一寻求迁移支持：<https://azure.microsoft.com/support/options/>
 
 ## <a name="new-terminology"></a>新术语 
 

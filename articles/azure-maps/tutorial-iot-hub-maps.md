@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cdbc972d230988420a066c4b927388b885f99a17
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321826"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896739"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>教程：使用 Azure Maps 实现 IoT 空间分析
 
@@ -38,7 +38,7 @@ ms.locfileid: "91321826"
 
 3. [获取主订阅密钥](quick-demo-map-app.md#get-the-primary-key-for-your-account)（亦称为“主密钥”或“订阅密钥”）。 有关详细信息，请参阅[使用 Azure Maps 管理身份验证](how-to-manage-authentication.md)。
 
-4. [创建资源组](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)。 在本教程中，我们将资源组命名为 ContosoRental，但你可以选择任何喜欢的名称。
+4. [创建资源组](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)。 在本教程中，我们将资源组命名为 ContosoRental，但你可以选择任何喜欢的名称。
 
 5. 下载 [rentalCarSimulation C# 项目](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation)。
 
@@ -83,7 +83,7 @@ ms.locfileid: "91321826"
 
 3. 触发 Azure 函数的原因在于其事件订阅了设备遥测事件。
 
-4. 函数记录车辆设备位置坐标、事件时间和设备 ID。 然后，它使用[空间地理围栏获取 API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) 来确定汽车行驶范围是否已超出地理围栏范围。 如果已超出地理围栏边界，则函数会将从事件接收的位置数据存储到 blob 容器中。 该函数会查询[反向地址搜索](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)，以将坐标位置转换为街道地址，并将其与其余设备位置数据存储在一起。
+4. 函数记录车辆设备位置坐标、事件时间和设备 ID。 然后，它使用[空间地理围栏获取 API](/rest/api/maps/spatial/getgeofence) 来确定汽车行驶范围是否已超出地理围栏范围。 如果已超出地理围栏边界，则函数会将从事件接收的位置数据存储到 blob 容器中。 该函数会查询[反向地址搜索](/rest/api/maps/search/getsearchaddressreverse)，以将坐标位置转换为街道地址，并将其与其余设备位置数据存储在一起。
 
 下图高度概括了此系统。
 
@@ -95,9 +95,9 @@ ms.locfileid: "91321826"
 
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
-若要存储汽车违规跟踪数据，请在资源组中创建[常规用途 v2 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-account-overview#general-purpose-v2-accounts)。 如果尚未创建资源组，请按照[创建资源组](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)中的指示执行操作。 在本教程中，需要将资源组命名为 ContosoRental。
+若要存储汽车违规跟踪数据，请在资源组中创建[常规用途 v2 存储帐户](../storage/common/storage-account-overview.md#general-purpose-v2-accounts)。 如果尚未创建资源组，请按照[创建资源组](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)中的指示执行操作。 在本教程中，需要将资源组命名为 ContosoRental。
 
-若要创建存储帐户，请按照[创建存储帐户](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)中的说明执行操作。 在本教程中，需要将存储帐户命名为 contosorentalstorage，但通常可以将其命名为你喜欢的任何名称。
+若要创建存储帐户，请按照[创建存储帐户](../storage/common/storage-account-create.md?tabs=azure-portal)中的说明执行操作。 在本教程中，需要将存储帐户命名为 contosorentalstorage，但通常可以将其命名为你喜欢的任何名称。
 
 成功创建存储帐户后，你需要创建一个容器来存储日志记录数据。
 
@@ -115,7 +115,7 @@ ms.locfileid: "91321826"
 
 ## <a name="upload-a-geofence"></a>上传地理围栏
 
-接下来，使用 [Postman 应用](https://www.getpostman.com)将[地理围栏](https://docs.microsoft.com/azure/azure-maps/geofence-geojson)上传到 Azure Maps。 地理围栏定义出租车辆的授权地理区域。 你将在 Azure 函数中使用此地理围栏来确定汽车是否已行驶至地理围栏区域之外。
+接下来，使用 [Postman 应用](https://www.getpostman.com)将[地理围栏](./geofence-geojson.md)上传到 Azure Maps。 地理围栏定义出租车辆的授权地理区域。 你将在 Azure 函数中使用此地理围栏来确定汽车是否已行驶至地理围栏区域之外。
 
 按照以下步骤，使用 Azure Maps 数据上传 API 上传地理围栏： 
 
@@ -178,7 +178,7 @@ Azure Functions 是无服务器计算服务，使用它可以运行一小段代�
 
 1. 在 Azure 门户仪表板中，选择“创建资源”。 在搜索文本框中键入“函数应用”。 选择“函数应用” > “创建” 。
 
-1. 在“函数应用”创建页上为函数应用命名。**** 在“资源组”下，从下拉列表中选择“ContosoRental”。 选择“.NET Core”作为“运行时堆栈”。 在页面底部，选择“下一页:托管 >”。
+1. 在“函数应用”创建页上为函数应用命名。  在“资源组”下，从下拉列表中选择“ContosoRental”。 选择“.NET Core”作为“运行时堆栈”。 在页面底部，选择“下一页:托管 >”。
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="系统概述图。":::
 
@@ -186,7 +186,7 @@ Azure Functions 是无服务器计算服务，使用它可以运行一小段代�
 
 1. 查看函数应用详细信息，然后选择“创建”。
 
-1. 创建应用后，请向其添加一个函数。 转到函数应用。 选择“函数”窗格。 在页面顶部，选择“+ 添加”。**** 随即将显示函数模板面板。 向下滚动面板，然后选择“Azure 事件网格触发器”。
+1. 创建应用后，请向其添加一个函数。 转到函数应用。 选择“函数”窗格。 在页面顶部，选择“+ 添加”。  随即将显示函数模板面板。 向下滚动面板，然后选择“Azure 事件网格触发器”。
 
      >[!IMPORTANT]
     > “Azure 事件中心触发器”模板和“Azure 事件网格触发器”模板具有相似的名称。 请确保选择“Azure 事件网格触发器”模板。
@@ -202,7 +202,7 @@ Azure Functions 是无服务器计算服务，使用它可以运行一小段代�
 1. 在 C# 代码中，替换以下参数：
     * 将“SUBSCRIPTION_KEY”替换为 Azure Maps 帐户主要订阅密钥。
     * 将“UDID”替换为在[上传地理围栏](#upload-a-geofence)中上传的地理围栏的 `udid`。
-    * 脚本中的 `CreateBlobAsync` 函数将为数据存储帐户中的每个事件创建一个 Blob。 将 **ACCESS_KEY**、**ACCOUNT_NAME** 和 **STORAGE_CONTAINER_NAME** 替换为存储帐户的访问密钥、帐户名称和数据存储容器。 这些值在[创建 Azure 存储帐户](#create-an-azure-storage-account)中创建存储帐户时生成。
+    * 脚本中的 `CreateBlobAsync` 函数将为数据存储帐户中的每个事件创建一个 Blob。 将 **ACCESS_KEY** 、 **ACCOUNT_NAME** 和 **STORAGE_CONTAINER_NAME** 替换为存储帐户的访问密钥、帐户名称和数据存储容器。 这些值在[创建 Azure 存储帐户](#create-an-azure-storage-account)中创建存储帐户时生成。
 
 1. 在左侧菜单中，选择“集成”窗格。 选择关系图中的“事件网格触发器”。 键入触发器的名称 eventGridEvent，然后单击“创建事件网格订阅”。
 
@@ -270,14 +270,14 @@ Azure Functions 是无服务器计算服务，使用它可以运行一小段代�
 
 若要了解本教程中使用的 Azure Maps API，请参阅：
 
-* [获取反向地址搜索](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
-* [获取地理围栏](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+* [获取反向地址搜索](/rest/api/maps/search/getsearchaddressreverse)
+* [获取地理围栏](/rest/api/maps/spatial/getgeofence)
 
 有关 Azure Maps REST API 的完整列表，请参阅：
 
-* [Azure Maps REST API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+* [Azure Maps REST API](/rest/api/maps/spatial/getgeofence)
 
-* [IoT 即插即用](https://docs.microsoft.com/azure/iot-pnp)
+* [IoT 即插即用](../iot-pnp/index.yml)
 
 若要获取 Azure 认证的 IoT 设备列表，请访问：
 
@@ -289,4 +289,4 @@ Azure Functions 是无服务器计算服务，使用它可以运行一小段代�
 
 
 > [!div class="nextstepaction"]
-> [从设备发送遥测数据](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+> [从设备发送遥测数据](../iot-hub/quickstart-send-telemetry-dotnet.md)

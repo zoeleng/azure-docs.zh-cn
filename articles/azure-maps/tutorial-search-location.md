@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321690"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896654"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>教程：使用 Azure Maps 搜索附近兴趣点
 
@@ -41,7 +41,7 @@ ms.locfileid: "91321690"
 
 Map Control API 是一个便利的客户端库。 使用此 API，可以轻松将 Maps 集成到你的 Web 应用程序中。 它消除了单纯 REST 服务调用的复杂性，并可以通过可自定义的组件提高工作效率。 以下步骤说明如何使用 Map Control API 创建一个嵌入式静态 HTML 页面。
 
-1. 在本地计算机上，创建一个新文件并将其命名为 **MapSearch.html**。
+1. 在本地计算机上，创建一个新文件并将其命名为 **MapSearch.html** 。
 2. 将以下 HTML 组件添加到该文件：
 
    ```HTML
@@ -139,7 +139,7 @@ Map Control API 是一个便利的客户端库。 使用此 API，可以轻松�
 
 ## <a name="add-search-capabilities"></a>添加搜索功能
 
-本部分演示如何使用 Maps [Search API](https://docs.microsoft.com/rest/api/maps/search) 在地图上查找兴趣点。 这是一个 RESTful API，可让开发人员搜索地址、兴趣点和其他地理信息。 搜索服务会将纬度和经度信息分配到指定的地址。 下面介绍的“服务模块”可以用来通过地图搜索 API 搜索位置。
+本部分演示如何使用 Maps [Search API](/rest/api/maps/search) 在地图上查找兴趣点。 这是一个 RESTful API，可让开发人员搜索地址、兴趣点和其他地理信息。 搜索服务会将纬度和经度信息分配到指定的地址。 下面介绍的“服务模块”可以用来通过地图搜索 API 搜索位置。
 
 ### <a name="service-module"></a>服务模块
 
@@ -156,7 +156,7 @@ Map Control API 是一个便利的客户端库。 使用此 API，可以轻松�
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential` 创建 `SubscriptionKeyCredentialPolicy` 以使用订阅密钥验证对 Azure Maps 的 HTTP 请求。 `atlas.service.MapsURL.newPipeline()` 接受 `SubscriptionKeyCredential` 策略并创建[管道](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline)实例。 `searchURL` 表示 Azure Maps [搜索](https://docs.microsoft.com/rest/api/maps/search)操作的 URL。
+   `SubscriptionKeyCredential` 创建 `SubscriptionKeyCredentialPolicy` 以使用订阅密钥验证对 Azure Maps 的 HTTP 请求。 `atlas.service.MapsURL.newPipeline()` 接受 `SubscriptionKeyCredential` 策略并创建[管道](/javascript/api/azure-maps-rest/atlas.service.pipeline)实例。 `searchURL` 表示 Azure Maps [搜索](/rest/api/maps/search)操作的 URL。
 
 2. 接下来添加以下脚本块，以便生成搜索查询。 它使用模糊搜索服务，这是搜索服务的基本搜索 API。 模糊搜索服务可处理最模糊的输入，例如地址、位置和兴趣点 (POI)。 此代码在提供的经纬度的指定半径内搜索邻近的加油站。 然后使用 `geojson.getFeatures()` 方法提取响应中的 GeoJSON 特征集合，并将其添加到数据源，这将自动通过符号层在地图上呈现数据。 脚本的最后一部分使用地图的 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 属性通过结果的边框设置地图相机视图。
 
