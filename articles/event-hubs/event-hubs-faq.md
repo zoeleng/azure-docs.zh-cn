@@ -3,12 +3,12 @@ title: 常见问题 - Azure 事件中心 | Microsoft Docs
 description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789363"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909703"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -119,6 +119,9 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
     "Category": "EventHubVNetConnectionEvent"
 }
 ```
+
+> [!IMPORTANT]
+> 仅当命名空间允许 (IP 筛选器规则) 中的 **特定 ip 地址** 进行访问时，才会生成虚拟网络日志。 如果你不想使用这些功能限制对命名空间的访问，但仍希望获取虚拟网络日志来跟踪连接到事件中心命名空间的客户端的 IP 地址，则可以使用以下解决方法：启用 IP 筛选，并将总可寻址 IPv4 范围 (1.0.0.0/1-255.0.0.0/1) 。 事件中心不支持 IPv6 地址范围。 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka 集成
 

@@ -655,6 +655,9 @@
         - name: 防火墙管理器
           tocHref: /azure/firewall-manager/
           topicHref: /azure/firewall-manager/
+        - name: 标准 DDoS 防护
+          tocHref: /azure/ddos-protection/
+          topicHref: /azure/ddos-protection/
         - name: Front Door 服务
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/

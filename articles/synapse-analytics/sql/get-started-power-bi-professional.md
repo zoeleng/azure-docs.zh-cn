@@ -1,5 +1,5 @@
 ---
-title: 连接到 Power BI Professional
+title: 通过 Power BI Professional 连接到 Synapse SQL
 description: 在本教程中，我们将完成将 Power BI Desktop 连接到 SQL 按需版本（预览版）的步骤。
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288692"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899123"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>通过 Power BI Professional 连接到 Synapse SQL
 
@@ -75,7 +75,7 @@ DROP DATABASE IF EXISTS demo;
 > [!NOTE]
 > 你需要创建用于访问存储帐户的凭据。 尽管 SQL 按需版本可以访问不同区域中的存储，但将存储和 Azure Synapse 工作区置于同一区域中可提供性能更好的体验。
 
-**有关如何为人口普查数据容器创建凭据的代码片段**，请运行：
+**有关如何为人口普查数据容器创建凭据的代码片段** ，请运行：
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
