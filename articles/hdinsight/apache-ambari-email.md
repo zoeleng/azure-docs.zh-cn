@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541656"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542550"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中配置 Apache Ambari 电子邮件通知
 
@@ -26,7 +26,7 @@ ms.locfileid: "91541656"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 SendGrid 电子邮件帐户。 有关说明，请参阅[如何在 Azure 中使用 SendGrid 发送电子邮件](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)。
+* 一个 SendGrid 电子邮件帐户。 有关说明，请参阅[如何在 Azure 中使用 SendGrid 发送电子邮件](../sendgrid-dotnet-how-to-send-email.md)。
 
 * HDInsight 群集。 请参阅[使用 Azure 门户创建 Apache Hadoop 群集](./hdinsight-hadoop-create-linux-clusters-portal.md)。
 

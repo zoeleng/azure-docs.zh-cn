@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 2b5736711065ecaf9b1068ce1badf516ad942a8a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a38331549f6a201d6b3b67f30bccf49fa31c39ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337636"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522642"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mevisio"></a>教程：Azure Active Directory 单一登录 (SSO) 与 MEVISIO 的集成
 
@@ -149,10 +149,8 @@ ms.locfileid: "91337636"
 
 * 在 Azure 门户中单击“测试此应用程序”后，应该会自动登录到为其设置了 SSO 的 MEVISIO 
 
-还可以使用 Microsoft 访问面板在任何模式下测试此应用程序。 在访问面板中单击 MEVISIO 磁贴时，如果是在 SP 模式下配置的，会重定向到应用程序登录页，以便启动登录流；而如果是在 IDP 模式下配置的，则应该会自动登录到为其设置了 SSO 的 MEVISIO。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+还可以使用 Microsoft 访问面板在任何模式下测试此应用程序。 在访问面板中单击 MEVISIO 磁贴时，如果是在 SP 模式下配置的，会重定向到应用程序登录页，以便启动登录流；而如果是在 IDP 模式下配置的，则应该会自动登录到为其设置了 SSO 的 MEVISIO。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 MEVISIO 后，可以强制实施会话控制，以实时防止组织的敏感数据发生外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
-
-
+配置 MEVISIO 后，可以强制实施会话控制，以实时防止组织的敏感数据发生外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。
