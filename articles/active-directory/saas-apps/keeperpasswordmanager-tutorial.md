@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: c6bd0c130e860a5700256a54c081cc046219b41a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05b81457af8e74f95bdd3af940fa2b39ba93504a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546740"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>教程：Azure Active Directory 与 Keeper Password Manager & Digital Vault 集成
 
@@ -27,7 +27,7 @@ ms.locfileid: "88546740"
 * 可以让用户使用 Azure AD 帐户自动登录到 Keeper Password Manager & Digital Vault（单一登录）。
 * 可在中心位置（即 Azure 门户）管理帐户。
 
-如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -43,9 +43,9 @@ ms.locfileid: "88546740"
 
 * Keeper Password Manager & Digital Vault 支持 **SP** 发起的 SSO
 
-* Keeper Password Manager & Digital Vault 支持**恰时**用户预配
+* Keeper Password Manager & Digital Vault 支持 **恰时** 用户预配
 
-* 配置 Keeper Password Manager & Digital Vault 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* 配置 Keeper Password Manager & Digital Vault 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>从库中添加 Keeper Password Manager & Digital Vault
 
@@ -104,7 +104,7 @@ ms.locfileid: "88546740"
 
     ![证书下载链接](common/metadataxml.png)
 
-6. 在“设置 Keeper Password Manager & Digital Vault”部分中，根据要求复制相应的 URL****。
+6. 在“设置 Keeper Password Manager & Digital Vault”部分中，根据要求复制相应的 URL  。
 
     ![复制配置 URL](common/copy-configuration-urls.png)
 
@@ -125,7 +125,7 @@ ms.locfileid: "88546740"
 在本部分中，你将通过授予 B.Simon 访问 Keeper Password Manager & Digital Vault 的权限，允许其使用 Azure 单一登录。
 
 1. 在 Azure 门户中，依次选择“企业应用程序”、“所有应用程序”。 
-1. 在应用程序列表中，选择“Keeper Password Manager 和 Digital Vault”****。
+1. 在应用程序列表中，选择“Keeper Password Manager 和 Digital Vault”  。
 1. 在应用的概述页中，找到“管理”部分，选择“用户和组” 。
 
    ![“用户和组”链接](common/users-groups-blade.png)
@@ -141,7 +141,7 @@ ms.locfileid: "88546740"
 
 ## <a name="configure-keeper-password-manager--digital-vault-sso"></a>配置 Keeper Password Manager & Digital Vault SSO
 
-若要在“Keeper Password Manager & Digital Vault 配置”端配置单一登录，按 [Keeper 支持指南](https://docs.keeper.io/sso-connect-guide/)所给出的准则操作。****
+若要在“Keeper Password Manager & Digital Vault 配置”端配置单一登录，按 
 
 ### <a name="create-keeper-password-manager--digital-vault-test-user"></a>创建 Keeper Password Manager & Digital Vault 测试用户
 
@@ -151,16 +151,16 @@ ms.locfileid: "88546740"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Keeper Password Manager & Digital Vault 磁贴时，应当会自动登录到为其设置了 SSO 的 Keeper Password Manager & Digital Vault。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Keeper Password Manager & Digital Vault 磁贴时，应当会自动登录到为其设置了 SSO 的 Keeper Password Manager & Digital Vault。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [通过 Azure AD 试用 Keeper Password Manager & Digital Vault](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a0318b8deedf8f4725efee2f3c2723f1a4fe6d3
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: af8d75120950e43a28e5ce5449928a55ca4ed943
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740235"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456596"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>教程：将 Bynder 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91740235"
 * 让用户使用其 Azure AD 帐户自动登录到 Bynder。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "91740235"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Bynder 支持 **SP 和 IDP** 发起的 SSO
-* Bynder 支持**实时**用户预配
+* Bynder 支持 **实时** 用户预配
 
 ## <a name="adding-bynder-from-the-gallery"></a>从库中添加 Bynder
 
@@ -108,13 +108,13 @@ ms.locfileid: "91740235"
 
 1. 在“用户属性”对话框的“用户声明”部分中，通过使用“编辑图标”编辑声明或使用“添加新声明”添加声明，按上图所示配置 SAML 令牌属性，并执行以下步骤     ：
 
-    1. 单击“声明中返回的组”旁边的**笔**。 
+    1. 单击“声明中返回的组”旁边的 **笔** 。 
 
     1. 从单选列表中选择“安全组”  。
 
     1. 选择“组 ID”作为“源属性”  。 
 
-    1. 单击“ **保存**”。
+    1. 单击“ **保存** ”。
 
         ![显示“组声明”部分的屏幕截图，其中选中了“安全组”和“组 ID”。](./media/bynder-tutorial/config08.png)
 
@@ -171,12 +171,12 @@ ms.locfileid: "91740235"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Bynder 磁贴时，应当会自动登录到已为其设置了 SSO 的 Bynder。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Bynder 磁贴时，应当会自动登录到已为其设置了 SSO 的 Bynder。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
