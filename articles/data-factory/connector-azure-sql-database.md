@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: ae2340493c3c903622a1a179cd62a8c07f4cc594
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a4eab4b6d028f0a0cc22f92e072bc646d70c02da
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637813"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901623"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Azure SQL 数据库中复制和转换数据
 
@@ -63,7 +63,7 @@ ms.locfileid: "92637813"
 
 Azure SQL 数据库链接服务支持以下属性：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | type 属性必须设置为 AzureSqlDatabase 。 | 是 |
 | connectionString | 为 connectionString 属性指定连接到 Azure SQL 数据库实例所需的信息。 <br/>还可以将密码或服务主体密钥放在 Azure Key Vault 中。 如果使用 SQL 身份验证，请从连接字符串中提取 `password` 配置。 有关详细信息，请参阅表格后面的 JSON 示例，以及[在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)。 | 是 |
@@ -224,7 +224,7 @@ Azure SQL 数据库链接服务支持以下属性：
 
 Azure SQL 数据库数据集支持以下属性：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为 AzureSqlTable 。 | 是 |
 | schema | 架构的名称。 |对于源为“No”，对于接收器为“Yes”  |
@@ -263,7 +263,7 @@ Azure SQL 数据库数据集支持以下属性：
 
 若要从 Azure SQL 数据库复制数据，复制活动的 **source** 节需要支持以下属性：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 **type** 属性必须设置为 **AzureSqlSource** 。 为了向后兼容，仍然支持“SqlSource”类型。 | 是 |
 | sqlReaderQuery | 此属性使用自定义 SQL 查询来读取数据。 例如 `select * from MyTable`。 | 否 |
@@ -273,7 +273,7 @@ Azure SQL 数据库数据集支持以下属性：
 | partitionOptions | 指定用于从 Azure SQL 数据库加载数据的数据分区选项。 <br>允许值包括：None（默认值）、PhysicalPartitionsOfTable 和 DynamicRange  。<br>启用分区选项（即，该选项不为 `None`）时，用于从 Azure SQL 数据库并行加载数据的并行度由复制活动上的 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 设置控制。 | 否 |
 | partitionSettings | 指定数据分区的设置组。 <br>当分区选项不是 `None` 时适用。 | 否 |
 | **_在 `partitionSettings` ： _ 下_* | | |
-| partitionColumnName | 指定 *以整数或日期/日期/时间类型* * 表示的源列 _ 的名称，此名称将由范围分区用于并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
+| partitionColumnName | 指定 *以整数或日期/datetime 类型* * (、、、、、、或) 的源列 _ 的名称， `int` 这些名称 `smallint` `bigint` `date` `smalldatetime` `datetime` `datetime2` `datetimeoffset` 将由范围分区用于并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 | partitionUpperBound | 分区范围拆分的分区列的最大值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。  <br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 | partitionLowerBound | 分区范围拆分的分区列的最小值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。<br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 
@@ -376,7 +376,7 @@ GO
 
 将数据复制到 Azure SQL 数据库时，复制活动的 **sink** 节支持以下属性：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动接收器的 **type** 属性必须设置为 **AzureSqlSink** 。 为了向后兼容，仍然支持“SqlSink”类型。 | 是 |
 | preCopyScript | 将数据写入到 Azure SQL 数据库之前，指定复制活动要运行的 SQL 查询。 每次运行复制仅调用该查询一次。 使用此属性清理预加载的数据。 | 否 |
@@ -386,7 +386,7 @@ GO
 | sqlWriterTableType |要在存储过程中使用的表类型名称。 通过复制活动，使移动数据在具备此表类型的临时表中可用。 然后，存储过程代码可合并复制数据和现有数据。 |否 |
 | storedProcedureParameters |存储过程的参数。<br/>允许的值为名称和值对。 参数的名称和大小写必须与存储过程参数的名称和大小写匹配。 | 否 |
 | writeBatchSize | 每批要插入到 SQL 表中的行数。<br/> 允许的值为 **integer** （行数）。 默认情况下，Azure 数据工厂会根据行大小动态确定适当的批大小。 | 否 |
-| writeBatchTimeout | 超时前等待批插入操作完成的时间。<br/> 允许的值为 **timespan** 。 例如“00:30:00”（30 分钟）。 | 否 |
+| writeBatchTimeout | 超时前等待批插入操作完成的时间。<br/> 允许的值为 **timespan** 。 例如，"00:30:00" (30 分钟) 。 | 否 |
 | disableMetricsCollection | 数据工厂收集指标（如 Azure SQL 数据库 DTU），以获取复制性能优化和建议。 如果你担心此行为，请指定 `true` 将其关闭。 | 否（默认值为 `false`） |
 
 **示例 1：追加数据**
@@ -482,7 +482,7 @@ GO
 使用分区选项加载数据的最佳做法：
 
 1. 选择独特的列作为分区列（如主键或唯一键），以避免数据倾斜。 
-2. 如果表具有内置分区，请使用名为“表的物理分区”分区选项来提升性能。  
+2. 如果表具有内置分区，请使用名为“表的物理分区”分区选项来提升性能。    
 3. 如果使用 Azure Integration Runtime 复制数据，则可设置较大的“[数据集成单元 (DIU)](copy-activity-performance-features.md#data-integration-units)”(>4) 以利用更多计算资源。 检查此处适用的方案。
 4. “[复制并行度](copy-activity-performance-features.md#parallel-copy)”可控制分区数量，将此数字设置得太大有时会损害性能，建议将此数字设置按以下公式计算的值：（DIU 或自承载 IR 节点数）*（2 到 4）。
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a0851e9d032d4d1bf9751d63061141839e95d510
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491285"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900282"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 春季云常见问题解答
 
@@ -39,6 +39,9 @@ Azure 春季云通过集成 Azure Monitor、Application Insights 和 Log Analyti
 
 美国东部、美国东部2、美国中部、美国中南部、美国西部2、西欧、北欧、英国南部、东南部和澳大利亚东部。
 
+### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>任何客户数据是否存储在指定区域之外？
+
+Azure 春季云是一种区域服务。 Azure 春季云中的所有客户数据都存储在指定区域的同一地域内的多个区域，以实现冗余。 若要了解有关地理和区域的详细信息，请参阅 [Azure 中的数据驻留](https://azure.microsoft.com/global-infrastructure/data-residency/)。
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure 春季云的已知限制是什么？
 
@@ -72,11 +75,11 @@ Azure Spring Cloud 支持 Java 8 和 11。 请参阅 [Java 运行时和操作系
 
 在“应用概述”选项卡和“[Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics)”选项卡中可以找到指标。
 
-Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 存储、EventHub 和 [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries)。 Log Analytics 中的表名为 *AppPlatformLogsforSpring*。 若要了解如何启用它，请参阅 [诊断服务](diagnostic-services.md)。
+Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 存储、EventHub 和 [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries)。 Log Analytics 中的表名为 *AppPlatformLogsforSpring* 。 若要了解如何启用它，请参阅 [诊断服务](diagnostic-services.md)。
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud 是否支持分布式跟踪？
 
-能。 有关详细信息，请参阅 [教程：在 Azure 春季云中使用分布式跟踪](spring-cloud-tutorial-distributed-tracing.md)。
+是的。 有关详细信息，请参阅 [教程：在 Azure 春季云中使用分布式跟踪](spring-cloud-tutorial-distributed-tracing.md)。
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>服务绑定支持哪些资源类型？
@@ -89,7 +92,7 @@ Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>能否在我的应用程序中查看、添加或移动永久性卷？
 
-能。
+是的。
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>删除/移动 Azure 春季云服务实例时，是否也会删除/移动其扩展资源？
 
@@ -151,19 +154,19 @@ Azul 系统。 Azul Zulu for Azure - Enterprise Edition 内部版 JDK 是适用�
 ## <a name="deployment"></a>部署
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Azure 春季云是否支持蓝绿色部署？
-能。 有关详细信息，请参阅 [设置过渡环境](spring-cloud-howto-staging-environment.md)。
+是的。 有关详细信息，请参阅 [设置过渡环境](spring-cloud-howto-staging-environment.md)。
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>是否可以访问 Kubernetes 来操作应用程序容器？
 
-不能。  Azure Spring Cloud 可使开发人员抽身于底层体系结构，将注意力放在应用程序代码和业务逻辑上。
+不是。  Azure Spring Cloud 可使开发人员抽身于底层体系结构，将注意力放在应用程序代码和业务逻辑上。
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud 是否支持从源构建容器？
 
-能。 有关详细信息，请参阅 [从源代码启动春季云应用程序](spring-cloud-quickstart.md)。
+是的。 有关详细信息，请参阅 [从源代码启动春季云应用程序](spring-cloud-quickstart.md)。
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud 是否支持应用实例中的自动缩放？
 
-能。  有关详细信息，请参阅 [设置自动缩放](spring-cloud-tutorial-setup-autoscale.md)。
+是的。  有关详细信息，请参阅 [设置自动缩放](spring-cloud-tutorial-setup-autoscale.md)。
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>将现有春季 Cloud 微服务迁移到 Azure 春季云的最佳做法是什么？
@@ -191,7 +194,7 @@ Azul 系统。 Azul Zulu for Azure - Enterprise Edition 内部版 JDK 是适用�
 ::: zone-end
 
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 ### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>服务注册表很少使用会产生什么影响？
 

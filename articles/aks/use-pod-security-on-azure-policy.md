@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: b833b45f5243e446ac507ee913abe256a12ac01d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368462"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900122"
 ---
 # <a name="secure-pods-with-azure-policy"></a>使用 Azure Policy 保护 Pod
 
@@ -61,7 +61,7 @@ ms.locfileid: "92368462"
 以下限制仅适用于 AKS 的 Azure 策略外接程序：
 
 - [AKS Pod 安全策略 (预览) ](use-pod-security-policies.md) 并且用于 AKS 的 Azure 策略外接程序不能同时启用。 
-- 用于评估的 Azure 策略外接程序自动排除的命名空间： _kube_、 _gatekeeper-system_ _aks 和 periscope_。
+- 用于评估的 Azure 策略外接程序自动排除的命名空间： _kube_ 、 _gatekeeper-system_ _aks 和 periscope_ 。
 
 ### <a name="recommendations"></a>建议
 
@@ -128,7 +128,7 @@ Azure 策略中的计划是一系列策略定义，旨在实现单一的总体�
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>托管 AKS 群集不支持的内置策略
 
 > [!NOTE]
-> **AKS 中不支持**以下3个策略，因为自定义由 AKS 作为托管服务管理和保护的方面。 这些策略专门针对具有非托管控制平面的 Azure Arc 连接群集构建。
+> **AKS 中不支持** 以下3个策略，因为自定义由 AKS 作为托管服务管理和保护的方面。 这些策略专门针对具有非托管控制平面的 Azure Arc 连接群集构建。
 
 |[Pod 安全策略控制](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)|
 |---|
@@ -150,7 +150,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > 管理员命名空间中的 pod （如 kube）必须运行才能使群集保持正常运行，从默认的已排除命名空间列表中删除所需的命名空间可能会因为所需的系统 pod 而触发策略冲突。
 
-AKS 要求在群集上运行系统 pod 以提供关键服务，例如 DNS 解析。 限制 pod 功能的策略可能会影响系统 pod 的稳定性。 因此，在 **创建、更新和策略审核过程中，将在许可请求期间排除**以下命名空间。 这会强制从 Azure 策略中排除这些命名空间的新部署。
+AKS 要求在群集上运行系统 pod 以提供关键服务，例如 DNS 解析。 限制 pod 功能的策略可能会影响系统 pod 的稳定性。 因此，在 **创建、更新和策略审核过程中，将在许可请求期间排除** 以下命名空间。 这会强制从 Azure 策略中排除这些命名空间的新部署。
 
 1. kube-系统
 1. 网关守卫-系统
@@ -209,7 +209,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         privileged: true
 ```
@@ -244,7 +244,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令创建 Pod，并指定 YAML 清单的名称：
@@ -275,7 +275,7 @@ kubectl delete -f nginx-unprivileged.yaml
 删除基准计划：
 
 1. 导航到 Azure 门户上的 "策略" 窗格
-1. 从左窗格中选择**分配**
+1. 从左窗格中选择 **分配**
 1. 单击 "..."基线配置文件旁边的按钮
 1. 选择 "删除分配"
 
@@ -299,7 +299,7 @@ az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group
 
 下面概述了 pod 安全策略与 Azure 策略之间的行为更改。
 
-|场景| Pod 安全策略 | Azure Policy |
+|方案| Pod 安全策略 | Azure Policy |
 |---|---|---|
 |安装|启用 pod 安全策略功能 |启用 Azure 策略外接程序
 |部署策略| 部署 pod 安全策略资源| 将 Azure 策略分配到订阅或资源组作用域。 Azure 策略外接程序是 Kubernetes 资源应用程序所必需的。

@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: 805b6ed649a3ce301a3246ce1f672475ed47b9ea
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c532758ce29646ba32530269233759551117968b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636453"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901637"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>使用 Azure 数据工厂复制和转换 Azure SQL 托管实例中的数据
 
@@ -58,7 +58,7 @@ ms.locfileid: "92636453"
 
 SQL 托管实例链接服务支持以下属性：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | type 属性必须设置为 **AzureSqlMI** 。 | 是 |
 | connectionString |此属性指定通过 SQL 身份验证连接到 SQL 托管实例时所需的 **connectionString** 信息。 有关详细信息，请参阅以下示例。 <br/>默认端口为 1433。 如果将 SQL 托管实例与公共终结点配合使用，请显式指定端口 3342。<br> 还可以在 Azure Key Vault 中输入密码。 如果使用 SQL 身份验证，请从连接字符串中提取 `password` 配置。 有关详细信息，请参阅表格后面的 JSON 示例，以及[在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)。 |是 |
@@ -228,7 +228,7 @@ SQL 托管实例链接服务支持以下属性：
 
 若要从/向 SQL 托管实例复制数据，以下属性需受支持：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为 AzureSqlMITable。 | 是 |
 | schema | 架构的名称。 |对于源为“No”，对于接收器为“Yes”  |
@@ -267,7 +267,7 @@ SQL 托管实例链接服务支持以下属性：
 
 若要从 SQL 托管实例复制数据，复制活动的 source 节需要支持以下属性：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 type 属性必须设置为 **SqlMISource** 。 | 是 |
 | sqlReaderQuery |此属性使用自定义 SQL 查询来读取数据。 例如 `select * from MyTable`。 |否 |
@@ -277,7 +277,7 @@ SQL 托管实例链接服务支持以下属性：
 | partitionOptions | 指定用于从 SQL MI 加载数据的数据分区选项。 <br>允许值包括：None（默认值）、PhysicalPartitionsOfTable 和 DynamicRange  。<br>启用分区选项（即该选项不为 `None`）时，用于从 SQL MI 并行加载数据的并行度由复制活动上的 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 设置控制。 | 否 |
 | partitionSettings | 指定数据分区的设置组。 <br>当分区选项不是 `None` 时适用。 | 否 |
 | **_在 `partitionSettings` ： _ 下_* | | |
-| partitionColumnName | 指定 *以整数或日期/日期/时间类型* * 表示的源列 _ 的名称，此名称将由范围分区用于并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-mi)部分。 | 否 |
+| partitionColumnName | 指定 *以整数或日期/datetime 类型* * (、、、、、、或) 的源列 _ 的名称， `int` 这些名称 `smallint` `bigint` `date` `smalldatetime` `datetime` `datetime2` `datetimeoffset` 将由范围分区用于并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-mi)部分。 | 否 |
 | partitionUpperBound | 分区范围拆分的分区列的最大值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。  <br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-mi)部分。 | 否 |
 | partitionLowerBound | 分区范围拆分的分区列的最小值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。<br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-mi)部分。 | 否 |
 
@@ -380,7 +380,7 @@ GO
 
 若要将数据复制到 SQL 托管实例，复制活动的 sink 节需要支持以下属性：
 
-| 属性 | 说明 | 必选 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动接收器的 type 属性必须设置为 **SqlMISink** 。 | 是 |
 | preCopyScript |此属性指定将数据写入到 SQL 托管实例之前要由复制活动运行的 SQL 查询。 每次运行复制仅调用该查询一次。 可以使用此属性清除预加载的数据。 |否 |
@@ -390,7 +390,7 @@ GO
 | sqlWriterTableType |要在存储过程中使用的表类型名称。 通过复制活动，使移动数据在具备此表类型的临时表中可用。 然后，存储过程代码可合并复制数据和现有数据。 |否 |
 | storedProcedureParameters |存储过程的参数。<br/>允许的值为名称和值对。 参数的名称和大小写必须与存储过程参数的名称和大小写匹配。 | 否 |
 | writeBatchSize |每批要插入到 SQL 表中的行数。<br/>允许的值为表示行数的整数。 默认情况下，Azure 数据工厂会根据行大小动态确定适当的批大小。  |否 |
-| writeBatchTimeout |此属性指定超时前等待批插入操作完成的时间。<br/>允许的值是指时间跨度。 例如，“00:30:00”表示 30 分钟。 |否 |
+| writeBatchTimeout |此属性指定超时前等待批插入操作完成的时间。<br/>允许的值是指时间跨度。 例如，"00:30:00" 是30分钟。 |否 |
 
 **示例 1：追加数据**
 
@@ -485,7 +485,7 @@ GO
 使用分区选项加载数据的最佳做法：
 
 1. 选择独特的列作为分区列（如主键或唯一键），以避免数据倾斜。 
-2. 如果表具有内置分区，请使用名为“表的物理分区”分区选项来提升性能。  
+2. 如果表具有内置分区，请使用名为“表的物理分区”分区选项来提升性能。    
 3. 如果使用 Azure Integration Runtime 复制数据，则可设置较大的“[数据集成单元 (DIU)](copy-activity-performance-features.md#data-integration-units)”(>4) 以利用更多计算资源。 检查此处适用的方案。
 4. “[复制并行度](copy-activity-performance-features.md#parallel-copy)”可控制分区数量，将此数字设置得太大有时会损害性能，建议将此数字设置按以下公式计算的值：（DIU 或自承载 IR 节点数）*（2 到 4）。
 
@@ -648,7 +648,7 @@ END
 
 下表列出了 Azure SQL 托管实例源支持的属性。 可以在 " **源选项** " 选项卡中编辑这些属性。
 
-| 名称 | 说明 | 必选 | 允许的值 | 数据流脚本属性 |
+| 名称 | 说明 | 必需 | 允许的值 | 数据流脚本属性 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 表 | 如果选择 "表" 作为输入，数据流将从数据集中指定的表中获取所有数据。 | 否 | - |- |
 | 查询 | 如果选择 "查询作为输入"，请指定一个 SQL 查询，以便从源中提取数据，这将覆盖在 dataset 中指定的任何表。 使用查询是减少测试或查找行的好办法。<br><br>不支持 **Order by** 子句，但可以设置完整的 SELECT FROM 语句。 还可以使用用户定义的表函数。 **select * From udfGetData ( # B1** 是 SQL 中的一个 UDF，它返回可以在数据流中使用的表。<br>查询示例： `Select * from MyTable where customerId > 1000 and customerId < 2000`| 否 | 字符串 | query |
@@ -671,7 +671,7 @@ source(allowSchemaDrift: true,
 
 下表列出了 Azure SQL 托管实例接收器支持的属性。 可以在 " **接收器选项** " 选项卡中编辑这些属性。
 
-| 名称 | 说明 | 必选 | 允许的值 | 数据流脚本属性 |
+| 名称 | 说明 | 必需 | 允许的值 | 数据流脚本属性 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 方法 | 指定对数据库目标允许哪些操作。 默认设置为仅允许插入。<br>若要更新、upsert 或删除行，需要 [更改行转换](data-flow-alter-row.md) 以标记这些操作的行。 | 是 | `true` 或 `false` | 删除 <br/>可插入 <br/>更新 <br/>upsertable |
 | 键列 | 对于更新，upsert 和 delete，键列 (s) 必须设置为确定要更改的行。<br>选取为密钥的列名称将用作后续更新 upsert （删除）的一部分。 因此，你必须选择存在于接收器映射中的列。 | 否 | Array | 密钥 |

@@ -5,12 +5,12 @@ description: 了解如何使用 Azure 文件动态创建永久性卷，以便与
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad252118a56402386691d1cdf7d975ef69ec45ad
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299258"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900445"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -22,7 +22,7 @@ ms.locfileid: "91299258"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="create-a-storage-class"></a>创建存储类
 
@@ -40,7 +40,7 @@ ms.locfileid: "91299258"
 
 有关 Azure 文件存储的 Kubernetes 存储类的详细信息，请参阅 [Kubernetes 存储类][kubernetes-storage-classes]。
 
-创建名为 `azure-file-sc.yaml` 的文件，并将其复制到以下示例清单中。 有关 *mountOptions* 的详细信息，请参阅[装载选项][mount-options]部分。
+创建名为 `azure-file-sc.yaml` 的文件，并将其复制到以下示例清单中。 有关 *mountOptions* 的详细信息，请参阅 [装载选项][mount-options]部分。
 
 ```yaml
 kind: StorageClass
@@ -67,7 +67,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>创建永久性卷声明
 
-永久性卷声明 (PVC) 使用存储类对象来动态预配 Azure 文件共享。 可使用以下 YAML 创建大小为 *5 GB*、访问权限为 *ReadWriteMany* 的永久性卷声明。 有关访问模式的详细信息，请参阅 [Kubernetes 永久性卷][access-modes]文档。
+永久性卷声明 (PVC) 使用存储类对象来动态预配 Azure 文件共享。 可使用以下 YAML 创建大小为 *5 GB* 、访问权限为 *ReadWriteMany* 的永久性卷声明。 有关访问模式的详细信息，请参阅 [Kubernetes 永久性卷][access-modes]文档。
 
 现在，创建名为 `azure-file-pvc.yaml` 的文件，并将其复制到以下 YAML 中。 请确保 *storageClassName* 与上一步骤中创建的存储类匹配：
 
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -165,7 +165,7 @@ Volumes:
 
 ## <a name="mount-options"></a>装载选项
 
-对于 Kubernetes 版本 1.13.0 及更高版本，fileMode 和 dirMode 的默认值为 0777。 如果使用存储类动态创建永久性卷，则可以在存储类对象上指定装载选项。 以下示例设置 *0777*：
+对于 Kubernetes 版本 1.13.0 及更高版本，fileMode 和 dirMode 的默认值为 0777。 如果使用存储类动态创建永久性卷，则可以在存储类对象上指定装载选项。 以下示例设置 *0777* ：
 
 ```yaml
 kind: StorageClass

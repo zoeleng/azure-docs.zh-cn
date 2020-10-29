@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
-ms.date: 08/12/2020
-ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 10/28/2020
+ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791777"
+ms.locfileid: "92901309"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例的高可用性
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -116,7 +116,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 ## <a name="testing-application-fault-resiliency"></a>测试应用程序的故障复原能力
 
-高可用性是 SQL 数据库和 SQL 托管实例平台的基本功能，其运作对数据库应用程序透明。 不过，我们认识到，你可能需要先测试在计划内或计划外事件期间启动的自动故障转移操作对应用程序的具体影响，然后才会将其部署到生产环境。 可以通过调用特殊 API 来重启数据库、弹性池或托管实例，以便手动触发故障转移。 在区域冗余数据库或弹性池的情况下，API 调用将导致将客户端连接重定向到可用性区域中与旧主数据库的可用性区域不同的新主站点。 因此，除了测试故障转移对现有数据库会话的影响，还可以验证是否由于网络延迟的变化而更改了端到端性能。 由于重新启动操作是入侵的，很多用户可能会对平台造成压力，因此每个数据库、弹性池或托管实例每隔30分钟只允许进行一次故障转移呼叫。
+高可用性是 SQL 数据库和 SQL 托管实例平台的基本功能，其运作对数据库应用程序透明。 不过，我们认识到，你可能需要先测试在计划内或计划外事件期间启动的自动故障转移操作对应用程序的具体影响，然后才会将其部署到生产环境。 可以通过调用特殊 API 来重启数据库、弹性池或托管实例，以便手动触发故障转移。 在区域冗余数据库或弹性池的情况下，API 调用将导致将客户端连接重定向到可用性区域中与旧主数据库的可用性区域不同的新主站点。 因此，除了测试故障转移对现有数据库会话的影响，还可以验证是否由于网络延迟的变化而更改了端到端性能。 由于重新启动操作是入侵的，很多用户可能会对平台造成压力，因此每个数据库、弹性池或托管实例只允许一个每15分钟进行一次故障转移呼叫。
 
 可以使用 PowerShell、REST API 或 Azure CLI 启动故障转移：
 

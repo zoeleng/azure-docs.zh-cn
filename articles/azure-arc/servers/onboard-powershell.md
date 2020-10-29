@@ -1,14 +1,14 @@
 ---
 title: 使用 PowerShell 将混合计算机连接到 Azure
 description: 本文介绍如何安装代理，以及如何通过 PowerShell 使用启用了 Azure Arc 的服务器将计算机连接到 Azure。
-ms.date: 10/27/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb114ec3e279a7ea696d834af8eb7240cb892dc1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0755846ef02377edade98b69e478908a111ab247
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891935"
+ms.locfileid: "92901530"
 ---
 # <a name="connect-hybrid-machines-to-azure-using-powershell"></a>使用 PowerShell 将混合计算机连接到 Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "92891935"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 配备 Azure PowerShell 的计算机。 有关说明，请参阅[安装和配置 Azure PowerShell](/powershell/azure/)。
+- 具有 Azure PowerShell 的计算机。 有关说明，请参阅[安装和配置 Azure PowerShell](/powershell/azure/)。
 
 使用 Azure PowerShell 在启用了 Arc 的服务器管理的混合服务器上管理 VM 扩展之前，需要安装该 `Az.ConnectedMachine` 模块。 在启用 Arc 的服务器上运行以下命令：
 
@@ -44,21 +44,21 @@ Install-Module -Name Az.ConnectedMachine
 
     * 若要在可直接与 Azure 通信的目标计算机上安装已连接的计算机代理，请运行：
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        ```
     
     * 若要在通过代理服务器进行通信的目标计算机上安装连接的计算机代理，请运行：
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+        
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        ```
 
 如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 在 Windows 上的 *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* ，在 Linux 的 */var/opt/azcmagent/log/himds.log* 中。
 
 ## <a name="install-and-connect-using-powershell-remoting"></a>使用 PowerShell 远程处理进行安装和连接
 
-执行以下步骤，通过启用了 Azure Arc 的服务器配置目标 Windows server 或计算机。 必须在远程计算机上启用 PowerShell 远程处理。 使用 `Enable-PSRemoting` cmdlet 启用 PowerShell 远程处理。
+执行以下步骤，以配置一台或多台启用了 Azure Arc 的服务器的 Windows server。 必须在远程计算机上启用 PowerShell 远程处理。 使用 `Enable-PSRemoting` cmdlet 启用 PowerShell 远程处理。
 
 1. 以管理员身份打开 PowerShell 控制台。
 
@@ -66,25 +66,32 @@ Install-Module -Name Az.ConnectedMachine
 
 3. 若要安装已连接的计算机代理，请将 `Connect-AzConnectedMachine` 与 `-Name` 、 `-ResourceGroupName` 和参数一起使用 `-Location` 。 使用 `-SubscriptionId` 参数重写默认订阅，作为在登录后创建的 Azure 上下文的结果。
 
-若要在可直接与 Azure 通信的目标计算机上安装已连接的计算机代理，请运行以下命令：
+    * 若要在可直接与 Azure 通信的目标计算机上安装已连接的计算机代理，请运行以下命令：
+    
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
+    
+    * 若要同时在多台远程计算机上安装连接的计算机代理，请添加用逗号分隔的远程计算机名称的列表。
 
-```azurepowershell
-$session = Connect-PSSession -ComputerName myMachineName
-Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
-```
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
 
-下面的示例是命令的结果：
-
-```azurepowershell
-time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
-time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
-time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
-time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
-
-Name           Location OSName   Status     ProvisioningState
-----           -------- ------   ------     -----------------
-myMachineName  eastus   windows  Connected  Succeeded
-```
+    下面的示例是针对单个计算机的命令的结果：
+    
+    ```azurepowershell
+    time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+    time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+    time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+    time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
+    
+    Name           Location OSName   Status     ProvisioningState
+    ----           -------- ------   ------     -----------------
+    myMachineName  eastus   windows  Connected  Succeeded
+    ```
 
 ## <a name="verify-the-connection-with-azure-arc"></a>验证是否与 Azure Arc 连接
 

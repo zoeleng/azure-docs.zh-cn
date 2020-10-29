@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022269"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900817"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>保护 Azure Kubernetes 服务 (AKS) 中的 Pod 的最佳做法
 
@@ -55,7 +55,7 @@ spec:
     fsGroup: 2000
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         runAsUser: 1000
         allowPrivilegeEscalation: false

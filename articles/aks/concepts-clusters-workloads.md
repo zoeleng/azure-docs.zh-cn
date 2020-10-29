@@ -4,12 +4,12 @@ description: 了解 Kubernetes 的基本群集和工作负荷组件以及它们�
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86251852"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901293"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念
 
@@ -94,7 +94,7 @@ kubectl describe node [NODE_NAME]
 
 - **内存** - AKS 使用的内存包含两个值的和。
 
-1. Kubelet 守护程序安装在所有 Kubernetes 代理节点上，用于管理容器的创建和停止使用。 在 AKS 上，此守护程序默认具有逐出规则 *memory.available<750Mi*，也就是说一个节点必须始终具有至少 750 Mi 的可分配内存。  主机低于该可用内存阈值时，kubelet 将终止某个正在运行的 pod，以释放主机上的内存并对其进行保护。 当可用内存下降到 750Mi 阈值以下时，会触发此操作。
+1. Kubelet 守护程序安装在所有 Kubernetes 代理节点上，用于管理容器的创建和停止使用。 在 AKS 上，此守护程序默认具有逐出规则 *memory.available<750Mi* ，也就是说一个节点必须始终具有至少 750 Mi 的可分配内存。  主机低于该可用内存阈值时，kubelet 将终止某个正在运行的 pod，以释放主机上的内存并对其进行保护。 当可用内存下降到 750Mi 阈值以下时，会触发此操作。
 
 2. 第二个值是为 kubelet 守护程序正常运行而预留（kube 预留）的内存的递减速率。
     - 前 4 GB 内存的 25%
@@ -138,7 +138,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -184,7 +184,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:

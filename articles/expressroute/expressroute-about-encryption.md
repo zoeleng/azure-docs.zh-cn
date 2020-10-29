@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996836"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899874"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute 加密
  
@@ -31,7 +31,7 @@ MACsec 是 [IEEE 标准](https://1.ieee802.org/security/802-1ae/)。 它在媒�
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>在 ExpressRoute Direct 上启用 MACsec 是否会降低网络性能？
 MACsec 加密和解密发生在我们使用的路由器的硬件中。 对我们来说没有任何性能影响。 但是，你应该向网络供应商咨询所使用的设备，并查看 MACsec 是否有性能影响。
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>加密支持哪些密码套件？
-我们仅支持 AES128 和 AES256 的[扩展数据包编号](https://1.ieee802.org/security/802-1aebw/)版本。 此外，请在设备上的 MACsec 配置中禁用[安全通道标识符(SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE)。 
+我们仅支持 AES-128 和 AES-256 的 [扩展数据包编号](https://1.ieee802.org/security/802-1aebw/) 版本。 此外，必须在设备上的 MACsec 配置中禁用 [安全通道标识符 (科幻) ](https://wikipedia.org/wiki/IEEE_802.1AE) 。 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>通过 IPsec 进行的端到端加密常见问题解答
 IPsec 是 [IETF 标准](https://tools.ietf.org/html/rfc6071)。 它在 Internet 协议 (IP) 级别或网络层 3 上加密数据。 可以使用 IPsec 加密本地网络与 Azure 上虚拟网络 (VNET) 之间的端到端连接。 请参阅下面的其他常见问题解答。

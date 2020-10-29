@@ -3,12 +3,12 @@ title: Azure 服务总线常见问题解答 (FAQ) | Microsoft Docs
 description: 本文提供了一些有关 Azure 服务总线的常见问题解答 (FAQ)。
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518749"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899529"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure 服务总线 - 常见问题解答 (FAQ)
 
@@ -36,22 +36,33 @@ ms.locfileid: "92518749"
  [高级 SKU](service-bus-premium-messaging.md) 中不再支持分区实体。 
 
 ### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>Azure 服务总线将客户数据存储在何处？
-Azure 服务总线存储客户数据。 服务总线会自动将此数据存储在单个区域中，因此，此服务会自动满足区域数据派驻要求，其中包括 [信任中心](https://azuredatacentermap.azurewebsites.net/)中指定的要求。
+Azure 服务总线存储客户数据。 服务总线会自动将此数据存储在单个区域中，因此此服务会自动满足区域内数据驻留要求，包括[信任中心](https://azuredatacentermap.azurewebsites.net/)内指定的要求。
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>需要在防火墙上打开哪些端口？ 
 可以将以下协议与 Azure 服务总线配合使用，以便发送和接收消息：
 
-- 高级消息队列协议 (AMQP)
-- 服务总线消息传送协议 (SBMP)
-- HTTP
+- 高级消息队列协议 1.0 (AMQP) 
+- 超文本传输协议1.1，TLS (HTTPS) 
 
-请查看下表，了解需要打开哪些出站端口，以便使用这些协议与 Azure 事件中心通信。 
+请参阅下表，了解需要打开的出站 TCP 端口，以便使用这些协议与 Azure 服务总线通信：
 
-| 协议 | 端口 | 详细信息 | 
+| 协议 | Port | 详细信息 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 和 5672 | 请参阅 [AMQP 协议指南](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 到 9354 | 请参阅[连接模式](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
-| HTTP、HTTPS | 80、443 | 
+| AMQP | 5671 | AMQP with TLS。 请参阅 [AMQP 协议指南](service-bus-amqp-protocol-guide.md) | 
+| HTTPS | 443 | 此端口用于 HTTP/REST API 和 AMQP over Websocket |
+
+在 AMQP 通过端口5671使用时，通常还需要使用 HTTPS 端口进行出站通信，因为在使用) 通过 HTTPS 运行时，客户端 Sdk 执行的几个管理操作和从 Azure Active Directory (获取令牌。 
+
+正式的 Azure Sdk 通常使用 AMQP 协议发送和接收来自服务总线的消息。 AMQP-over Websocket 协议选项通过端口 TCP 443 运行，就像 HTTP API 一样，但在功能上与纯 AMQP 相同。 此选项的初始连接延迟较高，因为在共享 HTTPS 端口时要权衡额外的握手往返和额外的开销。 如果选择了此模式，则 TCP 端口443足以用于通信。 以下选项允许选择 "纯 AMQP" 或 "AMQP" Websocket 模式：
+
+| 语言 | 选项   |
+| -------- | ----- |
+| .NET     | [TransportType. Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet)或[TransportType](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet)的[ServiceBusConnection TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet)属性 |
+| Java     | [ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable)或 AMQP，则为[TransportType.](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable)或[com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable)的，则为。 |
+| 节点  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) 有一个 `webSocket` 构造函数参数。 |
+| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) ， [Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) 或 [TransportType AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+
+.NET Framework 的较旧的 Windowsazure.storage 包可选择使用旧的 "Service Bus 消息传送协议" (SBMP) ，也称为 "NetMessaging"。 此协议使用 TCP 端口9350-9354。 此包的默认模式是自动检测这些端口是否可用于通信，如果不是这种情况，将通过端口443上的 TLS 切换到 Websocket。 可以重写此设置并通过在设置上设置 Connectivitymode.autodetect 来强制此模式 `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) ，这将全局应用于应用程序。
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>需要将哪些 IP 地址添加到允许列表？
 若要查找要添加到允许列表以进行连接的正确 IP 地址，请执行以下步骤：
@@ -63,7 +74,7 @@ Azure 服务总线存储客户数据。 服务总线会自动将此数据存储�
     ```
 2. 记下 `Non-authoritative answer` 中返回的 IP 地址。 
 
-如果对命名空间使用 **区域冗余** ，则需要执行一些附加步骤： 
+如果对命名空间使用区域冗余，则需执行一些额外的步骤： 
 
 1. 首先，在命名空间中运行 nslookup。
 
@@ -80,7 +91,7 @@ Azure 服务总线存储客户数据。 服务总线会自动将此数据存储�
 3. 为每一个运行 nslookup，使用后缀 s1、s2 和 s3 获取所有三个在三个可用性区域中运行的实例的 IP 地址。 
 
     > [!NOTE]
-    > 命令返回的 IP 地址 `nslookup` 不是静态 ip 地址。 但是，在将基础部署删除或移动到其他群集之前，它将保持不变。
+    > `nslookup` 命令返回的 IP 地址不是静态 IP 地址。 但是，在删除基础部署或将其移至其他群集之前，该地址保持不变。
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>我可以在哪里找到客户端向命名空间发送/从中接收消息的 IP 地址？ 
 我们不记录客户端向命名空间发送或从中接收消息的 IP 地址。 重新生成密钥，以便所有现有客户端将无法进行身份验证并查看 [azure 基于角色的访问控制 (AZURE RBAC) ](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) 设置，以确保仅允许的用户或应用程序有权访问该命名空间。 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: eb3c45c01b2e3ca1761e86f3ac991d67f7813856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504309"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899662"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 
@@ -86,7 +86,7 @@ Data Lake Storage 已针对使用 Azure 事件中心或 Apache Storm 运行的�
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure Synapse Analytics 是一种用于存储已准备结果的合适选择。 可以使用 Azure HDInsight 来执行 z Synapse Analytics 提供的服务。
+Azure Synapse Analytics (以前的 SQL DW) 是存储已准备结果的合适选择。 可以使用 Azure HDInsight 对 Azure Synapse Analytics 执行这些服务。
 
 Azure Synapse Analytics 是针对分析工作负荷进行优化的关系数据库存储。 它根据分区表进行缩放。 表可以跨多个节点分区。 在创建节点时便选择了节点。 可以在事后缩放节点，但是，该主动过程可能需要移动数据。 有关详细信息，请参阅 [在 Azure Synapse Analytics 中管理计算](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 

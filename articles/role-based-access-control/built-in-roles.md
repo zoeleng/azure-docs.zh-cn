@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/23/2020
+ms.date: 10/27/2020
 ms.custom: generated
-ms.openlocfilehash: ed5d7c3007cf8471da453db93be0ab716805908c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900875"
 ---
 # <a name="azure-built-in-roles"></a>Azure 内置角色
 
@@ -9225,12 +9225,12 @@ Azure Sentinel 响应程序 [了解详细信息](../sentinel/roles.md)
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
-> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
-> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
-> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* |  |
-> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* |  |
-> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* |  |
-> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | 读取、删除、创建或更新任何事件路由 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | 读取、创建、更新或删除任何数字输出 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | 在数字克隆上调用任何命令 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* | 读取、创建、更新或删除任何数字克隆关系 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | 读取、创建、更新或删除任何模型 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* | 查询任何数字孪生图 |
 > | **NotDataActions** |  |
 > | *无* |  |
 

@@ -4,12 +4,12 @@ description: 了解如何启用和查看 Azure Kubernetes 服务 (AKS) 中 Kuber
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 82570606aee294aafe7da5ffaf581b11b6775073
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368445"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899931"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
@@ -25,9 +25,9 @@ ms.locfileid: "92368445"
 
 Azure Monitor 日志是在 Azure 门户中启用和管理的。 若要为 AKS 群集中的 Kubernetes 主组件启用日志收集，请在 Web 浏览器中打开 Azure 门户并完成以下步骤：
 
-1. 选择 AKS 群集的资源组，例如 *myResourceGroup*。 不要选择包含单个 AKS 群集资源的资源组，例如 *MC_myResourceGroup_myAKSCluster_eastus*。
+1. 选择 AKS 群集的资源组，例如 *myResourceGroup* 。 不要选择包含单个 AKS 群集资源的资源组，例如 *MC_myResourceGroup_myAKSCluster_eastus* 。
 1. 在左侧选择“诊断设置”。
-1. 选择 AKS 群集（如 *myAKSCluster*），然后选择 " **添加诊断设置**"。
+1. 选择 AKS 群集（如 *myAKSCluster* ），然后选择 " **添加诊断设置** "。
 1. 输入名称（例如 myAKSClusterLogs），然后选择“发送到 Log Analytics”选项。
 1. 选择现有工作区或者创建新的工作区。 如果创建工作区，请提供工作区名称、资源组和位置。
 1. 在可用日志列表中，选择要启用的日志。 在此示例中，启用 *kube-audit* 和 *kube* 日志。 常见日志包括 kube-apiserver、kube-controller-manager 和 kube-scheduler。 启用 Log Analytics 工作区后，可以返回并更改收集的日志。
@@ -37,11 +37,11 @@ Azure Monitor 日志是在 Azure 门户中启用和管理的。 若要为 AKS �
 
 除了 Kubernetes 编写的条目，项目的审核日志还包含来自 AKS 的条目。
 
-审核日志分为三个类别： *kube-audit*、 *kube*和 *guard*。
+审核日志分为三个类别： *kube-audit* 、 *kube* 和 *guard* 。
 
-- *Kube*类别包含每个审核事件的所有审核日志数据，包括*get*、 *list*、 *create*、 *update*、 *delete*、 *patch*和*post*。
-- *Kube*类别是*kube-audit*日志类别的子集。 *kube-* 通过从日志中排除 *get* 和 *list* 审核事件，管理员可以显著减少日志的数量。
-- *防护*类别是托管 Azure AD 和 Azure RBAC 审核。 对于托管 Azure AD：中的标记，用户信息为 out。对于 Azure RBAC：向内和向外访问评审。
+- *Kube* 类别包含每个审核事件的所有审核日志数据，包括 *get* 、 *list* 、 *create* 、 *update* 、 *delete* 、 *patch* 和 *post* 。
+- *Kube* 类别是 *kube-audit* 日志类别的子集。 *kube-* 通过从日志中排除 *get* 和 *list* 审核事件，管理员可以显著减少日志的数量。
+- *防护* 类别是托管 Azure AD 和 Azure RBAC 审核。 对于托管 Azure AD：中的标记，用户信息为 out。对于 Azure RBAC：向内和向外访问评审。
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>在 AKS 群集上计划测试 pod
 
@@ -55,7 +55,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -109,7 +109,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-在此示例中，查询在 *kube*中显示所有创建作业。可能返回了很多结果，若要将查询范围缩小到查看有关上一步骤中创建的 NGINX pod 的日志，请添加其他 *where* 语句来搜索 *NGINX* ，如下面的示例查询中所示。
+在此示例中，查询在 *kube* 中显示所有创建作业。可能返回了很多结果，若要将查询范围缩小到查看有关上一步骤中创建的 NGINX pod 的日志，请添加其他 *where* 语句来搜索 *NGINX* ，如下面的示例查询中所示。
 
 ```
 AzureDiagnostics

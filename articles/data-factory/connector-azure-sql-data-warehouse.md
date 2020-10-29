@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 79bc9a238b7c36392ff2ba519078713089156f6e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638204"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901607"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Azure Synapse Analytics（以前称为 SQL 数据仓库）中复制和转换数据
 
@@ -61,7 +61,7 @@ ms.locfileid: "92638204"
 
 Azure Synapse Analytics 链接服务支持以下属性：
 
-| properties            | 说明                                                  | 必选                                                     |
+| properties            | 说明                                                  | 必需                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | type 属性必须设置为 **AzureSqlDW** 。             | 是                                                          |
 | connectionString    | 为 **connectionString** 属性指定连接到 Azure Synapse Analytics 实例所需的信息。 <br/>将此字段标记为 SecureString，以便安全地将其存储在数据工厂中。 还可以将密码/服务主体密钥放在 Azure 密钥保管库中，如果是 SQL 身份验证，则从连接字符串中拉取 `password` 配置。 有关更多详细信息，请参阅表下方的 JSON 示例和[将凭据存储在 Azure 密钥保管库中](store-credentials-in-key-vault.md)一文。 | 是                                                          |
@@ -222,7 +222,7 @@ Azure Synapse Analytics 链接服务支持以下属性：
 
 Azure Synapse Analytics 数据集支持以下属性：
 
-| properties  | 说明                                                  | 必选                    |
+| properties  | 说明                                                  | 必需                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 数据集的 **type** 属性必须设置为 **AzureSqlDWTable** 。 | 是                         |
 | schema | 架构的名称。 |对于源为“No”，对于接收器为“Yes”  |
@@ -261,7 +261,7 @@ Azure Synapse Analytics 数据集支持以下属性：
 
 若要从 Azure Synapse Analytics 复制数据，请将复制活动源中的 **type** 属性设置为 **SqlDWSource** 。 复制活动 **source** 节支持以下属性：
 
-| properties                     | 说明                                                  | 必选 |
+| properties                     | 说明                                                  | 必需 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 复制活动源的 **type** 属性必须设置为 **SqlDWSource** 。 | 是      |
 | sqlReaderQuery               | 使用自定义 SQL 查询读取数据。 示例：`select * from MyTable`。 | 否       |
@@ -271,7 +271,7 @@ Azure Synapse Analytics 数据集支持以下属性：
 | partitionOptions | 指定用于从 Azure Synapse Analytics 加载数据的数据分区选项。 <br>允许值包括：None（默认值）、PhysicalPartitionsOfTable 和 DynamicRange  。<br>启用分区选项（且选项不是 `None`）时，用于从 Azure Synapse Analytics 并行加载数据的并行度由复制活动上的 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 设置控制。 | 否 |
 | partitionSettings | 指定数据分区的设置组。 <br>当分区选项不是 `None` 时适用。 | 否 |
 | **_在 `partitionSettings` ： _ 下_* | | |
-| partitionColumnName | 指定 *以整数或日期/日期/时间类型* * 表示的源列 _ 的名称，此名称将由范围分区用于并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-synapse-analytics)部分。 | 否 |
+| partitionColumnName | 指定 *以整数或日期/datetime 类型* * (、、、、、、或) 的源列 _ 的名称， `int` 这些名称 `smallint` `bigint` `date` `smalldatetime` `datetime` `datetime2` `datetimeoffset` 将由范围分区用于并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-synapse-analytics)部分。 | 否 |
 | partitionUpperBound | 分区范围拆分的分区列的最大值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。  <br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-synapse-analytics)部分。 | 否 |
 | partitionLowerBound | 分区范围拆分的分区列的最小值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。<br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-synapse-analytics)部分。 | 否 |
 
@@ -376,15 +376,15 @@ Azure 数据工厂支持通过三种方式将数据加载到 Azure Synapse Analy
 
 要将数据复制到 Azure Synapse Analytics，请将复制活动中的接收器类型设置为 SqlDWSink。 复制活动 **sink** 节支持以下属性：
 
-| properties          | 说明                                                  | 必选                                      |
+| properties          | 说明                                                  | 必需                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 复制活动接收器的 **type** 属性必须设置为 **SqlDWSink** 。 | 是                                           |
 | allowPolyBase     | 指示是否使用 PolyBase 将数据加载到 Azure Synapse Analytics。 `allowCopyCommand` 和 `allowPolyBase` 不能同时为 true。 <br/><br/>有关约束和详细信息，请参阅[使用 PolyBase 将数据加载到 Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) 部分。<br/><br/>允许的值为 **True** 和 **False** （默认值）。 | 否。<br/>使用 PolyBase 时适用。     |
-| polyBaseSettings  | `allowPolybase` 属性设置为 **true** 时可以指定的一组属性。 | 否。<br/>使用 PolyBase 时适用。 |
+| polyBaseSettings  | `allowPolybase` 属性设置为 **true** 时可以指定的一组属性。 | 不是。<br/>使用 PolyBase 时适用。 |
 | allowCopyCommand | 指示是否使用 [COPY 语句](/sql/t-sql/statements/copy-into-transact-sql)（预览版）将数据加载到 Azure Synapse Analytics。 `allowCopyCommand` 和 `allowPolyBase` 不能同时为 true。 <br/><br/>有关约束和详细信息，请参阅[使用 COPY 语句将数据加载到 Azure Synapse Analytics](#use-copy-statement) 部分。<br/><br/>允许的值为 **True** 和 **False** （默认值）。 | 否。<br>使用 COPY 时适用。 |
-| copyCommandSettings | `allowCopyCommand` 属性设置为 TRUE 时可以指定的一组属性。 | 否。<br/>使用 COPY 时适用。 |
-| writeBatchSize    | **每批** 要插入到 SQL 表中的行数。<br/><br/>允许的值为 **integer** （行数）。 默认情况下，数据工厂根据行大小动态确定适当的批大小。 | 否。<br/>使用批量插入时适用。     |
-| writeBatchTimeout | 超时前等待批量插入操作完成的时间。<br/><br/>允许的值为 **timespan** 。 示例："00:30:00"（30 分钟）。 | 否。<br/>使用批量插入时适用。        |
+| copyCommandSettings | `allowCopyCommand` 属性设置为 TRUE 时可以指定的一组属性。 | 不是。<br/>使用 COPY 时适用。 |
+| writeBatchSize    | **每批** 要插入到 SQL 表中的行数。<br/><br/>允许的值为 **integer** （行数）。 默认情况下，数据工厂根据行大小动态确定适当的批大小。 | 不是。<br/>使用批量插入时适用。     |
+| writeBatchTimeout | 超时前等待批量插入操作完成的时间。<br/><br/>允许的值为 **timespan** 。 示例："00:30:00"（30 分钟）。 | 不是。<br/>使用批量插入时适用。        |
 | preCopyScript     | 指定在每次运行中将数据写入到 Azure Synapse Analytics 之前要由复制活动运行的 SQL 查询。 使用此属性清理预加载的数据。 | 否                                            |
 | tableOption | 指定是否根据源架构[自动创建接收器表](copy-activity-overview.md#auto-create-sink-tables)（如果不存在）。 允许的值为：`none`（默认值）、`autoCreate`。 |否 |
 | disableMetricsCollection | 数据工厂收集指标（如 Azure Synapse Analytics DTU），以获取复制性能优化和建议。 如果你担心此行为，请指定 `true` 将其关闭。 | 否（默认值为 `false`） |
@@ -478,11 +478,11 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 - 如果 PolyBase 最初不支持源数据存储和格式，请改用 **[使用 PolyBase 的暂存复制](#staged-copy-by-using-polybase)** 功能。 暂存复制功能也能提供更高的吞吐量。 它自动将数据转换为与 PolyBase 兼容的格式，将数据存储在 Azure Blob 存储中，然后调用 PolyBase 将数据加载到 Azure Synapse Analytics。
 
 > [!TIP]
-> 详细了解[有关如何使用 PolyBase 的最佳做法](#best-practices-for-using-polybase)。
+> 详细了解[有关如何使用 PolyBase 的最佳做法](#best-practices-for-using-polybase)。 将 PolyBase 与 Azure Integration Runtime 结合使用时，有效的数据集成单位 (DIUs) 始终为2。 优化 DIU 不会影响性能，因为从存储加载数据由 Synapse 引擎提供支持。
 
 在复制活动中的 `polyBaseSettings` 下支持以下 PolyBase 设置：
 
-| properties          | 说明                                                  | 必选                                      |
+| properties          | 说明                                                  | 必需                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejectValue       | 指定在查询失败之前可以拒绝的行数或百分比。<br/><br/>有关 PolyBase 的拒绝选项的详细信息，请参阅 [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) 的“参数”部分。 <br/><br/>允许的值为 0（默认值）、1、2 等。 | 否                                            |
 | rejectType        | 指定 **rejectValue** 选项是文本值还是百分比。<br/><br/>允许的值为 **Value** （默认值）和 **Percentage** 。 | 否                                            |
@@ -672,6 +672,9 @@ Azure Synapse Analytics [COPY 语句](/sql/t-sql/statements/copy-into-transact-s
 >[!NOTE]
 >目前，数据工厂仅支持从下面所述的 COPY 语句兼容源进行复制。
 
+>[!TIP]
+>将 COPY 语句与 Azure Integration Runtime 一起使用时，有效的数据集成单元 (DIUs) 始终为2。 优化 DIU 不会影响性能，因为从存储加载数据由 Synapse 引擎提供支持。
+
 使用 COPY 语句可支持以下配置：
 
 1. **源链接服务和格式** 使用以下类型和身份验证方法：
@@ -704,7 +707,7 @@ Azure Synapse Analytics [COPY 语句](/sql/t-sql/statements/copy-into-transact-s
 
 复制活动中的 `allowCopyCommand` 下支持以下 COPY 语句设置：
 
-| properties          | 说明                                                  | 必选                                      |
+| properties          | 说明                                                  | 必需                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | 为 Azure Synapse Analytics 中的每个目标列指定默认值。  属性中的默认值将覆盖数据仓库中设置的 DEFAULT 约束，标识列不能有默认值。 | 否 |
 | additionalOptions | 将直接在 [COPY 语句](/sql/t-sql/statements/copy-into-transact-sql)的“With”子句中传递给 Azure Synapse Analytics COPY 语句的其他选项。 根据需要将值括在引号中，以符合 COPY 语句要求。 | 否 |

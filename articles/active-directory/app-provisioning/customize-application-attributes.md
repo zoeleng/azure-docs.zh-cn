@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781475"
+ms.locfileid: "92899185"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射
 
@@ -142,10 +142,7 @@ SCIM RFC 定义一个核心用户和组模式，同时还允许对模式进行�
    4. 选择“编辑 AppName 的属性列表”。
    5. 在属性列表底部，在提供的字段中输入有关自定义属性的信息。 然后选择“添加属性”。
 
-对于 SCIM 应用程序，属性名称必须遵循以下示例所示的模式。 可以根据应用程序的要求自定义“CustomExtensionName”和“CustomAttribute”，例如：  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn： ietf： params： scim：架构：扩展： CustomExtensionName：2.0：用户： CustomAttributeName：值
+对于 SCIM 应用程序，属性名称必须遵循以下示例所示的模式。 可以根据应用程序的要求自定义 "CustomExtensionName" 和 "CustomAttribute"，例如： urn： ietf： params： scim：架构： extension： CustomExtensionName：2.0： User： CustomAttribute 
 
 这些说明仅适用于启用了 SCIM 的应用程序。 诸如 ServiceNow 和 Salesforce 之类的应用程序不与使用 SCIM 的 Azure AD 集成，因此它们在添加自定义属性时不需要这一特定的命名空间。
 

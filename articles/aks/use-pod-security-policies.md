@@ -4,12 +4,12 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 PodSecurity
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669293"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900097"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>预览 - 在 Azure Kubernetes 服务 (AKS) 中使用 Pod 安全策略保护群集
 
@@ -28,7 +28,7 @@ ms.locfileid: "89669293"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-需要安装并配置 Azure CLI 2.0.61 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+需要安装并配置 Azure CLI 2.0.61 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ### <a name="install-aks-preview-cli-extension"></a>安装 aks-preview CLI 扩展
 
@@ -52,7 +52,7 @@ az extension update --name aks-preview
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-状态显示为“已注册”需要几分钟时间**。 可以使用 [az feature list][az-feature-list] 命令检查注册状态：
+状态显示为“已注册”需要几分钟时间  。 可以使用 [az feature list][az-feature-list] 命令检查注册状态：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
@@ -181,7 +181,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         privileged: true
 ```
@@ -216,7 +216,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令创建 Pod，并指定 YAML 清单的名称：
@@ -249,7 +249,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         runAsUser: 2000
 ```

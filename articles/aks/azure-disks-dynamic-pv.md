@@ -5,19 +5,19 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 Azure 磁�
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: fd2bc698a107599dccf8f142b0d318400b40aaf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad51bfdf8c494e763921de880926b839cdb7be62
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900747"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 
 永久性卷表示已经过预配可以用于 Kubernetes Pod 的存储块。 永久性卷可供一个或多个 Pod 使用，并可动态或静态预配。 本文介绍如何使用 Azure 磁盘动态创建永久性卷，以供 Azure Kubernetes 服务 (AKS) 群集中的单个 Pod 使用。
 
 > [!NOTE]
-> Azure 磁盘只能装载 *Access 模式* 类型 *ReadWriteOnce*，使其可用于 AKS 中的一个节点。 如果需要跨多个节点共享持久卷，请使用 [Azure 文件][azure-files-pvc]。
+> Azure 磁盘只能使用“访问模式”类型 ReadWriteOnce 进行装载，这使其只可供 AKS 中的一个节点使用。 如果需要在多个节点之间共享永久性卷，请使用 [Azure 文件存储][azure-files-pvc]。
 
 有关 Kubernetes 卷的详细信息，请参阅 [AKS 中应用程序的存储选项][concepts-storage]。
 
@@ -25,7 +25,7 @@ ms.locfileid: "91299317"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="built-in-storage-classes"></a>内置存储类
 
@@ -61,7 +61,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 永久卷声明 (PVC) 用于基于存储类自动预配存储。 在这种情况下，PVC 可以使用预先创建的存储类之一创建标准或高级 Azure 托管磁盘。
 
-创建名为 `azure-premium.yaml` 的文件，并将其复制到以下清单中。 该声明请求名为 `azure-managed-disk`、大小为 *5 GB*、具有 *ReadWriteOnce* 访问权限的磁盘。 *managed-premium* 存储类指定为存储类。
+创建名为 `azure-premium.yaml` 的文件，并将其复制到以下清单中。 该声明请求名为 `azure-managed-disk`、大小为 *5 GB* 、具有 *ReadWriteOnce* 访问权限的磁盘。 *managed-premium* 存储类指定为存储类。
 
 ```yaml
 apiVersion: v1
@@ -78,7 +78,7 @@ spec:
 ```
 
 > [!TIP]
-> 若要创建使用标准存储的磁盘，请使用 `storageClassName: default` 而不是 *managed-premium*。
+> 若要创建使用标准存储的磁盘，请使用 `storageClassName: default` 而不是 *managed-premium* 。
 
 使用 [kubectl apply][kubectl-apply] 命令创建永久性卷声明，并指定 azure-premium.yaml 文件：
 
@@ -102,7 +102,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -159,7 +159,7 @@ Events:
 
 若要备份持久卷中的数据，请为该卷的托管磁盘创建快照。 然后，可以使用此快照创建还原的磁盘，并通过还原数据的方式附加到 Pod。
 
-首先，使用 `kubectl get pvc` 命令获取卷名称，例如，获取 PVC 名称 *azure-managed-disk*：
+首先，使用 `kubectl get pvc` 命令获取卷名称，例如，获取 PVC 名称 *azure-managed-disk* ：
 
 ```console
 $ kubectl get pvc azure-managed-disk
@@ -176,7 +176,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-运行 [az snapshot create][az-snapshot-create]，使用磁盘 ID 创建快照磁盘。 以下示例在 AKS 群集所在的同一资源组 (*MC_myResourceGroup_myAKSCluster_eastus*) 中创建名为 *pvcSnapshot* 的快照。 如果在 AKS 群集无权访问的资源组中创建快照和还原磁盘，可能会遇到权限问题。
+运行 [az snapshot create][az-snapshot-create]，使用磁盘 ID 创建快照磁盘。 以下示例在 AKS 群集所在的同一资源组 ( *MC_myResourceGroup_myAKSCluster_eastus* ) 中创建名为 *pvcSnapshot* 的快照。 如果在 AKS 群集无权访问的资源组中创建快照和还原磁盘，可能会遇到权限问题。
 
 ```azurecli-interactive
 $ az snapshot create \
@@ -211,7 +211,7 @@ metadata:
 spec:
   containers:
   - name: mypodrestored
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

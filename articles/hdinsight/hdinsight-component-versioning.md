@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 47e2211be478a16238d35eeb5219cf6e785a6979
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547565"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900804"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>适用于 Azure HDInsight 的 Apache 组件和版本
 
@@ -133,6 +133,6 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 ## <a name="next-steps"></a>后续步骤
 
 - [为 HDInsight 上的 Apache Hadoop、Spark 和其他组件设置群集](hdinsight-hadoop-provision-linux-clusters.md)
-- [使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 中工作](hdinsight-hadoop-windows-tools.md)
-- [与 Azure HDInsight 版本相关的 Hortonworks 发行说明](./hortonworks-release-notes.md)
 - [企业安全性套餐](./enterprise-security-package.md)
+- [与 Azure HDInsight 版本相关的 Hortonworks 发行说明](./hortonworks-release-notes.md)
+- [使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 中工作](hdinsight-hadoop-windows-tools.md)

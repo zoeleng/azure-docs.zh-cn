@@ -9,24 +9,24 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758568"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900322"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>复制并移动自定义视觉项目
 
 创建并训练自定义视觉项目后，你可能想要将项目复制到另一个资源。 例如，你可能想要将项目从开发环境转移到生产环境，或者将项目备份到不同 Azure 区域中的帐户，以提高数据安全性。
 
-**[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** 和**[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** api 允许将项目从一个自定义视觉帐户复制到其他帐户，从而实现了这种方案。 本指南演示如何通过卷使用这些 REST Api。 你还可以使用 HTTP 请求服务（如 Postman）发出请求。
+**[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** 和 **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** api 允许将项目从一个自定义视觉帐户复制到其他帐户，从而实现了这种方案。 本指南演示如何通过卷使用这些 REST Api。 你还可以使用 HTTP 请求服务（如 Postman）发出请求。
 
 ## <a name="business-scenarios"></a>业务方案
 
 如果你的应用或企业依赖于自定义视觉项目，则建议你将模型复制到另一个区域中的另一个自定义视觉帐户。 然后，如果发生区域性中断，你可以在复制项目的区域中访问该项目。
 
-##  <a name="prerequisites"></a>必备条件
+##  <a name="prerequisites"></a>先决条件
 
 - 两个 Azure 自定义视觉资源。 如果没有这些资源，请参阅 "Azure 门户"，并 [创建新自定义视觉资源](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true)。
 - 自定义视觉资源的定型密钥和终结点 Url。 可以在 Azure 门户上资源的 " **概述** " 选项卡中找到这些值。
@@ -105,8 +105,9 @@ curl -v -X GET "{endpoint}/customvision/v3.3/Training/projects/{projectId}/expor
 使用目标定型密钥和终结点调用 **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** ，以及引用令牌。 你还可以在新帐户中为你的项目命名。
 
 ```curl
-curl -v -X POST "{endpoint}/customvision/v3.3/Training/projects/import?token={token}?name={name}"
--H "Training-key: {training key}"
+curl -v -G -X POST "{endpoint}/customvision/v3.3/Training/projects/import"
+--data-urlencode "token={token}" --data-urlencode "name={name}"
+-H "Training-key: {training key}" -H "Content-Length: 0"
 ```
 
 你将收到 `200/OK` 有关新导入项目的元数据的响应。

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279818"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900260"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP 表复制数据
 
@@ -51,9 +51,10 @@ ms.locfileid: "89279818"
 - 通过默认或自定义 RFC 检索数据。
 
 版本 7.01 或更高版本指 SAP NetWeaver 版本，而不是 SAP ECC 版本。 例如，SAP ECC 6.0 EHP 7 的 NetWeaver 版本一般 >=7.4。 如果你不确定自己的环境，请在 SAP 系统中执行以下步骤来确认版本：
-1.  使用 SAP GUI 连接到 SAP 系统。 
-2.  转到“系统” -> “状态” 。 
-3.  检查 SAP_BASIS 的版本，确保它等于或大于 701。  
+
+1. 使用 SAP GUI 连接到 SAP 系统。 
+2. 转到“系统” -> “状态” 。 
+3. 检查 SAP_BASIS 的版本，确保它等于或大于 701。  
       ![检查 SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>先决条件

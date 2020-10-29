@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514378"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900286"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>教程：为自动用户预配配置全局中继标识同步
 
-本教程介绍了在全局中继标识同步和 Azure Active Directory (Azure AD) 配置自动用户预配时需要执行的步骤。 配置时，Azure AD 会自动将用户和组预配和取消预配到使用 Azure AD 预配服务的 [全局中继标识同步](https://portalalpha1.globalrelay.com/) 。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
+本教程介绍了在全局中继标识同步和 Azure Active Directory (Azure AD) 配置自动用户预配时需要执行的步骤。 配置时，Azure AD 会自动将用户和组预配和取消预配到使用 Azure AD 预配服务的全局中继标识同步。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
 
 
 ## <a name="capabilities-supported"></a>支持的功能
@@ -71,7 +71,7 @@ ms.locfileid: "92514378"
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择 " **全局中继标识同步**"。
+2. 在应用程序列表中，选择 " **全局中继标识同步** "。
 
     ![应用程序列表中的全局中继标识同步链接](common/all-applications.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "92514378"
 
     ![自动设置选项卡](common/provisioning-automatic.png)
 
-5. 在 " **管理员凭据** " 部分中，输入全局中继标识同步 **租户 url**。 单击 " **测试连接** " 以确保 Azure AD 可以连接到全局中继标识同步。如果连接失败，请确保全局中继标识同步帐户具有管理员权限，并与你的全局中继代表联系以解决此问题。
+5. 在 " **管理员凭据** " 部分中，输入全局中继标识同步 **租户 url** 。 单击 " **测试连接** " 以确保 Azure AD 可以连接到全局中继标识同步。如果连接失败，请确保全局中继标识同步帐户具有管理员权限，并与你的全局中继代表联系以解决此问题。
 
     ![授权按钮](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "92514378"
 
 7. 选择“保存”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到全局中继标识同步**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到全局中继标识同步** "。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到全局中继标识同步的用户属性。 选为 " **匹配** " 属性的属性用于匹配全局中继标识同步中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，将需要确保全局中继标识同步 API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
@@ -103,7 +103,6 @@ ms.locfileid: "92514378"
    |活动|Boolean|
    |displayName|字符串|
    |title|字符串|
-   |emails[type eq "work"].value|字符串|
    |preferredLanguage|字符串|
    |name.givenName|字符串|
    |name.familyName|字符串|
@@ -122,55 +121,55 @@ ms.locfileid: "92514378"
    |externalId|字符串|
    |name.honorificPrefix|String|
    |名称. honorificSuffix|字符串|
-   |nickName|String|
-   |userType|String|
+   |nickName|字符串|
+   |userType|字符串|
    |区域设置|字符串|
    |timezone|字符串|
-   |电子邮件 [类型 eq "home"]。值|String|
-   |电子邮件 [type eq "other"]。值|String|
-   |phoneNumbers [type eq "home"]。值|String|
-   |phoneNumbers [type eq "other"]。值|String|
-   |phoneNumbers [type eq "呼机"]。值|String|
-   |地址 [type eq "home"]. streetAddress|String|
-   |地址 [类型 eq "home"]。位置|String|
-   |地址 [类型 eq "home"]。区域|String|
-   |地址 [类型 eq "home"]|String|
-   |地址 [类型 eq "home"]。国家/地区|String|
-   |地址 [类型 eq "home"]。格式|String|
-   |地址 [type eq "other"]. streetAddress|String|
-   |地址 [type eq "other"]。位置|String|
-   |地址 [type eq "other"]。区域|String|
-   |地址 [type eq "other"]|String|
-   |地址 [type eq "other"]|String|
-   |角色 [主 eq "True"]。显示|String|
+   |电子邮件 [类型 eq "home"]。值|字符串|
+   |电子邮件 [type eq "other"]。值|字符串|
+   |phoneNumbers [type eq "home"]。值|字符串|
+   |phoneNumbers [type eq "other"]。值|字符串|
+   |phoneNumbers [type eq "呼机"]。值|字符串|
+   |地址 [type eq "home"]. streetAddress|字符串|
+   |地址 [类型 eq "home"]。位置|字符串|
+   |地址 [类型 eq "home"]。区域|字符串|
+   |地址 [类型 eq "home"]|字符串|
+   |地址 [类型 eq "home"]。国家/地区|字符串|
+   |地址 [类型 eq "home"]。格式|字符串|
+   |地址 [type eq "other"]. streetAddress|字符串|
+   |地址 [type eq "other"]。位置|字符串|
+   |地址 [type eq "other"]。区域|字符串|
+   |地址 [type eq "other"]|字符串|
+   |地址 [type eq "other"]|字符串|
+   |角色 [主 eq "True"]。显示|字符串|
    |role [primary eq "True"]。类型|字符串|
-   |roles[primary eq "True"].value|String|
+   |roles[primary eq "True"].value|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|参考|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： proxyAddresses|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute1|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute2|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute3|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute4|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute5|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute6|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute7|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute8|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute9|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute10|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute11|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute12|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute13|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute14|String|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute15|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： proxyAddresses|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute1|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute2|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute3|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute4|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute5|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute6|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute7|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute8|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute9|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute10|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute11|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute12|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute13|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute14|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute15|字符串|
 
 
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到全局中继标识同步**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到全局中继标识同步** "。
 
 11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到全局中继标识同步的组属性。 选为 " **匹配** " 属性的属性用于匹配全局中继标识同步中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -181,11 +180,11 @@ ms.locfileid: "92514378"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为全局中继标识同步启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 若要为全局中继标识同步启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到全局中继标识同步的用户和/或组。
+14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到全局中继标识同步的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

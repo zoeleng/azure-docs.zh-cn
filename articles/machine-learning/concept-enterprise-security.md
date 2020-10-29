@@ -1,5 +1,5 @@
 ---
-title: 企业安全性
+title: 企业安全和管理
 titleSuffix: Azure Machine Learning
 description: 安全使用 Azure 机器学习：身份验证、授权、网络安全性、数据加密和监视。
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637082"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899326"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Azure 机器学习的企业安全性
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure 机器学习的企业安全和管理
 
 本文介绍 Azure 机器学习可用的安全性功能。
 
-使用某个云服务时，最佳做法是仅限需要该服务的用户访问它。 首先需要了解服务使用的身份验证和授权模型。 此外，你可能想要限制网络访问，或者安全地将本地网络中的资源加入云中。 静态数据以及在服务之间移动的数据的加密也至关重要。 最后，需要能够监视服务并生成所有活动的审核日志。
+使用某个云服务时，最佳做法是仅限需要该服务的用户访问它。 首先需要了解服务使用的身份验证和授权模型。 此外，你可能想要限制网络访问，或者安全地将本地网络中的资源加入云中。 静态数据以及在服务之间移动的数据的加密也至关重要。 你可能还希望创建策略，以便在创建不符合配置时强制某些配置或日志。 最后，需要能够监视服务并生成所有活动的审核日志。
 
 > [!NOTE]
 > 本文中的信息适用于 Azure 机器学习 Python SDK 1.0.83.1 或更高版本。
@@ -44,7 +44,7 @@ ms.locfileid: "92637082"
 
 |身份验证方法|说明|Azure 容器实例|AKS|
 |---|---|---|---|
-|键|密钥是静态的，无需刷新。 可以手动重新生成密钥。|默认已禁用| 默认情况下启用|
+|密钥|密钥是静态的，无需刷新。 可以手动重新生成密钥。|默认情况下禁用| 默认情况下启用|
 |令牌|令牌会在指定的时限后过期，需要刷新。| 不可用| 默认情况下禁用 |
 
 有关代码示例，请参阅 [Web 服务身份验证](how-to-setup-authentication.md#web-service-authentication)部分。
@@ -98,9 +98,9 @@ ms.locfileid: "92637082"
 
 不建议管理员撤销托管标识对上表中所述资源的访问权限。 可以使用重新同步密钥操作来恢复访问权限。
 
-对于每个工作区区域，Azure 机器学习将在订阅中创建一个拥有参与者级别访问权限的附加应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头）。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 Azure 机器学习可以通过这些应用程序来帮助你管理计算资源。
+Azure 机器学习将在订阅中为每个工作区区域创建一个额外的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头），该应用程序具有参与者级别的访问权限。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 通过这些应用程序，Azure 机器学习可帮助管理计算资源。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源（计算目标）用于训练和部署模型。 可以在虚拟网络中创建这些计算目标。 例如，可以使用 Azure Data Science Virtual Machine 来训练模型，然后将模型部署到 AKS。  
 
