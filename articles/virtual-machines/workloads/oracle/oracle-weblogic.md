@@ -7,20 +7,22 @@ ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: 32f5ae0e06c38f610ae9751d81b7bf77a0ebc050
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d8639214773a4444876b2a89dda5dd831b8c36ce
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149288"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927284"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>采用哪些解决方案在 Azure 虚拟机上运行 Oracle WebLogic Server？
 
 本页介绍了在 Azure 虚拟机上运行 Oracle WebLogic Server (WLS) 的解决方案。 Oracle 和 Microsoft 共同开发并支持这些解决方案。
 
+还可以在 Azure Kubernetes 服务上运行 WLS。 [此 Microsoft 文章](/azure/virtual-machines/workloads/oracle/weblogic-aks)介绍了执行此操作的解决方案。
+
 WLS 是一台领先的 Java 应用程序服务器，可在全球范围内运行一些最重要的关键企业 Java 应用程序。 WLS 构成了 Oracle 软件套件的中间件基础。 Oracle 和 Microsoft 致力于让 WLS 的客户在 Azure 上运行工作负荷作为领先的云平台，从而实现选择和灵活性。
 
-Azure WLS 解决方案旨在使其尽可能轻松地将 Java EE 应用程序直接迁移到 Azure 虚拟机，并自动执行大部分样板操作。 解决方案自动预配虚拟网络、存储、Java 和 Linux 资源。 只需极少的工作量，就能安装 WebLogic Server。 这些解决方案可以使用网络安全组设置安全性，使用 Azure 应用网关进行负载平衡，并使用 Azure Active Directory 进行身份验证。 你还可以在 Oracle 云或 Azure 上自动连接到现有数据库，包括 Azure PostgreSQL、Azure SQL 和 Oracle DB。 解决方案的路线图包括能够通过 Oracle 一致性启用分布式日志记录和分布式缓存。 Microsoft 和 Oracle 建立了合作，实现 WebLogic 和 Azure Kubernetes Service (AKS) 的类似功能。
+Azure WLS 解决方案旨在使其尽可能轻松地将 Java EE 应用程序直接迁移到 Azure 虚拟机，并自动执行大部分样板操作。 解决方案自动预配虚拟网络、存储、Java 和 Linux 资源。 只需极少的工作量，就能安装 WebLogic Server。 这些解决方案可以使用网络安全组设置安全性，使用 Azure 应用网关进行负载平衡，并使用 Azure Active Directory 进行身份验证。 你还可以在 Oracle 云或 Azure 上自动连接到现有数据库，包括 Azure PostgreSQL、Azure SQL 和 Oracle DB。 解决方案的路线图包括能够通过 Oracle 一致性启用分布式日志记录和分布式缓存。  
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="你可以使用 Azure 门户在 Azure 上部署 WebLogic 服务器":::
 
@@ -30,7 +32,7 @@ Azure WLS 解决方案旨在使其尽可能轻松地将 Java EE 应用程序直�
 
 此产品/服务支持一系列的操作系统、Java 和 WLS 版本， (例如 Oracle Linux 7.6) 上的 WebLogic Server 14 和 JDK 11。 这些基本映像还可在 Azure 上自行使用。 基本映像适用于需要复杂的自定义 Azure 部署的客户。 [此处](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1)提供当前的基本映像集。
 
-_如果你对开发这些产品/服务的工程团队有兴趣密切关注你的迁移方案，请[CONTACT ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) _在[marketplace 产品概述页](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)上选择 "联系我"。 计划经理、架构师和工程师将尽快进入你，并开始密切合作。 对迁移方案进行协作的机会是免费的，因为产品/服务处于主动初始开发环境。
+_如果你对开发这些产品/服务的工程团队有兴趣密切关注你的迁移方案，请 [CONTACT ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)_ 在 [marketplace 产品概述页](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)上选择 "联系我"。 计划经理、架构师和工程师将尽快进入你，并开始密切合作。 对迁移方案进行协作的机会是免费的，因为产品/服务处于主动初始开发环境。
 
 ## <a name="oracle-weblogic-server-single-node"></a>Oracle WebLogic Server 单节点
 

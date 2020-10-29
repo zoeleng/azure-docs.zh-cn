@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085259"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927186"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>通过 Azure 门户控制 Azure HANA 大型实例
 本文档介绍了如何在[Azure 门户](https://portal.azure.com)中提供[HANA 大型实例](./hana-overview-architecture.md)，以及可通过部署的 hana 大型实例单元 Azure 门户进行哪些活动。 Azure 门户中 HANA 大型实例的可见性是通过适用于 HANA 大型实例的 Azure 资源提供程序提供的，当前正在公开预览
@@ -54,13 +54,13 @@ az provider register --namespace Microsoft.HanaOnAzure
 
 若要查找新的 Azure 资源组，请通过在 Azure 门户的左侧导航窗格中导航来列出订阅中的资源组。
 
-![Azure 门户中的导航窗格](./media/hana-li-portal/portal-resource-group.png)
+![突出显示 "资源组" 选项的屏幕截图。](./media/hana-li-portal/portal-resource-group.png)
 
 在要列出的资源组列表中，你可能需要筛选用于部署 HANA 大型实例的订阅
 
 ![在 Azure 门户中筛选资源组](./media/hana-li-portal/portal-filtering-subscription.png)
 
-筛选到正确的订阅后，仍可能会有一个较长的资源组列表。 查找一个具有 **-Txxx** 的后修复，其中 "xxx" 是三个数字，如 **-T050**。 
+筛选到正确的订阅后，仍可能会有一个较长的资源组列表。 查找一个具有 **-Txxx** 的后修复，其中 "xxx" 是三个数字，如 **-T050** 。 
 
 找到资源组后，列出它的详细信息。 收到的列表如下所示：
 
@@ -94,7 +94,7 @@ az provider register --namespace Microsoft.HanaOnAzure
 标头右侧列中的其他字段会通知 HANA 大型实例单元的电源状态。
 
 > [!NOTE]
-> 电源状态描述硬件设备是开机还是关机。 它不会给出有关正在启动并运行的操作系统的信息。 当您重新启动 HANA 大型实例单元时，您将会遇到一小段时间，其中，单元状态更改为 "**正在****启动" 状态。** 处于 " **已启动** " 状态表示 os 正在启动，或者操作系统已完全启动。 因此，在重新启动该单元后，一旦状态切换为 " **已启动**"，就无法立即登录到该设备。
+> 电源状态描述硬件设备是开机还是关机。 它不会给出有关正在启动并运行的操作系统的信息。 当您重新启动 HANA 大型实例单元时，您将会遇到一小段时间，其中，单元状态更改为 " **正在****启动" 状态。** 处于 " **已启动** " 状态表示 os 正在启动，或者操作系统已完全启动。 因此，在重新启动该单元后，一旦状态切换为 " **已启动** "，就无法立即登录到该设备。
 > 
 
 如果按 "查看更多"，则会显示附加信息。 另外，还显示了在中部署的 HANA 大型实例标记的修订版本。 请参阅 [SAP HANA Azure 上的什么是 Azure (大型实例) ](./hana-overview-architecture.md) 有关 HANA 大型实例标记不同版本的文章
@@ -106,7 +106,7 @@ az provider register --namespace Microsoft.HanaOnAzure
 
 记录的主要活动之一是重新启动单位。 列出的数据包括活动状态、触发活动的时间戳、触发活动的订阅 ID，以及触发活动的 Azure 用户。 
 
-另一个正在记录的活动是对 Azure 元数据中的单元的更改。 除了启动重新启动之外，你还可以看到 **Write HANAInstances**的活动。 这种类型的活动不会在 HANA 大型实例单元本身上执行任何更改，而是记录对 Azure 中单元的元数据的更改。 在列出的情况下，我们添加并删除了标记 (请参阅下一部分) 。
+另一个正在记录的活动是对 Azure 元数据中的单元的更改。 除了启动重新启动之外，你还可以看到 **Write HANAInstances** 的活动。 这种类型的活动不会在 HANA 大型实例单元本身上执行任何更改，而是记录对 Azure 中单元的元数据的更改。 在列出的情况下，我们添加并删除了标记 (请参阅下一部分) 。
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>向 HANA 大型实例单元添加和删除 Azure 标记
 另一种可能性是将 [标记](../../../azure-resource-manager/management/tag-resources.md) 添加到 HANA 大型实例单元。 获取标记的方式与将标记分配给 Vm 的方式不同。 与 Vm 一样，Azure 元数据中存在标记，对于 HANA 大型实例，与 Vm 的标记具有相同的限制。
@@ -131,14 +131,14 @@ az provider register --namespace Microsoft.HanaOnAzure
 按下 "重新启动" 按钮时，系统会询问你是否确实要重新启动该单元。 按下按钮 "是" 进行确认时，设备将重新启动。
 
 > [!NOTE]
-> 在重新启动过程中，将出现一小段时间，其中单元状态更改为 "**正在****启动"。** 处于 " **已启动** " 状态表示 os 正在启动，或者操作系统已完全启动。 因此，在重新启动该单元后，一旦状态切换为 " **已启动**"，就无法立即登录到该设备。
+> 在重新启动过程中，将出现一小段时间，其中单元状态更改为 " **正在****启动"。** 处于 " **已启动** " 状态表示 os 正在启动，或者操作系统已完全启动。 因此，在重新启动该单元后，一旦状态切换为 " **已启动** "，就无法立即登录到该设备。
 
 > [!IMPORTANT]
 > 取决于 HANA 大型实例单元中的内存量，重新启动和重新启动硬件和操作系统最多可能需要一小时
 
 
 ## <a name="open-a-support-request-for-hana-large-instances"></a>为 HANA 大型实例打开支持请求
-除了 Azure 门户显示 HANA 大型实例单元外，还可以创建特别适用于 HANA 大型实例单元的支持请求。 按照链接**新的支持请求**进行操作 
+除了 Azure 门户显示 HANA 大型实例单元外，还可以创建特别适用于 HANA 大型实例单元的支持请求。 按照链接 **新的支持请求** 进行操作 
 
 ![在 Azure 门户中启动服务请求步骤 #1](./media/hana-li-portal/portal-initiate-support-request.png)
 
@@ -146,7 +146,7 @@ az provider register --namespace Microsoft.HanaOnAzure
 
 ![在 Azure 门户中选择 "所有服务"](./media/hana-li-portal/portal-create-service-request.png)
 
-在服务列表中，可以找到服务 **SAP HANA 大型实例**。 选择该服务时，可以选择特定的问题类型，如下所示：
+在服务列表中，可以找到服务 **SAP HANA 大型实例** 。 选择该服务时，可以选择特定的问题类型，如下所示：
 
 
 ![在 Azure 门户中选择问题类](./media/hana-li-portal/portal-select-problem-class.png)
