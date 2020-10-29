@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 905ca5fd92a09b209bf099bfac0862132ec679a4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c589db84b6221aa23868b3b49aea84f33623619f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875337"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>教程：Azure Active Directory 与 Sectigo Certificate Manager 的集成
 
@@ -28,7 +28,7 @@ ms.locfileid: "91875337"
 * 用户可以使用其 Azure AD 帐户自动登录到 Sectigo Certificate Manager（单一登录）。
 * 可在一个中心位置（即 Azure 门户）管理帐户。
 
-有关服务型软件 (SaaS) 应用与 Azure AD 集成的详细信息，请参阅[单一登录到 Azure Active Directory 的应用程序](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+有关服务型软件 (SaaS) 应用与 Azure AD 集成的详细信息，请参阅[单一登录到 Azure Active Directory 的应用程序](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -156,7 +156,7 @@ Sectigo Certificate Manager 支持以下功能：
 
 1. 在“用户”窗格中完成以下步骤： 
 
-    1. 在“姓名”  框中，输入 **BrittaSimon**。
+    1. 在“姓名”  框中，输入 **BrittaSimon** 。
   
     1. 在“用户名”框中，输入 brittasimon\@\<your-company-domain>.\<extension\> 。 例如，brittasimon\@contoso.com  。
 
@@ -216,8 +216,6 @@ Sectigo Certificate Manager 支持以下功能：
 
 若要了解更多信息，请查看下列文章：
 
-- [用于将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [单一登录到 Azure Active Directory 中的应用程序](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-
+- [用于将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
+- [单一登录到 Azure Active Directory 中的应用程序](../manage-apps/what-is-single-sign-on.md)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

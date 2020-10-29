@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f28d8f82796f54002312514b1a34e3dd8b666a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497165"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675258"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>适用于 Azure SQL 数据库和 SQL 托管实例的 Azure CLI 示例 
  
@@ -73,7 +73,7 @@ ms.locfileid: "87497165"
 | [为 SQL 托管实例配置故障转移组](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | 创建 SQL 托管实例的两个实例，将其添加到故障转移组，然后测试从主 SQL 托管实例到辅助 SQL 托管实例的故障转移。 |
 |||
 
-有关其他 SQL 托管实例示例，请参阅[创建](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/)、[更新](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/)、[移动数据库](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)以及[使用](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)脚本。
+有关其他 SQL 托管实例示例，请参阅[创建](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli)、[更新](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli)、[移动数据库](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance)以及[使用](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)脚本。
 
 详细了解 [SQL 托管实例 Azure CLI API](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances)。
 

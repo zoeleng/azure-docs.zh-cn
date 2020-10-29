@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: db5384f843173bdc795fba64f277ff8bf85dc4f5
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1c8958062c7430f98db0925c2b3996887bfe5548
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827143"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637354"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>使用 Azure 数据工厂和 Azure Data Share 实现数据集成
 
@@ -28,17 +28,17 @@ ms.locfileid: "91827143"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
+* **Azure 订阅** ：如果没有 Azure 订阅，请在开始之前创建一个 [免费帐户](https://azure.microsoft.com/free/)。
 
-* **Azure SQL 数据库**：如果没有 SQL 数据库，请了解如何[创建 SQL 数据库帐户](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)
+* **Azure SQL 数据库** ：如果没有 SQL 数据库，请了解如何 [创建 SQL 数据库帐户](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Azure Data Lake Storage Gen2 存储帐户**：如果没有 ADLS Gen2 的存储帐户，请了解如何[创建 ADLS Gen2 存储帐户](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account)。
+* **Azure Data Lake Storage Gen2 存储帐户** ：如果没有 ADLS Gen2 的存储帐户，请了解如何 [创建 ADLS Gen2 存储帐户](../storage/common/storage-account-create.md)。
 
-* **Azure Synapse Analytics（前称为 SQL 数据仓库）** ：如果没有 Azure Synapse Analytics（前称为 SQL 数据仓库），请参阅如何[创建 Azure Synapse Analytics 实例](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal)。
+* **Azure Synapse Analytics（前称为 SQL 数据仓库）** ：如果没有 Azure Synapse Analytics（前称为 SQL 数据仓库），请参阅如何 [创建 Azure Synapse Analytics 实例](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)。
 
-* **Azure 数据工厂**：如果尚未创建数据工厂，请参阅如何[创建数据工厂](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal)。
+* **Azure 数据工厂** ：如果尚未创建数据工厂，请参阅如何 [创建数据工厂](./quickstart-create-data-factory-portal.md)。
 
-* **Azure Data Share**：如果尚未创建数据共享，请参阅如何[创建数据共享](https://docs.microsoft.com/azure/data-share/share-your-data#create-a-data-share-account)。
+* **Azure Data Share** ：如果尚未创建数据共享，请参阅如何 [创建数据共享](../data-share/share-your-data.md#create-a-data-share-account)。
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>设置 Azure 数据工厂环境
 
@@ -140,13 +140,13 @@ ms.locfileid: "91827143"
 1. 单击复制活动的“接收器”选项卡。 若要创建新数据集，请单击“新建”。
 
     ![门户副本 7](media/lab-data-flow-data-share/copy7.png)
-1. 搜索 **Azure Data Lake Storage Gen2**，然后单击“继续”。
+1. 搜索 **Azure Data Lake Storage Gen2** ，然后单击“继续”。
 
     ![门户副本 8](media/lab-data-flow-data-share/copy8.png)
 1. 在“选择格式”窗格中选择“DelimitedText”，因为将要写入到 csv 文件。 单击“继续”。
 
     ![门户副本 9](media/lab-data-flow-data-share/copy9.png)
-1. 将接收器数据集命名为“TripDataCSV”。 选择“ADLSGen2”作为链接服务。 输入要将 csv 文件写入到的位置。 例如，可将数据写入容器 `staging-container` 中的文件 `trip-data.csv`。 将“第一行用作标头”设置为 true，因为你希望输出数据包含标头。 由于目标中尚不存在任何文件，因此请将“导入架构”设置为 **None**。 完成后，单击“确定”。
+1. 将接收器数据集命名为“TripDataCSV”。 选择“ADLSGen2”作为链接服务。 输入要将 csv 文件写入到的位置。 例如，可将数据写入容器 `staging-container` 中的文件 `trip-data.csv`。 将“第一行用作标头”设置为 true，因为你希望输出数据包含标头。 由于目标中尚不存在任何文件，因此请将“导入架构”设置为 **None** 。 完成后，单击“确定”。
 
     ![门户副本 10](media/lab-data-flow-data-share/copy10.png)
 
@@ -161,7 +161,7 @@ ms.locfileid: "91827143"
 1. 复制监视视图提供活动的执行详细信息和性能特征。 可以查看读取/写入的数据量、读取/写入的行数、读取/写入的文件数和吞吐量等信息。 如果正确配置了所有设置，应会看到已将 49,999 行写入 ADLS 接收器中的一个文件。
 
     ![门户副本 13](media/lab-data-flow-data-share/copy13.png)
-1. 在转到下一部分之前，我们建议通过单击工厂顶部栏中的“全部发布”，来发布对数据工厂服务所做的更改。 Azure 数据工厂支持完整的 Git 集成，不过，本实验不探讨此方案。 使用 Git 集成可以实现版本控制、在存储库中反复保存，以及针对数据工厂展开协作。 有关详细信息，请参阅 [Azure 数据工厂中的源代码管理](https://docs.microsoft.com/azure/data-factory/source-control#troubleshooting-git-integration)。
+1. 在转到下一部分之前，我们建议通过单击工厂顶部栏中的“全部发布”，来发布对数据工厂服务所做的更改。 Azure 数据工厂支持完整的 Git 集成，不过，本实验不探讨此方案。 使用 Git 集成可以实现版本控制、在存储库中反复保存，以及针对数据工厂展开协作。 有关详细信息，请参阅 [Azure 数据工厂中的源代码管理](./source-control.md#troubleshooting-git-integration)。
 
     ![门户发布 1](media/lab-data-flow-data-share/publish1.png)
 
@@ -209,7 +209,7 @@ ms.locfileid: "91827143"
 1. 将此源命名为“TripFaresSQL”。 单击源数据集字段旁边的“新建”，以创建新的 SQL 数据库数据集。
 
     ![门户数据流 9](media/lab-data-flow-data-share/dataflow9.png)
-1. 选择“Azure SQL 数据库”磁贴，然后单击“继续”。 *注意：你可能注意到，数据工厂中的许多连接器在映射数据流中不受支持。若要从其中的某个源转换数据，请使用复制活动将数据引入受支持的源*。
+1. 选择“Azure SQL 数据库”磁贴，然后单击“继续”。 *注意：你可能注意到，数据工厂中的许多连接器在映射数据流中不受支持。若要从其中的某个源转换数据，请使用复制活动将数据引入受支持的源* 。
 
     ![门户数据流 10](media/lab-data-flow-data-share/dataflow10.png)
 1. 将数据集命名为“TripFares”。 选择“SQLDB”作为链接服务。 从表名称下拉列表中选择表名称“dbo.TripFares”。 导入架构“从连接/存储”。 完成后，单击“确定”。
@@ -224,7 +224,7 @@ ms.locfileid: "91827143"
 1. 若要添加新转换，请单击“TripDataCSV”右下角的加号图标。 在“多个输入/输出”下，选择“联接”。 
 
     ![门户联接 1](media/lab-data-flow-data-share/join1.png)
-1. 将联接转换命名为“InnerJoinWithTripFares”。 从右侧的流下拉列表中选择“TripFaresSQL”。 选择“内部”作为联接类型。 若要详细了解映射数据流中的不同联接类型，请参阅[联接类型](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types)。
+1. 将联接转换命名为“InnerJoinWithTripFares”。 从右侧的流下拉列表中选择“TripFaresSQL”。 选择“内部”作为联接类型。 若要详细了解映射数据流中的不同联接类型，请参阅[联接类型](./data-flow-join.md#join-types)。
 
     通过“联接条件”下拉列表选择要从每个流匹配的列。 若要添加更多联接条件，请单击现有条件旁边的加号图标。 默认情况下，所有联接条件将与 AND 运算符相组合，这意味着，必须满足所有条件才视为匹配。 在本实验中，我们想要匹配列 `medallion`、`hack_license`、`vendor_id` 和 `pickup_datetime`
 
@@ -248,7 +248,7 @@ ms.locfileid: "91827143"
     首先创建平均费用表达式。 在标有“添加或选择列”的文本框中，输入“average_fare”。
 
     ![门户聚合 3](media/lab-data-flow-data-share/agg3.png)
-1. 若要输入聚合表达式，请单击标有“输入表达式”的蓝色框。 此时会打开数据流表达式生成器，在此工具中可以使用输入架构、内置函数和操作以及用户定义的参数来直观创建数据流表达式。 有关表达式生成器的功能的详细信息，请参阅[表达式生成器文档](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder)。
+1. 若要输入聚合表达式，请单击标有“输入表达式”的蓝色框。 此时会打开数据流表达式生成器，在此工具中可以使用输入架构、内置函数和操作以及用户定义的参数来直观创建数据流表达式。 有关表达式生成器的功能的详细信息，请参阅[表达式生成器文档](./concepts-data-flow-expression-builder.md)。
 
     若要获取平均费用，请使用 `avg()` 聚合函数来聚合 `total_amount` 列，然后可使用 `toInteger()` 将此列强制转换为整数。 在数据流表达式语言中，此表达式定义为 `avg(toInteger(total_amount))`。 完成后，单击“保存并完成”。
 
@@ -320,7 +320,7 @@ ms.locfileid: "91827143"
 
     ![门户广告](media/lab-data-flow-data-share/portal-ads.png)
 
-1. 选择名称中包含“Provider”的数据共享帐户。 例如 **DataProvider0102**。 
+1. 选择名称中包含“Provider”的数据共享帐户。 例如 **DataProvider0102** 。 
 
 1. 选择“开始共享数据”。
 
@@ -436,7 +436,7 @@ ms.locfileid: "91827143"
 
 1. 对于“数据共享帐户”，请选择“DataConsumer”。  也可以创建新的数据共享帐户。 
 
-1. 在“收到的共享名”旁边可以看到，默认共享名是数据提供者指定的名称。 为共享指定一个易记名称用于描述要接收的数据，例如 **TaxiDataShare**。
+1. 在“收到的共享名”旁边可以看到，默认共享名是数据提供者指定的名称。 为共享指定一个易记名称用于描述要接收的数据，例如 **TaxiDataShare** 。
 
     ![接受邀请](media/lab-data-flow-data-share/consumer-accept.png)
 
@@ -519,5 +519,3 @@ ms.locfileid: "91827143"
 1. 导航回到数据使用者的数据共享。 触发器状态变为成功后，导航到目标 SQL 数据库和 Data Lake，以查看数据是否已进入相应的存储。 
 
 祝贺你完成本实验！
-
-

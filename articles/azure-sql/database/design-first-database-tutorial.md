@@ -10,18 +10,18 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: ae7baeac6cee2a692928642e3e38ce0adad17d1c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362157"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674881"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>教程：使用 SSMS 在 Azure SQL 数据库中设计关系数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 
-Azure SQL 数据库是 Microsoft 云 (Azure) 中的关系型数据库即服务 (DBaaS)。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) 执行以下操作：
+Azure SQL 数据库是 Microsoft 云 (Azure) 中的关系型数据库即服务 (DBaaS)。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS) 执行以下操作：
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ Azure SQL 数据库是 Microsoft 云 (Azure) 中的关系型数据库即服务 (
 *如果还没有 Azure 订阅，请在开始前[创建免费帐户](https://azure.microsoft.com/free/)。
 
 > [!TIP]
-> 以下 Microsoft Learn 模块可帮助你免费学习如何[开发和配置可查询 Azure SQL 数据库的 ASP.NET 应用程序](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)，包括创建简单数据库。
+> 以下 Microsoft Learn 模块可帮助你免费学习如何[开发和配置可查询 Azure SQL 数据库的 ASP.NET 应用程序](/learn/modules/develop-app-that-queries-azure-sql/)，包括创建简单数据库。
 > [!NOTE]
 > 本教程使用 Azure SQL 数据库。 你也可以使用弹性池中的共用数据库或 SQL 托管实例。 若要连接到 SQL 托管实例，请参阅以下 SQL 托管实例快速入门：[快速入门：配置 Azure VM 以连接到 Azure SQL 托管实例](../managed-instance/connect-vm-instance-configure.md)和[快速入门：配置从本地到 Azure SQL 托管实例的点到站点连接](../managed-instance/point-to-site-p2s-configure.md)。
 
@@ -43,7 +43,7 @@ Azure SQL 数据库是 Microsoft 云 (Azure) 中的关系型数据库即服务 (
 
 要完成本教程，请确保已安装：
 
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)（最新版本）
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)（最新版本）
 - [BCP 和 SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433)（最新版本）
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
@@ -103,7 +103,7 @@ Azure SQL 数据库在服务器级别创建 IP 防火墙。 此防火墙阻止�
 
 1. 部署完成后，请从 Azure 门户菜单中选择“SQL 数据库”，或在任何页面上搜索并选择“SQL 数据库”。  
 
-1. 在“SQL 数据库”页上选择“yourDatabase”。 此时会打开数据库的概览页，其中显示了完全限定的**服务器名称**（例如 `contosodatabaseserver01.database.windows.net`），并提供了其他配置的选项。
+1. 在“SQL 数据库”页上选择“yourDatabase”。 此时会打开数据库的概览页，其中显示了完全限定的 **服务器名称** （例如 `contosodatabaseserver01.database.windows.net`），并提供了其他配置的选项。
 
    ![服务器名称](./media/design-first-database-tutorial/server-name.png)
 
@@ -160,7 +160,7 @@ Azure SQL 数据库在服务器级别创建 IP 防火墙。 此防火墙阻止�
 - 学生
 - 额度
 
-以下关系图显示了这些表的相互关系。 其中一些表引用其他表中的列。 例如，“学生”表引用“人员”表的 PersonId 列  。 请研究此关系图，了解本教程中各种表的相互关系。 若要深入了解如何创建有效的数据库表，请参阅 [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx)（创建有效的数据库表）。 有关如何选择数据类型的信息，请参阅 [Data types](/sql/t-sql/data-types/data-types-transact-sql)（数据类型）。
+以下关系图显示了这些表的相互关系。 其中一些表引用其他表中的列。 例如，“学生”表引用“人员”表的 PersonId 列  。 请研究此关系图，了解本教程中各种表的相互关系。 若要深入了解如何创建有效的数据库表，请参阅 [Create effective database tables](/previous-versions/tn-archive/cc505842(v=technet.10))（创建有效的数据库表）。 有关如何选择数据类型的信息，请参阅 [Data types](/sql/t-sql/data-types/data-types-transact-sql)（数据类型）。
 
 > [!NOTE]
 > 还可以使用 [SQL Server Management Studio 中的表设计器](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools)来创建和设计表。
@@ -244,7 +244,7 @@ Azure SQL 数据库在服务器级别创建 IP 防火墙。 此防火墙阻止�
 
 ## <a name="query-data"></a>查询数据
 
-执行以下查询，从数据库表中检索信息。 有关写入 SQL 查询的详细信息，请参阅[写入 SQL 查询](https://technet.microsoft.com/library/bb264565.aspx)。 第一个查询将联接所有 4 个表，以查找由“Dominick Pope”授课的分数高于 75% 的学生。 第二个查询将联接所有 4 个表，以查找“Noe Coleman”注册过的课程。
+执行以下查询，从数据库表中检索信息。 有关写入 SQL 查询的详细信息，请参阅[写入 SQL 查询](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90))。 第一个查询将联接所有 4 个表，以查找由“Dominick Pope”授课的分数高于 75% 的学生。 第二个查询将联接所有 4 个表，以查找“Noe Coleman”注册过的课程。
 
 1. 在 SQL Server Management Studio 查询窗口中，执行以下查询：
 

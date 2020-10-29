@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 83c29740bd535d9508e5458a66fc8592500ceaf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b07c53d048d60b555c33cacf42557f5da26552cc
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320959"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637473"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>使用 Azure 门户以递增方式将数据从 SQL Server 中的多个表加载到 Azure SQL 数据库中的数据库
 
@@ -42,15 +42,15 @@ ms.locfileid: "91320959"
 ## <a name="overview"></a>概述
 下面是创建此解决方案所要执行的重要步骤： 
 
-1. **选择水印列**。
+1. **选择水印列** 。
     
     在源数据存储中为每个表选择一个列，该列可用于确定每个运行的新记录或已更新记录。 通常，在创建或更新行时，此选定列中的数据（例如 last_modify_time 或 ID）会不断递增。 此列中的最大值用作水印。
 
-1. **准备用于存储水印值的数据存储**。   
+1. **准备用于存储水印值的数据存储** 。   
     
     本教程在 SQL 数据库中存储水印值。
 
-1. **创建包含以下活动的管道**： 
+1. **创建包含以下活动的管道** ： 
     
     a. 创建一个 ForEach 活动，循环访问一个列表，其中的源表名称是作为参数传递到管道的。 对于每个源表，它会调用以下活动，为该表执行增量加载。
 
@@ -68,8 +68,8 @@ ms.locfileid: "91320959"
 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
 
 ## <a name="prerequisites"></a>先决条件
-* **SQL Server**。 在本教程中，请将 SQL Server 数据库用作源数据存储。 
-* **Azure SQL 数据库**。 使用 Azure SQL 数据库中的数据库作为接收器数据存储。 如果 SQL 数据库没有数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)，了解创建步骤。 
+* **SQL Server** 。 在本教程中，请将 SQL Server 数据库用作源数据存储。 
+* **Azure SQL 数据库** 。 使用 Azure SQL 数据库中的数据库作为接收器数据存储。 如果 SQL 数据库没有数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)，了解创建步骤。 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>在 SQL Server 数据库中创建源表
 
@@ -240,21 +240,21 @@ END
    
    ![在“新建”窗格中选择“数据工厂”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. 在“新建数据工厂”页中，输入 ADFMultiIncCopyTutorialDF 作为**名称**。  
+3. 在“新建数据工厂”页中，输入 ADFMultiIncCopyTutorialDF 作为 **名称** 。  
  
-   Azure 数据工厂的名称必须 **全局唯一**。 如果看到红色感叹号和以下错误，请更改数据工厂的名称（例如改为 yournameADFIncCopyTutorialDF），并重新尝试创建。 有关数据工厂项目命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
+   Azure 数据工厂的名称必须 **全局唯一** 。 如果看到红色感叹号和以下错误，请更改数据工厂的名称（例如改为 yournameADFIncCopyTutorialDF），并重新尝试创建。 有关数据工厂项目命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
   
    `Data factory name "ADFIncCopyTutorialDF" is not available`
 
-4. 选择要在其中创建数据工厂的 Azure **订阅**。 
-5. 对于**资源组**，请执行以下步骤之一：
+4. 选择要在其中创建数据工厂的 Azure **订阅** 。 
+5. 对于 **资源组** ，请执行以下步骤之一：
      
     - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
     - 选择“新建”，并输入资源组的名称。   
     若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
 6. 选择“V2”作为“版本”。
-7. 选择数据工厂的**位置**。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库，等等）和计算资源（HDInsight 等）可以位于其他区域中。
-8. 单击**创建**。      
+7. 选择数据工厂的 **位置** 。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库，等等）和计算资源（HDInsight 等）可以位于其他区域中。
+8. 单击 **创建** 。      
 9. 创建完成后，可以看到图中所示的“数据工厂”页。
    
    ![数据工厂主页](./media/doc-common-process/data-factory-home-page.png)
@@ -263,7 +263,7 @@ END
 ## <a name="create-self-hosted-integration-runtime"></a>创建自承载的 Integration Runtime
 在将数据从专用网络（本地）中的数据存储移至 Azure 数据存储时，请在本地环境中安装自承载的 Integration Runtime (IR)。 自承载的 IR 可在专用网络和 Azure 之间移动数据。 
 
-1. 在 Azure 数据工厂 UI 的“开始使用”页上，从最左侧的窗格选择[“管理”选项卡](https://docs.microsoft.com/azure/data-factory/author-management-hub)。
+1. 在 Azure 数据工厂 UI 的“开始使用”页上，从最左侧的窗格选择[“管理”选项卡](./author-management-hub.md)。
 
    ![主页“管理”按钮](media/doc-common-process/get-started-page-manage-button.png)
 
@@ -274,7 +274,7 @@ END
 1. 在“Integration Runtime 安装”窗口中，选择“执行数据移动并将活动分发到外部计算”，然后单击“继续”。   
 
 1. 选择“自承载”，然后单击“继续”。  
-1. 在“名称”中输入 **MySelfHostedIR**，然后单击“创建”。  
+1. 在“名称”中输入 **MySelfHostedIR** ，然后单击“创建”。  
 
 1. 在“选项 1: 快速安装”部分中单击“单击此处对此计算机启动快速安装” 。 
 
@@ -285,7 +285,7 @@ END
 1. 在 Web 浏览器中的“集成运行时安装”窗口中，单击“完成”。  
 
  
-1. 确认在 Integration Runtime 的列表中看到 **MySelfHostedIR**。
+1. 确认在 Integration Runtime 的列表中看到 **MySelfHostedIR** 。
 
 ## <a name="create-linked-services"></a>创建链接服务
 可在数据工厂中创建链接服务，将数据存储和计算服务链接到数据工厂。 在本部分中，你将创建 SQL Server 数据库和 Azure SQL 数据库中数据库的链接服务。 
@@ -300,13 +300,13 @@ END
 
 1. 在“新建链接服务”窗口中执行以下步骤：
 
-    1. 输入 **SqlServerLinkedService** 作为**名称**。 
-    1. 为“通过集成运行时连接”选择“MySelfHostedIR”。  这是**重要**步骤。 默认的 Integration Runtime 无法连接到本地数据存储。 使用前面创建的自承载 Integration Runtime。 
+    1. 输入 **SqlServerLinkedService** 作为 **名称** 。 
+    1. 为“通过集成运行时连接”选择“MySelfHostedIR”。  这是 **重要** 步骤。 默认的 Integration Runtime 无法连接到本地数据存储。 使用前面创建的自承载 Integration Runtime。 
     1. 对于“服务器名称”，请输入装有 SQL Server 数据库的计算机的名称。
     1. 对于“数据库名称”，请输入 SQL Server 中包含源数据的数据库的名称。 已按照先决条件创建一个表并将数据插入到此数据库中。 
-    1. 对于“身份验证类型”，请选择需要用于连接到数据库的**身份验证的类型**。 
+    1. 对于“身份验证类型”，请选择需要用于连接到数据库的 **身份验证的类型** 。 
     1. 至于“用户名”，请输入能够访问 SQL Server 数据库的用户的名称。 如需在用户帐户或服务器名称中使用斜杠字符 (`\`)，请使用转义字符 (`\`)。 例如 `mydomain\\myuser`。
-    1. 至于“密码”，请输入用户的**密码**。 
+    1. 至于“密码”，请输入用户的 **密码** 。 
     1. 若要测试数据工厂是否可以连接到 SQL Server 数据库，请单击“测试连接”。 修复任何错误，直到连接成功。 
     1. 若要保存链接服务，请单击“完成”。
 
@@ -317,11 +317,11 @@ END
 1. 在“新建链接服务”窗口中，选择“Azure SQL 数据库”，然后单击“继续”。   
 1. 在“新建链接服务”窗口中执行以下步骤：
 
-    1. 对于“名称”，请输入 **AzureSqlDatabaseLinkedService**。 
+    1. 对于“名称”，请输入 **AzureSqlDatabaseLinkedService** 。 
     1. 至于“服务器名称”，请从下拉列表中选择服务器的名称。 
     1. 至于“数据库名称”，请选择按照先决条件在其中创建了 created customer_table 和 project_table 的数据库。 
     1. 对于“用户名”，请输入有权访问该数据库的用户的姓名。 
-    1. 至于“密码”，请输入用户的**密码**。 
+    1. 至于“密码”，请输入用户的 **密码** 。 
     1. 若要测试数据工厂是否可以连接到 SQL Server 数据库，请单击“测试连接”。 修复任何错误，直到连接成功。 
     1. 若要保存链接服务，请单击“完成”。
 
@@ -338,7 +338,7 @@ END
 
 1. 在“新建数据集”窗口中选择“SQL Server”，然后单击“继续”。   
 
-1. 此时会在 Web 浏览器中看到打开的新选项卡，用于配置数据集。 树状视图中也会看到数据集。 在底部的属性窗口的“常规”选项卡中，输入 **SourceDataset** 作为**名称**。 
+1. 此时会在 Web 浏览器中看到打开的新选项卡，用于配置数据集。 树状视图中也会看到数据集。 在底部的属性窗口的“常规”选项卡中，输入 **SourceDataset** 作为 **名称** 。 
 
 1. 在“属性”窗口中切换到“连接”选项卡，然后选择 **SqlServerLinkedService** 作为“链接服务”。  不要选择此处的表。 管道中的 Copy 活动使用 SQL 查询来加载数据，而不是加载整个表。
 
@@ -350,17 +350,17 @@ END
 
 1. 在“新建数据集”窗口中，选择“Azure SQL 数据库”，然后单击“继续”。   
 
-1. 此时会在 Web 浏览器中看到打开的新选项卡，用于配置数据集。 树状视图中也会看到数据集。 在底部的“属性”窗口的“常规”选项卡中，输入 **SinkDataset** 作为**名称**。
+1. 此时会在 Web 浏览器中看到打开的新选项卡，用于配置数据集。 树状视图中也会看到数据集。 在底部的“属性”窗口的“常规”选项卡中，输入 **SinkDataset** 作为 **名称** 。
 
 1. 在“属性”窗口中切换到“参数”选项卡，然后执行以下步骤： 
 
     1. 在“创建/更新参数”部分单击“新建”。  
-    1. 输入 **SinkTableName** 作为**名称**，输入**字符串**作为**类型**。 此数据集采用 **SinkTableName** 作为参数。 SinkTableName 参数由管道在运行时动态设置。 管道中的 ForEach 活动循环访问一个包含表名的列表，每一次迭代都将表名传递到此数据集。
+    1. 输入 **SinkTableName** 作为 **名称** ，输入 **字符串** 作为 **类型** 。 此数据集采用 **SinkTableName** 作为参数。 SinkTableName 参数由管道在运行时动态设置。 管道中的 ForEach 活动循环访问一个包含表名的列表，每一次迭代都将表名传递到此数据集。
    
         ![接收器数据集 - 属性](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 1. 在“属性”窗口中切换到“连接”选项卡，然后选择 **AzureSqlDatabaseLinkedService** 作为“链接服务”。  对于“表”属性，单击“添加动态内容”。   
     
-1. 在“添加动态内容”窗口的“参数”部分中选择 **SinkTableName**。  
+1. 在“添加动态内容”窗口的“参数”部分中选择 **SinkTableName** 。  
  
 1. 单击“完成”后，可以看到表名为“@dataset().SinkTableName”。
 
@@ -373,7 +373,7 @@ END
 
 1. 在“新建数据集”窗口中，选择“Azure SQL 数据库”，然后单击“继续”。   
 
-1. 在底部的“属性”窗口的“常规”选项卡中，输入 **WatermarkDataset** 作为**名称**。
+1. 在底部的“属性”窗口的“常规”选项卡中，输入 **WatermarkDataset** 作为 **名称** 。
 1. 切换到“连接”选项卡，然后执行以下步骤： 
 
     1. 为“链接服务”选择“AzureSqlDatabaseLinkedService”。 
@@ -401,18 +401,18 @@ END
 1. 在“参数”选项卡中，执行以下步骤： 
 
     1. 单击“+ 新建”。 
-    1. 输入 **tableList** 作为参数**名称**。 
-    1. 选择“数组”作为参数**类型**。
+    1. 输入 **tableList** 作为参数 **名称** 。 
+    1. 选择“数组”作为参数 **类型** 。
 
-1. 在“活动”工具栏中展开“迭代和条件语句”，然后将 **ForEach** 活动拖放到管道设计器图面。 在属性窗口的“常规”选项卡中，输入 **IterateSQLTables**。  
+1. 在“活动”工具栏中展开“迭代和条件语句”，然后将 **ForEach** 活动拖放到管道设计器图面。 在属性窗口的“常规”选项卡中，输入 **IterateSQLTables** 。  
 
-1. 切换到“设置”选项卡，输入 `@pipeline().parameters.tableList` 作为**项**。 ForEach 活动循环访问一系列表，并执行增量复制操作。 
+1. 切换到“设置”选项卡，输入 `@pipeline().parameters.tableList` 作为 **项** 。 ForEach 活动循环访问一系列表，并执行增量复制操作。 
 
     ![ForEach 活动 - 设置](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
 
 1. 在管道中选择 **ForEach** 活动（如果尚未选择）。 单击“编辑(铅笔图标)”按钮。
 
-1. 在“活动”工具箱中展开“常规”， 将**查找**活动拖放到管道设计器图面，然后输入 **LookupOldWaterMarkActivity** 作为**名称**。
+1. 在“活动”工具箱中展开“常规”， 将 **查找** 活动拖放到管道设计器图面，然后输入 **LookupOldWaterMarkActivity** 作为 **名称** 。
 
 1. 在“属性”窗口中切换到“设置”选项卡，然后执行以下步骤：  
 
@@ -425,7 +425,7 @@ END
         ```
 
         ![第一个查找活动 - 设置](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
-1. 从“活动”工具箱拖放**查找**活动，然后输入 **LookupNewWaterMarkActivity** 作为**名称**。
+1. 从“活动”工具箱拖放 **查找** 活动，然后输入 **LookupNewWaterMarkActivity** 作为 **名称** 。
         
 1. 切换到“设置”选项卡。
 
@@ -438,9 +438,9 @@ END
         ```
     
         ![第二个查找活动 - 设置](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
-1. 从“活动”工具箱拖放**复制**活动，然后输入 **IncrementalCopyActivity** 作为**名称**。 
+1. 从“活动”工具箱拖放 **复制** 活动，然后输入 **IncrementalCopyActivity** 作为 **名称** 。 
 
-1. 逐个地将“查找”活动连接到“复制”活动。  若要进行连接，可以开始将附加到“查找”活动的**绿色**框拖放到“复制”活动。 “复制”活动的边框颜色变为**蓝色**时，松开鼠标按键。
+1. 逐个地将“查找”活动连接到“复制”活动。  若要进行连接，可以开始将附加到“查找”活动的 **绿色** 框拖放到“复制”活动。 “复制”活动的边框颜色变为 **蓝色** 时，松开鼠标按键。
 
     ![将“查找”活动连接到“复制”活动](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. 选择管道中的“复制”活动。 切换到“属性”窗口中的“源”选项卡。  
@@ -466,9 +466,9 @@ END
         ![复制活动 - 参数](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. 将“存储过程”活动从“活动”工具箱拖放到管道设计器图面。  将“复制”活动连接到“存储过程”活动。  
 
-1. 在管道中选择“存储过程”活动，然后在“属性”窗口的“常规”选项卡中输入 **StoredProceduretoWriteWatermarkActivity** 作为**名称**。  
+1. 在管道中选择“存储过程”活动，然后在“属性”窗口的“常规”选项卡中输入 **StoredProceduretoWriteWatermarkActivity** 作为 **名称** 。  
 
-1. 切换到“SQL 帐户”选项卡。至于“链接服务”，请选择 **AzureSqlDatabaseLinkedService**。 
+1. 切换到“SQL 帐户”选项卡。至于“链接服务”，请选择 **AzureSqlDatabaseLinkedService** 。 
 
     ![存储过程活动 - SQL 帐户](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. 切换到“存储过程”选项卡，然后执行以下步骤：
@@ -515,7 +515,7 @@ END
 
 ## <a name="monitor-the-pipeline"></a>监视管道
 
-1. 在左侧切换到“监视”选项卡。 可以看到**手动触发器**触发的管道运行。 可以使用“管道名称”列下的链接来查看活动详细信息以及重新运行该管道。
+1. 在左侧切换到“监视”选项卡。 可以看到 **手动触发器** 触发的管道运行。 可以使用“管道名称”列下的链接来查看活动详细信息以及重新运行该管道。
 
 1. 若要查看与管道运行关联的活动运行，请选择“管道名称”列下的链接。 有关活动运行的详细信息，请选择“活动名称”列下的“详细信息”链接（眼镜图标） 。 
 
@@ -615,7 +615,7 @@ VALUES
 
 ## <a name="monitor-the-pipeline-again"></a>再次监视管道
 
-1. 在左侧切换到“监视”选项卡。 可以看到**手动触发器**触发的管道运行。 可以使用“管道名称”列下的链接来查看活动详细信息以及重新运行该管道。
+1. 在左侧切换到“监视”选项卡。 可以看到 **手动触发器** 触发的管道运行。 可以使用“管道名称”列下的链接来查看活动详细信息以及重新运行该管道。
 
 1. 若要查看与管道运行关联的活动运行，请选择“管道名称”列下的链接。 有关活动运行的详细信息，请选择“活动名称”列下的“详细信息”链接（眼镜图标） 。 
 
@@ -701,5 +701,3 @@ project_table   2017-10-01 00:00:00.000
 
 > [!div class="nextstepaction"]
 >[使用更改跟踪技术，以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储](tutorial-incremental-copy-change-tracking-feature-portal.md)
-
-

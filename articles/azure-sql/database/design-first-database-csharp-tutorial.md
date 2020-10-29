@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: fe4bcb10db33c6f68abeb779e668726fc1a59345
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 4b3235f457f1c6475c18045886c49d3dd2ca2242
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360236"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671171"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>教程：在 Azure SQL 数据库 C&#x23; 和 ADO.NET 中设计关系数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Azure SQL 数据库是 Microsoft 云 (Azure) 中的关系型数据库即服务 (
 *如果还没有 Azure 订阅，请在开始前[创建免费帐户](https://azure.microsoft.com/free/)。
 
 > [!TIP]
-> 以下 Microsoft Learn 模块可帮助你免费学习如何[开发和配置可查询 Azure SQL 数据库的 ASP.NET 应用程序](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)，包括创建简单数据库。
+> 以下 Microsoft Learn 模块可帮助你免费学习如何[开发和配置可查询 Azure SQL 数据库的 ASP.NET 应用程序](/learn/modules/develop-app-that-queries-azure-sql/)，包括创建简单数据库。
 
 ## <a name="prerequisites"></a>先决条件
 

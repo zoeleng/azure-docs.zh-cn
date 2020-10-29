@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: b9bf03110fcb4f0c034c70d5e77e558b949a7825
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3237ff37e4314459a9e9a7a255b0ad10b3958509
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636946"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>使用“复制数据”工具将数据从 SQL Server 数据库复制到 Azure Blob 存储
 > [!div class="op_single_selector" title1="选择所使用的数据工厂服务版本："]
@@ -49,7 +49,7 @@ ms.locfileid: "92147998"
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014、2016 和 2017
 在本教程中，需将 SQL Server 数据库用作源数据存储。 在本教程中创建的数据工厂中的管道将数据从这个 SQL Server 数据库（源）复制到 Blob 存储（接收器）。 然后，你可以在 SQL Server 数据库中创建名为 **emp** 的表，并向表中插入几个示例条目。
 
-1. 启动 SQL Server Management Studio。 如果此软件尚未安装在计算机上，请访问[下载 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。
+1. 启动 SQL Server Management Studio。 如果此软件尚未安装在计算机上，请访问[下载 SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)。
 
 1. 使用凭据连接到 SQL Server 实例。
 
