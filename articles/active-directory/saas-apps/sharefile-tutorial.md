@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/18/2020
 ms.author: jeedes
-ms.openlocfilehash: cfbb704799a1884c689bd0de547526a33f1ba7ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59f8148cf6e1d705094e8a6c4ee267b6c77ab7da
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88651860"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>教程：Azure Active Directory 与 Citrix ShareFile 的集成
 
@@ -27,7 +27,7 @@ ms.locfileid: "88651860"
 * 可以让用户使用其 Azure AD 帐户自动登录到 Citrix ShareFile（单一登录）。
 * 可在中心位置（即 Azure 门户）管理帐户。
 
-如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必备条件
@@ -42,7 +42,7 @@ ms.locfileid: "88651860"
 本教程会在测试环境中配置和测试 Azure AD 单一登录。
 
 * Citrix ShareFile 支持 SP 发起的 SSO 
-* 配置 Citrix ShareFile 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+* 配置 Citrix ShareFile 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。
 
 ## <a name="adding-citrix-sharefile-from-the-gallery"></a>从库添加 Citrix ShareFile
 
@@ -57,7 +57,7 @@ ms.locfileid: "88651860"
 
 ## <a name="configure-and-test-azure-ad-sso"></a>配置和测试 Azure AD SSO
 
-在本部分中，基于一个名为 Britta Simon 的测试用户配置和测试 Citrix ShareFile 的 Azure AD 单一登录****。
+在本部分中，基于一个名为 Britta Simon 的测试用户配置和测试 Citrix ShareFile 的 Azure AD 单一登录  。
 若要运行单一登录，需要在 Azure AD 用户与 Citrix ShareFile 相关用户之间建立链接关系。
 
 若要配置并测试 Citrix ShareFile 的 Azure AD 单一登录，需要完成以下构建基块：
@@ -84,7 +84,7 @@ ms.locfileid: "88651860"
 
     a. 在“登录 URL”文本框中，使用以下模式键入 URL：`https://<tenant-name>.sharefile.com/saml/login`。
 
-    b. 在“标识符(实体 ID)”文本框中，使用以下模式键入 URL****：
+    b. 在“标识符(实体 ID)”文本框中，使用以下模式键入 URL  ：
 
     - `https://<tenant-name>.sharefile.com`
     - `https://<tenant-name>.sharefile.com/saml/info`
@@ -101,11 +101,11 @@ ms.locfileid: "88651860"
     > [!NOTE]
     > 这些不是实际值。 请使用实际登录 URL、标识符和回复 URL 更新这些值。 请联系 [Citrix ShareFile 客户端支持团队](https://www.citrix.co.in/products/citrix-content-collaboration/support.html)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
 
-4. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+4. 在“使用 SAML 设置单一登录”  页上，在“SAML 签名证书”  部分中，单击“下载”  以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
-6. 在“设置 Citrix ShareFile”部分，根据要求复制相应 URL****。
+6. 在“设置 Citrix ShareFile”部分，根据要求复制相应 URL  。
 
     ![复制配置 URL](common/copy-configuration-urls.png)
 
@@ -132,7 +132,7 @@ ms.locfileid: "88651860"
 在本部分中，通过授予 B.Simon 访问 Citrix ShareFile 的权限，允许其使用 Azure 单一登录。
 
 1. 在 Azure 门户中，依次选择“企业应用程序”、“所有应用程序”。 
-1. 在应用程序列表中，选择“Citrix ShareFile”。****
+1. 在应用程序列表中，选择“Citrix ShareFile”。 
 1. 在应用的概述页中，找到“管理”部分，选择“用户和组” 。
 
    ![“用户和组”链接](common/users-groups-blade.png)
@@ -153,7 +153,7 @@ ms.locfileid: "88651860"
    
     ![帐户管理](./media/sharefile-tutorial/settings-security.png "帐户管理")
 
-1. 在“基本设置”**** 下的“单一登录/SAML 2.0 配置”**** 对话框页上，执行以下步骤：
+1. 在“基本设置”  下的“单一登录/SAML 2.0 配置”  对话框页上，执行以下步骤：
    
     ![单一登录](./media/sharefile-tutorial/saml-configuration.png "单一登录")
    
@@ -161,15 +161,15 @@ ms.locfileid: "88651860"
 
     b. 复制“ShareFile 证书颁发者/实体 ID”值，将其粘贴到 Azure 门户的“基本 SAML 配置”对话框中的“标识符 URL”框中。  
     
-    c. 在“IDP 证书颁发者/实体 ID”文本框中，粘贴从 Azure 门户复制的“Azure AD 标识符”值********。
+    c. 在“IDP 证书颁发者/实体 ID”文本框中，粘贴从 Azure 门户复制的“Azure AD 标识符”值  。
 
-    d. 单击“X.509 证书”字段旁边的“更改”，并上传从 Azure 门户下载的证书********。
+    d. 单击“X.509 证书”字段旁边的“更改”，并上传从 Azure 门户下载的证书  。
     
     e. 在“登录 URL”文本框中，粘贴从 Azure 门户复制的“登录 URL”值 。
     
-    f. 在“注销 URL”文本框中，粘贴从 Azure 门户复制的“注销 URL”值********。
+    f. 在“注销 URL”文本框中，粘贴从 Azure 门户复制的“注销 URL”值  。
 
-5. 在 Citrix ShareFile 管理门户中，单击 **“保存”**。
+5. 在 Citrix ShareFile 管理门户中，单击 **“保存”** 。
 
 ## <a name="create-citrix-sharefile-test-user"></a>创建 Citrix ShareFile 测试用户
 
@@ -179,15 +179,15 @@ ms.locfileid: "88651860"
    
     ![创建员工](./media/sharefile-tutorial/create-user.png "创建员工")
 
-3. 在“基本信息”部分中执行以下步骤：****
+3. 在“基本信息”部分中执行以下步骤： 
    
     ![基本信息](./media/sharefile-tutorial/user-form.png "基本信息")
    
-    a. 在“名字”文本框中，输入用户的名字，如 Britta************。
+    a. 在“名字”文本框中，输入用户的名字，如 Britta  。
    
-    b.  在“姓氏”文本框中，输入用户的姓氏，如 Simon************。
+    b.  在“姓氏”文本框中，输入用户的姓氏，如 Simon  。
    
-    c. 在“电子邮件地址”文本框中，键入 Britta Simon 的电子邮件地址为“brittasimon\@contoso.com”********。
+    c. 在“电子邮件地址”文本框中，键入 Britta Simon 的电子邮件地址为“brittasimon\@contoso.com”  。
 
 4. 单击“添加用户”  。
   
@@ -198,13 +198,12 @@ ms.locfileid: "88651860"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Citrix ShareFile 磁贴时，应当会自动登录到你为其设置了 SSO 的 Citrix ShareFile。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Citrix ShareFile 磁贴时，应当会自动登录到你为其设置了 SSO 的 Citrix ShareFile。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

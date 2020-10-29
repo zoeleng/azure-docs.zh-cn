@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: d257935aa3e9ad54b64b0f416119931661809172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b4484b9bb235b24d2b733c329b52ab6b04be183
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545958"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519815"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Zoom 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "88545958"
 * 让用户使用其 Azure AD 帐户自动登录到 Zoom。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "88545958"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Zoom 支持 SP  发起的 SSO 
-* Zoom 支持[自动  用户预配](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)。
+* Zoom 支持[自动  用户预配](./zoom-provisioning-tutorial.md)。
 
 ## <a name="adding-zoom-from-the-gallery"></a>从库中添加 Zoom
 
@@ -91,12 +91,12 @@ ms.locfileid: "88545958"
 
     ![证书下载链接](common/certificatebase64.png)
 
-1. 在“设置 Zoom”部分中，根据要求复制相应 URL****。
+1. 在“设置 Zoom”部分中，根据要求复制相应 URL  。
 
     ![复制配置 URL](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> 若要了解如何在 Azure AD 中配置角色，请参阅[为企业应用程序配置 SAML 令牌中颁发的角色声明](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)。
+> 若要了解如何在 Azure AD 中配置角色，请参阅[为企业应用程序配置 SAML 令牌中颁发的角色声明](../develop/active-directory-enterprise-app-role-management.md)。
 
 > [!NOTE]
 > Zoom 可能需要 SAML 有效负载中有组声明。 如果你已创建任何组，请与 [Zoom 客户端支持团队](https://support.zoom.us/hc/)联系并提供组信息，以便他们可以在其自己的一端配置组信息。 你还需要向 [Zoom 客户端支持团队](https://support.zoom.us/hc/)提供对象 ID，以便他们可以在其自己的一端配置对象 ID。 若要获取对象 ID，请参阅[使用 Azure 配置 Zoom](https://support.zoom.us/hc/articles/115005887566)。
@@ -118,7 +118,7 @@ ms.locfileid: "88545958"
 在本部分中，将通过授予 B.Simon 访问 Zoom 的权限，允许其使用 Azure 单一登录。
 
 1. 在 Azure 门户中，依次选择“企业应用程序”、“所有应用程序”。 
-1. 在应用程序列表中，选择“Zoom”****。
+1. 在应用程序列表中，选择“Zoom”  。
 1. 在应用的概述页中，找到“管理”部分，选择“用户和组” 。
 
     ![“用户和组”链接](common/users-groups-blade.png)
@@ -145,17 +145,17 @@ ms.locfileid: "88545958"
 
     ![“单一登录”部分](./media/zoom-tutorial/zoom-sso2.png "单一登录")
 
-    a. 在“登录 URL”文本框中，粘贴从 Azure 门户复制的“登录 URL”值********。
+    a. 在“登录 URL”文本框中，粘贴从 Azure 门户复制的“登录 URL”值  。
 
-    b. 对于**注销页 URL** 值，需要转到 Azure 门户并单击左侧的 **Azure Active Directory**，然后导航到“应用注册”****。
+    b. 对于  。
 
     ![“Azure Active Directory”按钮](./media/zoom-tutorial/appreg.png)
 
-    c. 单击“终结点”****
+    c. 单击“终结点” 
 
     ![“终结点”按钮](./media/zoom-tutorial/endpoint.png)
 
-    d. 复制 **SAML-P 注销终结点**并将其粘贴到“注销页 URL”**** 文本框中。
+    d. 复制  文本框中。
 
     ![“复制终结点”按钮](./media/zoom-tutorial/endpoint1.png)
 
@@ -170,7 +170,7 @@ ms.locfileid: "88545958"
 
 ### <a name="create-zoom-test-user"></a>创建 Zoom 测试用户
 
-本部分的目标是在 Zoom 中创建一个名为 B.Simon 的用户。 Zoom 支持在默认情况下启用的自动用户预配。 有关如何配置自动用户预配的更多详细信息，请参见[此处](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)。
+本部分的目标是在 Zoom 中创建一个名为 B.Simon 的用户。 Zoom 支持在默认情况下启用的自动用户预配。 有关如何配置自动用户预配的更多详细信息，请参见[此处](./zoom-provisioning-tutorial.md)。
 
 > [!NOTE]
 > 如果需要手动创建用户，则需要联系 [Zoom 客户端支持团队](https://support.zoom.us/hc/)
@@ -179,14 +179,14 @@ ms.locfileid: "88545958"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Zoom 磁贴时，应会自动登录到为其设置了 SSO 的 Zoom。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Zoom 磁贴时，应会自动登录到为其设置了 SSO 的 Zoom。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [通过 Azure AD 试用 Zoom](https://aad.portal.azure.com/)

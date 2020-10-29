@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: c006e38d30e4e32645024a8c307a18767e8a1090
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ad7b5b97149d38b64d75f5a02cd0aa776893e832
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91941052"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522557"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-personal-portal"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Mimecast Personal Portal 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91941052"
 * 让用户使用其 Azure AD 帐户自动登录到 Mimecast Personal Portal。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "91941052"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Mimecast Personal Portal 支持 SP 和 IDP 发起的 SSO
-* 配置 Mimecast Personal Portal 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+* 配置 Mimecast Personal Portal 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。
 
 ## <a name="adding-mimecast-personal-portal-from-the-gallery"></a>从库中添加 Mimecast Personal Portal
 
@@ -113,7 +113,7 @@ ms.locfileid: "91941052"
     | 澳大利亚       | `https://au-api.mimecast.com/login/saml`|
     | 海外        | `https://jer-api.mimecast.com/login/saml`|
 
-1. 单击“ **保存**”。
+1. 单击“ **保存** ”。
 
 1. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分中，单击“复制”按钮，以复制“应用联合元数据 URL”，并将它保存在计算机上。
 
@@ -181,7 +181,7 @@ ms.locfileid: "91941052"
 
     d. 确保取消选中“使用受密码保护上下文”和“使用集成身份验证上下文”复选框。
 
-    e. 单击“ **保存**”。
+    e. 单击“ **保存** ”。
 
 ### <a name="create-mimecast-personal-portal-test-user"></a>创建 Mimecast Personal Portal 测试用户
 
@@ -211,7 +211,7 @@ ms.locfileid: "91941052"
 
     d. 选中“登录时强制更改”复选框。
 
-    e. 单击“ **保存**”。
+    e. 单击“ **保存** ”。
 
     f. 若要将角色分配给用户，请单击“角色编辑”，并根据组织要求向用户分配所需角色。
 
@@ -222,18 +222,18 @@ ms.locfileid: "91941052"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Mimecast Personal Portal 磁贴时，应当会自动登录到已为其设置了 SSO 的 Mimecast Personal Portal。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Mimecast Personal Portal 磁贴时，应当会自动登录到已为其设置了 SSO 的 Mimecast Personal Portal。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [ Azure AD 中试用 Mimecast Personal Portal](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)
 
-- [如何通过高级可见性和控制保护 Mimecast Personal Portal](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [如何通过高级可见性和控制保护 Mimecast Personal Portal](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fa7aef6c4c094ae391f9649a810971d4a33e670
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5f25980a6dbe1087754b48d14b22f207b9573264
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125194"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>教程：Azure Active Directory 与 Shibumi 的集成
 
@@ -27,7 +27,7 @@ ms.locfileid: "92125194"
 * 可让用户使用其 Azure AD 帐户自动登录到 Shibumi（单一登录）。
 * 可在中心位置（即 Azure 门户）管理帐户。
 
-如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -43,7 +43,7 @@ ms.locfileid: "92125194"
 
 * Shibumi 支持 **SP** 和 **IDP** 发起的 SSO
 
-* Shibumi 支持**实时**用户预配
+* Shibumi 支持 **实时** 用户预配
 
 ## <a name="adding-shibumi-from-the-gallery"></a>从库中添加 Shibumi
 
@@ -63,7 +63,7 @@ ms.locfileid: "92125194"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中键入 **Shibumi**，在结果面板中选择“Shibumi”，然后单击“添加”按钮添加该应用程序。  
+4. 在搜索框中键入 **Shibumi** ，在结果面板中选择“Shibumi”，然后单击“添加”按钮添加该应用程序。  
 
      ![结果列表中的“Shibumi”](common/search-new-app.png)
 
@@ -91,7 +91,7 @@ ms.locfileid: "92125194"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -192,13 +192,12 @@ ms.locfileid: "92125194"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-在访问面板中单击“Shibumi”磁贴时，应会自动登录到设置了 SSO 的 Shibumi。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中单击“Shibumi”磁贴时，应会自动登录到设置了 SSO 的 Shibumi。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: c2f2e86a3080b0edfcb0a699ac9b3a78ee1b5a52
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940780"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519412"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>教程：将 Azure AD 单一登录 (SSO) 与 NetSuite 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91940780"
 * 让用户使用其 Azure AD 帐户自动登录到 NetSuite。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -44,7 +44,7 @@ NetSuite 支持：
 * IDP 发起的 SSO。
 * JIT（实时）用户预配。
 * [自动用户预配](NetSuite-provisioning-tutorial.md)。
-* 配置 NetSuite 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* 配置 NetSuite 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > 由于此应用程序的标识符是一个固定字符串值，因此只能在一个租户中配置一个实例。
@@ -132,7 +132,7 @@ NetSuite 支持：
 
 1. 在“用户”属性窗格中执行以下步骤  ：
 
-   a. 在“名称”  框中，输入 **B.Simon**。  
+   a. 在“名称”  框中，输入 **B.Simon** 。  
    b. 在“用户名”框中，输入 username@companydomain.extension（例如 B.Simon@contoso.com）  。  
    c. 选中“显示密码”复选框，然后记下“密码”框中显示的值。    
    d. 选择“创建”  。
@@ -218,7 +218,7 @@ NetSuite 支持：
 
     c. 选择“新建角色”。 
 
-    d. 输入新角色的**名称**。
+    d. 输入新角色的 **名称** 。
 
     ![屏幕截图显示“安装管理员”，你可以在其中输入角色名称。](./media/NetSuite-tutorial/ns-new-role.png)
 
@@ -258,14 +258,14 @@ NetSuite 支持：
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-在访问面板中选择“NetSuite”磁贴时，应会自动登录到设置了 SSO 的 NetSuite。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中选择“NetSuite”磁贴时，应会自动登录到设置了 SSO 的 NetSuite。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 - [通过 Azure AD 试用 NetSuite](https://aad.portal.azure.com/)
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)
 
-- [如何通过高级可见性和控制保护 NetSuite](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [如何通过高级可见性和控制保护 NetSuite](/cloud-app-security/proxy-intro-aad)
