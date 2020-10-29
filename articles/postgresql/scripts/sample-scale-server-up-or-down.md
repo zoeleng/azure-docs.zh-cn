@@ -8,15 +8,18 @@ ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
-ms.openlocfilehash: d5f08e764ae44b11ab5838689e7f8a70c89b3122
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a848e14f854385ed1603918ab7e7a274667f2324
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708622"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427542"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放单个 PostgreSQL 服务器
 此示例 CLI 脚本在查询指标后为单个 Azure Database for PostgreSQL 服务器缩放计算和存储。 计算可以增加或减少。 存储只能增加。 
+
+> [!IMPORTANT] 
+> 存储只能增加，不能减少。
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -43,5 +46,5 @@ ms.locfileid: "91708622"
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解 [Azure Database for PostgreSQL 计算和存储](../concepts-pricing-tiers.md)
-- 尝试其他脚本：[Azure Database for PostgreSQL 的 Azure CLI 示例](../sample-scripts-azure-cli.md)
+- 请尝试其他脚本：[用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例](../sample-scripts-azure-cli.md)
 - 详细了解 [Azure CLI](/cli/azure)
