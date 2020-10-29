@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91745725"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755512"
 ---
 | 资源 | 免费 | 共享 | 基本 | Standard | 高级 (v3) | 隔离 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -32,6 +32,7 @@ ms.locfileid: "91745725"
 | 混合连接 | | | 每个计划 5 个 | 每个计划 25 个 | 每个应用 200 个 | 每个应用 200 个 |
 | [虚拟网络集成](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | 集成负载均衡器 | |X |X |X |X |X<sup>10</sup> |
+| [访问限制](../articles/app-service/networking-features.md#access-restrictions) | 每个应用 512 条规则 | 每个应用 512 条规则 | 每个应用 512 条规则 | 每个应用 512 条规则 | 每个应用 512 条规则 | 每个应用 512 条规则 |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [计划备份](../articles/app-service/manage-backup.md) | | | | 计划备份每 2 小时一次，每天最多 12 次备份（手动 + 计划） | 计划备份每小时一次，每天最多 50 次备份（手动 + 计划） | 计划备份每小时一次，每天最多 50 次备份（手动 + 计划） |
 | [自动缩放](../articles/app-service/manage-scale-up.md) | | | |X |X |X |

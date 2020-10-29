@@ -14,12 +14,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: a1410b9e8287b34c8b40e841ff513de784e1730a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150557"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748531"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实现设备固件更新过程
 
@@ -103,7 +104,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>启动固件更新
 
-在后端应用程序中创建[自动设备管理配置](iot-hub-automatic-device-management.md#create-a-configuration)即可在其 **devicetype** 标记为冷却器的所有设备上开始固件更新过程。 本部分介绍以下操作：
+在后端应用程序中创建 [自动设备管理配置](iot-hub-automatic-device-management.md#create-a-configuration)即可在其 **devicetype** 标记为冷却器的所有设备上开始固件更新过程。 本部分介绍以下操作：
 
 * 在后端应用程序中创建配置。
 * 监视作业，直至其完成。

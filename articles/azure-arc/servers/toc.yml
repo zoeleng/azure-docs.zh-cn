@@ -77,10 +77,14 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
     - name: Java
       href: /java/api/overview/azure/hybridcompute/management
-    - name: Javascript
+    - name: JavaScript
       href: /javascript/api/%40azure/arm-hybridcompute
     - name: Python
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
     - name: Azure Policy 内置策略定义
       displayName: 'samples, policies, definitions'
       href: policy-reference.md
+- name: 资源
+  items:
+    - name: Azure Arc 快速入门
+      href: 'https://github.com/microsoft/azure_arc'

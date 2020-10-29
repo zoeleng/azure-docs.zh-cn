@@ -14,12 +14,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+- devx-track-azurecli
+ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842761"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748550"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -119,7 +120,7 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 ### <a name="sample-desired-properties"></a>所需属性示例
 
-可以使用对应用程序有利的任何方式来构建所需属性。 本示例使用一个名为 **fanOn** 的顶级属性，并将剩余的属性分组到单独的**组件**中。 以下 JSON 片段显示了本教程所用的所需属性的结构：
+可以使用对应用程序有利的任何方式来构建所需属性。 本示例使用一个名为 **fanOn** 的顶级属性，并将剩余的属性分组到单独的 **组件** 中。 以下 JSON 片段显示了本教程所用的所需属性的结构：
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -135,7 +136,7 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 ### <a name="handlers-for-multiple-properties"></a>多个属性的处理程序
 
-在前面显示的所需属性 JSON 示例中，**components** 下的 **climate** 节点包含两个属性：**minTemperature** 和 **maxTemperature**。
+在前面显示的所需属性 JSON 示例中， **components** 下的 **climate** 节点包含两个属性： **minTemperature** 和 **maxTemperature** 。
 
 设备的本地 **twin** 对象存储一组完整的所需属性和报告属性。 从后端发送的 **delta** 可能只会更新所需属性的某个子集。 在以下代码片段中，如果模拟设备只是收到了对某个 **minTemperature** 和 **maxTemperature** 的更新，则它会使用另一个值的本地孪生中的值来配置设备：
 
@@ -147,7 +148,7 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 从后端发送的所需属性并不会指示当前正在对特定的所需属性执行哪个操作。 代码需要根据当前存储在本地的所需属性集，以及中心发送的更改来推断操作。
 
-以下片段演示模拟设备如何处理针对所需属性中的**组件**列表执行的插入、更新和删除操作。 可以查看如何使用 **null** 值来指示应删除某个组件：
+以下片段演示模拟设备如何处理针对所需属性中的 **组件** 列表执行的插入、更新和删除操作。 可以查看如何使用 **null** 值来指示应删除某个组件：
 
 [!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
 

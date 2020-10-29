@@ -4,13 +4,13 @@ description: 此 Azure Kubernetes 服务 (AKS) 教程介绍如何将现有 AKS �
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2e9af5dcc00d8cadd0528d56ee73bc6aeba149d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629636"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747732"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中升级 Kubernetes
 

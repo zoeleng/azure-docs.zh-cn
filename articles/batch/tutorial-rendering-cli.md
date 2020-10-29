@@ -3,13 +3,13 @@ title: 在云中渲染场景
 description: 教程 - 如何使用 Batch 渲染服务和 Azure 命令行界面通过 Arnold 来渲染 Autodesk 3ds Max 场景
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.custom: mvc
-ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82117125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747059"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -259,7 +259,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-任务在计算节点上生成 *dragon0001.jpg*，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 命令将文件从存储下载到本地计算机。
+任务在计算节点上生成 *dragon0001.jpg* ，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 命令将文件从存储下载到本地计算机。
 
 ```azurecli-interactive
 az storage blob download \
@@ -269,14 +269,14 @@ az storage blob download \
 
 ```
 
-在计算机上打开 *dragon.jpg*。 渲染的图像如下所示：
+在计算机上打开 *dragon.jpg* 。 渲染的图像如下所示：
 
 ![渲染的龙第 1 帧](./media/tutorial-rendering-cli/dragon-frame.png) 
 
 
 ## <a name="scale-the-pool"></a>缩放池
 
-现在请修改该池，为包含多个帧的更大型渲染作业做准备。 Batch 提供多种缩放计算资源的方式，包括可以在任务需求变化时添加或删除节点的[自动缩放](batch-automatic-scaling.md)。 对于这个基本的示例，请使用 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 命令将池中低优先级节点的数目增加到 *6*：
+现在请修改该池，为包含多个帧的更大型渲染作业做准备。 Batch 提供多种缩放计算资源的方式，包括可以在任务需求变化时添加或删除节点的[自动缩放](batch-automatic-scaling.md)。 对于这个基本的示例，请使用 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 命令将池中低优先级节点的数目增加到 *6* ：
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6

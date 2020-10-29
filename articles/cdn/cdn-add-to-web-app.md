@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abe13c7c6a9f26746278aeede199a0860a54c0d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079903"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779538"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>教程：向 Azure 应用服务 Web 应用添加 Azure CDN
 
@@ -43,7 +43,7 @@ ms.locfileid: "88079903"
 为完成此教程：
 
 - [安装 Git](https://git-scm.com/)
-- [安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [安装 Azure CLI](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -87,8 +87,8 @@ Azure 将创建配置文件和终结点。 新的终结点显示在“终结点�
 ### <a name="test-the-cdn-endpoint"></a>测试 CDN 终结点
 
  终结点不会立即可供使用，因为注册传播需花时间： 
-   - 对于 **Microsoft 推出的 Azure CDN 标准版**配置文件，传播通常可在 10 分钟内完成。 
-   - 对于 **Akamai 的 Azure CDN 标准版**配置文件，传播通常可在一分钟内完成。 
+   - 对于 **Microsoft 推出的 Azure CDN 标准版** 配置文件，传播通常可在 10 分钟内完成。 
+   - 对于 **Akamai 的 Azure CDN 标准版** 配置文件，传播通常可在一分钟内完成。 
    - 对于 Verizon 的 Azure CDN 标准版和 Verizon 的 Azure CDN 高级版配置文件，传播通常可在 90 分钟内完成 。 
 
 示例应用有一个 index.html 文件，此外还有 css、img 和 js 文件夹，其中包含其他静态资产   。 在 CDN 终结点上，所有这些文件的内容路径是相同的。 例如，以下两个 URL 都可以访问 css 文件夹中的 bootstrap.css 文件： 
@@ -269,5 +269,3 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 > [!div class="nextstepaction"]
 > [教程：将自定义域添加到 Azure CDN 终结点](cdn-map-content-to-custom-domain.md)
-
-

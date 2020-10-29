@@ -13,13 +13,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3cdb7796f3f8c877f130f47b971dc66c113c4d36
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070106"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748855"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>教程：在 Java Spring 应用中使用 Key Vault 引用
 
@@ -52,13 +52,13 @@ ms.locfileid: "92070106"
 1. 选择 Azure 门户左上角的“创建资源”选项： 
 
     ![Key Vault 创建完成后的输出](./media/quickstarts/search-services.png)
-1. 在搜索框中输入 **Key Vault**。
+1. 在搜索框中输入 **Key Vault** 。
 1. 在结果列表中，选择左侧的“Key Vault”  。
 1. 在“Key Vault”中选择“添加”。  
 1. 在“创建 Key Vault”中的右侧提供以下信息： 
     * 选择“订阅”以选择订阅。 
     * 在“资源组”中选择“新建”，然后输入资源组的名称   。
-    * 在“Key Vault 名称”中，必须输入唯一的名称。  对于本教程，请输入 **Contoso-vault2**。
+    * 在“Key Vault 名称”中，必须输入唯一的名称。  对于本教程，请输入 **Contoso-vault2** 。
     * 在“区域”下拉列表中，选择一个位置。 
 1. 将“创建 Key Vault”的其他选项保留默认值。 
 1. 选择“创建”  。
@@ -69,14 +69,14 @@ ms.locfileid: "92070106"
 
 ## <a name="add-a-secret-to-key-vault"></a>向 Key Vault 添加机密
 
-只需执行几个额外的步骤即可将机密添加到保管库。 在本例中，我们将添加一条消息，用于测试 Key Vault 检索功能。 此消息名为 **Message**，我们将在其中存储“Hello from Key Vault”值。
+只需执行几个额外的步骤即可将机密添加到保管库。 在本例中，我们将添加一条消息，用于测试 Key Vault 检索功能。 此消息名为 **Message** ，我们将在其中存储“Hello from Key Vault”值。
 
 1. 在 Key Vault 属性页中选择“机密”  。
 1. 选择“生成/导入”。 
 1. 在“创建机密”窗格中输入以下值： 
-    * **上传选项**：输入 **Manual**。
-    * **Name**：输入 **Message**。
-    * **值**：输入 **Hello from Key Vault**。
+    * **上传选项** ：输入 **Manual** 。
+    * **Name** ：输入 **Message** 。
+    * **值** ：输入 **Hello from Key Vault** 。
 1. 将“创建机密”的其他属性保留默认值。 
 1. 选择“创建”  。
 
@@ -87,10 +87,10 @@ ms.locfileid: "92070106"
 1. 选择“配置资源管理器”。 
 
 1. 选择“+ 创建” > “Key Vault 引用”，然后指定以下值：  
-    * **密钥**：选择 **/application/config.keyvaultmessage**
-    * **标签**：将此值保留空白。
+    * **密钥** ：选择 **/application/config.keyvaultmessage**
+    * **标签** ：将此值保留空白。
     * “订阅”、“资源组”和“Key Vault”：    输入上一部分在密钥保管库中创建的值相对应的值。
-    * **机密**：选择在上一部分创建的名为 **Message** 的机密。
+    * **机密** ：选择在上一部分创建的名为 **Message** 的机密。
 
 ## <a name="connect-to-key-vault"></a>连接到 Key Vault
 

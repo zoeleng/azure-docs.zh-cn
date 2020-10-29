@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91829259"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755506"
 ---
 可以将多个数据磁盘附加到 Azure 虚拟机。 根据 VM 数据磁盘的可伸缩性和性能目标，可以确定满足性能和容量要求所需的磁盘数量和类型。
 
@@ -18,7 +18,7 @@ ms.locfileid: "91829259"
 
 **对于 Azure 托管磁盘：**
 
-下表说明了每个订阅的每个区域的资源数的默认限制和最大限制。 对每个资源组的托管磁盘、快照和映像的数量没有限制。  
+下表说明了每个订阅的每个区域的资源数的默认限制和最大限制。 无论磁盘是使用平台管理的密钥还是客户管理的密钥加密的，都遵守相同的限制。 对每个资源组的托管磁盘、快照和映像的数量没有限制。  
 
 > | 资源 | 限制 |
 > | --- | --- |

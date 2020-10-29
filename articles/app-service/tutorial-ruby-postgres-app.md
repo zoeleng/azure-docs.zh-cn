@@ -4,13 +4,13 @@ description: 了解如何在 Azure 应用服务中运行 Linux Ruby 应用，同
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c2baccec75c7b525c0837cebd9d828dff3a79543
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150178"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747141"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>在基于 Linux 上的 Azure 应用服务中生成 Ruby 和 Postgres 应用
 
@@ -157,7 +157,7 @@ az postgres up --resource-group myResourceGroup --location westeurope --server-n
 
 ### <a name="configure-the-database-connection"></a>配置数据库连接
 
-在存储库中，打开 _config/database.yml_。 在该文件的底部，将生产变量替换为以下代码。 
+在存储库中，打开 _config/database.yml_ 。 在该文件的底部，将生产变量替换为以下代码。 
 
 ```txt
 production:
@@ -439,7 +439,7 @@ git push azure master
 
 转到 [Azure 门户](https://portal.azure.com)管理已创建的应用。
 
-在左侧菜单中单击**应用程序服务**，然后单击 Azure 应用的名称。
+在左侧菜单中单击 **应用程序服务** ，然后单击 Azure 应用的名称。
 
 ![在门户中导航到 Azure 应用](./media/tutorial-php-mysql-app/access-portal.png)
 
