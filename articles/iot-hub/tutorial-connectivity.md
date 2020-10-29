@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 0d886fc6797011ff3a0adeb69f50358ece9c5f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf1c558474cfde85dd2c9ba8c85dc553fe5d9b56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252147"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547497"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教程：使用模拟设备测试与 IoT 中心的连接
 
@@ -70,13 +70,13 @@ node --version
 
 ## <a name="check-device-authentication"></a>检查设备身份验证
 
-设备在与中心交换数据之前，必须通过中心进行身份验证。 可以使用门户的“设备管理”部分的 **IoT 设备**工具来管理设备并检查其使用的身份验证密钥。 在教程的此部分，请添加一个新的测试设备，检索其密钥，并检查此测试设备能否连接到中心。 稍后请重置身份验证密钥，观察在设备尝试使用过期密钥时会发生什么情况。 教程的此部分使用 Azure 门户来创建、管理和监视设备以及示例 Node.js 设备模拟器。
+设备在与中心交换数据之前，必须通过中心进行身份验证。 可以使用门户的“设备管理”部分的 **IoT 设备** 工具来管理设备并检查其使用的身份验证密钥。 在教程的此部分，请添加一个新的测试设备，检索其密钥，并检查此测试设备能否连接到中心。 稍后请重置身份验证密钥，观察在设备尝试使用过期密钥时会发生什么情况。 教程的此部分使用 Azure 门户来创建、管理和监视设备以及示例 Node.js 设备模拟器。
 
 登录门户，导航到 IoT 中心。 然后导航到“IoT 设备”工具：
 
 ![“IoT 设备”工具](media/tutorial-connectivity/iot-devices-tool.png)
 
-若要注册新设备，请单击“+ 添加”，将“设备 ID”设置为 **MyTestDevice**，然后单击“保存”：  
+若要注册新设备，请单击“+ 添加”，将“设备 ID”设置为 **MyTestDevice** ，然后单击“保存”：  
 
 ![添加新设备](media/tutorial-connectivity/add-device.png)
 
@@ -273,4 +273,4 @@ az iot hub device-twin update --set properties.desired='{"mydesiredproperty":"pr
 本教程介绍了如何检查设备密钥、如何检查设备到云的连接性、如何检查云到设备的连接性，以及如何检查设备孪生同步。 若要详细了解如何监视 IoT 中心，请访问有关 IoT 中心监视的操作方法文章。
 
 > [!div class="nextstepaction"]
-> [使用诊断进行监视](iot-hub-monitor-resource-health.md)
+> [监视 IoT 中心](monitor-iot-hub.md)

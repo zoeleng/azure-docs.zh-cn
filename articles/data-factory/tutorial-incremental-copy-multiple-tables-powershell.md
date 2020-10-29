@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541809"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634090"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>使用 PowerShell 以递增方式将数据从 SQL Server 中的多个表加载到 Azure SQL 数据库
 
@@ -42,15 +42,15 @@ ms.locfileid: "91541809"
 ## <a name="overview"></a>概述
 下面是创建此解决方案所要执行的重要步骤： 
 
-1. **选择水印列**。
+1. **选择水印列** 。
 
     为源数据存储中的每个表选择一个列，你可以在其中标识每次运行的新记录或更新记录。 通常，在创建或更新行时，此选定列中的数据（例如 last_modify_time 或 ID）会不断递增。 此列中的最大值用作水印。
 
-2. **准备用于存储水印值的数据存储**。
+2. **准备用于存储水印值的数据存储** 。
 
     本教程在 SQL 数据库中存储水印值。
 
-3. **创建包含以下活动的管道**：
+3. **创建包含以下活动的管道** ：
     
     a. 创建一个 ForEach 活动，循环访问一个列表，其中的源表名称是作为参数传递到管道的。 对于每个源表，它会调用以下活动，为该表执行增量加载。
 
@@ -69,14 +69,14 @@ ms.locfileid: "91541809"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **SQL Server**。 在本教程中，请将 SQL Server 数据库用作源数据存储。 
-* **Azure SQL 数据库**。 使用 Azure SQL 数据库中的数据库作为接收器数据存储。 如果没有 SQL 数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)了解创建步骤。 
+* **SQL Server** 。 在本教程中，请将 SQL Server 数据库用作源数据存储。 
+* **Azure SQL 数据库** 。 使用 Azure SQL 数据库中的数据库作为接收器数据存储。 如果没有 SQL 数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)了解创建步骤。 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>在 SQL Server 数据库中创建源表
 
-1. 打开 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)，然后连接到 SQL Server 数据库。
+1. 打开 [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) 或 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)，然后连接到 SQL Server 数据库。
 
-2. 在**服务器资源管理器 (SSMS)** 或“连接”窗格 (Azure Data Studio) 中，右键单击数据库，然后选择“新建查询”。
+2. 在 **服务器资源管理器 (SSMS)** 或“连接”窗格 (Azure Data Studio) 中，右键单击数据库，然后选择“新建查询”。
 
 3. 对数据库运行以下 SQL 命令，以便创建名为 `customer_table` 和 `project_table` 的表：
 
@@ -113,9 +113,9 @@ ms.locfileid: "91541809"
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>在 Azure SQL 数据库中创建目标表
 
-1. 打开 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)，然后连接到 SQL Server 数据库。
+1. 打开 [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) 或 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)，然后连接到 SQL Server 数据库。
 
-2. 在**服务器资源管理器 (SSMS)** 或“连接”窗格 (Azure Data Studio) 中，右键单击数据库，然后选择“新建查询”。
+2. 在 **服务器资源管理器 (SSMS)** 或“连接”窗格 (Azure Data Studio) 中，右键单击数据库，然后选择“新建查询”。
 
 3. 对数据库运行以下 SQL 命令，以便创建名为 `customer_table` 和 `project_table` 的表：  
 
@@ -537,15 +537,15 @@ END
 
 ## <a name="create-a-pipeline"></a>创建管道
 
-此管道使用表名列表作为参数。 **ForEach 活动**循环访问包含表名的列表，并执行以下操作： 
+此管道使用表名列表作为参数。 **ForEach 活动** 循环访问包含表名的列表，并执行以下操作： 
 
-1. 通过 **Lookup 活动**检索旧的水印值（初始值或上次迭代中使用的值）。
+1. 通过 **Lookup 活动** 检索旧的水印值（初始值或上次迭代中使用的值）。
 
-2. 通过 **Lookup 活动**检索新的水印值（源表中水印列的最大值）。
+2. 通过 **Lookup 活动** 检索新的水印值（源表中水印列的最大值）。
 
-3. 通过 **Copy 活动**将这两个水印值之间的数据从源数据库复制到目标数据库。
+3. 通过 **Copy 活动** 将这两个水印值之间的数据从源数据库复制到目标数据库。
 
-4. 通过 **StoredProcedure 活动**更新旧水印值，以便在下一迭代的第一步使用该值。 
+4. 通过 **StoredProcedure 活动** 更新旧水印值，以便在下一迭代的第一步使用该值。 
 
 ### <a name="create-the-pipeline"></a>创建管道
 
@@ -994,5 +994,3 @@ project_table   2017-10-01 00:00:00.000
 
 > [!div class="nextstepaction"]
 >[使用更改跟踪技术，以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

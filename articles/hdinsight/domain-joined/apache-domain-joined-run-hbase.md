@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73044649"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544947"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>教程：使用企业安全性套餐在 HDInsight 中配置 Apache HBase 策略
 
@@ -45,7 +45,7 @@ ms.locfileid: "73044649"
 
 ## <a name="create-domain-users"></a>创建域用户
 
-访问[使用企业安全性套餐创建 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)，以了解如何创建 **sales_user1** 和 **marketing_user1** 域用户。 在生产方案中，域用户来自你的 Active Directory·租户。
+访问 [使用企业安全性套餐创建 HDInsight 群集](./apache-domain-joined-configure-using-azure-adds.md)，以了解如何创建 **sales_user1** 和 **marketing_user1** 域用户。 在生产方案中，域用户来自你的 Active Directory·租户。
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>创建 HBase 表并导入示例数据
 
@@ -145,7 +145,7 @@ ms.locfileid: "73044649"
 
 ## <a name="test-the-ranger-policies"></a>测试 Ranger 策略
 
-根据配置的 Ranger 策略，**sales_user1** 可以查看 `Name` 和 `Contact` 列系列中的列的所有数据。 **marketing_user1** 只能查看 `Contact` 列系列中的数据。
+根据配置的 Ranger 策略， **sales_user1** 可以查看 `Name` 和 `Contact` 列系列中的列的所有数据。 **marketing_user1** 只能查看 `Contact` 列系列中的数据。
 
 ### <a name="access-data-as-sales_user1"></a>以 sales_user1 的身份访问数据
 
@@ -236,7 +236,7 @@ ms.locfileid: "73044649"
 如果不打算继续使用此应用程序，请使用以下步骤删除创建的 HBase 群集：
 
 1. 登录 [Azure 门户](https://portal.azure.com/)。
-2. 在顶部的“搜索”框中，键入 **HDInsight**。  
+2. 在顶部的“搜索”框中，键入 **HDInsight** 。  
 1. 选择“服务”下的“HDInsight 群集”   。
 1. 在显示的 HDInsight 群集列表中，单击为本教程创建的群集旁边的“...”。  
 1. 单击 **“删除”** 。 单击 **“是”** 。
