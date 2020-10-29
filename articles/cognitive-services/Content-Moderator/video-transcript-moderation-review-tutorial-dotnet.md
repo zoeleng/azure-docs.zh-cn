@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1f5a68bcf0069663d8ef1101407bea7ee26e9e8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919282"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912831"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>教程：视频和脚本审查
 
@@ -35,7 +35,7 @@ ms.locfileid: "88919282"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 在[内容审查器评审工具](https://contentmoderator.cognitive.microsoft.com/)网站上注册并创建自定义标记。 执行此步骤时如需帮助，请参阅[使用标记](Review-Tool-User-Guide/tags.md)。
+- 在[内容审查器评审工具](https://contentmoderator.cognitive.microsoft.com/)网站上注册并创建自定义标记。 执行此步骤时如需帮助，请参阅[使用标记](./review-tool-user-guide/configure.md#tags)。
 
     ![屏幕截图：视频审查自定义标记](images/video-tutorial-custom-tags.png)
 - 若要运行示例应用程序，需要有 Azure 帐户、Azure 媒体服务帐户、Azure 内容审查器资源，以及 Azure Active Directory 凭据。 有关如何获取这些资源的说明，请查看[视频审查 API](video-moderation-api.md) 指南。
@@ -83,7 +83,7 @@ ms.locfileid: "88919282"
 如果不存在命令行参数，`Main()` 将调用 `GetUserInputs()`。 此方法提示用户输入单个视频文件的路径，并指定是否应生成文本脚本。
 
 > [!NOTE]
-> 控制台应用程序使用 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
+> 控制台应用程序使用 [Azure Media Indexer API](../../media-services/previous/legacy-components.md) 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
 
 ### <a name="initialize-and-processvideo-methods"></a>Initialize 和 ProcessVideo 方法
 
@@ -224,7 +224,7 @@ ms.locfileid: "88919282"
 当设置 `GenerateVTT` 标志时，还会生成来自视频的音频脚本。
 
 > [!NOTE]
-> 控制台应用程序使用 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
+> 控制台应用程序使用 [Azure Media Indexer API](../../media-services/previous/legacy-components.md) 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
 
 ## <a name="create-a-human-review"></a>创建人工评审
 
@@ -249,7 +249,7 @@ ms.locfileid: "88919282"
 
 ## <a name="process-the-transcript"></a>处理脚本
 
-到目前为止，本教程中提供的代码主要侧重于可视内容。 评论语音内容是一个单独的可选过程，如前文所述，它使用根据音频生成的脚本。 现在是时候看一下如何在评论过程中创建和使用文本脚本。 生成脚本的任务由 [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) 服务执行。
+到目前为止，本教程中提供的代码主要侧重于可视内容。 评论语音内容是一个单独的可选过程，如前文所述，它使用根据音频生成的脚本。 现在是时候看一下如何在评论过程中创建和使用文本脚本。 生成脚本的任务由 [Azure Media Indexer](../../media-services/previous/media-services-index-content.md) 服务执行。
 
 应用程序执行以下任务：
 
@@ -319,7 +319,7 @@ ms.locfileid: "88919282"
 
 `TextScreen()` 是一种很复杂的方法，因此，让我们逐一分解该方法。
 
-1. 首先，该方法逐行读取脚本文件。 它忽略空白行以及包含具有置信度分数的 `NOTE` 的行。 它从文件的*提示*中提取时间戳和文本项。 提示表示音频轨道中的文本，包括开始时间和结束时间。 提示以带有字符串 `-->` 的时间戳行开头。 后面跟有一行或多行文本。
+1. 首先，该方法逐行读取脚本文件。 它忽略空白行以及包含具有置信度分数的 `NOTE` 的行。 它从文件的 *提示* 中提取时间戳和文本项。 提示表示音频轨道中的文本，包括开始时间和结束时间。 提示以带有字符串 `-->` 的时间戳行开头。 后面跟有一行或多行文本。
 
 1. `CaptionScreentextResult`（在 `TranscriptProfanity.cs` 中定义）的实例用于保存从每个提示分析得到的信息。  当检测到新的时间戳行，或者达到 1024 个字符的最大文本长度时，会向 `csrList` 添加新的 `CaptionScreentextResult`。 
 

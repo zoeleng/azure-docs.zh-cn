@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85800085"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912899"
 ---
 # <a name="learn-text-moderation-concepts"></a>了解文本审查概念
 
@@ -34,7 +34,7 @@ ms.locfileid: "85800085"
 
 ## <a name="profanity"></a>亵渎内容
 
-如果 API 在任何[受支持语言](Text-Moderation-API-Languages.md)中检测到任何亵渎字词，这些字词会包含在响应中。 响应还会包含这些字词在原始文本中的位置 (`Index`)。 以下示例 JSON 中的 `ListId` 引用[自定义字词列表](try-terms-list-api.md)（如果有）中找到的字词。
+如果 API 在任何[受支持语言](./language-support.md)中检测到任何亵渎字词，这些字词会包含在响应中。 响应还会包含这些字词在原始文本中的位置 (`Index`)。 以下示例 JSON 中的 `ListId` 引用[自定义字词列表](try-terms-list-api.md)（如果有）中找到的字词。
 
 ```json
 "Terms": [
@@ -47,13 +47,13 @@ ms.locfileid: "85800085"
 ```
 
 > [!NOTE]
-> 对于 **language** 参数，请分配 `eng` 或将其留空以查看机器辅助的**分类**响应（预览功能）。 **此功能仅支持英语**。
+> 对于 **language** 参数，请分配 `eng` 或将其留空以查看机器辅助的 **分类** 响应（预览功能）。 **此功能仅支持英语** 。
 >
 > 对于不雅用语  检测，请使用本文所列的支持语言的 [ISO 639-3 代码](http://www-01.sil.org/iso639-3/codes.asp)或留空。
 
 ## <a name="classification"></a>分类
 
-内容审查器的计算机辅助 **文本分类功能** 仅支持 **英语**，有助于检测可能不需要的内容。 根据上下文，可能会将标记的内容评估为不合适。 它传达了每个类别的可能性，并可能建议进行人工审核。 该功能使用训练的模型来识别可能的辱骂、贬损或歧视性语言。 要评审的内容包括俚语、缩写词、冒犯性言语，以及有意拼错的单词。 
+内容审查器的计算机辅助 **文本分类功能** 仅支持 **英语** ，有助于检测可能不需要的内容。 根据上下文，可能会将标记的内容评估为不合适。 它传达了每个类别的可能性，并可能建议进行人工审核。 该功能使用训练的模型来识别可能的辱骂、贬损或歧视性语言。 要评审的内容包括俚语、缩写词、冒犯性言语，以及有意拼错的单词。 
 
 以下 JSON 摘录内容显示了示例输出：
 
@@ -142,7 +142,7 @@ ms.locfileid: "85800085"
 尽管在默认情况下，全局字词列表能够很好地满足大部分需要，但你可能想要根据自己的具体业务需求筛选字词。 例如，你可能想要从用户的发布内容中，筛选出所有竞争品牌名称。
 
 > [!NOTE]
-> 最多只能使用 5 个术语列表****，每个列表中的术语数不得超过 10,000 个****。
+> 最多只能使用 5 个术语列表  ，每个列表中的术语数不得超过 10,000 个  。
 >
 
 以下示例显示匹配的列表 ID：

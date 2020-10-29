@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872045"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912950"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>内容审核审阅、工作流和作业
 
@@ -23,7 +23,7 @@ ms.locfileid: "91872045"
 
 ## <a name="reviews"></a>审阅
 
-在审阅中，内容上传到审阅工具并显示在“审阅”选项卡下****。在这里，用户可以更改已应用的标记，并根据需要应用自己的自定义标记。 当用户提交审阅时，系统会将结果发送到指定的回调终结点，并从网站中删除内容。
+在审阅中，内容上传到审阅工具并显示在“审阅”选项卡下  。在这里，用户可以更改已应用的标记，并根据需要应用自己的自定义标记。 当用户提交审阅时，系统会将结果发送到指定的回调终结点，并从网站中删除内容。
 
 ![在浏览器中打开的审阅工具网站，在“审阅”选项卡上](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
@@ -35,11 +35,11 @@ ms.locfileid: "91872045"
 
 ### <a name="view-workflows"></a>查看工作流
 
-若要查看现有工作流，请转到[审阅工具](https://contentmoderator.cognitive.microsoft.com/)，然后选择“设置”**** > “工作流”****。
+若要查看现有工作流，请转到  > “工作流”  。
 
 ![默认工作流](images/default-workflow-listed.PNG)
 
-可以采用 JSON 字符串的形式完整描述工作流，这样就能够以编程方式访问它们。 如果为工作流选择“编辑”**** 选项，然后选择“JSON”**** 选项卡，则会看到类似以下内容的 JSON 表达式：
+可以采用 JSON 字符串的形式完整描述工作流，这样就能够以编程方式访问它们。 如果为工作流选择“编辑”  选项，然后选择“JSON”  选项卡，则会看到类似以下内容的 JSON 表达式：
 
 ```json
 {
@@ -75,5 +75,5 @@ ms.locfileid: "91872045"
 ## <a name="next-steps"></a>后续步骤
 
 * 试用[作业 API 控制台](try-review-api-job.md)，并运行 REST API 代码示例。 如果熟悉 Visual Studio 和 C#，还请参阅[作业 .NET 快速入门](moderation-jobs-quickstart-dotnet.md)。 
-* 对于审阅，请开始使用[审阅 API 控制台](try-review-api-review.md)，并运行 REST API 代码示例。 然后，请参阅 [.NET 快速入门](dotnet-sdk-quickstart.md)的审阅部分。
+* 对于审阅，请开始使用[审阅 API 控制台](try-review-api-review.md)，并运行 REST API 代码示例。 然后，请参阅 [.NET 快速入门](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)的审阅部分。
 * 对于视频审阅，请参阅[视频审阅快速入门](video-reviews-quickstart-dotnet.md)，并了解如何[向视频审阅添加脚本](video-transcript-reviews-quickstart-dotnet.md)。

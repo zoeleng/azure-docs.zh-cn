@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919346"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912848"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>在 C# 中分析令人反感的视频内容
 
@@ -29,11 +29,11 @@ ms.locfileid: "88919346"
 
 ## <a name="set-up-azure-resources"></a>设置 Azure 资源
 
-内容审查器的视频审查功能可以在 Azure 媒体服务 (AMS) 中免费提供公共预览版的**媒体处理器**。 Azure 媒体服务是用于存储和流式传输视频内容的专业 Azure 服务。 
+内容审查器的视频审查功能可以在 Azure 媒体服务 (AMS) 中免费提供公共预览版的 **媒体处理器** 。 Azure 媒体服务是用于存储和流式传输视频内容的专业 Azure 服务。 
 
 ### <a name="create-an-azure-media-services-account"></a>创建 Azure 媒体服务帐户
 
-遵照[创建 Azure 媒体服务帐户](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account)中的说明订阅 AMS，并创建关联的 Azure 存储帐户。 在该存储帐户中，创建新的 Blob 存储容器。
+遵照[创建 Azure 媒体服务帐户](../../media-services/previous/media-services-portal-create-account.md)中的说明订阅 AMS，并创建关联的 Azure 存储帐户。 在该存储帐户中，创建新的 Blob 存储容器。
 
 ### <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
 
@@ -43,7 +43,7 @@ ms.locfileid: "88919346"
 
 选择该应用注册，并单击其下面的“管理应用程序”按钮。  记下“应用程序 ID”字段中的值，因为稍后需要用到。  选择“设置” > “密钥”，并输入新密钥的说明（例如“VideoModKey”）。 单击“保存”，然后注意新密钥值。  复制此字符串并将其保存到安全的位置。
 
-有关上述过程的全面演练，请参阅 [Azure AD 身份验证入门](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)。
+有关上述过程的全面演练，请参阅 [Azure AD 身份验证入门](../../media-services/previous/media-services-portal-get-started-with-aad.md)。
 
 完成上述操作后，可通过两种不同的方式使用视频审查媒体处理器。
 
@@ -55,7 +55,7 @@ Azure 媒体服务资源管理器是 AMS 的用户友好前端。 使用它可�
 
 ## <a name="create-the-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 在 Visual Studio 中创建新的**控制台应用 (.NET Framework)** 项目并将其命名为 **VideoModeration**。 
+1. 在 Visual Studio 中创建新的 **控制台应用 (.NET Framework)** 项目并将其命名为 **VideoModeration** 。 
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
 1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包： 
     - windowsazure.mediaservices
