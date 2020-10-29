@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: de02e8ea995482b815734565f839c4cb1c348782
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944183"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445624"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>教程：Azure Active Directory 单一登录与 Citrix NetScaler 的集成（基于标头的身份验证）
 
@@ -26,7 +26,7 @@ ms.locfileid: "91944183"
 * 让用户使用其 Azure AD 帐户自动登录到 Citrix NetScaler。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解服务型软件 (SaaS) 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解服务型软件 (SaaS) 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,7 +41,7 @@ ms.locfileid: "91944183"
 
 * 用于 Citrix NetScaler 的 **SP 发起的** SSO
 
-* 用于 Citrix NetScaler 的**适时**用户预配
+* 用于 Citrix NetScaler 的 **适时** 用户预配
 
 * [Citrix NetScaler 的基于标头的身份验证](#publish-the-web-server)
 
@@ -263,9 +263,9 @@ ms.locfileid: "91944183"
 
 1. 在“创建身份验证策略”窗格中，输入或选择以下值： 
 
-    * **Name**：输入身份验证策略的名称。
-    * **操作**：输入 **SAML**，然后选择“添加”。 
-    * **表达式**：输入 **true**。     
+    * **Name** ：输入身份验证策略的名称。
+    * **操作** ：输入 **SAML** ，然后选择“添加”。 
+    * **表达式** ：输入 **true** 。     
     
     ![Citrix NetScaler 配置 -“创建身份验证策略”窗格](./media/header-citrix-netscaler-tutorial/policy01.png)
 
@@ -354,11 +354,11 @@ ms.locfileid: "91944183"
 
     1. 对于“名称”，请输入重写操作的名称。 
 
-    1. 对于“类型”，请输入 **INSERT_HTTP_HEADER**。 
+    1. 对于“类型”，请输入 **INSERT_HTTP_HEADER** 。 
 
-    1. 对于“标头名称”，请输入标头名称（本示例使用 _SecretID_）。 
+    1. 对于“标头名称”，请输入标头名称（本示例使用 _SecretID_ ）。 
 
-    1. 对于“表达式”，请输入 **aaa.USER.ATTRIBUTE("mySecretID")** ，其中，**mySecretID** 是发送到 Citrix ADC 的 Azure AD SAML 声明。 
+    1. 对于“表达式”，请输入 **aaa.USER.ATTRIBUTE("mySecretID")** ，其中， **mySecretID** 是发送到 Citrix ADC 的 Azure AD SAML 声明。 
 
     1. 选择“创建”  。
 
@@ -376,7 +376,7 @@ ms.locfileid: "91944183"
 
     1. 对于“操作”，请选择在上一部分创建的重写操作。 
 
-    1. 对于“表达式”，请输入 **true**。 
+    1. 对于“表达式”，请输入 **true** 。 
 
     1. 选择“创建”  。
 
@@ -437,15 +437,15 @@ ms.locfileid: "91944183"
 
 在本部分，我们将使用访问面板测试 Azure AD SSO 配置。
 
-在访问面板中选择“Citrix NetScaler”磁贴时，应会自动登录到设置了 SSO 的 Citrix NetScaler。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中选择“Citrix NetScaler”磁贴时，应会自动登录到设置了 SSO 的 Citrix NetScaler。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [通过 Azure AD 试用 Citrix NetScaler](https://aad.portal.azure.com/)
 
