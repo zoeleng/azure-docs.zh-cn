@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c08694efafef315b0f5e96d293d883767860fef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b76c21ee76731f78ecd7f482472908fe93a9ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855201"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92513307"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Palo Alto Networks - GlobalProtect 的集成
 
@@ -48,7 +48,7 @@ ms.locfileid: "91855201"
 1. 在左侧导航窗格中，选择“Azure Active Directory”服务  。
 1. 导航到“企业应用程序”，选择“所有应用程序”   。
 1. 若要添加新的应用程序，请选择“新建应用程序”。
-1. 在“从库中添加”部分的搜索框中，键入 **Palo Alto Networks - GlobalProtect**。
+1. 在“从库中添加”部分的搜索框中，键入 **Palo Alto Networks - GlobalProtect** 。
 1. 在结果面板中选择“Palo Alto Networks - GlobalProtect”，然后添加该应用。 在该应用添加到租户时等待几秒钟。
 
 ## <a name="configure-and-test-azure-ad-sso-for-palo-alto-networks---globalprotect"></a>配置并测试 Palo Alto Networks - GlobalProtect 的 Azure AD SSO
@@ -149,8 +149,8 @@ ms.locfileid: "91855201"
 
 2. 直接转到 Palo Alto Networks - GlobalProtect 登录 URL，并在其中启动登录流。
 
-3. 可以使用 Microsoft 访问面板。 在访问面板中单击“Palo Alto Networks - GlobalProtect”磁贴时，应会自动登录到已为其设置了 SSO 的 Palo Alto Networks - GlobalProtect。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+3. 可以使用 Microsoft 访问面板。 在访问面板中单击“Palo Alto Networks - GlobalProtect”磁贴时，应会自动登录到已为其设置了 SSO 的 Palo Alto Networks - GlobalProtect。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 Palo Alto Networks - GlobalProtect 后，就可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+配置 Palo Alto Networks - GlobalProtect 后，就可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。

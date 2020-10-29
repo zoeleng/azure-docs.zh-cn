@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 73b7b57aad43eea8e8d592d437185ca5c7e8a666
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 612576698d9eb40807b90e9d70f401aa6e9b864e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304605"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92512882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>教程：Azure Active Directory 与 Palo Alto Networks - 管理 UI 的集成
 
@@ -39,7 +39,7 @@ ms.locfileid: "91304605"
 本教程会在测试环境中配置和测试 Azure AD 单一登录。
 
 * Palo Alto Networks - 管理 UI 支持 **SP** 发起的 SSO
-* Palo Alto Networks - 管理 UI 支持**实时**用户预配
+* Palo Alto Networks - 管理 UI 支持 **实时** 用户预配
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>从库添加 Palo Alto Networks - 管理 UI
 
@@ -163,7 +163,7 @@ ms.locfileid: "91304605"
 
     ![“SAML 标识提供者服务器配置文件导入”窗口](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    a. 在“配置文件名称”框中提供一个名称（例如 **AzureAD Admin UI**）。
+    a. 在“配置文件名称”框中提供一个名称（例如 **AzureAD Admin UI** ）。
 
     b. 在“标识提供者元数据”下面选择“浏览”，然后选择前面从 Azure 门户下载的 metadata.xml 文件。 
 
@@ -173,7 +173,7 @@ ms.locfileid: "91304605"
 
     e. 若要提交有关防火墙的配置，请选择“提交”。
 
-5. 在左窗格中选择“SAML 标识提供者”，然后选择在上一步骤中创建的 SAML 标识提供者配置文件（例如 **AzureAD Admin UI**）。
+5. 在左窗格中选择“SAML 标识提供者”，然后选择在上一步骤中创建的 SAML 标识提供者配置文件（例如 **AzureAD Admin UI** ）。
 
     ![SAML 标识提供者配置文件](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
 
@@ -189,7 +189,7 @@ ms.locfileid: "91304605"
 
 8. 选择“添加”按钮。
 
-9. 在“管理员角色配置文件”窗口中的“名称”框内，为管理员角色提供一个名称（例如 **fwadmin**）。  此管理员角色名称应与标识提供者发送的 SAML 管理员角色属性名称匹配。 管理员角色名称和值是在 Azure 门户中的“用户属性”部分中创建的。
+9. 在“管理员角色配置文件”窗口中的“名称”框内，为管理员角色提供一个名称（例如 **fwadmin** ）。  此管理员角色名称应与标识提供者发送的 SAML 管理员角色属性名称匹配。 管理员角色名称和值是在 Azure 门户中的“用户属性”部分中创建的。
 
     ![配置 Palo Alto 网络管理员角色](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
@@ -201,15 +201,15 @@ ms.locfileid: "91304605"
 
     ![“身份验证配置文件”窗口](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
 
-    a. 在“名称”框中提供一个名称（例如 **AzureSAML_Admin_AuthProfile**）。
+    a. 在“名称”框中提供一个名称（例如 **AzureSAML_Admin_AuthProfile** ）。
 
     b. 在“类型”下拉列表中选择“SAML”。  
 
-    c. 在“IdP 服务器配置文件”下拉列表中，选择合适的 SAML 标识提供者服务器配置文件（例如 **AzureAD Admin UI**）。
+    c. 在“IdP 服务器配置文件”下拉列表中，选择合适的 SAML 标识提供者服务器配置文件（例如 **AzureAD Admin UI** ）。
 
     c. 选中“启用单一注销”复选框。
 
-    d. 在“管理员角色属性”框中输入属性名称（例如 **adminrole**）。
+    d. 在“管理员角色属性”框中输入属性名称（例如 **adminrole** ）。
 
     e. 选择“高级”选项卡，然后在“允许列表”下面选择“添加”。  
 
@@ -224,7 +224,7 @@ ms.locfileid: "91304605"
 
     ![“设置”按钮](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
-14. 选择在“身份验证配置文件”窗口中创建的 SAML 身份验证配置文件（例如 **AzureSAML_Admin_AuthProfile**）。
+14. 选择在“身份验证配置文件”窗口中创建的 SAML 身份验证配置文件（例如 **AzureSAML_Admin_AuthProfile** ）。
 
     ![“身份验证配置文件”字段](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
@@ -244,9 +244,9 @@ Palo Alto Networks - Admin UI 支持实时用户预配。 如果用户尚不存�
 
 2. 直接转到 Palo Alto Networks - Admin UI 登录 URL，并在其中启动登录流。
 
-3. 可以使用 Microsoft 访问面板。 单击访问面板中的“Palo Alto Networks - Admin UI”磁贴时，应当会自动登录到已为其设置了 SSO 的 Palo Alto Networks - Admin UI。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+3. 可以使用 Microsoft 访问面板。 单击访问面板中的“Palo Alto Networks - Admin UI”磁贴时，应当会自动登录到已为其设置了 SSO 的 Palo Alto Networks - Admin UI。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 Palo Alto Networks - 管理员 UI 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+配置 Palo Alto Networks - 管理员 UI 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。

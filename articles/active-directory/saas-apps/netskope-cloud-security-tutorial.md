@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 081c61610c4134917ffa90cf45fb096f3df4bcbe
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: eda584f2cb531cbf526c43eab00831b218a14f93
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939233"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Netskope 管理员控制台的集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91939233"
 * 让用户使用其 Azure AD 帐户自动登录到 Netskope 管理员控制台。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -102,7 +102,7 @@ ms.locfileid: "91939233"
     | admin-role | user.assignedroles |
 
     > [!NOTE]
-    > 单击[此处](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)以了解如何在 Azure AD 中创建角色。
+    > 单击[此处](../develop/active-directory-enterprise-app-role-management.md)以了解如何在 Azure AD 中创建角色。
 
 1. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分中，找到“证书(Base64)”，选择“下载”以下载该证书并将其保存到计算机上     。
 
@@ -216,14 +216,14 @@ ms.locfileid: "91939233"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的“Netskope 管理员控制台”磁贴时，应会自动登录到为其设置了 SSO 的 Netskope 管理员控制台。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的“Netskope 管理员控制台”磁贴时，应会自动登录到为其设置了 SSO 的 Netskope 管理员控制台。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [使用 Azure AD 试用 Netskope 管理员控制台](https://aad.portal.azure.com/)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 08d9c2f1676c0a04e9cd191b64c41af276521b3d
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d9850c83fc949aa3a2b0521dfa0d41d49b7283bd
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996096"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515614"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>教程：Azure Active Directory 与 Peakon 集成
 
@@ -27,7 +27,7 @@ Peakon 与 Azure AD 集成提供以下优势：
 * 可以让用户使用其 Azure AD 帐户自动登录到 Peakon（单一登录）。
 * 可在中心位置（即 Azure 门户）管理帐户。
 
-如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必备条件
@@ -92,7 +92,7 @@ Peakon 与 Azure AD 集成提供以下优势：
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -117,7 +117,7 @@ Peakon 与 Azure AD 集成提供以下优势：
     > [!NOTE]
     > 这些不是实际值。 本教程稍后将介绍如何使用实际的标识符和回复 URL 来更新这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
 
-6. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求通过从给定的选项下载**证书(原始)** 并将其保存在计算机上。
+6. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求通过从给定的选项下载 **证书(原始)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificateraw.png)
 
@@ -157,9 +157,9 @@ Peakon 与 Azure AD 集成提供以下优势：
 
     c. 单击“选择文件”，将从 Azure 门户下载的证书上传到“证书”框中。
 
-    d. 在 Azure 门户的“基本的 SAML 配置”部分，单击“图标”，复制**实体 ID** 值并将其粘贴到“标识符”文本框中。  
+    d. 在 Azure 门户的“基本的 SAML 配置”部分，单击“图标”，复制 **实体 ID** 值并将其粘贴到“标识符”文本框中。  
 
-    e. 在 Azure 门户的“基本的 SAML 配置”部分，单击“图标”，复制**回复 URL (ACS)** 并将其粘贴到“回复 URL”文本框中。  
+    e. 在 Azure 门户的“基本的 SAML 配置”部分，单击“图标”，复制 **回复 URL (ACS)** 并将其粘贴到“回复 URL”文本框中。  
 
     f. 单击“保存”
 
@@ -237,7 +237,7 @@ Peakon 与 Azure AD 集成提供以下优势：
 
     a. 在“姓名”文本框中，键入名字“Britta”和姓氏“Simon” 。
 
-    b. 在“电子邮件”文本框中键入电子邮件，例如 **Brittasimon\@contoso.com**。
+    b. 在“电子邮件”文本框中键入电子邮件，例如 **Brittasimon\@contoso.com** 。
 
     c. 单击“创建员工”。
 
@@ -245,13 +245,12 @@ Peakon 与 Azure AD 集成提供以下优势：
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Peakon 磁贴时，应当会自动登录到为其设置了 SSO 的 Peakon。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Peakon 磁贴时，应当会自动登录到为其设置了 SSO 的 Peakon。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

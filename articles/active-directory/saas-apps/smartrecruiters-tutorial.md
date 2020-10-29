@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fddf5cb77cbcb1fb061ffd958fba4bf4ab2c9e7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b7de874cc074faa63203c58638fb04cc5cb2282b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127465"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>教程：Azure Active Directory 与 SmartRecruiters 的集成
 
@@ -27,7 +27,7 @@ ms.locfileid: "92127465"
 * 可以让用户使用其 Azure AD 帐户自动登录到 SmartRecruiters（单一登录）。
 * 可在中心位置（即 Azure 门户）管理帐户。
 
-如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必备条件
@@ -207,19 +207,18 @@ ms.locfileid: "92127465"
 
 ### <a name="create-smartrecruiters-test-user"></a>创建 SmartRecruiters 测试用户
 
-在本部分中，在 SmartRecruiters 中创建名为 Britta Simon 的用户。 与  [SmartRecruiters 支持团队](https://www.smartrecruiters.com/about-us/contact-us/) 合作，在 SmartRecruiters 平台中添加用户。 使用单一登录前，必须先创建并激活用户。
+在本部分中，在 SmartRecruiters 中创建名为 Britta Simon 的用户。 与 [SmartRecruiters 支持团队](https://www.smartrecruiters.com/about-us/contact-us/)合作，在 SmartRecruiters 平台中添加用户。 使用单一登录前，必须先创建并激活用户。
 
 ### <a name="test-single-sign-on"></a>测试单一登录 
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击“访问面板”中的 SmartRecruiters 磁贴时，应当会自动登录到为其设置了 SSO 的 SmartRecruiters。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击“访问面板”中的 SmartRecruiters 磁贴时，应当会自动登录到为其设置了 SSO 的 SmartRecruiters。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

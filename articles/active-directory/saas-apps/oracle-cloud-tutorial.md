@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a0da85aeba1a9736884a6b8b345efd3f0a8544c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ed697b54b868319d715fdbb88dcae8f8968852d2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996546"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515655"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>教程：将 Oracle Cloud Infrastructure Console 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91996546"
 * 让用户使用其 Azure AD 帐户自动登录到 Oracle Cloud Infrastructure Console。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "91996546"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Oracle Cloud Infrastructure Console 支持 SP 发起的 SSO  。
-* 配置 Oracle Cloud Infrastructure Console 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* 配置 Oracle Cloud Infrastructure Console 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>从库中添加 Oracle Cloud Infrastructure Console
 
@@ -109,13 +109,13 @@ ms.locfileid: "91996546"
 
    1. 选择“永久”作为“选择名称标识符格式”   。
  
-   1. 单击“ **保存**”。
+   1. 单击“ **保存** ”。
 
       ![屏幕截图显示“用户属性和声明”部分，其中突出显示“名称标识符值”和“声明中返回的组”的“编辑”图标。](./media/oracle-cloud-tutorial/config07.png)
     
       ![屏幕截图显示选择了“持久性”和“保存”按钮的“管理用户声明”对话框。](./media/oracle-cloud-tutorial/config11.png)
 
-   1. 单击“声明中返回的组”旁边的**笔**。 
+   1. 单击“声明中返回的组”旁边的 **笔** 。 
 
    1. 从单选列表中选择“安全组”  。
 
@@ -127,7 +127,7 @@ ms.locfileid: "91996546"
 
    1. 在“命名空间(可选)”文本框中，键入 `https://auth.oraclecloud.com/saml/claims`  。
 
-   1. 单击“ **保存**”。
+   1. 单击“ **保存** ”。
 
       ![image](./media/oracle-cloud-tutorial/config08.png)
 
@@ -207,16 +207,16 @@ ms.locfileid: "91996546"
 
 ### <a name="test-sso"></a>测试 SSO
 
-在访问面板中选择“Oracle Cloud Infrastructure Console”磁贴时，将重新定向到 Oracle Cloud Infrastructure Console 登录页面。 从下拉菜单中选择“标识提供者”，然后如下所示单击“继续”以登录   。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中选择“Oracle Cloud Infrastructure Console”磁贴时，将重新定向到 Oracle Cloud Infrastructure Console 登录页面。 从下拉菜单中选择“标识提供者”，然后如下所示单击“继续”以登录   。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ![配置](./media/oracle-cloud-tutorial/config10.png)
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
-- [如何通过高级可见性和控制保护 Oracle Cloud Infrastructure Console](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [如何通过高级可见性和控制保护 Oracle Cloud Infrastructure Console](/cloud-app-security/proxy-intro-aad)
