@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 1754929629bd05dc48419e521fa8e07f7c873217
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a248718d12abf90abd80c9210b994e7d74ab111b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823394"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448701"
 ---
 # <a name="tutorial-integrate-ey-globalone-with-azure-active-directory"></a>教程：将 EY GlobalOne 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91823394"
 * 让用户可使用其 Azure AD 帐户自动登录到 EY GlobalOne。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "91823394"
 本教程在测试环境中配置并测试 Azure AD SSO。
 * EY GlobalOne 支持 SP 和 IDP 发起的 SSO 
 * EY GlobalOne 支持“实时”用户预配。
-* 配置 EY GlobalOne 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* 配置 EY GlobalOne 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-ey-globalone-from-the-gallery"></a>从库中添加 EY GlobalOne
 
@@ -60,8 +60,8 @@ ms.locfileid: "91823394"
 若要配置和测试 EY GlobalOne 的 Azure AD SSO，请完成以下构建基块：
 
 1. **[配置 Azure AD SSO](#configure-azure-ad-sso)** ，使用户能够使用此功能。
-    * **[创建 Azure AD 测试用户](#create-an-azure-ad-test-user)**，以使用 B. Simon 测试 Azure AD 单一登录。
-    * **[分配 Azure AD 测试用户](#assign-the-azure-ad-test-user)**，以使 B. Simon 能够使用 Azure AD 单一登录。
+    * **[创建 Azure AD 测试用户](#create-an-azure-ad-test-user)** ，以使用 B. Simon 测试 Azure AD 单一登录。
+    * **[分配 Azure AD 测试用户](#assign-the-azure-ad-test-user)** ，以使 B. Simon 能够使用 Azure AD 单一登录。
 1. **[配置 EY GlobalOne](#configure-ey-globalone)** ，以在应用程序端配置 SSO 设置。
     * **[创建 EY GlobalOne 测试用户](#create-ey-globalone-test-user)** ，以便在 EY GlobalOne 中拥有 B. Simon 的对应用户，并将其链接到该用户的 Azure AD 表示形式。
 1. **[测试 SSO](#test-sso)** ，验证配置是否正常工作。
@@ -107,7 +107,7 @@ ms.locfileid: "91823394"
 
     f. 单击“确定”
 
-    g. 单击“ **保存**”。
+    g. 单击“ **保存** ”。
 
 1. 在“设置 SAML 单一登录”页的“SAML 签名证书”部分中，找到“证书(原始)”，选择“下载”以下载该证书并将其保存到计算机上   。
 
@@ -143,7 +143,7 @@ ms.locfileid: "91823394"
 
     ![“添加用户”链接](common/add-assign-user.png)
 
-1. 在“用户和组”对话框中，选择“用户”列表中的“B. Simon”，然后单击屏幕底部的“选择”按钮************。
+1. 在“用户和组”对话框中，选择“用户”列表中的“B. Simon”，然后单击屏幕底部的“选择”按钮  。
 1. 如果在 SAML 断言中需要任何角色值，请在“选择角色”对话框的列表中为用户选择合适的角色，然后单击屏幕底部的“选择”按钮。
 1. 在“添加分配”对话框中，单击“分配”按钮。
 
@@ -157,12 +157,12 @@ ms.locfileid: "91823394"
 
 ## <a name="test-sso"></a>测试 SSO
 
-在访问面板中选择“EY GlobalOne”磁贴时，应当会自动登录到设置了 SSO 的 EY GlobalOne。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中选择“EY GlobalOne”磁贴时，应当会自动登录到设置了 SSO 的 EY GlobalOne。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

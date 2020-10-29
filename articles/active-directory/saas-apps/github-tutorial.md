@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: b26ee6d6e82903a3dad91ae931885f62daf5d15b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: cb5ef751a3fc2241924eaee1c5da9507006389cc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821178"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92449245"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>教程：Azure Active Directory 与 GitHub 的单一登录 (SSO) 集成
 
@@ -25,7 +25,7 @@ ms.locfileid: "91821178"
 * 在 Azure AD 中控制谁有权访问 GitHub Enterprise Cloud Organization。
 * 在一个中心位置管理对 GitHub Enterprise Cloud Organization 的访问 - Azure 门户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,8 +40,8 @@ ms.locfileid: "91821178"
 
 * GitHub 支持 **SP** 发起的 SSO
 
-* GitHub 支持[**自动**用户预配（组织邀请）](github-provisioning-tutorial.md)
-* 配置 GitHub 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* GitHub 支持 [**自动** 用户预配（组织邀请）](github-provisioning-tutorial.md)
+* 配置 GitHub 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>从库中添加 GitHub
 
@@ -93,7 +93,7 @@ ms.locfileid: "91821178"
 
     ![显示“用户属性”部分的屏幕截图，其中已选择“编辑”图标。](common/edit-attribute.png)
 
-6. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
+6. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求从给定的选项下载 **证书(Base64)** 并将其保存在计算机上。
 
     ![证书下载链接](common/certificatebase64.png)
 
@@ -169,7 +169,7 @@ ms.locfileid: "91821178"
 
     c. 在记事本中打开从 Azure 门户下载的证书，将内容粘贴到“公共证书”文本框中。
 
-    d. 单击“编辑”图标，将“签名方法”和“摘要方法”从 **RSA-SHA1** 和 **SHA1** 编辑为 **RSA-SHA256** 和 **SHA256**，如下所示  。
+    d. 单击“编辑”图标，将“签名方法”和“摘要方法”从 **RSA-SHA1** 和 **SHA1** 编辑为 **RSA-SHA256** 和 **SHA256** ，如下所示  。
     
     e. 从默认 URL 更新“断言使用者服务 URL (回复 URL)”，以便 GitHub 中的 URL 与 Azure 应用注册中的 URL 匹配。
 
@@ -217,16 +217,16 @@ ms.locfileid: "91821178"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 GitHub 磁贴时，应当会自动登录到已为其设置了 SSO 的 GitHub。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 GitHub 磁贴时，应当会自动登录到已为其设置了 SSO 的 GitHub。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [尝试通过 Azure AD 使用 GitHub](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)

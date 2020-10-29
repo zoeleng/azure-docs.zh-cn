@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 989e3f4a285d44128bba1c9811aebcb76b8c0220
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 13b62646728eb03a7470d9bb57741bcb90cc24fb
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92447698"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Grammarly 的集成
 
@@ -135,8 +135,8 @@ ms.locfileid: "91327929"
 
 1. 在 Azure 门户中单击“测试此应用程序”后，你应自动登录到为其设置了 SSO 的 Grammarly 
 
-2. 可以使用 Microsoft 访问面板。 在访问面板中单击“Grammarly”磁贴时，应会自动登录到为其设置了 SSO 的 Grammarly。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+2. 可以使用 Microsoft 访问面板。 在访问面板中单击“Grammarly”磁贴时，应会自动登录到为其设置了 SSO 的 Grammarly。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 Grammarly 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+配置 Grammarly 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。
