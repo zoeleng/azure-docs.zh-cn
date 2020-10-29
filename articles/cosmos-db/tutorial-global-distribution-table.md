@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: c2497a1fe5bfd3618246c9590685d08894e897f3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568657"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476512"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>使用表 API 设置 Azure Cosmos DB 全局分发
 
@@ -28,7 +28,7 @@ ms.locfileid: "91568657"
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>使用表 API 连接到首选区域
 
-为了利用[全局分发](distribute-data-globally.md)，客户端应用程序应当指定其应用程序在其中运行的当前位置。 这是通过设置 `CosmosExecutorConfiguration.CurrentRegion` 属性实现的。 `CurrentRegion` 属性应当包含单个位置。 每个客户端实例都可以指定其自己的区域，以实现低延迟读取。 区域必须使用其[显示名称](https://msdn.microsoft.com/library/azure/gg441293.aspx)命名，例如“美国西部”。 
+为了利用[全局分发](distribute-data-globally.md)，客户端应用程序应当指定其应用程序在其中运行的当前位置。 这是通过设置 `CosmosExecutorConfiguration.CurrentRegion` 属性实现的。 `CurrentRegion` 属性应当包含单个位置。 每个客户端实例都可以指定其自己的区域，以实现低延迟读取。 区域必须使用其[显示名称](/previous-versions/azure/reference/gg441293(v=azure.100))命名，例如“美国西部”。 
 
 Azure Cosmos DB 表 API SDK 将基于帐户配置和当前的区域可用性自动选取要与之通信的最佳终结点。 它优先选择最靠近的区域来使客户端实现更低的延迟。 在设置当前的 `CurrentRegion` 属性后，读取和写入请求将如下所述进行定向：
 
@@ -47,4 +47,3 @@ Azure Cosmos DB 表 API SDK 将基于帐户配置和当前的区域可用性自�
 > [!div class="checklist"]
 > * 使用 Azure 门户配置全局分发
 > * 使用 Azure Cosmos DB 表 API 配置全局分发
-

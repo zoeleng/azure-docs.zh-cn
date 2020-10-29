@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322693"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478110"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
 
@@ -22,7 +22,7 @@ ms.locfileid: "91322693"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -64,7 +64,7 @@ ms.locfileid: "91322693"
 
 1. 导航到要在其中存储新应用程序的目录。
 
-1. 使用 Express 生成器生成名叫 **todo**的新应用程序。
+1. 使用 Express 生成器生成名叫 **todo** 的新应用程序。
 
    ```bash
    express todo
@@ -103,7 +103,7 @@ ms.locfileid: "91322693"
 完成初始安装和配置以后，下一步是编写待办事项应用程序与 Azure Cosmos DB 通信所需的代码。
 
 ### <a name="create-the-model"></a>创建模型
-1. 在项目的根目录中，创建名为 **models**的新目录。  
+1. 在项目的根目录中，创建名为 **models** 的新目录。  
 
 2. 在 **models** 目录中，创建一个名为 **taskDao.js** 的新文件。 此文件包含创建数据库和容器所需的代码， 并定义在 Azure Cosmos DB 中读取、更新、创建和查找任务所需的方法。 
 
@@ -190,7 +190,7 @@ ms.locfileid: "91322693"
 
 1. 在项目的 **routes** 目录中，创建一个名为 **tasklist.js** 的新文件。  
 
-2. 将以下代码添加到 **tasklist.js**。 此代码会加载 **tasklist.js** 使用的 CosmosClient 和 async 模块， 并定义 **TaskList** 类，该类作为我们之前定义的 **TaskDao** 对象的一个实例来传递：
+2. 将以下代码添加到 **tasklist.js** 。 此代码会加载 **tasklist.js** 使用的 CosmosClient 和 async 模块， 并定义 **TaskList** 类，该类作为我们之前定义的 **TaskDao** 对象的一个实例来传递：
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -381,7 +381,7 @@ ms.locfileid: "91322693"
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    此代码会告知 **Jade** 引擎为应用程序呈现某些 HTML，并创建名为 **content** 的**块**，这样我们就可以在其中提供内容页面的布局。 保存并关闭 **layout.jade** 文件。
+    此代码会告知 **Jade** 引擎为应用程序呈现某些 HTML，并创建名为 **content** 的 **块** ，这样我们就可以在其中提供内容页面的布局。 保存并关闭 **layout.jade** 文件。
 
 3. 现在打开 **index.jade** 文件（应用程序将要使用的视图），并将文件内容替换为以下代码：
 
@@ -487,4 +487,3 @@ ms.locfileid: "91322693"
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
-

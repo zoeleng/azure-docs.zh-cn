@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f99d7430b76c0b1c4e9c07835267a4a0807efdb1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329398"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481357"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>将数据迁移到 Azure Cosmos DB 表 API 帐户
 
@@ -110,7 +110,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## <a name="migrate-data-by-using-azcopy"></a>使用 AzCopy 迁移数据
 
-使用 AzCopy 命令行实用工具是将数据从 Azure 表存储迁移到 Azure Cosmos DB 表 API 的另一个选项。 若要使用 AzCopy，首先需要根据[从表存储导出数据](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage)中所述导出数据，然后根据 [Azure Cosmos DB 表 API](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage) 中所述将数据导入到 Azure Cosmos DB。
+使用 AzCopy 命令行实用工具是将数据从 Azure 表存储迁移到 Azure Cosmos DB 表 API 的另一个选项。 若要使用 AzCopy，首先需要根据[从表存储导出数据](/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage)中所述导出数据，然后根据 [Azure Cosmos DB 表 API](/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage) 中所述将数据导入到 Azure Cosmos DB。
 
 在执行到 Azure Cosmos DB 的导入时，请参阅以下示例。 注意，/Dest 值使用的是 cosmosdb，而不是 core。
 

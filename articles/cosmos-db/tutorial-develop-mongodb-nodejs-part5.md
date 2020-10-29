@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: bd2b28b516f0043bb64e175bfa901557cdb78de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b855f8d967e2812884f5be79652fcd33cd080ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334406"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476631"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 使用 Mongoose 连接到 Cosmos DB
 
@@ -36,7 +36,7 @@ ms.locfileid: "91334406"
 
 * 开始本教程之前，请先完成[第 4 部分](tutorial-develop-mongodb-nodejs-part4.md)中的步骤。
 
-* 本教程要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+* 本教程要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 * 本教程介绍生成应用程序的各个步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
 
@@ -110,7 +110,7 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
     const port = 10255;
     ```
 
-1. 在 **environment.js** 文件中，将 `accountName` 的值更改为在本教程[步骤 4](tutorial-develop-mongodb-nodejs-part4.md) 中创建的 Azure Cosmos DB 帐户的名称。 
+1. 在 **environment.js** 文件中，将 `accountName` 的值更改为在本教程 [步骤 4](tutorial-develop-mongodb-nodejs-part4.md) 中创建的 Azure Cosmos DB 帐户的名称。 
 
 1. 在 Terminal 窗口中使用以下 CLI 命令，检索 Azure Cosmos DB 帐户的主密钥： 
 
@@ -224,7 +224,7 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
     function getHeroes(req, res) {
     ```
 
-请花点时间查看并演练上面的代码。 首先查看 index.js 文件，此文件用于设置节点服务器。 可以看到，其中设置并定义了路由。 接下来，routes.js 文件与 Hero 服务通信，要求该服务获取 **getHeroes** 之类的函数，并传递请求和响应。 hero.service.js 文件获取模型并连接到 Mongo。 然后，此文件执行调用的 **getHeroes**，并返回响应 200。 
+请花点时间查看并演练上面的代码。 首先查看 index.js 文件，此文件用于设置节点服务器。 可以看到，其中设置并定义了路由。 接下来，routes.js 文件与 Hero 服务通信，要求该服务获取 **getHeroes** 之类的函数，并传递请求和响应。 hero.service.js 文件获取模型并连接到 Mongo。 然后，此文件执行调用的 **getHeroes** ，并返回响应 200。 
 
 ## <a name="run-the-app"></a>运行应用程序
 

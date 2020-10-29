@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0266e62af55f6d775ca1b1ae5ee31d5f10d4249
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850568"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459979"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>教程：将 Sansan Intacct 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91850568"
 * 让用户使用其 Azure AD 帐户自动登录到 Sage Intacct。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "91850568"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Sage Intacct 支持 IDP 发起的 SSO
-* 配置 Sage Intacct 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+* 配置 Sage Intacct 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。
 
 ## <a name="adding-sage-intacct-from-the-gallery"></a>从库中添加 Sage Intacct
 
@@ -103,7 +103,7 @@ ms.locfileid: "91850568"
 
     f. 单击“确定”
 
-    g. 单击“ **保存**”。
+    g. 单击“ **保存** ”。
 
 1. 在“设置 SAML 单一登录”页的“SAML 签名证书”部分中，找到“证书(Base64)”，选择“下载”以下载该证书并将其保存到计算机上   。
 
@@ -169,7 +169,7 @@ ms.locfileid: "91850568"
 
     e. 在记事本中打开 base-64 编码的证书，将其内容复制到剪贴板，然后将其粘贴到“证书”框中 。
 
-    f. 单击“ **保存**”。
+    f. 单击“ **保存** ”。
 
 ### <a name="create-sage-intacct-test-user"></a>创建 Sage Intacct 测试用户
 
@@ -191,14 +191,14 @@ ms.locfileid: "91850568"
 
     ![屏幕截图显示“用户信息”部分，可在其中输入此步骤中的信息。](./media/intacct-tutorial/ic790043.png "用户信息")
 
-    a. 在“用户信息”部分中输入要预配的 Azure AD 帐户的**用户 ID**、**姓氏**、**名字**、**电子邮件地址**、**职务**和**电话** 。
+    a. 在“用户信息”部分中输入要预配的 Azure AD 帐户的 **用户 ID** 、 **姓氏** 、 **名字** 、 **电子邮件地址** 、 **职务** 和 **电话** 。
 
     > [!NOTE]
     > 确保上述屏幕截图中的“用户 ID”与 Azure 门户中“用户属性”部分的通过“名称”属性映射的“源属性”值是相同的   。
 
-    b. 选择要预配的 Azure AD 帐户的**管理员特权**。
+    b. 选择要预配的 Azure AD 帐户的 **管理员特权** 。
 
-    c. 单击“ **保存**”。 
+    c. 单击“ **保存** ”。 
     
     d. Azure AD 帐户持有者将收到一封电子邮件，并打开用于在激活帐户前确认其帐户的链接。
 
@@ -213,14 +213,14 @@ ms.locfileid: "91850568"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Sage Intacct 磁贴时，应当会自动登录到你为其设置了 SSO 的 Sage Intacct。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Sage Intacct 磁贴时，应当会自动登录到你为其设置了 SSO 的 Sage Intacct。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7289fe2ec1f39679dcec95f1f48a6efa9ed0cdfc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826353"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460324"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>教程：将 iLMS 与 Azure Active Directory 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91826353"
 * 让用户使用其 Azure AD 帐户自动登录到 iLMS。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -108,7 +108,7 @@ ms.locfileid: "91826353"
 
     f. 单击“确定” 
 
-    g. 单击“ **保存**”。
+    g. 单击“ **保存** ”。
 
 1. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分，单击“下载”以根据要求下载从给定选项提供的“联合元数据 XML”并将其保存在计算机上     。
 
@@ -126,7 +126,7 @@ ms.locfileid: "91826353"
 
 ### <a name="configure-ilms-sso"></a>配置 iLMS SSO
 
-1. 在另一个 Web 浏览器窗口中，以管理员身份登录到 **iLMS 管理门户**。
+1. 在另一个 Web 浏览器窗口中，以管理员身份登录到 **iLMS 管理门户** 。
 
 2. 单击“设置”选项卡下面的“SSO:SAML”打开“SAML 设置”并执行以下步骤：  
 
@@ -224,19 +224,19 @@ ms.locfileid: "91826353"
 
     f. 在“部门”下拉列表中，选择部门的值。 
 
-    g. 单击“ **保存**”。
+    g. 单击“ **保存** ”。
 
     > [!NOTE]
     > 选中“发送注册电子邮件”复选框可向用户发送注册邮件。 
 
 ### <a name="test-sso"></a>测试 SSO
 
-在访问面板中选择“iLMS”磁贴时，应会自动登录到设置了 SSO 的 iLMS。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+在访问面板中选择“iLMS”磁贴时，应会自动登录到设置了 SSO 的 iLMS。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)

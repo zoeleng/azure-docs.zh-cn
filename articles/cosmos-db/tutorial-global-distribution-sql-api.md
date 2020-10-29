@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ebb6bdf6e5072d1024ba7abcd1db1cf7bebfcd3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9594e8cf3e16e9e7e9a009b8edb7dbbd5a6ca92
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334372"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476563"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>教程：使用 SQL API 设置 Azure Cosmos DB 全局分发
 
@@ -23,7 +23,7 @@ ms.locfileid: "91334372"
 
 > [!div class="checklist"]
 > * 使用 Azure 门户配置全局分发
-> * 使用 [SQL API](sql-api-introduction.md) 配置全局分发
+> * 使用 [SQL API](./introduction.md) 配置全局分发
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -240,4 +240,3 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 > [通过模拟器在本地开发](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-

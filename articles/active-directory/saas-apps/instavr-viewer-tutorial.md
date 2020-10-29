@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5271dbc5e571fdc624c6861c8919e11950320507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60e8c73c9f1da617851cc67fb2dbab7171f1cb0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850636"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>教程：Azure Active Directory 与 InstaVR Viewer 的集成
 
@@ -27,7 +27,7 @@ ms.locfileid: "91850636"
 * 可让用户使用其 Azure AD 帐户自动登录到 InstaVR Viewer（单一登录）。
 * 可在中心位置（即 Azure 门户）管理帐户。
 
-如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果要了解有关 SaaS 应用与 Azure AD 集成的更多详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -42,7 +42,7 @@ ms.locfileid: "91850636"
 本教程会在测试环境中配置和测试 Azure AD 单一登录。
 
 * InstaVR Viewer 支持 **SP** 发起的 SSO
-* InstaVR Viewer 支持**实时**用户预配。
+* InstaVR Viewer 支持 **实时** 用户预配。
 
 ## <a name="adding-instavr-viewer-from-the-gallery"></a>从库中添加 InstaVR Viewer
 
@@ -62,7 +62,7 @@ ms.locfileid: "91850636"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中键入 **InstaVR Viewer**，在结果面板中选择“InstaVR Viewer”，然后单击“添加”按钮添加该应用程序。  
+4. 在搜索框中键入 **InstaVR Viewer** ，在结果面板中选择“InstaVR Viewer”，然后单击“添加”按钮添加该应用程序。  
 
      ![结果列表中的 InstaVR Viewer](common/search-new-app.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "91850636"
 
     ![配置单一登录链接](common/select-sso.png)
 
-2. 在**选择单一登录方法**对话框中，选择 **SAML/WS-Fed**模式以启用单一登录。
+2. 在 **选择单一登录方法** 对话框中，选择 **SAML/WS-Fed** 模式以启用单一登录。
 
     ![单一登录选择模式](common/select-saml-option.png)
 
@@ -130,7 +130,7 @@ ms.locfileid: "91850636"
 
 1. 打开新的 Web 浏览器窗口，以管理员身份登录到 InstaVR Viewer 公司站点。
 
-2. 单击**用户图标**并选择“帐户”。 
+2. 单击 **用户图标** 并选择“帐户”。 
 
     ![屏幕截图显示已选择用户的 InstaVR Viewer 站点。](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
@@ -225,8 +225,8 @@ ms.locfileid: "91850636"
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
