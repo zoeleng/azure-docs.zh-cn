@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: eb70e7cfec4e6f3e7e55fa74bbdd6cee43493576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a55db6a9db8cc53da15ba6e818db7b78b72cefc9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537875"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927730"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上具有灵活性。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -40,7 +40,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和�
 
 9. 或者，在“标记”选项卡中，如果希望对资源分类，请输入名称或值。 
 
-10. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
+10. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
 
 11. 显示绿色的“已通过验证”消息后，选择“创建”。
 
@@ -95,7 +95,7 @@ public static ConnectionMultiplexer Connection
 | 端口 | 方向 | 传输协议 | 目的 | 本地 IP | 远程 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80、443 |出站 |TCP |Azure 存储/PKI (Internet) 上的 Redis 依赖关系 | （Redis 子网） |* |
-| 443 | 出站 | TCP | Azure 密钥保管库上的 Redis 依赖关系 | （Redis 子网） | AzureKeyVault <sup>1</sup> |
+| 443 | 出站 | TCP | Azure Key Vault 和 Azure Monitor 上的 Redis 依赖关系 | （Redis 子网） | AzureKeyVault，AzureMonitor <sup>1</sup> |
 | 53 |出站 |TCP/UDP |DNS (Internet/VNet) 上的 Redis 依赖关系 | （Redis 子网） | 168.63.129.16 和 169.254.169.254 <sup>2</sup> 以及子网的任何自定义 DNS 服务器 <sup>3</sup> |
 | 8443 |出站 |TCP |Redis 的内部通信 | （Redis 子网） | （Redis 子网） |
 | 10221-10231 |出站 |TCP |Redis 的内部通信 | （Redis 子网） | （Redis 子网） |
@@ -104,7 +104,7 @@ public static ConnectionMultiplexer Connection
 | 15000-15999 |出站 |TCP |Redis 的内部通信和异地复制 | （Redis 子网） |（Redis 子网）（地域副本对等子网） |
 | 6379-6380 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 
-<sup>1</sup> 可以将服务标记“AzureKeyVault”用于资源管理器网络安全组。
+<sup>1</sup> 可以将服务标记 "AzureKeyVault" 和 "AzureMonitor" 用于资源管理器网络安全组。
 
 <sup>2</sup> Microsoft 拥有的这些 IP 地址用于对为 Azure DNS 提供服务的主机 VM 进行寻址。
 
@@ -136,9 +136,9 @@ public static ConnectionMultiplexer Connection
 在虚拟网络中，可能一开始不符合 Azure Redis 缓存的网络连接要求。 在虚拟网络中使用时，Azure Redis 缓存需要以下所有项才能正常运行。
 
 * 与全球 Azure 存储终结点建立的出站网络连接。 这包括位于 Azure Redis 缓存实例区域的终结点，以及位于 **其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域下解析： *table.core.windows.net* 、 *blob.core.windows.net* 、 *queue.core.windows.net* 和 *file.core.windows.net* 。 
-* 与 *ocsp.msocsp.com* 、 *mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。 需要此连接才能支持 TLS/SSL 功能。
+* 与 *ocsp.digicert.com* 、 *crl4.digicert.com* 、 *ocsp.msocsp.com* 、 *mscrl.microsoft.com* 、 *crl3.digicert.com* 、 *cacerts.digicert.com* 、 *oneocsp.microsoft.com* 和 *crl.microsoft.com* 的出站网络连接。 需要此连接才能支持 TLS/SSL 功能。
 * 虚拟网络的 DNS 设置必须能够解析前面几点所提到的所有终结点和域。 确保已针对虚拟网络配置并维护有效的 DNS 基础结构即可符合这些 DNS 要求。
-* 与以下 Azure 监视终结点（在下列 DNS 域下进行解析）的出站网络连接：shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
+* 与以下 Azure Monitor 终结点的出站网络连接，这些终结点在以下 DNS 域下解析： *shoebox2-black.shoebox2.metrics.nsatc.net* 、 *north-prod2.prod2.metrics.nsatc.net* 、 *azglobal-black.azglobal.metrics.nsatc.net* 、 *shoebox2-red.shoebox2.metrics.nsatc.net* 、 *east-prod2.prod2.metrics.nsatc.net* 、 *azglobal-red.azglobal.metrics.nsatc.net* 。
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何验证缓存是否在 VNET 中正常工作？
 

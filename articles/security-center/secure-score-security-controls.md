@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425381"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928087"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure 安全中心的安全评分
 
@@ -29,7 +29,7 @@ Azure 安全中心有两个主要目标：
 - 帮助您了解当前的安全性情况
 - 帮助你高效有效地提高安全性
 
-安全中心的核心功能使你能够实现这些目标，这是 **安全分数**。
+安全中心的核心功能使你能够实现这些目标，这是 **安全分数** 。
 
 安全中心会持续评估资源、订阅和组织的安全问题。 然后，它将所有调查结果汇总成一个分数，让你可以一目了然地了解当前的安全状况：分数越高，识别出的风险级别就越低。
 
@@ -39,7 +39,7 @@ Azure 安全中心有两个主要目标：
 
 若要提高安全性，请查看安全中心的建议页，以了解提高分数所需的未完成操作。 每项建议都包含有助于您修正特定问题的说明。
 
-建议分组到 **安全控件**中。 每个控件都是一组相关安全建议的逻辑组，反映了易受攻击的攻击面。 只有修正控制中针对单个资源的所有建议后，分数才会提高。 若要查看组织在保护每个攻击面的安全，请查看每个安全控件的分数。
+建议分组到 **安全控件** 中。 每个控件都是一组相关安全建议的逻辑组，反映了易受攻击的攻击面。 只有修正控制中针对单个资源的所有建议后，分数才会提高。 若要查看组织在保护每个攻击面的安全，请查看每个安全控件的分数。
 
 有关详细信息，请参阅下面的[如何计算安全功能分数](secure-score-security-controls.md#how-your-secure-score-is-calculated)。 
 
@@ -84,7 +84,7 @@ Azure 安全中心有两个主要目标：
 
 使用 ARG 为多个订阅访问安全分数：
 
-1. 在 Azure 门户中，打开 **Azure 资源图资源管理器**。
+1. 在 Azure 门户中，打开 **Azure 资源图资源管理器** 。
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="门户中显示的总体安全功能分数" :::
 
@@ -108,7 +108,7 @@ Azure 安全中心有两个主要目标：
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. 选择 " **运行查询**"。
+1. 选择 " **运行查询** "。
 
 ## <a name="how-your-secure-score-is-calculated"></a>如何计算安全功能分数 
 
@@ -124,8 +124,8 @@ Azure 安全中心有两个主要目标：
 
 此控制（应用系统更新）的最高分始终为 6 分。 此示例中一共有 50 个资源。 因此，我们将最高分除以 50，结果是每个资源贡献 0.12 分。 
 
-* **可能增加的分数**（0.12 x 8 个运行不正常的资源 = 0.96）- 该控制中剩余可增加的分数。 如果修正此控制中的所有建议，分数将增加 2%（本例中为 0.96 分，四舍五入为 1 分）。 
-* **当前分数**（0.12 x 42 个正常运行的资源 = 5.04）- 此控制的当前分数。 每个控制都为总分贡献分数。 在此示例中，该控制为当前安全总分贡献了 5.04 分。
+* **可能增加的分数** （0.12 x 8 个运行不正常的资源 = 0.96）- 该控制中剩余可增加的分数。 如果修正此控制中的所有建议，分数将增加 2%（本例中为 0.96 分，四舍五入为 1 分）。 
+* **当前分数** （0.12 x 42 个正常运行的资源 = 5.04）- 此控制的当前分数。 每个控制都为总分贡献分数。 在此示例中，该控制为当前安全总分贡献了 5.04 分。
 * **最高分** - 完成某个控制中的所有建议后可获得的最高分数。 控制的最高分表明该控制的相对重要性。 可使用最高分值来会审要优先处理的问题。 
 
 
@@ -158,6 +158,14 @@ Azure 安全中心有两个主要目标：
 
 下表列出了 Azure 安全中心的安全控制。 对于每个控制，可以看到为所有资源修正该控制中列出的所有建议后，安全评分可以增加的最高分数。 
 
+安全中心提供的安全建议集是针对每个组织环境中的可用资源定制的。 可以通过 [禁用策略](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) 并 [从建议中豁免特定资源](exempt-resource.md)来进一步自定义建议。 
+ 
+建议每个组织仔细查看其分配的 Azure 策略计划。 
+
+> [!TIP]
+> 有关检查和编辑计划的详细信息，请参阅使用 [安全策略](tutorial-security-policy.md)。 
+
+尽管安全中心的默认安全计划基于行业最佳实践和标准，但在某些情况下，下面列出的内置建议可能无法完全适合您的组织。 因此，有时需要调整默认计划-而不会危及安全性，以确保它与你组织的策略一致。 你需要满足的行业标准、法规标准和基准。<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900286"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927985"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>教程：为自动用户预配配置全局中继标识同步
 
@@ -33,6 +33,10 @@ ms.locfileid: "92900286"
 > * 如果用户不再需要访问，请在全局中继标识同步中删除用户
 > * 使用户属性在 Azure AD 和全局中继标识同步之间保持同步
 > * 在全局中继标识同步中预配组和组成员身份
+
+
+> [!NOTE]
+> 全局中继标识同步预配连接器利用了由于安全问题而不再受支持的 SCIM 授权方法。 正在进行的工作是通过全局中继来转换为更安全的授权方法。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -121,51 +125,51 @@ ms.locfileid: "92900286"
    |externalId|字符串|
    |name.honorificPrefix|String|
    |名称. honorificSuffix|字符串|
-   |nickName|字符串|
-   |userType|字符串|
+   |nickName|String|
+   |userType|String|
    |区域设置|字符串|
    |timezone|字符串|
-   |电子邮件 [类型 eq "home"]。值|字符串|
-   |电子邮件 [type eq "other"]。值|字符串|
-   |phoneNumbers [type eq "home"]。值|字符串|
-   |phoneNumbers [type eq "other"]。值|字符串|
-   |phoneNumbers [type eq "呼机"]。值|字符串|
-   |地址 [type eq "home"]. streetAddress|字符串|
-   |地址 [类型 eq "home"]。位置|字符串|
-   |地址 [类型 eq "home"]。区域|字符串|
-   |地址 [类型 eq "home"]|字符串|
-   |地址 [类型 eq "home"]。国家/地区|字符串|
-   |地址 [类型 eq "home"]。格式|字符串|
-   |地址 [type eq "other"]. streetAddress|字符串|
-   |地址 [type eq "other"]。位置|字符串|
-   |地址 [type eq "other"]。区域|字符串|
-   |地址 [type eq "other"]|字符串|
-   |地址 [type eq "other"]|字符串|
-   |角色 [主 eq "True"]。显示|字符串|
+   |电子邮件 [类型 eq "home"]。值|String|
+   |电子邮件 [type eq "other"]。值|String|
+   |phoneNumbers [type eq "home"]。值|String|
+   |phoneNumbers [type eq "other"]。值|String|
+   |phoneNumbers [type eq "呼机"]。值|String|
+   |地址 [type eq "home"]. streetAddress|String|
+   |地址 [类型 eq "home"]。位置|String|
+   |地址 [类型 eq "home"]。区域|String|
+   |地址 [类型 eq "home"]|String|
+   |地址 [类型 eq "home"]。国家/地区|String|
+   |地址 [类型 eq "home"]。格式|String|
+   |地址 [type eq "other"]. streetAddress|String|
+   |地址 [type eq "other"]。位置|String|
+   |地址 [type eq "other"]。区域|String|
+   |地址 [type eq "other"]|String|
+   |地址 [type eq "other"]|String|
+   |角色 [主 eq "True"]。显示|String|
    |role [primary eq "True"]。类型|字符串|
-   |roles[primary eq "True"].value|字符串|
+   |roles[primary eq "True"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|参考|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： proxyAddresses|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute1|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute2|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute3|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute4|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute5|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute6|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute7|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute8|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute9|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute10|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute11|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute12|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute13|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute14|字符串|
-   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute15|字符串|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： proxyAddresses|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute1|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute2|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute3|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute4|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute5|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute6|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute7|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute8|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute9|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute10|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute11|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute12|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute13|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute14|String|
+   |urn： ietf： params： scim：架构：扩展： GlobalRelay：2.0： User： extensionAttribute15|String|
 
 
 

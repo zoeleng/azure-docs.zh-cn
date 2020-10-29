@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611514"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927917"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>用于 Azure VM 的临时 OS 磁盘
 
@@ -34,7 +34,7 @@ ms.locfileid: "91611514"
 
 |                             | 持久 OS 磁盘                          | 临时 OS 磁盘                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **OS 磁盘的大小限制**      | 2 TiB                                                                                        | 与 VM 大小相对应的缓存大小或 2TiB，具体取决于哪一个更小。 有关 **GiB 中的缓存大小**，请 [参阅 DS](sizes-general.md)、 [ES](sizes-memory.md)、 [M](sizes-memory.md)、 [FS](sizes-compute.md)和 [GS](sizes-previous-gen.md#gs-series)              |
+| **OS 磁盘的大小限制**      | 2 TiB                                                                                        | 与 VM 大小相对应的缓存大小或 2TiB，具体取决于哪一个更小。 有关 **GiB 中的缓存大小** ，请 [参阅 DS](sizes-general.md)、 [ES](sizes-memory.md)、 [M](sizes-memory.md)、 [FS](sizes-compute.md)和 [GS](sizes-previous-gen.md#gs-series)              |
 | **支持的 VM 大小**          | 全部                                                                                          | 支持高级存储的 VM 大小，如 DSv1、DSv2、DSv3、Esv3、Fs、FsV2、GS、M                                               |
 | **磁盘类型支持**           | 托管和非托管 OS 磁盘                                                                | 仅托管 OS 磁盘                                                               |
 | **区域支持**              | 所有区域                                                                                  | 所有区域                              |
@@ -42,7 +42,8 @@ ms.locfileid: "91611514"
 | **“已停止-解除分配”状态**      | 可以先将 VM 和规模集实例停止-解除分配，然后再将其从“已停止-解除分配”状态重启 | 不能将 VM 和规模集实例停止-解除分配                                  |
 | **专用 OS 磁盘支持** | 是                                                                                          | 否                                                                                 |
 | **OS 磁盘重设大小**              | 在 VM 创建期间以及将 VM 停止-解除分配后均受支持                                | 仅在 VM 创建期间受支持                                                  |
-| **将大小重设为新的 VM 大小**   | 保留 OS 磁盘数据                                                                    | 删除 OS 磁盘上的数据并重新预配 OS                                      |
+| **将大小重设为新的 VM 大小**   | 保留 OS 磁盘数据                                                                    | 删除 OS 磁盘上的数据并重新预配 OS       
+| **页面文件放置**   | 对于 Windows，页面文件存储在资源磁盘上                                              | 对于 Windows，页面文件存储在 OS 磁盘上   |
 
 ## <a name="size-requirements"></a>大小要求
 

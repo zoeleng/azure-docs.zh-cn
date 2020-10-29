@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143735"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927900"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 工作簿数据源
 
@@ -77,7 +77,7 @@ Azure Monitor 提供主动监视 Windows 或 Linux 来宾操作系统可用性�
 
 若要让查询控件使用此数据源，请使用“查询类型”下拉列表选择“Azure 运行状况”，然后选择目标资源。 使用运行状况筛选器下拉列表，根据分析需求选择有意义的资源问题子集。
 
-![警报查询的屏幕截图](./media/workbooks-overview/resource-health.png)
+![显示运行状况筛选器列表的警报查询的屏幕截图。](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 

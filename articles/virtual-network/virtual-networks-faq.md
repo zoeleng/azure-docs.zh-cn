@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518001"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927713"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -123,8 +123,8 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>是否可以将 VNet 连接到 Azure 中的另一个 VNet？
 是的。 可以使用以下任一方式将一个 VNet 连接到另一个 VNet：
-- **虚拟网络对等互连**：有关详细信息，请参阅 [VNet 对等互连概述](virtual-network-peering-overview.md)
-- **Azure VPN 网关**：有关详细信息，请参阅[配置 VNet 到 VNet 连接](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 
+- **虚拟网络对等互连** ：有关详细信息，请参阅 [VNet 对等互连概述](virtual-network-peering-overview.md)
+- **Azure VPN 网关** ：有关详细信息，请参阅 [配置 VNet 到 VNet 连接](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 
 
 ## <a name="name-resolution-dns"></a>名称解析 (DNS)
 
@@ -159,10 +159,10 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>可向 VM 分配哪些不同类型的 IP 地址？
 * **专用：** 分配到每个 VM 中的每个 NIC。 使用静态或动态方法分配地址。 应该分配 VNet 子网设置中指定的范围内的专用 IP 地址。 将为通过经典部署模型部署的资源分配专用 IP 地址，即使它们未连接到 VNet。 分配方法的行为根据资源是通过资源管理器还是通过经典部署模型部署的而不同： 
 
-  - **资源管理器**：使用动态或静态方法分配的专用 IP 地址保持分配给虚拟机（资源管理器），直到该资源被删除。 差别在于，使用静态方法时由你来选择地址，而使用动态方法时由 Azure 来选择地址。 
-  - **经典**：如果虚拟机（经典）VM 在处于停止（解除分配）状态后重新启动，则使用动态方法分配的的专用 IP 地址可能会变化。 如果需要确保通过经典部署模型部署的资源的专用 IP 地址永远不会变化，请使用静态方法分配专用 IP 地址。
+  - **资源管理器** ：使用动态或静态方法分配的专用 IP 地址保持分配给虚拟机（资源管理器），直到该资源被删除。 差别在于，使用静态方法时由你来选择地址，而使用动态方法时由 Azure 来选择地址。 
+  - **经典** ：如果虚拟机（经典）VM 在处于停止（解除分配）状态后重新启动，则使用动态方法分配的的专用 IP 地址可能会变化。 如果需要确保通过经典部署模型部署的资源的专用 IP 地址永远不会变化，请使用静态方法分配专用 IP 地址。
 
-* **公共：** 选择性地分配给附加到通过 Azure 资源管理器部署模型部署的 VM 的 NIC。 可以使用静态或动态分配方法分配地址。 通过经典部署模型部署的所有 VM 和云服务角色实例位于分配有*动态*公共虚拟 IP (VIP) 地址的云服务中。 可以选择性地将某个公共*静态* IP 地址（称为[保留 IP 地址](virtual-networks-reserved-public-ip.md)）分配为 VIP。 可将公共 IP 地址分配给通过经典部署模型部署的单个 VM 或云服务角色实例。 这些地址称为[实例级公共 IP (ILPIP](virtual-networks-instance-level-public-ip.md) 地址，可动态分配。
+* **公共：** 选择性地分配给附加到通过 Azure 资源管理器部署模型部署的 VM 的 NIC。 可以使用静态或动态分配方法分配地址。 通过经典部署模型部署的所有 VM 和云服务角色实例位于分配有 *动态* 公共虚拟 IP (VIP) 地址的云服务中。 可以选择性地将某个公共 *静态* IP 地址（称为 [保留 IP 地址](virtual-networks-reserved-public-ip.md)）分配为 VIP。 可将公共 IP 地址分配给通过经典部署模型部署的单个 VM 或云服务角色实例。 这些地址称为[实例级公共 IP (ILPIP](virtual-networks-instance-level-public-ip.md) 地址，可动态分配。
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>是否可为以后创建的 VM 保留专用 IP 地址？
 否。 无法保留专用 IP 地址。 如果某个专用 IP 地址可用，则 DHCP 服务器会将其分配给某个 VM 或角色实例。 该 VM 可能是你希望将专用 IP 地址分配到的 VM，也可能不是。 但是，可将已创建的 VM 的专用 IP 地址更改为任何可用的专用 IP 地址。
@@ -228,6 +228,9 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 ### <a name="is-there-information-available-about-securing-vnets"></a>你们是否提供了有关保护 VNet 的信息？
 是的。 有关详细信息，请参阅 [Azure 网络安全概述](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
+### <a name="do-virtual-networks-store-customer-data"></a>虚拟网络是否存储客户数据？
+不是。 虚拟网络不存储任何客户数据。 
+
 ## <a name="apis-schemas-and-tools"></a>API、架构和工具
 
 ### <a name="can-i-manage-vnets-from-code"></a>是否可以通过代码管理 VNet？
@@ -265,7 +268,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>如果虚拟网络所属的订阅位于不同的 Azure Active Directory 租户中，能否启用 VNet 对等互连？
-能。 如果订阅属于不同的 Azure Active Directory 租户，则可以建立 VNet 对等互连（无论是本地还是全球）。 可以通过门户、PowerShell 或 CLI 实现此目的。
+是的。 如果订阅属于不同的 Azure Active Directory 租户，则可以建立 VNet 对等互连（无论是本地还是全球）。 可以通过门户、PowerShell 或 CLI 实现此目的。
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>我的 VNet 对等互连连接处于“已启动”状态，为什么我不能连接？
 如果对等互连连接处于“已启动”状态，则意味着只创建了一个链路。 必须创建双向链接才能成功建立连接。 例如，若要从 VNet A 对等互连到 VNet B，必须创建从 VNetA 到 VNetB 以及从 VNetB 到 VNetA 的链接。 创建这两个链路后，状态会更改为“已连接”。
@@ -309,7 +312,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 受监视的网络接口仅能拥有一个 TAP 配置。 请咨询各个 [合作伙伴解决方案](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) ，以便能够将多个分流流量副本流式传输到所选的分析工具。
 
 ### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>同一虚拟网络 TAP 资源是否可以聚合多个虚拟网络中来自受监视的网络接口的流量？
-能。 同一虚拟网络 TAP 资源可用于聚合同一订阅或不同订阅中的对等虚拟网络中来自受监视的网络接口的镜像流量。 虚拟网络 TAP 资源和目标负载均衡器或目标网络接口必须位于同一订阅中。 所有订阅必须在同一 Azure Active Directory 租户下。
+是的。 同一虚拟网络 TAP 资源可用于聚合同一订阅或不同订阅中的对等虚拟网络中来自受监视的网络接口的镜像流量。 虚拟网络 TAP 资源和目标负载均衡器或目标网络接口必须位于同一订阅中。 所有订阅必须在同一 Azure Active Directory 租户下。
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>如果我在网络接口上启用虚拟网络 TAP 配置，是否需要考虑生产流量的性能问题？
 

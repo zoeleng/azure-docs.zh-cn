@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147878"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927696"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>创建演示证书用于测试 IoT Edge 设备功能
 
@@ -57,7 +57,7 @@ GitHub 上的 IoT Edge 存储库包含可用于创建演示证书的证书生成
 
 可通过多种方式安装 OpenSSL，包括以下选项：
 
-* **更轻松：** 下载并安装任何[第三方 OpenSSL 二进制文件](https://wiki.openssl.org/index.php/Binaries)，例如从 [SourceForge 上的 OpenSSL](https://sourceforge.net/projects/openssl/) 下载并安装。 将 openssl.exe 的完整路径添加到 PATH 环境变量。
+* **更轻松：** 下载并安装任何 [第三方 OpenSSL 二进制文件](https://wiki.openssl.org/index.php/Binaries)，例如从 [SourceForge 上的 OpenSSL](https://sourceforge.net/projects/openssl/) 下载并安装。 将 openssl.exe 的完整路径添加到 PATH 环境变量。
 
 * **推荐：** 在计算机上下载 OpenSSL 源代码并自行生成二进制文件，或者通过 [vcpkg](https://github.com/Microsoft/vcpkg) 生成。 下面列出的说明使用 vcpkg 下载源代码，并在 Windows 计算机上编译和安装 OpenSSL，所用的步骤都很简单。
 
@@ -163,7 +163,7 @@ Azure IoT Edge Git 存储库包含可用于生成测试证书的脚本。
    New-CACertsCertChain rsa
    ```
 
-   此脚本命令将创建多个证书和密钥文件，但当文章中提到**根 CA 证书**时，请使用以下文件：
+   此脚本命令将创建多个证书和密钥文件，但当文章中提到 **根 CA 证书** 时，请使用以下文件：
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,7 +177,7 @@ Azure IoT Edge Git 存储库包含可用于生成测试证书的脚本。
    ./certGen.sh create_root_and_intermediate
    ```
 
-   此脚本命令将创建多个证书和密钥文件，但当文章中提到**根 CA 证书**时，请使用以下文件：
+   此脚本命令将创建多个证书和密钥文件，但当文章中提到 **根 CA 证书** 时，请使用以下文件：
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
@@ -255,7 +255,7 @@ New-CACertsEdgeDeviceIdentity "<name>"
 2. 使用以下命令创建 IoT Edge 设备 CA 证书和私钥。 请提供 CA 证书的名称。
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    此脚本命令将创建多个证书和密钥文件。 以下证书和密钥对需要复制到 IoT Edge 设备，并在 config.yaml 文件中引用：
@@ -263,7 +263,7 @@ New-CACertsEdgeDeviceIdentity "<name>"
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-传递给 create_edge_device_certificate 命令的名称不应与 config.yaml 中的 hostname 参数或 IoT 中心的设备 ID 相同。
+传递给 **create_edge_device_ca_certificate** 命令的名称不应与 yaml 中的 hostname 参数或 IoT 中心内设备的 ID 相同。
 
 ## <a name="create-downstream-device-certificates"></a>创建下游设备证书
 

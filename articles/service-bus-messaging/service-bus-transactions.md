@@ -2,14 +2,14 @@
 title: Azure 服务总线中事务处理概述
 description: 本文概要介绍了 Azure 服务总线中的事务处理和“发送方式”功能。
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999948"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927781"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>服务总线事务处理概述
 
@@ -17,7 +17,7 @@ ms.locfileid: "88999948"
 
 ## <a name="transactions-in-service-bus"></a>服务总线中的事务
 
-一个*事务*将两个或更多操作组合成执行作用域  。 就本质而言，此类事务必须确保所有操作属于给定的操作组，无论联合成功还是失败。 在这方面，事务作为一个单元进行操作，通常称为原子性  。
+一个 *事务* 将两个或更多操作组合成执行作用域  。 就本质而言，此类事务必须确保所有操作属于给定的操作组，无论联合成功还是失败。 在这方面，事务作为一个单元进行操作，通常称为原子性  。
 
 服务总线是事务性消息代理，并确保针对其消息存储的所有内部操作的事务完整性。 服务总线内部的所有消息传输，如将消息移到 [dead-letter queue](service-bus-dead-letter-queues.md) 或在实体之间[自动转发](service-bus-auto-forwarding.md)消息，都是事务性的。 因此，如果服务总线接受一条消息，则该消息已存储并标有一个序列号。 从那时起，服务总线内的任何消息传输都是实体之间协调的操作，将从不会导致消息丢失（源成功而目标失败）或重复（源失败而目标成功）。
 
@@ -27,7 +27,7 @@ ms.locfileid: "88999948"
 
 可以在事务作用域内执行的操作如下所示：
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient)、[MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender)、[TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** ：`Send`、`SendAsync`、`SendBatch` 和 `SendBatchAsync`
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient)、 [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender)、 [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** ：`Send`、`SendAsync`、`SendBatch` 和 `SendBatchAsync`
 * **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** ：`Complete`、`CompleteAsync`、`Abandon`、`AbandonAsync`、`Deadletter`、`DeadletterAsync`、`Defer``DeferAsync`、`RenewLock` 和 `RenewLockAsync` 
 
 不包括接收操作，因为假定应用程序在某个接收循环内使用 [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式或通过 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 回调获取消息，而且只有那时才打开用于处理消息的事务作用域。
@@ -36,9 +36,9 @@ ms.locfileid: "88999948"
 
 ## <a name="transfers-and-send-via"></a>传输和“发送方式”
 
-要启用将数据从队列到处理器，然后到另一个队列的事务性移交，服务总线支持传输  。 在传输操作中，发送方先将消息发送到“传输队列”，然后传输队列立即使用自动转发功能所依赖的同一强大传输实现将消息移到预期的目标队列。 消息永远不会以对传输队列的使用者可见的方式提交到传输队列的日志中。
+若要启用将数据从队列或主题到处理器的事务转换，并将其传输到另一个队列或主题，服务总线支持 *传输* 。 在传输操作中，发送方首先向 *传输队列或主题* 发送一条消息，而传输队列或主题将使用 autoforward 功能所依赖的同一可靠传输实现将消息立即移至目标队列或主题。 永远不会将消息提交到传输队列或主题的日志，因为它将变得对传输队列或主题的使用者可见。
 
-当传输队列本身是发送方的输入消息的源时，此事务功能的优势越明显。 换而言之，服务总线可以“通过”传输队列将消息传输到目标队列中，同时对输入消息执行完成（或延迟/死信）操作，所有这一切都通过一个原子操作完成。 
+当传输队列或主题本身是发送方的输入消息的源时，此事务功能的强大功能变得很明显。 换句话说，在对输入消息执行完整的 (或延迟或死信) 操作时，服务总线可以将消息传输到目标队列或主题，同时执行一个原子操作。 
 
 ### <a name="see-it-in-code"></a>在代码中查看它
 
