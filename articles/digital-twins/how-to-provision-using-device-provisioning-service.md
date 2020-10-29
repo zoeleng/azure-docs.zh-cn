@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494742"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026439"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>使用设备预配服务 (DPS) 自动管理 Azure 数字孪生中的设备
 
@@ -30,11 +30,11 @@ ms.locfileid: "92494742"
 
 你将在本文后面的设置实例时需要以下值。 如果需要再次收集这些值，请使用下面的链接来了解相关说明。
 * Azure 数字孪生实例主机名（[在门户中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)）
-* Azure 事件中心连接字符串 **_连接字符串_** ([在门户中查找](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal)) 
+* Azure 事件中心连接字符串 **_连接字符串_** ( [在门户中查找](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal)) 
 
 此示例还使用设备 **模拟器** ，其中包括使用设备预配服务的预配。 设备模拟器位于此处： [Azure 数字孪生和 IoT 中心集成示例](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)。 导航到示例链接，并选择标题下面的 " *下载 ZIP* " 按钮，获取计算机上的示例项目。 解压缩已下载文件夹。
 
-设备模拟器基于 **Node.js**版本 10.0. x 或更高版本。 [*准备开发环境*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) 介绍如何在 Windows 或 Linux 上安装本教程 Node.js。
+设备模拟器基于 **Node.js** 版本 10.0. x 或更高版本。 [*准备开发环境*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) 介绍如何在 Windows 或 Linux 上安装本教程 Node.js。
 
 ## <a name="solution-architecture"></a>解决方案体系结构
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>创建 Azure 函数
 
-接下来，你将在 function app 中创建一个 HTTP 请求触发的函数。 可以使用端到端教程中创建的函数应用 ([*教程：连接端到端解决方案*](tutorial-end-to-end.md)) 或你自己的解决方案。
+接下来，你将在 function app 中创建一个 HTTP 请求触发的函数。 可以使用端到端教程中创建的函数应用 ( [*教程：连接端到端解决方案*](tutorial-end-to-end.md)) 或你自己的解决方案。
 
 设备预配服务将使用此 [函数来设置](../iot-dps/how-to-use-custom-allocation-policies.md) 新设备。 有关对 Azure 函数使用 HTTP 请求的详细信息，请参阅 [*Azure Functions 的 Azure http 请求触发器*](../azure-functions/functions-bindings-http-webhook-trigger.md)。
 
@@ -233,7 +233,7 @@ namespace Samples.AdtIothub
 
 ### <a name="configure-your-function"></a>配置函数
 
-接下来，需要在函数应用中设置环境变量，并在其中包含对已创建的 Azure 数字孪生实例的引用。 如果你使用的是端到端教程 ([*教程：连接端到端解决方案*](tutorial-end-to-end.md)) ，则将配置此设置。
+接下来，需要在函数应用中设置环境变量，并在其中包含对已创建的 Azure 数字孪生实例的引用。 如果你使用的是端到端教程 ( [*教程：连接端到端解决方案*](tutorial-end-to-end.md)) ，则将配置此设置。
 
 通过此 Azure CLI 命令添加设置：
 
@@ -243,18 +243,11 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 确保为 function app 正确配置了权限和托管标识角色分配，如端对端教程中的向 [*函数应用分配权限*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) 部分中所述。
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>创建设备预配注册
 
-接下来，需要使用 **自定义分配函数**在设备预配服务中创建注册。 按照有关自定义分配策略的设备预配服务一文的 [*创建注册*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) 和 [*派生唯一设备密钥*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) 部分中的说明进行操作。
+接下来，需要使用 **自定义分配函数** 在设备预配服务中创建注册。 按照有关自定义分配策略的设备预配服务一文的 [*创建注册*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) 和 [*派生唯一设备密钥*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) 部分中的说明进行操作。
 
-遍历该流时，你将通过在步骤中 **选择你想要将设备分配给集线器的方式**来将注册链接到刚刚创建的函数。 创建注册后，稍后将使用注册名称和主密钥或辅助 SAS 密钥来配置此项目的设备模拟器。
+遍历该流时，你将通过在步骤中 **选择你想要将设备分配给集线器的方式** 来将注册链接到刚刚创建的函数。 创建注册后，稍后将使用注册名称和主密钥或辅助 SAS 密钥来配置此项目的设备模拟器。
 
 ### <a name="set-up-the-device-simulator"></a>设置设备模拟器
 
@@ -266,7 +259,7 @@ az functionapp config appsettings set --settings "AdtAppId=<Application (client)
 npm install
 ```
 
-接下来，将该 *. 模板* 文件复制到名为 *env*的新文件，并填写以下设置：
+接下来，将该 *. 模板* 文件复制到名为 *env* 的新文件，并填写以下设置：
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -318,18 +311,18 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 你现在需要创建 Azure [事件中心](../event-hubs/event-hubs-about.md)，该中心将用于接收 IoT 中心生命周期事件。 
 
 使用以下信息完成 [*创建事件中心*](../event-hubs/event-hubs-create.md) 快速入门中所述的步骤：
-* 如果使用的是端到端教程 ([*教程：连接端到端解决方案*](tutorial-end-to-end.md)) ，可以重复使用为端到端教程创建的资源组。
-* 将你的事件中心命名为 *lifecycleevents*，或选择其他内容，并记住你创建的命名空间。 在接下来的部分中设置生命周期函数和 IoT 中心路由时，将使用这些设置。
+* 如果使用的是端到端教程 ( [*教程：连接端到端解决方案*](tutorial-end-to-end.md)) ，可以重复使用为端到端教程创建的资源组。
+* 将你的事件中心命名为 *lifecycleevents* ，或选择其他内容，并记住你创建的命名空间。 在接下来的部分中设置生命周期函数和 IoT 中心路由时，将使用这些设置。
 
 ### <a name="create-an-azure-function"></a>创建 Azure 函数
 
-接下来，你将在 function app 中创建一个事件中心触发的函数。 可以使用端到端教程中创建的函数应用 ([*教程：连接端到端解决方案*](tutorial-end-to-end.md)) 或你自己的解决方案。 
+接下来，你将在 function app 中创建一个事件中心触发的函数。 可以使用端到端教程中创建的函数应用 ( [*教程：连接端到端解决方案*](tutorial-end-to-end.md)) 或你自己的解决方案。 
 
-命名你的事件中心触发器 *lifecycleevents*，并将事件中心触发器连接到你在上一步中创建的事件中心。 如果使用了不同的事件中心名称，请将其更改为在下面的触发器名称中匹配。
+命名你的事件中心触发器 *lifecycleevents* ，并将事件中心触发器连接到你在上一步中创建的事件中心。 如果使用了不同的事件中心名称，请将其更改为在下面的触发器名称中匹配。
 
 此函数将使用 IoT 中心设备生命周期事件停用现有的设备。 有关生命周期事件的详细信息，请参阅 [*IoT 中心非遥测事件*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)。 有关将事件中心与 Azure 函数结合使用的详细信息，请参阅 [*适用于 Azure Functions 的 Azure 事件中心触发器*](../azure-functions/functions-bindings-event-hubs-trigger.md)。
 
-在已发布的函数应用中，添加 " *事件中心触发器*" 类型的新函数类，并粘贴以下代码。
+在已发布的函数应用中，添加 " *事件中心触发器* " 类型的新函数类，并粘贴以下代码。
 
 ```C#
 using System;
@@ -445,7 +438,7 @@ namespace Samples.AdtIothub
 
 ### <a name="configure-your-function"></a>配置函数
 
-接下来，需要在函数应用中设置环境变量，并在其中包含对已创建的 Azure 数字孪生实例的引用以及事件中心。 如果你使用的是端到端教程 ([*教程：连接端到端解决方案*](./tutorial-end-to-end.md)) ，将已配置第一个设置。
+接下来，需要在函数应用中设置环境变量，并在其中包含对已创建的 Azure 数字孪生实例的引用以及事件中心。 如果你使用的是端到端教程 ( [*教程：连接端到端解决方案*](./tutorial-end-to-end.md)) ，将已配置第一个设置。
 
 将此设置添加 Azure CLI 命令。 如果[计算机上安装](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)了 Azure CLI，则可在[Cloud Shell](https://shell.azure.com)中或在本地运行该命令。
 
@@ -465,7 +458,7 @@ az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Eve
 
 现在需要设置 IoT 中心路由，以路由设备生命周期事件。 在这种情况下，你将专门侦听由标识的设备删除事件 `if (opType == "deleteDeviceIdentity")` 。 这会触发数字克隆项的删除，并最终确定设备及其数字克隆的停用。
 
-本文介绍了有关创建 IoT 中心路由的说明： [*使用 IoT 中心消息路由将设备到云的消息发送到不同的终结点*](../iot-hub/iot-hub-devguide-messages-d2c.md)。 *非遥测事件*部分说明，你可以使用**设备生命周期事件**作为路由的数据源。
+本文介绍了有关创建 IoT 中心路由的说明： [*使用 IoT 中心消息路由将设备到云的消息发送到不同的终结点*](../iot-hub/iot-hub-devguide-messages-d2c.md)。 *非遥测事件* 部分说明，你可以使用 **设备生命周期事件** 作为路由的数据源。
 
 此设置需要完成的步骤如下：
 1. 创建自定义 IoT 中心事件中心终结点。 此终结点应以 [*创建事件中心*](#create-an-event-hub) 部分中创建的事件中心为目标。

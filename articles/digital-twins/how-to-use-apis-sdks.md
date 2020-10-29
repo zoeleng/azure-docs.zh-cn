@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 89fb0e8435bd1804193db5b0f8c0596733a7e674
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913766"
+ms.locfileid: "93026133"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>使用 Azure 数字孪生 API 和 SDK
 
@@ -306,7 +306,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="next-steps"></a>后续步骤
 
 请参阅如何使用 Api 设置 Azure 数字孪生实例和身份验证：
-* [*操作说明：设置实例和身份验证*](how-to-set-up-instance-portal.md)
+* [*操作说明：设置实例和身份验证*](how-to-set-up-instance-cli.md)
 
 或者，逐步完成创建客户端应用程序的步骤，如下所述：
 * [*教程：* 为客户端应用编写代码](tutorial-code.md)

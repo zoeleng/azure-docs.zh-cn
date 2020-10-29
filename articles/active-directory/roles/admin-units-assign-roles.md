@@ -1,6 +1,6 @@
 ---
 title: 分配和列出具有管理单元范围的角色-Azure Active Directory |Microsoft Docs
-description: 在 Azure Active Directory 中使用管理单元来限制角色分配的范围
+description: 使用管理单元在 Azure Active Directory 中限制角色分配的范围。
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,25 +14,25 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a4810b3a84cac55a49744025b6ac71c3f1c0a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375161"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026592"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>向管理单元分配限定范围的角色
 
-在 Azure Active Directory (Azure AD) 中，可将用户分配到 Azure AD 角色，角色的范围限制为一个或多个管理单元 (AU)，以实现更精细的管理控制。
+在 Azure Active Directory (Azure AD) 中，为获得更精细的管理控制，可以将用户分配到一个范围限制为一个或多个管理单元的 Azure AD 角色。
 
-有关将 PowerShell 和 Microsoft Graph 用于管理单元的管理的准备步骤，请参阅[入门](admin-units-manage.md#get-started)。
+若要准备使用 PowerShell 和 Microsoft Graph 管理单元管理，请参阅 [开始](admin-units-manage.md#get-started)使用。
 
-## <a name="roles-available"></a>可用的角色
+## <a name="available-roles"></a>可用的角色
 
 角色  |  描述
 ----- |  -----------
 身份验证管理员  |  其访问权限仅限于查看、设置和重置所分配的管理单元中任何非管理员用户的身份验证方法信息。
-组管理员  |  只能在所分配的管理单元中管理组和组设置的所有方面，如命名策略和过期策略。
+组管理员  |  可以在分配的管理单元中管理组和组设置的所有方面，如命名和过期策略。
 支持管理员  |  只能重置所分配的管理单元中非管理员和支持管理员的密码。
 许可证管理员  |  只能在管理单元内分配、删除和更新许可证分配。
 密码管理员  |  只能在所分配的管理单元内重置非管理员和密码管理员的密码。
@@ -43,26 +43,33 @@ ms.locfileid: "92375161"
 可以将以下安全主体分配给具有管理单元范围的角色：
 
 * 用户
-* 角色可分配的云组 (预览) 
+* 角色可分配的云组 (预览版) 
 * 服务主体名称 (SPN)
 
 ## <a name="assign-a-scoped-role"></a>分配限定范围的角色
 
-### <a name="azure-portal"></a>Azure 门户
+可以使用 Azure 门户、PowerShell 或 Microsoft Graph 来分配作用域内角色。
 
-在门户中，转到“Azure AD”>“管理单元”。 选择要在其中给用户分配角色的管理单元。 在左侧窗格中，选择“角色和管理员”以列出所有可用的角色。
+### <a name="use-the-azure-portal"></a>使用 Azure 门户
 
-![选择要更改角色范围的管理单元](./media/admin-units-assign-roles/select-role-to-scope.png)
+1. 在 Azure 门户中，请参阅 **Azure AD** 。
 
-选择要分配的角色，然后选择“添加分配”。 此时右侧会打开一个面板，可在其中选择要分配到该角色的一个或多个用户。
+1. 选择 " **管理单元** "，然后选择要向其分配用户角色作用域的管理单元。 
 
-![选择要限定范围的角色，然后选择“添加分配”](./media/admin-units-assign-roles/select-add-assignment.png)
+1. 在左侧窗格中，选择 " **角色和管理员** " 列出所有可用的角色。
+
+   !["角色和管理员" 窗格的屏幕截图，用于选择要分配角色作用域的管理单元。](./media/admin-units-assign-roles/select-role-to-scope.png)
+
+1. 选择要分配的角色，然后选择 " **添加分配** "。 
+
+1. 在 " **添加分配** " 窗格中，选择要分配给该角色的一个或多个用户。
+
+   ![选择要限定范围的角色，然后选择“添加分配”](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
->
-> 若要使用 PIM 在管理单元上分配角色，请按照 [此处](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope)的步骤操作。
+> 若要通过使用 Azure AD Privileged Identity Management (PIM) 为管理单元分配角色，请参阅 [在 pim 中分配 Azure AD 角色](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope)。
 
-### <a name="powershell"></a>PowerShell
+### <a name="use-powershell"></a>使用 PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -73,9 +80,9 @@ $RoleMember.ObjectId = $AdminUser.ObjectId
 Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
-可以根据特定环境的需要更改突出显示的部分。
+你可以根据特定环境的需要更改突出显示的部分。
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>使用 Microsoft Graph
 
 ```http
 Http request
@@ -90,22 +97,30 @@ Request body
 }
 ```
 
-## <a name="list-the-scoped-admins-on-an-au"></a>列出 AU 上限定范围的管理员
+## <a name="view-a-list-of-the-scoped-admins-in-an-administrative-unit"></a>在管理单元中查看作用域内管理员的列表
 
-### <a name="azure-portal"></a>Azure 门户
+您可以使用 Azure 门户、PowerShell 或 Microsoft Graph 来查看作用域管理员的列表。
 
-在 [Azure AD 的“管理单元”部分](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit)中可查看使用管理单元范围完成的所有角色分配。 在门户中，转到“Azure AD”>“管理单元”。 为需要列出的角色分配选择管理单元。 选择“角色和管理员”并打开一个角色，以查看该管理单元中的分配。
+### <a name="use-the-azure-portal"></a>使用 Azure 门户
 
-### <a name="powershell"></a>PowerShell
+可以在 Azure AD 的 "管理单元" [部分](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit)中查看使用管理单元范围创建的所有角色分配。 
+
+1. 在 Azure 门户中，请参阅 **Azure AD** 。
+
+1. 在左窗格中，选择 " **管理单元** "，然后选择要查看的角色分配列表的管理单元。 
+
+1. 选择 " **角色" 和 "管理员** "，然后打开角色以在管理单元中查看分配。
+
+### <a name="use-powershell"></a>使用 PowerShell
 
 ```powershell
 $administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
-可以根据特定环境的需要更改突出显示的部分。
+你可以根据特定环境的需要更改突出显示的部分。
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>使用 Microsoft Graph
 
 ```http
 Http request
@@ -117,4 +132,4 @@ Request body
 ## <a name="next-steps"></a>后续步骤
 
 - [使用云组来管理角色分配](groups-concept.md)
-- [分配给云组的角色疑难解答](groups-faq-troubleshooting.md)
+- [排查分配给云组的角色问题](groups-faq-troubleshooting.md)

@@ -1,5 +1,5 @@
 ---
-title: 添加和删除管理单元-Azure Active Directory |Microsoft Docs
+title: 添加和删除管理单元 - Azure Active Directory | Microsoft Docs
 description: 在 Azure Active Directory 中使用管理单元来限制角色权限的范围。
 services: active-directory
 documentationcenter: ''
@@ -14,41 +14,47 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b47ea3cc55be26521dfa6e2b3230b477f82f442
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa0abffc9bfb1a0c6511af331d1e8dbc10cff455
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375149"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026524"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>在 Azure Active Directory 中管理管理单元
 
-若要在 Azure Active Directory (Azure AD) 中实现更精细的管理控制，可将用户分配到作用域限定为一个或多个管理单元 (AU) 的 Azure AD 角色。
+为了 Azure Active Directory (Azure AD) 中提供更精细的管理控制，可以将用户分配到一个范围限制为一个或多个管理单元的 Azure AD 角色。
 
 ## <a name="get-started"></a>入门
 
 1. 若要通过 [图形资源管理器](https://aka.ms/ge)从以下说明运行查询，请执行以下操作：
 
-    a. 在 Azure 门户中，转到 Azure AD。 在应用程序列表中，选择 " **图形资源管理器**"，然后选择 " **向图形资源管理器授予管理员许可**"。
+    a. 在 Azure 门户中，转到 Azure AD。 
+    
+    b. 在应用程序列表中，选择 " **图形资源管理器** "。
+    
+    c. 在 " **权限** " 窗格上，选择 " **为图形资源管理器授予管理员许可** "。
 
-    ![显示指向 "授予管理员许可" 的链接的屏幕截图](./media/admin-units-manage/select-graph-explorer.png)
+    ![显示 "为图形资源管理器授予管理员许可" 链接的屏幕截图。](./media/admin-units-manage/select-graph-explorer.png)
 
 
 1. 使用 Azure AD PowerShell 的预览版本。
 
 ## <a name="add-an-administrative-unit"></a>添加管理单元
 
+可以使用 Azure 门户或 PowerShell 添加管理单元。
+
 ### <a name="use-the-azure-portal"></a>使用 Azure 门户
 
-1. 在 Azure 门户中转到 Azure AD，然后在左窗格中选择“管理单元”。
+1. 在 Azure 门户中，转到 Azure AD。 然后，在左窗格中，选择 " **管理单元** "。
 
-    ![Azure AD 中的管理 unitslink 的屏幕截图](./media/admin-units-manage/nav-to-admin-units.png)
+    ![Azure AD 中的 "管理单元" 链接的屏幕截图。](./media/admin-units-manage/nav-to-admin-units.png)
 
-1. 选择“添加”，然后输入管理单元的名称。 （可选）添加管理单元的说明。
+1. 选择窗格上半部分的 " **添加** " 按钮，然后在 " **名称** " 框中输入管理单元的名称。 （可选）添加管理单元的说明。
 
-    ![用于输入管理单元名称的“添加”按钮和文本框的屏幕截图](./media/admin-units-manage/add-new-admin-unit.png)
+    ![显示用于输入管理单元名称的 "添加" 按钮和 "名称" 框的屏幕截图。](./media/admin-units-manage/add-new-admin-unit.png)
 
-1. 选择“添加”以完成管理单元。
+1. 选择蓝色的 " **添加** " 按钮来完成管理单元。
 
 ### <a name="use-powershell"></a>使用 PowerShell
 
@@ -79,11 +85,11 @@ Request body
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 门户
 
-1. 在 Azure 门户中，转到“Azure AD” > “管理单元”。 
+1. 在 Azure 门户中转到 **Azure AD** ，然后选择 " **管理单元** "。 
 1. 键入要删除的管理单元，然后选择“删除”。 
 1. 若要确认是否要删除管理单元，请选择“是”。 此时会删除管理单元。
 
-![管理单元的“删除”按钮和确认窗口的屏幕截图](./media/admin-units-manage/select-admin-unit-to-delete.png)
+![管理单元删除按钮和确认窗口的屏幕截图。](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="use-powershell"></a>使用 PowerShell
 

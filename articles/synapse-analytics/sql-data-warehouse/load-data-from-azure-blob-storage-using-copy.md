@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371518"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025929"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>教程：加载纽约出租车数据集
 
@@ -52,7 +52,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
 
 2. 在“新建”页中选择“数据库”，然后在“新建”页上的“特色”下选择“Azure Synapse Analytics”    。
 
-    ![创建数据仓库](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![屏幕截图显示从 Azure 门户中的数据库中选择的 SQL 数据仓库。](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. 使用以下信息填写窗体：
 
@@ -63,7 +63,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
    | **资源组** | myResourceGroup       | 如需有效的资源组名称，请参阅 [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（命名规则和限制）。 |
    | **选择源**  | 空白数据库        | 指定创建空白数据库。 请注意，数据仓库是一种数据库。 |
 
-    ![创建数据仓库](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![屏幕截图显示 "SQL 数据仓库" 窗格，可在其中输入这些值。](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. 选择“服务器”，为新数据库创建并配置新服务器。 使用以下信息填写“新建服务器”窗体：
 
@@ -100,7 +100,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
 > [!NOTE]
 > Azure Synapse Analytics 通过端口1433进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到服务器，除非 IT 部门打开了端口 1433。
 
-1. 部署完成后，在左侧菜单中选择“SQL 数据库”，然后在“SQL 数据库”页上选择“mySampleDatabase”。 此时会打开数据库的概览页，其中显示了完全限定的服务器名称（例如 mynewserver-20180430.database.windows.net），并提供了其他配置的选项****。
+1. 部署完成后，在左侧菜单中选择“SQL 数据库”，然后在“SQL 数据库”页上选择“mySampleDatabase”。 此时会打开数据库的概览页，其中显示了完全限定的服务器名称（例如 mynewserver-20180430.database.windows.net），并提供了其他配置的选项  。
 
 2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 然后选择服务器名称，打开服务器设置。
 
@@ -146,7 +146,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
     | 设置        | 建议的值                            | 说明                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | 服务器类型    | 数据库引擎                            | 此值是必需的                                       |
-    | 服务器名称    | 完全限定的服务器名称            | 该名称应类似于 mynewserver-20180430.database.windows.net****。 |
+    | 服务器名称    | 完全限定的服务器名称            | 该名称应类似于 mynewserver-20180430.database.windows.net  。 |
     | 身份验证 | SQL Server 身份验证                  | SQL 身份验证是本教程中配置的唯一身份验证类型。 |
     | 登录          | 服务器管理员帐户                   | 这是在创建服务器时指定的帐户。 |
     | 密码       | 服务器管理员帐户的密码 | 这是在创建服务器时指定的密码。 |
@@ -509,7 +509,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
 
 3. 若要删除数据仓库，以便不再为计算或存储付费，请选择“删除”。
 
-4. 若要删除创建的服务器，请在上一个映像中选择 **mynewserver-20180430.database.windows.net** ，然后选择 " **删除**"。  请审慎执行此操作，因为删除服务器会删除分配给该服务器的所有数据库。
+4. 若要删除创建的服务器，请在上一个映像中选择 **mynewserver-20180430.database.windows.net** ，然后选择 " **删除** "。  请审慎执行此操作，因为删除服务器会删除分配给该服务器的所有数据库。
 
 5. 若要删除资源组，请选择“myResourceGroup”，然后选择“删除资源组”。
 

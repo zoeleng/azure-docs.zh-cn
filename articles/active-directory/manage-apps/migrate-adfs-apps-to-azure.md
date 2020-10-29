@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22b0ba97a0f3eddda9a0e0d4f5e5392d12f21eef
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802695"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026082"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>将应用程序身份验证从 Active Directory 联合身份验证服务移动到 Azure Active Directory
 
@@ -39,7 +39,7 @@ ms.locfileid: "91802695"
 
 ![直接连接到本地的应用程序](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
-**为了提高应用程序的安全性，你的目标是在本地和云环境中拥有一组访问控制和策略**。
+**为了提高应用程序的安全性，你的目标是在本地和云环境中拥有一组访问控制和策略** 。
 
 ![通过 Azure AD 连接的应用程序](media/migrate-adfs-apps-to-azure/app-integration-after-migration1.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "91802695"
 
 更新生产应用程序的配置以指向生产 Azure 租户。
 
-![迁移阶段1 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
+![迁移阶段4 ](media/migrate-adfs-apps-to-azure/stage4.jpg)
 
  使用 AD FS 进行身份验证的应用可能会使用 Active Directory 组进行权限。 在开始迁移之前，请使用 [Azure AD Connect 同步](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) 来同步本地环境和 Azure AD 之间的标识数据。 在迁移之前验证这些组和成员身份，以便你可以在迁移应用程序时向相同用户授予访问权限。
 
@@ -133,7 +133,7 @@ LOB 应用由组织内部开发，或者作为你的数据中心内安装的标�
 
 有关载入 SaaS 应用的任何问题，可联系 [Saas 应用程序集成支持别名](mailto:SaaSApplicationIntegrations@service.microsoft.com)。
 
-**Sso 的 SAML 签名证书**：签名证书是任何 SSO 部署的重要部分。 Azure AD 创建签名证书，以便将基于 SAML 的联合 SSO 建立到 SaaS 应用程序。 添加库或非库应用程序后，将使用联合 SSO 选项配置添加的应用程序。 请参阅 [Azure Active Directory 中的 "管理用于联合单一登录的证书](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on)"。
+**Sso 的 SAML 签名证书** ：签名证书是任何 SSO 部署的重要部分。 Azure AD 创建签名证书，以便将基于 SAML 的联合 SSO 建立到 SaaS 应用程序。 添加库或非库应用程序后，将使用联合 SSO 选项配置添加的应用程序。 请参阅 [Azure Active Directory 中的 "管理用于联合单一登录的证书](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on)"。
 
 ### <a name="apps-and-configurations-that-can-be-moved-today"></a>当今可移动的应用和配置
 
@@ -198,13 +198,13 @@ LOB 应用由组织内部开发，或者作为你的数据中心内安装的标�
 
 | 配置设置| AD FS| 如何在 Azure AD 中配置| SAML 令牌 |
 | - | - | - | - |
-| **应用登录 URL** <p>用户登录到服务提供程序中的应用的 URL， (SP) 启动的 SAML 流。| 不适用| 从基于 SAML 的登录打开基本 SAML 配置| 不适用 |
-| **应用回复 URL** <p>从标识提供程序的 (IdP 的) 角度来看应用程序的 URL。 用户登录到 IdP 后，IdP 会将用户和令牌发送到此处。  这也称为 **SAML 断言使用者终结点**。| 选择 " **终结点** " 选项卡| 从基于 SAML 的登录打开基本 SAML 配置| SAML 令牌中的 Destination 元素。 示例值： `https://contoso.my.salesforce.com` |
-| **应用注销 URL** <p>这是用户从应用程序中注销时，向其发送 "注销清理" 请求的 URL。 IdP 发送请求，同时从其他所有应用注销用户。| 选择 " **终结点** " 选项卡| 从基于 SAML 的登录打开基本 SAML 配置| 不适用 |
+| **应用登录 URL** <p>用户登录到服务提供程序中的应用的 URL， (SP) 启动的 SAML 流。| 空值| 从基于 SAML 的登录打开基本 SAML 配置| 空值 |
+| **应用回复 URL** <p>从标识提供程序的 (IdP 的) 角度来看应用程序的 URL。 用户登录到 IdP 后，IdP 会将用户和令牌发送到此处。  这也称为 **SAML 断言使用者终结点** 。| 选择 " **终结点** " 选项卡| 从基于 SAML 的登录打开基本 SAML 配置| SAML 令牌中的 Destination 元素。 示例值： `https://contoso.my.salesforce.com` |
+| **应用注销 URL** <p>这是用户从应用程序中注销时，向其发送 "注销清理" 请求的 URL。 IdP 发送请求，同时从其他所有应用注销用户。| 选择 " **终结点** " 选项卡| 从基于 SAML 的登录打开基本 SAML 配置| 空值 |
 | **应用标识符** <p>这是 IdP 的透视中的应用标识符。 登录 URL 值通常用于标识符 (但并非始终) 。  有时，应用程序会将 "实体 ID" 称为 "实体 ID"。| 选择 " **标识符** " 选项卡|从基于 SAML 的登录打开基本 SAML 配置| 映射到 SAML 令牌中的 **受众** 元素。 |
-| **应用联合元数据** <p>这是应用的联合元数据的位置。 IdP 用它来自动更新特定的配置设置，例如终结点或加密证书。| 选择 " **监视** " 选项卡| 不适用。 Azure AD 不支持直接使用应用程序联合元数据。 您可以手动导入联合元数据。| 不适用 |
-| **用户标识符/名称 ID** <p>一个属性，用于以唯一方式向应用指示 Azure AD 或 AD FS 中的用户标识。  此属性通常为用户的 UPN 或电子邮件地址。| 声明规则。 在大多数情况下，声明规则使用以 NameIdentifier 结尾的类型发出声明。| 可以在标头 **用户属性和声明**下找到标识符。 默认情况下，将使用 UPN| 映射到 SAML 令牌中的 **NameID** 元素。 |
-| **其他声明** <p>通常从 IdP 发送到应用的其他声明信息的示例包括名字、姓氏、电子邮件地址和组成员身份。| 在 AD FS 中，可以看到此项充当信赖方的其他声明规则。| 可以在标头用户属性下找到标识符 **& 声明**。 选择“查看”，然后编辑所有其他的用户属性。****| 不适用 |
+| **应用联合元数据** <p>这是应用的联合元数据的位置。 IdP 用它来自动更新特定的配置设置，例如终结点或加密证书。| 选择 " **监视** " 选项卡| 不适用。 Azure AD 不支持直接使用应用程序联合元数据。 您可以手动导入联合元数据。| 空值 |
+| **用户标识符/名称 ID** <p>一个属性，用于以唯一方式向应用指示 Azure AD 或 AD FS 中的用户标识。  此属性通常为用户的 UPN 或电子邮件地址。| 声明规则。 在大多数情况下，声明规则使用以 NameIdentifier 结尾的类型发出声明。| 可以在标头 **用户属性和声明** 下找到标识符。 默认情况下，将使用 UPN| 映射到 SAML 令牌中的 **NameID** 元素。 |
+| **其他声明** <p>通常从 IdP 发送到应用的其他声明信息的示例包括名字、姓氏、电子邮件地址和组成员身份。| 在 AD FS 中，可以看到此项充当信赖方的其他声明规则。| 可以在标头用户属性下找到标识符 **& 声明** 。 选择“查看”，然后编辑所有其他的用户属性。 | 空值 |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>地图标识提供者 (IdP) 设置
@@ -236,11 +236,11 @@ SaaS 应用需要知道将身份验证请求发送到何处，以及如何验证
 
 | 配置设置| AD FS| 如何在 Azure AD 中配置 |
 | - | - | - |
-| **IdP 登录 URL** <p>从应用的角度来看，IdP 的登录 URL，将用户重定向到登录)  (。| AD FS 登录 URL 是 AD FS 的联合身份验证服务名称，后跟 "/adfs/ls/." <p>例如： `https://fs.contoso.com/adfs/ls/`| 将 {租户 id} 替换为你的租户 ID。 <p> 对于使用 SAML-P 协议的应用： [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>对于使用 WS-Federation 协议的应用： [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **IdP 注销 URL**<p>从应用的角度注销 IdP 的 URL， (在用户选择注销应用) 时重定向用户。| 注销 URL 既可以是登录 URL，也可以是附加了 "wa = wsignout1.0 1.0" 的同一 URL。 例如： `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| 将 {租户 id} 替换为你的租户 ID。<p>对于使用 SAML-P 协议的应用：<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> 对于使用 WS-Federation 协议的应用： [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
-| **令牌签名证书**<p>IdP 使用证书的私钥对颁发的令牌进行签名。 它可以验证令牌是否来自已配置应用所信任的 IdP。| AD FS 令牌签名证书位于 AD FS 管理中的“证书”下。****| 在应用程序的 " **单一登录属性** " 中的 " **SAML 签名证书**" 下，查找 Azure 门户。 可以在其中下载要上传到应用的证书。  <p>如果应用程序有多个证书，则可以在联合元数据 XML 文件中找到所有证书。 |
-| **标识符/"issuer"**<p>从应用的角度来看，IdP 的标识符 (有时称为 "颁发者 ID" ) 。<p>在 SAML 令牌中，此值显示为 Issuer 元素。| AD FS 的标识符通常是 AD FS 管理中的联合身份验证服务标识符， **> 编辑联合身份验证服务属性**。 例如： `http://fs.contoso.com/adfs/services/trust`| 将 {租户 id} 替换为你的租户 ID。<p>https： \/ /sts.windows.net/{tenant-id}/ |
-| **IdP 联合元数据**<p>IdP 的公开可用联合元数据的位置。 （某些应用使用联合元数据来分别代替管理员配置 URL、标识符、令牌签名证书。）| 在 AD FS 管理中查找管理 > 下的 AD FS 联合元数据 URL **> 元数据 > 类型：联合元数据**。 例如： `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Azure AD 的相应值遵循模式 [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) 。 将 {TenantDomainName} 替换为 "contoso.onmicrosoft.com" 格式的租户名称。   <p>有关详细信息，请参阅[联合元数据](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata)。 |
+| **IdP 登录 URL** <p>从应用的角度来看，IdP 的登录 URL，将用户重定向到登录)  (。| AD FS 登录 URL 是 AD FS 的联合身份验证服务名称，后跟 "/adfs/ls/." <p>例如：`https://fs.contoso.com/adfs/ls/`| 将 {租户 id} 替换为你的租户 ID。 <p> 对于使用 SAML-P 协议的应用： [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>对于使用 WS-Federation 协议的应用： [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **IdP 注销 URL**<p>从应用的角度注销 IdP 的 URL， (在用户选择注销应用) 时重定向用户。| 注销 URL 既可以是登录 URL，也可以是附加了 "wa = wsignout1.0 1.0" 的同一 URL。 例如：`https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| 将 {租户 id} 替换为你的租户 ID。<p>对于使用 SAML-P 协议的应用：<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> 对于使用 WS-Federation 协议的应用： [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **令牌签名证书**<p>IdP 使用证书的私钥对颁发的令牌进行签名。 它可以验证令牌是否来自已配置应用所信任的 IdP。| AD FS 令牌签名证书位于 AD FS 管理中的“证书”下。 | 在应用程序的 " **单一登录属性** " 中的 " **SAML 签名证书** " 下，查找 Azure 门户。 可以在其中下载要上传到应用的证书。  <p>如果应用程序有多个证书，则可以在联合元数据 XML 文件中找到所有证书。 |
+| **标识符/"issuer"**<p>从应用的角度来看，IdP 的标识符 (有时称为 "颁发者 ID" ) 。<p>在 SAML 令牌中，此值显示为 Issuer 元素。| AD FS 的标识符通常是 AD FS 管理中的联合身份验证服务标识符， **> 编辑联合身份验证服务属性** 。 例如：`http://fs.contoso.com/adfs/services/trust`| 将 {租户 id} 替换为你的租户 ID。<p>https： \/ /sts.windows.net/{tenant-id}/ |
+| **IdP 联合元数据**<p>IdP 的公开可用联合元数据的位置。 （某些应用使用联合元数据来分别代替管理员配置 URL、标识符、令牌签名证书。）| 在 AD FS 管理中查找管理 > 下的 AD FS 联合元数据 URL **> 元数据 > 类型：联合元数据** 。 例如：`https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Azure AD 的相应值遵循模式 [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) 。 将 {TenantDomainName} 替换为 "contoso.onmicrosoft.com" 格式的租户名称。   <p>有关详细信息，请参阅[联合元数据](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata)。 |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>表示 Azure AD AD FS 安全策略
@@ -257,7 +257,7 @@ SaaS 应用需要知道将身份验证请求发送到何处，以及如何验证
 
 允许访问所有用户的 AD FS 如下所示：
 
-![迁移阶段1 ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
+![屏幕截图显示 "设置单个 Sign-On 与 SAML" 对话框。](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
 
 这将通过以下方式之一映射到 Azure AD：
@@ -279,7 +279,7 @@ SaaS 应用需要知道将身份验证请求发送到何处，以及如何验证
 AD FS 中的显式组授权：
 
 
-![颁发授权规则 ](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
+![屏幕截图显示 "允许域管理员声明规则" 的 "编辑规则" 对话框。](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
 
 
 此规则将映射到 Azure AD：
@@ -293,7 +293,7 @@ AD FS 中的显式组授权：
 
 AD FS 中的显式用户授权：
 
-![颁发授权规则 ](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![屏幕截图显示 "允许域管理员声明规则" 的 "编辑规则" 对话框，该规则的传入声明类型为 "主 S I D"。](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 此规则将映射到 Azure AD：
 
@@ -310,7 +310,7 @@ AD FS 中的显式用户授权：
 
 AD FS 中的 MFA 规则设置：
 
-![Azure AD MFA 设置](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![屏幕截图显示 Azure 门户中 Azure A 的条件。](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 
 #### <a name="example-1-enforce-mfa-based-on-usersgroups"></a>示例1：基于用户/组强制执行 MFA
@@ -326,7 +326,7 @@ AD FS 中的 MFA 规则设置：
 
 3. 配置 **Access** control 选项，如下所示：
 
-![AAD MFA 设置](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
+![屏幕截图显示 "授权" 窗格，你可以在其中授予访问权限。](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
 
 
  #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>示例2：对未注册的设备强制实施 MFA
@@ -335,11 +335,11 @@ AD FS 中的 MFA 规则设置：
 
 1. 创建 [新的条件访问策略](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json)。
 
-2. 将 **分配** 设置为 " **所有用户**"。
+2. 将 **分配** 设置为 " **所有用户** "。
 
 3. 配置 **Access** control 选项，如下所示：
 
-![AAD MFA 设置](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
+![屏幕截图显示 "授权" 窗格，你可以在其中授予访问权限并指定其他限制。](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
 
 
 如果将 "对于多个控件" 选项设置为 "需要一个选定的控件"，这意味着，如果用户满足此复选框指定的任何一个条件，则会向用户授予对应用的访问权限。
@@ -350,13 +350,13 @@ AD FS 中的 MFA 规则设置：
 
 1. 创建 [新的条件访问策略](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json)。
 
-1. 将 **分配** 设置为 " **所有用户**"。
+1. 将 **分配** 设置为 " **所有用户** "。
 
 1. [配置中的命名位置 Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) 否则来自企业网络内部的联合身份验证受信任。
 
 1. 配置 **条件规则** 以指定要对其强制实施 MFA 的位置。
 
-![Azure AD MFA 设置](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+![屏幕截图显示条件规则的 "位置" 窗格。](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 5. 配置 **Access** control 选项，如下所示：
 
@@ -368,14 +368,14 @@ AD FS 中的 MFA 规则设置：
 
 下面是如何在 AD FS 中映射属性的示例：
 
-![Azure AD MFA 设置](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
+![屏幕截图显示 "编辑规则" 对话框，以便将属性作为声明发出。](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
 
 
 此规则将映射到 Azure AD：
 
-在 [Azure 门户](https://portal.azure.com/)中，选择 " **企业应用程序**"、" **单一登录**" 和 "添加 **SAML 令牌属性** "，如下所示：
+在 [Azure 门户](https://portal.azure.com/)中，选择 " **企业应用程序** "、" **单一登录** " 和 "添加 **SAML 令牌属性** "，如下所示：
 
-![Azure AD MFA 设置](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
+![屏幕截图显示企业应用程序的单一登录页。](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
 
 
 
@@ -399,7 +399,7 @@ AD FS 2016 具有几个内置的访问控制策略，你可以从中进行选择
 | - | - | - |
 | 从特定网络| 映射到 Azure AD 中的[命名位置](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)| 将 **Exclude** 选项用于 [受信任位置](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | 从特定组| [设置用户/组分配](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| 在用户和组中使用 " **排除** " 选项 |
-| 从具有特定信任级别的设备| 从 "作业" 下的 "设备状态" 控件中设置此项-> 条件| 在 "设备状态条件" 下使用 "**排除**" 选项并包括 "**所有设备**" |
+| 从具有特定信任级别的设备| 从 "作业" 下的 "设备状态" 控件中设置此项-> 条件| 在 "设备状态条件" 下使用 " **排除** " 选项并包括 " **所有设备** " |
 | 具有请求中的特定声明| 无法迁移此设置| 无法迁移此设置 |
 
 
@@ -444,19 +444,19 @@ AD FS 2016 具有几个内置的访问控制策略，你可以从中进行选择
 请按照本文中详细说明的迁移过程进行操作。
 
 然后，请前往 [Azure 门户](https://aad.portal.azure.com/) 以测试迁移是否成功。 请根据以下说明进行操作：
-1. 从列表中选择 "**企业应用程序**" "  >  **所有应用程序**" 和 "查找应用"。
+1. 从列表中选择 " **企业应用程序** " "  >  **所有应用程序** " 和 "查找应用"。
 
-1. 选择 "**管理**  >  **用户和组**"，将至少一个用户或组分配到应用。
+1. 选择 " **管理**  >  **用户和组** "，将至少一个用户或组分配到应用。
 
-1. 选择 "**管理**  >  **条件性访问**"。 查看策略列表，并确保不会使用 [条件性访问策略](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)阻止对应用程序的访问。
+1. 选择 " **管理**  >  **条件性访问** "。 查看策略列表，并确保不会使用 [条件性访问策略](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)阻止对应用程序的访问。
 
 根据你配置应用的方式，验证 SSO 是否正常工作。
 
-| 身份验证类型| 测试 |
+| 身份验证类型| 正在测试 |
 | - | - |
 | OAuth/OpenID Connect| 选择 " **企业应用程序" > 权限** ，并确保你同意在你的组织中的应用程序的用户设置中使用该应用程序。
 ‎ |
-| 基于 SAML 的 SSO| 使用 "**单一登录**" 下的 "[测试 SAML 设置](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues)" 按钮。
+| 基于 SAML 的 SSO| 使用 " **单一登录** " 下的 " [测试 SAML 设置](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues)" 按钮。
 ‎ |
 | Password-Based SSO| 下载并安装[MyApps 安全登录](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [扩展](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)。 此扩展可帮助你启动组织的任何需要使用 SSO 过程的云应用。
 ‎ |

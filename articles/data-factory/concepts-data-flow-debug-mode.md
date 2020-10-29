@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085087"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026983"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>映射数据流调试模式
 
@@ -77,15 +77,15 @@ ADF 数据流中用于调试模式的默认 IR 是一个具有4核单驱动程�
 
 看到数据预览后，就可以生成快速转换来转换、删除或修改列。 单击列标题，然后从数据预览工具栏中选择一个选项。
 
-![快速操作](media/data-flow/quick-actions1.png "快速操作")
+![屏幕截图显示数据预览工具栏，其中包含选项：转换、修改、统计信息和删除。](media/data-flow/quick-actions1.png "快速操作")
 
 选择修改后，数据预览会立即刷新。 在右上角单击 " **确认** " 以生成新的转换。
 
-![快速操作](media/data-flow/quick-actions2.png "快速操作")
+![屏幕截图显示 "确认" 按钮。](media/data-flow/quick-actions2.png "快速操作")
 
 **转换** 和 **Modify** 将生成一个派生列转换，并且 **删除** 将生成一个 Select 转换。
 
-![快速操作](media/data-flow/quick-actions3.png "快速操作")
+![屏幕截图显示派生列的设置。](media/data-flow/quick-actions3.png "快速操作")
 
 > [!NOTE]
 > 如果编辑数据流，则需要在添加快速转换之前重新提取数据预览。

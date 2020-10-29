@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907175"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027578"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -54,8 +54,8 @@ Azure 事件中心提供高度可缩放的发布-订阅事件投资者。 事件
 | **事件中心命名空间** | 事件中心命名空间是包含一组消息传递实体的容器。 创建新的事件中心后，另请创建命名空间。 |
 | **事件中心名称** | 要用作输入的事件中心的名称。 |
 | **事件中心策略名称** | 提供对事件中心的访问权限的共享访问策略。 每个共享访问策略具有名称、所设权限以及访问密钥。 此选项会自动进行填充，除非已选择手动提供事件中心设置的选项。|
-| **事件中心使用者组**（推荐） | 强烈建议对每个流分析作业使用不同的使用者组。 此字符串标识的使用者组用于从事件中心引入数据。 如果未指定任何使用者组，流分析作业将使用 $Default 使用者组。  |
-| **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
+| **事件中心使用者组** （推荐） | 强烈建议对每个流分析作业使用不同的使用者组。 此字符串标识的使用者组用于从事件中心引入数据。 如果未指定任何使用者组，流分析作业将使用 $Default 使用者组。  |
+| **分区键** | 这是一个可选字段，仅当你的作业配置为使用 [兼容级别](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 或更高版本时，此字段才可用。 如果按属性对输入进行分区，可以在此处添加此属性的名称。 如果查询在此属性中包含 PARTITION BY 或 GROUP BY 子句，则使用此方法提高查询的性能。 如果此作业使用兼容级别1.2 或更高版本，则此字段默认为 "PartitionId"。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、专有…）](custom-deserializer.md)。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 目前只支持 UTF-8 这种编码格式。 |
 | **事件压缩类型** | 用于读取传入数据流的压缩类型，例如 None（默认）、GZip 或 Deflate。 |
@@ -105,7 +105,7 @@ Azure IoT 中心是已针对 IoT 方案进行优化，具有高度可缩放的�
 | **共享访问策略名称** | 提供对 IoT 中心的访问权限的共享访问策略。 每个共享访问策略具有名称、所设权限以及访问密钥。 |
 | **共享访问策略密钥** | 用于授予对 IoT 中心的访问权限的共享访问密钥。  此选项会自动进行填充，除非已选择手动提供 IoT 中心设置的选项。 |
 | **使用者组** | 强烈建议对每个流分析作业使用不同的使用者组。 用于从 IoT 中心引入数据的使用者组。 流分析使用 $Default 所有者组，除非指定了其他组。  |
-| **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
+| **分区键** | 这是一个可选字段，仅当你的作业配置为使用 [兼容级别](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 或更高版本时，此字段才可用。 如果按属性对输入进行分区，可以在此处添加此属性的名称。 如果查询在此属性中包含 PARTITION BY 或 GROUP BY 子句，则使用此方法提高查询的性能。 如果此作业使用兼容级别1.2 或更高版本，则此字段默认为 "PartitionId"。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、专有…）](custom-deserializer.md)。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 目前只支持 UTF-8 这种编码格式。 |
 | **事件压缩类型** | 用于读取传入数据流的压缩类型，例如 None（默认）、GZip 或 Deflate。 |
@@ -143,7 +143,7 @@ CSV 格式的输入需要标头行来定义数据集的字段，并且所有标�
 > [!NOTE]
 > 流分析不支持将内容添加到现有 blob 文件。 流分析将仅查看每个文件一次，并且在作业读取数据后对文件所做的任何更改都不会得到处理。 最佳做法是立即上传 blob 文件的全部数据，然后将其他较新的事件添加到其他全新的 blob 文件中。
 
-在不断添加多个 blob 并且流分析在添加 blob 时处理 blob 的情况下，在极少数情况下，由于的粒度，可能会跳过某些 blob `BlobLastModifiedTime` 。 可以通过至少每隔两秒上传 blob 来缓解此问题。 如果此选项不可行，则可以使用事件中心流式传输大量事件。
+如果持续添加许多 blob，并在添加 blob 时流分析对其进行处理，则在极少数情况下，可能会由于 `BlobLastModifiedTime` 的粒度而跳过某些 blob。 可以通过至少每隔两秒上传 blob 来缓解此问题。 如果此选项不可行，则可以使用事件中心流式传输大量事件。
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>将 Blob 存储配置为流输入 
 
@@ -156,10 +156,11 @@ CSV 格式的输入需要标头行来定义数据集的字段，并且所有标�
 | **存储帐户** | 存储 Blob 文件所在的存储帐户的名称。 |
 | **存储帐户密钥** | 与存储帐户关联的密钥。 此选项会自动进行填充，除非已选择手动提供 Blob 存储设置的选项。 |
 | **容器** | 用于 Blob 输入的容器。 容器对存储在 Microsoft Azure Blob 服务中的 blob 进行逻辑分组。 将 Blob 上传到 Azure Blob 存储服务时，必须为该 Blob 指定一个容器。 可以选择“使用现有”，以便使用现有的容器；也可以选择“新建”，以便创建新的容器。 |
-| **路径模式**（可选） | 用于定位指定容器中的 blob 的文件路径。 如果要从容器的根目录中读取 blob，请不要设置路径模式。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 不包括容器名称或文件名。 |
-| **日期格式**（可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` <br/><br/> 当 blob 输入在其路径中具有 `{date}` 或 `{time}` 时，将按升序时间顺序查看文件夹。|
-| **时间格式**（可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |
-| **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
+| **路径模式** （可选） | 用于定位指定容器中的 blob 的文件路径。 如果要从容器的根目录中读取 blob，请不要设置路径模式。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 不包括容器名称或文件名。 |
+| **日期格式** （可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` <br/><br/> 当 blob 输入在其路径中具有 `{date}` 或 `{time}` 时，将按升序时间顺序查看文件夹。|
+| **时间格式** （可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |
+| **分区键** | 这是一个可选字段，仅当你的作业配置为使用 [兼容级别](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 或更高版本时，此字段才可用。 如果按属性对输入进行分区，可以在此处添加此属性的名称。 如果查询在此属性中包含 PARTITION BY 或 GROUP BY 子句，则使用此方法提高查询的性能。 如果此作业使用兼容级别1.2 或更高版本，则此字段默认为 "PartitionId"。 |
+| **输入分区计数** | 仅当路径模式中存在 {partition} 时，此字段才存在。 此属性的值是一个 >= 1 的整数。 在 pathPattern 中出现 {partition} 的任何位置，将使用介于0和此字段的值之间的数字。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或[其他（Protobuf、XML、专有…）](custom-deserializer.md)。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式。 |
 | **压缩** | 用于读取传入数据流的压缩类型，例如 None（默认）、GZip 或 Deflate。 |

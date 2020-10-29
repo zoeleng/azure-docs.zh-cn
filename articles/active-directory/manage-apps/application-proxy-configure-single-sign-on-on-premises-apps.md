@@ -16,34 +16,34 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90838b0b613c043ae41a71c76b5e9023d21df3a6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387262"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025844"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>具有应用程序代理的本地应用程序的 SAML 单一登录
 
 你可以向使用 SAML 身份验证保护的本地应用程序 (SSO) 提供单一登录，并通过应用程序代理提供对这些应用程序的远程访问。 使用 SAML 单一登录，Azure Active Directory (Azure AD) 使用用户的 Azure AD 帐户对应用程序进行身份验证。 Azure AD 通过连接协议将登录信息传递给应用程序。 还可以根据在 SAML 声明中定义的规则将用户映射到特定应用程序角色。 除了启用 SAML SSO 外，还可以通过启用应用程序代理来访问应用程序和无缝 SSO 体验。
 
-应用程序必须能够使用 **Azure Active Directory**颁发的 SAML 令牌。 此配置不适用于使用本地标识提供程序的应用程序。 对于这些方案，建议查看 [将应用程序迁移到 Azure AD 的资源](migration-resources.md)。
+应用程序必须能够使用 **Azure Active Directory** 颁发的 SAML 令牌。 此配置不适用于使用本地标识提供程序的应用程序。 对于这些方案，建议查看 [将应用程序迁移到 Azure AD 的资源](migration-resources.md)。
 
 具有应用程序代理的 SAML SSO 还适用于 SAML 令牌加密功能。 有关详细信息，请参阅 [Configure AZURE AD SAML 令牌 encryption](howto-saml-token-encryption.md)。
 
 下面的协议关系图描述了服务提供程序启动 (SP 启动的) 流的单一登录顺序，以及标识提供程序启动的 (IdP 启动的) 流。 应用程序代理通过在本地应用程序中缓存 SAML 请求和响应，来与 SAML SSO 一起工作。
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
+  ![关系图显示了用于 P 启动的单一登录的应用程序、应用程序代理、客户端和 Azure A D 的交互。](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
+  ![关系图显示了应用程序、应用程序代理、客户端和 Azure A D 的交互，适用于 I d P 启动的单一登录。](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
 
 ## <a name="create-an-application-and-set-up-saml-sso"></a>创建应用程序并设置 SAML SSO
 
-1. 在 Azure 门户中，选择 " **Azure Active Directory" > 企业应用程序** "，然后选择" **新建应用程序**"。
+1. 在 Azure 门户中，选择 " **Azure Active Directory" > 企业应用程序** "，然后选择" **新建应用程序** "。
 
-2. 输入新应用程序的 "显示名称"，选择 **"集成"**，然后选择 " **创建**"。
+2. 输入新应用程序的 "显示名称"，选择 **"集成"** ，然后选择 " **创建** "。
 
-3. 在应用的 " **概述** " 页上，选择 " **单一登录**"。
+3. 在应用的 " **概述** " 页上，选择 " **单一登录** "。
 
 4. 选择 " **SAML** " 作为 "单一登录方法"。
 
@@ -52,13 +52,13 @@ ms.locfileid: "87387262"
 6. 至少将一个用户添加到应用程序，并确保测试帐户有权访问该应用程序。 连接到企业网络时，请使用测试帐户查看应用程序的单一登录。 
 
    > [!NOTE]
-   > 设置应用程序代理后，会返回并更新 "SAML **回复 URL**"。
+   > 设置应用程序代理后，会返回并更新 "SAML **回复 URL** "。
 
 ## <a name="publish-the-on-premises-application-with-application-proxy"></a>用应用程序代理发布本地应用程序
 
 在为本地应用程序提供 SSO 之前，你需要启用应用程序代理并安装连接器。 请参阅教程 [添加本地应用程序以在 Azure AD 中通过应用程序代理进行远程访问](application-proxy-add-on-premises-application.md) ，了解如何准备本地环境、安装和注册连接器，以及如何测试连接器。 然后执行以下步骤，通过应用程序代理发布新应用程序。 对于下面未提及的其他设置，请参阅教程中的 [将本地应用添加到 Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) 部分。
 
-1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **应用程序代理**"。 提供应用程序的 **内部 URL** 。 如果你使用的是自定义域，还需要为你的应用程序上传 TLS/SSL 证书。 
+1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **应用程序代理** "。 提供应用程序的 **内部 URL** 。 如果你使用的是自定义域，还需要为你的应用程序上传 TLS/SSL 证书。 
    > [!NOTE]
    > 最佳做法是尽可能使用自定义域来实现优化的用户体验。 详细了解如何使用 [Azure AD 应用程序代理中的自定义域](application-proxy-configure-custom-domain.md)。
 
@@ -70,9 +70,9 @@ ms.locfileid: "87387262"
 
 ## <a name="update-the-saml-configuration"></a>更新 SAML 配置
 
-1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **单一登录**"。 
+1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **单一登录** "。 
 
-2. 在 " **设置单个 Sign-On 与 SAML 一起使用** " 页上，中转到 " **基本 SAML 配置** " 标题，并选择 (铅笔) 的 **编辑** 图标。 请确保在 "**标识符**"、"**回复 url**" 和 "**注销 url** " 字段中填充了在应用程序代理中配置的**外部 URL** 。 这些 Url 是应用程序代理正常工作所必需的。 
+2. 在 " **设置单个 Sign-On 与 SAML 一起使用** " 页上，中转到 " **基本 SAML 配置** " 标题，并选择 (铅笔) 的 **编辑** 图标。 请确保在 " **标识符** "、" **回复 url** " 和 " **注销 url** " 字段中填充了在应用程序代理中配置的 **外部 URL** 。 这些 Url 是应用程序代理正常工作所必需的。 
 
 3. 编辑前面配置的 **回复 URL** ，使其域可通过应用程序代理在 internet 上访问。 例如，如果 **外部 URL** 为 `https://contosotravel-f128.msappproxy.net` ，原始 **回复 url** 是 `https://contosotravel.com/acs` ，则需要将原始 **回复 url** 更新为 `https://contosotravel-f128.msappproxy.net/acs` 。
 

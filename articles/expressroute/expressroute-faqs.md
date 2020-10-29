@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631268"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027102"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -35,6 +35,10 @@ ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 的典型连�
 ### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 的费用是多少？
 
 有关定价信息，请查看[定价详细信息](https://azure.microsoft.com/pricing/details/expressroute/)。
+
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>如果我为给定带宽的 ExpressRoute 线路付费，是否为入口和出口流量单独分配此带宽？
+
+是的，ExpressRoute 线路带宽为双工。 例如，如果购买了 200 mbps 的 ExpressRoute 线路，则会采购 200 mbps，用于进入流量并 200 mbits/s 流量。
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>如果我购买了具有给定带宽的 ExpressRoute 线路，我必须从网络服务提供商购买具有相同速度的 VPN 连接吗？
 
@@ -230,7 +234,7 @@ Dynamics 365 和 Common Data Service (CDS) 环境托管在 Azure 上，因此客
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>连接到同一线路的虚拟网络相互隔离吗？
 
-否。 从路由角度看，连接到同一 ExpressRoute 线路的所有虚拟网络都属于同一路由域，不是相互隔离的。 如果需要路由隔离，则需要创建单独的 ExpressRoute 线路。
+不是。 从路由角度看，连接到同一 ExpressRoute 线路的所有虚拟网络都属于同一路由域，不是相互隔离的。 如果需要路由隔离，则需要创建单独的 ExpressRoute 线路。
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>能否将一个虚拟网络连接到多条 ExpressRoute 线路？
 
@@ -423,4 +427,4 @@ Microsoft 365 services 需要启用高级外接程序。 有关费用，请参�
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>ExpressRoute 服务是否存储客户数据？
 
-否。
+不是。

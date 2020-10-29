@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/19/2020
-ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650887"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025827"
 ---
 # <a name="monitor-data-flows"></a>监视数据流
 
@@ -23,15 +23,15 @@ ms.locfileid: "88650887"
 
 执行管道时，可以监视该管道及其包含的所有活动，包括数据流活动。 在 Azure 数据工厂 UI 的左侧面板中单击监视图标。 可以看到下面所示的屏幕。 使用突出显示的图标可以深入到管道中的活动，包括数据流活动。
 
-![数据流监视](media/data-flow/mon001.png "数据流监视")
+![屏幕截图显示了为管道选择的图标以获取详细信息。](media/data-flow/mon001.png "数据流监视")
 
 还可以看到此级别的统计信息，包括运行次数和状态。 活动级别的运行 ID 不同于管道级别的运行 ID。 上一级别的运行 ID 适用于管道。 选择眼镜图标可以查看有关数据流执行的深入详细信息。
 
-![数据流监视](media/data-flow/monitoring-details.png "数据流监视")
+![屏幕截图显示了眼镜图标，以查看数据流执行的详细信息。](media/data-flow/monitoring-details.png "数据流监视")
 
 在图形节点监视视图中，可以看到数据流图形的简化只读版本。
 
-![数据流监视](media/data-flow/mon003.png "数据流监视")
+![屏幕截图显示图形的仅查看版本。](media/data-flow/mon003.png "数据流监视")
 
 下面是有关从 ADF 监视屏幕监视数据流性能的视频概述：
 
@@ -41,7 +41,7 @@ ms.locfileid: "88650887"
 
 在 Spark 中执行数据流时，Azure 数据工厂会根据数据流的完整性确定最佳代码路径。 此外，执行路径可能出现在不同的横向扩展节点和数据分区上。 因此，监视图形表示流的设计，它考虑到了转换的执行路径。 选择单个节点时，可以看到“分组”，它们表示在群集上统一执行的代码。 看到的计时和计数表示相对于设计中各个步骤的组。
 
-![数据流监视](media/data-flow/mon004.png "数据流监视")
+![屏幕截图显示数据流的页面。](media/data-flow/mon004.png "数据流监视")
 
 * 在监视窗口中选择空白区域时，底部窗格中的统计信息会显示每个接收器的计时和行数，以及生成转换沿袭的接收器数据的转换。
 
@@ -56,7 +56,7 @@ ms.locfileid: "88650887"
   * 群集启动时间：为数据流执行获取 JIT Spark 计算环境所需的时间量
   * 转换次数：在流中执行的转换步骤数
   
-![数据流监视](media/data-flow/monitornew.png "数据流监视（新）")
+![屏幕截图显示 "刷新" 选项。](media/data-flow/monitornew.png "数据流监视（新）")
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>总接收器处理时间与转换处理时间
 
@@ -85,6 +85,6 @@ ms.locfileid: "88650887"
 
 此图标表示转换数据已在群集中缓存，因此计时和执行路径已考虑到这种情况：
 
-![数据流监视](media/data-flow/mon005.png "数据流监视")
+![屏幕截图显示磁盘图标。](media/data-flow/mon005.png "数据流监视")
 
 在转换中还会看到绿色的圆圈图标。 它们表示数据流入的接收器数目。

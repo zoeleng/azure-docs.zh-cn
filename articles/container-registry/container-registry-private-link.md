@@ -3,12 +3,12 @@ title: 设置专用链接
 description: 在容器注册表上设置专用终结点，并实现在本地虚拟网络中通过专用链接进行访问的功能。 专用链接访问是高级服务层级的一项功能。
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d5193efc1b1def2dc51411630ab6a2305d369cf4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148473"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026116"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>使用 Azure 专用链接以私密方式连接到 Azure 容器注册表
 
@@ -24,7 +24,7 @@ ms.locfileid: "92148473"
 ## <a name="prerequisites"></a>先决条件
 
 * 若要使用本文中所述的 Azure CLI 步骤，建议安装 Azure CLI 版本 2.6.0 或更高版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。 或是在 [Azure Cloud Shell](../cloud-shell/quickstart.md) 中运行。
-* 如果还没有容器注册表，请创建一个（需要“高级”层级），并[导入](container-registry-import-images.md)示例映像，如来自 Docker 的 `hello-world`。 例如，使用 [Azure 门户][quickstart-portal]或 [Azure CLI][quickstart-cli] 创建注册表。
+* 如果还没有容器注册表，请在需要时创建一个 (高级层) 并从 Microsoft 容器注册表 [导入](container-registry-import-images.md) 示例公共映像 `mcr.microsoft.com/hello-world` 。 例如，使用 [Azure 门户][quickstart-portal]或 [Azure CLI][quickstart-cli] 创建注册表。
 * 若要使用其他 Azure 订阅中的专用链接配置注册表访问，需要在该订阅中注册 Azure 容器注册表的资源提供程序。 例如：
 
   ```azurecli
@@ -209,7 +209,7 @@ az network private-dns record-set a add-record \
 1. 在“网络连接”中，选择“专用终结点” > “+ 添加”。
 1. 输入或选择以下信息：
 
-    | 设置 | “值” |
+    | 设置 | 值 |
     | ------- | ----- |
     | 订阅 | 选择订阅。 |
     | 资源组 | 输入现有组名称或创建一个新组。|

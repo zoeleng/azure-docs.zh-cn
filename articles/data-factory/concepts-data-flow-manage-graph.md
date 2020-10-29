@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
-ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4a0ea78ef169480d4494683cb929cfefd16f2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420064"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026966"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>管理映射数据流图表
 
@@ -27,7 +27,7 @@ ms.locfileid: "89420064"
 
 ## <a name="moving-transformations"></a>移动转换
 
-在映射数据流时，一组已连接的转换逻辑称为 " **流**"。 **传入流**字段规定哪个数据流正在传输当前转换。 每个转换都有一个或两个传入流，具体取决于其函数并表示一个输出流。 传入流的输出架构确定哪些列元数据可由当前转换引用。
+在映射数据流时，一组已连接的转换逻辑称为 " **流** "。 **传入流** 字段规定哪个数据流正在传输当前转换。 每个转换都有一个或两个传入流，具体取决于其函数并表示一个输出流。 传入流的输出架构确定哪些列元数据可由当前转换引用。
 
 ![移动节点](media/data-flow/move-nodes.png "移动节点")
 
@@ -39,7 +39,7 @@ ms.locfileid: "89420064"
 
 ![隐藏图形](media/data-flow/hide-graph.png "隐藏关系图")
 
-隐藏关系图后，可以通过单击 " **下一步** " 或 " **上一**步" 在流内的转换之间移动。 单击向下的 v 形 v 形 v 形图标以显示图表。
+隐藏关系图后，可以通过单击 " **下一步** " 或 " **上一** 步" 在流内的转换之间移动。 单击向下的 v 形 v 形 v 形图标以显示图表。
 
 ![显示关系图](media/data-flow/show-graph.png "显示关系图")
 
@@ -47,15 +47,15 @@ ms.locfileid: "89420064"
 
 若要在关系图中快速找到转换，请单击 "缩放" 设置上方的 **搜索** 图标。
 
-![搜索](media/data-flow/search-1.png "搜索关系图")
+![屏幕截图显示 "搜索" 按钮。](media/data-flow/search-1.png "搜索关系图")
 
 您可以按转换名称或说明进行搜索以查找转换。
 
-![搜索](media/data-flow/search-2.png "搜索关系图")
+![屏幕截图显示 "搜索" 文本框。](media/data-flow/search-2.png "搜索关系图")
 
 ## <a name="hide-reference-nodes"></a>隐藏引用节点
 
-如果数据流有任何联接、查找、存在或联合转换，则数据流会向所有传入流显示引用节点。 如果要最大程度地减少所用的垂直空间量，可以最小化引用节点。 为此，请在画布上单击右键，然后选择 " **隐藏引用节点**"。
+如果数据流有任何联接、查找、存在或联合转换，则数据流会向所有传入流显示引用节点。 如果要最大程度地减少所用的垂直空间量，可以最小化引用节点。 为此，请在画布上单击右键，然后选择 " **隐藏引用节点** "。
 
 ![隐藏引用节点](media/data-flow/hide-reference-nodes.png "隐藏引用节点")
 

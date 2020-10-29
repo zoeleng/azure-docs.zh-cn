@@ -11,12 +11,12 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4d66a1174b1b4adc94b24c6aecd55b2b8679f2f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211878"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026796"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>如何监视 Gen2 缓存
 
@@ -28,11 +28,11 @@ Gen2 存储体系结构自动将最常查询的列存储段归类到特定的缓
 
 可以使用 Azure Monitor 来查看 Gen2 缓存指标，以便排查查询性能问题。 首先转到 Azure 门户，然后依次单击“监视”  、“指标”  和“+ 选择范围”  ：
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![屏幕截图显示从 Azure 门户的度量值中选择的范围。](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
 使用搜索栏和下拉栏找到你的数据仓库。 然后选择“应用”。
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![屏幕截图显示 "选择一个作用域" 窗格，可在其中选择数据仓库。](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
 排查 Gen2 缓存问题时，关键指标是“缓存命中百分比”和“缓存使用百分比”。   选择“缓存命中百分比”  ，然后使用“添加指标”  按钮添加“缓存已用百分比”  。 
 

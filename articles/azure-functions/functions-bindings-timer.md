@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325787"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025895"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器
 
@@ -128,7 +128,7 @@ module.exports = function (context, myTimer) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-下面的示例演示如何在[PowerShell](./functions-reference-powershell.md)中配置计时器触发器的*function.js*和*run.ps1*文件。
+下面的示例演示如何在 [PowerShell](./functions-reference-powershell.md)中配置计时器触发器的 *function.js* 和 *run.ps1* 文件。
 
 ```json
 {
@@ -159,11 +159,11 @@ if ($Timer.IsPastDue) {
 Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
 ```
 
-[Timer 对象](#usage)的实例作为第一个参数传递给函数。
+[计时器对象](#usage)的实例将作为第一个参数传递给函数。
 
 # <a name="python"></a>[Python](#tab/python)
 
-以下示例使用计时器触发器绑定，其配置在 *function.json* 文件中进行了描述。 使用绑定的实际 [Python 函数](functions-reference-python.md)在 init.py 文件中进行了描述**____。 传入函数的对象的类型为 [azure.functions.TimerRequest 对象](/python/api/azure-functions/azure.functions.timerrequest)。 函数逻辑将写入日志，以指示当前调用是由于错过了计划发生时间。
+以下示例使用计时器触发器绑定，其配置在 *function.json* 文件中进行了描述。 使用绑定的实际  。 传入函数的对象的类型为 [azure.functions.TimerRequest 对象](/python/api/azure-functions/azure.functions.timerrequest)。 函数逻辑将写入日志，以指示当前调用是由于错过了计划发生时间。
 
 下面是 function.json 文件中的绑定数据：
 
@@ -244,7 +244,7 @@ JavaScript 不支持特性。
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell 不支持属性。
+PowerShell 不支持特性。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -276,18 +276,18 @@ Python 不支持特性。
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-如果当前函数调用晚于计划时间，则 `IsPastDue` 属性为 `true`。 例如，函数应用重新启动可能会导致调用被错过。
+如果当前函数调用晚于计划时间，则 `isPastDue` 属性为 `true`。 例如，函数应用重新启动可能会导致调用被错过。
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB 表达式
 
@@ -322,7 +322,7 @@ Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来�
 |`"0 30 9 * Jan Mon"`|在一月份每星期一的上午 9:30|
 
 > [!NOTE]
-> NCRONTAB 表达式需要 **六个字段** 格式。 Azure 中不支持五个字段 cron 表达式。
+> NCRONTAB 表达式需要六字段格式。 Azure 不支持五字段 cron 表达式。
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB 时区
 

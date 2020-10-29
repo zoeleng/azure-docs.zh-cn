@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370906"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027595"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>在 Azure 数据工厂中映射数据流
 
@@ -27,7 +27,7 @@ ms.locfileid: "91370906"
 
 ## <a name="getting-started"></a>入门
 
-数据流是从 "工厂资源" 窗格（如管道和数据集）创建的。 若要创建数据流，请选择 "**工厂资源**" 旁边的加号，然后选择 "**数据流"。** 
+数据流是从 "工厂资源" 窗格（如管道和数据集）创建的。 若要创建数据流，请选择 " **工厂资源** " 旁边的加号，然后选择 " **数据流"。** 
 
 ![新建数据流](media/data-flow/new-data-flow.png "新建数据流")
 
@@ -37,13 +37,13 @@ ms.locfileid: "91370906"
 
 映射数据流具有独特的创作画布，旨在简化生成转换逻辑。 数据流画布分为三部分：顶栏、图形和配置面板。 
 
-![画布](media/data-flow/canvas1.png "画布")
+![屏幕截图显示带有标记的顶部条形图、图形和配置面板的数据流画布。](media/data-flow/canvas1.png "画布")
 
 ### <a name="graph"></a>图形
 
-关系图显示转换流。 它显示源数据流入一个或多个接收器时的沿袭。 若要添加新源，请选择 " **添加源**"。 若要添加新的转换，请选择现有转换右下方的加号。 了解更多有关如何 [管理数据流图形的](concepts-data-flow-manage-graph.md)信息。
+关系图显示转换流。 它显示源数据流入一个或多个接收器时的沿袭。 若要添加新源，请选择 " **添加源** "。 若要添加新的转换，请选择现有转换右下方的加号。 了解更多有关如何 [管理数据流图形的](concepts-data-flow-manage-graph.md)信息。
 
-![画布](media/data-flow/canvas2.png "画布")
+![屏幕截图使用 "搜索" 文本框显示画布的图形部分。](media/data-flow/canvas2.png "画布")
 
 ### <a name="configuration-panel"></a>配置面板
 
@@ -106,11 +106,11 @@ Azure 数据工厂团队已经创建了 [性能优化指南](concepts-data-flow-
 |  澳大利亚中部 | | |  
 | 澳大利亚中部 2 | | |
 | 澳大利亚东部 | ✓ |  ✓ |
-| Australia Southeast   | ✓ | ✓ |
+| 澳大利亚东南部   | ✓ | ✓ |
 | 巴西南部  | ✓ |  |
 | 加拿大中部 | ✓ |  |
 | 印度中部 | ✓ |   ✓ |
-| 美国中部    | ✓ |   ✓ |
+| Central US    | ✓ |   ✓ |
 | 中国东部 |      | ✓ |
 | 中国东部 2  |   |    |
 | 中国非区域 | | |
@@ -126,7 +126,7 @@ Azure 数据工厂团队已经创建了 [性能优化指南](concepts-data-flow-
 |  (公用) 德国北部 | | |
 | 德国东北部 (主权)  | | |
 |  (公用) 德国中西部 |  | ✓ |
-| Japan East | ✓ |  |
+| 日本东部 | ✓ |  |
 | 日本西部 |  | |
 | 韩国中部 | ✓ |  |
 | 韩国南部 | | |
@@ -138,7 +138,7 @@ Azure 数据工厂团队已经创建了 [性能优化指南](concepts-data-flow-
 | 南非西部 |  |    |
 | 美国中南部  | | ✓ |
 | 印度南部 | | |
-| Southeast Asia    | ✓ | ✓ |
+| 东南亚    | ✓ | ✓ |
 | 瑞士北部 |   |  |
 | 瑞士西部 | | |
 | 阿联酋中部 | | |

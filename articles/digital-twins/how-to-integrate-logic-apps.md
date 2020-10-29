@@ -8,27 +8,27 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461067"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027544"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>使用自定义连接器与逻辑应用集成
 
 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md) 是一种云服务，可帮助你跨应用和服务自动执行工作流。 通过将逻辑应用连接到 Azure 数字孪生 Api，你可以围绕 Azure 数字孪生及其数据创建此类自动流程。
 
-Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器。 相反，将逻辑应用与 Azure 数字孪生配合使用的当前过程是使用已修改为可用于逻辑应用的[自定义 Azure 数字孪生 Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/)创建[**自定义逻辑应用连接器**](../logic-apps/custom-connector-overview.md)。
+Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器。 相反，将逻辑应用与 Azure 数字孪生配合使用的当前过程是使用已修改为可用于逻辑应用的 [自定义 Azure 数字孪生 Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/)创建 [**自定义逻辑应用连接器**](../logic-apps/custom-connector-overview.md)。
 
 > [!NOTE]
 > 上面链接的自定义 Swagger 示例包含多个版本的 Swagger。 最新版本将在具有最近日期的子文件夹中找到，但仍支持示例中包含的较早版本。
 
-本文介绍如何使用[Azure 门户](https://portal.azure.com)**创建自定义连接器**，此连接器可用于将逻辑应用连接到 Azure 数字孪生实例。 然后，将 **创建一个逻辑应用** ，该应用使用此连接作为示例方案，在此方案中，计时器触发的事件会自动更新 Azure 数字孪生实例中的非整数。 
+本文介绍如何使用 [Azure 门户](https://portal.azure.com)**创建自定义连接器** ，此连接器可用于将逻辑应用连接到 Azure 数字孪生实例。 然后，将 **创建一个逻辑应用** ，该应用使用此连接作为示例方案，在此方案中，计时器触发的事件会自动更新 Azure 数字孪生实例中的非整数。 
 
 ## <a name="prerequisites"></a>先决条件
 
-如果还没有 Azure 订阅，可以在开始前**创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** 。
+如果还没有 Azure 订阅，可以在开始前 **创建一个 [免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** 。
 利用此帐户登录到 [Azure 门户](https://portal.azure.com) 。 
 
 还需要在安装先决条件过程中完成以下各项。 本部分的其余部分将指导你完成以下步骤：
@@ -40,21 +40,21 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 若要将 Azure 数字孪生实例连接到本文中的逻辑应用，需要已设置 **Azure 数字孪生实例** 。 
 
-首先， **设置 Azure 数字孪生实例** ，并设置所需的身份验证，以便能够使用它。 为此，请按照[如何：*设置实例和身份验证*](how-to-set-up-instance-portal.md)中的说明设置实例和身份验证。 根据你的首选体验，针对 [Azure 门户](how-to-set-up-instance-portal.md)、[CLI](how-to-set-up-instance-cli.md) 或[自动化 Cloud Shell 部署脚本示例](how-to-set-up-instance-scripted.md)提供了有关设置的文章。 所有版本的说明还包含用于验证是否已成功完成每个步骤并准备好继续使用新实例的步骤。
-* 设置 Azure 数字孪生实例后，需要实例的 **_主机名_** ([在 Azure 门户) 中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) 。
+首先，设置 Azure 数字孪生实例及所需的身份验证，以便能够使用它。 为此，请按照 [如何： *设置实例和身份验证*](how-to-set-up-instance-portal.md)中的说明设置实例和身份验证。
+* 设置 Azure 数字孪生实例后，需要实例的 **_主机名_** ( [在 Azure 门户) 中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) 。
 
-若要对连接器进行身份验证，还需要设置 **应用注册**。 按照 [*如何：创建应用注册*](how-to-create-app-registration.md) 中的说明进行设置。 
-* 进行应用注册后，将需要注册的 **_应用程序 (客户端) id_** 和 **_目录 (租户) ID_** ([在 Azure 门户) 中查找](how-to-create-app-registration.md#collect-client-id-and-tenant-id) 。
+若要对连接器进行身份验证，还需要设置 **应用注册** 。 按照[如何：创建应用注册](how-to-create-app-registration.md)中的说明进行此设置。 
+* 进行应用注册后，将需要注册的 **_应用程序 (客户端) id_** 和 **_目录 (租户) ID_** ( [在 Azure 门户) 中查找](how-to-create-app-registration.md#collect-client-id-and-tenant-id) 。
 
 ### <a name="get-app-registration-client-secret"></a>获取应用注册客户端密钥
 
 还需要创建 Azure AD 应用注册的 **_客户端机密_** 。 为此，请导航到 Azure 门户中的 " [应用注册](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) " 页 (你可以使用此链接，或在门户搜索栏) 中查找它。 从列表中选择在上一部分中创建的注册，以便打开其详细信息。 
 
-从注册的菜单中点击 *证书和机密* ，然后选择 " *+ 新建客户端密钥*"。
+从注册的菜单中点击 *证书和机密* ，然后选择 " *+ 新建客户端密钥* "。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " *添加*"。
+输入想要用于说明和过期的任何值，然后单击 " *添加* "。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
@@ -76,11 +76,11 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 在此步骤中，将创建 Azure 数字孪生 Api 的 [自定义逻辑应用连接器](../logic-apps/custom-connector-overview.md) 。 完成此操作后，在下一部分中创建逻辑应用时，可以将 Azure 数字孪生挂钩。
 
-导航到 Azure 门户中的 " [逻辑应用自定义连接器](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) " 页面 (你可以使用此链接，或在门户搜索栏) 中搜索它。 单击 " *+ 添加*"。
+导航到 Azure 门户中的 " [逻辑应用自定义连接器](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) " 页面 (你可以使用此链接，或在门户搜索栏) 中搜索它。 单击 " *+ 添加* "。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 页面中，选择你的订阅和资源组，以及新连接器的名称和部署位置。 点击 *评审 + 创建*。 
+输入想要用于说明和过期的任何值，然后单击 " 页面中，选择你的订阅和资源组，以及新连接器的名称和部署位置。 点击 *评审 + 创建* 。 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
@@ -94,14 +94,14 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 接下来，将创建的连接器配置为连接到 Azure 数字孪生。
 
-首先，下载已修改为可用于逻辑应用的自定义 Azure 数字孪生 Swagger。 通过点击 "*下载 ZIP* " 按钮，从此[**链接**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/)下载**Azure 数字孪生 custom swagger (逻辑应用连接器) **示例。 导航到下载的 *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* 文件夹并将其解压缩。 
+首先，下载已修改为可用于逻辑应用的自定义 Azure 数字孪生 Swagger。 通过点击 " *下载 ZIP* " 按钮，从此 [**链接**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/)下载 **Azure 数字孪生 custom swagger (逻辑应用连接器)** 示例。 导航到下载的 *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* 文件夹并将其解压缩。 
 
-本教程的自定义 Swagger 位于 _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_ 文件夹中。此文件夹包含名为 " *稳定* " 和 " *预览*" 的子文件夹，这两者都包含按日期组织的不同版本的 Swagger。具有最近日期的文件夹将包含 Swagger 的最新副本。无论选择哪种版本，Swagger 文件** 在 * * _ 上都命名为 _digitaltwins.js。
+本教程的自定义 Swagger 位于 _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps **_ 文件夹中。此文件夹包含名为 " *稳定* " 和 " *预览* " 的子文件夹，这两者都包含按日期组织的不同版本的 Swagger。具有最近日期的文件夹将包含 Swagger 的最新副本。无论选择哪种版本，Swagger 文件** 在 * * _ 上都命名为 _digitaltwins.js。
 
 > [!NOTE]
 > 除非使用的是预览功能，否则通常建议使用最新的 Swagger *稳定* 版本。 不过，还会支持更早版本的 Swagger 和预览版本。 
 
-接下来，请在 [Azure 门户](https://portal.azure.com) 中中转到连接器的 "概述" 页，然后单击 " *编辑*"。
+接下来，请在 [Azure 门户](https://portal.azure.com) 中中转到连接器的 "概述" 页，然后单击 " *编辑* "。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
@@ -109,7 +109,7 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 以生成重定向 URL*。 现在，通过在窗格顶部命中 *更新连接器* 来确认连接器设置。
+输入想要用于说明和过期的任何值，然后单击 " 以生成重定向 URL* 。 现在，通过在窗格顶部命中 *更新连接器* 来确认连接器设置。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
@@ -145,11 +145,11 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 按钮以继续访问 *逻辑应用设计器*，你将在该设计器中填充工作流的逻辑。
+输入想要用于说明和过期的任何值，然后单击 " 按钮以继续访问 *逻辑应用设计器* ，你将在该设计器中填充工作流的逻辑。
 
 ### <a name="design-workflow"></a>设计工作流
 
-在 *逻辑应用设计器*中，在 " *使用常见触发器启动*" 下，选择 " _**重复周期**_"。
+在 *逻辑应用设计器* 中，在 " *使用常见触发器启动* " 下，选择 " _**重复周期**_ "。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
