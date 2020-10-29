@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: e322449913ca1f8848f0d8c60ac6f11a28bdfb91
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ab8ffb41d45f60394c27eb492b19eaf280c2e64e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282011"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488293"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-powershell"></a>使用 Azure PowerShell 创建用于 Azure Cosmos Cassandra API 密钥空间和表的资源锁
 
@@ -39,14 +39,14 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| Command | 说明 |
 |---|---|
 |**Azure 资源**| |
-| [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) | 创建资源锁。 |
-| [Get-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock) | 获取资源锁，或列出资源锁。 |
-| [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) | 删除资源锁。 |
+| [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) | 创建资源锁。 |
+| [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock) | 获取资源锁，或列出资源锁。 |
+| [Remove-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock) | 删除资源锁。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](/powershell/)。

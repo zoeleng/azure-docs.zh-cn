@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801590"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485284"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>教程：使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -22,7 +22,7 @@ ms.locfileid: "91801590"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -73,7 +73,7 @@ ms.locfileid: "91801590"
 
 1. 在 Eclipse 的项目资源管理器视图中，展开项目。 右键单击“WebContent”，单击“新建”，并单击“JSP 文件”。  
 
-1. 在“新建 JSP 文件”对话框中，将文件命名为 **index.jsp**。 将父文件夹保留为 **WebContent**，如下图所示，然后单击“下一步”。
+1. 在“新建 JSP 文件”对话框中，将文件命名为 **index.jsp** 。 将父文件夹保留为 **WebContent** ，如下图所示，然后单击“下一步”。
    
     :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="我的待办事项列表 Java 应用程序":::
 
@@ -197,7 +197,7 @@ ms.locfileid: "91801590"
    * 在“目标”框中，选择一个目标以保存 WAR 文件。
    * 单击“完成”。
 
-1. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/web-sites-java-add-app.md)。 将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
+1. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/quickstart-java.md)。 将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
 
 1. 若要查看已完成的产品，请导航到 `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` 并开始添加任务！
 
