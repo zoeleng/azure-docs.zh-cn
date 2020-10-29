@@ -2,13 +2,13 @@
 title: 没有 800 计数限制的资源
 description: 列出可以在一个资源组中有 800 多个实例的 Azure 资源类型。
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330751"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913494"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>没有每个资源组 800 个实例限制的资源
 
@@ -41,7 +41,7 @@ ms.locfileid: "91330751"
 * galleries/images/versions
 * images
 * snapshots
-* virtualMachineScaleSets-默认情况下，限于800实例。 可以通过联系支持人员来提高该限制。
+* virtualMachineScaleSets - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -81,6 +81,7 @@ ms.locfileid: "91330751"
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
+* 实验室/virtualMachines-默认情况下，限于800实例。 可以通过联系支持人员来提高该限制。
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -173,6 +174,10 @@ ms.locfileid: "91330751"
 
 * workspaceCollections - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+
+* 容量-默认情况下，限于800实例。 可以通过联系支持人员来提高该限制。
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 * namespaces
@@ -185,18 +190,21 @@ ms.locfileid: "91330751"
 
 * namespaces
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftsingularity"></a>奇点
 
-* applications
-* containerGroups
-* gateways
-* networks
-* secrets
-* volumes
+* accounts
+* 帐户/accountQuotaPolicies
+* 帐户/groupPolicies
+* 帐户/作业
+* 帐户/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* servers/databases
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

@@ -3,12 +3,12 @@ title: Azure Batch 中的节点和池
 description: 从开发的角度来了解计算节点和池及其在 Azure Batch 工作流中的运用。
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371437"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913800"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch 中的节点和池
 
@@ -68,7 +68,7 @@ Batch 中提供了两种类型的池配置。
 
 虚拟机配置指定池由 Azure 虚拟机组成。 可以从 Linux 或 Windows 映像创建这些 VM。
 
-基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。 可选选择性地将一个或多个空数据磁盘附加到从市场映像创建的池 VM，也可将数据磁盘包括在用于创建 VM 的自定义映像中。 如果包括数据磁盘，需要在 VM 中装载并格式化这些磁盘，然后才能使用。
+[Batch 节点代理](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md)是在池中的每个节点上运行的程序，它在节点和批处理服务之间提供命令和控制接口。 节点代理对于不同操作系统有不同的实现（称为 SKU）。 基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。 可选选择性地将一个或多个空数据磁盘附加到从市场映像创建的池 VM，也可将数据磁盘包括在用于创建 VM 的自定义映像中。 如果包括数据磁盘，需要在 VM 中装载并格式化这些磁盘，然后才能使用。
 
 ### <a name="cloud-services-configuration"></a>云服务配置
 
@@ -76,11 +76,11 @@ Batch 中提供了两种类型的池配置。
 
 [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md)（Azure 来宾 OS 版本和 SDK 兼容性对照表）中列出了适用于云服务配置池的操作系统。 创建包含云服务节点的池时，需要指定节点大小及其 OS 系列（用于确定哪些版本的 .NET 随 OS 一起安装）。 将云服务部署到 Azure 的速度比部署运行 Windows 的虚拟机更快。 如果需要 Windows 计算节点池，可能会发现云服务具有部署时间上的性能优势。
 
-与云服务中的辅助角色一样，可以指定 *OS 版本*（有关辅助角色的详细信息，请参阅[云服务概述](../cloud-services/cloud-services-choose-me.md)）。 对于 OS 版本，建议指定 `Latest (*)`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 OS 版本并安装新的 OS 映像。 所有正在运行的任务将会中断并重新排队。
+与云服务中的辅助角色一样，可以指定 *OS 版本* （有关辅助角色的详细信息，请参阅 [云服务概述](../cloud-services/cloud-services-choose-me.md)）。 对于 OS 版本，建议指定 `Latest (*)`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 OS 版本并安装新的 OS 映像。 所有正在运行的任务将会中断并重新排队。
 
 ### <a name="node-agent-skus"></a>节点代理 SKU
 
-创建池时，需要选择适当的 **nodeAgentSkuId**，具体取决于 VHD 基本映像的 OS。 可通过调用[列出支持的节点代理 SKU](/rest/api/batchservice/list-supported-node-agent-skus) 操作获得可用节点代理 SKU ID 到其 OS 映像引用的映射。
+创建池时，需要选择适当的 **nodeAgentSkuId** ，具体取决于 VHD 基本映像的 OS。 可通过调用[列出支持的节点代理 SKU](/rest/api/batchservice/list-supported-node-agent-skus) 操作获得可用节点代理 SKU ID 到其 OS 映像引用的映射。
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>虚拟机池的自定义映像
 
@@ -105,7 +105,7 @@ Batch 中提供了两种类型的池配置。
 
 在同一池中可同时有低优先级计算节点和专用计算节点。 每种类型的节点都有其自己的目标设置，你可以为其指定所需的节点数。
 
-计算节点数之所以称为*目标*，是因为在某些情况下，池可能无法达到所需的节点数。 例如，如果池先达到了 Batch 帐户的[核心配额](batch-quota-limit.md)，则该池可能达不到目标。 或者，如果已将限制最大节点数的自动缩放公式应用于池，则该池也可能达不到目标。
+计算节点数之所以称为 *目标* ，是因为在某些情况下，池可能无法达到所需的节点数。 例如，如果池先达到了 Batch 帐户的[核心配额](batch-quota-limit.md)，则该池可能达不到目标。 或者，如果已将限制最大节点数的自动缩放公式应用于池，则该池也可能达不到目标。
 
 有关低优先级节点和专用节点的定价信息，请参阅 [Batch 定价](https://azure.microsoft.com/pricing/details/batch/)。
 
@@ -127,7 +127,7 @@ Batch 中提供了两种类型的池配置。
 
 - **时间度量值** 基于指定的时数内每隔五分钟收集的统计信息。
 - **资源度量值** 基于 CPU 使用率、带宽使用率、内存使用率和节点的数目。
-- **任务指标**基于任务状态，例如“活动”（已排队）、“正在运行”或“已完成”。  
+- **任务指标** 基于任务状态，例如“活动”（已排队）、“正在运行”或“已完成”。  
 
 如果自动缩放会减少池中的计算节点数，则必须考虑如何处理在执行减少操作时运行的任务。 为了满足这一点，Batch 提供可包含在公式中的[节点解除分配选项](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption)。 例如，可以指定运行中的任务立即停止，然后重新排入队列，以便在另一个节点上运行，或允许先完成再从池中删除节点。 请注意，在所有任务都已完成，或者所有任务保留期都已过期之前，将节点解除选项设置为 `taskcompletion` 或 `retaineddata` 会阻止池调整大小操作。
 
@@ -179,7 +179,7 @@ Batch 中提供了两种类型的池配置。
 
 在设计 Azure Batch 解决方案时，必须指定如何及何时创建池，以及这些池中的计算节点可用性要保持多久。
 
-在极端情况下，可以针对提交的每个作业创建一个池，并在其任务执行完成时立即删除该池。 这样，只有在需要时才分配节点，节点空闲时会立即关闭，因此可以最大程度地提高利用率。 这意味着作业必须等待分配节点，但务必注意，在任务已单独分配并且启动任务已完成时，会立即计划待执行的任务。 批处理*不会*在等到池中的所有节点都可用后才将任务分配到节点。 这可确保最大程度地利用所有可用节点。
+在极端情况下，可以针对提交的每个作业创建一个池，并在其任务执行完成时立即删除该池。 这样，只有在需要时才分配节点，节点空闲时会立即关闭，因此可以最大程度地提高利用率。 这意味着作业必须等待分配节点，但务必注意，在任务已单独分配并且启动任务已完成时，会立即计划待执行的任务。 批处理 *不会* 在等到池中的所有节点都可用后才将任务分配到节点。 这可确保最大程度地利用所有可用节点。
 
 在另一种极端情况下，如果最高优先级是让作业立即启动，则你可以预先创建池，并使其节点在提交作业之前可用。 在此情况下，任务可以立即启动，但节点可能会保持空闲状态以等待分配任务。
 

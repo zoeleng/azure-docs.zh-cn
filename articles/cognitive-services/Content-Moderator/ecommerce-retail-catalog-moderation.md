@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504150"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913681"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教程：使用 Azure 内容审查器审查电子商务产品图像
 
@@ -37,7 +37,7 @@ GitHub 上的[电子商务目录审查示例](https://github.com/MicrosoftConten
 
 ## <a name="prerequisites"></a>先决条件
 
-- 内容审查器的订阅密钥。 遵照[创建认知服务帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的说明订阅内容审查器服务并获取密钥。
+- 内容审查器的订阅密钥。 遵照[创建认知服务帐户](../cognitive-services-apis-create-account.md)中的说明订阅内容审查器服务并获取密钥。
 - 计算机视觉订阅密钥（遵照上面相同的说明获取）。
 - 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)。
 - 为每个标签提供一组图像，供自定义视觉分类器使用（在本例中为玩具、笔和美国国旗）。
@@ -48,7 +48,7 @@ GitHub 上的[电子商务目录审查示例](https://github.com/MicrosoftConten
 
 ## <a name="create-custom-moderation-tags"></a>创建自定义审查标记
 
-接下来，在评审工具中创建自定义标记（在此过程中如需帮助，请参阅[标记](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags)一文）。 在本例中，我们将添加以下标记：“名人”、“美国”、“国旗”、“玩具”和“笔”。      并非所有标记都需要是计算机视觉中可检测到的类别（例如“名人”）；可以添加自己的自定义标记，不过，在添加后，必须训练自定义视觉分类器才能检测到这些标记。 
+接下来，在评审工具中创建自定义标记（在此过程中如需帮助，请参阅[标记](./review-tool-user-guide/configure.md#tags)一文）。 在本例中，我们将添加以下标记：“名人”、“美国”、“国旗”、“玩具”和“笔”。      并非所有标记都需要是计算机视觉中可检测到的类别（例如“名人”）；可以添加自己的自定义标记，不过，在添加后，必须训练自定义视觉分类器才能检测到这些标记。 
 
 ![配置自定义标记](images/tutorial-ecommerce-tags2.PNG)
 
@@ -90,11 +90,11 @@ GitHub 上的[电子商务目录审查示例](https://github.com/MicrosoftConten
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 方法
 
-接下来查看 **EvaluateCustomVisionTags** 方法。该方法分类实际产品 &mdash; 在本例中为国旗、玩具和笔。 遵照[如何生成分类器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)指南中的说明生成自己的自定义图像分类器，并检测图像中的国旗、玩具和笔（或选作自定义标记的任何内容）。 可以使用 [GitHub 存储库](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)的 **sample-images** 文件夹中的图像快速训练此示例中的某些类别。
+接下来查看 **EvaluateCustomVisionTags** 方法。该方法分类实际产品 &mdash; 在本例中为国旗、玩具和笔。 遵照[如何生成分类器](../custom-vision-service/getting-started-build-a-classifier.md)指南中的说明生成自己的自定义图像分类器，并检测图像中的国旗、玩具和笔（或选作自定义标记的任何内容）。 可以使用 [GitHub 存储库](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)的 **sample-images** 文件夹中的图像快速训练此示例中的某些类别。
 
 ![包含笔、玩具和国旗训练图像的自定义视觉网页](images/tutorial-ecommerce-custom-vision.PNG)
 
-训练分类器后，获取预测密钥和预测终结点 URL（检索这些信息时如需帮助，请参阅[获取 URL 和预测密钥](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key)），并将这些值分别分配到 `CustomVisionKey` 和 `CustomVisionUri` 字段。 该方法使用这些值来查询分类器。 如果分类器在图像中找到一个或多个自定义标记，此方法会将 **ReviewTags** 数组中的相应值设置为 **True** 。
+训练分类器后，获取预测密钥和预测终结点 URL（检索这些信息时如需帮助，请参阅[获取 URL 和预测密钥](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key)），并将这些值分别分配到 `CustomVisionKey` 和 `CustomVisionUri` 字段。 该方法使用这些值来查询分类器。 如果分类器在图像中找到一个或多个自定义标记，此方法会将 **ReviewTags** 数组中的相应值设置为 **True** 。
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

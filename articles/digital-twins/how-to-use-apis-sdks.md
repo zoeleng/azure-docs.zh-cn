@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 52ecc1f7de2afb83d3f37ddae6b1b618a8a8e34d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636011"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913766"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>使用 Azure 数字孪生 API 和 SDK
 
@@ -63,10 +63,12 @@ Azure 数字孪生附带了 **控制平面 api** 和 **数据平面 api** ，用
    - 可以在 GitHub 中找到 SDK 源： [适用于 Java 的 Azure IoT 数字孪生客户端库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - 您可以查看 [SDK 参考文档](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
 * 您可以使用 **JavaScript** SDK。 使用 JavaScript SDK .。。
-   - 可以从 npm 中查看和安装包： [适用于 JavaScript 的 Azure Azure 数字孪生客户端库](https://www.npmjs.com/package/@azure/digital-twins)。
+   - 可以从 npm 中查看和安装包： [适用于 JavaScript 的 Azure Azure 数字孪生客户端库](https://www.npmjs.com/package/@azure/digital-twins-core)。
    - 您可以查看 [SDK 参考文档](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest)。
+   - 可以在 GitHub 中找到 SDK 源： [用于 JavaScript 的 Azure Azure 数字孪生核心客户端库](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * 可以使用 **Python** SDK。 使用 Python SDK .。。
    - 可以查看和安装包： [用于 Python 的 Azure Azure 数字孪生核心客户端库](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/)。
+   - 可以在 GitHub 中找到 SDK 源： [用于 Python 的 Azure Azure 数字孪生核心客户端库](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * 可以使用 AutoRest 为其他语言生成 SDK。 按照 [*如何：创建适用于 Azure 数字孪生的自定义 Sdk AutoRest*](how-to-create-custom-sdks.md)中的说明进行操作。
 
 还可以通过 [CLI](how-to-use-cli.md)与 Azure 数字孪生交互，来运用日期平面 api。

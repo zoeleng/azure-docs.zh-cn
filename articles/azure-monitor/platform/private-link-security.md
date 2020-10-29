@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 42419247de537f9a166c3cdca2fd5a832ade6a5f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461424"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926795"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>使用 Azure 专用链接将网络安全地连接到 Azure Monitor
 
@@ -112,6 +112,9 @@ Azure Monitor 专用链接范围是一项分组资源，它将一个或多个专
 
     ![显示选择范围 UX 的屏幕截图](./media/private-link-security/ampls-select-2.png)
 
+> [!NOTE]
+> 删除 Azure Monitor 资源需要首先将其连接到它们连接到的任何 AMPLS 对象。 不能删除连接到 AMPLS 的资源。
+
 ### <a name="connect-to-a-private-endpoint"></a>连接到专用终结点
 
 你现已将资源连接到 AMPLS，接下来可创建一个专用终结点来连接我们的网络。 可在 [Azure 门户专用链接中心](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints)或 Azure Monitor 专用链接范围中执行此任务，如下例所示。
@@ -140,6 +143,8 @@ Azure Monitor 专用链接范围是一项分组资源，它将一个或多个专
    a.    选择要连接到 Azure Monitor 资源的虚拟网络和子网 。 
  
    b.    针对“与专用 DNS 区域集成”选择“是”，让它自动新建一个专用 DNS 区域 。 实际 DNS 区域可能不同于下面屏幕截图中显示的内容。 
+   > [!NOTE]
+   > 如果你选择 " **否** "，并且喜欢手动管理 DNS 记录，请首先完成设置专用链接-包括此专用终结点和 AMPLS 配置。 然后，根据 [Azure 专用终结点 DNS 配置](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)中的说明配置 DNS。 请确保不要将空记录创建为准备专用链接设置。 你创建的 DNS 记录可以覆盖现有设置，并影响与 Azure Monitor 的连接。
  
    c.    单击“查看 + 创建”。
  
@@ -235,7 +240,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure 门户
 
-要使用 Azure Monitor 门户体验（例如 Application Insights 和 Log Analytics），你需要使 Azure 门户和 Azure Monitor 扩展能在专用网络上进行访问。 将 **AzureActiveDirectory**、 **AzureResourceManager**、 **AzureFrontDoor**和 **AzureFrontDoor** [服务标记](../../firewall/service-tags.md) 添加到网络安全组。
+要使用 Azure Monitor 门户体验（例如 Application Insights 和 Log Analytics），你需要使 Azure 门户和 Azure Monitor 扩展能在专用网络上进行访问。 将 **AzureActiveDirectory** 、 **AzureResourceManager** 、 **AzureFrontDoor** 和 **AzureFrontDoor** [服务标记](../../firewall/service-tags.md) 添加到网络安全组。
 
 ### <a name="programmatic-access"></a>以编程方式访问
 

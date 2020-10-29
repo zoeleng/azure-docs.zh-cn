@@ -4,12 +4,12 @@ description: 本文解答有关使用 Azure 备份服务备份 Azure VM 的常�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172826"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925571"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
@@ -76,6 +76,10 @@ ms.locfileid: "92172826"
 如果锁定 Azure 备份服务创建的资源组，则由于还原点的最大数目限制为 18 个，备份会开始失败。
 
 删除锁定，并从该资源组中清除还原点集合，以使将来的备份成功。 [按照这些步骤](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)删除还原点集合。
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>我在资源组级别锁定，其中包含与我的虚拟机相关的所有资源。 我的备份是否起作用？
+
+Azure 备份以存储 ResourcePointCollections 对象的格式创建一个单独的资源组 `AzureBackupRG_<geo>_<number>` 。 由于此资源组由服务拥有，因此锁定该资源组会导致备份失败。 锁只能应用于客户创建的资源组。
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Azure 备份是否支持标准 SSD 托管磁盘？
 
@@ -199,7 +203,7 @@ VM 是使用已修改策略或新策略中的计划和保留设置备份的。
 
 如果需要，旧 VM 的还原点将可用于还原。 如果不需要此备份数据，则可以停止保护具有删除数据的旧 VM。
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>对于可与同一备份策略关联的 VM 数是否有限制？
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>对于可与同一备份策略关联的 VM 数是否有限制？
 
 有，可以从门户关联到同一备份策略的 VM 数量限制为 100 个。 我们建议，如果 VM 数超过 100 个，请创建具有相同计划或不同计划的多个备份策略。
 

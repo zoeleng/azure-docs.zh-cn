@@ -12,12 +12,12 @@ ms.date: 10/27/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a8e3b6cfce9bff76ec3989273cadadebb23d6d40
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795125"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913239"
 ---
 # <a name="switching-organizations-in-a-portal"></a>在门户中切换组织
 
@@ -34,7 +34,7 @@ ms.locfileid: "92795125"
 
 ## <a name="switch-organizations"></a>切换组织
 
-下面是切换到另一个组织的方法。 此示例在 " **我的帐户** " 门户中使用，但切换图标和位置在其他门户中也是类似的。
+下面是切换到另一个组织的方法。 此示例使用 **我的帐户** 门户，但是切换器图标和位置在其他门户中也是类似的。
 
 1. 登录到你的工作或学校帐户，然后打开 " [我的帐户](https://myaccount.microsoft.com) " 页。
 1. 选择组织在页面顶部的 " :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="组织切换器&quot; 图标&quot;::: 旁边的 &quot;帐户照片" 旁切换。

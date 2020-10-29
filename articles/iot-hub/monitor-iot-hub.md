@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548479"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926251"
 ---
 # <a name="monitoring-azure-iot-hub"></a>监视 Azure IoT 中心
 
@@ -54,11 +54,14 @@ Azure IoT 中心会收集与 " [监视 azure 资源的数据](/azure/azure-monit
 
 在创建诊断设置并将其路由到一个或多个位置之前，不会收集和存储资源日志。
 
-可以将指标和日志路由到 Log Analytics 工作区，可在其中使用 Azure Monitor 日志对其进行分析;用于存档和脱机分析的 Azure 存储;或到事件中心终结点，外部应用程序可以读取这些终结点，例如，第三方 SIEM 工具。
+指标和日志可路由到多个位置，包括：
+- Azure Monitor 通过关联的 Log Analytics 工作区来记录存储。 可以使用 Log Analytics 进行分析。
+- 用于存档和脱机分析的 Azure 存储 
+- 外部应用程序可以读取的事件中心终结点，例如，第三方 SIEM 工具。
 
 在 Azure 门户中，可以在 IoT 中心的左窗格中选择 " **监视** " 下的 " **诊断设置** "，然后选择 " **添加诊断设置** "，以创建作用域为 IoT 中心发出的日志和平台指标的诊断设置。
 
-以下屏幕截图显示了用于将资源日志中的连接操作和所有平台指标路由到 Log Analytics 工作区的诊断设置。
+以下屏幕截图显示了用于将资源日志类型 *连接操作* 和所有平台指标路由到 Log Analytics 工作区的诊断设置。
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="IoT 中心概述页上的默认指标图表。" 下列出。
 
@@ -84,7 +87,7 @@ Azure IoT 中心会收集与 " [监视 azure 资源的数据](/azure/azure-monit
 
 ## <a name="analyzing-logs"></a>分析日志
 
-Azure Monitor 日志中的数据存储在表中，其中每个表都具有自己的唯一属性集。 若要详细了解 Azure Monitor 日志，请参阅 Azure Monitor 文档中的 [Azure Monitor 日志概述](/azure/azure-monitor/platform/data-platform-logs) 。 
+Azure Monitor 日志中的数据存储在表中，其中每个表都具有自己的唯一属性集。 这些表中的数据与 Log Analytics 工作区相关联，并且可以在 Log Analytics 中进行查询。 若要详细了解 Azure Monitor 日志，请参阅 Azure Monitor 文档中的 [Azure Monitor 日志概述](/azure/azure-monitor/platform/data-platform-logs) 。 
 
 若要将数据路由到 Azure Monitor 日志，必须创建一个诊断设置，以便将资源日志或平台指标发送到 Log Analytics 工作区。 若要了解详细信息，请参阅 [集合和路由](#collection-and-routing)。
 

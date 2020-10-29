@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332383"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913511"
 ---
 # <a name="example-use-the-large-scale-feature"></a>示例：使用大规模使用的功能
 
@@ -232,7 +232,7 @@ LargePersonGroup 或 LargeFaceList 中的人员/人脸仅在训练后才可搜�
 
 如果可以接受相对较长的时间延迟，则不需要在添加新数据后立即触发训练操作。 相反，可从主逻辑中拆分定型操作并定期触发该操作。 此策略适用于可接受延迟的动态方案。 可将它应用到静态方案，以进一步降低训练频率。
 
-假设存在类似于 `TrainLargeFaceList` 的 `TrainLargePersonGroup` 函数。 通过调用 `System.Timers` 中的 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) 类，针对 LargePersonGroup 的独立训练的典型实现为：
+假设存在类似于 `TrainLargeFaceList` 的 `TrainLargePersonGroup` 函数。 通过调用 `System.Timers` 中的 [`Timer`](/dotnet/api/system.timers.timer) 类，针对 LargePersonGroup 的独立训练的典型实现为：
 
 ```csharp
 private static void Main()

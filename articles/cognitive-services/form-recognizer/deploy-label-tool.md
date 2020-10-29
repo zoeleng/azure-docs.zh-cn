@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717891"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913103"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>部署示例标记工具
 
@@ -41,9 +41,9 @@ ms.locfileid: "88717891"
 
 按照以下步骤使用 Azure 门户创建新资源： 
 
-1. 登录 [Azure 门户](https://portal.azure.com/signin/index/)。
-2. 选择“创建资源”。  
-3. 接下来，选择 " **Web 应用**"。 
+1. 登录到 [Azure 门户](https://portal.azure.com/signin/index/)。
+2. 选择“创建资源”。 
+3. 接下来，选择 " **Web 应用** "。 
 
    > [!div class="mx-imgBorder"]
    > ![选择 web 应用](./media/quickstarts/formre-create-web-app.png)
@@ -95,14 +95,14 @@ ms.locfileid: "88717891"
    > [!div class="mx-imgBorder"]
    > ![配置 Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. 就这么简单。 接下来，依次选择 " **查看**" 和 "创建"，然后单击 " **创建** " 以部署 web 应用。 完成后，你可以在资源的 " **概述** " 中提供的 URL 访问你的 web 应用。
+7. 就是这样。 接下来，依次选择 " **查看** " 和 "创建"，然后单击 " **创建** " 以部署 web 应用。 完成后，你可以在资源的 " **概述** " 中提供的 URL 访问你的 web 应用。
 
 > [!NOTE]
 > 创建 web 应用时，还可以配置授权/身份验证。 这并不是必需的。 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-作为使用 Azure 门户的替代方法，可以使用 Azure CLI 创建资源。 继续之前，需要安装 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 如果已使用 Azure CLI，则可以跳过此步骤。 
+作为使用 Azure 门户的替代方法，可以使用 Azure CLI 创建资源。 继续之前，需要安装 [Azure CLI](/cli/azure/install-azure-cli)。 如果已使用 Azure CLI，则可以跳过此步骤。 
 
 有关此命令，需要了解以下几个事项：
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>连接到 Azure AD 进行授权
 
-建议将 web 应用连接到 Azure Active Directory。 这可确保只有具有有效凭据的用户可以登录并使用你的 web 应用。 按照 [将应用服务应用配置](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) 为连接到 Azure Active Directory 中的说明进行操作。
+建议将 web 应用连接到 Azure Active Directory。 这可确保只有具有有效凭据的用户可以登录并使用你的 web 应用。 按照 [将应用服务应用配置](../../app-service/configure-authentication-provider-aad.md) 为连接到 Azure Active Directory 中的说明进行操作。
 
 ## <a name="open-source-on-github"></a>GitHub 上的开放源代码
 

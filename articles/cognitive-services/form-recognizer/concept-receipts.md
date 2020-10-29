@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893680"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913188"
 ---
 # <a name="receipt-concepts"></a>回执概念
 
@@ -449,7 +449,7 @@ Azure 窗体识别器可以使用它的一个预生成模型分析回执。 接�
 
 回执包含有用的数据，可用于分析消费者行为和购物趋势。
 
-回执 API 还支持 [AIBuilder 回执处理功能](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing)。
+回执 API 还支持 [AIBuilder 回执处理功能](/ai-builder/prebuilt-receipt-processing)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -459,4 +459,4 @@ Azure 窗体识别器可以使用它的一个预生成模型分析回执。 接�
 ## <a name="see-also"></a>请参阅
 
 * [什么是表单识别器？](./overview.md)
-* [REST API 参考文档](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [REST API 参考文档](./index.yml)

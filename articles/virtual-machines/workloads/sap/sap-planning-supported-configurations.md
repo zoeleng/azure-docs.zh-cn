@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88648983"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926608"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 虚拟机支持的方案中的 SAP 工作负载
 在 Azure 中设计 SAP NetWeaver、Business one `Hybris` 或 S/4HANA 系统体系结构可为各种体系结构和工具提供很多不同的机会，以实现可缩放、高效和高度可用的部署。 尽管依赖于所使用的操作系统或 DBMS，但存在一些限制。 此外，Azure 中不支持在本地支持的所有方案。 本文档将通过专门使用 Azure Vm 提供支持的非高可用性配置和高可用性配置和体系结构。 对于 [Hana 大型实例](./hana-overview-architecture.md)支持的方案，请查看文章 [适用于 hana 大型实例的支持方案](./hana-supported-scenario.md)。 
@@ -46,7 +46,7 @@ SAP 2 层配置被认为是在 SAP DBMS 和应用程序层的组合层的基础�
 
 图形表示形式如下所示：
 
-![简单2层配置](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![显示简单的3层配置的关系图。](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 对于用于生产和非生产事例 SQL Server、Oracle、Db2、SAP HANA、maxDB 和 SAP ASE 的 DBMS 系统，Windows、Red Hat、SUSE 和 Oracle Linux 支持这种类型的配置。 这是 [AZURE HANA 大型实例](./hana-overview-architecture.md)的默认部署配置。 为简化，我们没有在 sap 中心服务和 sap 应用程序层中的 SAP 对话实例之间进行区分。 在这个简单的3层配置中，SAP 中心服务不会提供高可用性保护。
 
@@ -83,7 +83,7 @@ HANA 大型实例的磁盘配置已配置，并在 [Hana 大型实例支持的�
 
 在 Azure Vm 中运行多个 SAP 对话框实例的3层配置如下所示：
 
-![一个单元中有多个 DBMS 实例](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![此图显示了在 Azure Vm 中运行多个 SAP 对话框实例的3层配置。](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 为简化，我们没有在 sap 中心服务和 sap 应用程序层中的 SAP 对话实例之间进行区分。 在这个简单的3层配置中，SAP 中心服务不会提供高可用性保护。 对于生产系统，不建议保持 SAP 中心服务不受保护。 有关此类多 SID 配置的详细信息，请参阅本文档后面部分的关于 SAP 中心实例的多 SID 配置和此类多 SID 配置的高可用性。
 
@@ -208,7 +208,7 @@ SAP 中心服务是 SAP 配置的第二个故障点。 因此，你还需要保�
 
 具有排队复制服务器来说的多 SID 群集类似于
 
-![DBMS 和 ASCS HA 配置](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![显示具有排队复制服务器的多 SID 群集的关系图。](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## <a name="sap-hana-scale-out-scenarios"></a>SAP HANA 扩展方案

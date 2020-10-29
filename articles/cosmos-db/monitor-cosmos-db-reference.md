@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/28/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c17d660c75fdfd6f1eb429db3a8b55f3e3db1b2d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488344"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925945"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB 监视数据参考
 
@@ -41,6 +41,8 @@ ms.locfileid: "92488344"
 | **duration** | **duration_d** | 操作持续时间，以毫秒为单位。 |
 | **requestLength** | **requestLength_s** | 请求的长度（按字节计）。 |
 | **responseLength** | **responseLength_s** | 响应的长度（按字节计）。|
+| **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | 此属性指示指定的资源令牌权限 Id。 若要了解有关权限的详细信息，请参阅 [安全访问数据](./secure-access-to-data.md#permissions) 一文。 |
+| **resourceTokenPermissionMode** | **resourceTokenPermissionMode_s** | 此属性指示在创建资源令牌时设置的权限模式。 权限模式的值可以是 "全部" 或 "读取"。 若要了解有关权限的详细信息，请参阅 [安全访问数据](./secure-access-to-data.md#permissions) 一文。 |
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 将[资源令牌](./secure-access-to-data.md#resource-tokens)用于身份验证时，此值非空。 值指向用户的资源 ID。 |
 | **responseLength** | **responseLength_s** | 响应的长度（按字节计）。|
 

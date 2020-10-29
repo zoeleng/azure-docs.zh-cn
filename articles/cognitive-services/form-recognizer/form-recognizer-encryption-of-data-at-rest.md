@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8b331c1295ed19afa64e95318bfa14414e6d9f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326790"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913052"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>格式识别静态数据的加密
 
@@ -30,4 +30,4 @@ ms.locfileid: "91326790"
 ## <a name="next-steps"></a>后续步骤
 
 * [表单识别器 Customer-Managed 密钥请求表单](https://aka.ms/cogsvc-cmk)
-* [详细了解 Azure 密钥保管库](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [详细了解 Azure 密钥保管库](../../key-vault/general/overview.md)

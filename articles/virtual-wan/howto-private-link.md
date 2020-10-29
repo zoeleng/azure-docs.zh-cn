@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306627"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913749"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>在虚拟 WAN 中使用专用链接
 
@@ -72,7 +72,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-如你所见，我们使用的是一个特殊的 SQL 查询，该查询提供了 SQL 服务器从客户端看到的源 IP 地址。 在这种情况下，服务器会看到客户端及其专用 IP (`10.1.3.75`)，这意味着流量不会流经公共 Internet，而是直接进入专用终结点。
+如你所见，我们使用的是一个特殊的 SQL 查询，该查询提供了 SQL 服务器从客户端看到的源 IP 地址。 在这种情况下，服务器会看到客户端及其专用 IP (`10.1.3.75`) ，这意味着流量直接从 VNet 传输到专用终结点。
 
 请注意，要使本指南中的示例生效，需要将变量 `username` 和 `password` 设置为与在 Azure SQL 数据库中定义的凭据匹配的值。
 

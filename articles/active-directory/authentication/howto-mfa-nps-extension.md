@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5095df51fe430990e200b7bc7c3ca03feb0799d5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20ae53805d25614e18f17a7d20acd884d31ab7d6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964275"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925707"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-multi-factor-authentication"></a>通过 Azure 多重身份验证将现有网络策略服务器 (NPS) 基础结构集成
 
@@ -29,8 +29,8 @@ NPS 扩展充当 RADIUS 与基于云的 Azure 多重身份验证之间的适配�
 
 使用适用于 Azure 多重身份验证的 NPS 扩展时，身份验证流包括以下组件：
 
-1. **NAS/VPN 服务器**接收来自 VPN 客户端的请求，并将其转换为可发往 NPS 服务器的 RADIUS 请求。
-2. **NPS 服务器** 连接到 Active Directory 域服务 (AD DS) 执行 RADIUS 请求的主要身份验证，成功后，将请求传递到任何已安装的扩展。  
+1. **NAS/VPN 服务器** 接收来自 VPN 客户端的请求，并将其转换为可发往 NPS 服务器的 RADIUS 请求。
+2. **NPS 服务器** 连接到 Active Directory 域服务 (AD DS) 执行 RADIUS 请求的主要身份验证，成功后，将请求传递到任何已安装的扩展。  
 3. **NPS 扩展** 将触发对 Azure 多重身份验证的请求，以便进行辅助身份验证。 该扩展收到响应后，如果 MFA 质询成功，该扩展将通过向 NPS 服务器提供由 Azure STS 颁发的、包含 MFA 声明的安全令牌，来完成身份验证请求。
 4. **AZURE MFA** 与 Azure Active Directory (Azure AD) 来检索用户的详细信息，并使用配置给用户的验证方法执行辅助身份验证。
 
@@ -98,8 +98,8 @@ Windows Server 2012 或更高版本。
 安装该扩展时，需要 Azure AD 租户的 *租户 ID* 和管理员凭据。 若要获取租户 ID，请完成以下步骤：
 
 1. 以 Azure 租户的全局管理员身份登录 [Azure 门户](https://portal.azure.com)。
-1. 搜索并选择 " **Azure Active Directory**"。
-1. 在 " **概述** " 页上，将显示 *租户信息* 。 在 " *租户 ID*" 旁边，选择 " **复制** " 图标，如以下示例屏幕截图所示：
+1. 搜索并选择 " **Azure Active Directory** "。
+1. 在 " **概述** " 页上，将显示 *租户信息* 。 在 " *租户 ID* " 旁边，选择 " **复制** " 图标，如以下示例屏幕截图所示：
 
    ![正在从 Azure 门户获取租户 ID](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
@@ -125,10 +125,10 @@ NPS 服务器必须能够通过端口80和443与以下 Url 通信：
 
 NPS 服务器连接到 Azure AD 并对 MFA 请求进行身份验证。 为此角色选择一台服务器。 我们建议选择一台不处理来自其他服务的请求的服务器，因为对于不是 RADIUS 的任何请求，NPS 扩展都会引发错误。 NPS 服务器必须设置为你的环境的主要和辅助身份验证服务器。 不能将 RADIUS 请求通过代理发送到其他服务器。
 
-1. 在服务器上，打开 **服务器管理器**。 从 "*快速*启动" 菜单中选择 "**添加角色和功能向导**"。
-2. 对于安装类型，请选择 " **基于角色或基于功能的安装**"。
+1. 在服务器上，打开 **服务器管理器** 。 从 " *快速* 启动" 菜单中选择 " **添加角色和功能向导** "。
+2. 对于安装类型，请选择 " **基于角色或基于功能的安装** "。
 3. 选择“网络策略和访问服务”服务器角色。 此时会弹出一个窗口，告诉你运行此角色所需的其他功能。
-4. 继续执行向导，直到出现 " *确认* " 页。 准备就绪后，选择 " **安装**"。
+4. 继续执行向导，直到出现 " *确认* " 页。 准备就绪后，选择 " **安装** "。
 
 安装 NPS 服务器角色可能需要几分钟的时间。 完成后，继续执行以下部分，将此服务器配置为处理来自 VPN 解决方案的传入的 RADIUS 请求。
 
@@ -150,16 +150,16 @@ NPS 服务器连接到 Azure AD 并对 MFA 请求进行身份验证。 为此角
 
 有两个因素会影响 NPS 扩展部署可以使用哪些身份验证方法：
 
-1. 在 RADIUS 客户端（VPN、Netscaler 服务器或其他客户端）与 NPS 服务器之间使用的密码加密算法。
+* 在 RADIUS 客户端（VPN、Netscaler 服务器或其他客户端）与 NPS 服务器之间使用的密码加密算法。
    - **PAP** 支持云中的 Azure 多重身份验证的所有身份验证方法：电话呼叫、单向短信、移动应用通知、OATH 硬件令牌和移动应用验证码。
    - **CHAPV2** 和 **EAP** 支持电话呼叫和移动应用通知。
 
-      > [!NOTE]
-      > 部署 NPS 扩展时，请根据这些因素评估你的用户可使用哪些方法。 如果你的 RADIUS 客户端支持 PAP，但客户端 UX 没有可用于输入验证码的输入字段，则电话呼叫和移动应用通知是两种受支持的选项。
-      >
-      > 此外，如果你的 VPN 客户端 UX 支持输入字段，并且你配置了网络访问策略，则身份验证可能会成功。 但是，在网络策略中配置的 RADIUS 属性都不会同时应用于网络访问设备，如 RRAS 服务器和 VPN 客户端。 因此，VPN 客户端的访问权限可能比所需的更多，或者不能访问。
+    > [!NOTE]
+    > 部署 NPS 扩展时，请根据这些因素评估你的用户可使用哪些方法。 如果你的 RADIUS 客户端支持 PAP，但客户端 UX 没有可用于输入验证码的输入字段，则电话呼叫和移动应用通知是两种受支持的选项。
+    >
+    > 同时，无论 (PAP、CHAP 或 EAP) 使用哪种身份验证协议，如果你的 MFA 方法是基于文本的 (SMS、移动应用验证码或 OATH 硬件令牌) 并要求用户在 "VPN 客户端 UI" 输入字段中输入代码或文本，则身份验证可能会成功。 *但* 在网络访问策略中配置的任何 radius 属性都 *不* 会转发到 RADIUS Telnet (网络访问设备，如 VPN 网关) 。 因此，VPN 客户端的访问权限可能比你需要的访问权限更多，或访问权限更少或无访问权限。
 
-2. 客户端应用程序（VPN、Netscaler 服务器或其他客户端）可以处理的输入方法。 例如，VPN 客户端是否有一些手段允许用户键入通过文本或移动应用收到的验证码？
+* 客户端应用程序（VPN、Netscaler 服务器或其他客户端）可以处理的输入方法。 例如，VPN 客户端是否有一些手段允许用户键入通过文本或移动应用收到的验证码？
 
 可以在 Azure 中[禁用不受支持的身份验证方法](howto-mfa-mfasettings.md#verification-methods)。
 
@@ -200,7 +200,7 @@ NPS 服务器连接到 Azure AD 并对 MFA 请求进行身份验证。 为此角
 
 1. 卸载现有版本。
 1. 运行新的安装程序。
-1. * (IAS) 服务重新启动网络策略服务器*。
+1. *(IAS) 服务重新启动网络策略服务器* 。
 
 ### <a name="run-the-powershell-script"></a>运行 PowerShell 脚本
 
@@ -226,7 +226,7 @@ NPS 服务器连接到 Azure AD 并对 MFA 请求进行身份验证。 为此角
 1. 运行安装程序创建的 PowerShell 脚本。
 
    > [!IMPORTANT]
-   > 对于使用 Azure 政府版或 Azure 中国世纪互联云的客户，请先 `Connect-MsolService` 在 *AzureMfaNpsExtnConfigSetup.ps1* 脚本中编辑 cmdlet，使其包含所需云的 *AzureEnvironment* 参数。 例如，指定 *-AzureEnvironment USGovernment* 或 *-AzureEnvironment AzureChinaCloud*。
+   > 对于使用 Azure 政府版或 Azure 中国世纪互联云的客户，请先 `Connect-MsolService` 在 *AzureMfaNpsExtnConfigSetup.ps1* 脚本中编辑 cmdlet，使其包含所需云的 *AzureEnvironment* 参数。 例如，指定 *-AzureEnvironment USGovernment* 或 *-AzureEnvironment AzureChinaCloud* 。
    >
    > 有关详细信息，请参阅 [connect-msolservice 参数引用](/powershell/module/msonline/connect-msolservice#parameters)。
 
@@ -241,7 +241,7 @@ NPS 服务器连接到 Azure AD 并对 MFA 请求进行身份验证。 为此角
 如果以前的计算机证书已过期，并且已生成新证书，则应删除所有过期的证书。 证书过期会导致 NPS 扩展启动出现问题。
 
 > [!NOTE]
-> 如果使用自己的证书，而不是使用 PowerShell 脚本生成的证书，请确保它们符合 NPS 命名约定。 使用者名称必须是 **CN = \<TenantID\> ，OU = Microsoft NPS Extension**。
+> 如果使用自己的证书，而不是使用 PowerShell 脚本生成的证书，请确保它们符合 NPS 命名约定。 使用者名称必须是 **CN = \<TenantID\> ，OU = Microsoft NPS Extension** 。
 
 ### <a name="microsoft-azure-government-or-azure-china-21vianet-additional-steps"></a>Microsoft Azure 政府或 Azure 中国世纪互联的其他步骤
 
@@ -275,7 +275,7 @@ NPS 服务器连接到 Azure AD 并对 MFA 请求进行身份验证。 为此角
 
 对于 NPS 扩展的 release *1.0.1.32* ，现在支持读取多个证书。 此功能有助于在证书更新过期之前方便滚动。 如果你的组织运行的是早期版本的 NPS 扩展，请升级到版本 *1.0.1.32* 或更高版本。
 
-`AzureMfaNpsExtnConfigSetup.ps1` 脚本创建的证书有效期为 2 年。 监视证书的过期时间。 NPS 扩展的证书放置在 "*个人*" 下的 "*本地计算机*" 证书存储中，并*颁发给*为安装脚本提供的租户 ID。
+`AzureMfaNpsExtnConfigSetup.ps1` 脚本创建的证书有效期为 2 年。 监视证书的过期时间。 NPS 扩展的证书放置在 " *个人* " 下的 " *本地计算机* " 证书存储中，并 *颁发给* 为安装脚本提供的租户 ID。
 
 当证书接近到期日期时，应创建新的证书来替换该证书。  通过再次运行 `AzureMfaNpsExtnConfigSetup.ps1` 并在出现提示时保持相同的租户 ID，可以完成此过程。 应在环境中的每个 NPS 服务器上重复此过程。
 
@@ -301,15 +301,15 @@ NPS 服务器连接到 Azure AD 并对 MFA 请求进行身份验证。 为此角
 
 ### <a name="prepare-for-users-that-arent-enrolled-for-mfa"></a>为未注册 MFA 的用户做好准备
 
-如果你的某些用户未注册 MFA，你可以确定当他们尝试身份验证时要发生什么行为。 若要控制此行为，请使用注册表路径*HKLM\Software\Microsoft\AzureMFA*中的设置*REQUIRE_USER_MATCH* 。 此项设置提供单个配置选项：
+如果你的某些用户未注册 MFA，你可以确定当他们尝试身份验证时要发生什么行为。 若要控制此行为，请使用注册表路径 *HKLM\Software\Microsoft\AzureMFA* 中的设置 *REQUIRE_USER_MATCH* 。 此项设置提供单个配置选项：
 
 | 密钥 | 值 | 默认 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 未设置（相当于 TRUE） |
 
-此设置确定用户未注册 MFA 时要执行的操作。 如果该注册表项不存在、未设置或设置为 *TRUE*，并且用户未注册，则该扩展将无法进行 MFA 质询。
+此设置确定用户未注册 MFA 时要执行的操作。 如果该注册表项不存在、未设置或设置为 *TRUE* ，并且用户未注册，则该扩展将无法进行 MFA 质询。
 
-如果将 "密钥" 设置为 " *FALSE* "，且未注册用户，则将继续进行身份验证而不执行 MFA。 如果用户在 MFA 中注册，则即使 *REQUIRE_USER_MATCH* 设置为 *FALSE*，也必须使用 mfa 进行身份验证。
+如果将 "密钥" 设置为 " *FALSE* "，且未注册用户，则将继续进行身份验证而不执行 MFA。 如果用户在 MFA 中注册，则即使 *REQUIRE_USER_MATCH* 设置为 *FALSE* ，也必须使用 mfa 进行身份验证。
 
 你可以选择在用户加入时创建此密钥并将其设置为 *FALSE* ，并且可能不会全部注册到 Azure 多重身份验证。 但是，由于设置该键允许未注册 MFA 的用户登录，因此应在转到生产环境之前删除该键。
 
@@ -337,9 +337,9 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
-这些命令会在 PowerShell 会话中列显所有可将你的租户与 NPS 扩展实例相关联的证书。 通过将客户端证书导出为不带私钥的 *64 编码 x.509 ( .cer) * 文件来查找证书，并将其与 PowerShell 中的列表进行比较。
+这些命令会在 PowerShell 会话中列显所有可将你的租户与 NPS 扩展实例相关联的证书。 通过将客户端证书导出为不带私钥的 *64 编码 x.509 ( .cer)* 文件来查找证书，并将其与 PowerShell 中的列表进行比较。
 
-以下命令将在*C：* 驱动器的根目录中创建一个名为*npscertificate*的文件，格式为 *.cer*。
+以下命令将在 *C：* 驱动器的根目录中创建一个名为 *npscertificate* 的文件，格式为 *.cer* 。
 
 ```powershell
 import-module MSOnline
@@ -349,7 +349,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 运行此命令后，请在 *C：* 驱动器的根目录中找到该文件，然后双击该文件。 请参阅 "详细信息"，然后向下滚动到 "指纹"。 将服务器上安装的证书的指纹与此证书进行比较。 证书指纹应匹配。
 
-如果命令返回多个证书，则可使用 "*有效开始*时间" 和 "*有效截止*时间" 时间戳（以用户可读形式）来筛选出明显的 valid-from 和 valid-until。
+如果命令返回多个证书，则可使用 " *有效开始* 时间" 和 " *有效截止* 时间" 时间戳（以用户可读形式）来筛选出明显的 valid-from 和 valid-until。
 
 ### <a name="why-cannot-i-sign-in"></a>为什么无法登录？
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543774"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926183"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>在 Azure 中选择适当的 MySQL Server 选项
 
@@ -55,7 +55,7 @@ ms.locfileid: "92543774"
 | 高可用性 | 单个可用性区域内的内置 HA| 内部和跨可用性区域的 HA | 使用聚类分析、复制等进行自定义管理。|
 | 区域冗余 | 不支持 | 支持 | 支持|
 | 混合场景 | 支持，并可使用[数据传入复制](./concepts-data-in-replication.md)| 不适用于预览版 | 由最终用户管理 |
-| 只读副本 | 支持| 支持 | 由最终用户管理 |
+| 只读副本 | 支持的 (最多5个副本) | 支持的 (最多10个副本) | 由最终用户管理 |
 | Backup | 自动执行，保留 7-35 天 | 自动保留1-35 天 | 由最终用户管理 |
 | 监视数据库操作 | 支持 | 支持 | 由最终用户管理 |
 | 灾难恢复 | 支持，可以使用异地冗余备份存储和跨区域只读副本 | 预览中不支持| 使用复制技术进行自定义托管 |

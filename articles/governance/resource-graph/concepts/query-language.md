@@ -1,14 +1,14 @@
 ---
 title: 理解查询语言
 description: 介绍 Resource Graph 表以及可用于 Azure Resource Graph 的 Kusto 数据类型、运算符和函数。
-ms.date: 09/30/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef588bd3fd8afcf1f1139f97d5df2d48a14b4dd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c3ad55a0f1af623211852c02aabd37560c00bc6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578523"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926081"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查询语言
 
@@ -33,9 +33,10 @@ Resource Graph 为其存储的有关 Azure 资源管理器资源类型及其属�
 |AdvisorResources |包括与 `Microsoft.Advisor` 相关的资源。 |
 |AlertsManagementResources |包括与 `Microsoft.AlertsManagement` 相关的资源。 |
 |GuestConfigurationResources |包括与 `Microsoft.GuestConfiguration` 相关的资源。 |
-|HealthResources |包括与 `Microsoft.ResourceHealth` 相关的资源。 |
 |MaintenanceResources |包括与 `Microsoft.Maintenance` 相关的资源。 |
+|PolicyResources |包括与 `Microsoft.PolicyInsights` 相关的资源。  ( **预览** ) |
 |SecurityResources |包括与 `Microsoft.Security` 相关的资源。 |
+|ServiceHealthResources |包括与 `Microsoft.ResourceHealth` 相关的资源。 |
 
 有关包含资源类型的完整列表，请参阅[参考：支持的表和资源类型](../reference/supported-tables-resources.md)。
 
@@ -135,7 +136,7 @@ Resource Graph 支持部分 KQL [数据类型](/azure/kusto/query/scalar-data-ty
 |[summarize](/azure/kusto/query/summarizeoperator) |[对 Azure 资源进行计数](../samples/starter.md#count-resources) |仅已简化首页 |
 |[take](/azure/kusto/query/takeoperator) |[列出所有公共 IP 地址](../samples/starter.md#list-publicip) |的同义词 `limit` 。 不适用于 [Skip](./work-with-data.md#skipping-records)。 |
 |[返回页首](/azure/kusto/query/topoperator) |[按名称及其 OS 类型显示前五个虚拟机](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[将两个查询的结果合并为单个结果](../samples/advanced.md#unionresults) |允许使用单个表：_T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`ColumnName\] Table。 单个查询中的 `union` 分支限制为 3。 不允许对 `union` 分支表进行模糊解析。 可以在单个表中使用，也可以在 Resources 和 ResourceContainers 表中使用。 |
+|[union](/azure/kusto/query/unionoperator) |[将两个查询的结果合并为单个结果](../samples/advanced.md#unionresults) |允许使用单个表： _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`ColumnName\] Table。 单个查询中的 `union` 分支限制为 3。 不允许对 `union` 分支表进行模糊解析。 可以在单个表中使用，也可以在 Resources 和 ResourceContainers 表中使用。 |
 |[where](/azure/kusto/query/whereoperator) |[显示包含存储的资源](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>查询范围

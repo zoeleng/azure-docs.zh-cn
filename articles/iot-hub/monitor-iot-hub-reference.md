@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: b4d5b3682114d44ceaadc73252f355e4cdc9cc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548480"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926319"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>监视 Azure IoT 中心数据引用
 
@@ -94,7 +94,7 @@ ms.locfileid: "92548480"
 
 |指标显示名称|指标|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|配置指标|配置|计数|总计|在一组目标设备上为设备配置和 IoT Edge 部署执行的 CRUD 操作总数。 这还包括由于这些配置而修改设备孪生或模块孪生的操作的数量。|无|
+|配置指标|配置|计数|总计|在一组目标设备上为设备配置和 IoT Edge 部署执行的 CRUD 操作总数。 这还包括由于这些配置而修改设备孪生或模块孪生的操作的数量。|None|
 
 对于 **单位** 值为 **Count** 的指标，只有总计 (总计) 聚合有效。 最小、最大和平均聚合始终返回1。 有关详细信息，请参阅 [支持的聚合](#supported-aggregations)。
 
@@ -150,7 +150,7 @@ ms.locfileid: "92548480"
 
 |指标显示名称|指标|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|事件网格传递次数（预览版）|EventGridDeliveries|计数|总计|发布到事件网格的 IoT 中心事件的数量。 使用 Result 维度表示成功和失败请求的数量。 EventType 维度显示事件的类型 (https://aka.ms/ioteventgrid) 。|Result、<br/>EventType<br>*有关详细信息，请参阅 [公制维度](#metric-dimensions)* 。|
+|事件网格传送（预览版）|EventGridDeliveries|计数|总计|发布到事件网格的 IoT 中心事件的数量。 使用 Result 维度表示成功和失败请求的数量。 EventType 维度显示事件的类型 (https://aka.ms/ioteventgrid) 。|Result、<br/>EventType<br>*有关详细信息，请参阅 [公制维度](#metric-dimensions)* 。|
 |事件网格延迟（预览）|EventGridLatency|毫秒|平均值|从生成 IoT 中心事件到将事件发布到事件网格的平均延迟（毫秒）。 此数值是所有事件类型的平均。 若要查看特定事件类型的延迟，请使用 EventType 维度。|EventType<br>*有关详细信息，请参阅 [公制维度](#metric-dimensions)* 。|
 
 对于 **单位** 值为 **Count** 的指标，只有总计 (总计) 聚合有效。 最小、最大和平均聚合始终返回1。 有关详细信息，请参阅 [支持的聚合](#supported-aggregations)。

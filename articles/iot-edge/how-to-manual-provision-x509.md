@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: abb3aa9ca7c9697fef1cf456964154249f0d69f3
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048179"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913970"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>使用 x.509 证书身份验证设置 Azure IoT Edge 设备
 
@@ -26,17 +26,17 @@ ms.locfileid: "92048179"
 
 对于手动设置，您可以使用两个选项来对 IoT Edge 设备进行身份验证：
 
-* **对称密钥**：在 IoT 中心创建新设备标识时，服务将创建两个密钥。 将其中一个密钥放置在设备上，并在进行身份验证时向 IoT 中心提供密钥。
+* **对称密钥** ：在 IoT 中心创建新设备标识时，服务将创建两个密钥。 将其中一个密钥放置在设备上，并在进行身份验证时向 IoT 中心提供密钥。
 
   此身份验证方法的启动速度更快，但并不安全。
 
-* **X.509 自签名**：创建两个 x.509 标识证书，并将其放置在设备上。 当你在 IoT 中心内创建新的设备标识时，将提供两个证书的指纹。 当设备向 IoT 中心进行身份验证时，它会显示其证书，IoT 中心可以验证它们是否与指纹匹配。
+* **X.509 自签名** ：创建两个 x.509 标识证书，并将其放置在设备上。 当你在 IoT 中心内创建新的设备标识时，将提供两个证书的指纹。 当设备向 IoT 中心进行身份验证时，它会显示其证书，IoT 中心可以验证它们是否与指纹匹配。
 
   此身份验证方法更加安全，建议用于生产方案。
 
 本文逐步讲解 x.509 证书身份验证的注册和预配过程。 如果要了解如何使用对称密钥设置设备，请参阅 [使用对称密钥身份验证设置 Azure IoT Edge 设备](how-to-manual-provision-symmetric-key.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在按照本文中的步骤执行操作之前，应该已在设备上安装了 IoT Edge 运行时。 否则，请按照 [安装或卸载 Azure IoT Edge 运行时](how-to-install-iot-edge.md)中的步骤操作。
 
@@ -44,9 +44,24 @@ ms.locfileid: "92048179"
 
 ## <a name="create-certificates-and-thumbprints"></a>创建证书和指纹
 
+设备标识证书是通过证书信任链连接到顶级 X.509 证书颁发机构 (CA) 证书的叶证书。 设备标识证书必须将其公用名 (CN) 设置为你希望设备在 IoT 中心中具有的设备 ID。
 
+设备标识证书仅用于预配 IoT Edge 设备，以及通过 Azure IoT 中心对设备进行身份验证。 设备标识证书不是签名证书，这与 CA 证书不同，后者是 IoT Edge 设备向模块或叶设备提供的用于验证的证书。 有关详细信息，请参阅 [Azure IoT Edge 证书用法详细信息](iot-edge-certs.md)。
 
-<!-- TODO -->
+创建设备标识证书后，应会获得两个文件：一个包含证书公共部分的 .cer 或 .pem 文件，一个包含证书私钥的 .cer 或 .pem 文件。
+
+需要以下文件才能手动预配 x.509：
+
+* 两组设备标识证书和私钥证书。 向 IoT Edge 运行时提供一组证书/密钥文件。
+* 来自两个设备标识证书的指纹。 对于 sha-1 哈希，指纹值为 40-十六进制字符，对于 SHA-256 哈希值为 64-十六进制字符。 在注册设备时，两个指纹都将提供给 IoT 中心。
+
+如果没有可用的证书，可以 [创建演示证书来测试 IoT Edge 设备功能](how-to-create-test-certificates.md)。 按照该文章中的说明设置证书创建脚本、创建根 CA 证书，然后创建两个 IoT Edge 设备标识证书。
+
+从证书中检索指纹的一种方法是使用以下 openssl 命令：
+
+```cmd
+openssl x509 -in <certificate filename>.pem -text -fingerprint
+```
 
 ## <a name="register-a-new-device"></a>注册新设备
 
@@ -54,7 +69,7 @@ ms.locfileid: "92048179"
 
 对于 x.509 证书身份验证，此信息以从设备标识证书获取的 *指纹* 形式提供。 在注册设备时，将为 IoT 中心提供这些指纹，以便服务在连接时能够识别设备。
 
-可以使用多个工具在 IoT 中心注册新的 IoT Edge 设备，并上传其证书指纹。 
+可以使用多个工具在 IoT 中心注册新的 IoT Edge 设备，并上传其证书指纹。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
@@ -68,7 +83,7 @@ Azure 订阅中的免费或标准 [IoT 中心](../iot-hub/iot-hub-create-through
 
 1. 登录 [Azure 门户](https://portal.azure.com)，导航到 IoT 中心。
 
-1. 在左窗格中，从菜单中选择 " **IoT Edge** "，然后选择 " **添加 IoT Edge 设备**"。
+1. 在左窗格中，从菜单中选择 " **IoT Edge** "，然后选择 " **添加 IoT Edge 设备** "。
 
    ![从 Azure 门户添加 IoT Edge 设备](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
 
@@ -121,7 +136,7 @@ Azure 订阅中的免费或标准 [IoT 中心](../iot-hub/iot-hub-create-through
 
 添加标志 `--edge-enabled` 或 `--ee` 仅列出 IoT 中心 IoT Edge 设备。
 
-注册为 IoT Edge 设备的任何设备的 **capabilities.iotEdge** 属性都会设置为 **true**。
+注册为 IoT Edge 设备的任何设备的 **capabilities.iotEdge** 属性都会设置为 **true** 。
 
 --- 
 
@@ -141,9 +156,9 @@ IoT Edge 设备在 IoT 中心内具有标识后，需要使用其云标识以及
 
 1. 查找文件的 "预配配置" 部分。 
 
-1. **使用连接字符串部分注释掉手动设置配置**。
+1. **使用连接字符串部分注释掉手动设置配置** 。
 
-1. **使用 x.509 标识证书部分取消注释手动设置配置**。 请确保 **provisioning:** 行前面没有空格，并且嵌套项缩进了两个空格。
+1. **使用 x.509 标识证书部分取消注释手动设置配置** 。 请确保 **provisioning:** 行前面没有空格，并且嵌套项缩进了两个空格。
 
    ```yml
    # Manual provisioning configuration using a connection string
@@ -160,10 +175,10 @@ IoT Edge 设备在 IoT 中心内具有标识后，需要使用其云标识以及
 
 1. 更新以下字段：
 
-   * **iothub_hostname**：设备将连接到的 IoT 中心的主机名。 例如，`{IoT hub name}.azure-devices.net`。
-   * **device_id**：注册设备时提供的 id。
-   * **identity_cert**：设备上的标识证书的 URI。 例如，`file:///path/identity_certificate.pem`。
-   * **identity_pk**：提供的标识证书的私钥文件的 URI。 例如，`file:///path/identity_key.pem`。
+   * **iothub_hostname** ：设备将连接到的 IoT 中心的主机名。 例如 `{IoT hub name}.azure-devices.net`。
+   * **device_id** ：注册设备时提供的 id。
+   * **identity_cert** ：设备上的标识证书的 URI。 例如 `file:///path/identity_certificate.pem`。
+   * **identity_pk** ：提供的标识证书的私钥文件的 URI。 例如 `file:///path/identity_key.pem`。
 
 1. 保存并关闭该文件。
 
@@ -202,10 +217,10 @@ IoT Edge 设备在 IoT 中心内具有标识后，需要使用其云标识以及
 
 3. 系统出现提示时，请提供以下信息：
 
-   * **IotHubHostName**：设备将连接到的 IoT 中心的主机名。 例如，`{IoT hub name}.azure-devices.net`。
-   * **DeviceId**：注册设备时提供的 ID。
-   * **X509IdentityCertificate**：设备上的标识证书的绝对路径。 例如，`C:\path\identity_certificate.pem`。
-   * **X509IdentityPrivateKey**：提供的标识证书的私钥文件的绝对路径。 例如，`C:\path\identity_key.pem`。
+   * **IotHubHostName** ：设备将连接到的 IoT 中心的主机名。 例如 `{IoT hub name}.azure-devices.net`。
+   * **DeviceId** ：注册设备时提供的 ID。
+   * **X509IdentityCertificate** ：设备上的标识证书的绝对路径。 例如 `C:\path\identity_certificate.pem`。
+   * **X509IdentityPrivateKey** ：提供的标识证书的私钥文件的绝对路径。 例如 `C:\path\identity_key.pem`。
 
 手动设置设备时，可以使用其他参数来修改该过程，包括：
 
