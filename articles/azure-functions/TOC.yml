@@ -79,7 +79,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Azure CLI
-      href: functions-cli-samples.md
+      items:
+        - name: CLI 示例索引
+          href: functions-cli-samples.md
+        - name: 创建 Function App
+          items:
+            - name: 无服务器函数应用
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: 无服务器 Python 应用
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: 可缩放的高级计划应用
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: 专用（应用服务）计划应用
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: 集成服务
+          items:
+            - name: 连接 Azure 存储
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: 连接 Azure Cosmos DB
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Python 装载文件共享
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: 连续部署
+          items:
+            - name: GitHub 部署
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: DevOps 部署
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: 概念
   items:
     - name: 比较运行时版本
@@ -353,7 +379,7 @@
           href: functions-create-serverless-api.md
         - name: 管理本地资源
           href: functions-hybrid-powershell.md
-    - name: 疑难解答
+    - name: 故障排除
       items:
         - name: 排查存储问题
           href: functions-recover-storage-account.md

@@ -1,5 +1,9 @@
 - name: 概述
   href: overview.md
+- name: Red Hat 快速入门
+  items: null
+- name: 快速入门 - CentOS 上的 WildFly
+  href: wildfly-on-centos.md
 - name: Red Hat Enterprise Linux 映像
   items:
     - name: Red Hat Enterprise Linux 映像概述

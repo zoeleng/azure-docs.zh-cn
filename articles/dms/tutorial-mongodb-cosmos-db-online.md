@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 09/25/2019
-ms.openlocfilehash: 0dbab7db45a9f97db48bbf97aba55b5943f623a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a568f7cd0b8efaed4ee5210dde4000ca472529
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282436"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546783"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -81,7 +81,7 @@ ms.locfileid: "91282436"
 
 ## <a name="create-an-instance"></a>创建实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择**Azure 数据库迁移服务**。
+1. 在 Azure 门户中，选择 **+ 创建资源** ，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务** 。
 
     ![Azure 市场](media/tutorial-mongodb-to-cosmosdb-online/portal-marketplace.png)
 
@@ -138,9 +138,9 @@ ms.locfileid: "91282436"
    > Azure 数据库迁移服务不支持将 Azure Cosmos DB 作为源。
 
     可通过三种模式连接到源：
-   * **标准模式**：接受完全限定的域名或 IP 地址、端口号和连接凭据。
-   * **连接字符串模式**：接受[连接字符串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中所述的 MongoDB 连接字符串。
-   * **Azure 存储中的数据**：接受 Blob 容器 SAS URL。 如果 Blob 容器包含 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)生成的 BSON 转储，请选择“Blob 包含 BSON 转储”；如果容器包含 JSON 文件，请取消选择该选项。 
+   * **标准模式** ：接受完全限定的域名或 IP 地址、端口号和连接凭据。
+   * **连接字符串模式** ：接受 [连接字符串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中所述的 MongoDB 连接字符串。
+   * **Azure 存储中的数据** ：接受 Blob 容器 SAS URL。 如果 Blob 容器包含 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)生成的 BSON 转储，请选择“Blob 包含 BSON 转储”；如果容器包含 JSON 文件，请取消选择该选项。 
 
      如果选择此选项，则请确保存储帐户连接字符串按以下格式显示：
 
@@ -155,7 +155,7 @@ ms.locfileid: "91282436"
      * 对于 JSON 转储，blob 容器中的文件必须放置到以包含数据库命名的文件夹中。 在每个数据库文件夹中，数据文件必须放置到名为“数据”且采用 collection.json 格式命名的子文件夹中  。 元数据文件（如有）必须放置到名为“元数据”且同样采用 collection.json 格式命名的子文件夹中  。 元数据文件必须采用由 MongoDB bsondump 工具所生成的相同格式。
 
     > [!IMPORTANT]
-    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用**连接字符串模式**连接到服务器，并确保连接字符串包含 “”
+    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用 **连接字符串模式** 连接到服务器，并确保连接字符串包含 “”
     >
     >```
     >&sslVerifyCertificate=false
@@ -233,15 +233,15 @@ ms.locfileid: "91282436"
 1. 对源 MongoDB 数据库进行更改。
 2. 连接到 COSMOS DB，以验证是否从源 MongoDB 服务器复制数据。
 
-    ![活动状态重放](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
+    ![显示在何处验证数据已复制的屏幕截图。](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
 ## <a name="complete-the-migration"></a>完成迁移
 
-* 源中的所有文档出现在 COSMOS DB 目标中之后，请从迁移活动的上下文菜单中选择“完成”以完成迁移。 
+* 源中的所有文档出现在 COSMOS DB 目标中之后，请从迁移活动的上下文菜单中选择“完成”以完成迁移。
 
     此操作会完成重放所有挂起的更改，并完成迁移。
 
-    ![活动状态重放](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
+    ![显示“完成”菜单选项的屏幕截图。](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
 
 ## <a name="post-migration-optimization"></a>迁移后优化
 

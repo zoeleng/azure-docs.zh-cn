@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: defe7cb8ec727ac358789368f0897639fa109b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 592d96195d1c70c73e32589fe764a8747b0b66e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308599"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546766"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>教程：使用 DMS 将 SQL Server 脱机迁移到 Azure SQL 托管实例
 
@@ -188,7 +188,7 @@ ms.locfileid: "91308599"
 1. 在“选择登录名”屏幕上，选择要迁移的登录名。
 
     >[!NOTE]
-    >默认情况下，Azure 数据库迁移服务仅支持迁移 SQL 登录名。 若要启用对迁移 Windows 登录名的支持，请参阅本教程的**先决条件**部分。
+    >默认情况下，Azure 数据库迁移服务仅支持迁移 SQL 登录名。 若要启用对迁移 Windows 登录名的支持，请参阅本教程的 **先决条件** 部分。
 
     ![选择登录名](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
@@ -205,7 +205,7 @@ ms.locfileid: "91308599"
     |**用户名** | 确保 Windows 用户具有对上面提供的网络共享的完全控制权限。 Azure 数据库迁移服务将模拟用户凭据，将备份文件上传到 Azure 存储容器，以执行还原操作。 如果选择已启用 TDE 的数据库进行迁移，则上述 Windows 用户必须是内置的管理员帐户，且必须对 Azure 数据库迁移服务禁用[用户帐户控制](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview)，才能上传和删除证书文件。 |
     |**密码** | 用户密码。 |
     |**存储帐户设置** | 可让 Azure 数据库迁移服务访问你的存储帐户容器，以便将用于迁移数据库的备份文件上传到 SQL 托管实例的 SAS URI。 [了解如何获取 Blob 容器的 SAS URI](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container)。 此 SAS URI 必须用于 blob 容器，而不能用于存储帐户。|
-    |**TDE 设置** | 若要迁移启用了透明数据加密 (TDE) 的源数据库，必须拥有目标 SQL 托管实例的写入权限。  从下拉菜单中选择预配了 SQL 托管实例的订阅。  在下拉菜单中选择目标 **Azure SQL 数据库托管实例**。 |
+    |**TDE 设置** | 若要迁移启用了透明数据加密 (TDE) 的源数据库，必须拥有目标 SQL 托管实例的写入权限。  从下拉菜单中选择预配了 SQL 托管实例的订阅。  在下拉菜单中选择目标 **Azure SQL 数据库托管实例** 。 |
 
     ![配置迁移设置](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 
@@ -233,7 +233,7 @@ ms.locfileid: "91308599"
 
 1. 在“迁移活动”屏幕中，选择“刷新”以更新显示。
 
-   ![正在进行的迁移活动](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
+   ![显示迁移活动屏幕和“刷新”按钮的屏幕截图。](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     可以进一步展开数据库和登录类别，以监视相应服务器对象的迁移状态。
 
