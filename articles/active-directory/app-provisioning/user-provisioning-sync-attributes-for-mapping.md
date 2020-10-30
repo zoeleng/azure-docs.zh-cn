@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84781067"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040992"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>将属性从本地 Active Directory 同步到 Azure AD 以便预配到应用程序
 
@@ -27,21 +27,21 @@ ms.locfileid: "84781067"
  
 ## <a name="sync-an-attribute"></a>同步属性 
 
-1. 打开 "Azure AD Connect" 向导，选择 "任务"，然后选择 " **自定义同步选项**"。
+1. 打开 "Azure AD Connect" 向导，选择 "任务"，然后选择 " **自定义同步选项** "。
 
    ![Azure Active Directory Connect 向导 "其他任务" 页](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
  
 2. 以 Azure AD 全局管理员身份登录。 
 
-3. 在 " **可选功能** " 页上，选择 " **目录扩展属性同步**"。
+3. 在 " **可选功能** " 页上，选择 " **目录扩展属性同步** "。
  
    ![Azure Active Directory Connect 向导的 "可选功能" 页](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
 4. 选择要扩展到 Azure AD () 的属性。
    > [!NOTE]
-   > **可用属性**下的搜索区分大小写。
+   > **可用属性** 下的搜索区分大小写。
 
-   ![Azure Active Directory Connect 向导目录扩展选择页](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![显示 "目录扩展" 选择页的屏幕截图](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
 5. 完成 Azure AD Connect 向导并允许运行完全同步周期。 周期结束后，将扩展架构，并在本地 AD 与 Azure AD 之间同步新值。
  
@@ -50,7 +50,7 @@ ms.locfileid: "84781067"
    ![Azure Active Directory Connect 向导目录扩展选择页](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> 目前不支持从本地 AD （如 **managedby** 或 **DN/DistinguishedName**）预配引用属性的功能。 可以在 [用户语音](https://feedback.azure.com/forums/169401-azure-active-directory)上请求此功能。 
+> 目前不支持从本地 AD （如 **managedby** 或 **DN/DistinguishedName** ）预配引用属性的功能。 可以在 [用户语音](https://feedback.azure.com/forums/169401-azure-active-directory)上请求此功能。 
 
 ## <a name="next-steps"></a>后续步骤
 

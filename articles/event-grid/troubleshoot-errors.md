@@ -3,12 +3,12 @@ title: Azure 事件网格 - 故障排除指南
 description: 本文提供错误代码列表、错误消息、说明和建议的措施。
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119032"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041388"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>排查 Azure 事件网格错误
 本故障排除指南提供 Azure 事件网格错误代码列表、错误消息、说明以及在收到这些错误时应采取的建议措施。 
@@ -16,8 +16,8 @@ ms.locfileid: "86119032"
 ## <a name="error-code-400"></a>错误代码：400
 | 错误代码 | 错误消息 | 说明 | 建议 |
 | ---------- | ------------- | ----------- | -------------- | 
-| HttpStatusCode.BadRequest<br/>400 | 主题名称的长度必须为 3 到 50 个字符。 | 自定义主题名称的长度应为 3 到 50 个字符。 主题名称中只允许字母数字字符、数字和“-”字符。 此外，名称的开头不能是以下保留字： <ul><li>Microsoft</li><li>EventGrid</li><li>系统</li></ul> | 请选择符合主题名称要求的其他主题名称。 |
-| HttpStatusCode.BadRequest<br/>400 | 域名的长度必须为 3 到 50 个字符。 | 域名的长度应为 3 到 50 个字符。 主题名称中只允许字母数字字符、数字和“-”字符。 此外，名称的开头不能是以下保留字：<ul><li>Microsoft</li><li>EventGrid</li><li>系统</li> | 请选择符合域名要求的其他域名。 |
+| HttpStatusCode.BadRequest<br/>400 | 主题名称的长度必须为 3 到 50 个字符。 | 自定义主题名称的长度应为 3 到 50 个字符。 主题名称中只允许字母数字字符、数字和“-”字符。 此外，名称的开头不能是以下保留字： <ul><li>微软</li><li>EventGrid</li><li>主板</li></ul> | 请选择符合主题名称要求的其他主题名称。 |
+| HttpStatusCode.BadRequest<br/>400 | 域名的长度必须为 3 到 50 个字符。 | 域名的长度应为 3 到 50 个字符。 域名中只允许使用字母数字字符、数字和 "-" 字符。 此外，名称的开头不能是以下保留字：<ul><li>微软</li><li>EventGrid</li><li>主板</li> | 请选择符合域名要求的其他域名。 |
 | HttpStatusCode.BadRequest<br/>400 | 过期时间无效。 | 事件订阅的过期时间决定了事件订阅何时停用。 此值应是将来的有效日期时间值。| 确保事件订阅过期时间采用有效的日期时间格式，并设置为将来的时间。 |
 
 ## <a name="error-code-409"></a>错误代码：409

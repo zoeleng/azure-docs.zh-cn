@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84754317"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040026"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>将首个应用部署到 Microsoft Azure 上的 Cloud Foundry
 
@@ -41,14 +41,14 @@ cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 
 系统将提示登录云控制器。 使用从市场部署步骤获取的管理员帐户凭据。
 
-Cloud Foundry 提供组织** 和空间** 作为命名空间，隔离共享部署中的团队和环境。 PCF 市场部署包括默认值系统** 组织和一组用于包含自动缩放服务和 Azure Service Broker 等基本组件的空间。 目前选择系统** 空间。
+Cloud Foundry 提供组织  和空间  作为命名空间，隔离共享部署中的团队和环境。 PCF 市场部署包括默认值系统  组织和一组用于包含自动缩放服务和 Azure Service Broker 等基本组件的空间。 目前选择系统  空间。
 
 
 ## <a name="create-an-org-and-space"></a>创建组织和空间
 
 如果键入 `cf apps`，则会看到一组已部署在系统组织的系统空间中的系统应用程序。 
 
-应为系统应用程序保留系统** 组织，因此请创建组织和空间以容纳示例应用程序。
+应为系统应用程序保留系统  组织，因此请创建组织和空间以容纳示例应用程序。
 
 ```bash
 cf create-org myorg
@@ -95,7 +95,7 @@ mvn clean package
 cf push
 ```
 
-推送** 应用程序时，Cloud Foundry 会检测应用程序的类型（此例中是 Java 应用），并标识其依赖项（此例中是 Spring Framework）。 然后，它将运行代码所需的所有内容打包到独立的容器映像中，称为水滴**。 最后，Cloud Foundry 会在你环境中的一台可用计算机上安排应用程序，并创建一个可访问的 URL（命令输出中提供）。
+推送  应用程序时，Cloud Foundry 会检测应用程序的类型（此例中是 Java 应用），并标识其依赖项（此例中是 Spring Framework）。 然后，它将运行代码所需的所有内容打包到独立的容器映像中，称为水滴  。 最后，Cloud Foundry 会在你环境中的一台可用计算机上安排应用程序，并创建一个可访问的 URL（命令输出中提供）。
 
 ![cf push 命令输出][cf-push-output]
 
@@ -114,7 +114,7 @@ cf push
 cf logs hello-spring-cloud
 ```
 
-默认情况下，日志命令会使用 tail**，显示新写入的日志。 若要使新日志显示，请在浏览器中刷新 hello-spring-cloud 应用程序。
+默认情况下，日志命令会使用 tail  ，显示新写入的日志。 若要使新日志显示，请在浏览器中刷新 hello-spring-cloud 应用程序。
 
 若要查看已写入的日志，请添加 `recent` 开关：
 
@@ -146,7 +146,7 @@ cf scale -i 2 hello-spring-cloud
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
-[cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
+[cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
 [spring-framework]: https://spring.io

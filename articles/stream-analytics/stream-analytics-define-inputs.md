@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027578"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042439"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -21,6 +21,7 @@ ms.locfileid: "93027578"
 - [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob 存储](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 这些输入资源与流分析作业可以属于同一 Azure 订阅，也可以属于不同的订阅。
 
@@ -125,18 +126,18 @@ Azure IoT 中心是已针对 IoT 方案进行优化，具有高度可缩放的�
 | **IoTHub.EnqueuedTime** | IoT 中心收到消息的时间。 |
 
 
-## <a name="stream-data-from-blob-storage"></a>从 Blob 存储流式传输数据
-对于需要将大量非结构化数据存储在云中的情况，Azure Blob 存储提供了一种经济高效且可伸缩的解决方案。 通常情况下，可以将 Blob 存储中的数据视为静态数据，但 Blob 数据可以作为数据流由流分析处理。 
+## <a name="stream-data-from-blob-storage-or-data-lake-storage-gen2"></a>从 Blob 存储或 Data Lake Storage Gen2 流式传输数据
+对于有大量非结构化数据存储在云中的情况，Azure Blob 存储或 Azure Data Lake Storage Gen2 (ADLS Gen2) 提供经济高效且可缩放的解决方案。 Blob 存储或 ADLS Gen2 中的数据通常被视为静态数据;但是，流分析可以将这些数据作为数据流进行处理。 
 
-通过流分析来使用 Blob 存储输入时，日志处理是一种常用方案。 在此方案中，首先从某个系统捕获遥测数据文件，然后根据需要对这些数据进行分析和处理以提取有意义的数据。
+日志处理是在流分析中使用此类输入的常用方案。 在此方案中，首先从某个系统捕获遥测数据文件，然后根据需要对这些数据进行分析和处理以提取有意义的数据。
 
-流分析中 Blob 存储事件的默认时间戳是上次修改 Blob 的时间戳，即 `BlobLastModifiedUtcTime`。 如果 blob 在 13:00 上传到存储帐户，并且 Azure 流分析作业在 13:01 使用选项“立即”启动，则不会选取该 blob，因为其修改时间在作业运行期间之外。
+流分析中 Blob 存储或 ADLS Gen2 事件的默认时间戳是上次修改的时间戳，即 `BlobLastModifiedUtcTime` 。 如果将 blob 上传到13:00 的存储帐户，并使用 *现在* 13:01 上的选项启动了 Azure 流分析作业，则该作业将不会被选取，因为其修改时间在作业运行期间之外。
 
 如果 blob 在 13:00 上传到存储帐户容器，并且 Azure 流分析作业使用“自定义时间”在 13:00 或更早时间启动，则将选取该 blob，因为其修改时间在作业运行期间内。
 
 如果在 13:00 使用“立即”启动 Azure 流分析作业，并在 13:01 将 blob 上传到存储帐户容器，则 Azure 流分析会选取该 blob。 分配给每个 blob 的时间戳仅基于 `BlobLastModifiedTime`。 blob 所在的文件夹与分配的时间戳无关。 例如，如果有一个 `BlobLastModifiedTime` 为 2019-11-11 的 blob 2019/10-01/00/b1.txt，则分配给此 blob 的时间戳为 2019-11-11。
 
-若要在事件有效负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 关键字。 如果 blob 文件可用，流分析作业将每秒从 Azure Blob 存储输入中拉取数据。 如果 blob 文件不可用，则存在指数回退，且最长时间延迟为 90 秒。
+若要在事件有效负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 关键字。 如果 Blob 文件可用，流分析作业将从 Azure Blob 存储中提取数据，或每秒请求输入 ADLS Gen2。 如果 blob 文件不可用，则存在指数回退，且最长时间延迟为 90 秒。
 
 CSV 格式的输入需要标头行来定义数据集的字段，并且所有标头行字段必须是唯一的。
 
@@ -152,10 +153,10 @@ CSV 格式的输入需要标头行来定义数据集的字段，并且所有标�
 | 属性 | 说明 |
 | --- | --- |
 | **输入别名** | 在作业查询中用于引用此输入的友好名称。 |
-| **订阅** | 选择 IoT 中心资源所在的订阅。 | 
+| **订阅** | 选择存储资源所在的订阅。 | 
 | **存储帐户** | 存储 Blob 文件所在的存储帐户的名称。 |
-| **存储帐户密钥** | 与存储帐户关联的密钥。 此选项会自动进行填充，除非已选择手动提供 Blob 存储设置的选项。 |
-| **容器** | 用于 Blob 输入的容器。 容器对存储在 Microsoft Azure Blob 服务中的 blob 进行逻辑分组。 将 Blob 上传到 Azure Blob 存储服务时，必须为该 Blob 指定一个容器。 可以选择“使用现有”，以便使用现有的容器；也可以选择“新建”，以便创建新的容器。 |
+| **存储帐户密钥** | 与存储帐户关联的密钥。 除非您选择了手动提供设置的选项，否则将自动填充此选项。 |
+| **容器** | 容器为 blob 提供逻辑分组。 可以选择“使用现有”，以便使用现有的容器；也可以选择“新建”，以便创建新的容器。 |
 | **路径模式** （可选） | 用于定位指定容器中的 blob 的文件路径。 如果要从容器的根目录中读取 blob，请不要设置路径模式。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 不包括容器名称或文件名。 |
 | **日期格式** （可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` <br/><br/> 当 blob 输入在其路径中具有 `{date}` 或 `{time}` 时，将按升序时间顺序查看文件夹。|
 | **时间格式** （可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |

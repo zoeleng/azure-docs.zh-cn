@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041119"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>规划自动用户预配部署
 
@@ -34,15 +34,15 @@ Azure Active Directory (Azure AD) 自动用户预配可通过安全地根据业�
 
 启用自动用户预配的主要好处包括：
 
-* **提高了工作效率**。 你可以使用单个用户预配管理界面跨 SaaS 应用程序管理用户标识。 此接口具有一组设置策略。
+* **提高了工作效率** 。 你可以使用单个用户预配管理界面跨 SaaS 应用程序管理用户标识。 此接口具有一组设置策略。
 
-* **管理风险**。 可以通过基于定义角色和/或访问权限的员工状态或组成员身份来自动执行更改，从而提高安全性。
+* **管理风险** 。 可以通过基于定义角色和/或访问权限的员工状态或组成员身份来自动执行更改，从而提高安全性。
 
-* **解决合规性与治理问题**。 Azure AD 支持每个用户预配请求的本机审核日志。 在源系统和目标系统中执行请求。 这使你可以从单个屏幕跟踪对应用程序的访问权限。
+* **解决合规性与治理问题** 。 Azure AD 支持每个用户预配请求的本机审核日志。 在源系统和目标系统中执行请求。 这使你可以从单个屏幕跟踪对应用程序的访问权限。
 
-* **降低成本**。 自动用户预配通过避免与手动预配相关的低效和人为错误，降低了成本。 它减少了自定义开发的用户预配解决方案、脚本和审核日志的需求。
+* **降低成本** 。 自动用户预配通过避免与手动预配相关的低效和人为错误，降低了成本。 它减少了自定义开发的用户预配解决方案、脚本和审核日志的需求。
 
-### <a name="licensing"></a>授权
+### <a name="licensing"></a>许可
 
 Azure AD 使用应用程序库菜单中提供的模板为任何应用程序提供自助集成。 有关许可证要求的完整列表，请参阅 [Azure AD 授权 "页](https://azure.microsoft.com/pricing/details/active-directory/)。
 
@@ -99,7 +99,7 @@ Azure AD 预配服务通过连接到每个应用程序供应商提供的用户�
 
 在此示例中，用户创建发生在 Azure AD 中，Azure AD 预配服务可管理目标 (SaaS) 应用程序的自动用户预配。
 
-![图片2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![此图显示了从本地 H R 应用程序通过 Azure A D 预配服务将用户/组创建过程通过 Azure a D 预配服务传递给目标 S 应用程序的过程。](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **工作流的说明：**
 
@@ -292,7 +292,7 @@ Azure AD 可以通过审核日志和报告， [进一步深入](../app-provision
 
 建议你假设所有权，并使用这些报表来满足组织的要求。 Azure AD 将大多数审核数据保留30天。
 
-### <a name="troubleshoot"></a>故障排除
+### <a name="troubleshoot"></a>疑难解答
 
 请参阅以下链接，以解决在预配期间可能会打开的任何问题：
 

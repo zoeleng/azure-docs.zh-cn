@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84691333"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041911"
 ---
 # <a name="scenes-shots-and-keyframes"></a>场景、镜头和关键帧
 
@@ -46,9 +46,9 @@ ms.locfileid: "84691333"
 
 #### <a name="with-the-video-indexer-website"></a>视频索引器网站
 
-若要使用视频索引器网站提取关键帧，请上传视频并为其编制索引。 索引作业完成后，请单击 " **下载** " 按钮，然后选择 " **项目 (ZIP) **。 这会将项目文件夹下载到你的计算机。 
+若要使用视频索引器网站提取关键帧，请上传视频并为其编制索引。 索引作业完成后，请单击 " **下载** " 按钮，然后选择 " **项目 (ZIP)** 。 这会将项目文件夹下载到你的计算机。 
 
-![关键帧](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![显示选定了 "项目" 的 "下载" 下拉菜单的屏幕截图。](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
 解压缩并打开该文件夹。 在 *_KeyframeThumbnail* 文件夹中，你将找到从视频中提取的所有关键帧。 
 

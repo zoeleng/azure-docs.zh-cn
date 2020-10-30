@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 10/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 136d0627e701104e9958d51b2e37256de5659f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a084b2d0582f53d4372ba3332194629ad29a4ec
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87271410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041862"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -24,10 +24,10 @@ IoT Edge 上的 Azure 流分析在 [Azure IoT Edge](https://azure.microsoft.com/
 ## <a name="scenarios"></a>方案
 ![IoT Edge 的高级别关系图](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
-* **低延迟命令和控制**：例如，生产安全系统时必须以超低的延迟响应运行数据。 借助 IoT Edge 上的 ASA，可以近乎实时地分析传感器数据，并在检测到异常情况时发出命令，从而停止计算机或触发警报。
-*   **与云的连接受限**：任务关键型系统（如远程采矿设备、连接的船舶或海上钻井）需要分析数据并对数据做出反应，即使云连接是间歇性的也是如此。 使用 ASA，流式处理逻辑可独立于网络连接运行，你可以选择发送到云以作进一步处理或存储的内容。
-* **有限的带宽**：由喷气引擎或联网汽车生成的数据量可能非常大，因此，在将数据发送到云之前必须对数据进行筛选或预处理。 使用 ASA，可以筛选或聚合需要发送到云的数据。
-* **符合性**：监管符合性可能需要在将一些数据发送到云之前对其进行本地匿名或聚合处理。
+* **低延迟命令和控制** ：例如，生产安全系统时必须以超低的延迟响应运行数据。 借助 IoT Edge 上的 ASA，可以近乎实时地分析传感器数据，并在检测到异常情况时发出命令，从而停止计算机或触发警报。
+*   **与云的连接受限** ：任务关键型系统（如远程采矿设备、连接的船舶或海上钻井）需要分析数据并对数据做出反应，即使云连接是间歇性的也是如此。 使用 ASA，流式处理逻辑可独立于网络连接运行，你可以选择发送到云以作进一步处理或存储的内容。
+* **有限的带宽** ：由喷气引擎或联网汽车生成的数据量可能非常大，因此，在将数据发送到云之前必须对数据进行筛选或预处理。 使用 ASA，可以筛选或聚合需要发送到云的数据。
+* **符合性** ：监管符合性可能需要在将一些数据发送到云之前对其进行本地匿名或聚合处理。
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 流分析作业中的 Edge 作业
 ### <a name="what-is-an-edge-job"></a>什么是“Edge”作业？
@@ -102,7 +102,7 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>在 IoT Edge 设备上部署 ASA
 ##### <a name="add-asa-to-your-deployment"></a>将 ASA 添加到部署
-- 在 Azure 门户中，打开 IoT 中心，导航到 **IoT Edge**，并单击要用于此部署的设备。
+- 在 Azure 门户中，打开 IoT 中心，导航到 **IoT Edge** ，并单击要用于此部署的设备。
 - 选择“设置模块”，然后依次选择“+ 添加”、“Azure 流分析模块”。
 - 选择订阅和你创建的 ASA Edge 作业。 单击“保存”。
 ![在部署中添加 ASA 模块](media/stream-analytics-edge/add-stream-analytics-module.png)
@@ -206,23 +206,23 @@ IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块
 
 此版本信息上次更新时间为 2019-06-27：
 
-- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - 基础映像：microsoft/dotnet:2.1.6-runtime-alpine3.7
+- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
+   - 基本映像： mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
    - 平台：
       - 体系结构：amd64
       - os：linux
-  
-- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - 基础映像：microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+ 
+- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
+   - 基本映像： mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7
    - 平台：
       - 体系结构：arm
       - os：linux
-  
-- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - 基础映像：microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+ 
+- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
+   - 基本映像： mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8
    - 平台：
-      - 体系结构：amd64
-      - os：windows
+      - 体系结构： arm64
+      - os：linux
       
       
 ## <a name="get-help"></a>获取帮助

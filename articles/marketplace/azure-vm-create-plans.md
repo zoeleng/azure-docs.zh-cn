@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 922f4a2785a0b7260bcd0aae19c0172a2fa7a782
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bc5e98484560fcc15e0ea3e289069c84687f158c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283692"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040550"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>如何为虚拟机产品/服务创建计划
 
@@ -118,9 +118,9 @@ Azure 政府服务处理符合特定政府法规和要求的数据。 例如，F
 
 对于根据使用量每月计费计划，请使用以下三个定价条目选项之一：
 
-- **根据核心**：提供每个核心的定价（美元）。 Microsoft 计算每个核心大小的定价，并使用当前汇率将其转换为本地货币。
-- **根据核心大小**：提供每个核心大小的定价（美元）。 Microsoft 计算定价，并使用当前汇率将其转换为本地货币。
-- **根据市场和核心大小**：为所有市场提供每个核心大小的定价。 可以从电子表格导入价格。
+- **根据核心** ：提供每个核心的定价（美元）。 Microsoft 计算每个核心大小的定价，并使用当前汇率将其转换为本地货币。
+- **根据核心大小** ：提供每个核心大小的定价（美元）。 Microsoft 计算定价，并使用当前汇率将其转换为本地货币。
+- **根据市场和核心大小** ：为所有市场提供每个核心大小的定价。 可以从电子表格导入价格。
 
 > [!NOTE]
 > 保存定价更改，实现定价数据的导出。 发布计划中某个市场的价格后，无法再更改。 若要确保价格发布之前是正确的，请导出定价电子表格，并查看每个市场中的价格。
@@ -133,9 +133,9 @@ Azure 政府服务处理符合特定政府法规和要求的数据。 例如，F
 
 可以设计每个计划，使其对每个人可见，或仅对预选受众可见。 使用 Azure 订阅 ID 在此受限受众中分配成员身份。
 
-**公共**：所有人都可以查看计划。
+**公共** ：所有人都可以查看计划。
 
-**专用受众**：使计划仅对预选受众可见。 将其发布为专用计划后，可以更新受众或将其更改为公共。 使计划为公众所见后，该计划必须保持公共状态。 不能将其更改回专用计划。
+**专用受众** ：使计划仅对预选受众可见。 将其发布为专用计划后，可以更新受众或将其更改为公共。 使计划为公众所见后，该计划必须保持公共状态。 不能将其更改回专用计划。
 
 > [!NOTE]
 > 专用或受限受众与在“预览”窗格上定义的预览受众不同。 预览受众可以在向 Azure 市场实时发布产品/服务之前来访问它。 尽管专用受众选项仅适用于特定计划，但预览受众可以查看所有专用或公共计划以进行验证。
@@ -185,12 +185,38 @@ Azure 政府服务处理符合特定政府法规和要求的数据。 例如，F
 
 对于“支持加速网络”，选择 VM 是否支持[加速网络](https://go.microsoft.com/fwlink/?linkid=2124513)。
 
+### <a name="generations"></a>代数
+
+生成虚拟机将定义它使用的虚拟硬件。 根据客户的需要，你可以发布第1代 VM 和/或第2代 VM。
+
+1. 创建新产品/服务时，选择一 **种生成类型** 并输入请求的映像详细信息：
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
+
+2. 若要向计划中添加其他生成，请选择 " **添加代** ：
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
+
+2. 若要向计划中添加其他生成，请选择 ":::
+
+    然后输入生成详细信息：
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
+
+2. 若要向计划中添加其他生成，请选择 " 页上编辑详细信息：
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
+
+2. 若要向计划中添加其他生成，请选择 ":::
+
+若要详细了解第1代和第2代功能之间的差异，请参阅 [Azure 上的第2代 Vm 支持](../virtual-machines/generation-2.md)。
+
 ### <a name="vm-images"></a>VM 映像
 
 为虚拟机映像提供磁盘版本和共享访问签名 (SAS) URI。 为每个 VM 映像添加多达 16 个数据磁盘。 在指定的提交中，每个计划仅提供一个新的映像版本。 映像发布后，无法对其进行编辑，但可以将其删除。 删除版本会阻止新用户和现有用户部署已删除版本的新实例。
 
-- **光盘版本**：正在提供的映像的版本。
-- **SAS URI**：Azure 存储帐户中存储操作系统 VHD 的位置。 若要了解如何获取 SAS URI，请参阅 [获取 VM 映像的共享访问签名 URI](azure-vm-get-sas-uri.md)。
+- **光盘版本** ：正在提供的映像的版本。
+- **SAS URI** ：Azure 存储帐户中存储操作系统 VHD 的位置。 若要了解如何获取 SAS URI，请参阅 [获取 VM 映像的共享访问签名 URI](azure-vm-get-sas-uri.md)。
 - 数据磁盘映像也是存储在其 Azure 存储帐户中的 VHD 共享访问签名 URI。
 - 计划中的每次提交只添加一个映像。
 

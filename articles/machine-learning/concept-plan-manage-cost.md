@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e6e59ad237cdc1f23181375894512e69eba86ff
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704722"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042180"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>计划和管理 Azure 机器学习成本
 
@@ -41,7 +41,7 @@ ms.locfileid: "91704722"
 
 ## <a name="estimate-costs"></a>估算成本
 
-在 Azure 机器学习帐户中创建资源之前，使用 [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator/)估算成本。 在左侧，选择“AI + 机器学习”，然后选择“Azure 机器学习”，开始操作**** ****。  
+在 Azure 机器学习帐户中创建资源之前，使用 [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator/)估算成本。 在左侧，选择“AI + 机器学习”，然后选择“Azure 机器学习”，开始操作   。  
 
 以下屏幕截图显示了使用计算器进行成本估算：
 
@@ -61,7 +61,9 @@ ms.locfileid: "91704722"
 
 可以在不同时间间隔的关系图和表中查看相应的成本。 还可以对比预算和预测的成本来查看成本。 切换到随时间推移的较长视图有助于确定支出趋势及了解可能超支的领域。 如果已创建预算，请查看超出预算的领域。  
 
-不会为机器学习单独显示一个服务区域。  而是会显示已添加到机器学习工作区中的各种资源。
+不会为机器学习单独显示一个服务区域。  而是会显示已添加到机器学习工作区中的各种资源。 
+
+请注意，尽管机器学习工作区本身不具有直接开销，但你需要对托管计算资源进行计费。 因此，如果将标记添加到工作区，因为它没有直接开销，所以 "成本分析" 窗格将为工作区反映此情况。 若要通过标记实现准确的成本管理，需要标记关联的计算资源。  
 
 ## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>使用 Azure 机器学习计算群集 (AmlCompute)
 
@@ -96,7 +98,7 @@ AmlCompute 附带一个[配额（或限制）配置](how-to-manage-quotas.md#azu
 
 对于订阅内的每个工作区，还需配置[按 VM 系列的工作区级别配额](how-to-manage-quotas.md#workspace-level-quota)。 这样，你就可以对每个工作区可能产生的成本进行更精细的控制并限制某些 VM 系列。 
 
-若要在工作区级别设置配额，请使用 [Azure 门户](https://portal.azure.com)。  选择订阅中的任何工作区，然后在左窗格中选择“使用量 + 配额”****。 然后选择“配置配额”选项卡以查看配额****。 你需要订阅范围的权限来设置配额，因为这是一个会影响多个工作区的设置。
+若要在工作区级别设置配额，请使用 [Azure 门户](https://portal.azure.com)。  选择订阅中的任何工作区，然后在左窗格中选择“使用量 + 配额”  。 然后选择“配置配额”选项卡以查看配额  。 你需要订阅范围的权限来设置配额，因为这是一个会影响多个工作区的设置。
 
 ## <a name="set-run-autotermination-policies"></a>设置“运行自动终止”策略 
 

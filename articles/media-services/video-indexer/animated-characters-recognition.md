@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040082"
 ---
 # <a name="animated-character-detection-preview"></a>动画字符检测（预览版）
 
@@ -69,17 +69,17 @@ Azure 媒体服务视频索引器支持通过与 [认知服务自定义视觉](h
 
     * 定型资源的定型键 () 
     * 预测资源) 的预测密钥 (
-    * 端点 
+    * 终结点 
     * 预测资源 ID
     
     > [!NOTE]
     > 若要提供所有键，你需要在自定义视觉中使用两个单独的资源，一个用于定型，一个用于预测。
 1. 浏览并登录到 [视频索引器](https://vi.microsoft.com/)。
-1. 单击页面右上角的问号，并选择 " **API 引用**"。
+1. 单击页面右上角的问号，并选择 " **API 引用** "。
 1. 请确保已通过单击 " **产品** " 选项卡订阅了 API 管理。如果已连接 API，则可继续执行下一步，否则请订阅。 
-1. 在开发人员门户中，单击 " **完整 API 参考** " 并浏览到 " **操作**"。  
-1. 选择 " **连接自定义视觉帐户" (预览 ") ** 并单击" **试用**"。
-1. 填写必填字段以及访问令牌，然后单击 " **发送**"。 
+1. 在开发人员门户中，单击 " **完整 API 参考** " 并浏览到 " **操作** "。  
+1. 选择 " **连接自定义视觉帐户" (预览 ")** 并单击" **试用** "。
+1. 填写必填字段以及访问令牌，然后单击 " **发送** "。 
 
     有关如何获取视频索引器访问令牌的详细信息，请转到 [开发人员门户](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)，查看 [相关文档](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api)。  
 1. 调用返回 200 OK 响应后，你的帐户已连接。
@@ -96,9 +96,9 @@ Azure 媒体服务视频索引器支持通过与 [认知服务自定义视觉](h
 1. 浏览到[视频索引器](https://vi.microsoft.com/)网站并登录。
 1. 在页面的右上角，单击 "内容模型自定义" 按钮。
 
-    ![内容模型自定义](./media/animated-characters-recognition/content-model-customization.png)
+    ![屏幕截图，其中显示了 "视频索引器" 页，并在右上角选择了 "内容模型自定义" 按钮。](./media/animated-characters-recognition/content-model-customization.png)
 1. 中转到 "模型自定义" 部分中的 " **动画字符** " 选项卡。
-1. 单击 " **添加模型**"。
+1. 单击 " **添加模型** "。
 1. 为模型命名并单击 enter 以保存名称。
 
 > [!NOTE]
@@ -108,11 +108,11 @@ Azure 媒体服务视频索引器支持通过与 [认知服务自定义视觉](h
 
 1. 单击顶部菜单中的 "上 **传** " 按钮。
 1. 选择要从文件或 URL)  (上传的视频。
-1. 单击 " **高级选项**"。
-1. 在 " **人物/动画字符** " 下，选择 **动画模型**。
+1. 单击 " **高级选项** "。
+1. 在 " **人物/动画字符** " 下，选择 **动画模型** 。
 1. 如果有一个模型，则会自动选择该模型，如果有多个模型，则可以从下拉菜单中选择相关的模型。
 1. 单击 "上传"。
-1. 为视频编制索引后，会在 "**见解**" 窗格的 "**动画字符**" 部分看到检测到的字符。
+1. 为视频编制索引后，会在 " **见解** " 窗格的 " **动画字符** " 部分看到检测到的字符。
 
 > [!NOTE] 
 > 在对模型进行标记和定型之前，所有的动画字符都将命名为 "Unknown #X"。 训练模型后，还会识别它们。
@@ -129,7 +129,7 @@ Azure 媒体服务视频索引器支持通过与 [认知服务自定义视觉](h
 
         打开 "自定义" 页，单击 " **动画字符** " 选项卡，然后单击 " **训练** " 按钮训练模型。
          
-        如果有付费帐户，可以单击 " **在客户视觉链接中管理模型** " (如下) 所示。 然后，将被转发到 **自定义视觉**中的模型页。
+        如果有付费帐户，可以单击 " **在客户视觉链接中管理模型** " (如下) 所示。 然后，将被转发到 **自定义视觉** 中的模型页。
  
         ![内容模型自定义](./media/animated-characters-recognition/content-model-customization-tab.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: f3b84ba1c3571e3660d1d71a0167a7489c6ec4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 897d7f662c4cad4df92eeec66820a0e8cf17b8ad
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82145124"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040613"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>将 Cloud Foundry 与 Azure 集成
 
@@ -32,21 +32,21 @@ Bosh 使用 Azure CPI (云提供程序接口) 用于磁盘创建和删除例程�
 [托管磁盘](https://azure.microsoft.com/services/managed-disks/)现已推出，它为虚拟机提供受管的安全可靠磁盘存储。 客户不再需要出于可伸缩性和高可用性目的来处理存储帐户。 Azure 会自动排列磁盘。 无论是新部署还是现有部署，Azure CPI 都将在 CF 部署过程中处理托管磁盘的创建或迁移。 它受 PCF 1.11 的支持。 也可以浏览开源 Cloud Foundry 的[托管磁盘指南](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks)来获得参考。 
 ### <a name="availability-zone-"></a>可用性区域 *
 作为云原生的应用程序平台，Cloud Foundry 在设计上具有[四个高可用性级别](https://docs.pivotal.io/pivotalcf/2-1/concepts/high-availability.html)。 尽管 CF 系统本身能够处理前三级软件故障，但云提供程序仍然提供平台容错。 应使用云提供程序的平台高可用性解决方案来保护关键的 CF 组件。 这些组件包括 GoRouters、Diego Brain、CF 数据库和服务磁贴。 默认情况下，[Azure 可用性集](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/deploy-cloudfoundry-with-availability-sets)用于数据中心内群集之间的容错。
-好消息是，[Azure 可用性区域](https://docs.microsoft.com/azure/availability-zones/az-overview )现已发布，它可以实现跨数据中心的低延迟冗余，将容错能力进一步提升。
+好消息是，[Azure 可用性区域](../availability-zones/az-overview.md)现已发布，它可以实现跨数据中心的低延迟冗余，将容错能力进一步提升。
 Azure 可用性区域通过将 VM 集放入 2 个以上的数据中心，并使每个 VM 集与其他集相互冗余，以此实现高可用性。 如果一个区域发生故障，其他 VM 集仍会保持活动状态，避免受到灾难的影响。
 > [!NOTE] 
-> Azure 可用性区域尚未在所有区域推出。请查看最新的[受支持区域列表公告](https://docs.microsoft.com/azure/availability-zones/az-overview)。 对于开源 Cloud Foundry，请查看[适用于开源 Cloud Foundry 的 Azure 可用性区域指南](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone)。
+> Azure 可用性区域尚未在所有区域推出。请查看最新的[受支持区域列表公告](../availability-zones/az-overview.md)。 对于开源 Cloud Foundry，请查看[适用于开源 Cloud Foundry 的 Azure 可用性区域指南](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone)。
 
 ## <a name="2-network-routing"></a>2. 网络路由
 默认情况下，Azure 基本负载均衡器用于传入的 CF API/应用请求，并将请求转发到 Gorouters。 Diego Brain、MySQL、ERT 等 CF 组件也可以使用负载均衡器来均衡流量，以实现高可用性。 Azure 还提供了一组完全托管的负载均衡解决方案。 如果正在查找 TLS/SSL 终止 ( "SSL 卸载" ) 或按 HTTP/HTTPS 请求应用程序层处理，请考虑应用程序网关。 对于第 4 层的高可用性和可伸缩性负载均衡，请考虑使用标准负载均衡器。
 ### <a name="azure-application-gateway-"></a>Azure 应用程序网关 *
-[Azure 应用程序网关](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 提供各种第7层负载均衡功能，包括 SSL 卸载、端到端 TLS、Web 应用程序防火墙、基于 cookie 的会话相关性等。 可[在开源 Cloud Foundry 中配置应用程序网关](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway)。 对于 PCF，请查看有关 POC 测试的 [PCF 2.1 发行说明](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway)。
+[Azure 应用程序网关](../application-gateway/overview.md) 提供各种第7层负载均衡功能，包括 SSL 卸载、端到端 TLS、Web 应用程序防火墙、基于 cookie 的会话相关性等。 可[在开源 Cloud Foundry 中配置应用程序网关](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway)。 对于 PCF，请查看有关 POC 测试的 [PCF 2.1 发行说明](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway)。
 
 ### <a name="azure-standard-load-balancer-"></a>Azure 标准负载均衡器 *
-Azure 负载均衡器是第 4 层负载均衡器。 它用于在负载平衡集中的服务实例之间分配流量。 标准版在基本版的基础上提供[高级功能](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)。 例如，1. 后端池的最大限制已从 100 个 VM 提升到 1000 个 VM。  2. 终结点现在支持多个可用性集，而不是一个可用性集。  3. 其他功能，如 HA 端口、更丰富的监视数据等。 如果要迁移到 Azure 可用性区域，则需要标准负载均衡器。 对于新部署，我们建议从 Azure 标准负载均衡器着手。 
+Azure 负载均衡器是第 4 层负载均衡器。 它用于在负载平衡集中的服务实例之间分配流量。 标准版在基本版的基础上提供[高级功能](../load-balancer/load-balancer-overview.md)。 例如，1. 后端池的最大限制已从 100 个 VM 提升到 1000 个 VM。  2. 终结点现在支持多个可用性集，而不是一个可用性集。  3. 其他功能，如 HA 端口、更丰富的监视数据等。 如果要迁移到 Azure 可用性区域，则需要标准负载均衡器。 对于新部署，我们建议从 Azure 标准负载均衡器着手。 
 
 ## <a name="3-authentication"></a>3. 身份验证 
-[Cloud Foundry 用户帐户和身份验证](https://docs.cloudfoundry.org/concepts/architecture/uaa.html)是 CF 及其各个组件的中心标识管理服务。 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 是 Microsoft 的多租户、基于云的目录和标识管理服务。 默认情况下，UAA 用于 Cloud Foundry 身份验证。 作为一个高级选项，UAA 还支持将 Azure AD 用作外部用户存储。 Azure AD 用户可以使用其 LDAP 标识访问 Cloud Foundry，而无需使用 Cloud Foundry 帐户。 请遵循这些步骤[在 PCF 中为 UAA 配置 Azure AD](https://docs.pivotal.io/p-identity/1-6/azure/index.html)。
+[Cloud Foundry 用户帐户和身份验证](https://docs.cloudfoundry.org/concepts/architecture/uaa.html)是 CF 及其各个组件的中心标识管理服务。 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 是 Microsoft 的多租户、基于云的目录和标识管理服务。 默认情况下，UAA 用于 Cloud Foundry 身份验证。 作为一个高级选项，UAA 还支持将 Azure AD 用作外部用户存储。 Azure AD 用户可以使用其 LDAP 标识访问 Cloud Foundry，而无需使用 Cloud Foundry 帐户。 请遵循这些步骤[在 PCF 中为 UAA 配置 Azure AD](https://docs.pivotal.io/p-identity/1-6/azure/index.html)。
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Cloud Foundry 运行时系统的数据存储
 Cloud Foundry 提供极佳的可扩展性，可将 Azure Blob 存储或 Azure MySQL/PostgreSQL 服务用于应用程序运行时系统存储。
@@ -67,7 +67,7 @@ Azure Service Broker 提供一致的接口用于管理应用程序对 Azure 服�
 
 ## <a name="6-metrics-and-logging"></a>6. 指标和日志记录
 Azure Log Analytics 喷嘴是一个 Cloud Foundry 组件，用于将指标从 [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) 转发到 [Azure Monitor 日志](https://azure.microsoft.com/services/log-analytics/)。 使用 Nozzle，可跨多个部署收集、查看和分析 CF 系统的运行状况和性能指标。
-单击 [此处](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) 了解如何将 Azure Log Analytics 喷嘴部署到开放源和 Pivotal Cloud Foundry 环境，然后从 Azure Monitor 日志控制台访问数据。 
+单击 [此处](./cloudfoundry-oms-nozzle.md) 了解如何将 Azure Log Analytics 喷嘴部署到开放源和 Pivotal Cloud Foundry 环境，然后从 Azure Monitor 日志控制台访问数据。 
 > [!NOTE]
 > 从 PCF 2.0，默认情况下会将 Vm 的 BOSH 运行状况指标转发到 Loggregator Firehose，并将其集成到 Azure Monitor 日志控制台。
 
@@ -76,7 +76,7 @@ Azure Log Analytics 喷嘴是一个 Cloud Foundry 组件，用于将指标从 [C
 ## <a name="7-cost-saving"></a>7. 节省成本
 ### <a name="cost-saving-for-devtest-environments"></a>开发/测试环境的成本节省
 #### <a name="b-series-"></a>B 系列：*
-尽管我们往往建议对 Pivotal Cloud Foundry 生产环境使用 F 和 D VM 系列，但全新的“可迸发”[B 系列](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/)提供了新的选项。 B 系列可突增 Vm 非常适合于不需要持续占用 CPU 完全性能的工作负荷，如 web 服务器、小型数据库以及开发和测试环境。 这些工作负荷通常具有可突增的性能要求。 与 F1 的成本 0.05 美元/小时相比，B1 的成本已下降到 0.012 美元/小时。有关详细信息，请参阅 [VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)和[价格](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)的完整列表。 
+尽管我们往往建议对 Pivotal Cloud Foundry 生产环境使用 F 和 D VM 系列，但全新的“可迸发”[B 系列](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/)提供了新的选项。 B 系列可突增 Vm 非常适合于不需要持续占用 CPU 完全性能的工作负荷，如 web 服务器、小型数据库以及开发和测试环境。 这些工作负荷通常具有可突增的性能要求。 与 F1 的成本 0.05 美元/小时相比，B1 的成本已下降到 0.012 美元/小时。有关详细信息，请参阅 [VM 大小](../virtual-machines/sizes-general.md)和[价格](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)的完整列表。 
 #### <a name="managed-standard-disk"></a>托管标准磁盘： 
 建议在生产环境中使用高级磁盘，以保持可靠的性能。  借助[托管磁盘](https://azure.microsoft.com/services/managed-disks/)，标准存储也能提供类似的可靠性，但性能有所差别。 对于不区分性能的工作负荷（如开发/测试或非关键环境），托管标准磁盘提供了一个具有较低成本的替代选项。  
 ### <a name="cost-saving-in-general"></a>大致成本节省 
@@ -91,5 +91,4 @@ Pivotal 为 PCF 客户推出了[空间占用量较小的 ERT](https://docs.pivot
 
 ## <a name="next-steps"></a>后续步骤
 Azure 集成功能首先适用于 [开源 Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/)，然后才能在 Pivotal Cloud Foundry 上提供。 带有 * 标记的功能尚未通过 PCF 推出。 此文档中未涵盖与 Azure Stack Cloud Foundry 集成。
-有关 PCF 对带有 * 标记的功能的支持，或者 Cloud Foundry 与 Azure Stack 的集成，请联系 Pivotal 和 Microsoft 客户经理了解最新状态。 
-
+有关 PCF 对带有 * 标记的功能的支持，或者 Cloud Foundry 与 Azure Stack 的集成，请联系 Pivotal 和 Microsoft 客户经理了解最新状态。

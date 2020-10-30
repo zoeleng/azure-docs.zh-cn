@@ -74,6 +74,8 @@
       href: concepts/sdk-options.md
     - name: 定价模型
       href: concepts/pricing.md
+    - name: 隐私
+      href: concepts/privacy.md
     - name: 身份验证
       href: concepts/authentication.md
     - name: 事件处理

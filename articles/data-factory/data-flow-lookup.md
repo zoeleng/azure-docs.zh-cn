@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187609"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040186"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>映射数据流中的查找转换
 
@@ -27,7 +27,7 @@ ms.locfileid: "84187609"
 
 ## <a name="configuration"></a>配置
 
-![查找转换](media/data-flow/lookup1.png "查找")
+![屏幕截图显示具有以下文本中所述标签的 "查找设置" 选项卡。](media/data-flow/lookup1.png "查找")
 
 **主流：** 传入的数据流。 此流等效于联接的左侧。
 
@@ -85,7 +85,7 @@ ms.locfileid: "84187609"
 ```
 ### <a name="example"></a>示例
 
-![查找转换](media/data-flow/lookup-dsl-example.png "查找")
+![屏幕截图显示以下代码的 "查找设置" 选项卡。](media/data-flow/lookup-dsl-example.png "查找")
 
 以上查找配置的数据流脚本位于下面的代码片段中。
 

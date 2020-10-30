@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282209"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042663"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
@@ -21,7 +21,7 @@ ms.locfileid: "92282209"
 
 ## <a name="supported-blob-storage-features"></a>支持的 Blob 存储功能
 
-现在，越来越多的 Blob 存储功能开始使用具有分层命名空间的帐户。 有关完整列表，请参阅 [Azure Data Lake storage Gen2 中提供的 Blob 存储功能](data-lake-storage-supported-blob-storage-features.md)。
+越来越多的 Blob 存储功能现在兼容有分层命名空间的帐户。 如需完整列表，请参阅 [Azure Data Lake Storage Gen2 中可用的 Blob 存储功能](data-lake-storage-supported-blob-storage-features.md)。
 
 ## <a name="supported-azure-service-integrations"></a>支持的 Azure 服务集成
 
@@ -68,62 +68,39 @@ Blob API 和 Data Lake Storage Gen2 API 可以对相同的数据执行操作。
 
 ## <a name="azcopy"></a>AzCopy
 
-请仅使用最新版本的 AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))。 不支持早期版本的 AzCopy，例如 AzCopy v8.1。
+仅使用最新版本的 AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))。 不支持早期版本的 AzCopy，例如 AzCopy v8.1。
 
 <a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Azure 存储资源管理器
 
-请仅使用 `1.6.0` 或更高版本。
+仅使用版本 `1.6.0` 或更高版本。
 
 <a id="explorer-in-portal"></a>
 
 ## <a name="storage-explorer-in-the-azure-portal"></a>Azure 门户中的存储资源管理器
 
-目前不支持 ACL。
+尚不支持 ACL。
 
 <a id="third-party-apps"></a>
 
-## <a name="thirdpartyapplications"></a>第三方应用程序
+## <a name="third-party-applications"></a>第三方应用程序
 
-对于使用 REST API 来工作的第三方应用程序，如果你将它们与调用可能会工作的 Blob API 的 Data Lake Storage Gen2 应用程序一起使用，则这些第三方应用程序会继续工作。
+对于使用 REST API 保持正常运行的第三方应用程序，如果将这些应用程序与调用 Blob API 的 Data Lake Storage Gen2 应用程序配合使用，则它们可继续正常运行。
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>访问控制列表 (ACL) 和匿名读取访问
 
 如果已将[匿名读取访问](storage-manage-access-to-resources.md)授予容器，则 ACL 对该容器或该容器中的文件没有影响。
 
-### <a name="diagnostic-logs"></a>诊断日志
+## <a name="diagnostic-logs"></a>诊断日志
 
 尚不支持保留天数设置，但你可以使用任何支持的工具（例如 Azure 存储资源管理器、REST 或 SDK）手动删除日志。
 
-## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>特定于高级性能 BlockBlobStorage 存储帐户的问题
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage 的高级层的生命周期管理策略
 
-### <a name="diagnostic-logs"></a>诊断日志
+无法在 "热"、"冷" 和 "存档" 层之间移动存储在高级层中的数据。 但是，可以将数据从高级层复制到其他帐户中的热访问层。
 
-目前还无法使用 Azure 门户启用诊断日志。 可以使用 PowerShell 启用它们。 例如：
-
-```powershell
-#To login
-Connect-AzAccount
-
-#Set default block blob storage account.
-Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
-
-#Enable logging
-Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-```
-
-### <a name="lifecycle-management-policies"></a>生命周期管理策略
-
-- 只支持常规用途 v2 帐户的生命周期管理策略。 高级 BlockBlobStorage 存储帐户目前尚不支持。
-- 不能将数据从高级层级移到较低的层级。
-
-
-### <a name="hdinsight-support"></a>HDInsight 支持
-
-创建 HDInsight 群集时，尚无法选择启用了分层命名空间功能的 BlockBlobStorage 帐户。 但是，创建群集后，可以将该帐户附加到该群集。
-
-### <a name="dremio-support"></a>Dremio 支持
+## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>具有高级性能 BlockBlobStorage 存储帐户的 Dremio 支持
 
 Dremio 尚且不能连接到其上启用了分层命名空间功能的 BlockBlobStorage 帐户。 
 

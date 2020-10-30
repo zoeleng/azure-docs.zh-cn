@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259629"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040455"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>关于 Azure Active Directory B2C 自定义策略中的声明解析程序
 
@@ -113,7 +113,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 | 声明 | 说明 | 示例 |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | 访问令牌。 | 空值 |
-| {oauth2： refresh_token} | 刷新令牌。 | 空值 |
+| {oauth2:refresh_token} | 刷新令牌。 | 空值 |
 
 
 ### <a name="saml"></a>SAML
@@ -127,6 +127,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 | {SAML:ForceAuthn} | SAML 请求的 `AuthnRequest` 元素中的 `ForceAuthN` 特性值。 | True |
 | {SAML:ProviderName} | SAML 请求的 `AuthnRequest` 元素中的 `ProviderName` 特性值。| Contoso.com |
 | {SAML:RelayState} | `RelayState` 查询字符串参数。| 
+| {SAML： Subject} | `Subject`SAML 身份验证请求的 NameId 元素中的。| 
 
 ## <a name="using-claim-resolvers"></a>使用声明解析程序
 
@@ -186,7 +187,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 
 通过 Azue AD B2C，可将查询字符串参数传递给 HTML 内容定义终结点，以便动态呈现页面内容。 例如，此功能允许基于从 Web 或移动应用程序传递的自定义参数，更改 Azure AD B2C 注册或登录页面上的背景图像。 有关详细信息，请参阅[使用 Azure Active Directory B2C 中的自定义策略动态配置 UI](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)。 此外，还可以根据语言参数本地化 HTML 页，或者根据客户端 ID 更改内容。
 
-以下示例传入了名为 **campaignId** 且值为 `Hawaii` 的查询字符串参数、**language** 代码 `en-US` 以及表示客户端 ID 的 **app**：
+以下示例传入了名为 **campaignId** 且值为 `Hawaii` 的查询字符串参数、 **language** 代码 `en-US` 以及表示客户端 ID 的 **app** ：
 
 ```xml
 <UserJourneyBehaviors>

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322084"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040244"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>选择映射数据流中的转换
 
@@ -44,13 +44,13 @@ ms.locfileid: "84322084"
 
 如果希望一次映射多个列或传递偏移列下游，请使用基于规则的映射来定义使用列模式的映射。 根据 `name` 列的、 `type` 、 `stream` 和进行匹配 `position` 。 可以有固定和基于规则的映射的任意组合。 默认情况下，每列大于50的所有投影都将默认为基于规则的映射，该映射在每个列上都匹配并输出输入名称。 
 
-若要添加基于规则的映射，请单击 " **添加映射** "，然后选择 " **基于规则的映射**"。
+若要添加基于规则的映射，请单击 " **添加映射** "，然后选择 " **基于规则的映射** "。
 
-![基于规则的映射](media/data-flow/rule2.png "基于规则的映射")
+![屏幕截图显示从添加映射中选择的基于规则的映射。](media/data-flow/rule2.png "基于规则的映射")
 
 每个基于规则的映射都需要两个输入：要匹配的条件以及每个映射列的名称。 这两个值都是通过 [表达式生成器](concepts-data-flow-expression-builder.md)输入的。 在左侧的 "表达式" 框中，输入您的布尔匹配条件。 在右侧的 "表达式" 框中，指定匹配的列将映射到的列。
 
-![基于规则的映射](media/data-flow/rule-based-mapping.png "基于规则的映射")
+![屏幕截图显示了一个映射。](media/data-flow/rule-based-mapping.png "基于规则的映射")
 
 使用 `$$` 语法来引用匹配列的输入名称。 使用上述图像作为示例，假设用户想要匹配名称长度少于6个字符的所有字符串列。 如果一个传入列已命名 `test` ，则表达式 `$$ + '_short'` 将重命名该列 `test_short` 。 如果这是唯一存在的映射，则将从输出的数据中删除所有不符合条件的列。
 
@@ -60,7 +60,7 @@ ms.locfileid: "84322084"
 
 如果单击向下 v 形图标，则可以指定 regex 映射条件。 Regex 映射条件与与指定的正则表达式匹配的所有列名称匹配。 这可以与基于标准规则的映射结合使用。
 
-![基于规则的映射](media/data-flow/regex-matching.png "基于规则的映射")
+![屏幕截图显示了具有层次结构级别和名称匹配的正则表达式映射条件。](media/data-flow/regex-matching.png "基于规则的映射")
 
 上面的示例匹配正则表达式模式 `(r)` 或任何包含小写字母的列名称。 与基于标准规则的映射类似，所有匹配的列都通过使用语法在右侧的条件下进行更改 `$$` 。
 
@@ -70,7 +70,7 @@ ms.locfileid: "84322084"
 
 如果您定义的投影具有层次结构，则可以使用基于规则的映射来映射层次结构个子列。 指定匹配条件以及要映射其个子列的复杂列。 将使用右侧指定的 "名称为" 规则输出每个匹配的 subcolumn。
 
-![基于规则的映射](media/data-flow/rule-based-hierarchy.png "基于规则的映射")
+![屏幕截图显示了使用的层次结构的基于规则的映射。](media/data-flow/rule-based-hierarchy.png "基于规则的映射")
 
 上面的示例匹配复杂列的所有个子列 `a` 。 `a` 包含两个个子列 `b` 和 `c` 。 输出架构将包括两个列 `b` ，并且 `c` "名称为" 条件为 `$$` 。
 
