@@ -76,7 +76,7 @@ ID    Product        Quantity    ModifiedDate
 > [!IMPORTANT]
 > Azure Synapse Analytics 目前不支持 sliceIdentifierColumnName。 
 
-实现可重复性的另一种机制是在目标表中使用专用列 (**sliceIdentifierColumnName**)。 Azure 数据工厂使用此列来确保源与目标保持同步。 如果可以灵活更改或定义目标 SQL 表架构，则很适合使用这种方法。 
+实现可重复性的另一种机制是在目标表中使用专用列 ( **sliceIdentifierColumnName** )。 Azure 数据工厂使用此列来确保源与目标保持同步。 如果可以灵活更改或定义目标 SQL 表架构，则很适合使用这种方法。 
 
 出于可重复性的目的，Azure 数据工厂将使用此列，在此过程中，Azure 数据工厂不会对表做出任何架构更改。 如何使用此方法：
 
