@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274674"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042804"
 ---
 # <a name="conditional-access-grant"></a>条件访问：授予
 
@@ -36,15 +36,15 @@ ms.locfileid: "87274674"
 
 - [需要多重身份验证（Azure 多重身份验证）](../authentication/concept-mfa-howitworks.md)
 - [要求设备标记为符合 (Microsoft Intune) ](/intune/protect/device-compliance-get-started)
-- [需要混合 Azure AD 联接设备](../devices/concept-azure-ad-join-hybrid.md)
+- [要求使用已建立混合 Azure AD 联接的设备](../devices/concept-azure-ad-join-hybrid.md)
 - [“需要已批准的客户端应用”](app-based-conditional-access.md)
 - [需要应用保护策略](app-protection-based-conditional-access.md)
 - [要求更改密码](#require-password-change)
 
 当管理员组合使用这些选项时，可以选择以下方法：
 
-- 需要所有选定控制（控制**和**控制）
-- 需要某一选定控制（控制**或**控制）
+- 需要所有选定控制（控制 **和** 控制）
+- 需要某一选定控制（控制 **或** 控制）
 
 默认情况下，条件访问需要所有选定控制。
 
@@ -70,7 +70,7 @@ ms.locfileid: "87274674"
 
 组织可以要求只能尝试从已批准的客户端应用访问选定的云应用。 这些已批准的客户端应用支持 [Intune 应用保护策略](/intune/app-protection-policy)，而不受任何移动设备管理 (MDM) 解决方案影响。
 
-为了利用此授权控制，条件访问要求在 Azure Active Directory 中注册设备，这需要使用代理应用。 代理应用可以是适用于 iOS 的 Microsoft Authenticator，也可以是适用于 Android 设备的 Microsoft 公司门户。 如果用户尝试进行身份验证时设备上未安装代理应用，则会将用户重定向到应用商店来安装代理应用。
+为了利用此授权控制，条件访问要求在 Azure Active Directory 中注册设备，这需要使用代理应用。 代理应用可以是适用于 iOS 的 Microsoft Authenticator，或适用于 Android 设备的 Microsoft Authenticator 或 Microsoft 公司门户。 如果当用户尝试进行身份验证时设备上未安装 broker 应用，则会将用户重定向到相应的应用/play 商店，以安装所需的代理应用。
 
 此设置适用于以下 iOS 和 Android 应用：
 

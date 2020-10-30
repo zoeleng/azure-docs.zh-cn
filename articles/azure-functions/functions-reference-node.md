@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164816"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043117"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -134,11 +134,11 @@ module.exports = async function (context, req) {
    ```
 
 ### <a name="outputs"></a>Outputs
-函数可通过多种方式写入输出（`direction === "out"` 的绑定）。 在所有情况下，*function.json* 中定义的绑定属性 `name` 对应于函数中所写入到的对象成员的名称。 
+函数可通过多种方式写入输出（`direction === "out"` 的绑定）。 在所有情况下， *function.json* 中定义的绑定属性 `name` 对应于函数中所写入到的对象成员的名称。 
 
 可通过以下方式之一将数据分配到输出绑定（不要结合使用这些方法）：
 
-- **_[有多个输出时建议使用]_ 返回对象。** 如果使用异步函数/返回 Promise 的函数，可以返回分配有输出数据的对象。 在以下示例中，*function.json* 中的输出绑定名为“httpResponse”和“queueOutput”。
+- **_[有多个输出时建议使用]_ 返回对象。** 如果使用异步函数/返回 Promise 的函数，可以返回分配有输出数据的对象。 在以下示例中， *function.json* 中的输出绑定名为“httpResponse”和“queueOutput”。
 
   ```javascript
   module.exports = async function(context) {
@@ -290,13 +290,13 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-允许你使用其他日志记录级别，在默认跟踪级别写入流式处理函数日志。 下一部分将详细介绍跟踪日志记录。 
+利用该方法，可以在其他日志记录级别可用的情况下在默认跟踪级别写入到流式处理函数日志。 在下一部分中会详细说明跟踪日志记录。 
 
-## <a name="write-trace-output-to-logs"></a>将跟踪输出写入日志
+## <a name="write-trace-output-to-logs"></a>将跟踪输出写入到日志
 
-在函数中，使用 `context.log` 方法将跟踪输出写入日志和控制台。 调用时，将在 `context.log()` 默认跟踪级别（即 _信息_ 跟踪级别）将消息写入日志。 函数与 Azure 应用程序 Insights 集成，以更好地捕获函数应用日志。 Application Insights 是 Azure Monitor 的一部分，它提供了应用程序遥测和跟踪输出的集合、视觉对象呈现和分析功能。 若要了解详细信息，请参阅 [监视 Azure Functions](functions-monitoring.md)。
+在 Functions 中，可使用 `context.log` 方法将跟踪输出写入到日志和控制台。 在调用 `context.log()` 时，消息会在默认跟踪级别（即，信息跟踪级别）写入到日志。 Functions 与 Azure Application Insights 集成，从而能够更好地捕获函数应用日志。 Application Insights 是 Azure Monitor 的一部分，它提供了对应用程序遥测数据和跟踪输出都可以进行收集、视觉呈现和分析的工具。 若要了解详细信息，请参阅[监视 Azure Functions](functions-monitoring.md)。
 
-下面的示例在 info 跟踪级别写入日志，包括调用 ID：
+下面的示例在信息跟踪级别写入日志，包括调用 ID：
 
 ```javascript
 context.log("Something has happened. " + context.invocationId); 
@@ -317,38 +317,38 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 > [!NOTE]  
-> 不要使用 `console.log` 来编写跟踪输出。 由于的输出 `console.log` 是在函数应用级别捕获的，因此它不会绑定到特定函数调用，也不会显示在特定函数的日志中。 此外，版本1.x 的函数运行时不支持使用 `console.log` 来写入控制台。
+> 不要使用 `console.log` 来编写跟踪输出。 因为 `console.log` 的输出是在函数应用级别捕获的，所以它不会绑定到特定的函数调用，并且不会显示在特定函数的日志中。 此外，Functions 运行时的 1.x 版本不支持使用 `console.log` 写入到控制台。
 
 ### <a name="trace-levels"></a>跟踪级别
 
-除了默认级别外，还可以使用以下日志记录方法，以便在特定跟踪级别写入函数日志。
+除了默认级别外，通过使用以下日志记录方法还可以在特定的跟踪级别写入函数日志。
 
 | 方法                 | 说明                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | 将错误级别事件写入日志。   |
-| **warn(_message_)**    | 将警告级别事件写入日志。 |
-| **info(_message_)**    | 向信息级日志记录或更低级别进行写入。    |
-| **verbose(_message_)** | 向详细级日志记录进行写入。           |
+| **error( _message_ )**   | 将错误级别的事件写入到日志。   |
+| **warn( _message_ )**    | 将警告级别的事件写入到日志。 |
+| **info( _message_ )**    | 向信息级日志记录或更低级别进行写入。    |
+| **verbose( _message_ )** | 向详细级日志记录进行写入。           |
 
-下面的示例在警告跟踪级别（而不是信息级别）写入同一日志：
+以下示例在警告跟踪级别（而不是信息级别）写入同一个日志：
 
 ```javascript
 context.log.warn("Something has happened. " + context.invocationId); 
 ```
 
-因为_错误_是最高跟踪级别，所以，只要启用了日志记录，此跟踪会在所有跟踪级别写入到输出中。
+因为 _错误_ 是最高跟踪级别，所以，只要启用了日志记录，此跟踪会在所有跟踪级别写入到输出中。
 
-### <a name="configure-the-trace-level-for-logging"></a>配置日志记录的跟踪级别
+### <a name="configure-the-trace-level-for-logging"></a>配置跟踪级别以便进行日志记录
 
-函数允许你定义用于写入日志或控制台的阈值跟踪级别。 特定阈值设置取决于函数运行时的版本。
+利用 Functions，可以定义阈值跟踪级别以便写入到日志或控制台。 特定的阈值设置取决于 Functions 运行时的版本。
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
-若要为写入日志的跟踪设置阈值，请使用 `logging.logLevel` 文件的 host.js中的属性。 此 JSON 对象允许您为函数应用中的所有函数定义默认阈值，还可以为各个函数定义特定阈值。 若要了解详细信息，请参阅 [如何为 Azure Functions 配置监视](configure-monitoring.md)。
+若要为写入到日志的跟踪设置阈值，请在 host.json 文件中使用 `logging.logLevel` 属性。 利用此 JSON 对象，可以为函数应用中的所有函数定义默认阈值，另外还可以为单个函数定义特定阈值。 若要了解详细信息，请参阅[如何配置对 Azure Functions 的监视](configure-monitoring.md)。
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
-若要为写入到日志和控制台的所有跟踪设置阈值，请使用 `tracing.consoleLevel` 文件的 host.js中的属性。 此设置应用于 Function App 中的所有函数。 以下示例设置跟踪阈值来启用详细日志记录：
+若要为写入到日志和控制台的所有跟踪设置阈值，请在 host.json 文件中使用 `tracing.consoleLevel` 属性。 此设置应用于 Function App 中的所有函数。 以下示例设置跟踪阈值来启用详细日志记录：
 
 ```json
 {
@@ -358,15 +358,15 @@ context.log.warn("Something has happened. " + context.invocationId);
 }  
 ```
 
-**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_。 有关详细信息，请参阅 [ v1. x reference 上的host.js](functions-host-json-v1.md)。
+**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_ 。 有关详细信息，请参阅 [host.json v1.x 参考](functions-host-json-v1.md)。
 
 ---
 
-### <a name="log-custom-telemetry"></a>记录自定义遥测
+### <a name="log-custom-telemetry"></a>记录自定义遥测数据
 
-默认情况下，函数将输出作为跟踪写入到 Application Insights。 为了更好地控制，可以使用 [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) 将自定义遥测数据发送到 Application Insights 实例。 
+默认情况下，Functions 将输出作为跟踪写入到 Application Insights。 为了加强控制，可以改用 [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) 将自定义遥测数据发送到 Application Insights 实例。 
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -550,7 +550,7 @@ module.exports = function(context) {
 3. 转到 `D:\home\site\wwwroot`，然后将 package.json 文件拖到页面上半部分中的 **wwwroot** 文件夹上。  
     还可采用其他方式将文件上传到 Function App。 有关详细信息，请参阅[如何更新 Function App 文件](functions-reference.md#fileupdate)。 
 
-4. 上传 package.json 文件后，在 **Kudu 远程执行控制台**中运行 `npm install` 命令。  
+4. 上传 package.json 文件后，在 **Kudu 远程执行控制台** 中运行 `npm install` 命令。  
     此操作将下载 package.json 文件中指定的包并重新启动 Function App。
 
 ## <a name="environment-variables"></a>环境变量

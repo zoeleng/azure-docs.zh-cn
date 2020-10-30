@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2f3635c8280bdd95e8ad1259fe4ae35f8b531a4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687984"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042815"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>使用 Azure 门户为 VM 配置路由首选项
 
@@ -66,13 +66,14 @@ Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNa
 
 7. 接受其余默认设置，然后选择“确定”。
 8. 在“摘要”页中，选择“创建”。 部署虚拟机需要数分钟。
-9. 部署虚拟机以后，请在门户顶部的搜索框中输入 *myPublicIpAddress*。 当“myPublicIpAddress”出现在搜索结果中时，将其选中。
+9. 部署虚拟机以后，请在门户顶部的搜索框中输入 *myPublicIpAddress* 。 当“myPublicIpAddress”出现在搜索结果中时，将其选中。
 10. 可以查看分配的公共 IP 地址，以及分配给 **myVM** 虚拟机的地址，如下图所示：
 
-    ![查看公共 IP 地址](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![屏幕截图显示网络接口 mynic 的 NIC 公共 I P。](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
 11. 选择“网络”，单击 nic“mynic”，然后选择公共 IP 地址，以确认路由首选项被指定为“Internet”。
-    ![查看公共 IP 地址](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+
+    ![屏幕截图显示公共 I P 地址的 I P 地址和路由首选项。](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

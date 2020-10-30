@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 8cace120dc823f42f2b2e01e4234ea8d5ace7a69
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926319"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042947"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>监视 Azure IoT 中心数据引用
 
@@ -60,9 +60,9 @@ ms.locfileid: "92926319"
 |指标显示名称|指标|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |过期的 C2D 消息数（预览版）|C2DMessagesExpired|计数|总计|过期的云到设备消息数|无|
-|已完成的 C2D 消息传递次数|c2d.commands.egress.<br>complete.success|计数|总计|设备成功完成的云到设备消息传递次数|无|
-|丢弃的 C2D 消息数|c2d.commands.egress.<br>abandon.success|计数|总计|设备丢弃的云到设备消息数|无|
-|拒绝的 C2D 消息数|c2d.commands.egress.<br>reject.success|计数|总计|设备拒绝的云到设备消息数|无|
+|已完成的 C2D 消息传递次数|c2d.commands.egress.complete.success|计数|总计|设备成功完成的云到设备消息传递次数|无|
+|丢弃的 C2D 消息数|c2d.commands.egress.abandon.success|计数|总计|设备丢弃的云到设备消息数|无|
+|拒绝的 C2D 消息数|c2d.commands.egress.reject.success|计数|总计|设备拒绝的云到设备消息数|无|
 
 对于 **单位** 值为 **Count** 的指标，只有总计 (总计) 聚合有效。 最小、最大和平均聚合始终返回1。 有关详细信息，请参阅 [支持的聚合](#supported-aggregations)。
 
@@ -113,7 +113,7 @@ ms.locfileid: "92926319"
 |指标显示名称|指标|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |设备总数（已弃用）|devices.totalDevices|计数|总计|已注册到 IoT 中心的设备数目|无|
-|连接的设备数（已弃用） |devices.connectedDevices.<br>allProtocol|计数|总计|已连接到 IoT 中心的设备数目|无|
+|连接的设备数（已弃用） |devices.connectedDevices.allProtocol|计数|总计|已连接到 IoT 中心的设备数目|无|
 |设备总数（预览）|totalDeviceCount|计数|平均值|已注册到 IoT 中心的设备数目|无|
 |连接设备数（预览）|connectedDeviceCount|计数|平均值|已连接到 IoT 中心的设备数目|无|
 
@@ -127,9 +127,9 @@ ms.locfileid: "92926319"
 
 |指标显示名称|指标|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|限制错误数|d2c.telemetry.ingress.<br>sendThrottle|计数|总计|由于设备吞吐量限制而导致的限制错误数|无|
-|遥测消息发送尝试次数|d2c.telemetry.ingress.<br>allProtocol|计数|总计|尝试发送到 IoT 中心的、设备到云的遥测消息数|无|
-|发送的遥测消息数|d2c.telemetry.ingress.<br>success|计数|总计|成功发送到 IoT 中心的、设备到云的遥测消息数|无|
+|限制错误数|d2c.telemetry.ingress.sendThrottle|计数|总计|由于设备吞吐量限制而导致的限制错误数|无|
+|遥测消息发送尝试次数|d2c.telemetry.ingress.allProtocol|计数|总计|尝试发送到 IoT 中心的、设备到云的遥测消息数|无|
+|发送的遥测消息数|d2c.telemetry.ingress.success|计数|总计|成功发送到 IoT 中心的、设备到云的遥测消息数|无|
 
 对于 **单位** 值为 **Count** 的指标，只有总计 (总计) 聚合有效。 最小、最大和平均聚合始终返回1。 有关详细信息，请参阅 [支持的聚合](#supported-aggregations)。
 
@@ -161,13 +161,13 @@ ms.locfileid: "92926319"
 |---|---|---|---|---|---|
 |已完成的作业|jobs.completed|计数|总计|所有已完成的作业的计数。|无|
 |对列出作业的失败调用数|jobs.listJobs.failure|计数|总计|对列出作业的所有失败调用的计数。|无|
-|方法调用作业的创建失败数|jobs.createDirectMethodJob.<br>失败|计数|总计|直接方法调用作业创建失败的所有次数。|无|
-|孪生更新作业创建失败数|jobs.createTwinUpdateJob.<br>失败|计数|总计|孪生更新作业创建失败的所有次数。|无|
+|方法调用作业的创建失败数|jobs.createDirectMethodJob.failure|计数|总计|直接方法调用作业创建失败的所有次数。|无|
+|孪生更新作业创建失败数|jobs.createTwinUpdateJob.failure|计数|总计|孪生更新作业创建失败的所有次数。|无|
 |失败的作业取消数|jobs.cancelJob.failure|计数|总计|用来取消作业的调用失败的次数。|无|
 |失败的作业查询数|jobs.queryJobs.failure|计数|总计|对查询作业的所有失败调用的计数。|无|
 |失败的作业数|jobs.failed|计数|总计|所有失败的作业的计数。|无|
 |对列出作业的成功调用数|jobs.listJobs.success|计数|总计|对列出作业的所有成功调用的计数。|无|
-|方法调用作业的创建成功数|jobs.createDirectMethodJob.<br>success|计数|总计|直接方法调用作业创建成功的所有次数。|无|
+|方法调用作业的创建成功数|jobs.createDirectMethodJob.success|计数|总计|直接方法调用作业创建成功的所有次数。|无|
 |孪生更新作业创建成功数|jobs.createTwinUpdateJob.<br>success|计数|总计|孪生更新作业创建成功的所有次数。|无|
 |成功的作业取消数|jobs.cancelJob.success|计数|总计|用来取消作业的调用成功的次数。|无|
 |成功的作业查询数|jobs.queryJobs.success|计数|总计|对查询作业的所有成功调用的计数。|无|
@@ -181,23 +181,23 @@ ms.locfileid: "92926319"
 | 路由传递尝试次数（预览版） |RoutingDeliveries | 计数 | 总计 |这是路由传递指标。 使用维度标识特定终结点或特定路由源的传递状态。| Result、<br>RoutingSource、<br>EndpointType、<br>FailureReasonCategory、<br>EndpointName<br>*有关详细信息，请参阅 [公制维度](#metric-dimensions)* 。 |
 | 路由传递数据大小（以字节为单位）（预览版）|RoutingDataSizeInBytesDelivered| 字节 | 总计 |IoT 中心路由到自定义终结点和内置终结点的总字节数。 使用维度标识路由到特定终结点或特定路由源的数据大小。| RoutingSource、<br>EndpointType<br>EndpointName<br>*有关详细信息，请参阅 [公制维度](#metric-dimensions)* 。|
 | 路由延迟（预览版） |RoutingDeliveryLatency| 毫秒 | 平均值 |这是路由传递延迟指标。 使用维度标识特定终结点或特定路由源的延迟。| RoutingSource、<br>EndpointType、<br>EndpointName<br>*有关详细信息，请参阅 [公制维度](#metric-dimensions)* 。|
-|路由：将 Blob 传送到存储的次数|d2c.endpoints.egress.<br>storage.blobs|计数|总计|IoT 中心路由将 Blob 传送到存储终结点的次数。|无|
-|路由：传送到存储的数据量|d2c.endpoints.egress.<br>storage.bytes|字节|总计|IoT 中心路由传送到存储终结点的数据量（字节）。|无|
-|路由：事件中心的消息延迟|d2c.endpoints.latency.<br>.eventHubs|毫秒|平均值|消息进入 IoT 中心与进入事中心类型的自定义终结点之间的平均延迟（毫秒）。 这不包括指向内置终结点（事件）的消息路由。|无|
-|路由：服务总线队列的消息延迟|d2c.endpoints.latency.<br>serviceBusQueues|毫秒|平均值|消息进入 IoT 中心与消息进入服务总线队列终结点之间的平均延迟（毫秒）。|无|
-|路由：服务总线主题的消息延迟|d2c.endpoints.latency.<br>serviceBusTopics|毫秒|平均值|消息进入 IoT 中心与消息进入服务总线主题终结点之间的平均延迟（毫秒）。|无|
-|路由：消息/事件的消息延迟|d2c.endpoints.latency.<br>builtIn.events|毫秒|平均值|消息进入 IoT 中心与遥测消息进入内置终结点（消息/事件）以及回退路由之间的平均延迟（毫秒）。|无|
-|路由：存储的消息延迟|d2c.endpoints.latency.<br>storage|毫秒|平均值|消息进入 IoT 中心与消息进入存储终结点之间的平均延迟（毫秒）。|无|
-|路由：消息传送到事件中心的次数|d2c.endpoints.egress.<br>.eventHubs|计数|总计|IoT 中心路由成功将消息传送到事件中心类型的自定义终结点的次数。 这不包括指向内置终结点（事件）的消息路由。|无|
-|路由：消息传送到服务总线队列的次数|d2c.endpoints.egress.<br>serviceBusQueues|计数|总计|IoT 中心路由成功将消息传送到服务总线队列终结点的次数。|无|
-|路由：消息传送到服务总线主题的次数|d2c.endpoints.egress.<br>serviceBusTopics|计数|总计|IoT 中心路由成功将消息传送到服务总线主题终结点的次数。|无|
-|路由：消息传送到回退路由的次数|d2c.telemetry.egress.<br>.fallback|计数|总计|IoT 中心路由将消息传送到与回退路由关联的终结点的次数。|无|
-|路由：消息传送到消息/事件的次数|d2c.endpoints.egress.<br>builtIn.events|计数|总计|IoT 中心路由成功将消息传送到内置终结点（消息/事件）以及回退路由的次数。|无|
-|路由：消息传送到存储的次数|d2c.endpoints.egress.<br>storage|计数|总计|IoT 中心路由成功将消息传送到存储终结点的次数。|无|
-|路由：遥测消息传送次数|d2c.telemetry.egress.<br>success|计数|总计|使用 IoT 中心路由将消息成功传送到所有终结点的次数。 如果某条消息已路由到多个终结点，则每成功传送一次，此值就会加 1。 如果某条消息多次路由到同一终结点，则每成功传送一次，此值就会加 1。|无|
-|路由：遥测消息删除次数 |d2c.telemetry.egress.<br>已删除|计数|总计|由于终结点消亡，IoT 中心路由删除消息的次数。 此值不会统计已传送到回退路由的消息，因为已删除的消息不会传送到回退路由。|无|
-|路由：遥测消息不兼容|d2c.telemetry.egress.<br>无效|计数|总计|消息由于与终结点不兼容而无法由 IoT 中心路由传送的次数。 当 Iot 中心尝试将消息传递到终结点时，与终结点不兼容的消息会失败，并出现非暂时性错误。 不会重试无效的消息。 此值不包括重试次数。|无|
-|路由：遥测消息孤立次数 |d2c.telemetry.egress.<br>已孤立|计数|总计|禁用路由消息时，IoT 中心路由孤立了次数消息，因为它们与任何路由查询都不匹配。|无|
+|路由：将 Blob 传送到存储的次数|d2c.endpoints.egress.storage.blobs|计数|总计|IoT 中心路由将 Blob 传送到存储终结点的次数。|无|
+|路由：传送到存储的数据量|d2c.endpoints.egress.storage.bytes|字节|总计|IoT 中心路由传送到存储终结点的数据量（字节）。|无|
+|路由：事件中心的消息延迟|d2c.endpoints.latency.eventHubs|毫秒|平均值|消息进入 IoT 中心与进入事中心类型的自定义终结点之间的平均延迟（毫秒）。 这不包括指向内置终结点（事件）的消息路由。|无|
+|路由：服务总线队列的消息延迟|d2c.endpoints.latency.serviceBusQueues|毫秒|平均值|消息进入 IoT 中心与消息进入服务总线队列终结点之间的平均延迟（毫秒）。|无|
+|路由：服务总线主题的消息延迟|d2c.endpoints.latency.serviceBusTopics|毫秒|平均值|消息进入 IoT 中心与消息进入服务总线主题终结点之间的平均延迟（毫秒）。|无|
+|路由：消息/事件的消息延迟|d2c.endpoints.latency.builtIn.events|毫秒|平均值|消息进入 IoT 中心与遥测消息进入内置终结点（消息/事件）以及回退路由之间的平均延迟（毫秒）。|无|
+|路由：存储的消息延迟|d2c.endpoints.latency.storage|毫秒|平均值|消息进入 IoT 中心与消息进入存储终结点之间的平均延迟（毫秒）。|无|
+|路由：消息传送到事件中心的次数|d2c.endpoints.egress.eventHubs|计数|总计|IoT 中心路由成功将消息传送到事件中心类型的自定义终结点的次数。 这不包括指向内置终结点（事件）的消息路由。|无|
+|路由：消息传送到服务总线队列的次数|d2c.endpoints.egress.serviceBusQueues|计数|总计|IoT 中心路由成功将消息传送到服务总线队列终结点的次数。|无|
+|路由：消息传送到服务总线主题的次数|d2c.endpoints.egress.serviceBusTopics|计数|总计|IoT 中心路由成功将消息传送到服务总线主题终结点的次数。|无|
+|路由：消息传送到回退路由的次数|d2c.telemetry.egress.fallback|计数|总计|IoT 中心路由将消息传送到与回退路由关联的终结点的次数。|无|
+|路由：消息传送到消息/事件的次数|d2c.endpoints.egress.builtIn.events|计数|总计|IoT 中心路由成功将消息传送到内置终结点（消息/事件）以及回退路由的次数。|无|
+|路由：消息传送到存储的次数|d2c.endpoints.egress.storage|计数|总计|IoT 中心路由成功将消息传送到存储终结点的次数。|无|
+|路由：遥测消息传送次数|d2c.telemetry.egress.success|计数|总计|使用 IoT 中心路由将消息成功传送到所有终结点的次数。 如果某条消息已路由到多个终结点，则每成功传送一次，此值就会加 1。 如果某条消息多次路由到同一终结点，则每成功传送一次，此值就会加 1。|无|
+|路由：遥测消息删除次数 |d2c.telemetry.egress.dropped|计数|总计|由于终结点消亡，IoT 中心路由删除消息的次数。 此值不会统计已传送到回退路由的消息，因为已删除的消息不会传送到回退路由。|无|
+|路由：遥测消息不兼容|d2c.telemetry.egress.invalid|计数|总计|消息由于与终结点不兼容而无法由 IoT 中心路由传送的次数。 当 Iot 中心尝试将消息传递到终结点时，与终结点不兼容的消息会失败，并出现非暂时性错误。 不会重试无效的消息。 此值不包括重试次数。|无|
+|路由：遥测消息孤立次数 |d2c.telemetry.egress.orphaned|计数|总计|禁用路由消息时，IoT 中心路由孤立了次数消息，因为它们与任何路由查询都不匹配。|无|
 
 对于 **单位** 值为 **Count** 的指标，只有总计 (总计) 聚合有效。 最小、最大和平均聚合始终返回1。 有关详细信息，请参阅 [支持的聚合](#supported-aggregations)。
 

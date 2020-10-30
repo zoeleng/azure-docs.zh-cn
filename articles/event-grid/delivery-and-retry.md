@@ -2,13 +2,13 @@
 title: Azure 事件网格传送和重试
 description: 介绍 Azure 事件网格如何传送事件以及如何处理未送达的消息。
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324087"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042961"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>事件网格消息传送和重试
 
@@ -23,7 +23,7 @@ ms.locfileid: "91324087"
 批量传送有两个设置：
 
 * **每批最大事件数** - 事件网格每批将传送的最大事件数。 永远不会超过此数目，但是，如果在发布时没有更多事件，则可能会传送较少的事件。 如果只有较少的事件，事件网格不会为了创建某个批而延迟事件传送。 必须介于 1 到 5,000 之间。
-* **首选批大小(KB)** - 批大小的目标上限 (KB)。 与最大事件数类似，如果发布时没有更多的事件，则批大小可能会较小。 *如果*单个事件大于首选大小，则批可能会大于首选批大小。 例如，如果首选大小为 4 KB，并且一个 10 KB 的事件推送到了事件网格，则 10 KB 事件将会在其自己的批中传送，而不会被删除。
+* **首选批大小(KB)** - 批大小的目标上限 (KB)。 与最大事件数类似，如果发布时没有更多的事件，则批大小可能会较小。 *如果* 单个事件大于首选大小，则批可能会大于首选批大小。 例如，如果首选大小为 4 KB，并且一个 10 KB 的事件推送到了事件网格，则 10 KB 事件将会在其自己的批中传送，而不会被删除。
 
 可以通过门户、CLI、PowerShell 或 SDK 以每事件订阅为基础配置批量传送。
 
@@ -80,21 +80,23 @@ az eventgrid event-subscription create \
 ## <a name="dead-letter-events"></a>死信事件
 当事件网格无法在特定时间段内或在尝试传递事件一定次数后传递事件时，它可以将未传递的事件发送到存储帐户。 此过程称为“死信处理”。 满足以下条件之一时，事件网格会将事件视为死信。 
 
-- 事件未在生存期内传递
-- 尝试传递事件的次数已超出限制
+- 事件不会在 **生存时间** 内传递。 
+- 尝试传递事件的 **次数** 超出了限制。
 
 如果满足上述任一条件，则会将该事件删除或视为死信。  默认情况下，事件网格不启用死信处理。 若要启用该功能，在创建事件订阅时必须指定一个存储帐户来存放未送达的事件。 你将从此存储帐户中拉取事件来解决传递问题。
 
 事件网格已进行所有重试尝试后会将事件发送到死信位置。 如果事件网格收到 400（错误请求）或 413（请求实体太大）响应代码，它会立即将事件发送到死信终结点。 这些响应代码指示事件传送将永远不会成功。
 
+仅在下一次计划的传递尝试时检查生存时间过期。 因此，即使在下一次传递的传递尝试之前，生存时间过期，仍会在下一次传递时检查事件过期时间，并随后将死信。 
+
 最后一次尝试发送事件与发送到死信位置之间有五分钟的延迟。 此延迟旨在减少 Blob 存储操作的数量。 如果死信位置已四小时不可用，则会丢弃该事件。
 
 在设置死信位置之前，必须有一个包含容器的存储帐户。 在创建事件订阅时，需要提供此容器的终结点。 终结点的格式如下：`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-你可能希望在事件发送到死信位置时收到通知。 若要使用事件网格来响应未送达的事件，请为死信 blob 存储[创建事件订阅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)。 每当死信 blob 存储收到未送达的事件时，事件网格都会通知处理程序。 处理程序使用你希望采取的、用于协调未送达的事件的操作进行响应。 有关设置死信位置和重试策略的示例，请参阅 [死信和重试策略](manage-event-delivery.md)。
+你可能希望在事件发送到死信位置时收到通知。 若要使用事件网格来响应未送达的事件，请为死信 blob 存储[创建事件订阅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)。 每当死信 blob 存储收到未送达的事件时，事件网格都会通知处理程序。 处理程序使用你希望采取的、用于协调未送达的事件的操作进行响应。 有关设置死信位置和重试策略的示例，请参阅[死信和重试策略](manage-event-delivery.md)。
 
 ## <a name="delivery-event-formats"></a>传递事件格式
-本部分提供了不同传递架构格式 (事件网格架构、CloudEvents 1.0 架构和自定义架构) 的事件和死信事件的示例。 有关这些格式的详细信息，请参阅 [事件网格架构](event-schema.md) 和 [Cloud Events 1.0 架构](cloud-event-schema.md) 文章。 
+本部分提供了不同传递架构格式（事件网格架构、CloudEvents 1.0 架构和自定义架构）的事件和死信事件的示例。 有关这些格式的详细信息，请参阅[事件网格架构](event-schema.md)和 [CloudEvents 1.0 架构](cloud-event-schema.md)这两篇文章。 
 
 ### <a name="event-grid-schema"></a>事件网格架构
 
@@ -241,7 +243,7 @@ az eventgrid event-subscription create \
 
 ### <a name="success-codes"></a>成功代码
 
-事件网格**仅**将以下 HTTP 响应代码视为传送成功。 所有其他状态代码被视为传送失败，将会相应地重试传送或将事件加入死信队列。 收到成功状态代码后，事件网格认为传送已完成。
+事件网格 **仅** 将以下 HTTP 响应代码视为传送成功。 所有其他状态代码被视为传送失败，将会相应地重试传送或将事件加入死信队列。 收到成功状态代码后，事件网格认为传送已完成。
 
 - 200 正常
 - 201 Created

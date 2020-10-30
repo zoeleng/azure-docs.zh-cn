@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1da7221b511cb07e5000f09e4015fc8bd4a0a928
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745692"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043310"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -57,7 +57,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 3. 在“OMS 工作区”部分，选择要在其中安装解决方案的 Azure Log Analytics 工作区。
    >[!NOTE]
    > * 作为从 Microsoft Operations Management Suite (OMS) 到 Azure Monitor 的持续过渡的一部分，OMS 现工作区在称为 Log Analytics 工作区。
-   > * 在 Log Analytics 工作区中安装 ITSM 连接器仅限于以下区域：美国东部、美国西部 2、美国中南部、美国中西部、费尔法克斯、加拿大中部、西欧、英国南部、东南亚、日本东部、印度中部、澳大利亚东南部。
+   > * 只能在以下区域的 Log Analytics 工作区中安装 ITSM 连接器：美国东部、西2、美国中南部、美国西部、US Gov 亚利桑那州、US Gov 弗吉尼亚州、加拿大中部、西欧、南英国、东南亚、日本、澳大利亚、印度、澳大利亚东南部、日本东部、印度中部、澳大利亚东南部。
 
 4. 在“OMS 工作区设置”部分，选择要在其中创建解决方案资源的资源组。
 
@@ -65,7 +65,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
    >[!NOTE]
    >作为从 Microsoft Operations Management Suite (OMS) 到 Azure Monitor 的持续过渡的一部分，OMS 现工作区在称为 Log Analytics 工作区。
 
-5. 单击 **“确定”** 。
+5. 单击“确定”。
 
 部署解决方案资源时，窗口右上角会显示通知。
 

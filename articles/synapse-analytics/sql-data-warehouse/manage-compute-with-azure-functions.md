@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259945"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043360"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>使用 Azure Functions 管理 Azure Synapse Analytics SQL 池中的计算资源
 
@@ -44,15 +44,15 @@ ms.locfileid: "91259945"
 
 ## <a name="change-the-compute-level"></a>更改计算级别
 
-1. 导航到 Function App 服务。 如果使用默认值部署了模板，该服务的名称应该为 ** DWOperations。 打开 Function App 以后，会看到五个函数部署到 Function App 服务。
+1. 导航到 Function App 服务。 如果使用默认值部署了模板，该服务的名称应该为  DWOperations。 打开 Function App 以后，会看到五个函数部署到 Function App 服务。
 
    ![使用模板部署的函数](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. 选择 ** DWScaleDownTrigger 或 ** DWScaleUpTrigger，具体取决于是否要更改纵向扩展或纵向缩减时间。 在下拉菜单中，选择“集成”。
+2. 选择  DWScaleDownTrigger 或  DWScaleUpTrigger，具体取决于是否要更改纵向扩展或纵向缩减时间。 在下拉菜单中，选择“集成”。
 
    ![选择“集成”作为函数](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. 目前显示的值应该为 **%ScaleDownTime% 或 **%ScaleUpTime%。 这些值指示计划基于在[应用程序设置](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)中定义的值。 目前可以忽略该值，根据后续步骤将计划更改为首选时间。
+3. 目前显示的值应该为  %ScaleDownTime% 或  %ScaleUpTime%。 这些值指示计划基于在[应用程序设置](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)中定义的值。 目前可以忽略该值，根据后续步骤将计划更改为首选时间。
 
 4. 在 "计划" 区域中，添加 CRON 表达式的时间，以反映想要将 Azure Synapse Analytics 向上扩展的频率。
 
@@ -68,17 +68,17 @@ ms.locfileid: "91259945"
 
 ## <a name="change-the-time-of-the-scale-operation"></a>更改缩放操作的时间
 
-1. 导航到 Function App 服务。 如果使用默认值部署了模板，该服务的名称应该为 ** DWOperations。 打开 Function App 以后，会看到五个函数部署到 Function App 服务。
+1. 导航到 Function App 服务。 如果使用默认值部署了模板，该服务的名称应该为  DWOperations。 打开 Function App 以后，会看到五个函数部署到 Function App 服务。
 
-2. 选择 ** DWScaleDownTrigger 或 ** DWScaleUpTrigger，具体取决于是否要更改纵向扩展或纵向缩减计算值。 选择函数以后，窗格会显示 ** index.js 文件。
+2. 选择  DWScaleDownTrigger 或  DWScaleUpTrigger，具体取决于是否要更改纵向扩展或纵向缩减计算值。 选择函数以后，窗格会显示  index.js 文件。
 
    ![更改函数触发器计算级别](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. 将 ** ServiceLevelObjective 的值更改为所需级别，然后点击“保存”。 此值是根据“集成”部分定义的计划，数据仓库实例应缩放到的计算级别。
+3. 将  ServiceLevelObjective 的值更改为所需级别，然后点击“保存”。 此值是根据“集成”部分定义的计划，数据仓库实例应缩放到的计算级别。
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>使用暂停或继续而非缩放
 
-目前，默认启用的函数为 ** DWScaleDownTrigger 和 ** DWScaleUpTrigger。 若要改用暂停和继续功能，可以启用 ** DWPauseTrigger 或 ** DWResumeTrigger。
+目前，默认启用的函数为  DWScaleDownTrigger 和  DWScaleUpTrigger。 若要改用暂停和继续功能，可以启用  DWPauseTrigger 或  DWResumeTrigger。
 
 1. 导航到“函数”窗格。
 
@@ -86,7 +86,7 @@ ms.locfileid: "91259945"
 
 2. 单击要启用的触发器所对应的滑动切换开关。
 
-3. 导航到用于更改计划的各个触发器的“集成”选项卡。**
+3. 导航到用于更改计划的各个触发器的“集成”选项卡。 
 
    > [!NOTE]
    > 缩放触发器和暂停/继续触发器之间的功能差异在于发送给队列的消息。 有关详细信息，请参阅[添加新的触发器函数](manage-compute-with-azure-functions.md#add-a-new-trigger-function)。
@@ -97,9 +97,9 @@ ms.locfileid: "91259945"
 
 1. 创建新的空白函数。 选择 *+* 函数位置附近的按钮以显示函数模板窗格。
 
-   ![创建新的函数](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![屏幕截图，显示 "Function Apps" 菜单，其中 "函数" 旁边的 "函数" 旁边有 "加号" 图标。](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. 在 "语言" 中，选择 " *JavaScript*"，然后选择 " *TimerTrigger*"。
+2. 在 "语言" 中，选择 " *JavaScript* "，然后选择 " *TimerTrigger* "。
 
    ![创建新的函数](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "91259945"
 
    ![周六纵向缩减](./media/manage-compute-with-azure-functions/scale-down-saturday.png)
 
-4. 从其他触发器函数中的一个复制 ** index.js 的内容。
+4. 从其他触发器函数中的一个复制  index.js 的内容。
 
    ![复制 index js](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "91259945"
 
 每日向上扩展，早晨8点到 DW600c，并在晚上8点向下扩展到 DW200c。
 
-| 函数  | 计划     | 操作                                |
+| 函数  | 计划     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
@@ -148,7 +148,7 @@ ms.locfileid: "91259945"
 
 每日横向扩展，早晨8点到 DW1000c，向下缩放一次以 DW600 at 下午4点，并向下扩展到10pm。
 
-| 函数  | 计划     | 操作                                |
+| 函数  | 计划     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
@@ -158,7 +158,7 @@ ms.locfileid: "91259945"
 
 在早晨8点到 DW1000c 的纵向扩展，一次向下扩展到工作日下午4点的 DW600c。 周五晚上 11 点暂停，周一早晨 7 点继续。
 
-| 函数  | 计划       | 操作                                |
+| 函数  | 计划       | Operation                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |

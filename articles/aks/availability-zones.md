@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745818"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043024"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>创建使用可用性区域的 Azure Kubernetes 服务 (AKS) 群集
 
@@ -52,7 +52,7 @@ Azure Kubernetes 服务 (AKS) 群集跨基础 Azure 基础结构的逻辑部分�
 
 使用 Azure 托管磁盘的卷当前不是区域冗余资源。 卷不能跨区域附加，并且必须与承载目标 pod 的给定节点位于同一区域中。
 
-如果必须运行有状态的工作负载，请使用 pod 规范中的节点池排斥和容许将 pod 计划分组到磁盘所在的同一区域中。 另外，还可以使用基于网络的存储（如 Azure 文件存储），在区域间对该存储进行调度时可将其附加到 pod。
+自1.12 版起，Kubernetes 知道 Azure 可用性区域。 你可以在多区域 AKS 群集中部署引用 Azure 托管磁盘的 PersistentVolumeClaim 对象，并且 [Kubernetes 将负责计划](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) 在正确的可用性区域中声明此 PVC 的所有 pod。
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 群集的可用性区域概述
 
@@ -120,7 +120,20 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 向代理池添加其他节点时，Azure 平台会自动在指定的可用性区域内分发基础 VM。
 
-请注意，在新的 Kubernetes 版本（1.17.0 及更高版本）中，除了已弃用的 `failure-domain.beta.kubernetes.io/zone` 之外，AKS 还使用新标签 `topology.kubernetes.io/zone`。
+请注意，在新的 Kubernetes 版本（1.17.0 及更高版本）中，除了已弃用的 `failure-domain.beta.kubernetes.io/zone` 之外，AKS 还使用新标签 `topology.kubernetes.io/zone`。 通过运行以下脚本，可以获得与上述相同的结果：
+
+```console
+kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
+```
+
+这将为你带来更简洁的输出：
+
+```console
+NAME                                REGION   ZONE
+aks-nodepool1-34917322-vmss000000   eastus   eastus-1
+aks-nodepool1-34917322-vmss000001   eastus   eastus-2
+aks-nodepool1-34917322-vmss000002   eastus   eastus-3
+```
 
 ## <a name="verify-pod-distribution-across-zones"></a>验证跨区域的 pod 分布
 

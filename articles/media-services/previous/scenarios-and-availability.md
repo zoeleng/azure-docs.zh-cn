@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 58ecca6251e4c428ae5f834379e8b45059b0efc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014403"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042775"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
@@ -43,7 +43,7 @@ AMS 在世界各地的多个数据中心运行。 这些数据中心分组到地
 * Azure 媒体服务帐户。 有关详细信息，请参阅[创建帐户](media-services-portal-create-account.md)。
 * 要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
 
-    创建 AMS 帐户后，系统会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始流式传输内容并利用动态打包和动态加密，流式处理终结点必须处于“正在运行”状态。 
+    创建 AMS 帐户后，系统会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。  若要开始流式传输内容并利用动态打包和动态加密，流式处理终结点必须处于“正在运行”状态。 
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>针对 AMS OData 模型进行开发时的常用对象
 
@@ -67,7 +67,7 @@ AMS 在世界各地的多个数据中心运行。 这些数据中心分组到地
     建议向输出资产应用存储加密选项，以便保护静态内容。
 3. 配置资产传送策略（由动态打包使用）。
 
-    如果资产已经过存储加密，则**必须**配置资产传送策略。
+    如果资产已经过存储加密，则 **必须** 配置资产传送策略。
 4. 通过创建 OnDemand 定位符发布资产。
 5. 流式传输已发布的内容。
 
@@ -123,7 +123,7 @@ AMS 在世界各地的多个数据中心运行。 这些数据中心分组到地
 
 下图显示的是直通工作流中涉及的 AMS 平台的主要组成部分  。
 
-![实时工作流](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![此图显示了 "传递" 工作流中所涉及的 M S 平台的主要部分。](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 有关详细信息，请参阅[使用从本地编码器接收多比特率实时流的频道](media-services-live-streaming-with-onprem-encoders.md)。
 
@@ -153,7 +153,7 @@ AMS 客户可以缩放其 AMS 帐户中的流式处理终结点、媒体处理�
 
     “高级”  流式处理终结点适用于高级工作负荷，可提供专用且可缩放的带宽容量。 默认情况下，使用“高级”  流式处理终结点的客户会获得一个流式处理单位 (SU)。 可通过添加 SU 来缩放流式处理终结点。 每个 SU 为应用程序提供额外的带宽容量。 若要详细了解如何缩放“高级”  流式处理终结点，请参阅[缩放流式处理终结点](media-services-portal-scale-streaming-endpoints.md)主题。
 
-* 媒体服务帐户与预留单位类型关联，后者决定了编码处理任务的处理速度。 可以在以下预留单位类型中进行选择：**S1**、**S2** 或 **S3**。 例如，与 **S1** 预留单位类型相比，使用 **S2** 预留单位类型时，同一编码作业运行速度更快。
+* 媒体服务帐户与预留单位类型关联，后者决定了编码处理任务的处理速度。 可以在以下预留单位类型中进行选择： **S1** 、 **S2** 或 **S3** 。 例如，与 **S1** 预留单位类型相比，使用 **S2** 预留单位类型时，同一编码作业运行速度更快。
 
     除了指定预留单位类型，还可以指定为帐户预配预留单位  (RU)。 预配的 RU 数决定了给定帐户中可并发处理的媒体任务数。
 

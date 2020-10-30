@@ -1,24 +1,36 @@
 ---
-title: Azure Lighthouse 方案中的租户、角色和用户
+title: Azure Lighthouse 方案中的租户、用户和角色
 description: 了解 Azure Active Directory 租户、用户和角色的概念，以及如何在 Azure Lighthouse 方案中使用它们。
-ms.date: 07/03/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424105"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043046"
 ---
-# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 方案中的租户、角色和用户
+# <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 方案中的租户、用户和角色
 
 在为 [Azure Lighthouse](../overview.md)加入客户之前，请务必了解 Azure Active Directory (Azure AD) 租户、用户和角色如何工作，以及如何在 Azure Lighthouse 方案中使用它们。
 
-租户是 Azure AD 的专用受信任的实例**。 通常，每个租户表示一个组织。 [Azure 委托的资源管理](azure-delegated-resource-management.md) 可将资源从一个租户逻辑投影到另一个租户。 这样一来，管理租户中的用户（例如属于服务提供商的用户）可以访问客户租户中的委派资源，或者让[具有多个租户的企业集中其管理操作](enterprise.md)。
+租户是 Azure AD 的专用受信任的实例  。 通常，每个租户表示一个组织。 [Azure 委托的资源管理](azure-delegated-resource-management.md) 可将资源从一个租户逻辑投影到另一个租户。 这样一来，管理租户中的用户（例如属于服务提供商的用户）可以访问客户租户中的委派资源，或者让[具有多个租户的企业集中其管理操作](enterprise.md)。
 
 若要实现此逻辑投影，客户租户中的订阅)  (或一个或多个资源组必须 *载入* Azure Lighthouse。 可以[通过 Azure 资源管理器模板](../how-to/onboard-customer.md)或[将公共或私有产品/服务发布到 Azure 市场](../how-to/publish-managed-services-offers.md)来完成此加入过程。
 
-无论选择哪种加入方法，都需要定义授权**。 每个授权在管理租户中指定可以访问委派资源的用户帐户，还指定用于设置其中每个用户对这些资源的权限的内置角色。
+无论选择哪种加入方法，都需要定义授权  。 每个授权在管理租户中指定可以访问委派资源的用户帐户，还指定用于设置其中每个用户对这些资源的权限的内置角色。
+
+## <a name="best-practices-for-defining-users-and-roles"></a>定义用户和角色的最佳做法
+
+创建授权时，建议使用以下最佳做法：
+
+- 在大多数情况下，需要将权限分配给 Azure AD 用户组或服务主体，而不是分配给一系列单独的用户帐户。 这样，便可添加或删除单位用户的访问权限，而无需在访问要求更改时更新和重新发布计划。
+- 请务必遵循最低权限原则，使用户仅具有完成作业所需的权限，从而帮助减少意外错误发生的几率。 有关详细信息，请参阅 [建议的安全做法](../concepts/recommended-security-practices.md)。
+- 包括具有[托管服务注册分配删除角色](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)的用户，以便以后可以随时[删除对委派的访问权限](../how-to/remove-delegation.md)。 如果未分配此角色，则只能由客户租户中的用户删除委派资源。
+- 确保需要[查看 Azure门户中的“我的客户”页](../how-to/view-manage-customers.md)的所有用户都具有[读者](../../role-based-access-control/built-in-roles.md#reader)角色（或包含读者访问权限的其他内置角色）。
+
+> [!IMPORTANT]
+> 若要为 Azure AD 组添加权限，则必须将 " **组类型** " 设置为 " **安全** "。 此选项是在创建组时选择的。 有关详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
 ## <a name="role-support-for-azure-lighthouse"></a>Azure Lighthouse 的角色支持
 
@@ -32,18 +44,6 @@ Azure Lighthouse 当前支持所有 [内置角色](../../role-based-access-contr
 
 > [!NOTE]
 > 向 Azure 添加新的适用内置角色后，可以在 [使用 azure 资源管理器模板加入客户](../how-to/onboard-customer.md)时分配该角色。 在 [发布托管服务产品/服务](../how-to/publish-managed-services-offers.md)时，新添加的角色在合作伙伴中心可用之前可能会有延迟。
-
-## <a name="best-practices-for-defining-users-and-roles"></a>定义用户和角色的最佳做法
-
-创建授权时，建议使用以下最佳做法：
-
-- 在大多数情况下，需要将权限分配给 Azure AD 用户组或服务主体，而不是分配给一系列单独的用户帐户。 这样，便可添加或删除单位用户的访问权限，而无需在访问要求更改时更新和重新发布计划。
-- 请务必遵循最低权限原则，使用户仅具有完成作业所需的权限，从而帮助减少意外错误发生的几率。 有关详细信息，请参阅 [建议的安全做法](../concepts/recommended-security-practices.md)。
-- 包括具有[托管服务注册分配删除角色](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)的用户，以便以后可以随时[删除对委派的访问权限](../how-to/remove-delegation.md)。 如果未分配此角色，则只能由客户租户中的用户删除委派资源。
-- 确保需要[查看 Azure门户中的“我的客户”页](../how-to/view-manage-customers.md)的所有用户都具有[读者](../../role-based-access-control/built-in-roles.md#reader)角色（或包含读者访问权限的其他内置角色）。
-
-> [!IMPORTANT]
-> 若要为 Azure AD 组添加权限，则必须将 " **组类型** " 设置为 " **安全**"。 此选项是在创建组时选择的。 有关详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

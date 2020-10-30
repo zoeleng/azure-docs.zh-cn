@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043257"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 代理（预览版）
 
@@ -83,7 +83,7 @@ HDInsight ID 代理功能向群集中添加了一个额外的 VM。 此 VM 是 H
         {
             "autoscale": null,
             "name": "idbrokernode",
-            "targetInstanceCount": 1,
+            "targetInstanceCount": 2,
             "hardwareProfile": {
                 "vmSize": "Standard_A2_V2"
             },
@@ -100,6 +100,9 @@ HDInsight ID 代理功能向群集中添加了一个额外的 VM。 此 VM 是 H
 .
 .
 ```
+
+若要查看 ARM 模板的完整示例，请参阅 [此处](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template)发布的模板。
+
 
 ## <a name="tool-integration"></a>工具集成
 
@@ -132,6 +135,8 @@ HDInsight 工具已更新为本机支持 OAuth。 使用这些工具进行群集
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
+
+若要使用 Beeline 和 Livy，还可以按照 [此处](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) 提供的示例代码设置客户端以使用 OAuth 并连接到群集。
 
 ## <a name="next-steps"></a>后续步骤
 
