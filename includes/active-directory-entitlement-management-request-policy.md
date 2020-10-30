@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 239fcc1e57cb4bd56a8704f8a840689d44617fcf
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025105"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029416"
 ---
 ## <a name="for-users-in-your-directory"></a>适用于目录中的用户
 
-如果你希望目录中的用户可请求此访问包，请执行以下步骤。 定义请求策略时，可以指定单个用户，也可以指定用户组（通常做法）。 例如，组织可能已经有一个组（例如“所有员工”）。****  如果将该组添加到可以请求访问权限的用户的策略中，则该组的任何成员都可以请求访问权限。
+如果你希望目录中的用户可请求此访问包，请执行以下步骤。 定义请求策略时，可以指定单个用户，也可以指定用户组（通常做法）。 例如，组织可能已经有一个组（例如“所有员工”）。   如果将该组添加到可以请求访问权限的用户的策略中，则该组的任何成员都可以请求访问权限。
 
-1. 在“可以请求访问的用户”部分，单击“你目录中的用户”。********
+1. 在“可以请求访问的用户”部分，单击“你目录中的用户”。 
 
     选择此选项后，会出现新的选项以进一步优化目录中哪些用户可以请求此访问包。
 
@@ -41,7 +41,7 @@ ms.locfileid: "91025105"
 
     ![访问包 - 请求 - 选择用户和组](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. 单击“选择”以添加用户和组。****
+1. 单击“选择”以添加用户和组。 
 
 1. 跳到[审批](#approval)部分。
 
@@ -117,7 +117,7 @@ ms.locfileid: "91025105"
 
 请按照以下步骤指定请求访问包的审批设置：
 
-1. 若要要求对所选用户发起的请求进行审批，请将“需要审批”切换开关设置为“是”。******** 或者，若要自动审批请求，请将切换开关设置为“否”。
+1. 若要要求对所选用户发起的请求进行审批，请将“需要审批”切换开关设置为“是”。  或者，若要自动审批请求，请将切换开关设置为“否”。
 
 1. 如果需要用户提供对请求访问包的论证，请将“需要请求者论证”切换开关设置为“是”。 。
     
@@ -204,36 +204,36 @@ ms.locfileid: "91025105"
 
     如果选择了“无（仅限管理员直接分配）”，并且将“启用”设置为“否”，则管理员无法直接分配此访问包 。
 
-    ![访问包 - 策略 - 启用策略设置](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![显示用于启用新请求和分配的选项的屏幕截图。](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. 单击“下一步”  。
 
-## <a name="add-requestor-information-preview-to-an-access-package"></a>将请求者信息 (预览版添加到 access 包) 
+## <a name="add-requestor-information-preview-to-an-access-package"></a>向访问包添加请求者信息（预览）
 
-1. 请参阅 " **请求者信息** " 选项卡，并单击 " **问题** " 子选项卡。
+1. 转到“请求者信息”选项卡并单击“问题”子选项卡。
  
-1. 在 " **问题** " 框中键入要向请求者请求的内容，也称为 "显示字符串"。
+1. 在“问题”框中键入要向请求者提问的内容，也称为“显示字符串”。
 
-    ![访问包-策略-启用请求程序信息设置](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+    ![访问包 - 策略 - 启用请求者信息设置](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. 如果要添加自己的本地化选项，请单击 " **添加本地化**"。
-    1. 进入 " **添加本地化 for 试题** " 窗格后，选择要在其中本地化问题的语言的 **语言代码** 。
-    1. 在配置的语言中，在 " **本地化" 文本框** 中键入问题。
-    1. 添加完所需的所有本地化后，单击 " **保存**"。
+1. 若要添加自己的本地化选项，请单击“添加本地化”。
+    1. 进入“添加问题的本地化文本”窗格后，为用于将问题本地化的语言选择“语言代码”。
+    1. 使用配置的语言，在“本地化文本”框中键入问题。
+    1. 添加完所需的所有本地化文本后，请单击“保存”。
 
-    ![访问包-策略-配置本地化文本](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+    ![访问包 - 策略 - 配置本地化文本](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
 
-1. 选择要在其中回答请求方的 **答案格式** 。 答案格式包括： *短文本*、 *多选*和 *长文本*。
+1. 选择你希望请求者回答时使用的“答案格式”。 答案格式包括：短文本、多选和长文本。
  
-    ![访问包-策略-选择 "查看和编辑多个选择答案格式"](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+    ![访问包 - 策略 - 选择“查看和编辑多选答案格式”](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. 如果选择多个选项，请单击 " **视图" 和 "编辑** " 按钮以配置答案选项。
-    1. 选择 "查看和编辑" 后，将打开 " **查看/编辑问题** " 窗格。
-    1. 键入 **回答 "答案值** " 框中的问题时要为请求者指定的响应选项。
-    1. 键入所需的任意多个响应，并单击 " **保存**"。
+1. 如果选择“多选”，请单击“查看和编辑”按钮来配置答案选项。
+    1. 选择“查看和编辑”后，“查看/编辑问题”窗格会打开。
+    1. 在“答案值”框中键入你希望在请求者回答问题时向请求者提供的响应选项。
+    1. 键入所需的任意多个响应，然后单击“保存”。
     
-    ![访问包-策略-输入多个选择选项](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+    ![访问包 - 策略 - 输入多选选项](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
-1. 若要要求请求者在请求访问访问包时回答此问题，请单击 " **必需**" 下的复选框。
+1. 若要要求请求者在请求访问某个访问包时回答此问题，请单击“必需”下的复选框。
 
 1. 单击“下一步”
