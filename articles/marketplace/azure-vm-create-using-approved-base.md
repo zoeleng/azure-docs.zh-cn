@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 34d64d70c657712bb44aa6331b53f014349a0dda
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283688"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129267"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>如何使用已批准的基准创建虚拟机
 
@@ -32,7 +32,7 @@ ms.locfileid: "92283688"
 
 ### <a name="linux"></a>Linux
 
-Azure 提供一系列已批准的 Linux 发行版。 有关最新列表，请参阅 [Azure 认可的 Linux 分发版](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。
+Azure 提供一系列已批准的 Linux 发行版。 有关最新列表，请参阅 [Azure 认可的 Linux 分发版](../virtual-machines/linux/endorsed-distros.md)。
 
 ## <a name="create-vm-on-the-azure-portal"></a>在 Azure 门户上创建 VM
 
@@ -46,7 +46,7 @@ Azure 提供一系列已批准的 Linux 发行版。 有关最新列表，请参
 
 6. 选择要部署的 VM 的大小。
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="选择 &quot;第1代&quot; 或 &quot;第2代&quot;。" **正在运行**"。
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="选择 &quot;第1代&quot; 或 &quot;第2代&quot;。" **正在运行** "。
 
 
 ## <a name="configure-the-vm"></a>配置 VM

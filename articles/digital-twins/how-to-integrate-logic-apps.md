@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3fbd9016bcbfa83574d894af7ca728b863f54344
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027544"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129314"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>使用自定义连接器与逻辑应用集成
 
@@ -33,36 +33,11 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 还需要在安装先决条件过程中完成以下各项。 本部分的其余部分将指导你完成以下步骤：
 - 设置 Azure 数字孪生实例
-- 获取应用注册客户端密钥
 - 添加数字输出
 
 ### <a name="set-up-azure-digital-twins-instance"></a>设置 Azure 数字孪生实例
 
-若要将 Azure 数字孪生实例连接到本文中的逻辑应用，需要已设置 **Azure 数字孪生实例** 。 
-
-首先，设置 Azure 数字孪生实例及所需的身份验证，以便能够使用它。 为此，请按照 [如何： *设置实例和身份验证*](how-to-set-up-instance-portal.md)中的说明设置实例和身份验证。
-* 设置 Azure 数字孪生实例后，需要实例的 **_主机名_** ( [在 Azure 门户) 中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) 。
-
-若要对连接器进行身份验证，还需要设置 **应用注册** 。 按照[如何：创建应用注册](how-to-create-app-registration.md)中的说明进行此设置。 
-* 进行应用注册后，将需要注册的 **_应用程序 (客户端) id_** 和 **_目录 (租户) ID_** ( [在 Azure 门户) 中查找](how-to-create-app-registration.md#collect-client-id-and-tenant-id) 。
-
-### <a name="get-app-registration-client-secret"></a>获取应用注册客户端密钥
-
-还需要创建 Azure AD 应用注册的 **_客户端机密_** 。 为此，请导航到 Azure 门户中的 " [应用注册](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) " 页 (你可以使用此链接，或在门户搜索栏) 中查找它。 从列表中选择在上一部分中创建的注册，以便打开其详细信息。 
-
-从注册的菜单中点击 *证书和机密* ，然后选择 " *+ 新建客户端密钥* "。
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
-
-输入想要用于说明和过期的任何值，然后单击 " *添加* "。
-
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
-
-输入想要用于说明和过期的任何值，然后单击 " 图标将其复制到剪贴板) 
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
-
-输入想要用于说明和过期的任何值，然后单击 ":::
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ### <a name="add-a-digital-twin"></a>添加数字输出
 
@@ -72,23 +47,45 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 你将需要已创建的实例中的克隆的克隆 **_ID_** 。
 
+## <a name="set-up-app-registration"></a>设置应用注册
+
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+
+### <a name="get-app-registration-client-secret"></a>获取应用注册客户端密钥
+
+还需要创建 Azure AD 应用注册的 **_客户端机密_** 。 为此，请导航到 Azure 门户中的 " [应用注册](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) " 页 (你可以使用此链接，或在门户搜索栏) 中查找它。 从列表中选择在上一部分中创建的注册，以便打开其详细信息。 
+
+从注册的菜单中点击 *证书和机密* ，然后选择 " *+ 新建客户端密钥* "。
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
+
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " *添加* "。
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
+
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 图标将其复制到剪贴板) 
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
+
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 ":::
+
 ## <a name="create-custom-logic-apps-connector"></a>创建自定义逻辑应用连接器
 
-在此步骤中，将创建 Azure 数字孪生 Api 的 [自定义逻辑应用连接器](../logic-apps/custom-connector-overview.md) 。 完成此操作后，在下一部分中创建逻辑应用时，可以将 Azure 数字孪生挂钩。
+现在，你已准备好为 Azure 数字孪生 Api 创建 [自定义逻辑应用连接器](../logic-apps/custom-connector-overview.md) 。 完成此操作后，在下一部分中创建逻辑应用时，可以将 Azure 数字孪生挂钩。
 
 导航到 Azure 门户中的 " [逻辑应用自定义连接器](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) " 页面 (你可以使用此链接，或在门户搜索栏) 中搜索它。 单击 " *+ 添加* "。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 页面中，选择你的订阅和资源组，以及新连接器的名称和部署位置。 点击 *评审 + 创建* 。 
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 页面中，选择你的订阅和资源组，以及新连接器的名称和部署位置。 点击 *评审 + 创建* 。 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 选项卡，你可以在 *底部点击 "创建"* 来创建资源。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 选项卡，你可以在 *底部点击 "创建"* 来创建资源。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 按钮，在门户中查看连接器的详细信息。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 按钮，在门户中查看连接器的详细信息。
 
 ### <a name="configure-connector-for-azure-digital-twins"></a>为 Azure 数字孪生配置连接器
 
@@ -105,19 +102,19 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 按钮，继续执行下一个配置步骤。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 按钮，继续执行下一个配置步骤。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 以生成重定向 URL* 。 现在，通过在窗格顶部命中 *更新连接器* 来确认连接器设置。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 以生成重定向 URL* 。 现在，通过在窗格顶部命中 *更新连接器* 来确认连接器设置。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 字段并复制已生成的值。 将在下一步中使用它。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 字段并复制已生成的值。 将在下一步中使用它。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 将重新启动输入配置选择的整个过程。 它不会从上次操作时填充值，因此，如果要使用任何更改的值保存更新的配置，则必须重新输入其他所有值，以避免被默认值覆盖。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 将重新启动输入配置选择的整个过程。 它不会从上次操作时填充值，因此，如果要使用任何更改的值保存更新的配置，则必须重新输入其他所有值，以避免被默认值覆盖。
 
 ### <a name="grant-connector-permissions-in-the-azure-ad-app"></a>在 Azure AD 应用程序中授予连接器权限
 
@@ -129,11 +126,11 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 图标。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 图标。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 ":::
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 ":::
 
 你现在已经设置了一个可访问 Azure 数字孪生 Api 的自定义连接器。 
 
@@ -145,7 +142,7 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 按钮以继续访问 *逻辑应用设计器* ，你将在该设计器中填充工作流的逻辑。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 按钮以继续访问 *逻辑应用设计器* ，你将在该设计器中填充工作流的逻辑。
 
 ### <a name="design-workflow"></a>设计工作流
 
@@ -153,15 +150,15 @@ Azure 数字孪生当前没有针对逻辑应用的已认证 (预建) 连接器�
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " 选项卡。你应会在顶部的框中看到自定义连接器。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " 选项卡。你应会在顶部的框中看到自定义连接器。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 " _+ 新建步骤_ "。
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 " _+ 新建步骤_ "。
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Azure AD 应用注册的门户视图。资源菜单中的 &quot;证书和机密&quot; 周围有一个突出显示，并在页面上突出显示了 &quot;新建客户端密码&quot;&quot;:::
 
-输入想要用于说明和过期的任何值，然后单击 ":::
+输入想要用于 *说明* 和 *过期* 的任何值，然后单击 ":::
 
 ## <a name="query-twin-to-see-the-update"></a>查询克隆以查看更新
 

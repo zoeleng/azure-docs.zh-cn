@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128991"
 ---
 # <a name="determine-your-publishing-option"></a>确定发布选项
 
@@ -49,14 +49,14 @@ ms.locfileid: "90032378"
 
 ## <a name="choose-a-listing-option"></a>选择列表选项
 
-可用的列表选项提供了不同的客户参与，同时为你提供访问潜在客户和 [商业 marketplace 权益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)的权限。 请注意与发布选项对应的列表选项：
+可用的列表选项提供了不同的客户参与，同时为你提供访问潜在客户和 [商业 marketplace 权益](./gtm-your-marketplace-benefits.md)的权限。 请注意与发布选项对应的列表选项：
 
 | **发布选项**    | **说明**  |
 | :------------------- | :-------------------|
 | **列表** | 简单的应用程序或服务列表，使商业市场用户可以请求通过 " **联系我** " 列表选项与客户联系。 |
-| **试用** | 通过商业市场增加曝光率，自动预配解决方案的试用体验，让潜在用户在有限的时间内免费使用你的 SaaS、IaaS 或 Microsoft 应用内体验，然后再决定是否购买。 用于试用发布选项的列表选项可以是**免费试用版****或试用**版。 |
-| **BYOL** | 使用商业市场来增加曝光率、自动预配解决方案，并独立完成财务交易。 BYOL 产品/服务类型非常适合本地到云的迁移。 列表选项现已 **获取**。
-| **事务处理** | 事务处理产品/服务通过商业市场销售。 Microsoft 负责计费和收费。 列表选项现已 **获取**。|
+| **试用** | 通过商业市场增加曝光率，自动预配解决方案的试用体验，让潜在用户在有限的时间内免费使用你的 SaaS、IaaS 或 Microsoft 应用内体验，然后再决定是否购买。 用于试用发布选项的列表选项可以是 **免费试用版****或试用** 版。 |
+| **BYOL** | 使用商业市场来增加曝光率、自动预配解决方案，并独立完成财务交易。 BYOL 产品/服务类型非常适合本地到云的迁移。 列表选项现已 **获取** 。
+| **事务处理** | 事务处理产品/服务通过商业市场销售。 Microsoft 负责计费和收费。 列表选项现已 **获取** 。|
 
 > [!Note]
 > 使用“事务处理”发布选项时，在选择套餐类型和创建套餐之前，了解定价、计费、发票和付款注意事项非常重要。 若要了解详细信息，请参阅[商业市场事务处理功能](./marketplace-commercial-transaction-capabilities-and-considerations.md)。

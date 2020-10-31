@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283683"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129265"
 ---
 ## <a name="generalize-the-image"></a>通用化映像
 
@@ -20,7 +20,7 @@ Azure 市场中的所有映像必须可采用一般形式重复使用。 若要�
 
 ### <a name="for-windows"></a>对于 Windows
 
-Windows OS 磁盘是利用 [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) 工具通用化的。 如果以后更新或重新配置了操作系统，则必须再次运行 sysprep。
+Windows OS 磁盘是利用 [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) 工具通用化的。 如果以后更新或重新配置了操作系统，则必须再次运行 sysprep。
 
 > [!WARNING]
 > 运行 sysprep 后，将 VM 关闭，直到部署完成，因为更新可能会自动运行。 此关闭操作可避免后续更新对操作系统或安装的服务做出特定于实例的更改。 有关运行 sysprep 的详细信息，请参阅[通用化 VHD 的步骤](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)。
@@ -41,13 +41,13 @@ Windows OS 磁盘是利用 [sysprep](https://docs.microsoft.com/windows-hardware
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>拍摄 VM 磁盘的快照
 
 1. 登录 [Azure 门户](https://ms.portal.azure.com/)。
-2. 从左上角选择 " **创建资源**"，搜索并选择 " **快照**"。
-3. 在 "快照" 边栏选项卡中，选择 "  **创建**"。
+2. 从左上角选择 " **创建资源** "，搜索并选择 " **快照** "。
+3. 在 "快照" 边栏选项卡中，选择 "  **创建** "。
 4. 输入快照的 **名称** 。
 5. 选择现有资源组或输入新资源组的名称。
-6. 对于**源磁盘**，选择要获取其快照的托管磁盘。
-7. 选择用于存储快照的“帐户类型”。 使用 **Standard HDD**，除非需要将其存储在高性能 SSD 上。
-8. 选择“创建”  。
+6. 对于 **源磁盘** ，选择要获取其快照的托管磁盘。
+7. 选择用于存储快照的“帐户类型”。 使用 **Standard HDD** ，除非需要将其存储在高性能 SSD 上。
+8. 选择“创建”。
 
 #### <a name="extract-the-vhd"></a>提取 VHD
 
@@ -90,7 +90,7 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 此脚本使用以下命令生成快照的 SAS URI，并使用 SAS URI 将基础 VHD 复制到存储帐户。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| Command | 注释 |
 | --- | --- |
 | az disk grant-access | 生成只读 SAS，使用该 SAS 可以将基础 VHD 文件复制到存储帐户或将其下载到本地
 | az storage blob copy start | 以异步方式将 blob 从一个存储帐户复制到另一个存储帐户。 使用 `az storage blob show` 检查新 blob 的状态。 |

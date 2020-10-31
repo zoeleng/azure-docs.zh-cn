@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 577ec9e01310787dacb45a03e1efae128cbab872
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078214"
+ms.locfileid: "93128873"
 ---
 # <a name="monitoring-azure-iot-hub"></a>监视 Azure IoT 中心
 
@@ -23,7 +23,9 @@ ms.locfileid: "93078214"
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="IoT 中心概述页上的默认指标图表。":::
 
-此信息非常有用，但只表示可用于 IoT 中心的少量监视数据。 某些监视数据会自动收集，并可在创建 IoT 中心后立即进行分析。 你可以使用某些配置启用其他数据收集类型。
+请注意，消息计数值可能会延迟1分钟，因此，出于与 IoT 中心服务基础结构进行操作的原因，此值有时可能在刷新时在较高和较低的值之间来回切换。 对于在上一分钟应计的值而言，此计数器应该是不正确的。
+
+概述窗格中提供的信息很有用，但只表示可用于 IoT 中心的少量监视数据。 某些监视数据会自动收集，并可在创建 IoT 中心后立即进行分析。 你可以使用某些配置启用其他数据收集类型。
 
 ## <a name="what-is-azure-monitor"></a>说明是 Azure Monitor？
 
