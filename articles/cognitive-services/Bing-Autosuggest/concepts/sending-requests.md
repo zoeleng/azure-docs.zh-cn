@@ -10,24 +10,29 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad00d60c5a1b75e200b49b0cdcf0d396012a5f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294112"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101946"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>将请求发送到必应自动建议 API。
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 如果应用程序向任何必应搜索 API 发送查询，可以使用必应自动建议 API 来改进用户的搜索体验。 必应自动建议 API 根据搜索框中的部分查询字符串返回建议查询的列表。 在应用程序的搜索框中输入字符时，可以在下拉列表中显示建议。 通过本文详细了解如何向该 API 发送请求。 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>必应自动建议 API 终结点
 
-必应自动推荐 API**** 包含一个终结点，这将从部分搜索词返回建议的查询列表。
+必应自动推荐 API  包含一个终结点，这将从部分搜索词返回建议的查询列表。
 
 若要使用必应 API 获取建议的查询，请向以下终结点发送 `GET` 请求。 使用标头和 URL 参数来定义更多规范。
 
-终结点：**** 将搜索建议作为 JSON 结果返回，该结果与 `?q=""` 定义的用户输入相关。
+终结点：  将搜索建议作为 JSON 结果返回，该结果与 `?q=""` 定义的用户输入相关。
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
@@ -35,7 +40,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 有关标头、参数、市场代码、响应对象、错误等的详细信息，请参阅[必应自动建议 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 参考。
 
-必应**** API 支持根据其类型返回结果的搜索操作。所有搜索终结点均将结果作为 JSON 响应对象返回。
+必应  API 支持根据其类型返回结果的搜索操作。 所有搜索终结点均将结果作为 JSON 响应对象返回。
 所有终结点支持后列查询：按经度、纬度和搜索半径返回特定语言和/或位置的查询。
 
 若要完整了解每个终结点支持的参数，请参阅每种类型对应的参考页面。

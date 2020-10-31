@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491166"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101589"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>在 MongoDB Azure Cosmos DB API 中创建容器
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本文介绍在 MongoDB Azure Cosmos DB API 中创建容器的不同方法。 它演示了如何使用 Azure 门户、Azure CLI、PowerShell 或受支持的 Sdk 创建容器。 本文演示如何创建容器、指定分区键和预配吞吐量。
 

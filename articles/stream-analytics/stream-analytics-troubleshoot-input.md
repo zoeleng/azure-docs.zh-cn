@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448882"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123279"
 ---
 # <a name="troubleshoot-input-connections"></a>排查输入连接问题
 
@@ -25,9 +25,9 @@ ms.locfileid: "87448882"
 
 2.  检查输入数据。
 
-    1. 对每个输出使用[示例数据](stream-analytics-sample-data-input.md)按钮。 下载输入示例数据。
+    1. 对每个输出使用[示例数据](./stream-analytics-test-query.md)按钮。 下载输入示例数据。
         
-    1. 检查示例数据，了解架构和[数据类型](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)。
+    1. 检查示例数据，了解架构和[数据类型](/stream-analytics-query/data-types-azure-stream-analytics)。
     
     1. 检查[事件中心指标](../event-hubs/event-hubs-metrics-azure-monitor.md)，确保正在发送事件。 如果事件中心正在接收消息，则消息指标应大于零。
 
@@ -163,16 +163,16 @@ SELECT foo FROM DataTwo
 
 ## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>每个分区的读取器数超过 IoT 中心限制
 
-流分析作业使用 IoT 中心内置的[事件中心集线器兼容终结点](../iot-hub/iot-hub-devguide-messages-read-builtin.md)从 IoT 中心连接和读取事件。 如果每个分区的读取数超过了 IoT 中心的限制，则可以使用[事件中心的解决方案](#readers-per-partition-exceeds-event-hubs-limit)来解决它。 可以通过 IoT 中心门户终结点会话或通过[IoT 中心 SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)为内置终结点创建使用者组。
+流分析作业使用 IoT 中心内置的[事件中心集线器兼容终结点](../iot-hub/iot-hub-devguide-messages-read-builtin.md)从 IoT 中心连接和读取事件。 如果每个分区的读取数超过了 IoT 中心的限制，则可以使用[事件中心的解决方案](#readers-per-partition-exceeds-event-hubs-limit)来解决它。 可以通过 IoT 中心门户终结点会话或通过[IoT 中心 SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)为内置终结点创建使用者组。
 
 ## <a name="get-help"></a>获取帮助
 
-若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答问题页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)。
+如需获取进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答页面](/answers/topics/azure-stream-analytics.html)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)

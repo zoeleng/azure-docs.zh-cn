@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 0020efea69fc684ff6ebebf286718aa2a720910e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123314"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 流分析预览功能
 
@@ -48,7 +48,7 @@ Azure 流分析通过利用自定义预先训练的机器学习模型（由 Azur
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>适用于 Azure 流分析的 Visual Studio Code
 
-可以在 Visual Studio Code 中创建 Azure 流分析作业。 请参阅我们的 [VS Code 入门教程](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code)。
+可以在 Visual Studio Code 中创建 Azure 流分析作业。 请参阅我们的 [VS Code 入门教程](./quick-create-visual-studio-code.md)。
 
 ### <a name="local-testing-with-live-data-in-visual-studio-code"></a>在 Visual Studio Code 中使用实时数据进行本地测试
 

@@ -10,20 +10,25 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc28cdbca7d2566318a3158399c1d44fd8d2ccd9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710552"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101715"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>必应新闻搜索 API 的语言和区域支持
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 必应新闻搜索 API 支持许多个国家/地区，其中很多具有多种语言。 使用查询指定国家/地区主要用于根据对该国家/地区的兴趣来优化搜索结果。 此外，结果可能包含指向必应的链接，这些链接可能会根据指定的国家/地区或语言本地化必应用户体验。
 
 可以使用 `cc` 查询参数指定国家/地区。 如果指定了国家/地区，还必须使用 `Accept-Language` HTTP 标头指定一个或多个语言代码。 支持的语言因国家/地区而异；“市场”表中提供了每个国家/地区适用的语言。
 
-或者，可以使用 `mkt` 查询参数和市场表中的代码指定市场****。 指定市场的同时指定国家/地区和首选语言。 在这种情况下，`setLang` 查询参数可能设置为一个语言代码，通常这与 `mkt` 所指定的语言相同，除非用户希望以另一种语言查看必应。
+或者，可以使用 `mkt` 查询参数和市场表中的代码指定市场  。 指定市场的同时指定国家/地区和首选语言。 在这种情况下，`setLang` 查询参数可能设置为一个语言代码，通常这与 `mkt` 所指定的语言相同，除非用户希望以另一种语言查看必应。
 
 ## <a name="supported-markets-for-news-search-endpoint"></a>新闻搜索终结点支持的市场
 

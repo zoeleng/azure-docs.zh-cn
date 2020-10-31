@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79220299"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102218"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>使用必应视频搜索 API 来搜索视频
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 使用必应视频搜索 API，可以轻松将必应的认知新闻搜索功能集成到应用程序中。 虽然该 API 主要用于从网上查找并返回相关的视频，但它还提供了一些在网络上进行智能化、集中化视频检索的功能。
 
@@ -144,7 +149,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>扩展查询
 
-如果必应可以通过扩展查询来缩小原始搜索的范围，则 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 对象会包含 `queryExpansions` 字段。 例如，如果查询为 *Cleaning Gutters*，则扩展的查询可能为：Gutter Cleaning **Tools**、Cleaning Gutters **From the Ground**、Gutter Cleaning **Machine** 以及 **Easy** Gutter Cleaning。
+如果必应可以通过扩展查询来缩小原始搜索的范围，则 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 对象会包含 `queryExpansions` 字段。 例如，如果查询为 *Cleaning Gutters* ，则扩展的查询可能为：Gutter Cleaning **Tools** 、Cleaning Gutters **From the Ground** 、Gutter Cleaning **Machine** 以及 **Easy** Gutter Cleaning。
 
 以下示例演示了 *Cleaning Gutters* 的扩展查询。
 
@@ -175,7 +180,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="pivoting-the-query"></a>将查询分段
 
-如果必应可以将原始搜索查询分段，则 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 对象会包含 `pivotSuggestions` 字段。 例如，如果原始查询为 *Cleaning Gutters*，则必应可能会将查询分成 *Cleaning* 和 *Gutters* 两段。
+如果必应可以将原始搜索查询分段，则 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 对象会包含 `pivotSuggestions` 字段。 例如，如果原始查询为 *Cleaning Gutters* ，则必应可能会将查询分成 *Cleaning* 和 *Gutters* 两段。
 
 以下示例演示了针对 *Cleaning Gutters* 的分段建议。
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: cfc3abd30fad3e86544430e5a4ecb8510e77c9e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789924"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102269"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>适用于 Azure 虚拟机上的 SQL Server 的业务连续性和 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ Azure 支持以下 SQL Server 技术以实现业务连续性：
 
 | 技术 | 示例体系结构 |
 | --- | --- |
-| **可用性组** |在同一区域的 Azure VM 中运行的可用性副本提供高可用性。 需要配置域控制器 VM，因为 Windows 故障转移群集需要 Active Directory 域。<br/><br/> 为了实现更高的冗余和可用性，Azure Vm 可以部署在不同的 [可用性区域](../../../availability-zones/az-overview.md) 中，如 [可用性组概述](availability-group-overview.md)中所述。 如果可用性组中的 SQL Server Vm 部署在可用性区域中，请将 [azure 标准负载均衡器](../../../load-balancer/load-balancer-overview.md) 用于侦听器，如 [AZURE SQL VM CLI](./availability-group-az-commandline-configure.md) 和 [azure 快速入门模板](availability-group-quickstart-template-configure.md) 文章中所述。<br/> ![可用性组](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>有关详细信息，请参阅[在 Azure 中配置可用性组 (GUI)](./availability-group-quickstart-template-configure.md)。 |
+| **可用性组** |在同一区域的 Azure VM 中运行的可用性副本提供高可用性。 需要配置域控制器 VM，因为 Windows 故障转移群集需要 Active Directory 域。<br/><br/> 为了实现更高的冗余和可用性，Azure Vm 可以部署在不同的 [可用性区域](../../../availability-zones/az-overview.md) 中，如 [可用性组概述](availability-group-overview.md)中所述。 如果可用性组中的 SQL Server Vm 部署在可用性区域中，请将 [azure 标准负载均衡器](../../../load-balancer/load-balancer-overview.md) 用于侦听器，如 [AZURE SQL VM CLI](./availability-group-az-commandline-configure.md) 和 [azure 快速入门模板](availability-group-quickstart-template-configure.md) 文章中所述。<br/> ![此关系图显示了 "主副本"、"辅助副本" 和 "文件共享见证" 生成的 "WSFC 群集" 上方的 "域控制器"。](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>有关详细信息，请参阅[在 Azure 中配置可用性组 (GUI)](./availability-group-quickstart-template-configure.md)。 |
 | **故障转移群集实例** |SQL Server Vm 支持故障转移群集实例。 由于 FCI 功能需要共享存储，因此，五个解决方案可用于 Azure Vm 上的 SQL Server： <br/><br/> -将 [Azure 共享磁盘](failover-cluster-instance-azure-shared-disks-manually-configure.md) 用于 Windows Server 2019。 共享托管磁盘是一种允许同时将托管磁盘附加到多个虚拟机的 Azure 产品。 群集中的 Vm 可以根据群集应用程序通过 SCSI 永久保留 (SCSI PR) 选择的保留来读取或写入附加的磁盘。 SCSI PR 是一种行业标准存储解决方案，适用于在存储区域网络上运行的应用程序 (SAN) 本地运行。 启用托管磁盘上的 SCSI PR 后，可以按原样将这些应用程序迁移到 Azure。 <br/><br/>-使用[存储空间直通 \( S2D \) ](failover-cluster-instance-storage-spaces-direct-manually-configure.md)为 Windows Server 2016 和更高版本提供基于软件的虚拟 SAN。<br/><br/>-使用适用于 Windows Server 2012 和更高版本的 [高级文件共享](failover-cluster-instance-premium-file-share-manually-configure.md) 。 高级文件共享是 SSD 支持的，具有一致的延迟，并完全支持与 FCI 配合使用。<br/><br/>-使用合作伙伴解决方案支持的用于群集的存储。 有关使用 SIOS DataKeeper 的具体示例，请参阅博客文章 [故障转移群集和 SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)。<br/><br/>-通过 Azure ExpressRoute 对远程 iSCSI 目标使用共享块存储。 例如，NetApp 专用存储 (NPS) 使用 Equinix 通过 ExpressRoute 向 Azuer VM 公开 iSCSI 目标。<br/><br/>对于 Microsoft 合作伙伴提供的共享存储和数据复制解决方案，如有任何关于在故障转移时访问数据的问题，请联系供应商。<br/><br/>||
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>仅限 Azure：灾难恢复解决方案
@@ -62,10 +62,10 @@ Azure 支持以下 SQL Server 技术以实现业务连续性：
 
 | 技术 | 示例体系结构 |
 | --- | --- |
-| **可用性组** |可用性副本在 Azure VM 中跨多个数据中心运行以实现灾难恢复。 这种跨区域解决方案可以帮助防止站点完全中断。 <br/> ![可用性组](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-alwayson.png)<br/>在一个区域内，所有副本应该位于同一云服务和同一虚拟网络中。 由于每个区域会有单独的虚拟网络，因此这些解决方案需要网络间连接。 有关详细信息，请参阅[使用 Azure 门户配置网络间连接](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。 有关详细说明，请参阅[在不同的 Azure 区域中配置 SQL Server Always On 可用性组](availability-group-manually-configure-multiple-regions.md)。|
-| **数据库镜像** |主体和镜像以及服务器在不同数据库中运行以实现灾难恢复。 必须使用服务器证书对它们进行部署。 Azure VM 上的 SQL Server 2008 和 SQL Server 2008 R2 都不支持 SQL Server 数据库镜像。 <br/>![数据库镜像](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-dbmirroring.png) |
-| **使用 Azure Blob 存储进行备份和还原** |生产数据库直接备份到不同数据中心内的 Blob 存储以实现灾难恢复。<br/>![备份和还原](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-backup-restore.png)<br/>有关详细信息，请参阅 [Azure VM 中 SQL Server 的备份和还原](../../../azure-sql/virtual-machines/windows/backup-restore.md)。 |
-| 使用 Azure Site Recovery 将 SQL Server 复制和故障转移到 Azure |一个 Azure 数据中心的生产 SQL Server 实例直接复制到其他 Azure 数据中心中的 Azure 存储以实现灾难恢复。<br/>![使用 Azure Site Recovery 进行复制](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-standalone-sqlserver-asr.png)<br/>有关详细信息，请参阅[使用 SQL Server 灾难恢复和 Azure Site Recovery 来保护 SQL Server](../../../site-recovery/site-recovery-sql.md)。 |
+| **可用性组** |可用性副本在 Azure VM 中跨多个数据中心运行以实现灾难恢复。 这种跨区域解决方案可以帮助防止站点完全中断。 <br/> ![此图显示了两个区域，其中包含一个 "主副本" 和 "辅助副本"，由 "异步提交" 连接。](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-alwayson.png)<br/>在一个区域内，所有副本应该位于同一云服务和同一虚拟网络中。 由于每个区域会有单独的虚拟网络，因此这些解决方案需要网络间连接。 有关详细信息，请参阅[使用 Azure 门户配置网络间连接](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。 有关详细说明，请参阅[在不同的 Azure 区域中配置 SQL Server Always On 可用性组](availability-group-manually-configure-multiple-regions.md)。|
+| **数据库镜像** |主体和镜像以及服务器在不同数据库中运行以实现灾难恢复。 必须使用服务器证书对它们进行部署。 Azure VM 上的 SQL Server 2008 和 SQL Server 2008 R2 都不支持 SQL Server 数据库镜像。 <br/>![显示一个区域中的 "主体" 的关系图，该区域连接到另一区域中的 "具有高性能的镜像"。](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-dbmirroring.png) |
+| **使用 Azure Blob 存储进行备份和还原** |生产数据库直接备份到不同数据中心内的 Blob 存储以实现灾难恢复。<br/>![此关系图显示了一个区域中的 "数据库"，备份到另一个区域中的 "Blob 存储"。](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-backup-restore.png)<br/>有关详细信息，请参阅 [Azure VM 中 SQL Server 的备份和还原](../../../azure-sql/virtual-machines/windows/backup-restore.md)。 |
+| 使用 Azure Site Recovery 将 SQL Server 复制和故障转移到 Azure |一个 Azure 数据中心的生产 SQL Server 实例直接复制到其他 Azure 数据中心中的 Azure 存储以实现灾难恢复。<br/>![此图显示了一个 Azure 数据中心内的 "数据库"，其中使用 "ASR 复制" 在另一个数据中心进行灾难恢复。 ](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-dr-standalone-sqlserver-asr.png)<br/>有关详细信息，请参阅[使用 SQL Server 灾难恢复和 Azure Site Recovery 来保护 SQL Server](../../../site-recovery/site-recovery-sql.md)。 |
 
 
 ## <a name="hybrid-it-disaster-recovery-solutions"></a>混合 IT：灾难恢复解决方案

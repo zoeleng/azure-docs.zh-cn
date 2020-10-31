@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 55dabccf5a5ab9e81ff0644056002f3beb644fa9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7e9de1f23ec46af08fe96b5db3170fac9a7eb2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491149"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101623"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>在 Azure Cosmos DB Gremlin API 中创建容器
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 本文介绍了在 Azure Cosmos DB Gremlin API 中创建容器的不同方法。 它演示了如何使用 Azure 门户、Azure CLI、PowerShell 或受支持的 Sdk 创建容器。 本文演示如何创建容器、指定分区键和预配吞吐量。
 

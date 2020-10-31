@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029119"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122718"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>在 Azure AD B2C 中设置自定义策略的手机注册和登录
 
@@ -26,7 +26,7 @@ ms.locfileid: "90029119"
 
 ## <a name="pricing"></a>定价
 
-一次性密码会通过使用短信发送给用户，并且你可能会对每个发送的消息付费。 有关定价信息，请参阅[Azure Active Directory B2C 定价](https://azure.microsoft.com/pricing/details/active-directory-b2c/)的**单独费用**部分。
+一次性密码会通过使用短信发送给用户，并且你可能会对每个发送的消息付费。 有关定价信息，请参阅 [Azure Active Directory B2C 定价](https://azure.microsoft.com/pricing/details/active-directory-b2c/)的 **单独费用** 部分。
 
 ## <a name="user-experience-for-phone-sign-up-and-sign-in"></a>电话注册和登录的用户体验
 
@@ -35,7 +35,7 @@ ms.locfileid: "90029119"
 > [!NOTE]
 > 我们强烈建议你在注册和登录体验中包含许可信息，这与下面的示例文本类似。 此示例文本仅用于提供信息。 请参阅 [CTIA 网站](https://www.ctia.org/programs) 上的简短代码监视手册，并向自己的法律或合规性专家咨询你的最终文本和功能配置指导，以满足你自己的符合性需求：
 >
-> *通过提供电话号码，你同意接收短信发送的一次性密码，以帮助你登录到* &lt; insert：你的应用程序名称 &gt; *。标准消息和数据速率可能适用。*
+> *通过提供电话号码，你同意接收短信发送的一次性密码，以帮助你登录到 *&lt; insert：你的应用程序名称 &gt;* 。标准消息和数据速率可能适用。*
 >
 > *&lt;insert：隐私声明的链接&gt;*<br/>*&lt;insert：服务条款的链接&gt;*
 
@@ -56,27 +56,27 @@ ms.locfileid: "90029119"
 
 ### <a name="phone-sign-up-experience"></a>电话注册体验
 
-如果用户还没有应用程序的帐户，则可以通过选择 " **立即注册** " 链接创建一个帐户。 此时将显示注册页面，用户可在其中选择 **国家/地区**，输入电话号码，然后选择 " **发送代码**"。
+如果用户还没有应用程序的帐户，则可以通过选择 " **立即注册** " 链接创建一个帐户。 此时将显示注册页面，用户可在其中选择 **国家/地区** ，输入电话号码，然后选择 " **发送代码** "。
 
 ![用户开始电话注册](media/phone-authentication/phone-signup-start.png)
 
-一次性验证码会发送到用户的电话号码。 用户在注册页上输入 **验证代码** ，然后选择 " **验证代码**"。  (如果用户无法检索代码，则他们可以选择 " **发送新代码**"。 ) 
+一次性验证码会发送到用户的电话号码。 用户在注册页上输入 **验证代码** ，然后选择 " **验证代码** "。  (如果用户无法检索代码，则他们可以选择 " **发送新代码** "。 ) 
 
 ![用户在电话注册期间验证代码](media/phone-authentication/phone-signup-verify-code.png)
 
- 用户输入注册页上请求的任何其他信息，例如 **显示名称**、 **名字**和 **姓氏** (国家/地区和电话号码保持) 。 如果用户想要使用其他电话号码，则他们可以选择 " **更改编号** " 以重新注册。 完成后，用户选择 " **继续**"。
+ 用户输入注册页上请求的任何其他信息，例如 **显示名称** 、 **名字** 和 **姓氏** (国家/地区和电话号码保持) 。 如果用户想要使用其他电话号码，则他们可以选择 " **更改编号** " 以重新注册。 完成后，用户选择 " **继续** "。
 
 ![用户提供附加信息](media/phone-authentication/phone-signup-additional-info.png)
 
-接下来，要求用户提供一个恢复电子邮件。 用户输入其电子邮件地址，然后选择 " **发送验证码**"。 代码将发送到用户的电子邮件收件箱，用户可以在 " **验证码** " 框中检索并输入该收件箱。 然后，用户选择 " **验证代码**"。 
+接下来，要求用户提供一个恢复电子邮件。 用户输入其电子邮件地址，然后选择 " **发送验证码** "。 代码将发送到用户的电子邮件收件箱，用户可以在 " **验证码** " 框中检索并输入该收件箱。 然后，用户选择 " **验证代码** "。 
 
-验证代码后，用户可以选择 " **创建** " 来创建帐户。 如果用户想要使用不同的电子邮件地址，他们可以选择 " **更改电子邮件**"。
+验证代码后，用户可以选择 " **创建** " 来创建帐户。 如果用户想要使用不同的电子邮件地址，他们可以选择 " **更改电子邮件** "。
 
 ![用户创建帐户](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>手机登录体验
 
-如果用户有一个使用电话号码作为标识符的现有帐户，则用户将输入其电话号码，然后选择 " **继续**"。 它们通过选择 " **继续**" 确认国家/地区和电话号码，并将一次性验证代码发送到其手机。 用户输入验证码，并选择 " **继续** " 以登录。
+如果用户有一个使用电话号码作为标识符的现有帐户，则用户将输入其电话号码，然后选择 " **继续** "。 它们通过选择 " **继续** " 确认国家/地区和电话号码，并将一次性验证代码发送到其手机。 用户输入验证码，并选择 " **继续** " 以登录。
 
 ![电话登录用户体验](media/phone-authentication/phone-signin-screens.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "90029119"
 
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在设置 OTP 之前，需要准备好以下资源。
 
@@ -106,9 +106,9 @@ ms.locfileid: "90029119"
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. 在每个文件中，将字符串替换 `yourtenant` 为 Azure AD B2C 租户的名称。 例如，如果 B2C 租户的名称为 *contosob2c*，则的所有实例都将 `yourtenant.onmicrosoft.com` 变为 `contosob2c.onmicrosoft.com` 。
+1. 在每个文件中，将字符串替换 `yourtenant` 为 Azure AD B2C 租户的名称。 例如，如果 B2C 租户的名称为 *contosob2c* ，则的所有实例都将 `yourtenant.onmicrosoft.com` 变为 `contosob2c.onmicrosoft.com` 。
 
-1. 完成[Azure Active Directory B2C 中的自定义策略入门](custom-policy-get-started.md)中的[将应用程序 id 添加到自定义策略](custom-policy-get-started.md#add-application-ids-to-the-custom-policy)部分中的步骤。 在这种情况下，请更新 `/phone-number-passwordless/` **`Phone_Email_Base.xml`** **应用程序 (客户端) **在完成必备组件、 *IdentityExperienceFramework*和*ProxyIdentityExperienceFramework*时注册的两个应用程序的 id。
+1. 完成[Azure Active Directory B2C 中的自定义策略入门](custom-policy-get-started.md)中的[将应用程序 id 添加到自定义策略](custom-policy-get-started.md#add-application-ids-to-the-custom-policy)部分中的步骤。 在这种情况下，请更新 `/phone-number-passwordless/` **`Phone_Email_Base.xml`** **应用程序 (客户端)** 在完成必备组件、 *IdentityExperienceFramework* 和 *ProxyIdentityExperienceFramework* 时注册的两个应用程序的 id。
 
 ## <a name="upload-the-policy-files"></a>上传策略文件
 
@@ -128,9 +128,9 @@ ms.locfileid: "90029119"
 
 ## <a name="test-the-custom-policy"></a>测试自定义策略
 
-1. 在 " **自定义策略**" 下，选择 **B2C_1A_SignUpOrSignInWithPhone**。
-1. 在 " **选择应用程序**" 下，选择在完成先决条件时注册的 *webapp1* 应用程序。
-1. 对于 " **选择回复 url**"，请选择 `https://jwt.ms` 。
+1. 在 " **自定义策略** " 下，选择 **B2C_1A_SignUpOrSignInWithPhone** 。
+1. 在 " **选择应用程序** " 下，选择在完成先决条件时注册的 *webapp1* 应用程序。
+1. 对于 " **选择回复 url** "，请选择 `https://jwt.ms` 。
 1. 选择 " **立即运行** " 并使用电子邮件地址或电话号码进行注册。
 1. 选择 " **立即运行** " 并使用同一帐户登录，以确认配置正确。
 
