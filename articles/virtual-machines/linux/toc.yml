@@ -328,7 +328,7 @@
         - name: 为实现高性能而设计
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 磁盘突发
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 磁盘的可伸缩性目标
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复

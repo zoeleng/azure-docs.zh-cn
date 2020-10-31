@@ -5,10 +5,6 @@
       items:
         - name: Azure Dev Spaces 是什么？
           href: about.md
-    - name: 教程
-      items:
-        - name: Visual Studio 入门
-          href: get-started-netcore-visualstudio.md
     - name: 概念
       items:
         - name: 迁移到 Kubernetes 桥接

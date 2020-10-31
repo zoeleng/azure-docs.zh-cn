@@ -11,14 +11,14 @@
 - name: 教程
   items:
     - name: 创建动态组
-      href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: /azure/active-directory/enterprise-users/users-revoke-access
 - name: 概念
   expanded: true
   items:
     - name: 委托 Azure AD 管理员角色
       href: concept-delegation.md
     - name: 比较默认用户权限
-      href: /azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: /azure/active-directory/fundamentals/users-default-permissions
     - name: 比较 Azure 和 Azure AD 角色
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: 了解 Azure AD 中的管理单元
@@ -29,13 +29,13 @@
     - name: 用户和角色
       items:
         - name: 将用户分配到管理员角色
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
         - name: 撤消用户的访问权限
-          href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: /azure/active-directory/enterprise-users/users-revoke-access
         - name: 向来宾用户分配角色
           href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
         - name: 限制来宾用户访问权限
-          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: 动态组和来宾
           href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
     - name: 角色和权限
@@ -57,7 +57,7 @@
         - name: 查看自定义角色分配
           href: custom-view-assignments.md
         - name: 在 Azure 门户中分配自定义角色
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
         - name: 使用 PowerShell 分配自定义角色
           href: custom-assign-powershell.md
         - name: 为企业应用分配自定义角色
@@ -111,7 +111,7 @@
     - name: 故障排除
       items:
         - name: 获取 Azure AD 支持
-          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto
 - name: 参考
   items:
     - name: 按任务分配的最低权限角色
@@ -125,4 +125,4 @@
     - name: 用于 Graph 的 Azure AD PowerShell
       href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
     - name: Azure AD 服务限制
-      href: /azure/active-directory/fundamentals/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: /azure/active-directory/enterprise-users/directory-service-limits-restrictions

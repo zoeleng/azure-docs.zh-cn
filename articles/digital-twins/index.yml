@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Azure 数字孪生预览版文档
+title: Azure 数字孪生文档
 summary: 了解如何使用 Azure 数字孪生来创建资产、环境和业务系统的数字表示形式，以构建针对现实世界进行建模的下一代 IoT 解决方案。
 metadata:
-  title: Azure 数字孪生预览版文档 - 教程和 API 参考 | Microsoft Docs
+  title: Azure 数字孪生文档 - 教程和 API 参考 | Microsoft Docs
   description: 了解如何使用 Azure 数字孪生来连接人员、地点等，以及构建带有空间智能的 IoT 解决方案。
   ms.service: digital-twins
   ms.topic: landing-page
@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: b9d6067fe8c5c81024f6fa211d32e0ecc92f5a47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: a05f168b18f32e2b4730e5ef50624d41fb48e147
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92358976"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93099090"
 landingContent:
 - title: 关于 Azure 数字孪生
   linkLists:

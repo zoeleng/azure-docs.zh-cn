@@ -249,7 +249,7 @@
             - name: 数组和对象
               displayName: 'object and array creation, object and array'
               href: sql-query-object-array.md
-            - name: 关键字
+            - name: Keywords
               displayName: 'keywords, distinct, between, in, top'
               href: sql-query-keywords.md
             - name: 常量
@@ -731,6 +731,10 @@
               items:
                 - name: 排查 Java SDK v4 问题
                   href: troubleshoot-java-sdk-v4-sql.md
+                - name: 排查请求超时故障
+                  href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+                - name: 排查服务不可用故障
+                  href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
                 - name: 排除故障 - Async Java SDK v2
                   href: troubleshoot-java-async-sdk.md
         - name: 更改源
@@ -877,8 +881,6 @@
         - name: 资源管理器模板
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
-        - name: 模拟器发行说明
-          href: local-emulator-release-notes.md
         - name: Azure Policy 内置策略定义
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -1279,6 +1281,8 @@
               href: emulator-command-line-parameters.md
             - name: 仿真器故障排除
               href: troubleshoot-local-emulator.md
+            - name: 模拟器发行说明
+              href: local-emulator-release-notes.md
             - name: Visual Studio Code 扩展
               href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
         - name: 设置 Azure DevOps CI/CD 管道

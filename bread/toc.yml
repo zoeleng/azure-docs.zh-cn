@@ -49,8 +49,8 @@
           tocHref: /azure/active-directory-domain-services/
           topicHref: /azure/active-directory-domain-services/
         - name: 用户、组和角色
-          tocHref: /azure/active-directory/users-groups-roles/
-          topicHref: /azure/active-directory/users-groups-roles/
+          tocHref: /azure/active-directory/roles/groups-concept
+          topicHref: /azure/active-directory/roles/groups-concept
         - name: 标识监管
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
