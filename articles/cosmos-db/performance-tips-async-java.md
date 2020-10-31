@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 3064672dc9eafbabda896f56f4881302980585b0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475373"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078061"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -84,11 +85,11 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
   在 Azure Cosmos DB Async Java SDK v2 中，直接模式是在大多数工作负载下提高数据库性能的最佳选择。 
 
-  * ***直接模式的概述**_
+  * ***直接模式的概述** _
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
   
-  直接模式中采用的客户端体系结构支持可预测的网络利用率，并可对 Azure Cosmos DB 副本进行多路复用。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在每个数据库副本的客户端分配多达 10 _*通道**。 通道是前面带有请求缓冲区的 TCP 连接，其中30个请求深度为30个。 属于副本的通道根据副本的 **服务终结点**的需要动态分配。 当用户在直接模式下发出请求时， **TransportClient** 会根据分区键将请求路由到相应的服务终结点。 请求队列在服务终结点之前缓冲请求。
+  直接模式中采用的客户端体系结构支持可预测的网络利用率，并可对 Azure Cosmos DB 副本进行多路复用。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在每个数据库副本的客户端分配多达 10 _ *通道* *。 通道是前面带有请求缓冲区的 TCP 连接，其中30个请求深度为30个。 属于副本的通道根据副本的 **服务终结点** 的需要动态分配。 当用户在直接模式下发出请求时， **TransportClient** 会根据分区键将请求路由到相应的服务终结点。 请求队列在服务终结点之前缓冲请求。
 
   * ***直接模式 _ 的 ConnectionPolicy 配置选项**
 
@@ -131,13 +132,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
   Azure Cosmos DB Async Java SDK v2 支持并行查询，使你能够并行查询分区集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
-  * ***优化 setMaxDegreeOfParallelism \: **_
+  * ***优化 setMaxDegreeOfParallelism \:** _
     
     并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 setMaxDegreeOfParallelism 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。
 
     必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
 
-  _ ***优化 setMaxBufferedItemCount \: **_
+  _ * **优化 setMaxBufferedItemCount \:** _
     
     并行查询设计为当客户端正在处理当前结果批时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 setMaxBufferedItemCount 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
 

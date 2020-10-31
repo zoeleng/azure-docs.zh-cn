@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371896"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077959"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 功能部署指南
 
@@ -35,7 +35,7 @@ ms.locfileid: "92371896"
 * [Azure AD 许可](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 企业版](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [企业移动性 + 安全性](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Azure AD B2B 许可指南](../external-identities/licensing-guidance.md)
+* [Azure AD 外部标识定价](../external-identities/external-identities-pricing.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>阶段 1：构建安全基础
 
@@ -70,7 +70,7 @@ ms.locfileid: "92371896"
 | [实现密码写回](../authentication/tutorial-enable-sspr-writeback.md) | 允许将云中的密码更改写回到本地 Windows Server Active Directory 环境。 | Azure AD Premium P1 |
 | [实现 Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | 为 Azure AD Connect 服务器、AD FS 服务器和域控制器启用关键运行状况统计信息的监视。 | Azure AD Premium P1 |
 | [按 Azure Active Directory 中的组成员资格将许可证分配给用户](../enterprise-users/licensing-groups-assign.md) | 创建许可组来按组启用或禁用功能，而无需按用户进行设置，这样可以节省时间和精力。 | |
-| [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 让来宾用户使用其自己的工作、学校或社交标识登录到你的应用和服务，借此来与他们协作。 | [Azure AD B2B 许可指南](../external-identities/licensing-guidance.md) |
+| [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 让来宾用户使用其自己的工作、学校或社交标识登录到你的应用和服务，借此来与他们协作。 | [Azure AD 外部标识定价](../external-identities/external-identities-pricing.md) |
 | [决定设备管理策略](../devices/overview.md) | 决定组织允许在设备上执行哪些操作。 这包括在自带设备与公司提供的设备上执行注册与加入操作。 | |
 | [在组织中部署 Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | 使用 Windows Hello 准备无密码 authentication | |
 | [为用户部署无密码身份验证方法](../authentication/concept-authentication-passwordless.md) | 为用户提供便利的无密码身份验证方法 | Azure AD Premium P1 |

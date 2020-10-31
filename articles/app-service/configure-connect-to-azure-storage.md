@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057750"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075783"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>从应用服务中的容器以网络共享形式访问 Azure 存储
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>从应用服务中的容器作为网络共享访问 Azure 存储 (预览) 
 
 ::: zone pivot="container-windows"
 
 本指南说明如何将 Azure 存储文件作为网络共享附加到应用服务中的 windows 容器。 仅支持 [Azure 文件共享](../storage/files/storage-how-to-use-files-cli.md) 和 [高级文件共享](../storage/files/storage-how-to-create-premium-fileshare.md) 。 优势包括内容受保护，内容可移植，可以访问多个应用以及使用多种传输方法。
+
+> [!NOTE]
+>应用服务中的 Azure 存储为 **预览版** ， **不支持****生产方案** 。
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 本指南说明如何将 Azure 存储附加到 Linux 容器应用服务。 优点包括受保护的内容、内容可移植性、持久存储、对多个应用的访问和多种传输方法。
+
+> [!NOTE]
+>应用服务中的 Azure 存储处于 Linux 和用于容器的 Web 应用上的应用服务 **预览版中** 。 对于 **生产方案** ， **不支持** 此方法。
 
 ::: zone-end
 
@@ -53,7 +59,6 @@ ms.locfileid: "92057750"
 
 ::: zone pivot="container-windows"
 
-- 应用服务中的 Azure 存储为**预览版**，**不支持****生产方案**。
 - 目前，应用服务中的 Azure 存储 **不支持** 引入你自己的代码方案 (非容器化 Windows 应用) 。
 - 由于基础结构限制，应用服务中的 Azure 存储 **不支持** 使用 **存储防火墙** 配置。
 - 利用应用服务的 Azure 存储，可以为每个应用指定 **最多5个** 装入点。
@@ -63,7 +68,6 @@ ms.locfileid: "92057750"
 
 ::: zone pivot="container-linux"
 
-- 应用服务中的 Azure 存储处于 Linux 和用于容器的 Web 应用上的应用服务 **预览版中** 。 对于**生产方案**，**不支持**此方法。
 - 应用服务中的 azure 存储支持装载 **Azure 文件容器** (读/写) 和 **azure Blob 容器** (只读) 
 - 利用应用服务中的 Azure 存储，可以为每个应用指定 **最多5个** 装入点。
 - 无法通过应用服务 FTP/FTPs 终结点访问装载到应用的 Azure 存储。 使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144984"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077670"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>如何：使用条件访问要求来自不受信任网络的访问进行 MFA   
 
@@ -48,17 +48,17 @@ Azure Active Directory (Azure AD) 允许从任何位置以单一登录方式登�
 可以通过以下方式配置命名位置：
 
 - 指定此范围 (199.30.16.0/28) 
-- 分配一个描述性名称，例如**公司网络** 
+- 分配一个描述性名称，例如 **公司网络** 
 
 可以选择以下选项，而不是尝试定义不受信任的所有位置：
 
 - 包括任何位置 
 
-   ![条件性访问](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Azure &quot;D 位置&quot; 窗格的屏幕截图，将 &quot;配置&quot; 设置为 &quot;是&quot;，&quot;包括&quot; 选项卡可见，并选中并突出显示 &quot;任何位置&quot; 选项。" border="false":::
 
 - 排除所有受信任的位置 
 
-   ![条件访问](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Azure &quot;D 位置&quot; 窗格的屏幕截图，将 &quot;配置&quot; 设置为 &quot;是&quot;，&quot;包括&quot; 选项卡可见，并选中并突出显示 &quot;任何位置&quot; 选项。" border="false":::
 
 ## <a name="policy-deployment"></a>策略部署
 

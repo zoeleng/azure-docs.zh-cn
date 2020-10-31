@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60499879"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075681"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>必应搜索 API 使用和显示要求
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 这些使用和显示要求适用于来自以下必应搜索 API 的内容和关联信息的任何实现，其中包括关系、元数据和其他信号。
 
@@ -99,7 +104,7 @@ ms.locfileid: "60499879"
 ### <a name="notices-and-branding"></a>通知和品牌推广 
 应做事项：
 
-- 在每个用户体验 (UX) 点（用户可输入搜索查询）附近，以醒目方式添加 [Microsoft 隐私声明](https://go.microsoft.com/fwlink/?LinkId=521839)功能性超链接。 将该超链接标记为 Microsoft 隐私声明****。
+- 在每个用户体验 (UX) 点（用户可输入搜索查询）附近，以醒目方式添加 [Microsoft 隐私声明](https://go.microsoft.com/fwlink/?LinkId=521839)功能性超链接。 将该超链接标记为 Microsoft 隐私声明  。
 
 - 在每个用户体验点（用户可输入搜索查询）附近，以醒目方式显示必应品牌推广（应符合[必应商标使用准则](https://go.microsoft.com/fwlink/?linkid=833278)要求）。 此类品牌推广必须向用户明确表明 Microsoft 为该 Internet 搜索体验提供支持。
 

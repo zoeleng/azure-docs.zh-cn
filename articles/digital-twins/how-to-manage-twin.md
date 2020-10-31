@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494785"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077942"
 ---
 # <a name="manage-digital-twins"></a>管理数字孪生
 
@@ -35,14 +35,19 @@ await client.CreateDigitalTwinAsync("myTwinId", initData);
 * 数字克隆所需的 ID
 * 要使用的[模型](concepts-models.md)
 
-（可选）可以为数字输出的所有属性提供初始值。 
+（可选）可以为数字输出的所有属性提供初始值。 属性被视为可选的，并且可以在以后进行设置，但 **在设置之前，不会将它们显示为完全不包含。**
 
-模型和初始属性值通过 `initData` 参数提供，它是一个包含相关数据的 JSON 字符串。 有关构造此对象的详细信息，请转到下一节。
+>[!NOTE]
+>尽管不需要初始化克隆的属性，但在创建克隆时， **需要设置** 克隆上的所有 [组件](concepts-models.md#elements-of-a-model)。 它们可以是空对象，但组件本身必须存在。
+
+通过参数提供模型和任何初始属性值，该 `initData` 参数是一个包含相关数据的 JSON 字符串。 有关构造此对象的详细信息，请转到下一节。
 
 > [!TIP]
 > 创建或更新克隆后，可能会有长达10秒的延迟，更改将反映在 [查询](how-to-query-graph.md)中。 `GetDigitalTwin`[本文后面](#get-data-for-a-digital-twin)所述的 API () 不会遇到此延迟，因此，如果需要即时响应，请使用 API 调用而不是查询来查看新创建的孪生。 
 
 ### <a name="initialize-model-and-properties"></a>初始化模型和属性
+
+您可以在创建克隆时初始化一个静态属性。 
 
 克隆创建 API 接受序列化为克隆属性的有效 JSON 说明的对象。 请参阅 " [*概念：数字孪生" 和 "克隆图形"*](concepts-twins-graph.md) ，以获取对一种对的 JSON 格式的说明。 
 
@@ -110,7 +115,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 
 若要使用单个 API 调用检索多个孪生，请参阅 [*如何：查询双子图*](how-to-query-graph.md)中的查询 API 示例。
 
-请考虑以下模型 (以 [数字孪生定义语言编写， (DTDL) ](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) 定义 *月球*：
+请考虑以下模型 (以 [数字孪生定义语言编写， (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) 定义 *月球* ：
 
 ```json
 {
@@ -133,7 +138,7 @@ foreach (string prop in twin.CustomProperties.Keys)
     ]
 }
 ```
-`object result = await client.GetDigitalTwinAsync("my-moon");`对*月亮*类型的硬类型调用的结果如下所示：
+`object result = await client.GetDigitalTwinAsync("my-moon");`对 *月亮* 类型的硬类型调用的结果如下所示：
 
 ```json
 {
@@ -164,7 +169,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 数字克隆的已定义属性在数字克隆上作为顶级属性返回。 不属于 DTDL 定义的元数据或系统信息将以 `$` 前缀返回。 元数据属性包括：
 * 此 Azure 数字孪生实例中数字输出的 ID，如 `$dtId` 。
 * `$etag`，由 web 服务器分配的标准 HTTP 字段。
-* 节中的其他属性 `$metadata` 。 其中包括:
+* 节中的其他属性 `$metadata` 。 这些方法包括：
     - 数字克隆的模型的 DTMI。
     - 每个可写属性的同步状态。 这对于设备最为有用，在这种情况下，在设备处于) 脱机状态时，服务和设备可能会 (分叉状态。 目前，此属性仅适用于连接到 IoT 中心的物理设备。 使用元数据部分中的数据，可以了解属性的完整状态以及上次修改的时间戳。 有关同步状态的详细信息，请参阅有关同步设备状态的 [此 IoT 中心教程](../iot-hub/tutorial-device-twins.md) 。
     - 服务特定的元数据，如 IoT 中心或 Azure 数字孪生。 
@@ -276,8 +281,8 @@ await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 仅当修补程序修改的数字克隆符合新的模型时，此操作才会成功。 
 
 请考虑以下示例：
-1. 假设有一个数字克隆，其型号为 *foo_old*。 *foo_old* 定义所需的属性 *质量*。
-2. 新模型 *foo_new* 定义属性质量并添加新的必需属性 *温度*。
+1. 假设有一个数字克隆，其型号为 *foo_old* 。 *foo_old* 定义所需的属性 *质量* 。
+2. 新模型 *foo_new* 定义属性质量并添加新的必需属性 *温度* 。
 3. 修补后，数字克隆必须同时具有质量和温度属性。 
 
 此情况的修补程序需要更新模型和克隆的温度属性，如下所示：
@@ -304,9 +309,9 @@ Azure 数字孪生确保所有传入的请求经过一次处理。 这意味着�
 此行为以每个随机的方式进行。 
 
 例如，假设这三个调用同时到达的情况如下： 
-*   在*Twin1*上写入属性 A
-*   在*Twin1*上写入属性 B
-*   在*Twin2*上写入属性 A
+*   在 *Twin1* 上写入属性 A
+*   在 *Twin1* 上写入属性 B
+*   在 *Twin2* 上写入属性 A
 
 修改 *Twin1* 的两个调用会再执行一次，并为每个更改生成更改消息。 修改 *Twin2* 的调用可能会在不冲突的情况下同时执行，而不会发生冲突。
 
@@ -375,7 +380,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 ```
 ### <a name="delete-all-digital-twins"></a>删除所有数字孪生
 
-有关如何同时删除所有孪生的示例，请下载 _Tutorial 中使用的示例应用 [：使用示例客户端应用了解基础知识](tutorial-command-line-app.md)。 *CommandLoop.cs*文件在函数中执行此 `CommandDeleteAllTwins()` 功能。
+有关如何同时删除所有孪生的示例，请下载 _Tutorial 中使用的示例应用 [：使用示例客户端应用了解基础知识](tutorial-command-line-app.md)。 *CommandLoop.cs* 文件在函数中执行此 `CommandDeleteAllTwins()` 功能。
 
 ## <a name="manage-twins-using-runnable-code-sample"></a>使用可运行代码示例管理孪生
 
