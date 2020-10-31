@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6837bbdb63caf0fb1ecb3f6e520d5f3623483b44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093304"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083229"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>了解安全的 Azure 托管工作站
 
-受保护的隔离工作站对于机密角色（如管理员、开发人员和关键服务操作员）的安全性至关重要。 如果客户端工作站安全受到威胁，则很多安全控制和保证可能会失败或无效。
+受保护的独立工作站对于机密角色（如管理员、开发人员和关键服务操作员）的安全性至关重要。 如果客户端工作站安全受到威胁，则很多安全控制和保证可能会失败或无效。
 
 本文档介绍构建安全工作站所需的内容，通常称为特权访问工作站 (PAW) 。 本文还包含有关设置初始安全控制的详细说明。 本指南介绍了基于云的技术如何管理该服务。 它依赖于 Windows 10RS5 中引入的安全功能、Microsoft Defender 高级威胁防护 (ATP) 、Azure Active Directory 和 Microsoft Intune。
 
@@ -94,12 +94,15 @@ ms.locfileid: "92093304"
 
 对于此解决方案，将使用 [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) 技术部署信任的根，使硬件满足新式技术要求。 为了保护工作站，Autopilot 使你能够利用 Microsoft OEM 优化的 Windows 10 设备。 这些设备从制造商处进入已知的良好状态。 Autopilot 可以将 Windows 设备转换为 "企业就绪" 状态，而不是重置可能不安全的设备。 它应用设置和策略、安装应用，甚至更改 Windows 10 的版本。 例如，Autopilot 可能会将设备的 Windows 安装从 Windows 10 专业版更改为 Windows 10 企业版，以便能够使用高级功能。
 
-![安全工作站级别](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="显示安全工作站生命周期的关系图。" border="false":::
+图顶部附近有一个设备供应商。 箭头指向购买工作站的客户，以及标记为 "完成" 和 "交付" 的卡车的客户。 在卡车上，箭头指向标记为 "部署" 的图像，该图像使用工作站。 标记为 "自助服务体验" 的箭头将从该用户延伸到标记为 "已准备好企业" 的屏幕。 在该屏幕下，将显示标记为受管理保护的图标。 标记为稳定状态的箭头，管理屏幕上的当前点，并将其保留在生命图标结尾和中断修复重置图标。 最终箭头将从中断修复图标循环回来到 Ready for business 屏幕。
+:::image-end:::
 
 ## <a name="device-roles-and-profiles"></a>设备角色和配置文件
 
-本指南引用了多个安全配置文件和角色，它们可帮助你为用户、开发人员和 IT 人员创建更安全的解决方案。 这些配置文件可为可从增强或安全工作站获益的常见用户平衡可用性和风险。 此处提供的设置配置基于行业接受的标准。 本指南演示如何强化 Windows 10 并降低与设备或用户泄露相关的风险。 为了利用新式硬件技术和信任设备的根，我们将使用从**高安全性**配置文件开始启用的[设备运行状况证明](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643)。 提供此功能是为了确保攻击者在设备的早期启动过程中不能持久。 它通过使用策略和技术来帮助管理安全功能和风险来实现此目的。
-![安全工作站级别](./media/concept-azure-managed-workstation/seccon-levels.png)
+本指南引用了多个安全配置文件和角色，它们可帮助你为用户、开发人员和 IT 人员创建更安全的解决方案。 这些配置文件可为可从增强或安全工作站获益的常见用户平衡可用性和风险。 此处提供的设置配置基于行业接受的标准。 本指南演示如何强化 Windows 10 并降低与设备或用户泄露相关的风险。 为了利用新式硬件技术和信任设备的根，我们将使用从 **高安全性** 配置文件开始启用的 [设备运行状况证明](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643)。 提供此功能是为了确保攻击者在设备的早期启动过程中不能持久。 它通过使用策略和技术来帮助管理安全功能和风险来实现此目的。
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="显示安全工作站生命周期的关系图。" border="false":::
 
 * **基本安全性** –托管的标准工作站为大多数家庭和小型企业使用提供了很好的起点。 这些设备在 Azure AD 中注册，并通过 Intune 进行管理。 此配置文件允许用户运行任何应用程序并浏览任意网站。 应启用反恶意软件解决方案，如 [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) 。
 

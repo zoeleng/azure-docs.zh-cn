@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825961"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083178"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>如何：在 Azure AD 中管理过时设备
 
@@ -37,7 +37,7 @@ Azure AD 中的陈旧设备可能会影响到针对组织中设备实施的常�
 
 ## <a name="detect-stale-devices"></a>检测陈旧的设备
 
-由于陈旧设备定义为已注册的、但在特定的时间范围内未曾用来访问过任何云应用的设备，因此，检测陈旧设备需要时间戳相关的属性。 在 Azure AD 中，此属性称为 **ApproximateLastLogonTimestamp** 或**活动时间戳**。 如果某个设备的当前时间与**活动时间戳**值之间的差超过了为活动设备定义的时间范围，则将该设备视为陈旧设备。 此**活动时间戳**目前以公共预览版提供。
+由于陈旧设备定义为已注册的、但在特定的时间范围内未曾用来访问过任何云应用的设备，因此，检测陈旧设备需要时间戳相关的属性。 在 Azure AD 中，此属性称为 **ApproximateLastLogonTimestamp** 或 **活动时间戳** 。 如果某个设备的当前时间与 **活动时间戳** 值之间的差超过了为活动设备定义的时间范围，则将该设备视为陈旧设备。 此 **活动时间戳** 目前以公共预览版提供。
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>如何管理活动时间戳的值？  
 
@@ -53,13 +53,13 @@ Azure AD 中的陈旧设备可能会影响到针对组织中设备实施的常�
 
 可通过两个选项检索活动时间戳的值：
 
-- Azure 门户中[设备页](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)上的“活动”列****
+- Azure 门户中 
 
-    ![活动时间戳](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Azure 门户列出设备上的名称、所有者和其他信息的页面屏幕截图。一列列出活动时间戳。" border="false":::
 
 - [Get-azureaddevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
-    ![活动时间戳](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Azure 门户列出设备上的名称、所有者和其他信息的页面屏幕截图。一列列出活动时间戳。" border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>规划陈旧设备的清理
 

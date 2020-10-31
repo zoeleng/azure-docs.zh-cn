@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653207"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083280"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>操作方法：计划 Azure AD 联接实现
 
@@ -24,7 +24,7 @@ ms.locfileid: "91653207"
 
 本文介绍计划 Azure AD 联接实现所需信息。
  
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 本文假设读者已阅读 [Azure Active Directory 中的设备管理简介](./overview.md)。
 
@@ -90,8 +90,8 @@ Azure AD 联接适用于托管环境和联合环境。
 
 如果在下列情况下创建用户：
 
-- **本地 Active Directory**，需要使用 [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md) 将其同步到 Azure AD。 
-- **Azure AD**，无需进行其他设置。
+- **本地 Active Directory** ，需要使用 [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md) 将其同步到 Azure AD。 
+- **Azure AD** ，无需进行其他设置。
 
 Azure AD 加入设备不支持与 Azure AD UPN 不同的本地 UPN。 如果用户使用本地 UPN，你应计划转换成使用其 Azure AD 中的主 UPN。
 
@@ -187,7 +187,7 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 启动 Windows 10 2004 更新后，用户还可以从 Azure AD 注册的 Windows 10 设备使用远程桌面连接到 Azure AD 加入的设备。 
 
 ## <a name="understand-your-provisioning-options"></a>了解预配选项
-**注意**：无法使用系统准备工具（ (Sysprep) 或类似的映像工具）部署 Azure AD 联接的设备
+**注意** ：无法使用系统准备工具（ (Sysprep) 或类似的映像工具）部署 Azure AD 联接的设备
 
 可以使用以下方法预配 Azure AD 联接：
 
@@ -219,23 +219,23 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 
 ## <a name="configure-your-device-settings"></a>配置设备设置
 
-通过Azure 门户可控制组织中 Azure AD 联接设备的部署。 若要配置相关设置，在“Azure Active Directory 页”中选择 `Devices > Device settings`****。
+通过Azure 门户可控制组织中 Azure AD 联接设备的部署。 若要配置相关设置，在“Azure Active Directory 页”中选择 `Devices > Device settings` 。
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>用户可以将设备联接到 Azure AD
 
-根据部署范围和你想允许设置 Azure AD 联接设备的人选，将此选项设置为“全部”或“选定”********。 
+根据部署范围和你想允许设置 Azure AD 联接设备的人选，将此选项设置为“全部”或“选定”  。 
 
 ![用户可以将设备联接到 Azure AD](./media/azureadjoin-plan/01.png)
 
 ### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>已联接 Azure AD 的设备上的其他本地管理员
 
-选择“选定”，并选择想要添加到所有 Azure AD 联接设备上的本地管理员组的用户****。 
+选择“选定”，并选择想要添加到所有 Azure AD 联接设备上的本地管理员组的用户  。 
 
 ![已联接 Azure AD 的设备上的其他本地管理员](./media/azureadjoin-plan/02.png)
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>需要进行多重身份验证才能联接设备
 
-如果将设备联接到 Azure AD 的同时需要用户执行多重身份验证，则选择“是”****。 对于使用多重身份验证将设备联接到 Azure AD 的用户，设备本身成为第 2 个因素。
+如果将设备联接到 Azure AD 的同时需要用户执行多重身份验证，则选择“是”  。 对于使用多重身份验证将设备联接到 Azure AD 的用户，设备本身成为第 2 个因素。
 
 ![需要进行多重身份验证才能联接设备](./media/azureadjoin-plan/03.png)
 
@@ -243,26 +243,26 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 
 可能必须首先添加 MDM 提供程序，然后才可以配置移动性设置。
 
-**若要添加 MDM 提供程序**：
+**若要添加 MDM 提供程序** ：
 
-1. 在“Azure Active Directory 页”的“管理”部分，单击 `Mobility (MDM and MAM)`********。 
+1. 在“Azure Active Directory 页”的“管理”部分，单击 `Mobility (MDM and MAM)` 。 
 1. 单击“添加应用程序”。
 1. 从列表中选择 MDM 提供程序。
 
-   ![添加应用程序](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Azure Active Directory &quot;添加应用程序&quot; 页的屏幕截图。列出了几个 M D M 访问接口。" border="false":::
 
 选择 MDM 提供程序配置相关设置。 
 
 ### <a name="mdm-user-scope"></a>MDM 用户范围
 
-根据部署范围，选择“部分”或“全部”********。 
+根据部署范围，选择“部分”或“全部”  。 
 
 ![MDM 用户范围](./media/azureadjoin-plan/05.png)
 
 根据范围，会发生以下某种情况： 
 
-- **用户在 MDM 范围内**：如果有 Azure AD Premium 订阅，则自动进行 MDM 注册以及 Azure AD 联接。 范围内所有用户必须具有相应的 MDM 许可证。 如果此方案中 MDM 注册失败，Azure AD 联接也将失败。
-- **用户不在 MDM 范围内**：如果用户不在 MDM 范围内，则无需任何 MDM 注册即可完成 Azure AD 联接。 这会产生非管理的设备。
+- **用户在 MDM 范围内** ：如果有 Azure AD Premium 订阅，则自动进行 MDM 注册以及 Azure AD 联接。 范围内所有用户必须具有相应的 MDM 许可证。 如果此方案中 MDM 注册失败，Azure AD 联接也将失败。
+- **用户不在 MDM 范围内** ：如果用户不在 MDM 范围内，则无需任何 MDM 注册即可完成 Azure AD 联接。 这会产生非管理的设备。
 
 ### <a name="mdm-urls"></a>MDM URL
 
@@ -272,7 +272,7 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 - MDM 发现 URL 
 - MDM 符合性 URL
 
-![添加应用程序](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Azure Active Directory &quot;添加应用程序&quot; 页的屏幕截图。列出了几个 M D M 访问接口。" border="false":::
 
 每个 URL 都有一个预定义的默认值。 如果这些字段都为空，请联系 MDM 提供商，获取更多详细信息。
 
@@ -284,7 +284,7 @@ MAM 不适用于 Azure AD 联接。
 
 如果想要启用 Azure AD 的状态漫游，以便用户可以跨设备同步其设置，请参阅[在 Azure Active Directory 中启用企业状态漫游](enterprise-state-roaming-enable.md)。 
 
-**建议**：即使对于混合 Azure AD 联接设备，也启用此设置。
+**建议** ：即使对于混合 Azure AD 联接设备，也启用此设置。
 
 ## <a name="configure-conditional-access"></a>配置条件访问
 

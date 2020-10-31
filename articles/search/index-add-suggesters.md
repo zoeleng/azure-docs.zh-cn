@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1ee42b5b5884b0ce3491282d256d4bea87f44e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537593"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083535"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>创建建议器，以在查询中启用“自动完成”和“建议结果”功能
 
-在 Azure 认知搜索中，“键入时搜索”是通过添加到[搜索索引](search-what-is-an-index.md)的建议器构造启用的****。 建议器支持两种体验：“自动完成”，它将整个术语查询的一部分输入补充完整，和“建议”，它邀请执行指向特定匹配的一系列单击操作** **。 “自动完成”生成查询。 “建议”生成匹配的文档。
+在 Azure 认知搜索中，“键入时搜索”是通过添加到  。 建议器支持两种体验：“自动完成”，它将整个术语查询的一部分输入补充完整，和“建议”，它邀请执行指向特定匹配的一系列单击操作   。 “自动完成”生成查询。 “建议”生成匹配的文档。
 
 取自[在 C# 中创建第一个应用](tutorial-csharp-type-ahead-and-suggestions.md)的以下屏幕截图演示了这两种体验。 自动完成可预测潜在字词，并使用“in”来补充“tw”。 建议是极其精简的搜索结果，其中的字段（例如酒店名称）表示索引中匹配的酒店搜索文档。 对于建议，可以呈现任何提供描述性信息的字段。
 
@@ -30,7 +30,7 @@ ms.locfileid: "91537593"
 
 + 在查询请求中，调用[下面列出的 API](#how-to-use-a-suggester) 之一。
 
-对于字符串字段，可按字段启用“键入时搜索”支持。 若要获得屏幕截图中所示的类似体验，可以在同一搜索解决方案中实现这两种自动提示行为。 这两个请求针对特定索引的文档集合，在用户提供至少包含三个字符的输入字符串后，将返回响应。**
+对于字符串字段，可按字段启用“键入时搜索”支持。 若要获得屏幕截图中所示的类似体验，可以在同一搜索解决方案中实现这两种自动提示行为。 这两个请求针对特定索引的文档集合，在用户提供至少包含三个字符的输入字符串后，将返回响应。 
 
 ## <a name="what-is-a-suggester"></a>什么是建议器？
 
@@ -52,7 +52,7 @@ ms.locfileid: "91537593"
 
 另一方面，当字段为可选时，“建议”能生成更好的结果。 请记住，“建议”是搜索文档的代理，因此需要最能代表单个结果的字段。 用于区分多个匹配项的名称、标题或其他唯一字段最合适。 如果字段包含重复值，则建议会包含相同的结果，因此用户不知道要单击哪条建议。
 
-为实现“边键入边搜索”的体验，请添加“自动完成”所需的所有字段，然后使用 $select、$top、$filter 和 searchFields 来控制建议的结果**** **** **** ****。
+为实现“边键入边搜索”的体验，请添加“自动完成”所需的所有字段，然后使用 $select、$top、$filter 和 searchFields 来控制建议的结果     。
 
 ### <a name="choose-analyzers"></a>选择分析器
 
@@ -153,7 +153,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 在搜索应用程序中，客户端代码应利用 [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) 之类的库来收集部分查询并提供匹配项。 有关此任务的详细信息，请参阅[将“自动完成”或“建议结果”功能添加到客户端代码](search-autocomplete-tutorial.md)。
 
-以下对自动完成 REST API 的调用演示了 API 的用法。 此示例有两个要点。 首先，与所有查询一样，操作是针对索引的文档集合执行的，查询包含一个 search 参数，在本例中该参数提供部分查询****。 其次，必须将 suggesterName 添加到请求****。 如果未在索引中定义建议器，对自动完成或建议的调用将会失败。
+以下对自动完成 REST API 的调用演示了 API 的用法。 此示例有两个要点。 首先，与所有查询一样，操作是针对索引的文档集合执行的，查询包含一个 search 参数，在本例中该参数提供部分查询  。 其次，必须将 suggesterName 添加到请求  。 如果未在索引中定义建议器，对自动完成或建议的调用将会失败。
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -167,7 +167,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 + [在 C# 中创建第一个应用（第 3 课 - 添加“键入时搜索”）](tutorial-csharp-type-ahead-and-suggestions.md)示例演示了建议器的构造、建议的查询、自动完成和分面导航。 此代码示例在沙盒 Azure 认知搜索服务中运行，并使用预先加载的酒店索引，因此，只需按 F5 即可运行应用程序。 无需订阅或登录。
 
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 是包含 C# 和 Java 代码的早期示例。 其中也演示了建议器的构造、建议的查询、自动完成和分面导航。 此代码示例使用托管的 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 示例数据。 
++ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 是包含 C# 和 Java 代码的早期示例。 其中也演示了建议器的构造、建议的查询、自动完成和分面导航。 此代码示例使用托管的 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 示例数据。 
 
 ## <a name="next-steps"></a>后续步骤
 

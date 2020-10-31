@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488446"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082872"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>作为键值存储 Azure Cosmos DB-费用概述
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 是全球分布式多模型数据库服务，用于轻松构建高度可用的大规模应用程序。 默认情况下，Azure Cosmos DB 会自动并高效地为其引入的所有数据编制索引。 因此，可针对数据执行快速一致的 [SQL](./sql-query-getting-started.md)（和 [JavaScript](stored-procedures-triggers-udfs.md)）查询。 
 
@@ -22,7 +23,7 @@ Azure Cosmos DB 是全球分布式多模型数据库服务，用于轻松构建�
 
 ## <a name="why-we-use-request-units-rus"></a>为何使用请求单位 (RU)
 
-Azure Cosmos DB 性能基于以[请求单位](request-units.md)（RU/秒）表示的预配吞吐量的数量。 预配按另一种粒度，根据每秒 RU 数（[请不要与每小时计费相混淆](https://azure.microsoft.com/pricing/details/cosmos-db/)）购买。 应将 RU 视为一种逻辑抽象（一种货币），用于简化应用程序所需吞吐量的预配过程。 用户不必考虑区分读取和写入吞吐量。 RU 的单一货币模型能够有效地在读取和写入之间分享预配的容量。 这种预配的容量模型使服务能够提供**可预测且一致的吞吐量，保证低延迟和高可用性**。 最后，虽然 RU 模型用于描述吞吐量，但每个预配的 RU 也有一定的资源量（例如，内存、核心数/CPU 和 IOPS）。
+Azure Cosmos DB 性能基于以[请求单位](request-units.md)（RU/秒）表示的预配吞吐量的数量。 预配按另一种粒度，根据每秒 RU 数（[请不要与每小时计费相混淆](https://azure.microsoft.com/pricing/details/cosmos-db/)）购买。 应将 RU 视为一种逻辑抽象（一种货币），用于简化应用程序所需吞吐量的预配过程。 用户不必考虑区分读取和写入吞吐量。 RU 的单一货币模型能够有效地在读取和写入之间分享预配的容量。 这种预配的容量模型使服务能够提供 **可预测且一致的吞吐量，保证低延迟和高可用性** 。 最后，虽然 RU 模型用于描述吞吐量，但每个预配的 RU 也有一定的资源量（例如，内存、核心数/CPU 和 IOPS）。
 
 作为一种全球分布式数据库系统，Cosmos DB 是唯一的 Azure 服务，提供涵盖延迟、吞吐量、一致性和高可用性的综合 Sla。 预配的吞吐量将应用到与 Cosmos 帐户关联的每个区域。 对于读取，Cosmos DB 提供多个妥善定义的[一致性级别](consistency-levels.md)供用户选择。 
 

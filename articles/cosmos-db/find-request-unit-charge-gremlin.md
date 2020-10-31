@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ea9ab661fce1cd88bf1bdc065c2b26ccad73c30d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8393fb431c5148d3f4885135c90fe4d0b8970d52
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490707"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082005"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-gremlin-api"></a>查找 Azure Cosmos DB Gremlin API 中执行的操作的请求单位费用
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB、Cassandra、Gremlin 和表。 每个 API 具有自身的数据库操作集。 这些操作包括简单的点读取和写入，以及复杂的查询等等。 每个数据库操作根据其复杂性消耗系统资源。
 
@@ -33,7 +34,7 @@ Gremlin API 返回的标头将映射到目前由 Gremlin .NET 和 Java SDK 公�
 
 1. 转到“数据资源管理器”窗格，然后选择要处理的容器。
 
-1. 输入有效的查询，然后选择 " **执行 Gremlin 查询**"。
+1. 输入有效的查询，然后选择 " **执行 Gremlin 查询** "。
 
 1. 选择“查询统计信息”，以显示执行的请求的实际请求费用。
 

@@ -4,12 +4,12 @@ description: 在 Azure Application Insights 中看不到数据？ 试试这里�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 2bf9b50c9b378d8624c311af5935b8cd0a28a31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757973"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083161"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>排查无数据问题 - 用于 .NET/.NET Core 的 Application Insights
 
@@ -35,7 +35,7 @@ ms.locfileid: "91757973"
 * 可能是防火墙有问题。 [为 Application Insights 设置防火墙例外即可发送数据](./ip-addresses.md)。
 * IIS 服务器可能缺少某些必备组件：.NET Extensibility 4.5 和 ASP.NET 4.5。
 
-*我已在 Web 服务器上[安装状态监视器](./monitor-performance-live-website-now.md)来监视现有应用，但未看到任何结果。*
+*我已在 Web 服务器上 [安装状态监视器](./monitor-performance-live-website-now.md)来监视现有应用，但未看到任何结果。*
 
 * 请参阅[排查状态监视器问题](./monitor-performance-live-website-now.md#troubleshoot)。
 
@@ -122,7 +122,7 @@ ApplicationInsights.config 中的检测密钥控制遥测数据发送到的位�
 * 在 Visual Studio 中调试应用时，请单击“Application Insights”按钮。
 
 ## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a>没有服务器数据（或根本没有数据）
-*我运行了应用，并在 Microsoft Azure 中打开 Application Insights 服务，但所有图表都显示“了解如何收集...”或“未配置”。* 或者，*只有页面视图和用户数据，但没有任何服务器数据。*
+*我运行了应用，并在 Microsoft Azure 中打开 Application Insights 服务，但所有图表都显示“了解如何收集...”或“未配置”。* 或者， *只有页面视图和用户数据，但没有任何服务器数据。*
 
 * 在 Visual Studio 中以调试模式运行应用程序 (F5)。 使用应用程序，以便生成一些遥测。 检查是否可以在 Visual Studio 的“输出”窗口中看到记录的事件。  
   ![显示在 Visual Studio 中以调试模式运行应用程序的屏幕截图。](./media/asp-net-troubleshoot-no-data/output-window.png)
@@ -239,14 +239,14 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 ```
 
 可根据需要修改这些参数：
-- **MaxCollectSec**。 设置此参数可防止 PerfView 无限期运行并影响服务器的性能。
-- **OnlyProviders**。 设置此参数可以仅从 SDK 收集日志。 可根据自己的具体调查自定义此列表。 
-- **NoGui**。 设置此参数可以在不使用 GUI 的情况下收集日志。
+- **MaxCollectSec** 。 设置此参数可防止 PerfView 无限期运行并影响服务器的性能。
+- **OnlyProviders** 。 设置此参数可以仅从 SDK 收集日志。 可根据自己的具体调查自定义此列表。 
+- **NoGui** 。 设置此参数可以在不使用 GUI 的情况下收集日志。
 
 
 有关详细信息，请参阅：
 - [使用 PerfView 记录性能跟踪](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)。
-- [Application Insights 事件源](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Application Insights 事件源](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>使用 dotnet-trace 收集日志
 

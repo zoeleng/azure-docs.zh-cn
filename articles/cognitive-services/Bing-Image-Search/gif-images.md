@@ -11,16 +11,21 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcfd711f0a38d5993447823c31cbf7f27226ad6b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084334"
 ---
 # <a name="search-for-gif-images"></a>搜索 .gif 图像 
 
-借助必应图像搜索 API，还可以在整个 Web 上搜索最相关的 .gif 图像。开发人员可以在各种会话场景中集成动人的 GIF。 
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
+
+借助必应图像搜索 API，还可以在整个 Web 上搜索最相关的 .gif 图像。  开发人员可以在各种会话场景中集成动人的 GIF。 
 
 以下 URL 是对动态 .gif 图像的查询。
 ```

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: e64914118409332f6a1c08b6d5e1669685529d76
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ff071373706759576f80426d61a27851bfc4e1b6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999158"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082158"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>将模型部署到 Azure 容器实例
 
@@ -60,7 +60,7 @@ ms.locfileid: "91999158"
 
 ## <a name="deploy-to-aci"></a>部署到 ACI
 
-要将模型部署到 Azure 容器实例，请创建一个描述所需计算资源的部署配置。 例如，核心数和内存。 此外，还需要一个推理配置，描述托管模型和 Web 服务所需的环境____。 有关如何创建推理配置的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
+要将模型部署到 Azure 容器实例，请创建一个描述所需计算资源的部署配置。 例如，核心数和内存。 此外，还需要一个推理配置，描述托管模型和 Web 服务所需的环境  。 有关如何创建推理配置的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
 > [!NOTE]
 > * ACI 仅适用于大小不到 1 GB 的小模型。 
@@ -104,6 +104,8 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 > [!IMPORTANT]
 > 无需事先创建 ACI 容器即可进行测试。 将据需要创建 ACI 容器。
 
+> [!IMPORTANT]
+> 我们将哈希工作区 id 追加到创建的所有基础 ACI 资源，同一工作区中的所有 ACI 名称将具有相同的后缀。 Azure 机器学习服务名称仍为同一客户提供的 "service_name"，而 Azure 机器学习 SDK Api 的所有用户都不需要进行任何更改。 我们不会对所创建的基础资源的名称做出任何保证。
 
 ## <a name="next-steps"></a>后续步骤
 
