@@ -1,24 +1,24 @@
 ---
-title: 管理 Azure 存储生命周期
-description: 了解如何创建生命周期策略规则，以将陈旧数据从热存储转移到冷存储和存档层。
+title: 通过自动化 Azure Blob 存储访问层优化成本
+description: 为在热、冷层和存档层之间移动数据创建自动规则。
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309800"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100062"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 存储生命周期
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>通过自动化 Azure Blob 存储访问层优化成本
 
-数据集具有独特的生命周期。 在生命周期的早期，人们经常访问某些数据。 但随着数据的老化，访问需求急剧下降。 有些数据在云中保持空闲状态，并且在存储后很少被访问。 有些数据在创建后的数日或者数月即会过期，还有一些数据集在其整个生存期会频繁受到读取和修改。 Azure Blob 存储生命周期管理为 GPv2 和 Blob 存储帐户提供丰富的基于规则的策略。 可使用该策略将数据转移到适当的访问层，或在数据的生命周期结束时使数据过期。
+数据集具有独特的生命周期。 在生命周期的早期，人们经常访问某些数据。 但随着数据的老化，访问需求急剧下降。 有些数据在云中保持空闲状态，并且在存储后很少被访问。 有些数据在创建后的数日或者数月即会过期，还有一些数据集在其整个生存期会频繁受到读取和修改。 Azure Blob 存储生命周期管理为 GPv2 和 Blob 存储帐户提供了丰富的基于规则的策略。 可使用该策略将数据转移到适当的访问层，或在数据的生命周期结束时使数据过期。
 
 生命周期管理策略允许：
 
@@ -31,12 +31,13 @@ ms.locfileid: "92309800"
 假设某个数据集在生命周期的早期阶段频繁被访问，两周后只是偶尔被访问。 一个月以后，该数据集很少被访问。 在这种场景下，早期阶段最适合使用热存储。 在偶尔访问阶段最适合使用冷存储。 在一个月后数据陈旧时，存档存储便是最佳的层选项。 通过根据数据陈旧程度调整存储层，可根据需求设计出最具性价比的存储选项。 若要实现这种过渡，可以使用生命周期管理策略规则将陈旧数据转移到较冷的存储层。
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 >[!NOTE]
 >如果需要数据以保持可读，例如，在由 StorSimple 使用时，请勿设置策略以将 blob 移到存档层。
 
 ## <a name="availability-and-pricing"></a>可用性和定价
 
-生命周期管理功能适用于常规用途 v2 (GPv2) 帐户、Blob 存储帐户、高级块 Blob 存储帐户和 Azure Data Lake Storage Gen2 帐户的所有 Azure 区域。 在 Azure 门户中，可将现有的常规用途 (GPv1) 帐户升级为 GPv2 帐户。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
+生命周期管理功能适用于常规用途 v2 (GPv2) 帐户、blob 存储帐户、高级块 Blob 存储帐户和 Azure Data Lake Storage Gen2 帐户的所有 Azure 区域。 在 Azure 门户中，可将现有的常规用途 (GPv1) 帐户升级为 GPv2 帐户。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
 生命周期管理功能是免费的。 客户需要支付[设置 Blob 层](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 调用的常规操作费用。 删除操作是免费的。 有关定价的详细信息，请参阅[块 Blob 定价](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
@@ -69,11 +70,11 @@ ms.locfileid: "92309800"
 
 1. 在 Azure 门户中，搜索并选择你的存储帐户。 
 
-1. 在 " **Blob 服务**" 下，选择 " **生命周期管理** " 以查看或更改你的规则。
+1. 在 " **Blob 服务** " 下，选择 " **生命周期管理** " 以查看或更改你的规则。
 
 1. 选择 " **列表视图** " 选项卡。
 
-1. 选择 " **添加规则** "，并在 **详细信息** 窗体上命名规则。 还可以设置 **规则范围**、 **Blob 类型**和 **blob 子类型** 值。 下面的示例将范围设置为筛选 blob。 这将导致添加 " **筛选器集** " 选项卡。
+1. 选择 " **添加规则** "，并在 **详细信息** 窗体上命名规则。 还可以设置 **规则范围** 、 **Blob 类型** 和 **blob 子类型** 值。 下面的示例将范围设置为筛选 blob。 这将导致添加 " **筛选器集** " 选项卡。
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="生命周期管理在 Azure 门户中添加规则详细信息页&quot;:::
 
@@ -94,7 +95,7 @@ ms.locfileid: "92309800"
 
 1. 在 Azure 门户中，搜索并选择你的存储帐户。
 
-1. 在 " **Blob 服务**" 下，选择 " **生命周期管理** " 以查看或更改策略。
+1. 在 " **Blob 服务** " 下，选择 " **生命周期管理** " 以查看或更改策略。
 
 1. 以下 JSON 是可粘贴到 " **代码视图** " 选项卡中的策略的示例。
 
@@ -312,7 +313,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 | blobIndexMatch | 由要匹配的 Blob 索引标记键和值条件组成的字典值的数组。 每个规则最多可以定义10个 Blob 索引标记条件。 例如，如果想要将的所有 blob 与 `Project = Contoso` 下的 `https://myaccount.blob.core.windows.net/` 规则进行匹配，则 blobIndexMatch 为 `{"name": "Project","op": "==","value": "Contoso"}` 。 | 如果未定义 blobIndexMatch，则规则将应用于存储帐户中的所有 blob。 | 否 |
 
 > [!NOTE]
-> Blob 索引以公共预览版提供，在 **加拿大中部**、 **加拿大东部**、 **法国中部**和 **法国南部** 区域提供。 若要详细了解此功能以及已知问题和限制，请参阅[通过 Blob 索引（预览版）管理和查找 Azure Blob 存储上的数据](storage-manage-find-blobs.md)。
+> Blob 索引以公共预览版提供，在 **加拿大中部** 、 **加拿大东部** 、 **法国中部** 和 **法国南部** 区域提供。 若要详细了解此功能以及已知问题和限制，请参阅[通过 Blob 索引（预览版）管理和查找 Azure Blob 存储上的数据](storage-manage-find-blobs.md)。
 
 ### <a name="rule-actions"></a>规则操作
 
@@ -320,7 +321,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 生命周期管理支持对 blob、以前的 blob 版本和 blob 快照进行分层和删除。 为基本 blob、以前的 blob 版本或 blob 快照上的每个规则定义至少一个操作。
 
-| 操作                      | 基本 Blob                                  | 快照      | 版本
+| 操作                      | 基本 Blob                                  | 快照      | Version
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | 对 `blockBlob` 支持                  | 支持     | 支持     |
 | enableAutoTierToHotFromCool | 对 `blockBlob` 支持                  | 不支持 | 不支持 |
@@ -383,7 +384,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 > [!IMPORTANT]
 > 上次访问时间跟踪预览版仅适用于非生产。 生产服务级别协议 (SLA) 当前不可用。
 
-若要使用 "**上次访问**时间" 选项，请在 "Azure 门户的"**生命周期管理**"页上选择"**访问跟踪已启用**"。
+若要使用 " **上次访问** 时间" 选项，请在 "Azure 门户的" **生命周期管理** "页上选择" **访问跟踪已启用** "。
 
 #### <a name="how-last-access-time-tracking-works"></a>上次访问时间跟踪的工作原理
 
@@ -530,7 +531,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 ### <a name="manage-versions"></a>管理版本
 
-对于在其整个生存期内定期修改和访问的数据，您可以启用 Blob 存储版本控制来自动维护对象的以前版本。 你可以创建策略以分层或删除以前的版本。 版本期限通过评估版本创建时间来确定。 此策略规则将以前版本的容器中的以前版本 `activedata` 分为90天或更早的版本，以将其版本创建到冷层，并删除以前版本365天或更低的版本。
+对于在其整个生存期内定期修改和访问的数据，您可以启用 blob 存储版本控制来自动维护对象的以前版本。 你可以创建策略以分层或删除以前的版本。 版本期限通过评估版本创建时间来确定。 此策略规则将以前版本的容器中的以前版本 `activedata` 分为90天或更早的版本，以将其版本创建到冷层，并删除以前版本365天或更低的版本。
 
 ```json
 {

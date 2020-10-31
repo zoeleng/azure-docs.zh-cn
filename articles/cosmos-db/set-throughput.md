@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367119"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098767"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中的预配吞吐量简介
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 允许对数据库和容器设置预配吞吐量。 有两种类型的预配吞吐量：标准（手动）或自动缩放。 本文概述预配吞吐量的工作原理。 
 
@@ -79,11 +80,11 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 可以合并两个模型。 同时对数据库和容器预配吞吐量。 以下示例演示如何对 Azure Cosmos 数据库和容器预配标准（手动）预配吞吐量：
 
 * 可以创建一个具有标准（手动）预配吞吐量（“K”RU）的名为 *Z* 的 Azure Cosmos 数据库。 
-* 接下来，在该数据库中创建名为 *A*、*B*、*C*、*D* 和 *E* 的五个容器。 创建容器 B 时，请确保启用“为此容器预配专用吞吐量”选项，并在此容器上显式配置“P”个 RU 的预配吞吐量。 只有在创建数据库和容器时，才能配置共享吞吐量和专用吞吐量。 
+* 接下来，在该数据库中创建名为 *A* 、 *B* 、 *C* 、 *D* 和 *E* 的五个容器。 创建容器 B 时，请确保启用“为此容器预配专用吞吐量”选项，并在此容器上显式配置“P”个 RU 的预配吞吐量。 只有在创建数据库和容器时，才能配置共享吞吐量和专用吞吐量。 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="承载一个或多个容器逻辑分区的物理分区":::
 
-* “K”RU 吞吐量在 *A*、*C*、*D* 和 *E* 这四个容器之间共享。提供给 A、C、D 或 E 的确切吞吐量各不相同。    每个容器的吞吐量没有 SLA 的保障。
+* “K”RU 吞吐量在 *A* 、 *C* 、 *D* 和 *E* 这四个容器之间共享。提供给 A、C、D 或 E 的确切吞吐量各不相同。    每个容器的吞吐量没有 SLA 的保障。
 * 保证名为 B 的容器始终可以获得“P”RU 吞吐量。  该容器有 SLA 的保障。
 
 > [!NOTE]
@@ -119,9 +120,9 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 * .NET SDK 中的[ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) 。
 * Java SDK 上的[ReplaceThroughput CosmosContainer](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) 。
 
-如果要 **降低预配的吞吐量**，则可以完成最 [小值](#current-provisioned-throughput)。
+如果要 **降低预配的吞吐量** ，则可以完成最 [小值](#current-provisioned-throughput)。
 
-如果你正在 **增加预配的吞吐量**，则在大多数情况下，操作是即时的。 但在某些情况下，操作可能需要较长的时间，因为系统任务要设置所需的资源。 在这种情况下，如果尝试在此操作正在进行时修改预配的吞吐量，则会生成一个 HTTP 423 响应，并会出现一条错误消息，说明正在进行另一个缩放操作。
+如果你正在 **增加预配的吞吐量** ，则在大多数情况下，操作是即时的。 但在某些情况下，操作可能需要较长的时间，因为系统任务要设置所需的资源。 在这种情况下，如果尝试在此操作正在进行时修改预配的吞吐量，则会生成一个 HTTP 423 响应，并会出现一条错误消息，说明正在进行另一个缩放操作。
 
 > [!NOTE]
 > 如果你正在计划非常大的引入工作负载，该工作负荷将需要更大的预配吞吐量，请记住，缩放操作没有 SLA，如前一段所述，当增加时，可能需要较长时间。 你可能想要提前规划并在工作负荷开始之前开始缩放，并使用以下方法来检查进度。

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 9a7f36299d235ca2578a1ff3518650c5632ef046
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 61ced7eda78d3ce56d78dfd6cc54e0e92d376e68
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209582"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100671"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>从“更改跟踪和清单”中删除 VM
 
@@ -22,7 +22,7 @@ ms.locfileid: "92209582"
 
 ## <a name="to-remove-your-vms"></a>删除 VM
 
-1. 在 Azure 门户中，从 Azure 门户的顶部导航开始 **Cloud Shell** 。 如果不熟悉 Azure Cloud Shell，请参阅 [Azure Cloud Shell 概述](/cloud-shell/overview)。
+1. 在 Azure 门户中，从 Azure 门户的顶部导航开始 **Cloud Shell** 。 如果不熟悉 Azure Cloud Shell，请参阅 [Azure Cloud Shell 概述](/azure/cloud-shell/overview)。
 
 2. 使用以下命令识别希望从管理中删除的计算机的 UUID。
 

@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1042638dc622e6675c997bc6db8df1d072824816
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87096627"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099906"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>使用 Azure Monitor 为 Azure Cosmos DB 创建警报
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 警报用于设置重复测试，以监视 Azure Cosmos DB 资源的可用性和响应能力。 当指标之一达到阈值时或活动日志中记录了特定事件时，警报可以通过电子邮件向你发送通知，或执行某个 Azure 函数。
 
@@ -41,7 +42,7 @@ ms.locfileid: "87096627"
 
    * 打开“选择资源”窗格，配置以下内容：
 
-   * 选择**订阅**名称。
+   * 选择 **订阅** 名称。
 
    * 选择“Azure Cosmos DB 帐户”作为“资源类型”。 
 
@@ -57,11 +58,11 @@ ms.locfileid: "87096627"
 
    * 对于“Azure Monitor 服务”，请选择“全部” 
 
-   * 选择一个**信号名称**。 若要获取 HTTP 状态代码的警报，请选择“请求单位总数”信号。
+   * 选择一个 **信号名称** 。 若要获取 HTTP 状态代码的警报，请选择“请求单位总数”信号。
 
    * 在下一个选项卡中，可以定义警报触发逻辑，并使用图表查看 Azure Cosmos 帐户的趋势。 “请求单位总数”指标支持维度。 可以按这些维度对指标进行筛选。 如果未选择任何维度，则忽略此值。
 
-   * 选择“StatusCode”作为**维度名称**。 选择“添加自定义值”，将状态代码设置为 429。
+   * 选择“StatusCode”作为 **维度名称** 。 选择“添加自定义值”，将状态代码设置为 429。
 
    * 在“警报逻辑”中，将“阈值”设置为“静态”。   静态阈值使用用户定义的阈值来评估规则，而动态阈值则使用内置的机器学习算法来持续学习指标行为模式并自动计算阈值。
 
@@ -81,7 +82,7 @@ ms.locfileid: "87096627"
 
    * 选择要在其中创建此操作组的订阅和资源组。  
 
-   * 提供操作的名称，并选择 &quot; **电子邮件/短信/推送/语音** &quot; 作为 " **操作类型**"。 以下屏幕截图显示了操作类型的详细信息：
+   * 提供操作的名称，并选择 &quot; **电子邮件/短信/推送/语音** &quot; 作为 " **操作类型** "。 以下屏幕截图显示了操作类型的详细信息：
 
      :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="配置针对速率限制/429 请求的警报接收逻辑&quot;:::
 

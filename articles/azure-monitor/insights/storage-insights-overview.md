@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997031"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101266"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>使用用于存储的 Azure Monitor 监视存储服务
 
@@ -94,7 +94,7 @@ ms.locfileid: "91997031"
 
 2. 从列表中选择一个存储帐户。 在“监视”部分中，选择“见解”。
 
-    ![所选存储帐户的“概述”页](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![显示存储帐户的 "概述工作簿" 页的屏幕截图。](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 此存储帐户的“概述”工作簿中显示了多个存储性能指标，有助于你快速进行评估：
 
@@ -198,7 +198,7 @@ ms.locfileid: "91997031"
 
 1. 选择“指标”网格中的“列设置”。
 
-2. 在 "**编辑列设置**" 窗格中，选择 " **storageaccounts/UsedCapacity $ `|` Storageaccounts/blobservices-blobcapacity 相同 $/-storageaccounts $/ `|` `|` `|` **-fileservices $ $/FileCapacity/storageaccounts-queueservices $" 列中的 "**列**" 部分下的 ""。 在“调色板”下拉列表下，选择“绿色”。
+2. 在 " **编辑列设置** " 窗格中，选择 " **storageaccounts/UsedCapacity $ `|` Storageaccounts/blobservices-blobcapacity 相同 $/-storageaccounts $/ `|` `|` `|`** -fileservices $ $/FileCapacity/storageaccounts-queueservices $" 列中的 " **列** " 部分下的 ""。 在“调色板”下拉列表下，选择“绿色”。
 
 3. 选择“保存并关闭”，以提交更改。
 

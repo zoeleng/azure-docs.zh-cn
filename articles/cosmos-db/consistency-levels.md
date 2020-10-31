@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547072"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100450"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 依赖于复制以实现高可用性和/或低延迟的分布式数据库必须在 [PACLC 定理](https://en.wikipedia.org/wiki/PACELC_theorem)定义的读取一致性、可用性、延迟和吞吐量之间做出根本性的权衡。 非常一致性模型的可线性化是数据可编程性的黄金标准。 不过，由于数据必须跨远距离进行复制和提交，因此它增加了较高写入延迟的不足。 由于不能在每个区域中复制和提交数据，因此，在发生故障时，可能会降低可用性 (降低可用性) 。 最终一致性提供更高的可用性和更好的性能，但更难对应用程序进行编程，因为数据可能在所有区域中都不完全一致。
 

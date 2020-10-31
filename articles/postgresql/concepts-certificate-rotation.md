@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0eec1538814b93c024fe6a5aa34ee73c4c09184c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f711ad269a4ea07cfbb1603b592b184779dcfdb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740418"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100739"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>了解 Azure Database for PostgreSQL 单一服务器的根 CA 更改中的更改
 
@@ -104,7 +104,7 @@ Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4.如果将应用服务与 Azure Database for PostgreSQL 一起使用，会产生什么影响？
 对于连接到 Azure Database for PostgreSQL 的 Azure 应用服务，可以采用两种可能的方案，具体取决于你在应用程序中使用 SSL 的方式。
 *   此新证书已在平台级别添加到应用服务。 如果你在应用程序中使用应用服务平台上包含的 SSL 证书，则无需执行任何操作。
-*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。此方案的一个很好的示例是，在应用服务中使用自定义容器，如[应用服务文档](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)中所述
+*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。此方案的一个很好的示例是，在应用服务中使用自定义容器，如[应用服务文档](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress)中所述
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-postgresql"></a>5.如果将 Azure Kubernetes 服务 (AKS) 与 Azure Database for PostgreSQL 一起使用，会产生什么影响？
 如果尝试使用 Azure Kubernetes 服务 (AKS) 连接到 Azure Database for PostgreSQL，这与从专用客户主机环境访问类似。 请参考[此处](../aks/ingress-own-tls.md)的步骤。

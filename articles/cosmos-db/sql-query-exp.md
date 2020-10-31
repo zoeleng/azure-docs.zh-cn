@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d12ab39474f1df139bf2f9064d43f5ab7ecda16b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873312"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100263"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数值表达式的指数值。  
   
 ## <a name="syntax"></a>语法
@@ -34,7 +36,7 @@ EXP (<numeric_expr>)
   
 ## <a name="remarks"></a>备注
   
-  常量 e (2.718281…) 是自然对数的底数**e**。  
+  常量 e (2.718281…) 是自然对数的底数 **e** 。  
   
   数字的指数是常量 e 使用该数字进行幂运算  。 例如 EXP(1.0) = e^1.0 = 2.71828182845905，EXP(10) = e^10 = 22026.4657948067。  
   

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100243"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文基于多个 Azure Cosmos DB 概念，例如[数据建模](modeling-data.md)、[分区](partitioning-overview.md)和[预配吞吐量](request-units.md)，演示如何完成一个真实数据设计练习。
 
@@ -22,10 +23,10 @@ ms.locfileid: "92277978"
 
 ## <a name="the-scenario"></a>方案
 
-对于本练习，我们假设有一个博客平台域，*用户*可在其中创建*帖子*。 用户还可以*点赞*和*评论*这些贴子。
+对于本练习，我们假设有一个博客平台域， *用户* 可在其中创建 *帖子* 。 用户还可以 *点赞* 和 *评论* 这些贴子。
 
 > [!TIP]
-> 本文以*斜体*突出显示了某些词语，这些词语表示我们的模型需要处理的“事情”类型。
+> 本文以 *斜体* 突出显示了某些词语，这些词语表示我们的模型需要处理的“事情”类型。
 
 将更多的要求添加到规范：
 

@@ -9,22 +9,22 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951394"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098444"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>向客户端应用添加自动完成和建议
 
-“边键入边搜索”是提高用户发起的查询的工作效率的一种常用技术。 在 Azure 认知搜索中，此体验是通过“自动完成”支持的。自动完成可根据部分输入来完成某个字词或短语（使用“microsoft”来补全“micro”）**。 另一种形式是“建议”：匹配文档的简短列表（返回具有某个 ID 的书名，以便可以链接到详细信息页）**。 自动完成和建议都是根据索引中的匹配项预测的。 服务不会提供返回零个结果的查询。
+“边键入边搜索”是提高用户发起的查询的工作效率的一种常用技术。 在 Azure 认知搜索中，此体验是通过“自动完成”支持的。自动完成可根据部分输入来完成某个字词或短语（使用“microsoft”来补全“micro”）  。 另一种形式是“建议”：匹配文档的简短列表（返回具有某个 ID 的书名，以便可以链接到详细信息页）  。 自动完成和建议都是根据索引中的匹配项预测的。 服务不会提供返回零个结果的查询。
 
 若要在 Azure 认知搜索中实现这些体验，需要：
 
-+ 在后端上有一个建议器**。
-+ 一个在请求中指定[自动完成](/rest/api/searchservice/autocomplete)或[建议](/rest/api/searchservice/suggestions) API 的查询**。
-+ 一个用于在客户端应用中处理“边键入边搜索”交互的 UI 控件**。 对于此目的，我们建议使用现有的 JavaScript 库。
++ 在后端上有一个建议器  。
++ 一个在请求中指定  。
++ 一个用于在客户端应用中处理“边键入边搜索”交互的 UI 控件  。 对于此目的，我们建议使用现有的 JavaScript 库。
 
 在 Azure 认知搜索中，自动完成的查询和建议的结果是在搜索索引中从已向建议器注册的选定字段中检索的。 建议器是索引的一部分，它指定哪些字段将提供完成查询和/或建议结果的内容。 创建并加载索引后，将在内部创建建议器数据结构，以存储用于对部分查询进行匹配的前缀。 对于建议，选择唯一或者至少不重复的适当字段对于实现该体验至关重要。 有关详细信息，请参阅[创建建议器](index-add-suggesters.md)。
 
@@ -42,9 +42,9 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 }
 ```
 
-suggesterName 提供建议器感知的字段，用以完成字词或建议****。 具体对于建议而言，字段列表应该由那些在匹配结果之间中提供明确选择的字段构成。 在销售电脑游戏的站点上，该字段可能是游戏名称。
+suggesterName 提供建议器感知的字段，用以完成字词或建议  。 具体对于建议而言，字段列表应该由那些在匹配结果之间中提供明确选择的字段构成。 在销售电脑游戏的站点上，该字段可能是游戏名称。
 
-search 参数提供了部分查询，其中的字符通过 jQuery 自动完成控件馈送到查询请求****。 在上面的示例中，“minecraf”静态演示了控件可以传入的内容。
+search 参数提供了部分查询，其中的字符通过 jQuery 自动完成控件馈送到查询请求  。 在上面的示例中，“minecraf”静态演示了控件可以传入的内容。
 
 API 不会对部分查询施加最小长度要求；查询长度可以短至一个字符。 但是，jQuery 自动完成提供了一个最小长度。 通常最少包含两到三个字符。
 
@@ -63,13 +63,13 @@ API 不会对部分查询施加最小长度要求；查询长度可以短至一�
 
 对自动完成和建议的响应是你可能对模式的期望：[自动完成](/rest/api/searchservice/autocomplete#response)返回字词列表，[建议](/rest/api/searchservice/suggestions#response)返回字词加上文档 ID，以便你提取文档（使用[查找文档](/rest/api/searchservice/lookup-document) API 提取详细信息页的特定文档）。
 
-响应格式由请求中的参数确定。 对于自动完成，请设置 [autocompleteMode](/rest/api/searchservice/autocomplete#autocomplete-modes) 来确定是要对一个还是两个字词执行文本完成****。 对于建议，你选择的字段确定了响应的内容。
+响应格式由请求中的参数确定。 对于自动完成，请设置  。 对于建议，你选择的字段确定了响应的内容。
 
 对于建议，应进一步优化响应，以避免重复或看似无关的结果。 若要控制结果，请在请求中包含更多参数。 以下参数适用于自动完成和建议，但对于建议（尤其是建议器包含多个字段的情况）可能更有必要。
 
 | 参数 | 使用情况 |
 |-----------|-------|
-| **$select** | 如果建议器中有多个 sourceField****，请使用 $select**** 来选择由哪个字段提供值 (`$select=GameTitle`)。 |
+| **$select** | 如果建议器中有多个 sourceField  ，请使用 $select  来选择由哪个字段提供值 (`$select=GameTitle`)。 |
 | **searchFields** | 将查询限制为特定字段。 |
 | **$filter** | 对结果集应用匹配条件 (`$filter=Category eq 'ActionAdventure'`)。 |
 | **$top** | 将结果限制为特定的数量 (`$top=5`)。|
@@ -92,9 +92,9 @@ API 不会对部分查询施加最小长度要求；查询长度可以短至一�
 
 ### <a name="create-a-search-box"></a>创建搜索框
 
-假设你有 [jQuery UI Autocomplete 库](https://jqueryui.com/autocomplete/)并有一个以 C# 编写的 MVC 项目，则可以在 Index.cshtml 文件中使用 JavaScript 来定义搜索框****。 该库通过异步调用 MVC 控制器来检索建议，将“边键入边搜索”交互添加到搜索框。
+假设你有  。 该库通过异步调用 MVC 控制器来检索建议，将“边键入边搜索”交互添加到搜索框。
 
-在 \Views\Home 文件夹下的 Index.cshtml 中，用于创建搜索框的代码行可能如下所示****：
+在 \Views\Home 文件夹下的 Index.cshtml 中，用于创建搜索框的代码行可能如下所示  ：
 
 ```html
 <input class="searchBox" type="text" id="searchbox1" placeholder="search">
@@ -117,7 +117,7 @@ $(function () {
 });
 ```
 
-`source` 告知 jQuery UI Autocomplete 函数要从何处获取显示在搜索框下的项列表。 由于此项目是一个 MVC 项目，因此它将调用 HomeController.cs 中的 Suggest 函数，该函数包含用于返回查询建议的逻辑**** ****。 此函数还会传递一些参数来控制突出显示内容、模糊匹配项和字词。 自动完成 JavaScript API 会添加字词参数。
+`source` 告知 jQuery UI Autocomplete 函数要从何处获取显示在搜索框下的项列表。 由于此项目是一个 MVC 项目，因此它将调用 HomeController.cs 中的 Suggest 函数，该函数包含用于返回查询建议的逻辑   。 此函数还会传递一些参数来控制突出显示内容、模糊匹配项和字词。 自动完成 JavaScript API 会添加字词参数。
 
 `minLength: 3` 确保仅当搜索框中至少有三个字符时，才显示建议。
 
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>启用突出显示
 
-突出显示将字体样式应用于结果中与输入对应的字符。 例如，如果部分输入为“micro”，则结果将显示为 microsoft、microscope 等**** ****。 突出显示基于 Suggestion 函数中内联定义的 HighlightPreTag 和 HighlightPostTag 参数。
+突出显示将字体样式应用于结果中与输入对应的字符。 例如，如果部分输入为“micro”，则结果将显示为 microsoft、microscope 等   。 突出显示基于 Suggestion 函数中内联定义的 HighlightPreTag 和 HighlightPostTag 参数。
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Suggest 函数
 
-如果使用 C# 和 MVC 应用程序，可以在 Controllers 目录下的 HomeController.cs 文件中为建议的结果创建类****。 在 .NET 中，Suggest 函数基于 [DocumentsOperationsExtensions.Suggest 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest)。 有关 .NET SDK 的详细信息，请参阅[如何从 .NET 应用程序使用 Azure 认知搜索](./search-howto-dotnet-sdk.md)。
+如果使用 C# 和 MVC 应用程序，可以在 Controllers 目录下的 HomeController.cs 文件中为建议的结果创建类  。 在 .NET 中，Suggest 函数基于 [DocumentsOperationsExtensions.Suggest 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest)。 有关 .NET SDK 的详细信息，请参阅[如何从 .NET 应用程序使用 Azure 认知搜索](./search-howto-dotnet-sdk.md)。
 
 `InitSearch` 方法在 Azure 认知搜索服务中创建经过身份验证的 HTTP 索引客户端。 [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters)类的属性确定在结果中搜索和返回哪些字段、匹配项的数量，以及是否使用模糊匹配。 
 
@@ -181,7 +181,7 @@ Suggest 函数采用两个参数，用于确定是要返回命中的突出显示
 
 ## <a name="autocomplete"></a>自动完成
 
-到目前为止，搜索 UX 代码以建议为中心。 下一个代码块演示了如何使用 XDSoft jQuery UI Autocomplete 函数实现自动完成，该函数传入一个请求来实现 Azure 认知搜索自动完成。 与建议一样，在 C# 应用程序中，支持用户交互的代码位于 index.cshtml 中****。
+到目前为止，搜索 UX 代码以建议为中心。 下一个代码块演示了如何使用 XDSoft jQuery UI Autocomplete 函数实现自动完成，该函数传入一个请求来实现 Azure 认知搜索自动完成。 与建议一样，在 C# 应用程序中，支持用户交互的代码位于 index.cshtml 中  。
 
 ```javascript
 $(function () {
@@ -220,7 +220,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Autocomplete 函数
 
-Autocomplete 基于 [DocumentsOperationsExtensions.Autocomplete 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete)。 与建议一样，此代码块位于 HomeController.cs 文件中****。
+Autocomplete 基于 [DocumentsOperationsExtensions.Autocomplete 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete)。 与建议一样，此代码块位于 HomeController.cs 文件中  。
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -253,4 +253,4 @@ Autocomplete 函数采用搜索字词输入。 该方法创建 [AutoCompletePara
 
 + [教程：使用 C# 创建你的第一个应用（第 3 课）](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C# 代码示例：azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [同时采用了 C# 和 JavaScript 以及 REST 的代码示例](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [同时采用了 C# 和 JavaScript 以及 REST 的代码示例](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

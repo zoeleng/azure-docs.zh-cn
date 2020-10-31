@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327848"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099634"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>迁移应用程序以使用 Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > 有关此 SDK 的详细信息，请查看 Azure Cosmos DB Java SDK v4 [发行说明](sql-api-sdk-java-v4.md)、[Maven 存储库](https://mvnrepository.com/artifact/com.azure/azure-cosmos)、Azure Cosmos DB Java SDK v4 [性能提示](performance-tips-java-sdk-v4-sql.md)和 Azure Cosmos DB Java SDK v4 [故障排除指南](troubleshoot-java-sdk-v4-sql.md)。
@@ -62,11 +63,11 @@ ms.locfileid: "87327848"
 
 * Azure Cosmos DB Java SDK 3.x.x 和 4.0 同时提供同步和异步 API。
 
-  * **Java SDK 4.0**：除非类名称在 `Cosmos` 后附加 `Async`，否则所有类都属于同步 API。
+  * **Java SDK 4.0** ：除非类名称在 `Cosmos` 后附加 `Async`，否则所有类都属于同步 API。
 
-  * **Java SDK 3.x.x**：除非类名称在 `Cosmos` 后附加`Async`，否则所有类都属于异步 API。
+  * **Java SDK 3.x.x** ：除非类名称在 `Cosmos` 后附加`Async`，否则所有类都属于异步 API。
 
-  * **Async Java SDK 2.x.x**：类名称类似于 Sync Java SDK 2.x.x，但名称以 Async 开头。
+  * **Async Java SDK 2.x.x** ：类名称类似于 Sync Java SDK 2.x.x，但名称以 Async 开头。
 
 ### <a name="hierarchical-api-structure"></a>分层 API 结构
 

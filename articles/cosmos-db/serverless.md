@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757891"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098750"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB 无服务器（预览版）
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB 无服务器目前处于预览状态。 此预览版不附带服务级别协议，我们不建议将其用于生产工作负荷。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -81,8 +82,8 @@ Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
 
 无服务器资源会产生与预配吞吐量资源提供的性能特征不同的特定性能特征：
 
-- **可用性**：在无服务器产品/服务公开发布之后，如果未使用可用性区域（区域冗余），则无服务器容器可用性的服务级别协议 (SLA) 为 99.9%。 使用可用性区域时，SLA 为 99.99%。
-- **延迟**：在无服务器产品/服务公开发布之后，无服务器容器延迟的服务级别目标 (SLO) 对于点读取为 10 毫秒或更少，对于写入为 30 毫秒或更少。 点读取操作包含按其 ID 和分区键值提取单个项。
+- **可用性** ：在无服务器产品/服务公开发布之后，如果未使用可用性区域（区域冗余），则无服务器容器可用性的服务级别协议 (SLA) 为 99.9%。 使用可用性区域时，SLA 为 99.99%。
+- **延迟** ：在无服务器产品/服务公开发布之后，无服务器容器延迟的服务级别目标 (SLO) 对于点读取为 10 毫秒或更少，对于写入为 30 毫秒或更少。 点读取操作包含按其 ID 和分区键值提取单个项。
 - 突发性：在无服务器产品/服务公开发布之后，无服务器容器突发性的服务级别目标 (SLO) 为 95%。 这意味着至少在 95% 的时间内可以获得最大突发性。
 
 > [!NOTE]

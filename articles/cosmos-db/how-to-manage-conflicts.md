@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3edaf55c8acb4def4f074c0d8f96eb399d98b6ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7370642f5a325867c901d7ebd362e6dfa68e098f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491081"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101497"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 对于多区域写入，当多个客户端写入同一项时，可能会发生冲突。 发生冲突时，可以通过使用不同的冲突解决策略来解决冲突。 本文介绍如何管理冲突解决策略。
 
@@ -134,10 +135,10 @@ udp_collection = self.try_create_document_collection(
 
 必须使用下面显示的函数签名实现自定义冲突解决存储过程。 函数名称不需要与使用容器注册存储过程时使用的名称匹配，但它确实可以简化命名。 下面介绍了此存储过程必须实现的参数。
 
-- **incomingItem**：在生成冲突的提交中插入或更新的项。 对于删除操作为 null。
-- **existingItem**：当前已提交的项。 此值在更新中为非 null，对于插入或删除是 null。
-- **isTombstone**：指示 incomingItem 是否与以前删除的项冲突的布尔值。 如果为 true，existingItem 也为 null。
-- **conflictingItems**：容器中所有项目的已提交版本的数组，与 ID 上的 incomingItem 或唯一索引属性冲突。
+- **incomingItem** ：在生成冲突的提交中插入或更新的项。 对于删除操作为 null。
+- **existingItem** ：当前已提交的项。 此值在更新中为非 null，对于插入或删除是 null。
+- **isTombstone** ：指示 incomingItem 是否与以前删除的项冲突的布尔值。 如果为 true，existingItem 也为 null。
+- **conflictingItems** ：容器中所有项目的已提交版本的数组，与 ID 上的 incomingItem 或唯一索引属性冲突。
 
 > [!IMPORTANT]
 > 与任何存储过程一样，自定义冲突解决过程可以访问具有相同分区键的任何数据，并可以执行任何插入、更新或删除操作来解决冲突。

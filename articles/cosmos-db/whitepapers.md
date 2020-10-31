@@ -7,14 +7,15 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: adbbdf39875e67552de2f797b94eae89e0aba409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b4beba04bf90e61ac959c90d3559d8cef2db4db
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74869776"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099124"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB 白皮书
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 可以通过这些白皮书更深入地了解 Azure Cosmos DB 概念。 本文提供了 Azure Cosmos DB 的可用白皮书的列表。
 

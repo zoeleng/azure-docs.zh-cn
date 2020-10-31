@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098461"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory 标识保护 - 安全概览
 
@@ -27,7 +27,7 @@ Azure 门户中的 [安全性概述](https://aka.ms/IdentityProtectionRefresh) �
 - 趋势：位于左侧，呈现组织的风险时间线。
 - 磁贴：位于右侧，突出显示组织中正在发生的关键问题，并建议如何快速采取措施。
 
-![安全概述](./media/concept-identity-protection-security-overview/01.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/01.png" alt-text="Azure 门户安全概述的屏幕截图。条形图显示一段时间内的风险计数。磁贴汇总有关用户和登录的信息。" border="false":::
   
 ## <a name="trends"></a>趋势
 
@@ -45,7 +45,7 @@ Azure 门户中的 [安全性概述](https://aka.ms/IdentityProtectionRefresh) �
 
 “高风险用户”磁贴显示标识遭入侵可能性高的用户的最新计数。 应最优先调查这些用户。 单击“高风险用户”磁贴会重定向到“有风险用户”报告的筛选后视图，其中只显示高风险级别用户。 使用此报告，可以了解详细信息，并通过重置密码来修正这些用户。
 
-![安全概述](./media/concept-identity-protection-security-overview/02.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Azure 门户安全概述的屏幕截图。条形图显示一段时间内的风险计数。磁贴汇总有关用户和登录的信息。" border="false":::
 
 ### <a name="medium-risk-users"></a>中等风险用户
 “中等风险用户”磁贴显示标识遭入侵可能性中等的用户的最新计数。 单击“中等风险用户”磁贴会重定向到“有风险用户”报告的筛选后视图，其中只显示中等风险级别用户。 使用此报告，可以进一步调查，并修正这些用户。

@@ -3,12 +3,12 @@ title: 关于 Azure 事件网格的 Auth0 合作伙伴主题
 description: 使用 Azure 事件网格将事件从 Auth0 发送到 Azure 服务。
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 411d8f8eb53e4bc3fa8c8dda04bdcf12c74db768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103341"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101283"
 ---
 # <a name="auth0-partner-topics"></a>Auth0 合作伙伴主题
 ![Auth0 徽标](./media/auth0-overview/auth0-logo.png)
@@ -43,7 +43,7 @@ Auth0 合作伙伴主题允许使用由 Auth0's 系统发出的事件来完成�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [合作伙伴主题概述](partner-topics-overview.md)
+- [合作伙伴主题概述](partner-events-overview.md)
 - [如何使用 Auth0 合作伙伴主题](auth0-how-to.md)
 - [Auth0 文档](https://auth0.com/docs/azure-tutorial)
 - [成为事件网格合作伙伴](partner-onboarding-overview.md)

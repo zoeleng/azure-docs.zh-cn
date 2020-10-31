@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 620ffcb379f9fa1402e422c13bcadf8da4047409
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 16004ece7877358be54ba67c2f72eb3210f16fb0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283660"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098121"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB) 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 提供正则表达式功能。 正则表达式是用于查找文本模式的简洁而灵活的表示法。 Azure Cosmos DB 使用 [ (PCRE) 的 PERL 兼容正则表达式 ](http://www.pcre.org/)。 
 
@@ -105,7 +106,7 @@ FROM c
 WHERE RegexMatch (c.description, " s... ","i")
 ```
 
-## <a name="remarks"></a>备注
+## <a name="remarks"></a>注解
 
 如果正则表达式可以分解为 StartsWith、EndsWith、Contains 或 StringEquals 系统函数，则此系统函数将从 [范围索引](index-policy.md#includeexclude-strategy) 中受益。
 
