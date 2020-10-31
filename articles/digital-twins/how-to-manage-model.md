@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494845"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130370"
 ---
 # <a name="manage-azure-digital-twins-models"></a>管理 Azure 数字孪生模型
 
-你可以使用[**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models)、 [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)或[Azure 数字孪生 CLI](how-to-use-cli.md)来管理 azure 数字孪生实例知道的[模型](concepts-models.md)。 
+你可以使用 [**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models)、 [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)或 [Azure 数字孪生 CLI](how-to-use-cli.md)来管理 azure 数字孪生实例知道的 [模型](concepts-models.md)。 
 
 管理操作包括上载、验证、检索和删除模型。 
+
+## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>创建模型
 
@@ -61,7 +65,7 @@ Azure 数字孪生的模型以 DTDL 编写，并保存为 *json* 文件。 还�
 > [!NOTE]
 > 这是一个 json 文件的示例正文，其中定义并保存了模型，以便作为客户端项目的一部分进行上载。 另一方面，REST API 调用采用类似于上面 (的模型定义的数组，该数组 `IEnumerable<string>` 在 .NET SDK) 中映射到。 因此，若要直接在 REST API 中使用此模型，请将其括在括号中。
 
-此模型定义了患者房间的名称和唯一 ID，并定义了用于表示访问者计数和手动冲蚀状态 (这些计数器将从运动传感器和智能 soap dispensers 更新的属性，并将一起用于计算 *handwash 百分比* 属性) 。 该模型还定义了一个关系*hasDevices*，用于将基于此*房间*模型的任何[数字孪生](concepts-twins-graph.md)连接到实际设备。
+此模型定义了患者房间的名称和唯一 ID，并定义了用于表示访问者计数和手动冲蚀状态 (这些计数器将从运动传感器和智能 soap dispensers 更新的属性，并将一起用于计算 *handwash 百分比* 属性) 。 该模型还定义了一个关系 *hasDevices* ，用于将基于此 *房间* 模型的任何 [数字孪生](concepts-twins-graph.md)连接到实际设备。
 
 按照此方法，你可以继续为医院的 wards、区域或医院本身定义模型。
 
@@ -84,7 +88,7 @@ Azure 数字孪生的模型以 DTDL 编写，并保存为 *json* 文件。 还�
 创建模型后，可以将其上传到 Azure 数字孪生实例。
 
 > [!TIP]
-> 建议在将模型上传到 Azure 数字孪生实例之前，先对其进行验证。 你可以使用 "[*操作方法：分析和验证模型*](how-to-parse-models.md)" 中所述的[DTDL 客户端分析器库](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/)和[DTDL 验证器示例](/samples/azure-samples/dtdl-validator/dtdl-validator)来检查模型，然后将它们上载到服务中。
+> 建议在将模型上传到 Azure 数字孪生实例之前，先对其进行验证。 你可以使用 " [*操作方法：分析和验证模型*](how-to-parse-models.md)" 中所述的 [DTDL 客户端分析器库](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/)和 [DTDL 验证器示例](/samples/azure-samples/dtdl-validator/dtdl-validator)来检查模型，然后将它们上载到服务中。
 
 准备好上载模型时，可以使用以下代码片段：
 
@@ -200,7 +204,7 @@ Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 
 这也意味着上传新版本的模型不会自动影响现有孪生。 现有孪生将只保留旧模型版本的实例。
 
-可以通过对其进行修补来将这些现有孪生更新为新模型版本，如*操作方法：管理数字孪生*的[*更新数字克隆的模型*](how-to-manage-twin.md#update-a-digital-twins-model)部分中所述。 在同一修补程序中，您必须将 **模型 ID** (更新为新版本) 以及 **必须在克隆上更改以使其符合新模型的任何字段**。
+可以通过对其进行修补来将这些现有孪生更新为新模型版本，如 *操作方法：管理数字孪生* 的 [*更新数字克隆的模型*](how-to-manage-twin.md#update-a-digital-twins-model)部分中所述。 在同一修补程序中，您必须将 **模型 ID** (更新为新版本) 以及 **必须在克隆上更改以使其符合新模型的任何字段** 。
 
 ### <a name="remove-models"></a>删除模型
 
@@ -227,7 +231,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 您可以一次删除实例中的所有模型，也可以单独执行此操作。
 
-有关如何删除所有模型的示例，请下载教程中使用的示例应用 [*：使用示例客户端应用浏览基础知识*](tutorial-command-line-app.md)。 *CommandLoop.cs*文件在函数中执行此 `CommandDeleteAllModels` 功能。
+有关如何删除所有模型的示例，请下载教程中使用的示例应用 [*：使用示例客户端应用浏览基础知识*](tutorial-command-line-app.md)。 *CommandLoop.cs* 文件在函数中执行此 `CommandDeleteAllModels` 功能。
 
 本部分的其余部分将删除模型删除详细信息，并演示如何针对单个模型执行此操作。
 
@@ -235,7 +239,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 通常，可以随时删除模型。
 
-例外情况是其他模型依赖的模型，无论是使用 `extends` 关系还是组件。 例如，如果*ConferenceRoom*模型扩展了一个*房间*模型，并将*ACUnit*模型作为一个组件，则在*ConferenceRoom*删除这些引用之前，不能删除*房间*或*ACUnit* 。 
+例外情况是其他模型依赖的模型，无论是使用 `extends` 关系还是组件。 例如，如果 *ConferenceRoom* 模型扩展了一个 *房间* 模型，并将 *ACUnit* 模型作为一个组件，则在 *ConferenceRoom* 删除这些引用之前，不能删除 *房间* 或 *ACUnit* 。 
 
 为此，可以更新依赖模型以删除依赖项，或者完全删除依赖模型。
 

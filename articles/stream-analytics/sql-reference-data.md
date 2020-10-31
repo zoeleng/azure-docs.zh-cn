@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1ae5908fe3ab95dcd62da976988bd7ce107217e5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027363"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130895"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>将 SQL 数据库中的参考数据用于 Azure 流分析作业
 
@@ -173,11 +173,11 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    请注意，除了运行用于存储检查点的增量查询以外，流分析运行时还可以定期运行快照查询。
 
 ## <a name="test-your-query"></a>测试查询
-   请务必验证查询是否返回流分析作业将用作参考数据的所需数据集。 若要测试查询，请转到门户上“作业拓扑”部分下的“输入”。 然后，可以在“SQL 数据库参考输入”中选择“示例数据”。 示例可用后，可以下载该文件并检查返回的数据是否符合预期。 如果希望优化开发和测试迭代，建议使用[适用于 Visual Studio 的流分析工具](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)。 也可以使用你喜欢的任何其他工具，首先确保查询从 Azure SQL 数据库返回正确的结果，然后在流分析作业中使用该查询。 
+   请务必验证查询是否返回流分析作业将用作参考数据的所需数据集。 若要测试查询，请转到门户上“作业拓扑”部分下的“输入”。 然后，可以在“SQL 数据库参考输入”中选择“示例数据”。 示例可用后，可以下载该文件并检查返回的数据是否符合预期。 如果希望优化开发和测试迭代，建议使用[适用于 Visual Studio 的流分析工具](./stream-analytics-tools-for-visual-studio-install.md)。 也可以使用你喜欢的任何其他工具，首先确保查询从 Azure SQL 数据库返回正确的结果，然后在流分析作业中使用该查询。 
 
 ### <a name="test-your-query-with-visual-studio-code"></a>用 Visual Studio Code 测试查询
 
-   在 Visual Studio Code 上安装 [Azure 流分析工具](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) 并 [SQL Server (mssql) ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) ，并设置 ASA 项目。 有关详细信息，请参阅 [快速入门：在 Visual Studio Code 中创建 Azure 流分析作业](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) 和 [SQL Server (mssql) 扩展教程](https://aka.ms/mssql-getting-started)。
+   在 Visual Studio Code 上安装 [Azure 流分析工具](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) 并 [SQL Server (mssql) ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) ，并设置 ASA 项目。 有关详细信息，请参阅 [快速入门：在 Visual Studio Code 中创建 Azure 流分析作业](./quick-create-visual-studio-code.md) 和 [SQL Server (mssql) 扩展教程](/sql/tools/visual-studio-code/sql-server-develop-use-vscode)。
 
 1. 配置 SQL 引用数据输入。
    

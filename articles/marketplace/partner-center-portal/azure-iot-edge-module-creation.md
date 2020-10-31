@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957695892c39dd3ddfd9dc45d60158c89eb22698
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708333"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130623"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>创建 IoT Edge 模块产品/服务
 
@@ -50,10 +50,10 @@ ms.locfileid: "91708333"
 
 此页中包含链接，用于根据你所做的选择对此产品/服务执行操作。 例如：
 
-- 如果产品/服务是草稿 - [删除草稿产品/服务](update-existing-offer.md#delete-a-draft-offer)
+- 如果产品/服务是草稿 - 删除草稿产品/服务
 - 如果产品/服务已上线 - [停止销售产品/服务](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- 如果产品/服务处于预览状态 - [上线](publishing-status.md#publisher-approval)
-- 如果还没有完成发布者注销 - [取消发布](update-existing-offer.md#cancel-publishing)。
+- 如果产品/服务处于预览状态 - [上线](../review-publish-offer.md#previewing-and-approving-your-offer)
+- 如果还没有完成发布者注销 - [取消发布](../review-publish-offer.md#cancel-publishing)。
 
 ## <a name="offer-setup"></a>产品/服务设置
 
@@ -94,9 +94,9 @@ ms.locfileid: "91708333"
 选择类别和子类别，将产品/服务置于适当的 marketplace 搜索区域。 确保在产品/服务说明中介绍产品/服务如何支持这些类别。 选择：
 
 - 至少一个和多达两个类别，包括主类别和辅助类别 (可选) 。
-- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用**"。
+- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用** "。
 
-请参阅 [产品/服务列表最佳做法](../gtm-offer-listing-best-practices.md)中的类别和子类别的完整列表。 在 marketplace 中，IoT Edge 模块始终显示在 " **物联网**  >  **IoT Edge" 模块**"   类别下。
+请参阅 [产品/服务列表最佳做法](../gtm-offer-listing-best-practices.md)中的类别和子类别的完整列表。 在 marketplace 中，IoT Edge 模块始终显示在 "  **物联网**  >  **IoT Edge" 模块** "   类别下。
 
 #### <a name="legal"></a>合法
 
@@ -234,9 +234,9 @@ IoT Edge 模块产品/服务必须在说明底部添加最低硬件要求段落�
 3. 支持地址 (链接) 
 4. 条款和条件
 5. 隐私策略地址 (链接) 
-6. 名称
-7. 总结
-8. 说明
+6. “属性”
+7. 摘要
+8. 描述
 9. 有用的链接
 10. 屏幕截图/视频
 
@@ -256,8 +256,8 @@ IoT Edge 模块产品/服务必须在说明底部添加最低硬件要求段落�
 
 #### <a name="call-out-descriptions"></a>拨出说明
 
-1. 名称
-2. 说明
+1. “属性”
+2. 描述
 3. 有用的链接
 4. 屏幕截图
 
@@ -327,7 +327,7 @@ IoT Edge 模块产品/服务必须在说明底部添加最低硬件要求段落�
 
 #### <a name="azure-regions"></a>Azure 区域
 
-IoT Edge 模块产品/服务的所有计划自动在 **Azure Global**中提供。  使用 marketplace 的所有全球 Azure 区域中的客户都可以使用你的计划。 有关详细信息，请参阅[地理区域可用性和货币支持](../marketplace-geo-availability-currencies.md)。
+IoT Edge 模块产品/服务的所有计划自动在 **Azure Global** 中提供。  使用 marketplace 的所有全球 Azure 区域中的客户都可以使用你的计划。 有关详细信息，请参阅[地理区域可用性和货币支持](../marketplace-geo-availability-currencies.md)。
 
 选择 [Azure 政府](../../azure-government/documentation-government-welcome.md) 版选项，使解决方案显示在此处。 这是政府社区云，会对来自美国联邦、州、地方或部落政府机构的客户和有资格服务于他们的合作伙伴进行访问控制。 作为发布者，你要对此云社区的任何符合性控制、安全措施和最佳做法负责。 Azure 政府使用物理隔离的数据中心和网络（仅位于美国）。 在[发布](../../azure-government/documentation-government-manage-marketplace-partners.md)到 Azure 政府前，请先在相应区域中测试并确认你的解决方案，因为结果可能会有所不同。 若要暂存和测试你的解决方案，请通过 [Microsoft Azure 政府试用版](https://azure.microsoft.com/global-infrastructure/government/request/)申请试用帐户。
 
@@ -336,7 +336,7 @@ IoT Edge 模块产品/服务的所有计划自动在 **Azure Global**中提供�
 
 #### <a name="azure-government-certifications"></a>Azure 政府认证
 
-仅当在 " **azure 区域**" 下选择了 " **azure 政府**" 时，此选项才可见。
+仅当在 " **azure 区域** " 下选择了 " **azure 政府** " 时，此选项才可见。
 
 Azure 政府服务处理符合特定政府法规和要求的数据。 例如，FedRAMP、NIST 800.171 (DIB)、ITAR、IRS 1075、DoD L4 和 CJIS。 为了让受众注意到你在这些计划上获得的认证，可以提供最多 100 个链接来描述你的认证。 这些链接可以直接链接到你在这些计划上获得的认证一览，也可以链接到你自己的网站。 这些链接只对 Azure 政府客户可见。
 
@@ -411,7 +411,7 @@ Azure 资源组名称：提供包含具有容器映像的 Azure 容器注册表�
 
 Azure 容器注册表名称：提供包含容器映像的 [Azure 容器注册表](../../container-registry/container-registry-intro.md)的名称。 容器注册表必须位于你前面提供的 Azure 资源组中。 只提供注册表名称，而不提供完整的登录服务器名称。 请务必从名称中省略 azurecr.io。 可以在 Azure 门户的[“容器注册表”页](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)上找到注册表名称。
 
-**Azure 容器注册表的管理员用户名**：提供与具有容器映像的 Azure 容器注册表关联) 的 [管理员用户名](../../container-registry/container-registry-authentication.md#admin-account) 。 用户名和密码是必需的，以确保公司有权访问注册表。 若要获取管理员用户名和密码，请使用 Azure 命令行接口 (CLI) 将“管理员已启用”属性设置为“True”。 在 Azure 门户中，可以视需要选择将“管理员用户”设置为“启用”。
+**Azure 容器注册表的管理员用户名** ：提供与具有容器映像的 Azure 容器注册表关联) 的 [管理员用户名](../../container-registry/container-registry-authentication.md#admin-account) 。 用户名和密码是必需的，以确保公司有权访问注册表。 若要获取管理员用户名和密码，请使用 Azure 命令行接口 (CLI) 将“管理员已启用”属性设置为“True”。 在 Azure 门户中，可以视需要选择将“管理员用户”设置为“启用”。
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
 
@@ -419,7 +419,7 @@ Azure 容器注册表名称：提供包含容器映像的 [Azure 容器注册表
 
 1. 管理员用户
 
-<br>Azure 容器注册表的密码：提供与包含容器映像的 Azure 容器注册表关联的管理员用户名的密码。 用户名和密码是必需的，以确保公司有权访问注册表。 可以从 Azure 门户中获取密码，具体方法为依次转到“容器注册表” > “访问密钥”，或通过 Azure CLI 运行 [show 命令](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)。
+<br>Azure 容器注册表的密码：提供与包含容器映像的 Azure 容器注册表关联的管理员用户名的密码。 用户名和密码是必需的，以确保公司有权访问注册表。 可以从 Azure 门户中获取密码，具体方法为依次转到“容器注册表” > “访问密钥”，或通过 Azure CLI 运行 [show 命令](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)。
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
 
@@ -488,8 +488,8 @@ Azure 容器注册表中的存储库名称。 提供包含映像的 Azure 容器
 
 若要提交产品/服务进行发布，请选择“发布”。
 
-我们会向你发送电子邮件，让你知道何时有预览版产品/服务可供审阅和审核。 若要将产品/服务发布到公众，请前往 "合作伙伴中心" 并选择 " **上线**"。
+我们会向你发送电子邮件，让你知道何时有预览版产品/服务可供审阅和审核。 若要将产品/服务发布到公众，请前往 "合作伙伴中心" 并选择 " **上线** "。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [更新商业市场中的现有产品/服务](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)
+- [更新商业市场中的现有产品/服务](//azure/marketplace/partner-center-portal/update-existing-offer)

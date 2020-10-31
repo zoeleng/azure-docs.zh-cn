@@ -1,18 +1,18 @@
 ---
 title: 管理启用了 Azure Arc 的服务器代理
 description: 本文介绍了在支持 Azure Arc 的服务器连接的计算机代理的生命周期中通常会执行的不同管理任务。
-ms.date: 10/21/2020
+ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371420"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130963"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>管理并维护 Connected Machine 代理
 
-初始部署启用了 Azure Arc 的服务器（适用于 Windows 或 Linux）的已连接计算机代理后，你可能需要重新配置代理、进行升级，或者从计算机中删除它（如果它已在其生命周期中的停用阶段）。 可以轻松地手动或自动管理这些日常维护任务，从而减少运行错误并降低费用。
+初始部署启用了 Azure Arc 的服务器的已连接计算机代理（适用于 Windows 或 Linux）后，你可能需要重新配置并升级代理，或将其从计算机中删除。 可以轻松地手动或自动管理这些日常维护任务，从而减少运行错误并降低费用。
 
 ## <a name="before-uninstalling-agent"></a>卸载代理之前
 
@@ -38,7 +38,11 @@ ms.locfileid: "92371420"
 
 ## <a name="upgrading-agent"></a>升级代理
 
-适用于 Windows 和 Linux 的 Azure Connected Machine 代理可以手动或自动升级到最新版本，具体取决于你的要求。 下表介绍了执行代理升级所支持的方法。
+Azure 连接的计算机代理会定期更新，以解决 bug 修复、稳定性增强和新功能。 [Azure 顾问](../../advisor/advisor-overview.md) 会识别未使用最新版本的计算机代理的资源，并建议升级到最新版本。 当你通过在 " **概述** " 页上提供横幅，或通过 Azure 门户访问顾问时，它将在你选择 "已启用 Arc" 的服务器时通知你。
+
+适用于 Windows 和 Linux 的 Azure Connected Machine 代理可以手动或自动升级到最新版本，具体取决于你的要求。
+
+下表介绍了执行代理升级所支持的方法。
 
 | 操作系统 | 升级方法 |
 |------------------|----------------|
@@ -160,10 +164,10 @@ Azcmagent 工具 ( # A0) 用于在安装期间配置启用了 Azure Arc 的服�
 
 * **-v or --verbose** - 启用详细日志记录
 
-可以在交互式登录时手动执行连接和**断开****连接**，也可以使用用于集成多个代理的相同服务主体或使用 Microsoft 标识平台[访问令牌](../../active-directory/develop/access-tokens.md)来自动完成。 如果未使用服务主体向启用了 Azure Arc 的服务器注册计算机，请参阅以下 [文章](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 创建服务主体。
+可以在交互式登录时手动执行连接和 **断开****连接** ，也可以使用用于集成多个代理的相同服务主体或使用 Microsoft 标识平台 [访问令牌](../../active-directory/develop/access-tokens.md)来自动完成。 如果未使用服务主体向启用了 Azure Arc 的服务器注册计算机，请参阅以下 [文章](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 创建服务主体。
 
 >[!NOTE]
->若要运行**azcmagent**，必须具有 Linux 计算机上的*根*访问权限。
+>若要运行 **azcmagent** ，必须具有 Linux 计算机上的 *根* 访问权限。
 
 ### <a name="connect"></a>连接
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86040769"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130266"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 流分析中的实时 Twitter 情绪分析
 
@@ -39,11 +39,11 @@ ms.locfileid: "86040769"
 
 * TwitterClientCore 应用程序，用于读取 Twitter 源。 若要获取此应用程序，请下载 [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore)。
 
-* 安装 [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) 版本 2.1.0。
+* 安装 [.NET Core CLI](/dotnet/core/tools/?tabs=netcore2x) 版本 2.1.0。
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>为流式处理输入创建事件中心
 
-示例应用程序生成事件并将其推送到 Azure 事件中心。 Azure 事件中心是适合流分析的首选事件引入方法。 有关详细信息，请参阅 [Azure 事件中心文档](../event-hubs/event-hubs-what-is-event-hubs.md)。
+示例应用程序生成事件并将其推送到 Azure 事件中心。 Azure 事件中心是适合流分析的首选事件引入方法。 有关详细信息，请参阅 [Azure 事件中心文档](../event-hubs/event-hubs-about.md)。
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>创建事件中心命名空间和事件中心
 在本部分，你将创建事件中心命名空间，并向该命名空间添加事件中心。 事件中心命名空间用于逻辑分组相关的事件总线实例。 
@@ -106,11 +106,11 @@ ms.locfileid: "86040769"
 
 1. 在 Web 浏览器中，转到[面向开发人员的 Twitter](https://developer.twitter.com/en/apps)，创建开发者帐户，然后选择“创建应用”。 可能会看到一条消息，指出你需要申请 Twitter 开发人员帐户。 可以随意执行此操作，在你的申请获得批准后，应该会看到一封确认电子邮件。 批准开发人员帐户可能需要几天时间。
 
-   ![Twitter 应用程序详细信息](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter 应用程序详细信息")
+   ![屏幕截图显示 "创建应用程序" 按钮。](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter 应用程序详细信息")
 
 2. 在“创建应用程序”页中提供新应用的详细信息，然后选择“创建 Twitter 应用程序”。
 
-   ![Twitter 应用程序详细信息](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter 应用程序详细信息")
+   ![屏幕截图显示应用程序详细信息窗格，可在其中输入应用的值。](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter 应用程序详细信息")
 
 3. 在应用程序页中选择“密钥和令牌”选项卡，复制“使用者 API 密钥”和“使用者 API 密钥”的值。 此外，在“访问令牌和访问令牌机密”下选择“创建”以生成访问令牌。 复制“访问令牌”和“访问令牌机密”的值。
 
@@ -168,9 +168,9 @@ ms.locfileid: "86040769"
 
 ## <a name="specify-the-job-query"></a>指定作业查询
 
-流分析支持简单的声明性查询模型，该模型用于描述转换。 若要了解有关语言的详细信息，请参阅 [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)。 本操作指南会帮助你创作和测试多个针对 Twitter 数据的查询。
+流分析支持简单的声明性查询模型，该模型用于描述转换。 若要了解有关语言的详细信息，请参阅 [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)。 本操作指南会帮助你创作和测试多个针对 Twitter 数据的查询。
 
-若要比较各个主题的提及次数，可使用[翻转窗口](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)每五秒按主题获取提及次数。
+若要比较各个主题的提及次数，可使用[翻转窗口](/stream-analytics-query/tumbling-window-azure-stream-analytics)每五秒按主题获取提及次数。
 
 1. 在作业“概述”中，选择“查询”框右上角附近的“编辑查询” 。 Azure 会列出为作业配置的输入和输出，并允许创建查询，以便在将输入流发送到输出时对其进行转换。
 
@@ -207,10 +207,10 @@ ms.locfileid: "86040769"
 
 2. 在“输出”页面中，单击“+&nbsp; 添加”和“Blob 存储/Data Lake Storage Gen2”  ：
 
-   * **输出别名**：使用名称 `TwitterStream-Output`。 
-   * **导入选项**：选择“从订阅选择存储”。
-   * **存储帐户**： 选择存储帐户。
-   * **容器**： 选择“新建”，并输入 `socialtwitter`。
+   * **输出别名** ：使用名称 `TwitterStream-Output`。 
+   * **导入选项** ：选择“从订阅选择存储”。
+   * **存储帐户** ： 选择存储帐户。
+   * **容器** ： 选择“新建”，并输入 `socialtwitter`。
    
 4. 选择“保存”。   
 
@@ -225,11 +225,11 @@ ms.locfileid: "86040769"
 3. 在“启动作业”页中，为“作业输出开始时间”选择“现在”，然后选择“开始”   。
 
 ## <a name="get-support"></a>获取支持
-若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答问题页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)。
+若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答问题页面](/answers/topics/azure-stream-analytics.html)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)

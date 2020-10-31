@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: c7beddda0d344f6b7606f3e2d3624bee39009c66
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043489"
+ms.locfileid: "93130844"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>用 Azure 容器注册表管理公共内容
 
@@ -21,7 +21,7 @@ ms.locfileid: "93043489"
 
 你的环境可能与公共内容（如公共容器映像、 [Helm 图](https://helm.sh/)、 (OPA) 策略或其他 [项目）存在](https://www.openpolicyagent.org/) 依赖关系。 例如，你可以运行 [nginx](https://hub.docker.com/_/nginx) 进行服务路由或 `docker build FROM alpine` 直接从 Docker 中心或其他公共注册表拉取映像。 
 
-如果没有正确的控件，则对公共注册表内容具有依赖关系会对映像开发和部署工作流带来风险。 若要缓解此风险，请在可能的情况下保留公共内容的本地副本。 有关详细信息，请参阅 [开放容器计划博客](https://opencontainers.org/posts/blog)。 
+如果没有正确的控件，则对公共注册表内容具有依赖关系会对映像开发和部署工作流带来风险。 若要缓解此风险，请在可能的情况下保留公共内容的本地副本。 有关详细信息，请参阅 [开放容器计划博客](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/)。 
 
 ## <a name="authenticate-with-docker-hub"></a>通过 Docker 中心进行身份验证
 
@@ -33,8 +33,6 @@ ms.locfileid: "93043489"
 > 估计拉取请求数量时，请考虑在使用云提供商服务或在企业 NAT 后面工作时，会将多个用户作为 IP 地址的子集提供给 Docker 中心。  向 Docker 中心发出的请求添加 Docker 付费帐户身份验证将避免由于速率限制阻止而导致的潜在服务中断。
 >
 > 有关详细信息，请参阅 [docker 定价和订阅](https://www.docker.com/pricing) 以及 [docker 服务条款](https://www.docker.com/legal/docker-terms-service)。
-
-
 
 有关身份验证示例和方案，请参阅 [下载速率限制](https://docs.docker.com/docker-hub/download-rate-limit/)。
 
@@ -72,7 +70,7 @@ ms.locfileid: "93043489"
 
 建议使用一次性步骤，将基本映像和其他公共内容 [导入](container-registry-import-images.md) Azure 容器注册表。 Azure CLI 中的 [az acr import](/cli/azure/acr#az_acr_import) 命令支持从公共注册表（如 Docker 中心和 Microsoft 容器注册表以及其他专用容器注册表）导入映像。 
 
-`az acr import` 不需要本地 Docker 安装。 你可以在 Azure CLI 的本地安装中运行该程序，也可以直接在支持任何 OS 类型映像、多体系结构映像或 OCI 项目（如 Helm 图）的 Azure Cloud Shell 中运行。
+`az acr import` 不需要本地 Docker 安装。 您可以使用 Azure CLI 的本地安装或直接在 Azure Cloud Shell 中运行它。 它支持任何 OS 类型、多体系结构图像或 OCI 项目（如 Helm 图）的图像。
 
 示例：
 
@@ -82,7 +80,7 @@ az acr import \
   --source docker.io/library/hello-world:latest \
   --image hello-world:latest \
   --username <Docker Hub username> \
-  --password <Docker Hub password>
+  --password <Docker Hub token>
 ```
 
 根据组织的需要，可以将导入到专用注册表或共享注册表中的存储库。
@@ -93,7 +91,7 @@ az acr import \
 
 扩展图像导入，设置 [Azure 容器注册表任务](container-registry-tasks-overview.md) ，以便在更新基础映像时自动生成应用程序映像。 自动生成任务可以同时跟踪 [基本映像更新](container-registry-tasks-base-images.md) 和 [源代码更新](container-registry-tasks-overview.md#trigger-task-on-source-code-update)。
 
-有关详细示例，请参阅 [如何使用 Azure 容器注册表任务来使用和维护公共内容](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md)。 
+有关详细示例，请参阅 [如何使用 Azure 容器注册表任务来使用和维护公共内容](tasks-consume-public-content.md)。 
 
 > [!NOTE]
 > 单个预配置任务可以自动重建引用从属基础映像的每个应用程序映像。 
@@ -101,4 +99,5 @@ az acr import \
 ## <a name="next-steps"></a>后续步骤
  
 * 了解有关 [ACR 任务](container-registry-tasks-overview.md) 的详细信息，以便在 Azure 中生成、运行、推送和修补容器映像。
+* 请参阅 [如何使用和维护 Azure 容器注册表任务中的公共内容](tasks-consume-public-content.md) ，以获取自动指导工作流，将基本映像更新到你的环境。 
 * 请参阅 [ACR 任务教程](container-registry-tutorial-quick-task.md) ，了解有关自动执行映像生成和更新的更多示例。

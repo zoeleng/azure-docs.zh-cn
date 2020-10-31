@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329026"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129586"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>如何规划虚拟机产品/服务
 
 本文介绍将虚拟机 (VM) 产品/服务发布到商业应用商店的不同选项和要求。 VM 产品/服务是通过 Azure Marketplace 部署并计费的事务产品。
 
-在开始之前，请 [在合作伙伴中心创建一个商用 marketplace 帐户](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) ，并确保你的帐户已注册到商业市场计划中。
+在开始之前，请 [在合作伙伴中心创建一个商用 marketplace 帐户](./partner-center-portal/create-account.md) ，并确保你的帐户已注册到商业市场计划中。
 
 ### <a name="technical-fundamentals"></a>技术基础知识
 
@@ -70,7 +70,7 @@ VM 包含两个组件：
 
 VM 产品/服务需要至少一个计划。 计划定义解决方案范围和限制以及关联的定价。 您可以为您的产品/服务创建多个计划，为您的客户提供不同的技术和许可选项以及免费试用版。 有关计划的一般指导，请参阅 [商业 marketplace 的计划和定价](plans-pricing.md) ，包括定价模型、免费试用版和私有计划。 
 
-Vm 完全启用了商务，使用即用即付或自带许可证 (BYOL) 许可模式。 Microsoft 托管商业事务并代你向客户计费。 可获得的好处是能够利用客户与 Microsoft 之间达成的首选付费关系（包括任何企业协议）。 有关详细信息，请参阅 [商业市场事务处理功能](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations)。
+Vm 完全启用了商务，使用即用即付或自带许可证 (BYOL) 许可模式。 Microsoft 托管商业事务并代你向客户计费。 可获得的好处是能够利用客户与 Microsoft 之间达成的首选付费关系（包括任何企业协议）。 有关详细信息，请参阅 [商业市场事务处理功能](./marketplace-commercial-transaction-capabilities-and-considerations.md)。
 
 > [!NOTE]
 > 与企业协议关联的货币承诺可用于 VM 的 Azure 使用情况，但不能用于你的软件许可费用。
@@ -84,7 +84,7 @@ Vm 完全启用了商务，使用即用即付或自带许可证 (BYOL) 许可模
 | 许可选项 | 事务处理 |
 | --- | --- |
 | 免费试用 | 为你的客户提供一个、三个或六个月的免费试用版。 |
-| 体验版 | 此选项可让你的客户评估 Vm，而无需额外付费。 他们无需成为现有的 Azure 客户即可使用试用体验。 有关详细信息，请参阅 [什么是测试驱动器？](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| 体验版 | 此选项可让你的客户评估 Vm，而无需额外付费。 他们无需成为现有的 Azure 客户即可使用试用体验。 有关详细信息，请参阅 [什么是测试驱动器？](./what-is-test-drive.md) |
 | BYOL | "自带许可" 选项可让你的客户将现有软件许可证带到 Azure。\* |
 | 基于使用情况 | 此选项也称为即用即付，此选项可让客户按小时付费。 |
 | 互动演示  | 使用交互式演示为客户授予解决方案的引导式体验。 优点在于，无需为复杂解决方案提供复杂的设置，就能提供试用体验。 |
@@ -129,7 +129,7 @@ Vm 完全启用了商务，使用即用即付或自带许可证 (BYOL) 许可模
 在合作伙伴中心创建产品/服务时，你将看到 " **转售通过 csp** " 选项卡。此选项允许属于 Microsoft 云解决方案提供商的合作伙伴 (CSP) 程序将 VM 转售为捆绑产品/服务的一部分。 所有自带许可 (BYOL) 计划将自动选择加入该计划。 还可选择加入到非 BYOL 计划。 有关详细信息，请参阅 [云解决方案提供商计划](cloud-solution-providers.md) 。 
 
 > [!NOTE]
-> 云解决方案提供商 (CSP) 合作伙伴渠道选择加入现已推出。 有关通过 Microsoft CSP 合作伙伴渠道营销产品/服务的详细信息，请参阅 [**云解决方案提供商**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)。
+> 云解决方案提供商 (CSP) 合作伙伴渠道选择加入现已推出。 有关通过 Microsoft CSP 合作伙伴渠道营销产品/服务的详细信息，请参阅 [**云解决方案提供商**](./cloud-solution-providers.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

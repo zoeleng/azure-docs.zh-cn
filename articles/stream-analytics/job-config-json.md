@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: f2dd759203655746601699f665436c78ee0758f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1a1a0b9f3a5996af56ff2c4e2de91d78a6c260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885495"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129331"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>字段上的 Azure 流分析 JobConfig.js
 
-使用[Visual Studio Code 创建 Azure 流分析作业](quick-create-visual-studio-code.md)的文件*JobConfig.js*支持以下字段。
+使用 [Visual Studio Code 创建 Azure 流分析作业](quick-create-visual-studio-code.md)的文件 *JobConfig.js* 支持以下字段。
 
 ```json
 {
@@ -37,7 +37,7 @@ ms.locfileid: "90885495"
 }
 ```
 
-|名称|类型|必须|值|
+|名称|类型|必选|值|
 |----|----|--------|-----|
 |DataLocale|string|否|流分析作业的数据区域设置。 值应为受支持的的名称。 如果未指定，则默认为 "en-us"。|
 |OutputErrorPolicy|string|否|指示要应用于出现错误的事件的策略，该策略不能写入到外部存储，因为 (缺少列值、错误类型或大小) 的列值。 -停止或删除|
@@ -51,11 +51,11 @@ ms.locfileid: "90885495"
 |GlobalStorage. AccountKey|string|否|全局存储帐户的相应键。|
 |DataSourceCredentialDomain|string|否|凭据本地存储的保留属性。|
 |ScriptType|字符串|是|保留的属性，用于指示此源文件的类型。 可接受的值为 JobConfig.js上的 "JobConfig"。|
-|标记|JSON 键值对|否|标记是名称/值对，可让你通过将相同的标记应用到多个资源和资源组，对资源进行分类并查看合并的账单。 标记名称不区分大小写，标记值区分大小写。|
+|标记|JSON 键值对|否|标记是名称/值对，可让你通过将相同的标记应用到多个资源和资源组，对资源进行分类并查看合并的账单。 标记名称不区分大小写，但标记值区分大小写。|
 
 ## <a name="next-steps"></a>后续步骤
 
 * [在 Visual Studio Code 中创建 Azure 流分析作业](quick-create-visual-studio-code.md)
 * [通过 Visual Studio Code 使用示例数据在本地测试流分析查询](visual-studio-code-local-run.md)
 * [使用 Visual Studio Code 对实时流输入进行本地测试流分析查询](visual-studio-code-local-run-live-input.md) 
-*[使用 CI/CD npm 包部署 Azure 流分析作业](setup-cicd-vs-code.md)
+*[使用 CI/CD npm 包部署 Azure 流分析作业](./cicd-overview.md)

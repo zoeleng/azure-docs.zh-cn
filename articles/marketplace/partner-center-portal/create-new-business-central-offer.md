@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774572"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130147"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 产品/服务
 
@@ -91,7 +91,7 @@ ms.locfileid: "91774572"
 选择类别和子类别，将产品/服务置于适当的 marketplace 搜索区域。 确保在产品/服务说明中介绍产品/服务如何支持这些类别。 选择：
 
 - 至少一个和多达两个类别，包括主类别和辅助类别 (可选) 。
-- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用**"。
+- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用** "。
 
 请参阅 [产品/服务列表最佳做法](../gtm-offer-listing-best-practices.md)中的类别和子类别的完整列表。
 
@@ -129,8 +129,8 @@ ms.locfileid: "91774572"
 5. 使用条款
 6. 隐私策略
 7. 产品名称
-8. 总结
-9. 说明
+8. 摘要
+9. 描述
 10. 屏幕截图/视频
 
 ### <a name="name"></a>名称
@@ -242,8 +242,8 @@ ms.locfileid: "91774572"
 
 选择适用于你的产品/服务的选项：
 
-* **附加产品** - 附加产品应用可扩展 Dynamics 365 Business Central 的体验和现有功能。 有关详细信息，请参阅[附加产品应用](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps)。
-* **Connect** - 如果必须在 Dynamics 365 Business Central 与第三方解决方案或服务之间建立点到点连接，则可使用 Connect 应用。 有关详细信息，请参阅 [Connect 应用](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps)。
+* **附加产品** - 附加产品应用可扩展 Dynamics 365 Business Central 的体验和现有功能。 有关详细信息，请参阅[附加产品应用](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps)。
+* **Connect** - 如果必须在 Dynamics 365 Business Central 与第三方解决方案或服务之间建立点到点连接，则可使用 Connect 应用。 有关详细信息，请参阅 [Connect 应用](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps)。
 
 ### <a name="file-upload"></a>文件上传
 

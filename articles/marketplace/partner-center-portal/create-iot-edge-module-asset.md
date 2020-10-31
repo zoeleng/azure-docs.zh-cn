@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d55186874e6f5be67a04e4a04d54a89dc09f9cd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324635"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130436"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>准备 IoT Edge 模块技术资产
 
@@ -46,7 +46,7 @@ IoT Edge 模块必须支持以下平台选项之一：
 模块必须支持 IoT Edge (支持的第1层平台)  (一个子集， [Azure IoT Edge 支持](../../iot-edge/support.md)) 中已记录。 使用此平台选项的模块必须：
 
 - 提供最新的标记和版本标记 (例如，使用 GitHub 清单生成的清单标记（如果支持多个平台) ，则为清单标记 [）](https://github.com/estesp/manifest-tool) 。 仅当只支持一个平台时，清单标记才是可选的。
-- 使用 "[合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)" 中的 "产品列表" 选项卡，从[Azure IoT Edge 认证设备目录](https://catalog.azureiotsolutions.com/)中的至少一个 IoT Edge 设备添加到 "**有用链接**" 部分下的链接。
+- 使用 " [合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)" 中的 "产品列表" 选项卡，从 [Azure IoT Edge 认证设备目录](https://catalog.azureiotsolutions.com/)中的至少一个 IoT Edge 设备添加到 " **有用链接** " 部分下的链接。
 
 :::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="这是合作伙伴中心内产品/服务列表部分的图像":::
 
@@ -66,11 +66,11 @@ IoT Edge 模块维度 (例如，目标 IoT Edge 设备上的 CPU、RAM、存储�
 
 ### <a name="configuration"></a>Configuration
 
-模块必须包含默认配置设置，才能使部署到 IoT Edge 设备尽可能简单。 此信息可在[合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)的计划的**技术配置**页中提供。 容器还可以包含 IoT Edge 模块 SDK，以实现与边缘集线器和 IoT 中心的通信。
+模块必须包含默认配置设置，才能使部署到 IoT Edge 设备尽可能简单。 此信息可在 [合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)的计划的 **技术配置** 页中提供。 容器还可以包含 IoT Edge 模块 SDK，以实现与边缘集线器和 IoT 中心的通信。
 
 #### <a name="default-configuration"></a>默认配置
 
-IoT Edge 模块必须能够以[合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)计划的 "**技术配置**" 页中提供的默认设置开始。 可使用以下默认设置：
+IoT Edge 模块必须能够以 [合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)计划的 " **技术配置** " 页中提供的默认设置开始。 可使用以下默认设置：
 
 - 默认 **路由**
 - 默认 **模块克隆所需属性**
@@ -85,7 +85,7 @@ ServerIPAddress = <MY_SERVER_IP_ADDRESS>
 
 #### <a name="configuration-documentation"></a>配置文档
 
-必须清楚地记录 IoT Edge 模块的所有配置设置。 例如，你必须记录如何使用其路由、对所需的属性、环境变量、createOptions 等。 您必须提供文档的链接或使其成为您的产品/服务或计划说明的一部分。 你可以在[合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)的**产品/服务**列表和**计划列表**页提供此信息。
+必须清楚地记录 IoT Edge 模块的所有配置设置。 例如，你必须记录如何使用其路由、对所需的属性、环境变量、createOptions 等。 您必须提供文档的链接或使其成为您的产品/服务或计划说明的一部分。 你可以在 [合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)的 **产品/服务** 列表和 **计划列表** 页提供此信息。
 
 #### <a name="tags-and-versioning"></a>标记和版本控制
 
@@ -107,14 +107,14 @@ ServerIPAddress = <MY_SERVER_IP_ADDRESS>
 
 使用 IoT 模块 Sdk 中的以下方法之一将 Data.productinfo 设置为此标识符：
 
-- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 对于不使用 IoT 模块 SDK 的模块，通过合作伙伴中心提供不太准确的见解，如下载数量。
 
-### <a name="security"></a>安全
+### <a name="security"></a>安全性
 
 IoT Edge 模块必须避免具有 [特权的模块](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)。 而是要求尽可能最少的权限访问主机。
 

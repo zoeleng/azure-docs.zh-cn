@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100705"
+ms.locfileid: "93130929"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用自动完成 SQL 数据库的工作流
 
@@ -96,9 +96,14 @@ ms.locfileid: "93100705"
    ||||
 
    > [!TIP]
-   > 可在数据库的连接字符串中找到此信息。 例如，在 Azure 门户中，找到并打开你的数据库。 在数据库菜单上，选择你可以在其中找到此字符串的“连接字符串”或“属性”：
+   > 若要提供数据库和表信息，你可以使用以下选项：
+   > 
+   > * 在数据库的连接字符串中找到此信息。 例如，在 Azure 门户中，找到并打开你的数据库。 在 "数据库" 菜单上，选择 " **连接字符串** " 或 " **属性** "，可以在其中找到此字符串：
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * 默认情况下，系统数据库中的表将被筛选掉，因此当您选择系统数据库时，它们可能不会自动出现。 作为替代方法，可以在从 "数据库" 列表中选择 " **输入自定义值** " 后手动输入表名称。
+   >
 
    此示例显示了这些值的可能外观：
 

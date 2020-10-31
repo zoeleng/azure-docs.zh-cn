@@ -6,21 +6,18 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: 9704ff7dec02a0de044863ec2da6280d65b30ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043492"
+ms.locfileid: "93131150"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage 的高级层
 
-Azure Data Lake Storage Gen2 现在支持 " [高级" 性能层](storage-blob-performance-tiers.md#premium-performance)。 高级性能层非常适合用于需要低延迟且具有大量事务的大数据分析应用程序和工作负荷。 
-
-> [!NOTE]
-> Azure Data Lake Storage 的高级层为公共预览版。 请参阅 [区域可用性](#regional-availability)。
+Azure Data Lake Storage Gen2 现在支持 " [高级" 性能层](storage-blob-performance-tiers.md#premium-performance)。 高级性能层非常适合用于需要低延迟且具有大量事务的大数据分析应用程序和工作负荷。
 
 ## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>可以受益于高级性能层的工作负荷
 
@@ -106,8 +103,3 @@ AI/ML 可以解决不同数据类型（例如视觉对象、语音和文本）�
 |澳大利亚东部|LRS、ZRS|
 |澳大利亚东南部|LRS|
 |巴西南部|LRS|
-
-
-## <a name="next-steps"></a>后续步骤
-
-请参阅 Azure Data Lake Storage [博客公告](https://www.microsoft.com)的高级层。

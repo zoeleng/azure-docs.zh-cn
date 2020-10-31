@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892311"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129450"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>复制或备份 Azure 流分析作业
 
-可以使用 Visual Studio Code 或 Visual Studio 来复制或备份已部署的 Azure 流分析作业。 将作业复制到其他区域时不会复制上次输出时间。 因此，在启动复制的作业时，不能使用[**上次停止时**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options)选项。
+可以使用 Visual Studio Code 或 Visual Studio 来复制或备份已部署的 Azure 流分析作业。 将作业复制到其他区域时不会复制上次输出时间。 因此，在启动复制的作业时，不能使用 [**上次停止时**](./start-job.md#start-options)选项。
 
 ## <a name="before-you-begin"></a>准备阶段
 * 如果还没有 Azure 订阅，可以创建一个[免费帐户](https://azure.microsoft.com/free/)。
@@ -27,11 +27,11 @@ ms.locfileid: "90892311"
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
-1. 单击 Visual Studio Code 活动栏上的 **Azure** 图标，然后展开“流分析”节点****。 你的作业应显示在你的订阅下。
+1. 单击 Visual Studio Code 活动栏上的  。 你的作业应显示在你的订阅下。
 
    ![打开流分析资源管理器](./media/vscode-explore-jobs/open-explorer.png)
 
-2. 若要将作业导出到本地项目，请在 Visual Studio Code 的**流分析资源管理器**中找到要导出的作业。 然后为项目选择一个文件夹。
+2. 若要将作业导出到本地项目，请在 Visual Studio Code 的 **流分析资源管理器** 中找到要导出的作业。 然后为项目选择一个文件夹。
 
     ![在 Visual Studio Code 中找到 ASA 作业](./media/vscode-explore-jobs/export-job.png)
 
@@ -39,15 +39,15 @@ ms.locfileid: "90892311"
 
     ![在 Visual Studio Code 中导出 ASA 作业](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
 
-3. 若要使用另一名称将作业发布到其他区域或备份，请在查询编辑器 (\*.asaql) 中选择“从订阅中选择以发布”****，然后按照说明进行操作。
+3. 若要使用另一名称将作业发布到其他区域或备份，请在查询编辑器 (\*.asaql) 中选择“从订阅中选择以发布”  ，然后按照说明进行操作。
 
     ![在 Visual Studio Code 中发布到 Azure](./media/quick-create-visual-studio-code/submit-job.png)
 
 ## <a name="visual-studio"></a>Visual Studio
 
-1. 按照[将部署的 Azure 流分析作业导出到项目说明](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project)进行操作。
+1. 按照[将部署的 Azure 流分析作业导出到项目说明](./stream-analytics-vs-tools.md#export-jobs-to-a-project)进行操作。
 
-2. 在查询编辑器中打开 \*.asaql 文件，在脚本编辑器中选择“提交到 Azure”****，然后按照说明使用新名称将作业发布到其他区域或备份。
+2. 在查询编辑器中打开 \*.asaql 文件，在脚本编辑器中选择“提交到 Azure”  ，然后按照说明使用新名称将作业发布到其他区域或备份。
 
 ## <a name="next-steps"></a>后续步骤
 

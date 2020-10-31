@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a7e56758a1a76933d6bb18883aa15ce33ce2e89e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097781"
+ms.locfileid: "93130912"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>使用 API 实现 IoT Edge 流分析的 CI/CD
 
@@ -258,5 +258,5 @@ curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/res
 ## <a name="next-steps"></a>后续步骤 
  
 * [Azure IoT Edge 流分析](stream-analytics-edge.md)
-* [IoT Edge 教程上的 ASA ](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [IoT Edge 教程上的 ASA ](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [使用 Visual Studio 工具开发流分析 Edge 作业](stream-analytics-tools-for-visual-studio-edge-jobs.md)

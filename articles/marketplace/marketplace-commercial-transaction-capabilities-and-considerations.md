@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006391"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130317"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>商业市场交易功能
 
@@ -24,7 +24,7 @@ ms.locfileid: "90006391"
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>与我联系、免费试用和 BYOL 选项
 
-发布者可以选择 " _联系我_ " 和 " _免费试用版_"，这些选项用于促销和用户购置目的。 对于某些产品/服务类型，发布者可以选择 "自带许可证 (BYOL") 选项，使客户能够使用他们直接购买的许可证购买你的产品/服务的订阅。 使用这些选项，Microsoft 不直接参与发布者的软件许可证交易，因此没有相关的交易费。 
+发布者可以选择 " _联系我_ " 和 " _免费试用版_ "，这些选项用于促销和用户购置目的。 对于某些产品/服务类型，发布者可以选择 "自带许可证 (BYOL") 选项，使客户能够使用他们直接购买的许可证购买你的产品/服务的订阅。 使用这些选项，Microsoft 不直接参与发布者的软件许可证交易，因此没有相关的交易费。 
 
 发布者负责支持软件许可证事务的所有方面。 这包括但不限于订单、履单、计量、计费、开票、支付和收集。 通过 "联系我" 列表选项，发布者将保留从客户那里收集的100% 的出版商软件许可费用。
 
@@ -46,7 +46,7 @@ ms.locfileid: "90006391"
 
 ### <a name="billing-infrastructure-costs"></a>计费基础结构成本
 
-对于 **虚拟机** 和 **azure 应用程序**，azure 基础结构使用费用会按客户的 azure 订阅计费。 在客户的发票上，基础结构使用费与软件提供商的许可费分开计价和显示。
+对于 **虚拟机** 和 **azure 应用程序** ，azure 基础结构使用费用会按客户的 azure 订阅计费。 在客户的发票上，基础结构使用费与软件提供商的许可费分开计价和显示。
 
 对于 SaaS 应用，发布者必须将 Azure 基础结构使用费和软件许可费视为单一费用项。  它表示为客户的固定费用。 直接对发布服务器进行 Azure 基础结构使用和计费。 客户将无法看到实际的基础结构使用费。 发布者通常选择将 Azure 基础结构使用费捆绑到其软件许可证定价中。 软件许可费用不按流量计费，也不基于用户消耗。
 
@@ -54,7 +54,7 @@ ms.locfileid: "90006391"
 
 根据所使用的事务选项，订阅费用如下所示：
 
-- **立即获取 (免费) ** –免费获取软件许可证。 使用免费产品/服务不会向客户收取 Azure Marketplace 费用。 免费产品/服务不能转换为付费产品/服务。 客户必须订购付费产品/服务。
+- **立即获取 (免费)** –免费获取软件许可证。 使用免费产品/服务不会向客户收取 Azure Marketplace 费用。 免费产品/服务不能转换为付费产品/服务。 客户必须订购付费产品/服务。
 - **自带许可 (BYOL)** - 直接在发布者和客户之间管理所有适用的软件许可证费用。 Microsoft 仅收取 Azure 基础结构使用费。 如果产品市场中列出了产品/服务，则在商业市场上获得访问或使用该产品/服务的客户不会收取商业 marketplace 费用。
 - **订阅定价** –软件许可证费用以按固定费率或按座位计费的每月或每年、定期订阅费用形式提供。 定期客户取消或未使用的服务不会按比例计费。 如果客户在订阅期的中间升级或降级订阅，则可能会按比例计费。
 - **基于使用情况的定价** –对于 Azure 虚拟机产品/服务，将根据其对产品/服务的使用程度向客户收费。 对于虚拟机映像，客户按发布者设置的每小时 Azure Marketplace 费用收费，用于从 VM 映像部署的虚拟机。 不同虚拟机大小的小时费用可能一致也可能不同。 不足一小时按分钟收费。 计划按月计费。
@@ -197,7 +197,7 @@ Microsoft 作为代理收集的所有软件许可费用将收取 20% 的手续�
 
 - **Azure 应用程序：解决方案模板或托管应用** –必须预配一个或多个虚拟机，并提取虚拟机定价的总和。 对于单个计划的托管应用，可以选择固定费率每月订阅作为定价模型，而不是虚拟机定价。 在部分情况下，Azure 基础结构使用费将与软件许可证费用分开，单独传递给客户，但位于相同的账单上。 但是，如果你配置了托管应用产品/服务以实现 ISV 基础结构费用，则会向发布者计费 Azure 资源，并且客户会收到包含基础结构、软件许可证和管理服务成本的固定费用。
 
-- **Saas 应用程序** -必须是多租户解决方案，使用 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 进行身份验证，并与 [SaaS 履单 api](partner-center-portal/pc-saas-fulfillment-api-v2.md)集成。 Azure 基础结构的使用情况是直接 (合作伙伴) 进行管理和计费的，因此，你必须将 Azure 基础结构使用费和软件许可费用视为单个成本项。 有关详细指南，请参阅 [在商业应用商店中创建新的 SaaS 产品/服务](partner-center-portal/create-new-saas-offer.md)。
+- **Saas 应用程序** -必须是多租户解决方案，使用 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 进行身份验证，并与 [SaaS 履单 api](partner-center-portal/pc-saas-fulfillment-api-v2.md)集成。 Azure 基础结构的使用情况是直接 (合作伙伴) 进行管理和计费的，因此，你必须将 Azure 基础结构使用费和软件许可费用视为单个成本项。 有关详细指南，请参阅 [在商业应用商店中创建新的 SaaS 产品/服务](./create-new-saas-offer.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c30a9997fcc7ac10b1072d4f164c3e7bfa16f0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130504"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>在 Azure 市场中创建 Azure 容器套餐
 
@@ -52,10 +52,10 @@ ms.locfileid: "91709098"
 
 此页显示基于产品/服务当前状态的不同链接。 例如：
 
-- 如果产品/服务是草稿 - [删除草稿产品/服务](update-existing-offer.md#delete-a-draft-offer)
+- 如果产品/服务是草稿 - 删除草稿产品/服务
 - 如果产品/服务已上线 - [停止销售产品/服务](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- 如果产品/服务为预览版 - [投入使用](publishing-status.md#publisher-approval)
-- 如果尚未完成发布服务器注销 - [取消发布](update-existing-offer.md#cancel-publishing)
+- 如果产品/服务为预览版 - [投入使用](../review-publish-offer.md#previewing-and-approving-your-offer)
+- 如果还没有完成发布者注销 - [取消发布](../review-publish-offer.md#cancel-publishing)。
 
 ## <a name="offer-setup"></a>产品/服务设置
 
@@ -96,7 +96,7 @@ ms.locfileid: "91709098"
 选择类别和子类别，将产品/服务置于适当的 marketplace 搜索区域。 确保在产品/服务说明中介绍产品/服务如何支持这些类别。 选择：
 
 - 至少一个和多达两个类别，包括主类别和辅助类别 (可选) 。
-- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用**"。
+- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用** "。
 
 请参阅 [产品/服务列表最佳做法](../gtm-offer-listing-best-practices.md)中的类别和子类别的完整列表。 容器始终 **显示在 "容器"** 下，然后显示 " **容器映像** " 类别。
 
@@ -289,7 +289,7 @@ ms.locfileid: "91709098"
 
 #### <a name="azure-regions"></a>Azure 区域
 
-Azure 容器产品/服务的所有计划都将自动提供给 **Azure Global**。  所有使用商业应用商店的全球 Azure 区域的客户都可以使用你的计划。 有关详细信息，请参阅[地理区域可用性和货币支持](../marketplace-geo-availability-currencies.md)。
+Azure 容器产品/服务的所有计划都将自动提供给 **Azure Global** 。  所有使用商业应用商店的全球 Azure 区域的客户都可以使用你的计划。 有关详细信息，请参阅[地理区域可用性和货币支持](../marketplace-geo-availability-currencies.md)。
 
 选择 [Azure 政府](../../azure-government/documentation-government-welcome.md) 版选项，使解决方案显示在此处。 这是政府社区云，会对来自美国联邦、州、地方或部落政府机构的客户和有资格服务于他们的合作伙伴进行访问控制。 作为发布者，你要对此云社区的任何符合性控制、安全措施和最佳做法负责。 Azure 政府使用物理隔离的数据中心和网络（仅位于美国）。 在[发布](../../azure-government/documentation-government-manage-marketplace-partners.md)到 Azure 政府前，请先在相应区域中测试并确认你的解决方案，因为结果可能会有所不同。 若要创建和测试你的解决方案，请通过 [Microsoft Azure 政府试用版](https://azure.microsoft.com/global-infrastructure/government/request/)申请试用帐户。
 
@@ -298,7 +298,7 @@ Azure 容器产品/服务的所有计划都将自动提供给 **Azure Global**�
 
 #### <a name="azure-government-certifications"></a>Azure 政府认证
 
-仅当在**azure 区域**下选择了**azure 政府**时，才能显示此选项。
+仅当在 **azure 区域** 下选择了 **azure 政府** 时，才能显示此选项。
 
 Azure 政府服务处理符合特定政府法规和要求的数据。 例如，FedRAMP、NIST 800.171 (DIB)、ITAR、IRS 1075、DoD L4 和 CJIS。
 
@@ -365,7 +365,7 @@ Azure 容器注册表名称 - 提供包含容器映像的 [Azure 容器注册表
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="“使用 Microsoft 商业市场的标准协定”复选框图示。":::
 
-Azure 容器注册表的密码 - 提供与包含容器映像的 Azure 容器注册表相关联的管理员用户的密码。 用户名和密码是必需的，以确保公司有权访问注册表。 可以从 Azure 门户中获取密码，具体方法为依次转到“容器注册表” > “访问密钥”，或通过 Azure CLI 运行 [show 命令](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)。
+Azure 容器注册表的密码 - 提供与包含容器映像的 Azure 容器注册表相关联的管理员用户的密码。 用户名和密码是必需的，以确保公司有权访问注册表。 可以从 Azure 门户中获取密码，具体方法为依次转到“容器注册表” > “访问密钥”，或通过 Azure CLI 运行 [show 命令](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)。
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="“使用 Microsoft 商业市场的标准协定”复选框图示。":::
 
@@ -405,7 +405,7 @@ Azure 容器注册表中的存储库名称。 提供包含映像的 Azure 容器
 
 我们会向你发送电子邮件，让你知道何时有预览版产品/服务可供审阅和审核。
 
-若要将产品/服务发布到公众，请前往 "合作伙伴中心" 并选择 " **上线**"。
+若要将产品/服务发布到公众，请前往 "合作伙伴中心" 并选择 " **上线** "。
 
 ## <a name="next-step"></a>后续步骤
 

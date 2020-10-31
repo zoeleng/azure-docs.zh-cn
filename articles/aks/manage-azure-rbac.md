@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329085"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129552"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>使用 Azure RBAC 进行 Kubernetes 授权（预览）
 
@@ -21,13 +21,13 @@ ms.locfileid: "91329085"
 
 本文档介绍一种新的方法，允许跨 Azure 资源、AKS 和 Kubernetes 资源实现统一的管理和访问控制。
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>开始之前
 
 通过 Azure 管理 Kubernetes 资源的 RBAC 功能，你可以选择使用 Azure 或本机 Kubernetes 机制管理群集资源的 RBAC。 启用后，将由 Azure RBAC 专门验证 Azure AD 主体，同时 Kubernetes RBAC 以独占方式验证常规 Kubernetes 用户和服务帐户。 有关 AKS 上的身份验证、授权和 RBAC 的详细信息，请参阅 [此处](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)。
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>必备条件 
+### <a name="prerequisites"></a>先决条件 
 - 确保具有 Azure CLI 版本2.9.0 或更高版本
 - 确保已 `EnableAzureRBACPreview` 启用功能标志。
 - 确保已 `aks-preview` 安装 [CLI extension][az-extension-add] v 0.4.55 或更高版本
@@ -57,7 +57,7 @@ az provider register --namespace Microsoft.ContainerService
 
 #### <a name="install-aks-preview-cli-extension"></a>安装 aks-preview CLI 扩展
 
-若要创建使用 Azure RBAC 的 AKS 群集，需要 *AKS* CLI 扩展版本0.4.55 或更高版本。 使用[az extension add][az-extension-add]命令安装*aks-preview* Azure CLI 扩展，或使用[az extension update][az-extension-update]命令安装任何可用更新：
+若要创建使用 Azure RBAC 的 AKS 群集，需要 *AKS* CLI 扩展版本0.4.55 或更高版本。 使用 [az extension add][az-extension-add]命令安装 *aks-preview* Azure CLI 扩展，或使用 [az extension update][az-extension-update]命令安装任何可用更新：
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -75,6 +75,7 @@ az extension update --name aks-preview
 - 在预览期间，只能通过 Azure CLI 添加 *命名空间级别* 权限。
 - 如果你有 CRDs 并且正在进行自定义角色定义，则现在涵盖 CRDs 的唯一方法是提供 `Microsoft.ContainerService/managedClusters/*/read` 。 AKS 正在努力为 CRDs 提供更精细的权限。 对于剩余的对象，可以使用特定的 API 组，例如： `Microsoft.ContainerService/apps/deployments/read` 。
 - 新角色分配最多可能需要就才能进行传播，并由授权服务器进行更新。
+- 要求配置为进行身份验证的 Azure AD 租户与保存 AKS 群集的订阅的租户相同。 
 
 ## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>使用 Azure RBAC 和 managed Azure AD 集成创建新群集
 
@@ -245,7 +246,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up"></a>清理
 
 ### <a name="clean-role-assignment"></a>清理角色分配
 

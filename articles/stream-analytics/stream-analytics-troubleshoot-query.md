@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337800"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130249"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure 流分析查询的故障排除
 
@@ -32,19 +32,19 @@ ms.locfileid: "87337800"
 
     ![作业关系图预览结果](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  如果使用了 [Timestamp By](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)，请验证事件的时间戳是否大于[作业开始时间](stream-analytics-out-of-order-and-late-events.md)。
+3.  如果使用了 [Timestamp By](/stream-analytics-query/timestamp-by-azure-stream-analytics)，请验证事件的时间戳是否大于[作业开始时间](./stream-analytics-time-handling.md)。
 
 4.  避免常犯的错误，例如：
-    - 查询中的一个 [WHERE](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) 子句筛选掉了所有事件，从而阻止生成输出。
-    - [CAST](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) 函数失败，导致作业失败。 为了避免类型强制转换失败，请改用 [TRY_CAST](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics)。
+    - 查询中的一个 [WHERE](/stream-analytics-query/where-azure-stream-analytics) 子句筛选掉了所有事件，从而阻止生成输出。
+    - [CAST](/stream-analytics-query/cast-azure-stream-analytics) 函数失败，导致作业失败。 为了避免类型强制转换失败，请改用 [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics)。
     - 使用窗口函数时，请等待整个窗口持续时间完成，以查看查询中的输出。
     - 事件时间戳先于作业开始时间，事件被删除。
-    - [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) 条件不匹配。 如果没有匹配，则输出为零。
+    - [JOIN](/stream-analytics-query/join-azure-stream-analytics) 条件不匹配。 如果没有匹配，则输出为零。
 
-5.  确保按预期方式配置事件排序策略。 转到“设置”，选择“[事件排序](stream-analytics-out-of-order-and-late-events.md)” 。 使用“测试”按钮测试查询时，不会应用此策略。 这是在浏览器中测试与在生产中运行作业之间的一个差别。 
+5.  确保按预期方式配置事件排序策略。 转到“设置”，选择“[事件排序](./stream-analytics-time-handling.md)” 。 使用“测试”按钮测试查询时，不会应用此策略。 这是在浏览器中测试与在生产中运行作业之间的一个差别。 
 
 6. 使用活动和资源日志进行调试：
-    - 使用[审核日志](../azure-resource-manager/resource-group-audit.md)，并进行筛选来发现和调试错误。
+    - 使用[审核日志](../azure-resource-manager/management/view-activity-logs.md)，并进行筛选来发现和调试错误。
     - 使用[作业资源日志](stream-analytics-job-diagnostic-logs.md)来发现和调试错误。
 
 ## <a name="resource-utilization-is-high"></a>资源利用率高
@@ -103,12 +103,12 @@ ms.locfileid: "87337800"
 
 ## <a name="get-help"></a>获取帮助
 
-若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答问题页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)。
+如需获取进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答页面](/answers/topics/azure-stream-analytics.html)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)

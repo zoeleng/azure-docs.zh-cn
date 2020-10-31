@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896460"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131014"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>向 Azure AD 中的 B2B 用户授予对本地应用程序的访问权限
 
@@ -77,7 +77,7 @@ ms.locfileid: "92896460"
 
 可以从一个 PowerShell 示例脚本着手，在本地 Active Directory 中创建来宾用户对象。
 
-可以从[下载中心](https://www.microsoft.com/download/details.aspx?id=51495)下载该脚本和自述文件。 选择 **Script and Readme to pull Azure AD B2B users on-prem.zip** 文件。
+可以从 [适用于 Microsoft Identity Manager 2016 和 Forefront Identity Manager 2010 R2 的连接器](https://www.microsoft.com/download/details.aspx?id=51495)下载脚本和自述文件。 在下载包中，选择 **要拉取 AZURE AD B2B 用户 on-prem.zip文件的脚本和自述** 文件。
 
 使用该脚本之前，请确保查看相关自述文件中的先决条件和重要注意事项。 此外，请知道该脚本仅用作示例。 开发团队或合作伙伴在运行该脚本之前，必须对其进行自定义和审阅。
 

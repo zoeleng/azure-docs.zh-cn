@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 04/22/2020
-ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/27/2020
+ms.openlocfilehash: 8ffdd8c15cf225e4f5b99a0b84b71bdbed456234
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367510"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130079"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>什么是自动化机器学习 (AutoML)？
 
@@ -70,20 +70,20 @@ ms.locfileid: "92367510"
 
 在训练期间，Azure 机器学习会创建多个尝试不同算法和参数的并行管道。 该服务将迭代与特征选择配对的 ML 算法，每次迭代都会生成带有训练评分的模型。 模型的评分越高，则认为它可以更好地“拟合”数据。  一旦达到试验中定义的退出条件，机器学习就会停止。 
 
-使用 **Azure 机器学习**可以通过以下步骤设计和运行自动化 ML 训练试验：
+使用 **Azure 机器学习** 可以通过以下步骤设计和运行自动化 ML 训练试验：
 
-1. **识别要解决的 ML 问题**：分类、预测或回归
+1. **识别要解决的 ML 问题** ：分类、预测或回归
 
-1. **选择是要使用 Python SDK 还是工作室 Web 体验**：了解 [Python SDK 与工作室 Web 体验](#parity)之间的搭配用法。
+1. **选择是要使用 Python SDK 还是工作室 Web 体验** ：了解 [Python SDK 与工作室 Web 体验](#parity)之间的搭配用法。
 
    * 如果你的编程经验有限或者没有经验，请在 [https://ml.azure.com](https://ml.azure.com/) 上尝试使用 Azure 机器学习工作室 Web 体验  
    * Python 开发人员请查看 [Azure 机器学习 Python SDK](how-to-configure-auto-train.md) 
     
-1. **指定已标记训练数据的源和格式**：Numpy 数组或 Pandas 数据帧
+1. **指定已标记训练数据的源和格式** ：Numpy 数组或 Pandas 数据帧
 
-1. **配置模型训练的计算目标**，例如[本地计算机、Azure 机器学习计算、远程 VM 或 Azure Databricks](how-to-set-up-training-targets.md)。  了解如何对[远程资源](how-to-auto-train-remote.md)进行自动训练。
+1. **配置模型训练的计算目标** ，例如 [本地计算机、Azure 机器学习计算、远程 VM 或 Azure Databricks](how-to-set-up-training-targets.md)。  了解如何对[远程资源](how-to-auto-train-remote.md)进行自动训练。
 
-1. **配置自动化机器学习参数**，用于确定要对不同模型运行的迭代次数、超参数设置、高级预处理/特征化，以及在确定最佳模型时要查看的具体指标。  
+1. **配置自动化机器学习参数** ，用于确定要对不同模型运行的迭代次数、超参数设置、高级预处理/特征化，以及在确定最佳模型时要查看的具体指标。  
 1. **提交训练运行。**
 
 1. **查看结果** 
@@ -140,8 +140,8 @@ ms.locfileid: "92367510"
 
 自动化机器学习支持默认已启用的系综模型。 系综学习通过组合多个模型而不是使用单个模型，来改善机器学习结果和预测性能。 系综迭代显示为运行的最后一个迭代。 自动化机器学习使用投票和堆叠系综方法来组合模型：
 
-* **投票**：根据预测类概率（对于分类任务）或预测回归目标（对于回归任务）的加权平均值进行预测。
-* **堆叠**：堆叠方法组合异构的模型，并根据各个模型的输出训练元模型。 当前的默认元模型是 LogisticRegression（对于分类任务）和 ElasticNet（对于回归/预测任务）。
+* **投票** ：根据预测类概率（对于分类任务）或预测回归目标（对于回归任务）的加权平均值进行预测。
+* **堆叠** ：堆叠方法组合异构的模型，并根据各个模型的输出训练元模型。 当前的默认元模型是 LogisticRegression（对于分类任务）和 ElasticNet（对于回归/预测任务）。
 
 提供排序系综初始化的 [Caruana 系综选择算法](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)用于决定要在系综中使用的模型。 从较高层面看，此算法使用个体评分最高的最多五个模型来初始化集成，并验证这些模型是否在最佳评分的 5% 阈值范围内，以避免初始系综不佳。 然后，对于每个系综迭代，会将一个新模型添加到现有系综，并计算最终评分。 如果新模型改善了现有的系综评分，则会更新系综以包含新模型。
 
@@ -151,14 +151,14 @@ ms.locfileid: "92367510"
 
 自动化 ML 的 Web 界面始终使用远程[计算目标](concept-compute-target.md)。  但使用 Python SDK 时，可以选择本地计算或远程计算目标进行自动化 ML 训练。
 
-* **本地计算**：训练在本地便携式计算机或 VM 计算中发生。 
-* **远程计算**：训练在机器学习计算群集中发生。  
+* **本地计算** ：训练在本地便携式计算机或 VM 计算中发生。 
+* **远程计算** ：训练在机器学习计算群集中发生。  
 
 ### <a name="choose-compute-target"></a>选择计算目标
 选择计算目标时请考虑以下因素：
 
- * **选择本地计算**：如果你的方案涉及到使用小数据和短训练（即，每个子运行持续几秒或几分钟）进行初始探索或演示，则可能更适合在本地计算机上进行训练。  这样就无需进行设置，并且可以直接使用基础结构资源（电脑或 VM）。
- * **选择远程 ML 计算群集**：如果你要使用较大的数据集（例如在生产培训中创建需要更长训练的模型）进行培训，则远程计算将提供更好的端到端时间性能，因为 `AutoML` 将在群集的节点上并行进行定型。 在远程计算中，内部基础结构的启动时间大约增加了每个子运行1.5 分钟，还增加了群集基础结构的分钟数（如果尚未启动并运行这些 Vm）。
+ * **选择本地计算** ：如果你的方案涉及到使用小数据和短训练（即，每个子运行持续几秒或几分钟）进行初始探索或演示，则可能更适合在本地计算机上进行训练。  这样就无需进行设置，并且可以直接使用基础结构资源（电脑或 VM）。
+ * **选择远程 ML 计算群集** ：如果你要使用较大的数据集（例如在生产培训中创建需要更长训练的模型）进行培训，则远程计算将提供更好的端到端时间性能，因为 `AutoML` 将在群集的节点上并行进行定型。 在远程计算中，内部基础结构的启动时间大约增加了每个子运行1.5 分钟，还增加了群集基础结构的分钟数（如果尚未启动并运行这些 Vm）。
 
 ### <a name="pros-and-cons"></a>优点和缺点
 选择是要使用本地还是远程计算时，请考虑两者的以下优点和缺点。
@@ -172,7 +172,7 @@ ms.locfileid: "92367510"
 
  使用远程计算时，有更多的功能可用，如下表中所示。 
 
-| Feature                                                    | Remote | Local | 
+| 功能                                                    | Remote | Local | 
 |------------------------------------------------------------|--------|-------|
 | 数据流式处理（最高 100 GB 的大数据支持）          | ✓      |       | 
 | 基于 DNN-BERT 的文本特征化和训练             | ✓      |       |
@@ -202,7 +202,7 @@ ms.locfileid: "92367510"
 
 ## <a name="automl-in-azure-machine-learning"></a>Azure 机器学习中的 AutoML
 
-Azure 机器学习提供了两种使用自动 ML 的体验：
+Azure 机器学习提供了两种使用自动化 ML 的体验方式：
 
 * 对于编码经验丰富的客户，可以使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
@@ -220,7 +220,7 @@ Azure 机器学习提供了两种使用自动 ML 的体验：
 |**支持 ML 任务：分类、回归和预测**| ✓| ✓
 |**基于主要指标进行优化**| ✓| ✓
 |**支持将 Azure ML 计算作为计算目标** | ✓|✓
-|**配置预测范围，目标滞后 & 滚动窗口**|✓|✓
+|配置预测范围、目标滞后和滚动窗口|✓|✓
 |**设置退出条件** |✓|✓ 
 |**设置并发迭代数**| ✓|✓
 |删除列| ✓|✓
@@ -239,7 +239,7 @@ Azure 机器学习提供了两种使用自动 ML 的体验：
 | |Python SDK|工作室 Web 体验|
 |----|:----:|:----:|
 |**最佳模型注册、部署、可解释性**| ✓|✓|
-|**启用投票系综 & stack 系综模型**| ✓|✓|
+|**启用投票集成和堆栈集成模型**| ✓|✓|
 |**显示基于非主要指标的最佳模型**|✓||
 |**启用/禁用 ONNX 模型兼容性**|✓||
 |**测试模型** | ✓| |
@@ -251,9 +251,9 @@ Azure 机器学习提供了两种使用自动 ML 的体验：
 | |Python SDK|工作室 Web 体验|
 |----|:----:|:----:|
 |**运行摘要表**| ✓|✓|
-|**取消运行 & 子运行**| ✓|✓|
+|**取消运行和子运行**| ✓|✓|
 |**获取护栏**| ✓|✓|
-|**暂停 & 恢复运行**| ✓| |
+|**暂停和恢复运行**| ✓| |
 
 <a name="use-with-onnx"></a>
 
@@ -263,7 +263,7 @@ Azure 机器学习提供了两种使用自动 ML 的体验：
 
 [在此 Jupyter 笔记本示例中](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)了解如何转换为 ONNX 格式。 了解 [ONNX 支持的算法](how-to-configure-auto-train.md#select-your-experiment-type)。
 
-ONNX 运行时还支持 C#。因此，你可以在 C# 应用中使用自动生成的模型，而无需重新编写代码，同时可避免 REST 终结点造成的任何网络延迟。 详细了解如何[使用 ONNX 运行时 C# API 推理 ONNX 模型](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)。 
+ONNX 运行时还支持 C#。因此，你可以在 C# 应用中使用自动生成的模型，而无需重新编写代码，同时可避免 REST 终结点造成的任何网络延迟。 若要详细了解如何 [在 .net 应用程序中使用 AUTOML ONNX 模型](./how-to-use-automl-onnx-model-dotnet.md) ，请使用 [ONNX 运行时 c # API 通过 ML.NET 和推断 ONNX 模型](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 

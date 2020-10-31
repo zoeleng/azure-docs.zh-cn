@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac08b5af0afbf43c7b13808fac06c40066e48b7a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87f3e2014281580cc35f941ad62046dcb24539df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074227"
+ms.locfileid: "93129399"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>使用 .NET 自定义反序列化程序读取任何格式的输入
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>REST API 的序列化格式
 
-每个流分析输入都有一种 **序列化格式** 。 有关输入选项的详细信息，请参阅[输入 REST API](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) 文档。
+每个流分析输入都有一种 **序列化格式** 。 有关输入选项的详细信息，请参阅[输入 REST API](./stream-analytics-define-inputs.md) 文档。
 
 以下 Javascript 代码是使用 REST API 时的 .NET 反序列化程序序列化格式示例：
 
@@ -239,7 +239,7 @@ namespace ExampleCustomCode.Serialization
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>此功能何时在所有 Azure 区域中推出？
 
-此功能已在 [6 个区域](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support)中推出。 如果你希望在其他区域使用此功能，可以[提交请求](https://aka.ms/ccodereqregion)。 在所有 Azure 区域中支持此功能已在规划中。
+此功能已在 [6 个区域](#region-support)中推出。 如果你希望在其他区域使用此功能，可以[提交请求](https://aka.ms/ccodereqregion)。 在所有 Azure 区域中支持此功能已在规划中。
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>是否可以从类似于 GetMetadataPropertyValue 函数的输入访问 MetadataPropertyValue？
 

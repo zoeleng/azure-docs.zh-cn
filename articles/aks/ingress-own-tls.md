@@ -5,12 +5,12 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集中安装和配
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 42e9f2128063caa13cf3fca1a28ec7e6465ba74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8ea245444fa5e8e042644bd3f7a34ed021ccd1d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855695"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131031"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>创建 HTTPS 入口控制器并在 Azure Kubernetes 服务 (AKS) 中使用自己的 TLS 证书
 
@@ -33,7 +33,7 @@ ms.locfileid: "88855695"
 
 ## <a name="create-an-ingress-controller"></a>创建入口控制器
 
-若要创建入口控制器，请使用 `Helm` 来安装 *nginx-ingress*。 对于增加的冗余，NGINX 入口控制器的两个副本会在部署时具备 `--set controller.replicaCount` 参数。 若要充分利用正在运行的入口控制器副本，请确保 AKS 群集中有多个节点。
+若要创建入口控制器，请使用 `Helm` 来安装 *nginx-ingress* 。 对于增加的冗余，NGINX 入口控制器的两个副本会在部署时具备 `--set controller.replicaCount` 参数。 若要充分利用正在运行的入口控制器副本，请确保 AKS 群集中有多个节点。
 
 还需要在 Linux 节点上计划入口控制器。 Windows Server 节点不应运行入口控制器。 使用 `--set nodeSelector` 参数指定节点选择器，以告知 Kubernetes 计划程序在基于 Linux 的节点上运行 NGINX 入口控制器。
 
@@ -83,7 +83,7 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 
 在本文中，我们将生成使用 `openssl` 的自签名证书。 对于生产用途，应该通过提供商或你自己的证书颁发机构 (CA) 请求受信任的已签名证书。 下一步骤将使用 TLS 证书和 OpenSSL 生成的私钥来生成 Kubernetes 机密。
 
-以下示例生成有效期为 365 天的、名为 *aks-ingress-tls.crt* 的 2048 位 RSA X509 证书。 私钥文件名为 *aks-ingress-tls.key*。 Kubernetes TLS 机密需要这两个文件。
+以下示例生成有效期为 365 天的、名为 *aks-ingress-tls.crt* 的 2048 位 RSA X509 证书。 私钥文件名为 *aks-ingress-tls.key* 。 Kubernetes TLS 机密需要这两个文件。
 
 本文使用 *demo.azure.com* 使用者公用名，无需进行更改。 对于生产用途，请为 `-subj` 参数指定自己的组织值：
 
@@ -132,7 +132,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -170,7 +170,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
