@@ -10,14 +10,15 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 03ef816632b73f46acaf1efdf2ddec28459fc9b8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 89d21e4464cb3c7578b68d68009065ab7848ed19
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489330"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092528"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本教程说明了如何使用 Azure Cosmos DB 的批量执行程序 Java 库导入和更新 Azure Cosmos DB 文档。 若要了解 Bulk Executor 库及它如何帮助你利用大量吞吐量和存储，请参阅 [Bulk Executor 库概述](bulk-executor-overview.md)一文。 在本教程中，我们将构建一个可生成随机文档的 Java 应用程序，然后将文档批量导入 Azure Cosmos 容器。 导入后，我们将批量更新文档的某些属性。 
 
@@ -112,7 +113,7 @@ ms.locfileid: "92489330"
    |disableAutomaticIdGeneration     |   用于禁用自动生成 ID 的标志。 此值默认设置为 true。   |
    |maxConcurrencyPerPartitionRange    |  每个分区键范围的最大并发度。 默认值为 20。  |
 
-   **批量导入响应对象定义**批量导入 API 调用的结果包含以下 get 方法：
+   **批量导入响应对象定义** 批量导入 API 调用的结果包含以下 get 方法：
 
    |**参数**  |**说明**  |
    |---------|---------|
@@ -176,7 +177,7 @@ ms.locfileid: "92489330"
    |---------|---------|
    |maxConcurrencyPerPartitionRange   |  每个分区键范围的最大并发度。 默认值为 20。  |
  
-   **批量导入响应对象定义**批量导入 API 调用的结果包含以下 get 方法：
+   **批量导入响应对象定义** 批量导入 API 调用的结果包含以下 get 方法：
 
    |**参数** |**说明**  |
    |---------|---------|

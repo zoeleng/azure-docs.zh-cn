@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326620"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092052"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 为地理空间数据编制索引
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 我们将 Azure Cosmos DB 的数据库引擎设计为真正与架构无关并为 JSON 提供一流的支持。 Azure Cosmos DB 的写入优化数据库引擎原生了解以 GeoJSON 标准表示的空间数据。
 
-简单来说，测地坐标的几何图形会投影在 2D 平面上，并使用**四叉树**以渐进方式划分成单元格。 这些单元格会根据 **Hilbert 空间填充曲线**内的单元格位置映射到 1D，并保留点的位置。 此外，当位置数据进行索引编制后，会经历称为 **分割**的过程，也就是说，在某个位置上相交的所有单元格都会被识别为键并存储在 Azure Cosmos DB 索引中。 在查询时，点和多边形等参数也会经过分割，以提取相关的格子 ID 范围，并用于从索引检索数据。
+简单来说，测地坐标的几何图形会投影在 2D 平面上，并使用 **四叉树** 以渐进方式划分成单元格。 这些单元格会根据 **Hilbert 空间填充曲线** 内的单元格位置映射到 1D，并保留点的位置。 此外，当位置数据进行索引编制后，会经历称为 **分割** 的过程，也就是说，在某个位置上相交的所有单元格都会被识别为键并存储在 Azure Cosmos DB 索引中。 在查询时，点和多边形等参数也会经过分割，以提取相关的格子 ID 范围，并用于从索引检索数据。
 
 如果指定的索引策略包含“/*”（所有路径）的空间索引，则会为容器中找到的所有数据编制索引，以实现高效的空间查询。
 
@@ -72,7 +73,7 @@ ms.locfileid: "91326620"
 
 ## <a name="geography-data-indexing-examples"></a>地理数据索引示例
 
-以下 JSON 代码片段显示了为**地理**数据类型启用空间索引的索引策略。 它适用于地理数据类型的空间数据，并将为文档中找到的任何 GeoJSON 点、多边形、MultiPolygon 或 LineString 编制索引以便进行空间查询。 如果要使用 Azure 门户修改索引策略，可以为索引策略指定以下 JSON，以便对容器启用空间索引：
+以下 JSON 代码片段显示了为 **地理** 数据类型启用空间索引的索引策略。 它适用于地理数据类型的空间数据，并将为文档中找到的任何 GeoJSON 点、多边形、MultiPolygon 或 LineString 编制索引以便进行空间查询。 如果要使用 Azure 门户修改索引策略，可以为索引策略指定以下 JSON，以便对容器启用空间索引：
 
 **具有地理空间索引功能的容器索引策略 JSON**
 
@@ -111,10 +112,10 @@ ms.locfileid: "91326620"
 
 边界框包括以下属性：
 
-- **xmin**：编制索引的最小 x 坐标
-- **ymin**：编制索引的最小 y 坐标
-- **xmax**：编制索引的最大 x 坐标
-- **ymax**：编制索引的最大 y 坐标
+- **xmin** ：编制索引的最小 x 坐标
+- **ymin** ：编制索引的最小 y 坐标
+- **xmax** ：编制索引的最大 x 坐标
+- **ymax** ：编制索引的最大 y 坐标
 
 边界框是必需的，因为几何图形数据占有的平面可以是无限的。 但是，空间索引需要有限空间。 对于 geography 数据类型，地球是边界，你无需设置边界框。
 

@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277973"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092681"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中自动缩放预配吞吐量的常见问题解答
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 使用自动缩放预配吞吐量，Azure Cosmos DB 将根据使用情况自动管理和缩放数据库或容器的 RU/s。 本文解答了有关自动缩放的常见问题。
 
@@ -27,7 +28,7 @@ ms.locfileid: "92277973"
 
 例如，如果你之前选择了缩放比例为 400 到 4,000 RU/s 的层，则数据库或容器现在将显示具有最大为 4,000 RU/s 的吞吐量，缩放比例为 400 到 4,000 RU/s。 在此处，你可以将最大 RU/s 更改为自定义值以适应你的工作负载。 
 
-### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>自动缩放会根据流量峰值增加速度？
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>自动缩放功能根据流量高峰纵向扩展的速度有多快？
 使用自动缩放，系统根据传入的流量在 `0.1 * Tmax` 和 `Tmax` 范围内上下缩放吞吐量 (RU/s) `T`。 因为缩放是自动且即时的，所以可在任何时间点无延迟地使用吞吐量（最多使用预配的 `Tmax`）。 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>如何确定系统当前缩放到的吞吐量 (RU/s)？
@@ -138,7 +139,7 @@ Azure Cosmos DB 在一个共享吞吐量数据库中最多可实施 25 个容器
 ### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a> 启用自动缩放后，是否仍可看到 429s（限制/速率限制）？ 
 是的。 在两个情况下可能出现 429s。 第一种，当 RU/s 总使用量超过数据库或容器的最大 RU/s 时，服务将相应地限制请求。 
 
-第二种情况是，如果有一个热分区（即逻辑分区键值，该键值的请求数与其他分区键值的请求数相比过高），则基础物理分区可能超出其 RU/秒预算。 为避免出现热分区，最佳做法是[选择良好的分区键](partitioning-overview.md#choose-partitionkey)，从而实现存储和吞吐量的均匀分布。 
+第二种情况是，如果有一个热分区（即逻辑分区键值，该键值的请求数与其他分区键值的请求数相比过高），则基础物理分区可能超出其 RU/秒预算。 为避免出现热分区，最佳做法是[选择一个合适的分区键](partitioning-overview.md#choose-partitionkey)，以实现存储和吞吐量的均匀分配。 
 
 例如，如果选择 20,000 RU/s 的最大吞吐量选项，并具有 200 GB 的存储和四个物理分区，则每个物理分区最多可以自动扩展至 5000 RU/s。 如果特定逻辑分区键上有一个热分区，则当它所在的基础物理分区超过 5000 RU/s（即超过 100% 的标准化利用率）时，将显示 429 错误。
 

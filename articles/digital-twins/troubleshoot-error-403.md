@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091797"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>服务请求失败。 状态： 403 (禁止访问) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "92495909"
 
 ### <a name="cause-1"></a>原因 #1
 
-最常见的情况是，此错误表明你的 Azure 基于角色的访问控制 (没有正确设置服务的 Azure RBAC) 权限。 Azure 数字孪生实例的许多操作要求你在**尝试管理的实例上**拥有*Azure 数字孪生数据所有者*角色。 
+最常见的情况是，此错误表明你的 Azure 基于角色的访问控制 (没有正确设置服务的 Azure RBAC) 权限。 Azure 数字孪生实例的许多操作要求你在 **尝试管理的实例上** 拥有 *Azure 数字孪生数据所有者* 角色。 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "92495909"
 第一种解决方案是验证 Azure 用户在尝试管理的实例上是否拥有 _**Azure 数字孪生数据所有者**_ 角色。 如果没有此角色，请对其进行设置。
 
 请注意，此角色不同于 .。。
-* 此角色的以前的名称在预览期间， *Azure 数字孪生所有者 (预览) * (角色相同，但名称已更改) 
+* 此角色的以前的名称在预览期间， *Azure 数字孪生所有者 (预览)* (角色相同，但名称已更改) 
 * 整个 Azure 订阅的 *所有者* 角色。 *Azure 数字孪生数据所有者* 是 Azure 数字孪生中的一个角色，其作用域为此单个 Azure 数字孪生实例。
 * Azure 数字孪生中的 *所有者* 角色。 它们是两个不同的 Azure 数字孪生管理角色， *Azure 数字孪生数据所有者* 是在预览期间用于管理的角色。
 
@@ -52,15 +52,15 @@ ms.locfileid: "92495909"
 
 #### <a name="fix-issues"></a>解决问题 
 
-如果你没有此角色分配，则在**azure 订阅**中具有所有者角色的用户应运行以下命令，以向 azure 用户提供 Azure 数字**孪生实例**上的*azure 数字孪生数据所有者*角色。 
+如果你没有此角色分配，则在 **azure 订阅** 中具有所有者角色的用户应运行以下命令，以向 azure 用户提供 Azure 数字 **孪生实例** 上的 *azure 数字孪生数据所有者* 角色。 
 
-如果你是订阅的所有者，则可以自己运行此命令。 否则，请联系所有者以代表你运行此命令。
+如果你是订阅的所有者，则可以自己运行此命令。 如果不是，请联系所有者以代表你运行此命令。
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-有关此角色要求和分配过程的更多详细信息，请参阅如何：设置 [*用户的用户访问权限* 部分](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) 中的 *操作方法：设置实例和身份验证 (CLI 或门户) *。
+有关此角色要求和分配过程的更多详细信息，请参阅如何：设置 [*用户的用户访问权限* 部分](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) 中的 *操作方法：设置实例和身份验证 (CLI 或门户)* 。
 
 如果已使用此角色分配 *，并且* 使用 Azure AD 应用注册来验证客户端应用，则如果此解决方案未解决403问题，则可继续执行下一解决方案。
 
@@ -95,7 +95,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 ## <a name="next-steps"></a>后续步骤
 
 阅读创建和验证新的 Azure 数字孪生实例的设置步骤：
-* [*操作说明：设置实例和身份验证 (CLI) *](how-to-set-up-instance-cli.md)
+* [*操作说明：设置实例和身份验证 (CLI)*](how-to-set-up-instance-cli.md)
 
 阅读有关 Azure 数字孪生的安全和权限的详细信息：
 * [*概念： Azure 数字孪生解决方案的安全性*](concepts-security.md)

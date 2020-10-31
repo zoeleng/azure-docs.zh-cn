@@ -10,16 +10,16 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330354"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092987"
 ---
 # <a name="execute-python-script-module"></a>“执行 Python 脚本”模块
 
-本文介绍 Azure 机器学习设计器中的 "执行 Python 脚本" 模块。
+本文介绍 Azure 机器学习设计器中的“执行 Python 脚本”模块。
 
 使用此模块可以运行 Python 代码。 有关 Python 体系结构和设计原理的详细信息，请参阅[如何在 Azure 机器学习设计器中运行 Python 代码](../how-to-designer-python.md)。
 
@@ -108,9 +108,9 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 “执行 Python 脚本”模块包含可用作起点的示例 Python 代码。 若要配置“执行 Python 脚本”模块，请在“Python 脚本”文本框中提供要运行的一组输入和 Python 代码。
 
-1. 将**执行 Python 脚本**模块添加到管道。
+1. 将 **执行 Python 脚本** 模块添加到管道。
 
-2. 从设计器中，在 **Dataset1** 上添加并连接要用于输入的任何数据集。 在 Python 脚本中将此数据集引用为 **DataFrame1**。
+2. 从设计器中，在 **Dataset1** 上添加并连接要用于输入的任何数据集。 在 Python 脚本中将此数据集引用为 **DataFrame1** 。
 
     数据集的使用是可选的。 如果要使用 Python 生成数据，或者使用 Python 代码将数据直接导入到模块中，则可以使用数据集。
 
@@ -120,7 +120,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
     ![执行 Python 输入映射](media/module/python-module.png)
 
-4. 若要包括新的 Python 包或代码，请将包含这些自定义资源的压缩文件连接到 **脚本绑定** 端口。 或者，如果你的脚本大于 16 KB，则使用 **脚本捆绑** 端口来避免错误（如 *命令行）超过16597个字符的限制*。 
+4. 若要包括新的 Python 包或代码，请将包含这些自定义资源的压缩文件连接到 **脚本绑定** 端口。 或者，如果你的脚本大于 16 KB，则使用 **脚本捆绑** 端口来避免错误（如 *命令行）超过16597个字符的限制* 。 
 
     
     1. 将脚本和其他自定义资源捆绑到 zip 文件。
@@ -129,7 +129,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     1. 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
     
     在管道执行期间，可以使用已上传的压缩存档中包含的任何文件。 如果存档中包含目录结构，则会保留结构。
-    
+ 
+    > [!WARNING]
+    > **请勿** 使用 **应用** 作为文件夹或脚本的名称，因为 **应用** 是内置服务的保留字。 但可以使用其他命名空间（如） `app123` 。
+   
     下面是脚本绑定示例，其中包含 python 脚本文件和 txt 文件：
       
     > [!div class="mx-imgBorder"]
@@ -182,7 +185,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     可以向设计器返回两个数据集，数据集必须是 `pandas.DataFrame` 类型的序列。 可以在 Python 代码中创建其他输出，并将其直接写入到 Azure 存储。
 
     > [!WARNING]
-    > **不**建议连接到数据库或**执行 Python 脚本模块**中的其他外部存储。 您可以使用 " [导入数据模块](./import-data.md) " 和 " [导出数据" 模块](./export-data.md)     
+    > **不** 建议连接到数据库或 **执行 Python 脚本模块** 中的其他外部存储。 您可以使用 " [导入数据模块](./import-data.md) " 和 " [导出数据" 模块](./export-data.md)     
 
 6. 提交管道。
 

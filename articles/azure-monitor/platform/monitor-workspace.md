@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674745"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092749"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>监视 Azure Monitor 中 Log Analytics 工作区的运行状况
 若要在 Azure Monitor 中维护 Log Analytics 工作区的性能和可用性，需要能够主动检测出现的任何问题。 本文介绍如何使用 [操作](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) 表中的数据监视 Log Analytics 工作区的运行状况。 此表包含在每个 Log Analytics 工作区中，并包含工作区中发生的错误和警告。 你应定期查看此数据，并创建警报，以便在工作区中有任何重要事件时主动收到通知。
@@ -40,7 +40,7 @@ Azure Monitor 日志会将有关任何问题的详细信息发送到出现问题
 
 下表描述了 _LogOperation 函数的类别。 
 
-| 类别 | 说明 |
+| 类别 | 描述 |
 |:---|:---|
 | 引流           | 作为数据引入过程的一部分的操作。 有关详细信息，请参阅下文。 |
 | 代理               | 指示安装代理时出现问题。 |
@@ -55,20 +55,20 @@ Azure Monitor 日志会将有关任何问题的详细信息发送到出现问题
 
 | Operation | Level | 详细信息 | 相关文章 |
 |:---|:---|:---|:---|
-| 自定义日志 | Error   | 已达到自定义字段列限制。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
-| 自定义日志 | Error   | 自定义日志引入失败。 | |
-| 新元. | Error | 检测到配置错误。 | |
-| 数据收集 | Error   | 数据已删除，因为该请求的创建时间早于设置的天数。 | [使用 Azure Monitor 日志管理使用情况和成本](manage-cost-storage.md#alert-when-daily-cap-reached)
+| 自定义日志 | 错误   | 已达到自定义字段列限制。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
+| 自定义日志 | 错误   | 自定义日志引入失败。 | |
+| 新元. | 错误 | 检测到配置错误。 | |
+| 数据收集 | 错误   | 数据已删除，因为该请求的创建时间早于设置的天数。 | [使用 Azure Monitor 日志管理使用情况和成本](manage-cost-storage.md#alert-when-daily-cap-reached)
 | 数据收集 | 信息    | 检测到收集计算机配置。| |
-| 数据收集 | 信息    | 数据收集因新日期而开始。 | [使用 Azure Monitor 日志管理使用情况和成本](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 数据收集 | 警告 | 由于已达到每日限制，数据收集已停止。| [使用 Azure Monitor 日志管理使用情况和成本](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 数据处理 | Error   | JSON 格式无效。 | [使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor](data-collector-api.md#request-body) | 
+| 数据收集 | 信息    | 数据收集因新日期而开始。 | [使用 Azure Monitor 日志管理使用情况和成本](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| 数据收集 | 警告 | 由于已达到每日限制，数据收集已停止。| [使用 Azure Monitor 日志管理使用情况和成本](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| 数据处理 | 错误   | JSON 格式无效。 | [使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor](data-collector-api.md#request-body) | 
 | 数据处理 | 警告 | 已将值修整为允许的最大大小。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
 | 数据处理 | 警告 | 已达到大小限制的字段值被剪裁。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) | 
 | 引入速率 | 信息 | 引入速率限制接近70%。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
 | 引入速率 | 警告 | 引入速率限制已达到限制。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
-| 引入速率 | Error   | 已达到速率限制。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
-| 存储 | Error   | 由于使用的凭据无效，无法访问存储帐户。  |
+| 引入速率 | 错误   | 已达到速率限制。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
+| 存储 | 错误   | 由于使用的凭据无效，无法访问存储帐户。  |
 
 
 

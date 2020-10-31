@@ -5,25 +5,25 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 60a5f62d4ea23db1052b2e40d10775dfaa33c632
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989465"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091764"
 ---
 ### <a name="functional-limits"></a>功能限制
 
-下表列出了 Azure 数字孪生在当前预览版中的功能限制。
+下表列出了 Azure 数字孪生的功能限制。
 
-| 领域 | 功能 | 默认限制 | 可调? |
+| 区域 | 功能 | 默认限制 | 可调? |
 | --- | --- | --- | --- |
 | Azure 资源 | 区域中每个订阅的 Azure 数字孪生实例数 | 10 | 是 |
 | 数字孪生 | Azure 数字孪生实例中的孪生数 | 200,000 | 是 |
 | 数字孪生 | 与单个克隆的传入关系数 | 5,000 | 否 |
 | 数字孪生 | 单个克隆的传出关系数 | 5,000 | 否 |
 | 数字孪生 | 单个单元的最大大小 | 32 KB | 否 |
-| 数字孪生 API | 最大请求负载大小 | 32 KB | 否 | 
+| 数字孪生 | 最大请求负载大小 | 32 KB | 否 | 
 | 路由 | 单个 Azure 数字孪生实例的终结点数 | 6 | 否 |
 | 路由 | 单个 Azure 数字孪生实例的路由数 | 6 | 是 |
 | 模型 | 单个 Azure 数字孪生实例内的模型数 | 10,000 | 是 |
@@ -37,12 +37,14 @@ ms.locfileid: "91989465"
 
 ### <a name="rate-limits"></a>速率限制
 
-此表反映了不同 Api 的速率限制。
+下表反映了不同 Api 的速率限制。
 
 | API | 功能 | 默认限制 | 可调? |
 | --- | --- | --- | --- |
 | 模型 API | 每秒的请求数 | 100 | 是 |
-| 数字孪生 API | 每秒的请求数 | 1,000 | 是 |
+| 数字孪生 API | 每秒的请求数 | 2,000 | 是 |
+| 数字孪生 API | **所有孪生和关系** 中每秒的创建/删除操作数 | 50 | 是 |
+| 数字孪生 API | 每 **秒在一个或其** 关系上创建/更新/删除操作的次数 | 10 | 否 |
 | 查询 API | 每秒的请求数 | 500 | 是 |
 | 查询 API | [查询单位](../articles/digital-twins/concepts-query-units.md) /秒 | 4,000 | 是 |
 | 事件路由 API | 每秒的请求数 | 100 | 是 |
@@ -51,4 +53,4 @@ ms.locfileid: "91989465"
 
 可在 GitHub 中的规范文档中找到有关 Azure 数字孪生模型的 DTDL 文档中的数据类型和字段的限制： [*数字孪生定义语言 (DTDL) 版本 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)。
  
-在预览期间，查询延迟的详细信息和其他有关编写查询的准则可在 [*如何：查询克隆图形*](../articles/digital-twins/how-to-query-graph.md)中找到。
+在 [*操作方法：查询克隆图形*](../articles/digital-twins/how-to-query-graph.md)中，可以找到查询延迟详细信息和其他查询限制。

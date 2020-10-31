@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d88d52f67274d14836520494580e9208ce4eecbe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 95396f28fd835091258bccbfdb0a0c0eafebea91
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283542"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093548"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK 连接模式
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 客户端连接到 Azure Cosmos DB 的方式对性能有重大影响，尤其是在观察到的客户端延迟方面。 Azure Cosmos DB 通过 HTTPS （称为网关模式）提供简单的开放 RESTful 编程模型。 此外，它还提供了高效的 TCP 协议，该协议在其通信模型中也是 RESTful，并使用 TLS 进行初始身份验证和加密通信（称为直接模式）。
 
@@ -34,7 +35,7 @@ ms.locfileid: "92283542"
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Azure Cosmos DB 连接模式" border="false":::
 
-这些连接模式实质上是指数据平面请求的路由-文档读取和写入-从客户端计算机到 Azure Cosmos DB 后端的分区。 直接模式是最佳性能的首选选项，它允许客户端直接打开 TCP 连接 Azure Cosmos DB 后端和发送请求 *直接*ly 与无中介。 与此相反，在网关模式下，客户端发出的请求会路由到 Azure Cosmos DB 前端中所谓的 "网关" 服务器，这反过来会将请求发送到 Azure Cosmos DB 后端中的相应分区 (s) 。
+这些连接模式实质上是指数据平面请求的路由-文档读取和写入-从客户端计算机到 Azure Cosmos DB 后端的分区。 直接模式是最佳性能的首选选项，它允许客户端直接打开 TCP 连接 Azure Cosmos DB 后端和发送请求 *直接* ly 与无中介。 与此相反，在网关模式下，客户端发出的请求会路由到 Azure Cosmos DB 前端中所谓的 "网关" 服务器，这反过来会将请求发送到 Azure Cosmos DB 后端中的相应分区 (s) 。
 
 ## <a name="service-port-ranges"></a>服务端口范围
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047669"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091729"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure 数字孪生故障排除：诊断日志记录
 
@@ -26,13 +26,13 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
 
 1. 登录到 [Azure 门户](https://portal.azure.com) 并导航到 Azure 数字孪生实例。 可以通过在门户搜索栏中键入其名称来找到它。 
 
-2. 从菜单中选择 " **诊断设置** "，然后单击 " **添加诊断设置**"。
+2. 从菜单中选择 " **诊断设置** "，然后单击 " **添加诊断设置** "。
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="显示 &quot;诊断设置&quot; 页和要添加的按钮的屏幕截图":::
 
 3. 在下面的页面上，填写以下值：
-     * **诊断设置名称**：为诊断设置指定一个名称。
-     * **类别详细信息**：选择要监视的操作，并选中相应的复选框以对这些操作启用诊断。 诊断设置可以报告的操作如下：
+     * **诊断设置名称** ：为诊断设置指定一个名称。
+     * **类别详细信息** ：选择要监视的操作，并选中相应的复选框以对这些操作启用诊断。 诊断设置可以报告的操作如下：
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -40,7 +40,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
         - AllMetrics
         
         有关这些选项的更多详细信息，请参阅下面的 [*类别详细信息*](#category-details) 部分。
-     * **目标详细信息**：选择要将日志发送到的位置。 可选择以下三个选项的任意组合：
+     * **目标详细信息** ：选择要将日志发送到的位置。 可选择以下三个选项的任意组合：
         - 发送到 Log Analytics
         - 存档到存储帐户
         - 流式传输到事件中心
@@ -55,7 +55,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
 
 下面更详细地介绍了在设置诊断设置时，可在 " **类别详细信息** " 下选择的日志类别。
 
-| 日志类别 | 说明 |
+| 日志类别 | 描述 |
 | --- | --- |
 | ADTModelsOperation | 记录与模型有关的所有 API 调用 |
 | ADTQueryOperation | 记录与查询相关的所有 API 调用 |
@@ -76,7 +76,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
 >[!NOTE]
 > 每个日志类别包含若干个操作/REST API 调用。 在下表中，每个日志类别映射到其下的所有操作/REST API 调用，直到列出下一个日志类别。 
 
-| 日志类别 | 操作 | REST API 调用和其他事件 |
+| 日志类别 | Operation | REST API 调用和其他事件 |
 | --- | --- | --- |
 | ADTModelsOperation | DigitalTwins/模型/写入 | 数字克隆模型更新 API |
 |  | DigitalTwins/模型/读取 | 数字克隆模型按 ID 和列表 Api 获取 |
@@ -116,7 +116,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
 | `ResultDescription` | String | 有关事件的其他详细信息 |
 | `DurationMs` | String | 执行事件所花的时间（以毫秒为单位） |
 | `CallerIpAddress` | String | 事件的掩码源 IP 地址 |
-| `CorrelationId` | Guid | 客户提供的事件的唯一标识符 |
+| `CorrelationId` | GUID | 客户提供的事件的唯一标识符 |
 | `Level` | String | 事件的日志记录严重性 |
 | `Location` | String | 发生事件的区域 |
 | `RequestUri` | Uri | 事件发生时使用的终结点 |
@@ -130,7 +130,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
   "time": "2020-03-14T21:11:14.9918922Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -140,7 +140,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -151,7 +151,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
   "time": "2020-10-29T21:12:24.2337302Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
   "resultType": "Success",
   "resultSignature": "201",
@@ -161,7 +161,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
 }
 ```
 
@@ -172,7 +172,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
   "time": "2020-12-04T21:11:44.1690031Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "QueryOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -182,7 +182,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
 }
 ```
 
