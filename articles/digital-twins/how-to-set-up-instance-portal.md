@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperfq
-ms.openlocfilehash: 2dc19432d2185b95376717c570cd3165ebc85075
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: da0eb80352409bbbbe29a80fe18a52f54540ae62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027274"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071481"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>设置 Azure 数字孪生实例和身份验证 (门户) 
 
@@ -36,17 +36,17 @@ ms.locfileid: "93027274"
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ " 按钮以创建服务的新实例。
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 按钮以创建服务的新实例。
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ " 链接并输入新资源组 *的名称* 来创建一个资源组。
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 链接并输入新资源组 *的名称* 来创建一个资源组。
 * **位置** ：用于部署的支持 Azure 数字孪生的区域。 有关区域支持的更多详细信息，请访问 azure [*孪生) 提供 (的 azure 产品*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)。
 * **资源名称** ： Azure 数字孪生实例的名称。 新实例的名称在你的订阅的区域内必须是唯一的 (这意味着，如果你的订阅在已使用所选名称的区域中有另一个 Azure 数字孪生实例，则系统将要求你选择不同的名称) 。
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ " _创建_ "。 
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " _创建_ "。 
 
 ### <a name="verify-success-and-collect-important-values"></a>验证成功并收集重要值
 
@@ -54,11 +54,11 @@ ms.locfileid: "93027274"
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ " 页上，记下其 *名称* 、 *资源组* 和 *主机名* 。 这些是你在继续使用 Azure 数字孪生实例时可能需要的所有重要值。 如果其他用户将对该实例进行编程，则应该与它们共享这些值。
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 页上，记下其 *名称* 、 *资源组* 和 *主机名* 。 这些是你在继续使用 Azure 数字孪生实例时可能需要的所有重要值。 如果其他用户将对该实例进行编程，则应该与它们共享这些值。
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ ":::
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ ":::
 
 现已准备好使用 Azure 数字孪生实例。 接下来，你将为适当的 Azure 用户授予管理权限。
 
@@ -70,13 +70,13 @@ ms.locfileid: "93027274"
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ " 部分中。
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 部分中。
 
 :::row:::
     :::column:::
         :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ " 按钮。
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 按钮。
 
 ### <a name="verify-success"></a>验证是否成功
 
@@ -84,7 +84,7 @@ ms.locfileid: "93027274"
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
 
-在搜索框中搜索 &quot; *Azure 数字孪生* &quot;，然后从结果中选择 &quot; **azure 数字孪生 (预览&quot;)** 服务。 选择 &quot; _创建_ ":::
+在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ ":::
 
 现在，你已准备好使用 Azure 数字孪生实例，并已分配了管理它的权限。
 

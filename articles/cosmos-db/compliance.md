@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a013e07ada0ba88b20598c23f706eb5ee71d49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83747365"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073057"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 符合性 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 面向所有 Azure 区域提供。 Microsoft 为客户提供了五种不同的 Azure 云环境：
 
@@ -47,12 +48,12 @@ Azure Cosmos DB 将不断扩展认证覆盖范围。 目前，Azure Cosmos DB �
 | ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
-若要了解有关每个符合性产品及其益处的详细信息，请参阅 [Microsoft Azure 符合性概述](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)页面。
+若要详细了解其中每个符合性产品及其对你的好处，请参阅 [Microsoft Azure 符合性产品](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)，附录 A & B。
 
 下表列出了 Azure 政府中 Azure Cosmos DB 支持的认证：
 
 | **全球适用** | **美国政府** | **行业特定** | 
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | CSA STAR 认证 | CJIS| HIPAA BAA | 
 | CSA STAR 证明| DoD SRG 级别 2| HITRUST  | 
 | ISO 20000-1:2011 | DoD SRG 级别 4 | PCI DSS | 
@@ -68,8 +69,14 @@ Azure Cosmos DB 将不断扩展认证覆盖范围。 目前，Azure Cosmos DB �
 
 若要了解有关 Azure 合规性认证的详细信息，请参阅以下文章：
 
-* 若要了解 Azure Cosmos DB 的最新合规性认证，请参阅[Azure 合规性概述](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)。  
+* 若要了解 Azure Cosmos DB 的最新符合性证书，请参阅附录 A & B [Microsoft Azure 符合性服务](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)。  
 
-* 有关 Azure Cosmos DB 安全性的概述以及最新改进，请参阅 [Azure Cosmos 数据库安全性](database-security.md)一文。
+* 有关 Azure Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos 数据库安全性](database-security.md)。
+
+* 有关改善 Azure Cosmos DB 部署的安全状况的建议，请参阅 [Azure Cosmos DB 安全基线](security-baseline.md)。 
 
 * 有关 Microsoft 认证的详细信息，请参阅 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/)。
+
+* 有关 FedRAMP 符合性信息，请参阅 [Azure 服务 By FedRAMP 和 DOD CC SRG audit 作用域](../azure-government/compliance/azure-services-in-fedramp-auditscope.md)。
+
+* 有关 DoD 相容性信息，请参阅 [Dod 相容性服务](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)。

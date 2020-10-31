@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac08b5af0afbf43c7b13808fac06c40066e48b7a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074227"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>使用 .NET 自定义反序列化程序读取任何格式的输入
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>REST API 的序列化格式
 
-每个流分析输入都有一种**序列化格式**。 有关输入选项的详细信息，请参阅[输入 REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) 文档。
+每个流分析输入都有一种 **序列化格式** 。 有关输入选项的详细信息，请参阅[输入 REST API](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) 文档。
 
 以下 Javascript 代码是使用 REST API 时的 .NET 反序列化程序序列化格式示例：
 

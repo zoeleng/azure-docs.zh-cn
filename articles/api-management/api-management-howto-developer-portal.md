@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317827"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074791"
 ---
 # <a name="overview-of-the-developer-portal"></a>开发人员门户概述
 
@@ -33,7 +33,7 @@ ms.locfileid: "92317827"
 ## <a name="migration-from-the-legacy-portal"></a>从旧门户迁移
 
 > [!IMPORTANT]
-> 旧开发人员门户现已弃用，并且仅接收安全更新。 在从所有 API 管理服务中删除该服务时，你可以继续按平时使用它，直到它在10月2023开始停用。
+> 旧开发人员门户现已弃用，并且仅接收安全更新。 你可以像往常一样继续使用它，直到它在 2023 年 10 月停用，届时将从所有 API 管理服务中将其删除。
 
 [专用文档文章](developer-portal-deprecated-migration.md)介绍了如何迁移到新的开发人员门户。
 
@@ -50,7 +50,7 @@ API 管理服务包括内置的、始终最新的 **托管** 开发人员门户�
 - **自承载** API 管理服务之外的结果门户。 当你自行承载门户时，你将成为其维护人员，并负责其升级。 Azure 支持的协助仅限于自承载门户的基本设置，如 [存储库的 Wiki 部分][2]中所述。
 - 为 API 管理团队打开拉取请求，以将新功能合并到 **托管** 门户的基本代码。
 
-有关扩展的详细信息和说明，请参阅 [GitHub 存储库][1] 和 [实现小组件教程][3]。 [自定义托管门户的教程](api-management-howto-developer-portal-customize.md)会指导你完成门户的管理面板，这对于**托管**和**自承载**版本很常见。
+有关扩展的详细信息和说明，请参阅 [GitHub 存储库][1] 和 [实现小组件教程][3]。 [自定义托管门户的教程](api-management-howto-developer-portal-customize.md)会指导你完成门户的管理面板，这对于 **托管** 和 **自承载** 版本很常见。
 
 ## <a name="frequently-asked-questions"></a><a name="faq"></a> 常见问题
 
@@ -62,7 +62,7 @@ API 管理服务包括内置的、始终最新的 **托管** 开发人员门户�
 
 如果根据内容的预览版对门户进行了大量自定义，可以继续按原样使用它，并在门户的页面上手动放置新的小组件。 否则，建议将门户内容替换为新的默认内容。
 
-若要重置托管门户中的内容，请选择 "**操作**" 菜单部分中的 "**重置内容**"。 此操作将删除门户的所有内容并预配新的默认内容。 你将丢失所有开发人员门户自定义和更改。 不能撤消此操作。
+若要重置托管门户中的内容，请选择 " **操作** " 菜单部分中的 " **重置内容** "。 此操作将删除门户的所有内容并预配新的默认内容。 你将丢失所有开发人员门户自定义和更改。 不能撤消此操作。
 
 ![重置门户内容](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -126,7 +126,7 @@ API 管理服务包括内置的、始终最新的 **托管** 开发人员门户�
 
 可以在 Azure 门户的 API 管理服务的“门户概述”部分中检查 CORS 策略的状态。 警告框指示缺少策略或策略配置不正确。
 
-![API 管理开发人员门户](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![屏幕截图显示你可以在何处检查 CORS 策略的状态。](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 通过单击“启用 CORS”按钮自动应用 CORS 策略。
 

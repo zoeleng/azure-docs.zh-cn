@@ -7,23 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476393"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073819"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解 Azure Cosmos DB 帐单
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库操作和消耗的存储收费，因而简化了计费。 与本地或 IaaS 托管的替代方案相比，无需额外的许可费、硬件、使用成本或设施成本。 若想使用 Azure Cosmos DB 的多区域功能，与现有本地或 IaaS 解决方案相比，数据库服务可显着降低成本。
 
-- **数据库操作**：数据库操作的收费方式取决于你使用的 Azure Cosmos 帐户的类型。
+- **数据库操作** ：数据库操作的收费方式取决于你使用的 Azure Cosmos 帐户的类型。
 
-  - **预配的吞吐量**：按给定小时内的最大预配吞吐量（增量为 100 RU/秒）以小时来计费。
-  - **无服务器**：每小时按数据库操作消耗的请求单位总数计费。
+  - **预配的吞吐量** ：按给定小时内的最大预配吞吐量（增量为 100 RU/秒）以小时来计费。
+  - **无服务器** ：每小时按数据库操作消耗的请求单位总数计费。
 
-- **存储**：给定小时内数据和索引所消耗的存储总量（以 GB 为单位）按统一费率计费。
+- **存储** ：给定小时内数据和索引所消耗的存储总量（以 GB 为单位）按统一费率计费。
 
 有关最新定价信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/cosmos-db/)。
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746402"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074244"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure 流分析中的数据保护 
 
@@ -73,6 +73,27 @@ Azure 流分析存储上述客户数据和其他元数据。 默认情况下，�
 
    ![专用数据存储帐户设置](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>存储的专用数据资产
+
+流分析需要保存的任何专用数据存储在存储帐户中。 专用数据资产的示例包括： 
+
+* 已创作的查询及其相关配置  
+
+* 用户定义的函数 
+
+* 流分析运行时所需的检查点
+
+* 引用数据的快照 
+
+还将存储你的流分析作业使用的资源的连接详细信息。 加密存储帐户以保护你的所有数据。 
+
+为了帮助你满足任何管控行业或环境中的符合性义务，你可以阅读有关 [Microsoft 的符合性产品/服务的](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)详细信息。 
+
+## <a name="enables-data-residency"></a>启用数据驻留 
+你可以通过相应地提供存储帐户，使用此功能来强制实施任何数据驻留要求。
+
+## <a name="known-issues"></a>已知问题
+存在一个已知问题，即使用客户托管密钥的作业在使用托管标识向任何输入或输出进行身份验证时出现故障。 
 
 ## <a name="next-steps"></a>后续步骤
 

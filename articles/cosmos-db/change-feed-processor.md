@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: dfd96e7c62d700ccec2ecd4b223668d7aca4f18f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072800"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 更改源处理器
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 更改源处理器是 [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) 的一部分。 它简化了读取更改源的过程，可有效地在多个使用者之间分布事件处理。
 
@@ -104,7 +105,7 @@ ms.locfileid: "92475798"
 
 ### <a name="reading-from-a-previous-date-and-time"></a>从以前的某个日期和时间读取
 
-将 `DateTime` 的实例传递给 `WithStartTime` 生成器扩展，可将更改源处理器初始化为从**特定的日期和时间**开始读取更改：
+将 `DateTime` 的实例传递给 `WithStartTime` 生成器扩展，可将更改源处理器初始化为从 **特定的日期和时间** 开始读取更改：
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
@@ -112,7 +113,7 @@ ms.locfileid: "92475798"
 
 ### <a name="reading-from-the-beginning"></a>从头开始读取
 
-在其他方案（例如数据迁移，或分析容器的整个历史记录）中，需要从**该容器的生存期开始时间**读取更改源。 为此，可以在生成器扩展中使用 `WithStartTime`，但需要传递 `DateTime.MinValue.ToUniversalTime()`，以便生成最小 `DateTime` 值的 UTC 表示形式，如下所示：
+在其他方案（例如数据迁移，或分析容器的整个历史记录）中，需要从 **该容器的生存期开始时间** 读取更改源。 为此，可以在生成器扩展中使用 `WithStartTime`，但需要传递 `DateTime.MinValue.ToUniversalTime()`，以便生成最小 `DateTime` 值的 UTC 表示形式，如下所示：
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

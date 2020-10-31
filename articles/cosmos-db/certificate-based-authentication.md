@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a25cd2c0a9205dc184640e95f122c770b29cf24a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486525"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073241"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>为基于证书的身份验证配置 Azure AD 标识以从 Azure Cosmos DB 帐户访问密钥
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 基于证书的身份验证让你可以使用 Azure Active Directory (Azure AD) 和客户端证书对客户端应用程序进行身份验证。 你可以在需要身份的计算机（例如本地计算机或 Azure 中的虚拟机）上执行基于证书的身份验证。 然后，无需在应用程序中直接提供密钥，应用程序就能读取 Azure Cosmos DB 密钥。 本文介绍如何创建一个示例 Azure AD 应用程序，将其配置为使用基于证书的身份验证，使用新应用程序标识登录到 Azure，然后从 Azure Cosmos 帐户检索密钥。 本文使用 Azure PowerShell 设置标识，并提供一个可以执行身份验证并从 Azure Cosmos 帐户访问密钥的 C# 示例应用。  
 
@@ -37,7 +38,7 @@ ms.locfileid: "92486525"
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
    * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;) ** ，以允许当前目录中的资源访问此应用程序。 
+   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
    * **重定向 URL** -选择类型为 &quot; **Web** " 的应用程序并提供托管应用程序的 url，可以是任何 url。 在此示例中，可以提供类似于 `https://sampleApp.com` 的测试 URL，即使该应用不存在，也没有关系。
 
    :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
@@ -45,7 +46,7 @@ ms.locfileid: "92486525"
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
    * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;) ** ，以允许当前目录中的资源访问此应用程序。 
+   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
    * **重定向 URL** -选择类型为 &quot; **Web** ":::
 
 1. 填写表单后，选择“注册”。 
@@ -57,7 +58,7 @@ ms.locfileid: "92486525"
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
    * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;) ** ，以允许当前目录中的资源访问此应用程序。 
+   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
    * **重定向 URL** -选择类型为 &quot; **Web** ":::
 
 ## <a name="install-the-azuread-module"></a>安装 AzureAD 模块
@@ -116,7 +117,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
    * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;) ** ，以允许当前目录中的资源访问此应用程序。 
+   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
    * **重定向 URL** -选择类型为 &quot; **Web** ":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>将 Azure Cosmos 帐户配置为使用新标识
@@ -132,7 +133,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
    * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;) ** ，以允许当前目录中的资源访问此应用程序。 
+   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
    * **重定向 URL** -选择类型为 &quot; **Web** ":::
 
 1. 填写表单后，选择“保存” 
@@ -179,7 +180,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
    * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;) ** ，以允许当前目录中的资源访问此应用程序。 
+   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
    * **重定向 URL** -选择类型为 &quot; **Web** ":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>从 C# 应用程序访问密钥 
@@ -273,7 +274,7 @@ namespace TodoListDaemonWithCert
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
    * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;) ** ，以允许当前目录中的资源访问此应用程序。 
+   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
    * **重定向 URL** -选择类型为 &quot; **Web** ":::
 
 与在前一部分中一样，你可以查看 Azure Cosmos 帐户的活动日志，以验证“sampleApp”应用程序是否发起了获取密钥的请求事件。 

@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8694a884b26194c61cc77d00848692a24e3009be
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476308"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073700"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的指标进行监视和调试
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 提供吞吐量、存储、一致性、可用性和延迟的指标。 Azure 门户提供这些指标的聚合视图。 也可通过 Azure Monitor API 查看 Azure Cosmos DB 指标。 指标的维度值（例如容器名称）不区分大小写。 因此，在对这些维度值进行字符串比较时，需要使用不区分大小写的比较。 若要了解如何查看 Azure Monitor 中的指标，请参阅[获取 Azure Monitor 中的指标](./monitor-cosmos-db.md)一文。
 

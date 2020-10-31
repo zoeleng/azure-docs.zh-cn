@@ -8,14 +8,15 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476546"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073887"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>在 Azure DevOps 中通过 Azure Cosmos DB 模拟器生成任务设置 CI/CD 管道
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 为方便进行开发，Azure Cosmos DB 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 可以利用模拟器在本地开发和测试应用程序，无需创建 Azure 订阅且不会产生任何费用。 
 
@@ -44,7 +45,7 @@ ms.locfileid: "92476546"
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="在 Azure DevOps 市场中找到并安装 Azure Cosmos DB 模拟器生成任务":::
 
-2. 选择所需**源**、**团队项目**、**存储库**和**手动和计划生成的默认分库**。 选择所需选项后，请选择“继续”。
+2. 选择所需 **源** 、 **团队项目** 、 **存储库** 和 **手动和计划生成的默认分库** 。 选择所需选项后，请选择“继续”。
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="在 Azure DevOps 市场中找到并安装 Azure Cosmos DB 模拟器生成任务":::
 
@@ -64,7 +65,7 @@ Start-CosmosDbEmulator
 
 1. 在向生成管道添加任务之前，应先添加代理作业。 导航到生成管道，选择“...”，然后选择“添加代理作业”。 
 
-1. 接下来选择代理作业旁边的 **+** 符号，以便添加模拟器生成任务。 在搜索框中搜索 **cosmos**，选择“Azure Cosmos DB 模拟器”，然后将其添加到代理作业。 此生成任务会启动一个容器，其中的 Cosmos DB 模拟器实例已经运行。 应该将 Azure Cosmos DB 模拟器任务置于任何其他预期模拟器会处于运行状态的任务之前。
+1. 接下来选择代理作业旁边的 **+** 符号，以便添加模拟器生成任务。 在搜索框中搜索 **cosmos** ，选择“Azure Cosmos DB 模拟器”，然后将其添加到代理作业。 此生成任务会启动一个容器，其中的 Cosmos DB 模拟器实例已经运行。 应该将 Azure Cosmos DB 模拟器任务置于任何其他预期模拟器会处于运行状态的任务之前。
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="在 Azure DevOps 市场中找到并安装 Azure Cosmos DB 模拟器生成任务":::
 

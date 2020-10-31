@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 62a31750fe0c058624c4f69848abb56e7b5095b4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7f51f6944de48e58ff53e7685164df3a04afe56
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491013"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075579"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>从批量执行工具库迁移到 Azure Cosmos DB .NET V3 SDK 中的批量操作支持
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍需要执行哪些步骤，才能将使用 [.NET 批量执行工具库](bulk-executor-dot-net.md)的现有应用程序的代码迁移到使用最新版 .NET SDK 中的[批量操作支持](tutorial-sql-api-dotnet-bulk-import.md)功能。
 

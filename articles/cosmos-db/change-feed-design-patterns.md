@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489347"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072988"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源设计模式
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 更改源可以高效处理具有大量写入的大型数据集。 更改源还提供用于查询整个数据集以确定更改内容的替代方法。 本文档重点介绍常用的更改源设计模式、设计优缺点和更改源的限制。
 
@@ -102,7 +103,7 @@ Azure Cosmos DB 提供高达 99.999% 的读取和写入可用性。 可以轻松
 3. 客户从购物车中删除商品 A
 4. 客户结帐，然后卖家交付购物车内容
 
-将为每个客户保留当前购物车内容的具体化视图。 此应用程序必须确保按事件的发生顺序处理这些事件。 例如，如果在删除商品 A 之前处理了购物车结帐，则卖家可能已经为客户交付了商品 A，而不是所需的商品 B。为了保证按发生顺序处理这四个事件，这些事件应该位于同一个分区键值中。 如果选择**用户名**（每个客户都有唯一的用户名）作为分区键，则可以保证这些事件按照它们写入到 Azure Cosmos DB 的顺序显示在更改源中。
+将为每个客户保留当前购物车内容的具体化视图。 此应用程序必须确保按事件的发生顺序处理这些事件。 例如，如果在删除商品 A 之前处理了购物车结帐，则卖家可能已经为客户交付了商品 A，而不是所需的商品 B。为了保证按发生顺序处理这四个事件，这些事件应该位于同一个分区键值中。 如果选择 **用户名** （每个客户都有唯一的用户名）作为分区键，则可以保证这些事件按照它们写入到 Azure Cosmos DB 的顺序显示在更改源中。
 
 ## <a name="examples"></a>示例
 

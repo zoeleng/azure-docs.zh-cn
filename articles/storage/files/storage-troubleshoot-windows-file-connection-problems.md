@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715979"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075120"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>排查 Windows (SMB) 中的 Azure 文件问题
 
-本文列出了从 Windows 客户端进行连接时，与 Microsoft Azure 文件相关的常见问题。 并提供了这些问题的可能原因和解决方法。 除本文中的疑难解答步骤之外，还可使用 [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) ，以确保 Windows 客户端环境满足正确的先决条件。 AzFileDiagnostics 会自动检测本文中提及的大多数症状，并帮助设置环境，以实现最佳性能。
+本文列出了从 Windows 客户端进行连接时，与 Microsoft Azure 文件相关的常见问题。 并提供了这些问题的可能原因和解决方法。 除了本文中的疑难解答步骤之外，还可以使用 [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)，以确保 Windows 客户端环境满足正确的先决条件。 AzFileDiagnostics 会自动检测本文中提及的大多数症状，并帮助设置环境，以实现最佳性能。
 
 > [!IMPORTANT]
 > 本文的内容仅适用于 SMB 共享。 有关 NFS 共享的详细信息，请参阅对 [AZURE NFS 文件共享进行故障排除](storage-troubleshooting-files-nfs.md)。
@@ -55,10 +55,10 @@ Windows 8、Windows Server 2012 及更高版本的每个系统协商包括支持
 
 验证是否正确配置了权限：
 
-- **Active Directory (AD) ** 参阅为 [标识分配共享级别权限](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions)。
+- **Active Directory (AD)** 参阅为 [标识分配共享级别权限](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions)。
 
     与 Active Directory (AD) 同步的组和用户支持共享级权限分配，以便使用 (Azure Active Directory Azure AD) Azure AD Connect。  确认分配给组和用户的共享级权限不受 "仅限云" 组的支持。
-- **Azure Active Directory 域服务 (AZURE AD DS) ** 参阅为 [标识分配访问权限](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity)。
+- **Azure Active Directory 域服务 (AZURE AD DS)** 参阅为 [标识分配访问权限](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity)。
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>尝试装载或卸载 Azure 文件共享时发生错误 53、错误 67 或错误 87
@@ -134,7 +134,7 @@ Azure 文件同步可以将本地 Windows Server 转换为 Azure 文件共享的
 
 ### <a name="solution-for-cause-2"></a>原因 2 的解决方案
 
-在以下注册表子项中，将 LmCompatibilityLevel**** 值还原为默认值 3：
+在以下注册表子项中，将 LmCompatibilityLevel  值还原为默认值 3：
 
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
@@ -177,23 +177,82 @@ Azure 文件同步可以将本地 Windows Server 转换为 Azure 文件共享的
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>无法删除 Azure 文件共享中的文件或目录
-尝试删除文件时，可能会收到以下错误：
+文件共享的主要目的之一是，多个用户和应用程序可以同时与共享中的文件和目录进行交互。 为了帮助进行此交互，文件共享提供了几种调节访问文件和目录的方式。
 
-SMB 客户端已将指定的资源标记为要删除。
+通过 SMB 从已装载的 Azure 文件共享打开文件时，应用程序/操作系统会请求文件句柄，该句柄是对文件的引用。 在其他情况下，应用程序会在请求文件句柄时指定文件共享模式，该模式指定访问 Azure 文件所强制文件的独占性的级别： 
 
-### <a name="cause"></a>原因
-如果该文件或目录有一个打开的句柄，通常会出现此问题。 
+- `None`：你具有独占访问权限。 
+- `Read`：在打开文件时，其他人可以读取该文件。
+- `Write`：在打开文件时，其他人可以写入文件。 
+- `ReadWrite`： `Read` 和 `Write` 共享模式的组合。
+- `Delete`：在打开文件时，其他人可能会删除该文件。 
 
-### <a name="solution"></a>解决方案
+尽管作为无状态协议，但 FileREST 协议没有文件句柄的概念，但它确实提供了类似的机制来调解对你的脚本、应用程序或服务可以使用的文件和文件夹的访问权限：文件租用。 当对文件进行租用时，会将其视为等效于文件共享模式的文件句柄 `None` 。 
 
-如果 SMB 客户端关闭了所有打开的句柄，但问题仍然出现，请执行以下操作：
+尽管文件句柄和租约的作用很重要，但有时文件句柄和租约可能会孤立。 发生这种情况时，这可能会导致修改或删除文件时出现问题。 你可能会看到如下错误消息：
 
-- 使用 [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet 查看打开的句柄。
+- 进程无法访问该文件，因为它正在被另一个进程使用。
+- 操作无法完成，因为该文件已在另一个程序中打开。
+- 文档被锁定，以供另一个用户编辑。
+- SMB 客户端已将指定的资源标记为要删除。
 
-- 使用 [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet 关闭打开的句柄。 
+此问题的解决方法取决于是否是由孤立的文件句柄或租约导致的。 
+
+### <a name="cause-1"></a>原因 1
+文件句柄正在阻止修改或删除文件/目录。 可以使用 [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet 来查看打开的句柄。 
+
+如果所有 SMB 客户端均已关闭其文件/目录的打开句柄，并且问题仍然存在，则可以强制关闭文件句柄。
+
+### <a name="solution-1"></a>解决方案 1
+若要强制关闭文件句柄，请使用 [AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet。 
 
 > [!Note]  
 > Get-AzStorageFileHandle 和 Close-AzStorageFileHandle cmdlet 包括在 Az PowerShell 模块 2.4 或更高版本中。 若要安装最新 Az PowerShell 模块，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+
+### <a name="cause-2"></a>原因 2
+文件租约阻止修改或删除文件。 你可以使用以下 PowerShell 检查文件是否具有文件租约， `<resource-group>` `<storage-account>` 并将、、和替换 `<file-share>` 为适用 `<path-to-file>` 于你环境的相应值：
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+如果文件具有租约，则返回的对象应包含以下属性：
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>解决方案 2
+若要从文件中删除租约，可以释放租约或中断租用。 若要释放租约，需要 LeaseId，这是在创建租约时设置的。 不需要 LeaseId 来打破租约。
+
+下面的示例演示了如何中断第2个示例中所示文件的租约 (此示例将从导致 2) 的 PowerShell 变量继续：
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>在 Windows 中将文件复制到 Azure 文件以及从中复制文件时速度缓慢
@@ -231,7 +290,7 @@ SMB 客户端已将指定的资源标记为要删除。
 默认情况下，Windows 文件资源管理器不以管理员身份运行。 如果通过管理命令提示符运行 net use，可以管理员身份映射网络驱动器。 由于映射的驱动器以用户为中心，如果不同用户帐户下已装载这些驱动器，则已登录的用户帐户将不显示它们。
 
 ### <a name="solution"></a>解决方案
-从非管理员命令行中装载共享。 或者，可按照[此 TechNet 主题](https://technet.microsoft.com/library/ee844140.aspx)配置 **EnableLinkedConnections** 注册表值。
+从非管理员命令行中装载共享。 或者，可按照 [此 TechNet 主题](https://technet.microsoft.com/library/ee844140.aspx)配置 **EnableLinkedConnections** 注册表值。
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>如果存储帐户包含正斜杠，则 net use 命令失败
@@ -287,7 +346,7 @@ net use 命令会将正斜杠 (/) 解释为命令行选项。 如果用户帐户
 ### <a name="workaround"></a>解决方法
 必须先将文件解密，才能通过网络进行复制。 使用下列方法之一：
 
-- 运行 copy /d**** 命令。 这样，可以将加密文件作为解密文件保存到目标位置。
+- 运行 copy /d  命令。 这样，可以将加密文件作为解密文件保存到目标位置。
 - 设置以下注册表项：
   - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Value type = DWORD
@@ -304,7 +363,7 @@ net use 命令会将正斜杠 (/) 解释为命令行选项。 如果用户帐户
 
 ### <a name="solution"></a>解决方案
 
-若要解决此问题，请调整 DirectoryCacheEntrySizeMax 注册表值以允许在客户端计算机上缓存较大的目录列表****：
+若要解决此问题，请调整 DirectoryCacheEntrySizeMax 注册表值以允许在客户端计算机上缓存较大的目录列表  ：
 
 - 位置：HKLM\System\CCS\Services\Lanmanworkstation\Parameters
 - 值名称：DirectoryCacheEntrySizeMax 

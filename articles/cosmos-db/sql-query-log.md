@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 74d07076fb322214348d52fe65dbc98bdff3cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30e1f43e283707434adfa48b8754a7b0509b9eed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798255"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075341"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数值表达式的自然对数。  
   
 ## <a name="syntax"></a>语法
@@ -39,7 +41,7 @@ LOG (<numeric_expr> [, <base>])
   
   默认情况下，LOG() 返回自然对数。 可以通过使用可选的 base 参数将对数的底更改为其他值。  
   
-  自然对数是以 **e** 为底的对数，其中，**e** 是一个无理常量，约等于 2.718281828。  
+  自然对数是以 **e** 为底的对数，其中， **e** 是一个无理常量，约等于 2.718281828。  
   
   数字的指数的自然对数是数字本身：LOG( EXP( n ) ) = n。 以及数字的自然对数的指数是数字本身：EXP( LOG( n ) ) = n。
 

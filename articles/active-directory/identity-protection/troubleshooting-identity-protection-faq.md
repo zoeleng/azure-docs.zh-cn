@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040509"
+ms.locfileid: "93074808"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory 中的常见问题标识保护
 
@@ -36,9 +36,6 @@ username  字段上的查询区分大小写，而 Name  字段上的查询不区
 
 经典“标识保护”中的“消除所有事件”  将风险检测的状态设置为“已关闭(已解决)”  。
 
-## <a name="risky-sign-ins-report-known-issues"></a>“有风险登录”报告已知问题
-
-风险检测上的“解决”  将状态设置为“用户已通过基于风险的策略驱动的 MFA”  。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
