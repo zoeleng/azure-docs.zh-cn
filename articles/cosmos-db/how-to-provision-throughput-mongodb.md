@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 44a69581f0763972dd30a016bf0826b31657a3d4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 25eaa4a66fb4a73f976edbd30e6f82015ce84f6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283544"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086119"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-api-for-mongodb-resources"></a>在 MongoDB 资源 Azure Cosmos DB API 上预配数据库、容器或自动缩放吞吐量
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本文介绍如何在 MongoDB Azure Cosmos DB API 中预配吞吐量。 可以在容器或数据库上预配标准 (手动) 或自动缩放吞吐量，并将其共享到数据库内的容器中。 你可以使用 Azure 门户、Azure CLI 或 Azure Cosmos DB Sdk 来预配吞吐量。
 
@@ -33,7 +34,7 @@ ms.locfileid: "92283544"
    * 输入集合 ID。
    * 输入分区键值（例如 `/ItemID`）。
    * 输入要预配的吞吐量（例如，1000 RU）
-   * 选择“确定” 。
+   * 选择“确定”。
 
     :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="创建具有数据库级吞吐量的新集合时数据资源管理器的屏幕截图":::
 

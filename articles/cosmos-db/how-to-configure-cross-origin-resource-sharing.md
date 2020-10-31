@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390867"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086408"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>配置跨源资源共享 (CORS)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 跨源资源共享 (CORS) 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为“同源策略”的安全限制，防止网页调用不同域中的 API。 但是，CORS 提供了一种安全的方式，允许源域调用另一个域中的 API。 Azure Cosmos DB 的 Core (SQL) API 现在支持使用 "allowedOrigins" 标头 (CORS) 的跨域资源共享。 为 Azure Cosmos 帐户启用 CORS 支持后，仅对经过身份验证的请求进行评估，以根据指定的规则确定是否允许这些请求。
 
@@ -28,7 +29,7 @@ ms.locfileid: "85390867"
 
 1. 导航到 Azure Cosmos DB 帐户。 打开“CORS”  边栏选项卡。
 
-2. 指定可以对 Azure Cosmos DB 帐户执行跨源调用的源的逗号分隔列表。 例如：`https://www.mydomain.com`、`https://mydomain.com`、`https://api.mydomain.com`。 你还可以使用通配符 " \* " 允许所有来源并选择 " **提交**"。 
+2. 指定可以对 Azure Cosmos DB 帐户执行跨源调用的源的逗号分隔列表。 例如：`https://www.mydomain.com`、`https://mydomain.com`、`https://api.mydomain.com`。 你还可以使用通配符 " \* " 允许所有来源并选择 " **提交** "。 
 
    > [!NOTE]
    > 目前，不能将通配符用作域名的一部分。 例如，尚不支持 `https://*.mydomain.net` 格式。 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b785479a1f3169c32be0d9fbd7accf37bc7ba8ed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485845"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085776"
 ---
 # <a name="use-the-change-feed-estimator"></a>使用更改源估算器
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍如何监视[更改源处理器](./change-feed-processor.md)实例在读取更改源时的进度。
 
@@ -42,7 +43,7 @@ ms.locfileid: "92485845"
 
 其中的处理器和估算器共享同一 `leaseContainer` 和同一名称。
 
-另外有两个参数，一个是委托，其接收的数字表示**有多少更改待处理器读取**，另一个是需要进行该度量的时间间隔。
+另外有两个参数，一个是委托，其接收的数字表示 **有多少更改待处理器读取** ，另一个是需要进行该度量的时间间隔。
 
 例如，下面是用于接收估算的委托：
 

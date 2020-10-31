@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: 152454b3da0ff1efd33ac463aecec78155a8e6f7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490469"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086459"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>如何配置与 Cosmos DB 的 Azure Functions 触发器的日志记录和连接
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍了使用 Cosmos DB 的 Azure Functions 触发器时可以设置的高级配置选项。
 
@@ -52,11 +53,11 @@ traces
 
 ## <a name="configuring-the-connection-policy"></a>配置连接策略
 
-有两种连接模式 - Direct（直接）模式和 Gateway（网关）模式。 若要了解有关这些连接模式的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。 默认情况下，**网关**用于在适用于 Cosmos DB 的 Azure Functions 触发器中建立所有连接。 但是，对于性能驱动的方案，它可能不是最佳选项。
+有两种连接模式 - Direct（直接）模式和 Gateway（网关）模式。 若要了解有关这些连接模式的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。 默认情况下， **网关** 用于在适用于 Cosmos DB 的 Azure Functions 触发器中建立所有连接。 但是，对于性能驱动的方案，它可能不是最佳选项。
 
 ### <a name="changing-the-connection-mode-and-protocol"></a>更改连接模式和协议
 
-有两个密钥配置设置可用于配置客户端连接策略 – **连接模式**和**连接协议**。 可以更改 Cosmos DB 的 Azure Functions 触发器和所有 [Azure Cosmos DB 绑定](../azure-functions/functions-bindings-cosmosdb-v2-output.md)使用的默认连接模式与协议。 若要更改默认设置，需要在 Azure Functions 项目或 Azure Functions 应用中找到 `host.json` 文件，并添加以下[附加设置](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)：
+有两个密钥配置设置可用于配置客户端连接策略 – **连接模式** 和 **连接协议** 。 可以更改 Cosmos DB 的 Azure Functions 触发器和所有 [Azure Cosmos DB 绑定](../azure-functions/functions-bindings-cosmosdb-v2-output.md)使用的默认连接模式与协议。 若要更改默认设置，需要在 Azure Functions 项目或 Azure Functions 应用中找到 `host.json` 文件，并添加以下[附加设置](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)：
 
 ```js
 {

@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283638"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087921"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB 资源模型
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 是完全托管的平台即服务 (PaaS)。 若要开始使用 Azure Cosmos DB，最初应在 Azure 订阅中创建一个 Azure Cosmos 帐户，并在其中创建一个数据库、容器和项。 本文介绍资源模型层次结构中的 Azure Cosmos DB 资源模型和不同的实体。
 
@@ -59,20 +60,20 @@ Azure Cosmos 容器是基本的缩放单元。 容器可以提供几乎无限的
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 容器
 
-Azure Cosmos 容器是预配的吞吐量和存储的缩放单元。 容器会进行水平分区，然后在多个区域间复制。 添加到容器中的项会自动分组为逻辑分区，这些逻辑分区基于分区键分布在物理分区中。 容器上的吞吐量均匀地分布在物理分区中。 若要详细了解分区和分区键，请参阅[将数据分区](partitioning-overview.md)。 
+Azure Cosmos 容器是预配的吞吐量和存储的缩放单元。 容器会进行水平分区，然后在多个区域间复制。 添加到容器的项将自动划分为逻辑分区，这些分区基于分区键分布在物理分区中。 容器上的吞吐量均匀分布在物理分区中。 若要详细了解分区和分区键，请参阅[将数据分区](partitioning-overview.md)。 
 
 创建容器时，可以采用以下模式之一配置吞吐量：
 
-* **专用预配吞吐量模式**：针对容器预配的吞吐量是专门为该容器保留的，由 SLA 提供支持。 若要了解详细信息，请参阅 [如何在容器上预配吞吐量](how-to-provision-container-throughput.md)。
+* **专用预配吞吐量模式** ：针对容器预配的吞吐量是专门为该容器保留的，由 SLA 提供支持。 若要了解详细信息，请参阅 [如何在容器上预配吞吐量](how-to-provision-container-throughput.md)。
 
-* **共享预配吞吐量模式**：这些容器与同一数据库中的其他容器共享预配吞吐量（不包含已配置专用预配吞吐量的容器）。 换句话说，在所有 "共享吞吐量" 容器之间共享数据库的预配吞吐量。 若要了解详细信息，请参阅 [如何在数据库上预配吞吐量](how-to-provision-database-throughput.md)。
+* **共享预配吞吐量模式** ：这些容器与同一数据库中的其他容器共享预配吞吐量（不包含已配置专用预配吞吐量的容器）。 换句话说，在所有 "共享吞吐量" 容器之间共享数据库的预配吞吐量。 若要了解详细信息，请参阅 [如何在数据库上预配吞吐量](how-to-provision-database-throughput.md)。
 
 > [!NOTE]
 > 只有在创建数据库和容器时，才能配置共享吞吐量和专用吞吐量。 若要在创建容器后从专用吞吐量模式切换为共享吞吐量模式（或反之），必须创建一个新容器，并将数据迁移到该容器。 可以使用 Azure Cosmos DB 更改源功能迁移数据。
 
 无论是使用专用还是共享预配吞吐量模式创建容器，Azure Cosmos 容器都可以弹性缩放。
 
-容器是项的架构无关容器。 容器中的项可以采用任意架构。 例如，可以在同一个容器中放置一个表示人员的项，以及一个表示汽车的项。** 默认情况下，添加到容器的所有项会自动编制索引，不需要进行显式的索引或架构管理。 通过在容器上配置的[索引策略](index-overview.md)，可以自定义索引行为。 
+容器是项的架构无关容器。 容器中的项可以采用任意架构。 例如，可以在同一个容器中放置一个表示人员的项，以及一个表示汽车的项。  默认情况下，添加到容器的所有项会自动编制索引，不需要进行显式的索引或架构管理。 通过在容器上配置的[索引策略](index-overview.md)，可以自定义索引行为。 
 
 你可以为容器中的选定项设置 [生存时间 (TTL) ](time-to-live.md) ，或将整个容器设置为完全清除系统中的项目。 Azure Cosmos DB 会在这些项过期时自动将其删除。 这样还能保证对这些容器执行的查询不会返回固定边界内已过期的项。 有关详细信息，请参阅[对容器配置 TTL](how-to-time-to-live.md)。
 

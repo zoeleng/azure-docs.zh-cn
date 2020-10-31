@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357210"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085167"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 
@@ -94,7 +94,7 @@ Service Fabric Explorer 提供用于对群集中的节点、应用程序和服�
 >
 >
 
-还可使用 Service Fabric Explorer 为给定应用程序类型和版本创建应用程序实例。 在树视图中选择应用程序类型，在右窗格中单击想要的版本旁边的“**创建应用实例**”链接。
+还可使用 Service Fabric Explorer 为给定应用程序类型和版本创建应用程序实例。 在树视图中选择应用程序类型，在右窗格中单击想要的版本旁边的“ **创建应用实例** ”链接。
 
 ![在 Service Fabric Explorer 中创建应用程序实例][sfx-create-app-instance]
 
@@ -106,7 +106,7 @@ Service Fabric Explorer 提供用于对群集中的节点、应用程序和服�
 ## <a name="event-store"></a>事件存储
 EventStore 是该平台提供的一项功能，它通过 REST API 提供可在 Service Fabric Explorer 中使用的 Service Fabric 平台事件。 可以查看群集中每个实体的动态快照视图，例如节点、服务、应用程序和基于事件时间的查询。 还可以从 [EventStore 概述](service-fabric-diagnostics-eventstore.md)了解有关 EventStore 的详细信息。   
 
-![屏幕截图显示具有选定事件的 "节点" 窗格。][sfx-eventstore]
+![屏幕截图显示了“节点”窗格，其中已选中“事件”。][sfx-eventstore]
 
 >[!NOTE]
 >从 Service Fabric 版本 6.4 开始。 EventStore 在默认情况下不启用，必须在资源管理器模板中启用
@@ -117,7 +117,7 @@ EventStore 是该平台提供的一项功能，它通过 REST API 提供可在 S
 ## <a name="image-store-viewer"></a>映像存储查看器
 映像存储查看器是使用本机映像存储时提供的一项功能，使用它可以查看映像存储的当前内容、获取文件和文件夹信息，以及删除文件/文件夹。
 
-![Service Fabric Explorer 群集图][sfx-imagestore]
+![显示映像存储查看器的屏幕截图。][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>备份和还原
 Service Fabric Explorer 提供了与[备份和还原](./service-fabric-reliable-services-backup-restore.md)进行交互的功能。 若要查看 SFX 中的备份和还原功能，必须启用高级模式。

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87450083"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087817"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>针对 Azure Cosmos DB 自动提出的建议
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 所有云服务（包括 Azure Cosmos DB）都会通过频繁更新来提供新的特性、功能和改进内容。 您的应用程序必须跟上最新的性能和安全更新。 Azure 门户提供了让你可以最大限度地提高应用程序性能的自定义建议。 Azure Cosmos DB 的顾问引擎会持续分析 Azure Cosmos DB 资源的使用情况历史记录，并根据工作负载模式提供建议。 这些建议对应于分区、索引编制、网络和安全性等领域。这些自定义建议有助于提高应用程序的性能。
 
@@ -26,7 +27,7 @@ ms.locfileid: "87450083"
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="从 Azure Cosmos DB 窗格中查看建议":::
 
-- 还可以通过 [Azure 顾问](../advisor/advisor-overview.md)查找按不同的 Bucket（例如成本、安全性、可靠性、性能和运营绩效）分类的建议。 可以选择特定订阅并按资源类型（即 **Azure Cosmos DB 帐户**）进行筛选。  选择某个特定建议后，它会显示可供采用的有益于你的工作负载的操作。
+- 还可以通过 [Azure 顾问](../advisor/advisor-overview.md)查找按不同的 Bucket（例如成本、安全性、可靠性、性能和运营绩效）分类的建议。 可以选择特定订阅并按资源类型（即 **Azure Cosmos DB 帐户** ）进行筛选。  选择某个特定建议后，它会显示可供采用的有益于你的工作负载的操作。
 
    :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="从 Azure Cosmos DB 窗格中查看建议":::
 

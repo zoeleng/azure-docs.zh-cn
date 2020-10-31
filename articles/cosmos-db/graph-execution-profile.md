@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
-ms.openlocfilehash: ff49889977bc4e5d9097d81ea7b05387900bedd4
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926370"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087479"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>如何使用执行配置文件步骤来评估 Gremlin 查询
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 本文概述如何使用适用于 Azure Cosmos DB Gremlin API 图形数据库的执行配置文件步骤。 此步骤提供故障排除和查询优化的相关信息，适用于可以针对 Cosmos DB Gremlin API 帐户执行的任何 Gremlin 查询。
 

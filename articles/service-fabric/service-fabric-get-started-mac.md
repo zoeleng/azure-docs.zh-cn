@@ -4,12 +4,12 @@ description: 安装运行时、SDK 和工具并创建本地开发群集。 完�
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168165"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086771"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    可以在 Docker 安装路径的 daemon.json 文件中直接更新这些设置。 可直接在 Docker 中修改守护程序配置设置。 选择 **Docker 图标**，然后选择“首选项” > “守护程序” > “高级”。
+    可以在 Docker 安装路径的 daemon.json 文件中直接更新这些设置。 可直接在 Docker 中修改守护程序配置设置。 选择 **Docker 图标** ，然后选择“首选项” > “守护程序” > “高级”。
     
     >[!NOTE]
     >
@@ -49,7 +49,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     >
 
     >[!TIP]
-    >测试大型应用程序时，我们建议增加分配给 Docker 的资源。 为此，可以选择 **Docker 图标**，然后选择“高级”来调整核心数量和内存量。
+    >测试大型应用程序时，我们建议增加分配给 Docker 的资源。 为此，可以选择 **Docker 图标** ，然后选择“高级”来调整核心数量和内存量。
 
 2. 启动群集。<br/>
     <b>Ubuntu 18.04 LTS：</b>
@@ -63,7 +63,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     ```
 
     >[!TIP]
-    > 默认情况下，这样会拉取具有最新 Service Fabric 版本的映像。 对于特定的修订版本，请访问 [Docker 中心](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 页。
+    > 默认情况下，这样会拉取具有最新 Service Fabric 版本的映像。 对于特定的修订版本，请访问 Docker 中心上的 [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) 页面。
 
 
 

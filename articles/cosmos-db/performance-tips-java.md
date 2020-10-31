@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 633cfe64e5978b1802a7c4b6c1f7842872ab665a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4b5c8e1a1e810deb9e5315816c122c0ac09ce778
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475203"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085541"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>适用于 Azure Cosmos DB Sync Java SDK v2 的性能提示
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -65,14 +66,14 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="关系图显示 Azure Cosmos D B 连接策略。" border="false":::
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="图中显示了 Azure Cosmos DB 连接策略。" border="false":::
 
    <a id="same-region"></a>
 2. **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos 数据库所在的相同区域中。 通过大致的比较发现，在同一区域中对 Azure Cosmos DB 的调用可在 1-2 毫秒内完成，而美国西海岸和美国东海岸之间的延迟则大于 50 毫秒。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://azure.microsoft.com/regions/#services)（Azure 区域）。
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="关系图显示 Azure Cosmos D B 连接策略。" border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="图中显示了 Azure Cosmos DB 连接策略。" border="false":::
    
 ## <a name="sdk-usage"></a>SDK 用法
 1. **安装最新的 SDK**
@@ -91,15 +92,15 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Azure Cosmos DB Sync Java SDK 版本 1.9.0 和更高版本支持并行查询，使你能够并行查询分区集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
-     () **_优化 setMaxDegreeOfParallelism \: _*_ 并行查询通过并行查询多个分区来运行。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
+     () * *_优化 setMaxDegreeOfParallelism \:_* _ 并行查询通过并行查询多个分区来运行。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
 
     必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
 
-     (b) _*_优化 setMaxBufferedItemCount \: _*_ 并行查询专用于在客户端处理当前结果批时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 [setMaxBufferedItemCount](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
+     (b) _*_优化 setMaxBufferedItemCount \:_*_ 并行查询专用于在客户端处理当前结果批时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 [setMaxBufferedItemCount](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
 
     预提取的工作方式不因 MaxDegreeOfParallelism 而异，并且有一个单独的缓冲区用来存储所有分区的数据。  
 
-5. _*按 getRetryAfterInMilliseconds 时间间隔实现回退**
+5. _ *按 getRetryAfterInMilliseconds 时间间隔实现回退**
 
     在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 遵循退让可确保最大程度地减少等待重试的时间。 重试策略支持包含在 [Azure Cosmos DB Sync Java SDK](./sql-api-sdk-java.md) 版本 1.8.0 及更高版本中。 有关详细信息，请参阅 [getRetryAfterInMilliseconds](/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds)。
 

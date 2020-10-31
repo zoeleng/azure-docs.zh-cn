@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1db64ecc231a55e59321a5c94097668f3ddc91d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085405"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>使用 Azure Functions 计时器触发器缩放 Azure Cosmos DB 吞吐量
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos 帐户的性能基于以每秒请求单位数（RU/秒）表示的预配吞吐量的数量。 预配粒度为秒，并且基于最高的 RU/秒按小时计费。 这种预配的容量模型使服务能够提供可预测且一致的吞吐量，保证低延迟、高可用性。 大多数生产工作负荷都具有这些特征。 但是，在开发和测试环境中，如果 Azure Cosmos DB 只在工作时间使用，则可以在上午提高吞吐量，在晚上在工作时间过后降低吞吐量。
 

@@ -3,12 +3,12 @@ title: 在 Windows 上设置 Azure Service Fabric Linux 群集
 description: 本文介绍如何设置在 Windows 开发计算机上运行的 Service Fabric Linux 群集。 此方法对于跨平台开发非常有用。
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: e25c6adf5e5f5101025aa883ef2ff9750c113a76
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7b25a84e76773baea9f17430df1b7ba13aa661aa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164102"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087071"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>设置 Windows 开发人员计算机上的 Linux Service Fabric 群集
 
@@ -57,7 +57,7 @@ ms.locfileid: "92164102"
     ```
 
     >[!TIP]
-    > 默认情况下，这样会拉取具有最新 Service Fabric 版本的映像。 对于特定的修订版本，请访问 [Docker 中心](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 页。
+    > 默认情况下，这样会拉取具有最新 Service Fabric 版本的映像。 对于特定的修订版本，请参阅 Docker Hub 上的 [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) 页面。
 
 
 

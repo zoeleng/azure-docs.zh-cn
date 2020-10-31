@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: c9a29a34b25b6834c2c343bd568f3dd3548ceff3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9f0d42e2e3dfb7e11d3c74ad1280bb867a85e2f8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474931"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085456"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB 中基于角色的访问控制
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的基于角色的访问控制 (RBAC)。 在 Azure Active Directory 中创建了配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。 角色分配范围仅限控制平面访问，包括对 Azure Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问。
 
@@ -25,8 +26,8 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的基�
 |---------|---------|
 |[DocumentDB 帐户参与者](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|可管理 Azure Cosmos DB 帐户。|
 |[Cosmos DB 帐户读取者](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|可以读取 Azure Cosmos DB 帐户数据。|
-|[Cosmos 备份操作员](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|可以提交对 Azure Cosmos 数据库或容器的还原请求 不能访问任何数据或使用数据资源管理器。|
-|[Cosmos DB 操作员](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|可以预配 Azure Cosmos 帐户、数据库和容器。 不能访问任何数据或使用数据资源管理器。|
+|[Cosmos 备份操作员](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|可以提交对 Azure Cosmos 数据库或容器的还原请求 无法访问任何数据或使用数据资源管理器。|
+|[Cosmos DB 操作员](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|可预配 Azure Cosmos 帐户、数据库和容器。 无法访问任何数据或使用数据资源管理器。|
 
 > [!IMPORTANT]
 > Azure Cosmos DB 中的 RBAC 仅支持适用于控制平面操作。 使用主键或资源令牌保护数据平面操作。 有关详细信息，请参阅[保护对 Azure Cosmos DB 中数据的访问](secure-access-to-data.md)
@@ -42,7 +43,7 @@ Azure 门户中的“访问控制(IAM)”窗格用于针对 Azure Cosmos 资源�
 除内置角色以外，用户还可以在 Azure 中创建[自定义角色](../role-based-access-control/custom-roles.md)，并将这些角色应用到其 Active Directory 租户内的所有订阅中的服务主体。 自定义角色可让用户使用一组自定义的资源提供程序操作来创建 Azure 角色定义。 若要了解可以使用哪些操作来为 Azure Cosmos DB 生成自定义角色，请参阅 [Azure Cosmos DB 资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 > [!TIP]
-> 需要访问存储在 Cosmos DB 中的数据或在 Azure 门户中使用数据资源管理器的自定义角色必须具有 `Microsoft.DocumentDB/databaseAccounts/listKeys/*` 操作。
+> 如果自定义角色需要访问存储在 Cosmos DB 中的数据或要在 Azure 门户中使用数据资源管理器，则这些角色必须具有 `Microsoft.DocumentDB/databaseAccounts/listKeys/*` 操作。
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>阻止从 Azure Cosmos DB SDK 进行更改
 

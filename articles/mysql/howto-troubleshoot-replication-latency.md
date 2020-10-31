@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791573"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087020"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>排查 Azure Database for MySQL 中的复制延迟问题
 
@@ -92,7 +92,7 @@ mysql> SHOW SLAVE STATUS;
 
 输出中包含许多信息。 通常，只需关注下表中所述的行。
 
-|指标|说明|
+|指标|描述|
 |---|---|
 |Slave_IO_State| 表示 IO 线程的当前状态。 通常情况下，如果源 (主) 服务器正在同步，则状态为 "等待 master 发送事件"。 状态（如 "连接到主服务器"）表示副本断开与源服务器的连接。 请确保源服务器正在运行，或查看防火墙是否正在阻止连接。|
 |Master_Log_File| 表示源服务器写入的二进制日志文件。|
@@ -236,6 +236,9 @@ ALTER TABLE table_name ADD INDEX index_name (column), ALGORITHM=INPLACE, LOCK=NO
 Binlog_group_commit_sync_delay 参数控制二进制日志提交在同步二进制日志文件之前等待的微秒数。 此参数的优点是，源服务器会批量发送二进制日志更新，而不是立即应用每个已提交的事务。 此延迟将减少副本上的 IO，并有助于提高性能。 
 
 将 binlog_group_commit_sync_delay 参数设置为1000可能会很有用。 然后监视复制滞后时间。 请谨慎设置此参数，并仅将其用于高并发工作负荷。 
+
+> [!IMPORTANT] 
+> 在副本服务器中，建议将参数 binlog_group_commit_sync_delay 为0。 建议这样做的原因是：与源服务器不同，副本服务器没有高并发性，增加了副本服务器上 binlog_group_commit_sync_delay 的值可能导致复制滞后时间出现意外。
 
 对于包含多个单独事务的低并发工作负荷，binlog_group_commit_sync_delay 设置可能会增加延迟。 延迟可能会增加，因为 IO 线程会等待大容量二进制日志更新，即使只提交少量事务。 
 

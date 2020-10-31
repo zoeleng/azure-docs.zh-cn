@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476699"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087173"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>排查使用 Azure Cosmos DB 时遇到的查询问题
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文逐步说明排查 Azure Cosmos DB 中的查询问题的一般建议方法。 虽然不应将本文中所述的步骤视为针对潜在查询问题的完全防御方法，但我们在其中包含了最常见的性能提示。 应将本文用作起点，以排查 Azure Cosmos DB 核心 (SQL) API 中查询速度缓慢或费用较高的问题。 还可以使用[诊断日志](cosmosdb-monitor-resource-logs.md)来识别速度缓慢或消耗大量吞吐量的查询。 如果使用的是 MongoDB Azure Cosmos DB API，应使用 [Azure Cosmos DB 的 api 进行 mongodb 查询疑难解答指南](mongodb-troubleshoot-query.md)
 
@@ -26,13 +27,13 @@ Azure Cosmos DB 中的查询优化广泛分类，如下所示：
 
 如果减少查询的 RU 费用，通常还会降低延迟。
 
-本文提供了可通过使用 [营养数据集](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)重新创建的示例。
+本文提供可使用 [nutrition 数据集](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)重新创建的示例。
 
 ## <a name="common-sdk-issues"></a>常见 SDK 问题
 
 阅读本指南之前，考虑与查询引擎无关的常见 SDK 问题将很有帮助。
 
-- 遵循这些 [SDK 性能提示](performance-tips.md)。
+- 按照这些 [SDK 性能提示](performance-tips.md)进行操作。
     - [.NET SDK 故障排除指南](troubleshoot-dot-net-sdk.md)
     - [Java SDK 故障排除指南](troubleshoot-java-sdk-v4-sql.md)
 - SDK 允许为查询设置 `MaxItemCount`，但不能指定最小项计数。
@@ -40,7 +41,7 @@ Azure Cosmos DB 中的查询优化广泛分类，如下所示：
 - 有时，即使未来页上包含结果，查询也可能包含空页， 其原因可能包括：
     - SDK 可能正在执行多个网络调用。
     - 查询检索文档所花费的时间可能很长。
-- 所有查询都包含一个继续标记，该标记将允许查询继续进行。 请确保完全耗尽查询。 详细了解如何 [处理多个结果页](sql-query-pagination.md#handling-multiple-pages-of-results)
+- 所有查询都包含一个继续标记，该标记将允许查询继续进行。 请确保完全耗尽查询。 详细了解如何[处理多页结果](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>获取查询指标
 

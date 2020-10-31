@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 70eecc7843867a5832d962b7efaecda1b6ab4ae4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283545"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086153"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>在 Azure Cosmos DB Gremlin API 资源上预配数据库、容器或自动缩放吞吐量
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 本文介绍如何在 Azure Cosmos DB Gremlin API 中预配吞吐量。 可以在容器或数据库上预配标准 (手动) 或自动缩放吞吐量，并将其共享到数据库内的容器中。 你可以使用 Azure 门户、Azure CLI 或 Azure Cosmos DB Sdk 来预配吞吐量。
 
@@ -33,7 +34,7 @@ ms.locfileid: "92283545"
    * 输入图形 ID。
    * 输入分区键值（例如 `/ItemID`）。
    * 输入要预配的吞吐量（例如，1000 RU）
-   * 选择“确定” 。
+   * 选择“确定”。
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="使用数据库级别吞吐量创建新图形时的数据资源管理器屏幕截图":::
 

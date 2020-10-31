@@ -4,12 +4,12 @@ description: 在 Linux 上安装运行时和 SDK 并创建本地开发群集。 
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086884"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -175,7 +175,7 @@ SDK 安装随附的 Service Fabric 运行时包含下表中所述的包。
 
 # <a name="container-based-local-cluster"></a>[基于容器的本地群集](#tab/localclusteroneboxcontainer)
 
-启动 Service Fabric 群集的基于容器的 [单个框](https://hub.docker.com/r/microsoft/service-fabric-onebox/)。
+启动基于容器的 [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) 群集。
 
 1. 安装小鲸鱼以便能够部署 Docker 容器。
     ```bash

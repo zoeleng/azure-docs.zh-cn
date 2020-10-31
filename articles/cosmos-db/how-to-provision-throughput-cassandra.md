@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 6b8b145c919a1f4e2ea9129a032da69bd30e6b71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 63b633ed67c03a006a154bc69a1aafb4cb4aa6d0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283644"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086272"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-cassandra-api-resources"></a>在 Azure Cosmos DB Cassandra API 资源上预配数据库、容器或自动缩放吞吐量
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文介绍如何在 Azure Cosmos DB Cassandra API 中预配吞吐量。 可以在容器或数据库上预配标准 (手动) 或自动缩放吞吐量，并将其共享到数据库内的容器中。 你可以使用 Azure 门户、Azure CLI 或 Azure Cosmos DB Sdk 来预配吞吐量。
 
@@ -33,7 +34,7 @@ ms.locfileid: "92283644"
    * 在 CQL 命令中输入表 ID。
    * 输入一个主键值 (例如 `/userrID`) 。
    * 输入要预配的吞吐量（例如，1000 RU）
-   * 选择“确定” 。
+   * 选择“确定”。
 
     :::image type="content" source="./media/how-to-provision-throughput-cassandra/provision-table-throughput-portal-cassandra-api.png" alt-text="创建具有数据库级吞吐量的新集合时数据资源管理器的屏幕截图":::
 

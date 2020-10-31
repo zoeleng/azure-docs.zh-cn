@@ -10,20 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872062"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085116"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>使用必应实体 API 搜索实体
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>使用必应自动建议 API 来提供搜索词建议
 
 如果提供供用户输入搜索词的搜索框，请使用[必应自动推荐 API](../../bing-autosuggest/get-suggested-search-terms.md) 来改进体验。 此 API 根据用户键入的部分搜索词返回建议的查询字符串。
 
-用户输入搜索词以后，URL 在设置 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) 查询参数之前会对搜索词进行编码。 例如，如果用户输入 *Marcus Appel*，则将 `q` 设置为 *Marcus+Appel* 或 *Marcus%20Appel*。
+用户输入搜索词以后，URL 在设置 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) 查询参数之前会对搜索词进行编码。 例如，如果用户输入 *Marcus Appel* ，则将 `q` 设置为 *Marcus+Appel* 或 *Marcus%20Appel* 。
 
 如果搜索词包含拼写错误，则搜索响应会包含 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) 对象。 该对象显示原始拼写以及必应用于搜索的已更正拼写。
 
@@ -189,7 +194,7 @@ API 响应包含一个 [SearchResponse](https://docs.microsoft.com/rest/api/cogn
 > [!NOTE]
 > 实体响应支持多个市场，但 Places 响应仅支持美国业务位置。 
 
-本地感知型实体查询（例如“我附近的餐馆”**）需要用户的位置才能提供准确结果。 请求应始终使用 X-Search-Location 和 X-MSEdge-ClientIP 标头来指定用户的位置。 如果必应认为查询可以利用用户的位置，它会将 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) 的 `askUserForLocation` 字段设置为 **true**。 
+本地感知型实体查询（例如“我附近的餐馆”  ）需要用户的位置才能提供准确结果。 请求应始终使用 X-Search-Location 和 X-MSEdge-ClientIP 标头来指定用户的位置。 如果必应认为查询可以利用用户的位置，它会将 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) 的 `askUserForLocation` 字段设置为 **true** 。 
 
 ```json
 {
@@ -296,7 +301,7 @@ API 响应包含一个 [SearchResponse](https://docs.microsoft.com/rest/api/cogn
 
 ![许可证属性](../media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-你显示的许可证通知必须包括指向包含许可证相关信息的网站的超链接。 通常会将许可证名称作为超链接。 例如，如果声明是“文本需 CC-BY-SA 许可证”****，且 CC-BY-SA 是许可证名称，则让 CC-BY-SA 成为超链接。
+你显示的许可证通知必须包括指向包含许可证相关信息的网站的超链接。 通常会将许可证名称作为超链接。 例如，如果声明是“文本需 CC-BY-SA 许可证”  ，且 CC-BY-SA 是许可证名称，则让 CC-BY-SA 成为超链接。
 
 ### <a name="link-and-text-attribution"></a>链接和文本属性
 
