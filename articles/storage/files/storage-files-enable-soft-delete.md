@@ -1,6 +1,6 @@
 ---
 title: 启用软删除 - Azure 文件共享
-description: 了解如何在 Azure 文件共享上启用软删除（预览版），以进行数据恢复和防止意外删除。
+description: 了解如何在 Azure 文件共享上启用软删除，以进行数据恢复和防止意外删除。
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,16 +8,16 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7defa8611080027a67a0d1db1daa4c4a9d44edfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590109"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126135"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>在 Azure 文件共享上启用软删除
 
-Azure 存储为文件共享（预览版）提供软删除，以便在应用程序或其他存储帐户用户误删除数据后，可以更轻松地恢复数据。 若要了解有关软删除的详细信息，请参阅[如何防止意外删除 Azure 文件共享](storage-files-prevent-file-share-deletion.md)。
+Azure 存储为文件共享提供软删除，以便在应用程序或其他存储帐户用户错误地删除了数据后，可以更轻松地恢复数据。 若要了解有关软删除的详细信息，请参阅[如何防止意外删除 Azure 文件共享](storage-files-prevent-file-share-deletion.md)。
 
 以下部分说明如何在现有存储帐户上为 Azure 文件共享启用和使用软删除：
 
@@ -37,9 +37,9 @@ Azure 存储为文件共享（预览版）提供软删除，以便在应用程�
 
 ## <a name="prerequisite"></a>先决条件
 
-当前仅在 Az.Storage 模块的 [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) 和 [2.3.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) 版本中提供软删除 cmdlet。 
+3.0.0 模块的[3.0.0](https://www.powershellgallery.com/packages/Az.Storage/3.0.0)版本中提供了软删除 cmdlet。 
 
-## <a name="getting-started"></a>入门
+## <a name="getting-started-with-powershell"></a>PowerShell 入门
 
 若要启用软删除，则必须更新文件客户端的服务属性。 下面的示例为存储帐户中的所有文件共享启用了软删除：
 
@@ -78,7 +78,7 @@ Get-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-在 2.1.1-preview 版 Az.Storage 模块中提供了软删除 cmdlet。 若要还原软删除的文件共享，请使用以下命令：
+3.0.0 模块的版本中提供了软删除 cmdlet。 若要还原软删除的文件共享，请使用以下命令：
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -99,7 +99,7 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-在 2.1.1-preview 版 Az.Storage 模块中提供了软删除 cmdlet。 可以使用以下命令在存储帐户上禁用软删除：
+3.0.0 模块的版本中提供了软删除 cmdlet。 可以使用以下命令在存储帐户上禁用软删除：
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

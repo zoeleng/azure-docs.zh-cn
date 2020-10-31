@@ -5,12 +5,12 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集中使用静态
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290542"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124350"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用静态公共 IP 地址创建入口控制器
 
@@ -199,7 +199,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -237,7 +237,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -366,7 +366,7 @@ certificate.cert-manager.io/tls-secret created
 
 打开 Web 浏览器，访问 Kubernetes 入口控制器的 FQDN，例如 *`https://demo-aks-ingress.eastus.cloudapp.azure.com`* 。
 
-由于这些示例使用 `letsencrypt-staging`，浏览器不信任颁发的 TLS/SSL 证书。 接受警告提示以继续运行应用程序。 证书信息显示这个*伪 LE 中间 X1* 证书是由 Let's Encrypt 颁发的。 此伪证书指出 `cert-manager` 正确处理了请求并接收了提供程序提供的证书：
+由于这些示例使用 `letsencrypt-staging`，浏览器不信任颁发的 TLS/SSL 证书。 接受警告提示以继续运行应用程序。 证书信息显示这个 *伪 LE 中间 X1* 证书是由 Let's Encrypt 颁发的。 此伪证书指出 `cert-manager` 正确处理了请求并接收了提供程序提供的证书：
 
 ![Let's Encrypt 临时证书](media/ingress/staging-certificate.png)
 
@@ -435,7 +435,7 @@ kubectl delete -f ingress-demo.yaml --namespace ingress-basic
 kubectl delete namespace ingress-basic
 ```
 
-最后，删除为入口控制器创建的静态公共 IP 地址。 提供在本文第一步中获取的 MC_ 群集资源组名，例如 MC_myResourceGroup_myAKSCluster_eastus****：
+最后，删除为入口控制器创建的静态公共 IP 地址。 提供在本文第一步中获取的 MC_ 群集资源组名，例如 MC_myResourceGroup_myAKSCluster_eastus  ：
 
 ```azurecli-interactive
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP

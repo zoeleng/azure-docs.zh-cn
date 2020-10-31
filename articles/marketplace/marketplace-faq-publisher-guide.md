@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026949"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126713"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>有关 Microsoft 商用 marketplace 的常见问题
 
@@ -46,7 +46,7 @@ Azure 市场包括 IT 和开发人员解决方案，这些解决方案是基于 
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Microsoft 商业市场是否收取发布费用？
 
-不，在我们的商业市场发布产品/服务无需支付任何费用。 我们只保留一小部分销售额，作为交易费用，并将其投入市场奖励计划、平台创新和商业市场运营。 对于 [AZURE IP 共同销售](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized 产品/服务，以及与一个 Microsoft 团队应用或至少两 Microsoft 365 加载项 (Excel、PowerPoint、Word、Outlook 和 SharePoint) 相关联的 AppSource，此交易费用将减少。
+不，在我们的商业市场发布产品/服务无需支付任何费用。 我们只保留一小部分销售额，作为交易费用，并将其投入市场奖励计划、平台创新和商业市场运营。 对于 [AZURE IP 共同销售](./marketplace-co-sell.md) incentivized 产品/服务，以及与一个 Microsoft 团队应用或至少两 Microsoft 365 加载项 (Excel、PowerPoint、Word、Outlook 和 SharePoint) 相关联的 AppSource，此交易费用将减少。
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>如何注册成为 Microsoft 商业市场的发布者？
 
@@ -106,7 +106,7 @@ Azure 市场包括 IT 和开发人员解决方案，这些解决方案是基于 
 
 必须具有 Azure Active Directory (Azure AD) 全局管理员权限，才能在基础目录中创建新用户帐户或邀请来宾帐户。 合作伙伴中心将 Azure AD 应用于标识模型，组织的 Azure AD 实例通常由其 IT 或安全团队管理和控制。
 
-要了解详细信息，请参阅[分配用户角色和权限](https://docs.microsoft.com/partner-center/permissions-overview)。
+要了解详细信息，请参阅[分配用户角色和权限](/partner-center/permissions-overview)。
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>客户是否需要订阅 Microsoft Azure 云服务？
 

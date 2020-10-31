@@ -5,16 +5,16 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19d70642a6c76239f62b2fd6f7e713430a7adfbb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043089"
+ms.locfileid: "93124962"
 ---
 # <a name="create-a-blockblobstorage-account"></a>创建 BlockBlobStorage 帐户
 
@@ -116,10 +116,7 @@ az login
 
 8. 选择“高级”选项卡。
 
-9. 若要优化用于数据分析的存储帐户，请将“分层命名空间”设为“启用”。 否则，请将此选项设置为默认值。 如果对 BlockBlobStorage 帐户启用此设置，则将提供 [Data Lake Storage 的高级层](premium-tier-for-data-lake-storage.md)。  若要详细了解 Data Lake Storage，请参阅 [Azure Data Lake Storage Gen2 简介](data-lake-storage-introduction.md)。
-
-   > [!NOTE]
-   > 块 blob 存储帐户中的分层命名空间功能在公共预览版中。 有关区域可用性的详细信息，请参阅 [区域可用性](premium-tier-for-data-lake-storage.md#regional-availability)。
+9. 若要优化用于数据分析的存储帐户，请将“分层命名空间”设为“启用”。 否则，请将此选项设置为其默认值。 如果对 BlockBlobStorage 帐户启用此设置，则将提供 [Data Lake Storage 的高级层](premium-tier-for-data-lake-storage.md)。  若要详细了解 Data Lake Storage，请参阅 [Azure Data Lake Storage Gen2 简介](data-lake-storage-introduction.md)。
 
 8. 选择“查看+创建”可查看存储帐户设置。
 
@@ -162,9 +159,6 @@ az login
    ```
    若要优化用于数据分析的存储帐户，请将 `-EnableHierarchicalNamespace $True` 添加到命令中。 如果对 BlockBlobStorage 帐户启用此设置，则将提供 [Data Lake Storage 的高级层](premium-tier-for-data-lake-storage.md)。  若要详细了解 Data Lake Storage，请参阅 [Azure Data Lake Storage Gen2 简介](data-lake-storage-introduction.md)。
 
-   > [!NOTE]
-   > 块 blob 存储帐户中的分层命名空间功能在公共预览版中。 有关区域可用性的详细信息，请参阅 [区域可用性](premium-tier-for-data-lake-storage.md#regional-availability)。
-
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 若要使用 Azure CLI 创建块 Blob 帐户，必须先安装 Azure CLI 版本 2.0.46 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
@@ -195,10 +189,7 @@ az login
    ```
 
    若要优化用于数据分析的存储帐户，请将 `--hierarchical-namespace true` 添加到命令中。 如果对 BlockBlobStorage 帐户启用此设置，则将提供 [Data Lake Storage 的高级层](premium-tier-for-data-lake-storage.md)。  若要详细了解 Data Lake Storage，请参阅 [Azure Data Lake Storage Gen2 简介](data-lake-storage-introduction.md)。
-   
-   > [!NOTE]
-   > 块 blob 存储帐户中的分层命名空间功能在公共预览版中。 有关区域可用性的详细信息，请参阅 [区域可用性](premium-tier-for-data-lake-storage.md#regional-availability)。
-   
+
 ---
 
 ## <a name="next-steps"></a>后续步骤

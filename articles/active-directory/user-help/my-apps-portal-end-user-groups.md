@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277486"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124146"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>在“我的应用”门户上更新群组信息
 
@@ -166,6 +166,6 @@ ms.locfileid: "92277486"
 
 - [访问并使用“我的应用”门户上的应用](my-apps-portal-end-user-access.md)。
 
-- [更改个人资料信息](my-apps-portal-end-user-update-profile.md)。
+- [更改个人资料信息](./my-account-portal-settings.md)。
 
 - [执行自己的访问评审](my-apps-portal-end-user-access-reviews.md)。

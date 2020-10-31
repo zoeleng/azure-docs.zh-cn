@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124806"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>在“我的应用”门户中执行访问评审
 
@@ -76,5 +76,5 @@ ms.locfileid: "92277464"
 ## <a name="next-steps"></a>后续步骤
 
 - [访问并使用“我的应用”门户上的应用](my-apps-portal-end-user-access.md)
-- [更改个人资料信息](my-apps-portal-end-user-update-profile.md)
+- [更改个人资料信息](./my-account-portal-settings.md)
 - [查看和更新与组相关的信息](my-apps-portal-end-user-groups.md)

@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9f58d03e2cfa7e1ab9c359cdb6600c42c8970a9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125795"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>在合作伙伴中心管理商业市场帐户
 
@@ -71,7 +71,7 @@ ms.locfileid: "92370587"
 1. 转到合作伙伴中心内的[商业市场概述页](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)。
 2. 在“配置文件”部分下的“付款配置文件”旁边，选择“更新” 。
 3. 选择付款方式：银行帐户或 PayPal。
-4. 添加付款信息：这可能包括选择帐户类型（支票或储蓄）、输入帐户持有者姓名、帐号和银行代号、帐单邮寄地址、电话号码或 PayPal 电子邮件地址。 *有关使用 PayPal 作为帐户付款方式，以及是否在你的市场区域中支持该付款方式的详细信息，请参阅 [PayPal 信息](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)。
+4. 添加付款信息：这可能包括选择帐户类型（支票或储蓄）、输入帐户持有者姓名、帐号和银行代号、帐单邮寄地址、电话号码或 PayPal 电子邮件地址。 *有关使用 PayPal 作为帐户付款方式，以及是否在你的市场区域中支持该付款方式的详细信息，请参阅 [PayPal 信息](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)。
 
 > [!IMPORTANT]
 > 更改付款帐户可能会推迟付款（最多一个付款周期）。 出现此推迟的原因是我们需要验证帐户更改，正如首次设置付款帐户时我们会进行验证。 帐户通过验证后，仍会收到全额款项；当前付款周期应得的任何付款将添加到下一个付款周期。  
@@ -98,7 +98,7 @@ ms.locfileid: "92370587"
 
 如果你不在美国，则可以利用税务协定权益。 这些权益因国家/地区而异，并且可让你减少 Microsoft 预扣的税金。 可以通过填写 W-8BEN 表单的第 II 部分来申报税务协定权益。 建议你与你所在国家或地区的相应资源通信，以确定这些权益是否适合你。
 
-[详细了解 Windows 应用/游戏开发人员和 Azure 市场发布者的税务详细信息](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps)。
+[详细了解 Windows 应用/游戏开发人员和 Azure 市场发布者的税务详细信息](/windows/uwp/publish/tax-details-for-paid-apps)。
 
 #### <a name="payout-hold-status"></a>付款暂停状态
 
@@ -113,7 +113,7 @@ ms.locfileid: "92370587"
 
 ### <a name="devices"></a>设备
 
-设备管理设置仅适用于 UWP 发布。 [了解详细信息](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info)。
+设备管理设置仅适用于 UWP 发布。 [了解详细信息](/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info)。
 
 ### <a name="tracking-guids"></a>跟踪 GUID
 
@@ -164,7 +164,7 @@ ms.locfileid: "92370587"
 1. 转到“用户”（在“帐户设置”下），然后选择“添加用户”  。
 2. 从显示的列表中选择一个或多个用户。 可以使用搜索框搜索特定用户。
 *如果选择多个用户添加到合作伙伴中心帐户，则必须为它们分配相同的角色或自定义权限集。 若要添加具有不同角色/权限的多个用户，请对每个角色或自定义权限集重复这些步骤。
-3. 选择 "用户" 后，选择 " **添加**"。
+3. 选择 "用户" 后，选择 " **添加** "。
 4. 在“角色”部分中，为所选用户指定角色或自定义权限。
 5. 选择“保存”。
 
@@ -196,7 +196,7 @@ ms.locfileid: "92370587"
 如果需要重新发送邀请，请访问“用户”页，在用户列表中查找该邀请，选择其电子邮件地址（或显示“邀请挂起”的文本）。 然后，在页面底部，选择“重新发送邀请”。
 
 > [!NOTE]
-> 如果你的组织使用[目录集成](https://go.microsoft.com/fwlink/p/?LinkID=724033)将本地目录服务与 Azure AD 同步，则无法在合作伙伴中心创建新用户、组或 Azure AD 应用程序。 你（或本地目录中的其他管理员）将需要直接在本地目录中创建它们，然后才能在合作伙伴中心查看并添加它们。
+> 如果你的组织使用[目录集成](/previous-versions/azure/azure-services/jj573653(v=azure.100))将本地目录服务与 Azure AD 同步，则无法在合作伙伴中心创建新用户、组或 Azure AD 应用程序。 你（或本地目录中的其他管理员）将需要直接在本地目录中创建它们，然后才能在合作伙伴中心查看并添加它们。
 
 ### <a name="remove-a-user"></a>删除用户
 
@@ -221,7 +221,7 @@ ms.locfileid: "92370587"
 1. 在“用户”页（在“帐户设置”下）上，选择“添加组”  。
 2. 从显示的列表中选择一个或多个组。 可以使用搜索框搜索特定组。
 *如果选择多个组添加到合作伙伴中心帐户，则必须为它们分配相同的角色或自定义权限集。 若要添加具有不同角色/权限的多个组，请对每个角色或自定义权限集重复这些步骤。
-3. 选择完组后，选择 " **添加**"。
+3. 选择完组后，选择 " **添加** "。
 4. 在“角色”部分中，为所选组指定角色或自定义权限。 无论与个人帐户关联的角色和权限如何，组的所有成员都将能够访问具有应用于组的权限的合作伙伴中心帐户。
 5. 选择“保存”。
 
@@ -255,7 +255,7 @@ ms.locfileid: "92370587"
 
 1. 在“用户”页（在“帐户设置”下）上，选择“添加 Azure AD 应用程序”  。
 2. 从显示的列表中选择一个或多个 Azure AD 应用程序。 可以使用搜索框搜索特定 Azure AD 应用程序。 *如果选择多个 Azure AD 应用程序添加到合作伙伴中心帐户，则必须为它们分配相同的角色或自定义权限集。 若要添加具有不同角色/权限的多个 Azure AD 应用程序，请对每个角色或自定义权限集重复这些步骤。
-3. 选择 Azure AD 应用程序后，选择 " **添加**" "选择"。
+3. 选择 Azure AD 应用程序后，选择 " **添加** " "选择"。
 4. 在“角色”部分中，为所选 Azure AD 应用程序指定角色或自定义权限。
 5. 选择“保存”。
 
@@ -302,7 +302,7 @@ ms.locfileid: "92370587"
 > [!NOTE]
 > 对于商业市场计划，不使用全局管理员、业务参与者、财务参与者和营销人员角色。 将这些角色分配给用户不起作用。 只有管理员和开发人员角色向用户授予权限。
 
-有关在合作伙伴中心的其他区域（例如 Azure Active Directory (AD)、云解决方案提供商 (CSP)、控制面板供应商 (CPV),、来宾用户或 Microsoft 合作伙伴网络 (MPN)）中管理角色和权限的详细信息，请参阅[在合作伙伴中心分配用户角色和权限](https://docs.microsoft.com/partner-center/permissions-overview)。
+有关在合作伙伴中心的其他区域（例如 Azure Active Directory (AD)、云解决方案提供商 (CSP)、控制面板供应商 (CPV),、来宾用户或 Microsoft 合作伙伴网络 (MPN)）中管理角色和权限的详细信息，请参阅[在合作伙伴中心分配用户角色和权限](/partner-center/permissions-overview)。
 
 ## <a name="manage-tenants"></a>管理租户
 
@@ -326,7 +326,7 @@ ms.locfileid: "92370587"
 
 1. 在“租户”页（在“帐户设置”下）上，选择“创建新的 Azure AD 租户”  。
 2. 为新的 Azure AD 输入目录信息：
-    - **域名**：将用于 Azure AD 域的唯一名称，以及“.onmicrosoft.com”。 例如，如果输入了“example”，则 Azure AD 域为“example.onmicrosoft.com”。
+    - **域名** ：将用于 Azure AD 域的唯一名称，以及“.onmicrosoft.com”。 例如，如果输入了“example”，则 Azure AD 域为“example.onmicrosoft.com”。
     - 联系人电子邮件：电子邮件地址，我们可以在必要时就帐户相关事宜与你联系。
     - 全局管理员用户帐户信息：要用于新的全局管理员帐户的名字、姓氏、用户名和密码。
 3. 选择“创建”以确认新域和帐户信息。
@@ -345,6 +345,6 @@ ms.locfileid: "92370587"
 
 ## <a name="agreements"></a>协议
 
-使用 "**帐户设置**") 的 "合作伙伴中心" (的 "**协议**" 部分，您可以查看已授权发布协议的列表。 这些协议根据名称和版本号列出，包括接受协议的日期和接受协议的用户的名称。
+使用 " **帐户设置** ") 的 "合作伙伴中心" (的 " **协议** " 部分，您可以查看已授权发布协议的列表。 这些协议根据名称和版本号列出，包括接受协议的日期和接受协议的用户的名称。
 
 如果有需要注意的协议更新，此页顶部可能会显示所需的操作。 若要接受更新的协议，请先阅读链接的协议版本，然后选择“接受协议”。

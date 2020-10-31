@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 23c7112639a64097d95df29bde16636702837f9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0aa489e1732a8be564b3cefe1ed74d7aaacb1456
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83832973"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124418"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>参考体系结构：使用 Microsoft Azure 流分析实时处理事件
 通过 Azure 流分析进行实时事件处理的参考体系结构的用途是提供一个通用的蓝图，以便通过 Microsoft Azure 部署实时平台即服务 (PaaS) 流处理解决方案。
@@ -44,12 +44,11 @@ Microsoft Azure 提供了各种类别的分析技术，支持一系列不同的�
 **下载：** [使用 Microsoft Azure 流分析实时处理事件](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>获取帮助
-若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft Q&A 问题页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
+若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft Q&A 问题页面](/answers/topics/azure-stream-analytics.html)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 5964292d7037465456efe22283a5552a2bfc7ad8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: bfd67688ce30b62002e26cea9f7be4df1cb6e622
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331254"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126441"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>如何在 Azure Marketplace 上创建虚拟机产品/服务
 
@@ -20,7 +20,7 @@ ms.locfileid: "92331254"
 
 在开始之前，请 [在合作伙伴中心创建一个商用 marketplace 帐户](partner-center-portal/create-account.md)。 确保帐户已注册加入商业市场计划。
 
-## <a name="before-you-begin"></a>准备工作
+## <a name="before-you-begin"></a>开始之前
 
 如果尚未这样做，请查看 [规划虚拟机产品/服务](marketplace-virtual-machines.md)。 它将介绍虚拟机的技术要求，并列出创建产品/服务时所需的信息和资产。 
 
@@ -47,20 +47,20 @@ ms.locfileid: "92331254"
 
 ## <a name="enable-a-test-drive-optional"></a> (可选) 启用测试驱动器
 
-测试驱动器是向潜在客户展示您的产品/服务的一种很好的方式，通过在固定的小时数内提供对预配置环境的访问权限。 提供一个测试驱动器将导致转换速率增加，并生成高度合格的潜在顾客。 若要了解有关测试驱动器的详细信息，请参阅 [什么是测试驱动器？](partner-center-portal/test-drive.md)。
+测试驱动器是向潜在客户展示您的产品/服务的一种很好的方式，通过在固定的小时数内提供对预配置环境的访问权限。 提供一个测试驱动器将导致转换速率增加，并生成高度合格的潜在顾客。 若要了解有关测试驱动器的详细信息，请参阅 [什么是测试驱动器？](./what-is-test-drive.md)。
 
 > [!TIP]
 > 测试驱动器与免费试用版不同。 可以提供测试驱动器、免费试用版或同时提供两者。 它们都向客户提供固定时间段的解决方案。 但在实际实施方案中，一个测试驱动器还包括一项针对您的产品关键功能的动手自学教程。
 
 **启用测试驱动器**
-1.  在 " **测试驱动器**" 下，选中 " **启用测试驱动器** " 复选框。
+1.  在 " **测试驱动器** " 下，选中 " **启用测试驱动器** " 复选框。
 1.  从显示的列表中选择 "测试驱动器" 类型。
 
 ## <a name="configure-lead-management"></a>配置潜在顾客管理
 
 将产品/服务发布到合作伙伴中心的商业市场时，将其连接到客户关系管理 (CRM) 系统。 这样，只要有人对你的产品表示兴趣或使用你的产品，你就可以收到客户的联系信息。 如果要启用测试驱动器，则需要连接到 CRM (参阅前面的) 部分。 否则，连接到 CRM 是可选的选项。
 
-1. 在 " **客户主管**" 下，选择 " **连接** " 链接。
+1. 在 " **客户主管** " 下，选择 " **连接** " 链接。
 1. 在 " **连接详细信息** " 对话框中，从列表中选择潜在顾客目标。
 1. 填写显示的字段。 有关详细步骤，请参阅以下文章：
 
@@ -71,7 +71,7 @@ ms.locfileid: "92331254"
    - [配置你的产品/服务以将潜在顾客发送到 Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. 若要验证提供的配置，请选择 " **验证** " 链接。
-1. 若要关闭对话框，请选择 **"确定"**。
+1. 若要关闭对话框，请选择 **"确定"** 。
 
 ## <a name="resell-through-csps"></a>通过 CSP 转售
 

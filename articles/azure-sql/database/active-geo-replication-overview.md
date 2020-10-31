@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125336"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>创建并使用活动异地复制 - Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ ms.locfileid: "92672978"
 > 主数据库上的事务日志速率也可能会因与辅助数据库上计算大小较小无关的原因而受限制。 即使辅助数据库上的计算大小等于或大于主数据库上的计算大小，也可能会发生这种限制。 有关详细信息（包括不同类型的日志速率限制的等待类型），请参阅 [事务日志速率管理](resource-limits-logical-server.md#transaction-log-rate-governance)。
 
 > [!NOTE]
-> Azure SQL 数据库可配置的备份存储冗余目前仅在东南亚 Azure 区域公开发布。 使用本地冗余或区域冗余备份存储冗余创建源数据库时，不支持在不同的 Azure 区域中创建辅助数据库。 
+> Azure SQL 数据库可配置的备份存储冗余目前在巴西南部公共预览版中提供，并且仅在东南亚 Azure 区域公开发布。 使用本地冗余或区域冗余备份存储冗余创建源数据库时，不支持在不同的 Azure 区域中创建辅助数据库。 
 
 有关 SQL 数据库计算大小的详细信息，请参阅[什么是 SQL 数据库服务层级](purchasing-models.md)。
 

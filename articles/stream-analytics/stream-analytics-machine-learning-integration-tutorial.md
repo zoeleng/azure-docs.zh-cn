@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 529b1ce8026d9880bbc8caf87ab59148baf92df3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019454"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123755"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>通过 Azure 流分析和 Azure 机器学习 Studio (经典) 进行情绪分析
 
@@ -43,7 +43,7 @@ ms.locfileid: "92019454"
 
 在此步骤中，将 CSV 文件上传到存储容器。
 
-1. 在 Azure 门户中，选择 "**创建资源**" "  >  **存储**  >  **帐户**"。
+1. 在 Azure 门户中，选择 " **创建资源** " "  >  **存储**  >  **帐户** "。
 
 2. 填写包含以下详细信息的 " *基本* 信息" 选项卡，并保留剩余字段的默认值：
 
@@ -63,11 +63,11 @@ ms.locfileid: "92019454"
 
    ![为输入创建 blob 存储容器](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. 提供容器的名称，并验证 " **公共访问级别** " 是否设置为 " **专用**"。 完成操作后，选择“创建”。
+5. 提供容器的名称，并验证 " **公共访问级别** " 是否设置为 " **专用** "。 完成操作后，选择“创建”。
 
    ![指定 blob 容器详细信息](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
-6. 导航到新创建的容器，然后选择 " **上传**"。 上传先前下载的 **sampleinput.csv** 文件。
+6. 导航到新创建的容器，然后选择 " **上传** "。 上传先前下载的 **sampleinput.csv** 文件。
 
    ![容器的“上传”按钮](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "92019454"
 
 1. 转到 Cortana Intelligence 库中的[预测情绪分析模型](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1)页面。  
 
-2. 选择 **"在 Studio 中打开" (经典) **。  
+2. 选择 **"在 Studio 中打开" (经典)** 。  
    
    ![流分析 Azure 机器学习 Studio (经典) 、开放式 Studio (经典) ](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
@@ -87,7 +87,7 @@ ms.locfileid: "92019454"
 
    ![在工作室中运行试验 (经典) ](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
 
-5. 在进程成功运行后，在页面底部选择“部署 Web 服务”。****
+5. 在进程成功运行后，在页面底部选择“部署 Web 服务”。 
 
    ![在 Studio 中部署试验 (经典) 为 web 服务](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
 
@@ -115,7 +115,7 @@ ms.locfileid: "92019454"
 
 该作业从之前上传到 blob 存储的 CSV 文件获取其输入。
 
-1. 导航到流分析作业。 在 " **作业拓扑**" 下，选择 " **输入** " 选项。 选择 "**添加流输入**  > **Blob 存储**"。
+1. 导航到流分析作业。 在 " **作业拓扑** " 下，选择 " **输入** " 选项。 选择 " **添加流输入**  > **Blob 存储** "。
 
 2. 填写 **Blob 存储** 详细信息，并提供以下值：
 
@@ -133,7 +133,7 @@ ms.locfileid: "92019454"
 
 作业将结果发送到它从中获取输入的同一 blob 存储。
 
-1. 导航到流分析作业。 在 " **作业拓扑**" 下，选择 " **输出** " 选项。 选择 "**添加**  >  **Blob 存储**"。
+1. 导航到流分析作业。 在 " **作业拓扑** " 下，选择 " **输出** " 选项。 选择 " **添加**  >  **Blob 存储** "。
 
 2. 在 **Blob 存储** 表单中填写以下值：
 
@@ -155,14 +155,14 @@ ms.locfileid: "92019454"
 
 1. 请确保具有之前在 Excel 工作簿中下载的 Web 服务 URL 和 API 密钥。
 
-2. 导航到流分析作业。 然后选择**函数**  >  **+ 添加**  >  **Azure ML Studio**
+2. 导航到流分析作业。 然后选择 **函数**  >  **+ 添加**  >  **Azure ML Studio**
 
 3. 用以下值填写 **Azure 机器学习函数** 窗体：
 
    |字段  |值  |
    |---------|---------|
-   | 函数别名 | 使用 "名称" `sentiment` 并选择 " **手动提供 Azure 机器学习函数设置**"，这将为你提供输入 URL 和密钥的选项。      |
-   | 代码| 粘贴 Web 服务 URL。|
+   | 函数别名 | 使用 "名称" `sentiment` 并选择 " **手动提供 Azure 机器学习函数设置** "，这将为你提供输入 URL 和密钥的选项。      |
+   | URL| 粘贴 Web 服务 URL。|
    |密钥 | 粘贴 API 密钥。 |
 
 4. 选择“保存”。
@@ -202,16 +202,16 @@ ms.locfileid: "92019454"
 
 2. 选择页面顶部的 " **启动** "。
 
-3. 在 " **启动作业**" 中，选择 " **自定义**"，然后选择将 CSV 文件上传到 blob 存储之前的某一天。 完成后，选择“启动”****。  
+3. 在 " **启动作业** " 中，选择 " **自定义** "，然后选择将 CSV 文件上传到 blob 存储之前的某一天。 完成后，选择“启动”  。  
 
 ### <a name="check-the-output"></a>检查输出
 
-1. 让作业运行几分钟，直到在“监视”框中看到活动。****
+1. 让作业运行几分钟，直到在“监视”框中看到活动。 
 
 2. 如果你的工具通常用于检查 blob 存储的内容，请使用该工具检查容器。 另外，也可以在 Azure 门户中执行以下步骤：
 
       1. 在 Azure 门户中，查找存储帐户，并在该帐户内查找容器。 可以在该容器中看到两个文件：包含示例推文的文件和由流分析作业生成的 CSV 文件。
-      2. 右键单击生成的文件并选择“下载”。****
+      2. 右键单击生成的文件并选择“下载”。 
 
 3. 打开生成的 CSV 文件。 可以看到类似以下示例的内容：  
 
@@ -222,11 +222,11 @@ ms.locfileid: "92019454"
 你还可以查看 Studio (经典) 与函数相关的指标。 以下与函数相关的指标显示在作业概述的 " **监视** " 框中：
 
 * **函数请求** 指示发送到 Studio (经典) web 服务的请求数。  
-* **函数事件**指示请求中的事件数。 默认情况下，对 Studio (经典) web 服务的每个请求最多包含1000事件。
+* **函数事件** 指示请求中的事件数。 默认情况下，对 Studio (经典) web 服务的每个请求最多包含1000事件。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
 * [集成 REST API 和机器学习 Studio (经典) ](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)

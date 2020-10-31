@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 8/6/2020
-ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870011"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123457"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>流分析和 Power BI：针对流式处理数据的实时分析仪表板
 
@@ -42,7 +42,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
 3. 选择“+ 添加” > “Power BI”。 然后，使用以下详细信息填充窗体，并选择 " **授权** " 以使用自己的用户标识连接到 Power BI (该令牌在90天) 有效。 
 
 >[!NOTE]
->对于生产作业，我们建议连接到 [使用托管标识对 Azure 流分析作业进行身份验证，以便 Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)。
+>对于生产作业，我们建议连接到 [使用托管标识对 Azure 流分析作业进行身份验证，以便 Power BI](./powerbi-output-managed-identity.md)。
 
    |**设置**  |**建议的值**  |
    |---------|---------|
@@ -68,7 +68,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
 
 目前，无法其他标志创建数据集。
 
-有关 Power BI 数据集的详细信息，请参阅 [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx) 参考。
+有关 Power BI 数据集的详细信息，请参阅 [Power BI REST API](/rest/api/power-bi/) 参考。
 
 
 ## <a name="write-the-query"></a>编写查询
@@ -102,7 +102,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. 单击“ **保存**”。
+4. 单击“ **保存** ”。
 
 
 ## <a name="test-the-query"></a>测试查询
@@ -176,7 +176,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
 
     * 转到“可视化效果类型”后，选择“折线图” 。 
     * 添加轴，然后选择“windowend”。 
-    * 添加值，然后选择“fraudulentcalls”****。
+    * 添加值，然后选择“fraudulentcalls”  。
     * 对于“要显示的时间窗口”，请选择最近 10 分钟。
 
       ![在 Power BI 中创建折线图磁贴](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
@@ -231,6 +231,6 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [流分析输出](stream-analytics-define-outputs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-* [使用托管标识对 Azure 流分析作业进行身份验证，以便 Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)
+* [使用托管标识对 Azure 流分析作业进行身份验证，以便 Power BI](./powerbi-output-managed-identity.md)

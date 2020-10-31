@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282359"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125166"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>商业应用商店合作伙伴和客户使用情况归属
 
@@ -33,15 +33,18 @@ ms.locfileid: "92282359"
 >- 客户使用情况归因适用于新部署，不支持标记已部署的现有资源。
 >
 >- 发布到 Azure 市场的 [Azure 应用程序](./partner-center-portal/create-new-azure-apps-offer.md)产品/服务必须有客户使用情况归因。
+>
+>- 并非所有 Azure 服务都与客户使用归属兼容。 Azure Kubernetes Services (AKS) 和 VM 规模集目前存在导致使用不足的已知问题。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>创建 GUID
 
-GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创建用于跟踪的 GUID，应使用 GUID 生成器。 Azure 存储团队已创建 [GUID 生成器窗体](https://aka.ms/StoragePartners)，它将通过电子邮件向你发送格式正确的 GUID，并可在不同的跟踪系统中重复使用。
+GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创建跟踪 Guid，应使用 GUID 生成器，例如通过 PowerShell。
 
-> [!NOTE]
-> 强烈建议使用 [Azure 存储的 GUID 生成器窗体](https://aka.ms/StoragePartners)创建 GUID。 有关详细信息，请参阅[常见问题解答](#faq)。
+```powershell
+[guid]::NewGuid()]
+```
 
 建议为每个产品/服务和每个产品的分销渠道创建唯一的 GUID。 如果不希望拆分报告，则可以选择对产品的多个分销渠道使用单个 GUID。
 
@@ -67,7 +70,7 @@ GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创�
 
 1. 注册为[商业市场发布者](https://aka.ms/JoinMarketplace)。
 
-   * 要求合作伙伴[在合作伙伴中心中拥有个人资料](become-publisher.md)。 我们建议在 Azure 市场或 AppSource 中列出产品/服务。
+   * 要求合作伙伴[在合作伙伴中心中拥有个人资料](./partner-center-portal/create-account.md)。 我们建议在 Azure 市场或 AppSource 中列出产品/服务。
    * 合作伙伴可以注册多个 GUID。
    * 合作伙伴可为非市场解决方案模板和产品/服务注册 GUID。
 
@@ -97,9 +100,9 @@ GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创�
 
 1. 打开资源管理器模板。
 
-1. 在主模板文件中添加类型为 " [Microsoft. 资源/部署](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) " 的新资源。 资源只需位于 **mainTemplate.json** 或 **azuredeploy.json** 文件中，而不需要位于任何嵌套的或链接的模板中。
+1. 在主模板文件中添加类型为 " [Microsoft. 资源/部署](/azure/templates/microsoft.resources/deployments) " 的新资源。 资源只需位于 **mainTemplate.json** 或 **azuredeploy.json** 文件中，而不需要位于任何嵌套的或链接的模板中。
 
-1. 输入前缀后的 GUID 值 `pid-` 作为资源的名称。 例如，如果 GUID 为 eb7927c8-dd66-43e1-b0cf-c346a422063，则资源名称将为 _pid-eb7927c8_-dd66-43e1-b0cf。
+1. 输入前缀后的 GUID 值 `pid-` 作为资源的名称。 例如，如果 GUID 为 eb7927c8-dd66-43e1-b0cf-c346a422063，则资源名称将为 _pid-eb7927c8_ -dd66-43e1-b0cf。
 
 1. 检查模板是否存在任何错误。
 
@@ -132,7 +135,7 @@ GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创�
 
 ## <a name="use-the-resource-manager-apis"></a>使用资源管理器 API
 
-在某些情况下，你可能希望直接调用资源管理器 REST API 来部署 Azure 服务。 [Azure 支持使用多个 SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) 来启用这些调用。 你可以使用其中一个 SDK，也可以直接调用 REST API 来部署资源。
+在某些情况下，你可能希望直接调用资源管理器 REST API 来部署 Azure 服务。 [Azure 支持使用多个 SDK](../index.yml?pivot=sdkstools) 来启用这些调用。 你可以使用其中一个 SDK，也可以直接调用 REST API 来部署资源。
 
 如果使用资源管理器模板，应按照上述说明标记解决方案。 如果不使用资源管理器模板，而是直接发出 API 调用，则仍可标记部署以关联 Azure 资源的使用情况。
 
@@ -156,7 +159,7 @@ GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创�
 
 #### <a name="example-the-net-sdk"></a>示例： .NET SDK
 
-对于 .NET，请确保设置用户代理。 使用以下代码，可以使用 [Microsoft Azure 管理](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) 库来设置用户代理， (c # 中的示例 ) ：
+对于 .NET，请确保设置用户代理。 使用以下代码，可以使用 [Microsoft Azure 管理](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) 库来设置用户代理， (c # 中的示例 ) ：
 
 ```csharp
 
@@ -183,7 +186,7 @@ var azure = Microsoft.Azure.Management.Fluent.Azure
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-有关详细信息，请参阅 [Azure SDK for Go](https://docs.microsoft.com/azure/developer/go/)。
+有关详细信息，请参阅 [Azure SDK for Go](/azure/developer/go/)。
 
 ## <a name="use-terraform"></a>使用 Terraform
 

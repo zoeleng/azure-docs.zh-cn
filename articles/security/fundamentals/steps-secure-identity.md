@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127053"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>保护标识基础结构的五个步骤
 
@@ -145,7 +145,7 @@ Azure Active Directory 中的许多功能可以自动截获攻击，以消除检
 
 用户风险指示用户身份泄露的可能性，它是根据与用户身份关联的[用户风险检测](../../active-directory/identity-protection/overview.md)计算的。 用户风险策略是一种条件访问策略，评估特定用户或组的风险级别。 根据“低”、“中”、“高”风险级别，可以配置一个策略来阻止访问，或者要求使用多重身份验证进行安全密码更改。 Microsoft 建议要求高风险用户进行安全密码更改。
 
-![已标记为存在风险的用户](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![屏幕截图显示用户选择的、已标记为有风险的用户。](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>使用“Azure AD 标识保护”实施登录风险策略
 
@@ -175,7 +175,7 @@ Azure AD 标识保护提供两份应该每日监视的重要报告：
 1. 风险登录报告显示应该调查的用户登录活动，合法所有者不可以执行这种登录。
 2. 风险用户报告显示可能已泄密的用户帐户，例如，检测到已泄漏的凭据，或者用户从不同的位置登录，导致不可能的行程事件。
 
-![已标记为存在风险的用户](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![屏幕截图显示 Azure A D Identity Protection 窗格，其中包含用户及其风险级别。](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>审核应用和许可的权限
 

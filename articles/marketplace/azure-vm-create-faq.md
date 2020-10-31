@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 131cd9b1de82213d89ee07f30aed25544f6fcb18
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283705"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124945"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Azure Marketplace 中的 VM 常见问题
 
@@ -22,7 +22,7 @@ ms.locfileid: "92283705"
 
 如果使用 Azure 资源管理器部署模型，则有三个选项：
 
-- [使用 Azure 门户创建基于路由的 VPN 网关](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+- [使用 Azure 门户创建基于路由的 VPN 网关](../vpn-gateway/tutorial-create-gateway-portal.md)
 - [使用 Azure PowerShell 创建基于路由的 VPN 网关](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
 - [使用 CLI 创建基于路由的 VPN 网关](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
@@ -32,15 +32,15 @@ ms.locfileid: "92283705"
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>在 VM 中如何管理启动任务中的自定义脚本扩展？
 
-有关通过 Azure PowerShell 模块、Azure 资源管理器模板和 Windows 系统上的故障排除步骤使用自定义脚本扩展的详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/azure/virtual-machines/extensions/custom-script-windows)。
+有关通过 Azure PowerShell 模块、Azure 资源管理器模板和 Windows 系统上的故障排除步骤使用自定义脚本扩展的详细信息，请参阅[适用于 Windows 的自定义脚本扩展](../virtual-machines/extensions/custom-script-windows.md)。
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Azure 市场是否支持 32 位应用程序或服务？
 
-不是。 Azure VM 支持的操作系统和标准服务均为 64 位。 尽管大多数 64 位操作系统都支持 32 位版本的应用程序以实现向后兼容性，但不支持将 32 位应用程序用作 VM 解决方案的一部分，因此强烈建议不要使用 32 位应用程序。 请将应用程序重新创建为 64 位项目。
+没有。 Azure VM 支持的操作系统和标准服务均为 64 位。 尽管大多数 64 位操作系统都支持 32 位版本的应用程序以实现向后兼容性，但不支持将 32 位应用程序用作 VM 解决方案的一部分，因此强烈建议不要使用 32 位应用程序。 请将应用程序重新创建为 64 位项目。
 
 有关详细信息，请参阅以下文章：
 
-- [运行 32 位应用程序](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [运行 32 位应用程序](/windows/desktop/WinProg64/running-32-bit-applications)
 - [Azure 虚拟机中 32 位操作系统的支持](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft Azure 虚拟机的 Microsoft 服务器软件支持](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 

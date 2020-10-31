@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913035"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124011"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>使用资源日志排查 Azure 流分析问题
 
@@ -48,7 +48,7 @@ ms.locfileid: "92913035"
 
    ![流分析活动日志操作摘要](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. 向下滚动到 JSON 的“属性”部分，其中提供导致失败操作的错误的详细信息  。 在本示例中，失败的原因在于超出范围的纬度值的运行时错误。 流分析作业处理的数据不一致会导致数据错误。 你可以了解不同的[输入和输出数据错误及其发生原因](https://docs.microsoft.com/azure/stream-analytics/data-errors)。
+4. 向下滚动到 JSON 的“属性”部分，其中提供导致失败操作的错误的详细信息  。 在本示例中，失败的原因在于超出范围的纬度值的运行时错误。 流分析作业处理的数据不一致会导致数据错误。 你可以了解不同的[输入和输出数据错误及其发生原因](./data-errors.md)。
 
    ![JSON 错误详细信息](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -111,7 +111,7 @@ properties | 日志项目的具体详细信息；序列化为 JSON 字符串。 
 
 ### <a name="data-errors"></a>数据错误
 
-作业处理数据期间出现的任何错误都在此日志类别中。 这些日志通常创建于读取数据、序列化和写入操作期间。 这些日志不包括连接错误。 连接错误被视为泛型事件。 你可以详细了解各种[输入和输出数据错误](https://docs.microsoft.com/azure/stream-analytics/data-errors)的原因。
+作业处理数据期间出现的任何错误都在此日志类别中。 这些日志通常创建于读取数据、序列化和写入操作期间。 这些日志不包括连接错误。 连接错误被视为泛型事件。 你可以详细了解各种[输入和输出数据错误](./data-errors.md)的原因。
 
 名称 | 说明
 ------- | -------
@@ -143,5 +143,5 @@ Message| 日志消息。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [流分析数据错误](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [流分析数据错误](./data-errors.md)
+* [流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)

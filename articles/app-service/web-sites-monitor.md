@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c4e9a66e6bd6b94d8397429769d7718b3e9c555d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148127"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125200"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>监视 Azure 应用服务中的应用
 [Azure 应用服务](./overview.md)针对 [Azure 门户](https://portal.azure.com)中的 Web 应用、移动和 API 应用提供内置监视功能。
@@ -58,7 +58,7 @@ ms.locfileid: "92148127"
 ## <a name="understand-metrics"></a>了解指标
 
 > [!NOTE]
-> **文件系统使用** 情况是指全局推出的新度量值，除非应用程序托管在应用服务环境中，否则不会有任何数据。
+> “文件系统使用情况”是一个要在全球范围内推出的新指标，除非你的应用托管在应用服务环境中，否则你不会获得数据。
 > 
 
 > [!IMPORTANT]
@@ -87,6 +87,7 @@ ms.locfileid: "92148127"
 | **第 1 代垃圾回收** | 自应用进程启动以来对第 1 代对象进行垃圾回收的次数。 较高代系的垃圾回收包括所有较低代系的垃圾回收。|
 | **第 2 代垃圾回收** | 自应用进程启动以来对第 2 代对象进行垃圾回收的次数。|
 | **句柄计数** | 应用进程当前打开的句柄总数。|
+| **运行状况检查状态** | 应用服务计划中应用程序实例的平均运行状况状态。|
 | **Http 2xx** | 导致 HTTP 状态代码的请求计数大于等于 200，但小于 300。 |
 | **Http 3xx** | 导致 HTTP 状态代码的请求计数大于等于 300，但小于 400。 |
 | **Http 401** | 导致 HTTP 401 状态代码的请求计数。 |
@@ -130,9 +131,9 @@ ms.locfileid: "92148127"
 
 有两个反映 CPU 使用率的指标：
 
-**CPU 时间**：适用于托管在“免费”或“共享”计划中的应用，因为这些应用的其中一个配额由应用所用的 CPU 时间定义。
+**CPU 时间** ：适用于托管在“免费”或“共享”计划中的应用，因为这些应用的其中一个配额由应用所用的 CPU 时间定义。
 
-**CPU 百分比**：适用于托管在“基本”、“标准”和“高级”计划中的应用，因为它们可横向扩展。CPU 百分比是所有实例中总用量的良好指标。
+**CPU 百分比** ：适用于托管在“基本”、“标准”和“高级”计划中的应用，因为它们可横向扩展。CPU 百分比是所有实例中总用量的良好指标。
 
 ## <a name="metrics-granularity-and-retention-policy"></a>指标粒度和保留策略
 应用和应用服务计划的指标由服务记录并聚合，并[根据这些规则保留](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)。

@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495142"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125863"
 ---
 # <a name="http-application-routing"></a>HTTP 应用程序路由
 
@@ -26,8 +26,8 @@ ms.locfileid: "87495142"
 
 外接程序部署两个组件：一个 [Kubernetes 入口控制器][ingress] 和一个 [外部 DNS][external-dns] 控制器。
 
-- **入口控制器**：入口控制器通过类型为 LoadBalancer 的 Kubernetes 服务公开给 Internet。 入口控制器监视并实现 [Kubernetes 入口资源][ingress-resource]，这些资源创建指向应用程序终结点的路由。
-- **External-DNS 控制器**：监视 Kubernetes 入口资源并在特定于群集的 DNS 区域中创建 DNS A 记录。
+- **入口控制器** ：入口控制器通过类型为 LoadBalancer 的 Kubernetes 服务公开给 Internet。 入口控制器监视并实现 [Kubernetes 入口资源][ingress-resource]，这些资源创建指向应用程序终结点的路由。
+- **External-DNS 控制器** ：监视 Kubernetes 入口资源并在特定于群集的 DNS 区域中创建 DNS A 记录。
 
 ## <a name="deploy-http-routing-cli"></a>部署 HTTP 路由：CLI
 
@@ -40,7 +40,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 > [!TIP]
 > 如果要启用多个加载项，请以逗号分隔列表的形式提供。 例如，要启用 HTTP 应用程序路由和监视，请使用格式 `--enable-addons http_application_routing,monitoring`。
 
-还可以使用 [az aks enable-addons][az-aks-enable-addons] 命令在现有 AKS 群集上启用 HTTP 路由。 若要在现有群集上启用 HTTP 路由，请添加 `--addons` 参数并指定 *http_application_routing*，如以下示例所示：
+还可以使用 [az aks enable-addons][az-aks-enable-addons] 命令在现有 AKS 群集上启用 HTTP 路由。 若要在现有群集上启用 HTTP 路由，请添加 `--addons` 参数并指定 *http_application_routing* ，如以下示例所示：
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
@@ -78,7 +78,7 @@ HTTP 应用程序路由加载项可以在部署 AKS 群集时通过 Azure 门户
 az aks install-cli
 ```
 
-若要将 `kubectl` 配置为连接到 Kubernetes 群集，请使用 [az aks get-credentials][] 命令。 以下示例获取*MyResourceGroup*中名为*MyAKSCluster*的 AKS 群集的凭据：
+若要将 `kubectl` 配置为连接到 Kubernetes 群集，请使用 [az aks get-credentials][] 命令。 以下示例获取 *MyResourceGroup* 中名为 *MyAKSCluster* 的 AKS 群集的凭据：
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -112,7 +112,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -163,7 +163,7 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
-打开 web 浏览器以*aks-helloworld \<CLUSTER_SPECIFIC_DNS_ZONE\> *，例如*aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io*并验证你是否看到了演示应用程序。 应用程序可能需要几分钟时间才能显示。
+打开 web 浏览器以 *aks-helloworld \<CLUSTER_SPECIFIC_DNS_ZONE\>* ，例如 *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io* 并验证你是否看到了演示应用程序。 应用程序可能需要几分钟时间才能显示。
 
 ## <a name="remove-http-routing"></a>删除 HTTP 路由
 
@@ -173,7 +173,7 @@ ingress.networking.k8s.io/aks-helloworld created
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-当禁用了 HTTP 应用程序路由加载项时，某些 Kubernetes 资源可能会保留在群集中。 这些资源包括 *configMap* 和 *secret*，并且是在 *kube-system* 命名空间中创建的。 为了维护一个干净的群集，你可能想要删除这些资源。
+当禁用了 HTTP 应用程序路由加载项时，某些 Kubernetes 资源可能会保留在群集中。 这些资源包括 *configMap* 和 *secret* ，并且是在 *kube-system* 命名空间中创建的。 为了维护一个干净的群集，你可能想要删除这些资源。
 
 使用以下 [kubectl get][kubectl-get] 命令查找 *addon-http-application-routing* 资源：
 
@@ -257,7 +257,7 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-aks-helloworld-80] 10.244.0.13:8080 234 0.004 200
 ```
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up"></a>清理
 
 使用删除在本文中创建的关联的 Kubernetes 对象 `kubectl delete` 。
 

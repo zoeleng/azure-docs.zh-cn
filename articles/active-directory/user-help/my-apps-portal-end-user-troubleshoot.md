@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c148e673b8ada549a6543f8f35634aaf29abff0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798000"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123942"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>排查“我的应用”门户的相关问题
 
@@ -87,7 +87,7 @@ ms.locfileid: "88798000"
 
 - [访问并使用“我的应用”门户上的应用](my-apps-portal-end-user-access.md)。
 
-- [更改个人资料信息](my-apps-portal-end-user-update-profile.md)。
+- [更改个人资料信息](./my-account-portal-settings.md)。
 
 - [查看和更新与组相关的信息](my-apps-portal-end-user-groups.md)。
 

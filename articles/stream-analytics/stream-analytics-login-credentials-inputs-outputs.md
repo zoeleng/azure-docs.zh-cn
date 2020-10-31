@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47afaea03e58cf6a24382727c6fc7193fde5abe4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044407"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123806"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>轮转流分析作业的输入和输出的登录凭据
 
@@ -69,8 +69,8 @@ ms.locfileid: "86044407"
 8. 进行至[从上次停止的时间启动作业](#start-your-job-from-the-last-stopped-time)部分。
 
 ### <a name="power-bi"></a>Power BI
-1. 登录 Azure 门户，浏览流分析作业，选择“停止”并等待作业停止****。    
-2. 找到要续订凭据的 Power BI 输出 > 单击“续订授权”（应会看到成功消息）>“保存”更改********。    
+1. 登录 Azure 门户，浏览流分析作业，选择“停止”并等待作业停止  。    
+2. 找到要续订凭据的 Power BI 输出 > 单击“续订授权”（应会看到成功消息）>“保存”更改  。    
 3. 保存所做的更改时，连接测试会自动启动，请确保连接测试成功通过。    
 4. 进行至[从上次停止的时间启动作业](#start-your-job-from-the-last-stopped-time)部分。
 
@@ -84,5 +84,5 @@ ms.locfileid: "86044407"
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)

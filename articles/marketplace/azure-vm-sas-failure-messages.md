@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 7b91cf3d49d88501fb908d157892ec3eb24bee6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1c89887117c10ca77ec4c04b3adbe3e2d9923479
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126832"
 ---
 # <a name="virtual-machine-sas-failure-messages"></a>虚拟机 SAS 失败消息
 
@@ -29,7 +29,7 @@ ms.locfileid: "92283617"
 | SAS URI 的“st”和“se”参数没有完整的日期时间规范 | `Failure: Copying Images. Not able to download blob due to incorrect SAS Uri.` | SAS URI 的“开始日期”和“结束日期”参数（`st` 和 `se` 子字符串）必须具有完整的日期时间格式，例如 `11-02-2017T00:00:00Z`。 缩短版本无效（默认情况下，Azure CLI 中的某些命令可能会生成缩短的值）。 |
 |  |  |  |
 
-有关详细信息，请参阅[使用共享访问签名 (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)。
+有关详细信息，请参阅[使用共享访问签名 (SAS)](../storage/common/storage-sas-overview.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

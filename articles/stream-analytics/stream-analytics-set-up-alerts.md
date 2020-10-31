@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 06/21/2019
-ms.openlocfilehash: 35fb02717f706f026862790b7d618036d764c7a8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6353fe988b9b94c27ab777741bf63d3869579d9e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92914004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124435"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>为 Azure 流分析作业设置警报
 
@@ -68,5 +68,4 @@ ms.locfileid: "92914004"
 ## <a name="next-steps"></a>后续步骤
 
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)

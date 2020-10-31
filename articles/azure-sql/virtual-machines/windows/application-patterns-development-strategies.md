@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790638"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126645"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -191,11 +191,11 @@ ms.locfileid: "92790638"
 
 正如图中所示，Azure 负载均衡器将流量分布到多个虚拟机，并确定要连接到哪个 Web 服务器或应用程序服务器。 负载均衡器之后有多个 Web 服务器和应用程序服务器实例，可以确保呈现层和业务层的高可用性。 有关详细信息，请参阅 [需要 SQL HADR 的应用程序模式的最佳实践](#best-practices-for-application-patterns-requiring-sql-hadr)。
 
-![使用云服务的应用程序模式](./media/application-patterns-development-strategies/IC728013.png)
+![关系图显示通过 Azure 负载均衡器连接到 Azure 虚拟网络中的 web 角色实例的本地物理计算机或虚拟机。](./media/application-patterns-development-strategies/IC728013.png)
 
 实现此应用程序模式的另一种方法是使用包含呈现层和业务层组件的整合 Web 角色，如下图所示。 此应用程序模式适用于需要状态设计的应用程序。 由于 Azure 在 Web 角色和辅助角色上提供无状态计算节点，建议实现一个使用以下技术之一存储会话状态的逻辑：[Azure 缓存](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/)、[Azure 表存储](../../../cosmos-db/tutorial-develop-table-dotnet.md)或 [Azure SQL 数据库](../../database/sql-database-paas-overview.md)。
 
-![使用云服务的应用程序模式](./media/application-patterns-development-strategies/IC728014.png)
+![关系图显示连接到 Azure 虚拟网络中的合并 web/辅助角色实例的本地物理计算机或虚拟机。](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>混合 Azure 虚拟机、Azure SQL 数据库和 Azure 应用服务（Web 应用）的模式
 此应用程序模式的主要目标是演示如何在解决方案中将 Azure 基础结构即服务 (IaaS) 组件和 Azure 平台即服务 (PaaS) 组件结合使用。 此模式的重点是用于关系数据存储的 Azure SQL 数据库。 它不将 SQL Server 包括在 Azure 虚拟机中，而将其作为 Azure 基础结构即服务。

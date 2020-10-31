@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125676"
 ---
 # <a name="test-drive-technical-configuration"></a>体验版技术配置
 
@@ -50,7 +50,7 @@ Microsoft 可以通过托管和维护服务预配和取消设置，消除设置�
 
 - **体验版持续时间** （必需）- 输入体验版保持活动状态的时间长度，以小时为单位。 此时间段结束后，体验版会自动终止。
 
-- **Azure 资源组名称** (必需) –输入用于保存逻辑应用测试驱动器的 [azure 资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)) 名称。
+- **Azure 资源组名称** (必需) –输入用于保存逻辑应用测试驱动器的 [azure 资源组](../azure-resource-manager/management/overview.md#resource-groups)) 名称。
 
 - **Azure 逻辑应用名称** （必需）- 输入将体验版分配给用户的逻辑应用的名称。 此逻辑应用必须保存在上面的 Azure 资源组中。
 
@@ -60,7 +60,7 @@ Microsoft 可以通过托管和维护服务预配和取消设置，消除设置�
 
 希望演示交互式 Power BI 视觉对象的产品可以使用嵌入式链接来共享定制仪表板作为其体验版，无需进行进一步的技术配置。 你只需上载嵌入的 Power BI URL 即可。
 
-有关设置 Power BI 应用的详细信息，请参阅 [什么是 Power BI 应用？](https://docs.microsoft.com/power-bi/service-template-apps-overview)
+有关设置 Power BI 应用的详细信息，请参阅 [什么是 Power BI 应用？](/power-bi/service-template-apps-overview)
 
 ## <a name="deployment-subscription-details"></a>部署订阅详细信息
 

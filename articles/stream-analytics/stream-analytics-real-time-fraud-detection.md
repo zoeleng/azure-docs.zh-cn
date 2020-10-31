@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba216e41672e1d19e552b3f82a2ea65da7d3a435
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124571"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时欺诈检测
 
@@ -43,11 +43,11 @@ ms.locfileid: "86037607"
     >[!NOTE]
     >Windows 可能会阻止下载的 .zip 文件。 如果无法将其解压缩，请右键单击该文件，然后选择“属性”。 如果看到“此文件来自其他计算机，可能被阻止以帮助保护该计算机”的消息，则选择“取消阻止”选项，然后单击“应用”。
 
-如果想要检查流分析作业的结果，还需要一种用于查看 Azure Blob 存储容器内容的工具。 如果使用 Visual Studio，则可以使用 [Azure Tools for Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 或 [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer)。 或者，可以安装独立工具，如 [Azure 存储资源管理器](https://storageexplorer.com/)或 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)。 
+如果想要检查流分析作业的结果，还需要一种用于查看 Azure Blob 存储容器内容的工具。 如果使用 Visual Studio，则可以使用 [Azure Tools for Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 或 [Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer)。 或者，可以安装独立工具，如 [Azure 存储资源管理器](https://storageexplorer.com/)或 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)。 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>创建 Azure 事件中心以引入事件
 
-若要分析数据流，请将其引入到 Azure 中。 引入数据的典型方式是使用 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)，该中心每秒可以引入数百万个事件，从而使用户能够处理并存储事件信息。 本教程将创建事件中心，然后让呼叫事件生成器应用将呼叫数据发送至该事件中心。
+若要分析数据流，请将其引入到 Azure 中。 引入数据的典型方式是使用 [Azure 事件中心](../event-hubs/event-hubs-about.md)，该中心每秒可以引入数百万个事件，从而使用户能够处理并存储事件信息。 本教程将创建事件中心，然后让呼叫事件生成器应用将呼叫数据发送至该事件中心。
 
 >[!NOTE]
 >有关此过程的更详细版本，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 
@@ -57,7 +57,7 @@ ms.locfileid: "86037607"
 
 1. 登录到 Azure 门户，然后单击屏幕左上角的“创建资源”。
 
-2. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择**星号 (`*`)** 。   确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。  
+2. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择 **星号 (`*`)** 。   确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。  
 
    ![搜索事件中心](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "86037607"
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
-9. 单击**创建**。
+9. 单击 **创建** 。
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>授予对事件中心的访问权限，并获取连接字符串
 
@@ -98,7 +98,7 @@ ms.locfileid: "86037607"
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4. 单击**创建**。
+4. 单击 **创建** 。
 
 5. 部署策略后，在共享访问策略列表中单击该策略。
 
@@ -186,7 +186,7 @@ ms.locfileid: "86037607"
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. 单击**创建**。
+3. 单击 **创建** 。
 
     创建作业后，门户将显示作业详细信息。 尽管尚无任何应用正在运行，但必须先配置该作业，然后才能启动。
 
@@ -211,7 +211,7 @@ ms.locfileid: "86037607"
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. 单击**创建**。
+4. 单击 **创建** 。
 
 ## <a name="create-queries-to-transform-real-time-data"></a>创建查询以转换实时数据
 
@@ -221,7 +221,7 @@ ms.locfileid: "86037607"
 
 此处创建的查询只会在屏幕中显示已转换的数据。 后面的部分将配置一个输出接收器和将转换的数据写入该接收器的查询。
 
-若要了解有关语言的详细信息，请参阅 [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)。
+若要了解有关语言的详细信息，请参阅 [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)。
 
 ### <a name="get-sample-data-for-testing-queries"></a>获取用于测试查询的示例数据
 
@@ -303,11 +303,11 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
     GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
     ```
 
-    此查询在 `FROM` 子句中使用 `Timestamp By` 关键字来指定输入流中要用于定义翻转窗口的时间戳字段。 在这种情况下，窗口按每条记录中的 `CallRecTime` 字段将数据划分为段。 （如果未指定任何字段，开窗操作将使用每个事件到达事件中心的时间。 请参阅[流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)中的“到达时间与应用程序时间”。 
+    此查询在 `FROM` 子句中使用 `Timestamp By` 关键字来指定输入流中要用于定义翻转窗口的时间戳字段。 在这种情况下，窗口按每条记录中的 `CallRecTime` 字段将数据划分为段。 （如果未指定任何字段，开窗操作将使用每个事件到达事件中心的时间。 请参阅[流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)中的“到达时间与应用程序时间”。 
 
     投影包括 `System.Timestamp`，后者将返回每个窗口结束时的时间戳。 
 
-    若要指定想要使用翻转窗口，请在 `GROUP BY` 子句中使用 [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) 函数。 在函数中，可以指定时间单位（从微秒到一天的任意时间）和窗口大小（单位数）。 在此示例中，翻转窗口由 5 秒时间间隔组成，因此你会收到按国家/地区的每隔 5 秒的呼叫计数。
+    若要指定想要使用翻转窗口，请在 `GROUP BY` 子句中使用 [TUMBLINGWINDOW](/stream-analytics-query/tumbling-window-azure-stream-analytics) 函数。 在函数中，可以指定时间单位（从微秒到一天的任意时间）和窗口大小（单位数）。 在此示例中，翻转窗口由 5 秒时间间隔组成，因此你会收到按国家/地区的每隔 5 秒的呼叫计数。
 
 2. 再次单击“测试”。 在结果中，请注意“WindowEnd”下的时间戳以 5 秒为增量。
 
@@ -420,7 +420,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 ## <a name="get-support"></a>获取支持
 
-若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft Q&A 问题页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)。
+若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft Q&A 问题页面](/answers/topics/azure-stream-analytics.html)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -432,5 +432,5 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析查询语言参考](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](/rest/api/streamanalytics/)

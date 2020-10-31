@@ -4,12 +4,12 @@ description: 了解如何将 Azure NetApp 文件与 Azure Kubernetes 服务集�
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900408"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126247"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>将 Azure NetApp 文件与 Azure Kubernetes 服务集成
 
@@ -29,7 +29,6 @@ ms.locfileid: "92900408"
 
 * Azure NetApp 文件仅 [在所选 azure 区域中][anf-regions]可用。
 * 在可以使用 Azure NetApp 文件之前，必须授予对 Azure NetApp 文件服务的访问权限。 若要申请访问权限，可以使用 [Azure NetApp 文件候补报送窗体][anf-waitlist]。 在从 Azure NetApp 文件团队收到官方确认电子邮件之前，无法访问 Azure NetApp 文件服务。
-* 你的 Azure NetApp 文件服务必须在与你的 AKS 群集相同的虚拟网络中创建。
 * 初次部署 AKS 群集后，仅支持 Azure NetApp 文件的静态预配。
 * 若要在 Azure NetApp 文件中使用动态预配，请安装和配置 [NetApp Trident](https://netapp-trident.readthedocs.io/) 版本19.07 或更高版本。
 
