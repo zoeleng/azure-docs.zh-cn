@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538640"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096132"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的无服务器数据库计算
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 无服务器计算涉及关注可重复和无状态的各部分逻辑的功能。 这些部分无需基础结构管理，并且仅消耗几秒或几毫秒运行占用的资源。 无服务器计算移动的核心是函数，这些函数在 Azure 生态系统中通过 [Azure Functions](https://azure.microsoft.com/services/functions) 使用。 若要了解 Azure 中的其他无服务器执行环境，请参阅 [Azure 中的无服务器产品/服务](https://azure.microsoft.com/solutions/serverless/)页面。 
 

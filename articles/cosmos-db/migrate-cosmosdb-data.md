@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480915"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096693"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>将数百 TB 的数据迁移到 Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 可以存储 TB 级的数据。 可以执行大规模数据迁移，将生产工作负荷移动到 Azure Cosmos DB。 本文介绍将大规模数据迁移到 Azure Cosmos DB 涉及的难题，并介绍有助于应对挑战和将数据迁移到 Azure Cosmos DB 的工具。 在本案例研究中，客户使用的是 Cosmos DB SQL API。  
 
@@ -28,11 +29,11 @@ Azure Cosmos DB 可以存储 TB 级的数据。 可以执行大规模数据迁�
 
 用于将数据迁移到 Azure Cosmos DB 的现有工具存在一些限制，进行大规模迁移时，这些限制尤其明显：
 
- * **受限的横向扩展功能**：若要尽快将 TB 量级的数据迁移到 Azure Cosmos DB 并有效利用整个预配吞吐量，迁移客户端应该具备无限横向扩展的能力。  
+ * **受限的横向扩展功能** ：若要尽快将 TB 量级的数据迁移到 Azure Cosmos DB 并有效利用整个预配吞吐量，迁移客户端应该具备无限横向扩展的能力。  
 
-* **缺少进度跟踪和检查点**：迁移大型数据集时，必须跟踪迁移进度并创建检查点。 否则，迁移过程中出现的任何错误都会导致迁移停止，且必须从头开始迁移。 如果迁移过程已完成 99%，重新开始整个迁移过程将降低效率。  
+* **缺少进度跟踪和检查点** ：迁移大型数据集时，必须跟踪迁移进度并创建检查点。 否则，迁移过程中出现的任何错误都会导致迁移停止，且必须从头开始迁移。 如果迁移过程已完成 99%，重新开始整个迁移过程将降低效率。  
 
-* **缺少死信队列**：在大型数据集中，可能有一部分源数据存在问题。 此外，客户端或网络可能出现暂时性的问题。 出现其中的任何一种情况都不应导致整个迁移失败。 尽管大多数迁移工具都具有可靠的重试功能，可防范间歇性的问题，但它们并不总是足够可靠。 例如，如果 0.01% 以下的源数据文档大小大于 2 MB，将会导致文档写入 Azure Cosmos DB 失败。 理想情况下，迁移工具会将这些 "失败" 文档保存到另一个死信队列中，从而可以在迁移后对其进行处理。 
+* **缺少死信队列** ：在大型数据集中，可能有一部分源数据存在问题。 此外，客户端或网络可能出现暂时性的问题。 出现其中的任何一种情况都不应导致整个迁移失败。 尽管大多数迁移工具都具有可靠的重试功能，可防范间歇性的问题，但它们并不总是足够可靠。 例如，如果 0.01% 以下的源数据文档大小大于 2 MB，将会导致文档写入 Azure Cosmos DB 失败。 理想情况下，迁移工具会将这些 "失败" 文档保存到另一个死信队列中，从而可以在迁移后对其进行处理。 
 
 Azure 数据工厂、Azure 数据迁移服务之类的工具正在修复上述许多限制。 
 

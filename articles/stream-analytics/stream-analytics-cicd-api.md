@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039069"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097781"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>使用 API 实现 IoT Edge 流分析的 CI/CD
 
@@ -59,7 +59,7 @@ echo $response
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-使用 curl 的命令示例****：
+使用 curl 的命令示例  ：
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -136,7 +136,7 @@ JSON 中的请求正文示例：
 } 
 ```
  
-有关详细信息，请参阅 [API 文档](/rest/api/streamanalytics/stream-analytics-job)。  
+有关详细信息，请参阅 [API 文档](/rest/api/streamanalytics/)。  
  
 ## <a name="publish-edge-package"></a>发布 Edge 程序包 
  
@@ -148,7 +148,7 @@ JSON 中的请求正文示例：
 
 在作业成功发布前，此异步操作会返回状态 202。 位置响应标头包含用于获取进程状态的 URI。 进程正在运行时，若调用位置标头中的 URI，则会返回状态 202。 进程结束时，位置标头中的 URI 会返回状态 200。 
 
-使用 curl 的 Edge 程序包发布调用示例****： 
+使用 curl 的 Edge 程序包发布调用示例  ： 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +163,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 在运行以下命令前等待一到两分钟，先通过在响应的 HEAD 中发现的 URL 调用 API。 如果未获得 200 响应，请重新运行该命令。
  
-使用 curl 通过返回的 URL 调用 API 的示例****：
+使用 curl 通过返回的 URL 调用 API 的示例  ：
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 

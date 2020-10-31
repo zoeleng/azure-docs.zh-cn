@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2ae06a8ed59f7987f58aba8b8017833315e6529f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 98cca99ab0e088bbae047fa64ec52429e531dfed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428849"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096064"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>教程：为 AlertMedia 配置自动用户预配
 
@@ -51,8 +51,8 @@ ms.locfileid: "92428849"
 
 ## <a name="step-2-configure-alertmedia-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 AlertMedia 以支持 Azure AD 的预配
 
-1. 登录到你的 AlertMedia 帐户。 导航到 " **公司 > API**"。
-2. 单击 " **新增**"。
+1. 登录到你的 AlertMedia 帐户。 导航到 " **公司 > API** "。
+2. 单击 " **新增** "。
 3. 选择为 **API 集成** 命名，以帮助你轻松识别密钥的使用位置。
 4. 选择要与集成关联的管理员。
 5. 单击 " **生成密钥** " 并单击 " **保存** " 按钮。
@@ -67,7 +67,7 @@ ms.locfileid: "92428849"
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
 
-* 将用户和组分配到 AlertMedia 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
+* 将用户和组分配到 AlertMedia 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
 
@@ -95,9 +95,9 @@ ms.locfileid: "92428849"
     ![自动设置选项卡](common/provisioning-automatic.png)
 
 5. 在 " **管理员凭据** " 部分下，输入你的 ALERTMEDIA **租户 URL** 作为以下内容之一。
-      *  (没有自定义域) https://dashboard.alertmedia.com/api/scim/v3
+      *  (没有自定义域) https://docs.gitlab.com/ee/api/scim.html
 
-      *  (自定义域) https://subdomain.alertmedia.com/api/scim/v3
+      *  (自定义域) https://developer.github.com/v3/scim/
 
       输入在前面的步骤2中检索到的 **机密令牌** 。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 AlertMedia。 如果连接失败，请确保 AlertMedia 帐户具有管理员权限，然后重试。
 
@@ -109,7 +109,7 @@ ms.locfileid: "92428849"
 
 7. 选择“保存”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 AlertMedia**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 AlertMedia** "。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 AlertMedia 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 AlertMedia 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，将需要确保 AlertMedia API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
@@ -143,7 +143,7 @@ ms.locfileid: "92428849"
    |urn： ietf： params： scim：架构：扩展： alertmedia：2.0： CustomAttribute： User： customer_user_id|String|
    |urn： ietf： params： scim：架构：扩展： alertmedia：2.0： CustomAttribute： User： user_type|String|
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 AlertMedia**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 AlertMedia** "。
 
 11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 AlertMedia 的组属性。 选为 " **匹配** " 属性的特性用于匹配 AlertMedia 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -154,11 +154,11 @@ ms.locfileid: "92428849"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为 AlertMedia 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 若要为 AlertMedia 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 AlertMediaAlertMedia 的用户和/或组。
+14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 AlertMediaAlertMedia 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

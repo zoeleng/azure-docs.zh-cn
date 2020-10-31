@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 58b57bd592ec0b302724f9339c0e0d48fed42d15
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281180"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097492"
 ---
 # <a name="optimize-request-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 的请求成本
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文介绍如何将读取和写入请求转换为 [请求单位](request-units.md) ，以及如何优化这些请求的费用。 读取操作包括点读取和查询。 写入操作包括插入、替换、删除和更新插入项。
 
@@ -34,7 +35,7 @@ Azure Cosmos DB 中的读取操作通常按以下方式按从最快/最高效到
 
 ### <a name="role-of-the-consistency-level"></a>一致性级别的角色
 
-使用 " **强** " 或 " **有限过期**" [一致性级别](consistency-levels.md)时，任何读取操作的 RU 开销 (点读取或查询) 会加倍。
+使用 " **强** " 或 " **有限过期** " [一致性级别](consistency-levels.md)时，任何读取操作的 RU 开销 (点读取或查询) 会加倍。
 
 ### <a name="point-reads"></a>点读取
 

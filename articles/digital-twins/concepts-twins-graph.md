@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3bf039eb099a5735c3528c1ba5b9c440d7787c43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440820"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097050"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>了解数字孪生及其克隆图形
 
-在 Azure 数字孪生解决方案中，环境中的实体由 Azure **数字孪生**表示。 数字克隆是一个自定义 [模型](concepts-models.md)的实例。 它可以通过 **关系** 连接到其他数字孪生以形成一个克隆 **图形**：此双子图形是整个环境的表示形式。
+在 Azure 数字孪生解决方案中，环境中的实体由 Azure **数字孪生** 表示。 数字克隆是一个自定义 [模型](concepts-models.md)的实例。 它可以通过 **关系** 连接到其他数字孪生以形成一个克隆 **图形** ：此双子图形是整个环境的表示形式。
 
 > [!TIP]
 > "Azure 数字孪生" 是指作为一个整体的 Azure 服务。 "数字双子 (s) " 或仅 " () " 的 "克隆" 指的是服务实例中的各个不同的节点。
@@ -25,13 +25,13 @@ ms.locfileid: "92440820"
 
 你需要将 *模型* 上传到服务，然后才能在 Azure 数字孪生实例中创建数字输出。 模型描述了一组属性、遥测消息和特定的非特定克隆可以具有的关系，等等。 有关在模型中定义的信息类型，请参阅 [*概念：自定义模型*](concepts-models.md)。
 
-创建和上载模型后，客户端应用可以创建类型的实例;这是一种数字克隆。 例如，在创建*楼层*模型后，可以创建一个或多个使用此 (类型的数字孪生，例如名为*GroundFloor*的*楼层*类型，另一个称为*Floor2*，依此类推。 ) 。 
+创建和上载模型后，客户端应用可以创建类型的实例;这是一种数字克隆。 例如，在创建 *楼层* 模型后，可以创建一个或多个使用此 (类型的数字孪生，例如名为 *GroundFloor* 的 *楼层* 类型，另一个称为 *Floor2* ，依此类推。 ) 。 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>关系：数字孪生图形
 
 孪生通过其关系连接到一个克隆图形中。 克隆可以具有的关系定义为其模型的一部分。  
 
-例如，模型 *楼层* 可能定义一个 *contains* 关系，该关系面向孪生的类型 *空间*。 借助此定义，Azure 数字孪生将允许你创建 *包含* 从任何 *楼层* 到任何 *空间* 的源的关系， (包括) *空间* 子类型的孪生。 
+例如，模型 *楼层* 可能定义一个 *contains* 关系，该关系面向孪生的类型 *空间* 。 借助此定义，Azure 数字孪生将允许你创建 *包含* 从任何 *楼层* 到任何 *空间* 的源的关系， (包括) *空间* 子类型的孪生。 
 
 此过程的结果是一组节点 (数字孪生) 通过边缘 (它们在关系图中的关系) 连接的。
 
@@ -43,17 +43,20 @@ ms.locfileid: "92440820"
 
 ### <a name="create-digital-twins"></a>创建数字孪生
 
-下面是使用 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 来实例化类型 *空间*的克隆的客户端代码的代码段。
+下面是使用 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 来实例化类型 *空间* 的克隆的客户端代码的代码段。
 
-在当前预览的 Azure 数字孪生中，必须先初始化所有克隆的属性，然后才能创建克隆。 这是通过创建一个提供必要初始化值的 JSON 文档来完成的。
+您可以在创建克隆的属性时对其进行初始化，也可以在以后进行设置。 若要创建具有已初始化属性的克隆，请创建一个提供必要初始化值的 JSON 文档。
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-你还可以使用名为的帮助器类 `BasicDigitalTwin` ，以更直接的方式将属性字段存储在 "双子" 对象中，作为使用字典的替代方法。 有关帮助器类及其用法示例的详细信息，请参阅 how *to： Manage 数码孪生*中的[*创建数字*](how-to-manage-twin.md#create-a-digital-twin)大距离部分。
+你还可以使用名为的帮助器类 `BasicDigitalTwin` ，以更直接的方式将属性字段存储在 "双子" 对象中，作为使用字典的替代方法。 有关帮助器类及其用法示例的详细信息，请参阅 how *to： Manage 数码孪生* 中的 [*创建数字*](how-to-manage-twin.md#create-a-digital-twin)大距离部分。
+
+>[!NOTE]
+>虽然对克隆属性进行处理是可选的，因此不必对其进行初始化，而是在创建克隆时 **，需要设置** 克隆上的所有 [组件](concepts-models.md#elements-of-a-model)。 它们可以是空对象，但组件本身必须存在。
 
 ### <a name="create-relationships"></a>创建关系
 
-下面是一些客户端代码示例，它使用[DigitalTwins api](/rest/api/digital-twins/dataplane/twins)在名为*GroundFloor*的*楼层*类型数字硬编码与称为*咖啡馆*的*房间*类型数字硬编码之间建立关系。
+下面是一些客户端代码示例，它使用 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins)在名为 *GroundFloor* 的 *楼层* 类型数字硬编码与称为 *咖啡馆* 的 *房间* 类型数字硬编码之间建立关系。
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -85,7 +88,7 @@ try
 | --- | --- |
 | `$dtId` | 一个用户提供的字符串，表示数字硬编码的 ID |
 | `$etag` | Web 服务器分配的标准 HTTP 字段 |
-| `$conformance` | 包含此数字克隆的一致性状态的枚举 (*相容*、 *不相容*、 *未知*)  |
+| `$conformance` | 包含此数字克隆的一致性状态的枚举 ( *相容* 、 *不相容* 、 *未知* )  |
 | `{propertyName}` | JSON 中的属性的值 (`string` 、数字类型或对象)  |
 | `$relationships` | 关系集合的路径的 URL。 如果数字双子没有传出关系边缘，则不存在此字段。 |
 | `$metadata.$model` | 可有可无表示此数字输出的模型接口 ID |

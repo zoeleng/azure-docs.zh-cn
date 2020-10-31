@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5ba765f03e7ac700fb4338e14358fc55e6423c47
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044371"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097033"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Azure 数字孪生中的查询单位 
 
-Azure 数字孪生**Query unit (QU) **是一个按需计算单元，用于使用[查询 API](/rest/api/digital-twins/dataplane/query)执行[Azure 数字孪生查询](how-to-query-graph.md)。 
+Azure 数字孪生 **Query unit (QU)** 是一个按需计算单元，用于使用 [查询 API](/rest/api/digital-twins/dataplane/query)执行 [Azure 数字孪生查询](how-to-query-graph.md)。 
 
 它提取了执行 Azure 数字孪生所支持的查询操作所需的系统资源（如 CPU、IOPS 和内存），使您可以改为跟踪查询单位的使用情况。
 
@@ -70,4 +70,4 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 * [*操作方法：查询双子图形*](how-to-query-graph.md)
 * [查询 API 参考文档](/rest/api/digital-twins/dataplane/query/querytwins)
 
-可在引用中找到 Azure 数字孪生查询相关限制 [*：公共预览版中的服务限制*](reference-service-limits.md)。
+可在引用中找到 Azure 数字孪生与查询相关的限制 [*：服务限制*](reference-service-limits.md)。

@@ -7,18 +7,19 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 1e190c9f06dc2c662760421b7240eafdf22986b0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a77f039ea266e10130b6460855f989ab317a20ba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491302"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097662"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>使用 Striim 将数据迁移到 Azure Cosmos DB SQL API 帐户
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
  
 Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure 的持续实时数据移动。 在移动数据时，可以执行内联的非规范化、数据转换、启用实时分析和数据报告方案。 Striim 可以轻松地开始将企业数据移动到 Azure Cosmos DB SQL API。 Azure 提供了一种 marketplace 产品，可让你轻松地部署 Striim 并将数据迁移到 Azure Cosmos DB。 
 
-本文介绍如何使用 Striim 将数据从 **Oracle 数据库** 迁移到 **Azure Cosmos DB SQL API 帐户**。
+本文介绍如何使用 Striim 将数据从 **Oracle 数据库** 迁移到 **Azure Cosmos DB SQL API 帐户** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -30,11 +31,11 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
 1. 登录到 [Azure 门户](https://portal.azure.com/)。
 
-1. 选择 " **创建资源** "，在 Azure marketplace 中搜索 **Striim** 。 选择第一个选项，然后选择 " **创建**"。
+1. 选择 " **创建资源** "，在 Azure marketplace 中搜索 **Striim** 。 选择第一个选项，然后选择 " **创建** "。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" 窗格中，输入 **vm 用户名**、 **vm 密码** (此密码用于通过 SSH 连接到 VM) 。 选择你想要在其中部署 Striim 的 **订阅**、 **资源组**和 **位置详细信息** 。 完成后，选择 **"确定"**。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" 窗格中，输入 **vm 用户名** 、 **vm 密码** (此密码用于通过 SSH 连接到 VM) 。 选择你想要在其中部署 Striim 的 **订阅** 、 **资源组** 和 **位置详细信息** 。 完成后，选择 **"确定"** 。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="查找 Striim marketplace 项&quot;:::
 
@@ -56,7 +57,7 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
 1. 使用 Azure 门户创建 [AZURE COSMOS DB SQL API 帐户](create-cosmosdb-resources-portal.md) 。
 
-1. 导航到 Azure Cosmos 帐户中的 " **数据资源管理器** " 窗格。 选择 " **新建容器** " 以创建一个新容器。 假设要将 *产品* 和 *订单* 数据从 Oracle 数据库迁移到 Azure Cosmos DB。 使用名为**Orders**的容器创建名为**StriimDemo**的新数据库。 使用 **1000** ru 预配容器 (此示例使用 1000 ru，但应使用工作负荷的估计吞吐量) ，并 **/ORDER_ID** 作为分区键。 根据源数据的不同，这些值会有所不同。 
+1. 导航到 Azure Cosmos 帐户中的 " **数据资源管理器** " 窗格。 选择 " **新建容器** " 以创建一个新容器。 假设要将 *产品* 和 *订单* 数据从 Oracle 数据库迁移到 Azure Cosmos DB。 使用名为 **Orders** 的容器创建名为 **StriimDemo** 的新数据库。 使用 **1000** ru 预配容器 (此示例使用 1000 ru，但应使用工作负荷的估计吞吐量) ，并 **/ORDER_ID** 作为分区键。 根据源数据的不同，这些值会有所不同。 
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png" alt-text="查找 Striim marketplace 项&quot;:::
 
@@ -134,23 +135,23 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-with-template.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **Oracle CDC "以 Azure Cosmos DB**。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **Oracle CDC "以 Azure Cosmos DB** 。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" 作为读取 Oracle 数据的读取器。 选择“下一步”继续。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" 作为读取 Oracle 数据的读取器。 选择“下一步”继续操作  。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **下一步**"。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **下一步** "。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/validate-source-parameters.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **下一步**"。 
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **下一步** "。 
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/select-source-tables.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **下一步**"。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **下一步** "。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-target-parameters.png" alt-text="查找 Striim marketplace 项&quot;:::
 
@@ -162,13 +163,13 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/deploy-using-default-option.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **启动应用**"。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **启动应用** "。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-app.png" alt-text="查找 Striim marketplace 项&quot;:::
 
 1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息":::
 
-1. 通过使用 **CDC (变更数据捕获) ** 读取器，Striim 只会选取数据库的新更改。 如果数据流经了源表，就会看到它。 不过，由于这是一个演示表，因此源未连接到任何应用程序。 如果使用示例数据生成器，可以将事件链插入 Oracle 数据库。
+1. 通过使用 **CDC (变更数据捕获)** 读取器，Striim 只会选取数据库的新更改。 如果数据流经了源表，就会看到它。 不过，由于这是一个演示表，因此源未连接到任何应用程序。 如果使用示例数据生成器，可以将事件链插入 Oracle 数据库。
 
 1. 你将看到数据流经 Striim 平台。 Striim 还会选取与表关联的所有元数据，这对于监视数据和确保数据落在适当的目标上非常有用。
 

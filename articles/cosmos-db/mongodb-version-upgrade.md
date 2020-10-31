@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409657"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096302"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>升级 Azure Cosmos DB API for MongoDB 帐户的 MongoDB 线路协议版本
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本文介绍如何升级适用于 MongoDB 帐户的 Azure Cosmos DB 的 API 的网络协议版本。 升级无线协议版本后，可以使用 Azure Cosmos DB 的 API for MongoDB 中的最新功能。 升级过程不会中断帐户的可用性，也不会在任何时间点使用 RU/秒或降低数据库的容量。 此过程不会影响现有数据或索引。
 
@@ -37,7 +38,7 @@ ms.locfileid: "91409657"
 
 ### <a name="changes-from-version-32"></a>版本3.2 中的更改
 
-- **RequestRateIsLarge 错误**已被删除。 来自客户端应用程序的请求将不再返回16500错误。 相反，请求将继续执行，直到完成或完成超时。
+- **RequestRateIsLarge 错误** 已被删除。 来自客户端应用程序的请求将不再返回16500错误。 相反，请求将继续执行，直到完成或完成超时。
 - 每个请求超时设置为60秒。
 - 默认情况下，在新的线路协议版本上创建的 MongoDB 集合将仅 `_id` 索引属性。
 
@@ -49,7 +50,7 @@ ms.locfileid: "91409657"
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-你需要将应用程序和驱动程序中的现有终结点替换为此数据库帐户。 **只有使用新终结点的连接才能访问 MongoDB 版本3.6 中的功能**。 前一个终结点应具有后缀 `.documents.azure.com` 。
+你需要将应用程序和驱动程序中的现有终结点替换为此数据库帐户。 **只有使用新终结点的连接才能访问 MongoDB 版本3.6 中的功能** 。 前一个终结点应具有后缀 `.documents.azure.com` 。
 
 >[!Note]
 > 如果你的帐户是在主权、政府或受限制的 Azure 云中创建的，则此终结点可能会略有不同。
@@ -80,7 +81,7 @@ ms.locfileid: "91409657"
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Azure 门户与 MongoDB 帐户概述" border="false":::
 
-7. **若要开始使用数据库帐户的升级版本**，请返回到 `Overview` 边栏选项卡，并复制要在应用程序中使用的新连接字符串。 当应用程序连接到新终结点后，将立即开始使用升级后的版本。 现有连接不会中断，并且可以在方便时进行更新。 为了确保获得一致的体验，所有应用程序都必须使用新的终结点。
+7. **若要开始使用数据库帐户的升级版本** ，请返回到 `Overview` 边栏选项卡，并复制要在应用程序中使用的新连接字符串。 当应用程序连接到新终结点后，将立即开始使用升级后的版本。 现有连接不会中断，并且可以在方便时进行更新。 为了确保获得一致的体验，所有应用程序都必须使用新的终结点。
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Azure 门户与 MongoDB 帐户概述" border="false":::
 

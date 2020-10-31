@@ -6,14 +6,15 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 38129c920b422babfedf5d40bb362c7552f6f712
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8721c0eb728f568521e86baecb658dc9c869a7f6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951955"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097577"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>用于将本地或云数据迁移到 Azure Cosmos DB 的选项
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 可将各种数据源中的数据加载到 Azure Cosmos DB。 由于 Azure Cosmos DB 支持多个 API，因此目标可以是任何现有的 API。 下面是用于将数据迁移到 Azure Cosmos DB 的一些方案：
 
@@ -28,15 +29,15 @@ ms.locfileid: "91951955"
 
 以下因素决定了迁移工具的选择：
 
-* **联机与脱机迁移**：许多迁移工具提供的路径仅限一次性迁移。 这意味着，访问数据库的应用程序可能会出现一段时间的停机。 某些迁移解决方案提供实时迁移的方式，这需要在源与目标之间设置复制管道。
+* **联机与脱机迁移** ：许多迁移工具提供的路径仅限一次性迁移。 这意味着，访问数据库的应用程序可能会出现一段时间的停机。 某些迁移解决方案提供实时迁移的方式，这需要在源与目标之间设置复制管道。
 
-* **数据源**：现有数据可以位于各种数据源中，例如 Oracle DB2、Datastax Cassanda、Azure SQL Database、PostgreSQL 等。数据还可以位于现有的 Azure Cosmos DB 帐户中，迁移的意图可以是更改数据模型，或者使用不同的分区键对容器中的数据重新分区。
+* **数据源** ：现有数据可以位于各种数据源中，例如 Oracle DB2、Datastax Cassanda、Azure SQL Database、PostgreSQL 等。数据还可以位于现有的 Azure Cosmos DB 帐户中，迁移的意图可以是更改数据模型，或者使用不同的分区键对容器中的数据重新分区。
 
-* **Azure Cosmos DB API**：对于 Azure Cosmos DB 中的 SQL API，Azure Cosmos DB 团队开发了各种工具来帮助实现不同的迁移方案。 所有其他 API 具有自身的，由社区开发和维护的专业工具集。 由于 Azure Cosmos DB 在网络协议级别支持这些 API，因此，在将数据迁移到 Azure Cosmos DB 时，这些工具也应按原样运行。 但是，它们可能需要对限制进行自定义的处理，因为此概念特定于 Azure Cosmos DB。
+* **Azure Cosmos DB API** ：对于 Azure Cosmos DB 中的 SQL API，Azure Cosmos DB 团队开发了各种工具来帮助实现不同的迁移方案。 所有其他 API 具有自身的，由社区开发和维护的专业工具集。 由于 Azure Cosmos DB 在网络协议级别支持这些 API，因此，在将数据迁移到 Azure Cosmos DB 时，这些工具也应按原样运行。 但是，它们可能需要对限制进行自定义的处理，因为此概念特定于 Azure Cosmos DB。
 
-* **数据大小**：大多数迁移工具非常适合用于较小的数据集。 如果数据集超过几百 GB，则迁移工具的选择将受到限制。 
+* **数据大小** ：大多数迁移工具非常适合用于较小的数据集。 如果数据集超过几百 GB，则迁移工具的选择将受到限制。 
 
-* **预期的迁移持续时间**：可将迁移配置为以递增步调缓慢进行，以减少消耗的吞吐量；或者，可将其配置为消耗针对目标 Azure Cosmos DB 容器预配的整个吞吐量，以便更快地完成迁移。
+* **预期的迁移持续时间** ：可将迁移配置为以递增步调缓慢进行，以减少消耗的吞吐量；或者，可将其配置为消耗针对目标 Azure Cosmos DB 容器预配的整个吞吐量，以便更快地完成迁移。
 
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
 

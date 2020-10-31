@@ -7,18 +7,19 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 749e0f7c2d79c03be052869d7d1d9539976a09c5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a9545bcbb8fbb71143b91a764795986f519c2262
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489296"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097755"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>使用 Striim 将数据迁移到 Azure Cosmos DB Cassandra API 帐户
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure 的持续实时数据移动。 在移动数据时，可以执行内联的非规范化、数据转换、启用实时分析和数据报告方案。 Striim 可以轻松地开始将企业数据移动到 Azure Cosmos DB Cassandra API。 Azure 提供了一种 marketplace 产品，可让你轻松地部署 Striim 并将数据迁移到 Azure Cosmos DB。 
 
-本文介绍如何使用 Striim 将数据从 **Oracle 数据库** 迁移到 **Azure Cosmos DB Cassandra API 帐户**。
+本文介绍如何使用 Striim 将数据从 **Oracle 数据库** 迁移到 **Azure Cosmos DB Cassandra API 帐户** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -30,11 +31,11 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
 1. 登录到 [Azure 门户](https://portal.azure.com/)。
 
-1. 选择 " **创建资源** "，在 Azure marketplace 中搜索 **Striim** 。 选择第一个选项，然后选择 " **创建**"。
+1. 选择 " **创建资源** "，在 Azure marketplace 中搜索 **Striim** 。 选择第一个选项，然后选择 " **创建** "。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" 窗格中，输入 **vm 用户名**、 **vm 密码** (此密码用于通过 SSH 连接到 VM) 。 选择你想要在其中部署 Striim 的 **订阅**、 **资源组**和 **位置详细信息** 。 完成后，选择 **"确定"**。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" 窗格中，输入 **vm 用户名** 、 **vm 密码** (此密码用于通过 SSH 连接到 VM) 。 选择你想要在其中部署 Striim 的 **订阅** 、 **资源组** 和 **位置详细信息** 。 完成后，选择 **"确定"** 。
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="查找 Striim marketplace 项&quot;:::
 
@@ -134,7 +135,7 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/start-app-from-scratch.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **保存**"。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **保存** "。
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-new-application.png" alt-text="查找 Striim marketplace 项&quot;:::
 
@@ -144,7 +145,7 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
 1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息":::
 
-1. 输入 Oracle 实例的源配置属性。 源名称只是 Striim 应用程序的命名约定，您可以使用诸如  **src_onPremOracle**的名称。 还应输入其他详细信息，如适配器类型、连接 URL、用户名、密码和表名。 选择“保存”以继续操作。****
+1. 输入 Oracle 实例的源配置属性。 源名称只是 Striim 应用程序的命名约定，您可以使用诸如  **src_onPremOracle** 的名称。 还应输入其他详细信息，如适配器类型、连接 URL、用户名、密码和表名。 选择“保存”以继续操作。 
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-source-parameters.png" alt-text="查找 Striim marketplace 项&quot;:::
 
@@ -154,7 +155,7 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
 1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" 以继续。 下面是要注意的关键参数：
 
-   * **适配器** -使用 **DatabaseWriter**。 写入 Azure Cosmos DB Cassandra API 时，DatabaseWriter 是必需的。 Cassandra 驱动程序3.6.0 与 Striim 捆绑在一起。 如果 DatabaseWriter 超过了 Azure Cosmos 容器上预配的 ru 数，应用程序会崩溃。
+   * **适配器** -使用 **DatabaseWriter** 。 写入 Azure Cosmos DB Cassandra API 时，DatabaseWriter 是必需的。 Cassandra 驱动程序3.6.0 与 Striim 捆绑在一起。 如果 DatabaseWriter 超过了 Azure Cosmos 容器上预配的 ru 数，应用程序会崩溃。
 
    * **连接 URL** -指定 Azure Cosmos DB JDBC 连接 url。 URL 的格式为     `jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
@@ -172,17 +173,17 @@ Azure marketplace 中的 Striim 映像提供从数据仓库和数据库到 Azure
 
 1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息":::
 
-1. 现在，我们将继续运行 Striim 应用程序。 在上部菜单栏中，选择 "已 **创建**"，然后 **部署应用**。 在部署窗口中，可以指定是否要在部署拓扑的特定部分上运行应用程序的某些部分。 由于我们通过 Azure 在简单的部署拓扑中运行，因此我们将使用默认选项。
+1. 现在，我们将继续运行 Striim 应用程序。 在上部菜单栏中，选择 "已 **创建** "，然后 **部署应用** 。 在部署窗口中，可以指定是否要在部署拓扑的特定部分上运行应用程序的某些部分。 由于我们通过 Azure 在简单的部署拓扑中运行，因此我们将使用默认选项。
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/deploy-the-app.png" alt-text="查找 Striim marketplace 项&quot;:::
 
-1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **启动应用**"。
+1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息" **启动应用** "。
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/start-the-app.png" alt-text="查找 Striim marketplace 项&quot;:::
 
 1. 接下来，输入 Striim 实例的配置属性。 Striim 环境部署在虚拟机中。 在 &quot; **基本** 信息":::
 
-1. 通过使用 **CDC (变更数据捕获) ** 读取器，Striim 只会选取数据库的新更改。 如果数据流经了源表，就会看到它。 不过，由于这是一个示例表，因此未连接到任何应用程序的源。 如果使用示例数据生成器，可以将事件链插入 Oracle 数据库。
+1. 通过使用 **CDC (变更数据捕获)** 读取器，Striim 只会选取数据库的新更改。 如果数据流经了源表，就会看到它。 不过，由于这是一个示例表，因此未连接到任何应用程序的源。 如果使用示例数据生成器，可以将事件链插入 Oracle 数据库。
 
 1. 你将看到数据流经 Striim 平台。 Striim 还会选取与表关联的所有元数据，这对于监视数据和确保数据落在适当的目标上非常有用。
 

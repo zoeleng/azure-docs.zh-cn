@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783073"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095554"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>使用 GitHub Actions 部署到应用服务
 
@@ -74,6 +74,9 @@ ms.locfileid: "92783073"
 1. 在 " **概述** " 页上，选择 " **获取发布配置文件** "。
 
 1. 保存下载的文件。 你将使用该文件的内容来创建 GitHub 机密。
+
+> [!NOTE]
+> 从2020年10月起，Linux web 应用在 `WEBSITE_WEBDEPLOY_USE_SCM` `true` **下载发布配置文件之前** ，需要将应用设置设置为。 此要求将在将来删除。
 
 # <a name="service-principal"></a>[服务主体](#tab/userlevel)
 

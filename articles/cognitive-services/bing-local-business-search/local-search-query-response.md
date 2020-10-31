@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e26d128fea7208206be8a7329522f8202051215
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74326719"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095401"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>发送和使用必应当地企业搜索 API 查询和响应
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 可以通过向必应当地企业搜索 API 的终结点发送搜索查询并包含必需的 `Ocp-Apim-Subscription-Key` 标头，从该 API 获取当地查询结果。 除了使用可用的[标头](local-search-reference.md#headers)和[参数](local-search-reference.md#query-parameters)以外，还可以通过指定要搜索的区域的[地理边界](specify-geographic-search.md)以及要返回的地点的[类别](local-search-query-response.md)，来自定义搜索。
 
@@ -60,7 +65,7 @@ API 返回的 JSON 结果包含以下属性：
 * address
 * entityPresentationInfo
 * 地区
-* ID
+* id
 * name
 * routeablePoint
 * telephone

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc285599176057c57621dc6bfefbe9188d3badd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370757"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096880"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>使用 Azure Cosmos DB 和 Power BI 创建实时仪表板
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍使用 Azure Cosmos DB 和 Azure Analysis Services 在 Power BI 中创建实时天气仪表板所需执行的步骤。 Power BI 仪表板将会显示图表，以便显示有关区域中的气温和降水量的实时信息。
 
@@ -55,7 +56,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/cosmosdb-powerbi-connector.png" alt-text="Azure Cosmos DB Power BI 连接器":::
 
-1. **配置增量刷新** - 遵循[使用 Power BI 进行增量刷新](/power-bi/service-premium-incremental-refresh)一文中的步骤，为数据集配置增量刷新。 按以下屏幕截图中所示添加 **RangeStart** 和 **RangeEnd** 参数：
+1. **配置增量刷新** - 遵循 [使用 Power BI 进行增量刷新](/power-bi/service-premium-incremental-refresh)一文中的步骤，为数据集配置增量刷新。 按以下屏幕截图中所示添加 **RangeStart** 和 **RangeEnd** 参数：
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/configure-range-parameters.png" alt-text="Azure Cosmos DB Power BI 连接器" = Table.SelectRows(#"Expanded Document", each [Document.date] > DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd"))
    ```
@@ -70,7 +71,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
    |Date（例如：- 2019-08-11 12:00:00）   |  String       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
 
-1. **定义刷新策略** - 导航到表的**上下文**菜单中的“增量刷新”选项卡来定义刷新策略。  将刷新策略设置为**每日**刷新并存储上个月的数据。
+1. **定义刷新策略** - 导航到表的 **上下文** 菜单中的“增量刷新”选项卡来定义刷新策略。  将刷新策略设置为 **每日** 刷新并存储上个月的数据。
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Azure Cosmos DB Power BI 连接器":::
 
@@ -91,7 +92,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>将 Azure Analysis Services 连接到 Azure Cosmos 帐户
 
-1. **创建新的 Azure Analysis Services 群集**  -  在 Azure Cosmos 帐户和 Databricks 群集所在的同一区域中[创建 Azure Analysis Services 的实例](../analysis-services/analysis-services-create-server.md)。
+1. **创建新的 Azure Analysis Services 群集**  -  在 Azure Cosmos 帐户和 Databricks 群集所在的同一区域中 [创建 Azure Analysis Services 的实例](../analysis-services/analysis-services-create-server.md)。
 
 1. **在 Visual Studio 中创建新的 Analysis Services 表格项目**  -   [安装 SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true)，并在 Visual Studio 中创建一个 Analysis Services 表格项目。
 
@@ -105,7 +106,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Azure Cosmos DB Power BI 连接器":::
 
-   提供**帐户 URI**、**数据库名称**和**容器名称**以连接到 Azure Cosmos DB。 现在可以看到，Azure Cosmos 容器中的数据已导入到 Power BI 中。
+   提供 **帐户 URI** 、 **数据库名称** 和 **容器名称** 以连接到 Azure Cosmos DB。 现在可以看到，Azure Cosmos 容器中的数据已导入到 Power BI 中。
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Azure Cosmos DB Power BI 连接器":::
 

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475458"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097458"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 通过提供预配的吞吐量模型，Azure Cosmos DB 可在任何规模下提供可预测的性能。 预留或提前预配吞吐量消除了对性能造成的“干扰性邻居影响”。 只需指定所需的确切吞吐量，然后，Azure Cosmos DB 就能确保配置的吞吐量，并以 SLA 作为保障。
 
@@ -30,7 +31,7 @@ ms.locfileid: "92475458"
 
 下面是确定预配吞吐量策略时可以参考的一些指导原则：
 
-**对于以下情况，考虑针对 Azure Cosmos 数据库（包含一组容器）预配吞吐量**：
+**对于以下情况，考虑针对 Azure Cosmos 数据库（包含一组容器）预配吞吐量** ：
 
 1. 有几十个 Azure Cosmos 容器，并想要在部分或所有容器之间共享吞吐量。 
 
@@ -54,7 +55,7 @@ ms.locfileid: "92475458"
 
 如下表中所示，根据所选的 API，可以不同的粒度预配吞吐量。
 
-|API|对于**共享**吞吐量，请配置 |对于**专用**吞吐量，请配置 |
+|API|对于 **共享** 吞吐量，请配置 |对于 **专用** 吞吐量，请配置 |
 |----|----|----|
 |SQL API|数据库|容器|
 |Azure Cosmos DB 的用于 MongoDB 的 API|数据库|集合|

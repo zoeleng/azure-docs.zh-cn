@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 模拟器的命令行和 PowerShell 参考
-description: 了解 Azure Cosmos DB 模拟器的命令行参数，如何用 PowerShell 控制模拟器，以及如何更改可在模拟器中创建的容器数。
+description: 了解 Azure Cosmos DB 模拟器的命令行参数、如何使用 PowerShell 控制模拟器以及如何更改可以在模拟器中创建的容器数。
 ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445177"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096727"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Azure Cosmos DB 模拟器的命令行和 PowerShell 参考
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境，用于本地开发目的。 [安装仿真程序](local-emulator.md)后，可以通过命令行和 PowerShell 命令控制模拟器。 本文介绍如何使用命令行和 PowerShell 命令来启动和停止模拟器、配置选项和执行其他操作。 必须从安装位置运行命令。
+为方便本地开发，Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 [安装模拟器](local-emulator.md)后，可以通过命令行和 PowerShell 命令控制模拟器。 本文介绍如何使用命令行和 PowerShell 命令启动和停止模拟器、配置选项和执行其他操作。 必须从安装位置运行命令。
 
 ##  <a name="manage-the-emulator-with-command-line-syntax"></a><a id="command-line"></a>用命令行语法管理模拟器
 
@@ -28,7 +29,7 @@ Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort]
 
 |**选项** | **说明** | **命令**| **参数**|
 |---|---|---|---|
-|[无参数] | 用默认设置启动 Azure Cosmos 模拟器。 |Microsoft.Azure.Cosmos.Emulator.exe| |
+|[无参数] | 使用默认设置启动 Azure Cosmos 模拟器。 |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[帮助] |显示支持的命令行参数列表。|Microsoft.Azure.Cosmos.Emulator.exe /? | |
 | GetStatus |获取 Azure Cosmos 模拟器的状态。 状态由退出代码指示：1 = 正在启动，2 = 正在运行，3 = 已停止。 退出代码为负表示发生了错误。 不生成其他输出。 | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
 | 关机| 关闭 Azure Cosmos 模拟器。| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
@@ -50,10 +51,10 @@ Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort]
 | StopTraces     | 停止使用 LOGMAN 收集调试跟踪日志。 | Microsoft.Azure.Cosmos.Emulator.exe /StopTraces  | |
 | StartWprTraces  |  开始使用 Windows 性能记录工具收集调试跟踪日志。 | Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces | |
 | StopWprTraces     | 停止使用 Windows 性能记录工具收集调试跟踪日志。 | Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces  | |
-|FailOnSslCertificateNameMismatch | 默认情况下，如果证书的 SAN 不包含模拟器主机的域名、本地 IPv4 地址、"localhost" 和 "127.0.0.1"，则模拟器会重新生成其自签名的 TLS/SSL 证书。 启用此选项后，模拟器在启动时会失败。 然后，你应使用 /GenCert 选项来创建并安装新的自签名 TLS/SSL 证书。 | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | 生成并安装新的自签名 TLS/SSL 证书。 （可选）包括以逗号分隔的列表，其中包含用于通过网络访问模拟器的其他 DNS 名称。 | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>：其他 dns 名称的逗号分隔列表（可选）  |
+|FailOnSslCertificateNameMismatch | 默认情况下，模拟器会重新生成自签名的 TLS/SSL 证书（如果证书的 SAN 不包含模拟器主机的域名、本地 IPv4 地址、“localhost”和“127.0.0.1”）。 启用此选项后，模拟器在启动时会失败。 然后，你应使用 /GenCert 选项来创建并安装新的自签名 TLS/SSL 证书。 | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
+| GenCert | 生成并安装新的自签名 TLS/SSL 证书。 选择性地包含用于通过网络访问模拟器的其他 DNS 名称的列表（以逗号分隔）。 | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>：其他 dns 名称的逗号分隔列表（可选）  |
 | DirectPorts |指定用于直接连接的端口。 默认值为 10251、10252、10253、10254。 | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<directports\>：以逗号分隔的 4 个端口的列表 |
-| 密钥 |模拟器的授权密钥。 密钥必须是 64 字节向量的 base 64 编码。 | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<key\>：密钥必须是 64 字节向量的 base 64 编码|
+| 键 |模拟器的授权密钥。 密钥必须是 64 字节向量的 base 64 编码。 | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<key\>：密钥必须是 64 字节向量的 base 64 编码|
 | EnableRateLimiting | 指定已启用请求速率限制行为。 |Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting | |
 | DisableRateLimiting |指定已禁用请求速率限制行为。 |Microsoft.Azure.Cosmos.Emulator.exe /DisableRateLimiting | |
 | NoUI | 不显示模拟器用户界面。 | Microsoft.Azure.Cosmos.Emulator.exe /NoUI | |
@@ -124,18 +125,18 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 卸载模拟器，并可视需要删除 $env:LOCALAPPDATA\CosmosDbEmulator 的完整内容。
 此 cmdlet 可确保在卸载模拟器之前，模拟器已停止。
 
-## <a name="change-the-number-of-default-containers"></a><a id="set-partitioncount"></a>更改默认容器的数目
+## <a name="change-the-number-of-default-containers"></a><a id="set-partitioncount"></a>更改默认容器数量
 
 默认情况下，可最多创建 25 个固定大小的容器（仅支持使用 Azure Cosmos DB SDK 创建），或使用 Azure Cosmos 模拟器创建 5 个不受限容器。 通过修改 PartitionCount 值，可最多创建 250 个固定大小的容器或 50 个不受限容器，也可创建两者的任意组合（前提是总数不超过 250 个固定大小的容器，其中 1 个不受限容器 = 5 个固定大小的容器）。 但是，建议不要设置用 200 个以上固定大小的容器进行运行的模拟器。 因为这会造成磁盘 IO 操作的开销增加，导致在运行终结点 API 时出现不可预测的超时情况。
 
 如果在已超过当前分区计数后尝试创建容器，则模拟器将引发 ServiceUnavailable 异常，并收到以下消息。
 
-> 很抱歉，我们当前在此区域中遇到了高需求，此时无法完成你的请求。 我们在持续努力推出越来越多的容量，请进行重试。
-> ActivityId：12345678-1234-1234-1234-123456789abc
+> 很抱歉，此区域当前需求较高，暂时无法满足你的请求。 我们在持续努力推出越来越多的容量，请进行重试。
+> ActivityId:12345678-1234-1234-1234-123456789abc
 
 要更改 Azure Cosmos 模拟器中可用容器的数量，请执行以下步骤：
 
-1. 右键单击系统托盘上的 " **Azure Cosmos DB 模拟器** " 图标，然后单击 " **重置数据 ...**"，删除所有本地 Azure Cosmos 模拟器数据。
+1. 在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，并单击“重置数据...”，删除所有本地 Azure Cosmos 模拟器数据 。
 
 1. 删除文件夹 `%LOCALAPPDATA%\CosmosDBEmulator` 中的所有模拟器数据。
 
@@ -147,5 +148,5 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
  
 ## <a name="next-steps"></a>后续步骤
 
-* [导出 Azure Cosmos 模拟器证书以用于 Java、Python 和 Node.js 应用](local-emulator-export-ssl-certificates.md)
-* [调试模拟器的问题](troubleshoot-local-emulator.md)
+* [导出供 Java、Python 和 Node.js 应用使用的 Azure Cosmos 模拟器证书](local-emulator-export-ssl-certificates.md)
+* [使用模拟器调试问题](troubleshoot-local-emulator.md)

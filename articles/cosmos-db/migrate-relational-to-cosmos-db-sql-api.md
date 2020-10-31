@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 3aec6cf2fa515d71b93d84cf8c4fc901fc847162
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53a3317f38cc22ffa3745f5f0e58cc01a54b825c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487426"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096740"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>将一对多关系数据迁移到 Azure Cosmos DB SQL API 帐户中
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 若要从关系数据库迁移到 Azure Cosmos DB SQL API，可能需要更改数据模型以进行优化。
 
@@ -54,7 +55,7 @@ FROM Orders o;
 
 可通过以下方式之一解决当前的这种限制：
 
-* **使用包含两个复制活动的 Azure 数据工厂**： 
+* **使用包含两个复制活动的 Azure 数据工厂** ： 
   1. 将 SQL 中的 JSON 格式的数据提取到位于中间 Blob 存储位置的某个文本文件，并 
   2. 将 JSON 文本文件中的数据加载到 Azure Cosmos DB 中的某个容器。
 

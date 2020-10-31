@@ -7,14 +7,15 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ece814ea316fe62bc2b8b64036b08983f65ccbef
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096353"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>排查使用适用于 MongoDB 的 Azure Cosmos DB API 时的查询问题
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本文逐步说明排查 Azure Cosmos DB 中的查询问题的一般建议方法。 虽然不应将本文中所述的步骤视为针对潜在查询问题的完全防御方法，但我们在其中包含了最常见的性能提示。 在 Azure Cosmos DB 的 API for MongoDB 中，你应使用本文作为排查速度缓慢或开销较高的查询的起点。 如果使用 Azure Cosmos DB 核心 (SQL) API，请参阅 [SQL API 查询故障排除指南](troubleshoot-query-performance.md) 一文。
 
@@ -25,7 +26,7 @@ Azure Cosmos DB 中的查询优化广泛分类，如下所示：
 
 如果减少查询的 RU 费用，通常还会降低延迟。
 
-本文提供了可通过使用 [营养数据集](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)重新创建的示例。
+本文提供可使用 [nutrition 数据集](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)重新创建的示例。
 
 > [!NOTE] 
 > 本文假设使用的是版本3.6 的 Azure Cosmos DB "s API for MongoDB。 在版本3.2 中执行质量较差的某些查询在版本3.6 中进行了重大改进。 通过填写 [支持请求](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)来升级到版本3.6。
@@ -262,7 +263,7 @@ Azure Cosmos DB 的 MongoDB API 中的索引最佳做法不同于 MongoDB。 在
 
 大多数情况下，Azure Cosmos DB 的 MongoDB API 中的聚合操作将部分使用索引。 通常，查询引擎将首先应用相等和范围筛选器并使用索引。 应用这些筛选器后，查询引擎可以评估其他筛选器，并根据需要加载其余文档以计算聚合。 
 
-以下是一个示例：
+下面是一个示例：
 
 ```
 db.coll.aggregate( [

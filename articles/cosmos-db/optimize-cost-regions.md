@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 723a1fbe05919f2e797c7b29715cd3995bf42cad
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926286"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097496"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域成本
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 可随时对 Azure Cosmos 帐户添加或删除区域。 在与帐户关联的每个区域中会保留为各种 Azure Cosmos 数据库和容器配置的吞吐量。 如果每小时预配的吞吐量为你的 Azure Cosmos 帐户的所有数据库和容器中配置的 RU/s 的总和， `T` 以及与你的数据库帐户关联的 Azure 区域的数量为 `N` ，则给定小时的 Cosmos 帐户的总预配吞吐量为等于 `T x N RU/s` 。
 

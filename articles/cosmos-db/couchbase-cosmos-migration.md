@@ -7,14 +7,15 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097543"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>从 CouchBase 迁移到 Azure Cosmos DB SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 是一种可扩展、全球分布式、完全托管的数据库。 它能够确保数据访问延迟较低。 若要详细了解 Azure Cosmos DB，请参阅[概述](introduction.md)文章。 本文说明如何将连接到 Couchbase 的 Java 应用程序迁移到 Azure Cosmos DB 中的 SQL API 帐户。
 
@@ -37,7 +38,7 @@ Azure Cosmos DB 是一种可扩展、全球分布式、完全托管的数据库�
 
 * 在 Azure Cosmos DB 中，顶级层次结构无需表示集合，因为集合名称已存在。 此功能大幅简化了 JSON 结构。 以下示例展示了 Couchbase 与 Azure Cosmos DB 之间的数据模型差别：
 
-   **Couchbase**：文档 ID = "99FF4444"
+   **Couchbase** ：文档 ID = "99FF4444"
 
     ```json
     {
@@ -67,7 +68,7 @@ Azure Cosmos DB 是一种可扩展、全球分布式、完全托管的数据库�
     }
    ```
 
-   **Azure Cosmos DB**：引用文档中的“ID”，如下所示
+   **Azure Cosmos DB** ：引用文档中的“ID”，如下所示
 
     ```json
     {
@@ -311,7 +312,7 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 
 1. 考虑使用“/ID”作为主键，以确保可以直接在特定的分区中执行查找操作。 创建一个集合，并指定“/ID”作为分区键。
 
-1. 完全关闭索引功能。 由于执行的是查找操作，因此不会带来任何索引开销。 若要禁用索引功能，请登录到 Azure 门户并转到“Azure Cosmos DB 帐户”。 打开“数据资源管理器”，选择你的**数据库**和**容器**。 打开“规模和设置”选项卡，然后选择“索引策略”。  索引策略目前如下所示：
+1. 完全关闭索引功能。 由于执行的是查找操作，因此不会带来任何索引开销。 若要禁用索引功能，请登录到 Azure 门户并转到“Azure Cosmos DB 帐户”。 打开“数据资源管理器”，选择你的 **数据库** 和 **容器** 。 打开“规模和设置”选项卡，然后选择“索引策略”。  索引策略目前如下所示：
     
    ```json
    {

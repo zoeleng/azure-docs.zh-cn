@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 21821bbb41126a53c2b137bf1f5e5684ff1ae267
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475322"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096272"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -39,13 +40,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 此处列出的四个应用程序类型默认使用 32 位主机处理。 若要将你的应用程序类型的主机处理更改为 64 位处理，请执行以下步骤：
 
-- **对于可执行应用程序**：在“项目属性”窗口的“生成”窗格上，将[平台目标](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019)设置为“x64”。
+- **对于可执行应用程序** ：在“项目属性”窗口的“生成”窗格上，将 [平台目标](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019)设置为“x64”。
 
-- **对于基于 VSTest 的测试项目**：在 Visual Studio“测试”菜单上，选择“测试” > “测试设置”，然后将“默认处理器体系结构”设置为“X64”。  
+- **对于基于 VSTest 的测试项目** ：在 Visual Studio“测试”菜单上，选择“测试” > “测试设置”，然后将“默认处理器体系结构”设置为“X64”。  
 
-- **对于本地部署的 ASP.NET Web 应用程序**：选择“工具” > “选项” > “项目和解决方案” > “Web 项目”，然后选择“为网站和项目使用 64 位版本的 IIS Express”。    
+- **对于本地部署的 ASP.NET Web 应用程序** ：选择“工具” > “选项” > “项目和解决方案” > “Web 项目”，然后选择“为网站和项目使用 64 位版本的 IIS Express”。    
 
-- **对于在 Azure 上部署的 ASP.NET Web 应用程序**：在 Azure 门户的“应用程序设置”中，选择“64 位”平台。
+- **对于在 Azure 上部署的 ASP.NET Web 应用程序** ：在 Azure 门户的“应用程序设置”中，选择“64 位”平台。
 
 > [!NOTE] 
 > 新的 Visual Studio 项目默认设置为“任何 CPU”。 我们建议将项目设置为“x64”，使其不会切换到“x86”。  如果添加了仅限 x86 的依赖项，则设置为“任何 CPU”的项目可以轻松切换到“x86”。 <br/>
@@ -154,13 +155,13 @@ SQL .NET SDK 支持并行查询，使你能够并行查询分区的容器。 有
 
 并行查询提供两个参数，你可以根据要求优化这些参数： 
 
-- **MaxConcurrency**：控制可以并行查询的最大分区数。
+- **MaxConcurrency** ：控制可以并行查询的最大分区数。
 
    并行查询的工作原理是并行查询多个分区。 但就查询本身而言，会按顺序提取单个分区中的数据。 将 [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) 中的 `MaxConcurrency` 设置为分区数最有可能实现最高性能的查询，前提是所有其他的系统条件保持不变。 如果不知道分区数，可将并行度设置为较大的数字。 系统会选择最小值（分区数、用户提供的输入）作为并行度。
 
     如果查询时数据均衡分布在所有分区之间，则并行查询的优势最大。 如果对已分区的集合进行分区，使查询返回的全部或大部分数据集中于几个分区（最坏的情况为一个分区），则这些分区会使查询性能出现瓶颈。
    
-- **MaxBufferedItemCount**：控制预提取的结果数。
+- **MaxBufferedItemCount** ：控制预提取的结果数。
 
    并行查询设计为当客户端正在处理当前结果批时预提取结果。 这种预提取可帮助改善查询的总体延迟。 `MaxBufferedItemCount` 参数限制预提取的结果数。 将 `MaxBufferedItemCount` 设置为预期返回的结果数（或更大的数字）可让查询通过预提取获得最大优势。
 

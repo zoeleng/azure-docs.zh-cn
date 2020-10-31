@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: ae99f5fc1cd6f27c46f7a4444bc75b8c773b4f74
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d25cd7418ec34b8c4a4a53dba4892e85ed1a66d5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098070"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>什么是 Azure Synapse Link for Azure Cosmos DB（预览版）？
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > Azure Synapse Link for Azure Cosmos DB 目前以预览版提供。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -90,7 +91,7 @@ Azure Cosmos DB 分析存储是 Azure Cosmos DB 中的操作数据的面向列�
 
 此集成可为不同用户启用以下 HTAP 方案：
 
-* 一位 BI 工程师，想要建模和发布 Power BI 报表，以直接通过 Synapse SQL 访问 Azure Cosmos DB 中的实时操作数据。
+* BI 工程师，想要对 Power BI 报表建模后将其发布，以便通过 Synapse SQL 直接访问 Azure Cosmos DB 中的实时操作数据。
 
 * 数据分析人员，想要通过使用 Synapse SQL 查询 Azure Cosmos DB 容器中的操作数据来从中获得见解，大规模读取数据并将这些发现与其他数据源合并。
 
@@ -118,7 +119,7 @@ Azure Cosmos DB 分析存储是 Azure Cosmos DB 中的操作数据的面向列�
 
 * 目前，SQL API 和用于 MongoDB 的 Azure Cosmos DB API 支持 Azure Synapse Link for Azure Cosmos DB。 而 Gremlin API 和表 API 不支持它。 支持 Cassandra API 提供个人预览版，有关详细信息，请联系 [Azure Synapse 链接团队](mailto:cosmosdbsynapselink@microsoft.com)。  
 
-* 目前只能为新容器启用分析存储。 若要对现有容器使用分析存储，请使用 [Azure Cosmos DB 迁移工具](cosmosdb-migrationchoices.md)将数据从现有容器迁移到新容器。 可以在新的和现有 Azure Cosmos DB 帐户上启用 Synapse 链接。
+* 目前，只能为新容器启用分析存储。 若要对现有容器使用分析存储，可以使用 [Azure Cosmos DB 迁移工具](cosmosdb-migrationchoices.md)将数据从现有容器迁移到新容器。 可以在新的和现有的 Azure Cosmos DB 帐户上启用 Synapse Link。
 
 * 对于启用了分析存储的容器，此时不支持在分析存储中自动备份和还原数据。 如果在数据库帐户上启用了 Synapse 链接，Azure Cosmos DB 将继续自动将数据 [备份](./online-backup-and-restore.md) 到事务性存储区中， (只按计划的备份间隔) 容器。 需要特别注意的是，当启用了分析存储的容器被还原到新帐户时，将仅使用事务性存储来还原容器，而不会启用分析存储。 
 

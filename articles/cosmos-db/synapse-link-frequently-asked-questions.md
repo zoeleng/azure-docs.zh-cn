@@ -6,14 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480065"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098036"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>有关 Azure Synapse Link for Azure Cosmos DB 的常见问题
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 Azure Synapse Link for Azure Cosmos DB 在 Azure Cosmos DB 和 Azure Synapse Analytics 之间建立紧密的集成。 它使客户能够通过与事务工作负荷的完全性能隔离且无需 ETL 管道对其操作数据运行准实时分析。 本文解答有关 Synapse Link for Azure Cosmos DB 的常见问题。
 
@@ -84,7 +85,7 @@ Azure Cosmos DB 保证事务和分析工作负荷之间的性能隔离。 在容
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>从事务存储到分析存储的自动同步复制是异步的还是同步的，以及有哪些延迟？
 
-自动同步滞后时间通常在2分钟内。 对于包含大量容器的共享吞吐量数据库，每个容器的自动同步延迟可能会更高，最多需要5分钟。 我们想要详细了解此延迟如何适应你的方案。 为此，请联系 [Azure Cosmos DB 团队](mailto:cosmosdbsynapselink@microsoft.com)。
+自动同步延迟通常在 2 分钟内。 如果共享吞吐量数据库拥有大量容器，则单个容器的自动同步延迟可能会更高，最长可能达 5 分钟。 我们希望详细了解此延迟如何适应你的场景。 请联系 [Azure Cosmos DB 团队](mailto:cosmosdbsynapselink@microsoft.com)提供相关反馈。
 
 ### <a name="are-there-any-scenarios-where-the-items-from-the-transactional-store-are-not-automatically-propagated-to-the-analytical-store"></a>是否有事务存储中的项不会自动传播到分析存储的方案？
 

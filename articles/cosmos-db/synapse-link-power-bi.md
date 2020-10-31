@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8599ebf1932d7c30622855cbf38af867d30b52b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480031"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098053"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>使用 Power BI 和无服务器 Synapse SQL 池通过 Synapse 链接 (预览来分析 Azure Cosmos DB 数据)  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 本文介绍如何构建一个无服务器 Synapse SQL 池 (这种情况下，以前被称为 " **sql** 点播) 数据库" 和 "针对 Azure Cosmos DB 的 Synapse 的视图" 链接。 你将查询 Azure Cosmos 容器，然后生成一个模型，该模型通过这些视图 Power BI 来反映该查询。
 
@@ -31,17 +32,17 @@ ms.locfileid: "92480031"
 
 * 将产品数据加载到 Azure Cosmos 容器中，如此 [批处理数据引入](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) 笔记本中所述。
 
-* 创建一个名为**SynapseLinkBI**[的 Synapse 工作区](../synapse-analytics/quickstart-create-workspace.md)。
+* 创建一个名为 **SynapseLinkBI**[的 Synapse 工作区](../synapse-analytics/quickstart-create-workspace.md)。
 
 * [将 Azure Cosmos 数据库连接到 Synapse 工作区](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)。
 
 ## <a name="create-a-database-and-views"></a>创建数据库和视图
 
-在 Synapse 工作区中，请执行 " **开发** " 选项卡，选择 **+** 图标，然后选择 " **SQL 脚本**"。
+在 Synapse 工作区中，请执行 " **开发** " 选项卡，选择 **+** 图标，然后选择 " **SQL 脚本** "。
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="将 SQL 脚本添加到 Synapse 分析工作区":::
 
-每个工作区都附带一个无服务器的 SQL 终结点。 创建 SQL 脚本后，通过顶部工具栏上的工具栏， **按需**连接到 sql。
+每个工作区都附带一个无服务器的 SQL 终结点。 创建 SQL 脚本后，通过顶部工具栏上的工具栏， **按需** 连接到 sql。
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="将 SQL 脚本添加到 Synapse 分析工作区" 数据库。
 
@@ -100,11 +101,11 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 接下来，使用以下步骤打开 Power BI 桌面并连接到无服务器 SQL 终结点：
 
-1. 打开 Power BI Desktop 应用程序。 选择 " **获取数据** " 并选择 " **更多**"。
+1. 打开 Power BI Desktop 应用程序。 选择 " **获取数据** " 并选择 " **更多** "。
 
-1. 从连接选项列表中选择 " **Azure Synapse Analytics (SQL DW) ** 。
+1. 从连接选项列表中选择 " **Azure Synapse Analytics (SQL DW)** 。
 
-1. 输入数据库所在的 SQL 终结点的名称。 在 `SynapseLinkBI-ondemand.sql.azuresynapse.net` " **服务器** " 字段中输入。 在此示例中，  **SynapseLinkBI** 是工作区的名称。 如果为工作区指定了不同的名称，请替换此名称。 选择 "数据连接模式的 **直接查询** "，然后选择 **"确定"**。
+1. 输入数据库所在的 SQL 终结点的名称。 在 `SynapseLinkBI-ondemand.sql.azuresynapse.net` " **服务器** " 字段中输入。 在此示例中，  **SynapseLinkBI** 是工作区的名称。 如果为工作区指定了不同的名称，请替换此名称。 选择 "数据连接模式的 **直接查询** "，然后选择 **"确定"** 。
 
 1. 选择首选的身份验证方法，如 Azure AD。
 
@@ -114,17 +115,17 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 1. 选择 " **模型** "，以通过 " **storeId** " 列在两个视图之间建立关系。
 
-1. 从 " **RetailSales** " 视图中将 " **StoreId** " 列拖到 " **StoreDemographics** " 视图中的**StoreId**列。
+1. 从 " **RetailSales** " 视图中将 " **StoreId** " 列拖到 " **StoreDemographics** " 视图中的 **StoreId** 列。
 
 1. 选择 "多对一 ( *： 1) 关系，因为 **RetailSales** 视图中存在多个具有相同存储 ID 的行。 **StoreDemographics** 只有一个存储 ID 行 (它是) 维度表。
 
 现在，导航到 **报表** 窗口，创建一个报表，以根据分散的收入和 LargeHH 指数表示形式，将家庭规模的相对重要性与每个商店的平均收入进行比较：
 
-1. 选择 **散点图**。
+1. 选择 **散点图** 。
 
 1. 将 **LargeHH** 从 **StoreDemographics** 视图拖放到 X 轴。
 
-1. 将**RetailSales**视图中的**收入**拖放到 Y 轴。 选择 " **平均** " 可获取每个商店和每周的平均销售额。
+1. 将 **RetailSales** 视图中的 **收入** 拖放到 Y 轴。 选择 " **平均** " 可获取每个商店和每周的平均销售额。
 
 1. 将 " **productCode** from **RetailSales** " 视图拖放到图例中，以选择特定的产品线。
 选择这些选项后，应会看到类似于以下屏幕截图的关系图：

@@ -12,32 +12,42 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2020
+ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: c55ea0e7753faa6dc21b955d63a57d96e3849f70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994611"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096948"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>在 Azure Sentinel 中 (UEBA) 启用用户和实体行为分析 
 
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-- 必须为用户分配 Azure AD 中的 **全局管理员** 或 **安全管理员** 角色，才能启用或禁用 UEBA，但无法运行。
+若要启用或禁用此功能 (使用此功能) 不需要这些先决条件：
+
+- 你的用户必须是你组织的 Azure Active Directory 的成员，而不是来宾用户。
+
+- 你的用户必须被分配到 Azure AD 中的 " **全局管理员** " 或 " **安全管理员** " 角色。
+
+- 你的用户必须至少分配以下 **azure 角色** 之一 ( [详细了解 Azure RBAC](roles.md)) ：
+    - 工作区或资源组级别的 **Azure Sentinel 参与者** 。
+    - 在资源组或订阅级别 **Log Analytics 参与者** 。
+
+- 你的工作区不得应用任何 Azure 资源锁。 [了解有关 Azure 资源锁定的详细信息](../azure-resource-manager/management/lock-resources.md)。
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>如何启用用户和实体行为分析
 
-1. 在 Azure Sentinel 导航菜单中，选择 " **实体行为 (预览") **。
+1. 在 Azure Sentinel 导航菜单中，选择 " **实体行为 (预览")** 。
 
-1. 在标题下，将 **其**切换到 **"打开**"。
+1. 在标题下，将 **其** 切换到 **"打开** "。
 
 1. 单击 " **选择数据源** " 按钮。
 
-1. 在 " **数据源选择** " 窗格中，标记要启用 UEBA 的数据源旁边的复选框，然后选择 " **应用**"。
+1. 在 " **数据源选择** " 窗格中，标记要启用 UEBA 的数据源旁边的复选框，然后选择 " **应用** "。
 
     > [!NOTE]
     >
@@ -45,7 +55,7 @@ ms.locfileid: "90994611"
     >
     > 启用 UEBA 后，在连接新的数据源时，可以选择在 "数据连接器" 窗格中直接从 "数据连接器" 窗格中为 UEBA 启用它们。
 
-1. 选择 " **前往实体搜索**"。 这会将你转到实体搜索窗格，从现在开始，你可以从 Azure 的主菜单中选择 **实体行为** 时看到这一点。
+1. 选择 " **前往实体搜索** "。 这会将你转到实体搜索窗格，从现在开始，你可以从 Azure 的主菜单中选择 **实体行为** 时看到这一点。
 
 ## <a name="next-steps"></a>后续步骤
 本文档介绍了如何启用和配置 Azure Sentinel (UEBA) 中的用户和实体行为分析。 要详细了解 Azure Sentinel，请参阅以下文章：

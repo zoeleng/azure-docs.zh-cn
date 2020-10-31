@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f08efc8a10c50dcfcc6da884396dea88695dbb2a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362750"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096013"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 中的新增功能
 
@@ -38,6 +38,19 @@ Azure AD 会不断改进。 为了让大家随时了解最新的开发成果，�
 本页面每月更新，请不时回来查看。 如果你要查找的项超过六个月，则可以在存档中查找 [Azure Active Directory 中的新增功能](whats-new-archive.md)。
 
 ---
+## <a name="october-2020"></a>2020 年 10 月
+
+### <a name="azure-ad-on-premises-hybrid-agents-impacted-by-azure-tls-certificate-changes"></a>受 Azure TLS 证书更改影响 Azure AD 本地混合代理
+
+**类型：** 更改计划  
+**服务类别：** N/A  
+**产品功能：** 平台
+
+Microsoft 在将 Azure 服务更新为使用来自一组不同的根证书颁发机构 (CA) 的 TLS 证书。 此更新是因为当前 CA 证书不符合某个 CA/浏览器论坛基线要求。 此更改将影响本地安装的混合代理 Azure AD，这些代理具有使用固定的根证书列表的已强化环境，并将需要更新为信任新的证书颁发者。
+
+如果不立即采取措施，此更改将导致服务中断。 这些代理包括用于远程访问本地、[直通身份验证](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect)代理的[应用程序代理连接器](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy)，这些代理允许用户使用相同的密码登录到应用程序，以及用于执行 AD Azure AD 同步的[云预配预览](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect)代理。 
+
+如果你的环境中的防火墙规则设置为仅允许对特定证书吊销列表的出站调用 (CRL) 下载，则需要允许使用以下 CRL 和 OCSP Url。 有关更改的完整详细信息以及用于启用对的 CRL 和 OCSP Url 的详细信息，请参阅  [AZURE TLS 证书更改](../../security/fundamentals/tls-certificate-changes.md)。
 
 ## <a name="september-2020"></a>2020 年 9 月
 
@@ -1223,9 +1236,9 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 **产品功能：** 访问控制
 
-**打印机管理员**：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机并管理所有打印机配置的所有方面，包括通用打印连接器设置。 他们可以同意所有委托的打印权限请求。 打印机管理员还有权访问打印报告。 
+**打印机管理员** ：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机并管理所有打印机配置的所有方面，包括通用打印连接器设置。 他们可以同意所有委托的打印权限请求。 打印机管理员还有权访问打印报告。 
 
-**打印机技术人员**：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机和管理打印机状态。 他们还可以读取所有连接器信息。 打印机技术人员无法完成的关键任务是在打印机和共享打印机上设置用户权限。 [了解详细信息。](../roles/permissions-reference.md#printer-administrator)
+**打印机技术人员** ：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机和管理打印机状态。 他们还可以读取所有连接器信息。 打印机技术人员无法完成的关键任务是在打印机和共享打印机上设置用户权限。 [了解详细信息。](../roles/permissions-reference.md#printer-administrator)
 
 ---
 

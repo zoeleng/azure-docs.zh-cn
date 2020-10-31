@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478144"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097322"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分  。 使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
 
@@ -252,7 +253,7 @@ Cosmos DB 以透明方式在所有分区中运行查询（包括[聚合](https:/
 
 如果情况不断好转会怎样？ 假设来自其他区域、国家/地区或大洲的用户注意到你的平台并开始使用。 真是太棒了！
 
-可是等等！ 你很快就会发现他们使用平台的体验并不是最佳体验。 他们距离你的运营区域太远，会出现非常严重的延迟情况。 你显然不希望他们放弃使用。 要是有一种简单的方法可以扩大全球覆盖范围呢****？ 确实有！
+可是等等！ 你很快就会发现他们使用平台的体验并不是最佳体验。 他们距离你的运营区域太远，会出现非常严重的延迟情况。 你显然不希望他们放弃使用。 要是有一种简单的方法可以扩大全球覆盖范围呢  ？ 确实有！
 
 通过 Cosmos DB，只需单击数次即可通过透明方式[全局复制数据](../cosmos-db/tutorial-global-distribution-sql-api.md)，并从[客户端代码](../cosmos-db/tutorial-global-distribution-sql-api.md)中自动选择可用区域。 此进程还意味着可以拥有[多个故障转移区域](high-availability.md)。
 

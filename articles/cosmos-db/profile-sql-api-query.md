@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d47bd90f7704cd3c55f9e5d64fe6b58946d4568
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 66aefea441d78303ccd611d9df10eea985d61e7c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475084"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097390"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>使用 .NET SDK 获取 SQL 查询执行指标并分析查询性能
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍如何分析 Azure Cosmos DB 中的 SQL 查询性能。 可以使用从 .NET SDK 检索到且在本文中详述的 `QueryMetrics` 来执行这种分析。 [QueryMetrics](/dotnet/api/microsoft.azure.documents.querymetrics) 是一个强类型化对象，包含有关后端查询执行的信息。 [优化查询性能](./sql-api-query-metrics.md)一文中更详细地阐述了这些指标。
 

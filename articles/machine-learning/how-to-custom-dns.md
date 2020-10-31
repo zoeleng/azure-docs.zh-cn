@@ -11,21 +11,21 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1d215c9564d89e5bd410e68839807f5c2c752356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828372"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097951"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>如何将工作区用于自定义 DNS 服务器
 
-将 Azure 机器学习与虚拟网络一起使用时， [可以通过多种方式来处理 DNS 名称解析](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)。 默认情况下，Azure 会自动处理工作区和专用终结点的名称解析。 但是， __在使用你自己的自定义 DNS 服务器时__，你必须为工作区手动创建 DNS 条目。
+将 Azure 机器学习与虚拟网络一起使用时， [可以通过多种方式来处理 DNS 名称解析](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)。 默认情况下，Azure 会自动处理工作区和专用终结点的名称解析。 但是， __在使用你自己的自定义 DNS 服务器时__ ，你必须为工作区手动创建 DNS 条目。
 
 > [!IMPORTANT]
 > 本文仅介绍如何查找 (FQDN) 和 IP 地址的完全限定域名，而不提供有关为这些项配置 DNS 记录的信息。 有关如何添加记录的信息，请参阅 DNS 软件的文档。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - 使用 [自己的 DNS 服务器](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)的 Azure 虚拟网络。
 
@@ -46,7 +46,7 @@ ms.locfileid: "91828372"
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* 如果创建计算实例，还必须为添加一个条目 `<instance-name>.<region>.instances.azureml.ms` 。
+* 如果创建计算实例，还必须为 " `<instance-name>.<region>.instances.azureml.ms` 工作区专用终结点专用 IP" 添加条目。 请注意，只能从虚拟网络内部访问计算实例。
 
 若要在 VNet 中查找 Fqdn 的内部 IP 地址，请使用以下方法之一：
 
@@ -68,8 +68,8 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/azure-portal)
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择 Azure 机器学习 __工作区__。
-1. 从 " __设置__ " 部分中，选择 " __专用终结点连接__"。
+1. 在 [Azure 门户](https://portal.azure.com)中，选择 Azure 机器学习 __工作区__ 。
+1. 从 " __设置__ " 部分中，选择 " __专用终结点连接__ "。
 1. 选择显示的 " __专用终结点__ " 列中的链接。
 1. 页面底部的工作区专用终结点 (FQDN) 和 IP 地址的完全限定域名列表。
 
@@ -92,7 +92,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * 如果你有一个计算实例，请使用 `<instance-name>.<region>.instances.azureml.ms` ，其中 `<instance-name>` 是你的计算实例的名称。
+> * 如果你有一个计算实例，请使用 `<instance-name>.<region>.instances.azureml.ms` ，其中 `<instance-name>` 是你的计算实例的名称。 请使用工作区专用终结点专用 IP 地址。 请注意，只能从虚拟网络内部访问计算实例。
 >
 > 对于所有这些 IP 地址，请使用与 `*.api.azureml.ms` 前面步骤中返回的条目相同的地址。
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056510"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097730"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -33,12 +33,12 @@ Azure 流分析目前支持三种兼容性级别：
 
 ## <a name="set-the-compatibility-level"></a>设置兼容性级别
 
-可以使用 Azure 门户或[创建作业 REST API 调用](/rest/api/streamanalytics/stream-analytics-job)来设置流分析作业的兼容性级别。
+可以使用 Azure 门户或[创建作业 REST API 调用](/azure/stream-analytics/stream-analytics-quick-create-portal)来设置流分析作业的兼容性级别。
 
 若要在 Azure 门户中更新作业的兼容性级别：
 
 1. 使用 [Azure 门户](https://portal.azure.com)定位到你的流分析作业。
-2. **停止**该作业，然后更新兼容性级别。 如果作业处于运行状态，则无法更新兼容性级别。
+2. **停止** 该作业，然后更新兼容性级别。 如果作业处于运行状态，则无法更新兼容性级别。
 3. 在“配置”标题下，选择“兼容性级别”。  
 4. 选择所需的兼容性级别值。
 5. 选择页面底部的“保存”  。
@@ -53,7 +53,7 @@ Azure 流分析目前支持三种兼容性级别：
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP 消息传递协议
 
-**1.2 级别**：Azure 流分析使用[高级消息队列协议 (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) 消息传递协议将内容写入服务总线队列和主题。 通过 AMQP 可使用开放标准协议构建跨平台的混合应用程序。
+**1.2 级别** ：Azure 流分析使用 [高级消息队列协议 (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) 消息传递协议将内容写入服务总线队列和主题。 通过 AMQP 可使用开放标准协议构建跨平台的混合应用程序。
 
 ### <a name="geospatial-functions"></a>地理空间函数
 

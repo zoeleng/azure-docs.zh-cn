@@ -6,14 +6,15 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097339"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>创建具有自动缩放吞吐量的 Azure Cosmos 容器和数据库
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或自动缩放预配吞吐量。 本文介绍自动缩放预配吞吐量的好处和用例。 
 
@@ -25,7 +26,7 @@ Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或�
 
 使用自动缩放预配吞吐量配置的 Azure Cosmos 数据库和容器具有以下好处：
 
-* **Simple**：自动缩放消除了通过自定义脚本或手动缩放容量管理 RU/s 的复杂性。 
+* **Simple** ：自动缩放消除了通过自定义脚本或手动缩放容量管理 RU/s 的复杂性。 
 
 * 可缩放：数据库和容器根据需要自动缩放预配吞吐量。 客户端连接、应用程序不会中断，对 Azure Cosmos DB SLA 没有影响。
 

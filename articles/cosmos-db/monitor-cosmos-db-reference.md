@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/28/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: c17d660c75fdfd6f1eb429db3a8b55f3e3db1b2d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: eb06fda43590198f1b2643c8362f774a031eaef9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925945"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096268"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB 监视数据参考
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文提供了对所收集日志和指标数据的引用，用于分析 Azure Cosmos DB 的性能和可用性。 有关如何为 Azure Cosmos DB 收集和分析监视数据，请参阅[监视 Azure Cosmos DB](monitor-cosmos-db.md) 一文。
 

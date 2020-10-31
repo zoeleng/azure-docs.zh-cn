@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: a7e5443869efd7f37153b47e4d9c3eaa39f9c41d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6da4eef15f8f0946e17e910fa39aee1f34fccf0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475271"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096370"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 连接器可视化 Azure Cosmos DB 数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Power BI](https://powerbi.microsoft.com/) 是一种在线服务，你可以使用它创建和共享仪表板和报表。 Power BI Desktop 是一种报表创作工具，可以从各种数据源检索数据。 Azure Cosmos DB 是可以与 Power BI Desktop 一起使用的一种数据源。 可以使用 Power BI 的 Azure Cosmos DB 连接器将 Power BI Desktop 连接到 Azure Cosmos DB 帐户。  将 Azure Cosmos DB 数据导入到 Power BI 之后，可以对其进行转换，创建报表，以及将报表发布到 Power BI。   
 
@@ -90,13 +91,13 @@ ms.locfileid: "92475271"
    
 7. 如果是首次连接到此终结点，则会提示输入帐户密钥。 若使用自己的帐户，请从 Azure 门户的“只读密钥”  边栏选项卡中的“主密钥”  框中取得密钥。 输入相应的密钥，然后单击“连接”  。
    
-   我们建议在生成报表时使用只读密钥。 这可以防止不必要地泄露主键来潜在安全风险。 可以从 Azure 门户的**密钥**边栏选项卡获取只读密钥。 
+   我们建议在生成报表时使用只读密钥。 这可以防止不必要地泄露主键来潜在安全风险。 可以从 Azure 门户的 **密钥** 边栏选项卡获取只读密钥。 
     
 8. 帐户成功连接后，将出现“导航器”窗格  。 “导航器”  会在帐户下显示数据库的列表。
 
-9. 单击并展开作为报表数据来源的数据库，并选择 **volcanodb**（你的数据库名称可能不同）。   
+9. 单击并展开作为报表数据来源的数据库，并选择 **volcanodb** （你的数据库名称可能不同）。   
 
-10. 现在，选择包含要检索的数据的集合，选择 **volcano1**（你的集合名称可能不同）。
+10. 现在，选择包含要检索的数据的集合，选择 **volcano1** （你的集合名称可能不同）。
     
     预览窗格显示“记录”  项的列表。  文档在 Power BI 中表示为一种“记录”  类型。 同样，文档内部的嵌套 JSON 块也是“记录”  。
     
@@ -129,7 +130,7 @@ ms.locfileid: "92475271"
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Power BI Desktop 报表视图 - Power BI 连接器":::
 
-1. 若要平展坐标数组，请创建一个名为 LatLong 的**自定义列**。  选择“添加列”  功能区并单击“自定义列”  。  此时将显示“自定义列”  窗口。
+1. 若要平展坐标数组，请创建一个名为 LatLong 的 **自定义列** 。  选择“添加列”  功能区并单击“自定义列”  。  此时将显示“自定义列”  窗口。
 
 1. 为新列提供一个名称，例如 LatLong。
 
@@ -191,11 +192,11 @@ ms.locfileid: "92475271"
 ## <a name="create-a-dashboard-in-powerbicom"></a>在 PowerBI.com 中创建仪表板
 既然有了报表，就将报表分享到 PowerBI.com 吧
 
-从 Power BI Desktop 发布报表到 PowerBI.com 时，会在 PowerBI.com 租户中生成一个“报表”**** 和“数据集”****。 例如，将一个名为 **PowerBITutorial** 的报表发布到 PowerBI.com 后，PowerBITutorial 会出现在 PowerBI.com 的“报表”**** 和“数据集”**** 部分。
+从 Power BI Desktop 发布报表到 PowerBI.com 时，会在 PowerBI.com 租户中生成一个“报表”  和“数据集”  。 例如，将一个名为  和“数据集”  部分。
 
    :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Power BI Desktop 报表视图 - Power BI 连接器":::
 
-若要创建可共享的仪表板，请单击 PowerBI 报表上的“固定活动页”**** 按钮。
+若要创建可共享的仪表板，请单击 PowerBI 报表上的“固定活动页”  按钮。
 
    :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Power BI Desktop 报表视图 - Power BI 连接器":::
 

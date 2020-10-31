@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440801"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097067"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>在 Azure 数字孪生内部和外部路由事件
 
 Azure 数字孪生使用 **事件路由** 将数据发送到服务外的使用者。 
 
-在预览期间，有两种用于发送 Azure 数字孪生数据的主要案例：
+发送 Azure 数字孪生数据的主要情况有两种：
 * 将 Azure 数字孪生图中的一个单元中的数据发送到另一个。 例如，当一个数字上的属性发生变化时，你可能需要相应地通知和更新其他数字输出。
-* 向下游数据服务发送数据以进行额外的存储或处理 (也称为 *数据传出*) 。 例如，
+* 向下游数据服务发送数据以进行额外的存储或处理 (也称为 *数据传出* ) 。 例如，
   - 医院可能想要将 Azure 数字孪生事件数据发送到 [时序见解 (TSI) ](../time-series-insights/overview-what-is-tsi.md)，为大容量分析记录 handwashing 相关事件的时序数据。
   - 已使用 [Azure Maps](../azure-maps/about-azure-maps.md) 的企业可能想要使用 Azure 数字孪生来增强其解决方案。 在设置 Azure 数字孪生后，它们可以快速启用 Azure 映射，将 Azure 地图实体作为单元中的 [数字孪生](concepts-twins-graph.md) 引入 Azure 数字孪生，或运行功能强大的查询，利用它们 Azure Maps 和 Azure 数字孪生数据。
 
@@ -38,7 +38,7 @@ Azure 数字孪生使用 **事件路由** 将数据发送到服务外的使用�
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>内部数字克隆事件的事件路由
 
-在当前预览版本中，事件路由还用于处理克隆图形中的事件，并将数据从数字双子发送到数字源。 这是通过将事件路由通过事件网格连接来计算资源（如 [Azure Functions](../azure-functions/functions-overview.md)）完成的。 然后，这些函数定义孪生应如何接收和响应事件。 
+事件路由还用于处理克隆图形中的事件，并将数据从数字双子发送到数字源。 这是通过将事件路由通过事件网格连接来计算资源（如 [Azure Functions](../azure-functions/functions-overview.md)）完成的。 然后，这些函数定义孪生应如何接收和响应事件。 
 
 当计算资源基于通过事件路由收到的事件来修改非整数图形时，它可以知道它要提前修改的是哪一个。 
 
@@ -50,7 +50,7 @@ Azure 数字孪生使用 **事件路由** 将数据发送到服务外的使用�
 
 ## <a name="create-an-endpoint"></a>创建终结点
 
-若要定义事件路由，开发人员必须首先定义终结点。 **终结点**是支持路由连接的 Azure 数字孪生外部的目标。 当前预览版中支持的目标是：
+若要定义事件路由，开发人员必须首先定义终结点。 **终结点** 是支持路由连接的 Azure 数字孪生外部的目标。 支持的目标包括：
 * 事件网格自定义主题
 * 事件中心
 * 服务总线
@@ -73,7 +73,7 @@ Azure 数字孪生使用 **事件路由** 将数据发送到服务外的使用�
  
 若要创建事件路由，可以使用 Azure 数字孪生 [**数据平面 api**](how-to-manage-routes-apis-cli.md#create-an-event-route)、 [**CLI 命令**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)或 [**Azure 门户**](how-to-manage-routes-portal.md#create-an-event-route)。 
 
-下面是使用 `CreateEventRoute` [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) 调用在客户端应用程序中创建事件路由的示例： 
+下面是使用 `CreateEventRoute` [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 调用在客户端应用程序中创建事件路由的示例： 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
@@ -103,9 +103,9 @@ await client.CreateEventRoute("routeName", er);
 
 在设置死信位置之前，必须有一个包含容器的存储帐户。 创建终结点时，提供此容器的 URL。 死信作为带有 SAS 令牌的容器 URL 提供。 该令牌只需要 `write` 对存储帐户中目标容器的权限。 完整的格式 URL 将采用以下格式： `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-若要了解有关 SAS 令牌的详细信息，请参阅： [*使用共享访问签名授予对 Azure 存储资源的有限访问权限 (SAS) *](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+若要了解有关 SAS 令牌的详细信息，请参阅： [*使用共享访问签名授予对 Azure 存储资源的有限访问权限 (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-若要了解如何使用死信设置终结点，请参阅 [*如何：在 Azure 数字孪生中管理终结点和路由 (api 和 CLI) *](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)。
+若要了解如何使用死信设置终结点，请参阅 [*如何：在 Azure 数字孪生中管理终结点和路由 (api 和 CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)。
 
 ### <a name="types-of-event-messages"></a>事件消息的类型
 
