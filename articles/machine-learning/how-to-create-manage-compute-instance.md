@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427534"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078979"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>创建和管理 Azure 机器学习计算实例
 
@@ -42,7 +42,7 @@ ms.locfileid: "92427534"
 
 ## <a name="create"></a>创建
 
-**估计时间**：约5分钟。
+**估计时间** ：约5分钟。
 
 创建计算实例是工作区的一次过程。 您可以将此计算作为开发工作站重复使用，或者作为一种计算目标来进行培训。 可以将多个计算实例附加到工作区。
 
@@ -226,7 +226,7 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 
 ---
 
-使用[AZURE RBAC](/azure/role-based-access-control/overview) ，可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，如果只是特定计算实例的创建者，或在代表其创建的用户分配的情况下，则允许在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例专用于具有根访问权限的单个用户，可以通过 Jupyter/JupyterLab/RStudio 终端。 计算实例将具有单用户登录，并且所有操作都将使用该用户在 Azure RBAC 中的标识和试验运行的归属。 SSH 访问是通过公钥/私钥机制控制的。
+使用[AZURE RBAC](/azure/role-based-access-control/overview) ，可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，只有特定计算实例的创建者或分配的用户（如果该计算实例是以其名义创建的）可在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例专用于具有 root 用户访问权限的单个用户，并且可通过 Jupyter/JupyterLab/RStudio 进行终端访问。 计算实例将具有单用户登录，并且所有操作都将使用该用户在 Azure RBAC 中的标识和试验运行的归属。 SSH 访问是通过公钥/私钥机制控制的。
 
 Azure RBAC 可控制以下操作：
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -256,16 +256,18 @@ Azure RBAC 可控制以下操作：
 * Python：添加安装代码并在 Jupyter Notebook 单元中执行。
 
 也可以从终端窗口进行安装。 在 **python 3.6 AzureML** 环境中安装 python 包。  将 R 包安装到 **R** 环境中。
-% pip 和% conda 幻函数自动将包安装到 Jupyter 笔记本会话中当前正在运行的内核。
+
+> [!NOTE]
+> 对于笔记本内的包管理，使用 **% pip** 或 **% conda** 幻函数将包自动安装到 **当前正在运行的内核** 中，而不是引用所有 **(包（** 包括当前正在运行的内核之外的包） **，而不** 是引用所有包) 
 
 ## <a name="add-new-kernels"></a>添加新内核
 
 > [!WARNING]
 >  自定义计算实例时，请确保不删除 **azureml_py36** conda 环境或 **Python 3.6 azureml** 内核。 这是 Jupyter/JupyterLab 功能所必需的
 
-若要将新的 Jupyter 内核添加到计算实例：
+若要向计算实例添加新 Jupyter 内核，请执行以下步骤：
 
-1. 从 Jupyter、JupyterLab 或从笔记本窗格或 SSH 创建新终端到计算实例
+1. 从 Jupyter、JupyterLab 或笔记本窗格创建新终端，或者通过 SSH 登录到计算实例
 2. 使用终端窗口创建新环境。  例如，以下代码会创建 `newenv`：
 
     ```shell

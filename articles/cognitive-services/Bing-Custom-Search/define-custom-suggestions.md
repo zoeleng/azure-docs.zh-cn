@@ -10,20 +10,25 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072807"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080968"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>配置自定义自动建议体验
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 自定义自动建议可返回与搜索体验相关的建议搜索查询字符串列表。 建议的查询字符串基于用户在搜索框中提供的部分查询字符串。 该列表中包含最多 10 条建议。 
 
 指定只返回自定义建议还是包括必应建议。 如果包括必应建议，则自定义建议在必应建议之前显示。 如果提供相关度充足的建议，返回的建议列表中可能不包含必应建议。 必应建议始终在自定义搜索实例的上下文中。 
 
-若要为实例配置搜索查询建议，请单击“自动建议”**** 选项卡。  
+若要为实例配置搜索查询建议，请单击“自动建议”  选项卡。  
 
 > [!NOTE]
 > 若要使用此功能，必须订阅相应级别的自定义搜索（请参阅[定价](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)）。
@@ -32,11 +37,11 @@ ms.locfileid: "74072807"
 
 ## <a name="enable-bing-suggestions"></a>启用必应建议
 
-若要启用必应建议，请将“自动必应建议”滑块切换到开启位置****。 滑块变为蓝色。
+若要启用必应建议，请将“自动必应建议”滑块切换到开启位置  。 滑块变为蓝色。
 
 ## <a name="add-your-own-suggestions"></a>添加自己的建议
 
-若要添加自己的查询字符串建议，请将它们添加到“用户定义的建议”**** 下的列表中。 在列表中添加建议后，按 enter 键或单击 **+** 图标。 可采用任何语言来指定建议。 可以添加最多 5,000 条查询字符串建议。
+若要添加自己的查询字符串建议，请将它们添加到“用户定义的建议”  下的列表中。 在列表中添加建议后，按 enter 键或单击 **+** 图标。 可采用任何语言来指定建议。 可以添加最多 5,000 条查询字符串建议。
 
 ## <a name="upload-suggestions"></a>上传建议
 
@@ -48,7 +53,7 @@ ms.locfileid: "74072807"
 
 ## <a name="block-suggestions"></a>阻止建议
 
-如果包括了必应建议，可以添加不想必应返回的搜索查询字符串列表。 要添加阻止的查询字符串，请单击“显示阻止的建议”****。 向列表中添加查询字符串，然后按 enter 键或单击 **+** 图标。 可以添加最多 50 条阻止的查询字符串。
+如果包括了必应建议，可以添加不想必应返回的搜索查询字符串列表。 要添加阻止的查询字符串，请单击“显示阻止的建议”  。 向列表中添加查询字符串，然后按 enter 键或单击 **+** 图标。 可以添加最多 50 条阻止的查询字符串。
 
 
 
@@ -60,7 +65,7 @@ ms.locfileid: "74072807"
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>在托管 UI 中启用自动建议
 
-要为托管 UI 启用查询字符串建议，请单击“托管 UI”****。 向下滚动到“其他配置”**** 部分。 在“Web 搜索”下，为“启用自动建议”选择“开”************。 要启用自动建议，必须选择包含搜索框的布局。
+要为托管 UI 启用查询字符串建议，请单击“托管 UI”  。 向下滚动到“其他配置”  部分。 在“Web 搜索”下，为“启用自动建议”选择“开”  。 要启用自动建议，必须选择包含搜索框的布局。
 
 
 ## <a name="calling-the-autosuggest-api"></a>调用自动建议 API

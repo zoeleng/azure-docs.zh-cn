@@ -8,14 +8,15 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477583"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079999"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure 表存储表设计指南：可缩放的高性能表
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -123,7 +124,7 @@ ms.locfileid: "92477583"
 </table>
 
 
-到目前为止，此设计看起来非常类似于关系数据库中的表。 主要区别是有必需的列，以及能够在同一个表中存储多种实体类型。 此外，**FirstName** 或 **Age** 等用户定义的每个属性还具有数据类型（如 integer 或 string），就像关系数据库中的列一样。 但是，与关系数据库中不同，表存储的架构灵活性质意味着每个实体的属性不需要具有相同的数据类型。 若要在单个属性中存储复杂数据类型，必须使用序列化格式（例如，JSON 或 XML）。 有关详细信息，请参阅[了解表存储数据模型](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)。
+到目前为止，此设计看起来非常类似于关系数据库中的表。 主要区别是有必需的列，以及能够在同一个表中存储多种实体类型。 此外， **FirstName** 或 **Age** 等用户定义的每个属性还具有数据类型（如 integer 或 string），就像关系数据库中的列一样。 但是，与关系数据库中不同，表存储的架构灵活性质意味着每个实体的属性不需要具有相同的数据类型。 若要在单个属性中存储复杂数据类型，必须使用序列化格式（例如，JSON 或 XML）。 有关详细信息，请参阅[了解表存储数据模型](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)。
 
 对 `PartitionKey` 和 `RowKey` 的选择是实现良好的表设计的基础。 表中存储的每个实体都必须具有唯一的 `PartitionKey` 和 `RowKey`。 与关系数据库表中的键一样，将为 `PartitionKey` 和 `RowKey` 值编制索引来创建聚集索引以便快速地进行查找。 但是，表存储不创建任何辅助索引，因此，这些键是唯一具有索引的属性（稍后介绍的某些模式展示了可以如何解决此明确限制）。  
 
@@ -210,7 +211,7 @@ EGT 还引入了一个在设计时需要评估的潜在权衡。 使用更多分
 * 表扫描不包括 `PartitionKey` 且效率较低，因为它会依次搜索构成表的所有分区，查找所有匹配的实体。 它会执行表扫描而不管你的筛选器是否使用 `RowKey`。 例如：`$filter=LastName eq 'Jones'`。  
 * 返回多个实体的 Azure 表存储查询将按 `PartitionKey` 和 `RowKey` 顺序为实体排序。 若要避免对客户端中的实体重新排序，请选择定义最常见排序顺序的 `RowKey`。 Azure Cosmos DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](table-api-faq.md#table-api-vs-table-storage)。
 
-使用“**or**”指定基于 `RowKey` 值的筛选器将导致分区扫描，而不会视为范围查询。 因此，请避免使用筛选器的查询，例如：`$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`。  
+使用“ **or** ”指定基于 `RowKey` 值的筛选器将导致分区扫描，而不会视为范围查询。 因此，请避免使用筛选器的查询，例如：`$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`。  
 
 有关使用存储客户端库运行高效查询的客户端代码的示例，请参阅：  
 
@@ -252,7 +253,7 @@ EGT 还引入了一个在设计时需要评估的潜在权衡。 使用更多分
 > [!NOTE]
 > Azure Cosmos DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](table-api-faq.md#table-api-vs-table-storage)。
 
-表存储中的键是字符串值。 为确保数字值正确排序，应将值转换为固定长度并使用零进行填充。 例如，如果用作 `RowKey` 的员工 ID 值是个整数值，则应将员工 ID **123** 转换为 **00000123**。 
+表存储中的键是字符串值。 为确保数字值正确排序，应将值转换为固定长度并使用零进行填充。 例如，如果用作 `RowKey` 的员工 ID 值是个整数值，则应将员工 ID **123** 转换为 **00000123** 。 
 
 许多应用程序要求使用按不同顺序排序的数据：例如，按名称或按加入日期对员工进行排序。 [表设计模式](#table-design-patterns)部分的以下模式介绍了如何为实体替换排序顺序：  
 
@@ -716,7 +717,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
 
-* 应使用适当的分隔符，轻松分析 `RowKey` 值（如 **000123_2012**）。  
+* 应使用适当的分隔符，轻松分析 `RowKey` 值（如 **000123_2012** ）。  
 * 也将此实体存储在与包含同一员工的相关数据的其他实体在同一分区中。 这意味着可以使用 EGT 来保持强一致性。
 * 应考虑将查询数据的频率，以确定此模式是否合适。 例如，如果不经常访问评价数据但经常访问主要员工数据，则应将它们保存为不同的实体。  
 

@@ -7,16 +7,17 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: af9122aaa0233fe5248f31ffe805e01a98831eae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf174d45f33c50ce93b45b19c6030cf42cb20983
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447428"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081444"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>排查使用 Azure Cosmos 模拟器时遇到的问题
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务以进行开发的本地环境。 使用本文中的提示可帮助解决在安装或使用 Azure Cosmos 模拟器时遇到的问题。 
+为方便开发，Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 使用本文中的提示可帮助解决在安装或使用 Azure Cosmos 模拟器时遇到的问题。 
 
 如果安装了新版本的模拟器并遇到错误，请务必重置数据。 可以通过右键单击系统托盘上的 "Azure Cosmos 模拟器" 图标，然后单击 "重置数据 ..." 来重置数据。 如果这不能修复错误，则可以卸载模拟器和任何较早版本的仿真程序（如果找到），删除 *C:\Program files\Azure Cosmos DB 模拟器* 目录并重新安装模拟器。 有关说明，请参阅[卸载本地模拟器](local-emulator.md#uninstall)。 或者，如果重置数据不起作用，请导航到 " `%LOCALAPPDATA%\CosmosDBEmulator` 位置" 并删除该文件夹。
 
@@ -82,7 +83,7 @@ Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务以进行开�
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何调试本地模拟器的问题。 现在，你可以继续学习下一篇文章：
+本文介绍了如何调试本地模拟器的问题。 你现在可以继续学习下面的文章：
 
-* [导出 Azure Cosmos 模拟器证书以用于 Java、Python 和 Node.js 应用](local-emulator-export-ssl-certificates.md)
+* [导出供 Java、Python 和 Node.js 应用使用的 Azure Cosmos 模拟器证书](local-emulator-export-ssl-certificates.md)
 * [使用命令行参数和 PowerShell 命令控制模拟器](emulator-command-line-parameters.md)

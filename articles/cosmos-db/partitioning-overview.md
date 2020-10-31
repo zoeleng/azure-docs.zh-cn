@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281140"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080826"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区和水平缩放
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 使用分区缩放数据库中的单个容器，以满足应用程序的性能需求。 在分区中，可将容器中的项分割成不同的子集（称作“逻辑分区”）。 逻辑分区是根据与容器中每个项关联的分区键值形成的。 逻辑分区中的所有项都具有相同的分区键值。
 
@@ -87,7 +88,7 @@ Azure Cosmos DB 使用基于哈希的分区在物理分区之间分散逻辑分�
 
 选择分区键是 Azure Cosmos DB 中的一个简单但重要的设计选择。 选择分区键后，将无法就地进行更改。 如果需要更改分区键，应将数据移动到带有所需新分区键的新容器。
 
-对于**所有**容器，分区键应当：
+对于 **所有** 容器，分区键应当：
 
 * 是一个属性，并且其值不会更改。 如果某个属性是分区键，那么你不能更新该属性的值。
 

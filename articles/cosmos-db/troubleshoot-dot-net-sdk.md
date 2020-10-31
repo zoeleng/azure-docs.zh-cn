@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e941c941c7b406be8d6931fd7af4108137220d56
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8ae1e2ade5d8a942779fe31e324cd23756ee39ae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476903"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079204"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>诊断和排查在使用 Azure Cosmos DB .NET SDK 时出现的问题
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -102,15 +103,15 @@ ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: r
 
 ### <a name="common-query-issues"></a>常见查询问题
 
-[查询指标](sql-api-query-metrics.md)有助于确定查询在何处花费的时间最多。 在查询指标中，可以查看查询在客户端与后端上花费的时间。 详细了解如何 [排查查询性能问题](troubleshoot-query-performance.md)。
+[查询指标](sql-api-query-metrics.md)有助于确定查询在何处花费的时间最多。 在查询指标中，可以查看查询在客户端与后端上花费的时间。 详细了解[如何排查查询性能问题](troubleshoot-query-performance.md)。
 
 * 如果后端查询的返回速度较快，并将大量的时间花费在客户端上，请检查计算机上的负载。 可能的原因是资源不足，SDK 正在等待资源可用于处理响应。
-* 如果后端查询速度较慢，请尝试 [优化查询](troubleshoot-query-performance.md) ，并查看当前的 [索引策略](index-overview.md)
+* 如果后端查询速度较慢，请尝试[优化查询](troubleshoot-query-performance.md)，并查看当前的[索引策略](index-overview.md)
 
     > [!NOTE]
     > 为获得提升的性能，建议使用 Windows 64 位主机处理。 SQL SDK 包含一个本机 ServiceInterop.dll，用于在本地分析和优化查询。 仅 Windows x64 平台支持 ServiceInterop.dll。 对于 ServiceInterop.dll 在其中不可用的 Linux 平台及其他不受支持的平台，将对网关进行额外的网络调用以获取优化的查询。
 
-如果遇到以下错误： `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:` 并且使用的是 windows，则应升级到最新的 windows 版本。
+如果遇到“`Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:`”错误并且正在使用 Windows，则应升级到最新的 Windows 版本。
 
 ## <a name="next-steps"></a>后续步骤
 

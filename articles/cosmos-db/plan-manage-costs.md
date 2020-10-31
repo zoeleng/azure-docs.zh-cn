@@ -7,14 +7,15 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482241"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080696"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>规划和管理 Azure Cosmos DB 的成本
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文介绍如何计划和管理 Azure Cosmos DB 的成本：
 
@@ -45,7 +46,7 @@ Azure Cosmos DB 支持两种类型的容量模式： [预配吞吐量](set-throu
 
 如果打算在无服务器模式下使用 Azure Cosmos DB，则需要估计每月可能会消耗多少个 [请求单位](request-units.md) 和存储 GB 的存储。 您可以通过计算每月发出的数据库操作的数量来估算所需的请求单位数，并按相应的 RU 成本乘以它们的数量。 下表列出了常见数据库操作的估计 RU 费用：
 
-| 操作 | 估计成本 | 说明 |
+| Operation | 估计成本 | 备注 |
 | --- | --- | --- |
 | 创建项 | 5 RU | 要编制索引的属性少于5的 1 KB 项的平均开销 |
 | 更新项 | 10 RU | 要编制索引的属性少于5的 1 KB 项的平均开销 |
@@ -56,7 +57,7 @@ Azure Cosmos DB 支持两种类型的容量模式： [预配吞吐量](set-throu
 > [!IMPORTANT] 
 > 注意上表中的说明。 若要更准确地估计操作的实际成本，可以使用 [Azure Cosmos 模拟器](local-emulator.md) 并 [度量操作的确切 RU 成本](find-request-unit-charge.md)。 尽管 Azure Cosmos 模拟器不支持无服务器的支持，但它会报告数据库操作的标准 RU 费用，并可用于此估算。
 
-计算出每个月可能消耗的请求单位和存储空间总数后，以下公式将返回您的成本估算值： ** ( [请求单位数]/1000000 * $0.25) + ( [GB 存储空间] * $0.25) **。
+计算出每个月可能消耗的请求单位和存储空间总数后，以下公式将返回您的成本估算值： **( [请求单位数]/1000000 * $0.25) + ( [GB 存储空间] * $0.25)** 。
 
 > [!NOTE]
 > 上面示例中所示的成本仅用于演示目的。 有关最新定价信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/cosmos-db/)。
@@ -87,11 +88,11 @@ Azure Cosmos DB 支持两种类型的容量模式： [预配吞吐量](set-throu
 
 1. 登录到 [Azure 门户](https://portal.azure.com)。
 
-1. 打开 " **成本管理 + 计费** " 窗口，从菜单中选择 " **成本管理** "，然后选择 " **成本分析**"。 然后，可以从 " **作用域** " 下拉列表中更改特定订阅的作用域。
+1. 打开 " **成本管理 + 计费** " 窗口，从菜单中选择 " **成本管理** "，然后选择 " **成本分析** "。 然后，可以从 " **作用域** " 下拉列表中更改特定订阅的作用域。
 
 1. 默认情况下，在第一个圆环图中显示所有服务的成本。 选择图表中标记为 "Azure Cosmos DB" 的区域。
 
-1. 若要降低单个服务（如 Azure Cosmos DB）的成本，请选择 " **添加筛选器** "，然后选择 " **服务名称**"。 然后从列表中选择 " **Azure Cosmos DB** "。 下面是一个示例，显示只是 Azure Cosmos DB 的成本：
+1. 若要降低单个服务（如 Azure Cosmos DB）的成本，请选择 " **添加筛选器** "，然后选择 " **服务名称** "。 然后从列表中选择 " **Azure Cosmos DB** "。 下面是一个示例，显示只是 Azure Cosmos DB 的成本：
  
    :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Azure Cosmos DB 容量计算器中的成本估算":::
 

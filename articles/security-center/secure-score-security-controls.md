@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928087"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081223"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure 安全中心的安全评分
 
@@ -186,7 +186,7 @@ Azure 安全中心有两个主要目标：
     <td class="tg-lboi"; width=55%>- 应通过实时网络访问控制来保护虚拟机的管理端口<br>- 虚拟机应与网络安全组关联<br>- 应关闭虚拟机上的管理端口</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">应用系统更新（最高 6 分）</p></strong>系统更新使组织能够保持运营效率、减少安全漏洞，并为最终用户提供更稳定的环境。 不应用更新会留下未修补的漏洞，使环境容易受到攻击。 这些漏洞可能会被人利用，导致数据丢失、数据泄露、勒索软件和资源滥用。 若要部署系统更新，可以使用<a href="/azure/automation/automation-update-management">更新管理解决方案来管理虚拟机的修补程序和更新</a>。 更新管理是指控制软件版本的部署和维护的过程。</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">应用系统更新（最高 6 分）</p></strong>系统更新使组织能够保持运营效率、减少安全漏洞，并为最终用户提供更稳定的环境。 不应用更新会留下未修补的漏洞，使环境容易受到攻击。 这些漏洞可能会被人利用，导致数据丢失、数据泄露、勒索软件和资源滥用。 若要部署系统更新，可以使用<a href="/azure/automation/update-management/overview">更新管理解决方案来管理虚拟机的修补程序和更新</a>。 更新管理是指控制软件版本的部署和维护的过程。</td>
     <td class="tg-lboi"; width=55%>- 应在计算机上解决监视代理运行状况问题<br>- 应在虚拟机规模集上安装监视代理<br>- 应在计算机上安装监视代理<br>- 应为云服务角色更新 OS 版本<br>- 应在虚拟机规模集上安装系统更新<br>- 应在计算机上安装系统更新<br>- 应重启计算机来应用系统更新<br>- Kubernetes 服务应升级到不易受攻击的 Kubernetes 版本<br>- 应在虚拟机上安装监视代理<br>- Log Analytics 代理应安装在基于 Windows 的 Azure Arc 计算机上(预览)<br>- Log Analytics 代理应安装在基于 Linux 的 Azure Arc 计算机上(预览)</td>
   </tr>
   <tr>

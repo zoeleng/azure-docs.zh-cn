@@ -1,14 +1,14 @@
 ---
 title: 链接合作伙伴 ID 以跟踪对委派资源的影响
 description: 了解如何关联你的合作伙伴 ID 以接收通过 Azure Lighthouse 管理的客户资源的合作伙伴获得的信用 (PEC) 。
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080271"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>链接合作伙伴 ID 以跟踪对委派资源的影响 
 
@@ -22,7 +22,7 @@ ms.locfileid: "92019897"
 
 通过 Azure 资源管理器模板为客户加入 (ARM 模板) ，请使用以下过程链接你的合作伙伴 ID (并启用合作伙伴获得的信用额度（如果适用) ）。 若要完成这些步骤，需要了解 [MPN 合作伙伴 ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) 。 请务必使用合作伙伴配置文件中显示的“关联 MPN ID”。
 
-为简单起见，我们建议在租户中创建一个服务主体帐户，将其链接到 **关联的 MPN ID**，然后向其授予对你所登记的每个客户的访问权限， [该内置角色适用于 PEC](/partner-center/azure-roles-perms-pec)。
+为简单起见，我们建议在租户中创建一个服务主体帐户，将其链接到 **关联的 MPN ID** ，然后向其授予对你所登记的每个客户的访问权限， [该内置角色适用于 PEC](/partner-center/azure-roles-perms-pec)。
 
 1. 在管理租户中[创建服务主体帐户](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)。 在此示例中，我们将使用此服务主体的名称 *提供程序自动化帐户* 。
 1. 使用该服务主体帐户， [链接到](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) 管理租户中关联的 MPN ID。 只需执行此操作一次。
@@ -42,7 +42,9 @@ ms.locfileid: "92019897"
 
 可以 [在 Azure 门户中查看 pec 详细信息](/partner-center/partner-earned-credit-explanation#azure-cost-management) ，并确认哪些成本已获得 pec 权益。 请记住，PEC 仅适用于已签署 MCA 并在 Azure 计划下的 CSP 客户。
 
-如果按照上述步骤操作，但未看到关联，请在 Azure 门户中打开支持请求。
+如果按照上述步骤操作，但未看到预期的关联，请在 Azure 门户中打开支持请求。
+
+你还可以使用 [合作伙伴中心 SDK](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) 并筛选 `rateOfPartnerEarnedCredit` 到以自动对订阅进行 PEC 验证。
 
 ## <a name="next-steps"></a>后续步骤
 
