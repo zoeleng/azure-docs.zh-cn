@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071993"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131371"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure 流分析数据错误
 
@@ -21,7 +21,7 @@ ms.locfileid: "92071993"
 
 ## <a name="resource-logs-schema"></a>资源日志架构
 
-请参阅[使用诊断日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md#resource-logs-schema)，了解资源日志的架构。 以下 JSON 是数据错误资源日志的“属性”字段示例值****。
+请参阅[使用诊断日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md#resource-logs-schema)，了解资源日志的架构。 以下 JSON 是数据错误资源日志的“属性”字段示例值  。
 
 ```json
 {
@@ -168,7 +168,7 @@ ms.locfileid: "92071993"
 * 原因：应用程序时间与抵达时间之间的差大于延期抵达容限时限。
 * 提供的门户通知：否
 * 资源日志级别：信息
-* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理延期输入事件。 有关详细信息，请参阅[时间处理策略](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
+* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理延期输入事件。 有关详细信息，请参阅[时间处理策略](/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 日志详细信息
    * 应用程序时间和抵达时间。 
    * 最大若干 KB 的实际有效负载。
@@ -184,7 +184,7 @@ ms.locfileid: "92071993"
 * 原因：应用程序时间与抵达时间之间的差大于 5 分钟。
 * 提供的门户通知：否
 * 资源日志级别：信息
-* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理提前输入事件。 有关详细信息，请参阅[时间处理策略](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
+* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理提前输入事件。 有关详细信息，请参阅[时间处理策略](/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 日志详细信息
    * 应用程序时间和抵达时间。 
    * 最大若干 KB 的实际有效负载。
@@ -200,7 +200,7 @@ ms.locfileid: "92071993"
 * 原因：根据定义的失序容限时限将事件视为失序。
 * 提供的门户通知：否
 * 资源日志级别：信息
-* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理失序事件。 有关详细信息，请参阅[时间处理策略](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
+* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理失序事件。 有关详细信息，请参阅[时间处理策略](/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 日志详细信息
    * 最大若干 KB 的实际有效负载。
 
@@ -221,7 +221,7 @@ Azure 流分析可以根据配置，识别有无 i/o 请求的输出数据错误
 * 原因：输出所需的列不存在。 例如，定义为 Azure 表 PartitionKey 的列不存在。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括缺少必需的列。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括缺少必需的列。
 * 日志详细信息
    * 列名称，以及记录标识符或记录部分。
 
@@ -236,7 +236,7 @@ Azure 流分析可以根据配置，识别有无 i/o 请求的输出数据错误
 * 原因：列值不符合输出。 例如，列名称不是有效的 Azure 表列。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括无效的列名称。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括无效的列名称。
 * 日志详细信息
    * 列名称，以及记录标识符或记录部分。
 
@@ -251,7 +251,7 @@ Azure 流分析可以根据配置，识别有无 i/o 请求的输出数据错误
 * 原因：列无法转换为输出中的有效类型。 例如，列的值与 SQL 表中定义的约束或类型不兼容。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括类型转换错误。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括类型转换错误。
 * 日志详细信息
    * 列的名称。
    * 记录标识符或记录部分。
@@ -267,7 +267,7 @@ Azure 流分析可以根据配置，识别有无 i/o 请求的输出数据错误
 * 原因：消息的值大于支持的输出大小。 例如，事件中心输出的记录大于 1 MB。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括记录超过大小限制。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括记录超过大小限制。
 * 日志详细信息
    * 记录标识符或记录部分。
 
@@ -282,7 +282,7 @@ Azure 流分析可以根据配置，识别有无 i/o 请求的输出数据错误
 * 原因：记录中已包含与 System 列同名的列。 例如，CosmosDB 输出中包含一个名为 ID 的列，而另外还有一个 ID 列。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括重复的键。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括重复的键。
 * 日志详细信息
    * 列的名称。
    * 记录标识符或记录部分。

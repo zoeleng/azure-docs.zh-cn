@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331203"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131405"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>有关从云合作伙伴门户过渡到合作伙伴中心的常见问题
 
@@ -30,7 +30,7 @@ ms.locfileid: "92331203"
 | 新的购买和部署 | 无更改。 你的客户可以继续购买和部署你的产品/服务，而不会出现任何中断。 |
 | 付款 | 任何购买和部署都将继续按常规方式支付给你。 详细了解如何 [在商业市场中付费](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context)。 |
 | API 与现有[云合作伙伴门户 API](cloud-partner-portal-api-overview.md) 的集成 | 仍支持现有云合作伙伴门户 Api，现有集成仍可正常工作。 要了解详细信息， [请参阅是否支持云合作伙伴门户 REST api？](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | 可以通过在合作伙伴中心查看分析来继续监视销售、评估性能和优化商业应用商店中的产品/服务。 在 CPP 和伙伴中心中如何显示分析报表之间存在差异。 例如，CPP 中的 **卖方 Insights** 有一个 " **订单 & 使用情况** " 选项卡，该选项卡显示基于使用情况的产品/服务和基于使用情况的产品/ **服务的数据** 。 有关详细信息，请参阅 [合作伙伴中心的商业市场访问分析报表](partner-center-portal/analytics.md)。 |
+| 分析 | 可以通过在合作伙伴中心查看分析来继续监视销售、评估性能和优化商业应用商店中的产品/服务。 在 CPP 和伙伴中心中如何显示分析报表之间存在差异。 例如，CPP 中的 **卖方 Insights** 有一个 " **订单 & 使用情况** " 选项卡，该选项卡显示基于使用情况的产品/服务和基于使用情况的产品/ **服务的数据** 。 有关详细信息，请参阅 [合作伙伴中心的商业市场访问分析报表](partner-center-portal/analytics.md)。 |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>是否需要创建新帐户来管理合作伙伴中心提供的产品/服务？
@@ -58,16 +58,16 @@ ms.locfileid: "92331203"
 
 | 云合作伙伴门户 | 合作伙伴中心 |
 | --- | --- |
-| **链接**： https://cloudpartner.azure.com/ | **链接**： https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory 和 https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation**：Insights Payout 中提供的付款报告 | **Navigation**：合作伙伴中心提供的付款报告 - 付款图标 |
-| **范围**：<ul><li>对于正在进行、已收取和已支付的收款，每个行项的交易均可见。</li><li>报告 - 显示创建采购订单后的所有行项，包括正在进行的收款和正在进行的计费，以及收款状态和尚不符合付款条件的行项。</li></ul> | **范围**：<ul><li>显示被视为合格收入的行项。</li><li>客户先向 Microsoft 付款，然后 ISV 可以看到付款报告。</li><li>付款报告不会显示正在进行的收款和正在进行的计费。</li></ul> |
-| **交易尚未做好付款的准备**：正在进行的计费 | **交易尚未做好付款的准备**：下一次估计付款：付款状态处于未处理状态。 |
-| **付款状态**：不适用 | **付款状态**：<ul><li>未处理：收入可以用于付款。</li><li>即将发送：收入将在下一个月的付款中发送给出版商。</li><li>已发送：已将付款发送到银行。</li></ul> |
+| **链接** ： https://cloudpartner.azure.com/ | **链接** ： https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory 和 https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation** ：Insights Payout 中提供的付款报告 | **Navigation** ：合作伙伴中心提供的付款报告 - 付款图标 |
+| **范围** ：<ul><li>对于正在进行、已收取和已支付的收款，每个行项的交易均可见。</li><li>报告 - 显示创建采购订单后的所有行项，包括正在进行的收款和正在进行的计费，以及收款状态和尚不符合付款条件的行项。</li></ul> | **范围** ：<ul><li>显示被视为合格收入的行项。</li><li>客户先向 Microsoft 付款，然后 ISV 可以看到付款报告。</li><li>付款报告不会显示正在进行的收款和正在进行的计费。</li></ul> |
+| **交易尚未做好付款的准备** ：正在进行的计费 | **交易尚未做好付款的准备** ：下一次估计付款：付款状态处于未处理状态。 |
+| **付款状态** ：不适用 | **付款状态** ：<ul><li>未处理：收入可以用于付款。</li><li>即将发送：收入将在下一个月的付款中发送给出版商。</li><li>已发送：已将付款发送到银行。</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>在云合作伙伴门户中发布的产品/服务有哪些？
 
-提供的产品/服务已移至合作伙伴中心，在你登录到合作伙伴中心后，你将可以访问这些产品/服务，但 Dynamics Nav 托管服务和 Cortana Intelligence 提供的除外。 如果你的产品/服务在商业应用商店中，它将继续保持活动，并且你的客户将能够继续在不中断的情况下进行购买和部署。 有关更多详细信息，请参阅下一个问题： **哪些产品/服务已移动到合作伙伴中心？**。
+提供的产品/服务已移至合作伙伴中心，在你登录到合作伙伴中心后，你将可以访问这些产品/服务，但 Dynamics Nav 托管服务和 Cortana Intelligence 提供的除外。 如果你的产品/服务在商业应用商店中，它将继续保持活动，并且你的客户将能够继续在不中断的情况下进行购买和部署。 有关更多详细信息，请参阅下一个问题： **哪些产品/服务已移动到合作伙伴中心？** 。
 
 ## <a name="what-offers-were-moved-to-partner-center"></a>哪些产品/服务已移动到合作伙伴中心？
 
@@ -88,14 +88,14 @@ ms.locfileid: "92331203"
 | 容器 | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 有关详细信息，请参阅 [创建 Azure 容器产品](partner-center-portal/create-azure-container-offer.md)。 |
 | 咨询服务 | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 请在 [创建咨询服务产品](partner-center-portal/create-consulting-service-offer.md)上了解详细信息。 |
 | 托管服务 | 是 | 登录到合作伙伴中心，创建新产品/服务，并管理在云合作伙伴门户中创建的产品/服务。 请在 [创建托管服务产品](partner-center-portal/create-new-managed-service-offer.md)中了解详细信息。 |
-| Dynamics Nav 托管服务 | 否 | Microsoft 已将 Dynamics NAV 托管服务发展为 [dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/)，因此我们从 AppSource 中取消列出了 Dynamics Nav 托管服务实时优惠。 这些产品/服务不再被客户发现，也没有移动到合作伙伴中心。 若要在 AppSource 中提供产品/服务，请将其调整为 Dynamics 365 Business Central 产品/服务，并将其提交到 [合作伙伴中心](https://partner.microsoft.com/)。 有关详细信息，请参阅 [创建 Dynamics 365 Business Central 产品](partner-center-portal/create-new-business-central-offer.md)。 |
-| Cortana Intelligence | 否 | Microsoft 为 Cortana Intelligence 发展了产品路线图，因此我们从 AppSource 中取消列出了 Cortana Intelligence live 产品。 这些产品/服务不再被客户发现，也没有移动到合作伙伴中心。 若要在商业应用商店中提供产品/服务，请将你的产品/服务作为服务 (SaaS) 提供，并将其提交到 [合作伙伴中心](https://partner.microsoft.com/)。 有关详细信息，请参阅在 [合作伙伴中心创建清单](partner-center-portal/offer-creation-checklist.md)。 |
+| Dynamics Nav 托管服务 | 否 | Microsoft 已将 Dynamics NAV 托管服务发展为 [dynamics 365 Business Central](/dynamics365/business-central/)，因此我们从 AppSource 中取消列出了 Dynamics Nav 托管服务实时优惠。 这些产品/服务不再被客户发现，也没有移动到合作伙伴中心。 若要在 AppSource 中提供产品/服务，请将其调整为 Dynamics 365 Business Central 产品/服务，并将其提交到 [合作伙伴中心](https://partner.microsoft.com/)。 有关详细信息，请参阅 [创建 Dynamics 365 Business Central 产品](partner-center-portal/create-new-business-central-offer.md)。 |
+| Cortana Intelligence | 否 | Microsoft 为 Cortana Intelligence 发展了产品路线图，因此我们从 AppSource 中取消列出了 Cortana Intelligence live 产品。 这些产品/服务不再被客户发现，也没有移动到合作伙伴中心。 若要在商业应用商店中提供产品/服务，请将你的产品/服务作为服务 (SaaS) 提供，并将其提交到 [合作伙伴中心](https://partner.microsoft.com/)。 有关详细信息，请参阅在 [合作伙伴中心创建清单](./plan-saas-offer.md)。 |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>在合作伙伴中心找不到我的云合作伙伴门户产品/服务
 
 在 "合作伙伴中心" 中看到的内容取决于你在中注册的程序、你所属的帐户，以及已分配的用户角色和权限。 有很多合作伙伴中心计划可用，你可以在多个程序中注册。 你还可以访问具有相同用户凭据的多个帐户。
 
-在云合作伙伴门户中创建的产品/服务在 " **商业市场** " 计划下的 "合作伙伴中心" 下提供，并在用于创建产品/服务的帐户下提供。 若要确保您查看的是正确的程序和正确的帐户，请按照以下步骤进行操作。 有关其他疑难解答提示，请参阅 [管理合作伙伴中心帐户](https://docs.microsoft.com/partner-center/partner-center-account-setup)。
+在云合作伙伴门户中创建的产品/服务在 " **商业市场** " 计划下的 "合作伙伴中心" 下提供，并在用于创建产品/服务的帐户下提供。 若要确保您查看的是正确的程序和正确的帐户，请按照以下步骤进行操作。 有关其他疑难解答提示，请参阅 [管理合作伙伴中心帐户](/partner-center/partner-center-account-setup)。
 
 ### <a name="access-the-right-program-in-partner-center"></a>在合作伙伴中心访问正确的程序
 
@@ -103,7 +103,7 @@ ms.locfileid: "92331203"
 
     示例：假设你有权访问三个程序： MPN 计划、推荐计划和商用 Marketplace 计划。 登录到合作伙伴中心时，会在导航窗格中看到这三个程序。
 
-2. 选择 "**商业市场**  >  **概述**" 以访问你的产品/服务。
+2. 选择 " **商业市场**  >  **概述** " 以访问你的产品/服务。
 
     如果左侧导航窗格中未显示 "商用 Marketplace 计划"，则可能是错误的帐户。 按照下一部分中的步骤访问正确的帐户。
 
@@ -117,7 +117,7 @@ ms.locfileid: "92331203"
 
 ## <a name="how-do-i-create-new-offers"></a>如何实现创建新产品/服务？
 
-访问 [合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 的 "商用 marketplace" 计划，以创建新产品/服务。 在 "概述" 页上，选择 " **+ 新产品/服务**"。
+访问 [合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 的 "商用 marketplace" 计划，以创建新产品/服务。 在 "概述" 页上，选择 " **+ 新产品/服务** "。
 
 [![屏幕截图显示 "合作伙伴中心概述" 菜单。](media/cpp-pc-faq/new-offer.png "显示合作伙伴中心概述菜单")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ ms.locfileid: "92331203"
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>使用合作伙伴中心的说明位于何处？
 
-请参阅 [商业应用商店文档](index.yml)，然后展开 **合作伙伴中心的 "商用 marketplace 门户**"。 若要查看有关在合作伙伴中心创建产品/服务的帮助文章，请展开 " **创建新产品/服务**"。
+请参阅 [商业应用商店文档](index.yml)，然后展开 **合作伙伴中心的 "商用 marketplace 门户** "。 若要查看有关在合作伙伴中心创建产品/服务的帮助文章，请展开 " **创建新产品/服务** "。
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>发布和产品/服务管理之间的区别是什么？
 
@@ -135,7 +135,7 @@ ms.locfileid: "92331203"
 
 ### <a name="modular-publishing-capabilities"></a>模块化发布功能
 
-合作伙伴中心提供了一个模块化发布功能，你可用它来选择你想要发布的更改，而不是总是一次性发布所有更新。 例如，下面的屏幕显示，仅选择要发布的更改是对 **属性** 和  **服务列表**的更改。 您在预览页中所做的更改将不会发布。
+合作伙伴中心提供了一个模块化发布功能，你可用它来选择你想要发布的更改，而不是总是一次性发布所有更新。 例如，下面的屏幕显示，仅选择要发布的更改是对 **属性** 和  **服务列表** 的更改。 您在预览页中所做的更改将不会发布。
 
 [![屏幕截图显示合作伙伴中心评审和发布页。](media/cpp-pc-faq/review-page.png "显示合作伙伴中心审阅和发布页")](media/cpp-pc-faq/review-page.png#lightbox)
 
@@ -143,7 +143,7 @@ ms.locfileid: "92331203"
 
 ### <a name="enhanced-preview-options"></a>强化预览选项
 
-合作伙伴中心包含一个[“比较”功能](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers)，其中有改进后的筛选选项。 这使你能够根据产品/服务的预览版本和上线版本。
+合作伙伴中心包含一个[“比较”功能](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer)，其中有改进后的筛选选项。 这使你能够根据产品/服务的预览版本和上线版本。
 
 [![屏幕截图显示合作伙伴中心比较功能。](media/cpp-pc-faq/compare.png "显示合作伙伴中心比较功能")](media/cpp-pc-faq/compare.png#lightbox)
 

@@ -5,15 +5,15 @@ services: multiple
 author: sharad4u
 ms.service: multiple
 ms.topic: include
-ms.date: 05/09/2019
+ms.date: 10/30/2020
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 68d0459153fbdb34216c1313f70e292119b93a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60c26d8c33b1d419da5a51206d310e2112c69644
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269790"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135807"
 ---
 创建自己的证书时，以下 CA 获准：
 
@@ -32,6 +32,7 @@ ms.locfileid: "91269790"
 - D-TRUST 根类 3 CA 2 2009
 - DigiCert 云服务 CA-1
 - DigiCert 全局根 CA
+- DigiCert 全局 CA G2
 - DigiCert 高保障 CA-3
 - DigiCert 高保障 EV 根 CA
 - DigiCert SHA2 扩展验证服务器 CA

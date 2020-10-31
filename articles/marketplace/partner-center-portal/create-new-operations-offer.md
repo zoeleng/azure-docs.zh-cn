@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710628"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131507"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 产品/服务
 
@@ -93,7 +93,7 @@ ms.locfileid: "91710628"
 选择类别和子类别，将产品/服务置于适当的 marketplace 搜索区域。 确保在产品/服务说明中介绍产品/服务如何支持这些类别。 选择：
 
 - 至少一个和多达两个类别，包括主类别和辅助类别 (可选) 。
-- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用**"。
+- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用** "。
 
 请参阅 [产品/服务列表最佳做法](../gtm-offer-listing-best-practices.md)中的类别和子类别的完整列表。
 
@@ -135,7 +135,7 @@ ms.locfileid: "91710628"
 7. 隐私策略
 8. 产品名称
 9. 屏幕截图/视频
-10. 说明
+10. 描述
 
 ### <a name="name"></a>名称
 
@@ -277,7 +277,7 @@ ms.locfileid: "91710628"
 
 ### <a name="validation-assets"></a>验证资产
 
-在此部分中，上传[自定义分析报告 (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report)。 此报告是根据一组预定义的最佳做法规则，通过分析你的自定义和扩展模型而生成的。
+在此部分中，上传[自定义分析报告 (CAR)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report)。 此报告是根据一组预定义的最佳做法规则，通过分析你的自定义和扩展模型而生成的。
 
 此文件必须采用 .xls 或 .xlsx 格式。 如果有多个报告，则可以上传包含所有报告的 .zip 文件。
 
@@ -303,7 +303,7 @@ ms.locfileid: "91710628"
     - 未开始 - 尚未涉及此部分，应完成。
     - 未完成 - 此部分包含需要修复的错误或需要提供详细信息。 返回到一个或多个相应部分并进行更新。
     - 完成 - 此部分已完成，已提供所有必需的数据，并且没有错误。 产品/服务的所有部分都必须处于完成状态，然后才能提交产品/服务。
-- 在“认证说明”部分，除了有助于理解应用的任何补充说明之外，还可以向认证团队提供测试说明，以确保应用得到正确测试。 有关测试说明和完成首次发布的详细信息，请参阅 [AppSource Dynamics 365 财务和操作功能验证](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation)。
+- 在“认证说明”部分，除了有助于理解应用的任何补充说明之外，还可以向认证团队提供测试说明，以确保应用得到正确测试。 有关测试说明和完成首次发布的详细信息，请参阅 [AppSource Dynamics 365 财务和操作功能验证](../dynamics-365-finance-operations-functional-validation.md)。
 - 通过选择“提交”来提交要发布的产品/服务。 我们将向你发送一封电子邮件，告知你产品/服务的预览版本可供评审和审批。 返回到 "合作伙伴中心"，并选择 "产品 **/** 服务"，将产品/服务发布到公共产品/服务。
 
 ## <a name="next-step"></a>后续步骤

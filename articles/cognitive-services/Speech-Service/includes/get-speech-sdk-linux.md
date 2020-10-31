@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0298bcd675b1b94999dab3a1ad1c40a6feb7438
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83673044"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135766"
 ---
 :::row:::
     :::column span="3":::
-        语音 SDK 在 Linux 上使用时，仅支持以下目标体系结构上的 Ubuntu 16.04/18.04、Debian 9、Red Hat Enterprise Linux (RHEL) 7/8 和 CentOS 7/8：
+        语音 SDK 仅支持 **Ubuntu 16.04/18.04/20.04** 、 **Debian 9/10** ， **Red Hat Enterprise Linux (RHEL) 7/8** ，并在与 Linux 一起使用时在以下目标体系结构上进行 **CentOS 7/8** ：
     :::column-end:::
     :::column:::
         <br>
@@ -39,19 +39,25 @@ ms.locfileid: "83673044"
 - OpenSSL 库（`libssl.so.1.0.0` 或 `libssl.so.1.0.2`）
 - ALSA 应用程序的共享库 (`libasound.so.2`)
 
-# <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
+# <a name="ubuntu-160418042004"></a>[Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-# <a name="debian-9"></a>[Debian 9](#tab/debian)
+> [!NOTE]
+> 如果 libssl1.0.0 1.0 版不可用，请改为安装 libssl1.0.0 1.1。
+
+# <a name="debian-910"></a>[Debian 9/10](#tab/debian)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
+
+> [!NOTE]
+> 如果 libssl1.0.0 1.0 版不可用，请改为安装 libssl1.0.0 1.1。
 
 # <a name="rhel-78-and-centos-78"></a>[RHEL 7/8 和 CentOS 7/8](#tab/rhel-centos)
 

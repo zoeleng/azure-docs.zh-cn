@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c70d976a05cbeed058243829d0658693341636e9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607414"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131201"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>将商业市场列表与 Azure Active Directory 集成
 
@@ -38,7 +38,7 @@ Microsoft AppSource 和 Azure Marketplace 客户使用产品内体验搜索在�
 | 托管应用  | 空值 | 空值 | 空值 | 否 |
 | SaaS  | 否 | 是 | 是 | 是 |
 | 容器  | 空值 | 空值 | 空值 | 否 |
-| 咨询服务  | 否 | 不适用 | 空值 | 空值 |
+| 咨询服务  | 否 | 空值 | 空值 | 空值 |
 
 有关 SaaS 技术要求的详细信息，请参阅 [商业应用商店中的 Azure AD 和事务 SaaS 产品](./azure-ad-saas.md)。
 
@@ -80,7 +80,7 @@ Microsoft AppSource 和 Azure Marketplace 客户使用产品内体验搜索在�
 
 使用 Azure AD 支持以下操作之一：
 
-- 使用 [Azure AD B2B](../active-directory/b2b/what-is-b2b.md) 将访客用户添加到目录。
+- 使用 [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) 将访客用户添加到目录。
 - 使用“与我联系”发布选项手动为客户设置试用版。
 - 开发针对每个用户的体验版。
 - 生成使用 SSO 的多租户示例演示应用。
