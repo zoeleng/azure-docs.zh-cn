@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485029"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089230"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分页
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在 Azure Cosmos DB 中，查询可能有多页结果。 本文档介绍 Azure Cosmos DB 查询引擎用于决定是否将查询结果拆分为多个页面的条件。 可以选择使用继续标记来管理跨越多个页面的查询结果。
 
@@ -45,12 +46,13 @@ ms.locfileid: "92485029"
 
 ## <a name="continuation-tokens"></a>继续标记
 
-在 .NET SDK 和 Java SDK 中，可以选择将继续标记用作查询的进度书签。 Azure Cosmos DB 查询执行在服务器端无状态，并可以使用继续标记随时恢复。 Node.js SDK 或 Python SDK 中不支持继续标记。
+在 .NET SDK 和 Java SDK 中，可以选择将继续标记用作查询的进度书签。 Azure Cosmos DB 查询执行在服务器端无状态，并可以使用继续标记随时恢复。 Node.js SDK 中不支持继续标记。 对于 Python SDK，单分区查询支持该方法，因此必须在 options 对象中指定 PK，因为在查询本身中不能使用它。
 
 以下是一些使用继续标记的示例：
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 如果查询返回继续标记，则会有其他查询结果。
 

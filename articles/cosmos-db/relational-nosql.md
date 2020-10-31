@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 613e0dbfc90586475fe0ba9820ede1359a99d3a6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482207"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088465"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>了解 NoSQL 数据库与关系数据库之间的差别
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文列举 NoSQL 数据库相比关系数据库的一些重要优势。 此外，将讨论使用 NoSQL 时存在的一些难点。 若要深入了解现存的不同数据存储，请查看有关[选择适当的数据存储](/azure/architecture/guide/technology-choices/data-store-overview)的文章。
 

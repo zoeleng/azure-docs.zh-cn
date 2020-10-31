@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088567"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>使用系统分配的托管标识访问 Azure Cosmos DB 数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在本文中，你将设置一个无论是否轮换密钥都能可靠运行的解决方案，以使用[托管标识](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)访问 Azure Cosmos DB 密钥  。 本文中的示例使用 Azure Functions，但你可以使用任何支持托管标识的服务。 
 
@@ -66,9 +67,9 @@ ms.locfileid: "91566612"
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="显示了函数应用的“平台功能”和“标识”选项的屏幕截图。":::
 
-   * **角色**：选择“DocumentDB 帐户参与者” 
-   * **将访问权限分配到**：在“选择系统分配的托管标识”子部分下，选择“函数应用”   。
-   * **选择**：窗格中将会填充你的订阅中具有托管系统标识的所有函数应用  。 在本例中，请选择“FishTankTemperatureService”函数应用  ： 
+   * **角色** ：选择“DocumentDB 帐户参与者” 
+   * **将访问权限分配到** ：在“选择系统分配的托管标识”子部分下，选择“函数应用”   。
+   * **选择** ：窗格中将会填充你的订阅中具有托管系统标识的所有函数应用  。 在本例中，请选择“FishTankTemperatureService”函数应用  ： 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="显示了函数应用的“平台功能”和“标识”选项的屏幕截图。":::
 

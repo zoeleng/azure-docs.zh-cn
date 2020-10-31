@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5fa71c62969e0f1ff7e98f374eca63efa051c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 886f04d2ea143b7c6c22aa2e746de179fcf7e7dd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66390330"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090641"
 ---
 # <a name="get-images-from-your-custom-view"></a>从自定义视图获取图像
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
+> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
+> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 必应自定义图像搜索可以让你使用图像来丰富自定义搜索体验。 与 Web 结果类似，自定义搜索支持在实例的网站列表中搜索图像。 可以使用必应自定义图像搜索 API 或通过托管 UI 功能获取图像。 使用托管 UI 功能简单易行，并建议用于在短时间内启动和运行搜索体验。  有关配置托管 UI 以包含图像的信息，请参阅[配置托管 UI 体验](hosted-ui.md)。
 

@@ -6,14 +6,15 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 070c1ef4eeec2b4ed15f2f4720d9fbd8494fca0f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489279"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090420"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服务配额
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文概述了 Azure Cosmos DB 中提供给不同资源的默认配额。
 
@@ -120,7 +121,7 @@ Cosmos DB 会定期自动备份数据。 有关备份保留时间间隔和窗口
 | 每个唯一键约束的最大路径数|16 <sup>*</sup>|
 | 最大 TTL 值 |2147483647|
 
-<sup>*</sup> 可以通过创建 [Azure 支持请求](create-support-request-quota-increase.md)增加这些每个容器的限制。
+<sup>*</sup> 可以通过创建 [Azure 支持请求](create-support-request-quota-increase.md)来增加上述每个容器的限制。
 
 ## <a name="per-item-limits"></a>每项的限制
 
@@ -203,7 +204,7 @@ Cosmos DB 支持使用 [SQL](./sql-query-getting-started.md) 查询项。 下表
 | 每个容器的最大排除路径数| 500 |
 | 组合索引中的最大属性数| 8 |
 
-<sup>*</sup> 可以通过创建 [Azure 支持请求](create-support-request-quota-increase.md)增加以上任何 SQL 查询限制。
+<sup>*</sup> 可以通过创建 [Azure 支持请求](create-support-request-quota-increase.md)来增加上述任一 SQL 查询限制。
 
 ## <a name="mongodb-api-specific-limits"></a>MongoDB API 特定限制
 

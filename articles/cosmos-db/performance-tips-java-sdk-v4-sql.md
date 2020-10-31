@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475220"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091270"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -38,7 +39,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 * **连接模式：使用直接模式**
 <a id="direct-connection"></a>
     
-    Java SDK 默认连接模式为直接。 你可以使用 *directMode ( # B1 * 或 *GatewayMode ( # B3 * 方法在客户端生成器中配置连接模式，如下所示。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。 否则，将配置设置类实例作为参数传递 (*DirectConnectionConfig* for *DirectMode ( # B2 *、  *GatewayConnectionConfig* for *gatewayMode ( # B4 *. ) 。 若要了解有关不同连接选项的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。
+    Java SDK 默认连接模式为直接。 你可以使用 *directMode ( # B1* 或 *GatewayMode ( # B3* 方法在客户端生成器中配置连接模式，如下所示。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。 否则，将配置设置类实例作为参数传递 ( *DirectConnectionConfig* for *DirectMode ( # B2* 、  *GatewayConnectionConfig* for *gatewayMode ( # B4* . ) 。 若要了解有关不同连接选项的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -148,15 +149,15 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     在 Azure Cosmos DB Java SDK v4 中，直接模式是为大多数工作负荷改善数据库性能的最佳选择。 
 
-    * ***直接模式的概述**_
+    * ***直接模式的概述** _
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
 
-        在直接模式下采用的客户端体系结构使得网络利用率可预测，并实现对 Azure Cosmos DB 副本的多路访问。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在每个数据库副本的客户端分配多达 10 _*通道**。 一个通道是前面带有请求缓冲区（深度为 30 个请求）的 TCP 连接。 属于某个副本的通道由该副本的服务终结点按需动态分配。 当用户在直接模式下发出请求时，TransportClient 会根据分区键将请求路由到适当的服务终结点。 请求队列在服务终结点之前缓冲请求。
+        在直接模式下采用的客户端体系结构使得网络利用率可预测，并实现对 Azure Cosmos DB 副本的多路访问。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在每个数据库副本的客户端分配多达 10 _ *通道* *。 一个通道是前面带有请求缓冲区（深度为 30 个请求）的 TCP 连接。 属于某个副本的通道由该副本的服务终结点按需动态分配。 当用户在直接模式下发出请求时，TransportClient 会根据分区键将请求路由到适当的服务终结点。 请求队列在服务终结点之前缓冲请求。
 
     * ***直接模式 _ 的配置选项**
 
-        如果需要非默认的直接模式行为，请创建 _DirectConnectionConfig * 实例并自定义其属性，然后将自定义属性实例传递到 Azure Cosmos DB 客户端生成器中的 *directMode ( # B1 * 方法。
+        如果需要非默认的直接模式行为，请创建 _DirectConnectionConfig * 实例并自定义其属性，然后将自定义属性实例传递到 Azure Cosmos DB 客户端生成器中的 *directMode ( # B1* 方法。
 
         这些配置设置控制以上讨论的基础直接模式体系结构的行为。
 
@@ -174,13 +175,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Azure Cosmos DB Java SDK v4 支持并行查询，允许以并行方式查询分区的集合。 有关详细信息，请参阅与使用 Azure Cosmos DB Java SDK v4 相关的[代码示例](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
-    * ***优化 setMaxDegreeOfParallelism \: **_
+    * ***优化 setMaxDegreeOfParallelism \:** _
     
         并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 setMaxDegreeOfParallelism 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。
 
         必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
 
-    _ ***优化 setMaxBufferedItemCount \: **_
+    _ * **优化 setMaxBufferedItemCount \:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -196,7 +197,7 @@ _ **横向扩展客户端工作负荷**
 
 * **调整查询/读取源的页面大小以获得更好的性能**
 
-    使用读取源功能（例如 *readItems*）执行批量文档读取时，或发出 SQL 查询 (*queryItems*) 时，如果结果集太大，则会以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
+    使用读取源功能（例如 *readItems* ）执行批量文档读取时，或发出 SQL 查询 ( *queryItems* ) 时，如果结果集太大，则会以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
 
     假设应用程序向 Azure Cosmos DB 发出一个查询，同时假设应用程序需要有完整的查询结果集才能完成其任务。 若要减少检索所有适用结果所需的网络往返次数，可以通过调整 [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 请求标头字段来增大页面大小。 
 
@@ -206,7 +207,7 @@ _ **横向扩展客户端工作负荷**
     
     在某些应用程序中，可能不需要完整的查询结果集。 在只需要显示几个结果的情况下（例如，用户界面或应用程序 API 一次只返回 10 个结果），也可以将页面大小缩小到 10，以降低读取和查询所耗用的吞吐量。
 
-    也可以设置 byPage 方法的首选页面大小参数，而不是直接修改 REST 标头字段。 请记住，[x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 或 *byPage* 的首选页面大小参数仅设置页面大小的上限，而不是绝对要求。因此，由于各种原因，你可能会看到 Azure Cosmos DB 返回的页面小于首选页面大小。 
+    也可以设置 byPage 方法的首选页面大小参数，而不是直接修改 REST 标头字段。 请记住， [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 或 *byPage* 的首选页面大小参数仅设置页面大小的上限，而不是绝对要求。因此，由于各种原因，你可能会看到 Azure Cosmos DB 返回的页面小于首选页面大小。 
 
 * **使用相应的计划程序（避免窃取事件循环 IO Netty 线程）**
 
@@ -231,11 +232,11 @@ _ **横向扩展客户端工作负荷**
 
     由于各种原因，你可能希望或需要在某个产生较高请求吞吐量的线程中添加日志记录。 如果你的目标是使用此线程生成的请求使容器的预配吞吐量完全饱和，则日志记录优化可以极大地提升性能。
 
-    * ***配置异步记录器**_
+    * ***配置异步记录器** _
 
         生成请求的线程的总体延迟计算必然会考虑到同步记录器延迟的因素。 建议使用异步记录器（例如 [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0)），以便将日志记录开销与高性能应用程序线程分开。
 
-    _ ***禁用 netty 的日志记录**_
+    _ * **禁用 netty 的日志记录** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 

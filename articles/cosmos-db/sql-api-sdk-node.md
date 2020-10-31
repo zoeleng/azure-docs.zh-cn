@@ -9,14 +9,15 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 29001b02cb62fc28c94c7b404bd35b22e263f9de
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7f101097945e5f345bae351ef5ca2a23a3e14be6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487749"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091151"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -60,7 +61,7 @@ ms.locfileid: "92487749"
 * 修复了用户提供部分重试选项时遇到的 bug
 
 ### <a name="303"></a><a name="3.0.3"></a>3.0.3
-* 阻止 webpack 解析调用的模块时需要
+* 阻止 webpack 解析要求调用的模块
 
 ### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * 修复了在聚合查询中 RU 总是被报告为 0 的长期未解决的 bug
@@ -186,7 +187,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>改进了浏览器体验
-尽管可以在浏览器中使用 v2 SDK，但这并不是理想体验。 需要填充代码多个 node.js 内置库并使用 webpack 或包裹等捆绑程序。 v3 SDK 为浏览器用户提供了更好的全新体验。
+尽管可以在浏览器中使用 v2 SDK，但这并不是理想体验。 需要对多个 node.js 内置库填充代码，并使用 webpack 或 Parcel 之类的捆绑程序。 v3 SDK 为浏览器用户提供了更好的全新体验。
 
 * 将内部请求替换为 fetch (#245)
 * 不使用缓冲区 (#330)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a917ade5da6938487076b983bd42ce9b27672c49
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 09c35ff8c045fa7d912324886fb31b02e606d2f8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089077"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure 数据工厂的 azure 安全基线
 
@@ -22,7 +22,7 @@ Azure 数据工厂的 Azure 安全基线包含有助于改进部署安全状况�
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -688,9 +688,9 @@ Self-Hosted IRs 可以部署在虚拟网络中的本地计算机或 Azure 虚拟
 
 对于 Microsoft 管理的底层平台，Microsoft 会将所有客户内容视为敏感数据，并会全方位地防范客户数据丢失和遭到透露。 为了确保 Azure 中的客户数据保持安全，Microsoft 实施并维护了一套可靠的数据保护控制措施和功能。
 
-* [Azure 中的更新管理解决方案](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure 中的更新管理解决方案](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [管理 Azure VM 的更新和修补程序](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [管理 Azure VM 的更新和修补程序](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 * [了解 Azure 中的客户数据保护](../security/fundamentals/protection-customer-data.md)
 
@@ -702,9 +702,9 @@ Self-Hosted IRs 可以部署在虚拟网络中的本地计算机或 Azure 虚拟
 
 **指南** ：如果在 Azure 虚拟机中运行 INTEGRATION RUNTIME (VM) ，则可以使用第三方修补程序管理解决方案。 可以使用 Azure 更新管理解决方案来管理虚拟机的更新和补丁。 更新管理依赖于本地配置的更新存储库来修补受支持的 Windows 系统。 可以使用 System Center Updates Publisher (Updates Publisher) 之类的工具将自定义更新发布到 Windows Server Update Services (WSUS) 中。 在这种情况下，允许更新管理使用第三方软件来修补使用 Configuration Manager 作为其更新存储库的计算机。
 
-* [Azure 中的更新管理解决方案](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure 中的更新管理解决方案](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [管理 Azure VM 的更新和修补程序](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [管理 Azure VM 的更新和修补程序](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 **Azure 安全中心监视** ：目前不可用
 
@@ -792,7 +792,7 @@ Self-Hosted IRs 可以部署在虚拟网络中的本地计算机或 Azure 虚拟
 
 **指导** ：使用 Azure Policy 对可以在订阅中创建的资源类型施加限制。
 
-使用 Azure Resource Graph 查询/发现订阅中的资源。 确保环境中存在的所有 Azure 资源已获得批准。
+使用 Azure Resource Graph 查询/发现订阅中的资源。 确保环境中的所有 Azure 资源均已获得批准。
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

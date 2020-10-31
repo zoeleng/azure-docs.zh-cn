@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677147"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089009"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>将 ITSM 产品/服务与 IT 服务管理连接器相连接
 本文介绍如何配置 ITSM 产品/服务与 Log Analytics 中的 IT 服务管理连接器 (ITSMC) 之间的连接，以便集中管理工作项。 有关 ITSMC 的详细信息，请参阅[概述](./itsmc-overview.md)。
@@ -36,7 +36,7 @@ ms.locfileid: "92677147"
 
 请确保满足以下先决条件：
 
-- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#adding-the-it-service-management-connector-solution)。
+- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#add-it-service-management-connector)。
 - 已部署并配置 Service Manager Web 应用程序（Web 应用）。 [此处](#create-and-deploy-service-manager-web-app-service)提供了有关 Web 应用的信息。
 - 已创建并配置混合连接。 详细信息：[配置混合连接](#configure-the-hybrid-connection)。
 - 支持的 Service Manager 版本：2012 R2 或 2016。
@@ -184,7 +184,7 @@ ms.locfileid: "92677147"
 
 ### <a name="prerequisites"></a>先决条件
 请确保满足以下先决条件：
-- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#adding-the-it-service-management-connector-solution)。
+- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#add-it-service-management-connector)。
 - ServiceNow 支持的版本：奥兰多、纽约、马德里、伦敦、Kingston、雅加达、伊斯坦布尔、赫尔辛基、Geneva。
 > [!NOTE]
 > ITSMC 仅支持 ServiceNow 的官方 SaaS 产品/服务。 当前不支持 ServiceNow 的专用部署。 
@@ -316,7 +316,7 @@ ms.locfileid: "92677147"
 请确保满足以下先决条件：
 
 
-- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#adding-the-it-service-management-connector-solution)。
+- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#add-it-service-management-connector)。
 - Provance 应用应已注册到 Azure AD，并且可提供客户端 ID。 有关详细信息，请参阅[如何配置 Active Directory 身份验证](../../app-service/configure-authentication-provider-aad.md)。
 
 - 用户角色：管理员。
@@ -373,7 +373,7 @@ ms.locfileid: "92677147"
 
 请确保满足以下先决条件：
 
-- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#adding-the-it-service-management-connector-solution)。
+- 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](./itsmc-overview.md#add-it-service-management-connector)。
 - 已生成客户端 ID。 详细信息：[为 Cherwell 生成客户端 ID](#generate-client-id-for-cherwell)。
 - 用户角色：管理员。
 

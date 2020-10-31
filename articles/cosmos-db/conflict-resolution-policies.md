@@ -7,24 +7,25 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 69bc58e7d217bbd902a82a15333eee6df40a21c9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bfe4bd8483485ffc3b09e77e7683d2d0ec38ba75
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090182"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>使用多个写入区域时的冲突类型和解决策略
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 如果为 Azure Cosmos DB 帐户配置了多个写入区域，则适用冲突和冲突解决策略的概念。
 
 对于配置了多个写入区域的 Azure Cosmos 帐户，当多个写入者同时更新多个区域中的同一项目时，可能会发生更新冲突。 更新冲突可以分为以下三种类型：
 
-* **插入冲突**：当应用程序同时在两个或更多个区域插入两个或更多个具有相同唯一索引的项目时，可能会发生此类冲突。 例如，可能会因为 ID 属性而发生此冲突。
+* **插入冲突** ：当应用程序同时在两个或更多个区域插入两个或更多个具有相同唯一索引的项目时，可能会发生此类冲突。 例如，可能会因为 ID 属性而发生此冲突。
 
-* **替换冲突**：当应用程序同时在两个或更多个区域中更新同一项目时，可能会发生此类冲突。
+* **替换冲突** ：当应用程序同时在两个或更多个区域中更新同一项目时，可能会发生此类冲突。
 
-* **删除冲突**：如果应用程序在一个区域删除某个项目，同时在另一区域更新该项目，则可能会发生此类冲突。
+* **删除冲突** ：如果应用程序在一个区域删除某个项目，同时在另一区域更新该项目，则可能会发生此类冲突。
 
 ## <a name="conflict-resolution-policies"></a>冲突解决策略
 
@@ -39,7 +40,7 @@ Azure Cosmos DB 提供了灵活的策略驱动型机制来解决写入冲突。 
 
   有关详细信息，请参阅 [LWW 冲突解决策略的用法示例](how-to-manage-conflicts.md)。
 
-* **自定义**：此解决策略旨在使用应用程序定义的语义来调解冲突。 在 Azure Cosmos 容器上设置此策略时，还需注册合并存储过程。  在服务器的数据库事务下检测到冲突时，会自动调用此过程。 在执行提交协议过程中，该系统可保证正好执行合并过程一次。  
+* **自定义** ：此解决策略旨在使用应用程序定义的语义来调解冲突。 在 Azure Cosmos 容器上设置此策略时，还需注册合并存储过程。  在服务器的数据库事务下检测到冲突时，会自动调用此过程。 在执行提交协议过程中，该系统可保证正好执行合并过程一次。  
 
   如果为容器配置了自定义解决选项，但无法在容器中注册合并过程，或者合并过程在运行时引发异常，则冲突将写入到冲突源。  然后，应用程序需要自行解决冲突源中的冲突。 有关详细信息，请参阅[自定义解决策略和冲突源的用法示例](how-to-manage-conflicts.md)。
 

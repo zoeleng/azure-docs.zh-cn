@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089910"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板从 GitHub 部署 Azure Cosmos DB、Azure 应用服务与 Web 应用
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本教程介绍如何在首次运行时对连接到 Azure Cosmos DB 的 Web 应用程序执行“无接触”部署，而无需在 Azure 门户中将 Azure Cosmos DB 中的任何连接信息剪切并粘贴到 `appsettings.json` 或 Azure 应用服务应用程序设置。 所有这些操作均使用 Azure 资源管理器模板一次性完成。 在此处的示例中，将从 [Web 应用教程](sql-api-dotnet-application.md)部署 [Azure Cosmos DB ToDo 示例](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app)。
 

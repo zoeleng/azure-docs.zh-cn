@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089825"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>事务和乐观并发控制
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 数据库事务提供一种安全且可预测的编程模型来处理数据的并发更改。 利用 SQL Server 等传统关系数据库，你可以使用存储过程和/或触发器编写业务逻辑，然后将其发送到该服务器以便直接在数据库引擎中执行。 使用传统关系数据库时需要处理两种不同的编程语言 - 非事务性应用程序编程语言（例如 JavaScript、Python、C#、Java 等）和由数据库本机执行的事务性编程语言（例如 T-SQL）。
 
@@ -49,7 +50,7 @@ Azure Cosmos DB 中的数据库引擎支持使用快照隔离且完全符合 ACI
 
 ## <a name="optimistic-concurrency-control"></a>乐观并发控制
 
-乐观并发控制可以防止丢失更新和删除。 并发冲突的操作受数据库引擎的常规悲观锁定的限制，该引擎由拥有该项的逻辑分区托管。 如果两个并发操作尝试更新逻辑分区内的一个最新版的项，则其中一个会成功，而另一个将失败。 但是，如果尝试同时更新相同项的一个或两个操作以前读取过该项的较旧值，则该数据库无法确定这一个或两个冲突操作以前读取的值是否确实是项的最新值。 幸运的是，在允许这两个操作进入数据库引擎内的事务边界之前，可以使用**乐观并发控制 (OCC)** 检测这种情况。 OCC 可防止数据意外覆盖其他人所做的更改。 它还可以防止其他人意外覆盖你自己的更改。
+乐观并发控制可以防止丢失更新和删除。 并发冲突的操作受数据库引擎的常规悲观锁定的限制，该引擎由拥有该项的逻辑分区托管。 如果两个并发操作尝试更新逻辑分区内的一个最新版的项，则其中一个会成功，而另一个将失败。 但是，如果尝试同时更新相同项的一个或两个操作以前读取过该项的较旧值，则该数据库无法确定这一个或两个冲突操作以前读取的值是否确实是项的最新值。 幸运的是，在允许这两个操作进入数据库引擎内的事务边界之前，可以使用 **乐观并发控制 (OCC)** 检测这种情况。 OCC 可防止数据意外覆盖其他人所做的更改。 它还可以防止其他人意外覆盖你自己的更改。
 
 基于 Azure Cosmos DB 的通信协议层，项的并发更新受 OCC 限制。 Azure Cosmos 数据库可确保要更新（或删除）项的客户端版本与 Azure Cosmos 容器中该项的版本相同。 这确保了写入被其他人意外覆盖了写入，反之亦然。 在多用户环境中，乐观并发控制可防止意外删除或更新项的错误版本。 在这种情况下，可防止项出现令人痛恨的“丢失更新”或“丢失删除”问题。
 
