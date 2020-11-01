@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91761766"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>教程：使用 Azure 门户配置 ExpressRoute 的虚拟网络网关
@@ -42,7 +42,7 @@ ms.locfileid: "91761766"
     * 子网地址范围 =“192.168.1.0/24”
 * 资源组 = “TestRG”
 * 位置 =“美国东部”
-* 网关子网名称：“GatewaySubnet”必须始终将网关子网命名为 *GatewaySubnet*。
+* 网关子网名称：“GatewaySubnet”必须始终将网关子网命名为 *GatewaySubnet* 。
     * 网关子网地址空间 = “192.168.200.0/26”
 * 网关名称 =“ERGW”
 * 网关公共 IP 名称 =“MyERGWVIP”
@@ -58,7 +58,7 @@ ms.locfileid: "91761766"
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="添加网关子网":::
 
-1. 子网的“名称”**** 自动填充为值“GatewaySubnet”。 Azure 需要此值才能识别作为网关子网的子网。 调整自动填充的地址范围值，使其符合配置要求。 建议使用 /27 或更大（/26、/25 等）创建网关子网。 然后，单击“确定”来保存这些值并创建网关子网。
+1. 子网的“名称”  自动填充为值“GatewaySubnet”。 Azure 需要此值才能识别作为网关子网的子网。 调整自动填充的地址范围值，使其符合配置要求。 建议使用 /27 或更大（/26、/25 等）创建网关子网。 然后，单击“确定”来保存这些值并创建网关子网。
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="添加网关子网":::
 

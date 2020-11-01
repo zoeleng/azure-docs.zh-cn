@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 6d6757af6619edd41709a4b8f06ef615cd35bf30
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b24a9dcb7a369708b1374f367186dc4d9a6ce475
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636572"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146869"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>如何自定义沉浸式读者
 
@@ -31,7 +31,7 @@ ms.locfileid: "92636572"
 
 ## <a name="customize-the-button-style"></a>自定义按钮样式
 
-使用 `data-button-style` 属性设置按钮的样式。 允许的值为 `icon` 、 `text` 和 `iconAndText` 。 默认值为 `icon`。
+使用 `data-button-style` 属性设置按钮的样式。 允许的值为 `icon` 、 `text` 和 `iconAndText` 。 默认值是 `icon`。
 
 ### <a name="icon-button"></a>图标按钮
 
@@ -41,7 +41,7 @@ ms.locfileid: "92636572"
 
 这会呈现以下内容：
 
-![图标按钮](./media/button-icon.png)
+![这是呈现的文本按钮](./media/button-icon.png)
 
 ### <a name="text-button"></a>文本按钮
 
@@ -51,7 +51,7 @@ ms.locfileid: "92636572"
 
 这会呈现以下内容：
 
-![图标按钮](./media/button-text.png)
+![这是呈现的沉浸式读取器按钮。](./media/button-text.png)
 
 ### <a name="icon-and-text-button"></a>图标和文本按钮
 

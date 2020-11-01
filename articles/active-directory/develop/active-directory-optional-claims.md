@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9090c778771436a4fcf60139f3ee59812051057a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436844"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145610"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>如何：向应用提供可选声明
 
@@ -42,14 +42,14 @@ ms.locfileid: "89436844"
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v1.0 和 v2.0 可选声明集
 
-下面列出了默认可对应用程序使用的可选声明集。 若要为应用程序添加自定义可选声明，请参阅下面的[目录扩展](#configuring-directory-extension-optional-claims)。 在向**访问令牌**添加声明时，这些声明应用到应用程序 (Web API) 请求的访问令牌，而不是应用程序请求的声明。 无论客户端如何访问你的 API，正确的数据都存在于用于对该 API 进行身份验证的访问令牌中。
+下面列出了默认可对应用程序使用的可选声明集。 若要为应用程序添加自定义可选声明，请参阅下面的[目录扩展](#configuring-directory-extension-optional-claims)。 在向 **访问令牌** 添加声明时，这些声明应用到应用程序 (Web API) 请求的访问令牌，而不是应用程序请求的声明。 无论客户端如何访问你的 API，正确的数据都存在于用于对该 API 进行身份验证的访问令牌中。
 
 > [!NOTE]
 > 其中的大多数声明可包含在 v1.0 和 v2.0 令牌的 JWT 中，但不可包含在 SAML 令牌中，“令牌类型”列中指明的声明除外。 使用者帐户支持部分在“用户类型”列中标记的此类声明。  列出的许多声明不适用于使用者用户（他们没有租户，因此 `tenant_ctry` 没有值）。
 
 **表 2：v1.0 和 v2.0 可选声明集**
 
-| 名称                       |  说明   | 令牌类型 | 用户类型 | 说明  |
+| 名称                       |  说明   | 令牌类型 | 用户类型 | 注释  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 用户上次进行身份验证的时间。 请参阅 OpenID Connect 规范。| JWT        |           |  |
 | `tenant_region_scope`      | 资源租户的区域 | JWT        |           | |
@@ -67,7 +67,7 @@ ms.locfileid: "89436844"
 | `email`                    | 此用户的可寻址电子邮件（如果此用户有）。  | JWT、SAML | MSA、Azure AD | 如果用户是租户中的来宾，则默认包含此值。  对于托管用户（租户内部的用户），必须通过此可选声明进行请求，或者仅在 v2.0 上使用 OpenID 范围进行请求。  对于托管用户，必须在 [Office 管理门户](https://portal.office.com/adminportal/home#/users)中设置电子邮件地址。|
 | `acct`                | 租户中的用户帐户状态 | JWT、SAML | | 如果用户是租户的成员，则该值为 `0`。 如果他们是来宾，则该值为 `1`。 |
 | `groups`| 组声明的可选格式 |JWT、SAML| |与[应用程序清单](reference-app-manifest.md)中的 GroupMembershipClaims 设置（也是必需的）结合使用。 有关详细信息，请参阅下面的[组声明](#configuring-groups-optional-claims)。 有关组声明的详细信息，请参阅[如何配置组声明](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT、SAML  |           | 尽管会自动包含此声明，但可以将它指定为可选声明，以附加额外的属性，在来宾用例中修改此声明的行为。  |
+| `upn`                      | UserPrincipalName | JWT、SAML  |           | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应用于唯一标识用户信息 (例如，作为数据库键) 。 改为使用用户对象 ID (`oid`) 数据库键。 使用 [备用登录 ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) 登录的用户不应显示其用户主体名称 (UPN) 。 相反，请使用以下 ID 令牌声明来向用户显示登录状态： `preferred_username` 或 `unique_name` 为 v1 令牌和 v2 令牌显示登录状态 `preferred_username` 。 尽管会自动包含此声明，但可以将它指定为可选声明，以附加额外的属性，在来宾用例中修改此声明的行为。  |
 | `idtyp`                    | 令牌类型   | JWT 访问令牌 | 特别之处：仅在仅限应用的访问令牌中 |  当令牌为仅限应用的令牌时，值为 `app`。 这是 API 确定令牌是应用令牌还是应用+用户令牌最准确的方法。|
 
 ## <a name="v20-specific-optional-claims-set"></a>特定于 v2.0 的可选声明集
@@ -76,7 +76,7 @@ ms.locfileid: "89436844"
 
 **表 3：仅限 v2.0 的可选声明**
 
-| JWT 声明     | 名称                            | 说明                                | 说明 |
+| JWT 声明     | 名称                            | 说明                                | 注释 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 地址                      | 客户端从中登录的 IP 地址。   |       |
 | `onprem_sid`  | 本地安全标识符 |                                             |       |
@@ -85,7 +85,7 @@ ms.locfileid: "89436844"
 | `in_corp`     | 企业网络内部        | 表示客户端是否从企业网络登录。 如果不是，则不包括该声明。   |  以 MFA 中的[可信 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 设置为基础。    |
 | `family_name` | 姓氏                       | 根据用户对象中的定义提供用户的姓氏。 <br>"family_name":"Miller" | 在 MSA 和 Azure AD 中受支持。 需要 `profile` 范围。   |
 | `given_name`  | 名字                      | 根据用户对象中的设置提供用户的名字和“姓氏”。<br>"given_name":"Frank"                   | 在 MSA 和 Azure AD 中受支持。  需要 `profile` 范围。 |
-| `upn`         | 用户主体名称 | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于关键数据。 | 有关声明配置，请参阅下面的[附加属性](#additional-properties-of-optional-claims)。 需要 `profile` 范围。|
+| `upn`         | 用户主体名称 | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应用于唯一标识用户信息 (例如，作为数据库键) 。 改为使用用户对象 ID (`oid`) 数据库键。 使用 [备用登录 ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) 登录的用户不应显示其用户主体名称 (UPN) 。 相反，请使用以下 ID 令牌声明来向用户显示登录状态： `preferred_username` 或 `unique_name` 为 v1 令牌和 v2 令牌显示登录状态 `preferred_username` 。 | 有关声明配置，请参阅下面的[附加属性](#additional-properties-of-optional-claims)。 需要 `profile` 范围。|
 
 ### <a name="additional-properties-of-optional-claims"></a>可选声明的附加属性
 
@@ -136,7 +136,7 @@ ms.locfileid: "89436844"
 1. 选择“添加可选声明”。
 1. 选择要配置的令牌类型。
 1. 选择要添加的可选声明。
-1. 选择“添加”  。
+1. 选择 **添加** 。
 
 **通过应用程序清单配置可选声明：**
 
@@ -238,7 +238,7 @@ ms.locfileid: "89436844"
 1. 在列表中选择要为其配置可选声明的应用程序
 1. 在“管理”部分下，选择“令牌配置” 
 1. 选择“添加组声明”
-1. 选择要返回 (**安全组**、 **目录角色**、 **所有组**以及/或 **分配给应用程序**) 的组的组类型。 **分配给应用程序**选项的组仅包括分配给该应用程序的组。 **All groups**选项包括**SecurityGroup**、 **DirectoryRole**和**DistributionList**，但不包括**分配给应用程序的组**。 
+1. 选择要返回 ( **安全组** 、 **目录角色** 、 **所有组** 以及/或 **分配给应用程序** ) 的组的组类型。 **分配给应用程序** 选项的组仅包括分配给该应用程序的组。 **All groups** 选项包括 **SecurityGroup** 、 **DirectoryRole** 和 **DistributionList** ，但不包括 **分配给应用程序的组** 。 
 1. 可选：选择特定的令牌类型属性，将组声明值修改为包含本地组特性，或将声明类型更改为角色
 1. 选择“保存”
 

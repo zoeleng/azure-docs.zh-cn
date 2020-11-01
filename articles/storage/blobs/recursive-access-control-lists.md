@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4c30029a71935cd3b8817be9010ff0fd11fa61a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 56a797864b70cb1be4a1bc5d4b79c44348d43dae
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077687"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93144420"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
@@ -969,8 +969,6 @@ def resume_set_acl_recursive(continuation_token):
 如果希望进程在权限错误中无中断地完成，则可以指定。
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-若要确保进程无间断完成，请传入 **AccessControlChangedOptions** 对象，并将该对象的 **ContinueOnFailure** 属性设置为 ``true`` 。
 
 此示例以递归方式设置 ACL 项。 如果此代码遇到权限错误，则会记录该错误并继续执行。 此示例将输出结果 (包括) 到控制台的失败次数。 
 

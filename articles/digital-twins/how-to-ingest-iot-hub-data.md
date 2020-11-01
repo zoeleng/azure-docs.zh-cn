@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1fa14c4341c449c32fd6a5f6b3274b057478c01c
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d2606f793c7ab2e3ac29b1eb869e60a2c8e634ad
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495823"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145916"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>将 IoT 中心遥测数据引入 Azure 数字孪生
 
@@ -25,9 +25,9 @@ Azure 数字孪生由 IoT 设备和其他来源的数据驱动。 要在 Azure �
 ## <a name="prerequisites"></a>先决条件
 
 继续此示例之前，需要将以下资源设置为系统必备组件：
-* **IoT 中心**。 有关说明，请参阅[此 Iot 中心快速入门](../iot-hub/quickstart-send-telemetry-cli.md)中的*创建 iot 中心*部分。
-* 使用正确的权限调用数字克隆实例的**Azure 函数**。 有关说明，请参阅 [*如何：设置用于处理数据的 Azure 函数*](how-to-create-azure-function.md)。 
-* 将接收设备遥测数据的**Azure 数字孪生实例**。 有关说明，请参阅 [*如何：设置 Azure 数字孪生实例和身份验证*](./how-to-set-up-instance-portal.md)。
+* **IoT 中心** 。 有关说明，请参阅 [此 Iot 中心快速入门](../iot-hub/quickstart-send-telemetry-cli.md)中的 *创建 iot 中心* 部分。
+* 使用正确的权限调用数字克隆实例的 **Azure 函数** 。 有关说明，请参阅 [*如何：设置用于处理数据的 Azure 函数*](how-to-create-azure-function.md)。 
+* 将接收设备遥测数据的 **Azure 数字孪生实例** 。 有关说明，请参阅 [*如何：设置 Azure 数字孪生实例和身份验证*](./how-to-set-up-instance-portal.md)。
 
 ### <a name="example-telemetry-scenario"></a>遥测方案示例
 
@@ -62,13 +62,13 @@ Azure 数字孪生由 IoT 设备和其他来源的数据驱动。 要在 Azure �
 }
 ```
 
-若要将 **此模型上传到孪生实例**，请打开 Azure CLI，并运行以下命令：
+若要将 **此模型上传到孪生实例** ，请打开 Azure CLI，并运行以下命令：
 
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-然后，需要 **使用此模型创建一个**克隆。 使用以下命令创建一个克隆并将0.0 设置为初始温度值。
+然后，需要 **使用此模型创建一个** 克隆。 使用以下命令创建一个克隆并将0.0 设置为初始温度值。
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -117,9 +117,9 @@ var temperature = deviceMessage["body"]["Temperature"];
 
 ```csharp
 //Update twin using device temperature
-var uou = new UpdateOperationsUtility();
-uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
@@ -176,9 +176,9 @@ namespace IotHubtoTwins
                     log.LogInformation($"Device:{deviceId} Temperature is:{temperature}");
 
                     //Update twin using device temperature
-                    var uou = new UpdateOperationsUtility();
-                    uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-                    await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+                    var updateTwinData = new JsonPatchDocument();
+                    updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+                    await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
                 }
             }
             catch (Exception e)
@@ -189,7 +189,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-保存函数代码，并将函数应用发布到 Azure。 为此，请参阅[*如何：设置用于处理数据的 Azure 函数*](how-to-create-azure-function.md)的[*"发布 Function App"*](./how-to-create-azure-function.md#publish-the-function-app-to-azure)部分。
+保存函数代码，并将函数应用发布到 Azure。 为此，请参阅 [*如何：设置用于处理数据的 Azure 函数*](how-to-create-azure-function.md)的 [*"发布 Function App"*](./how-to-create-azure-function.md#publish-the-function-app-to-azure)部分。
 
 成功发布后，将在 Visual Studio 命令窗口中看到输出，如下所示：
 
@@ -210,7 +210,7 @@ namespace IotHubtoTwins
 ## <a name="connect-your-function-to-iot-hub"></a>将函数连接到 IoT 中心
 
 设置中心数据的事件目标。
-在 [Azure 门户](https://portal.azure.com/)中，导航到在 " [*先决条件*](#prerequisites) " 部分中创建的 IoT 中心实例。 在 " **事件**" 下，为 Azure 函数创建订阅。
+在 [Azure 门户](https://portal.azure.com/)中，导航到在 " [*先决条件*](#prerequisites) " 部分中创建的 IoT 中心实例。 在 " **事件** " 下，为 Azure 函数创建订阅。
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="显示流程图的关系图。在此图表中，IoT 中心设备通过 IoT 中心将温度遥测发送到 Azure 功能，该功能可更新 Azure 数字孪生中的克隆温度属性。" 链接来创建终结点。
     

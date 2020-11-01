@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793069"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146716"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "92793069"
 
 使用 SQL Server 库映像预配 Azure VM 时，请选择“SQL Server 设置”选项卡上的“更改配置”，以打开“性能优化存储配置”页。  你可以将值保留为默认值，或根据工作负载修改最适合你的需求的磁盘配置类型。 
 
-![预配期间的 SQL Server VM 存储配置](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![突出显示 "SQL Server 设置" 选项卡和 "更改" 配置选项的屏幕截图。](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 在 **存储优化** 下选择要为其部署 SQL Server 的工作负荷类型。 使用“常规”优化选项时，默认情况下，你将有一个最大 IOPS 为 5000 的数据磁盘，你的数据、事务日志和 TempDB 存储都将使用此相同驱动器。 选择 **事务性处理** (OLTP) 或 **数据仓库** 将为数据创建单独的磁盘、为事务日志创建单独的磁盘，并将本地 SSD 用于 TempDB。 **事务处理** 与 **数据仓库** 之间没有存储差异，但它确实更改了 [条带化配置和跟踪标志](#workload-optimization-settings)。 根据 [SQL Server VM 性能最佳方案](performance-guidelines-best-practices.md)，选择“高级存储”会将数据驱动器的缓存设置为“只读”，为日志驱动器的缓存设置为“None”。  
 
@@ -103,7 +103,7 @@ ms.locfileid: "92793069"
 
 要修改存储设置，请选择“设置”下的“配置”。  
 
-![为现有 SQL Server VM 配置存储](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![突出显示 "配置" 选项和 "存储使用量" 部分的屏幕截图。](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 可以修改在 SQL Server VM 创建过程中配置的驱动器的磁盘设置。 选择“扩展驱动器”将打开驱动器修改页，使你可以更改磁盘类型以及添加更多磁盘。 
 

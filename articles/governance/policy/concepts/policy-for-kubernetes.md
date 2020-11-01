@@ -3,12 +3,12 @@ title: 了解适用于 Kubernetes 的 Azure 策略
 description: 了解 Azure Policy 如何使用 Rego 和 Open Policy Agent 来管理在 Azure 或本地运行 Kubernetes 的群集。
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1e85d7af26e52ea38c09ec0c052b5c6a2787bb80
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676698"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146290"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>了解用于 Kubernetes 群集的 Azure Policy
 
@@ -37,7 +37,7 @@ Azure Policy 将扩展 [Gatekeeper](https://github.com/open-policy-agent/gatekee
    - [AKS 引擎](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
-   > 有关安装的常见问题，请参阅 [排查 Azure 策略外接程序](../troubleshoot/general.md#add-on-installation-errors)问题。
+   > 有关安装的常见问题，请参阅 [排查 Azure 策略外接程序](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors)问题。
 
 1. [了解适用于 Kubernetes 的 Azure Policy 语言](#policy-language)
 

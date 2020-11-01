@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: 54775d7e9923505c6e68a47feed6726b9cb84c47
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129926"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146171"
 ---
 # <a name="publishing-guide-by-offer-type"></a>发布指南（按产品/服务类型）
 
@@ -39,10 +39,8 @@ ms.locfileid: "93129926"
 | [**IoT Edge 模块**](iot-edge-module.md) | Azure IoT Edge 模块是由 IoT Edge 托管的最小计算单位，可以包含 Microsoft 服务（如 Azure 流分析）、第三方服务，或你自己特定于解决方案的代码。 |
 | [**托管服务**](partner-center-portal/create-new-managed-service-offer.md) | 可以通过 [Azure Lighthouse](../lighthouse/overview.md)创建托管服务提供和管理客户委托的订阅或资源组。|
 | [**Power BI 应用** <br/>**Microsoft 365**](appsource-offer-publishing-guide.md) | 您可以发布 Power BI 和 Microsoft 365 上生成或扩展的 AppSource 产品/服务。|
-| [**软件即服务**](plan-saas-offer.md) | 使用 "软件即服务" (SaaS) 产品/服务类型，使客户能够购买基于 SaaS 的技术解决方案作为订阅。 |
+| [**软件即服务**](plan-saas-offer.md) | 使用 "软件即服务" (SaaS) 产品/服务类型，使客户能够购买基于 SaaS 的技术解决方案作为订阅。 有关 SaaS 产品/服务的单一登录要求的信息，请参阅 [商业应用商店中的 Azure AD 和事务 SaaS 产品](azure-ad-saas.md)。 |
 
-
-有关通过列出选项和产品/服务类型的单一登录要求的信息，请参阅 [**Azure AD 要求**](enable-appsource-marketplace-using-azure-ad.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

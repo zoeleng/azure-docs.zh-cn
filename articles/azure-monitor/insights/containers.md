@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326896"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145678"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor 中的容器监视解决方案
 
@@ -112,13 +112,13 @@ ms.locfileid: "87326896"
 请参阅 [Windows 上的 Docker 引擎](/virtualization/windowscontainers/manage-docker/configure-docker-daemon)一文，详细了解如何在运行 Windows 的计算机上安装和配置 Docker 引擎。
 
 > [!IMPORTANT]
-> 在容器主机上安装[适用于 Linux 的 Log Analytics 代理](../learn/quick-collect-linux-computer.md)**之前**，主机上必须运行 Docker。 如果在安装 Docker 之前已经安装了代理，则需要重新安装适用于 Linux 的 Log Analytics 代理。 有关 Docker 的详细信息，请参阅 [Docker 网站](https://www.docker.com)。
+> 在容器主机上安装 [适用于 Linux 的 Log Analytics 代理](../learn/quick-collect-linux-computer.md)**之前** ，主机上必须运行 Docker。 如果在安装 Docker 之前已经安装了代理，则需要重新安装适用于 Linux 的 Log Analytics 代理。 有关 Docker 的详细信息，请参阅 [Docker 网站](https://www.docker.com)。
 
 ### <a name="install-and-configure-linux-container-hosts"></a>安装和配置 Linux 容器主机
 
 安装 Docker 之后，请使用以下容器主机设置来配置代理以供 Docker 使用。 首先，需要 Log Analytics 工作区 ID 和密钥，可在 Azure 门户中找到它们。 在工作区中，单击“快速启动” > “计算机”，查看工作区 ID和主键   。  将它们复制并粘贴到喜爱的编辑器中。
 
-对于除了 CoreOS 之外的所有 Linux 容器主机：****
+对于除了 CoreOS 之外的所有 Linux 容器主机： 
 
 - 有关如何安装适用于 Linux 的 Log Analytics 代理的详细信息和步骤，请参阅 [Log Analytics 代理概述](../platform/log-analytics-agent.md)。
 
@@ -476,12 +476,12 @@ KEY:    88 bytes
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     有关更多信息，请访问[容器解决方案 Helm 图表](https://aka.ms/omscontainerhelm)。
@@ -574,7 +574,7 @@ Start-Service docker
 
 仪表板中的每个区域都是以可视化形式表示的对收集的数据执行的搜索。
 
-![容器仪表板](./media/containers/containers-dash01.png)
+![显示仪表板以查看收集的数据的屏幕截图。 ](./media/containers/containers-dash01.png)
 
 ![容器仪表板](./media/containers/containers-dash02.png)
 
@@ -599,9 +599,9 @@ Log Analytics 将打开，显示有关容器状态的信息。
 2. Log Analytics 将打开并显示容器状态，如下所示。  
    ![容器状态](./media/containers/containers-log-search.png)
 3. 展开“Failed”行并单击“+”，以便向查询添加条件。 然后注释掉查询中的“Summarize”行。
-   ![失败的容器](./media/containers/containers-state-failed-select.png)  
+   ![屏幕截图，显示应该注释掉的行。](./media/containers/containers-state-failed-select.png)  
 1. 运行查询，然后展开结果中的一行，以便查看映像 ID。  
-   ![发生故障的容器](./media/containers/containers-state-failed.png)  
+   ![显示如何查看映像 ID 的屏幕截图。](./media/containers/containers-state-failed.png)  
 1. 在日志查询中键入以下内容。 `ContainerImageInventory | where ImageID == <ImageID>` 可查看有关映像的详细信息，如映像大小以及已停止和失败映像的数量。  
    ![失败的容器](./media/containers/containers-failed04.png)
 
@@ -635,7 +635,7 @@ Log Analytics 将打开，显示有关容器状态的信息。
 
 保存查询是 Azure Monitor 中的一项标准功能。 通过保存这些查询，你日后可以方便地使用你觉得有用的查询。
 
-创建一个对你有用的查询后，单击“日志搜索”页面底部的“收藏夹”  将其保存。 稍后可以从“**我的仪表板**”页轻松访问它。
+创建一个对你有用的查询后，单击“日志搜索”页面底部的“收藏夹”  将其保存。 稍后可以从“ **我的仪表板** ”页轻松访问它。
 
 ## <a name="next-steps"></a>后续步骤
 

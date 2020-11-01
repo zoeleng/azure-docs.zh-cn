@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91333726"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>收集遥测数据以用于分析搜索流量
@@ -129,12 +129,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 每当用户发出搜索请求时，应在 Application Insights 自定义事件上使用以下架构，将该请求记录为一个搜索事件。 请记得仅记录用户生成的搜索查询。
 
-+ **SearchServiceName**：（字符串）搜索服务名称
-+ **SearchId**：(GUID) 搜索查询的唯一标识符（位于搜索响应中）
-+ **IndexName**：（字符串）要查询的搜索服务索引
-+ **QueryTerms**：（字符串）用户输入的搜索字词
-+ **ResultCount**：（整数）返回的文档数（位于搜索响应中）
-+ **ScoringProfile**：（字符串）使用的评分配置文件的名称（如果有）
++ **SearchServiceName** ：（字符串）搜索服务名称
++ **SearchId** ：(GUID) 搜索查询的唯一标识符（位于搜索响应中）
++ **IndexName** ：（字符串）要查询的搜索服务索引
++ **QueryTerms** ：（字符串）用户输入的搜索字词
++ **ResultCount** ：（整数）返回的文档数（位于搜索响应中）
++ **ScoringProfile** ：（字符串）使用的评分配置文件的名称（如果有）
 
 > [!NOTE]
 > 通过向搜索查询添加 $count=true 来请求用户生成的查询的计数。 有关详细信息，请参阅[搜索文档 (REST)](/rest/api/searchservice/search-documents#counttrue--false)。
@@ -172,10 +172,10 @@ appInsights.trackEvent("Search", {
 
 每次用户单击文档，都是一个必须记录以用于搜索分析的信号。 使用 Application Insights 自定义事件可利用下面的架构来记录这些事件：
 
-+ **ServiceName**：（字符串）搜索服务名称
-+ **SearchId**：(GUID) 相关搜索查询的唯一标识符
-+ **DocId**：（字符串）文档标识符
-+ **Position**：（整数）文档在搜索结果页中的排名
++ **ServiceName** ：（字符串）搜索服务名称
++ **SearchId** ：(GUID) 相关搜索查询的唯一标识符
++ **DocId** ：（字符串）文档标识符
++ **Position** ：（整数）文档在搜索结果页中的排名
 
 > [!NOTE]
 > Position 指的是应用程序中的基数顺序。 可以随意设置此数字以用于比较，只要它始终相同。

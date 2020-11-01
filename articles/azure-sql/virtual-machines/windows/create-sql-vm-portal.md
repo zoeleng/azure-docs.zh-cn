@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6658dcd54c7290bbbad0c24c1cc0debd5ead8b18
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 347948734da439691bced01cf3693d0990567748
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789856"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146222"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>如何使用 Azure 门户为 Windows 虚拟机预配 SQL Server
 
@@ -196,9 +196,9 @@ ms.locfileid: "92789856"
 
 在“SQL Server 设置”选项卡上的“存储配置”下，选择“更改配置”以打开“性能优化存储配置”页并指定存储要求  。
 
-![SQL VM 存储配置](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
+![屏幕截图，其中突出显示了可以更改存储配置的位置。](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
 
-在“ **存储优化目标** ”下，选择以下选项之一：
+在“存储优化目标” 下，选择以下选项之一：
 
 * **常规** ：默认设置，支持大多数工作负荷。
 * **事务处理** ：针对传统数据库 OLTP 工作负荷优化存储。

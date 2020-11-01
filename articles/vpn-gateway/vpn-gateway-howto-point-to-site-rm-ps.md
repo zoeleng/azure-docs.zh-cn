@@ -1,6 +1,6 @@
 ---
 title: 从计算机连接到 VNet - P2S VPN 和本机 Azure 证书身份验证：PowerShell
-description: 使用 P2S 和自签名证书或 CA 颁发的证书将 Windows 和 Mac OS X 客户端安全地连接到 Azure 虚拟网络。 本文使用 PowerShell。
+description: 使用 P2S 和自签名或 CA 颁发的证书将 Windows 和 macOS 客户端安全地连接到 Azure 虚拟网络。 本文使用 PowerShell。
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,29 +8,22 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5d2902222dea3e84ebed04d80d7349167f83cae1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076007"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145865"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点 VPN 连接：PowerShell
 
-本文介绍如何将运行 Windows、Linux 或 Mac OS X 的单个客户端安全地连接到 Azure VNet。 如果要从远程位置连接到 VNet，例如从家里或会议远程办公，点到站点 VPN 连接将非常有用。 如果只有一些客户端需要连接到 VNet，也可使用 P2S VPN 来代替站点到站点 VPN。 点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。
+本文可帮助你将运行 Windows、Linux 或 macOS 的单个客户端安全地连接到 Azure VNet。 如果要从远程位置连接到 VNet，例如从家里或会议远程办公，点到站点 VPN 连接将非常有用。 如果只有一些客户端需要连接到 VNet，也可使用 P2S VPN 来代替站点到站点 VPN。 点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。
 
 :::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="从计算机连接到 Azure VNet-点到站点连接示意图":::
 
 有关点到站点 VPN 的详细信息，请参阅 [关于点到站点 vpn](point-to-site-about.md)。 若要使用 Azure 门户创建此配置，请参阅 [使用 Azure 门户配置点到站点 VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
 
-## <a name="architecture"></a>体系结构
-
-点到站点本机 Azure 证书身份验证连接使用在此练习中配置的以下项：
-
-* RouteBased VPN 网关。
-* 适用于根证书的公钥（.cer 文件），已上传到 Azure。 上传证书以后，该证书将被视为受信任的证书，用于身份验证。
-* 从根证书生成的客户端证书。 安装在要连接到 VNet 的每个客户端计算机上的客户端证书。 此证书用于客户端身份验证。
-* VPN 客户端配置。 VPN 客户端配置文件包含客户端连接到 VNet 时所需的信息。 这些文件对操作系统自带的现有 VPN 客户端进行配置。 必须使用配置文件中的设置对进行连接的每个客户端进行配置。
+[!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -42,7 +35,7 @@ ms.locfileid: "93076007"
 > 本文中的许多步骤均可使用 Azure Cloud Shell。 但是，不能使用 Cloud Shell 来生成证书。 此外，若要上传根证书公钥，您必须使用 Azure PowerShell 本地或 Azure 门户。
 >
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="1-sign-in"></a><a name="signin"></a>1.登录
 

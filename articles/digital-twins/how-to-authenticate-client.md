@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b929632318de41470412811885b9f1bd3054783a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027306"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145967"
 ---
 # <a name="write-client-app-authentication-code"></a>编写客户端应用身份验证代码
 
@@ -31,12 +31,14 @@ Azure 数字孪生使用 [基于 OAUTH 2.0 Azure AD 安全令牌](../active-dire
 ## <a name="common-authentication-methods-with-azureidentity"></a>采用 Azure 身份验证的常见身份验证方法
 
 `Azure.Identity` 是一个客户端库，提供若干凭据获取方法，你可以使用这些方法来获取持有者令牌并使用 SDK 进行身份验证。 尽管本文提供了 c # 中的示例，但你可以查看 `Azure.Identity` 多种语言，其中包括 .。。
+
 * [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
 * [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
 * [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 中有三个常见的凭据获取方法 `Azure.Identity` ：
+
 * [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) 为 `TokenCredential` 将部署到 Azure 的应用程序提供默认的身份验证流，这是 **用于本地开发的推荐选择** 。 还可以启用它以尝试本文中建议的其他两种方法;它 `ManagedIdentityCredential` 使用配置变量进行包装和访问 `InteractiveBrowserCredential` 。
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) 非常适用于你需要 [ (MSI) 的托管标识 ](../active-directory/managed-identities-azure-resources/overview.md)，这是使用 Azure Functions 和部署到 Azure 服务的良好候选项。
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) 适用于交互式应用程序，可用于创建经过身份验证的 SDK 客户端

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318290"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146256"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>从逻辑应用触发机器学习管道的运行
 
@@ -49,7 +49,7 @@ ms.locfileid: "91318290"
     > [!div class="mx-imgBorder"]
     > ![空白模板](media/how-to-trigger-published-pipeline/blank-template.png)
 
-1. 在设计器中，搜索 **blob**。 选择“添加或修改 blob 时(仅属性)”触发器并将此触发器添加到你的逻辑应用。
+1. 在设计器中，搜索 **blob** 。 选择“添加或修改 blob 时(仅属性)”触发器并将此触发器添加到你的逻辑应用。
     > [!div class="mx-imgBorder"]
     > ![添加触发器](media/how-to-trigger-published-pipeline/add-trigger.png)
 
@@ -94,6 +94,9 @@ ms.locfileid: "91318290"
     > ![HTTP 设置](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. 选择“保存”，你的计划现已准备就绪。
+
+> [!IMPORTANT]
+> 如果你使用基于角色的访问控制 (RBAC) 来管理对管道的访问，请 [ (定型或评分设置管道方案的权限) ](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
 
 ## <a name="next-steps"></a>后续步骤
 
