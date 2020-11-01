@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 58f2a102349baff0b70e2a0c9f72c8a4e0e44046
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 81ded79ee72fb7c2d89898595602cb3e6d7ae5e2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91626813"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146971"
 ---
 # <a name="import-soap-api"></a>导入 SOAP API
 

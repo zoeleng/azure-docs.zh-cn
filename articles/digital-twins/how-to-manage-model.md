@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130370"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147107"
 ---
 # <a name="manage-azure-digital-twins-models"></a>管理 Azure 数字孪生模型
 
@@ -141,10 +141,9 @@ client.CreateModels(dtdlStrings);
 可以列出和检索存储在 Azure 数字孪生实例上的模型。 
 
 下面是此选项的选项：
-* 检索所有模型
 * 检索单个模型
-* 检索具有依赖关系的单个模型
-* 检索模型的元数据
+* 检索所有模型
+* 检索模型的元数据和依赖项
 
 下面是一些示例调用：
 
@@ -152,19 +151,16 @@ client.CreateModels(dtdlStrings);
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-用于检索模型所有返回对象的 API 调用 `ModelData` 。 `ModelData` 包含有关存储在 Azure 数字孪生实例中的模型的元数据，例如名称、DTMI 和模型的创建日期。 `ModelData`对象也可以选择包含模型本身。 因此，根据参数，您可以使用检索调用来仅检索元数据，这在您想要显示可用工具的 UI 列表的情况下很有用 (例如) 或整个模型。
+用于检索模型所有返回对象的 API 调用 `DigitalTwinsModelData` 。 `DigitalTwinsModelData` 包含有关存储在 Azure 数字孪生实例中的模型的元数据，例如名称、DTMI 和模型的创建日期。 `DigitalTwinsModelData`对象也可以选择包含模型本身。 因此，根据参数，您可以使用检索调用来仅检索元数据，这在您想要显示可用工具的 UI 列表的情况下很有用 (例如) 或整个模型。
 
 `RetrieveModelWithDependencies`调用不仅返回所请求的模型，而且还返回请求的模型所依赖的所有模型。
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547752"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146920"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -200,7 +200,7 @@ iothub-message-schema | moduleLifecycleNotification |
 | statusUpdateTime |只读 |临时指示器，显示上次状态更新的日期和时间。 |
 | connectionState |只读 |指示连接状态的字段： **Connected** 或 **Disconnected** 。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明** ：此字段仅应当用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
 | connectionStateUpdatedTime |只读 |临时指示器，显示上次更新连接状态的日期和时间。 |
-| lastActivityTime |只读 |临时指示器，显示设备上次连接、接收或发送消息的日期和时间。 |
+| lastActivityTime |只读 |临时指示器，显示设备上次连接、接收或发送消息的日期和时间。 此属性最终是一致的，但最多可延迟5到10分钟。 出于此原因，不应在生产方案中使用它。 |
 
 > [!NOTE]
 > 连接状态只能表示连接状态的 IoT 中心视图。 根据网络状态和配置，可能会延迟此状态的更新。
