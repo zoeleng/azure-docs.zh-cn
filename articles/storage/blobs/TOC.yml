@@ -43,7 +43,7 @@
                   href: storage-quickstart-blobs-python.md
                 - name: Python (v2.1 SDK)
                   href: storage-quickstart-blobs-python-legacy.md
-            - name: Javascript
+            - name: JavaScript
               items:
                 - name: JavaScript（适用于 Node.js 的 v12 SDK）
                   href: storage-quickstart-blobs-nodejs.md
@@ -105,7 +105,7 @@
           href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Python
           href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Javascript
+        - name: JavaScript
           href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: C++
           href: ../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -679,6 +679,8 @@
           href: data-lake-storage-best-practices.md
         - name: 查询加速
           href: data-lake-storage-query-acceleration.md
+        - name: Data Lake Storage 的高级层
+          href: premium-tier-for-data-lake-storage.md
         - name: 体系结构
           items:
             - name: 适用于 Hadoop 的 Azure Blob 文件系统驱动程序
@@ -739,7 +741,7 @@
               href: data-lake-storage-directory-file-acl-java.md
             - name: Python
               href: data-lake-storage-directory-file-acl-python.md
-            - name: Javascript
+            - name: JavaScript
               href: data-lake-storage-directory-file-acl-javascript.md
             - name: PowerShell
               href: data-lake-storage-directory-file-acl-powershell.md
@@ -791,7 +793,7 @@
           href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html'
         - name: Python
           href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
-        - name: Javascript
+        - name: JavaScript
           href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
           href: /rest/api/storageservices/data-lake-storage-gen2

@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288658"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148246"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL 中的统计信息
 
@@ -74,7 +74,7 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 统计信息的创建会记录在其他用户上下文中的 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 中。
 
-创建自动统计信息时，它们将采用以下格式：_WA_Sys_<以十六进制表示的 8 位列 ID>_<以十六进制表示的 8 位表 ID>。 可以通过运行 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 命令，查看已创建的统计信息：
+创建自动统计信息时，它们将采用以下格式： _WA_Sys_ <以十六进制表示的 8 位列 ID>_<以十六进制表示的 8 位表 ID>。 可以通过运行 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 命令，查看已创建的统计信息：
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -137,7 +137,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-例如，数据仓库中的**日期列**往往需要经常更新统计信息。 每次有新行载入数据仓库时，就会添加新的加载日期或事务日期。 这些添加操作会更改数据分布情况并使统计信息过时。
+例如，数据仓库中的 **日期列** 往往需要经常更新统计信息。 每次有新行载入数据仓库时，就会添加新的加载日期或事务日期。 这些添加操作会更改数据分布情况并使统计信息过时。
 
 客户表上性别列的统计信息可能永远不需要更新。 假设客户间的分布固定不变，将新行添加到表变化并不会改变数据分布情况。
 
@@ -616,7 +616,7 @@ SELECT 语句将触发“自动创建统计信息”。
 下面提供了有关更新统计信息的一些指导原则：
 
 - 确保数据集至少更新了一个统计信息对象。 这会在统计信息更新过程中更新大小（行计数和页计数）信息。
-- 将重点放在参与 JOIN、GROUP BY、ORDER BY 和 DISTINCT 子句的列上。
+- 专注于参与 WHERE、JOIN、GROUP BY、ORDER BY 和 DISTINCT 子句的列。
 - 更频繁地更新“递增键”列（例如事务日期），因为这些值不包含在统计信息直方图中。
 - 相对不那么频繁地更新静态分布列。
 
@@ -629,12 +629,12 @@ SELECT 语句将触发“自动创建统计信息”。
 > [!NOTE]
 > 目前只能创建单列统计信息。
 >
-> 过程 sp_create_file_statistics 将重命名为 sp_create_openrowset_statistics。 公共服务器角色具有 ADMINISTER BULK OPERATIONS 权限，而公共数据库角色具有对 sp_create_file_statistics 和 sp_drop_file_statistics 的 EXECUTE 权限。 这在将来可能会更改。
+> 执行 sp_create_openrowset_statistics 和 sp_drop_openrowset_statistics 需要以下权限：管理大容量操作或管理数据库大容量操作。
 
 以下存储过程用于创建统计信息：
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 参数：[ @stmt = ] N'statement_text' - 指定 Transact-SQL 语句，可返回要用于统计信息的列值。 可以使用 TABLESAMPLE 来指定要使用的数据的示例。 如果未指定 TABLESAMPLE，将使用 FULLSCAN。
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 若要更新统计信息，需要删除并创建统计信息。 以下存储过程用于删除统计信息：
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> 过程 sp_drop_file_statistics 将重命名为 sp_drop_openrowset_statistics。 公共服务器角色具有 ADMINISTER BULK OPERATIONS 权限，而公共数据库角色具有对 sp_create_file_statistics 和 sp_drop_file_statistics 的 EXECUTE 权限。 这在将来可能会更改。
+> 执行 sp_create_openrowset_statistics 和 sp_drop_openrowset_statistics 需要以下权限：管理大容量操作或管理数据库大容量操作。
 
 参数：[ @stmt = ] N'statement_text' - 指定创建统计信息时使用的同一 Transact-SQL 语句。
 
 若要更新数据集（基于“人口.csv”文件）中“年份”列的统计信息，需要删除并创建统计信息：
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

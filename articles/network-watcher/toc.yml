@@ -14,6 +14,7 @@
     - name: 诊断 VM 流量筛选器问题 - Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
     - name: 使用 ARM 模板配置 NSG 流日志
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: 教程
   items:

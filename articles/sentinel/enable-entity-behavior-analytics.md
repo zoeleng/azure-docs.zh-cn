@@ -14,16 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096948"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148229"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>在 Azure Sentinel 中 (UEBA) 启用用户和实体行为分析 
 
-
+> [!IMPORTANT]
+>
+> - UEBA 功能现已在以下 Azure Sentinel 地域和区域 **公开上市** ：
+>    - 美国地域
+>    - 西欧地区
+>    - 澳大利亚地区
+>
+> - 在所有其他地理位置和地区，此功能在 **公共预览版** 中仍保持不变，提供时不提供服务级别协议。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,7 +48,7 @@ ms.locfileid: "93096948"
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>如何启用用户和实体行为分析
 
-1. 在 Azure Sentinel 导航菜单中，选择 " **实体行为 (预览")** 。
+1. 在 Azure Sentinel 导航菜单中，选择 " **实体行为** "。
 
 1. 在标题下，将 **其** 切换到 **"打开** "。
 

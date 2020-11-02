@@ -59,6 +59,8 @@
           href: container-registry-geo-replication.md
         - name: 注册最佳做法
           href: container-registry-best-practices.md
+        - name: 管理公共映像
+          href: buffer-gate-public-content.md
     - name: 操作指南
       expanded: false
       items:

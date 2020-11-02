@@ -11,7 +11,8 @@
 - name: 快速入门
   expanded: true
   items:
-    - name: 设置 Azure NetApp 文件并创建 NFS 卷
+    - name: 设置 Azure NetApp 文件并创建 NFS 卷 - ARM 模板
+      displayName: Resource Manager
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: 概念
   items:

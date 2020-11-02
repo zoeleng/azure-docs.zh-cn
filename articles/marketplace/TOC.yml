@@ -79,8 +79,6 @@
   items:
     - name: 发布指南（按产品/服务类型）
       href: publisher-guide-by-offer-type.md
-    - name: 允许产品/服务向 Azure AD 进行身份验证
-      href: enable-appsource-marketplace-using-azure-ad.md
     - name: Azure 应用程序产品/服务
       items:
         - name: 规划解决方案模板产品/服务

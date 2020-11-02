@@ -3,12 +3,12 @@ title: 加速了 Azure 实验室服务的实验室帐户设置指南
 description: 本指南可帮助管理员快速设置实验室帐户，以便在学校内使用。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855e59aced37e50c088cfe89ffeb3d0af9fcdca
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445417"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148267"
 ---
 # <a name="lab-account-setup-guide"></a>实验室帐户设置指南
 
@@ -29,6 +29,10 @@ ms.locfileid: "85445417"
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>谁应该是实验室帐户的所有者和参与者？
 
 管理员通常是实验室帐户的所有者和参与者。 它们负责管理适用于实验室帐户中包含的所有实验室的策略。 创建实验室帐户的人员将自动成为所有者。 您可以添加其他所有者和参与者，通常来自 Azure Active Directory (Azure AD 与您的订阅关联) 租户。 这对于通过在实验室帐户级别分配 "所有者" 或 "参与者" 角色来帮助管理实验室帐户很有用。
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+实验室用户只会看到他们有权在 Azure 实验室服务中跨租户访问的虚拟机列表。
 
 ### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>允许谁创建和管理实验室？
 
