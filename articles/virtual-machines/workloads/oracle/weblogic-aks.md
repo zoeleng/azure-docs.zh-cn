@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: c797148bdc07481cb312739ef020e88963599374
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: ff7b9b0bfcdc0c06eae14ecfdccabf9e337d3649
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928737"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186666"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>什么是在 Azure Kubernetes Service 上运行 Oracle WebLogic Server 的解决方案？
 
@@ -30,6 +30,8 @@ WebLogic 服务器群集完全启用为通过 WebLogic Kubernetes 运算符在 K
 ## <a name="guidance-scripts-and-samples-for-wls-on-aks"></a>AKS 上的 WLS 指南、脚本和示例
 除了在 AKS 上验证 WebLogic Server 外，Oracle 和 Microsoft 还提供了有关在 AKS 上运行 WebLogic 服务器的详细说明、脚本和示例。 本指南包含在 [操作员文档](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/)的 "Azure Kubernetes 服务示例" 部分。 本指南旨在使生产 WebLogic 服务器在 AKS 部署上尽可能简单。 本指南使用 Oracle 提供的官方 WebLogic 服务器 Docker 映像。 故障转移通过 Kubernetes 永久性卷声明访问的 Azure 文件来实现。 使用 "LoadBalancer" 类型的 Kubernetes 服务进行预配时，支持 Azure 负载平衡器。 本指南允许进行高度的配置和自定义。
 
+:::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="可以使用示例脚本在 AKS 上部署 WebLogic 服务器":::
+
 本指南当前假定在 Docker 映像之外部署域，并使用 Oracle 中的标准 Docker 映像。 我们将添加有关在 Docker 映像中通过域启用自定义映像的指南。 将来可以通过 Azure 虚拟机解决方案中的 Oracle WebLogic Server 镜像，进一步使用和 Azure 服务集成。
 
 _这些解决方案是自带许可证_ 。 它们假设你已有合适的 Oracle 许可证，并获得在 Azure 中运行产品/服务的适当许可。
@@ -40,7 +42,7 @@ _如果你希望与开发这些解决方案的工程团队密切合作迁移方�
 
 在 Azure Kubernetes Service 上运行 Oracle WebLogic Server 的解决方案可以相对轻松地启用各种生产就绪部署体系结构。
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="在 AKS 上启用了复杂的 WebLogic 服务器部署":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="可以使用示例脚本在 AKS 上部署 WebLogic 服务器":::
 
 除了解决方案为客户提供更大的灵活性外，还可以进一步自定义部署。 部署应用程序很可能会在部署应用程序时将更多 Azure 资源与部署进行集成。 建议客户在调查中提供反馈，进一步改善解决方案。
 

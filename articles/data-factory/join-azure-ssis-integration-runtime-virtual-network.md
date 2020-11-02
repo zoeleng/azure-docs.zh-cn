@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637218"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186767"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>将 Azure-SSIS 集成运行时加入虚拟网络
 
@@ -99,7 +99,7 @@ ms.locfileid: "92637218"
 
 - 确保虚拟网络的资源组（如果使用自己的公共 IP 地址，则为公共 IP 地址的资源组）可以创建和删除特定的 Azure 网络资源。 有关详细信息，请参阅[设置资源组](#resource-group)。 
 
-- 如果根据 [Azure-SSIS IR 的自定义设置](./how-to-configure-azure-ssis-ir-custom-setup.md)中所述自定义 Azure-SSIS IR，则 Azure-SSIS IR 节点将从预定义的范围 172.16.0.0 到 172.31.255.255 中获取专用 IP 地址。 因此，请确保虚拟网络或本地网络的专用 IP 地址范围不会与此范围冲突。
+- 如果自定义 [Azure-SSIS IR 的自定义安装](./how-to-configure-azure-ssis-ir-custom-setup.md)中所述的 Azure-SSIS IR，则用于管理其节点的内部过程将使用预定义的172.31.255.255 范围内的专用 IP 地址。 因此，请确保虚拟网络或本地网络的专用 IP 地址范围不会与此范围发生冲突。
 
 下图显示了 Azure-SSIS IR 所需的连接：
 

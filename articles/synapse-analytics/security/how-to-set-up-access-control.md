@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341543"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186614"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>保护 Synapse 工作区（预览） 
 
@@ -51,8 +51,6 @@ ms.locfileid: "92341543"
 - WS1\_WSAdmins - 对于需要完全控制工作区的用户
 - WS1\_SparkAdmins - 对于需要完全控制工作区的 Spark 方面的用户
 - WS1\_SQLAdmins - 对于需要完全控制工作区的 SQL 方面的用户
-- 将 WS1\_WSAdmins 添加到 WS1\_SQLAdmins
-- 将 WS1\_WSAdmins 添加到 WS1\_SparkAdmins
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>步骤 2：准备 Data Lake Storage Gen2 帐户
 
@@ -98,7 +96,7 @@ Synapse 工作区需要访问 STG1 和 CNT1，以便能够运行管道并执行�
 
 - 打开 Azure 门户
 - 转到 WS1
-- 在 " **设置**" 下，选择 **SQL Active Directory 管理**
+- 在 " **设置** " 下，选择 **SQL Active Directory 管理**
 - 选择 " **设置管理员** "，然后选择 WS1 \_ SQLAdmins
 
 ## <a name="step-6-maintain-access-control"></a>步骤6：维护访问控制
