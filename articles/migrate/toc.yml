@@ -166,6 +166,8 @@
           href: scale-physical-assessment.md
         - name: 自动执行大量 VM 的迁移
           href: how-to-migrate-at-scale.md
+        - name: 如何自动执行 VMware 迁移
+          href: how-to-automate-migration.md
         - name: 迁移示例（Contoso 系列）
           href: contoso-migration-overview.md
 - name: 疑难解答

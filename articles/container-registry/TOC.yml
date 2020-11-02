@@ -212,6 +212,8 @@
           href: container-registry-task-run-template.md
         - name: 在专用代理池上运行任务（预览版）
           href: tasks-agent-pools.md
+        - name: 使用和维护公共内容
+          href: tasks-consume-public-content.md
         - name: 使用 Buildpacks 生成映像（预览版）
           href: container-registry-tasks-pack-build.md
         - name: 查看任务日志

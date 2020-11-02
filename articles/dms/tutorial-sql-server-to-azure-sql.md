@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 1027b4f37160281bcf298e57e890b73b472526a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eaf311a8e8c3fb3c3699b8624def4923bead420
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308752"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043057"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>教程：使用 DMS 将 SQL Server 脱机迁移到 Azure SQL 数据库
 
@@ -65,7 +65,7 @@ ms.locfileid: "91308752"
 
 - 确保虚拟网络网络安全组规则未阻止到 Azure 数据库迁移服务的以下入站通信端口：443、53、9354、445、12000。 有关 Azure 虚拟网络 NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
 - 配置[针对数据库引擎访问的 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-- 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。
+- 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。 如果默认实例正在侦听其他端口，请将该端口添加到防火墙。
 - 如果使用动态端口运行多个命名 SQL Server 实例，则可能需要启用 SQL Browser 服务并允许通过防火墙访问 UDP 端口 1434，以便 Azure 数据库迁移服务可连接到源服务器上的命名实例。
 - 在源数据库的前面使用了防火墙设备时，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库。
 - 为 Azure SQL 数据库创建服务器级 IP [防火墙规则](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的虚拟网络子网范围。
@@ -207,7 +207,7 @@ ms.locfileid: "91308752"
 
     ![创建数据库迁移服务项目](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 
-5. 选择“创建并运行活动”，以便创建项目并运行迁移活动。
+5. 选择“创建并运行活动”，以便创建项目并运行迁移活动。 
 
 ## <a name="specify-source-details"></a>指定源详细信息
 
@@ -265,7 +265,7 @@ ms.locfileid: "91308752"
 
 ## <a name="monitor-the-migration"></a>监视迁移
 
-1. 在迁移活动屏幕上，选择“刷新”来更新显示，直到迁移的“状态”显示为“已完成”。
+1. 在迁移活动屏幕上，选择“刷新”  来更新显示，直到迁移的“状态”  显示为“已完成”  。
 
     ![活动状态已完成](media/tutorial-sql-server-to-azure-sql/dms-completed-activity1.png)
 

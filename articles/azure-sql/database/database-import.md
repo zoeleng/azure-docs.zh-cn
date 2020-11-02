@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 06/20/2019
-ms.openlocfilehash: 08aaec23b0edc0e797d26d4b51081f6daa5b5c19
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/29/2020
+ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671229"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040175"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>快速入门：将 BACPAC 文件导入 Azure SQL 数据库或 Azure SQL 托管实例中的数据库
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,9 +62,11 @@ ms.locfileid: "92671229"
 
 ## <a name="using-sqlpackage"></a>使用 SqlPackage
 
-若要使用 [SqlPackage](/sql/tools/sqlpackage) 命令行实用程序导入 SQL Server 数据库，请参阅[导入参数和属性](/sql/tools/sqlpackage#import-parameters-and-properties)。 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools for Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) 包括 SqlPackage。 还可以从 Microsoft 下载中心下载最新的 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)。
+若要使用 [SqlPackage](/sql/tools/sqlpackage) 命令行实用程序导入 SQL Server 数据库，请参阅[导入参数和属性](/sql/tools/sqlpackage#import-parameters-and-properties)。 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools for Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) 包括 SqlPackage。 还可以从 Microsoft 下载中心下载最新的 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)。 
 
 在大多数生产环境中，建议使用 SqlPackage 而不是 Azure 门户来实现缩放和性能。 有关 SQL Server 客户咨询团队使用 `BACPAC` 文件进行迁移的博客，请参阅[使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files)。
+
+基于 DTU 的预配模型支持为每个层选择数据库最大大小值。 导入数据库时，请[使用其中一种受支持的值](/sql/t-sql/statements/create-database-transact-sql)。 
 
 以下 SqlPackage 命令可将 AdventureWorks2008R2 数据库从本地存储导入到名为 mynewserver20170403 的逻辑 SQL 服务器 。 它将创建名为 myMigratedDatabase 的新数据库，其中包含“高级”服务层级和 P6 服务目标。 根据你的环境更改这些值。
 
@@ -94,7 +96,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!IMPORTANT]
 > 仍然支持 PowerShell Azure 资源管理器 (RM) 模块，但是所有未来的开发都是针对 Az.Sql 模块。 AzureRM 模块至少在 2020 年 12 月之前将继续接收 bug 修补程序。  Az 模块和 AzureRm 模块中的命令参数大体上是相同的。 若要详细了解其兼容性，请参阅[新 Azure PowerShell Az 模块简介](/powershell/azure/new-azureps-module-az)。
 
-使用 [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet 向 Azure 提交导入数据库请求。 根据数据库大小，导入操作可能需要一些时间才能完成。
+使用 [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet 向 Azure 提交导入数据库请求。 根据数据库大小，导入操作可能需要一些时间才能完成。 基于 DTU 的预配模型支持为每个层选择数据库最大大小值。 导入数据库时，请[使用其中一种受支持的值](/sql/t-sql/statements/create-database-transact-sql)。 
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -126,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-使用 [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) 命令向 Azure 提交导入数据库请求。 根据数据库大小，导入操作可能需要一些时间才能完成。
+使用 [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) 命令向 Azure 提交导入数据库请求。 根据数据库大小，导入操作可能需要一些时间才能完成。 基于 DTU 的预配模型支持为每个层选择数据库最大大小值。 导入数据库时，请[使用其中一种受支持的值](/sql/t-sql/statements/create-database-transact-sql)。 
 
 ```azurecli
 # get the storage account key

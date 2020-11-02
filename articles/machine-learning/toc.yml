@@ -413,6 +413,8 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: 了解图表和指标
           href: how-to-understand-automated-ml.md
+        - name: 在 .NET 应用程序中使用 ONNX 模型
+          href: how-to-use-automl-onnx-model-dotnet.md
     - name: 部署和提供模型
       items:
         - name: 在何处以及如何部署

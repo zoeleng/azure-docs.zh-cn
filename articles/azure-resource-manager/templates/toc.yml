@@ -146,7 +146,9 @@
               href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Resource Graph
               href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Azure 基于角色的访问控制 (Azure RBAC)
+            - name: 基于角色的访问控制 - 自定义角色
+              href: ../../role-based-access-control/custom-roles-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: 基于角色的访问控制 - 角色分配
               href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 服务运行状况
               href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json

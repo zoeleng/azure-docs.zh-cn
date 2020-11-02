@@ -7,41 +7,17 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24dc2cad8d299d150adddc03de5e9006fc831fc6
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89094118"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061584"
 ---
 [Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的配置设置。
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub",
-    "controlQueueBatchSize": 32,
-    "partitionCount": 4,
-    "controlQueueVisibilityTimeout": "00:05:00",
-    "workItemQueueVisibilityTimeout": "00:05:00",
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
-    "maxQueuePollingInterval": "00:00:30",
-    "azureStorageConnectionStringName": "AzureWebJobsStorage",
-    "trackingStoreConnectionStringName": "TrackingStorage",
-    "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false,
-    "logReplayEvents": false,
-    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "eventGridKeySettingName":  "EventGridKey",
-    "eventGridPublishRetryCount": 3,
-    "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
-  }
-}
-```
+> [!NOTE]
+> Azure Functions 运行时的所有版本均支持 Durable Functions 的所有主要版本。 但是，根据 Azure Functions 运行时的版本和使用的 Durable Functions 扩展版本，host json 配置的架构略有不同。 以下示例可与 Azure Functions 2.0 和3.0 一起使用。 在这两个示例中，如果使用 Azure Functions 1.0，则可用设置是相同的，但 host.json 的“durableTask”部分应位于 host. json 配置的根目录中，而不是作为“extension”下的字段。
 
 ### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
 
@@ -92,7 +68,36 @@ ms.locfileid: "89094118"
 
 ```
 
-任务中心名称必须以字母开头且只能包含字母和数字。 如果未指定，则函数应用的默认任务中心名称是 **DurableFunctionsHub**。 有关详细信息，请参阅[任务中心](../articles/azure-functions/durable-functions-task-hubs.md)。
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10,
+      "maxQueuePollingInterval": "00:00:30",
+      "azureStorageConnectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask",
+      "traceInputsAndOutputs": false,
+      "logReplayEvents": false,
+      "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+      "eventGridKeySettingName":  "EventGridKey",
+      "eventGridPublishRetryCount": 3,
+      "eventGridPublishRetryInterval": "00:00:30",
+      "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+    }
+  }
+}
+```
+
+任务中心名称必须以字母开头且只能包含字母和数字。 如果未指定，则函数应用的默认任务中心名称是 **DurableFunctionsHub** 。 有关详细信息，请参阅[任务中心](../articles/azure-functions/durable-functions-task-hubs.md)。
 
 |properties  |默认 | 说明 |
 |---------|---------|---------|

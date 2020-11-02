@@ -23,8 +23,6 @@
   items:
     - name: 自定义模式
       href: concepts-models.md
-    - name: 转换行业标准模型
-      href: concepts-convert-models.md
     - name: 数字孪生和孪生图
       href: concepts-twins-graph.md
     - name: 查询语言
@@ -63,6 +61,8 @@
       items:
         - name: 管理自定义模型
           href: how-to-manage-model.md
+        - name: 转换行业标准模型
+          href: how-to-convert-models.md
         - name: 分析和验证模型
           href: how-to-parse-models.md
         - name: 添加标记
@@ -176,11 +176,15 @@
             - name: Java SDK - 源
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: JavaScript SDK - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: JavaScript SDK - 参考
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: JavaScript SDK - 源
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Python SDK - PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: Python SDK - 源
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: 数字孪生 CLI
       items:
         - name: 数字孪生 CLI 参考

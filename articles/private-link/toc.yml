@@ -37,6 +37,8 @@
       items:
         - name: 连接到 SQL 服务器 - 门户
           href: tutorial-private-endpoint-sql-portal.md
+        - name: 连接到 SQL 服务器 - PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: 概念
   items:
     - name: 专用终结点

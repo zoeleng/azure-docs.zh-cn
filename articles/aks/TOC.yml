@@ -65,7 +65,7 @@
       href: concepts-scale.md
     - name: 节点自动修复
       href: node-auto-repair.md
-    - name: 最佳实践
+    - name: 最佳做法
       items:
         - name: 概述
           href: best-practices.md
@@ -142,7 +142,7 @@
           href: upgrade-cluster.md
         - name: 使用运行时间 SLA
           href: uptime-sla.md
-        - name: 使用邻近放置组（预览版）
+        - name: 使用邻近放置组
           href: reduce-latency-ppg.md
         - name: 升级节点映像
           href: node-image-upgrade.md
@@ -166,7 +166,7 @@
           items:
             - name: 使用多个节点池
               href: use-multiple-node-pools.md
-            - name: 使用点节点池（预览版）
+            - name: 使用现成节点池
               href: spot-node-pool.md
             - name: 使用系统节点池
               href: use-system-pools.md
