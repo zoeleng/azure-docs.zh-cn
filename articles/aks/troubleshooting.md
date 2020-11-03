@@ -4,12 +4,12 @@ description: 了解如何排查和解决在使用 Azure Kubernetes 服务 (AKS) 
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074407"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286773"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -113,8 +113,8 @@ AKS 支持的最低 TLS 版本是 TLS 1.2。
 当群集由于多种原因进入失败状态时，会发生此错误。 请遵循以下步骤解决群集故障状态，然后重试先前失败的操作：
 
 1. 除非群集摆脱 `failed` 状态，否则 `upgrade` 和 `scale` 操作不会成功。 常见的根本问题和解决方法包括：
-    * 使用**不足的计算 (CRP) 配额**进行缩放。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高计算配额](../azure-portal/supportability/resource-manager-core-quotas-request.md)，然后尝试扩展到超出初始配额限制。
-    * 使用高级网络和**不足的子网（网络）资源**缩放群集。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高资源配额](../azure-resource-manager/templates/error-resource-quota.md#solution)，然后尝试扩展到超出初始配额限制。
+    * 使用 **不足的计算 (CRP) 配额** 进行缩放。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高计算配额](../azure-portal/supportability/resource-manager-core-quotas-request.md)，然后尝试扩展到超出初始配额限制。
+    * 使用高级网络和 **不足的子网（网络）资源** 缩放群集。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高资源配额](../azure-resource-manager/templates/error-resource-quota.md#solution)，然后尝试扩展到超出初始配额限制。
 2. 解决升级失败的根本原因后，群集应会进入成功状态。 确认成功状态后，请重试原始操作。
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>在尝试升级或缩放时收到错误，指示群集正在升级或升级失败
@@ -184,13 +184,13 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 
 这通常是由于服务主体凭据过期导致的。 [更新 AKS 群集的凭据。](update-credentials.md)
 
-## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>使用 API 服务器授权的 IP 范围时，无法从自动化/开发计算机/工具访问我的群集 API。 如何修复此问题？
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>使用 API 服务器授权的 IP 范围时，无法从“自动化/开发计算机/工具”访问我的群集 API。 如何修复此问题？
 
-这需要 `--api-server-authorized-ip-ranges` 包含 ip (s) 或 ip 范围 () 所使用的自动化/开发/工具系统。 请参阅 [使用授权 IP 地址范围安全访问 API 服务器](api-server-authorized-ip-ranges.md)部分中的 "如何查找我的 ip" 部分。
+这需要 `--api-server-authorized-ip-ranges` 包括所使用的自动化/开发/工具系统的 IP 或 IP 范围。 请参阅[使用经授权的 IP 地址范围保护对 API 服务器的访问](api-server-authorized-ip-ranges.md)中的“如何查找我的 IP”部分。
 
 ## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>我无法在 Azure 门户中查看群集的资源查看器中配置有 API 服务器授权 IP 范围的资源。 如何修复此问题？
 
-[Kubernetes 资源查看器](kubernetes-portal.md)需要 `--api-server-authorized-ip-ranges` 包含对要从中浏览门户) 的本地客户端计算机或 IP 地址范围 (的访问。 请参阅 [使用授权 IP 地址范围安全访问 API 服务器](api-server-authorized-ip-ranges.md)部分中的 "如何查找我的 ip" 部分。
+[Kubernetes 资源查看器](kubernetes-portal.md)需要 `--api-server-authorized-ip-ranges` 包含对要从中浏览门户) 的本地客户端计算机或 IP 地址范围 (的访问。 请参阅[使用经授权的 IP 地址范围保护对 API 服务器的访问](api-server-authorized-ip-ranges.md)中的“如何查找我的 IP”部分。
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>在限制出口流量后收到错误消息
 
@@ -198,21 +198,27 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 
 确认你的设置不与必需或可选的建议出站端口/网络规则和 FQDN/应用程序规则相冲突。
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>我收到 "429-请求太多" 错误 
+## <a name="im-receiving-429---too-many-requests-errors"></a>我收到“429 - 请求过多”错误
 
-当 Azure (AKS 或 no) 上的 kubernetes 群集频繁地向上或向下缩放，或使用群集自动缩放程序 (CA) 时，这些操作可能会导致大量 HTTP 调用，而这些调用会使分配的订阅配额导致失败。 错误如下所示
+当 Azure 上的 Kubernetes 群集（AKS 或非 AKS）频繁执行纵向扩展/缩减操作或使用群集自动缩放程序 (CA) 时，这些操作可能导致大量 HTTP 调用，这些 HTTP 调用会超过所分配的订阅配额，从而导致失败。 错误将如下所示
 
 ```
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-[此处](../azure-resource-manager/management/request-limits-and-throttling.md)和[此处](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)详细介绍了这些限制错误
+这些限制错误在[此处](../azure-resource-manager/management/request-limits-and-throttling.md)和[此处](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)进行了详细说明
 
-AKS 工程团队的 recommandation 是确保你运行的版本至少为1.18 版，其中包含很多改进。 可在 [此处](https://github.com/Azure/AKS/issues/1413) 和 [此处](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)了解更多详细信息。
+来自 AKS 工程团队的建议是确保运行的版本至少是 1.18.x（其中包含许多改进）。 有关这些改进的更多详细信息，可参阅[此文](https://github.com/Azure/AKS/issues/1413)和[此文](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)。
 
-由于这些限制错误是在订阅级别衡量的，因此，在以下情况下可能仍会发生这些错误：
-- 有第三方应用程序发出 GET 请求 (例如。 监视应用程序等 .。。) 。建议降低这些调用的频率。
-- VMSS 中有大量 AKS 群集/nodepools。 通常建议在给定的订阅中使用小于20-30 的群集。
+鉴于这些限制错误是在订阅级别测量的，在以下情况下它们仍可能发生：
+- 有发出 GET 请求的第三方应用程序（例如， 监视应用程序等）。建议降低这些调用的频率。
+- VMSS 中有大量 AKS 群集/节点池。 通常的建议是确保给定订阅中的群集少于 20-30 个。
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>在执行操作时，群集的预配状态从 "已成功" 更改为 "已失败"。   应采取何种操作？
+
+如果群集的预配状态从 "已 *就绪* " 更改为 "已 *失败* " 或 "不执行任何操作"，但群集上的应用程序将继续运行，则该服务可能会自动解决此问题，并且你的应用程序不会受到影响。
+
+如果群集的预配状态为 " *失败* " 或者群集上的应用程序停止工作，请 [提交支持请求](https://azure.microsoft.com/support/options/#submit)。
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure 存储和 AKS 疑难解答
@@ -359,7 +365,7 @@ initContainers:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 和更高版本 | 0777 |
 
-可以对存储类对象指定装载选项。 以下示例设置 *0777*：
+可以对存储类对象指定装载选项。 以下示例设置 *0777* ：
 
 ```yaml
 kind: StorageClass
@@ -398,7 +404,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 此错误是由使用 cifs/SMB 协议的 Azure 文件存储插件造成的。 使用 cifs/SMB 协议时，在装载后无法更改文件和目录权限。
 
-若要解决此问题，请结合 Azure 磁盘插件使用 *subPath*。 
+若要解决此问题，请结合 Azure 磁盘插件使用 *subPath* 。 
 
 > [!NOTE] 
 > 对于 ext3/4 磁盘类型，格式化磁盘后会出现一个 lost+found 目录。
@@ -472,18 +478,21 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 在 1.15.0 之前的 Kubernetes 版本中，可能会收到错误消息，如“错误: WaitForAttach 找不到磁盘的 Lun”。  为解决此问题，请等待大约 15 分钟，然后重试。
 
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>为什么使用带有 kubernetes.io 前缀的节点标签时升级到 Kubernetes 1.16 失败
+
+从 Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [开始，kubelet 只能将已定义的带有 kubernetes.io 前缀的标签子集](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal)应用于节点。 未经许可，AKS 无法代表你删除活动标签，因为这可能导致受影响的工作负载发生故障。
+
+因此，要缓解这种情况，可以执行以下操作：
+
+1. 将群集控制平面升级到 1.16 或更高版本
+2. 在 1.16 或更高版本上添加一个没有受支持的 kubernetes.io 标签的新 nodepoool
+3. 删除较旧的 nodepool
+
+AKS 正在研究对 nodepool 上的活动标签进行改变的功能以改进这种缓解效果。
+
+
+
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
-
-### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>使用带有 kubernetes.io 前缀的节点标签时，为什么升级到 Kubernetes 1.16 失败
-
-从 Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/)开始，kubelet 到节点 [只能将定义了 kubernetes.io 前缀的标签子集](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) 应用于。 AKS 无法在不同意的情况下代表您删除活动标签，因为这可能会导致影响工作负荷的停机时间。
-
-因此，为了减少这一点，您可以：
-
-1. 将群集控制面升级到1.16 或更高版本
-2. 在1.16 或更高版本上添加新的 nodepoool，而不使用不受支持的 kubernetes.io 标签
-3. 删除较旧的 nodepool
-
-AKS 正在调查在 nodepool 上改变活动标签以提高此缓解措施的能力。

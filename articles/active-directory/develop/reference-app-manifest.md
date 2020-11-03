@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627000"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286955"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 应用清单
 
@@ -82,7 +82,7 @@ ms.locfileid: "91627000"
 | :--- | :--- |
 | addIns | 集合 |
 
-定义自定义行为，供消耗型服务在特定上下文中调用应用。 例如，呈现文件流的应用程序可以设置其“FileHandler”功能的 `addIns` 属性。 此参数将允许诸如 Microsoft 365 的服务在用户正在处理的文档的上下文中调用该应用程序。
+定义自定义行为，供消耗型服务在特定上下文中调用应用。 例如，呈现文件流的应用程序可以设置其“FileHandler”功能的 `addIns` 属性。 Microsoft 365 等服务可以通过此参数在用户正在处理的文档上下文中调用该应用程序。
 
 示例：
 
@@ -194,6 +194,7 @@ ms.locfileid: "91627000"
 
 - `"None"`
 - `"SecurityGroup"`（适用于安全组和 Azure AD 角色）
+- `"ApplicationGroup"` (此选项仅包括分配给应用程序的组) 
 - `"All"`（该操作可获取登录用户所属的所有安全组、通讯组和 Azure AD 目录角色。
 
 示例：
@@ -624,7 +625,7 @@ ms.locfileid: "91627000"
 
 | 密钥 | 值类型 |
 | :--- | :--- |
-| tags | String Array  |
+| 标记 | String Array  |
 
 可用来对应用程序进行分类和标识的自定义字符串。
 
@@ -672,7 +673,7 @@ ms.locfileid: "91627000"
 显示这些错误之一时，建议执行以下操作：
 
 1. 在清单编辑器中逐个编辑属性，而不是上传之前下载的清单。 使用[清单参考](#manifest-reference)表来了解旧属性和新属性的语法与语义，以便能够成功编辑所需的属性。
-1. 如果工作流要求在源存储库中保存清单供以后使用，我们建议使用**应用注册**体验中显示的清单来变基存储库中保存的清单。
+1. 如果工作流要求在源存储库中保存清单供以后使用，我们建议使用 **应用注册** 体验中显示的清单来变基存储库中保存的清单。
 
 ## <a name="next-steps"></a>后续步骤
 

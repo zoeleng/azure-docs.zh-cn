@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635421"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287148"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>在 Azure 认知搜索中配置客户管理的密钥以用于数据加密
 
@@ -41,15 +41,13 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 如果你使用的是其他区域，或在8月1日之前创建的服务，则 CMK 加密仅限于数据磁盘，不包括服务使用的临时磁盘。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
-此示例使用以下工具和服务。 
+此方案中使用了以下工具和服务。
 
-+ [创建认知搜索服务](search-create-service-portal.md) 或 [查找现有](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)服务。 
-
-+ [创建 Azure Key Vault 资源](../key-vault/secrets/quick-create-portal.md#create-a-vault) 或查找现有资源。 Key Vault 和认知搜索必须位于同一订阅中。 密钥保管库必须启用“软删除”和“清除保护”。 
-
-+ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 注册应用程序，并创建应用程序用来进行身份验证的机密字符串。 如果没有，请 [设置一个新租户](../active-directory/develop/quickstart-create-new-tenant.md)。
++ [Azure 认知搜索](search-create-service-portal.md) (基本版或更高 [级别](search-sku-tier.md#tiers) ，) 任何区域。
++ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) 与 Azure 认知搜索在同一订阅中。 密钥保管库必须启用“软删除”和“清除保护”。 
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)。 如果没有，请 [设置一个新租户](../active-directory/develop/quickstart-create-new-tenant.md)。
 
 应该有一个可创建加密对象的搜索应用程序。 在此代码中，你将引用密钥保管库密钥并 Active Directory 注册信息。 此代码可以是工作应用，也可以是代码示例，如 [c # 代码示例 DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)。
 
@@ -116,7 +114,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 1. 输入密钥的 **名称** ，并根据需要选择其他密钥属性。
 
-1. 选择“创建”以开始部署。 
+1. 选择“创建”以开始部署。
 
 1. 记下密钥标识符-它由 **键值 Uri** 、 **密钥名称** 和 **密钥版本** 组成。 你将需要标识符来定义 Azure 认知搜索中的加密索引。
 
@@ -134,11 +132,15 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
    如果要逐句通过 [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)，请将此值粘贴到 **appsettings.js** 的文件中。
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="创建新的 Key Vault 密钥" **添加** "。
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Essentials 部分中的应用程序 ID":::
+
+1. 接下来，在左侧选择 " **证书" & "机密** "。
+
+1. 选择“新建客户端机密”。 为机密指定显示名称，然后选择 " **添加** "。
 
 1. 复制应用程序密钥。 如果要单步执行此示例，请将此值粘贴到 **appsettings.js** 文件中。
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="创建新的 Key Vault 密钥":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="应用程序密码":::
 
 ## <a name="4---grant-key-access-permissions"></a>4 - 授予密钥访问权限
 
@@ -150,9 +152,19 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 1. 选择左侧的 " **访问策略** "，然后选择 " **+ 添加访问策略** "。
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="创建新的 Key Vault 密钥" **选择主体** "，然后选择在 Active Directory 中注册的应用程序。 可以按名称搜索它。
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="添加新的 Key Vault 访问策略":::
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="创建新的 Key Vault 密钥" **保存** "。
+1. 选择 " **选择主体** "，然后选择在 Active Directory 中注册的应用程序。 可以按名称搜索它。
+
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="选择 Key Vault 访问策略主体":::
+
+1. 在 " **密钥权限** " 中，选择 " *获取* "、" *Wrap Key**解包密钥* "
+
+1. 在 " **机密权限** " 中，选择 " *获取* "。
+
+1. 在 " **证书权限** " 中，选择 " *获取* "。
+
+1. 选择 " **添加** "，然后单击 " **保存** "。
 
 > [!Important]
 > Azure 认知搜索中已加密的内容配置为使用特定 **版本** 的特定 Azure Key Vault 密钥。 如果你更改密钥或版本，必须先将索引或同义词映射更新为使用新的密钥/版本， **然后** 删除以前的密钥/版本。 否则会使该索引或同义词映射变得不可用，因为在失去密钥访问权限后无法解密内容。

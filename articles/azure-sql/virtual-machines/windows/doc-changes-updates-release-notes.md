@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 249e65b5a9440678015598d9969c0d2ed689c626
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789737"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285365"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上 SQL Server 的文档更改
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -88,7 +88,7 @@ Azure 允许你使用内置的 SQL Server 映像部署虚拟机 (VM)。 本文�
 | **SQL Server VM 迁移到不同的区域** | 使用 Azure Site Recovery [将 SQL Server VM 从一个区域迁移到另一个区域](move-sql-vm-different-region.md)。 |
 |  **新 SQL IaaS 安装模式** | 现在可在[轻型模式](sql-server-iaas-agent-extension-automate-management.md)下安装 SQL Server IaaS 扩展，以避免重新启动 SQL Server 服务。  |
 | **SQL Server 版本修订** | 现在可以更改 SQL Server VM 的[版本属性](change-sql-server-edition.md)。 |
-| **对 SQL VM 资源提供程序的更改** | 可以使用新的 SQL IaaS 模式[向 SQL VM 资源提供程序注册 SQL Server VM](sql-vm-resource-provider-register.md)。 此功能包括 [Windows Server 2008](sql-vm-resource-provider-register.md#management-modes) 映像。|
+| **对 SQL VM 资源提供程序的更改** | 可以使用新的 SQL IaaS 模式[向 SQL VM 资源提供程序注册 SQL Server VM](sql-vm-resource-provider-register.md)。 此功能包括 [Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes) 映像。|
 | **使用 Azure 混合权益的自带许可映像** | 从 Azure 市场部署的自带许可映像现在可以[将其许可证类型切换为即付即用](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks)。| 
 | **Azure 门户中的新 SQL Server VM 管理** | 现在有一种方法可以管理 Azure 门户中的 SQL Server VM。 有关详细信息，请参阅[在 Azure 门户中管理 SQL Server VM](manage-sql-vm-portal.md)。  | 
 | **SQL Server 2008 和 2008 R2 的扩展支持** | 通过“按原样”迁移到 Azure VM，[扩展对 SQL Server 2008 和 SQL Server 2008 R2 的支持](sql-server-2008-extend-end-of-support.md)。 | 

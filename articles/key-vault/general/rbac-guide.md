@@ -9,25 +9,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015149"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286606"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>使用 Azure 基于角色的访问控制提供对 Key Vault 密钥、证书和机密的访问权限（预览）
 
 > [!NOTE]
-> Key Vault 资源提供程序支持两种资源类型： **保管库** 和 **托管的 hsm**。 本文中所述的访问控制仅适用于 **保管库**。 若要了解有关托管 HSM 的访问控制的详细信息，请参阅 [托管 hsm 访问控制](../managed-hsm/access-control.md)。
+> Key Vault 资源提供程序支持两种资源类型： **保管库** 和 **托管的 hsm** 。 本文中所述的访问控制仅适用于 **保管库** 。 若要了解有关托管 HSM 的访问控制的详细信息，请参阅 [托管 hsm 访问控制](../managed-hsm/access-control.md)。
 
-Azure 基于角色的访问控制 (Azure RBAC) 是在 [Azure 资源管理器](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)基础上构建的授权系统，针对 Azure 资源提供精细的访问权限管理。
+Azure 基于角色的访问控制 (Azure RBAC) 是在 [Azure 资源管理器](../../azure-resource-manager/management/overview.md)基础上构建的授权系统，针对 Azure 资源提供精细的访问权限管理。
 
 Azure RBAC 允许用户管理密钥、机密和证书权限。 它提供了一个可跨所有密钥保管库管理所有权限的位置。 
 
 Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组、订阅、资源组或单个资源。  用于密钥保管库的 Azure RBAC 还提供了对单个密钥、机密和证书设定单独权限的功能
 
-有关详细信息，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)。
+有关详细信息，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>单个密钥、机密和证书的最佳做法
 
@@ -59,7 +59,7 @@ Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组
 | Key Vault 机密管理人员(预览版)| 对密钥保管库的机密执行任何操作（管理权限除外）。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Key Vault 机密用户(预览版)| 读取机密内容。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-有关 Azure 内置角色定义的详细信息，请参阅 [Azure 内置角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
+有关 Azure 内置角色定义的详细信息，请参阅 [Azure 内置角色](../../role-based-access-control/built-in-roles.md)。
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>对密钥保管库使用 Azure RBAC 机密、密钥和证书权限
 
@@ -70,7 +70,7 @@ Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组
 若要添加角色分配，必须具有：
 
 - 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-- `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator)或[所有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+- `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](../../role-based-access-control/built-in-roles.md#user-access-administrator)或[所有者](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>对密钥保管库启用 Azure RBAC 权限
 
@@ -194,7 +194,7 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 ### <a name="creating-custom-roles"></a>创建自定义角色 
 
-[az role definition create 命令](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[az role definition create 命令](/cli/azure/role/definition#az-role-definition-create)
 
 （CLI bash 脚本）</br>
 ```azurecli
@@ -216,7 +216,7 @@ az role definition create --role-definition '{ \
 
 有关如何创建自定义角色的详细信息，请参阅：
 
-[Azure 自定义角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Azure 自定义角色](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>已知的限制和性能
 
@@ -226,5 +226,5 @@ az role definition create --role-definition '{ \
 
 ## <a name="learn-more"></a>了解更多
 
-- [Azure RBAC 概述](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [自定义角色教程](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Azure RBAC 概述](../../role-based-access-control/overview.md)
+- [自定义角色教程](../../role-based-access-control/tutorial-custom-role-cli.md)

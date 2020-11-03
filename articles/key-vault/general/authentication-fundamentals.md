@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604271"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286222"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 身份验证基础知识
 
@@ -24,8 +24,8 @@ Azure Key Vault 允许你安全地存储和管理应用程序凭据（例如机�
 
 本文档假设你熟悉以下概念。 如果你不熟悉其中的任何概念，请在继续操作之前，请单击 "帮助" 链接。
 
-* Azure Active Directory [链接](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-* 安全主体 [链接](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals)
+* Azure Active Directory [链接](../../active-directory/fundamentals/active-directory-whatis.md)
+* 安全主体 [链接](./authentication.md#app-identity-and-security-principals)
 
 ## <a name="key-vault-configuration-steps-summary"></a>Key Vault 配置步骤摘要
 
@@ -42,8 +42,8 @@ Azure Key Vault 允许你安全地存储和管理应用程序凭据（例如机�
 请按照下面的文档链接来了解如何在 Azure Active Directory 中注册用户或应用程序。
 **确保为用户注册创建密码，并为应用程序创建客户端密码或客户端证书凭据。**
 
-* Azure Active Directory[链接](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)注册用户
-* Azure Active Directory[链接](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)注册应用程序
+* Azure Active Directory[链接](../../active-directory/fundamentals/add-users-azure-active-directory.md)注册用户
+* Azure Active Directory[链接](../../active-directory/develop/quickstart-register-app.md)注册应用程序
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>在 Azure Active Directory 中为安全主体分配角色
 
@@ -57,8 +57,8 @@ Azure Active Directory 使用基于角色的访问控制 (RBAC) 向安全主体�
 >[!NOTE]
 > 在 Azure Active Directory 租户级别向用户分配角色分配时，此权限集将滴分配范围内的所有订阅、资源组和资源。 若要遵循最低权限的主体，你可以在更详细的范围内进行此角色分配。 例如，可以向用户分配订阅级别的 "读取者" 角色，并为单个密钥保管库分配所有者角色。 请访问 "标识访问管理" (订阅、资源组或密钥保管库的 IAM) 设置，以便在更精细的范围内分配角色。
 
-* 若要详细了解 Azure Active Directory 角色 [链接](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-* 若要详细了解如何分配或删除角色分配 [链接](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* 若要详细了解 Azure Active Directory 角色 [链接](../../role-based-access-control/built-in-roles.md)
+* 若要详细了解如何分配或删除角色分配 [链接](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>为安全主体配置密钥保管库访问策略
 
@@ -121,8 +121,8 @@ Key Vault 角色分配是一组 Azure 内置角色分配，其中包含用于访
 
 若要了解有关 Key Vault RBAC 的详细信息，请参阅以下文档：
 
-* Azure Key Vault RBAC [链接](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
-*  (预览版 Azure Key Vault RBAC 角色) [链接](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview)
+* Azure Key Vault RBAC [链接](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+*  (预览版 Azure Key Vault RBAC 角色) [链接](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
 
 ## <a name="configure-key-vault-firewall"></a>配置 Key Vault 防火墙
 
@@ -132,9 +132,9 @@ Key Vault 角色分配是一组 Azure 内置角色分配，其中包含用于访
 
 * 将 IPv4 地址添加到 key vault 防火墙允许列表中。 此选项最适用于具有静态 IP 地址的应用程序。
 
-* 将虚拟网络添加到密钥保管库防火墙。 此选项最适用于具有动态 IP 地址（例如虚拟机）的 Azure 资源。 可以将 Azure 资源添加到虚拟网络，并将虚拟网络添加到 key vault 防火墙允许列表中。 此选项使用作为虚拟网络中的专用 IP 地址的服务终结点。 这提供了一层额外的保护，因此密钥保管库与虚拟网络之间的流量不会通过公共 internet 进行路由。 若要详细了解服务终结点，请参阅以下文档。 [连接](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* 将虚拟网络添加到密钥保管库防火墙。 此选项最适用于具有动态 IP 地址（例如虚拟机）的 Azure 资源。 可以将 Azure 资源添加到虚拟网络，并将虚拟网络添加到 key vault 防火墙允许列表中。 此选项使用作为虚拟网络中的专用 IP 地址的服务终结点。 这提供了一层额外的保护，因此密钥保管库与虚拟网络之间的流量不会通过公共 internet 进行路由。 若要详细了解服务终结点，请参阅以下文档。 [连接](./network-security.md)
 
-* 将专用链接连接添加到密钥保管库。 此选项会将你的虚拟网络直接连接到密钥保管库的特定实例，从而有效地将密钥保管库放在虚拟网络中。 若要了解有关配置到 key vault 的专用终结点连接的详细信息，请参阅以下 [链接](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
+* 将专用链接连接添加到密钥保管库。 此选项会将你的虚拟网络直接连接到密钥保管库的特定实例，从而有效地将密钥保管库放在虚拟网络中。 若要了解有关配置到 key vault 的专用终结点连接的详细信息，请参阅以下 [链接](./private-link-service.md)
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>测试服务主体访问密钥保管库的能力
 
@@ -142,11 +142,11 @@ Key Vault 角色分配是一组 Azure 内置角色分配，其中包含用于访
 
 ### <a name="authentication-process-for-users-examples"></a>用户的身份验证过程 (示例) 
 
-* 用户可以登录到 Azure 门户以使用密钥保管库。 [Key Vault 门户快速入门](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* 用户可以登录到 Azure 门户以使用密钥保管库。 [Key Vault 门户快速入门](./quick-create-portal.md)
 
-* 用户可以使用 Azure CLI 来使用密钥保管库。 [Key Vault Azure CLI 快速入门](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* 用户可以使用 Azure CLI 来使用密钥保管库。 [Key Vault Azure CLI 快速入门](./quick-create-cli.md)
 
-* 用户可以使用 Azure PowerShell 来使用密钥保管库。 [Key Vault Azure PowerShell 快速入门](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* 用户可以使用 Azure PowerShell 来使用密钥保管库。 [Key Vault Azure PowerShell 快速入门](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Azure Active Directory 应用程序或服务的身份验证过程 (示例) 
 
@@ -156,7 +156,7 @@ Key Vault 角色分配是一组 Azure 内置角色分配，其中包含用于访
 
 * Azure 资源使用 MSI 身份验证获取 Azure Active Directory 令牌。 
 
-* 详细了解 MSI 身份验证 [链接](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* 详细了解 MSI 身份验证 [链接](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ### <a name="authentication-process-for-application-python-example"></a>适用于应用程序 (Python 示例的身份验证过程) 
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>后续步骤
 
-若要更详细地了解密钥保管库身份验证，请参阅以下文档。 [Key Vault 身份验证](https://docs.microsoft.com/azure/key-vault/general/authentication)
+若要更详细地了解密钥保管库身份验证，请参阅以下文档。 [Key Vault 身份验证](./authentication.md)

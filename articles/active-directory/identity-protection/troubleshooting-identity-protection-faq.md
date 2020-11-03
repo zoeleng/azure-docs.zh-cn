@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074808"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288368"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory 中的常见问题标识保护
 
@@ -28,16 +28,8 @@ ms.locfileid: "93074808"
 
 当前已知问题导致用户风险消除流中的延迟。 如果具有“用户风险策略”，则该策略将在单击“消除用户风险”后的几分钟内阻止应用于已消除的用户。 但是，UX 刷新已消除用户的“风险状态”时，存在已知延迟。 要解决此问题，请在浏览器级刷新页面以查看最新的用户“风险状态”。
 
-## <a name="risky-users-report-known-issues"></a>“有风险用户”报告已知问题
 
-username  字段上的查询区分大小写，而 Name  字段上的查询不区分大小写。
-
-切换“日期显示形式”  隐藏“风险上次更新时间”  列。 要读取该列，请单击“有风险的用户”边栏选项卡顶部的“列”  。
-
-经典“标识保护”中的“消除所有事件”  将风险检测的状态设置为“已关闭(已解决)”  。
-
-
-## <a name="frequently-asked-questions"></a>常见问题
+## <a name="frequently-asked-questions"></a>常见问题解答
 
 ### <a name="why-is-a-user-is-at-risk"></a>为什么用户面临风险？
 
@@ -79,21 +71,21 @@ IP 地理位置映射是整个行业面临的挑战。 如果你认为登录报�
 
 **确认泄漏** （在登录时） - 通知 Azure AD 标识保护，该登录不是由标识所有者执行的，并指示存在泄漏。
 
-- 在收到此反馈后，我们将登录和用户风险状态改为“已确认泄漏”  ，并将风险级别改为“高”  。
+- 在收到此反馈后，我们将登录和用户风险状态改为“已确认泄漏”，并将风险级别改为“高”。
 
 - 此外，我们还为我们的机器学习系统提供信息，以便今后改进风险评估。
 
     > [!NOTE]
-    > 如果已对用户采取修正措施，不要单击“确认泄漏”  ，因为这会将登录和用户风险状态改为“已确认泄漏”  ，并将风险级别改为“高”  。
+    > 如果已对用户采取修正措施，不要单击“确认泄漏”，因为这会将登录和用户风险状态改为“已确认泄漏”，并将风险级别改为“高”。
 
 **确认安全** （在登录时） - 通知 Azure AD 标识保护，登录是由标识所有者执行的，不指示存在泄漏。
 
-- 收到此反馈后，我们将登录（而非用户）风险状态改为“已确认安全”  ，将风险级别改为 - 。
+- 收到此反馈后，我们将登录（而非用户）风险状态改为“已确认安全”，将风险级别改为 -。
 
 - 此外，我们还为我们的机器学习系统提供信息，以便今后改进风险评估。
 
     > [!NOTE]
-    > 如果认为用户没有遭到泄漏，请使用用户级别的“消除用户风险”  ，而不是登录级别的“已确认安全”  。 用户级别的“消除用户风险”  会关闭用户风险和所有过去的有风险登录和风险检测。
+    > 如果认为用户没有遭到泄漏，请使用用户级别的“消除用户风险”，而不是登录级别的“已确认安全”。 用户级别的“消除用户风险”会关闭用户风险和所有过去的有风险登录和风险检测。
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>即使在“标识保护”中没有显示有风险登录或风险检测，为什么会出现较低（或较高）的用户风险评分？
 

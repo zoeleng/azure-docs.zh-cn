@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/02/2020
+ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791981"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286346"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>如何在认知搜索 Azure 中使用 blob 索引器和技能集为加密的 blob 编制索引
 
-本文介绍如何使用[azure 认知搜索](search-what-is-azure-search.md)对以前使用[Azure Key Vault](../key-vault/general/overview.md)在[Azure Blob 存储](../storage/blobs/storage-blobs-introduction.md)中加密的文档编制索引。 通常，索引器无法从加密的文件中提取内容，因为它不具有对加密密钥的访问权限。 但是，通过利用[DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)后面的[DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile)自定义技能，你可以提供对密钥的受控访问权限，以对文件进行解密，然后将内容从中提取内容。 这样就可以解除对这些文档进行索引的功能，而不必担心数据是以不加密的形式存储的。
+本文介绍如何使用[azure 认知搜索](search-what-is-azure-search.md)对以前使用[Azure Key Vault](../key-vault/general/overview.md)在[Azure Blob 存储](../storage/blobs/storage-blobs-introduction.md)中加密的文档编制索引。 通常，索引器无法从加密的文件中提取内容，因为它不具有对加密密钥的访问权限。 但是，通过利用[DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)后面的[DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile)自定义技能，你可以提供对密钥的受控访问权限，以对文件进行解密，然后将内容从中提取内容。 这将解除对这些文档进行索引的功能，而不会影响存储文档的加密状态。
 
-本指南使用 Postman 和搜索 REST Api 来执行以下任务：
+从以前加密的整篇文档开始， (非结构化文本) 例如，Azure Blob 存储中的 PDF、HTML、.DOCX 和 .PPTX），本指南使用 Postman 和搜索 REST Api 来执行以下任务：
 
 > [!div class="checklist"]
-> * 从整个文档开始， (非结构化文本) 例如，Azure Blob 存储中的 PDF、HTML、.DOCX 和 .PPTX，已使用 Azure Key Vault 进行了加密。
 > * 定义一个管道，用于解密文档并从中提取文本。
 > * 定义用于存储输出的索引。
 > * 执行该管道以创建并加载索引。
@@ -36,13 +35,10 @@ ms.locfileid: "92791981"
 此示例假设你已将文件上传到 Azure Blob 存储，并在此过程中对它们进行了加密。 如果你需要帮助来初步上传和加密文件，请查看 [本教程](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) ，了解如何执行此操作。
 
 + [Azure 存储](https://azure.microsoft.com/services/storage/)
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 与 Azure 认知搜索在同一订阅中。 密钥保管库必须启用“软删除”和“清除保护”。 
++ 在任何区域中， [Azure 认知搜索](search-create-service-portal.md) (Basic 或更高[级别](search-sku-tier.md#tiers)) 
 + [Azure Function](https://azure.microsoft.com/services/functions/)
 + [Postman 桌面应用](https://www.getpostman.com/)
-+ [创建](search-create-service-portal.md)或[查找现有搜索服务](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> 你可以使用本指南的免费服务。 免费搜索服务限制了三个索引、三个索引器、三个数据源和三个技能集。 本指南将分别创建一个。 在开始之前，请确保服务中有足够的空间可接受新资源。
 
 ## <a name="1---create-services-and-collect-credentials"></a>1-创建服务并收集凭据
 

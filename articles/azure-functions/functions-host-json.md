@@ -3,12 +3,12 @@ title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167639"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284511"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 及更高版本的 host.json 参考 
 
@@ -116,6 +116,11 @@ host.json 中与绑定相关的配置将同样地应用于函数应用中的每�
     },
     "managedDependency": {
         "enabled": true
+    },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -250,7 +255,7 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 | 高级<sup>1</sup> | 30 | -1（无限制）<sup>2</sup> |
 | 专用（应用服务） | 30 | -1（无限制）<sup>2</sup> |
 
-<sup>1</sup> 只有60分钟才保证高级计划执行，但在技术上不受限制。   
+<sup>1</sup> 高级计划执行只能保证 60 分钟，但技术上不限时长。   
 <sup>2</sup> 值为 `-1` 表示无限制执行，但建议保留固定上限。
 
 ```json
@@ -349,6 +354,28 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 ## <a name="queues"></a>queues
 
 可在[存储队列触发器和绑定](functions-bindings-storage-queue-output.md#host-json)中查找设置。  
+
+## <a name="retry"></a>retry
+
+控制应用中所有执行的 [重试策略](./functions-bindings-error-pages.md#retry-policies) 选项。
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|制定|null|必需。 要使用的重试策略。 有效值为 `fixedDelay` or `exponentialBackoff`进行求值的基于 SQL 语言的筛选器表达式。|
+|maxRetryCount|null|必需。 每个函数执行允许的最大重试次数。 `-1` 表示无限期重试。|
+|delayInterval|null|用于策略重试之间的延迟 `fixedDelay` 。|
+|minimumInterval|null|使用策略时的最小重试延迟时间 `exponentialBackoff` 。|
+|maximumInterval|null|使用策略时的最大重试延迟时间 `exponentialBackoff` 。| 
 
 ## <a name="sendgrid"></a>SendGrid
 

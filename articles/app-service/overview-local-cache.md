@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080705"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286837"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure 应用服务本地缓存概述
 
@@ -45,7 +45,11 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 * 通过任何支持的方法进行的应用部署都将直接发布到持久共享内容存储。 若要刷新本地缓存中的 D:\home\site 和 D:\home\siteextensions 文件夹，需要重新启动应用。  若要确保无缝的生命周期，请参阅本文后面提供的信息。
 * SCM 站点的默认内容视图仍是共享内容存储的视图。
 
-## <a name="enable-local-cache-in-app-service"></a>在应用服务中启用本地缓存
+## <a name="enable-local-cache-in-app-service"></a>在应用服务中启用本地缓存 
+
+> [!NOTE]
+> **F1** 或 **D1** 层不支持本地缓存。 
+
 组合使用保留的应用设置即可配置本地缓存。 可以通过以下方法配置这些应用设置：
 
 * [Azure 门户](#Configure-Local-Cache-Portal)
@@ -83,13 +87,13 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>更改本地缓存中的大小设置
-本地缓存大小默认为 **1 GB**， 其中包括从内容存储复制过来的 /site 和 /siteextensions 文件夹，以及任何本地创建的日志和数据文件夹。 若要增加此限制，请使用应用设置 `WEBSITE_LOCAL_CACHE_SIZEINMB`。 最高可将此大小增加到每个应用 **2 GB** (2000 MB)。 请注意，当此大小增加时，加载本地缓存需要的时间会变长。
+本地缓存大小默认为 **1 GB** ， 其中包括从内容存储复制过来的 /site 和 /siteextensions 文件夹，以及任何本地创建的日志和数据文件夹。 若要增加此限制，请使用应用设置 `WEBSITE_LOCAL_CACHE_SIZEINMB`。 最高可将此大小增加到每个应用 **2 GB** (2000 MB)。 请注意，当此大小增加时，加载本地缓存需要的时间会变长。
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>使用应用服务本地缓存的最佳实践
 建议将本地缓存与[过渡环境](../app-service/deploy-staging-slots.md)功能结合在一起使用。
 
-* 将值为 `Always` 的*粘性*应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 添加到**生产**槽。 如果使用的是 `WEBSITE_LOCAL_CACHE_SIZEINMB`，也可将其作为粘性设置添加到“生产”槽。
-* 创建**过渡**槽，并发布到过渡槽。 如果获得了生产槽的本地缓存优势，则要想通过无缝的“构建-部署-测试”生命周期进行过渡，通常不需要将过渡槽设置为使用本地缓存。
+* 将值为 `Always` 的 *粘性* 应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 添加到 **生产** 槽。 如果使用的是 `WEBSITE_LOCAL_CACHE_SIZEINMB`，也可将其作为粘性设置添加到“生产”槽。
+* 创建 **过渡** 槽，并发布到过渡槽。 如果获得了生产槽的本地缓存优势，则要想通过无缝的“构建-部署-测试”生命周期进行过渡，通常不需要将过渡槽设置为使用本地缓存。
 * 针对“过渡”槽来测试站点。  
 * 准备就绪以后，在过渡槽和生产槽之间执行[交换操作](../app-service/deploy-staging-slots.md#Swap)。  
 * 粘性设置包含名称，会粘到某个槽上。 因此，将“过渡”槽交换成“生产”槽以后，该槽会继承本地缓存应用设置。 新交换的“生产”槽会在几分钟后以本地缓存为基础运行，并会在交换后进行槽预热的过程中预热。 因此，在槽交换完成后，“生产”槽会在本地缓存的基础上运行。

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131167"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286697"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 日志记录
 
@@ -26,7 +26,7 @@ ms.locfileid: "92131167"
 * 请使用标准的 Azure 访问控制方法限制可访问日志的人员，以此保护日志。
 * 删除不想继续保留在存储帐户中的日志。
 
-有关 Key Vault的概述信息，请参阅[什么是 Azure Key Vault？](overview.md)。 有关 Key Vault 可用位置的信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/key-vault/)。 有关[将 Azure Monitor 用于 Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) 的信息。
+有关 Key Vault的概述信息，请参阅[什么是 Azure Key Vault？](overview.md)。 有关 Key Vault 可用位置的信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/key-vault/)。 有关[将 Azure Monitor 用于 Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md) 的信息。
 
 ## <a name="interpret-your-key-vault-logs"></a>解释 Key Vault 日志
 
@@ -73,7 +73,7 @@ ms.locfileid: "92131167"
 | **callerIpAddress** |发出请求的客户端的 IP 地址。 |
 | **correlationId** |一个可选 GUID，客户端可传递此 GUID 来使客户端日志与服务端 (Key Vault) 日志相关联。 |
 | **identity** |在 REST API 请求中提供的令牌中的标识。 与通过 Azure PowerShell cmdlet 发出请求一样，这通常是“用户”、“服务主体”，或者“用户+应用 ID”的组合。 |
-| **properties** |此字段根据操作 (**operationName**) 包含不同的信息。 在大多数情况下，此字段包含客户端信息（客户端传递的用户代理字符串）、具体 REST API 请求 URI 和 HTTP 状态代码。 此外，在根据请求（例如，KeyCreate 或 VaultGet）返回对象时，此字段还将包含密钥 URI（`id` 形式）、保管库 URI 或机密 URI。 |
+| **properties** |此字段根据操作 ( **operationName** ) 包含不同的信息。 在大多数情况下，此字段包含客户端信息（客户端传递的用户代理字符串）、具体 REST API 请求 URI 和 HTTP 状态代码。 此外，在根据请求（例如，KeyCreate 或 VaultGet）返回对象时，此字段还将包含密钥 URI（`id` 形式）、保管库 URI 或机密 URI。 |
 
 **operationName** 字段值采用 *ObjectVerb* 格式。 例如：
 
@@ -88,32 +88,32 @@ ms.locfileid: "92131167"
 | operationName | REST API 命令 |
 | --- | --- |
 | **身份验证** |通过 Azure Active Directory 终结点进行身份验证 |
-| **VaultGet** |[获取有关密钥保管库的信息](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[创建或更新密钥保管库](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[删除密钥保管库](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[更新密钥保管库](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[列出资源组中的所有密钥保管库](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[创建密钥](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[获取有关密钥的信息](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[将密钥导入保管库](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[备份密钥](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[删除密钥](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[还原密钥](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[使用密钥签名](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[使用密钥验证](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[包装密钥](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[解包密钥](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[使用密钥加密](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[使用密钥解密](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[更新密钥](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[列出保管库中的密钥](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[列出密钥的版本](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[创建机密](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[获取机密](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[更新机密](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[删除机密](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[列出保管库中的机密](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[列出机密的版本](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[获取有关密钥保管库的信息](/rest/api/keyvault/vaults) |
+| **VaultPut** |[创建或更新密钥保管库](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[删除密钥保管库](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[更新密钥保管库](/rest/api/keyvault/vaults) |
+| **VaultList** |[列出资源组中的所有密钥保管库](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[创建密钥](/rest/api/keyvault/createkey) |
+| **KeyGet** |[获取有关密钥的信息](/rest/api/keyvault/getkey) |
+| **KeyImport** |[将密钥导入保管库](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[备份密钥](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[删除密钥](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[还原密钥](/rest/api/keyvault/restorekey) |
+| **KeySign** |[使用密钥签名](/rest/api/keyvault/sign) |
+| **KeyVerify** |[使用密钥验证](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[包装密钥](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[解包密钥](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[使用密钥加密](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[使用密钥解密](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[更新密钥](/rest/api/keyvault/updatekey) |
+| **KeyList** |[列出保管库中的密钥](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[列出密钥的版本](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[创建机密](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[获取机密](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[更新机密](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[删除机密](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[列出保管库中的机密](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[列出机密的版本](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | 保管库访问策略更改事件已发布 |
 | **SecretNearExpiryEventGridNotification** |机密即将过期事件已发布 |
 | **SecretExpiredEventGridNotification** |机密已过期事件已发布 |

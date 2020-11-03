@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282316"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285134"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>如何使用资源管理器模板创建 Azure key vault 和保管库访问策略
 
@@ -23,7 +23,7 @@ ms.locfileid: "92282316"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 完成本文中的步骤：
 
@@ -84,7 +84,7 @@ ms.locfileid: "92282316"
 
 ```
 
-有关 Key Vault 模板设置的详细信息，请参阅 [KEY VAULT ARM 模板参考](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults)。
+有关 Key Vault 模板设置的详细信息，请参阅 [KEY VAULT ARM 模板参考](/azure/templates/microsoft.keyvault/vaults)。
 
 > [!IMPORTANT]
 > 如果重新部署了模板，则将覆盖密钥保管库中的任何现有访问策略。 建议你 `accessPolicies` 使用现有的访问策略填充属性，以避免失去对密钥保管库的访问权限。 
@@ -160,7 +160,7 @@ ms.locfileid: "92282316"
 }
 
 ```
-有关 Key Vault 模板设置的详细信息，请参阅 [KEY VAULT ARM 模板参考](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies)。
+有关 Key Vault 模板设置的详细信息，请参阅 [KEY VAULT ARM 模板参考](/azure/templates/microsoft.keyvault/vaults/accesspolicies)。
 
 ## <a name="more-key-vault-resource-manager-templates"></a>资源管理器模板的更多 Key Vault
 
@@ -168,13 +168,13 @@ ms.locfileid: "92282316"
 
 | 机密 | 键 | 证书 |
 |--|--|--|
-|<ul><li>[快速入门](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[引用](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|空值|空值|
+|<ul><li>[快速入门](../secrets/quick-create-template.md)<li>[引用](/azure/templates/microsoft.keyvault/vaults/secrets)|不适用|不适用|
 
-可在此处找到更多 Key Vault 模板： [Key Vault 资源管理器引用](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)。
+可在此处找到更多 Key Vault 模板： [Key Vault 资源管理器引用](/azure/templates/microsoft.keyvault/allversions)。
 
 ## <a name="deploy-the-templates"></a>部署模板
 
-你可以 Azure 门户使用 " **在编辑器中生成自己的模板"** 选项来部署上述模板，如以下所述： [从自定义模板部署资源](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)。
+你可以 Azure 门户使用 " **在编辑器中生成自己的模板"** 选项来部署上述模板，如以下所述： [从自定义模板部署资源](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)。
 
 你还可以将上述模板保存到文件中，并使用以下命令：  [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 和 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create)：
 
@@ -219,4 +219,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [保护对密钥保管库的访问](secure-your-key-vault.md)
 - [对密钥保管库进行身份验证](authentication.md)
-- [Azure Key Vault 开发人员指南](developers-guide.md)
+- [Azure 密钥保管库开发人员指南](developers-guide.md)

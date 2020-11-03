@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2e9f6898dba559f557f49cc0ee9ff39644da243f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538793"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287351"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>排查 Azure HDInsight 中的资源创建失败问题
 
@@ -33,24 +33,18 @@ Azure 的配额限制为每个资源组 800 个部署。 将按资源组、订�
 
 若要请求增加配额，请按以下步骤操作：
 
-1. 转到 
+1. 转到 [Azure 门户](https://portal.azure.com)并选择“帮助 + 支持”。
 
-1. 选择“新建支持请求”  。
+1. 选择“新建支持请求”。
 
-1. 在“新建支持请求”页的“基本信息”选项卡上提供以下信息：  
+1. 在“新建支持请求”页的“基本信息”选项卡上提供以下信息： 
 
-   * <bpt id="p1">**</bpt>Issue type:<ept id="p1">**</ept> Select <bpt id="p2">**</bpt>Service and subscription limits (quotas)<ept id="p2">**</ept>.
+   * **问题类型：** 选择“服务和订阅限制(配额)”。
    * **订阅：** 选择要修改的订阅。
-   * <bpt id="p1">**</bpt>Quota type:<ept id="p1">**</ept> Select <bpt id="p2">**</bpt>HDInsight<ept id="p2">**</ept>.
+   * **配额类型：** 选择“HDInsight”。
 
 有关详细信息，请参阅[创建支持票证来增加核心](hdinsight-capacity-planning.md#quotas)。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
-
-* 通过 [Azure 社区支持](https://azure.microsoft.com/support/community/)获取 Azure 专家的解答。
-
-* 联系 [@AzureSupport](https://twitter.com/azuresupport)，这是用于改进客户体验的官方 Microsoft Azure 帐户。 它可以将 Azure 社区成员连接到适当的资源，为他们提供解答、支持和专家建议。
-
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

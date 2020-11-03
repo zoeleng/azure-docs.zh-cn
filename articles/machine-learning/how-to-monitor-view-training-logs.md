@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333811"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285951"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>监视和查看 ML 运行日志与指标
 
@@ -105,7 +105,9 @@ RunDetails(run).show()
 
 可以在 [Azure 机器学习工作室](https://ml.azure.com)中浏览已完成的运行记录，包括记录的指标。
 
-导航到“试验”选项卡并选择自己的试验。 在“试验运行”仪表板中，可以看到为每次运行跟踪的指标和日志。 
+导航到 " **试验** " 选项卡。若要跨试验查看工作区中的所有运行，请选择 " **所有运行** " 选项卡。您可以通过应用顶部菜单栏中的试验筛选器来向下钻取特定试验的运行。 
+
+对于 "每个试验" 视图，请选择 " **所有试验** " 选项卡。在 "试验运行" 仪表板中，可以看到每次运行所跟踪的指标和日志。 
 
 向下钻取至特定运行以查看其输出或日志，或下载试验的快照，以便与其他人共享试验文件夹。
 
@@ -129,7 +131,7 @@ RunDetails(run).show()
 
 尝试执行以下后续步骤，了解如何使用 Azure 机器学习：
 
-* 了解如何 [在 Azure 机器学习设计器中跟踪试验和启用日志](how-to-track-designer-experiments.md)。
+* 了解如何[在 Azure 机器学习设计器中跟踪试验并启用日志](how-to-track-designer-experiments.md)。
 
 * 查看教程[使用 Azure 机器学习训练图像分类模型](tutorial-train-models-with-aml.md)中的示例，了解如何注册和部署最佳模型。
 

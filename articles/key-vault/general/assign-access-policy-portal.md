@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481403"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287709"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>使用 Azure 门户分配 Key Vault 访问策略
 
@@ -23,7 +23,7 @@ Key Vault 访问策略确定给定的服务主体（即应用程序或用户组�
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-若要详细了解如何通过 Azure 门户在 Azure Active Directory 中创建组，请参阅[创建基本组并添加成员](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+若要详细了解如何通过 Azure 门户在 Azure Active Directory 中创建组，请参阅[创建基本组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
 ## <a name="assign-an-access-policy"></a>分配访问策略
 

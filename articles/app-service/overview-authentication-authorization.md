@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596033"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286903"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure 应用服务和 Azure Functions 中的身份验证和授权
 
@@ -146,6 +146,9 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 
 > [!CAUTION]
 > 以这种方式限制访问适用于对应用的所有调用，对于想要主页公开可用的应用程序来说，这可能是不可取的，就像在许多单页应用程序中一样。
+
+> [!NOTE]
+> 默认情况下，Azure AD 租户中的任何用户都可以从 Azure AD 请求应用程序的令牌。 如果要将应用程序的访问权限限制为一组定义的用户，可以 [在 Azure AD 中配置该应用程序](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) 。
 
 ## <a name="more-resources"></a>更多资源
 

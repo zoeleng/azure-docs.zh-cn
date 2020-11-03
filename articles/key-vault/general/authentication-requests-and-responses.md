@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983252"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288465"
 ---
 # <a name="authentication-requests-and-responses"></a>身份验证、请求和响应
 
@@ -39,7 +39,7 @@ Azure Key Vault 提供了两种类型的容器来存储和管理云应用程序�
 
 Azure Key Vault 支持 JSON 格式的请求和响应。 Azure Key Vault 请求会与部分 URL 参数、JSON 编码的请求和响应正文一起定向到使用 HTTPS 的有效 Azure Key Vault URL。
 
-本主题介绍 Azure Key Vault 服务的详细信息。 有关使用 Azure REST 接口的常规信息，包括身份验证/授权和如何获取访问令牌，请参阅 [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure)。
+本主题介绍 Azure Key Vault 服务的详细信息。 有关使用 Azure REST 接口的常规信息，包括身份验证/授权和如何获取访问令牌，请参阅 [Azure REST API 参考](/rest/api/azure)。
 
 ## <a name="request-url"></a>请求 URL  
  密钥管理操作使用 HTTP DELETE、GET、PATCH、PUT 和 HTTP POST，而针对现有密钥对象的加密操作则使用 HTTP POST。 不支持特定 HTTP 谓词的客户端也可能使用 HTTP POST（使用 X-HTTP-REQUEST 标头）来指定所需谓词，通常不需要正文的请求在使用 HTTP POST 时应添加一个空的正文，比如使用 POST 而不是 DELETE 时。  
@@ -111,7 +111,7 @@ Azure Key Vault 支持 JSON 格式的请求和响应。 Azure Key Vault 请求�
 ## <a name="authentication"></a>身份验证  
  必须对所有 Azure Key Vault 请求进行身份验证。 Azure Key Vault 支持通过 OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)] 获得的 Azure Active Directory 访问令牌。 
  
- 若要详细了解如何注册应用程序和进行身份验证以使用 Azure Key Vault，请参阅[通过 Azure AD 注册客户端应用程序](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)。
+ 若要详细了解如何注册应用程序和进行身份验证以使用 Azure Key Vault，请参阅[通过 Azure AD 注册客户端应用程序](/rest/api/azure/index#register-your-client-application-with-azure-ad)。
  
  必须使用 HTTP 授权标头向服务发送访问令牌：  
 
@@ -133,5 +133,4 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization：可用于获取请求访问令牌的 OAuth2 授权服务的地址。  
 
--   resource：要在授权请求中使用的资源 (`https://vault.azure.net`) 的名称。  
-
+-   resource：要在授权请求中使用的资源 (`https://vault.azure.net`) 的名称。
