@@ -1,24 +1,24 @@
 ---
 title: Azure Database for MySQL 的证书轮换
 description: 了解即将推出的会影响 Azure Database for MySQL 的根证书更改
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 65a19910c9aa1ed78154fb77ee86d22d40ea5b49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6005e56982d6adad937586c6a1b364fab09603ec
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082124"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242307"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>了解 Azure Database for MySQL 的根 CA 更改中的更改
 
-Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱动程序的根证书，该证书用于[连接到数据库服务器](concepts-connectivity-architecture.md)。 当前可用的根证书设置为在2021年2月15日 (02/15/2021) 为标准维护和安全最佳方案的一部分。 本文更详细地介绍了即将推出的更改、会受影响的资源，以及确保应用程序始终与数据库服务器连接所需执行的步骤。
+Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱动程序的根证书，该证书用于[连接到数据库服务器](concepts-connectivity-architecture.md)。 根据标准维护和安全最佳做法的要求，当前可用的根证书已设置为在 2021 年 2 月 15 日 (2021/02/15) 到期。 本文更详细地介绍了即将推出的更改、会受影响的资源，以及确保应用程序始终与数据库服务器连接所需执行的步骤。
 
 >[!NOTE]
-> 根据客户的反馈，我们已扩展了2020年2月15日到到2021的现有巴尔的摩根 CA 的根证书弃用。 我们希望此扩展为用户提供足够的提前期，使其能够在客户端更改受影响的情况下实施这些更改。
+> 根据客户的反馈，我们已扩展了2020年2月15日到到2021的现有巴尔的摩根 CA 的根证书弃用。 如果用户受到影响，我们希望此次延长能为他们提供足够的提前期来实施客户端更改。
 
 ## <a name="what-update-is-going-to-happen"></a>打算进行什么样的更新？
 
@@ -88,7 +88,7 @@ Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱�
 *   连接超时
 
 > [!NOTE]
-> 在进行证书更改之前，请不要删除或更改 **巴尔的摩证书** 。 更改完成后，我们将发送一条通信，在这种情况下，它们可以安全删除巴尔的摩证书。 
+> 在进行证书更改之前，请不要删除或更改 **巴尔的摩证书** 。 更改完成后，我们会发送讯息，之后用户便可以安全地删除 Baltimore 证书。 
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
@@ -98,8 +98,8 @@ Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱�
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2.如果我使用 SSL/TLS，是否需要重启数据库服务器来更新根 CA？
 不需要，你无需重启数据库服务器即可开始使用新证书。 此根证书是客户端更改，传入的客户端连接需要使用新证书来确保它们可以连接到数据库服务器。
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. 如果在2021年2月15日之前未更新根证书，会发生什么情况 (02/15/2021) ？
-如果在2021年2月15日之前未更新根证书 (02/15/2021) ，通过 SSL/TLS 连接并对根证书进行验证的应用程序将无法与 MySQL 数据库服务器通信，应用程序将遇到 MySQL 数据库服务器的连接问题。
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3.如果在 2021 年 2 月 15 日 (2021/02/15) 之前未更新根证书，会发生什么情况？
+如果在 2021 年 2 月 15 日 (2021/02/15) 之前未更新根证书，则通过 SSL/TLS 进行连接并对根证书进行验证的应用程序将无法与 MySQL 数据库服务器通信，应用程序会遇到 MySQL 数据库服务器的连接问题。
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4.如果将应用服务与 Azure Database for MySQL 一起使用，会产生什么影响？
 对于连接到 Azure Database for MySQL 的 Azure 应用服务，可以采用两种可能的方案，具体取决于你在应用程序中使用 SSL 的方式。
@@ -117,16 +117,16 @@ Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱�
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7.是否需要为此更改计划数据库服务器维护停机时间？
 否。 由于此处的更改仅发生在要连接到数据库服务器的客户端，因此数据库服务器不需要维护停机时间来进行此更改。
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. 如果在2021年2月15日 (02/15/2021) 之前无法获得此更改的计划停机时间怎么办？
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8.如果在 2021 年 2 月 15 日 (2021/02/15) 之前无法安排停机时间来进行此更改，该怎么办？
 由于用于连接到服务器的客户端需要如[此处](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)的修复部分所述更新证书信息，因此在这种情况下，服务器不需要停机。
 
-### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. 如果在2021年2月15日之后创建新的服务器 (02/15/2021) ，将会受到影响吗？
-对于2021年2月15日之后创建的服务器 (02/15/2021) ，你可以使用应用程序的新颁发的证书来使用 SSL 连接。
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9.如果我在 2021 年 2 月 15 日 (2021/02/15) 之后创建新的服务器，我是否会受影响？
+对于在 2021 年 2 月 15 日 (2021/02/15) 之后创建的服务器，可以使用应用程序的新颁发的证书通过 SSL 进行连接。
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10.Microsoft 更新其证书的频率是多少？或者说过期策略是怎样的？
 Azure Database for MySQL 使用的这些证书是由受信任的证书颁发机构 (CA) 提供的。 因此，Azure Database for MySQL 对这些证书的支持与 CA 对这些证书的支持相关联。 但是，这些预定义证书中可能存在无法预料的 bug，这些 bug 需要尽早进行修复，正如此示例一样。
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. 如果我使用的是读取副本，是否只需在源服务器或读取副本上执行此更新？
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11.如果我使用的是只读副本，是否只需在源服务器或只读副本上执行此更新？
 由于此更新是客户端更改，因此，如果客户端过去从副本服务器读取数据，则还需要对这些客户端应用更改。
 
 ### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12.如果我使用的是数据传入复制，是否需要执行任何操作？

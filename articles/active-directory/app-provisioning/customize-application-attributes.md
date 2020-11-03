@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899185"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233877"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射
 
@@ -111,7 +111,7 @@ Azure AD 用户对象与每个 SaaS 应用的用户对象之间存在一组预�
 - SuccessFactors to Azure Active Directory Active Directory/SuccessFactors
 - Azure Active Directory（支持 [Azure AD 图形 API 默认属性](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity)和自定义目录扩展）
 - 支持 [SCIM 2.0](https://tools.ietf.org/html/rfc7643) 的应用（需要添加[核心架构](https://tools.ietf.org/html/rfc7643)中定义的属性）
-- 对于 Azure Active Directory 写回 Workday 或 SuccessFactors，支持 (XPATH 和 JSONPath) 为受支持的属性更新相关的元数据，但不支持将新的 Workday 或 SuccessFactors 属性添加到默认架构中包含的属性以外
+- 对于 Azure Active Directory 写回 Workday 或 SuccessFactors，支持)  (XPATH 和 JSONPath 更新相关的元数据，但不支持将新的 Workday 或 SuccessFactors 属性添加到默认架构中包含的属性以外
 
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e09f92e21743d39cbd132637cc63b27e8cfe944
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c8d0f32821bbb3957d7787b7c3bfd733a880325b
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996150"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233910"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>集成 Microsoft Azure 和 Oracle 云基础结构的 Oracle 应用程序解决方案
 
@@ -48,6 +48,7 @@ Microsoft 和 Oracle 合作提供低延迟、高吞吐量的跨云连接，使�
 * Azure 加拿大中部 (CanadaCentral) 和 OCI 多伦多（加拿大东南部）
 * Azure 西欧 (WestEurope) 和 OCI 阿姆斯特丹（荷兰西北部）
 * Azure 日本东部 (JapanEast) 和 OCI 东京（日本东部）
+* Azure 美国西部 (WestUS) & OCI 圣马力诺 (美国西部) 
 
 ## <a name="networking"></a>网络
 

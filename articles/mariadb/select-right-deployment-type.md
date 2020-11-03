@@ -1,17 +1,17 @@
 ---
 title: 选择适当的部署类型 - Azure Database for MariaDB
 description: 本文介绍将 Azure Database for MariaDB 部署为基础结构即服务 (IaaS) 或平台即服务 (PaaS) 之前应考虑的因素。
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 5be6b97ed1647ad09a2abc3360b4f3a42c25ad62
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424916"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240267"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>在 Azure 中选择适当的 MariaDB 服务器选项
 
@@ -38,7 +38,7 @@ ms.locfileid: "92424916"
 | MariaDB 修补     | 自动  | 由客户管理 |
 | 高可用性 | 高可用性 (HA) 模型以节点级中断发生时的内置故障转移机制为依据。 在这种情况下，服务将自动创建一个新实例，并将存储附加到此实例。 | 客户建构、实施、测试和维护高可用性。 功能可能包括不中断的故障转移群集、不中断的组复制、日志传送或事务复制。|
 | 区域冗余 | 目前不受支持。 | 可以将 Azure Vm 设置为在不同的可用性区域中运行。 对于本地解决方案，客户必须创建、管理和维护其自己的辅助数据中心。|
-| 混合场景 | 使用[数据传入复制](concepts-data-in-replication.md)可将外部 MariaDB 服务器中的数据同步到 Azure Database for MariaDB 服务中。 外部服务器可以处于本地、虚拟机中或是其他云提供商托管的数据库服务。<br/><br/> 使用 [读取副本](concepts-read-replicas.md) 功能，可以将数据从 Azure Database for MariaDB 源服务器复制到最多5个只读副本服务器。 副本位于同一个 Azure 区域中，或者跨不同的区域。 使用 binlog 复制技术异步更新只读副本。<br/><br/>跨区域读取复制目前为公共预览版。| 由客户管理
+| 混合场景 | 使用[数据传入复制](concepts-data-in-replication.md)可将外部 MariaDB 服务器中的数据同步到 Azure Database for MariaDB 服务中。 外部服务器可以处于本地、虚拟机中或是其他云提供商托管的数据库服务。<br/><br/> 使用[只读副本](concepts-read-replicas.md)功能可将 Azure Database for MariaDB 源服务器中的数据复制到最多五个只读副本服务器。 副本位于同一个 Azure 区域中，或者跨不同的区域。 使用 binlog 复制技术异步更新只读副本。<br/><br/>跨区域读取复制目前为公共预览版。| 由客户管理
 | 备份和还原 | 自动创建[服务器备份](concepts-backup.md#backups)并将其存储在用户配置的本地冗余或异地冗余存储中。 服务将创建完整备份、差异备份和事务日志备份 | 由客户管理 |
 | 监视数据库操作 | 可让客户针对数据库操作[设置警报](concepts-monitoring.md)，并在即将达到阈值时采取措施。 | 由客户管理 |
 | 高级威胁防护 | 提供 [高级威胁防护](howto-database-threat-protection-portal.md)。 此保护可检测异常活动，这些活动表示异常和可能有害的数据库访问或利用尝试。<br/><br/>高级威胁防护目前为公共预览版。| 客户必须为自己构建这种保护。

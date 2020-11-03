@@ -5,19 +5,20 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cd1145411fbf4ec4441d612f9552997704f9e5e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7d969392c3245eb81ed07889bd956d2b8e8fb82f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782393"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234082"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
-本文提供了有关如何使用 Azure 导入/导出服务安全地将大量数据导入到 Azure 文件的分步说明。 若要导入数据，此服务要求你将包含数据的受支持磁盘驱动器寄送到某个 Azure 数据中心。  
+本文提供了有关如何使用 Azure 导入/导出服务安全地将大量数据导入到 Azure 文件的分步说明。 若要导入数据，此服务要求你将包含数据的受支持磁盘驱动器寄送到某个 Azure 数据中心。
 
 导入/导出服务仅支持将 Azure 文件导入到 Azure 存储。 不支持导出 Azure 文件。
 
@@ -30,7 +31,7 @@ ms.locfileid: "92782393"
 - 拥有足够数量的[受支持类型](storage-import-export-requirements.md#supported-disks)的磁盘。
 - 拥有运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统。
 - 在 Windows 系统上[下载 WAImportExport 版本 2](https://aka.ms/waiev2)。 解压缩到默认文件夹 `waimportexport`。 例如，`C:\WaImportExport`。
-- 具有 FedEx/DHL 帐户。 如果要使用 FedEx/DHL 以外的运营商，请联系 Azure Data Box 运营团队 `adbops@microsoft.com` 。  
+- 具有 FedEx/DHL 帐户。 如果要使用 FedEx/DHL 以外的运营商，请联系 Azure Data Box 运营团队 `adbops@microsoft.com` 。
     - 该帐户必须是有余额的有效帐户，且有退货功能。
     - 生成导出作业的跟踪号。
     - 每个作业都应有一个单独的跟踪号。 不支持多个作业共享相同跟踪号。
@@ -48,7 +49,7 @@ ms.locfileid: "92782393"
 
 1. 通过 SATA 连接器将磁盘驱动器连接到 Windows 系统。
 2. 在每个驱动器上创建一个 NTFS 卷。 为卷分配驱动器号。 不要使用装入点。
-3. 修改工具所在的根文件夹中的 *dataset.csv* 文件。 根据是要导入文件还是文件夹还是同时导入两者，在 *dataset.csv* 文件中添加类似于以下示例的条目。  
+3. 修改工具所在的根文件夹中的 *dataset.csv* 文件。 根据是要导入文件还是文件夹还是同时导入两者，在 *dataset.csv* 文件中添加类似于以下示例的条目。
 
    - **导入文件** ：在下面的示例中，要复制的数据驻留在 F：驱动器中。 文件 *MyFile1.txt* 将被复制到根目录 *MyAzureFileshare1* 中。 如果 *MyAzureFileshare1* 不存在，则会在 Azure 存储帐户中创建该目录。 文件夹结构保持不变。
 
@@ -114,7 +115,7 @@ ms.locfileid: "92782393"
 
 ## <a name="step-2-create-an-import-job"></a>步骤 2：创建导入作业
 
-### <a name="portal"></a>[门户](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 Azure 门户中执行以下步骤来创建导入作业。
 1. 登录到 https://portal.azure.com/ 。
@@ -241,6 +242,102 @@ ms.locfileid: "92782393"
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+使用以下步骤在 Azure PowerShell 中创建导入作业。
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> **ImportExport** PowerShell 模块为预览版时，必须使用 cmdlet 单独安装它 `Install-Module` 。 此 PowerShell 模块正式发布后，它会包含在将来的 Az PowerShell 模块发行版中，并在 Azure Cloud Shell 中默认提供。
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>创建作业
+
+1. 可以使用现有资源组，也可以创建一个。 若要创建资源组，请运行 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet：
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name myierg -Location westus
+   ```
+
+1. 可以使用现有存储帐户，也可以创建一个存储帐户。 若要创建存储帐户，请运行 [AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet：
+
+   ```azurepowershell-interactive
+   New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location westus -EnableHttpsTrafficOnly $true
+   ```
+
+1. 若要获取可将磁盘寄送到的位置列表，请使用 [AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) cmdlet：
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. 将 `Get-AzImportExportLocation` cmdlet 与参数配合使用 `Name` 可获取区域的位置：
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation -Name westus
+   ```
+
+1. 运行以下 [AzImportExport](/powershell/module/az.importexport/new-azimportexport) 示例来创建导入作业：
+
+   ```azurepowershell-interactive
+   $driveList = @(@{
+     DriveId = '9CA995BA'
+     BitLockerKey = '439675-460165-128202-905124-487224-524332-851649-442187'
+     ManifestFile = '\\DriveManifest.xml'
+     ManifestHash = '69512026C1E8D4401816A2E5B8D7420D'
+     DriveHeaderHash = 'AZ31BGB1'
+   })
+
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'MyIEjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      DriveList = $driveList
+      JobType = 'Import'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      ReturnShippingCarrierName = 'FedEx'
+      ReturnShippingCarrierAccountNumber = '123456789'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+   > [!TIP]
+   > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+1. 使用 [AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet 查看 myierg 资源组的所有作业：
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. 若要更新作业或取消作业，请运行 [AzImportExport](/powershell/module/az.importexport/update-azimportexport) cmdlet：
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 

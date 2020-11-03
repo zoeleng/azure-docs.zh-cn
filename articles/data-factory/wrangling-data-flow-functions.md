@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636113"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233944"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>整理数据流中的转换函数
 
@@ -25,7 +25,7 @@ ms.locfileid: "92636113"
 
 当前并非所有 Power Query M 函数都支持数据整理，但在创作期间可用。 生成整理数据流时，如果函数不受支持，系统将提示你输入以下错误消息：
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 下面是受支持的 Power Query M 函数的列表。
 
@@ -76,7 +76,7 @@ ms.locfileid: "92636113"
 
 使用 " [表](/powerquery-m/table-group) " 作为聚合值。
 * 必须与聚合函数一起使用
-* 支持的聚合函数[：表 RowCount](/powerquery-m/table-rowcount)，[列表. Sum](/powerquery-m/list-sum)，[列表. 计数](/powerquery-m/list-count)，[列表，平均值](/powerquery-m/list-average)，列表，[最大](/powerquery-m/list-max)[值](/powerquery-m/list-min)，列表， [StandardDeviation](/powerquery-m/list-standarddeviation)，列表，[列表，](/powerquery-m/list-first)[最后一个](/powerquery-m/list-last)
+* 支持的聚合函数：   [列表. Sum](/powerquery-m/list-sum)、   [list. Count](/powerquery-m/list-count)、   [list. Average](/powerquery-m/list-average)、   [list. Min](/powerquery-m/list-min)、   [Max](/powerquery-m/list-max)、   [StandardDeviation](/powerquery-m/list-standarddeviation)、list、   [First](/powerquery-m/list-first)、   [list. Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>排序
 
@@ -96,7 +96,7 @@ ms.locfileid: "92636113"
 | Table.NestedJoin | 仅执行联接将导致验证错误。 要使其正常工作，必须对列进行扩展。 |
 | Table.Distinct | 不支持删除重复的行。 |
 | Table.RemoveLastN | 不支持删除下一行。 |
-| Table.RowCount | 不支持，但可通过将所有单元格为空的 add 列来实现 (条件列可以使用) 然后对该列使用 group by。 支持组。 | 
+| Table.RowCount | 不支持，但可通过添加包含值1的自定义列来实现，然后使用 List. Sum 将该列聚合在一起。 支持组。 | 
 | 行级错误处理 | 当前不支持行级别的错误处理。 例如，若要筛选出列中的非数字值，一种方法是将文本列转换为数字。 未能转换的每个单元都将处于错误状态，需要对其进行筛选。 这种情况在整理的数据流中是不可能的。 |
 | Table.Transpose | 不支持 |
 | Table.Pivot | 不支持 |

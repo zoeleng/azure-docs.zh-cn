@@ -1,17 +1,17 @@
 ---
 title: 使用客户托管密钥进行数据加密 - Azure Database for MySQL
 description: 使用客户托管密钥进行 Azure Database for MySQL 数据加密，可创建自己的密钥 (BYOK) 来保护静态数据。 它还允许组织在管理密钥和数据时实现职责分离。
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c7b4d4cf61c1d605bd632ac6fe210171b2ebe01b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544114"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242324"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>使用客户托管密钥进行 Azure Database for MySQL 数据加密
 

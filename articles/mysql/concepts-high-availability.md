@@ -1,17 +1,17 @@
 ---
 title: 高可用性 - Azure Database for MySQL
 description: 本文提供了有关 Azure Database for MySQL 中的高可用性的信息
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b301946ce818559510b4e401b1f0aaf7c235d5a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882555"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242290"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的高可用性
 Azure Database for MySQL 服务提供有保证的高级别可用性，即，提供正常运行时间占比为 [99.99%](https://azure.microsoft.com/support/legal/sla/mysql) 且具有财务支持的服务级别协议 (SLA)。 Azure Database for MySQL 在发生计划内事件（例如用户发起的缩放计算操作）期间提供高可用性，并且还在发生基础硬件、软件或网络故障等计划外事件时提供高可用性。 Azure Database for MySQL 在发生大多数严重状况时都可以快速恢复，确保用户在使用此服务时应用程序几乎不会停机。

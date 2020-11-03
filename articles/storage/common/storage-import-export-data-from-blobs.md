@@ -5,15 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440718"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234131"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 
@@ -37,7 +38,7 @@ ms.locfileid: "92440718"
 
 ## <a name="step-1-create-an-export-job"></a>步骤 1：创建导出作业
 
-### <a name="portal"></a>[门户](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 Azure 门户中执行以下步骤来创建导出作业。
 
@@ -71,14 +72,14 @@ ms.locfileid: "92440718"
          ![全部导出](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
 
     - 可以指定要导出的容器和 blob。
-        - **指定要导出的 blob**：使用“等于”选择器。 指定 blob 的相对路径，以容器名称开头。 使用 *$root* 指定根容器。
-        - **指定以某个前缀开头的所有 blob**：使用“开头为”选择器。 指定以正斜杠“/”开头的前缀。 该前缀可以是容器名称的前缀、完整容器名称或者后跟 Blob 名称前缀的完整容器名称。 必须以有效格式提供 blob 路径，以免在处理过程中出现错误，如以下屏幕截图所示。 有关详细信息，请参阅[有效 blob 路径示例](#examples-of-valid-blob-paths)。
+        - **指定要导出的 blob** ：使用“等于”选择器。 指定 blob 的相对路径，以容器名称开头。 使用 *$root* 指定根容器。
+        - **指定以某个前缀开头的所有 blob** ：使用“开头为”选择器。 指定以正斜杠“/”开头的前缀。 该前缀可以是容器名称的前缀、完整容器名称或者后跟 Blob 名称前缀的完整容器名称。 必须以有效格式提供 blob 路径，以免在处理过程中出现错误，如以下屏幕截图所示。 有关详细信息，请参阅[有效 blob 路径示例](#examples-of-valid-blob-paths)。
 
            ![导出所选容器和 blob](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
 
     - 可以从 blob 列表文件进行导出。
 
-        ![从 blob 列表文件导出](./media/storage-import-export-data-from-blobs/export-from-blob6.png)  
+        ![从 blob 列表文件导出](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
 
    > [!NOTE]
    > 如果在复制数据时，要导出的 blob 正在使用中，则 Azure 导入/导出服务将生成该 blob 的快照并复制快照。
@@ -146,7 +147,7 @@ ms.locfileid: "92440718"
     > [!TIP]
     > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
 
-   此作业将导出存储帐户中的所有 blob。 可以通过将以下值替换为 **--export**来指定要导出的 blob：
+   此作业将导出存储帐户中的所有 blob。 可以通过将以下值替换为 **--export** 来指定要导出的 blob：
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -154,7 +155,7 @@ ms.locfileid: "92440718"
 
    此参数值将导出根容器中名为 *logo.bmp* 的 blob。
 
-   你还可以选择使用前缀选择容器中的所有 blob。 将此值替换为 **--export**：
+   你还可以选择使用前缀选择容器中的所有 blob。 将此值替换为 **--export** ：
 
     ```azurecli
     blob-path-prefix=/myiecontainer
@@ -176,6 +177,93 @@ ms.locfileid: "92440718"
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+使用以下步骤在 Azure PowerShell 中创建导出作业。
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> **ImportExport** PowerShell 模块为预览版时，必须使用 cmdlet 单独安装它 `Install-Module` 。 此 PowerShell 模块正式发布后，它会包含在将来的 Az PowerShell 模块发行版中，并在 Azure Cloud Shell 中默认提供。
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>创建作业
+
+1. 若要获取可从中接收磁盘的位置列表，请使用 [AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) cmdlet：
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. 运行以下 [AzImportExport](/powershell/module/az.importexport/new-azimportexport) 示例，以创建使用现有存储帐户的导出作业：
+
+   ```azurepowershell-interactive
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'Myexportjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      ExportBlobListblobPath = '\'
+      JobType = 'Export'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+    > [!TIP]
+    > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+   此作业将导出存储帐户中的所有 blob。 可以通过将以下值替换为 **-ExportBlobListblobPath** 来指定要导出的 blob：
+
+   ```azurepowershell-interactive
+   -ExportBlobListblobPath $root\logo.bmp
+   ```
+
+   此参数值将导出根容器中名为 *logo.bmp* 的 blob。
+
+   你还可以选择使用前缀选择容器中的所有 blob。 将此值替换为 **-ExportBlobListblobPath** ：
+
+   ```azurepowershell-interactive
+   -ExportBlobListblobPath '/myiecontainer'
+   ```
+
+   有关详细信息，请参阅[有效 blob 路径示例](#examples-of-valid-blob-paths)。
+
+   > [!NOTE]
+   > 如果在复制数据时，要导出的 blob 正在使用中，则 Azure 导入/导出服务将生成该 blob 的快照并复制快照。
+
+1. 使用 [AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet 可查看资源组 myierg 的所有作业：
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. 若要更新作业或取消作业，请运行 [AzImportExport](/powershell/module/az.importexport/update-azimportexport) cmdlet：
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 
@@ -208,7 +296,7 @@ ms.locfileid: "92440718"
 
 使用以下命令解锁驱动器：
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`
 
 下面是示例输入的示例。
 
@@ -218,7 +306,7 @@ ms.locfileid: "92440718"
 
 ## <a name="check-the-number-of-drives"></a>检查驱动器数量
 
-此*可选*步骤有助于确定导出作业所需的驱动器数量。 在运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统上执行此步骤。
+此 *可选* 步骤有助于确定导出作业所需的驱动器数量。 在运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统上执行此步骤。
 
 1. 在 Windows 系统上[下载 WAImportExport 版本 1](https://www.microsoft.com/download/details.aspx?id=42659)。
 2. 解压缩到默认文件夹 `waimportexportv1`。 例如，`C:\WaImportExportV1`。
@@ -232,14 +320,14 @@ ms.locfileid: "92440718"
 
     下表介绍了这些参数：
 
-    |命令行参数|描述|  
-    |--------------------------|-----------------|  
-    |**/logdir**|可选。 日志目录。 详细日志文件将写入此目录。 如果未指定，则使用当前目录作为日志目录。|  
-    |**/sn**|必需。 导出作业的存储帐户的名称。|  
-    |**/sk**|仅当未指定容器 SAS 时才是必需的。 导出作业的存储帐户的帐户密钥。|  
-    |**/csas:**|仅当未指定存储帐户密钥时才是必需的。 用于列出要在导出作业中导出的 Blob 的容器 SAS。|  
-    |**/ExportBlobListFile:**|必需。 包含要导出的 Blob 的 Blob 路径列表或 Blob 路径前缀的 XML 文件的路径。 导入/导出服务 REST API 的[放置作业](/rest/api/storageimportexport/jobs)操作的 `BlobListBlobPath` 元素中使用的文件格式。|  
-    |**/DriveSize:**|必需。 用于导出作业的驱动器大小，*例如* 500 GB、1.5 TB。|  
+    |命令行参数|说明|
+    |--------------------------|-----------------|
+    |**/logdir**|可选。 日志目录。 详细日志文件将写入此目录。 如果未指定，则使用当前目录作为日志目录。|
+    |**/sn**|必需。 导出作业的存储帐户的名称。|
+    |**/sk**|仅当未指定容器 SAS 时才是必需的。 导出作业的存储帐户的帐户密钥。|
+    |**/csas:**|仅当未指定存储帐户密钥时才是必需的。 用于列出要在导出作业中导出的 Blob 的容器 SAS。|
+    |**/ExportBlobListFile:**|必需。 包含要导出的 Blob 的 Blob 路径列表或 Blob 路径前缀的 XML 文件的路径。 导入/导出服务 REST API 的[放置作业](/rest/api/storageimportexport/jobs)操作的 `BlobListBlobPath` 元素中使用的文件格式。|
+    |**/DriveSize:**|必需。 用于导出作业的驱动器大小， *例如* 500 GB、1.5 TB。|
 
     请参阅 [PreviewExport 命令示例](#example-of-previewexport-command)。
 
@@ -247,38 +335,38 @@ ms.locfileid: "92440718"
 
 ### <a name="example-of-previewexport-command"></a>PreviewExport 命令示例
 
-以下示例演示了 `PreviewExport` 命令：  
+以下示例演示了 `PreviewExport` 命令：
 
 ```powershell
     WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
-```  
-
-导出 Blob 列表文件可能包含 Blob 名称和 Blob 前缀，如下所示：  
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>  
-<BlobList>  
-<BlobPath>pictures/animals/koala.jpg</BlobPath>  
-<BlobPathPrefix>/vhds/</BlobPathPrefix>  
-<BlobPathPrefix>/movies/</BlobPathPrefix>  
-</BlobList>  
 ```
 
-Azure 导入/导出工具可列出要导出的所有 blob，在考虑所有必要开销的情况下计算如何将其打包到指定大小的驱动器，然后估算保存 blob 和驱动器使用情况信息所需的驱动器数量。  
+导出 Blob 列表文件可能包含 Blob 名称和 Blob 前缀，如下所示：
 
-下面是一个省略了信息性日志的输出示例：  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<BlobList>
+<BlobPath>pictures/animals/koala.jpg</BlobPath>
+<BlobPathPrefix>/vhds/</BlobPathPrefix>
+<BlobPathPrefix>/movies/</BlobPathPrefix>
+</BlobList>
+```
+
+Azure 导入/导出工具可列出要导出的所有 blob，在考虑所有必要开销的情况下计算如何将其打包到指定大小的驱动器，然后估算保存 blob 和驱动器使用情况信息所需的驱动器数量。
+
+下面是一个省略了信息性日志的输出示例：
 
 ```powershell
-Number of unique blob paths/prefixes:   3  
-Number of duplicate blob paths/prefixes:        0  
-Number of nonexistent blob paths/prefixes:      1  
+Number of unique blob paths/prefixes:   3
+Number of duplicate blob paths/prefixes:        0
+Number of nonexistent blob paths/prefixes:      1
 
-Drive size:     500.00 GB  
-Number of blobs that can be exported:   6  
-Number of blobs that cannot be exported:        2  
-Number of drives needed:        3  
-        Drive #1:       blobs = 1, occupied space = 454.74 GB  
-        Drive #2:       blobs = 3, occupied space = 441.37 GB  
+Drive size:     500.00 GB
+Number of blobs that can be exported:   6
+Number of blobs that cannot be exported:        2
+Number of drives needed:        3
+        Drive #1:       blobs = 1, occupied space = 454.74 GB
+        Drive #2:       blobs = 3, occupied space = 441.37 GB
         Drive #3:       blobs = 2, occupied space = 131.28 GB
 ```
 

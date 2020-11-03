@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130181"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241321"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 身份验证和授权错误代码
 
@@ -251,7 +251,7 @@ ms.locfileid: "93130181"
 | AADSTS90051 | InvalidNationalCloudId - 国家云标识符包含无效的云标识符。 |
 | AADSTS90055 | TenantThrottlingError - 传入的请求过多。 此异常是针对阻止的租户引发的。 |
 | AADSTS90056 | BadResourceRequest - 若要兑换访问令牌的代码，应用应该向 `/token` 终结点发送 POST 请求。 另外，在此之前，应该提供授权代码，并在发往 `/token` 终结点的 POST 请求中发送此代码。 有关 OAuth 2.0 授权代码流的概述，请参阅此文：[../azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md)。 将用户定向到 `/authorize` 终结点，该终结点会返回 authorization_code。 通过向 `/token` 终结点发布请求，用户可以获取访问令牌。 在 Azure 门户中登录，并检查“应用注册”>“终结点”以确认是否正确配置了两个终结点。 |
-| AADSTS90072 | PassThroughUserMfaError - 用户登录时所用的外部帐户在其登录到的租户中不存在；因此，该用户无法满足该租户的 MFA 要求。 必须先将该帐户作为外部用户添加到该租户中。 请注销并使用其他 Azure AD 用户帐户登录。 |
+| AADSTS90072 | PassThroughUserMfaError - 用户登录时所用的外部帐户在其登录到的租户中不存在；因此，该用户无法满足该租户的 MFA 要求。 如果用户已同步，但在 Active Directory 和 Azure AD 之间的 ImmutableID (sourceAnchor) 属性中存在不匹配，也可能会发生此错误。 必须先将该帐户作为外部用户添加到该租户中。 请注销并使用其他 Azure AD 用户帐户登录。 |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - 服务尝试处理 WS 联合身份验证消息时出错。 消息无效。 |
 | AADSTS90082 | OrgIdWsFederationNotSupported - 目前不支持对该请求使用所选的身份验证策略。 |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed - 此站点不允许来宾帐户。 |

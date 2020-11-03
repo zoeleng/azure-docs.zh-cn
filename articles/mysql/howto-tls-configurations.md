@@ -1,17 +1,17 @@
 ---
 title: TLS 配置 - Azure 门户 - Azure Database for MySQL
 description: 了解如何使用 Azure 门户为 Azure Database for MySQL 设置 TLS 配置
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: d94e589a19b29e68883c0217b62b883f9d026789
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 290752c0e577e6c2cd58d83f77fea8a5406388e4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902744"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240624"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>使用 Azure 门户在 Azure Database for MySQL 中配置 TLS 设置
 

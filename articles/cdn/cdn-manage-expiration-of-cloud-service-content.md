@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778585"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240964"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>在 Azure CDN 中管理 Web 内容的到期时间
 > [!div class="op_single_selector"]
@@ -67,21 +67,21 @@ ms.locfileid: "92778585"
 
    此全局缓存规则设置为期一小时的缓存持续时间，并会影响发送到终结点的所有请求。 它会替代由终结点指定的源服务器发送的所有 `Cache-Control` 或 `Expires` HTTP 标头。   
 
-1. 选择“保存” 。
+1. 选择“保存”。
 
 **使用自定义缓存规则设置 Web 服务器文件的 Cache-Control 标头：**
 
 1. 在“自定义缓存规则”  下，创建两个匹配条件：
 
-     a. 对于第一个匹配条件，将“匹配条件”  设置为“路径”  ，对于“匹配值”输入 `/webfolder1/*`。  将“缓存行为”  设置为“替代”  ，并在“小时”  框中输入 4。
+     a. 对于第一个匹配条件，将“匹配条件”  设置为“路径”  ，对于“匹配值”输入 `/webfolder1/*`。  将 " **缓存行为** " 设置为 " **替代** "，并在 " **天** " 框中输入4。
 
-     b. 对于第二个匹配条件，将“匹配条件”  设置为“路径”  ，对于“匹配值”输入 `/webfolder1/file1.txt`。  将“缓存行为”  设置为“替代”  ，并在“小时”  框中输入 2。
+     b. 对于第二个匹配条件，将“匹配条件”  设置为“路径”  ，对于“匹配值”输入 `/webfolder1/file1.txt`。  将 " **缓存行为** " 设置为 " **替代** "，并在 " **天** " 框中输入2。
 
     ![CDN 自定义缓存规则示例](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     第一个自定义缓存规则为终结点指定的源服务器上的 `/webfolder1` 文件夹中的所有文件设置为期四小时的缓存持续时间。 第二个规则仅替代 `file1.txt` 文件的第一个规则，并且为它设置为期两小时的缓存持续时间。
 
-1. 选择“保存” 。
+1. 选择“保存”。
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>使用配置文件设置 Cache-Control 标头

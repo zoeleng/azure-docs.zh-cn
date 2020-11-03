@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: c768f6564884ade5d27199a64843437f5ce725f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019149"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233961"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>从 Azure Key Vault 中导出证书
 
@@ -33,8 +33,8 @@ ms.locfileid: "90019149"
 
 创建 Key Vault 证书后，可以使用私钥从可寻址机密中检索该证书。 以 PFX 或 PEM 格式检索证书。
 
-- **可导出**：用于创建证书的策略指示密钥可导出。
-- **不可导出**：用于创建证书的策略指示密钥不可导出。 在这种情况下，当以机密的形式进行检索时，私钥不是值的一部分。
+- **可导出** ：用于创建证书的策略指示密钥可导出。
+- **不可导出** ：用于创建证书的策略指示密钥不可导出。 在这种情况下，当以机密的形式进行检索时，私钥不是值的一部分。
 
 支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM 等（参见[此处](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)）“可导出”状态仅与 RSA 和 EC 一起使用。 HSM 密钥不可导出。
 
@@ -83,14 +83,22 @@ az keyvault secret download -–file {nameofcert.pfx}
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$kvSecret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $Cert.Name
-$kvSecretBytes = [System.Convert]::FromBase64String($kvSecret.SecretValueText)
-$certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-$certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$password = '******'
-$protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
-$pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
-[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
+$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secretValueText = '';
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+    $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+$secretByte = [Convert]::FromBase64String($secretValueText)
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
+$pfxFileByte = $x509Cert.Export($type, $password)
+
+# Write to a file
+[System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
 此命令使用私钥导出整个证书链。 证书受密码保护。

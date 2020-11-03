@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3e3503d63cf6dcaa98adc318d86df7700458d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476268"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241865"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>关于使用 Azure Synapse Analytics 中 SQL On-Demand（预览）的最佳做法
 
@@ -61,16 +61,16 @@ ms.locfileid: "85476268"
 - 使用可容纳最大可能值的最小数据大小。
   - 如果最大字符值长度为 30 个字符，请使用长度为 30 的字符数据类型。
   - 如果所有字符列值都是固定大小的，请使用 char 或 nchar 。 否则，请使用 varchar 或 nvarchar 。
-  - 如果最大整数列值为 500，请使用 smallint，因为它是可容纳此值的最小数据类型。 可以在[本文](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15)中找到整数数据类型范围。
+  - 如果最大整数列值为 500，请使用 smallint，因为它是可容纳此值的最小数据类型。 可以在[本文](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15&preserve-view=true)中找到整数数据类型范围。
 - 如果可以，尽可能使用 varchar 和 char，而不是 nvarchar 和 nchar   。
 - 如果可以，尽可能使用基于整数的数据类型。 SORT、JOIN 和 GROUP BY 操作在整数上的执行速度比字符数据快。
 - 如果使用的是架构推理，[请查看推理数据类型](#check-inferred-data-types)。
 
 ## <a name="check-inferred-data-types"></a>查看推理数据类型
 
-[架构推理](query-parquet-files.md#automatic-schema-inference)有助于快速编写查询，并浏览数据，而无需了解文件架构。 此便利的代价是，推断数据类型大于实际数据类型。 当源文件中没有足够的信息来确保使用适当的数据类型时，就会发生这种情况。 例如，Parquet 文件不包含关于最大字符列长度的元数据。 因此，SQL On-Demand 会推断其为 varchar(8000)。
+[架构推理](query-parquet-files.md#automatic-schema-inference)有助于快速编写查询，并浏览数据，而无需了解文件架构。 此便利的代价是推断数据类型可能大于实际数据类型。 当源文件中没有足够的信息来确保使用适当的数据类型时，就会发生这种情况。 例如，Parquet 文件不包含关于最大字符列长度的元数据。 因此，SQL On-Demand 会推断其为 varchar(8000)。
 
-可以使用 [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15) 来查看得到的查询数据类型。
+可以使用 [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) 来查看得到的查询数据类型。
 
 下面的示例展示了如何优化推理数据类型。 使用此过程来显示推理数据类型： 
 ```sql  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051349"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241814"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -239,7 +239,7 @@ AzureLoadBalancer 服务标记在[网络安全组](../virtual-network/security-o
 
 如果在防火墙策略中不允许探测的[源 IP](#probesource)，运行状况探测将会失败，因为它无法访问实例。  而由于发生运行状况探测失败，负载均衡器会将实例标记为关闭。  这种错误的配置可能导致负载均衡的应用程序方案失败。
 
-要使负载均衡器的运行状况探测将实例标记为运行，**必须**在任何 Azure [网络安全组](../virtual-network/security-overview.md)和本地防火墙策略中允许此 IP 地址。  默认情况下，每个网络安全组都包含[服务标记](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer，以允许运行状况探测流量。
+要使负载均衡器的运行状况探测将实例标记为运行， **必须** 在任何 Azure [网络安全组](../virtual-network/security-overview.md)和本地防火墙策略中允许此 IP 地址。  默认情况下，每个网络安全组都包含[服务标记](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer，以允许运行状况探测流量。
 
 若要测试运行状况探测故障或者将单个实例标记为停止，可以使用[网络安全组](../virtual-network/security-overview.md)显式阻止该运行状况探测（目标端口或[源 IP](#probesource)），并模拟探测故障。
 

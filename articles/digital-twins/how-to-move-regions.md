@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026490"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241083"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>将 Azure 数字孪生实例移动到不同的 Azure 区域
 
@@ -80,9 +80,8 @@ ms.locfileid: "93026490"
 
 接下来，设置和配置 ADT 资源管理器的权限。 为此，请按照 Azure 数字孪生快速入门中的 [*设置 Azure 数字孪生和 ADT 资源管理器*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) 部分中的说明进行操作。 本部分将指导你完成以下步骤：
 1. 设置 Azure 数字孪生实例 (你可以跳过此部分，因为你已有一个实例) 
-2. 设置 **Azure AD 应用注册** ，以提供对实例的访问权限
-3. 设置 ADT 资源管理器在计算机上运行的权限
-4. 运行 ADT 资源管理器，并将其配置为连接到实例。 你将使用你要移动的原始 Azure 数字孪生实例的 **主机名** ，以及应用程序注册中的 **客户端 ID** 和 **租户 id** 。
+2. 设置本地 Azure 凭据以提供对实例的访问权限
+3. 运行 ADT 资源管理器，并将其配置为连接到实例。 你将使用你要移动的原始 Azure 数字孪生实例的 **主机名** 。
 
 现在，你应该在计算机上的浏览器中运行 ADT 资源管理器示例应用。 该示例应连接到原始 Azure 数字孪生实例。
 
@@ -137,7 +136,7 @@ ms.locfileid: "93026490"
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="显示在 localhost:3000 运行的应用的浏览器窗口。此应用名为 ADT 资源管理器，其中包含查询资源管理器、模型视图、图形视图和属性资源管理器所对应的框。屏幕上尚无数据。" lightbox="media/how-to-move-regions/sign-in.png":::
 
-你可以重复使用同一应用注册，因此你只需替换 *ADT URL* 以反映新的实例。 请将此值更改为它读取 https：/ */{new 实例主机名}* 。
+替换 *ADT URL* 以反映新的实例。 请将此值更改为它读取 https：/ */{new 实例主机名}* 。
 
 单击 " *连接* "。 系统可能会要求你再次登录 Azure 凭据，并/或向此应用程序授予对你的实例的许可。
 
@@ -210,6 +209,7 @@ ADT 资源管理器现在会将模型和图形 () 添加到新的 Azure 数字�
 * Azure Maps
 * 设备预配服务 (DPS) 
 * Azure 之外的个人或公司应用，例如在教程中创建的 **客户端应用** [*：编写*](tutorial-code.md)连接到实例并调用 Azure 数字孪生 api 的客户端应用
+* **无需** 重新创建 Azure AD 应用注册。 如果你正在使用 [应用注册](how-to-create-app-registration.md) 来连接到 Azure 数字孪生 api，则可以将相同的应用注册与新的实例一起使用。
 
 完成此步骤后，目标区域中的新实例应为原始实例的副本。
 

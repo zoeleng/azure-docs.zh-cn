@@ -1,17 +1,17 @@
 ---
 title: TLS 配置 - Azure 门户 - Azure Database for PostgreSQL - 单一服务器
 description: 了解如何使用 Azure 门户为 Azure Database for PostgreSQL 单一服务器设置 TLS 配置
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 26470709b37c2623c581499ec55572da402e96cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25be6b3c4e3172fc8ee14b97fd890b5948c284ba
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906458"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242358"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>使用 Azure 门户配置 Azure Database for PostgreSQL 单一服务器中的 TLS 设置
 

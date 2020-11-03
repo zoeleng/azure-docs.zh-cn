@@ -1,18 +1,18 @@
 ---
 title: 数据加密-Azure CLI-Azure Database for MySQL
 description: 了解如何使用 Azure CLI 设置和管理 Azure Database for MySQL 的数据加密。
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799813"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242086"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>使用 Azure CLI Azure Database for MySQL 的数据加密
 
@@ -50,7 +50,7 @@ ms.locfileid: "87799813"
 * 此密钥必须具有以下属性以用作客户管理的密钥：
   * 无过期日期
   * 未禁用
-  * 执行 **get**、 **wrap**、 **解包** 操作
+  * 执行 **get** 、 **wrap** 、 **解包** 操作
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>为密钥操作设置正确的权限
 
@@ -68,7 +68,7 @@ ms.locfileid: "87799813"
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. 设置**主体** (**获取**、**包装**、**解包**) 的**主要权限**，这是 MySQL 服务器的名称。
+2. 设置 **主体** ( **获取** 、 **包装** 、 **解包** ) 的 **主要权限** ，这是 MySQL 服务器的名称。
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
