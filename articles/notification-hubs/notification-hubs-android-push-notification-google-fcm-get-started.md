@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268819"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428378"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>教程：使用 Firebase SDK 版本 0.6 将推送通知发送到 Android 设备
 
@@ -175,8 +175,8 @@ ms.locfileid: "91268819"
 
     确保在 `NotificationSettings` 类的以下代码中更新这三个占位符：
 
-   * **HubListenConnectionString**：中心的 **DefaultListenAccessSignature** 连接字符串。 可以复制此连接字符串，方法是在 [Azure 门户]的中心单击“访问策略”。
-   * **HubName**：使用 [Azure 门户]的中心页中显示的中心的名称。
+   * **HubListenConnectionString** ：中心的 **DefaultListenAccessSignature** 连接字符串。 可以复制此连接字符串，方法是在 [Azure 门户]的中心单击“访问策略”。
+   * **HubName** ：使用 [Azure 门户]的中心页中显示的中心的名称。
 
      `NotificationSettings` 代码：
 
@@ -411,7 +411,7 @@ ms.locfileid: "91268819"
     android:id="@+id/text_hello"
     ```
 
-    ![Azure 通知中心 - 测试发送](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+    ![屏幕截图显示了应用于 TextView 控件的 android:id="@+id/text_hello" ID。](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 10. 接下来，为 AndroidManifest.xml 中定义的接收者添加一个子类。 将另一个名为 `FirebaseService`的新类添加到项目。
 

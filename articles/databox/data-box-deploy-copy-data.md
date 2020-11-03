@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123885"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426247"
 ---
 ::: zone target="docs"
 
@@ -74,7 +74,7 @@ ms.locfileid: "92123885"
 
     ![获取 SMB 共享的共享凭据](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. 在“访问共享和复制数据”对话框中，复制对应于该共享的“用户名”和“密码”。  选择“确定”。
+2. 在“访问共享和复制数据”对话框中，复制对应于该共享的“用户名”和“密码”。  如果密码包含特殊字符，请在该密码前后添加双引号。 然后选择“确定”  。
     
     ![获取共享的用户名和密码](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -103,7 +103,7 @@ ms.locfileid: "92123885"
     
     ![文件资源管理器中显示的共享](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-    **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
+    **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹** 。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
     
 如果使用 Linux 客户端，请使用以下命令装载 SMB 共享。 下面的“vers”参数是 Linux 主机支持的 SMB 版本。 在下面的命令中插入相应版本。 有关 Data Box 支持的 SMB 版本，请参阅 [Linux 客户端支持的文件系统](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
@@ -128,7 +128,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 > [!IMPORTANT]
 > 请确保保留源数据的副本，直到可以确认 Data Box 已将数据传输到 Azure 存储中为止。
 
-连接到 SMB 共享后，开始数据复制。 可以使用与 SMB 兼容的任何文件复制工具（例如 Robocopy）复制数据。 可以使用 Robocopy 启动多个复制作业。 使用以下命令：
+连接到 SMB 共享后，开始数据复制。 可以使用与 SMB 兼容的任何文件复制工具（例如 Robocopy）复制数据。 可以使用 Robocopy 启动多个复制作业。 请使用以下命令：
 
 ```console
 robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>

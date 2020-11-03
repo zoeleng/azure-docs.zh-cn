@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 977e3571a24e8be9d9ef6cd79e80e654ca944fa4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079252"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538810"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>排查 Azure HDInsight 中的脚本操作问题
 
@@ -27,11 +27,11 @@ ms.locfileid: "86079252"
 
 1. 在 Web 浏览器中，导航到 `https://CLUSTERNAME.azurehdinsight.net`，其中 `CLUSTERNAME` 是群集的名称。
 
-1. 从页面顶部栏中选择“操作”条目 **** 。 此时会显示通过 Ambari 在群集上执行的当前操作和以前操作的列表。
+1. 从页面顶部栏中选择“操作”条目  。 此时会显示通过 Ambari 在群集上执行的当前操作和以前操作的列表。
 
     ![选中了“操作”的 Ambari Web UI 栏](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
 
-1. 查找“操作”**** 列中包含 **run\_customscriptaction** 的条目。 这些条目是在运行脚本操作时创建的。
+1. 查找“操作”列中包含 **run\_customscriptaction** 的条目。 这些条目是在运行脚本操作时创建的。
 
     ![“Apache Ambari 脚本操作”操作](./media/troubleshoot-script-action/ambari-script-action.png)
 
@@ -45,15 +45,15 @@ ms.locfileid: "86079252"
 
     ![脚本操作日志](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    在此目录下，日志分别针对**头节点**、**工作器节点**和 **Zookeeper 节点**进行组织。 请看以下示例：
+    在此目录下，日志分别针对 **头节点** 、 **工作器节点** 和 **Zookeeper 节点** 进行组织。 请看以下示例：
 
-    * **头节点**：`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **头节点** ：`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **工作节点**：`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **工作节点** ：`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Zookeeper 节点**：`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Zookeeper 节点** ：`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
-* 相应主机的所有 **stdout** 和 **stderr** 将上传到存储帐户。 每个脚本操作各有一个 **output-\*.txt** 和 **errors-\*.txt**。 **output-*.txt** 文件包含有关在主机上运行的脚本的 URI 信息。 以下文本是此信息的示例：
+* 相应主机的所有 **stdout** 和 **stderr** 将上传到存储帐户。 每个脚本操作各有一个 **output-\*.txt** 和 **errors-\*.txt** 。 **output-*.txt** 文件包含有关在主机上运行的脚本的 URI 信息。 以下文本是此信息的示例：
 
     ```output
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
@@ -75,7 +75,7 @@ ms.locfileid: "86079252"
 
 ## <a name="cant-import-name-blobservice"></a>无法导入名称 BlobService
 
-__症状__。 脚本操作失败。 在 Ambari 中查看该操作时，显示类似于以下错误的文本：
+__症状__ 。 脚本操作失败。 在 Ambari 中查看该操作时，显示类似于以下错误的文本：
 
 ```
 Traceback (most recent call list):
@@ -84,9 +84,9 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__原因__。 如果升级 HDInsight 群集中随附的 Python Azure 存储客户端，则会发生此错误。 HDInsight 需要 Azure 存储客户端 0.20.0。
+__原因__ 。 如果升级 HDInsight 群集中随附的 Python Azure 存储客户端，则会发生此错误。 HDInsight 需要 Azure 存储客户端 0.20.0。
 
-__解决方法__。 若要解决此错误，请使用 `ssh` 手动连接到每个群集节点。 运行以下命令重新安装正确的存储客户端版本：
+__解决方法__ 。 若要解决此错误，请使用 `ssh` 手动连接到每个群集节点。 运行以下命令重新安装正确的存储客户端版本：
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -116,4 +116,4 @@ sudo pip install azure-storage==0.20.0
 
 * 联系 [@AzureSupport](https://twitter.com/azuresupport)，这是用于改进客户体验的官方 Microsoft Azure 帐户。 它可以将 Azure 社区成员连接到适当的资源，为他们提供解答、支持和专家建议。
 
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

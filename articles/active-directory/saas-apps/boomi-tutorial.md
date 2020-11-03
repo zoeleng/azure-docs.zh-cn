@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e14ef0c039fdf07d50c09fe57dc3cac222be524d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744281"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456868"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Boomi 的集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91744281"
 * 让用户使用其 Azure AD 帐户自动登录到 Boomi。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "91744281"
 本教程在测试环境中配置并测试 Azure AD SSO。
 
 * Boomi 支持 **IDP** 发起的 SSO
-* 配置 Boomi 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
+* 配置 Boomi 后，就可以强制实施会话控制，从而实时保护组织的敏感数据免于外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。
 
 ## <a name="adding-boomi-from-the-gallery"></a>从库中添加 Boomi
 
@@ -94,7 +94,7 @@ ms.locfileid: "91744281"
     d. 输入“登录 URL”，如 `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}`。
 
     > [!Note]
-    > 你将从“配置 Boomi SSO”**** 部分获得**服务提供商元数据文件**，本教程稍后将对此进行说明。 如果“标识符”和“回复 URL”值未自动填充，请根据要求手动填充这些值。********
+    > 你将从“配置 Boomi SSO”部分获得 **服务提供商元数据文件** ，本教程稍后将对此进行说明。 如果“标识符”和“回复 URL”值未自动填充，请根据要求手动填充这些值。
 
 1. Boomi 应用程序需要特定格式的 SAML 断言，这要求向 SAML 令牌属性配置添加自定义属性映射。 以下屏幕截图显示了默认属性的列表。
 
@@ -110,7 +110,7 @@ ms.locfileid: "91744281"
 
     ![证书下载链接](common/certificatebase64.png)
 
-1. 在“设置 Boomi”部分中，根据要求复制相应的 URL****。
+1. 在“设置 Boomi”部分中，根据要求复制相应的 URL。
 
     ![复制配置 URL](common/copy-configuration-urls.png)
 
@@ -131,7 +131,7 @@ ms.locfileid: "91744281"
 在本部分中，你将通过授予 B.Simon 访问 Boomi 的权限，允许其使用 Azure 单一登录。
 
 1. 在 Azure 门户中，依次选择“企业应用程序”、“所有应用程序”。  
-1. 在应用程序列表中，选择“Boomi”****。
+1. 在应用程序列表中，选择“Boomi”。
 1. 在应用的概述页中，找到“管理”部分，选择“用户和组” 。
 
    ![“用户和组”链接](common/users-groups-blade.png)
@@ -148,23 +148,23 @@ ms.locfileid: "91744281"
 
 1. 在另一个 Web 浏览器窗口中，以管理员身份登录到 Boomi 公司站点。
 
-1. 导航到“公司名称”****，并转到“设置”****。
+1. 导航到“公司名称”，并转到“设置”。
 
 1. 单击“SSO 选项”选项卡，并执行以下步骤。
 
     ![在应用端配置单一登录](./media/boomi-tutorial/tutorial_boomi_11.png)
 
-    a. 选中“启用 SAML 单一登录”**** 复选框。
+    a. 选中“启用 SAML 单一登录”复选框。
 
-    b. 单击“导入”****，将已下载的证书从 Azure AD 上传到“标识提供者证书”****。
+    b. 单击“导入”，将已下载的证书从 Azure AD 上传到“标识提供者证书”。
 
-    c. 在“标识提供者登录 URL”**** 文本框中，放置 Azure AD 应用程序配置窗口中**登录 URL** 的值。
+    c. 在“标识提供者登录 URL”文本框中，放置 Azure AD 应用程序配置窗口中 **登录 URL** 的值。
 
-    d. 对于“联合 ID 位置”，选择“联合 ID 位于 FEDERATION_ID 属性元素中”单选按钮。********
+    d. 对于“联合 ID 位置”，选择“联合 ID 位于 FEDERATION_ID 属性元素中”单选按钮。
 
-    e. 复制 **AtomSphere 元数据 URL**，通过所选浏览器转到**元数据 URL**，并将输出保存到文件。 在 Azure 门户的“基本 SAML 配置”**** 部分中上传**元数据 URL**。
+    e. 复制 **AtomSphere 元数据 URL** ，通过所选浏览器转到 **元数据 URL** ，并将输出保存到文件。 在 Azure 门户的“基本 SAML 配置”部分中上传 **元数据 URL** 。
 
-    f. 单击“保存”按钮****。
+    f. 单击“保存”按钮。
 
 ### <a name="create-boomi-test-user"></a>创建 Boomi 测试用户
 
@@ -174,7 +174,7 @@ ms.locfileid: "91744281"
 
 1. 以管理员身份登录 Boomi 公司站点。
 
-1. 登录后，导航到“用户管理”**** 并转到“用户”****。
+1. 登录后，导航到“用户管理”并转到“用户”。
 
     ![屏幕截图显示“用户管理”页，其中已选择“用户”。](./media/boomi-tutorial/tutorial_boomi_001.png "用户")
 
@@ -184,15 +184,15 @@ ms.locfileid: "91744281"
 
     ![屏幕截图显示“添加/维护用户角色”，可在其中配置用户。](./media/boomi-tutorial/tutorial_boomi_003.png "用户")
 
-    a. 在“用户电子邮件地址”文本框中****，键入用户的电子邮件地址（例如 B.Simon@contoso.com）。
+    a. 在“用户电子邮件地址”文本框中，键入用户的电子邮件地址（例如 B.Simon@contoso.com）。
 
-    b. 在“名字”文本框中，键入用户的名字（如“B.”）****。
+    b. 在“名字”文本框中，键入用户的名字（如“B.”）。
 
     c. 在“姓氏”文本框中，键入用户的姓氏（如“Simon”）。
 
-    d. 输入用户的**联合 ID**。 每个用户都必须具有在帐户中唯一标识用户的联合 ID。
+    d. 输入用户的 **联合 ID** 。 每个用户都必须具有在帐户中唯一标识用户的联合 ID。
 
-    e. 向用户分配“标准用户”**** 角色。 不要分配管理员角色，因为这会向用户提供标准 Atmosphere 访问权限以及单一登录访问权限。
+    e. 向用户分配“标准用户”角色。 不要分配管理员角色，因为这会向用户提供标准 Atmosphere 访问权限以及单一登录访问权限。
 
     f. 单击“确定”。
 
@@ -203,16 +203,16 @@ ms.locfileid: "91744281"
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Boomi 磁贴时，应当会自动登录到已为其设置了 SSO 的 Boomi。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Boomi 磁贴时，应当会自动登录到已为其设置了 SSO 的 Boomi。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
-- [Microsoft Cloud App Security 中的会话控制是什么？](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security 中的会话控制是什么？](/cloud-app-security/proxy-intro-aad)
 
 - [通过 Azure AD 试用 Boomi](https://aad.portal.azure.com/)

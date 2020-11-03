@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 92fb6bb470c6ab9c1a8f1f0542c26a8fef07e6b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 05fc215d6283c6d839b01a7247518a84d9b89a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376582"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499183"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 
@@ -37,7 +37,7 @@ pip install azure-cognitiveservices-speech
 python3 -m pip install --upgrade pip
 ```
 
-安装语音 SDK 后，将其导入到 Python 项目中，其中包含此语句。
+安装语音 SDK 后，将其导入到 Python 项目中。
 
 ```Python
 import azure.cognitiveservices.speech as speechsdk
@@ -45,81 +45,61 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="create-a-speech-configuration"></a>创建语音配置
 
-若要使用语音 SDK 调用语音服务，需要创建 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)。 此类包含有关你的订阅的信息，例如你的密钥和关联的区域、终结点、主机或授权令牌。
-
-> [!NOTE]
-> 无论你是要执行语音识别、语音合成、翻译，还是意向识别，都需要创建一个配置。
-
-可以通过以下几种方法初始化 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)：
-
-* 使用订阅：传入密钥和关联的区域。
-* 使用终结点：传入语音服务终结点。 密钥或授权令牌是可选的。
-* 使用主机：传入主机地址。 密钥或授权令牌是可选的。
-* 使用授权令牌：传入授权令牌和关联的区域。
-
-让我们看看如何使用密钥和区域创建 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)。 请查看[区域支持](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk)页以找到你的区域标识符。
+若要使用语音 SDK 调用语音服务，需要创建 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)。 此类包含有关你的订阅的信息，例如你的密钥和关联的区域、终结点、主机或授权令牌。 使用密钥和区域创建 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)。 请查看[区域支持](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk)页，找到你的区域标识符。
 
 ```Python
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-## <a name="initialize-a-recognizer"></a>初始化识别器
+可以通过以下其他几种方法初始化 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)：
 
-创建 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) 后，下一步是初始化 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)。 初始化 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) 时，向其传递 `speech_config`。 这会提供语音服务验证请求所需的凭据。
+* 使用终结点：传入语音服务终结点。 密钥或授权令牌是可选的。
+* 使用主机：传入主机地址。 密钥或授权令牌是可选的。
+* 使用授权令牌：传入授权令牌和关联的区域。
+
+> [!NOTE]
+> 无论你是要执行语音识别、语音合成、翻译，还是意向识别，都需要创建一个配置。
+
+## <a name="recognize-from-microphone"></a>从麦克风识别
+
+若要使用设备麦克风识别语音，只需创建 `SpeechRecognizer`（无需传递 `AudioConfig`），并传递 `speech_config`。
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
+
+print("Speak into your microphone.")
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
-## <a name="recognize-from-microphone-or-file"></a>从麦克风或文件识别
+如果你想使用特定的音频输入设备，则需要在 `AudioConfig` 中指定设备 ID，并将其传递给 `SpeechRecognizer` 构造函数的 `audio_config` 参数。 [了解如何获取音频输入设备的设备 ID](../../../how-to-select-audio-input-devices.md)。
 
-如果要指定音频输入设备，则需要创建一个 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) 并在初始化 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) 时将其作为参数传递。
+## <a name="recognize-from-file"></a>从文件识别
 
-若要使用设备麦克风识别语音，只需创建 `SpeechRecognizer` 而无需传递 `AudioConfig`
-
-```Python
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
-```
-
-> [!TIP]
-> 如果要按 ID 引用设备，请使用 `AudioConfig(device_name="<device id>")` 创建 `AudioConfig`
-> [了解如何获取音频输入设备的设备 ID](../../../how-to-select-audio-input-devices.md)。
-
-如果要从音频文件（而不是使用麦克风）识别语音，请创建 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) 并使用 `filename` 参数。
+如果要从音频文件（而不是使用麦克风）识别语音，请创建 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python&preserve-view=true) 并使用 `filename` 参数。
 
 ```Python
 audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
 ## <a name="recognize-speech"></a>识别语音
 
-用于 Python 的语音 SDK 的[识别器类](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python)公开了一些可用于语音识别的方法。
-
-* 单步识别（同步）- 在阻塞（同步）模式下执行识别。 在识别单个言语后返回。 单个言语的结束是通过在结束时倾听静音或处理最长 15 秒音频时确定的。 该任务返回作为结果的识别文本。
-* 单步识别（异步）- 在非阻塞（异步）模式下执行识别。 这将识别单个言语。 单个言语的结束是通过在结束时倾听静音或处理最长 15 秒音频时确定的。
-* 连续识别（同步）- 同步启动连续识别。 客户端必须连接到 `EventSignal` 才能接收识别结果。 若要停止识别，请调用 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--)。
-* 连续识别（异步）- 异步启动连续识别操作。 用户必须连接到 EventSignal 才能接收识别结果。 若要停止异步连续识别，请调用 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--)。
-
-> [!NOTE]
-> 详细了解如何[选择语音识别模式](../../../how-to-choose-recognition-mode.md)。
+用于 Python 的语音 SDK 的[识别器类](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python&preserve-view=true)公开了一些可用于语音识别的方法。
 
 ### <a name="single-shot-recognition"></a>单步识别
 
-下面是使用 [`recognize_once()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once) 进行同步单步识别的示例：
+单步识别可异步识别单个言语。 单个言语的结束是通过在结束时倾听静音或处理最长 15 秒音频时确定的。 下面是使用 [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture) 进行异步单步识别的示例：
 
 ```Python
-result = speech_recognizer.recognize_once()
+result = speech_recognizer.recognize_once_async().get()
 ```
 
-下面是使用 [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture) 进行异步单步识别的示例：
-
-```Python
-result = speech_recognizer.recognize_once_async()
-```
-
-无论你使用的是同步方法还是异步方法，都需要编写一些代码来循环访问结果。 此示例将计算 [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python)：
+需要编写一些代码来循环访问结果。 此示例将计算 [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python)：
 
 * 输出识别结果：`speechsdk.ResultReason.RecognizedSpeech`
 * 如果没有识别匹配项，请通知用户：`speechsdk.ResultReason.NoMatch `
@@ -141,7 +121,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 连续识别涉及的方面比单步识别多一点。 它要求你连接到 `EventSignal` 以获取识别结果，必须调用 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--) 或 [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--)。 下面是有关如何对音频输入文件执行连续识别的示例。
 
-首先，我们将定义输入并初始化一个 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)：
+首先，我们将定义输入并初始化一个 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true)：
 
 ```Python
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
@@ -199,7 +179,7 @@ while not done:
 
 使用连续识别时，可以使用相应的“启用听写”功能启用听写处理。 此模式将导致语音配置实例解释句子结构的单词说明（如标点符号）。 例如，言语“你居住在城镇吗问号”会被解释为文本“你居住在城镇吗？”。
 
-若要启用听写模式，请在 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) 上使用 [`enable_dictation()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) 方法。
+若要启用听写模式，请在 [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) 上使用 [`enable_dictation()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) 方法。
 
 ```Python 
 SpeechConfig.enable_dictation()
@@ -222,9 +202,9 @@ speech_config.speech_recognition_language="de-DE"
 > [!IMPORTANT]
 > 短语列表功能仅以英语提供。
 
-若要使用短语列表，请首先创建一个 [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python) 对象，然后使用 [`addPhrase`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-) 添加特定的单词和短语。
+若要使用短语列表，请首先创建一个 [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python&preserve-view=true) 对象，然后使用 [`addPhrase`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-) 添加特定的单词和短语。
 
-对 [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python) 所做的任何更改都将在下一次识别或重新连接到语音服务之后生效。
+对 [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python&preserve-view=true) 所做的任何更改都将在下一次识别或重新连接到语音服务之后生效。
 
 ```Python
 phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)

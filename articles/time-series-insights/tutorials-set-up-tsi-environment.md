@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597666"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521282"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>教程：设置 Azure 时序见解 Gen2 环境
 
@@ -38,7 +38,7 @@ ms.locfileid: "91597666"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 必须至少具有 Azure 订阅的参与者角色。 有关详细信息，请阅读[使用基于角色的访问控制和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。
+* 必须至少具有 Azure 订阅的参与者角色。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="create-a-device-simulation"></a>创建设备模拟
 
@@ -91,8 +91,8 @@ ms.locfileid: "91597666"
     | **资源组** | 为 Azure 时序见解 Gen2 环境资源选择现有的资源组或创建新的资源组。 资源组是 Azure 资源的容器。 最佳做法是使用与设备模拟器创建的其他 IoT 资源相同的资源组。 |
     | **位置** | 为 Azure 时序见解 Gen2 环境选择数据中心区域。 为了避免额外的延迟，最好是在设备模拟器创建的 IoT 中心所在的区域中创建 Azure 时序见解 Gen2 环境。 |
     | **层** |  选择 Gen2(L1)。 这是 Azure 时序见解 Gen2 产品的 SKU。 |
-    | **时序 ID 属性名称** | 输入属性名称，需包含唯一标识时序实例的值。 以后不能更改在“属性名称”框中作为时序 ID 输入的值。 在本教程中，请输入 ***iothub-connection-device-id***。若要详细了解包含复合时序 ID 的时序 ID，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)。 |
-    | **存储帐户名称** | 为新存储帐户输入全局唯一名称。|
+    | **时序 ID 属性名称** | 输入属性名称，需包含唯一标识时序实例的值。 以后不能更改在“属性名称”框中作为时序 ID 输入的值。 在本教程中，请输入 iothub-connection-device-id。 若要详细了解包含复合时序 ID 的时序 ID，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)。 |
+    | 存储帐户名称* | 为新存储帐户输入全局唯一名称。|
     | **存储帐户类型** | 为新的存储帐户选择存储类型。 建议选择 StorageV2|
     | **存储帐户复制** | 为新的存储帐户选择存储类型。 根据你的位置选择，你可以选择 LRS、GRS 或 ZRS。 对于本教程，你可选择 LRS|
     | **分层命名空间** |选择 StorageV2 存储类型后，可以选择此选项。 默认禁用此项。 对于本教程，你可将其保留为默认禁用状态|
@@ -101,7 +101,7 @@ ms.locfileid: "91597666"
 
     [![新的时序见解环境配置。](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
 
-1. 在完成时选择“下一步:**事件源”** 。
+1. 在完成时选择“下一步: **事件源”** 。
 
    [![配置环境的时序 ID。](media/v2-update-provision/tsi-time-series-id-selection.png)](media/v2-update-provision/tsi-time-series-id-selection.png#lightbox)
 
@@ -117,13 +117,13 @@ ms.locfileid: "91597666"
    | **IoT 中心名称** | 选择为设备模拟器创建的 IoT 中心名称。 |
    | **Iot 中心访问策略** | 选择“iothubowner”。 |
    | **IoT 中心使用者组** | 选择“新建”，输入唯一名称，然后选择“+ 添加” 。 在 Azure 时序见解 Gen2 中，使用者组必须是唯一值。 |
-   | **时间戳属性** | 此值用于标识传入遥测数据中的**时间戳**属性。 在本教程中，请将此框留空。 此模拟器使用 IoT 中心的传入时间戳，Azure 时序见解 Gen2 默认使用该时间戳。 |
+   | **时间戳属性** | 此值用于标识传入遥测数据中的 **时间戳** 属性。 在本教程中，请将此框留空。 此模拟器使用 IoT 中心的传入时间戳，Azure 时序见解 Gen2 默认使用该时间戳。 |
 
 1. 选择“查看 + 创建”。
 
    [![将创建的 IoT 中心配置为事件源。](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. 选择“创建”  。
+1. 选择“创建”。
 
     [![包含“创建”按钮的“查看 + 创建”页。](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
@@ -166,7 +166,7 @@ ms.locfileid: "91597666"
         | **名称** | 为模拟器输入唯一名称。 |
         | **说明** | 输入定义。 |
         | **模拟持续时间** | 设置为“无限期运行”。 |
-        | **设备型号** | 单击 +“添加设备类型” <br />名称：输入“电梯”。 <br />**数量**：输入 **3**。 <br /> 保留其余默认值 |
+        | **设备型号** | 单击 +“添加设备类型” <br />名称：输入“电梯”。 <br />**数量** ：输入 **3** 。 <br /> 保留其余默认值 |
         | **目标 IoT 中心** | 设置为“使用预配的 IoT 中心”。 |
 
         [![配置参数和启动。](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
@@ -185,7 +185,7 @@ ms.locfileid: "91597666"
 
 1. 在 Azure 时序见解 Gen2 资源管理器中，将显示横跨屏幕顶部的一个栏。 这是可用性选取器。 确保至少选择了两个 2m，并在需要时通过选中选取器控点并将其向左和向右拖动来扩展期限。
 
-1. **时序实例**将显示在左侧。
+1. **时序实例** 将显示在左侧。
 
     [![无父级实例的列表。](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 

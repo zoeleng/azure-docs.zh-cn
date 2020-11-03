@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 47cca5019277b2f4d0025ccb6743589a21dfaafa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149197"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480116"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教程：通过 IoT 中心设置和使用指标和诊断日志
 
@@ -138,7 +138,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 2. 找到 IoT 中心边栏选项卡中的“监视”部分。  单击“诊断设置”。  
 
-   ![显示 IoT 中心边栏选项卡诊断设置部分的屏幕截图。](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+   ![突出显示“监视”部分的“诊断设置”的屏幕截图。](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
 3. 确保订阅和资源组正确。 在“资源类型”下取消选中“全选”，然后查找并勾选 IoT 中心”。    （“全选”旁边会再次出现一个对勾，忽略它即可。）  在“资源”下，选择中心名称。  屏幕应如下图所示： 
@@ -151,7 +151,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
    ![显示如何将诊断设置为存档到存储帐户的屏幕截图。](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
-    单击“配置”，此时会看到“选择存储帐户”屏幕，选择右侧的帐户   (*contosostoragemon*)，然后单击“确定”，返回到“诊断设置”窗格。  
+    单击“配置”，此时会看到“选择存储帐户”屏幕，选择右侧的帐户   ( *contosostoragemon* )，然后单击“确定”，返回到“诊断设置”窗格。  
 
    ![屏幕截图，显示如何将诊断日志设置为存档到存储帐户。](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
@@ -178,11 +178,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
    ![显示如何为发送的遥测消息添加指标的屏幕截图。](./media/tutorial-use-metrics-and-diags/07-metrics-telemetry-messages-sent.png)
 
 
-4. 现在单击“添加指标”，向图表添加另一个指标。  选择资源组 (**ContosoTestHub**)。 在“指标”下，选择“已使用的消息总数”。   对于“聚合”，请选择“平均”。   
+4. 现在单击“添加指标”，向图表添加另一个指标。  选择资源组 ( **ContosoTestHub** )。 在“指标”下，选择“已使用的消息总数”。   对于“聚合”，请选择“平均”。   
 
    现在，屏幕会显示针对“发送的遥测消息数”的最小化指标，以及针对“已使用的消息总数”的新指标。  
 
-   ![显示如何为发送的遥测消息添加指标的屏幕截图。](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   ![突出显示“固定到仪表板”按钮的屏幕截图。](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
    单击“固定到仪表板”  。 这样就会将它固定到 Azure 门户的仪表板上，方便再次访问。 如果不将它固定到仪表板，则不会保留设置。
 
@@ -202,25 +202,25 @@ IoT 中心尚未迁移到 [Azure Monitor 中的指标](../azure-monitor/platform
 
     填写字段： 
 
-    **订阅**：将此字段保留设置为当前订阅。
+    **订阅** ：将此字段保留设置为当前订阅。
 
-    **源**：将此字段设置为“指标”。 
+    **源** ：将此字段设置为“指标”。 
 
-    **资源组**：将此字段设置为当前资源组“ContosoResources”。  
+    **资源组** ：将此字段设置为当前资源组“ContosoResources”。  
 
-    **资源类型**：将此字段设置为“IoT 中心”。 
+    **资源类型** ：将此字段设置为“IoT 中心”。 
 
-    **资源**：选择 IoT 中心“ContosoTestHub”。 
+    **资源** ：选择 IoT 中心“ContosoTestHub”。 
 
 3. 单击“添加指标警报(经典)”以设置新警报。 
 
     填写字段：
 
-    **名称**：为警报规则提供名称，例如 *telemetry-messages*。
+    **名称** ：为警报规则提供名称，例如 *telemetry-messages* 。
 
-    **说明**：提供警报说明，例如“发送了 1000 个遥测消息时的警报”。  
+    **说明** ：提供警报说明，例如“发送了 1000 个遥测消息时的警报”。  
 
-    **源**：将此项设置为“指标”。 
+    **源** ：将此项设置为“指标”。 
 
     “订阅”、“资源组”和“资源”应该设置为在“查看经典警报”屏幕上选择的值。     
 
@@ -230,13 +230,13 @@ IoT 中心尚未迁移到 [Azure Monitor 中的指标](../azure-monitor/platform
 
 4. 在图表后设置以下字段：
 
-   **条件**：设置为“大于”。 
+   **条件** ：设置为“大于”。 
 
-   **阈值**：设置为 1000。
+   **阈值** ：设置为 1000。
 
-   **时间段**：设置为“过去 5 分钟”。 
+   **时间段** ：设置为“过去 5 分钟”。 
 
-   **通知电子邮件收件人**：将电子邮件地址置于此处。 
+   **通知电子邮件收件人** ：将电子邮件地址置于此处。 
 
    ![显示警报屏幕下半部分的屏幕截图。](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
@@ -246,11 +246,11 @@ IoT 中心尚未迁移到 [Azure Monitor 中的指标](../azure-monitor/platform
 
    在“查看经典警报”屏幕上，单击“添加指标警报(经典)”，然后在“添加规则”窗格上填充以下字段。   
 
-   **名称**：为警报规则提供名称，例如 *number-of-messages-used*。
+   **名称** ：为警报规则提供名称，例如 *number-of-messages-used* 。
 
-   **说明**：提供警报说明，例如“接近配额时的警报”。 
+   **说明** ：提供警报说明，例如“接近配额时的警报”。 
 
-   **源**：将此字段设置为“指标”。 
+   **源** ：将此字段设置为“指标”。 
 
     “订阅”、“资源组”和“资源”应该设置为在“查看经典警报”屏幕上选择的值。     
 
@@ -258,13 +258,13 @@ IoT 中心尚未迁移到 [Azure Monitor 中的指标](../azure-monitor/platform
 
 6. 在图表下填充以下字段：
 
-   **条件**：设置为“大于”。 
+   **条件** ：设置为“大于”。 
 
-   **阈值**：设置为 1000。
+   **阈值** ：设置为 1000。
 
-   **时间段**：将此字段设置为“过去 5 分钟”。  
+   **时间段** ：将此字段设置为“过去 5 分钟”。  
 
-   **通知电子邮件收件人**：将电子邮件地址置于此处。 
+   **通知电子邮件收件人** ：将电子邮件地址置于此处。 
 
    单击“确定”  保存规则。 
 
@@ -322,7 +322,7 @@ await Task.Delay(10);
 
 ### <a name="see-the-diagnostic-logs"></a>查看诊断日志
 
-设置诊断日志，以便将其导出到 Blob 存储。 转到资源组，选择存储帐户 *contosostoragemon*。 选择“Blob”，然后打开容器 *insights-logs-connections*。 向下钻取到当前日期，然后选择最近的文件。 
+设置诊断日志，以便将其导出到 Blob 存储。 转到资源组，选择存储帐户 *contosostoragemon* 。 选择“Blob”，然后打开容器 *insights-logs-connections* 。 向下钻取到当前日期，然后选择最近的文件。 
 
    ![屏幕截图，显示如何向下钻取到存储容器来查看诊断日志。](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 

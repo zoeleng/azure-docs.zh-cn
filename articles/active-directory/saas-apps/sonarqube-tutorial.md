@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: jeedes
-ms.openlocfilehash: b3790c52598b2857f56cac54acad156b3ba0bf51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d872c50174ba2fe7dfa321ac568e51fdaa80affc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544996"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514735"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Sonarqube 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "88544996"
 * 让用户使用其 Azure AD 帐户自动登录到 Sonarqube。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -158,25 +158,24 @@ ms.locfileid: "88544996"
 
     i. 在“SAML 用户电子邮件属性”  文本框中，输入值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
-    j. 单击“ **保存**”。
+    j. 单击“ **保存** ”。
 
 ### <a name="create-sonarqube-test-user"></a>创建 Sonarqube 测试用户
 
-在本部分中，将在 Sonarqube 中创建名为 B.Simon 的用户。 请与  [Sonarqube 客户端支持团队](https://www.sonarsource.com/support/)合作，将用户添加到 Sonarqube 平台中。 使用单一登录前，必须先创建并激活用户。 
+在本部分中，将在 Sonarqube 中创建名为 B.Simon 的用户。 请与 [Sonarqube 客户端支持团队](https://www.sonarsource.com/support/)协作，将用户添加到 Sonarqube 平台。 使用单一登录前，必须先创建并激活用户。 
 
 ## <a name="test-sso"></a>测试 SSO 
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Sonarqube 磁贴时，应当会自动登录到为其设置了 SSO 的 Sonarqube。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Sonarqube 磁贴时，应当会自动登录到为其设置了 SSO 的 Sonarqube。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [在 Azure AD 中试用 Sonarqube](https://aad.portal.azure.com/)
-

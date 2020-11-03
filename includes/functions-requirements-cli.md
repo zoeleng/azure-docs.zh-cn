@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: e969520e226999bc2b104fb4f757619832eaa165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddceb2808874e531cfda81e5a9ce74be3a4fab4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944449"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517067"
 ---
 ## <a name="configure-your-local-environment"></a>配置本地环境
 
@@ -42,11 +42,7 @@ ms.locfileid: "88944449"
 + [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ [Java 开发人员工具包](https://aka.ms/azure-jdks)版本 8。 
-
-    > [!IMPORTANT]
-    > + Java 11 的函数支持目前处于预览状态，Maven 原型默认创建 Java 8 部署。 如果要改为在 Java 11 上运行函数应用，则必须使用 Java 11 值手动更新 pom.xml 文件。 若要了解详细信息，请参阅 [Java 版本](../articles/azure-functions/functions-reference-java.md#java-versions)。 
-    > + `JAVA_HOME` 环境变量必须设置为正确版本的 JDK 的安装位置，以完成本快速入门。
++ [Java 开发人员工具包](https://aka.ms/azure-jdks)版本 8 或 11。 
 
 + [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
 

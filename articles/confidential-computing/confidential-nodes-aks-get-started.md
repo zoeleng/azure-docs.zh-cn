@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122164"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341900"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>快速入门：使用 Azure CLI 通过机密计算节点部署 Azure Kubernetes 服务 (AKS) 群集（预览）
 
@@ -27,11 +27,11 @@ ms.locfileid: "92122164"
 ### <a name="deployment-pre-requisites"></a>部署先决条件
 
 1. 具备有效的 Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)帐户
-1. 在部署计算机上安装并配置 Azure CLI 版本 2.0.64 或更高版本（运行  `az --version` 以查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. 在部署计算机上安装并配置 Azure CLI 版本 2.0.64 或更高版本（运行 `az --version` 以查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 1. [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) 最低版本 0.4.62 
-1. 订阅中最少有 6 个 DCSv2 内核可供使用。 默认情况下，每个 Azure 订阅的机密计算 VM 内核配额为 8 个内核。 如果你计划预配需要 8 个以上内核的群集，请按照[这些](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)说明创建配额增加票证
+1. 订阅中最少有 6 个 DC<x>s-v2 内核可供使用。 默认情况下，每个 Azure 订阅的机密计算 VM 内核配额为 8 个内核。 如果你计划预配需要 8 个以上内核的群集，请按照[这些](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)说明创建配额增加票证
 
-### <a name="confidential-computing-node-features"></a>机密计算节点功能
+### <a name="confidential-computing-node-features-dcxs-v2"></a>机密计算节点功能 (DC<x>s-v2)
 
 1. 仅限支持 Linux 容器的 Linux 工作器节点
 1. Ubuntu 第 2 代 18.04 虚拟机
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-上述命令应会预配一个具有 DCSv2 节点池的新的 AKS 群集，并自动安装 2 个守护程序集（[SGX 设备插件](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX 引用帮助程序](confidential-nodes-aks-overview.md#sgx-quote)）
+上述命令应会预配一个具有 DC<x>s-v2 节点池的新的 AKS 群集，并自动安装 2 个守护程序集（[SGX 设备插件](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX 引用帮助程序](confidential-nodes-aks-overview.md#sgx-quote)）
 
 使用 az aks get-credentials 命令获取 AKS 群集的凭据：
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-使用 kubectl get pods & nodes 命令验证是否正确创建节点以及与 SGX 相关的守护程序集是否在 DCSv2 节点池上运行，如下所示：
+使用 kubectl get pods & nodes 命令验证是否正确创建节点以及与 SGX 相关的守护程序集是否在 DC<x>s-v2 节点池上运行，如下所示：
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,9 +130,12 @@ az aks update --enable-addons confcom --resource-group myResourceGroup --name my
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-接下来，将 DCSv2 节点池添加到群集中
-
-```azurecli-interactive
+选择将 DC<x>s-v2 节点池添加到群集中
+    
+> [!NOTE]
+> 若要使用机密计算功能，则现有 AKS 群集需要具有至少一个基于 DC<x>s-v2 VM SKU 的节点池。 有关机密计算的详细信息，请参阅此处 DCsv2 VM SKU 的[可用的 SKU 和支持的区域](virtual-machine-solutions.md)。
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

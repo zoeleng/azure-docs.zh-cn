@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 44f6ba313ab57933a1078e96533c88cc4b4b59b3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047805"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490843"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -61,7 +61,7 @@ ms.locfileid: "92047805"
     |------------------|-----------------------------------------------------------------|
     | **项目详细信息**  |                                                                 |
     | 订阅     | 选择 Azure 订阅                                  |
-    | 资源组   | 选择“myResourceGroupLB” |
+    | 资源组   | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |                                                                 |
     | 名称             | 输入“myVNet”                                    |
     | 区域           | 选择“西欧” |
@@ -85,7 +85,7 @@ ms.locfileid: "92047805"
 
 7. 选择“保存” 。
 
-8. 选择“安全”**** 选项卡。
+8. 选择“安全”选项卡。
 
 9. 在“BastionHost”下，选择“启用” 。 输入此信息：
 
@@ -109,7 +109,7 @@ ms.locfileid: "92047805"
     | 设置                 | Value                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
-    | 资源组         | 选择在上一步中创建的 myResourceGroupLB。|
+    | 资源组         | 选择在上一步中创建的 CreateIntLBQS-rg。|
     | 名称                   | 输入“myLoadBalancer”                                   |
     | 区域         | 选择“西欧”。                                        |
     | 类型          | 选择“内部”。                                        |
@@ -159,11 +159,11 @@ ms.locfileid: "92047805"
     
     | 设置 | Value |
     | ------- | ----- |
-    | 名称 | 输入 **myHealthProbe**。 |
+    | 名称 | 输入 **myHealthProbe** 。 |
     | 协议 | 选择“HTTP”。 |
-    | 端口 | 输入 **80**。|
-    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的**时间间隔**（以秒为单位）。 |
-    | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的**不正常阈值**或连续探测失败次数。|
+    | 端口 | 输入 **80** 。|
+    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔** （以秒为单位）。 |
+    | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
     | | |
 
 3. 将剩余的字段保留默认设置，然后选择“确定”。
@@ -187,15 +187,17 @@ ms.locfileid: "92047805"
     
     | 设置 | Value |
     | ------- | ----- |
-    | 名称 | 输入 **myHTTPRule**。 |
+    | 名称 | 输入 **myHTTPRule** 。 |
     | IP 版本 | 选择“IPv4” |
     | 前端 IP 地址 | 选择“LoadBalancerFrontEnd” |
     | 协议 | 选择“TCP”。 |
-    | 端口 | 输入 **80**。|
-    | 后端端口 | 输入 **80**。 |
+    | 端口 | 输入 **80** 。|
+    | 后端端口 | 输入 **80** 。 |
     | 后端池 | 选择“myBackendPool”。|
     | 运行状况探测 | 选择“myHealthProbe”。 |
-    | 创建隐式出站规则 | 请选择“否”。
+    | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |
+    | TCP 重置 | 选择“启用”。  |
+    | 出站源网络地址转换 (SNAT) | 选择“(建议)使用出站规则为后端池成员提供对 Internet 的访问权限”。 |
 
 4. 将剩余的字段保留默认设置，然后选择“确定”。
 
@@ -219,11 +221,11 @@ ms.locfileid: "92047805"
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
-    | 资源组 | 选择“myResourceGroupLB” |
+    | 资源组 | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入“myVM1” |
     | 区域 | 选择“西欧” |
@@ -241,7 +243,7 @@ ms.locfileid: "92047805"
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -256,7 +258,7 @@ ms.locfileid: "92047805"
     | 选择负载均衡器 | 选择“myLoadBalancer”  |
     | 选择后端池 | 选择“myBackendPool” |
    
-5. 选择“查看 + 创建”  。 
+5. 选择“查看 + 创建”。 
   
 6. 检查设置，然后选择“创建”。
 
@@ -294,7 +296,7 @@ ms.locfileid: "92047805"
     |------------------|-----------------------------------------------------------------|
     | **项目详细信息**  |                                                                 |
     | 订阅     | 选择 Azure 订阅                                  |
-    | 资源组   | 选择“myResourceGroupLB” |
+    | 资源组   | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |                                                                 |
     | 名称             | 输入“myVNet”                                    |
     | 区域           | 选择“西欧” |
@@ -318,7 +320,7 @@ ms.locfileid: "92047805"
 
 7. 选择“保存” 。
 
-8. 选择“安全”**** 选项卡。
+8. 选择“安全”选项卡。
 
 9. 在“BastionHost”下，选择“启用” 。 输入此信息：
 
@@ -339,10 +341,10 @@ ms.locfileid: "92047805"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | Value                                              |
+    | 设置                 | “值”                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
-    | 资源组         | 选择在上一步中创建的 myResourceGroupLB。|
+    | 资源组         | 选择在上一步中创建的 CreateIntLBQS-rg。|
     | 名称                   | 输入“myLoadBalancer”                                   |
     | 区域         | 选择“西欧”。                                        |
     | 类型          | 选择“内部”。                                        |
@@ -355,7 +357,7 @@ ms.locfileid: "92047805"
 
 4. 在“查看 + 创建”选项卡中，选择“创建”。   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="创建标准的内部负载均衡器。" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="创建基本的内部负载均衡器。" border="true":::
 
 ## <a name="create-load-balancer-resources"></a>创建负载均衡器资源
 
@@ -377,7 +379,7 @@ ms.locfileid: "92047805"
 
 3. 在“添加后端池”页上，输入或选择：
     
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入“myBackendPool”。 |
     | 虚拟网络 | 选择“myVNet”。 |
@@ -399,14 +401,14 @@ ms.locfileid: "92047805"
     
     | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHealthProbe**。 |
+    | 名称 | 输入 **myHealthProbe** 。 |
     | 协议 | 选择“HTTP”。 |
-    | 端口 | 输入 **80**。|
+    | 端口 | 输入 **80** 。|
     | 路径 | 输入“/” |
-    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的**时间间隔**（以秒为单位）。 |
-    | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的**不正常阈值**或连续探测失败次数。|
+    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔** （以秒为单位）。 |
+    | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
 
-3. 选择“确定”  。
+3. 选择“确定” 。
 
 ### <a name="create-a-load-balancer-rule"></a>创建负载均衡器规则
 
@@ -425,16 +427,17 @@ ms.locfileid: "92047805"
 
 3. 使用以下值配置负载均衡规则：
     
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHTTPRule**。 |
+    | 名称 | 输入 **myHTTPRule** 。 |
     | IP 版本 | 选择“IPv4” |
     | 前端 IP 地址 | 选择“LoadBalancerFrontEnd” |
     | 协议 | 选择“TCP”。 |
-    | 端口 | 输入 **80**。|
-    | 后端端口 | 输入 **80**。 |
+    | 端口 | 输入 **80** 。|
+    | 后端端口 | 输入 **80** 。 |
     | 后端池 | 选择“myBackendPool”。|
     | 运行状况探测 | 选择“myHealthProbe”。 |
+    | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |
  
 4. 将剩余的字段保留默认设置，然后选择“确定”。
 
@@ -458,11 +461,11 @@ ms.locfileid: "92047805"
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
-    | 资源组 | 选择“myResourceGroupLB” |
+    | 资源组 | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入“myVM1” |
     | 区域 | 选择“西欧” |
@@ -480,7 +483,7 @@ ms.locfileid: "92047805"
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | 选择 myVNet |
@@ -491,7 +494,7 @@ ms.locfileid: "92047805"
     | **负载均衡**  |
     | 是否将此虚拟机置于现有负载均衡解决方案之后？ | 请选择“否” |
 
-5. 选择“查看 + 创建”  。 
+5. 选择“查看 + 创建”。 
   
 6. 检查设置，然后选择“创建”。
 
@@ -530,11 +533,11 @@ ms.locfileid: "92047805"
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
-    | 资源组 | 选择“myResourceGroupLB” |
+    | 资源组 | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入“myTestVM” |
     | 区域 | 选择“西欧” |
@@ -551,7 +554,7 @@ ms.locfileid: "92047805"
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -560,13 +563,13 @@ ms.locfileid: "92047805"
     | NIC 网络安全组 | 选择“高级”|
     | 配置网络安全组 | 选择在上一步中创建的 MyNSG。|
        
-5. 选择“查看 + 创建”  。 
+5. 选择“查看 + 创建”。 
   
 6. 检查设置，然后选择“创建”。
 
 ## <a name="install-iis"></a>安装 IIS
 
-1. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中选择位于“myResourceGroupLB”资源组中的“myVM1”。
+1. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中选择位于“CreateIntLBQS-rg”资源组中的“myVM1”   。
 
 2. 在“概述”页上，选择“连接”，然后选择“Bastion”  。
 
@@ -604,7 +607,7 @@ ms.locfileid: "92047805"
 
 2. 在 myLoadBalancer 的“概览”中，记下或复制专用 IP 地址旁边的地址  。
 
-3. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中，选择“myResourceGroupLB”资源组中的“myTestVM”   。
+3. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中，选择“CreateIntLBQS-rg”资源组中的“myTestVM”   。
 
 4. 在“概述”页上，选择“连接”，然后选择“Bastion”  。
 
@@ -614,13 +617,13 @@ ms.locfileid: "92047805"
 
 8. 将上一步骤的 IP 地址输入到浏览器的地址栏。 IIS Web 服务器的默认页会显示在浏览器上。
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="创建标准的内部负载均衡器。" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="屏幕截图显示了按预期显示默认页的浏览器窗口。" border="true":::
    
 若要查看两个 VM 中的负载均衡器分配流量，可以自定义每个 VM 的 IIS Web 服务器的默认页面，然后从客户端计算机强制刷新 Web 浏览器。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-若不再需要资源组、负载均衡器以及所有相关资源，请将其删除。 为此，请选择包含资源的资源组“myResourceGroupSLB”，然后选择“删除”。
+若不再需要资源组、负载均衡器以及所有相关资源，请将其删除。 为此，请选择包含资源的资源组“CreateIntLBQS-rg”，然后选择“删除” 。
 
 ## <a name="next-steps"></a>后续步骤
 

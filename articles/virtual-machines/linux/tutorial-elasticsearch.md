@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80066545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475050"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>在 Azure VM 上安装 Elastic Stack
 
@@ -87,7 +87,7 @@ az vm create \
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-使用以下命令创建与虚拟机的 SSH 会话。 使用虚拟机的正确的公共 IP 地址进行替换。 在此示例中，IP 地址为 *40.68.254.142*。
+使用以下命令创建与虚拟机的 SSH 会话。 使用虚拟机的正确的公共 IP 地址进行替换。 在此示例中，IP 地址为 *40.68.254.142* 。
 
 ```bash
 ssh azureuser@40.68.254.142
@@ -228,7 +228,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 打开 Kibana 控制台并选择“创建”，根据之前发送给 Elasticsearch 的 syslog 数据生成默认索引  。 
 
-![浏览 Kibana 中的 Syslog 事件](media/elasticsearch-install/kibana-index.png)
+![显示 Kibana 控制台并突出显示“创建”按钮的屏幕截图。](media/elasticsearch-install/kibana-index.png)
 
 在 Kibana 控制台上选择“发现”，搜索、浏览和筛选 syslog 事件  。
 

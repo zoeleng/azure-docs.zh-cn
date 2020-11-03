@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208220"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516947"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>快速入门：Azure Sentinel 入门
 
@@ -80,10 +80,10 @@ ms.locfileid: "92208220"
 可以从头开始创建新工作簿，或者基于某个内置工作簿创建新工作簿。
 
 1. 若要从头开始创建新工作簿，请选择“工作簿”，然后选择“+新建工作簿”。 
-2. 选择要在其中创建该工作簿的订阅，并为其指定一个描述性的名称。 与其他任何元素一样，每个工作簿都是一个 Azure 资源，可为其分配角色 (RBAC) 以定义和限制哪些用户可以访问它。 
+2. 选择要在其中创建该工作簿的订阅，并为其指定一个描述性的名称。 与其他任何元素一样，每个工作簿都是一个 Azure 资源，你可为其分配角色 (Azure RBAC) 以定义和限制哪些用户可以访问它。 
 3. 若要使其显示在要将可视化效果固定到的工作簿中，必须将其共享。 依次单击“共享”、“管理用户”。  
  
-1. 像设置其他任何 Azure 资源一样，使用“检查访问权限”和“角色分配”。  有关详细信息，请参阅[使用 RBAC 共享 Azure 工作簿](../azure-portal/azure-portal-dashboard-share-access.md)。
+1. 像设置其他任何 Azure 资源一样，使用“检查访问权限”和“角色分配”。  有关详细信息，请参阅[使用 Azure RBAC 共享 Azure 工作簿](../azure-portal/azure-portal-dashboard-share-access.md)。
 
 
 ## <a name="new-workbook-examples"></a>新工作簿示例

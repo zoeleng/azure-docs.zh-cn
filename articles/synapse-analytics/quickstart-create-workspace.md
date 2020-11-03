@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9780a2adb60c690abda6880157252aaa0c562f18
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171774"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461101"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>快速入门：创建 Synapse 工作区
 本快速入门介绍了使用 Azure 门户创建 Azure Synapse 工作区的步骤。
@@ -23,13 +23,8 @@ ms.locfileid: "92171774"
 
 1. 打开 [Azure 门户](https://portal.azure.com)，然后在顶部搜索“Synapse”。
 1. 在“服务”下的搜索结果中，选择“Azure Synapse Analytics (工作区预览版)” 。
-1. 选择“添加”以使用这些设置来创建工作区：
-
-    |选项卡|设置 | 建议的值 | 说明 |
-    |---|---|---|---|
-    |基础|**工作区名称**|可以将它命名为任何内容。| 在本文档中，我们将使用 myworkspace。|
-    |基础|**区域**|匹配存储帐户的区域。|
-
+1. 选择“添加”以创建工作区。
+1. 在“基础”选项卡中，为工作区指定唯一的名称。 在本文档中，我们将使用 myworkspace
 1. 需要 ADLSGEN2 帐户才能创建工作区。 最简单的选择是创建一个新工作区。 如果要重复使用现有工作区，需要执行一些其他配置。 
 1. 选项 1 创建新的 ADLSGEN2 帐户 
     1. 在“选择 Data Lake Storage Gen 2”下，单击“新建”并将其命名为 contosolake  。

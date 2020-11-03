@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 10/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 26a448ded06b32fef80fee06568655067a727620
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d045014cd92df084e4dd409012fdb668d312de1a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320399"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442314"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure 认知搜索是什么？
 
@@ -28,7 +28,7 @@ Azure 认知搜索（[以前称为“Azure 搜索”](whats-new.md#new-service-n
 
 搜索服务的两个主要工作负荷是索引编制和查询。
 
-+ 索引编制将文本插入到搜索服务中，并使其可供搜索。 在内部，入站文本将处理成标记并存储在倒排索引中，方便快速扫描。在编制索引期间，你可以选择添加认知技能（Microsoft 提供的预定义技能或你创建的自定义技能）。 后续的分析和转换可能会导致生成以前不存在的新信息和结构，为许多搜索和知识挖掘方案提供高实用性。
++ 索引编制将文本插入到搜索服务中，并使其可供搜索。 在内部，将入站文本处理到令牌中，并将其存储在逆选索引中，以便快速扫描。 在编制索引期间，可选择添加认知技能：来自 Microsoft 的预定义技能，或者你创建的自定义技能。 后续的分析和转换可能会导致生成以前不存在的新信息和结构，为许多搜索和知识挖掘方案提供高实用性。
 
 + 使用可搜索的数据填充索引后，客户端应用会将查询请求发送到搜索服务，并处理响应。 所有查询执行都基于你在服务中创建、拥有和存储的搜索索引。 在客户端应用中，搜索体验是使用 Azure 认知搜索中的 API 定义的，可能包括相关性调整、自动完成、同义词匹配、模糊匹配、模式匹配、筛选和排序。
 
@@ -88,7 +88,8 @@ Azure 认知搜索非常适合以下应用方案：
 
 | 比较对象 | 主要区别 |
 |-------------|-----------------|
-|必应 | [必应 Web 搜索 API](../cognitive-services/bing-web-search/index.yml) 在 Bing.com 上搜索索引以匹配提交的搜索词。 索引从 HTML、XML 和公共网站上的其他 Web 内容生成。 [必应自定义搜索](/azure/cognitive-services/bing-custom-search/)构建于同一基础之上，针对 Web 内容类型提供相同的爬网技术，范围覆盖单个网站。<br/><br/>Azure 认知搜索可搜索定义的索引，填充拥有的数据和文档，常常来自多个不同的源。 Azure 认知搜索通过[索引器](search-indexer-overview.md)具有一些数据源的爬网功能，但可以将符合索引架构的任何 JSON 文档推送到单个统一的可搜索资源。 |
+| Microsoft Search | [Microsoft 搜索](https://docs.microsoft.com/microsoftsearch/overview-microsoft-search)适用于需要在 SharePoint 中查询内容的经过 Microsoft 365 身份验证的用户。 它作为现成可用的搜索体验提供，由管理员进行启用和配置，能够通过连接器接受来自 Microsoft 和其他来源的外部内容。 如果这与你的场景一致，则 Microsoft 365 的 Microsoft 搜索是一个值得探索的诱人选项。<br/><br/>相对地，Azure 认知搜索对你定义的索引执行查询，填充你拥有的数据和文档（常常来自多个不同的源）。 Azure 认知搜索具有通过[索引器](search-indexer-overview.md)爬取一些 Azure 数据源的功能，但你也可将符合你的索引架构的所有 JSON 文档推送到单个统一的可搜索资源。 你还可自定义索引管道，将机器学习和词法分析器纳入其中。 由于认知搜索被构建为更大型的解决方案中的一个插件组件，因此你可通过任意平台在几乎任意应用中集成搜索功能。|
+|必应 | [必应 Web 搜索 API](../cognitive-services/bing-web-search/index.yml) 在 Bing.com 上搜索索引以匹配提交的搜索词。 索引从 HTML、XML 和公共网站上的其他 Web 内容生成。 [必应自定义搜索](/azure/cognitive-services/bing-custom-search/)构建于同一基础之上，针对 Web 内容类型提供相同的爬网技术，范围覆盖单个网站。<br/><br/>在认知搜索中，可定义并填充索引。 可使用[索引器](search-indexer-overview.md)在 Azure 数据源上爬取数据，或者将所有与索引一致的 JSON 文档推送到搜索服务。 |
 |数据库搜索 | 许多数据库平台都包含内置的搜索体验。 SQL Server 具有[全文搜索](/sql/relational-databases/search/full-text-search)。 Cosmos DB 及类似技术具有可查询的索引。 在评估结合使用搜索和存储的产品时，确定要采用哪种方式可能颇具挑战性。 许多解决方案同时使用两种：使用 DBMS 进行存储，使用 Azure 认知搜索获取专业搜索功能。<br/><br/>与 DBMS 搜索相比，Azure 认知搜索存储来自不同来源的内容，并提供专用文本处理功能，例如 [56 种语言](/rest/api/searchservice/language-support)中的语言感知文本处理（词干化、词元化、词形式）。 它还支持拼写错误单词的自动更正、[同义词](/rest/api/searchservice/synonym-map-operations)、[建议](/rest/api/searchservice/suggestions)、[评分控制](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)，[Facet](./search-filters-facets.md) 和[自定义词汇切分](/rest/api/searchservice/custom-analyzers-in-azure-search)。 Azure 认知搜索中的[全文搜索引擎](search-lucene-query-architecture.md)基于 Apache Lucene，它是信息检索方面的行业标准。 虽然 Azure 认知搜索以倒排索引的形式持久存储数据，但它不能替代真正的数据存储，建议不要在该容量中使用它。 有关详细信息，请参阅此[论坛帖子](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)。 <br/><br/>资源利用是这个类别的另一个转折点。 索引和一些查询操作通常是计算密集型的。 将搜索从 DBMS 卸载到云中的专用解决方案可以节省用于事务处理的系统资源。 此外，通过将搜索外部化，可以根据查询量轻松调整规模。|
 |专用搜索解决方案 | 假设已决定使用全频谱功能进行专用搜索，则需要在本地解决方案或云服务之间进行最终的分类比较。 许多搜索技术提供对索引和查询管道的控制、对更丰富查询和筛选语法的访问、对设置级别和相关性的控制以及自导智能搜索功能。 <br/><br/>如果想要获得一个开销和维护工作量极少且规模可调的统包解决方案，则云服务是适当的选择。 <br/><br/>在云的范式中，许多提供程序提供相当的基线功能，以及全文搜索、地理搜索，并且能够处理搜索输入中一定程度的模糊性。 通常，它是一项[专用功能](search-features-list.md)，或者是 API、工具以及用于确定最匹配项的管理功能的易化和总体简化。 |
 

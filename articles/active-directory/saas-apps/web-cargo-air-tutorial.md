@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
-ms.openlocfilehash: fd85b3f1e2319c80817da3376911d57263d187b3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 94dc70d184de27b1c44f9817686630e04da830f9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450572"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521656"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-web-cargo-air"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Web Cargo Air 的集成
 
@@ -124,7 +124,7 @@ ms.locfileid: "91450572"
 
 ### <a name="create-web-cargo-air-test-user"></a>创建 Web Cargo Air 测试用户
 
-在本部分中，将在 Web Cargo Air 中创建一个名为“Britta Simon”的用户。 请与  [Web Cargo Air 支持团队](mailto:support@webcargonet.com)协作，在 Web Cargo Air 平台中添加用户。 使用单一登录前，必须先创建并激活用户。
+在本部分中，将在 Web Cargo Air 中创建一个名为“Britta Simon”的用户。 与 [Web Cargo Air 支持团队](mailto:support@webcargonet.com)协作，在 Web Cargo Air 平台中添加用户。 使用单一登录前，必须先创建并激活用户。
 
 ## <a name="test-sso"></a>测试 SSO 
 
@@ -134,10 +134,8 @@ ms.locfileid: "91450572"
 
 2. 直接转到 Web Cargo Air 登录 URL，并从那里启动登录流。
 
-3. 可以使用 Microsoft 访问面板。 如果在访问面板中单击 Web Cargo Air 磁贴，将会重定向到 Web Cargo Air 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+3. 可以使用 Microsoft 访问面板。 如果在访问面板中单击 Web Cargo Air 磁贴，将会重定向到 Web Cargo Air 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 Web Cargo Air 后，可以强制实施会话控制，以实时防止组织的敏感数据发生外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
-
-
+配置 Web Cargo Air 后，可以强制实施会话控制，以实时防止组织的敏感数据发生外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。

@@ -1,5 +1,5 @@
 ---
-title: 连接泛型 IoT 即插即用泛型模块 | Microsoft Docs
+title: 连接泛型 IoT 即插即用模块 | Microsoft Docs
 description: 在泛型模块中使用示例 C# IoT 即插即用设备代码。
 author: ericmitt
 ms.author: ericmitt
@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089156"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426927"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>教程：连接 IoT 即插即用模块 (C#)
 

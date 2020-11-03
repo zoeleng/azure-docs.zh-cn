@@ -327,32 +327,26 @@ ms.locfileid: "92677358"
 > [!NOTE]
 > 若要查看资源组中服务的标记，请单击 "编辑列" 并向资源组视图添加 "标记"。
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。":::
 
-3. 在数据工厂的 &quot;概述&quot; 页上，单击 " **创作和监视** "。 此时会在浏览器中打开一个新选项卡。 单击 **监视器**
+3. 在数据工厂的 "概述" 页上，单击 " **创作和监视** "。 此时会在浏览器中打开一个新选项卡。 单击 **监视器**
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
-
-3. 在数据工厂的 &quot;概述&quot; 页上，单击 ":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="突出显示 &quot;监视&quot; 菜单选项的屏幕截图。":::
 
 4. 你将看到一个管道运行列表，其中包含天气作业执行的一部分。 单击要为其收集日志的作业
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="突出显示 &quot;管道运行&quot; 菜单选项和所选作业的屏幕截图。":::
 
-3. 在数据工厂的 &quot;概述&quot; 页上，单击 " 页上，你将看到活动运行的列表。 记下要为其收集日志的活动的运行 Id
+5. 在 "管道概述" 页上，你将看到活动运行的列表。 记下要为其收集日志的活动的运行 Id
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
-
-3. 在数据工厂的 &quot;概述&quot; 页上，单击 ":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="屏幕截图，显示活动运行的列表。":::
 
 6. 返回到 Azure 门户中的 FarmBeats 资源组，并单击名为 **datahublogs** 的存储帐户
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="突出显示名称为 datahublogs 的存储帐户的屏幕截图。":::
 
-3. 在数据工厂的 &quot;概述&quot; 页上，单击 " **容器**  ->  **adfjobs** "。 在搜索框中，输入前面步骤5中记下的作业运行 ID。
+7. 单击 " **容器**  ->  **adfjobs** "。 在搜索框中，输入前面步骤5中记下的作业运行 ID。
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="突出显示 sku： Datahub 标记的屏幕截图。&quot;:::
-
-3. 在数据工厂的 &quot;概述&quot; 页上，单击 ":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="FarmBeats 项目":::
 
 8. 搜索结果将包含包含与作业相关的日志的文件夹。 下载日志并将其发送到， farmbeatssupport@microsoft.com 以便在调试问题时获得帮助。

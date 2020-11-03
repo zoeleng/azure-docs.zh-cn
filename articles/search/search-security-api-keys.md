@@ -51,7 +51,7 @@ API 密钥是随机生成的数字和字母所组成的字符串。 通过[基�
 2. 列出订阅的[搜索服务](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
 3. 选择该服务，在“概述”页上，单击“设置” >“密钥”以查看管理密钥和查询密钥。
 
-   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="门户页，检索设置，键部分" border="false":::
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="门户页，&quot;查看设置，密钥&quot; 部分" border="false":::
 
 ## <a name="create-query-keys"></a>创建查询密钥
 
@@ -65,7 +65,7 @@ API 密钥是随机生成的数字和字母所组成的字符串。 通过[基�
 4. 单击“管理查询密钥”。 
 5. 使用已为服务生成的查询密钥，或创建最多 50 个新的查询密钥。 默认查询密钥未命名，但可将其他查询密钥命名以便于管理。
 
-   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="门户页，检索设置，键部分" border="false":::
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="创建或使用查询密钥" border="false":::
 
 > [!Note]
 > 在[查询以 C# 编写的 Azure 认知搜索索引](./search-get-started-dotnet.md)中可以找到一个演示查询密钥用法的代码示例。

@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667429"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495985"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什么是 Azure 机器学习工作室？
 
@@ -98,7 +98,9 @@ Azure 机器学习工作室是 Azure 机器学习中的 Web 门户，其中包�
 ## <a name="next-steps"></a>后续步骤
 
 请访问[工作室](https://ml.azure.com)，或浏览以下教程中的不同创作选项：  
-  + [使用 Python 笔记本训练和部署模型](tutorial-1st-experiment-sdk-setup.md)
+
+- + [在自己的开发环境开始使用](tutorial-1st-experiment-sdk-setup-local.md)
+  + [在计算实例上使用 Jupyter 笔记本来训练和部署模型](tutorial-1st-experiment-sdk-setup.md)
   + [使用自动化机器学习训练和部署模型](tutorial-first-experiment-automated-ml.md)  
   + [使用设计器训练和部署模型](tutorial-designer-automobile-price-train-score.md)
 

@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367714"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675039"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>教程：使用 Azure AD 应用程序创建 Azure AD 用户
 
@@ -62,12 +62,12 @@ ms.locfileid: "92367714"
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
     ```
 
-    有关详细信息，请参阅 [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) 命令。
+    有关详细信息，请参阅 [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) 命令。
 
     > [!IMPORTANT]
     > 如果已为 Azure SQL 逻辑服务器设置了 Azure AD 标识，则必须向该标识授予[目录读取者](../../active-directory/roles/permissions-reference.md#directory-readers)权限。 我们将在下一部分中指导你完成此步骤。 请勿跳过此步骤，因为 Azure AD 身份验证将停止工作。
 
-    - 如果过去已将带有参数 `AssignIdentity` 的 [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) 命令用于创建新的 SQL Server，则之后需要将 [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) 命令作为单独的命令执行，以便在 Azure 结构中启用此属性。
+    - 如果过去已将带有参数 `AssignIdentity` 的 [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) 命令用于创建新的 SQL Server，则之后需要将 [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) 命令作为单独的命令执行，以便在 Azure 结构中启用此属性。
 
 1. 检查是否已成功分配服务器标识。 执行以下 PowerShell 命令：
 
@@ -163,9 +163,9 @@ if ($selDirReader -eq $null) {
 
     请确保添加应用程序权限以及委托的权限。
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="object-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="显示了 Azure Active Directory 的“应用注册”页的屏幕截图。突出显示了显示名称为“AppSP”的应用。":::
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="object-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
 2. 还需要创建用于登录的客户端密码。 请按照此处的指南[上传证书或创建用于登录的机密](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)。
 
@@ -173,10 +173,20 @@ if ($selDirReader -eq $null) {
     - **应用程序 ID**
     - 租户 ID - 这应与前面的相同
 
-在本教程中，我们将使用 AppSP 作为主服务主体，使用 myapp 作为将在 Azure SQL 中通过 AppSP 创建的第二个服务主体用户。 需要创建两个应用程序：AppSP 和 myapp。
+本教程将使用 AppSP 作为主服务主体，使用 myapp 作为将在 Azure SQL 中通过 AppSP 创建的第二个服务主体用户  。 需要创建两个应用程序：AppSP 和 myapp 。
 
 有关如何创建 Azure AD 应用程序的详细信息，请参阅文章[如何使用门户创建可访问资源的 Azure AD 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
+### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>设置或取消设置 Azure AD 管理员所需的权限
+
+为了使服务主体为 Azure SQL 设置或取消设置 Azure AD 管理员，需要额外的 API 权限。 需要将 [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) 应用程序 API 权限添加到 Azure AD 中的应用程序。
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Azure AD 中的 Directory.Reader.All 权限":::
+
+服务主体还需要适用于 SQL 数据库的 [SQL Server 参与者](../../role-based-access-control/built-in-roles.md#sql-server-contributor)角色，或适用于 SQL 托管实例的 [SQL 托管实例参与者](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor)角色 。
+
+> [!NOTE]
+> 尽管 Azure AD Graph API 将被弃用，但 Directory.Reader.All 权限仍适用于本教程。 Microsoft Graph API 不适用于本教程。
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>在 Azure SQL 数据库中创建服务主体用户
 
@@ -196,7 +206,7 @@ if ($selDirReader -eq $null) {
     GO
     ```
 
-    有关详细信息，请参阅 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+    有关详细信息，请参阅 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
     或者，可以授予 `ALTER ANY USER` 权限，而不是授予 `db_owner` 角色。 这将允许服务主体添加其他 Azure AD 用户。
 
@@ -301,5 +311,5 @@ if ($selDirReader -eq $null) {
 - [如何使用应用服务和 Azure Functions 的托管标识](../../app-service/overview-managed-identity.md)
 - [对 SQL DB 进行Azure AD 服务主体身份验证 - 代码示例](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467)
 - [Azure Active Directory 中的应用程序对象和服务主体对象](../../active-directory/develop/app-objects-and-service-principals.md)
-- [使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [使用 Azure PowerShell 创建 Azure 服务主体](/powershell/azure/create-azure-service-principal-azureps)
 - [Azure SQL 的 Azure Active Directory 中的目录读取者角色](authentication-aad-directory-readers-role.md)

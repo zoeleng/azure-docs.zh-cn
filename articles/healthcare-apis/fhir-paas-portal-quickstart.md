@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
-ms.openlocfilehash: f3b3430ef7669022e532166848cb16d6aa66efe8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220782"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339282"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure API for FHIR
 
@@ -37,13 +37,13 @@ ms.locfileid: "92220782"
 
 选择“创建”，创建一个新的 Azure API for FHIR 帐户：
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="搜索医疗保健 API":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="创建 Azure API for FHIR 帐户":::
 
 ## <a name="enter-account-details"></a>输入帐户详细信息
 
 选择一个现有资源组或创建一个新资源组，选择帐户名称，最后单击“查看 + 创建”：
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="搜索医疗保健 API":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="新的医疗保健 api 详细信息":::
 
 确认创建并等待 FHIR API 部署。
 
@@ -51,7 +51,7 @@ ms.locfileid: "92220782"
 
 也可以单击“下一步: 其他设置”，查看身份验证设置。 Azure API for FHIR 的默认配置是[使用 Azure RBAC 来分配数据平面角色](configure-azure-rbac.md)。 在此模式下配置时，FHIR 服务的“颁发机构”将设置为订阅的 Azure Active Directory 租户：
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="搜索医疗保健 API":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="默认身份验证设置":::
 
 注意，用于输入允许的对象 ID 的框将灰显，因为在本例中，我们使用 Azure RBAC 来配置角色分配。
 
@@ -67,7 +67,10 @@ ms.locfileid: "92220782"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门指南中，你已将 Azure API for FHIR 部署到订阅中。 若要在 Azure API for FHIR 中设置其他设置，请转到其他设置操作指南。
+在本快速入门指南中，你已将 Azure API for FHIR 部署到订阅中。 若要在 Azure API for FHIR 中设置其他设置，请转到其他设置操作指南。 如果你已经准备好开始使用 Azure API for FHIR，请阅读有关如何注册应用程序的详细信息。
 
 >[!div class="nextstepaction"]
 >[Azure API for FHIR 中的其他设置](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[注册应用程序概览](fhir-app-registration.md)

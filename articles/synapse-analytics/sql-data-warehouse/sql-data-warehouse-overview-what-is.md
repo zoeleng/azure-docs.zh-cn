@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27311270c1383a54192d072d0e152c7cf1a58225
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85200947"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480389"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>什么是 Azure Synapse Analytics（以前称为 SQL DW）？
 
-> [!NOTE] 
+> [!NOTE]
 >浏览 [Azure Synapse（工作区预览版）文档](../overview-what-is.md)。
 >
 
@@ -40,7 +40,7 @@ Synapse SQL 池是指 Azure Synapse 中正式发布的企业数据仓库功能�
 
 SQL 池表示使用 Synapse SQL 时预配的分析资源集合。 SQL 池的大小由数据仓库单位 (DWU) 决定。
 
-使用简单的 [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 查询导入大数据，然后利用 MPP 的功能运行高性能分析。 进行集成和分析时，Synapse SQL 池将成为企业赖以获取更快且更可靠的见解的唯一信息源。  
+使用简单的 [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 查询导入大数据，然后利用分布式查询引擎的功能运行高性能分析。 对数据进行集成和分析时，Synapse SQL 将成为企业赖以获取更快、更可靠见解的唯一信息源。 
 
 ## <a name="key-component-of-a-big-data-solution"></a>大数据解决方案的关键组件
 

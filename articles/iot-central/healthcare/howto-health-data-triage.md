@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127074"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542414"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>教程：构建 Power BI 提供程序仪表板
 
@@ -62,9 +62,9 @@ ms.locfileid: "92127074"
     >[!div class="mx-imgBorder"] 
     >![创建流数据集](media/create-streaming-dataset.png)
 
-3. 选择数据集的源对应的 **API**。
+3. 选择数据集的源对应的 **API** 。
 
-4. 输入数据集的**名称**（例如患者姓名），并填写流中的值。 根据来自模拟设备的值，患者持续监视应用程序模板中会显示以下示例信息。 该示例涉及到两个患者：
+4. 输入数据集的 **名称** （例如患者姓名），并填写流中的值。 根据来自模拟设备的值，患者持续监视应用程序模板中会显示以下示例信息。 该示例涉及到两个患者：
 
     * Teddy Silvers，其数据来自 Smart Knee Brace
     * Yesenia Sanford，其数据来自 Smart Vitals Patch
@@ -183,12 +183,12 @@ ms.locfileid: "92127074"
 13. 对于 **Smart Knee Brace** 切换案例，请添加一个“分析 JSON”操作来分析内容（类似于步骤 7）。 然后选择“将行添加到数据集”，以更新 Power BI 中的 Teddy Silvers 数据集。
 
     >[!div class="mx-imgBorder"] 
-    >![Smart Vitals - 添加条件](media/knee-brace-pbi.png)
+    >![显示如何将行添加到数据集的屏幕截图。](media/knee-brace-pbi.png)
 
 14. 按“保存”，然后运行逻辑应用。
 
 ## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>构建患者生命体征数据的实时仪表板
-现在，请返回到 Power BI 并选择“+ 创建”，以创建新的**仪表板**。 为仪表板命名并点击“创建”。
+现在，请返回到 Power BI 并选择“+ 创建”，以创建新的 **仪表板** 。 为仪表板命名并点击“创建”。
 
 选择顶部导航栏中的省略号图标，然后选择“+ 添加磁贴”。
 

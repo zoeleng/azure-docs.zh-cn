@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/22/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbccbcf1ac85b63c5610b9904a84e5e6e3fb6c63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce41f979a46ae2bda568b5db79f0e0304705dd8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922187"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670216"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>教程：创建 Azure Active Directory B2C 租户
 
@@ -50,19 +50,25 @@ ms.locfileid: "87922187"
 1. 选择“创建新的 Azure AD B2C 租户”。
 
     ![创建在 Azure 门户中选择的新 Azure AD B2C 租户](media/tutorial-create-tenant/portal-02-create-tenant.png)
+    
+1. 输入 **组织名称** 和 **初始域名** 。 选择 **国家或地区** （以后不能更改），然后选择“创建”。
 
-1. 在“创建目录”页面上，输入以下内容：
+    域名将用作完整租户域名的一部分。 在此示例中，租户名是 contosob2c.onmicrosoft.com：
 
-   - **组织名称** - 输入 Azure AD B2C 租户的名称。
-   - **初始域名** - 输入 Azure AD B2C 租户的域名。
-   - **国家或地区**：从列表中选择你的国家或地区。 此选择以后无法更改。
-   - **订阅** - 从列表中选择你的订阅。
-   - **资源组** - 选择将包含租户的资源组。 或者选择“新建”，为资源组输入“名称”，选择“资源组位置”，然后选择“确定”   。
+1. 租户创建过程完成后，请在租户创建页面的顶部选择“创建新的 B2C 租户或链接到现有租户”链接。
 
-    ![在 Azure 门户中创建包含示例值的租户窗体](media/tutorial-create-tenant/review-and-create-tenant.png)
+    ![Azure 门户中突出显示的“链接租户”痕迹导航链接](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
 
-1. 选择“查看 + 创建”。
-1. 查看目录设置。 然后选择“创建”。
+1. 选择“将现有 Azure AD B2C 租户链接到我的 Azure 订阅”。 需要以所有者角色的身份登录才能执行此步骤。
+
+   ![Azure 门户中“链接现有订阅”的选项](media/tutorial-create-tenant/portal-05-link-subscription.png)
+
+1. 选择创建的 **Azure AD B2C 租户** ，然后选择你的 **订阅** 。
+
+    对于“资源组”，选择“新建”。 输入要包含该租户的资源组的 **名称** ，选择 **资源组位置** ，然后选择“创建”。
+
+    ![Azure 门户中的“链接订阅”设置窗体](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+    
 
 可以将多个 Azure AD B2C 租户链接到单个 Azure 订阅以进行计费。 若要链接租户，你必须是 Azure AD B2C 租户中的管理员，并且在 Azure 订阅中分配有至少一个参与者角色。 请参阅[将 Azure AD B2C 租户链接到订阅](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription)。
 

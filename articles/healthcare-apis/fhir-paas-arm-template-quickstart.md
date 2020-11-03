@@ -1,6 +1,6 @@
 ---
 title: 快速入门：使用 ARM 模板部署 Azure API for FHIR
-description: 本快速入门介绍如何使用 Azure 资源管理器模板部署适用于快速医疗保健互操作性资源 (FHIR®) 的 Azure API。
+description: 本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）部署适用于快速医疗保健互操作性资源 (FHIR®) 的 Azure API。
 author: mgblythe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: e9b2ec017ca985c1de739ee74c4d0732f39bdc1d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772730"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521435"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>快速入门：使用 ARM 模板部署 Azure API for FHIR
 
@@ -21,7 +21,7 @@ ms.locfileid: "91772730"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮****。 登录后，该模板将在 Azure 门户中打开。
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 登录后，该模板将在 Azure 门户中打开。
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="使用 Azure 门户中的 ARM 模板将 Azure API for FHIR 服务部署到 Azure。":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
@@ -81,7 +81,7 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 4. 输入新的服务名称，然后选择 Azure API for FHIR 所在的位置。 该位置可以与资源组所在的区域相同，也可以与资源组所在的区域不同。
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="使用 Azure 门户中的 ARM 模板将 Azure API for FHIR 服务部署到 Azure。":::
+    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="使用 Azure 门户中的 ARM 模板部署 Azure API for FHIR。":::
 
 5. 选择“查看 + 创建”  。
 
@@ -224,9 +224,14 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
+有关引导你完成 ARM 模板创建过程的分步教程，请参阅[创建和部署第一个 ARM 模板](../azure-resource-manager/templates/template-tutorial-create-first-template.md)教程
+
 ## <a name="next-steps"></a>后续步骤
 
-有关引导你完成 ARM 模板创建过程的分步教程，请参阅：
+在本快速入门指南中，你已将 Azure API for FHIR 部署到订阅中。 若要在 Azure API for FHIR 中设置其他设置，请转到其他设置操作指南。 如果你已经准备好开始使用 Azure API for FHIR，请阅读有关如何注册应用程序的详细信息。
 
-> [!div class="nextstepaction"]
-> [教程：创建和部署你的第一个 ARM 模板](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+>[!div class="nextstepaction"]
+>[Azure API for FHIR 中的其他设置](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[注册应用程序概览](fhir-app-registration.md)

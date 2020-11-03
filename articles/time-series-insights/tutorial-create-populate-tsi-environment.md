@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620199"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518103"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>教程：创建 Azure 时序见解 Gen1 环境
 
@@ -36,7 +36,7 @@ ms.locfileid: "91620199"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 所用的 Azure 登录帐户还必须是订阅的“所有者”角色的成员。 有关详细信息，请阅读[使用基于角色的访问控制和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。
+* 所用的 Azure 登录帐户还必须是订阅的“所有者”角色的成员。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="review-video"></a>查看视频
 

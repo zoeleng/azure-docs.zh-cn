@@ -35,7 +35,7 @@ Azure 资源运行状况是 Azure 服务运行状况服务的一部分，用于�
 
 1. 在左侧窗格中的 " **支持 + 故障排除** " 下，选择 " **资源运行状况** "。
 
-    :::image type="content" source="./media/iot-hub-azure-service-health-integration/iot-hub-resource-health.png" alt-text="IoT 中心的 &quot;资源运行状况&quot; 页&quot;:::
+    :::image type="content" source="./media/iot-hub-azure-service-health-integration/iot-hub-resource-health.png" alt-text="IoT 中心的 &quot;资源运行状况&quot; 页":::
 
 若要详细了解 Azure 资源运行状况以及如何解释运行状况数据，请参阅 Azure 服务运行状况文档中的 [资源运行状况概述](../service-health/resource-health-overview.md) 。
 

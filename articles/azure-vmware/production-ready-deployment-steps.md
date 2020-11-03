@@ -3,12 +3,12 @@ title: 规划 Azure VMware 解决方案部署
 description: 本文概述了 Azure VMware 解决方案部署工作流。  最终结果是一个就绪的可用于创建和迁移虚拟机 (VM) 的环境。
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147980"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517355"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>规划 Azure VMware 解决方案部署
 
@@ -73,13 +73,13 @@ Azure VMware 解决方案通过内部 ExpressRoute 线路连接到 Microsoft Azu
 
 标识一个 IP 段，以便在私有云中创建你的第一个网络（NSX 段）。  换句话说，你需要在 Azure VMware 解决方案上创建一个网段，以便可以将 VM 部署到 Azure VMware 解决方案。   
 
-即使你只计划扩展 L2 网络，也可以创建一个可用来验证环境的网段。
+即使仅计划扩展 L2 网络，也要创建一个可以验证环境的网段。
 
 请记住，创建的所有 IP 段在 Azure 和本地占用空间中必须是独一无二的。  
 
 **示例：** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="标识 - IP 地址段" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="标识 - 虚拟机工作负荷的 IP 地址段" border="false":::     
 
 ## <a name="optional-extend-networks"></a>（可选）扩展网络
 
@@ -92,11 +92,11 @@ Azure VMware 解决方案通过内部 ExpressRoute 线路连接到 Microsoft Azu
 
 ## <a name="expressroute-global-reach-peering-network"></a>ExpressRoute Global Reach 对等互连网络
 
-标识 ExpressRoute Global Reach 对等互连所需的一个 `/29` CIDR 网络地址块。 请记住，创建的所有 IP 段在 Azure VMware 解决方案和本地占用空间中必须是独一无二的。 此段中的 IP 用于 ExpressRoute Global Reach 连接的每一端，可将 Azure VMware 解决方案 ExpressRoute 线路与本地 ExpressRoute 线路相连。 
+标识 ExpressRoute Global Reach 对等互连所需的 `/29` CIDR 网络地址块。 请记住，创建的所有 IP 段在 Azure VMware 解决方案和本地占用空间中必须是独一无二的。 此段中的 IP 用于 ExpressRoute Global Reach 连接的每一端，可将 Azure VMware 解决方案 ExpressRoute 线路与本地 ExpressRoute 线路相连。 
 
 **示例：** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="标识 - IP 地址段" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="标识 - ExpressRoute Global Reach 对等互连网络" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>用于附加 Azure VMware 解决方案的 Azure 虚拟网络
 
@@ -119,7 +119,7 @@ Azure VMware 解决方案中的 ExpressRoute 线路连接到在此步骤中定�
 >[!NOTE]
 >你的本地环境和 Azure VMware 解决方案可以看到此虚拟网络，因此请确保在此虚拟网络和子网中使用的任何 IP 段都不重叠。
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="标识 - IP 地址段" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="标识 - 用于附加 Azure VMware 解决方案的 Azure 虚拟网络" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>VMware HCX 网段
 
@@ -128,7 +128,7 @@ VMware HCX 是与 Azure VMware 解决方案捆绑在一起的一项技术。 VMw
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
 ## <a name="next-steps"></a>后续步骤
-现在，你已收集并记录了所需的信息，请继续执行下一部分以创建 Azure VMware 解决方案私有云。
+收集并记录所需的信息后，请继续执行下一部分以创建 Azure VMware 解决方案私有云。
 
 > [!div class="nextstepaction"]
 > [部署 Azure VMware 解决方案](deploy-azure-vmware-solution.md)

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124579"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677420"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>群组聊天英雄示例入门
 
@@ -25,12 +25,14 @@ ms.locfileid: "92124579"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [GitHub 上提供了此示例。](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 Azure 通信服务的群组聊天英雄示例演示了如何使用通信服务聊天 Web 客户端库来构建群组呼叫体验。
 
 在本地计算机上运行该示例之前，我们将通过本示例快速入门了解其工作原理。 然后，使用你自己的 Azure 通信服务资源将此示例部署到 Azure。
 
-> [!IMPORTANT]
-> [从 GitHub 下载示例](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>概述
 
@@ -42,17 +44,17 @@ Azure 通信服务的群组聊天英雄示例演示了如何使用通信服务�
 
 当你按下“开始聊天”按钮时，Web 应用程序从服务器端应用程序获取用户访问令牌。 然后使用该令牌将客户端应用连接到 Azure 通信服务。 检索到令牌后，系统会提示你指定在聊天中代表你的名称和表情符号。 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="屏幕截图显示示例应用程序登录页。":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="屏幕截图显示应用程序的聊天前屏幕。":::
 
 配置显示名称和表情符号后，便可以加入聊天会话。 现在，你将看到核心聊天体验所在的主要聊天画布。
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="屏幕截图显示示例应用程序登录页。":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="屏幕截图显示示例应用程序主屏幕。":::
 
 主要聊天屏幕的组件：
 
-- **主要聊天区域**：这是用户可以发送和接收消息的核心聊天体验。 若要发送消息，可以使用输入区域，然后按 Enter（或使用发送按钮）。 发送方使用正确的名称和表情符号对收到的聊天消息进行分类。 聊天区域中会出现两种类型的通知：1) 用户键入信息时的键入通知 2) 消息的发送和读取通知。
-- **标头**：在这里，用户将看到聊天会话的标题、用于切换参与者和设置侧边栏的控件以及用于退出聊天会话的离开按钮。
-- **侧边栏**：使用标题中的控件进行切换时，将在此处显示参与者和设置信息。 参与者侧边栏包含聊天的参与者列表以及用于邀请参与者加入聊天会话的链接。 设置侧边栏用于配置聊天会话标题。 
+- **主要聊天区域** ：这是用户可以发送和接收消息的核心聊天体验。 若要发送消息，可以使用输入区域，然后按 Enter（或使用发送按钮）。 发送方使用正确的名称和表情符号对收到的聊天消息进行分类。 聊天区域中会出现两种类型的通知：1) 用户键入信息时的键入通知 2) 消息的发送和读取通知。
+- **标头** ：在这里，用户将看到聊天会话的标题、用于切换参与者和设置侧边栏的控件以及用于退出聊天会话的离开按钮。
+- **侧边栏** ：使用标题中的控件进行切换时，将在此处显示参与者和设置信息。 参与者侧边栏包含聊天的参与者列表以及用于邀请参与者加入聊天会话的链接。 设置侧边栏用于配置聊天会话标题。 
 
 下面你将找到有关设置该示例的先决条件和步骤的详细信息。
 
@@ -75,7 +77,7 @@ Azure 通信服务的群组聊天英雄示例演示了如何使用通信服务�
 ## <a name="before-running-the-sample-for-the-first-time"></a>第一次运行示例之前
 
 1. 打开 PowerShell、Windows 终端、命令提示符或等效项的实例，然后导航到要将示例克隆到的目录。
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. 从 Azure 门户获取 `Connection String`。 有关连接字符串的详细信息，请参阅[创建 Azure 通信资源](../quickstarts/create-communication-resource.md)
 4. 获取 `Connection String` 后，将连接字符串添加到“聊天”文件夹下的 Chat/appsettings.json 文件中。 在变量 `ResourceConnectionString` 中输入连接字符串。
 

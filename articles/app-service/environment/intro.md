@@ -7,15 +7,14 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 4e9ea34317951ecd9d3b6649ce42ffcf2f476d03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149221"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631132"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>应用服务环境简介 #
- 
 ## <a name="overview"></a>概述 ##
 
 Azure 应用服务环境是一项 Azure 应用服务功能，可提供完全隔离和专用的环境，以便高度安全地运行应用服务应用。 此功能可以托管：
@@ -32,7 +31,7 @@ Azure 应用服务环境是一项 Azure 应用服务功能，可提供完全隔�
 * 隔离和安全网络访问。
 * 高内存利用率。
 
-客户可以在单个 Azure 区域或多个 Azure 区域创建多个 ASE。 这种灵活性使得 ASE 非常适合用于水平缩放无状态应用程序层，以支持高 RPS 工作负荷。
+客户可以在单个 Azure 区域或多个 Azure 区域创建多个 ASE。 这种灵活性使得 ASE 非常适合用于水平缩放无状态应用程序层，以支持每秒请求数 (RPS) 较高的工作负载。
 
 ASE 仅托管一个客户的应用程序，并在其一个 VNet 中进行托管。 客户可以对入站和出站应用程序网络流量进行精细控制。 应用程序可以通过 VPN 建立到本地公司资源的高速安全连接。
 

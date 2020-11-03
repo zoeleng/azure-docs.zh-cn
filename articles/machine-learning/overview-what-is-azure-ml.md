@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e214607b82a44fb1b6859a3c73d58907fbb279d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad025d2278d6c9ab360ddbdc250e8db4b4eec665
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710730"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495750"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -111,15 +111,15 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 Azure 机器学习可与 Azure 平台上的其他服务配合使用，还能与诸如 Git 和 MLFlow 之类的开源工具集成。
 
-+ 如 __Azure Kubernetes 服务__、__Azure 容器实例__、__Azure Databricks__、__Azure Data Lake Analytics__和 __Azure HDInsight__ 这样的计算目标。 有关计算目标的详细信息，请参阅[什么是计算目标？](concept-compute-target.md)。
-+ __Azure 事件网格__。 有关详细信息，请参阅[使用 Azure 机器学习事件](concept-event-grid-integration.md)。
-+ __Azure Monitor__。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
-+ 如 __Azure 存储帐户__、__Azure Data Lake Storage__、__Azure SQL 数据库__、__Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
-+ __Azure 虚拟网络__。 有关详细信息，请参阅[虚拟网络隔离和隐私概述](how-to-network-security-overview.md)。
-+ __Azure Pipelines__。 有关详细信息，请参阅[定型和部署机器学习模型](/azure/devops/pipelines/targets/azure-machine-learning)。
-+ __Git 存储库日志__。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
-+ __MLFlow__。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
-+ __Kubeflow__。 有关详细信息，请参阅[构建端到端工作流管道](https://www.kubeflow.org/docs/azure/)。
++ 如 __Azure Kubernetes 服务__ 、 __Azure 容器实例__ 、 __Azure Databricks__ 、 __Azure Data Lake Analytics__ 和 __Azure HDInsight__ 这样的计算目标。 有关计算目标的详细信息，请参阅[什么是计算目标？](concept-compute-target.md)。
++ __Azure 事件网格__ 。 有关详细信息，请参阅[使用 Azure 机器学习事件](concept-event-grid-integration.md)。
++ __Azure Monitor__ 。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
++ 如 __Azure 存储帐户__ 、 __Azure Data Lake Storage__ 、 __Azure SQL 数据库__ 、 __Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
++ __Azure 虚拟网络__ 。 有关详细信息，请参阅[虚拟网络隔离和隐私概述](how-to-network-security-overview.md)。
++ __Azure Pipelines__ 。 有关详细信息，请参阅[定型和部署机器学习模型](/azure/devops/pipelines/targets/azure-machine-learning)。
++ __Git 存储库日志__ 。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
++ __MLFlow__ 。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
++ __Kubeflow__ 。 有关详细信息，请参阅[构建端到端工作流管道](https://www.kubeflow.org/docs/azure/)。
 
 ### <a name="secure-communications"></a>安全通信
 
@@ -128,7 +128,8 @@ Azure 存储帐户、计算目标和其他资源可在虚拟网络内安全地�
 ## <a name="next-steps"></a>后续步骤
 
 - 通过首选方法创建首个试验：
-  + [使用 Python 笔记本训练和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
+- + [在自己的开发环境开始使用](tutorial-1st-experiment-sdk-setup-local.md)
+  + [在计算实例上使用 Jupyter 笔记本来训练和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
   + [使用 R Markdown 训练和部署 ML 模型](tutorial-1st-r-experiment.md) 
   + [使用自动化机器学习训练和部署 ML 模型](tutorial-first-experiment-automated-ml.md) 
   + [使用设计器的拖放功能进行训练和部署](tutorial-designer-automobile-price-train-score.md) 

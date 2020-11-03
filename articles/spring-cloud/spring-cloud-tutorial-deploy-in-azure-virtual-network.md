@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e0fc50647e926ea919f70b888f3efc303713fe1e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088663"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631183"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>教程：在 Azure 虚拟网络中部署 Azure Spring Cloud（VNet 注入）
 
@@ -37,12 +37,12 @@ az provider register --namespace Microsoft.AppPlatform
 
 * 位置：该虚拟网络必须与 Azure Spring Cloud 服务实例位于同一位置。
 * 订阅：该虚拟网络必须与 Azure Spring Cloud 服务实例位于同一订阅中。
-* **子网**：该虚拟网络必须包含两个专用于 Azure Spring Cloud 服务实例的子网： 
+* **子网** ：该虚拟网络必须包含两个专用于 Azure Spring Cloud 服务实例的子网： 
     * 一个用于服务运行时
     * 一个用于 Spring Boot 微服务应用程序。 
     * 这些子网和 Azure Spring Cloud 服务实例之间存在一对一关系。 需要为部署的每个服务实例使用一个新的子网，并且每个子网只能包含一个服务实例。
-* **地址空间**：一个 CIDR 块最多为 /28（用于服务运行时子网），而另一个 CIDR 块最多为 /24（用于 Spring Boot 微服务应用程序子网）。
-* **路由表**：子网不得有关联的现有路由表。
+* **地址空间** ：一个 CIDR 块最多为 /28（用于服务运行时子网），而另一个 CIDR 块最多为 /24（用于 Spring Boot 微服务应用程序子网）。
+* **路由表** ：子网不得有关联的现有路由表。
 
 以下过程描述了虚拟网络的设置，以包含 Azure Spring Cloud 的实例。
 
@@ -66,7 +66,7 @@ az provider register --namespace Microsoft.AppPlatform
 
 1. 选择“添加子网”，然后输入 service-runtime-subnet 作为“子网名称”，输入 10.1.0.0/24 作为“子网地址范围” 。 然后单击“添加”  。
 
-1. 再次选择“添加子网”，然后输入 apps-subnet 作为“子网名称”，输入 10.1.1.0/24 作为“子网地址范围” 。  单击“添加”。
+1. 再次选择“添加子网”，然后输入“子网名称”和“子网地址范围”，例如“apps-subnet”和“10.1.1.0/24”  。  单击“添加”。
 
 1. 单击“查看 + 创建”。 将剩余的字段保留为默认值，然后单击“创建”。
 
@@ -135,11 +135,11 @@ az role assignment create \
 
 部署后，订阅中将创建另外两个资源组来托管 Azure Spring Cloud 服务实例的网络资源。  导航到“主页”，然后从顶部菜单项中选择“资源组”，以查找以下新资源组 。
 
-名为 azure-spring-cloud-service-runtime_{service instance name}_{service instance region} 的资源组包含服务实例的服务运行时网络资源。
+名为 ap-svc-rt_{service instance name}_{service instance region} 的资源组包含服务实例的服务运行时网络资源。
 
   ![服务运行时](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-名为 azure-spring-cloud-service-runtime_{service instance name}_{service instance region} 的资源组包含服务实例的 Spring Boot 微服务应用程序网络资源。
+名为 ap-app_{service instance name}_{service instance region} 的资源组包含服务实例的 Spring Boot 微服务应用程序网络资源。
 
   ![应用资源组](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 

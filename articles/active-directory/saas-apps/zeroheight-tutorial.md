@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: bcfd9e1b132ef47c83d028acf5e2bcb3fc637ef5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 678f35ffd6d37d8d2dd16665902ebf85d91b633b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369359"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521554"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zeroheight"></a>教程：Azure Active Directory 单一登录 (SSO) 与 zeroheight 集成
 
@@ -129,7 +129,7 @@ ms.locfileid: "91369359"
 
 ### <a name="create-zeroheight-test-user"></a>创建 zeroheight 测试用户
 
-在本部分，我们将在 zeroheight 中创建一个名为“Britta Simon”的用户。 配合  [zeroheight 支持团队](mailto:support@zeroheight.com)在 zeroheight 平台中添加用户。 使用单一登录前，必须先创建并激活用户。
+在本部分，我们将在 zeroheight 中创建一个名为“Britta Simon”的用户。 请与 [zeroheight 支持团队](mailto:support@zeroheight.com)协作，将该用户添加 zeroheight 平台。 使用单一登录前，必须先创建并激活用户。
 
 ## <a name="test-sso"></a>测试 SSO 
 
@@ -139,9 +139,8 @@ ms.locfileid: "91369359"
 
 2. 直接转到 zeroheight 登录 URL，并在其中启动登录流。
 
-3. 可以使用 Microsoft 访问面板。 如果在访问面板中单击 zeroheight 磁贴，这会重定向到 zeroheight 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+3. 可以使用 Microsoft 访问面板。 如果在访问面板中单击 zeroheight 磁贴，这会重定向到 zeroheight 登录 URL。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 zeroheight 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
-
+配置 zeroheight 后，可以强制实施会话控制，实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。

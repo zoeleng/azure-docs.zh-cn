@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4251a51a8b967d5833fd509cd79c71ce81022e96
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: eccc10cc50bac2eb2dde0bf9f77ab1ba656d5eb8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450589"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458353"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-loop-flow-crm"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Loop Flow CRM 的集成
 
@@ -120,7 +120,7 @@ ms.locfileid: "91450589"
 
 ### <a name="create-loop-flow-crm-test-user"></a>创建 Loop Flow CRM 测试用户
 
-在本部分，我们在 Loop Flow CRM 中创建名为“Britta Simon”的用户。 与  [Loop Flow CRM 支持团队](mailto:support@loopworks.com)协作，将用户添加到 Loop Flow CRM 平台中。 使用单一登录前，必须先创建并激活用户。
+在本部分，我们在 Loop Flow CRM 中创建名为“Britta Simon”的用户。 请与 [Loop Flow CRM 支持团队](mailto:support@loopworks.com)协作，将用户添加到 Loop Flow CRM 平台。 使用单一登录前，必须先创建并激活用户。
 
 ## <a name="test-sso"></a>测试 SSO 
 
@@ -136,11 +136,9 @@ ms.locfileid: "91450589"
 
 * 在 Azure 门户中单击“测试此应用程序”后，你应自动登录到为其设置了 SSO 的 Loop Flow CRM 
 
-还可以使用 Microsoft 访问面板在任何模式下测试此应用程序。 在单击访问面板中的 Loop Flow CRM 磁贴时，如果是在 SP 模式下配置的，则会重定向到应用程序登录页面来启动登录流；如果是在 IDP 模式下配置的，则应会自动登录到为其设置了 SSO 的 Loop Flow CRM。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+还可以使用 Microsoft 访问面板在任何模式下测试此应用程序。 在单击访问面板中的 Loop Flow CRM 磁贴时，如果是在 SP 模式下配置的，则会重定向到应用程序登录页面来启动登录流；如果是在 IDP 模式下配置的，则应会自动登录到为其设置了 SSO 的 Loop Flow CRM。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-配置 Loop Flow CRM 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)。
-
-
+配置 Loop Flow CRM 后，可以强制实施会话控制，从而实时防止组织的敏感数据外泄和渗透。 会话控制从条件访问扩展而来。 [了解如何通过 Microsoft Cloud App Security 强制实施会话控制](/cloud-app-security/proxy-deployment-any-app)。

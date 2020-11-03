@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132357"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460676"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>在订阅者与 CSP 之间转移 Azure 订阅
 
 本文提供了用于在云解决方案提供商 (CSP) 合作伙伴与其客户之间转移 Azure 订阅的概要步骤。 此处的信息面向 Azure 订阅者，目的是帮助他们与其合作伙伴进行协调。 要了解 Microsoft 合作伙伴对转移过程的使用，可查看[了解如何将客户的 Azure 订阅转移到其他合作伙伴](/partner-center/switch-azure-subscriptions-to-a-different-partner)。
+
+在开始转移请求之前，应下载或导出所有要保留的成本和计费信息。 计费和使用情况信息不会随订阅一起转移。 若要详细了解如何导出成本管理数据，请参阅[创建和管理导出的数据](../costs/tutorial-export-acm-data.md)。 若要详细了解如何下载发票和使用情况数据，请参阅[下载或查看 Azure 帐单发票和每日使用数据](download-azure-invoice-daily-usage-date.md)。
+
+任何现有预留都会在转移订阅后停止应用。 在转移订阅之前，请务必[取消所有预留并完成退款](../reservations/exchange-and-refund-azure-reservations.md)。
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>将 EA 订阅转移到 CSP 合作伙伴
 

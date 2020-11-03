@@ -85,15 +85,15 @@ ms.locfileid: "92547650"
 
 1. 在“安装进度”中监视安装。 安装完成后，选择“转到配置”，将该服务注册到配置服务器。
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="“移动服务安装选项”页。":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="屏幕截图，显示安装进度和 &quot;活动时继续执行配置&quot; 按钮。":::
 
 1. 在“配置服务器详细信息”中，指定已配置的 IP 地址和通行短语。
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="“移动服务安装选项”页。":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="“移动服务注册”页。":::
 
 1. 选择“注册”完成注册。
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="“移动服务安装选项”页。":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="移动服务注册最后一页。":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>使用命令提示符安装移动服务
 

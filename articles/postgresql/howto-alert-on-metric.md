@@ -36,27 +36,29 @@ ms.locfileid: "92546613"
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="选择警报规则":::
 
-3. 选择“添加指标警报”（+ 图标）  。
+3. 选择“添加指标警报”（+ 图标）。
 
 4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="添加指标警报窗体":::
 
 5. 在“条件”部分中，选择“添加条件”   。
 
 6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 和 **频率** 。
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择指标":::
+
+7. 配置警报逻辑，包括“条件”（例如，  “大于”）、“阈值”（例如，  85%）、“时间聚合”、触发警报前必须满足指标规则的“时间段”。（例如，   "过去30分钟" ) 和 **频率** 。
    
    完成后选择“完成”  。
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="突出显示警报逻辑部分和 &quot;完成&quot; 按钮的屏幕截图。":::
 
 8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知   。
 
 9. 使用名称、短名称、订阅和资源组填写“添加操作组”表单。
 
-10. 配置“电子邮件/短信/推送/语音”操作类型  。
+10. 配置“电子邮件/短信/推送/语音”操作类型。
     
     选择“电子邮件 Azure 资源管理器角色”以选择订阅所有者、参与者和读取器来接收通知。
    
@@ -64,11 +66,11 @@ ms.locfileid: "92546613"
 
     完成后选择“确定”  。
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="选择警报规则":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="显示如何添加新操作组的屏幕截图。":::
 
 11. 指定预警规则名称、说明和严重性。
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="选择警报规则"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="操作组"::: 
 
 12. 选择“创建警报规则”可以创建警报  。
 

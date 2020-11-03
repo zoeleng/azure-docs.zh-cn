@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102568"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518919"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 认知搜索中的新增功能
 
@@ -21,12 +21,12 @@ ms.locfileid: "92102568"
 
 ## <a name="september-2020"></a>2020 年 9 月
 
-在 Azure Active Directory 中为搜索服务创建标识，然后使用 RBAC 权限向标识授予对 Azure 数据源的只读权限。 如果不能选择 IP 规则，可以选择[受信任的服务例外](search-indexer-howto-access-trusted-service-exception.md)功能。
+在 Azure Active Directory 中为搜索服务创建标识，然后使用 Azure RBAC 权限向标识授予对 Azure 数据源的只读权限。 如果不能选择 IP 规则，可以选择[受信任的服务例外](search-indexer-howto-access-trusted-service-exception.md)功能。
 
 
 |功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 类别 | 说明 | 可用性  |
 |------------------------------|----------|-------------|---------------|
-| [托管服务标识](search-howto-managed-identities-data-sources.md) | 索引器、安全性 | 在 Azure Active Directory 中为搜索服务创建标识，然后使用 RBAC 权限授予对 Azure 数据源的访问权限。 此方法无需连接字符串的凭据。 <br><br>如果不能选择 IP 规则，可以通过[受信任的服务例外](search-indexer-howto-access-trusted-service-exception.md)来使用托管服务标识。 | 正式发布。 使用门户或使用 api-version=2020-06-30 [创建数据源 (REST)](/rest/api/searchservice/create-data-source) 时，访问此功能。 |
+| [托管服务标识](search-howto-managed-identities-data-sources.md) | 索引器、安全性 | 在 Azure Active Directory 中为搜索服务创建标识，然后使用 Azure RBAC 权限授予对 Azure 数据源的访问权限。 此方法无需连接字符串的凭据。 <br><br>如果不能选择 IP 规则，可以通过[受信任的服务例外](search-indexer-howto-access-trusted-service-exception.md)来使用托管服务标识。 | 正式发布。 使用门户或使用 api-version=2020-06-30 [创建数据源 (REST)](/rest/api/searchservice/create-data-source) 时，访问此功能。 |
 | [使用专用链接的出站请求](search-indexer-howto-access-private.md) | 索引器、安全性 | 创建在访问由 Azure 专用链接保护的 Azure 资源时，索引器可以使用的共享专用链接资源。 若要详细了解确保索引器连接安全的所有方法，请参阅 [Azure 网络安全功能所保护内容的索引器访问权限](search-indexer-securing-resources.md)。 | 正式发布。 使用门户或使用 api-version=2020-08-01 的[共享专用链接资源](/rest/api/searchmanagement/sharedprivatelinkresources)时，访问此功能。 |
 | [管理 REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | 新的稳定 REST API 增加了对创建共享专用链接资源的支持。 | 正式发布。 |
 | [管理 REST API (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST | 添加了适用于 Azure Functions 和 Azure SQL for MySQL 数据库的共享专用链接资源。 | 公共预览版。 |

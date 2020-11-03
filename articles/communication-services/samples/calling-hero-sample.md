@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126320"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461135"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>群组呼叫英雄示例入门
 
@@ -25,12 +25,12 @@ ms.locfileid: "92126320"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [GitHub 上提供了此示例。](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
 Azure 通信服务的群组呼叫英雄示例演示了如何使用通信服务呼叫 Web 客户端库来构建群组呼叫体验。
 
-在本地计算机上运行该示例之前，我们将通过本示例快速入门了解其工作原理。 然后，使用你自己的 Azure 通信服务资源将该示例部署到 Azure。
-
-> [!IMPORTANT]
-> [从 GitHub 下载示例](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+在本地计算机上运行该示例之前，我们将通过本示例快速入门了解其工作原理。 然后，使用你自己的 Azure 通信服务资源将此示例部署到 Azure。
 
 ## <a name="overview"></a>概述
 
@@ -42,17 +42,17 @@ Azure 通信服务的群组呼叫英雄示例演示了如何使用通信服务�
 
 当你按下“开始呼叫”按钮时，Web 应用程序从服务器端应用程序获取用户访问令牌。 然后使用该令牌将客户端应用连接到 Azure 通信服务。 检索到令牌后，系统会提示你指定要使用的摄像头和麦克风。 你可以使用切换控件来禁用/启用设备：
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="显示示例应用程序登陆页面的屏幕截图。":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="显示示例应用程序呼叫前屏幕的屏幕截图。":::
 
 配置显示名称和设备后，即可加入呼叫会话。 现在，你将看到核心呼叫体验所在的主要呼叫画布。
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="显示示例应用程序登陆页面的屏幕截图。":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="显示示例应用程序主屏幕的屏幕截图。":::
 
 主要呼叫屏幕的各个组件：
 
-1. **媒体库**：显示参与者的主要阶段。 如果参与者启用了摄像头，则会在此处显示其视频源。 每个参与者都有一个单独的磁贴，上面显示了该参与者的显示名称和视频流（如果有）
-2. **标头**：这是主要呼叫控件所在的位置，这些控件可用来切换设置和参与者侧边栏、打开/关闭视频和混音、共享屏幕以及退出呼叫。
-3. **侧边栏**：使用标题上的控件进行切换时，会在此处显示参与者和设置信息。 可以使用右上角的“X”关闭该组件。 “参与者”侧边栏将显示参与者列表和邀请更多用户聊天的链接。 “设置”侧边栏可用于配置麦克风和摄像头设置。
+1. **媒体库** ：显示参与者的主要阶段。 如果参与者启用了摄像头，则会在此处显示其视频源。 每个参与者都有一个单独的磁贴，上面显示了该参与者的显示名称和视频流（如果有）
+2. **标头** ：这是主要呼叫控件所在的位置，这些控件可用来切换设置和参与者侧边栏、打开/关闭视频和混音、共享屏幕以及退出呼叫。
+3. **侧边栏** ：使用标题上的控件进行切换时，会在此处显示参与者和设置信息。 可以使用右上角的“X”关闭该组件。 “参与者”侧边栏将显示参与者列表和邀请更多用户聊天的链接。 “设置”侧边栏可用于配置麦克风和摄像头设置。
 
 下面你将找到有关设置该示例的先决条件和步骤的详细信息。
 
@@ -108,7 +108,6 @@ Azure 通信服务的群组呼叫英雄示例演示了如何使用通信服务�
 有关详细信息，请参阅以下文章：
 
 - 熟悉如何[使用呼叫客户端库](../quickstarts/voice-video-calling/calling-client-samples.md)
-- 了解[呼叫客户端库功能](../quickstarts/voice-video-calling/calling-client-samples.md)
 - 详细了解[呼叫工作原理](../concepts/voice-video-calling/about-call-types.md)
 
 ## <a name="additional-reading"></a>其他阅读材料

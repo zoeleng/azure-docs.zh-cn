@@ -30,7 +30,7 @@ Azure 资源运行状况可帮助你监视 Azure 数字孪生实例是否已启�
 
 2. 从实例的菜单中，选择 " *支持 + 故障排除* " 下的 " _**资源运行状况**_ "。 这会转到查看资源运行状况历史记录的页面。 
 
-    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="显示 &quot;资源运行状况&quot; 页的屏幕截图。有一个 &quot;运行状况历史记录&quot; 部分，其中显示了过去9天的每日报告。每天显示 &quot;可用&quot; 状态。&quot;:::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="显示 &quot;资源运行状况&quot; 页的屏幕截图。有一个 &quot;运行状况历史记录&quot; 部分，其中显示了过去9天的每日报告。每天显示 &quot;可用&quot; 状态。":::
 
 在上面的图像中，此实例显示为 " *可用* "，过去9天。 若要了解有关 *可用* 状态和可能出现的其他状态类型的详细信息，请参阅 [*Azure 资源运行状况概述*](../service-health/resource-health-overview.md)。
 

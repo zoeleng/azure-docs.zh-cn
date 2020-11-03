@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289474"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503277"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>管理对工作区、数据和管道的访问
 
 了解如何在 Azure Synapse Analytics 工作区（预览版）中管理对工作区、数据和管道的访问控制。
 
 > [!NOTE]
-> 在正式版 (GA) 中，RBAC 将会引入特定于 Synapse 的 Azure 角色，因此其功能会更完备
+> 在正式版 (GA) 中，Azure RBAC 将引入 Synapse 特定的 Azure 角色，因此其功能将更加完备
 
 ## <a name="access-control-for-workspace"></a>对工作区的访问控制
 
@@ -144,7 +144,7 @@ ms.locfileid: "91289474"
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>SQL 池

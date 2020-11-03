@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8df4de01750de92222bfa9021b66828927804e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005473"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674932"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>教程：实现数据湖捕获模式以更新 Databricks Delta 表
 
@@ -69,7 +69,7 @@ ms.locfileid: "89005473"
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. 将此文件保存到本地计算机，并将其命名为 **data.csv**。
+4. 将此文件保存到本地计算机，并将其命名为 **data.csv** 。
 
 5. 在存储资源管理器中，将此文件上传到 **input** 文件夹。  
 
@@ -120,13 +120,13 @@ ms.locfileid: "89005473"
 
 ### <a name="create-a-notebook"></a>创建笔记本
 
-1. 在左窗格中选择“工作区”  。 在**工作区**下拉列表中，选择**创建** > **笔记本**。
+1. 在左窗格中选择“工作区”  。 在 **工作区** 下拉列表中，选择 **创建** > **笔记本** 。
 
     ![在 Databricks 中创建笔记本](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "在 Databricks 中创建笔记本")
 
 2. 在“创建 Notebook”对话框中，输入 Notebook 的名称。  选择“Python”作为语言，然后选择前面创建的 Spark 群集。 
 
-    ![在 Databricks 中创建笔记本](./media/data-lake-storage-events/new-databricks-notebook.png "在 Databricks 中创建笔记本")
+    ![显示“创建笔记本”对话框以及选择 Python 作为语言的位置的屏幕截图。](./media/data-lake-storage-events/new-databricks-notebook.png "在 Databricks 中创建笔记本")
 
     选择“创建”  。
 
@@ -268,7 +268,7 @@ ms.locfileid: "89005473"
 
 5. 在函数应用的“概述”页中，单击“配置”。  
 
-   ![配置函数应用](./media/data-lake-storage-events/configure-function-app.png "配置函数应用")
+   ![突出显示“已配置功能”下的“配置”选项的屏幕截图。](./media/data-lake-storage-events/configure-function-app.png "配置函数应用")
 
 6. 在“应用程序设置”页中，选择“新建应用程序设置”按钮以添加每个设置。  
 
@@ -291,7 +291,7 @@ ms.locfileid: "89005473"
 
    此时将显示“新建函数”窗格。 
 
-9. 在“新建函数”窗格中，将函数命名为 **UpsertOrder**，然后单击“创建”按钮。  
+9. 在“新建函数”窗格中，将函数命名为 **UpsertOrder** ，然后单击“创建”按钮。  
 
 10. 将代码文件的内容替换为此代码，然后单击“保存”按钮： 
 
@@ -345,7 +345,7 @@ ms.locfileid: "89005473"
 
 1. 在函数代码页中，单击“添加事件网格订阅”按钮。 
 
-   ![新建事件订阅](./media/data-lake-storage-events/new-event-subscription.png "新建事件订阅")
+   ![突出显示“添加事件网格订阅”按钮的屏幕截图。](./media/data-lake-storage-events/new-event-subscription.png "新建事件订阅")
 
 2. 在“创建事件订阅”页中为订阅命名，然后使用页中的字段选择你的存储帐户。 
 

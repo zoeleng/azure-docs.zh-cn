@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c8e22373f4550b0c65f6ea5c0b62815e32dcbb58
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4e50f6b2770f9f787c92e7a9c66f72cdbb252a94
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105118"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519684"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>快速入门：在 Azure 中使用 Visual Studio Code 创建函数
 
@@ -65,7 +65,7 @@ ms.locfileid: "92105118"
 - [.NET Core 3.1](https://www.microsoft.com/net/download) 和 [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- [Java 开发人员工具包](/azure/developer/java/fundamentals/java-jdk-long-term-support)版本 8。
+- [Java 开发人员工具包](/azure/developer/java/fundamentals/java-jdk-long-term-support)版本 8 或 11。
 
 - [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
 ::: zone-end
@@ -101,50 +101,50 @@ ms.locfileid: "92105118"
 1. 根据提示提供以下信息：
 
     ::: zone pivot="programming-language-csharp"
-    - **选择函数项目的语言**：选择`C#`。
+    - **选择函数项目的语言** ：选择`C#`。
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    - **选择函数项目的语言**：选择`JavaScript`。
+    - **选择函数项目的语言** ：选择`JavaScript`。
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    - **选择函数项目的语言**：选择`TypeScript`。
+    - **选择函数项目的语言** ：选择`TypeScript`。
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
-    - **选择函数项目的语言**：选择`PowerShell`。
+    - **选择函数项目的语言** ：选择`PowerShell`。
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    - **选择函数项目的语言**：选择`Python`。
+    - **选择函数项目的语言** ：选择`Python`。
 
-    - **选择一个 Python 别名以创建虚拟环境**：选择 Python 解释器的位置。 如果该位置未显示，请键入 Python 二进制文件的完整路径。
+    - **选择一个 Python 别名以创建虚拟环境** ：选择 Python 解释器的位置。 如果该位置未显示，请键入 Python 二进制文件的完整路径。
     ::: zone-end
 
     ::: zone pivot="programming-language-java"
-    - **选择函数项目的语言**：选择`Java`。
+    - **选择函数项目的语言** ：选择`Java`。
 
-    - **选择 Java 的版本**：选择在 Azure 中运行函数的 `Java 8` 或 `Java 11 (preview)`。 选择已在本地验证的 Java 版本。
+    - **选择 Java 的版本** ：选择在 Azure 中运行函数的 `Java 8` 或 `Java 11`。 选择已在本地验证的 Java 版本。
 
-    - **提供组 ID**：选择`com.function`。
+    - **提供组 ID** ：选择`com.function`。
 
-    - **提供项目 ID**：选择`myFunction`。
+    - **提供项目 ID** ：选择`myFunction`。
 
-    - **提供版本**：选择`1.0-SNAPSHOT`。
+    - **提供版本** ：选择`1.0-SNAPSHOT`。
 
-    - **提供包名称**：选择`com.function`。
+    - **提供包名称** ：选择`com.function`。
 
-    - **提供应用名称**：选择`myFunction-12345`。
+    - **提供应用名称** ：选择`myFunction-12345`。
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    - **为项目的第一个函数选择模板**：选择`HTTP trigger`。
+    - **为项目的第一个函数选择模板** ：选择`HTTP trigger`。
   
-    - **提供函数名称**：键入 `HttpExample`。
+    - **提供函数名称** ：键入 `HttpExample`。
     ::: zone-end
     ::: zone pivot="programming-language-csharp"
-    - **提供命名空间**：键入 `My.Functions`。
+    - **提供命名空间** ：键入 `My.Functions`。
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    - **授权级别**：选择 `Anonymous`，这使任何人都可以调用你的函数终结点。 若要了解授权级别，请参阅[授权密钥](functions-bindings-http-webhook-trigger.md#authorization-keys)。
+    - **授权级别** ：选择 `Anonymous`，这使任何人都可以调用你的函数终结点。 若要了解授权级别，请参阅[授权密钥](functions-bindings-http-webhook-trigger.md#authorization-keys)。
     ::: zone-end
-    - **选择打开项目的方式**：选择`Add to workspace`。
+    - **选择打开项目的方式** ：选择`Add to workspace`。
 
 1. Visual Studio Code 将使用此信息生成一个包含 HTTP 触发器的 Azure Functions 项目。 可以在资源管理器中查看本地项目文件。 若要详细了解所创建的文件，请参阅[生成的项目文件](functions-develop-vs-code.md#generated-project-files)。 
 

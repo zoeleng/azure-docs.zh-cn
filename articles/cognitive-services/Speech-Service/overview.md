@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630196"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521503"
 ---
 # <a name="what-is-the-speech-service"></a>什么是语音服务？
 
 语音服务在单个 Azure 订阅中统合了语音转文本、文本转语音以及语音翻译功能。 使用[语音 CLI](spx-overview.md)、[语音 SDK](speech-sdk-reference.md)、[语音设备 SDK](https://aka.ms/sdsdk-quickstart)、[Speech Studio](https://speech.microsoft.com/) 或 [REST API](rest-apis.md) 可以轻松在应用程序、工具和设备中启用语音。
 
 > [!IMPORTANT]
-> 语音服务已替代必应语音 API 和语音翻译。 有关迁移说明，请参阅_操作指南 > 迁移_。
+> 语音服务已替代必应语音 API 和语音翻译。 有关迁移说明，请参阅迁移部分。
 
 以下功能是语音服务的一部分。 请使用下表中的链接详细了解每项功能的常见用例或浏览 API 参考信息。
 
@@ -81,7 +81,21 @@ ms.locfileid: "91630196"
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-部署新的语音资源需要花费片刻时间。 部署完成后，选择“转到资源”，然后在左侧导航窗格中选择“密钥”以显示语音服务订阅密钥。   每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 若要将密钥快速复制/粘贴到代码编辑器或其他位置，请选择每个密钥旁边的复制按钮，切换窗口，然后将剪贴板中的内容粘贴到所需位置。
+部署新的语音资源需要花费片刻时间。 
+
+### <a name="find-keys-and-region"></a>查找密钥和区域
+
+若要查找已完成部署的密钥和区域，请按照下列步骤操作：
+
+1. 使用你的 Microsoft 帐户登录到 [Azure 门户](https://portal.azure.com/)。
+
+2. 选择“所有资源”，然后选择你的认知服务资源的名称。
+
+3. 在左侧窗格中的“资源管理”下，选择“密钥和终结点” 。
+
+每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 若要将密钥复制/粘贴到代码编辑器或其他区域，请选择每个密钥旁边的复制按钮，切换窗口以将剪贴板内容粘贴到所需区域。
+
+此外，请复制 `LOCATION` 值，这是你用于 SDK 调用的区域 ID（例如 `westus`、`westeurope`）。
 
 > [!IMPORTANT]
 > 这些订阅密钥用于访问认知服务 API。 不要共享你的密钥。 安全存储密钥 - 例如，使用 Azure Key Vault。 此外，我们建议定期重新生成这些密钥。 发出 API 调用只需一个密钥。 重新生成第一个密钥时，可以使用第二个密钥来持续访问服务。

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator 服务, 翻译文本, 音译文本, 语言检测
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318834"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517032"
 ---
 # <a name="quickstart-get-started-with-translator"></a>快速入门：Translator 入门
 
@@ -59,7 +59,7 @@ ms.locfileid: "91318834"
 # <a name="java"></a>[Java](#tab/java)
 
 * 为项目创建一个工作目录。 例如：`mkdir sample-project`。
-* 使用 Gradle 初始化项目：`gradle init --type basic`。 当提示你选择一个 **DSL** 时，选择 **Kotlin**。
+* 使用 Gradle 初始化项目：`gradle init --type basic`。 当提示你选择一个 **DSL** 时，选择 **Kotlin** 。
 * 更新 `build.gradle.kts`。 请记住，你需要根据示例更新 `mainClassName`。
   ```java
   plugins {
@@ -123,7 +123,7 @@ ms.locfileid: "91318834"
 
 ## <a name="keys-and-endpoints"></a>密钥和终结点
 
-为简单起见，此页面上的示例使用了硬编码的密钥和终结点。 请记住**完成后将密钥从代码中删除**，**永远不要公开发布该密钥**。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
+为简单起见，此页面上的示例使用了硬编码的密钥和终结点。 请记住 **完成后将密钥从代码中删除** ， **永远不要公开发布该密钥** 。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
 
 ## <a name="translate-text"></a>翻译文本 
 
@@ -2441,12 +2441,18 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 ]
 ```
 
+## <a name="troubleshooting"></a>疑难解答
+
+### <a name="java-users"></a>Java 用户
+
+如果遇到连接问题，可能是因为你的 SSL 证书已过期。 若要解决此问题，请将 [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) 安装到专用存储中。 
+
 ## <a name="next-steps"></a>后续步骤
 
 * [了解 API 如何对字符计数](character-counts.md)
 * [自定义和改进翻译](customization.md)
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 * [Translator v3 API 参考](reference/v3-0-reference.md)
 * [语言支持](language-support.md)

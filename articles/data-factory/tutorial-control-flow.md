@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983405"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637694"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>数据工厂管道中的分支和链接活动
 
@@ -40,7 +40,7 @@ ms.locfileid: "90983405"
 > * 启动管道运行
 > * 监视管道和活动运行
 
-本教程使用 .NET SDK。 可以使用其他机制来与 Azure 数据工厂交互。 有关数据工厂的快速入门，请参阅 [5 分钟快速入门](/azure/data-factory/quickstart-create-data-factory-portal)。
+本教程使用 .NET SDK。 可以使用其他机制来与 Azure 数据工厂交互。 有关数据工厂的快速入门，请参阅 [5 分钟快速入门](./quickstart-create-data-factory-portal.md)。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
 
@@ -58,7 +58,7 @@ ms.locfileid: "90983405"
 
 ### <a name="create-a-blob-table"></a>创建 Blob 表
 
-1. 打开文本编辑器。 复制以下文本，并在本地将其保存为 *input.txt*。
+1. 打开文本编辑器。 复制以下文本，并在本地将其保存为 *input.txt* 。
 
    ```
    Ethel|Berg
@@ -66,7 +66,7 @@ ms.locfileid: "90983405"
    ```
 
 1. 打开 Azure 存储资源管理器。 展开你的存储帐户。 右键单击“Blob 容器”，并选择“创建 Blob 容器”。 
-1. 将新容器命名为 *adfv2branch*，然后选择“上传”将 *input.txt* 文件添加到该容器。
+1. 将新容器命名为 *adfv2branch* ，然后选择“上传”将 *input.txt* 文件添加到该容器。
 
 ## <a name="create-visual-studio-project"></a>创建 Visual Studio 项目<a name="create-visual-studio-project"></a>
 
@@ -74,7 +74,7 @@ ms.locfileid: "90983405"
 
 1. 启动 Visual Studio 并选择“创建新项目”。
 1. 在“创建新项目”中，选择适用于 C# 的“控制台应用(.NET Framework)”，然后选择“下一步”。  
-1. 将项目命名为 *ADFv2BranchTutorial*。
+1. 将项目命名为 *ADFv2BranchTutorial* 。
 1. 选择“.NET 版本 4.5.2”或更高版本，然后选择“创建”。 
 
 ### <a name="install-nuget-packages"></a>安装 NuGet 包
@@ -211,7 +211,7 @@ ms.locfileid: "90983405"
 
 ### <a name="create-a-dataset-for-a-source-azure-blob"></a>为源 Azure Blob 创建数据集
 
-添加一个方法用于创建 *Azure Blob 数据集*。 有关支持的属性和详细信息，请参阅 [Azure Blob 数据集属性](connector-azure-blob-storage.md#dataset-properties)。
+添加一个方法用于创建 *Azure Blob 数据集* 。 有关支持的属性和详细信息，请参阅 [Azure Blob 数据集属性](connector-azure-blob-storage.md#dataset-properties)。
 
 将 `SourceBlobDatasetDefinition` 方法添加到 *Program.cs* 文件中：
 
@@ -234,7 +234,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-在 Azure Blob 中定义表示源数据的数据集。 此 Blob 数据集引用在上一步骤中支持的 Azure 存储链接服务。 Blob 数据集描述要从中复制 Blob 的位置：*FolderPath* 和 *FileName*。
+在 Azure Blob 中定义表示源数据的数据集。 此 Blob 数据集引用在上一步骤中支持的 Azure 存储链接服务。 Blob 数据集描述要从中复制 Blob 的位置： *FolderPath* 和 *FileName* 。
 
 请注意 *FolderPath* 的参数用法。 `sourceBlobContainer` 是参数的名称，表达式已替换为在管道运行中传递的值。 用于定义参数的语法为 `@pipeline().parameters.<parameterName>`
 
@@ -336,7 +336,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 
 此 JSON 内容与前一部分中创建的 `EmailRequest` 类相符。
 
-添加 `Office 365 Outlook – Send an email` 操作。 对于“发送电子邮件”操作，请使用传入请求**正文** JSON 架构的属性来自定义如何设置电子邮件的格式。 下面是一个示例：
+添加 `Office 365 Outlook – Send an email` 操作。 对于“发送电子邮件”操作，请使用传入请求 **正文** JSON 架构的属性来自定义如何设置电子邮件的格式。 下面是一个示例：
 
 ![逻辑应用设计器 - 发送电子邮件操作](media/tutorial-control-flow/customize-send-email-action.png)
 
@@ -597,7 +597,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 生成并启动应用程序，然后验证管道执行。
 
-应用程序将显示数据工厂、链接服务、数据集、管道和管道运行的创建进度。 然后，检查管道运行状态。 请等到出现包含数据读取/写入大小的复制活动运行详细信息。 然后，使用 Azure 存储资源管理器等工具检查 Blob 是否已根据变量中指定的 *inputBlobPath* 复制到 *outputBlobPath*。
+应用程序将显示数据工厂、链接服务、数据集、管道和管道运行的创建进度。 然后，检查管道运行状态。 请等到出现包含数据读取/写入大小的复制活动运行详细信息。 然后，使用 Azure 存储资源管理器等工具检查 Blob 是否已根据变量中指定的 *inputBlobPath* 复制到 *outputBlobPath* 。
 
 输出应类似于以下示例：
 
@@ -610,7 +610,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +753,7 @@ Press any key to exit...
 在本教程中，你已执行以下任务：
 
 > [!div class="checklist"]
-> * 创建数据工厂
+> 创建数据工厂
 > * 创建 Azure 存储链接服务
 > * 创建 Azure Blob 数据集
 > * 创建包含复制活动和 Web 活动的管道

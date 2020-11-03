@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074832"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426714"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>使用 Helm 来与 Kubernetes 部署集成
 
@@ -57,10 +57,10 @@ ms.locfileid: "92074832"
 3. 选择“配置资源管理器”。 
 
 4. 选择“+ 创建” > “Key Vault 引用”，然后指定以下值：  
-    - **密钥**：选择“secrets.password”  。
-    - **标签**：将此值保留空白。
+    - **密钥** ：选择“secrets.password”  。
+    - **标签** ：将此值保留空白。
     - “订阅”、“资源组”和“Key Vault”：    输入上一步在 Key Vault 中创建的项相对应的值。
-    - **机密**：选择在上一部分创建的名为 Password 的机密  。
+    - **机密** ：选择在上一部分创建的名为 Password 的机密  。
 
 ## <a name="create-helm-chart"></a>创建 Helm 图表 ##
 首先，使用以下命令创建一个示例 Helm 图表
@@ -231,7 +231,7 @@ else{
 
 此外，已将一个在应用程序配置中作为 Key Vault 参考存储的机密 password 添加到了 Kubernetes 机密  。 
 
-![本地启动应用快速入门](./media/kubernetes-dashboard-secrets.png)
+![屏幕截图突出显示了“数据”部分中的密码。](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

@@ -4,12 +4,12 @@ description: 了解 Azure Migrate 服务中的新增功能和最新更新。
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ed2347d2d322e272b4fb7f4dfd697f3499419124
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314582"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545168"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate 中的新增功能
 
@@ -22,6 +22,7 @@ ms.locfileid: "92314582"
 - 依赖项分析（无代理）现可在 1000 个 VM 上并发运行。
 - 现可使用 PowerShell 脚本大规模地启用或禁用依赖项分析（无代理）。 [了解详细信息。](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - 通过用依赖项分析（无代理）收集的数据在 Power BI 中直观呈现网络连接 [了解详细信息。](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- 现在，可使用 Azure Migrate 支持迁移数据磁盘大小高达 32 TB 的 VMware VM：服务器迁移无代理 VMware 迁移方法。 
 
 ## <a name="update-august-2020"></a>更新（2020 年 8 月）
 

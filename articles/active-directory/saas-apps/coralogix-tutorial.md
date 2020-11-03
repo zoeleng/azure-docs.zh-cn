@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e676268abb9e1a4a597ef431ea6ba6593411711e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91775613"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455215"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>教程：Azure Active Directory 单一登录 (SSO) 与 Coralogix 集成
 
@@ -26,7 +26,7 @@ ms.locfileid: "91775613"
 * 让用户使用其 Azure AD 帐户自动登录到 Coralogix。
 * 在一个中心位置（Azure 门户）管理帐户。
 
-若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要了解有关 SaaS 应用与 Azure AD 集成的详细信息，请参阅 [Azure Active Directory 的应用程序访问与单一登录是什么](../manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -104,9 +104,9 @@ ms.locfileid: "91775613"
     ![显示“用户属性和声明”对话框的屏幕截图，其中突出显示了“编辑”按钮。](./media/coralogix-tutorial/tutorial_usermail.png)
     ![图像](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
-    b. 从“选择名称标识符格式”列表中，选择“电子邮件地址”****。****
+    b. 从“选择名称标识符格式”列表中，选择“电子邮件地址”。
 
-    c. 在“源属性”列表中，选择 **user.mail******。
+    c. 在“源属性”列表中，选择 **user.mail** 。
 
     d. 选择“保存”。
 
@@ -114,7 +114,7 @@ ms.locfileid: "91775613"
 
     ![证书下载链接](common/metadataxml.png)
 
-1. 在“设置 Coralogix”部分，根据要求复制相应的 URL****。
+1. 在“设置 Coralogix”部分，根据要求复制相应的 URL。
 
     ![复制配置 URL](common/copy-configuration-urls.png)
 
@@ -135,7 +135,7 @@ ms.locfileid: "91775613"
 在本部分中，你将通过授予 B.Simon 访问 Coralogix 的权限，允许其使用 Azure 单一登录。
 
 1. 在 Azure 门户中，依次选择“企业应用程序”、“所有应用程序”。  
-1. 在应用程序列表中，选择“Coralogix”****。
+1. 在应用程序列表中，选择“Coralogix”。
 1. 在应用的概述页中，找到“管理”部分，选择“用户和组” 。
 
    ![“用户和组”链接](common/users-groups-blade.png)
@@ -150,25 +150,24 @@ ms.locfileid: "91775613"
 
 ## <a name="configure-coralogix-sso"></a>配置 Coralogix SSO
 
-若要在 Coralogix 端配置单一登录，需要将下载的联合元数据 XML 以及从 Azure 门户复制的相应 URL 发送给 [Coralogix 支持团队](mailto:info@coralogix.com)********。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
+若要在 Coralogix 端配置单一登录，需要将下载的联合元数据 XML 以及从 Azure 门户复制的相应 URL 发送给 [Coralogix 支持团队](mailto:info@coralogix.com)。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
 
 ### <a name="create-coralogix-test-user"></a>创建 Coralogix 测试用户
 
-在本部分，将在 Coralogix 中创建一个名为“Britta Simon”的用户。 请与  [Coralogix 支持团队](mailto:info@coralogix.com)协作，将用户添加到 Coralogix 平台中。 使用单一登录前，必须先创建并激活用户。
+在本部分，将在 Coralogix 中创建一个名为“Britta Simon”的用户。 与 [Coralogix 支持团队](mailto:info@coralogix.com)协作，在 Coralogix 平台中添加用户。 使用单一登录前，必须先创建并激活用户。
 
 ## <a name="test-sso"></a>测试 SSO 
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
-单击访问面板中的 Coralogix 磁贴时，应会自动登录到为其设置了 SSO 的 Coralogix。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)（访问面板简介）。
+单击访问面板中的 Coralogix 磁贴时，应会自动登录到为其设置了 SSO 的 Coralogix。 有关访问面板的详细信息，请参阅 [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md)（访问面板简介）。
 
 ## <a name="additional-resources"></a>其他资源
 
-- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [有关如何将 SaaS 应用与 Azure Active Directory 集成的教程列表](./tutorial-list.md)
 
-- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什么是使用 Azure Active Directory 的应用程序访问和单一登录？](../manage-apps/what-is-single-sign-on.md)
 
-- [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [什么是 Azure Active Directory 中的条件访问？](../conditional-access/overview.md)
 
 - [尝试 Coralogix 与 Azure AD 集成](https://aad.portal.azure.com/)
-
