@@ -1,5 +1,5 @@
 ---
-title: 诊断 Azure Key Vault 上的私有链接配置问题
+title: 诊断 Azure Key Vault 上的专用链接配置问题
 description: 解决与 Key Vault 和深入探讨配置相关的常见专用链接问题
 author: msfcolombo
 ms.author: fcolombo
@@ -7,14 +7,14 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998391"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289376"
 ---
-# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>诊断 Azure Key Vault 上的私有链接配置问题
+# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>诊断 Azure Key Vault 上的专用链接配置问题
 
 ## <a name="introduction"></a>简介
 
@@ -54,18 +54,18 @@ ms.locfileid: "91998391"
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>如果使用托管解决方案，请参阅特定文档
 
-本指南不适用于 Microsoft 托管的解决方案，其中的密钥保管库由独立于客户虚拟网络的 Azure 产品访问。 此类方案的示例包括： Azure 存储或 Azure SQL 配置为静态加密、Azure 事件中心用客户提供的密钥加密数据、Azure 数据工厂访问存储在密钥保管库中的服务凭据、Azure Pipelines 从密钥保管库检索机密和其他类似的方案。 在这些情况下， *你必须检查产品是否支持启用了防火墙的密钥保管库*。 此支持通常通过 Key Vault firewall 的 " [受信任的服务](overview-vnet-service-endpoints.md#trusted-services) " 功能来执行。 不过，由于各种原因，许多产品并未包含在可信服务列表中。 在这种情况下，请访问特定于产品的支持。
+本指南不适用于 Microsoft 托管的解决方案，其中的密钥保管库由独立于客户虚拟网络的 Azure 产品访问。 此类方案的示例包括： Azure 存储或 Azure SQL 配置为静态加密、Azure 事件中心用客户提供的密钥加密数据、Azure 数据工厂访问存储在密钥保管库中的服务凭据、Azure Pipelines 从密钥保管库检索机密和其他类似的方案。 在这些情况下， *你必须检查产品是否支持启用了防火墙的密钥保管库* 。 此支持通常通过 Key Vault firewall 的 " [受信任的服务](overview-vnet-service-endpoints.md#trusted-services) " 功能来执行。 不过，由于各种原因，许多产品并未包含在可信服务列表中。 在这种情况下，请访问特定于产品的支持。
 
-少量的 Azure 产品支持 *vnet 注入*的概念。 简单地说，产品会将网络设备添加到客户虚拟网络，这样它就可以像部署到虚拟网络一样发送请求。 [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)了一个值得注意的示例。 类似于这样的产品可以使用专用链接向密钥保管库发出请求，此故障排除指南可能会有所帮助。
+少量的 Azure 产品支持 *vnet 注入* 的概念。 简单地说，产品会将网络设备添加到客户虚拟网络，这样它就可以像部署到虚拟网络一样发送请求。 [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)了一个值得注意的示例。 类似于这样的产品可以使用专用链接向密钥保管库发出请求，此故障排除指南可能会有所帮助。
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. 确认连接已批准并已成功
 
 以下步骤验证专用终结点连接是否已批准并成功：
 
 1. 打开 Azure 门户并打开密钥保管库资源。
-2. 在左侧菜单中，选择 " **网络**"。
+2. 在左侧菜单中，选择 " **网络** "。
 3. 单击 " **专用终结点连接** " 选项卡。这会显示所有专用终结点连接及其各自的状态。 如果没有连接，或者虚拟网络的连接丢失，则必须创建新的专用终结点。 稍后将对此进行介绍。
-4. 仍在 **专用终结点连接**中，找到你正在诊断的连接，并确认 "连接状态" 已 **获批准** 并且 "设置状态" 已 **成功**。
+4. 仍在 **专用终结点连接** 中，找到你正在诊断的连接，并确认 "连接状态" 已 **获批准** 并且 "设置状态" 已 **成功** 。
     - 如果连接处于 "挂起" 状态，则可以直接批准。
     - 如果连接 "已拒绝"、"失败"、"错误"、"已断开" 或其他状态，则必须创建新的专用终结点资源。
 
@@ -79,7 +79,7 @@ ms.locfileid: "91998391"
 一项重要的概念是，专用链接功能只 *提供* 对已关闭的虚拟网络中的密钥保管库的访问权限，以防止数据渗透。 它不会 *删除* 任何现有的访问权限。 为了有效地阻止来自公共 Internet 的访问，你必须显式启用 key vault 防火墙：
 
 1. 打开 Azure 门户并打开密钥保管库资源。
-2. 在左侧菜单中，选择 " **网络**"。
+2. 在左侧菜单中，选择 " **网络** "。
 3. 请确保在顶部选择 " **防火墙和虚拟网络** " 选项卡。
 4. 请确保选择 " **专用终结点和所选网络** " 选项。 如果找到 " **所有网络** "，则说明外部客户端仍然可以访问密钥保管库的原因。
 
@@ -120,11 +120,11 @@ ms.locfileid: "91998391"
 需要诊断主机名解析，并且必须知道启用了专用链接的密钥保管库的确切专用 IP 地址。 若要找到该地址，请按照此过程操作：
 
 1. 打开 Azure 门户并打开密钥保管库资源。
-2. 在左侧菜单中，选择 " **网络**"。
+2. 在左侧菜单中，选择 " **网络** "。
 3. 单击 " **专用终结点连接** " 选项卡。这会显示所有专用终结点连接及其各自的状态。
-4. 找到你正在诊断的用户并确认 "连接状态" 已 **获批准** 并且预配状态为 " **成功**"。 如果未看到此内容，请返回到本文档前面的部分。
+4. 找到你正在诊断的用户并确认 "连接状态" 已 **获批准** 并且预配状态为 " **成功** "。 如果未看到此内容，请返回到本文档前面的部分。
 5. 找到正确的项目后，单击 " **专用终结点** " 列中的链接。 这将打开专用终结点资源。
-6. "概述" 页可能会显示一个名为 " **自定义 DNS 设置**" 的部分。 确认只有一个匹配密钥保管库主机名的条目。 该条目显示密钥保管库专用 IP 地址。
+6. "概述" 页可能会显示一个名为 " **自定义 DNS 设置** " 的部分。 确认只有一个匹配密钥保管库主机名的条目。 该条目显示密钥保管库专用 IP 地址。
 7. 还可以单击 " **网络接口** " 中的链接，并确认专用 IP 地址与上一步中显示的相同。 网络接口是表示密钥保管库的虚拟设备。
 
 IP 地址是指 *在同一虚拟网络中运行* 的 vm 和其他设备将用于连接到密钥保管库的 IP 地址。 记下 IP 地址，或将 "浏览器" 选项卡保持打开状态，并在进行进一步调查时不进行触摸。
@@ -140,7 +140,7 @@ DNS 解析是将 key vault 主机名 (示例： `fabrikam.vault.azure.net`) 转�
 
 本部分旨在学习用途。 如果密钥保管库在 "已批准" 状态下没有专用终结点连接，则解析主机名将产生类似于下面的结果：
 
-Windows:
+Windows：
 
     C:\> nslookup fabrikam.vault.azure.net
 
@@ -164,9 +164,9 @@ Linux：
 
 ### <a name="key-vault-with-private-link-resolving-from-arbitrary-internet-machine"></a>通过任意 Internet 计算机解析专用链接的密钥保管库
 
-如果密钥保管库具有处于已批准状态的一个或多个专用终结点连接，并且你在连接到 Internet 的任意计算机上解析了主机名， (*未* 连接到专用终结点所在的虚拟网络的计算机) 中，你应找到以下内容：
+如果密钥保管库具有处于已批准状态的一个或多个专用终结点连接，并且你在连接到 Internet 的任意计算机上解析了主机名， ( *未* 连接到专用终结点所在的虚拟网络的计算机) 中，你应找到以下内容：
 
-Windows:
+Windows：
 
     C:\> nslookup fabrikam.vault.azure.net
 
@@ -196,7 +196,7 @@ Linux：
 
 如果 key vault 具有一个或多个处于已批准状态的专用终结点连接，并且你从连接到创建了专用终结点的虚拟网络的计算机中解析主机名，则这是预期的响应：
 
-Windows:
+Windows：
 
     C:\> nslookup fabrikam.vault.azure.net
 
@@ -229,7 +229,7 @@ Linux：
 
     privatelink.vaultcore.azure.net
 
-可以通过转到门户中的 "订阅" 页，然后选择左侧菜单中的 "资源" 来检查此资源是否存在。 资源名称必须为 `privatelink.vaultcore.azure.net` ，且资源类型必须为 **专用 DNS 区域**。
+可以通过转到门户中的 "订阅" 页，然后选择左侧菜单中的 "资源" 来检查此资源是否存在。 资源名称必须为 `privatelink.vaultcore.azure.net` ，且资源类型必须为 **专用 DNS 区域** 。
 
 通常，当你使用通用过程创建专用终结点时，将自动创建此资源。 但在某些情况下，不会自动创建此资源，您必须手动执行此操作。 此资源也可能已被意外删除。
 
@@ -267,7 +267,7 @@ Linux：
 
 如 [前一部分](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)所述，具有专用链接的密钥保管库 `{vaultname}.privatelink.vaultcore.azure.net` 在其 *公共* 注册中具有别名。 虚拟网络使用的 DNS 服务器使用公共注册，但会检查每个别名是否存在 *专用* 注册，如果找到，它将停止在公共注册中定义的以下别名。
 
-此逻辑表示，如果虚拟网络链接到名为的专用 DNS 区域 `privatelink.vaultcore.azure.net` ，并且 key vault 的公共 DNS 注册具有别名 `fabrikam.privatelink.vaultcore.azure.net` (请注意，key vault 主机名后缀与专用 DNS 区域名称精确匹配) ，则 DNS 查询将查找 `A` 名称 `fabrikam` *在专用 DNS 区域中*的记录。 如果 `A` 找到该记录，则会在 DNS 查询中返回其 IP 地址，并且不会在公共 DNS 注册中执行进一步的查找。
+此逻辑表示，如果虚拟网络链接到名为的专用 DNS 区域 `privatelink.vaultcore.azure.net` ，并且 key vault 的公共 DNS 注册具有别名 `fabrikam.privatelink.vaultcore.azure.net` (请注意，key vault 主机名后缀与专用 DNS 区域名称精确匹配) ，则 DNS 查询将查找 `A` 名称 `fabrikam` *在专用 DNS 区域中* 的记录。 如果 `A` 找到该记录，则会在 DNS 查询中返回其 IP 地址，并且不会在公共 DNS 注册中执行进一步的查找。
 
 正如您所看到的，名称解析在您的控制之下。 此设计的基本原理是：
 
@@ -278,7 +278,7 @@ Linux：
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>查询 `/healthstatus` 密钥保管库的终结点
 
-Key vault 提供 `/healthstatus` 终结点，可用于诊断。 响应标头包含源 IP 地址（由密钥保管库服务查看）。 您可以使用以下命令调用该终结点 (**记得使用 key vault 主机名**) ：
+Key vault 提供 `/healthstatus` 终结点，可用于诊断。 响应标头包含源 IP 地址（由密钥保管库服务查看）。 您可以使用以下命令调用该终结点 ( **记得使用 key vault 主机名** ) ：
 
 Windows (PowerShell) ：
 
@@ -346,7 +346,7 @@ Linux 或最新版本的 Windows 10，其中包括 `curl` ：
 
 ### <a name="diagnose-custom-dns-servers-at-virtual-network"></a>在虚拟网络中诊断自定义 DNS 服务器
 
-在门户中，打开 "虚拟网络" 资源。 在左侧菜单中，打开 " **DNS 服务器**"。 如果你使用的是 "自定义"，则 DNS 解析可能不如本文档中所述。 必须诊断 DNS 服务器解析密钥保管库主机名的方式。
+在门户中，打开 "虚拟网络" 资源。 在左侧菜单中，打开 " **DNS 服务器** "。 如果你使用的是 "自定义"，则 DNS 解析可能不如本文档中所述。 必须诊断 DNS 服务器解析密钥保管库主机名的方式。
 
 如果你使用的是默认的 Azure 提供的 DNS 服务器，则此文档适用。
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7155e1517ba5ff203f11ee834af3c0d1dd1fa065
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983239"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289472"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客户数据功能
 
@@ -56,10 +56,10 @@ Azure Key Vault 诊断日志包含可通过在用户隐私门户中发出导出�
 
 - [Azure Key Vault 软删除概述](soft-delete-cli.md)
 
-- [Azure Key Vault 密钥操作](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Azure Key Vault 密钥操作](/rest/api/keyvault/key-operations)
 
-- [Azure Key Vault 机密操作](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Azure Key Vault 机密操作](/rest/api/keyvault/secret-operations)
 
-- [Azure Key Vault 证书和策略](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Azure Key Vault 证书和策略](/rest/api/keyvault/certificates-and-policies)
 
-- [Azure Key Vault 存储帐户操作](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Azure Key Vault 存储帐户操作](/rest/api/keyvault/storage-account-key-operations)

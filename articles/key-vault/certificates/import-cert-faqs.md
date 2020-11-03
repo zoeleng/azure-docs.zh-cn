@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651846"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289513"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>导入 Azure Key Vault 证书常见问题解答
 
@@ -25,7 +25,7 @@ ms.locfileid: "89651846"
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>如何在 Azure Key Vault 中导入证书？
 
-对于证书导入操作，Azure Key Vault 接受两种证书文件格式：PEM 和 PFX。 尽管存在只包含公共部分的 PEM 文件，但 Key Vault 要求使用且仅接受包含私钥的 PEM 或 PFX 文件。 有关详细信息，请参阅[将证书导入到 Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault)。
+对于证书导入操作，Azure Key Vault 接受两种证书文件格式：PEM 和 PFX。 尽管存在只包含公共部分的 PEM 文件，但 Key Vault 要求使用且仅接受包含私钥的 PEM 或 PFX 文件。 有关详细信息，请参阅[将证书导入到 Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault)。
 
 ### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>将受密码保护的证书导入到 Key Vault 并下载它后，为什么无法看到与其关联的密码？
     
@@ -35,7 +35,7 @@ ms.locfileid: "89651846"
 
 导入证书时，需要确保密钥包含在文件中。 如果你以另一种格式单独存储私钥，则需将该私钥与证书组合在一起。 某些证书颁发机构 (CA) 提供其他格式的证书。 因此，在导入证书之前，请确保该证书为 PEM 或 PFX 文件格式，并且密钥使用 Rivest–Shamir–Adleman (RSA) 或椭圆曲线加密 (ECC) 方式的加密。 
 
-有关详细信息，请参阅[证书要求](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support)和[证书密钥要求](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection)。
+有关详细信息，请参阅[证书要求](./certificate-scenarios.md#formats-of-import-we-support)和[证书密钥要求](../keys/about-keys.md)。
 
 ###  <a name="can-i-import-a-certificate-by-using-an-arm-template"></a>能否使用 ARM 模板导入证书？
 
@@ -43,20 +43,20 @@ ms.locfileid: "89651846"
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>通过 Azure 门户导入证书时，我遇到了“出现问题”错误。 如何进一步进行调查？
     
-若要查看更详细描述的错误，请通过 [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) 或 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0) 导入证书文件。
+若要查看更详细描述的错误，请通过 [Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) 或 [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0) 导入证书文件。
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>如何解决“错误类型:访问被拒绝或用户无权导入证书”错误？
     
 导入操作要求你授予用户在访问策略下导入证书的权限。 若要执行此操作，请转到你的密钥保管库，选择“访问策略” > “添加访问策略” > “选择证书权限” > “主体”，搜索用户，然后添加用户的电子邮件地址。    
 
-若要了解证书相关访问策略的详细信息，请参阅[关于 Azure Key Vault 证书](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control)。
+若要了解证书相关访问策略的详细信息，请参阅[关于 Azure Key Vault 证书](./about-certificates.md#certificate-access-control)。
 
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>如何解决“错误类型:创建证书时发生冲突”错误？
     
-每个证书名称必须唯一。 可能有同名的证书处于软删除状态。 另外，根据[证书的组成](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)中的规定，当创建新证书时，它会创建一个同名的可寻址机密，因此，如果密钥保管库中有另一个密钥或机密与你尝试为证书指定的密钥或机密同名，则证书创建将失败，你需要删除该密钥或机密，或者为证书使用其他名称。 
+每个证书名称必须唯一。 可能有同名的证书处于软删除状态。 另外，根据[证书的组成](./about-certificates.md#composition-of-a-certificate)中的规定，当创建新证书时，它会创建一个同名的可寻址机密，因此，如果密钥保管库中有另一个密钥或机密与你尝试为证书指定的密钥或机密同名，则证书创建将失败，你需要删除该密钥或机密，或者为证书使用其他名称。 
 
-有关详细信息，请参阅[“获取删除的证书”操作](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)。
+有关详细信息，请参阅[“获取删除的证书”操作](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)。
 
 ### <a name="why-am-i-getting-error-type-char-length-is-too-long"></a>为什么收到“错误类型: 字符长度太长”错误？
 此错误可能是由以下两个原因之一导致的：    
@@ -83,4 +83,4 @@ ms.locfileid: "89651846"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Key Vault 证书](/azure/key-vault/certificates/about-certificates)
+- [Azure Key Vault 证书](./about-certificates.md)

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 32a323e8cc56a8c45b18737bb55ebe19d4be27c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59ba81944ecdf4f2b6322f4298e61df33f5b1da8
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380696"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289179"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>分配 Key Vault 访问策略
 
@@ -29,7 +29,7 @@ Key Vault 访问策略确定给定的服务主体（即应用程序或用户组�
 
 1. 若要在本地运行 Azure CLI 命令，请安装 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
  
-    若要直接在云中运行命令，请使用 [Azure Cloud Shell](/azure/cloud-shell/overview)。
+    若要直接在云中运行命令，请使用 [Azure Cloud Shell](../../cloud-shell/overview.md)。
 
 1. 仅限本地 CLI：使用 `az login` 登录到 Azure：
 

@@ -8,23 +8,23 @@ ms.author: mbaldwin
 ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
-ms.openlocfilehash: 1a6ec20d860a409bbe7d3114c54e1e46a75968a0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970106"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289829"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 
 > [!NOTE]
-> 建议不要将 Microsoft.Azure.Services.AppAuthentication 用于新的 Key Vault SDK。 它已替换为适用于 .NET、Java、TypeScript 和 Python 的新 **Azure 标识客户端库** ，适用于所有新的开发。 可在以下网页中找到详细信息： [身份验证，以便在代码中 Key Vault](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries)。
+> 建议不要将 Microsoft.Azure.Services.AppAuthentication 用于新的 Key Vault SDK。 它已替换为适用于 .NET、Java、TypeScript 和 Python 的新 **Azure 标识客户端库** ，适用于所有新的开发。 可在以下网页中找到详细信息： [身份验证，以便在代码中 Key Vault](./developers-guide.md#azure-identity-client-libraries)。
 
 若要对 Azure Key Vault 进行身份验证，需要提供 Azure Active Directory (Azure AD) 凭据（共享机密或证书）。
 
 管理此类凭据可能很困难。 可以考虑将凭据包含在源或配置文件中，以此将其绑定到应用中。 用于 .NET 库的 `Microsoft.Azure.Services.AppAuthentication` 简化了此问题。 它使用开发人员的凭据在本地开发期间进行身份验证。 随后将解决方案部署到 Azure 时，该库会自动切换到应用程序凭据。 在本地开发期间使用开发人员凭据更安全，因为不需创建 Azure AD 凭据，或者不需在开发人员之间共享凭据。
 
-`Microsoft.Azure.Services.AppAuthentication` 库自动管理身份验证，这样你就可以专注于自己的解决方案而非凭据。 该库支持使用 Microsoft Visual Studio、Azure CLI 或 Azure AD 集成身份验证进行本地开发。 部署到支持托管标识的 Azure 资源时，该库会自动使用 [Azure 资源的托管标识](../../active-directory/msi-overview.md)。 不需代码或配置更改。 当托管标识不可用时，或者当开发人员的安全上下文不能在本地开发期间确定时，该库还支持直接使用 Azure AD [客户端凭据](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+`Microsoft.Azure.Services.AppAuthentication` 库自动管理身份验证，这样你就可以专注于自己的解决方案而非凭据。 该库支持使用 Microsoft Visual Studio、Azure CLI 或 Azure AD 集成身份验证进行本地开发。 部署到支持托管标识的 Azure 资源时，该库会自动使用 [Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/overview.md)。 不需代码或配置更改。 当托管标识不可用时，或者当开发人员的安全上下文不能在本地开发期间确定时，该库还支持直接使用 Azure AD [客户端凭据](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -55,7 +55,7 @@ ms.locfileid: "91970106"
 
 线程安全的 `AzureServiceTokenProvider` 类将令牌缓存在内存中，并会在该令牌到期前将从 Azure AD 中检索该令牌。 这意味着，你永远不需要在调用 `GetAccessTokenAsync` 方法之前检查令牌的有效期。 
 
-`GetAccessTokenAsync` 方法需要资源标识符。 若要详细了解 Microsoft Azure 服务，请参阅[什么是 Azure 资源的托管标识](../../active-directory/msi-overview.md)。
+`GetAccessTokenAsync` 方法需要资源标识符。 若要详细了解 Microsoft Azure 服务，请参阅[什么是 Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/overview.md)。
 
 ## <a name="local-development-authentication"></a>本地开发身份验证
 
@@ -65,7 +65,7 @@ ms.locfileid: "91970106"
 
 本地计算机不支持 Azure 资源的托管标识。 因此，`Microsoft.Azure.Services.AppAuthentication` 库使用开发人员凭据在本地开发环境中运行。 当解决方案部署到 Azure 时，该库使用托管标识切换到 OAuth 2.0 客户端凭据授予流。 此方法意味着可以对同一代码进行本地和远程测试，无需担心。
 
-对于本地开发，`AzureServiceTokenProvider` 使用 **Visual Studio**、**Azure 命令行界面** (CLI) 或 **Azure AD 集成身份验证**提取令牌。 将按顺序尝试每个选项，该库会使用获得成功的第一个选项。 如果没有选项成功，则会引发一个包含详细信息的 `AzureServiceTokenProviderException` 意外。
+对于本地开发，`AzureServiceTokenProvider` 使用 **Visual Studio** 、 **Azure 命令行界面** (CLI) 或 **Azure AD 集成身份验证** 提取令牌。 将按顺序尝试每个选项，该库会使用获得成功的第一个选项。 如果没有选项成功，则会引发一个包含详细信息的 `AzureServiceTokenProviderException` 意外。
 
 #### <a name="authenticating-with-visual-studio"></a>使用 Visual Studio 进行身份验证
 
@@ -89,7 +89,7 @@ ms.locfileid: "91970106"
 
 1. 登录到 Azure 门户：运行 *az login* 登录到 Azure。
 
-1. 通过输入 *az account get-help--resource https： \/ /vault.azure.net*验证访问权限。 如果收到错误，请检查是否正确安装了适当版本的 Azure CLI。
+1. 通过输入 *az account get-help--resource https： \/ /vault.azure.net* 验证访问权限。 如果收到错误，请检查是否正确安装了适当版本的 Azure CLI。
 
    如果未将 Azure CLI 安装到默认目录，则可能会收到错误，指出 `AzureServiceTokenProvider` 找不到 Azure CLI 的路径。 请使用 **AzureCLIPath** 环境变量来定义 Azure CLI 安装文件夹。 `AzureServiceTokenProvider` 在需要时将 **AzureCLIPath** 环境变量中指定的目录添加到 **Path** 环境变量。
 
@@ -101,7 +101,7 @@ ms.locfileid: "91970106"
 
 若要使用 Azure AD 身份验证，请验证：
 
-- 本地 Active Directory 是否已同步到 Azure AD。 有关详细信息，请参阅[什么是使用 Azure Active Directory 的混合标识？](../../active-directory/connect/active-directory-aadconnect.md)
+- 本地 Active Directory 是否已同步到 Azure AD。 有关详细信息，请参阅[什么是使用 Azure Active Directory 的混合标识？](../../active-directory/hybrid/whatis-hybrid-identity.md)
 
 - 代码是否在已加入域的计算机上运行。
 
@@ -167,7 +167,7 @@ ms.locfileid: "91970106"
           CertificateStoreLocation={CertificateStore}
     ```
 
-    将 {AppId}、{TenantId} 和 {Thumbprint} 替换为步骤 1 中生成的值。 根据部署计划，将 *{CertificateStore}* 替换为 *LocalMachine*` 或 *CurrentUser*。
+    将 {AppId}、{TenantId} 和 {Thumbprint} 替换为步骤 1 中生成的值。 根据部署计划，将 *{CertificateStore}* 替换为 *LocalMachine* ` 或 *CurrentUser* 。
 
 1. 运行应用程序。
 
@@ -217,7 +217,7 @@ ms.locfileid: "91970106"
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
     ```
 
-    例如，如果 Key Vault 名为 *myKeyVault*，而你创建了名为 *myCert* 的证书，则证书标识符为：
+    例如，如果 Key Vault 名为 *myKeyVault* ，而你创建了名为 *myCert* 的证书，则证书标识符为：
 
     ```azurecli
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
@@ -229,7 +229,7 @@ ms.locfileid: "91970106"
 
 - [Azure 资源的托管标识](../..//active-directory/managed-identities-azure-resources/overview.md)
 - Visual Studio 身份验证
-- [Azure CLI 身份验证](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Azure CLI 身份验证](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 - [集成 Windows 身份验证](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
 若要控制此过程，请使用传递到 `AzureServiceTokenProvider` 构造函数或在 AzureServicesAuthConnectionString 环境变量中指定的连接字符串。  可以使用以下选项：
@@ -262,7 +262,7 @@ ms.locfileid: "91970106"
 
 #### <a name="azure-cli-is-not-installed-youre-not-logged-in-or-you-dont-have-the-latest-version"></a>未安装 Azure CLI、未登录，或者未使用最新版本
 
-运行 *az account get-access-token*，确定 Azure CLI 是否显示令牌。 如果输出中显示 **no such program found**，请安装[最新版本的 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 系统可能会提示你登录。
+运行 *az account get-access-token* ，确定 Azure CLI 是否显示令牌。 如果输出中显示 **no such program found** ，请安装 [最新版本的 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 系统可能会提示你登录。
 
 #### <a name="azureservicetokenprovider-cant-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider 找不到 Azure CLI 的路径
 
@@ -270,13 +270,13 @@ AzureServiceTokenProvider 在默认安装位置查找 Azure CLI。 如果找不�
 
 #### <a name="youre-logged-into-azure-cli-using-multiple-accounts-the-same-account-has-access-to-subscriptions-in-multiple-tenants-or-you-get-an-access-denied-error-when-trying-to-make-calls-during-local-development"></a>使用多个帐户登录到了 Azure CLI、同一个帐户有权访问多个租户中的订阅，或者在本地开发期间尝试发出调用时收到“拒绝访问”错误
 
-使用 Azure CLI 将默认订阅设置为包含所要使用的帐户的订阅。 该订阅必须位于你要访问的资源所在的同一租户中：**az account set --subscription [订阅 ID]** 。 如果未显示任何输出，则表示命令成功。 使用 **az account list** 验证适当的帐户现在是否为默认帐户。
+使用 Azure CLI 将默认订阅设置为包含所要使用的帐户的订阅。 该订阅必须位于你要访问的资源所在的同一租户中： **az account set --subscription [订阅 ID]** 。 如果未显示任何输出，则表示命令成功。 使用 **az account list** 验证适当的帐户现在是否为默认帐户。
 
 ### <a name="common-issues-across-environments"></a>环境中出现的常见问题
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>未授权访问、访问被拒绝、禁止访问或类似错误
 
-使用的主体无法访问其尝试访问的资源。 为你的用户帐户或应用服务的 MSI 授予对资源的“参与者”访问权限。 向哪个主体授予此权限取决于是在本地计算机上运行示例，还是在 Azure 中将示例部署到应用服务。 某些资源（例如 Key Vault）还具有自身的[访问策略](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies)，可以使用这些策略向用户、应用和组等主体授予访问权限。
+使用的主体无法访问其尝试访问的资源。 为你的用户帐户或应用服务的 MSI 授予对资源的“参与者”访问权限。 向哪个主体授予此权限取决于是在本地计算机上运行示例，还是在 Azure 中将示例部署到应用服务。 某些资源（例如 Key Vault）还具有自身的[访问策略](./secure-your-key-vault.md#data-plane-and-access-policies)，可以使用这些策略向用户、应用和组等主体授予访问权限。
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>部署到 Azure 应用服务后出现的常见问题
 
@@ -289,11 +289,11 @@ AzureServiceTokenProvider 在默认安装位置查找 Azure CLI。 如果找不�
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>在 IIS 中调试应用时无法检索令牌
 
 默认情况下，AppAuth 在 IIS 的不同用户上下文中运行。 正因如此，它无权使用你的开发人员标识来检索访问令牌。 可通过以下两个步骤，将 IIS 配置为在你的用户上下文中运行：
-- 将 Web 应用的应用程序池配置为以当前用户帐户身份运行。 请在[此处](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)查看详细信息
-- 将“setProfileEnvironment”配置为“True”。 请在[此处](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)查看详细信息。 
+- 将 Web 应用的应用程序池配置为以当前用户帐户身份运行。 请在[此处](/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)查看详细信息
+- 将“setProfileEnvironment”配置为“True”。 请在[此处](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)查看详细信息。 
 
     - 转到 %windir%\System32\inetsrv\config\applicationHost.config
     - 搜索“setProfileEnvironment”。 如果它设置为“False”，请更改为“True”。 如果该属性不存在，请将其作为属性添加到 processModel 元素 (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment) ，并将其设置为 "True"。
 
 - 详细了解 [Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/index.yml)。
-- 详细了解 [Azure AD 身份验证方案](../../active-directory/develop/active-directory-authentication-scenarios.md)。
+- 详细了解 [Azure AD 身份验证方案](../../active-directory/develop/authentication-vs-authorization.md)。

@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789176"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289237"
 ---
-# <a name="continuously-export-security-center-data"></a>持续导出安全中心数据
+# <a name="continuously-export-security-center-data"></a>连续导出安全中心数据
 
 Azure 安全中心会生成详细的安全警报和建议。 可以通过门户或编程工具查看它们。 你可能还需要导出部分或全部信息，以便与环境中的其他监视工具进行跟踪。 
 
@@ -41,7 +41,7 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
 |发布状态：|正式发布 (GA)|
 |定价：|免费|
 |所需角色和权限：|<ul><li>资源组上的 **安全管理员** 或 **所有者**</li><li>目标资源的写入权限</li><li>如果你使用下面所述的 Azure 策略 "DeployIfNotExist" 策略，你还需要分配策略的权限</li></ul>|
-|云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) US Gov<br>![是](./media/icons/yes-icon.png) 中国 Gov (到事件中心) ，其他 Gov|
+|云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) US Gov，其他 Gov<br>![是](./media/icons/yes-icon.png) 中国 Gov (到事件中心) |
 |||
 
 
@@ -124,9 +124,20 @@ API 提供了 Azure 门户中没有的其他功能，例如：
     > [!TIP]
     > 还可以通过搜索 Azure 策略来查找这些内容：
     > 1. 打开 Azure 策略。
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="在连续导出配置中包括安全结果开关" **分配** "。
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="在连续导出配置中包括安全结果开关" 选项卡 (1) 提供对类似配置选项的访问，如安全中心的连续导出页面 (2) 。
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="在连续导出配置中包括安全结果开关" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="访问 Azure 策略":::
+    > 2. 在 "Azure 策略" 菜单中，选择 "定义" 并按名称搜索这些 **定义** 。 
+
+1. 在相关的 Azure 策略页中，选择 " **分配** "。
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="分配 Azure 策略":::
+
+1. 打开每个选项卡，并根据需要设置参数：
+    1. 在 " **基本** 信息" 选项卡中，设置策略的作用域。 若要使用集中管理，请将策略分配给包含将使用连续导出配置的订阅的管理组。 
+    1. 在 " **参数** " 选项卡中，设置资源组和数据类型详细信息。 
+        > [!TIP]
+        > 每个参数都有一个工具提示，其中说明了可供您使用的选项。
+        >
+        > Azure 策略的 "参数" 选项卡 (1) 提供对类似配置选项的访问，如安全中心的连续导出页面 (2) 。
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="比较连续导出和 Azure 策略中的参数" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. （可选）若要将此分配应用于现有订阅，请打开 " **修正** " 选项卡，然后选择用于创建修正任务的选项。
 1. 查看 "摘要" 页，然后选择 " **创建** "。
 
@@ -196,7 +207,7 @@ Azure Monitor 提供了一种统一的警报体验，包括诊断日志、指标
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>导出是否包含有关所有资源的当前状态的数据？
 
-否。 为 **事件** 流式处理生成连续导出：
+不能。 为 **事件** 流式处理生成连续导出：
 
 - 不会导出启用导出之前收到的 **警报** 。
 - 只要资源的符合性状态发生变化，就会发送 **建议** 。 例如，当某个资源的状态从正常变为不正常时。 因此，与警报一样，对尚未更改状态的资源的建议不会被导出。

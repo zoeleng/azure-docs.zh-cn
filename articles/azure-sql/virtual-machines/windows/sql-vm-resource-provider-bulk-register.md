@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761254"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286075"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中将多个 SQL 虚拟机注册到 SQL VM 资源提供程序
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-本文介绍如何在 Azure 中使用 `Register-SqlVMs` PowerShell cmdlet 将 SQL Server 虚拟机 (VM) 批量注册到 SQL VM 资源提供程序。
+本文介绍如何在 Azure 中使用 `Register-SqlVMs` PowerShell cmdlet 将 SQL Server 虚拟机 (VM) 批量注册到 SQL VM 资源提供程序。 向 SQL VM 资源提供程序注册会安装 [Sql IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。
 
 本文介绍如何批量注册 SQL Server Vm。 或者，你可以 [自动注册所有 SQL Server vm](sql-vm-resource-provider-automatic-registration.md) 或 [单个 SQL Server vm](sql-vm-resource-provider-register.md)。 
 
@@ -33,14 +33,14 @@ ms.locfileid: "91761254"
 
 注册过程没有风险，没有停机时间，也不会重启 SQL Server 或虚拟机。 
 
-有关资源提供程序的详细信息，请参阅 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。 
+有关详细信息，请参阅 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。 
 
 ## <a name="prerequisites"></a>先决条件
 
 若要将 SQL Server VM 注册到资源提供程序，需要以下内容： 
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)，该订阅已[注册到资源提供程序](sql-vm-resource-provider-register.md#register-subscription-with-rp)并包含未注册的 SQL Server 虚拟机。 
-- 用于注册虚拟机的客户端凭据位于以下任何 Azure 角色中： " **虚拟机参与者**"、" **参与者**" 或 " **所有者**"。 
+- 用于注册虚拟机的客户端凭据位于以下任何 Azure 角色中： " **虚拟机参与者** "、" **参与者** " 或 " **所有者** "。 
 - [Az PowerShell](/powershell/azure/new-azureps-module-az) 的最新版本。 
 - [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0) 的最新版本。
 
@@ -227,7 +227,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 使用提供的脚本向资源提供程序注册 SQL Server VM 时，请考虑以下事项：
 
-- 向资源提供程序注册时需要在 SQL Server VM 上运行的来宾代理。 Windows Server 2008 映像没有来宾代理，因此这些虚拟机将失败，并且必须使用 [NoAgent 管理模式](sql-vm-resource-provider-register.md#management-modes)手动注册。
+- 向资源提供程序注册时需要在 SQL Server VM 上运行的来宾代理。 Windows Server 2008 映像没有来宾代理，因此这些虚拟机将失败，并且必须使用 [NoAgent 管理模式](sql-server-iaas-agent-extension-automate-management.md#management-modes)手动注册。
 - 可使用内置重试逻辑来克服透明错误。 如果虚拟机已成功注册，则它是一种快速操作。 但是，如果注册失败，则将重试每个虚拟机。  因此，虽然实际时间要求取决于错误的类型和数量，但你应留出大量时间来完成注册过程。 
 
 ## <a name="full-script"></a>完整脚本

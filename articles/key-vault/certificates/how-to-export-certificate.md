@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233961"
+ms.locfileid: "93289555"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>从 Azure Key Vault 中导出证书
 
@@ -23,11 +23,11 @@ ms.locfileid: "93233961"
 
 ## <a name="about-azure-key-vault-certificates"></a>关于 Azure Key Vault 证书
 
-使用 Azure Key Vault，你可以轻松地为网络预配、管理和部署数字证书。 它还能使应用程序之间进行安全的通信。 有关详细信息，请参阅 [Azure Key Vault 证书](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates)。
+使用 Azure Key Vault，你可以轻松地为网络预配、管理和部署数字证书。 它还能使应用程序之间进行安全的通信。 有关详细信息，请参阅 [Azure Key Vault 证书](./about-certificates.md)。
 
 ### <a name="composition-of-a-certificate"></a>证书的组成部分
 
-创建 Key Vault 证书时，还会创建具有相同名称的可寻址密钥和机密 。 Key Vault 密钥允许密钥操作。 Key Vault 机密允许以机密的形式检索证书值。 Key Vault 证书还包含公共 x509 证书元数据。 有关详细信息，请参阅[证书的组成部分](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)。
+创建 Key Vault 证书时，还会创建具有相同名称的可寻址密钥和机密 。 Key Vault 密钥允许密钥操作。 Key Vault 机密允许以机密的形式检索证书值。 Key Vault 证书还包含公共 x509 证书元数据。 有关详细信息，请参阅[证书的组成部分](./about-certificates.md#composition-of-a-certificate)。
 
 ### <a name="exportable-and-non-exportable-keys"></a>可导出和不可导出的密钥
 
@@ -36,9 +36,9 @@ ms.locfileid: "93233961"
 - **可导出** ：用于创建证书的策略指示密钥可导出。
 - **不可导出** ：用于创建证书的策略指示密钥不可导出。 在这种情况下，当以机密的形式进行检索时，私钥不是值的一部分。
 
-支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM 等（参见[此处](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)）“可导出”状态仅与 RSA 和 EC 一起使用。 HSM 密钥不可导出。
+支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM 等（参见[此处](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)）“可导出”状态仅与 RSA 和 EC 一起使用。 HSM 密钥不可导出。
 
-有关详细信息，请参阅[关于 Azure Key Vault 证书](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key)。
+有关详细信息，请参阅[关于 Azure Key Vault 证书](./about-certificates.md#exportable-or-non-exportable-key)。
 
 ## <a name="export-stored-certificates"></a>导出存储的证书
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-有关详细信息，请查看[示例和参数定义](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download)。
+有关详细信息，请查看[示例和参数定义](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download)。
 
 作为证书下载意味着获取公共部分。 如果同时需要私钥和公共元数据，可以将其作为机密下载。
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-有关详细信息，请参阅[参数定义](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)。
+有关详细信息，请参阅[参数定义](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -102,7 +102,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 此命令使用私钥导出整个证书链。 证书受密码保护。
-有关 Get-AzKeyVaultCertificate 命令和参数的详细信息，请参阅 [Get-AzKeyVaultCertificate - 示例 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0)。
+有关 Get-AzKeyVaultCertificate 命令和参数的详细信息，请参阅 [Get-AzKeyVaultCertificate - 示例 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0)。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
@@ -121,4 +121,4 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ---
 
 ## <a name="read-more"></a>了解详细信息
-* [各种证书文件类型和定义](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
+* [各种证书文件类型和定义](/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)

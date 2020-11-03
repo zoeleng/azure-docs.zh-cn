@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786490"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289412"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure VM 上的 SQL Server 常见问题解答
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -175,9 +175,9 @@ ms.locfileid: "92786490"
 
    如果决定卸载默认实例，还要卸载 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 
 
-1. 是否可以使用带有 IaaS 扩展名的 SQL Server 的命名实例？
+1. **是否可以将 SQL Server 的命名实例与 IaaS 扩展一起使用？**
    
-   可以，只要指定的实例是 SQL Server 上的唯一实例，且原始默认实例[已正确卸载](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance)。 如果没有默认实例，但是单个 SQL Server VM 上有多个命名实例，则 SQL Server IaaS 代理扩展将无法安装。 
+   可以，只要指定的实例是 SQL Server 上的唯一实例，且原始默认实例[已正确卸载](sql-server-iaas-agent-extension-automate-management.md#named-instance-support)。 如果没有默认实例，但是单个 SQL Server VM 上有多个命名实例，则 SQL Server IaaS 代理扩展将无法安装。  
 
 1. **是否可以从 SQL Server VM 中删除 SQL Server 和关联的许可证帐单？**
 
@@ -210,7 +210,7 @@ ms.locfileid: "92786490"
 
 1. 是否可以在向 SQL Server 虚拟机资源提供程序注册 SQL Server 2008/2008 R2 实例后升级它？
 
-   是的。 可以使用任何安装媒体来升级 SQL Server 的版本，然后可以将 [SQL IaaS 扩展模式](sql-vm-resource-provider-register.md#management-modes)从“无代理”升级到“完整” 。 这样做可以获得 SQL IaaS 扩展的所有优势，如门户可管理性、自动备份和自动修补。 
+   如果操作系统为 Windows Server 2008 R2 或更高版本，则是。 可以使用任何安装媒体来升级 SQL Server 的版本，然后可以将 [SQL IaaS 扩展模式](sql-server-iaas-agent-extension-automate-management.md#management-modes)从“无代理”升级到“完整” 。 这样做可以获得 SQL IaaS 扩展的所有优势，如门户可管理性、自动备份和自动修补。 如果操作系统版本为 Windows Server 2008，则仅支持 NoAgent 模式。 
 
 1. **如何获取终止支持的 SQL Server 2008 和 SQL Server 2008 R2 实例的免费扩展安全更新？**
 

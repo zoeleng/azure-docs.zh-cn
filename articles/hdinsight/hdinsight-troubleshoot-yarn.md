@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535019"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288975"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop YARN 进行故障排除
 
@@ -28,11 +28,11 @@ ms.locfileid: "92535019"
 
 | 队列 | 容量 | 最大容量 |
 | --- | --- | --- |
-| 默认值 | 25% | 50% |
+| default | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |
 
-1. 依次选择“Abari 视图”图标和网格模式。  接下来，选择“YARN 队列管理器”。 
+1. 依次选择“Abari 视图”图标和网格模式。 接下来，选择“YARN 队列管理器”。
 
     ![Apache Ambari 仪表板 YARN 队列管理器](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. 选择 **default** 队列。
@@ -41,7 +41,7 @@ ms.locfileid: "92535019"
 3. 将 **default** 队列的 **容量** 从 50% 更改为 25%。 将 **thriftsvr** 队列的 **容量** 更改为 25%。
 
     ![将 default 和 thriftsvr 队列的容量更改为 25%](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. 若要创建新队列，请选择“添加队列”。 
+4. 若要创建新队列，请选择“添加队列”。
 
     ![Apache Ambari YARN 仪表板添加队列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -49,10 +49,10 @@ ms.locfileid: "92535019"
 
     ![Apache Ambari YARN 仪表板名称队列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
-6. 将 
+6. 将 **容量** 值保留为 50%，并选择“操作”按钮。
 
     ![Apache Ambari YARN 选择操作](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. 选择“保存并刷新队列”。 
+7. 选择“保存并刷新队列”。
 
     ![选择“保存并刷新队列”](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -136,10 +136,4 @@ YARN 计划程序 UI 中会立即显示这些更改。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
-
-- 通过 [Azure 社区支持](https://azure.microsoft.com/support/community/)获取 Azure 专家的解答。
-
-- 联系 [@AzureSupport](https://twitter.com/azuresupport)，这是用于改进客户体验的官方 Microsoft Azure 帐户。 它可以将 Azure 社区成员连接到适当的资源，为他们提供解答、支持和专家建议。
-
-- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

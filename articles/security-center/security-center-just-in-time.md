@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342376"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289206"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>使用实时访问保护管理端口
 
@@ -53,11 +53,11 @@ ms.locfileid: "92342376"
 
 ### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>从 Azure 安全中心对 VM 启用 JIT <a name="jit-asc"></a>
 
-:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="在 Azure 安全中心配置 JIT VM 访问&quot;:::
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="在 Azure 安全中心配置 JIT VM 访问":::
 
 可以从安全中心启用和配置 JIT VM 访问。
 
-1. 打开 Azure Defender 仪表板，并从 &quot;高级保护&quot; 区域中选择 " **实时 VM 访问**"。
+1. 打开 Azure Defender 仪表板，并从 "高级保护" 区域中选择 " **实时 VM 访问** "。
 
     此时会打开“实时 VM 访问”页，你的 VM 会分组到以下多个选项卡中：
 
@@ -107,7 +107,7 @@ ms.locfileid: "92342376"
 
 若要编辑 VM 的现有 JIT 规则，请执行以下操作：
 
-1. 打开 Azure Defender 仪表板，并从 "高级保护" 区域中选择 " **自适应应用程序控件**"。
+1. 打开 Azure Defender 仪表板，并从 "高级保护" 区域中选择 " **自适应应用程序控件** "。
 
 1. 在“已配置”选项卡上，右键单击要向其添加端口的 VM，然后选择“编辑”。 
 
@@ -184,13 +184,13 @@ ms.locfileid: "92342376"
         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"},
              @{
              number=3389;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
     ```
 
@@ -241,11 +241,7 @@ ms.locfileid: "92342376"
 
 如果 VM 启用了 JIT，则必须请求连接到它所需的访问权限。 不管你启用 JIT 的方式如何，你都可以通过任何受支持的方式请求访问权限。
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="在 Azure 安全中心配置 JIT VM 访问&quot;:::
-
-可以从安全中心启用和配置 JIT VM 访问。
-
-1. 打开 Azure Defender 仪表板，并从 &quot;高级保护&quot; 区域中选择 ":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="从安全中心请求 JIT 访问权限":::
 
 1. 从“实时 VM 访问”页选择“已配置”选项卡。 
 
@@ -255,11 +251,11 @@ ms.locfileid: "92342376"
 
     - “连接详细信息”列提供连接 VM 所需的信息，及其打开的端口。
 
-1. 选择“请求访问权限”。**** 此时会打开“请求访问”窗口。
+1. 选择“请求访问权限”。 此时会打开“请求访问”窗口。
 
 1. 在“请求访问”下，为每个 VM 配置要打开的端口、要为其打开该端口的源 IP 地址以及将打开该端口的时间范围。 只能请求访问已配置的端口。 每个端口都有一个从已创建的 JIT 配置派生的最大允许时间。
 
-1. 选择“打开端口”。****
+1. 选择“打开端口”。
 
 > [!NOTE]
 > 如果请求访问的用户使用代理，则“我的 IP”选项可能无法使用。 可能需要定义组织的完整 IP 地址范围。

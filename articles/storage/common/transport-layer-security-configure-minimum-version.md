@@ -10,12 +10,12 @@ ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785793"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289452"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>为存储帐户请求强制执行最低要求的传输层安全性版本 (TLS) 
 
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 结果显示了每个 TLS 版本发出的请求数的计数：
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="显示如何为日志记录请求创建诊断设置的屏幕截图":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="显示要返回 TLS 版本的 log analytics 查询结果的屏幕截图":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>按调用方 IP 地址和用户代理标头查询记录的请求
 
@@ -89,7 +89,9 @@ StorageBlobLogs
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>为存储帐户配置最低 TLS 版本
 
-若要为存储帐户配置最低 TLS 版本，请设置帐户的 **MinimumTlsVersion** 版本。 此属性适用于使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关 Azure 资源管理器部署模型的详细信息，请参阅 [存储帐户概述](storage-account-overview.md)。
+若要为存储帐户配置最低 TLS 版本，请设置帐户的 **MinimumTlsVersion** 版本。 此属性可用于在 Azure 公有云中或 Azure 政府云中使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关 Azure 资源管理器部署模型的详细信息，请参阅 [存储帐户概述](storage-account-overview.md)。
+
+默认情况下， **MinimumTlsVersion** 属性不会设置，并且不会返回值，除非你显式设置该值。  如果该属性值为 **null** ，则存储帐户将允许用 TLS 版本1.0 或更高版本发送的请求。
 
 # <a name="portal"></a>[门户](#tab/portal)
 
@@ -101,13 +103,11 @@ StorageBlobLogs
 1. 选择 **配置** 设置。
 1. 在 " **最低 tls 版本** " 下，使用下拉选择访问此存储帐户中的数据所需的最低 tls 版本，如下图所示。
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="显示如何为日志记录请求创建诊断设置的屏幕截图":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="显示如何在 Azure 门户中配置 TLS 的最低版本的屏幕截图":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 若要使用 PowerShell 配置存储帐户的最低 TLS 版本，请安装 [Azure PowerShell 版本 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 或更高版本。 接下来，为新的或现有的存储帐户配置 **MinimumTLSVersion** 属性。 **MinimumTlsVersion** 的有效值为 `TLS1_0` 、 `TLS1_1` 和 `TLS1_2` 。
-
-使用 PowerShell 创建存储帐户时，默认情况下不会设置 **MinimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null** ，则存储帐户允许以 TLS 版本1.0 或更高版本发送的请求。
 
 以下示例创建了一个存储帐户并将 **MinimumTLSVersion** 设置为 tls 1.1，然后更新该帐户并将 **MINIMUMTLSVERSION** 设置为 tls 1.2。 该示例还检索每个事例中的属性值。 请记住，用自己的值替换括号中的占位符值：
 
@@ -138,8 +138,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 若要为具有 Azure CLI 的存储帐户配置最低 TLS 版本，请安装 Azure CLI 2.9.0 或更高版本。 有关详细信息，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 接下来，为新的或现有的存储帐户配置 **minimumTlsVersion** 属性。 **MinimumTlsVersion** 的有效值为 `TLS1_0` 、 `TLS1_1` 和 `TLS1_2` 。
-
-创建 Azure CLI 的存储帐户时，默认情况下不会设置 **minimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null** ，则存储帐户允许以 TLS 版本1.0 或更高版本发送的请求。
 
 以下示例创建了一个存储帐户，并将 **minimumTLSVersion** 设置为 TLS 1.1。 然后更新帐户并将 **minimumTLSVersion** 属性设置为 TLS 1.2。 该示例还检索每个事例中的属性值。 请记住，用自己的值替换括号中的占位符值：
 
@@ -237,7 +235,7 @@ resources
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>使用 Azure 策略审核符合性
 
-如果有大量存储帐户，则可能需要执行审核，以确保所有帐户都配置为组织所需的最小 TLS 版本。 若要审核一组存储帐户的符合性，请使用 Azure 策略。 Azure 策略是一种服务，可用于创建、分配和管理将规则应用于 Azure 资源的策略。 Azure 策略可帮助确保这些资源符合公司标准和服务级别协议。 有关详细信息，请参阅 [Azure Policy 概述](../../governance/policy/overview.md)。
+如果有大量存储帐户，则可能需要执行审核，以确保所有帐户都配置为组织所需的最小 TLS 版本。 若要审核一组存储帐户的符合性，请使用 Azure 策略。 Azure Policy 是一项服务，可用于创建、分配和管理将规则应用于 Azure 资源的策略。 Azure 策略可帮助确保这些资源符合公司标准和服务级别协议。 有关详细信息，请参阅 [Azure Policy 概述](../../governance/policy/overview.md)。
 
 ### <a name="create-a-policy-with-an-audit-effect"></a>创建具有审核效果的策略
 
@@ -304,7 +302,7 @@ Azure 策略支持确定对资源评估策略规则时会发生什么情况的�
 1. 筛选在上一步中创建的策略分配名称的结果。 该报表显示不符合策略的资源数量。
 1. 你可以向下钻取到报表以获取更多详细信息，包括不合规的存储帐户的列表。
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="显示如何为日志记录请求创建诊断设置的屏幕截图":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="显示最低 TLS 版本的审核策略的相容性报告的屏幕截图":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>使用 Azure 策略强制实施最低 TLS 版本
 
@@ -340,7 +338,7 @@ Azure 策略通过确保 Azure 资源符合要求和标准来支持云监管。 
 
 下图显示了在以下情况下发生的错误：尝试使用设置为 TLS 1.0 的最小 TLS 版本创建存储帐户 (新帐户的默认值) 如果策略具有拒绝效果，则需要将最低 TLS 版本设置为 TLS 1.2。
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="显示如何为日志记录请求创建诊断设置的屏幕截图":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="显示在违反策略时创建存储帐户时出现的错误的屏幕截图":::
 
 ## <a name="network-considerations"></a>网络注意事项
 

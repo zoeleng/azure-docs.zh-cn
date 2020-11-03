@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972027"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289350"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure 托管磁盘简介
 
@@ -59,7 +59,7 @@ Azure 托管磁盘是由 Azure 托管并与 Azure 虚拟机配合使用的块级
 
 ### <a name="private-links"></a>专用链接
 
-目前已以预览版形式提供对托管磁盘的专用链接支持，你可使用该链接在你网络的内部导入或导出托管磁盘。 通过专用链接，可以为未连接的托管磁盘和快照生成有时间限制的共享访问签名 (SAS) URI，将数据导出到其他区域以进行区域扩展、灾难恢复和取证分析。 还可以使用 SAS URI 将 VHD 从本地直接上传到空磁盘。 现在，可以利用[专用链接](../private-link/private-link-overview.md)将托管磁盘的导出和导入限制于 Azure 虚拟网络。 通过专用链接，可以确保数据仅在安全的 Microsoft 骨干网络内传输。
+对托管磁盘的私有链接支持可用于导入或导出网络内部的托管磁盘。 通过专用链接，可以为未连接的托管磁盘和快照生成有时间限制的共享访问签名 (SAS) URI，将数据导出到其他区域以进行区域扩展、灾难恢复和取证分析。 还可以使用 SAS URI 将 VHD 从本地直接上传到空磁盘。 现在，可以利用[专用链接](../private-link/private-link-overview.md)将托管磁盘的导出和导入限制于 Azure 虚拟网络。 通过专用链接，可以确保数据仅在安全的 Microsoft 骨干网络内传输。
 
 若要了解如何启用专用链接以导入或导出托管磁盘，请参阅 [CLI](linux/disks-export-import-private-links-cli.md) 或[门户](disks-enable-private-links-for-import-export-portal.md)文章。
 

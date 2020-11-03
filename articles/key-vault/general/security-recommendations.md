@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96df14fb754578b58fb67ac116ac79cff3ffdcb
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386752"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289852"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Azure Key Vault 安全建议
 
@@ -24,7 +24,7 @@ ms.locfileid: "87386752"
 包含在本文中的某些建议可能受 Azure 安全中心的自动监视。 在保护你在 Azure 中的资源方面，Azure 安全中心是第一道防线。 它定期分析 Azure 资源的安全状态，以识别潜在的安全漏洞。 然后向你提供有关如何解决这些安全漏洞的建议。
 
 - 有关 Azure 安全中心建议的详细信息，请参阅 [Azure 安全中心的安全性建议](../../security-center/security-center-recommendations.md)。
-- 有关 Azure 安全中心的信息，请参阅[什么是 Azure 安全中心？](../../security-center/security-center-intro.md)
+- 有关 Azure 安全中心的信息，请参阅[什么是 Azure 安全中心？](../../security-center/security-center-introduction.md)
 
 ## <a name="data-protection"></a>数据保护
 
@@ -54,4 +54,4 @@ ms.locfileid: "87386752"
 
 ## <a name="next-steps"></a>后续步骤
 
-咨询你的应用程序提供商，以确定是否还要满足其他安全要求。 有关开发安全的应用程序的详细信息，请参阅[安全开发文档](../../security/fundamentals/abstract-develop-secure-apps.md)。
+咨询你的应用程序提供商，以确定是否还要满足其他安全要求。 有关开发安全的应用程序的详细信息，请参阅[安全开发文档](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)。

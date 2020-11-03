@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792474"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289304"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server 故障转移群集实例 (FCI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -149,7 +149,7 @@ Azure 虚拟机上的 SQL Server 故障转移群集实例使用[分布式网络�
 使用 Azure 虚拟机上的 SQL Server 故障转移群集实例时，请考虑以下限制。 
 
 ### <a name="lightweight-resource-provider"></a>轻量级资源提供程序   
-目前，仅支持将 Azure 虚拟机上的 SQL Server 故障转移群集实例用于 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)的[轻型管理模式](sql-vm-resource-provider-register.md#management-modes)。 要从完全扩展模式更改为轻型模式，请先删除相应 VM 的 SQL 虚拟机资源，再在轻型模式下向 SQL VM 资源提供程序注册它们。 使用 Azure 门户删除 SQL 虚拟机资源时，请取消勾选相应虚拟机旁边的复选框。 
+目前，仅支持将 Azure 虚拟机上的 SQL Server 故障转移群集实例用于 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)的[轻型管理模式](sql-server-iaas-agent-extension-automate-management.md#management-modes)。 要从完全扩展模式更改为轻型模式，请先删除相应 VM 的 SQL 虚拟机资源，再在轻型模式下向 SQL VM 资源提供程序注册它们。 使用 Azure 门户删除 SQL 虚拟机资源时，请取消勾选相应虚拟机旁边的复选框。 
 
 完全扩展支持自动备份、修补和高级门户管理等功能。 在轻型管理模式中重新安装代理后，这些功能将不适用于 SQL Server VM。
 

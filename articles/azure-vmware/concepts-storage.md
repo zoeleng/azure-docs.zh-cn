@@ -2,13 +2,13 @@
 title: 概念-存储
 description: 了解 Azure VMware 解决方案私有云中的主要存储功能。
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316811"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289254"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Azure VMware 解决方案存储概念
 
@@ -28,7 +28,7 @@ Azure VMware 解决方案私有云提供了本机的群集范围内的群集存�
 
 ## <a name="data-at-rest-encryption"></a>静态数据加密
 
-默认情况下，vSAN 数据存储使用静态数据加密。 加密解决方案基于 KMS，并支持用于密钥管理的 vCenter 操作。 密钥以加密方式存储，并由基于 HSM 的 Azure Key Vault 主密钥包装。 出于任何原因从群集中删除主机时，Ssd 上的数据会立即失效。
+默认情况下，vSAN 数据存储使用静态数据加密。 加密解决方案基于 KMS，并支持用于密钥管理的 vCenter 操作。 密钥以加密方式存储，由 Azure Key Vault 主密钥包装。 出于任何原因从群集中删除主机时，Ssd 上的数据会立即失效。
 
 ## <a name="scaling"></a>扩展
 

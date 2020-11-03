@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: d9881fe91885a9a97b51da176be98a9ed6d007ba
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900760"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285215"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 资源提供程序操作
 
@@ -843,7 +843,6 @@ Azure 服务： [应用程序网关](../application-gateway/index.yml)， [azure
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/read | 获取 Azure 防火墙 NetworkRuleCollection |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/write | 创建或更新 Azure 防火墙 NetworkRuleCollection |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/delete | 删除 Azure 防火墙 NetworkRuleCollection |
-> | AzureWebCategories/read | 获取 Azure WebCategories |
 > | Microsoft.Network/bastionHosts/read | 获取守护主机 |
 > | Microsoft.Network/bastionHosts/write | 创建或更新守护主机 |
 > | Microsoft.Network/bastionHosts/delete | 删除守护主机 |
@@ -1243,8 +1242,6 @@ Azure 服务： [应用程序网关](../application-gateway/index.yml)， [azure
 > | Microsoft.Network/virtualHubs/bgpConnections/read | 获取虚拟中心的中心 Bgp 连接子资源 |
 > | Microsoft.Network/virtualHubs/bgpConnections/write | 创建或更新虚拟中心的中心 Bgp 连接子资源 |
 > | Microsoft.Network/virtualHubs/bgpConnections/delete | 删除虚拟中心的中心 Bgp 连接子资源 |
-> | VirtualHubs/bgpConnections/advertisedRoutes/action | 获取 virtualrouter 播发路由 |
-> | VirtualHubs/bgpConnections/learnedRoutes/action | 获取 virtualrouter 获知的路由 |
 > | Microsoft.Network/virtualHubs/hubRouteTables/read | 获取虚拟中心的路由表子资源 |
 > | Microsoft.Network/virtualHubs/hubRouteTables/write | 创建或更新虚拟中心的路由表子资源 |
 > | Microsoft.Network/virtualHubs/hubRouteTables/delete | 删除虚拟中心的路由表子资源 |
@@ -1332,9 +1329,6 @@ Azure 服务： [应用程序网关](../application-gateway/index.yml)， [azure
 > | microsoft.network/vpngateways/startpacketcapture/action | 使用相应资源启动 VPN 网关数据包捕获 |
 > | microsoft.network/vpngateways/stoppacketcapture/action | 使用 sasURL 停止 VPN 网关数据包捕获 |
 > | microsoft.network/vpngateways/listvpnconnectionshealth/action | 获取某个 VpnGateway 上的所有或一部分连接的连接运行状况 |
-> | vpnGateways/natRules/read | 获取 NAT 规则资源 |
-> | vpnGateways/natRules/write | 放置 NAT 规则资源 |
-> | vpnGateways/natRules/delete | 删除 NAT 规则资源 |
 > | microsoft.network/vpnGateways/vpnConnections/read | 获取 VpnConnection。 |
 > | microsoft.network/vpnGateways/vpnConnections/write | 放置 VpnConnection。 |
 > | microsoft.network/vpnGateways/vpnConnections/delete | 删除 VpnConnection。 |
@@ -1522,6 +1516,7 @@ Azure 服务：[存储](../storage/index.yml)
 > | Microsoft.Storage/locations/usages/read | 返回指定订阅中的资源的限制和当前使用计数 |
 > | Microsoft.Storage/operations/read | 轮询异步操作的状态。 |
 > | Microsoft.Storage/skus/read | 列出 Microsoft.Storage 支持的 SKU。 |
+> | StorageAccounts/updateInternalProperties/action |  |
 > | StorageAccounts/hnsonmigration/action | 客户能够在存储帐户上中止正在进行的 Hns 迁移 |
 > | StorageAccounts/hnsonmigration/action | 客户能够迁移到 hns 帐户类型 |
 > | Microsoft.Storage/storageAccounts/restoreBlobRanges/action | 将 Blob 范围还原到指定时间的状态 |
@@ -1572,6 +1567,7 @@ Azure 服务：[存储](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/fileServices/shares/read | 列出文件共享 |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/write | 创建或更新文件共享 |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/delete |  |
+> | Microsoft.Storage/storageAccounts/inventoryPolicies/read |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/read |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/write |  |
 > | Microsoft.Storage/storageAccounts/localUsers/delete | 删除本地用户 |
@@ -2128,18 +2124,19 @@ Azure 服务：[Azure SignalR 服务](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/SignalR/privateEndpointConnections/read | 读取专用终结点连接 |
 > | Microsoft.SignalRService/SignalR/privateLinkResources/read | 列出所有 SignalR 专用链接资源 |
 > | **DataAction** | **说明** |
-> | Microsoft.SignalRService/SignalR/serverConnection/action | 启动服务器连接。 |
-> | Microsoft.SignalRService/SignalR/clientConnection/action | 在组中添加/删除客户端连接，或关闭客户端连接。 |
-> | Microsoft.SignalRService/SignalR/user/action | 在组中添加/删除用户。 |
-> | Microsoft.SignalRService/SignalR/clientConnection/read | 检查连接是否存在。 |
-> | Microsoft.SignalRService/SignalR/clientConnection/write | 将消息直接发送到客户端连接。 |
-> | Microsoft.SignalRService/SignalR/group/read | 检查组是否存在。 |
-> | Microsoft.SignalRService/SignalR/group/write | 将消息广播到某个组/某些组中的客户端连接。 |
-> | Microsoft.SignalRService/SignalR/hub/write | 将消息广播到连接到此中心的所有客户端连接。 |
-> | Microsoft.SignalRService/SignalR/service/accessKey/action | 获取用于为客户端令牌签名的临时访问密钥。 |
-> | Microsoft.SignalRService/SignalR/service/clientToken/action | 获取用于启动客户端连接的客户端令牌。 |
-> | Microsoft.SignalRService/SignalR/user/read | 检查用户是否存在以及是否位于某个组中。 |
-> | Microsoft.SignalRService/SignalR/user/write | 将消息发送给可能有多个客户端连接的用户。 |
+> | SignalRService/SignalR/authentication/accessKey/action | 生成临时 AccessKey 以便对 ClientTokens 进行签名。 |
+> | SignalRService/SignalR/authentication/clientToken/action | 生成用于启动客户端连接的 ClientToken。 |
+> | SignalRService/SignalR/clientConnection/send/action | 将消息直接发送到客户端连接。 |
+> | Microsoft.SignalRService/SignalR/clientConnection/read | 检查客户端连接是否存在。 |
+> | Microsoft.SignalRService/SignalR/clientConnection/write | 关闭客户端连接。 |
+> | SignalRService/SignalR/组/发送/操作 | 将消息广播到组。 |
+> | Microsoft.SignalRService/SignalR/group/read | 检查组是否存在或用户是否存在于组中。 |
+> | Microsoft.SignalRService/SignalR/group/write | 加入/退出组。 |
+> | SignalRService/SignalR/中心/发送/操作 | 将消息广播到中心内的所有客户端连接。 |
+> | Microsoft.SignalRService/SignalR/serverConnection/write | 启动服务器连接。 |
+> | SignalRService/SignalR/用户/发送/操作 | 向用户发送消息，该用户可能包含多个客户端连接。 |
+> | Microsoft.SignalRService/SignalR/user/read | 检查用户是否存在。 |
+> | Microsoft.SignalRService/SignalR/user/write |  |
 
 ### <a name="microsoftweb"></a>microsoft.web
 
@@ -3256,6 +3253,11 @@ Azure 服务：[Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/linkedServices/read | 读取链接的服务。 |
 > | Microsoft.DataFactory/factories/linkedServices/delete | 删除链接的服务。 |
 > | Microsoft.DataFactory/factories/linkedServices/write | 创建或更新链接的服务 |
+> | DataFactory/工厂/managedVirtualNetworks/read | 读取托管虚拟网络。 |
+> | DataFactory/工厂/managedVirtualNetworks/write | 创建或更新托管虚拟网络。 |
+> | DataFactory/工厂/managedVirtualNetworks/managedPrivateEndpoints/read | 读取托管专用终结点。 |
+> | DataFactory/工厂/managedVirtualNetworks/managedPrivateEndpoints/write | 创建或更新托管的专用终结点。 |
+> | DataFactory/工厂/managedVirtualNetworks/managedPrivateEndpoints/delete | 删除托管的专用终结点。 |
 > | Microsoft.DataFactory/factories/operationResults/read | 获取操作结果。 |
 > | Microsoft.DataFactory/factories/pipelineruns/read | 读取管道运行。 |
 > | Microsoft.DataFactory/factories/pipelineruns/cancel/action | 取消由运行 ID 指定的管道运行。 |
@@ -3862,6 +3864,8 @@ Azure 服务：[Azure SQL 数据库](../azure-sql/database/index.yml)、[Azure S
 > | Microsoft.Sql/instancePools/delete | 删除实例池 |
 > | Microsoft.Sql/instancePools/usages/read | 获取实例池的使用情况信息 |
 > | Microsoft.Sql/locations/read | 获取给定订阅的可用位置 |
+> | Microsoft.Sql/locations/administratorAzureAsyncOperation/read | 获取托管实例 azure 异步管理员操作结果。 |
+> | Sql-dmo/位置/administratorOperationResults/读取 | 获取托管实例管理员操作结果。 |
 > | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | 检索扩展服务器 blob 审核策略集操作的结果 |
 > | Microsoft.Sql/locations/auditingSettingsOperationResults/read | 检索服务器 Blob 审核策略集操作的结果 |
 > | Microsoft.Sql/locations/capabilities/read | 获取给定位置中的此订阅的功能 |
@@ -3883,6 +3887,8 @@ Azure 服务：[Azure SQL 数据库](../azure-sql/database/index.yml)、[Azure S
 > | Microsoft.Sql/locations/extendedAuditingSettingsOperationResults/read | 检索扩展服务器 blob 审核策略集操作的结果 |
 > | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | 获取防火墙规则操作的状态。 |
 > | Microsoft.Sql/locations/firewallRulesOperationResults/read | 获取防火墙规则操作的状态。 |
+> | Sql-dmo/位置/hybridLinkAzureAsyncOperation/读取 | 获取 Azure Sql 托管实例上长期混合链接异步操作的状态。 |
+> | Sql-dmo/位置/hybridLinkOperationResults/读取 | 获取长期混合链接异步操作的状态。 |
 > | Microsoft.Sql/locations/instanceFailoverGroups/read | 返回实例故障转移组的列表，或获取指定实例故障转移组的属性。 |
 > | Microsoft.Sql/locations/instanceFailoverGroups/write | 使用指定参数创建实例故障转移组，或更新指定实例故障转移组的属性或标记。 |
 > | Microsoft.Sql/locations/instanceFailoverGroups/delete | 删除现有的实例故障转移组。 |
@@ -3998,6 +4004,9 @@ Azure 服务：[Azure SQL 数据库](../azure-sql/database/index.yml)、[Azure S
 > | Microsoft.Sql/managedInstances/encryptionProtector/revalidate/action | 更新指定服务器加密保护程序的属性。 |
 > | Microsoft.Sql/managedInstances/encryptionProtector/read | 返回服务器加密保护程序的列表，或获取指定服务器加密保护程序的属性。 |
 > | Microsoft.Sql/managedInstances/encryptionProtector/write | 更新指定服务器加密保护程序的属性。 |
+> | ManagedInstances/hybridLink/read | 返回混合链接列表，或获取指定分布式可用性组的属性。 |
+> | ManagedInstances/hybridLink/write | 使用指定参数创建或更新混合链接。 |
+> | ManagedInstances/hybridLink/delete | 删除具有指定分布式可用性组的混合链接。 |
 > | Microsoft.Sql/managedInstances/inaccessibleManagedDatabases/read | 获取托管实例中无法访问的托管数据库列表 |
 > | Microsoft.Sql/managedInstances/keys/read | 返回托管实例密钥的列表，或获取指定托管实例密钥的属性。 |
 > | Microsoft.Sql/managedInstances/keys/write | 使用指定参数创建密钥，或更新指定托管实例密钥的属性或标记。 |
@@ -6541,6 +6550,9 @@ Azure 服务：[密钥保管库](../key-vault/index.yml)
 > | Microsoft.KeyVault/vaults/eventGridFilters/read | 通知 Microsoft.KeyVault 正在查看 Key Vault 的 EventGrid 订阅 |
 > | Microsoft.KeyVault/vaults/eventGridFilters/write | 通知 Microsoft.KeyVault 正在创建 Key Vault 的新 EventGrid 订阅 |
 > | Microsoft.KeyVault/vaults/eventGridFilters/delete | 通知 Microsoft.KeyVault 正在删除 Key Vault 的 EventGrid 订阅 |
+> | Microsoft.KeyVault/vaults/keys/read | 列出指定保管库中的密钥，或读取指定密钥的当前版本。 |
+> | KeyVault/保管库/密钥/写入 | 创建新的密钥或更新现有的密钥。 |
+> | KeyVault/保管库/密钥/版本/读取 | 列出指定密钥的版本，或读取指定的密钥版本。 |
 > | Microsoft.KeyVault/vaults/secrets/read | 查看机密的属性，但不查看其值。 |
 > | Microsoft.KeyVault/vaults/secrets/write | 创建新的机密，或更新现有机密的值。 |
 > | **DataAction** | **说明** |
@@ -8283,6 +8295,7 @@ Azure 服务：[Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SqlDataClassification/read | 从 SqlDataClassification 表读取数据 |
 > | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | 从 SQLQueryPerformance 表读取数据 |
 > | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | 从 SqlVulnerabilityAssessmentResult 表读取数据 |
+> | Microsoft.operationalinsights/工作区/查询/SqlVulnerabilityAssessmentScanStatus/读取 | 从 SqlVulnerabilityAssessmentScanStatus 表中读取数据 |
 > | Microsoft.OperationalInsights/workspaces/query/StorageBlobLogs/read | 从 StorageBlobLogs 表读取数据 |
 > | Microsoft.OperationalInsights/workspaces/query/StorageFileLogs/read | 从 StorageFileLogs 表读取数据 |
 > | Microsoft.OperationalInsights/workspaces/query/StorageQueueLogs/read | 从 StorageQueueLogs 表读取数据 |

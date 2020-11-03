@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426436"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289595"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支持 Azure 资源托管标识的服务
 
@@ -41,7 +41,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 - [Azure Resource Manager 模板](../../api-management/api-management-howto-use-managed-service-identity.md)
 
-### <a name="azure-app-configuration"></a>Azure 应用配置
+### <a name="azure-app-configuration"></a>Azure 应用程序配置
 
 | 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
@@ -202,8 +202,8 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 | 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
-| 系统分配 | ![可用][check] | ![可用][check] | 不可用 | ![可用][check] | 
-| 用户分配 | ![可用][check] | ![可用][check] | 不可用 | ![可用][check] |
+| 系统分配 | ![可用][check] | ![可用][check] | 不可用 | 不可用 | 
+| 用户分配 | 预览 | 不可用 | 不可用 | 不可用 |
 
 
 有关详细信息，请参阅[在 Azure Kubernetes 服务中使用托管标识](../../aks/use-managed-identity.md)。
@@ -281,8 +281,8 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 |托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
-| 系统分配 | ![可用][check] | 预览 | 预览 | 预览 |
-| 用户分配 | ![可用][check] | 预览 | 预览 | 预览 |
+| 系统分配 | ![可用][check] | ![可用][check] | 预览 | 预览 |
+| 用户分配 | ![可用][check] | ![可用][check] | 预览 | 预览 |
 
 请参阅以下列表来配置 Azure 虚拟机规模集的托管标识（在可用的区域中）：
 

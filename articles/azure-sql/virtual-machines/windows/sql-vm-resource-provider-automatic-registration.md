@@ -9,49 +9,52 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996884"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286120"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>自动注册 SQL VM 资源提供程序
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-在 Azure 门户中启用自动注册功能，以便在轻型模式下使用 SQL VM 资源提供程序在 Azure Vm 上自动注册所有当前和将来 SQL Server。
+在 Azure 门户中启用自动注册功能，以在轻型模式下自动注册 Azure 虚拟机 (Vm) 中的所有当前和将来 SQL Server。 向 SQL VM 资源提供程序注册会安装 [Sql IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。
 
 本文介绍如何启用自动注册功能。 或者，可以 [注册单个 VM](sql-vm-resource-provider-register.md)，也可以使用 SQL VM 资源提供程序 [批量注册 vm](sql-vm-resource-provider-bulk-register.md) 。 
 
 ## <a name="overview"></a>概述
 
-[SQL VM 资源提供程序](sql-vm-resource-provider-register.md#overview)允许您从 Azure 门户管理您的 SQL Server VM。 此外，资源提供程序还启用了一组强大的功能，包括 [自动修补](automated-patching.md)、 [自动备份](automated-backup.md)以及监视和可管理性功能。 它还会解锁[许可](licensing-model-azure-hybrid-benefit-ahb-change.md)和[编辑](change-sql-server-edition.md)灵活性。 以前，这些功能只适用于从 Azure 市场部署的 SQL Server VM 映像。 
+向 SQL VM 资源提供程序注册 SQL Server VM 会安装 [Sql IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 
 
-利用自动注册功能，客户可以通过 SQL VM 资源提供程序在其 Azure 订阅中自动注册所有当前和未来的 SQL Server Vm。 这与手动注册不同，后者仅侧重于当前 SQL Server Vm。 
+启用自动注册后，作业将每天运行，检测是否在订阅中的所有未注册 Vm 上安装了 SQL Server。 完成此操作的方法是：将 SQL IaaS 代理扩展二进制文件复制到 VM，然后运行一个用于检查 SQL Server 注册表配置单元的一次性实用程序。 如果检测到 SQL Server 配置单元，则会在轻型模式下向 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md) 注册虚拟机。 如果注册表中不存在任何 SQL Server 配置单元，则将删除二进制文件。
 
-自动注册将以轻型模式注册 SQL Server Vm。 你仍需要 [手动升级到完整的可管理性模式](sql-vm-resource-provider-register.md#upgrade-to-full) ，才能利用完整的功能集。 
+为订阅启用自动注册后，所有当前和未来已安装 SQL Server 的 Vm 将在轻型模式下通过 SQL VM 资源提供程序进行注册。 你仍需要 [手动升级到完整的可管理性模式](sql-vm-resource-provider-register.md#upgrade-to-full) ，才能利用完整的功能集。 
+
+> [!IMPORTANT]
+> SQL IaaS 代理扩展收集数据，以便在 Azure 虚拟机中使用 SQL Server 时，为客户提供可选的权益。 在未经客户的事先同意的情况下，Microsoft 不会将此数据用于许可审核。 有关详细信息，请参阅 [SQL Server 隐私补充](/sql/sql-server/sql-server-privacy#non-personal-data) 。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要将 SQL Server VM 注册到资源提供程序，需要： 
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
-- 将[SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads)部署到公共或 Azure 政府云的 Azure 资源模型[Windows 虚拟机](../../../virtual-machines/windows/quick-create-portal.md)。 
+- Azure 资源模型 [Windows Server 2008 R2 (或更高版本) 虚拟机](../../../virtual-machines/windows/quick-create-portal.md) ， [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) 部署到公共或 Azure 政府云。 不支持 Windows Server 2008。 
 
 
 ## <a name="enable"></a>启用
 
-若要启用 Azure 门户中的 SQL Server Vm 的自动注册，请按照以下步骤操作：
+若要在 Azure 门户中启用 SQL Server Vm 的自动注册，请按照以下步骤操作：
 
-1. 登录 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.com)。
 1. 导航到 [**SQL 虚拟机**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 资源页。 
 1. 选择 " **自动 SQL Server VM 注册** " 打开 **自动注册** 页面。 
 
-   :::image type="content" source="media/sql-vm-resource-provider-automatic-registration/automatic-registration.png" alt-text="选择 &quot;自动 SQL Server VM 注册&quot; 打开自动注册页面&quot;:::
+   :::image type="content" source="media/sql-vm-resource-provider-automatic-registration/automatic-registration.png" alt-text="选择 &quot;自动 SQL Server VM 注册&quot; 打开自动注册页面":::
 
 1. 从下拉项中选择你的订阅。 
-1. 通读条款，如果同意，请选择 &quot; **我接受**&quot;。 
-1. 选择 &quot; **注册** " 以启用此功能，并使用 SQL VM 资源提供程序自动注册所有当前和未来 SQL Server vm。 这不会重新启动任何 Vm 上的 SQL Server 服务。 
+1. 通读条款，如果同意，请选择 " **我接受** "。 
+1. 选择 " **注册** " 以启用此功能，并使用 SQL VM 资源提供程序自动注册所有当前和未来 SQL Server vm。 这不会重新启动任何 Vm 上的 SQL Server 服务。 
 
 ## <a name="disable"></a>禁用
 
@@ -67,7 +70,7 @@ ms.locfileid: "91996884"
 az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 若要使用 Azure PowerShell 禁用自动注册，请运行以下命令： 
 

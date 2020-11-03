@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669943"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286207"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租户限制管理对 SaaS 云应用程序的访问
 
@@ -33,7 +33,7 @@ ms.locfileid: "92669943"
 
 总体解决方案由以下组件构成：
 
-1. **Azure AD** ：如果指定了 `Restrict-Access-To-Tenants: <permitted tenant list>`，Azure AD 只会针对允许的租户颁发安全令牌。
+1. **Azure AD** ：如果 `Restrict-Access-To-Tenants: <permitted tenant list>` 标头存在，Azure AD 只为允许的租户颁发安全令牌。
 
 2. **本地代理服务器基础结构** ：此基础结构是能够进行传输层安全性 (TLS) 检查的代理设备。 必须将代理配置为在发往 Azure AD 的流量中插入包含允许租户列表的标头。
 
@@ -63,7 +63,7 @@ ms.locfileid: "92669943"
 
 - 客户端必须信任代理提供的用于 TLS 通信的证书链。 例如，如果使用了来自内部[公钥基础结构 (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) 的证书，则必须信任内部根证书颁发机构颁发的证书。
 
-- Microsoft 365 订阅中包含此功能，但如果你想要使用租户限制来控制对其他 SaaS 应用的访问权限，则需要 Azure AD Premium 1 个许可证。
+- 使用租户限制需要 Azure AD Premium 1 许可证。 
 
 #### <a name="configuration"></a>配置
 
