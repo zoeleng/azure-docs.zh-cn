@@ -186,10 +186,10 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png" alt-text="显示用于创建存储帐户的 Azure 门户中的 &quot;高级&quot; 选项卡的图像。&quot;:::
+        :::image type="content" source="media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png" alt-text="显示用于创建存储帐户的 Azure 门户中的 &quot;高级&quot; 选项卡的图像。":::
     :::column-end:::
     :::column:::
-        在 Azure 门户中新建存储帐户向导的 &quot; **高级** &quot; 部分下，可以在此存储帐户中启用 **大型文件共享** 支持。 如果此选项不可用，则很可能选择了错误的冗余类型。 确保仅选择 &quot;LRS" 或 "ZRS"，以使此选项变为可用。
+        在 Azure 门户中新建存储帐户向导的 " **高级** " 部分下，可以在此存储帐户中启用 **大型文件共享** 支持。 如果此选项不可用，则很可能选择了错误的冗余类型。 确保仅选择 "LRS" 或 "ZRS"，以使此选项变为可用。
     :::column-end:::
 :::row-end:::
 
@@ -206,10 +206,10 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="显示用于创建存储帐户的 Azure 门户中的 &quot;高级&quot; 选项卡的图像。&quot;:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="显示新文件共享 UI 的 Azure 门户屏幕截图。":::
     :::column-end:::
     :::column:::
-        在 Azure 门户中新建存储帐户向导的 &quot; **高级** &quot; 部分下，可以在此存储帐户中启用 **大型文件共享** 支持。 如果此选项不可用，则很可能选择了错误的冗余类型。 确保仅选择 &quot;LRS" **事务优化** "。 在迁移过程中，将发生许多事务。 将层更改为最适合工作负荷的层会更经济高效。
+        </br>名称</br>支持小写字母、数字和连字符。</br></br>**配额**</br>此处的配额相当于 Windows Server 实例上的 SMB 硬配额。 最佳做法是不要在此处设置配额，因为在达到配额时，迁移和其他服务将会失败。</br></br>**层级**</br>为新的文件共享选择 " **事务优化** "。 在迁移过程中，将发生许多事务。 将层更改为最适合工作负荷的层会更经济高效。
     :::column-end:::
 :::row-end:::
 

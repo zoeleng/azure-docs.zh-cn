@@ -219,23 +219,23 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 
 ## <a name="configure-your-device-settings"></a>配置设备设置
 
-通过Azure 门户可控制组织中 Azure AD 联接设备的部署。 若要配置相关设置，在“Azure Active Directory 页”中选择 `Devices > Device settings` 。
+通过Azure 门户可控制组织中 Azure AD 联接设备的部署。 若要配置相关设置，在“Azure Active Directory 页”中选择 `Devices > Device settings`。
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>用户可以将设备联接到 Azure AD
 
-根据部署范围和你想允许设置 Azure AD 联接设备的人选，将此选项设置为“全部”或“选定”  。 
+根据部署范围和你想允许设置 Azure AD 联接设备的人选，将此选项设置为“全部”或“选定”。 
 
 ![用户可以将设备联接到 Azure AD](./media/azureadjoin-plan/01.png)
 
 ### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>已联接 Azure AD 的设备上的其他本地管理员
 
-选择“选定”，并选择想要添加到所有 Azure AD 联接设备上的本地管理员组的用户  。 
+选择“选定”，并选择想要添加到所有 Azure AD 联接设备上的本地管理员组的用户。 
 
 ![已联接 Azure AD 的设备上的其他本地管理员](./media/azureadjoin-plan/02.png)
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>需要进行多重身份验证才能联接设备
 
-如果将设备联接到 Azure AD 的同时需要用户执行多重身份验证，则选择“是”  。 对于使用多重身份验证将设备联接到 Azure AD 的用户，设备本身成为第 2 个因素。
+如果将设备联接到 Azure AD 的同时需要用户执行多重身份验证，则选择“是”。 对于使用多重身份验证将设备联接到 Azure AD 的用户，设备本身成为第 2 个因素。
 
 ![需要进行多重身份验证才能联接设备](./media/azureadjoin-plan/03.png)
 
@@ -245,7 +245,7 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 
 **若要添加 MDM 提供程序** ：
 
-1. 在“Azure Active Directory 页”的“管理”部分，单击 `Mobility (MDM and MAM)` 。 
+1. 在“Azure Active Directory 页”的“管理”部分，单击 `Mobility (MDM and MAM)`。 
 1. 单击“添加应用程序”。
 1. 从列表中选择 MDM 提供程序。
 
@@ -255,7 +255,7 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 
 ### <a name="mdm-user-scope"></a>MDM 用户范围
 
-根据部署范围，选择“部分”或“全部”  。 
+根据部署范围，选择“部分”或“全部”。 
 
 ![MDM 用户范围](./media/azureadjoin-plan/05.png)
 
@@ -272,7 +272,7 @@ Azure AD 联接设备的远程桌面连接需要主机是 Azure AD 联接或混�
 - MDM 发现 URL 
 - MDM 符合性 URL
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Azure Active Directory &quot;添加应用程序&quot; 页的屏幕截图。列出了几个 M D M 访问接口。" border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Azure Active Directory M D M 配置部分中的屏幕截图，其中包含 M D M 使用条款、发现和符合性的 U R L 字段。" border="false":::
 
 每个 URL 都有一个预定义的默认值。 如果这些字段都为空，请联系 MDM 提供商，获取更多详细信息。
 

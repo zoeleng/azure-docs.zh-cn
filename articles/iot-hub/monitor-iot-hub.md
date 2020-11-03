@@ -65,7 +65,9 @@ Azure IoT 中心会收集与 " [监视 azure 资源的数据](/azure/azure-monit
 
 以下屏幕截图显示了用于将资源日志类型 *连接操作* 和所有平台指标路由到 Log Analytics 工作区的诊断设置。
 
-:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="IoT 中心概述页上的默认指标图表。" 下列出。
+:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="IoT 中心的诊断设置窗格。":::
+
+有关使用 Azure 门户、CLI 或 PowerShell 创建诊断设置的详细过程，请参阅[创建诊断设置以收集 Azure 中的平台日志和指标](/azure/azure-monitor/platform/diagnostic-settings)。 创建诊断设置时，可指定要收集的日志类别。 Azure IoT 中心的类别在 [监视 Azure Iot 中心数据参考中的 "资源日志](monitor-iot-hub-reference.md#resource-logs)" 下列出。
 
 将 IoT 中心平台指标路由到其他位置时，请注意：
 
@@ -79,7 +81,7 @@ Azure IoT 中心会收集与 " [监视 azure 资源的数据](/azure/azure-monit
 
 在 Azure 门户中，可以在 IoT 中心的左窗格中选择 " **监视** " 下的 " **指标** "，默认情况下，将指标资源管理器范围打开为 iot 中心发出的平台指标：
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="IoT 中心概述页上的默认指标图表。":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="IoT 中心的指标资源管理器页。":::
 
 有关为 Azure IoT 中心收集的平台指标列表，请参阅 [监视 Azure Iot 中心数据参考中的指标](monitor-iot-hub-reference.md#metrics)。 有关为所有 Azure 服务收集的平台指标列表，请参阅 [Azure Monitor 支持的指标](/azure/azure-monitor/platform/metrics-supported)。
 
@@ -95,7 +97,7 @@ Azure Monitor 日志中的数据存储在表中，其中每个表都具有自己
 
 在 Azure 门户中，你可以在 IoT 中心的左窗格中选择 " **监视** " 下的 " **日志** "，以对 Iot 中心的 Azure Monitor 日志中收集的日志和指标执行 Log Analytics 查询。
 
-:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="IoT 中心概述页上的默认指标图表。":::
+:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="IoT 中心的 &quot;日志&quot; 页。":::
 
 有关 Log Analytics Azure Monitor 日志和可查询的表的列表，请参阅 [Monitoring Azure IoT 中心数据参考中的 Azure Monitor 日志表](monitor-iot-hub-reference.md#azure-monitor-logs-tables)。
 

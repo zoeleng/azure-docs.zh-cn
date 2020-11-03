@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340880"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900400"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Azure 安全中心的其他威胁防护
 除内置 [Azure Defender 保护](azure-defender.md)外，Azure 安全中心还提供了以下威胁防护功能。
@@ -32,7 +32,6 @@ ms.locfileid: "92340880"
 某些网络配置可能会限制安全中心对可疑网络活动生成警报。 要使安全中心生成网络警报，请确保：
 - 虚拟机有一个公共 IP 地址（或位于使用公共 IP 地址的负载均衡器上）。
 - 虚拟机的网络出口流量未被外部 IDS 解决方案阻止。
-- 在发生可疑通信的整小时内，为虚拟机分配了同一个 IP 地址。 这也适用于作为托管服务（例如 AKS、Databricks）的一部分创建的 VM。
 
 有关 Azure 网络层警报的列表，请参阅[警报参考表](alerts-reference.md#alerts-azurenetlayer)。
 
@@ -101,4 +100,4 @@ DDoS 攻击尝试耗尽应用程序的资源，使应用程序对于合法用户
 * [所有 Azure 安全中心警报的参考表](alerts-reference.md)
 * [Azure 安全中心中的安全警报](security-center-alerts-overview.md)
 * [在 Azure 安全中心内管理和响应安全警报](security-center-managing-and-responding-alerts.md)
-* [导出安全警报和建议（预览版）](continuous-export.md)
+* [连续导出安全中心数据](continuous-export.md)

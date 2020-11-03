@@ -34,31 +34,36 @@ ms.locfileid: "93071481"
 
 进入门户后，首先在 Azure 服务的 "主页" 菜单中选择 " _创建资源_ "。
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;":::
 
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 按钮以创建服务的新实例。
+在 "搜索" 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 " _创建_ " 按钮以创建服务的新实例。
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="从 Azure 数字孪生服务页中选择 &quot;创建&quot;":::
 
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 链接并输入新资源组 *的名称* 来创建一个资源组。
+在下面的 " *创建资源* " 页上，填写以下给定值：
+* **订阅** ：要使用的 Azure 订阅
+  - **资源组** ：要在其中部署实例的资源组。 如果尚未记住现有的资源组，可通过选择 "新建" 链接并输入新资源组 *的名称* 来创建一个资源组。
 * **位置** ：用于部署的支持 Azure 数字孪生的区域。 有关区域支持的更多详细信息，请访问 azure [*孪生) 提供 (的 azure 产品*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)。
 * **资源名称** ： Azure 数字孪生实例的名称。 新实例的名称在你的订阅的区域内必须是唯一的 (这意味着，如果你的订阅在已使用所选名称的区域中有另一个 Azure 数字孪生实例，则系统将要求你选择不同的名称) 。
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="填写所述的值以创建 Azure 数字孪生资源":::
 
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " _创建_ "。 
+完成后，选择“查看 + 创建”。 这会转到 "摘要" 页，您可以在其中查看所输入的实例详细信息，然后单击 " _创建_ "。 
 
 ### <a name="verify-success-and-collect-important-values"></a>验证成功并收集重要值
 
 推送 *创建* 后，可以通过门户图标栏在 Azure 通知中查看实例的部署状态。 通知将指示部署成功的时间，并且你将能够选择 " _中转到资源_ " 按钮来查看已创建的实例。
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="显示成功部署并突出显示 &quot;中转到资源&quot; 按钮的 Azure 通知视图":::
 
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 页上，记下其 *名称* 、 *资源组* 和 *主机名* 。 这些是你在继续使用 Azure 数字孪生实例时可能需要的所有重要值。 如果其他用户将对该实例进行编程，则应该与它们共享这些值。
+或者，如果部署失败，通知将指出原因。 观察错误消息中的建议，然后重试创建实例。
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
+>[!TIP]
+>创建实例后，可以通过在 Azure 门户搜索栏中搜索实例的名称，随时返回到此页。
 
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ ":::
+在实例的 " *概述* " 页上，记下其 *名称* 、 *资源组* 和 *主机名* 。 这些是你在继续使用 Azure 数字孪生实例时可能需要的所有重要值。 如果其他用户将对该实例进行编程，则应该与它们共享这些值。
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="突出显示实例的 &quot;概述&quot; 页中的重要值":::
 
 现已准备好使用 Azure 数字孪生实例。 接下来，你将为适当的 Azure 用户授予管理权限。
 
@@ -68,23 +73,28 @@ ms.locfileid: "93071481"
 
 首先，在 Azure 门户中打开 Azure 数字孪生实例的页面。 从实例的菜单中，选择 " *访问控制 (IAM)* 。 选择 " *添加角色分配* " 下的 " *添加* " 按钮。
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="选择从 &quot;访问控制 (IAM) &quot; 页添加角色分配":::
 
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 部分中。
+在 " *添加角色分配* " 页上，填写值 (必须由在 Azure 订阅中具有 [足够权限](#prerequisites-permission-requirements) 的用户完成) ：
+* **角色** ：从下拉菜单中选择 " *Azure 数字孪生数据所有者* "
+* **将访问权限分配给** ：从下拉菜单中选择 *Azure AD 用户、组或服务主体*
+* **选择** ：搜索要分配的用户的名称或电子邮件地址。 选择结果后，用户将显示在 " *所选成员* " 部分中。
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="将列出的字段填充到 &quot;添加角色分配&quot; 对话框中":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ " 按钮。
+输入完详细信息后，单击 " *保存* " 按钮。
 
 ### <a name="verify-success"></a>验证是否成功
 
 你可以在 " *访问控制" (IAM) > 角色分配* "下查看已设置的角色分配。 用户应显示在列表中，其中包含 *Azure 数字孪生数据所有者* 的角色。 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="从 &quot;主页&quot; 的 &quot;Azure 门户&quot; 页中选择 &quot;创建资源&quot;&quot;:::
-
-在 &quot;搜索&quot; 框中搜索 *Azure 数字孪生* ，并从结果中选择 **azure 数字孪生** 服务。 选择 &quot; _创建_ ":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="在 Azure 门户中查看 Azure 数字孪生实例的角色分配":::
 
 现在，你已准备好使用 Azure 数字孪生实例，并已分配了管理它的权限。
 

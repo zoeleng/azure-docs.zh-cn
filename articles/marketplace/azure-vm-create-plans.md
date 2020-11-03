@@ -191,23 +191,21 @@ Azure 政府服务处理符合特定政府法规和要求的数据。 例如，F
 
 1. 创建新产品/服务时，选择一 **种生成类型** 并输入请求的映像详细信息：
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="&quot;生成&quot; 下拉框的视图。":::
 
 2. 若要向计划中添加其他生成，请选择 " **添加代** ：
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
-
-2. 若要向计划中添加其他生成，请选择 ":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="&quot;添加代&quot; 链接的视图。":::
 
     然后输入生成详细信息：
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="&quot;生成详细信息&quot; 窗口的视图。":::
 
-2. 若要向计划中添加其他生成，请选择 " 页上编辑详细信息：
+    你选择的 **生成 ID** 将对中的客户可见，如产品 URL 和 ARM 模板 (（如果适用）) 。 仅使用小写字母、字母数字字符、短划线或下划线;它在发布后无法修改。
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="&quot;生成&quot; 下拉框的视图。&quot;:::
+3. 若要更新已发布第1代的现有 VM，只需在 " **技术配置** " 页上编辑详细信息：
 
-2. 若要向计划中添加其他生成，请选择 ":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="计划技术配置页面的视图。":::
 
 若要详细了解第1代和第2代功能之间的差异，请参阅 [Azure 上的第2代 Vm 支持](../virtual-machines/generation-2.md)。
 

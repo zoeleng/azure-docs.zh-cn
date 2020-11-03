@@ -41,17 +41,17 @@ Cosmos DB 是 Microsoft 提供的全球分布式多模型数据库服务。 可�
 
 2. 单击 Cosmos DB 中 **主要/辅助连接字符串** 旁边的“复制到剪贴板”按钮。 单击此按钮会将整个连接字符串复制到剪贴板。
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="连接字符串边栏选项卡的屏幕截图":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="“复制到剪贴板”按钮的屏幕截图":::
 
 3. 在桌面/计算机上打开 Compass，然后依次单击“连接”、“连接到...”。
 
 4. Compass 将自动检测剪贴板中的连接字符串，并提示你是否要使用该字符串进行连接。 单击“是”，如下面的屏幕截图所示。
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="连接字符串边栏选项卡的屏幕截图":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="屏幕截图显示一个对话框，该对话框说明你在剪贴板上有一个连接字符串。":::
 
 5. 在上述步骤中单击“是”后，将自动填充连接字符串中的详细信息。 删除“副本集名称”字段中自动填充的值，以确保将其留空。
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="连接字符串边栏选项卡的屏幕截图":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="屏幕截图显示 &quot;副本集名称&quot; 文本框。":::
 
 6. 单击页面底部的“连接”。 你的 Cosmos DB 帐户和数据库现在应该在 MongoDB Compass 中可见。
 

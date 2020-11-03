@@ -67,18 +67,25 @@ ms.locfileid: "93131082"
 
 1. 提供基本的列表详细信息，以帮助 Microsoft 卖方在 **列表** 部分快速排序和发现你的产品/服务。  ( *必需：所有字段。* ) 
 
-    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。":::  
+    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="此图显示了 &quot;共同销售&quot; 选项卡的列表部分。":::  
 
 1. 提供有关产品/服务的详细信息并上传 **文档** 部分。 Microsoft 卖方将使用此信息来建议并销售您的产品/服务。  ( *必需：客户一页-寻呼和客户演示文稿。* ) 
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。":::
+    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="此图显示了 &quot;共同销售&quot; 选项卡上的文档部分。":::
  
 1. 在 **contact** 节中上传销售联系人信息。 Microsoft 卖方可能会联系这些联系人，请求有关你的产品/服务的其他信息。  ( *必需：提供产品/服务的每个地域的联系人。* ) 
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。" 下拉列表中，选择 "成为共同销售就绪"：
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="此图显示了 &quot;共同销售&quot; 选项卡中的 &quot;联系人&quot; 部分。":::
+
+1. 继续之前，请保存草稿。
+1. 完成产品/服务的所有必需部分后，可以提交产品/服务以供审阅和发布。 在右上角选择 " **查看并发布** "。 查看产品/服务详细信息，然后选择 " **发布** "。
+1. 确保满足你 [正在寻求的共同销售状态的条件](#co-sell-publishing-steps-and-requirements)后，请遵循以下指南，为你的共同销售提供产品/服务：
+    1. **如果你有 Microsoft 合作伙伴经理 (例如，PDM) ：** 与你的合作伙伴经理联系以获得帮助。 本指南将指导你完成合作销售就绪状态和 Azure IP 共同销售的提名流程，或者 Business Applications 共同销售 incentivized (（如果适用）) 。
+    
+    1. **如果你没有 Microsoft 合作伙伴经理 (例如，PDM) ：** [通过云支持人员 (CED) 进行自助](https://aka.ms/cednominate)处理。 在 "所需的 CED 服务" 下拉列表中，选择 "成为共同销售就绪"：
 <ul><ul>
 
-:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="此图显示了 &quot;与 Microsoft 共同销售&quot; 选项卡的位置。":::
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="此图显示了使用 CED 下拉列表来请求共同销售审核。":::
 
 CED 将与你联系以完成此过程。
 </ul></ul>

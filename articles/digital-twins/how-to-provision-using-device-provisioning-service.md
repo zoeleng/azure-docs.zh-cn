@@ -52,7 +52,7 @@ ms.locfileid: "93145797"
 
 在本部分中，会将设备预配服务附加到 Azure 数字孪生，通过以下路径自动设置设备。 这是 [之前](#solution-architecture)所示的完整体系结构的摘录。
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="在端到端方案中查看设备和多个 Azure 服务。数据在恒温器设备和 DPS 之间来回流动。数据还会从 DPS 流出到 IoT 中心，并通过名为 &quot;分配&quot; 的 Azure 功能通过 Azure 数字孪生。手动 &quot;删除设备&quot; 操作中的数据通过 IoT 中心流向 > 事件中心 > Azure Functions > Azure 数字孪生。":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="预配流-解决方案体系结构关系图摘录，其中包含流的数字标签部分。数据在恒温器设备与 DPS (1 之间来回流动，> 设备 > DPS，5用于 DPS 设备) 。数据还会从 DPS 流出到 IoT 中心 (4) ，以及通过标记为 &quot;分配&quot; (2) 的 Azure 功能向 Azure 数字孪生 (3) 。":::
 
 下面是流程的说明：
 1. 设备联系 DPS 终结点，传递标识信息来证明其身份。
@@ -281,7 +281,7 @@ node .\adt_custom_register.js
 ```
 
 应该会看到注册并连接到 IoT 中心的设备，然后开始发送消息。
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="在端到端方案中查看设备和多个 Azure 服务。数据在恒温器设备和 DPS 之间来回流动。数据还会从 DPS 流出到 IoT 中心，并通过名为 &quot;分配&quot; 的 Azure 功能通过 Azure 数字孪生。手动 &quot;删除设备&quot; 操作中的数据通过 IoT 中心流向 > 事件中心 > Azure Functions > Azure 数字孪生。":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="显示设备注册和发送消息的命令窗口":::
 
 ### <a name="validate"></a>验证
 
@@ -292,13 +292,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 应会看到在 Azure 数字孪生实例中找到的设备的克隆。
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="在端到端方案中查看设备和多个 Azure 服务。数据在恒温器设备和 DPS 之间来回流动。数据还会从 DPS 流出到 IoT 中心，并通过名为 &quot;分配&quot; 的 Azure 功能通过 Azure 数字孪生。手动 &quot;删除设备&quot; 操作中的数据通过 IoT 中心流向 > 事件中心 > Azure Functions > Azure 数字孪生。":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="显示新创建的克隆的命令窗口":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>使用 IoT 中心生命周期事件自动停用设备
 
 在本部分中，会将 IoT 中心生命周期事件附加到 Azure 数字孪生，通过以下路径自动停用设备。 这是 [之前](#solution-architecture)所示的完整体系结构的摘录。
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="在端到端方案中查看设备和多个 Azure 服务。数据在恒温器设备和 DPS 之间来回流动。数据还会从 DPS 流出到 IoT 中心，并通过名为 &quot;分配&quot; 的 Azure 功能通过 Azure 数字孪生。手动 &quot;删除设备&quot; 操作中的数据通过 IoT 中心流向 > 事件中心 > Azure Functions > Azure 数字孪生。":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="停用设备流-解决方案体系结构图的摘录，其中包含流的数字标签部分。显示的恒温器设备没有连接到关系图中的 Azure 服务。手动 &quot;删除设备&quot; 操作中的数据通过 IoT 中心流过 (1) > 事件中心 (2) > Azure Functions > Azure 数字孪生 (3) 。":::
 
 下面是流程的说明：
 1. 外部或手动过程会触发在 IoT 中心内删除设备的操作。
@@ -464,7 +464,7 @@ az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Eve
 此设置需要完成的步骤如下：
 1. 创建自定义 IoT 中心事件中心终结点。 此终结点应以 [*创建事件中心*](#create-an-event-hub) 部分中创建的事件中心为目标。
 2. 添加 *设备生命周期事件* 路由。 使用在上一步中创建的终结点。 您可以通过添加路由查询限制设备生命周期事件只发送删除事件 `opType='deleteDeviceIdentity'` 。
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="在端到端方案中查看设备和多个 Azure 服务。数据在恒温器设备和 DPS 之间来回流动。数据还会从 DPS 流出到 IoT 中心，并通过名为 &quot;分配&quot; 的 Azure 功能通过 Azure 数字孪生。手动 &quot;删除设备&quot; 操作中的数据通过 IoT 中心流向 > 事件中心 > Azure Functions > Azure 数字孪生。":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="添加路由":::
 
 完成此流程后，所有内容都将设置为端到端停用设备。
 
@@ -485,7 +485,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 应该会看到，在 Azure 数字孪生实例中找不到设备的克隆。
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="在端到端方案中查看设备和多个 Azure 服务。数据在恒温器设备和 DPS 之间来回流动。数据还会从 DPS 流出到 IoT 中心，并通过名为 &quot;分配&quot; 的 Azure 功能通过 Azure 数字孪生。手动 &quot;删除设备&quot; 操作中的数据通过 IoT 中心流向 > 事件中心 > Azure Functions > Azure 数字孪生。":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="找不到显示的命令窗口":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

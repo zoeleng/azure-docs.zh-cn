@@ -45,12 +45,12 @@
           href: how-to-use-cli.md
         - name: 设置实例和身份验证
           items:
-            - name: 脚本版本
-              href: how-to-set-up-instance-scripted.md
-            - name: CLI 版本
-              href: how-to-set-up-instance-cli.md
             - name: 门户版本
               href: how-to-set-up-instance-portal.md
+            - name: CLI 版本
+              href: how-to-set-up-instance-cli.md
+            - name: 脚本版本
+              href: how-to-set-up-instance-scripted.md
         - name: 编写应用身份验证码
           href: how-to-authenticate-client.md
         - name: 创建应用注册
@@ -127,6 +127,8 @@
   items:
     - name: 数字孪生服务限制
       href: reference-service-limits.md
+    - name: 数字孪生定价
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
     - name: API 和 SDK
       items:
         - name: REST API 参考
@@ -170,7 +172,7 @@
             - name: .NET (C#) SDK - 源
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: Java SDK - Maven
-              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
+              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar'
             - name: Java SDK - 参考
               href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
             - name: Java SDK - 源
@@ -188,7 +190,7 @@
     - name: 数字孪生 CLI
       items:
         - name: 数字孪生 CLI 参考
-          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
         - name: CLI 包
           href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
     - name: DTDL

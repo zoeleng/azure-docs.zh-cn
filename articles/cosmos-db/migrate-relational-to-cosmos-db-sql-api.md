@@ -49,7 +49,7 @@ FROM Orders o;
 
 此查询的结果如下所示： 
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="订单详细信息" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
 
 理想情况下，你希望使用单个 Azure 数据工厂 (ADF) 复制活动来查询用作源的 SQL 数据，并将输出作为适当的 JSON 对象直接写入 Azure Cosmos DB 接收器。 目前，无法在一个复制活动中执行所需的 JSON 转换。 如果我们尝试将上述查询的结果复制到 Azure Cosmos DB SQL API 容器中，将会看到文档的字符串属性形式的 OrderDetails 字段，而不是预期的 JSON 数组。
 
@@ -91,31 +91,31 @@ SELECT [value] FROM OPENJSON(
 )
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf1.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf1.png" alt-text="ADF 复制":::
 
 
 对于 SqlJsonToBlobText 复制活动的接收器，我们选择“分隔文本”，并使用动态生成的唯一文件名（例如，'@concat(pipeline().RunId,'.json'）将其指向 Azure Blob 存储中的特定文件夹。
 由于我们的文本文件实际上并不是“分隔的”，并且我们不希望使用逗号将其分析成单独的列，而是要保留双引号 (")，因此我们将“列分隔符”设置为制表符 ("\t") 或数据中未出现其他字符，并将“引号字符”设置为“无引号字符”。
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf2.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf2.png" alt-text="突出显示列分隔符和引号字符设置的屏幕截图。":::
 
 ### <a name="copy-activity-2-blobjsontocosmos"></a>复制活动 #2：BlobJsonToCosmos
 
 接下来，我们修改 ADF 管道：添加第二个复制活动，用于在 Azure Blob 存储中查找第一个活动创建的文本文件。 第二个复制活动将结果作为“JSON”源进行处理，将文本文件中找到的每个 JSON 行作为一个文档插入到 Cosmos DB 接收器中。
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf3.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf3.png" alt-text="突出显示 JSON 源文件和文件路径字段的屏幕截图。":::
 
 （可选）我们还将一个“删除”活动添加到了管道，以便在每次运行之前删除 /Orders/ 文件夹中剩余的所有旧文件。 现在，我们的 ADF 管道如下所示：
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf4.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf4.png" alt-text="突出显示 &quot;删除&quot; 活动的屏幕截图。":::
 
 触发上述管道后，会看到中间 Azure Blob 存储位置创建了一个文件，其中的每行包含一个 JSON 对象：
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="显示包含 JSON 对象的已创建文件的屏幕截图。":::
 
 我们还会看到 Orders 文档，其中适当嵌入的 OrderDetails 已插入到 Cosmos DB 集合中：
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf6.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf6.png" alt-text="作为 Cosmos DB 文档一部分显示订单详细信息的屏幕截图":::
 
 
 ## <a name="azure-databricks"></a>Azure Databricks
@@ -128,7 +128,7 @@ SELECT [value] FROM OPENJSON(
 
 首先，创建所需的 [SQL 连接器](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) 并将 [Azure Cosmos DB 连接器](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) 库连接到 Azure Databricks 群集。 重新启动群集以确保加载库。
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks1.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks1.png" alt-text="屏幕截图，显示在何处创建所需的 SQL 连接器并将 Azure Cosmos DB 连接器库连接到 Azure Databricks 群集。":::
 
 接下来，我们为 Scala 和 Python 提供了两个示例。 
 
@@ -151,7 +151,7 @@ val orders = sqlContext.read.sqlDB(configSql)
 display(orders)
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks2.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks2.png" alt-text="显示数据帧中的 SQL 查询输出的屏幕截图。":::
 
 接下来，我们将连接到 Cosmos DB 数据库和集合：
 
@@ -208,7 +208,7 @@ display(ordersWithSchema)
 CosmosDBSpark.save(ordersWithSchema, configCosmos)
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks3.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks3.png" alt-text="突出显示用于保存到 Cosmos DB 集合的正确数组的屏幕截图。":::
 
 
 ### <a name="python"></a>Python
@@ -338,7 +338,7 @@ pool.map(writeOrder, orderids)
 ```
 在这两种方法中，最终都应在 Cosmos DB 集合中的每个订单文档中正确保存嵌入的 OrderDetails：
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="显示 SQL 数据库中 Orders 和 OrderDetails 表的屏幕截图。":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Databricks":::
 
 ## <a name="next-steps"></a>后续步骤
 * 了解 [Azure Cosmos DB 中的数据建模](./modeling-data.md)

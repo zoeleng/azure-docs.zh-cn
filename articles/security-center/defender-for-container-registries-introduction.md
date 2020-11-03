@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558629"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145814"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>适用于容器注册表的 Azure Defender 简介
 
@@ -32,6 +32,12 @@ Azure 容器注册表 (ACR) 是一种托管的专用 Docker 注册表服务，�
 
 安全中心仅在出现问题时发出通知，这样会降低发送不必要的信息警报的可能性。
 
+
+> [!TIP]
+> 若要详细了解安全中心的容器安全功能，请参阅：
+>
+> - [Azure 安全中心和容器安全性](container-security.md)
+> - [适用于 Kubernetes 的 Azure Defender 简介](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>何时扫描映像？
 
@@ -81,10 +87,5 @@ Azure 容器注册表 (ACR) 是一种托管的专用 Docker 注册表服务，�
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解安全中心的容器安全功能，请参阅：
-
-- [Azure 安全中心和容器安全性](container-security.md)
-
-- [适用于 Kubernetes 的 Azure Defender 简介](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [扫描映像中的漏洞](defender-for-container-registries-usage.md)

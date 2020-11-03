@@ -38,23 +38,19 @@ ms.locfileid: "93124233"
 
 在 Visual Studio 2019 中，选择 " _文件" > 新建 > 项目_ "并搜索 _Azure Functions_ 模板，然后选择" _下一步_ "。
 
-:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框":::
 
 指定函数应用的名称，然后选择 " _创建_ "。
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio：配置新项目":::
 
-指定函数应用的名称，然后选择 " _创建_ "。
+选择函数应用 *事件网格触发器* 的类型，然后选择 " _创建_ "。
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio： Azure 函数项目触发器对话框":::
 
 创建 function app 后，visual studio 将在项目文件夹中的 **function.cs** 文件中自动填充代码示例。 此 short Azure 函数用于记录事件。
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio：包含示例代码的 &quot;项目&quot; 窗口":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>使用事件网格触发器编写 Azure 函数
 
@@ -168,29 +164,19 @@ namespace adtIngestFunctionSample
 > [!IMPORTANT] 
 > 发布 Azure 函数将产生额外费用，与 Azure 数字孪生无关。
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio：发布 Azure 函数 ":::
 
-指定函数应用的名称，然后选择 " **下一步** "。
+选择 " **Azure** " 作为发布目标，然后选择 " **下一步** "。
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio： &quot;发布 Azure 函数&quot; 对话框，选择 &quot;Azure&quot; ":::
 
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="&quot;Visual Studio：发布函数&quot; 对话框中，选择 &quot;Azure Function App (Windows) 或基于计算机 (Linux) ":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio：发布函数对话框，创建新的 Azure 函数":::
 
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio： &quot;发布函数&quot; 对话框，填写字段，然后选择 &quot;创建&quot;":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio： &quot;发布函数&quot; 对话框，从列表中选择函数应用，然后单击 &quot;完成&quot;":::
 
 在以下页面上，为新的 function app、资源组和其他详细信息输入所需的名称。
 为了使函数应用能够访问 Azure 数字孪生，它需要具有系统管理的标识并且有权访问 Azure 数字孪生实例。
@@ -234,36 +220,38 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 在 [Azure 门户](https://portal.azure.com/)中，在搜索栏中搜索 " _function app_ "，其中包含之前创建的函数应用名称。 从列表中选择 *Function App* 。 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure 门户：搜索函数应用":::
 
-指定函数应用的名称，然后选择 " 并 _保存_ 。 你将看到一个弹出窗口，用于 _启用系统分配的托管标识_ 。
+在 "函数应用" 窗口的左侧导航栏中选择 " _标识_ "，以启用托管标识。
+在 " _系统分配_ " 选项卡下，将 _状态_ 切换到 "打开" 并 _保存_ 。 你将看到一个弹出窗口，用于 _启用系统分配的托管标识_ 。
 选择 _"是"_ 按钮。 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure 门户：启用系统管理的标识":::
 
 可以在通知中验证函数已成功注册到 Azure Active Directory。
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure 门户：通知":::
 
-指定函数应用的名称，然后选择 " 页上显示的 **对象 ID** ，它将在下一部分中使用。
+另请注意 " _标识_ " 页上显示的 **对象 ID** ，它将在下一部分中使用。
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="复制要在将来使用的对象 ID":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>使用 Azure 门户分配访问角色
 
 选择 " _azure 角色分配_ " 按钮，这将打开 " *azure 角色分配* " 页。 然后，选择 " _+ 添加角色分配 (预览")_ 。
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure 门户：添加角色分配":::
 
-指定函数应用的名称，然后选择 " 按钮保存详细信息。
+在打开的 " _添加角色分配 (预览")_ 页上，选择：
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+* _范围_ ：资源组
+* _订阅_ ：选择 Azure 订阅
+* _资源组_ ：从下拉列表中选择资源组
+* _角色_ ：从下拉列表中选择 " _Azure 数字孪生数据所有者_ "
 
-指定函数应用的名称，然后选择 ":::
+然后，按 " _保存_ " 按钮保存详细信息。
+
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure 门户： (预览版中添加角色分配) ":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>使用 Azure 门户配置应用程序设置
 
@@ -273,17 +261,17 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 可以通过将 **_https://_** 追加到实例主机名来获取 ADT_INSTANCE_URL。 在 Azure 门户中，可以通过在搜索栏中搜索实例来找到数字孪生实例主机名。 然后，在左侧导航栏中选择 " _概述_ " 以查看 _主机名_ 。 复制此值以创建应用程序设置。
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure 门户：概述-> 副本主机名，以便在 _Value_ 字段中使用。":::
 
-指定函数应用的名称，然后选择 "
+你现在可以按照以下步骤创建应用程序设置：
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+* 使用搜索栏中的函数名称搜索你的 Azure 函数，并从列表中选择该函数
+* 选择左侧导航栏上的 " _配置_ " 可创建新的应用程序设置
+* 在 " _应用程序设置_ " 选项卡中，选择 " _+ 新建应用程序设置_ "
 
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure 门户：搜索现有的 Azure 函数":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure 门户：配置应用程序设置":::
 
 在打开的窗口中，使用从上面复制的值创建应用程序设置。 \
 _名称_  ： ADT_SERVICE_URL \
@@ -291,21 +279,19 @@ _值_ ： https：//{孪生}
 
 选择 _"确定"_ 以创建应用程序设置。
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure 门户：添加应用程序设置。":::
 
-指定函数应用的名称，然后选择 " 按钮保存应用程序设置。
+可以在 " _名称_ " 字段下查看应用程序的应用程序设置。 然后，通过选择 " _保存_ " 按钮保存应用程序设置。
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure 门户：查看创建的应用程序并重新启动应用程序":::
 
-指定函数应用的名称，然后选择 " 以重新启动应用程序。
+对应用程序设置所做的任何更改都需要重新启动应用程序。 选择 " _继续_ " 以重新启动应用程序。
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure 门户：保存应用程序设置":::
 
-指定函数应用的名称，然后选择 " 图标来查看更新应用程序设置。 如果未创建应用程序设置，则可以按照上述过程重试添加应用程序设置。
+可以通过选择 " _通知_ " 图标来查看更新应用程序设置。 如果未创建应用程序设置，则可以按照上述过程重试添加应用程序设置。
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Visual Studio： &quot;新建项目&quot; 对话框&quot;:::
-
-指定函数应用的名称，然后选择 ":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure 门户：更新应用程序设置的通知":::
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 9a8e0dde8b24c39180a584c26af725ab82ea0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e77b5ea2bbd5bae79295a5680fa6e143efa5e99
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907105"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131524"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>将计算机视觉容器与 Kubernetes 和 Helm 配合使用
 
@@ -30,7 +30,7 @@ ms.locfileid: "90907105"
 | Azure 帐户 | 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户][free-azure-account]。 |
 | Kubernetes CLI | 需要使用 [Kubernetes CLI][kubernetes-cli] 来管理容器注册表中的共享凭据。 在安装 Helm（Kubernetes 包管理器）之前，也需要有 Kubernetes。 |
 | Helm CLI | 安装 [Helm CLI][helm-install]，它可用于安装 Helm 图表（容器包定义）。 |
-| 计算机视觉资源 |若要使用容器，必须具有：<br><br>Azure 计算机视觉**** 资源和关联的 API 密钥及终结点 URI。 这两个值都可以在资源的“概述”和“密钥”页上找到，并且是启动容器所必需的。<br><br>**{API_KEY}** ：“密钥”页上提供的两个可用资源密钥中的一个****<br><br>**{ENDPOINT_URI}** ：“概述”页上提供的终结点****|
+| 计算机视觉资源 |若要使用容器，必须具有：<br><br>Azure 计算机视觉资源和关联的 API 密钥及终结点 URI。 这两个值都可以在资源的“概述”和“密钥”页上找到，并且是启动容器所必需的。<br><br>**{API_KEY}** ：“密钥”页上提供的两个可用资源密钥中的一个<br><br>**{ENDPOINT_URI}** ：“概述”页上提供的终结点|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -44,58 +44,17 @@ ms.locfileid: "90907105"
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>连接到 Kubernetes 群集
 
-主机预期有一个可用的 Kubernetes 群集。 请参阅这篇有关[部署 Kubernetes 群集](../../aks/tutorial-kubernetes-deploy-cluster.md)的教程，对如何将 Kubernetes 群集部署到主机有一个概念性的了解。 可在 [Kubernetes 文档](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)中找到有关部署的详细信息。
-
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>与 Kubernetes 群集共享 Docker 凭据
-
-若要允许 Kubernetes 群集对 `containerpreview.azurecr.io` 容器注册表中配置的映像执行 `docker pull`，需将 Docker 凭据传输到群集中。 执行以下 [`kubectl create`][kubectl-create] 命令，基于“容器注册表访问权限”先决条件提供的凭据创建 Docker 注册表机密。**
-
-在所选的命令行接口中运行以下命令。 请务必将 `<username>`、`<password>` 和 `<email-address>` 替换为容器注册表凭据。
-
-```console
-kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> 如果你已有权访问 `containerpreview.azurecr.io` 容器注册表，则可以改用常规标志创建 Kubernetes 机密。 考虑针对 Docker 配置 JSON 执行以下命令。
-> ```console
->  kubectl create secret generic containerpreview \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-成功创建机密后，控制台中会列显以下输出。
-
-```console
-secret "containerpreview" created
-```
-
-若要验证是否已创建机密，请结合 `secrets` 标志执行 [`kubectl get`][kubectl-get]。
-
-```console
-kubectl get secrets
-```
-
-执行 `kubectl get secrets` 会列显所有已配置的机密。
-
-```console
-NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
-```
+主机预期有一个可用的 Kubernetes 群集。 请参阅这篇有关[部署 Kubernetes 群集](../../aks/tutorial-kubernetes-deploy-cluster.md)的教程，对如何将 Kubernetes 群集部署到主机有一个概念性的了解。 有关部署的详细信息，请参阅 [Kubernetes 文档](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)。
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>配置用于部署的 Helm 图表值
 
-首先，创建一个名为 *read*的文件夹。 然后，将以下 YAML 内容粘贴到名为的新文件中 `chart.yaml` ：
+首先，创建一个名为 read 的文件夹。 然后，将以下 YAML 内容粘贴到名为 `chart.yaml` 的新文件中：
 
 ```yaml
 apiVersion: v2
 name: read
 version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+description: A Helm chart to deploy the Read OCR container to a Kubernetes cluster
 dependencies:
 - name: rabbitmq
   condition: read.image.args.rabbitmq.enabled
@@ -111,15 +70,13 @@ dependencies:
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry:  containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-read
-    tag: latest
-    pullSecret: containerpreview # Or an existing secret
+    registry:  mcr.microsoft.com/
+    repository: azure-cognitive-services/vision/read
+    tag: 3.1-preview
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -146,12 +103,12 @@ read:
 ```
 
 > [!IMPORTANT]
-> - 如果 `billing` `apikey` 未提供和值，则服务将在15分钟后过期。 同样，验证也会失败，因为服务不可用。
+> - 如果未提供 `billing` 和 `apikey` 值，服务将在 15 分钟后过期。 同样，验证也会因服务不可用而失败。
 > 
 > - 如果将多个读取容器部署在负载平衡器之后（例如，在 "Docker Compose" 或 "Kubernetes" 下），则必须具有外部缓存。 由于处理容器和 GET 请求容器可能不相同，因此外部缓存会存储结果并在容器之间共享这些结果。 有关缓存设置的详细信息，请参阅 [Configure 计算机视觉 Docker 容器](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config)。
 >
 
-在 read** 目录下创建 templates** 文件夹。 将以下 YAML 复制并粘贴到名为 `deployment.yaml` 的文件。 `deployment.yaml` 文件将充当 Helm 模板。
+在 read 目录下创建 templates 文件夹。 将以下 YAML 复制并粘贴到名为 `deployment.yaml` 的文件。 `deployment.yaml` 文件将充当 Helm 模板。
 
 > 模板生成清单文件，这些文件是 Kubernetes 可以理解的 YAML 格式的资源描述。 [- Helm 图表模板指南][chart-template-guide]
 
@@ -208,7 +165,7 @@ spec:
     app: read-app
 ```
 
-在相同的 *模板* 文件夹中，将以下 helper 函数复制并粘贴到中 `helpers.tpl` 。 `helpers.tpl` 定义有用的函数来帮助生成 Helm 模板。
+还是在该模板文件夹中，将以下帮助程序函数复制粘贴到 `helpers.tpl` 中。 `helpers.tpl` 定义了一些实用函数，可帮助生成 Helm 模板。
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}
@@ -227,15 +184,15 @@ spec:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 包（Helm 图表）
 
-Helm 图表包含要从 `containerpreview.azurecr.io` 容器注册表提取的 Docker 映像的配置。**
+Helm 图表包含要从 `mcr.microsoft.com` 容器注册表提取的 Docker 映像的配置。
 
 > [Helm 图表][helm-charts]是描述一组相关 Kubernetes 资源的文件集合。 单个图表既可用于部署简单的资源（例如 Memcached Pod），也可用于部署复杂的资源（例如，包含 HTTP 服务器、数据库、缓存等的完整 Web 应用堆栈）。
 
-提供的 Helm 图表** 将从 `containerpreview.azurecr.io` 容器注册表中拉取计算机视觉服务的 Docker 映像以及相应的服务。
+提供的 Helm 图表将从 `mcr.microsoft.com` 容器注册表中拉取计算机视觉服务的 Docker 映像以及相应的服务。
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>在 Kubernetes 群集上安装 Helm 图表
 
-若要安装 Helm 图表**，我们需要执行 [`helm install`][helm-install-cmd] 命令。 确保从 `read` 文件夹上方的目录中执行 install 命令。
+若要安装 Helm 图表，我们需要执行 [`helm install`][helm-install-cmd] 命令。 确保从 `read` 文件夹上方的目录中执行 install 命令。
 
 ```console
 helm install read ./read

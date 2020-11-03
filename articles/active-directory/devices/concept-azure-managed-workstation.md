@@ -102,7 +102,7 @@ ms.locfileid: "93083229"
 
 本指南引用了多个安全配置文件和角色，它们可帮助你为用户、开发人员和 IT 人员创建更安全的解决方案。 这些配置文件可为可从增强或安全工作站获益的常见用户平衡可用性和风险。 此处提供的设置配置基于行业接受的标准。 本指南演示如何强化 Windows 10 并降低与设备或用户泄露相关的风险。 为了利用新式硬件技术和信任设备的根，我们将使用从 **高安全性** 配置文件开始启用的 [设备运行状况证明](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643)。 提供此功能是为了确保攻击者在设备的早期启动过程中不能持久。 它通过使用策略和技术来帮助管理安全功能和风险来实现此目的。
 
-:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="显示安全工作站生命周期的关系图。" border="false":::
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="列出角色（如用户和开发人员）、配置文件（如 &quot;基本&quot; 和 &quot;增强&quot;）以及安全控制（如应用、操作和功能）的表。" border="false":::
 
 * **基本安全性** –托管的标准工作站为大多数家庭和小型企业使用提供了很好的起点。 这些设备在 Azure AD 中注册，并通过 Intune 进行管理。 此配置文件允许用户运行任何应用程序并浏览任意网站。 应启用反恶意软件解决方案，如 [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) 。
 

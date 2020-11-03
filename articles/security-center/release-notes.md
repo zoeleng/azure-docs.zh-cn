@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: ed4bd97dfe64a85785cf7805da2cf7f942baecd4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3ea8e944a004dc89dadc74e4ab2e3e4b295b3a9b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367529"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900238"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure 安全中心的新增功能
 
@@ -25,8 +25,11 @@ ms.locfileid: "92367529"
 
 本页面会频繁更新，请经常回来查看。 
 
+若要了解即将在安全中心推出的计划性更改，请参阅[即将推出的对 Azure 安全中心的重要更改](upcoming-changes.md)。 
+
 > [!TIP]
 > 如果要查找 6 个月之前的项目，可查看 [Azure 安全中心的新增功能存档](release-notes-archive.md)。
+
 
 
 ## <a name="october-2020"></a>2020 年 10 月
@@ -34,6 +37,7 @@ ms.locfileid: "92367529"
 - [本地和多云计算机的漏洞评估（预览版）](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [添加了 Azure 防火墙建议（预览版）](#azure-firewall-recommendation-added-preview)
 - [“应在 Kubernetes 服务上定义已授权的 IP 范围”建议更新了快速修复](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [法规合规性仪表板现在包含用于删除标准的选项](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [从 Azure Resource Graph (ARG) 中删除了 Microsoft.Security/securityStatuses 表](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>本地和多云计算机的漏洞评估（预览版）
@@ -74,6 +78,15 @@ ms.locfileid: "92367529"
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
 
 
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>法规合规性仪表板现在包含用于删除标准的选项
+
+安全中心的法规合规性仪表板基于你满足特定合规控制和要求的情况来提供合规态势的见解。
+
+该仪表板包含一组默认的法规标准。 如果提供的任何标准都与你的组织不相关，现在就可以简单地从订阅的 UI 中将其删除。 只能在“订阅”级别删除标准，而不能从管理组范围删除。
+
+有关详细信息，请参阅[从仪表板中删除标准](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard)。
+
+
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>从 Azure Resource Graph (ARG) 中删除了 Microsoft.Security/securityStatuses 表
 
 Azure Resource Graph 是 Azure 中的一项服务，旨在提供高效的资源浏览功能，它能够在一组给定的订阅中进行大规模查询，使你能够有效地管理环境。 
@@ -85,7 +98,33 @@ Azure Resource Graph 是 Azure 中的一项服务，旨在提供高效的资源�
 
 ARG 中提供了可以在查询中使用的数据表。
 
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议"
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph 资源管理器和可用的表":::
+
+> [!TIP]
+> ARG 文档列出了 [Azure Resource Graph 表和资源类型参考](../governance/resource-graph/reference/supported-tables-resources.md)中所有可用的表。
+
+在此次更新中，删除了 Microsoft.Security/securityStatuses。 securityStatuses API 仍可用。
+
+Microsoft.Security/Assessments 表可以使用数据替换。
+
+Microsoft.Security/securityStatuses 和 Microsoft.Security/Assessments 的主要区别在于，前者显示评估聚合，而后者会为每项评估保留一条记录。
+
+例如，Microsoft.Security/securityStatuses 将返回包含两个 policyAssessments 数组的结果：
+
+```
+{
+id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
+name: "mico-rg-vnet",
+type: "Microsoft.Security/securityStatuses",
+properties:  {
+    policyAssessments: [
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
+    ],
+    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
+    name: "GenericResourceHealthProperties",
+    type: "VirtualNetwork",
+    securitystate: "High"
 }
 ```
 而 Microsoft.Security/Assessments 将为这样的策略评估各保留一条记录，如下所示：
@@ -285,7 +324,7 @@ Azure 安全中心现在可保护 Azure、Amazon Web Services (AWS) 和 Google C
 
 现在选择建议并启用“包括安全性结果”选项时，可以通过连续导出来导出安全性结果。
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="在连续导出配置中包括安全结果开关" :::
 
 相关页面：
 
@@ -350,7 +389,7 @@ Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 �
 
 预览建议示例如下：
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="带有预览标志的建议":::
 
 [详细了解安全功能分数](secure-score-security-controls.md)。
 
@@ -359,7 +398,7 @@ Pod 安全策略（预览）功能已设置为弃用，在 2020 年 10 月 15 �
 
 现在，建议的详细信息页面包括一个刷新时间间隔指示器（如相关），并且清楚显示了建议的严重性。
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="显示刷新频率和严重性的建议页面":::
 
 
 
@@ -523,7 +562,7 @@ Azure 存储的威胁防护可检测 Azure 存储帐户上的潜在有害活动�
 - **应对 Azure 存储帐户启用高级威胁防护**
 - 应对虚拟机启用高级威胁防护
 
-这些新建议属于“启用高级威胁防护”安全控制。
+这些新建议属于“启用 Azure Defender”安全控制。
 
 建议还包括快速修复功能。 
 
@@ -644,7 +683,7 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 
 若要详细了解 Azure 安全中心如何使用代理，请参阅[什么是 Log Analytics 代理？](faq-data-collection-agents.md#what-is-the-log-analytics-agent)
 
-详细了解 [Azure Arc 计算机的扩展](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal)。
+详细了解 [Azure Arc 计算机的扩展](../azure-arc/servers/manage-vm-extensions.md)。
 
 
 ### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>大规模创建连续导出和工作流自动化配置的新策略
@@ -666,7 +705,7 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 
 开始使用[工作流自动化模板](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)。
 
-若要详细了解如何使用这两种导出策略，请参阅[通过 Policy 连续导出 Azure 安全中心警报和建议](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745)。
+请参阅[使用提供的策略大规模地配置工作流自动化](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies)以及[设置连续导出](continuous-export.md#set-up-a-continuous-export)，了解关于如何使用两种导出策略的详细信息。
 
 
 ### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>使用 NSG 保护非面向 Internet 的虚拟机的新建议
@@ -783,7 +822,7 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 
 要详细了解安全控件，请参阅 [Azure 安全中心的安全功能分数增强版（预览版）](secure-score-security-controls.md)。
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="具有快速修复选项的“应在 Kubernetes 服务上定义已授权的 IP 范围”建议":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="的“按控件分组”开关":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>扩展了“实现安全最佳做法”这一安全控件 
 

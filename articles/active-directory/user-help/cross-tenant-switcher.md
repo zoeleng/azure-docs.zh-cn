@@ -37,9 +37,9 @@ ms.locfileid: "92913239"
 下面是切换到另一个组织的方法。 此示例使用 **我的帐户** 门户，但是切换器图标和位置在其他门户中也是类似的。
 
 1. 登录到你的工作或学校帐户，然后打开 " [我的帐户](https://myaccount.microsoft.com) " 页。
-1. 选择组织在页面顶部的 " :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="组织切换器&quot; 图标&quot;::: 旁边的 &quot;帐户照片" 旁切换。
+1. 选择组织在页面顶部的 " :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="组织切换器&quot; 图标"::: 旁边的 "帐户照片" 旁切换。
 
-    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="组织切换器&quot; 图标&quot;::: 旁边的 &quot;帐户照片":::
+    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="可以切换到的组织的菜单":::
 
 1. 选择要切换到的组织。 你将自动切换到你选择的组织。
 

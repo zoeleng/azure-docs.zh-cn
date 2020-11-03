@@ -95,7 +95,7 @@ Azure Cosmos DB 支持两种类型或提供预配的吞吐量：标准（手动�
 
 此工作负荷的流量稳定，而规范化的 RU 消耗范围从72% 到100%。 预配 30000 RU/s 时，这意味着我们正在使用21600到 30000 RU/秒。
 
-:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="带有可变流量的工作负载-在所有小时内，标准化的 RU 消耗介于6% 和100% 之间":::
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="具有稳定流量的工作负荷-每小时72% 和100% 之间的规范化 RU 消耗量":::
 
 让我们比较一下预配 30000 RU/s 手动吞吐量的成本，并将自动缩放最大 RU/秒设置为 3000-30000 RU/s) 之间的 30000 (。
 
@@ -123,14 +123,14 @@ Azure Cosmos DB 支持两种类型或提供预配的吞吐量：标准（手动�
 1. 选择 "条形图" 选项。 
 1. 在 " **共享** " 下，选择 " **下载到 Excel** " 选项。 从生成的电子表格中，计算所有小时的平均利用率。 
 
-:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="带有可变流量的工作负载-在所有小时内，标准化的 RU 消耗介于6% 和100% 之间":::
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="若要查看按小时标准化的 RU 消耗量，1) 选择时间粒度为1小时;2) 编辑图表设置;3) 选择 &quot;条形图&quot; 选项;4) 在 &quot;共享&quot; 下，选择 &quot;下载到 Excel&quot; 选项以计算所有小时的平均值。 ":::
 
 ## <a name="measure-and-monitor-your-usage"></a>测量和监视使用情况
 随着时间的推移，在选择吞吐量类型之后，应该监视应用程序并根据需要进行调整。 
 
 使用自动缩放时，请使用 Azure Monitor 查看预配的自动缩放最大 RU/s（自动缩放最大吞吐量）和系统当前缩放到的 RU/s（预配的吞吐量） 。 下面是使用自动缩放的可变或不可预测工作负载的示例。 注意，当没有任何流量时，系统将 RU/s 缩放到最大 RU/s 的 10% 的最小值，在本例中分别为 5000 RU/s 和 50,000 RU/s。 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="带有可变流量的工作负载-在所有小时内，标准化的 RU 消耗介于6% 和100% 之间":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="使用自动缩放的工作负荷示例 50000 RU/s 的自动缩放最大 RU/秒和吞吐量，范围从 5000-50000 RU/秒":::
 
 > [!NOTE]
 > 当使用标准（手动）预配的吞吐量时，预配的吞吐量指标指的是作为用户设置的内容。 使用自动缩放吞吐量时，此指标是指系统当前缩放到的 RU/s。

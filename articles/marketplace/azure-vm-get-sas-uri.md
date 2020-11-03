@@ -37,17 +37,17 @@ ms.locfileid: "93129110"
 1. 中转到你的 **存储帐户** 。
 1. 打开存储资源管理器。
 
-    :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="存储帐户 &quot;窗口。&quot;:::
+    :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="存储帐户 &quot;窗口。":::
 
-3. 在 **容器** 中，右键单击 VHD 文件，然后选择 &quot; **获取共享访问签名** &quot;。
-4. 在 &quot; **共享访问签名** &quot; 对话框中，填写以下字段：
+3. 在 **容器** 中，右键单击 VHD 文件，然后选择 " **获取共享访问签名** "。
+4. 在 " **共享访问签名** " 对话框中，填写以下字段：
 
     1. 开始时间 – VHD 访问权限的开始日期。 请提供当前日期的前一天的日期。
     2. 过期时间 – VHD 访问权限的过期日期。 请提供自当前日期开始算起的至少三周后的日期。
     3. 权限 – 选择“读取”和“列出”权限。
     4. 容器级别 – 选中“生成容器级别的共享访问签名 URI”复选框。
 
-    ![&quot;共享访问签名" 对话框。](media/vm/create-sas-uri-storage-explorer.png)
+    !["共享访问签名" 对话框。](media/vm/create-sas-uri-storage-explorer.png)
 
 5. 若要为此 VHD 创建关联 SAS URI，请选择“创建”。
 6. 复制“URL”，并将其保存到位于安全位置的某个文本文件。 此生成的 SAS URL 适用于容器级访问权限。 若要使其特定，请编辑文本文件以添加 VHD 名称。

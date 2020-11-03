@@ -37,37 +37,46 @@ ms.locfileid: "92909907"
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="选择警报规则":::
 
-3. 选择“新建警报规则”（+ 图标）。 
+3. 选择“新建警报规则”（+ 图标）。
 
 4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="选择警报规则" **添加** "。
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="添加指标警报窗体":::
+
+5. 在 " **条件** " 部分中，选择 " **添加** "。
 
 6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="屏幕截图显示 &quot;配置信号逻辑&quot; 页，您可以在其中查看多个信号。":::
+
+7. 配置警报逻辑：
+
+    * **运算符** (ex "大于" ) 
+    * **阈值** (例如 85%) 
+    * **聚合粒度** 在警报触发之前必须满足指标规则的时间 (例如。 "过去30分钟" ) 
+    * **计算的频率** (例如 "1 分钟" ) 
    
    完成后选择“完成”  。
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="屏幕截图显示了可在其中配置警报逻辑的窗格。":::
 
 8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知   。
 
 9. 使用名称、短名称、订阅和资源组填写“添加操作组”表单。
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="选择警报规则":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="屏幕截图显示 &quot;添加操作组&quot; 窗体，可在其中输入所描述的值。":::
 
-10. 配置“电子邮件/短信/推送/语音”操作类型  。
+10. 配置“电子邮件/短信/推送/语音”操作类型。
     
     选择 "电子邮件 Azure 资源管理器角色"，将通知发送到订阅所有者、参与者和读者。
    
     完成后选择“确定”  。
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="选择警报规则":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="屏幕截图显示电子邮件/S M S/推送/语音窗格。":::
 
 11. 指定预警规则名称、说明和严重性。
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="选择警报规则"::: 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="屏幕截图显示 &quot;警报详细信息&quot; 窗格。"::: 
 
 12. 选择“创建警报规则”可以创建警报  。
 

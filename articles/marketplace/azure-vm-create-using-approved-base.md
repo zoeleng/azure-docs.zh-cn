@@ -46,7 +46,12 @@ Azure 提供一系列已批准的 Linux 发行版。 有关最新列表，请参
 
 6. 选择要部署的 VM 的大小。
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="选择 &quot;第1代&quot; 或 &quot;第2代&quot;。" **正在运行** "。
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="为所选映像选择建议的 VM 大小。":::
+
+7. 提供创建 VM 所需的其他详细信息。
+8. 选择“查看 + 创建”可查看选择。 显示 " **验证通过** " 消息后，选择 "  **创建** "。
+
+Azure 随即开始预配所指定的虚拟机。 选择左侧菜单中的 " **虚拟机** " 选项卡跟踪其进度。 创建后，虚拟机的状态将更改为 " **正在运行** "。
 
 
 ## <a name="configure-the-vm"></a>配置 VM

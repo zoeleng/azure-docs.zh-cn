@@ -58,7 +58,7 @@ Azure Active Directory (Azure AD) 允许从任何位置以单一登录方式登�
 
 - 排除所有受信任的位置 
 
-   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Azure &quot;D 位置&quot; 窗格的屏幕截图，将 &quot;配置&quot; 设置为 &quot;是&quot;，&quot;包括&quot; 选项卡可见，并选中并突出显示 &quot;任何位置&quot; 选项。" border="false":::
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Azure &quot;D 位置&quot; 窗格的屏幕截图，将 &quot;配置&quot; 设置为 &quot;是&quot;，将显示 &quot;排除&quot; 选项卡，并选择 &quot;所有受信任位置&quot; 选项。" border="false":::
 
 ## <a name="policy-deployment"></a>策略部署
 

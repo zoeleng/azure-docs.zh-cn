@@ -50,7 +50,7 @@ VM 大小和区域的子集都支持 Ultra 磁盘。 在继续之前，请验证
 
 1. 选择 **"是"** 以 **启用超高磁盘兼容性** 。 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="为 &quot;设置&quot; 下的 &quot;磁盘&quot; 选择其他设置 Azure 门户":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="显示 &quot;是&quot; 选项的屏幕截图。":::
 
 1. 选择“保存”。 
 
@@ -83,7 +83,7 @@ VM 大小和区域的子集都支持 Ultra 磁盘。 在继续之前，请验证
 1. 验证 SQL Server 使用的服务帐户。 可以通过使用 SQL Server 配置管理器或 services.msc 来实现此目的。
 1. 导航至新磁盘。 
 1. ) 要用于日志文件的 (或多个文件夹创建一个文件夹。 
-1. 右键单击该文件夹并选择“属性”。 
+1. 右键单击该文件夹并选择“属性”。
 1. 在 " **安全** " 选项卡上，对 SQL Server 服务帐户授予 "完全控制" 权限。 
 1. 选择 **"确定"**  以保存设置。 
 1. 对你计划包含 SQL 数据的每个根级别的文件夹重复此操作。 

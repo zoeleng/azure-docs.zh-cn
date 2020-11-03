@@ -4,16 +4,20 @@ ms.date: 09/10/2020
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.openlocfilehash: d4e8b8d6a23648b3c8eb5dedcd4ae041c8fbcf4b
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1aa344d80df6bfc22d0c94c6d5c61d305ace8d0c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875014"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073531"
 ---
-## <a name="prepare-your-environment"></a>准备环境
+## <a name="prerequisites"></a>先决条件
 
-- 若要运行 Azure CLI 命令，请执行 Azure CLI 的[本地安装](/cli/azure/install-azure-cli)，或使用 bash 环境启动 [Azure Cloud Shell](/azure/cloud-shell/quickstart)。
+- 在 bash 环境中使用 [Azure Cloud Shell](/azure/cloud-shell/quickstart)。
 
-- 如果使用的是本地安装，请通过 Azure CLI 使用 [az login](/cli/azure/reference-index#az-login) 命令登录。  遵循终端中显示的步骤完成身份验证过程。  有关其他登录选项，请参阅[使用 Azure CLI 登录](/cli/azure/authenticate-azure-cli)。
-- 出现提示时，请在首次使用时安装 Azure CLI 扩展。  在[使用 Azure CLI 的扩展](/cli/azure/azure-cli-extensions-overview)中详细了解扩展。
+   [![嵌入式启动](https://shell.azure.com/images/launchcloudshell.png "启动 Azure Cloud Shell")](https://shell.azure.com)  
+- 如果需要，请通过 [local install](/cli/azure/install-azure-cli) 本地安装 Azure CLI 来运行 CLI 参考命令。
+   - 如果使用的是本地安装，请通过 Azure CLI 使用 [az login](/cli/azure/reference-index#az-login) 命令登录。  遵循终端中显示的步骤完成身份验证过程。  有关其他登录选项，请参阅[使用 Azure CLI 登录](/cli/azure/authenticate-azure-cli)。
+  - 出现提示时，请在首次使用时安装 Azure CLI 扩展。  在[使用 Azure CLI 的扩展](/cli/azure/azure-cli-extensions-overview)中详细了解扩展。
+  - 运行 [az version](/cli/azure/reference-index?#az_version) 以查找安装的版本和依赖库。 若要升级到最新版本，请运行 [az upgrade](/cli/azure/reference-index?#az_upgrade)。
+

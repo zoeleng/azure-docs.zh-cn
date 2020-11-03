@@ -43,7 +43,7 @@ ms.locfileid: "93128498"
 1. 按 F1 打开命令面板中的命令。
 1. 将 URL 粘贴到“Git:Clone”提示符中，然后按 Enter。
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="从 vanilla-basic 创建新的存储库":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="使用 Visual Studio Code 克隆 GitHub 项目":::
 
     按照提示选择要克隆项目的存储库位置。
 
@@ -59,7 +59,7 @@ ms.locfileid: "93128498"
 1. 选择 api 文件夹作为项目工作区的目录
 1. 选择“选择”
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="从 vanilla-basic 创建新的存储库":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="屏幕截图显示 P I 文件夹和 &quot;选择&quot; 按钮。":::
 
 1. 根据提示提供以下信息：
 
@@ -145,13 +145,13 @@ Visual Studio Code 与 [Azure Functions Core Tools](../azure-functions/functions
 
     核心工具显示 _终端_ 面板中正在运行的应用程序的输出。 作为输出的一部分，可以看到 HTTP 触发函数的 URL 终结点在本地运行。
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="从 vanilla-basic 创建新的存储库":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="屏幕截图显示 &quot;终端&quot; 选项卡，可以在其中看到 U R L。":::
 
 1. 在核心工具运行的情况下，导航到以下 URL 以验证 API 是否正常运行： `http://localhost:7071/api/message` 。
 
    浏览器中的响应应类似于以下示例：
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="从 vanilla-basic 创建新的存储库":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Alt textScreenshot 在浏览器中显示文本响应。":::
 
 1. 按 **Shift + F5** 停止调试会话。
 
@@ -199,7 +199,7 @@ Visual Studio Code 与 [Azure Functions Core Tools](../azure-functions/functions
 
     你现在应该可以在网页中看到 API 消息。
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="从 vanilla-basic 创建新的存储库":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="屏幕截图在浏览器中显示 P I 消息。":::
 
    > [!NOTE]
    > 可以使用其他 HTTP 服务器或代理来提供 `index.html` 文件。 从 `file:///` 访问 `index.html` 将不起作用。
@@ -251,9 +251,11 @@ Visual Studio Code 与 [Azure Functions Core Tools](../azure-functions/functions
 
     在后台生成应用时，可以单击包含用于查看生成状态的链接的标题。
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="从 vanilla-basic 创建新的存储库" 链接。
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="GitHub 工作流":::
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="从 vanilla-basic 创建新的存储库":::
+1. 部署完成后，ou 可以导航到 web 应用，方法是单击 " _概述_ " 页上显示的 " _URL_ " 链接。
+
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="从 Azure 门户访问静态应用 URL":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

@@ -76,17 +76,15 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 你应在列表中看到刚刚创建的应用注册。 选择它以打开其详细信息。
 
-:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Azure 门户中的应用注册页&quot;:::
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Azure 门户中的应用注册页":::
 
 首先，验证是否已正确设置注册上的 Azure 数字孪生权限设置。 为此，请从菜单栏中选择 " *清单* "，以查看应用注册的清单代码。 滚动到代码窗口的底部，在下查找这些字段 `requiredResourceAccess` 。 值应与以下屏幕截图中的值匹配：
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Azure 门户中的应用注册页&quot;:::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Azure AD 应用注册清单的门户视图":::
 
-首先，验证是否已正确设置注册上的 Azure 数字孪生权限设置。 为此，请从菜单栏中选择 " *API 权限* "，验证此应用注册是否包含 Azure 数字孪生的读/写权限。 应会看到如下所示的条目：
+接下来，从菜单栏中选择 " *API 权限* "，验证此应用注册是否包含 Azure 数字孪生的读/写权限。 应会看到如下所示的条目：
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Azure 门户中的应用注册页&quot;:::
-
-首先，验证是否已正确设置注册上的 Azure 数字孪生权限设置。 为此，请从菜单栏中选择 ":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Azure AD 应用注册的 API 权限的门户视图，其中显示了 Azure 数字孪生的 &quot;读取/写入访问权限&quot;":::
 
 #### <a name="fix-issues"></a>解决问题
 

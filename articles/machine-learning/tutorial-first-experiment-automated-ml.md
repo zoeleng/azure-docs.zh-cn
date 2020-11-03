@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: ebc3899c98a09b64443b129dde52cb597fac9eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3fd4dcfa4c01c39e4e6cab4915de807c3d19ae6
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976655"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913851"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>教程：使用 Azure 机器学习中的自动化 ML 创建分类模型
 
@@ -44,7 +44,7 @@ ms.locfileid: "90976655"
 
 Azure 机器学习工作区是云中的基础资源，用于试验、训练和部署机器学习模型。 它将 Azure 订阅和资源组关联到服务中一个易于使用的对象。 
 
-通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。
+可以通过许多[方法来创建工作区](how-to-manage-workspace.md)。 本教程将通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -59,7 +59,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
 
 1. 选择创建的订阅和工作区。
 
-1. 选择“开始”。
+1. 选择“开始”。 
 
 1. 在左窗格的“创作”部分，选择“自动化 ML” 。
 
@@ -81,7 +81,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
 
     1. 在“数据存储和文件选择”窗体上，选择在创建工作区期间自动设置的默认数据存储“workspaceblobstore(Azure Blob 存储)”。 你可以在此数据存储中上传数据文件，使其可用于你的工作区。
 
-    1. 选择“浏览”。
+    1. 选择“浏览”  。
     
     1. 选择本地计算机上的 bankmarketing_train.csv 文件。 这是作为[必备组件](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)下载的文件。
 
@@ -101,7 +101,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
         列标题| 指示如何处理数据集的标头（如果有）。| 所有文件都具有相同的标题
         跳过行 | 指示要跳过数据集中的多少行（如果有）。| 无
 
-    1. 通过“架构”窗体，可以进一步为此试验配置数据。 对于本示例，为 day_of_week 特征选择切换开关，以便在此试验中不包含在内。 选择“**下一页**”。
+    1. 通过“架构”窗体，可以进一步为此试验配置数据。 对于本示例，为 day_of_week 特征选择切换开关，以便在此试验中不包含在内。 选择“ **下一页** ”。
 
         ![“预览”选项卡中的配置](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -140,7 +140,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
 
         1. 创建后，从下拉列表中选择新的计算目标。
 
-    1. 选择“**下一步**”。
+    1. 选择“ **下一步** ”。
 
 1. 在“任务类型和设置”窗体上，通过指定机器学习任务类型和配置设置来完成自动化 ML 试验的设置。
     
@@ -162,8 +162,8 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
 1. 选择“完成”以运行试验。 当试验准备开始时，将打开“运行详细信息”屏幕并且会在顶部显示“运行状态”。
 
 >[!IMPORTANT]
-> 准备试验运行时，准备需要 **10-15 分钟**。
-> 运行以后，**每个迭代还需要 2-3 分钟**。  
+> 准备试验运行时，准备需要 **10-15 分钟** 。
+> 运行以后， **每个迭代还需要 2-3 分钟** 。  
 > 定期选择“刷新”，以查看实验过程中运行的状态。
 >
 > 在生产环境中，你可能会走开一段时间。 但在本教程中，建议你开始浏览“模型”选项卡上的已测试算法，因为当其他模型仍在运行的时候，这些模型已经完成。 
@@ -186,7 +186,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
 
 检查试验运行是否完成。 为此请选择屏幕顶部的“运行 1”导航回父运行页。 “已完成”状态将显示在屏幕的左上角。 
 
-试验运行完成后，“详细信息”页中会填充“最佳模型摘要”部分。  在此试验上下文中，根据 **AUC_weighted** 指标，**VotingEnsemble** 被视为最佳模型。  
+试验运行完成后，“详细信息”页中会填充“最佳模型摘要”部分。  在此试验上下文中，根据 **AUC_weighted** 指标， **VotingEnsemble** 被视为最佳模型。  
 
 我们将部署此模型，但请注意，部署需要大约 20 分钟才能完成。 部署过程需要几个步骤，包括注册模型、生成资源和为 Web 服务配置资源。
 

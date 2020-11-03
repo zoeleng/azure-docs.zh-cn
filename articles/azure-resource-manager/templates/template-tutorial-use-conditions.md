@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119304"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896984"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>教程：在 ARM 模板中使用条件
 
@@ -84,11 +84,11 @@ Azure 快速入门模板是 ARM 模板的存储库。 无需从头开始创建�
 
 下面是进行更改的过程：
 
-1. 在 Visual Studio Code 中打开 **azuredeploy.json**。
+1. 在 Visual Studio Code 中打开 **azuredeploy.json** 。
 1. 在整个模板中，将三个 **variables('storageAccountName')** 替换为 **parameters('storageAccountName')** 。
 1. 删除以下变量定义：
 
-    ![资源管理器模板使用条件关系图](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![突出显示需要删除的变量定义的屏幕截图。](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. 将以下两个参数添加到 parameters 节的开头：
 
@@ -117,11 +117,11 @@ Azure 快速入门模板是 ARM 模板的存储库。 无需从头开始创建�
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    该条件检查名为 **newOrExisting** 的参数的值。 如果参数值为 **new**，则部署将创建存储帐户。
+    该条件检查名为 **newOrExisting** 的参数的值。 如果参数值为 **new** ，则部署将创建存储帐户。
 
     更新的存储帐户定义如下所示：
 
-    ![在资源管理器中使用条件](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![显示更新的存储帐户定义的屏幕截图。](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. 使用以下值更新虚拟机资源定义的 **storageUri** 属性：
 
     ```json
@@ -172,7 +172,7 @@ Azure 快速入门模板是 ARM 模板的存储库。 无需从头开始创建�
     ```
 
     > [!NOTE]
-    > 如果 **newOrExisting** 为 **new**，但具有指定存储帐户名称的存储帐户已存在，则部署将会失败。
+    > 如果 **newOrExisting** 为 **new** ，但具有指定存储帐户名称的存储帐户已存在，则部署将会失败。
 
 通过将 **newOrExisting** 设置为“existing”并指定现有存储帐户来尝试进行另一个部署。 若要提前创建存储帐户，请参阅[创建存储帐户](../../storage/common/storage-account-create.md)。
 

@@ -48,75 +48,56 @@ ms.locfileid: "93102805"
 2. 从左侧导航窗格中选择 " **所有服务** "，然后在搜索栏中键入 **事件网格伙伴注册** ，然后选择它。 
 1. 在 " **事件网格伙伴注册** " 页上，选择工具栏上的 " **+ 添加** "。 
 
-    :::image type="content" source="./media/onboard-partner/add-partner-registration-link.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
+    :::image type="content" source="./media/onboard-partner/add-partner-registration-link.png" alt-text="添加合作伙伴注册链接":::
+1. 在 " **创建合作伙伴主题类型" "注册-基本** " 页上，输入以下信息： 
+    1. 在 " **项目详细信息** " 部分中，执行以下步骤：
         1. 选择 **Azure 订阅** 。 
         1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" 主题的用户友好显示名称。 
+    1. 在 " **注册详细信息** " 部分中，执行以下步骤：
+        1. 对于 " **注册名称** "，请输入注册的名称。 
+        1. 对于 " **组织名称** "，请输入你的组织的名称。 
+    1. 在 " **合作伙伴资源类型** " 部分中，输入将在 " **合作伙伴" 主题** 的 "创建" 页上显示的资源类型的详细信息： 
+        1. 对于 " **合作伙伴资源类型名称** "，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
+        2. 对于 " **显示名称** "，请输入 (资源) 类型的 "合作伙伴" 主题的用户友好显示名称。 
         3. 输入 **资源类型的描述** 。 
         4. 输入 **应用场景的说明** 。 它应说明可用于资源的合作伙伴主题的方法或方案。  
 
-            :::image type="content" source="./media/onboard-partner/create-partner-registration-page.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" 选项卡上，输入当事件源出现问题时，订阅者用户将用于联系你的信息：
+            :::image type="content" source="./media/onboard-partner/create-partner-registration-page.png" alt-text="创建合作伙伴注册":::            
+1. 选择页面底部的 " **下一步：自定义服务** "。 在 " **创建合作伙伴注册** " 页的 " **客户服务** " 选项卡上，输入当事件源出现问题时，订阅者用户将用于联系你的信息：
     1. 输入 **电话号码** 。
     1. 输入电话号码的 **分机** 号。
     1. 输入支持网站 **URL** 。 
     
-        :::image type="content" source="./media/onboard-partner/create-partner-registration-customer-service.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" **创建** "，以创建)  (合作伙伴主题类型的注册。
+        :::image type="content" source="./media/onboard-partner/create-partner-registration-customer-service.png" alt-text="创建合作伙伴注册-客户服务":::        
+1. 选择页面底部的 " **下一步：标记** "。 
+1. 在 " **标记** " 页上，配置以下值。 
+    1. 输入要添加的标记的 **名称** 和 **值** 。 此步骤是 **可选的** 。 
+    1. 选择页面底部的 "查看" 和 " **创建** "，以创建)  (合作伙伴主题类型的注册。
 
 ## <a name="create-a-partner-namespace"></a>创建合作伙伴命名空间
 
 1. 在 Azure 门户中，从左侧导航菜单中选择 " **所有服务** "，然后在搜索栏中键入 " **事件网格伙伴命名空间** "，然后从列表中选择它。 
 1. 在 " **事件网格伙伴命名空间** " 页上，选择工具栏上的 " **+ 添加** "。 
     
-    :::image type="content" source="./media/onboard-partner/add-partner-namespace-link.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" **下一步：标记** "。
+    :::image type="content" source="./media/onboard-partner/add-partner-namespace-link.png" alt-text="合作伙伴命名空间-添加链接":::
+1. 在 " **创建合作伙伴命名空间-基本** 信息" 页上，指定以下信息。
+    1. 在 " **项目详细信息** " 部分中，执行以下步骤： 
+        1. 选择 Azure 订阅。
+        1. 选择现有 **资源组** 或创建资源组。 
+    1. 在 " **命名空间详细信息** " 部分中，执行以下步骤：
+        1. 输入命名空间的 **名称** 。 
+        1. 选择命名空间所在的 **位置** 。 
+    1. 在 " **注册详细信息** " 部分中，执行以下步骤，将命名空间与合作伙伴注册相关联。 
+        1. 选择要在其中存在合作伙伴注册的 **订阅** 。 
+        1. 选择包含合作伙伴注册的 **资源组** 。 
+        1. 从下拉列表中选择 " **合作伙伴注册** "。
+    1. 选择页面底部的 " **下一步：标记** "。
 
-        :::image type="content" source="./media/onboard-partner/create-partner-namespace-basics-page.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" **创建** "。 
+        :::image type="content" source="./media/onboard-partner/create-partner-namespace-basics-page.png" alt-text="创建合作伙伴命名空间-基础页面":::
+1. 在 " **标记** " 页上，添加标记 (可选) 。
+    1. 输入要添加的标记的 **名称** 和 **值** 。 此步骤是 **可选的** 。
+    1. 在页面底部选择“查看 + 创建”。         
+1. 在 " **查看** " 和 "创建" 页上，查看详细信息，然后选择 " **创建** "。 
 
 ## <a name="create-an-event-channel"></a>创建事件通道
 > [!IMPORTANT]
@@ -124,56 +105,34 @@ ms.locfileid: "93102805"
 
 1. 请在创建的命名空间中转到 " **概述** " 页。 
 
-    :::image type="content" source="./media/onboard-partner/partner-namespace-overview.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" **下一步：筛选器** "。 
+    :::image type="content" source="./media/onboard-partner/partner-namespace-overview.png" alt-text="合作伙伴命名空间-概述页":::
+    partner-namespace-overview.png
+1. 在工具栏上选择 " **+ 事件通道** "。 
+1. 在 " **创建事件通道-基本** 信息" 页上，指定以下信息。 
+    1. 在 " **频道详细信息** " 部分中，执行以下步骤：
+        1. 对于 " **事件通道名称** "，请输入事件通道的名称。 
+        1. 输入 **源** 。 请参阅 [Cloud Events 1.0 规范](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) ，了解源的适当值。 另请参阅 [此云事件架构示例](cloud-event-schema.md#sample-event-using-cloudevents-schema)。
+        1. 输入源 (什么？ ) 。
+    1. 在 " **目标详细信息** " 部分中，输入将为此事件通道创建的目标合作伙伴主题的详细信息。 
+        1. 输入将在其中创建合作伙伴主题的 **订阅的 ID** 。 
+        1. 输入将在其中创建合作伙伴主题资源的 **资源组的名称** 。 
+        1. 输入 **合作伙伴的名称** 。 
+    1. 选择页面底部的 " **下一步：筛选器** "。 
     
-        :::image type="content" source="./media/onboard-partner/create-event-channel-basics-page.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" **下一步：附加功能** "。 
+        :::image type="content" source="./media/onboard-partner/create-event-channel-basics-page.png" alt-text="创建事件通道-基本页":::
+1. 在 " **筛选器** " 页上，添加筛选器。 请执行以下步骤：
+    1. 筛选每个事件的属性。 仅提供与所有筛选器匹配的事件。 最多可以指定25个筛选器。 比较不区分大小写。 用于筛选器的有效密钥因事件架构而异。 在下面的示例中，，、 `eventid` `source` `eventtype` 和 `eventtypeversioin` 可以用于键。 你还可以使用作为嵌套运算符的数据负载中的自定义属性 `.` 。 例如： `data` 、 `data.key` 、 `data.key1.key2` 。
+    1. 选择页面底部的 " **下一步：附加功能** "。 
     
-        :::image type="content" source="./media/onboard-partner/create-event-channel-filters-page.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" 页上，你可以 **为合作伙伴主题** 设置 **过期时间** 和描述。 
+        :::image type="content" source="./media/onboard-partner/create-event-channel-filters-page.png" alt-text="&quot;创建事件通道-筛选器&quot; 页":::
+        create-event-channel-filters-page.png
+1. 在 " **其他功能** " 页上，你可以 **为合作伙伴主题** 设置 **过期时间** 和描述。 
     1. **过期时间** 是在客户未激活时，主题及其关联事件通道将自动删除的时间。 如果未提供时间，则使用默认的七天。 选中相应的复选框以指定您自己的过期时间。 
     1. 由于本主题是一个不是由用户创建的资源，因此 **说明** 可以帮助用户了解本主题的本质。 如果未设置，则将提供一般说明。 选中相应的复选框以设置您自己的合作伙伴主题说明。 
     1. 在完成时选择“下一步:查看 + 创建”。 
     
-        :::image type="content" source="./media/onboard-partner/create-event-channel-additional-features-page.png" alt-text="添加合作伙伴注册链接&quot;:::
-1. 在 &quot; **创建合作伙伴主题类型&quot; &quot;注册-基本** &quot; 页上，输入以下信息： 
-    1. 在 &quot; **项目详细信息** &quot; 部分中，执行以下步骤：
-        1. 选择 **Azure 订阅** 。 
-        1. 选择现有的 Azure **资源组** 或创建新的资源组。 
-    1. 在 &quot; **注册详细信息** &quot; 部分中，执行以下步骤：
-        1. 对于 &quot; **注册名称** &quot;，请输入注册的名称。 
-        1. 对于 &quot; **组织名称** &quot;，请输入你的组织的名称。 
-    1. 在 &quot; **合作伙伴资源类型** &quot; 部分中，输入将在 &quot; **合作伙伴&quot; 主题** 的 &quot;创建&quot; 页上显示的资源类型的详细信息： 
-        1. 对于 &quot; **合作伙伴资源类型名称** &quot;，请输入资源类型的名称。 这是将在 Azure 订阅中创建的合作伙伴主题的类型。 
-        2. 对于 &quot; **显示名称** &quot;，请输入 (资源) 类型的 &quot;合作伙伴" 来创建事件通道。 
+        :::image type="content" source="./media/onboard-partner/create-event-channel-additional-features-page.png" alt-text="&quot;创建事件通道-其他功能&quot; 页":::
+1. 在 " **查看** " 和 "创建" 中，查看设置，然后选择 " **创建** " 来创建事件通道。 
 
 ## <a name="next-steps"></a>后续步骤
 - [合作伙伴主题概述](partner-topics-overview.md)

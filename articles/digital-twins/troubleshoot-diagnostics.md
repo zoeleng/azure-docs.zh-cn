@@ -49,7 +49,9 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
     
 4. 保存新设置。 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="显示 &quot;诊断设置&quot; 页和要添加的按钮的屏幕截图" 页上显示在配置的目标中。 
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="显示 &quot;诊断设置&quot; 页的屏幕截图，其中用户填写了诊断设置名称，并对类别详细信息和目标详细信息进行了一些复选框选择。突出显示 &quot;保存&quot; 按钮。":::
+
+新设置在大约 10 分钟后生效。 之后，日志会在实例的 " **诊断设置** " 页上显示在配置的目标中。 
 
 ## <a name="category-details"></a>类别详细信息
 
