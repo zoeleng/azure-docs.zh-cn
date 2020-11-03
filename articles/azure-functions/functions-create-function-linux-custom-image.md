@@ -3,14 +3,14 @@ title: 在 Linux 上使用自定义映像创建 Azure Functions
 description: 了解如何创建在自定义 Linux 映像中运行的 Azure Functions。
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758976"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747096"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>在 Linux 上使用自定义容器创建函数
 
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-`-DjavaVersion` 参数告诉 Functions 运行时要使用哪个 Java 版本。 如果希望函数在 Java 11（预览版）上运行，请使用 `-DjavaVersion=11`。 如果不指定 `-DjavaVersion`，则 Maven 默认使用 Java 8。 有关详细信息，请参阅 [Java 版本](functions-reference-java.md#java-versions)。
+`-DjavaVersion` 参数告诉 Functions 运行时要使用哪个 Java 版本。 如果希望函数在 Java 11 上运行，请使用 `-DjavaVersion=11`。 如果不指定 `-DjavaVersion`，则 Maven 默认使用 Java 8。 有关详细信息，请参阅 [Java 版本](functions-reference-java.md#java-versions)。
+
+> [!IMPORTANT]
+> 要完成本文中的步骤，`JAVA_HOME` 环境变量必须设置为正确版本的 JDK 的安装位置。
 
 Maven 会请求你提供所需的值，以在部署上完成项目的生成。   
 系统提示时提供以下值：
@@ -372,7 +375,7 @@ Azure 上的函数应用管理托管计划中函数的执行。 在本部分，�
 
 1. 将部署 Webhook URL 复制到剪贴板。
 
-1. 打开 [Docker Hub](https://hub.docker.com/) 并登录，然后在导航栏上选择“存储库”。 找到并选择映像，选择“Webhook”选项卡，指定一个 **Webhook 名称**，将 URL 粘贴到“Webhook URL”中，然后选择“创建”：
+1. 打开 [Docker Hub](https://hub.docker.com/) 并登录，然后在导航栏上选择“存储库”。 找到并选择映像，选择“Webhook”选项卡，指定一个 **Webhook 名称** ，将 URL 粘贴到“Webhook URL”中，然后选择“创建”：
 
     ![将 Webhook 添加到 DockerHub 存储库中](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 

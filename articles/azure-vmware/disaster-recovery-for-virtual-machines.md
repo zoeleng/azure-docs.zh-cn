@@ -44,11 +44,11 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
 1. 输入 " **灾难恢复** " 区域，然后选择 " **保护 vm** "。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="选择 &quot;保护 vm&quot;" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
 1. 选择源和远程站点。 在此示例中，远程站点应为 Azure VMware 解决方案私有云。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="VSphere 中的 HCX 选项" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="保护 Vm 窗口" border="true":::
 
 1. 如果需要，请选择 **默认的复制** 选项：
 
@@ -68,21 +68,21 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
    - **快照数：** 已配置的快照间隔内的总快照数。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="保护 Vm 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
 
 1. 从列表中选择一个或多个 Vm，并根据需要配置复制选项。
 
    默认情况下，Vm 继承在默认复制选项中配置的全局设置策略。 对于所选 VM 中的每个网络接口，配置远程 **网络端口组** ，并选择 " **完成** " 以启动保护过程。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="网络接口选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
 
 1. 在同一灾难恢复区域中监视每个选定 Vm 的进程。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="监视保护进度" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
 
 1. 保护 VM 后，可以在 " **快照** " 选项卡中查看不同的快照。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="快照列表" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
    黄色三角形表示快照和虚拟机未在测试恢复操作中进行测试。
 
@@ -93,21 +93,21 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 1. 在远程站点（即 Azure VMware 解决方案私有云）上登录到 **VSphere 客户端** 。 
 1. 在 **HCX 插件** 内的 "灾难恢复" 区域中，选择任何 VM 上的垂直省略号以显示 "操作" 菜单，然后选择 " **测试恢复 VM** "。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="VSphere 中的 HCX 选项" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="选择测试恢复 VM" border="true":::
 
 1. 选择要用于测试 VM 不同状态的测试选项和快照。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="VSphere 中的 HCX 选项" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="选择快照，然后选择 &quot;测试&quot;" border="true":::
 
 1. 选择 " **测试** " 后，恢复操作开始。
 
 1. 完成后，可以在 Azure VMware 解决方案私有云 vCenter 中查看新 VM。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="检查恢复操作" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
 
 1. 在 VM 或其上运行的任何应用程序进行测试后，执行清除以删除测试实例。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="清理测试实例" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
 
 ## <a name="recover-vms"></a>恢复 Vm
 
@@ -117,11 +117,11 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 
 1. 从列表中选择要恢复的 VM，打开 " **操作** " 菜单，然后选择 " **恢复 vm** "。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="VSphere 中的 HCX 选项" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="恢复 Vm" border="true":::
 
 1. 为每个实例配置恢复选项，然后选择 " **恢复** " 以启动恢复操作。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="VSphere 中的 HCX 选项" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="恢复 Vm 确认" border="true":::
 
 1. 完成恢复操作后，新的 Vm 会出现在远程 vCenter Server 清单中。
 
@@ -135,11 +135,11 @@ VMware HCX 提供各种操作，可提供复制策略的精细控制和粒度。
 1. 从列表中，选择要复制回源站点的 Vm，打开 " **操作** " 菜单，然后选择 " **反向** "。 
 1. 选择 " **反向** " 开始复制。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="VSphere 中的 HCX 选项" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="选择 &quot;保护操作&quot; 下的 &quot;反向操作&quot;" border="true":::
 
 1. 监视每个 VM 的详细信息部分。
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="VSphere 中的 HCX 选项" border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="查看反向操作的结果" border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
 
 ## <a name="disaster-recovery-plan-automation"></a>灾难恢复计划自动化
 

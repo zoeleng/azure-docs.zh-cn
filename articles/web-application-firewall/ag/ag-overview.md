@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267017"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785215"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>什么是 Azure 应用程序网关上的 Azure Web 应用程序防火墙？
 
@@ -65,8 +65,8 @@ Azure 应用程序网关提供的 Azure Web 应用程序防火墙 (WAF) 可以�
 - SQL 注入保护。
 - 跨站点脚本保护。
 - 其他常见 Web 攻击防护，例如命令注入、HTTP 请求走私、HTTP 响应拆分和远程文件包含。
-- 防止 HTTP 协议违反行为。
-- 防止 HTTP 协议异常行为（例如缺少主机用户代理和接受标头）。
+- 防止 HTTP 协议违反行为的保护。
+- 防止 HTTP 协议异常行为（例如缺少主机用户代理和接受标头）的保护。
 - 防范爬网程序和扫描程序。
 - 检测常见应用程序错误配置（例如 Apache 和 IIS 等）。
 - 具有下限和上限的可配置请求大小限制。
@@ -74,6 +74,7 @@ Azure 应用程序网关提供的 Azure Web 应用程序防火墙 (WAF) 可以�
 - 根据应用程序的具体需求创建自定义规则。
 - 按地理位置筛选流量，以允许或阻止从特定的国家/地区访问你的应用程序。 （预览版）
 - 使用机器人缓解规则集防范应用程序遭到机器人攻击。 （预览版）
+- 检查请求正文中的 JSON 和 XML
 
 ## <a name="waf-policy-and-rules"></a>WAF 策略和规则
 
@@ -121,8 +122,8 @@ Azure 应用程序网关提供的 Azure Web 应用程序防火墙 (WAF) 可以�
 
 应用程序网关 WAF 可配置为在以下两种模式中运行：
 
-* **检测模式**：监视和记录所有威胁警报。 在“诊断”部分打开应用程序网关的日志记录诊断。 还必须确保已选择并打开 WAF 日志。 在检测模式下运行时，Web 应用程序防火墙不会阻止传入的请求。
-* **阻止模式**：阻止规则检测到的入侵和攻击。 攻击者会收到“403 未授权访问”异常，且连接会结束。 阻止模式会在 WAF 日志中记录此类攻击。
+* **检测模式** ：监视和记录所有威胁警报。 在“诊断”部分打开应用程序网关的日志记录诊断。 还必须确保已选择并打开 WAF 日志。 在检测模式下运行时，Web 应用程序防火墙不会阻止传入的请求。
+* **阻止模式** ：阻止规则检测到的入侵和攻击。 攻击者会收到“403 未授权访问”异常，且连接会结束。 阻止模式会在 WAF 日志中记录此类攻击。
 
 > [!NOTE]
 > 建议在生产环境中的短时间内，在检测模式下运行新部署的 WAF。 这样，在转换为阻止模式之前，便有机会获取[防火墙日志](../../application-gateway/application-gateway-diagnostics.md#firewall-log)并更新任何异常或[自定义规则](./custom-waf-rules-overview.md)。 这有助于减少意外阻止流量的发生次数。
@@ -135,7 +136,7 @@ OWASP 有两种模式，用于决定是否阻止流量：传统模式和异常�
 
 在异常评分模式下，当防火墙处于阻止模式时，不会立即阻止与任何规则匹配的流量。 规则具有一定的严重性：“严重”、“错误”、“警告”或“通知”。 此严重性会影响请求的数值，该数值称为异常分数。 例如，一个“警告”规则匹配对应的分数为 3。 一个“严重”规则匹配对应的分数为 5。
 
-|严重性  |Value  |
+|严重性  |值  |
 |---------|---------|
 |严重     |5|
 |错误        |4|

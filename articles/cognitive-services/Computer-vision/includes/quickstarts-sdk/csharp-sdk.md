@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6315ca68c8e58c3ba04e616967c233c81fda9b19
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d48d0cbac4e0e8b366170d979be3bbc5dd3064ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038478"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886469"
 ---
 <a name="HOLTop"></a>
 
@@ -133,15 +133,14 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 以下代码定义方法 `AnalyzeImageUrl`，该方法使用客户端对象分析远程图像并输出结果。 该方法返回文本说明、分类、标记列表、检测到的人脸、成人内容标志、主颜色和图像类型。
 
+> [!TIP]
+> 还可以分析本地图像。 请参阅 [ ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) 方法，例如 AnalyzeImageInStreamAsync。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) 上的示例代码，了解涉及本地图像的方案。
 
 ### <a name="set-up-test-image"></a>设置测试图像
 
 在 Program 类中，保存对要分析的图像的 URL 的引用。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_url)]
-
-> [!NOTE]
-> 还可以分析本地图像。 请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) 上的示例代码以了解涉及本地图像的方案。
 
 ### <a name="specify-visual-features"></a>指定视觉特性
 
@@ -233,15 +232,14 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 计算机视觉可以读取图像中的可见文本，并将其转换为字符流。 有关文本识别的详细信息，请参阅[光学字符识别 (OCR)](../../concept-recognizing-text.md#read-api) 概念文档。本部分中的代码使用[适用于 Read 3.0 的最新计算机视觉 SDK 版本](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1)，并定义了 `BatchReadFileUrl` 方法，该方法使用客户端对象来检测和提取图像中的文本。
 
+> [!TIP]
+> 还可以从本地图像提取文本。 请参阅 [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) 方法，例如 ReadInStreamAsync。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) 上的示例代码，了解涉及本地图像的方案。
 
 ### <a name="set-up-test-image"></a>设置测试图像
 
 在 Program 类中，保存要从中提取文本的图像的 URL 的引用。 此代码段包含打印文本和手写文本的示例图像。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readtext_url)]
-
-> [!NOTE]
-> 还可以从本地图像提取文本。 请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) 上的示例代码以了解涉及本地图像的方案。
 
 ### <a name="call-the-read-api"></a>调用读取 API
 

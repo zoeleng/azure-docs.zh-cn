@@ -42,7 +42,7 @@ Azure AD 租户需要以下帐户：全局管理员帐户和主用户帐户。 �
 
 1. 找到要用于身份验证的目录的目录 ID。 它在 "Active Directory" 页的 "属性" 部分中列出。
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="新 Azure AD 租户" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="显示目录属性的屏幕截图" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
 
 1. 复制“目录 ID”。
 
@@ -80,13 +80,13 @@ Azure AD 租户需要以下帐户：全局管理员帐户和主用户帐户。 �
 
 1. 如果出现提示，请选择“全局管理员”帐户。
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="新 Azure AD 租户" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="选取帐户" border="false":::
 1. 出现提示时选择“接受”。
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="新 Azure AD 租户" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="屏幕截图显示请求你的组织接受的消息权限，其中包含详细信息和接受选项。" border="false":::
 1. 在 Azure AD 下的“企业应用程序”中，将会发现已列出“Azure VPN”。
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="新 Azure AD 租户" lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="显示 &quot;所有应用程序&quot; 页的屏幕截图。" lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
 1. 如果还没有正常运行的“点到站点”环境，请按照说明创建一个。 请参阅[创建点到站点 VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md)，以创建和配置点到站点 VPN 网关。
 
     > [!IMPORTANT]
@@ -101,7 +101,7 @@ Azure AD 租户需要以下帐户：全局管理员帐户和主用户帐户。 �
    * **颁发者** ：安全令牌服务的 URL ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="新 Azure AD 租户" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="SAzure VPN" border="false":::
 
    > [!NOTE]
    > 请确保在 `AadIssuerUri` 值的末尾包含尾随斜杠。 否则，连接可能会失败。

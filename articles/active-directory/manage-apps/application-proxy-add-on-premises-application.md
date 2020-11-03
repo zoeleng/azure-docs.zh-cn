@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 081ed9675c10be8ea1db767567aa866442158086
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0ece14fb1a96ac8cc66f4d35d027b9d93d1f800e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207659"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792814"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教程：在 Azure Active Directory 中添加一个本地应用程序以通过应用程序代理进行远程访问
 
@@ -109,13 +109,14 @@ Azure Active Directory (Azure AD) 具有可让用户使用其 Azure AD 帐户登
 
 允许访问以下 URL：
 
-| 代码 | 用途 |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | 连接器与应用程序代理云服务之间的通信 |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 连接器使用这些 URL 来验证证书。 |
-| login.windows.net<br>secure.aadcdn.microsoftonline p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | 在注册过程中，连接器将使用这些 URL。 |
+| 代码 | 端口 | 用途 |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | 连接器与应用程序代理云服务之间的通信 |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |连接器使用这些 URL 来验证证书。 |
+| login.windows.net<br>secure.aadcdn.microsoftonline p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |在注册过程中，连接器将使用这些 URL。 |
+| ctldl.windowsupdate.com | 80/HTTP |在注册过程中，连接器将使用此 URL。 |
 
-如果防火墙或代理允许配置 DNS 允许列表，则可将与 \*.msappproxy.net 和 \*.servicebus.windows.net 的连接加入允许列表。 如果没有，则需要允许访问 [Azure IP 范围和服务标记 - 公有云](https://www.microsoft.com/download/details.aspx?id=56519)。 IP 范围每周更新。
+如果防火墙或代理允许配置 DNS 允许列表，则可将与 &ast;.msappproxy.net 和 &ast;.servicebus.windows.net 的连接加入允许列表。 如果没有，则需要允许访问 [Azure IP 范围和服务标记 - 公有云](https://www.microsoft.com/download/details.aspx?id=56519)。 IP 范围每周更新。
 
 ## <a name="install-and-register-a-connector"></a>安装并注册连接器
 
@@ -186,7 +187,7 @@ Azure Active Directory (Azure AD) 具有可让用户使用其 Azure AD 帐户登
 4. 在“本地应用程序”  部分中，选择“添加本地应用程序”  。
 5. 在“添加自己的本地应用程序”部分中，提供有关应用程序的以下信息  ：
 
-    | 字段 | 描述 |
+    | 字段 | 说明 |
     | :---- | :---------- |
     | **名称** | 要显示在“我的应用”和 Azure 门户中的应用程序名称。 |
     | **内部 URL** | 用于从专用网络内部访问应用程序的 URL。 可以提供后端服务器上要发布的特定路径，而服务器的其余部分则不发布。 通过这种方式，可以在同一服务器上将不同站点发布为不同应用，并为每个站点提供其自己的名称和访问规则。<br><br>如果发布路径，请确保它包含应用程序的所有必要映像、脚本和样式表。 例如，如果应用位于 https:\//yourapp/app 并使用位于 https:\//yourapp/media 的映像，则应将 https:\//yourapp/ 发布为路径。 此内部 URL 不一定是用户看到的登陆页面。 有关详细信息，请参阅[为发布的应用设置自定义主页](application-proxy-configure-custom-home-page.md)。 |

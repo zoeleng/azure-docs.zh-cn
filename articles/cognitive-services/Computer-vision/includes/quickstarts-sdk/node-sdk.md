@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: d0e94066c6e8ab60a52761898e49bdf11997a062
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309807"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886467"
 ---
 <a name="HOLTop"></a>
 
@@ -28,7 +28,7 @@ ms.locfileid: "91309807"
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 为密钥和终结点 URL [创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别将其命名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`。
+
 
 ## <a name="setting-up"></a>设置
 
@@ -48,7 +48,7 @@ npm init
 
 ### <a name="install-the-client-library"></a>安装客户端库
 
-安装 `ms-rest-azure` 和 `@azure/cognitiveservices-computervision` NPM 包:
+安装 `ms-rest-azure` 和 `@azure/cognitiveservices-computervision` NPM 包：
 
 ```console
 npm install @azure/cognitiveservices-computervision
@@ -56,17 +56,21 @@ npm install @azure/cognitiveservices-computervision
 
 应用的 `package.json` 文件将使用依赖项进行更新。
 
-### <a name="prepare-the-nodejs-script"></a>准备 Node.js 脚本
-
-创建新文件 *index.js*，将其在文本编辑器中打开。 添加以下 import 语句。
+创建新文件 *index.js* ，将其在文本编辑器中打开。 添加以下 import 语句。
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
-然后定义函数 `computerVision`，并声明一个包含主函数和回调函数的异步系列。 我们会将快速入门代码添加到主函数中，并调用脚本底部的 `computerVision`。
+> [!TIP]
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) 上找到它，其中包含此快速入门中的代码示例。
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
+为资源的 Azure 终结点和密钥创建变量。
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
+
+> [!IMPORTANT]
+> 转到 Azure 门户。 如果在“先决条件”部分中创建的 [产品名称] 资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
+>
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
 
 ## <a name="object-model"></a>对象模型
 
@@ -87,20 +91,23 @@ npm install @azure/cognitiveservices-computervision
 
 ## <a name="authenticate-the-client"></a>验证客户端
 
-为资源的 Azure 终结点和密钥创建变量。 如果在启动应用程序后创建了环境变量，则需要关闭再重新打开运行该应用程序的编辑器、IDE 或 shell 才能访问该变量。
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
 
 使用终结点和密钥实例化某个客户端。 使用密钥和终结点创建 [ApiKeyCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) 对象，然后使用它创建 [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) 对象。
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
+
+然后定义函数 `computerVision`，并声明一个包含主函数和回调函数的异步系列。 我们会将快速入门代码添加到主函数中，并调用脚本底部的 `computerVision`。 此快速入门中的其余代码位于 `computerVision` 函数内部。
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
 
 ## <a name="analyze-an-image"></a>分析图像
 
 此部分的代码通过分析远程图像来提取各种视觉特征。 可以在客户端对象的 **analyzeImage** 方法中执行这些操作，也可以使用单个方法来调用它们。 有关详细信息，请参阅[参考文档](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)。
 
 > [!NOTE]
-> 还可以分析本地图像。 请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) 上的示例代码以了解涉及本地图像的方案。
+> 还可以分析本地图像。 请参阅 [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) 方法，例如 analyzeImageInStream。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) 上的示例代码，了解涉及本地图像的方案。
 
 ### <a name="get-image-description"></a>获取图像说明
 
@@ -212,22 +219,27 @@ npm install @azure/cognitiveservices-computervision
 
 计算机视觉可以提取图像中的可见文本，并将其转换为字符流。 此示例使用读取操作。
 
-> [!NOTE]
-> 还可以从本地图像读取文本。 请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) 上的示例代码以了解涉及本地图像的方案。
-
 ### <a name="set-up-test-images"></a>设置测试图像
 
 保存要从中提取文本的图像的 URL 的引用。
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
+> [!NOTE]
+> 还可以从本地图像读取文本。 请参阅 [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) 方法，例如 readInStream。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) 上的示例代码，了解涉及本地图像的方案。
+
 ### <a name="call-the-read-api"></a>调用读取 API
 
-添加以下代码，该代码针对给定图像调用 `readTextFromURL` 和 `readTextFromFile` 函数。
+在函数中定义以下字段以表示读取调用状态值。
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
+
+
+添加以下代码，该代码针对给定图像调用 `readTextFromURL` 函数。
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-定义 `readTextFromURL` 和 `readTextFromFile` 函数。 它们调用客户端对象上的 read 和 readInStream 方法，这些方法返回操作 ID 并启动异步进程来读取图像的内容 。 然后它们使用操作 ID 来检查操作状态，直到返回结果。 然后它们会返回提取的结果。
+定义 `readTextFromURL` 函数。 这会在客户端对象上调用 read 方法，该方法返回一个操作 ID 并启动异步进程来读取图像的内容。 然后它使用操作 ID 来检查操作状态，直到返回结果。 然后它会返回提取的结果。
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

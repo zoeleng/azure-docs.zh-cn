@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127039"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748654"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>教程：创建用于视频分析的 IoT Edge 实例 (Intel NUC)
 
@@ -140,7 +140,7 @@ Azure IoT Edge 是一项完全托管的服务，可通过部署和运行以下�
 
 如果 IoT Edge 模块不能正常启动，请参阅[排查 IoT Edge 设备故障](../../iot-edge/troubleshoot.md)。
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>收集相机中的 RSTP 流
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>收集相机中的 RTSP 流
 
 标识连接到 IoT Edge 设备的相机的 RTSP 流 URL，例如：
 

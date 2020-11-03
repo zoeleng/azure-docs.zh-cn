@@ -3,13 +3,13 @@ title: AuthN/AuthZ 的高级用法
 description: 了解如何针对不同情况自定义应用服务中的身份验证和授权功能，并获取用户声明和不同令牌。
 ms.topic: article
 ms.date: 07/08/2020
-ms.custom: seodec18
-ms.openlocfilehash: 93c697162bfcb51b77c2e6f48b5824b81070bf51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816413"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739798"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
@@ -170,13 +170,13 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 当提供程序的访问令牌（而不是[会话令牌](#extend-session-token-expiration-grace-period)）到期时，需要在再次使用该令牌之前重新验证用户。 向应用程序的 `/.auth/refresh` 终结点发出 `GET` 调用可以避免令牌过期。 调用后，应用服务会自动刷新经过身份验证的用户的 [令牌存储](overview-authentication-authorization.md#token-store) 中的访问令牌。 应用代码发出的后续令牌请求将获取刷新的令牌。 但是，若要正常刷新令牌，令牌存储必须包含提供程序的[刷新令牌](https://auth0.com/learn/refresh-tokens/)。 每个提供程序会阐述获取刷新令牌的方式。以下列表提供了简短摘要：
 
-- **Google**：将一个 `access_type=offline` 查询字符串参数追加到 `/.auth/login/google` API 调用。 如果使用移动应用 SDK，可将该参数添加到 `LogicAsync` 重载之一（请参阅 [Google 刷新令牌](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)）。
-- **Facebook**：不提供刷新令牌。 生存期较长的令牌在 60 天后过期（请参阅 [Facebook 访问令牌的过期和延期](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)）。
-- **Twitter**：访问令牌不会过期（请参阅 [Twitter OAuth 常见问题解答](https://developer.twitter.com/en/docs/basics/authentication/FAQ)）。
-- **Microsoft 帐户**：[配置 Microsoft 帐户身份验证设置](configure-authentication-provider-microsoft.md)时，请选择 `wl.offline_access` 范围。
-- **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中执行以下步骤：
-    1. 在页面顶部，选择“读/写”。****
-    2. 在左侧浏览器中，导航到 "**订阅**" > * *_ \<subscription\_name_** > **resourceGroups** > *_* \<resource\_group\_name> _>**提供商**">  >  **Microsoft.Web**  >  **sites** >。_ \<app\_name> **config**  >  **authsettings** 
+- **Google** ：将一个 `access_type=offline` 查询字符串参数追加到 `/.auth/login/google` API 调用。 如果使用移动应用 SDK，可将该参数添加到 `LogicAsync` 重载之一（请参阅 [Google 刷新令牌](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)）。
+- **Facebook** ：不提供刷新令牌。 生存期较长的令牌在 60 天后过期（请参阅 [Facebook 访问令牌的过期和延期](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)）。
+- **Twitter** ：访问令牌不会过期（请参阅 [Twitter OAuth 常见问题解答](https://developer.twitter.com/en/docs/basics/authentication/FAQ)）。
+- **Microsoft 帐户** ： [配置 Microsoft 帐户身份验证设置](configure-authentication-provider-microsoft.md)时，请选择 `wl.offline_access` 范围。
+- **Azure Active Directory** ：在 [https://resources.azure.com](https://resources.azure.com) 中执行以下步骤：
+    1. 在页面顶部，选择“读/写”。
+    2. 在左侧浏览器中，导航到 " **订阅** " > * * _\<subscription\_name_** > **resourceGroups** > *_ * \<resource\_group\_name> _> **提供商** ">  >  **Microsoft.Web**  >  **sites** >。_ \<app\_name> **config**  >  **authsettings** 
     3. 单击 **“编辑”** 。
     4. 修改以下属性。 替换 _\<app\_id>_ 为要访问的服务的 Azure Active Directory 应用程序 ID。
 
@@ -184,7 +184,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. 单击“放置”。**** 
+    5. 单击“放置”。 
 
 配置提供程序以后，即可在令牌存储中[找到访问令牌的刷新令牌和过期时间](#retrieve-tokens-in-app-code)。 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>限制登录帐户的域
 
-Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 例如，Microsoft 帐户允许 _outlook.com_、_live.com_ 和 _hotmail.com_ 帐户。 Azure AD 允许对登录帐户使用任意数量的自定义域。 但是，建议将用户直接转到自己品牌的 Azure AD 登录页面（如 `contoso.com`）。 若要推荐登录帐户的域名，请执行以下步骤。
+Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 例如，Microsoft 帐户允许 _outlook.com_ 、 _live.com_ 和 _hotmail.com_ 帐户。 Azure AD 允许对登录帐户使用任意数量的自定义域。 但是，建议将用户直接转到自己品牌的 Azure AD 登录页面（如 `contoso.com`）。 若要推荐登录帐户的域名，请执行以下步骤。
 
-在中 [https://resources.azure.com](https://resources.azure.com) ，导航到 "**订阅**" > * *_ \<subscription\_name_** > **resourceGroups** > *_* \<resource\_group\_name> _>**提供商**">  >  **Microsoft.Web**  >  **sites** >。_ \<app\_name> **config**  >  **authsettings** 
+在中 [https://resources.azure.com](https://resources.azure.com) ，导航到 " **订阅** " > * * _\<subscription\_name_** > **resourceGroups** > *_ * \<resource\_group\_name> _> **提供商** ">  >  **Microsoft.Web**  >  **sites** >。_ \<app\_name> **config**  >  **authsettings** 
 
-单击“编辑”，修改以下属性，然后单击“放置”。******** 请确保将替换为所 _\<domain\_name>_ 需的域。
+单击“编辑”，修改以下属性，然后单击“放置”。 请确保将替换为所 _\<domain\_name>_ 需的域。
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -299,7 +299,7 @@ Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 例如
     3.  将 `authFilePath` 设为文件的名称（例如 auth.json）
 
 > [!NOTE]
-> `authFilePath`平台之间的格式不同。 在 Windows 上，支持相对路径和绝对路径。 建议使用相对路径。 对于 Linux，当前仅支持绝对路径，因此设置的值应为 "/home/site/wwwroot/auth.js" 或类似。
+> `authFilePath` 的格式在平台之间有所不同。 在 Windows 上，支持相对路径和绝对路径。 建议使用相对路径。 对于 Linux，当前仅支持绝对路径，因此设置的值应为“/home/site/wwwroot/auth.json”或类似。
 
 完成此配置更新后，该文件的内容将用于定义该站点的应用服务身份验证/授权行为。 如果希望回到 Azure 资源管理器配置，可以将 `isAuthFromFile` 设置回 false。
 
@@ -393,7 +393,7 @@ Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 例如
             "graphApiVersion": "v3.3",
             "login": {
                 "scopes": [
-                    "profile",
+                    "public_profile",
                     "email"
                 ]
             },
@@ -531,7 +531,7 @@ az webapp auth update --name <my_app_name> \
 
 将 `<my_app_name>` 替换为你的应用的名称。 还使用应用的资源组名称替换 `<my_resource_group>`。 另外，将 `<version>` 替换为 1.x 运行时的有效版本，或替换为 `~1` 获取最新版本。 可以在 [此处] (https://github.com/Azure/app-service-announcements) 查找不同运行时版本的发行说明来帮助确定要固定到哪个版本。
 
-可以通过在前面代码示例中选择“试一试”**** 运行这个来自 [Azure Cloud Shell](../cloud-shell/overview.md) 的命令。 还可以在执行 [az login](/cli/azure/reference-index#az-login) 登录后使用 [Azure CLI 在本地](/cli/azure/install-azure-cli)执行此命令。
+可以通过在前面代码示例中选择“试一试”运行这个来自 [Azure Cloud Shell](../cloud-shell/overview.md) 的命令。 还可以在执行 [az login](/cli/azure/reference-index#az-login) 登录后使用 [Azure CLI 在本地](/cli/azure/install-azure-cli)执行此命令。
 
 ## <a name="next-steps"></a>后续步骤
 

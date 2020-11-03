@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743246"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426994"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>教程：准备部署 Azure Stack Edge Pro with GPU 
 
@@ -137,7 +137,6 @@ ms.locfileid: "91743246"
 
     ![创建资源 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-
 8. 在完成时选择“下一步:送货地址”。
 
     - 如果你已有一个设备，请选择与“我有 Azure Stack Edge Pro 设备”对应的组合框。
@@ -167,6 +166,9 @@ ms.locfileid: "91743246"
 在你下单以后，Microsoft 会审核订单并通过电子邮件联系你，核对配送详细信息。
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+
+> [!NOTE]
+>如果要一次创建多个订单或克隆现有订单，可以使用 [Azure 示例中的脚本](https://github.com/Azure-Samples/azure-stack-edge-order)。 有关详细信息，请参阅自述文件。
 
 若在处理订单的过程中遇到任何问题，请参阅[排查订单问题](azure-stack-edge-troubleshoot-ordering.md)。
 

@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370502"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791913"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>适用于 Kubernetes 的 Azure Defender 简介
 
@@ -114,5 +114,5 @@ AKS 是一项托管服务，由于 Log Analytics 代理是 Microsoft 托管的�
 如需相关材料，请参阅以下文章： 
 
 - [启用 Azure Defender](security-center-pricing.md)
-- [将警报导出到 Azure Sentinel 或第三方 SIEM](continuous-export.md)
+- [将警报流式传输到 SIEM、SOAR 或 IT 服务管理解决方案](export-to-siem.md)
 - [警报的引用表](alerts-reference.md)

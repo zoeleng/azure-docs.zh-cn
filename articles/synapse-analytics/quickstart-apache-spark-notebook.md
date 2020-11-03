@@ -8,20 +8,20 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651711"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742534"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>快速入门：使用 Web 工具在 Azure Synapse Analytics 中创建 Apache Spark 池
 
 本快速入门介绍如何使用 Web 工具在 Azure Synapse 中创建 Apache Spark 池（预览版）。 然后，介绍如何连接到 Apache Spark 池并针对文件和表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Azure Synapse 中 Spark 的信息，请参阅[概述：Azure Synapse 上的 Apache Spark](./spark/apache-spark-overview.md)。
 
 > [!IMPORTANT]
-> 不管是否正在使用 Spark 实例，它们都会按分钟按比例计费。 请务必在用完 Spark 实例后将其关闭，或设置较短的超时。 有关详细信息，请参阅本文的**清理资源**部分。
+> 不管是否正在使用 Spark 实例，它们都会按分钟按比例计费。 请务必在用完 Spark 实例后将其关闭，或设置较短的超时。 有关详细信息，请参阅本文的 **清理资源** 部分。
 
 如果没有 Azure 订阅，请[在开始之前创建一个免费帐户](https://azure.microsoft.com/free/)。
 
@@ -42,9 +42,10 @@ ms.locfileid: "91651711"
 笔记本是支持各种编程语言的交互式环境。 使用笔记本可与数据交互，将代码和 Markdown、文本相结合，以及执行简单的可视化操作。
 
 1. 在要使用的 Azure Synapse 工作区的 Azure 门户视图中，选择“启动 Synapse Studio”。
-2. 启动 Synapse Studio 后，选择“开发”。 然后，将鼠标悬停在“笔记本”项上。 选择省略号图标 (...)。
-3. 然后选择“新建笔记本”。 随即会创建并打开一个具有自动生成的名称的新笔记本。
-  ![新建笔记本](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "新建笔记本")
+2. 启动 Synapse Studio 后，选择“开发”。 然后，选择“+”图标以新增资源。
+3. 然后选择“笔记本”。 随即会创建并打开一个具有自动生成的名称的新笔记本。
+ 
+     ![新建笔记本](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "新建笔记本")
 
 4. 在“属性”窗口中提供笔记本的名称。
 5. 在工具栏上单击“发布”。
@@ -60,15 +61,15 @@ ms.locfileid: "91651711"
 
 9. 现在，使用以下方法之一运行代码单元：
 
-   - 按 **Shift + Enter**。
+   - 按 **Shift + Enter** 。
    - 选择单元左侧的蓝色播放图标。
    - 选择工具栏上的“全部运行”按钮。
 
-   ![创建数据帧对象](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Spark 作业的输出")
+       ![创建数据帧对象](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. 如果 Apache Spark 池实例尚未运行，它会自动启动。 在运行的单元下面，以及在笔记本底部的状态面板上，都可以看到 Apache Spark 池实例的状态。 启动池需要 2-5 分钟时间，具体取决于池的大小。 代码运行完成后，单元下面会显示有关运行该代码花费了多长时间及其执行情况的信息。 在输出单元中可以看到输出。
 
-    ![执行单元后的输出](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Spark 作业的输出")
+    ![执行单元后的输出](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. 现在，数据会存在于一个数据帧中，从该数据帧中可以通过多种不同的方式使用这些数据。 在本快速入门的余下部分，需要以不同的格式使用这些数据。
 12. 在另一个单元中输入并运行以下代码，以创建一个 Spark 表、一个 CSV 文件和一个 Parquet 文件，它们都包含数据的副本：

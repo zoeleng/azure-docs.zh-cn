@@ -64,17 +64,22 @@ ms.locfileid: "92790094"
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 " **+ 新建 Windows Server 故障转移群集** "，打开 " **配置 Windows 故障转移群集** " 页面。  
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 以创建新的存储帐户。 存储帐户名称长度必须为 3 到 24 个字符，并且只能使用数字和小写字母。
+1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 " **新建** " 以创建新的存储帐户。 存储帐户名称长度必须为 3 到 24 个字符，并且只能使用数字和小写字母。
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="提供群集的名称、存储帐户和凭据":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 以提供 SQL Server 服务帐户的 [凭据](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) ，以及群集操作员和启动帐户（如果它们与用于 SQL Server 服务的帐户不同）。 
+1. 展开 " **Windows Server 故障转移群集凭据** " 以提供 SQL Server 服务帐户的 [凭据](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) ，以及群集操作员和启动帐户（如果它们与用于 SQL Server 服务的帐户不同）。 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="提供 SQL 服务帐户、群集操作员帐户和群集启动帐户的凭据":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** "
+1. 选择要添加到群集的 SQL Server Vm。 请注意是否需要重新启动，并在一定的情况下继续操作。 只有在完全可管理性模式下注册到 SQL VM 资源提供程序且位于同一位置、域以及与主 SQL Server VM 位于同一虚拟网络上的 Vm 才会可见。 
+1. 选择 " **应用** " 以创建群集。 可以在活动日志中检查部署的状态，可从顶部导航栏中的电铃图标访问该 **活动日志** 。 
+1. 要使故障转移群集受 Microsoft 支持，它必须通过群集验证。 使用首选方法连接到 VM (例如远程桌面协议 (RDP) # A3，并验证群集是否通过验证，然后再继续。 否则，群集将处于不受支持状态。 你可以使用故障转移群集管理器 (FCM) 或以下 PowerShell 命令来验证群集：
+
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
     ```
     
 
@@ -90,9 +95,10 @@ ms.locfileid: "92790094"
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 "载入 **现有 Windows Server 故障转移群集** "，打开 " **板载 Windows Server 故障转移群集** " 页面。 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="从 SQL 虚拟机资源上的 &quot;高可用性&quot; 页中载入现有群集":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 以加入群集，然后在提示时选择 **"是"** 以继续。
+1. 查看群集的设置。 
+1. 选择 " **应用** " 以加入群集，然后在提示时选择 **"是"** 以继续。
 
 
 
@@ -106,21 +112,28 @@ ms.locfileid: "92790094"
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 " **+ 新建 Always On 可用性组** " 以打开 " **创建可用性组** " 页。
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="选择 &quot;新建 always on 可用性组&quot; 以打开 &quot;创建可用性组&quot; 页。":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 页。 
+1. 输入可用性组的名称。 
+1. 选择 " **配置侦听器** " 以打开 " **配置可用性组侦听器** " 页。 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="提供可用性组的名称并配置侦听器":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 以保存设置，并创建侦听器和负载均衡器。 
+1. 填写值，并使用现有的负载均衡器，或选择 " **新建** " 以创建新的负载均衡器。  选择 " **应用** " 以保存设置，并创建侦听器和负载均衡器。 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="填写表单中的值以创建新的侦听器和负载均衡器":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " 以保存设置。 
+1. 选择 " **+ 选择副本** "，打开 " **配置可用性组副本** " 页。
+1. 选择要添加到可用性组的虚拟机，并选择最适合你的业务需求的可用性组设置。 选择 " **应用** " 以保存设置。 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="选择要添加到可用性组的 Vm，并配置适用于你的业务的设置":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " **不正常** "。 
+1. 验证可用性组设置，然后选择 " **应用** " 以创建可用性组。 
+
+可以在活动日志中检查部署的状态，可从顶部导航栏中的电铃图标访问该 **活动日志** 。 
+
+  > [!NOTE]
+  > 在将数据库添加到可用性组之前，Azure 门户的 " **高可用性** " 页上的 **同步运行状况** 将显示为 " **不正常** "。 
 
 
 ## <a name="add-database-to-availability-group"></a>将数据库添加到可用性组
@@ -135,9 +148,7 @@ ms.locfileid: "92790094"
 1. 展开 **对象资源管理器** **Always On 高可用性** 。
 1. 展开 " **可用性组** "，右键单击可用性组，然后选择 " **添加数据库 ...** "。
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
-
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** ":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="在对象资源管理器中右键单击可用性组，然后选择 &quot;添加数据库&quot;":::
 
 1. 按照提示选择要添加到可用性组的数据库 () 。 
 1. 选择 **"确定"** 以保存设置并将数据库添加到可用性组。 
@@ -145,9 +156,7 @@ ms.locfileid: "92790094"
 
 添加数据库后，可以在 Azure 门户中查看可用性组的状态： 
 
-:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
-
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** ":::
+:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="在数据库同步后，从 Azure 门户中的 &quot;高可用性&quot; 页查看可用性组的状态":::
 
 ## <a name="add-more-vms"></a>添加更多 Vm
 
@@ -158,9 +167,9 @@ ms.locfileid: "92790094"
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 " **配置 Windows Server 故障转移群集** "，打开 " **配置 Windows Server 故障转移群集** " 页面。 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="选择 &quot;配置 Windows Server 故障转移群集&quot;，将 Vm 添加到群集。":::
 
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " **Windows Server 故障转移群集凭据** "，并输入用于 SQL Server 服务、群集操作员和群集启动帐户的帐户。 
+1. 展开 " **Windows Server 故障转移群集凭据** "，并输入用于 SQL Server 服务、群集操作员和群集启动帐户的帐户。 
 1. 选择要添加到群集的 SQL Server Vm。 
 1. 选择“应用”。 
 
@@ -172,9 +181,7 @@ ms.locfileid: "92790094"
 
 您可以通过选择可用性组旁边的省略号 ( ... ) ， **将更多副本添加** 到可用性组， **配置侦听器** ，或从 Azure 门户中的 " **高可用性** " 页 **删除侦听器** ： 
 
-:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
-
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** ":::
+:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="选择可用性组旁边的省略号，然后选择 &quot;添加副本&quot;，将更多副本添加到可用性组。":::
 
 ## <a name="remove-cluster"></a>删除群集
 
@@ -245,13 +252,11 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
 1. 登录到 [Azure 门户](https://portal.azure.com)。
 1. 导航到资源组。
-1. 选择“设置”下面的“部署”。 
+1. 选择“设置”下面的“部署”。
 1. 选择所需的部署以了解有关部署的详细信息。 
 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="通过在门户中选择 &quot;+ 新建&quot; 群集来创建新群集&quot;:::
-
-1. 命名群集并提供要用作云见证的存储帐户。 使用现有存储帐户，或选择 &quot; **新建** " :::
+   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="选择你想要了解的有关的部署。" :::
 
 ### <a name="common-errors"></a>常见错误
 

@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 9536670f8529da3a4251596b2c9642e50445fc0e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 319d7d1b96bd71a83592cf560cd5e30b011cf247
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989626"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678212"
 ---
 适用于 .NET 的自定义视觉客户端库入门。 请按照以下步骤安装包并试用用于生成对象检测模型的示例代码。 你将创建一个项目，添加标签，针对示例图像训练该项目，并使用该项目的预测终结点 URL 以编程方式对其进行测试。 使用此示例作为模板来构建你自己的图像识别应用。
 
@@ -21,6 +21,7 @@ ms.locfileid: "91989626"
 * 将标记添加到项目中
 * 上传和标记图像
 * 定型项目
+* 发布当前迭代
 * 测试预测终结点
 
 [参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet) | 库源代码[（训练）](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training)[（预测）](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction)| 包 (NuGet)[（训练）](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)[（预测）](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [示例](https://docs.microsoft.com/samples/browse/?products=azure&term=vision&terms=vision)
@@ -47,7 +48,7 @@ ms.locfileid: "91989626"
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `custom-vision-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：*program.cs*。 
+在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `custom-vision-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目： *program.cs* 。 
 
 ```console
 dotnet new console -n custom-vision-quickstart
@@ -81,7 +82,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 ---
 
 > [!TIP]
-> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs) 上找到它，其中包含此快速入门中的代码示例。
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs) 上找到它，其中包含此快速入门中的代码示例。
 
 从项目目录中，打开 Program.cs 文件，并添加以下 `using` 指令：
 
@@ -128,7 +129,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 
 ## <a name="create-a-new-custom-vision-project"></a>创建新的自定义视觉项目
 
-随后的代码创建对象检测项目。 创建的项目将显示在[自定义视觉网站](https://customvision.ai/)上。 请查看 [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) 方法，以在创建项目时指定其他选项（在[生成检测器](../../get-started-build-detector.md) Web 门户指南中进行了说明）。  
+下一个方法将创建对象检测项目。 创建的项目将显示在[自定义视觉网站](https://customvision.ai/)上。 请查看 [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) 方法，以在创建项目时指定其他选项（在[生成检测器](../../get-started-build-detector.md) Web 门户指南中进行了说明）。  
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_create)]
 
@@ -153,7 +154,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_upload)]
 
-至此，你已上传了所有示例图像，并使用关联的像素矩形标记了每个示例图像（**叉子**或**剪刀**）。
+至此，你已上传了所有示例图像，并使用关联的像素矩形标记了每个示例图像（ **叉子** 或 **剪刀** ）。
 
 ## <a name="train-the-project"></a>定型项目
 
@@ -175,7 +176,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 
 ## <a name="test-the-prediction-endpoint"></a>测试预测终结点
 
-此部分的脚本用于加载测试图像、查询模型终结点，以及将预测数据输出到控制台。
+此方法用于加载测试图像、查询模型终结点，以及将预测数据输出到控制台。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction)]
 
@@ -219,4 +220,5 @@ Making a prediction:
 > [测试和重新训练模型](../../test-your-model.md)
 
 * 什么是自定义视觉？
+* 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs) 上找到此示例的源代码
 * [SDK 参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 744ef58b54dc3718c4693ce2aad69024e2d6e2fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: da9ff2ab1ce90b7b27d52c68dc27eb646fe62513
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321822"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886466"
 ---
 <a name="HOLTop"></a>
 
@@ -27,26 +27,10 @@ ms.locfileid: "89321822"
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 为密钥和终结点 URL [创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别将其命名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`。
 
-> [!NOTE]
-> 你可以下载如下所示的[示例的完整源代码](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py)，以及 [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) 提供的每个函数的示例。
 
 ## <a name="setting-up"></a>设置
  
-### <a name="create-a-new-python-application"></a>创建新的 Python 应用程序
-
-创建新的 Python 脚本 &mdash; 例如 *quickstart-file.py*。 在喜好的编辑器或 IDE 中打开该文件，并导入以下库。
-
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
-
-然后，为该资源的 Azure 终结点和密钥创建变量。
-
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_vars)]
-
-> [!NOTE]
-> 如果在启动应用程序后创建了环境变量，则需要关闭再重新打开运行该应用程序的编辑器、IDE 或 shell 才能访问该变量。
-
 ### <a name="install-the-client-library"></a>安装客户端库
 
 可使用以下方式安装客户端库：
@@ -55,6 +39,25 @@ ms.locfileid: "89321822"
 pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
+### <a name="create-a-new-python-application"></a>创建新的 Python 应用程序
+
+创建新的 Python 文件 &mdash;，例如 quickstart-file.py。 在喜好的编辑器或 IDE 中打开该文件，并导入以下库。
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
+
+> [!TIP]
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上找到它，其中包含此快速入门中的代码示例。
+
+然后，为该资源的 Azure 终结点和密钥创建变量。
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_vars)]
+
+> [!IMPORTANT]
+> 转到 Azure 门户。 如果在“先决条件”部分中创建的计算机视觉资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
+>
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 例如，[Azure 密钥保管库](https://docs.microsoft.com/azure/key-vault/key-vault-overview)。
+
+
 ## <a name="object-model"></a>对象模型
 
 以下类和接口将处理计算机视觉 Python SDK 的某些主要功能。
@@ -62,7 +65,7 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 |名称|说明|
 |---|---|
 |[ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| 此类直接处理所有图像操作，例如图像分析、文本检测和缩略图生成。|
-| [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | 所有计算机视觉功能都需要此类。 请使用你的订阅信息实例化此类，然后使用它来生成其他类的实例。 它实现了 **ComputerVisionClientOperationsMixin**。|
+| [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | 所有计算机视觉功能都需要此类。 请使用你的订阅信息实例化此类，然后使用它来生成其他类的实例。 它实现了 **ComputerVisionClientOperationsMixin** 。|
 |[VisualFeatureTypes](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python)| 此枚举定义可在标准分析操作中执行的不同类型的图像分析。 请根据需求指定一组 **VisualFeatureTypes** 值。 |
 
 ## <a name="code-examples"></a>代码示例
@@ -75,18 +78,18 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 ## <a name="authenticate-the-client"></a>验证客户端
 
-> [!NOTE]
-> 本快速入门假设你已为计算机视觉密钥创建了名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 的[环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
-
 使用终结点和密钥实例化某个客户端。 使用密钥创建 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 对象，然后在终结点上使用该对象创建 [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) 对象。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>分析图像
 
-保存对要分析的图像的 URL 的引用。
+使用客户端对象分析远程图像的可视化功能。 首先保存对要分析的图像的 URL 的引用。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
+
+> [!TIP]
+> 还可以分析本地图像。 请参阅 [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) 方法，如 analyze_image_in_stream。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上的示例代码，了解涉及本地图像的方案。
 
 ### <a name="get-image-description"></a>获取图像说明
 
@@ -110,7 +113,7 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 以下代码检测图像中的常见物体并将其输出到控制台。 有关更多详细信息，请参阅[物体检测](../../concept-object-detection.md)。
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]        
 
 ### <a name="detect-brands"></a>检测品牌
 
@@ -164,6 +167,9 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
+> [!TIP]
+> 还可以从本地图像读取文本。 请参阅 [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) 方法，如 read_in_stream。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上的示例代码，了解涉及本地图像的方案。
+
 ### <a name="get-read-results"></a>获取读取结果
 
 接下来，获取从 read 调用返回的操作 ID，并使用它查询服务以获取操作结果。 下面的代码每隔一秒钟检查一次操作，直到返回结果。 然后，它将提取的文本数据输出到控制台。
@@ -182,7 +188,7 @@ python quickstart-file.py
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [门户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 
@@ -196,3 +202,4 @@ python quickstart-file.py
 
 * [什么是计算机视觉？](../../overview.md)
 * 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上找到此示例的源代码。
+           

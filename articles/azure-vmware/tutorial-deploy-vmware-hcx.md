@@ -3,12 +3,12 @@ title: 教程 - 部署和配置 VMware HCX
 description: 了解如何为 Azure VMware 解决方案私有云部署和配置 VMware HCX 解决方案。
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: c78eae11497702054bb54b5980228fd0a3962577
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 424abeef567d88f7de37f7a7a4ab7a7a8b6ef3bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367765"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791403"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>部署和配置 VMware HCX
 
@@ -17,7 +17,7 @@ ms.locfileid: "92367765"
 Azure VMware 解决方案中已预先部署 VMware HCX 高级连接器。 它最多支持三个站点连接（本地到云或云到云）。 如果需要三个以上的站点连接，请提交[支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)以启用 [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 外接程序。 此加载项目前以预览版提供。 
 
 >[!NOTE]
->VMware HCX Enterprise Edition (EE) 随 Azure VMware 解决方案以预览版服务的形式提供。 它是免费的，并受预览版服务的条款和条件的约束。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你还可以选择关闭或退出服务。
+>VMware HCX Enterprise Edition (EE) 随 Azure VMware 解决方案以预览版服务的形式提供。 它是免费的，并受预览版服务的条款和条件的约束。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你还可以选择关闭或退出服务。 请注意，当前没有从 HCX Enterprise 到 HCX Advanced 的简单降级路径，选择降级的客户必须重新部署，导致出现故障时间。
 
 首先，请仔细查看本文的[准备工作](#before-you-begin)、[软件版本要求](#software-version-requirements)和[先决条件](#prerequisites)部分。 
 
@@ -94,13 +94,13 @@ Azure VMware 解决方案中已预先部署 VMware HCX 高级连接器。 它最
 
 1. 选择名称和位置，然后选择需要在其中部署 HCX 连接器的资源/群集。 然后查看详细信息和所需资源。  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/configure-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="查看模板的详细信息的屏幕截图。" lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
 1. 查看许可条款。 如果同意，则选择所需的存储和网络，然后选择“下一步”。
 
 1. 在“自定义模板”中，输入所有必需的信息。 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/customize-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="用于自定义模板的框的屏幕截图。" lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
 1. 选择“下一步”，验证配置，然后选择“完成”以部署 HCX 连接器 OVA 。
      
@@ -149,7 +149,7 @@ Azure VMware 解决方案中已预先部署 VMware HCX 高级连接器。 它最
 
 在服务重启后，你会在出现的屏幕上看到 vCenter 显示为绿色，这一点非常重要。 VCenter 和 SSO 必须都具有相应的配置参数，它们应该与上一个屏幕相同。
 
-:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
+:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="具有绿色 vCenter 状态的仪表板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
 有关此过程的端到端概述，请观看 [Azure VMware 解决方案：激活 HCX](https://www.youtube.com/embed/BkAV_TNYxdE) 视频。
 
@@ -164,11 +164,11 @@ Azure VMware 解决方案中已预先部署 VMware HCX 高级连接器。 它最
 
 1. 登录到你的本地 vCenter，然后在“主页”下选择“HCX”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="vCenter 客户端的屏幕截图，其中在快捷方式中选择了 HCX。" lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
 
 1. 在“基础结构”下，选择“站点配对”，然后选择“连接到远程站点”选项（在屏幕中间）  。 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="用于创建远程站点的选项的屏幕截图。" lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
 1. 输入之前记下的远程 HCX URL 或 IP 地址、Azure VMware 解决方案的 cloudadmin@vsphere.local 用户名以及密码。 然后选择“连接”  。
 
@@ -179,7 +179,7 @@ Azure VMware 解决方案中已预先部署 VMware HCX 高级连接器。 它最
 
    你会看到一个屏幕，其中显示了 Azure VMware 解决方案中的 HCX 云管理器和本地 HCX 连接器已连接（配对）。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="浏览到 OVF 模板的屏幕截图。":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="显示 Azure VMware 解决方案和 HCX 连接器中 HCX Manager 配对的屏幕截图。":::
 
 有关此过程的端到端概述，请观看 [Azure VMware 解决方案：HCX 站点配对](https://www.youtube.com/embed/sKizDCRHOko)视频。
 
@@ -198,11 +198,11 @@ VMware HCX 会（自动）部署虚拟设备的子集，这需要多个 IP 段�
 
 1. 在“基础结构”下，选择“互连” > “多站点服务网格” > “网络配置文件” > “创建网络配置文件”。    
 
-   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="用于开始创建网络配置文件的选项的屏幕截图。" lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
 1. 对于每个网络配置文件，请选择网络、端口组，提供名称，并为该段创建 IP 池。 然后选择“创建”。 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="浏览到 OVF 模板的屏幕截图。":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="新网络配置文件的详细信息的屏幕截图。":::
 
 有关此过程的端到端概述，请观看 [Azure VMware 解决方案：HCX 网络配置文件](https://www.youtube.com/embed/NhyEcLco4JY)视频。
 
@@ -211,11 +211,11 @@ VMware HCX 会（自动）部署虚拟设备的子集，这需要多个 IP 段�
 
 1. 选择“计算配置文件” > “创建计算配置文件”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="显示用于开始创建计算配置文件的选项的屏幕截图。" lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
 1. 输入配置文件的名称，然后选择“继续”。  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/name-compute-profile.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/name-compute-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/name-compute-profile.png" alt-text="显示计算配置文件名称条目和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/name-compute-profile.png":::
 
 1. 选择要启用的服务，例如迁移、网络扩展或灾难恢复，然后选择“继续”。
   
@@ -226,47 +226,47 @@ VMware HCX 会（自动）部署虚拟设备的子集，这需要多个 IP 段�
 
 1. 看到本地数据中心的群集后，选择“继续”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-service-resource.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-service-resource.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-service-resource.png" alt-text="显示选定的服务资源和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-service-resource.png":::
 
 1. 从“选择数据存储”中，选择用于部署 VMware HCX 互连设备的数据存储资源。 然后选择“继续”。
 
    选择了多个资源时，VMware HCX 会使用所选的第一个资源，直到其容量用尽。   
 
-   :::image type="content" source="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png":::  
+   :::image type="content" source="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png" alt-text="显示选定的数据存储资源和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png":::  
 
 1. 从“选择管理网络配置文件”中，选择在前面的步骤中创建的管理网络配置文件。 然后选择“继续”。  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="显示选择的管理网络配置文件和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
 
    > [!NOTE]
    > 管理网络配置文件允许 VMware HCX 设备与 vCenter 通信。 可通过此配置文件访问 ESXi 主机。
 
 1. 从“选择上行网络配置文件”中，选择在前面的步骤中创建的上行网络配置文件。 然后选择“继续”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="显示选择的上行网络配置文件和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
 
 1. 从“选择 vMotion 网络配置文件”中，选择在前面的步骤中创建的 vMotion 网络配置文件。 然后选择“继续”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-vmotion-network-profile.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-vmotion-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-vmotion-network-profile.png" alt-text="显示选择的 vMotion 网络配置文件和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-vmotion-network-profile.png":::
 
 1. 从“选择 vSphere 复制网络配置文件”中，选择在前面的步骤中创建的复制网络配置文件。 然后选择“继续”。
 
    在大多数情况下，复制网络配置文件与管理网络配置文件相同。  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="显示选择的复制网络配置文件和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
 
 1. 从“选择用于网络扩展的分布式交换机”中，选择要迁移到第 2 层扩展网络上的 Azure VMware 解决方案的虚拟机所在的分布式虚拟网络。 然后选择“继续”。
 
-   :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
+   :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="显示选择的分布式虚拟网络和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
 1. 查看连接规则，然后选择“继续”。  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/review-connection-rules.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/review-connection-rules.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/review-connection-rules.png" alt-text="显示连接规则和“继续”按钮的屏幕截图。" lightbox="media/tutorial-vmware-hcx/review-connection-rules.png":::
 
 1. 选择“完成”以创建完整配置文件。
 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="显示计算配置文件信息的屏幕截图。" lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
 有关此过程的端到端概述，请观看 [Azure VMware 解决方案：计算配置文件](https://www.youtube.com/embed/qASXi5xrFzM)视频。
 
@@ -283,7 +283,7 @@ VMware HCX 会（自动）部署虚拟设备的子集，这需要多个 IP 段�
 
 1. 在“基础结构”下，选择“互连” > “服务网格” > “创建服务网格”。      
 
-   :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="用于开始创建服务网格的选项的屏幕截图。" lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
 
 1. 查看预填充的站点，然后选择“继续”。 
 
@@ -294,9 +294,9 @@ VMware HCX 会（自动）部署虚拟设备的子集，这需要多个 IP 段�
 
    这些选择定义 VM 可以在其中消耗 VMware HCX 服务的资源。  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="显示选择源计算配置文件的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="显示选择远程计算配置文件的屏幕截图。" lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
 
 1. 查看将启用的服务，然后选择“继续”。  
 
@@ -314,16 +314,16 @@ VMware HCX 会（自动）部署虚拟设备的子集，这需要多个 IP 段�
 
 1. 选择“查看任务”以监视部署。 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mesh.png" alt-text="浏览到 OVF 模板的屏幕截图。":::
+   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mesh.png" alt-text="显示用于查看任务的按钮的屏幕截图。":::
 
    当服务网格部署成功完成时，你会看到服务为绿色。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="显示服务上的绿色指示器的屏幕截图。" lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
 
 1. 通过检查设备状态验证服务网格的运行状况。 
 1. 选择“互联” > “设备” 。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="显示用于检查设备状态的选项的屏幕截图。" lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
 有关此过程的端到端概述，请观看 [Azure VMware 解决方案：服务网格](https://www.youtube.com/embed/FyZ0d3P_T24)视频。
 
@@ -335,19 +335,19 @@ VMware HCX 会（自动）部署虚拟设备的子集，这需要多个 IP 段�
 
 1. 在“服务”下，选择“网络扩展”，然后选择“创建网络扩展”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="显示用于开始创建网络扩展的选项的屏幕截图。" lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 
 1. 选择要将其扩展到 Azure VMware 解决方案的每个网络，然后选择“下一步”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="浏览到 OVF 模板的屏幕截图。":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="显示选择网络的屏幕截图。":::
 
 1. 输入要扩展的每个网络的本地网关 IP，然后选择“提交”。 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="浏览到 OVF 模板的屏幕截图。":::
+   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="显示网关 IP 地址条目的屏幕截图。":::
 
    只需几分钟时间即可完成网络扩展。 然后，你会看到状态更改为“扩展完成”。
 
-   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="浏览到 OVF 模板的屏幕截图。" lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="显示“扩展完成”状态的屏幕截图。" lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
 
 有关此步骤的端到端概述，请观看 [Azure VMware 解决方案：网络扩展](https://www.youtube.com/embed/cNlp0f_tTr0)视频。
 

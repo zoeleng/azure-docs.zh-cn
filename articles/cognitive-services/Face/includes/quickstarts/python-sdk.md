@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d2935cfac7ca095c918826c47dbf3f1dd2d8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859697"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886471"
 ---
 开始使用适用于 Python 的人脸客户端库进行人脸识别。 请按照以下步骤安装程序包并试用基本任务的示例代码。 通过人脸服务，可以访问用于检测和识别图像中的人脸的高级算法。
 
@@ -30,35 +30,40 @@ ms.locfileid: "91859697"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Python 3.x](https://www.python.org/)
 * Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services/)
+* [Python 3.x](https://www.python.org/)
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="创建人脸资源"  target="_blank">创建人脸资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到人脸 API。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 获取密钥和终结点后，请为该密钥和终结点[创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别命名为 `FACE_SUBSCRIPTION_KEY` 和 `FACE_ENDPOINT`。
+
 
 ## <a name="setting-up"></a>设置
  
+### <a name="install-the-client-library"></a>安装客户端库
+
+在安装 Python 后，可以通过以下命令安装客户端库：
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-face
+```
+
 ### <a name="create-a-new-python-application"></a>创建新的 Python 应用程序
 
-创建新的 Python 脚本 &mdash; 例如 *quickstart-file.py*。 在喜好的编辑器或 IDE 中打开该文件，并导入以下库。
+创建新的 Python 脚本 &mdash; 例如 *quickstart-file.py* 。 在喜好的编辑器或 IDE 中打开该文件，并导入以下库。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
+
+> [!TIP]
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) 上找到它，其中包含此快速入门中的代码示例。
 
 然后，为该资源的 Azure 终结点和密钥创建变量。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
-> [!NOTE]
-> 如果在启动应用程序后创建了环境变量，则需要关闭再重新打开运行该应用程序的编辑器、IDE 或 shell 才能访问该变量。
-
-### <a name="install-the-client-library"></a>安装客户端库
-
-可使用以下方式安装客户端库：
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-face
-```
+> [!IMPORTANT]
+> 转到 Azure 门户。 如果在“先决条件”部分中创建的 [产品名称] 资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
+>
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 例如，[Azure 密钥保管库](https://docs.microsoft.com/azure/key-vault/key-vault-overview)。
 
 ## <a name="object-model"></a>对象模型
 
@@ -87,9 +92,6 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 ## <a name="authenticate-the-client"></a>验证客户端
 
-> [!NOTE]
-> 本快速入门假设你已为人脸密钥[创建了名为 `FACE_SUBSCRIPTION_KEY` 的环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
-
 使用终结点和密钥实例化某个客户端。 使用密钥创建 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 对象，然后在终结点上使用该对象创建 [FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) 对象。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
@@ -100,7 +102,8 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
-有关更多检测方案，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) 上的示例代码。
+> [!TIP]
+> 还可以检测本地图像中的人脸。 请参阅 [FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) 方法，如 detect_with_stream。
 
 ### <a name="display-and-frame-faces"></a>显示和定格人脸
 
@@ -132,7 +135,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 ## <a name="create-and-train-a-person-group"></a>创建和训练人员组
 
-以下代码创建包含三个不同 **Person** 对象的 **PersonGroup**。 它将每个 **Person** 与一组示例图像相关联，然后进行训练以便能够识别每个人。 
+以下代码创建包含三个不同 **Person** 对象的 **PersonGroup** 。 它将每个 **Person** 与一组示例图像相关联，然后进行训练以便能够识别每个人。 
 
 ### <a name="create-persongroup"></a>创建 PersonGroup
 
@@ -154,22 +157,25 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
 
+> [!TIP]
+> 还可以从 URL 引用的远程图像创建 PersonGroup。 请参阅 [PersonGroupPersonOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) 方法，例如 add_face_from_url。
+
 ### <a name="train-persongroup"></a>训练 PersonGroup
 
-分配人脸后，必须训练 **PersonGroup**，使其能够识别与其每个 **Person** 对象关联的视觉特征。 以下代码调用异步 **train** 方法并轮询结果，然后将状态输出到控制台。
+分配人脸后，必须训练 **PersonGroup** ，使其能够识别与其每个 **Person** 对象关联的视觉特征。 以下代码调用异步 **train** 方法并轮询结果，然后将状态输出到控制台。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
 
 ## <a name="identify-a-face"></a>识别人脸
 
-识别操作采用一个（或多个）人员的图像，并在图像中查找每个人脸的标识（人脸识别搜索）。 它将每个检测到的人脸与某个 **PersonGroup**（面部特征已知的不同 **Person** 对象的数据库）进行比较。
+识别操作采用一个（或多个）人员的图像，并在图像中查找每个人脸的标识（人脸识别搜索）。 它将每个检测到的人脸与某个 **PersonGroup** （面部特征已知的不同 **Person** 对象的数据库）进行比较。
 
 > [!IMPORTANT]
 > 若要运行此示例，必须先运行[创建和训练人员组](#create-and-train-a-person-group)中的代码。
 
 ### <a name="get-a-test-image"></a>获取测试图像
 
-以下代码在项目根目录中查找图像 _test-image-person-group.jpg_，并检测该图像中的人脸。 可以使用用于 **PersonGroup** 管理的图像查找此图像： https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images 。
+以下代码在项目根目录中查找图像 _test-image-person-group.jpg_ ，并检测该图像中的人脸。 可以使用用于 **PersonGroup** 管理的图像查找此图像： https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images 。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 

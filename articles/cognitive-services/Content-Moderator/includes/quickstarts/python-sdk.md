@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: bea422514b109f446ee30633b0074730f9b89af0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64a9143e7a425b35e37f23b233c91b8e7bb70169
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332542"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755547"
 ---
 适用于 Python 的 Azure 内容审查器客户端库入门。 请按照以下步骤安装 PiPy 包并试用基本任务的示例代码。 
 
@@ -24,11 +24,11 @@ ms.locfileid: "91332542"
 
 使用适用于 Python 的内容审查器客户端库可以：
 
-* [审查文本](#moderate-text)
-* [使用自定义字词列表](#use-a-custom-terms-list)
-* [审查图像](#moderate-images)
-* [使用自定义图像列表](#use-a-custom-image-list)
-* [创建评审](#create-a-review)
+* 审查文本
+* 使用自定义字词列表
+* 审查图像
+* 使用自定义图像列表
+* 创建评审
 
 [参考文档](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [库源代码](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [包 (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [示例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
@@ -36,35 +36,38 @@ ms.locfileid: "91332542"
 
 * Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="创建内容审查器资源"  target="_blank">创建内容审查器资源<span class="docon docon-navigate-external x-hidden-focus"></span></a>，以获取密钥和终结点。 等待其部署并单击“转到资源”按钮。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到内容审查器。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
 
-## <a name="create-a-content-moderator-resource"></a>创建内容审查器资源
 
-Azure 认知服务由你订阅的 Azure 资源表示。 在本地计算机上使用 [Azure 门户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 创建内容审查器的资源。 也可执行以下操作：
+## <a name="setting-up"></a>设置
 
-* 在 [Azure 门户](https://portal.azure.com/)上查看资源
+### <a name="install-the-client-library"></a>安装客户端库
 
-获取资源的密钥后，请为该密钥和终结点 URL [创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别命名为 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 和 `CONTENT_MODERATOR_ENDPOINT`。
- 
-## <a name="create-a-new-python-script"></a>创建新 Python 脚本
+安装 Python 后，可使用以下命令安装内容审查器客户端库：
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-contentmoderator
+```
+
+### <a name="create-a-new-python-application"></a>创建新的 Python 应用程序
 
 创建新的 Python 脚本，并在喜好的编辑器或 IDE 中打开它。 将以下 `import` 语句添加到该文件的顶部。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-接下来，为资源的终结点位置创建变量，并将密钥创建为环境变量。 
+> [!TIP]
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py) 上找到它，其中包含此快速入门中的代码示例。
+
+接下来，为资源的终结点位置和密钥创建变量。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
-> [!NOTE]
-> 如果在启动应用程序后创建了环境变量，则需要关闭再重新打开运行该应用程序的编辑器、IDE 或 shell 才能访问该变量。
-
-## <a name="install-the-client-library"></a>安装客户端库
-
-可使用以下命令安装内容审查器客户端库：
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-contentmoderator
-```
+> [!IMPORTANT]
+> 转到 Azure 门户。 如果在“先决条件”部分中创建的内容审查器资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
+>
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 例如，[Azure 密钥保管库](https://docs.microsoft.com/azure/key-vault/key-vault-overview)。
 
 ## <a name="object-model"></a>对象模型
 
@@ -89,9 +92,6 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 * [创建评审](#create-a-review)
 
 ## <a name="authenticate-the-client"></a>验证客户端
-
-> [!NOTE]
-> 本快速入门假定你已为内容审查器密钥和终结点[创建了环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
 
 使用终结点和密钥实例化某个客户端。 使用密钥创建 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 对象，然后在终结点上使用该对象创建 [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) 对象。
 
@@ -343,7 +343,7 @@ python quickstart-file.py
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [门户](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤

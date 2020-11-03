@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331679"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789108"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 简介
 
@@ -65,7 +65,7 @@ Azure Defender 为虚拟机、SQL 数据库、容器、web 应用程序、网络
 
 当 Azure Defender 检测到环境中的任何区域遭到威胁时，会生成警报。 这些警报会描述受影响资源的详细信息、建议的修正步骤，在某些情况下还会提供触发逻辑应用作为响应的选项。
 
-无论警报是由安全中心生成，还是由安全中心从集成的安全产品接收，你都可以导出该警报。 若要将警报导出到 Azure Sentinel、任何第三方 SIEM 或任何其他外部工具，请按照[将警报导出到 SIEM](continuous-export.md) 中的说明操作。
+无论警报是由安全中心生成，还是由安全中心从集成的安全产品接收，你都可以导出该警报。 若要将警报导出到 Azure Sentinel、任何第三方 SIEM 或任何其他外部工具，请按照[将警报流式传输到 SIEM、SOAR，或 IT 服务管理解决方案](export-to-siem.md)中的说明操作。
 
 > [!NOTE]
 > 来自不同源的警报可能在不同的时间后出现。 例如，需要分析网络流量的警报的出现时间，可能比虚拟机上运行的可疑进程的相关警报要晚一些。

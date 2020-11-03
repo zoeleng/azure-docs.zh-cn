@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb33a747b987898668e315518c3ba7a2b02efcc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aad1be52ae05573d565d960d914dafdf824a4de9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886472"
 ---
 开始使用适用于 .NET 的人脸客户端库进行人脸识别。 请按照以下步骤安装程序包并试用基本任务的示例代码。 通过人脸服务，可以访问用于检测和识别图像中的人脸的高级算法。
 
@@ -50,7 +50,7 @@ ms.locfileid: "91989751"
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `face-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：*program.cs*。 
+在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `face-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目： *program.cs* 。 
 
 ```console
 dotnet new console -n face-quickstart
@@ -151,6 +151,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.6.0
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
+> [!TIP]
+> 还可以检测本地图像中的人脸。 请参阅 [IFaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) 方法，例如 DetectWithStreamAsync。
+
 ### <a name="display-detected-face-data"></a>显示检测到的人脸数据
 
 `DetectFaceExtract` 方法的其余部分将分析和打印每个检测到的人脸的属性数据。 每个属性必须在原始人脸检测 API 调用中单独指定（在 **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 列表中）。 下面的代码处理每个属性，但你可能只需要使用一个或一些属性。
@@ -181,11 +184,11 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.6.0
 
 ## <a name="identify-a-face"></a>识别人脸
 
-识别操作采用一个（或多个）人员的图像，并在图像中查找每个人脸的标识（人脸识别搜索）。 它将每个检测到的人脸与某个 **PersonGroup**（面部特征已知的不同 **Person** 对象的数据库）进行比较。 为了执行“识别”操作，你首先需要创建并训练 PersonGroup
+识别操作采用一个（或多个）人员的图像，并在图像中查找每个人脸的标识（人脸识别搜索）。 它将每个检测到的人脸与某个 **PersonGroup** （面部特征已知的不同 **Person** 对象的数据库）进行比较。 为了执行“识别”操作，你首先需要创建并训练 PersonGroup
 
 ### <a name="create-a-person-group"></a>创建人员组
 
-以下代码创建包含六个不同 **Person** 对象的 **PersonGroup**。 它将每个 **Person** 与一组示例图像相关联，然后进行训练以按面部特征识别每个人。 **Person** 和 **PersonGroup** 对象在验证、识别和分组操作中使用。
+以下代码创建包含六个不同 **Person** 对象的 **PersonGroup** 。 它将每个 **Person** 与一组示例图像相关联，然后进行训练以按面部特征识别每个人。 **Person** 和 **PersonGroup** 对象在验证、识别和分组操作中使用。
 
 在类的根目录中声明一个字符串变量，用于表示要创建的 **PersonGroup** 的 ID。
 
@@ -200,6 +203,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.6.0
 接下来添加以下代码，以便为字典中的每个人员创建一个 **Person** 对象，并从相应的图像添加人脸数据。 每个 **Person** 对象通过其唯一 ID 字符串来与同一个 **PersonGroup** 相关联。 请记得将变量 `client`、 `url` 和 `RECOGNITION_MODEL1` 传入此方法。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
+
+> [!TIP]
+> 你还可以从本地图像创建 PersonGroup。 请参阅 [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) 方法，例如 AddFaceFromStreamAsync.
 
 ### <a name="train-the-persongroup"></a>训练 PersonGroup
 

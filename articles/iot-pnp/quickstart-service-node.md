@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946121"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736006"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>快速入门：与已连接到解决方案的 IoT 即插即用设备交互 (Node.js)
 
@@ -69,8 +69,8 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 在[为 IoT 即插即用快速入门和教程设置环境](set-up-environment.md)中，已创建了两个环境变量以将示例配置为连接到 IoT 中心和设备：
 
-* **IOTHUB_CONNECTION_STRING**：之前记下的 IoT 中心连接字符串。
-* **IOTHUB_DEVICE_ID**：`"my-pnp-device"`。
+* **IOTHUB_CONNECTION_STRING** ：之前记下的 IoT 中心连接字符串。
+* **IOTHUB_DEVICE_ID** ：`"my-pnp-device"`。
 
 在本快速入门中，你将使用以 Node.js 编写的示例 IoT 解决方案与你刚刚设置的示例设备进行交互。
 
@@ -91,7 +91,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
     sending telemetry message 0...
     ```
 
-1. 转到**服务**终端，并使用以下命令来运行用于读取设备信息的示例：
+1. 转到 **服务** 终端，并使用以下命令来运行用于读取设备信息的示例：
 
     ```cmd/sh
     node twin.js
@@ -214,7 +214,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
     node twin.js
     ```
 
-1. 在服务终端输出的 ¬reported` 属性部分中，你会看到报告的已更新的目标温度。 设备可能需要花费一段时间来完成更新。 请重复此步骤，直到设备已处理属性更新为止：
+1. 在服务终端输出的 `reported` 属性部分，你会看到报告的已更新的目标温度。 设备可能需要花费一段时间来完成更新。 请重复此步骤，直到设备已处理属性更新为止：
 
     ```json
     "reported": {
@@ -233,7 +233,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 1. 打开文件 device_method.js，并查看代码。
 
-1. 转到**服务**终端。 使用以下命令来运行用于调用该命令的示例：
+1. 转到 **服务** 终端。 使用以下命令来运行用于调用该命令的示例：
 
     ```cmd/sh
     set IOTHUB_METHOD_NAME=getMaxMinReport

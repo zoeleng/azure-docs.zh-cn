@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850959"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789057"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>用于应用服务的 Azure Defender 简介
 
@@ -64,7 +64,7 @@ Azure 应用服务是一种完全托管的平台，用于生成和托管 Web 应
 
 如需相关材料，请参阅以下文章： 
 
-- 无论警报是由安全中心生成，还是由安全中心从其他安全产品接收，你都可以导出该警报。 若要将警报导出到 Azure Sentinel、任何第三方 SIEM 或任何其他外部工具，请按照[将警报导出到 SIEM](continuous-export.md) 中的说明操作。
+- 无论警报是由安全中心生成，还是由安全中心从其他安全产品接收，你都可以导出该警报。 若要将警报导出到 Azure Sentinel、任何第三方 SIEM 或任何其他外部工具，请按照[将警报流式传输到 SIEM、SOAR，或 IT 服务管理解决方案](export-to-siem.md)中的说明操作。
 - 有关 Azure 应用服务警报的列表，请参阅[警报参考表](alerts-reference.md#alerts-azureappserv)。
 - 有关应用服务计划的详细信息，请参阅[应用服务计划](https://azure.microsoft.com/pricing/details/app-service/plans/)。
 - > [!div class="nextstepaction"]

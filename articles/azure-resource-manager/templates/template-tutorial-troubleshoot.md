@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119338"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891799"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>教程：排查 ARM 模板部署问题
 
@@ -18,8 +18,8 @@ ms.locfileid: "86119338"
 
 有两种类型的错误与模板部署相关：
 
-- **验证错误**源于部署之前可确定的方案。 原因包括模板中的语法错误，或尝试部署超出订阅配额的资源。
-- **部署错误**源于部署过程中发生的条件。 原因包括尝试访问并行部署的资源。
+- **验证错误** 源于部署之前可确定的方案。 原因包括模板中的语法错误，或尝试部署超出订阅配额的资源。
+- **部署错误** 源于部署过程中发生的条件。 原因包括尝试访问并行部署的资源。
 
 两种类型的错误都会返回用于对部署进行故障排除的错误代码。 两种类型的错误都会显示在活动日志中。 但是，验证错误不会显示在部署历史记录中，因为部署从未启动。
 
@@ -72,9 +72,9 @@ ms.locfileid: "86119338"
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-错误消息指示问题出在 **apiVersion1**。
+错误消息指示问题出在 **apiVersion1** 。
 
-使用 Visual Studio Code 修正此问题，方法是将 **apiVersion1** 更改为 **apiVersion**，然后保存模板。
+使用 Visual Studio Code 修正此问题，方法是将 **apiVersion1** 更改为 **apiVersion** ，然后保存模板。
 
 ## <a name="troubleshoot-the-deployment-error"></a>排查部署错误
 
@@ -96,14 +96,14 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 1. 登录 [Azure 门户](https://portal.azure.com)。
 2. 打开资源组，方法是：选择“资源组”，然后选择资源组名称。 此时会看到“部署”下显示“1 个失败” 。
 
-    ![资源管理器教程故障排除](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![屏幕截图突出显示了失败的部署。](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. 选择“错误详细信息”。
 
-    ![资源管理器教程故障排除](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![屏幕截图突出显示了“错误”详细信息链接。](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     错误消息与此前显示的相同：
 
-    ![资源管理器教程故障排除](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![屏幕截图显示了错误详细信息。](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 也可在活动日志中查找错误：
 

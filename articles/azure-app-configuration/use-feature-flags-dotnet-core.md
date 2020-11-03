@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078895"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746142"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>教程：在 ASP.NET Core 应用中使用功能标志
 
@@ -107,7 +107,7 @@ public class Startup
               .UseStartup<Startup>();
    ```
 
-2. 打开 *Startup.cs*，并更新 `Configure` 方法以添加中间件，从而允许在 ASP.NET Core Web 应用继续接收请求的同时，功能标志值以重复的时间间隔进行刷新。
+2. 打开“Startup.cs”并更新 `Configure` 方法，添加名为 `UseAzureAppConfiguration` 的内置中间件。 此中间件允许在 ASP.NET Core Web 应用继续接收请求的同时定期刷新功能标志值。
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dd7c5da84d6330e0214404f55aad9487c71b0a29
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201336"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792423"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>教程：使用 Azure 数字孪生 API 编写代码
 
-开发人员使用 Azure 数字孪生编写客户端应用程序，以与其 Azure 数字孪生服务实例交互，这是很常见的情况。 这篇面向开发人员的教程介绍如何使用[适用于 .NET 的 Azure IoT 数字孪生客户端库 (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) 对 Azure 数字孪生服务进行编程。 本教程会逐步引导你从头开始编写 C# 控制台客户端应用。
+开发人员使用 Azure 数字孪生编写客户端应用程序，以与其 Azure 数字孪生服务实例交互，这是很常见的情况。 这篇面向开发人员的教程介绍如何使用[适用于 .NET 的 Azure 数字孪生 SDK (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 对 Azure 数字孪生服务进行编程。 本教程会逐步引导你从头开始编写 C# 控制台客户端应用。
 
 > [!div class="checklist"]
 > * 设置项目
@@ -35,6 +35,8 @@ ms.locfileid: "92201336"
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
 ## <a name="set-up-project"></a>设置项目
 
 准备好使用 Azure 数字孪生实例后，请开始设置客户端应用项目。 
@@ -43,7 +45,7 @@ ms.locfileid: "92201336"
 
 导航到新目录。
 
-进入项目目录后，创建一个空的 .NET 控制台应用项目。 在命令窗口中运行以下命令，为控制台创建基础 C# 项目：
+进入项目目录后，创建一个空的 .NET 控制台应用项目。 在命令窗口中运行以下命令，可以为控制台创建基础 C# 项目：
 
 ```cmd/sh
 dotnet new console
@@ -51,16 +53,11 @@ dotnet new console
 
 这会在你的目录中创建多个文件，其中包括一个名为 Program.cs 的文件，你将在其中编写大部分代码。
 
-接下来，添加两个使用 Azure 数字孪生所必须的依赖项：
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
-```
-
-第一个依赖项是[适用于 .NET 的 Azure IoT 数字孪生客户端库](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)。 第二个依赖项会提供可帮助进行 Azure 身份验证的工具。
-
 让命令窗口保持打开状态，因为整个教程都要继续使用该窗口。
+
+接下来，将两个依赖项添加到你的项目，这是与 Azure 数字孪生结合使用所必需的。 可以使用以下链接导航到 NuGet 上的包，在那里可以找到控制台命令（包括适用于 .NET CLI 的命令）将每个包的最新版本添加到项目中。
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 这是用于[适用于 .NET 的 Azure 数字孪生 SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 的包。 
+* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). 该库提供可帮助进行 Azure 身份验证的工具。
 
 ## <a name="get-started-with-project-code"></a>开始使用项目代码
 
@@ -116,9 +113,6 @@ Console.WriteLine($"Service client created – ready to go");
 ```
 
 保存文件。 
-
->[!NOTE]
-> 此示例使用 `DefaultAzureCredential` 进行身份验证。 要了解其他类型的凭据，请参阅 [Microsoft 标识平台身份验证库](../active-directory/develop/reference-v2-libraries.md)文档，或有关[对客户端应用程序进行身份验证](how-to-authenticate-client.md)的 Azure 数字孪生相关文章。
 
 在命令窗口中，使用以下命令运行代码： 
 
@@ -266,12 +260,18 @@ Type name: : dtmi:com:contoso:SampleModel;1
 
 将模型上传到 Azure 数字孪生后，可以使用此模型定义创建数字孪生。 [数字孪生](concepts-twins-graph.md)是模型的实例，表示业务环境中的实体，例如农场中的传感器、大楼中的房间或汽车上的灯。 本部分将在你之前上传的模型的基础上创建几个数字孪生。
 
-在顶部添加新的 `using` 语句，因为在 `System.Text.Json` 中需要内置的 .NET Json 序列化程序：
+在顶部添加这些新的 `using` 语句，因为此代码示例使用 `System.Text.Json` 中的内置 .NET Json 序列化程序，以及来自[适用于 .NET 的 Azure 数字孪生 SDK (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [已修改链接以供预览] 的 `Serialization` 命名空间：
 
 ```csharp
 using System.Text.Json;
 using Azure.DigitalTwins.Core.Serialization;
 ```
+
+>[!NOTE]
+>无需将 `Azure.DigitalTwins.Core.Serialization` 与数字孪生和关系结合使用；它是一个可选命名空间，可帮助将数据转换为正确的格式。 使用它的替代方法包括：
+>* 串联字符串以形成 JSON 对象
+>* 使用 `System.Text.Json` 等 JSON 分析程序来动态生成 JSON 对象
+>* 使用 C# 对自定义类型建模，将其实例化，然后将其序列化为字符串
 
 然后，将以下代码添加到 `Main` 方法的末尾，以根据此模型创建和初始化三个数字孪生。
 
@@ -301,17 +301,7 @@ for(int i=0; i<3; i++) {
 
 接下来，你可以在已创建的孪生之间创建关系，将它们连接到孪生图 。 [孪生图](concepts-twins-graph.md)用于表示整个环境。
 
-为帮助创建关系，此代码示例使用 `Azure.DigitalTwins.Core.Serialization` 命名空间。 你之前已使用此 `using` 语句将此项添加到项目中：
-
-```csharp
-using Azure.DigitalTwins.Core.Serialization;
-```
-
->[!NOTE]
->无需将 `Azure.DigitalTwins.Core.Serialization` 与数字孪生和关系结合使用；它是一个可选命名空间，可帮助将数据转换为正确的格式。 使用它的替代方法包括：
->* 串联字符串以形成 JSON 对象
->* 使用 `System.Text.Json` 等 JSON 分析程序来动态生成 JSON 对象
->* 使用 C# 对自定义类型建模，将其实例化，然后将其序列化为字符串
+为帮助创建关系，此代码示例使用 `Azure.DigitalTwins.Core.Serialization` 命名空间。 你之前已在[创建数字孪生体](#create-digital-twins)部分中将其添加到项目中。
 
 将新的静态方法添加到 `Main` 方法下的 `Program` 类：
 

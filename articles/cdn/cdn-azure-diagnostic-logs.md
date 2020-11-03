@@ -52,7 +52,7 @@ ms.locfileid: "92779401"
 
 3. 在 " **监视** " 部分选择 " **诊断日志** "：
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="选择 &quot;CDN 终结点&quot;。" border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="选择 &quot;诊断日志&quot;。" border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>使用 Azure 存储启用日志记录
 
@@ -63,13 +63,13 @@ ms.locfileid: "92779401"
     
 1. 对于 " **诊断设置名称** "，请输入诊断日志设置的名称。
  
-2. 选择“存档到存储帐户”  ，然后选择“CoreAnalytics”  。 
+2. 选择“存档到存储帐户”，然后选择“CoreAnalytics”。 
 
-3. 对于“保留期(天数)”  ，请选择保留天数。 如果保留期为 0 天，则会无限期存储日志。 
+3. 对于“保留期(天数)”，请选择保留天数。 如果保留期为 0 天，则会无限期存储日志。 
 
 4. 选择日志的订阅和存储帐户。
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="选择 &quot;CDN 终结点&quot;。" border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="诊断日志-存储。" border="true":::
 
 3. 选择“保存” 。
 
@@ -86,7 +86,7 @@ ms.locfileid: "92779401"
 
 3. 为日志选择 "订阅" 和 "Log Analytics" 工作区。
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="选择 &quot;CDN 终结点&quot;。" border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="诊断日志-Log Analytics。" border="true":::
 
 4. 选择“保存” 。
 
@@ -103,7 +103,7 @@ ms.locfileid: "92779401"
 
 3. 选择日志的订阅和事件中心命名空间。
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="选择 &quot;CDN 终结点&quot;。" border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="诊断日志-事件中心。" border="true":::
 
 4. 选择“保存”。
 
@@ -189,7 +189,7 @@ ms.locfileid: "92779401"
 
 1.  打开 **Microsoft Azure 存储资源管理器**
 2.  找到存储帐户
-3.  展开该存储帐户下的“Blob 容器”节点。 
+3.  展开该存储帐户下的“Blob 容器”节点。
 4.  选择名为 *insights-logs-coreanalytics* 的容器。
 5.  结果显示在右窗格中，从第一级开始，类似于 *resourceId=* 。 继续选择每个级别，直至找到 *PT1H.json* 文件。 有关路径的说明，请参阅 [Blob 路径格式](cdn-azure-diagnostic-logs.md#blob-path-format)。
 6.  每个 Blob *PT1H.json* 文件表示特定 CDN 终结点或其自定义域一小时内的分析日志。
@@ -202,7 +202,7 @@ ms.locfileid: "92779401"
 
 ```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
-字段说明： 
+字段说明：
 
 |值|描述|
 |-------|---------|

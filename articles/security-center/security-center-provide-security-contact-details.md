@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945611"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791862"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>针对安全警报配置电子邮件通知 
 
@@ -62,9 +62,10 @@ ms.locfileid: "91945611"
 1. 若要将安全联系人信息应用到订阅，请选择“保存”。
 
 
-## <a name="see-also"></a>另请参阅
+## <a name="next-steps"></a>后续步骤
+
 若要了解有关安全警报的详细信息，请参阅以下页面：
 
 - [安全警报 - 参考指南](alerts-reference.md) -- 了解 Azure 安全中心的威胁防护模块中可能会显示的安全警报
 - [管理和响应 Azure 安全中心的安全警报](security-center-managing-and-responding-alerts.md) -- 了解如何管理和响应安全警报
-- [工作流自动化](workflow-automation.md) -- 通过自定义通知逻辑自动响应警报
+- [自动执行对安全中心触发器的响应](workflow-automation.md) - 使用自动化功能通过自定义通知逻辑响应安全中心触发器

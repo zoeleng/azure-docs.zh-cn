@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
-ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/16/2020
+ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260268"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738154"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>教程：在 Synapse Studio 中创建 Apache Spark 作业定义
 
@@ -47,7 +47,7 @@ ms.locfileid: "91260268"
 
      ![示例文件](./media/apache-spark-job-definitions/sample-files.png)
 
-3. 选择“数据”->“已链接”->“Azure Data Lake Storage Gen2”，然后将 wordcount.py 和 shakespeare.txt 上传到 ADLS Gen2 文件系统 ****   ****   ****  ****   **** 。 
+3. 选择“数据” -> “已链接” -> “Azure Data Lake Storage Gen2”，然后将“wordcount.py”和“shakespeare.txt”上传到 ADLS Gen2 文件系统    。 
 
      ![上传 Python 文件](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -89,7 +89,7 @@ ms.locfileid: "91260268"
  
      ![示例文件 scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. 选择“数据”->“已链接”->“Azure Data Lake Storage Gen2”，然后将 wordcount.jar 和 shakespeare.txt 上传到 ADLS Gen2 文件系统 ****   ****   ****  ****   **** 。
+ 3. 选择“数据” -> “已链接” -> “Azure Data Lake Storage Gen2”，然后将“wordcount.jar”和“shakespeare.txt”上传到 ADLS Gen2 文件系统    。
  
      ![准备 scala 结构](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
@@ -129,7 +129,7 @@ ms.locfileid: "91260268"
 
      ![示例 dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. 选择“数据”->“已链接”->“Azure Data Lake Storage Gen2”，然后将 wordcount.zip 和 shakespeare.txt 上传到 ADLS Gen2 文件系统 ****   ****   ****  ****   **** 。
+ 3. 选择“数据” -> “已链接” -> “Azure Data Lake Storage Gen2”，然后将“wordcount.zip”和“shakespeare.txt”上传到 ADLS Gen2 文件系统    。
  
      ![准备 dotnet 结构](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 

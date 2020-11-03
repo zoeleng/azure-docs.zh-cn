@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859157"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886470"
 ---
 开始使用适用于 Go 的人脸客户端库进行人脸识别。 请按照以下步骤安装程序包并试用基本任务的示例代码。 通过人脸服务，可以访问用于检测和识别图像中的人脸的高级算法。
 
@@ -125,6 +125,9 @@ touch sample-app.go
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
+> [!TIP]
+> 还可以检测本地图像中的人脸。 请参阅 [Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client) 方法，如 DetectWithStream。
+
 ### <a name="display-detected-face-data"></a>显示检测到的人脸数据
 
 下一个代码块采用 **[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)** 对象数组中的第一个元素，并将其特性输出到控制台。 如果使用了包含多个人脸的图像，则应改为迭代该数组。
@@ -166,7 +169,7 @@ touch sample-app.go
 
 ### <a name="create-persongroup"></a>创建 PersonGroup
 
-下载图像后，请将以下代码添加到 **main** 方法的底部。 此代码对 **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** 对象进行身份验证，然后使用它来定义新的 **PersonGroup**。
+下载图像后，请将以下代码添加到 **main** 方法的底部。 此代码对 **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** 对象进行身份验证，然后使用它来定义新的 **PersonGroup** 。
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_setup)]
 
@@ -182,22 +185,25 @@ touch sample-app.go
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
+> [!TIP]
+> 还可以从 URL 引用的远程图像创建 PersonGroup。 请参阅 [ PersonGroupPersonClient ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) 方法，例如 AddFaceFromURL。
+
 ### <a name="train-persongroup"></a>训练 PersonGroup
 
-分配人脸后，请训练 **PersonGroup**，使其能够识别与其每个 **Person** 对象关联的视觉特征。 以下代码调用异步 **train** 方法并轮询结果，然后将状态输出到控制台。
+分配人脸后，请训练 **PersonGroup** ，使其能够识别与其每个 **Person** 对象关联的视觉特征。 以下代码调用异步 **train** 方法并轮询结果，然后将状态输出到控制台。
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 
 ## <a name="identify-a-face"></a>识别人脸
 
-识别操作采用一个（或多个）人员的图像，并在图像中查找每个人脸的标识（人脸识别搜索）。 它将每个检测到的人脸与某个 **PersonGroup**（面部特征已知的不同 **Person** 对象的数据库）进行比较。
+识别操作采用一个（或多个）人员的图像，并在图像中查找每个人脸的标识（人脸识别搜索）。 它将每个检测到的人脸与某个 **PersonGroup** （面部特征已知的不同 **Person** 对象的数据库）进行比较。
 
 > [!IMPORTANT]
 > 若要运行此示例，必须先运行[创建和训练人员组](#create-and-train-a-person-group)中的代码。
 
 ### <a name="get-a-test-image"></a>获取测试图像
 
-以下代码在项目根目录中查找图像 _test-image-person-group.jpg_，并将其载入程序内存。 可以在[创建和训练人员组](#create-and-train-a-person-group)中使用的图像所在的同一个存储库中找到此图像： https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images 。
+以下代码在项目根目录中查找图像 _test-image-person-group.jpg_ ，并将其载入程序内存。 可以在[创建和训练人员组](#create-and-train-a-person-group)中使用的图像所在的同一个存储库中找到此图像： https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images 。
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -209,7 +215,7 @@ touch sample-app.go
 
 ### <a name="identify-faces"></a>标识人脸
 
-**[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** 方法采用检测到的人脸的数组，并将其与给定的 **PersonGroup**（已在前一部分定义并训练）进行比较。 如果检测到的某个人脸与组中的某个人相匹配，则它会保存结果。
+**[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** 方法采用检测到的人脸的数组，并将其与给定的 **PersonGroup** （已在前一部分定义并训练）进行比较。 如果检测到的某个人脸与组中的某个人相匹配，则它会保存结果。
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id)]
 

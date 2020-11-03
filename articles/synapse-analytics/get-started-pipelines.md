@@ -1,6 +1,6 @@
 ---
-title: 教程：开始编排管道
-description: 在本教程中，你将了解如何使用 Synapse Studio 编排管道和活动。
+title: 教程：开始与管道集成
+description: 在本教程中，你将了解如何使用 Synapse Studio 集成管道和活动。
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,21 +9,21 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 42d2ac6cf6592f8e22b0a66aee84c3436d466572
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.date: 10/27/2020
+ms.openlocfilehash: af01d5b5e424dd5ea229115f7aa3570d0b7cd511
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329877"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744923"
 ---
-# <a name="orchestrate-with-pipelines"></a>编排管道
+# <a name="integrate-with-pipelines"></a>与管道集成
 
-在本教程中，你将了解如何使用 Synapse Studio 编排管道和活动。 
+在本教程中，你将了解如何使用 Synapse Studio 集成管道和活动。 
 
 ## <a name="overview"></a>概述
 
-可以在 Azure Synapse 中安排各种任务。
+可以在 Azure Synapse 中集成各种任务。
 
 1. 在 Synapse Studio 中，转到“集成”中心。
 1. 选择 + > “管道”以创建新管道 。

@@ -30,7 +30,7 @@ ms.locfileid: "92739888"
 
 2. 在 " **基本** 信息" 选项卡中，提供所需的值。 如果适用，可以使用现有的 Log Analytics 工作区。
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="映像显示了如何从 Azure Marketplace 中选择 SAP 解决方案的 Azure Monitor。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="显示 Azure 门户配置选项。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
 3. 选择虚拟网络时，请确保可从该 VNET 中访问要监视的系统。 
 
@@ -43,7 +43,7 @@ ms.locfileid: "92739888"
 
 1. 选择 " **提供程序** " 选项卡以添加要配置的提供程序。 可以逐个添加多个提供程序，也可以在部署监视资源后添加。 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="映像显示了如何从 Azure Marketplace 中选择 SAP 解决方案的 Azure Monitor。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="显示 &quot;提供程序&quot; 选项卡，为 SAP 解决方案添加其他提供程序到 Azure Monitor。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
 2. 选择 " **添加提供程序** "，并从下拉菜单中选择 " **SAP HANA** "。 
 
@@ -60,7 +60,7 @@ ms.locfileid: "92739888"
 
 7. 完成后，选择 " **添加提供程序** "。 根据需要继续添加其他提供程序，或者选择 " **查看 + 创建** " 完成部署。
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="映像显示了如何从 Azure Marketplace 中选择 SAP 解决方案的 Azure Monitor。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="添加提供程序信息时的配置选项图像。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
 ### <a name="high-availability-cluster-pacemaker-provider"></a>高可用性群集 (Pacemaker) 提供程序
 
@@ -75,7 +75,7 @@ ms.locfileid: "92739888"
 
 4. 完成后，选择 " **添加提供程序** "。 根据需要继续添加其他提供程序，或者选择 " **查看 + 创建** " 完成部署。
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="映像显示了如何从 Azure Marketplace 中选择 SAP 解决方案的 Azure Monitor。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image 显示了与 HA 群集 Pacemaker 提供程序相关的选项。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
 ### <a name="microsoft-sql-server-provider"></a>Microsoft SQL Server 提供程序
@@ -113,7 +113,7 @@ ms.locfileid: "92739888"
 
 4. 完成后，选择 " **添加提供程序** "。 根据需要继续添加其他提供程序，或者选择 " **查看 + 创建** " 完成部署。
 
-     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="映像显示了如何从 Azure Marketplace 中选择 SAP 解决方案的 Azure Monitor。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="图像显示与添加 Microsoft SQL Server 提供程序相关的信息。" lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
 ## <a name="next-steps"></a>后续步骤
 

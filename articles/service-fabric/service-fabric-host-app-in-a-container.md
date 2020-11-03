@@ -3,12 +3,12 @@ title: 将容器中的 .NET 应用部署到 Azure Service Fabric
 description: 了解如何使用 Visual Studio 将现有 .NET 应用程序容器化并在 Service Fabric 中本地调试容器。 容器化后的应用程序会被推送给 Azure 容器注册表，并部署到 Service Fabric 群集。 部署到 Azure 时，应用程序使用 Azure SQL DB 保存数据。
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b7c841c1185cb2e289a230eb1078a13d4ccd48f8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122057"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889929"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教程：将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
@@ -169,7 +169,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
     d. 选择“VM 详细信息”选项卡。指定一个密码，以便将其用于构成群集的虚拟机 (VM)。 可以使用用户名和密码远程连接到 VM。 此外还必须选择 VM 大小，并可根据需要更改 VM 映像。
 
     > [!IMPORTANT]
-    > 选择一个支持运行容器的 SKU。 群集节点上的 Windows Server OS 必须与容器的 Windows Server OS 兼容。 若要了解更多信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 默认情况下，本教程将创建基于 Windows Server 2016 LTSC 的 Docker 映像。 基于此映像的容器将运行在使用带容器的 Windows Server 2016 Datacenter 创建的群集上。 但是，如果基于带容器的 Windows Server Datacenter Core 1709 创建群集或使用现有群集，则必须更改容器所基于的 Windows Server OS 映像。 打开 **FabrikamFiber.Web** 项目中的 **Dockerfile** ，注释掉现有 `FROM` 语句（基于 `windowsservercore-ltsc`），并取消注释基于 `windowsservercore-1709` 的 `FROM` 语句。
+    > 选择一个支持运行容器的 SKU。 群集节点上的 Windows Server OS 必须与容器的 Windows Server OS 兼容。 若要了解更多信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 默认情况下，本教程将创建基于 Windows Server 2016 LTSC 的 Docker 映像。 基于此映像的容器将运行在使用带容器的 Windows Server 2016 Datacenter 创建的群集上。 但是，如果基于不同版本的 Windows Server 创建群集或使用现有群集，则必须更改容器所基于的 OS 映像。 打开 FabrikamFiber.Web 项目中的 dockerfile，注释掉基于以前版本的 Windows Server 的任何现有 `FROM` 语句，并根据所需版本的标记从 [Windows Server Core DockerHub](https://hub.docker.com/_/microsoft-windows-servercore) 页添加 `FROM` 术语 。 有关 Windows Server Core 版本、支持时间线和版本控制的其他信息，请参阅 [Windows Server Core 版本信息](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)。 
 
     e. 在“高级”选项卡中，列出群集部署时要在负载均衡器中打开的应用程序端口。 这是在开始创建群集之前记下的端口。 还可以添加现有的 Application Insights 密钥，用于路由应用程序日志文件。
 
