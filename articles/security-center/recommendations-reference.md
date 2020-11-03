@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: edee1948780b827eed5047c6c9c919b66eb619d0
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 553f83151289adf6f0f4420d106af7ae37047bda
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900219"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148314"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>安全建议 - 参考指南
 
@@ -217,6 +217,5 @@ ms.locfileid: "92900219"
 ## <a name="next-steps"></a>后续步骤
 若要详细了解建议，请参阅以下内容：
 
-* [有关如何分析安全中心所提建议的 Microsoft Learn 模块](/learn/modules/identify-threats-with-azure-security-center/)
 * [Azure 安全中心的安全建议](security-center-recommendations.md)
 * [保护 Azure 安全中心中的网络](security-center-network-recommendations.md)

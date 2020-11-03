@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: ffda2b1d096b3c84e3f1df10e37c44922bab16ef
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632407"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280166"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据加载到 Azure Synapse Analytics 中
 
@@ -42,7 +42,7 @@ ms.locfileid: "92632407"
 
 * Azure 订阅：如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
 * Azure Synapse Analytics：此数据仓库保存从 SQL 数据库复制的数据。 如果没有 Azure Synapse Analytics，请参阅[创建 Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md) 中的说明。
-* Azure SQL 数据库：本教程从 Azure SQL 数据库中的 Adventure Works LT 示例数据集复制数据。 可以按照[在 Azure SQL 数据库中创建示例数据库](../azure-sql/database/single-database-create-quickstart.md)中的说明在 SQL 数据库中创建此示例数据库。
+* Azure SQL 数据库：本教程在 Azure SQL 数据库中复制艾德 Works LT 示例数据集的数据。 可以按照[在 Azure SQL 数据库中创建示例数据库](../azure-sql/database/single-database-create-quickstart.md)中的说明在 SQL 数据库中创建此示例数据库。
 * Azure 存储帐户：Azure 存储用作大容量复制操作中的暂存 blob。 如果没有 Azure 存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)中的说明。
 
 ## <a name="create-a-data-factory"></a>创建数据工厂
@@ -114,9 +114,6 @@ ms.locfileid: "92632407"
 
 7. 在“表映射”页中查看内容并选择“下一步”。 此时会显示智能表映射。 源表已根据表名映射到目标表。 如果目标中不存在表，则默认情况下 Azure 数据工厂将创建一个具有相同名称的目标表。 还可以将源表映射到现有目标表。
 
-   > [!NOTE]
-   > 当 SQL Server 或 Azure SQL 数据库为源时，将应用 Azure Synapse Analytics 接收器的自动创建表的功能。 若从其他源数据存储复制数据，则在执行数据复制操作前，需先在接收器 Azure Synapse Analytics 中预创建架构。
-
    ![“表映射”页](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
 8. 在“列映射”页中，查看内容并选择“下一步”。 智能表映射基于列名。 如果自动创建的表的数据工厂，源和目标存储之间存在不兼容时，可能发生数据类型转换。 如果在源列与目标列之间进行不受支持的数据类型转换，会显示错误消息以及相应的表。
@@ -143,7 +140,7 @@ ms.locfileid: "92632407"
 
     [![监视管道运行](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
 
-13. 若要切换回到管道运行视图，请选择顶部的“所有管道运行”链接。 选择“刷新”可刷新列表。
+13. 若要切换回到管道运行视图，请选择顶部的“所有管道运行”链接。 选择“刷新”可刷新列表。 
 
     ![监视活动运行](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 327e59d3fee6f23d2635b846e9fb5ab422e0139e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a49dff0e4ac41670800073c02c5a507eb433c326
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87429022"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280437"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>用于将应用程序迁移到 Azure Active Directory 的资源
 
@@ -26,6 +26,7 @@ ms.locfileid: "87429022"
 |:-----------|:-------------|
 |[将应用迁移到 Azure AD](https://aka.ms/migrateapps/whitepaper) | 本白皮书介绍了迁移的优势，并介绍了如何在四个明确概述的阶段中规划迁移：发现、分类、迁移和持续管理。 本文将介绍如何思考该进程并将项目分解为易于使用的部分。 整个文档为指向重要资源的链接，可全程为你提供帮助。 |
 |[解决方案指南：将应用从 Active Directory 联合身份验证服务 (AD FS) 迁移到 Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | 本解决方案指南逐步说明规划和执行迁移白皮书中更高级别描述的应用程序迁移项目的四个相同阶段。 在本指南中，你将学习如何将这些阶段应用于将应用程序从 Active Directory 联合身份验证服务 (AD FS) 移动到 Azure AD 的特定目标。|
+|[开发人员教程：向开发人员 AD FS Azure AD 应用程序迁移操作手册](https://aka.ms/adfsplaybook) | 这组 ASP.NET 的代码示例和随附的教程将帮助你了解如何安全、安全地将与 Active Directory 联合身份验证服务 (集成的应用程序迁移到 AD FS) Azure Active Directory (Azure AD) 。 本教程侧重于不仅需要了解在 AD FS 和 Azure AD 上配置应用的开发人员，还会在此过程中认识并自信其代码库将需要的更改。|
 | [工具：Active Directory 联合身份验证服务迁移就绪性脚本](https://aka.ms/migrateapps/adfstools) | 这是可以在本地 Active Directory 联合身份验证服务 (AD FS) 服务器上运行的脚本，用于确定应用迁移到 Azure AD 的就绪情况。|
 | [部署计划：从 AD FS 迁移到密码哈希同步](https://aka.ms/ADFSTOPHSDPDownload) | 凭借密码哈希同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 通过该操作，Azure AD 可对用户进行身份验证，而无需与本地 Active Directory 进行交互。| 
 | [部署计划：从 AD FS 迁移到直通身份验证](https://aka.ms/ADFSTOPTADPDownload)|借助 Azure AD 直通身份验证，用户可使用相同的密码登录到本地应用程序和基于云的应用程序。 此功能可为你的用户提供更好的体验，因为他们只需要记住一个密码。 它还可降低 IT 支持人员成本，因为用户只需要记住一个密码就不会忘记如何登录。 当人们使用 Azure AD 登录时，此功能可直接通过本地 Active Directory 验证用户的密码。|

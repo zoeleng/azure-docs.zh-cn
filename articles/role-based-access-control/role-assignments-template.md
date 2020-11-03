@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2020
+ms.date: 11/02/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d65b2db9c69d006476ae1d08a1af3e60efe48930
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612738"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280561"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板添加 Azure 角色分配
 
@@ -54,7 +54,7 @@ objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 
 ### <a name="managed-identities"></a>托管标识
 
-若要获取托管标识的 ID，可以使用 [AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) 或 [az ad sp](/cli/azure/ad/sp) 命令。
+若要获取托管标识的 ID，可以使用 [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) 或 [az ad sp](/cli/azure/ad/sp) 命令。
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
@@ -89,7 +89,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 若要使用模板，必须执行以下操作：
 
 - 创建新的 JSON 文件并复制模板
-- 替换为 `<your-principal-id>` 要将角色分配到的用户、组、托管标识或应用程序的 ID
+- 将 `<your-principal-id>` 替换为要为其分配角色的用户、组、托管标识或应用程序的 ID
 
 ```json
 {
@@ -132,7 +132,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 若要使用模板，必须指定以下输入：
 
-- 要向其分配角色的用户、组、托管标识或应用程序的 ID
+- 要为其分配角色的用户、组、托管标识或应用程序的 ID
 - 将用于角色分配的唯一 ID，或者可以使用默认 ID
 
 ```json
@@ -226,7 +226,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 若要使用模板，必须指定以下输入：
 
-- 要向其分配角色的用户、组、托管标识或应用程序的 ID
+- 要为其分配角色的用户、组、托管标识或应用程序的 ID
 
 ```json
 {
@@ -305,7 +305,9 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 ### <a name="new-service-principal"></a>新服务主体
 
-如果创建新服务主体并立即尝试将角色分配给该服务主体，则在某些情况下该角色分配可能会失败。 例如，如果创建新托管标识，然后尝试将角色分配给同一 Azure 资源管理器模板中的服务主体，则角色分配可能会失败。 失败原因可能是复制延迟。 服务主体是在一个区域中创建的；但是，角色分配可能发生在尚未复制服务主体的其他区域中。 若要解决这种情况，应在创建角色分配时将 `principalType` 属性设置为 `ServicePrincipal`。
+如果创建新服务主体并立即尝试将角色分配给该服务主体，则在某些情况下该角色分配可能会失败。 例如，如果创建新托管标识，然后尝试将角色分配给同一 Azure 资源管理器模板中的服务主体，则角色分配可能会失败。 失败原因可能是复制延迟。 服务主体是在一个区域中创建的；但是，角色分配可能发生在尚未复制服务主体的其他区域中。
+
+若要解决这种情况，应在创建角色分配时将 `principalType` 属性设置为 `ServicePrincipal`。 还必须将 `apiVersion` 角色分配的设置为 `2018-09-01-preview` 或更高版本。
 
 以下模板演示：
 

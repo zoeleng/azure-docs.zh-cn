@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d27c65938d10f9061961ebb585327bc77d8b2859
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092454"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280347"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>评估自动机器学习试验结果
 
@@ -28,7 +28,7 @@ ms.locfileid: "92092454"
 |---|---|
 |<li> [混淆矩阵](#confusion-matrix) <li>[精度-召回率图表](#precision-recall-chart) <li> [接收方操作特征 (ROC)](#roc) <li> [提升曲线](#lift-curve)<li> [增益曲线](#gains-curve)<li> [校准图](#calibration-plot) | <li> [预测与真实](#pvt) <li> [残差直方图](#histo)|
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "92092454"
 在工作室中查看运行历史记录和模型性能指标和图表： 
 
 1. [登录到工作室](https://ml.azure.com/) 并导航到工作区。
-1. 在工作区的左侧面板中，选择 " **运行**"。
+1. 在工作区的左侧面板中，选择 " **运行** "。
 1. 在试验列表中，选择要探索的试验。
 1. 在底部的表中，选择“运行”。
 1. 在 " **模型** " 选项卡中，选择要浏览的模型的 **算法名称** 。
@@ -159,7 +159,7 @@ AutoML 不区分二元分类指标与多类指标。 不管数据集有两个类
 
 ### <a name="what-does-a-good-model-look-like"></a>良好的模型是怎样的？
 
-较高的提升曲线（这是模型在基线之上的更高级别），表示性能更佳。 
+更好的性能模型将有一个在图形上更高的提升曲线，并从基线进一步进行。 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>示例1：与随机选择模型相比性能不佳的分类模型
 ![比随机选择模型更差的分类模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -213,7 +213,7 @@ AutoML 不区分二元分类指标与多类指标。 不管数据集有两个类
 
 |指标|说明|计算|其他参数
 --|--|--|--|
-explained_variance|解释方差是数学模型计算给定数据集的方差时遵循的比例。 它是原始数据方差与误差方差之间的递减百分比。 当错误的平均值为0时，它等于确定系数 (参阅) 下面 r2_score。|[计算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|无|
+explained_variance|解释方差是数学模型计算给定数据集的方差时遵循的比例。 它是原始数据方差与误差方差之间的递减百分比。 当误差的平均值为 0 时，它等于确定系数（请参见下面的 r2_score）。|[计算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|无|
 r2_score|R ^ 2 是确定的系数，或与输出平均值的基线模型相比，平方误差的百分比下降。 |[计算](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|无|
 spearman_correlation|斯皮尔曼相关是两个数据集之间的关系单一性的非参数测量法。 与皮尔逊相关不同，斯皮尔曼相关不假设两个数据集呈正态分布。 与其他相关系数一样，此参数在 -1 和 +1 之间变化，0 表示不相关。 -1 或 +1 相关表示确切的单一关系。 正相关表示 y 随着 x 的递增而递增。 负相关表示 y 随着 x 的递增而递减。|[计算](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|无|
 mean_absolute_error|平均绝对误差是目标与预测之间的差的预期绝对值|[计算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|无|
@@ -234,12 +234,12 @@ normalized_root_mean_squared_log_error|规范化均方根对数误差指均方�
 每次运行后，可以查看每个回归模型的预测与真实图形。 为了保护数据隐私，值已装箱在一起，每个箱的大小在图表区域的下半部分显示为条形图。 可将预测模型（带有浅色阴影，其中显示了误差边际）与模型的理想值进行比较。
 
 ### <a name="what-does-a-good-model-look-like"></a>良好的模型是怎样的？
-可以使用此图形来衡量模型的性能，因为预测值与 y=x 行越接近，预测模型的准确度就越高。
+此图可用于测量模型的性能，因为预测值是预测值的更接近 y = x 行，这是预测模型的最佳性能。
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>示例 1：准确度较低的分类模型
+#### <a name="example-1-a-regression-model-with-low-performance"></a>示例1：性能降低的回归模型
 ![预测准确度较低的回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>示例 2：准确度较高的回归模型 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>示例2：具有高性能的回归模型
 ![预测准确度较高的回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -254,7 +254,7 @@ normalized_root_mean_squared_log_error|规范化均方根对数误差指均方�
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>示例 1：误差中带有偏差的回归模型
 ![误差中带有偏差的 SA 回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>示例 2：误差较均匀分布的回归模型
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>示例2：具有更大的错误分布的回归模型
 ![误差较均匀分布的回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

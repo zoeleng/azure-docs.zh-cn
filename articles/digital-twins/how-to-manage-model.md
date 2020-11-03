@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147107"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279424"
 ---
 # <a name="manage-azure-digital-twins-models"></a>管理 Azure 数字孪生模型
 
-你可以使用 [**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models)、 [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)或 [Azure 数字孪生 CLI](how-to-use-cli.md)来管理 azure 数字孪生实例知道的 [模型](concepts-models.md)。 
+你可以使用 [**DigitalTwinModels api**](/rest/api/digital-twins/dataplane/models)、 [.Net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)或 [Azure 数字孪生 CLI](how-to-use-cli.md)来管理 azure 数字孪生实例知道的 [模型](concepts-models.md)。 
 
 管理操作包括上载、验证、检索和删除模型。 
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 

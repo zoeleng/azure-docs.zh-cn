@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503311"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279894"
 ---
 # <a name="secure-azure-digital-twins"></a>保护 Azure 数字孪生
 
@@ -24,13 +24,13 @@ Azure 数字孪生还支持静态数据加密。
 
 Azure RBAC 通过与 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) 集成提供给 Azure 数字孪生。
 
-可以使用 Azure RBAC 向 *安全主体*授予权限，这可能是用户、组或应用程序服务主体。 安全主体由 Azure AD 进行身份验证，并在返回时接收 OAuth 2.0 令牌。 此令牌可用于授权对 Azure 数字孪生实例的访问请求。
+可以使用 Azure RBAC 向 *安全主体* 授予权限，这可能是用户、组或应用程序服务主体。 安全主体由 Azure AD 进行身份验证，并在返回时接收 OAuth 2.0 令牌。 此令牌可用于授权对 Azure 数字孪生实例的访问请求。
 
 ### <a name="authentication-and-authorization"></a>身份验证和授权
 
-使用 Azure AD，访问过程分为两个步骤。 如果 (用户、组或应用程序的安全主体) 尝试访问 Azure 数字孪生，则必须对该请求进行 *身份验证* 和 *授权*。 
+使用 Azure AD，访问过程分为两个步骤。 如果 (用户、组或应用程序的安全主体) 尝试访问 Azure 数字孪生，则必须对该请求进行 *身份验证* 和 *授权* 。 
 
-1. 首先，对安全主体的身份进行 *身份验证*，并返回 OAuth 2.0 令牌。
+1. 首先，对安全主体的身份进行 *身份验证* ，并返回 OAuth 2.0 令牌。
 2. 接下来，令牌作为请求的一部分传递到 Azure 数字孪生服务，以 *授权* 访问指定的资源。
 
 身份验证步骤要求在运行时将任何应用程序请求包含 OAuth 2.0 访问令牌。 如果应用程序在 Azure 实体（如 [Azure Functions](../azure-functions/functions-overview.md) 应用）内运行，则它可以使用 **托管标识** 来访问资源。 在下一部分中了解有关托管标识的详细信息。
@@ -56,8 +56,8 @@ Azure 提供了 **两个 azure 内置角色** ，用于授权对 Azure 数字孪
 
 >[!NOTE]
 > 最近在预览版中将这些角色重命名为其以前的名称：
-> * *Azure 数字孪生数据所有者* 以前是 *Azure 数字孪生所有者 (预览) *。
-> * *Azure 数字孪生数据读取器* 是以前的 *Azure 数字孪生读卡器 (预览) *。
+> * *Azure 数字孪生数据所有者* 以前是 *Azure 数字孪生所有者 (预览)* 。
+> * *Azure 数字孪生数据读取器* 是以前的 *Azure 数字孪生读卡器 (预览)* 。
 
 可以通过两种方式分配角色：
 * 通过访问控制 (的 IAM) 窗格中的 Azure 数字孪生在 Azure 门户中 (参阅 [*使用 Azure 门户添加或删除 azure 角色分配*](../role-based-access-control/role-assignments-portal.md)) 
@@ -72,7 +72,7 @@ Azure 提供了 **两个 azure 内置角色** ，用于授权对 Azure 数字孪
 在自动方案中引用角色时，建议使用其 **id** 而不是名称来引用它们。 这些名称在两个版本之间可能会发生更改，但 Id 将不会更改，使其在自动化中更加稳定。
 
 > [!TIP]
-> 如果使用 cmdlet （如 `New-AzRoleAssignment` ([引用](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)) ） Assiging 角色，则可以使用 `-RoleDefinitionId` 参数而不是 `-RoleDefinitionName` 来传递 ID，而不是传递角色的名称。
+> 如果使用 cmdlet （如 `New-AzRoleAssignment` ([引用](/powershell/module/az.resources/new-azroleassignment)) ） Assiging 角色，则可以使用 `-RoleDefinitionId` 参数而不是 `-RoleDefinitionName` 来传递 ID，而不是传递角色的名称。
 
 ### <a name="permission-scopes"></a>权限范围
 
@@ -87,7 +87,33 @@ Azure 提供了 **两个 azure 内置角色** ，用于授权对 Azure 数字孪
 
 ### <a name="troubleshooting-permissions"></a>疑难解答权限
 
-如果用户尝试执行其角色不允许的操作，则可能会收到来自服务请求读取的错误 `403 (Forbidden)` 。 有关详细信息和疑难解答步骤，请参阅 [*故障排除： Azure 数字孪生请求失败，状态为： 403 (禁止访问) *](troubleshoot-error-403.md)。
+如果用户尝试执行其角色不允许的操作，则可能会收到来自服务请求读取的错误 `403 (Forbidden)` 。 有关详细信息和疑难解答步骤，请参阅 [*故障排除： Azure 数字孪生请求失败，状态为： 403 (禁止访问)*](troubleshoot-error-403.md)。
+
+## <a name="service-tags"></a>服务标记
+
+**服务标记** 表示给定 Azure 服务中的一组 IP 地址前缀。 Microsoft 会管理服务标记包含的地址前缀，并在地址更改时自动更新服务标记，从而尽量减少频繁更新网络安全规则所需的复杂操作。 有关服务标记的详细信息，请参阅  [*虚拟网络标记*](../virtual-network/service-tags-overview.md)。 
+
+你可以使用服务标记来定义 [网络安全组](../virtual-network/network-security-groups-overview.md#security-rules)或 Azure 防火墙上的网络访问控制    [Azure Firewall](../firewall/service-tags.md)，方法是在创建安全规则时使用服务标记来替换特定的 IP 地址。 在这种情况下，通过指定服务标记名称 **AzureDigitalTwins** (，在规则的相应 *源*   或 *目标* 字段中 AzureDigitalTwins)   ，可以允许或拒绝相应服务的流量。 
+
+下面是 **AzureDigitalTwins** 服务标记的详细信息。
+
+| 标记 | 目的 | 可以使用入站或出站？ | 可以支持区域范围？ | 是否可与 Azure 防火墙一起使用？ |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure 数字孪生<br>注意：此标记或此标记涵盖的 IP 地址可用于限制对配置为 [事件路由](concepts-route-events.md)的终结点的访问。 | 入站 | 否 | 是 |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>使用服务标记访问事件路由终结点 
+
+下面是通过 Azure 数字孪生使用服务标记访问 [事件路由](concepts-route-events.md) 终结点的步骤。
+
+1. 首先，下载此 JSON 文件引用，其中显示了 Azure IP 范围和服务标记： [*AZURE Ip 范围和服务标记*](https://www.microsoft.com/download/details.aspx?id=56519)。 
+
+2. 在 JSON 文件中查找 "AzureDigitalTwins" IP 范围。  
+
+3. 请参阅连接到终结点的外部资源的文档 (例如，[事件网格](../event-grid/overview.md)、[事件中心](../event-hubs/event-hubs-about.md)、[服务总线](../service-bus-messaging/service-bus-messaging-overview.md)或用于[死信事件](concepts-route-events.md#dead-letter-events)的[Azure 存储](../storage/blobs/storage-blobs-overview.md)) ，查看如何为该资源设置 IP 筛选器。
+
+4. 使用 *步骤 2* 中的 ip 范围) 对外部资源 (s 设置 ip 筛选器。  
+
+5. 根据需要定期更新 IP 范围。 范围可能会随时间而变化，因此最好定期检查并刷新它们。 这些更新的频率可能有所不同，但最好是每周检查一次。
 
 ## <a name="encryption-of-data-at-rest"></a>静态数据加密
 
@@ -95,7 +121,7 @@ Azure 数字孪生提供静态数据和传输中的数据加密，因为它是�
 
 ## <a name="cross-origin-resource-sharing-cors"></a>跨源资源共享 (CORS)
 
-Azure 数字孪生目前不支持 ** (CORS) 的跨域资源共享 **。 因此，如果从浏览器应用中调用 REST API， [API 管理 (APIM) ](../api-management/api-management-key-concepts.md) 接口或 [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) 连接器，则可能会出现策略错误。
+Azure 数字孪生目前不支持 **(CORS) 的跨域资源共享** 。 因此，如果从浏览器应用中调用 REST API， [API 管理 (APIM) ](../api-management/api-management-key-concepts.md) 接口或 [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) 连接器，则可能会出现策略错误。
 
 若要解决此错误，可以执行以下操作之一：
 * 从消息中去除 CORS 标头 `Access-Control-Allow-Origin` 。 此标头指示是否可以共享响应。 

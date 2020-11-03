@@ -4,17 +4,17 @@ description: 使用 Azure Data Studio 创建 Azure SQL 托管实例
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 651811384a8e831c41c48ca8c4849e5ee3852054
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320297"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280470"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>创建 SQL 托管实例-使用 Azure Data Studio 的 Azure Arc
 
@@ -88,7 +88,7 @@ Name          Replicas    ServerEndpoint     State
 sqlinstance1  1/1         25.51.65.109:1433  Ready
 ```
 
-- 在 Azure Data Studio 的 "**连接**" 选项卡下，单击 "**服务器**" 视图上的 "**新建" 连接**
+- 在 Azure Data Studio 的 " **连接** " 选项卡下，单击 " **服务器** " 视图上的 " **新建" 连接**
 - 在 " **连接** " 边栏选项卡中，将 ServerEndpoint 粘贴到 "服务器" 文本框中
 - 选择 " **SQL 登录名** " 作为 "身份验证类型"
 - 输入 *sa* 作为用户名

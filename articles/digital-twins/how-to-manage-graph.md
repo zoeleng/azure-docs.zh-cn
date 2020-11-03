@@ -7,22 +7,22 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 62deca7ed1c34bbefed7fb76224db6ec8ab12dae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 947a0c9a0af3c38d6c4d6f66da691d62530a69e7
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147124"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279504"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>使用关系管理数字孪生图
 
 Azure 数字孪生的核心是代表您的整个环境的克隆 [图](concepts-twins-graph.md) 。 "克隆" 图由通过 **关系** 连接的单个数字孪生组成。 
 
-一旦拥有工作 [Azure 数字孪生实例](how-to-set-up-instance-portal.md) ，并在客户端应用程序中设置了 [身份验证](how-to-authenticate-client.md) 代码，就可以使用 [**DigitalTwins api**](/rest/api/digital-twins/dataplane/twins) 来创建、修改和删除 Azure 数字孪生实例中的数字孪生和它们之间的关系。 你还可以使用 [.net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)或 [AZURE 数字孪生 CLI](how-to-use-cli.md)。
+一旦拥有工作 [Azure 数字孪生实例](how-to-set-up-instance-portal.md) ，并在客户端应用程序中设置了 [身份验证](how-to-authenticate-client.md) 代码，就可以使用 [**DigitalTwins api**](/rest/api/digital-twins/dataplane/twins) 来创建、修改和删除 Azure 数字孪生实例中的数字孪生和它们之间的关系。 你还可以使用 [.net (c # ) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)或 [AZURE 数字孪生 CLI](how-to-use-cli.md)。
 
 本文重点介绍如何作为一个整体来管理关系和图形;若要使用单独的数字孪生，请参阅 [*操作方法：管理数字孪生*](how-to-manage-twin.md)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
     
@@ -451,7 +451,7 @@ namespace minimal
 
 | 模型 ID| 克隆 ID (必须唯一)  | 关系名 | 目标克隆 ID | 克隆初始化数据 |
 | --- | --- | --- | --- | --- |
-| dtmi：示例：楼层; 1 | 楼层 1 |  包含 | Room1 |{"温度"：80，"湿度"： 60}
+| dtmi：示例：楼层; 1 | 楼层 1 |  contains | Room1 |{"温度"：80，"湿度"： 60}
 | dtmi：示例：楼层; 1 | 楼层 0 |  具有      | Room0 |{"温度"：70，"湿度"： 30}
 | dtmi：示例：房间; 1  | Room1 | 
 | dtmi：示例：房间; 1  | Room0 |
