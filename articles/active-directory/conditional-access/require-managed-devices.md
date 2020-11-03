@@ -62,32 +62,32 @@ ms.locfileid: "93077755"
 
 若要成为受管理设备，注册设备必须是 **加入混合 Azure AD 的设备** 或者是 **已标记为合规的设备** 。  
 
-:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Azure 中 &quot;设备&quot; 窗格的屏幕截图。将突出显示 &quot;启用&quot; 和 &quot;禁用&quot; 项。" border="false":::
+:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Azure A D Grant 窗格的屏幕截图。选中 &quot;授予访问权限&quot;，就像是设备兼容和混合 Azure A 连接的复选框。" border="false":::
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>要求使用加入混合 Azure AD 的设备
 
 在条件访问策略中，可以选择 " **需要混合 Azure AD 联接的设备** "，以表明仅可使用托管设备访问所选云应用。 
 
-:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Azure 中 &quot;设备&quot; 窗格的屏幕截图。将突出显示 &quot;启用&quot; 和 &quot;禁用&quot; 项。" border="false":::
+:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Azure A D Grant 窗格的屏幕截图。已选择授予访问权限。同时还会选择要求设备为混合 Azure 的复选框。" border="false":::
 
 此设置仅适用于已加入本地 AD 的 Windows 10 或低级别设备（例如 Windows 7 或 Windows 8）。 你只能使用混合 Azure AD 加入功能向 Azure AD 注册这些设备，这是一种注册 Windows 10 设备的[自动化过程](../devices/hybrid-azuread-join-plan.md)。 
 
-:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Azure 中 &quot;设备&quot; 窗格的屏幕截图。将突出显示 &quot;启用&quot; 和 &quot;禁用&quot; 项。" border="false":::
+:::image type="content" source="./media/require-managed-devices/45.png" alt-text="列出设备的名称、已启用状态、O S、版本、联接类型、所有者、M D M 和相容状态的表。兼容状态为 &quot;否&quot;。" border="false":::
 
 怎样使加入混合 Azure AD 的设备成为受管理设备？  对于加入到本地 AD 的设备，假定使用管理解决方案（如 **Configuration Manager** 或组策略）对这些设备进行控制，以管理它们 **(GP)** 进行管理。 由于 Azure AD 无法确定是否已向设备应用这些方法中的任何一种，因此，在要求使用受管理设备的情况下，要求使用加入混合 Azure AD 的设备是一种相对较弱的机制。 如果加入本地域的设备同时也是加入混合 Azure AD 的设备，则由管理员判断应用于此类设备的方法是否强大到足以使其成为受管理设备。
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>要求将设备标记为合规
 
-“要求将设备标记为合规”选项是一种用于请求受管理设备的最强大的形式  。
+“要求将设备标记为合规”选项是一种用于请求受管理设备的最强大的形式。
 
-:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Azure 中 &quot;设备&quot; 窗格的屏幕截图。将突出显示 &quot;启用&quot; 和 &quot;禁用&quot; 项。" border="false":::
+:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Azure A D Grant 窗格的屏幕截图。已选择授予访问权限。还会选择要求将设备标记为合规的复选框。" border="false":::
 
 此选项要求向 Azure AD 注册设备，此外还要求通过以下方式将该设备标记为合规：
          
 - Intune
 - 第三方移动设备管理 (MDM) 系统，该系统通过 Azure AD 集成管理 Windows 10 设备。 不支持除 Windows 10 以外的设备 OS 类型的第三方 MDM 系统。
  
-:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Azure 中 &quot;设备&quot; 窗格的屏幕截图。将突出显示 &quot;启用&quot; 和 &quot;禁用&quot; 项。" border="false":::
+:::image type="content" source="./media/require-managed-devices/46.png" alt-text="列出设备的名称、已启用状态、O S、版本、联接类型、所有者、M D M 和相容状态的表。兼容状态为突出显示状态。" border="false":::
 
 对于标记为合规的设备，你可以假设： 
 
