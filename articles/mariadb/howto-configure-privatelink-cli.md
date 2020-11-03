@@ -1,25 +1,25 @@
 ---
-title: 专用链接-Azure CLI-Azure Database for MariaDB
-description: 了解如何从 Azure CLI 配置 Azure Database for MariaDB 的专用链接
-author: kummanish
-ms.author: manishku
+title: 专用链接 - Azure CLI - Azure Database for MariaDB
+description: 了解如何使用 Azure CLI 为 Azure Database for MariaDB 配置专用链接
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537212"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242885"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>使用 CLI 创建和管理 Azure Database for MariaDB 的专用链接
+# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>使用 CLI 创建和管理用于 Azure Database for MariaDB 的专用链接
 
-专用终结点是 Azure 中专用链接的构建基块。 它使 Azure 资源（例如虚拟机 (VM)）能够以私密方式来与专用链接资源通信。 在本文中，你将了解如何使用 Azure CLI 在 Azure 虚拟网络中创建 VM，并使用 Azure 私有终结点在 Azure Database for MariaDB 服务器中创建 VM。
+专用终结点是 Azure 中专用链接的构建基块。 它使 Azure 资源（例如虚拟机 (VM)）能够以私密方式来与专用链接资源通信。 在本文中，你将学习如何使用 Azure CLI 在 Azure 虚拟网络和带有 Azure 专用终结点的 Azure Database for MariaDB 服务器中创建 VM。
 
 > [!NOTE]
-> 专用链接功能仅适用于常规用途或内存优化定价层中的 Azure Database for MariaDB 服务器。 请确保数据库服务器是这些定价层中的一种。
+> 专用链接功能仅适用于“常规用途”或“内存优化”定价层中的 Azure Database for MariaDB 服务器。 请确保数据库服务器位于其中一个定价层中。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>禁用子网专用终结点策略 
-Azure 会将资源部署到虚拟网络中的子网，因此，需要创建或更新子网，以禁用专用终结点 [网络策略](../private-link/disable-private-endpoint-network-policy.md)。 使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
+Azure 会将资源部署到虚拟网络中的子网，因此，你需要创建或更新子网，以禁用专用终结点[网络策略](../private-link/disable-private-endpoint-network-policy.md)。 使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -70,7 +70,7 @@ az vm create \
  记下 VM 的公共 IP 地址。 在下一步中，此地址将用于从 Internet 连接到 VM。
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>创建 Azure Database for MariaDB 服务器 
-使用 az MariaDB server create 命令创建 Azure Database for MariaDB。 请记住，MariaDB 服务器的名称必须在 Azure 中是唯一的，因此请将占位符中的占位符值替换为你自己的唯一值： 
+使用 az mariadb server create 命令创建 Azure Database for MariaDB。 请记住，你的 MariaDB 服务器名称必须在 Azure 中是唯一的，因此请将括号中的占位符值替换为你自己的唯一值： 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -85,10 +85,10 @@ az mariadb server create \
 
 > [!NOTE]
 > 在某些情况下，Azure Database for MariaDB 和 VNet 子网位于不同的订阅中。 在这些情况下，必须确保以下配置：
-> - 请确保这两个订阅都注册了 **DBforMariaDB** 资源提供程序。 有关详细信息，请参阅[资源管理器注册][resource-manager-portal]
+> - 确保两个订阅都注册了 Microsoft.DBforMariaDB 资源提供程序。 有关详细信息，请参阅[资源管理器注册][resource-manager-portal]
 
 ## <a name="create-the-private-endpoint"></a>创建专用终结点 
-在虚拟网络中创建 MariaDB 服务器的专用终结点： 
+为虚拟网络中的 MariaDB 服务器创建专用终结点： 
 
 ```azurecli-interactive
 az network private-endpoint create \  
@@ -103,7 +103,7 @@ az network private-endpoint create \
 
 
 ## <a name="configure-the-private-dns-zone"></a>配置专用 DNS 区域 
-为 MariDB server 域创建专用 DNS 区域，并使用虚拟网络创建关联链接。 
+为 MariDB 服务器域创建专用 DNS 区域，并创建一个与虚拟网络关联的链接。 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.mariadb.database.azure.com" 
@@ -127,7 +127,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 ```
 
 > [!NOTE] 
-> "Customer DNS" 设置中的 FQDN 不会解析为配置的专用 IP。 需要为配置的 FQDN 设置 DNS 区域[，如下所示。](../dns/dns-operations-recordsets-portal.md)
+> 客户 DNS 设置中的 FQDN 未解析为配置的专用 IP。 你必须为已配置的 FQDN 设置一个 DNS 区域，如[此处](../dns/dns-operations-recordsets-portal.md)所示。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
@@ -135,11 +135,11 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 1. 在门户的搜索栏中，输入 *myVm* 。
 
-1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开   。
+1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开 。
 
 1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp* ) 文件，并将其下载到计算机。
 
-1. 打开 downloaded.rdp  文件。
+1. 打开 downloaded.rdp 文件。
 
     1. 出现提示时，选择“连接”  。
 
@@ -148,13 +148,13 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定”。
+1. 选择“确定” 。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
 1. VM 桌面出现后，将其最小化以返回到本地桌面。  
 
-## <a name="access-the-mariadb-server-privately-from-the-vm"></a>从 VM 私下访问 MariaDB 服务器
+## <a name="access-the-mariadb-server-privately-from-the-vm"></a>以私密方式从 VM 访问 MariaDB 服务器
 
 1. 在  *myVM* 的远程桌面中打开 PowerShell。
 
@@ -169,21 +169,21 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
     Address:  10.1.3.4
     ```
 
-3. 使用任何可用的客户端测试 MariaDB 服务器的专用链接连接。 在下面的示例中，我使用了 [MySQL 工作台](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) 来执行该操作。
+3. 使用任何可用的客户端测试 MariaDB 服务器的专用链接连接。 在下面的示例中，我使用了 [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) 来执行该操作。
 
-4. 在 " **新建连接** " 中，输入或选择以下信息：
+4. 在“新建连接”中，输入或选择以下信息：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 连接名称| 选择所选的连接名称。|
     | 主机名 | 选择 *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | 用户名 | 输入在 *username@servername* MariaDB 服务器创建过程中提供的用户名。 |
-    | 密码 | 输入在创建 MariaDB 服务器期间提供的密码。 |
+    | 用户名 | 输入用户名 username@servername，该用户名是在创建 MariaDB 服务器期间提供的。 |
+    | 密码 | 输入创建 MariaDB 服务器期间提供的密码。 |
     ||
 
-5. 选择 " **测试连接** **" 或 "确定"** 。
+5. 选择“测试连接”或“确定” 。
 
-6.  (可以选择) 从左菜单浏览数据库，并从 MariaDB 数据库创建或查询信息
+6. （可选）从左侧菜单浏览数据库，并从 MariaDB 数据库创建或查询信息
 
 8. 关闭与 myVm 的远程桌面连接。
 

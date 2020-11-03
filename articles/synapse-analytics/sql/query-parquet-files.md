@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288301"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242426"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用 SQL 按需版本（预览版）查询 Parquet 文件
 
@@ -155,43 +155,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>类型映射
 
-Parquet 文件包含每一列的类型说明。 下表介绍了如何将 Parquet 类型映射到 SQL 本机类型。
-
-| Parquet 类型 | Parquet 逻辑类型（批注） | SQL 数据类型 |
-| --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY/BYTE_ARRAY | | varbinary |
-| DOUBLE | | FLOAT |
-| FLOAT | | real |
-| INT32 | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \*（UTF8 排序规则） |
-| BINARY |STRING |varchar \*（UTF8 排序规则） |
-| BINARY |ENUM|varchar \*（UTF8 排序规则） |
-| BINARY |UUID |uniqueidentifier |
-| BINARY |DECIMAL |Decimal |
-| BINARY |JSON |varchar(max) \*（UTF8 排序规则） |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |Decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max)，序列化为标准化格式 |
-| INT32 |INT(8, true) |smallint |
-| INT32 |INT(16, true) |smallint |
-| INT32 |INT(32, true) |int |
-| INT32 |INT(8, false) |tinyint |
-| INT32 |INT(16, false) |int |
-| INT32 |INT(32, false) |bigint |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |Decimal |
-| INT32 |TIME (MILLIS)|time |
-| INT64 |INT(64, true) |bigint |
-| INT64 |INT(64, false) |decimal(20,0) |
-| INT64 |DECIMAL |Decimal |
-| INT64 |TIME (MICROS/NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS/MICROS/NANOS) |datetime2 |
-|[复杂类型](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |列表 |varchar(max)，序列化为 JSON |
-|[复杂类型](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max)，序列化为 JSON |
+对于 Parquet，Parquet 类型映射到 SQL 本地类型的检查 [类型映射](develop-openrowset.md#type-mapping-for-parquet)。
 
 ## <a name="next-steps"></a>后续步骤
 

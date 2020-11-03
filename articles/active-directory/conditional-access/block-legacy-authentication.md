@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145537"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233791"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>如何：使用条件访问阻止向 Azure AD 进行旧身份验证   
 
@@ -60,7 +60,7 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 
 以下选项被视为旧身份验证协议
 
-- 经身份验证的 SMTP - 由 POP 和 IMAP 客户端用来发送电子邮件。
+- 经过身份验证的 SMTP-POP 和 IMAP 客户端使用它来发送电子邮件。
 - 自动发现 - 由 Outlook 和 EAS 客户端用来查找和连接 Exchange Online 中的邮箱。
 - Exchange ActiveSync (EAS) - 用于连接到 Exchange Online 中的邮箱。
 - Exchange Online PowerShell - 用于通过远程 PowerShell 连接到 Exchange Online。 如果阻止 Exchange Online PowerShell 的基本身份验证，则需使用 Exchange Online PowerShell 模块进行连接。 有关说明，请参阅[使用多重身份验证连接到 Exchange Online PowerShell](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)。
@@ -115,11 +115,11 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 
 策略生效可能需要长达 24 小时的时间。
 
-可为**其他客户端**条件选择所有可用的授权控件；但是，最终用户体验始终是相同的 - 阻止访问。
+可为 **其他客户端** 条件选择所有可用的授权控件；但是，最终用户体验始终是相同的 - 阻止访问。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [使用条件访问仅限报告模式确定影响](howto-conditional-access-insights-reporting.md)
 - 如果你还不熟悉配置条件访问策略，请参阅[通过 Azure Active Directory 条件访问要求特定应用进行多重身份验证 (MFA)](../authentication/tutorial-enable-azure-mfa.md) 的示例。
 - 有关新式身份验证支持的详细信息，请参阅[如何对 Office 2013 和 Office 2016 客户端应用使用新式身份验证](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
-- [如何使用 Microsoft 365 设置多功能设备或应用程序以发送电子邮件](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [如何设置多功能设备或应用程序以使用 Microsoft 365 发送电子邮件](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

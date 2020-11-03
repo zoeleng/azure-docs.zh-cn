@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro、openshift、az aro、red hat、cli
 ms.custom: mvc
-ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: febee51a20f57d71d633243145a1aa0c8fb9b437
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078572"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233672"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>创建 Azure Red Hat OpenShift 4 群集应用程序备份
 
@@ -23,9 +23,12 @@ ms.locfileid: "92078572"
 > * 安装必备组件并安装所需的工具
 > * 创建 Azure Red Hat OpenShift 4 应用程序备份
 
+> [!NOTE] 
+> Velero 不会备份 Azure Red Hat OpenShift etcd 键-值存储数据。 如果需要备份 etcd，请参阅 [备份 etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html)。
+
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.6.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 ### <a name="install-velero"></a>安装 Velero
 
@@ -140,7 +143,7 @@ oc get backups -n velero <name of backup> -o yaml
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了 Azure Red Hat OpenShift 4 群集应用程序的备份。 你已了解如何执行以下操作：
+本文介绍了 Azure Red Hat OpenShift 4 群集应用程序的备份。 你已了解如何：
 
 > [!div class="checklist"]
 > * 使用 Velero 创建 OpenShift v4 群集应用程序备份
