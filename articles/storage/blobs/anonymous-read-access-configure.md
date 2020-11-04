@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7ea0cbfb8ddfa2991e2a362bcb321418428cb16b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288129"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313985"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>配置容器和 blob 的匿名公共读取访问权限
 
@@ -51,7 +51,7 @@ Azure 存储为容器和 blob 支持可选的匿名公共读取访问。 默认�
 > [!IMPORTANT]
 > 禁用存储帐户的公共访问权限会替代该存储帐户中所有容器的公共访问设置。 如果不允许对存储帐户进行公共访问，以后对该帐户的任何匿名请求都将失败。 在更改此设置之前，请务必了解可能会以匿名方式访问存储帐户中数据的客户端应用程序的影响。 有关详细信息，请参阅 [阻止对容器和 blob 的匿名公共读取访问](anonymous-read-access-prevent.md)。
 
-若要允许或禁止访问存储帐户的公共访问权限，请配置该帐户的 **AllowBlobPublicAccess** 属性。 此属性可用于在 Azure 公有云中或 Azure 政府云中使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关详细信息，请参阅 [存储帐户概述](../common/storage-account-overview.md)。
+若要允许或禁止访问存储帐户的公共访问权限，请配置该帐户的 **AllowBlobPublicAccess** 属性。 此属性适用于使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关详细信息，请参阅 [存储帐户概述](../common/storage-account-overview.md)。
 
 默认情况下， **AllowBlobPublicAccess** 属性不会设置，并且不会返回值，除非你显式设置该值。 当属性值为 **null** 或 **true** 时，存储帐户允许公共访问。
 

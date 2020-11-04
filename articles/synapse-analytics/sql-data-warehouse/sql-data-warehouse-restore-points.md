@@ -1,6 +1,6 @@
 ---
 title: 用户定义的还原点
-description: 如何创建 SQL 池的还原点。
+description: 如何创建专用 SQL 池的还原点。
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d7266e0b84ae57682ddcfe7195be9574a702c74
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089201"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313240"
 ---
-# <a name="user-defined-restore-points"></a>用户定义的还原点
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的用户定义的还原点
 
-本文介绍了如何使用 PowerShell 和 Azure 门户为 Azure Synapse Analytics 中的 SQL 池新建用户定义的还原点。
+在本文中，你将学习如何使用 PowerShell 和 Azure 门户在 Azure Synapse Analytics 中为专用 SQL 池创建一个新的用户定义的还原点。
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>通过 PowerShell 创建用户定义的还原点
 
@@ -62,9 +62,9 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 1. 登录到 [Azure 门户](https://portal.azure.com/)帐户。
 
-2. 导航到要为其创建还原点的 SQL 池。
+2. 导航到要为其创建还原点的专用 SQL 池。
 
-3. 从左窗格中选择“概述”  ，选择“+ 新建还原点”  。 如果“新建还原点”按钮未启用，请确保 SQL 池未暂停。
+3. 从左窗格中选择“概述”  ，选择“+ 新建还原点”  。 如果 "新还原点" 按钮未启用，请确保专用 SQL 池未暂停。
 
     ![新建还原点](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,7 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 ## <a name="next-steps"></a>后续步骤
 
-- [还原现有的 SQL 池](sql-data-warehouse-restore-active-paused-dw.md)
-- [还原已删除的 SQL 池](sql-data-warehouse-restore-deleted-dw.md)
-- [从异地备份 SQL 池进行还原](sql-data-warehouse-restore-from-geo-backup.md)
+- [还原现有专用 SQL 池](sql-data-warehouse-restore-active-paused-dw.md)
+- [还原已删除的专用 SQL 池](sql-data-warehouse-restore-deleted-dw.md)
+- [从异地备份专用 SQL 池还原](sql-data-warehouse-restore-from-geo-backup.md)
 

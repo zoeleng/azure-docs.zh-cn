@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737985"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313535"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>在 Azure Synapse 分析中管理 Apache Spark 的库
 
-库提供你可能想要包括在程序或项目中的可重用代码。 若要使第三方或本地生成的代码可用于你的应用程序，你可以将库安装到你的一个 Spark 池 (预览) 。 为 Spark 池安装库后，将可用于使用同一池的所有会话。 
+库提供你可能想要包括在程序或项目中的可重用代码。 若要使第三方或本地生成的代码可用于你的应用程序，你可以 (预览版) ，将库安装到你的无服务器 Apache Spark 池之一。 为 Spark 池安装库后，将可用于使用同一池的所有会话。 
 
 ## <a name="default-installation"></a>默认安装
 Azure Synapse Analytics 中的 Apache Spark 包含完整的 Anacondas 安装和其他库。 可以在 [Apache Spark 版本支持](apache-spark-version-support.md)中找到 "完整库" 列表。 

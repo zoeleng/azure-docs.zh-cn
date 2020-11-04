@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130844"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315817"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>用 Azure 容器注册表管理公共内容
 
@@ -25,16 +25,14 @@ ms.locfileid: "93130844"
 
 ## <a name="authenticate-with-docker-hub"></a>通过 Docker 中心进行身份验证
 
-第一步，如果你当前要从 Docker 中心拉取公共映像作为生成或部署工作流的一部分，我们建议你使用 Docker 中心帐户进行身份验证，而不是发出匿名拉取请求。
+第一步，如果你当前要从 Docker 中心拉取公共映像作为生成或部署工作流的一部分，我们建议你 [使用 Docker 中心帐户进行身份验证](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) ，而不是发出匿名拉取请求。
 
 > [!NOTE]
-> 从2020年11月2日起生效，下载速率限制适用于来自 Docker 免费计划帐户的对 Docker 中心的匿名请求和经过身份验证的请求，并由 IP 地址强制执行。 
+> 从2020年11月2日起生效， [下载速率限制](https://docs.docker.com/docker-hub/download-rate-limit) 适用于来自 Docker 免费计划帐户的对 docker 中心的匿名请求和经过身份验证的请求，并通过 IP 地址和 Docker ID respecitively 来强制执行。 
 >
-> 估计拉取请求数量时，请考虑在使用云提供商服务或在企业 NAT 后面工作时，会将多个用户作为 IP 地址的子集提供给 Docker 中心。  向 Docker 中心发出的请求添加 Docker 付费帐户身份验证将避免由于速率限制阻止而导致的潜在服务中断。
+> 估计拉取请求数量时，请考虑在使用云提供商服务或在企业 NAT 后面工作时，会将多个用户作为 IP 地址的子集提供给 Docker 中心。 向 Docker 中心发出的请求添加 Docker 付费帐户身份验证将避免由于速率限制阻止而导致的潜在服务中断。
 >
 > 有关详细信息，请参阅 [docker 定价和订阅](https://www.docker.com/pricing) 以及 [docker 服务条款](https://www.docker.com/legal/docker-terms-service)。
-
-有关身份验证示例和方案，请参阅 [下载速率限制](https://docs.docker.com/docker-hub/download-rate-limit/)。
 
 ### <a name="docker-hub-access-token"></a>Docker 中心访问令牌
 
@@ -72,7 +70,7 @@ ms.locfileid: "93130844"
 
 `az acr import` 不需要本地 Docker 安装。 您可以使用 Azure CLI 的本地安装或直接在 Azure Cloud Shell 中运行它。 它支持任何 OS 类型、多体系结构图像或 OCI 项目（如 Helm 图）的图像。
 
-示例：
+例如：
 
 ```azurecli-interactive
 az acr import \

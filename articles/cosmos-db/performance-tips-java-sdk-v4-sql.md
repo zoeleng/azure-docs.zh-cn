@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: c65cd4012d29146061183ea13749a0f42c03b1eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091270"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314333"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 * **连接模式：使用直接模式**
 <a id="direct-connection"></a>
     
-    Java SDK 默认连接模式为直接。 你可以使用 *directMode ( # B1* 或 *GatewayMode ( # B3* 方法在客户端生成器中配置连接模式，如下所示。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。 否则，将配置设置类实例作为参数传递 ( *DirectConnectionConfig* for *DirectMode ( # B2* 、  *GatewayConnectionConfig* for *gatewayMode ( # B4* . ) 。 若要了解有关不同连接选项的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。
+    Java SDK 默认连接模式为直接。 你可以使用 *directMode ( # B1* 或 *GatewayMode ( # B3* 方法在客户端生成器中配置连接模式，如下所示。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。 否则，将配置设置类实例作为参数传递 ( *DirectConnectionConfig* for *DirectMode ( # B2* 、  *GatewayConnectionConfig* for *gatewayMode ( # B4*. ) 。 若要了解有关不同连接选项的详细信息，请参阅 [连接模式](sql-sdk-connection-modes.md) 一文。
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -151,7 +151,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     * ***直接模式的概述** _
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="直接模式体系结构插图" border="false":::
 
         在直接模式下采用的客户端体系结构使得网络利用率可预测，并实现对 Azure Cosmos DB 副本的多路访问。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在每个数据库副本的客户端分配多达 10 _ *通道* *。 一个通道是前面带有请求缓冲区（深度为 30 个请求）的 TCP 连接。 属于某个副本的通道由该副本的服务终结点按需动态分配。 当用户在直接模式下发出请求时，TransportClient 会根据分区键将请求路由到适当的服务终结点。 请求队列在服务终结点之前缓冲请求。
 
