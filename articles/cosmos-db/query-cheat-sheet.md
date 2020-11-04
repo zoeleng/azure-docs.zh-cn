@@ -3,15 +3,16 @@ title: Azure Cosmos DB PDF 查询速查表
 description: 可打印的 PDF 备忘单，借助该备忘录可使用 Azure Cosmos DB SQL、MongoDB、Graph 和表 API 来查询数据
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081750"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339642"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查询备忘单
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Azure Cosmos DB 查询备忘单通过在易于打印的 PDF 参考单中显示�
 ## <a name="oversized-cheat-sheets"></a>超大尺寸的备忘单
 如果想要使用绘图仪或大型打印机打印到 A3 尺寸的纸张上 (11.7" x 16.5")，请下载 [Azure Cosmos DB A3 尺寸的查询备忘单](https://go.microsoft.com/fwlink/?linkid=870413)。
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB 查询备忘单 - 信纸尺寸（包含 SQL API、JavaScript、MongoDB、Gremlin 和表 API 查询和函数）" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB 查询备忘单 - A3 尺寸（包含 SQL API、JavaScript、MongoDB、Gremlin 和表 API 查询和函数）" border="false":::
 
 ## <a name="next-steps"></a>后续步骤
 如需查询编写的相关帮助，请参阅以下文章：

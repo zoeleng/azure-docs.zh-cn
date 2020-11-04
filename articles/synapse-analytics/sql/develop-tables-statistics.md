@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf85b0ea658ae6459644dd710630a30f78ad99aa
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305011"
+ms.locfileid: "93339387"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL 中的统计信息
 
@@ -560,6 +560,9 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 ## <a name="statistics-in-serverless-sql-pool-preview"></a>无服务器 SQL 池中的统计信息 (预览版) 
 
 统计信息按特定数据集（存储路径）的特定列进行创建。
+
+> [!NOTE]
+> 无法为 LOB 列创建统计信息。
 
 ### <a name="why-use-statistics"></a>为何使用统计信息
 

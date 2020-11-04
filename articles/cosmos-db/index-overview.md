@@ -3,15 +3,16 @@ title: Azure Cosmos DB 中的索引
 description: 了解索引在 Azure Cosmos DB 中的工作原理，学习受支持的不同类型的索引，例如范围索引、空间索引和组合索引。
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: acb0396ece32c568a4d8c384bebcbabd7480eb09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101453"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339745"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的索引 - 概述
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -181,7 +182,7 @@ Azure Cosmos DB 目前支持三种类型的索引。
 
 例如，请看以下查询：`SELECT location FROM location IN company.locations WHERE location.country = 'France'`。 查询谓词（对项进行筛选，其中任何位置都采用“法国”作为其国家/地区）与下面用红色突出显示的路径相匹配：
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="上一项以树的形式表示" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="匹配树中的特定路径" border="false":::
 
 > [!NOTE]
 > 按单个属性排序的 `ORDER BY` 子句总是需要一个范围索引，如果它引用的路径没有范围索引，则会失败。 同样地，按多个属性排序的 `ORDER BY` 查询总是需要一个组合索引。

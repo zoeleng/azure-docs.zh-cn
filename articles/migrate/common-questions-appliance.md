@@ -3,12 +3,12 @@ title: Azure Migrate 设备常见问题
 description: 获取有关 Azure Migrate 设备的常见问题的解答。
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314782"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337585"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 设备：常见问题
 
@@ -42,12 +42,13 @@ Azure Migrate 设备是一个轻型设备，Azure Migrate 服务器评估工具�
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>设备如何连接到 Azure？
 
-设备可以通过 internet 或使用 Azure ExpressRoute 进行连接。 请确保这些 [url](./migrate-appliance.md#url-access) 已获得批准，使设备能够连接到 Azure。
+设备可以通过 internet 或使用 Azure ExpressRoute 进行连接。 
 
-- 若要将 Azure ExpressRoute 用于 Azure Migrate 复制流量，需要 Microsoft 对等互连或现有的公共对等互连， (对新的 ER 创建) 弃用了公共对等互连。
-- 不支持通过 Azure ExpressRoute 复制，只启用了) 专用对等互连 (。
+- 请确保设备可以连接到这些 [Azure url](./migrate-appliance.md#url-access)。 
+- 可以将 ExpressRoute 用于 Microsoft 对等互连。  已弃用公共对等互连，不适用于新的 ExpressRoute 线路。
+- 仅不支持专用对等互连。
 
-配置了 Microsoft 对等互连和 Microsoft 对等互连的 Azure ExpressRoute。
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>设备分析是否会影响性能？
 
@@ -65,9 +66,9 @@ Azure Migrate 设备会持续分析本地计算机上的性能数据。 此分�
 
 请参阅以下文章，了解 Azure Migrate 设备在 Vm 上收集的数据：
 
-- **VMWARE VM**： [查看](migrate-appliance.md#collected-data---vmware) 收集的数据。
-- **HYPER-V VM**： [查看](migrate-appliance.md#collected-data---hyper-v) 收集的数据。
-- **物理服务器或虚拟服务器**：[查看](migrate-appliance.md#collected-data---physical) 收集的数据。
+- **VMWARE VM** ： [查看](migrate-appliance.md#collected-data---vmware) 收集的数据。
+- **HYPER-V VM** ： [查看](migrate-appliance.md#collected-data---hyper-v) 收集的数据。
+- **物理服务器或虚拟服务器** ： [查看](migrate-appliance.md#collected-data---physical) 收集的数据。
 
 ## <a name="how-is-data-stored"></a>如何存储数据？
 

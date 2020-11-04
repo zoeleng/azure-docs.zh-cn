@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677802"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339527"
 ---
 # <a name="vm-certification-troubleshooting"></a>VM 认证故障排除
 
@@ -49,7 +49,7 @@ ms.locfileid: "92677802"
 1. 选择你的 Linux VM。
 1. 请参阅 " **诊断设置** "。
 1. 通过更新 **存储帐户** 启用基本矩阵。
-1. 选择“保存” 。
+1. 选择“保存”。
 
    ![启用来宾级监视](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "92677802"
 
 预配问题可能包括以下故障方案：
 
-|方案|错误|Reason|解决方案|
+|场景|错误|Reason|解决方案|
 |---|---|---|---|
 |1|虚拟硬盘 (VHD 无效) |如果 VHD 页脚中的指定 cookie 值不正确，则 VHD 将被视为无效。|重新创建映像并提交请求。|
 |2|无效的 blob 类型|VM 预配失败，因为使用的块是 blob 类型而不是页类型。|重新创建映像并提交请求。|
@@ -81,6 +81,45 @@ ms.locfileid: "92677802"
 > 有关 VM 通用化的详细信息，请参阅：
 > - [Linux 文档](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows 文档](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>VHD 规范
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Conectix cookie 和其他 VHD 规范
+"Conectix" 字符串是 VHD 规范的一部分，在下面的 VHD 页脚中定义为8字节 "cookie"，用于标识文件创建者。 Microsoft 创建的所有 vhd 文件都有此 cookie。 
+
+VHD 格式的 blob 应具有512字节的页脚;这是 VHD 页脚格式：
+
+|硬盘页脚字段|大小（字节）|
+|---|---|
+Cookie|8
+功能|4
+文件格式版本|4
+数据偏移量|8
+时间戳|4
+Creator 应用程序|4
+Creator 版本|4
+Creator 主机操作系统|4
+原始大小|8
+当前大小|8
+磁盘几何|4
+磁盘类型|4
+校验和|4
+唯一 ID|16
+已保存状态|1
+保留|427
+
+
+### <a name="vhd-specifications"></a>VHD 规范
+若要确保无缝发布体验，请确保 **VHD 满足以下条件：**
+* Cookie 必须包含字符串 "conectix"
+* 必须修复磁盘类型
+* VHD 的虚拟大小至少为20MB
+* VHD (对齐，即虚拟大小必须是 1 MB 的倍数) 
+* VHD blob 长度 = 虚拟大小 + VHD 脚注长度 (512) 
+
+可在此处下载 VHD 规范 [。](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## <a name="software-compliance-for-windows"></a>适用于 Windows 的软件符合性
 
@@ -102,7 +141,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 下表列出了工具包将运行的 Linux 测试用例。 说明中说明了测试验证。
 
-|方案|测试用例|说明|
+|场景|测试用例|描述|
 |---|---|---|
 |1|Bash 历史记录|在创建 VM 映像之前，应清除 Bash 历史记录文件。|
 |2|Linux 代理版本|应安装 Azure Linux 代理2.2.41 或更高版本。|
@@ -119,7 +158,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 下表列出了在执行前面的测试用例时发现的常见错误：
  
-|方案|测试用例|错误|解决方案|
+|场景|测试用例|错误|解决方案|
 |---|---|---|---|
 |1|Linux 代理版本测试用例|最低 Linux 代理版本为2.2.41 或更高版本。 此要求是必需的，因为2020年5月1日。|请更新 Linux 代理版本，该版本应为2.241 或更高版本。 有关详细信息，可以访问 [Linux 代理版本更新页](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。|
 |2|Bash 历史记录测试用例|如果提交图像的 bash 历史记录大小超过 1 kb (KB) ，将会出现错误。 大小限制为 1 KB，以确保不会在 bash 历史记录文件中捕获任何潜在的敏感信息。|若要解决此问题，请将 VHD 装载到任何其他工作 VM，并进行所需的任何更改 (例如，删除 *bash* history 文件) 将大小减小到小于或等于 1 KB。|
@@ -130,7 +169,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 下表列出了工具包将运行的 Windows 测试用例，以及测试验证的说明：
 
-|方案 |测试事例|说明|
+|场景 |测试事例|描述|
 |---|---|---|---|
 |1|OS 体系结构|Azure 仅支持64位操作系统。|
 |2|用户帐户依赖项|应用程序的执行不应依赖于管理员帐户。|
@@ -163,7 +202,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 
 有关操作系统磁盘大小的限制，请参阅以下规则。 提交任何请求时，验证 OS 磁盘大小是否在 Linux 或 Windows 的限制范围内。
 
-|OS|推荐的 VHD 大小|
+|(OS)|推荐的 VHD 大小|
 |---|---|
 |Linux|30 GB 到 1023 GB|
 |Windows|30 GB 到 250 GB|
@@ -197,7 +236,7 @@ Microsoft 认证工具包可帮助你运行测试用例，并验证你的 VHD �
 |Windows Server 2012|6.2.9200.22099|
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
-|Windows Server 2019|不可用|
+|Windows Server 2019|NA|
 |
 
 ## <a name="sack-vulnerability-patch-verification"></a>SACK 漏洞修补程序验证
@@ -283,7 +322,7 @@ Azure 上的所有 Vhd 必须将虚拟大小调整为 1 mb 的倍数 (MB) 。 �
     
 请参阅下表，了解当你使用共享访问签名 (SAS) URL 下载 VM 映像时出现的任何问题。
 
-|方案|错误|Reason|解决方案|
+|场景|错误|Reason|解决方案|
 |---|---|---|---|
 |1|找不到 Blob|VHD 可以从指定位置删除或移动。|| 
 |2|Blob 正在使用中|VHD 由其他内部进程使用。|使用 SAS URL 下载 VHD 时，VHD 应处于已使用状态。|
@@ -436,7 +475,7 @@ g) 你可以通过运行命令 "/dev/sdb" 和键入 p 来验证分区表，然�
 步骤 1。 部署 VM，并单击 Azure 门户上的 "运行命令" 选项。
 ![Azure 门户上运行命令](./media/create-vm/vm-certification-issues-solutions-3.png)
 
-步骤 2. 选择第一个选项 "RunShellScript"，并运行以下命令。
+步骤 2。 选择第一个选项 "RunShellScript"，并运行以下命令。
 
 命令： "cat/dev/null > ~/.bash_history && history-c" ![ Bash history 命令（在 Azure 门户上）](./media/create-vm/vm-certification-issues-solutions-4.png)
 

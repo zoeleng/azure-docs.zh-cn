@@ -3,16 +3,17 @@ title: 适用于 .NET SDK v2 的 Azure Cosmos DB 性能提示
 description: 了解用于提高 Azure Cosmos DB .NET v2 SDK 性能的客户端配置选项。
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: a1c986663c42b87e7e5d4530b26200d48fe612cb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314259"
+ms.locfileid: "93339676"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>适用于 Azure Cosmos DB 和 .NET SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

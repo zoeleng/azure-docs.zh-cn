@@ -3,15 +3,16 @@ title: 在 Azure Cosmos DB 中使用数组和对象
 description: 了解用于在 Azure Cosmos DB 中创建数组和对象的 SQL 语法。 本文还提供了一些对数组对象执行操作的示例
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 357653e89e2581dba7726e41f8a08304c619d2fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 80d158e209943d65b9934d5425ccce7d69422bc4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077182"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338350"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数组和对象
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

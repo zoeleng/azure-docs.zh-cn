@@ -1,5 +1,5 @@
 ---
-title: 将应用发布到 Azure AD 应用库
+title: 将应用发布到 Azure Active Directory 应用库
 description: 了解如何列出在 Azure Active Directory 应用库中支持单一登录的应用程序。
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275728"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339422"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>将应用发布到 Azure AD 应用库
 
@@ -60,11 +60,28 @@ ms.locfileid: "92275728"
 5. 提交你的应用。
 6. 加入 Microsoft 合作伙伴网络。
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>什么是 Azure AD 应用程序库？
+
+- 可以为客户提供尽可能最佳的单一登录体验。
+- 简化并最小化了应用程序的配置。
+- 在库中快速搜索应用程序。
+- 免费、基本和高级 Azure AD 客户都可以使用此集成。
+- 共同客户可以获得分步配置教程。
+- 使用系统进行跨域标识管理 ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) 的客户可以对同一应用使用预配。
 
 ## <a name="prerequisites"></a>先决条件
 
 你需要一个永久帐户来测试至少注册了两个用户。
 
+- 对于联合应用程序 (打开 ID 和 SAML/WS 进) ，应用程序必须支持软件即服务 (SaaS) 模型，才能在 Azure AD 应用程序库中列出。 企业库应用程序必须支持多个客户配置，而不是任何特定客户。
+- 对于 Open ID Connect，应用程序必须是 multitenanted 的，并且必须正确地为应用程序实现 [Azure AD 许可框架](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 。 用户可以将登录请求发送到公共终结点，以便任何客户都可以向应用程序提供许可。 你可以根据在令牌中收到的租户 ID 和用户 UPN 来控制用户访问。
+- 对于 SAML 2.0/WS 馈送，应用程序必须能够在 SP 或 IDP 模式下执行 SAML/WS-FEDERATION SSO 集成。 提交请求之前，请确保此功能正常工作。
+- 对于密码 SSO，请确保你的应用程序支持窗体身份验证，以便可以进行密码保险存储以使单一登录能够按预期方式工作。
+- 你需要一个永久帐户来测试至少注册了两个用户。
+
+**如何为开发人员获取 Azure AD？**
+
+你可以获取免费的测试帐户，其中包含所有高级 Azure AD 功能-90 天免费版，只要开发人员使用它，就可以扩展： https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>步骤 1-为应用选择正确的单一登录标准
 
@@ -159,9 +176,9 @@ Microsoft 不为 SAML 实现提供或建议库。 有许多开源库可用。
 
 拥有租户后，需要启用和测试单一登录访问。 
 
-**对于 OIDC 或 Oath 应用**程序，请将 [应用程序注册](quickstart-register-app.md) 为多租户应用程序。 在 "受支持的帐户类型" 中选择 "任何组织目录和个人 Microsoft 帐户中的帐户" 选项。
+**对于 OIDC 或 Oath 应用** 程序，请将 [应用程序注册](quickstart-register-app.md) 为多租户应用程序。 在 "受支持的帐户类型" 中选择 "任何组织目录和个人 Microsoft 帐户中的帐户" 选项。
 
-**对于基于 saml 和 ws-federation 的应用程序**，可以使用 Azure AD 中的通用 SAML 模板来 [配置基于 saml 的单一登录](../manage-apps/configure-saml-single-sign-on.md) 应用程序。
+**对于基于 saml 和 ws-federation 的应用程序** ，可以使用 Azure AD 中的通用 SAML 模板来 [配置基于 saml 的单一登录](../manage-apps/configure-saml-single-sign-on.md) 应用程序。
 
 如果需要，还可以 [将单租户应用程序转换为多租户应用程序](howto-convert-app-to-be-multi-tenant.md) 。
 
@@ -202,9 +219,9 @@ Microsoft 不为 SAML 实现提供或建议库。 有许多开源库可用。
 
 如果收到 "无法正常工作" 的消息，则需要联系 [AZURE AD SSO 集成团队](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。 提供要用于提交请求的电子邮件帐户。 诸如这样的业务电子邮件地址 `name@yourbusiness.com` 是首选的。 Azure AD 团队将在 Microsoft 应用程序网络门户中添加该帐户。
 
-如果你看到 "请求访问权限" 页，请填写业务理由，然后选择 " **请求访问权限**"。
+如果你看到 "请求访问权限" 页，请填写业务理由，然后选择 " **请求访问权限** "。
 
-添加帐户后，你可以登录到 Microsoft 应用程序网络门户，并通过在主页上选择 " **提交请求 (ISV) ** " 磁贴来提交请求。
+添加帐户后，你可以登录到 Microsoft 应用程序网络门户，并通过在主页上选择 " **提交请求 (ISV)** " 磁贴来提交请求。
 
 ![在主页上提交请求 (ISV) 磁贴](./media/howto-app-gallery-listing/homepage.png)
 
@@ -236,11 +253,11 @@ Microsoft 不为 SAML 实现提供或建议库。 有许多开源库可用。
 
 ![在库中列出 OpenID Connect 应用程序](./media/howto-app-gallery-listing/openid.png)
 
-如果要使用 **SAML 2.0** 或 **ws-addressing**将应用程序添加到库中，请选择 " **saml 2.0/ws-** 已显示"。
+如果要使用 **SAML 2.0** 或 **ws-addressing** 将应用程序添加到库中，请选择 " **saml 2.0/ws-** 已显示"。
 
 ![在库中列出 SAML 2.0 或 WS-Fed 应用程序](./media/howto-app-gallery-listing/saml.png)
 
-如果要使用密码 SSO 将应用程序添加到库中，请选择 " **密码 sso (用户名 & 密码") ** 如下所示。
+如果要使用密码 SSO 将应用程序添加到库中，请选择 " **密码 sso (用户名 & 密码")** 如下所示。
 
 ![在库中列出密码 SSO 应用程序](./media/howto-app-gallery-listing/passwordsso.png)
 
@@ -256,6 +273,16 @@ Microsoft 不为 SAML 实现提供或建议库。 有许多开源库可用。
 
 > [!NOTE]
 > 如果访问有任何问题，请参阅上一节 "创建帐户"。 如果这不起作用，请联系 [AZURE AD SSO 集成团队](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。
+
+### <a name="list-requests-by-customers"></a>列出客户的请求
+
+客户可以通过选择 **客户的应用请求**  >  **提交新请求** 来提交列出应用程序的请求。
+
+![显示客户请求的应用磁贴](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+下面是客户请求的应用程序的流程。
+
+![显示客户请求的应用流](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>时间线

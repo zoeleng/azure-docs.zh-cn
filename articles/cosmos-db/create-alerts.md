@@ -4,16 +4,15 @@ description: 了解如何使用 Azure Monitor 为 Azure Cosmos DB 设置警报�
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 1042638dc622e6675c997bc6db8df1d072824816
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099906"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339523"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>使用 Azure Monitor 为 Azure Cosmos DB 创建警报
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -70,7 +69,7 @@ ms.locfileid: "93099906"
 
    * 填充此窗体后，选择“完成”。 以下屏幕截图显示了警报逻辑的详细信息：
 
-     :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="配置针对速率限制/429 请求的警报接收逻辑&quot;:::
+     :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="配置针对速率限制/429 请求的警报接收逻辑":::
 
 1. 填充“操作组”部分：
 
@@ -82,21 +81,9 @@ ms.locfileid: "93099906"
 
    * 选择要在其中创建此操作组的订阅和资源组。  
 
-   * 提供操作的名称，并选择 &quot; **电子邮件/短信/推送/语音** &quot; 作为 " **操作类型** "。 以下屏幕截图显示了操作类型的详细信息：
+   * 提供操作的名称，并选择 " **电子邮件/短信/推送/语音** " 作为 " **操作类型** "。 以下屏幕截图显示了操作类型的详细信息：
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="配置针对速率限制/429 请求的警报接收逻辑&quot;:::
-
-1. 填充“操作组”部分：
-
-   * 在“创建规则”窗格中，选择一个现有的“操作组”或创建一个新的操作组。 操作组用于定义在发生警报条件时要执行的操作。 在此示例中，请创建一个新的操作组，用于在触发警报时接收电子邮件通知。 打开“添加操作组”窗格，填充以下详细信息：
-
-   * **操作组名称** - 操作组名称在资源组中必须独一无二。
-
-   * **短名称** - 操作组的短名称。此值包含在电子邮件和短信通知中，用于标识哪个操作组是通知来源。
-
-   * 选择要在其中创建此操作组的订阅和资源组。  
-
-   * 提供操作的名称，并选择 &quot; **电子邮件/短信/推送/语音** &quot; 作为 ":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="配置用于接收警报的操作类型（例如电子邮件通知）":::
 
 1. 填充“警报规则详细信息”部分：
 

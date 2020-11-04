@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 887e76fb1fa3dc630b12862c49689b3fa923b656
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7cc92c8bfb7dd9cb0328820009828ed0dd22e2a1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795118"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339455"
 ---
 # <a name="certificate-authorities-used-by-azure-active-directory"></a>Azure Active Directory 使用的证书颁发机构
 
@@ -31,7 +31,7 @@ ms.locfileid: "92795118"
 
 ## <a name="cas-used-in-azure-public-and-azure-us-government-clouds"></a>Azure 公共和 Azure 美国政府云中使用的 CAs
 
-不同的服务可以使用不同的根或中间 Ca。
+不同的服务可以使用不同的根或中间 Ca。 因此，可能需要下面列出的所有条目。
 
 ### <a name="digicert-global-root-g2"></a>DigiCert 全局根 G2
 
@@ -78,9 +78,8 @@ ms.locfileid: "92795118"
 | 颁发和中间 CA| 序列号| 颁发日期到期日期| SHA1 指纹| URI |
 | - | - | - | - | - |
 | DigiCert SHA2 安全服务器 CA| 01fda3eb6eca75c 888438b724bcfbc91| 3月8日2013，2023| 1fb86b1168ec743154062 e8c9cc5b171a4b7ccb4| [AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA.crt)<br>[连续](http://crl3.digicert.com/ssca-sha2-g6.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| DigiCert SHA2 安全服务器 CA |02742eaa17ca8e21 c717bb1ffcfd0ca0 |2020 年 9 月 22 日<br>2030年9月22日|626d44e704d1ceabe3bf 0d53397464ac8080142c|[AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA-2.crt)<br>[连续](http://crl3.digicert.com/DigiCertSHA2SecureServerCA.crl)<br>[OCSP](http://ocsp.digicert.com/)|
 
-
- 
 
 ## <a name="cas-used-in-azure-china-21vianet-cloud"></a>Azure 中国世纪互联云中使用的 CAs
 
