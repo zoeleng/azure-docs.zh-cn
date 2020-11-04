@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: c1dec2c8451ddd1feb4b5b0dac9c82e1716079b7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078061"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325840"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -87,7 +87,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
   * ***直接模式的概述** _
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="直接模式体系结构插图" border="false":::
   
   直接模式中采用的客户端体系结构支持可预测的网络利用率，并可对 Azure Cosmos DB 副本进行多路复用。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在每个数据库副本的客户端分配多达 10 _ *通道* *。 通道是前面带有请求缓冲区的 TCP 连接，其中30个请求深度为30个。 属于副本的通道根据副本的 **服务终结点** 的需要动态分配。 当用户在直接模式下发出请求时， **TransportClient** 会根据分区键将请求路由到相应的服务终结点。 请求队列在服务终结点之前缓冲请求。
 

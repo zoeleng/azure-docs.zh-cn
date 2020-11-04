@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145780"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325772"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>查询 Azure 数字孪生克隆图形
 
@@ -175,39 +175,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 `IS_OF_MODEL`运算符可用于基于克隆的 [**模型**](concepts-models.md)进行筛选。
 
-如果克隆满足以下条件之一，它会考虑 [继承](concepts-models.md#model-inheritance) 和 [版本排序](how-to-manage-model.md#update-models) 语义，对于给定的克隆，其计算结果为 **true** ：
+如果克隆满足以下任一条件，则它会考虑 [继承](concepts-models.md#model-inheritance) 和模型 [版本控制](how-to-manage-model.md#update-models)，并对给定的双子值求值结果为 **true** ：
 
 * 该整数直接实现了提供给的模型 `IS_OF_MODEL()` ，而克隆上的模型的版本号 *大于或等于* 提供的模型的版本号
 * "克隆" 实现了一个模型，该模型将提供给的模型进行 *扩展* `IS_OF_MODEL()` ，而克隆的扩展模型版本号 *大于或等于* 提供的模型的版本号
 
-此方法有几个重载选项。
+例如，如果您查询了模型的孪生 `dtmi:example:widget;4` ，则查询将返回基于 **小组件** 模型 **版本4或更高版本** 的所有孪生，还基于 **从小组件继承** 的任何模型的版本 **4 或更高** 版本孪生。
+
+`IS_OF_MODEL` 可以采用几个不同的参数，本部分的其余部分专用于其不同的重载选项。
 
 最简单的用法 `IS_OF_MODEL` 仅采用 `twinTypeName` 参数： `IS_OF_MODEL(twinTypeName)` 。
 下面是传递此参数中的值的查询示例：
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 若要在有多个 (时指定要搜索的非克隆集合（如 `JOIN`) 使用时一样），请添加 `twinCollection` 参数： `IS_OF_MODEL(twinCollection, twinTypeName)` 。
 下面是添加此参数值的查询示例：
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 若要执行完全匹配，请添加 `exact` 参数： `IS_OF_MODEL(twinTypeName, exact)` 。
 下面是添加此参数值的查询示例：
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 你还可以将所有这三个参数同时传递： `IS_OF_MODEL(twinCollection, twinTypeName, exact)` 。
 下面是一个用于为所有三个参数指定值的查询示例：
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### <a name="query-based-on-relationships"></a>基于关系的查询
@@ -277,7 +279,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 您可以使用组合运算符 **组合** 以上任意类型的查询，以便在单个查询中包含更多详细信息。 下面是一些其他查询多个类型为一次的克隆说明符的复合查询示例。
 
-| 描述 | 查询 |
+| 说明 | 查询 |
 | --- | --- |
 | 在 *房间 123* 具有的设备中，返回服务于操作员角色的 MxChip 设备 | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | 获取具有名为 *id1* 的关系 *的孪生* | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
@@ -301,7 +303,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 支持以下类型检查和强制转换函数：
 
-| 函数 | 描述 |
+| 函数 | 说明 |
 | -------- | ----------- |
 | IS_DEFINED | 返回一个布尔，它指示属性是否已经分配了值。 仅当该值为基元类型时才支持此功能。 基元类型包括字符串、布尔值、数字或 `null`。 不支持日期/时间、对象类型和数组。 |
 | IS_OF_MODEL | 返回一个布尔值，该值指示指定的上值是否与指定的模型类型匹配 |
@@ -314,7 +316,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 支持以下字符串函数：
 
-| 函数 | 描述 |
+| 函数 | 说明 |
 | -------- | ----------- |
 | STARTSWITH (x、y)  | 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式开头。 |
 | ENDSWITH (x、y)  | 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式结尾。 |
