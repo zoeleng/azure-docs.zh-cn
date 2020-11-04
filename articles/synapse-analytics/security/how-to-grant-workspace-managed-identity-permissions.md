@@ -8,27 +8,27 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487188"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312399"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>向工作区托管标识授予权限 (预览) 
 
-本文介绍如何向 Azure synapse 工作区中的托管标识授予权限。 权限进而允许访问工作区中的 SQL 池，并通过 Azure 门户 ADLS Gen2 存储帐户。
+本文介绍如何向 Azure synapse 工作区中的托管标识授予权限。 权限进而允许访问工作区中的专用 SQL 池，并通过 Azure 门户 ADLS Gen2 存储帐户。
 
 >[!NOTE]
 >在此文档的剩余部分中，我们将此工作区托管标识称为托管标识。
 
-## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>向 SQL 池授予托管标识权限
+## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>向专用 SQL 池授予托管标识权限
 
-托管标识授予对工作区中的 SQL 池的权限。 在授予权限的情况下，你可以安排执行与 SQL 池相关的活动的管道。 使用 Azure 门户创建 Azure Synapse 工作区时，可以授予对 SQL 池的托管标识控制权限。
+托管标识向工作区中的专用 SQL 池授予权限。 在授予权限的情况下，你可以安排执行与 SQL 池相关的专用活动的管道。 使用 Azure 门户创建 Azure Synapse 工作区时，可以授予对专用 SQL 池的托管标识控制权限。
 
-创建 Azure Synapse 工作区时，请选择 " **安全 + 网络** "。 然后 **，选择 "对 SQL 池中的工作区托管标识授予控制"**。
+创建 Azure Synapse 工作区时，请选择 " **安全** "。 然后选择 " **允许管道 (作为工作区的系统分配标识) 来访问 SQL 池。**
 
-![SQL 池上的 CONTROL 权限](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![对专用 SQL 池的 CONTROL 权限](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>向托管标识授予对 ADLS Gen2 存储帐户的权限
 
@@ -40,7 +40,7 @@ ms.locfileid: "92487188"
 
 ![工作区创建流中的 "基本信息" 选项卡](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
 
-在 " **帐户名称** " 和 " **文件系统名称**" 中选择 ADLS Gen2 存储帐户和文件系统。
+在 " **帐户名称** " 和 " **文件系统名称** " 中选择 ADLS Gen2 存储帐户和文件系统。
 
 ![提供 ADLS Gen2 存储帐户详细信息](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "92487188"
 
 #### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>步骤1：导航到 Azure 门户中的 ADLS Gen2 存储帐户
 
-在 Azure 门户中，打开 ADLS Gen2 存储帐户，并从左侧导航栏中选择 " **概述** "。 只需将 *存储 Blob 数据参与者* 角色分配到容器或文件系统级别。 选择“容器”****。  
+在 Azure 门户中，打开 ADLS Gen2 存储帐户，并从左侧导航栏中选择 " **概述** "。 只需将 *存储 Blob 数据参与者* 角色分配到容器或文件系统级别。 选择“容器”。  
 ![ADLS Gen2 存储帐户概述](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
 #### <a name="step-2-select-the-container"></a>步骤2：选择容器
@@ -80,7 +80,7 @@ ms.locfileid: "92487188"
 
 #### <a name="step-4-add-a-new-role-assignment"></a>步骤4：添加新的角色分配
 
-选择“+添加”。
+选择“+ 添加”。
 
 ![添加新的角色分配](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
@@ -92,25 +92,25 @@ ms.locfileid: "92487188"
 
 #### <a name="step-6-select-the-azure-ad-security-principal"></a>步骤6：选择 Azure AD 安全主体
 
-从 "**分配访问权限**" 下拉菜单中选择**Azure AD 用户、组或服务主体**。
+从 " **分配访问权限** " 下拉菜单中选择 **Azure AD 用户、组或服务主体** 。
 
 ![选择 AAD 安全主体](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
 
 #### <a name="step-7-search-for-the-managed-identity"></a>步骤7：搜索托管标识
 
-托管标识的名称也是工作区名称。 在 **Select**中输入 Azure Synapse 工作区名称，搜索托管标识。 应会看到列出的托管标识。
+托管标识的名称也是工作区名称。 在 **Select** 中输入 Azure Synapse 工作区名称，搜索托管标识。 应会看到列出的托管标识。
 
 ![查找托管标识](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
 
 #### <a name="step-8-select-the-managed-identity"></a>步骤8：选择托管标识
 
-选择 **所选成员**的托管标识。 选择 " **保存** " 以添加角色分配。
+选择 **所选成员** 的托管标识。 选择 " **保存** " 以添加角色分配。
 
 ![选择托管标识](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
 
 #### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>步骤9：验证是否已将存储 Blob 数据参与者角色分配给托管标识
 
-** (IAM) 选择 "访问控制**"，然后选择 "**角色分配**"。
+**(IAM) 选择 "访问控制** "，然后选择 " **角色分配** "。
 
 ![验证角色分配](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 

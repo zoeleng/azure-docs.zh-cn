@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826503"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310702"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>将 .NET for Apache Spark 与 Azure Synapse Analytics 配合使用
 
@@ -68,7 +68,7 @@ ms.locfileid: "91826503"
 
 创建新笔记本时，你需要选择用来表述业务逻辑的语言内核。 内核支持可用于多种语言，包括 c #。
 
-若要在 Azure Synapse Analytics 笔记本中使用 .NET for Apache Spark，请选择 **.NET Spark (C#)** 作为内核，并将笔记本附加到现有的 Spark 池。
+若要在 Azure Synapse Analytics 笔记本中使用 .NET 进行 Apache Spark，请选择 **.Net Spark (c # )** 作为内核，并将笔记本附加到现有的无服务器 Apache Spark 池。
 
 .NET Spark 笔记本基于 .NET 交互式体验并提供了交互式 C# 体验，能够直接将 .NET for Spark 与已预定义的 Spark 会话变量 `spark` 配合使用。
 

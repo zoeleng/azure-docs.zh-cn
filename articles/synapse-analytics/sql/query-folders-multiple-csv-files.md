@@ -1,6 +1,6 @@
 ---
-title: 使用 SQL 点播 (预览) 查询文件夹和多个文件
-description: SQL 点播 (预览版) 支持使用通配符读取多个文件/文件夹，这与 Windows 操作系统中使用的通配符类似。
+title: '使用无服务器 SQL 池的查询文件夹和多个文件 (预览) '
+description: 无服务器 SQL 池 (预览版) 支持使用通配符读取多个文件/文件夹，这类似于 Windows 操作系统中使用的通配符。
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,24 +9,24 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288335"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310830"
 ---
 # <a name="query-folders-and-multiple-files"></a>查询文件夹和多个文件  
 
-在本文中，你将了解如何在 Azure Synapse Analytics 中使用 SQL On-demand（预览版）编写查询。
+本文介绍如何在 Azure Synapse Analytics 中使用无服务器 SQL 池 (预览版) 编写查询。
 
-SQL 点播支持使用通配符读取多个文件/文件夹，这类似于 Windows 操作系统中使用的通配符。 但是，由于允许使用多个通配符，因此存在更大的灵活性。
+无服务器 SQL 池支持使用通配符读取多个文件/文件夹，这类似于 Windows 操作系统中使用的通配符。 但是，由于允许使用多个通配符，因此存在更大的灵活性。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 第一步是创建将在其中执行查询的数据库。 然后通过对该数据库执行[安装脚本](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)来初始化这些对象。 此安装脚本将创建数据源、数据库范围的凭据以及在这些示例中使用的外部文件格式。
 
-你将使用文件夹 *csv/出租车* 来执行示例查询。 它包含 NYC 出租车-从7月2016日到6月 6 2018 日，记录数据。 *Csv/出租车*中的文件采用以下模式按年份和月份命名 <year> ： yellow_tripdata_ - <month>
+你将使用文件夹 *csv/出租车* 来执行示例查询。 它包含 NYC 出租车-从7月2016日到6月 6 2018 日，记录数据。 *Csv/出租车* 中的文件采用以下模式按年份和月份命名 <year> ： yellow_tripdata_ - <month>
 
 ## <a name="read-all-files-in-folder"></a>读取文件夹中的所有文件
     
@@ -135,7 +135,7 @@ ORDER BY
 
 ### <a name="read-all-files-from-multiple-folders"></a>读取多个文件夹中的所有文件
 
-可以通过使用通配符从多个文件夹读取文件。 下面的查询将从 *csv* 文件夹中的所有文件夹（名称以 *t* 开头并以 *i*结尾）读取所有文件。
+可以通过使用通配符从多个文件夹读取文件。 下面的查询将从 *csv* 文件夹中的所有文件夹（名称以 *t* 开头并以 *i* 结尾）读取所有文件。
 
 > [!NOTE]
 > 请注意以下查询中路径的末尾是否存在/。 它表示文件夹。 如果省略/，则查询将改为针对名为 *t &ast; i* 的文件。
@@ -183,7 +183,7 @@ ORDER BY
 
 ## <a name="multiple-wildcards"></a>多个通配符
 
-可以在不同的路径级别使用多个通配符。 例如，你可以将以前的查询扩充为仅读取包含2017数据的文件，从所有文件夹中的名称以 *t* 开头，并以 *i*结尾。
+可以在不同的路径级别使用多个通配符。 例如，你可以将以前的查询扩充为仅读取包含2017数据的文件，从所有文件夹中的名称以 *t* 开头，并以 *i* 结尾。
 
 > [!NOTE]
 > 请注意以下查询中路径的末尾是否存在/。 它表示文件夹。 如果省略/，则查询将改为针对名为 *t &ast; i* 的文件。

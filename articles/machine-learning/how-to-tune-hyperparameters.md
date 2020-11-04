@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 16a1c966b3f5a674f0ae1dc9c7ee078f45f8bdc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65553edf61d8e646e7238a5385656fe75a3156f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598239"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311384"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>使用 Azure 机器学习优化模型的超参数
 
 
-使用 Azure 机器学习 [HyperDrive 包](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true)自动执行高效的超参数优化。 了解如何完成用 [AZURE 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)优化超参数所需的步骤：
+使用 Azure 机器学习 [HyperDrive 包](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py)自动执行高效的超参数优化。 了解如何完成用 [AZURE 机器学习 SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)优化超参数所需的步骤：
 
 1. 定义参数搜索空间
 1. 指定要优化的主要指标  
@@ -44,7 +44,7 @@ Azure 机器学习使你能够自动执行超参数优化，并并行运行试�
 
 通过浏览为每个超参数定义的值范围来优化超参数。
 
-超参数可以是离散的，也可以是连续的，并具有由 [参数表达式](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py&preserve-view=true)描述的值的分布。
+超参数可以是离散的，也可以是连续的，并具有由 [参数表达式](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py)描述的值的分布。
 
 ### <a name="discrete-hyperparameters"></a>离散超参数 
 
@@ -101,7 +101,7 @@ Azure 机器学习使你能够自动执行超参数优化，并并行运行试�
 
 #### <a name="random-sampling"></a>随机采样
 
-[随机采样](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py&preserve-view=true) 支持离散和连续的超参数。 它支持低性能运行的提前终止。 某些用户使用随机抽样执行初始搜索，然后优化搜索空间来改善结果。
+[随机采样](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?preserve-view=true&view=azure-ml-py) 支持离散和连续的超参数。 它支持低性能运行的提前终止。 某些用户使用随机抽样执行初始搜索，然后优化搜索空间来改善结果。
 
 在随机采样中，超参数值是从定义的搜索空间中随机选择的。 
 
@@ -118,7 +118,7 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>网格采样
 
-[网格采样](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py&preserve-view=true) 支持离散超参数。 如果可以通过预算对搜索空间进行详尽搜索，请使用网格采样。 支持低性能运行的提前终止。
+[网格采样](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) 支持离散超参数。 如果可以通过预算对搜索空间进行详尽搜索，请使用网格采样。 支持低性能运行的提前终止。
 
 对所有可能的值执行简单的网格搜索。 网格采样只能与超参数一起使用 `choice` 。 例如，下面的空间包含六个示例：
 
@@ -134,7 +134,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>贝叶斯采样
 
-[Bayesian 采样](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py&preserve-view=true) 基于 Bayesian 优化算法。 它根据前面的示例的执行方式来选取样本，以便新示例提高主要指标。
+[Bayesian 采样](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) 基于 Bayesian 优化算法。 它根据前面的示例的执行方式来选取样本，以便新示例提高主要指标。
 
 如果你有足够的预算来浏览超参数空间，则建议使用 Bayesian 采样。 为获得最佳结果，建议最大运行次数大于或等于正在优化的超参数数的20倍。 
 
@@ -156,7 +156,7 @@ param_sampling = BayesianParameterSampling( {
 
 ## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> 指定主要指标
 
-指定想要超参数优化优化的 [主要指标](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) 。 将根据此主要指标评估每个训练运行。 早期终止策略使用主要指标来识别低性能运行。
+指定想要超参数优化优化的 [主要指标](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?preserve-view=true&view=azure-ml-py) 。 将根据此主要指标评估每个训练运行。 早期终止策略使用主要指标来识别低性能运行。
 
 为主要指标指定以下属性：
 
@@ -204,7 +204,7 @@ Azure 机器学习支持以下早期终止策略：
 
 ### <a name="bandit-policy"></a>老虎机策略
 
-[Bandit 策略](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) 基于可宽延时间系数/时差和评估时间间隔。 Bandit 终止运行，其中主要指标不在指定的最大长度系数/时差（与最佳执行运行）之间。
+[Bandit 策略](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) 基于可宽延时间系数/时差和评估时间间隔。 Bandit 终止运行，其中主要指标不在指定的最大长度系数/时差（与最佳执行运行）之间。
 
 > [!NOTE]
 > Bayesian 采样不支持提前终止。 使用 Bayesian 采样时，请设置 `early_termination_policy = None` 。
@@ -227,7 +227,7 @@ early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=
 
 ### <a name="median-stopping-policy"></a>中间值停止策略
 
-[中值停止](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py&preserve-view=true)是基于运行报告的主要指标的运行平均值的提前终止策略。 此策略计算所有定型运行的运行平均值，并终止其主要指标值比平均值的中值差的运行。
+[中值停止](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py)是基于运行报告的主要指标的运行平均值的提前终止策略。 此策略计算所有定型运行的运行平均值，并终止其主要指标值比平均值的中值差的运行。
 
 此策略采用以下配置参数：
 * `evaluation_interval`：应用策略的频率（可选参数）。
@@ -243,7 +243,7 @@ early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_eva
 
 ### <a name="truncation-selection-policy"></a>截断选择策略
 
-[截断选择](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py&preserve-view=true) 将取消在每个评估时间间隔执行运行的最低百分比。 使用主要指标对运行进行比较。 
+[截断选择](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?preserve-view=true&view=azure-ml-py) 将取消在每个评估时间间隔执行运行的最低百分比。 使用主要指标对运行进行比较。 
 
 此策略采用以下配置参数：
 
@@ -298,7 +298,7 @@ max_concurrent_runs=4
 
 ## <a name="configure-experiment"></a>配置试验
 
-若要 [配置超参数优化](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) 试验，请提供以下内容：
+若要 [配置超参数优化](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) 试验，请提供以下内容：
 * 定义的超参数搜索空间
 * 早期终止策略
 * 主要指标
@@ -325,7 +325,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="submit-experiment"></a>提交试验
 
-定义超参数优化配置后，请 [提交试验](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-)：
+定义超参数优化配置后，请 [提交试验](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-)：
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -339,8 +339,8 @@ hyperdrive_run = experiment.submit(hd_config)
 
 
 热启动的处理方式不同，具体取决于采样方法：
-- **Bayesian 采样**：上一次运行的试验作为先前的知识，可选择新的示例，并改善主要指标。
-- **随机采样** 或 **网格采样**：提前终止使用以前的运行中的知识来确定执行性能不佳的情况。 
+- **Bayesian 采样** ：上一次运行的试验作为先前的知识，可选择新的示例，并改善主要指标。
+- **随机采样** 或 **网格采样** ：提前终止使用以前的运行中的知识来确定执行性能不佳的情况。 
 
 指定要从其开始热启动的父运行的列表。
 
@@ -382,7 +382,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-experiment"></a>将实验可视化
 
-使用 [笔记本小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true) 来可视化定型运行的进度。 以下代码片段可在 Jupyter 笔记本中的一个位置可视化所有的超参数优化运行：
+使用 [笔记本小组件](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) 来可视化定型运行的进度。 以下代码片段可在 Jupyter 笔记本中的一个位置可视化所有的超参数优化运行：
 
 ```Python
 from azureml.widgets import RunDetails

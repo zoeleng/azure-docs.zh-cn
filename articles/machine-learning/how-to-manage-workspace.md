@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 9abfbe03a4192411a3790bb6d6e488d674c13109
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897154"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312558"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>创建和管理 Azure 机器学习工作区 
 
-在本文中，你将使用 Azure 门户或 [适用于 Python 的 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)创建、查看和删除 [Azure 机器学习](overview-what-is-azure-ml.md) [**Azure 机器学习工作区**](concept-workspace.md)
+在本文中，你将使用 Azure 门户或 [适用于 Python 的 SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)创建、查看和删除 [Azure 机器学习](overview-what-is-azure-ml.md) [**Azure 机器学习工作区**](concept-workspace.md)
 
 随着你的需求更改或自动化的要求增加，你还可以 [使用 CLI](reference-azure-machine-learning-cli.md)或 [VS Code 扩展](tutorial-setup-vscode-extension.md)创建和删除工作区。
 
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
-* 如果使用 Python SDK，请 [安装 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。
+* 如果使用 Python SDK，请 [安装 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
 
 ## <a name="create-a-workspace"></a>创建工作区
 
@@ -105,7 +105,7 @@ ms.locfileid: "92897154"
                              exist_ok=False)
    ```
 
-有关详细信息，请参阅 [工作区 SDK 参考](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)。
+有关详细信息，请参阅 [工作区 SDK 参考](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)。
 
 如果在访问订阅时遇到问题，请参阅为 [Azure 机器学习资源和工作流设置身份验证](how-to-setup-authentication.md)，以及 Azure 机器学习笔记本 [中的身份验证](https://aka.ms/aml-notebook-auth) 。
 
@@ -113,37 +113,37 @@ ms.locfileid: "92897154"
 
 1. 使用 Azure 订阅的凭据登录到 [Azure 门户](https://portal.azure.com/)。 
 
-1. 在 Azure 门户的左上角，选择“+ 创建资源”  。
+1. 在 Azure 门户的左上角，选择“+ 创建资源”。
 
       ![创建新资源](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. 使用搜索栏查找“机器学习”  。
+1. 使用搜索栏查找“机器学习”。
 
-1. 选择“机器学习”  。
+1. 选择“机器学习”。
 
-1. 在“机器学习”窗格中，选择“创建”以开始   。
+1. 在“机器学习”窗格中，选择“创建”以开始 。
 
 1. 提供以下信息来配置新工作区：
 
    字段|说明 
    ---|---
-   工作区名称 |输入用于标识工作区的唯一名称。 本示例使用 docs-ws  。 名称在整个资源组中必须唯一。 使用易于记忆且区别于其他人所创建工作区的名称。 工作区名称不区分大小写。
+   工作区名称 |输入用于标识工作区的唯一名称。 本示例使用 docs-ws。 名称在整个资源组中必须唯一。 使用易于记忆且区别于其他人所创建工作区的名称。 工作区名称不区分大小写。
    订阅 |选择要使用的 Azure 订阅。
-   资源组 | 使用订阅中的现有资源组，或者输入一个名称以创建新的资源组。 资源组保存 Azure 解决方案的相关资源。 本示例使用 docs-aml  。 需要“参与者”或“所有者”角色才能使用现有资源组。  有关访问权限的详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
+   资源组 | 使用订阅中的现有资源组，或者输入一个名称以创建新的资源组。 资源组保存 Azure 解决方案的相关资源。 本示例使用 docs-aml。 需要“参与者”或“所有者”角色才能使用现有资源组。  有关访问权限的详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
    区域 | 选择离你的用户和数据资源最近的 Azure 区域来创建工作区。
 
     ![配置工作区](./media/how-to-manage-workspace/create-workspace-form.png)
 
-1. 完成工作区配置后，选择“查看 + 创建”  。 （可选）使用[网络](#networking)和[高级](#advanced)部分为工作区配置更多设置。
+1. 完成工作区配置后，选择“查看 + 创建”。 （可选）使用[网络](#networking)和[高级](#advanced)部分为工作区配置更多设置。
 
-1. 查看设置并进行任何其他更改或更正。 如果对设置感到满意，请选择“创建”  。
+1. 查看设置并进行任何其他更改或更正。 如果对设置感到满意，请选择“创建”。
 
    > [!Warning] 
    > 在云中创建工作区可能需要几分钟时间。
 
    完成创建后，会显示部署成功消息。 
  
- 1. 若要查看新工作区，请选择“转到资源”  。
+ 1. 若要查看新工作区，请选择“转到资源”。
  
 ---
 
@@ -155,19 +155,19 @@ ms.locfileid: "92897154"
 
 # <a name="python"></a>[Python](#tab/python)
 
-Azure 机器学习 Python SDK 提供了 [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py&preserve-view=true) 类，该类可用于 [工作区。创建 ( # B1 ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) 来创建具有专用终结点的工作区。 此类需要现有虚拟网络。
+Azure 机器学习 Python SDK 提供了 [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) 类，该类可用于 [工作区。创建 ( # B1 ](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) 来创建具有专用终结点的工作区。 此类需要现有虚拟网络。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 默认的网络配置是使用公用 __终结点，该终结点__ 可在公共 internet 上访问。 若要将对工作区的访问权限限制到已创建的 Azure 虚拟网络，可以改为选择 " __专用终结点__ " (预览 ") 作为 __连接方法__ ，然后使用" __+ 添加__ "配置终结点。   
 
-   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="专用终结点选择&quot;:::  
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="专用终结点选择":::  
 
-1. 在 &quot; __创建专用终结点__ &quot; 窗体上，设置要使用的位置、名称和虚拟网络。 如果要将终结点用于专用 DNS 区域，请选择 &quot; __与专用 DNS 区域集成__ &quot;，并使用 &quot; __专用 DNS 区域__ " 字段选择区域。 选择 __"确定"__ 以创建终结点。   
+1. 在 " __创建专用终结点__ " 窗体上，设置要使用的位置、名称和虚拟网络。 如果要将终结点用于专用 DNS 区域，请选择 " __与专用 DNS 区域集成__ "，并使用 " __专用 DNS 区域__ " 字段选择区域。 选择 __"确定"__ 以创建终结点。   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="专用终结点选择&quot;:::  
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="专用终结点创建":::   
 
-1. 在 &quot; __创建专用终结点__ &quot; 窗体上，设置要使用的位置、名称和虚拟网络。 如果要将终结点用于专用 DNS 区域，请选择 &quot; __与专用 DNS 区域集成__ &quot;，并使用 &quot; __专用 DNS 区域__ " __创建__ "，或转到可选的 __高级__ 配置。
+1. 完成网络配置后，可以选择 "查看" 和 " __创建__ "，或转到可选的 __高级__ 配置。
 
 ---
 
@@ -183,11 +183,11 @@ Azure 机器学习 Python SDK 提供了 [PrivateEndpointConfig](https://docs.mic
 2. 在 " __设置__ " 中，选择 " __虚拟网络链接__ "。
 3. 选择 __添加__ 。 从 " __添加虚拟网络" 链接__ 页，提供一个唯一的 __链接名称__ ，然后选择要添加的 __虚拟网络__ 。 选择 __"确定"__ 以添加网络链接。
 
-有关详细信息，请参阅 [Azure 专用终结点 DNS 配置](/azure/private-link/private-endpoint-dns)。
+有关详细信息，请参阅 [Azure 专用终结点 DNS 配置](../private-link/private-endpoint-dns.md)。
 
 ### <a name="vulnerability-scanning"></a>漏洞扫描
 
-Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 你应该允许 Azure 安全中心扫描你的资源并遵循其建议。 有关详细信息，请参阅安全中心和[Azure Kubernetes Services 与安全中心集成](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)的[azure 容器注册表映像扫描](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)。
+Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 你应该允许 Azure 安全中心扫描你的资源并遵循其建议。 有关详细信息，请参阅安全中心和[Azure Kubernetes Services 与安全中心集成](../security-center/defender-for-kubernetes-introduction.md)的[azure 容器注册表映像扫描](../security-center/defender-for-container-registries-introduction.md)。
 
 ### <a name="advanced"></a>高级
 
@@ -210,7 +210,7 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 > 在执行以下步骤之前，必须先执行以下操作：   
 >
 > 1. 在标识和访问管理) 中为订阅的 "参与者" 权限授权 __机器学习应用__ (。  
-> 1. 按照 [将客户托管的密钥配置](/azure/cosmos-db/how-to-setup-cmk) 为：
+> 1. 按照 [将客户托管的密钥配置](../cosmos-db/how-to-setup-cmk.md) 为：
 >     * 注册 Azure Cosmos DB 提供程序
 >     * 创建和配置 Azure Key Vault
 >     * 生成密钥
@@ -240,13 +240,11 @@ from azureml.core import Workspace
 
 1. 选择 " __客户管理的密钥__ "，然后选择 __"单击以选择密钥__ "。
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="专用终结点选择&quot;:::  
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="客户管理的密钥":::
 
-1. 在 &quot; __创建专用终结点__ &quot; 窗体上，设置要使用的位置、名称和虚拟网络。 如果要将终结点用于专用 DNS 区域，请选择 &quot; __与专用 DNS 区域集成__ &quot;，并使用 &quot; __专用 DNS 区域__ " 按钮使用此密钥。
+1. 在 Azure Key Vault 窗体的 " __选择项__ " 窗体中，选择现有 Azure Key Vault、它包含的密钥以及密钥版本。 此密钥用于加密 Azure Cosmos DB 中存储的数据。 最后，使用 " __选择__ " 按钮使用此密钥。
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="专用终结点选择&quot;:::  
-
-1. 在 &quot; __创建专用终结点__ &quot; 窗体上，设置要使用的位置、名称和虚拟网络。 如果要将终结点用于专用 DNS 区域，请选择 &quot; __与专用 DNS 区域集成__ &quot;，并使用 &quot; __专用 DNS 区域__ ":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="选择密钥":::
 
 ---
 
@@ -264,7 +262,7 @@ ws.write_config()
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-如果计划使用引用此工作区的本地环境中的代码，请  从工作区的“概述”  部分中选择“下载 config.json”。  
+如果计划使用引用此工作区的本地环境中的代码，请从工作区的“概述”部分中选择“下载 config.json”。  
 
    ![下载 config.json](./media/how-to-manage-workspace/configure.png)
 
@@ -322,9 +320,9 @@ Workspace.list('<subscription-id>')
 
 1. 登录到 [Azure 门户](https://portal.azure.com/)。
 
-1. 在顶部搜索字段中，键入“机器学习”。   
+1. 在顶部搜索字段中，键入“机器学习”。  
 
-1. 选择“机器学习”  。
+1. 选择“机器学习”。
 
    ![搜索 Azure 机器学习工作区](./media/how-to-manage-workspace/find-workspaces.png)
 
@@ -351,11 +349,9 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-在  。
+在 [Azure 门户](https://portal.azure.com/)中，选择要删除的工作区顶部的“删除”。
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="专用终结点选择&quot;:::  
-
-1. 在 &quot; __创建专用终结点__ &quot; 窗体上，设置要使用的位置、名称和虚拟网络。 如果要将终结点用于专用 DNS 区域，请选择 &quot; __与专用 DNS 区域集成__ &quot;，并使用 &quot; __专用 DNS 区域__ ":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="删除工作区":::
 
 ---
 

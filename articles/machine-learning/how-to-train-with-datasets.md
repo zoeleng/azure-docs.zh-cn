@@ -12,19 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: aa1ba4aa07ee4cdc097bd4ed3e6e4d7563360a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70fd8796eb4d17662697410bf97caee835e998ab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331788"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311332"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>使用 Azure 机器学习中的数据集进行训练
 
 
-本文介绍如何在训练实验中使用 [Azure 机器学习数据集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true)。  可以在本地或远程计算目标中使用数据集，而不必考虑连接字符串或数据路径。
+本文介绍如何在训练实验中使用 [Azure 机器学习数据集](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py)。  可以在本地或远程计算目标中使用数据集，而不必考虑连接字符串或数据路径。
 
-Azure 机器学习数据集提供与 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)、 [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) 和 [Azure 机器学习管道](how-to-create-your-first-pipeline.md)等 Azure 机器学习定型功能的无缝集成。
+Azure 机器学习数据集提供与 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)、 [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 和 [Azure 机器学习管道](how-to-create-your-first-pipeline.md)等 Azure 机器学习定型功能的无缝集成。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -34,16 +34,16 @@ Azure 机器学习数据集提供与 [ScriptRunConfig](https://docs.microsoft.co
 
 * [Azure 机器学习工作区](how-to-manage-workspace.md)。
 
-* [安装的 Python AZURE 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) ( # B0 = 1.13.0) ，其中包含 azureml 数据集包。
+* [安装的 Python AZURE 机器学习 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) ( # B0 = 1.13.0) ，其中包含 azureml 数据集包。
 
 > [!Note]
-> 某些数据集类依赖于 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) 包。 对于 Linux 用户，只有以下分发版支持这些类：Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
+> 某些数据集类依赖于 [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) 包。 对于 Linux 用户，只有以下分发版支持这些类：Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
 
 ## <a name="use-datasets-directly-in-training-scripts"></a>直接在训练脚本中使用数据集
 
 如果有尚未注册为数据集的结构化数据，请创建一个 TabularDataset，并在训练脚本中直接使用它进行本地或远程实验。
 
-在此示例中，将创建一个未注册的 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) ，并将其指定为 ScriptRunConfig 对象中用于定型的脚本参数。 如果要在工作区中的其他实验中重用此 TabularDataset，请参见[如何将数据集注册到工作区](how-to-create-register-datasets.md#register-datasets)。
+在此示例中，将创建一个未注册的 [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) ，并将其指定为 ScriptRunConfig 对象中用于定型的脚本参数。 如果要在工作区中的其他实验中重用此 TabularDataset，请参见[如何将数据集注册到工作区](how-to-create-register-datasets.md#register-datasets)。
 
 ### <a name="create-a-tabulardataset"></a>创建 TabularDataset
 
@@ -60,7 +60,7 @@ TabularDataset 对象提供将 TabularDataset 中的数据加载到 pandas 或 S
 
 ### <a name="access-dataset-in-training-script"></a>训练脚本中的访问数据集
 
-以下代码配置一个脚本参数 `--input-data` ，该参数将在配置训练运行时指定 (请参阅下一部分) 。 如果以参数值的形式传递表格数据集，则 Azure ML 会将其解析为数据集的 ID，然后，可以使用该数据集访问定型脚本中的数据集， (而无需在脚本) 中对数据集的名称或 ID 进行硬编码。 然后，它使用 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 方法将该数据集加载到 pandas 数据帧中，以便在定型之前进行进一步的数据浏览和准备。
+以下代码配置一个脚本参数 `--input-data` ，该参数将在配置训练运行时指定 (请参阅下一部分) 。 如果以参数值的形式传递表格数据集，则 Azure ML 会将其解析为数据集的 ID，然后，可以使用该数据集访问定型脚本中的数据集， (而无需在脚本) 中对数据集的名称或 ID 进行硬编码。 然后，它使用 [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 方法将该数据集加载到 pandas 数据帧中，以便在定型之前进行进一步的数据浏览和准备。
 
 > [!Note]
 > 如果原始数据源包含 NaN、空字符串或空白值，则在使用时， `to_pandas_dataframe()` 这些值将替换为 *Null* 值。
@@ -88,12 +88,12 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>配置训练运行
-[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true)对象用于配置和提交定型运行。
+[ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py)对象用于配置和提交定型运行。
 
 此代码创建一个 ScriptRunConfig 对象， `src` 该对象指定
 
 * 脚本的脚本目录。 此目录中的所有文件都上传到群集节点以便执行。
-* 训练脚本 *train_titanic.py*。
+* 训练脚本 *train_titanic.py* 。
 * 用于定型的输入数据集， `titanic_ds` 作为脚本参数。 将此数据传递到脚本时，Azure ML 会将其解析为相应的数据集 ID。
 * 运行的计算目标。
 * 运行的环境。
@@ -115,7 +115,7 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>将文件装载到远程计算目标
 
-如果你有非结构化数据，请创建一个 [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true)，然后装载或下载数据文件，使它们可在训练中用于远程计算目标。 了解何时使用[装载与下载](#mount-vs-download)进行远程训练实验。 
+如果你有非结构化数据，请创建一个 [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py)，然后装载或下载数据文件，使它们可在训练中用于远程计算目标。 了解何时使用[装载与下载](#mount-vs-download)进行远程训练实验。 
 
 下面的示例创建 FileDataset，并将数据集作为参数传递到定型脚本，从而将该数据集装载到计算目标。 
 
@@ -222,7 +222,7 @@ print (mounted_path)
 
 ## <a name="directly-access-datasets-in-your-script"></a>直接访问脚本中的数据集
 
-可以在本地以及在 Azure 机器学习计算等计算群集上远程访问已注册的数据集。 若要跨试验访问已注册的数据集，请使用以下代码按名称访问工作区和已注册的数据集。 默认情况下，`Dataset` 类中的 [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) 方法返回已注册到工作区的数据集的最新版本。
+可以在本地以及在 Azure 机器学习计算等计算群集上远程访问已注册的数据集。 若要跨试验访问已注册的数据集，请使用以下代码按名称访问工作区和已注册的数据集。 默认情况下，`Dataset` 类中的 [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 方法返回已注册到工作区的数据集的最新版本。
 
 ```Python
 %%writefile $script_folder/train.py

@@ -11,29 +11,29 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097951"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311560"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>如何将工作区用于自定义 DNS 服务器
 
-将 Azure 机器学习与虚拟网络一起使用时， [可以通过多种方式来处理 DNS 名称解析](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)。 默认情况下，Azure 会自动处理工作区和专用终结点的名称解析。 但是， __在使用你自己的自定义 DNS 服务器时__ ，你必须为工作区手动创建 DNS 条目。
+将 Azure 机器学习与虚拟网络一起使用时， [可以通过多种方式来处理 DNS 名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。 默认情况下，Azure 会自动处理工作区和专用终结点的名称解析。 但是， __在使用你自己的自定义 DNS 服务器时__ ，你必须为工作区手动创建 DNS 条目。
 
 > [!IMPORTANT]
 > 本文仅介绍如何查找 (FQDN) 和 IP 地址的完全限定域名，而不提供有关为这些项配置 DNS 记录的信息。 有关如何添加记录的信息，请参阅 DNS 软件的文档。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 使用 [自己的 DNS 服务器](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)的 Azure 虚拟网络。
+- 使用 [自己的 DNS 服务器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)的 Azure 虚拟网络。
 
 - 具有专用终结点的 Azure 机器学习工作区。 有关详细信息，请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 
-- 熟悉 [在定型 & 推理期间使用网络隔离](how-to-enable-virtual-network.md)。
+- 熟悉 [在定型 & 推理期间使用网络隔离](./how-to-network-security-overview.md)。
 
-- （可选） [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+- （可选） [Azure CLI](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/install-az-ps)。
 
 ## <a name="find-the-ip-addresses"></a>查找 IP 地址
 

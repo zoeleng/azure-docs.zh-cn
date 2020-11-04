@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362242"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311271"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>使用 Azure 机器学习创建、查看和部署自动化机器学习模型
 
@@ -80,7 +80,7 @@ ms.locfileid: "91362242"
         列标题| 指示如何处理数据集的标头（如果有）。
         跳过行 | 指示要跳过数据集中的多少行（如果有）。
     
-        选择“**下一页**”。
+        选择“ **下一页** ”。
 
     1. “架构”窗体是基于“设置和预览”窗体中所做的选择智能填充的。  在此处，请配置每个列的数据类型，检查列名称，并选择“不包含”哪些列进行试验。 
             
@@ -88,7 +88,7 @@ ms.locfileid: "91362242"
 
     1. “确认详细信息”窗体上总结了先前在“基本信息”和“设置和预览”窗体中填充的信息  。 你还可以使用已启用分析的计算来为数据集创建数据配置文件。 详细了解[数据分析](how-to-connect-data-ui.md#profile)。
 
-        选择“**下一页**”。
+        选择“ **下一页** ”。
 1. 新建的数据集出现后，请将其选中。 还可以查看数据集和样本统计信息的预览。 
 
 1. 在“配置运行”窗体中，输入唯一的试验名称。
@@ -113,11 +113,11 @@ ms.locfileid: "91362242"
     >[!NOTE]
     > 计算名称将会指示选择/创建的计算是否已启用分析。 （有关更多详细信息，请参阅[数据分析](how-to-connect-data-ui.md#profile)部分）。
 
-    选择“**下一页**”。
+    选择“ **下一页** ”。
 
 1. 在“任务类型和设置”窗体中选择任务类型：分类、回归或预测。 有关详细信息，请参阅[支持的任务类型](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)。
 
-    1. 如需**分类**，还可以启用深度学习。
+    1. 如需 **分类** ，还可以启用深度学习。
     
         如果启用了深度学习，则只能使用“训练/验证数据拆分”进行验证。 [详细了解验证选项](how-to-configure-cross-validation-data-splits.md)。
 
@@ -136,10 +136,10 @@ ms.locfileid: "91362242"
     ------|------
     主要指标| 用于对模型进行评分的主要指标。 [详细了解模型指标](how-to-configure-auto-train.md#primary-metric)。
     解释最佳模型 | 选择启用或禁用，以确定是否显示建议的最佳模型的说明。 <br> 此功能当前不可用于[特定的预测算法](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)。 
-    阻止的算法| 选择要从训练作业中排除的算法。 <br><br> 允许算法只适用于 [SDK 试验](how-to-configure-auto-train.md#supported-models)。 <br> 请参阅[每种任务类型支持的模型](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true)。
-    退出条件| 如果满足其中的任一条件，则会停止训练作业。 <br> *训练作业时间(小时)* ：允许训练作业运行多长时间。 <br> *指标评分阈值*：所有管道的最低指标评分。 这可以确保在你具有一个要实现的已定义目标指标时，无需花费不必要的时间来完成训练作业。
+    阻止的算法| 选择要从训练作业中排除的算法。 <br><br> 允许算法只适用于 [SDK 试验](how-to-configure-auto-train.md#supported-models)。 <br> 请参阅[每种任务类型支持的模型](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py)。
+    退出条件| 如果满足其中的任一条件，则会停止训练作业。 <br> *训练作业时间(小时)* ：允许训练作业运行多长时间。 <br> *指标评分阈值* ：所有管道的最低指标评分。 这可以确保在你具有一个要实现的已定义目标指标时，无需花费不必要的时间来完成训练作业。
     验证| 选择要在训练作业中使用的交叉验证选项之一。 <br> [详细了解交叉验证](how-to-configure-cross-validation-data-splits.md#prerequisites)。<br> <br>预测只支持 k-折交叉验证。
-    并发| *最大并发迭代数*：要在训练作业中测试的最大管道（迭代）数。 作业运行的迭代数不会超过指定的数目。
+    并发| *最大并发迭代数* ：要在训练作业中测试的最大管道（迭代）数。 作业运行的迭代数不会超过指定的数目。
 
 1. （可选）查看特征化设置：如果选择在“其他配置设置”窗体中启用“自动特征化”，则会应用默认的特征化技术 。 在“查看特征化设置”中，可以更改这些默认设置并相应地进行自定义。 了解如何[自定义特征化](#customize-featurization)。 
 
@@ -161,13 +161,13 @@ ms.locfileid: "91362242"
 
 ## <a name="run-experiment-and-view-results"></a>运行试验并查看结果
 
-选择“完成”来运行试验。 试验准备过程最长可能需要 10 分钟。 训练作业可能需要额外的 2-3 分钟，使每个管道完成运行。
+选择“完成”来运行试验。 试验准备过程可能需要长达 10 分钟的时间。 训练作业可能需要额外的 2 - 3 分钟才能完成每个管道的运行。
 
 ### <a name="view-experiment-details"></a>查看试验详细信息
 
 “运行详细信息”屏幕中会打开“详细信息”选项卡。 此屏幕显示试验运行的摘要，在顶部的运行编号旁会显示状态栏。 
 
-“模型”选项卡包含按指标评分排序的已创建模型列表。 默认情况下，列表中首先显示评分最高的模型（评分根据所选指标给出）。 在训练作业尝试了更多的模型后，这些模型将添加到列表中。 使用此功能可以快速比较到目前为止生成的模型的指标。
+“模型”选项卡包含按指标评分排序的已创建模型列表。 默认情况下，列表中首先显示评分最高的模型（评分根据所选指标给出）。 随着训练作业尝试更多模型，它们会添加到列表中。 使用此项可以快速比较目前为止生成的模型的指标。
 
 [![运行详细信息仪表板](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
 
@@ -217,6 +217,6 @@ ms.locfileid: "91362242"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解如何使用 Web 服务](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)。
+* [了解如何使用 Web 服务](./how-to-consume-web-service.md)。
 * [了解自动化机器学习结果](how-to-understand-automated-ml.md)。
 * [详细了解自动化机器学习](concept-automated-ml.md)和 Azure 机器学习。

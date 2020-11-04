@@ -1,6 +1,6 @@
 ---
 title: '使用 Azure Synapse 中的无服务器 SQL 池查询 Azure Cosmos DB 数据 (预览版) '
-description: 本文介绍如何使用 Azure Synapse 中的 SQL 点播 (preview) 查询 Azure Cosmos DB。
+description: 本文介绍如何使用 Azure Synapse 中的无服务器 SQL 池 (预览版) 查询 Azure Cosmos DB。
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737839"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310314"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>在 Azure Synapse 链接 (预览版中利用无服务器 SQL 池查询 Azure Cosmos DB 数据) 
 
 Synapse 无服务器 SQL 池允许分析以近乎实时的方式启用了 [Azure Synapse 链接](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 的 Azure Cosmos DB 容器中的数据，而不会影响事务工作负荷的性能。 它提供了一种熟悉的 T-sql 语法，用于查询 [分析存储](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 中的数据，并通过 t-sql 接口集成到各种 BI 和即席查询工具。
 
-对于查询 Azure Cosmos DB，可通过[OPENROWSET](develop-openrowset.md)函数（包括大多数[SQL 函数和运算符](overview-features.md)）支持完整的[SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area。 还可以存储从 Azure Cosmos DB 读取数据的查询的结果，以及 Azure Blob 存储中的数据，或使用 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)Azure Data Lake Storage。 当前无法使用 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)将无服务器 SQL 池查询结果存储到 Azure Cosmos DB。
+对于查询 Azure Cosmos DB，可通过[OPENROWSET](develop-openrowset.md)函数（包括大多数[SQL 函数和运算符](overview-features.md)）支持完整的[SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area。 还可以存储从 Azure Cosmos DB 读取数据的查询的结果，以及 Azure Blob 存储中的数据，或使用 [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool)Azure Data Lake Storage。 当前无法使用 CETAS 将无服务器 SQL 池查询结果存储到 Azure Cosmos DB。 
 
 在本文中，你将学习如何编写包含无服务器 SQL 池的查询，该查询将从启用 Synapse 链接的 Azure Cosmos DB 容器中查询数据。 然后，你可以在 [本](./tutorial-data-analyst.md) 教程中详细了解如何通过 Azure Cosmos DB 容器构建无服务器 SQL 池视图并将其连接到 Power BI 模型。 
 
@@ -256,7 +256,7 @@ Azure Cosmos DB SQL (Core) API 的帐户支持 number、string、boolean、null�
 | --- | --- |
 | 布尔 | bit |
 | Integer | bigint |
-| 小数 | FLOAT |
+| 十进制 | float |
 | 字符串 | varchar (UTF8 数据库排序规则)  |
 |  (ISO 格式字符串的日期时间)  | varchar (30)  |
 | Unix 时间戳 (日期时间)  | bigint |
@@ -343,7 +343,7 @@ GROUP BY geo_id
 
 下表列出了可能的错误和故障排除操作：
 
-| Error | 根本原因 |
+| 错误 | 根本原因 |
 | --- | --- |
 | 语法错误：<br/> -"Openrowset" 附近有语法错误<br/> - `...` 不是已识别的大容量 OPENROWSET 提供程序选项。<br/> -附近有语法错误 `...` | 可能的根本原因<br/> -不使用 "CosmosDB" 作为第一个参数，<br/> -在第三个参数中使用字符串文字代替标识符，<br/> -未指定第三个参数 (容器名称)  |
 | CosmosDB 连接字符串中存在错误 | -Account、Database、Key 未指定 <br/> -连接字符串中有一些无法识别的选项。<br/> -分号 `;` 置于连接字符串的末尾 |
@@ -358,6 +358,6 @@ GROUP BY geo_id
 
 有关详细信息，请参阅以下文章：
 
-- [将 Power BI 和无服务器 Synapse SQL 池与 Azure Synapse 链接一起使用](../../cosmos-db/synapse-link-power-bi.md)
-- [如何按需在 SQL 中创建和使用视图](create-use-views.md) 
-- [有关通过 Azure Cosmos DB 生成 SQL 点播视图并通过 DirectQuery 将它们连接到 Power BI 模型的教程](./tutorial-data-analyst.md)
+- [使用 Azure Synapse 链接 Power BI 和无服务器 SQL 池](../../cosmos-db/synapse-link-power-bi.md)
+- [如何在无服务器 SQL 池中创建和使用视图](create-use-views.md) 
+- [有关通过 Azure Cosmos DB 生成无服务器 SQL 池视图并通过 DirectQuery 将它们连接到 Power BI 模型的教程](./tutorial-data-analyst.md)

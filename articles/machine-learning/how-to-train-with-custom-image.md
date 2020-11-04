@@ -1,7 +1,7 @@
 ---
 title: 使用自定义 Docker 映像为模型定型
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure 机器学习中通过自定义 Docker 映像训练模型。
+description: 了解如何使用自己的 Docker 映像，或者从 Microsoft 特选，在 Azure 机器学习中训练模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 23b59c80c8e44cf6473a2de9be9807eaf8a756c6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329111"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310540"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>使用自定义 Docker 映像为模型定型
 
@@ -29,11 +29,11 @@ Azure 机器学习提供了一个默认 Docker 基本映像。 你还可以使�
 
 * Azure 机器学习计算实例 (无需下载或安装) ：
   * 完成 " [设置环境和工作区](tutorial-1st-experiment-sdk-setup.md) " 教程，以创建使用 SDK 和示例存储库预加载的专用笔记本服务器。
-  * 在 Azure 机器学习[示例存储库](https://github.com/Azure/azureml-examples)中，通过转到 "**笔记本**  >  **fastai**"  >  **resnet34. ipynb**目录查找已完成的笔记本。 
+  * 在 Azure 机器学习 [示例存储库](https://github.com/Azure/azureml-examples)中，通过转到 " **笔记本**  >  **fastai** "  >  **resnet34. ipynb** 目录查找已完成的笔记本。 
 * 你自己的 Jupyter Notebook 服务器：
   * 创建[工作区配置文件](how-to-configure-environment.md#workspace)。
-  * 安装 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。 
-  * 创建可在 internet 上使用的 [Azure 容器注册表](/azure/container-registry) 或其他 Docker 注册表。
+  * 安装 [Azure 机器学习 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。 
+  * 创建可在 internet 上使用的 [Azure 容器注册表](../container-registry/index.yml) 或其他 Docker 注册表。
 
 ## <a name="set-up-a-training-experiment"></a>设置训练实验
 
@@ -41,7 +41,7 @@ Azure 机器学习提供了一个默认 Docker 基本映像。 你还可以使�
 
 ### <a name="initialize-a-workspace"></a>初始化工作区
 
-[Azure 机器学习工作区](concept-workspace.md)是服务的顶级资源。 它为您提供了一个集中的位置来处理您创建的所有项目。 在 Python SDK 中，可以通过创建 [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) 对象来访问工作区项目。
+[Azure 机器学习工作区](concept-workspace.md)是服务的顶级资源。 它为您提供了一个集中的位置来处理您创建的所有项目。 在 Python SDK 中，可以通过创建 [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) 对象来访问工作区项目。
 
 `Workspace`从创建的 config.js文件创建一个作为[必备组件](#prerequisites)的对象。
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>配置训练作业
 
-对于本教程，请使用[GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py)上的培训脚本*train.py* 。 在实践中，您可以采用任何自定义训练脚本，并按原样运行它，Azure 机器学习。
+对于本教程，请使用 [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py)上的培训脚本 *train.py* 。 在实践中，您可以采用任何自定义训练脚本，并按原样运行它，Azure 机器学习。
 
 创建 `ScriptRunConfig` 资源，将作业配置为在所需的 [计算目标](how-to-set-up-training-targets.md)上运行。
 
@@ -163,7 +163,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure 机器学习通过复制整个源目录来运行训练脚本。 如果你有不想要上传的敏感数据，请使用 [. ignore 文件](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 或不要将其包含在源目录中。 而是使用数据 [存储](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)访问数据。
+> Azure 机器学习通过复制整个源目录来运行训练脚本。 如果你有不想要上传的敏感数据，请使用 [. ignore 文件](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 或不要将其包含在源目录中。 而是使用数据 [存储](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)访问数据。
 
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何使用自定义 Docker 映像对模型进行训练。 若要详细了解 Azure 机器学习，请参阅以下文章：

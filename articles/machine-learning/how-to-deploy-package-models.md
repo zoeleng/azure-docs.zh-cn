@@ -1,7 +1,7 @@
 ---
 title: 包模型
 titleSuffix: Azure Machine Learning
-description: 将模型打包为 Dockerfile
+description: 打包模型。 可以将模型打包为 docker 映像，然后就可以下载，也可以创建 Dockerfile 并使用它来生成映像。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: edaae4f4c06f038d12267e35a2c356af430e1555
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 299eb316b534ddc9d5eee934cc15eae841276038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998825"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312633"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>如何使用 Docker 打包注册的模型
 
@@ -162,7 +162,7 @@ docker kill mycontainer
 
 ## <a name="next-steps"></a>后续步骤
 
-* [排查部署失败的问题](how-to-troubleshoot-deployment.md)
+* [排查部署失败问题](how-to-troubleshoot-deployment.md)
 * [部署到 Azure Kubernetes 服务](how-to-deploy-azure-kubernetes-service.md)
 * [创建客户端应用程序以使用 Web 服务](how-to-consume-web-service.md)
 * [更新 Web 服务](how-to-deploy-update-web-service.md)

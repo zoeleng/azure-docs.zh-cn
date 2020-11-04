@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186614"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312032"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>保护 Synapse 工作区（预览） 
 
@@ -92,7 +92,7 @@ Synapse 工作区需要访问 STG1 和 CNT1，以便能够运行管道并执行�
   - 如果没有看到它被分配，请分配它。
   - MSI 与工作区同名。 在这种情况下，它的名称是“WS1”&quot;&quot;。
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>第 5 步：为 SQL 池配置管理员访问权限
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>步骤5：配置 Synapse SQL 的管理员访问权限
 
 - 打开 Azure 门户
 - 转到 WS1
@@ -114,11 +114,11 @@ Synapse 工作区需要访问 STG1 和 CNT1，以便能够运行管道并执行�
 | 数字 | 步骤 | 工作区管理员 | Spark 管理员 | SQL 管理员 |
 | --- | --- | --- | --- | --- |
 | 1 | 将 parquet 文件上传到 CNT1 中 | YES | YES | YES |
-| 2 | 使用 SQL 按需版本读取 parquet 文件 | YES | 是 | YES |
-| 3 | 创建 Spark 池 | 是 [1] | 是 [1] | 是  |
+| 2 | 使用无服务器 SQL 池读取 parquet 文件 | YES | 是 | YES |
+| 3 | 创建无服务器 Apache Spark 池 | 是 [1] | 是 [1] | 是  |
 | 4 | 使用笔记本读取 parquet 文件 | YES | YES | 是 |
 | 5 | 通过笔记本创建管道，并触发管道立即运行 | YES | 是 | 是 |
-| 6 | 创建 SQL 池，并运行 &quot;SELECT 1&quot; 等 SQL 脚本 | 是 [1] | 是 | 是 [1] |
+| 6 | 创建专用 SQL 池并运行 SQL 脚本，如 &quot; SELECT 1&quot; | 是 [1] | 是 | 是 [1] |
 
 > [!NOTE]
 > [1] 若要创建 SQL 或 Spark 池，用户至少必须在 Synapse 工作区上有“参与者”角色。
@@ -148,8 +148,8 @@ Synapse Studio 的行为因用户角色而异。 如果用户没有分配到授�
 | 数据中心/查看关联的 ADLS Gen2 帐户和容器 | 是 [1] | 是 [1] | 是 [1] |
 | 数据中心/查看数据库 | YES | YES | YES |
 | 数据中心/查看数据库中的对象 | YES | YES | YES |
-| 数据中心/访问 SQL 池数据库中的数据 | YES   | 是   | YES   |
-| 数据中心/访问 SQL On-Demand 数据库中的数据 | 是 [2]  | 是  | 是 [2]  |
+| 数据中心/访问 Synapse SQL 数据库中的数据 | YES   | 是   | YES   |
+| 数据中心/访问无服务器 SQL 池中数据库中的数据 | 是 [2]  | 是  | 是 [2]  |
 | 数据中心/访问 Spark 数据库中的数据 | 是 [2] | 是 [2] | 是 [2] |
 | 使用开发中心 | YES | YES | YES |
 | 开发中心/创作 SQL 脚本 | YES | 是 | YES |
@@ -159,7 +159,7 @@ Synapse Studio 的行为因用户角色而异。 如果用户没有分配到授�
 | 使用编排中心 | YES | YES | YES |
 | 编排中心/使用管道 | YES | 是 | 是 |
 | 使用管理中心 | YES | YES | YES |
-| 管理中心/SQL 池 | YES | 是 | YES |
+| 管理 Hub/Synapse SQL | YES | 是 | YES |
 | 管理中心/Spark 池 | YES | YES | 是 |
 | 管理中心/触发器 | YES | 是 | 是 |
 | 管理中心/链接服务 | YES | YES | YES |

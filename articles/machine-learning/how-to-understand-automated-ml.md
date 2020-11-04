@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280347"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311487"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>评估自动机器学习试验结果
 
@@ -28,7 +28,7 @@ ms.locfileid: "93280347"
 |---|---|
 |<li> [混淆矩阵](#confusion-matrix) <li>[精度-召回率图表](#precision-recall-chart) <li> [接收方操作特征 (ROC)](#roc) <li> [提升曲线](#lift-curve)<li> [增益曲线](#gains-curve)<li> [校准图](#calibration-plot) | <li> [预测与真实](#pvt) <li> [残差直方图](#histo)|
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
 
@@ -41,7 +41,7 @@ ms.locfileid: "93280347"
 
 自动机器学习试验完成后，可以通过 [Azure 机器学习 studio](overview-what-is-machine-learning-studio.md)在机器学习工作区中找到运行历史记录。 
 
-对于 SDK 试验，当你使用 `RunDetails` [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)时，你可以在运行时查看这些相同的结果。
+对于 SDK 试验，当你使用 `RunDetails` [Jupyter 小组件](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)时，你可以在运行时查看这些相同的结果。
 
 以下步骤和动画演示了如何查看工作室中特定模型的运行历史记录和性能指标。
 

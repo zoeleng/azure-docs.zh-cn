@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207676"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311639"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>通过语音合成标记语言 (SSML) 改善合成
 
@@ -46,7 +46,7 @@ SSML 的语音服务实现基于万维网联合会的[语音合成标记语言�
 
 ## <a name="create-an-ssml-document"></a>创建 SSML 文档
 
-`speak` 是根元素，对于所有 SSML 文档都是**必需的**。 `speak` 元素包含重要信息，例如版本、语言和标记词汇定义。
+`speak` 是根元素，对于所有 SSML 文档都是 **必需的** 。 `speak` 元素包含重要信息，例如版本、语言和标记词汇定义。
 
 **语法**
 
@@ -233,6 +233,7 @@ speechConfig!.setPropertyTo(
 | `en-US-JennyNeural`     | `style="customerservice"` | 以友好热情的语气为客户提供支持  |
 |                         | `style="chat"`            | 表达轻松随意的语气                         |
 |                         | `style="assistant"`       | 以热情而轻松的语气对数字助理讲话    |
+|                         | `style="newscast"`        | 以通用、随意的语气发布一般新闻   |
 | `en-US-GuyNeural`       | `style="newscast"`        | 以正式专业的语气叙述新闻 |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | 以正式专业的语气叙述新闻 |
 |                         | `style="customerservice"` | 以友好热情的语气为客户提供支持  |
@@ -438,7 +439,7 @@ speechConfig!.setPropertyTo(
 
 `lexicon` 元素包含至少一个 `lexeme` 元素。 每个 `lexeme` 元素包含至少一个 `grapheme` 元素以及一个或多个 `grapheme`、`alias` 和 `phoneme` 元素。 `grapheme` 元素包含描述<a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">拼字法 <span class="docon docon-navigate-external x-hidden-focus"></span></a> 的文本。 `alias` 元素用于指示某个首字母缩写词或某个缩写词的发音。 `phoneme` 元素提供了描述 `lexeme` 发音方式的文本。
 
-需要特别注意的是，您不能使用自定义词典直接设置词组的发音。 如果需要设置首字母缩略词或缩写词的发音，请首先提供 `alias`，再将 `phoneme` 与该 `alias` 关联。 例如：
+需要特别注意的是，不能使用自定义词典直接设置短语的发音。 如果需要设置首字母缩略词或缩写词的发音，请首先提供 `alias`，再将 `phoneme` 与该 `alias` 关联。 例如：
 
 ```xml
   <lexeme>
@@ -451,7 +452,7 @@ speechConfig!.setPropertyTo(
   </lexeme>
 ```
 
-你还可以直接 `alias` 为首字母缩写词或缩写词提供预期。 例如：
+也可以直接提供所需的`alias`作为首字母缩略词或缩写词。 例如：
 ```xml
   <lexeme>
     <grapheme>Scotland MV</grapheme> 
@@ -534,11 +535,11 @@ speechConfig!.setPropertyTo(
 
 | 属性 | 说明 | 必需/可选 |
 |-----------|-------------|---------------------|
-| `pitch` | 指示文本的基线音节。 可将音节表述为：<ul><li>以某个数字后接“Hz”（赫兹）表示的绝对值。 例如，`<prosody pitch="600Hz">some text</prosody>`。</li><li>以前面带有“+”或“-”的数字，后接“Hz”或“st”（用于指定音节的变化量）表示的相对值。 例如 `<prosody pitch="+80Hz">some text</prosody>` 或 `<prosody pitch="-2st">some text</prosody>`。 “st”表示变化单位为半音，即，标准全音阶中的半调（半步）。</li><li>常量值：<ul><li>x-low</li><li>low</li><li>中</li><li>high</li><li>x-high</li><li>默认值</li></ul></li></ul> | 可选 |
+| `pitch` | 指示文本的基线音节。 可将音节表述为：<ul><li>以某个数字后接“Hz”（赫兹）表示的绝对值。 例如，`<prosody pitch="600Hz">some text</prosody>` 。</li><li>以前面带有“+”或“-”的数字，后接“Hz”或“st”（用于指定音节的变化量）表示的相对值。 例如 `<prosody pitch="+80Hz">some text</prosody>` 或 `<prosody pitch="-2st">some text</prosody>`。 “st”表示变化单位为半音，即，标准全音阶中的半调（半步）。</li><li>常量值：<ul><li>x-low</li><li>low</li><li>中</li><li>high</li><li>x-high</li><li>默认值</li></ul></li></ul> | 可选 |
 | `contour` |调型现在同时支持神经语音和标准语音。 调型表示音节的变化。 这些变化以语音输出中指定时间处的目标数组形式表示。 每个目标由参数对的集定义。 例如： <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>每参数集中的第一个值以文本持续时间百分比的形式指定音节变化的位置。 第二个值使用音节的相对值或枚举值指定音节的升高或降低量（请参阅 `pitch`）。 | 可选 |
 | `range` | 表示文本音节范围的值。 可以使用用于描述 `pitch` 的相同绝对值、相对值或枚举值表示 `range`。 | 可选 |
-| `rate` | 指示文本的讲出速率。 可将 `rate` 表述为：<ul><li>以充当默认值倍数的数字表示的相对值。 例如，如果值为 *1*，则速率不会变化。 如果值为 *0.5*，则速率会减慢一半。 如果值为 *3*，则速率为三倍。</li><li>常量值：<ul><li>x-slow</li><li>slow</li><li>中</li><li>fast</li><li>x-fast</li><li>默认值</li></ul></li></ul> | 可选 |
-| `duration` | 语音合成 (TTS) 服务读取文本时应该消逝的时长，以秒或毫秒为单位。 例如 *2s* 或 *1800ms*。 持续时间仅支持标准声音。| 可选 |
+| `rate` | 指示文本的讲出速率。 可将 `rate` 表述为：<ul><li>以充当默认值倍数的数字表示的相对值。 例如，如果值为 *1* ，则速率不会变化。 如果值为 *0.5* ，则速率会减慢一半。 如果值为 *3* ，则速率为三倍。</li><li>常量值：<ul><li>x-slow</li><li>slow</li><li>中</li><li>fast</li><li>x-fast</li><li>默认值</li></ul></li></ul> | 可选 |
+| `duration` | 语音合成 (TTS) 服务读取文本时应该消逝的时长，以秒或毫秒为单位。 例如 *2s* 或 *1800ms* 。 持续时间仅支持标准声音。| 可选 |
 | `volume` | 指示语音的音量级别。 可将音量表述为：<ul><li>以从 0.0 到 100.0（从最安静到最大声）的数字表示的绝对值。 例如 75。 默认值为 100.0。</li><li>以前面带有“+”或“-”的数字表示的相对值，指定音量的变化量。 例如，+10 或 -5.5。</li><li>常量值：<ul><li>silent</li><li>x-soft</li><li>soft</li><li>中</li><li>loud</li><li>x-loud</li><li>默认值</li></ul></li></ul> | 可选 |
 
 ### <a name="change-speaking-rate"></a>更改语速
@@ -630,7 +631,7 @@ speechConfig!.setPropertyTo(
 | `address` | | 此文本朗读为地址。 语音合成引擎将以下内容：<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />朗读为：“I'm at 150th court north east redmond washington.” |
 | `cardinal`, `number` | | 此文本朗读为基数。 语音合成引擎将以下内容：<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />朗读为“There are three alternatives.”。 |
 | `characters`, `spell-out` | | 此文本朗读为各个字符（拼读出来）。 语音合成引擎将以下内容：<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />朗读为“T E S T.” |
-| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | 此文本朗读为日期。 `format` 属性指定日期的格式 (*d=day, m=month, and y=year*)。 语音合成引擎将以下内容：<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />朗读为“Today is October nineteenth two thousand sixteen.” |
+| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | 此文本朗读为日期。 `format` 属性指定日期的格式 ( *d=day, m=month, and y=year* )。 语音合成引擎将以下内容：<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />朗读为“Today is October nineteenth two thousand sixteen.” |
 | `digits`, `number_digit` | | 此文本朗读为个体数字的序列。 语音合成引擎将以下内容：<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />朗读为“1 2 3 4 5 6 7 8 9.” |
 | `fraction` | | 此文本朗读为分数。 语音合成引擎将以下内容：<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />朗读为“three eighths of an inch.” |
 | `ordinal` | | 此文本朗读为基数。 语音合成引擎将以下内容：<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />朗读为“Select the third option”。 |
@@ -716,9 +717,9 @@ speechConfig!.setPropertyTo(
 | 属性 | 说明 | 必需/可选 |
 |-----------|-------------|---------------------|
 | `src` | 指定背景音频文件的位置/URL。 | 如果在 SSML 文档中使用背景音频，则此属性是必需的。 |
-| `volume` | 指定背景音频文件的音量。 **接受的值**：`0` 到 `100`（含）。 默认值为 `1`。 | 可选 |
-| `fadein` | 指定背景音频淡入的持续时间，以毫秒为单位。 默认值为 `0`，即，不淡入。 **接受的值**：`0` 到 `10000`（含）。  | 可选 |
-| `fadeout` | 指定背景音频淡出的持续时间，以毫秒为单位。 默认值为 `0`，即，不淡出。**接受的值**：`0` 到 `10000`（含）。  | 可选 |
+| `volume` | 指定背景音频文件的音量。 **接受的值** ：`0` 到 `100`（含）。 默认值为 `1`。 | 可选 |
+| `fadein` | 指定背景音频淡入的持续时间，以毫秒为单位。 默认值为 `0`，即，不淡入。 **接受的值** ：`0` 到 `10000`（含）。  | 可选 |
+| `fadeout` | 指定背景音频淡出的持续时间，以毫秒为单位。 默认值为 `0`，即，不淡出。 **接受的值** ：`0` 到 `10000`（含）。  | 可选 |
 
 **示例**
 

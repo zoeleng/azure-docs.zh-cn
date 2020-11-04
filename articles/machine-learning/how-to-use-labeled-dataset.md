@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fad51f5c8ec426792c74b1a14ea80ab47c2d892
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757769"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312302"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>创建和浏览带标签的 Azure 机器学习数据集
 
@@ -27,8 +27,8 @@ ms.locfileid: "91757769"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅。 如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://aka.ms/AMLFree)。
-* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)，或 [Azure 机器学习工作室](https://ml.azure.com/)的访问权限。
-    * 安装 [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true) 包
+* [适用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)，或 [Azure 机器学习工作室](https://ml.azure.com/)的访问权限。
+    * 安装 [azure-contrib-dataset](/python/api/azureml-contrib-dataset/?preserve-view=true&view=azure-ml-py) 包
 * 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 * 对 Azure 机器学习数据标记项目的访问权限。 如果没有标记项目，请使用[这些步骤](how-to-create-labeling-projects.md)创建一个。
 
@@ -52,7 +52,7 @@ ms.locfileid: "91757769"
 
 ### <a name="pandas-dataframe"></a>Pandas 数据帧
 
-可以使用 `azureml-contrib-dataset` 类的 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 方法将带标签的数据集加载到 pandas 数据帧。 可以使用以下 shell 命令安装此类： 
+可以使用 `azureml-contrib-dataset` 类的 [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 方法将带标签的数据集加载到 pandas 数据帧。 可以使用以下 shell 命令安装此类： 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -87,7 +87,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Torchvision 数据集
 
-还可以使用 `azureml-contrib-dataset` 类中的 [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) 方法将带标签的数据集加载到 Torchvision 数据集中。 若要使用此方法，需要安装 [PyTorch](https://pytorch.org/)。 
+还可以使用 `azureml-contrib-dataset` 类中的 [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-torchvision--) 方法将带标签的数据集加载到 Torchvision 数据集中。 若要使用此方法，需要安装 [PyTorch](https://pytorch.org/)。 
 
 在下面的代码中， `animal_labels` 数据集是之前保存到工作区的标记项目的输出。
 

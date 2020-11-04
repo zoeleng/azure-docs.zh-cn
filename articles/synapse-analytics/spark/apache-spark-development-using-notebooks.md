@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738737"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311143"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中创建、开发和维护 Synapse Studio (预览版) 笔记本
 
@@ -86,7 +86,7 @@ Azure Synapse Studio 笔记本支持四种 Apache Spark 语言：
 
 不能直接在 Synapse Studio 笔记本中跨不同语言引用数据或变量。 在 Spark 中，可以跨语言引用临时表。 下面是一个示例，说明如何使用 Spark 临时表作为解决方法，在 `PySpark` 和 `SparkSQL` 中读取 `Scala` 数据帧。
 
-1. 在单元格 1 中，使用 Scala 从 SQL 池连接器读取数据帧，并创建一个临时表。
+1. 在单元格1中，使用 Scala 从 SQL 池连接器读取数据帧，并创建一个临时表。
 
    ```scala
    %%scala
@@ -112,7 +112,7 @@ Azure Synapse Studio 笔记本支持四种 Apache Spark 语言：
 
 Azure Synapse Studio 笔记本集成了 Monaco 编辑器，将 IDE 样式的 IntelliSense 引入到了单元格编辑器中。 语法突出显示、错误标记和自动代码完成有助于您编写代码并更快地确定问题。
 
-对于不同的语言，IntelliSense 功能处于不同的成熟度级别。 请参阅下表了解支持的功能。
+对于不同的语言，IntelliSense 功能处于不同的成熟度级别。 使用下表来查看受支持的内容。
 
 |Languages| 语法突出显示 | 语法错误标记  | 语法代码补全 | 变量代码补全| 系统函数代码补全| 用户函数代码补全| 智能缩进 | 代码折叠|
 |--|--|--|--|--|--|--|--|--|
@@ -203,7 +203,7 @@ Azure Synapse Studio 笔记本集成了 Monaco 编辑器，将 IDE 样式的 Int
 
 ### <a name="spark-progress-indicator"></a>Spark 进度指示器
 
-Azure Synapse Studio 笔记本仅基于 Spark。 代码单元格在 Spark 池上远程执行。 Spark 作业进度指示器提供有实时进度栏，可帮助你了解作业执行状态。
+Azure Synapse Studio 笔记本仅基于 Spark。 代码单元远程在无服务器 Apache Spark 池上执行。 Spark 作业进度指示器提供有实时进度栏，可帮助你了解作业执行状态。
 每个作业或阶段的任务数有助于识别 spark 作业的并行级别。 你还可以通过选择作业 (或阶段) 名称上的链接，深入了解特定作业 (或阶段) 的 Spark UI。
 
 
