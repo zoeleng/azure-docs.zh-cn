@@ -5,14 +5,15 @@ description: 了解 NoSQL 数据库中的数据建模，在关系数据库中与
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096642"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333233"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据建模
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -300,7 +301,7 @@ Book documents:
 在关系型数据库中， *多对多* 关系通常使用联接表来建模，这种方法只是将其他表中的记录联接在一起。
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="关系型数据库模型" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="联接表" border="false":::
 
 可能想要使用文档复制相同内容，并生成类似以下示例的数据模型。
 

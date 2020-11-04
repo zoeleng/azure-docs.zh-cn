@@ -3,12 +3,12 @@ title: Azure Migrate 中的 VMware 评估支持
 description: 了解使用 Azure Migrate 服务器评估时的 VMware VM 评估支持。
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315793"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332264"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 评估支持矩阵 
 
@@ -34,7 +34,7 @@ ms.locfileid: "92315793"
 **VMware** | **详细信息**
 --- | ---
 **vCenter Server** | 你要发现和评估的计算机必须通过 vCenter Server 版本5.5、6.0、6.5、6.7 或7.0 进行管理。<br/><br/> 当前不支持通过在设备中提供 ESXi 主机详细信息来发现 VMware Vm。
-**权限** | 服务器评估需要 vCenter Server 只读帐户进行发现和评估。<br/><br/> 如果要执行应用程序发现或依赖项可视化，帐户需要为**虚拟机**  >  **来宾操作**启用特权。
+**权限** | 服务器评估需要 vCenter Server 只读帐户进行发现和评估。<br/><br/> 如果要执行应用程序发现或依赖项可视化，帐户需要为 **虚拟机**  >  **来宾操作** 启用特权。
 
 ## <a name="vm-requirements"></a>VM 要求
 **VMware** | **详细信息**
@@ -66,14 +66,14 @@ Azure Migrate 使用 [Azure Migrate 设备](migrate-appliance.md)进行发现和
 
 **支持** | **详细信息**
 --- | ---
-**支持的虚拟机** | 目前，只有 VMware VM 才支持应用发现。
+**支持的虚拟机** | 目前，只有 VMware VM 才支持应用发现。 你可以从每个 Azure Migrate 设备发现最多10000个 VMware Vm 上安装的应用。
 **发现** | 应用发现是无代理的。 它使用虚拟机来宾凭据，并使用 WMI 和 SSH 调用来远程访问虚拟机。
 **VM 支持** | 运行所有 Windows 和 Linux 版本的 Vm 支持应用发现。
-**vCenter** | 用于评估的 vCenter Server 只读帐户，需要为**虚拟机**  >  **来宾操作**启用特权，以便与用于应用程序发现的 VM 交互。
+**vCenter** | 用于评估的 vCenter Server 只读帐户，需要为 **虚拟机**  >  **来宾操作** 启用特权，以便与用于应用程序发现的 VM 交互。
 **VM 访问** | 应用发现需要虚拟机上的本地用户帐户才能发现应用程序。<br/><br/> Azure Migrate 当前支持将一个凭据用于所有 Windows 服务器，为所有 Linux 服务器支持一个凭据。<br/><br/> 你为 Windows VM 创建来宾用户帐户，并为所有 Linux VM 创建常规/普通用户帐户（非 sudo 访问权限）。
 **VMware 工具** | 必须在要发现的 VM 上安装并运行 VMware 工具。 <br/><br/> VMware 工具版本必须高于 10.2.0。
 **PowerShell** | VM 必须安装 PowerShell 版本 2.0 或更高版本。
-**端口访问** | 在运行要发现的 VM 的 ESXi 主机上，Azure Migrate 设备必须能够连接到 TCP 端口 443。
+**端口访问** | Azure Migrate 设备必须能够连接到运行要在其上发现应用的 Vm 的 ESXi 主机上的 TCP 端口443。 VCenter Server 返回 ESXI 主机连接，以下载包含应用信息的文件。
 **限制** | 对于应用发现，最多可以在每个 Azure Migrate 设备上发现 10,000 个 VM。
 
 

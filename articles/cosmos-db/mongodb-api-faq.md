@@ -3,15 +3,16 @@ title: 有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
 description: 获取有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 03c47b398a715a128a32fb6a6fd9d99564ccb891
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4c93aea5a37fb286b49dabfb97522bf40c8f5429
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096625"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333165"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -20,7 +21,7 @@ Azure Cosmos DB 的 API for MongoDB 是一个线路协议兼容层，允许应�
 
 ## <a name="how-do-i-connect-to-my-database"></a>如何连接到数据库？
 
-若要通过 Azure Cosmos DB 的用于 MongoDB 的 API 连接到 Cosmos 数据库，最快捷的方法是使用 [Azure 门户](https://portal.azure.com)。 转到帐户，然后在左侧导航菜单上单击“快速启动”。  快速入门是获取连接到数据库的代码片段的最佳方式。
+若要通过 Azure Cosmos DB 的用于 MongoDB 的 API 连接到 Cosmos 数据库，最快捷的方法是使用 [Azure 门户](https://portal.azure.com)。 转到帐户，然后在左侧导航菜单上单击“快速启动”。 快速入门是获取连接到数据库的代码片段的最佳方式。
 
 Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户需要通过 TLS 进行身份验证和安全通信，因此务必使用 TLSv1.2。
 

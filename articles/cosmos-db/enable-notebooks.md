@@ -3,15 +3,16 @@ title: " (预览版在 Azure Cosmos DB 帐户中启用笔记本) "
 description: Azure Cosmos DB 的内置笔记本使你可以从门户内分析和可视化数据。 本文介绍如何为 Cosmos 帐户启用此功能。
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: cf8da4379a7770e44e86663c02cc7a57da9d3452
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c869069e40780b1fd399758e84b0ffba311398e3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089768"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334168"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a> (预览版为 Azure Cosmos DB 帐户启用笔记本) 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,7 +63,7 @@ ms.locfileid: "93089768"
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="查看 GettingStarted ipynb 笔记本":::
 
-若要运行笔记本：
+运行笔记本：
 1. 选择包含 Python 代码的第一个代码单元。 
 1. 选择 " **运行** " 以运行该单元。 还可以使用 **Shift + Enter** 来运行单元。
 1. 刷新资源窗格，查看已创建的数据库和容器。

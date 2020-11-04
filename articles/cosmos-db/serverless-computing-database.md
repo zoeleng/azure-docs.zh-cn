@@ -3,15 +3,16 @@ title: 使用 Azure Cosmos DB 和 Azure Functions 进行无服务器数据库计
 description: 了解 Azure Cosmos DB 和 Azure Functions 如何一起使用，以创建事件驱动型无服务器计算应用。
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096132"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334050"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的无服务器数据库计算
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,7 +63,7 @@ Azure Cosmos DB 和 Azure Functions 支持采用以下方式集成数据库和�
 
 下图显示在 Azure 门户中为此触发器编写的代码。
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Azure Cosmos DB 和 Azure Functions 如何集成":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="在 Azure 门户中创建适用于 Cosmos DB 的 Azure Functions 触发器":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>财务用例 - 计时器触发器和输入绑定
 
@@ -76,9 +77,9 @@ Azure Cosmos DB 和 Azure Functions 支持采用以下方式集成数据库和�
 
 下图显示了 Azure 门户中适用于此方案的代码。
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Azure Cosmos DB 和 Azure Functions 如何集成":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="用于财务方案的计时器触发器的 Index.js 文件":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Azure Cosmos DB 和 Azure Functions 如何集成":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="用于财务方案的计时器触发器的 Run.csx 文件":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>游戏用例 - 适用于 Cosmos DB 的 Azure Functions 触发器和输出绑定 
 

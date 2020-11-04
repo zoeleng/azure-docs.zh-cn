@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048077"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333458"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>预览版：使用客户管理的密钥加密映像
 
@@ -23,13 +23,13 @@ ms.locfileid: "92048077"
 
 通过客户管理的密钥进行的服务器端加密使用 Azure Key Vault。 可将 [RSA 密钥](../key-vault/keys/hsm-protected-keys.md)导入到 Key Vault，或者在 Azure Key Vault 中生成新的 RSA 密钥。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-本文要求您已将磁盘加密设置为可用于映像。
+本文要求在要将映像复制到的每个区域中已设置了磁盘加密。
 
-- 若要仅使用客户托管的密钥，请参阅使用[Azure 门户](./disks-enable-customer-managed-keys-portal.md)或[PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset)**启用使用服务器端加密的客户管理**的密钥。
+- 若要仅使用客户托管的密钥，请参阅使用 [Azure 门户](./disks-enable-customer-managed-keys-portal.md)或 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset)**启用使用服务器端加密的客户管理** 的密钥。
 
-- 若要同时使用平台管理的密钥和客户托管的密钥 (进行双重加密) ，请参阅使用[Azure 门户](./disks-enable-double-encryption-at-rest-portal.md)或[PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md)**启用静态加密**。
+- 若要同时使用平台管理的密钥和客户托管的密钥 (进行双重加密) ，请参阅使用 [Azure 门户](./disks-enable-double-encryption-at-rest-portal.md)或 [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md)**启用静态加密** 。
     > [!IMPORTANT]
     > 必须使用此链接 [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) 访问 Azure 门户。 双重加密当前在公共 Azure 门户中不可见，不使用链接。
 
@@ -210,15 +210,15 @@ az sig image-version create \
 
 
 1. 在“创建映像版本”页中，选择“加密”选项卡。 
-2. 在 " **加密类型**" 中，选择 "静态加密"，同时选择 "使用 **客户管理的密钥** " 或 " **使用平台管理的密钥和客户托管的密钥进行双重加密**"。 
+2. 在 " **加密类型** " 中，选择 "静态加密"，同时选择 "使用 **客户管理的密钥** " 或 " **使用平台管理的密钥和客户托管的密钥进行双重加密** "。 
 3. 对于映像中的每个磁盘，从下拉列表中选择要使用的“磁盘加密集”。 
 
 ### <a name="create-the-vm"></a>创建 VM
 
-可以从映像版本创建 VM，并使用客户管理的密钥来加密磁盘。 当你在门户中创建 VM 时，请在 " **磁盘** " 选项卡上，选择 "以 **客户管理的密钥加密** " 或 " **通过平台管理的密钥和客户托管的密钥** 加密" 作为 **加密类型**。 然后可以从下拉列表中选择加密集。
+可以从映像版本创建 VM，并使用客户管理的密钥来加密磁盘。 当你在门户中创建 VM 时，请在 " **磁盘** " 选项卡上，选择 "以 **客户管理的密钥加密** " 或 " **通过平台管理的密钥和客户托管的密钥** 加密" 作为 **加密类型** 。 然后可以从下拉列表中选择加密集。
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解[服务器端磁盘加密](./windows/disk-encryption.md)。
 
-若要了解如何提供购买计划信息，请参阅[创建映像时提供 Azure 市场购买计划信息](marketplace-images.md)。
+有关如何提供购买计划信息的信息，请参阅[在创建映像时提供 Azure 市场购买计划信息](marketplace-images.md)。
