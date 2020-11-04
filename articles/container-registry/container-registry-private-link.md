@@ -3,12 +3,12 @@ title: 设置专用链接
 description: 在容器注册表上设置专用终结点，并实现在本地虚拟网络中通过专用链接进行访问的功能。 专用链接访问是高级服务层级的一项功能。
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: d5193efc1b1def2dc51411630ab6a2305d369cf4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026116"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342294"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>使用 Azure 专用链接以私密方式连接到 Azure 容器注册表
 
@@ -387,7 +387,12 @@ az acr private-endpoint-connection list \
 
 本示例中的专用终结点与基本虚拟网络关联的专用 DNS 区域相集成。 此安装程序直接使用 Azure 提供的 DNS 服务将注册表的公共 FQDN 解析为虚拟网络中的专用 IP 地址。 
 
-Private link 支持使用专用区域的其他 DNS 配置方案，包括自定义 DNS 解决方案。 例如，你可能有一个在虚拟网络中部署的自定义 DNS 解决方案，或在网络中使用 VPN 网关连接到虚拟网络的本地网络。 若要在这些情况下将注册表的公共 FQDN 解析为专用 IP 地址，需 (168.63.129.16) 配置服务器级别的转发器到 Azure DNS 服务。 确切的配置选项和步骤取决于现有的网络和 DNS。 有关示例，请参阅 [Azure 专用终结点 DNS 配置](../private-link/private-endpoint-dns.md)。
+Private link 支持使用专用区域的其他 DNS 配置方案，包括自定义 DNS 解决方案。 例如，你可能已在虚拟网络中部署了自定义 DNS 解决方案，或在网络中部署了使用 VPN 网关或 Azure ExpressRoute 连接到虚拟网络的自定义 DNS 解决方案。 
+
+若要在这些情况下将注册表的公共 FQDN 解析为专用 IP 地址，需 (168.63.129.16) 配置服务器级别的转发器到 Azure DNS 服务。 确切的配置选项和步骤取决于现有的网络和 DNS。 有关示例，请参阅 [Azure 专用终结点 DNS 配置](../private-link/private-endpoint-dns.md)。
+
+> [!IMPORTANT]
+> 如果在多个区域中创建了专用终结点，则建议在每个区域中使用单独的资源组，并在其中放置虚拟网络和关联的专用 DNS 区域。 此配置还可防止由于共享同一专用 DNS 区域而导致不可预测的 DNS 解析。
 
 ## <a name="clean-up-resources"></a>清理资源
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521299"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341852"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>支持在 Azure 区域之间移动 Azure Vm
 
@@ -28,11 +28,11 @@ ms.locfileid: "92521299"
 
 **操作系统** | **详细信息**
 --- | ---
-Windows Server 2019 | 支持 Server Core、带桌面体验的服务器。
+Windows Server 2019 | 支持服务器核心、带桌面体验的服务器。
 Windows Server 2016  | 支持 Server Core、带桌面体验的服务器。
 Windows Server 2012 R2 | 。
 Windows Server 2012 | 。
-Windows Server 2008 R2 SP1/SP2 | 。<br/><br/> 对于运行 Windows Server 2008 R2 SP1/SP2 的计算机，需要安装 (SSU) 和[sha-1 更新](https://support.microsoft.com/help/4474419)的 Windows[服务堆栈更新](https://support.microsoft.com/help/4490628)。  从 2019 年 9 月开始不再支持 SHA-1。如果未启用 SHA-2 代码签名，则无法按预期方式安装/升级代理扩展。 详细了解 [SHA-2 升级和要求](https://aka.ms/SHA-2KB)。
+Windows Server 2008 R2 SP1/SP2 | 。<br/><br/> 对于运行 Windows Server 2008 R2 SP1/SP2 的计算机，需要安装 (SSU) 和[sha-1 更新](https://support.microsoft.com/help/4474419)的 Windows[服务堆栈更新](https://support.microsoft.com/help/4490628)。  从 2019 年 9 月开始不再支持 SHA-1，如果未启用 SHA-2 代码签名，则无法按预期方式安装/升级代理扩展。 详细了解 [SHA-2 升级和要求](https://aka.ms/SHA-2KB)。
 Windows 10 (x64) | 支持。
 Windows 8.1 (x64) | 支持。
 Windows 8 (x64) | 支持。
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 和 15 SP1 |  支持所有库存 SUSE 15 和 15 
 **设置** | **支持** | **详细信息**
 --- | --- | ---
 大小 | 至少具有两个 CPU 内核和 1 GB RAM 的任何 Azure VM 大小 | 验证 [Azure 虚拟机大小](../virtual-machines/sizes-general.md)。
-可用性集 | 目前不支持 | 如果使用默认选项将具有可用性集的 Azure VM 添加到移动集合，则准备过程将失败。 可以选择将 VM 移到可用性区域，或将其作为单个实例 VM 来移动。 你可以在 "编辑目标属性" 页中修改这些设置。
+可用性集 | 支持 | 。
 可用性区域 | 支持 | 支持，具体取决于目标区域支持。
 Microsoft (发布 Azure 库映像)  | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。
  (第三方发布的 Azure 库映像)   | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。

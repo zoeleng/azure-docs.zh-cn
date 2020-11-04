@@ -3,16 +3,17 @@ title: 使用 Azure Cosmos DB C# 笔记本中的内置笔记本命令和功能�
 description: 了解如何通过 Azure Cosmos DB 内置 C# 笔记本使用内置命令和功能来执行常见操作。
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5fab63a0a0a34cd0417eb0a891133ac256ef3ac0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 67fe71d8e2d6ab239989cb30e9bf5a1b4d731037
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099158"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340464"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>使用 Azure Cosmos DB C# 笔记本中的内置笔记本命令和功能（预览版）
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -118,12 +119,12 @@ for (int i = 0; i < 5; i++) {
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Csharp 查询单元":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Csharp 查询单元":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="nteract 数据资源管理器":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>使用内置字典查看器
 可以使用内置字典查看器查看变量。 在单元格中，将要可视化的变量放在最后一行中，在运行单元时，该变量会自动显示。
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Csharp 查询单元":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="内置字典查看器":::
 
 ## <a name="upload-json-items-to-a-container"></a>将 JSON 项上传到容器
 可以使用 ``%%upload`` magic 命令将 JSON 文件中的数据上传到指定的 Azure Cosmos 容器。 运行以下命令来上传项：
@@ -161,7 +162,7 @@ Total RUs consumed : 25022.58
 ## <a name="reset-notebooks-workspace"></a>重置笔记本工作区
 若要将笔记本工作区重置为默认设置，请在命令栏上选择“重置工作区”。 这会删除所有自定义的已安装包，并重启 Jupyter 服务器。 笔记本、文件和 Azure Cosmos 资源不受影响。  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Csharp 查询单元":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="重置笔记本工作区":::
 
 ## <a name="next-steps"></a>后续步骤
 

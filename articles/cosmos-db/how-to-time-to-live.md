@@ -3,16 +3,17 @@ title: 在 Azure Cosmos DB 中配置和管理生存时间
 description: 了解如何在 Azure Cosmos DB 中配置和管理容器和项的生存时间
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085881"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341002"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置生存时间
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,13 +30,13 @@ ms.locfileid: "93085881"
 
 2. 创建新的 Azure Cosmos 帐户或选择现有的帐户。
 
-3. 打开“数据资源管理器”窗格  。
+3. 打开“数据资源管理器”窗格。
 
 4. 选择一个现有的容器，将其展开并修改以下值：
 
-   * 打开“规模和设置”窗口。 
-   * 在“设置”下找到“生存时间”。  
-   * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值  
+   * 打开“规模和设置”窗口。
+   * 在“设置”下找到“生存时间”。 
+   * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值 
    * 单击“保存”  以保存更改。
 
    :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="在 Azure 门户中配置生存时间":::
@@ -213,16 +214,16 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 2. 创建新的 Azure Cosmos 帐户或选择现有的帐户。
 
-3. 打开“数据资源管理器”窗格  。
+3. 打开“数据资源管理器”窗格。
 
 4. 选择一个现有的容器，将其展开并修改以下值：
 
-   * 打开“规模和设置”窗口。 
-   * 在“设置”下找到“生存时间”。  
-   * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值。   
+   * 打开“规模和设置”窗口。
+   * 在“设置”下找到“生存时间”。 
+   * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值。  
    * 单击“保存”  以保存更改。
 
-5. 接下来导航到要为其设置生存时间的项，添加 `ttl` 属性，然后选择“更新”。  
+5. 接下来导航到要为其设置生存时间的项，添加 `ttl` 属性，然后选择“更新”。 
 
    ```json
    {

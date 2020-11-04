@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321657"
+ms.locfileid: "93340026"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL 数据库和 Azure Synapse Analytics 的审核
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,6 +104,13 @@ Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段�
   > Microsoft 支持操作审核（预览）不支持存储帐户目标。 若要启用此功能，必须配置 Log Analytics 工作区或事件中心目标。
 
 ![Microsoft 支持操作的屏幕截图](./media/auditing-overview/support-operations.png)
+
+若要查看 Log Analytics 工作区中 Microsoft 支持部门操作的审核日志，请使用以下查询：
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>对存储目标的审核
 
@@ -205,9 +212,7 @@ Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段�
 - 其他方法：
 
   - 下载多个文件或包含日志文件的子文件夹后，可以按照前述 SSMS 合并审核文件说明在本地合并它们。
-  - 以编程方式查看 blob 审核日志：
-
-    - 使用 PowerShell [查询扩展事件文件](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/)。
+  - 以编程方式查看 blob 审核日志：使用 PowerShell [查询扩展事件文件](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) 。
 
 ## <a name="production-practices"></a><a id="production-practices"></a>生产做法
 

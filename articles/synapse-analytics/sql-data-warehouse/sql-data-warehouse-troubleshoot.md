@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fe20304341d6e99eb77ad2818e675b0063efd693
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319518"
+ms.locfileid: "93340271"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中的 Synapse SQL 故障排除
 
@@ -67,8 +67,6 @@ ms.locfileid: "93319518"
 | :------------------------------------ | :----------------------------------------------------------- |
 | 不支持的 SQL 数据库功能     | 请参阅[不支持的表功能](sql-data-warehouse-tables-overview.md#unsupported-table-features)。 |
 | 不支持的 SQL 数据库数据类型   | 请参阅[不支持的数据类型](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types)。        |
-| DELETE 和 UPDATE 限制         | 请参阅 [UPDATE 解决方法](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements)、[DELETE 解决方法](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements)和[使用 CTAS 解决不支持的 UPDATE 和 DELETE 语法](sql-data-warehouse-develop-ctas.md)。 |
-| 不支持 MERGE 语句      | 请参阅 [MERGE 解决方法](sql-data-warehouse-develop-ctas.md#replace-merge-statements)。                  |
 | 存储过程限制          | 请参阅[存储过程限制](sql-data-warehouse-develop-stored-procedures.md#limitations)，了解存储过程的一些限制。 |
 | UDF 不支持 SELECT 语句 | 这是 UDF 的当前一项限制。  有关我们支持的语法，请参阅 [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。 |
 

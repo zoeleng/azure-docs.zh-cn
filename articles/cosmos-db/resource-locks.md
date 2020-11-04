@@ -3,15 +3,16 @@ title: 防止删除或更改 Azure Cosmos DB 资源
 description: 使用 Azure 资源锁来防止删除或更改 Azure Cosmos DB 资源。
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6db7bbf03b023a80032a4ed15f2f4f82dd2b0b98
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088363"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341954"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>防止删除或更改 Azure Cosmos DB 资源
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

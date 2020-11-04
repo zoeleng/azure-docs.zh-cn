@@ -4,15 +4,16 @@ description: 了解如何识别、诊断和排查 Azure Cosmos DB 的 API 的 Mo
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: ece814ea316fe62bc2b8b64036b08983f65ccbef
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096353"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340883"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>排查使用适用于 MongoDB 的 Azure Cosmos DB API 时的查询问题
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

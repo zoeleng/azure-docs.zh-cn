@@ -3,17 +3,18 @@ title: 排查 Azure Cosmos DB 中的“请求标头太大”消息或 400 错误
 description: 了解如何诊断和修复请求标头太大异常。
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: fff9bc55b324875601a2c4e68835a17c61c3769b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a14503bc56777563b6360143efaa86a136b22278
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079251"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340509"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>诊断 Azure Cosmos DB“请求标头太大”消息并对其进行故障排除
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

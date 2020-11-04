@@ -3,15 +3,16 @@ title: Azure Cosmos DB 中的跨源资源共享 (CORS)
 description: 本文介绍如何使用 Azure 门户和 Azure 资源管理器模板配置 Azure Cosmos DB 中的跨源资源共享 (CORS)。
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eba49ff45ba9ab1f5cfaa1d75973d656ac32ca6a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086408"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339882"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>配置跨源资源共享 (CORS)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

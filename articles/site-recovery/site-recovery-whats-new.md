@@ -3,12 +3,12 @@ title: Azure Site Recovery 中的新增功能
 description: 提供 Azure Site Recovery 服务中的新功能和最新更新的摘要。
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0c35c8e041e47f02d53c680b5812b10d25d75a67
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2e85ee19012f6ae13c18e26b3aa0b5ae28bcaade
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425713"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341342"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -23,7 +23,7 @@ ms.locfileid: "92425713"
 **更新** |  **统一安装程序** | **配置服务器 ova** | **移动服务代理** | **Site Recovery 提供程序** | **恢复服务代理**
 --- | --- | --- | --- | --- | ---
 [汇总51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
-[汇总50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
+[汇总 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [汇总 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [汇总 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [汇总 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV 计算机 - 2.0.9183.0 <br> VMware 计算机 - 2.0.9177.0
@@ -31,6 +31,7 @@ ms.locfileid: "92425713"
 
 [详细了解](service-updates-how-to.md)更新安装和支持。
 
+## <a name="updates-october-2020"></a>更新 (年10月 2020) 
 
 ### <a name="update-rollup-51"></a>更新汇总51
 
@@ -39,9 +40,11 @@ ms.locfileid: "92425713"
 **更新** | **详细信息**
 --- | ---
 **提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（请参阅汇总中的详述）。
-**问题修复/改进** | 汇总中详细介绍了许多修补程序和改进功能，包括对移动服务的新的 Linux 支持。
+**问题修复/改进** | 汇总中详细介绍了许多修复程序和改进，包括对出行服务的新 Linux 支持。
 
-## <a name="update-september-2020"></a>更新（2020 年 9 月）
+## <a name="updates-september-2020"></a>2020年9月 (更新) 
+
+### <a name="update-rollup-50"></a>更新汇总50
 
 [更新汇总 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) 提供以下更新：
 
@@ -59,7 +62,7 @@ ms.locfileid: "92425713"
 **更新** | **详细信息**
 --- | ---
 **提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（请参阅汇总中的详述）。
-**问题修复/改进** | 汇总中详细介绍了许多修补程序和改进功能，包括对移动服务的新的 Linux 支持。
+**问题修复/改进** | 汇总中详细介绍了许多修复程序和改进，包括对出行服务的新 Linux 支持。
 
 ## <a name="updates-july-2020"></a>更新（2020 年 7 月）
 

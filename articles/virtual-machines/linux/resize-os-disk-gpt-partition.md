@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375204"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340292"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>调整具有 GPT 分区的 OS 磁盘的大小
 
@@ -231,7 +231,7 @@ user@myvm:~#
    
    在前面的示例中，可以看到 OS 磁盘的文件系统大小已增加。
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-lvm"></a>RHEL LVM
 
 在带有 LVM 的 RHEL 7.x 中增加 OS 磁盘的大小：
 
@@ -351,6 +351,129 @@ user@myvm:~#
 
 > [!NOTE]
 > 若要使用相同的过程来调整任何其他逻辑卷的大小，请更改步骤 7 中的 lv 名称。
+
+### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE]
+>在增加操作系统磁盘大小时，请始终获取 VM 的快照。
+
+若要增加 RHEL 中操作系统磁盘的大小，请执行以下操作：
+
+停止 VM。
+从门户增加 OS 磁盘的大小。
+启动 VM。
+重新启动 VM 后，请执行以下步骤：
+
+1. 通过使用以下命令，以根用户身份访问 VM：
+ 
+   ```
+   sudo su
+   ```
+
+1. 安装 gptfdisk 包，增加 OS 磁盘大小需要此包。
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  若要查看磁盘上的所有可用扇区，请运行以下命令：
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. 你将看到通知分区类型的详细信息。 确保它是 GPT。 标识根分区。 请勿更改或删除启动分区 (BIOS 启动分区) 和系统分区 ( "EFI 系统分区" ) 
+
+1. 使用以下命令首次启动分区。 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. 现在，你将看到一条消息，要求下一个命令 ( "命令：？ 获取帮助 ") 。 
+
+   ```
+   w
+   ```
+
+1. 您将收到一条警告，指出 "Warning！ 磁盘上的辅助标头太早放置了！ 是否要更正此问题？  (Y/N) ： "。 必须按 "Y"
+
+   ```
+   Y
+   ```
+
+1. 应该会看到一条消息，通知最终检查已完成并要求确认。 按 "Y"
+
+   ```
+   Y
+   ```
+
+1. 使用 partprobe 命令检查是否一切正常
+
+   ```
+   partprobe
+   ```
+
+1. 上述步骤确保将辅助 GPT 标头置于结尾。 下一步是再次使用 gdisk 工具开始调整大小的过程。 使用以下命令。
+
+   ```
+   gdisk /dev/sda
+   ```
+1. 在 "命令" 菜单中，按 "p" 查看分区列表。  (在步骤中标识根分区，将 sda2 视为根分区) 并且步骤中 (启动分区，sda3 被视为启动分区)  
+
+   ```
+   p
+   ```
+    ![根分区和启动分区](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. 按 "d" 删除分区，并选择分配给 boot (的分区号，在本示例中为 "3" ) 
+   ```
+   d
+   3
+   ```
+1. 按 "d" 删除分区，并选择分配给 boot (的分区号，在本示例中为 "2" ) 
+   ```
+   d
+   2
+   ```
+    ![删除根分区和启动分区](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. 若要重新创建大小增加的根分区，请按 "n"，输入以前为此) 示例的根 ( "2" 删除的分区号，并选择第一个扇区为 "默认值"，最后一个扇区作为 "最后一个扇区值-启动大小扇区" ( "4096"，这种情况下，对应于 2MB boot) ，16个8300代码
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. 若要重新创建启动分区，请按 "n"，为此示例输入先前为启动 ( "3" 删除的分区号) 并选择第一个扇区作为 "默认值"，将最后一个扇区作为 "默认值"，将十六进制代码选为 "EF02"
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. 用 "w" 命令编写更改，然后按 "Y" 确认
+   ```
+   w
+   Y
+   ```
+1. 运行命令 ' partprobe ' 检查磁盘稳定性
+   ```
+   partprobe
+   ```
+1. 重新启动 VM，根分区大小会增加
+   ```
+   reboot
+   ```
+
+   ![新建根分区和启动分区](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. 在分区上运行 xfs_growfs 命令以调整其大小
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS 增长 FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>后续步骤
 

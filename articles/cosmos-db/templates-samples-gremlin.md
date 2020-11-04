@@ -3,15 +3,16 @@ title: 适用于 Azure Cosmos DB Gremlin API 的资源管理器模板
 description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB Gremlin API。
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0cd738e48580f3ebdc97bf9a9889763b84a8b00b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2fee06a2ceb9b8062b5150e5716f1ee9abf15cff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079455"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340613"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Gremlin API 资源
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

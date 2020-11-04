@@ -4,16 +4,18 @@ description: 了解如何使用 Azure Cosmos DB .NET SDK 中的 TransactionalBat
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c27eb2b4e0dc0d269e1cffc9e213cebeb93443e2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328670"
+ms.locfileid: "93340550"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>使用 .NET SDK Azure Cosmos DB 中的事务批处理操作
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 事务性批处理描述了一组需要在容器中成功或故障转移到同一个分区键的点操作。 在 .NET SDK 中， `TranscationalBatch` 类用于定义此批处理操作。 如果所有操作都按照事务批处理操作中的顺序成功完成，则将提交事务。 但是，如果有任何操作失败，则将回滚整个事务。
 

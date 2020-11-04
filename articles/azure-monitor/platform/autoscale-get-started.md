@@ -4,12 +4,12 @@ description: 了解如何在 Azure 中缩放资源：Web 应用、云服务、�
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369261"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342209"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Microsoft Azure 门户中为资源指定自动缩放设置。
@@ -32,9 +32,9 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 
 对于每个资源，将会看到其当前实例计数和自动缩放状态。 自动缩放状态可以是：
 
-- **未配置**：尚未对此资源启用自动缩放功能。
-- **已启用**：已对此资源启用自动缩放功能。
-- **Disabled**：已对此资源禁用自动缩放功能。
+- **未配置** ：尚未对此资源启用自动缩放功能。
+- **已启用** ：已对此资源启用自动缩放功能。
+- **Disabled** ：已对此资源禁用自动缩放功能。
 
 ## <a name="create-your-first-autoscale-setting"></a>创建第一个自动缩放设置
 
@@ -115,23 +115,23 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>将流量路由到 (应用服务的正常实例) 
 
-向外扩展到多个实例时，应用服务可以对实例执行运行状况检查，以将流量路由到正常的实例。 为此，请打开应用服务的门户，并选择 "**监视**" 下的**运行状况检查**。 选择 " **启用** "，并在应用程序中提供有效的 URL 路径，例如 `/health` 或 `/api/health` 。 单击“ **保存**”。
+向外扩展到多个实例时，应用服务可以对实例执行运行状况检查，以将流量路由到正常的实例。 为此，请打开应用服务的门户，并选择 " **监视** " 下的 **运行状况检查** 。 选择 " **启用** "，并在应用程序中提供有效的 URL 路径，例如 `/health` 或 `/api/health` 。 单击“保存”。
 
 若要使用 ARM 模板启用此功能，请将 `healthcheckpath` 资源的属性设置 `Microsoft.Web/sites` 为站点上的运行状况检查路径，例如： `"/api/health/"` 。 若要禁用该功能，请将属性重新设置为空字符串 `""` 。
 
 ### <a name="health-check-path"></a>运行状况检查路径
 
-路径必须在一分钟内响应，状态代码介于200与299之间 (包含) 。 如果路径在一分钟内未响应，或返回范围之外的状态代码，则实例将被视为 "不正常"。 在运行状况检查路径上，应用服务不遵循302重定向。 运行状况检查与应用服务的身份验证和授权功能集成，即使启用了这些 microsoft.powershell.secuity 功能，系统也会到达终结点。 如果你使用自己的身份验证系统，运行状况检查路径必须允许匿名访问。 如果站点已启用 HTTP**s**，则会通过 http 发送 healthcheck**请求。**
+路径必须在一分钟内响应，状态代码介于200与299之间 (包含) 。 如果路径在一分钟内未响应，或返回范围之外的状态代码，则实例将被视为 "不正常"。 在运行状况检查路径上，应用服务不遵循302重定向。 运行状况检查与应用服务的身份验证和授权功能集成，即使启用了这些 microsoft.powershell.secuity 功能，系统也会到达终结点。 如果你使用自己的身份验证系统，运行状况检查路径必须允许匿名访问。 如果站点已启用 HTTP **s** ，则会通过 http 发送 healthcheck **请求。**
 
 运行状况检查路径应检查应用程序的关键组件。 例如，如果应用程序依赖于数据库和消息系统，则运行状况检查终结点应连接到这些组件。 如果应用程序无法连接到关键组件，路径应返回500级别的响应代码，以指示该应用程序不正常。
 
-#### <a name="security"></a>安全 
+#### <a name="security"></a>安全性 
 
 大型企业的开发团队通常需要遵守其公开的 Api 的安全要求。 若要保护 healthcheck 终结点，你应该首先使用 [IP 限制](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)、 [客户端证书](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)或虚拟网络等功能来限制对应用程序的访问。 你可以通过要求传入请求的匹配来保护 healthcheck 终结点本身 `User-Agent` `ReadyForRequest/1.0` 。 由于请求已由之前的安全功能进行了保护，因此不能欺骗 User-Agent。
 
 ### <a name="behavior"></a>行为
 
-如果提供了运行状况检查路径，应用服务会在所有实例上对路径进行 ping 操作。 如果在5个 ping 操作后未收到成功的响应代码，则将该实例视为 "不正常"。 不正常的实例 (s 将从负载均衡器轮换中排除) 。 此外，在纵向扩展或缩减时，应用服务会对运行状况检查路径进行 ping 操作，以确保新实例已准备好进行请求。
+如果提供了运行状况检查路径，应用服务会在所有实例上对路径进行 ping 操作。 如果在5个 ping 操作后未收到成功的响应代码，则将该实例视为 "不正常"。 不正常的实例 (s 将从负载均衡器轮换中排除) 。 可以通过应用设置配置所需的失败 ping 操作数 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` 。 此应用设置可设置为2到10之间的任意整数。 例如，如果此设置为，则在出现 `2` 两个失败 ping 后，将从负载均衡器中删除实例。 此外，在纵向扩展或横向扩展时，应用服务将对运行状况检查路径进行 ping 操作，以确保在将新实例添加到负载均衡器之前已准备好请求。
 
 其他正常运行的实例可能会提高负载。 若要避免出现剩余的情况，则不会再包括一半的实例。 例如，如果应用服务计划扩展到4个实例，其中3个实例不正常，最多2个将从 loadbalancer 旋转中排除。 其他2个实例 (1 正常，1个不正常) 将继续接收请求。 在所有实例都运行不正常的最糟糕的情况下，将不包括任何实例。如果要重写此行为，可以将 `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` 应用设置设置为介于和之间的值 `0` `100` 。 如果将此值设置为较高的值，则会删除 (默认值为 50) 的更不正常的实例。
 

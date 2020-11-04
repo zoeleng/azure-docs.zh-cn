@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d21b59b8822684598ac2fc3fd813278c1cf0c698
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8aae75aca585c30c0678c88247a8ecfe8a0b801d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319805"
+ms.locfileid: "93340254"
 ---
 # <a name="virtual-network-service-tags"></a>虚拟网络服务标记
 <a name="network-service-tags"></a>
@@ -84,7 +84,6 @@ ms.locfileid: "93319805"
 | **DataFactory**  | Azure 数据工厂 | 推送、请求和匿名 | 否 | 否 |
 | **DataFactoryManagement** | Azure 数据工厂的管理流量。 | 出站 | 否 | 否 |
 | **Dynamics365ForMarketingEmail** | Dynamics 365 的营销电子邮件服务的地址范围。 | 出站 | 是 | 否 |
-| **ElasticAFD** | 弹性 Azure Front Door。 | 推送、请求和匿名 | 否 | 否 |
 | **EventHub** | Azure 事件中心。 | 出站 | 是 | 是 |
 | **GatewayManager** | Azure VPN 网关和应用程序网关专用部署的管理流量。 | 入站 | 否 | 否 |
 | **GuestAndHybridManagement** | Azure 自动化和来宾配置。 | 出站 | 否 | 是 |

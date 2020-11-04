@@ -3,18 +3,21 @@ title: 排查 Java v4 SDK Azure Cosmos DB HTTP 408 或请求超时问题
 description: 了解如何通过 Java v4 SDK 诊断和修复 Java SDK 请求超时异常。
 author: kushagrathapar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 45452109582be40f007ae57a00c2a151f216bdb8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102829"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340061"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>诊断和解决 Azure Cosmos DB Java v4 SDK 请求超时异常
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 如果 SDK 在超时限制发生之前未能完成请求，则会出现 HTTP 408 错误。
 
 ## <a name="troubleshooting-steps"></a>疑难解答步骤

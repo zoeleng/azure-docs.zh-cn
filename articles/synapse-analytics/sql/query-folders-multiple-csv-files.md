@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310830"
+ms.locfileid: "93340982"
 ---
 # <a name="query-folders-and-multiple-files"></a>查询文件夹和多个文件  
 
@@ -29,7 +29,7 @@ ms.locfileid: "93310830"
 你将使用文件夹 *csv/出租车* 来执行示例查询。 它包含 NYC 出租车-从7月2016日到6月 6 2018 日，记录数据。 *Csv/出租车* 中的文件采用以下模式按年份和月份命名 <year> ： yellow_tripdata_ - <month>
 
 ## <a name="read-all-files-in-folder"></a>读取文件夹中的所有文件
-    
+
 下面的示例从 *csv/出租车* 文件夹中读取所有 NYC 的黄色出租车数据文件，并返回乘客和搭乘的总次数。 它还显示聚合函数的使用情况。
 
 ```sql
@@ -180,6 +180,49 @@ ORDER BY
 > 使用单个 OPENROWSET 访问的所有文件必须具有相同的结构 (例如，列数及其数据类型) 。
 
 由于只有一个与条件相匹配的文件夹，因此查询结果与 " [读取文件夹中的所有文件](#read-all-files-in-folder)" 相同。
+
+## <a name="traverse-folders-recursively"></a>以递归方式遍历文件夹
+
+如果在路径末尾指定了/* *，则无服务器 SQL 池可以以递归方式遍历文件夹。 以下查询将读取位于 *csv* 文件夹中的所有文件夹和子文件夹中的所有文件。
+
+```sql
+SELECT
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
+FROM OPENROWSET(
+        BULK 'csv/taxi/**', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
+GROUP BY
+    YEAR(pickup_datetime)
+ORDER BY
+    YEAR(pickup_datetime);
+```
+
+> [!NOTE]
+> 使用单个 OPENROWSET 访问的所有文件必须具有相同的结构 (例如，列数及其数据类型) 。
 
 ## <a name="multiple-wildcards"></a>多个通配符
 

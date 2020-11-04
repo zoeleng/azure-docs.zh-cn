@@ -3,15 +3,16 @@ title: 有关用于 Azure Cosmos DB 的 Cassandra API 的常见问题解答
 description: 获取有关 Azure Cosmos DB 的 Cassandra API 的常见问题的解答
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b467e191a8f009b85abb4866821dd64fc87ce657
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3436a0edf69efc71d3528bffaefd613668426fad
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092375"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339931"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中 Cassandra API 的常见问题解答。
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

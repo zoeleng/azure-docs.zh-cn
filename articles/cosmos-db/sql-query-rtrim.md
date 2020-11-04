@@ -3,16 +3,17 @@ title: Azure Cosmos DB 查询语言中的 RTRIM
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 RTRIM。
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b24e83aef6ee36f9c55810e0f4607cd015213e53
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0765269fb085c8d4fd8485790772a91c9f2e6373
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082685"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341529"
 ---
 # <a name="rtrim-azure-cosmos-db"></a>RTRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

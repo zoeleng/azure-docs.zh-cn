@@ -4,16 +4,15 @@ description: 本文介绍 Azure Cosmos DB 资源模型，其中包括 Azure Cosm
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087921"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341359"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB 资源模型
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +33,7 @@ Azure Cosmos 容器是基本的缩放单元。 容器可以提供几乎无限的
 
 下图显示 Azure Cosmos DB 帐户中不同实体的层次结构：
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 帐户的层次结构" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 帐户实体" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Azure Cosmos 数据库
 
@@ -73,7 +72,7 @@ Azure Cosmos 容器是预配的吞吐量和存储的缩放单元。 容器会进
 
 无论是使用专用还是共享预配吞吐量模式创建容器，Azure Cosmos 容器都可以弹性缩放。
 
-容器是项的架构无关容器。 容器中的项可以采用任意架构。 例如，可以在同一个容器中放置一个表示人员的项，以及一个表示汽车的项。  默认情况下，添加到容器的所有项会自动编制索引，不需要进行显式的索引或架构管理。 通过在容器上配置的[索引策略](index-overview.md)，可以自定义索引行为。 
+容器是项的架构无关容器。 容器中的项可以采用任意架构。 例如，可以在同一个容器中放置一个表示人员的项，以及一个表示汽车的项。 默认情况下，添加到容器的所有项会自动编制索引，不需要进行显式的索引或架构管理。 通过在容器上配置的[索引策略](index-overview.md)，可以自定义索引行为。 
 
 你可以为容器中的选定项设置 [生存时间 (TTL) ](time-to-live.md) ，或将整个容器设置为完全清除系统中的项目。 Azure Cosmos DB 会在这些项过期时自动将其删除。 这样还能保证对这些容器执行的查询不会返回固定边界内已过期的项。 有关详细信息，请参阅[对容器配置 TTL](how-to-time-to-live.md)。
 
