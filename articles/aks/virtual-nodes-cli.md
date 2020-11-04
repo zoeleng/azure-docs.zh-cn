@@ -6,22 +6,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899882"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348468"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为通过 Azure CLI 使用虚拟节点
 
-若要快速缩放 Azure Kubernetes 服务 (AKS) 群集中的应用程序工作负载，可以使用虚拟节点。 使用虚拟节点可快速预配 Pod，并且只需对其执行时间按秒付费。 无需等待 Kubernetes 群集自动缩放程序部署 VM 计算节点来运行其他 Pod。 只有 Linux Pod 和节点支持虚拟节点。
+本文介绍如何使用 Azure CLI 创建和配置虚拟网络资源和 AKS 群集，然后启用虚拟节点。
 
-本文介绍如何创建和配置虚拟网络资源和 AKS 群集，然后启用虚拟节点。
+> [!NOTE]
+> [本文](virtual-nodes.md) 概述了使用虚拟节点的区域可用性和限制。
 
 ## <a name="before-you-begin"></a>开始之前
 
-Azure 容器实例 (ACI) 和 AKS 群集中运行的 Pod 可以借助虚拟节点进行网络通信。 若要提供此通信，应创建虚拟网络子网并分配委派的权限。 虚拟节点仅适用于使用高级网络创建的 AKS 群集。 默认情况下，AKS 群集是使用基本网络创建的。 本文介绍如何创建虚拟网络和子网，然后部署使用高级网络的 AKS 群集。
+Azure 容器实例 (ACI) 和 AKS 群集中运行的 Pod 可以借助虚拟节点进行网络通信。 若要提供此通信，应创建虚拟网络子网并分配委派的权限。 虚拟节点仅适用于使用 *高级* 网络 (Azure CNI) 创建的 AKS 群集。 默认情况下，使用 *基本* 网络 (kubenet) 创建 AKS 群集。 本文介绍如何创建虚拟网络和子网，然后部署使用高级网络的 AKS 群集。
 
 如果以前没有使用过 ACI，请在订阅中注册服务提供程序。 你可以使用 [az provider list][az-provider-list] 命令检查 ACI 提供程序注册的状态，如下面的示例所示：
 
@@ -43,34 +44,6 @@ Microsoft.ContainerInstance  Registered           RegistrationRequired
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>区域可用性
-
-虚拟节点部署支持以下区域：
-
-* 澳大利亚东部 (australiaeast)
-* 美国中部 (centralus)
-* 美国东部 (eastus)
-* 美国东部 2 (eastus2)
-* 日本东部 (japaneast)
-* 北欧 (northeurope)
-* 东南亚 (southeastasia)
-* 美国中西部 (westcentralus)
-* 西欧 (westeurope)
-* 美国西部 (westus)
-* 美国西部 2 (westus2)
-
-## <a name="known-limitations"></a>已知的限制
-虚拟节点功能很大程度上依赖于 ACI 的功能集。 除了 [Azure 容器实例的配额和限制](../container-instances/container-instances-quotas.md)之外，虚拟节点尚不支持以下方案：
-
-* 使用服务主体拉取 ACR 映像。 [解决方法](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry)是使用 [Kubernetes 机密](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [虚拟网络限制](../container-instances/container-instances-vnet.md)包括 VNet 对等互连、Kubernetes 网络策略和网络安全组发送到 Internet 的出站流量。
-* 初始化容器
-* [主机别名](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* ACI 中的 exec 的[参数](../container-instances/container-instances-exec.md#restrictions)
-* [DaemonSet](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 不会将 Pod 部署到虚拟节点
-* 虚拟节点支持计划 Linux Pod。 你可以手动安装开源 [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) 提供程序，以便将 Windows Server 容器调度到 ACI。
-* 虚拟节点需要具有 Azure CNI 网络的 AKS 群集
-
 ## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
 
 Azure Cloud Shell 是免费的交互式 shell，可以使用它运行本文中的步骤。 它预安装有常用 Azure 工具并将其配置与帐户一起使用。
@@ -89,7 +62,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-使用 [az network vnet create][az-network-vnet-create] 命令创建虚拟网络。 以下示例使用 10.0.0.0/8  地址前缀创建一个名为 myVnet  的虚拟网络和一个名为 myAKSSubnet  的子网。 此子网的地址前缀默认为 10.240.0.0/16  ：
+使用 [az network vnet create][az-network-vnet-create] 命令创建虚拟网络。 以下示例使用 10.0.0.0/8 地址前缀创建一个名为 myVnet 的虚拟网络和一个名为 myAKSSubnet 的子网。 此子网的地址前缀默认为 10.240.0.0/16：
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +73,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-现在，使用 [az network vnet subnet create][az-network-vnet-subnet-create] 命令为虚拟节点创建其他子网。 以下示例使用 10.241.0.0/16  地址前缀创建一个名为 myVirtualNodeSubnet  的子网。
+现在，使用 [az network vnet subnet create][az-network-vnet-subnet-create] 命令为虚拟节点创建其他子网。 以下示例使用 10.241.0.0/16 地址前缀创建一个名为 myVirtualNodeSubnet 的子网。
 
 ```azurecli-interactive
 az network vnet subnet create \

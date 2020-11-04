@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122617"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346105"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure 流分析输出的故障排除
 
@@ -91,7 +91,7 @@ ms.locfileid: "93122617"
 2. 作业提取目标表的架构。
 3. 作业针对目标表架构验证列名称和类型。
 4. 作业从批处理中的输出记录准备内存中数据表。
-5. 作业使用 BulkCopy [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1)将数据表写入 SQL。
+5. 作业使用 BulkCopy [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver)将数据表写入 SQL。
 
 在这些步骤中，SQL 输出可能会出现以下类型的错误：
 

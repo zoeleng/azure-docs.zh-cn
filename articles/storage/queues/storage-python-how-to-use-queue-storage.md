@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 0b4592b846477fe16e5ebcff7c9adfb45f7fe559
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ac75b89548d346945901d752672ef0f08601ccfb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790502"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345646"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>如何通过 Python 使用 Azure 队列存储
 
@@ -33,7 +33,7 @@ ms.locfileid: "92790502"
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>下载并安装用于 Python 的 Azure 存储 SDK
 
 [用于 Python 的 Azure 存储 SDK](https://github.com/azure/azure-storage-python) 需要 Python 2.7、3.3 或更高版本。
- 
+
 ### <a name="install-via-pypi"></a>通过 PyPI 安装
 
 要通过 Python 包索引 (PyPI) 安装，请键入：
@@ -73,7 +73,7 @@ pip install azure-storage-queue==2.1.0
 
 ```python
 from azure.storage.queue import (
-        QueueService, 
+        QueueService,
         QueueMessageFormat
 )
 
@@ -297,9 +297,9 @@ queue_service.delete_queue(queue_name)
 
 在了解了队列存储的基础知识后，可单击下面的链接了解详细信息。
 
-* [Azure 队列 Python API 参考](/python/api/azure-storage-queue)
-* [Python 开发人员中心](https://azure.microsoft.com/develop/python/)
-* [Azure 存储服务 REST API](/rest/api/storageservices/)
+- [Azure 队列 Python API 参考](/python/api/azure-storage-queue)
+- [Python 开发人员中心](https://azure.microsoft.com/develop/python/)
+- [Azure 存储服务 REST API](/rest/api/storageservices/)
 
 [用于 Python 的 Azure 队列存储客户端库]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Azure SDK for Python]: https://github.com/azure/azure-sdk-for-python

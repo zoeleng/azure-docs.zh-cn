@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 957695892c39dd3ddfd9dc45d60158c89eb22698
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130623"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347476"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>创建 IoT Edge 模块产品/服务
 
@@ -234,15 +234,15 @@ IoT Edge 模块产品/服务必须在说明底部添加最低硬件要求段落�
 3. 支持地址 (链接) 
 4. 条款和条件
 5. 隐私策略地址 (链接) 
-6. “属性”
-7. 摘要
+6. 名称
+7. 总结
 8. 描述
 9. 有用的链接
 10. 屏幕截图/视频
 
 <br>下面是有关如何在 Azure Marketplace 搜索结果中显示产品/服务的示例：
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="说明此产品/服务在 Azure Marketplace 搜索结果中的显示方式。":::
 
 #### <a name="call-out-descriptions"></a>拨出说明
 
@@ -252,18 +252,18 @@ IoT Edge 模块产品/服务必须在说明底部添加最低硬件要求段落�
 
 <br>下面是有关如何在 Azure 门户中显示产品/服务的示例：
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="说明了此产品/服务在 Azure 门户中的显示方式。":::
 
 #### <a name="call-out-descriptions"></a>拨出说明
 
-1. “属性”
+1. 名称
 2. 描述
 3. 有用的链接
 4. 屏幕截图
 
 <br>下面是一个示例，说明了产品/服务信息在 "Azure 门户搜索" 结果中的显示方式：
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="说明此产品/服务在 Azure 门户搜索结果中的显示方式。":::
 
 #### <a name="call-out-descriptions"></a>拨出说明
 
@@ -362,7 +362,7 @@ Azure 政府服务处理符合特定政府法规和要求的数据。 例如，F
 
 下面是 Azure Marketplace 计划详细信息的示例 (列出的所有价格仅用于举例目的，而不用于反映实际成本) ：
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="说明 Azure Marketplace 计划详细信息。":::
 
 #### <a name="call-out-descriptions"></a>拨出说明
 
@@ -372,7 +372,7 @@ Azure 政府服务处理符合特定政府法规和要求的数据。 例如，F
 
 <br>下面是 Azure 门户计划详细信息的示例 (任何列出的价格仅用于举例目的，而不用于反映实际成本) ：
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="说明 Azure 门户计划详细信息。":::
 
 #### <a name="call-out-descriptions"></a>拨出说明
 
@@ -413,15 +413,15 @@ Azure 容器注册表名称：提供包含容器映像的 [Azure 容器注册表
 
 **Azure 容器注册表的管理员用户名** ：提供与具有容器映像的 Azure 容器注册表关联) 的 [管理员用户名](../../container-registry/container-registry-authentication.md#admin-account) 。 用户名和密码是必需的，以确保公司有权访问注册表。 若要获取管理员用户名和密码，请使用 Azure 命令行接口 (CLI) 将“管理员已启用”属性设置为“True”。 在 Azure 门户中，可以视需要选择将“管理员用户”设置为“启用”。
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="展示了“更新容器注册表”对话框。":::
 
 #### <a name="call-out-description"></a>拨出说明
 
 1. 管理员用户
 
-<br>Azure 容器注册表的密码：提供与包含容器映像的 Azure 容器注册表关联的管理员用户名的密码。 用户名和密码是必需的，以确保公司有权访问注册表。 可以从 Azure 门户中获取密码，具体方法为依次转到“容器注册表” > “访问密钥”，或通过 Azure CLI 运行 [show 命令](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)。
+<br>Azure 容器注册表的密码：提供与包含容器映像的 Azure 容器注册表关联的管理员用户名的密码。 用户名和密码是必需的，以确保公司有权访问注册表。 可以从 Azure 门户中获取密码，具体方法为依次转到“容器注册表” > “访问密钥”，或通过 Azure CLI 运行 [show 命令](/cli/azure/acr/credential#az-acr-credential-show)。
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="说明此产品/服务在 Azure Marketplace 中的显示方式。":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="说明 Azure 门户中的访问密钥屏幕。":::
 
 #### <a name="call-out-descriptions"></a>拨出说明
 
@@ -492,4 +492,4 @@ Azure 容器注册表中的存储库名称。 提供包含映像的 Azure 容器
 
 ## <a name="next-steps"></a>后续步骤
 
-- [更新商业市场中的现有产品/服务](//azure/marketplace/partner-center-portal/update-existing-offer)
+- [更新商业市场中的现有产品/服务](update-existing-offer.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809205"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345833"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何通过 PHP 使用队列存储
 
@@ -38,7 +38,7 @@ ms.locfileid: "84809205"
 ### <a name="install-via-composer"></a>通过 Composer 安装
 
 1. 在项目的根目录中创建一个名为 **composer.json** 的文件并向其添加以下代码：
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ ms.locfileid: "84809205"
       }
     }
     ```
+
 2. 将 **[composer.phar][composer-phar]** 下载到项目根目录中。
 3. 打开命令提示符并在项目根目录中执行以下命令
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 若要创建 Azure 队列服务客户端，则需要使用 QueueRestProxy 类  。 可使用以下方法之一：
 
-* 将连接字符串直接传递给它。
-* 在 Web 应用中使用环境变量来存储连接字符串。 要配置连接字符串，请参阅 [Azure Web 应用配置设置](../../app-service/configure-common.md)文档。
+- 将连接字符串直接传递给它。
+- 在 Web 应用中使用环境变量来存储连接字符串。 要配置连接字符串，请参阅 [Azure Web 应用配置设置](../../app-service/configure-common.md)文档。
+
 在此处列出的示例中，将直接传递连接字符串。
 
 ```php
@@ -139,8 +141,6 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > 不应依赖元数据密钥区分大小写的性质。 以小写形式从服务中读取所有密钥。
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>向队列添加消息
 
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 既已了解有关 Azure 队列存储的基础知识，可单击以下链接了解更复杂的存储任务。
 
-* 请访问 [Azure 存储 PHP 客户端库的 API 参考](https://azure.github.io/azure-storage-php/)
-* 请参阅[高级队列示例](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)。
+- 请访问 [Azure 存储 PHP 客户端库的 API 参考](https://azure.github.io/azure-storage-php/)
+- 请参阅[高级队列示例](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)。
 
 有关详细信息，另请参阅 [PHP 开发人员中心](https://azure.microsoft.com/develop/php/)。
 

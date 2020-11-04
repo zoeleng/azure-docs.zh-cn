@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
 ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92131133"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>添加或更新用于 Azure 的信用卡
@@ -116,7 +116,7 @@ Microsoft Azure 支持的付款方式为信用卡和支票/电汇。 若要获�
    ![屏幕截图，显示菜单中的付款方式](./media/change-credit-card/payment-methods-tab-mca.png)
 1. 在“你的信用卡”部分，找到要编辑的信用卡。
 1. 选择行尾的省略号图标 (`...`)。  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="显示“替换”选项的屏幕截图" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="显示省略号图标的屏幕截图" :::
 1. 若要编辑信用卡详细信息，请从上下文菜单中选择“编辑”。
 
 ## <a name="troubleshooting"></a>疑难解答

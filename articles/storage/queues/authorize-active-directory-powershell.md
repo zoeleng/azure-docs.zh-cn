@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785657"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346020"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>使用 Azure AD 凭据运行 PowerShell 命令以访问队列数据
 
@@ -27,7 +27,7 @@ Azure 存储为 PowerShell 提供扩展，使用户可使用 Azure Active Direct
 
 队列数据操作支持 Azure 存储扩展。 可调用的操作取决于向 Azure AD 安全主体授予的权限，此安全主体用于登录 PowerShell。 通过 Azure RBAC 分配对 Azure 存储队列的权限。 例如，如果已将 **队列数据读取器** 角色分配给你，则可以运行脚本命令来从队列中读取数据。 如果已分配 **队列数据参与者** 角色，则可以运行脚本命令来读取、写入或删除队列及其包含的数据。
 
-有关队列上的每个 Azure 存储操作所需的权限的详细信息，请参阅 [使用 OAuth 令牌调用存储操作](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)。  
+有关队列上的每个 Azure 存储操作所需的权限的详细信息，请参阅 [使用 OAuth 令牌调用存储操作](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)。
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>使用 Azure AD 凭据调用 PowerShell 命令
 
@@ -45,7 +45,7 @@ Azure 存储为 PowerShell 提供扩展，使用户可使用 Azure Active Direct
 
     若要详细了解如何使用 PowerShell 登录 Azure，请参阅[使用 Azure PowerShell 登录](/powershell/azure/authenticate-azureps)。
 
-1. 调用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 
+1. 调用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

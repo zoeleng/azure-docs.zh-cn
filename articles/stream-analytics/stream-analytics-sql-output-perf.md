@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129739"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346326"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>从 Azure 流分析输出到 Azure SQL 数据库
 
@@ -35,7 +35,7 @@ Azure 流分析中的 SQL 输出支持使用并行写入作为一个选项。 �
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- 已 **分区的表和索引** –在表中使用已 [分区](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017)的 SQL 表和已分区索引（与分区键相同的列） (例如，PartitionId) 可以显著减少写入过程中分区之间的争用。 对于分区表，需要在 PRIMARY 文件组中创建[分区函数](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017)和[分区方案](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017)。 这也可以在加载新数据时提高现有数据的可用性。 根据分区的数量，可能会达到日志 IO 限制；升级 SKU 可以提高限制。
+- 已 **分区的表和索引** –在表中使用已 [分区](/sql/relational-databases/partitions/partitioned-tables-and-indexes)的 SQL 表和已分区索引（与分区键相同的列） (例如，PartitionId) 可以显著减少写入过程中分区之间的争用。 对于分区表，需要在 PRIMARY 文件组中创建[分区函数](/sql/t-sql/statements/create-partition-function-transact-sql)和[分区方案](/sql/t-sql/statements/create-partition-scheme-transact-sql)。 这也可以在加载新数据时提高现有数据的可用性。 根据分区的数量，可能会达到日志 IO 限制；升级 SKU 可以提高限制。
 
 - **避免唯一键冲突** –如果你在 Azure 流分析活动日志中收到 [多个键冲突警告消息](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) ，请确保你的作业不受在恢复案例中可能会发生的唯一约束冲突的影响。 可以通过在索引中设置 [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) 选项来避免此问题。
 

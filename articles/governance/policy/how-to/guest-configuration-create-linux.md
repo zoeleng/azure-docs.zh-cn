@@ -4,12 +4,12 @@ description: 了解如何创建适用于 Linux 的 Azure Policy 来宾配置策�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305550"
+ms.locfileid: "93346870"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>如何创建适用于 Linux 的来宾配置策略
 
@@ -24,7 +24,11 @@ ms.locfileid: "93305550"
 请执行以下操作来创建你自己的配置，用于验证 Azure 或非 Azure 计算机的状态。
 
 > [!IMPORTANT]
+> Azure 政府和 Azure 中国环境中具有来宾配置的自定义策略定义是一项预览功能。
+>
 > 必须有来宾配置扩展，才能在 Azure 虚拟机中执行审核。 若要在所有 Linux 计算机上大规模部署扩展，请分配以下策略定义：`Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> 不要在自定义内容包中使用机密或机密信息。
 
 ## <a name="install-the-powershell-module"></a>安装 PowerShell 模块
 
@@ -49,7 +53,9 @@ ms.locfileid: "93305550"
 - Windows
 
 > [!NOTE]
-> 由于 cmdlet“Test-GuestConfigurationPackage”依赖于 OMI，因此它需要 OpenSSL 版本 1.0。 这会导致使用 OpenSSL 1.1 或更高版本的任何环境出现错误。
+> Cmdlet `Test-GuestConfigurationPackage` 需要 OpenSSL 版本1.0，因为依赖于 OMI。 这会导致使用 OpenSSL 1.1 或更高版本的任何环境出现错误。
+>
+> `Test-GuestConfigurationPackage`仅支持在适用于来宾配置模块版本2.1.0 的 Windows 上运行此 cmdlet。
 
 来宾配置资源模块需要以下软件：
 
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>策略生命周期
 
-若要发布策略定义的更新，需要注意以下两个字段。
+若要发布策略定义的更新，需要注意三个字段。
 
-- **版本** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。 此属性更新来宾配置分配版本，这样代理就能识别更新后的包。
+> [!NOTE]
+> `version`来宾配置分配的属性仅影响由 Microsoft 托管的包。 自定义内容的版本控制的最佳做法是在文件名中包含版本。
+
+- **版本** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。
+- **contentUri** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定包位置的 URI。 在文件名中包含包版本将确保每个版本中此属性的值发生更改。
 - contentHash：此属性由 `New-GuestConfigurationPolicy` cmdlet 自动更新。 它是 `New-GuestConfigurationPackage` 创建的包的哈希值。 对于你发布的 `.zip` 文件，此属性必须是正确的。 如果只更新了 contentUri 属性，扩展就不会接受内容包。
 
 发布更新后的包的最简单方法是，重复本文中描述的过程，并提供更新后的版本号。 此过程保证所有属性都已正确更新。
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>使用标记筛选来宾配置策略
 

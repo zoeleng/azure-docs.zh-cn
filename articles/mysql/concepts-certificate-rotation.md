@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 6005e56982d6adad937586c6a1b364fab09603ec
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 58143bde757a44cde4e4237715823c8556ac5e12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242307"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348434"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>了解 Azure Database for MySQL 的根 CA 更改中的更改
 
@@ -31,19 +31,19 @@ Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱�
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>如何知道我的数据库是否会受影响？
 
 使用 SSL/TLS 并验证根证书的所有应用程序都需要更新根证书。 通过查看连接字符串，可以确定连接是否验证根证书。
--   如果你的连接字符串包含 `sslmode=verify-ca` 或 `sslmode=verify-identity`，则你需要更新证书。
--   如果你的连接字符串包含 `sslmode=disable`、`sslmode=allow`、`sslmode=prefer` 或 `sslmode=require`，则你不需要更新证书。 
+-    如果你的连接字符串包含 `sslmode=verify-ca` 或 `sslmode=verify-identity`，则你需要更新证书。
+-    如果你的连接字符串包含 `sslmode=disable`、`sslmode=allow`、`sslmode=prefer` 或 `sslmode=require`，则你不需要更新证书。 
 -  如果使用 Java 连接器并且你的连接字符串包含 useSSL=false 或 requireSSL=false，则你不需要更新证书。
--   如果你的连接字符串未指定 sslmode，则你不需要更新证书。
+-    如果你的连接字符串未指定 sslmode，则你不需要更新证书。
 
 如果你使用的客户端将连接字符串提取出来，请查看客户端的文档，以了解它是否验证证书。
 若要了解 Azure Database for MySQL sslmode，请查看 [SSL 模式说明](concepts-ssl-connection-security.md#ssl-default-settings)。
 
-若要避免应用程序的可用性因为证书被意外撤销而被中断，或要更新已吊销的证书，请参阅 [**"维护连接需要执行哪些操作"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity) 部分。
+若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅 [ **“我需要做什么来维护连接”**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>我需要做什么来维护连接
 
-若要避免应用程序的可用性因为证书被意外撤销而被中断，或要更新已吊销的证书，请执行以下步骤。 其思路是创建一个新的 .pem 文件，该文件组合了当前证书和新证书，在 SSL 证书验证期间将使用允许的值之一。 请参考以下步骤：
+若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请执行以下步骤。 其思路是创建一个新的 .pem 文件，该文件组合了当前证书和新证书，在 SSL 证书验证期间将使用允许的值之一。 请参考以下步骤：
 
 *   从以下链接下载 Baltimorecybertrustroot.crt.pem & DigiCertGlobalRootG2 根 CA：
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
@@ -80,19 +80,19 @@ Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱�
  </br>-----END CERTIFICATE-----
 
 *   将原始根 CA pem 文件替换为组合的根 CA 文件，然后重启应用程序/客户端。
-*   将来，在服务器端部署新证书后，可以将 CA pem 文件更改为 DigiCertGlobalRootG2.crt.pem。
+*    将来，在服务器端部署新证书后，可以将 CA pem 文件更改为 DigiCertGlobalRootG2.crt.pem。
 
 ## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>不更新证书会产生什么影响？
 如果使用此处所述的 Azure Database for MySQL 颁发的证书，则可能会中断应用程序的可用性，因为数据库将无法访问。 根据你的应用程序，你可能会收到各种错误消息，其中包括但不限于：
-*   证书/已吊销的证书无效
-*   连接超时
+*    证书/已吊销的证书无效
+*    连接超时
 
 > [!NOTE]
 > 在进行证书更改之前，请不要删除或更改 **巴尔的摩证书** 。 更改完成后，我们会发送讯息，之后用户便可以安全地删除 Baltimore 证书。 
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
-### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1.如果我不使用 SSL/TLS，是否仍需要更新根 CA？
+###    <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1.如果我不使用 SSL/TLS，是否仍需要更新根 CA？
 如果不使用 SSL/TLS，则无需执行任何操作。 
 
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2.如果我使用 SSL/TLS，是否需要重启数据库服务器来更新根 CA？
@@ -104,7 +104,7 @@ Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱�
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4.如果将应用服务与 Azure Database for MySQL 一起使用，会产生什么影响？
 对于连接到 Azure Database for MySQL 的 Azure 应用服务，可以采用两种可能的方案，具体取决于你在应用程序中使用 SSL 的方式。
 *   此新证书已在平台级别添加到应用服务。 如果你在应用程序中使用应用服务平台上包含的 SSL 证书，则无需执行任何操作。
-*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。此方案的一个很好的示例是，在应用服务中使用自定义容器，如[应用服务文档](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress)中所述
+*   如果你在代码中显式包含 SSL 证书文件的路径，则需要下载新证书，并更新代码以使用新证书。此方案的一个很好的示例是，在应用服务中使用自定义容器，如[应用服务文档](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)中所述
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5.如果将 Azure Kubernetes 服务 (AKS) 与 Azure Database for MySQL 一起使用，会产生什么影响？
 如果尝试使用 Azure Kubernetes 服务 (AKS) 连接到 Azure Database for MySQL，这与从专用客户主机环境访问类似。 请参考[此处](../aks/ingress-own-tls.md)的步骤。
@@ -123,13 +123,13 @@ Azure Database for MySQL 将更改通过 SSL 启用的客户端应用程序/驱�
 ### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9.如果我在 2021 年 2 月 15 日 (2021/02/15) 之后创建新的服务器，我是否会受影响？
 对于在 2021 年 2 月 15 日 (2021/02/15) 之后创建的服务器，可以使用应用程序的新颁发的证书通过 SSL 进行连接。
 
-### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10.Microsoft 更新其证书的频率是多少？或者说过期策略是怎样的？
+###    <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10.Microsoft 更新其证书的频率是多少？或者说过期策略是怎样的？
 Azure Database for MySQL 使用的这些证书是由受信任的证书颁发机构 (CA) 提供的。 因此，Azure Database for MySQL 对这些证书的支持与 CA 对这些证书的支持相关联。 但是，这些预定义证书中可能存在无法预料的 bug，这些 bug 需要尽早进行修复，正如此示例一样。
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11.如果我使用的是只读副本，是否只需在源服务器或只读副本上执行此更新？
+###    <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11.如果我使用的是只读副本，是否只需在源服务器或只读副本上执行此更新？
 由于此更新是客户端更改，因此，如果客户端过去从副本服务器读取数据，则还需要对这些客户端应用更改。
 
-### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12.如果我使用的是数据传入复制，是否需要执行任何操作？
+###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12.如果我使用的是数据传入复制，是否需要执行任何操作？
 如果你使用[数据传入复制](concepts-data-in-replication.md)来连接到 Azure Database for MySQL，则需要考虑以下两个事项：
 *   如果数据复制是从虚拟机（本地或 Azure 虚拟机）到 Azure Database for MySQL，则需要检查是否使用了 SSL 来创建副本。 运行 **SHOW SLAVE STATUS** 并检查以下设置。  
 
@@ -152,5 +152,5 @@ Azure Database for MySQL 使用的这些证书是由受信任的证书颁发机�
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14.如果我的证书文件中已有 DigiCertGlobalRootG2，是否需要执行任何操作？
 否。 如果你的证书文件已经有 **DigiCertGlobalRootG2** ，则无需执行任何操作。
 
-### <a name="15-what-if-i-have-further-questions"></a>15.如果我有其他问题，该怎么办？
+###    <a name="15-what-if-i-have-further-questions"></a>15.如果我有其他问题，该怎么办？
 如果有疑问，请从 [Microsoft Q&的](mailto:AzureDatabaseforMySQL@service.microsoft.com)社区专家那里获取答案。 如果你有支持计划并需要技术帮助，请[联系我们](mailto:AzureDatabaseforMySQL@service.microsoft.com)。

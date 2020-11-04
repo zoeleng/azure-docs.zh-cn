@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425136"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346003"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>如何通过 Java 使用队列存储
 
@@ -22,7 +22,7 @@ ms.locfileid: "92425136"
 
 ## <a name="overview"></a>概述
 
-本指南演示了如何为使用 Azure 队列存储服务的常见方案编写代码。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 方案包括**插入**、**速览**、**获取**和**删除**队列消息。 还介绍了用于**创建**和**删除**队列的代码。 有关队列的详细信息，请参阅[后续步骤](#next-steps)部分。
+本指南演示了如何为使用 Azure 队列存储服务的常见方案编写代码。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 方案包括 **插入** 、 **速览** 、 **获取** 和 **删除** 队列消息。 还介绍了用于 **创建** 和 **删除** 队列的代码。 有关队列的详细信息，请参阅[后续步骤](#next-steps)部分。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-可以将此字符串存储在名为 ServiceConfiguration.cscfg 的服务配置文件中。 对于在 Microsoft Azure 角色内运行的应用，通过调用 **roleenvironment.getconfigurationsettings**访问连接字符串。 下面是从名为 StorageConnectionString 的 Setting 元素获取连接字符串的示例：
+
+可以将此字符串存储在名为 ServiceConfiguration.cscfg 的服务配置文件中。 对于在 Microsoft Azure 角色内运行的应用，通过调用 **roleenvironment.getconfigurationsettings** 访问连接字符串。 下面是从名为 StorageConnectionString 的 Setting 元素获取连接字符串的示例：
 
 ```java
 // Retrieve storage account from connection-string.
@@ -213,7 +214,7 @@ catch (Exception e)
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-要将消息插入现有队列，请先创建一个新的 **CloudQueueMessage**。 接下来，调用 **addMessage** 方法。 可从字符串（UTF-8 格式）或字节数组创建 CloudQueueMessage。 以下代码创建队列（如果该队列不存在）并插入消息“Hello, World”。
+要将消息插入现有队列，请先创建一个新的 **CloudQueueMessage** 。 接下来，调用 **addMessage** 方法。 可从字符串（UTF-8 格式）或字节数组创建 CloudQueueMessage。 以下代码创建队列（如果该队列不存在）并插入消息“Hello, World”。
 
 ```java
 try
@@ -246,7 +247,7 @@ catch (Exception e)
 
 ## <a name="how-to-peek-at-the-next-message"></a>如何：扫视下一条消息
 
-通过调用 **peekMessage**，可以扫视队列前面的消息，而不会从队列中删除它。
+通过调用 **peekMessage** ，可以扫视队列前面的消息，而不会从队列中删除它。
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
@@ -436,13 +437,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java v12](#tab/java)
 
-代码通过两个步骤来取消对队列中某条消息的排队。 调用 receiveMessage 时，可获得队列中的下一条消息。 从 receiveMessage 返回的消息对从此队列读取消息的任何其他代码不可见。 默认情况下，此消息持续 30 秒不可见。 要从队列中删除消息，还必须调用 **deleteMessage**。 如果你的代码未能处理消息，此两步过程可确保你可以获取同一消息并重试。 代码在处理消息后会立即调用 **deleteMessage**。
+代码通过两个步骤来取消对队列中某条消息的排队。 调用 receiveMessage 时，可获得队列中的下一条消息。 从 receiveMessage 返回的消息对从此队列读取消息的任何其他代码不可见。 默认情况下，此消息持续 30 秒不可见。 要从队列中删除消息，还必须调用 **deleteMessage** 。 如果你的代码未能处理消息，此两步过程可确保你可以获取同一消息并重试。 代码在处理消息后会立即调用 **deleteMessage** 。
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[Java v8](#tab/java8)
 
-代码通过两个步骤来取消对队列中某条消息的排队。 在调用 **retrieveMessage**时，你获得队列中的下一条消息。 从 **retrieveMessage** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 默认情况下，此消息持续 30 秒不可见。 要从队列中删除消息，还必须调用 **deleteMessage**。 如果你的代码未能处理消息，此两步过程可确保你可以获取同一消息并重试。 代码在处理消息后会立即调用 **deleteMessage**。
+代码通过两个步骤来取消对队列中某条消息的排队。 在调用 **retrieveMessage** 时，你获得队列中的下一条消息。 从 **retrieveMessage** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 默认情况下，此消息持续 30 秒不可见。 要从队列中删除消息，还必须调用 **deleteMessage** 。 如果你的代码未能处理消息，此两步过程可确保你可以获取同一消息并重试。 代码在处理消息后会立即调用 **deleteMessage** 。
 
 ```java
 try
@@ -600,10 +601,10 @@ catch (Exception e)
 
 现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
-* [Azure Storage SDK for Java][Azure Storage SDK for Java]
-* [Azure 存储客户端 SDK 参考][Azure Storage Client SDK Reference]
-* [Azure Storage Services REST API（Azure 存储服务 REST API）][Azure Storage Services REST API]
-* [Azure 存储团队博客][Azure Storage Team Blog]
+- [Azure Storage SDK for Java][Azure Storage SDK for Java]
+- [Azure 存储客户端 SDK 参考][Azure Storage Client SDK Reference]
+- [Azure Storage Services REST API（Azure 存储服务 REST API）][Azure Storage Services REST API]
+- [Azure 存储团队博客][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336674"
+ms.locfileid: "93345493"
 ---
 # <a name="how-to-use-batch-transcription"></a>如何使用批量听录
 
@@ -49,7 +49,7 @@ ms.locfileid: "93336674"
 如果计划自定义模型，请按照[声音自定义](how-to-customize-acoustic-models.md)和[语言自定义](how-to-customize-language-model.md)中的步骤操作。 若要在批量听录中使用所创建的模型，需要提供其模型位置。 可以在检查模型的详细信息（`self` 属性）时检索模型位置。 批量听录服务不需要已部署的自定义终结点。
 
 >[!NOTE]
-> 作为 REST API 的一部分，批处理脚本包含一组 [配额和限制](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource)，我们鼓励你进行查看。 若要充分利用批处理脚本有效转录大量音频文件的功能，建议始终按请求发送多个文件，或指向包含音频文件的 Blob 存储容器到转录。 该服务会转录文件同时减少周转时间。 在单个请求中使用多个文件非常简单且非常简单-请参阅 [配置](#configuration) 部分。 
+> 作为 REST API 的一部分，批处理脚本包含一组 [配额和限制](speech-services-quotas-and-limits.md#batch-transcription)，我们鼓励你进行查看。 若要充分利用批处理脚本有效转录大量音频文件的功能，建议始终按请求发送多个文件，或指向包含音频文件的 Blob 存储容器到转录。 该服务会转录文件同时减少周转时间。 在单个请求中使用多个文件非常简单且非常简单-请参阅 [配置](#configuration) 部分。 
 
 ## <a name="batch-transcription-api"></a>批量听录 API
 

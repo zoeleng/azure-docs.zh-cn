@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7cf3caa0e309c1640db6ca2817a91f9db71c5110
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 03655e88d4d4c9183bff71e04bf447f470fcf557
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129909"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348400"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>适用于流分析的 Azure 安全基线
 
@@ -22,7 +22,7 @@ ms.locfileid: "93129909"
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全
+## <a name="network-security"></a>网络安全性
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -156,7 +156,7 @@ ms.locfileid: "93129909"
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -224,7 +224,7 @@ ms.locfileid: "93129909"
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -238,9 +238,9 @@ ms.locfileid: "93129909"
 
 **指导** ：Azure AD 具有必须显式分配的内置角色。 可以查询角色以了解成员资格。 使用 Azure AD PowerShell 模块执行即席查询，以发现属于管理组成员的帐户。
 
-* [如何使用 PowerShell 获取 Azure AD 中的目录角色](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [如何使用 PowerShell 获取 Azure AD 中的目录角色](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure 安全中心监视** ：是
 
@@ -454,7 +454,7 @@ ms.locfileid: "93129909"
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7：使用基于主机的数据丢失防护来强制实施访问控制
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -498,7 +498,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2：部署自动操作系统修补管理解决方案
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -514,7 +514,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4：比较连续进行的漏洞扫描
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -542,7 +542,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 * [如何使用 Azure Resource Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
-* [如何查看 Azure 订阅](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [如何查看 Azure 订阅](/powershell/module/az.accounts/get-azsubscription)
 
 * [了解 Azure RBAC](../role-based-access-control/overview.md)
 
@@ -604,7 +604,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6：监视计算资源中未批准的软件应用程序
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -620,7 +620,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -682,7 +682,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 **指导** ：使用“Microsoft.StreamAnalytics”命名空间中的 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure 流分析的配置。 还可使用与 Azure 流分析相关的内置策略定义，例如： - 应启用 Azure 流分析中的诊断日志
 
-* [如何查看可用的 Azure Policy 别名](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [如何查看可用的 Azure Policy 别名](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Azure Policy 内置策略定义](../governance/policy/samples/built-in-policies.md)
 
@@ -694,7 +694,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2：建立安全的操作系统配置
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -724,7 +724,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 **指导** ：使用 Azure Repos 安全地存储和管理代码，包括自定义 Azure 策略、Azure 资源管理器模板、Desired State Configuration 脚本、用户定义的函数、查询。 若要访问在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。
 
-* [如何在 Azure DevOps 中存储代码](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [如何在 Azure DevOps 中存储代码](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [关于 Azure DevOps 中的权限和组](/azure/devops/organizations/security/about-permissions)
 
@@ -734,7 +734,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -770,7 +770,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10：为操作系统实施自动配置监视
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -818,7 +818,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
-**指导** ：不适用；此建议适用于计算资源。
+**指南** ：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视** ：不适用
 
@@ -880,7 +880,7 @@ Azure 存储 blob 的软删除： https://docs.microsoft.com/azure/storage/blobs
 
 可以使用 Azure CLI 或 PowerShell 在 Azure Key Vault 中备份客户管理/提供的密钥。
 
-* [如何在 Azure 中备份密钥保管库密钥](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [如何在 Azure 中备份密钥保管库密钥](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure 安全中心监视** ：目前不可用
 
@@ -940,7 +940,7 @@ Azure 存储 blob 的软删除： https://docs.microsoft.com/azure/storage/blobs
 
 ### <a name="103-test-security-response-procedures"></a>10.3：测试安全响应过程
 
-**指南** ：定期执行演练来测试系统的事件响应功能，以帮助保护 Azure 资源。 识别弱点和差距，并根据需要修改计划。
+**指导** ：定期执行演练来测试系统的事件响应功能，以帮助保护 Azure 资源。 识别弱点和差距，并根据需要修改计划。
 
 * [请参阅 NIST 的刊物：Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)（IT 规划和功能的测试、培训与演练计划指南）
 
@@ -990,7 +990,7 @@ Azure 存储 blob 的软删除： https://docs.microsoft.com/azure/storage/blobs
 
 * [请遵循 Microsoft 互动规则，确保你的渗透测试不违反 Microsoft 政策](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [可在此处详细了解如何针对 Microsoft 托管云基础结构、服务和应用程序执行红队测试和实时站点渗透测试，以及 Microsoft 的相关策略](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [可在此处找到有关 Microsoft 管理的云基础结构、服务和应用程序的 Microsoft 策略和执行红色组合和实时站点渗透测试的详细信息](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure 安全中心监视** ：不适用
 

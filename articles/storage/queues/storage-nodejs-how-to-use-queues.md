@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289678"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345935"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 队列存储
 
@@ -42,7 +42,7 @@ ms.locfileid: "91289678"
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-1. 在命令窗口中键入 **npm install \@azure/storage-queue**。
+1. 在命令窗口中键入 **npm install \@azure/storage-queue** 。
 
 1. 验证是否已创建 **node\_modules** 文件夹。 在该文件夹中，你会发现 **\@azure/storage-queue** 包，其中包含访问存储所需的客户端库。
 
@@ -160,13 +160,13 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-通过调用 [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-) 更改已在队列中的消息的内容。 
+通过调用 [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-) 更改已在队列中的消息的内容。
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-通过调用 **updateMessage** 在队列中就地更改消息的内容。 
+通过调用 **updateMessage** 在队列中就地更改消息的内容。
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -234,8 +234,8 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 
 可以通过两种方式自定义队列中的消息检索：
 
-* [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) - 检索一批消息（最多 32 条）。
-* [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) - 设置更长或更短的不可见性超时。
+- [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) - 检索一批消息（最多 32 条）。
+- [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) - 设置更长或更短的不可见性超时。
 
 以下示例使用 **receiveMessages** 方法在一次调用中获取 5 条消息。 然后，使用 `for` 循环处理每条消息。 它还会将通过此方法返回的所有消息的不可见性超时设置为 5 分钟。
 
@@ -245,8 +245,8 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 
 可以通过两种方式自定义队列中的消息检索：
 
-* `options.numOfMessages` - 获取一批消息（最多 32 条）。
-* `options.visibilityTimeout` - 设置较长或较短的不可见性超时。
+- `options.numOfMessages` - 获取一批消息（最多 32 条）。
+- `options.visibilityTimeout` - 设置较长或较短的不可见性超时。
 
 以下示例使用 **getMessages** 方法通过一次调用获取 15 条消息。 然后，使用 `for` 循环处理每条消息。 它还会将通过此方法返回的所有消息的不可见性超时设置为 5 分钟。
 
@@ -301,7 +301,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-若要检索队列的列表，请使用 **listQueuesSegmented**。 若要检索按特定前缀筛选的列表，请使用 **listQueuesSegmentedWithPrefix**。
+若要检索队列的列表，请使用 **listQueuesSegmented** 。 若要检索按特定前缀筛选的列表，请使用 **listQueuesSegmentedWithPrefix** 。
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -337,7 +337,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-若要清除队列中的所有消息而不删除该队列，请调用 **clearMessages**。
+若要清除队列中的所有消息而不删除该队列，请调用 **clearMessages** 。
 
 ---
 
@@ -347,8 +347,8 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
-* 若要了解新增功能，请访问 [Azure 存储团队博客][Azure Storage Team Blog]
-* 访问 GitHub 上的[用于 JavaScript 的 Azure 存储客户端库][Azure Storage client library for JavaScript]存储库
+- 若要了解新增功能，请访问 [Azure 存储团队博客][Azure Storage Team Blog]
+- 访问 GitHub 上的[用于 JavaScript 的 Azure 存储客户端库][Azure Storage client library for JavaScript]存储库
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

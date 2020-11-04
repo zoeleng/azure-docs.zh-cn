@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125166"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348332"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>商业应用商店合作伙伴和客户使用情况归属
 
@@ -159,7 +159,7 @@ GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创�
 
 #### <a name="example-the-net-sdk"></a>示例： .NET SDK
 
-对于 .NET，请确保设置用户代理。 使用以下代码，可以使用 [Microsoft Azure 管理](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) 库来设置用户代理， (c # 中的示例 ) ：
+对于 .NET，请确保设置用户代理。 使用以下代码，可以使用 [Microsoft Azure 管理](/dotnet/api/microsoft.azure.management.fluent) 库来设置用户代理， (c # 中的示例 ) ：
 
 ```csharp
 

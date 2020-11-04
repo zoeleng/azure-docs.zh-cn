@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e0534fa6eaccbfb9318369e0a4224d84fa8de7c8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333458"
+ms.locfileid: "93347703"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>预览版：使用客户管理的密钥加密映像
 
@@ -134,7 +134,7 @@ New-AzGalleryImageVersion `
 
 ## <a name="cli"></a>CLI 
 
-在公共预览版中，首先需要注册该功能。
+对于公共预览版，首先需要注册该功能。 注册花费大约30分钟。
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption

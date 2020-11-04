@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315817"
+ms.locfileid: "93347516"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>用 Azure 容器注册表管理公共内容
 
@@ -28,7 +28,7 @@ ms.locfileid: "93315817"
 第一步，如果你当前要从 Docker 中心拉取公共映像作为生成或部署工作流的一部分，我们建议你 [使用 Docker 中心帐户进行身份验证](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) ，而不是发出匿名拉取请求。
 
 > [!NOTE]
-> 从2020年11月2日起生效， [下载速率限制](https://docs.docker.com/docker-hub/download-rate-limit) 适用于来自 Docker 免费计划帐户的对 docker 中心的匿名请求和经过身份验证的请求，并通过 IP 地址和 Docker ID respecitively 来强制执行。 
+> 从2020年11月2日起生效， [下载速率限制](https://docs.docker.com/docker-hub/download-rate-limit) 适用于来自 Docker 免费计划帐户的对 docker 中心的匿名请求和经过身份验证的请求，并分别由 IP 地址和 Docker ID 强制执行。 
 >
 > 估计拉取请求数量时，请考虑在使用云提供商服务或在企业 NAT 后面工作时，会将多个用户作为 IP 地址的子集提供给 Docker 中心。 向 Docker 中心发出的请求添加 Docker 付费帐户身份验证将避免由于速率限制阻止而导致的潜在服务中断。
 >

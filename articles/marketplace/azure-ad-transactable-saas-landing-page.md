@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: d4c23e6b213c102813758742b8d191735207d285
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124894"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348298"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>在商业应用商店中构建事务 SaaS 产品/服务的登陆页面
 
@@ -122,7 +122,7 @@ ID 令牌包含用于识别买方的基本信息，但您的激活过程可能�
 | surname | 用户的姓氏。 |
 |||
 
-可以选择其他属性（例如用户公司的名称或用户在国家)  (的位置），以便在请求中包括。 有关更多详细信息，请参阅 [用户资源类型的属性](/graph/api/resources/user?view=graph-rest-1.0#properties) 。
+可以选择其他属性（例如用户公司的名称或用户在国家)  (的位置），以便在请求中包括。 有关更多详细信息，请参阅 [用户资源类型的属性](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) 。
 
 注册到 Azure AD 的大多数应用都授予委派的权限，以便从其公司 Azure AD 租户读取用户的信息。 对该信息 Microsoft Graph 的任何请求都必须附带用于身份验证的访问令牌。 生成访问令牌的具体步骤将取决于所使用的技术堆栈，但示例代码将包含示例。 有关详细信息，请参阅 [代表用户获取访问权限](/graph/auth-v2-user)。
 

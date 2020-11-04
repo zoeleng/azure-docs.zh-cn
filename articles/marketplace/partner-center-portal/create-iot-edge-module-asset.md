@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: 4d55186874e6f5be67a04e4a04d54a89dc09f9cd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130436"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346768"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>准备 IoT Edge 模块技术资产
 
@@ -64,7 +64,7 @@ IoT Edge 模块维度 (例如，目标 IoT Edge 设备上的 CPU、RAM、存储�
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>配置
 
 模块必须包含默认配置设置，才能使部署到 IoT Edge 设备尽可能简单。 此信息可在 [合作伙伴中心](https://partner.microsoft.com/dashboard/commercial-marketplace)的计划的 **技术配置** 页中提供。 容器还可以包含 IoT Edge 模块 SDK，以实现与边缘集线器和 IoT 中心的通信。
 
@@ -101,16 +101,16 @@ ServerIPAddress = <MY_SERVER_IP_ADDRESS>
 > [!NOTE]
 > 版本控制可以选择包括 "滚动版本" 标记，例如2.0 和1.0。 这样就可以支持同时维护多个主要版本。
 
-### <a name="telemetry"></a>遥测
+### <a name="telemetry"></a>遥测技术
 
 使用 IoT 模块 SDK 的模块必须将唯一的模块标识符设置为 PublisherId，以用于遥测目的。 唯一标识符有助于 Azure Marketplace 标识正在运行的模块实例的数目。
 
 使用 IoT 模块 Sdk 中的以下方法之一将 Data.productinfo 设置为此标识符：
 
-- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo)
 
 对于不使用 IoT 模块 SDK 的模块，通过合作伙伴中心提供不太准确的见解，如下载数量。
 

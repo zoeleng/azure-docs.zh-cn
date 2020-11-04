@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a2f1229ab8a292b06dfc43b95d9047ed8d233523
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791131"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345697"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 
@@ -22,12 +22,12 @@ Azure 队列存储是一项可存储大量消息的服务，用户可以通过 H
 
 > [!div class="checklist"]
 >
-> * 创建队列
-> * 检索队列
-> * 添加消息
-> * 读取消息
-> * 删除消息
-> * 删除队列
+> - 创建队列
+> - 检索队列
+> - 添加消息
+> - 读取消息
+> - 删除消息
+> - 删除队列
 
 本操作指南需要 Azure PowerShell 模块 Az 0.7 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。
 
@@ -56,7 +56,7 @@ $location = "eastus"
 
 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。
 
-Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 将资源组名称存储在变量中，以供以后使用。 本示例在 eastus  区域中创建名为 howtoqueuesrg  的资源组。
+Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 将资源组名称存储在变量中，以供以后使用。 本示例在 eastus 区域中创建名为 howtoqueuesrg 的资源组。
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -127,7 +127,7 @@ $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>从队列中读取一条消息，然后删除该消息
 
-尽量以先进先出的顺序读取消息。 但不能保证完全这样做。 从队列中读取消息时，消息将对查看此队列的所有其他进程不可见。 这可确保如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。  
+尽量以先进先出的顺序读取消息。 但不能保证完全这样做。 从队列中读取消息时，消息将对查看此队列的所有其他进程不可见。 这可确保如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。
 
 **不可见超时** 定义了消息在再次可供处理之前保持不可见的时间。 默认为 30 秒。
 
@@ -185,17 +185,17 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 > [!div class="checklist"]
 >
-> * 创建队列
-> * 检索队列
-> * 添加消息
-> * 读取下一条消息
-> * 删除消息
-> * 删除队列
+> - 创建队列
+> - 检索队列
+> - 添加消息
+> - 读取下一条消息
+> - 删除消息
+> - 删除队列
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell 存储 cmdlet
 
-* [存储 PowerShell cmdlet](/powershell/module/az.storage)
+- [存储 PowerShell cmdlet](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 存储资源管理器
 
-* [Microsoft Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+- [Microsoft Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: bba7da0343f234d8cc057ac4ecfa2a4f2e5b7242
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3527bdbbf1ba337d24dc390f97ed090c8dfbe039
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129875"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348383"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>服务总线队列：Azure 流分析输出
 
@@ -66,13 +66,13 @@ ms.locfileid: "93129875"
 
 下图显示了在事件中心使用 [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) 检查的预期输出消息属性。
 
-:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="属性列":::
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="事件自定义属性":::
 
 ## <a name="system-properties"></a>系统属性
 
-可以将查询列作为[系统属性](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)附加到传出的服务总线队列或主题消息。
+可以将查询列作为[系统属性](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties)附加到传出的服务总线队列或主题消息。
 
-这些列不会进入有效负载，而是将查询列值填充到相应的 BrokeredMessage [系统属性](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true)中。
+这些列不会进入有效负载，而是将查询列值填充到相应的 BrokeredMessage [系统属性](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties)中。
 支持这些系统属性 - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`。
 
 这些列的字符串值将分析成相应的系统属性值类型，任何分析失败将被视为数据错误。

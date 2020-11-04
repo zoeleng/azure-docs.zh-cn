@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129552"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346037"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>使用 Azure RBAC 进行 Kubernetes 授权（预览）
 
@@ -72,7 +72,6 @@ az extension update --name aks-preview
 - 需要 [托管 Azure AD 集成](managed-aad.md)。
 - 预览期间，不能将用于 Kubernetes 授权的 Azure RBAC 集成到现有群集中，但你可以 (GA) 正式上市。
 - 使用 [kubectl v 1.18.3 +][az-aks-install-cli]。
-- 在预览期间，只能通过 Azure CLI 添加 *命名空间级别* 权限。
 - 如果你有 CRDs 并且正在进行自定义角色定义，则现在涵盖 CRDs 的唯一方法是提供 `Microsoft.ContainerService/managedClusters/*/read` 。 AKS 正在努力为 CRDs 提供更精细的权限。 对于剩余的对象，可以使用特定的 API 组，例如： `Microsoft.ContainerService/apps/deployments/read` 。
 - 新角色分配最多可能需要就才能进行传播，并由授权服务器进行更新。
 - 要求配置为进行身份验证的 Azure AD 租户与保存 AKS 群集的订阅的租户相同。 

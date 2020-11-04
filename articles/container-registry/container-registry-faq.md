@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148529"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346989"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>有关 Azure 容器注册表的常见问题解答
 
@@ -262,7 +262,8 @@ ACR 支持提供不同权限级别的[自定义角色](container-registry-roles.
 为匿名（公共）提取访问设置 Azure 容器注册表目前是一项预览功能。 如果你在注册表中有任何 [范围映射 (用户) 或令牌资源](./container-registry-repository-scoped-permissions.md) ，请先删除它们，然后再 (系统范围映射) 。 若要启用公共访问，请在 https://aka.ms/acr/support/create-ticket 中开具支持票证。 有关详细信息，请参阅 [Azure 反馈论坛](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)。
 
 > [!NOTE]
-> 仅可匿名访问请求已知映像所需的 Api。 不能匿名访问标记列表或存储库列表等操作的其他 Api。
+> * 仅可匿名访问请求已知映像所需的 Api。 不能匿名访问标记列表或存储库列表等操作的其他 Api。
+> * 尝试匿名拉取操作之前，请运行 `docker logout` 以确保清除任何现有 Docker 凭据。
 
 ## <a name="diagnostics-and-health-checks"></a>诊断和运行状况检查
 

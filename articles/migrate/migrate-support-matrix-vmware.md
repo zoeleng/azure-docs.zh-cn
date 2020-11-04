@@ -3,12 +3,12 @@ title: Azure Migrate 中的 VMware 评估支持
 description: 了解使用 Azure Migrate 服务器评估时的 VMware VM 评估支持。
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332264"
+ms.locfileid: "93345425"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 评估支持矩阵 
 
@@ -67,12 +67,11 @@ Azure Migrate 使用 [Azure Migrate 设备](migrate-appliance.md)进行发现和
 **支持** | **详细信息**
 --- | ---
 **支持的虚拟机** | 目前，只有 VMware VM 才支持应用发现。 你可以从每个 Azure Migrate 设备发现最多10000个 VMware Vm 上安装的应用。
+**操作系统** | 运行所有 Windows 和 Linux 版本的 Vm 支持应用发现。
+**VM 要求** | 必须在要发现应用的 Vm 上安装并运行 VMware 工具。 <br/><br/> VMware 工具版本必须高于 10.2.0。<br/><br/> VM 必须安装 PowerShell 版本 2.0 或更高版本。
 **发现** | 应用发现是无代理的。 它使用虚拟机来宾凭据，并使用 WMI 和 SSH 调用来远程访问虚拟机。
-**VM 支持** | 运行所有 Windows 和 Linux 版本的 Vm 支持应用发现。
 **vCenter** | 用于评估的 vCenter Server 只读帐户，需要为 **虚拟机**  >  **来宾操作** 启用特权，以便与用于应用程序发现的 VM 交互。
 **VM 访问** | 应用发现需要虚拟机上的本地用户帐户才能发现应用程序。<br/><br/> Azure Migrate 当前支持将一个凭据用于所有 Windows 服务器，为所有 Linux 服务器支持一个凭据。<br/><br/> 你为 Windows VM 创建来宾用户帐户，并为所有 Linux VM 创建常规/普通用户帐户（非 sudo 访问权限）。
-**VMware 工具** | 必须在要发现的 VM 上安装并运行 VMware 工具。 <br/><br/> VMware 工具版本必须高于 10.2.0。
-**PowerShell** | VM 必须安装 PowerShell 版本 2.0 或更高版本。
 **端口访问** | Azure Migrate 设备必须能够连接到运行要在其上发现应用的 Vm 的 ESXi 主机上的 TCP 端口443。 VCenter Server 返回 ESXI 主机连接，以下载包含应用信息的文件。
 **限制** | 对于应用发现，最多可以在每个 Azure Migrate 设备上发现 10,000 个 VM。
 
