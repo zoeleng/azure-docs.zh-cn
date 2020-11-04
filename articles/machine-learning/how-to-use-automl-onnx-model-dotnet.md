@@ -10,18 +10,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.custom: how-to
-ms.openlocfilehash: eb1a3c1f306b6941987d0981967cf5d096a68735
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cb4e57cfe8b7494b7d5c38869f83190bff76ef2a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133520"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305763"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>使用 .NET 中的 AutoML ONNX 模型进行预测
 
 本文介绍如何使用自动 ML (AutoML) 开放式神经网络交换 (ONNX) 模型，在使用 ML.NET 的 c # .NET Core 控制台应用程序中进行预测。
 
-[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) 是适用于 .net 生态系统的开源跨平台机器学习框架，可用于通过 c # 或 F # 中的代码优先方法培训和使用自定义机器学习模型，以及 [模型生成器](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) 和 [ML.NET CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli)等低代码工具。 此框架也可扩展，并使你能够利用其他常见的机器学习框架，如 TensorFlow 和 ONNX。
+[ML.NET](/dotnet/machine-learning/) 是适用于 .net 生态系统的开源跨平台机器学习框架，可用于通过 c # 或 F # 中的代码优先方法培训和使用自定义机器学习模型，以及 [模型生成器](/dotnet/machine-learning/automate-training-with-model-builder) 和 [ML.NET CLI](/dotnet/machine-learning/automate-training-with-cli)等低代码工具。 此框架也可扩展，并使你能够利用其他常见的机器学习框架，如 TensorFlow 和 ONNX。
 
 ONNX 是 AI 模型的开源格式。 ONNX 支持框架之间的互操作性。 这意味着，你可以在其中一种常见的机器学习框架（如 PyTorch）中训练模型，并将其转换为 ONNX 格式，并在 ML.NET 等不同框架中使用 ONNX 模型。 有关详细信息，请参阅 [ONNX 网站](https://onnx.ai/)。
 
@@ -34,7 +34,7 @@ ONNX 是 AI 模型的开源格式。 ONNX 支持框架之间的互操作性。 �
 
 ## <a name="create-a-c-console-application"></a>创建 C# 控制台应用程序
 
-在此示例中，你将使用 .NET Core CLI 来生成应用程序，但你可以使用 Visual Studio 执行相同的任务。 详细了解 [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/)。
+在此示例中，你将使用 .NET Core CLI 来生成应用程序，但你可以使用 Visual Studio 执行相同的任务。 详细了解 [.NET Core CLI](/dotnet/core/tools/)。
 
 1. 打开终端并创建新的 c # .NET Core 控制台应用程序。 在此示例中，应用程序的名称为 `AutoMLONNXConsoleApp` 。 与应用程序的内容相同的名称创建目录。
 
@@ -71,7 +71,7 @@ ONNX 是 AI 模型的开源格式。 ONNX 支持框架之间的互操作性。 �
 
 ## <a name="add-a-reference-to-the-onnx-model"></a>添加对 ONNX 模型的引用
 
-控制台应用程序访问 ONNX 模型的一种方法是将其添加到生成输出目录。  若要了解有关 MSBuild 常见项的详细信息，请参阅 [msbuild 指南](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-items)。
+控制台应用程序访问 ONNX 模型的一种方法是将其添加到生成输出目录。  若要了解有关 MSBuild 常见项的详细信息，请参阅 [msbuild 指南](/visualstudio/msbuild/common-msbuild-project-items)。
 
 将引用添加到应用程序中的 ONNX 模型文件
 
@@ -161,7 +161,7 @@ public class OnnxInput
   
 对于数值，ML.NET 仅对 [`Single`](xref:System.Single) 值类型进行操作。 但是，某些列的原始数据类型为整数。 [`OnnxMapType`](xref:Microsoft.ML.Transforms.Onnx.OnnxMapTypeAttribute)属性在 ONNX 和 ML.NET 之间映射类型。
 
-若要了解有关数据属性的详细信息，请参阅 [ML.NET 加载数据指南](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net)。
+若要了解有关数据属性的详细信息，请参阅 [ML.NET 加载数据指南](/dotnet/machine-learning/how-to-guides/load-data-ml-net)。
 
 ### <a name="define-model-output-schema"></a>定义模型输出架构
 
@@ -179,7 +179,7 @@ public class OnnxOutput
 
 ## <a name="define-a-prediction-pipeline"></a>定义预测管道
 
-ML.NET 中的管道通常是一系列链式转换，对输入数据进行操作以生成输出。 若要了解有关数据转换的详细信息，请参阅 [ML.NET 数据转换指南](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms)。
+ML.NET 中的管道通常是一系列链式转换，对输入数据进行操作以生成输出。 若要了解有关数据转换的详细信息，请参阅 [ML.NET 数据转换指南](/dotnet/machine-learning/resources/transforms)。
 
 1. 在类中创建一个名为的新方法 `GetPredictionPipeline` `Program`
 
@@ -226,7 +226,7 @@ ML.NET 中的管道通常是一系列链式转换，对输入数据进行操作�
     [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A)方法需要使用 [`IDataView`](xref:Microsoft.ML.IDataView) 作为输入来执行操作。 [`IDataView`](xref:Microsoft.ML.IDataView)是使用表格格式表示 ML.NET 中的数据的一种方法。 由于在这种情况下，管道仅用于预测，因此您可以提供一个空 [`IDataView`](xref:Microsoft.ML.IDataView) 来提供 [`ITransformer`](xref:Microsoft.ML.ITransformer) 必需的输入和输出架构信息。 [`ITransformer`](xref:Microsoft.ML.ITransformer)然后返回合适的，以便在应用程序中进一步使用。
 
     > [!TIP]
-    > 在此示例中，管道在同一应用程序中定义和使用。 但建议使用单独的应用程序来定义和使用管道进行预测。 在 ML.NET 中，可以将管道序列化并保存，以便在其他 .NET 最终用户应用程序中进一步使用。 ML.NET 支持各种部署目标，如桌面应用程序、web 服务、WebAssembly 应用程序等。 若要详细了解如何保存管道，请参阅 [ML.NET 保存和加载定型模型指南](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net)。
+    > 在此示例中，管道在同一应用程序中定义和使用。 但建议使用单独的应用程序来定义和使用管道进行预测。 在 ML.NET 中，可以将管道序列化并保存，以便在其他 .NET 最终用户应用程序中进一步使用。 ML.NET 支持各种部署目标，如桌面应用程序、web 服务、WebAssembly 应用程序等。 若要详细了解如何保存管道，请参阅 [ML.NET 保存和加载定型模型指南](/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net)。
     >
     > * WebAssembly 仅在 .NET Core 5 或更高版本中受支持
 
@@ -284,9 +284,9 @@ ML.NET 中的管道通常是一系列链式转换，对输入数据进行操作�
     Predicted Fare: 15.621523
     ```
 
-若要详细了解如何在 ML.NET 中进行预测，请参阅 [使用模型进行预测指南](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)。
+若要详细了解如何在 ML.NET 中进行预测，请参阅 [使用模型进行预测指南](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [将模型部署为 ASP.NET Core Web API](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
-- [将模型部署为无服务器 .NET Azure 函数](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)
+- [将模型部署为 ASP.NET Core Web API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
+- [将模型部署为无服务器 .NET Azure 函数](/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)

@@ -1,7 +1,7 @@
 ---
 title: 公共区域与主权区域之间的平等性
 titleSuffix: Azure Machine Learning
-description: Azure 机器学习的某些功能（例如公共预览版功能）只能在公有云区域中使用。 本文列出了也可在 Azure 政府版、Azure 德国和 Azure 中国世纪互联地区使用的功能。
+description: 本文列出了公有云与 Azure 政府、Azure 德国和 Azure 中国世纪互联区域之间的功能奇偶校验。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426524"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305748"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure 机器学习主权云平等性
 
@@ -24,13 +24,13 @@ ms.locfileid: "92426524"
 
 在全球 Azure 区域列表中，有多个为特定市场提供服务的“主权”区域。 例如，Azure 政府和 Azure 中国世纪互联区域。 目前，Azure 机器学习部署到以下主权云区域中：
 
-* Azure 政府区域**美国-亚利桑那**和**美国-弗吉尼亚**。
-* Azure 中国世纪互联区域**中国东部 2**。
+* Azure 政府区域 **美国-亚利桑那** 和 **美国-弗吉尼亚** 。
+* Azure 中国世纪互联区域 **中国东部 2** 。
 
 > [!TIP]
 > 为了区分主权和非主权区域，本文将使用术语“公有云”来指代非主权区域。
 
-我们的目标是在公有云与主权区域之间提供最大的平等性。 所有 Azure 机器学习功能在我们的公有云中正式发布后，将在 **30 天内**在这些区域中提供。 我们还在这些区域中启用选定数量的预览功能。 下面显示了我们的主权云与公有云之间的当前平等性差异。
+我们的目标是在公有云与主权区域之间提供最大的平等性。 所有 Azure 机器学习功能在我们的公有云中正式发布后，将在 **30 天内** 在这些区域中提供。 我们还在这些区域中启用选定数量的预览功能。 下面显示了我们的主权云与公有云之间的当前平等性差异。
 
 ## <a name="azure-government"></a>Azure Government 
 

@@ -4,12 +4,12 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 09/05/2020
 ms.author: mikera
-ms.openlocfilehash: 941235907d26a76bf027a85af2a8aed5674e7fc1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 02d7c9fc0aef09e9aa90dd3f1a3bd22191934ffe
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92360287"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234030"
 ---
 > [!NOTE]
 > 作为预览版功能，本文中介绍的技术受制于 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。

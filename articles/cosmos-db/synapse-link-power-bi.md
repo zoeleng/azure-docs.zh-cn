@@ -1,22 +1,23 @@
 ---
-title: Power BI 和无服务器 Synapse SQL 池以通过 Synapse 链接分析 Azure Cosmos DB 数据
-description: 了解如何在 Azure Cosmos DB 上构建无服务器的 Synapse SQL 池数据库和针对 Synapse 的视图，查询 Azure Cosmos 容器，然后使用 Power BI 来构建模型。
+title: Power BI 和无服务器 SQL 池以通过 Synapse 链接分析 Azure Cosmos DB 数据
+description: 了解如何在 Azure Cosmos DB 上生成 Synapse SQL 无服务器数据库和视图 Synapse 链接，查询 Azure Cosmos DB 容器，然后使用 Power BI 这些视图生成模型。
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 8599ebf1932d7c30622855cbf38af867d30b52b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38077dca1b8a27098e8db17354b82340a651b880
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098053"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305172"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>使用 Power BI 和无服务器 Synapse SQL 池通过 Synapse 链接 (预览来分析 Azure Cosmos DB 数据)  
+# <a name="use-power-bi-and-serverless-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>使用 Power BI 和无服务器 SQL 池通过 Synapse 链接 (预览来分析 Azure Cosmos DB 数据) 
+
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
-本文介绍如何构建一个无服务器 Synapse SQL 池 (这种情况下，以前被称为 " **sql** 点播) 数据库" 和 "针对 Azure Cosmos DB 的 Synapse 的视图" 链接。 你将查询 Azure Cosmos 容器，然后生成一个模型，该模型通过这些视图 Power BI 来反映该查询。
+本文介绍如何为 Azure Cosmos DB 生成无服务器 SQL 池数据库和通过 Synapse 的视图链接。 你将查询 Azure Cosmos DB 容器，然后生成一个模型，该模型的 Power BI 通过这些视图来反映该查询。
 
 在此方案中，您将使用合作伙伴零售商店中有关 Surface product sales 的虚拟数据。 你将基于与大型家庭的邻近度和广告对特定周的影响，分析每个商店的收入。 在本文中，将创建名为 **RetailSales** 和 **StoreDemographics** 的两个视图，并在它们之间进行查询。 可以从此 [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 存储库中获取示例产品数据。
 
@@ -42,9 +43,18 @@ ms.locfileid: "93098053"
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="将 SQL 脚本添加到 Synapse 分析工作区":::
 
-每个工作区都附带一个无服务器的 SQL 终结点。 创建 SQL 脚本后，通过顶部工具栏上的工具栏， **按需** 连接到 sql。
+每个工作区都附带一个无服务器的 SQL 终结点。 创建 SQL 脚本后，从顶部的工具栏中，连接到 **内置** 。
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="将 SQL 脚本添加到 Synapse 分析工作区" 数据库。
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="启用 SQL 脚本以在工作区中使用无服务器 SQL 终结点":::
+
+创建一个名为 **RetailCosmosDB** 的新数据库，并在 Synapse 链接启用的容器上创建一个 SQL 视图。 以下命令显示了如何创建数据库：
+
+```sql
+-- Create database
+Create database RetailCosmosDB
+```
+
+接下来，在启用了不同 Synapse 链接的 Azure Cosmos 容器中创建多个视图。 视图将允许你使用 T-sql 来联接和查询不同容器中的 Azure Cosmos DB 数据。  创建视图时，请确保选择 " **RetailCosmosDB** " 数据库。
 
 以下脚本演示如何在每个容器上创建视图。 为简单起见，让我们使用 Synapse SQL 无服务器 over Synapse 链接启用容器的 [自动架构推理](analytical-store-introduction.md#analytical-schema) 功能：
 
@@ -95,7 +105,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 选择 " **运行** "，为下表提供结果：
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="将 SQL 脚本添加到 Synapse 分析工作区":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="联接 StoreDemographics 和 RetailSales 视图后的查询结果":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>具有 Power BI 的容器的模型视图
 
@@ -130,10 +140,10 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 1. 将 " **productCode** from **RetailSales** " 视图拖放到图例中，以选择特定的产品线。
 选择这些选项后，应会看到类似于以下屏幕截图的关系图：
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="将 SQL 脚本添加到 Synapse 分析工作区":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="将家庭规模相对重要性与每个商店平均收入进行比较的报表":::
 
 ## <a name="next-steps"></a>后续步骤
 
 [使用 T-sql 查询使用 Azure Synapse 链接 Azure Cosmos DB 数据](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
-使用无服务器 Synapse SQL 池 [分析 Azure 开放数据集，并在 Azure Synapse Studio 中可视化结果](../synapse-analytics/sql/tutorial-data-analyst.md)
+使用无服务器 SQL 池 [分析 Azure 开放数据集，并在 Azure Synapse Studio 中可视化结果](../synapse-analytics/sql/tutorial-data-analyst.md)

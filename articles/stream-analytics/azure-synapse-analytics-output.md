@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881893"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305841"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Azure 流分析中的 azure Synapse Analytics 输出
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)（旧称为 SQL 数据仓库）是一种无限制的分析服务，它将企业数据仓库和大数据分析结合在一起。 
 
-Azure 流分析作业可以输出到 Azure Synapse Analytics 中的 SQL 池表，并可处理高达 200 MB/秒的吞吐量速率。这可支持报表和仪表板等工作负荷带来的最苛刻的实时分析和热路径数据处理需求。  
+Azure 流分析作业可以输出到 Azure Synapse 分析中的专用 SQL 池表，并可处理高达 200MB/秒的吞吐量速率。这为工作负荷（例如报告和仪表板建设）支持最苛刻的实时分析和热路径数据处理需求。  
 
-SQL 池表必须存在，然后才能将其作为输出添加到流分析作业。 表架构必须与作业输出中的字段及类型匹配。 
+专用 SQL 池表必须存在，然后才能将其作为输出添加到流分析作业。 表架构必须与作业输出中的字段及类型匹配。 
 
 若要使用 Azure Synapse 作为输出，需要确保已配置存储帐户。 导航到“存储帐户设置”，以配置存储帐户。 仅允许支持表的存储帐户类型：常规用途 V2 和常规用途 V1。 仅选择标准层。 不支持高级层。
 
@@ -31,7 +31,7 @@ SQL 池表必须存在，然后才能将其作为输出添加到流分析作业�
 |属性名称|说明|
 |-|-|
 |输出别名 |在查询中使用的友好名称，用于将查询输出定向到此数据库。 |
-|数据库 |SQL 池名称（将向该池发送输出）。 |
+|数据库 |要向其发送输出的专用 SQL 池名称。 |
 |服务器名称 |Azure Synapse 服务器名称。  |
 |用户名 |对数据库拥有写入访问权限的用户名。 流分析仅支持 SQL 身份验证。 |
 |密码 |用于连接到数据库的密码。 |

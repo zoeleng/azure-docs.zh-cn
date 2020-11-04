@@ -4,12 +4,12 @@ description: 了解如何创建适用于 Linux 的 Azure Policy 来宾配置策�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676643"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305550"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>如何创建适用于 Linux 的来宾配置策略
 
@@ -160,7 +160,7 @@ AuditFilePathExists -out ./Config
 - **Name** ：来宾配置包名称。
 - **配置** ：已编译的配置文档完整路径。
 - **路径** ：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
-- ChefProfilePath：InSpec 配置文件的完整路径。 仅当创建内容来审核 Linux 时，才支持此参数。
+- **ChefInspecProfilePath** ： InSpec 配置文件的完整路径。 仅当创建内容来审核 Linux 时，才支持此参数。
 
 运行下面的命令，以使用上一步中给出的配置来创建包：
 
@@ -191,7 +191,7 @@ Test-GuestConfigurationPackage `
 此 cmdlet 还支持来自 PowerShell 管道的输入。 将 `New-GuestConfigurationPackage` cmdlet 的输出通过管道传输到 `Test-GuestConfigurationPackage` cmdlet。
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 下一步是将文件发布到 Azure Blob 存储。  命令 `Publish-GuestConfigurationPackage` 需要 `Az.Storage` 模块。

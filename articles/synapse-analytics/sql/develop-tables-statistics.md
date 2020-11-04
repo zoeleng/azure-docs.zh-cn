@@ -11,30 +11,30 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148246"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305011"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL 中的统计信息
 
-本文介绍关于使用 Synapse SQL 资源创建和更新查询优化统计信息的建议和示例：SQL 池和 SQL 按需版本（预览版）。
+本文提供了有关使用 Synapse SQL 资源创建和更新查询优化统计信息的建议和示例：专用 SQL 池和无服务器 SQL 池 (预览) 。
 
-## <a name="statistics-in-sql-pool"></a>SQL 池中的统计信息
+## <a name="statistics-in-dedicated-sql-pool"></a>专用 SQL 池中的统计信息
 
 ### <a name="why-use-statistics"></a>为何使用统计信息
 
-SQL 池资源对数据了解得越多，执行查询的速度就越快。 将数据载入 SQL 池后，收集有关数据的统计信息就是对查询优化而言最重要的操作之一。  
+更为专用的 SQL 池知道您的数据，它可以更快地执行查询。 在将数据加载到专用的 SQL 池中之后，收集数据的统计信息是可以为查询优化所做的最重要的一项操作。  
 
-SQL 池查询优化器是基于成本的优化器。 此优化器会对各种查询计划的成本进行比较，并选择成本最低的计划。 在大多数情况下，所选计划也是执行速度最快的计划。
+专用的 SQL 池查询优化器是基于成本的优化器。 此优化器会对各种查询计划的成本进行比较，并选择成本最低的计划。 在大多数情况下，所选计划也是执行速度最快的计划。
 
 例如，如果优化器预估在针对查询的日期进行筛选后将返回一行，它会选择某个计划。 如果它预计所选日期将返回 1 百万行，就会返回另一个计划。
 
 ### <a name="automatic-creation-of-statistics"></a>自动创建统计信息
 
-当数据库 AUTO_CREATE_STATISTICS 选项设置为 `ON` 时，SQL 池会分析传入的用户查询，确定是否缺少统计信息。  如果缺少统计信息，查询优化器会在查询谓词或联接条件中各个列上创建统计信息。 
+当数据库 AUTO_CREATE_STATISTICS 选项设置为时，专用 SQL 池引擎将分析传入的用户查询是否缺少统计信息 `ON` 。  如果缺少统计信息，查询优化器会在查询谓词或联接条件中各个列上创建统计信息。 
 
 此功能用于改进查询计划的基数估计。
 
@@ -166,7 +166,7 @@ WHERE
 #### <a name="create-single-column-statistics-with-default-options"></a>使用默认选项创建单列统计信息
 
 若要基于某个列创建统计信息，需要提供统计信息对象的名称和列的名称。
-此语法使用所有默认选项。 默认情况下，SQL 池在创建统计信息时会提取 **20%** 的表数据作为样本。
+此语法使用所有默认选项。 默认情况下，专用 SQL 池在创建统计信息时对 **20%** 的表采样。
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -430,7 +430,7 @@ UPDATE STATISTICS 语句的使用很简单。 只需要记住，它会更新表�
 如果性能不是一个考虑因素，此办法就是保证拥有最新统计信息的最简单、最全面的操作方式。
 
 > [!NOTE]
-> 更新表中的所有统计信息时，SQL 池将执行扫描，以针对每个统计信息对象进行表采样。 如果表很大、包含许多列和许多统计信息，则根据需要更新各项统计信息可能比较有效率。
+> 更新表中的所有统计信息时，专用 SQL 池会执行扫描，以针对每个统计信息对象的表采样。 如果表很大、包含许多列和许多统计信息，则根据需要更新各项统计信息可能比较有效率。
 
 有关 `UPDATE STATISTICS` 过程的实现，请参阅[临时表](develop-tables-temporary.md)。 实现方法与上述 `CREATE STATISTICS` 过程略有不同，但最终结果相同。
 有关完整语法，请参阅[更新统计信息](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)。
@@ -512,7 +512,7 @@ DBCC SHOW_STATISTICS() 显示统计信息对象中保存的数据。 这些数�
 
 标头是有关统计信息的元数据。 直方图显示统计信息对象的第一个键列中的值分布。 
 
-密度向量可度量跨列相关性。 SQL 池使用统计信息对象中的任何数据来计算基数估计值。
+密度向量可度量跨列相关性。 专用 SQL 池用 statistics 对象中的任何数据来计算基数估计值。
 
 #### <a name="show-header-density-and-histogram"></a>显示标头、密度和直方图
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() 差异
 
-与在 SQL Server 中相比，`DBCC SHOW_STATISTICS()` 在 SQL 池中的实现相对更严格：
+`DBCC SHOW_STATISTICS()` 与 SQL Server 相比，在专用的 SQL 池中更严格地实现了：
 
 - 未阐述的功能不受支持。
 - 不能使用 Stats_stream。
@@ -556,25 +556,22 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - 不能使用列名来标识统计信息对象。
 - 不支持自定义错误 2767。
 
-### <a name="next-steps"></a>后续步骤
 
-有关进一步提升查询性能的信息，请参阅[监视工作负荷](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="statistics-in-sql-on-demand-preview"></a>SQL 按需版本（预览版）中的统计信息
+## <a name="statistics-in-serverless-sql-pool-preview"></a>无服务器 SQL 池中的统计信息 (预览版) 
 
 统计信息按特定数据集（存储路径）的特定列进行创建。
 
 ### <a name="why-use-statistics"></a>为何使用统计信息
 
-SQL 按需版本（预览版）对数据了解得越多，其针对数据执行查询的速度就越快。 收集数据统计信息对于查询优化而言是最重要的操作之一。 
+ (预览版的无服务器 SQL 池) 知道您的数据，它对其执行查询的速度会更快。 收集数据统计信息对于查询优化而言是最重要的操作之一。 
 
-SQL 按需版本查询优化器是基于成本的优化器。 此优化器会对各种查询计划的成本进行比较，并选择成本最低的计划。 在大多数情况下，所选计划也是执行速度最快的计划。 
+无服务器 SQL 池查询优化器是基于成本的优化器。 此优化器会对各种查询计划的成本进行比较，并选择成本最低的计划。 在大多数情况下，它会选择执行速度最快的计划。 
 
-例如，如果优化器预估在针对查询的日期进行筛选后将返回一行，它会选择某个计划。 如果它预计所选日期将返回 1 百万行，就会返回另一个计划。
+例如，如果优化器估计查询筛选的日期会返回一行数据，则它会选择一个计划。 如果它预计所选日期将返回 1 百万行，就会返回另一个计划。
 
 ### <a name="automatic-creation-of-statistics"></a>自动创建统计信息
 
-SQL 按需版本会分析传入的用户查询，确定是否缺少统计信息。 如果缺少统计信息，查询优化器在查询谓词或联接条件中各个列上创建统计信息，以改进查询计划的基数估计。
+无服务器 SQL 池会分析传入的用户查询是否缺少统计信息。 如果缺少统计信息，查询优化器在查询谓词或联接条件中各个列上创建统计信息，以改进查询计划的基数估计。
 
 SELECT 语句将触发“自动创建统计信息”。
 
@@ -585,7 +582,7 @@ SELECT 语句将触发“自动创建统计信息”。
 
 ### <a name="manual-creation-of-statistics"></a>手动创建统计信息
 
-使用 SQL 按需版本，可手动创建统计信息。 对于 CSV 文件，需要手动创建统计信息，因为未对 CSV 文件启用“自动创建统计信息”。 
+无服务器 SQL 池允许您手动创建统计信息。 对于 CSV 文件，需要手动创建统计信息，因为未对 CSV 文件启用“自动创建统计信息”。 
 
 有关如何手动创建统计信息的说明，请参见以下示例。
 
@@ -593,7 +590,7 @@ SELECT 语句将触发“自动创建统计信息”。
 
 更改文件中的数据、删除和添加文件会导致数据分发更改并使统计信息过时。 在这种情况下，需要更新统计信息。
 
-如果数据发生了重大更改，SQL 按需版本会自动重新创建统计信息。 每次自动创建统计信息时，会同时保存数据集的当前状态：文件路径、大小、上次修改日期。
+如果数据发生了重大更改，无服务器 SQL 池会自动重新创建统计信息。 每次自动创建统计信息时，会同时保存数据集的当前状态：文件路径、大小、上次修改日期。
 
 当统计信息已过时，将创建新的统计信息。 相关算法会遍历数据，并将其与数据集的当前状态进行比较。 如果更改内容的大小超过特定阈值，会删除旧的统计信息，并在新数据集上重新创建统计信息。
 
@@ -650,7 +647,7 @@ sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 
 若要对列创建统计信息，请提供一个查询，该查询返回需要统计信息的列。
 
-默认情况下，如果未指定列，SQL 按需版本在创建统计信息时会使用数据集中提供的全部数据。
+默认情况下，如果未指定其他设置，则无服务器 SQL 池在创建统计信息时将使用数据集中提供的数据的100%。
 
 例如，若要使用默认选项 (FULLSCAN) 为基于“人口.csv”文件的数据集的“年份”列创建统计信息：
 
@@ -816,4 +813,6 @@ CREATE STATISTICS sState
 
 ## <a name="next-steps"></a>后续步骤
 
-有关进一步改进查询性能的信息，请参阅[有关 SQL 池的最佳做法](best-practices-sql-pool.md#maintain-statistics)。
+若要进一步改善专用 SQL 池的查询性能，请参阅监视[专用 sql 池](best-practices-sql-pool.md#maintain-statistics)的[工作负荷](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)和最佳实践。
+
+若要进一步提高无服务器 SQL 池的查询性能，请参阅 [无服务器 sql 池的最佳实践](best-practices-sql-on-demand.md)

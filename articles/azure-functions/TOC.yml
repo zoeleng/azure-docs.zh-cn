@@ -270,7 +270,7 @@
         - name: 管理连接
           href: manage-connections.md
           displayName: best practice
-        - name: 错误处理。
+        - name: 错误处理和重试
           href: functions-bindings-error-pages.md
         - name: 手动运行非 HTTP 触发的函数
           href: functions-manually-run-non-http.md
@@ -379,7 +379,7 @@
           href: functions-create-serverless-api.md
         - name: 管理本地资源
           href: functions-hybrid-powershell.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 排查存储问题
           href: functions-recover-storage-account.md

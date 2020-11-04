@@ -5,12 +5,14 @@
   items:
     - name: 什么是指标顾问？
       href: overview.md
+    - name: 新增功能
+      href: whats-new.md
 - name: 快速入门
   items:
     - name: 使用 Web 门户
       href: quickstarts/web-portal.md
-    - name: 使用 REST API
-      href: quickstarts/rest-api.md
+    - name: 使用 REST API 或客户端库
+      href: quickstarts/rest-api-and-client-library.md
 - name: 操作指南
   items:
     - name: 载入数据

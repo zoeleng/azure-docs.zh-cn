@@ -1,6 +1,6 @@
 ---
 title: 将 CEF 数据连接到 Azure Sentinel Preview |Microsoft Docs
-description: 使用 Linux 计算机作为代理，连接外部解决方案，该解决方案将 (CEF) 消息发送到 Azure Sentinel。
+description: 通过使用 Linux 计算机作为日志转发器，将发送常见事件格式 (CEF) 消息的外部解决方案连接到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e09b44504623516d41b6d310a82e78619477367c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747902"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304990"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>使用通用事件格式连接外部解决方案
 
@@ -50,40 +50,49 @@ ms.locfileid: "92747902"
  
 ## <a name="prerequisites"></a>先决条件
 
-请确保用作代理的 Linux 计算机运行的是以下操作系统之一：
+请确保用作日志转发器的 Linux 计算机运行下列操作系统之一：
 
 - 64 位
-  - CentOS 7 和子版本， (不是 6) 
+  - CentOS 7 和8，包括子版本不 (6) 
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 和子版本， (不是 6) 
-  - Debian GNU/Linux 8 和 9
+  - Red Hat Enterprise Linux (RHEL) Server 7 和8，包括子版本 (而不是 6) 
+  - Debian GNU/Linux 8、9和10
   - Ubuntu Linux 14.04 LTS、16.04 LTS 和 18.04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12，15
+
 - 32 位
-   - CentOS 7
-   - Oracle Linux 7
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 和 9
-   - Ubuntu Linux 14.04 LTS 和 16.04 LTS
+  - CentOS 7 和8，包括子版本不 (6) 
+  - Oracle Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 和8，包括子版本 (而不是 6) 
+  - Debian GNU/Linux 8、9和10
+  - Ubuntu Linux 14.04 LTS 和 16.04 LTS
  
- - 守护程序版本
-   - Syslog-ng： 2.1-3.22。1
-   - Rsyslog： v8
+- 守护程序版本
+  - Syslog-ng： 2.1-3.22。1
+  - Rsyslog： v8
   
- - 支持的 Syslog Rfc
-   - Syslog RFC 3164
-   - Syslog RFC 5424
+- 支持的 Syslog Rfc
+  - Syslog RFC 3164
+  - Syslog RFC 5424
  
 请确保您的计算机还满足以下要求： 
+
 - 权限
-    - 你的计算机上必须具有提升的权限 (sudo) 。 
+  - 你的计算机上必须具有提升的权限 (sudo) 。 
+
 - 软件要求
-    - 请确保已在计算机上运行 python 2.7。
+  - 请确保已在计算机上运行 python 2.7。
 
 ## <a name="next-steps"></a>后续步骤
 
-本文档介绍了如何将 CEF 设备连接到 Azure Sentinel。 要详细了解 Azure Sentinel，请参阅以下文章：
+本文档介绍了 Azure Sentinel 如何从安全解决方案和设备收集 CEF 日志。 若要了解如何将解决方案连接到 Azure Sentinel，请参阅以下文章：
+
+- 步骤1： [通过部署 Syslog/CEF 转发器连接 CEF](connect-cef-agent.md)
+- 步骤2： [执行特定于解决方案的步骤](connect-cef-solution-config.md)
+- 步骤3： [验证连接性](connect-cef-verify.md)
+
+若要详细了解如何处理在 Azure Sentinel 中收集的数据，请参阅以下文章：
 - 了解如何[洞悉数据和潜在威胁](quickstart-get-visibility.md)。
 - 开始[使用 Azure Sentinel 检测威胁](tutorial-detect-threats.md)。
 

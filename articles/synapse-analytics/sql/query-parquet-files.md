@@ -1,6 +1,6 @@
 ---
-title: 使用 SQL 按需版本（预览版）查询 Parquet 文件
-description: 本文介绍如何使用 SQL 按需版本（预览版）查询 Parquet 文件。
+title: 使用无服务器 SQL 池 (预览) 查询 Parquet 文件
+description: 在本文中，你将学习如何使用无服务器 SQL 池 (预览) 查询 Parquet 文件。
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242426"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306865"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用 SQL 按需版本（预览版）查询 Parquet 文件
+# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>使用无服务器 SQL 池 (预览) 在 Azure Synapse Analytics 中查询 Parquet 文件
 
-本文介绍如何使用 SQL 按需版本（预览版）编写查询，该查询将读取 Parquet 文件。
+本文介绍如何使用无服务器 SQL 池 (预览) 来编写查询，该查询将读取 Parquet 文件。
 
 ## <a name="quickstart-example"></a>快速入门示例
 
@@ -111,7 +111,7 @@ ORDER BY
 下面的示例显示 Parquet 文件的自动架构推理功能。 该示例在不指定架构的情况下返回 2017 年 9 月的行数。
 
 > [!NOTE]
-> 读取 Parquet 文件时，无需指定 OPENROWSET WITH 子句中的列。 在这种情况下，SQL 按需查询服务将利用 Parquet 文件中的元数据，并按名称绑定列。
+> 读取 Parquet 文件时，无需指定 OPENROWSET WITH 子句中的列。 在这种情况下，无服务器 SQL 池查询服务将使用 Parquet 文件中的元数据，并按名称绑定列。
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +128,7 @@ FROM
 此示例中提供的数据集划分（分区）为单独的子文件夹。 可以使用 filepath 函数将特定分区作为目标。 此示例显示 2017 年前三个月的费用金额（按年、月和 payment_type）。
 
 > [!NOTE]
-> SQL 按需查询与 Hive/Hadoop 分区方案兼容。
+> 无服务器 SQL 池查询与 Hive/Hadoop 分区方案兼容。
 
 ```sql
 SELECT
