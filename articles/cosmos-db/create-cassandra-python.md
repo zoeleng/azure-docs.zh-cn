@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 06e0d3618e96b44eca60f32a0977e7f03d6f5603
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8a76a37de64733ba3e0126c7885d8690d2d83c1b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824619"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099711"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>快速入门：使用 Python SDK 和 Azure Cosmos DB 构建 Cassandra 应用
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -157,11 +158,11 @@ ms.locfileid: "91824619"
 
     按 CTRL+C 停止执行程序并关闭控制台窗口。 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="在 Azure 门户的连接字符串边栏选项卡中查看并复制用户名、密码和联系点":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="查看并验证输出":::
     
 4. 在 Azure 门户中，打开数据资源管理器，以查询、修改和处理这些新数据。 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="在 Azure 门户的连接字符串边栏选项卡中查看并复制用户名、密码和联系点":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="在数据资源管理器中查看数据":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

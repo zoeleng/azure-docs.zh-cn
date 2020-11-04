@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fe017476993872a989fc10564caa94983b9071c5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6b05e8fbd2f688b4dd5611302c8df1b1deb16ab3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099787"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>快速入门：使用 Node.js SDK 和 Azure Cosmos DB 构建 Cassandra 应用
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -212,11 +213,11 @@ ms.locfileid: "92164272"
 > 
 > 双击 .crt 文件，将其打开到证书显示。 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="显示“证书”窗口的屏幕截图。":::
 >
 > 在证书向导中按“下一步”。 选择“Base-64 编码 X.509 (.CER)”，然后选择“下一步”。
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="显示“Base-64 编码 X.509 (.CER)”选项的屏幕截图。":::
 >
 > 选择“浏览”（目的是查找目标），然后键入文件名。
 > 完成后，选择“下一步”。
@@ -237,13 +238,13 @@ ms.locfileid: "92164272"
 
 4. 通过命令行验证结果是否符合预期。
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="查看并验证输出":::
 
     按 CTRL+C 停止执行程序并关闭控制台窗口。 
 
 5. 在 Azure 门户中，打开数据资源管理器，以查询、修改和处理这些新数据。 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="在数据资源管理器中查看数据"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

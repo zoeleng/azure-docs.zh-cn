@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495985"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310166"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什么是 Azure 机器学习工作室？
 
@@ -83,7 +83,7 @@ Azure 机器学习工作室是 Azure 机器学习中的 Web 门户，其中包�
 | 功能 | 机器学习工作室（经典版） | Azure 机器学习 |
 |---| --- | --- |
 | 拖放界面 | 经典体验 | 更新的体验 - [Azure 机器学习设计器](concept-designer.md)| 
-| 代码 SDK | 不支持 | 与 [Azure 机器学习 Python](https://docs.microsoft.com/python/api/overview/azure/ml/) 和 [R](tutorial-1st-r-experiment.md) SDK 完全集成 |
+| 代码 SDK | 不支持 | 与 [Azure 机器学习 Python](/python/api/overview/azure/ml/) 和 [R](tutorial-1st-r-experiment.md) SDK 完全集成 |
 | 试验 | 可缩放（10 GB 训练数据限制） | 使用计算目标进行缩放 |
 | 训练计算目标 | 专用计算目标，仅限 CPU 支持 | 各种可自定义的[训练计算目标](concept-compute-target.md#train)。 包括 GPU 和 CPU 支持 | 
 | 部署计算目标 | 专用 Web 服务格式，不可自定义 | 各种可自定义的[部署计算目标](concept-compute-target.md#deploy)。 包括 GPU 和 CPU 支持 |
@@ -103,4 +103,3 @@ Azure 机器学习工作室是 Azure 机器学习中的 Web 门户，其中包�
   + [在计算实例上使用 Jupyter 笔记本来训练和部署模型](tutorial-1st-experiment-sdk-setup.md)
   + [使用自动化机器学习训练和部署模型](tutorial-first-experiment-automated-ml.md)  
   + [使用设计器训练和部署模型](tutorial-designer-automobile-price-train-score.md)
-

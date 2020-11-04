@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461135"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233927"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>群组呼叫英雄示例入门
 
@@ -75,7 +75,7 @@ Azure 通信服务的群组呼叫英雄示例演示了如何使用通信服务�
 ## <a name="before-running-the-sample-for-the-first-time"></a>首次运行示例之前
 
 1. 打开 PowerShell、Windows 终端、命令提示符或等效项的实例，然后导航到要将示例克隆到的目录。
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
 3. 从 Azure 门户获取 `Connection String`。 有关连接字符串的详细信息，请参阅[创建 Azure 通信资源](../quickstarts/create-communication-resource.md)
 4. 获取 `Connection String` 后，将连接字符串添加到 Service .NET 文件夹下的 Calling/appsetting.json 文件中。 在变量 `ResourceConnectionString` 中输入连接字符串。
 

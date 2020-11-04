@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126767"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289773"
 ---
 # <a name="about-azure-key-vault-certificates"></a>关于 Azure Key Vault 证书
 
@@ -44,7 +44,7 @@ ms.locfileid: "92126767"
 
 可寻址密钥与不可导出的 KV 证书的相关性变得更高。 可寻址 KV 密钥的操作是从用于创建 KV 证书的 KV 证书策略的“密钥使用情况”字段映射的。  
 
- - 支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM 等（参见[此处](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)）“可导出”状态仅与 RSA 和 EC 一起使用。 HSM 密钥不可导出。
+ - 支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM 等（参见[此处](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)）“可导出”状态仅与 RSA 和 EC 一起使用。 HSM 密钥不可导出。
 
 
 ## <a name="certificate-attributes-and-tags"></a>证书属性和标记
@@ -82,11 +82,11 @@ Key Vault 证书具有以下属性：
 
 从零开始创建 Key Vault 证书时，需要提供策略。 该策略指定如何创建此 Key Vault 证书版本或下一个 Key Vault 证书版本。 建立策略后，便不需要使用连续创建操作创建将来的版本。 所有版本的 Key Vault 证书只有一个策略实例。  
 
-概括而言，证书策略包含以下信息（可在[此处](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)找到其定义）：  
+概括而言，证书策略包含以下信息（可在[此处](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)找到其定义）：  
 
 -   X509 证书属性：包含主题名称、主题备用名称以及用于创建 x509 证书请求的其他属性。  
 -   密钥属性：包含密钥类型、密钥长度、可导出字段和 ReuseKeyOnRenewal 字段。 这些字段指示密钥保管库如何生成密钥。 
-     - 支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM、oct（已在[此处](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)列出） 
+     - 支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM、oct（已在[此处](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)列出） 
 -   机密属性：包含可寻址机密的内容类型等机密属性以生成机密值，用于以机密的形式检索证书。  
 -   生存期操作：包含 KV 证书生命周期的操作。 每个生存期操作包含：  
 
@@ -133,7 +133,7 @@ Key Vault 证书对象包含与所选证书颁发者提供者进行通信的配�
 
     -   提供用于在密钥保管库中创建提供程序的颁发者对象的配置  
 
-有关从证书门户创建颁发者对象的详细信息，请参阅 [Key Vault 证书博客](https://aka.ms/kvcertsblog)  
+有关从证书门户创建颁发者对象的详细信息，请参阅 [Key Vault 证书博客](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对象。 在创建颁发者对象以后，即可在一个或多个证书的策略中引用其名称。 在创建和续订证书的过程中从 CA 提供者请求 x509 证书时，引用颁发者对象可以指示 Key Vault 按颁发者对象中的规定使用配置。  
 

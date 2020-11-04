@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490605"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087394"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Gremlin API 简介
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 [Azure Cosmos DB](introduction.md)  是 Microsoft 针对任务关键型应用程序提供的全球分布的多模型数据库服务。 它是多模型数据库并支持文档、键-值、图和列系列数据模型。 Azure Cosmos DB 通过 Gremlin API 在为任何规模设计的完全托管数据库服务中提供图形数据库服务。  
 
@@ -106,7 +107,7 @@ Azure Cosmos DB 是一个完全托管的图形数据库，提供全局分发、�
 
 我们使用一个示例图形来了解如何在 Gremlin 中表示查询。 下图显示了一个商业应用程序，该应用程序管理以图形形式呈现的有关用户、兴趣和设备的数据。  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Azure Cosmos DB 图形体系结构" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="显示人员、设备和兴趣的示例数据库" border="false"::: 
 
 此图形使用以下顶点类型（在 Gremlin 中也称为“标签”）：
 

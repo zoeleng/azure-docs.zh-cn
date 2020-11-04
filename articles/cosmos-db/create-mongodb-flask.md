@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: a0545ea61879b30349403e019ead69ba14f75cb9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486491"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099651"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 Python 应用
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -113,15 +114,15 @@ ms.locfileid: "92486491"
 
 若要针对实时 Azure Cosmos DB 帐户测试代码，请获取连接字符串信息。 然后将其复制到此应用中。
 
-1. 在 Azure 门户的 Azure Cosmos DB 帐户的左侧导航栏中，选择“连接字符串”，然后选择“读写密钥”。   我们将使用屏幕右侧的复制按钮复制用户名、连接字符串和密码。 
+1. 在 Azure 门户的 Azure Cosmos DB 帐户的左侧导航栏中，选择“连接字符串”，然后选择“读写密钥”。  我们将使用屏幕右侧的复制按钮复制用户名、连接字符串和密码。 
 
-2. 在根目录中打开 app.py 文件  。
+2. 在根目录中打开 app.py 文件。
 
-3. 从门户中（使用复制按钮）复制“用户名”值，并在 app.py 文件中将其设为“名称”的值   。
+3. 从门户中（使用复制按钮）复制“用户名”值，并在 app.py 文件中将其设为“名称”的值 。
 
-4. 然后从门户中复制“连接字符串”值，并在   。
+4. 然后从门户中复制“连接字符串”值，并在 *app.py* 文件中将其设为 MongoClient 值 。
 
-5. 最后从门户复制“密码”值，并在 app.py 文件中将其设为“密码”的值   。
+5. 最后从门户复制“密码”值，并在 app.py 文件中将其设为“密码”的值 。
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 此时，即可像以前一样运行它。
 
@@ -139,7 +140,7 @@ ms.locfileid: "92486491"
 
 然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](../app-service/configure-common.md#configure-app-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
 
-如果不想创建此存储库的分支，也可选择下方的“部署到 Azure”按钮。  然后应转到 Azure，就可使用 Azure Cosmos DB 的帐户信息设置应用程序设置。
+如果不想创建此存储库的分支，也可选择下方的“部署到 Azure”按钮。 然后应转到 Azure，就可使用 Azure Cosmos DB 的帐户信息设置应用程序设置。
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
 <img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">

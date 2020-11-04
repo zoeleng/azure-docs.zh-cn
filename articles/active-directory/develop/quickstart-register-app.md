@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperfq1
+ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ed4e3c54bd4aa6be314fe7ec12d6ba6e7cf949d9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91258126"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083314"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入门：将应用程序注册到 Microsoft 标识平台
 
@@ -40,7 +40,7 @@ ms.locfileid: "91258126"
 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
 1. 搜索并选择“Azure Active Directory”  。
 1. 在“管理”下，选择“应用注册”，然后选择“新建注册”  。
-1. 输入应用程序的**名称**。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+1. 输入应用程序的 **名称** 。 应用的用户可能会看到此名称，你稍后可对其进行更改。
 1. 指定可使用该应用程序的人员，这有时称为“登录访问者”。
 
     | 支持的帐户类型 | 说明 |
@@ -59,7 +59,7 @@ ms.locfileid: "91258126"
 
 应用程序的代码（或者更通常是应用程序中使用的身份验证库）也将使用客户端 ID 来验证从标识平台接收的安全令牌。
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Web 浏览器中 Azure 门户的屏幕截图，其中显示了“注册应用程序”窗格。":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Web 浏览器中 Azure 门户的屏幕截图，其中显示了应用注册的“概述”窗格。":::
 
 ## <a name="add-a-redirect-uri"></a>添加重定向 URI
 
@@ -80,7 +80,7 @@ ms.locfileid: "91258126"
 1. 在“平台配置”下，选择“添加平台” 。
 1. 在“配置平台”中，为应用程序类型（平台）选择磁贴，以配置其设置。
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Web 浏览器中 Azure 门户的屏幕截图，其中显示了“注册应用程序”窗格。" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Azure 门户中的“平台配置”窗格的屏幕截图" border="false":::
 
     | 平台 | 配置设置 |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ ms.locfileid: "91258126"
 
 可将证书和客户端密码（字符串）作为凭据添加到机密客户端应用注册。
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Web 浏览器中 Azure 门户的屏幕截图，其中显示了“注册应用程序”窗格。":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Azure 门户的屏幕截图，其中显示了应用注册中的“证书和密码”窗格":::
 
 ### <a name="add-a-certificate"></a>添加证书
 
