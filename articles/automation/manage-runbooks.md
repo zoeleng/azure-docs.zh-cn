@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521061"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317086"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>在 Azure 自动化中管理 Runbook
 
@@ -228,7 +228,7 @@ Start-AzAutomationRunbook `
 
 ## <a name="test-a-runbook"></a>测试 Runbook
 
-测试 Runbook 时，将执行[草稿版](#publish-a-runbook)，并会完成其所执行的任何操作。 不会创建作业历史记录，但会在“测试输出”窗格中显示[输出](automation-runbook-output-and-messages.md#use-the-output-stream)与[警告和错误](automation-runbook-output-and-messages.md#monitor-message-streams)。 仅当 [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) 变量设置为 `Continue` 时，“输出”窗格中才会显示发送到[详细流](automation-runbook-output-and-messages.md#monitor-message-streams)的消息。
+测试 Runbook 时，将执行[草稿版](#publish-a-runbook)，并会完成其所执行的任何操作。 不会创建作业历史记录，但会在“测试输出”窗格中显示[输出](automation-runbook-output-and-messages.md#use-the-output-stream)与[警告和错误](automation-runbook-output-and-messages.md#working-with-message-streams)。 仅当 [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) 变量设置为 `Continue` 时，“输出”窗格中才会显示发送到[详细流](automation-runbook-output-and-messages.md#write-output-to-verbose-stream)的消息。
 
 即使草稿版正在运行，该 Runbook 也仍会正常执行，并针对环境中的资源执行任何操作。 因此，只能在非生产资源中测试 Runbook。
 
@@ -237,7 +237,7 @@ Start-AzAutomationRunbook `
 1. 在[文本编辑器](automation-edit-textual-runbook.md)或[图形编辑器](automation-graphical-authoring-intro.md)中打开 Runbook 的草稿版本。
 1. 单击“测试”打开测试页面。
 1. 如果 Runbook 具有参数，它们会在左窗格中列出，你可在这里提供要用于测试的值。
-1. 若要对[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)运行测试，请将“运行设置”更改为“混合辅助角色”，并选择目标组的名称 。  否则，保留默认值 **Azure**，以在云中运行测试。
+1. 若要对[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)运行测试，请将“运行设置”更改为“混合辅助角色”，并选择目标组的名称 。  否则，保留默认值 **Azure** ，以在云中运行测试。
 1. 单击“启动”，开始测试。
 1. 在测试期间，可使用“输出”窗格下面的按钮来停止或暂停 [PowerShell 工作流](automation-runbook-types.md#powershell-workflow-runbooks)或[图形](automation-runbook-types.md#graphical-runbooks) Runbook。 暂停 Runbook 时，该 Runbook 会完成它在被暂停之前正在进行的活动。 暂停 Runbook 后，可以将它停止或重启。
 1. 在“输出”窗格中检查来自 Runbook 的输出。
@@ -298,7 +298,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 
 或者，可从自动化帐户中的 Runbook 页面上选择特定的 Runbook，然后选择“作业”来查看该 Runbook 的作业摘要详情。 该操作会显示“作业”页面。 你可在这里单击作业记录，查看它的详细信息和输出内容。
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="“作业”页的屏幕截图。":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="“作业”页的屏幕截图，其中突出显示了“错误”按钮。":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>使用 PowerShell 检索作业状态
 

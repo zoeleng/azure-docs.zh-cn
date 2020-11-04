@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635773"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317064"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure 数据工厂托管的虚拟网络 (预览) 
 
@@ -51,7 +51,7 @@ ms.locfileid: "92635773"
 
 ![新托管专用终结点](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure 数据工厂支持专用链接。 通过专用链接，你可以访问 Azure (PaaS) 服务 (如 Azure 存储、Azure Cosmos DB、Azure Synapse 分析 (以前的 Azure SQL 数据仓库) # A5。
+Azure 数据工厂支持专用链接。 通过专用链接，你可以访问 Azure (PaaS) 服务 (如 Azure 存储、Azure Cosmos DB、Azure Synapse 分析 (以前的 SQL 数据仓库) # A5。
 
 使用专用链接时，数据存储和托管虚拟网络之间的流量完全通过 Microsoft 骨干网络进行遍历。 专用链接可防止数据泄露风险。 可以通过创建专用终结点来建立到资源的专用链接。
 
@@ -81,7 +81,7 @@ Azure 数据工厂支持专用链接。 通过专用链接，你可以访问 Azu
 - Azure 文件
 - Azure Data Lake Gen2
 - Azure SQL Database (不包括 Azure SQL 托管实例) 
-- Azure Synapse Analytics（以前称为 Azure SQL 数据仓库）
+- Azure Synapse Analytics（以前称为 SQL 数据仓库）
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure 专用链接服务
@@ -97,7 +97,7 @@ Azure 数据工厂支持专用链接。 通过专用链接，你可以访问 Azu
 - 美国西部
 - 美国西部 2
 - 美国中南部
-- 美国中部
+- Central US
 - 北欧
 - 西欧
 - 英国南部

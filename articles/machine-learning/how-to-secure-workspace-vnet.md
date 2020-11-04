@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672866"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316701"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习工作区
 
@@ -48,7 +48,7 @@ ms.locfileid: "92672866"
     - “Microsoft.Network/virtualNetworks/join/action”（在虚拟网络资源上）。
     - “Microsoft.Network/virtualNetworks/subnet/join/action”（在子网资源上）。
 
-    有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](/azure/role-based-access-control/built-in-roles#networking)
+    有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](../role-based-access-control/built-in-roles.md#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>通过专用终结点保护工作区
@@ -66,7 +66,7 @@ Azure 机器学习支持配置为使用服务终结点或专用终结点的存�
 >
 > 创建工作区时，会自动预配默认存储帐户。
 >
-> 对于非默认存储帐户，可以使用 [`Workspace.create()` 函数](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true)中的 `storage_account` 参数按 Azure 资源 ID 指定自定义的存储帐户。
+> 对于非默认存储帐户，可以使用 [`Workspace.create()` 函数](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true)中的 `storage_account` 参数按 Azure 资源 ID 指定自定义的存储帐户。
 
 若要在虚拟网络中使用工作区的 Azure 存储帐户，请按照以下步骤操作：
 
@@ -188,7 +188,7 @@ Azure 机器学习使用关联的 Key Vault 实例存储以下凭据：
 
 若要在虚拟网络内部使用 Azure 容器注册表，必须先满足以下要求：
 
-* Azure 容器注册表必须是高级版。 若要详细了解如何升级，请参阅[更改 SKU](/azure/container-registry/container-registry-skus#changing-skus)。
+* Azure 容器注册表必须是高级版。 若要详细了解如何升级，请参阅[更改 SKU](../container-registry/container-registry-skus.md#changing-tiers)。
 
 * Azure 容器注册表必须与用于训练或推理的存储帐户和计算目标位于同一虚拟网络和子网中。
 
@@ -233,7 +233,7 @@ Azure 机器学习使用关联的 Key Vault 实例存储以下凭据：
     > [!IMPORTANT]
     > 存储帐户、计算群集和 Azure 容器注册表必须都位于虚拟网络的同一子网中。
     
-    有关详细信息，请参阅 [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) 方法参考。
+    有关详细信息，请参阅 [update()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) 方法参考。
 
 1. 应用以下 Azure 资源管理器模板。 借助此模板，工作区可以与 ACR 进行通信。
 
@@ -289,7 +289,7 @@ Azure 机器学习使用关联的 Key Vault 实例存储以下凭据：
 
     此模板创建一个 _专用终结点_ ，用于从工作区到 ACR 的网络访问。 下面的屏幕截图显示了此专用终结点的示例。
 
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="工作区的 Azure 容器注册表":::
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="ACR 专用终结点设置":::
 
     > [!IMPORTANT]
     > 请勿删除此终结点！ 如果意外删除该模板，可以在此步骤中重新应用模板以创建新模板。

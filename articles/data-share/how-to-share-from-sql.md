@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217535"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318492"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>从 Azure SQL 数据库和 Azure Synapse Analytics 共享和接收数据
 
@@ -52,9 +52,9 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
 
 * SQL Server 防火墙访问。 可以通过以下步骤完成此操作： 
     1. 在 Azure 门户中的 SQL Server 中，导航到“防火墙和虚拟网络” 
-    1. 单击 **"是"** *允许 Azure 服务和资源访问此服务器*。
-    1. 单击 " **+ 添加客户端 IP**"。 客户端 IP 地址可能会更改。 下次从 Azure 门户共享 SQL 数据时，可能需要重复此过程。 还可以添加 IP 范围。
-    1. 单击“保存” 。 
+    1. 单击 **"是"** *允许 Azure 服务和资源访问此服务器* 。
+    1. 单击 " **+ 添加客户端 IP** "。 客户端 IP 地址可能会更改。 下次从 Azure 门户共享 SQL 数据时，可能需要重复此过程。 还可以添加 IP 范围。
+    1. 单击 **“保存”** 。 
 
 ### <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -167,9 +167,9 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
 
 * SQL Server 防火墙访问。 可以通过以下步骤完成此操作： 
     1. 在 Azure 门户中的 SQL Server 中，导航到“防火墙和虚拟网络” 
-    1. 单击 **"是"** *允许 Azure 服务和资源访问此服务器*。
-    1. 单击 " **+ 添加客户端 IP**"。 客户端 IP 地址可能会更改。 下次从 Azure 门户共享 SQL 数据时，可能需要重复此过程。 还可以添加 IP 范围。
-    1. 单击“保存” 。 
+    1. 单击 **"是"** *允许 Azure 服务和资源访问此服务器* 。
+    1. 单击 " **+ 添加客户端 IP** "。 客户端 IP 地址可能会更改。 下次从 Azure 门户共享 SQL 数据时，可能需要重复此过程。 还可以添加 IP 范围。
+    1. 单击 **“保存”** 。 
 
 ### <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -204,7 +204,7 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
 
    这会转到数据共享帐户中的已接收共享。 
 
-   如果不想接受邀请，请选择“拒绝”。** 
+   如果不想接受邀请，请选择“拒绝”。 
 
 ### <a name="configure-received-share"></a>配置已接收共享
 按照以下步骤配置要接收数据的位置。
@@ -228,7 +228,7 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
 
    ![触发快照](./media/trigger-snapshot.png "触发快照") 
 
-1. 如果上次运行状态为“成功”，请转到目标数据存储来查看接收的数据。** 选择“数据集”，然后单击“目标路径”中的链接。**** 
+1. 如果上次运行状态为“成功”，请转到目标数据存储来查看接收的数据。 选择“数据集”，然后单击“目标路径”中的链接。 
 
    ![使用者数据集](./media/consumer-datasets.png "使用者数据集映射") 
 
@@ -275,7 +275,7 @@ Azure 数据共享支持在以前的 Azure SQL DW) 中共享 Azure SQL 数据库
 
 >[!NOTE]
 > 1. 对于映射到小数过渡类型的数据类型，当前快照最多支持精度为28。 如果数据需要的精度大于28，请考虑将转换为字符串。 
-> 1.  如果要将数据从 Azure SQL 数据库共享到 Azure Synapse Analytics，并非所有数据类型都受支持。 有关详细信息，请参阅 [SYNAPSE SQL 池中的表数据类型](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) 。 
+> 1.  如果要将数据从 Azure SQL 数据库共享到 Azure Synapse Analytics，并非所有数据类型都受支持。 有关详细信息，请参阅 [专用 SQL 池中的表数据类型](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) 。 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted 或动态数据掩码
 Azure 数据共享目前不支持配置了 Always Encrypted 的 Azure SQL 数据库。 

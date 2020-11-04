@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288097"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318822"
 ---
-# <a name="use-file-metadata-in-queries"></a>在查询中使用文件元数据
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>在无服务器 SQL 池查询中使用文件元数据
 
-根据 [查询文件夹和多文件](query-folders-multiple-csv-files.md) 一文中所述，SQL 点播可以处理多个文件和文件夹。 本文介绍如何在查询中使用有关文件和文件夹名称的元数据信息。
+无服务器 SQL 池可以处理多个文件和文件夹，如 [查询文件夹和多个文件](query-folders-multiple-csv-files.md) 一文中所述。 本文介绍如何在查询中使用有关文件和文件夹名称的元数据信息。
 
 有时，可能会需要知道哪个文件或文件夹源与结果集中的某个特定行相关。
 
@@ -26,7 +26,7 @@ ms.locfileid: "91288097"
 
 ## <a name="prerequisites"></a>先决条件
 
-第一步是**创建数据库**，其中包含了引用存储帐户的数据源。 然后通过对该数据库执行[安装脚本](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)来初始化这些对象。 此安装脚本将创建数据源、数据库范围的凭据以及在这些示例中使用的外部文件格式。
+第一步是 **创建数据库** ，其中包含了引用存储帐户的数据源。 然后通过对该数据库执行[安装脚本](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)来初始化这些对象。 此安装脚本将创建数据源、数据库范围的凭据以及在这些示例中使用的外部文件格式。
 
 ## <a name="functions"></a>函数
 

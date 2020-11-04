@@ -11,30 +11,30 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207115"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318211"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>创建 Azure 机器学习计算群集
 
 了解如何在 Azure 机器学习工作区中创建和管理 [计算群集](concept-compute-target.md#azure-machine-learning-compute-managed) 。
 
-你可以使用 Azure 机器学习计算群集在云中的 CPU 或 GPU 计算节点群集之间分布定型或批处理推理过程。 有关包括 GPU 的 VM 大小的详细信息，请参阅 [GPU 优化的虚拟机大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)。 
+你可以使用 Azure 机器学习计算群集在云中的 CPU 或 GPU 计算节点群集之间分布定型或批处理推理过程。 有关包括 GPU 的 VM 大小的详细信息，请参阅 [GPU 优化的虚拟机大小](../virtual-machines/sizes-gpu.md)。 
 
 在本文中，将学习以下内容：
 
 * 创建计算群集
 *  降低计算群集成本
-* 设置群集的[托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* 设置群集的[托管标识](../active-directory/managed-identities-azure-resources/overview.md)
 
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 机器学习工作区。 有关详细信息，请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 
-* [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
+* [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
 
 ## <a name="what-is-a-compute-cluster"></a>什么是计算群集？
 
@@ -44,7 +44,7 @@ Azure 机器学习计算群集是一个托管的计算基础结构，可让你�
 
 ## <a name="limitations"></a>限制
 
-* 不要从工作区**创建多个同时同时与相同计算的附件**。 例如，使用两个不同的名称将一个计算群集附加到工作区。 每个新附件都会破坏先前存在的附件。
+* 请勿在工作区中为同一计算创建多个同步附件。 例如，使用两个不同的名称将一个计算群集附加到工作区。 每个新附件都会破坏先前存在的附件。
 
     如果要重新连接计算目标（例如更改群集配置设置），则必须先删除现有的附件。
 
@@ -52,7 +52,7 @@ Azure 机器学习计算群集是一个托管的计算基础结构，可让你�
 
 * Azure 机器学习计算对可以分配的核心数等属性实施默认限制。 有关详细信息，请参阅[管理和请求 Azure 资源的配额](how-to-manage-quotas.md)。
 
-* Azure 允许你对资源进行 _锁定_ ，以便不能删除或只读资源。 __不要将资源锁应用于包含工作区的资源组__。 对包含工作区的资源组应用锁定会阻止 Azure ML 计算群集的缩放操作。 有关锁定资源的详细信息，请参阅 [锁定资源以防止意外更改](../azure-resource-manager/management/lock-resources.md)。
+* Azure 允许你对资源进行 _锁定_ ，以便不能删除或只读资源。 __不要将资源锁应用于包含工作区的资源组__ 。 对包含工作区的资源组应用锁定会阻止 Azure ML 计算群集的缩放操作。 有关锁定资源的详细信息，请参阅 [锁定资源以防止意外更改](../azure-resource-manager/management/lock-resources.md)。
 
 > [!TIP]
 > 一般情况下，只要所需核心数方面的配额足够，群集就可以扩展到多达 100 个节点。 默认情况下，设置群集时会启用群集节点之间的通信（例如，为了支持 MPI 作业）。 但是，可以将群集扩展到数千个节点，只需[提交支持票证](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)并请求将你的订阅、工作区或特定群集加入允许列表以禁用节点间通信即可。 
@@ -60,7 +60,7 @@ Azure 机器学习计算群集是一个托管的计算基础结构，可让你�
 
 ## <a name="create"></a>创建
 
-**估计时间**：约5分钟。
+**估计时间** ：约5分钟。
 
 可在不同的运行中重复使用 Azure 机器学习计算。 计算可与工作区中的其他用户共享，并在每次运行之后保留，它会根据提交的运行数以及群集上设置的 max_nodes 自动纵向扩展或缩减节点。 min_nodes 设置控制可用节点数的下限。
 
@@ -74,13 +74,13 @@ Azure 机器学习计算群集是一个托管的计算基础结构，可让你�
 
 若要在 Python 中创建持久性 Azure 机器学习计算资源，请指定 **vm_size** 和 **max_nodes** 属性。 然后，Azure 机器学习将对其他属性使用智能默认值。 
     
-* **vm_size**：Azure 机器学习计算创建的节点的 VM 系列。
-* **max_nodes**：在 Azure 机器学习计算中运行作业时自动扩展到的最大节点数。
+* **vm_size** ：Azure 机器学习计算创建的节点的 VM 系列。
+* **max_nodes** ：在 Azure 机器学习计算中运行作业时自动扩展到的最大节点数。
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-还可以在创建 Azure 机器学习计算时配置多个高级属性。 使用这些属性可以创建固定大小的持久性群集，或者在订阅中的现有 Azure 虚拟网络内创建持久性群集。  有关详细信息，请参阅 [AmlCompute 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true)。
+还可以在创建 Azure 机器学习计算时配置多个高级属性。 使用这些属性可以创建固定大小的持久性群集，或者在订阅中的现有 Azure 虚拟网络内创建持久性群集。  有关详细信息，请参阅 [AmlCompute 类](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py)。
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -90,7 +90,7 @@ Azure 机器学习计算群集是一个托管的计算基础结构，可让你�
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-有关详细信息，请参阅 [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true)。
+有关详细信息，请参阅 [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true)。
 
 # <a name="studio"></a>[工作室](#tab/azure-studio)
 
@@ -122,7 +122,7 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 
 # <a name="studio"></a>[工作室](#tab/azure-studio)
 
-在工作室中，在创建 VM 时选择“低优先级”****。
+在工作室中，在创建 VM 时选择“低优先级”。
 
 --- 
 
@@ -217,4 +217,4 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 使用你的计算群集执行以下操作：
 
 * [提交定型运行](how-to-set-up-training-targets.md) 
-* [运行批处理推理](how-to-use-parallel-run-step.md)。
+* [运行批处理推理](./tutorial-pipeline-batch-scoring-classification.md)。

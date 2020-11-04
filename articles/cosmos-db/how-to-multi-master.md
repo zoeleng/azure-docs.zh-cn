@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2c91b330f52733a91fbceb1dc9ca2309c0d10547
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100127"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317113"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>在应用程序中配置使用 Azure Cosmos DB 的多区域写入
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,22 @@ ms.locfileid: "93100127"
 
 > [!Note]
 > 最初配置有单个写入区域的 Cosmos 帐户可配置为具有零停机时间的多个写入区域。 若要了解详细信息，请参阅[配置多个写入区域](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> Azure 门户
+
+使用以下步骤从 Azure 门户启用多区域写入：
+
+1. 登录到 [Azure 门户](https://portal.azure.com/)。
+
+1. 导航到你的 Azure Cosmos 帐户，然后从菜单中打开 " **全局复制数据** " 窗格。
+
+1. 在 " **多区域写入** " 选项下，选择 " **启用** "。 它会自动向读取和写入区域添加现有区域。
+
+1. 通过选择地图上的图标或选择 " **添加区域** " 按钮，可以添加其他区域。 你添加的所有区域都启用了读取和写入。
+
+1. 更新区域列表后，选择 " **保存** " 以应用更改。
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="使用 Azure 门户启用多区域写入的屏幕截图" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 

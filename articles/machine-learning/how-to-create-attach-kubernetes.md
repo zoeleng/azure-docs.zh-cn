@@ -1,7 +1,7 @@
 ---
 title: 创建并附加 Azure Kubernetes 服务
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes 服务 (AKS) 可用于将机器学习模型部署为 Web 服务。 了解如何通过 Azure 机器学习创建新的 AKS 群集。 你还将了解如何将现有的 AKS 群集附加到 Azure 机器学习工作区。
+description: 了解如何通过 Azure 机器学习创建新的 Azure Kubernetes Service 群集，或者如何将现有的 AKS 群集附加到工作区。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791998"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318062"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>创建并附加 Azure Kubernetes 服务群集
 
@@ -26,25 +26,25 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
 - Azure 机器学习工作区。 有关详细信息，请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 
-- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
+- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
 
-- 如果计划使用 Azure 虚拟网络来保护 Azure ML 工作区与 AKS 群集之间的通信，请阅读[训练和推理期间的网络隔离](how-to-enable-virtual-network.md)一文。
+- 如果计划使用 Azure 虚拟网络来保护 Azure ML 工作区与 AKS 群集之间的通信，请阅读[训练和推理期间的网络隔离](./how-to-network-security-overview.md)一文。
 
 ## <a name="limitations"></a>限制
 
 - 如果群集中需要部署的是标准负载均衡器 (SLB)，而不是基本负载均衡器 (BLB)，请在 AKS 门户/CLI/SDK 中创建群集，然后将该群集附加到 AML 工作区 。
 
-- 如果你的 Azure Policy 限制创建公共 IP 地址，则无法创建 AKS 群集。 AKS 需要一个公共 IP 用于[出口流量](/azure/aks/limit-egress-traffic)。 出口流量一文还提供了通过公共 IP 锁定群集传出流量的指导，但少数完全限定的域名除外。 启用公共 IP 有两种方法：
+- 如果你的 Azure Policy 限制创建公共 IP 地址，则无法创建 AKS 群集。 AKS 需要一个公共 IP 用于[出口流量](../aks/limit-egress-traffic.md)。 出口流量一文还提供了通过公共 IP 锁定群集传出流量的指导，但少数完全限定的域名除外。 启用公共 IP 有两种方法：
     - 群集可以使用在默认情况下与 BLB 或 SLB 一起创建的公共 IP，或者
-    - 可以在没有公共 IP 的情况下创建群集，然后为公共 IP 配置一个带有用户定义路由的防火墙。 有关详细信息，请参阅[使用用户定义的路由自定义群集出口](/azure/aks/egress-outboundtype)。
+    - 可以在没有公共 IP 的情况下创建群集，然后为公共 IP 配置一个带有用户定义路由的防火墙。 有关详细信息，请参阅[使用用户定义的路由自定义群集出口](../aks/egress-outboundtype.md)。
     
     AML 控制平面不会与此公共 IP 通信。 它与 AKS 控制平面通信以便进行部署。 
 
-- 如果附加 AKS 群集（已[启用授权 IP 范围来访问 API 服务器](/azure/aks/api-server-authorized-ip-ranges)），请为该 AKS 群集启用 AML 控制平面 IP 范围。 AML 控制平面是跨配对区域部署的，并且会在 AKS 群集上部署推理 Pod。 如果无法访问 API 服务器，则无法部署推理 Pod。 在 AKS 群集中启用 IP 范围时，请对两个[配对区域](/azure/best-practices-availability-paired-regions)都使用 [IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=56519)。
+- 如果附加 AKS 群集（已[启用授权 IP 范围来访问 API 服务器](../aks/api-server-authorized-ip-ranges.md)），请为该 AKS 群集启用 AML 控制平面 IP 范围。 AML 控制平面是跨配对区域部署的，并且会在 AKS 群集上部署推理 Pod。 如果无法访问 API 服务器，则无法部署推理 Pod。 在 AKS 群集中启用 IP 范围时，请对两个[配对区域](../best-practices-availability-paired-regions.md)都使用 [IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=56519)。
 
     授权 IP 范围仅适用于标准负载均衡器。
 
-- 如果要使用专用 AKS 群集 (使用 Azure Private Link) ，则必须先创建群集，然后 **将其附加** 到工作区。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](/azure/aks/private-clusters)。
+- 如果要使用专用 AKS 群集 (使用 Azure Private Link) ，则必须先创建群集，然后 **将其附加** 到工作区。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
 
 - AKS 群集的计算名称在 Azure ML 工作区中必须是唯一的。
     - 名称是必须提供的，且长度必须介于 3 到 24 个字符之间。
@@ -70,7 +70,7 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
 ## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes 服务版本
 
-Azure Kubernetes 服务允许使用各种 Kubernetes 版本创建群集。 有关可用版本的详细信息，请参阅 [Azure Kubernetes 服务支持的 Kubernetes 版本](/azure/aks/supported-kubernetes-versions)。
+Azure Kubernetes 服务允许使用各种 Kubernetes 版本创建群集。 有关可用版本的详细信息，请参阅 [Azure Kubernetes 服务支持的 Kubernetes 版本](../aks/supported-kubernetes-versions.md)。
 
 使用以下方法之一创建 Azure Kubernetes 服务群集时，无法选择创建的群集的版本：
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-若要以编程方式检查可用版本，请使用[容器服务客户端 - 列出业务流程协调程序](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API。 若要查找可用版本，请查看 `orchestratorType` 为 `Kubernetes` 的条目。 关联的 `orchestrationVersion` 条目包含可附加到你的工作区的可用版本。
+若要以编程方式检查可用版本，请使用[容器服务客户端 - 列出业务流程协调程序](/rest/api/container-service/container%20service%20client/listorchestrators) REST API。 若要查找可用版本，请查看 `orchestratorType` 为 `Kubernetes` 的条目。 关联的 `orchestrationVersion` 条目包含可附加到你的工作区的可用版本。
 
 若要查找通过 Azure 机器学习创建群集时使用的默认版本，请找到其中的 `orchestratorType` 为 `Kubernetes` 且 `default` 为 `true` 的条目。 关联的 `orchestratorVersion` 值为默认版本。 下面的 JSON 代码片段显示了一个示例条目：
 
@@ -183,10 +183,10 @@ aks_target.wait_for_completion(show_output = True)
 
 有关此示例中使用的类、方法和参数的详细信息，请参阅以下参考文档：
 
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
 * [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -194,7 +194,7 @@ aks_target.wait_for_completion(show_output = True)
 az ml computetarget create aks -n myaks
 ```
 
-有关详细信息，请参阅 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) 参考文档。
+有关详细信息，请参阅 [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) 参考文档。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
@@ -204,7 +204,7 @@ az ml computetarget create aks -n myaks
 
 ## <a name="attach-an-existing-aks-cluster"></a>附加现有的 AKS 群集
 
-时间估计  ：大约 5 分钟。
+时间估计：大约 5 分钟。
 
 如果 Azure 订阅中已有 AKS 群集并且其版本为 1.17 或更低版本，则可以使用该群集来部署映像。
 
@@ -215,12 +215,12 @@ az ml computetarget create aks -n myaks
 > [!WARNING]
 > 请勿在工作区中为同一 AKS 群集创建多个同步附件。 例如，使用两个不同的名称将一个 AKS 群集附加到工作区。 每个新附件都会破坏先前存在的附件。
 >
-> 如果要重新附加 AKS 群集（例如，更改 TLS 或其他群集配置设置），则必须先使用 [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#detach--) 删除现有附件。
+> 如果要重新附加 AKS 群集（例如，更改 TLS 或其他群集配置设置），则必须先使用 [AksCompute.detach()](/python/api/azureml-core/azureml.core.compute.akscompute?preserve-view=true&view=azure-ml-py#detach--) 删除现有附件。
 
 有关如何使用 Azure CLI 或门户创建 AKS 群集的详细信息，请参阅以下文章：
 
-* [创建 AKS 群集 (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest&preserve-view=true#az-aks-create)
-* [创建 AKS 群集（门户）](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest&preserve-view=true)
+* [创建 AKS 群集 (CLI)](/cli/azure/aks?bc=%252fazure%252fbread%252ftoc.json&preserve-view=true&toc=%252fazure%252faks%252fTOC.json&view=azure-cli-latest#az-aks-create)
+* [创建 AKS 群集（门户）](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
 * [创建 AKS 群集（Azure 快速入门模板上的 ARM 模板）](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 以下示例演示如何将现有 AKS 群集附加到工作区：
@@ -248,8 +248,8 @@ aks_target.wait_for_completion(show_output = True)
 有关此示例中使用的类、方法和参数的详细信息，请参阅以下参考文档：
 
 * [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#attach-workspace--name--attach-configuration-)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
+* [AksCompute.attach](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -271,7 +271,7 @@ az aks show -n myexistingcluster -g myresourcegroup --query id
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-有关详细信息，请参阅 [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks) 参考文档。
+有关详细信息，请参阅 [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) 参考文档。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
@@ -284,7 +284,7 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 若要从工作区中分离群集，请使用以下方法之一：
 
 > [!WARNING]
-> 使用用于机器学习的 Azure 机器学习 studio、SDK 或 Azure CLI 扩展分离 AKS 群集不 **会删除 AKS 群集** 。 若要删除群集，请参阅 [将 Azure CLI 与 AKS 一起使用](/azure/aks/kubernetes-walkthrough#delete-the-cluster)。
+> 使用用于机器学习的 Azure 机器学习 studio、SDK 或 Azure CLI 扩展分离 AKS 群集不 **会删除 AKS 群集** 。 若要删除群集，请参阅 [将 Azure CLI 与 AKS 一起使用](../aks/kubernetes-walkthrough.md#delete-the-cluster)。
 
 # <a name="python"></a>[Python](#tab/python)
 

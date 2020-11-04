@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285951"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316680"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>监视和查看 ML 运行日志与指标
 
@@ -58,7 +58,7 @@ ms.locfileid: "93285951"
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>使用 Jupyter Notebook 小组件监视运行
 
-使用 ScriptRunConfig 方法提交运行时，可使用 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)监视运行的进度。 和运行提交一样，该小组件采用异步方式，并每隔 10-15 秒提供实时更新，直到作业完成。
+使用 ScriptRunConfig 方法提交运行时，可使用 [Jupyter 小组件](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)监视运行的进度。 和运行提交一样，该小组件采用异步方式，并每隔 10-15 秒提供实时更新，直到作业完成。
 
 在等待运行完成的期间查看 Jupyter 小组件。
     
@@ -134,4 +134,3 @@ RunDetails(run).show()
 * 了解如何[在 Azure 机器学习设计器中跟踪试验并启用日志](how-to-track-designer-experiments.md)。
 
 * 查看教程[使用 Azure 机器学习训练图像分类模型](tutorial-train-models-with-aml.md)中的示例，了解如何注册和部署最佳模型。
-

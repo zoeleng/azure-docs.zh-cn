@@ -1,7 +1,7 @@
 ---
 title: 设置身份验证
 titleSuffix: Azure Machine Learning
-description: 了解如何为 Azure 机器学习中的各种资源和工作流设置和配置身份验证。 可以通过多种方式在服务中配置和使用身份验证，范围从出于开发或测试目的而进行的基于 UI 的简单身份验证，到完整的 Azure Active Directory 服务主体身份验证不等。
+description: 了解如何为 Azure 机器学习中的各种资源和工作流设置和配置身份验证。
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a23f44e60bd68e51c26cc6a0bbf3e85e64914135
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: fd6f933e1b3c1e7c003f62e03215273e3d28ea5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125761"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318534"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>为 Azure 机器学习资源和工作流设置身份验证
 
@@ -38,7 +38,7 @@ ms.locfileid: "93125761"
 ## <a name="interactive-authentication"></a>交互式身份验证
 
 > [!IMPORTANT]
-> 交互式身份验证使用浏览器并需要 Cookie（包括第三方 Cookie）。 如果已禁用 Cookie，则可能会收到“我们无法为你登录”之类的错误。 如果已启用 [Azure 多重身份验证](/azure/active-directory/authentication/concept-mfa-howitworks)，则也可能出现此错误。
+> 交互式身份验证使用浏览器并需要 Cookie（包括第三方 Cookie）。 如果已禁用 Cookie，则可能会收到“我们无法为你登录”之类的错误。 如果已启用 [Azure 多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md)，则也可能出现此错误。
 
 文档和样本中的大多数示例都使用交互式身份验证。 例如，当使用 SDK 时，有两个函数调用会自动提示你使用基于 UI 的身份验证流：
 
@@ -77,7 +77,7 @@ ms.locfileid: "93125761"
 >
 > 授予最低访问权限的原因是服务主体使用密码进行身份验证，并且该密码可以存储为自动化脚本的一部分。 如果密码泄漏，由于用户仅拥有执行特定任务所需的最低访问权限，因此可最大程度地减少对 SP 的恶意使用。
 
-创建 SP 并向其授予对工作区的访问权限的最简单方法是使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 若要创建服务主体并向其授予对工作区的访问权限，请执行以下步骤：
+创建 SP 并向其授予对工作区的访问权限的最简单方法是使用 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)。 若要创建服务主体并向其授予对工作区的访问权限，请执行以下步骤：
 
 > [!NOTE]
 > 你必须是订阅的管理员才能执行所有这些步骤。
@@ -92,7 +92,7 @@ ms.locfileid: "93125761"
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    有关其他身份验证方法，请参阅[使用 Azure CLI 登录](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)。
+    有关其他身份验证方法，请参阅[使用 Azure CLI 登录](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
 1. 安装 Azure 机器学习扩展：
 
@@ -190,11 +190,11 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>从 Azure CLI 中使用服务主体
 
-可以将服务主体用于 Azure CLI 命令。 有关详细信息，请参阅[使用服务主体登录](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal)。
+可以将服务主体用于 Azure CLI 命令。 有关详细信息，请参阅[使用服务主体登录](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal)。
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>将服务主体用于 REST API（预览版）
 
-还可以使用服务主体向 Azure 机器学习 [REST API](https://docs.microsoft.com/rest/api/azureml/)（预览版）进行身份验证。 如果使用 Azure Active Directory [客户端凭据授予流](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)，则可在自动化工作流中进行无外设身份验证的服务到服务调用。 这些示例使用 Python 和 Node.js 中的 [ADAL 库](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)实现，但也可以使用支持 OpenID Connect 1.0 的任何开放源代码库。
+还可以使用服务主体向 Azure 机器学习 [REST API](/rest/api/azureml/)（预览版）进行身份验证。 如果使用 Azure Active Directory [客户端凭据授予流](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)，则可在自动化工作流中进行无外设身份验证的服务到服务调用。 这些示例使用 Python 和 Node.js 中的 [ADAL 库](../active-directory/azuread-dev/active-directory-authentication-libraries.md)实现，但也可以使用支持 OpenID Connect 1.0 的任何开放源代码库。
 
 > [!NOTE]
 > MSAL.js 库比 ADAL 更新，但不能使用 MSAL.js 的客户端凭据进行服务到服务的身份验证，因为它主要是一个客户端库，适用于与特定用户关联的交互式/UI 身份验证。 我们建议使用如下所示的 ADAL，通过 REST API 生成自动化工作流。
