@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 742dc4b613c180550a4b3ec02827061acbf0bf78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3edeee8f41c806c90f32208c0c4f174c76ba38d0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122939"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321991"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>航空航天预测性维护的解决方案模板的技术指南
 
@@ -58,7 +58,7 @@ ms.locfileid: "93122939"
 使用 [Azure 流分析](https://azure.microsoft.com/services/stream-analytics/)对 [Azure 事件中心](#azure-event-hub)服务的输入流提供近乎实时的分析。 然后可将结果发布到 [Power BI](https://powerbi.microsoft.com) 仪表板，在 [Azure 存储服务](https://azure.microsoft.com/services/storage/)中存档所有原始传入事件，供 [Azure 数据工厂](https://azure.microsoft.com/documentation/services/data-factory/)服务做后续处理。
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 自定义聚合
-使用 HDInsight 运行 [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本（由 Azure 数据工厂协调），提供使用 Azure 流分析资源存档的原始事件聚合。
+使用 HDInsight 运行 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本（由 Azure 数据工厂协调），提供使用 Azure 流分析资源存档的原始事件聚合。
 
 ### <a name="azure-machine-learning"></a>Azure 机器学习
 使用 [Azure 机器学习](https://azure.microsoft.com/services/machine-learning/)服务（由 Azure 数据工厂协调）预测特定飞机引擎（根据收到的输入数据）的剩余使用寿命 (RUL)。 
@@ -96,7 +96,7 @@ Azure 事件中心支持丰富的格式，可以使用 CSV 或 JSON 格式将数
   
   * ***输入** _ 若要查看查询输入，请 **查看查询，** 查看查询本身 _ * **输出** _ 查看不同的输出
 
-有关 Azure 流分析查询构造的信息，请参阅 MSDN 上的 [Stream Analytics Query Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) （流分析查询参考）。
+有关 Azure 流分析查询构造的信息，请参阅 MSDN 上的 [Stream Analytics Query Reference](/stream-analytics-query/stream-analytics-query-language-reference) （流分析查询参考）。
 
 在此解决方案中，查询将三个数据集（具有近乎实时的传入数据流相关分析信息）输出到作为此解决方案模板中的一部分提供的 Power BI 仪表板。 由于对传入数据格式有隐含的了解，必须根据数据格式更改这些查询。
 
@@ -111,27 +111,27 @@ Azure 事件中心支持丰富的格式，可以使用 CSV 或 JSON 格式将数
 
 ![Azure 数据工厂](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
-此工厂的两个管道包含 [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本，用于分区及聚合数据。 可以看到，脚本位在安装期间创建的 [Azure 存储](https://azure.microsoft.com/services/storage/)帐户中。 其位置为：maintenancesascript\\\\script\\\\hive\\\\（或 https://[解决方案名称].blob.core.windows.net/maintenancesascript）。
+此工厂的两个管道包含 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本，用于分区及聚合数据。 可以看到，脚本位在安装期间创建的 [Azure 存储](https://azure.microsoft.com/services/storage/)帐户中。 其位置为：maintenancesascript\\\\script\\\\hive\\\\（或 https://[解决方案名称].blob.core.windows.net/maintenancesascript）。
 
-类似于 [Azure 流分析](#azure-stream-analytics-1)查询，[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本对传入的数据格式有隐含了解，必须根据数据格式进行更改。
+类似于 [Azure 流分析](#azure-stream-analytics-1)查询，[Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本对传入的数据格式有隐含了解，必须根据数据格式进行更改。
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-该[管道](../../data-factory/concepts-pipelines-activities.md)包含单个活动 - [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活动，其使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 运行 [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本，在 [Azure 流分析作业](https://azure.microsoft.com/services/stream-analytics/)期间对放入 [Azure 存储](https://azure.microsoft.com/services/storage/)的数据进行分区。
+该[管道](../../data-factory/concepts-pipelines-activities.md)包含单个活动 - [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活动，其使用 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) 运行 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本，在 [Azure 流分析作业](https://azure.microsoft.com/services/stream-analytics/)期间对放入 [Azure 存储](https://azure.microsoft.com/services/storage/)的数据进行分区。
 
-此分区任务的 [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本为 * **AggregateFlightInfo** _
+此分区任务的 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本为 * **AggregateFlightInfo** _
 
 #### <a name="_mlscoringpipeline"></a>_MLScoringPipeline *
 此[管道](../../data-factory/concepts-pipelines-activities.md)包含多个活动，其最终结果为来自与此解决方案模板关联的 [Azure 机器学习](https://azure.microsoft.com/services/machine-learning/)试验评分的预测。
 
 包含的活动有：
 
-* 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活动运行 [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本来执行 [Azure 机器学习](https://azure.microsoft.com/services/machine-learning/)试验所需的聚合及特征设计。
-  此分区任务的 [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本为 * **PrepareMLInput** _。
-  _ 将[HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)活动的结果移动到[AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx)活动访问的单个[Azure 存储](https://azure.microsoft.com/services/storage/)blob 的[复制](https://msdn.microsoft.com/library/azure/dn835035.aspx)活动。
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活动调用 [Azure 机器学习](https://azure.microsoft.com/services/machine-learning/)试验，将结果放入单个 [Azure 存储](https://azure.microsoft.com/services/storage/) Blob。
+* 使用 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活动运行 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本来执行 [Azure 机器学习](https://azure.microsoft.com/services/machine-learning/)试验所需的聚合及特征设计。
+  此分区任务的 [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) 脚本为 * **PrepareMLInput** _。
+  _ 将[HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)活动的结果移动到[AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100))活动访问的单个[Azure 存储](https://azure.microsoft.com/services/storage/)blob 的[复制](/previous-versions/azure/dn835035(v=azure.100))活动。
+* [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) 活动调用 [Azure 机器学习](https://azure.microsoft.com/services/machine-learning/)试验，将结果放入单个 [Azure 存储](https://azure.microsoft.com/services/storage/) Blob。
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-此 [管道](../../data-factory/concepts-pipelines-activities.md) 包含单个活动- [复制](https://msdn.microsoft.com/library/azure/dn835035.aspx) 活动，可将 [Azure 机器学习](#azure-machine-learning) 试验的结果从 * **mlscoringpipeline 移** _ 移动到作为解决方案模板安装的一部分预配的 [Azure SQL 数据库](https://azure.microsoft.com/services/sql-database/) 。
+此 [管道](../../data-factory/concepts-pipelines-activities.md) 包含单个活动- [复制](/previous-versions/azure/dn835035(v=azure.100)) 活动，可将 [Azure 机器学习](#azure-machine-learning) 试验的结果从 * **mlscoringpipeline 移** _ 移动到作为解决方案模板安装的一部分预配的 [Azure SQL 数据库](https://azure.microsoft.com/services/sql-database/) 。
 
 ### <a name="azure-machine-learning"></a>Azure 机器学习
 用于此解决方案模板的 [Azure 机器学习](https://azure.microsoft.com/services/machine-learning/)试验提供了飞机引擎的剩余使用寿命 (RUL)。 该试验因使用的数据集而有所不同，需要专门针对引入的数据进行修改或替换。
@@ -157,7 +157,7 @@ Power BI 连接到充当其数据源、用于存储预测结果的 Azure SQL 数
 
 注意： 
 1.    部署解决方案后，预测会在 3 小时内在数据库中显示。 生成器下载附带的 pbix 文件包含某些种子数据，因此需要立即创建 Power BI 仪表板。 
-2.    此步骤的先决条件是下载并安装免费软件 [Power BI desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop)。
+2.    此步骤的先决条件是下载并安装免费软件 [Power BI desktop](/power-bi/fundamentals/desktop-get-the-desktop)。
 
 以下步骤介绍如何将 pbix 文件连接到解决方案部署包含可视化数据时启动的 SQL 数据库（例如预测结果）。
 
@@ -233,4 +233,3 @@ Power BI 连接到充当其数据源、用于存储预测结果的 Azure SQL 数
 
 * [Microsoft Azure Cost Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure Cost Estimator Tool (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
-

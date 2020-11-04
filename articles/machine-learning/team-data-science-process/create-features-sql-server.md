@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0be75b3b0a7b9b5aaec0da1d9f41f67a7108e77a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bf1c5856276c4c7ee0e37ed4ef2120d1d93d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085304"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322033"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>使用 SQL 和 Python 在 SQL Server 中为数据创建功能
 本文档演示如何在 Azure 上为存储于 SQL Server VM 中的数据生成功能，用于帮助算法更有效地从数据中进行学习。 可以使用 SQL 或 Python 等编程语言来完成此任务。 下面演示了这两种方法。
 
-此任务是[团队数据科学过程 (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 中的一个步骤。
+此任务是[团队数据科学过程 (TDSP)](./index.yml) 中的一个步骤。
 
 > [!NOTE]
 > 有关实际的示例，可以参阅 [NYC 出租车数据集](https://www.andresmh.com/nyctaxitrips/)[使用 IPython Notebook 和 SQL Server 处理 NYC 数据](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)获取端到端的演练。
@@ -99,12 +99,12 @@ from <tablename>
 
 > [!TIP]
 > 可以使用设定语言，以编程方式插入记录。 可能需要将数据插入区块以提高写入效率。 [下面是如何使用 pyodbc 执行此操作的示例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
-> 另一种方法是采用 [BCP 实用工具](https://msdn.microsoft.com/library/ms162802.aspx)将数据插入数据库中
+> 另一种方法是采用 [BCP 实用工具](/sql/tools/bcp-utility)将数据插入数据库中
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>连接到 Azure 机器学习
-新生成的功能可作为列添加到现有表或存储在新表中，也可与原始表结合以进行机器学习。 如果已经创建，可使用 Azure ML 中的[导入数据](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)模块生成或访问生成功能，如下所示：
+新生成的功能可作为列添加到现有表或存储在新表中，也可与原始表结合以进行机器学习。 如果已经创建，可使用 Azure ML 中的[导入数据](/azure/machine-learning/studio-module-reference/import-data)模块生成或访问生成功能，如下所示：
 
 ![Azure ML 读取器](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -126,5 +126,4 @@ Python 中的 [Pandas 库](https://pandas.pydata.org/)提供一组丰富的数�
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-现在可根据 [Panda 创建 Azure blob 存储数据](create-features-blob.md) 主题中的说明来使用 Pandas 数据框架。
-
+现在可根据 [Panda 创建 Azure blob 存储数据](./explore-data-blob.md) 主题中的说明来使用 Pandas 数据框架。

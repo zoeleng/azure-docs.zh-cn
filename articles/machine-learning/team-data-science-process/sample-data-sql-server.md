@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ac1fc5688dad3406041f36ff858e6fd27c7272f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026060"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321863"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>对 Azure 上 SQL Server 中的数据进行采样
 
@@ -30,9 +30,9 @@ Python 采样使用要连接到 Azure 上 SQL Server 的 [pyodbc](https://code.g
 > 
 
 **为什么对数据进行采样？**
-如果计划要分析的数据集很大，通常最好是对数据进行向下采样，以将数据减至较小但具备代表性且更易于管理的规模。 采样有利于数据理解、探索和功能设计。 它在[团队数据科学过程 (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 中的作用是启用数据处理功能和机器学习模型的快速原型设计。
+如果计划要分析的数据集很大，通常最好是对数据进行向下采样，以将数据减至较小但具备代表性且更易于管理的规模。 采样有利于数据理解、探索和功能设计。 它在[团队数据科学过程 (TDSP)](./index.yml) 中的作用是启用数据处理功能和机器学习模型的快速原型设计。
 
-此采样任务是[团队数据科学流程 (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 中的一个步骤。
+此采样任务是[团队数据科学流程 (TDSP)](./index.yml) 中的一个步骤。
 
 ## <a name="using-sql"></a><a name="SQL"></a>使用 SQL
 本部分介绍了几种使用 SQL 针对数据库中的数据执行简单随机采样的方法。 请根据数据大小及其分发方式选择一种方法。
@@ -134,4 +134,4 @@ data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesa
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

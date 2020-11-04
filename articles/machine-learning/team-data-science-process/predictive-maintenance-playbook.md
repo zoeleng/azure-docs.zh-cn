@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1661f0f6cf024fde48d3706a1f8e47bf65f0d46f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84267967"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321967"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>针对预测性维护解决方案的 Azure AI 指南
 
 ## <a name="summary"></a>摘要
 
-预测性维护 (**PdM**) 是一种流行的预测分析应用程序，可帮助多个行业中的企业实现较高的资产利用率和运营成本节省。 本指南提供业务和分析准则与最佳做法，介绍如何使用 [Microsoft Azure AI 平台](https://azure.microsoft.com/overview/ai-platform)技术成功开发和部署 PdM 解决方案。
+预测性维护 ( **PdM** ) 是一种流行的预测分析应用程序，可帮助多个行业中的企业实现较高的资产利用率和运营成本节省。 本指南提供业务和分析准则与最佳做法，介绍如何使用 [Microsoft Azure AI 平台](https://azure.microsoft.com/overview/ai-platform)技术成功开发和部署 PdM 解决方案。
 
 针对初学者，本指南介绍了行业特定的业务方案，以及使这些方案适合 PdM 的过程。 此外，还提供了数据要求，以及生成 PdM 解决方案的建模技术。 本指南的主要内容涉及到数据科学过程 - 包括数据准备、特征工程、模型创建和模型操作化的步骤。 为了补充这些关键概念，本指南列出一组解决方案模板来帮助加快 PdM 应用程序的开发。 本指南还提供了有用培训资源的链接，让 实践者了解数据科学幕后的 AI 技术。 
 
@@ -189,7 +189,7 @@ BDM 内容并不要求读者事先拥有数据科学方面的知识。 若要学
 完成上面所述的数据源预处理后，在进行特征工程之前所做的最后一项转换是，根据资产标识符和时间戳联接上述表。 机器处于正常运行状态后，生成的表将在故障列中包含 null 值。 可以根据正常操作的指示符推算这些 null 值。 使用此故障列创建预测模型的标签。 有关详细信息，请参阅[预防性维护的建模技术](#modeling-techniques-for-predictive-maintenance)部分。
 
 ## <a name="feature-engineering"></a>特性工程
-特征工程是为数据建模之前的第一个步骤。 [此处介绍](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features)了该步骤在数据科学过程中的作用。 特征是模型的预测属性 - 例如温度、压力、震动，等等。 对于 PdM 而言，特征工程涉及根据在相当长的时间内收集的历史数据抽象出机器的运行状况。 在这种意义上，它不同于其对等术语，例如远程监视、异常检测和故障检测。 
+特征工程是为数据建模之前的第一个步骤。 [此处介绍](./create-features.md)了该步骤在数据科学过程中的作用。 特征是模型的预测属性 - 例如温度、压力、震动，等等。 对于 PdM 而言，特征工程涉及根据在相当长的时间内收集的历史数据抽象出机器的运行状况。 在这种意义上，它不同于其对等术语，例如远程监视、异常检测和故障检测。 
 
 ### <a name="time-windows"></a>时间窗口
 远程监视需要报告截止相应时间点发生的事件。 异常检测模型评估（评分）传入的数据流，以标记截止相应时间点发生的异常。 故障检测将时间点发生的故障分类为特定的类型。 相比之下，PdM 涉及到根据特征预测将来时间段的故障。这些特征表示历史时间段机器的行为。  对于 PdM 而言，来自各个时间点的特征数据过于杂乱，而没有预测性。 因此，需要通过聚合不同时间窗口的数据点，将每个特征的数据平滑化。
@@ -217,7 +217,7 @@ BDM 内容并不要求读者事先拥有数据科学方面的知识。 若要学
 PdM 中的另一个有用技术是使用检测数据异常的算法来捕获趋势变化、峰值和水平变化。
 
 #### <a name="tumbling-aggregates"></a>翻转聚合
-对于每条带有标签的资产记录，定义大小为 _W-<sub>k</sub>_ 的窗口，其中，_k_ 是大小为 _W_ 的窗口数。然后，根据记录时间戳之前时段的 _k_ _翻转窗口_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ 创建聚合。 _k_ 可以是较小数字（以捕获短期效应），也可以是较大数字（以捕获长期降级模式）。 （参阅图 2）。
+对于每条带有标签的资产记录，定义大小为 _W- <sub>k</sub>_ 的窗口，其中， _k_ 是大小为 _W_ 的窗口数。然后，根据记录时间戳之前时段的 _k_ _翻转窗口_ _W-k, W- <sub>(k-1)</sub>, …, W- <sub>2</sub>, W- <sub>1</sub>_ 创建聚合。 _k_ 可以是较小数字（以捕获短期效应），也可以是较大数字（以捕获长期降级模式）。 （参阅图 2）。
 
 ![图 2. 翻转聚合特性](./media/predictive-maintenance-playbook/tumbling-aggregate-features.png)
 
@@ -240,7 +240,7 @@ PdM 中的另一个有用技术是使用检测数据异常的算法来捕获趋�
 | B234 |第 2 天 | 上获取。 上获取。 上获取。 | 上获取。 |
 | ...  |...   | 上获取。 上获取。 上获取。 | 上获取。 |
 
-特征工程的最后一个步骤是将目标变量加上**标签**。 此过程依赖于建模技术。 而建模技术又依赖于业务问题和可用数据的性质。 下一部分将介绍标签。
+特征工程的最后一个步骤是将目标变量加上 **标签** 。 此过程依赖于建模技术。 而建模技术又依赖于业务问题和可用数据的性质。 下一部分将介绍标签。
 
 > [!IMPORTANT]
 > 若要获得成功的 PdM 解决方案，数据准备和特征工程与建模技术同等重要。 领域专家和实践者应投入大量的时间来获得适当的特征和模型数据。 下面列出了许多书籍中有关特征工程的简短示例：
@@ -257,7 +257,7 @@ PdM 中的另一个有用技术是使用检测数据异常的算法来捕获趋�
 > 为故障案例和标签策略选择标签。
 
 ### <a name="binary-classification"></a>二元分类
-二元分类用于_预测设备部件在未来时间段（称为“未来边际时段 X”）内发生故障的概率_。在咨询领域专家的情况下，根据业务问题和手头数据确定 X。 示例如下：
+二元分类用于 _预测设备部件在未来时间段（称为“未来边际时段 X”）内发生故障的概率_ 。在咨询领域专家的情况下，根据业务问题和手头数据确定 X。 示例如下：
 - 更换组件、部署维护资源、执行维护以避免在该时段内发生问题的最小提前期。
 - 问题发生之前可能发生的事件的最小计数。
 
@@ -295,24 +295,24 @@ PdM 中的另一个有用技术是使用检测数据异常的算法来捕获趋�
 - 预测给定故障的最可能根本原因。 此结果会建议一组用于解决故障的适当维护措施。 根本原因的排名列表和建议的修复措施可帮助技术人员在故障后排定修复措施的优先级。
 
 #### <a name="label-construction-for-multi-class-classification"></a>多类分类的标签构造
-此处的问题是：“资产在将来的 _nZ_（其中的 _n_ 是时段数目）个时间单位内发生故障的概率是多少？” 若要回答此问题，请使用时间桶 (3Z, 2Z, Z) 标记资产故障之前的 nZ 条记录。 将其他所有记录标记为“正常”（标签 = 0）。 在此方法中，目标变量保存分类值。 （参阅图 5）。
+此处的问题是：“资产在将来的 _nZ_ （其中的 _n_ 是时段数目）个时间单位内发生故障的概率是多少？” 若要回答此问题，请使用时间桶 (3Z, 2Z, Z) 标记资产故障之前的 nZ 条记录。 将其他所有记录标记为“正常”（标签 = 0）。 在此方法中，目标变量保存分类值。 （参阅图 5）。
 
 ![图 5。 多类分类的故障时间预测标签](./media/predictive-maintenance-playbook/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 
 图 5。 用于故障时间预测的多类分类的标签
 
-此处的问题是：“根本原因/问题 _P<sub>i</sub>_ 导致资产在将来的 X 个时间单位内发生故障的概率是多少？” 其中的 _i_ 是可能根本原因的数目。 若要回答此问题，请将资产故障前面的 X 条记录标记为“根本原因 _P<sub>i</sub>_ 即将导致故障”（标签 = _P<sub>i</sub>_ ）。 将其他所有记录标记为“正常”（标签 = 0）。 在此方法中，标签也可分类（参阅图 6）。
+此处的问题是：“根本原因/问题 _P <sub>i</sub>_ 导致资产在将来的 X 个时间单位内发生故障的概率是多少？” 其中的 _i_ 是可能根本原因的数目。 若要回答此问题，请将资产故障前面的 X 条记录标记为“根本原因 _P <sub>i</sub>_ 即将导致故障”（标签 = _P <sub>i</sub>_ ）。 将其他所有记录标记为“正常”（标签 = 0）。 在此方法中，标签也可分类（参阅图 6）。
 
 ![图 6。 多类分类的根本原因预测标签](./media/predictive-maintenance-playbook/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
 图 6。 用于根本原因预测的多类分类的标签
 
-模型根据每个 _P<sub>i</sub>_ 分配故障概率以及不发生故障的概率。 这些概率可以按度量值排序，以允许预测最可能在未来发生的问题。
+模型根据每个 _P <sub>i</sub>_ 分配故障概率以及不发生故障的概率。 这些概率可以按度量值排序，以允许预测最可能在未来发生的问题。
 
 此处的问题是：“发生故障后你们建议采取哪些维护措施？” 若要回答此问题，标签不需要拾取未来边际，因为模型不会预测将来的故障。 它只是在已发生故障之后，预测最有可能的根本原因。
 
 ## <a name="training-validation-and-testing-methods-for-predictive-maintenance"></a>预测性维护的训练、验证和测试方法
-[Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 涵盖整个模型训练-测试-验证周期。 本部分介绍 PdM 的独特方面。
+[Team Data Science Process](./overview.md) 涵盖整个模型训练-测试-验证周期。 本部分介绍 PdM 的独特方面。
 
 ### <a name="cross-validation"></a>交叉验证
 [交叉验证](https://en.wikipedia.org/wiki/Cross-validation_(statistics))的目标是定义一个数据集用于在训练阶段“测试”模型。 此数据集称为验证集。 此技术有助于限制“过度拟合”等问题，并提供有关模型如何通用化为独立数据集的见解。 该数据集是可能来自真实问题的未知数据集。 PdM 的训练和测试例程需要考虑到随时可变的因素，以基于不可见的未来数据更好地进行通用化。
@@ -396,7 +396,7 @@ PdM 的建议方法是以时间相关的方式将示例拆分为训练、验证�
 
 对于二元分类：
 - [接收方操作曲线 (ROC)](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) 也是一个常用的指标。 在 ROC 曲线中，模型性能根据 ROC 上的固定操作点来解释。
-- 但对于 PdM 问题， _decile 表_和_提升图_更具信息性。 它们只注重正类（故障），提供的算法性能图比 ROC 曲线更复杂。
+- 但对于 PdM 问题， _decile 表_ 和 _提升图_ 更具信息性。 它们只注重正类（故障），提供的算法性能图比 ROC 曲线更复杂。
   - 十分位表是使用文本示例根据故障概率的降序创建的。 然后，将排序的示例分组成十分位（具有最高概率的样本的 10%、20%、30%，依此类推）。 每个十分位的比率（真实正比率）/（随机基线）可帮助估计每个十分位的算法性能。 随机基线采用值 0.1、0.2，依此类推。
   - [提升图](http://www2.cs.uregina.ca/~dbd/cs831/notes/lift_chart/lift_chart.html)绘制十分位的真实正比率，而不是所有十分位的随机真实正比率。 最前面的十分位是结果的重点，因为它们展示了最大增益。 用于 PdM 时，也可以将最前面的十分位视为“有风险”的代表。
 
@@ -415,7 +415,7 @@ PdM 的建议方法是以时间相关的方式将示例拆分为训练、验证�
 
 如前所述，PdM 的模型操作化不同于其对等模块。 涉及到异常检测和故障检测的方案通常实施在线评分（也称为实时评分）。  此处，模型将对每条传入的记录评分，并返回预测结果。 对于异常检测，预测指示发生了异常（示例：单类 SVM）。 对于故障检测，预测会指示故障的类型或类。
 
-相比之下，PdM 涉及到批量评分。 为了符合模型签名，必须像训练数据一样设计新数据中的特征。 对于新数据经常采用的大型数据集，特征将会基于不同的时间窗口聚合，并分批进行评分。 批量评分通常在 [Spark](https://spark.apache.org/) 或 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics) 等分布式系统中进行。 可用采用两种替代方案 - 但两者都欠佳：
+相比之下，PdM 涉及到批量评分。 为了符合模型签名，必须像训练数据一样设计新数据中的特征。 对于新数据经常采用的大型数据集，特征将会基于不同的时间窗口聚合，并分批进行评分。 批量评分通常在 [Spark](https://spark.apache.org/) 或 [Azure Batch](../../batch/batch-service-workflow-features.md) 等分布式系统中进行。 可用采用两种替代方案 - 但两者都欠佳：
 - 流数据引擎支持基于内存中窗口的聚合。 因此，对于它们是否支持在线评分有所争议。 但是，这些系统适用于较窄时间窗口中的密集数据，或较宽窗口中的稀疏元素。 如 PdM 方案中所示，对于较宽时间窗口中的密集数据，它们可能无法正常缩放。
 - 如果批量评分不可用，解决方法是调整在线评分，以便每次以较小的批次处理新数据。
 
@@ -429,7 +429,7 @@ PdM 的建议方法是以时间相关的方式将示例拆分为训练、验证�
 | 3 | [预测性维护的深度学习](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | 包含一个演示解决方案的 Azure Notebook。该解决方案使用 LSTM （长短期记忆）网络（某类递归神经网络）进行预测性维护。请参阅[有关此示例的博客文章](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)。|
 | 4 | [面向航天工业的 Azure 预测性维护](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | 基于 Azure ML v1.0 的首批 PdM 解决方案模板之一，适用于飞机维护。 本指南源于此项目。 |
 | 5 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IoT Edge 中使用 TensorFlow 的 AI；该工具包在与 Azure IoT Edge 兼容的 Docker 容器中打包了深度学习模型，并以 REST API 的形式公开这些模型。
-| 6 | [Azure IoT 预测性维护](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT 套件 PCS - 预配置解决方案。 包含 IoT 套件的飞机维护 PdM 模板。 与同一个项目相关的[另一个文档](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview)和[演练](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough)。 |
+| 6 | [Azure IoT 预测性维护](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT 套件 PCS - 预配置解决方案。 包含 IoT 套件的飞机维护 PdM 模板。 与同一个项目相关的[另一个文档](../../iot-accelerators/quickstart-predictive-maintenance-deploy.md)和[演练](../../iot-accelerators/iot-accelerators-predictive-walkthrough.md)。 |
 | 7 | [使用 SQL R Services 的预测性维护模板](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | 基于 R Services 演示剩余使用寿命的场景。 |
 | 8 | [预测性维护建模指南](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | 使用 R 结合[试验](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1)和[数据集](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1)以及 AzureML v1.0 中的 Azure 笔记本和[试验](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)设计的飞机维护数据集特征|
 

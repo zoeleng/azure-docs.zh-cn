@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676309"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322052"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>通过 Azure 逻辑应用（预览版）扩展在 Visual Studio Code 中创建有状态或无状态工作流
 
@@ -106,7 +106,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 * 若要启动工作流，请使用 [内置的请求、HTTP、事件中心或服务总线触发器](../connectors/apis-list.md)，该触发器使用逻辑应用运行时在本机上运行。 目前，在此预览版中， [企业连接器](../connectors/apis-list.md#enterprise-connectors)、 [本地数据网关触发器](../connectors/apis-list.md#on-premises-connectors)、基于 Webhook 的触发器、滑动窗口触发器、 [自定义连接器](../connectors/apis-list.md#custom-apis-and-connectors)、集成帐户、项目和 [其连接器](../connectors/apis-list.md#integration-account-connectors) 不受支持。 "调用 Azure function" 功能不可用，因此目前请使用 HTTP *操作* 调用 Azure 函数的请求 URL。
 
-  除了前面指定的触发器外，有 *状态* 工作流可以对部署在 Azure 中的 [托管连接器](../connectors/apis-list.md#managed-api-connectors)使用触发器和操作。 但是， *无状态* 工作流目前只支持托管连接器的 *操作* ，而不支持触发器。 尽管你可以选择在 Azure 中为无状态工作流启用连接器，但设计器不会显示任何托管的连接器触发器供你选择。
+  除了前面指定的触发器，有 *状态* 的工作流可以同时对 [托管连接器](../connectors/apis-list.md#managed-api-connectors)使用触发器和操作，这些操作是在 Azure 中部署的，也可以使用内置触发器，以及使用逻辑应用运行时本机运行的操作。 但是， *无状态* 工作流目前只支持托管连接器的 *操作* ，而不支持触发器。 尽管可以在 Azure 中启用无状态工作流的连接器，但设计器不会显示任何托管的连接器触发器供你选择。
 
 * 你可以将新的 **逻辑应用 (预览版仅)** 资源类型部署到 [Azure 中的高级或应用服务托管计划](#publish-azure) ，或部署到 [Docker 容器](#deploy-docker)，而不是 [集成服务环境 (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 **消耗** 托管计划不受支持，也不能用于部署此资源类型。
 
@@ -446,7 +446,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
    ![显示逻辑应用设计器的屏幕截图，其中包含 Office 365 Outlook "发送电子邮件" 操作的详细信息。](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
 
-   | properties | 必选 | 值 | 说明 |
+   | 属性 | 必须 | 值 | 说明 |
    |----------|----------|-------|-------------|
    | **收件人** | 是 | <*your-email-address*> | 电子邮件收件人，可以是你的电子邮件地址，用于测试目的。 此示例使用虚构电子邮件 `sophiaowen@fabrikam.com` 。 |
    | **主题** | 是 | `An email from your example workflow` | 电子邮件主题 |
@@ -550,8 +550,8 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
    |---------------|------|-------------|
    | Aborted | !["中止" 操作状态的图标][aborted-icon] | 操作已停止或未完成，原因是外部问题，例如，系统中断或过期的 Azure 订阅。 |
    | 已取消 | !["已取消" 操作状态的图标][cancelled-icon] | 操作正在运行，但收到了取消请求。 |
-   | 已失败 | !["失败" 操作状态的图标][failed-icon] | 操作失败。 |
-   | 运行 | !["正在运行" 操作状态的图标][running-icon] | 操作当前正在运行。 |
+   | 失败 | !["失败" 操作状态的图标][failed-icon] | 操作失败。 |
+   | 正在运行 | !["正在运行" 操作状态的图标][running-icon] | 操作当前正在运行。 |
    | 已跳过 | !["跳过" 操作状态的图标][skipped-icon] | 此操作已被跳过，因为前一个操作失败。 操作具有要求在 `runAfter` 当前操作运行之前成功完成前面的操作的条件。 |
    | 已成功 | !["成功" 操作状态的图标][succeeded-icon] | 操作成功。 |
    | 已成功重试 | !["已成功重试" 操作状态的图标][succeeded-with-retries-icon] | 操作成功，但仅在一个或多个重试后。 若要查看重试历史记录，请在 "运行历史记录详细信息" 视图中选择该操作，以便可以查看输入和输出。 |

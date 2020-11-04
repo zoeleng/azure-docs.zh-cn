@@ -1,6 +1,6 @@
 ---
-title: 用于在 Azure Synapse Analytics 中开发 Synapse SQL 池的资源
-description: Azure Synapse Analytics 的开发概念、设计决策、建议和编码技术。
+title: 用于在 Azure Synapse Analytics 中开发专用 SQL 池的资源
+description: Azure Synapse Analytics 中专用 SQL 池的开发概念、设计决策、建议和编码方法。
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,20 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f158655cd7aeba647480325966c7f0cfcf65b13c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460603"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322136"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中 Synapse SQL 池的设计决策和编码技术 
- 在本文中，你将查找更多资源，帮助你更好地理解 Azure Synapse 中 SQL 池的关键设计决策、建议和编码技术。
+# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的设计决策和编码方法 
+
+ 在本文中，你将找到其他资源，可帮助你更好地了解 Azure Synapse 中专用 SQL 池的关键设计决策、建议和编码技术。
 
 ## <a name="key-design-decisions"></a>关键设计决策
-以下文章重点介绍了使用 Azure Synapse 中的 SQL 池功能开发分布式数据仓库的概念和设计决策：
+
+以下文章重点介绍了使用 Azure Synapse 中的专用 SQL 池功能开发分布式数据仓库的概念和设计决策：
 
 * [连接](../sql/connect-overview.md)
 * [并发](resource-classes-for-workload-management.md)
@@ -34,7 +36,8 @@ ms.locfileid: "89460603"
 * [统计信息](sql-data-warehouse-tables-statistics.md)
 
 ## <a name="development-recommendations-and-coding-techniques"></a>开发建议和编程技术
-以下文章介绍了开发 SQL 池的特定编码技术、技巧和建议：
+
+以下文章介绍了用于开发专用 SQL 池的特定编码方法、提示和建议：
 
 * [存储过程](sql-data-warehouse-develop-stored-procedures.md)
 * [标签](sql-data-warehouse-develop-label.md)
@@ -46,4 +49,5 @@ ms.locfileid: "89460603"
 * [变量赋值](sql-data-warehouse-develop-variable-assignment.md)
 
 ## <a name="next-steps"></a>后续步骤
+
 有关更多参考信息，请参阅 [T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)。

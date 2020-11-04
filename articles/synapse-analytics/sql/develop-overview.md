@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a24a61e26bdfaba0619e3965e95b1828380a1c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032939"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322111"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中 Synapse SQL 功能的设计决策和编码方法
-在本文中，你将找到 Synapse SQL) 函数的 SQL 池和 SQL 点播 (预览资源的列表。 建议的文章分为两部分：关键设计决策和开发和编码技术。
+在本文中，你将找到专用 SQL 池的资源列表和无服务器 SQL 池 (预览) Synapse 的函数。 建议的文章分为两部分：关键设计决策和开发和编码技术。
 
 这些文章旨在帮助您为 Synapse 分析中的 Synapse SQL 组件开发最佳的技术方法。
 
 ## <a name="key-design-decisions"></a>关键设计决策
 下面的文章重点介绍了 Synapse SQL 开发的概念和设计决策：
 
-| 项目 | SQL 池 | SQL 按需版本 |
+| 文章 | 专用 SQL 池 | 无服务器 SQL 池 |
 | ------- | -------- | ------------- |
 | [连接](connect-overview.md)                    | 是 | 是 |
 | [资源类和并发](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 是    | 否 |
@@ -44,7 +44,7 @@ ms.locfileid: "90032939"
 
 下面是一些重要的文章，这些文章强调了用于开发的特定编码方法、提示和建议：
 
-| 项目 | SQL 池 | SQL 按需版本 |
+| 文章 | 专用 SQL 池 | 无服务器 SQL 池 |
 | ------- | -------- | ------------- |
 | [存储过程](develop-stored-procedures.md)  | 是                | 否                      |
 | [标签](develop-label.md)                           | 是                | 否                      |
