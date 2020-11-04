@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9b05149515f2d40ad8043cd65c2ec5589440713e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec406208f862eac2450cc6352f13f3596a7c9775
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90882521"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337381"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 PHP 连接到 Azure Database for MySQL 并查询其中的数据
 本快速入门演示了如何使用 [PHP](https://secure.php.net/manual/intro-whatis.php) 应用程序连接到 Azure Database for MySQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本主题假设你熟悉如何使用 PHP 进行开发，但不太熟悉 Azure Database for MySQL 的用法。
@@ -28,7 +28,7 @@ ms.locfileid: "90882521"
 ## <a name="install-php"></a>安装 PHP
 在自己的服务器上安装 PHP，或者创建包括 PHP 的 Azure [Web 应用](../app-service/overview.md)。
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 - 下载 [PHP 7.1.4 版](https://secure.php.net/downloads.php)。
 - 安装 PHP 并参阅 [PHP 手册](https://secure.php.net/manual/install.macosx.php)了解进一步的配置。
 
@@ -227,6 +227,16 @@ mysqli_stmt_close($stmt);
 //Close the connection
 mysqli_close($conn);
 ?>
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

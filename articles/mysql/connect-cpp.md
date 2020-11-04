@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8119cbbb6619b923068723a6c855c04a8de48876
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 28957235dc5c90beebf834101a481187909ab6bb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90904034"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332213"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Connector/C++ 在 Azure Database for MySQL 中进行连接并查询数据
 
@@ -306,6 +306,16 @@ int main()
     system("pause");
     return 0;
 }
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

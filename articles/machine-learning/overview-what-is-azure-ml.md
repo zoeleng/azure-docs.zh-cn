@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: ad025d2278d6c9ab360ddbdc250e8db4b4eec665
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 4dcc1d755f4fe11dda69f84466d3e958ca981ddf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495750"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316298"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -43,7 +43,7 @@ Azure 机器学习可用于任何类型的机器学习，从传统 ml 到深度�
 Azure 机器学习为其机器学习工作流提供了开发人员和数据科学家所需的所有工具，包括：
 + [Azure 机器学习设计器](tutorial-designer-automobile-price-train-score.md)：拖放模块以生成试验，然后部署管道。
 
-+ Jupyter 笔记本：使用我们的[示例笔记本](https://github.com/Azure/MachineLearningNotebooks)或创建自己的笔记本，以利用<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">适用于 Python 的 SDK</a> 示例进行机器学习。 
++ Jupyter 笔记本：使用我们的[示例笔记本](https://github.com/Azure/MachineLearningNotebooks)或创建自己的笔记本，以利用<a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">适用于 Python 的 SDK</a> 示例进行机器学习。 
 
 + R 脚本或笔记本，其中你使用<a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">适用于 R 的 SDK</a> 编写自己的代码，或使用设计器中的 R 模块。
 
@@ -61,9 +61,9 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 ## <a name="build-ml-models-in-python-or-r"></a>在 Python 或 R 中生成 ML 模型
 
-开始使用 Azure 机器学习 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> 或 <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> 在本地计算机上训练。 然后，横向扩展到云。 
+开始使用 Azure 机器学习 <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> 或 <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> 在本地计算机上训练。 然后，横向扩展到云。 
 
-借助许多可用的[计算目标](how-to-create-attach-compute-studio.md)（例如 Azure 机器学习计算和 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)）以及[高级超参数优化服务](how-to-tune-hyperparameters.md)，可以利用云的强大功能更快地生成更好的模型。
+借助许多可用的[计算目标](how-to-create-attach-compute-studio.md)（例如 Azure 机器学习计算和 [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)）以及[高级超参数优化服务](how-to-tune-hyperparameters.md)，可以利用云的强大功能更快地生成更好的模型。
 
 也可使用 SDK [自动完成模型训练和优化](tutorial-auto-train-models.md)。
 
@@ -92,9 +92,9 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps：部署和生命周期管理
 有了正确的模型以后，即可轻松地将其用在 Web 服务中、IoT 设备上或 Power BI 中。 有关详细信息，请参阅有关[部署方式及位置](how-to-deploy-and-where.md)的文章。
 
-然后，可以使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)、[Azure 机器学习工作室](https://ml.azure.com)或[机器学习 CLI](reference-azure-machine-learning-cli.md) 来管理已部署的模型。
+然后，可以使用[适用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)、[Azure 机器学习工作室](https://ml.azure.com)或[机器学习 CLI](reference-azure-machine-learning-cli.md) 来管理已部署的模型。
 
-可以使用这些模型[实时](how-to-consume-web-service.md)返回预测，或者在有大量数据的情况下[异步](how-to-use-parallel-run-step.md)返回预测。
+可以使用这些模型[实时](how-to-consume-web-service.md)返回预测，或者在有大量数据的情况下[异步](./tutorial-pipeline-batch-scoring-classification.md)返回预测。
 
 使用高级[机器学习管道](concept-ml-pipelines.md)，可以在每一步（从数据准备、模型训练和评估一直到部署）进行协作。 使用 Pipelines 可以：
 
@@ -112,7 +112,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 Azure 机器学习可与 Azure 平台上的其他服务配合使用，还能与诸如 Git 和 MLFlow 之类的开源工具集成。
 
 + 如 __Azure Kubernetes 服务__ 、 __Azure 容器实例__ 、 __Azure Databricks__ 、 __Azure Data Lake Analytics__ 和 __Azure HDInsight__ 这样的计算目标。 有关计算目标的详细信息，请参阅[什么是计算目标？](concept-compute-target.md)。
-+ __Azure 事件网格__ 。 有关详细信息，请参阅[使用 Azure 机器学习事件](concept-event-grid-integration.md)。
++ __Azure 事件网格__ 。 有关详细信息，请参阅[使用 Azure 机器学习事件](./how-to-use-event-grid.md)。
 + __Azure Monitor__ 。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
 + 如 __Azure 存储帐户__ 、 __Azure Data Lake Storage__ 、 __Azure SQL 数据库__ 、 __Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
 + __Azure 虚拟网络__ 。 有关详细信息，请参阅[虚拟网络隔离和隐私概述](how-to-network-security-overview.md)。

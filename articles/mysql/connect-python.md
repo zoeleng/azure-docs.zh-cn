@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: a08145ba5ffb5b30eb2c472d3eb8f608703f44a0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 8d181483032deed35adfd6eebcbf870b89593407
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743448"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332060"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Python 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -59,15 +59,15 @@ ms.locfileid: "91743448"
 
 从 Azure 门户获取连接到 Azure Database for MySQL 所需的连接信息。 需要服务器名称、数据库名称和登录凭据。
 
-1. 登录到 [Azure 门户](https://portal.azure.com/)。
+1. 登录 [Azure 门户](https://portal.azure.com/)。
    
-1. 在门户搜索栏中，搜索并选择创建的 Azure Database for MySQL 服务器，如 **mydemoserver**。
+1. 在门户搜索栏中，搜索并选择创建的 Azure Database for MySQL 服务器，如 **mydemoserver** 。
    
    :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Azure Database for MySQL 服务器名称":::
    
 1. 从服务器的“概览”页中记下“服务器名称”和“服务器管理员登录名”。   如果忘记了密码，也可通过此页重置密码。
    
-   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL 服务器名称":::
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL 服务器名称 2":::
 
 ## <a name="run-the-python-examples"></a>运行 Python 示例
 
@@ -75,11 +75,11 @@ ms.locfileid: "91743448"
 
 1. 在文本编辑器中创建新的文件。
 1. 将代码示例添加到文件。 在代码中，将 `<mydemoserver>`、`<myadmin>`、`<mypassword>` 和 `<mydatabase>` 占位符替换为 MySQL 服务器和数据库的值。
-1. 将文件保存在项目文件夹中，扩展名为 *.py*，例如 *C:\pythonmysql\createtable.py* 或 */home/username/pythonmysql/createtable.py*。
+1. 将文件保存在项目文件夹中，扩展名为 *.py* ，例如 *C:\pythonmysql\createtable.py* 或 */home/username/pythonmysql/createtable.py* 。
 1. 若要运行代码，请打开命令提示符或 `bash` shell，将目录更改为项目文件夹，例如 `cd pythonmysql`。 键入 `python` 命令，后跟文件名，例如 `python createtable.py`，然后按 Enter。 
    
    > [!NOTE]
-   > 在 Windows 上，如果找不到 *python.exe*，则可能需要将 Python 路径添加到 PATH 环境变量中，或提供 *python.exe* 的完整路径，例如 `C:\python27\python.exe createtable.py`。
+   > 在 Windows 上，如果找不到 *python.exe* ，则可能需要将 Python 路径添加到 PATH 环境变量中，或提供 *python.exe* 的完整路径，例如 `C:\python27\python.exe createtable.py`。
 
 ## <a name="create-a-table-and-insert-data"></a>创建表并插入数据
 
@@ -270,6 +270,16 @@ else:
   cursor.close()
   conn.close()
   print("Done.")
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

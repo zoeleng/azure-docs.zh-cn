@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896271"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337293"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Ruby 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -39,7 +39,7 @@ ms.locfileid: "90896271"
 5. 运行 `gem -v` 命令查看所安装的版本，以测试 Gem 安装。
 6. 运行命令 `gem install mysql2`，使用 Gem 生成适用于 Ruby 的 Mysql2 模块。
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 1. 运行命令 `brew install ruby`，使用 Homebrew 安装 Ruby。 如需更多安装选项，请参阅 Ruby [安装文档](https://www.ruby-lang.org/en/documentation/installation/#homebrew)。
 2. 运行 `ruby -v` 命令查看所安装的版本，以测试 Ruby 安装。
 3. 运行 `gem -v` 命令查看所安装的版本，以测试 Gem 安装。
@@ -224,6 +224,16 @@ ensure
     client.close if client
     puts 'Done.'
 end
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

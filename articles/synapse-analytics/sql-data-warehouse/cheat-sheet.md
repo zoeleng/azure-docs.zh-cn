@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136093"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319681"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics（以前称为 SQL DW）的速查表
 
@@ -37,7 +37,7 @@ ms.locfileid: "88136093"
 
 ## <a name="data-migration"></a>数据迁移
 
-首先，请将数据载入 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 或 Azure Blob 存储。 接下来，使用 [COPY 语句](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（预览版）将数据加载到临时表中。 使用以下配置：
+首先，请将数据载入 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 或 Azure Blob 存储。 接下来，使用 [COPY 语句](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)（预览版）将数据加载到临时表中。 使用以下配置：
 
 | 设计 | 建议 |
 |:--- |:--- |
@@ -64,8 +64,8 @@ ms.locfileid: "88136093"
 * 确保常见的哈希键具有相同的数据格式。
 * 请勿以 varchar 格式进行分发。
 * 可以将具有常见哈希键的维度表哈希分布到具有频繁联接操作的事实数据表。
-* 使用 *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 分析数据中的任何偏斜。
-* 使用 *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 分析查询背后的数据移动、监视时间广播以及随机选择操作需要。 这有助于查看分布策略。
+* 使用 *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 分析数据中的任何偏斜。
+* 使用 *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 分析查询背后的数据移动、监视时间广播以及随机选择操作需要。 这有助于查看分布策略。
 
 详细了解[复制表](design-guidance-for-replicated-tables.md)和[分布式表](sql-data-warehouse-tables-distribute.md)。
 
@@ -109,7 +109,7 @@ ms.locfileid: "88136093"
 
 ## <a name="maintain-statistics"></a>维护统计信息
 
-对数据做*重大*更改时务必更新统计信息。 请参阅[更新统计信息](sql-data-warehouse-tables-statistics.md#update-statistics)，确定是否发生重大更改。 更新的统计信息可以优化查询计划。 如果发现维护所有统计信息所需时间太长，请更谨慎地选择包含统计信息的列。
+对数据做 *重大* 更改时务必更新统计信息。 请参阅[更新统计信息](sql-data-warehouse-tables-statistics.md#update-statistics)，确定是否发生重大更改。 更新的统计信息可以优化查询计划。 如果发现维护所有统计信息所需时间太长，请更谨慎地选择包含统计信息的列。
 
 还可以定义更新频率。 例如，可能想要更新每天都要添加新值的日期列。 对涉及联接的列、WHERE 子句中使用的列、在 GROUP BY 中找到的列进行信息统计，可以获得最大效益。
 
@@ -121,7 +121,7 @@ ms.locfileid: "88136093"
 
 如果发现查询所需时间过长，请确保用户未在大型资源类中运行。 大型资源类会占用许多并发槽。 它们可能导致其他查询排队等待。
 
-最后，通过使用第 2 代的 [SQL 池](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)，每个资源类可比第 1 代获得多 2.5 倍的内存。
+最后，通过使用第 2 代的 [SQL 池](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)，每个资源类可比第 1 代获得多 2.5 倍的内存。
 
 详细了解如何使用[资源类和并发](resource-classes-for-workload-management.md)。
 

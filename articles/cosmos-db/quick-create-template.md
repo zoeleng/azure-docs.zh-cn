@@ -5,17 +5,19 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: a319e5f3b6aa861feb2d9dfc88d471ff695c2a3c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482313"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339659"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure Cosmos DB 和容器
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 是 Microsoft 的快速 NoSQL 数据库，具有适合于任何规模的开放式 API。 使用 Azure Cosmos DB，可以快速创建和查询键/值数据库、文档数据库和图形数据库。 本快速入门重点介绍部署用以创建 Azure Cosmos 数据库的 Azure 资源管理器模板（ARM 模板）以及在该数据库内创建容器的过程。 稍后你可以在该容器中存储数据。
 
@@ -57,7 +59,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
 2. 选择或输入以下值。
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="部署到 Azure":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM 模板, Azure Cosmos DB 集成, 部署门户":::
 
     除非另有指定，否则请使用默认值创建 Azure Cosmos 资源。
 
@@ -78,7 +80,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
 3. 选择“购买”。 成功部署 Azure Cosmos 帐户后，你会收到通知：
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="部署到 Azure":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM 模板, Cosmos DB 集成, 部署门户通知":::
 
 使用 Azure 门户部署模板。 除了 Azure 门户，还可以使用 Azure PowerShell、Azure CLI 和 REST API。 若要了解其他部署方法，请参阅[部署模板](../azure-resource-manager/templates/deploy-powershell.md)。
 
