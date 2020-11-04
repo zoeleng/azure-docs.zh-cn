@@ -9,17 +9,17 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 5ff9c95e51f63de77ca20dee965718687daae5f4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b09dfe8e585dbcb6b8b1289fc551cec12d86c6db
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897832"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918674"
 ---
 > [!IMPORTANT]
 > * 为了简单起见，本文中的代码使用了同步方法和不受保护的凭据存储。 请参阅下面的参考文档。 
 
-[参考文档](https://docs.microsoft.com/python/api/azure-ai-formrecognizer) | [库源代码](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [包 (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [示例](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+[参考文档](/python/api/azure-ai-formrecognizer) | [库源代码](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [包 (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [示例](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -75,7 +75,7 @@ pip install azure-ai-formrecognizer
 * 将自定义模型从一个表单识别器资源复制到另一个资源。
 
 > [!NOTE]
-> 还可以使用图形用户界面（例如[表单识别器标记工具](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)）来训练模型。
+> 还可以使用图形用户界面（例如[表单识别器标记工具](../../quickstarts/label-tool.md)）来训练模型。
 
 ## <a name="code-examples"></a>代码示例
 
@@ -103,7 +103,7 @@ pip install azure-ai-formrecognizer
 * 使用以下示例中包含的示例和回执图像（也可以在 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) 上获得），或使用上述步骤来获取 blob 存储中单个文档的 SAS URL。 
 
 > [!NOTE]
-> 本指南中的代码片段使用通过 URL 访问的远程表单。 如果要改为处理本地表单文档，请参阅[参考文档](https://docs.microsoft.com/python/api/azure-ai-formrecognizer)中的相关方法和[示例](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)。
+> 本指南中的代码片段使用通过 URL 访问的远程表单。 如果要改为处理本地表单文档，请参阅[参考文档](/python/api/azure-ai-formrecognizer)中的相关方法和[示例](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)。
 
 ## <a name="recognize-form-content"></a>识别表单内容
 

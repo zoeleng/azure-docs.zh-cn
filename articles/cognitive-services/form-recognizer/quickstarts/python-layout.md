@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 72420019ead1ae47054ae62197d8cc310063a6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5ea5e352084e379632b88194fd13011879041fd3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969766"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899434"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>快速入门：使用表单识别器 REST API 和 Python 提取文本和布局信息
 
@@ -61,7 +61,8 @@ ms.locfileid: "91969766"
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -94,7 +95,8 @@ ms.locfileid: "91969766"
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -116,7 +118,7 @@ ms.locfileid: "91969766"
       ---
 
 
-1. 将代码保存在以 .py 为扩展名的文件中。 例如，*form-recognizer-layout.py*。
+1. 将代码保存在以 .py 为扩展名的文件中。 例如， *form-recognizer-layout.py* 。
 1. 打开命令提示符窗口。
 1. 在提示符处，使用 `python` 命令运行示例。 例如，`python form-recognizer-layout.py`。
 

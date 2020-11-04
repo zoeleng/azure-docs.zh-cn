@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226576"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135834"
 ---
 本快速入门介绍如何使用适用于 Android 的语音设备 SDK 来生成支持语音的产品，或将其用作[对话听录](../conversation-transcription-service.md)设备。
 
@@ -96,7 +96,7 @@ ms.locfileid: "88226576"
     通过将以下行添加到 dependencies 节来更新 **build.gradle(Module:app)** 。 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.14.0'
     ```
     
 1. 将语音订阅密钥添加到源代码。 如果想要尝试意向识别，还需要添加[语言理解服务](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)订阅密钥和应用程序 ID。

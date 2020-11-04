@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886470"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918658"
 ---
 开始使用适用于 Go 的人脸客户端库进行人脸识别。 请按照以下步骤安装程序包并试用基本任务的示例代码。 通过人脸服务，可以访问用于检测和识别图像中的人脸的高级算法。
 
@@ -34,7 +34,7 @@ ms.locfileid: "92886470"
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="创建人脸资源"  target="_blank">创建人脸资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到人脸 API。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 获取密钥和终结点后，请为该密钥和终结点[创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别命名为 `FACE_SUBSCRIPTION_KEY` 和 `FACE_ENDPOINT`。
+* 获取密钥和终结点后，请为该密钥和终结点[创建环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)，分别命名为 `FACE_SUBSCRIPTION_KEY` 和 `FACE_ENDPOINT`。
 
 ## <a name="setting-up"></a>设置
 
@@ -112,7 +112,7 @@ touch sample-app.go
 ## <a name="authenticate-the-client"></a>验证客户端
 
 > [!NOTE] 
-> 本快速入门假设已经为人脸密钥和终结点（分别名为 `FACE_SUBSCRIPTION_KEY` 和 `FACE_ENDPOINT`）[创建了环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+> 本快速入门假设已经为人脸密钥和终结点（分别名为 `FACE_SUBSCRIPTION_KEY` 和 `FACE_ENDPOINT`）[创建了环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
 
 创建 **main** 函数，并在其中添加以下代码，以使用终结点和密钥实例化客户端。 使用密钥创建 **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** 对象，然后在终结点上使用该对象创建 **[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** 对象。 此代码还将实例化一个上下文对象，创建客户端对象时需要该上下文对象。 它还会定义一个远程位置，可在其中找到本快速入门中的一些示例图像。
 

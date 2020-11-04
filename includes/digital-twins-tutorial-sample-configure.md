@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: ff44e4ae45f8b7c6bff3685522440ca7118f337e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347351"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136166"
 ---
 ## <a name="configure-the-sample-project"></a>配置示例项目
 
@@ -20,7 +20,7 @@ ms.locfileid: "92347351"
 
 进入文件夹后，导航到 AdtSampleApp。 在 Visual Studio 2019 中打开 AdtE2ESample.sln。 
 
-在 Visual Studio 中，选择“SampleClientApp”>“appsettings.json”文件，在编辑窗口中将其打开  。 该副本将充当预设置的 JSON 文件，其中包含运行项目所需的配置变量。
+在 Visual Studio 中，选择“SampleClientApp”>“appsettings.json”文件，在编辑窗口中将其打开。 该副本将充当预设置的 JSON 文件，其中包含运行项目所需的配置变量。
 
 在文件正文中，将 `instanceUrl` 更改为 Azure 数字孪生实例 hostName URL（以 https:// 开头，如下所示） 。
 
@@ -34,7 +34,7 @@ ms.locfileid: "92347351"
 
 接下来，配置 appsettings.json 文件，在生成 SampleClientApp 时将其复制到输出目录 。 为此，请右键单击 appsettings.json 文件，然后选择“属性” 。 在“属性”检查器中，将“复制到输出目录”属性的值更改为“如果较新则复制”  。
 
-:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Visual Studio 窗口的摘录，其中显示了“解决方案资源管理器”窗格（该窗格中突出显示了 appsettings.json）和“属性”窗格（该窗格中的“复制到输出目录”属性设置为“如果较新则复制”）" border="false":::
+:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Visual Studio 窗口的摘录，其中显示了“解决方案资源管理器”窗格（该窗格中突出显示了 appsettings.json）和“属性”窗格（该窗格中的“复制到输出目录”属性设置为“如果较新则复制”）" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 
 在 Visual Studio 中将 AdtE2ESample 项目保持在打开状态，以便在本教程中继续使用该项目。
 

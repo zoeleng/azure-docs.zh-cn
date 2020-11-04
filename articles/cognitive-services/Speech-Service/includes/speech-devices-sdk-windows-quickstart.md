@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0fae0172467bb4499c2710c49553d9134a32fa9b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135600"
 ---
 本快速入门介绍如何使用适用于 Windows 的语音设备 SDK 来生成支持语音的产品，或将其用作[对话听录](../conversation-transcription-service.md)设备。 对于对话听录，仅支持 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)。 对于其他语音，支持使用提供麦克风阵列几何的线性麦克风阵列。
 
@@ -74,7 +74,7 @@ ms.locfileid: "92169106"
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.13.0</version>
+             <version>1.14.0</version>
         </dependency>
     </dependencies>
    ```

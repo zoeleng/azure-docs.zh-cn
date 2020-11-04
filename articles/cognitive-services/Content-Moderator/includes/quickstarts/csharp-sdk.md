@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 2db80cdba778d868d90d5278005791257acb0ed3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 793dc6d210751d0605ab756cd1c72b1dc5dd308f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548139"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918675"
 ---
 适用于 .NET 的 Azure 内容审查器客户端库入门。 请按照以下步骤安装 NuGet 包并试用基本任务的示例代码。 
 
@@ -28,7 +28,7 @@ ms.locfileid: "92548139"
 * [审查图像](#moderate-images)
 * [创建评审](#create-a-review)
 
-[参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [示例](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
+[参考文档](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [示例](../../samples-dotnet.md)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -96,7 +96,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 
 > [!IMPORTANT]
 > 转到 Azure 门户。 如果在“先决条件”部分中创建的内容审查器资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
 >
-> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](../../../cognitive-services-security.md)文章。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
 
@@ -118,10 +118,10 @@ dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 
 
 |名称|说明|
 |---|---|
-|[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|所有内容审查器功能都需要此类。 请使用你的订阅信息实例化此类，然后使用它来生成其他类的实例。|
-|[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|此类提供用于分析成人内容、个人信息或人脸的功能。|
-|[TextModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|此类提供用于在文本中分析语言、猥亵内容、错误和个人信息的功能。|
-|[评审](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|此类提供评审 API 的功能，包括用于创建作业、自定义工作流和人工评审的方法。|
+|[ContentModeratorClient](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|所有内容审查器功能都需要此类。 请使用你的订阅信息实例化此类，然后使用它来生成其他类的实例。|
+|[ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|此类提供用于分析成人内容、个人信息或人脸的功能。|
+|[TextModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|此类提供用于在文本中分析语言、猥亵内容、错误和个人信息的功能。|
+|[评审](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|此类提供评审 API 的功能，包括用于创建作业、自定义工作流和人工评审的方法。|
 
 ## <a name="code-examples"></a>代码示例
 
@@ -158,10 +158,10 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 ## <a name="moderate-images"></a>审查图像
 
-以下代码使用内容审查器客户端和 [ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) 对象，分析远程图像中的成人内容和猥亵内容。
+以下代码使用内容审查器客户端和 [ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) 对象，分析远程图像中的成人内容和猥亵内容。
 
 > [!NOTE]
-> 还可以分析本地图像的内容。 有关使用本地图像的方法和操作，请参阅[参考文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)。
+> 还可以分析本地图像的内容。 有关使用本地图像的方法和操作，请参阅[参考文档](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)。
 
 ### <a name="get-sample-images"></a>获取示例图像
 
@@ -204,7 +204,7 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 可使用内容审查器 .NET 客户端库将内容馈送到[评审工具](https://contentmoderator.cognitive.microsoft.com)，使审查人员可以评审该内容。 若要详细了解评审工具，请参阅[评审工具概念指南](../../review-tool-user-guide/human-in-the-loop.md)。
 
-本节中的方法使用 [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) 类以创建评审、检索评审 ID，并在通过评审工具的 Web 门户收到人工输入后检查评审详细信息。 它会将所有这些信息记录到输出文本文件中。 
+本节中的方法使用 [Reviews](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) 类以创建评审、检索评审 ID，并在通过评审工具的 Web 门户收到人工输入后检查评审详细信息。 它会将所有这些信息记录到输出文本文件中。 
 
 ### <a name="get-sample-images"></a>获取示例图像
 
@@ -248,7 +248,7 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 ### <a name="get-review-details"></a>获取评论详细信息
 
-以下代码可使程序等待用户输入。 当你在运行时到达此步骤时，可直接转到[评审工具](https://contentmoderator.cognitive.microsoft.com)，验证是否已上传示例图像，并与其进行交互。 有关如何与评审进行交互的信息，请参阅[评审操作方法指南](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images)。 完成后，可按任意键继续执行程序，并检索评审过程的结果。
+以下代码可使程序等待用户输入。 当你在运行时到达此步骤时，可直接转到[评审工具](https://contentmoderator.cognitive.microsoft.com)，验证是否已上传示例图像，并与其进行交互。 有关如何与评审进行交互的信息，请参阅[评审操作方法指南](../../review-tool-user-guide/review-moderated-images.md)。 完成后，可按任意键继续执行程序，并检索评审过程的结果。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_results)]
 
@@ -296,7 +296,7 @@ dotnet run
 本快速入门已介绍如何使用内容审查器 .NET 库来执行审查任务。 接下来，请阅读概念指南来详细了解图像或其他媒体的审查。
 
 > [!div class="nextstepaction"]
-> [图像审查的概念](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
+> [图像审查的概念](../../image-moderation-api.md)
 
 * [什么是 Azure 内容审查器？](../../overview.md)
 * 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs) 上找到此示例的源代码。

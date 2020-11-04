@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f87bc13a75355306f7d2d15b22ff9cdfaa53794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77282502a0032a5b1811e32d9aa47d9b4ede569
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858216"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912814"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入门：使用人脸 REST API 和 Node.js 检测图像中的人脸
 
@@ -34,7 +34,7 @@ ms.locfileid: "91858216"
 
 ## <a name="set-up-the-node-environment"></a>设置 Node 环境
 
-转到你要创建项目的文件夹并创建一个新文件 (*facedetection.js*)。 然后将 `axios` 模块安装到此项目中。 这样，你的脚本就可以发出 HTTP 请求。
+转到你要创建项目的文件夹并创建一个新文件 ( *facedetection.js* )。 然后将 `axios` 模块安装到此项目中。 这样，你的脚本就可以发出 HTTP 请求。
 
 ```shell
 npm install axios --save
@@ -42,7 +42,7 @@ npm install axios --save
 
 ## <a name="write-the-nodejs-script"></a>编写 Node.js 脚本
 
-将以下代码粘贴到 *facedetection.js* 中。 这些字段指定如何连接到人脸服务，以及在何处获取输入数据。 [创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication)并向它们添加人脸订阅密钥和终结点。 你可能希望更改 `imageUrl` 字段以指向自己的输入图像。
+将以下代码粘贴到 *facedetection.js* 中。 这些字段指定如何连接到人脸服务，以及在何处获取输入数据。 [创建环境变量](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication)并向它们添加人脸订阅密钥和终结点。 你可能希望更改 `imageUrl` 字段以指向自己的输入图像。
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

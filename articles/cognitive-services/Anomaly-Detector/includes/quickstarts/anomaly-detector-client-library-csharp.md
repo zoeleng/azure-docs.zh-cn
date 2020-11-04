@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 22732ae10fb328839c47194e0a33faf18514ff45
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14b361ae2163636864b37d2a063ad10886a9e3c8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018424"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029417"
 ---
 开始使用适用于 .NET 的异常检测器客户端库。 请按照以下步骤操作，以使用服务提供的算法安装软件包。 通过异常检测器服务，可以对时序数据自动使用最佳适配模型，从而查找器其中的异常，不限行业、场景或数据量。
 
@@ -39,7 +39,7 @@ ms.locfileid: "92018424"
 
 ### <a name="create-a-new-net-core-application"></a>创建新的 .NET Core 应用程序
 
-在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `anomaly-detector-quickstart` 的新控制台应用。 此命令将创建包含单个 C# 源文件的简单“Hello World”项目：*Program.cs*。
+在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `anomaly-detector-quickstart` 的新控制台应用。 此命令将创建包含单个 C# 源文件的简单“Hello World”项目： *Program.cs* 。
 
 ```dotnetcli
 dotnet new console -n anomaly-detector-quickstart
@@ -66,7 +66,7 @@ Build succeeded.
 在应用程序目录中，使用以下命令安装适用于 .NET 的异常检测器客户端库：
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector
 ```
 
 从项目目录中，打开 *Program.cs* 文件，并添加以下 using `directives`：

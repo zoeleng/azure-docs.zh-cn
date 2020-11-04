@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 7575e174f1f47d55c507fdbf0386fbd578649839
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6240cdb184e0e226e5d407c8d24fed7395a285c2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499131"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135979"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 
@@ -37,7 +37,7 @@ ms.locfileid: "92499131"
 using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 ```
 
 可以通过以下其他几种方法初始化 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)：

@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 0dc4528147a144ed9887ae1becfbbe2aa4b9fcf3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fa15b48cff73b567187aa078bec02aa82e41e665
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897771"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918660"
 ---
 > [!IMPORTANT]
 > 为了简单起见，本文中的代码使用了同步方法和不受保护的凭据存储。
 
-[参考文档](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) | [库源代码](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [示例](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[参考文档](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) | [库源代码](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [示例](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -134,7 +134,7 @@ mkdir -p src/main/java
 - 将自定义模型从一个表单识别器资源复制到另一个资源。
 
 > [!NOTE]
-> 还可以使用图形用户界面（例如[表单识别器标记工具](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)）来训练模型。
+> 还可以使用图形用户界面（例如[表单识别器标记工具](../../quickstarts/label-tool.md)）来训练模型。
 
 ## <a name="code-examples"></a>代码示例
 
