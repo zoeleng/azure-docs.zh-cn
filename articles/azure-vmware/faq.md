@@ -1,15 +1,15 @@
 ---
-title: 常见问题解答
+title: 常见问题
 description: 提供有关 Azure VMware 解决方案的一些常见问题的解答。
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288669"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349080"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>有关 Azure VMware 解决方案的常见问题
 
@@ -59,13 +59,7 @@ ms.locfileid: "93288669"
 
 对于新的 Azure VMware 解决方案，Microsoft 与 VMware 具有云服务提供商直接合作伙伴关系。 新解决方案完全是由 Microsoft 设计、构建和支持的，并由 VMware 认可。 从体系结构上来说，解决方案是一致的，VMware 技术堆栈是在专用的 Azure 基础结构上运行的。
 
-#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Azure VMware 解决方案是否支持 Red Hat 解决方案？
 
-Microsoft 和 Red Hat 共享集成的定位支持团队，为在 Azure 平台上运行的 Red Hat 生态系统提供统一的联系点。  与其他使用 Red Hat Enterprise Linux 的 Azure 平台服务一样，Azure VMware 解决方案位于云访问和集成的支持涵盖下，并支持 Red Hat Enterprise Linux 在 azure 中的 Azure VMware 解决方案之上运行。
-
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition 是否可用，如果是，这会产生多少费用？
-
-Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX Enterprise Edition (EE)。 虽然适用于 Azure VMware 解决方案的 VMware HCX EE 处于预览状态，但它是免费的功能/服务，并受预览版服务条款和条件的约束。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你可以关闭或退出服务。
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Azure VMware 解决方案 Vm 是否可以通过 VMRC 来管理？
 是的，如果安装它的系统可以访问私有云 vCenter，并使用公共 DNS 来解析 ESXi 主机名。
@@ -80,7 +74,7 @@ Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX 
 Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet 公开 Azure VMware 解决方案。 不能使用 Azure 堡垒连接到 Azure VMware 解决方案 Vm，因为它们不是 Azure IaaS 对象。
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Azure 负载均衡器是否可用于 Azure VMware 解决方案 Vm？
-不能。 Azure 负载均衡器内部仅支持 Azure IaaS Vm。 Azure 负载均衡器不支持基于 IP 的后端池;只有 azure Vm 或虚拟机规模集 (VMSS) 在其中 Azure VMware 解决方案 Vm 不是 Azure 对象的对象。
+不是。 Azure 负载均衡器内部仅支持 Azure IaaS Vm。 Azure 负载均衡器不支持基于 IP 的后端池;只有 azure Vm 或虚拟机规模集 (VMSS) 在其中 Azure VMware 解决方案 Vm 不是 Azure 对象的对象。
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>是否可以使用现有 ExpressRoute 网关连接到 Azure VMware 解决方案？
 是的，可以使用现有的 ExpressRoute 网关连接到 Azure VMware 解决方案，前提是它不超过每个虚拟网络的四个 ExpressRoute 线路的限制。  但是，若要通过 ExpressRoute 从本地访问 Azure VMware 解决方案，必须具有 ExpressRoute Global Reach，因为 ExpressRoute 网关不提供其连接线路之间的传递路由。
@@ -125,7 +119,7 @@ Azure VMware 解决方案中的每个 ESXi 主机都配置了 4 25 Gbps Nic，�
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>SNMP 基础结构日志是否共享？
 
-不能。
+不是。
 
 ## <a name="hosts-clusters-and-private-clouds"></a>主机、群集和私有云
 
@@ -236,6 +230,14 @@ Microsoft 提供对 Azure VMware 解决方案的支持。 你可以提交 [支�
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>需要哪些帐户才能创建 Azure VMware 解决方案私有云？
 
 需要 Azure 订阅中的 Azure 帐户。
+
+#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Azure VMware 解决方案是否支持 Red Hat 解决方案？
+
+Microsoft 和 Red Hat 共享集成的定位支持团队，为在 Azure 平台上运行的 Red Hat 生态系统提供统一的联系点。  与其他使用 Red Hat Enterprise Linux 的 Azure 平台服务一样，Azure VMware 解决方案位于云访问和集成的支持涵盖下，并支持 Red Hat Enterprise Linux 在 azure 中的 Azure VMware 解决方案之上运行。
+
+#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition 是否可用，如果是，这会产生多少费用？
+
+Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX Enterprise Edition (EE)。 虽然适用于 Azure VMware 解决方案的 VMware HCX EE 处于预览状态，但它是免费的功能/服务，并受预览版服务条款和条件的约束。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你可以关闭或退出服务。
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>如何实现请求 Azure VMware 解决方案的主机配额增加？
 

@@ -4,13 +4,12 @@ description: '了解如何在 Azure Kubernetes Service 上通过 Azure 策略保
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900122"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348519"
 ---
 # <a name="secure-pods-with-azure-policy"></a>使用 Azure Policy 保护 Pod
 
@@ -299,7 +298,7 @@ az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group
 
 下面概述了 pod 安全策略与 Azure 策略之间的行为更改。
 
-|方案| Pod 安全策略 | Azure Policy |
+|场景| Pod 安全策略 | Azure Policy |
 |---|---|---|
 |安装|启用 pod 安全策略功能 |启用 Azure 策略外接程序
 |部署策略| 部署 pod 安全策略资源| 将 Azure 策略分配到订阅或资源组作用域。 Azure 策略外接程序是 Kubernetes 资源应用程序所必需的。

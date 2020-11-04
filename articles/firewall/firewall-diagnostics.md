@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320636"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348757"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>监视 Azure 防火墙日志和指标
 
@@ -45,7 +45,7 @@ ms.locfileid: "91320636"
 
 3. 选择“添加诊断设置”。 “诊断设置”  页提供用于诊断日志的设置。
 5. 在此示例中，Azure Monitor 日志存储日志，因此请键入“防火墙日志分析”作为名称  。
-6. 在 " **日志**" 下，选择 **AzureFirewallApplicationRule**、 **AzureFirewallNetworkRule**、 **AzureFirewallThreatIntelLog**和 **AzureFirewallDnsProxy** 以收集日志。
+6. 在 " **日志** " 下，选择 **AzureFirewallApplicationRule** 、 **AzureFirewallNetworkRule** 、 **AzureFirewallThreatIntelLog** 和 **AzureFirewallDnsProxy** 以收集日志。
 7. 选择“发送到 Log Analytics”以配置工作区。
 8. 选择订阅。
 9. 选择“保存”。
@@ -75,13 +75,57 @@ ms.locfileid: "91320636"
 > [!TIP]
 >诊断日志不需要单独的存储帐户。 使用存储来记录访问和性能需支付服务费用。
 
+## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>使用 Azure CLI 启用诊断日志记录
+
+每个 Resource Manager 资源都会自动启用活动日志记录。 必须启用诊断日志记录才能开始收集通过这些日志提供的数据。
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="enable-diagnostic-logging"></a>启用诊断日志记录
+
+使用以下命令启用诊断日志记录。
+
+1. 运行 [az monitor diagnostics settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 命令以启用诊断日志记录：
+
+   ```azurecli
+   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
+     --resource Firewall07 --storage-account MyStorageAccount
+   ```
+
+   运行 [az monitor 诊断-settings list](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) 命令以查看资源的诊断设置：
+
+   ```azurecli
+   az monitor diagnostic-settings list --resource Firewall07
+   ```
+
+   使用 [az monitor diagnostics settings show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) 查看资源的活动诊断设置：
+
+   ```azurecli
+   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
+   ```
+
+1. 运行 [az monitor diagnostics settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) 命令以更新设置。
+
+   ```azurecli
+   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
+   ```
+
+   使用 [az monitor "诊断设置](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) " "删除" 命令删除诊断设置。
+
+   ```azurecli
+   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
+   ```
+
+> [!TIP]
+>诊断日志不需要单独的存储帐户。 使用存储来记录访问和性能需支付服务费用。
+
 ## <a name="view-and-analyze-the-activity-log"></a>查看和分析活动日志
 
 可使用以下任意方法查看和分析活动日志数据：
 
-* **Azure 工具**：通过 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 门户检索活动日志中的信息。 [使用 Resource Manager 的活动操作](../azure-resource-manager/management/view-activity-logs.md)一文中详细介绍了每种方法的分步说明。
+* **Azure 工具** ：通过 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 门户检索活动日志中的信息。 [使用 Resource Manager 的活动操作](../azure-resource-manager/management/view-activity-logs.md)一文中详细介绍了每种方法的分步说明。
 * Power BI  ：如果尚无 [Power BI](https://powerbi.microsoft.com/pricing) 帐户，可免费试用。 使用[适用于 Power BI 的 Azure 活动日志内容包](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)，可以借助预配置的仪表板（可直接使用或进行自定义）分析数据。
-* **Azure Sentinel**：可以将 Azure 防火墙日志连接到 Azure Sentinel，以便查看工作簿中的日志数据，使用这些数据创建自定义警报，并通过整合这些数据来改进调查。 Azure Sentinel 中的 Azure 防火墙数据连接器目前为公共预览版。 有关详细信息，请参阅 [从 Azure 防火墙连接数据](../sentinel/connect-azure-firewall.md)。
+* **Azure Sentinel** ：可以将 Azure 防火墙日志连接到 Azure Sentinel，以便查看工作簿中的日志数据，使用这些数据创建自定义警报，并通过整合这些数据来改进调查。 Azure Sentinel 中的 Azure 防火墙数据连接器目前为公共预览版。 有关详细信息，请参阅 [从 Azure 防火墙连接数据](../sentinel/connect-azure-firewall.md)。
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>查看和分析网络与应用程序规则日志
 

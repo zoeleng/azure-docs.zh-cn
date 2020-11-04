@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129807"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348927"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -33,7 +33,7 @@ Azure 流分析目前支持三种兼容性级别：
 
 ## <a name="set-the-compatibility-level"></a>设置兼容性级别
 
-可以使用 Azure 门户或[创建作业 REST API 调用](./stream-analytics-quick-create-portal.md)来设置流分析作业的兼容性级别。
+可以使用 Azure 门户或[创建作业 REST API 调用](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel)来设置流分析作业的兼容性级别。
 
 若要在 Azure 门户中更新作业的兼容性级别：
 
@@ -83,7 +83,7 @@ Azure 流分析支持地理空间参考数据索引编制。 可为包含地理�
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>写入到 SQL 输出时的 DateTimeOffset
 
-**以前的级别：** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 类型已调整为 UTC。
+**以前的级别：** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) 类型已调整为 UTC。
 
 **1.2 级别：** 不再调整 DateTimeOffset。
 

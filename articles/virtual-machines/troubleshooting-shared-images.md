@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336004"
+ms.locfileid: "93348910"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>排查 Azure 中共享映像库的问题
 
@@ -223,8 +223,8 @@ ms.locfileid: "93336004"
 **原因** ：数据磁盘映像上使用的磁盘加密集的资源 ID 使用的格式无效。  
 **解决方法** ：请确保磁盘加密集的资源 ID 遵循格式/Subscriptions/<subscriptionID \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> 。
 
-*参数 galleryArtifactVersion 的值无效* 
- 。 osDiskImage. publishingProfile. diskEncryptionSetId。 **原因** ：操作系统磁盘映像上使用的磁盘加密集的资源 ID 使用了无效格式  
+*参数 galleryArtifactVersion 的值无效。 osDiskImage. publishingProfile. diskEncryptionSetId。*  
+**原因** ：操作系统磁盘映像上使用的磁盘加密集的资源 ID 使用了无效格式  
 **解决方法** ：请确保磁盘加密集的资源 ID 遵循格式/Subscriptions/<subscriptionID \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> 。
 
 *无法 \> 使用区域 [<区域] 中的磁盘加密集来指定新的数据磁盘映像加密 lun [<号] \> ，以更新库映像版本请求。若要更新此版本，请删除新的 lun。如果需要更改数据磁盘映像加密设置，则必须使用正确的设置创建新的库映像版本。*  

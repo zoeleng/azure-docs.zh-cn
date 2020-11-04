@@ -5,16 +5,16 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 681c5e169acc30cc6708b56b5ba180d2729919e5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222097"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348783"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>从 Azure 门户启用“更新管理”
 
-本文介绍如何通过浏览 Azure 门户来为 VM 启用[更新管理](overview.md)功能。 若要大规模启用 Azure VM，必须使用更新管理启用现有 VM。
+本文介绍如何通过浏览 Azure 门户来为 VM 启用[更新管理](overview.md)功能。 要大规模启用 Azure VM，必须使用更新管理启用现有 Azure VM。
 
 可用于管理 VM 的资源组数量受限于[资源管理器部署限制](../../azure-resource-manager/templates/cross-scope-deployment.md)。 每个资源管理器部署（不要与更新部署相混淆）限制为五个资源组。 其中保留了两个资源组，以便配置 Log Analytics 工作区、自动化帐户和相关资源。 因此，还剩下三个资源组可供选择用于更新管理进行管理。 此限制仅适用于同时设置，而不适用于可通过自动化功能管理的资源组数。
 
@@ -35,7 +35,7 @@ ms.locfileid: "92222097"
 
 1. 在 Azure 门户中，导航到“虚拟机”。
 
-2. 使用复选框选择要添加到更新管理的 VM。 一次可以添加最多三个不同资源组的计算机。 Azure VM 可以位于任何区域中，无论自动化帐户的位置如何。
+2. 在 " **虚拟机** " 页上，使用复选框选择要添加到更新管理中的 vm。 一次可以添加最多三个不同资源组的计算机。 Azure VM 可以位于任何区域中，无论自动化帐户的位置如何。
 
     ![VM 列表](media/enable-from-portal/vmlist.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "92222097"
 
 4. 虚拟机的列表已经过筛选，仅显示了位于相同订阅和位置的虚拟机。 如果你的虚拟机位于三个以上资源组中，则会选择前三个资源组。
 
-5. 默认情况下会选择一个现有的 Log Analytics 工作区和自动化帐户。 如果要使用不同的 Log Analytics 工作区和自动化帐户，请选择 " **自定义** "，从 "自定义配置" 页中选择它们。 选择 Log Analytics 工作区时，系统会执行一项检查来确定它是否与某个自动化帐户相链接。 如果找到了链接的自动化帐户，则会出现以下屏幕。 完成后，选择“确定”****。
+5. 默认情况下会选择一个现有的 Log Analytics 工作区和自动化帐户。 如果要使用不同的 Log Analytics 工作区和自动化帐户，请选择 " **自定义** "，从 "自定义配置" 页中选择它们。 选择 Log Analytics 工作区时，系统会执行一项检查来确定它是否与某个自动化帐户相链接。 如果找到了链接的自动化帐户，则会出现以下屏幕。 完成后，选择“确定”。
 
     [![选择工作区和帐户](./media/enable-from-portal/select-workspace-and-account.png)](./media/enable-from-portal/select-workspace-and-account-expanded.png#lightbox)
 

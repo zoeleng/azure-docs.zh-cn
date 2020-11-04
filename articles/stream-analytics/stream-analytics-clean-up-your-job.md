@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 124d2cf4380153bd3ea68de9233f6a1b5eb6ba78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2652b97c9392d3016bbc52209d4b2bda81c31706
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130691"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348961"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>停止或删除 Azure 流分析作业
 
@@ -57,8 +57,8 @@ ms.locfileid: "93130691"
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>使用 Azure SDK for .NET 停止或删除作业
 
-若要使用 Azure SDK for .NET 停止作业，请使用 [StreamingJobsOperationsExtensions.BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) 方法。 若要使用 Azure SDK for .NET 删除作业，请使用 [StreamingJobsOperationsExtensions.BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) 方法。
+若要使用 Azure SDK for .NET 停止作业，请使用 [StreamingJobsOperationsExtensions.BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop) 方法。 若要使用 Azure SDK for .NET 删除作业，请使用 [StreamingJobsOperationsExtensions.BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete) 方法。
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>使用 REST API 停止或删除作业
 
-若要使用 REST API 停止作业，请参阅[停止](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop)方法。 若要使用 REST API 删除作业，请参阅[删除](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete)方法。
+若要使用 REST API 停止作业，请参阅[停止](/rest/api/streamanalytics/2016-03-01/streamingjobs/stop)方法。 若要使用 REST API 删除作业，请参阅[删除](/rest/api/streamanalytics/2016-03-01/streamingjobs/delete)方法。

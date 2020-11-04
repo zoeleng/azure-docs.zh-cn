@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359673"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348689"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a> (预览版的托管磁盘的性能层) 
 
@@ -55,10 +55,6 @@ Azure 磁盘存储当前提供内置突发功能，以提供更高的性能来�
 - 必须先解除分配 VM 或从正在运行的 VM 中分离磁盘，然后才能更改磁盘层。
 - 使用 P60、P70 和 P80 性能层限制为 4096 GiB 或更高的磁盘。
 - 磁盘的性能层只能每24小时进行一次降级。
-
-## <a name="regional-availability"></a>区域可用性
-
-目前仅在美国东部2、美国中南部、美国中部、澳大利亚中南部地区的高级 Ssd 上提供了调整托管磁盘性能层的功能。
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>使用比基线层高的层创建空数据磁盘
 

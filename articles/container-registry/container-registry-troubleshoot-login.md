@@ -3,12 +3,12 @@ title: 注册表登录故障排除
 description: 登录到 Azure 容器注册表时的常见问题的症状、原因和解决方法
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148436"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348893"
 ---
 # <a name="troubleshoot-registry-login"></a>注册表登录故障排除
 
@@ -56,7 +56,7 @@ ms.locfileid: "92148436"
 
 ### <a name="specify-correct-registry-name"></a>指定正确的注册表名称
 
-使用时 `docker login` ，请提供注册表的完整登录服务器名称，例如 *myregistry.azurecr.io*。 请确保只使用小写字母。 示例：
+使用时 `docker login` ，请提供注册表的完整登录服务器名称，例如 *myregistry.azurecr.io* 。 请确保只使用小写字母。 示例：
 
 ```console
 docker login myregistry.azurecr.io
@@ -77,10 +77,11 @@ az acr login --name myregistry
 检查用于你的方案的凭据或由注册表所有者提供给你的凭据的有效性。 一些可能的问题：
 
 * 如果使用 Active Directory 服务主体，请确保在 Active Directory 租户中使用正确的凭据：
-  * 用户名 - 服务主体应用程序 ID（也称为*客户端 ID*）
-  * 密码 - 服务主体密码（也称为*客户端密码*）
+  * 用户名 - 服务主体应用程序 ID（也称为 *客户端 ID* ）
+  * 密码 - 服务主体密码（也称为 *客户端密码* ）
 * 如果使用 Azure 服务（如 Azure Kubernetes 服务或 Azure DevOps）来访问注册表，请确认服务的注册表配置。
 * 如果运行了带有 `--expose-token` 选项的 `az acr login`，以允许在不使用 Docker 守护程序的情况下登录注册表，请确保使用用户名 `00000000-0000-0000-0000-000000000000` 进行身份验证。
+* 如果注册表配置为 [使用匿名请求访问](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)，则从以前的 docker 登录名存储的现有 docker 凭据可能会阻止匿名访问。 `docker logout`在对注册表执行匿名拉取操作之前运行。
 
 相关链接：
 

@@ -1,7 +1,7 @@
 ---
 title: 培训中的身份验证机密
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure Key Vault fo ryour 工作区以安全方式将机密传递到定型运行。
+description: 了解如何使用工作区的 Azure Key Vault，以安全的方式将机密传递到定型运行。
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 60459579b277684355eaf5cb92ba2f75fb05cd28
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce47041d888b8a7786f0f87f54e725919638e7f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305420"
+ms.locfileid: "93349012"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>在 Azure 机器学习训练运行中使用身份验证凭据机密
 

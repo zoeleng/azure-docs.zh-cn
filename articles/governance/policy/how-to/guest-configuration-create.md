@@ -3,12 +3,12 @@ title: 如何创建适用于 Windows 的来宾配置策略
 description: 了解如何创建适用于 Windows 的 Azure Policy 来宾配置策略。
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542856"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348876"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>如何创建适用于 Windows 的来宾配置策略
 
@@ -23,8 +23,12 @@ ms.locfileid: "92542856"
 请执行以下操作来创建你自己的配置，用于验证 Azure 或非 Azure 计算机的状态。
 
 > [!IMPORTANT]
+> Azure 政府和 Azure 中国环境中具有来宾配置的自定义策略定义是一项预览功能。
+>
 > 必须有来宾配置扩展，才能在 Azure 虚拟机中执行审核。
 > 若要在所有 Windows 计算机上大规模部署该扩展，请分配以下策略定义：`Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> 不要在自定义内容包中使用机密或机密信息。
 
 ## <a name="install-the-powershell-module"></a>安装 PowerShell 模块
 
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>策略生命周期
 
-如果要发布策略的更新，需要注意以下两个字段。
+如果要释放对策略的更新，需要注意三个字段。
 
-- **版本** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。 此属性更新来宾配置分配版本，这样代理就能识别更新后的包。
+> [!NOTE]
+> `version`来宾配置分配的属性仅影响由 Microsoft 托管的包。 自定义内容的版本控制的最佳做法是在文件名中包含版本。
+
+- **版本** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。
+- **contentUri** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定包位置的 URI。 在文件名中包含包版本将确保每个版本中此属性的值发生更改。
 - contentHash：此属性由 `New-GuestConfigurationPolicy` cmdlet 自动更新。 它是 `New-GuestConfigurationPackage` 创建的包的哈希值。 对于你发布的 `.zip` 文件，此属性必须是正确的。 如果只更新了 contentUri 属性，扩展就不会接受内容包。
 
 发布更新后的包的最简单方法是，重复本文中描述的过程，并提供更新后的版本号。 该过程可保证正确更新所有属性。

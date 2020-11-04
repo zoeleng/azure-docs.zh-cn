@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b7891f332298024c82103322cc6b58d066f587
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123228"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348570"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>使用托管标识在 Azure Blob 存储输出中对 Azure 流分析作业进行身份验证
 
@@ -33,7 +33,7 @@ ms.locfileid: "93123228"
 
 ## <a name="azure-resource-manager-deployment"></a>Azure 资源管理器部署
 
-使用 Azure 资源管理器可以完全自动化流分析作业的部署。 可以使用 Azure PowerShell 或 [Azure CLI](/cli/azure/?view=azure-cli-latest) 部署资源管理器模板。 以下示例使用 Azure CLI。
+使用 Azure 资源管理器可以完全自动化流分析作业的部署。 可以使用 Azure PowerShell 或 [Azure CLI](/cli/azure/) 部署资源管理器模板。 以下示例使用 Azure CLI。
 
 
 1. 可以通过在资源管理器模板的 resource 节中包含以下属性，来创建带有托管标识的 **Microsoft.StreamAnalytics/streamingjobs** 资源：
@@ -218,9 +218,9 @@ ms.locfileid: "93123228"
 
 配置存储帐户的 **防火墙和虚拟网络** 时，可以视需要允许来自其他受信任 Microsoft 服务的网络流量。 当流分析使用托管标识进行身份验证时，它会提供该请求源自受信任服务的证明。 下面是有关启用此 VNET 访问权限例外的说明。
 
-1.  在存储帐户的配置窗格中导航到“防火墙和虚拟网络”窗格。
-2.  确保启用“允许受信任的 Microsoft 服务访问此存储帐户”选项。
-3.  如果已启用此选项，请单击“保存”。 
+1.    在存储帐户的配置窗格中导航到 "防火墙和虚拟网络" 窗格。
+2.    确保已启用 "允许受信任的 Microsoft 服务访问此存储帐户" 选项。
+3.    如果已启用此选项，请单击“保存”。 
 
    ![启用 VNET 访问权限](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 
