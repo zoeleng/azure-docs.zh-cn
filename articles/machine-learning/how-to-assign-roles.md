@@ -11,16 +11,16 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736618"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320853"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理对 Azure 机器学习工作区的访问权限
 
-本文介绍了如何管理对 Azure 机器学习工作区的访问权限。 [Azure 基于角色的访问控制 (Azure RBAC)](/azure/role-based-access-control/overview) 用于管理对 Azure 资源的访问权限。 Azure Active Directory 中的用户可获得特定角色，这些角色授予了对资源的访问权限。 Azure 提供内置角色和创建自定义角色的功能。
+本文介绍了如何管理对 Azure 机器学习工作区的访问权限。 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md) 用于管理对 Azure 资源的访问权限。 Azure Active Directory 中的用户可获得特定角色，这些角色授予了对资源的访问权限。 Azure 提供内置角色和创建自定义角色的功能。
 
 ## <a name="default-roles"></a>默认角色
 
@@ -34,18 +34,18 @@ Azure 机器学习工作区是一种 Azure 资源。 与其他 Azure 资源一�
 | **自定义角色** | 允许你自定义对工作区中特定控件或数据平面操作的访问权限。 例如，提交运行、创建计算、部署模型或注册数据集。 |
 
 > [!IMPORTANT]
-> 在 Azure 中，角色访问的作用域可以限定为多个级别。 例如，对工作区具有所有者访问权限的人可能没有对包含工作区的资源组的所有者访问权限。 有关详细信息，请参阅 [AZURE RBAC 的工作原理](/azure/role-based-access-control/overview#how-azure-rbac-works)。
+> 在 Azure 中，角色访问的作用域可以限定为多个级别。 例如，对工作区具有所有者访问权限的人可能没有对包含工作区的资源组的所有者访问权限。 有关详细信息，请参阅 [AZURE RBAC 的工作原理](../role-based-access-control/overview.md#how-azure-rbac-works)。
 
-有关特定内置角色的详细信息，请参阅 [Azure 内置角色](/azure/role-based-access-control/built-in-roles)。
+有关特定内置角色的详细信息，请参阅 [Azure 内置角色](../role-based-access-control/built-in-roles.md)。
 
 ## <a name="manage-workspace-access"></a>管理工作区访问权限
 
 如果你是工作区的所有者，则可以为工作区添加和删除角色。 还可以将角色分配给用户。 使用以下链接了解如何管理访问权限：
-- [Azure 门户 UI](/azure/role-based-access-control/role-assignments-portal)
-- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure Resource Manager 模板](/azure/role-based-access-control/role-assignments-template)
+- [Azure 门户 UI](../role-based-access-control/role-assignments-portal.md)
+- [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+- [REST API](../role-based-access-control/role-assignments-rest.md)
+- [Azure Resource Manager 模板](../role-based-access-control/role-assignments-template.md)
 
 如果已安装 [Azure 机器学习 CLI](reference-azure-machine-learning-cli.md)，则可使用 CLI 命令为用户分配角色：
 
@@ -65,7 +65,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Azure 机器学习操作
 
-适用于许多操作和任务的 Azure 机器学习内置操作。 有关完整列表，请参阅 [Azure 资源提供程序操作](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)。
+适用于许多操作和任务的 Azure 机器学习内置操作。 有关完整列表，请参阅 [Azure 资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)。
 
 ## <a name="mlflow-operations-in-azure-machine-learning"></a>Azure 机器学习中的 MLflow 操作
 
@@ -135,7 +135,7 @@ az role definition create --role-definition data_scientist_role.json
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-有关自定义角色的详细信息，请参阅 [Azure 自定义角色](/azure/role-based-access-control/custom-roles)。 有关可用于自定义角色的操作（Actions 和 NotActions）的详细信息，请参阅[资源提供程序操作](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)。
+有关自定义角色的详细信息，请参阅 [Azure 自定义角色](../role-based-access-control/custom-roles.md)。 有关可用于自定义角色的操作（Actions 和 NotActions）的详细信息，请参阅[资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
@@ -165,7 +165,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>问： 是否会针对机器学习服务发布 Azure 内置角色？
 
-我们目前不会针对机器学习服务发布 [Azure 内置角色](/azure/role-based-access-control/built-in-roles)。 内置角色在发布后无法更新，我们仍在根据客户方案和反馈改进角色定义。 
+我们目前不会针对机器学习服务发布 [Azure 内置角色](../role-based-access-control/built-in-roles.md)。 内置角色在发布后无法更新，我们仍在根据客户方案和反馈改进角色定义。 
 
 <a id="customroles"></a>
 
@@ -419,7 +419,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
-还可以在[资源提供程序操作](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)的列表中找到它们。
+还可以在[资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)的列表中找到它们。
 
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>问： 使用 Azure RBAC 时，有哪些常见注意事项？
@@ -427,18 +427,18 @@ az provider operation show –n Microsoft.MachineLearningServices
 使用 Azure 基于角色的访问控制 (Azure RBAC) 时，请注意以下几点：
 
 - 在 Azure 中创建资源时，例如创建工作区时，你不会直接成为工作区的所有者。 你的角色继承自你在该订阅中获得相应授权的最高作用域角色。 例如，如果你是网络管理员，有权创建机器学习工作区，则会为你分配该工作区的网络管理员角色，而不是所有者角色。
-- 针对同一 Azure Active Directory 用户的两个角色分配具有冲突的 Actions/NotActions 部分时，如果操作在某个角色的 NotActions 中列出，但也在另一个角色中作为 Actions 列出，则此类操作可能不会生效。 若要详细了解 Azure 如何分析角色分配，请参阅 [Azure RBAC 如何确定用户是否有权访问资源](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- 针对同一 Azure Active Directory 用户的两个角色分配具有冲突的 Actions/NotActions 部分时，如果操作在某个角色的 NotActions 中列出，但也在另一个角色中作为 Actions 列出，则此类操作可能不会生效。 若要详细了解 Azure 如何分析角色分配，请参阅 [Azure RBAC 如何确定用户是否有权访问资源](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 - 若要在 VNet 中部署计算资源，需要显式拥有以下操作的权限：
     - “Microsoft.Network/virtualNetworks/join/action”（在 VNet 资源上）。
     - “Microsoft.Network/virtualNetworks/subnet/join/action”（在子网资源上）。
     
-    有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](/azure/role-based-access-control/built-in-roles#networking)。
+    有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](../role-based-access-control/built-in-roles.md#networking)。
 
 - 新的角色分配有时可能需要长达 1 小时才能生效，覆盖整个堆栈的缓存权限。
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>问： 我需要具有哪些权限才能将用户分配的托管标识用于我的 Amlcompute 群集？
 
-若要在 Amlcompute 群集上分配用户分配的标识，必须具有创建计算所需的写入权限，并且必须具有[“托管标识操作员”角色](/azure/role-based-access-control/built-in-roles#managed-identity-operator)。 有关具有托管标识的 Azure RBAC 的详细信息，请参阅 [如何管理用户分配的标识](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+若要在 Amlcompute 群集上分配用户分配的标识，必须具有创建计算所需的写入权限，并且必须具有[“托管标识操作员”角色](../role-based-access-control/built-in-roles.md#managed-identity-operator)。 有关具有托管标识的 Azure RBAC 的详细信息，请参阅 [如何管理用户分配的标识](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>问： 工作室门户上是否支持基于角色的访问控制？
@@ -480,4 +480,4 @@ az role definition update --role-definition update_def.json --subscription <sub-
 - [企业安全性概述](concept-enterprise-security.md)
 - [虚拟网络隔离和隐私概述](how-to-network-security-overview.md)
 - [教程：训练模型](tutorial-train-models-with-aml.md)
-- [资源提供程序操作](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+- [资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

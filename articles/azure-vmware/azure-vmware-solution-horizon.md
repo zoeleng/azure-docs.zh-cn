@@ -3,12 +3,12 @@ title: 在 Azure VMware 解决方案上部署地平线
 description: 了解如何在 Azure VMware 解决方案上部署 VMware 地平线。
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369006"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321355"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>在 Azure VMware 解决方案上部署地平线 
 
@@ -86,7 +86,7 @@ Azure 私有云在概念上与 VMware SDDC 相同，后者通常用于地平线�
 
 从 Azure 虚拟网络到 Azure 私有云/SDDCs 的连接应配置为 ExpressRoute FastPath。 下图显示了基本的地平线盒部署。
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Azure VMware 解决方案和 Azure 上的范围云的水平范围" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="使用 ExpressPath 快速路径的典型地平线部署" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Azure VMware 解决方案的网络连接规模横向扩展
 
@@ -94,7 +94,7 @@ Azure 私有云在概念上与 VMware SDDC 相同，后者通常用于地平线�
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Azure VMware 解决方案上的单个地平线箱
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Azure VMware 解决方案和 Azure 上的范围云的水平范围" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Azure VMware 解决方案上的单个地平线箱" border="false":::
 
 单个地平线箱是最直接的部署方案，因为只需在美国东部区域部署一个地平线的 pod。  由于每个私有云和 SDDC 都是处理4000桌面会话的估计值，因此，你可以部署最大地平线箱大小。  最多可计划部署三个私有云/SDDCs。
 
@@ -112,7 +112,7 @@ Azure 私有云在概念上与 VMware SDDC 相同，后者通常用于地平线�
 
 此图显示了如何支持本地资源的连接。 若要将企业网络连接到 Azure 虚拟网络，需要使用 ExpressRoute 线路。  还需要使用 ExpressRoute Global Reach 将公司网络与每个私有云和 SDDCs 进行连接。  它允许从 SDDC 连接到 ExpressRoute 线路和本地资源。 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Azure VMware 解决方案和 Azure 上的范围云的水平范围" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="将企业网络连接到 Azure 虚拟网络" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Azure VMware 解决方案上跨多个区域的多个地平线箱
 
@@ -120,9 +120,9 @@ Azure 私有云在概念上与 VMware SDDC 相同，后者通常用于地平线�
 
 将每个区域的 Azure 虚拟网络流入量连接到其他区域中的私有云/SDDCs。 它允许将 CPA 联合的地平线连接服务器部分连接到管理下的所有台式机。 将额外的私有云/SDDCs 添加到此配置，可以扩展到全部24000会话。 
 
-如果在同一区域中部署两个地平线箱，则相同的原则也适用。  请确保在 *单独的 Azure 虚拟网络*中部署第二个水平箱。 与单个 pod 示例一样，可以使用 ExpressRoute 和 Global Reach 将企业网络和本地 pod 连接到此多 pod/区域示例。 
+如果在同一区域中部署两个地平线箱，则相同的原则也适用。  请确保在 *单独的 Azure 虚拟网络* 中部署第二个水平箱。 与单个 pod 示例一样，可以使用 ExpressRoute 和 Global Reach 将企业网络和本地 pod 连接到此多 pod/区域示例。 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Azure VMware 解决方案和 Azure 上的范围云的水平范围" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Azure VMware 解决方案上跨多个区域的多个地平线箱" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>为地平线部署的 Azure VMware 解决方案主机调整大小 
 
@@ -211,3 +211,6 @@ Azure 私有云在概念上与 VMware SDDC 相同，后者通常用于地平线�
 | Windows 文件共享               | D4sv3          |         | *可选*                               |
 
 在上面的示例中，每个 \$ 用户每个用户每2000月0.36 的基础结构 VM 成本量为。 此示例使用美国东部 Azure instance 6 月2020定价。 根据区域、选择的选项和时间安排，定价可能会有所不同。
+
+## <a name="next-steps"></a>后续步骤
+若要了解有关 Azure VMware 解决方案中 VMware 范围的详细信息，请阅读 [Vmware 地平线常见问题解答](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf)。

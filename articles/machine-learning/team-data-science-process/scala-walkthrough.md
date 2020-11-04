@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026179"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321368"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>在 Azure 上使用 Scala 和 Spark 展开数据科研
-本文介绍如何在 Azure HDInsight Spark 群集上通过 Spark 可缩放 MLlib 和 Spark ML 包使用 Scala 进行监管式的机器学习任务。 它将指导完成[数据科学过程](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)所需的任务：数据引入和浏览、可视化、特征工程、建模和模型使用。 本文中的模型包括逻辑和线性回归、随机林和梯度提升树 (GBT)，以及两个常见的监管式机器学习任务：
+本文介绍如何在 Azure HDInsight Spark 群集上通过 Spark 可缩放 MLlib 和 Spark ML 包使用 Scala 进行监管式的机器学习任务。 它将指导完成[数据科学过程](./index.yml)所需的任务：数据引入和浏览、可视化、特征工程、建模和模型使用。 本文中的模型包括逻辑和线性回归、随机林和梯度提升树 (GBT)，以及两个常见的监管式机器学习任务：
 
 * 回归问题：预测某个出租车行程的小费金额 ($)
 * 二元分类：预测某个出租车行程是否支付小费 (1/0)
@@ -350,11 +350,11 @@ plt.show()
 ## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>创建特征和转换特征，并准备输入到建模函数中的数据
 对于 Spark ML 和 MLlib 中基于树的建模函数，必须使用各种技术（如装箱、索引、独热编码和矢量化）准备目标和特征。 以下是本部分中要遵循的步骤：
 
-1. 通过将小时**装箱**到交通时间存储桶来创建新特征。
-2. 将**索引和独热编码**应用于分类特征。
-3. **将数据集采样和拆分**为定型和测试分数。
-4. **指定定型变量和特征**，并创建索引或独热编码定型和测试输入标记点弹性分布式数据集 (RDD) 或数据帧。
-5. 自动**对特征和目标进行分类和矢量化**，以用作机器学习模型的输入。
+1. 通过将小时 **装箱** 到交通时间存储桶来创建新特征。
+2. 将 **索引和独热编码** 应用于分类特征。
+3. **将数据集采样和拆分** 为定型和测试分数。
+4. **指定定型变量和特征** ，并创建索引或独热编码定型和测试输入标记点弹性分布式数据集 (RDD) 或数据帧。
+5. 自动 **对特征和目标进行分类和矢量化** ，以用作机器学习模型的输入。
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>通过将小时装入交通时间存储桶来创建新特征
 此代码显示如何通过将小时装入交通时间存储桶创建新特征，以及如何在内存中缓存生成的数据帧。 重复使用 RDD 和数据帧时，缓存会改善执行时间。 相应地，会在以下过程中的多个节点缓存 RDD 和数据帧。
@@ -552,18 +552,18 @@ val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>二元分类模型：预测是否应支付小费
 在本部分中，创建三种类型的二元分类模型，用以预测是否应支付小费：
 
-* 使用 Spark ML `LogisticRegression()` 函数创建**逻辑回归模型**
-* 使用 Spark ML `RandomForestClassifier()` 函数创建**随机林分类模型**
-* 使用 MLlib `GradientBoostedTrees()` 函数创建**梯度提升树分类模型**
+* 使用 Spark ML `LogisticRegression()` 函数创建 **逻辑回归模型**
+* 使用 Spark ML `RandomForestClassifier()` 函数创建 **随机林分类模型**
+* 使用 MLlib `GradientBoostedTrees()` 函数创建 **梯度提升树分类模型**
 
 ### <a name="create-a-logistic-regression-model"></a>创建逻辑回归模型
 下一步，使用 Spark ML `LogisticRegression()` 函数创建逻辑回归模型。 通过一系列步骤创建模型构建代码：
 
-1. 使用一个参数集**定型模型**数据。
-2. 使用度量值**评估测试数据集上的模型**。
-3. 在 Blob 存储中**保存模型**以供将来使用。
-4. 根据测试数据**对模型进行评分**。
-5. 使用接收者操作特性 (ROC) 曲线**绘制结果**。
+1. 使用一个参数集 **定型模型** 数据。
+2. 使用度量值 **评估测试数据集上的模型** 。
+3. 在 Blob 存储中 **保存模型** 以供将来使用。
+4. 根据测试数据 **对模型进行评分** 。
+5. 使用接收者操作特性 (ROC) 曲线 **绘制结果** 。
 
 下面是这些过程的代码：
 
@@ -751,8 +751,8 @@ ROC 曲线下的面积：0.9846895479241554
 ## <a name="regression-model-predict-tip-amount"></a>回归模型：预测小费金额
 在本部分中，创建两种类型的回归模型，预测小费金额：
 
-* 使用 Spark ML `LinearRegression()` 函数创建**正则化线性回归模型**。 保存此模型，并根据测试数据评估模型。
-* 使用 Spark ML `GBTRegressor()` 函数创建**梯度提升树回归模型**。
+* 使用 Spark ML `LinearRegression()` 函数创建 **正则化线性回归模型** 。 保存此模型，并根据测试数据评估模型。
+* 使用 Spark ML `GBTRegressor()` 函数创建 **梯度提升树回归模型** 。
 
 ### <a name="create-a-regularized-linear-regression-model"></a>创建正则化线性回归模型
 
@@ -922,11 +922,11 @@ println("Test R-sqr is: " + Test_R2);
 * 使用 Spark ML 的 CrossValidator 函数，通过交叉验证和超参数扫描优化模型（二元分类）
 * 通过自定义交叉验证和参数扫描代码，使用任何机器学习函数和参数集优化模型（线性回归）
 
-**交叉验证**是一种技术，用于评估在已知数据集上定型的模型的概括性，利用概括性来预测未对其进行定型的数据集的特征。 此技术背后的一般理念是模型在已知数据的数据集上定型，并参照独立数据集测试其预测的准确性。 此处使用的常见实现是将数据集划分为 *K* 折叠，然后以轮询机制方式在所有折叠上定型模型（其中一个折叠除外）。
+**交叉验证** 是一种技术，用于评估在已知数据集上定型的模型的概括性，利用概括性来预测未对其进行定型的数据集的特征。 此技术背后的一般理念是模型在已知数据的数据集上定型，并参照独立数据集测试其预测的准确性。 此处使用的常见实现是将数据集划分为 *K* 折叠，然后以轮询机制方式在所有折叠上定型模型（其中一个折叠除外）。
 
-**超参数优化**是为学习算法选择一组超参数的问题，通常目标是优化算法在独立数据集上的性能度量值。 超参数是必须在模型定型过程外指定的值。 关于超参数值的假设可能影响模型的灵活性和准确性。 例如，决策树具有超参数，如所需的深度和树中的树叶数量。 必须为支持向量机 (SVM) 设置错误分类惩罚项。
+**超参数优化** 是为学习算法选择一组超参数的问题，通常目标是优化算法在独立数据集上的性能度量值。 超参数是必须在模型定型过程外指定的值。 关于超参数值的假设可能影响模型的灵活性和准确性。 例如，决策树具有超参数，如所需的深度和树中的树叶数量。 必须为支持向量机 (SVM) 设置错误分类惩罚项。
 
-执行超参数优化的常用方法是使用网格搜索，也称为**参数扫描**。 在网格搜索中，为学习算法在这些值（超参数空间的指定子集）中执行详尽搜索。 交叉验证可提供性能指标，用于为网格搜索算法生成的最佳结果排序。 如果使用交叉验证超参数扫描，有助于限制模型过度拟合以定型数据等问题。 如此，模型可保留应用于从中提取定型数据的一般数据集的容量。
+执行超参数优化的常用方法是使用网格搜索，也称为 **参数扫描** 。 在网格搜索中，为学习算法在这些值（超参数空间的指定子集）中执行详尽搜索。 交叉验证可提供性能指标，用于为网格搜索算法生成的最佳结果排序。 如果使用交叉验证超参数扫描，有助于限制模型过度拟合以定型数据等问题。 如此，模型可保留应用于从中提取定型数据的一般数据集的容量。
 
 ### <a name="optimize-a-linear-regression-model-with-hyper-parameter-sweeping"></a>使用超参数扫描优化线性回归模型
 下一步，将数据拆分成定型和验证数据集，对定型数据集使用超参数扫描，并且对验证数据集进行评价（线性回归）
@@ -1135,9 +1135,8 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 运行该单元格的时间：61 秒。
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>通过 Scala 自动使用 Spark 构建的机器学习模型
-获取主题概述，了解包含在 Azure 中的数据科学过程的任务，请参阅[团队数据科学过程](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。
+获取主题概述，了解包含在 Azure 中的数据科学过程的任务，请参阅[团队数据科学过程](./index.yml)。
 
 [Team Data Science Process 演练](walkthroughs.md)针对特定方案，介绍了其他端到端演练，演示 Team Data Science Process 中的步骤。 该演练还展示了如何将云、本地工具以及服务结合到一个工作流或管道中，以创建智能应用程序。
 
 [为 Spark 构建的机器学习模型评分](spark-model-consumption.md)展示如何使用 Scala 代码通过内置在 Spark 中且保存在 Azure Blob 存储中的机器学习模型自动加载数据并对新数据评分。 可以按照文中提供的说明进行操作，只需使用本文中的 Scala 代码替换 Python 代码，便可自动使用。
-

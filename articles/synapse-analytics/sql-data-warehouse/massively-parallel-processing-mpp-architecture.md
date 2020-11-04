@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319654"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics（以前称为 SQL DW）体系结构
 
@@ -25,8 +25,8 @@ Azure Synapse 是一种无限制的分析服务，它将企业数据仓库和大
 
 - Synapse SQL：基于 T-SQL 的完整分析
 
-  - SQL 池（按预配的 DWU 付费）- 正式发布
-  - SQL 随选（按处理的 TB 付费）-（预览）
+  - 专用 SQL 池 (按预配) 按预配付费–已正式发布
+  - 无服务器 SQL 池 (每 TB 支付的已处理) – (预览) 
 - Spark：深度集成的 Apache Spark（预览）
 - 数据集成：混合数据集成（预览）
 - 工作室：统一的用户体验。  （预览版）
@@ -35,7 +35,7 @@ Azure Synapse 是一种无限制的分析服务，它将企业数据仓库和大
 
 ## <a name="synapse-sql-architecture-components"></a>Synapse SQL 体系结构组件
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 利用横向扩展体系结构在多个节点间分布数据的计算处理。 缩放单位是计算能力（称为[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)）的抽象概念。 计算与存储分离开来，以便用户能够独立于系统中的数据进行缩放计算。
+[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) 利用横向扩展体系结构在多个节点间分布数据的计算处理。 缩放单位是计算能力（称为[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)）的抽象概念。 计算与存储分离开来，以便用户能够独立于系统中的数据进行缩放计算。
 
 ![Synapse SQL 体系结构](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: a6612f3df5fba834dff8fc60e90c359ceff4cbe1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e189885fbf7befcaea3f63148a42c81dc1da03e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743111"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320491"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>为 Azure 机器学习设置开发环境
 
@@ -55,7 +55,7 @@ ms.locfileid: "92743111"
 
 此 JSON 文件必须采用包含 Python 脚本或 Jupyter Notebook 的目录结构。 它可以位于同一目录（名为 *.azureml* 的子目录）中，也可以位于父目录中。
 
-若要在代码中使用此文件，请使用 [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) 方法。 此代码从文件中加载信息，并连接到工作区。
+若要在代码中使用此文件，请使用 [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) 方法。 此代码从文件中加载信息，并连接到工作区。
 
 使用以下方法之一创建工作区配置文件：
 
@@ -67,7 +67,7 @@ ms.locfileid: "92743111"
 
 * Azure 机器学习 Python SDK
 
-    创建一个脚本，用于连接到 Azure 机器学习工作区，并使用 [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 方法生成文件并将其另存为 *azureml/config.js* 。 请确保将 `subscription_id` 、和替换为 `resource_group` 自己的 `workspace_name` 。
+    创建一个脚本，用于连接到 Azure 机器学习工作区，并使用 [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) 方法生成文件并将其另存为 *azureml/config.js* 。 请确保将 `subscription_id` 、和替换为 `resource_group` 自己的 `workspace_name` 。
 
     ```python
     from azureml.core import Workspace
@@ -97,7 +97,7 @@ ms.locfileid: "92743111"
     > 如果在 Linux 或 macOS 上操作，并使用除 bash 以外的 shell（例如 zsh），则在运行某些命令时可能会收到错误消息。 若要解决此问题，请使用 `bash` 命令启动新的 bash shell，然后运行命令。
 
 1. 激活新创建的 Python 虚拟环境。
-1. 安装 [Azure 机器学习 PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。
+1. 安装 [Azure 机器学习 PYTHON SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
 1. 若要将本地环境配置为使用 Azure 机器学习工作区，请 [创建一个工作区配置文件或使用现有的配置文件](#workspace) 。
 
 设置本地环境后，便可以开始使用 Azure 机器学习。 请参阅 [Azure 机器学习 Python 入门指南](tutorial-1st-experiment-sdk-setup-local.md) ，开始着手。
@@ -123,7 +123,7 @@ ms.locfileid: "92743111"
 请参阅 [Azure 机器学习笔记本存储库](https://github.com/Azure/MachineLearningNotebooks) ，开始处理 Azure 机器学习和 Jupyter 笔记本。
 
 > [!NOTE]
-> 可在中找到社区驱动的示例存储库 https://github.com/Azure/azureml-examples 。
+> 可在 https://github.com/Azure/azureml-examples 找到社区主导的示例存储库。
 
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
@@ -223,7 +223,7 @@ Azure Databricks 如何使用 Azure 机器学习：
 
 ### <a name="set-up-your-databricks-cluster"></a>设置 Databricks 群集
 
-创建 [Databricks 群集](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)。 仅当在 Databricks 上安装适用于自动化机器学习的 SDK 时，某些设置才适用。
+创建 [Databricks 群集](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)。 仅当在 Databricks 上安装适用于自动化机器学习的 SDK 时，某些设置才适用。
 **创建群集需要几分钟时间。**
 
 使用以下设置：
@@ -297,4 +297,4 @@ Azure Databricks 如何使用 Azure 机器学习：
 ## <a name="next-steps"></a>后续步骤
 
 - 在 Azure 机器学习中使用 MNIST 数据集[训练模型](tutorial-train-models-with-aml.md)
-- 查看[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 参考文档
+- 查看[适用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 参考文档

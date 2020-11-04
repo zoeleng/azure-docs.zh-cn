@@ -11,22 +11,22 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1789f83f048a2ab0fb75aa33635e58b0850b865b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89647333"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319129"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>对 Azure Kubernetes 服务中的机器学习 Web 服务使用 Azure AD 标识
 
-本操作指南介绍如何将 Azure Active Directory (AAD) 标识分配到 Azure Kubernetes 服务中部署的机器学习模型。 [AAD Pod 标识](https://github.com/Azure/aad-pod-identity)项目允许应用程序使用[托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)和 Kubernetes 基元通过 AAD 安全访问云资源。 这样，Web 服务就可以安全访问你的 Azure 资源，而无需在 `score.py` 脚本中嵌入凭据或直接在其中管理令牌。 本文解释在 Azure Kubernetes 服务群集中创建和安装 Azure 标识，并将该标识分配到已部署的 Web 服务的步骤。
+本操作指南介绍如何将 Azure Active Directory (AAD) 标识分配到 Azure Kubernetes 服务中部署的机器学习模型。 [AAD Pod 标识](https://github.com/Azure/aad-pod-identity)项目允许应用程序使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)和 Kubernetes 基元通过 AAD 安全访问云资源。 这样，Web 服务就可以安全访问你的 Azure 资源，而无需在 `score.py` 脚本中嵌入凭据或直接在其中管理令牌。 本文解释在 Azure Kubernetes 服务群集中创建和安装 Azure 标识，并将该标识分配到已部署的 Web 服务的步骤。
 
 ## <a name="prerequisites"></a>先决条件
 
-- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
+- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
 
-- 使用 `kubectl` 命令访问 AKS 群集。 有关详细信息，请参阅[连接到群集](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
+- 使用 `kubectl` 命令访问 AKS 群集。 有关详细信息，请参阅[连接到群集](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)
 
 - 已部署到 AKS 群集的 Azure 机器学习 Web 服务。
 
@@ -42,13 +42,13 @@ ms.locfileid: "89647333"
 
 1. 若要在 AKS 群集中安装 [AAD Pod 标识](https://github.com/Azure/aad-pod-identity#getting-started)，请使用以下命令之一：
 
-    * 如果 AKS 群集**已启用 RBAC**，请使用以下命令：
+    * 如果 AKS 群集 **已启用 RBAC** ，请使用以下命令：
     
         ```azurecli-interactive
         kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
         ```
     
-    * 如果 AKS 群集**未启用 RBAC**，请使用以下命令：
+    * 如果 AKS 群集 **未启用 RBAC** ，请使用以下命令：
     
         ```azurecli-interactive
         kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -75,7 +75,7 @@ ms.locfileid: "89647333"
 
 ## <a name="assign-azure-identity-to-machine-learning-web-service"></a>将 Azure 标识分配到机器学习 Web 服务
 
-以下步骤使用上一部分中创建的 Azure 标识，并通过**选择器标签**将其分配到 AKS Web 服务。
+以下步骤使用上一部分中创建的 Azure 标识，并通过 **选择器标签** 将其分配到 AKS Web 服务。
 
 首先，在要将 Azure 标识分配到的 AKS 群集中，确定部署的名称和命名空间。 可运行以下命令获取此信息。 命名空间应是 Azure 机器学习工作区名称，部署名称应是门户中所示的终结点名称。
 
@@ -126,7 +126,7 @@ spec:
 
 ## <a name="assign-the-appropriate-roles-to-your-azure-identity"></a>将适当的角色分配到 Azure 标识
 
-[为 Azure 托管标识分配适当的角色](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)，以访问其他 Azure 资源。 确保分配的角色具有正确的**数据操作**。 例如，[存储 Blob 数据读取者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)对存储 Blob 拥有读取权限，而普通的[读取者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)可能没有这些权限。
+[为 Azure 托管标识分配适当的角色](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)，以访问其他 Azure 资源。 确保分配的角色具有正确的 **数据操作** 。 例如，[存储 Blob 数据读取者角色](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)对存储 Blob 拥有读取权限，而普通的[读取者角色](../role-based-access-control/built-in-roles.md#reader)可能没有这些权限。
 
 ## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>对机器学习 Web 服务使用 Azure 标识
 
@@ -153,11 +153,11 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> 本例使用 DefaultAzureCredential。 若要使用特定访问策略向标识授予访问权限，请参阅[使用 Azure CLI 分配密钥保管库访问策略](/azure/key-vault/general/assign-access-policy-cli)。
+> 本例使用 DefaultAzureCredential。 若要使用特定访问策略向标识授予访问权限，请参阅[使用 Azure CLI 分配密钥保管库访问策略](../key-vault/general/assign-access-policy-cli.md)。
 
 ### <a name="access-blob-from-your-web-service"></a>从 Web 服务访问 Blob
 
-如果为 Azure 标识授予了对**存储 Blob** 中的数据的读取访问权限，则 `score.py` 可以使用以下代码访问此数据。
+如果为 Azure 标识授予了对 **存储 Blob** 中的数据的读取访问权限，则 `score.py` 可以使用以下代码访问此数据。
 
 ```python
 from azure.identity import DefaultAzureCredential

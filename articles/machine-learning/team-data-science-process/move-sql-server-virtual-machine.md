@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c80a90b07e25942e751d52cafa47f6e3e94852ab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320332"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>将数据移到 Azure 虚拟机上的 SQL Server
 
@@ -41,10 +41,10 @@ ms.locfileid: "87012172"
 ## <a name="prerequisites"></a><a name="prereqs"></a>先决条件
 本教程假设你拥有：
 
-* 一个 **Azure 订阅**。 如果尚无订阅，可注册[免费试用版](https://azure.microsoft.com/pricing/free-trial/)。
-* 一个 **Azure 存储帐户**。 在本教程中，将使用 Azure 存储帐户存储数据。 如果还没有 Azure 存储帐户，请参阅[创建存储帐户](../../storage/common/storage-account-create.md)一文。 创建存储帐户后，需要获取用于访问存储的帐户密钥。 请参阅[管理存储帐户访问密钥](../../storage/common/storage-account-keys-manage.md)。
-* 在 **Azure 虚拟机上置备了 SQL Server**。 有关说明，请参阅[将 Azure SQL Server 虚拟机设置为用于高级分析的 IPython Notebook 服务器](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)。
-* 已在本地安装和配置 **Azure PowerShell**。 有关说明，请参阅[如何安装和配置 Azure PowerShell](/powershell/azure/)。
+* 一个 **Azure 订阅** 。 如果尚无订阅，可注册[免费试用版](https://azure.microsoft.com/pricing/free-trial/)。
+* 一个 **Azure 存储帐户** 。 在本教程中，将使用 Azure 存储帐户存储数据。 如果还没有 Azure 存储帐户，请参阅[创建存储帐户](../../storage/common/storage-account-create.md)一文。 创建存储帐户后，需要获取用于访问存储的帐户密钥。 请参阅[管理存储帐户访问密钥](../../storage/common/storage-account-keys-manage.md)。
+* 在 **Azure 虚拟机上置备了 SQL Server** 。 有关说明，请参阅[将 Azure SQL Server 虚拟机设置为用于高级分析的 IPython Notebook 服务器](../data-science-virtual-machine/overview.md)。
+* 已在本地安装和配置 **Azure PowerShell** 。 有关说明，请参阅[如何安装和配置 Azure PowerShell](/powershell/azure/)。
 
 ## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a>将数据从平面文件源移动到 Azure VM 上的 SQL Server
 如果数据位于平面文件中（以行/列格式排列），则可以通过以下方法将它移到 Azure 上的 SQL Server 虚拟机：
@@ -58,7 +58,7 @@ BCP 是随 SQL Server 一起安装的命令行实用程序，并且是数据移�
 
 > [!NOTE]
 > **对于 BCP 我的数据应在哪里？**  
-> 尽管并非必需，但是将包含源数据的文件置于目标 SQL Server 所在的计算机上可以更快地进行传输（网络速度与本地磁盘 IO 速度）。 可以使用各种文件复制工具（如 [AZCopy](../../storage/common/storage-use-azcopy.md)、[Azure 存储资源管理器](https://storageexplorer.com/)，或者通过远程桌面协议 (RDP) 进行 Windows 复制/粘贴），将包含数据的平面文件移到已安装 SQL Server 的计算机。
+> 尽管并非必需，但是将包含源数据的文件置于目标 SQL Server 所在的计算机上可以更快地进行传输（网络速度与本地磁盘 IO 速度）。 可以使用各种文件复制工具（如 [AZCopy](../../storage/common/storage-use-azcopy-v10.md)、[Azure 存储资源管理器](https://storageexplorer.com/)，或者通过远程桌面协议 (RDP) 进行 Windows 复制/粘贴），将包含数据的平面文件移到已安装 SQL Server 的计算机。
 >
 >
 
@@ -82,7 +82,7 @@ BCP 是随 SQL Server 一起安装的命令行实用程序，并且是数据移�
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
-> **优化 BCP 插入**，请参阅以下文章[优化批量导入的指南](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx)来优化此类插入。
+> **优化 BCP 插入** ，请参阅以下文章 [优化批量导入的指南](/previous-versions/sql/sql-server-2008-r2/ms177445(v=sql.105))来优化此类插入。
 >
 >
 
@@ -133,7 +133,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 ```
 
 ### <a name="bulk-insert-sql-query"></a><a name="insert-tables-bulkquery"></a>批量插入 SQL 查询
-[批量插入 SQL 查询](https://msdn.microsoft.com/library/ms188365)可用于将数据从基于行/列的文件导入数据库（受支持的类型在[准备用于批量导出或导入的数据 (SQL Server) ](https://msdn.microsoft.com/library/ms188609) 主题中有介绍）。
+[批量插入 SQL 查询](/sql/t-sql/statements/bulk-insert-transact-sql)可用于将数据从基于行/列的文件导入数据库（受支持的类型在[准备用于批量导出或导入的数据 (SQL Server) ](/sql/relational-databases/import-export/prepare-data-for-bulk-export-or-import-sql-server) 主题中有介绍）。
 
 以下是一些用于批量插入的示例命令：  
 
@@ -158,10 +158,10 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 
 ### <a name="built-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>SQL Server 中的内置实用程序
 你可以使用 SQL Server Integration Services (SSIS) 将数据从平面文件导入到 Azure 上的 SQL Server VM 中。
-SSIS 在两个 Studio 环境中可用。 有关详细信息，请参阅[集成服务 (SSIS) 与 Studio 环境](https://technet.microsoft.com/library/ms140028.aspx)：
+SSIS 在两个 Studio 环境中可用。 有关详细信息，请参阅[集成服务 (SSIS) 与 Studio 环境](/sql/integration-services/integration-services-ssis-development-and-management-tools)：
 
-* 有关 SQL Server Data Tools 的详细信息，请参阅 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
-* 有关导入/导出向导的详细信息，请参阅 [SQL Server 导入和导出向导](https://msdn.microsoft.com/library/ms141209.aspx)
+* 有关 SQL Server Data Tools 的详细信息，请参阅 [Microsoft SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)  
+* 有关导入/导出向导的详细信息，请参阅 [SQL Server 导入和导出向导](/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)
 
 ## <a name="moving-data-from-on-premises-sql-server-to-sql-server-on-an-azure-vm"></a><a name="sqlonprem_to_sqlonazurevm"></a>将数据从本地 SQL Server 移动到 Azure VM 上的 SQL Server
 此外，还可以使用以下迁移策略：
@@ -174,16 +174,16 @@ SSIS 在两个 Studio 环境中可用。 有关详细信息，请参阅[集成�
 下面我们将对各个选项进行介绍：
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>将 SQL Server 数据库部署到 Microsoft Azure 虚拟机向导
-**将 SQL Server 数据库部署到 Microsoft Azure 虚拟机向导**非常简单，建议采用这种方法将数据从本地 SQL Server 实例移到 Azure 虚拟机上的 SQL Server。 有关详细的步骤以及其他备选方法的讨论，请参阅[将数据库迁移到 Azure 虚拟机上的 SQL Server](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)。
+**将 SQL Server 数据库部署到 Microsoft Azure 虚拟机向导** 非常简单，建议采用这种方法将数据从本地 SQL Server 实例移到 Azure 虚拟机上的 SQL Server。 有关详细的步骤以及其他备选方法的讨论，请参阅[将数据库迁移到 Azure 虚拟机上的 SQL Server](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)。
 
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>导出到平面文件
-可以使用各种方法从本地 SQL Server 批量导出数据（如[批量导入和导出数据 (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) 主题中所述）。 本文档将举例说明“大容量复制程序 (BCP)”。 一旦数据导出到平面文件，就可以使用批量导入将其导入到另一个 SQL Server。
+可以使用各种方法从本地 SQL Server 批量导出数据（如[批量导入和导出数据 (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) 主题中所述）。 本文档将举例说明“大容量复制程序 (BCP)”。 一旦数据导出到平面文件，就可以使用批量导入将其导入到另一个 SQL Server。
 
 1. 使用 bcp 实用工具将数据从本地 SQL Server 导出到文件，如下所示
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
 2. 使用步骤 1 中导出的表架构的 `create database` 和 `create table` 在 Azure 上的 SQL Server 虚拟机上创建数据库和表。
-3. 创建一个格式文件来描述正导出/导入的数据的表架构。 [创建格式文件 (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx) 中介绍了格式文件的详细信息。
+3. 创建一个格式文件来描述正导出/导入的数据的表架构。 [创建格式文件 (SQL Server)](/sql/relational-databases/import-export/create-a-format-file-sql-server) 中介绍了格式文件的详细信息。
 
     从 SQL Server 计算机运行 BCP 时生成格式文件
 
@@ -202,8 +202,8 @@ SSIS 在两个 Studio 环境中可用。 有关详细信息，请参阅[集成�
 ### <a name="database-back-up-and-restore"></a><a name="sql-backup"></a>数据库备份和还原
 SQL Server 支持：
 
-1. [数据库备份和还原功能](https://msdn.microsoft.com/library/ms187048.aspx)（至本地文件或 bacpac 导出到 blob）和[数据层应用程序](https://msdn.microsoft.com/library/ee210546.aspx)（使用 bacpac）。
-2. 能够使用复制的数据库直接在 Azure 上创建 SQL Server VM 或复制到 SQL 数据库中的现有数据库。 有关详细信息，请参阅 [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx)。
+1. [数据库备份和还原功能](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)（至本地文件或 bacpac 导出到 blob）和[数据层应用程序](/sql/relational-databases/data-tier-applications/data-tier-applications)（使用 bacpac）。
+2. 能够使用复制的数据库直接在 Azure 上创建 SQL Server VM 或复制到 SQL 数据库中的现有数据库。 有关详细信息，请参阅 [Use the Copy Database Wizard](/sql/relational-databases/databases/use-the-copy-database-wizard)。
 
 SQL Server Management Studio 中的数据库备份/还原选项的屏幕快照如下所示。
 

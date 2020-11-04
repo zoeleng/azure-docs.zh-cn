@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 070c1ef4eeec2b4ed15f2f4720d9fbd8494fca0f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319819"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服务配额
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -133,7 +133,6 @@ Cosmos DB 会定期自动备份数据。 有关备份保留时间间隔和窗口
 | 分区键值的最大长度 | 2048 个字节 |
 | ID 值的最大长度 | 1023 个字节 |
 | 每项的最大属性数 | 无实际限制 |
-| 最大嵌套深度 | 无实际限制 |
 | 属性名称的最大长度 | 无实际限制 |
 | 属性值的最大长度 | 无实际限制 |
 | 字符串属性值的最大长度 | 无实际限制 |

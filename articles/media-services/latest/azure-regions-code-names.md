@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 462cf6cf850885b31588123bac46ff99bf319ee8
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243131"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319644"
 ---
 # <a name="regional-code-names-and-endpoints"></a>区域代码名称和终结点
 
@@ -46,7 +46,7 @@ az account list-locations
 
 ### <a name="global-azure"></a>全球 Azure
 
-| 服务 | 终结点 |
+| 服务 | 端点 |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | 身份验证 | `https://login.microsoftonline.com/` |
@@ -54,7 +54,7 @@ az account list-locations
 
 ### <a name="azure-government"></a>Azure Government
 
-| 服务 | 终结点 |
+| 服务 | 端点 |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | 身份验证 | `https://login.microsoftonline.us/` |
@@ -64,7 +64,10 @@ az account list-locations
 
 ### <a name="azure-germany"></a>Azure 德国
 
-| 服务 | 终结点 |
+> [!NOTE]
+> Azure 德国终结点仅适用于德国的主权云。
+
+| 服务 | 端点 |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | 身份验证 | `https://login.microsoftonline.de/` |
@@ -72,7 +75,7 @@ az account list-locations
 
 ### <a name="azure-china-21vianet"></a>Azure 中国世纪互联
 
-| 服务 | 终结点 |
+| 服务 | 端点 |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | 身份验证 | `https://login.chinacloudapi.cn/` |

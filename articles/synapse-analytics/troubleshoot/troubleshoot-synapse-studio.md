@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287741"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321018"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (预览版) 故障排除
 
 此故障排除指南提供了有关在解决网络连接问题时提供哪些信息的说明。 有了正确的信息，我们就可以更快地解决问题。
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>SQL 点播 (预览) 服务连接问题
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>无服务器 SQL 池 (预览版) 服务连接问题
 
 ### <a name="symptom-1"></a>症状 1
 
-"SQL 点播" 选项在 "连接到" 下拉列表中灰显。
+"无服务器 SQL 池" 选项在 "连接到" 下拉列表中灰显。
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>症状 2
 
-以 "按需 SQL" 运行查询时，会显示 "未能建立与服务器的连接" 错误消息。
+通过 "无服务器 SQL 池" 运行查询会使你 "无法建立与服务器的连接" 错误消息。
 
 ![症状2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ ms.locfileid: "91287741"
 
 若要开始进行故障排除，请重试在 Azure Synapse Studio 中执行的操作。
 
-- 对于 "症状 1"，选择 "SQL 脚本" 选项卡中 "使用数据库" 下拉列表右侧的 "刷新" 按钮，并检查是否可以看到 "按需 SQL"。
+- 对于 "症状 1"，选择 "SQL 脚本" 选项卡中 "使用数据库" 下拉列表右侧的 "刷新" 按钮，并检查是否可以看到 "无服务器 SQL 池"。
 - 对于症状2，请尝试再次运行查询以查看它是否成功执行。
 
 如果问题仍然存在，请在浏览器中按 F12 打开 "开发人员工具" (DevTools) "。
@@ -61,7 +61,7 @@ ms.locfileid: "91287741"
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-其中，[*A*] 是你的工作区名称，而 "-ondemand" 可能是 "-sqlod"，其中 [*B*] 应为数据库名称，如 "master"。 最多应有两个具有相同 URL 值但不同方法值的项;选项和 POST。 检查这两个项的 "状态" 列中是否有 "200" 或 "20 倍"，其中 "x" 可以是任何单个数字。
+其中，[ *A* ] 是你的工作区名称，而 "-ondemand" 可能是 "-sqlod"，其中 [ *B* ] 应为数据库名称，如 "master"。 最多应有两个具有相同 URL 值但不同方法值的项;选项和 POST。 检查这两个项的 "状态" 列中是否有 "200" 或 "20 倍"，其中 "x" 可以是任何单个数字。
 
 如果其中任何一个不是 "20 倍"，则为：
 
@@ -71,7 +71,7 @@ ms.locfileid: "91287741"
 
     - 如果你看到 ERR_NAME_NOT_RESOLVED，并在10分钟内创建了你的工作区，请等待10分钟，然后重试以查看问题是否仍然存在。
     - 如果你看到 ERR_INTERNET_DISCONNECTED 或 ERR_NETWORK_CHANGED，则可能表示你的电脑网络连接有问题。 请检查你的网络连接，然后重试该操作。
-    - 如果你看到 ERR_CONNECTION_RESET、ERR_SSL_PROTOCOL_ERROR 或其他包含 "SSL" 的错误代码，则可能表示你的本地 SSL 配置存在问题，或者你的网络管理员已阻止访问 SQL 点播服务器。 打开支持票证并附加描述中的错误代码。
+    - 如果你看到 ERR_CONNECTION_RESET、ERR_SSL_PROTOCOL_ERROR 或其他包含 "SSL" 的错误代码，则可能表示你的本地 SSL 配置存在问题，或者你的网络管理员已阻止访问无服务器 SQL 池服务器。 打开支持票证并附加描述中的错误代码。
     - 如果你看到 ERR_NETWORK_ACCESS_DENIED，则可能需要与管理员联系，了解你的本地防火墙策略是否已阻止对 *. database.windows.net 域或远程端口1443的访问。
     - 也可以在不同的计算机和/或网络环境上立即尝试相同的操作，以排除计算机上的网络配置问题。
 

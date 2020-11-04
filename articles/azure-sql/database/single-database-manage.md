@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791522"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319279"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理服务器和单一数据库
 
@@ -123,10 +123,10 @@ ms.locfileid: "92791522"
 
 | 命令 | 说明 |
 | --- | --- |
-|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|新建单一数据库。 必须连接到 master 数据库才能新建数据库。|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |修改数据库或弹性池。 |
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|新建单一数据库。 必须连接到 master 数据库才能新建数据库。|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |修改数据库或弹性池。 |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure Synapse Analytics SQL 池的版本（服务层级）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure Synapse Analytics，必须连接到 master 数据库。|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|对于 Azure SQL 数据库或 Azure Synapse Analytics 中的专用 SQL 池，返回 service 层) 、服务目标 (定价层) 和弹性池名称（如果有）的 (版本。 如果已登录到 SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure Synapse Analytics，必须连接到 master 数据库。|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| 返回 Azure SQL 数据库中数据库的 CPU、IO 和内存消耗量。 即使数据库中没有活动，也会每隔 15 秒返回一行数据。|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|返回 Azure SQL 数据库中数据库的 CPU 使用率和存储数据。 在五分钟间隔内收集并聚合数据。|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|包含“SQL 数据库”连接事件的统计信息，提供数据库连接成功和失败状态的概述。 |

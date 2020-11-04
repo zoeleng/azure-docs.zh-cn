@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721347"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321212"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>团队数据科学流程组管理员任务
 
@@ -57,7 +57,7 @@ ms.locfileid: "76721347"
    
    ![创建项目](./media/group-manager-tasks/create-project.png)
 
-GroupCommon 项目的摘要页随即打开   。 页面 URL 是*https： \/ / \<servername> / \<organization-name> /GroupCommon*。
+GroupCommon 项目的摘要页随即打开   。 页面 URL 是 *https： \/ / \<servername> / \<organization-name> /GroupCommon* 。
 
 ![项目摘要页](./media/group-manager-tasks/project-summary.png)
 
@@ -65,9 +65,9 @@ GroupCommon 项目的摘要页随即打开   。 页面 URL 是*https： \/ / \<
 
 Azure Repos 可为组托管以下类型的存储库：
 
-- **组通用存储库**：可供数据科学部门中的多个团队用于多个数据科学项目的通用存储库。 
-- **团队存储库**：专供数据科学部门内特定团队使用的存储库。 这些存储库特定于团队需求，可用于该团队内的多个项目，但不足以使数据科学部门中的多个团队使用。
-- **项目存储库**：适用于特定项目的存储库。 此类存储库通用程度比较低，可能不足以供一个团队内的多个项目或数据科学部门内的其他团队使用。
+- **组通用存储库** ：可供数据科学部门中的多个团队用于多个数据科学项目的通用存储库。 
+- **团队存储库** ：专供数据科学部门内特定团队使用的存储库。 这些存储库特定于团队需求，可用于该团队内的多个项目，但不足以使数据科学部门中的多个团队使用。
+- **项目存储库** ：适用于特定项目的存储库。 此类存储库通用程度比较低，可能不足以供一个团队内的多个项目或数据科学部门内的其他团队使用。
 
 可按照以下方法在项目中设置组通用存储库： 
 - 将默认的 GroupCommon 存储库重命名为 GroupProjectTemplate  
@@ -167,7 +167,7 @@ Azure Repos 可为组托管以下类型的存储库：
 
 - 拥有 Azure 订阅（如果要创建 DSVM）。
 - 计算机上安装有 Git。 如果要使用 DSVM，则需预安装 Git。 否则，请参阅[平台和工具附录](platforms-and-tools.md#appendix)。
-- 如果要使用 DSVM，需要在 Azure 中创建和配置 Windows 或 Linux DSVM。 有关详细信息和说明，请参阅 [Data Science Virtual Machine 文档](/azure/machine-learning/data-science-virtual-machine/)。
+- 如果要使用 DSVM，需要在 Azure 中创建和配置 Windows 或 Linux DSVM。 有关详细信息和说明，请参阅 [Data Science Virtual Machine 文档](../data-science-virtual-machine/index.yml)。
 - 对于 Windows DSVM，需要在计算机上安装 [Git 凭据管理器 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)。 在 README.md 文件中，向下滚动到“下载并安装”部分，然后选择“最新安装程序”    。 从安装程序页下载 .exe 安装程序并运行它  。 
 - 对于 Linux DSVM，需要在 DSVM 上设置 SSH 公钥，并将其添加到 Azure DevOps 中。 有关详细信息和说明，请参阅[平台和工具附录](platforms-and-tools.md#appendix)中的“创建 SSH 公钥”  部分。 
 

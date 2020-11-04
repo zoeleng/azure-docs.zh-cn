@@ -1,6 +1,6 @@
 ---
-title: 使用 SQL 按需版本（预览版）查询 CSV 文件
-description: 本文介绍如何使用 SQL 按需版本（预览版）查询不同文件格式的单个 CSV 文件。
+title: '使用无服务器 SQL 池查询 CSV 文件 (预览) '
+description: 在本文中，你将了解如何使用无服务器 SQL 池 (预览) 使用不同的文件格式查询单个 CSV 文件。
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288284"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321455"
 ---
 # <a name="query-csv-files"></a>查询 CSV 文件
 
-在本文中，你将了解如何在 Azure Synapse Analytics 中使用 SQL 按需版本（预览版）查询单个 CSV 文件。 CSV 文件可有多种不同的格式： 
+本文介绍如何在 Azure Synapse Analytics 中使用无服务器 SQL 池 (预览版) 查询单个 CSV 文件。 CSV 文件可有多种不同的格式： 
 
 - 带有或不带标题行
 - 逗号和制表符分隔的值

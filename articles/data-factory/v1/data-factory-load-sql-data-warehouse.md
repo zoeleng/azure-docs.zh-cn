@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cb0138603cad52c40b3471c60104f091367e88e9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4e6b0afab5c86131575d0e3d12b9984a8463f5a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636895"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321094"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>通过数据工厂将 1 TB 负载引入 Azure Synapse 分析
 > [!NOTE]
@@ -65,15 +65,15 @@ Azure Synapse Analytics 入门现在比以往任何时候都容易使用 **Azure
   >
   >
 
-    若要创建 6000 Dwu 的 Synapse SQL 池，请将性能滑块一直移动到右侧：
+    若要创建具有 6000 Dwu 的专用 SQL 池，请将性能滑块一直移动到右侧：
 
     ![性能滑块](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
-    对于未配置为 6,000 DWU 的现有数据库，可以使用 Azure 门户对其进行扩展。  导航到 Azure 门户中的数据库，在“概述”  面板中有一个“缩放”  按钮，如下图所示：
+    对于未配置为 6,000 DWU 的现有数据库，可以使用 Azure 门户对其进行扩展。  导航到 Azure 门户中的数据库，在“概述”面板中有一个“缩放”按钮，如下图所示：
 
     ![“缩放”按钮](media/data-factory-load-sql-data-warehouse/scale-button.png)    
 
-    单击“缩放”  按钮以打开以下面板，将滑块移动到最大值，然后单击“保存”  按钮。
+    单击“缩放”按钮以打开以下面板，将滑块移动到最大值，然后单击“保存”按钮。
 
     ![“缩放”对话框](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
@@ -112,8 +112,8 @@ Azure Synapse Analytics 入门现在比以往任何时候都容易使用 **Azure
 
 ## <a name="launch-copy-wizard"></a>启动复制向导
 1. 登录到 [Azure 门户](https://portal.azure.com)。
-2. 单击左上角的“创建资源”  ，单击“智能 + 分析”  ，然后单击“数据工厂”  。
-3. 在“新建数据工厂”  窗格中：
+2. 单击左上角的“创建资源”，单击“智能 + 分析”，然后单击“数据工厂”。
+3. 在“新建数据工厂”窗格中：
 
    1. 输入 **LoadIntoSQLDWDataFactory** 作为 **名称** 。
        Azure 数据工厂的名称必须全局唯一。 如果收到错误： **数据工厂名称 "LoadIntoSQLDWDataFactory" 不可用** ，请更改数据工厂的名称， (例如，yournameLoadIntoSQLDWDataFactory) 并再次尝试创建。 有关数据工厂项目命名规则，请参阅 [Data Factory - Naming Rules](data-factory-naming-rules.md) （数据工厂 - 命名规则）主题。  
@@ -127,10 +127,10 @@ Azure Synapse Analytics 入门现在比以往任何时候都容易使用 **Azure
 4. 完成创建后，将看到如下图所示的“数据工厂”边栏选项卡：
 
    ![数据工厂主页](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
-5. 在“数据工厂”主页上，单击“复制数据”磁贴，启动“复制向导”。 
+5. 在“数据工厂”主页上，单击“复制数据”磁贴，启动“复制向导”。
 
    > [!NOTE]
-   > 如果 Web 浏览器卡在“正在授权...”处，请禁用或取消选中“阻止第三方 Cookie 和站点数据”设置，或在保持启用该项的状态下为 
+   > 如果 Web 浏览器卡在“正在授权...”处，请禁用或取消选中“阻止第三方 Cookie 和站点数据”设置，或在保持启用该项的状态下为 **login.microsoftonline.com** 创建一个例外，然后尝试再次启动该向导。
    >
    >
 
@@ -140,27 +140,27 @@ Azure Synapse Analytics 入门现在比以往任何时候都容易使用 **Azure
 在“属性”  页中：
 
 1. 输入 **CopyFromBlobToAzureSqlDataWarehouse** 作为 **任务名称**
-2. 选择“立即运行一次”  选项。   
-3. 单击“下一步”  。  
+2. 选择“立即运行一次”选项。   
+3. 单击“下一步”。   
 
     ![复制向导 - 属性页](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>步骤 2：配置源
 本部分说明配置源的步骤：包含 1-TB TPC-H 行项目文件的 Azure Blob。
 
-1. 选择“Azure Blob 存储”  作为数据存储，并单击“下一步”  。
+1. 选择“Azure Blob 存储”作为数据存储，并单击“下一步”。
 
     ![复制向导 - 选择源页](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-2. 填写 Azure Blob 存储帐户的连接信息，并单击“下一步”  。
+2. 填写 Azure Blob 存储帐户的连接信息，并单击“下一步”。
 
     ![复制向导 - 源连接信息](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-3. 选择包含 TPC-H 行项目文件的“文件夹”  ，并单击“下一步”  。
+3. 选择包含 TPC-H 行项目文件的“文件夹”，并单击“下一步”。
 
     ![复制向导 - 选择输入文件夹](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. 单击“下一步”  时会自动检测文件格式设置。  检查以确保列分隔符为 "|"，而不是默认的逗号 "，"。  预览数据后，单击“下一步”  。
+4. 单击“下一步”时会自动检测文件格式设置。  检查以确保列分隔符为 "|"，而不是默认的逗号 "，"。  预览数据后，单击“下一步”。
 
     ![复制向导 - 文件格式设置](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
@@ -171,32 +171,32 @@ Azure Synapse Analytics 入门现在比以往任何时候都容易使用 **Azure
 
     ![复制向导 - 选择目标数据存储](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. 填写 Azure Synapse Analytics 的连接信息。  请确保指定作为 `xlargerc` 角色的成员的用户（有关详细说明，请参阅  。
+2. 填写 Azure Synapse Analytics 的连接信息。  请确保指定作为 `xlargerc` 角色的成员的用户（有关详细说明，请参阅 **先决条件** 部分），并单击“下一步”。
 
     ![复制向导 - 目标连接信息](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-3. 选择目标表，并单击“下一步”  。
+3. 选择目标表，并单击“下一步”。
 
     ![复制向导 - 表映射页](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. 在架构映射页中，保留“应用列映射”选项的未勾选状态，并单击“下一步”  。
+4. 在架构映射页中，保留“应用列映射”选项的未勾选状态，并单击“下一步”。
 
 ## <a name="step-4-performance-settings"></a>步骤 4：性能设置
 
-默认选中“允许 polybase”  。  单击“下一步”  。
+默认选中“允许 polybase”。  单击“下一步”。 
 
 ![复制向导 - 架构映射页](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>步骤 5：部署和监视加载结果
-1. 单击“完成”  按钮以便部署。
+1. 单击“完成”按钮以便部署。
 
     ![复制向导-"摘要" 页1](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-2. 部署完成后，单击 `Click here to monitor copy pipeline` 以监视副本运行进度。 选择在“活动窗口”  列表中创建的副本管道。
+2. 部署完成后，单击 `Click here to monitor copy pipeline` 以监视副本运行进度。 选择在“活动窗口”列表中创建的副本管道。
 
     ![复制向导-"摘要" 页2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-    可以在右侧面板中的“活动窗口资源管理器”  中查看副本运行的详细信息，包括从源中读取和写入到目标中的数据量、持续时间以及运行的平均吞吐量。
+    可以在右侧面板中的“活动窗口资源管理器”中查看副本运行的详细信息，包括从源中读取和写入到目标中的数据量、持续时间以及运行的平均吞吐量。
 
     如以下屏幕截图所示，将 1 TB 从 Azure Blob 存储复制到 Azure Synapse Analytics 花费了14分钟，有效地实现了 1.22 GBps 吞吐量！
 

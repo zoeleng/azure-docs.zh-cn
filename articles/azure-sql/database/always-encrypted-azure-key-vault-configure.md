@@ -11,13 +11,13 @@ ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
-ms.date: 04/23/2020
-ms.openlocfilehash: 27daa160cc784665a487a0988429e3783257962e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/02/2020
+ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678142"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321633"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>使用 Azure 密钥管理库配置 Always Encrypted 
 
@@ -100,8 +100,8 @@ az group create --location $location --name $resourceGroupName
 
 az keyvault create --name $vaultName --resource-group $resourceGroupName --location $location
 
-az keyvault set-policy --name $vaultName --key-permissions create, get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
-az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
+az keyvault set-policy --name $vaultName --key-permissions create get list sign unwrapKey verify wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
+az keyvault set-policy --name $vaultName --key-permissions get list sign unwrapKey verify wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
 ---
@@ -149,7 +149,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 1. 展开“数据库” > “Clinic” > “表”。
 2. 右键单击“患者”表，并选择“加密列”以打开始终加密向导：
 
-    ![突出显示加密列的屏幕截图 .。。菜单选项。](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![突出显示“加密列…”菜单选项的屏幕截图。](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 Always Encrypted 向导包括以下几部分： **列选择** 、 **主密钥配置** 、 **验证** 和 **摘要** 。
 
@@ -584,7 +584,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 2. 单击“连接” > “数据库引擎”打开“连接到服务器”窗口，并单击“选项”。
 3. 单击“其他连接参数”，并键入 **Column Encryption Setting=enabled** 。
 
-    ![显示 "其他更正参数" 选项卡的屏幕截图。](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![显示“其他更正参数”选项卡的屏幕截图。](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. 针对 Clinic 数据库运行以下查询。
 
