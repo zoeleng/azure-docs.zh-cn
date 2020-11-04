@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254740"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307449"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>在 Azure 机器学习中跟踪试验和部署模型
 
@@ -26,11 +26,11 @@ ms.locfileid: "89254740"
 
 ## <a name="prerequisites"></a>必备条件
 
-* 需要 [预配 Azure 机器学习工作区](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* 需要 [预配 Azure 机器学习工作区](../how-to-manage-workspace.md#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>创建新的 Notebook
 
-Azure 机器学习和 MLFlow SDK 已预安装在 Data Science VM 上，并可在 azureml_py36_\* conda 环境中访问。 在 Jupyterlab 中，单击启动器，并选择以下内核：
+Azure 机器学习和 MLFlow SDK 预安装在 Data Science VM 上，并可在 * *azureml_py36_ \** _ conda 环境中访问。 在 Jupyterlab 中，单击启动器，并选择以下内核：
 
 ![内核选择](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -123,7 +123,7 @@ with mlflow.start_run():
 
 ![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-如果单击运行，则会在__输出 + 日志__中看到其他详细信息和 pickle 模型。
+如果单击运行，则会在 __输出 + 日志__ 中看到其他详细信息和 pickle 模型。
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>在 Azure 机器学习中部署模型
 
@@ -137,7 +137,7 @@ with mlflow.start_run():
 
 在 __新的推理群集__ 窗格中填写以下内容的详细信息：
 
-* 计算名称
+_ 计算名称
 * Kubernetes 服务 - 选择“新建”
 * 选择区域
 * 选择 VM 大小（就本教程而言，默认值 Standard_D3_v2 就足够了）
@@ -177,7 +177,7 @@ with mlflow.start_run():
 
 ![使用模型](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-应会看到部署状态从 __转换__ 到 __正常__。 此外，此详细信息部分提供了 REST 终结点和 Swagger Url，应用程序开发人员可以使用它将 ML 模型集成到其应用程序中。
+应会看到部署状态从 __转换__ 到 __正常__ 。 此外，此详细信息部分提供了 REST 终结点和 Swagger Url，应用程序开发人员可以使用它将 ML 模型集成到其应用程序中。
 
 可以使用 [Postman](https://www.postman.com/)测试终结点，也可以使用 AzureML SDK：
 
@@ -204,4 +204,4 @@ print(output)
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解有关[在 AzureML 中部署模型](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)的详细信息
+* 了解有关[在 AzureML 中部署模型](../how-to-deploy-and-where.md)的详细信息

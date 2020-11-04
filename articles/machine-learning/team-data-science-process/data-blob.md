@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bb2a9bf8c26b1abfca0685248fef2058d63c03bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a088d5918a957036b905db9136f9b16e5f0527e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307154"
 ---
 # <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>使用高级分析处理 Azure Blob 数据
 本文档介绍了如何浏览数据，以及如何从 Azure Blob 存储中存储的数据生成功能。 
@@ -207,5 +207,4 @@ ms.locfileid: "86087548"
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

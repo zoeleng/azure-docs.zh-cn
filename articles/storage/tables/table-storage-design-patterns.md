@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41e07087574989935e89ba2c1f4c09a3c12b192d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215597"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307463"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  
@@ -22,13 +22,13 @@ ms.locfileid: "92215597"
 ![查找相关数据](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
 
-上面的模式映射突出显示了本指南中介绍的模式（蓝色）和反模式（橙色）之间的某些关系。 另外，还有许多其他值得考虑的模式。 例如，一种重要的表服务方案是使用[命令查询职责分离 (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) 模式中的[具体化视图模式](https://msdn.microsoft.com/library/azure/dn589782.aspx)。  
+上面的模式映射突出显示了本指南中介绍的模式（蓝色）和反模式（橙色）之间的某些关系。 另外，还有许多其他值得考虑的模式。 例如，一种重要的表服务方案是使用[命令查询职责分离 (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) 模式中的[具体化视图模式](/previous-versions/msp-n-p/dn589782(v=pandp.10))。  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>分区内辅助索引模式
 在同一分区利用不同的 **RowKey** 值存储每个实体的多个副本，实现快速高效的查找，并通过使用不同 **RowKey** 值替换排序顺序。 可以使用 EGT 使副本之间的更新保持一致。  
 
 ### <a name="context-and-problem"></a>上下文和问题
-表服务通过 **PartitionKey** 和 **RowKey** 值自动编制实体的索引。 这使客户端应用程序可以使用这些值高效地检索实体。 例如，使用下面所示的表结构时，客户端应用程序可使用点查询，通过部门名称和员工 ID（**PartitionKey** 和 **RowKey** 值）检索单个员工实体。 客户端还可以在每个部门内检索按员工 ID 排序的实体。
+表服务通过 **PartitionKey** 和 **RowKey** 值自动编制实体的索引。 这使客户端应用程序可以使用这些值高效地检索实体。 例如，使用下面所示的表结构时，客户端应用程序可使用点查询，通过部门名称和员工 ID（ **PartitionKey** 和 **RowKey** 值）检索单个员工实体。 客户端还可以在每个部门内检索按员工 ID 排序的实体。
 
 ![Image06](media/storage-table-design-guide/storage-table-design-IMAGE06.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "92215597"
 * 若要查找销售部门中的所有员工，其员工 ID 范围为 000100 到 000199，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * 要通过以字母“a”开头的邮件地址查找销售部门中的所有雇员，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+  上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](/rest/api/storageservices/Query-Entities)。  
 
 ### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
@@ -81,7 +81,7 @@ ms.locfileid: "92215597"
 在单独分区/表格中利用不同 **RowKey** 值存储每个实体的多个副本，实现快速高效的查找，并借助不同的 **RowKey** 值替换排序顺序。  
 
 ### <a name="context-and-problem"></a>上下文和问题
-表服务通过 **PartitionKey** 和 **RowKey** 值自动编制实体的索引。 这使客户端应用程序可以使用这些值高效地检索实体。 例如，使用下面所示的表结构时，客户端应用程序可使用点查询，通过部门名称和员工 ID（**PartitionKey** 和 **RowKey** 值）检索单个员工实体。 客户端还可以在每个部门内检索按员工 ID 排序的实体。  
+表服务通过 **PartitionKey** 和 **RowKey** 值自动编制实体的索引。 这使客户端应用程序可以使用这些值高效地检索实体。 例如，使用下面所示的表结构时，客户端应用程序可使用点查询，通过部门名称和员工 ID（ **PartitionKey** 和 **RowKey** 值）检索单个员工实体。 客户端还可以在每个部门内检索按员工 ID 排序的实体。  
 
 ![员工 ID](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
 
@@ -105,7 +105,7 @@ ms.locfileid: "92215597"
 * 若要查找销售部门中的所有员工，其员工 ID 范围为 **000100** 到 **000199** 且按照 ID 序号排列，请使用：$filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * 要在销售部门中通过以“a”开头的邮件地址并按照邮件地址顺序查找所有员工，请使用：$filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](/rest/api/storageservices/Query-Entities)。  
 
 ### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
@@ -154,9 +154,9 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 在此示例中，步骤 4 将该员工插入到 **Archive** 表中。 它可以将该员工添加到 Blob 服务中的 blob 或文件系统中的文件。  
 
 ### <a name="recovering-from-failures"></a>从故障中恢复
-为避免辅助角色需重启存档操作，有必要确保步骤 **4** 和 **5** 中的操作为*幂等*操作。 如果使用的是表服务，步骤 **4** 中应使用“插入或替换”操作；步骤 **5** 中应使用当前所用客户端库中的“如果存在则删除”操作。 如果使用的是其他存储系统，则必须使用相应的幂等操作。  
+为避免辅助角色需重启存档操作，有必要确保步骤 **4** 和 **5** 中的操作为 *幂等* 操作。 如果使用的是表服务，步骤 **4** 中应使用“插入或替换”操作；步骤 **5** 中应使用当前所用客户端库中的“如果存在则删除”操作。 如果使用的是其他存储系统，则必须使用相应的幂等操作。  
 
-如果辅助角色始终无法完成步骤 **6**，则在超时后该消息将重新出现在队列中，便于辅助角色尝试重新处理。 辅助角色可以检查已读取队列中的某条消息多少次，如有必要，可通过将该消息发送到单独的队列来将其标记“坏”消息以供调查。 若要深入了解如何读取队列消息和检查取消排队计数，请参阅 [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)（获取消息）。  
+如果辅助角色始终无法完成步骤 **6** ，则在超时后该消息将重新出现在队列中，便于辅助角色尝试重新处理。 辅助角色可以检查已读取队列中的某条消息多少次，如有必要，可通过将该消息发送到单独的队列来将其标记“坏”消息以供调查。 若要深入了解如何读取队列消息和检查取消排队计数，请参阅 [Get Messages](/rest/api/storageservices/Get-Messages)（获取消息）。  
 
 表和队列服务发生的一些错误是暂时性错误，客户端应用程序应包括适当的重试逻辑以处理这些错误。  
 
@@ -185,7 +185,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 维护索引实体以启用返回实体列表的高效搜索。  
 
 ### <a name="context-and-problem"></a>上下文和问题
-表服务通过 **PartitionKey** 和 **RowKey** 值自动编制实体的索引。 这使客户端应用程序可以使用点查询高效地检索实体。 例如，使用下面所示的的表结构时，客户端应用程序可通过部门名称和员工 ID（**PartitionKey** 和 **RowKey**）高效检索单个员工实体。  
+表服务通过 **PartitionKey** 和 **RowKey** 值自动编制实体的索引。 这使客户端应用程序可以使用点查询高效地检索实体。 例如，使用下面所示的的表结构时，客户端应用程序可通过部门名称和员工 ID（ **PartitionKey** 和 **RowKey** ）高效检索单个员工实体。  
 
 ![员工实体](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -200,7 +200,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 
 <u>选项 #1：使用 blob 存储</u>  
 
-使用第一个选项时，应为每个唯一的姓氏创建一个 blob，并在每个 blob 中存储具有该姓氏的员工的 **PartitionKey**（部门）和 **RowKey**（员工 ID）值的列表。 在添加或删除员工时，应确保相关 blob 的内容与员工实体是最终一致的。  
+使用第一个选项时，应为每个唯一的姓氏创建一个 blob，并在每个 blob 中存储具有该姓氏的员工的 **PartitionKey** （部门）和 **RowKey** （员工 ID）值的列表。 在添加或删除员工时，应确保相关 blob 的内容与员工实体是最终一致的。  
 
 <u>选项 #2：</u>在同一个分区中创建索引实体  
 
@@ -213,7 +213,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 以下步骤概述了在添加新员工时，如果使用第二个选项应遵循的过程。 在此示例中，我们要在 Sales 部门中添加 ID 为 000152、姓氏为 Jones 的员工：  
 
 1. 使用 **PartitionKey** 值“Sales”和 **RowKey** 值“Jones”检索索引实体。 保存此实体的 ETag 以便在步骤 2 中使用。  
-2. 创建实体组事务（即批量操作），该项通过将新员工 ID 添加到 EmployeeIDs 字段的列表中，插入新的员工实体（**PartitionKey** 值“Sales”和 **RowKey** 值“000152”），并更新索引实体（**PartitionKey** 值“Sales”和 **RowKey** 值“Jones”）。 有关实体组事务的详细信息，请参阅“实体组事务”。  
+2. 创建实体组事务（即批量操作），该项通过将新员工 ID 添加到 EmployeeIDs 字段的列表中，插入新的员工实体（ **PartitionKey** 值“Sales”和 **RowKey** 值“000152”），并更新索引实体（ **PartitionKey** 值“Sales”和 **RowKey** 值“Jones”）。 有关实体组事务的详细信息，请参阅“实体组事务”。  
 3. 如果实体组事务由于开放式并发错误（其他人刚修改了索引实体）而失败，则需要从步骤 1 重新开始。  
 
 如果使用的是第二个选项，则可以使用类似的方法删除员工。 更改员工的姓氏会稍微复杂一些，你需要执行更新三个实体的实体组事务：员工实体、旧姓氏的索引实体和新姓氏的索引实体。 必须在进行任何更改之前检索每个实体以便检索 ETag 值，并可以使用该值利用开放式并发执行更新。  
@@ -307,7 +307,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 
 ![员工实体结构解决方案](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
 
-请注意，**RowKey** 现在是由员工 ID 和评价数据年份组成的复合键，使用它只需针对单个实体发出单个请求，即可检索员工的绩效和评价数据。  
+请注意， **RowKey** 现在是由员工 ID 和评价数据年份组成的复合键，使用它只需针对单个实体发出单个请求，即可检索员工的绩效和评价数据。  
 
 下面的示例概述了如何检索特定员工的所有评价数据（如 Sales 部门中的员工 000123）：  
 
@@ -316,7 +316,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
 
-* 应使用适当的分隔符，轻松分析 **RowKey** 值（如 **000123_2012**）。  
+* 应使用适当的分隔符，轻松分析 **RowKey** 值（如 **000123_2012** ）。  
 * 也将此实体存储在与包含同一员工的相关数据的其他实体在同一分区中，这意味着可以使用 EGT 来维护强一致性。
 * 应考虑将查询数据的频率，以确定此模式是否合适。  例如，如果不经常访问评价数据但经常访问主要员工数据，则应将它们保存为不同的实体。  
 
@@ -521,13 +521,13 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 通常，应使用 Blob 服务（而不是表服务）来存储日志数据。  
 
 ### <a name="context-and-problem"></a>上下文和问题
-日志数据的一个常见用例是检索针对特定日期/时间范围选择的日志条目：例如，想要查找应用程序在特定日期的 15:04 和 15:06 之间记录的所有错误和关键消息。 不会希望使用日志消息的日期和时间来确定日志实体要保存到的分区：该操作会导致热分区，因为所有日志实体在任意给定时间内均共享同一 **PartitionKey** 值（请参阅[前置/后置反模式](#prepend-append-anti-pattern)部分）。 例如，日志消息的以下实体架构会导致热分区，因为应用程序会将当前日期小时的所有日志消息都写入到该分区：  
+日志数据的一个常见用例是检索针对特定日期/时间范围选择的日志条目：例如，想要查找应用程序在特定日期的 15:04 和 15:06 之间记录的所有错误和关键消息。 不会希望使用日志消息的日期和时间来确定日志实体要保存到的分区：该操作会导致热分区，因为所有日志实体在任意给定时间内均共享同一 **PartitionKey** 值（请参阅 [前置/后置反模式](#prepend-append-anti-pattern)部分）。 例如，日志消息的以下实体架构会导致热分区，因为应用程序会将当前日期小时的所有日志消息都写入到该分区：  
 
 ![日志消息实体](media/storage-table-design-guide/storage-table-design-IMAGE28.png)
 
-在此示例中，**RowKey** 包括日志消息的日期和时间以及消息 ID，前者用于确保日志消息存储按日期/时间顺序排序，后者可防止多条日志消息共享同一日期和时间。  
+在此示例中， **RowKey** 包括日志消息的日期和时间以及消息 ID，前者用于确保日志消息存储按日期/时间顺序排序，后者可防止多条日志消息共享同一日期和时间。  
 
-还可使用 **PartitionKey**，确保应用程序在一组分区中写入消息。 例如，如果日志消息的源提供了一种方法可将消息分布到多个分区，则可以使用以下实体架构：  
+还可使用 **PartitionKey** ，确保应用程序在一组分区中写入消息。 例如，如果日志消息的源提供了一种方法可将消息分布到多个分区，则可以使用以下实体架构：  
 
 ![替代日志消息实体](media/storage-table-design-guide/storage-table-design-IMAGE29.png)
 
@@ -634,7 +634,7 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 
 在这种情况下，应始终充分地测试应用程序的性能。  
 
-针对表服务的查询一次最多可以返回 1,000 个实体，并且可以执行时间最长为五秒。 如果结果集包含超过 1,000 个的实体，则当查询未在 5 秒内完成或者查询跨越分区边界时，表服务将返回一个继续标记，客户端应用程序使用该标记可以请求下一组实体。 若要深入了解继续标记的工作方式，请参阅 [Query Timeout and Pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx)（查询超时和分页）。  
+针对表服务的查询一次最多可以返回 1,000 个实体，并且可以执行时间最长为五秒。 如果结果集包含超过 1,000 个的实体，则当查询未在 5 秒内完成或者查询跨越分区边界时，表服务将返回一个继续标记，客户端应用程序使用该标记可以请求下一组实体。 若要深入了解继续标记的工作方式，请参阅 [Query Timeout and Pagination](/rest/api/storageservices/Query-Timeout-and-Pagination)（查询超时和分页）。  
 
 如果使用的是存储客户端库，当它从表服务返回实体时，可以自动处理继续标记。 以下 C# 代码示例使用存储客户端库自动处理继续标记（如果表服务在响应中返回继续标记）：  
 
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>服务器端投影
-单个实体最多可以具有 255 个属性，并且大小最多可以为 1 MB。 查询表并检索实体时，可能不需要所有属性，并可以避免不必要地传输数据（以帮助减少延迟和降低成本）。 可以使用服务器端投影来只传输需要的属性。 以下示例只检索查询选择的实体的 **Email** 属性（与 **PartitionKey**、**RowKey**、**Timestamp** 和 **ETag** 一起）。  
+单个实体最多可以具有 255 个属性，并且大小最多可以为 1 MB。 查询表并检索实体时，可能不需要所有属性，并可以避免不必要地传输数据（以帮助减少延迟和降低成本）。 可以使用服务器端投影来只传输需要的属性。 以下示例只检索查询选择的实体的 **Email** 属性（与 **PartitionKey** 、 **RowKey** 、 **Timestamp** 和 **ETag** 一起）。  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -711,7 +711,7 @@ foreach (var e in entities)
 还应考虑设计如何影响客户端应用程序处理并发和更新操作的方式。  
 
 ### <a name="managing-concurrency"></a>管理并发
-默认情况下，尽管客户端可强制表服务跳过这些检查，表服务仍会在单个实体级别上执行 **Insert**、**Merge** 和 **Delete** 操作的开放式并发检查。 若要深入了解表服务如何管理并发息，请参阅在 [Microsoft Azure 存储中管理并发](../../storage/common/storage-concurrency.md)。  
+默认情况下，尽管客户端可强制表服务跳过这些检查，表服务仍会在单个实体级别上执行 **Insert** 、 **Merge** 和 **Delete** 操作的开放式并发检查。 若要深入了解表服务如何管理并发息，请参阅在 [Microsoft Azure 存储中管理并发](../../storage/common/storage-concurrency.md)。  
 
 ### <a name="merge-or-replace"></a>合并或替换
 **TableOperation** 类的 **Replace** 方法始终替换表服务中的完整实体。 如果在存储实体中存在某个属性时请求中未包含该属性，则请求将从存储实体中删除该属性。 除非你想要从存储实体中显式删除某一属性，否则必须在请求中包含每个属性。  
@@ -719,12 +719,12 @@ foreach (var e in entities)
 要更新实体时，可使用 **TableOperation** 类的 **Merge** 方法减少发送到表服务的数据量。 **Merge** 方法会将存储实体的所有属性替换为请求中所含实体的属性值，但请求中未包含的存储实体的所有属性均保持不变。 如果使用大型实体并且只需在请求中更新少量属性，则此方法很有用。  
 
 > [!NOTE]
-> 如果该实体不存在，**Replace** 和 **Merge** 方法会失败。 作为替代方法，可以使用 **InsertOrReplace** 和 **InsertOrMerge** 方法，这两个方法在实体不存在时会创建一个新实体。  
+> 如果该实体不存在， **Replace** 和 **Merge** 方法会失败。 作为替代方法，可以使用 **InsertOrReplace** 和 **InsertOrMerge** 方法，这两个方法在实体不存在时会创建一个新实体。  
 > 
 > 
 
 ## <a name="working-with-heterogeneous-entity-types"></a>处理异类实体类型
-表服务是*架构灵活*的表存储，意味着单个表可以存储多种类型的实体，从而在设计中提供了极大的灵活性。 以下示例说明了同时存储员工实体和部门实体的表：  
+表服务是 *架构灵活* 的表存储，意味着单个表可以存储多种类型的实体，从而在设计中提供了极大的灵活性。 以下示例说明了同时存储员工实体和部门实体的表：  
 
 <table>
 <tr>
@@ -813,9 +813,9 @@ foreach (var e in entities)
 </tr>
 </table>
 
-每个实体仍然必须具有 **PartitionKey**、**RowKey** 和 **Timestamp** 值，但可以具有任何一组属性。 此外，没有任何信息指示实体的类型，除非选择在某处存储该信息。 有两个用于标识实体类型的选项：  
+每个实体仍然必须具有 **PartitionKey** 、 **RowKey** 和 **Timestamp** 值，但可以具有任何一组属性。 此外，没有任何信息指示实体的类型，除非选择在某处存储该信息。 有两个用于标识实体类型的选项：  
 
-* 在 **RowKey**（或可能是 **PartitionKey**）前面添加实体类型。 例如，将 **EMPLOYEE_000123** 或 **DEPARTMENT_SALES** 作为 **RowKey** 值。  
+* 在 **RowKey** （或可能是 **PartitionKey** ）前面添加实体类型。 例如，将 **EMPLOYEE_000123** 或 **DEPARTMENT_SALES** 作为 **RowKey** 值。  
 * 使用一个单独的属性来记录实体类型，如下表中所示。  
 
 <table>
@@ -927,7 +927,7 @@ foreach (var e in entities)
 ### <a name="retrieving-heterogeneous-entity-types"></a>检索异类实体类型
 如果使用存储客户端库，则有三个选项可处理多个实体类型。  
 
-如果知道使用特定 **RowKey** 和 **PartitionKey** 值存储的实体的类型，则在检索实体时可以指定该实体类型（如前面两个检索 **EmployeeEntity** 类型的实体的示例所示）：[使用存储客户端库执行点查询](#executing-a-point-query-using-the-storage-client-library)和[使用 LINQ 检索多个实体](#retrieving-multiple-entities-using-linq)。  
+如果知道使用特定 **RowKey** 和 **PartitionKey** 值存储的实体的类型，则在检索实体时可以指定该实体类型（如前面两个检索 **EmployeeEntity** 类型的实体的示例所示）： [使用存储客户端库执行点查询](#executing-a-point-query-using-the-storage-client-library)和 [使用 LINQ 检索多个实体](#retrieving-multiple-entities-using-linq)。  
 
 第二个选项是使用 **DynamicTableEntity** 类型（属性包）而不是具体的 POCO 实体类型，该选项无需序列化实体和将实体反序列化为 .NET 类型，因此还可提升性能。 以下 C# 代码可能会从表中检索多个不同类型的实体，但会将所有实体作 **DynamicTableEntity** 实例返回。 然后，它使用 **EntityType** 属性确定每个实体的类型：  
 
@@ -962,7 +962,7 @@ foreach (var e in entities)
 
 若要检索其他属性，必须对 **DynamicTableEntity** 类的 **Properties** 属性使用 **TryGetValue** 方法。  
 
-第三个选项是组合使用 **DynamicTableEntity** 类型和 **EntityResolver** 实例。 使用此选项可以在同一查询中解析为多种 POCO 类型。 在此示例中，**EntityResolver** 委托使用 **EntityType** 属性来区分查询返回的两种实体类型。 **Resolve** 方法使用 **resolver** 委托将 **DynamicTableEntity** 实例解析为 **TableEntity** 实例。  
+第三个选项是组合使用 **DynamicTableEntity** 类型和 **EntityResolver** 实例。 使用此选项可以在同一查询中解析为多种 POCO 类型。 在此示例中， **EntityResolver** 委托使用 **EntityType** 属性来区分查询返回的两种实体类型。 **Resolve** 方法使用 **resolver** 委托将 **DynamicTableEntity** 实例解析为 **TableEntity** 实例。  
 
 ```csharp
 EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 22e834ccc31e2d01646250c973080848173661de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbc532acf704128e2311f440aabe8f707fc03aea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307233"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Azure 机器学习，大规模定型 PyTorch 模型
 
@@ -32,11 +32,11 @@ ms.locfileid: "91743771"
 
 - Azure 机器学习计算实例 - 无需下载或安装
 
-    - 在开始本教程之前完成[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)以创建预先装载了 SDK 和示例存储库的专用笔记本服务器。
+    - 在开始本教程之前完成[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)创建预先加载了 SDK 和示例存储库的专用笔记本服务器。
     - 在笔记本服务器上的 "示例深度学习" 文件夹中，通过导航到以下目录查找已完成和扩展的笔记本： "操作 **方法" > ml-框架 > pytorch > "pytorch** " 文件夹。 
  
  - 你自己的 Jupyter 笔记本服务器
-    - [安装 AZURE 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) ( # B0 = 1.15.0) 。
+    - [安装 AZURE 机器学习 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) ( # B0 = 1.15.0) 。
     - [创建工作区配置文件](how-to-configure-environment.md#workspace)。
     - [下载示例脚本文件](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
@@ -63,7 +63,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>初始化工作区
 
-[Azure 机器学习工作区](concept-workspace.md)是服务的顶级资源。 它提供了一个集中的位置来处理创建的所有项目。 在 Python SDK 中，可以通过创建 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) 对象来访问工作区项目。
+[Azure 机器学习工作区](concept-workspace.md)是服务的顶级资源。 它提供了一个集中的位置来处理创建的所有项目。 在 Python SDK 中，可以通过创建 [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) 对象来访问工作区项目。
 
 根据在[先决条件部分](#prerequisites)中创建的 `config.json` 文件创建工作区对象。
 
@@ -182,7 +182,7 @@ pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1
 
 ### <a name="create-a-scriptrunconfig"></a>创建 ScriptRunConfig
 
-创建 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 对象以指定定型作业的配置详细信息，包括训练脚本、要使用的环境，以及要在其上运行的计算目标。 如果在参数中指定，则通过命令行传递定型脚本的所有参数 `arguments` 。 
+创建一个 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 对象，以指定训练作业的配置详细信息，包括训练脚本、要使用的环境，以及要在其上运行的计算目标。 如果在参数中指定，则通过命令行传递定型脚本的所有参数 `arguments` 。 
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -204,7 +204,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 
 ## <a name="submit-your-run"></a>提交运行
 
-[运行对象](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)在作业运行时和运行后提供运行历史记录的接口。
+[运行对象](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)在作业运行时和运行后提供运行历史记录的接口。
 
 ```Python
 run = Experiment(ws, name='pytorch-birds').submit(src)
@@ -214,13 +214,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>在运行执行过程中发生的情况
 执行运行时，会经历以下阶段：
 
-- **准备**：按定义的环境创建 docker 映像。 将映像上传到工作区的容器注册表，缓存以用于后续运行。 还会将日志流式传输到运行历史记录，可以查看日志以监视进度。 如果改为指定特选环境，将使用支持该特选环境的缓存映像。
+- **准备** ：按定义的环境创建 docker 映像。 将映像上传到工作区的容器注册表，缓存以用于后续运行。 还会将日志流式传输到运行历史记录，可以查看日志以监视进度。 如果改为指定特选环境，将使用支持该特选环境的缓存映像。
 
-- **缩放**：如果 Batch AI 群集执行运行所需的节点多于当前可用节点，则群集将尝试纵向扩展。
+- **缩放** ：如果 Batch AI 群集执行运行所需的节点多于当前可用节点，则群集将尝试纵向扩展。
 
-- **正在运行**：脚本文件夹中的所有脚本都将上载到计算目标，装载或复制数据存储，然后 `script` 执行。 输出从 stdout 开始， **/logs** 文件夹将流式传输到运行历史记录，并可用于监视运行情况。
+- **正在运行** ：脚本文件夹中的所有脚本都将上载到计算目标，装载或复制数据存储，然后 `script` 执行。 输出从 stdout 开始， **/logs** 文件夹将流式传输到运行历史记录，并可用于监视运行情况。
 
-- **后期处理**：将运行的 **/outputs** 文件夹复制到运行历史记录中。
+- **后期处理** ：将运行的 **/outputs** 文件夹复制到运行历史记录中。
 
 ## <a name="register-or-download-a-model"></a>注册或下载模型
 
@@ -268,7 +268,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-若要在 Azure ML 上使用 MPI/Horovod 执行分布式作业，必须将 [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) 指定为 `distributed_job_config` ScriptRunConfig 构造函数的参数。 下面的代码将配置两节点分布式作业，每个节点运行一个进程。 如果你还想要针对每个节点运行多个进程 (例如，如果你的群集 SKU) 了多个 Gpu，则还需 `process_count_per_node` 在 MpiConfiguration 中指定参数 (默认值为 `1`) 。
+若要在 Azure ML 上使用 MPI/Horovod 执行分布式作业，必须将 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) 指定为 `distributed_job_config` ScriptRunConfig 构造函数的参数。 下面的代码将配置两节点分布式作业，每个节点运行一个进程。 如果你还想要针对每个节点运行多个进程 (例如，如果你的群集 SKU) 了多个 Gpu，则还需 `process_count_per_node` 在 MpiConfiguration 中指定参数 (默认值为 `1`) 。
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -286,7 +286,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 ### <a name="distributeddataparallel"></a>DistributedDataParallel
 如果使用 PyTorch 的内置 [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) 模块，该模块是在训练代码中使用 **torch 分布式** 包生成的，则还可以通过 Azure ML 启动分布式作业。
 
-若要使用 DistributedDataParallel 运行分布式 PyTorch 作业，请将 [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true) 指定为 `distributed_job_config` ScriptRunConfig 构造函数的参数。 若要使用 torch 的 NCCL 后端，请 `communication_backend='Nccl'` 在 PyTorchConfiguration 中指定。 下面的代码将配置双节点分布式作业。 对于 PyTorch 分布式 GPU 定型，建议使用 NCCL 后端。
+若要使用 DistributedDataParallel 运行分布式 PyTorch 作业，请将 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) 指定为 `distributed_job_config` ScriptRunConfig 构造函数的参数。 若要使用 torch 的 NCCL 后端，请 `communication_backend='Nccl'` 在 PyTorchConfiguration 中指定。 下面的代码将配置双节点分布式作业。 对于 PyTorch 分布式 GPU 定型，建议使用 NCCL 后端。
 
 对于通过 PyTorchConfiguration 配置的分布式 PyTorch 作业，Azure ML 将在计算目标的节点上设置以下环境变量：
 

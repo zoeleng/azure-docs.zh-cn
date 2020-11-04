@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d7cd452b6d1107f440d952c7db930281f3d86c11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6b65c97fd87d4e3ed84c837d2702395091097fa
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743792"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308069"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Azure 机器学习，大规模定型 Keras 模型
 
@@ -37,12 +37,12 @@ Keras 是一种高级神经网络 API，能够基于其他常用 DNN 框架运�
 
 - Azure 机器学习计算实例 - 无需下载或安装
 
-     - 在开始本教程之前完成[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)以创建预先装载了 SDK 和示例存储库的专用笔记本服务器。
+     - 在开始本教程之前完成[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)创建预先加载了 SDK 和示例存储库的专用笔记本服务器。
     - 在笔记本服务器上的 "示例" 文件夹中，通过导航到以下目录来查找已完成和扩展的笔记本：操作 **方法 > ml-框架 > keras >-keras** 文件夹。
 
  - 你自己的 Jupyter 笔记本服务器
 
-    - [安装 AZURE 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) ( # B0 = 1.15.0) 。
+    - [安装 AZURE 机器学习 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) ( # B0 = 1.15.0) 。
     - [创建工作区配置文件](how-to-configure-environment.md#workspace)。
     - [下载示例脚本文件](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` 和 `utils.py`
 
@@ -67,7 +67,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>初始化工作区
 
-[Azure 机器学习工作区](concept-workspace.md)是服务的顶级资源。 它提供了一个集中的位置来处理创建的所有项目。 在 Python SDK 中，可以通过创建 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) 对象来访问工作区项目。
+[Azure 机器学习工作区](concept-workspace.md)是服务的顶级资源。 它提供了一个集中的位置来处理创建的所有项目。 在 Python SDK 中，可以通过创建 [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) 对象来访问工作区项目。
 
 根据在[先决条件部分](#prerequisites)中创建的 `config.json` 文件创建工作区对象。
 
@@ -77,7 +77,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-file-dataset"></a>创建文件数据集
 
-`FileDataset` 对象引用工作区数据存储或公共 URL 中的一个或多个文件。 文件可以是任何格式，该类提供将文件下载或装载到计算机的功能。 通过创建 `FileDataset`，可以创建对数据源位置的引用。 如果将任何转换应用于数据集，则它们也会存储在数据集中。 数据会保留在其现有位置，因此不会产生额外的存储成本。 有关详细信息，请参阅 `Dataset` 包中的[操作](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)指南。
+`FileDataset` 对象引用工作区数据存储或公共 URL 中的一个或多个文件。 文件可以是任何格式，该类提供将文件下载或装载到计算机的功能。 通过创建 `FileDataset`，可以创建对数据源位置的引用。 如果将任何转换应用于数据集，则它们也会存储在数据集中。 数据会保留在其现有位置，因此不会产生额外的存储成本。 有关详细信息，请参阅 `Dataset` 包中的[操作](./how-to-create-register-datasets.md)指南。
 
 ```python
 from azureml.core.dataset import Dataset
@@ -170,7 +170,7 @@ dataset = Dataset.get_by_name(ws, 'mnist-dataset')
 dataset.to_path()
 ```
 
-创建 ScriptRunConfig 对象以指定定型作业的配置详细信息，包括训练脚本、要使用的环境，以及要在其上运行的计算目标。
+创建一个 ScriptRunConfig 对象，以指定训练作业的配置详细信息，包括训练脚本、要使用的环境，以及要在其上运行的计算目标。
 
 如果在参数中指定，则通过命令行传递定型脚本的所有参数 `arguments` 。 我们的 FileDataset 的 DatasetConsumptionConfig 作为参数传递给训练脚本 `--data-folder` 。 Azure ML 会将此 DatasetConsumptionConfig 解析为后备数据存储的装入点，然后可以从训练脚本访问这些数据。
 
@@ -197,7 +197,7 @@ src = ScriptRunConfig(source_directory=script_folder,
 
 ### <a name="submit-your-run"></a>提交运行
 
-[运行对象](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)在作业运行时和运行后提供运行历史记录的接口。
+[运行对象](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)在作业运行时和运行后提供运行历史记录的接口。
 
 ```Python
 run = Experiment(workspace=ws, name='keras-mnist').submit(src)
@@ -207,13 +207,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>在运行执行过程中发生的情况
 执行运行时，会经历以下阶段：
 
-- **准备**：按定义的环境创建 docker 映像。 将映像上传到工作区的容器注册表，缓存以用于后续运行。 还会将日志流式传输到运行历史记录，可以查看日志以监视进度。 如果改为指定特选环境，将使用支持该特选环境的缓存映像。
+- **准备** ：按定义的环境创建 docker 映像。 将映像上传到工作区的容器注册表，缓存以用于后续运行。 还会将日志流式传输到运行历史记录，可以查看日志以监视进度。 如果改为指定特选环境，将使用支持该特选环境的缓存映像。
 
-- **缩放**：如果 Batch AI 群集执行运行所需的节点多于当前可用节点，则群集将尝试纵向扩展。
+- **缩放** ：如果 Batch AI 群集执行运行所需的节点多于当前可用节点，则群集将尝试纵向扩展。
 
-- **正在运行**：脚本文件夹中的所有脚本都将上载到计算目标，装载或复制数据存储，然后 `script` 执行。 输出从 stdout 开始， **/logs** 文件夹将流式传输到运行历史记录，并可用于监视运行情况。
+- **正在运行** ：脚本文件夹中的所有脚本都将上载到计算目标，装载或复制数据存储，然后 `script` 执行。 输出从 stdout 开始， **/logs** 文件夹将流式传输到运行历史记录，并可用于监视运行情况。
 
-- **后期处理**：将运行的 **/outputs** 文件夹复制到运行历史记录中。
+- **后期处理** ：将运行的 **/outputs** 文件夹复制到运行历史记录中。
 
 ## <a name="register-the-model"></a>注册模型
 

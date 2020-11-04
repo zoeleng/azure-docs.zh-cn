@@ -3,12 +3,12 @@ title: 使用顾问提高 Azure 应用的性能
 description: 使用 Azure 顾问中的性能建议可提高业务关键型应用程序的速度和响应能力。
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077807"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308684"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>使用 Azure 顾问提高 Azure 应用程序的性能
 
@@ -22,7 +22,7 @@ Azure 顾问可识别配置了较长 TTL 的流量管理器配置文件。 它�
 
 ## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>使用 SQL 数据库顾问（暂时禁用）提高数据库性能
 
-Azure 顾问针对所有 Azure 资源提供一个一致且统一的建议视图。 它与 SQL 数据库顾问集成，为你提供用于提高数据库性能的建议。 SQL 数据库顾问通过分析使用情况历史记录来评估数据库的性能， 然后提供最适合运行数据库典型工作负荷的建议。
+Azure 顾问针对所有 Azure 资源提供一个一致且统一的建议视图。 它与 SQL 数据库顾问集成，为你提供用于提高数据库性能的建议。  SQL 数据库顾问通过分析使用情况历史记录来评估数据库的性能， 然后提供最适合运行数据库典型工作负荷的建议。
 
 > [!NOTE]
 > 需要先使用数据库大约一周时间，并在这一周内完成一些一致的活动，然后才能获取建议。 SQL 数据库顾问优化一致的查询模式比优化随机的突发活动更加轻松。
@@ -108,7 +108,7 @@ Azure 顾问可检测 Azure Synapse Analytics 表是否具有较高的缓存利�
 
 ## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>将存储帐户归置到同一区域，以在加载时最大程度地减少延迟
 
-顾问可检测是否从不同于 SQL 池的区域进行加载。 考虑从与 SQL 池位于同一区域内的存储帐户进行加载，以最大程度地减少加载数据时的延迟。 此更改将有助于最大程度地减少延迟并提高负载性能。
+Advisor 检测是否从专用 SQL 池以外的区域加载。 考虑从与专用 SQL 池相同的区域中的存储帐户进行加载，以便在加载数据时最大程度地减少延迟。 此更改将有助于最大程度地减少延迟并提高负载性能。
 
 ## <a name="use-a-supported-kubernetes-version"></a>使用受支持的 Kubernetes 版本
 
@@ -120,17 +120,17 @@ Azure 顾问可检测 Azure Synapse Analytics 表是否具有较高的缓存利�
 CPU 利用率长时间处于较高状态可能导致工作负荷的查询性能降低。 增加 CPU 大小将有助于优化数据库查询的运行时并提高整体性能。 顾问可识别 CPU 利用率较高并可能运行 CPU 受约束工作负荷的服务器，并建议缩放计算。
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>减少 Azure Database for MySQL、Azure Database for PostgreSQL 和 Azure Database for MariaDB 服务器上的内存约束或迁移到内存优化 SKU
-低缓存命中率可能导致查询性能降低和 IOPS 增加。 这种情况可能是由错误的查询计划或内存密集型工作负荷导致的。 修复查询计划或 [增加](../postgresql/concepts-pricing-tiers.md) Azure Database for PostgreSQL、Azure Database for MySQL 或 Azure Database for MariaDB 服务器的内存将有助于优化数据库工作负荷的执行。 Azure 顾问可识别受此高缓冲池变动影响的服务器。 建议执行以下操作之一： 
+低缓存命中率可能导致查询性能降低和 IOPS 增加。 这种情况可能是由错误的查询计划或内存密集型工作负荷导致的。 修复查询计划或增加 Azure Database for PostgreSQL、Azure Database for MySQL 或 Azure Database for MariaDB 服务器的 [内存](../postgresql/concepts-pricing-tiers.md) 将有助于优化数据库工作负荷的执行。 Azure 顾问可识别受此高缓冲池变动影响的服务器。 建议执行以下操作之一： 
 - 修复查询计划
 - 迁移到具有更多内存的 SKU 
 - 增加存储大小以获得更多 IOPS。
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>使用 Azure Database for MySQL 或 Azure Database for PostgreSQL 只读副本横向扩展读取密集型工作负荷的读取
-顾问使用基于工作负荷的启发（如过去 7 天内服务器上的读写比）来识别读取密集型工作负荷。 具有较高读/写比的 Azure Database for PostgreSQL 或 Azure Database for MySQL 资源可能导致 CPU 或内存争用并导致查询性能降低。 添加 [副本](../postgresql/howto-read-replicas-portal.md)有助于将读取横向扩展到副本服务器，并防止主服务器上的 CPU 或内存限制。 顾问可识别具有读取密集型工作负荷的服务器，并建议添加 [只读副本](../postgresql/concepts-read-replicas.md) 以卸载某些读取工作负荷。
+顾问使用基于工作负荷的启发（如过去 7 天内服务器上的读写比）来识别读取密集型工作负荷。 具有较高读/写比的 Azure Database for PostgreSQL 或 Azure Database for MySQL 资源可能导致 CPU 或内存争用并导致查询性能降低。 添加 [副本](../postgresql/howto-read-replicas-portal.md) 将有助于扩展对副本服务器的读取，并防止主服务器上出现 CPU 或内存限制。 Advisor 识别具有读取密集型工作负载的服务器，并建议你添加 [读取副本](../postgresql/concepts-read-replicas.md) 以卸载某些读取工作负荷。
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>将 Azure Database for MySQL、Azure Database for PostgreSQL 或 Azure Database for MariaDB 服务器缩放为更高的 SKU，以防止连接约束
-到数据库服务器的每个新连接都会占用内存。 如果由于内存 [上限](../postgresql/concepts-limits.md)而导致与服务器的连接失败，则数据库服务器的性能会下降。 Azure 顾问可识别运行时连接失败很多次的服务器。 建议通过执行以下操作之一来升级服务器的连接限制，以向服务器提供更多内存：
+到数据库服务器的每个新连接都会占用内存。 如果由于内存 [上限](../postgresql/concepts-limits.md) 而导致到服务器的连接失败，则数据库服务器的性能会下降。 Azure 顾问可识别运行时连接失败很多次的服务器。 建议通过执行以下操作之一来升级服务器的连接限制，以向服务器提供更多内存：
 - 纵向扩展计算资源。 
 - 使用内存优化 SKU，其中每个核心具有更多的计算资源。
 

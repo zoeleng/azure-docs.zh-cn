@@ -11,12 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 29f1949cbe9998ac569b0389986023a72e7845b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070910"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309035"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>适用于 Azure Data Science VM 的深度学习和人工智能框架
 下面列出了 DSVM 上的深度学习框架。
@@ -55,7 +55,7 @@ ms.locfileid: "89070910"
 | 支持的版本 | 10.0.130|
 | 支持的 DSVM 版本      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04  |
 | 如何在 DSVM 上配置/安装它？  |_nvidia-smi_ 在系统路径上可用。  |
-| 运行方式      | 打开命令提示符（在 Windows 上）或终端（在 Linux 上），然后运行 nvidia-smi__。 |
+| 运行方式      | 打开命令提示符（在 Windows 上）或终端（在 Linux 上），然后运行 nvidia-smi。 |
 
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
@@ -76,7 +76,7 @@ ms.locfileid: "89070910"
 | 如何在 DSVM 上配置/安装它？  | Keras 在 Windows 上安装于 Python 3.6 中，在 Linux 上安装于 Python 3.5 中 |
 | 运行方式      | 在终端上激活正确的环境，然后运行 Python。 |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | 类别 | 值 |
 | ------------- | ------------- |
@@ -110,7 +110,7 @@ ms.locfileid: "89070910"
 | 支持的 DSVM 版本      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04   |
 | 用途 | 用于查询 GPU 活动的 NVIDIA 工具 |
 | 如何在 DSVM 上配置/安装它？  | `nvidia-smi` 位于系统路径上。 |
-| 运行方式      | 在具有 GPU 的虚拟机上，打开命令提示符（在 Windows 上）或终端（在 Linux 上），然后运行 `nvidia-smi`****。 |
+| 运行方式      | 在具有 GPU 的虚拟机上，打开命令提示符（在 Windows 上）或终端（在 Linux 上），然后运行 `nvidia-smi`。 |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +146,5 @@ ms.locfileid: "89070910"
 | ------------- | ------------- |
 | 支持的版本 | 1.0.3 |
 | 支持的 DSVM 版本      | Ubuntu 16.04 |
-| 如何在 DSVM 上配置/安装它？  |Theano 安装在 Python 2.7 (root) 以及 Python 3.5 (py35) 环境中____。 |
+| 如何在 DSVM 上配置/安装它？  |Theano 安装在 Python 2.7 (root) 以及 Python 3.5 (py35) 环境中。 |
 | 运行方式      |  终端：激活所需的 Python 版本（root 或 py35），运行 python，然后导入 Theano。<br/>* Jupyter：选择 Python 2.7 或 3.5 内核，然后导入 Theano。  <br/>要解决最近的数学内核库 (MKL) bug，首先需要设置 MKL 线程层，如下所示：<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

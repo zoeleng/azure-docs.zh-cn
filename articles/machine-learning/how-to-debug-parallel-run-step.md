@@ -11,17 +11,17 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 602babb3544093b7cd7c5b30ce4f4612148591cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 93997629b6b30f87769a0154e344215ca52c8ec4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216906"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308381"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>对 ParallelRunStep 进行调试和故障排除
 
 
-本文介绍如何在 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 中对 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) 类进行调试和故障排除。
+本文介绍如何在 [Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 中对 [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) 类进行调试和故障排除。
 
 ## <a name="testing-scripts-locally"></a>在本地测试脚本
 
@@ -43,9 +43,9 @@ ms.locfileid: "92216906"
 
 - `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`：这些文件是使用 EntryScript 帮助程序从 entry_script 写入的日志。
 
-- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`：这些文件是来自 stdout (的日志，例如 print 语句) 的 entry_script。
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`：这些文件是 entry_script 的 stdout（例如 print 语句）的日志。
 
-- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`：这些文件是来自 entry_script 的 stderr 的日志。
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`：这些文件是 entry_script 的 stderr 的日志。
 
 要简要了解脚本中的错误，请参阅以下文件：
 
@@ -53,7 +53,7 @@ ms.locfileid: "92216906"
 
 有关脚本中错误的详细信息，请参阅以下文件：
 
-- `~/logs/user/error/`：包含加载和运行条目脚本时引发的异常的完整堆栈跟踪。
+- `~/logs/user/error/`：包含加载和运行入口脚本时引发的异常的完整堆栈跟踪。
 
 如需全面了解每个节点如何执行评分脚本，请查看每个节点单独的进程日志。 进程日志位于 `sys/node` 文件夹中，按工作器节点分组：
 
@@ -94,7 +94,7 @@ def run(mini_batch):
 
 用户可以使用 ParalleRunStep 的 side_inputs 参数将引用数据传递给脚本。 作为 side_inputs 提供的所有数据集将装载到每个工作器节点上。 用户可以通过传递参数获取装载的位置。
 
-构造包含引用数据的[数据集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)，并将其注册到工作区。 将其传递到 `ParallelRunStep` 的 `side_inputs` 参数。 此外，还可以在 `arguments` 节中添加其路径，以便轻松访问其已装载的路径：
+构造包含引用数据的[数据集](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py)，并将其注册到工作区。 将其传递到 `ParallelRunStep` 的 `side_inputs` 参数。 此外，还可以在 `arguments` 节中添加其路径，以便轻松访问其已装载的路径：
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -118,32 +118,32 @@ args, _ = parser.parse_known_args()
 labels_path = args.labels_dir
 ```
 
-### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>如何使用服务主体身份验证的输入数据集？
+### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>如何通过服务主体身份验证使用输入数据集？
 
-用户可以使用工作区中使用的服务主体身份验证传递输入数据集。 若要在 ParallelRunStep 中使用此类数据集，需要注册该数据集以构造 ParallelRunStep 配置。
+用户可以通过工作区中使用的服务主体身份验证传递输入数据集。 若要在 ParallelRunStep 中使用此类数据集，需要为其注册该数据集以构造 ParallelRunStep 配置。
 
 ```python
 service_principal = ServicePrincipalAuthentication(
-    tenant_id="***",
-    service_principal_id="***",
-    service_principal_password="***")
+    tenant_id="**_",
+    service_principal_id="_*_",
+    service_principal_password="_*_")
  
 ws = Workspace(
-    subscription_id="***",
-    resource_group="***",
-    workspace_name="***",
+    subscription_id="_*_",
+    resource_group="_*_",
+    workspace_name="_*_",
     auth=service_principal
     )
  
-default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
-ds = Dataset.File.from_files(default_blob_store, '**path***')
-registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '_*_datastore-name_*_') 
+ds = Dataset.File.from_files(default_blob_store, '_*path**_')
+registered_ds = ds.register(ws, '_*_dataset-name_*_', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-* 请参阅以下 [演示 Azure 机器学习管道的 Jupyter 笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
+_ 查看这些 [Jupyter 笔记本，演示 Azure 机器学习管道](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* 请查看 SDK 参考，获取有关 [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) 包的帮助。 查看 ParallelRunStep 类的参考[文档](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true)。
+* 请查看 SDK 参考，获取有关 [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) 包的帮助。 查看 ParallelRunStep 类的参考[文档](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py)。
 
-* 按照[高级教程](tutorial-pipeline-batch-scoring-classification.md)操作，将管道与 ParallelRunStep 配合使用。 本教程演示如何将另一个文件作为旁路输入。 
+* 按照[高级教程](tutorial-pipeline-batch-scoring-classification.md)操作，将管道与 ParallelRunStep 配合使用。 本教程演示如何将另一个文件作为旁路输入。

@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012400"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309108"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machine 上的机器学习和数据科学工具
 Azure Data Science Virtual Machine (DSVM) 拥有丰富的用于机器学习的工具和库，这些工具和库以 Python、R 和 Julia 等热门语言提供。
@@ -24,7 +24,7 @@ Azure Data Science Virtual Machine (DSVM) 拥有丰富的用于机器学习的�
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>适用于 Python 的 Azure 机器学习 SDK
 
-查看[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) 的完整参考。
+查看[适用于 Python 的 Azure 机器学习 SDK](../overview-what-is-azure-ml.md) 的完整参考。
 
 | 类别 | 值 |
 | ------------- | ------------- |
@@ -113,5 +113,3 @@ DSVM 上还有其他几个机器学习库，如适用于 DSVM 的 Anaconda Pytho
 | 典型用途      |  用于在不提取、转换、加载 (ETL) 数据的情况下进行原状数据探索。 查询不同的数据源和格式，包括 CSV、JSON、关系表和 Hadoop。     |
 | 如何使用和运行它      | 桌面快捷方式  <br/> [10 分钟后即可开始钻取](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | DSVM 上的相关工具      |   Rattle、Weka、SQL Server Management Studio      |
-
-

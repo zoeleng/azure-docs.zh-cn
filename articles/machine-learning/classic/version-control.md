@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 186289826273e85c9faa7f972b6f48d34e38416f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c9e27e894541d71986fe929cbc5d6fde31bc18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357363"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308811"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure 机器学习工作室（经典版）中的应用程序生命周期管理
 
-**适用于：** ![适用于。 ](../../../includes/media/aml-applies-to-skus/yes.png)机器学习 Studio (经典) 不适 ![ 用于。](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)  
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure 机器学习工作室（经典版）是一个在 Azure 云平台中运行的工具，用于开发机器学习实验。 它类似于将 Visual Studio IDE 和可缩放云服务合并到单个平台。 可以将标准的应用程序生命周期管理 (ALM) 实践（从各种资产的版本管理到自动执行和部署）合并到 Azure 机器学习工作室（经典版）中。 本文介绍一些选项和方法。
@@ -46,7 +46,7 @@ Azure 机器学习工作室（经典版）是一个在 Azure 云平台中运行�
 JSON 文件是实验图的文本表示形式，可能包含对工作区中数据集或训练模型等资产的引用。 它不包含资产的序列化版本。 如果尝试将 JSON 文档导回到工作区，引用的资产中必须已经存有实验中引用的相同资产 ID， 否则将无法访问导入的试验。
 
 ## <a name="versioning-trained-model"></a>训练模型的版本控制
-Azure 机器学习工作室（经典版）中的训练模型序列化为称为 iLearner 文件 (`.iLearner`) 的格式，并存储在与工作区关联的 Azure Blob 存储帐户中。 获取 iLearner 文件副本的一种方法是重新训练 API。 [本文](/azure/machine-learning/studio/retrain-machine-learning-model)介绍如何对 API 重新训练。 概略性步骤：
+Azure 机器学习工作室（经典版）中的训练模型序列化为称为 iLearner 文件 (`.iLearner`) 的格式，并存储在与工作区关联的 Azure Blob 存储帐户中。 获取 iLearner 文件副本的一种方法是重新训练 API。 [本文](./retrain-machine-learning-model.md)介绍如何对 API 重新训练。 概略性步骤：
 
 1. 设置训练实验。
 2. 将 Web 服务输出端口添加到“训练”模块或生成训练模型（如调整模型超参数或创建 R 模型）的模块。
@@ -78,7 +78,7 @@ Azure 机器学习工作室（经典版）中的训练模型序列化为称为 i
 还可以创建许多相同的 Web 服务终结点，然后将不同版本的 iLearner 文件修补到要实现类似效果的终结点。 [本文](create-models-and-endpoints-with-powershell.md)更详细地介绍了如何完成此操作。
 
 ### <a name="new-web-service"></a>新的 Web 服务
-如果创建新的基于 Azure 资源管理器的 Web 服务，终结点构造不再可用。 相反，可以通过以下两种方法生成 JSON 格式的 Web 服务定义 (WSD) 文件：使用 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet 从预测实验，或使用 [*Export-AzMlWebservice*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell commandlet 从已部署的基于 Resource Manager 的 Web 服务。
+如果创建新的基于 Azure 资源管理器的 Web 服务，终结点构造不再可用。 相反，可以通过以下两种方法生成 JSON 格式的 Web 服务定义 (WSD) 文件：使用 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet 从预测实验，或使用 [*Export-AzMlWebservice*](/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell commandlet 从已部署的基于 Resource Manager 的 Web 服务。
 
 有了导出的 WSD 文件并可对其进行版本控制以后，还可以将 WSD 部署为不同 Azure 区域中不同 Web 服务计划中的新 Web 服务。 只需确保提供正确的存储帐户配置以及新的 Web 服务计划 ID。 要修补其他 iLearner 文件，可以修改 WSD 文件、更新训练模型的位置引用，然后将其部署为新的 Web 服务。
 

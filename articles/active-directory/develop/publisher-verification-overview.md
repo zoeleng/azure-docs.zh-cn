@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363413"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308772"
 ---
 # <a name="publisher-verification"></a>发布者验证
 
-发行者验证可帮助管理员和最终用户了解与 Microsoft 标识平台集成的应用程序开发人员的真实性。 当应用程序标记为“发布者已验证”时，表示发布者已使用 [Microsoft 合作伙伴网络](https://partner.microsoft.com/membership)帐户（该帐户已完成[验证](/partner-center/verification-responses)过程）验证了身份，并将 MPN 帐户与其应用程序注册相关联。 
+发行者验证可帮助管理员和最终用户了解与 Microsoft 标识平台集成的应用程序开发人员的真实性。 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+当应用程序标记为“发布者已验证”时，表示发布者已使用 [Microsoft 合作伙伴网络](https://partner.microsoft.com/membership)帐户（该帐户已完成[验证](/partner-center/verification-responses)过程）验证了身份，并将 MPN 帐户与其应用程序注册相关联。 
 
 蓝色的“已验证”徽章会显示在 Azure AD 同意提示和其他屏幕上：![同意提示](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -33,7 +37,7 @@ ms.locfileid: "92363413"
 
 - 提升品牌形象-“已验证”徽章会出现在 Azure AD [同意提示](application-consent-experience.md)、企业应用页以及最终用户和管理员使用的其他 UX 设计面上。 
 
-- **更流畅的企业采用**-管理员可以配置 [用户同意策略](../manage-apps/configure-user-consent.md)，并将发行者验证状态设置为主要策略条件之一。
+- **更流畅的企业采用** -管理员可以配置 [用户同意策略](../manage-apps/configure-user-consent.md)，并将发行者验证状态设置为主要策略条件之一。
 
 > [!NOTE]
 > 自2020年11月起，最终用户将无法再向未经过验证的发布者授权最新注册的多租户应用。 这适用于在11月 2020 8 日之后注册的应用程序，使用 OAuth 2.0 来请求除基本登录和读取用户配置文件之外的权限，并请求来自不同租户的用户的许可，而不是在其中注册应用程序的租户。 "同意" 屏幕上将显示一条警告，通知用户这些应用有风险，并来自未经验证的发布者。    

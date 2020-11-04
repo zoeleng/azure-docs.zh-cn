@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790876"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308341"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>使用客户管理的密钥进行 Azure SQL 透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -156,7 +156,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 - 在 Azure Active Directory 中删除服务器的托管标识
 
-详细了解[数据库不可访问的常见原因](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible)。
+详细了解[数据库不可访问的常见原因](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible)。
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>监视客户管理的 TDE
 
@@ -179,7 +179,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 若要缓解此问题，请对目标服务器运行 [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet，或对目标托管实例运行 [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey)，以返回可用密钥的列表并标识缺少的密钥。 为了确保可以还原所有备份，请确保要还原的目标服务器有权访问全部所需的密钥。 这些密钥无需标记为 TDE 保护器。
 
-若要详细了解 SQL 数据库的备份恢复，请参阅[恢复 SQL 数据库中的数据库](recovery-using-backups.md)。 若要详细了解 SQL 池的备份恢复，请参阅[恢复 SQL 池](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md)。 有关使用 SQL 托管实例进行 SQL Server 本机备份/还原，请参阅[快速入门：将数据库还原到 SQL 托管实例](../managed-instance/restore-sample-database-quickstart.md)
+若要详细了解 SQL 数据库的备份恢复，请参阅[恢复 SQL 数据库中的数据库](recovery-using-backups.md)。 若要详细了解 Azure Synapse Analytics 中专用 SQL 池的备份恢复，请参阅 [恢复专用 sql 池](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md)。 有关使用 SQL 托管实例进行 SQL Server 本机备份/还原，请参阅[快速入门：将数据库还原到 SQL 托管实例](../managed-instance/restore-sample-database-quickstart.md)
 
 有关日志文件的其他注意事项：备份的日志文件仍会使用原始 TDE 保护器保持加密，即使 TDE 保护器已轮换，并且数据库正在使用新的 TDE 保护器。  还原时，需要使用这两个密钥来还原数据库。  如果日志文件使用 Azure Key Vault 中存储的 TDE 保护器，则还原时需要此密钥，即使数据库同时已改用服务托管的 TDE。
 

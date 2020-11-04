@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780778"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308823"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL 数据库和 Azure Synapse Analytics 服务器的资源限制
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -119,7 +119,7 @@ Azure SQL Database 需要计算资源来实现核心服务功能，例如高可�
 
 当 CPU 总消耗量较高时，缓解措施与前面所述相同，也包括增大服务目标和/或优化用户工作负载。
 
-## <a name="resource-governance"></a>资源调控
+## <a name="resource-governance"></a>资源治理
 
 为了强制资源限制，Azure SQL Database 使用基于 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)、已修改和扩展的资源调控实现在 Azure SQL 数据库中运行。 在 SQL 数据库中，多个 [资源池](/sql/relational-databases/resource-governor/resource-governor-resource-pool) 和 [工作负荷组](/sql/relational-databases/resource-governor/resource-governor-workload-group)，同时将资源限制设置为池和组级别，提供了一个 [平衡的数据库即服务](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/)。 用户工作负荷和内部工作负荷归类为单独的资源池和工作负荷组。 主副本和可读辅助副本上的用户工作负荷（包括异地副本）归类为 `SloSharedPool1` 资源池和 `UserPrimaryGroup.DBId[N]` 工作负荷组，其中 `N` 代表数据库 ID 值。 此外，还有多个资源池和工作负荷组用于各种内部工作负荷。
 
@@ -131,7 +131,7 @@ Azure SQL 数据库资源调控本质上是分层的。 从上到下，将使用
 
 数据 IO 管理是 Azure SQL 数据库中的一个过程，用于限制对数据库的数据文件的读取和写入物理 IO。 为每个服务级别设置 IOPS 限制，以最大程度地减少 "干扰邻居" 的效果，在多租户服务中提供资源分配公平，并保持在底层硬件和存储的功能中。
 
-对于单一数据库，工作负荷组限制适用于数据库的所有存储 IO，而资源池限制适用于同一 SQL 池中的所有数据库（包括数据库）的所有存储 IO `tempdb` 。 对于弹性池，工作负荷组限制适用于池中的每个数据库，而资源池限制适用于整个弹性池，包括 `tempdb` 数据库，该数据库在池中的所有数据库之间共享。 通常情况下，工作负荷可能无法根据 (单个或共用) 的数据库来实现资源池限制，因为工作负荷组限制比资源池限制更少，并且更快地限制 IOPS/吞吐量。 但是，对于同一池上的多个数据库，合并工作负荷可能会达到池限制。
+对于单一数据库，工作负荷组限制适用于数据库的所有存储 IO，而资源池限制适用于同一专用 SQL 池中的所有数据库（包括数据库）的所有存储 IO `tempdb` 。 对于弹性池，工作负荷组限制适用于池中的每个数据库，而资源池限制适用于整个弹性池，包括 `tempdb` 数据库，该数据库在池中的所有数据库之间共享。 通常情况下，工作负荷可能无法根据 (单个或共用) 的数据库来实现资源池限制，因为工作负荷组限制比资源池限制更少，并且更快地限制 IOPS/吞吐量。 但是，对于同一池上的多个数据库，合并工作负荷可能会达到池限制。
 
 例如，如果查询在没有任何 IO 资源调控的情况下生成 1000 IOPS，但工作负荷组的最大 IOPS 限制设置为 900 IOPS，则查询将无法生成超过900的 IOPS。 但是，如果将 "资源池最大 IOPS 限制" 设置为 1500 IOPS，并且与资源池关联的所有工作负荷组的 IO 总数超过 1500 IOPS，则相同查询的 IO 可能会降低到最大的工作组限制（以 900 IOPS 为限）。
 

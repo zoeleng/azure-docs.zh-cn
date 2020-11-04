@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1b3b4da4e21bca421b76f820c04ba68375be5ca0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145523"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307780"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>条件访问：云应用或操作
 
@@ -36,7 +36,7 @@ ms.locfileid: "92145523"
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
-- [Azure SQL 数据库和数据仓库](../../azure-sql/database/conditional-access-configure.md)
+- [Azure SQL 数据库和 Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Microsoft Azure 信息保护](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -69,13 +69,13 @@ ms.locfileid: "92145523"
 
 ### <a name="office-365"></a>Office 365
 
-Microsoft 365 提供了基于云的生产力和协作服务，如 Exchange、SharePoint 和 Microsoft 团队。 Microsoft 365 云服务进行了深层集成，以确保顺利且协作体验。 在创建策略时，这种集成可能会造成混淆，因为某些应用（如 Microsoft Teams）依赖于 SharePoint 或 Exchange 等其他一些应用。
+Microsoft 365 提供基于云的高效生产和协作服务，如 Exchange、SharePoint 和 Microsoft Teams。 Microsoft 365 云服务已深度集成，以确保用户拥有顺畅的协作体验。 在创建策略时，这种集成可能会造成混淆，因为某些应用（如 Microsoft Teams）依赖于 SharePoint 或 Exchange 等其他一些应用。
 
-Office 365 应用使你可以一次同时定位这些服务。 建议使用新的 Office 365 应用，而不是面向单个云应用，以避免 [服务依赖项](service-dependencies.md)的问题。 将这一组应用程序作为目标有助于避免因策略和依赖关系不一致而导致的问题。
+使用 Office 365 应用可以同时将这些服务作为目标。 建议使用新的 Office 365 应用，而不是以单个云应用作为目标，以避免[服务依赖项](service-dependencies.md)出现问题。 将这一组应用程序作为目标有助于避免因策略和依赖关系不一致而导致的问题。
 
-管理员可以选择从策略中排除特定的应用（如果需要），只需包含 Office 365 应用，并排除其在策略中选择的特定应用即可。
+如果需要，管理员可以选择从策略中排除特定应用，方法是在策略中包括 Office 365 应用并排除所选的特定应用。
 
-Office 365 客户端应用程序中包含的关键应用程序：
+Office 365 客户端应用中包含的关键应用程序：
 
    - Microsoft Flow
    - Microsoft Forms

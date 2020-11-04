@@ -1,6 +1,6 @@
 ---
-title: 为 SQL 池设计 PolyBase 数据加载策略
-description: 不是 ETL，而是设计提取、加载和转换 (ELT) 用于加载数据或 SQL 池的过程。
+title: 为专用 SQL 池设计 PolyBase 数据加载策略
+description: 使用专用的 SQL 加载数据，而不是使用 ETL， (ELT) 过程中设计提取、加载和转换。
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474659"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308745"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>为 Azure Synapse SQL 池设计 PolyBase 数据加载策略
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse 分析中为专用 SQL 池设计 PolyBase 数据加载策略
 
 传统的 SMP 数据仓库通过提取、转换和加载 (ETL) 过程来加载数据。 Azure SQL 池是一种大规模的并行处理 (MPP) 体系结构，它利用了计算和存储资源的可伸缩性和灵活性。 使用提取、加载和转换 (ELT) 进程可以利用内置的分布式查询处理功能，消除在加载前转换数据所需的资源。
 
@@ -29,12 +29,12 @@ ms.locfileid: "92474659"
 
 提取、加载和转换 (ELT) 是指将数据从源系统提取并加载到数据仓库然后再进行转换的过程。
 
-实现适用于 SQL 池的 PolyBase ELT 的基本步骤如下：
+为专用 SQL 池实现 PolyBase ELT 的基本步骤如下：
 
 1. 将源数据提取到文本文件中。
 2. 将数据移入 Azure Blob 存储或 Azure Data Lake Store。
 3. 准备要加载的数据。
-4. 使用 PolyBase 将数据加载到 SQL 池临时表中。
+4. 使用 PolyBase 将数据加载到专用 SQL 池临时表中。
 5. 转换数据。
 6. 将数据插入生产表。
 
@@ -85,11 +85,11 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) 服务可以增强网络吞吐量、性能和可预测性。 ExpressRoute 是通过专用连接将数据路由到 Azure 的服务。 ExpressRoute 连接不通过公共 Internet 路由数据。 与基于公共 Internet 的典型连接相比，这些连接提供更高的可靠性、更快的速度、更低的延迟和更高的安全性。
 - [AZCopy 实用工具](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)可以通过公共 Internet 将数据移到 Azure 存储。 如果数据小于 10 TB，则很适合使用此工具。 若要使用 AZCopy 定期执行加载操作，请测试网络速度是否在可接受的范围内。
-- [Azure 数据工厂 (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 提供一个可以安装在本地服务器上的网关。 然后，你可以创建管道，以便将数据从本地服务器移到 Azure 存储。 若要将数据工厂用于 SQL 池，请参阅将 [数据加载到 sql 池中](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。
+- [Azure 数据工厂 (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 提供一个可以安装在本地服务器上的网关。 然后，你可以创建管道，以便将数据从本地服务器移到 Azure 存储。 若要将数据工厂用于专用 SQL 池，请参阅将 [数据加载到专用 sql 池中](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。
 
 ## <a name="3-prepare-the-data-for-loading"></a>3.准备要加载的数据
 
-在将数据加载到 SQL 池中之前，你可能需要先准备并清除存储帐户中的数据。 可以在数据仍保留在源中、将数据导出到文本文件时或者在数据进入 Azure 存储之后执行数据准备。  最好是在加载过程的早期阶段处理数据。  
+在将数据加载到专用的 SQL 池中之前，您可能需要先准备并清除存储帐户中的数据。 可以在数据仍保留在源中、将数据导出到文本文件时或者在数据进入 Azure 存储之后执行数据准备。  最好是在加载过程的早期阶段处理数据。  
 
 ### <a name="define-external-tables"></a>定义外部表
 
@@ -110,7 +110,7 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 - 格式化文本文件中的数据，使其与 SQL 池目标表中的列和数据类型保持一致。 外部文本文件与数据仓库表中的数据类型不相符会导致在加载期间拒绝行。
 - 使用终止符分隔文本文件中的字段。  请务必使用源数据中不包含的字符或字符序列。 使用通过 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 指定的终止符。
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. 使用 PolyBase 将数据加载到 SQL 池临时表
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. 使用 PolyBase 将数据加载到专用 SQL 池临时表
 
 最佳做法是将数据载入临时表。 使用临时表可以处理错误且不干扰生产表。 使用临时表，还可以在将数据插入生产表之前，使用 SQL 池内置分布式查询处理功能进行数据转换。
 
@@ -125,7 +125,7 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 
 ### <a name="non-polybase-loading-options"></a>非 PolyBase 加载选项
 
-如果数据与 PolyBase 不兼容，可以使用 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 或 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。 bcp 直接加载到 SQL 池，而无需通过 Azure Blob 存储，而仅适用于小型负载。 请注意，这些选项的加载性能明显低于 PolyBase。
+如果数据与 PolyBase 不兼容，可以使用 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 或 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。 bcp 直接加载到专用 SQL 池，而无需通过 Azure Blob 存储，只适用于小型负载。 请注意，这些选项的加载性能明显低于 PolyBase。
 
 ## <a name="5-transform-the-data"></a>5.转换数据
 

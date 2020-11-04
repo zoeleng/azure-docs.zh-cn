@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a8a04d9e1b17c7e65be946cb51bfc41019e0706d
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233980"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309089"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>利用 Azure 机器学习管理和提高资源配额
 
@@ -52,7 +52,7 @@ Azure 使用限制和配额来防止因欺诈而导致的预算溢出，并遵�
 + Azure 存储
 
 > [!IMPORTANT]
-> 限制随时会变化。 有关最新信息，请参阅 [azure 订阅和服务限制、配额和约束](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) 。
+> 限制随时会变化。 有关最新信息，请参阅 [azure 订阅和服务限制、配额和约束](../azure-resource-manager/management/azure-subscription-service-limits.md) 。
 
 ### <a name="virtual-machines"></a>虚拟机
 每个 Azure 订阅对所有服务中的虚拟机数量有限制。 虚拟机核心每个大小系列有一个区域总限制和一个区域限制。 这两个限制都是单独强制的。
@@ -100,7 +100,7 @@ Azure 使用限制和配额来防止因欺诈而导致的预算溢出，并遵�
 
 ### <a name="container-instances"></a>容器实例
 
-有关详细信息，请参阅 [容器实例限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)。
+有关详细信息，请参阅 [容器实例限制](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits)。
 
 ### <a name="storage"></a>存储
 每个订阅每个区域的 Azure 存储限制为250个存储帐户。 此限制包括标准和高级存储帐户。
@@ -156,7 +156,7 @@ Azure 使用限制和配额来防止因欺诈而导致的预算溢出，并遵�
 请求增加配额时，请选择所需的服务。 例如，选择 "Azure 机器学习"、"容器实例" 或 "存储"。 对于 Azure 机器学习计算，可以选择 " **请求配额** " 按钮，同时查看前述步骤中的配额。
 
 > [!NOTE]
-> [免费试用订阅](https://azure.microsoft.com/offers/ms-azr-0044p) 不符合限制或配额增加的条件。 如果有免费试用版订阅，可以升级到即 [用即付](https://azure.microsoft.com/offers/ms-azr-0003p/) 订阅。 有关详细信息，请参阅将 [Azure 免费试用版升级为即用即付](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) 和 [AZURE 免费帐户常见问题解答](https://azure.microsoft.com/free/free-account-faq)。
+> [免费试用订阅](https://azure.microsoft.com/offers/ms-azr-0044p) 不符合限制或配额增加的条件。 如果有免费试用版订阅，可以升级到即 [用即付](https://azure.microsoft.com/offers/ms-azr-0003p/) 订阅。 有关详细信息，请参阅将 [Azure 免费试用版升级为即用即付](../cost-management-billing/manage/upgrade-azure-subscription.md) 和 [AZURE 免费帐户常见问题解答](https://azure.microsoft.com/free/free-account-faq)。
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>专用终结点和专用 DNS 配额增加
 
@@ -172,7 +172,7 @@ Azure 机器学习在 (customer) 订阅中创建资源，但有些方案会在 M
 
 若要请求对这些方案进行限制，请使用以下步骤：
 
-1. [创建 Azure 支持请求](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) ，并在 " __基本__ 信息" 部分中选择以下选项：
+1. [创建 Azure 支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) ，并在 " __基本__ 信息" 部分中选择以下选项：
 
     | 字段 | 选择 |
     | ----- | ----- |

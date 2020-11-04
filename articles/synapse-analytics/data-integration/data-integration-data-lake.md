@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: cc5c72c2d0db7c17fdbc29e7fb815f1d06134730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033211"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309329"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>将数据引入 Azure Data Lake Storage Gen2 
 
@@ -22,8 +22,8 @@ ms.locfileid: "90033211"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：如果还没有 Azure 订阅，可以在开始前创建一个[免费 Azure 帐户](https://azure.microsoft.com/free/)。
-* **Azure 存储帐户**，使用 Azure Data Lake Gen 2 作为源数据存储。 如果没有存储帐户，请参阅[创建 Azure 存储帐户](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)来了解创建步骤。
+* **Azure 订阅** ：如果还没有 Azure 订阅，可以在开始前创建一个 [免费 Azure 帐户](https://azure.microsoft.com/free/)。
+* **Azure 存储帐户** ，使用 Azure Data Lake Gen 2 作为源数据存储。 如果没有存储帐户，请参阅[创建 Azure 存储帐户](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)来了解创建步骤。
 
 ## <a name="create-linked-services"></a>创建链接服务
 
@@ -31,16 +31,16 @@ ms.locfileid: "90033211"
 
 1. 打开 Azure Synapse Analytics UX，转到“管理”选项卡。
 1. 在“外部连接”下，选择“链接服务”。
-1. 若要添加链接服务，请选择 " **新建**"。
-1. 从列表中选择 "Azure Data Lake Storage Gen2" 磁贴，然后选择 " **继续**"。
+1. 若要添加链接服务，请选择 " **新建** "。
+1. 从列表中选择 "Azure Data Lake Storage Gen2" 磁贴，然后选择 " **继续** "。
 1. 输入你的身份验证凭据。 帐户密钥、服务主体和托管标识是目前支持的身份验证类型。 选择 "测试连接" 以验证你的凭据是否正确。 
-1. 完成后，选择“创建”****。
+1. 完成后，选择“创建”。
 
 ## <a name="create-pipeline"></a>创建管道
 
-管道包含用于执行一组活动的逻辑流。 在本部分中，你将创建一个包含复制活动的管道，该复制活动将数据从 Azure Data Lake Gen 2 引入到 SQL 池中。
+管道包含用于执行一组活动的逻辑流。 在本部分中，你将创建一个包含复制活动的管道，该活动将 Azure Data Lake 第2代中的数据引入到专用的 SQL 池中。
 
-1. 请参阅 " **协调** " 选项卡。选择 "管道" 标头旁边的加号图标，然后选择 " **管道**"。
+1. 请参阅 " **协调** " 选项卡。选择 "管道" 标头旁边的加号图标，然后选择 " **管道** "。
 1. 在“活动”窗格中的“移动和转换”下，将“复制数据”拖到管道画布上。
 1. 选择 "复制" 活动，并中转到 " **源** " 选项卡。选择 " **新建** " 以创建新的源数据集。
 1. 选择 "Azure Data Lake Storage Gen2" 作为数据存储，然后选择 "继续"。
@@ -67,9 +67,9 @@ ms.locfileid: "90033211"
 1. 选择工具栏中的“添加触发器”，然后选择“立即触发”。  在“管道运行”页上选择“完成”。   
 1. 转到左侧边栏中的“监视器”选项卡。 此时会看到由手动触发器触发的管道运行。 可以使用“操作”列中的链接来查看活动详细信息以及重新运行该管道。
 1. 若要查看与管道运行关联的活动运行，请选择“操作”列中的“查看活动运行”链接。  此示例中只有一个活动，因此列表中只看到一个条目。 有关复制操作的详细信息，请选择“操作”列中的“详细信息”链接（眼镜图标）。  若要回到“管道运行”视图，请选择顶部的“管道运行”。 若要刷新视图，请选择“刷新”。
-1. 验证数据是否已正确写入到 SQL 池中。
+1. 验证数据是否已正确写入专用 SQL 池中。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Synapse Analytics 的数据集成的详细信息，请参阅[将数据引入到 SQL 池中](data-integration-sql-pool.md)一文。
+有关 Synapse Analytics 的数据集成的详细信息，请参阅将 [数据引入到专用 SQL 池一](data-integration-sql-pool.md) 文。
