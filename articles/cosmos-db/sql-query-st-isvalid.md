@@ -3,16 +3,17 @@ title: Azure Cosmos DB 查询语言中的 ST_ISVALID
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ST_ISVALID。
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c1af008889ece71bc2158e0a74c30ef17d24207f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9b20e57672e86c2b5a6a2a25151d779ea7bc92f3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080050"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335154"
 ---
 # <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

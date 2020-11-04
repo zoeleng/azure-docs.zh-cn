@@ -3,32 +3,19 @@ title: 使用 Azure CLI 启用 VM 扩展
 description: 本文介绍如何使用 Azure CLI 将虚拟机扩展部署到在混合云环境中运行的支持 Azure Arc 的服务器。
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f09914f246635f07b3c51c682bd67591c706732
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462877"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336720"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>使用 Azure CLI 启用 Azure VM 扩展
 
 本文介绍如何使用 Azure CLI 将启用了 Azure Arc 的服务器支持的 Azure VM 扩展部署到 Linux 或 Windows 混合计算机并将其卸载。
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="prerequisites"></a>先决条件
-
-[安装 Azure CLI](/cli/azure/install-azure-cli)。
-
-使用 Azure CLI 在启用了 Arc 的服务器管理的混合服务器上管理 VM 扩展之前，需要安装 `ConnectedMachine` CLI 扩展。 在启用 Arc 的服务器上运行以下命令：
-
-```azurecli
-az extension add connectedmachine
-```
-
-安装完成后，将返回以下消息：
-
-`The installed extension `connectedmachine` is experimental and not covered by customer support. Please use with discretion.`
 
 ## <a name="enable-extension"></a>启用扩展
 
@@ -50,7 +37,7 @@ az connectedmachine machine-extension create --machine-name "myMachineName" --na
 
 若要获取启用了 Arc 的服务器上的 VM 扩展列表，请使用 [az connectedmachine machine extension list](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_list) ， `--machine-name` 并使用和 `--resource-group` 参数。
 
-示例：
+例如：
 
 ```azurecli
 az connectedmachine machine-extension list --machine-name "myMachineName" --resource-group "myResourceGroup"

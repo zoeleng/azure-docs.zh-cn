@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367731"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336113"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 操作组是由 Azure 订阅的所有者定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报使用操作组来通知用户某个警报已触发。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。 可以在订阅中最多配置 2,000 个操作组。
@@ -20,9 +20,9 @@ ms.locfileid: "92367731"
 
 每个操作包含以下属性：
 
-* **类型**：已执行的通知或操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。
-* **Name**：操作组中的唯一标识符。
-* **详细信息**：因“类型”而异的相应详细信息。
+* **类型** ：已执行的通知或操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。
+* **Name** ：操作组中的唯一标识符。
+* **详细信息** ：因“类型”而异的相应详细信息。
 
 有关如何使用 Azure 资源管理器模板以配置操作组的信息，请参阅[操作组资源管理器模板](./action-groups-create-resource-manager-template.md)。
 
@@ -59,15 +59,15 @@ ms.locfileid: "92367731"
 
 1. 定义触发警报时要发送的通知的列表。 为每个通知提供以下信息：
 
-    a. **通知类型**：选择要发送的通知的类型。 可用选项是：
+    a. **通知类型** ：选择要发送的通知的类型。 可用选项是：
       * 向 Azure 资源管理器角色发送电子邮件 - 将电子邮件发送给分配有某些订阅级别 ARM 角色的用户。
       * 电子邮件/短信/推送/语音 - 将这些通知类型发送给特定收件人。
     
-    b. **名称**：输入通知的唯一名称。
+    b. **名称** ：输入通知的唯一名称。
 
-    c. **详细信息**：根据所选的通知类型，输入电子邮件地址、电话号码等。
+    c. **详细信息** ：根据所选的通知类型，输入电子邮件地址、电话号码等。
     
-    d. **常见警报架构**：可以选择启用[常见警报架构](./alerts-common-schema.md)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
+    d. **常见警报架构** ：可以选择启用 [常见警报架构](./alerts-common-schema.md)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
 
     ![“通知”选项卡](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,13 +77,13 @@ ms.locfileid: "92367731"
 
 1. 定义触发警报时要触发的操作的列表。 为每个操作提供以下内容：
 
-    a. **操作类型**：选择自动化 Runbook、Azure 函数、ITSM、逻辑应用、安全 Webhook、webhook。
+    a. **操作类型** ：选择自动化 Runbook、Azure 函数、ITSM、逻辑应用、安全 Webhook、webhook。
     
-    b. **名称**：输入操作的唯一名称。
+    b. **名称** ：输入操作的唯一名称。
 
-    c. **详细信息**：根据操作类型，输入 webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”和其他字段。
+    c. **详细信息** ：根据操作类型，输入 webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”和其他字段。
     
-    d. **常见警报架构**：可以选择启用[常见警报架构](./alerts-common-schema.md)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
+    d. **常见警报架构** ：可以选择启用 [常见警报架构](./alerts-common-schema.md)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
     
     ![“操作”选项卡](./media/action-groups/action-group-3-actions.png)
 
@@ -287,32 +287,32 @@ Webhook 使用以下规则进行处理
 
 操作组中的 Webhook 操作数可能有限。
 
-### <a name="service-tag"></a>服务标记
+频繁更新源 IP 地址可能会在 Webhook 中花费很长时间。 使用 *操作组* 的 **服务标记** 有助于最大程度地降低频繁更新 IP 地址的复杂性。 前面共享的源 IP 地址范围前缀由 Microsoft 自动管理，由 **服务标记** 包含。
+
+#### <a name="service-tag"></a>服务标记
 服务标记代表给定 Azure 服务中的一组 IP 地址前缀。 Microsoft 管理服务标记包含的地址前缀，并在地址发生更改时自动更新服务标记，从而最大程度地减少对操作组的网络安全规则的频繁更新的复杂性。
 
-1. 在 "Azure 服务的 Azure 门户" 下搜索 " *网络安全组*"。
+1. 在 "Azure 服务的 Azure 门户" 下搜索 " *网络安全组* "。
 2. 单击 " **添加** " 并创建网络安全组。
 
-   1. 添加资源组名称，然后输入 " *实例详细信息*"。
-   1. 单击 " **查看 + 创建** "，然后单击 " *创建*"。
+   1. 添加资源组名称，然后输入 " *实例详细信息* "。
+   1. 单击 " **查看 + 创建** "，然后单击 " *创建* "。
    
    :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="如何创建网络安全组的示例。"border="true":::
 
 3. 中转到 "资源组"，然后单击已创建的 *网络安全组* 。
 
-    1. 选择 " *入站安全规则*"。
-    1. 单击 " **添加**"。
+    1. 选择 " *入站安全规则* "。
+    1. 单击 " **添加** "。
     
     :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="有关如何添加服务标记的示例。"border="true":::
 
 4. 将在右侧窗格中打开一个新窗口。
     1.  选择源： **服务标记**
     1.  源服务标记： **操作组**
-    1.  单击“添加”。
+    1.  单击“添加”  。
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="有关如何添加服务标记的示例。"border="true":::
-
-使用操作组的 **服务标记** 有助于最大程度地降低频繁更新 IP 地址的复杂性。
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解[短信警报行为](./alerts-sms-behavior.md)。  

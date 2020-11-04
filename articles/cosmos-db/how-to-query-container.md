@@ -3,15 +3,16 @@ title: 在 Azure Cosmos DB 中查询容器
 description: 了解如何使用分区中查询和跨分区查询来查询 Azure Cosmos DB 中的容器
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3c363552d1a196bed49e1ef3448a8216b7bcae2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086051"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335885"
 ---
 # <a name="query-an-azure-cosmos-container"></a>查询 Azure Cosmos 容器
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

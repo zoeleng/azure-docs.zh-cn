@@ -4,14 +4,15 @@ description: 常用更改源设计模式概述
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072988"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334559"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源设计模式
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +40,7 @@ Azure Cosmos DB 更改源可以简化需要基于特定事件触发通知或发�
 Azure Cosmos DB 更改源可用于 IoT 的实时流处理，或者基于操作数据进行实时分析处理。
 例如，可以接收和存储来自设备、传感器、基础结构和应用程序的事件数据，并使用 [Spark](../hdinsight/spark/apache-spark-overview.md) 实时处理这些事件。 下图显示了如何通过更改源使用 Azure Cosmos DB 实现 lambda 体系结构：
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="使用 Azure Cosmos DB 更改源促成实时分析和事件驱动的计算方案" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="用于引入和查询的基于 Azure Cosmos DB 的 lambda 管道" border="false":::
 
 在许多情况下，流处理实现首先会将大量传入数据接收到 Azure 事件中心或 Apache Kafka 等临时消息队列中。 由于 Azure Cosmos DB 能够支持持续较高的数据引入速率，并保证较低的读取和写入延迟，因此，更改源是极佳的替代方案。 基于消息队列的 Azure Cosmos DB 更改源的优势包括：
 

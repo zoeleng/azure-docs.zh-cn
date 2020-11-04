@@ -3,16 +3,17 @@ title: 使用 Azure Cosmos DB 和 Active Directory 进行基于证书的身份�
 description: 了解如何为基于证书的身份验证配置 Azure AD 标识，以便从 Azure Cosmos DB 访问密钥。
 author: voellm
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: a25cd2c0a9205dc184640e95f122c770b29cf24a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073241"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334695"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>为基于证书的身份验证配置 Azure AD 标识以从 Azure Cosmos DB 帐户访问密钥
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,33 +34,21 @@ ms.locfileid: "93073241"
 
 1. 打开“Azure Active Directory”窗格，转到“应用注册”窗格，然后选择“新建注册”。    
 
-   :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
+   :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="在 Active Directory 中新建应用程序注册":::
 
 1. 在“注册应用程序”表单中填写以下详细信息：   
 
-   * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
-   * **重定向 URL** -选择类型为 &quot; **Web** " 的应用程序并提供托管应用程序的 url，可以是任何 url。 在此示例中，可以提供类似于 `https://sampleApp.com` 的测试 URL，即使该应用不存在，也没有关系。
+   * **名称** -提供应用程序的名称，可以是任意名称，如 "sampleapp.exe"。
+   * **支持的帐户类型** –选择 **"仅 (默认目录中的帐户")** ，以允许当前目录中的资源访问此应用程序。 
+   * **重定向 URL** -选择类型为 " **Web** " 的应用程序并提供托管应用程序的 url，可以是任何 url。 在此示例中，可以提供类似于 `https://sampleApp.com` 的测试 URL，即使该应用不存在，也没有关系。
 
-   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
-
-1. 在“注册应用程序”表单中填写以下详细信息：   
-
-   * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
-   * **重定向 URL** -选择类型为 &quot; **Web** ":::
+   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="注册示例 Web 应用程序":::
 
 1. 填写表单后，选择“注册”。 
 
 1. 注册应用后，记下“应用程序(客户端) ID”和“对象 ID”，在后面的步骤中需要用到这些详细信息。   
 
-   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
-
-1. 在“注册应用程序”表单中填写以下详细信息：   
-
-   * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
-   * **重定向 URL** -选择类型为 &quot; **Web** ":::
+   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="获取应用程序 ID 和对象 ID":::
 
 ## <a name="install-the-azuread-module"></a>安装 AzureAD 模块
 
@@ -112,13 +101,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 以上命令将生成以下屏幕截图所示的输出：
 
-:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
-
-1. 在“注册应用程序”表单中填写以下详细信息：   
-
-   * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
-   * **重定向 URL** -选择类型为 &quot; **Web** ":::
+:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="创建基于证书的凭据后的输出":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>将 Azure Cosmos 帐户配置为使用新标识
 
@@ -128,13 +111,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 1. 依次选择“添加”、“添加角色分配”。   添加上一步骤中创建的具有“参与者”角色的 sampleApp，如以下屏幕截图所示： 
 
-   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
-
-1. 在“注册应用程序”表单中填写以下详细信息：   
-
-   * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
-   * **重定向 URL** -选择类型为 &quot; **Web** ":::
+   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="将 Azure Cosmos 帐户配置为使用新标识":::
 
 1. 填写表单后，选择“保存” 
 
@@ -175,13 +152,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 上面的命令将显示 Azure Cosmos 帐户的主要和辅助主密钥。 可以查看 Azure Cosmos 帐户的活动日志，以验证获取密钥的请求是否成功，以及“sampleApp”应用程序是否发起了该事件。
 
-:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
-
-1. 在“注册应用程序”表单中填写以下详细信息：   
-
-   * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
-   * **重定向 URL** -选择类型为 &quot; **Web** ":::
+:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="验证 Azure AD 中的获取密钥调用":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>从 C# 应用程序访问密钥 
 
@@ -269,13 +240,7 @@ namespace TodoListDaemonWithCert
 
 此脚本输出主主密钥和辅助主密钥，如以下屏幕截图所示：
 
-:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="在 Active Directory 中新建应用程序注册&quot;:::
-
-1. 在“注册应用程序”表单中填写以下详细信息：   
-
-   * **名称** -提供应用程序的名称，可以是任意名称，如 &quot;sampleapp.exe&quot;。
-   * **支持的帐户类型** –选择 **&quot;仅 (默认目录中的帐户&quot;)** ，以允许当前目录中的资源访问此应用程序。 
-   * **重定向 URL** -选择类型为 &quot; **Web** ":::
+:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="C# 应用程序输出":::
 
 与在前一部分中一样，你可以查看 Azure Cosmos 帐户的活动日志，以验证“sampleApp”应用程序是否发起了获取密钥的请求事件。 
 
