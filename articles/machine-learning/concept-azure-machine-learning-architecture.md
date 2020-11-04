@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276078"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322314"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure 机器学习的工作原理：体系结构和概念
 
@@ -53,9 +53,9 @@ ms.locfileid: "91276078"
 
 Azure 机器学习引入了为机器学习任务配置的两个完全托管的基于云的虚拟机 (VM)：
 
-* <a name="compute-instance"></a> **计算实例**：计算实例是一个 VM，其中包含为机器学习安装的多个工具和环境。 计算实例的主要用途是用于你的开发工作站。  你可以开始运行示例笔记本，无需进行任何设置。 还可将计算实例用作训练和推理作业的计算目标。
+* <a name="compute-instance"></a> **计算实例** ：计算实例是一个 VM，其中包含为机器学习安装的多个工具和环境。 计算实例的主要用途是用于你的开发工作站。  你可以开始运行示例笔记本，无需进行任何设置。 还可将计算实例用作训练和推理作业的计算目标。
 
-* **计算群集**：计算群集是包含多节点缩放功能的 VM 群集。 计算群集更适合用于大型作业和生产的计算目标。  提交作业时，群集会自动纵向扩展。  用作训练计算目标，或用于开发/测试部署。
+* **计算群集** ：计算群集是包含多节点缩放功能的 VM 群集。 计算群集更适合用于大型作业和生产的计算目标。  提交作业时，群集会自动纵向扩展。  用作训练计算目标，或用于开发/测试部署。
 
 若要详细了解如何训练计算目标，请参阅[训练计算目标](concept-compute-target.md#train)。  有关部署计算目标的详细信息，请参阅[部署目标](concept-compute-target.md#deploy)。
 
@@ -102,11 +102,11 @@ Azure 机器学习在试验中记录所有运行并存储以下信息：
 
 [工作区](#workspace) > [试验](#experiments) > [运行](#runs) > **运行配置**
 
-运行配置定义了应如何在指定的计算目标中运行脚本。 使用该配置来指定要在其上运行的脚本、计算目标和 Azure ML 环境、任何特定于作业的特定配置以及其他一些属性。 有关运行的一组完整可配置选项的详细信息，请参阅 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)。
+运行配置对应该如何在指定的计算目标中运行脚本进行定义。 可以使用配置来指定脚本、要在其上运行的计算目标和 Azure ML 环境、任何特定于分布式作业的配置以及一些其他属性。 有关运行的全套可配置选项的详细信息，请参阅 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)。
 
 运行配置可以保存到包含训练脚本的目录内的文件中，   或构造为内存中对象以及用于提交运行。
 
-有关运行配置的示例，请参阅 [配置训练运行](how-to-set-up-training-targets.md)。
+有关运行配置的示例，请参阅[配置训练运行](how-to-set-up-training-targets.md)。
 
 ### <a name="snapshots"></a>快照
 
@@ -126,7 +126,7 @@ Azure 机器学习会自动为你记录标准运行指标。 不过，你也可�
 
 ### <a name="git-tracking-and-integration"></a>Git 跟踪与集成
 
-如果以本地 Git 存储库作为源目录开始训练运行，有关存储库的信息将存储在运行历史记录中。 这适用于使用脚本运行配置或 ML 管道提交的运行。 此外，还适用于从 SDK 或机器学习 CLI 提交的运行。
+如果以本地 Git 存储库作为源目录开始训练运行，有关存储库的信息将存储在运行历史记录中。 这适用于通过脚本运行配置或 ML 管道提交的运行。 此外，还适用于从 SDK 或机器学习 CLI 提交的运行。
 
 有关详细信息，请参阅 [Azure 机器学习的 Git 集成](concept-train-model-git-integration.md)。
 
@@ -145,7 +145,7 @@ Azure 机器学习与框架无关。 创建模型时，可以使用任何流行�
 
 [工作区](#workspace) > **模型**
 
-**模型注册表**用于跟踪 Azure 机器学习工作区中的所有模型。
+**模型注册表** 用于跟踪 Azure 机器学习工作区中的所有模型。
 
 模型按名称和版本标识。 每次使用与现有相同的名称注册模型时，注册表都会假定它是新版本。 该版本将递增并且新模型会以同一名称注册。
 
@@ -162,9 +162,9 @@ Azure 机器学习与框架无关。 创建模型时，可以使用任何流行�
 
 将[已注册的模型](#register-model)部署为服务终结点。 你需要下列组件：
 
-* **环境**。 此环境封装运行模型进行推理所需的依赖项。
-* **评分代码**。 此脚本接受请求、使用模型为请求评分并返回结果。
-* **推理配置**。 推理配置指定以服务形式运行模型所需的环境、入口脚本和其他组件。
+* **环境** 。 此环境封装运行模型进行推理所需的依赖项。
+* **评分代码** 。 此脚本接受请求、使用模型为请求评分并返回结果。
+* **推理配置** 。 推理配置指定以服务形式运行模型所需的环境、入口脚本和其他组件。
 
 有关这些组件的详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
 
@@ -186,7 +186,7 @@ Azure 机器学习与框架无关。 创建模型时，可以使用任何流行�
 
 #### <a name="real-time-endpoints"></a>实时终结点
 
-在设计器中部署定型模型时，可以将 [模型部署为实时终结点](tutorial-designer-automobile-price-deploy.md)。 实时终结点通常通过 REST 终结点接收单个请求，并实时返回预测结果。 这与批处理相反，批处理一次处理多个值，并将完成后的结果保存到数据存储中。
+在设计器中部署经过训练的模型时，可以[将模型部署为实时终结点](tutorial-designer-automobile-price-deploy.md)。 实时终结点通常通过 REST 终结点接收单个请求，并实时返回预测结果。 这与批处理相反，批处理一次处理多个值，并将完成后的结果保存到数据存储中。
 
 #### <a name="pipeline-endpoints"></a>管道终结点
 
@@ -222,7 +222,7 @@ Azure IoT Edge 将确保模块正在运行并且监视托管它的设备。
 
 你还可以通过工作室访问 Azure 机器学习中包含的交互工具：
 
-+ [Azure 机器学习设计器](concept-designer.md) 在不编写代码的情况下执行工作流步骤
++ [Azure 机器学习设计器](concept-designer.md)，用于执行工作流步骤，无需编写代码
 + [自动化机器学习](concept-automated-ml.md)的 Web 体验
 + [Azure 机器学习笔记本](how-to-run-jupyter-notebooks.md)，用于在集成的 Jupyter 笔记本服务器中编写和运行你自己的代码。
 + [数据标记项目](how-to-create-labeling-projects.md)，用于创建、管理和监视项目以标记数据
@@ -233,10 +233,10 @@ Azure IoT Edge 将确保模块正在运行并且监视托管它的设备。
 > 下面标记了“（预览版）”的工具目前为公共预览版。
 > 该预览版在提供时没有附带服务级别协议，建议不要将其用于生产工作负载。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-+  使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 来与任何 Python 环境中的服务交互。
++  使用[适用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 来与任何 Python 环境中的服务交互。
 + 使用[适用于 R 的 Azure 机器学习 SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)（预览版）与任何 R 环境中的服务交互。
-+ 使用 [Azure 机器学习设计器](concept-designer.md) 执行工作流步骤，而无需编写代码。 
-+ 使用 [Azure 机器学习 CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 实现自动化。
++ 使用 [Azure 机器学习设计器](concept-designer.md)执行工作流步骤，无需编写代码。 
++ 使用 [Azure 机器学习 CLI](./reference-azure-machine-learning-cli.md) 实现自动化。
 + [多模型解决方案加速器](https://aka.ms/many-models)（预览版）在 Azure 机器学习的基础上构建，使你能够训练、操作和管理数百甚至数千个机器学习模型。
 
 ## <a name="next-steps"></a>后续步骤

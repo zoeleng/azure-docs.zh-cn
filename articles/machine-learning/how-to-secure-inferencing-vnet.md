@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285925"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325343"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -47,7 +47,7 @@ ms.locfileid: "93285925"
     - “Microsoft.Network/virtualNetworks/join/action”（在虚拟网络资源上）。
     - “Microsoft.Network/virtualNetworks/subnet/join/action”（在子网资源上）。
 
-    有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](/azure/role-based-access-control/built-in-roles#networking)
+    有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](../role-based-access-control/built-in-roles.md#networking)
 
 <a id="aksvnet"></a>
 
@@ -86,7 +86,7 @@ ms.locfileid: "93285925"
     若要查找评分终结点的 IP 地址，请查看已部署服务的评分 URI。 有关查看计分 URI 的详细信息，请参阅 [使用部署为 web 服务的模型](how-to-consume-web-service.md#connection-information)。
 
    > [!IMPORTANT]
-   > 保留 NSG 的默认出站规则。 有关详细信息，请参阅[安全组](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)中的“默认安全规则”。
+   > 保留 NSG 的默认出站规则。 有关详细信息，请参阅[安全组](../virtual-network/network-security-groups-overview.md#default-security-rules)中的“默认安全规则”。
 
    [![入站安全规则](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -170,7 +170,7 @@ aks_target = ComputeTarget.create(workspace=ws,
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-若要详细了解如何结合使用内部负载均衡器与 AKS，请参阅[结合使用内部负载均衡器与 Azure Kubernetes 服务](/azure/aks/internal-lb)。
+若要详细了解如何结合使用内部负载均衡器与 AKS，请参阅[结合使用内部负载均衡器与 Azure Kubernetes 服务](../aks/internal-lb.md)。
 
 #### <a name="enable-private-load-balancer"></a>启用专用负载均衡器
 
@@ -220,7 +220,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > 使用 CLI，只能创建具有内部负载均衡器的 AKS 群集。 没有用于升级现有群集的 az ml 命令来使用内部负载均衡器。
 
-有关详细信息，请参阅 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) 参考文档。
+有关详细信息，请参阅 [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) 参考文档。
 
 ---
 
@@ -261,7 +261,7 @@ Azure 容器实例在部署模型时动态创建。 你必须为部署使用的�
     > [!IMPORTANT]
     > 启用委派时，使用 `Microsoft.ContainerInstance/containerGroups` 作为“将子网委派给服务”值。
 
-2. 使用 [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true) 部署模型（使用 `vnet_name` 和 `subnet_name` 参数）。 将这些参数设置为启用了委派的虚拟网络名称和子网。
+2. 使用 [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true) 部署模型（使用 `vnet_name` 和 `subnet_name` 参数）。 将这些参数设置为启用了委派的虚拟网络名称和子网。
 
 ## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> 限制来自虚拟网络的出站连接
 

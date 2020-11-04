@@ -1,6 +1,6 @@
 ---
-title: T-SQL 语言元素
-description: Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
+title: 专用 SQL 池的 t-sql 语言元素
+description: 链接到 Azure Synapse Analytics 中专用 SQL 池支持的 T-sql 语言元素的文档。
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966df3be13eda4450608d42890fcfe2240ac61a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289491"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324647"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Synapse SQL 池支持的 T-SQL 语言元素
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的 t-sql 语言元素 
 
-Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
+链接到专用 SQL 池中支持的 T-sql 语言元素的文档。
 
 ## <a name="core-elements"></a>核心元素
 
@@ -290,4 +290,4 @@ Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
 
 ## <a name="next-steps"></a>后续步骤
 
-有关更多参考信息，请参阅 [Synapse SQL 池中的 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)和 [Synapse SQL 池中的系统视图](../sql/reference-tsql-system-views.md)。
+有关更多参考信息，请参阅 [专用 sql 池中的 t-sql 语句](sql-data-warehouse-reference-tsql-statements.md)和 [专用 Sql 池中的系统视图](../sql/reference-tsql-system-views.md)。

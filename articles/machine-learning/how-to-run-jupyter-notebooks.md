@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628671"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325408"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>如何在工作区中运行 Jupyter 笔记本
 
@@ -80,9 +80,11 @@ ms.locfileid: "92628671"
 1. 选择 **计算** 目标或创建一个新的目标，并等待它运行。
 1. 选择“打开终端”图标。
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="新建文件" **打开终端** "。
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="打开终端":::
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="新建文件":::
+1. 如果看不到该图标，请选择计算目标右侧的 " **...** "，然后选择 " **打开终端** "。
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="从“...”打开终端":::
 
 
 详细了解如何[将 Git 存储库克隆到工作区文件系统](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)。
@@ -114,7 +116,7 @@ ms.locfileid: "92628671"
 1. 在终端窗口工具栏中，选择 " **焦点模式** " 以打开焦点模式。 根据窗口宽度，此位置可能位于工具栏中的 " **...** " 菜单项下。
 1. 在焦点模式下，通过选择 " **标准视图** " 返回到标准视图。
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="新建文件":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="切换焦点模式/标准视图":::
 
 
 ### <a name="use-intellisense"></a>使用 IntelliSense
@@ -134,7 +136,7 @@ ms.locfileid: "92628671"
 1. 运行所有笔记本单元格。
 1. 选择特定的单元格，其中包含的代码是你希望新笔记本运行的。 例如，用于提交试验的代码，或者用于注册模型的代码。
 1. 选择单元格工具栏上出现的“收集”图标。
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="新建文件":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="屏幕截图：选择“收集”图标":::
 1. 输入新的“已收集”笔记本的名称。  
 
 新笔记本只包含代码单元格，所有单元格都需要生成与你选择用于收集的单元格相同的结果。
@@ -145,7 +147,7 @@ Azure 机器学习在创建 *ipynb* 文件时创建一个检查点文件。
 
 在笔记本工具栏中，选择“菜单”，然后选择“文件”&gt;“保存并设置检查点”以手动保存笔记本，它会添加与笔记本关联的检查点文件。
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="新建文件":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="笔记本工具栏中保存工具的屏幕截图":::
 
 每个笔记本每隔 30 秒会自动保存一次。 自动保存仅更新初始 *ipynb* 文件，而不更新检查点文件。
  
@@ -186,7 +188,7 @@ Azure 机器学习在创建 *ipynb* 文件时创建一个检查点文件。
 
 ### <a name="view-logs-and-output"></a>查看日志和输出
 
-使用[笔记本小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)可以查看运行进度和日志。 小组件具有异步性，在训练结束之前，它会一直提供更新。 Jupyter 和 JupterLab 也支持 Azure 机器学习小组件。
+使用[笔记本小组件](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)可以查看运行进度和日志。 小组件具有异步性，在训练结束之前，它会一直提供更新。 Jupyter 和 JupterLab 也支持 Azure 机器学习小组件。
 
 ## <a name="change-the-notebook-environment"></a>更改笔记本环境
 

@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2716f037de533e14ae8e57706134c8a2b135b440
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749180"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322377"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 概述
 
@@ -94,7 +94,7 @@ Apache Oozie 4.3.1 包含在 HDI 4.0 中，并进行了以下更改：
 * HDInsight 4.0 不支持 ML Services 群集类型。
 * Hive 视图仅在版本号等于或大于 4.1 的 HDInsight 4.0 群集上可用。 可在“Ambari 管理员”->“版本”中查看此版本号。
 * Spark 和 Interactive Query 群集不支持 Apache Zeppelin 中的 Shell 解释器。
-* 无法在 Spark-LLAP 群集上*禁用* LLAP。 只能关闭 LLAP。
+* 无法在 Spark-LLAP 群集上 *禁用* LLAP。 只能关闭 LLAP。
 * Azure Data Lake Storage Gen2 无法在 Spark 群集中保存 Jupyter Notebook。
 * 默认情况下，Apache Pig 在 Tez 上运行，但你可以将其更改为 Mapreduce
 * 为了提高行和列安全性而推出的 Spark SQL Ranger 集成已弃用
@@ -102,5 +102,9 @@ Apache Oozie 4.3.1 包含在 HDI 4.0 中，并进行了以下更改：
 
 ## <a name="next-steps"></a>后续步骤
 
+* [HBase 迁移指南](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-migrate-new-version)
+* [Hive 迁移指南](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-migrate-workloads)
+* [Kafka 迁移指南](https://docs.microsoft.com/azure/hdinsight/kafka/migrate-versions)
+* [Spark 迁移指南](https://docs.microsoft.com/azure/hdinsight/spark/migrate-versions)
 * [Azure HDInsight 文档](index.yml)
 * [发行说明](hdinsight-release-notes.md)

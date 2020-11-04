@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131932"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325433"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>虚拟网络隔离和隐私概述
 
@@ -28,13 +28,13 @@ ms.locfileid: "92131932"
 
 **1. VNet 概述**  >  [2。保护工作区](how-to-secure-workspace-vnet.md)  >  [3。保护定型环境](how-to-secure-training-vnet.md)  >  [4。保护推断环境](how-to-secure-inferencing-vnet.md)  >  [5。启用 studio 功能](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 本文假定您已熟悉以下主题：
-+ [Azure 虚拟网络](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [IP 网络](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)
++ [IP 网络](../virtual-network/public-ip-addresses.md)
 + [Azure 专用链接](how-to-configure-private-link.md)
-+ [ (NSG 的网络安全组) ](../virtual-network/security-overview.md)
++ [ (NSG 的网络安全组) ](../virtual-network/network-security-groups-overview.md)
 + [网络防火墙](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>示例方案
@@ -43,7 +43,7 @@ ms.locfileid: "92131932"
 
 下表比较了服务如何使用 VNet 而不使用 VNet 访问 Azure 机器学习网络的不同部分。
 
-| 方案 | 工作区 | 关联的资源 | 训练计算环境 | 推断计算环境 |
+| 方案 | 工作区 |  关联的资源 | 训练计算环境 | 推断计算环境 |
 |-|-|-|-|-|-|
 |**无虚拟网络**| 公共 IP | 公共 IP | 公共 IP | 公共 IP |
 |**保护虚拟网络中的资源**| 专用 IP (专用终结点)  | 公共 IP (服务终结点)  <br> **或** <br> 专用 IP (专用终结点)  | 专用 IP | 专用 IP  | 
@@ -52,7 +52,7 @@ ms.locfileid: "92131932"
 * **关联的资源** -使用服务终结点或专用终结点连接到工作区资源，如 azure 存储、Azure Key Vault 和 Azure 容器服务。
     * **服务终结点** 为 Azure 服务提供虚拟网络的标识。 在虚拟网络中启用服务终结点后，可以添加虚拟网络规则，以在虚拟网络中保护 Azure 服务资源。 服务终结点使用公共 IP 地址。
     * **专用终结点** 是网络接口，可安全地连接到由 Azure 专用链接提供支持的服务。 专用终结点使用 VNet 中的专用 IP 地址，从而有效地将服务引入 VNet。
-* 使用专用 IP 地址，**培训计算访问**-访问的培训计算目标，如 Azure 机器学习计算实例和 Azure 机器学习计算群集。 
+* 使用专用 IP 地址， **培训计算访问** -访问的培训计算目标，如 Azure 机器学习计算实例和 Azure 机器学习计算群集。 
 * **推断计算访问** -访问 Azure Kubernetes 服务 (AKS) 使用专用 IP 地址的计算群集。
 
 

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: 3470f969034a051b17e762b685a89c0f910e0cbb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b8ca96dd0b11f7a4c76f7a954959ef5005fb4a40
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747115"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323977"
 ---
 # <a name="monitor-azure-machine-learning"></a>监视 Azure 机器学习
 
@@ -30,9 +30,9 @@ ms.locfileid: "92747115"
 
 ## <a name="what-is-azure-monitor"></a>说明是 Azure Monitor？
 
-Azure 机器学习使用 [Azure Monitor](/azure/azure-monitor/overview)创建使用 Azure 中的完整 stack 监视服务的监视数据。 Azure Monitor 提供了一组用于监视 Azure 资源的完整功能。 它还可以监视其他云和本地的资源。
+Azure 机器学习使用 [Azure Monitor](../azure-monitor/overview.md)创建使用 Azure 中的完整 stack 监视服务的监视数据。 Azure Monitor 提供了一组用于监视 Azure 资源的完整功能。 它还可以监视其他云和本地的资源。
 
-请从 [通过 Azure Monitor 监视 Azure 资源](/azure/azure-monitor/insights/monitor-azure-resource)一文开始，其中介绍了以下概念：
+请从 [通过 Azure Monitor 监视 Azure 资源](../azure-monitor/insights/monitor-azure-resource.md)一文开始，其中介绍了以下概念：
 
 - 说明是 Azure Monitor？
 - 与监视相关的成本
@@ -43,11 +43,11 @@ Azure 机器学习使用 [Azure Monitor](/azure/azure-monitor/overview)创建使
 以下各节将通过描述为 Azure 机器学习收集的特定数据来构建本文。 这些部分还提供了有关在 Azure tools 中配置数据收集和分析此数据的示例。
 
 > [!TIP]
-> 若想了解与 Azure Monitor 相关的成本，请参阅[使用情况和估计成本](/azure/azure-monitor/platform/usage-estimated-costs)。 若要了解在 Azure Monitor 中显示数据所用的时间，请参阅 [记录数据引入时间](/azure/azure-monitor/platform/data-ingestion-time)。
+> 若想了解与 Azure Monitor 相关的成本，请参阅[使用情况和估计成本](../azure-monitor/platform/usage-estimated-costs.md)。 若要了解在 Azure Monitor 中显示数据所用的时间，请参阅 [记录数据引入时间](../azure-monitor/platform/data-ingestion-time.md)。
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Azure 机器学习的监视数据
 
-Azure 机器学习收集相同种类的监视数据，如 [监视 Azure 资源的数据](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources)中所述的其他 azure 资源。 
+Azure 机器学习收集相同种类的监视数据，如 [监视 Azure 资源的数据](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)中所述的其他 azure 资源。 
 
 请参阅 [Azure 机器学习监视数据参考](monitor-resource-reference.md)，详细了解 Azure 机器学习创建的日志和指标。
 
@@ -59,7 +59,7 @@ Azure 机器学习收集相同种类的监视数据，如 [监视 Azure 资源�
 
 在创建诊断设置并将其路由到一个或多个位置之前，不会收集和存储资源日志。
 
-有关使用 Azure 门户、CLI 或 PowerShell 创建诊断设置的详细过程，请参阅[创建诊断设置以收集 Azure 中的平台日志和指标](/azure/azure-monitor/platform/diagnostic-settings)。 创建诊断设置时，可指定要收集的日志类别。 [Azure 机器学习监视数据引用](monitor-resource-reference.md#resource-logs)中列出了 Azure 机器学习的类别。
+有关使用 Azure 门户、CLI 或 PowerShell 创建诊断设置的详细过程，请参阅[创建诊断设置以收集 Azure 中的平台日志和指标](../azure-monitor/platform/diagnostic-settings.md)。 创建诊断设置时，可指定要收集的日志类别。 [Azure 机器学习监视数据引用](monitor-resource-reference.md#resource-logs)中列出了 Azure 机器学习的类别。
 
 > [!IMPORTANT]
 > 启用这些设置需要额外的 Azure 服务（存储帐户、事件中心或 Log Analytics），这可能会增加成本。 若要估算成本，请访问 [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator)。
@@ -79,7 +79,7 @@ Azure 机器学习收集相同种类的监视数据，如 [监视 Azure 资源�
 
 ## <a name="analyzing-metrics"></a>分析指标
 
-通过从 " **Azure Monitor** " 菜单中打开 " **指标** "，可以从其他 Azure 服务中分析 Azure 机器学习的度量值以及其他 Azure 服务的指标。 有关使用此工具的详细信息，请参阅 [Azure 指标资源管理器入门](/azure/azure-monitor/platform/metrics-getting-started)。
+通过从 " **Azure Monitor** " 菜单中打开 " **指标** "，可以从其他 Azure 服务中分析 Azure 机器学习的度量值以及其他 Azure 服务的指标。 有关使用此工具的详细信息，请参阅 [Azure 指标资源管理器入门](../azure-monitor/platform/metrics-getting-started.md)。
 
 有关所收集平台指标的列表，请参阅 [监视 Azure 机器学习数据引用指标](monitor-resource-reference.md#metrics)。
 
@@ -87,15 +87,15 @@ Azure 机器学习的所有指标都位于命名空间 **机器学习服务工�
 
 ![机器学习服务工作区处于选定状态的指标资源管理器](./media/monitor-azure-machine-learning/metrics.png)
 
-为获得参考，你可以查看 [Azure Monitor 中支持的所有资源度量值](/azure/azure-monitor/platform/metrics-supported)的列表。
+为获得参考，你可以查看 [Azure Monitor 中支持的所有资源度量值](../azure-monitor/platform/metrics-supported.md)的列表。
 
 ### <a name="filtering-and-splitting"></a>筛选和拆分
 
-对于支持维度的指标，应用筛选器时可以使用维度值。 例如，筛选“群集名称”  为 `cpu-cluster` 的“活动核心”  。 
+对于支持维度的指标，应用筛选器时可以使用维度值。 例如，筛选“群集名称”为 `cpu-cluster` 的“活动核心”。 
 
 还可以按维度来拆分指标，将指标的不同部分进行直观比较。 例如，拆分 **管道步骤类型** ，查看管道中使用的步骤类型的计数。
 
-有关筛选和拆分的详细信息，请参阅 [Azure Monitor 的高级功能](/azure/azure-monitor/platform/metrics-charts)。
+有关筛选和拆分的详细信息，请参阅 [Azure Monitor 的高级功能](../azure-monitor/platform/metrics-charts.md)。
 
 <a id="analyzing-log-data"></a>
 ## <a name="analyzing-logs"></a>分析日志
@@ -111,14 +111,14 @@ Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有
 | AmlComputeJobEvent | Azure 机器学习计算上运行的作业的事件。 |
 
 > [!IMPORTANT]
-> 在 Azure 机器学习菜单中选择“日志”  时，Log Analytics 随即打开，其查询范围设置为当前工作区。 这意味着日志查询只包含来自该资源的数据。 如果希望运行的查询包含其他数据库或其他 Azure 服务的数据，请从“Azure Monitor”菜单中选择“日志”。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](/azure/azure-monitor/log-query/scope/)。
+> 在 Azure 机器学习菜单中选择“日志”时，Log Analytics 随即打开，其查询范围设置为当前工作区。 这意味着日志查询只包含来自该资源的数据。 如果希望运行的查询包含其他数据库或其他 Azure 服务的数据，请从“Azure Monitor”菜单中选择“日志”。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../azure-monitor/log-query/scope.md)。
 
 请参阅 [Azure 机器学习监视数据参考](monitor-resource-reference.md)，详细了解相关日志和指标。
 
 ### <a name="sample-kusto-queries"></a>示例 Kusto 查询
 
 > [!IMPORTANT]
-> 从 [服务名称] 菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前 Azure 机器学习工作区。 这意味着日志查询只包含来自该资源的数据。 如果要运行的查询包含来自其他工作区或其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 " **日志** "。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](/azure/azure-monitor/log-query/scope/)。
+> 从 [服务名称] 菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前 Azure 机器学习工作区。 这意味着日志查询只包含来自该资源的数据。 如果要运行的查询包含来自其他工作区或其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 " **日志** "。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../azure-monitor/log-query/scope.md)。
 
 下面是一些可用于帮助监视 Azure 机器学习资源的查询： 
 
@@ -156,7 +156,7 @@ Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有
 
 ## <a name="alerts"></a>警报
 
-可以通过从“Azure Monitor”  菜单中打开“警报”  ，来访问 Azure 机器学习的警报。 请参阅[使用 Azure Monitor 创建、查看和管理指标警报](/azure/azure-monitor/platform/alerts-metric)，详细了解如何创建警报。
+可以通过从“Azure Monitor”菜单中打开“警报”，来访问 Azure 机器学习的警报。 请参阅[使用 Azure Monitor 创建、查看和管理指标警报](../azure-monitor/platform/alerts-metric.md)，详细了解如何创建警报。
 
 下表列出了常见和推荐使用的 Azure 机器学习的指标警报规则：
 
@@ -170,4 +170,4 @@ Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有
 
 - 有关日志和指标的参考，请参阅 [监视 Azure 机器学习数据参考](monitor-resource-reference.md)。
 - 有关如何使用与 Azure 机器学习相关的配额的信息，请参阅[管理和请求 Azure 资源配额](how-to-manage-quotas.md)。
-- 有关监视 Azure 资源的详细信息，请参阅[通过 Azure Monitor 监视 Azure 资源](/azure/azure-monitor/insights/monitor-azure-resource)。
+- 有关监视 Azure 资源的详细信息，请参阅[通过 Azure Monitor 监视 Azure 资源](../azure-monitor/insights/monitor-azure-resource.md)。

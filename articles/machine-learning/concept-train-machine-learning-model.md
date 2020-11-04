@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675679"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324824"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>使用 Azure 机器学习训练模型
 
@@ -41,13 +41,13 @@ Azure 机器学习提供多种方法来训练模型，从使用 SDK 的代码优
 
 可以将适用于 Python 的 Azure 机器学习 SDK 与 Azure 机器学习结合使用，来构建和运行机器学习工作流。 可以通过交互式式 Python 会话、Jupyter Notebook、Visual Studio Code 或其他 IDE 与服务进行交互。
 
-* [什么是适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [安装/更新 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [什么是适用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [安装/更新 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [配置 Azure 机器学习的开发环境](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>运行配置
 
-可以使用 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 定义 Azure 机器学习的常规训练作业。 然后使用脚本运行配置和训练脚本针对计算目标训练模型。
+可以使用 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 定义 Azure 机器学习的常规训练作业。 然后使用脚本运行配置和训练脚本针对计算目标训练模型。
 
 可以从本地计算机的运行配置开始，然后根据需要切换到基于云的计算目标。 更改计算目标时，只需更改所使用的运行配置。 运行还会记录有关训练作业的信息，例如输入、输出和日志。
 
@@ -90,8 +90,8 @@ Azure 训练生命周期包括：
 1. 构建 dockerfile 或将其下载到计算节点 
     1. 系统会计算以下各项的哈希： 
         - 基础映像 
-        - 自定义 Docker 步骤（请参阅[使用自定义 Docker 基础映像部署模型](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)）
-        - Conda 定义 YAML（请参阅[在 Azure 机器学习中创建和使用软件环境](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)）
+        - 自定义 Docker 步骤（请参阅[使用自定义 Docker 基础映像部署模型](./how-to-deploy-custom-docker-image.md)）
+        - Conda 定义 YAML（请参阅[在 Azure 机器学习中创建和使用软件环境](./how-to-use-environments.md)）
     1. 在工作区 Azure 容器注册表 (ACR) 中查找时，系统使用此哈希作为键
     1. 如果找不到，它会在全局 ACR 中寻找匹配项
     1. 如果找不到，系统会生成新映像（该映像会被缓存并注册到工作区 ACR）
@@ -101,7 +101,7 @@ Azure 训练生命周期包括：
 1. 将写入到 `./outputs` 的日志、模型文件和其他文件保存到与工作区关联的存储帐户
 1. 纵向缩减计算，包括删除临时存储 
 
-如果选择在本地计算机上进行训练（“配置为本地运行”），则无需使用 Docker。 可以在本地使用 Docker，前提是你选择这样做（有关示例，请参阅[配置 ML 管道](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline )部分）。
+如果选择在本地计算机上进行训练（“配置为本地运行”），则无需使用 Docker。 可以在本地使用 Docker，前提是你选择这样做（有关示例，请参阅[配置 ML 管道](./how-to-debug-pipelines.md)部分）。
 
 ## <a name="r-sdk-preview"></a>R SDK（预览版）
 

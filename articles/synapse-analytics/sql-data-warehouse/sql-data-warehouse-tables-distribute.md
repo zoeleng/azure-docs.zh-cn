@@ -1,6 +1,6 @@
 ---
 title: 分布式表设计指南
-description: 有关在 Synapse SQL 池中设计哈希分布式表和轮循机制分布式表的一些建议。
+description: 使用 Azure Synapse 分析中的专用 SQL 池设计哈希分布式表和轮循机制分布式表的建议。
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487001"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323619"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>在 Synapse SQL 池中设计分布式表的指南
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用专用 SQL 池设计分布式表的指南
 
-在 Synapse SQL 池中设计哈希分布式表和轮循机制分布式表的一些建议。
+用于在专用 SQL 池中设计哈希分布式和轮循机制分布式表的建议。
 
-本文假设你熟悉 Synapse SQL 中的数据分布和数据移动概念。  有关详细信息，请参阅 [Azure Synapse 分析体系结构](massively-parallel-processing-mpp-architecture.md)。
+本文假设你熟悉专用 SQL 池中的数据分发和数据移动概念。  有关详细信息，请参阅 [Azure Synapse 分析体系结构](massively-parallel-processing-mpp-architecture.md)。
 
 ## <a name="what-is-a-distributed-table"></a>什么是分布式表？
 
 分布式表显示为单个表，但表中的行实际存储在 60 个分布区中。 这些行使用哈希或轮循机制算法进行分布。  
 
-**哈希分布式表**可提高大型事实数据表的查询性能，本文会重点进行介绍。 **轮循机制表**可用于提高加载速度。 这些设计选择对提高查询和加载性能具有重大影响。
+**哈希分布式表** 可提高大型事实数据表的查询性能，本文会重点进行介绍。 **轮循机制表** 可用于提高加载速度。 这些设计选择对提高查询和加载性能具有重大影响。
 
 另一个表存储选项是跨所有计算节点复制一个小型表。 有关详细信息，请参阅[复制表的设计准则](design-guidance-for-replicated-tables.md)。 若要在这三个选项之间快速选择其一，请参阅[表概述](sql-data-warehouse-tables-overview.md)中的分布式表。
 
@@ -36,7 +36,7 @@ ms.locfileid: "92487001"
 
 - 表有多大？
 - 表的刷新频率是多少？
-- Synapse SQL 池中有事实数据表和维度表吗？
+- 是否在专用 SQL 池中有事实数据表和维度表？
 
 ### <a name="hash-distributed"></a>哈希分布
 
@@ -44,7 +44,7 @@ ms.locfileid: "92487001"
 
 ![分布式表](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "分布式表")  
 
-由于相同的值始终哈希处理到相同的分布区，因此，数据仓库本身就具有行位置方面的信息。 在 Synapse SQL 池中，利用此信息可最大程度地减少查询期间的数据移动，从而提高查询性能。
+由于相同的值始终哈希处理到相同的分布区，因此，数据仓库本身就具有行位置方面的信息。 在专用 SQL 池中，此知识用于最大程度地减少查询期间的数据移动，从而提高查询性能。
 
 哈希分布表适用于星型架构中的大型事实数据表。 它们可以包含大量行，但仍实现高性能。 当然，用户应该了解一些设计注意事项，它们有助于获得分布式系统本应具有的性能。 本文所述的选择合适的分布列就是其中之一。
 
@@ -109,17 +109,17 @@ WITH
 
 - **具有许多唯一值。** 分布列可以有一些重复值。 但具有相同值的所有行都分配到相同的分布区。 由于有 60 个分布区，分布列应具有至少 60 个唯一值。  通常情况下，唯一值的数量要多得多。
 - **没有 NULL 值，或者只有几个 NULL 值。** 在极端示例中，如果列中的所有值均为 NULL，则所有行都分配到相同的分布区。 因此，查询处理会向一个分布区倾斜，无法从并行处理中受益。
-- **不是日期列**。 同一日期的所有数据都落在相同的分布区。 如果多个用户都筛选同一个日期，则会由 60 个分布区中的 1 个分布区单独执行所有处理工作。
+- **不是日期列** 。 同一日期的所有数据都落在相同的分布区。 如果多个用户都筛选同一个日期，则会由 60 个分布区中的 1 个分布区单独执行所有处理工作。
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>选择能最大程度减少数据移动的分布列
 
-为了获取正确的查询结果，查询可能将数据从一个计算节点移至另一个计算节点。 当查询对分布式表执行联接和聚合操作时，通常会发生数据移动。 选择能最大程度减少数据移动的分布列，这是优化 Synapse SQL 池性能最重要的策略之一。
+为了获取正确的查询结果，查询可能将数据从一个计算节点移至另一个计算节点。 当查询对分布式表执行联接和聚合操作时，通常会发生数据移动。 选择有助于最大程度减少数据移动的分布列是优化专用 SQL 池性能的最重要策略之一。
 
 若要最大程度减少数据移动，请选择符合以下条件的分布列：
 
 - 用于 `JOIN`、`GROUP BY`、`DISTINCT`、`OVER` 和 `HAVING` 子句。 当两个大型事实数据表频繁联接时，如果将这两个表分布在某个联接列上，查询性能将得到提升。  如果某个表不进行联接操作，则考虑将该表分布在经常出现在 `GROUP BY` 子句中的列上。
-- *不*用于 `WHERE` 子句。 这可以缩小查询范围，从而不必在所有分布区上运行查询。
-- *不*是日期列。 WHERE 子句通常按日期进行筛选。  在这种情况下，可能会在少数几个分布区上运行所有处理。
+- *不* 用于 `WHERE` 子句。 这可以缩小查询范围，从而不必在所有分布区上运行查询。
+- *不* 是日期列。 WHERE 子句通常按日期进行筛选。  在这种情况下，可能会在少数几个分布区上运行所有处理。
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>没有合适分布列时怎么办
 
@@ -166,7 +166,7 @@ order by two_part_name, row_count
 
 若要避免在联接过程中移动数据，应遵循以下做法：
 
-- 参与联接的列的相关表必须哈希分布在**一个**联接列中。
+- 参与联接的列的相关表必须哈希分布在 **一个** 联接列中。
 - 两个表之间联接列的数据类型必须匹配。
 - 必须使用 equals 运算符联接列。
 - 联接类型不能是 `CROSS JOIN`。
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 若要创建分布式表，请使用以下语句之一：
 
-- [CREATE TABLE（Synapse SQL 池）](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT（Synapse SQL 池）](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [ (专用 SQL 池 CREATE TABLE) ](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE 为 SELECT (专用 SQL 池) ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

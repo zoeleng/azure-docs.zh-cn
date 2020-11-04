@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092987"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323755"
 ---
 # <a name="execute-python-script-module"></a>“执行 Python 脚本”模块
 
@@ -61,7 +61,7 @@ if spec is None:
 > Excute Python 脚本模块不支持安装依赖于 "apt" 等命令的额外本机库的包，例如 Java、PyODBC 等。这是因为，此模块是在仅预安装了 Python 并且具有非管理员权限的简单环境中执行的。  
 
 ## <a name="upload-files"></a>上传文件
-“执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-) 上传文件。
+“执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-) 上传文件。
 
 以下示例演示如何在“执行 Python 脚本”模块中上传映像文件：
 
@@ -315,4 +315,4 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅 Azure 机器学习的[可用模块集](module-reference.md)。 
+请参阅 Azure 机器学习的[可用模块集](module-reference.md)。

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f9d6f58256ccc21e5121a16a429e0f4c3ff1e485
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899326"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323094"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure 机器学习的企业安全和管理
 
@@ -45,7 +45,7 @@ ms.locfileid: "92899326"
 |身份验证方法|说明|Azure 容器实例|AKS|
 |---|---|---|---|
 |密钥|密钥是静态的，无需刷新。 可以手动重新生成密钥。|默认情况下禁用| 默认情况下启用|
-|令牌|令牌会在指定的时限后过期，需要刷新。| 不可用| 默认情况下禁用 |
+|标记|令牌会在指定的时限后过期，需要刷新。| 不可用| 默认情况下禁用 |
 
 有关代码示例，请参阅 [Web 服务身份验证](how-to-setup-authentication.md#web-service-authentication)部分。
 
@@ -85,7 +85,7 @@ ms.locfileid: "92899326"
 
 每个工作区还有一个关联的系统分配的托管标识，该标识与工作区同名。 托管标识对工作区中使用的附加资源拥有以下权限。
 
-有关托管标识的详细信息，请参阅 [Azure 资源的托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。
+有关托管标识的详细信息，请参阅 [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)。
 
 | 资源 | 权限 |
 | ----- | ----- |
@@ -100,7 +100,7 @@ ms.locfileid: "92899326"
 
 Azure 机器学习将在订阅中为每个工作区区域创建一个额外的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头），该应用程序具有参与者级别的访问权限。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 通过这些应用程序，Azure 机器学习可帮助管理计算资源。
 
-## <a name="network-security"></a>网络安全
+## <a name="network-security"></a>网络安全性
 
 Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源（计算目标）用于训练和部署模型。 可以在虚拟网络中创建这些计算目标。 例如，可以使用 Azure Data Science Virtual Machine 来训练模型，然后将模型部署到 AKS。  
 
@@ -118,7 +118,7 @@ Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源
 ### <a name="encryption-at-rest"></a>静态加密
 
 > [!IMPORTANT]
-> 如果工作区包含敏感数据，我们建议在创建工作区时设置 [hbi_workspace 标志](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)。 只能在创建工作区时设置 `hbi_workspace` 标志。 不能更改现有工作区的这个标志。
+> 如果工作区包含敏感数据，我们建议在创建工作区时设置 [hbi_workspace 标志](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)。 只能在创建工作区时设置 `hbi_workspace` 标志。 不能更改现有工作区的这个标志。
 
 `hbi_workspace` 标志控制 [Microsoft 为诊断而收集的数据](#microsoft-collected-data)量，并[在 Microsoft 托管环境中启用其他加密](../security/fundamentals/encryption-atrest.md)。 此外，该标志启用以下操作：
 
@@ -131,7 +131,7 @@ Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源
 
 Azure 机器学习在绑定到 Azure 机器学习工作区和订阅的 Azure Blob 存储帐户中存储快照、输出与日志。 Azure Blob 存储中存储的所有数据已通过 Microsoft 管理的密钥静态加密。
 
-有关如何对 Azure Blob 存储中存储的数据使用自己密钥的信息，请参阅[使用 Azure Key Vault 中客户管理的密钥进行 Azure 存储加密](../storage/common/storage-encryption-keys-portal.md)。
+有关如何对 Azure Blob 存储中存储的数据使用自己密钥的信息，请参阅[使用 Azure Key Vault 中客户管理的密钥进行 Azure 存储加密](../storage/common/customer-managed-keys-configure-key-vault.md)。
 
 训练数据通常也存储在 Azure Blob 存储中，因此可供训练计算目标访问。 此存储并不受 Azure 机器学习管理，而是作为远程文件系统装载到计算目标上。
 
@@ -151,12 +151,12 @@ Azure 机器学习在 Azure Cosmos DB 实例中存储指标和元数据。 此�
 
 * 创建 Azure 机器学习工作区时，请使用以下参数。 这两个参数都是必需的，并且在 SDK、CLI、REST API 和资源管理器模板中受支持。
 
-    * `resource_cmk_uri`：此参数是密钥保管库中客户管理的密钥的完整资源 URI，其中包括[密钥的版本信息](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning)。 
+    * `resource_cmk_uri`：此参数是密钥保管库中客户管理的密钥的完整资源 URI，其中包括[密钥的版本信息](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)。 
 
     * `cmk_keyvault`：此参数是订阅中密钥保管库的资源 ID。 此密钥保管库位于要用于 Azure 机器学习工作区的同一区域和订阅中。 
     
         > [!NOTE]
-        > 此密钥保管库实例可能不同于在预配工作区时 Azure 机器学习创建的密钥保管库。 如果要对工作区使用相同的密钥保管库实例，请在使用 [key_vault 参数](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)预配工作区时传递相同的密钥保管库。 
+        > 此密钥保管库实例可能不同于在预配工作区时 Azure 机器学习创建的密钥保管库。 如果要对工作区使用相同的密钥保管库实例，请在使用 [key_vault 参数](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)预配工作区时传递相同的密钥保管库。 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -171,7 +171,7 @@ Azure 机器学习在 Azure Cosmos DB 实例中存储指标和元数据。 此�
 若要使用自己的（客户管理的）密钥来加密 Azure 容器注册表，需要创建自己的 ACR 并在预配工作区时附加它，或者加密预配工作区时创建的默认实例。
 
 > [!IMPORTANT]
-> Azure 机器学习要求在 Azure 容器注册表中启用管理员帐户。 创建容器注册表时，默认情况下此设置已禁用。 有关如何启用管理员帐户的信息，请参阅[管理员帐户](/azure/container-registry/container-registry-authentication#admin-account)。
+> Azure 机器学习要求在 Azure 容器注册表中启用管理员帐户。 创建容器注册表时，默认情况下此设置已禁用。 有关如何启用管理员帐户的信息，请参阅[管理员帐户](../container-registry/container-registry-authentication.md#admin-account)。
 >
 > 为工作区创建 Azure 容器注册表后，请不要将其删除。 删除该注册表将损坏 Azure 机器学习工作区。
 
@@ -193,7 +193,7 @@ Azure 机器学习在 Azure Cosmos DB 实例中存储指标和元数据。 此�
 
 有关如何创建和使用部署配置的详细信息，请参阅以下文章：
 
-* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 参考
+* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 参考
 * [部署方式和位置](how-to-deploy-and-where.md)
 * [将模型部署到 Azure 容器实例](how-to-deploy-azure-container-instance.md)
 
@@ -222,7 +222,7 @@ Azure Databricks 可在 Azure 机器学习管道中使用。 默认情况下，A
 
 Azure 机器学习使用 TLS 来保护各种 Azure 机器学习微服务之间的内部通信。 所有 Azure 存储访问也都通过安全通道进行。
 
-Azure 机器学习使用 TLS 来保护对评分终结点的外部调用。 有关详细信息，请参阅[使用 TLS 通过 Azure 机器学习来保护 Web 服务](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)。
+Azure 机器学习使用 TLS 来保护对评分终结点的外部调用。 有关详细信息，请参阅[使用 TLS 通过 Azure 机器学习来保护 Web 服务](./how-to-secure-web-service.md)。
 
 ### <a name="using-azure-key-vault"></a>使用 Azure Key Vault
 
@@ -242,7 +242,7 @@ Azure HDInsight 等计算目标和 VM 的 SSH 密码与密钥存储在与 Micros
 
 Microsoft 可能会收集非用户标识信息，如资源名称（例如数据集名称或机器学习试验名称）或用于诊断的作业环境变量。 所有此类数据都使用 Microsoft 托管密钥存储在 Microsoft 拥有的订阅中托管的存储中，并遵循 [Microsoft 的标准隐私策略和数据处理标准](https://privacy.microsoft.com/privacystatement)。
 
-Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥机密）。 我们会记录、加密和存储环境变量。 同样，为 [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) 命名时，请避免包含用户名或机密项目名称等敏感信息。 此信息可能会出现在可供 Microsoft 支持部门工程师访问的遥测日志中。
+Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥机密）。 我们会记录、加密和存储环境变量。 同样，为 [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 命名时，请避免包含用户名或机密项目名称等敏感信息。 此信息可能会出现在可供 Microsoft 支持部门工程师访问的遥测日志中。
 
 预配工作区时，可以通过将 `hbi_workspace` 参数设置为 `TRUE` 来选择退出收集诊断数据。 使用 AzureML Python SDK、CLI、REST API 或 Azure 资源管理器模板时支持此功能。
 
@@ -262,7 +262,7 @@ Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥�
 
 指标包含有关运行、部署和注册的信息。
 
-有关详细信息，请参阅 [Azure Monitor 中的指标](/azure/azure-monitor/platform/data-platform-metrics)。
+有关详细信息，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
 
 ### <a name="activity-log"></a>活动日志
 
@@ -289,7 +289,7 @@ Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥�
 
 ### <a name="vulnerability-scanning"></a>漏洞扫描
 
-Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 对于 Azure 机器学习，应启用对 Azure 容器注册表资源和 Azure Kubernetes 服务资源的扫描。 请参阅[通过安全中心扫描 Azure 容器注册表映像](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)和 [Azure Kubernetes 服务与安全中心的集成](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)。
+Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 对于 Azure 机器学习，应启用对 Azure 容器注册表资源和 Azure Kubernetes 服务资源的扫描。 请参阅[通过安全中心扫描 Azure 容器注册表映像](../security-center/defender-for-container-registries-introduction.md)和 [Azure Kubernetes 服务与安全中心的集成](../security-center/defender-for-kubernetes-introduction.md)。
 
 ## <a name="data-flow-diagrams"></a>数据流示意图
 
@@ -364,12 +364,12 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 
 ## <a name="audit-and-manage-compliance"></a>审核和管理合规性
 
-[Azure Policy](/azure/governance/policy) 是一种管理工具，你可用它来确保 Azure 资源符合你的策略。 通过 Azure 机器学习，你可分配以下策略：
+[Azure Policy](../governance/policy/index.yml) 是一种管理工具，你可用它来确保 Azure 资源符合你的策略。 通过 Azure 机器学习，你可分配以下策略：
 
 * **客户管理的密钥** ：审核或强制执行工作区是否必须使用客户管理的密钥。
 * **专用链接** ：审核工作区是否使用专用终结点与虚拟网络进行通信。
 
-有关 Azure Policy 的详细信息，请参阅 [Azure Policy 文档](/azure/governance/policy/overview)。
+有关 Azure Policy 的详细信息，请参阅 [Azure Policy 文档](../governance/policy/overview.md)。
 
 若要详细了解特定于 Azure 机器学习的策略，请参阅[使用 Azure Policy 审核和管理合规性](how-to-integrate-azure-policy.md)。
 
@@ -384,4 +384,4 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 * [将 Azure 机器学习与 Azure 防火墙配合使用](how-to-access-azureml-behind-firewall.md)
 * [通过 Azure 虚拟网络使用 Azure 机器学习](how-to-network-security-overview.md)
 * [有关构建建议系统的最佳实践](https://github.com/Microsoft/Recommenders)
-* [在 Azure 上生成实时建议 API](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)
+* [在 Azure 上生成实时建议 API](/azure/architecture/reference-architectures/ai/real-time-recommendation)

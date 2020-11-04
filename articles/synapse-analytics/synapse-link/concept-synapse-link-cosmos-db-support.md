@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: fa05f8a8b05a0acddae906a93c90c42424466969
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127005"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322595"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse Link for Azure Cosmos DB（预览版）支持的特性
 
@@ -40,7 +40,7 @@ Azure Cosmos DB 中有两种类型的容器：
 | **写入**   | 可以使用 Azure Synapse 运行时将数据写入 Azure Cosmos DB 容器 | 是 | 否 |
 
 * 如果将数据从 Spark 写入 Azure Cosmos DB 容器，则会通过 Azure Cosmos DB 的事务存储进行此过程。 它将通过使用请求单位来影响 Azure Cosmos DB 的事务性能。
-* 目前不支持通过外部表进行 SQL 池集成。
+* 当前不支持通过外部表的专用 SQL 池集成。
  
 ## <a name="supported-code-generated-actions-for-spark"></a>支持的 Spark 代码生成的操作
 
@@ -64,4 +64,4 @@ Azure Cosmos DB 中有两种类型的容器：
 ## <a name="next-steps"></a>后续步骤
 
 * 请参阅如何[连接到 Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [了解如何使用 Spark 查询分析存储](how-to-query-analytical-store-spark.md)
+* [了解如何通过 Spark 查询 Cosmos DB 分析存储](how-to-query-analytical-store-spark.md)

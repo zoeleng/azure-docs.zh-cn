@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4aec299e15964d45ad949034ba02729ff43934de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043150"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322205"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 和8600迁移到 Azure 文件同步
 
@@ -163,7 +163,7 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 * 如果需要 [高级 Azure 文件共享的性能](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)，请选择 "高级存储"。
 * 为常规用途文件服务器工作负荷（包括热数据和存档数据）选择 "标准存储"。 如果在云中共享中的唯一工作负荷将 Azure 文件同步，请选择 "标准存储"。
 
-#### <a name="account-kind"></a>帐户类型
+#### <a name="account-kind"></a>帐户种类
 
 * 对于标准存储，请选择 *StorageV2 (常规用途 v2)* 。
 * 对于高级文件共享，请选择 " *FileStorage* "。
@@ -180,7 +180,7 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 > [!NOTE]
 > 只有 LRS 和 ZRS 冗余类型与大 100-TiB 容量的 Azure 文件共享兼容。
 
-当前不支持所有变体中的全局冗余存储 (GRS) 。 稍后可以切换冗余类型，并在 Azure 中的支持到达时切换到 GRS。
+当前不支持所有变体中的异地冗余存储 (GRS) 。 稍后可以切换冗余类型，并在 Azure 中的支持到达时切换到 GRS。
 
 #### <a name="enable-100-tib-capacity-file-shares"></a>启用 100-TiB 文件共享
 
@@ -209,7 +209,7 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="显示新文件共享 UI 的 Azure 门户屏幕截图。":::
     :::column-end:::
     :::column:::
-        </br>名称</br>支持小写字母、数字和连字符。</br></br>**配额**</br>此处的配额相当于 Windows Server 实例上的 SMB 硬配额。 最佳做法是不要在此处设置配额，因为在达到配额时，迁移和其他服务将会失败。</br></br>**层级**</br>为新的文件共享选择 " **事务优化** "。 在迁移过程中，将发生许多事务。 将层更改为最适合工作负荷的层会更经济高效。
+        </br>**Name**</br>支持小写字母、数字和连字符。</br></br>**配额**</br>此处的配额相当于 Windows Server 实例上的 SMB 硬配额。 最佳做法是不要在此处设置配额，因为在达到配额时，迁移和其他服务将会失败。</br></br>**层级**</br>为新的文件共享选择 " **事务优化** "。 在迁移过程中，将发生许多事务。 将层更改为最适合你的工作负荷的层会更经济高效。
     :::column-end:::
 :::row-end:::
 
@@ -270,21 +270,21 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 |语义字符          | 含义  |
 |:---------------------------|:---------|
 | **\\**                     | 根级别指示器。       |
-| **\>**                     | [Source] 和 [目标映射运算符。     |
+| **\>**                     | [Source] 和 [target 映射] 运算符。     |
 |**\|** 或返回 (换行)  | 两个文件夹映射指令的分隔符。 </br>或者，您可以省略此字符，然后选择 **Enter** 以在其自己的行上获取下一个映射表达式。        |
 
 ### <a name="examples"></a>示例
 将文件夹 *用户数据* 的内容移动到目标文件共享的根目录：
 ``` console
-\User data > \\
+\User data > \
 ```
 将整个卷内容移动到目标文件共享上的新路径中：
 ``` console
-\ \> \Apps\HR tracker
+\ > \Apps\HR tracker
 ```
 将源文件夹内容移动到目标文件共享上的新路径中：
 ``` console
-\HR resumes-Backup \> \Backups\HR\resumes
+\HR resumes-Backup > \Backups\HR\resumes
 ```
 将多个源位置排序为新的目录结构：
 ``` console
@@ -296,7 +296,7 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 ### <a name="semantic-rules"></a>语义规则
 
 * 始终指定相对于根级别的文件夹路径。
-* 使用根级别指示器开始每个文件夹路径 \" 。
+* 开始每个具有根级别指示器 "" 的文件夹路径 \\ 。
 * 不要包含驱动器号。
 * 指定多个路径时，源路径或目标路径不能重叠：</br>
    无效的源路径重叠示例：</br>
@@ -518,7 +518,7 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
    :::column-end:::
 :::row-end:::
 
-在配置 RoboCopy 命令的源和目标位置时，请确保查看源和目标的结构，以确保它们匹配。 如果使用了迁移作业的目录映射功能，则根目录结构可能不同于 StorSimple 卷的结构。 如果是这种情况，则可能需要多个 RoboCopy 作业，每个子目录一个。
+在配置 RoboCopy 命令的源和目标位置时，请确保查看源和目标的结构，以确保它们匹配。 如果使用了迁移作业的目录映射功能，则根目录结构可能不同于 StorSimple 卷的结构。 如果是这种情况，则可能需要多个 RoboCopy 作业，每个子目录一个。 如果不确定命令是否将按预期执行，则可以使用 */l* 参数，该参数将模拟命令而不进行任何更改。
 
 此 RoboCopy 命令使用/MIR，因此不会移动与 (分层文件相同的文件，例如) 。 但如果源路径和目标路径错误，/MIR 还会清除 StorSimple 源路径上不存在的 Windows Server 实例或 Azure 文件共享上的目录结构。 对于 RoboCopy 作业，它们必须完全匹配，以达到其预期目的：通过在迁移过程中进行的最新更改来更新已迁移的内容。
 
@@ -547,7 +547,7 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 在开始之前，最佳做法是在生产环境中观察新的 Azure 文件同步部署。 这种时间使您有机会解决您可能遇到的任何问题。 在至少经过几天的时间内观察到 Azure 文件同步部署后，可以按以下顺序开始预配资源：
 
 1. 通过 Azure 门户取消预配 StorSimple 数据管理器资源。 所有 DTS 作业都将随之一起删除。 你将无法轻松地检索复制日志。 如果它们对你的记录很重要，请在取消预配前检索它们。
-1. 确保已迁移 StorSimple 物理设备，然后将其注销。 如果你不完全确定它们已迁移，请勿继续。 如果在这些资源仍是必需的情况下将其取消预配，则无法恢复数据或其配置。
+1. 确保已迁移 StorSimple 物理设备，然后将其注销。 如果你不完全确定它们已迁移，请勿继续。 如果在这些资源仍是必需的情况下将其取消预配，则无法恢复数据或其配置。<br>或者，你可以首先取消预配 StorSimple 卷资源，这会清除设备上的数据。 这可能需要几天时间，并 **不会** 取证式设备上的数据。 如果这对你来说很重要，请分别从资源取消预配和根据策略处理磁盘清。
 1. 如果 StorSimple 设备管理器中没有剩余的已注册的设备，则可以继续删除设备管理器资源本身。
 1. 现在可以在 Azure 中删除 StorSimple 存储帐户。 同样，在继续操作之前，停止并确认迁移已完成，并且不会有任何内容依赖于此数据。
 1. 从数据中心拔出 StorSimple 物理设备。

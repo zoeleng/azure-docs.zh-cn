@@ -11,16 +11,16 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: aa58ad09a6db212633e51b89c390ff0330943131
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: be625d99d1b57ff3c66528b8af6fa0273d013ebe
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279855"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325460"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics 数据集成合作伙伴
 
-有各种行业领先的工具可供选择，帮助你使用 Azure Synapse 的 Synapse SQL 池功能创建数据仓库解决方案。 本文重点介绍其官方数据集成解决方案支持 Azure Synapse 的 Microsoft 合作伙伴公司。
+若要在 Azure Synapse Analytics 中使用专用 SQL 池创建数据仓库解决方案，可以从各种行业领先工具中进行选择。 本文重点介绍其官方数据集成解决方案支持 Azure Synapse 的 Microsoft 合作伙伴公司。
 
 ## <a name="data-integration-partners"></a>数据集成合作伙伴
 

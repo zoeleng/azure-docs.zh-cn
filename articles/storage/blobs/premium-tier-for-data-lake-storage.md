@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131150"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324223"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage 的高级层
 
@@ -103,3 +103,12 @@ AI/ML 可以解决不同数据类型（例如视觉对象、语音和文本）�
 |澳大利亚东部|LRS、ZRS|
 |澳大利亚东南部|LRS|
 |巴西南部|LRS|
+
+## <a name="next-steps"></a>后续步骤
+
+将高级层用于 Azure Data Lake Storage 与你喜欢的分析服务（如 Azure Databricks、Azure HDInsight 和 Azure Synapse Analytics）结合使用。 
+
+- [教程：Azure Data Lake Storage Gen2、Azure Databricks 和 Spark](data-lake-storage-use-databricks-spark.md) 
+- [将 Azure Data Lake Storage Gen2 与 Azure HDInsight 群集配合使用](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) HDInsight 目前支持使用高级性能层的帐户以及启用了加速写入功能的 HBase 群集。
+- [快速入门：创建 Synapse 工作区](../../synapse-analytics/quickstart-create-workspace.md)
+

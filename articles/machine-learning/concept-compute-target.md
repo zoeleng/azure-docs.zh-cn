@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841931"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322280"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>什么是 Azure 机器学习中的计算目标?
 
-*计算目标*是指定的计算资源或环境，你可以在其中运行训练脚本或托管你的服务部署。 此位置可以是本地计算机，也可以是基于云的计算资源。 使用计算目标可以轻松地更改计算环境，而无需更改代码。
+*计算目标* 是指定的计算资源或环境，你可以在其中运行训练脚本或托管你的服务部署。 此位置可以是本地计算机，也可以是基于云的计算资源。 使用计算目标可以轻松地更改计算环境，而无需更改代码。
 
 在典型的模型开发生命周期中，你可以：
 
@@ -54,7 +54,7 @@ Azure 机器学习为不同的计算目标提供不同的支持。 典型的模�
 
 * 用于定期处理批处理数据的 _批处理推理_ 终结点。 批处理推断使用 [Azure 机器学习计算群集](how-to-create-attach-compute-cluster.md)。
 
-* 转到 IoT 设备（预览版）。 IoT 设备的部署仅依赖 Azure 机器学习来生成 Docker 容器。 在这里，它是使用 Azure IoT Edge 部署的。 有关详细信息，请参阅[部署为 IoT Edge 模块（预览版）](/azure/iot-edge/tutorial-deploy-machine-learning)。
+* 转到 IoT 设备（预览版）。 IoT 设备的部署仅依赖 Azure 机器学习来生成 Docker 容器。 在这里，它是使用 Azure IoT Edge 部署的。 有关详细信息，请参阅[部署为 IoT Edge 模块（预览版）](../iot-edge/tutorial-deploy-machine-learning.md)。
 
 了解[在何处以及如何将模型部署到计算目标](how-to-deploy-and-where.md)。
 
@@ -89,7 +89,7 @@ Azure 机器学习为不同的计算目标提供不同的支持。 典型的模�
 
 ### <a name="supported-vm-series-and-sizes"></a>支持的 VM 系列和大小
 
-为 Azure 机器学习中的托管计算资源选择节点大小时，可以从 Azure 提供的选定 VM 大小中进行选择。 Azure 针对不同工作负载为 Linux 和 Windows 提供了一系列大小。 若要了解详细信息，请参阅 [VM 类型和大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+为 Azure 机器学习中的托管计算资源选择节点大小时，可以从 Azure 提供的选定 VM 大小中进行选择。 Azure 针对不同工作负载为 Linux 和 Windows 提供了一系列大小。 若要了解详细信息，请参阅 [VM 类型和大小](../virtual-machines/sizes.md)。
 
 选择 VM 大小时有几个例外和限制：
 
@@ -133,7 +133,7 @@ Azure 机器学习计算提供隔离于特定硬件类型并专用于单个客�
 
 *支持 RDMA
 
-若要了解有关隔离的详细信息，请参阅 [Azure 公有云中的隔离](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)。
+若要了解有关隔离的详细信息，请参阅 [Azure 公有云中的隔离](../security/fundamentals/isolation-choices.md)。
 
 ## <a name="unmanaged-compute"></a>非托管计算
 

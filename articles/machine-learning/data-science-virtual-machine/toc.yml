@@ -61,7 +61,7 @@
 - name: 资源
   items:
     - name: Microsoft Q&A 问题页面
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-science-vm.html'
+      href: /answers/topics/azure-data-science-vm.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: R 开发人员指南

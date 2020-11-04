@@ -9,20 +9,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907924"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323721"
 ---
 # <a name="feature-hashing-module-reference"></a>“特征哈希处理”模块参考
 
-本文介绍 Azure 机器学习设计器中包含的模块。
+本文介绍 Azure 机器学习设计器中包含的一个模块。
 
 使用“特征哈希处理”模块可将英语文本流转换为一组整数特征。 然后，可将此哈希处理的特征集传递给机器学习算法，以训练文本分析模型。
 
-此模块中提供的特征哈希处理功能基于 nimbusml 框架。 有关详细信息，请参阅 [NgramHash 类](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)。
+此模块中提供的特征哈希处理功能基于 nimbusml 框架。 有关详细信息，请参阅 [NgramHash 类](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)。
 
 ## <a name="what-is-feature-hashing"></a>什么是特征哈希处理？
 
@@ -46,7 +46,7 @@ ms.locfileid: "90907924"
 |I hated|1|
 |I love|1|
 
-可以使用 **N 元语法**属性来控制 n 元语法的大小。 如果选择双元语法，则也会计算单元语法。 字典还包含如下所示的单个字词：
+可以使用 **N 元语法** 属性来控制 n 元语法的大小。 如果选择双元语法，则也会计算单元语法。 字典还包含如下所示的单个字词：
 
 |字词（单元语法）|频率|
 |------------|---------------|
@@ -131,4 +131,4 @@ ms.locfileid: "90907924"
 
 ## <a name="next-steps"></a>后续步骤
             
-参阅 Azure 机器学习[可用的模块集](module-reference.md)。 
+参阅 Azure 机器学习[可用的模块集](module-reference.md)。

@@ -1,5 +1,5 @@
 ---
-title: Azure Analysis Services 代码、项目和数据库示例 | Microsoft Docs
+title: Azure Analysis Services 代码、项目和数据库示例
 description: 本文介绍了资源，以了解有关 Azure Analysis Services 的代码、项目和数据库示例。
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 920cc5142d14308fce412ad44543ddc46dc1663e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324379"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 示例
 
@@ -28,7 +28,7 @@ GitHub 上[用于 Analysis Services 的 Adventure Works](https://github.com/Micr
 
 ## <a name="sample-database-on-azure"></a>Azure 上的示例数据库
 
-Azure Synapse Analytics（SQL 数据仓库）提供了一个示例 AdventureWorksDW 数据库，该数据库可包含在预配的资源中。 若要了解详细信息，请参阅[快速入门：创建和查询 Azure Synapse Analytics SQL 池](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)。
+Azure Synapse Analytics (以前的 SQL 数据仓库) 提供可包含在预配资源中的示例 AdventureWorksDW 数据库。 若要了解详细信息，请参阅 [快速入门：在 Azure Synapse Analytics 中创建和查询专用 SQL 池 ](/azure/sql-data-warehouse/create-data-warehouse-portal)。
 
 ## <a name="sample-databases-on-github"></a>GitHub 上的示例数据库
 

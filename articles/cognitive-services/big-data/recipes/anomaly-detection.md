@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691456"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324618"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>食谱：针对大数据的认知维护和认知服务
 
-此食谱显示了如何在 Spark 上使用 Azure Synapse 分析和认知服务来实现 IoT 设备的预测性维护。 接下来，我们将介绍 [CosmosDB 和 Synapse 链接](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) 示例。 为简单起见，在这种情况下，我们将从 CSV 文件直接读取数据，而不是通过 CosmosDB 和 Synapse 链接获取流数据。 强烈建议您查找 Synapse 链接示例。
+此食谱显示了如何将 Azure Synapse Analytics 和认知 Apache Spark 服务用于 IoT 设备的预测性维护。 接下来，我们将介绍 [CosmosDB 和 Synapse 链接](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) 示例。 为简单起见，在这种情况下，我们将从 CSV 文件直接读取数据，而不是通过 CosmosDB 和 Synapse 链接获取流数据。 强烈建议您查找 Synapse 链接示例。
 
 ## <a name="hypothetical-scenario"></a>假设方案
 
@@ -31,7 +31,7 @@ ms.locfileid: "88691456"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services)
-* 使用[Spark 池](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)配置的[Azure Synapse 工作区](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)
+* 使用[无服务器 Apache Spark 池](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)配置的[Azure Synapse 工作区](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)
 
 ## <a name="setup"></a>设置
 

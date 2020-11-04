@@ -1,6 +1,6 @@
 ---
 title: 使用 IDENTITY 创建代理键
-description: 有关如何使用 IDENTITY 属性在 Synapse SQL 池中创建基于表的代理键的建议和示例。
+description: 使用 IDENTITY 属性在专用 SQL 池中的表上创建代理键的建议和示例。
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 96e81b3d7781f1c6f7bf5743a083e9640dd6c831
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875999"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323588"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>使用 IDENTITY 在 Synapse SQL 池中创建代理键
+# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>使用 IDENTITY 在 AzureSynapse Analytics 中使用专用 SQL 池创建代理键
 
-本文介绍如何使用 IDENTITY 属性在 Synapse SQL 池中创建基于表的代理键的建议和示例。
+本文介绍如何使用 IDENTITY 属性在专用 SQL 池中的表上创建代理键。
 
 ## <a name="what-is-a-surrogate-key"></a>什么是代理键
 
@@ -31,7 +31,7 @@ ms.locfileid: "91875999"
 
 ## <a name="creating-a-table-with-an-identity-column"></a>创建包含 IDENTITY 列的表
 
-IDENTITY 属性设计为能够在 Synapse SQL 池的所有分布区中横向扩展，不会影响加载性能。 因此，IDENTITY 的实现旨在实现这些目标。
+标识属性设计为在不影响负载性能的情况下，在专用 SQL 池中的所有分发中横向扩展。 因此，IDENTITY 的实现旨在实现这些目标。
 
 在首次使用类似以下语句的语法创建表时，可以将表定义为具有 IDENTITY 属性：
 
@@ -53,7 +53,7 @@ WITH
 
 ### <a name="allocation-of-values"></a>值的分配
 
-由于数据仓库的分布式体系结构，IDENTITY 属性不能保证代理值的分配顺序。 IDENTITY 属性设计为能够在 Synapse SQL 池的所有分布区中横向扩展，不会影响加载性能。 
+由于数据仓库的分布式体系结构，IDENTITY 属性不能保证代理值的分配顺序。 标识属性设计为在不影响负载性能的情况下，在专用 SQL 池中的所有分发中横向扩展。 
 
 以下示例对此做了演示：
 
@@ -103,7 +103,7 @@ CREATE TABLE AS SELECT (CTAS) 遵循 SELECT..INTO 中记录的相同 SQL Server 
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>将值显式插入到 IDENTITY 列
 
-Synapse SQL 池支持 `SET IDENTITY_INSERT <your table> ON|OFF` 语法。 可以使用此语法显式将值插入到 IDENTITY 列中。
+专用 SQL 池支持 `SET IDENTITY_INSERT <your table> ON|OFF` 语法。 可以使用此语法显式将值插入到 IDENTITY 列中。
 
 许多数据建模者喜欢在其维度中为某些行使用预定义的负值。 例如，-1 或“未知成员”行。
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > 在将数据加载到包含 IDENTITY 列的表时，当前无法使用 `CREATE TABLE AS SELECT`。
 >
 
-若要详细了解如何加载数据，请参阅[为 Synapse SQL 池设计提取、加载和转换 (ELT)](design-elt-data-loading.md) 和[加载最佳做法](guidance-for-loading-data.md)。
+有关加载数据的详细信息，请参阅为专用 SQL 池和[加载最佳方案](guidance-for-loading-data.md) [ (ELT) 设计提取、加载和转换](design-elt-data-loading.md)。
 
 ## <a name="system-views"></a>系统视图
 
@@ -198,7 +198,7 @@ AND     tb.name = 'T1'
 - 当列也同样是分发键时
 - 当表是外部表时
 
-Synapse SQL 池不支持以下相关函数：
+专用 SQL 池不支持以下相关函数：
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

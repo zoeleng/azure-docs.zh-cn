@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926982"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323796"
 ---
 # <a name="evaluate-model-module"></a>“评估模型”模块
 
@@ -30,7 +30,7 @@ ms.locfileid: "92926982"
 
 
 > [!TIP]
-> 如果你还不熟悉模型评估，我们建议观看 Stephen Elston 博士的视频系列，该系列是 EdX [机器学习课程](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/)的一部分. 
+> 如果你还不熟悉模型评估，我们建议观看 Stephen Elston 博士的视频系列，该系列是 EdX [机器学习课程](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials)的一部分. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>如何使用“评估模型”
@@ -142,4 +142,4 @@ ms.locfileid: "92926982"
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅 Azure 机器学习的[可用模块集](module-reference.md)。 
+请参阅 Azure 机器学习的[可用模块集](module-reference.md)。

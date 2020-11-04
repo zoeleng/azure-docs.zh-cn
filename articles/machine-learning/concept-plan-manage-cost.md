@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f73643baa92956280d67d0d931459af3a80925ee
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233742"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322985"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>计划和管理 Azure 机器学习成本
 
@@ -41,7 +41,7 @@ ms.locfileid: "93233742"
 
 ## <a name="estimate-costs"></a>估算成本
 
-在 Azure 机器学习帐户中创建资源之前，使用 [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator/)估算成本。 在左侧，选择“AI + 机器学习”，然后选择“Azure 机器学习”，开始操作   。  
+在 Azure 机器学习帐户中创建资源之前，使用 [Azure 定价计算器](https://azure.microsoft.com/pricing/calculator/)估算成本。 在左侧，选择“AI + 机器学习”，然后选择“Azure 机器学习”，开始操作 。  
 
 以下屏幕截图显示了使用计算器进行成本估算：
 
@@ -53,11 +53,11 @@ ms.locfileid: "93233742"
 
 ## <a name="get-cost-alerts"></a>获取成本警报
 
-请创建[预算](../cost-management/tutorial-acm-create-budgets.md)来管理成本，并创建[警报](../cost-management/cost-mgt-alerts-monitor-usage-spending.md)以自动通知利益干系人支出异常和超支风险。 警报基于与预算和成本阈值相比的支出。 预算和警报是针对 Azure 订阅和资源组创建的，作为总体成本监视策略的一部分，它们非常有用。 但是，若要管理单个 Azure 服务成本，预算和警报的功能可能有限，因为它们的作用主要是在更宽泛的层面上跟踪成本。
+请创建[预算](../cost-management-billing/costs/tutorial-acm-create-budgets.md)来管理成本，并创建[警报](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md)以自动通知利益干系人支出异常和超支风险。 警报基于与预算和成本阈值相比的支出。 预算和警报是针对 Azure 订阅和资源组创建的，作为总体成本监视策略的一部分，它们非常有用。 但是，若要管理单个 Azure 服务成本，预算和警报的功能可能有限，因为它们的作用主要是在更宽泛的层面上跟踪成本。
 
 ## <a name="monitor-costs"></a>监视成本
 
-将 Azure 机器学习与资源一起使用时，会产生成本。 Azure 资源使用的单位成本随时间间隔（秒、分钟、小时和天）或请求的单位使用量而变化。 一旦开始使用 Azure 机器学习，就会产生成本。 请在 Azure 门户的[成本分析](../cost-management/quick-acm-cost-analysis.md)窗格中查看这些成本。
+将 Azure 机器学习与资源一起使用时，会产生成本。 Azure 资源使用的单位成本随时间间隔（秒、分钟、小时和天）或请求的单位使用量而变化。 一旦开始使用 Azure 机器学习，就会产生成本。 请在 Azure 门户的[成本分析](../cost-management-billing/costs/quick-acm-cost-analysis.md)窗格中查看这些成本。
 
 可以在不同时间间隔的关系图和表中查看相应的成本。 还可以对比预算和预测的成本来查看成本。 切换到随时间推移的较长视图有助于确定支出趋势及了解可能超支的领域。 如果已创建预算，请查看超出预算的领域。  
 
@@ -86,7 +86,7 @@ AmlCompute 群集的设计旨在根据工作负载动态进行缩放。 群集�
 + 如果执行迭代较少的试验，请缩短此时间以节省成本。
 + 如果迭代较多的开发/测试试验，可能需要增加此时间，这样就不用在每次更改训练脚本或环境后为纵向扩展或纵向缩减付费。
 
-可以使用 [AmlCompute SDK 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true)、[AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute) 以及 [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable) 来配置 AmlCompute 群集，以适应 Azure 门户中不断变化的工作负载要求。
+可以使用 [AmlCompute SDK 类](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py)、[AmlCompute CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute) 以及 [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable) 来配置 AmlCompute 群集，以适应 Azure 门户中不断变化的工作负载要求。
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -98,7 +98,7 @@ AmlCompute 附带一个[配额（或限制）配置](how-to-manage-quotas.md#azu
 
 对于订阅内的每个工作区，还需配置[按 VM 系列的工作区级别配额](how-to-manage-quotas.md#workspace-level-quotas)。 这样，你就可以对每个工作区可能产生的成本进行更精细的控制并限制某些 VM 系列。 
 
-若要在工作区级别设置配额，请使用 [Azure 门户](https://portal.azure.com)。  选择订阅中的任何工作区，然后在左窗格中选择“使用量 + 配额”  。 然后选择“配置配额”选项卡以查看配额  。 你需要订阅范围的权限来设置配额，因为这是一个会影响多个工作区的设置。
+若要在工作区级别设置配额，请使用 [Azure 门户](https://portal.azure.com)。  选择订阅中的任何工作区，然后在左窗格中选择“使用量 + 配额”。 然后选择“配置配额”选项卡以查看配额。 你需要订阅范围的权限来设置配额，因为这是一个会影响多个工作区的设置。
 
 ## <a name="set-run-autotermination-policies"></a>设置“运行自动终止”策略 
 

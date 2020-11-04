@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792015"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325536"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen1 仅支持 POSIX 样式的访问控制列表。 可�
 
 若要使用托管标识访问存储在 Azure SQL 数据库中的数据，必须创建一个映射到托管标识的 SQL 包含用户。 若要详细了解如何从外部提供程序创建用户，请参阅[创建映射到 Azure AD 标识的包含用户](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)。
 
-创建 SQL 包含用户后，使用 [GRANT T-SQL 命令](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql)向该用户授予权限。
+创建 SQL 包含用户后，使用 [GRANT T-SQL 命令](/sql/t-sql/statements/grant-object-permissions-transact-sql)向该用户授予权限。
 
 ### <a name="azure-machine-learning-designer-default-datastore"></a>Azure 机器学习设计器默认数据存储
 

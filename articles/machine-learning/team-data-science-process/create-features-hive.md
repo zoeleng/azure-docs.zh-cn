@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085372"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323675"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>使用 Hive 查询创建用于 Hadoop 群集中数据的功能
 本文档将演示如何使用 Hive 查询创建用于 Hadoop 群集中数据的功能。 这些 Hive 查询使用嵌入式 Hive 用户的定义函数 (UDF) 以及为其提供的脚本。
@@ -25,15 +25,15 @@ ms.locfileid: "86085372"
 
 显示的查询示例特定于 [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/)（纽约出租车行程数据）方案，[GitHub 存储库](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也提供了这些方案。 这些查询已具有指定的数据架构，并准备好提交以运行。 最后部分也会讨论用户可对其进行优化以改善 Hive 查询性能的参数。
 
-此任务是[团队数据科学过程 (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 中的一个步骤。
+此任务是[团队数据科学过程 (TDSP)](./index.yml) 中的一个步骤。
 
 ## <a name="prerequisites"></a>必备条件
 本文假设用户具备以下条件：
 
 * 已创建 Azure 存储帐户。 如果需要说明，请参阅[创建 Azure 存储帐户](../../storage/common/storage-account-create.md)
-* 已预配具有 HDInsight 服务的自定义 Hadoop 群集。  如果需要说明，请参阅[为高级分析自定义 Azure HDInsight Hadoop 群集](customize-hadoop-cluster.md)。
+* 已预配具有 HDInsight 服务的自定义 Hadoop 群集。  如果需要说明，请参阅[为高级分析自定义 Azure HDInsight Hadoop 群集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 * 数据已上传到 Azure HDInsight Hadoop 群集中的 Hive 表。 如果没有，请按照[创建并将数据上传到 Hive 表](move-hive-tables.md)，先将数据上传到 Hive 表。
-* 已启用群集的远程访问权限。 如果需要说明，请参阅[访问 Hadoop 群集的头节点](customize-hadoop-cluster.md)。
+* 已启用群集的远程访问权限。 如果需要说明，请参阅[访问 Hadoop 群集的头节点](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="feature-generation"></a><a name="hive-featureengineering"></a>功能生成
 在本部分中，介绍使用 Hive 查询可用其生成功能的方法的几个示例。 如果已生成其他功能，则可将其作为列添加到现有表，或创建具有这些其他功能和主密钥的新表，新表之后可联接到原始表。 以下是显示的示例：
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-在此查询中，如果 *\<datetime field>* 的模式类似于 *03/26/2015 12:04:39*，则 *\<pattern of the datetime field>* 应为 `'MM/dd/yyyy HH:mm:ss'`。 若要对其进行测试，用户可以运行
+在此查询中，如果 *\<datetime field>* 的模式类似于 *03/26/2015 12:04:39* ，则 *\<pattern of the datetime field>* 应为 `'MM/dd/yyyy HH:mm:ss'`。 若要对其进行测试，用户可以运行
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -124,7 +124,7 @@ from <databasename>.<tablename>;
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>计算 GPS 坐标集之间的距离
 本部分中给出的查询可直接应用于纽约出租车行程数据。 此查询旨在演示如何应用 Hive 中嵌入的数学函数来生成功能。
 
-此查询中使用的字段为提取和减少位置的 GPS 坐标，名为*提取\_经度*、*提取\_纬度*、*减少\_经度*、*减少\_纬度*。 计算提取和减少坐标之间直接距离的查询为：
+此查询中使用的字段为提取和减少位置的 GPS 坐标，名为 *提取\_经度* 、 *提取\_纬度* 、 *减少\_经度* 、 *减少\_纬度* 。 计算提取和减少坐标之间直接距离的查询为：
 
 ```hiveql
 set R=3959;
@@ -144,11 +144,11 @@ and dropoff_latitude between 30 and 90
 limit 10;
 ```
 
-计算两个 GPS 坐标之间距离的数学等式可在 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>（可移动类型脚本）站点上找到，该站点由 Peter Lapisu 创作。 在此 Javascript 中，函数 `toRad()` 就是 lat_or_lonpi/180，它将度数转换为弧度  。 此处，*lat_or_lon* 是纬度或经度。 由于 Hive 不提供函数 `atan2`，但提供函数 `atan`，所以 `atan2` 函数通过 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定义由上述的 Hive 查询中的函数 `atan` 来实现。
+计算两个 GPS 坐标之间距离的数学等式可在 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>（可移动类型脚本）站点上找到，该站点由 Peter Lapisu 创作。 在此 Javascript 中，函数 `toRad()` 就是 lat_or_lonpi/180，它将度数转换为弧度  。 此处， *lat_or_lon* 是纬度或经度。 由于 Hive 不提供函数 `atan2`，但提供函数 `atan`，所以 `atan2` 函数通过 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定义由上述的 Hive 查询中的函数 `atan` 来实现。
 
 ![创建工作区](./media/create-features-hive/atan2new.png)
 
-嵌入 UDF 的 Hive 的完整列表可在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a> 上的**内置函数**部分中找到）。  
+嵌入 UDF 的 Hive 的完整列表可在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a> 上的 **内置函数** 部分中找到）。  
 
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a>高级主题：优化 Hive 参数以加快查询速度
 Hive 群集的默认参数设置可能不适合 Hive 查询以及正在处理查询的数据。 在本部分中，讨论用户可对其进行优化以改进 Hive 查询性能的某些参数。 用户需要在查询处理数据之前，先添加优化查询参数。
@@ -198,4 +198,3 @@ Hive 群集的默认参数设置可能不适合 Hive 查询以及正在处理查
     set mapred.reduce.tasks=128;
     set mapred.tasktracker.reduce.tasks.maximum=128;
     ```
-

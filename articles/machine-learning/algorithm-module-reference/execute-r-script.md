@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330387"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323739"
 ---
 # <a name="execute-r-script-module"></a>“执行 R 脚本”模块
 
-本文介绍如何使用 "执行 R 脚本" 模块在 Azure 机器学习设计器管道中运行 R 代码。
+本文介绍如何使用“执行 R 脚本”模块在 Azure 机器学习设计器管道中运行 R 代码。
 
 使用 R，你可以执行现有模块不支持的任务，例如： 
 - 创建自定义数据转换
@@ -121,7 +121,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="access-to-registered-dataset"></a>访问已注册的数据集
 
-可以参阅以下示例代码，在工作区中[访问已注册的数据集](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script)：
+可以参阅以下示例代码，在工作区中[访问已注册的数据集](../how-to-create-register-datasets.md)：
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -147,11 +147,11 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. 连接该脚本需要的任何输入。 输入是可选的，可以包含数据和其他 R 代码。
 
-    * **Dataset1**：引用第一个输入作为 `dataframe1`。 输入数据集必须是 CSV、TSV 或 ARFF 格式的文件。 或者可以连接 Azure 机器学习数据集。
+    * **Dataset1** ：引用第一个输入作为 `dataframe1`。 输入数据集必须是 CSV、TSV 或 ARFF 格式的文件。 或者可以连接 Azure 机器学习数据集。
 
-    * **Dataset2**：引用第二个输入作为 `dataframe2`。 此数据集也必须是 CSV、TSV、ARFF 格式的文件，或者是 Azure 机器学习数据集。
+    * **Dataset2** ：引用第二个输入作为 `dataframe2`。 此数据集也必须是 CSV、TSV、ARFF 格式的文件，或者是 Azure 机器学习数据集。
 
-    * **脚本包**：第三个输入接受 .zip 文件。 压缩文件可以包含多个文件和多种文件类型。
+    * **脚本包** ：第三个输入接受 .zip 文件。 压缩文件可以包含多个文件和多种文件类型。
 
 1. 在“R 脚本”文本框中，键入或粘贴有效的 R 脚本。
 
@@ -194,7 +194,7 @@ azureml_main <- function(dataframe1, dataframe2){
     > [!NOTE]
     > 现有 R 代码可能需要稍做更改才能在设计器管道中运行。 例如，以 CSV 格式提供的输入数据应显式转换为数据集，然后才能在代码中使用。 R 语言中使用的数据和列类型与在设计器中使用的数据和列类型在某些方面也有所不同。
 
-1. 如果你的脚本大于 16 KB，请使用 **脚本捆绑** 端口来避免错误，如 *命令行数超过16597个字符的限制*。 
+1. 如果你的脚本大于 16 KB，请使用 **脚本捆绑** 端口来避免错误，如 *命令行数超过16597个字符的限制* 。 
     
     1. 将脚本和其他自定义资源捆绑到 zip 文件。
     1. 将 zip 文件作为 **文件数据集** 上传到工作室。 
@@ -239,7 +239,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. 若要将包含 R 代码的 .zip 文件上传到工作区，请转到“数据集”资产页。 选择“创建数据集”，然后选择“从本地文件”和“文件”数据集类型选项  。  
 
-1. 验证压缩文件是否显示在左侧模块树中 "**数据集**" 类别下的 **"我的数据集**" 中。
+1. 验证压缩文件是否显示在左侧模块树中 " **数据集** " 类别下的 **"我的数据集** " 中。
 
 1.  将数据集连接到“脚本包”输入端口。
 
@@ -505,4 +505,4 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅 Azure 机器学习的[可用模块集](module-reference.md)。 
+请参阅 Azure 机器学习的[可用模块集](module-reference.md)。

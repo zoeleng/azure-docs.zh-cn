@@ -1,6 +1,6 @@
 ---
-title: 使用 Synapse SQL 的 t-sql 视图
-description: 使用 T-sql 视图和使用 Synapse SQL 开发解决方案的技巧。
+title: 使用 SQL 池的 t-sql 视图
+description: 有关在 Azure Synapse Analytics 中使用 T-sql 视图和使用专用 SQL 池和无服务器 SQL 池开发解决方案 (预览版 ) 的技巧。
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,15 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e416974d1326415e9a459e39d7bdea8e3fd8a84c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032718"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323801"
 ---
-# <a name="t-sql-views-using-synapse-sql"></a>使用 Synapse SQL 的 t-sql 视图
-在本文中，你将了解有关使用 T-sql 视图的技巧，以及如何使用 Synapse SQL 开发解决方案。 
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Azure Synapse Analytics 中具有专用 SQL 池和无服务器 SQL 池 (预览版 ) 的 t-sql 视图
+
+在本文中，你将了解有关使用 T-sql 视图的技巧，以及如何使用专用 SQL 池和无服务器 SQL 池开发解决方案 (预览版 ) 在 Azure Synapse Analytics 中。
 
 ## <a name="why-use-views"></a>为什么使用视图
 
@@ -26,12 +27,7 @@ ms.locfileid: "90032718"
 ### <a name="sql-pool---create-view"></a>SQL 池-创建视图
 
 > [!NOTE]
-> **SQL pool**：本文不讨论 CREATE VIEW 的语法。 有关详细信息，请参阅 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 文档。
-
-### <a name="sql-on-demand-preview---create-view"></a>SQL 点播 (预览) -创建视图
-
-> [!NOTE]
-> **SQL 点播**：创建视图的语法不在本文中讨论。 有关详细信息，请参阅 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 文档。
+> 本文未讨论 CREATE VIEW 的语法。 有关详细信息，请参阅 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 文档。
 
 ## <a name="architectural-abstraction"></a>体系结构摘要
 
@@ -54,7 +50,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 请记住，此方法可能导致表在用户的视图中出现和消失，并提示 "表不存在" 错误消息。 使用视图可为用户提供一致的呈现层，同时对基础对象重命名。

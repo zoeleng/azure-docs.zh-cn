@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302496"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322183"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>什么是 Azure 机器学习环境？
 
@@ -68,7 +68,7 @@ Azure 机器学习服务在 Docker 映像和 conda 环境中生成环境定义�
 
 ### <a name="submitting-a-run-using-an-environment"></a>使用某个环境提交运行
 
-当你首次使用某个环境提交远程运行时，Azure 机器学习服务会在与工作区关联的 Azure 容器注册表 (ACR) 上调用 [ACR 生成任务](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)。 然后，生成的 Docker 映像将在工作区 ACR 中缓存。 特选环境由全局 ACR 中缓存的 Docker 映像提供支持。 开始执行运行时，计算目标会从相关 ACR 中检索该映像。
+当你首次使用某个环境提交远程运行时，Azure 机器学习服务会在与工作区关联的 Azure 容器注册表 (ACR) 上调用 [ACR 生成任务](../container-registry/container-registry-tasks-overview.md)。 然后，生成的 Docker 映像将在工作区 ACR 中缓存。 特选环境由全局 ACR 中缓存的 Docker 映像提供支持。 开始执行运行时，计算目标会从相关 ACR 中检索该映像。
 
 对于本地运行，将基于环境定义创建 Docker 或 Conda 环境。 然后，将在目标计算（本地运行时环境或本地 Docker 引擎）上执行脚本。
 
@@ -79,13 +79,13 @@ Azure 机器学习服务在 Docker 映像和 conda 环境中生成环境定义�
  1. 下载基础映像，并执行任何 Docker 步骤
  2. 根据环境定义中指定的 conda 依赖项生成 conda 环境。
 
-如果指定[用户管理的依赖项](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true)，则会省略第二个步骤。 在这种情况下，你需要负责安装任何 Python 包，方法是在基础映像中包含这些包，或者在第一个步骤中指定自定义 Docker 步骤。 你还要负责为 Python 可执行文件指定正确的位置。 还可以使用[自定义 Docker 基础映像](how-to-deploy-custom-docker-image.md)。
+如果指定[用户管理的依赖项](/python/api/azureml-core/azureml.core.environment.pythonsection?preserve-view=true&view=azure-ml-py)，则会省略第二个步骤。 在这种情况下，你需要负责安装任何 Python 包，方法是在基础映像中包含这些包，或者在第一个步骤中指定自定义 Docker 步骤。 你还要负责为 Python 可执行文件指定正确的位置。 还可以使用[自定义 Docker 基础映像](how-to-deploy-custom-docker-image.md)。
 
 ### <a name="image-caching-and-reuse"></a>缓存和重复使用映像
 
 如果你对另一个运行使用相同的环境定义，Azure 机器学习服务将重复使用工作区 ACR 中缓存的映像。 
 
-若要查看缓存的映像的详细信息，请使用 [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) 方法。
+若要查看缓存的映像的详细信息，请使用 [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-image-details-workspace-) 方法。
 
 为了确定是要重复使用缓存的映像还是生成新映像，服务将从环境定义计算一个[哈希值](https://en.wikipedia.org/wiki/Hash_table)，并将其与现有环境的哈希进行比较。 计算的哈希基于：
  
@@ -108,10 +108,10 @@ Azure 机器学习服务在 Docker 映像和 conda 环境中生成环境定义�
 若要更新包，请指定版本号以强制重新生成映像，例如 ```numpy==1.18.1```。 将会安装新的依赖项（包括嵌套的依赖项），这可能会破坏以前正常工作的方案。 
 
 > [!WARNING]
->  [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) 方法将重新生成缓存的映像，这可能会造成更新取消固定包的负面影响，并破坏对应于该缓存映像的所有环境定义的可再现性。
+>  [Environment.build](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) 方法将重新生成缓存的映像，这可能会造成更新取消固定包的负面影响，并破坏对应于该缓存映像的所有环境定义的可再现性。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 了解如何在 Azure 机器学习中[创建和使用环境](how-to-use-environments.md)。
-* 查看 Python SDK 参考文档来了解[环境类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)。
+* 查看 Python SDK 参考文档来了解[环境类](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py)。
 * 查看 R SDK 参考文档来了解[环境](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments)。

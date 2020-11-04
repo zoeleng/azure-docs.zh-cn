@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495712"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324795"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>什么是 Azure 机器学习工作区？
 
@@ -52,9 +52,9 @@ ms.locfileid: "92495712"
 + 在 Web 上：
     + [Azure 机器学习工作室](https://ml.azure.com) 
     + [Azure 机器学习设计器](concept-designer.md) 
-+ 在任何 Python 环境中使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)。
-+ 在具有 [AZURE 机器学习 SDK For r (preview) ](https://azure.github.io/azureml-sdk-for-r/reference/index.html)的任何 R 环境中。
-+ 在命令行上使用 Azure 机器学习 [CLI 扩展](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
++ 在任何 Python 环境中使用[适用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)。
++ 在任何 R 环境中使用[适用于 R 的 Azure 机器学习 SDK（预览版）](https://azure.github.io/azureml-sdk-for-r/reference/index.html)。
++ 在命令行上使用 Azure 机器学习 [CLI 扩展](./reference-azure-machine-learning-cli.md)
 + [Azure 机器学习 VS Code 扩展](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -103,9 +103,9 @@ ms.locfileid: "92495712"
 + [Azure 存储帐户](https://azure.microsoft.com/services/storage/)，用作工作区的默认数据存储。  与 Azure 机器学习计算实例一起使用的 Jupyter 笔记本也存储在此处。 
   
   > [!IMPORTANT]
-  > 默认情况下，存储帐户是常规用途 v1 帐户。 你可以在创建工作区后 [将其升级到常规用途 v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 。 升级到常规用途 v2 后，请勿在存储帐户上启用分层命名空间。
+  > 默认情况下，存储帐户是常规用途 v1 帐户。 创建工作区后，可以[将其升级到常规用途 v2](../storage/common/storage-account-upgrade.md)。 升级到常规用途 v2 后，请勿在存储帐户上启用分层命名空间。
 
-  若要使用现有的 Azure 存储帐户，该帐户不能是高级帐户 (Premium_LRS 并 Premium_GRS) 。 它也不能具有分层命名空间（与 Azure Data Lake Storage Gen2 一起使用）。 工作区的默认存储帐户不支持高级存储和分层命名空间。 可以将高级存储或分层命名空间用于非默认存储帐户。
+  若要使用现有 Azure 存储帐户，则该帐户不能是高级帐户（Premium_LRS 和 Premium_GRS）。 它也不能具有分层命名空间（与 Azure Data Lake Storage Gen2 一起使用）。 工作区的默认存储帐户不支持高级存储和分层命名空间。 可以将高级存储或分层命名空间用于非默认存储帐户。
   
 + [Azure 容器注册表](https://azure.microsoft.com/services/container-registry/)：注册在训练期间和部署模型时使用的 Docker 容器。 要最大程度地降低成本，ACR 在创建部署映像之前会“延迟加载”。
 
@@ -120,11 +120,11 @@ ms.locfileid: "92495712"
 
 ## <a name="what-happened-to-enterprise-edition"></a>企业版发生了什么情况
 
-截至2020年9月，企业版工作区中提供的所有功能现在都可在基本版工作区中使用。 无法再创建新的企业工作区。  使用参数的任何 SDK、CLI 或 Azure 资源管理器调用 `sku` 都将继续运行，但将设置基本工作区。
+截至 2020 年 9 月，企业版工作区中提供的所有功能现在都可在基本版工作区中使用。 无法再创建新的企业工作区。  使用 `sku` 参数的所有 SDK、CLI 或 Azure 资源管理器调用将继续运行，但将预配基本工作区。
 
-从12月21日开始，所有 Enterprise Edition 工作区都将自动设置为基本版，该版本具有相同的功能。 在此过程中不会发生停机。 在2021年1月1日，企业版将正式停用。 
+从 12 月 21 日起，所有企业版工作区都将自动设置为基本版，该版本具有相同的功能。 在此过程中不会发生停机。 2021 年 1 月 1 日，企业版将正式停用。 
 
-在这两个版本中，客户负责使用 Azure 资源的成本，不需要支付任何额外费用来 Azure 机器学习。 有关更多详细信息，请参阅 [Azure 机器学习定价页](https://azure.microsoft.com/pricing/details/machine-learning/) 。
+在这两个版本中，客户都应支付使用的 Azure 资源的成本，并且无需为 Azure 机器学习支付任何额外费用。 有关更多详细信息，请参阅 [Azure 机器学习定价页](https://azure.microsoft.com/pricing/details/machine-learning/)。
 
 ## <a name="next-steps"></a>后续步骤
 

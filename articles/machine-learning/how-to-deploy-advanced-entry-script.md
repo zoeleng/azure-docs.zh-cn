@@ -1,7 +1,7 @@
 ---
 title: 为高级方案创作入口脚本
 titleSuffix: Azure Machine Learning entry script authoring
-description: 了解如何在部署期间编写用于预处理和后处理的 Azure 机器学习条目脚本。
+description: 了解如何编写在部署期间用于预处理和后处理的 Azure 机器学习入口脚本。
 author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999219"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325557"
 ---
 # <a name="advanced-entry-script-authoring"></a>高级入口脚本创作
 
@@ -37,10 +37,10 @@ ms.locfileid: "91999219"
 * `pyspark`
 * 标准 Python 对象
 
-若要使用架构生成，请 `inference-schema` 在依赖项文件中包括开源包版本1.1.0 或更高版本。 若要详细了解此包，请参阅 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema)。 为了生成相容的 swagger 自动 web 服务使用，计分脚本运行 ( # A1 函数必须具有以下 API 形状：
-* 名为 "StandardPythonParameterType" 的第一个参数，名为 "输入"，嵌套的包含 PandasDataframeParameterTypes。
-* 名为 GlobalParameter 的可选的第二个名为 "StandardPythonParameterType" 的参数，该参数不是嵌套类型。
-* 返回 "StandardPythonParameterType" 类型的字典，该字典可能嵌套了包含 PandasDataFrameParameterTypes。
+若要使用架构生成，请在依赖项文件中包括开源 `inference-schema` 包 1.1.0 或更高版本。 若要详细了解此包，请参阅 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema)。 为了生成一致的 swagger 自动化 Web 服务使用量，评分脚本 run() 函数的 API 形状必须为：
+* 第一个参数名为“Inputs”，类型为“StandardPythonParameterType”，以嵌套形式包含“PandasDataframeParameterTypes”。
+* 第二个参数可选，名为“GlobalParameter”，类型为“StandardPythonParameterType”，未嵌套。
+* 返回“StandardPythonParameterType”类型（可能以嵌套形式包含了“PandasDataFrameParameterTypes”）的字典。
 定义 `input_sample` 和 `output_sample` 变量中的输入和输出示例格式，它们表示 Web 服务的请求和响应格式。 在 `run()` 函数的输入和输出函数修饰器中使用这些示例。 以下 scikit-learn 示例使用架构生成功能。
 
 
@@ -89,7 +89,7 @@ def run(data):
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI 兼容终结点 
 
-下面的示例演示如何根据以上说明定义 API 形状。 此方法支持使用 Power BI 中已部署的 Web 服务。 （[详细了解如何使用 Power BI 中的 Web 服务](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。）
+下面的示例演示如何根据以上说明定义 API 形状。 此方法支持使用 Power BI 中已部署的 Web 服务。 （[详细了解如何使用 Power BI 中的 Web 服务](/power-bi/service-machine-learning-integration)。）
 
 ```python
 import json
@@ -312,13 +312,13 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-注册模型时，请提供用于在注册表中管理该模型的模型名称。 将此名称与 [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 方法结合使用，以检索本地文件系统上一个或多个模型文件的路径。 如果注册文件夹或文件集合，此 API 会返回包含这些文件的目录的路径。
+注册模型时，请提供用于在注册表中管理该模型的模型名称。 将此名称与 [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 方法结合使用，以检索本地文件系统上一个或多个模型文件的路径。 如果注册文件夹或文件集合，此 API 会返回包含这些文件的目录的路径。
 
 注册模型时，请为其指定一个名称。 该名称对应于模型的放置位置（本地位置或在服务部署过程中指定的位置）。
 
 ## <a name="framework-specific-examples"></a>特定于框架的示例
 
-有关特定机器学习用例的更多条目脚本示例，请参阅以下内容：
+有关特定机器学习用例的更多入口脚本示例，可参阅以下内容：
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
 * [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)

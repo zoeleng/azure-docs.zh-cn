@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 90d059aaa16e24df1e71d4d439cb9aa23b786c77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323215"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Azure Cosmos DB 分析存储（预览版）是什么？
+# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>什么是 Azure Cosmos DB 分析存储 (预览版) ？
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Azure Cosmos DB 分析存储解决了传统 ETL 管道所具有的复杂和延�
 
 下图说明了 Azure Cosmos DB 中的事务性行存储与分析列存储：
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="示例操作表" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Azure Cosmos DB 中的事务性行存储与分析列存储" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>分析工作负荷性能已分离
 

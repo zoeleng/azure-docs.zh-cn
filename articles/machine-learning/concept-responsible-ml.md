@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829384"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324856"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>什么是负责机器学习？ （预览版）
 
@@ -73,7 +73,7 @@ AI 系统中的不公平性可能会导致以下意外后果：
 
 使用同态加密，无需访问机密（解密）密钥即可对加密数据进行计算。 计算的结果已加密，只能由密钥的所有者公开。 使用同态加密，云操作员对其存储和计算的数据不会具有未加密的访问权限。 系统会直接对加密数据进行计算。 数据隐私依赖于先进的加密技术，并且数据所有者控制所有信息的发布。 有关 Microsoft 的同态加密的详细信息，请参阅 [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/)。
 
-若要开始在 Azure 机器学习中使用同态加密，请使用 [Microsoft SEAL](https://github.com/microsoft/SEAL) 的[加密推理](https://pypi.org/project/encrypted-inference/) Python 绑定。 Microsoft SEAL 是一种开放源代码同态加密库，允许对经过加密的整数或实数进行加法和乘法计算。 若要了解有关 Microsoft SEAL 的详细信息，请参阅 [Azure 体系结构中心](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal)或 [Microsoft Research 项目页](https://www.microsoft.com/research/project/microsoft-seal/)。
+若要开始在 Azure 机器学习中使用同态加密，请使用 [Microsoft SEAL](https://github.com/microsoft/SEAL) 的[加密推理](https://pypi.org/project/encrypted-inference/) Python 绑定。 Microsoft SEAL 是一种开放源代码同态加密库，允许对经过加密的整数或实数进行加法和乘法计算。 若要了解有关 Microsoft SEAL 的详细信息，请参阅 [Azure 体系结构中心](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal)或 [Microsoft Research 项目页](https://www.microsoft.com/research/project/microsoft-seal/)。
 
 请参阅以下示例，了解[如何在 Azure 机器学习中部署加密推理 Web 服务](how-to-homomorphic-encryption-seal.md)。
 
@@ -96,5 +96,5 @@ AI 系统中的不公平性可能会导致以下意外后果：
 
 ## <a name="additional-resources"></a>其他资源
 
-- 有关详细信息，请参阅[负责任的创新工具包](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/)，了解最佳做法。
+- 有关详细信息，请参阅[负责任的创新工具包](/azure/architecture/guide/responsible-innovation/)，了解最佳做法。
 - 详细了解有关机器学习系统记录的[关于 ML](https://www.partnershiponai.org/about-ml/) 指南集。

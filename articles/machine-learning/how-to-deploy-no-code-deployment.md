@@ -1,7 +1,7 @@
 ---
 title: 无代码部署（预览）
 titleSuffix: Azure Machine Learning
-description: 了解如何在不使用入口脚本的情况下部署模型。
+description: 无需代码部署即可将模型部署为 web 服务，无需手动创建入口脚本。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324911"
 ---
 # <a name="preview-no-code-model-deployment"></a>（预览）无代码模型部署
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-若要对模型进行评分，请参阅[使用部署为 Web 服务的 Azure 机器学习模型](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)。 许多 ONNX 项目使用 protobuf 文件来紧凑存储训练和验证数据，这样就可能难以知道服务所需的数据格式。 作为模型开发人员，你应该为开发人员提供文档：
+若要对模型进行评分，请参阅[使用部署为 Web 服务的 Azure 机器学习模型](./how-to-consume-web-service.md)。 许多 ONNX 项目使用 protobuf 文件来紧凑存储训练和验证数据，这样就可能难以知道服务所需的数据格式。 作为模型开发人员，你应该为开发人员提供文档：
 
 * 输入格式（JSON 或二进制）
 * 输入数据形状和类型（例如，形状为 [100,100,3] 的浮点数组）

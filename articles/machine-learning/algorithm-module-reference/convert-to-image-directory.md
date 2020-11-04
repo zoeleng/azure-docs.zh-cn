@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940340"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324909"
 ---
 # <a name="convert-to-image-directory"></a>转换为图像目录
 
@@ -49,7 +49,7 @@ ms.locfileid: "91940340"
 
     为评分，image dataset 文件夹只需要包含未分类的图像。
 
-1. 将[图像数据集注册为](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)工作区中的文件数据集，因为转换为图像目录模块的输入必须是**文件数据集**。
+1. 将 [图像数据集注册为](../how-to-create-register-datasets.md)工作区中的文件数据集，因为转换为图像目录模块的输入必须是 **文件数据集** 。
 
 1. 将已注册的图像数据集添加到画布。 可以在画布左侧的模块列表中的 " **数据集** " 类别中找到已注册的数据集。 当前设计器不支持可视化图像数据集。
 
@@ -62,7 +62,7 @@ ms.locfileid: "91940340"
 
 ## <a name="results"></a>结果
 
-**转换为图像目录**模块的输出为**图像目录**格式，可连接到其他与图像相关的模块，其中输入端口格式也是图像目录。
+**转换为图像目录** 模块的输出为 **图像目录** 格式，可连接到其他与图像相关的模块，其中输入端口格式也是图像目录。
 
 ![转换为图像目录输出](./media/module/convert-to-image-directory-output.png)
 
@@ -82,4 +82,4 @@ ms.locfileid: "91940340"
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅 Azure 机器学习的[可用模块集](module-reference.md)。 
+请参阅 Azure 机器学习的[可用模块集](module-reference.md)。

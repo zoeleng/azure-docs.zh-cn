@@ -1,6 +1,6 @@
 ---
 title: 使用事务
-description: 有关在开发解决方案时实现 SQL 池（数据仓库）中的事务的技巧。
+description: 有关在开发解决方案时通过 Azure Synapse 分析中的专用 SQL 池实现事务的技巧。
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288607"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323849"
 ---
-# <a name="use-transactions-in-sql-pool"></a>在 SQL 池中使用事务
+# <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用具有专用 SQL 池的事务
 
-有关在开发解决方案时实现 SQL 池（数据仓库）中的事务的技巧。
+有关在开发解决方案时通过 Azure Synapse 分析中的专用 SQL 池实现事务的技巧。
 
 ## <a name="what-to-expect"></a>期望
 
-与预期一样，SQL 池支持将事务纳入数据仓库工作负载。 但是，为了确保 SQL 池的性能维持在一定的程度，相比于 SQL Server，其某些功能会受到限制。 本文将突出两者的差异，并列出其他信息。
+正如您所料，专用 SQL 池支持将事务作为数据仓库工作负荷的一部分。 但是，为了确保专用 SQL 池的性能维持在一定的程度，与 SQL Server 相比，某些功能将受到限制。 本文将突出两者的差异，并列出其他信息。
 
 ## <a name="transaction-isolation-levels"></a>事务隔离级别
 
@@ -92,7 +92,7 @@ SQL 池实现 ACID 事务。 事务支持的隔离级别默认为 READ UNCOMMITT
 SQL 池使用 XACT_STATE() 函数（采用值 -2）来报告失败的事务。 此值表示事务已失败并标记为仅可回滚。
 
 > [!NOTE]
-> XACT_STATE 函数使用 -2 表示失败的事务，以代表 SQL Server 中不同的行为。 SQL Server 使用值 -1 来代表无法提交的事务。 SQL Server 可以容忍事务内的某些错误，而无需将其标记为无法提交。 例如，`SELECT 1/0` 导致错误，但不强制事务进入无法提交状态。 SQL Server 还允许读取无法提交的事务。 但是，SQL 池不允许执行此操作。 如果 SQL 池事务内部发生错误，它会自动进入 -2 状态，并且在该语句回退之前，无法执行任何 Select 语句。 因此，必须查看应用程序代码是否使用 XACT_STATE()，你可能需要修改代码。
+> XACT_STATE 函数使用 -2 表示失败的事务，以代表 SQL Server 中不同的行为。 SQL Server 使用值 -1 来代表无法提交的事务。 SQL Server 可以容忍事务内的某些错误，而无需将其标记为无法提交。 例如，`SELECT 1/0` 导致错误，但不强制事务进入无法提交状态。 SQL Server 还允许读取无法提交的事务。 不过，专用 SQL 池不允许这样做。 如果在专用 SQL 池事务内部发生错误，它会自动进入-2 状态，并且在该语句回滚之前，您将无法再执行任何 select 语句。 因此，必须查看应用程序代码是否使用 XACT_STATE()，你可能需要修改代码。
 
 例如，在 SQL Server 中，可能会看到如下所示的事务：
 
@@ -138,7 +138,7 @@ Msg 111233, Level 16, State 1, Line 1 111233；当前事务已中止，所有挂
 
 不会获得 ERROR_* 函数的输出值。
 
-在 SQL 池中，代码需要稍作更改：
+在专用 SQL 池中，代码需要稍作更改：
 
 ```sql
 SET NOCOUNT ON;
@@ -181,11 +181,11 @@ SELECT @xact_state AS TransactionState;
 
 ## <a name="error_line-function"></a>Error_Line() 函数
 
-另外值得注意的是，SQL 池不实现或支持 ERROR_LINE() 函数。 如果代码中包含此函数，则需要将其删除才能符合 SQL 池。 请在代码中使用查询标签，而不是实现等效的功能。 有关详细信息，请参阅 [标签](develop-label.md) 文章。
+还值得注意的是，专用 SQL 池不实现或支持 ( # A1 函数的 ERROR_LINE。 如果你的代码中包含此函数，则需要将其删除才能符合专用 SQL 池。 请在代码中使用查询标签，而不是实现等效的功能。 有关详细信息，请参阅 [标签](develop-label.md) 文章。
 
 ## <a name="use-of-throw-and-raiserror"></a>使用 THROW 和 RAISERROR
 
-THROW 是在 SQL 池中引发异常的新式做法，但也支持 RAISERROR。 不过，有些值得注意的差异。
+THROW 是在专用 SQL 池中引发异常的更现代的实现，但也支持 RAISERROR。 不过，有些值得注意的差异。
 
 * 用户定义的错误消息数目不能在 100000-150000 范围内用于 THROW
 * RAISERROR 错误消息固定为 50,000
@@ -204,4 +204,4 @@ SQL 池有一些与事务相关的其他限制。 这些限制如下：
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关优化事务的详细信息，请参阅[事务最佳做法](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。 还为 [SQL 池](best-practices-sql-pool.md)和 [SQL 按需版本（预览版）](best-practices-sql-on-demand.md)提供了其他最佳做法指南。
+若要了解有关优化事务的详细信息，请参阅[事务最佳做法](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。 还提供了针对 [sql 池](best-practices-sql-pool.md) 和 [无服务器 sql 池 (预览) ](best-practices-sql-on-demand.md)的其他最佳做法指南。

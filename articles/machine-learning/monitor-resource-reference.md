@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739138"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323944"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>监视 Azure 机器学习数据引用
 
@@ -22,7 +22,7 @@ ms.locfileid: "92739138"
 
 ## <a name="metrics"></a>指标
 
-此部分列出了为 Azure 机器学习收集的所有自动收集的平台指标。 这些指标的资源提供程序是 [MachineLearningServices/工作区](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces)。
+此部分列出了为 Azure 机器学习收集的所有自动收集的平台指标。 这些指标的资源提供程序是 [MachineLearningServices/工作区](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces)。
 
 **Model**
 
@@ -73,7 +73,7 @@ ms.locfileid: "92739138"
 
 ## <a name="metric-dimensions"></a>指标维度
 
-有关指标维度的详细信息，请参阅 [多维指标](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)。
+有关指标维度的详细信息，请参阅 [多维指标](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)。
 
 Azure 机器学习具有与度量值相关联的下列维度。
 
@@ -87,7 +87,7 @@ Azure 机器学习具有与度量值相关联的下列维度。
 | NodeId | 作业运行时所在的已创建节点的 ID。 仅适用于 Cpu 利用率和 GpuUtilization。 |
 | RunId | 运行/作业的 ID。 仅适用于 Cpu 利用率和 GpuUtilization。 |
 | ComputeType | 运行时使用的计算类型。 仅可用于已完成的运行、失败的运行和已启动的运行。 |
-| PipelineStepType | 运行时使用的 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) 类型。 仅可用于已完成的运行、失败的运行和已启动的运行。 |
+| PipelineStepType | 运行时使用的 [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) 类型。 仅可用于已完成的运行、失败的运行和已启动的运行。 |
 | PublishedPipelineId | 运行时使用的已发布管道的 ID。 仅可用于已完成的运行、失败的运行和已启动的运行。 |
 | RunType | 运行的类型。 仅可用于已完成的运行、失败的运行和已启动的运行。 |
 
@@ -104,7 +104,7 @@ RunType 维度的有效值为：
 
 下表列出了与可以在活动日志中创建 Azure 机器学习相关的操作。
 
-| Operation | 说明 |
+| 操作 | 说明 |
 |:---|:---|
 | 创建或更新机器学习工作区 | 已创建或更新工作区 |
 | CheckComputeNameAvailability | 检查计算名称是否已在使用中 |
@@ -116,7 +116,7 @@ RunType 维度的有效值为：
 
 本部分列出了可为 Azure 机器学习工作区收集的资源日志类型。
 
-资源提供程序和类型： [MachineLearningServices/工作区](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces)。
+资源提供程序和类型： [MachineLearningServices/工作区](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces)。
 
 | 类别 | 显示名称 |
 | ----- | ----- |
@@ -231,4 +231,4 @@ RunType 维度的有效值为：
 ## <a name="see-also"></a>另请参阅
 
 - 有关监视 Azure 机器学习的说明，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
-- 有关监视 Azure 资源的详细信息，请参阅[通过 Azure Monitor 监视 Azure 资源](/azure/azure-monitor/insights/monitor-azure-resource)。
+- 有关监视 Azure 资源的详细信息，请参阅[通过 Azure Monitor 监视 Azure 资源](../azure-monitor/insights/monitor-azure-resource.md)。

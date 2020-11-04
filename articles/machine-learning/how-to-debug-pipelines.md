@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python, contperfq2
-ms.openlocfilehash: ce32871620cc0a471e56a5b65191834d7c23b88d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80bc5034e6e192c1b493a65e61b94ae1b785a430
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735707"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325601"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>对机器学习管道进行调试和故障排除
 
-在本文中，你将在 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 和 [Azure 机器学习设计器](https://docs.microsoft.com/azure/machine-learning/concept-designer)中了解如何对[机器学习管道](concept-ml-pipelines.md)进行调试和故障排除。 
+在本文中，你将在 [Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 和 [Azure 机器学习设计器](./concept-designer.md)中了解如何对[机器学习管道](concept-ml-pipelines.md)进行调试和故障排除。 
 
 ## <a name="troubleshooting-tips"></a>故障排除提示
 
@@ -28,7 +28,7 @@ ms.locfileid: "92735707"
 | 问题 | 可能的解决方法 |
 |--|--|
 | 无法将数据传递给 `PipelineData` 字典 | 确保已在脚本中创建了一个目录，该目录对应于管道预期步骤要将数据输出到的位置。 大多数情况下，输入参数将定义输出目录，然后你需要显式创建该目录。 使用 `os.makedirs(args.output_dir, exist_ok=True)` 创建输出目录。 有关演示此设计模式的评分脚本示例，请参阅[该教程](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script)。 |
-| 依赖项 bug | 如果在远程管道中看到在本地测试时未发生的依赖项错误，请确认远程环境依赖项和版本与测试环境中的依赖项和版本匹配。 请参阅[生成、缓存和重复使用环境](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
+| 依赖项 bug | 如果在远程管道中看到在本地测试时未发生的依赖项错误，请确认远程环境依赖项和版本与测试环境中的依赖项和版本匹配。 请参阅[生成、缓存和重复使用环境](./concept-environments.md#environment-building-caching-and-reuse)|
 | 计算目标出现不明确的错误 | 请尝试删除并重新创建计算目标。 重新创建计算目标是很快的，并且可以解决某些暂时性问题。 |
 | 管道未重复使用步骤 | 默认已启用步骤重复使用，但是，请确保未在管道步骤中禁用它。 如果已禁用重复使用，则步骤中的 `allow_reuse` 参数将设置为 `False`。 |
 | 管道不必要地重新运行 | 为了确保步骤只在其基础数据或脚本发生更改时才重新运行，请分离每个步骤的源代码目录。 如果对多个步骤使用同一个源目录，则可能会遇到不必要的重新运行。 在管道步骤对象中使用 `source_directory` 参数以指向该步骤的隔离目录，并确保未对多个步骤使用同一个 `source_directory` 路径。 |
@@ -178,9 +178,9 @@ parallelrun_step = ParallelRunStep(
 
 | 库                    | 类型   | 示例                                                          | 目标                                  | 资源                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure 机器学习 SDK | 指标 | `run.log(name, val)`                                             | Azure 机器学习门户 UI             | [如何跟踪试验](how-to-track-experiments.md)<br>[azureml.core.Run 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)                                                                                                                                                 |
+| Azure 机器学习 SDK | 指标 | `run.log(name, val)`                                             | Azure 机器学习门户 UI             | [如何跟踪试验](how-to-track-experiments.md)<br>[azureml.core.Run 类](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
 | Python 打印/日志记录    | 日志    | `print(val)`<br>`logging.info(message)`                          | 驱动程序日志、Azure 机器学习设计器 | [如何跟踪试验](how-to-track-experiments.md)<br><br>[Python 日志记录](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | 日志    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - 跟踪                | [在 Application Insights 中调试管道](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)（OpenCensus Azure Monitor 导出程序）<br>[Python 日志记录指南](https://docs.python.org/3/howto/logging-cookbook.html) |
+| OpenCensus Python          | 日志    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - 跟踪                | [在 Application Insights 中调试管道](./how-to-log-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)（OpenCensus Azure Monitor 导出程序）<br>[Python 日志记录指南](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>日志记录选项示例
 
@@ -220,7 +220,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>为实时终结点启用日志记录
 
-若要在设计器中排除和调试实时终结点，必须使用 SDK 启用应用程序见解日志记录。 使用日志记录可排查和调试模型部署和使用问题。 有关详细信息，请参阅[对部署的模型进行日志记录](how-to-enable-logging.md#logging-for-deployed-models)。 
+若要在设计器中排除和调试实时终结点，必须使用 SDK 启用应用程序见解日志记录。 使用日志记录可排查和调试模型部署和使用问题。 有关详细信息，请参阅[对部署的模型进行日志记录](./how-to-enable-app-insights.md)。 
 
 ### <a name="get-logs-from-the-authoring-page"></a>从创作页获取日志
 
@@ -248,7 +248,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 > 若要从管道运行详细信息页更新管道，必须将管道运行克隆到新管道草稿。 管道运行是管道的快照。 它类似于日志文件，并且无法更改。 
 
 ## <a name="application-insights"></a>Application Insights
-有关以此方式使用 OpenCensus Python 库的详细信息，请参阅此指南：[在 Application Insights 中对机器学习管道进行调试和故障排除](how-to-debug-pipelines-application-insights.md)
+有关以此方式使用 OpenCensus Python 库的详细信息，请参阅此指南：[在 Application Insights 中对机器学习管道进行调试和故障排除](./how-to-log-pipelines-application-insights.md)
 
 ## <a name="interactive-debugging-with-visual-studio-code"></a>使用 Visual Studio Code 进行交互式调试
 
@@ -260,6 +260,6 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 * 有关显示 ML 管道中自动机器学习的完整示例，请参阅在 [Python 中的 Azure 机器学习管道中使用自动 ML](how-to-use-automlstep-in-pipelines.md)。
 
-* 有关 [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) 包和 [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) 包的帮助信息，请参阅 SDK 参考。
+* 有关 [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) 包和 [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) 包的帮助信息，请参阅 SDK 参考。
 
 * 请参阅[设计器异常和错误代码](algorithm-module-reference/designer-error-codes.md)的列表。

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791318"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325004"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>使用适用于 Azure SQL 数据库中的服务器的虚拟网络服务终结点和规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ RBAC 备用：
 
 - 在防火墙上，IP 地址范围适用于以下网络项，但虚拟网络规则并不适用：
   - [站点到站点 (S2S) 虚拟专用网络 (VPN)][vpn-gateway-indexmd-608y]
-  - 通过 [Expressroute][expressroute-indexmd-744v] 进行的本地连接
+  - 通过 [Expressroute](../../expressroute/index.yml) 进行的本地连接
 
 ### <a name="considerations-when-using-service-endpoints"></a>使用服务终结点的注意事项
 

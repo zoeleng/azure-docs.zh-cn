@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048000"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325373"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>通过预测对机器学习模型进行评分
 
 Synapse SQL 提供使用熟悉的 T-sql 语言对机器学习模型进行评分的功能。 利用 T-sql [预测](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)，你可以将现有机器学习模型与历史数据定型，并将其评分到数据仓库的安全边界内。 PREDICT 函数使用 [ONNX (打开神经网络交换) ](https://onnx.ai/) 模型和数据作为输入。 此功能消除了在数据仓库外移动宝贵数据以实现评分的步骤。 它旨在使数据专业人员能够轻松地使用熟悉的 T-sql 界面来部署机器学习模型，并与数据科学家无缝协作，为其任务使用正确的框架。
 
 > [!NOTE]
-> 此功能当前在 SQL 点播情况下不受支持。
+> 此功能目前在无服务器 SQL 池中不受支持。
 
 此功能要求在 Synapse SQL 之外训练该模型。 生成模型后，将其加载到数据仓库中，并通过 T-sql 预测语法对其进行评分，以获取数据的见解。
 
