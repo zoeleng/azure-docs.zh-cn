@@ -361,7 +361,7 @@
               href: database/network-access-controls-overview.md
             - name: DNS 别名
               href: database/dns-alias-overview.md
-            - name: vNet 终结点
+            - name: VNet 终结点
               href: database/vnet-service-endpoint-rule-overview.md
             - name: 专用链接
               href: database/private-endpoint-overview.md
@@ -884,7 +884,7 @@
                       href: /sql/machine-learning/security/user-permission?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: 功能
           items:
-            - name: 链接服务器
+            - name: 链接的服务器
               href: /sql/relational-databases/linked-servers/linked-servers-database-engine?toc=%252fazure%252fazure-sql%252ftoc.json
             - name: Service Broker
               href: /sql/database-engine/configure-windows/sql-server-service-broker?toc=%252fazure%252fazure-sql%252ftoc.json
@@ -993,6 +993,8 @@
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: 管理
               items:
+                - name: SQL IaaS 代理扩展
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                 - name: 专用主机
                   href: virtual-machines/windows/dedicated-host.md
                 - name: 扩展对 SQL 2008 和 R2 的支持
@@ -1021,12 +1023,14 @@
                   href: virtual-machines/windows/change-sql-server-version.md
                 - name: 存储
                   href: virtual-machines/windows/storage-configuration.md
+                - name: 自动修补
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Azure Key Vault 集成
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: 将存储迁移到 UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: 注册 SQL VM RP
-                  displayName: 'resource provider, registration'
+                - name: 安装 SQL IaaS 代理扩展
+                  displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: 自动注册
                       href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1034,12 +1038,6 @@
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: 批量注册多个 VM
                       href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-                - name: 自动执行管理任务
-                  items:
-                    - name: 使用 SQL Server IaaS 代理扩展
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: 自动修补
-                      href: virtual-machines/windows/automated-patching.md
             - name: 迁移
               items:
                 - name: SQL Server 数据库到 VM

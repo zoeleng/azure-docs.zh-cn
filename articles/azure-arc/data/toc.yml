@@ -116,6 +116,8 @@
           items:
             - name: 备份和还原
               href: backup-restore-postgresql-hyperscale.md
+            - name: 更改 PostgreSQL 端口
+              href: change-postgresql-port.md
             - name: 配置和缩放
               items:
                 - name: 显示配置

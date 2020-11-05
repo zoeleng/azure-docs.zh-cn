@@ -23,6 +23,9 @@
         - name: 通过 DMS 实现停机时间最短的迁移
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+    - name: 版本控制策略
+      href: concepts-version-policy.md
+      displayName: 'version, postgresql'
 - name: 单台服务器
   expanded: true
   items:
@@ -382,6 +385,8 @@
           items:
             - name: Azure 门户
               href: howto-move-regions-portal.md
+        - name: 主版本升级
+          href: how-to-upgrade-using-dump-and-restore.md
 - name: 灵活服务器（预览版）
   expanded: true
   items:

@@ -21,13 +21,13 @@
     - name: 1 创建 Synapse 工作区
       href: get-started-create-workspace.md
       displayName: 'get, started'
-    - name: 2 使用 SQL 池进行分析
+    - name: 2 使用专用 SQL 池进行分析
       href: get-started-analyze-sql-pool.md
       displayName: 'get, started'
     - name: 3 使用 Spark 进行分析
       href: get-started-analyze-spark.md
       displayName: 'get, started'
-    - name: 4 使用按需 SQL 进行分析
+    - name: 4 使用无服务器 SQL 池进行分析
       href: get-started-analyze-sql-on-demand.md
       displayName: 'get, started'
     - name: 5 分析存储帐户中的数据
@@ -119,7 +119,7 @@
                   href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Synapse 工作区托管标识
                   href: ./security/synapse-workspace-managed-identity.md
-                - name: 池和按需版本
+                - name: SQL 池
                   href: ./sql/access-control.md
                   displayname: 'access, control'
         - name: 工具集成（AI、ETL、BI）
@@ -149,6 +149,8 @@
                   displayname: links
                 - name: 使用托管的 VNet 预配和保护链接服务
                   href: ./data-integration/linked-service.md
+                - name: 从受限网络连接到 Synapse 工作区
+                  href: security/how-to-connect-to-workspace-from-restricted-network.md
 - name: Synapse SQL
   items:
     - name: 概述
@@ -156,10 +158,10 @@
         - name: Synapse SQL 体系结构
           href: sql/overview-architecture.md
           displayName: overview
-        - name: SQL 按需版本
+        - name: 无服务器 SQL 池
           href: sql/on-demand-workspace-overview.md
           displayname: overview
-        - name: SQL 池
+        - name: 专用 SQL 池
           href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
           displayname: overview
         - name: 体系结构
@@ -168,17 +170,17 @@
           href: sql/overview-features.md
         - name: 资源消耗模型
           href: sql/resource-consumption-models.md
-        - name: SQL 按需版本最佳做法
+        - name: 无服务器 SQL 池最佳做法
           href: sql/best-practices-sql-on-demand.md
-        - name: SQL 池最佳做法
+        - name: 专用 SQL 池最佳做法
           href: sql/best-practices-sql-pool.md
     - name: 快速入门
       items:
-        - name: 使用 Synapse Studio 创建 SQL 池
+        - name: 使用 Synapse Studio 创建专用 SQL 池
           href: quickstart-create-sql-pool-studio.md
-        - name: 使用 Azure 门户创建 SQL 池
+        - name: 使用 Azure 门户创建专用 SQL 池
           href: quickstart-create-sql-pool-portal.md
-        - name: 使用 SQL 池加载数据
+        - name: 使用专用 SQL 池加载数据
           items:
             - name: COPY 语句
               href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -189,11 +191,11 @@
             - name: Synapse Studio
               href: quickstart-load-studio-sql-pool.md
               displayname: sql pool
-        - name: 使用 SQL 按需版本
+        - name: 使用无服务器 SQL 池
           href: quickstart-sql-on-demand.md
     - name: 教程
       items:
-        - name: 使用按需 SQL 分析数据
+        - name: 使用无服务器 SQL 池分析数据
           href: ./sql/tutorial-data-analyst.md
         - name: Power BI Desktop
           href: ./sql/tutorial-connect-power-bi-desktop.md
@@ -489,7 +491,7 @@
               items:
                 - name: 使用 Apache Spark 导入和导出数据
                   href: ./spark/synapse-spark-sql-pool-import-export.md
-- name: Synapse 链接
+- name: Synapse Link
   items:
     - name: 快速入门
       items:
@@ -517,12 +519,16 @@
           href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 使用 Apache Spark 查询 Azure Cosmos DB 分析存储
           href: ./synapse-link/how-to-query-analytical-store-spark.md
-        - name: 使用 Apache Spark 将数据从 Synapse Link 复制到 SQL 池
+        - name: 使用 Apache Spark 将数据从 Synapse Link 复制到专用 SQL 池
           href: ./synapse-link/how-to-copy-to-sql-pool.md
-        - name: 使用按需 SQL 查询 Azure Cosmos DB 分析存储
+        - name: 使用无服务器 SQL 池查询 Azure Cosmos DB 分析存储
           href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: 管道和数据流
   items:
+    - name: 快速入门
+      items:
+        - name: 使用复制活动将数据加载到 SQL 池中
+          href: quickstart-copy-activity-load-sql-pool.md
     - name: 概念
       items:
         - name: 管道和活动
@@ -599,7 +605,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure 文件存储
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL 数据库
+            - name: Azure SQL Database
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure SQL 托管实例
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -1013,7 +1019,7 @@
       href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 客户自助
       items:
-        - name: SQL 按需版本
+        - name: 无服务器 SQL 池
           href: sql/resources-self-help-sql-on-demand.md
     - name: 合作伙伴
       items:
