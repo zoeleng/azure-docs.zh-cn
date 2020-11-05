@@ -1,7 +1,7 @@
 ---
 title: 监视和查看 ML 运行日志与指标
 titleSuffix: Azure Machine Learning
-description: 监视 Azure ML 试验并查看运行指标，以便改进模型创建过程。 使用小组件和工作室门户来浏览运行状态并查看运行记录。
+description: 通过 Jupyter 小组件和 Azure 机器学习工作室监视 ML 试验和查看运行指标。
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316680"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360592"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>监视和查看 ML 运行日志与指标
-
-
 
 本文介绍如何监视 Azure 机器学习运行并查看其日志。 在查看日志之前，必须先启用它们。 有关详细信息，请参阅[在 Azure 机器学习训练运行中启用日志记录](how-to-track-experiments.md)。
 

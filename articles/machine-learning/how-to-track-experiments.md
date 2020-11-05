@@ -1,7 +1,7 @@
 ---
 title: 记录 ML 试验和指标
 titleSuffix: Azure Machine Learning
-description: 监视 Azure ML 试验和运行指标，以便改进模型创建过程。 使用 run.log、Run.start_logging 或 ScriptRunConfig 向训练脚本添加日志记录功能。
+description: 启用 ML 培训运行日志记录，以监视实时运行指标，并帮助诊断错误和警告。
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6680bdc525c6f07b8330277056413f886412551b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: deeee689c27008ab71df0a050be3d7a6b5109307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318430"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361057"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>在 Azure 机器学习训练运行中启用日志记录功能
+# <a name="enable-logging-in-ml-training-runs"></a>在 ML 定型运行中启用日志记录
 
 
 Azure 机器学习 Python SDK 允许使用默认的 Python 日志记录包和特定于 SDK 的功能记录实时信息。 你可以在本地进行记录，并将日志发送到门户中的工作区。

@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340543"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360082"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 (TTL)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "93340543"
 
 删除过期项是一个后台任务，它使用剩余的[请求单元](request-units.md)，即用户请求没有使用的请求单元。 即使在 TTL 过期后，如果容器出现请求过载的情况，并且没有足够的 RU 使用，也会延迟数据删除操作。 如果提供了足够的 RU 来执行删除操作，则会删除数据。 虽然数据删除延迟，但任何查询都不会（通过任何 API）在 TTL 已过期后返回数据。
 
-> 此内容与 Azure Cosmos DB 事务存储 TTL 相关。 如果正在查找通过 [Azure Synapse Link](./synapse-link.md) 启用 NoETL HTAP 方案的分析存储 TTL，请单击[此处](./analytical-store-introduction.md#analytical-ttl)。
+> 此内容与 Azure Cosmos DB 事务存储 TTL 相关。 如果你正在寻找分析存储 TTL，这将通过 [Azure Synapse 链接](./synapse-link.md)启用 NoETL HTAP 方案，请单击 [此处](./analytical-store-introduction.md#analytical-ttl)。
 
 ## <a name="time-to-live-for-containers-and-items"></a>容器和项的生存时间
 
@@ -34,7 +34,7 @@ ms.locfileid: "93340543"
 
    - 如果存在并且值设置为 "-1"，则它等于无限大，并且默认情况下不会过期。
 
-   - 如果存在并且值设置为 *"n"* ，则项在其上次修改时间之后将在 *"n"* 秒后过期。
+   - 如果存在并且值设置为一个 *非零* 数字 *"n"* ，则项在其上次修改时间之后将在 *"n"* 秒后过期。
 
 2. **项的生存时间** （使用 `ttl` 设置）：
 
@@ -44,11 +44,11 @@ ms.locfileid: "93340543"
 
 ## <a name="time-to-live-configurations"></a>生存时间配置
 
-* 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。    如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据其自己的已配置 TTL 值过期。 
+- 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。    如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据其自己的已配置 TTL 值过期。
 
-* 如果未针对某个容器设置 TTL，则此容器中的项的生存时间不起作用。 
+- 如果未针对某个容器设置 TTL，则此容器中的项的生存时间不起作用。
 
-* 如果某个容器的 TTL 设置为 -1，则此容器中生存时间设置为 n 的项将在 n 秒后过期，剩余的项不会过期。
+- 如果某个容器的 TTL 设置为 -1，则此容器中生存时间设置为 n 的项将在 n 秒后过期，剩余的项不会过期。
 
 ## <a name="examples"></a>示例
 
@@ -60,10 +60,9 @@ ms.locfileid: "93340543"
 
 |项的 TTL| 结果|
 |---|---|
-|ttl = null|    TTL 已禁用。 该项将永不过期（默认值）。|
-|ttl = -1   |TTL 已禁用。 该项将永不过期。|
-|ttl = 2000 |TTL 已禁用。 该项将永不过期。|
-
+|ttl = null|TTL 已禁用。 该项将永不过期（默认值）。|
+|ttl = -1|TTL 已禁用。 该项将永不过期。|
+|ttl = 2000|TTL 已禁用。 该项将永不过期。|
 
 ### <a name="example-2"></a>示例 2
 
@@ -71,10 +70,9 @@ ms.locfileid: "93340543"
 
 |项的 TTL| 结果|
 |---|---|
-|ttl = null |TTL 已启用。 该项将永不过期（默认值）。|
-|ttl = -1   |TTL 已启用。 该项将永不过期。|
-|ttl = 2000 |TTL 已启用。 该项将在 2000 秒后过期。|
-
+|ttl = null|TTL 已启用。 该项将永不过期（默认值）。|
+|ttl = -1|TTL 已启用。 该项将永不过期。|
+|ttl = 2000|TTL 已启用。 该项将在 2000 秒后过期。|
 
 ### <a name="example-3"></a>示例 3
 
@@ -82,12 +80,12 @@ ms.locfileid: "93340543"
 
 |项的 TTL| 结果|
 |---|---|
-|ttl = null|    TTL 已启用。 该项将在 1000 秒（默认值）后过期。|
-|ttl = -1   |TTL 已启用。 该项将永不过期。|
-|ttl = 2000 |TTL 已启用。 该项将在 2000 秒后过期。|
+|ttl = null|TTL 已启用。 该项将在 1000 秒（默认值）后过期。|
+|ttl = -1|TTL 已启用。 该项将永不过期。|
+|ttl = 2000|TTL 已启用。 该项将在 2000 秒后过期。|
 
 ## <a name="next-steps"></a>后续步骤
 
 通过以下文章了解如何配置生存时间：
 
-* [如何配置生存时间](how-to-time-to-live.md)
+- [如何配置生存时间](how-to-time-to-live.md)

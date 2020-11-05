@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312784"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359861"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>在 Azure 机器学习 studio 中连接到数据
 
@@ -24,7 +24,7 @@ ms.locfileid: "93312784"
 
 下表定义和汇总了数据存储和数据集的优点。 
 
-|Object|说明| 优点|   
+|Object|描述| 优点|   
 |---|---|---|
 |数据存储| 通过在与工作区关联的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 中存储连接信息（如订阅 ID 和令牌授权），安全地连接到 Azure 上的存储服务 | 由于你的信息已安全存储，你 <br><br> <li> 不要 &nbsp; 将 &nbsp; 身份验证 &nbsp; 凭据 &nbsp; 或 &nbsp; 原始 &nbsp; 数据源置于风险之中。 <li> 不再需要在脚本中对其进行硬编码。
 |数据集| 通过创建数据集，可以创建对数据源位置的引用及其元数据的副本。 利用数据集，你可以 <br><br><li> 在模型定型过程中访问数据。<li> 与其他用户共享数据和展开协作。<li> 利用开源库（如 pandas）进行数据浏览。 | 由于数据集是延迟计算的，并且数据仍保留在其现有位置，因此 <br><br><li>在存储中保留数据的单个副本。<li> 不产生额外的存储成本 <li> 不会无意中更改原始数据源。<li>会提高 ML 工作流性能速度。 
@@ -50,8 +50,6 @@ ms.locfileid: "93312784"
 
 可从[这些 Azure 存储解决方案](how-to-access-data.md#matrix)创建数据存储。 **对于不支持的存储解决方案** ，以及在 ML 试验期间节省数据出口成本，你必须 [将数据移动](how-to-access-data.md#move) 到受支持的 Azure 存储解决方案。 [了解有关数据存储的详细信息](how-to-access-data.md)。 
 
-
-
 在 Azure 机器学习工作室中通过几个步骤创建新的数据存储。
 
 > [!IMPORTANT]
@@ -60,7 +58,7 @@ ms.locfileid: "93312784"
 1. 登录到 [Azure 机器学习工作室](https://ml.azure.com/)。
 1. 在左窗格中的“管理”下，选择“数据存储” 。
 1. 选择“+ 新建数据存储”。
-1. 填写新数据存储的表单。 该表单会根据你选择的 Azure 存储类型和身份验证类型智能地进行更新。 请参阅[存储访问和权限部分](#access-validation)，了解在哪里可以找到填充此窗体所需的身份验证凭据。
+1. 填写表单以创建和注册新数据存储。 该表单会根据你选择的 Azure 存储类型和身份验证类型智能地进行更新。 请参阅[存储访问和权限部分](#access-validation)，了解在哪里可以找到填充此窗体所需的身份验证凭据。
 
 下面的示例展示了创建 **Azure Blob 数据存储** 时窗体的外观：
 
@@ -115,7 +113,7 @@ ms.locfileid: "93312784"
 
 |统计信息|说明
 |------|------
-|Feature| 正在汇总的列的名称。
+|功能| 正在汇总的列的名称。
 |配置文件| 基于推理的类型显示的内联可视化效果。 例如，字符串、布尔值和日期包含值计数，而小数（数字）则包含近似的直方图。 这样，就可以快速了解数据的分布。
 |类型分布| 列中类型的内联值计数。 Null 是其自身的类型，因此，此可视化效果可用于检测反常值或缺失值。
 |类型|列的推理类型。 可能的值包括：字符串、布尔值、日期和小数。
@@ -157,11 +155,15 @@ ms.locfileid: "93312784"
     * 其对应的“概览”页面将包含租户 ID 和客户端 ID 之类的必需信息。
 
 > [!IMPORTANT]
-> 出于安全原因，你可能需要更改 Azure 存储帐户的访问密钥（帐户密钥或 SAS 令牌）。 执行此操作时，请确保将新凭据与工作区及其连接的数据存储进行同步。 了解如何[同步更新的凭据](how-to-change-storage-access-key.md)。
+> * 如果需要更改 Azure 存储帐户的访问密钥 (帐户密钥或 SAS 令牌) ，请确保将新凭据与你的工作区和数据存储连接的凭据同步。 了解如何[同步更新的凭据](how-to-change-storage-access-key.md)。 <br> <br>
+> * 如果你注销并重新注册同名的数据存储，并且它失败，则你的工作区的 Azure Key Vault 可能不会启用软删除。 默认情况下，将为工作区创建的密钥保管库实例启用软删除，但如果使用的是现有密钥保管库或在10月2020之前创建的工作区，则可能不会启用软删除。 有关如何启用软删除的信息，请参阅 [打开现有密钥保管库的软删除]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)。
 
 ### <a name="permissions"></a>权限
 
-对于 Azure Blob 容器和 Azure Data Lake 第 2 代存储，请确保身份验证凭据具有对存储 Blob 数据读取器的访问权限。 详细了解[存储 Blob 数据读取器](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)。 
+对于 Azure blob 容器和 Azure Data Lake 第2代存储，请确保身份验证凭据具有 **存储 Blob 数据读取器** 访问权限。 详细了解[存储 Blob 数据读取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)。 帐户 SAS 令牌默认为无权限。 
+* 对于数据 **读取访问** ，你的身份验证凭据必须具有容器和对象的最小列表和读取权限。 
+
+* 对于数据 **写入访问** 权限，还需要编写和添加权限。
 
 ## <a name="train-with-datasets"></a>使用数据集进行训练
 

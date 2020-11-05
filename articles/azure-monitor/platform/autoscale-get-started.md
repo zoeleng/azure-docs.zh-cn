@@ -4,12 +4,12 @@ description: 了解如何在 Azure 中缩放资源：Web 应用、云服务、�
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342209"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361196"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Microsoft Azure 门户中为资源指定自动缩放设置。
@@ -140,6 +140,20 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 ### <a name="monitoring"></a>监视
 
 提供应用程序的运行状况检查路径后，可以使用 Azure Monitor 来监视站点的运行状况。 在门户中的 **运行状况检查** 边栏选项卡上，单击顶部工具栏中的 **度量值** 。 这会打开一个新的边栏选项卡，你可以在其中查看站点的历史运行状况状态并创建新的警报规则。 有关监视网站的详细信息， [请参阅 Azure Monitor 上的指南](../../app-service/web-sites-monitor.md)。
+
+## <a name="moving-autoscale-to-a-different-region"></a>将自动缩放移动到不同的区域
+本部分介绍如何在同一订阅和资源组下将 Azure 自动缩放移到另一个区域。 可以使用 REST API 来移动自动缩放设置。
+### <a name="prerequisite"></a>先决条件
+1. 确保订阅和资源组可用，并且源区域和目标区域中的详细信息是相同的。
+1. 确保 Azure [区域](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)中的 azure 自动缩放功能可用。
+
+### <a name="move"></a>移动
+使用 [REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) 在新环境中创建自动缩放设置。 在目标区域中创建的自动缩放设置将是源区域中的自动缩放设置的副本。
+
+无法移动在源区域中与自动缩放设置关联的中创建的[诊断设置](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)。 完成创建 autosale 设置后，你将需要在目标区域中重新创建诊断设置。 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>详细了解如何在 Azure 区域之间移动资源
+若要详细了解如何在 Azure 中的区域和灾难恢复之间移动资源，请参阅 [将资源移到新的资源组或订阅](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 
 ## <a name="next-steps"></a>后续步骤
 - [创建活动日志警报以监视订阅上的所有自动缩放引擎操作](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

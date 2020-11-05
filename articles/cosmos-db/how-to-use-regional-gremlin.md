@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB Graph 数据库的区域终结点
 description: 了解如何连接到应用程序最近的 Graph 数据库终结点
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085762"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361781"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB Graph 帐户的区域终结点
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -28,9 +28,9 @@ Azure Cosmos DB Graph 数据库是[全局分布](distribute-data-globally.md)的
 
 ## <a name="traffic-routing"></a>流量路由
 
-Cosmos DB Graph 数据库引擎正在多个区域中运行，其中每个区域都包含多个群集。 每个群集都有数百台计算机。 Cosmos DB 图形帐户 DNS CNAME accountname.gremlin.cosmos.azure.com  解析为群集的 DNS A 记录。 负载平衡器的单个 IP 地址将隐藏内部群集拓扑。
+Cosmos DB Graph 数据库引擎正在多个区域中运行，其中每个区域都包含多个群集。 每个群集都有数百台计算机。 Cosmos DB 图形帐户 DNS CNAME accountname.gremlin.cosmos.azure.com 解析为群集的 DNS A 记录。 负载平衡器的单个 IP 地址将隐藏内部群集拓扑。
 
-将为 Cosmos DB Graph 帐户的每个区域创建一个区域 DNS CNAME 记录。 区域终结点的格式是 accountname-region.gremlin.cosmos.azure.com  。 通过删除 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions)名称中的所有空格获取区域终结点的区域段。 例如，`"contoso"` 全局数据库帐户的 `"East US 2"` 区域将具有 DNS CNAME contoso-eastus2.gremlin.cosmos.azure.com 
+将为 Cosmos DB Graph 帐户的每个区域创建一个区域 DNS CNAME 记录。 区域终结点的格式是 accountname-region.gremlin.cosmos.azure.com。 通过删除 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions)名称中的所有空格获取区域终结点的区域段。 例如，`"contoso"` 全局数据库帐户的 `"East US 2"` 区域将具有 DNS CNAME contoso-eastus2.gremlin.cosmos.azure.com
 
 TinkerPop Gremlin 客户端设计用于单台服务器。 应用程序可将全局可写入 DNS CNAME 用于读取和写入流量。 可识别区域的应用程序应使用区域终结点来读取流量。 仅在特定区域配置为接受写入时，才将区域终结点用于写入流量。 
 

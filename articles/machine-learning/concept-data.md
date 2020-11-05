@@ -1,7 +1,7 @@
 ---
 title: 云中的安全数据访问
 titleSuffix: Azure Machine Learning
-description: 了解如何从 Azure 机器学习安全地连接到数据，以及如何使用数据集和数据存储来执行 ML 任务。 数据存储可以存储 Azure Blob 中的数据，Azure Data Lake 第 1 & 2、SQL 数据库和 Azure Databricks。
+description: 了解如何通过 Azure 机器学习数据存储和数据集安全地连接到 Azure 上的数据存储。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322239"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360167"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure 机器学习中的安全数据访问
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280380"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360065"
 ---
 # <a name="manage-digital-twins"></a>管理数字孪生
 
@@ -23,7 +23,7 @@ ms.locfileid: "93280380"
 > [!TIP]
 > 所有 SDK 函数都提供同步和异步版本。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "93280380"
 若要创建克隆，请在 `CreateOrReplaceDigitalTwinAsync()` 服务客户端上使用方法，如下所示：
 
 ```csharp
-await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myTwinId", initData);
 ```
 
 若要创建数字克隆，需要提供：
@@ -55,12 +55,7 @@ await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
 
 克隆创建 API 接受序列化为克隆属性的有效 JSON 说明的对象。 请参阅 " [*概念：数字孪生" 和 "克隆图形"*](concepts-twins-graph.md) ，以获取对一种对的 JSON 格式的说明。 
 
-首先，您可以创建一个数据对象来表示克隆及其属性数据，如下所示：
-
-```csharp
-await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
-```
-可以手动创建参数对象，也可以使用提供的帮助器类创建参数对象。 下面是每个的示例。
+首先，您可以创建一个数据对象来表示克隆及其属性数据。 可以手动创建参数对象，也可以使用提供的帮助器类创建参数对象。 下面是每个的示例。
 
 #### <a name="create-twins-using-manually-created-data"></a>使用手动创建的数据创建孪生
 

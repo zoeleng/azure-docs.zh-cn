@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347635"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360011"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>创建建议器，以在查询中启用“自动完成”和“建议结果”功能
 
-在 Azure 认知搜索中，“键入时搜索”是通过添加到[搜索索引](search-what-is-an-index.md)的建议器构造启用的。 建议器支持两种体验：“自动完成”，它将整个术语查询的一部分输入补充完整，和“建议”，它邀请执行指向特定匹配的一系列单击操作 。 “自动完成”生成查询。 “建议”生成匹配的文档。
+在 Azure 认知搜索中，“键入时搜索”是通过添加到[搜索索引](search-what-is-an-index.md)的建议器构造启用的。 建议器支持两种体验： *自动完成功能* ，它完成整个术语查询的部分输入，并 *建议* 邀请单击到特定的匹配项。 “自动完成”生成查询。 “建议”生成匹配的文档。
 
 取自[在 C# 中创建第一个应用](tutorial-csharp-type-ahead-and-suggestions.md)的以下屏幕截图演示了这两种体验。 自动完成可预测潜在字词，并使用“in”来补充“tw”。 建议是极其精简的搜索结果，其中的字段（例如酒店名称）表示索引中匹配的酒店搜索文档。 对于建议，可以呈现任何提供描述性信息的字段。
 
@@ -44,6 +44,8 @@ ms.locfileid: "93347635"
 
 + 使用字段上默认的标准 Lucene 分析器 (`"analyzer": null`) 或[语言分析器](index-add-language-analyzers.md)（例如 `"analyzer": "en.Microsoft"`）
 
+如果尝试使用预先存在的字段创建建议器，API 将不允许这样做。 在编制索引期间，如果两个或更多个字符的组合中的部分字词连同完整字词一起标记化，则会生成前缀。 如果现有字段已标记化，而你想要将其添加到建议器，则必须重新生成索引。 有关详细信息，请参阅[如何重新生成 Azure 认知搜索索引](search-howto-reindex.md)。
+
 ### <a name="choose-fields"></a>选择字段
 
 虽然建议器有多个属性，但它主要是需要为其启用“键入时搜索”体验的字符串字段集合。 每个索引都有一个建议器，因此建议器列表必须包含所有为“建议”和“自动完成”贡献内容的字段。
@@ -64,12 +66,6 @@ ms.locfileid: "93347635"
 
 > [!NOTE]
 > 如果需要解决分析器约束，例如，如果需要为某些查询方案使用某个关键字或 ngram 分析器，应对同一内容使用两个单独的字段。 这样，就可以在其中一个字段中使用建议器，并使用自定义分析器配置来设置其他字段。
-
-### <a name="when-to-create-a-suggester"></a>何时创建建议器
-
-创建建议器的最佳时间是同时要创建字段定义本身时。
-
-如果尝试使用预先存在的字段创建建议器，API 将不允许这样做。 在编制索引期间，如果两个或更多个字符的组合中的部分字词连同完整字词一起标记化，则会生成前缀。 如果现有字段已标记化，而你想要将其添加到建议器，则必须重新生成索引。 有关详细信息，请参阅[如何重新生成 Azure 认知搜索索引](search-howto-reindex.md)。
 
 ## <a name="create-using-rest"></a>使用 REST 进行创建
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36540de8924a1433f16f942d9aedc059efae05de
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348672"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360779"
 ---
 # <a name="update-management-overview"></a>更新管理概述
 
@@ -18,6 +18,9 @@ ms.locfileid: "93348672"
 
 > [!NOTE]
 > 不能使用配置了更新管理功能的计算机从 Azure 自动化运行自定义脚本。 此计算机只能运行 Microsoft 签名的更新脚本。
+
+> [!NOTE]
+> 目前，不支持直接从启用了 Arc 的服务器启用更新管理。 若要了解要求以及如何为服务器启用，请参阅 [从自动化帐户启用更新管理](../../automation/update-management/enable-from-automation-account.md) 。
 
 若要在 Azure VM 上自动下载并安装可用的 *关键* 修补程序和 *安全* 修补程序，请查看 WINDOWS vm 的 [自动 VM 来宾修补](../../virtual-machines/windows/automatic-vm-guest-patching.md) 。
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91598095"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360269"
 ---
 # <a name="data-flow-script-dfs"></a> (DFS) 的数据流脚本
 
@@ -218,6 +218,17 @@ aggregate(groupBy(mycols = sha2(256,columns())),
 ```
 split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>使用 select 自动映射架构偏移
+如果需要从未知或动态的传入列集中加载现有的数据库架构，则必须在接收器转换中映射右侧列。 仅在加载现有表时需要此。 将此代码段添加到接收器前面，以创建自动映射列的 Select。 将接收器映射留到自动映射。
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
 ```
 
 ## <a name="next-steps"></a>后续步骤

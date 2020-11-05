@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400802"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359742"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>适用于 Azure 逻辑应用的连接器
 
@@ -66,7 +66,7 @@ ms.locfileid: "91400802"
 > [!NOTE]
 > 在 ISE 及其连接器中运行的逻辑应用，不管这些连接器的运行位置如何，都遵循固定定价计划与基于消耗的定价计划。 有关详细信息，请参阅 [逻辑应用定价模型](../logic-apps/logic-apps-pricing.md) 和 [逻辑应用定价详细](https://azure.microsoft.com/pricing/details/logic-apps/)信息。
 
-| Label | 示例 | 说明 |
+| Label | 示例 | 描述 |
 |-------|---------|-------------|
 | **转储** | ![示例核心连接器](./media/apis-list/example-core-connector.png) | 此标签的内置触发器和操作与逻辑应用在同一 ISE 中运行。 |
 | **ISE** | ![ISE 连接器示例](./media/apis-list/example-ise-connector.png) | 此标签的托管连接器与逻辑应用在同一 ISE 中运行。 如果你的本地系统已连接到 Azure 虚拟网络，则 ISE 允许你的逻辑应用直接访问该系统，而无需使用 [本地数据网关](../logic-apps/logic-apps-gateway-connection.md)。 相反，你可以使用该系统的 **ISE** 连接器（如果有）、HTTP 操作或 [自定义连接器](#custom)。 对于没有 **ISE** 连接器的本地系统，请使用本地数据网关。 若要查看可用的 ISE 连接器，请参阅 [ise 连接器](#ise-connectors)。 |
@@ -81,7 +81,7 @@ ms.locfileid: "91400802"
 
 | 名称 | 说明 |
 |------|-------------|
-| [![“计划”内置连接器][schedule-icon]<br>计划][schedule-doc] | - 使用[ **“重复周期”** 触发器][schedule-recurrence-doc]，按指定的重复周期以简单到高级的计划运行逻辑应用。 <br>- 使用[ **“滑动窗口”** 触发器][schedule-sliding-window-doc]，运行需要处理连续区块中的数据的逻辑应用。 <br>- 使用[ **“延迟”** 操作][schedule-delay-doc]，将逻辑应用暂停指定的持续时间。 <br>- 使用[ **“延迟截止时间”** 操作][schedule-delay-until-doc]，将逻辑应用暂停到指定的日期和时间。 |
+| [![“计划”内置连接器][schedule-icon]<br>计划][schedule-doc] | - 使用 [ **“重复周期”** 触发器][schedule-recurrence-doc]，按指定的重复周期以简单到高级的计划运行逻辑应用。 <br>- 使用 [ **“滑动窗口”** 触发器][schedule-sliding-window-doc]，运行需要处理连续区块中的数据的逻辑应用。 <br>- 使用 [ **“延迟”** 操作][schedule-delay-doc]，将逻辑应用暂停指定的持续时间。 <br>- 使用 [ **“延迟截止时间”** 操作][schedule-delay-until-doc]，将逻辑应用暂停到指定的日期和时间。 |
 | [![“批处理”内置连接器][batch-icon]<br>批处理][batch-doc] | - 使用“批处理消息”触发器来批量处理消息。 <br>- 使用“发送要批量处理的消息”操作调用具有现有批处理触发器的逻辑应用。 |
 | [![HTTP 内置连接器][http-icon]<br>HTTP][http-doc] | 使用适用于 HTTP 的触发器和操作调用 HTTP 或 HTTPS 终结点。 其他 HTTP 内置触发器和操作包括 [HTTP + Swagger 内置连接器][http-swagger-doc]和 [HTTP + Webhook][http-webhook-doc]。 |
 | [![“请求”内置连接器][http-request-icon]<br>请求][http-request-doc] | - 使用“请求”触发器，使逻辑应用可从其他应用程序或服务调用、针对事件网格资源事件触发，或者针对 Azure 安全中心警报触发。 <br>- 使用“响应”操作将响应发送到应用或服务。 |
@@ -120,9 +120,9 @@ ms.locfileid: "91400802"
 
 | 名称 | 说明 |
 |------|-------------|
-| [![“数据操作”内置操作][data-operations-icon]<br>数据操作][data-operations-doc] | 对数据执行操作： <p>- **撰写**：基于具有不同类型的多个输入创建单个输出。 <br>- **创建 CSV 表**：基于包含 JSON 对象的数组创建逗号分隔值 (CSV) 表。 <br>- **创建 HTML 表**：基于包含 JSON 对象的数组创建一个 HTML 表。 <br>- **筛选数组**：基于符合条件的另一个数组中的项创建一个数组。 <br>- **联接**：基于数组中的所有项创建一个字符串，并使用指定的分隔符分隔这些项。 <br>- **分析 JSON**：基于 JSON 内容中的属性及其值创建用户友好的令牌，以便可以在工作流中使用这些属性。 <br>- **选择**：通过转换另一数组中的项或值并将这些项映射到指定的属性，创建包含 JSON 对象的数组。 |
-| ![“日期时间”内置操作][date-time-icon]<br>**日期时间** | 对时间戳执行操作： <p>- **添加到时间**：将指定的单位数添加到时间戳。 <br>- **转换时区**：将时间戳从源时区转换为目标时区。 <br>- **当前时间**：返回字符串形式的当前时间戳。 <br>- **获取将来的时间**：返回当前时间戳加上指定的时间单位。 <br>- **获取过去的时间**：返回当前时间戳减去指定的时间单位。 <br>- **从时间中减去**：从时间戳中减去一定数目的时间单位。 |
-| [![“变量”内置操作][variables-icon]<br>变量][variables-doc] | 对变量执行操作： <p>- **追加到数组变量**：插入一个值，作为变量存储的数组中的最后一个项。 <br>- **追加到字符串变量**：插入一个值，作为变量存储的字符串中的最后一个字符。 <br>- **递减变量**：按常量值减小变量。 <br>- **递增变量**：按常量值增大变量。 <br>- **初始化变量**：创建一个变量并声明其数据类型和初始值。 <br>- **设置变量**：将不同的值分配给现有变量。 |
+| [![“数据操作”内置操作][data-operations-icon]<br>数据操作][data-operations-doc] | 对数据执行操作： <p>- **撰写** ：基于具有不同类型的多个输入创建单个输出。 <br>- **创建 CSV 表** ：基于包含 JSON 对象的数组创建逗号分隔值 (CSV) 表。 <br>- **创建 HTML 表** ：基于包含 JSON 对象的数组创建一个 HTML 表。 <br>- **筛选数组** ：基于符合条件的另一个数组中的项创建一个数组。 <br>- **联接** ：基于数组中的所有项创建一个字符串，并使用指定的分隔符分隔这些项。 <br>- **分析 JSON** ：基于 JSON 内容中的属性及其值创建用户友好的令牌，以便可以在工作流中使用这些属性。 <br>- **选择** ：通过转换另一数组中的项或值并将这些项映射到指定的属性，创建包含 JSON 对象的数组。 |
+| ![“日期时间”内置操作][date-time-icon]<br>**日期时间** | 对时间戳执行操作： <p>- **添加到时间** ：将指定的单位数添加到时间戳。 <br>- **转换时区** ：将时间戳从源时区转换为目标时区。 <br>- **当前时间** ：返回字符串形式的当前时间戳。 <br>- **获取将来的时间** ：返回当前时间戳加上指定的时间单位。 <br>- **获取过去的时间** ：返回当前时间戳减去指定的时间单位。 <br>- **从时间中减去** ：从时间戳中减去一定数目的时间单位。 |
+| [![“变量”内置操作][variables-icon]<br>变量][variables-doc] | 对变量执行操作： <p>- **追加到数组变量** ：插入一个值，作为变量存储的数组中的最后一个项。 <br>- **追加到字符串变量** ：插入一个值，作为变量存储的字符串中的最后一个字符。 <br>- **递减变量** ：按常量值减小变量。 <br>- **递增变量** ：按常量值增大变量。 <br>- **初始化变量** ：创建一个变量并声明其数据类型和初始值。 <br>- **设置变量** ：将不同的值分配给现有变量。 |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -136,7 +136,7 @@ ms.locfileid: "91400802"
 | [![“Azure 服务总线”托管连接器][azure-service-bus-icon]<br>Azure 服务总线][azure-service-bus-doc] | 使用逻辑应用中最常用的连接器管理异步消息、会话和主题订阅。 |
 | [![SQL Server 托管连接器][sql-server-icon]<br>SQL Server][sql-server-doc] | 连接到本地 SQL Server 或云中的 Azure SQL 数据库，以便可以管理记录、运行存储过程或执行查询。 |
 | [![“Azure Blob 存储”托管连接器][azure-blob-storage-icon]<br>Azure Blob<br>存储][azure-blob-storage-doc] | 连接到存储帐户，以便可以创建和管理 Blob 内容。 |
-| [![Office 365 Outlook 托管连接器][office-365-outlook-icon]<br>Office 365<br>Outlook][office-365-outlook-doc] | 连接到你的工作或学校电子邮件帐户，以便你可以创建和管理电子邮件、任务、日历事件和会议、联系人和请求等。 |
+| [![Office 365 Outlook 托管连接器][office-365-outlook-icon]<br>Office 365<br>Outlook][office-365-outlook-doc] | 连接到工作或学校电子邮件帐户，以便可以创建和管理电子邮件、任务、日历事件和会议、联系人、请求，等等。 |
 | [![ 托管连接器][sftp-ssh-icon]<br>SFTP-SSH][sftp-ssh-doc] | 使用 SSH 连接到可从 Internet 访问的 SFTP 服务器，以便可以处理文件和文件夹。 |
 | [![SharePoint Online 托管连接器][sharepoint-online-icon]<br>SharePoint<br>Online][sharepoint-online-doc] | 连接到 SharePoint Online，以便可以管理文件、附件、文件夹，等等。 |
 | [![“Azure 队列”托管连接器][azure-queues-icon]<br>Azure <br>队列][azure-queues-doc] | 连接到 Azure 存储帐户，以便创建和管理队列与消息。 |
@@ -151,7 +151,9 @@ ms.locfileid: "91400802"
 
 ## <a name="on-premises-connectors"></a>本地连接器
 
-逻辑应用提供下面这些常用的标准连接器用于访问本地系统中的数据和资源。 在创建与本地系统的连接之前，必须先[下载、安装并设置本地数据网关][gateway-doc]。 此网关提供安全信道，无需设置所需的网络基础结构。
+在创建与本地系统的连接之前，必须先[下载、安装并设置本地数据网关][gateway-doc]。 此网关提供安全信道，无需设置所需的网络基础结构。 
+
+下面是逻辑应用提供的 *一些* 常用标准连接器，用于访问本地系统中的数据和资源。 对于 "本地连接器" 列表，请参阅 [支持的数据源](../logic-apps/logic-apps-gateway-connection.md#supported-connections)。
 
 :::row:::
     :::column:::
@@ -270,7 +272,7 @@ ms.locfileid: "91400802"
 
 ## <a name="ise-connectors"></a>ISE 连接器
 
-对于在 [ (ISE) 的专用 integration service 环境 ](#integration-service-environment)中创建和运行的逻辑应用，逻辑应用设计器通过使用 " **核心** " 标签来标识在 ISE 中运行的内置触发器和操作。 在 ISE 中运行的托管连接器会显示 **ISE** 标签，而在全局多租户逻辑应用服务中运行的连接器不会显示任何一个标签。 此列表显示当前具有 ISE 版本的连接器：
+对于在 [ (ISE) 的专用 integration service 环境](#integration-service-environment)中创建和运行的逻辑应用，逻辑应用设计器通过使用 " **核心** " 标签来标识在 ISE 中运行的内置触发器和操作。 在 ISE 中运行的托管连接器会显示 **ISE** 标签，而在全局多租户逻辑应用服务中运行的连接器不会显示任何一个标签。 此列表显示当前具有 ISE 版本的连接器：
 
 :::row:::
     :::column:::
@@ -375,7 +377,7 @@ ms.locfileid: "91400802"
 
 * 重复周期触发器：此触发器按指定的计划运行，不与特定的服务或系统密切相关。
 
-* *轮询触发器*：此触发器根据指定的计划定期轮询特定的服务或系统，检查是否有可用的新数据或者是否发生了特定的事件。 如果有可用的新数据或者发生了特定的事件，该触发器将创建并运行逻辑应用的新实例，该实例现在可以使用作为输入传递的数据。
+* *轮询触发器* ：此触发器根据指定的计划定期轮询特定的服务或系统，检查是否有可用的新数据或者是否发生了特定的事件。 如果有可用的新数据或者发生了特定的事件，该触发器将创建并运行逻辑应用的新实例，该实例现在可以使用作为输入传递的数据。
 
 * 推送触发器：此触发器等待并侦听新数据或事件的发生。 如果有可用的新数据或者发生了该事件，该触发器将创建并运行逻辑应用的新实例，该实例现在可以使用作为输入传递的数据。
 
@@ -574,7 +576,7 @@ ms.locfileid: "91400802"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "从服务总线队列和主题发送消息，并从服务总线队列和订阅接收消息"
 [azure-sql-data-warehouse-doc]: /connectors/sqldw/ "连接到 Azure Synapse Analytics，以便可以查看数据"
 [azure-table-storage-doc]: /connectors/azuretables/ "连接到 Azure 存储帐户，以便创建、更新和查询表与其他对象"
-[biztalk-server-doc]: /connectors/biztalk/ "连接到 BizTalk Server，以便可以将基于 BizTalk 的应用程序与 Azure 逻辑应用并行运行"
+[biztalk-server-doc]: /connectors/biztalk/ "连接到 BizTalk Server，以便将基于 BizTalk 的应用程序与 Azure 逻辑应用一起运行"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "连接到本地文件系统"
 [ftp-doc]: ./connectors-create-api-ftp.md "连接到 FTP/FTPS 服务器以执行 FTP 任务，例如上传、获取、删除文件，等等"
 [github-doc]: ./connectors-create-api-github.md "连接到 GitHub，对问题进行跟踪"
@@ -588,7 +590,7 @@ ms.locfileid: "91400802"
 [instagram-doc]: ./connectors-create-api-instagram.md "连接到 Instagram。触发事件或针对事件进行操作"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "连接到 Mandrill 进行通信"
 [mysql-doc]: /connectors/mysql/ "连接到本地 MySQL 数据库，以便读取和写入数据"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "连接到你的工作或学校帐户，以便能够发送和接收电子邮件、管理你的日历和联系人等"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "连接到工作或学校帐户，以便发送和接收电子邮件、管理日历和联系人，以及执行其他操作"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "连接到个人 Microsoft OneDrive，以便上传、删除、列出文件，等等"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "连接到企业 Microsoft OneDrive，以便上传、删除、列出文件，等等"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "连接到 Oracle 数据库，以便添加、插入、删除行，以及执行其他操作"

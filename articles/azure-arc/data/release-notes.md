@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321710"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359810"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>发行说明-启用了 Azure Arc 的数据服务 (预览) 
 
@@ -46,7 +46,7 @@ Azure 数据 CLI (`azdata`) 版本号：20.2.3。 下载位置 [https://aka.ms/a
 
    * 上载到 Azure 的点数
 
-     或 
+     or 
 
    * 如果没有数据加载到 Azure，则会提示再次尝试。
 
@@ -90,7 +90,7 @@ Azure 数据 CLI (`azdata`) 版本号：20.2.3。 下载位置 [https://aka.ms/a
 
 - 预览不支持 PostgreSQL 版本11引擎的备份/还原。 它仅支持 PostgreSQL 版本12的备份/还原。
 - `azdata arc dc debug copy-logs` 节点不收集 Windows 上的 PostgreSQL engine 日志。
-- 使用刚删除的服务器组的名称重新创建服务器组可能会失败或挂起。 
+- 使用刚删除的服务器组的名称重新创建服务器组可能会失败或停止响应。 
    - **解决方法** 重新创建服务器组或等待之前删除的服务器组的负载均衡器/外部服务时，请不要重复使用相同的名称。 假设你删除的服务器组的名称为， `postgres01` 并且该名称承载于一个命名空间中 `arc` ，则在重新创建同名的服务器组之前，请等待，直到 `postgres01-external-svc` 未显示在 kubectl 命令的输出中 `kubectl get svc -n arc` 。
  - 在 Azure Data Studio 中加载 "概述" 页和 "计算 + 存储" 配置页面速度缓慢。 
 

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325343"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361159"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -115,35 +115,10 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 创建过程完成后，可在虚拟网络后面的 AKS 群集上运行推理或模型评分。 有关详细信息，请参阅[如何部署 AKS](how-to-deploy-and-where.md)。
 
-## <a name="secure-vnet-traffic"></a>保护 VNet 流量
-
-有两种方法可以将往返于 AKS 群集的流量隔离到虚拟网络：
-
-* __私有 AKS 群集__ ：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
-* __内部 AKS 负载均衡器__ ：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
-
-> [!WARNING]
-> 内部负载均衡器不适用于使用 kubenet 的 AKS 群集。 如果要同时使用内部负载均衡器和专用 AKS 群集，请使用 Azure Container 网络接口 (CNI) 配置专用 AKS 群集。 有关详细信息，请参阅 [在 Azure Kubernetes Service 中配置 AZURE CNI 网络](../aks/configure-azure-cni.md)。
-
-### <a name="private-aks-cluster"></a>专用 AKS 群集
-
-默认情况下，AKS 群集具有一个带有公共 IP 地址的控制平面（或 API 服务器）。 可以通过创建专用 AKS 群集，将 AKS 配置为使用专用控制平面。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
-
-创建专用 AKS 群集之后，[将群集连接到虚拟网络](how-to-create-attach-kubernetes.md)以便用于 Azure 机器学习。
+## <a name="network-contributor-role"></a>网络参与者角色
 
 > [!IMPORTANT]
-> 在将启用了专用链接的 AKS 群集用于 Azure 机器学习之前，必须建立一个支持事件案例，否则无法启用此功能。 有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
-
-### <a name="internal-aks-load-balancer"></a>内部 AKS 负载均衡器
-
-默认情况下，AKS 部署使用[公共负载均衡器](../aks/load-balancer-standard.md)。 在本部分中，你会了解如何将 AKS 配置为使用内部负载均衡器。 内部（或专用）负载平衡器用于仅在前端允许专用 IP 的情况。 内部负载均衡器用于对虚拟网络内部的流量进行负载均衡
-
-可以通过将 AKS 配置为使用内部负载均衡器来启用专用负载均衡器。 
-
-#### <a name="network-contributor-role"></a>网络参与者角色
-
-> [!IMPORTANT]
-> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的 _网络参与者_ 角色。 必须在尝试将内部负载均衡器更改为专用 IP 之前完成此操作。
+> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的 _网络参与者_ 角色。
 >
 > 若要将标识添加为网络参与者，请执行以下步骤：
 
@@ -171,6 +146,31 @@ aks_target = ComputeTarget.create(workspace=ws,
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
 若要详细了解如何结合使用内部负载均衡器与 AKS，请参阅[结合使用内部负载均衡器与 Azure Kubernetes 服务](../aks/internal-lb.md)。
+
+## <a name="secure-vnet-traffic"></a>保护 VNet 流量
+
+有两种方法可以将往返于 AKS 群集的流量隔离到虚拟网络：
+
+* __私有 AKS 群集__ ：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
+* __内部 AKS 负载均衡器__ ：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
+
+> [!WARNING]
+> 内部负载均衡器不适用于使用 kubenet 的 AKS 群集。 如果要同时使用内部负载均衡器和专用 AKS 群集，请使用 Azure Container 网络接口 (CNI) 配置专用 AKS 群集。 有关详细信息，请参阅 [在 Azure Kubernetes Service 中配置 AZURE CNI 网络](../aks/configure-azure-cni.md)。
+
+### <a name="private-aks-cluster"></a>专用 AKS 群集
+
+默认情况下，AKS 群集具有一个带有公共 IP 地址的控制平面（或 API 服务器）。 可以通过创建专用 AKS 群集，将 AKS 配置为使用专用控制平面。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
+
+创建专用 AKS 群集之后，[将群集连接到虚拟网络](how-to-create-attach-kubernetes.md)以便用于 Azure 机器学习。
+
+> [!IMPORTANT]
+> 在将启用了专用链接的 AKS 群集用于 Azure 机器学习之前，必须建立一个支持事件案例，否则无法启用此功能。 有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
+
+### <a name="internal-aks-load-balancer"></a>内部 AKS 负载均衡器
+
+默认情况下，AKS 部署使用[公共负载均衡器](../aks/load-balancer-standard.md)。 在本部分中，你会了解如何将 AKS 配置为使用内部负载均衡器。 内部（或专用）负载平衡器用于仅在前端允许专用 IP 的情况。 内部负载均衡器用于对虚拟网络内部的流量进行负载均衡
+
+可以通过将 AKS 配置为使用内部负载均衡器来启用专用负载均衡器。 
 
 #### <a name="enable-private-load-balancer"></a>启用专用负载均衡器
 

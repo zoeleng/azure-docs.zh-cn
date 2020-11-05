@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 数据工厂进行数据引入
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 数据工厂生成数据引入管道。
+description: 了解使用 Azure 数据工厂构建数据引入管道的可用选项，以及每种方法的优点。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 73850d8022618dd6544d19564e425288aff09771
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307366"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360626"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>使用 Azure 数据工厂进行数据引入
 
-本文介绍如何使用 Azure 数据工厂 (ADF) 生成数据引入管道。 此管道用于引入要在 Azure 机器学习中使用的数据。 Azure 数据工厂可让你轻松提取、转换和加载 (ETL) 数据。 转换数据并将其载入存储后，可以使用这些数据来训练机器学习模型。
+本文介绍如何使用 Azure 数据工厂 (ADF) 生成数据引入管道的可用选项。 此管道用于引入要在 Azure 机器学习中使用的数据。 Azure 数据工厂可让你轻松提取、转换和加载 (ETL) 数据。 转换数据并将其载入存储后，可以使用这些数据来训练机器学习模型。
 
 可以使用本机 ADF 活动和[数据流](../data-factory/control-flow-execute-data-flow-activity.md)等检测工具来处理简单的数据转换。 涉及到较复杂的方案时，可以使用一些自定义代码来处理数据。 例如 Python 或 R 代码。
 
