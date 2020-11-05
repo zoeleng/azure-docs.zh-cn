@@ -582,7 +582,7 @@
     - name: 保护 VM
       items:
         - name: 建议
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: 实时访问
           href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 使用 Bastion
@@ -717,7 +717,7 @@
             - name: 代理更新
               href: ../extensions/update-linux-agent.md
         - name: 缓解推理执行
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: 监视元数据
           href: instance-metadata-service.md
         - name: 使用 REST 获取使用情况指标
@@ -1045,7 +1045,7 @@
         - name: 使用加速网络
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 分配公用 DNS 名称
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: 查找并删除未连接的 NIC
           href: find-unattached-nics.md
         - name: DNS 解析

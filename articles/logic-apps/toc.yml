@@ -147,6 +147,7 @@
       items:
         - name: 创建集成帐户
           href: logic-apps-enterprise-integration-create-integration-account.md
+          displayName: 'Azure CLI, az logic integration-account create, integration-account'
         - name: 贸易合作伙伴
           href: logic-apps-enterprise-integration-partners.md
         - name: 协议

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 29518fb971649087d8a5afa39d69c7fc2c014f98
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116757"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331143"
 ---
 | 资源 | 目标 | 硬限制 |
 |----------|--------------|------------|
@@ -21,7 +21,7 @@ ms.locfileid: "92116757"
 | 每个存储同步服务的同步组数 | 200 个同步组 | 是 |
 | 每个存储同步服务的已注册服务器 | 99 台服务器 | 是 |
 | 每个同步组的云终结点数 | 1 个云终结点 | 是 |
-| 每个同步组的服务器终结点数 | 50 个服务器终结点 | 否 |
+| 每个同步组的服务器终结点数 | 100 个服务器终结点 | 是 |
 | 每个服务器的服务器终结点数 | 30 个服务器终结点 | 是 |
 | 每个同步组的文件系统对象数（目录和文件） | 1 亿个对象 | 否 |
 | 目录中的最大文件系统对象（目录和文件）数 | 500 万个对象 | 是 |

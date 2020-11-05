@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL 文档
+- name: 用于 MySQL 的 Azure 数据库文档
   href: index.yml
 - name: 概述
   items:

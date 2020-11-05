@@ -147,8 +147,6 @@
       items:
         - name: 发布到 App 源
           href: howto-get-appsource-certified.md
-        - name: 发布到 Azure AD 应用库
-          href: howto-app-gallery-listing.md
         - name: 发布到 Office 365 卖家仪表板
           href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Azure 访问控制服务
