@@ -9,27 +9,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/31/2019
+ms.date: 11/05/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66c7229c7e6d32bbec9a7659329aff7a90e7887d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374613"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393602"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
 
-域名是许多目录资源标识符的重要部分：它可能是用户的用户名或电子邮件地址的一部分、组地址的一部分，有时是应用程序的应用 ID URI 的一部分。 Azure Active Directory (Azure AD) 中的资源可包含目录（包含该资源）所拥有的域名。 只有全局管理员可以在 Azure AD 中管理域。
+域名是许多 Azure Active Directory 的标识符的重要组成部分 (Azure AD) 资源：它是用户的用户名或电子邮件地址的一部分、组地址的一部分，有时也是应用程序的应用 ID URI 的一部分。 Azure AD 中的资源可以包含由包含该资源的组织拥有的域名。 只有全局管理员可以在 Azure AD 中管理域。
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>设置 Azure AD 目录的主域名
+## <a name="set-the-primary-domain-name-for-your-azure-ad-organization"></a>为 Azure AD 组织设置主域名
 
-创建目录后，初始域名（例如“contoso.onmicrosoft.com”）也是主域名。 创建新用户时，主域名是新用户的默认域名。 设置主域名简化了管理员在门户中创建新用户的过程。 若要更改主域名，请执行以下操作：
+创建组织后，初始域名（例如 "contoso.onmicrosoft.com"）也是主域名。 创建新用户时，主域名是新用户的默认域名。 设置主域名简化了管理员在门户中创建新用户的过程。 若要更改主域名，请执行以下操作：
 
-1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.com)。
+1. 使用组织的全局管理员帐户登录到 [Azure 门户](https://portal.azure.com) 。
 2. 选择“Azure Active Directory” 。
 3. 选择“自定义域名”。
   
@@ -39,19 +39,19 @@ ms.locfileid: "92374613"
   
    ![将域名设为主域名](./media/domains-manage/make-primary-domain.png)
 
-可以将目录的主域名更改为任何未联合的已验证自定义域。 更改目录的主域不会更改任何现有用户的用户名。
+你可以将组织的主域名更改为任何未联合的已验证自定义域。 更改组织的主域不会更改任何现有用户的用户名。
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>将自定义域名添加到 Azure AD 组织
 
-最多可以添加 900 个托管域名。 若要配置所有域以便与本地 Active Directory 联合，最多可在每个目录中添加 450 个域名。
+最多可以添加 900 个托管域名。 如果要配置所有域以便与本地 Active Directory 联合，则可以在每个组织中最多添加450个域名。
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>添加自定义域的子域
 
-如果想要将第三级域名（如 “europe.contoso.com”）添加到目录，则应首先添加并验证第二级域，例如 contoso.com。 子域由 Azure AD 自动验证。 若要查看添加的子域是否已验证，请在浏览器中刷新域列表。
+如果要向组织添加子域名称（如 "europe.contoso.com"），则应首先添加并验证根域，如 contoso.com。 子域由 Azure AD 自动验证。 若要查看添加的子域是否已验证，请在浏览器中刷新域列表。
 
-注意
+如果已将 contoso.com 域添加到一个 Azure AD 组织，还可以在不同的 Azure AD 组织中验证子域 europe.contoso.com。 添加子域时，系统将提示您在 DNS 宿主提供程序中添加 TXT 记录。
 
-如果已将 contoso.com 域添加到 Azure AD 租户，可以将子域 europe.contoso.com 添加到第二个 Azure AD 租户。 添加子域时，系统将提示在 DNS 宿主提供程序中添加 TXT 记录。
+
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>更改自定义域名的 DNS 注册机构会发生什么情况
 
@@ -61,19 +61,19 @@ ms.locfileid: "92374613"
 
 如果组织不再使用某个自定义域名，或者需要在另一个 Azure AD 中使用该域名，可以从 Azure AD 中删除该域名。
 
-要删除自定义域名，则必须先确保目录中没有任何资源依赖域名。 在以下情况下，，无法从目录删除域名：
+若要删除自定义域名，你必须首先确保你的组织中没有任何资源依赖于域名。 如果是以下情况，则无法从组织中删除域名：
 
 * 任何用户都有包含域名的用户名、电子邮件地址或代理地址。
 * 任何组都有包含域名的电子邮件地址或代理地址。
 * Azure AD 中的任何应用程序都具有包含域名的应用 ID URI。
 
-必须更改或删除 Azure AD 目录中的任何此类资源，才能删除自定义域名。
+必须更改或删除 Azure AD 组织中的任何此类资源，才能删除自定义域名。
 
 ### <a name="forcedelete-option"></a>ForceDelete 选项
 
-可以在 [Azure AD 管理中心](https://aad.portal.azure.com)使用 **ForceDelete** 来强制删除域名，或使用 [Microsoft 图形 API](/graph/api/domain-forcedelete?view=graph-rest-beta) 执行此操作。 这些选项使用异步操作，并将自定义域名（例如“user@contoso.com”）中的所有引用更新为类似于“user@contoso.onmicrosoft.com”的初始默认域名称。 
+可以在 [Azure AD 管理中心](https://aad.portal.azure.com)使用 **ForceDelete** 来强制删除域名，或使用 [Microsoft 图形 API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true) 执行此操作。 这些选项使用异步操作，并将自定义域名（例如“user@contoso.com”）中的所有引用更新为类似于“user@contoso.onmicrosoft.com”的初始默认域名称。
 
-若要在 Azure 门户中调用 **ForceDelete**，必须确保对该域名的引用少于 1000 个，并且必须在 [Exchange 管理中心](https://outlook.office365.com/ecp/)更新或删除预配服务是 Exchange 的所有引用。 这包括支持 Exchange 邮件的安全组和分发列表；有关详细信息，请参阅[删除支持邮件的安全组](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)。 此外，如果存在以下任一情况，则 **ForceDelete** 操作不会成功：
+若要在 Azure 门户中调用 **ForceDelete** ，必须确保对该域名的引用少于 1000 个，并且必须在 [Exchange 管理中心](https://outlook.office365.com/ecp/)更新或删除预配服务是 Exchange 的所有引用。 这包括支持 Exchange 邮件的安全组和分发列表；有关详细信息，请参阅[删除支持邮件的安全组](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)。 此外，如果存在以下任一情况，则 **ForceDelete** 操作不会成功：
 
 * 通过 Microsoft 365 域订阅服务购买了域
 * 你是代表另一客户组织的合作伙伴管理员
@@ -110,11 +110,11 @@ ms.locfileid: "92374613"
 
 Azure Active Directory 中的大多数域名管理任务也可以使用 Microsoft PowerShell 完成，或者使用 Microsoft Graph API 以编程方式完成。
 
-* [使用 PowerShell 管理 Azure AD 中的域名](/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [域资源类型](/graph/api/resources/domain?view=graph-rest-1.0)
+* [使用 PowerShell 管理 Azure AD 中的域名](/powershell/module/azuread/?view=azureadps-2.0#domains&preserve-view=true)
+* [域资源类型](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="next-steps"></a>后续步骤
 
 * [添加自定义域名](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [在 Exchange 管理中心删除 Azure AD 的自定义域名中支持 Exchange 邮件的安全组](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)
-* [使用 Microsoft 图形 API 强制删除自定义域名](/graph/api/domain-forcedelete?view=graph-rest-beta)
+* [在 Exchange 管理中心删除 Azure AD 的自定义域名中支持 Exchange 邮件的安全组](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [使用 Microsoft 图形 API 强制删除自定义域名](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)

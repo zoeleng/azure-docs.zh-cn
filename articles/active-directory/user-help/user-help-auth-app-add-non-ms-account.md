@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015964"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392571"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>将非 Microsoft 帐户添加到 Microsoft Authenticator 应用
 
@@ -36,7 +36,7 @@ ms.locfileid: "87015964"
     >[!Note]
     >如果这是你首次设置 Microsoft Authenticator 应用，则可能会收到一个提示，询问你是允许该应用访问你的相机 (iOS)，还是允许该应用拍摄照片和录制视频 (Android)。 你必须选择“允许”，以便验证器应用可以访问你的相机，在下一步中拍摄 QR 码的照片。 如果你不允许使用相机，仍然可以设置验证器应用，但需要手动添加代码信息。 有关如何手动添加代码的信息，请参阅[手动将帐户添加到应用](user-help-auth-app-add-account-manual.md)。
 
-本文介绍的是 Facebook 帐户、Google 帐户、GitHub 帐户和 Amazon 帐户的添加过程，但对于其他任何应用（如 Instagram、Netflix 或 Adobe），此过程都是一样的。
+我们将在此处为 Facebook、Google、GitHub 和 Amazon 帐户提供此过程，但对于其他应用（如 Instagram 和 Adobe），该过程是相同的。
 
 ## <a name="add-your-google-account"></a>添加 Google 帐户
 
@@ -50,7 +50,7 @@ ms.locfileid: "87015964"
 
 ### <a name="add-your-google-account-to-the-app"></a>向应用添加 Google 帐户
 
-1. 在 (的计算机上的 "Google 帐户安全性" 页上 https://myaccount.google.com/security) ，请参阅 "**添加更多第二步，验证是否为**" 部分，从 "**验证器应用**" 部分选择 "**设置**"。
+1. 在 (的计算机上的 "Google 帐户安全性" 页上 https://myaccount.google.com/security) ，请参阅 " **添加更多第二步，验证是否为** " 部分，从 " **验证器应用** " 部分选择 " **设置** "。
 
 2. 在“从 Authenticator 应用获取验证码”页上，根据电话类型选择“Android”或“iPhone”，再选择“下一步”。
 

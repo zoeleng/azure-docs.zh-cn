@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558510"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394214"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>适用于 FHIR 的 Azure IoT 连接器 (预览版) 故障排除指南
 
@@ -33,12 +33,12 @@ ms.locfileid: "92558510"
 
 |元素|必须|
 |:-------|:------|
-|TypeName|True|
-|TypeMatchExpression|True|
-|DeviceIdExpression|True|
-|TimestampExpression|True|
-|值 []。ValueName|True|
-|值 []。ValueExpression|True|
+|TypeName|正确|
+|TypeMatchExpression|正确|
+|DeviceIdExpression|正确|
+|TimestampExpression|正确|
+|值 []。ValueName|正确|
+|值 []。ValueExpression|正确|
 
 > [!NOTE]
 > 值 []。ValueName 和值 []。ValueExpression
@@ -49,7 +49,7 @@ ms.locfileid: "92558510"
 
 |元素|必须|
 |:------|:-------|
-|TypeName|True|
+|TypeName|正确|
 
 > [!NOTE]
 > 这是目前唯一验证的必需 FHIR 映射元素。
@@ -91,7 +91,7 @@ ms.locfileid: "92558510"
 > JSON 是目前唯一受支持的设备和 FHIR 映射文件格式。
 
 > [!TIP]
-> 详细了解适用于 FHIR[设备和 FHIR 转换映射 JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)的 Azure IoT 连接器
+> 详细了解适用于 FHIR[设备和 FHIR 转换映射 JSON](./iot-mapping-templates.md)的 Azure IoT 连接器
 
 1. 在 **"外接程序"** 部分的 "FHIR 资源" 仪表板的左下角，选择 **"IoT 连接器 (预览") "** 。
 
@@ -99,18 +99,18 @@ ms.locfileid: "92558510"
 
 2. 选择要从中复制转换映射 JSON 的 **"连接器"** 。
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > 此过程也可用于复制和保存 **"配置 FHIR 映射"** JSON 的内容。
 
 3. 选择 **"配置设备映射"** 。
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. 选择 JSON 的内容并执行复制操作 (例如：选择 Ctrl + c) 。 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. 执行粘贴操作 (例如：在编辑器中选择 "Ctrl + v) 到新文件中 (例如： Visual Studio Code、记事本) 并使用 *. json 扩展名保存文件。
 

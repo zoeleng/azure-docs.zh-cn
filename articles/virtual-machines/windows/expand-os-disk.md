@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927679"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393823"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何扩展虚拟机的 OS 驱动器
 
@@ -60,7 +60,7 @@ ms.locfileid: "92927679"
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="显示所选磁盘大小的 &quot;配置&quot; 窗格的屏幕截图。":::
 
-6. 选择“保存”  。
+6. 选择“保存”。
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="屏幕截图，显示已选中 &quot;保存&quot; 按钮的配置窗格。":::
 
@@ -226,7 +226,7 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 **非托管磁盘**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## <a name="expand-the-volume-within-the-os"></a>扩展 OS 中的卷

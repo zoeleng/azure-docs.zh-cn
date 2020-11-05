@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902494"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395149"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>启用和禁用数据保留策略
 
@@ -22,7 +22,7 @@ ms.locfileid: "90902494"
 
 ## <a name="enable-data-retention-for-a-database"></a>为数据库启用数据保留
 
-下面的示例演示如何使用 [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) 来启用数据保留。
+下面的示例演示如何使用 [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options) 来启用数据保留。
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>为表启用数据保留
 
-必须为要自动清理其数据的每个表启用数据保留。 如果为数据库和表启用了数据保留，后台系统任务会定期扫描表，以识别并删除任何已过时的行。 可以在表创建过程中使用 [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) 或使用 [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 来对表启用数据保留。
+必须为要自动清理其数据的每个表启用数据保留。 如果为数据库和表启用了数据保留，后台系统任务会定期扫描表，以识别并删除任何已过时的行。 可以在表创建过程中使用 [Create Table](/sql/t-sql/statements/create-table-transact-sql) 或使用 [Alter Table](/sql/t-sql/statements/alter-table-transact-sql) 来对表启用数据保留。
 
-下面的示例演示如何使用 [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) 来为表启用数据保留。 
+下面的示例演示如何使用 [Create Table](/sql/t-sql/statements/create-table-transact-sql) 来为表启用数据保留。 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ create table 命令的 `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2]
     - DateTimeOffset
 - RETENTION_PERIOD - 一个整数值，后跟一个单位描述符。 允许的单位为 DAY、DAYS、WEEK、WEEKS、MONTH、MONTHS、YEAR 和 YEARS。
 
-下面的示例演示如何使用 [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 来为表启用数据保留。  
+下面的示例演示如何使用 [Alter Table](/sql/t-sql/statements/alter-table-transact-sql) 来为表启用数据保留。  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -101,7 +101,7 @@ and object_id = object_id(N'dbo.data_retention_table', N'U')
 
 ## <a name="disable-data-retention-on-a-table"></a>禁用表上的数据保留 
 
-可以使用 [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 来禁用表上的数据保留。 以下命令可用于禁用表上的数据保留。
+可以使用 [Alter Table](/sql/t-sql/statements/alter-table-transact-sql) 来禁用表上的数据保留。 以下命令可用于禁用表上的数据保留。
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>禁用数据库上的数据保留
 
-可以使用 [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) 来禁用表上的数据保留。 以下命令可用于禁用数据库上的数据保留。
+可以使用 [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options) 来禁用表上的数据保留。 以下命令可用于禁用数据库上的数据保留。
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

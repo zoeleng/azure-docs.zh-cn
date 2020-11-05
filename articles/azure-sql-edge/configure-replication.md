@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888427"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395217"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>配置到 Azure SQL Edge 的复制 
 
@@ -24,8 +24,8 @@ ms.locfileid: "90888427"
   
 - Azure SQL Edge 实例必须是发布服务器的推送订阅服务器。
 - 发布服务器和分发服务器可以是：
-   - 在本地运行的 SQL Server 实例，也可以是在 Azure 虚拟机中运行的 SQL Server 实例。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](https://docs.microsoft.com/azure/azure-sql/virtual-machines/)。 SQL Server 实例必须使用高于 SQL Server 2016 的版本。
-   - Azure SQL 托管实例的实例。 SQL 托管实例可以托管发布服务器、分发服务器和订阅服务器数据库。 有关详细信息，请参阅[通过 SQL 数据库托管实例进行复制](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/)。
+   - 在本地运行的 SQL Server 实例，也可以是在 Azure 虚拟机中运行的 SQL Server 实例。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](../azure-sql/virtual-machines/index.yml)。 SQL Server 实例必须使用高于 SQL Server 2016 的版本。
+   - Azure SQL 托管实例的实例。 SQL 托管实例可以托管发布服务器、分发服务器和订阅服务器数据库。 有关详细信息，请参阅[通过 SQL 数据库托管实例进行复制](/azure/sql-database/replication-with-sql-database-managed-instance/)。
 
 - 不能将分发数据库和复制代理置于一个 Azure SQL Edge 实例上。  
 
@@ -36,7 +36,7 @@ ms.locfileid: "90888427"
 
 在配置复制时，必须了解以下要求和最佳做法：
 
-- 可以使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 配置复制。 还可以通过使用 SQL Server Management Studio 或 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) 在发布服务器上运行 Transact-SQL 语句来执行此操作。
+- 可以使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 配置复制。 还可以通过使用 SQL Server Management Studio 或 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) 在发布服务器上运行 Transact-SQL 语句来执行此操作。
 - 若要复制到 Azure SQL Edge 实例，必须使用 SQL Server 身份验证登录。
 - 复制的表必须有主键。
 - SQL Server 上的单一发布可以支持 Azure SQL Edge 和 SQL Server（本地 SQL Server 以及 Azure 虚拟机中的 SQL Server）订阅服务器。  
@@ -82,15 +82,13 @@ Azure SQL Edge 订阅不支持以下选项：
 
 创建发布和推送订阅。 有关详细信息，请参阅：
   
-- [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- 使用 Azure SQL Edge 服务器名称和 IP 作为订阅服务器（例如 myEdgeinstance,1433），并使用 Azure SQL Edge 实例上的数据库名称作为目标数据库（例如 AdventureWorks）来[创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) 。  
+- [创建发布](/sql/relational-databases/replication/publish/create-a-publication)
+- 使用 Azure SQL Edge 服务器名称和 IP 作为订阅服务器（例如 myEdgeinstance,1433），并使用 Azure SQL Edge 实例上的数据库名称作为目标数据库（例如 AdventureWorks）来[创建推送订阅](/sql/relational-databases/replication/create-a-push-subscription/) 。  
 
 ## <a name="next-steps"></a>后续步骤  
 
-- [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [复制类型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [监视（复制）](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [初始化订阅](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [创建发布](/sql/relational-databases/replication/publish/create-a-publication)
+- [创建推送订阅](/sql/relational-databases/replication/create-a-push-subscription/)
+- [复制类型](/sql/relational-databases/replication/types-of-replication)
+- [监视（复制）](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [初始化订阅](/sql/relational-databases/replication/initialize-a-subscription)

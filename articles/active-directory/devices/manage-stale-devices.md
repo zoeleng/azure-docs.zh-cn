@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083178"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393670"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>如何：在 Azure AD 中管理过时设备
 
@@ -53,13 +53,13 @@ Azure AD 中的陈旧设备可能会影响到针对组织中设备实施的常�
 
 可通过两个选项检索活动时间戳的值：
 
-- Azure 门户中 
+- Azure 门户中[设备页](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)上的“活动”列
 
     :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Azure 门户列出设备上的名称、所有者和其他信息的页面屏幕截图。一列列出活动时间戳。" border="false":::
 
 - [Get-azureaddevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
-    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Azure 门户列出设备上的名称、所有者和其他信息的页面屏幕截图。一列列出活动时间戳。" border="false":::
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="显示命令行输出的屏幕截图。将突出显示一行，并列出 ApproximateLastLogonTimeStamp 值的时间戳。" border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>规划陈旧设备的清理
 
@@ -147,7 +147,7 @@ Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, Displa
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>要点

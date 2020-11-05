@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308884"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393449"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 存储报告数据多长时间？
 
@@ -51,15 +51,9 @@ ms.locfileid: "92308884"
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>获得 Azure AD Premium 许可证后是否能查看上个月的数据？
-
-如果最近刚切换到高级版本（包括试用版），则最初最多能看到 7 天的数据。 随着数据累积，可以看到过去 30 天的数据。
-
----
-
 ### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Azure AD 何时开始收集安全信号数据？  
 
-对于安全信号，当你选择使用 **Identity Protection Center**时，收集过程将开始。 
+对于安全信号，当你选择使用 **Identity Protection Center** 时，收集过程将开始。 
 
 ---
 
@@ -81,5 +75,11 @@ ms.locfileid: "92308884"
 | :--            | :--           | :--                 | :--                 |
 | 有风险的用户  | 7 天        | 30 天             | 90 天             |
 | 有风险的登录 | 7 天        | 30 天             | 90 天             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>获得 Azure AD Premium 许可证后是否能查看上个月的数据？
+
+**不** ，不可以。 对于免费版本，Azure 最多可存储7天的活动数据。 这意味着，当你从免费版切换到高级版时，最多只能看到7天的数据。
 
 ---

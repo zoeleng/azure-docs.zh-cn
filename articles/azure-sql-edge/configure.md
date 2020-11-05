@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446946"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392327"
 ---
 # <a name="configure-azure-sql-edge"></a>配置 Azure SQL Edge
 
@@ -34,7 +34,7 @@ Azure SQL Edge 公开了几个不同的环境变量，她们可用于配置 SQL 
 
 | 环境变量 | 说明 | 值 |     
 |-----|-----| ---------- | 
-| **PlanId** | 指定要在初始化过程中使用的 Azure SQL Edge SKU。 仅当使用 Azure IoT Edge 部署 Azure SQL Edge 时，才需要使用此环境变量。 | **asde** -在 iot 边缘或 asde-先进**版**- | 
+| PlanId | 指定要在初始化过程中使用的 Azure SQL Edge SKU。 仅当使用 Azure IoT Edge 部署 Azure SQL Edge 时，才需要此环境变量。 | asde-developer-on-iot-edge 或 asde-premium-on-iot-edge  | 
 | **MSSQL_TELEMETRY_ENABLED** | 启用或禁用使用情况和诊断数据收集。 | TRUE 或 FALSE |  
 | **MSSQL_TELEMETRY_DIR** | 设置使用情况和诊断数据收集审核文件的目标目录。 | SQL Edge 容器中的文件夹位置。 可以使用装入点或数据卷将此文件夹映射到主机卷。 | 
 | **MSSQL_PACKAGE** | 指定要部署的 dacpac 或 bacpac 包的位置。 | 包含 dacpac 或 bacpac 包的文件夹、文件或 SAS URL。 有关详细信息，请参阅[在 SQL Edge 中部署 SQL 数据库 DACPAC 和 BACPAC 包](deploy-dacpac.md)。 |
@@ -44,7 +44,7 @@ Azure SQL Edge 不支持以下 Linux 上的 SQL Server 环境变量。 如果已
 
 | 环境变量 | 说明 |
 |-----|-----|
-| **MSSQL_ENABLE_HADR** | 启用可用性组。 例如，**1** 为已启用，**0** 为已禁用。 |
+| **MSSQL_ENABLE_HADR** | 启用可用性组。 例如， **1** 为已启用， **0** 为已禁用。 |
 
 > [!IMPORTANT]
 > SQL Edge 的 MSSQL_PID 环境变量仅接受 Premium 和 Developer 作为有效值。 Azure SQL Edge 不支持使用产品密钥进行初始化。
@@ -95,11 +95,11 @@ Azure SQL Edge 不支持以下 Linux 上的 SQL Server 环境变量。 如果已
 |**客户反馈** | 选择 SQL Server 是否向 Microsoft 发送反馈。 |
 |**数据库邮件配置文件** | 为 Linux 上的 SQL Server 设置默认数据库邮件配置文件。 |
 |**高可用性** | 启用可用性组。 |
-|**Microsoft 分布式事务处理协调器** | 在 Linux 上配置 MSDTC 并对其进行故障排除。 SQL Edge 不支持其他分布式事务相关的配置选项。 有关这些其他配置选项的详细信息，请参阅[配置 MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc)。 |
+|**Microsoft 分布式事务处理协调器** | 在 Linux 上配置 MSDTC 并对其进行故障排除。 SQL Edge 不支持其他分布式事务相关的配置选项。 有关这些其他配置选项的详细信息，请参阅[配置 MSDTC](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc)。 |
 |**机器学习服务 EULA** | 为 Azure 机器学习包接受 R 和 Python EULA。 仅适用于 SQL Server 2019。|
 |**outboundnetworkaccess** |为[机器学习服务](/sql/linux/sql-server-linux-setup-machine-learning/) R、Python 和 Java 扩展启用出站网络访问。|
 
-以下示例 mssql.conf 文件适用于 SQL Edge。 有关 mssql.conf 文件格式的详细信息，请参阅 [mssql.conf 格式](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format)。
+以下示例 mssql.conf 文件适用于 SQL Edge。 有关 mssql.conf 文件格式的详细信息，请参阅 [mssql.conf 格式](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format)。
 
 ```ini
 [EULA]
@@ -176,7 +176,7 @@ Azure SQL Edge 的早期 CTP 已配置为以 root 用户身份运行。 从早�
 
 ## <a name="persist-your-data"></a> 保留数据
 
-你的 Azure SQL Edge 配置会更改，数据库文件会保留在容器中（即使通过 `docker stop` 和 `docker start` 重启容器也是如此）。 但是，如果使用 `docker rm` 删除容器，则会删除容器中的所有内容，包括 Azure SQL Edge 和数据库。 以下部分介绍如何使用**数据卷**保留数据库文件（即使关联的容器已被删除）。
+你的 Azure SQL Edge 配置会更改，数据库文件会保留在容器中（即使通过 `docker stop` 和 `docker start` 重启容器也是如此）。 但是，如果使用 `docker rm` 删除容器，则会删除容器中的所有内容，包括 Azure SQL Edge 和数据库。 以下部分介绍如何使用 **数据卷** 保留数据库文件（即使关联的容器已被删除）。
 
 > [!IMPORTANT]
 > 对于 Azure SQL Edge，了解 Docker 中的数据持久性至关重要。 除本部分讨论的内容外，请参阅有关[如何在 Docker 容器中管理数据](https://docs.docker.com/engine/tutorials/dockervolumes/)的 Docker 文档。

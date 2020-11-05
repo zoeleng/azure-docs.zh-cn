@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c877878fe25d4c6c8904840c3c3350fbe2acf7b5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026660"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395523"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>在 Azure Active Directory 的管理单元中添加和管理用户
 
@@ -39,7 +39,7 @@ ms.locfileid: "93026660"
 
    1. 选择 " **用户** "，然后选择 "用户"，以打开用户的配置文件，选择要分配到管理单元的用户。
    
-   1. 选择 " **管理单元** "。 
+   1. 选择“管理单元”。 
    
    1. 若要将用户分配到一个或多个管理单元，请选择 " **分配到管理单元** "，然后在右窗格中选择要向其分配用户的管理单元。
 
@@ -57,11 +57,11 @@ ms.locfileid: "93026660"
 
    1. 以特权角色管理员权限登录到 [Azure AD 管理中心](https://portal.azure.com) 。
 
-   1. 选择 " **管理单元** "。
+   1. 选择“管理单元”。
 
    1. 选择要向其添加用户的管理单元。
 
-   1. 选择 " **用户** " "  >  **批量**  >  **添加成员** "。 然后，你可以 (CSV) 模板下载逗号分隔值并编辑该文件。 格式很简单，需要在每行上添加单个用户主体名称。 文件准备就绪后，将其保存到相应位置，然后将其上传到此步骤中。
+   1. 选择 " **用户** " "  >  **批量**  >  **添加成员** "。 然后可以下载逗号分隔值 (CSV) 模板并编辑该文件。 格式很简单，需要在每行上添加单个用户主体名称。 文件准备就绪后，将其保存到相应位置，然后将其上传到此步骤中。
 
       ![用于将用户分配到管理单元作为大容量操作的 "用户" 窗格的屏幕截图。](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 

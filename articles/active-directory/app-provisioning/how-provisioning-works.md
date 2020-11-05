@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424640"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393075"
 ---
 # <a name="how-provisioning-works"></a>预配工作原理
 
@@ -43,9 +43,7 @@ Azure AD 预配服务使用 [SCIM 2.0 协议](https://techcommunity.microsoft.co
 
 ## <a name="authorization"></a>授权
 
-Azure AD 需要凭据才能连接到应用程序的用户管理 API。 在为应用程序配置自动用户预配时，需要输入有效凭据。 可以参考应用教程来查找应用程序的凭据类型和要求。 在 Azure 门户中，你将能够让 Azure AD 尝试使用提供的凭据连接到该应用的预配应用来测试凭据。
-
-如果还为应用程序配置了基于 SAML 的单一登录，则 Azure AD 内部的每个应用程序存储限制为 1024 个字节。 此限制包括与应用程序单个实例关联的所有证书、机密令牌、凭据以及相关配置数据（在 Azure AD 中也称为服务主体记录）。 当配置了基于 SAML 的单一登录时，用来对 SAML 令牌进行签名的证书通常会占用该空间的 50% 以上。 在用户预配安装过程中输入的任何其他项（机密令牌、URI、通知电子邮件地址、用户名和密码）都可能超过存储限制。 有关详细信息，请参阅[配置用户预配时保存管理员凭据出现问题](./application-provisioning-config-problem-storage-limit.md)。
+Azure AD 需要凭据才能连接到应用程序的用户管理 API。 在为应用程序配置自动用户预配时，需要输入有效凭据。 对于库应用程序，可以通过参考应用教程来查找应用程序的凭据类型和要求。 对于非库应用程序，可以参考 [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) 文档来了解凭据类型和要求。 在 Azure 门户中，你将能够让 Azure AD 尝试使用提供的凭据连接到该应用的预配应用来测试凭据。
 
 ## <a name="mapping-attributes"></a>映射属性
 
@@ -192,7 +190,7 @@ Azure AD [预配日志（预览）](../reports-monitoring/concept-provisioning-l
 * 用户未从应用中取消分配。
 * 用户从范围内进入范围外 (不会再) 传递范围筛选器。
 
-:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="禁用用户" lightbox="./media/how-provisioning-works/delete-user.png":::
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="删除用户" lightbox="./media/how-provisioning-works/delete-user.png":::
 
 默认情况下，Azure AD 预配服务软删除或禁用超出范围的用户。 如果要重写此默认行为，可以设置一个标志来 [跳过超出范围的删除操作。](skip-out-of-scope-deletions.md)
 
@@ -206,7 +204,7 @@ Azure AD [预配日志（预览）](../reports-monitoring/concept-provisioning-l
 * 不支持在 Azure AD 中预配已禁用的用户。 它们必须在设置之前处于 Azure AD 状态。
 * 当用户从软删除变为活动状态时，Azure AD 预配服务将在目标应用中激活该用户，但不会自动还原组成员身份。 目标应用程序应维护处于非活动状态的用户的组成员身份。 如果目标应用程序不支持此功能，则可以重新启动预配以更新组成员身份。 
 
-**建议**
+建议
 
 开发应用程序时，始终支持软删除和硬删除。 它允许客户在意外禁用用户时进行恢复。
 

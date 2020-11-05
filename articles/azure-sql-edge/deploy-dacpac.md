@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293894"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392242"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Edge 中的 SQL 数据库 DACPAC 和 BACPAC 包
 
 Azure SQL Edge 是已针对 IoT 和边缘部署进行了优化的关系数据库引擎。 它是在最新版 Microsoft SQL 数据库引擎的基础之上构建而成，此引擎提供了业界领先的性能、安全性和查询处理功能。 除了具有 SQL Server 的业界领先的关系数据库管理功能外，Azure SQL Edge 还提供了内置的流式处理功能，可用于实时分析和复杂事件处理。
 
-Azure SQL Edge 提供原生机制，支持在部署 SQL Edge 期间或之后部署 [SQL 数据库 DACPAC 和 BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) 包。
+Azure SQL Edge 提供原生机制，支持在部署 SQL Edge 期间或之后部署 [SQL 数据库 DACPAC 和 BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications) 包。
 
 可以使用 `MSSQL_PACKAGE` 环境变量将 SQL 数据库 dacpac 和 bacpac 包部署到 SQL Edge。 可以通过以下任一方式配置环境变量。  
 - SQL 容器内包含 dacpac 和 bacpac 文件的本地文件夹位置。 可以使用装入点或数据卷容器将此文件夹映射到主机卷。 
@@ -35,7 +35,7 @@ Azure SQL Edge 提供原生机制，支持在部署 SQL Edge 期间或之后部�
 
 1. 使用下面所述的机制创建/提取 DAC 包或导出 Bacpac 文件。 
     - 创建或提取 SQL 数据库 DAC 包。 若要了解如何为现有 SQL Server 数据库生成 DAC 包，请参阅[从数据库中提取 DAC](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/)。
-    - 导出已部署的 DAC 包或数据库。 若要了解如何为现有 SQL Server 数据库生成 bacpac 文件，请参阅[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/)。
+    - 导出已部署的 DAC 包或数据库。 若要了解如何为现有 SQL Server 数据库生成 bacpac 文件，请参阅[导出数据层应用程序](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/)。
 
 2. 压缩 `*.dacpac` 或 `*.bacpac` 文件并将其上传到 Azure Blob 存储帐户。 若要详细了解如何将文件上传到 Azure Blob 存储，请参阅[使用 Azure 门户上传、下载和列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
 

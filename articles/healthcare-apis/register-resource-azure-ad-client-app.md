@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975852"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393381"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>在 Azure Active Directory 中注册资源应用程序
 
@@ -71,7 +71,7 @@ az ad sp create --id 4f6778d8-5aef-43dc-a1ff-b073724b9495
 
 ### <a name="define-application-roles"></a>定义应用程序角色
 
-Azure API for FHIR 和 OSS 适用于 Azure 的 FHIR 服务器使用 [Azure Active Directory 应用程序角色](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles)来实现基于角色的访问控制。 若要定义哪些角色可供 FHIR 服务器 API 使用，请打开资源应用程序的[清单](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/)：
+Azure API for FHIR 和 OSS 适用于 Azure 的 FHIR 服务器使用 [Azure Active Directory 应用程序角色](/azure/architecture/multitenant-identity/app-roles)来实现基于角色的访问控制。 若要定义哪些角色可供 FHIR 服务器 API 使用，请打开资源应用程序的[清单](/azure/active-directory/active-directory-application-manifest/)：
 
 1. 单击“清单”： 
 

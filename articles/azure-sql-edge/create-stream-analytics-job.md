@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896134"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395166"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>在 Azure SQL Edge 中创建数据流作业 
 
@@ -24,13 +24,13 @@ ms.locfileid: "92896134"
 
 T-SQL 流式处理使用 SQL Server 的外部数据源功能，来定义与流式处理作业的外部流输入和输出相关联的数据源。 使用以下 T-SQL 命令创建外部流输入或输出对象：
 
-- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-此外，如果将 Azure SQL Edge、SQL Server 或 Azure SQL 数据库用作输出流，则需要使用 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)。 此 T-SQL 命令定义用于访问数据库的凭据。
+此外，如果将 Azure SQL Edge、SQL Server 或 Azure SQL 数据库用作输出流，则需要使用 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)。 此 T-SQL 命令定义用于访问数据库的凭据。
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>支持的输入和输出流数据源
 
@@ -38,7 +38,7 @@ Azure SQL Edge 目前仅支持以下数据源作为流输入和输出。
 
 | 数据源类型 | 输入 | 输出 | 说明 |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge 中心 | Y | Y | 用于将流式处理数据读取和写入到 Azure IoT Edge 中心的数据源。 有关详细信息，请参阅 [IoT Edge 中心](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)。|
+| Azure IoT Edge 中心 | Y | Y | 用于将流式处理数据读取和写入到 Azure IoT Edge 中心的数据源。 有关详细信息，请参阅 [IoT Edge 中心](../iot-edge/iot-edge-runtime.md#iot-edge-hub)。|
 | SQL 数据库 | N | Y | 将流式处理数据写入 SQL 数据库的数据源连接。 数据库可以是 Azure SQL Edge 中的本地数据库，也可以是 SQL Server 或 Azure SQL 数据库中的远程数据库。|
 | Kafka | Y | N | 从 Kafka 主题读取流式处理数据的数据源。 此适配器目前仅适用于 Azure SQL Edge 的 Intel 或 AMD 版本。 它不适用于 Azure SQL Edge 的 ARM64 版本。|
 
@@ -173,7 +173,7 @@ Azure SQL Edge 目前仅支持以下数据源作为流输入和输出。
 使用 `sys.sp_create_streaming_job` 系统存储过程来定义流式处理查询并创建流式处理作业。 `sp_create_streaming_job` 存储过程采用以下参数：
 
 - `job_name`：流式处理作业的名称。 流式处理作业名称在实例中是唯一的。
-- `statement`：基于[流分析查询语言](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)的流式处理查询语句。
+- `statement`：基于[流分析查询语言](/stream-analytics-query/stream-analytics-query-language-reference)的流式处理查询语句。
 
 下面的示例创建一个简单的流式处理作业，其中包含一个流式处理查询。 此查询从 IoT Edge 中心读取输入，并写入到数据库中的 `dbo.TemperatureMeasurements`。
 

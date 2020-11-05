@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740162"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393364"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 标识平台访问令牌
 
@@ -33,7 +33,7 @@ ms.locfileid: "92740162"
 > [!IMPORTANT]
 > 访问令牌是根据令牌的受众（即，拥有令牌中范围的应用程序）创建的。  这就是将[应用部件清单](reference-app-manifest.md#manifest-reference)中的资源设置 `accessTokenAcceptedVersion` 设置为 `2` 以允许调用 v1.0 终结点的客户端接收 v2.0 访问令牌的方式。  同样，这就是为什么更改客户端的访问令牌[可选声明](active-directory-optional-claims.md)不会更改为 `user.read` 请求令牌时收到的访问令牌的原因，该令牌归资源所有。
 >
-> 出于同一原因，在使用支持个人 (帐户的 Microsoft API （如 hotmail.com 或 outlook.com) ）测试客户端应用程序时，你将发现客户端收到的访问令牌是不透明的字符串。 这是因为要访问的资源使用了加密的令牌，并且不能被客户端理解。  这是预期的，不应是应用的问题-客户端应用程序决不会依赖于访问令牌的格式。 
+> 出于同一原因，在使用支持个人 (帐户的 Microsoft API （如 hotmail.com 或 outlook.com) ）测试客户端应用程序时，你将发现客户端收到的访问令牌是不透明的字符串。 这是因为要访问的资源使用了加密的令牌，并且不能被客户端理解。  这是预期的，不应是应用的问题-客户端应用程序决不会依赖于访问令牌的格式。
 
 ## <a name="sample-tokens"></a>示例令牌
 
@@ -245,7 +245,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 ### <a name="token-timeouts"></a>令牌超时
 
-使用[令牌生存期配置](active-directory-configurable-token-lifetimes.md)，可以更改刷新令牌的生存期。  一些令牌未被使用（例如，用户在 3 个月内未打开应用）就过期了，这是正常现象，也在预料之中。  应用将遇到这样的情况：登录服务器会因时间问题而拒绝刷新令牌。 
+使用[令牌生存期配置](active-directory-configurable-token-lifetimes.md)，可以更改刷新令牌的生存期。  一些令牌未被使用（例如，用户在 3 个月内未打开应用）就过期了，这是正常现象，也在预料之中。  应用将遇到这样的情况：登录服务器会因时间问题而拒绝刷新令牌。
 
 * MaxInactiveTime：如果在 MaxInactiveTime 指定的时间内未使用刷新令牌，刷新令牌将不再有效。
 * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 已设置为其默认值（“直到吊销”）以外的值，则在经过 MaxAgeSession* 中设置的时间后，需要重新进行身份验证。
@@ -255,7 +255,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 ### <a name="revocation"></a>撤销
 
-服务器可能会由于以下原因而撤销刷新令牌：凭据发生更改，或者用户或管理员执行了相关操作。  刷新令牌分为两类：颁发给机密客户端的刷新令牌（最右边的列），和颁发给公共客户端的刷新令牌（所有其他列）。   
+服务器可能会由于以下原因而撤销刷新令牌：凭据发生更改，或者用户或管理员执行了相关操作。  刷新令牌分为两类：颁发给机密客户端的刷新令牌（最右边的列），和颁发给公共客户端的刷新令牌（所有其他列）。
 
 | 更改 | 基于密码的 Cookie | 基于密码的令牌 | 不基于密码的 Cookie | 不基于密码的令牌 | 机密客户端令牌 |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -275,12 +275,12 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 - FIDO2 密钥
 - SMS
 - 语音
-- PIN 
+- PIN
 
 > [!NOTE]
 > Windows 10 上的主刷新令牌 (PRT) 基于凭据进行隔离。 例如，Windows Hello 和密码有各自的 PRT，彼此隔离。 当用户使用 Hello 凭据（PIN 或生物识别）登录，然后更改密码时，先前获得的基于密码的 PRT 将被撤销。 使用密码重新登录会使旧的 PRT 无效，并请求一个新的 PRT。
 >
-> 在用于提取新访问令牌和刷新令牌时，刷新令牌不会失效或撤销。  但是，你的应用应该在使用旧令牌后立即丢弃它，并将其替换为新令牌，因为新令牌中有一个新的过期时间。 
+> 在用于提取新访问令牌和刷新令牌时，刷新令牌不会失效或撤销。  但是，你的应用应该在使用旧令牌后立即丢弃它，并将其替换为新令牌，因为新令牌中有一个新的过期时间。
 
 ## <a name="next-steps"></a>后续步骤
 

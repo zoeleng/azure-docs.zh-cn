@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905954"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395234"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>在 Azure SQL Edge 中备份和还原数据库 
 
@@ -75,9 +75,9 @@ Azure SQL Edge 支持的备份类型与 SQL Server 相同。 有关完整列表�
 
 ### <a name="back-up-to-url"></a>备份到 URL
 
-Azure SQL Edge 支持备份到页 blob 和块 blob。 有关详细信息，请参阅[备份到块 blob 与备份到页 blob](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob)。 在下面的示例中，数据库 IronOreSilicaPrediction 将备份到块 blob。 
+Azure SQL Edge 支持备份到页 blob 和块 blob。 有关详细信息，请参阅[备份到块 blob 与备份到页 blob](/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob)。 在下面的示例中，数据库 IronOreSilicaPrediction 将备份到块 blob。 
 
-1. 若要配置备份到块 blob，请首先生成可用于在 Azure SQL Edge 上创建 SQL Server 凭据的共享访问签名 (SAS) 令牌。 该脚本创建与存储访问策略关联的共享访问签名。 有关详细信息，请参阅[共享访问签名，第 1 部分：了解 SAS 模型](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)，详细了解 SAS 以及 SAS 使用方面的最佳做法。 此脚本还编写在 SQL Server 上创建凭据时所需的 T-SQL 命令。 以下脚本假设你已有一个带有存储帐户的 Azure 订阅，并有一个用于备份的存储容器。
+1. 若要配置备份到块 blob，请首先生成可用于在 Azure SQL Edge 上创建 SQL Server 凭据的共享访问签名 (SAS) 令牌。 该脚本创建与存储访问策略关联的共享访问签名。 有关详细信息，请参阅[共享访问签名，第 1 部分：了解 SAS 模型](../storage/common/storage-sas-overview.md)，详细了解 SAS 以及 SAS 使用方面的最佳做法。 此脚本还编写在 SQL Server 上创建凭据时所需的 T-SQL 命令。 以下脚本假设你已有一个带有存储帐户的 Azure 订阅，并有一个用于备份的存储容器。
 
     ```PowerShell
     # Define global variables for the script  
@@ -133,7 +133,7 @@ Azure SQL Edge 支持备份到页 blob 和块 blob。 有关详细信息，请�
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>在 Azure SQL Edge 中还原数据库
 
-在 Azure SQL Edge 中，可以从本地磁盘、网络位置或 Azure Blob 存储帐户进行还原。 有关 SQL Server 中的还原和恢复的详细信息，请参阅[还原和恢复概述](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server)。 若要大致了解 SQL Server 中的简单恢复模式，请参阅[完整数据库还原（简单恢复模式）](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model)。
+在 Azure SQL Edge 中，可以从本地磁盘、网络位置或 Azure Blob 存储帐户进行还原。 有关 SQL Server 中的还原和恢复的详细信息，请参阅[还原和恢复概述](/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server)。 若要大致了解 SQL Server 中的简单恢复模式，请参阅[完整数据库还原（简单恢复模式）](/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model)。
 
 > [!IMPORTANT] 
 > 在 Azure SQL Edge 中创建的数据库无法在 Microsoft SQL Server 或 Azure SQL 的实例上还原。 此外，在 Microsoft SQL Server 或 Azure SQL 上创建的数据库可以在 Azure SQL Edge 上还原，前提是该数据库不包含 Azure SQL Edge 不支持的任何功能。 
@@ -180,5 +180,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513361"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394860"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>适用于 FHIR 的 Azure IoT 连接器（预览版）数据流
 
@@ -26,7 +26,7 @@ ms.locfileid: "87513361"
 以下是数据在 Azure IoT Connector for FHIR 接收后经历的不同阶段。
 
 ## <a name="ingest"></a>引入
-引入是将设备数据接收到 FHIR 的 Azure IoT 连接器的第一阶段。 设备数据的引入终结点托管在 [Azure 事件中心](https://docs.microsoft.com/azure/event-hubs/)。 Azure 事件中心平台支持高规模和吞吐量，每秒可以接收和处理数百万条消息。 它还允许 FHIR 的 Azure IoT 连接器以异步方式使用消息，从而无需在设备数据得到处理的情况下等待设备等待。
+引入是将设备数据接收到 FHIR 的 Azure IoT 连接器的第一阶段。 设备数据的引入终结点托管在 [Azure 事件中心](../event-hubs/index.yml)。 Azure 事件中心平台支持高规模和吞吐量，每秒可以接收和处理数百万条消息。 它还允许 FHIR 的 Azure IoT 连接器以异步方式使用消息，从而无需在设备数据得到处理的情况下等待设备等待。
 
 > [!NOTE]
 > 对于设备数据，此时仅支持 JSON 格式。

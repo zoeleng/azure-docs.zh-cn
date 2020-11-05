@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284476"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395030"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 发行说明 
 
@@ -37,9 +37,9 @@ ms.locfileid: "91284476"
    - 启用并行执行方案
 6. 针对低功耗模式的节能改进
 7. 流式处理新功能支持 
-   - [快照窗口](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics)：一种新的窗口类型，允许按同一时间到达的事件进行分组。 
-   - 启用 [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) 和 [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) 作为分析函数，这将允许返回按所选列排序的记录，而无需成为窗口的一部分。 
-   - 对 [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) 的改进。 
+   - [快照窗口](/stream-analytics-query/snapshot-window-azure-stream-analytics)：一种新的窗口类型，允许按同一时间到达的事件进行分组。 
+   - 启用 [TopOne](/stream-analytics-query/topone-azure-stream-analytics) 和 [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) 作为分析函数，这将允许返回按所选列排序的记录，而无需成为窗口的一部分。 
+   - 对 [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics) 的改进。 
 
 ### <a name="fixes"></a>修复项
 1. 用于排查 TSQL 流式处理操作问题的附加错误消息和详细信息。 

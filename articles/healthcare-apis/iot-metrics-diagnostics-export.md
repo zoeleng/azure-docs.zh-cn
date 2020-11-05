@@ -8,16 +8,16 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322360"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394248"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>通过诊断设置导出用于 FHIR (预览) 指标的 Azure IoT 连接器
 
-本文介绍如何导出适用于 FHIR * 度量值日志的 Azure IoT 连接器。 启用指标日志记录的功能是 Azure 门户中的 [**诊断设置**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 。 
+本文介绍如何导出适用于 FHIR * 度量值日志的 Azure IoT 连接器。 启用指标日志记录的功能是 Azure 门户中的 [**诊断设置**](../azure-monitor/platform/diagnostic-settings.md) 。 
 
 > [!TIP]
 > 按照在用于 [FHIR 的 AZURE API 和用于 FHIR 的 Azure IoT 连接器中的启用诊断日志记录中](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) 的指南设置审核日志记录。
@@ -48,7 +48,7 @@ ms.locfileid: "93322360"
 > [!Note] 
 > 最多可能需要15分钟才能在所选存储库中显示第一个指标日志。  
  
-有关如何使用诊断日志的详细信息，请参阅 [Azure 资源日志文档](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
+有关如何使用诊断日志的详细信息，请参阅 [Azure 资源日志文档](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="conclusion"></a>结论 
 对度量值日志的访问权限对于监视和故障排除至关重要。  使用适用于 FHIR 的 Azure IoT 连接器，可以通过指标日志执行这些操作。 

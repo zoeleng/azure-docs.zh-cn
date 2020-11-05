@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967961"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393160"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Active Directory 域服务托管域上的密码和帐户锁定策略
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Azure Active Directory 域服务托管域上的密码和帐户锁定策略
 
 若要管理 Azure Active Directory 域服务 (Azure AD DS) 中的用户安全，可以定义细化的密码策略来控制帐户锁定设置或最短密码长度和复杂性。 将创建一个默认的细化密码策略，并将其应用于 Azure AD DS 托管域中的所有用户。 为了提供细化控制并满足特定的业务需求或合规性需求，可以创建更多的策略并将其应用于特定的用户组。
 

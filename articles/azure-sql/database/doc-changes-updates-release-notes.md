@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791029"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391970"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例中的新增功能有哪些？
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,13 +98,13 @@ Azure SQL 数据库和 Azure SQL 托管实例的相关文档已拆分为单独�
 
 |问题  |发现日期  |状态  |解决日期  |
 |---------|---------|---------|---------|
-|[在从服务器信任组删除托管实例后，可以执行分布式事务](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|具有解决方法||
-|[托管实例缩放操作后无法执行分布式事务](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|具有解决方法||
+|[从服务器信任组删除托管实例后，可以执行分布式事务](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020 年 10 月|具有解决方法||
+|[执行托管实例缩放操作后无法执行分布式事务](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020 年 10 月|具有解决方法||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) /Azure SQL 中的[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15)和 `BACKUP` / `RESTORE` 托管实例中的语句无法使用 Azure AD 管理标识向 Azure 存储进行身份验证|2020 年 9 月|具有解决方法||
 |[服务主体无法访问 Azure AD 和 AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 年 8 月|具有解决方法||
 |[没有使用 CHECKSUM 的手动备份可能无法还原](#restoring-manual-backup-without-checksum-might-fail)|2020 年 5 月|已解决|2020 年 6 月|
 |[在修改、禁用或启用现有作业后代理无响应](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020 年 5 月|已解决|2020 年 6 月|
-|[资源组上的权限不应用于 SQL 托管实例](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020 年 2 月|具有解决方法||
+|[资源组上的权限不应用于 SQL 托管实例](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020 年 2 月|已解决|2020 年 11 月|
 |[通过门户对故障转移组进行手动故障转移的限制](#limitation-of-manual-failover-via-portal-for-failover-groups)|2020 年 1 月|具有解决方法||
 |[SQL 代理角色需要拥有对非 sysadmin 登录名的显式 EXECUTE 权限](#in-memory-oltp-memory-limits-are-not-applied)|2019 年 12 月|具有解决方法||
 |[重启代理进程可能会中断 SQL 代理作业](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|2019 年 12 月|已解决|2020 年 3 月|
@@ -129,17 +129,17 @@ Azure SQL 数据库和 Azure SQL 托管实例的相关文档已拆分为单独�
 |使用具有安全连接的外部（非 Azure）邮件服务器时出现数据库邮件功能问题||已解决|2019 年 10 月|
 |SQL 托管实例不支持包含的数据库||已解决|2019 年 8 月|
 
-### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>在从服务器信任组删除托管实例后，可以执行分布式事务
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>从服务器信任组删除托管实例后，可以执行分布式事务
 
-[服务器信任组](../managed-instance/server-trust-group-overview.md) 用于建立执行 [分布式事务](./elastic-transactions-overview.md)的必备组件之间的信任关系。 从服务器信任组中删除托管实例或删除组后，仍可以执行分布式事务。 有一种解决方法，你可以应用来确保分布式事务已禁用并且是用户在托管实例上 [启动的手动故障转移](../managed-instance/user-initiated-failover.md) 。
+[服务器信任组](../managed-instance/server-trust-group-overview.md)用于在托管实例之间建立信任，这是执行[分布式事务](./elastic-transactions-overview.md)的先决条件。 从服务器信任组中删除托管实例后或删除该组后，仍可以执行分布式事务。 若要确保禁用分布式事务，可以使用一种解决方法，即[用户发起的手动故障转移](../managed-instance/user-initiated-failover.md)（在托管实例上应用）。
 
-### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>托管实例缩放操作后无法执行分布式事务
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>执行托管实例缩放操作后无法执行分布式事务
 
-托管实例缩放操作（包括变化的服务层或 Vcore 数）将在后端重置服务器信任组设置并禁用正在运行的 [分布式事务](./elastic-transactions-overview.md)。 解决方法是在 Azure 门户上删除并创建新的 [服务器信任组](../managed-instance/server-trust-group-overview.md) 。
+包括更改服务层或 vCore 数量在内的托管实例缩放操作会重置后端的服务器信任组设置，并禁止运行[分布式事务](./elastic-transactions-overview.md)。 解决方法是在 Azure 门户上删除并创建新的[服务器信任组](../managed-instance/server-trust-group-overview.md)。
 
-### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT 和备份/还原语句无法使用托管标识访问 Azure 存储
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT 和 BACKUP/RESTORE 语句无法使用托管标识访问 Azure 存储
 
-Bulk insert、BACKUP 和 RESTORE 语句以及 OPENROWSET 函数无法 `DATABASE SCOPED CREDENTIAL` 与托管标识一起使用来向 Azure 存储进行身份验证。 解决方法是切换到共享访问签名身份验证。 下面的示例将无法在 Azure SQL (数据库和托管实例) ：
+Bulk insert、BACKUP 和 RESTORE 语句以及 OPENROWSET 函数无法 `DATABASE SCOPED CREDENTIAL` 与托管标识一起使用来向 Azure 存储进行身份验证。 解决方法是切换到“共享访问签名”身份验证。 以下示例不适用于 Azure SQL（数据库和托管实例）：
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d28b8f2ff3045c9fdf5e8a866419a22bfbc6504
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2d8953ccae1057d7a7aa2d786fb7b641b3f6284
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321762"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392499"
 ---
 # <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>从受限网络连接到 Synapse Studio 工作区资源
 
@@ -26,7 +26,6 @@ ms.locfileid: "93321762"
 * **Azure 订阅** ：如果还没有 Azure 订阅，可以在开始前创建一个 [免费 Azure 帐户](https://azure.microsoft.com/free/)。
 * **Azure Synapse 工作区** ：如果没有 Synapse Studio，请从 Azure Synapse Analytics 创建 Synapse 工作区。 以下步骤4中将需要工作区名称。
 * **受限网络** ：受限网络由公司 IT 管理员维护。 it 管理员有权配置网络策略。 下面的步骤3中将需要虚拟网络名称及其子网。
-
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>步骤1：向受限网络添加网络出站安全规则
@@ -51,9 +50,9 @@ ms.locfileid: "93321762"
 
 ![创建 Synapse Analytics 专用链接中心](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-private-link-endpoint-for-synapse-studio-gateway"></a>步骤3：创建 Synapse Studio 网关的专用链接终结点
+## <a name="step-3-create-private-endpoint-for-synapse-studio-gateway"></a>步骤3：创建 Synapse Studio 网关的专用终结点
 
-若要访问 Synapse Studio 网关，需要从 Azure 门户创建专用链接端点。 通过 Azure 门户搜索 " **专用链接** "。 选择 " **专用链接中心** " 中的 " **创建专用终结点** "，并填写所需字段并创建它。 
+若要访问 Synapse Studio 网关，需要从 Azure 门户创建专用终结点。 通过 Azure 门户搜索 " **专用链接** "。 选择 " **专用链接中心** " 中的 " **创建专用终结点** "，并填写所需字段并创建它。 
 
 > [!Note]
 > 该区域应与 Synapse 工作区所在的区域相同。
@@ -73,7 +72,7 @@ ms.locfileid: "93321762"
 
 创建专用链接终结点后，可以访问 Synapse studio web 工具的登录页。 但是，在需要完成下一步之前，你将无法访问 Synapse 工作区内的资源。
 
-## <a name="step-4-create-private-link-endpoints-for-synapse-studio-workspace-resource"></a>步骤4：创建 Synapse Studio 工作区资源的专用链接终结点
+## <a name="step-4-create-private-endpoints-for-synapse-studio-workspace-resource"></a>步骤4：创建 Synapse Studio 工作区资源的专用终结点
 
 若要访问 Synapse Studio 工作区资源中的资源，需要至少创建一个 **具有 "****目标子资源** " 类型的专用链接终结点，并使用 " **Sql** " 或 " **SqlOnDemand** " 类型的两个其他可选专用链接终结点，具体取决于要访问的 Synapse Studio 工作区中的资源。 此用于 Synapse studio 工作区的专用链接终结点类似于创建终结点。  
 
@@ -86,6 +85,30 @@ ms.locfileid: "93321762"
   * **Dev** ：用于访问 Synapse Studio 工作区中的其他所有内容。 需要至少创建具有此类型的专用链接端点。
 
 ![正在为 Synapse studio 工作区创建专用终结点](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
+
+
+## <a name="step-5-create-private-endpoints-for-synapse-studio-workspace-linked-storage"></a>步骤5：创建 Synapse Studio 工作区链接存储的专用终结点
+
+若要使用 Synapse Studio 工作区中的存储资源管理器访问链接的存储，则需要使用上面步骤3中的类似步骤创建一个专用终结点。 
+
+请注意 " **资源** " 选项卡中以下各区域：
+* 选择 " **Synapse/storageAccounts** " 以 " **资源类型** "。
+* 选择之前创建的 " **资源** " " **YourWorkSpaceName** "。
+* 在 " **目标子资源** " 中选择终结点类型：
+  * **blob** ：适用于 Azure blob 存储。
+  * **dfs** ：用于 Azure Data Lake Storage Gen2。
+
+![正在为 Synapse studio 工作区链接存储创建专用终结点](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
+
+现在，你可以从 vNet 中的 Synapse Studio 工作区中的存储资源管理器访问链接的存储资源。
+
+如果工作区在创建工作区时具有 " **启用托管虚拟网络** "，如下所示。
+
+![正在为 Synapse studio 工作区链接存储创建专用终结点1](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
+
+要使笔记本能够访问特定存储帐户下的链接存储资源，需要在 Synapse Studio 中添加 " **托管专用终结点** "。 " **存储帐户名称** " 应为笔记本需要访问的名称。 了解 [创建托管专用终结点到数据源](./how-to-create-managed-private-endpoints.md)的详细步骤。
+
+创建此终结点后，" **批准状态** " 将为 " **待定** "，需要请求此存储帐户的所有者在 Azure 门户中的此存储帐户的 " **专用终结点连接** " 选项卡上批准此存储帐户。 获得批准后，笔记本将能够访问此存储帐户下的链接存储资源。
 
 现在，全部设置。 可以访问 Synapse studio 工作区资源。
 

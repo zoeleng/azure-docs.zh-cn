@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325536"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392990"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -97,7 +97,10 @@ Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存�
 
 ## <a name="technical-notes-for-managed-identity"></a>托管标识的技术说明
 
-使用托管标识访问存储服务会影响一些安全注意事项。 这些注意事项是专门针对你要访问的存储帐户类型的。 本部分介绍每种存储帐户类型的更改。
+使用托管标识访问存储服务会影响一些安全注意事项。 本部分介绍每种存储帐户类型的更改。
+
+> [!IMPORTANT]
+> 这些注意事项对你要访问的 __存储帐户类型__ 是唯一的。
 
 ### <a name="azure-blob-storage"></a>Azure Blob 存储
 

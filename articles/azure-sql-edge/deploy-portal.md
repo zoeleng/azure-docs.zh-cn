@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973574"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395081"
 ---
 # <a name="deploy-azure-sql-edge"></a>部署 Azure SQL Edge 
 
@@ -108,7 +108,7 @@ Azure 市场是一个应用程序和服务在线市场，可在其中浏览各�
    
 8. 在“更新 IoT Edge 模块”窗格上，单击“更新” 。
 9. 如果需要为部署定义路由，则在“在设备上设置模块”页上，单击“下一步:路由 >”。 否则，单击“审阅 + 创建”。 有关配置路由的详细信息，请参阅[在 IoT Edge 中部署模块和建立路由](../iot-edge/module-composition.md)。
-11. 在 " **设置设备上的模块** " 页上，单击 " **创建**"。
+11. 在“在设备上设置模块”页上，单击“创建” 。
 
 ## <a name="connect-to-azure-sql-edge"></a>连接到 Azure SQL Edge
 
@@ -212,7 +212,7 @@ Azure 市场是一个应用程序和服务在线市场，可在其中浏览各�
 
 ## <a name="connect-from-outside-the-container"></a> 从容器外连接
 
-可以从支持 SQL 连接的任何外部 Linux、Windows 或 macOS 工具连接 Azure SQL Edge 实例，并对其运行 SQL 查询。 有关从外部连接到 SQL Edge 容器的详细信息，请参阅[连接和查询 Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect)。
+可以从支持 SQL 连接的任何外部 Linux、Windows 或 macOS 工具连接 Azure SQL Edge 实例，并对其运行 SQL 查询。 有关从外部连接到 SQL Edge 容器的详细信息，请参阅[连接和查询 Azure SQL Edge](./connect.md)。
 
 在本快速入门中，你在 IoT Edge 设备上部署了 SQL Edge 模块。 
 
