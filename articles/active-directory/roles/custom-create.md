@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4446e5b8abf9ac308a5eb32cadf31eddfcb9d9a1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097985"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379241"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>在 Azure Active Directory 中创建和分配自定义角色
 
@@ -45,7 +45,7 @@ ms.locfileid: "93097985"
       ![在“权限”选项卡上选择自定义角色的权限](./media/custom-create/permissions-tab.png)
 
    1. 接下来，在搜索栏中输入“basic”，选择 `microsoft.directory/applications/basic/update` 权限，然后单击“下一步”。
-1. 在“查看 + 创建”选项卡上查看权限，然后选择“创建” 。
+1. 在“查看 + 创建”选项卡上查看权限，然后选择“创建”。 
 
 你的自定义角色将显示在要分配的可用角色列表中。
 
@@ -142,7 +142,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     ```
 
     > [!Note]
-    > `"templateId": "GUID"`是在正文中发送的可选参数，具体取决于要求。 如果您要求使用常见参数创建多个不同的自定义角色，则最好创建一个模板并定义一个 `templateId` 值。 可以 `templateId` 通过使用 PowerShell cmdlet 预先生成值 `(New-Guid).Guid` 。 
+    > `"templateId": "GUID"` 是根据需要在正文中发送的可选参数。 如果需要使用公共参数创建多个不同的自定义角色，最好创建一个模板并定义 `templateId` 值。 可以事先通过使用 PowerShell cmdlet `(New-Guid).Guid` 来生成 `templateId` 值。 
 
 1. 创建角色分配。
 

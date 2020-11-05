@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58aaecaa9f8606399b40fdb1d38a274117ec6a2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375073"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378612"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>在 Azure Active Directory 中创建角色可分配的组
 
@@ -27,12 +27,12 @@ ms.locfileid: "92375073"
 ## <a name="using-azure-ad-admin-center"></a>使用 Azure AD 管理中心
 
 1. 使用 Azure AD 组织中的特权角色管理员或全局管理员权限登录到 [Azure AD 管理中心](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
-1. 选择 "**组**" "  >  **所有组**" "  >  **新组**"。
+1. 选择 " **组** " "  >  **所有组** " "  >  **新组** "。
 
     [![打开 Azure Active Directory 并创建一个新组。](./media/groups-create-eligible/new-group.png "打开 Azure Active Directory 并创建一个新组。")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
 1. 在 " **新建组** " 选项卡上，提供组类型、名称和说明。
-1. 打开 **Azure AD 可以将角色分配给组**。 只有特权角色管理员和全局管理员才能看到此开关，因为这两个角色只是两个可设置交换机的角色。
+1. 打开 **Azure AD 可以将角色分配给组** 。 只有特权角色管理员和全局管理员才能看到此开关，因为这两个角色只是两个可设置交换机的角色。
 
     [![使新组符合角色分配的条件](./media/groups-create-eligible/eligible-switch.png "使新组符合角色分配的条件")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
 
@@ -40,7 +40,7 @@ ms.locfileid: "92375073"
 
     [![将成员添加到可分配角色的组并分配角色。](./media/groups-create-eligible/specify-members.png "将成员添加到可分配角色的组并分配角色。")](./media/groups-create-eligible/specify-members.png#<lightbox>)
 
-1. 指定成员和所有者后，选择 " **创建**"。
+1. 指定成员和所有者后，选择 " **创建** "。
 
     [!["创建" 按钮位于页面的底部。](./media/groups-create-eligible/create-button.png ""创建" 按钮位于页面的底部。")](./media/groups-create-eligible/create-button.png#<lightbox>)
 

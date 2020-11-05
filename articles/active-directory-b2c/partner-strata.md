@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294233"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376845"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>本教程介绍如何使用阶层扩展 Azure AD B2C 以保护本地应用程序
 
@@ -29,7 +29,7 @@ Maverics Identity Orchestrator 扩展 Azure AD B2C 以保护本地应用程序�
 
 - **轻松配置** ： Azure AD B2C 提供了一个简单的分步用户界面，用于将 Maverics IDENTITY Orchestrator SAML 或 OIDC 连接器连接到 Azure AD B2C。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要开始，你将需要：
 
@@ -65,13 +65,11 @@ Maverics Identity Orchestrator 扩展 Azure AD B2C 以保护本地应用程序�
 | 4. | IdP 为用户提供凭据。 根据 IdP，用户可能需要执行多重身份验证， (MFA) 。|
 | 5. | IdP 将身份验证响应发送回 Azure AD B2C。 （可选）在此步骤中，用户可以在 Azure AD B2C 目录中创建本地帐户。|
 | 6. | Azure AD B2C 将用户请求发送到在 Azure AD B2C 租户中的 Orchestrator 应用注册过程中指定的终结点。|
-| 7. | Orchestrator 会评估访问策略，并计算要包含在转发到应用的 HTTP 标头中的属性值。 在此步骤中，协调器可能会调用其他属性提供程序，以检索正确设置标头值所需的信息。|
-| 8. | Orchestrator 设置标头值并将请求发送到应用。|
-| 9. | 用户现在已经过身份验证，并且有权访问该应用程序。|
+| 7. | Orchestrator 会评估访问策略，并计算要包含在转发到应用的 HTTP 标头中的属性值。 在此步骤中，协调器可能会调用其他属性提供程序，以检索正确设置标头值所需的信息。 Orchestrator 设置标头值并将请求发送到应用。|
+| 8. | 用户现在已经过身份验证，并且有权访问该应用程序。|
 
 ## <a name="get-maverics-identity-orchestrator"></a>获取 Maverics 标识 Orchestrator
 
-若要获取将用于将旧的本地应用与 Azure AD B2C 集成的软件，请联系 [阶层](https://www.strata.io/contact/)。 获取软件后，请按照以下步骤来确定特定于 Orchestrator 的系统必备组件，并执行所需的安装和配置步骤。
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>配置 Azure AD B2C 租户
 

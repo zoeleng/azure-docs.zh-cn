@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c1d53f15e945788ab6147299ccd59e7e4e947c5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374507"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378357"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>在 Azure Active Directory 中委托管理权限
 
@@ -66,8 +66,8 @@ ms.locfileid: "92374507"
 
 组织中应用的激增可能会给委托模型带来压力。 如果将应用程序访问管理的负担放在全局管理员身上，则随着时间的推移，该模型的开销可能会增大。 如果向某人授予了“全局管理员”角色，让其执行配置企业应用程序等任务，则现在可将管理负担转移到其后面的特权更低的角色。 这样做有助于改善安全局势，并减少低级失误的可能性。 特权最高的应用程序管理员角色包括：
 
-* “应用程序管理员”角色：授予管理目录中所有应用程序的能力，包括注册、单一登录设置、用户和组分配与授权、应用程序代理设置，以及许可。**** 它不能授予管理条件访问的能力。
-* “云应用程序管理员”角色：授予“应用程序管理员”的所有能力，但不能授予应用程序代理设置的访问权限（因为该角色没有本地权限）****。
+* “应用程序管理员”角色：授予管理目录中所有应用程序的能力，包括注册、单一登录设置、用户和组分配与授权、应用程序代理设置，以及许可。 它不能授予管理条件访问的能力。
+* “云应用程序管理员”角色：授予“应用程序管理员”的所有能力，但不能授予应用程序代理设置的访问权限（因为该角色没有本地权限）。
 
 ## <a name="delegate-app-registration"></a>委托应用注册
 

@@ -3,12 +3,12 @@ title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284511"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377116"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 及更高版本的 host.json 参考 
 
@@ -357,7 +357,7 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 
 ## <a name="retry"></a>retry
 
-控制应用中所有执行的 [重试策略](./functions-bindings-error-pages.md#retry-policies) 选项。
+控制应用中所有执行的 [重试策略](./functions-bindings-error-pages.md#retry-policies-preview) 选项。
 
 ```json
 {

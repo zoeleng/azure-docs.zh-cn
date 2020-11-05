@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165497"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377745"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 电话选项中的身份验证方法
 
@@ -50,8 +50,6 @@ Microsoft 不保证相同号码传送的短信或基于语音的 Azure 多重身
 
 ## <a name="office-phone-verification"></a>办公电话验证
 
-办公电话属性由 Azure AD 管理员管理，用户本身无法注册。
-
 如果在 SSPR 或 Azure 多重身份验证期间使用电话呼叫验证方法，用户注册的电话号码会接收到一个自动语音呼叫。 为了完成登录过程，系统会提示用户在其键盘上输入其 pin 号码并按 # 键。
 
 ## <a name="troubleshooting-phone-options"></a>排查电话选项问题
@@ -81,7 +79,7 @@ Microsoft 不保证相同号码传送的短信或基于语音的 Azure 多重身
 
 要详细了解 MFA 概念，请参阅[ Azure 多重身份验证的工作原理][concept-mfa]。
 
-详细了解如何使用 [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)配置身份验证方法。
+详细了解如何使用 [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)配置身份验证方法。
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

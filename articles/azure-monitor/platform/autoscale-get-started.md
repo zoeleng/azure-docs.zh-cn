@@ -4,12 +4,12 @@ description: 了解如何在 Azure 中缩放资源：Web 应用、云服务、�
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361196"
+ms.locfileid: "93377014"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Microsoft Azure 门户中为资源指定自动缩放设置。
@@ -132,6 +132,9 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 ### <a name="behavior"></a>行为
 
 如果提供了运行状况检查路径，应用服务会在所有实例上对路径进行 ping 操作。 如果在5个 ping 操作后未收到成功的响应代码，则将该实例视为 "不正常"。 不正常的实例 (s 将从负载均衡器轮换中排除) 。 可以通过应用设置配置所需的失败 ping 操作数 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` 。 此应用设置可设置为2到10之间的任意整数。 例如，如果此设置为，则在出现 `2` 两个失败 ping 后，将从负载均衡器中删除实例。 此外，在纵向扩展或横向扩展时，应用服务将对运行状况检查路径进行 ping 操作，以确保在将新实例添加到负载均衡器之前已准备好请求。
+
+> [!NOTE]
+> 请记住，必须将应用服务计划扩展到2个或多个实例，才能进行负载均衡器排除。 如果只有1个实例，则它不会从负载均衡器中删除，即使它不正常。 
 
 其他正常运行的实例可能会提高负载。 若要避免出现剩余的情况，则不会再包括一半的实例。 例如，如果应用服务计划扩展到4个实例，其中3个实例不正常，最多2个将从 loadbalancer 旋转中排除。 其他2个实例 (1 正常，1个不正常) 将继续接收请求。 在所有实例都运行不正常的最糟糕的情况下，将不包括任何实例。如果要重写此行为，可以将 `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` 应用设置设置为介于和之间的值 `0` `100` 。 如果将此值设置为较高的值，则会删除 (默认值为 50) 的更不正常的实例。
 

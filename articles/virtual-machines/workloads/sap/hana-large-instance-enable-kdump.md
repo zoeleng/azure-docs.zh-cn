@@ -13,16 +13,22 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84488879"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379258"
 ---
-# <a name="enable-kdump-service"></a>启用 Kdump 服务
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>用于 Azure SAP HANA 大型实例 (，) 的 Kdump
 
-本文档介绍有关如何在 Azure HANA 大型实例 (**类型 I 和类型 II** 上启用 Kdump 服务的详细信息) 
+配置和启用 kdump 是解决不具有明显原因的系统崩溃所需的步骤。
+有时，系统会意外崩溃，因为硬件或基础结构问题无法解释。
+在这些情况下，它可能是操作系统或应用程序问题，kdump 将允许 SUSE 确定系统崩溃的原因。
+
+## <a name="enable-kdump-service"></a>启用 Kdump 服务
+
+本文档介绍有关如何在 Azure HANA 大型实例 ( **类型 I 和类型 II** 上启用 Kdump 服务的详细信息) 
 
 ## <a name="supported-skus"></a>支持的 SKU
 
@@ -62,6 +68,10 @@ ms.locfileid: "84488879"
 ## <a name="setup-details"></a>设置详细信息
 
 - 可在[此处](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)找到用于启用 Kdump 的脚本
+> [!NOTE]
+> 此脚本基于实验室设置进行，客户应与操作系统供应商联系以获得进一步的优化。
+> 将为新的和现有的服务器预配单独的 LUN，以便保存转储，脚本将负责将文件系统配置在 LUN 外。
+> Microsoft 不负责分析转储。 客户必须使用操作系统供应商打开票证，才能对其进行分析。
 
 - 使用以下命令在 HANA 大型实例上运行此脚本
 
@@ -72,7 +82,7 @@ ms.locfileid: "84488879"
     sudo bash enable-kdump.sh
     ```
 
-- 如果成功启用了命令输出 Kdump，请重新启动系统以应用更改，然后成功启用 Kdump。 重新启动系统以应用更改。
+- 如果成功启用了命令输出 Kdump，请确保重新启动系统以成功应用更改。
 
 - 如果命令输出无法执行特定操作，请退出!!!!,，则不启用 Kdump 服务。 请参阅 [支持问题](#support-issue)部分。
 
@@ -104,3 +114,6 @@ ms.locfileid: "84488879"
 * OS 版本
 
 * 内核版本
+
+## <a name="related-documents"></a>相关文档
+- 了解有关[配置 kdump 的](https://www.suse.com/support/kb/doc/?id=3374462)详细信息

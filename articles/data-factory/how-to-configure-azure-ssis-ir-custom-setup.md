@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
-ms.openlocfilehash: 021c3705ff96774583438d261f894ff1bc24c21f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/06/2020
+ms.openlocfilehash: 1885dd76a94a7a4a6b91c67735103350c473ba44
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636317"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378425"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>自定义 Azure-SSIS Integration Runtime 的安装
 
@@ -135,7 +135,7 @@ ms.locfileid: "92636317"
 
 #### <a name="installing-azure-powershell"></a>安装 Azure PowerShell
 
-如果为快速自定义安装程序选择“安装 Azure PowerShell”类型，则可在 Azure-SSIS IR 上安装 PowerShell 的 Az 模块。 为此，请在[支持的版本列表](https://www.powershellgallery.com/stats/packages/Az?groupby=Version)中输入所需的 Az 模块版本号 (x.y.z)。 这样即可在包中运行 Azure PowerShell cmdlet/脚本来管理 Azure 资源，例如 [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md)。
+如果为快速自定义安装程序选择“安装 Azure PowerShell”类型，则可在 Azure-SSIS IR 上安装 PowerShell 的 Az 模块。 为此，请在[支持的版本列表](https://www.powershellgallery.com/packages/az)中输入所需的 Az 模块版本号 (x.y.z)。 这样即可在包中运行 Azure PowerShell cmdlet/脚本来管理 Azure 资源，例如 [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md)。
 
 #### <a name="installing-licensed-components"></a>安装许可的组件
 
@@ -289,7 +289,7 @@ ms.locfileid: "92636317"
 
       * 一个 *Sample* 文件夹，其中包含用于在 Azure-SSIS IR 的每个节点上安装基本任务的自定义安装程序。 该任务不会执行任何操作，而是休眠几秒。 该文件夹还包含 *gacutil* 文件夹，其整个内容（ *gacutil.exe* 、 *gacutil.exe.config* 和 *1033\gacutlrc.dll* ）都可以按原样复制到容器中。
 
-      * 一个 *UserScenarios* 文件夹，其中包含实际用户方案中的多个自定义安装示例。
+      * 一个 *UserScenarios* 文件夹，其中包含实际用户方案中的多个自定义安装示例。 如果要在 Azure-SSIS IR 上安装多个示例，可以将其自定义安装脚本 ( *main .cmd* ) 文件合并到一个文件中，然后将其所有关联文件上传到容器中。
 
         ![公共预览版容器的内容](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 

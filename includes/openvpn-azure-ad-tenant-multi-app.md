@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: df3d1c34fe0fc045e829c2ea9166664f06fd3127
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c3236f9c60cb359349d96e93f674c3e278e44f1e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116787"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375767"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1.创建 Azure AD 租户
 
@@ -77,11 +77,11 @@ ms.locfileid: "92116787"
 
 5. 如果出现提示，请选择“全局管理员”帐户。
 
-    ![Directory ID](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
+    ![目录 ID 2](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
 
 6. 出现提示时选择“接受”。
 
-    ![屏幕截图显示一个窗口，其中包含为你的组织请求接受的消息权限以及有关该请求的信息。](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![屏幕截图显示了“为你的组织请求接受的权限”消息和关于请求信息的窗口。](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. 在 Azure AD 下的“企业应用程序”中，你将看到“Azure VPN”已列出 。
 
@@ -93,11 +93,11 @@ ms.locfileid: "92116787"
 
 1. 在 Azure Active Directory 下单击“应用注册”，然后单击“+ 新建注册” 。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
+    ![Azure VPN 2](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
 
 2. 在“注册应用程序”页上，输入名称 。 选择所需的支持的帐户类型，然后单击“注册” 
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
+    ![Azure VPN 3](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
 
 3. 注册新应用后，请单击应用边栏选项卡下的“公开 API”。
 
@@ -105,11 +105,11 @@ ms.locfileid: "92116787"
 
 5. 保留默认的“应用程序 ID URI”。 单击“保存并继续”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
+    ![Azure VPN 4](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
 
 6. 填写必填字段，确保“状态”为“已启用”。 单击“添加范围”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
+    ![Azure VPN 5](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
 
 7. 单击“公开 API”，然后单击“+ 添加客户端应用程序” 。  对于“客户端 ID”，根据云输入以下值：
 
@@ -120,11 +120,11 @@ ms.locfileid: "92116787"
 
 8. 单击“添加应用程序”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
+    ![Azure VPN 6](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
 
 9. 复制“概述”页中的应用程序客户端 ID 。 你将需要使用此信息来配置 VPN 网关。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
+    ![Azure VPN 7](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
 
 10. 重复此[注册其他应用程序](#register-apps)部分中的步骤，创建安全要求所需的多个应用程序。 每个应用程序都将关联到一个 VPN 网关，并且可以有不同的用户集。 一个网关只能关联一个应用程序。
 
@@ -132,14 +132,14 @@ ms.locfileid: "92116787"
 
 将用户分配到你的应用程序。
 
-1. 在“Azure AD > 企业应用程序”下，选择新注册的应用程序，然后单击“属性” 。 确保“需要进行用户分配?”设置为“是”。  单击“保存”  。
+1. 在“Azure AD > 企业应用程序”下，选择新注册的应用程序，然后单击“属性” 。 确保“需要进行用户分配?”设置为“是”。  单击“ **保存** ”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
+    ![Azure VPN 8](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 
 2. 在应用页上，单击“用户和组”，然后单击“+添加用户” 。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
+    ![Azure VPN 9](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
 
 3. 在“添加分配”下，单击“用户和组” 。 选择希望能够访问此 VPN 应用程序的用户。 单击“选择”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user4.png)
+    ![Azure VPN 10](./media/openvpn-azure-ad-tenant-multi-app/user4.png)

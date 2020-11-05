@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 283befd08c7802a9df6d2fca78465d50cfb2ba7b
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348451"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376810"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -115,7 +115,12 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 
 当服务器因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 异地还原利用服务器的最新备份。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
 
+> [!IMPORTANT]
+>如果对新创建的服务器执行异地还原，则初始备份同步所需的时间可能超过24小时，具体取决于数据大小，因为初始的完整快照备份复制时间要高得多。 后续快照备份是增量复制，因此，在创建服务器24小时后，还原速度会更快。 如果你正在评估异地还原以定义 RTO，我们建议你在创建服务器 **24 小时后** 等待并评估异地还原，以便更好地进行评估。
+
 在异地还原过程中，可以更改的服务器配置包括计算的代、vCore、备份保持期和备份冗余选项。 不支持在异地还原过程中更改定价层（“基本”、“常规用途”或“内存优化”）或存储大小。
+
+估计的恢复时间取决于若干因素，包括数据库大小、事务日志大小、网络带宽，以及在同一区域同时进行恢复的数据库总数。 恢复时间通常少于 12 小时。
 
 ### <a name="perform-post-restore-tasks"></a>执行还原后任务
 

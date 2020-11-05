@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375109"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379088"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中按管理员任务委托管理员角色
 
@@ -351,6 +351,7 @@ ms.locfileid: "92375109"
 更新受限管理员的用户主体名称（请参阅文档） | 用户管理员 | 
 更新特权管理员的用户主体名称属性（请参阅文档） | 全局管理员角色 | 
 更新用户设置 | 全局管理员角色 | 
+更新身份验证方法 | 身份验证管理员 | 特权身份验证管理员，全局管理员
 
 
 ## <a name="support"></a>支持

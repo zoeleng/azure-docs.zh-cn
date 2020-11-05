@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 123595bb6cd0112e597b9d958763900e07b9ff38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2dc8773dc41493e30f64c0602b4345a9491cd7b7
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633070"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379700"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>创建和配置自承载集成运行时
 
@@ -147,7 +147,6 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 在一台计算机上只能安装一个自承载集成运行时实例。 如果有两个数据工厂需要访问本地数据源，请使用[自承载 IR 共享功能](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory)共享自承载集成 IR，或者在两台本地计算机（每个数据工厂一台）上安装自承载 IR。  
 - 自承载集成运行时不需要位于数据源所在的计算机上。 但是，使自承载集成运行时更接近于数据源会减少自承载集成运行时连接到数据源的时间。 建议在不同于托管本地数据源的计算机上安装自承载集成运行时。 当自承载集成运行时和数据源位于不同的计算机上时，自承载集成运行时不会与数据源争用资源。
 - 可将不同计算机上的多个自承载集成运行时连接到同一本地数据源。 例如，如果有两个自承载集成运行时为两个数据工厂提供服务，则可以将同一个本地数据源注册到这两个数据工厂。
-- 如果已在计算机中安装了为 Power BI 方案提供服务的网关，那么在其他计算机上安装用于数据工厂的单独自承载集成运行时。
 - 使用自承载集成运行时来支持 Azure 虚拟网络中的数据集成。
 - 即使使用 Azure ExpressRoute，也要将数据源视为本地数据源（位于防火墙之后）。 使用自承载集成运行时将服务连接到数据源。
 - 即使数据存储位于云中的 Azure 基础结构即服务 (IaaS) 虚拟机上，也应该使用自承载集成运行时。

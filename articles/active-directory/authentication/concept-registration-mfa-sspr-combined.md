@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424574"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378000"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 概述的组合安全信息注册
 
@@ -41,7 +41,7 @@ Azure AD 组合的安全信息注册当前不适用于 Azure 德国或 Azure 中
 >
 > 尝试访问安全信息选项时可能会遇到错误消息，如 "抱歉，我们无法登录"。 确认在 web 浏览器中没有任何配置或组策略对象阻止第三方 cookie。
 
-根据访问页面的计算机的语言设置对*配置文件*页面进行本地化。 Microsoft 存储了浏览器缓存中使用的最新语言，因此后续访问页面的尝试将继续以最后使用的语言呈现。 如果清除缓存，则页面将重新呈现。
+根据访问页面的计算机的语言设置对 *配置文件* 页面进行本地化。 Microsoft 存储了浏览器缓存中使用的最新语言，因此后续访问页面的尝试将继续以最后使用的语言呈现。 如果清除缓存，则页面将重新呈现。
 
 如果要强制使用特定语言，则可以将添加 `?lng=<language>` 到 URL 的末尾，其中 `<language>` 是要呈现的语言的代码。
 
@@ -58,7 +58,7 @@ Azure AD 组合的安全信息注册当前不适用于 Azure 德国或 Azure 中
 | 硬件令牌 | 否 | 否 | 是 |
 | 电话 | 是 | 是 | 是 |
 | 备用号码 | 是 | 是 | 是 |
-| 办公电话 | 否 | 否 | 否 |
+| 办公电话 | 是 | 是 | 是 |
 | 电子邮件 | 是 | 是 | 是 |
 | 安全性问题 | 是 | 否 | 是 |
 | 应用密码 | 是 | 否 | 是 |
@@ -95,7 +95,7 @@ Azure AD 组合的安全信息注册当前不适用于 Azure 德国或 Azure 中
 - *通过每用户多重身份验证强制实施多重身份验证注册：* 要求用户在登录时注册。 如果为用户启用了 SSPR) ，则它们将注册多重身份验证方法和 SSPR 方法 (。
 - *通过条件访问或其他策略强制实施多重身份验证注册：* 要求用户在使用需要多重身份验证的资源时进行注册。 如果为用户启用了 SSPR) ，则它们将注册多重身份验证方法和 SSPR 方法 (。
 - *强制执行注册 SSPR：* 要求用户在登录时注册。 它们只注册 SSPR 方法。
-- 已*强制执行 SSPR 刷新：* 用户需要在管理员设置的时间间隔内检查其安全信息。用户显示其信息，并可以确认当前信息，或在需要时进行更改。
+- 已 *强制执行 SSPR 刷新：* 用户需要在管理员设置的时间间隔内检查其安全信息。用户显示其信息，并可以确认当前信息，或在需要时进行更改。
 
 强制执行注册后，用户会看到所需的最小方法数必须符合多重身份验证和 SSPR 策略（从最高到最安全）。
 

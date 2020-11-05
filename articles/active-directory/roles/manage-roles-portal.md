@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85a0618dc5c99b662bbe5520615b5983da5aec91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9330c6d34dcf5a799d65ebba176565ff031cb956
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375041"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376776"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中查看和分配管理员角色
 
@@ -36,11 +36,11 @@ ms.locfileid: "92375041"
 
 ## <a name="view-my-roles"></a>查看我的角色
 
-也可轻松查看自己的权限。 在“角色和管理员”**** 页上选择“你的角色”****，可查看当前分配给你的角色。
+也可轻松查看自己的权限。 在“角色和管理员”页上选择“你的角色”，可查看当前分配给你的角色。
 
 ## <a name="view-assignments-for-privileged-roles"></a>查看特权角色的分配
 
-可选择“在 PIM 中管理”以查看其他管理功能****。 特权角色管理员可将“永久”（始终充当该角色）分配更改为“符合条件”（仅当提升了权限时才充当该角色）。 如果没有 Privileged Identity Management，仍可以选择“在 PIM 中管理”来注册试用版。 Privileged Identity Management 需要 [Azure AD Premium P2 许可证计划](../privileged-identity-management/subscription-requirements.md)。
+可选择“在 PIM 中管理”以查看其他管理功能。 特权角色管理员可将“永久”（始终充当该角色）分配更改为“符合条件”（仅当提升了权限时才充当该角色）。 如果没有 Privileged Identity Management，仍可以选择“在 PIM 中管理”来注册试用版。 Privileged Identity Management 需要 [Azure AD Premium P2 许可证计划](../privileged-identity-management/subscription-requirements.md)。
 
 ![管理员角色的成员列表](./media/manage-roles-portal/member-list.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "92375041"
 
 ## <a name="view-a-users-role-permissions"></a>查看用户的角色权限
 
-查看某个角色的成员时，选择“说明”可以查看角色分配授予的权限的完整列表****。 该页包含相关文档的链接，引导你对目录角色进行管理。
+查看某个角色的成员时，选择“说明”可以查看角色分配授予的权限的完整列表。 该页包含相关文档的链接，引导你对目录角色进行管理。
 
 ![显示 "全局管理员描述" 页面的屏幕截图。](./media/manage-roles-portal/role-description.png)
 
@@ -67,13 +67,13 @@ ms.locfileid: "92375041"
 
 1. 以全局管理员或特权角色管理员权限登录到 [Azure 门户](https://portal.azure.com)，然后选择“Azure Active Directory”。
 
-1. 选择“角色和管理员”以查看所有可用角色列表****。
+1. 选择“角色和管理员”以查看所有可用角色列表。
 
 1. 选择一个角色，查看其分配情况。
 
     ![显示 "用户管理员-分配" 页面并选择 "在 PIM 中管理" 操作的屏幕截图。](./media/manage-roles-portal/member-list.png)
 
-1. 选择“添加分配”，然后选择要分配的角色。 可选择“在 PIM 中管理”以查看其他管理功能****。 如果你看到与下图不同的内容，请阅读[查看特权角色的分配](#view-assignments-for-privileged-roles)中的“说明”，以验证你是否在 PIM 中。
+1. 选择“添加分配”，然后选择要分配的角色。 可选择“在 PIM 中管理”以查看其他管理功能。 如果你看到与下图不同的内容，请阅读[查看特权角色的分配](#view-assignments-for-privileged-roles)中的“说明”，以验证你是否在 PIM 中。
 
     ![管理员角色的权限列表](./media/manage-roles-portal/directory-role-select-role.png)
 

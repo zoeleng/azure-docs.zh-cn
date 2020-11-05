@@ -3,12 +3,12 @@ title: 注册表登录故障排除
 description: 登录到 Azure 容器注册表时的常见问题的症状、原因和解决方法
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348893"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379496"
 ---
 # <a name="troubleshoot-registry-login"></a>注册表登录故障排除
 
@@ -98,7 +98,9 @@ az acr login --name myregistry
 
 确认与凭据关联的注册表权限，如 `AcrPull` 用于从注册表中提取映像的 Azure 角色或 `AcrPush` 用于推送映像的角色。 
 
-若要在门户中访问注册表或要使用 Azure CLI 进行注册表管理，至少需要用于执行 Azure 资源管理器操作的 `Reader` 角色。
+若要在门户中访问注册表或使用 Azure CLI 进行注册表管理，至少需要 `Reader` 角色或同等权限才能执行 Azure 资源管理器操作。
+
+如果你的权限最近更改为允许通过门户访问注册表，你可能需要在浏览器中尝试 incognito 或私有会话，以避免任何过时的浏览器缓存或 cookie。
 
 你或注册表所有者必须在订阅中具有足够的权限，才能添加或删除角色分配。
 

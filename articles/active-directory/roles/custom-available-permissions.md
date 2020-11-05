@@ -1,34 +1,34 @@
 ---
-title: 应用注册的自定义角色权限-Azure AD |Microsoft Docs
+title: 应用注册的自定义角色权限 - Azure AD | Microsoft Docs
 description: 委派用于管理应用注册的自定义管理员角色权限。
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d283a5bec804696a1243005a37bf73b087677d09
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375124"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377065"
 ---
-# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory 中的自定义角色的应用程序注册权限
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory 中自定义角色的应用程序注册权限
 
 本文包含 Azure Active Directory (Azure AD) 中的自定义角色定义当前可用的应用注册权限。
 
 ## <a name="permissions-for-managing-single-tenant-applications"></a>用于管理单租户应用程序的权限
 
-选择自定义角色的权限时，你可以选择授予访问权限，以便仅管理单租户应用程序。 单租户应用程序仅可用于注册了应用程序的 Azure AD 组织中的用户。 单租户应用程序定义为仅在此组织目录中将 **受支持的帐户类型** 设置为 "帐户"。 在图形 API 中，单租户应用程序的 signInAudience 属性设置为“AzureADMyOrg”。
+选择自定义角色的权限时，可以选择授予仅管理单租户应用程序的访问权限。 单租户应用程序仅适用于该应用程序已注册到的 Azure AD 组织中的用户。 单租户应用程序定义为将“支持的帐户类型”设置为“仅限此组织目录中的帐户”。 在图形 API 中，单租户应用程序的 signInAudience 属性设置为“AzureADMyOrg”。
 
-若要授予访问权限以仅管理单租户应用程序，请将下面的权限用于子类型 **myOrganization**。 例如 microsoft.directory/applications.myOrganization/basic/update。
+若要授予仅管理单租户应用程序的访问权限，请对子类型 applications.myOrganization 使用以下权限。 例如 microsoft.directory/applications.myOrganization/basic/update。
 
 有关一般术语“子类型”、“权限”和“属性集”的含义，请参阅[自定义角色概述](custom-overview.md)。 以下信息特定于应用程序注册。
 
@@ -46,7 +46,7 @@ ms.locfileid: "92375124"
 
 如果同时分配上述两个权限，/create 权限优先。 尽管 /createAsOwner 权限不会自动将创建者添加为第一个所有者，但使用图形 API 或 PowerShell cmdlet 时，可以在创建应用注册期间指定所有者。
 
-create 权限授予对“新建注册”命令的访问权限。****
+create 权限授予对“新建注册”命令的访问权限。 
 
 [这些权限授予对“新建注册”门户命令的访问权限](./media/custom-available-permissions/new-custom-role.png)
 
@@ -95,7 +95,7 @@ create 权限授予对“新建注册”命令的访问权限。****
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
 
-能够更新单租户应用程序和多租户应用程序上的所有属性。
+能够更新单租户和多租户应用程序的所有属性。
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.directory/applications.myOrganization/allProperties/update
 
@@ -103,7 +103,7 @@ create 权限授予对“新建注册”命令的访问权限。****
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-能够更新单租户应用程序和多租户应用程序 (signInAudience) 属性的支持帐户类型。
+能够更新单租户和多租户应用程序支持的帐户类型 (signInAudience) 属性。
 
 ![此权限授予对身份验证页上应用注册支持的帐户类型属性的访问权限](./media/custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ create 权限授予对“新建注册”命令的访问权限。****
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft.directory/applications.myOrganization/credentials/update
 
-授予与 microsoft 目录/应用程序/凭据/更新相同的权限，但仅适用于单租户应用程序。
+授予的权限与 microsoft.directory/applications/credentials/update 相同，但仅适用于单租户应用程序。
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 
@@ -163,11 +163,11 @@ create 权限授予对“新建注册”命令的访问权限。****
 
 授予的权限与 microsoft.directory/applications/permissions/update 相同，但仅适用于单租户应用程序。
 
-## <a name="required-license-plan"></a>所需许可证计划
+## <a name="required-license-plan"></a>所需的许可计划
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
-- 使用[Azure 门户、Azure AD PowerShell 和图形 API](custom-create.md)创建自定义角色
+- 使用 [Azure 门户、Azure AD PowerShell 和图形 API](custom-create.md) 创建自定义角色
 - [查看自定义角色的分配](custom-view-assignments.md)

@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06d5196e612bcf20e11f17634b32db028cd5bc88
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904256"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378085"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>为服务设置 Spring Cloud 配置服务器实例
 
@@ -40,7 +40,7 @@ spring.jmx.enabled
 ```
 
 > [!CAUTION]
-> 我们强烈建议_不要_将上述属性放入配置服务器应用程序文件中。
+> 我们强烈建议 _不要_ 将上述属性放入配置服务器应用程序文件中。
 
 ## <a name="create-your-config-server-files"></a>创建配置服务器文件
 
@@ -81,6 +81,9 @@ Azure Spring Cloud 支持使用 Azure DevOps、GitHub、GitLab 和 Bitbucket 来
 | `host-key`                 | 否     | Git 存储库服务器的主机密钥，不应包含 `host-key-algorithm` 涵盖的算法前缀。 |
 | `host-key-algorithm`       | 否     | 主机密钥算法应为 ssh-dss、ssh-rsa、ecdsa-sha2-nistp256、ecdsa-sha2-nistp384 或 ecdsa-sha2-nistp521    。 仅当存在 `host-key` 时，才是必需的。 |
 | `strict-host-key-checking` | 否     | 指示在利用专用 `host-key` 时配置服务器实例是否无法启动。 应为 true（默认值）或 false 。 |
+
+> [!NOTE]
+> `master`如果未指定，配置服务器将 (Om Git 自身) 为默认标签。 但 GitHub 已将默认分支从更改 `master` 为 `main` 最近。 若要避免 Azure 春季 Cloud Config Server 失败，请注意设置配置服务器与 GitHub 时的默认标签，特别是对于新创建的存储库。
 
 -----
 
@@ -142,18 +145,18 @@ Azure Spring Cloud 支持使用 Azure DevOps、GitHub、GitLab 和 Bitbucket 来
 
 #### <a name="default-repository"></a>默认存储库
 
-* **公共存储库**：在“默认存储库”部分的“Uri”框中粘贴存储库 URI 。  将“标签”设置为“配置” 。确保“身份验证”设置为“公共”，然后选择“应用”以完成操作  。 
+* **公共存储库** ：在“默认存储库”部分的“Uri”框中粘贴存储库 URI 。  将“标签”设置为“配置” 。确保“身份验证”设置为“公共”，然后选择“应用”以完成操作  。 
 
-* **专用存储库**：Azure Spring Cloud 支持基本的基于密码/令牌的身份验证和 SSH。
+* **专用存储库** ：Azure Spring Cloud 支持基本的基于密码/令牌的身份验证和 SSH。
 
-    * **基本身份验证**：在“默认存储库”部分的“Uri”框中，粘贴存储库 URI，然后选择“身份验证”（“铅笔”图标）按钮  。 在“编辑身份验证”窗格的“身份验证类型”下拉列表中选择“HTTP 基本”，然后输入你的用户名和密码/令牌以授权访问 Azure Spring Cloud  。 选择“确定”，然后选择“应用”完成配置服务器实例的设置 。
+    * **基本身份验证** ：在“默认存储库”部分的“Uri”框中，粘贴存储库 URI，然后选择“身份验证”（“铅笔”图标）按钮  。 在“编辑身份验证”窗格的“身份验证类型”下拉列表中选择“HTTP 基本”，然后输入你的用户名和密码/令牌以授权访问 Azure Spring Cloud  。 选择“确定”，然后选择“应用”完成配置服务器实例的设置 。
 
     ![编辑身份验证窗格基本身份验证](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
     > [!CAUTION]
     > 一些 Git 存储库服务器（例如 GitHub）将个人令牌或访问令牌（例如密码）用于基本身份验证 。 你可以在 Azure Spring Cloud 中使用这种类型的令牌作为密码，因为它将永不过期。 但对于其他 Git 存储库服务器（例如 BitBucket 和 Azure DevOps），访问令牌将在一到两小时后过期。 这意味着，在将这些存储库服务器与 Azure Spring Cloud 一起使用时，此选项是不可行的。
 
-    * **SSH**：在“默认存储库”部分的“Uri”框中，粘贴存储库 URI，然后选择“身份验证”（“铅笔”图标）按钮  。 在“编辑身份验证”窗格中的“身份验证类型”下拉列表中，选择“SSH”，然后输入“私钥”   。 （可选）指定“主机密钥”和“主机密钥算法” 。 请确保在配置服务器存储库中包含公钥。 选择“确定”，然后选择“应用”完成配置服务器实例的设置 。
+    * **SSH** ：在“默认存储库”部分的“Uri”框中，粘贴存储库 URI，然后选择“身份验证”（“铅笔”图标）按钮  。 在“编辑身份验证”窗格中的“身份验证类型”下拉列表中，选择“SSH”，然后输入“私钥”   。 （可选）指定“主机密钥”和“主机密钥算法” 。 请确保在配置服务器存储库中包含公钥。 选择“确定”，然后选择“应用”完成配置服务器实例的设置 。
 
     ![编辑身份验证窗格 ssh 身份验证](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
@@ -218,11 +221,11 @@ Azure 春季云可以访问使用 SSH 保护的、使用 HTTP 基本身份验证
 
 1. 选择要配置的服务。
 
-1. 在服务页的左窗格中的 " **设置**" 下，选择 " **配置服务器** " 选项卡。配置之前创建的存储库：
+1. 在服务页的左窗格中的 " **设置** " 下，选择 " **配置服务器** " 选项卡。配置之前创建的存储库：
    - 添加从上一部分保存的存储库 URL
    - 单击 `Authentication` 并选择 `HTTP Basic`
-   - __用户名__是上一部分中保存的用户名
-   - __密码__是上一部分中保存的密码
+   - __用户名__ 是上一部分中保存的用户名
+   - __密码__ 是上一部分中保存的密码
    - 单击 "应用" 并等待操作成功
 
    ![Spring Cloud Config Server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)

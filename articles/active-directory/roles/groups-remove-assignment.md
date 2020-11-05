@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f441930d9d99f35c2e53bb040b0db0a427659
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375053"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378374"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>从 Azure Active Directory 的组中删除角色分配
 
@@ -28,7 +28,7 @@ ms.locfileid: "92375053"
 
 1. 使用 Azure AD 组织中的特权角色管理员或全局管理员权限登录到 [Azure AD 管理中心](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 
-1. 选择 **角色和管理员** > **_角色名称_*_。
+1. 选择 **角色和管理员** > * *_角色名称_* _。
 
 1. 选择要从中删除角色分配的组，然后选择 "删除分配"。
 

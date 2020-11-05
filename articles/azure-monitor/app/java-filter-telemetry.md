@@ -4,14 +4,17 @@ description: 筛选出无需监视的事件，减少遥测流量。
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f07a530a584a14d5312631ec977773e70af29
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760999"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378187"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>在 Java Web 应用中筛选遥测
+
+> [!IMPORTANT]
+> 监视 Java 应用程序的建议方法是使用自动检测，无需更改代码。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)的指南进行操作。
 
 可通过筛选器选择 [Java Web 应用发送到 Application Insights](java-get-started.md) 的遥测。 可使用现成的筛选器，也可编写自己的自定义筛选器。
 
@@ -186,7 +189,7 @@ ms.locfileid: "91760999"
 
 ## <a name="custom-filters"></a>自定义筛选器
 
-### <a name="1-code-your-filter"></a>1.编写筛选器代码
+### <a name="1-code-your-filter"></a>1. 编码筛选器
 
 在代码中创建实现 `TelemetryProcessor` 的类：
 
@@ -225,7 +228,7 @@ ms.locfileid: "91760999"
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2.在配置文件中调用筛选器
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. 在配置文件中调用筛选器
 
 在 ApplicationInsights.xml 中：
 
@@ -244,7 +247,7 @@ ms.locfileid: "91760999"
 
 ```
 
-### <a name="3-invoke-your-filter-java-spring"></a>3.调用筛选器 (Java Spring)
+### <a name="3-invoke-your-filter-java-spring"></a>3. (Java 弹簧调用筛选器) 
 
 对于基于 Spring 框架的应用程序，自定义遥测处理器必须在主应用程序类中注册为 bean。 然后，它们将在应用程序启动时自动连接。
 
@@ -260,7 +263,7 @@ public TelemetryProcessor successFilter() {
 
 ## <a name="troubleshooting"></a>故障排除
 
-我的筛选器不能正常工作  。
+我的筛选器不能正常工作。
 
 * 请检查提供的参数值是否有效。 例如，持续时间应为整数。 无效值将导致筛选器被忽略。 如果自定义筛选器从构造函数或 set 方法中引发异常，它会被忽略。
 

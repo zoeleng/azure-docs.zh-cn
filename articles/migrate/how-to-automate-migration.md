@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: 5541d5c3b9beea86f5c76747dd13ffeff1b12d97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133503"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377949"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>VMware Vm 的规模迁移 
 
 本文将帮助你了解如何使用脚本通过无代理方法将大量 VMware 虚拟机迁移 (Vm) 。 若要缩放迁移，请使用 [Azure Migrate PowerShell 模块](https://aka.ms/azuremigratepowershellvmware)。 
 
-可从 GitHub 上的 [Azure PowerShell Samples] 存储库下载 Azure Migrate VMware 迁移自动化脚本 https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) 。 可以使用脚本将 VMware Vm 迁移到 Azure，方法是使用无代理迁移方法。 [此处](https://aka.ms/azuremigratepowershellvmware)介绍了这些脚本中使用的 Azure Migrate PowerShell 命令。
+可在 GitHub 上的 [Azure PowerShell 示例](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) 存储库中下载 Azure Migrate VMware 迁移自动化脚本。 可以使用脚本将 VMware Vm 迁移到 Azure，方法是使用无代理迁移方法。 [此处](https://aka.ms/azuremigratepowershellvmware)介绍了这些脚本中使用的 Azure Migrate PowerShell 命令。
 
 ## <a name="current-limitations"></a>当前限制
 - 这些脚本支持将 VMware Vm 迁移到所有磁盘。 如果要有选择地复制附加到 VMware VM 的磁盘，可以更新脚本。 

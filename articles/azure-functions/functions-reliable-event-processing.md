@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287225"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379581"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions 可靠事件处理
 
@@ -50,7 +50,7 @@ Azure Functions 在循环执行以下步骤的同时使用事件中心事件：
 
 此行为揭示了几个要点：
 
-- 未经处理的异常可能导致丢失消息。 导致异常的执行会继续递进指针。  设置 [重试策略](./functions-bindings-error-pages.md#retry-policies) 将延迟指针的进度，直到评估整个重试策略。
+- 未经处理的异常可能导致丢失消息。 导致异常的执行会继续递进指针。  设置 [重试策略](./functions-bindings-error-pages.md#retry-policies-preview) 将延迟指针的进度，直到评估整个重试策略。
 - 函数保证至少传送一次。 代码和相关系统可能需要[考虑到同一消息可能会接收两次这一事实](./functions-idempotent.md)。
 
 ## <a name="handling-exceptions"></a>处理异常
@@ -59,7 +59,7 @@ Azure Functions 在循环执行以下步骤的同时使用事件中心事件：
 
 ### <a name="retry-mechanisms-and-policies"></a>重试机制和策略
 
-某些异常在性质上是暂时性的，稍后再次尝试操作时不会重现。 正因如此，第一个步骤始终是重试操作。  可以在函数执行中利用 function app [重试策略](./functions-bindings-error-pages.md#retry-policies) 或创作重试逻辑。
+某些异常在性质上是暂时性的，稍后再次尝试操作时不会重现。 正因如此，第一个步骤始终是重试操作。  可以在函数执行中利用 function app [重试策略](./functions-bindings-error-pages.md#retry-policies-preview) 或创作重试逻辑。
 
 通过向函数引入错误处理行为，可定义基本和高级重试策略。 例如，可以实现一个遵循以下规则所演示的工作流的策略：
 

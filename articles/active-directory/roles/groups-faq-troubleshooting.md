@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375069"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377728"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>分配给云组的角色疑难解答
 
@@ -32,9 +32,9 @@ ms.locfileid: "92375069"
 
 **答:** 默认情况下，只有特权角色管理员和全局管理员管理可分配角色组的成员资格，但你可以通过添加组所有者来委派对可分配角色的组的管理。
 
-**问**：我是组织中的帮助台管理员，但无法更新目录读取器用户的密码。 为何发生这种情况？
+**问** ：我是组织中的帮助台管理员，但无法更新目录读取器用户的密码。 为何发生这种情况？
 
-**答**：用户可能通过可分配角色的组获取目录读取器。 可分配角色的组的所有成员和所有者都受到保护。 只有具有特权身份验证管理员或全局管理员角色的用户才能重置受保护用户的凭据。
+**答** ：用户可能通过可分配角色的组获取目录读取器。 可分配角色的组的所有成员和所有者都受到保护。 只有具有特权身份验证管理员或全局管理员角色的用户才能重置受保护用户的凭据。
 
 **问：** 无法更新用户的密码。 它们未分配任何更高权限的特权角色。 为何会发生这种情况？
 

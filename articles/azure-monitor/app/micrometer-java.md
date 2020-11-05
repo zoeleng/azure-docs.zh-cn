@@ -6,17 +6,20 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: 16f4cfd70cf4dbeaeb1376368787b3fa0e4b9a52
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 434d978f6a228bad9b142738767500d639017032
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994030"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378867"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何将 Micrometer 与 Azure Application Insights Java SDK 配合使用
 
+> [!IMPORTANT]
+> 监视 Java 应用程序的建议方法是使用自动检测，无需更改代码。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)的指南进行操作。
+
 > [!NOTE]
-> Application Insights Java SDK 不支持弹簧 Webflux。 
+> Application Insights Java SDK 不支持弹簧 Webflux-请改用 [Application Insights Java 3.0 代理](./java-in-process-agent.md) 。 
 >
 > 不需要检测 [Application Insights Java 3.0 代理](./java-on-premises.md) 支持 Webflux 和 Micrometer。 
 

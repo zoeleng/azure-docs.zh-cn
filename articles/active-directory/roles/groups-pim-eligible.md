@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375056"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379156"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>使用 Privileged Identity Management 将角色分配给组
 
@@ -35,7 +35,7 @@ ms.locfileid: "92375056"
 
 1. 选择一个角色，然后选择一个组。 仅显示符合角色分配条件的组（可分配角色的组），而不是所有组。
 
-    ![显示 "添加分配" 页的屏幕截图，其中突出显示了 "选择角色" 和 "选择成员 (s) " 部分。](./media/groups-pim-eligible/select-member.png)
+    ![屏幕截图，其中显示了“添加分配”页，页面上突出显示了“选择角色”和“选择成员”部分。](./media/groups-pim-eligible/select-member.png)
 
 1. 选择所需的成员资格设置。 对于需要激活的角色，请选择“符合条件的”。 默认情况下，用户将是永久符合条件的，但你也可以为用户的资格设置开始和结束时间。 完成后，单击“保存”并“添加”以完成角色分配。
 

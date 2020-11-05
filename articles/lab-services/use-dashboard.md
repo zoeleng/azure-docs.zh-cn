@@ -3,17 +3,17 @@ title: 将仪表板用于 Azure 实验室服务中的教室实验室 |Microsoft 
 description: 了解如何在 Azure 实验室服务中使用课堂实验室的仪表板。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3834e6910faea38e87489d1ad0075d4bd9b8c6c6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528255"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376946"
 ---
 # <a name="dashboard-for-classroom-labs"></a>用于课堂实验室的仪表板
 本文介绍了 Azure 实验室服务中的 "教室实验室" 的仪表板视图。 
 
-![屏幕 capature 在 Azure 实验室服务中显示教室实验室的仪表板视图。](./media/use-dashboard/dashboard.png)
+![屏幕捕获显示了 Azure 实验室服务中的教室实验室的仪表板视图](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>成本和计费磁贴
 此磁贴提供以下成本估算详细信息：

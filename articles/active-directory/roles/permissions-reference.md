@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375261"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378816"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -311,7 +311,7 @@ In | 有权执行的操作
 
 请勿使用。 此角色是从“商务”自动分配的，不可用于其他任何用途。 请查看下面的详细信息。
 
-新式商务用户角色向特定用户授予访问 Microsoft 365 管理中心的权限，并查看 **Home**、 **计费**和 **支持**的左侧导航条目。 这些区域中提供的内容由分配给用户的[商务特定角色](../../cost-management-billing/manage/understand-mca-roles.md)控制，这些角色可让用户管理他们为自己或者为组织购买的产品。 这可能包括各种任务，例如支付账单，或访问计费帐户和计费配置文件。 
+新式商务用户角色向特定用户授予访问 Microsoft 365 管理中心的权限，并查看 **Home** 、 **计费** 和 **支持** 的左侧导航条目。 这些区域中提供的内容由分配给用户的[商务特定角色](../../cost-management-billing/manage/understand-mca-roles.md)控制，这些角色可让用户管理他们为自己或者为组织购买的产品。 这可能包括各种任务，例如支付账单，或访问计费帐户和计费配置文件。 
 
 具有新式商务用户角色的用户在其他 Microsoft 购买系统中通常具有管理权限，但没有用于访问管理中心的全局管理员或计费管理员角色。 
 
@@ -437,7 +437,7 @@ In | 有权执行的操作
 --- | ---
 [Microsoft 365 安全中心](https://protection.office.com) | 跨 Microsoft 365 服务查看与安全相关的策略<br>查看安全威胁和警报<br>查看报表
 标识保护中心 | 读取安全功能的所有安全报告和设置信息<br><ul><li>反垃圾邮件<li>加密<li>数据丢失防护<li>反恶意软件<li>高级威胁防护<li>防网络钓鱼<li>邮件流规则
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | 以只读方式访问 Azure AD Privileged Identity Management 中显示的所有信息：Azure AD 角色分配的策略和报告以及安全评审。<br>**无法**注册 Azure AD Privileged Identity Management 或对其进行任何更改。 充当此角色的人员可以在 Privileged Identity Management 门户中或通过 PowerShell 为符合条件的用户激活其他角色（例如，全局管理员或特权角色管理员）。
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | 以只读方式访问 Azure AD Privileged Identity Management 中显示的所有信息：Azure AD 角色分配的策略和报告以及安全评审。<br>**无法** 注册 Azure AD Privileged Identity Management 或对其进行任何更改。 充当此角色的人员可以在 Privileged Identity Management 门户中或通过 PowerShell 为符合条件的用户激活其他角色（例如，全局管理员或特权角色管理员）。
 [Office 365 安全与合规中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 查看安全策略<br>查看并调查安全威胁<br>查看报表
 Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP 中启用基于角色的访问控制后，拥有只读权限的用户（例如 Azure AD 安全读取者角色）在被分配到 Windows Defender ATP 角色之前会失去访问权限。
 [Intune](/intune/role-based-access-control) | 视图用户、设备、注册、配置和应用程序信息。 无法对 Intune 进行更改。
@@ -1914,9 +1914,9 @@ CRM 服务管理员 | Dynamics 365 管理员 | 44367163-eba1-44c3-98af-f5787879f
 客户密码箱访问审批者 | 客户密码箱访问审批者 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 桌面分析管理员 | 桌面分析管理员 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 设备管理员 | 设备管理员 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-设备联接 | 已放弃 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-设备管理器 | 已放弃 | 2b499bcd-da44-4968-8aec-78e1674fa64d
-设备用户 | 已放弃 | d405c6df-0af8-4e3b-95e4-4d06e542189e
+设备联接 | 不推荐使用 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+设备管理器 | 不推荐使用 | 2b499bcd-da44-4968-8aec-78e1674fa64d
+设备用户 | 不推荐使用 | d405c6df-0af8-4e3b-95e4-4d06e542189e
 目录读者 | 目录读者 | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 目录同步帐户 | 不显示，因为不应使用它 | d29b2b05-8046-44ba-8758-1e26182fcf32
 目录编写人员 | 目录编写人员 | 9360feb5-f418-4baa-8175-e2a00bac4301
@@ -1964,7 +1964,7 @@ Teams 设备管理员 | Teams 设备管理员 | 3d762c5a-1b6c-493f-843e-55a3b429
 Teams 服务管理员 | Teams 服务管理员 | 69091246-20e8-4a56-aa4d-066075b2a7a8
 用户 | 未显示，因为无法使用它 | a0b1b346-4d3e-4e8b-98f8-753987be4970
 用户帐户管理员 | 用户管理员 | fe930be7-5e62-47db-91af-98c3a49a38b1
-工作区设备联接 | 已放弃 | c34f683f-4d5a-4403-affd-6615e00e3a7f
+工作区设备联接 | 不推荐使用 | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>已弃用的角色
 
@@ -1982,22 +1982,22 @@ Teams 服务管理员 | Teams 服务管理员 | 69091246-20e8-4a56-aa4d-066075b2
 
 Azure 门户中不一定会显示 PowerShell 或 MS Graph API 返回的每个角色。 下表整理了这些差异。
 
-API 名称 | Azure 门户中的名称 | 注释
+API 名称 | Azure 门户中的名称 | 说明
 -------- | ------------------- | -------------
 公司管理员 | 全局管理员角色 | [为便于阅读，名称已更改](permissions-reference.md#role-template-ids)
 CRM 服务管理员 | Dynamics 365 管理员 | [反映当前产品品牌](permissions-reference.md#role-template-ids)
-设备联接 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
-设备管理器 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
-设备用户 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+设备联接 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+设备管理器 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+设备用户 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
 目录同步帐户 | 未显示，因为不应使用它 | [目录同步帐户文档](permissions-reference.md#directory-synchronization-accounts)
 目录编写人员 | 未显示，因为不应使用它 | [目录写入者文档](permissions-reference.md#directory-writers)
-来宾用户 | 未显示，因为无法使用它  | 不可用
+来宾用户 | 未显示，因为无法使用它  | NA
 Lync 服务管理员 | Skype for Business 管理员 | [反映当前产品品牌](permissions-reference.md#role-template-ids)
 合作伙伴层 1 支持 | 未显示，因为不应使用它 | [合作伙伴一线支持人员文档](permissions-reference.md#partner-tier1-support)
 合作伙伴层 2 支持 | 未显示，因为不应使用它 | [合作伙伴二线支持人员文档](permissions-reference.md#partner-tier2-support)
-受限来宾用户 | 未显示，因为无法使用它 | 不可用
-用户 | 未显示，因为无法使用它 | 不可用
-工作区设备联接 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+受限来宾用户 | 未显示，因为无法使用它 | NA
+用户 | 未显示，因为无法使用它 | NA
+工作区设备联接 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
 
 ## <a name="next-steps"></a>后续步骤
 

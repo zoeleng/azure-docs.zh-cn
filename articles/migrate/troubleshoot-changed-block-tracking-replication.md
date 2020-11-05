@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314731"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377190"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>排查无代理 VMware VM 迁移中的复制问题
 
@@ -29,11 +29,16 @@ ms.locfileid: "92314731"
 使用以下步骤监视虚拟机的复制状态：
 
   1. 中转到 Azure 门户 Azure Migrate 上的 "服务器" 页。
-  2. 单击 "服务器迁移" 磁贴中的 "复制服务器"，导航到 "复制计算机" 页。
-  3. 你将看到复制服务器的列表以及其他信息，如状态、运行状况、上次同步时间等。"运行状况" 列指示 VM 的当前复制运行状况。 运行状况列中的 "严重" 或 "警告" 值通常指示 VM 的上一个复制周期失败。 若要获取更多详细信息，请右键单击 VM，并选择 "错误详细信息"。 "错误详细信息" 页包含有关错误的信息以及有关如何进行故障排除的其他详细信息。 你还将看到 "最近的事件" 链接，可用于导航到 VM 的 "事件" 页。
-  4. 单击 "最近的事件"，以查看 VM 的以前的复制周期失败。 在 "事件" 页中，查找 VM 的 "复制周期失败" 或 "磁盘的复制周期失败" 类型的最近事件。
-  5. 单击事件以了解错误的可能原因和建议的修正步骤。 使用提供的信息来排除错误并对其进行修正。
-    
+  ![图像1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. 单击 "服务器迁移" 磁贴中的 "复制服务器"，导航到 "复制计算机" 页。
+  ![图像2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. 你将看到复制服务器的列表以及其他信息，如状态、运行状况、上次同步时间等。"运行状况" 列指示 VM 的当前复制运行状况。 运行状况列中的 "严重" 或 "警告" 值通常指示 VM 的上一个复制周期失败。 若要获取更多详细信息，请右键单击 VM，并选择 "错误详细信息"。 "错误详细信息" 页包含有关错误的信息以及有关如何进行故障排除的其他详细信息。 你还将看到 "最近的事件" 链接，可用于导航到 VM 的 "事件" 页。
+  ![图像3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. 单击 "最近的事件"，以查看 VM 的以前的复制周期失败。 在 "事件" 页中，查找 VM 的 "复制周期失败" 或 "磁盘的复制周期失败" 类型的最近事件。
+  ![图像4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. 单击事件以了解错误的可能原因和建议的修正步骤。 使用提供的信息来排除错误并对其进行修正。
+ ![图像5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>常见复制错误
 
 本部分介绍一些常见错误以及如何解决这些错误。
@@ -54,7 +59,7 @@ ms.locfileid: "92314731"
 
 - 另一种情况是，当某个用户 (user1) 尝试在首次设置复制时尝试设置复制，并且已创建了密钥保管库， (并为此用户) 适当分配了用户访问策略。 稍后，其他用户 (用户 2) 尝试设置复制，但是配置托管存储帐户或生成 SAS 定义操作失败，因为没有与密钥保管库中的用户2相对应的用户访问策略。
 
-**解决**方法：若要解决此问题，请在 keyvault 授予用户2权限中为用户2创建一个用户访问策略，以便配置托管存储帐户和生成 SAS 定义。 可以使用以下 cmdlet 通过 Azure PowerShell 来执行此操作：
+**解决** 方法：若要解决此问题，请在 keyvault 授予用户2权限中为用户2创建一个用户访问策略，以便配置托管存储帐户和生成 SAS 定义。 可以使用以下 cmdlet 通过 Azure PowerShell 来执行此操作：
 
 $userPrincipalId = $ (Get-azurermaduser-UserPrincipalName "user2_email_address" ) 。识别
 
@@ -134,7 +139,7 @@ Set-AzureRmKeyVaultAccessPolicy-VaultName "keyvaultname"-ObjectId $userPrincipal
     
     此命令将尝试 TCP 连接，并将返回一个输出。
     
-     - 在输出中，选中 "_TcpTestSucceeded_" 字段。 如果该值为 "_True_"，则 Azure Migrate 设备与 Azure Key Vault 之间不存在连接问题。 如果该值为 "False"，则存在连接问题。
+     - 在输出中，选中 " _TcpTestSucceeded_ " 字段。 如果该值为 " _True_ "，则 Azure Migrate 设备与 Azure Key Vault 之间不存在连接问题。 如果该值为 "False"，则存在连接问题。
     
     **解决方法：** 如果此测试失败，则 Azure Migrate 设备与 Azure Key Vault 之间存在连接问题。 联系你的本地网络团队以检查连接问题。 通常，某些防火墙设置会导致失败。
     
@@ -220,7 +225,7 @@ Set-AzureRmKeyVaultAccessPolicy-VaultName "keyvaultname"-ObjectId $userPrincipal
     
     此命令将尝试 TCP 连接，并将返回一个输出。
     
-    1. 在输出中，选中 "_TcpTestSucceeded_" 字段。 如果该值为 "_True_"，则 Azure Migrate 设备与 Azure Key Vault 之间不存在连接问题。 如果该值为 "False"，则存在连接问题。
+    1. 在输出中，选中 " _TcpTestSucceeded_ " 字段。 如果该值为 " _True_ "，则 Azure Migrate 设备与 Azure Key Vault 之间不存在连接问题。 如果该值为 "False"，则存在连接问题。
     
     **解决方法：** 如果此测试失败，则 Azure Migrate 设备与 Azure Key Vault 之间存在连接问题。 联系你的本地网络团队以检查连接问题。 通常，某些防火墙设置会导致失败。
     
@@ -271,7 +276,7 @@ _错误消息：出现内部错误。[错误消息]_
 
 当快照生成停止响应时，会出现此问题。 发生此问题时，可以看到创建快照任务在95% 或99% 停止。 请参阅此 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138969) ，以解决此问题。
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>错误消息：出现内部错误。 [未能合并 VM 上的磁盘 _[原因]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>错误消息：出现内部错误。 [未能合并 VM 上的磁盘 _[原因]_ ]
 
 在复制周期结束时合并磁盘时，操作将失败。 按照 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138970) 中的说明进行操作 _，以解决_ 问题。
 

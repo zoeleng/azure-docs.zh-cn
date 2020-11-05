@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374506"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378544"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>分配自定义角色以在 Azure Active Directory 中管理企业应用
 
@@ -50,15 +50,15 @@ ms.locfileid: "92374506"
 
     ![从 "角色" 列表中添加新的自定义角色 Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
-1. 在 " **基本** 信息" 选项卡上，为角色名称提供 "管理用户和组分配"，并为角色说明提供 "管理用户和组分配的权限"，然后选择 " **下一步**"。
+1. 在 " **基本** 信息" 选项卡上，为角色名称提供 "管理用户和组分配"，并为角色说明提供 "管理用户和组分配的权限"，然后选择 " **下一步** "。
 
     ![提供自定义角色的名称和描述](./media/custom-enterprise-apps/role-name-and-description.png)
 
-1. 在 " **权限** " 选项卡上，在 "搜索" 框中输入 "服务主体/appRoleAssignedTo/update"，然后选择所需权限旁边的复选框，然后选择 " **下一步**"。
+1. 在 " **权限** " 选项卡上，在 "搜索" 框中输入 "服务主体/appRoleAssignedTo/update"，然后选择所需权限旁边的复选框，然后选择 " **下一步** "。
 
     ![将权限添加到自定义角色](./media/custom-enterprise-apps/role-custom-permissions.png)
 
-1. 在“查看 + 创建”选项卡上查看权限，然后选择“创建” 。
+1. 在“查看 + 创建”选项卡上查看权限，然后选择“创建”。 
 
     ![现在，你可以创建自定义角色](./media/custom-enterprise-apps/role-custom-create.png)
 
@@ -70,13 +70,13 @@ ms.locfileid: "92374506"
 
     ![打开角色和管理员并搜索自定义角色](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. 选择 " **添加分配**"，选择所需的用户，然后单击 " **选择** " 将角色分配添加到用户。
+1. 选择 " **添加分配** "，选择所需的用户，然后单击 " **选择** " 将角色分配添加到用户。
 
     ![向用户添加自定义角色的分配](./media/custom-enterprise-apps/assign-user-to-role.png)
 
 #### <a name="assignment-tips"></a>赋值提示
 
-* 若要向工作负责人授予管理整个企业应用程序的用户和组访问权限的权限，请从组织的 Azure AD**概述**页上的组织范围的**角色和管理员**列表开始。
+* 若要向工作负责人授予管理整个企业应用程序的用户和组访问权限的权限，请从组织的 Azure AD **概述** 页上的组织范围的 **角色和管理员** 列表开始。
 * 若要向工作负责人授予管理特定企业应用程序的用户和组访问权限，请在 Azure AD 中找到该应用，并在该应用的 **角色和管理员** 列表中打开该应用。 选择新的自定义角色并完成用户或组分配。 工作负责人只能管理特定应用的用户和组访问权限。
 * 若要测试自定义角色分配，请以工作负责人身份登录，并打开应用程序的 " **用户和组** " 页，验证是否已启用 " **添加用户** " 选项。
 

@@ -4,12 +4,12 @@ description: Azure 应用服务的应用程序性能监视。 对加载和响应
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875597"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377796"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
@@ -25,7 +25,7 @@ ms.locfileid: "91875597"
 * **基于代理的应用程序监视** (ApplicationInsightsAgent)。  
     * 这是启用监视的最简单方法，无需完成任何高级配置。 这种监视通常称为“运行时”监视。 对于 Azure 应用服务，我们建议至少启用此级别的监视，然后可根据具体的方案，评估是否需要通过手动检测来启用更高级的监视。
 
-* 安装 Application Insights SDK 以**通过代码手动检测应用程序**。
+* 安装 Application Insights SDK 以 **通过代码手动检测应用程序** 。
 
     * 此方法的可自定义性要高得多，但需要[添加 Application Insights SDK NuGet 包中的一个依赖项](./asp-net.md)。 使用此方法还需要自行管理对最新版本的包的更新。
 
@@ -49,7 +49,7 @@ ms.locfileid: "91875597"
    * 除非已为此应用设置了 Application Insights 资源，否则请选择创建新资源。 
 
      > [!NOTE]
-     > 当单击“确定”来创建新资源时，将提示你**应用监视设置**。 选择“继续”会将新的 Application Insights 资源链接到你的应用服务，这样做还会**触发应用服务的重新启动**。 
+     > 当单击“确定”来创建新资源时，将提示你 **应用监视设置** 。 选择“继续”会将新的 Application Insights 资源链接到你的应用服务，这样做还会 **触发应用服务的重新启动** 。 
 
      ![检测 Web 应用](./media/azure-web-apps/create-resource-01.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "91875597"
 
 支持以下版本的 .NET Core： ASP.NET Core 2.1、ASP.NET Core 2.2、ASP.NET Core 3.0 ASP.NET Core 3。1
 
-基于代理/扩展的监视目前**不支持**将 .NET Core 提供的完整框架、独立部署和基于 Linux 的应用程序作为目标。 （在上述所有方案中，都可通过代码进行[手动检测](./asp-net-core.md)。）
+基于代理/扩展的监视目前 **不支持** 将 .NET Core 提供的完整框架、独立部署和基于 Linux 的应用程序作为目标。 （在上述所有方案中，都可通过代码进行[手动检测](./asp-net-core.md)。）
 
 1. 在应用服务的 Azure 控制面板中，选择“Application Insights”。
 
@@ -86,7 +86,7 @@ ms.locfileid: "91875597"
    * 除非已为此应用设置了 Application Insights 资源，否则请选择创建新资源。 
 
      > [!NOTE]
-     > 当单击“确定”来创建新资源时，将提示你**应用监视设置**。 选择“继续”会将新的 Application Insights 资源链接到你的应用服务，这样做还会**触发应用服务的重新启动**。 
+     > 当单击“确定”来创建新资源时，将提示你 **应用监视设置** 。 选择“继续”会将新的 Application Insights 资源链接到你的应用服务，这样做还会 **触发应用服务的重新启动** 。 
 
      ![检测 Web 应用](./media/azure-web-apps/create-resource-01.png)
 
@@ -100,7 +100,8 @@ ms.locfileid: "91875597"
 
 # <a name="java"></a>[Java](#tab/java)
 
-基于 Java 应用服务的 Web 应用程序当前不支持基于自动代理/扩展的监视。 若要针对 Java 应用程序启用监视，需[手动检测应用程序](./java-get-started.md)。
+按照 [Application Insights java 3.0 代理](./java-in-process-agent.md) 的准则为 java 应用启用自动检测，无需更改代码。
+应用服务尚不支持自动集成。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -115,30 +116,30 @@ ms.locfileid: "91875597"
 可以选择为 ASP.NET 启用客户端监视。 若要启用客户端监视：
 
 * **设置** **>****配置**
-   * 在 "应用程序设置" 下，创建一个 **新的应用程序设置**：
+   * 在 "应用程序设置" 下，创建一个 **新的应用程序设置** ：
 
      名称：`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      值：`true`
 
-   * **保存**设置并**重新启动**应用。
+   * **保存** 设置并 **重新启动** 应用。
 
 若要禁用客户端监视，请从“应用程序设置”中删除关联的键值对，或将值设置为 false。
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-对于使用“建议的集合”的 .NET Core 应用，**默认已启用**客户端监视，无论是否存在应用设置“APPINSIGHTS_JAVASCRIPT_ENABLED”。
+对于使用“建议的集合”的 .NET Core 应用， **默认已启用** 客户端监视，无论是否存在应用设置“APPINSIGHTS_JAVASCRIPT_ENABLED”。
 
 如果出于某种原因想要禁用客户端监视：
 
 * **设置** **>****配置**
-   * 在 "应用程序设置" 下，创建一个 **新的应用程序设置**：
+   * 在 "应用程序设置" 下，创建一个 **新的应用程序设置** ：
 
      名称：`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      值：`false`
 
-   * **保存**设置并**重新启动**应用。
+   * **保存** 设置并 **重新启动** 应用。
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
@@ -350,7 +351,8 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 下面是我们针对 Azure 应用服务中运行的基于 .NET 和 .NET Core 的应用程序的基于扩展/代理的监视提供的分步故障排除指南。
 
 > [!NOTE]
-> 仅支持通过基于手动 SDK 的检测在 Azure 应用服务中使用 Java 应用程序，因此，以下步骤不适用于这些方案。
+> 监视 Java 应用程序的建议方法是使用自动检测，无需更改代码。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)的指南进行操作。
+
 
 1. 通过 `ApplicationInsightsAgent` 检查应用程序是否受监视。
     * 检查 `ApplicationInsightsAgent_EXTENSION_VERSION` 应用设置是否设置为值“~2”。
@@ -401,7 +403,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ### <a name="php-and-wordpress-are-not-supported"></a>不支持 PHP 和 WordPress
 
-不支持 PHP 和 WordPress 站点。 目前没有官方支持的 SDK/代理可用于在服务器端监视这些工作负荷。 但是，可以通过将客户端 javascript 添加到网页，使用 [JavaScript SDK](./javascript.md) 在 PHP 或 WordPress 站点上手动检测客户端事务。
+不支持 PHP 和 WordPress 站点。 目前没有官方支持的 SDK/代理可用于在服务器端监视这些工作负荷。 但是，通过将客户端 JavaScript 添加到网页，可以使用 [JAVASCRIPT SDK](./javascript.md)在 PHP 或 WordPress 站点上手动检测客户端事务。
 
 ### <a name="connection-string-and-instrumentation-key"></a>连接字符串和检测密钥
 

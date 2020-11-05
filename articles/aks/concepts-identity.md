@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007074"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378221"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的访问和标识选项
 
@@ -143,7 +143,7 @@ AKS 提供以下四个内置角色。 它们类似于 [Kubernetes 内置角色](
 | Azure Kubernetes 服务 RBAC 管理员  | 允许要在命名空间内授予的管理员访问权限。 允许对命名空间（或群集范围）中的大多数资源进行读/写访问，包括在命名空间内创建角色和角色绑定。 此角色不允许对资源配额或命名空间本身进行写入访问。 |
 | Azure Kubernetes 服务 RBAC 群集管理员  | 允许超级用户访问权限（对任何资源执行任何操作）。 它提供对群集中每个资源和所有命名空间的完全控制。 |
 
-**请参阅 [此处](manage-azure-rbac.md)的如何利用 Azure RBAC 进行 Kubernetes 授权。**
+**若要了解如何启用适用于 Kubernetes 授权的 Azure RBAC，请 [阅读此处](manage-azure-rbac.md)。**
 
 ## <a name="next-steps"></a>后续步骤
 
