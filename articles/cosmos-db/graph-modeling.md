@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API 的图形数据建模
 description: 了解如何使用 Azure Cosmos DB Gremlin API 为图形数据库建模。 本文介绍何时使用图形数据库和最佳做法为实体和关系建模。
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129637"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357039"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的图形数据建模
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -78,7 +78,7 @@ ms.locfileid: "93129637"
 
 * **属性嵌入式顶点** ：这种方法利用键值对列表来表示顶点内实体的所有属性。 这种方法降低了模型复杂性，使查询更简单、遍历成本更低。
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="具有属性顶点的实体模型。" border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="关系图显示了上图中的 Luis 顶点，其中包含 i d、label 和 properties。" border="false":::
 
 > [!NOTE]
 > 上面的示例显示了一个简化的图形模型，仅对划分实体属性的两种方法进行了比较。
@@ -106,7 +106,7 @@ ms.locfileid: "93129637"
 * 使用非通用术语来标记关系。
 * 使用关系名称将源顶点的标签与目标顶点的标签相关联。
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="具有属性顶点的实体模型。" border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="关系标签示例。" border="false":::
 
 遍历器用于筛选边缘的标签越具体越好。 此决定也会对查询成本产生显著影响。 可以 [使用 executionProfile 步骤](graph-execution-profile.md)随时评估查询成本。
 

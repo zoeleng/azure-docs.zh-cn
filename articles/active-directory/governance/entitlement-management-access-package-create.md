@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318201"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356631"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中创建新访问包
 
@@ -69,17 +69,17 @@ ms.locfileid: "92318201"
 
 ## <a name="basics"></a>基础
 
-在“基本信息”选项卡上指定访问包的名称，并指定要在哪个目录中创建该访问包。****
+在“基本信息”选项卡上指定访问包的名称，并指定要在哪个目录中创建该访问包。
 
 1. 输入访问包的显示名称和说明。 当用户提交访问包请求时，会看到此信息。
 
-1. 在“目录”下拉列表中，选择要在其中创建访问包的目录。**** 例如，你的某个目录所有者需要管理所有可请求的营销资源。 在这种情况下，你可以选择营销目录。
+1. 在“目录”下拉列表中，选择要在其中创建访问包的目录。 例如，你的某个目录所有者需要管理所有可请求的营销资源。 在这种情况下，你可以选择营销目录。
 
     你只会看到你有权在中创建访问包的目录。 若要在现有目录中创建访问包，你必须是全局管理员或用户管理员，或者你必须是该目录中的目录所有者或访问包管理者。
 
     ![访问包 - 基本信息](./media/entitlement-management-access-package-create/basics.png)
 
-    如果你是全局管理员、用户管理员或目录创建者，并且希望在未列出的新目录中创建访问包，请单击“创建新目录”。 输入目录的名称和说明，然后单击“创建”。****
+    如果你是全局管理员、用户管理员或目录创建者，并且希望在未列出的新目录中创建访问包，请单击“创建新目录”。 输入目录的名称和说明，然后单击“创建”。
 
     正在创建的访问包及其包含的所有资源将添加到新目录中。 也可以稍后添加其他目录所有者。
 
@@ -87,7 +87,7 @@ ms.locfileid: "92318201"
 
 ## <a name="resource-roles"></a>资源角色
 
-在“资源角色”选项卡上，选择要包含在访问包中的资源。**** 请求并接收访问包的用户将接收访问包中的所有资源角色。
+在“资源角色”选项卡上，选择要包含在访问包中的资源。 请求并接收访问包的用户将接收访问包中的所有资源角色。
 
 1. 单击要添加的资源类型（“组和团队”、“应用程序”或“SharePoint 站点”）  。
 
@@ -101,7 +101,7 @@ ms.locfileid: "92318201"
 
     如果你是全局管理员、用户管理员或目录所有者，可通过另外一个选项来选择你拥有的但尚未包含在该目录中的资源。 如果选择当前不在所选目录中的资源，则这些资源也会添加到该目录，供其他目录管理员用来生成访问包。 若要查看可添加到目录中的所有资源，请选中“选择”窗格顶部的“全部查看”复选框。 如果只想选择目前位于所选目录中的资源，请让“全部查看”复选框处于取消选中状态（默认状态）。
 
-1. 选择资源后，在“角色”列表中选择要将用户分配到的资源角色。****
+1. 选择资源后，在“角色”列表中选择要将用户分配到的资源角色。
 
     ![访问包 - 资源角色选择](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
@@ -121,13 +121,13 @@ ms.locfileid: "92318201"
 
 ## <a name="review--create"></a>查看 + 创建
 
-在“查看 + 创建”选项卡上，可以查看设置并检查是否存在任何验证错误。****
+在“查看 + 创建”选项卡上，可以查看设置并检查是否存在任何验证错误。
 
 1. 查看访问包的设置
 
-    ![访问包 - 策略 - 启用策略设置](./media/entitlement-management-access-package-create/review-create.png)
+    ![访问包-启用策略设置](./media/entitlement-management-access-package-create/review-create.png)
 
-1. 单击“创建”以创建访问包。****
+1. 单击“创建”以创建访问包。
 
     新访问包将显示在访问包列表中。
 

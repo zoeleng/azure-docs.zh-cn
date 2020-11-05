@@ -1,7 +1,7 @@
 ---
 title: 什么是分布式训练？
 titleSuffix: Azure Machine Learning
-description: 了解分布式训练以及 Azure 机器学习如何支持分布式训练。
+description: 了解哪种类型的分布式培训 Azure 机器学习支持以及可用于分布式培训的开源 framework 集成。
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322233"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358569"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Azure 机器学习的分布式训练
 

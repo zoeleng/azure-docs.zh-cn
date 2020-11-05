@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073819"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358705"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解 Azure Cosmos DB 帐单
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -103,11 +103,11 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 
 * 假设一个月为 720 小时，如果 300 小时的预配吞吐量为 120K RU/秒，其余 420 小时的预配吞吐量为 155K RU/秒，则月度帐单将显示：300 x 9.60 美元/小时 + 420 x 12.40 美元/小时 = 2,880 美元 + 5,208 美元 = 8,088 美元/月。 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="专用吞吐量计费示例":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="共享吞吐量计费示例":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>包含异地复制和多区域写入的计费示例  
+## <a name="billing-examples-with-geo-replication"></a>通过异地复制计费示例  
 
-可随时随地向 Azure Cosmos 数据库帐户添加/删除 Azure 区域。 对于为不同 Azure Cosmos 数据库和容器配置的吞吐量，可在与 Azure Cosmos 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。 如果在 Azure Cosmos 数据库帐户（按小时配置）中的所有数据库和容器中配置的总预配吞吐量（RU /秒）为 T，而与数据库帐户关联的 Azure 区域数为 N，则对于 Azure Cosmos 数据库帐户而言，在给定时间内（小时）总预配吞吐量分别为：(a) 配置了单个写入区域时，总吞吐量 = T x N RU/秒；(b) 配置了所有能够处理写入的区域时，总吞吐量 = T x (N + 1) RU/每秒。 预配的吞吐量 (单个写入区域) 成本 $ 0.008/每 100 RU/秒，并具有多个可写区域的预配吞吐量 (多区域写入配置) 成本 $ 0.016/每小时/每 100 RU/秒 (参见 [定价页](https://azure.microsoft.com/pricing/details/cosmos-db/)) 。 无论是单个写入区域还是多个写入区域，Azure Cosmos DB 都支持从任何区域读取数据。
+可随时随地向 Azure Cosmos 数据库帐户添加/删除 Azure 区域。 对于为不同 Azure Cosmos 数据库和容器配置的吞吐量，可在与 Azure Cosmos 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。 如果在 Azure Cosmos 数据库帐户中的所有数据库和容器之间配置的预配吞吐量 (RU/秒) ， (每小时预配) 为 T，而与数据库帐户关联的 Azure 区域的数量为 N，则给定小时的总预配吞吐量等于 T x N RU/秒。预配的吞吐量 (单个写入区域) 成本 $ 0.008/每 100 RU/秒，并具有多个可写区域的预配吞吐量 (多区域写入配置) 成本 $ 0.016/每小时/每 100 RU/秒 (参见 [定价页](https://azure.microsoft.com/pricing/details/cosmos-db/)) 。 无论是单个写入区域还是多个写入区域，Azure Cosmos DB 都支持从任何区域读取数据。
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>计费示例：多区域 Azure Cosmos 帐户，单个区域写入
 
@@ -193,7 +193,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 
 下图直观地呈现了本月 720 小时内总预配吞吐量的变化情况： 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="专用吞吐量计费示例":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="真实示例":::
 
 将按以下方式计算月度总帐单（假定一个月为 30 天/720 小时）：
 

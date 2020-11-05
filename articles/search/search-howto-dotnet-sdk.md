@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791947"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356801"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>如何在 c # .NET 应用程序中使用 Azure.Search.Documents
 
@@ -60,7 +60,7 @@ Azure.Search.Documents (版本 11) 目标版本[ `2020-06-30` 的 Azure 认知�
 
 ## <a name="example-application"></a>示例应用程序
 
-本文 "按示例讲授" 依赖于 GitHub 上的 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) 代码示例来说明 Azure 认知搜索中的基本概念（具体而言，如何创建、加载和查询搜索索引）。
+本文 "按示例讲授" 依赖于 GitHub 上的 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 代码示例来说明 Azure 认知搜索中的基本概念（具体而言，如何创建、加载和查询搜索索引）。
 
 对于本文的其余部分，假设有一个名为 "酒店" 的新索引，其中填充了几个文档，其中有多个查询与结果匹配。
 

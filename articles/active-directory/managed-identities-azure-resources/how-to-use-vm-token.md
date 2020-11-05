@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266283"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358161"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>如何在 Azure VM 上使用 Azure 资源的托管标识获取访问令牌 
 
@@ -47,7 +47,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 客户端应用程序可以请求 Azure 资源的托管标识的[仅限应用的访问令牌](../develop/developer-glossary.md#access-token)用于访问给定的资源。 令牌[基于 Azure 资源的托管标识服务主体](overview.md#managed-identity-types)。 因此，客户端无需注册自身即可使用自己的服务主体获取访问令牌。 该令牌适合在[需要客户端凭据的服务到服务调用](../develop/v2-oauth2-client-creds-grant-flow.md)中用作持有者令牌。
 
-| 链接 | 说明 |
+| 链接 | 描述 |
 | -------------- | -------------------- |
 | [使用 HTTP 获取令牌](#get-a-token-using-http) | Azure 资源的托管标识令牌终结点的协议详细信息 |
 | [使用用于 .NET 的 Microsoft.Azure.Services.AppAuthentication 库获取令牌](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | 从 .NET 客户端使用 Microsoft.Azure.Services.AppAuthentication 库的示例

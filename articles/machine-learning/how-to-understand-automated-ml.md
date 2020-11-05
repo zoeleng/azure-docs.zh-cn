@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311487"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359079"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>评估自动机器学习试验结果
 
-本文介绍如何查看和评估自动化机器学习、AutoML、试验的结果。 这些试验包含多个运行，其中每个运行都创建一个模型。 为了帮助你评估每个模型，AutoML 会自动生成特定于实验类型的性能指标和图表。 
+本文介绍如何查看和评估自动机器学习、自动 ML ML 试验的结果。 这些试验包含多个运行，其中每个运行都创建一个模型。 为了帮助你评估每个模型，自动 ML 会自动生成特定于实验类型的性能指标和图表。 
 
-例如，AutoML 为分类和回归模型提供不同的图表。 
+例如，自动 ML 可为分类和回归模型提供不同的图表。 
 
 |分类|回归
 |---|---|
@@ -61,7 +61,7 @@ ms.locfileid: "93311487"
 
 ## <a name="classification-performance-metrics"></a>分类性能指标
 
-下表总结了 AutoML 为试验生成的每个分类模型计算的模型性能指标。 
+下表总结了自动 ML 针对为试验生成的每个分类模型计算的模型性能指标。 
 
 指标|说明|计算|其他参数
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|加权准确度是当分配给每个示例的权重等于该�
 
 ### <a name="binary-vs-multiclass-metrics"></a>二元分类指标与多类指标
 
-AutoML 不区分二元分类指标与多类指标。 不管数据集有两个类还是两个以上的类，都会报告相同的验证指标。 但是，某些指标旨在用于多类分类。 正如你所期望的那样，这些指标在应用于二元分类数据集时不会将任何类视为 `true` 类。 明确用于多类的指标以 `micro`、`macro` 或 `weighted` 为后缀。 示例包括 `average_precision_score`、`f1_score`、`precision_score`、`recall_score`、`AUC`。
+自动 ML 不区分 binary 和多类指标。 不管数据集有两个类还是两个以上的类，都会报告相同的验证指标。 但是，某些指标旨在用于多类分类。 正如你所期望的那样，这些指标在应用于二元分类数据集时不会将任何类视为 `true` 类。 明确用于多类的指标以 `micro`、`macro` 或 `weighted` 为后缀。 示例包括 `average_precision_score`、`f1_score`、`precision_score`、`recall_score`、`AUC`。
 
 例如， `tp / (tp + fn)` 多类平均召回 (`micro` 、 `macro` 或 `weighted`) 二元分类数据集的两个类的平均值，而不是计算为。 这等效于 `true` 分别计算类和类的回调 `false` ，并取二者的平均值。
 
@@ -209,7 +209,7 @@ AutoML 不区分二元分类指标与多类指标。 不管数据集有两个类
 
 ## <a name="regression-performance-metrics"></a>回归性能指标
 
-下表总结了 AutoML 为试验生成的每个回归模型或预测模型计算的模型性能指标。 
+下表总结了自动 ML 为试验为试验生成的每个回归模型计算的模型性能指标。 
 
 |指标|说明|计算|其他参数
 --|--|--|--|

@@ -1,7 +1,7 @@
 ---
 title: 在 Python 中启动、监视和取消训练运行
 titleSuffix: Azure Machine Learning
-description: 了解如何启动、标记和组织机器学习试验及设置其状态。
+description: 了解如何启动、状态和管理机器学习试验，以及如何运行 Azure 机器学习 Python SDK。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0baee1646d2346a411b3b7bdb8efc90e9aeb7a4a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2f7d102ad6bf2aba2056456acfe6207a0b0643ba
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316882"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357974"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中启动、监视和取消训练运行
 

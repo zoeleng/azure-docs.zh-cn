@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 947a0c9a0af3c38d6c4d6f66da691d62530a69e7
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 82c5c7b2d221cdf10c69e0a8921eef6e6d85e554
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279504"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356325"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>使用关系管理数字孪生图
 
@@ -22,7 +22,7 @@ Azure 数字孪生的核心是代表您的整个环境的克隆 [图](concepts-t
 
 本文重点介绍如何作为一个整体来管理关系和图形;若要使用单独的数字孪生，请参阅 [*操作方法：管理数字孪生*](how-to-manage-twin.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
     
@@ -32,7 +32,7 @@ Azure 数字孪生的核心是代表您的整个环境的克隆 [图](concepts-t
 
 关系描述不同数字孪生彼此连接的方式，它们构成了双子图形的基础。
 
-关系是使用调用创建的 `CreateRelationship()` 。 
+关系是使用调用创建的 `CreateOrReplaceRelationshipAsync()` 。 
 
 若要创建关系，需要指定：
 * `srcId`下面的代码示例中 (源克隆 id) ：该关系源自的位置的 id。
@@ -57,7 +57,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -351,7 +351,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)

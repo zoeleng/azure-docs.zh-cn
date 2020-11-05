@@ -1,18 +1,18 @@
 ---
 title: 升级 Azure Cosmos DB 的 API for MongoDB 帐户的 Mongo 版本
 description: 如何无缝地为现有 Azure Cosmos DB 的 API 升级 MongoDB 线路协议版本
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
-ms.author: jasonh
-ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: 9ce444e41d19ece984071d0f62e705a09d5f23c9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096302"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356444"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>升级 Azure Cosmos DB API for MongoDB 帐户的 MongoDB 线路协议版本
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

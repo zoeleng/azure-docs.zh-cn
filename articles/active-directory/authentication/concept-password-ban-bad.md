@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965176"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356580"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>使用 Azure Active Directory 密码保护消除错误密码
 
-许多安全指南建议你不要在多个位置使用同一密码，使其变得复杂，并避免使用简单的密码，例如 *Password123*。 你可以为用户提供有关 [如何选择密码的指导](https://www.microsoft.com/research/publication/password-guidance)，但通常仍然使用弱或不安全的密码。 Azure AD 密码保护检测并阻止已知弱密码及其变种，还可以阻止特定于你的组织的其他弱条款。
+许多安全指南建议你不要在多个位置使用同一密码，使其变得复杂，并避免使用简单的密码，例如 *Password123* 。 你可以为用户提供有关 [如何选择密码的指导](https://www.microsoft.com/research/publication/password-guidance)，但通常仍然使用弱或不安全的密码。 Azure AD 密码保护检测并阻止已知弱密码及其变种，还可以阻止特定于你的组织的其他弱条款。
 
 使用 Azure AD 密码保护时，默认的全局禁止密码列表会自动应用到 Azure AD 租户中的所有用户。 为了满足你自己的业务和安全需求，可以在自定义的禁止密码列表中定义条目。 当用户更改或重置其密码时，将检查这些禁止的密码列表以强制使用强密码。
 
@@ -33,7 +33,7 @@ ms.locfileid: "91965176"
 
 ## <a name="global-banned-password-list"></a>全局禁止密码列表
 
-Azure AD Identity Protection 团队不断分析 Azure AD 的安全遥测数据，以查找常用弱密码或泄露密码。 具体而言，分析将查找通常用作弱密码的基础的基本术语。 如果发现了薄弱术语，则会将其添加到 " *全局禁止密码" 列表*中。 全局禁止密码列表的内容不基于任何外部数据源，而是基于 Azure AD 安全遥测和分析的结果。
+Azure AD Identity Protection 团队不断分析 Azure AD 的安全遥测数据，以查找常用弱密码或泄露密码。 具体而言，分析将查找通常用作弱密码的基础的基本术语。 如果发现了薄弱术语，则会将其添加到 " *全局禁止密码" 列表* 中。 全局禁止密码列表的内容不基于任何外部数据源，而是基于 Azure AD 安全遥测和分析的结果。
 
 为 Azure AD 租户中的任何用户更改或重置密码时，将使用当前版本的全局禁止密码列表来验证密码的强度。 此验证检查为所有 Azure AD 客户带来了更强的密码。
 
@@ -44,7 +44,7 @@ Azure AD Identity Protection 团队不断分析 Azure AD 的安全遥测数据�
 
 ## <a name="custom-banned-password-list"></a>自定义禁止密码列表
 
-某些组织希望提高安全性，并将其自己的自定义项添加到全局禁止密码列表的顶部。 若要添加自己的条目，可以使用 " *自定义禁止密码" 列表*。 添加到 "自定义禁止密码" 列表中的条款应集中于特定于组织的术语，例如以下示例：
+某些组织希望提高安全性，并将其自己的自定义项添加到全局禁止密码列表的顶部。 若要添加自己的条目，可以使用 " *自定义禁止密码" 列表* 。 添加到 "自定义禁止密码" 列表中的条款应集中于特定于组织的术语，例如以下示例：
 
 - 品牌名称
 - 产品名称
@@ -61,7 +61,7 @@ Azure AD Identity Protection 团队不断分析 Azure AD 的安全遥测数据�
 
 ![修改 "身份验证方法" 下的 "自定义禁止密码" 列表](./media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png)
 
-假设有一个名为 *Contoso*的客户。 公司基于伦敦，并生成一个名为 *小组件*的产品。 对于本示例客户而言，尝试阻止这些术语的特定变体（例如：
+假设有一个名为 *Contoso* 的客户。 公司基于伦敦，并生成一个名为 *小组件* 的产品。 对于本示例客户而言，尝试阻止这些术语的特定变体（例如：
 
 - "Contoso！ 1"
 - "Contoso@London"
@@ -202,7 +202,7 @@ Azure AD 密码保护会有效地阻止可能在密码喷涂攻击中使用的�
 > [!IMPORTANT]
 > 在 Azure 中，禁止密码算法和全局禁止密码列表，可以根据持续的安全分析和研究随时进行更改。
 >
-> 对于混合方案中的本地 DC 代理服务，更新的算法仅在重新安装 DC 代理软件之后才会生效。
+> 对于混合方案中的本地 DC 代理服务，更新的算法只有在升级 DC 代理软件之后才会生效。
 
 ## <a name="what-do-users-see"></a>用户看到什么
 

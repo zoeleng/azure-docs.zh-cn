@@ -1,5 +1,5 @@
 ---
-title: 连接到 Azure 存储服务
+title: 连接到 Azure 上的存储服务
 titleSuffix: Azure Machine Learning
 description: 了解如何在使用 Azure 机器学习训练期间使用数据存储安全地连接到 Azure 存储服务
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320868"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358093"
 ---
-# <a name="connect-to-azure-storage-services"></a>连接到 Azure 存储服务
+# <a name="connect-to-storage-services-azure"></a>连接到存储服务 Azure
 
-本文介绍如何通过 Azure 机器学习数据存储连接到 Azure 存储服务。 数据存储可安全地连接到 Azure 存储服务，而不会损害你的身份验证凭据以及原始数据源的完整性。 它们会存储连接信息，例如与工作区关联的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 中的订阅 ID 和令牌授权，让你能够安全地访问存储，而无需在脚本中对其进行硬编码。 可以使用 [Azure 机器学习 Python SDK](#python) 或 [Azure 机器学习工作室](how-to-connect-data-ui.md)来创建和注册数据存储。
+本文介绍如何 **通过 Azure 机器学习数据存储连接到 Azure 上的存储服务** 。 数据存储可安全地连接到 Azure 存储服务，而不会损害你的身份验证凭据以及原始数据源的完整性。 它们会存储连接信息，例如与工作区关联的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 中的订阅 ID 和令牌授权，让你能够安全地访问存储，而无需在脚本中对其进行硬编码。 可以使用 [Azure 机器学习 Python SDK](#python) 或 [Azure 机器学习工作室](how-to-connect-data-ui.md)来创建和注册数据存储。
 
 如果希望使用 Azure 机器学习 VS Code 扩展来创建和管理数据存储，请访问 [VS Code 资源管理操作指南](how-to-manage-resources-vscode.md#datastores)以了解详细信息。
 
@@ -109,11 +109,13 @@ ms.locfileid: "93320868"
     * 其对应的“概览”页面将包含租户 ID 和客户端 ID 之类的必需信息。
 
 > [!IMPORTANT]
-> 出于安全原因，你可能需要更改 Azure 存储帐户的访问密钥（帐户密钥或 SAS 令牌）。 执行此操作时，请确保将新凭据与工作区及其连接的数据存储进行同步。 了解如何[同步更新的凭据](how-to-change-storage-access-key.md)。 
-
+> * 如果需要更改 Azure 存储帐户的访问密钥 (帐户密钥或 SAS 令牌) ，请确保将新凭据与你的工作区和数据存储连接的凭据同步。 了解如何[同步更新的凭据](how-to-change-storage-access-key.md)。 
 ### <a name="permissions"></a>权限
 
-对于 Azure Blob 容器和 Azure Data Lake Gen2 存储，请确保身份验证凭据具有“存储 Blob 数据读取者”访问权限。 详细了解[存储 Blob 数据读取器](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)。 帐户 SAS 令牌默认为无权限。 如需进行数据读取访问，你的身份验证凭据必须至少具有容器和对象的列表和读取权限。 若需进行数据写入访问，还需要写入和添加权限。
+对于 Azure blob 容器和 Azure Data Lake 第2代存储，请确保身份验证凭据具有 **存储 Blob 数据读取器** 访问权限。 详细了解[存储 Blob 数据读取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)。 帐户 SAS 令牌默认为无权限。 
+* 对于数据 **读取访问** ，你的身份验证凭据必须具有容器和对象的最小列表和读取权限。 
+
+* 对于数据 **写入访问** 权限，还需要编写和添加权限。
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ ms.locfileid: "93320868"
  若要为其他受支持的存储服务创建数据存储，请参阅[适用的 `register_azure_*` 方法的参考文档](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods)。
 
 如果你更喜欢使用低代码体验，请参阅 [使用 Azure 机器学习 Studio 连接到数据](how-to-connect-data-ui.md)。
+>[!IMPORTANT]
+> 如果你注销并重新注册同名的数据存储，并且它失败，则你的工作区的 Azure Key Vault 可能不会启用软删除。 默认情况下，将为工作区创建的密钥保管库实例启用软删除，但如果使用的是现有密钥保管库或在10月2020之前创建的工作区，则可能不会启用软删除。 有关如何启用软删除的信息，请参阅 [打开现有密钥保管库的软删除]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)。
 
 > [!NOTE]
 > 数据存储名称应仅包含小写字母、数字和下划线。 

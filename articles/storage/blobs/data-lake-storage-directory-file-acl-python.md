@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: 98a1fbf30e7b653598aac6b83c0d8155582e2051
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ffdf31d375d41d77b8b06112c83c1f3a0e1e15e5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131473"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358875"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Python 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -221,7 +221,7 @@ def upload_file_to_directory_bulk():
 
 ## <a name="download-from-a-directory"></a>从目录下载 
 
-打开用于写入的本地文件。 然后，创建一个 **DataLakeFileClient** 实例，该实例表示要下载的文件。 调用 **DataLakeFileClient.read_file**，以便从文件读取字节，然后将这些字节写入本地文件。 
+打开用于写入的本地文件。 然后，创建一个 **DataLakeFileClient** 实例，该实例表示要下载的文件。 调用 **DataLakeFileClient.read_file** ，以便从文件读取字节，然后将这些字节写入本地文件。 
 
 ```python
 def download_file_from_directory():
@@ -341,7 +341,7 @@ def manage_file_permissions():
      print(e) 
 ```
 
-### <a name="set-an-acl-recursively-preview"></a>以递归方式设置 ACL（预览）
+### <a name="set-an-acl-recursively"></a>以递归方式设置 ACL
 
 你可以为父目录的现有子项以递归方式添加、更新和删除 ACL，而不必为每个子项单独进行这些更改。 有关详细信息，请参阅[以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)](recursive-access-control-lists.md)。
 

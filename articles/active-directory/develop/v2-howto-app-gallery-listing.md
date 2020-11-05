@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339422"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356342"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>将应用发布到 Azure AD 应用库
 
@@ -97,6 +97,7 @@ ms.locfileid: "93339422"
 | 基于移动的单一登录| √| √* |
 | 移动应用程序的条件性访问策略| √| X |
 | 移动应用程序的无缝 MFA 体验| √| X |
+| SCIM 预配| √| √ |
 | 访问 Microsoft Graph| √| X |
 
 * 但 Microsoft 不提供示例或指导。
@@ -261,7 +262,7 @@ Microsoft 不为 SAML 实现提供或建议库。 有许多开源库可用。
 
 ![在库中列出密码 SSO 应用程序](./media/howto-app-gallery-listing/passwordsso.png)
 
-如果要实现用户预配的 SCIM 2.0 终结点，请选择相应的选项。 
+如果要实现用户预配的 [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 终结点，请选择相应的选项。 
 
    ![用户预配请求](./media/howto-app-gallery-listing/user-provisioning.png)
 

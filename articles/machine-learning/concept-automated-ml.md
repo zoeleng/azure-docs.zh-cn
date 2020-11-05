@@ -1,7 +1,7 @@
 ---
 title: 什么是自动 ML？ 自动化 ML
 titleSuffix: Azure Machine Learning
-description: 了解 Azure 机器学习如何自动选取算法，以及如何通过它来生成模型，以便使用你提供的参数和条件为模型选择最佳算法，从而节省时间。
+description: 了解 Azure 机器学习如何使用您提供的参数和标准来自动生成模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,13 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
-ms.openlocfilehash: 31cb2b2b5411968f1eba71fa9afc7bdc8296407c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: automl
+ms.openlocfilehash: ca0cfd7c38dde5e7307c31989791aa3906b9cbe5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307395"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357277"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>什么是自动化机器学习 (AutoML)？
 

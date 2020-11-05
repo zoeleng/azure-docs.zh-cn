@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348553"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358620"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>数据引入管道的 DevOps
 
@@ -211,18 +211,18 @@ JSON 文件中的值是在管道定义中配置的默认值。 部署 Azure 资�
 
 持续交付过程提取项目并将其部署到第一个目标环境。 它通过运行测试来确保解决方案可正常运行。 如果测试成功，则继续部署到下一个环境。 
 
-CD Azure 管道由多个表示环境的阶段组成。 每个阶段包含[部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops)，以及执行以下步骤的[作业](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops)：
+CD Azure 管道由多个表示环境的阶段组成。 每个阶段包含[部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true)，以及执行以下步骤的[作业](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true)：
 
 _ 将 Python 笔记本部署到 Azure Databricks 工作区
 * 部署 Azure 数据工厂管道 
 * 运行管道
 * 检查数据引入结果
 
-可以使用[审批](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops)和[门限](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)（就部署过程如何在环境链中递进提供额外的控制）来配置管道阶段。
+可以使用[审批](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true)和[门限](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true)（就部署过程如何在环境链中递进提供额外的控制）来配置管道阶段。
 
 ### <a name="deploy-a-python-notebook"></a>部署 Python 笔记本
 
-以下代码片段定义一个将 Python 笔记本复制到 Databricks 群集的 Azure 管道[部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops)：
+以下代码片段定义一个将 Python 笔记本复制到 Databricks 群集的 Azure 管道[部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true)：
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ _ 将 Python 笔记本部署到 Azure Databricks 工作区
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-CI 生成的项目将自动复制到部署代理，并在 `$(Pipeline.Workspace)` 文件夹中提供。 在本例中，部署任务引用包含 Python 笔记本的 `di-notebooks` 项目。 此[部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops)使用 [Databricks Azure DevOps 扩展](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)将笔记本文件复制到 Databricks 工作区。
+CI 生成的项目将自动复制到部署代理，并在 `$(Pipeline.Workspace)` 文件夹中提供。 在本例中，部署任务引用包含 Python 笔记本的 `di-notebooks` 项目。 此[部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true)使用 [Databricks Azure DevOps 扩展](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)将笔记本文件复制到 Databricks 工作区。
 
 `Deploy_to_QA` 阶段包含对 Azure DevOps 项目中定义的 `devops-ds-qa-vg` 变量组的引用。 此阶段中的步骤引用此变量组中的变量（例如 `$(DATABRICKS_URL)` 和 `$(DATABRICKS_TOKEN)`）。 其思路是，下一阶段（例如 `Deploy_to_UAT`）将使用其自己的 UAT 范围内的变量组中定义的相同变量名称运行。
 
@@ -339,7 +339,7 @@ Azure 数据工厂的可部署项目是一个 Azure 资源管理器模板。 将
     * 部署到 Databricks + 部署到 ADF
     * 集成测试
 
-它包含与你拥有的目标环境数相等的多个 " **部署** " 阶段。 每个 _*_部署_*_ 阶段都包含两个并行运行的 [部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) 和一个在部署后运行的 [作业](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) ，用于在环境中测试解决方案。
+它包含与你拥有的目标环境数相等的多个 " **部署** " 阶段。 每个 _*_部署_*_ 阶段都包含两个并行运行的 [部署](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) 和一个在部署后运行的 [作业](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) ，用于在环境中测试解决方案。
 
 管道的示例实现组合在以下 _*_yaml_*_ 代码片段中：
 

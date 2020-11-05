@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 57b6bac49f0142b008a21accfffb614453cc6aec
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325772"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358144"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>查询 Azure 数字孪生克隆图形
 
@@ -154,21 +154,19 @@ AND T.Temperature = 70
 还可以基于 **是否定义了某个属性** 来获取孪生。 下面是一个查询，用于获取具有定义的 *Location* 属性的孪生：
 
 ```sql
-SELECT *
-FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 ```
 
 这可以帮助你按 *标记* 属性获取孪生，如 [向数字孪生添加标记](how-to-use-tags.md)中所述。 下面是一个查询，用于获取用 *red* 标记的所有孪生：
 
 ```sql
-select * from digitaltwins where is_defined(tags.red)
+SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(tags.red)
 ```
 
 还可以基于 **属性的类型** 来获取孪生。 下面是一个可获取孪生的查询，其 *温度* 属性为数字：
 
 ```sql
-SELECT * FROM DIGITALTWINS T
-WHERE IS_NUMBER(T.Temperature)
+SELECT * FROM DIGITALTWINS T WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### <a name="query-by-model"></a>按模型查询
@@ -279,7 +277,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 您可以使用组合运算符 **组合** 以上任意类型的查询，以便在单个查询中包含更多详细信息。 下面是一些其他查询多个类型为一次的克隆说明符的复合查询示例。
 
-| 说明 | 查询 |
+| 描述 | 查询 |
 | --- | --- |
 | 在 *房间 123* 具有的设备中，返回服务于操作员角色的 MxChip 设备 | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | 获取具有名为 *id1* 的关系 *的孪生* | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
@@ -303,7 +301,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 支持以下类型检查和强制转换函数：
 
-| 函数 | 说明 |
+| 函数 | 描述 |
 | -------- | ----------- |
 | IS_DEFINED | 返回一个布尔，它指示属性是否已经分配了值。 仅当该值为基元类型时才支持此功能。 基元类型包括字符串、布尔值、数字或 `null`。 不支持日期/时间、对象类型和数组。 |
 | IS_OF_MODEL | 返回一个布尔值，该值指示指定的上值是否与指定的模型类型匹配 |
@@ -316,7 +314,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 支持以下字符串函数：
 
-| 函数 | 说明 |
+| 函数 | 描述 |
 | -------- | ----------- |
 | STARTSWITH (x、y)  | 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式开头。 |
 | ENDSWITH (x、y)  | 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式结尾。 |

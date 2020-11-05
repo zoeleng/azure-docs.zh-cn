@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 01c9cbe0438ee0efeece4c7e6b17e9607db4c4cc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289627"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356682"
 ---
 # <a name="speech-service-release-notes"></a>语音服务发行说明
 
@@ -34,6 +34,9 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 -  **C + +/c #/Java/Python/Objective-C/Swift** ：已添加 `stopSpeakingAsync()` 停止文本到语音合成的方法。 请参阅此处 [ (c + +) ](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace)的参考文档，此处 [ (c # ) ](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet)，此处 [ (Java) ](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable)， [此处 (Python) ](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)， [此处 (目标-C/Swift) ](https://docs.microsoft.com/objectivec/cognitive-services/speech/)。
 - **C #、c + +、Java** ：向类添加了一个 `FromDialogServiceConnector()` 函数， `Connection` 该函数可用于监视的连接和断开连接事件 `DialogServiceConnector` 。 请参阅此处的参考文档 [ (c # ) ](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet)， [此处 (c + +) ](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)， [此处 (Java) ](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable)。
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
+
+**中断性变更**
+- **JavaScript** ： PullAudioOutputStream ( # A1 具有从内部承诺到本机 JavaScript 承诺的返回类型更改。
 
 **Bug 修复**
 - **All** ：固定的1.13 回归 `SetServiceProperty` ，其中包含某些特殊字符的值被忽略。

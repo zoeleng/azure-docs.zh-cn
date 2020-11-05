@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425802"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356699"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>用于语音容器的批处理工具包
 
@@ -25,7 +25,7 @@ ms.locfileid: "92425802"
 
 可在 [GitHub](https://github.com/microsoft/batch-processing-kit) 和   [Docker 中心](https://hub.docker.com/r/batchkit/speech-batch-kit/tags)免费使用 batch 工具包容器。 你只需要为你使用的语音容器 [付费](speech-container-howto.md#billing) 。
 
-| 功能  | 说明  |
+| 功能  | 描述  |
 |---------|---------|
 | 批处理音频文件分发     | 自动将大量文件分发到本地或基于云的语音容器终结点。 文件可以位于任何 POSIX 兼容卷上，包括网络文件系统。       |
 | 语音 SDK 集成 | 将常见标志传递到语音 SDK，包括：假设、diarization、language、猥亵屏蔽。  |
@@ -106,7 +106,7 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 
 `ONESHOT` mode 转录从输入目录和可选文件列表中 (单个批处理音频文件) 到输出文件夹。
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="显示示例批处理套件容器工作流的关系图。":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="以 oneshot 模式显示批处理套件容器处理文件的关系图。":::
 
 1. 定义 batch 客户端将在文件中使用的语音容器终结点 `config.yaml` 。 
 2. 将音频文件放入输入目录。  
@@ -121,7 +121,7 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 
 `DAEMON` mode 转录指定文件夹中的现有文件，并在添加新的音频文件时连续转录这些文件。          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="显示示例批处理套件容器工作流的关系图。":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="显示批处理模式下的批工具包容器处理文件的关系图。":::
 
 1. 定义 batch 客户端将在文件中使用的语音容器终结点 `config.yaml` 。 
 2. 调用输入目录中的容器。 Batch 客户端将开始监视传入文件的目录。 
@@ -134,7 +134,7 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 
 `REST` 模式是一种 API 服务器模式，它提供了一组基本的 HTTP 终结点，用于批处理提交、状态检查和长时间轮询。 还使用 python 模块扩展启用编程，或以子模块的形式导入。
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="显示示例批处理套件容器工作流的关系图。":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="显示以 REST 模式处理文件的批处理套件容器的关系图。":::
 
 1. 定义 batch 客户端将在文件中使用的语音容器终结点 `config.yaml` 。 
 2. 将 HTTP 请求请求发送到 API 服务器的一个终结点。 
@@ -154,11 +154,11 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 ## <a name="logging"></a>日志记录
 
 > [!NOTE]
-> 如果批处理客户端变得太大，则可能会定期覆盖*该文件。*
+> 如果批处理客户端变得太大，则可能会定期覆盖 *该文件。*
 
-客户端在*run.log* `-log_folder` docker 命令中由自变量指定的目录中创建运行文件。 `run` 默认情况下，在调试级别捕获日志。 相同的日志会发送到 `stdout/stderr` ，并根据参数进行筛选 `-log_level` 。 此日志只是调试所必需的，或者，如果需要发送支持的跟踪，则为。 日志记录文件夹还包含每个音频文件的语音 SDK 日志。
+客户端在 *run.log* `-log_folder` docker 命令中由自变量指定的目录中创建运行文件。 `run` 默认情况下，在调试级别捕获日志。 相同的日志会发送到 `stdout/stderr` ，并根据参数进行筛选 `-log_level` 。 此日志只是调试所必需的，或者，如果需要发送支持的跟踪，则为。 日志记录文件夹还包含每个音频文件的语音 SDK 日志。
 
-指定的输出目录 `-output_folder` 将包含一个*run_summary.js*   文件，该文件将在每30秒或完成新转录时定期重写。 您可以使用此文件在批处理过程中检查进度。 它还将在批处理完成后包含每个文件的最终运行统计信息和最终状态。 当进程有干净退出时，批处理即已完成。 
+指定的输出目录 `-output_folder` 将包含一个 *run_summary.js*   文件，该文件将在每30秒或完成新转录时定期重写。 您可以使用此文件在批处理过程中检查进度。 它还将在批处理完成后包含每个文件的最终运行统计信息和最终状态。 当进程有干净退出时，批处理即已完成。 
 
 ## <a name="next-steps"></a>后续步骤
 

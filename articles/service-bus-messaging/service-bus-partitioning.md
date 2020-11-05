@@ -4,16 +4,16 @@ description: 介绍如何使用多个消息中转站对服务总线队列和主�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 380f18e16d09dc9f641a7a6b6cf9c1cb3f05e075
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007955"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356274"
 ---
 # <a name="partitioned-queues-and-topics"></a>分区队列和主题
 
-Azure 服务总线使用多个消息中转站处理消息，并使用多个消息传送存储存储消息。 传统的队列或主题由单个消息中转站进行处理并存储在一个消息存储中。 服务总线*分区*允许跨多个消息中转站和消息存储对队列和主题或*消息实体*进行分区。 分区意味着分区实体的总吞吐量不再受单个消息中转站或消息存储的性能所限制。 此外，消息传送存储的临时中断不会导致分区队列或主题不可用。 分区队列和主题可以包含所有先进的服务总线功能，如事务和会话支持。
+Azure 服务总线使用多个消息中转站处理消息，并使用多个消息传送存储存储消息。 传统的队列或主题由单个消息中转站进行处理并存储在一个消息存储中。 服务总线 *分区* 允许跨多个消息中转站和消息存储对队列和主题或 *消息实体* 进行分区。 分区意味着分区实体的总吞吐量不再受单个消息中转站或消息存储的性能所限制。 此外，消息传送存储的临时中断不会导致分区队列或主题不可用。 分区队列和主题可以包含所有先进的服务总线功能，如事务和会话支持。
 
 > [!NOTE]
 > 分区在为基本或标准 SKU 中的所有队列和主题创建实体时可用。 它不可用于高级消息传送 SKU，但高级命名空间中任何先前已存在的分区实体将继续按预期方式工作。
@@ -29,6 +29,8 @@ Azure 服务总线使用多个消息中转站处理消息，并使用多个消�
 在未分区实体上进行的速览操作始终返回最旧的消息，但在已分区实体上进行操作时情况有所不同， 它只返回其消息中转站首先响应的分区之一中的最旧消息。 不保证返回的消息是所有分区中最旧的消息。 
 
 向分区队列或主题发送一条消息，或从分区队列或主题接收消息时无需额外付费。
+>[!NOTE]
+> 速览操作基于其 SequenceNumber 从即返回最早的消息。 对于分区实体，将相对于分区发出序列号。 有关详细信息，请参阅 [消息序列化和时间戳](../service-bus-messaging/message-sequencing.md)。
 
 ## <a name="enable-partitioning"></a>启用分区
 
@@ -66,7 +68,7 @@ ns.CreateTopic(td);
 
 根据应用场景，将不同的消息属性用作分区键：
 
-**SessionId**：如果消息已设置 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性，则服务总线会将 SessionID 用作分区键。 这样一来，属于同一会话的所有消息都由同一消息中转站处理。 会话使服务总线得以保证消息顺序以及会话状态的一致性。
+**SessionId** ：如果消息已设置 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性，则服务总线会将 SessionID 用作分区键。 这样一来，属于同一会话的所有消息都由同一消息中转站处理。 会话使服务总线得以保证消息顺序以及会话状态的一致性。
 
 PartitionKey：如果消息已设置 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性但未设置 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性，则服务总线将 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性值用作分区键。 如果消息同时具有 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 且未设置 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性集，这两个属性必须相同。 如果 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性设置为与 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性不同的值，则服务总线返回无效操作异常。 如果发送方发送非会话感知事务消息，应使用 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性。 分区键可确保事务中所发送的所有消息都由同一个消息传送中转站处理。
 
@@ -123,10 +125,10 @@ committableTransaction.Commit();
 服务总线支持从分区实体、向分区实体或在分区实体之间进行消息自动转发。 若要启用消息自动转发，请在源队列或订阅上设置 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 属性。 如果该消息指定分区键（[SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)、[PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 或 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)），则该分区键用于目标实体。
 
 ## <a name="considerations-and-guidelines"></a>注意事项和指南
-* **高度一致性功能**：如果实体使用会话、重复检测或显式控制分区键等功能，则消息传送操作一定会路由至特定的分区。 如果任何分区遇到过高的流量，或基础存储处于不正常状态，这些操作将失败，可用性会降低。 整体来说，一致性仍然远高于非分区实体；只有一部分流量会遇到问题，而不是所有流量。 有关详细信息，请参阅此处[对可用性和一致性的讨论](../event-hubs/event-hubs-availability-and-consistency.md)。
-* **管理**：必须对实体的所有分区执行创建、更新及删除等操作。 如果任何分区处于不正常状态，可能会导致这些操作失败。 以“获取”操作来说，必须汇总来自所有分区的信息，例如消息计数。 如果任何分区处于不正常状态，则实体可用性状态会报告为受限制。
-* **少量消息的情况**：对于这类情况，尤其是使用 HTTP 协议时，可能必须执行多次接收操作，才能获取所有消息。 对于接收请求，前端会在所有分区上执行接收，并缓存所有收到的响应。 相同连接上的后续接收请求将受益于此缓存，而且接收延迟会缩短。 不过，如果有多个连接或使用 HTTP，则会针对每个请求建立新的连接。 因此，不保证抵达相同的节点。 如果现有的所有消息均被锁定，而且在另一个前端中缓存，则接收操作返回 **null**。 消息最后会到期，可以再次接收它们。 建议使用 HTTP 保持连接。 在低容量场景中使用分区时，接收操作所用时间可能比预期的长。 因此，我们建议不要在这些场景中使用分区。 删除任何现有的分区实体，并在禁用分区的情况下重新创建它们，以提高性能。
-* **浏览/扫视消息**：仅在较旧的 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 库中可用。 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) 不一定返回 [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) 属性中指定的消息数目。 此行为有两个常见的原因。 其中一个原因是消息集合的汇总大小超过设置的 256 KB 上限。 另一个原因是，如果队列或主题的 [EnablePartitioning 属性](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning)设为 **true**，则分区可能没有足够的消息来完成所请求的消息数目。 一般情况下，如果应用程序要接收特定数目的消息，则应该重复调用 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch)，直到获得该数目的消息，或者已没有更多消息可速览为止。 有关详细信息，包括代码示例，请参阅 [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) 或 [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API 文档。
+* **高度一致性功能** ：如果实体使用会话、重复检测或显式控制分区键等功能，则消息传送操作一定会路由至特定的分区。 如果任何分区遇到过高的流量，或基础存储处于不正常状态，这些操作将失败，可用性会降低。 整体来说，一致性仍然远高于非分区实体；只有一部分流量会遇到问题，而不是所有流量。 有关详细信息，请参阅此处[对可用性和一致性的讨论](../event-hubs/event-hubs-availability-and-consistency.md)。
+* **管理** ：必须对实体的所有分区执行创建、更新及删除等操作。 如果任何分区处于不正常状态，可能会导致这些操作失败。 以“获取”操作来说，必须汇总来自所有分区的信息，例如消息计数。 如果任何分区处于不正常状态，则实体可用性状态会报告为受限制。
+* **少量消息的情况** ：对于这类情况，尤其是使用 HTTP 协议时，可能必须执行多次接收操作，才能获取所有消息。 对于接收请求，前端会在所有分区上执行接收，并缓存所有收到的响应。 相同连接上的后续接收请求将受益于此缓存，而且接收延迟会缩短。 不过，如果有多个连接或使用 HTTP，则会针对每个请求建立新的连接。 因此，不保证抵达相同的节点。 如果现有的所有消息均被锁定，而且在另一个前端中缓存，则接收操作返回 **null** 。 消息最后会到期，可以再次接收它们。 建议使用 HTTP 保持连接。 在低容量场景中使用分区时，接收操作所用时间可能比预期的长。 因此，我们建议不要在这些场景中使用分区。 删除任何现有的分区实体，并在禁用分区的情况下重新创建它们，以提高性能。
+* **浏览/扫视消息** ：仅在较旧的 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 库中可用。 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) 不一定返回 [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) 属性中指定的消息数目。 此行为有两个常见的原因。 其中一个原因是消息集合的汇总大小超过设置的 256 KB 上限。 另一个原因是，如果队列或主题的 [EnablePartitioning 属性](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning)设为 **true** ，则分区可能没有足够的消息来完成所请求的消息数目。 一般情况下，如果应用程序要接收特定数目的消息，则应该重复调用 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch)，直到获得该数目的消息，或者已没有更多消息可速览为止。 有关详细信息，包括代码示例，请参阅 [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) 或 [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API 文档。
 
 ## <a name="latest-added-features"></a>最新添加的功能
 
