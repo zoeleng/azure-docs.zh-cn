@@ -14,8 +14,9 @@
     - name: 发行说明
       href: release-notes.md
 - name: 快速入门
+  expanded: true
   items:
-    - name: 简介
+    - name: 入门
       href: get-started.md
       displayName: 'get, started, quickstart'
     - name: 1 创建 Synapse 工作区
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: 资源消耗模型
           href: sql/resource-consumption-models.md
-        - name: 无服务器 SQL 池最佳做法
+        - name: 已处理的数据
+          href: sql/data-processed.md
+        - name: SQL 按需版本最佳做法
           href: sql/best-practices-sql-on-demand.md
         - name: 专用 SQL 池最佳做法
           href: sql/best-practices-sql-pool.md
