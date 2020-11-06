@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360218"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337893"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>商业应用商店合作伙伴和客户使用情况归属
 
@@ -43,7 +43,7 @@ ms.locfileid: "93360218"
 GUID 是由 32 位十六进制数字组成的唯一参考标识符。 若要创建跟踪 Guid，应使用 GUID 生成器，例如通过 PowerShell。
 
 ```powershell
-[guid]::NewGuid()]
+[guid]::NewGuid()
 ```
 
 建议为每个产品/服务和每个产品的分销渠道创建唯一的 GUID。 如果不希望拆分报告，则可以选择对产品的多个分销渠道使用单个 GUID。

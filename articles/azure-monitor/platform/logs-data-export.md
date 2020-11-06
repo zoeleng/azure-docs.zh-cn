@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637337"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335088"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics Azure Monitor (预览中的工作区数据导出) 
 使用 Azure Monitor 中的工作区数据导出，你可以在收集数据时，将数据从 Log Analytics 工作区中的选定表连续导出到 Azure 存储帐户或 Azure 事件中心。 Log Analytics 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -189,6 +189,7 @@ PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
         ],
         "enable": true
     }
+  }
 }
 ```
 
@@ -270,7 +271,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 
 | 表 | 限制 |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -400,7 +401,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | NWConnectionMonitorTestResult | |
 | NWConnectionMonitorTestResult | |
 | OfficeActivity | 部分支持。 通过 webhook 从 Office 365 到 Log Analytics 将一些数据引入。 当前未导出此数据。 |
-| Operation | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前未导出此数据。 |
+| 操作 | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前未导出此数据。 |
 | 性能 | 部分支持。 目前仅支持 windows 性能数据。 当前未导出 linux 性能数据。 |
 | ProtectionStatus | |
 | SCCMAssessmentRecommendation | |
@@ -436,7 +437,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | WindowsEvent | |
 | WindowsFirewall | |
 | WireData | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前未导出此数据。 |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |

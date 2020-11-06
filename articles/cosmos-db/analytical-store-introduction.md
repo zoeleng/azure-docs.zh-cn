@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 60326b0ba06e1642e2831814dd931c69f6a04f3b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330897"
+ms.locfileid: "94337400"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>什么是 Azure Cosmos DB 分析存储 (预览版) ？
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -19,7 +20,9 @@ ms.locfileid: "94330897"
 > [!IMPORTANT]
 > Azure Cosmos DB 分析存储目前处于预览状态。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-Azure Cosmos DB 分析存储是完全独立的列存储，可以借助它对 Azure Cosmos DB 中的操作数据进行大型分析，这对事务性工作负载没有任何影响。 Azure Cosmos DB 事务性存储架构不可知，因此你能够迭代事务性应用程序，而无需处理架构或索引管理。 与此相反，Azure Cosmos DB 分析存储已架构化，以便优化分析查询性能。 本文详细介绍分析存储。
+Azure Cosmos DB 分析存储是完全独立的列存储，可以借助它对 Azure Cosmos DB 中的操作数据进行大型分析，这对事务性工作负载没有任何影响。 
+
+Azure Cosmos DB 事务性存储架构不可知，因此你能够迭代事务性应用程序，而无需处理架构或索引管理。 与此相反，Azure Cosmos DB 分析存储已架构化，以便优化分析查询性能。 本文详细介绍分析存储。
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>对操作数据进行大型分析面临的挑战
 

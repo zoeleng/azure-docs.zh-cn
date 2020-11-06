@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092794"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337604"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>在 Azure 春季云中准备要部署的应用程序
 
@@ -30,15 +30,38 @@ Azure 春季云提供强大的服务来托管、监视、缩放和更新 Steelto
 Azure 春季云支持：
 
 * .NET Core 3.1
-* Steeltoe 2。4
+* Steeltoe 2.4 和3。0
 
 ## <a name="dependencies"></a>依赖项
 
-安装 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 包（& e）。
+对于 Steeltoe 2.4，请将最新的 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 包添加到项目文件：
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
+</ItemGroup>
+```
+
+对于 Steeltoe 3.0，请将最新的 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 包添加到项目文件：
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
+</ItemGroup>
+```
 
 ## <a name="update-programcs"></a>更新 Program.cs
 
-在 `Program.Main` 方法中，调用 `UseAzureSpringCloudService` 方法：
+在 `Program.Main` 方法中调用 `UseAzureSpringCloudService` 方法。
+
+对于 Steeltoe 2.4.4，调用 `UseAzureSpringCloudService` 后 `ConfigureWebHostDefaults` 和后调用 `AddConfigServer` ：
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,14 +70,28 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
         })
+        .AddConfigServer()
         .UseAzureSpringCloudService();
+```
+
+对于 Steeltoe 3.0.0，请 `UseAzureSpringCloudService` 在 `ConfigureWebHostDefaults` 任何 Steeltoe 配置代码之前和之前调用：
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseAzureSpringCloudService()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .AddConfigServer();
 ```
 
 ## <a name="enable-eureka-server-service-discovery"></a>启用 Eureka 服务器服务发现
 
 在应用在 Azure 春季云中运行时要使用的配置源中，将设置 `spring.application.name` 为与项目将部署到的 Azure 春季云应用相同的名称。
 
-例如，如果将名为的 .NET 项目部署 `EurekaDataProvider` 到名为的 Azure 春季云应用，则 `planet-weather-provider` 文件 * 中的appSettings.js* 应包含以下 JSON：
+例如，如果将名为的 .NET 项目部署 `EurekaDataProvider` 到名为的 Azure 春季云应用，则 `planet-weather-provider` 文件 *中的appSettings.js* 应包含以下 JSON：
 
 ```json
 "spring": {
@@ -198,8 +235,8 @@ Azure Spring Cloud 将会托管和管理 Spring Cloud 组件。 组件包括 Spr
 Spring Boot 版本 | Spring Cloud 版本 | Azure 春季 Cloud client 入门版
 ---|---|---
 2.1.x | Greenwich.RELEASE | 2.1.2
-2.2. x | Hoxton.SR8 | 无需
-2.3. x | Hoxton.SR8 | 无需
+2.2. x | Hoxton.SR8 | 不需要
+2.3. x | Hoxton.SR8 | 不需要
 
 如果使用的是春季 Boot 2.1，请在 pom.xml 文件中包含以下 dependenciy。
 

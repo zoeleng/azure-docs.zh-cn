@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324724"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334986"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>参考：Ubuntu (Linux) Data Science Virtual Machine
 
@@ -310,7 +310,7 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-一个 .model 文件将写入到指定的目录。 可在 [GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification) 上找到有关此演示示例的信息。
+一个 .model 文件将写入到指定的目录。 可在 [GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification) 上找到有关此演示示例的信息。
 
 有关 xgboost 的详细信息，请参阅 [xgboost 文档页](https://xgboost.readthedocs.org/en/latest/)及其 [GitHub 存储库](https://github.com/dmlc/xgboost)。
 

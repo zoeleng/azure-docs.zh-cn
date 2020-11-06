@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790604"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337638"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server 与 Azure SQL 托管实例之间的 T-SQL 差异
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -159,6 +159,8 @@ WITH PRIVATE KEY (<private_key_options>)
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
+  - 若要使用 EXECUTE AS 语句模拟用户，用户需要直接映射到 Azure AD 服务器主体 (登录) 。 属于映射到 Azure AD 服务器主体的 Azure AD 组成员的用户不能通过 EXECUTE AS 语句有效模拟，即使调用方对指定的用户名具有模拟权限。
+
 - SQL 托管实例中的 Azure AD 用户在使用 [SSMS V18.4 或更高版本](/sql/ssms/download-sql-server-management-studio-ssms)或 [SQLPackage.exe](/sql/tools/sqlpackage-download) 时，可以使用 bacpac 文件进行数据库导出/导入。
   - 使用数据库 bacpac 文件时，可以使用以下配置： 
     - 在同一 Azure AD 域的不同托管实例之间导出/导入数据库。
@@ -300,6 +302,7 @@ WITH PRIVATE KEY (<private_key_options>)
   - 尚不支持警报。
   - 不支持代理。
 - 不支持 EventLog。
+- 用户必须直接映射到 Azure AD 服务器主体 (登录) ，才能创建、修改或执行 SQL 代理作业。 未直接映射的用户（例如，属于具有创建、修改或执行 SQL 代理作业权限的 Azure AD 组的用户）将无法有效地执行这些操作。 这是因为托管实例模拟并 [执行为限制](#logins-and-users)。
 
 目前不支持以下 SQL 代理功能：
 
@@ -353,11 +356,11 @@ SQL 托管实例不支持 SQL Server 中启用的未记录 DBCC 语句。
 
 ### <a name="distributed-transactions"></a>分布式事务
 
-对 [分布式事务](../database/elastic-transactions-overview.md) 的部分支持目前为公共预览版。 支持的方案包括：
-* 参与者只是 [服务器信任组](./server-trust-group-overview.md)中的 Azure SQL 托管实例的事务。
-* 从 .NET (TransactionScope 类启动的事务) 和 Transact-sql。
+对[分布式事务](../database/elastic-transactions-overview.md)的部分支持目前为公共预览版。 支持的应用场景有：
+* 参与者只包含属于[服务器信任组](./server-trust-group-overview.md)的 Azure SQL 托管实例的事务。
+* 从 .NET（TransactionScope 类）和 Transact-SQL 启动的事务。
 
-Azure SQL 托管实例当前不支持本地或 Azure 虚拟机中的 MSDTC 定期支持的其他方案。
+Azure SQL 托管实例当前不支持本地或 Azure 虚拟机中的 MSDTC 通常支持的其他应用场景。
 
 ### <a name="extended-events"></a>扩展事件
 
@@ -482,7 +485,7 @@ SQL 托管实例中的链接服务器支持有限数量的目标：
   - `remote proc trans`
 - 不支持 `sp_execute_external_scripts`。 请参阅 [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)。
 - 不支持 `xp_cmdshell`。 请参阅 [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
-- `Extended stored procedures` 不受支持，其中包括 `sp_addextendedproc` 和 `sp_dropextendedproc` 。 请参阅[扩展存储过程](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)。
+- 不支持 `Extended stored procedures`，其中包括 `sp_addextendedproc` 和 `sp_dropextendedproc`。 请参阅[扩展存储过程](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)。
 - 不支持 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 请参阅 [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
 
 ### <a name="system-functions-and-variables"></a>系统函数和变量

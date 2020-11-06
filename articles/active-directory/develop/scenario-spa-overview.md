@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 11a295402c925f5b8244eb3294097ff2271b5d68
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675639"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335258"
 ---
 # <a name="scenario-single-page-application"></a>方案：单页应用程序
 
@@ -58,5 +58,4 @@ Microsoft 标识平台提供了 **两个** 选项来允许单页应用程序登�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [应用注册](scenario-spa-app-registration.md)
+[应用注册](scenario-spa-app-registration.md)

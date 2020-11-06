@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e810a31fab4457e47329e37f54b16e6f488c9da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630604"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337621"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>排查常见的路由问题
 
@@ -95,13 +95,34 @@ ms.locfileid: "91630604"
 
     * 检查 HTTP 和 HTTPS 端口。 大多数情况下，80和 443 (分别) 正确且不需要进行任何更改。 但是，您的后端不是以这种方式配置的，并且正在侦听其他端口。
 
-        * 检查为前端主机应路由到的后端配置的后端主机标头。__ 在大多数情况下，此标头应与后端主机名相同。** 但是，如果后端需要某种不同的配置，则错误的值可能导致不同的 HTTP 4xx 状态代码。 输入后端的 IP 地址时，可能需要将后端主机标头设置为后端的主机名。**
+        * 检查为前端主机应路由到的后端配置的后端主机标头。 在大多数情况下，此标头应与后端主机名相同。 但是，如果后端需要某种不同的配置，则错误的值可能导致不同的 HTTP 4xx 状态代码。 输入后端的 IP 地址时，可能需要将后端主机标头设置为后端的主机名。
 
 3. 检查路由规则设置：
-    * 导航到应该从相关前端主机名路由到后端池的路由规则。 在转发请求时，请确保已正确配置接受的协议。 " *接受的协议* " 字段确定前门应接受的请求。 *转发协议*确定应该使用哪种协议前门将请求转发到后端。
+    * 导航到应该从相关前端主机名路由到后端池的路由规则。 在转发请求时，请确保已正确配置接受的协议。 " *接受的协议* " 字段确定前门应接受的请求。 *转发协议* 确定应该使用哪种协议前门将请求转发到后端。
          * 例如，如果后端仅接受 HTTP 请求，则以下配置有效：
-            * 接受的协议是 HTTP 和 HTTPS。** 转发协议是 HTTP。** Match 请求不起作用，因为 HTTPS 是允许的协议，如果请求作为 HTTPS 传入，则前门会尝试使用 HTTPS 转发该请求。
+            * 接受的协议是 HTTP 和 HTTPS。 转发协议是 HTTP。 Match 请求不起作用，因为 HTTPS 是允许的协议，如果请求作为 HTTPS 传入，则前门会尝试使用 HTTPS 转发该请求。
 
-            * 接受的协议是 HTTP。** *转发协议* 要么是匹配请求，要么是 HTTP。
+            * 接受的协议是 HTTP。 *转发协议* 要么是匹配请求，要么是 HTTP。
+    - 默认情况下禁用 *Url 重写* 。 仅当要缩小要使其可用的后端托管资源范围时，才使用此字段。 禁用时，Front Door 会转发它收到的相同请求路径。 可以 misconfigure 此字段。 因此，当前门请求不可用的后端中的资源时，它将返回 HTTP 404 状态代码。
 
-    - 默认情况下禁用*Url 重写*。 仅当要缩小要使其可用的后端托管资源范围时，才使用此字段。 禁用时，Front Door 会转发它收到的相同请求路径。 可以 misconfigure 此字段。 因此，当前门请求不可用的后端中的资源时，它将返回 HTTP 404 状态代码。
+## <a name="request-to-frontend-host-name-returns-411-status-code"></a>请求前端主机名返回411状态代码
+
+### <a name="symptom"></a>症状
+
+你已创建了一个 Front Door 并配置了前端主机、至少包含一个后端的后端池，以及用于将前端主机连接到后端池的路由规则。 将请求发送到配置的前端主机时，你的内容似乎不可用，因为返回了 HTTP 411 状态代码。
+
+对这些请求的响应可能还包含响应正文中的 HTML 错误页，其中包含解释性声明。 例如：`HTTP Error 411. The request must be chunked or have a content length`
+
+### <a name="cause"></a>原因
+
+出现这种情况有几个可能的原因;但总体原因在于，HTTP 请求并非完全符合 RFC。 
+
+不符合的示例是 `POST` 发送请求时 `Content-Length` ，不 `Transfer-Encoding` 使用或标头 (例如，使用 `curl -X POST https://example-front-door.domain.com`) 。 此请求不满足 [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) 中规定的要求，将由你的前端使用 HTTP 411 响应来阻止。
+
+此行为不同于前门的 WAF 功能。 目前无法禁用此行为。 所有 HTTP 请求都必须满足要求，即使未使用 WAF 功能也是如此。
+
+### <a name="troubleshooting-steps"></a>疑难解答步骤
+
+- 验证请求是否符合必要 Rfc 中设置的要求。
+
+- 记下为响应你的请求而返回的任何 HTML 消息正文，因为他们通常 *会确切地说明你的请求* 是不符合的。

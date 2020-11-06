@@ -419,8 +419,6 @@
                   href: 'http://aka.ms/speech/va-samples'
                 - name: 语音助手常见问题解答
                   href: faq-voice-assistants.md
-                - name: 语音 SDK
-                  href: speech-sdk.md
                 - name: 对静态数据的自定义命令加密
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line 语音

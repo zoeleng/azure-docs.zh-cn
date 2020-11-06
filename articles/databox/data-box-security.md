@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565744"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337334"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 安全性和数据保护
 
@@ -32,11 +32,11 @@ Microsoft Azure Data Box 解决方案由四个彼此交互的主要组件构成�
 
 下图显示了通过 Azure Data Box 解决方案从本地到 Azure 的数据流，以及在数据流过解决方案时的各种安全功能。 此流适用于你的 Data Box 的导入顺序。
 
-![Data Box 导入安全性](media/data-box-security/data-box-security-2.png)
+![Data Box 导入安全性](media/data-box-security/data-box-security-import.png)
 
 下图是 Data Box 的出口订单。
 
-![Data Box 导出安全](media/data-box-security/data-box-security-3.png)
+![Data Box 导出安全](media/data-box-security/data-box-security-export.png)
 
 在数据流经此解决方案时，将会记录事件并生成日志。 有关详细信息，请转到：
 
@@ -56,7 +56,7 @@ Data Box 设备由以下功能提供保护：
 - 仅运行 Data Box 特定的软件。
 - 在锁定状态下启动。
 - 通过设备解锁密码控制设备访问。
-- 访问凭据，用于将数据复制到和复制出设备。 对 Azure 门户中的“设备凭据”**** 页面的所有访问都将记录在[活动日志](data-box-logs.md#query-activity-logs-during-setup)中。
+- 访问凭据，用于将数据复制到和复制出设备。 对 Azure 门户中的“设备凭据”页面的所有访问都将记录在[活动日志](data-box-logs.md#query-activity-logs-during-setup)中。
 
 ### <a name="data-box-data-protection"></a>Data Box 数据保护
 

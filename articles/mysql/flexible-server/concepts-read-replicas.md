@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420880"
+ms.locfileid: "94336057"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>读取 Azure Database for MySQL-灵活服务器中的副本
 
@@ -114,7 +114,7 @@ Azure Database for MySQL 灵活的服务器在 Azure Monitor 中以 **秒为单�
 
 ## <a name="considerations-and-limitations"></a>注意事项和限制
 
-| 场景 | 限制/注意事项 |
+| 方案 | 限制/注意事项 |
 |:-|:-|
 | 启用了区域冗余 HA 的服务器上的副本 | 不支持 |
 | 跨区域读取复制 | 不支持 |
@@ -125,7 +125,7 @@ Azure Database for MySQL 灵活的服务器在 Azure Monitor 中以 **秒为单�
 | 停止的副本 | 如果停止源服务器与只读副本之间的复制，已停止的副本会成为接受读取和写入操作的独立服务器。 独立服务器不能再次成为副本。 |
 | 已删除的源服务器和独立服务器 | 在删除源服务器时，会对所有只读副本都停止复制。 这些副本会自动成为独立服务器，并且可以接受读取和写入。 源服务器本身会被删除。 |
 | 用户帐户 | 源服务器上的用户会复制到只读副本。 只能使用源服务器上可用的用户帐户来连接到只读副本。 |
-| 服务器参数 | 为了防止数据不同步并避免潜在的数据丢失或损坏，使用读取副本时，会锁定某些服务器参数以防止其更新。 <br> 源服务器和副本服务器上都会锁定以下服务器参数：<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> 副本服务器上的 [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 参数处于锁定状态。 <br> 若要在源服务器上更新上述参数之一，请删除副本服务器，更新源上的参数值，然后重新创建副本。 |
+| 服务器参数 | 为了防止数据不同步并避免潜在的数据丢失或损坏，使用读取副本时，会锁定某些服务器参数以防止其更新。 <br> 源服务器和副本服务器上都会锁定以下服务器参数：<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> 副本服务器上的 [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 参数处于锁定状态。 <br> 若要在源服务器上更新上述参数之一，请删除副本服务器，更新源上的参数值，然后重新创建副本。 |
 | 其他 | -不支持创建副本副本。 <br> -内存中表可能会导致副本不同步。这是 MySQL 复制技术的限制。 有关详细信息，请阅读 [MySQL 参考文档](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html)中的更多信息。 <br>-确保源服务器表具有主键。 缺少主键可能会导致源和副本之间出现复制延迟。<br>-查看[mysql 文档](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)中的 mysql 复制限制的完整列表 |
 
 ## <a name="next-steps"></a>后续步骤

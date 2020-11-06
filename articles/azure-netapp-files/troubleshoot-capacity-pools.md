@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013638"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337553"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>排查容量池问题
 
@@ -38,7 +38,6 @@ ms.locfileid: "92013638"
 |-|-|
 | 不允许更改卷的容量池。 | 你可能尚未获得使用此功能的授权。 <br> 将卷移动到另一个容量池的功能当前处于预览阶段。 如果是首次使用此功能，则需要先注册该功能，然后再设置 `-FeatureName ANFTierChange` 。 请参阅 [动态更改卷的服务级别](dynamic-change-volume-service-level.md)中的注册步骤。 |
 | 容量池大小太小，无法限制总的卷大小。 |  此错误是由于目标容量池没有要移动的卷的可用容量而导致的。  <br> 增加目标池的大小，或选择更大的另一个池。  请参阅 [调整容量池或卷的大小](azure-netapp-files-resize-capacity-pools-or-volumes.md)。   |
-| 如果目标容量池的加密类型与原始容量池不同，则无法移动卷。  例如，从双重加密转换为单加密，反之亦然。  | 选择与源容量池具有相同加密类型的目标容量池。   |
 |  池更改无法完成，因为 `'{source pool name}'` 目标池中已存在一个名为的卷 `'{target pool name}'` | 发生此错误的原因是目标容量池中已存在具有相同名称的卷。  请选择没有相同名称的卷的另一个容量池。   | 
 
 ## <a name="next-steps"></a>后续步骤  

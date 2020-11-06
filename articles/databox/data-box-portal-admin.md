@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123709"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336358"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>使用 Azure 门户管理 Azure Data Box 和 Azure Data Box Heavy
 
@@ -34,11 +34,11 @@ ms.locfileid: "92123709"
 
 1.  转到“概况”>“取消”。 
 
-    ![取消订单 1](media/data-box-portal-admin/cancel-order1.png)
+    ![订单的 "概述" 选项卡上的 "取消" 命令](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  填写取消订单的原因。  
 
-    ![取消订单 2](media/data-box-portal-admin/cancel-order2.png)
+    !["取消顺序" 对话框](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  取消订单后，门户会更新订单的状态，并显示订单“已取消”。 
 
@@ -51,11 +51,11 @@ ms.locfileid: "92123709"
 
 执行以下步骤可以克隆导入顺序。
 
-1.  转到“概况”>“克隆”。**** 
+1.  转到“概况”>“克隆”。 
 
-    ![克隆订单 1](media/data-box-portal-admin/clone-order1.png)
+    ![订单的 "概述" 选项卡上的 "克隆" 命令](media/data-box-portal-admin/portal-admin-clone-command.png)
 
-2.  订单的所有详细信息保持不变。 订单名称是原始订单名称后接 *-Clone*。 选中表示确认你已查看隐私信息的复选框。 单击 **“创建”** 。
+2.  订单的所有详细信息保持不变。 订单名称是原始订单名称后接 *-Clone* 。 选中表示确认你已查看隐私信息的复选框。 单击“创建”。
 
 几分钟后将会创建克隆的订单，并且门户会更新，以显示新订单。
 
@@ -66,11 +66,11 @@ ms.locfileid: "92123709"
 
 只能删除已完成或已取消的订单。 执行以下步骤删除订单。
 
-1. 中转到 " **所有资源**"。 搜索订单。
+1. 中转到 " **所有资源** "。 搜索订单。
 
-2. 单击要删除的订单，并转到“概况”。**** 从命令栏中，单击“删除”****。
+2. 单击要删除的订单，并转到“概况”。 从命令栏中，单击“删除”。
 
-    ![删除 Data Box 订单 1](media/data-box-portal-admin/delete-order1.png)
+    ![订单的 "概述" 选项卡上的 "删除" 命令](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. 当系统提示确认删除订单时，请输入订单名称。 单击 **“删除”** 。
 
@@ -80,13 +80,13 @@ ms.locfileid: "92123709"
 
 执行以下步骤下载发货标签。
 
-1.  转到“概况”>“下载发货标签”。**** 只有在设备已发货后，此选项才可用。 
+1.  转到“概况”>“下载发货标签”。 只有在设备已发货后，此选项才可用。 
 
-    ![下载发货标签](media/data-box-portal-admin/download-shipping-label.png)
+    ![下载发货标签](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  这会将下载以下退件发货标签。 保存标签，并将其打印出来。折叠标签，并将其插入设备上的清除套管。 请确保标签可见。 清除在之前的发货中留在设备上的任何贴纸。
 
-    ![示例发货标签](media/data-box-portal-admin/example-shipping-label.png)
+    ![示例发货标签](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>编辑寄送地址
 
@@ -94,13 +94,13 @@ ms.locfileid: "92123709"
 
 执行以下步骤编辑订单。
 
-1. 转到“订单详细信息”>“编辑寄送地址”。****
+1. 转到“订单详细信息”>“编辑寄送地址”。
 
-    ![编辑寄送地址 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![按订单详细信息编辑送货地址命令](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. 编辑并验证寄送地址，然后保存更改。
 
-    ![编辑寄送地址 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    !["编辑送货地址" 对话框](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>编辑通知详细信息
 
@@ -108,13 +108,13 @@ ms.locfileid: "92123709"
 
 执行以下步骤编辑通知详细信息。
 
-1. 转到“订单详细信息”>“编辑通知详细信息”。****
+1. 转到“订单详细信息”>“编辑通知详细信息”。
 
-    ![编辑通知详细信息 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![按订单详细信息编辑通知详细信息](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. 现在可以编辑通知详细信息，然后保存更改。
  
-    ![编辑通知详细信息 2](media/data-box-portal-admin/edit-notification-details2.png)
+    !["编辑通知详细信息" 对话框](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>下载订单历史记录
@@ -123,11 +123,11 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 
 若要下载订单历史记录，请执行以下步骤。
 
-1. 在 Data Box 订单中，转到“概览”。**** 请确保订单完整。 如果订单完整且设备清理已完成，则请转到“订单详细信息”。**** “下载订单历史记录”选项可用。****
+1. 在 Data Box 订单中，转到“概览”。 请确保订单完整。 如果订单完整且设备清理已完成，则请转到“订单详细信息”。 “下载订单历史记录”选项可用。
 
-    ![下载订单历史记录](media/data-box-portal-admin/download-order-history-1.png)
+    ![下载订单历史记录](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. 单击“下载订单历史记录”。**** 在下载的历史记录中，会看到一个有关承运人跟踪日志的记录。 将有两组日志对应于 Data Box Heavy 上的两个节点。 如果向下滚动到该日志的底部，则可看到以下内容的链接：
+2. 单击“下载订单历史记录”。 在下载的历史记录中，会看到一个有关承运人跟踪日志的记录。 将有两组日志对应于 Data Box Heavy 上的两个节点。 如果向下滚动到该日志的底部，则可看到以下内容的链接：
     
    - **复制日志** -将误码数据复制过程中的文件列表从 Data Box 复制到 Azure 存储帐户 (导入订单) ， *反之亦然* (导出顺序) 。
    - **审核日志** - 包含有关当 Data Box 在 Azure 数据中心外部时如何启动它和访问其上共享的信息。
@@ -198,11 +198,11 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 
     然后，可以转到存储帐户并查看复制日志。
 
-![登录存储帐户](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![存储帐户的复制日志](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-也可查看包含审核日志和 BOM 文件的一系列监管日志。
+   你还可以查看保管日志链，其中包含审核日志和 BOM 文件。
 
-![存储帐户中的日志2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![存储帐户的保管链日志](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>查看订单状态
 
@@ -212,7 +212,7 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 
 下面是导入顺序的状态。
 
-|订单状态 |描述 |
+|订单状态 |说明 |
 |---------|---------|
 |已订购     | 已成功下单。 <br>如果设备有货，Microsoft 会确定要发货的设备，并准备设备。 <br> 如果不是可以立即提供设备，则将在有设备可用时处理订单。 订单可能需要花费几天到几个月的时间来进行处理。 如果不能在 90 天内履行订单，则订单将取消并且会向你发送通知。         |
 |已处理     | 订单处理已完成。 根据你的订单，在数据中心内做好了设备的发货准备工作。         |
@@ -231,7 +231,7 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 
 下面是导出顺序的状态。
 
-|订单状态 |描述 |
+|订单状态 |说明 |
 |---------|---------|
 |已订购     | 已成功放置导出顺序。 <br>如果设备有货，Microsoft 会确定要发货的设备，并准备设备。 <br> 如果不是可以立即提供设备，则将在有设备可用时处理订单。 订单可能需要花费几天到几个月的时间来进行处理。 如果不能在 90 天内履行订单，则订单将取消并且会向你发送通知。         |
 |已取消            |订单已取消。 <br> 您取消了订单 (您只能在处理订单之前取消) 或遇到错误，服务取消了订单。 如果不能在 90 天内履行订单，则订单也将取消并且会向你发送通知。     |
@@ -254,7 +254,7 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 
 如果使用自行管理的装运，则在复制完成后，在收到设备之前，你会看到以下状态 (，而不是上表中提到的状态) ：
 
-|订单状态 |描述 |
+|订单状态 |说明 |
 |---------|---------|
 |准备好在 Azure 数据中心进行装货      |设备已准备好，可以在 Azure 数据中心选取。        |
 |已提货    |你已选择设备。         |

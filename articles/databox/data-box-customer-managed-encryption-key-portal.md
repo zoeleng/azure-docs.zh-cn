@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739929"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337692"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>将 Azure 密钥保管库中的客户管理的密钥用于 Azure Data Box
 
@@ -55,40 +55,40 @@ Azure Data Box 可通过加密密钥保护用于锁定设备的设备解锁密�
 
     ![选择客户管理的密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-5. 在“从 Azure Key Vault 中选择密钥”边栏选项卡中，订阅会自动填充。 对于“密钥保管库”，可以从下拉列表中选择现有的密钥保管库。
+4. 在“从 Azure Key Vault 中选择密钥”边栏选项卡中，订阅会自动填充。 对于“密钥保管库”，可以从下拉列表中选择现有的密钥保管库。
 
-    ![创建新的 Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+    ![选择现有 Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
     还可以选择“新建”来创建新的密钥保管库。 在“创建密钥保管库”边栏选项卡中，输入资源组和密钥保管库名称。 确保已启用“软删除”和“清除保护”。 接受其他所有默认值。 选择“查看 + 创建”。
 
-    ![新建 Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![查看并创建 Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-7. 查看与密钥保管库关联的信息，然后选择“创建”。 等待几分钟，以便完成密钥保管库的创建。
+5. 查看与密钥保管库关联的信息，然后选择“创建”。 等待几分钟，以便完成密钥保管库的创建。
 
-    ![创建 Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+    ![创建具有设置的 Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-8. 在“从 Azure Key Vault 中选择密钥”中，可以选择现有密钥保管库中的密钥。
+6. 在“从 Azure Key Vault 中选择密钥”中，可以选择现有密钥保管库中的密钥。
 
-    ![在 Azure Key Vault 3 中创建新密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![从 Azure Key Vault 中选择密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. 如果要创建新密钥，请选择“新建”以创建密钥。 RSA 密钥大小可以是 2048 或更大。
+7. 如果要创建新密钥，请选择“新建”以创建密钥。 RSA 密钥大小可以是 2048 或更大。
 
-    ![在 Azure Key Vault 4 中创建新密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![在 Azure Key Vault 中创建新密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-10. 提供密钥的名称，接受其他默认值，然后选择“创建”。 
+8. 提供密钥的名称，接受其他默认值，然后选择“创建”。
 
-    ![创建新密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+    ![命名新密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. 系统会通知你已在密钥保管库中创建了密钥。 选择“版本”，然后选择“选择”。
+9. 系统会通知你已在密钥保管库中创建了密钥。 选择“版本”，然后选择“选择”。
 
-    ![在密钥保管库中创建的新密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![选择新密钥的版本](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. 在“加密类型”窗格中，可以看到为客户管理的密钥选择的密钥保管库和密钥。
+10. 在“加密类型”窗格中，可以看到为客户管理的密钥选择的密钥保管库和密钥。
 
     ![用于客户管理的密钥的密钥和密钥保管库](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-13. 保存密钥。 
+11. 保存密钥。 
 
     ![保存客户管理的密钥](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 

@@ -3,12 +3,12 @@ title: 概念-私有云和群集
 description: 了解 Azure VMware 解决方案软件定义的数据中心和 vSphere 群集的主要功能。
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: b261eb0517e9890d9bccf12f2e5748626f4c1ff9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791012"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337315"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 解决方案私有云和群集概念
 
@@ -52,9 +52,9 @@ Azure VMware 解决方案私有云群集中使用的 VMware 软件的当前软�
 
 | 软件              |    版本   |
 | :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6.7 U2    | 
-| ESXi                  |    6.7 U2    | 
-| vSAN                  |    6.7 U2    |
+| VCSA/vSphere/ESXi |    6.7 U3    | 
+| ESXi                  |    6.7 U3    | 
+| vSAN                  |    6.7 U3    |
 | NSX-T                 |      2.5     |
 
 对于私有云中的任何新群集，软件版本均与当前运行的版本匹配。 对于订阅中的任何新私有云，将安装软件堆栈的最新版本。
