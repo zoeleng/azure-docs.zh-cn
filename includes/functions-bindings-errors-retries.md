@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 285c3bf37e9d6de042cb028745fc8b094d34c3a1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284384"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406767"
 ---
 Azure Functions 中引发的错误可能来自以下任一来源：
 
@@ -23,15 +23,15 @@ Azure Functions 中引发的错误可能来自以下任一来源：
 - [启用 Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [使用结构化错误处理](#use-structured-error-handling)
 - [幂等性设计](../articles/azure-functions/functions-idempotent.md)
-- [实施重试策略](#retry-policies)（如果适用）
+- [实施重试策略](#retry-policies-preview)（如果适用）
 
 ### <a name="use-structured-error-handling"></a>使用结构化错误处理
 
 捕获和记录错误对于监视应用程序的运行状况非常重要。 任何函数代码的最顶层应包含 try/catch 块。 在 catch 块中，可以捕获和记录错误。
 
-## <a name="retry-policies"></a>重试策略
+## <a name="retry-policies-preview"></a>重试策略 (预览) 
 
-可在函数应用中任何触发器类型的任何函数上定义重试策略。  重试策略会重新执行函数，直到成功执行或发生最大重试次数。  可以为应用中的所有函数或单个函数定义重试策略。  默认情况下，函数应用将不会重试 (来自 [触发器源) 上具有重试策略的特定触发器](#trigger-specific-retry-support) 的消息。  每当执行导致未捕获的异常时，都会计算重试策略。  最佳做法是，应捕获代码中的所有异常，并重新引发应该导致重试的任何错误。  在完成执行的重试策略之前，不会写入事件中心和 Azure Cosmos DB 检查点，这意味着在完成当前批处理之前，将暂停该分区上的进度。
+可在函数应用中任何触发器类型的任何函数上定义重试策略。  重试策略会重新执行函数，直到成功执行或发生最大重试次数。  可以为应用中的所有函数或单个函数定义重试策略。  默认情况下，函数应用将不会重试 (来自 [触发器源) 上具有重试策略的特定触发器](#using-retry-support-on-top-of-trigger-resilience) 的消息。  每当执行导致未捕获的异常时，都会计算重试策略。  最佳做法是，应捕获代码中的所有异常，并再次引发应该导致重试的任何错误。  在完成执行的重试策略之前，不会写入事件中心和 Azure Cosmos DB 检查点，这意味着在完成当前批处理之前，将暂停该分区上的进度。
 
 ### <a name="retry-policy-options"></a>重试策略选项
 
@@ -57,6 +57,8 @@ Azure Functions 中引发的错误可能来自以下任一来源：
 #### <a name="fixed-delay-retry"></a>固定延迟重试
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+重试需要 NuGet [>包 3.0.23](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) =
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -152,6 +154,8 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 #### <a name="exponential-backoff-retry"></a>指数回退重试
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+重试需要 NuGet [>包 3.0.23](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) =
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -255,12 +259,27 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 |minimumInterval|n/a|使用策略时的最小重试延迟时间 `exponentialBackoff` 。|
 |maximumInterval|n/a|使用策略时的最大重试延迟时间 `exponentialBackoff` 。| 
 
-## <a name="trigger-specific-retry-support"></a>触发器特定的重试支持
+### <a name="retry-limitations-during-preview"></a>预览期间的重试限制
 
-某些触发器在触发器源上提供重试。  除函数应用主机重试策略外，还可以使用这些触发器重试作为替代。  如果需要固定的重试次数，则应使用针对通用主机重试策略的特定于触发器的重试策略。  以下触发器支持在触发器源处重试：
+- 对于 .NET 项目，可能需要手动拉取版本的 [3.0.23 >=](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) 。
+- 在消耗计划中，应用可在重试队列中的最后一条消息时缩小到零。
+- 在消耗计划中，应用在执行重试时可能会缩小。  为获得最佳结果，请选择重试间隔 <= 00:01:00，并 <= 5 次重试。
+
+## <a name="using-retry-support-on-top-of-trigger-resilience"></a>在触发器复原能力顶部使用重试支持
+
+函数应用重试策略与触发器提供的任何重试或复原无关。  函数重试策略只会在触发弹性重试的基础上进行分层。  例如，如果使用 Azure 服务总线，则默认情况下队列的消息传递计数为10。  默认传递计数是指在10次尝试传递队列消息后，服务总线会将消息死信。  你可以为包含服务总线触发器的函数定义重试策略，但重试会在服务总线传递尝试的基础上进行层级重试。  
+
+例如，如果你使用了默认的服务总线传递计数10，并定义了函数重试策略5。  消息将首先取消排队，并将服务总线传递帐户递增到1。  如果每个执行都失败，则在5次尝试触发同一消息后，该消息将被标记为已放弃。  服务总线会立即重新排队消息，它将触发函数并将传递计数递增到2。  最后，50最终尝试 (10 个 service bus 传递 * 每个传递) 5 次函数重试，将放弃该消息并在服务总线上触发死信。
+
+> [!WARNING]
+> 建议不要将触发器（如服务总线队列）的传递计数设置为1，这意味着在单个函数重试循环后，消息将立即死信。  这是因为，触发器通过重试提供了复原能力，而函数重试策略是最有效的，可能导致的重试次数小于所需的总次数。
+
+### <a name="triggers-with-additional-resiliency-or-retries"></a>具有额外复原或重试的触发器
+
+以下触发器支持在触发器源处重试：
 
 * [Azure Blob 存储](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Azure 队列存储](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure 服务总线（队列/主题）](../articles/azure-functions/functions-bindings-service-bus.md)
 
-默认情况下，这些触发器最多重试请求五次。 第五次重试后，Azure 队列存储和 Azure 服务总线触发器将消息写入 [有害队列](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages)。
+默认情况下，大多数触发器最多会重试五次。 第五次重试后，Azure 队列存储将向 [病毒队列](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages)写入一条消息。  尝试10次后，默认的服务总线队列和主题策略会将消息写入 [死信队列](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) 。
