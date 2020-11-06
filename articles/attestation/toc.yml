@@ -13,7 +13,7 @@
       href: quickstart-powershell.md
 - name: 教程
   items:
-    - name: 创作证明策略并对其签名
+    - name: 创作证明策略
       href: author-sign-policy.md
     - name: SGX 证明代码示例
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: 用于 Linux 的 Azure DCAP 库
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: 排查问题
+      href: troubleshoot-guide.md
     - name: VBS 证明协议
       href: virtualization-based-security-protocol.md

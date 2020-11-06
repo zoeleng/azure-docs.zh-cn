@@ -4,6 +4,10 @@
   items:
     - name: 关于实验室服务
       href: lab-services-overview.md
+- name: 快速入门
+  items:
+    - name: 入门
+      href: get-started-manage-labs.md
 - name: 教程
   items:
     - name: 设置实验室帐户

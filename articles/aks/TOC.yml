@@ -154,6 +154,8 @@
           href: cluster-container-registry-integration.md
         - name: 创建虚拟节点
           items:
+            - name: 使用虚拟节点
+              href: virtual-nodes.md
             - name: 使用 Azure CLI
               href: virtual-nodes-cli.md
             - name: 使用 Azure 门户

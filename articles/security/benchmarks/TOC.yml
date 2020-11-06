@@ -179,7 +179,5 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: 虚拟网络安全基线
       href: ../../virtual-network/security-baseline.md
-    - name: 虚拟 WAN 安全基线
-      href: ../../virtual-wan/security-baseline.md
     - name: VPN 网关安全基线
       href: ../../vpn-gateway/security-baseline.md
