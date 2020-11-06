@@ -1,6 +1,6 @@
 ---
 title: Web 服务输入/输出：模块参考
-description: 了解 Azure 机器学习设计器中的 Web 服务模块
+description: 了解如何使用 Azure 机器学习设计器中的 web 服务模块来管理输入和输出。
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 475ad3de8e0a7636a14949d4fcd8a5ec2812ad5e
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310032"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421118"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Web 服务输入和 Web 服务输出模块
 

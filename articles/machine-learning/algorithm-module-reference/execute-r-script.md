@@ -1,7 +1,7 @@
 ---
 title: 执行 R 脚本：模块引用
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 机器学习中的“执行 R 脚本”模块来运行 R 代码。
+description: 了解如何使用 Azure 机器学习设计器中的 "执行 R 脚本" 模块来运行自定义 R 代码。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323739"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420812"
 ---
 # <a name="execute-r-script-module"></a>“执行 R 脚本”模块
 

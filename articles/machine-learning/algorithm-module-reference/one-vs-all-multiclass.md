@@ -1,7 +1,7 @@
 ---
 title: “一对多”多类分类
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 机器学习中的“一对多”多类分类模块通过一组二元分类模型创建多类分类模型。
+description: 了解如何使用 Azure 机器学习设计器中的“一对多”多类分类模块创建二进制分类模型的系综。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898507"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420676"
 ---
 # <a name="one-vs-all-multiclass"></a>“一对多”多类分类
 

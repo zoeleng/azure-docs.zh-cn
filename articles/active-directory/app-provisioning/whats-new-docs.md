@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 应用程序设置中的新增功能
 description: Azure Active Directory 应用程序预配的新文档和更新的文档。
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -10,22 +10,42 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 83375eebdbe46fc0132f1fcf0b6d11457aa0e897
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424550"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420999"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 应用程序预配：新增功能
 
 欢迎使用 Azure Active Directory 应用程序预配文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。 若要了解预配服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
 
+## <a name="october-2020"></a>2020 年 10 月
+
+### <a name="new-articles"></a>新文章
+
+- [了解预配如何与 Azure Monitor 日志集成](application-provisioning-log-analytics.md)
+
+### <a name="updated-articles"></a>更新的文章
+
+- [预配工作原理](how-provisioning-works.md)
+- [了解预配如何与 Azure Monitor 日志集成](application-provisioning-log-analytics.md)
+- [为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射](customize-application-attributes.md)
+- [用于在 Azure AD 中编写属性映射的表达式的参考](functions-for-customizing-application-data.md)
+- [教程 - 使用 Azure AD 生成 SCIM 终结点并配置用户预配](use-scim-to-provision-users-and-groups.md)
+- [为多租户应用程序启用自动用户预配](isv-automatic-provisioning-multi-tenant-apps.md)
+- [已知问题：应用程序预配](known-issues.md)
+- [规划自动用户预配部署](plan-auto-user-provisioning.md)
+- [规划云 HR 应用程序以 Azure Active Directory 用户预配](plan-cloud-hr-provision.md)
+- [按需预配](provision-on-demand.md)
+
+
 ## <a name="september-2020"></a>2020 年 9 月
 
 ### <a name="new-articles"></a>新文章
 
-- [Docs 中的新增内容](whats-new-docs.md)
+- [文档有哪些新功能？](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>更新的文章
 - [隔离状态的应用程序设置](application-provisioning-quarantine-status.md)

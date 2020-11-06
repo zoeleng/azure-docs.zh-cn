@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276949"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420474"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本文介绍 Azure Active Directory (Azure AD) Connect 的先决条件和硬件要求。
@@ -42,7 +42,7 @@ ms.locfileid: "92276949"
 
 ### <a name="on-premises-active-directory"></a>本地 Active Directory
 * Active Directory 架构版本与林功能级别必须是 Windows Server 2003 或更高版本。 只要符合架构版本和林级别的要求，域控制器就能运行任何版本。
-* 若打算使用密码写回功能，必须在 Windows Server 2008 R2 或更高版本上安装域控制器。
+* 如果计划使用 *密码写回* 功能，则域控制器必须在 Windows Server 2012 或更高版本上。
 * Azure AD 使用的域控制器必须可写。 不支持使用只读域控制器 (RODC)，Azure AD Connect 不遵循任何写入重定向。
 * 不支持通过“以点分隔的”（名称包含句点“.”）NetBIOS 名称来使用本地林或域。
 * 建议[启用 Active Directory 回收站](how-to-connect-sync-recycle-bin.md)。
@@ -230,4 +230,4 @@ Azure AD Connect 在安装了 Azure AD Connect 的服务器上安装以下组件
 * Azure VM：A2 配置或更高
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
+了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。

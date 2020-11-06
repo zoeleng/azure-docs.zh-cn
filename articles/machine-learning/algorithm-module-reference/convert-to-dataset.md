@@ -1,7 +1,7 @@
 ---
 title: 转换为数据集：模块参考
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 机器学习中的“转换为数据集”模块将数据输入转换为 Microsoft Azure 机器学习使用的内部数据集格式。
+description: 了解如何使用 Azure 机器学习设计器中的 "转换为数据集" 模块将数据输入转换为内部数据集格式。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9c014f14149b903713ae2f03b98956cd4ecaf8a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323057"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420863"
 ---
 # <a name="convert-to-dataset"></a>转换为数据集
 

@@ -1,7 +1,7 @@
 ---
 title: 双类提升决策树：模块参考
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 机器学习中的“双类提升决策树”模块，以便根据提升决策树算法创建机器学习模型。
+description: 了解如何使用设计器中的 "Two-Class 提升决策树" 模块来创建二进制分类器。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907739"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420608"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>“双类提升决策树”模块
 
-本文介绍 Azure 机器学习设计器中的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以根据提升决策树算法创建机器学习模型。 
 
@@ -34,13 +34,13 @@ ms.locfileid: "90907739"
 
 你可以使用[训练模型](././train-model.md)来训练这种类型的模型。 
 
-1.  在 Azure 机器学习中，将**提升决策树**模块添加到你的管道。
+1.  在 Azure 机器学习中，将 **提升决策树** 模块添加到你的管道。
   
 2.  通过设置“创建训练程序模式”选项，指定要如何对模型进行训练。
   
-    + “单个参数”****：如果你知道自己想要如何配置模型，可以提供一组特定的值作为参数。
+    + “单个参数”：如果你知道自己想要如何配置模型，可以提供一组特定的值作为参数。
   
-    + **参数范围**：如果不确定最佳参数，可以使用[优化模型超参数](tune-model-hyperparameters.md)模块来找到最佳参数。 你提供某个值范围，然后训练程序就会循环访问多个设置组合，以确定可产生最佳结果的值组合。
+    + **参数范围** ：如果不确定最佳参数，可以使用 [优化模型超参数](tune-model-hyperparameters.md)模块来找到最佳参数。 你提供某个值范围，然后训练程序就会循环访问多个设置组合，以确定可产生最佳结果的值组合。
   
 3.  对于“每个树的最大叶数”，请指定可在任何树中创建的终端节点（叶）的最大数目。
   
@@ -83,7 +83,7 @@ ms.locfileid: "90907739"
 
 + 若要保存已训练模型的快照，请选择“训练模型”模块右侧面板中的“输出”选项卡。 选择“注册数据集”图标将模型保存为可重用模块。
 
-+ 若要使用模型进行评分，请向管道中添加**评分模型**模块。
++ 若要使用模型进行评分，请向管道中添加 **评分模型** 模块。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,7 +1,7 @@
 ---
 title: 选择列转换：模块参考
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 机器学习中的“选择列转换”模块来创建一个转换，以用于选择与给定数据集中相同的列子集。
+description: 了解如何使用 Azure 机器学习设计器中的 "选择列" 转换模块来执行 select 转换。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f03840e55366d7f105ca4b57bd60061c82833e72
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945579"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420710"
 ---
 # <a name="select-columns-transform"></a>选择列转换
 
-本文介绍如何使用 Azure 机器学习设计器中的 "选择列转换" 模块。 “选择列转换”模块的用途是确保在下游机器学习操作中使用可预测、一致的列集。
+本文介绍如何使用 Azure 机器学习设计器中的“选择列转换”模块。 “选择列转换”模块的用途是确保在下游机器学习操作中使用可预测、一致的列集。
 
 此模块对于需要特定列的任务（例如评分）很有帮助。 可用列中的更改可能会破坏管道或改变结果。
 

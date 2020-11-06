@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544828"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417582"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL 单服务器中的计划内维护通知
 
@@ -48,7 +48,7 @@ Azure Database for MySQL 服务执行基础硬件、操作系统和数据库引�
 
 1. 在 [Azure 门户](https://portal.azure.com)中，选择 " **服务运行状况** "。
 2. 选择 **计划的维护** 选项卡
-3. 选择要检查计划内维护通知的 " **订阅** "、"区域" 和 " **服务** "。 
+3. 选择要检查计划内维护通知的 " **订阅** "、" **区域** " 和 " **服务** "。 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>接收计划内维护通知
 

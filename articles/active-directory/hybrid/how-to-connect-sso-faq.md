@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658343"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420473"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 无缝单一登录：常见问题
 
@@ -64,7 +64,7 @@ Seamless SSO 是一项免费功能，不需要拥有任何付费版本的 Azure 
 
 是的。 在 Azure AD Connect 中进行配置时，无缝 SSO 支持将 `Alternate ID` 作为用户名，如[此处](how-to-connect-install-custom.md)所示。 并非所有 Microsoft 365 的应用程序都支持 `Alternate ID` 。 有关支持声明，请参阅特定应用程序文档。
 
-**问：[Azure AD 加入](../devices/overview.md)与无缝 SSO 提供的单一登录体验有何不同？**
+**问： [Azure AD 加入](../devices/overview.md)与无缝 SSO 提供的单一登录体验有何不同？**
 
 如果用户的设备注册了 Azure AD，[Azure AD 加入](../devices/overview.md)会向用户提供 SSO。 这些设备不必已加入域。 使用主刷新令牌或 PRT（而非 Kerberos）提供 SSO。  用户体验在 Windows 10 设备上最佳。 在 Microsoft Edge 浏览器上，SSO 会自动实现。 也可在 Chrome 上实现，但需要使用浏览器扩展插件。
 
@@ -107,9 +107,12 @@ Seamless SSO 是一项免费功能，不需要拥有任何付费版本的 Azure 
    >如果你不是域管理员，并且域管理员已为你分配了权限，则应该调用 `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. 针对已设置了此功能的每个 AD 林重复上述步骤。
+   
+  >[!NOTE]
+   >如果要更新的林不是 Azure AD Connect，请确保与全局编录服务器的连接 (TCP 3268 和 TCP 3269) 可用。
 
    >[!IMPORTANT]
-   >确保运行 `Update-AzureADSSOForest` 命令_没有_超过一次。 否则，在用户的 Kerberos 票证过期并由本地 Active Directory 再次发布之前，此功能将停止运行。
+   >确保运行 `Update-AzureADSSOForest` 命令 _没有_ 超过一次。 否则，在用户的 Kerberos 票证过期并由本地 Active Directory 再次发布之前，此功能将停止运行。
 
 **问：如何禁用无缝 SSO？**
 

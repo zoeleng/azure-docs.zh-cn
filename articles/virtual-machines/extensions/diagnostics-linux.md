@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893397"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421067"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -74,6 +74,29 @@ Linux 诊断扩展支持以下分发和版本。 分发和版本的列表仅适�
 * **Azure CLI** 。 在计算机上[设置 Azure CLI](/cli/azure/install-azure-cli) 环境。
 * wget 命令（如果尚无此命令，请运行 `sudo apt-get install wget`。
 * 现有 Azure 订阅以及用于存储数据的现有常规用途存储帐户。  常规用途存储帐户支持必需的表存储。  Blob 存储帐户将不起作用。
+* Python 2
+
+### <a name="python-requirement"></a>Python 要求
+
+Linux 诊断扩展需要 Python 2。 如果虚拟机使用的发行版默认情况下不包括 Python 2，则必须进行安装。 以下示例命令将在不同的发行版上安装 Python 2。    
+
+ - Red Hat、CentOS、Oracle：`yum install -y python2`
+ - Ubuntu、Debian：`apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+Python2 可执行文件必须化名为 *python* 。 下面是可以用来设置此别名的一种方法：
+
+1. 运行以下命令以删除所有现有别名。
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. 运行以下命令以创建别名。
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>示例安装
 
@@ -793,7 +816,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 这是 Microsoft Azure 存储资源管理器会话的快照，它显示了测试 VM 上正确配置的 LAD 3.0 扩展生成的 Azure 存储表和容器。 此图与[示例 LAD 3.0 配置](#an-example-lad-30-configuration)不完全匹配。
 
-![image](./media/diagnostics-linux/stg_explorer.png)
+![图像](./media/diagnostics-linux/stg_explorer.png)
 
 请参阅相关 [EventHubs 文档](../../event-hubs/event-hubs-about.md)，了解如何使用发布到 EventHubs 终结点的消息。
 
