@@ -80,6 +80,8 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: 使用 Kubernetes 服务 (AKS)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+        - name: 认知服务容器文档
+          href: ../containers/index.yml
     - name: 迁移到 API 的版本 3
       href: migration-guide.md
 - name: 参考

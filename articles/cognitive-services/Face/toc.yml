@@ -69,6 +69,8 @@
           href: face-resource-container-config.md
         - name: 使用容器实例
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+        - name: 认知服务容器文档
+          href: ../containers/index.yml
 - name: 参考
   items:
     - name: 人脸 API

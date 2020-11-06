@@ -39,8 +39,6 @@
           href: how-to-automatic-language-detection.md
         - name: 使用批量听录 API
           href: batch-transcription.md
-        - name: 评估发音
-          href: how-to-pronunciation-assessment.md
     - name: 教程
       items:
         - name: 识别存储在 Blob 存储中的语音
@@ -530,6 +528,8 @@
           href: deploy-speech-on-container-instances.md
         - name: 容器常见问题解答
           href: speech-container-faq.md
+        - name: 认知服务容器文档
+          href: ../containers/index.yml
 - name: 设备
   items:
     - name: 语音设备文档
