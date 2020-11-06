@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 11/05/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fa8794066739302d2f32acb13c936c524dc89a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489704"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422342"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>通过 Azure CLI、REST API 创建和管理只读副本
 
@@ -27,7 +27,9 @@ ms.locfileid: "92489704"
 * **副本** - 比“关闭”详细。 这是运行[只读副本](concepts-read-replicas.md)所需的最低日志记录级别。 此设置是大多数服务器上的默认设置。
 * **逻辑** - 比“副本”详细。 这是运行逻辑解码所需的最低日志记录级别。 使用此设置时，只读副本也可以运行。
 
-更改此参数后，需要重启服务器。 在内部，此参数设置 Postgres 参数 `wal_level`、`max_replication_slots` 和 `max_wal_senders`。
+
+> [!NOTE]
+> 在为持久的大量写入密集型主工作负载部署读取副本时，复制滞后时间可能会持续增长，并可能永远无法与主工作负载进行追赶。 这也可能会在主副本上增加存储使用量，因为在副本收到 WAL 文件之前，不会删除这些文件。
 
 ## <a name="azure-cli"></a>Azure CLI
 可以使用 Azure CLI 创建和管理只读副本。
@@ -35,7 +37,7 @@ ms.locfileid: "92489704"
 ### <a name="prerequisites"></a>先决条件
 
 - [安装 Azure CLI 2.0](/cli/azure/install-azure-cli)
-- 作为主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md) 。
+- 将用作主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md)。
 
 
 ### <a name="prepare-the-primary-server"></a>准备主服务器
@@ -83,24 +85,24 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > [!NOTE]
 > 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。 
 
-如果未将参数设置 `azure.replication_support` 为常规用途或内存优化主服务器上的 **副本** ，并重新启动服务器，则会收到错误。 请在创建副本之前完成这两个步骤。
+如果尚未在“常规用途”或“内存优化”主服务器上将 `azure.replication_support` 参数设置为“REPLICA”并重启服务器，将会收到错误。 请在创建副本之前完成这两个步骤。
 
 > [!IMPORTANT]
 > 查看[“只读副本”概述的注意事项部分](concepts-read-replicas.md#considerations)。
 >
-> 在主服务器设置更新为新值之前，请将副本设置更新为一个相等或更大的值。 此操作可帮助副本与主服务器发生的任何更改保持同步。
+> 将主服务器设置更新为新值之前，请将副本设置更新为一个相等的或更大的值。 此操作可帮助副本与主服务器发生的任何更改保持同步。
 
 ### <a name="list-replicas"></a>列出副本
-您可以使用 [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) 命令查看主服务器的副本列表。
+可以使用 [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) 命令查看主服务器的副本列表。
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>停止复制到副本服务器
-您可以使用 [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) 命令停止主服务器和读取副本之间的复制。
+可以使用 [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) 命令停止主服务器和只读副本之间的复制。
 
-停止复制到主服务器和读取副本后，无法撤消。 只读副本将成为支持读取和写入的独立服务器。 独立服务器不能再次成为副本。
+停止复制到主服务器和只读副本后，无法撤消该操作。 只读副本将成为支持读取和写入的独立服务器。 独立服务器不能再次成为副本。
 
 ```azurecli-interactive
 az postgres server replica stop --name mydemoserver-replica --resource-group myresourcegroup 
@@ -109,7 +111,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ### <a name="delete-a-primary-or-replica-server"></a>删除主服务器或副本服务器
 若要删除主服务器或副本服务器，请使用 [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) 命令。
 
-删除主服务器时，将停止复制到所有读取副本。 只读副本将成为支持读取和写入的独立服务器。
+删除主服务器后，将停止复制到所有只读副本的操作。 只读副本将成为支持读取和写入的独立服务器。
 
 ```azurecli-interactive
 az postgres server delete --name myserver --resource-group myresourcegroup
@@ -166,25 +168,25 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。 
 
-如果未将参数设置 `azure.replication_support` 为常规用途或内存优化主服务器上的 **副本** ，并重新启动服务器，则会收到错误。 请在创建副本之前完成这两个步骤。
+如果尚未在“常规用途”或“内存优化”主服务器上将 `azure.replication_support` 参数设置为“REPLICA”并重启服务器，将会收到错误。 请在创建副本之前完成这两个步骤。
 
-使用与主服务器相同的计算和存储设置创建副本。 创建副本后，可以独立于主服务器更改多个设置：计算生成、Vcore、存储和备份保留期。 定价层也可以独立更改，但“基本”层除外。
+使用与主服务器相同的计算和存储设置创建副本。 创建副本后，可以独立于主服务器更改多项设置：计算代系、vCore 数、存储和备份保留期。 定价层也可以独立更改，但“基本”层除外。
 
 
 > [!IMPORTANT]
-> 在主服务器设置更新为新值之前，请将副本设置更新为一个相等或更大的值。 此操作可帮助副本与主服务器发生的任何更改保持同步。
+> 将主服务器设置更新为新值之前，请将副本设置更新为一个相等的或更大的值。 此操作可帮助副本与主服务器发生的任何更改保持同步。
 
 ### <a name="list-replicas"></a>列出副本
-您可以使用 [副本列表 API](/rest/api/postgresql/replicas/listbyserver)查看主服务器的副本列表：
+可以使用[副本列表 API](/rest/api/postgresql/replicas/listbyserver) 查看主服务器的副本列表：
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>停止复制到副本服务器
-您可以使用 [更新 API](/rest/api/postgresql/servers/update)来停止主服务器和读取副本之间的复制。
+可以使用[更新 API](/rest/api/postgresql/servers/update) 停止主服务器与只读副本之间的复制。
 
-停止复制到主服务器和读取副本后，无法撤消。 只读副本将成为支持读取和写入的独立服务器。 独立服务器不能再次成为副本。
+停止复制到主服务器和只读副本后，无法撤消该操作。 只读副本将成为支持读取和写入的独立服务器。 独立服务器不能再次成为副本。
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}?api-version=2017-12-01
@@ -199,9 +201,9 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>删除主服务器或副本服务器
-若要删除主服务器或副本服务器，请使用 [DELETE API](/rest/api/postgresql/servers/delete)：
+若要删除主服务器或副本服务器，请使用[删除 API](/rest/api/postgresql/servers/delete)：
 
-删除主服务器时，将停止复制到所有读取副本。 只读副本将成为支持读取和写入的独立服务器。
+删除主服务器后，将停止复制到所有只读副本的操作。 只读副本将成为支持读取和写入的独立服务器。
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}?api-version=2017-12-01

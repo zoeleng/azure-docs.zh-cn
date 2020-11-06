@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519599"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422087"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>使用托管标识设置与 Cosmos DB 数据库的索引器连接
 
@@ -55,7 +55,7 @@ ms.locfileid: "92519599"
 
 ### <a name="3---create-the-data-source"></a>3 - 创建数据源
 
-[REST API](/rest/api/searchservice/create-data-source)、Azure 门户和[.net SDK](/dotnet/api/microsoft.azure.search.models.datasource)支持托管标识连接字符串。 下面的示例演示如何使用 [REST API](/rest/api/searchservice/create-data-source) 和托管标识连接字符串创建数据源以索引 Cosmos DB 的数据。 对于 REST API、.NET SDK 和 Azure 门户，托管标识连接字符串格式是相同的。
+[REST API](/rest/api/searchservice/create-data-source)、Azure 门户和[.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype)支持托管标识连接字符串。 下面的示例演示如何使用 [REST API](/rest/api/searchservice/create-data-source) 和托管标识连接字符串创建数据源以索引 Cosmos DB 的数据。 对于 REST API、.NET SDK 和 Azure 门户，托管标识连接字符串格式是相同的。
 
 使用托管标识进行身份验证时， **凭据** 将不包括帐户密钥。
 
@@ -80,12 +80,12 @@ api-key: [Search service admin key]
 
 请求正文包含数据源定义，其中应包括以下字段：
 
-| 字段   | 描述 |
+| 字段   | 说明 |
 |---------|-------------|
 | name | 必需。 选择任意名称来表示你的数据源对象。 |
 |type| 必需。 必须是 `cosmosdb`。 |
-|**凭据** | 必需。 <br/><br/>使用托管标识进行连接时，凭据格式应为：*Database=[database-name];ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>ResourceId 格式：ResourceId=/subscriptions/你的订阅 ID/resourceGroups/你的资源组名称/providers/Microsoft.DocumentDB/databaseAccounts/你的 cosmos db 帐户名称/;*  *<br/><br/>对于 SQL 集合，连接字符串不需要 ApiKind。<br/><br/>对于 MongoDB 集合，将 ApiKind=MongoDb 添加到连接字符串。 <br/><br/>对于 Gremlin 图和 Cassandra 表，注册[封闭索引器预览](https://aka.ms/azure-cognitive-search/indexer-preview)以获取对预览版的访问权限，以及有关如何设置凭据格式的信息。<br/>|
-| **容器** | 包含下列元素： <br/>**名称**：必需。 指定要编制索引的数据库集合的 ID。<br/>**查询**：可选。 可以指定一个查询来将一个任意 JSON 文档平整成 Azure 认知搜索可编制索引的平面架构。<br/>对于 MongoDB API、Gremlin API 和 Cassandra API，不支持查询。 |
+|**凭据** | 必需。 <br/><br/>使用托管标识进行连接时，凭据格式应为： *Database=[database-name];ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>ResourceId 格式：ResourceId=/subscriptions/你的订阅 ID/resourceGroups/你的资源组名称/providers/Microsoft.DocumentDB/databaseAccounts/你的 cosmos db 帐户名称/; **<br/><br/>对于 SQL 集合，连接字符串不需要 ApiKind。<br/><br/>对于 MongoDB 集合，将 ApiKind=MongoDb 添加到连接字符串。 <br/><br/>对于 Gremlin 图和 Cassandra 表，注册[封闭索引器预览](https://aka.ms/azure-cognitive-search/indexer-preview)以获取对预览版的访问权限，以及有关如何设置凭据格式的信息。<br/>|
+| **容器** | 包含下列元素： <br/>**名称** ：必需。 指定要编制索引的数据库集合的 ID。<br/>**查询** ：可选。 可以指定一个查询来将一个任意 JSON 文档平整成 Azure 认知搜索可编制索引的平面架构。<br/>对于 MongoDB API、Gremlin API 和 Cassandra API，不支持查询。 |
 | **dataChangeDetectionPolicy** | 建议 |
 |**dataDeletionDetectionPolicy** | 可选 |
 

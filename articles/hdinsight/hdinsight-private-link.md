@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547412"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422291"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>通过专用链接 (预览) 保护和隔离 Azure HDInsight 群集
 
@@ -29,9 +29,9 @@ ms.locfileid: "92547412"
 
 默认虚拟网络体系结构中使用的基本负载均衡器会自动提供公共 NAT (网络地址转换) 来访问所需的出站依赖项，如 HDInsight RP。 如果要限制到公共 internet 的出站连接，可以 [配置防火墙](./hdinsight-restrict-outbound-traffic.md)，但这不是必需的。
 
-配置 `resourceProviderConnection` 到出站还允许使用专用终结点访问特定于群集的资源，例如 Azure Data Lake Storage Gen2 或外部元存储。 在创建 HDInsight 群集之前，必须先配置专用终结点和 DNS 条目。 建议在群集创建过程中创建并提供所需的所有外部 SQL 数据库，例如 Apache Ranger、Ambari、Oozie 和 Hive 元存储。
+配置 `resourceProviderConnection` 到出站还允许使用专用终结点访问特定于群集的资源，例如 Azure Data Lake Storage Gen2 或外部元存储。 使用这些资源的专用终结点并不 mandetory，但如果你计划为这些资源提供专用终结点，则必须配置 `before` 你创建 HDInsight 群集所需的专用终结点和 DNS 条目。 建议在创建群集时创建并提供所需的所有外部 SQL 数据库，例如 Apache Ranger、Ambari、Oozie 和 Hive 元存储。 需要的是，所有这些资源都必须可通过其自己的专用终结点从群集子网中进行访问，否则必须是可访问的。
 
-不支持 Azure Key Vault 的专用终结点。 如果使用 Azure Key Vault 进行静态 CMK 加密，则必须可从无专用终结点的 HDInsight 子网中访问 Azure Key Vault 终结点。
+不支持将专用终结点用于 Azure Key Vault。 如果使用 Azure Key Vault 进行静态 CMK 加密，则必须可从无专用终结点的 HDInsight 子网中访问 Azure Key Vault 终结点。
 
 下图显示了在设置为 "出站" 时可能的 HDInsight 虚拟网络体系结构可能如下所示 `resourceProviderConnection` ：
 
@@ -52,7 +52,7 @@ ms.locfileid: "92547412"
 
 ## <a name="enable-private-link"></a>启用专用链接
 
-默认情况下禁用的 "专用链接" 需要广泛的网络知识，以便在创建群集之前正确设置用户定义的路由 (UDR) 和防火墙规则。 仅当网络属性设置为 "出站" 时，才可以使用对群集的专用链接访问， `resourceProviderConnection` 如前一部分中所述。 *outbound*
+默认情况下禁用的 "专用链接" 需要广泛的网络知识，以便在创建群集之前正确设置用户定义的路由 (UDR) 和防火墙规则。 使用此设置是可选的，但仅当 `resourceProviderConnection` network 属性设置为 " *出站* " 时才可用，如前一部分中所述。
 
 如果 `privateLink` 设置为 " *启用* "，则会创建内部 [标准负载平衡](../load-balancer/load-balancer-overview.md) 器 (slb) ，并为每个 SLB 预配 Azure 专用链接服务。 专用链接服务可让你从专用终结点访问 HDInsight 群集。
 
@@ -64,11 +64,11 @@ ms.locfileid: "92547412"
 
 下图显示了创建群集之前所需的网络配置的示例。 在此示例中，在创建群集之前，将使用 UDR 将所有出站流量 [强制](../firewall/forced-tunneling.md) 发送到 Azure 防火墙，并将所需的出站依赖关系 "允许" 到防火墙上。 对于企业安全性套餐群集，可通过 VNet 对等互连提供与 Azure Active Directory 域服务的网络连接。
 
-:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="使用出站资源提供程序连接的 HDInsight 体系结构示意图":::
+:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="创建群集之前的专用链接环境示意图":::
 
 设置网络后，可以创建具有出站资源提供程序连接和启用了专用链接的群集，如下图所示。 在此配置中，没有为每个标准负载均衡器预配公共 Ip 和专用链接服务。
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="使用出站资源提供程序连接的 HDInsight 体系结构示意图":::
+:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="群集创建后的专用链接环境示意图":::
 
 ### <a name="access-a-private-cluster"></a>访问专用群集
 
@@ -84,7 +84,7 @@ ms.locfileid: "92547412"
 
 下图显示了从虚拟网络访问群集所需的专用 DNS 条目的示例，该网络不对等互连，或者无法直接访问群集负载平衡器。 你可以使用 Azure 专用区域替代 `*.privatelink.azurehdinsight.net` fqdn 并解析为你自己的专用终结点 IP 地址。
 
-:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="使用出站资源提供程序连接的 HDInsight 体系结构示意图":::
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="专用链接体系结构示意图":::
 
 ## <a name="arm-template-properties"></a>ARM 模板属性
 

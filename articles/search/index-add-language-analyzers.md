@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935871"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422325"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>向 Azure 认知搜索索引中的字符串字段添加语言分析器
 
@@ -133,4 +133,4 @@ Microsoft 分析器的索引平均比 Lucene 的索引慢两到三倍，具体�
 
 + [创建索引（Azure 认知搜索 REST API）](/rest/api/searchservice/create-index)  
 
-+ [AnalyzerName Class](/dotnet/api/microsoft.azure.search.models.analyzername)（AnalyzerName 类）
++ [LexicalAnalyzerName 类](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

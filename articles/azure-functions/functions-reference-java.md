@@ -4,12 +4,12 @@ description: 了解如何使用 Java 开发函数。
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927509"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422512"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -19,7 +19,7 @@ ms.locfileid: "92927509"
 
 | 入门 | 概念| 
 | -- | -- |  
-| <ul><li>[使用 Visual Studio Code 的 Java 函数](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[使用终端/命令提示符的 Java/Maven 函数](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[使用 Gradle 的 Java 函数](functions-create-first-java-gradle.md)</li><li>[使用 Eclipse 的 Java 函数](functions-create-maven-eclipse.md)</li><li>[使用 IntelliJ IDEA 的 Java 函数](functions-create-maven-intellij.md)</li></ul> | <ul><li>[开发人员指南](functions-reference.md)</li><li>[托管选项](functions-scale.md)</li><li>[性能注意事项](functions-best-practices.md)</li></ul> |
+| <ul><li>[使用 Visual Studio Code 的 Java 函数](./create-first-function-vs-code-java.md)</li><li>[使用终端/命令提示符的 Java/Maven 函数](./create-first-function-cli-java.md)</li><li>[使用 Gradle 的 Java 函数](functions-create-first-java-gradle.md)</li><li>[使用 Eclipse 的 Java 函数](functions-create-maven-eclipse.md)</li><li>[使用 IntelliJ IDEA 的 Java 函数](functions-create-maven-intellij.md)</li></ul> | <ul><li>[开发人员指南](functions-reference.md)</li><li>[托管选项](functions-scale.md)</li><li>[性能注意事项](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Java 函数基础知识
 
@@ -55,7 +55,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-若要开始使用此原型，请参阅 [Java 快速入门](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)。 
+若要开始使用此原型，请参阅 [Java 快速入门](./create-first-function-cli-java.md)。
 
 ## <a name="folder-structure"></a>文件夹结构
 
@@ -149,7 +149,7 @@ public class Function {
 
 ### <a name="specify-the-deployment-version"></a>指定部署版本
 
-可以使用 `-DjavaVersion` 参数来控制 Maven 原型的目标 Java 版本。 此参数的值可以是 `8` 或 `11` 。 
+可以使用 `-DjavaVersion` 参数来控制 Maven 原型的目标 Java 版本。 该参数的值可以是 `8` 或 `11`。 
 
 Maven 原型生成面向指定 Java 版本的 pom.xml。 pom.xml 文件中的以下元素指示要使用的 Java 版本：
 
@@ -225,7 +225,7 @@ az functionapp config appsettings set \
 ```
 ---
 
-此示例会启用无外设模式。 将 `<APP_NAME>` 替换为函数应用的名称，将 `<RESOURCE_GROUP>` 替换为资源组。 
+此示例将启用无外设模式。 将 `<APP_NAME>` 替换为函数应用的名称，将 `<RESOURCE_GROUP>` 替换为资源组。 
 
 ## <a name="third-party-libraries"></a>第三方库 
 

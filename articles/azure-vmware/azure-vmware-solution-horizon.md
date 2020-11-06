@@ -3,12 +3,12 @@ title: 在 Azure VMware 解决方案上部署地平线
 description: 了解如何在 Azure VMware 解决方案上部署 VMware 地平线。
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321355"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423092"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>在 Azure VMware 解决方案上部署地平线 
 
@@ -127,6 +127,18 @@ Azure 私有云在概念上与 VMware SDDC 相同，后者通常用于地平线�
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>为地平线部署的 Azure VMware 解决方案主机调整大小 
 
 在 Azure VMware 解决方案中运行的主机上，地平线大小的大小调整方法比本地范围更简单。  这是因为 Azure VMware 解决方案主机已标准化。  精确的主机大小有助于确定支持 VDI 要求所需的主机数。  它是确定每个桌面的成本的核心。
+
+### <a name="sizing-tables"></a>调整表大小
+
+这些表显示了登录到 .VSI 知识工作者工作负荷和辅助工作负荷的常见工作负荷。
+
+#### <a name="knowledge-worker-workloads"></a>知识工作者工作负荷
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="用于 VMware 的常用 VDI 配置文件的列表" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+
+#### <a name="power-worker-workloads"></a>Power worker 工作负荷
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="用于 VMware 的常用 VDI 配置文件表" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="azure-vmware-solution-host-instance"></a>Azure VMware 解决方案主机实例
 

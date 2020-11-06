@@ -4,25 +4,25 @@ description: 了解 IoT 即插即用。 IoT 即插即用基于开放式建模语
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4fd7a24edffbfb63adc830ddb83b45997743ad42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045034"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421628"
 ---
 # <a name="what-is-iot-plug-and-play"></a>什么是 IoT 即插即用？
 
 通过 IoT 即插即用，解决方案构建者无需进行任何手动配置即可将智能设备集成到解决方案中。 IoT 即插即用的核心是设备模型，设备通过设备模型将其功能告知支持 IoT 即插即用的应用程序。 该模型被构造为一组元素，这些元素定义以下内容：
 
-- _属性_：表示设备或其他实体的只读或可写状态。 例如，设备序列号可以是只读属性，而调温器上的目标温度可以是可写属性。
-- _遥测_：设备发出的数据，包括常规的传感器读数流、偶发性错误或信息消息。
-- _命令_：描述可在设备上执行的功能或操作。 例如，命令可以重新启动网关，或使用远程相机拍照。
+- _属性_ ：表示设备或其他实体的只读或可写状态。 例如，设备序列号可以是只读属性，而调温器上的目标温度可以是可写属性。
+- _遥测_ ：设备发出的数据，包括常规的传感器读数流、偶发性错误或信息消息。
+- _命令_ ：描述可在设备上执行的功能或操作。 例如，命令可以重新启动网关，或使用远程相机拍照。
 
 你可以在接口中对这些元素进行分组，以在模型之间重复使用，从而使协作更加轻松并加快开发速度。
 

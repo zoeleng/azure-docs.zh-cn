@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 应用程序管理的新增功能
 description: Azure Active Directory 的应用程序管理的新文档和更新的文档。
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,23 +10,41 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428028"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422597"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 应用程序管理：新增功能
 
 欢迎使用 Azure Active Directory 应用程序管理文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。 若要了解应用程序管理服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
+
+## <a name="october-2020"></a>2020 年 10 月
+
+### <a name="new-articles"></a>新文章
+
+- [Azure Active Directory 应用程序管理：新增功能](whats-new-docs.md)
+- [了解基于 OIDC 的单一登录](configure-oidc-single-sign-on.md)
+- [配置权限分类](configure-permission-classifications.md)
+- [配置组所有者对应用访问组数据的同意](configure-user-consent-groups.md)
+- [管理应用同意策略](manage-app-consent-policies.md)
+
+### <a name="updated-articles"></a>更新的文章
+
+- [登录到基于 SAML 的单一登录配置的应用时出现的问题](application-sign-in-problem-federated-sso-gallery.md)
+- [安装应用程序代理程序连接器时出现问题](application-proxy-connector-installation-problem.md)
+- [将应用程序身份验证从 Active Directory 联合身份验证服务移动到 Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [配置最终用户如何对应用程序表示同意](configure-user-consent.md)
+
 
 ## <a name="september-2020"></a>2020 年 9 月
 
 ### <a name="new-articles"></a>新文章
 - [快速入门：在 Azure Active Directory (Azure AD) 租户中为应用程序设置基于 OIDC 的单一登录 (SSO)](add-application-portal-setup-oidc-sso.md)
 - [快速入门：将用户分配到使用 Azure AD 作为标识提供者的应用](add-application-portal-assign-users.md)
-- [Docs 中的新增内容](whats-new-docs.md)
+- [文档有哪些新功能？](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>更新的文章

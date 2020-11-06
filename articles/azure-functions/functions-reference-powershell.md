@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108467"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422529"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 开发人员指南
 
@@ -20,7 +20,7 @@ PowerShell Azure function (函数) 表示为触发时执行的 PowerShell 脚本
 
 与其他类型的函数一样，PowerShell 脚本函数采用与在文件中定义的所有输入绑定的名称相匹配的参数 `function.json` 。 `TriggerMetadata`还传递了一个参数，该参数包含有关启动函数的触发器的附加信息。
 
-本文假定你已阅读 [Azure Functions 开发人员参考](functions-reference.md)。 还应已完成 PowerShell 的 [函数快速入门](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) ，以创建第一个 powershell 函数。
+本文假定你已阅读 [Azure Functions 开发人员参考](functions-reference.md)。 还应已完成 PowerShell 的 [函数快速入门](./create-first-function-vs-code-powershell.md) ，以创建第一个 powershell 函数。
 
 ## <a name="folder-structure"></a>文件夹结构
 
@@ -227,7 +227,7 @@ MyQueue                        myData
 
  ( * ) 支持通配符 `Get-OutputBinding` 。
 
-## <a name="logging"></a>Logging
+## <a name="logging"></a>日志记录
 
 PowerShell 函数中的日志记录类似于常规的 PowerShell 日志记录。 您可以使用日志记录 cmdlet 来写入每个输出流。 每个 cmdlet 都映射到函数使用的日志级别。
 
@@ -279,7 +279,7 @@ Azure Functions 允许您定义阈值级别，以便轻松控制函数写入日�
 * 字符串
 * byte[]
 * int
-* double
+* Double
 * HttpRequestContext
 * HttpResponseContext
 
@@ -297,7 +297,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 
 | 属性  | 说明                                                    | 类型                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 一个包含请求正文的对象。 `Body` 基于数据序列化为最佳类型。 例如，如果数据是 JSON，则以哈希表形式传递。 如果数据是字符串，则以字符串的形式传递。 | object |
+| **`Body`**    | 一个包含请求正文的对象。 `Body` 基于数据序列化为最佳类型。 例如，如果数据是 JSON，则以哈希表形式传递。 如果数据是字符串，则以字符串的形式传递。 | 对象 |
 | **`Headers`** | 包含请求标头的字典。                | Dictionary<string，string><sup>*</sup> |
 | **`Method`** | 请求的 HTTP 方法。                                | 字符串                    |
 | **`Params`**  | 一个包含请求的路由参数的对象。 | Dictionary<string，string><sup>*</sup> |
@@ -312,7 +312,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 
 | 属性      | 说明                                                 | 类型                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 一个包含响应正文的对象。           | object                    |
+| **`Body`**  | 一个包含响应正文的对象。           | 对象                    |
 | **`ContentType`** | 用于设置响应的内容类型的简短内容。 | 字符串                    |
 | **`Headers`** | 一个包含响应标头的对象。               | 字典或哈希表   |
 | **`StatusCode`**  | 响应的 HTTP 状态代码。                       | 字符串或整数             |
@@ -418,11 +418,11 @@ param([string] $myBlob)
 
 1. 在 [Azure 门户](https://portal.azure.com)中，浏览到你的函数应用。
 
-1. 在“设置”下，选择“配置”**** ****。 在 " **常规设置** " 选项卡中，找到 **PowerShell 版本**。 
+1. 在“设置”下，选择“配置” 。 在 " **常规设置** " 选项卡中，找到 **PowerShell 版本** 。 
 
-    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="选择 function app 使用的 PowerShell 版本&quot;::: 
+    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="选择 function app 使用的 PowerShell 版本"::: 
 
-1. 选择所需的 **PowerShell Core 版本** ，并选择 &quot; **保存**&quot;。 当警告你等待重新启动时，选择 " **继续**"。 函数应用在所选 PowerShell 版本上重新启动。 
+1. 选择所需的 **PowerShell Core 版本** ，并选择 " **保存** "。 当警告你等待重新启动时，选择 " **继续** "。 函数应用在所选 PowerShell 版本上重新启动。 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -525,7 +525,7 @@ PowerShell 语言辅助角色通常使用几个模块。 这些模块在的最�
 模块的当前列表如下所示：
 
 * 用于处理存档的[Microsoft PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)： module，如 `.zip` 、 `.nupkg` 和其他。
-* **ThreadJob**：一种基于线程的 PowerShell 作业 api 实现。
+* **ThreadJob** ：一种基于线程的 PowerShell 作业 api 实现。
 
 默认情况下，函数使用这些模块的最新版本。 若要使用特定模块版本，请将该特定版本放置在 `Modules` function app 的文件夹中。
 

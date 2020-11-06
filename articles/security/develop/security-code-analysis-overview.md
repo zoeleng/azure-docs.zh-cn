@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fd8fb2e40fa44c5aec3f14bfd586187c952df0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031239"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422427"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>关于 Microsoft 安全代码分析
 
@@ -39,7 +39,7 @@ ms.locfileid: "90031239"
 
 ### <a name="clean-builds"></a>清理生成
 
-解决工具所报告的初始问题后，可以将扩展配置为对新问题中断生成。在每个拉取请求上设置持续集成版本非常简单。
+解决工具所报告的初始问题后，可以将扩展配置为对新问题中断生成。 在每个拉取请求上设置持续集成版本非常简单。
 
 ### <a name="set-it-and-forget-it"></a>设置它并将其遗忘
 
@@ -73,7 +73,7 @@ BinSkim 是可移植的可执行文件 (PE) 轻型扫描程序，用于验证编
 
 ### <a name="roslyn-analyzers"></a>Roslyn 分析器
 
-Roslyn 分析器是 Microsoft 的编译器集成工具，用于静态分析托管 c # 和 Visual Basic 代码。 有关详细信息，请参阅 [基于 Roslyn 的分析器](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer)。
+Roslyn 分析器是 Microsoft 的编译器集成工具，用于静态分析托管 c # 和 Visual Basic 代码。 有关详细信息，请参阅 [基于 Roslyn 的分析器](https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/security-warnings)。
 
 ### <a name="tslint"></a>TSLint
 
