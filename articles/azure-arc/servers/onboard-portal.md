@@ -1,14 +1,14 @@
 ---
 title: 从 Azure 门户将混合计算机连接到 Azure
 description: 本文介绍如何使用 Azure 门户中的启用了 Azure Arc 的服务器安装代理并将计算机连接到 Azure。
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370145"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398022"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>从 Azure 门户将混合计算机连接到 Azure
 
@@ -28,11 +28,11 @@ Azure 门户中提供了用于自动下载和安装以及与 Azure Arc 建立连
 
 1. 在 " **服务器-Azure Arc** " 页上，选择左上角的 " **添加** "。
 
-1. 在 " **选择方法** " 页上，选择 " **使用交互式脚本添加服务器** " 磁贴，然后选择 " **生成脚本**"。
+1. 在 " **选择方法** " 页上，选择 " **使用交互式脚本添加服务器** " 磁贴，然后选择 " **生成脚本** "。
 
 1. 在“生成脚本”页上，选择你要在 Azure 中管理的计算机所在的订阅和资源组。 选择要将计算机元数据存储到的 Azure 位置。 此位置可以与资源组的位置相同或不同。
 
-1. 在 " **先决条件** " 页上，查看信息，然后选择 " **下一步：资源详细信息**"。
+1. 在 " **先决条件** " 页上，查看信息，然后选择 " **下一步：资源详细信息** "。
 
 1. 在 " **资源详细信息** " 页上，提供以下内容：
 
@@ -44,9 +44,9 @@ Azure 门户中提供了用于自动下载和安装以及与 Azure Arc 建立连
 
 1. 在 " **标记** " 页上，查看建议的默认 **物理位置标记** 并输入一个值，或指定一个或多个 **自定义标记** 以支持你的标准。
 
-1. 选择 **下一步：下载并运行脚本**。
+1. 选择 **下一步：下载并运行脚本** 。
 
-1. 在 " **下载并运行脚本** " 页上，查看摘要信息，然后选择 " **下载**"。 如果仍需进行更改，请选择“上一页”。
+1. 在 " **下载并运行脚本** " 页上，查看摘要信息，然后选择 " **下载** "。 如果仍需进行更改，请选择“上一页”。
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>在 Windows 上安装并验证代理
 
@@ -74,7 +74,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 日志目录为 *%ProgramData%\AzureConnectedMachineAgent\log*。
+    如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 日志目录为 *%ProgramData%\AzureConnectedMachineAgent\log* 。
 
 2. 如果计算机需要通过代理服务器进行通信，若要设置代理服务器环境变量，请运行以下命令：
 
@@ -107,15 +107,15 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. 切换到脚本所复制到的文件夹或共享，然后在服务器上运行 `./OnboardingScript.ps1` 脚本来执行复制的脚本。
 
-如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 日志目录为 *%ProgramData%\AzureConnectedMachineAgent\log*。
+如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 日志目录为 *%ProgramData%\AzureConnectedMachineAgent\log* 。
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>在 Linux 上安装并验证代理
 
 适用于 Linux 的 Connected Machine 代理以 Microsoft [包存储库](https://packages.microsoft.com/)中分发版的首选包格式（.RPM 或 .DEB）提供。 [shell 脚本捆绑包 `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) 执行以下操作：
 
-- 将主机配置为从 packages.microsoft.com 下载代理包。
-- 安装混合资源提供程序包。
-- 向 Azure Arc 注册计算机
+* 将主机配置为从 packages.microsoft.com 下载代理包。
+
+* 安装混合资源提供程序包。
 
 （可选）可以通过包含 `--proxy "{proxy-url}:{proxy-port}"` 参数使用代理信息来配置代理。
 
@@ -131,17 +131,32 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-若要下载并安装代理，请结合 `--proxy` 参数（用于将代理配置为通过代理服务器通信）运行以下命令：
+1. 若要下载并安装代理，请结合 `--proxy` 参数（用于将代理配置为通过代理服务器通信）运行以下命令：
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
 
-## <a name="verify-the-connection-with-azure-arc"></a>验证与 Azure Arc 的连接
+2. 安装代理后，需要通过运行以下命令将其配置为与 Azure Arc 服务通信：
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### <a name="install-with-the-scripted-method"></a>使用脚本方法安装
+
+1. 使用具有根访问权限的帐户登录到服务器。
+
+1. 切换到脚本所复制到的文件夹或共享，然后在服务器上运行 `./OnboardingScript.sh` 脚本来执行复制的脚本。
+
+如果完成安装后代理无法启动，请检查日志以获取详细的错误信息。 日志目录为 *var/opt/azcmagent/log* 。
+
+## <a name="verify-the-connection-with-azure-arc"></a>验证是否与 Azure Arc 连接
 
 安装代理并将其配置为连接到启用了 Azure Arc 的服务器后，请转到 Azure 门户，验证是否已成功连接服务器。 在 [Azure 门户](https://aka.ms/hybridmachineportal)中查看计算机。
 

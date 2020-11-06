@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558863"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398209"
 ---
 # <a name="configure-private-link"></a>配置专用链接
 
@@ -30,7 +30,7 @@ ms.locfileid: "92558863"
 - 用于 FHIR 的 Azure API –要置于专用终结点后面的 FHIR 资源。
 - 虚拟网络-客户端服务和专用终结点将连接到的 VNet。
 
-有关详细信息，请查看 [专用链接文档](https://docs.microsoft.com/azure/private-link/)。
+有关详细信息，请查看 [专用链接文档](../private-link/index.yml)。
 
 ## <a name="disable-public-network-access"></a>禁用公用网络访问
 
@@ -40,7 +40,7 @@ ms.locfileid: "92558863"
 
 ## <a name="create-private-endpoint"></a>创建专用终结点
 
-若要创建专用终结点，具有 FHIR 资源的 RBAC 权限的开发人员可以使用 Azure 门户、 [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)或 [Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli)。 本文将指导你完成使用 Azure 门户的步骤。 建议使用 Azure 门户，因为它会自动创建和配置专用 DNS 区域。 有关更多详细信息，可以参考 [专用链接快速入门指南](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) 。
+若要创建专用终结点，具有 FHIR 资源的 RBAC 权限的开发人员可以使用 Azure 门户、 [Azure PowerShell](../private-link/create-private-endpoint-powershell.md)或 [Azure CLI](../private-link/create-private-endpoint-cli.md)。 本文将指导你完成使用 Azure 门户的步骤。 建议使用 Azure 门户，因为它会自动创建和配置专用 DNS 区域。 有关更多详细信息，可以参考 [专用链接快速入门指南](../private-link/create-private-endpoint-portal.md) 。
 
 可以通过两种方法创建专用终结点。 自动审批流允许对 FHIR 资源具有 RBAC 权限的用户创建专用终结点，而无需批准。 手动审批流允许无 FHIR 资源权限的用户请求私有终结点，由 FHIR 资源的所有者批准。
 

@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042484"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398192"
 ---
 # <a name="configure-database-settings"></a>配置数据库设置 
 
 Azure API for FHIR 使用数据库存储其数据。 底层数据库的性能取决于预配服务期间选择的请求单位 (RU) 数，以及预配服务后数据库设置中的 RU 数。
 
-在设置底层数据库的性能时，Azure API for FHIR 将借用 Cosmos DB 中 RU 的概念（请参阅 [Azure Cosmos DB 中的请求单位](https://docs.microsoft.com/azure/cosmos-db/request-units)）。 
+在设置底层数据库的性能时，Azure API for FHIR 将借用 Cosmos DB 中 RU 的概念（请参阅 [Azure Cosmos DB 中的请求单位](../cosmos-db/request-units.md)）。 
 
 必须预配吞吐量才能确保始终为数据库提供足够的系统资源。 应用程序所需的 RU 数取决于执行的操作。 操作既包括简单的读写，也包括更复杂的查询。 
 

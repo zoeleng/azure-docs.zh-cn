@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168182"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397359"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>排查入口控制器的常见问题
 
@@ -132,7 +132,7 @@ I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
 
 
 必须符合以下要求才能让 AGIC 按预期正常工作：
-  1. AKS 必须包含一个或多个正常的 **Pod**。
+  1. AKS 必须包含一个或多个正常的 **Pod** 。
      与 [Cloud Shell](https://shell.azure.com/) 验证此设置 `kubectl get pods -o wide --show-labels` ，如果你有一个带的 Pod `apsnetapp` ，你的输出可能如下所示：
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
@@ -141,7 +141,7 @@ I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. 通过匹配的 `selector` 标签引用上述 Pod 的一个或多个**服务**。
+  2. 通过匹配的 `selector` 标签引用上述 Pod 的一个或多个 **服务** 。
      验证此[Cloud Shell](https://shell.azure.com/)`kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
@@ -150,7 +150,7 @@ I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. 引用上述服务的**入口**（用来注释 `kubernetes.io/ingress.class: azure/application-gateway` ）验证此[Cloud Shell](https://shell.azure.com/)`kubectl get ingress -o wide --show-labels`
+  3. 引用上述服务的 **入口** （用来注释 `kubernetes.io/ingress.class: azure/application-gateway` ）验证此 [Cloud Shell](https://shell.azure.com/)`kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -243,7 +243,7 @@ Kubernetes 社区已经为 [kubectl](https://kubernetes.io/docs/reference/kubect
 |  5        | 记录封送的对象；显示应用到 ARM 的已净化 JSON 配置 |
 
 
-可通过 [helm-config.yaml](#sample-helm-config-file) 文件中的 `verbosityLevel` 变量调整详细级别。 将详细级别提高到 `5` 可以获取已分配到 [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 的 JSON 配置：
+可通过 [helm-config.yaml](#sample-helm-config-file) 文件中的 `verbosityLevel` 变量调整详细级别。 将详细级别提高到 `5` 可以获取已分配到 [ARM](../azure-resource-manager/management/overview.md) 的 JSON 配置：
   - 在 [helm-config.yaml](#sample-helm-config-file) 中独行添加 `verbosityLevel: 5`，然后重新安装
   - 使用 `kubectl logs <pod-name>` 获取日志
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

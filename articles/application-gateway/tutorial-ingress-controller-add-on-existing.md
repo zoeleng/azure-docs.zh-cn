@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f78167b9c3f557fa16061cfac8aad080519415
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285615"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397121"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>教程：通过 Azure CLI 使用现有的应用程序网关为现有 AKS 群集启用应用程序网关入口控制器加载项（预览版）
 
@@ -37,17 +37,17 @@ ms.locfileid: "91285615"
 
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
 
-使用 [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) 命令注册 *AKS-IngressApplicationGatewayAddon* 功能标志，如以下示例所示；当此加载项仍为预览版时，只需为每个订阅执行一次此操作：
+使用 [az feature register](/cli/azure/feature#az-feature-register) 命令注册 *AKS-IngressApplicationGatewayAddon* 功能标志，如以下示例所示；当此加载项仍为预览版时，只需为每个订阅执行一次此操作：
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
 ```
 
-可能需要花费几分钟时间，状态才会显示为“已注册”。 可以使用 [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) 命令检查注册状态：
+可能需要花费几分钟时间，状态才会显示为“已注册”。 可以使用 [az feature list](/cli/azure/feature#az-feature-register) 命令检查注册状态：
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-准备就绪后，使用 [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) 命令刷新 Microsoft.ContainerService 资源提供程序的注册状态：
+准备就绪后，使用 [az provider register](/cli/azure/provider#az-provider-register) 命令刷新 Microsoft.ContainerService 资源提供程序的注册状态：
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -74,17 +74,17 @@ az group create --name myResourceGroup --location canadacentral
 
 现在，你将部署新的 AKS 群集，以模拟你有一个现有 AKS 群集且需要为其启用 AGIC 加载项的情况。  
 
-在下面的示例中，你将在所创建的资源组 myResourceGroup 中使用 [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) 和[托管实例](https://docs.microsoft.com/azure/aks/use-managed-identity)部署名为 myCluster 的新 AKS 群集 。    
+在下面的示例中，你将在所创建的资源组 myResourceGroup 中使用 [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) 和[托管实例](../aks/use-managed-identity.md)部署名为 myCluster 的新 AKS 群集 。    
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-若要为 `az aks create` 命令配置其他参数，请访问[此处](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create)的参考信息。 
+若要为 `az aks create` 命令配置其他参数，请访问[此处](/cli/azure/aks?view=azure-cli-latest#az-aks-create)的参考信息。 
 
 ## <a name="deploy-a-new-application-gateway"></a>部署新的应用程序网关 
 
-现在，你将部署新的应用程序网关，以模拟你有一个现有的应用程序网关且需要使用它对发往 AKS 群集 *myCluster* 的流量进行负载均衡的情况。 应用程序网关的名称将是 *myApplicationGateway*，但你需要首先创建一个名为 *myPublicIp* 的公共 IP 资源、一个名为 *myVnet* 且地址空间为 11.0.0.0/8 的新虚拟网络、一个名为 *mySubnet* 且地址空间为 11.1.0.0/16 的子网，然后使用 *myPublicIp* 在 *mySubnet* 中部署你的应用程序网关。 
+现在，你将部署新的应用程序网关，以模拟你有一个现有的应用程序网关且需要使用它对发往 AKS 群集 *myCluster* 的流量进行负载均衡的情况。 应用程序网关的名称将是 *myApplicationGateway* ，但你需要首先创建一个名为 *myPublicIp* 的公共 IP 资源、一个名为 *myVnet* 且地址空间为 11.0.0.0/8 的新虚拟网络、一个名为 *mySubnet* 且地址空间为 11.1.0.0/16 的子网，然后使用 *myPublicIp* 在 *mySubnet* 中部署你的应用程序网关。 
 
 在不同虚拟网络中使用 AKS 群集和应用程序网关时，两个虚拟网络的地址空间不得重叠。 AKS 群集在其中进行部署的默认地址空间为 10.0.0.0/8，因此，我们将应用程序网关虚拟网络地址前缀设置为 11.0.0.0/8。 
 
@@ -95,11 +95,11 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 ```
 
 > [!NOTE]
-> 应用程序网关入口控制器 (AGIC) 加载项**仅**支持应用程序网关 v2 SKU（标准版和 WAF 版），**不**支持应用程序网关 v1 SKU。 
+> 应用程序网关入口控制器 (AGIC) 加载项 **仅** 支持应用程序网关 v2 SKU（标准版和 WAF 版）， **不** 支持应用程序网关 v1 SKU。 
 
 ## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>使用现有的应用程序网关在现有的 AKS 群集中启用 AGIC 加载项 
 
-现在，你将在所创建的 AKS 群集 *myCluster* 中启用 AGIC 加载项，并指定 AGIC 加载项使用你创建的现有应用程序网关 *myApplicationGateway*。 请确保你已在本教程开头添加/更新了 aks-preview 扩展。 
+现在，你将在所创建的 AKS 群集 *myCluster* 中启用 AGIC 加载项，并指定 AGIC 加载项使用你创建的现有应用程序网关 *myApplicationGateway* 。 请确保你已在本教程开头添加/更新了 aks-preview 扩展。 
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506547"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397461"
 ---
 # <a name="how-an-application-gateway-works"></a>应用程序网关的工作原理
 
@@ -32,7 +32,7 @@ ms.locfileid: "86506547"
 
 可以使用 Azure 应用程序网关作为内部应用程序负载均衡器或面向 Internet 的应用程序负载均衡器。 面向 Internet 的应用程序网关使用公共 IP 地址。 面向 Internet 的应用程序网关的 DNS 名称可公开解析为其公共 IP 地址。 因此，面向 Internet 的应用程序网关可将客户端请求路由到 Internet。
 
-内部应用程序网关仅使用专用 IP 地址。 如果使用的是自定义或[专用 DNS 区域](https://docs.microsoft.com/azure/dns/private-dns-overview)，则域名应在内部可解析为应用程序网关的专用 IP 地址。 因此，内部负载均衡器只能路由有权访问应用程序网关虚拟网络的客户端发出的请求。
+内部应用程序网关仅使用专用 IP 地址。 如果使用的是自定义或[专用 DNS 区域](../dns/private-dns-overview.md)，则域名应在内部可解析为应用程序网关的专用 IP 地址。 因此，内部负载均衡器只能路由有权访问应用程序网关虚拟网络的客户端发出的请求。
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>应用程序网关如何路由请求
 
@@ -52,9 +52,9 @@ HTTP 设置中使用的端口和协议确定应用程序网关与后端服务器
 
  >[!NOTE]
 >如果后端池：
-> - **是公共终结点**，则应用程序网关会使用其前端公共 IP 来访问服务器。 如果没有前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
-> - **包含可以在内部解析的 FQDN 或专用 IP 地址**，则应用程序网关会使用其实例的专用 IP 地址将请求路由到后端服务器。
-> - **包含外部终结点或者可以在外部解析的 FQDN**，则应用程序网关会使用其前端的公共 IP 地址将请求路由到后端服务器。 DNS 解析基于专用 DNS 区域或自定义 DNS 服务器（如果已配置），或者会使用 Azure 提供的默认 DNS。 如果没有前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
+> - **是公共终结点** ，则应用程序网关会使用其前端公共 IP 来访问服务器。 如果没有前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
+> - **包含可以在内部解析的 FQDN 或专用 IP 地址** ，则应用程序网关会使用其实例的专用 IP 地址将请求路由到后端服务器。
+> - **包含外部终结点或者可以在外部解析的 FQDN** ，则应用程序网关会使用其前端的公共 IP 地址将请求路由到后端服务器。 DNS 解析基于专用 DNS 区域或自定义 DNS 服务器（如果已配置），或者会使用 Azure 提供的默认 DNS。 如果没有前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
 
 ### <a name="modifications-to-the-request"></a>对请求的修改
 

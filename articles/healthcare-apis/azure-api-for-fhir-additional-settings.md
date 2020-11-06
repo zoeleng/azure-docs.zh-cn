@@ -8,12 +8,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 5de1d99442f307fc7850114915851f994258b537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9949ab4cfa42553e5a8d28244b8f621f09334d1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845895"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398158"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Azure API for FHIR 的其他设置
 
@@ -29,7 +29,7 @@ Azure API for FHIR 使用数据库存储其数据。 底层数据库的性能取
 
 ## <a name="access-control"></a>访问控制
 
-适用于 FHIR 的 Azure API 将仅允许授权用户访问 FHIR API。 可以通过两种不同的机制来配置授权的用户。 配置访问控制的主要方法和推荐方法是使用 azure [RBAC) 的 azure 基于角色的访问控制 ](https://docs.microsoft.com/azure/role-based-access-control/)，该访问控制可通过 **访问控制 (IAM) ** 边栏选项卡进行访问 (。 仅当你想要使用与你的订阅关联的 Azure Active Directory 租户来保护数据平面访问时，Azure RBAC 才有效。 如果要使用不同的租户，Azure API for FHIR 提供了本地 FHIR 数据平面访问控制机制。 使用本地 RBAC 机制时，配置选项不是很丰富。 有关详细信息，请选择下列选项之一：
+适用于 FHIR 的 Azure API 将仅允许授权用户访问 FHIR API。 可以通过两种不同的机制来配置授权的用户。 配置访问控制的主要方法和推荐方法是使用 azure [RBAC) 的 azure 基于角色的访问控制](../role-based-access-control/index.yml)，该访问控制可通过 **访问控制 (IAM)** 边栏选项卡进行访问 (。 仅当你想要使用与你的订阅关联的 Azure Active Directory 租户来保护数据平面访问时，Azure RBAC 才有效。 如果要使用不同的租户，Azure API for FHIR 提供了本地 FHIR 数据平面访问控制机制。 使用本地 RBAC 机制时，配置选项不是很丰富。 有关详细信息，请选择下列选项之一：
 
 * [适用于 FHIR 数据平面的 AZURE RBAC](configure-azure-rbac.md)。 当你使用与你的订阅关联的 Azure Active Directory 租户时，这是首选选项。
 * [本地 FHIR 数据平面访问控制](configure-local-rbac.md)。 仅当需要使用外部 Azure Active Directory 租户进行数据平面访问控制时，才使用此选项。 

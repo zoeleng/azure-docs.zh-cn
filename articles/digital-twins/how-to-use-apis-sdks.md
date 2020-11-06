@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ed4bc60fbffbfbc553d41d7f7d44709551b620dc
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: a09563e787573f3cb3dd510229822a0b0fbcb6c9
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280334"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395880"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>使用 Azure 数字孪生 API 和 SDK
 
@@ -31,11 +31,11 @@ Azure 数字孪生附带了 **控制平面 api** 和 **数据平面 api** ，用
 使用控制平面 Api：
 * 您可以通过在 [控制平面 Swagger 文件夹](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins)中引用最新 Swagger 直接调用 api。 此存储库还包含演示使用情况的示例文件夹。
 * 当前可在中访问控件 Api 的 Sdk .。。
-  - [.Net (c # ) ](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([参考 [自动生成]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true))  ([源](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) 
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([引用 [自动生成]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))  ([源](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)) 
-  - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([源](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins)) 
-  - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([源](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins)) 
-  - [继续](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([源](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins)) 
+  - [**.Net (c # )**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ( [参考 [自动生成]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true))  ( [源](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) 
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ( [引用 [自动生成]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))  ( [源](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)) 
+  - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ( [源](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins)) 
+  - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ( [源](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins)) 
+  - [**继续**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ( [源](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins)) 
 
 还可以通过 [Azure 门户](https://portal.azure.com) 和 [CLI](how-to-use-cli.md)与 Azure 数字孪生交互，来运动控制平面 api。
 
@@ -53,21 +53,22 @@ Azure 数字孪生附带了 **控制平面 api** 和 **数据平面 api** ，用
 * 可以通过 ... 直接调用 Api
    - 引用 [数据平面 swagger 文件夹](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)中的最新 Swagger。 此存储库还包含演示使用情况的示例文件夹。 
    - 查看 [API 参考文档](/rest/api/azure-digitaltwins/)。
-* 可以使用 **.net (c # )** SDK。 使用 .NET SDK .。。
+* 可以使用 **.net (c # ) SDK** 。 使用 .NET SDK .。。
    - 你可以从 NuGet 中查看并添加包： [DigitalTwins](https://www.nuget.org/packages/Azure.DigitalTwins.Core)。 
    - 您可以查看 [SDK 参考文档](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)。
    - 可以在 GitHub 中找到 SDK 源（包括示例的文件夹）：适用于 [.net 的 Azure IoT 数字孪生客户端库](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)。 
-   - 若要查看详细信息和用法示例，请继续阅读本文的 [.net (c # ) SDK (数据平面) ](#net-c-sdk-data-plane) 部分。
-* 可以使用 **Java** SDK。 使用 Java SDK .。。
+   - 若要查看详细信息和用法示例，请继续阅读本文的 [*.net (c # ) SDK (数据平面)*](#net-c-sdk-data-plane) 部分。
+* 可以使用 **JAVA SDK** 。 使用 Java SDK .。。
    - 可以从 Maven 查看和安装包： [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
-   - 您可以查看 [SDK 参考文档](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
+   - 您可以查看 [SDK 参考文档](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable)
    - 可以在 GitHub 中找到 SDK 源： [适用于 Java 的 Azure IoT 数字孪生客户端库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
-* 您可以使用 **JavaScript** SDK。 使用 JavaScript SDK .。。
-   - 可以从 npm 中查看和安装包： [适用于 JavaScript 的 Azure Azure 数字孪生客户端库](https://www.npmjs.com/package/@azure/digital-twins-core)。
-   - 您可以查看 [SDK 参考文档](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest)。
+* 您可以使用 **JAVASCRIPT SDK** 。 使用 JavaScript SDK .。。
+   - 可以从 npm： [Azure Azure 数字孪生 Core 客户端库](https://www.npmjs.com/package/@azure/digital-twins-core)查看和安装包。
+   - 您可以查看 [SDK 参考文档](/javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest&preserve-view=true)。
    - 可以在 GitHub 中找到 SDK 源： [用于 JavaScript 的 Azure Azure 数字孪生核心客户端库](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
-* 可以使用 **Python** SDK。 使用 Python SDK .。。
-   - 可以查看和安装包： [用于 Python 的 Azure Azure 数字孪生核心客户端库](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/)。
+* 可以使用 **PYTHON SDK** 。 使用 Python SDK .。。
+   - 可以从 PyPi： [Azure Azure 数字孪生 Core 客户端库](https://pypi.org/project/azure-digitaltwins-core/)查看和安装包。
+   - 您可以查看 [SDK 参考文档](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true)。
    - 可以在 GitHub 中找到 SDK 源： [用于 Python 的 Azure Azure 数字孪生核心客户端库](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * 可以使用 AutoRest 为其他语言生成 SDK。 按照 [*如何：创建适用于 Azure 数字孪生的自定义 Sdk AutoRest*](how-to-create-custom-sdks.md)中的说明进行操作。
 

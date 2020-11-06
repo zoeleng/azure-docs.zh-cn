@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336524"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398005"
 ---
 # <a name="cross-region-load-balancer-preview"></a>跨区域负载均衡器 (预览) 
 
@@ -55,7 +55,7 @@ Azure 标准负载均衡器支持跨区域负载均衡，支持异地冗余 HA �
 
 跨区域负载均衡器的运行状况探测每隔20秒收集有关可用性的信息。 如果一个区域负载均衡器将其可用性降到0，则跨区域负载均衡器将检测到失败。 然后，区域负载均衡器会脱离旋转。 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="跨区域负载均衡器关系图。" border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="全局区域流量视图图示。" border="true":::
 
 ### <a name="ultra-low-latency"></a>超高延迟
 
@@ -100,15 +100,15 @@ Azure 跨区域负载均衡器使用异地邻近性负载平衡算法来做出�
 * 美国东部 2
 * 美国西部
 * 西欧
-* Southeast Asia
-* 美国中部
+* 东南亚
+* Central US
 * 北欧
 * 东亚
 
 > [!NOTE]
 > 你只能在上述8个区域之一中部署你的跨区域负载均衡器。
 
-**参与区域**是负载均衡器的全局公共 IP 可用的位置。 
+**参与区域** 是负载均衡器的全局公共 IP 可用的位置。 
 
 用户启动的流量将通过 Microsoft core 网络传递到最近的参与区域。 
 
@@ -124,9 +124,9 @@ Azure 跨区域负载均衡器使用异地邻近性负载平衡算法来做出�
 * 美国中南部 
 * 美国西部 2 
 * 英国南部 
-* Southeast Asia 
+* 东南亚 
 * 美国中北部 
-* Japan East 
+* 日本东部 
 * 东亚 
 * 美国中西部 
 * Australia Southeast 
@@ -149,6 +149,6 @@ Azure 跨区域负载均衡器使用异地邻近性负载平衡算法来做出�
  
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md) ，开始使用负载均衡器。
+- 请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)以开始使用负载均衡器。
 - 详细了解 [Azure 负载均衡器](load-balancer-overview.md)。
 - 负载均衡器 [常见问题](load-balancer-faqs.md)

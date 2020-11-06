@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424386"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397733"
 ---
 # <a name="metrics-for-application-gateway"></a>应用程序网关的指标
 
-应用程序网关会将称为“指标”的数据点发布到 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)，使用户能够监视应用程序网关和后端实例的性能。 这些指标是一组有序时序数据中的数值，用于描述应用程序网关在特定时间的某种状况。 如果请求通过应用程序网关传送，则应用程序网关将会测量其指标并每隔 60 秒发送一次指标。 如果没有任何请求通过应用程序网关传送，或者指标没有数据，则不会报告指标。 有关详细信息，请参阅 [Azure Monitor 指标](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)。
+应用程序网关会将称为“指标”的数据点发布到 [Azure Monitor](../azure-monitor/overview.md)，使用户能够监视应用程序网关和后端实例的性能。 这些指标是一组有序时序数据中的数值，用于描述应用程序网关在特定时间的某种状况。 如果请求通过应用程序网关传送，则应用程序网关将会测量其指标并每隔 60 秒发送一次指标。 如果没有任何请求通过应用程序网关传送，或者指标没有数据，则不会报告指标。 有关详细信息，请参阅 [Azure Monitor 指标](../azure-monitor/platform/data-platform-metrics.md)。
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>应用程序网关 V2 SKU 支持的指标
 
@@ -212,13 +212,13 @@ ms.locfileid: "87424386"
 
    ![“添加指标警报”按钮][6]
 
-2. 在 " **添加规则** " 页上，填写 "名称"、"条件" 和 "通知" 部分，然后选择 **"确定"**。
+2. 在 " **添加规则** " 页上，填写 "名称"、"条件" 和 "通知" 部分，然后选择 **"确定"** 。
 
-   * 在“条件”**** 选择器中，选择以下 4 个值之一：“大于”****、“大于或等于”****、“小于”**** 或“小于或等于”****。
+   * 在“条件”选择器中，选择以下 4 个值之一：“大于”、“大于或等于”、“小于”或“小于或等于”。
 
-   * 在“时间段”**** 选择器中，选择 5 分钟到 6 小时之间的一个时间段。
+   * 在“时间段”选择器中，选择 5 分钟到 6 小时之间的一个时间段。
 
-   * 如果选择“电子邮件所有者、参与者和读者”****，则电子邮件将基于有权访问该资源的用户动态发送。 否则，可以在“其他管理员电子邮件”**** 框中提供用户名单并以逗号分隔。
+   * 如果选择“电子邮件所有者、参与者和读者”，则电子邮件将基于有权访问该资源的用户动态发送。 否则，可以在“其他管理员电子邮件”框中提供用户名单并以逗号分隔。
 
    ![添加规则页][7]
 
@@ -230,7 +230,7 @@ ms.locfileid: "87424386"
 
 ![警报和规则列表][9]
 
-若要了解有关警报通知的详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
+若要了解有关警报通知的详细信息，请参阅[接收警报通知](../azure-monitor/platform/alerts-overview.md)。
 
 若要了解有关 webhook 的详细信息以及如何将其与警报一起使用的详细信息，请参阅 [针对 Azure 指标警报配置 webhook](../azure-monitor/platform/alerts-webhooks.md)。
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 20bf72c55a5b6d76a3b214f0a679e28da81e41e2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558561"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398090"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>有关 Azure API for FHIR 的常见问题解答
 
@@ -52,7 +52,7 @@ ms.locfileid: "92558561"
 
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>Azure API for FHIR 提供哪些区域？
 
-目前，我们在 [多个地理区域](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)提供公共和政府版的公开上市。 有关 Microsoft 的政府云服务的信息，请参阅 [FedRAMP 的 Azure 服务](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope)。
+目前，我们在 [多个地理区域](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)提供公共和政府版的公开上市。 有关 Microsoft 的政府云服务的信息，请参阅 [FedRAMP 的 Azure 服务](../azure-government/compliance/azure-services-in-fedramp-auditscope.md)。
 
 ### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>在哪里可以看到哪些内容正在发布到 Azure API for FHIR？
 
@@ -97,17 +97,17 @@ _Count 的当前限制为100。 如果将 _count 设置为超过100，则在捆�
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>在 Azure API for FHIR 中搜索资源时的默认排序方式是什么？
 
-我们支持按上次更新日期排序： _sort = _lastUpdated。 有关其他受支持的搜索参数的详细信息，请查看我们的 [支持功能页](https://docs.microsoft.com/azure/healthcare-apis/fhir-features-supported#search)。
+我们支持按上次更新日期排序： _sort = _lastUpdated。 有关其他受支持的搜索参数的详细信息，请查看我们的 [支持功能页](./fhir-features-supported.md#search)。
 
 ### <a name="how-does-export-work"></a>$Export 是如何工作的？
 
-$export 是 FHIR 规范的一部分： https://hl7.org/fhir/uv/bulkdata/export/index.html 。 如果使用托管标识和存储帐户配置了 FHIR 服务，并且托管标识有权访问该存储帐户，则只需在 FHIR API 上调用 $export，并将所有 FHIR 资源导出到存储帐户。 有关详细信息，请查看 [$export 上的文章](https://docs.microsoft.com/azure/healthcare-apis/export-data)。
+$export 是 FHIR 规范的一部分： https://hl7.org/fhir/uv/bulkdata/export/index.html 。 如果使用托管标识和存储帐户配置了 FHIR 服务，并且托管标识有权访问该存储帐户，则只需在 FHIR API 上调用 $export，并将所有 FHIR 资源导出到存储帐户。 有关详细信息，请查看 [$export 上的文章](./export-data.md)。
 
 ## <a name="using-azure-api-for-fhir"></a>使用用于 FHIR 的 Azure API
 
 ### <a name="how-do-i-enable-log-analytics-for-azure-api-for-fhir"></a>如何实现为适用于 FHIR 的 Azure API 启用 log analytics？
 
-启用诊断日志记录并允许查看这些日志的示例查询。 有关启用审核日志和示例查询的详细信息，请参阅 [此部分](https://docs.microsoft.com/azure/healthcare-apis/enable-diagnostic-logging)。 如果要在日志中包含其他信息，请 [使用自定义 HTTP 标头](https://docs.microsoft.com/azure/healthcare-apis/use-custom-headers)查看。
+启用诊断日志记录并允许查看这些日志的示例查询。 有关启用审核日志和示例查询的详细信息，请参阅 [此部分](./enable-diagnostic-logging.md)。 如果要在日志中包含其他信息，请 [使用自定义 HTTP 标头](./use-custom-headers.md)查看。
 
 ### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>在何处可查看在工作流中使用 Azure API for FHIR 的一些示例？
 
@@ -121,7 +121,7 @@ $export 是 FHIR 规范的一部分： https://hl7.org/fhir/uv/bulkdata/export/i
 
 ### <a name="is-there-a-way-to-encrypt-my-data-using-my-personal-key-not-a-default-key"></a>是否可以使用我的个人密钥而不是默认密钥来加密我的数据？
 
-是的，Azure API for FHIR 允许配置客户管理的密钥，利用 Cosmos DB 的支持。 有关使用个人密钥加密数据的详细信息，请参阅 [此部分](https://docs.microsoft.com/azure/healthcare-apis/customer-managed-key)。
+是的，Azure API for FHIR 允许配置客户管理的密钥，利用 Cosmos DB 的支持。 有关使用个人密钥加密数据的详细信息，请参阅 [此部分](./customer-managed-key.md)。
 
 ## <a name="azure-api-for-fhir-preview-features"></a>用于 FHIR 的 Azure API：预览功能
 

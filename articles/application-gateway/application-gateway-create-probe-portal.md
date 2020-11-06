@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186771"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397869"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关的自定义探测
 
@@ -26,7 +26,7 @@ ms.locfileid: "86186771"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-如果还没有应用程序网关，请访问[创建应用程序网关](application-gateway-create-gateway-portal.md)，创建要使用的应用程序网关。
+如果还没有应用程序网关，请访问[创建应用程序网关](./quick-create-portal.md)，创建要使用的应用程序网关。
 
 ## <a name="create-probe-for-application-gateway-v2-sku"></a>为应用程序网关 v2 SKU 创建探测
 
@@ -49,14 +49,14 @@ ms.locfileid: "86186771"
    |**名称**|customProbe|此值是可在门户中访问的探测的易记名称。|
    |**协议**|HTTP 或 HTTPS | 运行状况探测使用的协议。 |
    |**主机**|例如 contoso.com|此值是应用程序服务器上运行的虚拟主机的名称（不同于 VM 主机名）。 探测将发送到 \<protocol\>://\<host name\>:\<port\>/\<urlPath\>|
-   |**从后端 HTTP 设置中选取主机名**|是或否|将探测中的主机头设置为与此探测关联的 HTTP 设置中的主机名。 对于 Azure 应用服务等多租户后端，特别需要注意提供正确的值。 [了解详细信息](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**从后端 HTTP 设置中选取主机名**|是或否|将探测中的主机头设置为与此探测关联的 HTTP 设置中的主机名。 对于 Azure 应用服务等多租户后端，特别需要注意提供正确的值。 [了解详细信息](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**从后端 HTTP 设置中选取端口**| 是或否|将运行状况探测的端口设置为与此探测关联的 HTTP 设置中的端口。 如果选择“否”，则可以输入要使用的自定义目标端口 |
    |**端口**| 1-65535 | 用于运行状况探测的自定义端口 | 
    |**路径**|/或任何有效的路径|自定义探测的完整 URL 的其余部分。 有效路径以“/”开头。 对于默认路径 http:\//contoso.com，只需使用“/” |
    |**间隔(秒)**|30|运行探测来检查运行状况的频率。 建议不要将时间间隔设置为短于 30 秒。|
    |**超时(秒)**|30|超时之前探测的等待时间。如果在此超时期间内未收到有效响应，则将探测标记为失败。 超时间隔必须足够长，以便进行 http 调用，确保后端运行状况页可用。 请注意，超时值不能大于此探测设置中使用的“间隔”值，或者要与此探测关联的 HTTP 设置中的“请求超时”值。|
    |**不正常阈值**|3|系统认为不正常的连续失败尝试次数。 阈值可以设置为 1 或更大值。|
-   |**使用匹配条件的探测**|是或否|默认情况下，状态代码为 200 到 399 的 HTTP(S) 响应被视为正常。 可以更改后端响应代码或后端响应正文的可接受范围。 [了解详细信息](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**使用匹配条件的探测**|是或否|默认情况下，状态代码为 200 到 399 的 HTTP(S) 响应被视为正常。 可以更改后端响应代码或后端响应正文的可接受范围。 [了解详细信息](./application-gateway-probe-overview.md#probe-matching)|
    |**HTTP 设置**|下拉列表中的选项|探测将与此处选择的 HTTP 设置相关联，因此，它会监视与所选 HTTP 设置关联的后端池的运行状况。 它将对探测请求使用所选 HTTP 设置中所用的同一端口。 只能选择不与任何其他自定义探测关联的 HTTP 设置。 <br>请注意，只有这些 HTTP 设置可用于关联，它们的协议与在此探测配置中选择的协议相同，并且采用相同的“从后端 HTTP 设置中选取主机名”开关状态。|
    
    > [!IMPORTANT]
@@ -100,12 +100,12 @@ ms.locfileid: "86186771"
    |**名称**|customProbe|此值是可在门户中访问的探测的易记名称。|
    |**协议**|HTTP 或 HTTPS | 运行状况探测使用的协议。 |
    |**主机**|例如 contoso.com|此值是应用程序服务器上运行的虚拟主机的名称（不同于 VM 主机名）。 探测发送到 (协议)://(主机名):(http 设置中的端口)/urlPath。  仅当应用程序网关上配置了多站点时，此项设置才适用。 如果应用程序网关是为单个站点配置的，请输入“127.0.0.1”。|
-   |**从后端 HTTP 设置中选取主机名**|是或否|将探测中的 *host* 标头设置为与此探测关联到的 HTTP 设置相关联的后端池中后端资源的主机名。 对于 Azure 应用服务等多租户后端，特别需要注意提供正确的值。 [了解详细信息](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**从后端 HTTP 设置中选取主机名**|是或否|将探测中的 *host* 标头设置为与此探测关联到的 HTTP 设置相关联的后端池中后端资源的主机名。 对于 Azure 应用服务等多租户后端，特别需要注意提供正确的值。 [了解详细信息](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**路径**|/或任何有效的路径|自定义探测的完整 URL 的其余部分。 有效路径以“/”开头。 对于默认路径 http:\//contoso.com，只需使用“/” |
    |**间隔(秒)**|30|运行探测来检查运行状况的频率。 建议不要将时间间隔设置为短于 30 秒。|
    |**超时(秒)**|30|超时之前探测的等待时间。如果在此超时期间内未收到有效响应，则将探测标记为失败。 超时间隔必须足够长，以便进行 http 调用，确保后端运行状况页可用。 请注意，超时值不能大于此探测设置中使用的“间隔”值，或者要与此探测关联的 HTTP 设置中的“请求超时”值。|
    |**不正常阈值**|3|系统认为不正常的连续失败尝试次数。 阈值可以设置为 1 或更大值。|
-   |**使用匹配条件的探测**|是或否|默认情况下，状态代码为 200 到 399 的 HTTP(S) 响应被视为正常。 可以更改后端响应代码或后端响应正文的可接受范围。 [了解详细信息](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**使用匹配条件的探测**|是或否|默认情况下，状态代码为 200 到 399 的 HTTP(S) 响应被视为正常。 可以更改后端响应代码或后端响应正文的可接受范围。 [了解详细信息](./application-gateway-probe-overview.md#probe-matching)|
 
    > [!IMPORTANT]
    > 主机名不同于服务器名。 此值是运行在应用程序服务器上的虚拟主机的名称。 探测将发送到 \<protocol\>://\<hostName\>:\<port from http settings\>/\<urlPath\>
@@ -123,7 +123,7 @@ ms.locfileid: "86186771"
 
 ## <a name="next-steps"></a>后续步骤
 
-使用[后端运行状况视图](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health)查看探测确定的后端资源运行状况。
+使用[后端运行状况视图](./application-gateway-diagnostics.md#back-end-health)查看探测确定的后端资源运行状况。
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
