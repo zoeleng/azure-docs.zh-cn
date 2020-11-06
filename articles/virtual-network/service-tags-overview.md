@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2020
+ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 8aae75aca585c30c0678c88247a8ecfe8a0b801d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 60d3607a543cac5b8ce71819eb60394d8b8827bf
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340254"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331104"
 ---
 # <a name="virtual-network-service-tags"></a>虚拟网络服务标记
 <a name="network-service-tags"></a>
@@ -29,6 +29,8 @@ ms.locfileid: "93340254"
 
 可使用服务标记来实现网络隔离，保护 Azure 资源免受常规 Internet 侵害，同时访问具有公共终结点的 Azure 服务。 可创建入站/出站网络安全组规则，以拒绝进出 Internet 的流量并允许进出 AzureCloud 或特定 Azure 服务的其他[可用服务标记](#available-service-tags)的流量 。
 
+![使用服务标记对 Azure 服务进行网络隔离](./media/service-tags-overview/service_tags.png)
+
 ## <a name="available-service-tags"></a>可用服务标记
 下表列出了可在[网络安全组](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)规则中使用的所有服务标记。
 
@@ -38,7 +40,7 @@ ms.locfileid: "93340254"
 - 支持[区域](https://azure.microsoft.com/regions)范围。
 - 可在 [Azure 防火墙](https://docs.microsoft.com/azure/firewall/service-tags)规则中使用。
 
-默认情况下，服务标记反映了整个云的范围。 某些服务标记还可以通过将相应 IP 范围限制为指定的区域，来实现更精细的控制。 例如，服务标记“Storage”表示整个云的 Azure 存储，而“Storage.WestUS”则将范围缩小到来自美国西部区域的存储 IP 地址范围 。 下表指示每个服务标记是否支持此区域范围。  
+默认情况下，服务标记反映了整个云的范围。 某些服务标记还通过将相应的 IP 范围限于指定的区域，带给你更精细的控制。 例如，服务标记“Storage”表示整个云的 Azure 存储，而“Storage.WestUS”则将范围缩小到来自美国西部区域的存储 IP 地址范围 。 下表指出每个服务标记是否支持此类区域范围。  
 
 | 标记 | 目的 | 可以使用入站还是出站连接？ | 可以支持区域范围？ | 是否可与 Azure 防火墙一起使用？ |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|

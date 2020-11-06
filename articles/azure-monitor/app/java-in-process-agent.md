@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Java 应用程序的应用程序性能监视，无需修改代码即可在任何环境中运行。 分布式跟踪和应用程序映射。
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377031"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331917"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 无代码置备应用程序监视 Azure Monitor Application Insights
 
@@ -48,7 +48,7 @@ Java 无代码应用程序监视只是为了简化操作 - 无需更改代码，
 通过设置环境变量，将代理指向 Application Insights 资源：
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 另一种方法是创建一个名为 `applicationinsights.json` 的配置文件，并将其置于 `applicationinsights-agent-3.0.0.jar` 所在的目录中，该文件包含以下内容：
@@ -56,7 +56,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```

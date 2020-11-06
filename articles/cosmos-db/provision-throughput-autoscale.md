@@ -6,21 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ada16c98eef516056bd3c139bddc8187fb0fe38
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097339"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330608"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>创建具有自动缩放吞吐量的 Azure Cosmos 容器和数据库
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或自动缩放预配吞吐量。 本文介绍自动缩放预配吞吐量的好处和用例。 
+在 Azure Cosmos DB 中，你可以为数据库和容器配置标准 (手动) 或自动缩放预配吞吐量。 Azure Cosmos DB 中的自动缩放预配吞吐量使你能够 **自动、即时地自动扩展数据库或容器)  (的吞吐量** 。 吞吐量会根据使用情况进行缩放，而不会影响工作负荷的可用性、延迟、吞吐量或性能。
 
-自动缩放预配吞吐量非常适合于具有可变或不可预测流量模式，并且在高性能和规模方面需要 SLA 的任务关键型工作负载。 
-
-借助自动缩放，Azure Cosmos DB 会基于使用情况自动并即时地缩放数据库或容器的吞吐量 (RU/s)，而不影响工作负载的可用性、延迟、吞吐量或性能。 
+自动缩放预配吞吐量非常适合于具有可变或不可预测流量模式，并且在高性能和规模方面需要 SLA 的任务关键型工作负载。 本文介绍自动缩放预配吞吐量的好处和用例。
 
 ## <a name="benefits-of-autoscale"></a>自动缩放的好处
 
@@ -64,9 +62,9 @@ Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或�
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> 自动缩放的吞吐量和存储限制
 
-对于 `Tmax` 的任何值，数据库或容器均可以存储总计 `0.01 * Tmax GB`。 达到此存储量之后，将基于新的存储值自动增加最大 RU/s，而不会影响应用程序。 
+对于 `Tmax` 的任何值，数据库或容器都可以存储总共 `0.01 * Tmax GB`。 达到此存储量之后，将基于新的存储值自动增加最大 RU/s，而不会影响应用程序。 
 
-例如，如果从 50,000 RU/s 的最大 RU/s（在 5000 - 50,000 RU/s 之间缩放）开始，则最多可存储 500 GB 数据。 如果超过 500 GB（例如，存储现在为 600 GB），则新的最大 RU/s 将是 60,000 RU/s（在 6000 - 60,000 RU/s 之间缩放）。
+例如，如果从 50,000 RU/s 的最大 RU/s（在 5000 - 50,000 RU/s 之间缩放）开始，则最多可存储 500 GB 数据。 如果超过 500 GB，例如存储现在为 600 GB，则新的最大 RU/s 为 60,000 RU/s（在 6000-60,000 RU/s 之间缩放）。
 
 将数据库级别吞吐量与自动缩放结合使用时，可以让前 25 个容器共享 4000 的自动缩放最大 RU/s（在 400 - 4000 RU/s 之间缩放），只要未超过 40 GB 存储即可。 有关详细信息，请参阅[此文档](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container)。
 

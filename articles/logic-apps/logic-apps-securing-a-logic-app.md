@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: dc03f2276af7c5f6121966a52d50e9c1b208d8cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/05/2020
+ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094704"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331934"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>在 Azure 逻辑应用中保护访问和数据
 
@@ -196,7 +196,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
    ![提供授权策略的信息](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
-   | 属性 | 必选 | 说明 |
+   | 属性 | 必须 | 说明 |
    |----------|----------|-------------|
    | 策略名称 | 是 | 要用于授权策略的名称 |
    | **申请** | 是 | 逻辑应用从入站调用接受的声明类型和值。 声明值限制为80个字符。 下面是可用的声明类型： <p><p>- 颁发者 <br>- 受众 <br>- **主题** <br>- JWT ID（JSON Web 令牌 ID） <p><p>声明列表必须至少包含颁发者声明，该声明的值（作为 Azure AD 颁发者 ID）以 `https://sts.windows.net/` 或 `https://login.microsoftonline.com/` 开头。  有关这些声明类型的详细信息，请参阅 [Azure AD 安全令牌中的声明](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)。 你还可以指定自己的声明类型和值。 |
@@ -308,28 +308,90 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 除了共享访问签名 (SAS) 以外，还可以限制可调用逻辑应用的特定客户端。 例如，如果使用 [Azure API 管理](../api-management/api-management-key-concepts.md)来管理请求终结点，则可将逻辑应用限制为仅接受来自[你创建的 API 管理服务实例](../api-management/get-started-create-service-instance.md)的 IP 地址的请求。
 
+> [!NOTE]
+> 无论你指定的 IP 地址如何，你仍可以使用 [逻辑应用 REST API：工作流触发器-运行](/rest/api/logic/workflowtriggers/run) 请求或使用 API 管理，来运行具有基于请求的触发器的逻辑应用。 不过，这种情况下仍需要针对 Azure REST API 进行[身份验证](../active-directory/develop/authentication-vs-authorization.md)。 所有事件都会显示在 Azure 审核日志中。 请确保相应地设置访问控制策略。
+
+<a name="restrict-inbound-ip-portal"></a>
+
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>在 Azure 门户中限制入站 IP 范围
 
 1. 在 [Azure 门户](https://portal.azure.com)的逻辑应用设计器中打开逻辑应用。
 
 1. 在逻辑应用的菜单中，在“设置”下，选择“工作流设置”。
 
-1. 在“访问控制配置” > “允许的入站 IP 地址”下，选择“特定 IP 范围”  。
+1. 在 " **访问控制配置** " 部分的 " **允许的入站 IP 地址** " 下，选择方案的路径：
 
-1. 当 " **触发器的 ip 范围** " 框出现时，指定触发器接受的 ip 地址范围。 有效的 IP 范围使用这些格式：x.x.x.x/x 或 x.x.x.x-x.x.x.x 
+   * 若要通过使用内置的 [Azure 逻辑应用操作](../logic-apps/logic-apps-http-endpoint.md)将逻辑应用作为嵌套逻辑应用进行调用，只需选择 **其他逻辑应用** ， *仅* 当使用 **Azure 逻辑应用** 操作调用嵌套的逻辑应用时，此操作才有效。
+   
+     此选项将向逻辑应用资源中写入一个空数组，并要求只有来自使用内置 **Azure 逻辑应用** 操作的父逻辑应用的调用才能触发嵌套的逻辑应用。
 
-   例如，若要使逻辑应用只能通过 HTTP 操作作为嵌套逻辑应用来调用，请使用特定的 **IP 范围** 选项 (不是唯一) 的 **其他逻辑应用** 选项，并输入父逻辑应用的 [出站 IP 地址](../logic-apps/logic-apps-limits-and-config.md#outbound)。
+   * 若要通过使用 HTTP 操作将逻辑应用作为嵌套应用来调用，请选择 **特定的 IP 范围** ， *而* 不仅是 **其他逻辑应用** 。 当 " **触发器的 IP 范围** " 框出现时，输入父逻辑应用的 [出站 IP 地址](../logic-apps/logic-apps-limits-and-config.md#outbound)。 有效的 IP 范围使用以下格式： *x.x.x.x/x* 或 *x.* x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x
+   
+     > [!NOTE]
+     > 如果 **只使用其他逻辑应用** 选项和 HTTP 操作来调用嵌套逻辑应用，则会阻止调用，并收到 "401 未授权" 错误。
+        
+   * 对于希望限制来自其他 Ip 的入站调用的方案，当 " **触发器的 ip 范围** " 框出现时，指定触发器接受的 ip 地址范围。 有效的 IP 范围使用以下格式： *x.x.x.x/x* 或 *x.* x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x
 
-   但是，若要通过内置的 [Azure 逻辑应用操作](../logic-apps/logic-apps-http-endpoint.md)将逻辑应用作为嵌套逻辑应用来调用，请改为选择 " **仅限其他逻辑应用** " 选项。 此选项将一个空数组写入逻辑应用资源，并要求只有来自其他 "parent" 逻辑应用的调用才能通过内置的 **Azure 逻辑应用** 操作触发嵌套逻辑应用。
-
-   > [!NOTE]
-   > 无论你指定的 IP 地址如何，你仍可以使用 [逻辑应用 REST API：工作流触发器-运行](/rest/api/logic/workflowtriggers/run) 请求或使用 API 管理，来运行具有基于请求的触发器的逻辑应用。 不过，这种情况下仍需要针对 Azure REST API 进行[身份验证](../active-directory/develop/authentication-vs-authorization.md)。 所有事件都会显示在 Azure 审核日志中。 请确保相应地设置访问控制策略。
+1. 根据需要，在 " **限制调用以从运行历史记录中获取输入和输出消息到提供的 IP 地址** " 下，你可以指定可访问运行历史记录中的输入和输出消息的入站调用的 IP 地址范围。
 
 <a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>在 Azure 资源管理器模板中限制入站 IP 范围
 
-如果[使用资源管理器模板自动执行逻辑应用部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)，则可以通过使用 `accessControl` 部分并在逻辑应用的资源定义中包含 `triggers` 和 `actions` 部分来指定采用 x.x.x.x/x 或 x.x.x.x-x.x.x.x 格式的 IP 范围，例如 ：
+如果 [使用资源管理器模板自动部署逻辑应用](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)，则可以使用部分在逻辑应用的资源定义中指定允许的入站 IP 地址范围 `accessControl` 。 在本部分中，根据 `triggers` 需要使用、 `actions` 和可选 `contents` 节，并将部分包含 `allowedCallerIpAddresses` 在 `addressRange` 属性中，并将属性值设置为 *x.* *x.x.x.x-x.x.x.x* x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x
+
+* 如果嵌套逻辑应用 **仅使用其他逻辑应用** 选项（该选项仅允许来自使用 Azure 逻辑应用操作的其他逻辑应用的入站调用），请将 `addressRange` 属性设置为空数组 ( **[]** ) 。
+
+* 如果嵌套逻辑应用对其他入站调用（如使用 HTTP 操作的其他逻辑应用）使用 **特定的 ip 范围** 选项，请将 `addressRange` 属性设置为允许的 IP 范围。
+
+此示例显示了一个嵌套逻辑应用的资源定义，只允许来自使用内置 Azure 逻辑应用操作的逻辑应用进行入站调用：
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {},
+   "variables": {},
+   "resources": [
+      {
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
+            "accessControl": {
+               "triggers": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               }
+            },
+            "endpointsConfiguration": {}
+         }
+      }
+   ],
+   "outputs": {}
+}
+```
+
+此示例显示了一个允许使用 HTTP 操作的逻辑应用入站调用的嵌套逻辑应用的资源定义。
 
 ```json
 {
@@ -361,7 +423,11 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses": []
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": "192.168.12.0/23"
+                     }
+                  ]
                }
             },
             "endpointsConfiguration": {}
@@ -861,7 +927,7 @@ HTTP 和 HTTPS 终结点支持各种身份验证。 在用于向这些终结点�
 
 如果[基本](../active-directory-b2c/secure-rest-api.md)选项可用，请指定以下属性值：
 
-| 属性（设计器） | 属性 (JSON) | 必选 | 值 | 说明 |
+| 属性（设计器） | 属性 (JSON) | 必须 | 值 | 说明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **身份验证** | `type` | 是 | 基本 | 要使用的身份验证类型 |
 | **用户名** | `username` | 是 | <*user-name*>| 用于对目标服务终结点访问进行身份验证的用户名 |
@@ -892,7 +958,7 @@ HTTP 和 HTTPS 终结点支持各种身份验证。 在用于向这些终结点�
 
 如果[客户端证书](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)选项可用，请指定以下属性值：
 
-| 属性（设计器） | 属性 (JSON) | 必选 | 值 | 说明 |
+| 属性（设计器） | 属性 (JSON) | 必须 | 值 | 说明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **身份验证** | `type` | 是 | **客户端证书** <br>或 <br>`ClientCertificate` | 可使用的身份验证类型。 可以使用 [Azure API 管理](../api-management/api-management-howto-mutual-certificates.md)来管理证书。 <p></p>**注意** ：对于入站和出站调用，自定义连接器不支持基于证书的身份验证。 |
 | **Pfx** | `pfx` | 是 | <*encoded-pfx-file-content*> | 个人信息交换 (PFX) 文件中的 base64 编码内容 <p><p>若要将 PFX 文件转换为 base64 编码格式，可以使用 PowerShell 并执行以下步骤： <p>1.将证书内容保存到某个变量中： <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2.使用 `ToBase64String()` 函数转换证书内容，并将该内容保存到某个文本文件中： <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
@@ -931,7 +997,7 @@ HTTP 和 HTTPS 终结点支持各种身份验证。 在用于向这些终结点�
 
 在请求触发器上，你可以使用 [Azure Active Directory 开放身份验证 (Azure AD OAuth) ](../active-directory/develop/index.yml)，以便在为逻辑应用 [设置 Azure AD 授权策略](#enable-oauth) 后对传入呼叫进行身份验证。 对于提供 Active Directory OAuth 身份验证类型供你选择的所有其他触发器和操作，请指定以下属性值：
 
-| 属性（设计器） | 属性 (JSON) | 必选 | 值 | 说明 |
+| 属性（设计器） | 属性 (JSON) | 必须 | 值 | 说明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **身份验证** | `type` | 是 | **Active Directory OAuth** <br>或 <br>`ActiveDirectoryOAuth` | 可使用的身份验证类型。 逻辑应用当前遵循 [OAuth 2.0 协议](../active-directory/develop/v2-overview.md)。 |
 | 颁发机构 | `authority` | 否 | <*URL-for-authority-token-issuer*> | 提供访问令牌的颁发机构的 URL。 此值默认为 `https://login.windows.net`。 |
@@ -985,7 +1051,7 @@ Authorization: OAuth realm="Photos",
 
 在支持原始身份验证的触发器或操作中指定以下属性值：
 
-| 属性（设计器） | 属性 (JSON) | 必选 | 值 | 说明 |
+| 属性（设计器） | 属性 (JSON) | 必须 | 值 | 说明 |
 |---------------------|-----------------|----------|-------|-------------|
 | **身份验证** | `type` | 是 | 原始 | 要使用的身份验证类型 |
 | **值** | `value` | 是 | <*authorization-header-value*> | 要用于身份验证的授权标头值 |
@@ -1020,7 +1086,7 @@ Authorization: OAuth realm="Photos",
 
 1. 在要使用托管标识的触发器或操作中，指定以下属性值：
 
-   | 属性（设计器） | 属性 (JSON) | 必选 | 值 | 说明 |
+   | 属性（设计器） | 属性 (JSON) | 必须 | 值 | 说明 |
    |---------------------|-----------------|----------|-------|-------------|
    | **身份验证** | `type` | 是 | **托管标识** <br>或 <br>`ManagedServiceIdentity` | 要使用的身份验证类型 |
    | **托管标识** | `identity` | 是 | * 系统分配的托管标识 <br>或 <br>`SystemAssigned` <p><p>* <user-assigned-identity-name> | 要使用的托管标识 |

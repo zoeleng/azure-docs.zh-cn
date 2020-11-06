@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: f32bc444ba753f48955de4a4c16bde8dfb7a05fc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8593858580da1358dc84d9c25420fe2a95680251
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316650"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330217"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 
@@ -54,12 +54,6 @@ Service Fabric 工具是 Visual Studio 2017 和 2019 中 Azure 开发工作负�
 
 * [安装 Microsoft Azure Service Fabric SDK][core-sdk]
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>使用 Visual Studio 2015（需要安装 Visual Studio 2015 Update 2 或更高版本）
-
-对于 Visual Studio 2015，Service Fabric 工具是使用 Web 平台安装程序与 SDK 和运行时 一起安装的：
-
-* [安装 Microsoft Azure Service Fabric SDK 和工具][full-bundle-vs2015]
-
 ### <a name="sdk-installation-only"></a>仅安装 SDK
 
 如果只需要 SDK，则安装此包：
@@ -68,8 +62,8 @@ Service Fabric 工具是 Visual Studio 2017 和 2019 中 Azure 开发工作负�
 
 当前版本包括：
 
-* Service Fabric SDK 和工具4.1.458
-* Service Fabric 运行时7.1.458
+* Service Fabric SDK and Tools 4.1.458
+* Service Fabric 运行时 7.1.458
 
 有关支持版本的列表，请参阅 [Service Fabric 版本](service-fabric-versions.md)
 

@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042905"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331849"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>重定向 URI（回复 URL）限制和局限
 
@@ -62,7 +62,9 @@ Azure Active Directory (Azure AD) 应用程序模型目前同时支持 HTTP 和 
 
 从开发的角度来看，这意味着：
 
-* 不要注册多个只有端口不同的重定向 URI。 登录服务器会任意选择一个，并使用与该重定向 URI 关联的行为（例如，是 `web` 类型的、`native` 类型的还是 `spa` 类型的重定向）。
+* 不要注册多个只有端口不同的重定向 URI。 登录服务器将任意选择一个，并使用与该重定向 URI 相关联的行为， (例如，它是 `web` -、 `native` 或类型的 `spa` 重定向) 。
+
+    当你希望在相同的应用程序注册中使用不同的身份验证流时，这一点尤其重要，例如授权代码授予和隐式流。 若要将正确的响应行为与每个重定向 URI 相关联，登录服务器必须能够区分重定向 Uri，并且仅当端口不同时才能这样做。
 * 如果需要在 localhost 上注册多个重定向 URI，以在开发过程中测试不同的流，请使用 URI 的 *path* 组件来区分它们。 例如，`http://127.0.0.1/MyWebApp` 与 `http://127.0.0.1/MyNativeApp` 不匹配。
 * 当前不支持 IPv6 环回地址 (`[::1]`)。
 * 若要防止应用程序错误配置的防火墙或重命名的网络接口被中断，请 `127.0.0.1` 在重定向 URI 而不是中使用 IP 文本环回地址 `localhost` 。

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 99fa8d4cf8f48d0fe72da36baef20c83add438c0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367986"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330251"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>将 Azure ExpressRoute 与 Azure Site Recovery 结合使用
 
@@ -31,7 +31,7 @@ ExpressRoute 线路表示通过连接提供商在本地基础结构与 Microsoft
 
 Azure Site Recovery 支持从本地 [Hyper-V 虚拟机](hyper-v-azure-architecture.md)、[VMware 虚拟机](vmware-azure-architecture.md)和[物理服务器](physical-azure-architecture.md)向 Azure 进行灾难恢复和迁移。 对于所有本地到 Azure 的方案，复制数据都发送到 Azure 存储帐户并存储在其中。 在复制期间，无需支付任何虚拟机费用。 故障转移到 Azure 时，Site Recovery 会自动创建 Azure IaaS 虚拟机。
 
-Site Recovery 通过公共终结点将数据复制到目标 Azure 区域上的 Azure 存储帐户或副本托管磁盘。 若要将 ExpressRoute 用于 Site Recovery 复制流量，可以利用 [Microsoft 对等互连](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) 或现有的 [公共对等互连](../expressroute/about-public-peering.md) (不推荐用于新创建) 。 在复制时，建议使用 Microsoft 对等互连作为路由域。 请注意，不支持通过专用对等互连进行复制。
+Site Recovery 通过公共终结点将数据复制到目标 Azure 区域上的 Azure 存储帐户或副本托管磁盘。 若要将 ExpressRoute 用于 Site Recovery 复制流量，可以利用 [Microsoft 对等互连](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) 或现有的 [公共对等互连](../expressroute/about-public-peering.md) (不推荐用于新创建) 。 在复制时，建议使用 Microsoft 对等互连作为路由域。 请注意，仅当 [为保管库启用了专用终结点](hybrid-how-to-enable-replication-private-endpoints.md)时，才支持通过专用对等互连进行复制。
 
 确保还满足配置服务器的[网络要求](vmware-azure-configuration-server-requirements.md#network-requirements)。 配置服务器需要连接到特定 URL，以便编排 Site Recovery 复制。 ExpressRoute 不能用于此连接。 
 

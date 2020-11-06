@@ -4,12 +4,12 @@ description: Azure Monitor Application Insights Java 的配置选项
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 710347061f072fe66987d88852045986c00812c8
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377677"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331900"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java 的配置选项
 
@@ -24,7 +24,7 @@ ms.locfileid: "93377677"
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "InstrumentationKey=...",
   "role": {
     "name": "my cloud role name"
   }
@@ -55,7 +55,7 @@ ms.locfileid: "93377677"
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -306,3 +306,47 @@ Log4j、Logback 和 util。日志记录是自动检测的，将自动收集通�
 `maxSizeMb` 滚动之前日志文件的最大大小。
 
 `maxHistory` (除了当前日志文件) 之外保留的日志文件的数目。
+
+## <a name="an-example"></a>示例
+
+这只是一个示例，用于显示具有多个组件的配置文件。
+请根据你的需要配置特定的选项。
+
+```json
+{
+  "connectionString": "InstrumentationKey=...",
+  "role": {
+    "name": "my cloud role name"
+  },
+  "sampling": {
+    "percentage": 100
+  },
+  "jmxMetrics": [
+  ],
+  "customDimensions": {
+  },
+  "instrumentation": {
+    "logging": {
+      "level": "INFO"
+    },
+    "micrometer": {
+      "enabled": true
+    }
+  },
+  "httpProxy": {
+  },
+  "preview": {
+    "processors": [
+    ]
+  },
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
+    }
+  }
+}
+```

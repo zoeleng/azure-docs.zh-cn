@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 3a195f9dd74353734ff65f0d5f210d861fa29a26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632577"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331373"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>排查 Azure 数据工厂问题
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -522,79 +522,30 @@ ms.locfileid: "92632577"
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>错误代码：200
-
-- **消息** ：`Unexpected error happened: '%error;'.`
-
-- **原因：** 出现内部服务问题。
-
-- **建议** ：请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-201"></a>错误代码：201
-
-- **消息** ：`JobType %jobType; is not found.`
-
-- **原因：** 某个新作业类型不受 ADF 的支持。
-
-- **建议** ：请联系 ADF 支持团队以获得更多帮助。
-
-### <a name="error-code-202"></a>错误代码：202
-
-- **消息** ：`Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **原因：** 错误消息包含问题的详细信息。
-
-- **建议** ：错误消息中的详细信息应有助于排查问题。 如果没有足够的信息，请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-203"></a>错误代码：203
-
-- **消息** ：`Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **原因：** 错误消息包含问题的详细信息。
-
-- **建议** ：错误消息中的详细信息应有助于排查问题。 如果没有足够的信息，请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-204"></a>错误代码：204
-
-- **消息** ：`The resumption token is missing for runId '%runId;'.`
-
-- **原因：** 出现内部服务问题。
-
-- **建议** ：请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-205"></a>错误代码：205
-
-- **消息** ：`Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **原因：** 创建 HDI 按需群集时出错。
-
-- **建议** ：请联系 ADF 支持人员以获得更多帮助。
-
 ### <a name="error-code-206"></a>错误代码：206
 
-- **消息** ：`The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **消息** ：`The batch ID for Spark job is invalid. Please retry your job.`
 
 - **原因：** 导致此错误的服务出现了内部问题。
 
-- **建议** ：此问题可能是暂时性的。 请重试作业，如果问题依旧出现，请联系 ADF 支持人员以获得更多帮助。
+- **建议** ：此问题可能是暂时性的。 请在一段时间后重试作业。
 
 ### <a name="error-code-207"></a>错误代码：207
 
-- **消息** ：`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **消息** ：`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **原因：** 尝试从主存储帐户确定区域时出现内部错误。
 
-- **建议** ：尝试另一个存储。 如果此解决方法不可接受，请联系 ADF 支持团队以获得更多帮助。
+- **建议** ：尝试另一个存储。 
 
 ### <a name="error-code-208"></a>错误代码：208
 
-- **消息** ：`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **消息** ：`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **原因：** 尝试读取服务主体或实例化 MSI 身份验证时出现内部错误。
 
 - **建议** ：请考虑提供一个有权在所提供订阅中创建 HDInsight 群集的服务主体，然后重试。 验证是否[正确设置了托管标识](../hdinsight/hdinsight-managed-identities.md)。
 
-   如果此解决方法不可接受，请联系 ADF 支持团队以获得更多帮助。
 
 ### <a name="error-code-2300"></a>错误代码：2300
 
@@ -612,7 +563,7 @@ ms.locfileid: "92632577"
 
 - **建议** ：这可能是普通的 HDInsight 连接问题或网络连接问题。 首先确认是否可以从任何浏览器打开 HDInsight Ambari UI。 然后检查凭据是否仍然有效。
    
-   如果使用自承载集成运行时 (IR)，请从安装了自承载 IR 的 VM 或计算机执行此步骤。 然后再次尝试从数据工厂提交作业。 如果仍然失败，请联系数据工厂团队以获得支持。
+   如果使用自承载集成运行时 (IR)，请从安装了自承载 IR 的 VM 或计算机执行此步骤。 然后再次尝试从数据工厂提交作业。
 
    有关详细信息，请阅读 [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui)。
 
@@ -1024,23 +975,23 @@ ms.locfileid: "92632577"
 
 1. 下载、安装并打开 [Fiddler](https://www.telerik.com/download/fiddler)。
 
-1. 如果 Web 应用程序使用 HTTPS，请转到“工具” > “Fiddler 选项” > “HTTPS”。   
+1. 如果 Web 应用程序使用 HTTPS，请转到“工具” > “Fiddler 选项” > “HTTPS”。  
 
-   1. 在“HTTPS”选项卡中，选择“捕获 HTTPS 连接”和“解密 HTTPS 流量”。  
+   1. 在“HTTPS”选项卡中，选择“捕获 HTTPS 连接”和“解密 HTTPS 流量”。 
 
       ![Fiddler 选项](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. 如果应用程序使用 TLS/SSL 证书，请将 Fiddler 证书添加到设备。
 
-   请转到：“工具” > “Fiddler 选项” > “HTTPS” > “操作” > “将根证书导出到桌面”。     > 
+   请转到：“工具” > “Fiddler 选项” > “HTTPS” > “操作” > “将根证书导出到桌面”。    > 
 
-1. 转到“文件” > “捕获流量”来关闭捕获。   或者按 **F12** 。
+1. 转到“文件” > “捕获流量”来关闭捕获。  或者按 **F12** 。
 
 1. 清除浏览器缓存以删除所有已缓存的项；必须重新下载这些项。
 
 1. 创建请求：
 
-1. 选择“编辑器”选项卡。 
+1. 选择“编辑器”选项卡。
 
    1. 设置 HTTP 方法和 URL。
  
@@ -1050,7 +1001,7 @@ ms.locfileid: "92632577"
 
 1. 再次打开流量捕获，并在页面上完成出问题的事务。
 
-1. 请转到：“文件” > “保存” > “所有会话”。   
+1. 请转到：“文件” > “保存” > “所有会话”。  
 
 有关详细信息，请参阅 [Fiddler 入门](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)。
 

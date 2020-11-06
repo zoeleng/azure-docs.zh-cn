@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784212"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330285"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>更改存储帐户的复制方式
 
@@ -128,21 +128,21 @@ ZRS 仅支持常规用途 v2 帐户，因此请确保在将实时迁移请求提
     - **问题类型** ：选择 " **技术** "。
     - **服务** ：选择 **"我的服务" 和 "** **存储帐户管理** "。
     - **资源** ：选择要转换为 ZRS 的资源。
-3. 选择“ **下一页** ”。
-4. 在“问题”部分指定以下值： 
+3. 选择“下一步”。
+4. 在“问题”部分指定以下值：
     - **严重性** ：保留默认值。
-    - <bpt id="p1">**</bpt>Problem Type<ept id="p1">**</ept>: Select <bpt id="p2">**</bpt>Data Migration<ept id="p2">**</ept>.
+    - **问题类型** ：选择“数据迁移”。
     - **类别** ：选择 **迁移到 ZRS** 。
-    - <bpt id="p1">**</bpt>Title<ept id="p1">**</ept>: Type a descriptive title, for example, <bpt id="p2">**</bpt>ZRS account migration<ept id="p2">**</ept>.
+    - **标题** ：键入描述性的标题，例如“ZRS 帐户迁移”。
     - **详细信息** ：在 " **详细** 信息" 框中键入其他详细信息，例如，我想要从区域中的 [LRS，GRS] 迁移到 ZRS \_ \_ 。
-5. 选择“ **下一页** ”。
-6. 检查“联系信息”边栏选项卡中的联系信息是否正确。 
-7. 选择“创建”  。
+5. 选择“下一步”。
+6. 检查“联系信息”边栏选项卡中的联系信息是否正确。
+7. 选择“创建”。
 
 支持人员将与你取得联系，并提供所需的任何帮助。
 
 > [!NOTE]
-> 高级文件共享目前不支持实时迁移。 目前仅支持手动复制或移动数据。
+>  (FileStorage 帐户) 的高级文件共享仅适用于 LRS 和 ZRS。
 >
 > GZRS 存储帐户当前不支持存档层。 有关更多详细信息，请参阅 [Azure Blob 存储：热、冷和存档访问层](../blobs/storage-blob-storage-tiers.md) 。
 >

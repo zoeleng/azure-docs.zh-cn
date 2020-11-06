@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740145"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331600"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>支持你开发的移动应用中的单一登录和应用保护策略
 
@@ -30,7 +30,7 @@ ms.locfileid: "92740145"
 
 此外，在应用程序中启用单一登录可解锁新式身份验证附带的新身份验证机制，如 [无密码登录名](../authentication/concept-authentication-passwordless.md)。 用户名和密码是针对应用程序的最常见的攻击媒介之一，启用 SSO 使你可以通过强制实施条件访问或无密码登录名来缓解这一风险，这些登录名添加了额外的安全性或依赖更安全的身份验证机制。 最后，启用单一登录还可以启用 [单一](v2-protocols-oidc.md#single-sign-out)注销。这对于将在共享设备上使用的工作应用程序之类的情况非常有用。
 
-应用[保护策略 (应用) ](/mem/intune/apps/app-protection-policy)确保组织的数据保持安全和包含。 它们允许公司在应用中管理和保护他们的数据，并允许控制谁可以访问应用程序及其数据。 通过实现应用保护策略，你的应用可以将用户连接到受条件访问策略保护的资源，并与其他受保护的应用安全地传输数据。 应用保护策略解除锁定的方案包括：需要 PIN 才能打开应用、控制应用之间的数据共享以及阻止将公司应用数据保存到设备上的个人存储位置。
+应用[保护策略 (应用) ](/mem/intune/apps/app-protection-policy)确保组织的数据保持安全和包含。 它们允许公司在应用中管理和保护他们的数据，并允许控制谁可以访问应用程序及其数据。 通过实现应用保护策略，你的应用可以将用户连接到受条件访问策略保护的资源，并与其他受保护的应用安全地传输数据。 应用保护策略解除锁定的方案包括：需要使用 PIN 来打开应用、控制应用之间的数据共享以及阻止将公司应用数据保存到个人存储位置。
 
 ## <a name="implementing-single-sign-on"></a>实现单一登录
 

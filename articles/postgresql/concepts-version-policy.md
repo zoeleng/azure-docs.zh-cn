@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f92864cea4332157b0bf8b171a9d88b34f79a5ac
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422104"
+ms.locfileid: "94331815"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Azure Database for PostgreSQL 版本控制策略
 
@@ -50,12 +50,12 @@ Azure Database for PostgreSQL 会在定期维护过程中自动执行到 Azure �
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中不支持停用的 PostgreSQL 引擎版本
 
 在每个 PostgreSQL 数据库版本的停用日期之后，如果继续运行停用的版本，请注意以下限制：
-- 由于社区不会发布任何更多的 bug 修复程序或安全修补程序，因此，Azure for PostgreSQL 不会为任何 bug 或安全问题修补停用的数据库引擎，或者采取与停用的数据库引擎有关的安全措施。 因此，可能会遇到安全漏洞或其他问题。 但是，Azure 将继续针对主机、OS、容器和任何其他与服务相关的组件执行定期维护和修补。
+- 由于社区不会发布任何更多的 bug 修复程序或安全修补程序，Azure Database for PostgreSQL 将不会修补已停用的数据库引擎的任何错误或安全问题，或者采用与停用的数据库引擎有关的安全措施。 因此，可能会遇到安全漏洞或其他问题。 但是，Azure 将继续针对主机、OS、容器和任何其他与服务相关的组件执行定期维护和修补。
 - 如果你可能会遇到与 PostgreSQL 数据库相关的任何支持问题，我们可能无法为你提供支持。 在这种情况下，你将必须升级数据库，以便我们为你提供任何支持。
 - 你将不能为已停用的版本创建新的数据库服务器。 但是，你将能够执行时间点恢复，并为现有服务器创建读取副本。
 - Azure Database for PostgreSQL 开发的新服务功能仅适用于受支持的数据库服务器版本。
 - 运行时间 Sla 仅适用于与 Azure Database for PostgreSQL 服务相关的问题，不适用于与数据库引擎相关的错误引起的任何停机时间。  
-- 在对由停用的数据库版本中标识的 PostgreSQL 数据库引擎漏洞导致的服务产生严重的威胁时，Azure 可能会选择停止数据库服务器的计算节点以保护服务。 在这种情况下，可能会在使服务器联机之前通知你升级服务器。
+- 在对由停用的数据库版本中标识的 PostgreSQL 数据库引擎漏洞导致的服务产生严重威胁的极端情况下，Azure 可能会选择停止数据库服务器来保护服务。 在这种情况下，将在使服务器联机之前通知你升级服务器。
 
 ## <a name="postgresql-version-syntax"></a>PostgreSQL 版本语法
 在 PostgreSQL 版本 10 之前， [PostgreSQL 版本控制策略](https://www.postgresql.org/support/versioning/)将 _主版本_ 升级视为第一个 _或_ 第二个数字的增加。 例如，9.5 到 9.6 的升级视为 _主_ 版本升级。 从版本 10 开始，只有第一个数字更改才视为主版本升级。 例如，10.0 到 10.1 是 _次要_ 版本升级。 版本 10 到 11 的升级是 _主_ 版本升级。

@@ -8,16 +8,16 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c611d65c30cceba5fd6ff409ef71b906cd8674c
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069130"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330302"
 ---
 # <a name="enable-and-create-large-file-shares"></a>启用和创建大型文件共享
 
-在存储帐户中启用大型文件共享时，文件共享最大可以扩展到 100 TiB。 可以在现有存储帐户中为现有的文件共享启用此缩放。
+当你在存储帐户上启用大型文件共享时，文件共享最多可扩展到 100 TiB，同时还增加了标准共享的 IOPS 和吞吐量限制。 你还可以在现有的文件共享的现有存储帐户上启用此缩放。 有关详细信息，请参阅 [文件共享和文件缩放目标](storage-files-scale-targets.md#azure-files-scale-targets) 。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -35,7 +35,7 @@ ms.locfileid: "89069130"
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 1. 在 Azure 门户中，选择“所有服务”。 
 1. 在资源列表中输入“存储帐户”。 键入时，列表会根据输入的内容进行筛选。 选择“存储帐户”。
 1. 在显示的“存储帐户”窗口中，选择“添加”。 
@@ -46,14 +46,14 @@ ms.locfileid: "89069130"
 
 1. 然后，输入存储帐户的名称。 该名称在 Azure 中必须唯一。 该名称的长度必须是 3 到 24 个字符，只能包含数字和小写字母。
 1. 选择存储帐户的位置。
-1. 将复制设置为 **本地冗余存储** 或 **区域冗余存储**。
+1. 将复制设置为 **本地冗余存储** 或 **区域冗余存储** 。
 1. 将以下字段保留其默认值：
 
    |字段  |Value  |
    |---------|---------|
    |部署模型     |Resource Manager         |
    |性能     |标准         |
-   |帐户类型     |StorageV2（常规用途 v2）         |
+   |帐户种类     |StorageV2（常规用途 v2）         |
    |访问层     |热         |
 
 1. 选择“高级”，然后选择“大型文件共享”右侧的“已启用”选项按钮。  

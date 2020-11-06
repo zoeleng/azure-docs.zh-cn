@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370015"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330931"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>使用音频内容创建工具改进合成
 
@@ -48,7 +48,7 @@ ms.locfileid: "92370015"
  
 ### <a name="step-3---log-into-the-audio-content-creation-with-your-azure-account-and-speech-resource"></a>步骤 3-通过 Azure 帐户和语音资源登录音频内容创建
 
-1. 获取 Azure 帐户和语音资源后，可以通过单击 "**开始**"，登录到[音频内容创建](https://aka.ms/audiocontentcreation)。
+1. 获取 Azure 帐户和语音资源后，可以通过单击 " **开始** "，登录到 [音频内容创建](https://aka.ms/audiocontentcreation)。
 2. 将显示 " **语音资源** " 页面。 选择要处理的语音资源。 单击 "开始" **以** 开始创建音频。 还可以 **通过单击 "新建"** 来创建新的语音资源。 下次登录到音频内容创建工具时，我们会将你直接链接到当前语音资源下的音频工作文件。 
 3. 可以随时使用位于顶部导航栏中的“设置”选项来修改语音资源。
 
@@ -56,7 +56,7 @@ ms.locfileid: "92370015"
 
 此图显示了微调文本到语音输出所需的步骤。 使用以下链接详细了解每个步骤。
 
-:::image source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="微调文本到语音输出所用步骤的示意图&quot;:::
+:::image source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="微调文本到语音输出所用步骤的示意图":::
 
 
 1. 选择要处理的语音资源。
@@ -65,7 +65,7 @@ ms.locfileid: "92370015"
    >[!NOTE]
    > 管控访问可用于自定义神经语音，这允许创建类似于自然语音的高清语音。 有关详细信息，请参阅[管控过程](https://aka.ms/ignite2019/speech/ethics)。
 
-4. 单击 &quot; **播放** " 图标 (三角形) 预览默认合成输出。 然后通过调整发音、停顿、音调、速率、语调、语音风格等来改进输出。 有关选项的完整列表，请参阅[语音合成标记语言](speech-synthesis-markup.md)。 以下 [视频](https://www.youtube.com/watch?v=O1wIJ7mts_w) 演示如何使用音频内容创建来微调语音输出。 
+4. 单击 " **播放** " 图标 (三角形) 预览默认合成输出。 然后通过调整发音、停顿、音调、速率、语调、语音风格等来改进输出。 有关选项的完整列表，请参阅[语音合成标记语言](speech-synthesis-markup.md)。 以下 [视频](https://www.youtube.com/watch?v=O1wIJ7mts_w) 演示如何使用音频内容创建来微调语音输出。 
 5. 保存并[导出优化音频](#export-tuned-audio)。 在系统中保存优化音轨后，可继续工作并迭代输出。 如果对输出满意，可使用导出功能创建音频创建任务。 可以查看导出任务的状态，并下载用于应用和产品的输出。
 
 ## <a name="create-an-audio-tuning-file"></a>创建音频优化文件
@@ -131,62 +131,32 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 按照以下步骤将用户添加到语音资源，以便他们可以使用音频内容创建。
 
-1. 在 Azure 门户中搜索 **认知服务** ，选择要将用户添加到的语音资源。
+1. 在 [Azure 门户](https://portal.azure.com/)中搜索 **认知服务** ，选择要将用户添加到的语音资源。
 2. 单击“访问控制(IAM)”。 单击“角色分配”选项卡以查看此订阅的所有角色分配。
-    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="微调文本到语音输出所用步骤的示意图&quot;:::
-
-
-1. 选择要处理的语音资源。
-2. 使用纯文本或 SSML 脚本[创建音频优化文件](#create-an-audio-tuning-file)。 将你的内容键入或上传到音频内容创建。
-3. 选择脚本内容的语音和语言。 音频内容创建包括所有 [Microsoft 文本到语音转换](language-support.md#text-to-speech)。 可使用标准语音、神经语音或者你自己的自定义语音。
-   >[!NOTE]
-   > 管控访问可用于自定义神经语音，这允许创建类似于自然语音的高清语音。 有关详细信息，请参阅[管控过程](https://aka.ms/ignite2019/speech/ethics)。
-
-4. 单击 &quot; **播放** " 框中键入，以便在目录中搜索显示名称和电子邮件地址。 如果用户不在此目录中，则可以输入 Azure active directory) 信任的用户 [Microsoft 帐户](https://account.microsoft.com/account) (。
+    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="角色分配选项卡":::
+1. 单击“添加” > “添加角色分配”以打开“添加角色分配”窗格。 在 "角色" 下拉列表中，选择 " **认知服务用户** 角色"。 如果要授予用户此语音资源的所有权，可以选择 " **所有者** " 角色。
+1. 从列表中选择一个用户。 如果在列表中看不到用户，可以在 "选择" 框中键入，以便在目录中搜索显示名称和电子邮件地址。 如果用户不在此目录中，则可以输入 Azure active directory) 信任的用户 [Microsoft 帐户](https://account.microsoft.com/account) (。
 1. 单击“保存”以分配该角色。 几分钟后，会在语音资源范围向用户分配认知服务用户角色。
 
-    :::image source="media/audio-content-creation/add-role-first.png" alt-text="微调文本到语音输出所用步骤的示意图&quot;:::
+    :::image source="media/audio-content-creation/add-role-first.png" alt-text="添加角色对话框":::
 
-
-1. 选择要处理的语音资源。
-2. 使用纯文本或 SSML 脚本[创建音频优化文件](#create-an-audio-tuning-file)。 将你的内容键入或上传到音频内容创建。
-3. 选择脚本内容的语音和语言。 音频内容创建包括所有 [Microsoft 文本到语音转换](language-support.md#text-to-speech)。 可使用标准语音、神经语音或者你自己的自定义语音。
-   >[!NOTE]
-   > 管控访问可用于自定义神经语音，这允许创建类似于自然语音的高清语音。 有关详细信息，请参阅[管控过程](https://aka.ms/ignite2019/speech/ethics)。
-
-4. 单击 &quot; **播放** " 加入 Azure**后，他们可以使用[音频内容创建](https://aka.ms/audiocontentcreation)。
+1. 你添加的用户将收到邀请电子邮件。 单击 " **接受邀请**  >  **接受" 加入 Azure** 后，他们可以使用 [音频内容创建](https://aka.ms/audiocontentcreation)。
 
 处于相同语音资源的用户将在音频内容创建工作室中看到彼此的工作。 如果希望每个单独用户在音频内容创建中具有唯一的专用工作区，请为每个用户 [创建新的语音资源](#step-2---create-a-speech-resource) ，并为每个用户提供对语音资源的唯一访问权限。 
 
 ### <a name="remove-users-from-a-speech-resource"></a>从语音资源中删除用户
 1. 在 Azure 门户中搜索 **认知服务** ，选择要从中删除用户的语音资源。
 2. 单击“访问控制(IAM)”。 单击 " **角色分配** " 选项卡，查看此语音资源的所有角色分配。
-3. 选择要删除的用户，然后单击 "**删除**  >  **"**。
-    :::image source="media/audio-content-creation/remove-user.png" alt-text="微调文本到语音输出所用步骤的示意图&quot;:::
-
-
-1. 选择要处理的语音资源。
-2. 使用纯文本或 SSML 脚本[创建音频优化文件](#create-an-audio-tuning-file)。 将你的内容键入或上传到音频内容创建。
-3. 选择脚本内容的语音和语言。 音频内容创建包括所有 [Microsoft 文本到语音转换](language-support.md#text-to-speech)。 可使用标准语音、神经语音或者你自己的自定义语音。
-   >[!NOTE]
-   > 管控访问可用于自定义神经语音，这允许创建类似于自然语音的高清语音。 有关详细信息，请参阅[管控过程](https://aka.ms/ignite2019/speech/ethics)。
-
-4. 单击 &quot; **播放** ":::
+3. 选择要删除的用户，然后单击 " **删除**  >  **"** 。
+    :::image source="media/audio-content-creation/remove-user.png" alt-text="“删除”按钮":::
 
 ### <a name="enable-users-to-grant-access"></a>使用户能够授予访问权限
 如果你希望某个用户向其他用户提供访问权限，则需要为用户提供语音资源的所有者角色，并将用户设置为 Azure 目录读者。 
 1. 将用户添加为语音资源的所有者。 请参阅 [如何将用户添加到语音资源](#add-users-to-a-speech-resource)。
-    :::image source="media/audio-content-creation/add-role.png" alt-text="微调文本到语音输出所用步骤的示意图&quot;:::
-
-
-1. 选择要处理的语音资源。
-2. 使用纯文本或 SSML 脚本[创建音频优化文件](#create-an-audio-tuning-file)。 将你的内容键入或上传到音频内容创建。
-3. 选择脚本内容的语音和语言。 音频内容创建包括所有 [Microsoft 文本到语音转换](language-support.md#text-to-speech)。 可使用标准语音、神经语音或者你自己的自定义语音。
-   >[!NOTE]
-   > 管控访问可用于自定义神经语音，这允许创建类似于自然语音的高清语音。 有关详细信息，请参阅[管控过程](https://aka.ms/ignite2019/speech/ethics)。
-
-4. 单击 &quot; **播放** " **分配的角色**"。
-1. 单击 "**添加分配**  ->  **目录读取器**"。
+    :::image source="media/audio-content-creation/add-role.png" alt-text="角色所有者字段":::
+1. 选择左上角的折叠菜单。 单击 " **Azure Active Directory** "，然后单击 " **用户** "。
+1. 搜索用户的 Microsoft 帐户，然后前往用户的详细信息页。 单击 " **分配的角色** "。
+1. 单击 " **添加分配**  ->  **目录读取器** "。
 
 ## <a name="see-also"></a>另请参阅
 

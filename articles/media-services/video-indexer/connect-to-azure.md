@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 8cd5969e4362b1581a7b9aebf39f8c6871839918
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a101afb2089e4ab1fa32bd0668c60b477039b566
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558719"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330574"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>创建连接到 Azure 的视频索引器帐户
 
@@ -25,7 +25,7 @@ ms.locfileid: "92558719"
 
 如果要从 *试用版* 移动到 *付费* 视频索引器帐户，可以选择将所有视频和模型自定义复制到新帐户，如 [从试用帐户导入内容](#import-your-content-from-the-trial-account) 部分中所述。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 * Azure 订阅。
 
@@ -45,7 +45,7 @@ ms.locfileid: "92558719"
 
     将视频索引器帐户连接到 Azure 时，将要使用此成员。
 
-    此用户应当是 Azure 订阅中具有“所有者”角色，或者兼具“参与者”和“用户访问管理员”两个角色的成员  。 用户可以添加两次，具有两个角色。 一次分配“参与者”角色，另一次分配“用户访问管理员”角色。 有关详细信息，请参阅 [查看用户对 Azure 资源的访问权限](https://docs.microsoft.com/azure/role-based-access-control/check-access)。
+    此用户应当是 Azure 订阅中具有“所有者”角色，或者兼具“参与者”和“用户访问管理员”两个角色的成员。 用户可以添加两次，具有两个角色。 一次分配“参与者”角色，另一次分配“用户访问管理员”角色。 有关详细信息，请参阅 [查看用户对 Azure 资源的访问权限](https://docs.microsoft.com/azure/role-based-access-control/check-access)。
 
     ![访问控制](./media/create-account/access-control-iam.png)
 
@@ -53,9 +53,9 @@ ms.locfileid: "92558719"
 
 * 使用 Azure 门户注册 EventGrid 资源提供程序。
 
-    在  。
+    在 [Azure 门户](https://portal.azure.com/)中，转到“订阅”->[订阅]->“资源提供程序”。
 
-    搜索“Microsoft.Media”和“Microsoft.EventGrid”  。 如果该提供程序不是处于“已注册”状态，请单击“注册”。  注册需要花费几分钟时间。
+    搜索“Microsoft.Media”和“Microsoft.EventGrid”。 如果该提供程序不是处于“已注册”状态，请单击“注册”。 注册需要花费几分钟时间。
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -72,12 +72,12 @@ ms.locfileid: "92558719"
 
     ![将视频索引器连接到 Azure](./media/create-account/new-account-on-azure-subscription.png)
 1. 从支持的位置选择一个 Azure 区域：“美国西部 2”、“北欧”或“东亚”。
-1. 在“Azure 媒体服务帐户”下，选择以下选项之一： 
+1. 在“Azure 媒体服务帐户”下，选择以下选项之一：
 
-    * 若要创建新的媒体服务帐户，请选择“创建新资源组”。  提供资源组的名称。
+    * 若要创建新的媒体服务帐户，请选择“创建新资源组”。 提供资源组的名称。
 
         Azure 会在订阅中创建新帐户，包括新的 Azure 存储帐户。  
-    * 若要使用现有的媒体服务帐户，请选择“使用现有资源”。  从帐户列表中选择自己的帐户。
+    * 若要使用现有的媒体服务帐户，请选择“使用现有资源”。 从帐户列表中选择自己的帐户。
 
         媒体服务帐户必须与视频索引器帐户位于同一区域。
 
@@ -123,7 +123,7 @@ ms.locfileid: "92558719"
     ![流式处理终结点](./media/create-account/create-ams-account2.png)
 4. 要使视频索引器使用媒体服务 API 进行身份验证，需要创建 AD 应用。 以下步骤引导你完成[通过 Azure 门户开始使用 Azure AD 身份验证](../previous/media-services-portal-get-started-with-aad.md)中所述的 Azure AD 身份验证过程：
 
-    1. 在新的媒体服务帐户中，选择“API 访问”  。
+    1. 在新的媒体服务帐户中，选择“API 访问”。
     2. 选择[服务主体身份验证方法](../previous/media-services-portal-get-started-with-aad.md)。
     3. 获取客户端 ID 和客户端密码
 
@@ -143,8 +143,8 @@ ms.locfileid: "92558719"
 |设置|说明|
 |---|---|
 |视频索引器帐户区域|视频索引器帐户区域的名称。 为了获得更好的性能和更低的成本，强烈建议指定 Azure 媒体服务资源和 Azure 存储帐户所在的区域的名称。 |
-|Azure AD 租户|Azure AD 租户的名称，例如“contoso.onmicrosoft.com”。 可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名上。 找到“域”右侧的名称  。|
-|订阅 ID|应在其下创建此连接的 Azure 订阅。 可以从 Azure 门户中检索订阅 ID。 在左侧面板中选择 " **所有服务** "，然后搜索 "订阅"。 选择“订阅”并从订阅列表中选择所需的 ID  。|
+|Azure AD 租户|Azure AD 租户的名称，例如“contoso.onmicrosoft.com”。 可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名上。 找到“域”右侧的名称。|
+|订阅 ID|应在其下创建此连接的 Azure 订阅。 可以从 Azure 门户中检索订阅 ID。 在左侧面板中选择 " **所有服务** "，然后搜索 "订阅"。 选择“订阅”并从订阅列表中选择所需的 ID。|
 |Azure 媒体服务资源组名称|资源组（你在其中创建了媒体服务帐户）的名称。|
 |媒体服务资源名称|你在上一节中创建的 Azure 媒体服务帐户的名称。|
 |应用程序 ID|你在上一节中创建的 Azure AD 应用程序 ID（具有指定的媒体服务帐户的权限）。|
@@ -175,15 +175,24 @@ ms.locfileid: "92558719"
 * 如果连接到现有的媒体服务帐户，则视频索引器不会更改现有的媒体 **保留单位** 配置。
 
    你可能需要根据计划的负载调整媒体保留单位的类型和数量。 请记住，如果负载较高，并且没有足够的单位或速度，则视频处理可能导致超时失败。
-* 如果连接到新的媒体服务帐户，视频索引器会自动在其中启动默认的流式处理终结点  ：
+* 如果连接到新的媒体服务帐户，视频索引器会自动在其中启动默认的流式处理终结点：
 
     ![媒体服务流式处理终结点](./media/create-account/ams-streaming-endpoint.png)
 
     流式处理终结点具有相当多的启动时间。 因此，将你的帐户连接到 Azure 之前可能需要花费几分钟时间，直到视频可以在视频索引器 web 应用中进行流式处理和监视。
 * 如果连接到现有的媒体服务帐户，则视频索引器不会更改默认的流式处理终结点配置。 如果没有正在运行的 **流式处理终结点** ，则无法通过此媒体服务帐户或视频索引器观看视频。
-* 如果自动连接，视频索引器会将媒体“预留单位”设置为 10 个 S3 单位  ：
+* 如果自动连接，视频索引器会将媒体“预留单位”设置为 10 个 S3 单位：
 
     ![媒体服务预留单位](./media/create-account/ams-reserved-units.png)
+    
+## <a name="automate-creation-of-the-video-indexer-account"></a>自动创建视频索引器帐户
+
+若要自动创建帐户，需要执行两个步骤：
+ 
+1. 使用 Azure 资源管理器创建 Azure 媒体服务帐户 + Azure AD 应用程序。
+
+    请参阅 [媒体服务帐户创建模板](https://github.com/Azure-Samples/media-services-v3-arm-templates)的示例。
+1. [通过 Media Services 和 Azure AD 应用程序调用创建帐户](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)。
 
 ## <a name="next-steps"></a>后续步骤
 

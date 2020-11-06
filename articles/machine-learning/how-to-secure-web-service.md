@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: dca5d65364d11e96a15913309686bc532d130278
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9b68b2d4298c5e692782e529bae9a9df6359953
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313967"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331152"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>使用 TLS 保护通过 Azure 机器学习部署的 Web 服务
 
@@ -28,7 +28,7 @@ ms.locfileid: "93313967"
 > [!TIP]
 > Azure 机器学习 SDK 使用术语“SSL”表示与安全通信相关的属性。 这并不意味着 Web 服务不会使用 TLS。 SSL 只是更广泛公认的术语。
 >
-> 具体而言，通过 Azure 机器学习部署的 web 服务支持 AKS 和 ACI 的 TLS 1.2 版。 对于 ACI 部署，如果采用的是较旧的 TLS 版本，我们建议重新部署以获取最新的 TLS 版本。
+> 具体而言，通过 Azure 机器学习部署的 web 服务支持 AKS 和 ACI 全新部署的 TLS 1.2 版。 对于 ACI 部署，如果采用的是较旧的 TLS 版本，我们建议重新部署以获取最新的 TLS 版本。
 
 TLS 和 SSL 均依赖数字证书，这有助于加密和身份验证。 有关数字证书工作原理的详细信息，请参阅维基百科主题[公钥基础结构](https://en.wikipedia.org/wiki/Public_key_infrastructure)。
 
