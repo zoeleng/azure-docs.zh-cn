@@ -5,15 +5,15 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/06/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: be098977ba51e529aaecfb5dc3b7a03444f55a7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341310"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357643"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Azure Synapse Analytics 与 Azure 数据工厂中的数据集成
 
@@ -27,27 +27,26 @@ ms.locfileid: "91341310"
 
 以下功能在 Azure 数据工厂中提供，但未计划用于 Azure Synapse。
 
-* 提升和转换 SSIS 包的能力。
-* 雪花作为复制活动中的接收器和映射数据流。
-* Azure 集成运行时的 "映射数据流生存时间" 设置。
+* **生命周期和班次 SSIS 包：** 在 Azure 数据工厂中，可以使用 SSIS 集成运行时提升和转移 SSIS 包。 SSIS 集成运行时和 "执行 SSIS 包" 活动在 Synapse 工作区中不可用。 
+* **生存时间：** 生存时间是 Azure 集成运行时中的一项设置，它允许 spark 群集在数据流完成后的一段时间 *内保持不* 变。 此功能在 Synapse 工作区中不可用。
 
 ## <a name="azure-synapse-features-not-supported-in-azure-data-factory"></a>Azure 数据工厂不支持 azure Synapse 功能
 
 以下功能在 Azure Synapse 中可用，但不计划用于 Azure 数据工厂。
 
-* 对映射数据流的 Spark 作业监视仅在 Synapse 中可用。 在 Synapse 中，Spark 引擎包含在用户的订阅中，因此用户可以查看详细的 Spark 日志。 在 Azure 数据工厂中，作业执行发生在 Azure 数据工厂托管的 Spark 群集上。 
+* 用于 **监视地图数据流的 Spark 作业：** 在 Synapse 中，Spark 引擎包含在用户的订阅中，因此用户可以查看详细的 Spark 日志。 在 Azure 数据工厂中，作业执行发生在 Azure 数据工厂托管的 Spark 群集上，此信息不可用。 
 
 ## <a name="azure-data-factory-features-that-behave-differently-in-synapse"></a>Synapse 中行为不同的 Azure 数据工厂功能
 
 以下功能的行为方式不同，或当前在 Azure Synapse 中不存在。 
 
-* 整理数据流
-* 解决方案模板库
-* Git 集成和本机 CI/CD 解决方案
-* 与 Azure monitor 集成
-* 发布后重命名资源
-* Synapse 工作区中的混合集成运行时配置。 用户不能同时具有托管 VNet IR 和 Azure IR。
-* Synapse 工作区之间的集成运行时共享
+* **整理数据流：** 整理数据流活动目前仅适用于 Azure 数据工厂。
+* **解决方案模板库：** 在 Azure 数据工厂中，用户可以在解决方案模板库中找到管道模板。 在 Synapse 工作区中，知识中心包含一组不同的模板以及其他数据集和 SQL 脚本。 
+* **Git 集成和本机 CI/CD 解决方案：** 目前，Synapse 工作区无法连接到 Git 存储库，也不会按照与 Azure 数据工厂相同的持续集成和交付过程进行操作。
+* **与 Azure Monitor 集成：** 与 Azure 数据工厂一样，Synapse 工作区不会与 Azure Monitor 集成。
+* **混合集成运行时配置：** 在 Synapse 工作区中，用户不能同时具有托管 VNet IR 和 Azure IR。 Azure 数据工厂支持此功能。
+* **Integration runtime 共享：** 不能在 Synapse 工作区之间共享自承载集成运行时。 Azure 数据工厂支持此功能。
+* **用于数据流的跨区域集成运行时：** 数据流无法在 Synapse 工作区之外的其他区域中的集成运行时上运行。 Azure 数据工厂支持此功能。
 
 ## <a name="next-steps"></a>后续步骤
 

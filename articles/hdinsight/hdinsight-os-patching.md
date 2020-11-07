@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447199"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357753"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>为基于 Linux 的 HDInsight 群集配置 OS 修补计划
 
 > [!IMPORTANT]
-> Ubuntu 映像可在发布后的三 个月内用于创建新的 Azure HDInsight 群集。 不会自动修补正在运行的群集。 客户必须使用脚本操作或其他机制来修补正在运行的群集。 作为最佳做法，你可以在创建群集后运行这些脚本操作并立即应用安全更新。
+> Ubuntu 映像可在发布后的三 个月内用于创建新的 Azure HDInsight 群集。 系统不会自动修补正在运行的群集。 客户必须使用脚本操作或其他机制来修补正在运行的群集。 可以在创建群集后立即运行这些脚本操作并应用安全更新，这是最佳做法。
 
 HDInsight 为你提供支持，允许你在群集上执行常见任务，例如安装 OS 修补程序、安全更新，以及重启节点。 这些任务使用下述两个脚本来完成，这两个脚本可以作为[脚本操作](hdinsight-hadoop-customize-cluster-linux.md)运行，并且可以配置参数：
 
@@ -64,7 +64,7 @@ Welcome to Spark on HDInsight.
 
 | 参数 | 接受的值 | 定义 |
 | --- | --- | --- |
-| 要安装的更新的类型 | 0、1 或 2 | 值为 0 表示仅安装内核更新。 值为 1 表示安装所有更新，为 2 表示仅安装内核 + 安全更新。 如果未提供任何参数，则默认值为 0。 |
+| 要安装的更新的类型 | 0、1 或 2 | 值为 0 表示仅安装内核更新。 如果值为1，则安装内核 + 安全更新，2安装所有更新。 如果未提供任何参数，则默认值为 0。 |
 | 要执行的重启类型 | 0、1 或 2 | 值为 0 表示禁用重启。 值为 1 表示启用计划重启，为 2 表示启用即时重启。 如果未提供任何参数，则默认值为 0。 用户必须更改输入参数 1 才能输入参数 2。 |
 
 > [!NOTE]

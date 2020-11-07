@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519718"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357668"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>教程：为 Zscaler 配置自动用户预配
 
@@ -55,7 +55,7 @@ ms.locfileid: "92519718"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，键入“Zscaler”，在结果面板中选择“Zscaler”，然后单击“添加”按钮添加该应用程序。************
+4. 在搜索框中，键入“Zscaler”，在结果面板中选择“Zscaler”，然后单击“添加”按钮添加该应用程序。
 
     ![结果列表中的 Zscaler](common/search-new-app.png)
 
@@ -82,11 +82,11 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>若要在 Azure AD 中配置 Zscaler 的自动用户预配：
 
-1. 登录到 [Azure 门户](https://portal.azure.com) ，选择 " **企业应用程序**"，选择 " **所有应用程序**"，然后选择 " **Zscaler**"。
+1. 登录到 [Azure 门户](https://portal.azure.com) ，选择 " **企业应用程序** "，选择 " **所有应用程序** "，然后选择 " **Zscaler** "。
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“Zscaler”****。
+2. 在应用程序列表中，选择“Zscaler”  。
 
     ![应用程序列表中的 Zscaler 链接](common/all-applications.png)
 
@@ -100,7 +100,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 5. 在 " **管理员凭据** " 部分下，输入 Zscaler 帐户的 **租户 URL** 和 **机密令牌** ，如步骤6中所述。
 
-6. 若要获取**租户 URL**和**机密令牌**，请在 Zscaler 门户用户界面中导航到 "**管理" > "身份验证设置**"，然后单击 "**身份验证类型**" 下的 " **SAML** "。
+6. 若要获取 **租户 URL** 和 **机密令牌** ，请在 Zscaler 门户用户界面中导航到 " **管理" > "身份验证设置** "，然后单击 " **身份验证类型** " 下的 " **SAML** "。
 
     ![身份验证设置页的屏幕截图。](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
@@ -108,19 +108,19 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
     !["配置 S A M L" 对话框的屏幕截图，其中包含 "Base U R L" 和 "持有者令牌" 文本框（称为 out）。](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    选择 " **启用 SCIM-Based 预配** " 以检索 **基 URL** 和 **持有者令牌**，并保存设置。 将 **基 url** 复制到 **租户 url**，并将 **持有者令牌**  复制到 Azure 门户中的 **机密令牌** 。
+    选择 " **启用 SCIM-Based 预配** " 以检索 **基 URL** 和 **持有者令牌** ，并保存设置。 将 **基 url** 复制到 **租户 url** ，并将 **持有者令牌**  复制到 Azure 门户中的 **机密令牌** 。
 
 7. 填充步骤5中所示的字段后，单击 " **测试连接** " 以确保 Azure AD 可以连接到 Zscaler。 如果连接失败，请确保 Zscaler 帐户具有管理员权限，然后重试。
 
     !["管理员凭据" 部分的屏幕截图，其中的测试连接选项称为 "out"。](./media/zscaler-provisioning-tutorial/test-connection.png)
 
-8. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+8. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”。
 
     ![通知电子邮件文本框的屏幕截图。](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. 单击 **“保存”** 。
+9. 单击“ **保存** ”。
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Zscaler**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Zscaler** "。
 
     !["映射" 部分的屏幕截图，其中突出显示了 "Synchronize Azure Active Directory Users to Zscaler" 选项。](./media/zscaler-provisioning-tutorial/user-mappings.png)
 
@@ -128,7 +128,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
     ![显示了 7 个映射的“属性映射”部分的屏幕截图。](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
 
-12. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Zscaler**"。
+12. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Zscaler** "。
 
     ![突出显示了 "将 Azure Active Directory 组同步到 Zscaler" 选项的 "映射" 部分的屏幕截图。](./media/zscaler-provisioning-tutorial/group-mappings.png)
 
@@ -138,11 +138,11 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 14. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-15. 若要为 Zscaler 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+15. 若要为 Zscaler 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![设置为 On 的设置状态选项的屏幕截图。](./media/zscaler-provisioning-tutorial/provisioning-status.png)
 
-16. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 Zscaler 的用户和/或组。
+16. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 Zscaler 的用户和/或组。
 
     ![突出显示 "仅同步分配的用户和组" 选项的作用域设置屏幕截图。](./media/zscaler-provisioning-tutorial/scoping.png)
 

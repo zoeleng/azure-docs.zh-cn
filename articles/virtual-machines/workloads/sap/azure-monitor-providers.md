@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 235572cc4d697e7488765c464b12f9349c1e012b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994172"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356444"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>适用于 SAP 解决方案提供商的 Azure monitor (预览版) 
 
 ## <a name="overview"></a>概述  
 
-在 SAP 解决方案 Azure Monitor 的上下文中， *提供程序类型* 引用特定的 *提供程序*。 例如 *SAP HANA*，该配置针对 SAP 布局中的特定组件（如 SAP HANA 数据库）。 提供程序包含相应组件的连接信息，有助于从该组件收集遥测数据。 SAP 解决方案资源 (的一个 Azure Monitor 也称为 SAP Monitor 资源) 可以配置同一提供程序类型的多个提供程序或多个提供程序类型的多个提供程序。
+在 SAP 解决方案 Azure Monitor 的上下文中， *提供程序类型* 引用特定的 *提供程序* 。 例如 *SAP HANA* ，该配置针对 SAP 布局中的特定组件（如 SAP HANA 数据库）。 提供程序包含相应组件的连接信息，有助于从该组件收集遥测数据。 SAP 解决方案资源 (的一个 Azure Monitor 也称为 SAP Monitor 资源) 可以配置同一提供程序类型的多个提供程序或多个提供程序类型的多个提供程序。
    
 客户可以选择配置不同的提供程序类型，以在其 SAP 环境中从相应组件启用数据收集。 例如，客户可以为 SAP HANA 提供程序类型配置一个提供程序，为高可用性群集提供程序类型配置一个提供程序，等等。  
 
@@ -53,13 +53,24 @@ ms.locfileid: "91994172"
 
 ![SAP 解决方案提供商的 Azure Monitor-高可用性群集](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-若要配置高可用性群集提供程序，需要执行两个主要步骤： 
-1. 在 Pacemaker 群集中的*每个*节点上安装[ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 
-    - 客户可以使用 Azure 自动化脚本来部署高可用性群集。 脚本将在每个群集节点上安装 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 。  
-    - 或客户可以执行手动安装，请按照[此页](https://github.com/ClusterLabs/ha_cluster_exporter)上的步骤进行操作 
-2. 在 Pacemaker 群集中的 *每个* 节点上配置高可用性群集提供程序  
-  若要配置高可用性群集提供程序，需要 Prometheus URL、群集名称、主机名和系统 ID。   
-  建议客户为每个群集节点配置一个提供程序。   
+若要配置高可用性群集提供程序，需要执行两个主要步骤：
+
+1. 在 Pacemaker 群集中的 *每个* 节点上安装 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 。
+
+   有两个选项可用于安装 ha_cluster_exporter：
+   
+   - 使用 Azure 自动化脚本来部署高可用性群集。 脚本会在每个群集节点上安装 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 。  
+   - [手动安装](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build)。 
+
+2. 为 Pacemaker 群集中的 *每个* 节点配置高可用性群集提供程序。
+
+   若要配置高可用性群集提供程序，需要以下信息：
+   
+   - **名称** 。 此提供程序的名称。 对于 SAP 解决方案实例，这 Azure Monitor 应是唯一的。
+   - **Prometheus 终结点** 。 通常是 http \: // \<servername or ip address\> ： 9664/指标。
+   - **SID** 。 对于 SAP 系统，请使用 SAP SID。 对于其他系统 (例如，NFS 群集) ，为群集使用三个字符的名称。 SID 必须与受监视的其他群集不同。   
+   - **群集名称** 。 创建群集时使用的群集名称。 群集名称可以在群集属性中找到 `cluster-name` 。
+   - **Hostname** 。 VM 的 Linux 主机名。  
 
 ## <a name="provider-type-microsoft-sql-server"></a>提供程序类型 Microsoft SQL server
 

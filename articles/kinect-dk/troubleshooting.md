@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: 故障排除, 更新, bug, kinect, 反馈, 恢复, 日志记录, 提示
-ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707905"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356376"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect 已知问题和故障排除
 
-本页包含在 Azure Kinect DK 中使用传感器 SDK 时可能会遇到的已知问题及其故障排除提示。 另请参阅[产品支持页](https://aka.ms/kinectsupport)了解特定于产品硬件的问题。
+本页包含在 Azure Kinect DK 中使用传感器 SDK 时可能会遇到的已知问题及其故障排除提示。 另请参阅[产品支持页](./index.yml)了解特定于产品硬件的问题。
 
 ## <a name="known-issues"></a>已知问题
 
@@ -144,7 +144,7 @@ ms.locfileid: "84707905"
 
 如果设备未列在设备管理器中，原因可能是将它插入到了不受支持的 USB3 控制器。 
 
-Windows 上的 Azure Kinect DK 仅支持 **Intel**、**Texas Instruments (TI)** 和 **Renesas** 的*主控制器*。 Windows 平台上的 Azure Kinect SDK 依赖于统一的容器 ID，它必须与 USB 2.0 和 3.0 设备兼容，这样，该 SDK 才能找到实际定位在同一设备上的深度、颜色和音频设备。 在 Linux 上，可能会支持更多的主控制器，因为该平台对容器 ID 的依赖性较小，而更多地依赖于设备序列号。 
+Windows 上的 Azure Kinect DK 仅支持 **Intel** 、 **Texas Instruments (TI)** 和 **Renesas** 的 *主控制器* 。 Windows 平台上的 Azure Kinect SDK 依赖于统一的容器 ID，它必须与 USB 2.0 和 3.0 设备兼容，这样，该 SDK 才能找到实际定位在同一设备上的深度、颜色和音频设备。 在 Linux 上，可能会支持更多的主控制器，因为该平台对容器 ID 的依赖性较小，而更多地依赖于设备序列号。 
 
 当电脑上安装了多个主控制器时，USB 主控制器的话题就会变得更复杂。 如果混合使用主控制器，用户可能会遇到问题，有些端口可以正常工作，而其他一些端口则根本无法工作。 根据端口在机箱上的布线方式，在使用 Azure Kinect 时，你可能会发现所有（机箱）正面端口都出现问题。
 

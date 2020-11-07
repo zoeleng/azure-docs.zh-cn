@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496075"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357090"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>如何：部署计算 web 应用程序的人员
 
@@ -65,8 +65,10 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 使用 Azure CLI 将空间分析容器作为 IoT 模块部署在主计算机上。 部署过程需要部署清单文件，其中概述了部署所需的容器、变量和配置。 可在 GitHub 上找到 [Azure Stack 边缘特定部署清单](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) 和 [非 Azure Stack 边缘特定部署清单](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 的示例，其中包括 *空间分析* 容器的基本部署配置。 
 
+或者，你可以使用适用于 Visual Studio Code 的 Azure IoT 扩展在 IoT 中心执行操作。 请 [从 Visual Studio Code 部署 Azure IoT Edge 模块](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) 以了解详细信息。
+
 > [!NOTE] 
-> *空间分析-telegraf*和*空间分析-诊断*容器是可选的。 您可以决定将其从 *DeploymentManifest.js* 的文件中删除。 有关详细信息，请参阅 [遥测和故障排除](./spatial-analysis-logging.md) 一文。 可以在 Github 上的文件中找到两个 *DeploymentManifest.js* 示例，用于 [Azure Stack 边缘设备](https://go.microsoft.com/fwlink/?linkid=2142179) 或其他 [台式计算机](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
+> *空间分析-telegraf* 和 *空间分析-诊断* 容器是可选的。 您可以决定将其从 *DeploymentManifest.js* 的文件中删除。 有关详细信息，请参阅 [遥测和故障排除](./spatial-analysis-logging.md) 一文。 可以在 Github 上的文件中找到两个 *DeploymentManifest.js* 示例，用于 [Azure Stack 边缘设备](https://go.microsoft.com/fwlink/?linkid=2142179) 或其他 [台式计算机](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
 
 ### <a name="set-environment-variables"></a>设置环境变量
 
@@ -141,7 +143,7 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 ### <a name="validate-that-the-deployment-was-successful"></a>验证部署是否成功
 
-在 Azure 门户的 IoT 中心实例中的空间分析模块 IoT Edge 模块设置中找到 " *运行时状态* "。 *运行时状态*的**所需值**和**报告的值**应为 `Running` 。 请参阅下面的内容，了解 Azure 门户上的外观。
+在 Azure 门户的 IoT 中心实例中的空间分析模块 IoT Edge 模块设置中找到 " *运行时状态* "。 *运行时状态* 的 **所需值** 和 **报告的值** 应为 `Running` 。 请参阅下面的内容，了解 Azure 门户上的外观。
 
 ![部署验证示例](./media/spatial-analysis/deployment-verification.png)
 
@@ -170,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-若要安装该容器，请创建新的 Azure 用于容器的 Web 应用并填写所需的参数。 然后，**依次单击 "** **Docker** " 选项卡和 " **Azure 容器注册表**"。 使用你在其中推送了映像的 Azure 容器注册表实例。
+若要安装该容器，请创建新的 Azure 用于容器的 Web 应用并填写所需的参数。 然后， **依次单击 "** **Docker** " 选项卡和 " **Azure 容器注册表** "。 使用你在其中推送了映像的 Azure 容器注册表实例。
 
 ![输入图像详细信息](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -178,18 +180,21 @@ docker push [desired local image name]
 
 ### <a name="configure-the-app"></a>配置应用 
 
-等待安装完成，然后导航到 Azure 门户中的资源。 请在 " **配置** " 部分中，添加以下两个 **应用程序设置**。
+等待安装完成，然后导航到 Azure 门户中的资源。 请在 " **配置** " 部分中，添加以下两个 **应用程序设置** 。
 
 * `EventHubConsumerGroup` –使用者组在你的 Azure IoT 中心的字符串名称，你可以在 IoT 中心创建新的使用者组，或使用默认组。 
 * `IotHubConnectionString`– Azure IoT 中心的连接字符串，可从 Azure IoT 中心资源配置参数的密钥部分检索 ![](./media/spatial-analysis/solution-app-config-page.png)
 
-添加这两个设置后，单击 " **保存**"。 然后在左侧导航菜单中单击 " **身份验证/授权** "，并将其更新为所需的身份验证级别。 建议将 Azure Active Director (Azure AD) express。 
+添加这两个设置后，单击 " **保存** "。 然后在左侧导航菜单中单击 " **身份验证/授权** "，并将其更新为所需的身份验证级别。 建议将 Azure Active Director (Azure AD) express。 
 
-### <a name="test-the-app"></a>测试应用程序
+### <a name="test-the-app"></a>测试应用
 
 请在 Azure Web 应用中进行操作并验证部署是否成功，以及 Web 应用是否正在运行。 导航到配置的 url： `<yourapp>.azurewebsites.net` 查看正在运行的应用程序。
 
 ![测试部署](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>获取 PersonCount 源代码
+若要查看或修改此应用程序的源代码，可 [在 Github 上](https://github.com/Azure-Samples/cognitive-services-spatial-analysis)找到。
 
 ## <a name="next-steps"></a>后续步骤
 

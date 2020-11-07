@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6ab23183fa42b87dad68da1d7ef9b1a2f6145750
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 1b992150f6013fd597a3e56b243bd6236289b710
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514786"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357991"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>教程：为自动用户预配配置 Soloinsight-CloudGate SSO
 
@@ -50,15 +50,15 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 ## <a name="set-up-soloinsight-cloudgate-sso-for-provisioning"></a>设置用于预配的 Soloinsight-CloudGate SSO
 
-1. 登录到 [Soloinsight-CLOUDGATE SSO 管理控制台](https://soloinsight.sigateway.com/login)。 导航到 " **管理" > "系统设置**"。
+1. 登录到 [Soloinsight-CLOUDGATE SSO 管理控制台](https://soloinsight.sigateway.com/login)。 导航到 " **管理" > "系统设置** "。
 
     ![Soloinsight-CloudGate SSO 管理控制台](media/soloinsight-cloudgate-sso-provisioning-tutorial/admin.png)
 
-2.  导航到 " **常规**"。
+2.  导航到 " **常规** "。
 
     ![Soloinsight-CloudGate SSO 添加 SCIM](media/soloinsight-cloudgate-sso-provisioning-tutorial/config.png)
 
-3.  向下滚动到页面末尾，以获取 **租户 URL** 和 **机密令牌**。 复制 **机密令牌**。 此值将在 Azure 门户中 Soloinsight-CloudGate SSO 应用程序的 "预配" 选项卡的 "机密令牌" 字段中输入。
+3.  向下滚动到页面末尾，以获取 **租户 URL** 和 **机密令牌** 。 复制 **机密令牌** 。 此值将在 Azure 门户中 Soloinsight-CloudGate SSO 应用程序的 "预配" 选项卡的 "机密令牌" 字段中输入。
 
     ![Soloinsight-CloudGate SSO 创建令牌](media/soloinsight-cloudgate-sso-provisioning-tutorial/token.png)
 
@@ -68,7 +68,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 **若要从 Azure AD 应用程序库添加 Soloinsight-CloudGate SSO，请执行以下步骤：**
 
-1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory**"。
+1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory** "。
 
     ![“Azure Active Directory”按钮](common/select-azuread.png)
 
@@ -80,7 +80,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，输入 **Soloinsight-CLOUDGATE sso**，在结果面板中选择 " **Soloinsight** "，然后单击 " **添加** " 按钮添加该应用程序。
+4. 在搜索框中，输入 **Soloinsight-CLOUDGATE sso** ，在结果面板中选择 " **Soloinsight** "，然后单击 " **添加** " 按钮添加该应用程序。
 
     ![结果列表中的“Soloinsight-CloudGate SSO”](common/search-new-app.png)
 
@@ -97,7 +97,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在“应用程序”列表中，选择“Soloinsight-CloudGate SSO”****。
+2. 在“应用程序”列表中，选择“Soloinsight-CloudGate SSO”。
 
     ![“应用程序”列表中的“Soloinsight-CloudGate SSO”链接](common/all-applications.png)
 
@@ -109,7 +109,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
-5. 在 " **管理员凭据** " 部分中，输入 " `https://sigateway.com/scim/v2/sync/serviceproviderconfig` **租户 URL**"。 输入先前在**机密令牌**中检索到的**SCIM Authentication 令牌**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 Soloinsight-CloudGate SSO。 如果连接失败，请确保 Soloinsight-CloudGate SSO 帐户具有管理员权限，然后重试。
+5. 在 " **管理员凭据** " 部分中，输入 " `https://sigateway.com/scim/v2/sync/serviceproviderconfig` **租户 URL** "。 输入先前在 **机密令牌** 中检索到的 **SCIM Authentication 令牌** 值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 Soloinsight-CloudGate SSO。 如果连接失败，请确保 Soloinsight-CloudGate SSO 帐户具有管理员权限，然后重试。
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -117,9 +117,9 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击“ **保存**”。
+7. 单击“ **保存** ”。
 
-8. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 用户以 Soloinsight-CloudGate SSO**"。
+8. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 用户以 Soloinsight-CloudGate SSO** "。
 
     ![Soloinsight-CloudGate SSO 用户映射](media/soloinsight-cloudgate-sso-provisioning-tutorial/usermappings.png)
 
@@ -127,7 +127,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![Soloinsight-CloudGate SSO 用户属性](media/soloinsight-cloudgate-sso-provisioning-tutorial/userattributes.png)
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Soloinsight-CloudGate SSO**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Soloinsight-CloudGate SSO** "。
 
     ![Soloinsight-CloudGate SSO 组映射](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupmappings.png)
 
@@ -137,11 +137,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为 Soloinsight-CloudGate SSO 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 若要为 Soloinsight-CloudGate SSO 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 Soloinsight-CloudGate SSO 的用户和/或组。
+14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 Soloinsight-CloudGate SSO 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 001d139e7fc140f41fa94ea0c6f32d0b08036a9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: de42230639351c0dc1e7986156a33b178386d1a4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519770"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357736"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>教程：为自动用户预配配置 Zscaler Beta
 
@@ -56,7 +56,7 @@ ms.locfileid: "92519770"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，键入“Zscaler Beta”，在结果面板中选择“Zscaler Beta”，然后单击“添加”按钮添加该应用程序。************
+4. 在搜索框中，键入“Zscaler Beta”，在结果面板中选择“Zscaler Beta”，然后单击“添加”按钮添加该应用程序。
 
     ![结果列表中的 Zscaler Beta](common/search-new-app.png)
 
@@ -83,11 +83,11 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>若要在 Azure AD 中配置 Zscaler Beta 的自动用户预配：
 
-1. 登录到 [Azure 门户](https://portal.azure.com) ，选择 " **企业应用程序**"，选择 " **所有应用程序**"，然后选择 " **Zscaler Beta**"。
+1. 登录到 [Azure 门户](https://portal.azure.com) ，选择 " **企业应用程序** "，选择 " **所有应用程序** "，然后选择 " **Zscaler Beta** "。
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“Zscaler Beta”****。
+2. 在应用程序列表中，选择“Zscaler Beta”。
 
     ![应用程序列表中的 Zscaler Beta 链接](common/all-applications.png)
 
@@ -101,7 +101,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 5. 在 " **管理员凭据** " 部分下，输入 Zscaler Beta 帐户的 **租户 URL** 和 **机密令牌** ，如步骤6中所述。
 
-6. 若要获取**租户 URL**和**机密令牌**，请在 Zscaler Beta 门户用户界面中导航到 "**管理" > "身份验证设置**"，然后单击 "**身份验证类型**" 下的 " **SAML** "。
+6. 若要获取 **租户 URL** 和 **机密令牌** ，请在 Zscaler Beta 门户用户界面中导航到 " **管理" > "身份验证设置** "，然后单击 " **身份验证类型** " 下的 " **SAML** "。
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 
@@ -109,19 +109,19 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    选择 " **启用 SCIM-Based 预配** " 以检索 **基 URL** 和 **持有者令牌**，并保存设置。 将 **基 url** 复制到 **租户 url**，并将 **持有者令牌**  复制到 Azure 门户中的 **机密令牌** 。
+    选择 " **启用 SCIM-Based 预配** " 以检索 **基 URL** 和 **持有者令牌** ，并保存设置。 将 **基 url** 复制到 **租户 url** ，并将 **持有者令牌**  复制到 Azure 门户中的 **机密令牌** 。
 
 7. 填充步骤5中所示的字段后，单击 " **测试连接** " 以确保 Azure AD 可以连接到 Zscaler Beta。 如果连接失败，请确保 Zscaler Beta 帐户具有管理员权限，然后重试。
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
 
-8. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+8. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”。
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
-9. 单击 **“保存”** 。
+9. 单击“ **保存** ”。
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Zscaler Beta**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Zscaler Beta** "。
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/user-mappings.png)
 
@@ -129,7 +129,7 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/user-attribute-mappings.png)
 
-12. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Zscaler Beta**"。
+12. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Zscaler Beta** "。
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/group-mappings.png)
 
@@ -139,11 +139,11 @@ Azure Active Directory 使用称为“分配”的概念来确定哪些用户应
 
 14. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-15. 若要为 Zscaler Beta 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+15. 若要为 Zscaler Beta 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/provisioning-status.png)
 
-16. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 Zscaler Beta 的用户和/或组。
+16. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 Zscaler Beta 的用户和/或组。
 
     ![Zscaler Beta 预配](./media/zscaler-beta-provisioning-tutorial/scoping.png)
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: fa187d9f7ee2b4b91c8559a185f55f0015f0b441
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455623"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355696"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>教程：为自动用户预配配置 Cofense 收件人同步
 
@@ -46,10 +46,10 @@ ms.locfileid: "92455623"
 2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
 3. 确定 [Azure AD 和 Cofense 收件人同步之间要映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
-## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 Cofense 收件人同步，以支持 Azure AD 的预配
+## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 Cofense 收件人同步，以支持 Azure AD 的预配
 
-1. 登录到 Cofense PhishMe。 导航到收件人 " **> 收件人同步**"。 
-2. 接受条款和条件，然后单击 " **开始**"。
+1. 登录到 Cofense PhishMe。 导航到收件人 " **> 收件人同步** "。 
+2. 接受条款和条件，然后单击 " **开始** "。
 
     ![收件人同步 tnc](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "92455623"
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 Cofense 收件人同步时，你必须选择 "默认" **访问权限**以外的角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
+* 将用户和组分配到 Cofense 收件人同步时，你必须选择 "默认" **访问权限** 以外的角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
@@ -81,7 +81,7 @@ ms.locfileid: "92455623"
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择 " **Cofense 收件人同步**"。
+2. 在应用程序列表中，选择 " **Cofense 收件人同步** "。
 
     ![应用程序列表中的 Cofense 链接](common/all-applications.png)
 
@@ -103,7 +103,7 @@ ms.locfileid: "92455623"
 
 7. 选择“保存”。
 
-8. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 用户" 以 Cofense 收件人同步**。
+8. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 用户" 以 Cofense 收件人同步** 。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Cofense 收件人同步的用户属性。 选为 " **匹配** " 属性的属性用于匹配 Cofense 收件人 Sync 中的用户帐户以执行更新操作。  选择“保存”按钮以提交任何更改。
 
@@ -116,27 +116,27 @@ ms.locfileid: "92455623"
    |name.formatted|字符串|
    |name.givenName|字符串|
    |name.familyName|字符串|
-   |名称. honorificSuffix|String|
-   |phoneNumbers [type eq "work"]。值|String|
-   |phoneNumbers [type eq "home"]。值|String|
-   |phoneNumbers [type eq "other"]。值|String|
-   |phoneNumbers [type eq "呼机"]。值|String|
-   |phoneNumbers [type eq "mobile"]。值|String|
-   |phoneNumbers [type eq "fax"]。值|String|
-   |地址 [type eq "other"]。格式|String|
-   |地址 [类型 eq "work"]。格式|String|
-   |地址 [type eq "work"]. streetAddress|String|
-   |地址 [类型 eq "work"]。位置|String|
-   |地址 [类型 eq "work"]。区域|String|
-   |地址 [类型 eq "work"]|String|
+   |名称. honorificSuffix|字符串|
+   |phoneNumbers [type eq "work"]。值|字符串|
+   |phoneNumbers [type eq "home"]。值|字符串|
+   |phoneNumbers [type eq "other"]。值|字符串|
+   |phoneNumbers [type eq "呼机"]。值|字符串|
+   |phoneNumbers [type eq "mobile"]。值|字符串|
+   |phoneNumbers [type eq "fax"]。值|字符串|
+   |地址 [type eq "other"]。格式|字符串|
+   |地址 [类型 eq "work"]。格式|字符串|
+   |地址 [type eq "work"]. streetAddress|字符串|
+   |地址 [类型 eq "work"]。位置|字符串|
+   |地址 [类型 eq "work"]。区域|字符串|
+   |地址 [类型 eq "work"]|字符串|
    |地址 [类型 eq "work"]。国家/地区|字符串|
    |title|字符串|
    |emails[type eq "work"].value|字符串|
-   |电子邮件 [类型 eq "home"]。值|String|
+   |电子邮件 [类型 eq "home"]。值|字符串|
    |电子邮件 [type eq "other"]。值|字符串|
    |preferredLanguage|字符串|
-   |nickName|String|
-   |userType|String|
+   |nickName|字符串|
+   |userType|字符串|
    |区域设置|字符串|
    |timezone|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
@@ -148,11 +148,11 @@ ms.locfileid: "92455623"
 
 10. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-11. 若要为 Cofense 收件人同步启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+11. 若要为 Cofense 收件人同步启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-12. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 Cofense 的用户和/或组。
+12. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 Cofense 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

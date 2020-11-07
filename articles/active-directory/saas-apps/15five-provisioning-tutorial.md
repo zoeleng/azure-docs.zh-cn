@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: MT
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319169"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357209"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>教程：为15Five 配置自动用户预配
 
@@ -48,25 +48,25 @@ ms.locfileid: "92319169"
 2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
 3. 确定要 [在 Azure AD 与15Five 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
-## <a name="step-2-configure-15five-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置15Five 以支持 Azure AD 的预配
+## <a name="step-2-configure-15five-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置15Five 以支持 Azure AD 的预配
 
 将15Five 配置为使用 Azure AD 进行自动用户预配之前，需要在15Five 上启用 SCIM 设置。
 
-1. 登录到 [15Five 管理控制台](https://my.15five.com/)。 导航到 **功能 > 集成**。
+1. 登录到 [15Five 管理控制台](https://my.15five.com/)。 导航到 **功能 > 集成** 。
 
     :::image type="content" source="media/15five-provisioning-tutorial/integration.png" alt-text="15Five 管理控制台的屏幕截图。集成显示在菜单中的 &quot;功能&quot; 下，并且突出显示了功能和集成。" border="false":::
 
-2.  单击 " **SCIM 2.0**"。
+2.  单击 " **SCIM 2.0** "。
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="15Five 管理控制台的屏幕截图。集成显示在菜单中的 &quot;功能&quot; 下，并且突出显示了功能和集成。" border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="15Five 管理控制台中的 &quot;集成&quot; 页的屏幕截图。在工具下，将突出显示 S C I M 2.0。" border="false":::
 
-3.  导航到 **SCIM integration > 生成 OAuth 令牌**。
+3.  导航到 **SCIM integration > 生成 OAuth 令牌** 。
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="15Five 管理控制台的屏幕截图。集成显示在菜单中的 &quot;功能&quot; 下，并且突出显示了功能和集成。" border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="15Five 管理控制台中的 &quot;C I M 集成&quot; 页的屏幕截图。将突出显示 &quot;生成 OAuth 令牌&quot;。" border="false":::
 
-4.  复制 **SCIM 2.0 基 URL** 和 **访问令牌**的值。 此值将在 Azure 门户的15Five 应用程序的 "设置" 选项卡中的 " **租户 URL** " 和 " **机密令牌** " 字段中输入。
+4.  复制 **SCIM 2.0 基 URL** 和 **访问令牌** 的值。 此值将在 Azure 门户的15Five 应用程序的 "设置" 选项卡中的 " **租户 URL** " 和 " **机密令牌** " 字段中输入。
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="15Five 管理控制台的屏幕截图。集成显示在菜单中的 &quot;功能&quot; 下，并且突出显示了功能和集成。" border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="S C I M 集成页的屏幕截图。在令牌表中，将突出显示 &quot;S I M 2.0&quot; 和 &quot;访问令牌&quot; 旁边的值。" border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加15Five
 
@@ -76,7 +76,7 @@ ms.locfileid: "92319169"
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到15Five 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
+* 将用户和组分配到15Five 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。
 
@@ -90,7 +90,7 @@ ms.locfileid: "92319169"
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“15Five”****。
+2. 在应用程序列表中，选择“15Five”。
 
     ![应用程序列表中的 15Five 链接](common/all-applications.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "92319169"
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
-5.  在 "管理员凭据" 部分下，输入前面在 "**租户 URL** " 和 "**机密令牌**" 字段中检索到的**SCIM 2.0 基 URL 和访问令牌**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到15Five。 如果连接失败，请确保15Five 帐户具有管理员权限，然后重试。
+5.  在 "管理员凭据" 部分下，输入前面在 " **租户 URL** " 和 " **机密令牌** " 字段中检索到的 **SCIM 2.0 基 URL 和访问令牌** 值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到15Five。 如果连接失败，请确保15Five 帐户具有管理员权限，然后重试。
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -110,9 +110,9 @@ ms.locfileid: "92319169"
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击“ **保存**”。
+7. 单击“ **保存** ”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 15Five**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 15Five** "。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到15Five 的用户属性。 选为 " **匹配** " 属性的特性用于匹配15Five 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -128,10 +128,10 @@ ms.locfileid: "92319169"
    |externalId|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|参考|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
-   |urn： ietf： params： scim：架构：扩展：15Five：2.0：用户：位置|String|
-   |urn： ietf： params： scim：架构：扩展：15Five：2.0：用户：开始日期|String|
+   |urn： ietf： params： scim：架构：扩展：15Five：2.0：用户：位置|字符串|
+   |urn： ietf： params： scim：架构：扩展：15Five：2.0：用户：开始日期|字符串|
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 15Five**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 15Five** "。
 
 11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到15Five 的组属性。 选为 " **匹配** " 属性的特性用于匹配15Five 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -143,11 +143,11 @@ ms.locfileid: "92319169"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为15Five 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 若要为15Five 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到15Five 的用户和/或组。
+14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到15Five 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

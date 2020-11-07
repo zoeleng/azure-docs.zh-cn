@@ -1,7 +1,7 @@
 ---
-title: 创建连接监视器预览版-ARMClient
+title: 创建连接监视器预览版 - ARMClient
 titleSuffix: Azure Network Watcher
-description: 了解如何使用 ARMClient 创建 (预览) 的连接监视器。
+description: 了解如何使用 ARMClient 创建连接监视器（预览版）。
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 7d35799cd73ff4d065cb58189f2325dc4dac6840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a30b5c225bcbcb7ca0febad5ae23bce522d2135
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87567875"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357515"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>使用 ARMClient 创建连接监视器 (预览) 
+# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>使用 ARMClient 创建连接监视器（预览版）
 
-了解如何使用 ARMClient 创建连接监视器 (预览) 来监视资源之间的通信。 它支持混合和 Azure 云部署。
+了解如何使用 ARMClient 创建连接监视器（预览版）以监视资源之间的通信。 它支持混合部署和 Azure 云部署。
 
-## <a name="before-you-begin"></a>在开始之前 
+## <a name="before-you-begin"></a>准备阶段 
 
 在连接监视器（预览版）中创建的连接监视器中，可以将本地计算机和 Azure VM 添加为源。 这些连接监视器还可以监视与终结点的连接。 终结点可以位于 Azure 上，也可以位于任何其他 URL 或 IP 上。
 
@@ -37,7 +37,7 @@ ms.locfileid: "87567875"
 
     ![显示连接监视器的示意图（该图定义了测试组和测试之间的关系）](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-## <a name="steps-to-create-with-sample-arm-template"></a>用示例 ARM 模板创建的步骤
+## <a name="steps-to-create-with-sample-arm-template"></a>使用示例 ARM 模板创建的步骤
 
 使用以下代码通过 ARMClient 创建连接监视器。
 
@@ -60,40 +60,92 @@ properties: {
 
 endpoints: [{
 
-name: 'workspace',
+name: 'endpoint_workspace_machine',
+
+type: 'MMAWorkspaceMachine',
 
 resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
 
-filter: {
+//Example 1: Choose a machine
 
- items: [{
-
-type: 'AgentAddress',
-
-address: '<FQDN of your on-premises agent>'
-
-}]
-
+address : '<non-Azure machine FQDN>'
 }
 
-          },
+//Example 2: Select IP from chosen machines
 
- {
+address : '<non-Azure machine FQDN>
 
-name: 'vm1',
+"scope": {
+      "include": [
+            {
+                  "address": "<IP belonging to machine chosen above>"  
+        }
+       ]
+      }
+   }    
+   
+name: 'endpoint_workspace_network',
+
+type: 'MMAWorkspaceNetwork',
+
+resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
+
+ coverage level : 'high', //Optional
+ 
+ //Include subnets. You can also exclude IPs from subnet to exclude from monitoring
+ 
+ scope: {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28
+            },
+            {
+                  "address": "<subnet 2 mask>" 
+            }
+      ],
+      "exclude": [
+            { 
+            "address" : "<ip-from-included-subnets-that-should-be-excluded>"
+        }
+      ]
+     }
+},
+
+//Use a Azure VM as an endpoint
+{
+
+name: 'endpoint_virtualmachine',
 
 resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
 
 },
 
+//Use an Azure VNET or Subnet as an endpoint
+
  {
 
-name: 'vm2',
+name: 'endpoint_vnet_subnet',
 
-resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
+resourceId: '<resource id of VNET or subnet'
+coverage level: 'high' //Optional
 
+//Scope is optional.
+
+  "scope": {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28 .This subnet should match with any existing subnet in vnet
+            }
+      ],
+    "exclude": [
+            {
+                  "address": "<ip-from-included-subnets-that-should-be-excluded>" // If used with include, IP should be part of the subnet defined above. Without include, this could be any address within vnet range or any specific subnet range as a whole.
+            }
+      ]
+  }
    },
 
+//Endpoint as a URL
 {
 
 name: 'azure portal'
@@ -102,6 +154,7 @@ address: '<URL>'
 
    },
 
+//Endpoint as an IP 
  {
 
     name: 'ip',
@@ -167,9 +220,24 @@ address: '<URL>'
     protocol: 'HTTP',
 
     httpConfiguration: {
-
-     preferHTTPS: true
-
+    
+     port: '<port of choice>'
+  
+    preferHTTPS: true // If port chosen is not 80 or 443
+    
+    method: 'GET', //Choose GET or POST
+    
+    path: '/', //Specify path for request
+         
+    requestHeaders: [
+            {
+              "name": "Content-Type",
+              "value": "appication/json"
+            }
+          ],
+          
+    validStatusCodeRanges: [ "102", "200-202", "3xx" ], //Samples
+          
     },
 
     successThreshold: {
@@ -180,7 +248,8 @@ address: '<URL>'
 
     }
 
-   }, {
+   }, 
+   {
 
     name: 'tcpEnabled',
 
@@ -280,13 +349,13 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 ## <a name="description-of-properties"></a>属性说明
 
-* connectionMonitorName-连接监视器资源的名称
+* connectionMonitorName - 连接监视器资源的名称
 
-* 要在其中创建连接监视器的订阅的子订阅 ID
+* SUB - 将在其中创建连接监视器的订阅的订阅 ID
 
-* NW-将在其中创建 CM 的网络观察程序资源 ID 
+* NW - 将在其中创建 CM 的网络观察程序资源 ID 
 
-* location-将在其中创建连接监视器的区域
+* location - 将在其中创建连接监视器的区域
 
 * 终结点
     * 名称–每个终结点的唯一名称
@@ -297,22 +366,28 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
         * address –将 address 设置为本地代理的 FQDN
 
 * 测试组
-    * 名称-命名测试组。
-    * testConfigurations-基于哪些源终结点连接到目标终结点的测试配置
-    * 源-从上面创建的终结点中进行选择。 基于 azure 的源终结点需要安装 Azure 网络观察程序扩展，并且 nonAzure 的源终结点需要 haveAzure Log Analytics 代理。 若要为源安装代理，请参阅[安装监视代理](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents)。
-    * 目标-从上面创建的终结点中进行选择。 可以通过将 Azure Vm 或任何终结点指定为目标来监视其连接性)  (公共 IP、URL 或 FQDN。 单个测试组中可以添加 Azure VM、Office 365 URL、Dynamics 365 URL 和自定义终结点。
-    * 禁用-使用此字段对测试组指定的所有源和目标禁用监视。
+    * name - 命名测试组。
+    * testConfigurations - 根据哪些源终结点连接到目标终结点来测试配置
+    * sources - 从上面创建的终结点中进行选择。 基于 Azure 的源终结点需要安装 Azure 网络观察程序扩展，基于非 Azure 的源终结点需要安装 Azure Log Analytics 代理。 若要为源安装代理，请参阅[安装监视代理](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents)。
+    * 目标-从上面创建的终结点中进行选择。 可以通过将 Azure VM 或任何终结点（公共 IP、URL 或 FQDN）指定为目标，从而监视其连接。 单个测试组中可以添加 Azure VM、Office 365 URL、Dynamics 365 URL 和自定义终结点。
+    * disable - 选择此字段为测试组指定的所有源和目标禁用监视。
 
 * 测试配置
-    * 名称-测试配置的名称。
-    * testFrequencySec-指定源对指定协议和端口上的目标进行 ping 操作的频率。 可以选择 30 秒、1 分钟、5 分钟、15 分钟或 30 分钟。 源将根据所选的值来测试与目标的连接。 例如，如果选择 30 秒，则源将在 30 秒的时间段内至少检查一次与目标的连接。
-    * 协议-可以选择 TCP、ICMP、HTTP 或 HTTPS。 根据协议，你可以执行一些特定于协议的配置
-        * preferHTTPS-指定是否通过 HTTP 使用 HTTPS
-        * 端口-指定所选的目标端口。
-        * disableTraceRoute-适用于其协议为 TCP 或 ICMP 的测试组。 它阻止源发现拓扑和逐跃点的 RTT。
-    * successThreshold-可以在以下网络参数上设置阈值：
-        * checksFailedPercent-设置在源使用指定的条件检查到目标的连接时可能失败的检查的百分比。 对于 TCP 或 ICMP 协议，检查失败的百分比可能会与数据包丢失的百分比相同。 对于 HTTP 协议，此字段表示未接收到响应的 HTTP 请求的百分比。
-        * roundTripTimeMs-设置源通过测试配置连接到目标所需的持续时间（以毫秒为单位）。
+    * name - 测试配置的名称。
+    * testFrequencySec - 指定源对指定协议和端口上的目标执行 ping 操作的频率。 可以选择 30 秒、1 分钟、5 分钟、15 分钟或 30 分钟。 源将根据所选的值来测试与目标的连接。 例如，如果选择 30 秒，则源将在 30 秒的时间段内至少检查一次与目标的连接。
+    * protocol - 可以选择 TCP、ICMP、HTTP 或 HTTPS。 根据协议，可以执行一些特定于协议的配置
+    
+        * preferHTTPS-如果使用的端口不是80或443，则指定是否通过 HTTP 使用 HTTPS
+        * port - 指定所选的目标端口。
+        * disableTraceRoute-适用于其协议为 TCP 或 ICMP 的测试配置。 它将阻止源发现拓扑和逐跳 RTT。
+        * 方法-应用于协议为 HTTP 的测试配置。 选择 HTTP 请求方法（GET 或 POST）
+        * 路径-指定要追加到 URL 的路径参数
+        * validStatusCodes-选择适用的状态代码。 如果响应代码不匹配此列表，您将收到一条诊断消息
+        * requestHeaders-指定将传递给目标的自定义请求标头字符串
+        
+    * successThreshold - 可以在以下网络参数上设置阈值：
+        * checksFailedPercent - 设置在源使用指定条件检查到目标的连接时可能检查失败的百分比。 对于 TCP 或 ICMP 协议，检查失败的百分比可能会与数据包丢失的百分比相同。 对于 HTTP 协议，此字段表示未接收到响应的 HTTP 请求的百分比。
+        * roundTripTimeMs - 设置 RTT（以毫秒为单位），用于确定源按测试配置连接到目标所需的时间。
 
 ## <a name="scale-limits"></a>规模限制
 
@@ -321,9 +396,9 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * 每个区域每个订阅的最大连接监视器数：100
 * 每个连接监视器的最大测试组：20 个
 * 每个连接监视器的最大源和目标：100
-* 每个连接监视器的最大测试配置数： 20 via ARMClient
+* 每个连接监视器的最大测试组：20 个通过 ARMClient
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解 [如何分析监视数据并设置警报](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* 了解 [如何诊断网络中的问题](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* 了解[如何分析监视数据并设置警报](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
+* 了解[如何诊断网络中的问题](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)

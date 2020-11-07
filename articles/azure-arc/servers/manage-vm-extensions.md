@@ -1,14 +1,14 @@
 ---
 title: 启用了 Azure Arc 的服务器的 VM 扩展管理
 description: 启用 Azure Arc 的服务器可以管理虚拟机扩展的部署，这些扩展提供部署后配置和自动化任务和非 Azure Vm。
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9865761fd3e5897ee3f01cd3d6ca620d5ea2f4b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460880"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358025"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>启用了 Azure Arc 服务器的虚拟机扩展管理
 
@@ -33,6 +33,8 @@ ms.locfileid: "92460880"
 
 - 使用自定义脚本扩展在混合连接的计算机上下载和执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置或管理任务。
 
+- 自动刷新 [Azure Key Vault](../../key-vault/general/overview.md)中存储的证书。
+
 ## <a name="availability"></a>可用性
 
 VM 扩展功能仅在 [受支持区域](overview.md#supported-regions)的列表中提供。 确保你在其中一个区域中载入计算机。
@@ -47,10 +49,12 @@ VM 扩展功能仅在 [受支持区域](overview.md#supported-regions)的列表�
 |DSC |Windows |Microsoft PowerShell|[Windows PowerShell DSC 扩展](../../virtual-machines/extensions/dsc-windows.md)|
 |Log Analytics 代理 |Windows |Microsoft.EnterpriseCloud.Monitoring |[适用于 Windows 的 Log Analytics VM 扩展](../../virtual-machines/extensions/oms-windows.md)|
 |Microsoft 依赖项代理 | Windows |Microsoft.Compute | [适用于 Windows 的依赖关系代理虚拟机扩展](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|密钥保管库 | Windows | Microsoft.Compute | [适用于 Windows 的 Key Vault 虚拟机扩展](../../virtual-machines/extensions/key-vault-windows.md) |
 |CustomScript|Linux |Microsoft Azure 扩展 |[Linux 自定义脚本扩展版本2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Linux |Microsoft.OSTCExtensions |[适用于 Linux 的 PowerShell DSC 扩展](../../virtual-machines/extensions/dsc-linux.md) |
 |Log Analytics 代理 |Linux |Microsoft.EnterpriseCloud.Monitoring |[适用于 Linux 的 Log Analytics VM 扩展](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft 依赖项代理 | Linux |Microsoft.Compute | [适用于 Linux 的依赖关系代理虚拟机扩展](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|密钥保管库 | Linux | Microsoft.Compute | [适用于 Linux 的 Key Vault 虚拟机扩展](../../virtual-machines/extensions/key-vault-linux.md) |
 
 若要了解有关 Azure 连接的计算机代理包以及有关扩展代理组件的详细信息，请参阅 [代理概述](agent-overview.md#agent-component-details)。
 
@@ -63,7 +67,29 @@ VM 扩展功能仅在 [受支持区域](overview.md#supported-regions)的列表�
 
 如果尚未注册，请按照 [注册 Azure 资源提供程序](agent-overview.md#register-azure-resource-providers)中的步骤进行操作。
 
+### <a name="log-analytics-vm-extension"></a>Log Analytics VM 扩展
+
 适用于 Linux 的 Log Analytics 代理 VM 扩展需要在目标计算机上安装 Python 2.x。
+
+### <a name="azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 扩展 (预览版) 
+
+Key Vault VM 扩展 (预览版) 不支持以下 Linux 操作系统：
+
+- CentOS Linux 7 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Amazon Linux 2 (x64)
+
+仅支持使用以下内容来部署 Key Vault VM 扩展 (预览版) ：
+
+- Azure CLI
+- Azure PowerShell
+- Azure 资源管理器模板
+
+在部署扩展之前，需要完成以下操作：
+
+1.  (自签名或导入) [创建保管库和证书](../../key-vault/certificates/quick-create-portal.md)。
+
+2. 向启用了 Azure Arc 的服务器授予对证书机密的访问权限。 如果使用的是 [RBAC 预览](../../key-vault/general/rbac-guide.md)，请搜索 Azure Arc 资源的名称，并为其分配 **Key Vault 机密用户 (预览版)** 角色。 如果你使用 [Key Vault 访问策略](../../key-vault/general/assign-access-policy-portal.md)，请为 Azure Arc 资源的系统分配的标识分配机密 **获取** 权限。
 
 ### <a name="connected-machine-agent"></a>Connected Machine 代理
 
@@ -75,4 +101,4 @@ Windows 和 Linux 上此功能支持的已连接计算机代理的最低版本�
 
 ## <a name="next-steps"></a>后续步骤
 
-你可以使用 [Azure CLI](manage-vm-extensions-cli.md) [PowerShell](manage-vm-extensions-powershell.md)、 [Azure 门户](manage-vm-extensions-portal.md)或 [Azure 资源管理器模板](manage-vm-extensions-template.md)来部署、管理和删除 VM 扩展。
+你可以使用 [Azure CLI](manage-vm-extensions-cli.md)、 [Azure PowerShell](manage-vm-extensions-powershell.md)、 [Azure 门户](manage-vm-extensions-portal.md)或 [Azure 资源管理器模板](manage-vm-extensions-template.md)来部署、管理和删除 VM 扩展。

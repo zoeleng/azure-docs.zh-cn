@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849287"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357549"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>教程：为 BitaBIZ 配置自动用户预配
 
@@ -46,21 +46,21 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 * 建议将单个 Azure AD 用户分配到 BitaBIZ 以测试自动用户预配配置。 其他用户和/或组可以稍后分配。
 
-* 将用户分配到 BitaBIZ 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到 BitaBIZ 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="setup-bitabiz-for-provisioning"></a>设置 BitaBIZ 以进行预配
 
 将 BitaBIZ 配置为使用 Azure AD 进行自动用户预配之前，需要在 BitaBIZ 上启用 SCIM 设置。
 
-1. 登录到 [BitaBIZ 管理控制台](https://www.bitabiz.com/login?lang=en)。 单击“设置管理员”。****
+1. 登录到 [BitaBIZ 管理控制台](https://www.bitabiz.com/login?lang=en)。 单击“设置管理员”。 
 
     :::image type="content" source="media/bitabiz-provisioning-tutorial/setup-admin.png" alt-text="BitaBIZ 管理员控制台的屏幕截图，其中突出显示了 &quot;设置管理员&quot;。" border="false":::
 
-2.  导航到 " **集成**"。
+2.  导航到 " **集成** "。
 
-    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="BitaBIZ 管理员控制台的屏幕截图，其中突出显示了 &quot;设置管理员&quot;。" border="false":::
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="BitaBIZ 管理控制台的屏幕截图，其中突出显示了集成。" border="false":::
 
-2.  导航到 **Microsoft Azure AD 设置**。  选择 **"** 自动用户预配"。 复制 **SCIM 预配终结点 URL** 和  **持有者令牌**的值。 这些值将在 Azure 门户的 BitaBIZ 应用程序的 "设置" 选项卡的 "租户 URL" 和 "机密令牌" 字段中输入。
+2.  导航到 **Microsoft Azure AD 设置** 。  选择 **"** 自动用户预配"。 复制 **SCIM 预配终结点 URL** 和  **持有者令牌** 的值。 这些值将在 Azure 门户的 BitaBIZ 应用程序的 "设置" 选项卡的 "租户 URL" 和 "机密令牌" 字段中输入。
 
     ![BitaBIZ 添加 SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 
@@ -71,7 +71,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 **若要从 Azure AD 应用程序库中添加 BitaBIZ，请执行以下步骤：**
 
-1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory**"。
+1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory** "。
 
     ![“Azure Active Directory”按钮](common/select-azuread.png)
 
@@ -83,7 +83,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，输入 " **BitaBIZ**"，在结果面板中选择 " **BitaBIZ** "，然后单击 " **添加** " 按钮添加该应用程序。
+4. 在搜索框中，输入 " **BitaBIZ** "，在结果面板中选择 " **BitaBIZ** "，然后单击 " **添加** " 按钮添加该应用程序。
 
     ![结果列表中的 BitaBIZ](common/search-new-app.png)
 
@@ -100,15 +100,15 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“BitaBIZ”****。
+2. 在应用程序列表中，选择“BitaBIZ”  。
 
     ![应用程序列表中的 BitaBIZ 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
@@ -116,42 +116,42 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
-6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”   。
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击 **“保存”** 。
+7. 单击“ **保存** ”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 BitaBIZ**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 BitaBIZ** "。
 
     ![BitaBIZ 用户映射](media/bitabiz-provisioning-tutorial/usermapping.png)
 
-9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 BitaBIZ 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 BitaBIZ 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
+9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 BitaBIZ 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 BitaBIZ 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改  。
 
     ![BitaBIZ 用户属性](media/bitabiz-provisioning-tutorial/user-attribute.png)
 
 
 10. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-11. 若要为 BitaBIZ 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+11. 若要为 BitaBIZ 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-12. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 BitaBIZ 的用户和/或组。
+12. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 BitaBIZ 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 
-13. 已准备好预配时，单击“保存”。
+13. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步********。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务对 BitaBIZ 执行的所有操作。
+此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步   。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务对 BitaBIZ 执行的所有操作。
 
 若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../app-provisioning/check-status-user-account-provisioning.md)。
 
 ## <a name="connector-limitations"></a>连接器限制
 
-* BitaBIZ 要求 **用户名**、 **电子邮件**、 **firstName** 和 **lastName** 作为必需的属性。 
+* BitaBIZ 要求 **用户名** 、 **电子邮件** 、 **firstName** 和 **lastName** 作为必需的属性。 
 * BitaBIZ 目前不支持硬删除。
 
 ## <a name="additional-resources"></a>其他资源

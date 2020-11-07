@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851282"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357583"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>教程：为4me 配置自动用户预配
 
@@ -41,7 +41,7 @@ ms.locfileid: "91851282"
 
 **若要从 Azure AD 应用程序库中添加4me，请执行以下步骤：**
 
-1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory**"。
+1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory** "。
 
     ![“Azure Active Directory”按钮](common/select-azuread.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "91851282"
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，输入 " **4me**"，在结果面板中选择 " **4me** "，然后单击 " **添加** " 按钮添加该应用程序。
+4. 在搜索框中，输入 " **4me** "，在结果面板中选择 " **4me** "，然后单击 " **添加** " 按钮添加该应用程序。
 
     ![结果列表中的 4me](common/search-new-app.png)
 
@@ -69,7 +69,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 * 建议将单个 Azure AD 用户分配到4me 以测试自动用户预配配置。 其他用户和/或组可以稍后分配。
 
-* 将用户分配到4me 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到4me 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="configuring-automatic-user-provisioning-to-4me"></a>配置4me 的自动用户预配 
 
@@ -84,21 +84,21 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“4me”****。
+2. 在应用程序列表中，选择“4me”。
 
     ![应用程序列表中的 4me 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
 5. 若要检索4me 帐户的 **租户 URL** 和 **机密令牌** ，请按照步骤6中所述的演练进行操作。
 
-6. 登录到4me 管理控制台。 导航到 " **设置**"。
+6. 登录到4me 管理控制台。 导航到 " **设置** "。
 
     ![4me 设置](media/4me-provisioning-tutorial/4me01.png)
 
@@ -112,51 +112,51 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 7. 填充步骤5中所示的字段后，单击 " **测试连接** " 以确保 Azure AD 可以连接到4me。 如果连接失败，请确保4me 帐户具有管理员权限，然后重试。
 
-    ![令牌](common/provisioning-testconnection-tenanturltoken.png)
+    ![标记](common/provisioning-testconnection-tenanturltoken.png)
 
-8. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+8. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”   。
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-9. 单击 **“保存”** 。
+9. 单击“ **保存** ”。
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 4me**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 4me** "。
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="&quot;映射&quot; 页的屏幕截图。在 &quot;名称&quot; 下，突出显示 &quot;将 Azure Active Directory 用户同步到 FourMe&quot;。" border="false":::
     
-11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到4me 的用户属性。 选为 " **匹配** " 属性的特性用于匹配4me 中的用户帐户以执行更新操作。 请确保 [4me 支持](https://developer.4me.com/v1/scim/users/) 对所选的匹配属性进行筛选。 选择“保存”按钮以提交任何更改。
+11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到4me 的用户属性。 选为 " **匹配** " 属性的特性用于匹配4me 中的用户帐户以执行更新操作。 请确保 [4me 支持](https://developer.4me.com/v1/scim/users/) 对所选的匹配属性进行筛选。 选择“保存”按钮以提交任何更改  。
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="&quot;映射&quot; 页的屏幕截图。在 &quot;名称&quot; 下，突出显示 &quot;将 Azure Active Directory 用户同步到 FourMe&quot;。" border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="&quot;属性映射&quot; 页的屏幕截图。表列出 Azure Active Directory 属性、相应的 FourMe 属性和匹配状态。" border="false":::
     
-12. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 4me**"。
+12. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 4me** "。
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="&quot;映射&quot; 页的屏幕截图。在 &quot;名称&quot; 下，突出显示 &quot;将 Azure Active Directory 用户同步到 FourMe&quot;。" border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="&quot;映射&quot; 页的屏幕截图。在 &quot;名称&quot; 下，突出显示 &quot;将 Azure Active Directory 组同步到 FourMe&quot;。" border="false":::
     
-13. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到4me 的组属性。 选为 " **匹配** " 属性的特性用于匹配4me 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
+13. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到4me 的组属性。 选为 " **匹配** " 属性的特性用于匹配4me 中的组以执行更新操作。 选择“保存”按钮以提交任何更改  。
 
     ![4me 组映射](media/4me-provisioning-tutorial/4me-group-attribute.png)
 
 14. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-15. 若要为4me 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+15. 若要为4me 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-16. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到4me 的用户和/或组。
+16. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到4me 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 
-17. 已准备好预配时，单击“保存”。
+17. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步********。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务对4me 执行的所有操作。
+此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步   。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务对4me 执行的所有操作。
 
 若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../app-provisioning/check-status-user-account-provisioning.md)。
 
 ## <a name="connector-limitations"></a>连接器限制
 
-* 4me 具有不同的 SCIM 终结点 Url 用于测试和生产环境。 前者以 **. qa**结尾，而后者以 **.com**结尾
+* 4me 具有不同的 SCIM 终结点 Url 用于测试和生产环境。 前者以 **. qa** 结尾，而后者以 **.com** 结尾
 * 4me 生成的机密令牌的生成时间为一个月的到期日期。
 * 4me 不支持 **删除** 操作
 

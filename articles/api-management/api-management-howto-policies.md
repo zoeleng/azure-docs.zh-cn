@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070888"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358110"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API 管理中的策略
 
@@ -34,11 +34,11 @@ ms.locfileid: "92070888"
 单击启用的语句会在定义视图中的光标位置添加相应的 XML。 
 
 > [!NOTE]
-> 如果无法启用要添加的策略，请确保为该策略设置的范围是正确的。 每个策略语句都设计有特定的使用范围，需在特定的策略部分使用。 若要查看某个策略的策略部分和范围，请参阅[策略参考][Policy Reference]中该策略的“用法”**** 部分。
+> 如果无法启用要添加的策略，请确保为该策略设置的范围是正确的。 每个策略语句都设计有特定的使用范围，需在特定的策略部分使用。 若要查看某个策略的策略部分和范围，请参阅[策略参考][Policy Reference]中该策略的“用法”部分。
 > 
 > 
 
-配置划分为 `inbound`、`backend`、`outbound` 和 `on-error`。 指定的策略语句系列按请求和响应顺序执行。
+配置划分为 `inbound`、`backend`、`outbound` 和 `on-error`。 为请求和响应执行一系列指定的策略语句。
 
 ```xml
 <policies>
@@ -92,7 +92,7 @@ ms.locfileid: "92070888"
 
 ### <a name="restrict-incoming-requests"></a>限制传入的请求
 
-要添加新的语句以限制到指定 IP 地址的入站请求，请将光标置于 `inbound` XML 元素的内容中，然后单击“限制调用方 IP”语句。****
+要添加新的语句以限制到指定 IP 地址的入站请求，请将光标置于 `inbound` XML 元素的内容中，然后单击“限制调用方 IP”语句。
 
 ![限制策略][policies-restrict]
 

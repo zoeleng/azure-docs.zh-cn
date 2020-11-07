@@ -2,14 +2,14 @@
 title: Azure Functions Python 开发人员参考
 description: 了解如何使用 Pythong 开发函数
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3d459f4249c65f2d09f9d8df6e7958adf852a2ea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346309"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358042"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -69,72 +69,70 @@ def main(req: azure.functions.HttpRequest) -> str:
 Python 函数项目的建议文件夹结构如以下示例所示：
 
 ```
- __app__
- | - my_first_function
+ <project_root>/
+ | - .venv/
+ | - .vscode/
+ | - my_first_function/
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - my_second_function
+ | - my_second_function/
  | | - __init__.py
  | | - function.json
- | - shared_code
+ | - shared_code/
+ | | - __init__.py
  | | - my_first_helper_function.py
  | | - my_second_helper_function.py
+ | - tests/
+ | | - test_my_second_function.py
+ | - .funcignore
  | - host.json
+ | - local.settings.json
  | - requirements.txt
  | - Dockerfile
- tests
 ```
-主项目文件夹 (\_\_app\_\_) 可以包含以下文件：
+主项目文件夹 ( # B0 project_root>) 可以包含以下文件：
 
 * *local.settings.json* ：用于在本地运行时存储应用设置和连接字符串。 此文件不会被发布到 Azure。 若要了解详细信息，请参阅 [local.settings.file](functions-run-local.md#local-settings-file)。
-* requirements.txt：包含系统在发布到 Azure 时安装的包列表。
+* *requirements.txt* ：包含在发布到 Azure 时系统安装的 Python 包的列表。
 * *host.json* ：包含在函数应用中影响所有函数的全局配置选项。 此文件会被发布到 Azure。 本地运行时，并非所有选项都受支持。 若要了解详细信息，请参阅 [host.json](functions-host-json.md)。
-* .funcignore：（可选）声明不应发布到 Azure 的文件。
-* Dockerfile：（可选）在[自定义容器](functions-create-function-linux-custom-image.md)中发布项目时使用。
+* *. vscode/* ： (可选) 包含存储 vscode 配置。 若要了解详细信息，请参阅 [VSCode 设置](https://code.visualstudio.com/docs/getstarted/settings)。
+* *. venv/* ： (可选) 包含本地开发使用的 Python 虚拟环境。
+* *Dockerfile* ：在 [自定义容器](functions-create-function-linux-custom-image.md)中发布项目时使用 (可选) 。
+* test */* ： (可选) 包含 function app 的测试用例。
+* *. funcignore* ： (可选) 声明不应发布到 Azure 的文件。 通常，此文件包含 `.vscode/` 忽略编辑器设置、忽略 `.venv/` 本地 Python 虚拟环境、 `tests/` 忽略测试用例以及 `local.settings.json` 阻止发布本地应用设置。
 
 每个函数都有自己的代码文件和绑定配置文件 (function.json)。
 
-在 Azure 中将项目配置到函数应用时，主项目 (\_\_app\_\_) 文件夹的整个内容应包含在包中，但不包含该文件夹本身。 在此示例 `tests` 中，建议你在独立于项目文件夹的文件夹中维护测试。 这样可防止对应用部署测试代码。 有关详细信息，请参阅[单元测试](#unit-testing)。
+将项目部署到 Azure 中的函数应用时，主项目 ( *<project_root>* ) 文件夹的全部内容应包含在包中，而不是包含在 `host.json` 包根目录中。 建议在此示例中，将你的测试与其他函数一起保留在一个文件夹中 `tests/` 。 有关详细信息，请参阅[单元测试](#unit-testing)。
 
 ## <a name="import-behavior"></a>导入行为
 
-可以使用显式相对引用和绝对引用在函数代码中导入模块。 根据以上所示的文件夹结构，以下导入在函数文件 \_\_app\_\_\my\_first\_function\\_\_init\_\_.py 中工作：
+您可以使用绝对引用和相对引用来导入函数代码中的模块。 根据上面所示的文件夹结构，以下导入函数文件中的 *<project_root> \my \_ first \_ 函数 \\ _ \_ \_ \_ py* ：
 
 ```python
-from . import example #(explicit relative)
+from shared_code import my_first_helper_function #(absolute)
 ```
 
 ```python
-from ..shared_code import my_first_helper_function #(explicit relative)
+import shared_code.my_second_helper_function #(absolute)
 ```
 
 ```python
-from __app__ import shared_code #(absolute)
+from . import example #(relative)
+```
+
+> [!NOTE]
+>  *Shared_code/* 文件夹需要包含 \_ \_ \_ \_ py 文件，以便在使用绝对导入语法时将其标记为 Python 包。
+
+不 \_ \_ 推荐使用以下应用程序 \_ \_ 导入和顶层相对导入，因为它不受静态类型检查器支持，并且 Python 测试框架不支持此功能：
+
+```python
+from __app__.shared_code import my_first_helper_function #(deprecated __app__ import)
 ```
 
 ```python
-import __app__.shared_code #(absolute)
-```
-
-以下导入不在同一文件中工作：
-
-```python
-import example
-```
-
-```python
-from example import some_helper_code
-```
-
-```python
-import shared_code
-```
-
-共享代码应保留在 \_\_app\_\_ 下一个单独的文件夹中。 若要引用 shared\_code 文件夹中的模块，可以使用以下语法：
-
-```python
-from __app__.shared_code import my_first_helper_function
+from ..shared_code import my_first_helper_function #(deprecated beyond top-level relative import)
 ```
 
 ## <a name="triggers-and-inputs"></a>触发器和输入
@@ -319,7 +317,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 |函数应用特征| <ul><li>应用需要处理多个并发调用。</li> <li> 应用处理大量 i/o 事件，例如网络调用和磁盘读/写。</li> </ul>| <ul><li>应用执行长时间运行的计算，例如调整图像大小。</li> <li>应用进行数据转换。</li> </ul> |
 |示例| <ul><li>Web API</li><ul> | <ul><li>数据处理</li><li> 机器学习推理</li><ul>|
 
- 
+
 > [!NOTE]
 >  由于现实世界中的工作负荷通常是 i/o 和 CPU 界限的混合，因此我们建议在实际的生产负载下分析工作负荷。
 
@@ -539,12 +537,14 @@ func azure functionapp publish <APP_NAME> --no-build
 
 可以使用标准测试框架像测试其他 Python 代码那样测试使用 Python 编写的函数。 对于大多数绑定，可以通过从 `azure.functions` 包创建适当类的实例来创建 mock 输入对象。 由于 [`azure.functions`](https://pypi.org/project/azure-functions/) 包不可供立即可用，请务必通过 `requirements.txt` 文件安装该包，如上文[包管理](#package-management)部分所述。
 
-例如，以下是 HTTP 触发函数的 mock 测试：
+例如，下面是 HTTP 触发函数的模拟测试： *my_second_function*
+
+首先，我们需要 *在文件上创建<project_root>/my_second_function/function.js* 并将此函数定义为 http 触发器。
 
 ```json
 {
   "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
+  "entryPoint": "main",
   "bindings": [
     {
       "authLevel": "function",
@@ -565,106 +565,72 @@ func azure functionapp publish <APP_NAME> --no-build
 }
 ```
 
+现在，我们可以实现 *my_second_function* 和 *shared_code _second_helper_function* 。
+
 ```python
-# __app__/HttpTrigger/__init__.py
+# <project_root>/my_second_function/__init__.py
 import azure.functions as func
 import logging
 
-def my_function(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+# Use absolute import to resolve shared_code modules
+from shared_code import my_second_helper_function
 
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
+# Define an http trigger which accepts ?value=<int> query parameter
+# Double the value and return the result in HttpResponse
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Executing my_second_function.')
 
-    if name:
-        return func.HttpResponse(f"Hello {name}")
-    else:
-        return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
-        )
+    initial_value: int = int(req.params.get('value'))
+    doubled_value: int = my_second_helper_function.double(initial_value)
+
+    return func.HttpResponse(
+      body=f"{initial_value} * 2 = {doubled_value}",
+      status_code=200
+    )
 ```
 
 ```python
-# tests/test_httptrigger.py
+# <project_root>/shared_code/__init__.py
+# Empty __init__.py file marks shared_code folder as a Python package
+```
+
+```python
+# <project_root>/shared_code/my_second_helper_function.py
+
+def double(value: int) -> int:
+  return value * 2
+```
+
+我们可以开始编写 http 触发器的测试用例。
+
+```python
+# <project_root>/tests/test_my_second_function.py
 import unittest
 
 import azure.functions as func
-from __app__.HttpTrigger import my_function
+from my_second_function import main
 
 class TestFunction(unittest.TestCase):
-    def test_my_function(self):
+    def test_my_second_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/api/HttpTrigger',
-            params={'name': 'Test'})
+            url='/api/my_second_function',
+            params={'value': '21'})
 
         # Call the function.
-        resp = my_function(req)
+        resp = main(req)
 
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            b'Hello Test',
+            b'21 * 2 = 42',
         )
 ```
 
-下面是另一个示例，其中含有队列触发函数：
+在 `.venv` Python 虚拟环境中安装最喜欢的 Python 测试框架 (例如 `pip install pytest`) 。 只需运行 `pytest tests` 检查测试结果。
 
-```json
-{
-  "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
-  "bindings": [
-    {
-      "name": "msg",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "python-queue-items",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-
-```python
-# __app__/QueueTrigger/__init__.py
-import azure.functions as func
-
-def my_function(msg: func.QueueMessage) -> str:
-    return f'msg body: {msg.get_body().decode()}'
-```
-
-```python
-# tests/test_queuetrigger.py
-import unittest
-
-import azure.functions as func
-from __app__.QueueTrigger import my_function
-
-class TestFunction(unittest.TestCase):
-    def test_my_function(self):
-        # Construct a mock Queue message.
-        req = func.QueueMessage(
-            body=b'test')
-
-        # Call the function.
-        resp = my_function(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp,
-            'msg body: test',
-        )
-```
 ## <a name="temporary-files"></a>临时文件
 
 `tempfile.gettempdir()` 方法返回一个临时文件夹，这在 Linux 上为 `/tmp`。 应用程序可使用此目录存储函数在执行期间生成和使用的临时文件。

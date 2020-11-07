@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329255"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358161"
 ---
 # <a name="public-ip-addresses"></a>公共 IP 地址
 
@@ -38,6 +38,8 @@ ms.locfileid: "91329255"
 公共 IP 地址是使用 IPv4 或 IPv6 地址创建的。 
 
 ## <a name="sku"></a>SKU
+
+若要了解有关 SKU 升级的信息，请参阅 [公共 IP 升级](../virtual-network/virtual-network-public-ip-address-upgrade.md)。
 
 使用以下 SKU 之一创建公共 IP 地址：
 
@@ -114,14 +116,14 @@ ms.locfileid: "91329255"
 
 选择该选项为公共 IP 资源指定 DNS 域名标签。 
 
-此选择将为**domainnamelabel**创建映射。cloudapp.azure.com Azure 托管 DNS 中的公共**IP。** 
+此选择将为 **domainnamelabel** 创建映射。cloudapp.azure.com Azure 托管 DNS 中的公共 **IP。** 
 
 例如，创建公共 IP，其中：
 
 * 将 contoso 作为 domainnamelabel 
 * **美国西部** Azure **位置**
 
- (**FQDN) 的** 完全限定的域名解析为资源的公共 IP 地址。
+ ( **FQDN) 的** 完全限定的域名解析为资源的公共 IP 地址。
 
 > [!IMPORTANT]
 > 所创建的每个域名标签在其 Azure 位置必须是唯一的。  
@@ -137,7 +139,7 @@ ms.locfileid: "91329255"
 
 ## <a name="virtual-machines"></a>虚拟机
 
-将公共 IP 地址分配到其**网络接口**可将其与 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虚拟机相关联。 
+将公共 IP 地址分配到其 **网络接口** 可将其与 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虚拟机相关联。 
 
 为公共 IP 地址选择“动态”或“静态” 。 详细了解如何[将 IP 地址分配到网络接口](virtual-network-network-interface-addresses.md)。
 
@@ -160,16 +162,16 @@ ms.locfileid: "91329255"
 
 ## <a name="application-gateways"></a>应用程序网关
 
-将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)相关联。 
+将公共 IP 地址分配给网关的 **前端** 配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)相关联。 
 
 * 将“动态”基本公共 IP 地址分配给应用程序网关 V1 前端配置。 
 * 将 **静态** 标准 SKU 地址分配到 V2 前端配置。
 
 ## <a name="azure-firewall"></a>Azure 防火墙
 
-[Azure 防火墙](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 允许跨订阅和虚拟网络创建、强制和记录应用程序和网络连接策略。
+[Azure 防火墙](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)使你可以跨订阅和虚拟网络创建、实施和记录应用程序与网络连接策略。
 
-只能将 **静态** 标准公共 IP 地址与防火墙关联。 这允许外部防火墙识别来自虚拟网络的流量。 
+只能将静态标准公共 IP 地址与防火墙关联。 这允许外部防火墙识别源自虚拟网络的流量。 
 
 
 ## <a name="at-a-glance"></a>概览

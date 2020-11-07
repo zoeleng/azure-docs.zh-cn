@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909635"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357243"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -42,7 +42,7 @@ ms.locfileid: "92909635"
 
 ### <a name="cause-1"></a>原因 1
 
-对于 MQTT，某些 SDK 依赖于 IoT 中心在 SAS 令牌过期时发出断开连接的指令，以便知道何时刷新它。 因此， 
+对于 MQTT，某些 SDK 依赖于 IoT 中心在 SAS 令牌过期时发出断开连接的指令，以便知道何时刷新它。 因此，
 
 1. SAS 令牌过期
 1. IoT 中心会注意到过期，将设备断开连接并显示 **401003 IoTHubUnauthorized**
@@ -58,9 +58,11 @@ IoT 中心无法对 auth 标头、规则或密钥进行身份验证。 这可能
 
 ### <a name="solution-1"></a>解决方案 1
 
-如果使用 IoT SDK 通过设备连接字符串进行连接，则不需要执行任何操作。 IoT SDK 会重新生成新令牌，以在 SAS 令牌过期时重新连接。 
+如果使用 IoT SDK 通过设备连接字符串进行连接，则不需要执行任何操作。 IoT SDK 会重新生成新令牌，以在 SAS 令牌过期时重新连接。
 
-如果担心错误数量太多，请切换到 C SDK，这会在过期之前续订 SAS 令牌。 此外，对于 AMQP，SAS 令牌可以在不断开连接的情况下进行刷新。
+默认令牌生存期为跨 Sdk 60 分钟;但对于某些 Sdk，令牌生命周期和令牌续订阈值是可配置的。 此外，每个 SDK 的设备断开连接和重新连接时生成的错误都不同。 若要了解详细信息，以及有关如何确定设备在日志中使用的 SDK 的信息，请参阅 [MQTT device disconnect With Azure IoT sdk](iot-hub-troubleshoot-connectivity.md#mqtt-device-disconnect-behavior-with-azure-iot-sdks)。
+
+对于设备开发人员，如果错误量是一个问题，请切换到 C SDK，它会在过期之前续订 SAS 令牌。 对于 AMQP，SAS 令牌可以在不断开连接的情况下进行刷新。
 
 ### <a name="solution-2"></a>解决方案 2
 

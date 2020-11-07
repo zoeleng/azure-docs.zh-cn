@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165590"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358705"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -70,7 +70,7 @@ ms.locfileid: "92165590"
 
 #### <a name="version-31-preview2"></a>[版本 3.1-预览版2](#tab/version-3-preview)
 
-命名实体识别 `v3.1-preview.2` 对于 NER 和实体链接请求使用不同的终结点。 根据你的请求使用下面的 URL 格式：
+命名实体识别 `v3.1-preview.2` 对 NER、PII 和实体链接请求使用不同的终结点。 根据你的请求使用下面的 URL 格式：
 
 实体链接
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -82,6 +82,7 @@ NER
 
 [命名实体识别版本 3.1-预览版引用 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+个人身份信息 (PII)
 * 个人 (`PII`) 信息- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 你还可以使用可选 `domain=phi` 参数来检测 `PHI` 文本中) 信息的运行状况 (。 

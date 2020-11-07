@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427384"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357906"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>登录到基于 SAML 的单一登录配置的应用时出现的问题
 若要解决下面的登录问题，建议执行以下操作来更好地诊断和自动执行解决步骤：
@@ -28,12 +28,12 @@ ms.locfileid: "92427384"
 如果在 Azure 门户中使用 "我的应用" 安全浏览器扩展的 [测试体验](../azuread-dev/howto-v1-debug-saml-sso-issues.md) ，则无需手动执行以下步骤来打开 "基于 SAML 的单一登录配置" 页。
 
 若要打开 "基于 SAML 的单一登录配置" 页：
-1.  打开 [**Azure 门户**](https://portal.azure.com/) 并以 **全局管理员** 或 **Coadmin**登录。
-1.  通过选择主左侧导航菜单顶部的 "**所有服务**" 打开**Azure Active Directory 扩展**。
+1.  打开 [**Azure 门户**](https://portal.azure.com/) 并以 **全局管理员** 或 **Coadmin** 登录。
+1.  通过选择主左侧导航菜单顶部的 " **所有服务** " 打开 **Azure Active Directory 扩展** 。
 1.  在筛选器搜索框中键入 **"Azure Active Directory"** ，并选择 **Azure Active Directory** 项目。
 1.  从 Azure Active Directory 左侧导航菜单中选择 " **企业应用程序** "。
 1.  选择“所有应用程序”，查看所有应用程序的列表。
-    如果看不到要在此处显示的应用程序，请使用 "**所有应用程序" 列表**顶部的 "**筛选器**" 控件，并将 "**显示**" 选项设置为 "**所有应用程序**"。
+    如果看不到要在此处显示的应用程序，请使用 " **所有应用程序" 列表** 顶部的 " **筛选器** " 控件，并将 " **显示** " 选项设置为 " **所有应用程序** "。
 1.  选择要配置为单一登录的应用程序。
 1. 加载应用程序后，在应用程序的左侧导航菜单中选择 " **单一登录** "。
 1. 选择 "基于 SAML 的 SSO"。
@@ -118,9 +118,9 @@ Azure AD 不支持应用程序针对单一登录所发送的 SAML 请求。 常�
 **分辨率**
 
 若要删除并创建新证书，请按照以下步骤操作：
-1. 在 "基于 SAML 的 SSO 配置" 屏幕上，选择 " **saml 签名证书**" 部分下的 "**创建新证书**"。
-1. 选择 "到期日期"，然后单击 " **保存**"。
-1. 选中 " **使新证书处于活动状态** " 以替代活动证书。 然后，单击窗格顶部的“保存”**** 并选择接受以激活滚动更新证书。
+1. 在 "基于 SAML 的 SSO 配置" 屏幕上，选择 " **saml 签名证书** " 部分下的 " **创建新证书** "。
+1. 选择 "到期日期"，然后单击 " **保存** "。
+1. 选中 " **使新证书处于活动状态** " 以替代活动证书。 然后，单击窗格顶部的“保存”并选择接受以激活滚动更新证书。
 1. 在 " **SAML 签名证书** " 部分下，单击 " **删除** " 以删除 **未使用** 的证书。
 
 ## <a name="saml-request-not-present-in-the-request"></a>请求中不存在 SAML 请求
@@ -145,7 +145,24 @@ Azure AD 无法识别 HTTP 请求中的 URL 参数中的 SAML 请求。 如果�
 
 删除为应用程序配置的未使用的答复 Url。
 
-在 "基于 SAML 的 SSO 配置" 页上的 " **回复 URL (断言使用者服务 URL") ** 部分中，删除系统创建的未使用或默认的回复 url。 例如 `https://127.0.0.1:444/applications/default.aspx`。
+在 "基于 SAML 的 SSO 配置" 页上的 " **回复 URL (断言使用者服务 URL")** 部分中，删除系统创建的未使用或默认的回复 url。 例如，`https://127.0.0.1:444/applications/default.aspx` 。
+
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>使用服务进行身份验证的用户不匹配请求的身份验证方法的身份验证方法
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+可能的原因 
+
+`RequestedAuthnContext`属于 SAML 请求。 这意味着应用程序应为 `AuthnContext` 指定的 `AuthnContextClassRef` 。 但是，用户在访问应用程序之前已经过身份验证， `AuthnContext` (身份验证方法) 用于以前的身份验证，这与请求的身份验证不同。 例如，对 myapps 和 WIA 的联合用户进行了访问。 `AuthnContextClassRef`将为 `urn:federation:authentication:windows` 。 AAD 不会执行全新的身份验证请求，它将使用通过 IdP (ADFS 或任何其他联合身份验证服务传递的身份验证上下文) 。 因此，如果应用程序请求的不是，则会出现不匹配 `urn:federation:authentication:windows` 。 另一种情况是使用多因素时： `'X509, MultiFactor` 。
+
+**分辨率**
+
+
+`RequestedAuthnContext` 可选值。 如果可能，请询问应用程序是否可以删除。
+
+另一种方法是确保 `RequestedAuthnContext` 将会遵守。 这将通过请求全新身份验证完成。 通过执行此操作，在处理 SAML 请求时，将完成一种全新的身份验证，并将采取此操作 `AuthnContext` 。 若要请求全新身份验证，SAML 请求最多包含值 `forceAuthn="true"` 。 
+
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>自定义发送到应用程序的 SAML 声明时出现问题
 若要了解如何自定义发送到应用程序的 SAML 属性声明，请参阅 [中的声明映射 Azure Active Directory](../develop/active-directory-claims-mapping.md)。
