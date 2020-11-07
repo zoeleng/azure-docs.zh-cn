@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 881be102a00badf1e03188b26514ad0eb1a9bd90
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 2d51903aff6f3fd1cd53d85a980f1b5dc2a893e9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520770"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354248"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>教程：为自动用户预配配置奖励网关
 
@@ -51,15 +51,15 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 ## <a name="setup-reward-gateway--for-provisioning"></a>设置奖励用于预配的网关
 在将奖励网关配置为使用 Azure AD 进行自动用户预配之前，需要在奖励网关上启用 SCIM 预配。
 
-1. 登录到 [奖励网关管理员控制台](https://rewardgateway.photoshelter.com/login/)。 单击“集成”****。
+1. 登录到 [奖励网关管理员控制台](https://rewardgateway.photoshelter.com/login/)。 单击“集成”  。
 
     ![具有称为 "集成" 选项的 "奖励网关" 管理控制台屏幕截图。](media/reward-gateway-provisioning-tutorial/image00.png)
 
-2.  选择 **"我的集成"**。
+2.  选择 **"我的集成"** 。
 
     ![这两个集成选项的屏幕截图，"我的集成" 选项称为 "我的集成"。](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.  将 SCIM URL 的值复制 ** (v2) ** 和 **OAuth 持有者令牌**。 这些值将输入到 "租户 URL" 中的 "租户 URL" 和 "机密令牌" 字段中的 "设置" 选项卡上的 "Azure 门户中。
+3.  将 SCIM URL 的值复制 **(v2)** 和 **OAuth 持有者令牌** 。 这些值将输入到 "租户 URL" 中的 "租户 URL" 和 "机密令牌" 字段中的 "设置" 选项卡上的 "Azure 门户中。
 
     !["我的集成" 面板的屏幕截图，其中包含称为 "OAuth 持有者令牌" 文本框。](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -69,7 +69,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 **若要从 Azure AD 应用程序库添加奖励网关，请执行以下步骤：**
 
-1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory**"。
+1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory** "。
 
     ![“Azure Active Directory”按钮](common/select-azuread.png)
 
@@ -81,7 +81,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，输入 **奖励网关**，在结果面板中选择 " **奖励网关** "，然后单击 " **添加** " 按钮添加该应用程序。
+4. 在搜索框中，输入 **奖励网关** ，在结果面板中选择 " **奖励网关** "，然后单击 " **添加** " 按钮添加该应用程序。
 
     ![结果列表中的“Reward Gateway”](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“Reward Gateway”****。
+2. 在应用程序列表中，选择“Reward Gateway”  。
 
     ![“应用程序”列表中的“Reward Gateway”链接](common/all-applications.png)
 
@@ -110,7 +110,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
-5. 在 "**管理员凭据**" 部分下，输入**SCIM URL (v2) **并分别在 "**租户 URL** " 和 "**机密令牌**" 中检索**OAuth 持有者令牌**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到奖励网关。 如果连接失败，请确保你的奖励网关帐户具有管理员权限，然后重试。
+5. 在 " **管理员凭据** " 部分下，输入 **SCIM URL (v2)** 并分别在 " **租户 URL** " 和 " **机密令牌** " 中检索 **OAuth 持有者令牌** 值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到奖励网关。 如果连接失败，请确保你的奖励网关帐户具有管理员权限，然后重试。
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -118,9 +118,9 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击“ **保存**”。
+7. 单击“ **保存** ”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到奖励网关**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到奖励网关** "。
 
     !["映射" 部分的屏幕截图，其中包含 "同步 Azure Active Directory 用户到奖励网关" 选项。](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
@@ -130,11 +130,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 10. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-11. 若要为奖励网关启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+11. 若要为奖励网关启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-12. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到奖励网关的用户和/或组。
+12. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到奖励网关的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

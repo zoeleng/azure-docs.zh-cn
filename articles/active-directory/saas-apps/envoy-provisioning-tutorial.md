@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 894d1c4e80619887c52970065de9e143cf205bd1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 5fd1f310d952873ed178a88b830ee979344143c8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453985"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355305"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>教程：为 Envoy 配置自动用户预配
 
@@ -45,21 +45,21 @@ ms.locfileid: "92453985"
 2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
 3. 确定要 [在 Azure AD 与 Envoy 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
-## <a name="step-2-configure-envoy-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 Envoy 以支持 Azure AD 的预配
+## <a name="step-2-configure-envoy-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 Envoy 以支持 Azure AD 的预配
 
 1. 登录到 [Envoy 管理控制台](https://dashboard.envoy.com/login)。 单击“集成”。 
 
     ![Envoy 集成](media/envoy-provisioning-tutorial/envoy01.png)
 
-2. 单击 " **安装** " 进行 **Microsoft Azure SCIM 集成**。
+2. 单击 " **安装** " 进行 **Microsoft Azure SCIM 集成** 。
 
     ![Envoy 安装](media/envoy-provisioning-tutorial/envoy02.png)
 
-3. 单击 " **保存** " 以 **同步所有用户**。 
+3. 单击 " **保存** " 以 **同步所有用户** 。 
 
     ![Envoy 保存](media/envoy-provisioning-tutorial/envoy03.png)
 
-4. 复制 **OAUTH 持有者令牌**。 此值将在 Azure 门户的 Envoy 应用程序的 "预配" 选项卡的 " **机密令牌** " 字段中输入。
+4. 复制 **OAUTH 持有者令牌** 。 此值将在 Azure 门户的 Envoy 应用程序的 "预配" 选项卡的 " **机密令牌** " 字段中输入。
     
     ![Envoy OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "92453985"
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 Envoy 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
+* 将用户和组分配到 Envoy 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
@@ -86,7 +86,7 @@ ms.locfileid: "92453985"
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“Envoy”****。
+2. 在应用程序列表中，选择“Envoy”。
 
     ![应用程序列表中的 Envoy 链接](common/all-applications.png)
 
@@ -98,7 +98,7 @@ ms.locfileid: "92453985"
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
-5. 在 " **管理员凭据** " 部分中，输入 " `https://app.envoy.com/scim/v2` **租户 URL**"。 输入先前在**机密令牌**中检索到的**OAUTH 持有者令牌**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 Envoy。 如果连接失败，请确保 Envoy 帐户具有管理员权限，然后重试。
+5. 在 " **管理员凭据** " 部分中，输入 " `https://app.envoy.com/scim/v2` **租户 URL** "。 输入先前在 **机密令牌** 中检索到的 **OAUTH 持有者令牌** 值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 Envoy。 如果连接失败，请确保 Envoy 帐户具有管理员权限，然后重试。
 
    ![屏幕截图显示 "管理员凭据" 对话框，你可以在其中输入租户 U R L 和机密令牌。](./media/envoy-tutorial/provisioning.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "92453985"
 
 7. 选择“保存”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Envoy**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Envoy** "。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Envoy 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 Envoy 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](../app-provisioning/customize-application-attributes.md)，将需要确保 Envoy API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
@@ -131,10 +131,10 @@ ms.locfileid: "92453985"
    |name.familyName|字符串|
    |name.formatted|字符串|
    |phoneNumbers[type eq "mobile"].value|字符串|
-   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "work"].value|字符串|
    |区域设置|字符串|
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Envoy**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 Envoy** "。
 
 11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Envoy 的组属性。 选为 " **匹配** " 属性的特性用于匹配 Envoy 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -146,11 +146,11 @@ ms.locfileid: "92453985"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为 Envoy 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 若要为 Envoy 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 Envoy 的用户和/或组。
+14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 Envoy 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

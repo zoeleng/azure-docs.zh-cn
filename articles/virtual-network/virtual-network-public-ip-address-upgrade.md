@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 791c9e8ea8f7c8ffbf9268af2b3a93f592a77f9e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629749"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353350"
 ---
 # <a name="upgrade-public-ip-addresses"></a>升级公共 IP 地址
 
@@ -154,11 +154,18 @@ Azure 资源管理器中的新资源组是使用以上示例中的已迁移保�
 美国西部<br>
 美国西部 2<br>
 挪威东部<br>
+南非北部<br>
 美国东部<br>
+北欧<br>
+韩国中部<br>
+印度中部<br>
 美国东部 2<br>
 瑞士北部<br>
 印度西部<br>
-德国北部
+德国北部<br>
+加拿大中部<br>
+法国南部<br>
+印度西部
 
 * 为了升级基本的公共 IP，它无法与任何 Azure 资源关联。  请查看 [此页](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) ，以了解有关如何解除公共 ip 关联的详细信息。  同样，为了迁移保留 IP，它不能与任何云服务关联。  请查看 [此页](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) ，以了解有关如何解除保留 ip 关联的详细信息。  
 * 从基本 SKU 升级到标准 SKU 的公共 Ip 将继续没有 [可用性区域](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) ，因此不能与区域冗余或区域性的 Azure 资源关联。  请注意，这仅适用于提供可用性区域的区域。

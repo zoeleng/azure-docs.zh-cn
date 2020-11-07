@@ -5,17 +5,17 @@ services: peering-service
 author: derekolo
 ms.service: peering-service
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: 02135b7e1f2086e430411c31f59ddeb55b2978e7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29ce0c1421019b95adb00c4eab3f9c1d90da0510
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201063"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353775"
 ---
 # <a name="peering-service-partners"></a>对等服务合作伙伴
 
@@ -43,6 +43,7 @@ Microsoft 已与 internet 服务提供商合作， (Isp) 、internet exchange �
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |亚洲 |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |亚洲 |
 | [NAP 非洲](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |非洲|
+| [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |欧洲|
 
 > [!NOTE]
 >若要详细了解如何向对等互连服务合作伙伴计划登记内容，请联系 peeringservice@microsoft.com 。

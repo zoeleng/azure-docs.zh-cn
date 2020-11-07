@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4a7b6ffc04fea3c7e09bae365a9c148e0ae5a232
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 54dc9d7357e4315c7878ccdacfd3f90809751858
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517933"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353401"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>教程：为 myday 配置自动用户预配
 
@@ -48,9 +48,9 @@ ms.locfileid: "92517933"
 2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
 3. 确定要 [在 Azure AD 与 myday 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
-## <a name="step-2-configure-myday-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 myday 以支持 Azure AD 的预配
+## <a name="step-2-configure-myday-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 myday 以支持 Azure AD 的预配
 
-联系你的 myday 代表或支持团队来接收 **租户 URL** 和 **机密令牌**。
+联系你的 myday 代表或支持团队来接收 **租户 URL** 和 **机密令牌** 。
 
 ## <a name="step-3-add-myday-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加 myday
 
@@ -60,7 +60,7 @@ ms.locfileid: "92517933"
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 myday 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
+* 将用户和组分配到 myday 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
@@ -75,7 +75,7 @@ ms.locfileid: "92517933"
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择 " **myday**"。
+2. 在应用程序列表中，选择 " **myday** "。
 
     ![应用程序列表中的 myday 链接](common/all-applications.png)
 
@@ -123,15 +123,15 @@ ms.locfileid: "92517933"
    |phoneNumbers[type eq "fax"].value|字符串|
    |phoneNumbers[type eq "mobile"].value|字符串|
    |phoneNumbers[type eq "work"].value|字符串|
-   |角色 [主 eq "True"]。显示|String|
+   |角色 [主 eq "True"]。显示|字符串|
    |role [primary eq "True"]。类型|字符串|
-   |roles[primary eq "True"].value|String|
+   |roles[primary eq "True"].value|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|参考|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|字符串|
 
-10. 在 " **映射** " 部分下，选择 " **设置 Azure Active Directory 组**"。
+10. 在 " **映射** " 部分下，选择 " **设置 Azure Active Directory 组** "。
 
 11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 myday 的组属性。 选为 " **匹配** " 属性的特性用于匹配 myday 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -143,11 +143,11 @@ ms.locfileid: "92517933"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为 myday 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 若要为 myday 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 myday 的用户和/或组。
+14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 myday 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

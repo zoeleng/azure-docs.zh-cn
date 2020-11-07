@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5a2a0c94dc4691c17eebe235055015a2853bacb4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: f43d7b2a858c5047c40157429dc5c50b467c8efc
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677588"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353095"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>教程：为自动用户预配配置 SAP Cloud Platform Identity Authentication
 
@@ -102,7 +102,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“SAP Cloud Platform Identity Authentication”  。
+2. 在应用程序列表中，选择“SAP Cloud Platform Identity Authentication”。
 
     ![应用程序列表中的“SAP Cloud Platform Identity Authentication”链接](common/all-applications.png)
 

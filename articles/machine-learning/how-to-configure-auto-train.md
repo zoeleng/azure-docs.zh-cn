@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 825413421bc9025c2912bb790a3166c6e3d34a0f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421832"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352568"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>使用 Python 配置自动化 ML 试验
 
@@ -46,7 +46,7 @@ ms.locfileid: "93421832"
     若要安装该 SDK，你可以： 
     * 创建一个计算实例，该实例将自动安装 SDK 并针对 ML 工作流进行预先配置。 有关详细信息，请参阅 [创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md) 。 
 
-    * [自己安装 SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。 只要确保额外包括 `automl` 即可。 
+    * [自行安装 `automl` 包](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)，其中包括 SDK 的 [默认安装](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py#default-install&preserve-view=true) 。
 
 ## <a name="select-your-experiment-type"></a>选择试验类型
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1163f4b0992afe03f5bbdc38cad4e3cbca060dd2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 3fe13d2fad2382e0e9fa8b93b79c5f27695ad898
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459769"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355186"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>教程：为 iProva 配置自动用户预配
 
@@ -48,17 +48,17 @@ ms.locfileid: "92459769"
 2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
 3. 确定要 [在 Azure AD 与 iProva 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
-## <a name="step-2-configure-iprova-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 iProva 以支持 Azure AD 的预配
+## <a name="step-2-configure-iprova-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 iProva 以支持 Azure AD 的预配
 
-1. 登录到 [IProva 管理控制台](https://www.iProva.com/)。 导航到 " **转到" > "应用程序管理**"。
+1. 登录到 [IProva 管理控制台](https://www.iProva.com/)。 导航到 " **转到" > "应用程序管理** "。
 
     ![iProva 管理控制台](media/iprova-provisioning-tutorial/admin.png)
 
-2.  单击 " **外部用户管理**"。
+2.  单击 " **外部用户管理** "。
 
     ![iProva 添加 SCIM](media/iprova-provisioning-tutorial/external.png)
 
-3. 若要添加新的提供程序，请单击 **加号** 图标。 在 "新建 **添加提供程序** " 对话框中，提供一个 **标题**。 你可以选择添加 **基于 IP 的访问限制**。 单击 **"确定"** 按钮。
+3. 若要添加新的提供程序，请单击 **加号** 图标。 在 "新建 **添加提供程序** " 对话框中，提供一个 **标题** 。 你可以选择添加 **基于 IP 的访问限制** 。 单击 **"确定"** 按钮。
 
     ![添加新的 iProva](media/iprova-provisioning-tutorial/add.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "92459769"
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 iProva 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
+* 将用户和组分配到 iProva 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
@@ -90,7 +90,7 @@ ms.locfileid: "92459769"
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“iProva”。****
+2. 在应用程序列表中，选择“iProva”。
 
     ![应用程序列表中的 iProva 链接](common/all-applications.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "92459769"
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
-5. 在 "**管理员凭据**" 部分下，输入前面在 "**租户 URL** " 和 "**机密令牌**" 字段中检索到的**SCIM 2.0 基 URL 和永久令牌**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 iProva。 如果连接失败，请确保 iProva 帐户具有管理员权限，然后重试。
+5. 在 " **管理员凭据** " 部分下，输入前面在 " **租户 URL** " 和 " **机密令牌** " 字段中检索到的 **SCIM 2.0 基 URL 和永久令牌** 值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 iProva。 如果连接失败，请确保 iProva 帐户具有管理员权限，然后重试。
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -110,9 +110,9 @@ ms.locfileid: "92459769"
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击“ **保存**”。
+7. 单击“ **保存** ”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 iProva**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 iProva** "。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 iProva 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 iProva 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -138,9 +138,9 @@ ms.locfileid: "92459769"
    |phoneNumbers[type eq "mobile"].value|字符串|
    |phoneNumbers[type eq "work"].value|字符串|
    |externalId|字符串|
-   |角色 [主 eq "True"]。显示|String|
+   |角色 [主 eq "True"]。显示|字符串|
    |role [primary eq "True"]。类型|字符串|
-   |roles[primary eq "True"].value|String|
+   |roles[primary eq "True"].value|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|字符串|
@@ -148,7 +148,7 @@ ms.locfileid: "92459769"
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|字符串|
 
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 iProva**"。
+10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 iProva** "。
 
 11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 iProva 的组属性。 选为 " **匹配** " 属性的特性用于匹配 iProva 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
@@ -159,11 +159,11 @@ ms.locfileid: "92459769"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为 iProva 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 若要为 iProva 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 iProva 的用户和/或组。
+14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 iProva 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

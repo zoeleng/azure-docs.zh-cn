@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 2792d5cc65e08a23a333deebdb24c0fd869446c3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278883"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352874"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>教程：为 RFPIO 配置自动用户预配
 
@@ -46,25 +46,25 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 * 建议将单个 Azure AD 用户分配到 RFPIO 以测试自动用户预配配置。 其他用户和/或组可以稍后分配。
 
-* 将用户分配到 RFPIO 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”角色的用户排除在预配之外。
+* 将用户分配到 RFPIO 时，必须在分配对话框中选择任何特定于应用程序的有效角色 (如有) 。 具有“默认访问权限”  角色的用户排除在预配之外。
 
 ## <a name="setup-rfpio-for-provisioning"></a>设置 RFPIO 以进行预配
 
 将 RFPIO 配置为使用 Azure AD 进行自动用户预配之前，需要在 RFPIO 上启用 SCIM 设置。
 
-1.  登录到 RFPIO 管理控制台。 在管理员控制台的左下角，单击 " **租户**"。
+1.  登录到 RFPIO 管理控制台。 在管理员控制台的左下角，单击 " **租户** "。
 
     ![RFPIO 管理控制台](media/rfpio-provisioning-tutorial/aadtest0.png)
 
-2.  单击 " **组织设置**"。
+2.  单击 " **组织设置** "。
     
     ![RFPIO 管理员](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  导航到 "**用户管理**  >  **安全**  >  **SCIM**"。
+3.  导航到 " **用户管理**  >  **安全**  >  **SCIM** "。
 
     ![RFPIO 添加 SCIM](media/rfpio-provisioning-tutorial/scim.png)
 
-4.  确保启用了 **自动用户预配** 。 单击 " **生成 SCIM API 令牌**"。
+4.  确保启用了 **自动用户预配** 。 单击 " **生成 SCIM API 令牌** "。
 
     ![S C I M 部分的屏幕截图，其中包含生成的 C I M A P I TOKEN 选项，称为 out。](media/rfpio-provisioning-tutorial/generate.png)
 
@@ -78,7 +78,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 **若要从 Azure AD 应用程序库中添加 RFPIO，请执行以下步骤：**
 
-1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory**"。
+1. 在 **[Azure 门户](https://portal.azure.com)** 的左侧导航面板中，选择 " **Azure Active Directory** "。
 
     ![“Azure Active Directory”按钮](common/select-azuread.png)
 
@@ -90,7 +90,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，输入 " **RFPIO**"，在结果面板中选择 " **RFPIO** "，然后单击 "    **添加** " 按钮添加该应用程序。
+4. 在搜索框中，输入 " **RFPIO** "，在结果面板中选择 " **RFPIO** "，然后单击 "    **添加** " 按钮添加该应用程序。
 
     ![结果列表中的 RFPIO](common/search-new-app.png)
 
@@ -107,51 +107,51 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“RFPIO”****。
+2. 在应用程序列表中，选择“RFPIO”  。
 
     ![应用程序列表中的 RFPIO 链接](common/all-applications.png)
 
-3. 选择“预配”选项卡。
+3. 选择“预配”  选项卡。
 
     ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
 
-4. 将“预配模式”设置为“自动”。
+4. 将“预配模式”  设置为“自动”  。
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
-5. 在 " **管理员凭据** " 部分中，输入 " `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` **租户 URL**"。 例如，值为 `https://Azure-test1.rfpio.com/rfpserver/scim/v2` 。 输入先前在**机密令牌**中检索到的**SCIM API 标记**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 RFPIO。 如果连接失败，请确保 RFPIO 帐户具有管理员权限，然后重试。
+5. 在 " **管理员凭据** " 部分中，输入 " `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` **租户 URL** "。 例如，值为 `https://Azure-test1.rfpio.com/rfpserver/scim/v2` 。 输入先前在 **机密令牌** 中检索到的 **SCIM API 标记** 值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 RFPIO。 如果连接失败，请确保 RFPIO 帐户具有管理员权限，然后重试。
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
-6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”********。
+6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中复选框“发生故障时发送电子邮件通知”   。
 
     ![通知电子邮件](common/provisioning-notification-email.png)
 
-7. 单击 **“保存”** 。
+7. 单击“ **保存** ”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 RFPIO**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 RFPIO** "。
 
     ![RFPIO 用户映射](media/rfpio-provisioning-tutorial/usermapping.png)
 
-9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 RFPIO 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 RFPIO 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
+9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 RFPIO 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 RFPIO 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改  。
 
     ![RFPIO 用户属性](media/rfpio-provisioning-tutorial/userattributes.png)
 
 10. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-11. 若要为 RFPIO 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+11. 若要为 RFPIO 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-12. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 RFPIO 的用户和/或组。
+12. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 RFPIO 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 
-13. 已准备好预配时，单击“保存”。
+13. 已准备好预配时，单击“保存”  。
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步********。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务对 RFPIO 执行的所有操作。
+此操作会对“设置”部分的“范围”中定义的所有用户和/或组启动初始同步   。 初始同步执行的时间比后续同步长，只要 Azure AD 预配服务正在运行，大约每隔 40 分钟就会进行一次同步。 你可以使用 " **同步详细信息** " 部分监视进度并跟踪指向预配活动报告的链接，该报告描述了 Azure AD 预配服务对 RFPIO 执行的所有操作。
 
 若要详细了解如何读取 Azure AD 预配日志，请参阅[有关自动用户帐户预配的报告](../app-provisioning/check-status-user-account-provisioning.md)。
 

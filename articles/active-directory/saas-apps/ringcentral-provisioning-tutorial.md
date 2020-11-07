@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 8bd7d3e5dc4c263ff2a2ff03c077b59196c3413b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 915133210c9797db7446bf30391635fd36b73bf0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520738"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352786"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>教程：为 RingCentral 配置自动用户预配
 
@@ -44,17 +44,17 @@ ms.locfileid: "92520738"
 2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
 3. 确定要 [在 Azure AD 与 RingCentral 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
-## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 RingCentral 以支持 Azure AD 的预配
+## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 RingCentral 以支持 Azure AD 的预配
 
-1. 登录到 [RingCentral 管理控制台](https://login.ringcentral.com/sw.html)。 导航到 " **工具" > 目录集成**"。
+1. 登录到 [RingCentral 管理控制台](https://login.ringcentral.com/sw.html)。 导航到 " **工具" > 目录集成** "。
 
     ![RingCentral 管理控制台](media/ringcentral-provisioning-tutorial/admin.png)
 
-2.  选择 **SCIM** 下的 " **选择目录提供程序**"。 以后 (会出现一个名为 Azure Active Directory) 的选项。 单击 " **启用 SCIM 服务**"。
+2.  选择 **SCIM** 下的 " **选择目录提供程序** "。 以后 (会出现一个名为 Azure Active Directory) 的选项。 单击 " **启用 SCIM 服务** "。
 
     ![RingCentral 添加 SCIM](media/ringcentral-provisioning-tutorial/scim.png)
 
-3.  请联系 RingCentral 支持团队，以 matthew.hunt@ringcentral.com 获取 **SCIM 身份验证令牌**。 此值将在 Azure 门户的 RingCentral 应用程序的 "预配" 选项卡的 "机密令牌" 字段中输入。
+3.  请联系 RingCentral 支持团队，以 matthew.hunt@ringcentral.com 获取 **SCIM 身份验证令牌** 。 此值将在 Azure 门户的 RingCentral 应用程序的 "预配" 选项卡的 "机密令牌" 字段中输入。
 
 > [!NOTE]
 > 若要将许可证分配给用户，请参阅 [此处](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language)的视频链接。
@@ -67,7 +67,7 @@ ms.locfileid: "92520738"
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 RingCentral 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
+* 将用户和组分配到 RingCentral 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
@@ -94,7 +94,7 @@ ms.locfileid: "92520738"
 
     ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
 
-5. 在 " **管理员凭据** " 部分中，输入 " `https://platform.ringcentral.com/scim/v2` **租户 URL**"。 输入先前在**机密令牌**中检索到的**SCIM Authentication 令牌**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 RingCentral。 如果连接失败，请确保 RingCentral 帐户具有管理员权限，然后重试。
+5. 在 " **管理员凭据** " 部分中，输入 " `https://platform.ringcentral.com/scim/v2` **租户 URL** "。 输入先前在 **机密令牌** 中检索到的 **SCIM Authentication 令牌** 值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 RingCentral。 如果连接失败，请确保 RingCentral 帐户具有管理员权限，然后重试。
 
     ![带有称为 "测试连接" 选项的 "租户 URL" 和 "机密令牌" 文本字段的屏幕截图。](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "92520738"
 
 7. 选择“保存”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 RingCentral**"。
+8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 RingCentral** "。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 RingCentral 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 RingCentral 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](../app-provisioning/customize-application-attributes.md)，将需要确保 RingCentral API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
@@ -127,11 +127,11 @@ ms.locfileid: "92520738"
 
 10. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-11. 若要为 RingCentral 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+11. 若要为 RingCentral 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-12. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 RingCentral 的用户和/或组。
+12. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 RingCentral 的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520024"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354209"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>教程：为 Wrike 配置自动用户预配
 
@@ -52,7 +52,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 在将 Wrike 配置为使用 Azure AD 进行自动用户预配之前，需要在 Wrike 上启用 (SCIM) 的跨域标识管理的系统。
 
-1. 登录到 [Wrike 管理控制台](https://www.Wrike.com/login/)。 请参阅你的租户 ID。 选择 " **应用" & 集成**。
+1. 登录到 [Wrike 管理控制台](https://www.Wrike.com/login/)。 请参阅你的租户 ID。 选择 " **应用" & 集成** 。
 
     ![应用 & 集成](media/Wrike-provisioning-tutorial/admin.png)
 
@@ -60,11 +60,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![Azure AD](media/Wrike-provisioning-tutorial/Capture01.png)
 
-3.  选择 SCIM。 复制 **基 URL**。
+3.  选择 SCIM。 复制 **基 URL** 。
 
     ![基 URL](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
-4. 选择**API**  >  **Azure SCIM**。
+4. 选择 **API**  >  **Azure SCIM** 。
 
     ![Azure SCIM](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
 
@@ -72,7 +72,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![Wrike 创建令牌](media/Wrike-provisioning-tutorial/password.png)
 
-6.  复制 " **机密令牌**"，并将其粘贴到 Azure AD 中。 选择 " **保存** " 以完成 Wrike 上的设置设置。
+6.  复制 " **机密令牌** "，并将其粘贴到 Azure AD 中。 选择 " **保存** " 以完成 Wrike 上的设置设置。
 
     ![永久访问令牌](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
 
@@ -83,7 +83,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 若要从 Azure AD 应用程序库中添加 Wrike，请执行以下步骤。
 
-1. 在 [Azure 门户](https://portal.azure.com)的左侧导航窗格中，选择 " **Azure Active Directory**"。
+1. 在 [Azure 门户](https://portal.azure.com)的左侧导航窗格中，选择 " **Azure Active Directory** "。
 
     ![“Azure Active Directory”按钮](common/select-azuread.png)
 
@@ -95,7 +95,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![“新增应用程序”按钮](common/add-new-app.png)
 
-4. 在搜索框中，输入 " **Wrike**"，在结果面板中选择 " **Wrike** "，然后选择 " **添加** " 以添加该应用程序。
+4. 在搜索框中，输入 " **Wrike** "，在结果面板中选择 " **Wrike** "，然后选择 " **添加** " 以添加该应用程序。
 
     ![结果列表中的 Wrike](common/search-new-app.png)
 
@@ -109,11 +109,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>在 Azure AD 中配置 Wrike 的自动用户预配
 
-1. 登录 [Azure 门户](https://portal.azure.com)。 选择 "**企业应用程序**" "  >  **所有应用程序**"。
+1. 登录 [Azure 门户](https://portal.azure.com)。 选择 " **企业应用程序** " "  >  **所有应用程序** "。
 
     ![所有应用程序](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择“Wrike”****。
+2. 在应用程序列表中，选择“Wrike”。
 
     ![“应用程序”列表中的“Wrike”链接](common/all-applications.png)
 
@@ -125,7 +125,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
     ![预配模式设置为 "自动"](common/provisioning-automatic.png)
 
-5. 在 "管理员凭据" 部分下，输入在 "**租户 url** " 和 "**机密令牌**" 中前面检索的**基本 URL**和**永久访问令牌**值。 选择 " **测试连接** " 以确保 Azure AD 可以连接到 Wrike。 如果连接失败，请确保 Wrike 帐户具有管理员权限，然后重试。
+5. 在 "管理员凭据" 部分下，输入在 " **租户 url** " 和 " **机密令牌** " 中前面检索的 **基本 URL** 和 **永久访问令牌** 值。 选择 " **测试连接** " 以确保 Azure AD 可以连接到 Wrike。 如果连接失败，请确保 Wrike 帐户具有管理员权限，然后重试。
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -135,7 +135,7 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 8. 选择“保存”。
 
-9. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Wrike**"。
+9. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Wrike** "。
 
     ![Wrike 用户映射](media/Wrike-provisioning-tutorial/Wrike-user-mappings.png)
 
@@ -145,11 +145,11 @@ Azure Active Directory 使用称为分配的概念来确定哪些用户应收到
 
 11. 若要配置范围筛选器，请按照 [范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中的说明进行操作。
 
-12. 若要为 Wrike 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+12. 若要为 Wrike 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
 
     ![设置状态切换开启](common/provisioning-toggle-on.png)
 
-13. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 Wrike 的用户或组。
+13. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 Wrike 的用户或组。
 
     ![预配范围](common/provisioning-scope.png)
 
