@@ -1,16 +1,16 @@
 ---
-title: 将 Azure 策略设计为代码工作流
+title: 设计 Azure Policy as Code 工作流
 description: 了解如何设计工作流以将 Azure Policy 定义部署为代码并自动验证资源。
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320609"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359674"
 ---
-# <a name="design-azure-policy-as-code-workflows"></a>将 Azure 策略设计为代码工作流
+# <a name="design-azure-policy-as-code-workflows"></a>设计 Azure Policy as Code 工作流
 
 随着你在云治理旅程中取得进展，需要从在 Azure 门户中或通过各种 SDK 手动管理每个策略定义，转变为在企业范围内更易于管理和重复进行的某个过程。 在云中大规模管理系统的两个主要方法是：
 
@@ -38,8 +38,6 @@ ms.locfileid: "92320609"
 
 - Policy 定义：[将标记添加到资源](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - 计划定义：[计费标记](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-另外，请参阅 [导出 Azure 策略资源](../how-to/export-resources.md) ，将现有的定义和分配导入到源代码管理环境 [GitHub](https://www.github.com)中。
 
 ## <a name="workflow-overview"></a>工作流概述
 
@@ -73,6 +71,8 @@ Azure 策略的建议常规工作流如下图所示：
 ```
 
 添加新策略或更新现有策略时，工作流应在 Azure 中自动更新策略定义。 新的或更新的策略定义的测试将在后面的步骤中进行。
+
+另外，请参阅 [导出 Azure 策略资源](../how-to/export-resources.md) ，将现有的定义和分配导入到源代码管理环境 [GitHub](https://www.github.com)中。
 
 ### <a name="create-and-update-initiative-definitions"></a>创建和更新计划定义
 
@@ -129,7 +129,7 @@ Azure 策略的建议常规工作流如下图所示：
 
 ### <a name="update-to-enforced-assignments"></a>更新为强制分配
 
-所有验证入口都已完成之后，将分配更新为使用值为 enabled 的 **enforcementMode**。 建议最初在远离生产环境的相同环境中进行此更改。 验证该环境按预期方式工作后，随后应将更改的范围限定为包括下一个环境，以此类推，直到策略部署到生产资源。
+所有验证入口都已完成之后，将分配更新为使用值为 enabled 的 **enforcementMode** 。 建议最初在远离生产环境的相同环境中进行此更改。 验证该环境按预期方式工作后，随后应将更改的范围限定为包括下一个环境，以此类推，直到策略部署到生产资源。
 
 ## <a name="process-integrated-evaluations"></a>过程集成评估
 

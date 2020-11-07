@@ -31,14 +31,10 @@
       href: spring-cloud-tutorial-setup-autoscale.md
     - name: 警报和操作组
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: 使用 IntelliJ 部署应用
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: 断路器仪表板
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: 自定义 DNS 名称
       href: spring-cloud-tutorial-custom-domain.md
-    - name: 使用 Terraform 预配 Azure Spring Cloud 实例
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: 使用托管标识将 Key Vault 连接到 Azure Spring Cloud 应用
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: 在虚拟网络中部署 Azure Spring Cloud
@@ -77,6 +73,8 @@
           href: spring-cloud-howto-staging-environment.md
         - name: 从源代码启动 Java 应用
           href: spring-cloud-howto-launch-from-source.md
+        - name: 使用 IntelliJ 部署应用
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: 配置
       items:
         - name: 启动、停止和删除应用
@@ -115,13 +113,15 @@
           href: spring-cloud-howto-github-actions.md
         - name: 在 GitHub Actions 中向 Key Vault 进行身份验证
           href: spring-cloud-github-actions-key-vault.md
+        - name: 使用 Terraform 预配 Azure Spring Cloud 实例
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: 疑难解答
       items:
         - name: 自行诊断并解决问题
           href: spring-cloud-howto-self-diagnose-solve.md
         - name: 故障排除指南
           href: spring-cloud-troubleshoot.md
-    - name: Migrate
+    - name: 迁移
       items:
         - name: Spring Cloud
           href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud'

@@ -1,15 +1,15 @@
 ---
 title: 使用 Azure CLI 启用 VM 扩展
 description: 本文介绍如何使用 Azure CLI 将虚拟机扩展部署到在混合云环境中运行的支持 Azure Arc 的服务器。
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 59c984f4adaec2261d1b08748aa5a91c8246418d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336720"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359109"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>使用 Azure CLI 启用 Azure VM 扩展
 
@@ -33,11 +33,17 @@ az connectedmachine machine-extension create --machine-name "myMachineName" --na
 az connectedmachine machine-extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
 ```
 
+以下示例在启用 Arc 的服务器上启用 Key Vault VM 扩展 (预览版) ：
+
+```azurecli
+az connectedmachine machine-extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
+```
+
 ## <a name="list-extensions-installed"></a>列出已安装的扩展
 
 若要获取启用了 Arc 的服务器上的 VM 扩展列表，请使用 [az connectedmachine machine extension list](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_list) ， `--machine-name` 并使用和 `--resource-group` 参数。
 
-例如：
+示例：
 
 ```azurecli
 az connectedmachine machine-extension list --machine-name "myMachineName" --resource-group "myResourceGroup"
@@ -70,6 +76,6 @@ az connectedmachine machine-extension delete --machine-name "myMachineName" --na
 
 ## <a name="next-steps"></a>后续步骤
 
-- 你可以使用 [PowerShell](manage-vm-extensions-powershell.md)、 [Azure 门户](manage-vm-extensions-portal.md)或 [Azure 资源管理器模板](manage-vm-extensions-template.md)来部署、管理和删除 VM 扩展。
+- 你可以使用 [Azure PowerShell](manage-vm-extensions-powershell.md)、 [Azure 门户](manage-vm-extensions-portal.md)或 [Azure 资源管理器模板](manage-vm-extensions-template.md)来部署、管理和删除 VM 扩展。
 
 - 疑难解答信息可在 [VM 扩展疑难解答指南](troubleshoot-vm-extensions.md)中找到。

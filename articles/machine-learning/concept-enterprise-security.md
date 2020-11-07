@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: f9d6f58256ccc21e5121a16a429e0f4c3ff1e485
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 19736a37e0da07237f6b112de7da86efe3d8bfe5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323094"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359368"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure 机器学习的企业安全和管理
 
@@ -100,7 +100,7 @@ ms.locfileid: "93323094"
 
 Azure 机器学习将在订阅中为每个工作区区域创建一个额外的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头），该应用程序具有参与者级别的访问权限。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 通过这些应用程序，Azure 机器学习可帮助管理计算资源。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源（计算目标）用于训练和部署模型。 可以在虚拟网络中创建这些计算目标。 例如，可以使用 Azure Data Science Virtual Machine 来训练模型，然后将模型部署到 AKS。  
 
@@ -126,6 +126,7 @@ Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源
 * 在不同运行之间清理本地暂存磁盘
 * 使用密钥保管库，将存储帐户、容器注册表和 SSH 帐户的凭据从执行层安全传递到计算群集
 * 启用 IP 筛选，以确保基础批处理池不会由除 AzureMachineLearningService 以外的任何外部服务调用
+* 请注意，HBI 工作区中不支持计算实例
 
 #### <a name="azure-blob-storage"></a>Azure Blob 存储
 

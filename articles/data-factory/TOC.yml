@@ -203,6 +203,8 @@
       href: concepts-roles-permissions.md
     - name: 命名规则
       href: naming-rules.md
+    - name: 数据冗余
+      href: concepts-data-redundancy.md
 - name: 操作指南
   items:
     - name: 作者
@@ -253,7 +255,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure 文件存储
           href: connector-azure-file-storage.md
-        - name: Azure SQL Database
+        - name: Azure SQL 数据库
           href: connector-azure-sql-database.md
         - name: Azure SQL 托管实例
           href: connector-azure-sql-managed-instance.md
