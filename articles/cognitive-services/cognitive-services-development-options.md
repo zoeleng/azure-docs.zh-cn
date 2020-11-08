@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 05d3ca7cf532b739b943e2a87d5ab29ae66cabd7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548483"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368791"
 ---
 # <a name="cognitive-services-development-options"></a>认知服务开发选项
 
@@ -23,10 +23,10 @@ Azure 认知服务是基于云的 AI 服务，使开发人员无需深入了解�
 
 认知服务分为四类：决策、语言、语音和视觉。 通常，你可以通过 REST Api、客户端库和自定义工具 (访问这些服务，如 Microsoft 提供的命令行界面) 。 但是，这只是成功的一个路径。 通过 Azure，你还可以访问多个开发选项，例如：
 
-* 自动化和集成工具，例如逻辑应用和电源自动化。
+* 自动化和集成工具，例如逻辑应用和 Power Automate。
 * 部署选项，例如 Azure Functions 和应用服务。 
-* 认知服务 Docker 容器，用于安全访问。
-* 适用于大数据方案 Apache Spark、Azure Databricks、Azure Synapse 分析和 Azure Kubernetes 服务之类的工具。 
+* 用于安全访问的认知服务 Docker 容器。
+* Apache Spark、Azure Databricks、Azure Synapse Analytics 以及适用于大数据场景的 Azure Kubernetes 服务等工具。 
 
 在开始之前，请务必了解认知服务主要用于两个不同的任务。 根据要执行的任务，您可以选择不同的开发和部署选项。 
 
@@ -35,7 +35,7 @@ Azure 认知服务是基于云的 AI 服务，使开发人员无需深入了解�
 
 ## <a name="development-options-for-prediction-and-analysis"></a>用于预测和分析的开发选项 
 
-用于自定义和配置模型的工具与用于调用认知服务的工具不同。 最常见的是，大多数认知服务都允许您在没有任何自定义的情况下发送数据和接收见解。 例如： 。 
+用于自定义和配置模型的工具与用于调用认知服务的工具不同。 最常见的是，大多数认知服务都允许您在没有任何自定义的情况下发送数据和接收见解。 例如： 
 
 * 你可以将图像发送到计算机视觉服务，以检测字词和短语或统计帧中的人数
 * 可以将音频文件发送到语音服务并获取转录并将语音转换为文本
@@ -69,7 +69,7 @@ Azure 提供各种不同类型的工具，这些工具适用于不同类型的�
 
 ### <a name="azure-functions-and-azure-service-web-jobs"></a>Azure Functions 和 Azure 服务 Web 作业
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) 和 [Azure App Service Web 作业](https://docs.microsoft.com/azure/app-service/) 都提供专为开发人员设计的代码优先的集成服务，并且是在 [Azure 应用服务](https://docs.microsoft.com/azure/app-service/)上构建的。 这些产品提供用于编写代码的无服务器基础结构。 在该代码中，你可以使用我们的客户端库和 REST Api 对我们的服务进行调用。 
+[Azure Functions](../azure-functions/index.yml) 和 [Azure App Service Web 作业](../app-service/index.yml) 都提供专为开发人员设计的代码优先的集成服务，并且是在 [Azure 应用服务](../app-service/index.yml)上构建的。 这些产品提供用于编写代码的无服务器基础结构。 在该代码中，你可以使用我们的客户端库和 REST Api 对我们的服务进行调用。 
 
 * **目标用户 ()** ：开发人员和数据科学家
 * **优势** ：无服务器计算服务，允许你运行事件触发的代码。 
@@ -78,7 +78,7 @@ Azure 提供各种不同类型的工具，这些工具适用于不同类型的�
 
 ### <a name="azure-logic-apps"></a>Azure 逻辑应用 
 
-[Azure 逻辑应用](https://docs.microsoft.com/azure/logic-apps/) 与电源自动化共享相同的工作流设计器和连接器，但提供了更高级和更多控制，包括与 Visual Studio 和 DevOps 的集成。 利用电源自动，可以通过特定于服务的连接器（提供 Api 或围绕 Api 的包装器）轻松地与认知服务资源集成。 它们与电源自动中的可用连接器相同。 
+[Azure 逻辑应用](../logic-apps/index.yml) 与电源自动化共享相同的工作流设计器和连接器，但提供了更高级和更多控制，包括与 Visual Studio 和 DevOps 的集成。 利用电源自动，可以通过特定于服务的连接器（提供 Api 或围绕 Api 的包装器）轻松地与认知服务资源集成。 它们与电源自动中的可用连接器相同。 
 
 * **目标用户 ()** ：开发人员、集成者、IT 专业人员、DevOps
 * **优势** ：设计器优先 (声明性) 开发模型，在低代码解决方案中提供高级选项和集成
@@ -87,7 +87,7 @@ Azure 提供各种不同类型的工具，这些工具适用于不同类型的�
 
 ### <a name="power-automate"></a>Power Automate 
 
-Power 自动功能是 [Power 平台](https://docs.microsoft.com/power-platform/) 中的一项服务，可帮助你在应用和服务之间创建自动化工作流，而无需编写代码。 我们提供了多个连接器，使你可以轻松地在 Power 自动化解决方案中与认知服务资源进行交互。 Power Automate 基于逻辑应用而构建。 
+Power 自动功能是 [Power 平台](/power-platform/) 中的一项服务，可帮助你在应用和服务之间创建自动化工作流，而无需编写代码。 我们提供了多个连接器，使你可以轻松地在 Power 自动化解决方案中与认知服务资源进行交互。 Power Automate 基于逻辑应用而构建。 
 
 * **目标用户 ()** ：业务用户 (分析人员) 和 Sharepoint 管理员
 * **优点** ：只需记录鼠标单击、击键和从桌面复制粘贴步骤，就能自动执行重复的手动任务！
@@ -96,7 +96,7 @@ Power 自动功能是 [Power 平台](https://docs.microsoft.com/power-platform/)
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) 是一种 Microsoft 电源平台功能，可用于通过自动执行流程和预测结果来提高业务绩效。 AI 生成器通过点击体验将 AI 功能带入您的解决方案。 许多认知服务（如窗体识别器、文本分析和计算机视觉）已直接集成在这里，无需创建自己的认知服务。 
+[AI Builder](/ai-builder/overview) 是一种 Microsoft 电源平台功能，可用于通过自动执行流程和预测结果来提高业务绩效。 AI 生成器通过点击体验将 AI 功能带入您的解决方案。 许多认知服务（如窗体识别器、文本分析和计算机视觉）已直接集成在这里，无需创建自己的认知服务。 
 
 * **目标用户 ()** ：业务用户 (分析人员) 和 Sharepoint 管理员
 * **优势** ：一个全包式解决方案，它通过点击体验实现了 AI 的强大功能。 无需编码或数据科学技能。
@@ -114,7 +114,7 @@ Power 自动功能是 [Power 平台](https://docs.microsoft.com/power-platform/)
 
 ## <a name="tools-to-customize-and-configure-models"></a>用于自定义和配置模型的工具
 
-当你在使用认知服务构建应用程序或工作流时，你可能会发现需要自定义该模型以实现所需的性能。 许多服务都允许您根据自己的特定业务需求在预建模型之上构建。 对于所有可自定义的服务，我们都提供 UI 驱动的体验，用于完成过程，并提供代码驱动定型的 Api。 例如： 。
+当你在使用认知服务构建应用程序或工作流时，你可能会发现需要自定义该模型以实现所需的性能。 许多服务都允许您根据自己的特定业务需求在预建模型之上构建。 对于所有可自定义的服务，我们都提供 UI 驱动的体验，用于完成过程，并提供代码驱动定型的 Api。 例如：
 
 * 你需要训练自定义语音模型，以便使用字错误率正确识别医学术语， (WER) 低于3%
 * 想要生成一个带有自定义视觉的图像分类器，它可以说明 coniferous 和落叶树之间的差异
@@ -124,24 +124,24 @@ Power 自动功能是 [Power 平台](https://docs.microsoft.com/power-platform/)
 
 | 构成要素 | 服务 | 自定义 UI | 快速入门 |
 |--------|---------|------------------|------------|
-| 影像 | 自定义视觉 | https://www.customvision.ai/ | [快速入门](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
-| 影像 | 表单识别器 | 示例标记工具 | [快速入门](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| 决策 | 内容审查器 | https://contentmoderator.cognitive.microsoft.com/dashboard | [快速入门](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
-| 决策 | 指标顾问 | https://metricsadvisor.azurewebsites.net/  | [快速入门](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
-| 决策 | 个性化体验创建服务 | 在 Personalizer 资源下的 Azure 门户中提供 UI。 | [快速入门](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| 影像 | 自定义视觉 | https://www.customvision.ai/ | [快速入门](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
+| 影像 | 表单识别器 | 示例标记工具 | [快速入门](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| 决策 | 内容审查器 | https://contentmoderator.cognitive.microsoft.com/dashboard | [快速入门](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
+| 决策 | 指标顾问 | https://metricsadvisor.azurewebsites.net/  | [快速入门](./metrics-advisor/quickstarts/web-portal.md) |
+| 决策 | 个性化体验创建服务 | 在 Personalizer 资源下的 Azure 门户中提供 UI。 | [快速入门](./personalizer/quickstart-personalizer-sdk.md) |
 | 语言 | 语言理解 (LUIS) | https://www.luis.ai/ | |
-| 语言 | QnA Maker | https://www.qnamaker.ai/ | [快速入门](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
-| 语言 | 翻译人员/自定义转换器 | https://portal.customtranslator.azure.ai/ | [快速入门](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
-| 语音 | 自定义命令 | https://speech.microsoft.com/ | [快速入门](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
-| 语音 | 自定义语音识别 | https://speech.microsoft.com/ | [快速入门](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
-| 语音 | 自定义语音 | https://speech.microsoft.com/ | [快速入门](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
+| 语言 | QnA Maker | https://www.qnamaker.ai/ | [快速入门](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
+| 语言 | 翻译人员/自定义转换器 | https://portal.customtranslator.azure.ai/ | [快速入门](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| 语音 | 自定义命令 | https://speech.microsoft.com/ | [快速入门](./speech-service/custom-commands.md) |
+| 语音 | 自定义语音识别 | https://speech.microsoft.com/ | [快速入门](./speech-service/how-to-custom-speech.md) |
+| 语音 | 自定义语音 | https://speech.microsoft.com/ | [快速入门](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>与 DevOps 和 GitHub 操作进行持续集成和交付
 
 语言理解和语音服务提供持续集成和持续部署解决方案，这些解决方案由 Azure DevOps 和 GitHub 操作提供支持。 这些工具可用于对自定义模型进行自动定型、测试和发布管理。 
 
-* [自定义语音识别的 CI/CD](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-* [LUIS 的 CI/CD](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
+* [自定义语音识别的 CI/CD](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [LUIS 的 CI/CD](./luis/luis-concept-devops-automation.md)
 
 ## <a name="on-prem-containers"></a>本地容器 
 
@@ -150,4 +150,4 @@ Power 自动功能是 [Power 平台](https://docs.microsoft.com/power-platform/)
 ## <a name="next-steps"></a>后续步骤
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [创建认知服务资源并开始构建](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [创建认知服务资源并开始构建](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

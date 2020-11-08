@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 11/03/2020
-ms.openlocfilehash: 715b02eec7b499afdcffa5e1f31d388e8bc930e7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 239a93c58edd1f02e5e34d974fdc864f3e1cf90f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305245"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369420"
 ---
 # <a name="cognitive-services-whats-new-in-docs-for-october-1-2020---october-31-2020"></a>认知服务：2020年10月1日（年10月31日2020）的文档新增功能
 
@@ -34,39 +34,39 @@ ms.locfileid: "93305245"
 
 ### <a name="updated-articles"></a>更新的文章
 
-- [使用 Docker Compose 部署多个容器](/azure/cognitive-services/containers/docker-compose-recipe.md)
+- [使用 Docker Compose 部署多个容器](./containers/docker-compose-recipe.md)
 
 ## <a name="form-recognizer"></a>表单识别器
 
 ### <a name="updated-articles"></a>更新的文章
 
-- [表单识别器的新增功能](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [表单识别器的新增功能](./form-recognizer/whats-new.md)
 
 ## <a name="immersive-reader"></a>沉浸式阅读器
 
 ### <a name="new-articles"></a>新文章
 
-- [沉浸式读者 JavaScript SDK 发行说明](/azure/cognitive-services/immersive-reader/release-notes.md)
+- [沉浸式读者 JavaScript SDK 发行说明](./immersive-reader/release-notes.md)
 
 ### <a name="updated-articles"></a>更新的文章
 
-- [如何存储用户首选项](/azure/cognitive-services/immersive-reader/how-to-store-user-preferences.md)
-- [沉浸式读者 JavaScript SDK 参考 (1.1) ](/azure/cognitive-services/immersive-reader/reference.md)
+- [如何存储用户首选项](./immersive-reader/how-to-store-user-preferences.md)
+- [沉浸式读者 JavaScript SDK 参考 (1.1) ](./immersive-reader/reference.md)
 
 ## <a name="metrics-advisor"></a>指标顾问
 
 ### <a name="updated-articles"></a>更新的文章
 
-- [将来自不同数据源的数据馈送添加到指标顾问](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [指标顾问常见问题解答](/azure/cognitive-services/metrics-advisor/faq.md)
+- [将来自不同数据源的数据馈送添加到指标顾问](./metrics-advisor/data-feeds-from-different-sources.md)
+- [指标顾问常见问题解答](./metrics-advisor/faq.md)
 
 ## <a name="text-analytics"></a>文本分析
 
 ### <a name="updated-articles"></a>更新的文章
 
-- [迁移到文本分析 API 的版本1。x](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [如何在文本分析中使用命名实体识别](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [如何：使用文本分析 API 检测情绪](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [迁移到文本分析 API 的版本1。x](./text-analytics/migration-guide.md)
+- [如何在文本分析中使用命名实体识别](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [如何：使用文本分析 API 检测情绪](./text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
 
 ## <a name="community-contributors"></a>社区参与者
 

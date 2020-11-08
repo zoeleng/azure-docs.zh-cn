@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 886f04d2ea143b7c6c22aa2e746de179fcf7e7dd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c29e83f7851bc9be1688f3828373942c0e31f4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090641"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367458"
 ---
 # <a name="get-images-from-your-custom-view"></a>从自定义视图获取图像
 
@@ -26,7 +26,7 @@ ms.locfileid: "93090641"
 
 必应自定义图像搜索可以让你使用图像来丰富自定义搜索体验。 与 Web 结果类似，自定义搜索支持在实例的网站列表中搜索图像。 可以使用必应自定义图像搜索 API 或通过托管 UI 功能获取图像。 使用托管 UI 功能简单易行，并建议用于在短时间内启动和运行搜索体验。  有关配置托管 UI 以包含图像的信息，请参阅[配置托管 UI 体验](hosted-ui.md)。
 
-如果想要更好地控制显示搜索结果，可以使用必应自定义图像搜索 API。 由于调用 API 类似于调用必应图像搜索 API，因此请查看[必应图像搜索](../Bing-Image-Search/overview.md)获取调用 API 的示例。 但在执行此操作之前，应自行熟悉[自定义图像搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)内容。 主要区别在于支持的查询参数（必须包含 customConfig 查询参数）和向其发送请求的终结点。
+如果想要更好地控制显示搜索结果，可以使用必应自定义图像搜索 API。 由于调用 API 类似于调用必应图像搜索 API，因此请查看[必应图像搜索](../Bing-Image-Search/overview.md)获取调用 API 的示例。 但在执行此操作之前，应自行熟悉[自定义图像搜索 API 参考](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)内容。 主要区别在于支持的查询参数（必须包含 customConfig 查询参数）和向其发送请求的终结点。
 
 <!--
 ## Next steps

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7dbd9f609944fc63c186ca150d5b9921f3e86622
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0184d1765052510d42337b34094f66b2536c9ec
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090573"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367533"
 ---
 # <a name="get-videos-from-your-custom-view"></a>从自定义视图获取视频
 
@@ -26,7 +26,7 @@ ms.locfileid: "93090573"
 
 必应自定义视频搜索可以让你使用视频来丰富自定义搜索体验。 与 Web 结果类似，自定义搜索支持在实例的网站列表中搜索视频。 可以使用必应自定义视频搜索 API 或通过托管 UI 功能获取视频。 使用托管 UI 功能简单易行，并建议用于在短时间内启动和运行搜索体验。 有关配置托管 UI 以包含视频的信息，请参阅[配置托管 UI 体验](hosted-ui.md)。
 
-如果想要更好地控制搜索结果的显示，可以使用必应自定义视频搜索 API。 由于调用该 API 与调用必应视频搜索 API 相似，因此请查看[必应视频搜索](../Bing-Video-Search/search-the-web.md)获取调用该 API 的示例。 但在执行此操作之前，应自行熟悉[自定义视频搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)内容。 主要区别在于支持的查询参数（必须包含 customConfig 查询参数）和向其发送请求的终结点。
+如果想要更好地控制搜索结果的显示，可以使用必应自定义视频搜索 API。 由于调用该 API 与调用必应视频搜索 API 相似，因此请查看[必应视频搜索](../bing-video-search/overview.md)获取调用该 API 的示例。 但在执行此操作之前，应自行熟悉[自定义视频搜索 API 参考](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)内容。 主要区别在于支持的查询参数（必须包含 customConfig 查询参数）和向其发送请求的终结点。
 
 <!--
 ## Next steps

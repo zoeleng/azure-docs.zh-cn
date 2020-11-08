@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588609"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369505"
 ---
 # <a name="translator-v20"></a>翻译工具版
 
@@ -25,7 +25,7 @@ ms.locfileid: "83588609"
 版本2的转换器可无缝集成到你的应用、网站、工具或其他解决方案中，以提供多语言用户体验。 你可以在任何硬件平台和操作系统上使用它来执行语言翻译和其他与语言相关的任务，如文本语言检测和文本到语音，这取决于行业标准。 有关详细信息，请参阅 [转换器](../translator-info-overview.md)。
 
 ## <a name="getting-started"></a>入门
-若要访问转换器，需要 [注册 Microsoft Azure](../translator-text-how-to-signup.md)。
+若要访问转换器，需要 [注册 Microsoft Azure](../translator-how-to-signup.md)。
 
 ## <a name="authentication"></a>身份验证 
 对转换器的所有调用都需要订阅密钥才能进行身份验证。 此 API 支持以下三种身份验证方法：
@@ -83,21 +83,21 @@ ms.locfileid: "83588609"
 
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明    |参数类型|数据类型|
+|参数|“值”|说明    |参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid  |(empty)    |必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |text|(empty)   |必需。 表示要转换的文本的字符串。 文本长度不能超过10000个字符。|query|字符串|
 |from|(empty)   |可选。 一个字符串，表示要转换的文本的语言代码。 例如，en 表示英语。|query|字符串|
 |to|(empty) |必需。 一个字符串，表示要将文本转换为的语言的代码。|query|字符串|
 |contentType|(empty)    |可选。 要翻译的文本的格式。 支持的格式 `text/plain` (默认) 和  `text/html` 。 任何 HTML 元素都需要是格式正确的完整元素。|query|字符串|
-|category|(empty)   |可选。 一个字符串，其中包含翻译 (域) 的类别。 默认为 `general`。|query|字符串|
+|category|(empty)   |可选。 一个字符串，其中包含翻译 (域) 的类别。 默认值为 `general`。|query|字符串|
 |授权|(empty)  |如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。 授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
 |Ocp-Apim-Subscription-Key|(empty)  |如果 `appid` 字段和 `Authorization` 标头都为空，则是必需的。|标头的值开始缓存响应|字符串|
 
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -139,12 +139,12 @@ ms.locfileid: "83588609"
 * `AppId`：必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `AppId` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。
 * `From`：可选。 一个字符串，表示要转换的文本的语言代码。 如果此字段保留为空，则响应将包含自动语言检测的结果。
 * `Options`：可选。 一个 `Options` 包含以下值的对象。 它们都是可选的，默认情况下是最常用的设置。 指定的元素必须按字母顺序列出。
-    - `Category`：一个字符串，其中包含翻译 (域) 的类别。 默认为 `general`。
+    - `Category`：一个字符串，其中包含翻译 (域) 的类别。 默认值为 `general`。
     - `ContentType`：要翻译的文本的格式。 支持的格式 `text/plain` (默认值) 、 `text/xml` 和 `text/html` 。 任何 HTML 元素都需要是格式正确的完整元素。
     - `ProfanityAction`：指定如何处理 profanities，如前文所述。 接受的值是 `NoAction` (默认值) 、 `Marked` 和 `Deleted` 。
     - `State`：用于帮助关联请求和响应的用户状态。 响应中将返回相同的内容。
-    - `Uri`：按此 URI 筛选结果。 默认：`all`。
-    - `User`：按此用户筛选结果。 默认：`all`。
+    - `Uri`：按此 URI 筛选结果。 默认值：`all`。
+    - `User`：按此用户筛选结果。 默认值：`all`。
 * `Texts`：必需。 一个数组，其中包含要翻译的文本。 所有字符串都必须采用相同的语言。 要翻译的所有文本的总数不能超过10000个字符。 数组元素的最大数目为2000。
 * `To`：必需。 一个字符串，表示要将文本转换为的语言的代码。
 
@@ -188,14 +188,14 @@ ms.locfileid: "83588609"
 
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |授权|(empty)  |如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。 授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
 |Ocp-Apim-Subscription-Key|(empty)|如果 `appid` 字段和 `Authorization` 标头都为空，则是必需的。|标头的值开始缓存响应|字符串|
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码   |Reason|
+|HTTP 状态代码   |原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。 常见错误包括： <ul><li>数组元素不能为空。</li><li>无效的类别。</li><li>语言无效。</li><li>To language 无效。</li><li>请求包含太多元素。</li><li>不支持 From 语言。</li><li>不支持 To 语言。</li><li>翻译请求的数据太多。</li><li>HTML 的格式不正确。</li><li>在转换请求中传递的字符串太多。</li></ul>|
 |401    |凭据无效。|
@@ -229,7 +229,7 @@ ms.locfileid: "83588609"
  
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|string|
 |区域设置|(empty) |必需。 一个表示以下内容之一的字符串，用于本地化语言名称： <ul><li>与语言关联的 ISO 639 2 字母小写区域性代码与 ISO 3166 2 字母大写子区域性代码的组合。 <li>ISO 639 小写区域性代码本身。|query|字符串|
@@ -238,7 +238,7 @@ ms.locfileid: "83588609"
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -263,7 +263,7 @@ ms.locfileid: "83588609"
  
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |授权|(empty)  |如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。 授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
@@ -271,7 +271,7 @@ ms.locfileid: "83588609"
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -296,7 +296,7 @@ ms.locfileid: "83588609"
 
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |授权|(empty)|如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。 授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
@@ -304,7 +304,7 @@ ms.locfileid: "83588609"
  
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400|请求错误。 请查看输入参数和详细的错误响应。|
 |401|凭据无效。|
@@ -328,19 +328,19 @@ binary
 
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |text|(empty)   |必需。 一个字符串，其中包含一个或多个要在指定语言中使用的流。 文本不得超过2000个字符。|query|字符串|
 |语言|(empty)   |必需。 一个字符串，该字符串表示文本的语言所支持的语言代码。 代码必须是方法返回的代码之一 `GetLanguagesForSpeak` 。|query|字符串|
 |format|(empty)|可选。 指定 content 类型 ID 的字符串。 目前，`audio/wav` 和 `audio/mp3` 可用。 默认值是 `audio/wav`。|query|字符串|
-|选项|(empty)    |可选。 指定合成语音的属性的字符串：<ul><li>`MaxQuality` 并 `MinSize` 指定音频信号的质量。 `MaxQuality` 提供最高的质量。 `MinSize` 提供最小的文件大小。 默认值为  `MinSize` 。</li><li>`female` 并 `male` 指定所需的语音性别。 默认为 `female`。 使用竖线 (<code>\|</code>) 以包含多个选项。 例如，`MaxQuality|Male`。</li></li></ul>  |query|字符串|
+|options|(empty)    |可选。 指定合成语音的属性的字符串：<ul><li>`MaxQuality` 并 `MinSize` 指定音频信号的质量。 `MaxQuality` 提供最高的质量。 `MinSize` 提供最小的文件大小。 默认值为  `MinSize` 。</li><li>`female` 并 `male` 指定所需的语音性别。 默认值为 `female`。 使用竖线 (<code>\|</code>) 以包含多个选项。 例如，`MaxQuality|Male`。</li></li></ul>  |query|字符串|
 |授权|(empty)|如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。 授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
 |Ocp-Apim-Subscription-Key|(empty)  |如果 `appid` 字段和 `Authorization` 标头都为空，则是必需的。|标头的值开始缓存响应|字符串|
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -364,7 +364,7 @@ binary
 
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |text|(empty)|必需。 一个字符串，包含要标识其语言的文本。 文本不得超过10000个字符。|query|  字符串|
@@ -373,7 +373,7 @@ binary
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400|请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -420,7 +420,7 @@ binary
  
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |授权|(empty)|如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。  授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
@@ -428,7 +428,7 @@ binary
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -454,16 +454,16 @@ binary
  
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型   |
+|参数|“值”|说明|参数类型|数据类型   |
 |:--|:--|:--|:--|:--|
 |appid|(empty)|必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |originalText|(empty)|必需。 一个字符串，其中包含要转换的文本。 字符串的最大长度为1000个字符。|query|字符串|
 |translatedText|(empty) |必需。 一个字符串，其中包含翻译为目标语言的文本。 字符串的最大长度为2000个字符。|query|字符串|
 |from|(empty)   |必需。 一个字符串，表示文本的原始语言的语言代码。 例如，en 表示英语，而 de 表示德语。|query|字符串|
 |to|(empty)|必需。 一个字符串，表示要将文本转换为的语言的语言代码。|query|字符串|
-|rating|(empty) |可选。 一个整数，表示字符串的质量级别。 值介于-10 和10之间。 默认值为 1。|query|整型|
+|rating|(empty) |可选。 一个整数，表示字符串的质量级别。 值介于-10 和10之间。 默认值为 1。|query|integer|
 |contentType|(empty)    |可选。 要翻译的文本的格式。 支持的格式为 `text/plain` 和 `text/html` 。 任何 HTML 元素都需要是格式正确的完整元素。    |query|字符串|
-|category|(empty)|可选。 一个字符串，其中包含翻译 (域) 的类别。 默认为 `general`。|query|字符串|
+|category|(empty)|可选。 一个字符串，其中包含翻译 (域) 的类别。 默认值为 `general`。|query|字符串|
 |user|(empty)|必需。 一个字符串，用于跟踪提交的发起方。|query|字符串|
 |uri|(empty)|可选。 一个字符串，其中包含翻译的内容位置。|query|字符串|
 |授权|(empty)|如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。  授权令牌：`"Bearer" + " " + "access_token"`。  |标头的值开始缓存响应|字符串|
@@ -471,7 +471,7 @@ binary
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -520,7 +520,7 @@ binary
 * `From`：必需。 一个字符串，其中包含源语言的语言代码。 必须是 `GetLanguagesForTranslate` 方法返回的语言之一。
 * `To`：必需。 一个字符串，其中包含目标语言的语言代码。 必须是 `GetLanguagesForTranslate` 方法返回的语言之一。
 * `Translations`：必需。 要添加到翻译记忆库的一个翻译数组。 每个转换都必须包含 `OriginalText` 、 `TranslatedText` 和 `Rating` 。 每个和的最大大小 `OriginalText` `TranslatedText` 为1000个字符。 所有 `OriginalText` 和元素的总和 `TranslatedText` 不能超过10000个字符。 最大数组元素数为 100。
-* `Options`：必需。 一组选项，包括 `Category` 、、 `ContentType` `Uri` 和 `User` 。 需要 `User`。 `Category`、 `ContentType` 和 `Uri` 都是可选的。 指定的元素必须按字母顺序列出。
+* `Options`：必需。 一组选项，包括 `Category` 、、 `ContentType` `Uri` 和 `User` 。 需要 `User`。 `Category`、`ContentType` 和 `Uri` 是可选的。 指定的元素必须按字母顺序列出。
 
 ### <a name="response-class-status-200"></a>Response 类 (状态 200) 
 `AddTranslationArray` 方法成功。 
@@ -533,14 +533,14 @@ binary
  
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |授权|(empty)|如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。  授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
 |Ocp-Apim-Subscription-Key|(empty)|如果 `appid` 字段和 `Authorization` 标头都为空，则是必需的。|标头的值开始缓存响应|字符串|
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -560,13 +560,13 @@ binary
 ### <a name="response-class-status-200"></a>Response 类 (状态 200) 
 表示句子长度的整数数组。 数组的长度表示句子数。 值表示每个句子的长度。
 
-整型
+integer
 
 响应内容类型： application/xml
 
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query| 字符串|
 |text|(empty)   |必需。 一个字符串，表示拆分为句子的文本。 文本的最大大小为10000个字符。|query|字符串|
@@ -576,7 +576,7 @@ binary
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400|请求错误。 请查看输入参数和详细的错误响应。|
 |401|凭据无效。|
@@ -605,13 +605,13 @@ binary
 
 `TranslateOptions`对象包含以下列表中的值。 它们都是可选的，默认情况下是最常用的设置。 指定的元素必须按字母顺序列出。
 
-* `Category`：一个字符串，其中包含翻译 (域) 的类别。 默认为 `general`。
+* `Category`：一个字符串，其中包含翻译 (域) 的类别。 默认值为 `general`。
 * `ContentType`：唯一受支持的选项，默认值为 `text/plain` 。
-* `IncludeMultipleMTAlternatives`：一个布尔型标志，用于指定是否应从 MT 引擎返回多个替代项。 有效值为 `true` 和 `false` (区分大小写) 。 默认值为 `false` ，它仅返回一个替代项。 将标志设置为 `true` 可以创建人工替代项，并与协作翻译框架完全集成 (CTF) 。 此功能允许通过从解码器的 *n*最佳列表添加可选项，来返回在 CTF 中没有翻译的句子的替代项。
+* `IncludeMultipleMTAlternatives`：一个布尔型标志，用于指定是否应从 MT 引擎返回多个替代项。 有效值为 `true` 和 `false` (区分大小写) 。 默认值为 `false` ，它仅返回一个替代项。 将标志设置为 `true` 可以创建人工替代项，并与协作翻译框架完全集成 (CTF) 。 此功能允许通过从解码器的 *n* 最佳列表添加可选项，来返回在 CTF 中没有翻译的句子的替代项。
     - 满意率. 将按如下所示应用分级： 
          - 最佳自动翻译评级为 5。
        - CTF 中的替代项反映了审阅者的权限。 它们的范围为-10 到 + 10。
-       - 自动生成的 (*n*-最佳) 翻译可选项的级别为0，匹配度为100。
+       - 自动生成的 ( *n* -最佳) 翻译可选项的级别为0，匹配度为100。
     - 替代项的数目。 返回的替代项的数量可能会与中指定的值一样高 `maxTranslations` ，但可以较低。
     - 语言对。 此功能不可用于简体中文和繁体中文之间的翻译。 它适用于 Microsoft Translator 支持的所有其他语言对。
 * `State`：用于帮助关联请求和响应的用户状态。 响应中将返回相同的内容。
@@ -663,19 +663,19 @@ binary
  
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|必需。 如果 `Authorization` 使用或 `Ocp-Apim-Subscription-Key` 标头，请将 `appid` 字段留空。 否则，请包含包含的字符串 `"Bearer" + " " + "access_token"` 。|query|字符串|
 |text|(empty)|必需。 表示要转换的文本的字符串。 文本的最大大小为10000个字符。|query|字符串|
 |from|(empty)|必需。 一个字符串，表示要转换的文本的语言代码。|query|字符串|
 |to |(empty)    |必需。 一个字符串，表示要将文本转换为的语言的语言代码。|query|字符串|
-|maxTranslations|(empty)|必需。 一个整数，表示要返回的最大翻译数。|query|整型|
+|maxTranslations|(empty)|必需。 一个整数，表示要返回的最大翻译数。|query|integer|
 |授权| (empty)|如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。 授权令牌：`"Bearer" + " " + "access_token"`。|字符串|  标头的值开始缓存响应|
 |Ocp-Apim-Subscription-Key|(empty)  |如果 `appid` 字段和 `Authorization` 标头都为空，则是必需的。|标头的值开始缓存响应|字符串|
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -717,13 +717,13 @@ binary
 * `From`：必需。 一个字符串，表示要转换的文本的语言代码。
 * `MaxTranslations`：必需。 一个整数，表示要返回的最大翻译数。
 * `Options`：可选。 一个 `Options` 包含以下值的对象。 它们都是可选的，默认情况下是最常用的设置。 指定的元素必须按字母顺序列出。
-    - `Category`：一个字符串，其中包含翻译 (域) 的类别。 默认为 `general`。
+    - `Category`：一个字符串，其中包含翻译 (域) 的类别。 默认值为 `general`。
     - `ContentType`：唯一受支持的选项，默认值为 `text/plain` 。
-    - `IncludeMultipleMTAlternatives`：一个布尔型标志，用于指定是否应从 MT 引擎返回多个替代项。 有效值为 `true` 和 `false` (区分大小写) 。 默认值为 `false` ，它仅返回一个替代项。 将标志设置为可 `true` 在翻译中生成人工替代项，与协作翻译框架 (CTF) 完全集成。 此功能允许通过从解码器的 *n*最佳列表中添加人工替代项来返回在 CTF 中没有替代项的句子的替代项。
+    - `IncludeMultipleMTAlternatives`：一个布尔型标志，用于指定是否应从 MT 引擎返回多个替代项。 有效值为 `true` 和 `false` (区分大小写) 。 默认值为 `false` ，它仅返回一个替代项。 将标志设置为可 `true` 在翻译中生成人工替代项，与协作翻译框架 (CTF) 完全集成。 此功能允许通过从解码器的 *n* 最佳列表中添加人工替代项来返回在 CTF 中没有替代项的句子的替代项。
         - 分级适用的分级如下：
           - 最佳自动翻译评级为 5。
           - CTF 中的替代项反映了审阅者的权限。 它们的范围为-10 到 + 10。
-          - 自动生成的 (*n*-最佳) 翻译可选项的级别为0，匹配度为100。
+          - 自动生成的 ( *n* -最佳) 翻译可选项的级别为0，匹配度为100。
         - 替代项的数目。 返回的替代项的数量可能会与中指定的值一样高 `maxTranslations` ，但可以较低。
         - 语言对。 此功能不可用于简体中文和繁体中文之间的翻译。 它适用于 Microsoft Translator 支持的所有其他语言对。
 * `State`：用于帮助关联请求和响应的用户状态。 响应中将返回相同的内容。
@@ -786,14 +786,14 @@ binary
  
 ### <a name="parameters"></a>参数
 
-|参数|Value|说明|参数类型|数据类型|
+|参数|“值”|说明|参数类型|数据类型|
 |:--|:--|:--|:--|:--|
 |授权  |(empty)    |如果 `appid` 字段和 `Ocp-Apim-Subscription-Key` 标头都为空，则是必需的。  授权令牌：`"Bearer" + " " + "access_token"`。|标头的值开始缓存响应|字符串|
 |Ocp-Apim-Subscription-Key|(empty)  |如果 `appid` 字段和 `Authorization` 标头都为空，则是必需的。|标头的值开始缓存响应|字符串|
 
 ### <a name="response-messages"></a>响应消息
 
-|HTTP 状态代码|Reason|
+|HTTP 状态代码|原因|
 |:--|:--|
 |400    |请求错误。 请查看输入参数和详细的错误响应。|
 |401    |凭据无效。|
@@ -804,5 +804,3 @@ binary
 
 > [!div class="nextstepaction"]
 > [迁移到 Translator v3](../migrate-to-v3.md)
-
-

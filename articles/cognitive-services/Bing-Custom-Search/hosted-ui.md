@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090556"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367380"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>配置托管 UI 体验
 
@@ -45,16 +45,16 @@ ms.locfileid: "93090556"
     - 仅结果：仅显示搜索结果，不显示搜索框。 使用此布局时，必须提供搜索查询 (`&q=<query string>`)。 将查询参数添加到 JavaScript 代码片段或 HTML 终结点链接中的请求 URL。
     - 弹出式窗口：提供搜索框并在滑动叠加中显示搜索结果。
 
-5. 选择颜色主题。 可以通过单击“自定义主题”来自定义适合应用程序的颜色。  若要更改颜色，请输入颜色的 RGB HEX 值（例如 `#366eb8`），或者单击颜色预览。
+5. 选择颜色主题。 可以通过单击“自定义主题”来自定义适合应用程序的颜色。 若要更改颜色，请输入颜色的 RGB HEX 值（例如 `#366eb8`），或者单击颜色预览。
 
-   可以在门户右侧预览所做的更改。 单击“重置为默认值”  就会将所做的更改还原为所选主题的默认颜色。
+   可以在门户右侧预览所做的更改。 单击“重置为默认值”就会将所做的更改还原为所选主题的默认颜色。
 
    > [!NOTE]
    > 选择颜色时需考虑到辅助功能。
 
-6. 在“其他配置”下，根据应用提供相应的值  。 这些设置是可选的。 若要查看应用或删除设置后的效果，请查看右侧的预览窗格。 可用配置有：  
+6. 在“其他配置”下，根据应用提供相应的值。 这些设置是可选的。 若要查看应用或删除设置后的效果，请查看右侧的预览窗格。 可用配置有：  
 
-7. 输入搜索订阅密钥或从下拉列表中选择一个。 下拉列表的填充内容为帐户的 Azure 帐户订阅的密钥。 请参阅[认知服务 API 帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。  
+7. 输入搜索订阅密钥或从下拉列表中选择一个。 下拉列表的填充内容为帐户的 Azure 帐户订阅的密钥。 请参阅[认知服务 API 帐户](../cognitive-services-apis-create-account.md)。  
 
 8. 如果启用了自动建议，请输入自动建议订阅密钥，或从下拉列表进行选择。 下拉列表的填充内容为帐户的 Azure 帐户订阅的密钥。 自定义自动建议需要特定的订阅层，请参阅[定价](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)。
 
@@ -82,7 +82,7 @@ ms.locfileid: "93090556"
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > 根据需要将以下查询参数添加到 URL。 有关这些参数的信息，请参阅[自定义搜索 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 参考。
+  > 根据需要将以下查询参数添加到 URL。 有关这些参数的信息，请参阅[自定义搜索 API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 参考。
   >
   > - q
   > - mkt
@@ -92,11 +92,11 @@ ms.locfileid: "93090556"
   > [!IMPORTANT]
   > 该页面无法显示隐私声明或其他注意事项和条款。 适用情况可能会有所不同。  
 
-若要了解自定义配置 ID 等其他信息，请转到“产品”选项卡下的“终结点”  。
+若要了解自定义配置 ID 等其他信息，请转到“产品”选项卡下的“终结点”。
 
 ## <a name="configuration-options"></a>配置选项
 
-单击“其他配置”并提供值即可配置托管 UI 的行为。  这些设置是可选的。 若要查看应用或删除设置后的效果，请查看右侧的预览窗格。 
+单击“其他配置”并提供值即可配置托管 UI 的行为。 这些设置是可选的。 若要查看应用或删除设置后的效果，请查看右侧的预览窗格。 
 
 ### <a name="web-search-configurations"></a>Web 搜索配置
 
@@ -105,7 +105,7 @@ ms.locfileid: "93090556"
 - 每页 web 结果数：每次显示的 web 搜索结果数 (最大值为每页50的结果) 。
 - 图像标题：确定图像是否显示在搜索结果中。
 
-单击“显示高级配置”时将显示以下配置  ：
+单击“显示高级配置”时将显示以下配置：
 
 - 突出显示单词：确定是否以粗体显示搜索结果。
 - 链接目标：确定是在新的浏览器选项卡中打开网页 (空白) 还是在用户单击搜索结果时 (自行) 的相同浏览器选项卡。
@@ -115,7 +115,7 @@ ms.locfileid: "93090556"
 - 启用图像结果：确定是否启用了图像搜索 (你将在页面顶部看到 "映像" 选项卡) 。
 - 每页的图像结果数：每次显示的图像搜索结果数 (最大值为每页150的结果) 。
 
-单击“显示高级配置”时将显示以下配置  。  
+单击“显示高级配置”时将显示以下配置。  
   
 - 启用筛选器：添加筛选器，用户可以使用这些筛选器筛选 Bing 返回的图像。 例如，用户可筛选仅动态 GIF 的结果。
 
@@ -124,7 +124,7 @@ ms.locfileid: "93090556"
 - 启用视频结果：确定是否启用视频搜索 (你将在页面顶部看到 "视频" 选项卡) 。
 - 每页视频结果：每次显示的视频搜索结果数 (最大值为每页150的结果) 。
 
-单击“显示高级配置”时将显示以下配置  。  
+单击“显示高级配置”时将显示以下配置。  
   
 - 启用筛选器：添加筛选器，用户可以使用这些筛选器筛选 Bing 返回的视频。 例如，用户可以筛选具有特定分辨率的视频或过去 24 小时内发现的视频结果。
 
@@ -153,4 +153,4 @@ ms.locfileid: "93090556"
 ## <a name="next-steps"></a>后续步骤
 
 - [使用修饰标记来突出显示文本](../bing-web-search/hit-highlighting.md)
-- [网页](./page-webpages.md)
+- [网页](../bing-web-search/paging-search-results.md)

@@ -7,20 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132834"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368859"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>认知服务和机器学习
 
 认知服务提供机器学习功能来解决一般问题，例如分析激动人心的情绪的文本或分析图像以识别对象或面部。 无需机器学习或数据科学方面的专业知识就能使用这些服务。 
 
-[认知服务](welcome.md) 是一组服务，每个服务支持不同的通用化预测功能。 服务分为不同的类别，以帮助你找到正确的服务。 
+[认知服务](./what-are-cognitive-services.md) 是一组服务，每个服务支持不同的通用化预测功能。 服务分为不同的类别，以帮助你找到正确的服务。 
 
-|服务类别|目的|
+|服务类别|用途|
 |--|--|
 |[决策](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|构建应用，用于呈现有助于做出明智和高效决策的建议。|
 |[语言](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|让应用能够通过预建的脚本处理自然语言、评估情绪，并了解如何识别用户需求。|
@@ -44,7 +44,7 @@ ms.locfileid: "87132834"
 
 构建机器学习系统的过程需要了解机器学习或数据科学方面的知识。
 
-机器学习是使用 [Azure 机器学习 (AML) 产品和服务](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context)提供的。
+机器学习是使用 [Azure 机器学习 (AML) 产品和服务](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context)提供的。
 
 ## <a name="what-is-a-cognitive-service"></a>什么是认知服务？
 
@@ -71,13 +71,13 @@ ms.locfileid: "87132834"
 
 ### <a name="no-additional-training-data-required"></a>无需其他培训数据
 
-提供完全训练的模型的服务可被视为不透明的 _框_。 您无需知道它们的工作方式或用于对它们进行定型的数据。 您可以将数据引入经过完全训练的模型，以获得预测。 
+提供完全训练的模型的服务可被视为不透明的 _框_ 。 您无需知道它们的工作方式或用于对它们进行定型的数据。 您可以将数据引入经过完全训练的模型，以获得预测。 
 
 ### <a name="some-or-all-training-data-required"></a>需要的部分或全部定型数据
 
 某些服务允许您引入自己的数据，然后训练模型。 这样，你就可以使用服务的数据和算法通过自己的数据来扩展模型。 输出满足你的需求。 导入自己的数据时，可能需要以特定于服务的方式标记数据。 例如，如果您正在训练一个模型来识别鲜花，则可以提供一种使用图像的目录以及每个图像中的花朵位置，以对模型进行定型。 
 
-_利用_服务，你可以提供数据来增强其自身的数据。 服务可能 _要求_ 你提供数据。 
+_利用_ 服务，你可以提供数据来增强其自身的数据。 服务可能 _要求_ 你提供数据。 
 
 ### <a name="real-time-or-near-real-time-data-required"></a>需要实时或近乎实时的数据
 
@@ -91,9 +91,9 @@ _利用_服务，你可以提供数据来增强其自身的数据。 服务可�
 |--|--|--|--|
 |[异常检测器](./Anomaly-Detector/overview.md)|x|x|x|
 |必应搜索 |x|||
-|[计算机视觉](./Computer-vision/Home.md)|x|||
+|[计算机视觉](./computer-vision/overview.md)|x|||
 |[内容审查器](./Content-Moderator/overview.md)|x||x|
-|[自定义视觉](./Custom-Vision-Service/home.md)||x||
+|[自定义视觉](./custom-vision-service/overview.md)||x||
 |[人脸](./Face/Overview.md)|x|x||
 |[表单识别器](./form-recognizer/overview.md)||x||
 |[沉浸式阅读器](./immersive-reader/overview.md)|x|||
@@ -101,7 +101,7 @@ _利用_服务，你可以提供数据来增强其自身的数据。 服务可�
 |[语言理解 (LUIS)](./LUIS/what-is-luis.md)||x||
 |[个性化体验创建服务](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[发言人识别器](./speaker-recognition/home.md)||x||
+|[发言人识别器](./speech-service/speaker-recognition-overview.md)||x||
 |[语音文本到语音 (TTS) ](speech-service/text-to-speech.md)|x|x||
 |[语音语音到文本 (STT) ](speech-service/speech-to-text.md)|x|x||
 |[语音翻译](speech-service/speech-translation.md)|x|||
@@ -127,16 +127,16 @@ _利用_服务，你可以提供数据来增强其自身的数据。 服务可�
 
 |认知服务|模型信息|
 |--|--|
-|[自定义视觉](./custom-vision-service/home.md)|适用于 Android 的 Tensorflow[导出](./Custom-Vision-Service/export-model-python.md)，CoreML for IOS11，ONNX FOR Windows ML|
+|[自定义视觉](./custom-vision-service/overview.md)|适用于 Android 的 Tensorflow[导出](./Custom-Vision-Service/export-model-python.md)，CoreML for IOS11，ONNX FOR Windows ML|
 
-## <a name="learn-more"></a>了解详细信息
+## <a name="learn-more"></a>了解更多
 
-* [体系结构指南-Microsoft 的机器学习产品有哪些？](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [体系结构指南-Microsoft 的机器学习产品有哪些？](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [机器学习-深度学习和机器学习简介](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>后续步骤
 
-* 在 [Azure 门户](cognitive-services-apis-create-account.md) 或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)中创建认知服务帐户。
+* 在 [Azure 门户](cognitive-services-apis-create-account.md) 或 [Azure CLI](./cognitive-services-apis-create-account-cli.md)中创建认知服务帐户。
 * 了解如何向认知服务 [进行身份验证](authentication.md) 。
 * 使用 [诊断日志记录](diagnostic-logging.md) 进行问题识别和调试。 
 * 在 Docker [容器](cognitive-services-container-support.md)中部署认知服务。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337553"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369233"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>排查容量池问题
 
@@ -34,6 +34,10 @@ ms.locfileid: "94337553"
 | 卷创建或修改失败，出现 `Requested throughput not available` 错误 | 卷的可用吞吐量取决于容量池的大小和服务级别。 如果没有足够的吞吐量，则应增加池大小或调整现有的卷吞吐量。 | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>移动容量池时出现问题 
+
+> [!IMPORTANT] 
+> [动态更改卷](dynamic-change-volume-service-level.md)公共预览注册的服务级别，直到进一步通知。
+
 |     添加状态    |     解决方法    |
 |-|-|
 | 不允许更改卷的容量池。 | 你可能尚未获得使用此功能的授权。 <br> 将卷移动到另一个容量池的功能当前处于预览阶段。 如果是首次使用此功能，则需要先注册该功能，然后再设置 `-FeatureName ANFTierChange` 。 请参阅 [动态更改卷的服务级别](dynamic-change-volume-service-level.md)中的注册步骤。 |

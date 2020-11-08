@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523989"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368927"
 ---
 # <a name="customize-your-text-translations"></a>自定义文本翻译
 
 自定义转换器是 Translator 服务的一项功能，它允许用户在使用转换器 (仅) 版本3翻译文本时自定义 Microsoft Translator 的高级神经计算机翻译。
 
-与[认知服务语音](https://docs.microsoft.com/azure/cognitive-services/speech-service/)一起使用时，该功能还可用于自定义语音翻译。
+与[认知服务语音](../speech-service/index.yml)一起使用时，该功能还可用于自定义语音翻译。
 
 ## <a name="custom-translator"></a>自定义翻译
 
@@ -37,7 +37,7 @@ ms.locfileid: "86523989"
 
 考虑到训练数据的适当类型和数量，通过使用自定义翻译，期望在翻译质量上获得 5 到 10 分或甚至更多 BLEU 分数的情况并不罕见。
 
-有关基于可用数据的各种自定义级别的更多详细信息，请参阅[自定义翻译用户指南](https://aka.ms/CustomTranslatorDocs)。
+有关基于可用数据的各种自定义级别的更多详细信息，请参阅[自定义翻译用户指南](./custom-translator/overview.md)。
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
@@ -47,7 +47,7 @@ ms.locfileid: "86523989"
 
 ## <a name="custom-translator-versus-hub"></a>自定义翻译与 Hub
 
-| Feature | 集线器 | 自定义翻译 |
+| 功能 | 集线器 | 自定义翻译 |
 | ------- | :-: | :---------------: |
 |自定义功能状态    | 正式版    | 正式版 |
 | 文本 API 版本    | 仅 V2    | 仅 V3 |
@@ -64,4 +64,4 @@ ms.locfileid: "86523989"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [使用自定义翻译设置自定义语言系统](https://aka.ms/CustomTranslatorDocs)
+> [使用自定义翻译设置自定义语言系统](./custom-translator/overview.md)

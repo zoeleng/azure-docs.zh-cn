@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: 本地、Docker、容器、Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677432"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368842"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure 认知服务容器
 
@@ -68,14 +68,14 @@ Azure 认知服务容器提供以下一组 Docker 容器，其中每个容器都
 | [语音服务 API][sp-containers-tts] | F0、S0 | **文本到语音** ( [图像](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech))  | 将文本转换为自然发音的语音。 |
 | [语音服务 API][sp-containers-ctts] | F0、S0 | **自定义文本到语音** ( [图像](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech))  | 使用自定义模型将文本转换为自然声音。 |
 | [语音服务 API][sp-containers-ntts] | F0、S0 | **神经文本到语音** ( [图像](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech))  | 使用 deep 神经网络技术将文本转换为自然声音，允许使用更自然的合成语音。 |
-| [文本分析][ta-containers-keyphrase] | F0、S | 关键短语提取（  | 提取关键短语，以标识要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 |
-| [文本分析][ta-containers-language] | F0、S | 语言检测（  | 针对多达 120 种语言，检测输入文本是使用哪种语言编写的，并报告请求中提交的每个文档的单个语言代码。 语言代码与表示评分强度的评分相搭配。 |
+| [文本分析][ta-containers-keyphrase] | F0、S | 关键短语提取（[映像](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)） | 提取关键短语，以标识要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 |
+| [文本分析][ta-containers-language] | F0、S | 语言检测（[映像](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)） | 针对多达 120 种语言，检测输入文本是使用哪种语言编写的，并报告请求中提交的每个文档的单个语言代码。 语言代码与表示评分强度的评分相搭配。 |
 | [文本分析][ta-containers-sentiment] | F0、S | 情绪分析 v3（[映像](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)） | 分析原始文本，获取正面或负面情绪的线索。 此版本的情绪分析为每个文档以及其中的句子返回情绪标签（例如正面或负面） 。 |
 | [文本分析][ta-containers-health] | F0、S | **运行状况文本分析** | 从非结构化临床文本中提取医疗信息并进行标记。 |
 | [空间分析][spa-containers] | S0 | **空间分析** | 分析实时流式处理视频，以了解人员之间的空间关系、移动和物理环境中对象之间的交互。 |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 此外，认知服务 [**一体化产品/服务**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)资源密钥支持某些容器。 可以为以下服务创建单个认知服务一体化资源，并在支持的服务之间使用相同的计费密钥：
@@ -132,7 +132,7 @@ Azure 认知服务容器通过 Azure 订阅公开发布，并可以从 Microsoft
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

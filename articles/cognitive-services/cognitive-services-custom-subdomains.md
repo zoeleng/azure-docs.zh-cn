@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590632"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368808"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>认知服务的自定义子域名
 
-Azure 认知服务对通过 [Azure 门户](https://portal.azure.com)、 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)或 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)创建的每个资源使用自定义子域名称。 不同于特定 Azure 区域中所有客户经常使用的区域终结点，自定义子域名对于资源是唯一的。 需要使用自定义子域名来启用 Azure Active Directory (Azure AD) 等功能进行身份验证。
+Azure 认知服务对通过 [Azure 门户](https://portal.azure.com)、 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)或 [Azure CLI](/cli/azure/install-azure-cli)创建的每个资源使用自定义子域名称。 不同于特定 Azure 区域中所有客户经常使用的区域终结点，自定义子域名对于资源是唯一的。 需要使用自定义子域名来启用 Azure Active Directory (Azure AD) 等功能进行身份验证。
 
 ## <a name="how-does-this-impact-existing-resources"></a>这会对现有资源造成怎样的影响？
 
@@ -30,7 +30,7 @@ Azure 认知服务对通过 [Azure 门户](https://portal.azure.com)、 [Azure C
 2. 在“概述”边栏选项卡中，找到并选择“生成自定义域名”。  
 3. 此时会打开一个面板，其中包含有关为资源创建唯一自定义子域的说明。
    > [!WARNING]
-   > 创建自定义子域名后，**无法**对其进行更改。
+   > 创建自定义子域名后， **无法** 对其进行更改。
 
 ## <a name="do-i-need-to-update-my-existing-resources"></a>是否需要更新现有的资源？
 
@@ -39,7 +39,7 @@ Azure 认知服务对通过 [Azure 门户](https://portal.azure.com)、 [Azure C
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>如果 SDK 要求提供资源的区域，该怎么办？
 
 > [!WARNING]
-> 语音服务目前**不**支持自定义子域。 在使用语音服务和关联的 SDK 时，请使用区域终结点。
+> 语音服务目前 **不** 支持自定义子域。 在使用语音服务和关联的 SDK 时，请使用区域终结点。
 
 区域终结点和自定义子域名均受支持，且可换用。 但是，必须提供完整的终结点。
 
@@ -80,7 +80,7 @@ Azure 认知服务对通过 [Azure 门户](https://portal.azure.com)、 [Azure C
 | | 美国东部 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | 法国中部 | `https://francecentral.api.cognitive.microsoft.com` |
 | | 印度中部 | `https://centralindia.api.cognitive.microsoft.com` |
-| | Japan East | `https://japaneast.api.cognitive.microsoft.com` |
+| | 日本东部 | `https://japaneast.api.cognitive.microsoft.com` |
 | | 韩国中部 | `https://koreacentral.api.cognitive.microsoft.com` |
 | | 美国中北部 | `https://northcentralus.api.cognitive.microsoft.com` |
 | | 北欧 | `https://northeurope.api.cognitive.microsoft.com` |
@@ -98,5 +98,5 @@ Azure 认知服务对通过 [Azure 门户](https://portal.azure.com)、 [Azure C
 
 ## <a name="see-also"></a>另请参阅
 
-* [什么是认知服务？](Welcome.md)
+* [什么是认知服务？](./what-are-cognitive-services.md)
 * [身份验证](authentication.md)

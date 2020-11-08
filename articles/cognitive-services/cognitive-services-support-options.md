@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: d99cfc8b50155eb4cb2aecb3cb770f71b927ce1d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 01e46ad8d139f2cab2fbb6499dc66c7af5ceb554
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148703"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368757"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure 认知服务的支持和帮助选项
 
@@ -32,39 +32,39 @@ ms.locfileid: "92148703"
 
 ## <a name="post-a-question-on-microsoft-qa"></a>在 Microsoft 问答上发布问题
 
-若要快速可靠地解答 Microsoft 工程师提供的技术产品问题、Azure 最有价值专家 (Mvp) 或我们的专家社区，请与我们合作， [&A](https://docs.microsoft.com/answers/products/azure?product=all)，azure 的首选目标来提供社区支持。
+若要快速可靠地解答 Microsoft 工程师提供的技术产品问题、Azure 最有价值专家 (Mvp) 或我们的专家社区，请与我们合作， [&A](/answers/products/azure?product=all)，azure 的首选目标来提供社区支持。
 
 如果通过搜索未找到你的问题的解答，请在 Microsoft 问答中提交新问题。 提问时，请使用以下标记之一：
 
-* [认知服务](https://docs.microsoft.com/answers/topics/azure-cognitive-services.html)
+* [认知服务](/answers/topics/azure-cognitive-services.html)
 
 **影像**
 
-* [计算机视觉](https://docs.microsoft.com/answers/topics/azure-computer-vision.html)
-* [自定义视觉](https://docs.microsoft.com/answers/topics/azure-custom-vision.html)
-* [人脸](https://docs.microsoft.com/answers/topics/azure-face.html)
-* [表单识别器](https://docs.microsoft.com/answers/topics/azure-form-recognizer.html)
-* [视频索引器](https://docs.microsoft.com/answers/topics/azure-media-services.html)
+* [计算机视觉](/answers/topics/azure-computer-vision.html)
+* [自定义视觉](/answers/topics/azure-custom-vision.html)
+* [人脸](/answers/topics/azure-face.html)
+* [表单识别器](/answers/topics/azure-form-recognizer.html)
+* [视频索引器](/answers/topics/azure-media-services.html)
 
 **语言**
 
-* [沉浸式阅读器](https://docs.microsoft.com/answers/topics/azure-immersive-reader.html)
-* [语言理解 (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
-* [QnA Maker](https://docs.microsoft.com/answers/topics/azure-qna-maker.html)
-* [文本分析](https://docs.microsoft.com/answers/topics/azure-text-analytics.html)
-* [翻译](https://docs.microsoft.com/answers/topics/azure-translator.html)
+* [沉浸式阅读器](/answers/topics/azure-immersive-reader.html)
+* [语言理解 (LUIS)](/answers/topics/azure-language-understanding.html)
+* [QnA Maker](/answers/topics/azure-qna-maker.html)
+* [文本分析](/answers/topics/azure-text-analytics.html)
+* [翻译](/answers/topics/azure-translator.html)
 
 **语音**
 
-* [语音服务](https://docs.microsoft.com/answers/topics/azure-speech.html)
+* [语音服务](/answers/topics/azure-speech.html)
 
 
 **决策**
 
-* [异常检测器](https://docs.microsoft.com/answers/topics/azure-anomaly-detector.html) 
-* [内容审查器](https://docs.microsoft.com/answers/topics/azure-content-moderator.html)
+* [异常检测器](/answers/topics/azure-anomaly-detector.html) 
+* [内容审查器](/answers/topics/azure-content-moderator.html)
 * [指标顾问（预览版）]()
-* [个性化体验创建服务](https://docs.microsoft.com/answers/topics/azure-personalizer.html)
+* [个性化体验创建服务](/answers/topics/azure-personalizer.html)
 
 ## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 上发布问题
 
@@ -143,4 +143,4 @@ ms.locfileid: "92148703"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [什么是 Azure 认知服务？](welcome.md)
+> [什么是 Azure 认知服务？](./what-are-cognitive-services.md)

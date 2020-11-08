@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152284"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368774"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure 认知服务安全性
 
@@ -42,7 +42,7 @@ ms.locfileid: "92152284"
 环境变量是存储在特定环境中的名称/值对。 为敏感数据使用硬编码值的一种更安全的替代选项是使用环境变量。 硬编码值不安全，应避免使用。
 
 > [!CAUTION]
-> **不要**为敏感数据使用硬编码值，此行为会导致重大安全漏洞。
+> **不要** 为敏感数据使用硬编码值，此行为会导致重大安全漏洞。
 
 > [!NOTE]
 > 尽管环境变量以纯文本格式存储，但它们与环境隔离。 如果环境受到破坏，环境中的变量也会受到破坏。
@@ -60,7 +60,7 @@ ms.locfileid: "92152284"
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-在命令提示符**** 的新实例中，读取环境变量。
+在命令提示符的新实例中，读取环境变量。
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-在 Windows PowerShell**** 的新实例中，读取环境变量。
+在 Windows PowerShell 的新实例中，读取环境变量。
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-在 Bash**** 的新实例中，读取环境变量。
+在 Bash 的新实例中，读取环境变量。
 
 ```Bash
 # Prints the env var value
@@ -201,7 +201,7 @@ NSString* value =
 
 此认知服务提供客户密码箱：
 
-* 翻译工具
+* 转换器
 
 对于以下服务，Microsoft 工程师将无法访问 E0 层中的任何客户数据： 
 
@@ -211,7 +211,7 @@ NSString* value =
 * 个性化体验创建服务
 
 > [!IMPORTANT]
-> 对于 **窗体识别器**，Microsoft 工程师将无法访问2020年7月10日之后创建的资源中的任何客户数据。
+> 对于 **窗体识别器** ，Microsoft 工程师将无法访问2020年7月10日之后创建的资源中的任何客户数据。
 
 若要请求使用 E0 SKU，请填写并提交此 [请求表单](https://aka.ms/cogsvc-cmk)。 大约需要3-5 个工作日内就会收到请求的状态。 根据需要，你可以将置于队列中并在空间可用时进行批准。 批准将 E0 SKU 用于 LUIS 后，需要从 Azure 门户创建新资源，并选择 E0 作为定价层。 用户无法从 F0 升级到新的 E0 SKU。
 
@@ -222,5 +222,5 @@ NSString* value =
 
 ## <a name="next-steps"></a>后续步骤
 
-* 探索各种[认知服务](welcome.md)
+* 探索各种[认知服务](./what-are-cognitive-services.md)
 * 详细了解 [认知服务虚拟网络](cognitive-services-virtual-networks.md)

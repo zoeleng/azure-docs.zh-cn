@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6f4068ece2b08937188397317844a126a9699aee
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ed2c8b4b6dae8713d3ce1c6755c559cda9a9dfb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102099"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368876"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>使用见解令牌获取图像的见解
 
@@ -262,7 +262,7 @@ namespace VisualSearchInsightsToken
 
 * Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services/)
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="创建必应搜索资源"  target="_blank">创建必应搜索资源<span class="docon docon-navigate-external x-hidden-focus"></span></a>来获取密钥和终结点。 部署后，单击“转到资源”。
-* 要编译并运行此代码， [JDK 7 或 8](https://aka.ms/azure-jdks) 。 如果你喜欢，可以使用 Java IDE，但文本编辑器可以满足要求。
+* 要编译并运行此代码， [JDK 7 或 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 。 如果你喜欢，可以使用 Java IDE，但文本编辑器可以满足要求。
 
 
 ## <a name="run-the-java-application"></a>运行 Java 应用程序
@@ -536,4 +536,4 @@ if __name__ == '__main__':
 [创建视觉搜索单页 Web 应用](tutorial-bing-visual-search-single-page-app.md)  
 [什么是必应视觉搜索 API？](overview.md)  
 [试用认知服务](https://aka.ms/bingvisualsearchtryforfree)  
-[映像-视觉搜索](https://aka.ms/bingvisualsearchreferencedoc)
+[映像-视觉搜索](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)

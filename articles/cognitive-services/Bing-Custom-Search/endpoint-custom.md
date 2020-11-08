@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 80215a22c5af3698aee6719f52e42c457220b7f9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090692"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367448"
 ---
 # <a name="custom-search"></a>自定义搜索
 
@@ -33,10 +33,10 @@ ms.locfileid: "93090692"
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-有关如何设置自定义搜索源的示例，请参阅[教程](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)。 若要详细了解标头、参数、市场代码、响应对象、错误等，请参阅[必应自定义搜索 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) 参考。
+有关如何设置自定义搜索源的示例，请参阅[教程](./tutorials/custom-search-web-page.md)。 若要详细了解标头、参数、市场代码、响应对象、错误等，请参阅[必应自定义搜索 API v7](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) 参考。
 
 ## <a name="custom-search-response-json"></a>自定义搜索响应 JSON
-自定义搜索请求将结果作为 JSON 对象返回，请参阅[响应对象](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects)。 
+自定义搜索请求将结果作为 JSON 对象返回，请参阅[响应对象](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects)。 
 
 ## <a name="custom-autosuggest"></a>自定义自动建议
 通过自定义自动建议 API，可向必应发送部分搜索查询词，并返回用户可配置的建议查询列表。 借助自定义建议，可添加 API 返回的建议，并选择性地指定是否要包含必应生成的建议。
@@ -60,10 +60,10 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-有关配置自定义搜索实例的信息，请参阅[配置自定义搜索体验](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view)。
+有关配置自定义搜索实例的信息，请参阅[配置自定义搜索体验](./define-your-custom-view.md)。
 
 ## <a name="next-steps"></a>后续步骤
-必应  API 支持根据其类型返回结果的搜索操作。 所有搜索终结点均将结果作为 JSON 响应对象返回。  所有终结点支持后列查询：按经度、纬度和搜索半径返回特定语言和/或位置的查询。
+必应 API 支持根据其类型返回结果的搜索操作。 所有搜索终结点均将结果作为 JSON 响应对象返回。  所有终结点支持后列查询：按经度、纬度和搜索半径返回特定语言和/或位置的查询。
 
 若要完整了解每个终结点支持的参数，请参阅每种类型对应的参考页面。
-有关使用自定义搜索 API 的基本请求的示例，请参阅[自定义搜索快速入门](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)
+有关使用自定义搜索 API 的基本请求的示例，请参阅[自定义搜索快速入门](/azure/cognitive-services/bing-custom-search/)
