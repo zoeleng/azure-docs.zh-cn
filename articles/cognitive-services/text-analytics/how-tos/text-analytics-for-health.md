@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173952"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363861"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>如何：使用健康状况文本分析（预览）
 
@@ -84,7 +84,7 @@ ms.locfileid: "92173952"
 可以通过多种方式来安装和运行容器。 
 
 - 使用 [Azure 门户](text-analytics-how-to-install-containers.md?tabs=healthcare)创建文本分析资源，并使用 Docker 获取容器。
-- 使用以下 PowerShell 和 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 脚本来自动执行资源部署容器配置。
+- 使用以下 PowerShell 和 [Azure CLI](/cli/azure/?view=azure-cli-latest) 脚本来自动执行资源部署容器配置。
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>使用 Azure 用于容器的 Web 应用安装容器
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 还可以使用 Azure 容器实例 (ACI) 更轻松地部署。 ACI 资源允许在托管的无服务器 Azure 环境中按需运行 Docker 容器。 
 
 有关使用 Azure 门户部署 ACI 资源的步骤，请参阅[如何使用 Azure 容器实例](text-analytics-how-to-use-container-instances.md)。 还可以通过 Azure CLI 使用以下 PowerShell 脚本，这将使用容器映像在订阅上创建 ACI。  等待脚本完成 (大约25-30 分钟) ，然后提交第一个请求。  由于每个 ACI 资源的最大 Cpu 数的限制，如果你希望提交超过5个大文档 (每个请求) 约5000个字符，请不要选择此选项。
-有关可用性信息，请参阅 [ACI 区域支持](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) 文章。 
+有关可用性信息，请参阅 [ACI 区域支持](../../../container-instances/container-instances-region-availability.md) 文章。 
 
 > [!NOTE] 
 > Azure 容器实例不包括对内置域的 HTTPS 支持。 如果需要 HTTPS，则需要手动配置它，包括创建证书和注册域。 可以通过下面的 NGINX 查找有关如何执行此操作的说明。
@@ -399,7 +399,7 @@ example.json
 
 ### <a name="relation-extraction-output"></a>关系提取输出
 
-关系提取输出包含对关系 *源* 及其 *目标*的 URI 引用。 具有关系角色的实体 `ENTITY` 分配给 `target` 字段。 具有关系角色的实体 `ATTRIBUTE` 分配给 `source` 字段。 缩写关系包含双向 `source` 和 `target` 字段，并且 `bidirectional` 将设置为 `true` 。 
+关系提取输出包含对关系 *源* 及其 *目标* 的 URI 引用。 具有关系角色的实体 `ENTITY` 分配给 `target` 字段。 具有关系角色的实体 `ATTRIBUTE` 分配给 `source` 字段。 缩写关系包含双向 `source` 和 `target` 字段，并且 `bidirectional` 将设置为 `true` 。 
 
 ```json
 "relations": [

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 79bbdd109d005b7c6de293aebf50433fb7ea1d91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291650"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365000"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>适用于文本分析认知服务的外部和社区内容
 
@@ -31,11 +31,11 @@ ms.locfileid: "87291650"
 
 + [使用 SQL Server 数据的逻辑应用中的情绪分析（TechNet 博客）](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
-+ [Dynamics 365 CRM Online 的情绪分析（MSDN 博客）](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
++ [Dynamics 365 CRM Online 的情绪分析（MSDN 博客）](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
 + Power BI 博客：从 Facebook 消息中提取关键短语：[第1部分](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483)和[第 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)部分
 
-+ [使用 MS Flow 识别 Yammer 组中的评论情绪（Microsoft 技术社区）](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [使用 MS Flow 识别 Yammer 组中的评论情绪（Microsoft 技术社区）](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 

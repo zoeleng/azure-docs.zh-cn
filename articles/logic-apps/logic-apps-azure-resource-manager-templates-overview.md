@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269040"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364252"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>概述：使用 Azure 资源管理器模板将 Azure 逻辑应用部署自动化
 
@@ -71,7 +71,7 @@ REST API 中的逻辑应用，请从 [Azure 逻辑应用 REST API 概述](/rest/
 
 逻辑应用模板使用以下文件名格式：
 
-**<*逻辑应用名称*>.json**
+**<*逻辑应用名称* >.json**
 
 > [!IMPORTANT]
 > 模板语法区分大小写，因此请确保使用一致的大小写。 
@@ -187,8 +187,8 @@ REST API 中的逻辑应用，请从 [Azure 逻辑应用 REST API 概述](/rest/
 
 若要提供模板参数的值，请将这些值存储在[参数文件](../azure-resource-manager/templates/parameter-files.md)中。 这样，就可以根据部署需求使用不同的参数文件。 下面是要使用的文件名格式：
 
-* 逻辑应用模板文件名： **<*逻辑应用名称*>.json**
-* 参数文件名： **<*逻辑应用名称*>.parameters.json**
+* 逻辑应用模板文件名： **<*逻辑应用名称* >.json**
+* 参数文件名： **<*逻辑应用名称* >.parameters.json**
 
 下面是参数文件中的结构，其中包括一个用于[通过 Azure Key Vault 传递受保护参数值](../azure-resource-manager/templates/key-vault-parameter.md)的密钥保管库引用：
 
@@ -288,7 +288,7 @@ REST API 中的逻辑应用，请从 [Azure 逻辑应用 REST API 概述](/rest/
 * 逻辑应用使用的任何集成帐户的 ID
 * 逻辑应用的工作流定义
 * 用于设置要在运行时使用的值的 `parameters` 对象
-* 有关逻辑应用的其他资源信息，例如名称、类型、位置等
+* 有关逻辑应用的其他资源信息，如名称、类型、位置、任何运行时配置设置等
 
 ```json
 {
@@ -307,7 +307,8 @@ REST API 中的逻辑应用，请从 [Azure 逻辑应用 REST API 概述](/rest/
             },
             "definition": {<workflow-definition>},
             "parameters": {<workflow-definition-parameter-values>},
-            "accessControl": {}
+            "accessControl": {},
+            "runtimeConfiguration": {}
          },
          "name": "[parameters('LogicAppName')]", // Template parameter reference
          "type": "Microsoft.Logic/workflows",
@@ -327,14 +328,15 @@ REST API 中的逻辑应用，请从 [Azure 逻辑应用 REST API 概述](/rest/
 
 下面是特定于逻辑应用资源定义的属性：
 
-| 属性 | 必须 | 类型 | 说明 |
+| 属性 | 必需 | 类型 | 说明 |
 |-----------|----------|------|-------------|
 | `state` | 是 | String | 逻辑应用在部署时的状态，`Enabled` 表示逻辑应用处于活动状态，`Disabled` 表示逻辑应用处于非活动状态。 例如，如果你尚未准备好推出逻辑应用，而是想要部署草稿版本，则可以使用 `Disabled` 选项。 |
 | `integrationAccount` | 否 | Object | 如果逻辑应用使用集成帐户（用于存储企业到企业 (B2B) 方案的项目），则此对象包含用于指定集成帐户 ID 的 `id` 属性。 |
 | `definition` | 是 | Object | 逻辑应用的基础工作流定义，它是代码视图中显示的相同对象，[工作流定义语言的架构参考](../logic-apps/logic-apps-workflow-definition-language.md)主题中对此做了全面介绍。 在此工作流定义中，`parameters` 对象声明要在逻辑应用运行时使用的值的参数。 有关详细信息，请参阅[工作流定义和参数](#workflow-definition-parameters)。 <p><p>若要查看逻辑应用工作流定义中的属性，请在 Azure 门户或 Visual Studio 中或使用 [Azure 资源浏览器](https://resources.azure.com)之类的工具，从“设计视图”切换到“代码视图”。 |
 | `parameters` | 否 | Object | 要在逻辑应用运行时使用的[工作流定义参数值](#workflow-definition-parameters)。 这些值的参数定义显示在[工作流定义的 parameters 对象中](#workflow-definition-parameters)。 此外，如果逻辑应用使用[托管连接器](../connectors/apis-list.md)来访问其他服务和系统，则此对象将包含一个用于设置要在运行时使用的连接值的 `$connections` 对象。 |
 | `accessControl` | 否 | Object | 用于指定逻辑应用的安全属性，例如限制对请求触发器或运行历史记录输入和输出的 IP 访问。 有关详细信息，请参阅[保护对逻辑应用的访问](../logic-apps/logic-apps-securing-a-logic-app.md)。 |
-||||
+| `runtimeConfiguration` | 否 | Object | 用于指定任何 `operationOptions` 属性，这些属性控制逻辑应用在运行时的行为方式。 例如，可以在 [高吞吐量模式下](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode)运行逻辑应用。 |
+|||||
 
 有关这些逻辑应用对象的资源定义的详细信息，请参阅 [Microsoft. 逻辑资源类型](/azure/templates/microsoft.logic/allversions)：
 
@@ -437,7 +439,7 @@ REST API 中的逻辑应用，请从 [Azure 逻辑应用 REST API 概述](/rest/
 }
 ```
 
-<a name="secure-workflow-definition-parmameters"></a>
+<a name="secure-workflow-definition-parameters"></a>
 
 ### <a name="secure-workflow-definition-parameters"></a>安全工作流定义参数
 

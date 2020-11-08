@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523972"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364269"
 ---
 # <a name="translator-v2-to-v3-migration"></a>将 Translator V2 迁移到 V3
 
@@ -37,7 +37,7 @@ Microsoft Translator 团队已发布 Translator 版本 3 (V3)。 此版本包括
 * 音译 - 已将一个 transliterate 方法添加到 API。 此方法会将一个脚本（例如阿拉伯语） 中的单词和句子转换成另一个脚本（例如 拉丁语）。
 * 语言 - 新的“languages”方法会提供 JSON 格式的语言信息，以便与“translate”、“dictionary”和“transliterate”方法结合使用。
 * 新的翻译功能 - 已将新功能添加到“translate”方法，以支持 V2 API 中作为单独方法提供的某些功能。 示例包括 TranslateArray。
-* 讲述方法 - Microsoft Translator 不再支持文本转语音功能。 [Microsoft 语音服务](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)中提供了文本转语音功能。
+* 讲述方法 - Microsoft Translator 不再支持文本转语音功能。 [Microsoft 语音服务](../speech-service/text-to-speech.md)中提供了文本转语音功能。
 
 以下 V2 和 V3 方法列表指明了能够提供 V2 随附的功能的 V3 方法和 API。
 
@@ -47,8 +47,8 @@ Microsoft Translator 团队已发布 Translator 版本 3 (V3)。 此版本包括
 | `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [语言](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [语言](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft 语音服务](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Microsoft 语音服务](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Microsoft 语音服务](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Microsoft 语音服务](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | 不再支持的功能       |

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
-ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019743"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363708"
 ---
 # <a name="configure-anomaly-detector-containers"></a>配置异常检测器容器
 
@@ -25,10 +25,10 @@ ms.locfileid: "92019743"
 
 此容器具有以下配置设置：
 
-|必须|设置|目的|
+|必需|设置|用途|
 |--|--|--|
 |是|[ApiKey](#apikey-configuration-setting)|用于跟踪账单信息。|
-|否|[ApplicationInsights](#applicationinsights-setting)|允许向容器添加 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遥测支持。|
+|否|[ApplicationInsights](#applicationinsights-setting)|允许向容器添加 [Azure Application Insights](/azure/application-insights) 遥测支持。|
 |是|[Billing](#billing-configuration-setting)|指定 Azure 上服务资源的终结点 URI。|
 |是|[Eula](#eula-setting)| 表示已接受容器的许可条款。|
 |否|[Fluentd](#fluentd-settings)|将日志和（可选）指标数据写入 Fluentd 服务器。|
@@ -45,7 +45,7 @@ ms.locfileid: "92019743"
 
 可以在以下位置找到此设置：
 
-* Azure 门户：**异常探测器的**资源管理，**密钥**下
+* Azure 门户： **异常探测器的** 资源管理， **密钥** 下
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 设置
 
@@ -97,8 +97,8 @@ ms.locfileid: "92019743"
 
 以下示例使用的配置设置说明如何编写和使用 `docker run` 命令。  运行后，容器将继续运行，直到[停止](anomaly-detector-container-howto.md#stop-the-container)它。
 
-* **行继续**符：以下部分中的 Docker 命令使用反斜杠 `\` 作为 bash shell 的行继续符。 根据主机操作系统的要求替换或删除字符。 例如，Windows 的行继续符是插入符号 `^`。 将反斜杠替换为插入符号。 
-* **参数顺序**：除非很熟悉 Docker 容器，否则不要更改参数顺序。
+* **行继续** 符：以下部分中的 Docker 命令使用反斜杠 `\` 作为 bash shell 的行继续符。 根据主机操作系统的要求替换或删除字符。 例如，Windows 的行继续符是插入符号 `^`。 将反斜杠替换为插入符号。 
+* **参数顺序** ：除非很熟悉 Docker 容器，否则不要更改参数顺序。
 
 将值替换为方括号， `{}` 并将替换为你自己的值：
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357175"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366632"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL-灵活服务器的限制
 
@@ -78,7 +78,7 @@ PostgreSQL 连接（即使处于空闲状态）可能占用大约 10 MB 内存�
 - 可突增服务器当前不支持 HA Zone-Redundant。
 - 服务器故障转移到 HA 备用服务器时，数据库服务器的 IP 地址会发生变化。 确保使用 DNS 记录而不是服务器 IP 地址。
 - 如果为逻辑复制配置了 HA 配置灵活的服务器，则在故障转移到备用服务器时，不会将逻辑复制槽复制到备用服务器。 
-- 有关更多 HA 限制，请参阅 [概念-HA 文档](concepts-high-availability.md) 页。
+- 有关区域冗余 HA 包括限制的更多详细信息，请参阅 [概念-HA 文档](concepts-high-availability.md) 页。
 
 ### <a name="availability-zones"></a>可用性区域
 

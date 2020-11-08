@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233877"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364286"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射
 
@@ -110,7 +110,7 @@ Azure AD 用户对象与每个 SaaS 应用的用户对象之间存在一组预�
 - Workday 到 Active Directory/Workday 到 Azure Active Directory
 - SuccessFactors to Azure Active Directory Active Directory/SuccessFactors
 - Azure Active Directory（支持 [Azure AD 图形 API 默认属性](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity)和自定义目录扩展）
-- 支持 [SCIM 2.0](https://tools.ietf.org/html/rfc7643) 的应用（需要添加[核心架构](https://tools.ietf.org/html/rfc7643)中定义的属性）
+- 支持[SCIM 2.0](https://tools.ietf.org/html/rfc7643)的应用
 - 对于 Azure Active Directory 写回 Workday 或 SuccessFactors，支持)  (XPATH 和 JSONPath 更新相关的元数据，但不支持将新的 Workday 或 SuccessFactors 属性添加到默认架构中包含的属性以外
 
 
@@ -146,7 +146,7 @@ SCIM RFC 定义一个核心用户和组模式，同时还允许对模式进行�
 
 这些说明仅适用于启用了 SCIM 的应用程序。 诸如 ServiceNow 和 Salesforce 之类的应用程序不与使用 SCIM 的 Azure AD 集成，因此它们在添加自定义属性时不需要这一特定的命名空间。
 
-自定义属性不能是引用属性或多值属性。 当前，库中的应用程序仅支持自定义多值扩展属性。  
+自定义属性不能是引用属性、多值或复杂类型的属性。 当前仅对库中的应用程序支持自定义多值和复杂类型的扩展属性。  
  
 具有扩展属性的用户的示例表示形式：
 

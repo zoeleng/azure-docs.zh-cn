@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086432"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366043"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>处理 Azure 逻辑应用中的限制问题（429 -“请求过多”错误）
 
@@ -51,15 +51,15 @@ Azure 逻辑应用服务具有自身的[吞吐量限制](../logic-apps/logic-app
 
 * 启用高吞吐量模式。
 
-  逻辑应用[在 5 分钟滚动时间间隔内可运行的操作数目存在默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要将此限制提高到最大操作数目，请在逻辑应用中启用[高吞吐量模式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)。
+  逻辑应用[在 5 分钟滚动时间间隔内可运行的操作数目存在默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要将此限制提高到最大操作数目，请在逻辑应用中启用[高吞吐量模式](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode)。
 
 * 在触发器中禁用数组解批（“拆分”）行为。
 
-  如果触发器返回了要处理的剩余工作流操作数组，则触发器的[**拆分**设置](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)会拆分数组项，并针对每个数组项启动一个工作流实例，从而有效触发多个并发运行（不超过[**拆分**限制](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits)）。 若要控制限制，请禁用**拆分**行为，让逻辑应用通过单个调用处理整个数组，而不是每个调用处理一个项。
+  如果触发器返回了要处理的剩余工作流操作数组，则触发器的 [**拆分** 设置](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)会拆分数组项，并针对每个数组项启动一个工作流实例，从而有效触发多个并发运行（不超过 [**拆分** 限制](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits)）。 若要控制限制，请禁用 **拆分** 行为，让逻辑应用通过单个调用处理整个数组，而不是每个调用处理一个项。
 
 * 将操作重构为更小的逻辑应用。
 
-  如前所述，逻辑应用[在 5 分钟期限内可运行的操作数目存在默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 虽然可以通过启用[高吞吐量模式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)来提高此限制，但也可以考虑是否要将逻辑应用的操作分解为更小的逻辑应用，使每个逻辑应用中运行的操作数目不会超过限制。 这样，便可以减轻单个逻辑应用的资源负担，并跨多个逻辑应用分配负载。 此解决方案更适合那些处理大型数据集的操作，或者那些启动了许多并发运行操作、循环迭代或每个循环迭代中的操作以至于超出操作执行限制的操作。
+  如前所述，逻辑应用[在 5 分钟期限内可运行的操作数目存在默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 虽然可以通过启用[高吞吐量模式](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode)来提高此限制，但也可以考虑是否要将逻辑应用的操作分解为更小的逻辑应用，使每个逻辑应用中运行的操作数目不会超过限制。 这样，便可以减轻单个逻辑应用的资源负担，并跨多个逻辑应用分配负载。 此解决方案更适合那些处理大型数据集的操作，或者那些启动了许多并发运行操作、循环迭代或每个循环迭代中的操作以至于超出操作执行限制的操作。
 
   例如，此逻辑应用会执行从 SQL Server 数据库中获取表所需的所有工作，并会从每个表中获取行。 **For each** 循环以并发方式遍历每个表，使 **Get rows** 操作返回每个表的行。 这些操作可能会超出操作执行限制，具体取决于这些表中的数据量。
 

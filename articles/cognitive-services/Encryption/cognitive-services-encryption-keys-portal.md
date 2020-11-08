@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d161c82c087fd86a3774f0d121330260b1574e4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84310693"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366088"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>为认知服务配置客户管理的密钥 Azure Key Vault
 
@@ -27,9 +27,9 @@ ms.locfileid: "84310693"
 
 ## <a name="language"></a>语言
 
-* [语言理解静态数据的服务加密](../LUIS/luis-encryption-of-data-at-rest.md)
+* [语言理解服务静态数据加密](../LUIS/luis-encryption-of-data-at-rest.md)
 * [静态数据加密 QnA Maker](../QnAMaker/qna-maker-encryption-of-data-at-rest.md)
-* [静态数据的转换器加密](../translator/translator-encryption-of-data-at-rest.md)
+* [翻译器的静态数据加密](../translator/translator-encryption-of-data-at-rest.md)
 
 ## <a name="decision"></a>决策
 
@@ -38,5 +38,5 @@ ms.locfileid: "84310693"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [什么是 Azure Key Vault？](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [什么是 Azure Key Vault？](../../key-vault/general/overview.md)
 * [认知服务 Customer-Managed 密钥请求表单](https://aka.ms/cogsvc-cmk)

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 89bbb16f96d06d1861dabdf89cf690e69c10735c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348910"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364473"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>排查 Azure 中共享映像库的问题
 
@@ -153,7 +153,7 @@ ms.locfileid: "93348910"
 
 *不允许更改属性 "<galleryImageVersion diskImage \> source.id"。*  
 **原因** ：在创建库映像版本后，无法更改其源 ID。  
-**解决方法** ：确保源 id 与现有源 id 相同或更改映像版本的版本号。
+**解决方法** ：请确保源 id 与现有源 id 相同，更改映像版本的版本号，或删除当前映像版本，然后重试。
 
 *在输入数据磁盘中检测到重复的 lun 编号。Lun 编号对于每个数据磁盘必须是唯一的。*  
 **原因** ：使用磁盘和/或磁盘快照列表创建映像版本时，两个或更多磁盘或磁盘快照具有相同的 lun 编号。  

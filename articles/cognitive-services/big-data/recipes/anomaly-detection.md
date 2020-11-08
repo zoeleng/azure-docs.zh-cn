@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324618"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366275"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>食谱：针对大数据的认知维护和认知服务
 
@@ -31,13 +31,13 @@ ms.locfileid: "93324618"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services)
-* 使用[无服务器 Apache Spark 池](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)配置的[Azure Synapse 工作区](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)
+* 使用[无服务器 Apache Spark 池](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)配置的[Azure Synapse 工作区](../../../synapse-analytics/quickstart-create-workspace.md)
 
 ## <a name="setup"></a>设置
 
 ### <a name="create-an-anomaly-detector-resource"></a>创建异常检测器资源
 
-Azure 认知服务由你订阅的 Azure 资源表示。 使用 [Azure 门户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)为转换器创建资源。 也可执行以下操作：
+Azure 认知服务由你订阅的 Azure 资源表示。 使用 [Azure 门户](../../cognitive-services-apis-create-account.md) 或 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)为转换器创建资源。 也可执行以下操作：
 
 - 查看  [Azure 门户](https://portal.azure.com/)中的现有资源。
 
@@ -100,9 +100,9 @@ df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 
 | timestamp           |   值 | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
-| 2020-05-01 18:33:51 |    3174 | 开发-7      | False       |
-| 2020-05-01 18:33:52 |    2976 | 开发-7      | False       |
-| 2020-05-01 18:33:53 |    2714 | 开发-7      | False       |
+| 2020-05-01 18:33:51 |    3174 | 开发-7      | 错误       |
+| 2020-05-01 18:33:52 |    2976 | 开发-7      | 错误       |
+| 2020-05-01 18:33:53 |    2714 | 开发-7      | 错误       |
 
 
  ## <a name="visualize-anomalies-for-one-of-the-devices"></a>可视化某个设备的异常

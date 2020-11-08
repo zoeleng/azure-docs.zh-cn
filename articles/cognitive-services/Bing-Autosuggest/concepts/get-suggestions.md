@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: cb507df53778e1b432370daa050041625a45e06e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cdbbd6afeedc1c8808e02aefa268be4fe0de5f9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101963"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363368"
 ---
 # <a name="suggesting-query-terms"></a>建议查询词
 
@@ -28,7 +28,7 @@ ms.locfileid: "93101963"
 
 ## <a name="example-request"></a>示例请求
 
-以下示例显示了一个请求，该请求针对 *sail* 返回建议的查询字符串。 在设置 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) 查询参数时，请记得对用户的部分查询词进行 URL 编码。 例如，如果用户输入了 *sailing les* ，请将 `q` 设置为 `sailing+les` 或 `sailing%20les`。
+以下示例显示了一个请求，该请求针对 *sail* 返回建议的查询字符串。 在设置 [q](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) 查询参数时，请记得对用户的部分查询词进行 URL 编码。 例如，如果用户输入了 *sailing les* ，请将 `q` 设置为 `sailing+les` 或 `sailing%20les`。
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -39,7 +39,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-以下响应列出了包含建议查询词的 [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) 对象。
+以下响应列出了包含建议查询词的 [SearchAction](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) 对象。
 
 ```json
 {
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 ![自动建议下拉搜索框列表](../media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-如果用户从下拉列表中选择了一个建议的查询，则你将使用 `query` 字段中的查询词来调用[必应 Web 搜索 API](../../bing-web-search/search-the-web.md) 并自行显示结果。 或者，可以使用 `url` 字段中的 URL 将用户发送到必应搜索结果页。
+如果用户从下拉列表中选择了一个建议的查询，则你将使用 `query` 字段中的查询词来调用[必应 Web 搜索 API](../../bing-web-search/overview.md) 并自行显示结果。 或者，可以使用 `url` 字段中的 URL 将用户发送到必应搜索结果页。
 
 ## <a name="next-steps"></a>后续步骤
 

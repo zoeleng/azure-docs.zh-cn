@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359538"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366717"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL-灵活服务器中的高可用性概念
 
@@ -101,17 +101,17 @@ Azure Database for PostgreSQL 灵活的服务器使用 **区域冗余** 服务�
 -   仅在有多个区域可用的区域中支持高可用性。
 -   由于同步复制到另一个可用性区域，应用程序可能会遇到提升的写入和提交延迟。
 
--   备用副本不能用于只读查询。
+-   备用副本不能用于读取查询。
 
--   故障转移时，可能需要长达两分钟或更长时间才能完成故障转移。
+-   故障转移过程可能需要超过120秒的时间，具体取决于主服务器上的工作负荷和活动。
 
--   重新启动主数据库服务器以选取静态参数更改也会重启备用副本。
+-   重新启动主数据库服务器也会重启备用副本。 
 
 -   不支持配置其他读取副本。
 
 -   在托管维护时段无法计划配置客户启动的管理任务。
 
--   计划事件（如缩放计算和缩放存储）先在备用服务器中进行，然后在主服务器中进行。 服务不进行故障转移。 
+-   计划事件（如缩放计算和缩放存储）先在备用服务器中进行，然后在主服务器中进行。 对于这些计划的操作，服务器不会进行故障转移。 
 
 -  如果使用 HA 配置灵活的服务器配置逻辑解码或逻辑复制，则在故障转移到备用服务器时，不会将逻辑复制槽复制到备用服务器。  
 

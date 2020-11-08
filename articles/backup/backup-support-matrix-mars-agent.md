@@ -3,12 +3,12 @@ title: MARS 代理的支持矩阵
 description: 本文汇总了备份运行 Microsoft Azure 恢复服务 (MARS) 代理的计算机时的 Azure 备份支持。
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173529"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363232"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 恢复服务 (MARS) 代理进行备份的支持矩阵
 
@@ -46,7 +46,7 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的数据备份�
 大小 |  缓存文件夹中的可用空间应至少为备份数据总大小的 5% 到 10%。
 位置 | 缓存文件夹必须存储在要备份的计算机本地，并且该计算机必须联机。 缓存文件夹不应位于网络共享、可移动媒体或脱机卷上。
 文件夹 | 不应在已删除重复数据的卷、已压缩文件夹、稀疏文件夹或具有重分析点的文件夹中加密缓存文件夹。
-位置更改 | 可以通过停止备份引擎 (`net stop bengine`)，并将缓存文件夹复制到新驱动器来更改缓存位置。 （确保新驱动器有足够的空间。）然后，将 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** 下的两个注册表项（**Config/ScratchLocation** 和 **Config/CloudBackupProvider/ScratchLocation**）更新为新位置，并重启引擎。
+位置更改 | 可以通过停止备份引擎 (`net stop bengine`)，并将缓存文件夹复制到新驱动器来更改缓存位置。 （确保新驱动器有足够的空间。）然后，将 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** 下的两个注册表项（ **Config/ScratchLocation** 和 **Config/CloudBackupProvider/ScratchLocation** ）更新为新位置，并重启引擎。
 
 ## <a name="networking-and-access-support"></a>网络和访问支持
 
@@ -113,7 +113,7 @@ MARS 代理需要以下 URL 的访问权限：
 
 **功能** | **详细信息**
 --- | ---
-带宽控制 | 。 在 MARS 代理中，使用“更改属性”来调整带宽。****
+带宽控制 | 。 在 MARS 代理中，使用“更改属性”来调整带宽。
 网络限制 | 不适用于运行 Windows Server 2008 R2、Windows Server 2008 SP2 或 Windows 7 的备份计算机。
 
 ## <a name="supported-operating-systems"></a>支持的操作系统
@@ -169,6 +169,17 @@ Windows Server 2008 SP2| 1,700 GB
 Windows 8 或更高版本| 54,400 GB
 Windows 7| 1,700 GB
 
+### <a name="minimum-retention-limits"></a>最小保持期限制
+
+以下是可为不同恢复点设置的最小保持期：
+
+|恢复点 |Duration  |
+|---------|---------|
+|每日恢复点    |   7 天      |
+|每周恢复点     |    4 周     |
+|每月恢复点    |   3 个月      |
+|每年恢复点  |      1 年   |
+
 ### <a name="other-limitations"></a>其他限制
 
 - MARS 不支持在单个保管库中保护多台同名计算机。
@@ -200,12 +211,12 @@ OneDrive（同步的文件是稀疏流）| 不支持。
 网络共享| 不支持 |卷必须位于服务器本地。
 BitLocker 锁定卷| 不支持 |必须先解锁卷才能开始备份。
 文件系统标识| 不支持 |仅支持 NTFS。
-可移动媒体| 不支持 |所有备份项源必须处于固定状态。**
+可移动媒体| 不支持 |所有备份项源必须处于固定状态。
 已删除重复数据的驱动器 | 支持 | Azure 备份将删除了重复项的数据转换为正常数据。 它可以优化、加密、存储数据并将其发送到保管库。
 
 ## <a name="support-for-initial-offline-backup"></a>初始脱机备份支持
 
-Azure 备份支持“脱机种子设定”，以使用磁盘将初始备份数据传输到 Azure。** 如果初始备份的大小可能会达到 TB 量级，则此项支持很有帮助。 支持以下脱机备份：
+Azure 备份支持“脱机种子设定”，以使用磁盘将初始备份数据传输到 Azure。 如果初始备份的大小可能会达到 TB 量级，则此项支持很有帮助。 支持以下脱机备份：
 
 - 直接备份运行 MARS 代理的本地计算机上的文件和文件夹。
 - 备份 DPM 服务器或 MABS 中的工作负荷和文件。

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a2b41ac32f8c887d7a8ffd33d51baebaa0e2482e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146171"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366479"
 ---
 # <a name="publishing-guide-by-offer-type"></a>发布指南（按产品/服务类型）
 
@@ -30,9 +30,8 @@ ms.locfileid: "93146171"
 
 | **产品/服务类型**    | **说明**  |
 | :------------------- | :-------------------|
-| [Azure 应用程序： **托管应用程序**](marketplace-managed-apps.md) | 需要以下条件时，请使用 Azure 应用程序：托管应用程序类型： <br> <ul> <li>使用 VM 为客户部署基于订阅的解决方案，或部署基于 IaaS 的整个解决方案。 </li> <li>你或客户要求解决方案由合作伙伴管理。 </li> <ul> |
-| [Azure 应用程序： **解决方案模板**](marketplace-solution-templates.md) | 当解决方案需要在单个 VM 之外额外部署和配置自动化时，请使用 Azure 应用程序：解决方案模板产品类型。 解决方案模板可以使用多种不同类型的 Azure 资源，包括但不限于 Vm。  |
-  | [**Azure 容器**](marketplace-containers.md) | 如果解决方案是预配为基于 Kubernetes 的 Azure 容器服务的 Docker 容器映像，请使用 Azure 容器产品类型。 |
+| [**Azure 应用程序**](plan-azure-application-offer.md) | 有两种类型的 Azure 应用程序计划： _解决方案模板_ 和 _托管应用程序_ 。 这两种计划类型支持自动部署和配置解决方案，而不是 (VM) 的单个虚拟机。 可以自动执行提供多个资源（包括 Vm、网络和存储资源）的过程，以便提供诸如 IaaS 解决方案的复杂解决方案。 这两种计划类型可以使用多种不同类型的 Azure 资源，包括但不限于 Vm。<ul><li>**解决方案模板** 计划是在商业市场中发布解决方案的主要方法之一。 解决方案模板计划并不事务在商业应用商店中，但可用于部署通过商业市场计费的付费 VM 产品/服务。 当客户将管理解决方案，并且通过另一个计划对交易进行计费时，使用解决方案模板计划类型。</li><br><li>使用 **托管应用程序** 计划，可以为客户轻松构建和交付完全托管的全包式应用程序。 它们与解决方案模板计划具有相同的功能，但有一些主要区别：</li><ul><li> 资源将部署到资源组，并由应用程序的发布者进行管理。 资源组在使用者的订阅中，但发布者租户中的标识有权访问该资源组。</li><li>作为发布者，你可以指定当前支持的解决方案的成本，并通过商业应用商店支持事务。</li></ul>当你或你的客户要求解决方案由合作伙伴管理或者你将部署基于订阅的解决方案时，请使用托管应用程序计划类型。</ul> |
+| [**Azure 容器**](marketplace-containers.md) | 如果解决方案是预配为基于 Kubernetes 的 Azure 容器服务的 Docker 容器映像，请使用 Azure 容器产品类型。 |
 | [**Azure 虚拟机**](marketplace-virtual-machines.md) | 将虚拟设备部署到与客户关联的订阅时，请使用“虚拟机”产品/服务类型。 |
 | [**咨询服务**](consulting-services.md) | 咨询服务有助于将客户连接到服务，以支持和扩展其对 Azure、Dynamics 365 或 Power Suite 服务的使用。|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | 可以发布生成或扩展 Dynamics 365 Business Central、Dynamics 365 客户参与、电源应用和财务和操作应用的 AppSource 产品/服务。|
