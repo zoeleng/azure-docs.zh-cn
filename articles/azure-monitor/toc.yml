@@ -370,7 +370,7 @@
       items:
         - name: 概述
           href: platform/agents-overview.md
-        - name: FAQ
+        - name: 常见问题解答
           href: faq.md#agents
         - name: Azure Monitor 代理
           items:
@@ -473,7 +473,7 @@
           href: platform/autoscale-virtual-machine-scale-sets.md
         - name: 使用 Webhook 和电子邮件通知
           href: platform/autoscale-webhook-email.md
-        - name: 故障排除
+        - name: 疑难解答
           href: platform/autoscale-troubleshoot.md
         - name: 资源日志架构
           href: platform/autoscale-resource-log-schema.md
@@ -618,8 +618,6 @@
                 - name: Web 应用
                   displayname: java
                   href: app/java-get-started.md
-                - name: Docker 应用
-                  href: app/docker.md
                 - name: 日志跟踪
                   href: app/java-trace-logs.md
                 - name: Unix 指标
@@ -692,12 +690,14 @@
               href: app/kubernetes-codeless.md
             - name: 独立 - 任何环境
               items:
-                - name: Java（预览版）
+                - name: Java
                   items:
                     - name: 概述
                       href: app/java-in-process-agent.md
                     - name: 配置选项
                       href: app/java-standalone-config.md
+                    - name: 遥测处理器
+                      href: app/java-standalone-telemetry-processors.md
                     - name: JVM 参数设置
                       href: app/java-standalone-arguments.md
             - name: 本地服务器
@@ -711,7 +711,7 @@
                       href: app/status-monitor-v2-get-started.md
                     - name: 详细说明
                       href: app/status-monitor-v2-detailed-instructions.md
-                    - name: 故障排除
+                    - name: 疑难解答
                       href: app/status-monitor-v2-troubleshoot.md
                     - name: API 参考
                       href: app/status-monitor-v2-api-reference.md
@@ -1344,10 +1344,6 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights 连接器
           href: platform/app-insights-connector.md
-        - name: 用于 AKS 无代码的 Application Insights
-          href: app/kubernetes.md
-        - name: 监视 Docker 应用程序
-          href: app/docker.md
         - name: OMS 门户弃用
           href: platform/oms-portal-transition.md
         - name: 磁盘指标弃用
