@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: Azure, 人工智能, ai, 自然语言处理, nlp, LUIS, azure luis, 自然语言理解, ai 聊天机器人, 聊天机器人生成器, 理解自然语言
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327254"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241372"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>快速入门：语言理解 (LUIS) SDK 客户端库，用于创建和查询 LUIS 应用
 
@@ -21,7 +21,8 @@ ms.locfileid: "91327254"
 
 通过语言理解 (LUIS)，你可在用户的自然语言对话文本中应用自然语言处理 (NLP)，以预测整体含义并提炼出相关的详细信息。
 
-* 使用创作 SDK 客户端库可以创建、编辑、训练和发布 LUIS 应用。 * 使用预测运行时 SDK 客户端库可查询发布的应用。
+* 使用创作 SDK 客户端库可以创建、编辑、训练和发布 LUIS 应用。
+* 使用预测运行时 SDK 客户端库可查询发布的应用。
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]

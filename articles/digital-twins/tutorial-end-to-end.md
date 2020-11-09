@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495956"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324565"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>教程：扩建端到端解决方案
 
@@ -48,7 +48,7 @@ ms.locfileid: "92495956"
 
 下面是建筑方案 AdtSampleApp 示例应用实现的组件：
 * 设备身份验证 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 用法示例（参见 CommandLoop.cs）
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 用法示例（参见 CommandLoop.cs）
 * 调用 Azure 数字孪生 API 的控制台接口
 * SampleClientApp - Azure 数字孪生解决方案示例
 * SampleFunctionsApp - Azure Functions 应用，可将 Azure 数字孪生图更新为来自 IoT 中心和 Azure 数字孪生事件的遥测结果
@@ -329,7 +329,7 @@ ObserveProperties thermostat67 Temperature
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="完整建筑方案图的摘录，其中突出显示了箭头 C（Azure 数字孪生后的元素：事件网格和第二个 Azure 函数）":::
 
 下面是设置此数据流需要完成的操作：
-1. 创建一个将实例连接到事件网格的 Azure 数字孪生终结点
+1. 在 Azure 数字孪生中创建一个将实例连接到事件网格的事件网格终结点
 2. 在 Azure 数字孪生中设置路由，将孪生属性更改事件发送到终结点
 3. 部署在终结点上（通过[事件网格](../event-grid/overview.md)）侦听的 Azure Functions 应用，并相应地更新其他孪生
 4. 运行模拟设备并查询 Azure 数字孪生，以查看实时结果
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 此命令的输出是已创建的事件网格主题的相关信息。
 
-接下来，创建一个指向事件网格主题的 Azure 数字孪生终结点。 使用下面的命令，根据需要填写占位符字段：
+接下来，在 Azure 数字孪生中创建事件网格终结点，该终结点将实例连接到事件网格主题。 使用下面的命令，根据需要填写占位符字段：
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -372,11 +372,11 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="终结点的查询结果，其中显示 provisioningState 为 Succeeded":::
 
-保存提供给事件网格主题和 Azure 数字孪生终结点的名称。 稍后你将用到它们。
+保存提供给事件网格主题和 Azure 数字孪生中事件网格终结点的名称。 稍后你将用到它们。
 
 ### <a name="set-up-route"></a>设置路由
 
-接下来，创建 Azure 数字孪生路由，将事件发送到刚刚创建的 Azure 数字孪生终结点。
+接下来，创建 Azure 数字孪生路由，将事件发送到刚刚创建的事件网格终结点。
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

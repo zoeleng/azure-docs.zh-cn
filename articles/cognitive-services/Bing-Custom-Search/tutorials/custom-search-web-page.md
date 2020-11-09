@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 25d716513c7ceb9311588b75b0fad1c68bf71bfd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742496"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081104"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>教程：构建自定义搜索网页
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 2020 年 10 月 30 日开始，必应搜索的任何新实例都需按照[此处](https://aka.ms/cogsvcs/bingmove)所述的过程进行预配。
+> 使用认知服务进行预配的必应搜索 API 将在未来三年或在企业协议结束前（以先发生者为准）得到支持。
+> 有关迁移说明，请参阅[必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 借助必应自定义搜索，可以为关注的主题创建定制的搜索体验。 例如，如果拥有提供搜索体验的武术网站，则可指定供必应搜索的域、子网站和网页。 用户会看到根据他们关注的内容定制的搜索结果，而不必浏览可能会包含不相关内容的常规搜索结果。 
 
@@ -35,7 +40,7 @@ ms.locfileid: "91742496"
 ## <a name="prerequisites"></a>先决条件
 
 - 要继续学习本教程，需要 Bing 自定义搜索 API 的订阅密钥。  若要获取密钥，请在 Azure 门户中[创建必应自定义搜索资源](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch)。
-- 如果尚未安装 Visual Studio 2017 或更高版本，可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
+- 如果尚未安装 Visual Studio 2017 或更高版本，可以下载并使用 **免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
 
 ## <a name="create-a-custom-search-instance"></a>创建自定义搜索实例
 

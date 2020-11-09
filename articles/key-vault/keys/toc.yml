@@ -30,6 +30,10 @@
   items:
     - name: Key Vault 代码示例
       href: /samples/browse/?expanded=azure&products=azure-key-vault
+- name: 概念
+  items:
+    - name: 密钥类型、算法和操作
+      href: about-keys-details.md
 - name: 参考
   items:
     - name: Azure PowerShell

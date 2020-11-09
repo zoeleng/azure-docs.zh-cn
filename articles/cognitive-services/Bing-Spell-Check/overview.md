@@ -10,20 +10,25 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 205d7991551ca48c3ea2e61baef53f5d06bdcbd2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905ae56ab8d64f7342c4ee6b9f25d188c907710d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86200496"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084181"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>什么是必应拼写检查 API？
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 2020 年 10 月 30 日开始，必应搜索的任何新实例都需按照[此处](https://aka.ms/cogsvcs/bingmove)所述的过程进行预配。
+> 使用认知服务进行预配的必应搜索 API 将在未来三年或在企业协议结束前（以先发生者为准）得到支持。
+> 有关迁移说明，请参阅[必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 使用必应拼写检查 API 可对文本执行上下文语法和拼写检查。 虽然大多数拼写检查器都依赖于基于字典的规则集，但必应拼写检查器利用机器学习和统计性机器翻译来提供准确的上下文更正。 
 
 ## <a name="features"></a>功能
 
-| 功能 | 说明 |
+| Feature | 说明 |
 |---------|---------|
 |多种拼写检查模式     | 多种拼写检查模式使用户可以获得专注于语法和/或拼写的更正。 |
 |俚语和非正式语言识别     | 识别文本中常用的表达和非正式用语。         |

@@ -95,6 +95,8 @@
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: 在 Azure Stack Edge 上部署
       href: deploy-azure-stack-edge-how-to.md
+    - name: 配置信号入口
+      href: configure-signal-gate-how-to.md
     - name: 疑难解答
       href: troubleshoot-how-to.md
 - name: 参考

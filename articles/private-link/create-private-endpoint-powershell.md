@@ -1,18 +1,18 @@
 ---
-title: 快速入门-使用 Azure PowerShell 创建 Azure 专用终结点
-description: 使用本快速入门教程了解如何使用 Azure PowerShell 创建专用终结点。
+title: 快速入门 - 使用 Azure PowerShell 创建 Azure 专用终结点
+description: 借助本快速入门了解如何使用 Azure PowerShell 创建专用终结点。
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 147e646738df9d70355f379a9e64a52116e9f16f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
-ms.translationtype: MT
+ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233587"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368655"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建专用终结点
 
@@ -47,11 +47,11 @@ New-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg' -Location 'eastus'
 
 堡垒主机将用于安全地连接到虚拟机，以测试专用终结点。
 
-创建具有以下内容的虚拟网络和堡垒主机：
+使用以下命令创建虚拟网络和堡垒主机：
 
 * [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 * [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
-* [新-AzBastion](/powershell/module/az.network/new-azbastion)
+* [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
 ```azurepowershell-interactive
 ## Create backend subnet config. ##
@@ -147,14 +147,15 @@ New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM 
 
 ## <a name="create-private-endpoint"></a>创建专用终结点
 
-在本部分中，你将使用以下内容创建专用终结点和连接：
+在本部分中，你将使用以下命令创建专用终结点和连接：
 
 * [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{
@@ -183,7 +184,7 @@ New-AzPrivateEndpoint @parameters2
 ```
 ## <a name="configure-the-private-dns-zone"></a>配置专用 DNS 区域
 
-在本部分中，你将使用以下各项创建和配置专用 DNS 区域：
+在本部分中，你将使用以下命令创建和配置专用 DNS 区域：
 
 * [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone)
 * [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink)
@@ -259,7 +260,7 @@ New-AzPrivateDnsZoneGroup @parameters4
     Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    对于 web 应用名称，将返回 **10.0.0.5** 的专用 IP 地址。  此地址位于你之前创建的虚拟网络的子网中。
+    将为 Web 应用名称返回专用 IP 地址 10.0.0.5。  此地址位于你之前创建的虚拟网络的子网中。
 
 10. 在到 myVM 的堡垒连接中，打开 Internet Explorer。
 
@@ -272,7 +273,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 13. 关闭到 **myVM** 的连接。
 
 ## <a name="clean-up-resources"></a>清理资源 
-使用完专用终结点和 VM 后，请使用 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 删除该资源组及其包含的所有资源：
+用完专用终结点和 VM 后，请使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 删除资源组和组内所有资源：
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force

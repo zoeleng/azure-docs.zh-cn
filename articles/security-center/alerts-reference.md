@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784280"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372687"
 ---
 # <a name="security-alerts---a-reference-guide"></a>安全警报 - 参考指南
 
@@ -456,6 +456,8 @@ ms.locfileid: "92784280"
 | **影响**              | 影响事件主要尝试直接降低系统、服务或网络的可用性或完整性；包括为了影响业务或操作过程而进行的数据操作活动。 这通常指勒索软件、篡改、数据操作等方法。                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> 有关预览版警报，请参阅：[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关警报的详细信息，请参阅以下内容：

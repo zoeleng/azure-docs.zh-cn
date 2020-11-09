@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936260"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329508"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>网络限制 - Azure 资源管理器
 以下限制仅适用于通过每个订阅的每个区域的 Azure 资源管理器进行管理的网络资源。 了解如何[针对订阅限制查看当前资源使用情况](../articles/networking/check-usage-against-limits.md)。
@@ -55,6 +55,7 @@ ms.locfileid: "91936260"
 | 公共 IP 地址<sup>1</sup> | 基本版为 10。 | 请联系支持人员。 |
 | 静态公共 IP 地址<sup>1</sup> | 基本版为 10。 | 请联系支持人员。 |
 | 标准公共 IP 地址<sup>1</sup> | 10 | 请联系支持人员。 |
+| [每个资源组的公共 IP 地址](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | 请联系支持人员。 | 
 | 公共 IP 前缀 | 受订阅中的标准公共 IP 数限制 | 请联系支持人员。 |
 | 公共 IP 前缀长度 | /28 | 请联系支持人员。 |
 
@@ -106,6 +107,6 @@ ms.locfileid: "91936260"
 | 每个路由表的用户定义的路由数 |400 |400 |
 | 公共 IP 地址 (动态) |500 |500 |
 | 保留的公共 IP 地址 |500 |500 |
-| 每个部署的公共 VIP |5 |联系支持人员 |
-| 每个部署的专用 VIP（内部负载均衡） |1 |1 |
+| 每个部署的公共 IP |5 |联系支持人员 |
+| 每个部署的专用 IP（内部负载均衡） |1 |1 |
 | 终结点访问控制列表 (ACL) |50 |50 |

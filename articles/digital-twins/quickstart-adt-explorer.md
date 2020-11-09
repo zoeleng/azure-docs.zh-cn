@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 466129e8435ef694821b078592a100a111a43f3a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048502"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242273"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>快速入门 - 使用 ADT Explorer 探索示例 Azure 数字孪生方案
 
@@ -37,57 +37,40 @@ ms.locfileid: "92048502"
 
 还需要在计算机上有 Node.js。 可以通过以下链接获取最新版本：[Node.js](https://nodejs.org/)。
 
-最后，还需要下载两个要在快速入门期间使用的示例：
-* ADT 资源管理器示例应用程序。 此示例包含在快速入门中用于加载和探索 Azure 数字孪生方案的主要应用。 若要获取此应用，请在此处导航：[Azure 数字孪生 (ADT) 资源管理器](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)。 点击“下载 ZIP”按钮，将此示例代码的 .ZIP 文件下载到计算机 。 这会将 .ZIP 文件夹以 Azure_Digital_Twins__ADT__explorer.zip 的形式下载到计算机上__。 解压缩文件夹并提取文件。
-* 示例 Azure 数字孪生方案。 这包括预生成的 Azure 数字孪生图，你需要将它加载到 ADT 资源管理器中以供使用。 若要获取此方案，请在此处导航：[Azure 数字孪生示例](/samples/azure-samples/digital-twins-samples/digital-twins-samples)。 点击“下载 ZIP”按钮，将此示例代码的 .ZIP 文件下载到计算机 。 这会将 .ZIP 文件夹以 Azure_Digital_Twins_samples.zip 的形式下载到计算机上__。 解压缩文件夹并提取文件。
+最后，你还需要下载在快速入门期间使用的示例：ADT Explorer 示例应用程序。 此示例包含在快速入门中用于加载和探索 Azure 数字孪生方案的应用，以及示例方案文件。 若要获取此示例，请导航到：[Azure 数字孪生 (ADT) 资源管理器](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)。 点击“下载 ZIP”按钮，将此示例代码的 .ZIP 文件下载到计算机 。 这会将 .ZIP 文件夹以 Azure_Digital_Twins__ADT__explorer.zip 的形式下载到计算机上。 解压缩文件夹并提取文件。
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>设置 Azure 数字孪生和 ADT 资源管理器
 
-要使用 Azure 数字孪生，第一步是设置 Azure 数字孪生实例。 创建服务的实例后，你稍后在本快速入门中将能够使用示例数据填充该实例。
+要使用 Azure 数字孪生，第一步是设置 Azure 数字孪生实例。 创建服务的实例并设置凭据以向 ADT Explorer 进行身份验证后，可以在 ADT Explorer 中连接到该实例，并且稍后可在快速入门中使用示例数据填充该实例 。
 
-你还将设置 ADT 资源管理器在你的计算机上运行并访问 Azure 数字孪生实例所需的权限。 这样，你就能够使用示例应用来探索实例及其数据。
+本部分的其余部分将指导你完成这些步骤。
 
 ### <a name="set-up-azure-digital-twins-instance"></a>设置 Azure 数字孪生实例
 
-首先，设置 Azure 数字孪生实例及所需的身份验证，以便能够使用它。 为此，请按照[如何：*设置实例和身份验证*](how-to-set-up-instance-portal.md)中的说明设置实例和身份验证。 根据你的首选体验，针对 [Azure 门户](how-to-set-up-instance-portal.md)、[CLI](how-to-set-up-instance-cli.md) 或[自动化 Cloud Shell 部署脚本示例](how-to-set-up-instance-scripted.md)提供了有关设置的文章。 所有版本的说明还包含用于验证是否已成功完成每个步骤并准备好继续使用新实例的步骤。
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-在本快速入门中，设置实例时将需要以下值。 如果需要再次收集这些值，请使用下面的链接转至设置文章中的相应部分，以在 [Azure 门户](https://portal.azure.com)中找到这些值。
-* Azure 数字孪生实例主机名（[在门户中查找](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)）
-* Azure AD 应用注册应用程序（客户端）ID（[在门户中查找](how-to-set-up-instance-portal.md#collect-important-values)）
-* Azure AD 应用注册目录（租户）ID（[在门户中查找](how-to-set-up-instance-portal.md#collect-important-values)）
+### <a name="set-up-local-azure-credentials"></a>设置本地 Azure 凭据
 
-### <a name="set-adt-explorer-permissions"></a>设置 ADT 资源管理器权限
+当你在本地计算机上运行示例时，ADT Explorer 应用程序使用 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet)（属于 `Azure.Identity` 库的一部分）对用户进行 Azure 数字孪生实例验证。 若要详细了解客户端应用可向 Azure 数字孪生进行验证的不同方法，请参阅[操作说明：编写应用身份验证码](how-to-authenticate-client.md)。
 
-接下来，准备已创建的 Azure 数字孪生实例以使用 ADT Explorer（一个本地托管的 Web 应用程序）。 访问 Azure 门户中的[应用注册](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)页面，然后从列表中选择应用注册的名称。
+借助此身份验证类型，ADT Explorer 将在本地环境中搜索凭据，如本地 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 或 Visual Studio/Visual Studio Code 中的 Azure 登录。 这意味着，你应该通过这些机制之一在本地登录 Azure，以便设置 ADT Explorer 应用的凭据。
 
-从注册菜单中选择“身份验证”，然后点击“+添加平台” 。
+如果已通过其中一种方式登录到 Azure，则可以跳到[下一部分](#run-and-configure-adt-explorer)。
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+否则，可以使用以下步骤安装本地 Azure CLI：
+1. 按照[此安装链接](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)上的过程进行操作，完成与你的操作系统相匹配的安装。
+2. 在计算机上打开控制台窗口。
+3. 运行 `az login` 并按照身份验证提示操作以登录到 Azure 帐户。
 
-在随后出现的“配置平台”页面中，选择“Web” 。
-填写配置详细信息，如下所示：
-* **重定向 URI**：添加 http://localhost:3000 的重定向 URI。
-* **隐式授权**：选中“访问令牌”框。
+完成此操作后，在下一部分中运行 ADT Explorer 时，它会自动获取 Azure 凭据。
 
-点击“配置”以完成。
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-现在，你配置了 ADT 资源管理器将使用的 Web 配置。 Azure 门户中的“身份验证”选项卡应反映出这一点。 验证以下部分后，请点击“保存”。
-
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。":::
+如果需要，你可以关闭身份验证控制台窗口，或者将其保持打开状态，以便在下一步中使用。
 
 ### <a name="run-and-configure-adt-explorer"></a>运行并配置 ADT 资源管理器
 
 接下来，运行 ADT 资源管理器应用程序，并为 Azure 数字孪生实例配置该应用程序。
 
-导航到已下载并解压缩的 Azure_Digital_Twins__ADT__explorer__ 文件夹。 在文件夹位置“Azure_Digital_Twins__ADT__explorer/client/src”打开命令提示符。
+导航到已下载并解压缩的 Azure_Digital_Twins__ADT__explorer 文件夹。 在文件夹位置 Azure_Digital_Twins__ADT__explorer/client/src 打开控制台窗口。
 
 运行 `npm install`，下载所有必需的依赖项。
 
@@ -95,16 +78,13 @@ ms.locfileid: "92048502"
 
 几秒钟后，将打开一个浏览器窗口，应用将显示在浏览器中。
 
-:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="显示在 localhost:3000 运行的应用的浏览器窗口。此应用名为 ADT 资源管理器，其中包含查询资源管理器、模型视图、图形视图和属性资源管理器所对应的框。屏幕上尚无数据。" lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
 点击窗口顶部的“登录”按钮（如下图所示），以将 ADT Explorer 配置为使用已设置的实例。 
 
-:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/sign-in.png":::
+:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="在窗口顶部附近突出显示“登录”图标的 ADT 资源管理器。图标显示了一个简单的人员与密钥叠加的剪影。" lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-输入之前在[先决条件](#prerequisites)部分中收集的重要信息：
-* 应用程序（客户端）ID
-* 目录（租户）ID
-* Azure 数字孪生实例 URL，格式为 https://{instance host name}
+输入先前在[先决条件](#prerequisites)部分中收集的 Azure 数字孪生实例 URL，格式为 https://{instance host name} 。
 
 >[!NOTE]
 > 可随时重新访问/编辑此信息，方法是选择相同图标以再次拉取“登录”框。 它将保留你传入的值。
@@ -116,9 +96,7 @@ ms.locfileid: "92048502"
 
 ## <a name="add-the-sample-data"></a>添加示例数据
 
-接下来，请将示例方案和图导入到 ADT 资源管理器中。
-
-示例方案位于已下载且已解压缩的“Azure_Digital_Twins_samples”文件夹中，因此你现在应该导航到该文件夹__。
+接下来，请将示例方案和图导入到 ADT 资源管理器中。 还可在你先前下载的 Azure_Digital_Twins__ADT__explorer 文件夹中找到该示例方案。
 
 ### <a name="models"></a>模型
 
@@ -139,21 +117,21 @@ Azure 数字孪生解决方案的第一步是为环境定义词汇。 要实现�
 
 在“模型视图”框中，点击“上传模型”图标 。
 
-:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/upload-model.png":::
+:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="在“模型视图”框中，中间图标突出显示。它显示了一个指向云的箭头。" lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. 在出现的“文件选择器”框中，导航到已下载的存储库中的“Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models”文件夹。
+1. 在出现的“文件选择器”框中，导航到已下载的存储库中的“Azure_Digital_Twins__ADT__explorer/client/examples”文件夹。
 2. 选择“Room.json”和“Floor.json”，然后点击“确定” 。 （可根据需要上传其他模型，但在本快速入门中不会用到它们。）
 3. 按照要求登录到 Azure 帐户的弹出对话框的指示操作。
 
 >[!NOTE]
->如果出现下面的错误消息：:::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" border="false"::: 
+>如果出现下面的错误消息：:::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="弹出窗口显示“错误:提取模型时出错:ClientAuthError:打开弹出窗口时出错。如果你使用的是 IE 或浏览器中阻止了弹出窗口，则可能会发生这种情况。”，底部带有“关闭”按钮" border="false"::: 
 > 请尝试禁用弹出窗口阻止程序或使用其他浏览器。
 
 ADT 资源管理器现在会将这些模型文件上传到 Azure 数字孪生实例。 它们应显示在“模型视图”框中，并显示其友好名称和完整模型 ID。 可单击“查看模型”信息气泡，查看其后面的 DTDL 代码。
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="“模型视图”框的视图，其中列出了两个模型定义，分别是楼层 (dtmi:example:Floor;1) 和房间 (dtmi:example:Room;1)。“查看模型”图标，其中每个模型都突出显示了一个带圆圈的字母“i”。" lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -177,9 +155,9 @@ ADT 资源管理器现在会将这些模型文件上传到 Azure 数字孪生实
 
 在“图形视图”框中，点击“导入图”图标 。
 
-:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/import-graph.png":::
+:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="在“图形视图”框中，一个图标突出显示。它显示了一个指向云的箭头。" lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-在“文件选择器”框中，导航到 Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp 文件夹，然后选择 buildingScenario.xlsx 电子表格文件__。 此文件包含示例图的说明。 点击“确定”。
+在“文件选择器”框中，再次导航到 Azure_Digital_Twins__ADT__explorer/client/examples 文件夹，然后选择 buildingScenario.xlsx 电子表格文件。 此文件包含示例图的说明。 点击“确定”。
 
 几秒钟后，ADT 资源管理器将打开“导入”视图，其中显示了要加载的图的预览。
 
@@ -187,7 +165,7 @@ ADT 资源管理器现在会将这些模型文件上传到 Azure 数字孪生实
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="在“图形预览”窗格中突出显示“保存”图标" lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -197,7 +175,7 @@ ADT 资源管理器现在将使用上传的文件来创建所请求的孪生及�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="指示图导入成功的对话框。它显示为“导入成功。已导入 4 对孪生。已导入 2 对关系。”" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -207,7 +185,7 @@ ADT 资源管理器现在将使用上传的文件来创建所请求的孪生及�
 
 该图现在已上传到 ADT 资源管理器。 要查看该图，请在 ADT Explorer 窗口顶部附近的“图形资源管理器”框中点击“运行查询”按钮 。 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="窗口顶部附近显示“运行查询”的按钮突出显示" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 这将运行默认查询以选择并显示所有数字孪生。 ADT 资源管理器将检索服务中的所有孪生和关系，并在“图形视图”框中绘制它们所定义的图。
 
@@ -215,7 +193,7 @@ ADT 资源管理器现在将使用上传的文件来创建所请求的孪生及�
 
 现在，你可看到已上传的示例方案图：
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="“图形视图”框的视图，其中包含孪生图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。":::
 
 圆圈（“节点”图）表示数字孪生，线表示关系。 你将看到“楼层 0”孪生包含“房间 0”，“楼层 1”孪生包含“房间 1”   。
 
@@ -229,7 +207,7 @@ ADT 资源管理器现在将使用上传的文件来创建所请求的孪生及�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="显示房间 0 的属性的“属性资源管理器”框周围进行了突出显示，其中包括“房间 0”的 $dtId 字段、温度字段 70 和湿度字段 30 等等。" lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -241,7 +219,7 @@ ADT 资源管理器现在将使用上传的文件来创建所请求的孪生及�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="显示房间 1 的属性的“属性资源管理器”框周围进行了突出显示，其中包括“房间 1”的 $dtId 字段、温度字段 80 和湿度字段 60 等等。" lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -255,7 +233,7 @@ Azure 数字孪生的主要功能是能够轻松有效地[查询](concepts-query
 
 查询图中孪生的一种方法是按其属性进行查询。 基于属性的查询可帮助回答各种问题，包括在环境中查找可能需要注意的离群值。
 
-在本部分中，你将运行一个查询来回答以下问题：“环境中温度高于 75 的孪生都有哪些？”__
+在本部分中，你将运行一个查询来回答以下问题：“环境中温度高于 75 的孪生都有哪些？”
 
 若要查看答案，请在“查询资源管理器”框中运行以下查询：
 
@@ -263,9 +241,9 @@ Azure 数字孪生的主要功能是能够轻松有效地[查询](concepts-query
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-回想一下之前查看过的孪生属性 - 房间 0 的温度为 70，房间 1 的温度为 80。 因此，此处的结果中仅显示房间 1__。
+回想一下之前查看过的孪生属性 - 房间 0 的温度为 70，房间 1 的温度为 80。 因此，此处的结果中仅显示房间 1。
     
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="属性查询的结果，其中仅显示房间 1" lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > 上面的查询还支持其他比较运算符（<、>、= 或 !=）   。 你可尝试将这些不同的值或不同的孪生属性插入到查询中来试着回答自己的问题。
@@ -280,7 +258,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="显示房间 0 的属性的“属性资源管理器”框。温度值为一个显示 76 的可编辑框，“保存”图标周围突出显示。" lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -298,7 +276,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 现在，房间 0 的温度已从 70 更改为 76，因此两个孪生都应出现在结果中 。
 
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="由箭头连接的 4 个圆形节点组成的图形视图。标记为“楼层 1”的圆圈通过标记为“包含”的箭头连接到标记为“房间 1”的圆圈；标记为“楼层 0”的圆圈通过标记为“包含”的箭头连接到标记为“房间 0”的圆圈。未连接“楼层 1”和“楼层 0”。" lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="属性查询的结果，其中同时显示了房间 0 和房间 1" lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
 ## <a name="review-and-contextualize-learnings"></a>回顾所学内容并将其置于上下文中进行理解
 
@@ -321,7 +299,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-最后，删除已下载到本地计算机的项目示例文件夹（Azure_Digital_Twins__ADT__explorer 和 Azure_Digital_Twins_samples）__ __。 可能需要既删除压缩版本，又删除解压缩版本。
+最后，删除已下载到本地计算机的项目示例文件夹 (Azure_Digital_Twins__ADT__explorer)。 可能需要既删除压缩版本，又删除解压缩版本。
 
 ## <a name="next-steps"></a>后续步骤 
 

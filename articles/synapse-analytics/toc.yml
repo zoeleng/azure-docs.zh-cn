@@ -50,13 +50,13 @@
   items:
     - name: 快速入门
       items:
-        - name: 使用 Azure 门户创建 Synapse 工作区
+        - name: 使用 Azure 门户创建工作区
           href: quickstart-create-workspace.md
           displayName: quickstart
-        - name: 使用 Azure CLI 创建 Synapse 工作区
+        - name: 使用 Azure CLI 创建工作区
           href: quickstart-create-workspace-cli.md
           displayName: quickstart
-        - name: 使用 Azure PowerShell 创建 Synapse 工作区
+        - name: 使用 Azure PowerShell 创建工作区
           href: quickstart-create-workspace-powershell.md
           displayName: quickstart
         - name: 使用模板进行部署
@@ -338,6 +338,12 @@
               displayname: 'workload, management'
     - name: 操作指南
       items:
+        - name: 备份和还原
+          items:
+            - name: 创建还原点
+              href: ./backuprestore/sqlpool-create-restore-point.md
+            - name: 还原 Synapse SQL 池
+              href: ./backuprestore/restore-sql-pool.md
         - name: 管理和监视
           items:
             - name: 监视 Gen2 缓存

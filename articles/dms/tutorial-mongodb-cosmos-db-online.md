@@ -12,25 +12,29 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 09/25/2019
-ms.openlocfilehash: 09a568f7cd0b8efaed4ee5210dde4000ca472529
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: dd75452ff5d2633c8c02ec97f8038ba104c38978
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546783"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331832"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
 可以使用 Azure 数据库迁移服务将数据库从 MongoDB 的本地或云实例联机（在几乎不停机的情况下）迁移到 Azure Cosmos DB 的用于 MongoDB 的 API。
 
-本教程介绍如何执行下列操作：
+本教程演示使用 Azure 数据库迁移服务将 MongoDB 数据迁移到 Azure Cosmos DB 所涉及的步骤：
 > [!div class="checklist"]
->
-> * 创建 Azure 数据库迁移服务的实例。
-> * 使用 Azure 数据库迁移服务创建迁移项目。
-> * 运行迁移。
-> * 监视迁移。
-> * 准备就绪后完成迁移。
+> 
+> * 创建 Azure 数据库迁移服务的实例。 
+> * 创建迁移项目。 
+> * 指定源。 
+> * 指定目标。 
+> * 映射到目标数据库。 
+> * 运行迁移。 
+> * 监视迁移。 
+> * 验证 Azure Cosmos DB 中的数据。 
+> * 准备就绪后完成迁移。 
 
 在本教程中，你将使用 Azure 数据库迁移服务，在几乎不停机的情况下将 Azure 虚拟机中托管的 MongoDB 中的某个数据集迁移到 Azure Cosmos DB 的用于 MongoDB 的 API。 如果尚未设置 MongoDB 源，请参阅[在 Azure 中的 Windows VM 上安装和配置 MongoDB](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 一文。
 
@@ -71,7 +75,7 @@ ms.locfileid: "92546783"
 
    ![显示门户订阅](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
 
-2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”  。
+2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”。
 
     ![显示资源提供程序](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
 
@@ -85,11 +89,11 @@ ms.locfileid: "92546783"
 
     ![Azure 市场](media/tutorial-mongodb-to-cosmosdb-online/portal-marketplace.png)
 
-2. 在“Azure 数据库迁移服务”屏幕上，选择“创建”   。
+2. 在“Azure 数据库迁移服务”屏幕上，选择“创建” 。
 
     ![创建 Azure 数据库迁移服务实例](media/tutorial-mongodb-to-cosmosdb-online/dms-create1.png)
   
-3. 在“创建迁移服务”屏幕上，为服务、订阅以及新的或现有资源组指定名称  。
+3. 在“创建迁移服务”屏幕上，为服务、订阅以及新的或现有资源组指定名称。
 
 4. 选择要在其中创建 Azure 数据库迁移服务实例的位置。
 
@@ -106,7 +110,7 @@ ms.locfileid: "92546783"
 
     ![配置 Azure 数据库迁移服务实例设置](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
-7. 选择“创建”  来创建服务。
+7. 选择“创建”来创建服务。
 
 ## <a name="create-a-migration-project"></a>创建迁移项目
 

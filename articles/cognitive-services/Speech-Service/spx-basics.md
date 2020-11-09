@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893809"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286683"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>了解语音 CLI 的基础知识
 
@@ -72,8 +72,9 @@ spx translate --microphone --source en-US --target ru-RU --output file C:\some\f
 
 ### <a name="configuration-files-in-the-datastore"></a>数据存储中的配置文件
 
-语音 CLI 可以读取和写入配置文件中的多个设置，这些设置存储在本地语音 CLI 数据存储中，并在语音 CLI 调用中使用 @ 符号进行命名。 语音 CLI 将尝试将一个新的设置保存它在当前工作目录中创建的新 `./spx/data` 子目录中。
-查找配置值时，语音 CLI 将在当前工作目录中查找，然后在 `./spx/data` 路径中查找。
+语音 CLI 的行为可依赖于配置文件中的设置，可以使用 @ 符号在语音 CLI 调用中引用这些设置。
+语音 CLI 在当前工作目录下它创建的新 `./spx/data` 子目录中保存新设置。
+查找配置值时，语音 CLI 将在当前工作目录中查找，再在 `./spx/data` 的数据存储中查找，然后在其他数据存储（包括 `spx` 二进制文件中的最终只读数据存储）中查找。
 以前，你使用了数据存储来保存 `@key` 和 `@region` 值，因此无需通过每个命令行调用来指定它们。
 你还可以使用配置文件来存储你自己的配置设置，甚至使用它们来传递 URL 或在运行时生成的其他动态内容。
 
@@ -181,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>后续步骤
 
-* 使用 SDK 完成[语音识别](./quickstarts/speech-to-text-from-microphone.md)或[语音合成](./quickstarts/text-to-speech.md)快速入门。
+* 使用语音 CLI 完成[语音识别](get-started-speech-to-text.md?pivots=programmer-tool-spx)或[语音合成](get-started-text-to-speech.md?pivots=programmer-tool-spx)快速入门。

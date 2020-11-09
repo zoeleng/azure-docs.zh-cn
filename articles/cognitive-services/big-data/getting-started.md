@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776606"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324673"
 ---
 # <a name="getting-started"></a>入门
 
@@ -35,15 +35,15 @@ ms.locfileid: "91776606"
 
 ### <a name="containerized-services-optional"></a>容器化服务（可选）
 
-如果应用程序或工作负载使用非常大的数据集，需要专用网络，或者无法联系云，则与云服务通信几乎是不可能的。 在这种情况下，容器化认知服务具有以下优势：
+如果应用程序或工作负载使用大型数据集，需要专用网络，或者无法联系云，则与云服务通信几乎是不可能的。 在这种情况下，容器化认知服务具有以下优势：
 
-* **低连接性**：可以在云中或云外的任何计算环境中部署容器化认知服务。 如果应用程序无法联系云，请考虑在应用程序中部署容器化认知服务。
+* **低连接性** ：可以在云中或云外的任何计算环境中部署容器化认知服务。 如果应用程序无法联系云，请考虑在应用程序中部署容器化认知服务。
 
-* **低延迟**：因为容器化服务不需要与云之间的双向通信，所以会以较低的延迟来返回响应。
+* **低延迟** ：因为容器化服务不需要与云之间的双向通信，所以会以较低的延迟来返回响应。
 
-* **隐私和数据安全性**：可以将容器化服务部署到专用网络，以便敏感数据不离开网络。
+* **隐私和数据安全性** ：可以将容器化服务部署到专用网络，以便敏感数据不离开网络。
 
-* **高度可扩展性**：容器化服务没有“速率限制”，该服务在用户管理的计算机上运行。 因此，可以扩展认知服务而无需处理更大的工作负载。
+* **高度可扩展性** ：容器化服务没有“速率限制”，该服务在用户管理的计算机上运行。 因此，可以扩展认知服务而无需处理更大的工作负载。
 
 按照[本指南](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis)创建容器化认知服务。
 
@@ -70,7 +70,7 @@ Azure Databricks 是一种基于 Apache Spark 的分析平台，其中包含一�
 （可选）你可以使用 Synapse Analytics 来创建 spark 群集。 Azure Synapse Analytics 将企业数据仓库和大数据分析结合在一起。 借助它可以使用无服务器的按需资源或预配资源，任意执行自己定义的大规模数据查询。 要开始使用 Synapse Analytics，请执行以下步骤：
 
 1. [创建 Synapse 工作区（预览版）](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)。
-1. [使用 Azure 门户新建 Apache Spark 池（预览版）](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal)。
+1. [使用 Azure 门户新建无服务器 Apache Spark 池（预览版）](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal)。
 
 在 Synapse Analytics 中，会默认安装用于认知服务的大数据。
 
@@ -100,7 +100,7 @@ Azure Databricks 是一种基于 Apache Spark 的分析平台，其中包含一�
 
     选择“创建”。
 
-1. 将以下代码片段粘贴到新的笔记本中。
+1. 将此代码片段粘贴到新的笔记本中。
 
 ```python
 from mmlspark.cognitive import *

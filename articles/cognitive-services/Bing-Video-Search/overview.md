@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2c52f909cf3cc77b4f5e40ee9804d0c473e575c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6f5da1d17722f89bee88a4b69177583e095eeac3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85601932"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094279"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>什么是必应视频搜索 API？
+
+> [!WARNING]
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 2020 年 10 月 30 日开始，必应搜索的任何新实例都需按照[此处](https://aka.ms/cogsvcs/bingmove)所述的过程进行预配。
+> 使用认知服务进行预配的必应搜索 API 将在未来三年或在企业协议结束前（以先发生者为准）得到支持。
+> 有关迁移说明，请参阅[必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 使用必应视频搜索 API，可以轻松地将视频搜索功能添加到服务和应用程序中。 使用此 API 发送用户搜索查询时，可以获取并显示与[必应视频](https://www.bing.com/video)类似的相关高质量视频。 将此 API 用于只包含视频的搜索结果。 [必应 Web 搜索 API](../bing-web-search/search-the-web.md) 可以返回其他类型的 Web 内容，包括网页、视频、新闻和图像。
 
