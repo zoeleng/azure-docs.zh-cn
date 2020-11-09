@@ -72,6 +72,8 @@
           href: concepts-api-management.md
         - name: 中心和分支
           href: concepts-hub-and-spoke.md
+        - name: Azure 安全中心
+          href: azure-security-integration.md
         - name: Azure 备份服务器
           items:
             - name: 设置备份服务器
