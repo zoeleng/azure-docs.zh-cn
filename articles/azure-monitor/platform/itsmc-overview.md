@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ecafc0c81a6614a914d8cad3d2c35fd04544b8f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102014"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380872"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -111,7 +111,7 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 
 ## <a name="template-definitions"></a>模板定义
    可以使用 ITSM 工具定义的模板的工作项类型。
-通过使用模板，可以定义将根据定义为操作组一部分的固定值自动填充的字段。 可在 ITSM 工具中定义模板。
+通过使用模板，可以定义将根据定义为操作组一部分的固定值自动填充的字段。 可在 ITSM 工具中定义模板。 您可以定义要将哪个模板用作操作组定义的一部分。
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>根据 Azure 警报创建 ITSM 工作项
 
@@ -146,9 +146,11 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 
 9. 如果 **为每个配置项目选择 "创建单独的工作项** "，则每个配置项都将有自己的工作项。 每个配置项目都有一个工作项。 它将根据将要创建的警报进行更新。
 
-   如果清除了 " **为每个配置项目创建单独的工作项** " 复选框，则每个警报都将创建一个新的工作项。 每个配置项目可能有多个警报。
+   * 在工作项下拉列表中选择 "事件" 或 "警报"：如果清除了 " **为每个配置项目创建单独的工作项** " 复选框，则每个警报都将创建一个新的工作项。 每个配置项目可能有多个警报。
 
    ![显示 ITSM 票证窗口的屏幕截图。](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * 在 "工作项" 下拉列表中选择 "事件" 时：如果为单选按钮选择中的 **每个日志项选择 "创建单独的工作项** "，则每个警报都将创建一个新的工作项。 如果为单选按钮选择中的 **每个配置项目选择 "创建单独的工作项** "，则每个配置项都将有自己的工作项。 
 
 10. 选择“确定”。
 

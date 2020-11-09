@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: cb532098cda290654d6bdebe9cec2edab8ccbf99
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355781"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381144"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>将 Azure 数字孪生实例移动到不同的 Azure 区域
 
@@ -120,7 +120,7 @@ ms.locfileid: "94355781"
 
 ### <a name="create-a-new-instance"></a>创建新实例
 
-首先，在目标区域中创建 Azure 数字孪生的新实例。 执行 [设置实例和身份验证](how-to-set-up-instance-portal.md)中的步骤。 请记住以下几点：
+首先，在目标区域中创建 Azure 数字孪生的新实例。 按照 " [操作方法：设置实例和身份验证](how-to-set-up-instance-portal.md)" 中的步骤进行操作。 请记住以下几点：
 
 * *如果* 新实例位于不同的资源组中，则可以为其保留相同的名称。 如果需要使用包含原始实例的相同资源组，则新实例将需要其自己的不同名称。
 * 提示输入位置时，输入新的目标区域。
@@ -222,7 +222,7 @@ ADT 资源管理器现在会将模型和图形 (上传到新的 Azure 数字孪�
 
 完成此步骤后，目标区域中的新实例应为原始实例的副本。
 
-## <a name="verify"></a>验证
+## <a name="verify"></a>Verify
 
 若要验证是否已正确设置了新的实例，请使用以下工具：
 

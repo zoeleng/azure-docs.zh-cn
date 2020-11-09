@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215954"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379780"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的令牌概述
 
@@ -44,7 +44,7 @@ Azure AD B2C 支持 [OAuth 2.0 和 OpenID Connect 协议](protocols-overview.md)
 
 ## <a name="claims"></a>声明
 
-使用 Azure AD B2C 时，必须对令牌内容有精细的控制。 可以配置[用户流](user-flow-overview.md)和[自定义策略](custom-policy-overview.md)，在声明中发送应用程序所需的特定用户数据集。 这些声明可以包含标准属性，例如 **displayName** 和 **emailAddress**。 应用程序可以使用这些声明来安全地对用户和请求进行身份验证。
+使用 Azure AD B2C 时，必须对令牌内容有精细的控制。 可以配置[用户流](user-flow-overview.md)和[自定义策略](custom-policy-overview.md)，在声明中发送应用程序所需的特定用户数据集。 这些声明可以包含标准属性，例如 **displayName** 和 **emailAddress** 。 应用程序可以使用这些声明来安全地对用户和请求进行身份验证。
 
 ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任何时候引入 ID 令牌。 引入新的声明时，应用程序不应中断。 还可以在声明中包含[自定义用户属性](user-flow-custom-attributes.md)。
 
@@ -52,7 +52,7 @@ ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任�
 
 | 名称 | 声明 | 示例值 | 说明 |
 | ---- | ----- | ------------- | ----------- |
-| 目标受众 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 标识令牌的目标接收方。 对于 Azure AD B2C，受众是在应用程序 ID。 应用程序应该验证此值并拒绝不匹配的令牌。 受众是资源的同义词。 |
+| 读者 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 标识令牌的目标接收方。 对于 Azure AD B2C，受众是在应用程序 ID。 应用程序应该验证此值并拒绝不匹配的令牌。 受众是资源的同义词。 |
 | 颁发者 | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | 标识构造并返回令牌的安全令牌服务 (STS)。 它还标识在其中进行用户身份验证的目录。 应用程序应该验证颁发者声明，以确保令牌来自适当的终结点。 |
 | 颁发时间 | `iat` | `1438535543` | 颁发令牌的时间，以纪元时间表示。 |
 | 过期时间 | `exp` | `1438539443` | 令牌失效的时间，以纪元时间表示。 应用程序应该使用此声明来验证令牌生存期的有效性。 |
@@ -66,7 +66,7 @@ ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任�
 | 信任框架策略 | `tfp` | `b2c_1_signupsignin1` | 用于获取 ID 令牌的策略名称。 |
 | 身份验证时间 | `auth_time` | `1438535543` | 用户最后一次输入凭据的时间，以新纪元时间表示。 该身份验证是全新登录、单一登录 (SSO) 会话还是其他登录类型之间没有区别。 `auth_time` 是应用程序（或用户）上次针对 Azure AD B2C 发起身份验证尝试的时间。 不区分用于身份验证的方法。 |
 | 范围 | `scp` | `Read`| 授予访问令牌对资源的权限。 多个授予的权限以空格分隔。 |
-| 授权方 | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | 发起请求的客户端应用程序的**应用程序 ID**。 |
+| 授权方 | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | 发起请求的客户端应用程序的 **应用程序 ID** 。 |
 
 ## <a name="configuration"></a>配置
 
@@ -76,7 +76,7 @@ ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任�
 
 - **刷新令牌生存期（天）** - 可以使用刷新令牌获取新的访问令牌或 ID 令牌之前的最大时限。 该时限还包括为应用程序授予了 `offline_access` 范围时获取新刷新令牌的最大时限。 默认值为 14 天。 最小值为 1 天（含）。 最大值为 90 天（含）。
 
-- **刷新令牌的滑动窗口生存期（天）** - 此时限过后，强制用户重新进行身份验证，不考虑应用程序获取的最新刷新令牌的有效期。 仅在此开关设为“有限”时该属性才可用。 它的值必须大于或等于**刷新令牌生存期（天）** 的值。 如果此开关设置为“无限”，则无法提供特定值。 默认值为 90 天。 最小值为 1 天（含）。 最大值为 365 天（含）。
+- **刷新令牌的滑动窗口生存期（天）** - 此时限过后，强制用户重新进行身份验证，不考虑应用程序获取的最新刷新令牌的有效期。 仅在此开关设为“有限”时该属性才可用。 它的值必须大于或等于 **刷新令牌生存期（天）** 的值。 如果此开关设置为“无限”，则无法提供特定值。 默认值为 90 天。 最小值为 1 天（含）。 最大值为 365 天（含）。
 
 以下用例是使用这些属性实现的：
 
@@ -91,7 +91,7 @@ ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任�
 
 - **颁发者 (iss) 声明** - 此属性标识颁发令牌的 Azure AD B2C 租户。 默认值为 `https://<domain>/{B2C tenant GUID}/v2.0/`。 `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` 值包含令牌请求中使用的 Azure AD B2C 租户和用户流的 ID。 如果应用程序或库需要 Azure AD B2C 才能符合 [OpenID Connect Discovery 1.0 规范](https://openid.net/specs/openid-connect-discovery-1_0.html)，请使用此值。
 
-- **使用者 (sub) 声明** - 此属性标识令牌断言其信息的实体。 默认值为 **ObjectID**，即在令牌的 `sub` 声明中填充用户的对象 ID。 **Not supported** 值仅供用于实现后向兼容。 建议尽快改用 **ObjectID**。
+- **使用者 (sub) 声明** - 此属性标识令牌断言其信息的实体。 默认值为 **ObjectID** ，即在令牌的 `sub` 声明中填充用户的对象 ID。 **Not supported** 值仅供用于实现后向兼容。 建议尽快改用 **ObjectID** 。
 
 - **表示策略 ID 的声明** - 此属性标识要在其中填充令牌请求中使用的策略名称的声明类型。 默认值为 `tfp`。 `acr` 值仅供用于实现后向兼容。
 
@@ -121,7 +121,7 @@ JWT 包含三段：标头、主体和签名。   签名段可用于验证令牌�
 
 **alg** 声明的值是用来为令牌签名的算法。 **kid** 声明的值是用来为令牌签名的公钥。 在任何给定时间，Azure AD B2C 都可使用一组公钥-私钥对中的任意一个对令牌签名。 Azure AD B2C 定期轮换可能一组的密钥。 应将应用程序编写成自动处理这些密钥更改。 对 Azure AD B2C 所用公钥的更新进行检查的合理频率为每 24 小时一次。 若要处理意外的密钥更改，你的应用程序应当编写为在收到意外的 **kid** 值时重新检索公钥。
 
-Azure AD B2C 具有 OpenID Connect 元数据终结点。 使用此终结点，应用程序可以在运行时请求有关 Azure AD B2C 的信息。 此信息包括终结点、令牌内容和令牌签名密钥。 Azure AD B2C 租户针对策略包含一个 JSON 元数据文档。 元数据文档是包含多条有用信息的 JSON 对象。 元数据包含 **jwks_uri**，它提供用于对令牌签名的公钥集位置。 在此处提供该位置，但最好使用元数据文档并分析 **jwks_uri** 来动态提取位置：
+Azure AD B2C 具有 OpenID Connect 元数据终结点。 使用此终结点，应用程序可以在运行时请求有关 Azure AD B2C 的信息。 此信息包括终结点、令牌内容和令牌签名密钥。 Azure AD B2C 租户针对策略包含一个 JSON 元数据文档。 元数据文档是包含多条有用信息的 JSON 对象。 元数据包含 **jwks_uri** ，它提供用于对令牌签名的公钥集位置。 在此处提供该位置，但最好使用元数据文档并分析 **jwks_uri** 来动态提取位置：
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
@@ -134,7 +134,7 @@ https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discove
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-若要确定对令牌签名所用的策略（以及请求元数据的位置），有两个选择。 首先，策略名称包含在令牌的 `acr` 声明中。 可以通过对主体进行 Base-64 解码，并反序列化生成的 JSON 字符串，从而分析 JWT 主体中的声明。 `acr` 声明是用于颁发令牌的策略名称。 另一个方法是在发出请求时在 `state` 参数的值中对策略进行编码，并对其进行解码以确定使用的策略。 任意一种方法均有效。
+若要确定对令牌签名所用的策略（以及请求元数据的位置），有两个选择。 首先，策略名称包含在 `tfp` (默认) ，或者 `acr` 声明中 (已配置) 。 可以通过对主体进行 Base-64 解码，并反序列化生成的 JSON 字符串，从而分析 JWT 主体中的声明。 `tfp`或 `acr` 声明是用于颁发令牌的策略的名称。 另一个方法是在发出请求时在 `state` 参数的值中对策略进行编码，并对其进行解码以确定使用的策略。 任意一种方法均有效。
 
 关于如何执行签名验证的说明已超出了本文档的讨论范围。 有许多开源库可帮助验证令牌。
 

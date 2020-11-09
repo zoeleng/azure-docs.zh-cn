@@ -4,12 +4,12 @@ description: '了解如何开发使用 C # 的 Azure 功能。'
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167740"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380957"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -38,7 +38,7 @@ Functions 运行时版本使用特定版本的 .NET。 下表显示了可与项�
 
 ## <a name="functions-class-library-project"></a>Functions 类库项目
 
-在 Visual Studio 中，**Azure Functions** 项目模板会创建一个 C# 类库项目，它包含以下文件：
+在 Visual Studio 中， **Azure Functions** 项目模板会创建一个 C# 类库项目，它包含以下文件：
 
 * [host.json](functions-host-json.md) - 存储着在本地或者在 Azure 中运行时会影响项目中的所有函数的配置设置。
 * [local.settings.json](functions-run-local.md#local-settings-file) - 存储着在本地运行时使用的应用设置和连接字符串。 此文件包含机密且不会发布到 Azure 中的函数应用中。 而是，应[将应用设置添加到函数应用](functions-develop-vs.md#function-app-settings)。
@@ -137,7 +137,7 @@ public static class BindingExpressionsExample
 
 生成过程会在生成文件中的一个函数文件夹中创建一个 *function.json* 文件。 如前所述，此文件不应直接编辑。 无法通过编辑此文件来更改绑定配置或禁用函数。 
 
-此文件的用途是向缩放控制器提供信息以用于针对 [消耗计划的缩放决策](functions-scale.md#how-the-consumption-and-premium-plans-work)。 因此，此文件仅包含触发器信息，不包含输入或输出绑定。
+此文件的用途是向缩放控制器提供用于[对消耗计划做出缩放决策](functions-scale.md#how-the-consumption-and-premium-plans-work)的信息。 因此，此文件仅包含触发器信息，不包含输入或输出绑定。
 
 生成的 *function.json* 文件包括一个 `configurationSource` 属性，该属性告诉运行时使用 .NET 属性进行绑定，而不是使用 *function.json* 配置。 下面是一个示例：
 
@@ -164,7 +164,7 @@ public static class BindingExpressionsExample
 
 Functions 运行时的 1.x 版本和 2.x 版本使用相同的包。 1\.x 项目和 2.x 项目的不同之处在于目标框架。 以下是 csproj  文件的相关部分，其中显示了不同的目标框架和相同的 `Sdk` 包：
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 ```xml
 <PropertyGroup>
@@ -311,15 +311,15 @@ public static class CancellationTokenExample
 }
 ```
 
-## <a name="logging"></a>Logging
+## <a name="logging"></a>日志记录
 
-在函数代码中，你可以将输出写入到 Application Insights 中显示为跟踪的日志。 写入日志的建议方法是包含类型为 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger)的参数，该参数通常命名为 `log` 。 使用了版本1.x 的函数运行时 `TraceWriter` ，这也会写入 Application Insights，但不支持结构化日志记录。 不要使用 `Console.Write` 编写日志，因为这些数据不是由 Application Insights 捕获的。 
+在函数代码中，可以将输出写入日志，这些日志在 Application Insights 中显示为跟踪。 若要将内容写入日志，建议的方法是包括一个 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 类型的参数（通常名为 `log`）。 Functions 运行时的版本 1.x 使用了 `TraceWriter`，后者也将内容写入 Application Insights，但不支持结构化日志记录。 不要使用 `Console.Write` 编写日志，因为这些数据不是由 Application Insights 捕获的。 
 
 ### <a name="ilogger"></a>ILogger
 
-在函数定义中，包含一个支持[结构化日志记录](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)的[ILogger](/dotnet/api/microsoft.extensions.logging.ilogger)参数。
+在函数定义中包括一个 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 参数，该参数支持[结构化日志记录](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)。
 
-使用 `ILogger` 对象，可以调用 [ILogger 上的 `Log<level>` 扩展方法](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)来创建日志。 以下代码将写入 `Information` 具有 category 的日志 `Function.<YOUR_FUNCTION_NAME>.User.` ：
+使用 `ILogger` 对象，可以调用 [ILogger 上的 `Log<level>` 扩展方法](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)来创建日志。 以下代码会写入类别为“`Function.<YOUR_FUNCTION_NAME>.User.`”的 `Information` 日志：
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -380,7 +380,7 @@ Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VE
 
 以下 C# 示例使用[自定义遥测 API](../azure-monitor/app/api-custom-events-metrics.md)。 示例针对的是 .NET 类库，但对于 C# 脚本，Application Insights 代码是相同的。
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 版本 2.x 和更高版本运行时使用 Application Insights 中的较新功能自动将遥测与当前操作进行关联。 不需要手动设置操作 `Id`、`ParentId` 或 `Name` 字段。
 
@@ -452,7 +452,7 @@ namespace functionapp0915
 
 在此示例中，自定义指标数据在发送到 customMetrics 表之前由主机聚合。 若要了解详细信息，请参阅 Application Insights 中的 [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) 文档。 
 
-在本地运行时，必须将 `APPINSIGHTS_INSTRUMENTATIONKEY` 具有 Application Insights 项的设置添加到文件的 [local.settings.js](functions-run-local.md#local-settings-file) 。
+在本地运行时，必须使用 Application Insights 键将 `APPINSIGHTS_INSTRUMENTATIONKEY` 设置添加到 [local.settings.json](functions-run-local.md#local-settings-file) 文件中。
 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
@@ -571,11 +571,11 @@ public static class EnvironmentVariablesExample
 
 ## <a name="binding-at-runtime"></a>在运行时绑定
 
-在 C# 和其他 .NET 语言中，可以使用[命令性](https://en.wikipedia.org/wiki/Imperative_programming)绑定模式，而不是在属性中使用“声明性”[*绑定*](https://en.wikipedia.org/wiki/Declarative_programming) 。 当绑定参数需要在运行时（而非在设计时）计算时，命令性绑定很有用。 通过此模式，可以在函数代码中动态绑定到受支持的输入和输出绑定。
+在 C# 和其他 .NET 语言中，可以使用 [命令性](https://en.wikipedia.org/wiki/Imperative_programming)绑定模式，而不是在属性中使用“声明性” [*绑定*](https://en.wikipedia.org/wiki/Declarative_programming) 。 当绑定参数需要在运行时（而非在设计时）计算时，命令性绑定很有用。 通过此模式，可以在函数代码中动态绑定到受支持的输入和输出绑定。
 
 如下所示定义命令性绑定：
 
-- **不要**在函数签名中包括用于所需的命令性绑定的属性。
+- **不要** 在函数签名中包括用于所需的命令性绑定的属性。
 - 传递输入参数 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 或 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)。
 - 使用下面的 C# 模式执行数据绑定。
 

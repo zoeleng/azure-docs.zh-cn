@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375612"
+ms.locfileid: "94380890"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 知识库限制和边界
 
@@ -96,14 +96,14 @@ ms.locfileid: "94375612"
 
 ## <a name="create-knowledge-base-call-limits"></a>创建知识库调用限制：
 表示每个创建知识库操作的限制；即，单击“创建知识库”或调用 CreateKnowledgeBase API。
-* 每个回答的最大替代问题数：300
+* 建议的每个回答的最大替代问题数：300
 * 最大 URL 数：10
 * 最大文件数：10
 
 ## <a name="update-knowledge-base-call-limits"></a>更新知识库调用限制
 表示每个更新操作的限制；即，单击“保存并培训”或调用 UpdateKnowledgeBase API。
 * 每个源名称的长度：300
-* 添加或删除的最大替代问题数：300
+* 建议添加或删除的最大替代问题数：300
 * 添加或删除的元数据字段的最大数量：10
 * 可以刷新的 URL 的最大数量：5
 

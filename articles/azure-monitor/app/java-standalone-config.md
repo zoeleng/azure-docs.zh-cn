@@ -2,14 +2,14 @@
 title: 配置选项-Azure Monitor Application Insights Java
 description: Azure Monitor Application Insights Java 的配置选项
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331900"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381025"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java 的配置选项
 
@@ -48,7 +48,7 @@ ms.locfileid: "94331900"
 
 ## <a name="connection-string"></a>连接字符串
 
-这是必填字段。 可以在 Application Insights 资源中找到连接字符串：
+连接字符串是必需的。 可以在 Application Insights 资源中找到连接字符串：
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights 连接字符串":::
 
@@ -105,7 +105,7 @@ ms.locfileid: "94331900"
 
 例如，如果将采样率设置为 10%，则只会看到 10% 的事务，但在这 10% 的事务中，每个事务都有完整的端到端事务详细信息。
 
-下面是一个示例，说明如何将采样设置为捕获大约 **1/3 的所有事务** ，请确保为用例设置正确的采样率：
+下面是一个示例，说明如何将采样设置为捕获大约 **1/3 的所有事务** ，确保为用例设置了正确的采样率：
 
 ```json
 {
@@ -169,18 +169,18 @@ ms.locfileid: "94331900"
 
 ## <a name="telemetry-processors-preview"></a> (预览版的遥测处理器) 
 
-这是预览功能。
+此功能为预览版。
 
-它允许你配置将应用于请求、依赖项和跟踪遥测的规则，例如
+它允许你配置将应用于请求、依赖项和跟踪遥测的规则，例如：
  * 屏蔽敏感数据
  * 有条件地添加自定义维度
  * 更新用于聚合和显示的遥测名称
 
 有关详细信息，请查看 [遥测处理器](./java-standalone-telemetry-processors.md) 文档。
 
-## <a name="auto-collected-logging"></a>自动收集的日志记录
+## <a name="autocollected-logging"></a>Autocollected 日志记录
 
-Log4j、Logback 和 util。日志记录是自动检测的，将自动收集通过这些日志记录框架执行的日志记录。
+Log4j、Logback 和 util。日志记录是自动检测的，并通过这些日志记录框架执行的日志记录是 autocollected。
 
 默认情况下，仅当在 `INFO` 级别或更高级别执行日志记录时，才会收集日志记录。
 
@@ -213,13 +213,16 @@ Log4j、Logback 和 util。日志记录是自动检测的，将自动收集通�
 | 跟踪 (或最佳)  | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>自动收集的 Micrometer 指标 (包括弹簧 Boot 制动器指标) 
+## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Autocollected Micrometer 指标 (包括弹簧 Boot 制动器指标) 
 
-如果你的应用程序使用 [Micrometer](https://micrometer.io)，则会自动收集发送到 Micrometer 全局注册表的指标。
+如果你的应用程序使用 [Micrometer](https://micrometer.io)，则发送到 Micrometer 全局注册表的指标为 autocollected。
 
-此外，如果应用程序使用 [春季 Boot 传动装置](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)，则也会自动收集弹簧 boot 制动器配置的指标。
+此外，如果应用程序使用 [春季 Boot 传动装置](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)，则弹簧 boot 制动器配置的指标也是 autocollected。
 
-若要禁用 Micrometer 指标的自动收集 (包括弹簧 Boot 传动指标) ：
+禁用 autocollection Micrometer 指标 (包括弹簧 Boot 制动器指标) ：
+
+> [!NOTE]
+> 自定义指标单独计费，并可能产生额外费用。 请确保查看详细 [定价信息](https://azure.microsoft.com/pricing/details/monitor/)。 若要禁用 Micrometer 和弹簧制动器指标，请将以下配置添加到配置文件。
 
 ```json
 {
@@ -244,7 +247,7 @@ Log4j、Logback 和 util。日志记录是自动检测的，将自动收集通�
 ```
 
 > [!NOTE]
-> 不能降低此检测信号的频率，因为检测信号数据也用于跟踪 Application Insights 使用情况。
+> 不能降低检测信号的频率，因为检测信号数据也用于跟踪 Application Insights 使用情况。
 
 ## <a name="http-proxy"></a>HTTP 代理
 
@@ -279,7 +282,7 @@ Log4j、Logback 和 util。日志记录是自动检测的，将自动收集通�
 
 "自诊断" 指的是 Application Insights Java 3.0 的内部日志记录。
 
-此功能可用于发现和诊断 Application Insights 本身的问题。
+此功能有助于发现和诊断 Application Insights 本身的问题。
 
 默认情况下，与 `INFO` `applicationinsights.log` 此配置相对应，在文件和控制台级别 Application Insights Java 3.0 日志：
 

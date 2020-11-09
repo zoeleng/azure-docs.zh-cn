@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335088"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380120"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics Azure Monitor (预览中的工作区数据导出) 
 使用 Azure Monitor 中的工作区数据导出，你可以在收集数据时，将数据从 Log Analytics 工作区中的选定表连续导出到 Azure 存储帐户或 Azure 事件中心。 Log Analytics 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -58,7 +58,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区中导出
 ## <a name="data-completeness"></a>数据完整性
 当目标不可用时，数据导出将继续重试发送数据最多30分钟。 如果30分钟后仍不可用，则数据将被丢弃，直到目标变为可用。
 
-## <a name="cost"></a>成本
+## <a name="cost"></a>开销
 数据导出功能当前没有额外的费用。 数据导出的定价将在将来公布，在帐单开始之前提供一项通知。 如果你选择在通知期后继续使用数据导出，将按适用的费率向你收费。
 
 ## <a name="export-destinations"></a>导出目标
@@ -325,7 +325,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
-| ContainerLog | |
 | ContainerNodeInventory | |
 | ContainerServiceLog | |
 | CoreAzureBackup | |
@@ -343,7 +342,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | DnsInventory | |
 | Dynamics365Activity | |
 | 事件 | 部分支持。 此表中的某些数据是通过存储帐户引入的。 当前未导出此数据。 |
-| ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

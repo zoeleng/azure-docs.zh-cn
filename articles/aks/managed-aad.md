@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: fdbef15bb7831fedd7c375d565e0cde10f9b9a9e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171933"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380426"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS-托管 Azure Active Directory 集成
 
@@ -21,13 +21,6 @@ AKS 托管 Azure AD 集成旨在简化 Azure AD 集成体验，其中用户以�
 群集管理员可以根据用户标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (RBAC)。 使用 OpenID Connect 向 AKS 群集提供 Azure AD 身份验证。 OpenID Connect 是构建在 OAuth 2.0 协议顶层的标识层。 有关 OpenID Connect 的详细信息，请参阅 [Open ID Connect 文档][open-id-connect]。
 
 有关详细信息，请参阅 [Azure Active Directory 集成概念文档](concepts-identity.md#azure-active-directory-integration)中的 Azure AD 集成流。
-
-## <a name="region-availability"></a>上市区域
-
-AKS 托管 Azure Active Directory 集成在 [支持 AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)的公共区域中提供。
-
-* 当前不支持 Azure 政府版。
-* 当前不支持 Azure 中国世纪互联。
 
 ## <a name="limitations"></a>限制 
 

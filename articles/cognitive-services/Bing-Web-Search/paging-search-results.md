@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1a52471240ca80335690568faed7849eabc30baf
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074091"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381059"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>如何逐页浏览必应搜索 API 的结果
 
 > [!WARNING]
-> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
-> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
-> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 2020 年 10 月 30 日开始，必应搜索的任何新实例都需按照[此处](https://aka.ms/cogsvcs/bingmove)所述的过程进行预配。
+> 使用认知服务进行预配的必应搜索 API 将在未来三年或在企业协议结束前（以先发生者为准）得到支持。
+> 有关迁移说明，请参阅[必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 当你将调用发送到必应 Web、自定义、图像、新闻或视频搜索 Api 时，必应会返回可能与查询相关的结果总数的子集。 若要获取估计的可用结果总数，请访问应答对象的 `totalEstimatedMatches` 字段。 
 
@@ -73,15 +73,15 @@ Host: api.cognitive.microsoft.com
 使用必应图像和视频 Api 时，可以使用 `nextOffset` 值来避免重复的搜索结果。 从 `Images` 或响应对象获取值 `Videos` ，并将其用于请求中的 `offset` 参数。  
 
 > [!NOTE]
-> 必应 Web 搜索 API 返回可包含网页、图像、视频和新闻的搜索结果。 当你从必应 Web 搜索 API 中翻到搜索结果 [时，你只会](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)分页，而不是其他答案类型，如图像或新闻。 对象中的搜索结果 `WebPage` 可能还包括其他答案类型中显示的结果。
+> 必应 Web 搜索 API 返回可包含网页、图像、视频和新闻的搜索结果。 当你从必应 Web 搜索 API 中翻到搜索结果 [时，你只会](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)分页，而不是其他答案类型，如图像或新闻。 对象中的搜索结果 `WebPage` 可能还包括其他答案类型中显示的结果。
 >
 > 如果在 `responseFilter` 未指定任何筛选器值的情况下使用查询参数，请不要使用 `count` 和 `offset` 参数。 
 
 ## <a name="next-steps"></a>后续步骤
 
 * [什么是必应 Web 搜索 Api？](bing-api-comparison.md)
-* [必应 Web 搜索 API v7 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [Bing 自定义搜索 API v7 引用](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [必应新闻搜索 API v7 引用](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [必应视频搜索 API v7 引用](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [必应图像搜索 API v7 引用](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [必应 Web 搜索 API v7 参考](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing 自定义搜索 API v7 引用](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [必应新闻搜索 API v7 引用](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [必应视频搜索 API v7 引用](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [必应图像搜索 API v7 引用](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

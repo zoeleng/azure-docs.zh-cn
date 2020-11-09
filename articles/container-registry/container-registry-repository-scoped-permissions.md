@@ -3,12 +3,12 @@ title: Azure 容器注册表中存储库的权限
 description: 创建一个令牌，使其权限范围限定于高级注册表中的特定存储库，用来拉取或推送映像，或执行其他操作
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84509400"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381229"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>创建具有存储库范围权限的令牌
 
@@ -159,7 +159,7 @@ az acr token create --name MyToken \
     1. 为范围映射输入名称和说明。 
     1. 在“存储库”下，输入 `samples/hello-world`，并在“权限”下，选择 `content/read` 和 `content/write` 。 然后选择“+添加”。  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="在门户中创建令牌":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="在门户中创建范围映射":::
 
     1. 添加存储库和权限后，选择“添加”，以添加范围映射。
 1. 接受默认令牌状态（“启用”），然后选择“创建”  。
@@ -176,7 +176,7 @@ az acr token create --name MyToken \
 1. 在“密码”屏幕上，根据需要为密码设置过期日期，并选择“生成”。 建议设置到期日期。
 1. 生成密码后，将其复制到一个安全的位置并保存。 关闭屏幕后无法检索生成的密码，但可以生成新的密码。
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="在门户中创建令牌":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="在门户中创建令牌密码":::
 
 ## <a name="authenticate-with-token"></a>使用令牌进行身份验证
 
@@ -204,7 +204,7 @@ az acr token create --name MyToken \
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag alpine myregistry.azurecr.io/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>使用令牌进行身份验证

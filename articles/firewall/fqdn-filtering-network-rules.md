@@ -1,26 +1,22 @@
 ---
-title: 网络规则中的 Azure 防火墙 FQDN 筛选（预览版）
+title: 网络规则中的 Azure 防火墙 FQDN 筛选
 description: 如何使用网络规则中的 Azure 防火墙 FQDN 筛选
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 11/06/2020
 ms.author: victorh
-ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2cf9639acfa1330c8347ff654649004d7c382e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854284"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380892"
 ---
-# <a name="use-fqdn-filtering-in-network-rules-preview"></a>在网络规则中使用 FQDN 筛选（预览版）
+# <a name="use-fqdn-filtering-in-network-rules"></a>在网络规则中使用 FQDN 筛选
 
-> [!IMPORTANT]
-> 网络规则中的 FQDN 筛选目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
-完全限定的域名 (FQDN) 表示主机或 IP 地址的域名。 你可以基于 Azure 防火墙和防火墙策略中的 DNS 解析在网络规则中使用 FQDN。 此功能允许你筛选采用任何 TCP/UDP 协议（包括 NTP、SSH、RDP 等）的出站流量。 若要在网络规则中使用 FQDN，你必须启用 DNS 代理。 有关详细信息，请参阅 [Azure 防火墙 DNS 设置（预览版）](dns-settings.md)。
+完全限定的域名 (FQDN) 表示主机或 IP 地址的域名。 你可以基于 Azure 防火墙和防火墙策略中的 DNS 解析在网络规则中使用 FQDN。 此功能允许你筛选采用任何 TCP/UDP 协议（包括 NTP、SSH、RDP 等）的出站流量。 若要在网络规则中使用 FQDN，你必须启用 DNS 代理。 有关详细信息，请参阅 [Azure 防火墙 DNS 设置](dns-settings.md)。
 
 > [!NOTE]
 > 按照设计，FQDN 筛选不支持通配符。
@@ -29,10 +25,15 @@ ms.locfileid: "88854284"
 
 定义你的组织需要的 DNS 服务器（Azure DNS 或你自己的自定义 DNS）后，Azure 防火墙将基于所选 DNS 服务器将 FQDN 转换为 IP 地址。 将针对应用程序和网络规则处理进行此转换。
 
-在应用程序规则中使用域名与网络规则相比，它们之间的区别是什么？ 
+发生新的 DNS 解析时，会将新的 IP 地址添加到防火墙规则。 DNS 服务器不再返回的旧 IP 地址将在15分钟后过期。 Azure 防火墙规则每15秒更新一次，从 DNS 解析网络规则中的 Fqdn。
 
-- 应用程序规则中针对 HTTP/S 和 MSSQL 的 FQDN 筛选基于应用程序级透明代理和 SNI 标头。 因此，它可以区分解析为同一 IP 地址的两个 FQDN。 对于网络规则中的 FQDN 筛选，情况并非如此。 如果可能，请始终使用应用程序规则。
-- 在应用程序规则中，可以使用 HTTP/S 和 MSSQL 作为所选协议。 在网络规则中，可以将任何 TCP/UDP 协议与目标 FQDN 结合使用。
+### <a name="differences-in-application-rules-vs-network-rules"></a>应用程序规则与网络规则的差异
+
+- 应用程序规则中针对 HTTP/S 和 MSSQL 的 FQDN 筛选基于应用程序级透明代理和 SNI 标头。 因此，它可以区分解析为同一 IP 地址的两个 FQDN。 对于网络规则中的 FQDN 筛选，情况并非如此。 
+
+   如果可能，请始终使用应用程序规则：
+     - 如果协议为 HTTP/S 或 MSSQL，请使用应用程序规则进行 FQDN 筛选。
+   - 对于 HTTP/S 或 MSSQL 以外的其他任何协议，可以使用应用程序或网络规则进行 FQDN 筛选。
 
 ## <a name="next-steps"></a>后续步骤
 
