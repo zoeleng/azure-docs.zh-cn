@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342087"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372653"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>禁止来自 Azure Defender 的警报
 
@@ -23,7 +23,7 @@ ms.locfileid: "92342087"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|预览|
+|发布状态：|预览<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |定价：|免费<br> (大多数安全警报仅适用于 Azure Defender) |
 |所需角色和权限：|“安全管理员”和“所有者”可以创建/删除规则 。<br>“安全读取者”和“读取者”可以查看规则 。|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
@@ -127,9 +127,9 @@ ms.locfileid: "92342087"
 
 REST API 中抑制规则的相关 HTTP 方法是：
 
-- **PUT**：创建或更新指定订阅中的抑制规则。
+- **PUT** ：创建或更新指定订阅中的抑制规则。
 
-- **获取**：
+- **获取** ：
 
     - 列出为指定订阅配置的所有规则。 此方法返回适用规则的数组。
 
@@ -137,7 +137,7 @@ REST API 中抑制规则的相关 HTTP 方法是：
 
     - 以模拟仍处于设计阶段的抑制规则的影响。 此调用标识如果规则处于活动状态，将消除哪些现有警报。
 
-- **DELETE**：删除现有规则（但不会更改它已消除的警报的状态）。
+- **DELETE** ：删除现有规则（但不会更改它已消除的警报的状态）。
 
 有关完整的详细信息和使用示例，请参阅 [API 文档](/rest/api/securitycenter/)。 
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4d98323ebe973f13e654324f463ae01a8f1268c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 66e2f70a5d55d263f7da343c0987e77a9f60c3b0
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629215"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372670"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux (RHEL) Azure 中提供的映像
 Azure 针对不同用例提供各种 RHEL 映像。
@@ -26,12 +26,12 @@ Azure 针对不同用例提供各种 RHEL 映像。
 > [!NOTE]
 > 不会再生成原始映像以支持 LVM 分区映像。 LVM 与较旧的原始 (非 LVM) 分区方案相比，具有多项优势，包括更灵活的分区调整大小选项。
 
-产品/服务| SKU | 分区 | 设置 | 说明
+产品/服务| SKU | 分区 | 设置 | 注释
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux 代理 | 
-|             | 6.8      | RAW    | Linux 代理 | 
-|             | 6.9      | RAW    | Linux 代理 | 
-|             | 6.10     | RAW    | Linux 代理 | 
+RHEL          | 6.7      | RAW    | Linux 代理 | 从12月1日起提供扩展生命周期支持。 [此处提供更多详细信息。](redhat-extended-lifecycle-support.md)
+|             | 6.8      | RAW    | Linux 代理 | 从12月1日起提供扩展生命周期支持。 [此处提供更多详细信息。](redhat-extended-lifecycle-support.md)
+|             | 6.9      | RAW    | Linux 代理 | 从12月1日起提供扩展生命周期支持。 [此处提供更多详细信息。](redhat-extended-lifecycle-support.md)
+|             | 6.10     | RAW    | Linux 代理 | 从12月1日起提供扩展生命周期支持。 [此处提供更多详细信息。](redhat-extended-lifecycle-support.md)
 |             | 7-RAW    | RAW    | Linux 代理 | RHEL 7. x 映像系列。 <br> 默认情况下，附加到常规存储库 (不 EUS) 。
 |             | 7-LVM    | LVM    | Linux 代理 | RHEL 7. x 映像系列。 <br> 默认情况下，附加到常规存储库 (不 EUS) 。 如果你正在寻找要部署的标准 RHEL 映像，请使用此映像集和/或其第2代副本。
 |             | 7lvm-gen2| LVM    | Linux 代理 | 第2代，RHEL 7. x 映像系列。 <br> 默认情况下，附加到常规存储库 (不 EUS) 。 如果你正在寻找要部署的标准 RHEL 映像，请使用此映像集和/或其第1代映像。
@@ -67,9 +67,9 @@ RHEL-SAP      | 7.4      | LVM    | Linux 代理 | 适用于 SAP HANA 和商业�
 |             | 7.6       | LVM    | Linux 代理 | 适用于 SAP HANA 和商业应用的 RHEL 7.6。 附加到 E4S 存储库，将为 SAP 和 RHEL 提供高级版，以及基础计算费用。
 |             | 76sap-gen2| LVM    | Linux 代理 | 适用于 SAP HANA 和商业应用的 RHEL 7.6。 第2代映像。 附加到 E4S 存储库，将为 SAP 和 RHEL 提供高级版，以及基础计算费用。
 |             | 7.7       | LVM    | Linux 代理 | 适用于 SAP HANA 和商业应用的 RHEL 7.7。 附加到 E4S 存储库，将为 SAP 和 RHEL 提供高级版，以及基础计算费用。
-RHEL-SAP-要从10月 2020) 的 Marketplace 中删除的 ( | 6.7       | RAW    | Linux 代理 | RHEL 6.7 for SAP HANA。 过时，取而代之的是 RHEL-SAP 映像。 此映像将从10月2020的 Azure Martketplace 中删除。 [此处](https://access.redhat.com/articles/3751271)提供了有关 Red HAT 的 SAP 云产品/服务的更多详细信息。
-|             | 7.2       | LVM    | Linux 代理 | RHEL 7.2 for SAP HANA。 过时，取而代之的是 RHEL-SAP 映像。 此映像将从10月2020的 Azure Martketplace 中删除。 [此处](https://access.redhat.com/articles/3751271)提供了有关 Red HAT 的 SAP 云产品/服务的更多详细信息。
-|             | 7.3       | LVM    | Linux 代理 | RHEL 7.3 for SAP HANA。 过时，取而代之的是 RHEL-SAP 映像。 此映像将从10月2020的 Azure Martketplace 中删除。 [此处](https://access.redhat.com/articles/3751271)提供了有关 Red HAT 的 SAP 云产品/服务的更多详细信息。
+RHEL-SAP-要在2020年11月 (删除)  | 6.7       | RAW    | Linux 代理 | RHEL 6.7 for SAP HANA。 过时，取而代之的是 RHEL-SAP 映像。 此映像将于11月2020删除。 [此处](https://access.redhat.com/articles/3751271)提供了有关 Red HAT 的 SAP 云产品/服务的更多详细信息。
+|             | 7.2       | LVM    | Linux 代理 | RHEL 7.2 for SAP HANA。 过时，取而代之的是 RHEL-SAP 映像。 此映像将于11月2020删除。 [此处](https://access.redhat.com/articles/3751271)提供了有关 Red HAT 的 SAP 云产品/服务的更多详细信息。
+|             | 7.3       | LVM    | Linux 代理 | RHEL 7.3 for SAP HANA。 过时，取而代之的是 RHEL-SAP 映像。 此映像将于11月2020删除。 [此处](https://access.redhat.com/articles/3751271)提供了有关 Red HAT 的 SAP 云产品/服务的更多详细信息。
 RHEL-SAP-APPS | 6.8       | RAW    | Linux 代理 | RHEL 6.8 for SAP Business Applications。 过时，取而代之的是 RHEL-SAP 映像。
 |             | 7.3       | LVM    | Linux 代理 | RHEL 7.3 for SAP Business Applications。 过时，取而代之的是 RHEL-SAP 映像。
 |             | 7.4       | LVM    | Linux 代理 | RHEL 7.4 for SAP Business Applications。

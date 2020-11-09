@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428106"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372772"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>将 AWS 帐户连接到 Azure 安全中心
 
@@ -39,7 +39,7 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|预览|
+|发布状态：|预览<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |定价：|需要[用于服务器的 Azure Defender](defender-for-servers-introduction.md)|
 |所需角色和权限：|相关 Azure 订阅上的“所有者”或“参与者”角色|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![否](./media/icons/no-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
@@ -71,7 +71,7 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
 
 #### <a name="create-an-iam-role-for-security-center"></a>为安全中心创建 IAM 角色
 1. 在 Amazon Web Services 控制台中，在“安全性、标识与符合性”下选择“IAM”。
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="安全中心的“概述”仪表板上列出的 3 个 GCP 项目":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS 服务":::
 
 1. 依次选择“角色”、“创建角色” 。
 1. 选择“另一个 AWS 帐户”。
@@ -130,13 +130,13 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
 
 1. 从安全中心的菜单中，选择“多云连接器”。
 1. 选择“添加 AWS 帐户”。
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="安全中心的“概述”仪表板上列出的 3 个 GCP 项目":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="安全中心“多云连接器”页面上的“添加 AWS 帐户”按钮":::
 1. 在“AWS 身份验证”选项卡中配置选项：
     1. 在“显示名称”中输入连接器的显示名称。
     1. 确认订阅是正确的。 这是将要包含连接器和 AWS 安全中心建议的订阅。
     1. 根据之前在[步骤 2：在 AWS 中设置安全中心身份验证](#step-2-set-up-authentication-for-security-center-in-aws)中选择的身份验证选项：
         - 选择“假设角色”，然后粘贴来自[为安全中心创建 IAM 角色](#create-an-iam-role-for-security-center)。
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="安全中心的“概述”仪表板上列出的 3 个 GCP 项目":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="将 ARN 文件粘贴到 Azure 门户中 AWS 连接向导的相关字段中":::
 
             OR
 
@@ -168,7 +168,7 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
 - ASC 服务每隔 6 小时扫描一次新的 AWS EC2 实例，并根据配置将其加入。
 - 安全中心的合规性仪表板中会显示 AWS CIS 标准。
 - 如果启用了安全中心策略，加入过程完成 5-10 分钟后，“安全中心”门户和合规性仪表板中会显示建议。
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="安全中心的“概述”仪表板上列出的 3 个 GCP 项目":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="安全中心“建议”页中的 AWS 资源和建议":::
 
 
 
@@ -178,7 +178,7 @@ Azure 安全中心可保护 Azure、Amazon Web Services (AWS) 和 Google Cloud P
 
 若要按资源类型查看资源的所有活动建议，可使用安全中心的“资产清单”页，并筛选到所需的 AWS 资源类型：
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="安全中心的“概述”仪表板上列出的 3 个 GCP 项目"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="“资产清单”页面的资源类型筛选器，其中显示了 AWS 选项"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>安全中心中的 AWS 常见问题解答

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f83500e539ff5254db290d156dfcf50ea60de14
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461526"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372551"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>计算机上适用于 SQL server 的 Azure Defender 
 
@@ -30,8 +30,8 @@ ms.locfileid: "92461526"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|预览|
-|定价：|**计算机上适用于 SQL server 的 Azure Defender**按[定价页](security-center-pricing.md)中所示的方式计费|
+|发布状态：|预览<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|定价：|**计算机上适用于 SQL server 的 Azure Defender** 按 [定价页](security-center-pricing.md)中所示的方式计费|
 |受保护的 SQL 版本：|Azure SQL Server (Microsoft 支持涵盖的所有版本) |
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) US Gov<br>![否](./media/icons/no-icon.png) China Gov，其他 Gov|
 |||
@@ -53,22 +53,22 @@ ms.locfileid: "92461526"
 
 - **SQL Server 本地** -如果你的 SQL Server 托管在不带 Azure Arc 的本地 Windows 计算机上，则有两个选项可用于将其连接到 azure：
     
-    - **部署 Azure Arc** -可以将任何 Windows 计算机连接到安全中心。 但是，Azure Arc 在 *所有* Azure 环境中提供更深入的集成。 如果设置了 Azure Arc，你会在门户中看到 " **SQL Server – Azure Arc** " 页，并且安全警报将显示在该页面上的 "专用 **安全** " 选项卡上。 因此，第一个和推荐的选项是 [在主机上设置 Azure arc](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) 并按照上面的 **azure arc 上 SQL Server**的说明进行操作。
+    - **部署 Azure Arc** -可以将任何 Windows 计算机连接到安全中心。 但是，Azure Arc 在 *所有* Azure 环境中提供更深入的集成。 如果设置了 Azure Arc，你会在门户中看到 " **SQL Server – Azure Arc** " 页，并且安全警报将显示在该页面上的 "专用 **安全** " 选项卡上。 因此，第一个和推荐的选项是 [在主机上设置 Azure arc](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) 并按照上面的 **azure arc 上 SQL Server** 的说明进行操作。
         
     - **不使用 azure Arc 连接 windows 计算机** -如果你选择在不使用 azure arc 的情况下连接在 windows 计算机上运行的 SQL Server，请按照 [将 windows 计算机连接到 Azure Monitor](../azure-monitor/platform/agent-windows.md)中的说明进行操作。
 
 
-### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>步骤 2. 在安全中心的 "定价和设置" 页中启用可选计划：
+### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>步骤 2。 在安全中心的 "定价和设置" 页中启用可选计划：
 
 1. 在安全中心的菜单中，打开 " **定价 & 设置** " 页。
 
-    - 如果使用的是 **Azure 安全中心的默认工作区** (名为 "形式 defaultworkspace-[订阅 id]-[region]" ) ，请选择相关 **订阅**。
+    - 如果使用的是 **Azure 安全中心的默认工作区** (名为 "形式 defaultworkspace-[订阅 id]-[region]" ) ，请选择相关 **订阅** 。
 
-    - 如果使用 **非默认工作区**，请选择相关 **工作区** (在筛选器中输入工作区的名称（如有必要）) ：
+    - 如果使用 **非默认工作区** ，请选择相关 **工作区** (在筛选器中输入工作区的名称（如有必要）) ：
 
         ![按标题查找非默认工作区](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. 为 **计算机上的 SQL server (预览) ** 计划设置为 **on**的选项。 
+1. 为 **计算机上的 SQL server (预览)** 计划设置为 **on** 的选项。 
 
     ![具有可选计划的安全中心定价页](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -91,13 +91,13 @@ ms.locfileid: "92461526"
 
 可以直接在安全中心查看漏洞评估结果。
 
-1. 在 "安全中心" 边栏中，打开 " **建议** " 页，然后选择 " **计算机上的 SQL server **上的建议漏洞" (预览 ") 。 有关详细信息，请参阅[安全中心建议](security-center-recommendations.md)。 
+1. 在 "安全中心" 边栏中，打开 " **建议** " 页，然后选择 " **计算机上的 SQL server** 上的建议漏洞" (预览 ") 。 有关详细信息，请参阅[安全中心建议](security-center-recommendations.md)。 
 
     :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="计算机上的 SQL server 上的漏洞评估结果应 (预览版进行修正) ":::
 
     此时显示此建议的详细视图。
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="计算机上的 SQL server 上的漏洞评估结果应 (预览版进行修正) ":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="建议的详细视图":::
 
 1. 有关更多详细信息，请向下钻取：
 

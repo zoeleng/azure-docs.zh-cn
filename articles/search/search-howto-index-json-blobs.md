@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403630"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372365"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>如何使用 Azure 认知搜索中的 Blob 索引器为 JSON Blob 编制索引
 
@@ -22,7 +22,7 @@ ms.locfileid: "91403630"
 
 可以使用[门户](#json-indexer-portal)、[REST API](#json-indexer-rest) 或 [.NET SDK](#json-indexer-dotnet) 为 JSON 内容编制索引。 所有方法的共同特点是 JSON 文档位于 Azure 存储帐户中的某个 Blob 容器内。 有关从其他非 Azure 平台推送 JSON 文档的指导，请参阅 [Azure 认知搜索中的数据导入](search-what-is-data-import.md)。
 
-Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档（分析模式为 `json`）或 JSON 实体集合。 对于集合，Blob 可以包含正确格式的 JSON 元素的**数组**（分析模式为 `jsonArray`）。 Blob 还可以包含由换行符分隔的多个 JSON 实体（分析模式为 `jsonLines`）。 请求中的 **parsingMode** 参数确定了输出结构。
+Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档（分析模式为 `json`）或 JSON 实体集合。 对于集合，Blob 可以包含正确格式的 JSON 元素的 **数组** （分析模式为 `jsonArray`）。 Blob 还可以包含由换行符分隔的多个 JSON 实体（分析模式为 `jsonLines`）。 请求中的 **parsingMode** 参数确定了输出结构。
 
 > [!NOTE]
 > 有关为单个 Blob 中的多个搜索文档编制索引的详细信息，请参阅[一对多索引](search-howto-index-one-to-many-blobs.md)。
@@ -31,7 +31,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档（分析模式为 
 
 ## <a name="use-the-portal"></a>使用门户
 
-为 JSON 文档编制索引的最简单方法是使用 [Azure 门户](https://portal.azure.com/)中的向导。 通过分析 Azure Blob 容器中的元数据，[**导入数据**](search-import-data-portal.md)向导可以创建默认索引、将源字段映射到目标索引字段，并以单个操作加载索引。 根据源数据的大小和复杂性，在数分钟内就能创建一个有效的全文搜索索引。
+为 JSON 文档编制索引的最简单方法是使用 [Azure 门户](https://portal.azure.com/)中的向导。 通过分析 Azure Blob 容器中的元数据， [**导入数据**](search-import-data-portal.md)向导可以创建默认索引、将源字段映射到目标索引字段，并以单个操作加载索引。 根据源数据的大小和复杂性，在数分钟内就能创建一个有效的全文搜索索引。
 
 我们建议对 Azure 认知搜索和 Azure 存储使用同一个区域或位置，以降低延迟并避免带宽费用。
 
@@ -63,7 +63,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档（分析模式为 
    
 + “存储容器”必须指定你的存储帐户和容器，或指定解析成容器的连接字符串。  可在 Blob 服务门户页上获取连接字符串。
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="门户中的“导入数据”命令" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Blob 数据源定义" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 - 跳过向导中的“扩充内容”页
 
@@ -81,7 +81,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档（分析模式为 
 
 花费片刻时间来检查所做的选择。 运行向导后，将创建物理数据结构，到时，除非删除再重新创建所有对象，否则无法编辑这些字段。
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="门户中的“导入数据”命令" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Blob 索引定义" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - 创建索引器
 
@@ -89,7 +89,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档（分析模式为 
 
 如果你不熟悉索引器，请记住，索引器是 Azure 认知搜索中的一个资源，它可以抓取外部数据源，以检索可搜索的内容。  “导入数据”向导的输出是在 JSON 数据源中爬网、提取可搜索内容，然后将此内容导入 Azure 认知搜索中的某个索引的索引器。 
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="门户中的“导入数据”命令" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Blob 索引器定义" border="false":::
 
 单击“确定”运行向导并创建所有对象。  随后会立即开始编制索引。
 
@@ -120,9 +120,9 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档或 JSON“数组�
 
 | JSON 文档 | parsingMode | 说明 | 可用性 |
 |--------------|-------------|--------------|--------------|
-| 每个 Blob 各有一个 | `json` | 将 JSON Blob 分析为单个文本区块。 每个 JSON Blob 成为单个 Azure 认知搜索文档。 | [REST](/rest/api/searchservice/indexer-operations) API 和 [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK 均已推出正式版。 |
-| 每个 Blob 有多个 | `jsonArray` | 分析 Blob 中的 JSON 数组，其中数组的每个元素成为单独的 Azure 认知搜索文档。  | [REST](/rest/api/searchservice/indexer-operations) API 和 [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK 均已推出正式版。 |
-| 每个 Blob 有多个 | `jsonLines` | 分析包含换行符分隔的多个 JSON 实体（“数组”）的 Blob，其中的每个实体将成为独立的 Azure 认知搜索文档。 | [REST](/rest/api/searchservice/indexer-operations) API 和 [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK 均已推出正式版。 |
+| 每个 Blob 各有一个 | `json` | 将 JSON Blob 分析为单个文本区块。 每个 JSON Blob 成为单个 Azure 认知搜索文档。 | [REST](/rest/api/searchservice/indexer-operations) API 和 [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK 均已推出正式版。 |
+| 每个 Blob 有多个 | `jsonArray` | 分析 Blob 中的 JSON 数组，其中数组的每个元素成为单独的 Azure 认知搜索文档。  | [REST](/rest/api/searchservice/indexer-operations) API 和 [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK 均已推出正式版。 |
+| 每个 Blob 有多个 | `jsonLines` | 分析包含换行符分隔的多个 JSON 实体（“数组”）的 Blob，其中的每个实体将成为独立的 Azure 认知搜索文档。 | [REST](/rest/api/searchservice/indexer-operations) API 和 [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK 均已推出正式版。 |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - 汇编请求的输入
 
@@ -207,7 +207,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档或 JSON“数组�
 
 schedule 和 parameters 是可选的。 如果将其省略，索引器将使用 `json` 作为分析模式立即运行。
 
-此特定索引器不包含字段映射。 在索引器定义中，如果源 JSON 文档的属性与目标搜索索引的字段相匹配，则可以省略**字段映射**。 
+此特定索引器不包含字段映射。 在索引器定义中，如果源 JSON 文档的属性与目标搜索索引的字段相匹配，则可以省略 **字段映射** 。 
 
 
 ### <a name="rest-example"></a>REST 示例
@@ -280,10 +280,10 @@ schedule 和 parameters 是可选的。 如果将其省略，索引器将使用 
 
 .NET SDK 完全可与 REST API 搭配使用。 我们建议查看前面的 REST API 部分，以了解相关概念、工作流和要求。 然后，可以参阅以下 .NET API 参考文档，在托管代码中实现 JSON 索引器。
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents. searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents. searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 
++ [azure.search.documents. searchindex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 
++ [azure.search.documents. searchindexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="parsing-modes"></a>
 
@@ -416,7 +416,7 @@ Blob 索引器将 JSON 文档分析成单个 Azure 认知搜索文档。 索引�
 
 当源与目标字段未完美对齐时，可以在请求正文中定义一个字段映射节，以建立显式的字段间关联。
 
-目前，Azure 认知搜索不能直接索引任意 JSON 文档，因为它只支持基元数据类型、字符串数组和 GeoJSON 点。 不过，可以使用**字段映射**选取 JSON 文档的部分，并将它们“提升”到搜索文档的顶级字段。 若要了解字段映射的基础知识，请参阅 [Azure 认知搜索索引器中的字段映射](search-indexer-field-mappings.md)。
+目前，Azure 认知搜索不能直接索引任意 JSON 文档，因为它只支持基元数据类型、字符串数组和 GeoJSON 点。 不过，可以使用 **字段映射** 选取 JSON 文档的部分，并将它们“提升”到搜索文档的顶级字段。 若要了解字段映射的基础知识，请参阅 [Azure 认知搜索索引器中的字段映射](search-indexer-field-mappings.md)。
 
 回到前面的示例 JSON 文档：
 

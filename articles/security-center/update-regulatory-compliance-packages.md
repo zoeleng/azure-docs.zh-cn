@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342189"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372755"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>在监管合规仪表板中自定义标准集
 
@@ -68,6 +68,7 @@ Microsoft 还会自行跟踪监管标准，并随时间推移自动改进其在�
 
     - Azure 安全基准
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - SWIFT CSP CSCF-v2020
     - UKO and UK NHS
     - Canada PBMM
@@ -92,7 +93,7 @@ Microsoft 还会自行跟踪监管标准，并随时间推移自动改进其在�
 
 删除标准：
 
-1. 从安全中心的菜单中，选择 " **安全策略**"。
+1. 从安全中心的菜单中，选择 " **安全策略** "。
 
 1. 选择要从中删除标准的相关订阅。
 
@@ -101,13 +102,11 @@ Microsoft 还会自行跟踪监管标准，并随时间推移自动改进其在�
 
     此时会打开 "安全策略" 页。 对于所选订阅，它会显示默认策略、行业和法规标准以及您创建的任何自定义计划。
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="从 Azure 安全中心的规章相容性仪表板中删除法规标准&quot;:::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="从 Azure 安全中心的规章相容性仪表板中删除法规标准":::
 
-1. 对于要删除的标准，选择 " **禁用**"。 此时将显示一个确认窗口。
+1. 对于要删除的标准，选择 " **禁用** "。 此时将显示一个确认窗口。
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="从 Azure 安全中心的规章相容性仪表板中删除法规标准&quot;:::
-
-1. 对于要删除的标准，选择 ":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="确认确实要删除所选的规章标准":::
 
 1. 请选择“是”。 将删除此标准。 
 

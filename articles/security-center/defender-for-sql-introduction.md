@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342019"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372519"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>适用于 SQL 的 Azure Defender 简介
 
@@ -23,7 +23,7 @@ ms.locfileid: "92342019"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|**适用于 Azure SQL 数据库服务器的 Azure Defender** - 正式发布 (GA)<br>**适用于计算机上的 SQL 服务器的 Azure Defender** - 预览|
+|发布状态：|**适用于 Azure SQL 数据库服务器的 Azure Defender** - 正式发布 (GA)<br>**适用于计算机上的 SQL 服务器的 Azure Defender** - 预览<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |定价：|适用于 SQL 的 Azure Defender 包含的两个计划按[定价页](security-center-pricing.md)中的定价计费|
 |受保护的 SQL 版本：|Azure SQL Database <br>Azure SQL 托管实例<br>Azure Synapse Analytics（以前称为 SQL DW）<br>SQL Server（所有受支持的版本）|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) US Gov<br>![否](./media/icons/no-icon.png) China Gov，其他 Gov|

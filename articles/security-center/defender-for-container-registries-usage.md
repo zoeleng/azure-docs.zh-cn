@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289225"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372602"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>使用 Azure Defender 容器注册表来扫描映像是否存在漏洞
 
@@ -114,6 +114,9 @@ ms.locfileid: "93289225"
 
 ## <a name="disable-specific-findings-preview"></a> (预览禁用特定发现) 
 
+> [!NOTE]
+> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
+
 如果组织需要忽略发现结果，而不是修正漏洞，则可以选择禁用发现结果。 禁用发现结果不会影响安全分数，也不会产生有害的噪音。
 
 当发现结果与在禁用规则中定义的条件相匹配时，它不会显示在发现结果列表中。 典型方案包括：
@@ -131,7 +134,7 @@ ms.locfileid: "93289225"
 您可以使用下列任一条件： 
 
 - 查找 ID 
-- 类别
+- Category
 - 安全检查 
 - CVSS v3 评分
 - 严重性 

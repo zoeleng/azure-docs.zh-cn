@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3a597b6454b3fb738ca192fa7750ca94fdb873ab
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993339"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372789"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>在 Azure 中 Red Hat Enterprise Linux 自带订阅金牌映像
 
@@ -21,14 +21,14 @@ Red Hat Enterprise Linux (RHEL) 映像在 Azure 中通过 "即用即付" 或 "�
 >[!NOTE]
 > RHEL BYOS 金牌映像适用于 Azure 公共 (商业) 和 Azure 政府版云。 它们在 Azure 中国或 Azure Blackforest 云中不可用。
 
-## <a name="important-points-to-consider"></a>需要考虑的要点
+## <a name="important-points-to-consider"></a>考虑的要点
 
 - 此程序中提供的 Red Hat 金牌映像与 Azure Marketplace 中的 RHEL 即用即付映像类似。
 - 映像遵循在 [Azure 上 Red Hat Enterprise Linux 映像](./redhat-images.md)中描述的当前策略。
 - 标准支持策略适用于通过这些映像创建的 Vm。
 - 从 Red Hat 黄金映像预配的 Vm 不会携带 rhel 费用与 RHEL 即用即付映像关联。
 - 图像是未获授权。 必须使用 Red Hat Subscription-Manager 来注册和订阅 Vm，才能直接从 Red Hat 获取更新。
-- 目前不能在 BYOS 和 Linux 即用即付计费模型之间动态切换。 若要切换计费模式，你必须从相应的映像重新部署 VM。
+- 可以使用 [Azure 混合权益](../../linux/azure-hybrid-benefit-linux.md)从即用即付映像切换到 BYOS。 但不能从最初部署的 BYOS 切换为适用于 Linux 映像的即用即付计费模式。 若要将计费模型从 BYOS 切换为即用即付模式，你必须从相应的映像中重新部署 VM。
 
 >[!NOTE]
 > 第2代 RHEL BYOS 映像当前不可通过 marketplace 产品/服务使用。 如果需要第2代 RHEL BYOS 映像，请访问 Red Hat 订阅管理中的云访问控制板。 有关详细信息，请参阅 [Red Hat 文档](https://access.redhat.com/articles/4847681)。
@@ -45,7 +45,7 @@ Red Hat Enterprise Linux (RHEL) 映像在 Azure 中通过 "即用即付" 或 "�
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>使用 Azure 门户中的 Red Hat 黄金映像
 
-1. Azure 订阅收到对 Red Hat 黄金映像的访问权限后，可以在 [Azure 门户](https://portal.azure.com)中找到它们。 请参阅**创建资源**  >  **See all**。
+1. Azure 订阅收到对 Red Hat 黄金映像的访问权限后，可以在 [Azure 门户](https://portal.azure.com)中找到它们。 请参阅 **创建资源**  >  **See all** 。
 
 1. 在页面顶部，你会看到你拥有专用产品/服务。
 
@@ -93,7 +93,7 @@ Red Hat Enterprise Linux (RHEL) 映像在 Azure 中通过 "即用即付" 或 "�
     ```
 
     >[!NOTE]
-    >每 *个 Azure 订阅（每个映像 SKU）需要接受一次*这些条款。
+    >每 *个 Azure 订阅（每个映像 SKU）需要接受一次* 这些条款。
 
 1.  (可选) 通过以下命令验证 VM 部署：
 
@@ -177,7 +177,7 @@ Red Hat Enterprise Linux (RHEL) 映像在 Azure 中通过 "即用即付" 或 "�
 
 ## <a name="encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images"></a>加密 Red Hat Enterprise Linux 自带订阅金牌映像
 
-可以通过使用 [Azure 磁盘加密](../../linux/disk-encryption-overview.md)来保护 Red Hat Enterprise Linux BYOS 金牌映像。 *必须*先注册订阅，然后才能启用加密。 有关如何注册 RHEL BYOS 黄金映像的详细信息，请参阅 [如何使用 Red Hat 订阅管理器将系统注册并订阅 Red Hat 客户门户](https://access.redhat.com/solutions/253273)。 如果有活动的 Red Hat 订阅，还可以阅读 [创建 Red Hat 客户门户激活密钥](https://access.redhat.com/articles/1378093)。
+可以通过使用 [Azure 磁盘加密](../../linux/disk-encryption-overview.md)来保护 Red Hat Enterprise Linux BYOS 金牌映像。 *必须* 先注册订阅，然后才能启用加密。 有关如何注册 RHEL BYOS 黄金映像的详细信息，请参阅 [如何使用 Red Hat 订阅管理器将系统注册并订阅 Red Hat 客户门户](https://access.redhat.com/solutions/253273)。 如果有活动的 Red Hat 订阅，还可以阅读 [创建 Red Hat 客户门户激活密钥](https://access.redhat.com/articles/1378093)。
 
 [Red Hat 自定义映像](../../linux/redhat-create-upload-vhd.md)不支持 Azure 磁盘加密。 [适用于 Linux vm 的 Azure 磁盘加密](../../linux/disk-encryption-overview.md#additional-vm-requirements)中介绍了其他 Azure 磁盘加密要求和先决条件。
 

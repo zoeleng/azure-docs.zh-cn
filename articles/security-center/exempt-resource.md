@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 347d5ac9de164f2e96340df71fd3b1b908e607c1
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532544"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372738"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>从建议和安全分数中免除资源
 
@@ -30,9 +30,9 @@ ms.locfileid: "91532544"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|预览|
+|发布状态：|预览<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |定价：|这是一种高级 Azure 策略功能，适用于无需额外费用的 Azure Defender 客户。 对于其他用户，将来可能会收取费用。|
-|所需角色和权限：|用于创建例外的**订阅所有者**或**策略参与者**<br>若要创建规则，需要在 Azure 策略中编辑策略的权限。<br>有关详细信息，请参阅 azure [策略中的 AZURE RBAC 权限](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)。|
+|所需角色和权限：|用于创建例外的 **订阅所有者** 或 **策略参与者**<br>若要创建规则，需要在 Azure 策略中编辑策略的权限。<br>有关详细信息，请参阅 azure [策略中的 AZURE RBAC 权限](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)。|
 |云：|![是](./media/icons/yes-icon.png) 商业云<br>![否](./media/icons/no-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
 |||
 
@@ -41,21 +41,30 @@ ms.locfileid: "91532544"
 
 1. 在不正常的资源列表中，选择要免除的资源的省略号菜单 ( "..." ) 。
 
-    :::image type="content" source="./media/exempt-resource/create-exemption.png" alt-text="上下文菜单中的 Create 豁免选项&quot;:::
+    :::image type="content" source="./media/exempt-resource/create-exemption.png" alt-text="上下文菜单中的 Create 豁免选项":::
 
-    此时将打开 &quot;创建例外" 窗格。
+    此时将打开 "创建例外" 窗格。
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="上下文菜单中的 Create 豁免选项&quot;:::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="创建例外窗格":::
 
-    此时将打开 &quot;创建例外" 页顶部的信息栏中列出了免除的资源的数目：
+1. 输入条件，并选择有关为何应免除此资源的条件：
+    - 已 **缓解** -此问题与资源无关，因为它已由不同于所建议的工具或进程处理
+    - **弃权** -接受此资源的风险
+1. 选择“保存”。
+1. 一段时间后 (可能需要长达24小时) ：
+    - 该资源不会影响安全分数。
+    - "建议详细信息" 页的 " **不适用** " 选项卡中列出了该资源
+    - "建议详细信息" 页顶部的信息栏中列出了免除的资源的数目：
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="上下文菜单中的 Create 豁免选项&quot;:::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="免除的资源数":::
 
-    此时将打开 &quot;创建例外" 选项卡。
+1. 若要查看免除的资源，请打开 " **不适用** " 选项卡。
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="上下文菜单中的 Create 豁免选项&quot;:::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="修改例外":::
 
-    此时将打开 &quot;创建例外" ) 如 (2) 所示。
+    每个例外的原因包括在表 (1) 中。
+
+    若要修改或删除例外，请选择省略号菜单 ( "..." ) 如 (2) 所示。
 
 
 ## <a name="review-all-of-the-exemption-rules-on-your-subscription"></a>查看订阅中的所有免除规则
@@ -64,9 +73,7 @@ ms.locfileid: "91532544"
 
 可以使用 Azure 策略在 **豁免** 页中跟踪所有例外：
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="上下文菜单中的 Create 豁免选项&quot;:::
-
-    此时将打开 &quot;创建例外":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure 策略的豁免页":::
 
 
 

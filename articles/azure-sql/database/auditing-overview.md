@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340026"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372721"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL 数据库和 Azure Synapse Analytics 的审核
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "93340026"
 - **分析** 报告。 可以查找可疑事件、异常活动和趋势。
 
 > [!IMPORTANT]
-> Azure SQL 数据库审核已针对可用性和性能进行优化。 在活动量极高的情况下，Azure SQL 数据库或 Azure Synapse 允许操作继续进行，可能不会记录某些已审核的事件。
+> 针对 Azure SQL 数据库和 Azure Synapse 的审核针对可用性和性能进行了优化。 在非常高的活动或高网络负载期间，Azure SQL Database 和 Azure Synapse 允许操作继续执行，并且可能不会记录某些审核的事件。
 
 ### <a name="auditing-limitations"></a>审核限制
 
