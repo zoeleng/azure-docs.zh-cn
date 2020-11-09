@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420608"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375903"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>“双类提升决策树”模块
 
@@ -56,7 +56,7 @@ ms.locfileid: "93420608"
   
 6.  对于“构造的树数”，请指定要在集成中创建的决策树的总数。 通过创建更多决策树，你可能会获得更好的覆盖范围，但训练时间将会增加。
   
-     此值还控制对训练后的模型进行可视化时显示的树的数量。 如果希望查看或打印单个树，请将此值设置为 1。 但是，如果这样做，只会生成一个树（该树采用初始的参数集），不会执行进一步的迭代。
+     如果将此值设置为1，则在树 (仅生成一个树，其中) 初始参数集，并且不执行进一步的迭代。
   
 7.  对于“随机数种子”，可以键入非负整数作为随机种子值。 指定种子可以确保具有相同数据和参数的运行之间的可再现性。  
   

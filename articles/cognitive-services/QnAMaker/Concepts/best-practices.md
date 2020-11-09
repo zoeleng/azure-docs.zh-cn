@@ -4,13 +4,13 @@ description: 使用这些最佳做法来改进知识库，并向应用程序/聊
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777014"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376751"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知识库的最佳做法
 
@@ -113,14 +113,20 @@ GenerateAnswer API 使用这两个问题和答案来搜索用户查询的最佳�
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>使用元数据标记筛选问题和解答
 
-[元数据](../How-To/edit-knowledge-base.md) 添加了一种功能，使客户端应用程序知道它不应使用所有答案，而是根据元数据标记缩小用户查询的结果范围。 即使查询相同，知识库的答案也可能因元数据标记而有所不同。 例如，如果餐馆分店的位置不同（即，元数据是“位置：西雅图”和“位置：雷德蒙德”），则“停车位在哪里？”就会有不同的答案”******。
+[元数据](../How-To/edit-knowledge-base.md) 添加了一种功能，使客户端应用程序知道它不应使用所有答案，而是根据元数据标记缩小用户查询的结果范围。 即使查询相同，知识库的答案也可能因元数据标记而有所不同。 例如，如果餐馆分店的位置不同（即，元数据是“位置：西雅图”和“位置：雷德蒙德”），则“停车位在哪里？”就会有不同的答案”。
 
 ### <a name="use-synonyms"></a>使用同义词
-虽然对英语中的同义词有某些支持，但通过 [变更 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 使用不区分大小写的单词变更将同义词添加到采用不同形式的关键字。 同义词添加到 QnA Maker 服务级别，并由服务中的所有知识库共享。
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (稳定版本) ](#tab/v1)
+虽然对英语中的同义词有某些支持，但通过 [变更 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 使用不区分大小写的单词变更将同义词添加到采用不同形式的关键字。 同义词添加到 QnA Maker 服务级别，并 **由服务中的所有知识库共享** 。
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managed (预览版) ](#tab/v2)
+虽然对英语中的同义词有某些支持，但通过 [变更 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 使用不区分大小写的单词变更将同义词添加到采用不同形式的关键字。 QnA Maker 托管 () 预览版中的同义词是 **根据知识库添加** 的。
 
 |原始字|同义词|
 |--|--|
 |buy|purchase<br>网络理财<br>net banking|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>使用不同的词来区分问题
 如果每个问题都有不同需求，那么最好是使用 QnA Maker 的匹配排名算法，这些算法将用户查询与知识库中的问题相匹配。 如果问题间存在重复的相同词组，则会降低为含有这些词的给定用户查询选择正确答案的概率。
@@ -129,10 +135,10 @@ GenerateAnswer API 使用这两个问题和答案来搜索用户查询的最佳�
 
 |QnA|
 |--|
-|停车位置在哪里**|
-|ATM*位置*在哪里|
+|停车位置在哪里|
+|ATM *位置* 在哪里|
 
-由于这两个 QnA 使用很类似的单词来措辞，因此这种相似性可能导致许多措辞类似于**“`<x>` 位置在哪里”的用户查询获得很类似的分数。 相反，尝试  *使用类似于* "位置" 的查询（例如，"位置"）来清楚地区分类似于 "位置" 的 *字词，这*在您的知识库中可能存在许多问题。
+由于这两个 QnA 使用很类似的单词来措辞，因此这种相似性可能导致许多措辞类似于“`<x>` 位置在哪里”的用户查询获得很类似的分数。 相反，尝试  *使用类似于* "位置" 的查询（例如，"位置"）来清楚地区分类似于 "位置" 的 *字词，这* 在您的知识库中可能存在许多问题。
 
 ## <a name="collaborate"></a>协作
 QnA Maker 让用户可以在知识库上进行[协作](../How-to/collaborate-knowledge-base.md)。 用户需要具备对 Azure QnA Maker 资源组的访问权限，以便访问知识库。 某些组织可能想外包知识库的编辑工作和维护工作，但仍要能保护 Azure 资源的访问权限。 在不同订阅中设置两个完全相同的 [QnA maker 服务](../How-to/set-up-qnamaker-service-azure.md)并选择一个用于编辑测试循环，即可完成编辑者-审批者模型。 完成测试后，请使用[导入-导出](../Tutorials/migrate-knowledge-base.md)进程将知识库内容转移到审批者 QnA Maker 服务，由审批者进行最终的知识库发布和终结点更新。

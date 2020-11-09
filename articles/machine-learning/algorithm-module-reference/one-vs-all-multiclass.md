@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420676"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376326"
 ---
 # <a name="one-vs-all-multiclass"></a>“一对多”多类分类
 
@@ -26,7 +26,7 @@ ms.locfileid: "93420676"
 
 某些分类算法允许在设计中使用两个以上的类。 其他分类算法会将可能的结果限制为两个值中的一个（二进制或双类模型）。 但即使是二元分类算法也可以通过各种策略应用于多类分类任务。 
 
-此模块实现一对多方法，此方法为每个输出类创建一个二元模型。 该模块针对各个类的补集（模型中的所有其他类）评估各个类的二元模型，就像处理二元分类一样。 然后该模块会执行预测，运行这些二元分类器并选择可信度最高的预测结果。  
+此模块实现一对多方法，此方法为每个输出类创建一个二元模型。 该模块针对各个类的补集（模型中的所有其他类）评估各个类的二元模型，就像处理二元分类一样。 除了其计算效率外 (仅 `n_classes` 需要使用分类器) ，这种方法的一个优点是它的 interpretability。 由于每个类仅由一个和一个分类器表示，因此可以通过检查其相应的分类器来获取有关类的知识。 这是最常用的多类分类策略，是一种公平的默认选择。 然后该模块会执行预测，运行这些二元分类器并选择可信度最高的预测结果。 
 
 从本质上讲，该模块创建了一组个体模型，然后合并结果，从而创建预测所有类的单一模型。 任何二元分类器均可用作一对多模型的基础。  
 

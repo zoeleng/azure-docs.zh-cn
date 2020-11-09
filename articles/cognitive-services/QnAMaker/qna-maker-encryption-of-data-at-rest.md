@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: e744423e00377ef763824f6e39865e6b3e8ee475
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ee3c3942ee7d01fa174947f5d9c278cddaf0424
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073533"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376905"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>静态数据加密 QnA Maker
 
@@ -24,7 +24,15 @@ QnA Maker 在将数据保存到云时，会自动对其进行加密，从而有�
 
 默认情况下，订阅使用 Microsoft 托管的加密密钥。 此外，还可以选择用自己的密钥来管理你的订阅，名为客户管理的密钥 (CMK) 。 CMK 提供更大的灵活性来创建、轮换、禁用和撤消访问控制。 此外，你还可以审核用于保护数据的加密密钥。 如果为你的订阅配置了 CMK，则会提供双加密，这提供了另一层保护，同时允许你通过 Azure Key Vault 控制加密密钥。
 
-QnA Maker 使用 Azure 搜索中的 CMK 支持。 需要 [在 Azure 搜索中使用 Azure Key Vault 创建 CMK](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)。 此 Azure 实例应该与 QnA Maker 服务相关联，以使其 CMK 启用。
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (稳定版本) ](#tab/v1)
+
+QnA Maker 使用 Azure 搜索中的 CMK 支持。 [使用 Azure Key Vault 在 Azure 搜索中配置 CMK](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)。 此 Azure 实例应该与 QnA Maker 服务相关联，以使其 CMK 启用。
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managed (预览版) ](#tab/v2)
+
+QnA Maker 使用 [azure 搜索中的 CMK 支持](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)，并自动关联提供的 CMK 以加密存储在 Azure 搜索索引中的数据。
+
+---
 
 > [!IMPORTANT]
 > 你的 Azure 搜索服务资源必须在2019年1月之后创建，且不能处于免费 (共享) 层。 不支持在 Azure 门户中配置客户管理的密钥。
@@ -33,21 +41,40 @@ QnA Maker 使用 Azure 搜索中的 CMK 支持。 需要 [在 Azure 搜索中使
 
 QnA Maker 服务使用 Azure 搜索服务中的 CMK。 请按照以下步骤启用 Cmk：
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (稳定版本) ](#tab/v1)
+
 1. 创建新的 Azure 搜索实例，并启用 [适用于 Azure 认知搜索的客户托管密钥先决条件](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites)中所述的先决条件。
 
    ![查看加密设置1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
-2. 创建 QnA Maker 资源时，它会自动与 Azure 搜索实例相关联。 这不能与 CMK 一起使用。 若要使用 CMK，需要将在步骤1中创建的新创建的 Azure 搜索实例关联起来。 具体而言，需要 `AzureSearchAdminKey` `AzureSearchName` 在 QnA Maker 资源中更新和。
+2. 创建 QnA Maker 资源时，它会自动与 Azure 搜索实例相关联。 此实例不能与 CMK 一起使用。 若要使用 CMK，需要将在步骤1中创建的新创建的 Azure 搜索实例关联起来。 具体而言，需要 `AzureSearchAdminKey` `AzureSearchName` 在 QnA Maker 资源中更新和。
 
    ![查看加密设置2](../media/cognitive-services-encryption/qna-encryption-2.png)
 
 3. 接下来，创建新的应用程序设置：
-   * **名称**：将此设置为 `CustomerManagedEncryptionKeyUrl`
-   * **值**：这是在创建 Azure 搜索实例时在步骤1中获得的值。
+   * **名称** ：设置为 `CustomerManagedEncryptionKeyUrl`
+   * **值** ：在创建 Azure 搜索实例时使用在步骤1中获得的值。
 
    ![查看加密设置3](../media/cognitive-services-encryption/qna-encryption-3.png)
 
 4. 完成后，重新启动运行时。 现在，QnA Maker 服务已启用 CMK。
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managed (预览版) ](#tab/v2)
+
+1.  中转到 QnA Maker 托管 (预览版) 服务的 " **加密** " 选项卡。
+2.  选择 " **客户托管密钥** " 选项。 提供 [客户管理的密钥](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal) 的详细信息，并单击 " **保存** "。
+
+     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="QnA Maker managed (Preview) CMK 设置" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
+
+3.  成功保存后，CMK 将用于加密 Azure 搜索索引中存储的数据。
+
+> [!IMPORTANT]
+> 建议在创建任何知识库之前，在全新的 Azure 认知搜索服务中设置 CMK。 如果使用现有的知识库在 QnA Maker 服务中设置 CMK，则可能会失去对它们的访问权限。 阅读有关在 Azure 认知搜索中使用 [加密内容](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#work-with-encrypted-content) 的详细信息。
+
+> [!NOTE]
+> 若要请求使用客户管理的密钥的功能，请填写并提交 [认知服务 Customer-Managed 密钥请求表单](https://aka.ms/cogsvc-cmk)。
+
+---
 
 ## <a name="regional-availability"></a>区域可用性
 

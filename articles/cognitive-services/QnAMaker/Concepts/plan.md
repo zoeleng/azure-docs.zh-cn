@@ -4,13 +4,13 @@ description: 了解如何计划 QnA Maker 应用。 了解 QnA Maker 的工作�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/2/2020
-ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776929"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376667"
 ---
 # <a name="plan-your-qna-maker-app"></a>规划 QnA Maker 应用
 
@@ -20,6 +20,8 @@ ms.locfileid: "91776929"
 
 使用 QnA Maker 创建的每个 [Azure 资源](azure-resources.md#resource-purposes) 都有特定目的。 每个资源都有其自己的用途、限制和 [定价层](azure-resources.md#pricing-tier-considerations)。 了解这些资源的功能非常重要，这样就可以在规划过程中使用该知识。
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (稳定版本) ](#tab/v1)
+
 | 资源 | 目的 |
 |--|--|
 | [QnA Maker](azure-resources.md#qna-maker-resource) 资源 | 创作和查询预测 |
@@ -27,6 +29,14 @@ ms.locfileid: "91776929"
 | [应用服务资源和应用计划服务](azure-resources.md#app-service-and-app-service-plan) 资源 | 查询预测终结点 |
 | [Application Insights](azure-resources.md#application-insights) 资源 | 查询预测遥测 |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managed (预览版) ](#tab/v2)
+
+| 资源 | 目的 |
+|--|--|
+| [QnA Maker](azure-resources.md#qna-maker-resource) 资源 | 创作，查询预测终结点和遥测|
+| [认知搜索](azure-resources.md#cognitive-search-resource) 资源 | 数据存储和搜索 |
+
+---
 ### <a name="resource-planning"></a>资源规划
 
 每个资源的免费层都 `F0` 有效，并可提供创作和查询预测体验。 您可以使用此层来了解创作和查询预测。 转到生产或实时方案时，请重新评估资源选择。
@@ -65,9 +75,22 @@ ms.locfileid: "91776929"
 
 ### <a name="language-considerations"></a>语言注意事项
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (稳定版本) ](#tab/v1)
+
 在 QnA Maker 资源上创建的第一个知识库为资源设置了语言。 一个 QnA Maker 资源只能有一种语言。
 
 您可以按语言构建 QnA Maker 资源，也可以在将查询发送到查询预测终结点之前，使用 [转换器](../../translator/translator-info-overview.md) 将查询从另一种语言更改为知识库的语言。
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managed (预览版) ](#tab/v2)
+
+你现在可以在同一 QnA Maker 资源中具有不同语言的知识库。 在您创建第一个知识库时，您可以选择是否要使用一种或多种语言的资源。
+
+![QnA Maker 托管 (预览版) 多语言知识库选择](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+> [!NOTE]
+> 如果为每个知识库启用语言设置，则不能在 QnA Maker 资源中创建尽可能多的知识库。 了解有关 [语言设置限制](./azure-resources.md)的详细信息。
+
+---
 
 ### <a name="ingest-data-sources"></a>引入数据源
 
@@ -87,7 +110,7 @@ ms.locfileid: "91776929"
 
 ### <a name="bot-personality"></a>机器人个性
 
-使用 [chit-聊天](../how-to/chit-chat-knowledge-base.md)将 bot 个性添加到知识库。 这项预配的答案是在某些对话音中提供的，例如 *专业* 和 *友好*的。 此 chit 是一种对话集，它具有用于添加、编辑和删除的总体控制。
+使用 [chit-聊天](../how-to/chit-chat-knowledge-base.md)将 bot 个性添加到知识库。 这项预配的答案是在某些对话音中提供的，例如 *专业* 和 *友好* 的。 此 chit 是一种对话集，它具有用于添加、编辑和删除的总体控制。
 
 如果机器人连接到知识库，则建议使用 bot 个性。 即使还连接到其他服务，你也可以选择在知识库中使用 chit-聊天，但应查看 bot 服务如何进行交互，了解这是否是正确的体系结构设计以供你使用。
 
@@ -129,7 +152,7 @@ QnA Maker 使用 _活动学习_ ，通过向答案建议替代问题来改善您
 
 ### <a name="providing-a-default-answer"></a>提供默认答案
 
-如果知识库找不到答案，将返回 _默认的答案_。 此答案可在 QnA Maker 门户的 " **设置** " 页或 [api](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body)中进行配置。
+如果知识库找不到答案，将返回 _默认的答案_ 。 此答案可在 QnA Maker 门户的 " **设置** " 页或 [api](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body)中进行配置。
 
 此默认答案不同于 Azure 机器人默认答案。 在 "配置设置" 中，在 Azure 门户中配置 Azure bot 的默认答案。 如果未满足分数阈值，则返回此值。
 
@@ -152,7 +175,15 @@ QnA Maker 使用 _活动学习_ ，通过向答案建议替代问题来改善您
 
 ### <a name="service-updates"></a>服务更新
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (稳定版本) ](#tab/v1)
+
 应用 [最新的运行时更新](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) 以自动管理服务更新。
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managed (预览版) ](#tab/v2)
+
+在 QnA Maker 托管 (预览版) ，运行时由 QnA Maker 服务本身进行管理。 因此服务更新不适用。
+
+---
 
 ### <a name="scaling-throughput-and-resiliency"></a>缩放、吞吐量和复原
 
@@ -160,7 +191,16 @@ QnA Maker 使用 _活动学习_ ，通过向答案建议替代问题来改善您
 
 ### <a name="analytics-with-application-insights"></a>分析与 Application Insights
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (稳定版本) ](#tab/v1)
+
 对知识库的所有查询都存储在 Application Insights 中。 使用 [最常见的查询](../how-to/get-analytics-knowledge-base.md) 来了解指标。
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managed (预览版) ](#tab/v2)
+
+在托管部署中，遥测通过 [Azure Monitor 服务](https://docs.microsoft.com/azure/azure-monitor/)提供。 使用 [最常见的查询](../how-to/get-analytics-knowledge-base.md) 来了解指标。
+
+
+---
 
 ## <a name="development-lifecycle"></a>开发生命周期
 
