@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348604"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426164"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>向客户端应用添加自动完成和建议
 
@@ -48,7 +48,7 @@ search 参数提供了部分查询，其中的字符通过 jQuery 自动完成�
 
 API 不会对部分查询施加最小长度要求；查询长度可以短至一个字符。 但是，jQuery 自动完成提供了一个最小长度。 通常最少包含两到三个字符。
 
-匹配项出现在输入字符串中任意位置的字词的开头。 假如输入字符串为“the quick brown fox”，则自动完成和建议都会匹配部分字词“the”、“quick”、“brown”或“fox”，但不匹配字词中包含的部分字符，例如“rown”或“ox”。 此外，每次匹配都会设置下游扩展的范围。 部分查询“quick br”将匹配“quick brown”或“quick bread”，但“brown”或“bread”本身都不是匹配项，除非它们前面带有“quick”。
+匹配项出现在输入字符串中任意位置的字词的开头。 假如输入字符串为“the quick brown fox”，则自动完成和建议都会匹配部分字词“the”、“quick”、“brown”或“fox”，但不匹配字词中包含的部分字符，例如“rown”或“ox”。 此外，每次匹配都会设置下游扩展的范围。 "Quick br" 的部分查询将与 "quick 棕色" 或 "quick 面包" 匹配，但其本身不会匹配 "棕色" 或 "面包"，除非它们的前面有 "quick"。
 
 ### <a name="apis-for-search-as-you-type"></a>用于“边键入边搜索”的 API
 
@@ -56,8 +56,8 @@ API 不会对部分查询施加最小长度要求；查询长度可以短至一�
 
 + [建议 REST API](/rest/api/searchservice/suggestions) 
 + [自动完成 REST API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync 方法](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [AutocompleteWithHttpMessagesAsync 方法](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [SuggestAsync 方法](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [AutocompleteAsync 方法](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 ## <a name="structure-a-response"></a>构建响应
 
@@ -139,45 +139,43 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Suggest 函数
 
-如果使用 C# 和 MVC 应用程序，可以在 Controllers 目录下的 HomeController.cs 文件中为建议的结果创建类。 在 .NET 中，Suggest 函数基于 [DocumentsOperationsExtensions.Suggest 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest)。 有关 .NET SDK 的详细信息，请参阅[如何从 .NET 应用程序使用 Azure 认知搜索](search-howto-dotnet-sdk.md)。
+如果使用 C# 和 MVC 应用程序，可以在 Controllers 目录下的 HomeController.cs 文件中为建议的结果创建类。 在 .NET 中，建议函数基于 [SuggestAsync 方法](/dotnet/api/azure.search.documents.searchclient.suggestasync)。 有关 .NET SDK 的详细信息，请参阅[如何从 .NET 应用程序使用 Azure 认知搜索](search-howto-dotnet-sdk.md)。
 
-`InitSearch` 方法在 Azure 认知搜索服务中创建经过身份验证的 HTTP 索引客户端。 [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters)类的属性确定在结果中搜索和返回哪些字段、匹配项的数量，以及是否使用模糊匹配。 
+`InitSearch` 方法在 Azure 认知搜索服务中创建经过身份验证的 HTTP 索引客户端。 [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions)类的属性确定在结果中搜索和返回哪些字段、匹配项的数量，以及是否使用模糊匹配。 
 
 对于自动完成，模糊匹配仅限于一次 (一个省略或错放字符) 的编辑距离。 请注意，自动完成查询中的模糊匹配有时可能会产生意外的结果，具体取决于索引大小及其分片的方式。 有关详细信息，请参阅 [分区和分片的概念](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)。
 
 ```csharp
-public ActionResult Suggest(bool highlights, bool fuzzy, string term)
+public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
 {
     InitSearch();
 
-    // Call suggest API and return results
-    SuggestParameters sp = new SuggestParameters()
+    var options = new SuggestOptions()
     {
-        Select = HotelName,
-        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
-        Top = 5
+        Size = 8,
     };
 
     if (highlights)
     {
-        sp.HighlightPreTag = "<b>";
-        sp.HighlightPostTag = "</b>";
+        options.HighlightPreTag = "<b>";
+        options.HighlightPostTag = "</b>";
     }
 
-    DocumentSuggestResult resp = _indexClient.Documents.Suggest(term, "sg", sp);
+    // Only one suggester can be specified per index.
+    // The suggester for the Hotels index enables autocomplete/suggestions on the HotelName field only.
+    // During indexing, HotelNames are indexed in patterns that support autocomplete and suggested results.
+    var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", options).ConfigureAwait(false);
 
     // Convert the suggest query results to a list that can be displayed in the client.
-    List<string> suggestions = resp.Results.Select(x => x.Text).ToList();
-    return new JsonResult
-    {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = suggestions
-    };
+    List<string> suggestions = suggestResult.Value.Results.Select(x => x.Text).ToList();
+
+    // Return the list of suggestions.
+    return new JsonResult(suggestions);
 }
 ```
 
-Suggest 函数采用两个参数，用于确定是要返回命中的突出显示内容，还是在返回搜索词输入的同时返回模糊匹配结果。 该方法创建 [SuggestParameters 对象](/dotnet/api/microsoft.azure.search.models.suggestparameters)，该对象随后会传递给 Suggest API。 然后，结果将转换成 JSON，以便在客户端中显示。
+SuggestAsync 函数采用两个参数，用于确定是否返回命中突出显示内容，或者除了搜索词输入以外，还使用模糊匹配。 建议的结果中最多可包含八个匹配项。 方法创建一个 [SuggestOptions 对象](/dotnet/api/azure.search.documents.suggestoptions)，该对象随后会传递到建议的 API。 然后，结果将转换成 JSON，以便在客户端中显示。
 
 ## <a name="autocomplete"></a>自动完成
 
@@ -185,7 +183,7 @@ Suggest 函数采用两个参数，用于确定是要返回命中的突出显示
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.8 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#searchbox1").autocompleteInline({
         appendMethod: "replace",
@@ -220,28 +218,25 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Autocomplete 函数
 
-Autocomplete 基于 [DocumentsOperationsExtensions.Autocomplete 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete)。 与建议一样，此代码块位于 HomeController.cs 文件中。
+自动完成基于 [AutocompleteAsync 方法](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)。 与建议一样，此代码块位于 HomeController.cs 文件中。
 
 ```csharp
-public ActionResult AutoComplete(string term)
+public async Task<ActionResult> AutoCompleteAsync(string term)
 {
     InitSearch();
-    //Call autocomplete API and return results
-    AutocompleteParameters ap = new AutocompleteParameters()
-    {
-        AutocompleteMode = AutocompleteMode.OneTermWithContext,
-        UseFuzzyMatching = false,
-        Top = 5
-    };
-    AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Convert the Suggest results to a list that can be displayed in the client.
-    List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
-    return new JsonResult
+    // Setup the autocomplete parameters.
+    var ap = new AutocompleteOptions()
     {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = autocomplete
+        Mode = AutocompleteMode.OneTermWithContext,
+        Size = 6
     };
+    var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap).ConfigureAwait(false);
+
+    // Convert the autocompleteResult results to a list that can be displayed in the client.
+    List<string> autocomplete = autocompleteResult.Value.Results.Select(x => x.Text).ToList();
+
+    return new JsonResult(autocomplete);
 }
 ```
 

@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148229"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425773"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>在 Azure Sentinel 中 (UEBA) 启用用户和实体行为分析 
 
 > [!IMPORTANT]
 >
-> - UEBA 功能现已在以下 Azure Sentinel 地域和区域 **公开上市** ：
+> - UEBA 和实体页功能现已在以下 Azure Sentinel 地理位置和区域 **公开上市** ：
 >    - 美国地域
 >    - 西欧地区
 >    - 澳大利亚地区
 >
-> - 在所有其他地理位置和地区，此功能在 **公共预览版** 中仍保持不变，提供时不提供服务级别协议。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> - 在所有其他地理位置和区域，这些功能在 **预览** 阶段仍保留下来。 请参阅 [Microsoft Azure 预览版的补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) ，了解适用于 Azure 功能的其他法律条款，这些功能适用于 beta 版、预览版或其他情况下尚未公开上市。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备知识
 
 若要启用或禁用此功能 (使用此功能) 不需要这些先决条件：
 

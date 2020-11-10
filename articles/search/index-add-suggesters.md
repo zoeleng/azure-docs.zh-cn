@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ed7b61e9e0379462e0dfbcdcc93acfccf470d95f
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360011"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427031"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>创建建议器，以在查询中启用“自动完成”和“建议结果”功能
 
@@ -26,7 +26,7 @@ ms.locfileid: "93360011"
 
 可以单独使用这些功能，或将它们一起使用。 有一个索引和查询组件可在 Azure 认知搜索中实现这些行为。 
 
-+ 在索引中，将建议器添加到索引。 可以使用门户、[REST API](/rest/api/searchservice/create-index) 或 [.NET SDK](/dotnet/api/microsoft.azure.search.models.suggester)。 本文的余下内容重点介绍如何创建建议器。
++ 在索引中，将建议器添加到索引。 可以使用门户 [Create Index (REST) # B2/rest/api/searchservice/create-index) 或 [建议器属性](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters)。 本文的余下内容重点介绍如何创建建议器。
 
 + 在查询请求中，调用[下面列出的 API](#how-to-use-a-suggester) 之一。
 
@@ -107,24 +107,23 @@ ms.locfileid: "93360011"
 
 ## <a name="create-using-net"></a>使用 .NET 进行创建
 
-在 C# 中定义[建议器对象](/dotnet/api/microsoft.azure.search.models.suggester)。 `Suggesters` 是一个集合，但它只能采用一个项。 
+在 c # 中，定义一个 [SearchSuggester 对象](/dotnet/api/azure.search.documents.indexes.models.searchsuggester)。 `Suggesters` 是 SearchIndex 对象上的集合，但它只能是一个项。 
 
 ```csharp
-private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new Index()
-    {
-        Name = "hotels-sample-index",
-        Fields = FieldBuilder.BuildForType<Hotel>(),
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    };
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    serviceClient.Indexes.Create(definition);
+    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
 
+    var definition = new SearchIndex(indexName, searchFields);
+
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
+
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
@@ -134,7 +133,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |建议器的名称。|
 |`searchMode`  |用于搜索候选短语的策略。 目前支持的唯一模式是 `analyzingInfixMatching`，该模式目前匹配字词的开头。|
-|`sourceFields`|作为建议内容源的一个或多个字段的列表。 字段的类型必须是 `Edm.String` 和 `Collection(Edm.String)`。 如果在字段中指定某个分析器，该分析器必须是[此列表](/dotnet/api/microsoft.azure.search.models.analyzername)中指定的分析器（而不是自定义分析器）。<p/> 作为最佳做法，请仅指定有助于生成预期相应响应的字段，无论该响应是搜索栏还是下拉列表中的已完成字符串。<p/>酒店名称就是一很好的候选项，因为它很精确。 说明和注释等详细字段过于密集。 同样，类别和标记等重复性字段的效率较低。 在示例中，我们仍然包含了“category”来演示可以包含多个字段。 |
+|`sourceFields`|作为建议内容源的一个或多个字段的列表。 字段的类型必须是 `Edm.String` 和 `Collection(Edm.String)`。 如果在字段中指定某个分析器，该分析器必须是[此列表](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)中指定的分析器（而不是自定义分析器）。<p/> 作为最佳做法，请仅指定有助于生成预期相应响应的字段，无论该响应是搜索栏还是下拉列表中的已完成字符串。<p/>酒店名称就是一很好的候选项，因为它很精确。 说明和注释等详细字段过于密集。 同样，类别和标记等重复性字段的效率较低。 在示例中，我们仍然包含了“category”来演示可以包含多个字段。 |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -144,8 +143,8 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 + [建议 REST API](/rest/api/searchservice/suggestions)
 + [自动完成 REST API](/rest/api/searchservice/autocomplete)
-+ [SuggestWithHttpMessagesAsync 方法](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [AutocompleteWithHttpMessagesAsync 方法](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [SuggestAsync 方法](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [AutocompleteAsync 方法](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 在搜索应用程序中，客户端代码应利用 [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) 之类的库来收集部分查询并提供匹配项。 有关此任务的详细信息，请参阅[将“自动完成”或“建议结果”功能添加到客户端代码](search-autocomplete-tutorial.md)。
 

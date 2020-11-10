@@ -9,12 +9,12 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d61942155e46792f95091957925523381a5a9cda
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: efa434959df1d0310e390e78cee2ada726f61827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422614"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427529"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
@@ -411,7 +411,7 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 ```
 
 > [!NOTE]
-> 如果要设置 **默认** ACL 条目，请在运行 **AzDataLakeGen2ItemAclObject** 命令时使用 **-属性 namedobject.defaultscope** 参数。 例如： `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`。
+> 如果要设置 **默认** ACL 条目，请在运行 **AzDataLakeGen2ItemAclObject** 命令时使用 **-属性 namedobject.defaultscope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`。
 
 若要查看通过指定批大小以批处理方式设置 Acl 的示例，请参阅 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 参考文章。
 
@@ -604,7 +604,7 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 ```
 
 > [!NOTE]
-> 如果要更新 **默认** ACL 条目，请在运行 **AzDataLakeGen2ItemAclObject** 命令时使用 **-属性 namedobject.defaultscope** 参数。 例如： `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`。
+> 如果要更新 **默认** ACL 条目，请在运行 **AzDataLakeGen2ItemAclObject** 命令时使用 **-属性 namedobject.defaultscope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`。
 
 若要查看通过指定批大小以批处理方式更新 Acl 的示例，请参阅 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive) 参考文章。
 
@@ -619,7 +619,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> 如果要更新 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如，`default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x` 。
+> 如果要更新 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如，`default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`。
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -745,7 +745,7 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 ```
 
 > [!NOTE]
-> 如果要删除 **默认** ACL 条目，请在运行 **AzDataLakeGen2ItemAclObject** 命令时使用 **-属性 namedobject.defaultscope** 参数。 例如： `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`。
+> 如果要删除 **默认** ACL 条目，请在运行 **AzDataLakeGen2ItemAclObject** 命令时使用 **-属性 namedobject.defaultscope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`。
 
 若要查看通过指定批大小以批处理方式递归删除 Acl 的示例，请参阅 [AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) 参考文章。
 
@@ -760,7 +760,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> 如果要删除 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如，`default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 。
+> 如果要删除 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如，`default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`。
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -994,12 +994,6 @@ def resume_set_acl_recursive(continuation_token):
 此示例使用 `ContinueOnFailure` 参数，这样即使操作遇到权限错误，也会继续执行。 
 
 ```powershell
-
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-
 $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
 
 echo "[Result Summary]"

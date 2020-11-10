@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Java 应用程序的应用程序性能监视，无需修改代码即可在任何环境中运行。 分布式跟踪和应用程序映射。
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379763"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426827"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 无代码置备应用程序监视 Azure Monitor Application Insights
 
@@ -16,9 +16,9 @@ Java 无代码应用程序监视只是为了简化操作 - 无需更改代码，
 
  Java 代理可在任何环境中正常工作，并允许你监视所有 Java 应用程序。 换句话说，无论你是在 VM 上、本地、AKS 中还是在 Windows、Linux 上运行 Java 应用，不管什么位置，Java 3.0 代理都可以监视你的应用。
 
-不再需要将 Application Insights Java SDK 添加到你的应用程序，因为 3.0 代理会自动收集请求、依赖项并自行记录所有内容。
+不再需要将 Application Insights Java SDK 添加到应用程序，因为3.0 代理会自动收集所有请求、依赖项和日志。
 
-你仍可以从应用程序发送自定义遥测。 3\.0 代理会跟踪它并将其与所有自动收集的遥测数据相关联。
+你仍可以从应用程序发送自定义遥测。 3.0 agent 将跟踪该代理，并将其与所有自动收集的遥测数据相关联。
 
 3.0 代理支持 Java 8 及更高版本。
 
@@ -82,7 +82,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 * 采样
 * JMX 指标
 * 自定义维度
-* 遥测处理器
+*  (预览版的遥测处理器) 
 * 自动收集的日志记录
 * 自动收集的 Micrometer 指标 (包括弹簧 Boot 制动器指标) 
 * 检测信号
@@ -91,7 +91,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 
 有关完整详细信息，请参阅 [配置选项](./java-standalone-config.md) 。
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>自动收集的请求、依赖项、日志和指标
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>自动收集的请求、依赖项、日志和指标
 
 ### <a name="requests"></a>请求
 

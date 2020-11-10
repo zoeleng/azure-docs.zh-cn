@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8f4d16931f09f94af81dd4e0f178ce6e0f990881
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398090"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426198"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>有关 Azure API for FHIR 的常见问题解答
 
@@ -29,6 +29,9 @@ ms.locfileid: "93398090"
 ### <a name="what-identity-provider-do-you-support"></a>你支持哪些标识提供程序？
 
 目前支持 Microsoft Azure Active Directory 作为标识提供者。
+
+### <a name="what-is-the-recovery-point-objective-rpo-for-the-azure-api-for-fhir"></a>对于 FHIR 的 Azure API，恢复点目标是什么 (RPO) ？
+Cosmos DB 作为永久性提供程序，为 FHIR 的 Azure API 提供支持。 因此，服务的 RPO 等于 [Cosmos DB (单区域) ](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) ，并 < 240 分钟。
 
 ### <a name="what-fhir-version-do-you-support"></a>你支持哪个 FHIR 版本？
 

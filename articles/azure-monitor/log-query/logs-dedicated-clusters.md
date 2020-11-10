@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 293a3fc10920a29cd41e4bdb946e5bb06762eb52
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996322"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427490"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor 记录专用群集
 
@@ -23,7 +23,7 @@ Azure Monitor 日志专用群集是一种部署选项，可用于更好地为大
 - **功能** -某些企业功能仅适用于专用群集-具体而言， (CMK) 和密码箱支持的客户托管密钥。 
 - **一致性** -客户具有自己的专用资源，因此不会影响在同一共享基础结构上运行的其他客户。
 - **成本效率** -使用专用群集可能更具成本效益，因为分配的容量预留层将考虑所有的群集引入，并将其应用到所有的工作区，即使其中一些工作区较小且不符合容量保留折扣。
-- 如果所有工作区都在同一群集上，则**跨工作区**查询运行速度更快。
+- 如果所有工作区都在同一群集上，则 **跨工作区** 查询运行速度更快。
 
 专用群集要求客户每天使用至少 1 TB 的数据引入容量进行提交。 迁移到专用群集非常简单。 无数据丢失或服务中断。 
 
@@ -47,9 +47,9 @@ Log Analytics 专用群集使用至少 1000 GB/天的容量保留定价模型。
 
 对于群集上的使用情况，有两种计费模式。 配置群集时，可通过 `billingType` 参数指定这些计费模式。 
 
-1. **群集**：在此情况下（其为默认情况），引入数据的计费在群集级别完成。 将聚合与群集关联的每个工作区中的引入数据数量，以计算群集的每日账单。 
+1. **群集** ：在此情况下（其为默认情况），引入数据的计费在群集级别完成。 将聚合与群集关联的每个工作区中的引入数据数量，以计算群集的每日账单。 
 
-2. **工作区**：在为每个工作区的 [Azure 安全中心](../../security-center/index.yml) 中的每个节点分配记帐后，群集的容量保留成本将按节点分配给群集中的工作区 (。 ) 
+2. **工作区** ：在为每个工作区的 [Azure 安全中心](../../security-center/index.yml) 中的每个节点分配记帐后，群集的容量保留成本将按节点分配给群集中的工作区 (。 ) 
 
 请注意，如果工作区使用的是旧的每节点定价层，则当其链接到某个群集时，将基于针对群集容量预留的数据引入进行计费，并且不再按节点计费。 将继续应用 Azure 安全中心的每个节点的数据分配。
 
@@ -62,12 +62,12 @@ Log Analytics 专用群集使用至少 1000 GB/天的容量保留定价模型。
 
 必须指定以下属性：
 
-- **ClusterName**：用于管理目的。 不会向用户公开此名称。
-- **ResourceGroupName**：对于任何 Azure 资源，群集都属于某个资源组。 建议使用中央 IT 资源组，因为群集通常由组织中的许多团队共享。 有关更多设计注意事项，请查看 [设计 Azure Monitor 日志部署](../platform/design-logs-deployment.md)
-- **位置**：群集位于特定的 Azure 区域中。 只有位于此区域的工作区可以链接到此群集。
-- **SkuCapacity**：创建*群集*资源时，必须指定 (sku) 的*容量保留*级别。 *容量预留*级别可以在 1000 gb 到 3000 gb 之间。 如果需要，可以在以后的100中更新。 如果需要的容量预留级别超过 3000 GB，请联系我们 LAIngestionRate@microsoft.com 。 有关群集成本的详细信息，请参阅 [管理 Log Analytics 群集的成本](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **ClusterName** ：用于管理目的。 不会向用户公开此名称。
+- **ResourceGroupName** ：对于任何 Azure 资源，群集都属于某个资源组。 建议使用中央 IT 资源组，因为群集通常由组织中的许多团队共享。 有关更多设计注意事项，请查看 [设计 Azure Monitor 日志部署](../platform/design-logs-deployment.md)
+- **位置** ：群集位于特定的 Azure 区域中。 只有位于此区域的工作区可以链接到此群集。
+- **SkuCapacity** ：创建 *群集* 资源时，必须指定 (sku) 的 *容量保留* 级别。 *容量预留* 级别可以在 1000 gb 到 3000 gb 之间。 如果需要，可以在以后的100中更新。 如果需要的容量预留级别超过 3000 GB，请联系我们 LAIngestionRate@microsoft.com 。 有关群集成本的详细信息，请参阅 [管理 Log Analytics 群集的成本](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 
-创建 *群集* 资源后，可以编辑其他属性，例如 *Sku*、* keyVaultProperties 或 *billingType*。 参阅下面的更多详细信息。
+创建 *群集* 资源后，可以编辑其他属性，例如 *Sku* 、* keyVaultProperties 或 *billingType* 。 参阅下面的更多详细信息。
 
 > [!WARNING]
 > 群集创建触发资源分配和设置。 此操作最长可能需要一小时才能完成。 建议以异步方式运行。
@@ -156,13 +156,13 @@ Content-type: application/json
    }
    ```
 
-*PrincipalId* GUID 由*群集*资源的托管标识服务生成。
+*PrincipalId* GUID 由 *群集* 资源的托管标识服务生成。
 
 ## <a name="change-cluster-properties"></a>更改群集属性
 
 创建 *群集* 资源并对其进行完全预配后，可以使用 PowerShell 或 REST API 在群集级别编辑其他属性。 除了在群集创建期间可用的属性以外，还可以在预配群集后设置其他属性：
 
-- **keyVaultProperties**：用于配置用于预配 [Azure Monitor 客户管理的密钥](../platform/customer-managed-keys.md#cmk-provisioning-procedure)的 Azure Key Vault。 它包含以下参数：  *KeyVaultUri*、 *KeyName*、 *KeyVersion*。 
+- **keyVaultProperties** ：用于配置用于预配 [Azure Monitor 客户管理的密钥](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure)的 Azure Key Vault。 它包含以下参数：  *KeyVaultUri* 、 *KeyName* 、 *KeyVersion* 。 
 - **billingType** - *billingType* 属性确定 *群集* 资源及其数据的计费归属：
   - **群集** (默认) -群集的容量保留成本归属于 *群集* 资源。
   - **工作区** -群集的容量预留成本与群集中的工作区按比例进行了分类，如果当天的总引入数据低于容量预留，则会向 *群集* 资源计费一些使用情况。 请参阅 [Log Analytics 专用群集](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) ，了解群集定价模型的详细信息。 
@@ -180,7 +180,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 **REST**
 
 > [!NOTE]
-> 可以使用 PATCH 更新 *群集* 资源 *sku*、 *keyVaultProperties* 或 *billingType* 。
+> 可以使用 PATCH 更新 *群集* 资源 *sku* 、 *keyVaultProperties* 或 *billingType* 。
 
 例如： 
 
@@ -377,7 +377,7 @@ Authorization: Bearer <token>
 
 删除群集资源后，物理群集将进入清除和删除过程。 删除群集将删除存储在群集中的所有数据。 数据可以来自已链接到过去的群集的工作区。
 
-过去 14 天内删除的群集资源处于软删除状态，因此该群集资源及其数据均可恢复。 由于所有工作区都已与*群集资源*删除*Cluster*解除关联，因此你需要在恢复后重新关联你的工作区。 用户无法执行恢复操作，请联系你的 Microsoft 渠道或支持恢复请求。
+过去 14 天内删除的群集资源处于软删除状态，因此该群集资源及其数据均可恢复。 由于所有工作区都已与 *群集资源* 删除 *Cluster* 解除关联，因此你需要在恢复后重新关联你的工作区。 用户无法执行恢复操作，请联系你的 Microsoft 渠道或支持恢复请求。
 
 删除后的14天内，群集资源名称是保留名称，不能由其他资源使用。
 

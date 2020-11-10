@@ -2,20 +2,20 @@
 title: 资源提供程序和资源类型
 description: 介绍支持 Azure 资源管理器的资源提供程序。 它介绍其架构、可用 API 版本，以及可以承载资源的区域。
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278847"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426453"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
 部署资源时，经常需要检索有关资源提供程序和类型的信息。 例如，若要存储密钥和机密，请使用 Microsoft.KeyVault 资源提供程序。 此资源提供程序提供名为“保管库”的资源类型，用于创建密钥保管库。
 
-资源类型的名称采用以下格式：{resource-provider}/{resource-type}  。 Key Vault 的资源类型为 **Microsoft.KeyVault/vaults**。
+资源类型的名称采用以下格式：{resource-provider}/{resource-type}  。 Key Vault 的资源类型为 **Microsoft.KeyVault/vaults** 。
 
 在本文中，学习如何：
 
@@ -32,7 +32,7 @@ ms.locfileid: "89278847"
 
 ## <a name="register-resource-provider"></a>注册资源提供程序
 
-使用资源提供程序之前，必须为你的 Azure 订阅注册资源提供程序。 此步骤配置你的订阅，使之与资源提供程序配合工作。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。
+在使用资源提供程序之前，必须为资源提供程序注册你的 Azure 订阅。 注册会将你的订阅配置为使用资源提供程序。 某些资源提供程序在默认情况下已注册。 执行特定操作时，会自动注册其他资源提供程序。 例如，通过门户创建资源时，通常会注册资源提供程序。 对于其他方案，你可能需要手动注册资源提供程序。
 
 本文介绍了如何检查资源提供程序的注册状态，并根据需要将其注册。 你必须具备为资源提供程序执行 `/register/action` 操作的权限。 此权限包含在“参与者”和“所有者”角色中。
 
@@ -45,7 +45,7 @@ ms.locfileid: "89278847"
 查看所有资源提供程序和订阅的注册状态：
 
 1. 登录 [Azure 门户](https://portal.azure.com)。
-2. 在 Azure 门户菜单中，选择“所有服务”  。
+2. 在 Azure 门户菜单上，选择“所有服务”。
 
     ![选择“订阅”](./media/resource-providers-and-types/select-all-services.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "89278847"
 
     ![显示资源提供程序](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. 若要注册资源提供程序，请选择“注册”  。 在上面的屏幕截图中，对于“Microsoft.Blueprint”**** 突出显示了“注册”**** 链接。
+6. 若要注册资源提供程序，请选择“注册”  。 在上面的屏幕截图中，对于“Microsoft.Blueprint”突出显示了“注册”链接。
 
 查看特定资源提供程序的信息：
 
@@ -83,8 +83,6 @@ ms.locfileid: "89278847"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
 ```azurepowershell-interactive
@@ -101,6 +99,12 @@ Microsoft.ClassicNetwork         Registered
 Microsoft.ClassicStorage         Registered
 Microsoft.CognitiveServices      Registered
 ...
+```
+
+若要查看订阅的所有已注册资源提供程序，请使用：
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
 若要注册资源提供程序，请使用：
@@ -190,7 +194,7 @@ West US
 
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -206,9 +210,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
+若要查看订阅的所有已注册资源提供程序，请使用：
+
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
 若要注册资源提供程序，请使用：
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -216,7 +226,7 @@ az provider register --namespace Microsoft.Batch
 
 若要查看特定资源提供程序的信息，请使用：
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -235,7 +245,7 @@ az provider show --namespace Microsoft.Batch
 
 若要查看资源提供程序的资源类型，请使用：
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -254,7 +264,7 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 
 若要获取资源类型可用的 API 版本，请使用：
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -274,7 +284,7 @@ Result
 
 若要获取某一资源类型的受支持位置，请使用。
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
