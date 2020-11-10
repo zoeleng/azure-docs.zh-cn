@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f159e38eb66e1758feaf743c32d8de30c614b234
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288505"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310315"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL 中支持的 Transact-SQL 功能
 
@@ -79,11 +79,11 @@ Synapse SQL 可让你使用内置安全功能来保护数据和控制访问。 �
 | **用户** |  不适用（数据库中仅支持包含的用户） | 是 |
 | **[包含的用户](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | 是的。 **注意：** 只能分配一个 Azure AD 用户作为非受限管理员 | 是 |
 | **SQL 用户名/密码身份验证**| 是 | 是 |
-| **Azure Active Directory (AAD) 身份验证**| 是，Azure AD 用户 | 是，Azure AD 登录名和用户 |
-| **存储 Azure Active Directory (AAD) 直通身份验证** | 是 | 是 |
+| **Azure Active Directory (Azure AD) 身份验证**| 是，Azure AD 用户 | 是，Azure AD 登录名和用户 |
+| **存储 Azure Active Directory (Azure AD) 直通身份验证** | 是 | 是 |
 | **存储 SAS 令牌身份验证** | 否 | 是，在 [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 中使用 [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)，或使用实例级的 [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)。 |
 | **存储访问密钥身份验证** | 是，在 [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 中使用 [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 否 |
-| **存储[托管标识](../security/synapse-workspace-managed-identity.md)身份验证** | 是，使用[托管服务标识凭据](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 是，使用 `Managed Identity` 凭据。 |
+| **存储 [托管标识](../security/synapse-workspace-managed-identity.md)身份验证** | 是，使用[托管服务标识凭据](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 是，使用 `Managed Identity` 凭据。 |
 | **存储应用程序标识身份验证** | [是](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 否 |
 | **权限 - 对象级别** | 是，包括能够授予、拒绝和撤销用户的权限 | 是，包括能够授予、拒绝和撤销用户/登录名对受支持系统对象的权限 |
 | **权限 - 架构级别** | 是，包括能够授予、拒绝和撤销用户/登录名对架构的权限 | 是，包括能够授予、拒绝和撤销用户/登录名对架构的权限 |
@@ -103,7 +103,7 @@ Synapse SQL 可让你使用内置安全功能来保护数据和控制访问。 �
 | **[防火墙规则](../security/synapse-workspace-ip-firewall.md)**| 是 | 是 |
 | **[专用终结点](../security/synapse-workspace-managed-private-endpoints.md)**| 是 | 是 |
 
-SQL 池和 SQL 按需版本使用标准 Transact-SQL 语言来查询数据。 有关详细差异，请查看 [Transact-SQL 语言参考](/sql/t-sql/language-reference)。
+专用 SQL 池和无服务器 SQL 池使用标准 Transact-SQL 语言来查询数据。 有关详细差异，请查看 [Transact-SQL 语言参考](/sql/t-sql/language-reference)。
 
 ## <a name="tools"></a>工具
 
@@ -118,7 +118,7 @@ SQL 池和 SQL 按需版本使用标准 Transact-SQL 语言来查询数据。 �
 | **SQL Server Management Studio** | 是 | 是，18.5 版或更高版本 |
 
 > [!NOTE]
-> 可以使用 SSMS 连接到 SQL 按需版本（预览版）并查询。 这从 18.5 版开始部分支持，仅可用于连接和查询。
+> 可以使用 SSMS 连接到无服务器 SQL 池（预览版）并查询。 这从 18.5 版开始部分支持，仅可用于连接和查询。
 
 大多数应用程序使用标准 Transact-SQL 语言来查询 Synapse SQL 的预配使用模型和无服务器使用模型。
 
@@ -150,7 +150,7 @@ SQL 池和 SQL 按需版本使用标准 Transact-SQL 语言来查询数据。 �
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | 否 | 否 |
 
 ## <a name="next-steps"></a>后续步骤
-在以下文章中可以找到有关 SQL 池和 SQL 按需版本最佳做法的更多信息：
+在以下文章中可以找到有关专用 SQL 池和无服务器 SQL 池最佳做法的更多信息：
 
-- [有关 SQL 池的最佳做法](best-practices-sql-pool.md)
-- [有关 SQL 按需版本的最佳做法](best-practices-sql-on-demand.md)
+- [专用 SQL 池最佳做法](best-practices-sql-pool.md)
+- [无服务器 SQL 池最佳做法](best-practices-sql-on-demand.md)

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd262b942d6ce4e423f524c7381574afd501f466
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88080943"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927543"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>开始监视 ASP.NET Web 应用程序
 
@@ -62,13 +62,13 @@ Application Insights 收集应用程序的遥测数据，而不考虑应用程�
 
 1. 在解决方案资源管理器中展开“连接的服务”文件夹（云和插头图标），然后右键单击 **Application Insights** 文件夹，单击“打开 Application Insights 门户”。  可以看到有关应用程序的一些信息和各种选项。
 
-    ![应用程序地图](media/quick-monitor-portal/04-overview.png)
+    ![显示有关 Application Insights 门户中应用程序的信息的屏幕截图。](media/quick-monitor-portal/04-overview.png)
 
 2. 单击“应用程序映射”以获取应用程序组件之间依赖关系的可视布局。  每个组件均显示 KPI，如负载、性能、失败和警报。
 
     ![应用程序地图](media/quick-monitor-portal/05-appmap.png)
 
-3. 单击其中一个应用程序组件上的“应用分析”图标 ![应用程序地图](media/quick-monitor-portal/app-viewinlogs-icon.png)“在日志(分析)中查看”。 这将打开“日志(分析)”，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
+3. 在其中一个应用程序组件上单击“应用分析”图标![“应用分析”图标的屏幕截图。](media/quick-monitor-portal/app-viewinlogs-icon.png) “在日志中查看(分析)”。 这将打开“日志(分析)”，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
 
     ![分析](media/quick-monitor-portal/6viewanalytics.png)
 
@@ -104,7 +104,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ## <a name="clean-up-resources"></a>清理资源
 完成测试后，即可删除资源组和所有相关的资源。 为此，请执行以下步骤。
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。
-2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup**，并单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup** ，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 在本快速入门中，已通过 Azure Application Insights 为应用程序启用了监视。  继续学习教程，了解如何使用它来监视统计信息和检测应用程序中的问题。

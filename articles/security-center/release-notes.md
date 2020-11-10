@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 3ea8e944a004dc89dadc74e4ab2e3e4b295b3a9b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 6de06e4ab9a302517a09b34de56c1b5535b245a9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900238"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357804"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure 安全中心的新增功能
 
@@ -29,6 +29,37 @@ ms.locfileid: "92900238"
 
 > [!TIP]
 > 如果要查找 6 个月之前的项目，可查看 [Azure 安全中心的新增功能存档](release-notes-archive.md)。
+
+
+## <a name="november-2020"></a>2020 年 11 月
+
+### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>添加了 29 条预览建议，以扩大 Azure 安全基准的覆盖范围
+
+Azure 安全基准是由 Microsoft 创作的特定于 Azure 的一组准则，适用于基于常见合规框架的安全与合规最佳做法。 [详细了解 Azure 安全基准](../security/benchmarks/introduction.md)。
+
+已在安全中心添加下列 29 条预览建议，以扩大此基准的覆盖范围。
+
+预览版建议不会显示资源运行不正常，并且在计算安全功能分数时不会包含这些建议。 请尽量修正这些建议，以便在预览期结束之后，借助这些建议提高安全功能分数。 如需详细了解如何响应这些建议，请参阅[修正 Azure 安全中心的建议](security-center-remediate-recommendations.md)。
+
+| 安全控制                     | 新建议                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 加密传输中的数据              | - 应为 PostgreSQL 数据库服务器启用“强制 SSL 连接”<br>- 应为 MySQL 数据库服务器启用“强制 SSL 连接”<br>- 应将 TLS 更新为 API 应用的最新版本<br>- 应将 TLS 更新为函数应用的最新版本<br>- 应将 TLS 更新为 Web 应用的最新版本<br>- 应在 API 应用中要求使用 FTPS<br>- 应在函数应用中要求使用 FTPS<br>- 应在 Web 应用中要求使用 FTPS                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 管理访问和权限        | - Web 应用应请求一个用于所有传入请求的 SSL 证书<br>- 应在 API 应用中使用托管标识<br>- 应在函数应用中使用托管标识<br>- 应在 Web 应用中使用托管标识                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 限制未经授权的网络访问 | - 应为 PostgreSQL 服务器启用专用终结点<br>- 应为 MariaDB 服务器启用专用终结点<br>- 应为 MySQL 服务器启用专用终结点                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 启用审核和日志记录          | - 应启用应用服务中的诊断日志                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 实现安全最佳实践    | - 应为虚拟机启用 Azure 备份<br>- 应为 Azure Database for MariaDB 启用异地冗余备份<br>- 应为 Azure Database for MySQL 启用异地冗余备份<br>- 应为 Azure Database for PostgreSQL 启用异地冗余备份<br>- 应将 PHP 更新为 API 应用的最新版本<br>- 应将 PHP 更新为 Web 应用的最新版本<br>- 应将 Java 更新为 API 应用的最新版本<br>- 应将 Java 更新为函数应用的最新版本<br>- 应将 Java 更新为 Web 应用的最新版本<br>- 应将 Python 更新为 API 应用的最新版本<br>- 应将 Python 更新为函数应用的最新版本<br>- 应将 Python 更新为 Web 应用的最新版本<br>- 应将 SQL Server 的审核保留设置为至少 90 天 |
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+相关链接：
+
+- [详细了解 Azure 安全基准](../security/benchmarks/introduction.md)
+- [详细了解 Azure API 应用](../app-service/app-service-web-tutorial-rest-api.md)
+- [详细了解 Azure 函数应用](../azure-functions/functions-overview.md)
+- [详细了解 Azure Web 应用](../app-service/overview.md)
+- [详细了解 Azure Database for MariaDB](../mariadb/overview.md)
+- [详细了解 Azure Database for MySQL](../mysql/overview.md)
+- [详细了解 Azure Database for PostgreSQL](../postgresql/overview.md)
+
 
 
 
@@ -741,137 +772,3 @@ Azure 安全中心的 SQL 计算机高级数据安全现在保护托管在 Azure
 |                                                                                                                                                                                                                                                                       |                                      |
 
 详细了解 [Azure 安全中心的威胁防护](azure-defender.md)。
-
-
-
-
-
-## <a name="may-2020"></a>2020 年 5 月
-
-5 月的更新包括以下内容：
-- [警报抑制规则（预览版）](#alert-suppression-rules-preview)
-- [虚拟机漏洞评估现已正式发布](#virtual-machine-vulnerability-assessment-is-now-generally-available)
-- [对实时 (JIT) 虚拟机 (VM) 访问权限的更改](#changes-to-just-in-time-jit-virtual-machine-vm-access)
-- [自定义建议已移至单独的安全控件](#custom-recommendations-have-been-moved-to-a-separate-security-control)
-- [已添加开关，可在控件中显示建议或以简单列表的形式显示](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
-- [扩展了“实现安全最佳做法”这一安全控件](#expanded-security-control-implement-security-best-practices)
-- [具有自定义元数据的自定义策略现已正式发布](#custom-policies-with-custom-metadata-are-now-generally-available)
-- [故障转储分析功能正在迁至无文件攻击检测中](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
-
-
-### <a name="alert-suppression-rules-preview"></a>警报抑制规则（预览版）
-
-这项新功能目前为预览版，它可帮助缓解警报疲劳。 可使用规则来自动隐藏已知无害或已知与你组织中的正常活动相关的警报。 这可让你专注于最相关的威胁。 
-
-仍将生成与你启用的抑制规则相匹配的警报，但它们的状态将设置为“已取消”。 你可在 Azure 门户中查看状态，也可在安全中心查看安全警报。
-
-抑制规则定义了自动取消警报所应遵循的条件。 通常，使用抑制规则来：
-
-- 取消已标识为“误报”的警报
-
-- 取消限制过于频繁地触发而失去作用的警报
-
-详细了解如何[取消来自 Azure 安全中心威胁防护服务的警报](alerts-suppression-rules.md)。
-
-
-### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>虚拟机漏洞评估现已正式发布
-
-安全中心的标准层现包含集成的虚拟机漏洞评估，该扩展免费提供。 该扩展由 Qualys 提供支持，但将检测结果直接报告回安全中心。 你无需具备 Qualys 许可证，甚至还不需要 Qualys 帐户 - 所有操作都在安全中心内无缝执行。
-
-这一新的解决方案可持续扫描你的虚拟机来找出漏洞，并在安全中心显示检测结果。 
-
-若要部署该解决方案，请使用新的安全建议：
-
-“在虚拟机上启用内置漏洞评估解决方案（由 Qualys 提供支持）”
-
-详细了解[安全中心集成的虚拟机漏洞评估](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)。
-
-
-
-### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>对实时 (JIT) 虚拟机 (VM) 访问权限的更改
-
-安全中心包含一项可选功能，可保护 VM 的管理端口。 这可抵御最常见形式的暴力攻击。
-
-本次更新就此功能进行了以下更改：
-
-- 重命名了推荐你在 VM 上启用 JIT 的建议。 之前称为“应在虚拟机上应用实时网络访问控制”，而现在叫做“应通过即时网络访问控制来保护虚拟机的管理端口”。
-
-- 建议仅在有管理端口打开时才触发。
-
-详细了解 [JIT 访问功能](security-center-just-in-time.md)。
-
-
-### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>自定义建议已移至单独的安全控件
-
-安全功能分数增强版引入的其中一个安全控制是“实现安全最佳做法”。 为订阅创建的所有自定义建议已自动放入该控件中。 
-
-为便于查找自定义建议，我们已将这些建议移到一个名为“自定义建议”的专用安全控件中。 此控件不会影响你的安全功能分数。
-
-要详细了解安全控件，请参阅 [Azure 安全中心的安全功能分数增强版（预览版）](secure-score-security-controls.md)。
-
-
-### <a name="toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list"></a>已添加开关，可在控件中显示建议或以简单列表的形式显示
-
-安全控件是相关安全建议的逻辑组。 它们反映了易受攻击的攻击面。 控件是一组安全建议，附有帮助你实施这些建议的说明。
-
-若要立即查看组织对每个攻击面的保护情况，请查看每个安全控件的分数。
-
-默认情况下，你的建议显示在安全控件中。 通过本次更新，你还可以采用列表形式显示它们。 若要以简单列表的形式查看它们，且列表按受影响的资源的运行状况排序，请使用新的“按控件分组”开关。 开关位于门户中列表的上面。
-
-安全控件及其开关是新的安全功能分数体验的一部分。 请记得在门户中提供反馈。
-
-要详细了解安全控件，请参阅 [Azure 安全中心的安全功能分数增强版（预览版）](secure-score-security-controls.md)。
-
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="的“按控件分组”开关":::
-
-### <a name="expanded-security-control-implement-security-best-practices"></a>扩展了“实现安全最佳做法”这一安全控件 
-
-安全功能分数增强版引入的其中一个安全控制是“实现安全最佳做法”。 如果建议在此控件中显示，则不影响安全功能分数。 
-
-通过本次更新，已将三项建议从它们原先所在的控件移动到这个最佳做法控件中。 我们采取此步骤的原因是我们判定这三项建议的风险比最初设想的要低。
-
-此外，还引入了两项新建议，它们也添加到了此控件中。
-
-移动的三项建议如下：
-
-- **应在对订阅拥有读取权限的帐户上启用 MFA** （原先位于“启用 MFA”控件中）
-- **应从订阅中删除具有读取权限的外部帐户** （原先位于“管理访问和权限”控件中）
-- **只多只为订阅指定 3 个所有者** （原先位于“管理访问和权限”控件中）
-
-添加到控件中的两项新建议如下：
-
-- **应在 Windows 虚拟机上安装来宾配置扩展（预览版）** - 如果使用 [Azure Policy 来宾配置](../governance/policy/concepts/guest-configuration.md)，则可在虚拟机中查看服务器和应用程序设置（仅限 Windows）。
-
-- **应在计算机上启用 Windows Defender 攻击防护（预览版）** - Windows Defender 攻击防护采用 Azure Policy 来宾配置代理。 攻击防护服务具有 4 个组件，旨在锁定设备来阻隔各种攻击途径，并阻止恶意软件攻击中常用的行为，同时让企业能够平衡其安全风险和生产力要求（仅限 Windows）。
-
-要详细了解 Windows Defender 攻击防护，可参阅[创建和部署攻击防护策略](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy)。
-
-要详细了解安全控件，请参阅[安全功能分数增强版（预览版）](secure-score-security-controls.md)。
-
-
-
-### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>具有自定义元数据的自定义策略现已正式发布
-
-自定义策略现显示在安全中心的建议体验、安全功能分数和法规符合性标准仪表板中。 此功能现已正式发布，可用于在安全中心扩大你组织的安全评估范围。 
-
-在 Azure 策略中创建自定义计划，向该计划添加策略并将它加入 Azure 安全中心，然后将它作为建议直观呈现。
-
-现在，我们还添加了可编辑自定义建议元数据的选项。 元数据选项中有严重级别、修正步骤和威胁信息等。  
-
-详细了解[利用详细信息增强自定义建议](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information)。
-
-
-
-### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>故障转储分析功能正在迁至无文件攻击检测中 
-
-我们正在将 Windows 故障转储分析 (CDA) 检测功能集成到[无文件攻击检测](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers)中。 无文件攻击检测分析改进了 Windows 计算机的以下安全警报：“发现代码注入”、“检测到伪装 Windows 模块”、“发现 Shellcode”和“检测到可疑的代码段”。
-
-该转换的一些优势如下：
-
-- **主动及时检测恶意软件** - 使用 CDA 方法时，会等到故障发生后再运行分析来查找恶意项目。 使用无文件攻击检测后，可在内存中威胁正在运行时主动识别它们。 
-
-- **警报信息更丰富** - 来自无文件攻击检测的安全警报包含 CDA 中不提供的丰富信息，例如有效网络连接信息。 
-
-- **警报聚合** - CDA 在一个故障转储中检测到多个攻击模式时，会触发多个安全警报。 而无文件攻击检测将从同一进程中确定的所有攻击模式组合到一个警报中，免去了关联多个警报的必要性。
-
-- **降低了对 Log Analytics 工作区的要求** - 包含潜在敏感数据的故障转储将无法上传到 Log Analytics 工作区。

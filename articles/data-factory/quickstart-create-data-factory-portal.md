@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d52e8e0157c891cf8be6c610b7c0185d83ef9f06
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 519447dfffaa660131fa587eaef946c76f66983b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638051"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027323"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>快速入门：使用 Azure 数据工厂 UI 创建数据工厂 
 
@@ -50,17 +50,19 @@ ms.locfileid: "92638051"
    Azure 数据工厂的名称必须 *全局唯一* 。 如果出现以下错误，请更改数据工厂的名称（例如改为 **&lt;yourname&gt;ADFTutorialDataFactory** ），并重新尝试创建。 有关数据工厂项目的命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
   
    ![名称不可用时出错](./media/doc-common-process/name-not-available-error.png)
-1. 对于“订阅”，请选择要在其中创建数据工厂的 Azure 订阅。 
+1. 对于“订阅”，请选择要在其中创建数据工厂的 Azure 订阅。  
 1. 对于“资源组”，请使用以下步骤之一：
      
    - 选择“使用现有”，并从列表中选择现有的资源组。 
    - 选择“新建”，并输入资源组的名称。   
          
    若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
-1. 对于“版本”，选择“V2”。 
-1. 对于“位置”，请选择数据工厂所在的位置。
+1. 对于“版本”，选择“V2”。  
+1. 对于“位置”，请选择数据工厂所在的位置。 
 
    该列表仅显示数据工厂支持的位置，以及 Azure 数据工厂元数据要存储到的位置。 数据工厂使用的关联数据存储（如 Azure 存储和 Azure SQL 数据库）和计算（如 Azure HDInsight）可以在其他区域中运行。
+
+1. 在完成时选择“下一步: Git 配置”，然后选择“稍后配置 Git”。
 
 1. 选择“创建”。 创建完成后，选择“转到资源”导航到“数据工厂”页。  
 

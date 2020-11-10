@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537943"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927968"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 灵活服务器（预览版）
 
@@ -50,7 +50,7 @@ Azure Database for MySQL 灵活服务器是一种完全托管的数据库服务�
 
 有关详细信息，请参阅[高可用性概念](concepts-high-availability.md)。
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="单个区域高可用性概念图"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="区域冗余高可用性概念图"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>具有托管维护时段的自动修补
 
@@ -84,6 +84,17 @@ Azure Database for MySQL 灵活服务器是一种完全托管的数据库服务�
 灵活服务器服务在三个 SKU 层中提供：“可突增”、“常规用途”和“内存优化”。 可突增层最适合用于低成本开发和不需要持续全计算容量的低并发工作负载。 常规用途和内存优化更适用于需要高并发性、缩放性和可预测性能的生产工作负载。 可以在一个月内花费很少的费用在小型数据库上生成第一个应用，然后无缝调整规模以满足解决方案的需求。 存储缩放是联机的，支持存储自动增长。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需为所使用的资源付费。 
 
 有关详细信息，请参阅[计算和存储概念](concepts-compute-storage.md)。
+
+## <a name="scale-out-your-read-workload-with-up-to-10-read-replicas"></a>通过多达 10 个只读副本扩展读取工作负载
+
+MySQL 是一种常用的数据库引擎，用于运行 Internet 规模的 Web 和移动应用程序。 许多客户将其用于在线教育服务、视频流式处理服务、数字支付解决方案、电子商务平台、游戏服务、新闻门户、政府和医疗保健网站。 这些服务需要随着 Web 或移动应用程序流量的增加而服务和扩展。
+
+在应用程序端，应用程序通常是用 Java 或 php 开发的，并迁移到  [Azure 虚拟机规模集](/azure/virtual-machine-scale-sets/overview.md) 或  [Azure 应用服务](/azure/app-service/overview.md) 上运行，或容器化以在  [Azure Kubernetes 服务 (AKS)](/azure/aks/intro-kubernetes.md) 上运行。 使用虚拟机规模集、应用服务或 AKS 作为底层基础结构，可以通过即时预配新的 VM 并复制应用程序的无状态组件来满足请求，以简化应用程序的缩放，但是数据库通常会成为集中式有状态组件的瓶颈。
+
+使用只读副本功能可将数据从 Azure Database for MySQL 灵活服务器复制到只读服务器。 可将源服务器中的数据复制到最多 10 个副本。 使用 MySQL 引擎的[基于二进制日志 (binlog) 文件位置的原生复制技术](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)以异步方式更新副本。 可以使用负载均衡器代理解决方案（如 [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)）将应用程序工作负载无缝扩展到只读副本，而无需任何应用程序重构成本。 
+
+有关详细信息，请参阅[只读副本概念](concepts-read-replicas.md)。 
+
 
 ## <a name="stopstart-server-to-optimize-cost"></a>停止/启动服务器以优化成本
 

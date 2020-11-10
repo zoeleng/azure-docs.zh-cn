@@ -1,6 +1,6 @@
 ---
-title: 在 SQL 按需版本（预览版）中创建和使用视图
-description: 本部分介绍了如何创建和使用视图，以便包装 SQL 按需版本（预览版）查询。 可以通过视图重复使用这些查询。 如果希望将 Power BI 之类的工具与 SQL 按需版本结合使用，也需使用视图。
+title: 在无服务器 SQL 池（预览版）中创建和使用视图
+description: 本部分介绍了如何创建和使用视图，以便包装无服务器 SQL 池（预览版）查询。 可以通过视图重复使用这些查询。 如果希望将 Power BI 之类的工具与无服务器 SQL 池结合使用，也需使用视图。
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f91611ab3c75a96f13ab84312ca0b2157e69af0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289304"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316246"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>通过 Azure Synapse Analytics 在 SQL 按需版本（预览版）中创建和使用视图
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中通过无服务器 SQL 池（预览版）创建和使用视图
 
-本部分介绍了如何创建和使用视图，以便包装 SQL 按需版本（预览版）查询。 可以通过视图重复使用这些查询。 如果希望将 Power BI 之类的工具与 SQL 按需版本结合使用，也需使用视图。
+本部分介绍了如何创建和使用视图，以便包装无服务器 SQL 池（预览版）查询。 可以通过视图重复使用这些查询。 如果希望将 Power BI 之类的工具与无服务器 SQL 池结合使用，也需使用视图。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -57,7 +57,7 @@ WITH (
 
 此示例中的视图使用 `OPENROWSET` 函数，该函数使用指向基础文件的绝对路径。 如果 `EXTERNAL DATA SOURCE` 包含存储的根 URL，则可以将 `OPENROWSET` 与 `DATA_SOURCE` 和相对文件路径一起使用：
 
-```
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM

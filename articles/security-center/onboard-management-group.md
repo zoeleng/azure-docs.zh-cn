@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950612"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027561"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>对管理组中的所有订阅启用安全中心
 
@@ -31,14 +31,14 @@ ms.locfileid: "91950612"
 
 1. 选择“分配”，并确保将范围设置为 MG 级别。
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Azure Policy 定义“对订阅启用 Azure 安全中心”":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="分配定义“对订阅启用 Azure 安全中心”":::
 
     > [!TIP]
     > 除范围外，没有其他必需的参数。
 
 1. 选择“创建修正任务”，确保将加入所有未启用安全中心的现有订阅。
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Azure Policy 定义“对订阅启用 Azure 安全中心”":::
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="为 Azure Policy 定义“对订阅启用 Azure 安全中心”创建修正任务":::
 
 1. 分配定义后，修正任务将执行以下操作：
 

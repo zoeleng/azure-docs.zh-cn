@@ -120,6 +120,8 @@
           href: understand/subscription-transfer.md
         - name: 在合作伙伴之间转让订阅（预览）
           href: manage/azure-plan-subscription-transfer-partners.md
+        - name: 在 Azure EA 门户中开始
+          href: manage/ea-portal-get-started.md
 - name: 操作指南
   items:
     - name: 配置 Azure 成本管理 + 计费
@@ -200,8 +202,6 @@
               href: manage/cancel-azure-subscription.md
         - name: 管理企业协议订阅
           items:
-            - name: 在 Azure EA 门户中开始
-              href: manage/ea-portal-get-started.md
             - name: Azure 中的 EA 角色
               href: manage/understand-ea-roles.md
             - name: Azure EA 门户管理

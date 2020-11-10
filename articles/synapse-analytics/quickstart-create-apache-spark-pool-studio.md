@@ -1,6 +1,6 @@
 ---
-title: 快速入门：使用 Synapse Studio 创建 Apache Spark 池（预览版）
-description: 遵循本指南中的步骤，使用 Synapse Studio 新建 Apache Spark 池。
+title: 快速入门：使用 Synapse Studio 创建无服务器 Apache Spark 池（预览版）
+description: 遵循本指南中的步骤，使用 Synapse Studio 创建一个无服务器 Apache Spark 池。
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c497b9974ad2d6fdd9482ae673de5807669d8ff5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324207"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>快速入门：使用 Synapse Studio 创建 Apache Spark 池（预览版）
+# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>快速入门：使用 Synapse Studio 创建无服务器 Apache Spark 池（预览版）
 
 Azure Synapse Analytics 提供了各种分析引擎，可帮助你引入、转换、分析和提供数据，以及对数据建模。 Apache Spark 池提供开源大数据计算功能。 在 Synapse 工作区中创建 Apache Spark 池后，可以加载、处理和提供数据以及为数据建模，以获取见解。  
 
@@ -47,7 +47,7 @@ Azure Synapse Analytics 提供了各种分析引擎，可帮助你引入、转�
 
 ## <a name="launch-synapse-studio"></a>启动 Synapse Studio 
 
-从工作区概述中，选择“启动 Synapse Studio”以打开将在其中创建 Apache Spark 池的位置。 直接在搜索栏中键入服务名称或资源名称。
+从工作区概述中，选择“工作区 Web URL”以打开 Synapse Studio。
 
 ![Azure 门户 Synapse 工作区概述，突出显示了“启动 Synapse Studio”。](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 

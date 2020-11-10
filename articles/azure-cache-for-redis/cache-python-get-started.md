@@ -1,5 +1,5 @@
 ---
-title: 快速入门：创建 Python 应用 - Azure Cache for Redis
+title: 快速入门：在 Python 中使用 Azure Cache for Redis
 description: 本快速入门介绍如何创建使用 Azure Redis 缓存的 Python 应用。
 author: yegu-ms
 ms.author: yegu
@@ -11,14 +11,14 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: aed9be394076b4ef10b8354552d69771ae659eea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87845318"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099430"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>快速入门：创建使用 Azure Redis 缓存的 Python 应用
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>快速入门：在 Python 中使用 Azure Cache for Redis
 
 在本文中，会将 Azure Redis 缓存合并到 Python 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 091f73aa2383094973db35efb05c5f93034efa39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738106"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313780"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 托管专用终结点（预览版）
 
@@ -43,17 +43,17 @@ Azure Synapse 支持专用链接。 通过专用链接，你可以安全地从 A
 
 只有处于已批准状态的托管专用终结点才能将流量发送到给定的专用链接资源。
 
-## <a name="managed-private-endpoints-for-sql-pool-and-sql-on-demand"></a>SQL 池和 SQL 按需版本的托管专用终结点
+## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>专用 SQL 池和无服务器 SQL 池的托管专用终结点
 
-SQL 池和 SQL 按需版本是 Azure Synapse 工作区中的分析功能。 这些功能使用未部署到[托管工作区虚拟网络](./synapse-workspace-managed-vnet.md)中的多租户基础结构。
+专用 SQL 池和无服务器 SQL 池是 Azure Synapse 工作区中的分析功能。 这些功能使用未部署到[托管工作区虚拟网络](./synapse-workspace-managed-vnet.md)中的多租户基础结构。
 
-创建工作区时，Azure Synapse 会在该工作区中创建面向 SQL 池和 SQL 按需版本的两个托管专用终结点。 
+创建工作区时，Azure Synapse 会在该工作区中创建两个托管专用终结点，分别用于专用 SQL 池和无服务器 SQL 池。 
 
 这两个托管专用终结点会在 Azure Synapse Studio 中列出。 在 Studio 的左侧导航栏中选择“管理”，然后选择“托管虚拟网络”即可查看它们。
 
-面向 SQL 池的托管专用终结点名为 synapse-ws-sql--\<workspacename\>，面向 SQL 按需版本的托管专用终结点名为 synapse-ws-sqlOnDemand--\<workspacename\> 。
+面向 SQL 池的托管专用终结点名为 synapse-ws-sql--\<workspacename\>，面向无服务器 SQL 池的托管专用终结点名为 ynapse-ws-sqlOnDemand--\<workspacename\> 。
 
-![SQL 池和 SQL 按需版本的托管专用终结点](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
+![专用 SQL 池和无服务器 SQL 池的托管专用终结点](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 创建 Azure Synapse 工作区时，会自动为你创建这两个托管专用终结点。 对于这两个托管专用终结点，你无需付费。
 

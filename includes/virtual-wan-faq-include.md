@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038429"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331146"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure 虚拟 WAN 是否已正式发布 (GA)？
 
@@ -115,7 +115,7 @@ ms.locfileid: "92038429"
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>是否需要使用首选的合作伙伴设备？
 
-否。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
+不是。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>虚拟 WAN 合作伙伴如何自动与 Azure 虚拟 WAN 建立连接？
 
@@ -159,7 +159,7 @@ ms.locfileid: "92038429"
 
 ### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>辐射 VNet 是否可以包含虚拟网络网关？
 
-否。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
+不是。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
 
 ### <a name="is-there-support-for-bgp-in-vpn-connectivity"></a>VPN 连接是否支持 BGP？
 
@@ -259,6 +259,8 @@ ER 到 ER 之间的传输始终通过 Global Reach 进行。 虚拟中心网关�
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>虚拟 WAN 是否支持 IPv6？
 
 虚拟 WAN 中心及其网关不支持 IPv6。 如果你具有支持 IPv4 和 IPv6 的 VNet，并且要将 VNet 连接到虚拟 WAN，那么当前不支持此方案。 
+
+对于通过 Azure 防火墙打开 Internet 接入点的点到站点（用户）VPN 方案，你可能需要关闭客户端设备上的 IPv6 连接，以强制流量流向虚拟 WAN 中心。 这是因为新式设备默认使用 IPv6 地址。
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>对于自动完成多种虚拟 WAN 功能的脚本，建议其使用哪个 API 版本？
 

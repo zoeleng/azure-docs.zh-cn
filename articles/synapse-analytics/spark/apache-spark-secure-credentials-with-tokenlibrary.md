@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249410"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324950"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>使用 TokenLibrary 通过链接服务来保护凭据
 访问来自外部源的数据是一种常见的模式。 除非外部数据源允许匿名访问，否则很可能需要使用凭据、机密或连接字符串来保护连接。  
@@ -122,5 +122,5 @@ print(accountKey)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [写入 SQL 池](./synapse-spark-sql-pool-import-export.md)
+- [写入专用 SQL 池](./synapse-spark-sql-pool-import-export.md)
 

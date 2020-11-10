@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333063"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>快速入门：在 Azure 应用服务中创建 Java 应用
 
@@ -71,7 +71,7 @@ cd helloworld
 运行下面的 Maven 命令来配置部署。 此命令将帮助你设置应用服务操作系统、Java 版本和 Tomcat 版本。
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -79,9 +79,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
-1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
-1. 当系统提示“OS”选项时，通过输入 `2` 选择 Windows。
-1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>` 或选择一个现有应用。
+1. 当系统提示 OS 选项时，通过输入 `3` 选择 Windows 。
+1. 当系统提示“定价层”选项时，通过输入 `2` 选择 B2 。
+1. 按 Enter 使用默认的 Java 版本 Java 8。
 1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
 
     摘要输出将类似于下面所示的代码片段。
@@ -92,7 +93,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : java 8
@@ -110,9 +111,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
-1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
-1. 当系统提示“OS”选项时，通过输入 `2` 选择 Windows。
-1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>` 或选择一个现有应用。
+1. 当系统提示 OS 选项时，通过输入 `3` 选择 Windows 。
+1. 当系统提示“定价层”选项时，通过输入 `2` 选择 B2 。
+1. 按 Enter 使用默认的 Java 版本 Java 8。
 1. 按 Enter 使用默认 Web 容器 Tomcat 8.5。
 1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
 
@@ -124,7 +126,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Windows
     Java : 1.8
     WebContainer : tomcat 8.5
@@ -147,9 +149,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
-1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
-1. 当系统提示“OS”选项时，按 Enter 键选择 Linux。
-1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>` 或选择一个现有应用。
+1. 当系统提示 OS 选项时，按 Enter 键选择 Linux 。
+1. 当系统提示“定价层”选项时，通过输入 `2` 选择 B2 。
+1. 按 Enter 使用默认的 Java 版本 Java 8。
 1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
 
     ```
@@ -158,7 +161,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : JAVA 8-jre8
     Deploy to slot : false
@@ -175,9 +178,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
-1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
-1. 当系统提示“OS”选项时，按 Enter 键选择 Linux。
-1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>` 或选择一个现有应用。
+1. 当系统提示 OS 选项时，按 Enter 键选择 Linux 。
+1. 当系统提示“定价层”选项时，通过输入 `2` 选择 B2 。
+1. 按 Enter 使用默认的 Java 版本 Java 8。
 1. 按 Enter 使用默认 Web 容器 Tomcat 8.5。
 1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
 
@@ -187,7 +191,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
-    PricingTier : PremiumV2_P1v2
+    PricingTier : Basic_B2
     OS : Linux
     RuntimeStack : TOMCAT 8.5-jre8
     Deploy to slot : false
@@ -211,12 +215,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ---|---|---|---
 `<schemaVersion>` | false | 指定配置架构的版本。 支持的值是：`v1`、`v2`。 | 1.5.2
 `<subscriptionId>` | false | 指定订阅 ID。 | 0.1.0+
-`<resourceGroup>` | true | 用于 Web 应用的 Azure 资源组。 | 0.1.0+
-`<appName>` | true | Web 应用的名称。 | 0.1.0+
-`<region>` | true | 指定将托管 Web 应用的区域；默认值为“westeurope”。 [支持的区域](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)部分中列出了所有有效区域。 | 0.1.0+
-`<pricingTier>` | false | Web 应用的定价层。 默认值为 **P1V2**。| 0.1.0+
-`<runtime>` | true | 运行时环境配置，可以在[此处](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
-`<deployment>` | true | 部署配置，可以在[此处](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
+`<resourceGroup>` | 是 | 用于 Web 应用的 Azure 资源组。 | 0.1.0+
+`<appName>` | 是 | Web 应用的名称。 | 0.1.0+
+`<region>` | 是 | 指定将托管 Web 应用的区域；默认值为“westeurope”。 [支持的区域](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)部分中列出了所有有效区域。 | 0.1.0+
+`<pricingTier>` | false | Web 应用的定价层。 生产工作负载的默认值为 P1V2，而 B2 是建议用于 Java 开发/测试的最低值 。 [了解详细信息](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | 是 | 运行时环境配置，可以在[此处](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)查看详细信息。 | 0.1.0+
+`<deployment>` | 是 | 部署配置，可以在[此处](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)查看详细信息。 | 0.1.0+
 
 请注意 `<appName>` 和 `<resourceGroup>` 的值（在演示中相应地为 `helloworld-1590394316693` 和 `helloworld-1590394316693-rg`），后面会使用它们。
 
@@ -225,7 +229,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 ## <a name="deploy-the-app"></a>部署应用
 
-Maven 插件会使用 Azure CLI 中的帐户凭据来部署到应用服务。 在继续操作之前[使用 Azure CLI 登录](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
+Maven 插件会使用 Azure CLI 中的帐户凭据来部署到应用服务。 在继续操作之前[使用 Azure CLI 登录](/cli/azure/authenticate-azure-cli)。
 
 ```azurecli
 az login

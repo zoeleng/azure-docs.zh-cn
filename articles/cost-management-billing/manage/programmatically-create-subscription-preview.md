@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c63733a66a2bb4e320a24649dfe82eac259e79ae
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131099"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043292"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>通过预览 API 以编程方式创建 Azure 订阅
 
@@ -212,7 +212,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>对创建 Azure Enterprise 订阅的 API 限制
 
 - 仅 Azure Enterprise 订阅可以使用此 API 进行创建。
-- 每个注册帐户的订阅限制为 2000 个。 超过此限制后，只能在 Azure 门户中为该帐户创建更多订阅。 如果想要通过 API 创建更多订阅，请创建另一个注册帐户。
+- 每个注册帐户的订阅限制为 2000 个。 超过此限制后，只能在 Azure 门户中为该帐户创建更多订阅。 如果想要通过 API 创建更多订阅，请创建另一个注册帐户。 已取消、已删除和已传输的订阅数的上限为 2000。
 - 如果用户不是帐户所有者，而是通过 Azure RBAC 添加到注册帐户的，则该用户不能在 Azure 门户中创建订阅。
 - 不能选择要在其中创建订阅的租户。 订阅始终在帐户所有者的主租户中进行创建。 若要将订阅移到不同的租户，请参阅[更改订阅租户](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
@@ -350,7 +350,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ```
 
-| 元素名称  | 必选 | 类型   | 说明                                                                                               |
+| 元素名称  | 必选 | 类型   | 描述                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | 是      | 字符串 | 订阅的显示名称。|
 | `billingProfileId`   | 是      | String | 用于计收订阅使用费的计费对象信息的 ID。  |
@@ -519,7 +519,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 }'
 ```
 
-| 元素名称  | 必选 | 类型   | 说明                                                                                               |
+| 元素名称  | 必选 | 类型   | 描述                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | 是      | 字符串 | 订阅的显示名称。|
 | `skuId` | 是      | 字符串 | Azure 计划的 SKU ID。 将 0001 用于 Microsoft Azure 计划类型的订阅 |

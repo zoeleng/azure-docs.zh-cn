@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369329"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306977"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>教程：使用 Apache Spark MLlib 和 Azure Synapse Analytics 构建机器学习应用
 
@@ -31,11 +31,11 @@ MLlib 是一个核心 Spark 库，提供许多可用于机器学习任务的实�
 
 ## <a name="understand-classification-and-logistic-regression"></a>了解分类和逻辑回归
 
-*分类*是一种常见的机器学习任务，是将输入数据按类别排序的过程。 它是一种分类算法的作业，旨在算出如何将标签分配到提供的输入数据。 例如，可以联想机器学习算法，该算法接受股票信息作为输入并将股票划分为两个类别：应该卖出的股票和应该保留的股票。
+*分类* 是一种常见的机器学习任务，是将输入数据按类别排序的过程。 它是一种分类算法的作业，旨在算出如何将标签分配到提供的输入数据。 例如，可以联想机器学习算法，该算法接受股票信息作为输入并将股票划分为两个类别：应该卖出的股票和应该保留的股票。
 
-逻辑回归是可用于分类的算法。 Spark 的逻辑回归 API 可用于 *二元分类*，或将输入数据归类到两组中的一组。 有关逻辑回归的详细信息，请参阅[维基百科](https://en.wikipedia.org/wiki/Logistic_regression)。
+逻辑回归是可用于分类的算法。 Spark 的逻辑回归 API 可用于 *二元分类* ，或将输入数据归类到两组中的一组。 有关逻辑回归的详细信息，请参阅[维基百科](https://en.wikipedia.org/wiki/Logistic_regression)。
 
-总之，逻辑回归的过程会产生 *逻辑函数*，可用于预测输入向量属于一个组或另一个组的概率。
+总之，逻辑回归的过程会产生 *逻辑函数* ，可用于预测输入向量属于一个组或另一个组的概率。
 
 ## <a name="predictive-analysis-example-on-nyc-taxi-data"></a>NYC 出租车数据的预测分析示例
 
@@ -71,7 +71,7 @@ MLlib 是一个核心 Spark 库，提供许多可用于机器学习任务的实�
 
 由于原始数据是 Parquet 格式，因此可以使用 Spark 上下文直接将文件作为数据帧提取到内存中。 尽管下面的代码使用默认选项，但如果需要，可以强制映射数据类型和其他架构属性。
 
-1. 通过将代码粘贴到新单元格，运行以下行来创建 Spark 数据帧。 该过程会通过开放数据集 API 检索数据。 拉取所有这些数据将生成约 15 亿行。 根据 Spark 池（预览版）的大小，原始数据可能太大或需要花费太长时间来操作。 可以将此数据筛选为较小的数据。 下面的代码示例使用 start_date 和 end_date 应用一个会返回单个月份数据的筛选器。
+1. 通过将代码粘贴到新单元格，运行以下行来创建 Spark 数据帧。 该过程会通过开放数据集 API 检索数据。 拉取所有这些数据将生成约 15 亿行。 根据无服务器 Apache Spark 池（预览版）的大小，原始数据可能太大或需要花费太长时间来操作。 可以将此数据筛选为较小的数据。 下面的代码示例使用 start_date 和 end_date 应用一个会返回单个月份数据的筛选器。
 
     ```python
     from azureml.opendatasets import NycTlcYellow

@@ -1,6 +1,6 @@
 ---
-title: 将 Java和 JDBC 与 Azure Database for PostgreSQL 配合使用
-description: 了解如何将 Java和 JDBC 与 Azure Database for PostgreSQL 配合使用。
+title: 快速入门：将 Java和 JDBC 与 Azure Database for PostgreSQL 配合使用
+description: 本快速入门介绍如何将 Java 和 JDBC 与 Azure Database for PostgreSQL 配合使用。
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734987"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341410"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>将 Java和 JDBC 与 Azure Database for PostgreSQL 配合使用
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>快速入门：将 Java和 JDBC 与 Azure Database for PostgreSQL 配合使用
 
 本主题演示如何创建示例应用程序，使其使用 Java 和 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) 在 [Azure Database for PostgreSQL](./index.yml) 中存储和检索信息。
 
@@ -485,7 +485,7 @@ deleteData(todo, connection);
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>结论和资源清除
+## <a name="clean-up-resources"></a>清理资源
 
 祝贺你！ 你已创建了一个 Java 应用程序，该应用程序使用 JDBC 在 Azure Database for PostgreSQL 中存储和检索数据。
 

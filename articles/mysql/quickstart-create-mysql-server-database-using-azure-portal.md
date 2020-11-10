@@ -1,22 +1,24 @@
 ---
 title: 快速入门：创建服务器 - Azure 门户 - Azure Database for MySQL
-description: 本文介绍如何使用 Azure 门户在大约五分钟内快速创建示例 Azure Database for MySQL 服务器。
+description: 本快速入门介绍如何使用 Azure 门户在大约五分钟内快速创建示例 Azure Database for MySQL 服务器。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: a3438293bcbf656a371b55605c64a005ae4d599a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2cae0187643eb596bd98bcd99a588a4d214e6f6e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541394"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341206"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure Database for MySQL 服务器
 
-Azure Database for MySQL 是一种托管服务，可用于在云中运行、管理和缩放高可用性的 MySQL 数据库。 此快速入门介绍如何使用 Azure 门户在大约五分钟内创建 Azure Database for MySQL 服务器。  
+Azure Database for MySQL 是一种托管服务，可用于在云中运行、管理和缩放高可用性的 MySQL 数据库。 此快速入门介绍如何使用 Azure 门户在大约五分钟内创建 Azure Database for MySQL 服务器。
+
+## <a name="prerequisites"></a>先决条件
 
 如果还没有 Azure 订阅，可以在开始前创建一个[免费 Azure 帐户](https://azure.microsoft.com/free/)。
 
@@ -39,11 +41,11 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 3. 使用以下信息填写“新服务器详细信息”窗体：
     
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Azure Database for MySQL 选项":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="“创建服务器”窗体":::
 
 **设置** | **建议的值** | **字段说明** 
 ---|---|---
-订阅 | 你的订阅 | 选择要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
+订阅 | 订阅 | 选择要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
 资源组 |  myresourcegroup | 提供新的或现有的资源组名称。 可以使用资源组来组织属于单个项目的依赖项。
 服务器名称 | 唯一的服务器名称 | 输入用于标识 Azure Database for MySQL 服务器的唯一名称。 例如，“mysqldbserver”。服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
 数据源 |*无* | 选择“无”，从头开始创建新的服务器。 （如果是从现有 Azure Database for MySQL 服务器的异地备份创建服务器，则会选择“备份”）。
@@ -67,7 +69,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 默认情况下，创建的服务器使用防火墙进行保护，并且无法公开。 若要授予对 IP 的访问权限，请转到 Azure 门户中的服务器资源，然后从左侧菜单中为服务器资源选择“连接安全性”。 不知道如何找到资源时，请参阅[如何打开资源](../azure-resource-manager/management/manage-resources-portal.md#open-resources)。
 
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Azure Database for MySQL 选项":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="连接安全性 - 防火墙规则":::
    
 现在选择“添加当前客户端 IP 地址”，然后选择“保存” 。 你可以添加其他 IP 或提供一个 IP 范围，从该范围中的 IP 连接到服务器。 有关详细信息，请参阅[如何在 Azure Database for MySQL 服务器上管理防火墙规则](./concepts-firewall-rules.md)
 
@@ -83,7 +85,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
     >如果你是第一次启动 Cloud Shell，会看到一个提示，提示你创建资源组、存储帐户。 这是一个一次性步骤，将来会针对所有会话自动附加。 
 
    >[!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Azure Database for MySQL 选项":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="门户完整视图 Cloud Shell":::
 2. 在 Azure Cloud Shell 终端上运行此命令。 将值替换为实际的服务器名称和管理员用户登录名。 Azure Database for MySQL 的管理员用户名需要“@\<servername>”，如下所示  
 
   ```azurecli-interactive
@@ -136,10 +138,8 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 若要删除服务器，可以单击服务器的“概述”页面上的“删除”按钮，如下所示 ：
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Azure Database for MySQL 选项":::
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="删除资源":::
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
 >[使用 MySQL 在 Windows 上生成 PHP 应用](../app-service/tutorial-php-mysql-app.md)
->[使用 MySQL 在 Linux 上生成 PHP 应用](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
->[使用 MySQL 生成基于 Java 的 Spring 应用](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

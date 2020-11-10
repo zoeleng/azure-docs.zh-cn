@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540500"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313617"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>教程：使用 Azure 自动化 ML 和 Apache Spark 运行试验
 
@@ -29,13 +29,16 @@ Azure 机器学习是一种基于云的环境，可以对机器学习模型进�
 - 计算模型准确度
 
 ### <a name="before-you-begin"></a>在开始之前
-- 按照[创建 Apache Spark 池教程](../quickstart-create-apache-spark-pool-studio.md)创建 Apache Spark 池。
+
+- 按照[创建无服务器 Apache Spark 池快速入门](../quickstart-create-apache-spark-pool-studio.md)进行操作以创建无服务器 Apache Spark 池。
 - 如果还没有 Azure 机器学习工作区，请完成 [Azure 机器学习工作区设置教程](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup)。 
 
 ### <a name="understand-regression-models"></a>了解回归模型
-*回归模型*基于独立的预测因子预测输出的数值。 在回归中，目标是通过估计一个变量对其他变量的影响，帮助建立这些独立预测因子变量之间的关系。  
+
+*回归模型* 基于独立的预测因子预测输出的数值。 在回归中，目标是通过估计一个变量对其他变量的影响，帮助建立这些独立预测因子变量之间的关系。  
 
 ### <a name="regression-analysis-example-on-the-nyc-taxi-data"></a>NYC 出租车数据的回归分析示例
+
 在此示例中，使用 Spark 对纽约的出租车小费数据执行一些分析。 数据通过 [Azure 开放数据集](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)提供。 此数据集的子集包含有关黄色出租车行程的信息，其中包括有关每次行程、开始和结束时间、位置、成本和其他感兴趣属性的信息。
 
 > [!IMPORTANT]
@@ -143,7 +146,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>将数据帧转换为 Azure 机器学习数据集
-为提交远程试验，需要将数据集转换为 Azure 机器学习 ```TabularDatset```。 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 通过分析提供的文件，以表格格式表示数据。
+为提交远程试验，需要将数据集转换为 Azure 机器学习 ```TabularDatset```。 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 通过分析提供的文件，以表格格式表示数据。
 
 以下代码获取现有工作区和默认 Azure 机器学习默认数据存储。 然后它将数据存储和文件位置传递给 path 参数，以创建新的 ```TabularDataset```。 
 
@@ -165,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![上传的数据集的图片。](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## <a name="submit-an-auto-ml-experiment"></a>提交自动 ML 试验
+## <a name="submit-an-automl-experiment"></a>提交 AutoML 试验
 
 #### <a name="define-training-settings"></a>定义训练设置
 

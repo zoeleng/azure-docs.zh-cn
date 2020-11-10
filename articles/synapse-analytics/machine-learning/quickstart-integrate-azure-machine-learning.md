@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91543268"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307964"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>快速入门：在 Synapse 中创建新的 Azure 机器学习链接服务
 
@@ -79,5 +79,5 @@ ms.locfileid: "91543268"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [教程：机器学习模型评分向导 - SQL 池](tutorial-sql-pool-model-scoring-wizard.md)
+- [教程：机器学习模型评分向导 - 专用 SQL 池](tutorial-sql-pool-model-scoring-wizard.md)
 - [Azure Synapse Analytics 中的机器学习功能（工作区预览版）](what-is-machine-learning.md)

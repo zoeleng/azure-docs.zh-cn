@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323829"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>使用 Azure Data Studio（预览版）连接到 Synapse SQL
 
@@ -42,11 +42,11 @@ ms.locfileid: "92132459"
 * **数据库：** 数据库名称
 
 > [!NOTE]
-> 若要使用 SQL 按需版本（预览版）  ，则 URL 应如下所示：
+> 若要使用无服务器 SQL 池（预览版），则 URL 应如下所示：
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net。
 >
-> 若使用 SQL 池，则 URL 应如下所示：
+> 若使用专用 SQL 池，则 URL 应如下所示：
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
@@ -77,7 +77,7 @@ ms.locfileid: "92132459"
 
 ![新建查询](./media/get-started-azure-data-studio/5-new-query.png)
 
-例如，可以使用 SQL 按需版本通过以下 Transact-SQL 语句来[查询 Parquet 文件](query-parquet-files.md)：
+例如，可以使用无服务器 SQL 池通过以下 Transact-SQL 语句来[查询 Parquet 文件](query-parquet-files.md)：
 
 ```sql
 SELECT COUNT(*)

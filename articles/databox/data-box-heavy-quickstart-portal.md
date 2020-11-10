@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122817"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347416"
 ---
 ::: zone target = "docs"
 
@@ -60,14 +60,87 @@ ms.locfileid: "92122817"
 
 ## <a name="order"></a>订单
 
+### <a name="portal"></a>[门户](#tab/azure-portal)
+
 此步骤大约需要 5 分钟。
 
 1. 在 Azure 门户中创建新的 Azure Data Box 资源。
-2. 选择为此服务启用的现有订阅，然后选择“导入”作为传输类型。 提供数据所在的**来源国家/地区**，以及数据要传输到的 **Azure 目标区域**。
+2. 选择为此服务启用的现有订阅，然后选择“导入”作为传输类型。 提供数据所在的 **来源国家/地区** ，以及数据要传输到的 **Azure 目标区域** 。
 3. 选择“Data Box Heavy”。 最大可用容量为 770 TB；如果数据大小更大，可创建多个订单。
 4. 输入订单详细信息和发货信息。 如果该服务在你所在的区域中可用，请提供通知电子邮件地址、查看摘要，然后创建订单。
 
 创建订单后，Microsoft 会准备需发货的设备。
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+使用这些 Azure CLI 命令创建 Data Box Heavy 作业。
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. 运行 [az group create](/cli/azure/group#az_group_create) 命令创建资源组或使用现有资源组：
+
+   ```azurecli
+   az group create --name databox-rg --location westus 
+   ```
+
+1. 使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 命令创建存储帐户或使用现有存储帐户：
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. 运行 [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) 命令，以使用 `DataBoxHeavy` 的 --sku 值创建 Data Box 作业：
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxheavy-job \
+       --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 \
+       --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa \
+       --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+   ```
+
+   > [!NOTE]
+   > 请确保订阅支持 Data Box Heavy。
+
+1. 运行 [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) 更新作业，如本示例所示，可以在其中更改联系人姓名和电子邮件：
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   运行 [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) 命令，以获取有关作业的信息：
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   使用 [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) 命令查看资源组的所有 Data Box 作业：
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   运行 [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) 命令取消作业：
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   运行 [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) 命令删除作业：
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. 使用 [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) 命令列出 Data Box 作业的凭据：
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+创建订单后，Microsoft 会准备需发货的设备。
+
+---
 
 ::: zone-end
 

@@ -7,12 +7,12 @@ ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 1411491906e763a52ee1b6a66df1dea183b91973
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b3d9e2e275b4c0d000759878557e5e14f7dfc04f
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425861"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925741"
 ---
 # <a name="run-a-custom-container-in-azure"></a>在 Azure 中运行自定义容器
 
@@ -81,7 +81,7 @@ ms.locfileid: "92425861"
 
    等待部署完成。 “发布”页现在会显示稍后要使用的存储库名称。
 
-   ![从项目概述页发布](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+   ![突出显示存储库名称的屏幕截图。](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
 
 1. 复制此存储库名称待以后使用。
 
@@ -197,11 +197,11 @@ Linux 上的应用服务在 Linux 上提供预定义的应用程序堆栈，并�
 若要完成本快速入门，需要在 [Azure 容器注册表](../container-registry/index.yml)中存储合适的 Web 应用映像。 遵循[快速入门：使用 Azure 门户创建专用容器注册表](../container-registry/container-registry-get-started-portal.md)中的说明进行操作，但使用 `mcr.microsoft.com/azuredocs/go` 映像而不是 `hello-world` 映像。 若要参考，可[在 Azure 示例存储库中找到示例 Dockerfile](https://github.com/Azure-Samples/go-docs-hello-world)。
 
 > [!IMPORTANT]
-> 请确保在创建容器注册表时将“管理员用户”  选项设为“启用”  。 也可以在 Azure 门户中从注册表页的“访问密钥”  部分进行设置。 应用服务访问需要此设置。
+> 请确保在创建容器注册表时将“管理员用户”选项设为“启用”。 也可以在 Azure 门户中从注册表页的“访问密钥”部分进行设置。 应用服务访问需要此设置。
 
 ## <a name="sign-in"></a>登录
 
-接下来，使用应用服务扩展启动 VS Code 并登录到 Azure 帐户。 为此，请在活动栏中选择 Azure 徽标，导航到“应用服务”  资源管理器，然后选择“登录到 Azure”  ，并按照说明进行操作。
+接下来，使用应用服务扩展启动 VS Code 并登录到 Azure 帐户。 为此，请在活动栏中选择 Azure 徽标，导航到“应用服务”资源管理器，然后选择“登录到 Azure”，并按照说明进行操作。
 
 ![登录到 Azure](./media/quickstart-docker/sign-in.png)
 
@@ -209,7 +209,7 @@ Linux 上的应用服务在 Linux 上提供预定义的应用程序堆栈，并�
 
 现在你可以检查是否已安装并配置了所有必备组件。
 
-在 VS Code 的状态栏中应会显示你的 Azure 电子邮件地址，“应用服务”资源管理器中应会显示你的订阅。 
+在 VS Code 的状态栏中应会显示你的 Azure 电子邮件地址，“应用服务”资源管理器中应会显示你的订阅。
 
 接下来，验证是否已安装并运行 Docker。 以下命令将显示 Docker 版本（如果它正在运行）。
 
@@ -217,7 +217,7 @@ Linux 上的应用服务在 Linux 上提供预定义的应用程序堆栈，并�
 docker --version
 ```
 
-最后，请确保已连接 Azure 容器注册表。 为此，请在活动栏中选择 Docker 徽标，然后导航到“注册表”  。
+最后，请确保已连接 Azure 容器注册表。 为此，请在活动栏中选择 Docker 徽标，然后导航到“注册表”。
 
 ![屏幕截图显示展开了 Azure 的注册表值以及文件扩展名为 .io 的文件。](./media/quickstart-docker/registries.png)
 
@@ -225,19 +225,19 @@ docker --version
 
 完成所有配置后，即可将映像直接从 Docker 扩展资源管理器部署到 [Azure 应用服务](https://azure.microsoft.com/services/app-service/)。
 
-在  节点下找到映像，并将其展开以显示其标记。 右键单击标记，然后选择“将映像部署到 Azure 应用服务”  。
+在 **DOCKER 资源管理器** 中的“注册表”节点下找到映像，并将其展开以显示其标记。 右键单击标记，然后选择“将映像部署到 Azure 应用服务”。
 
-在此处，按照提示选择订阅、全局唯一的应用名称、资源组和应用服务计划。 选择“B1 基本”  作为“定价层”，并选择区域。
+在此处，按照提示选择订阅、全局唯一的应用名称、资源组和应用服务计划。 选择“B1 基本”作为“定价层”，并选择区域。
 
 部署之后，你的应用将在 `http://<app name>.azurewebsites.net` 上可用。
 
-“资源组”  是 Azure 中所有应用程序资源的命名集合。 例如，资源组可以包含对网站、数据库和 Azure 函数的引用。
+“资源组”是 Azure 中所有应用程序资源的命名集合。 例如，资源组可以包含对网站、数据库和 Azure 函数的引用。
 
-应用服务计划  定义用于托管网站的物理资源。 此快速入门在 Linux 基础结构上使用  “基本”托管计划，这意味着该站点将与其他网站一起托管在 Linux 计算机上。 如果开始使用“基本”  计划，则可以使用 Azure 门户进行扩展，使你的计算机是在计算机上运行的唯一站点。
+应用服务计划定义用于托管网站的物理资源。 此快速入门在 Linux 基础结构上使用“基本”托管计划，这意味着该站点将与其他网站一起托管在 Linux 计算机上。 如果开始使用“基本”计划，则可以使用 Azure 门户进行扩展，使你的计算机是在计算机上运行的唯一站点。
 
 ## <a name="browse-the-website"></a>浏览网站
 
-“输出”  面板将在部署过程中打开，以指示操作的状态。 操作完成后，查找在“应用服务”  资源管理器中创建的应用，右键单击该应用，然后选择“浏览网站”  以在浏览器中打开该站点。
+“输出”面板将在部署过程中打开，以指示操作的状态。 操作完成后，查找在“应用服务”资源管理器中创建的应用，右键单击该应用，然后选择“浏览网站”以在浏览器中打开该站点。
 
 > [!div class="nextstepaction"]
 > [我遇到了问题](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)

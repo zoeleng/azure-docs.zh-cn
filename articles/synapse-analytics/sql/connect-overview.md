@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbd82f856213bb36e71625eabc8bce9999ccd53f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289389"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322666"
 ---
 # <a name="connect-to-synapse-sql"></a>连接到 Synapse SQL
 连接到 Azure Synapse Analytics 中的 Synapse SQL 功能。
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>SQL 按需版本（预览版）支持的工具
+## <a name="supported-tools-for-serverless-sql-pool-preview"></a>无服务器 SQL 池（预览版）支持的工具
 
 从版本 1.18.0 开始，完全支持 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)。 从版本 18.5 开始，部分支持 SSMS，仅可以使用其进行连接和查询。
 
@@ -31,8 +31,8 @@ ms.locfileid: "91289389"
 
 ## <a name="find-your-server-name"></a>查找服务器名称
 
-以下示例中的 SQL 池的服务器名称为 showdemoweu.sql.azuresynapse.net。
-以下示例中的 SQL 按需版本的服务器名称为 showdemoweu-ondemand.sql.azuresynapse.net。
+以下示例中专用 SQL 池的服务器名称为：showdemoweu.sql.azuresynapse.net。
+以下示例中无服务器 SQL 池的服务器名称为：showdemoweu-ondemand.sql.azuresynapse.net。
 
 若要查找完全限定的服务器名称，请执行以下操作：
 
@@ -46,9 +46,9 @@ ms.locfileid: "91289389"
 
 ![完整服务器名称](./media/connect-overview/server-connect-example.png)
 
-## <a name="sql-on-demand"></a>**SQL 按需版本**
+## <a name="serverless-sql-pool"></a>**无服务器 SQL 池**
 
-![SQL 按需版本的完整服务器名称](./media/connect-overview/server-connect-example-sqlod.png)
+![完整服务器名称 - 无服务器 SQL 池](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>支持的驱动程序和连接字符串
 Synapse SQL 支持 [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx)、[ODBC](https://msdn.microsoft.com/library/jj730314.aspx)、[PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) 和 [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx)。 选择前述的驱动程序之一，查找最新版本和文档。 若要自动生成通过 Azure 门户使用的驱动程序的连接字符串，请选择前述示例中的“显示数据库连接字符串”。 下面也是一些示例，说明了每个驱动程序的连接字符串的样式。
@@ -92,7 +92,7 @@ Synapse SQL 在连接和创建对象期间会标准化一些设置。 这些设�
 
 ## <a name="recommendations"></a>建议
 
-若要执行 SQL 按需版本查询，建议使用 [Azure Data Studio](get-started-azure-data-studio.md) 和 Azure Synapse Studio 这两个工具。
+若要执行无服务器 SQL 池查询，建议使用 [Azure Data Studio](get-started-azure-data-studio.md) 和 Azure Synapse Studio 这两个工具。
 
 ## <a name="next-steps"></a>后续步骤
 若要使用 Visual Studio 进行连接和查询，请参阅[使用 Visual Studio 进行查询](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。 若要详细了解身份验证选项，请参阅[向 Synapse SQL 进行身份验证](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。

@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287723"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322588"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>使用 Azure Synapse Link 中的 Apache Spark（预览版）与 Azure Cosmos DB 进行交互
 
@@ -209,7 +209,7 @@ query.awaitTermination()
     ]
 }
 ```
-如果希望将远程 Spark 作业定义提交到 Synapse Spark 池，则可以通过本[教程](../spark/apache-spark-job-definitions.md)来了解如何引用外部库。
+如果希望将远程 Spark 作业定义提交到无服务器 Apache Spark 池，则可以通过本[教程](../spark/apache-spark-job-definitions.md)来了解如何引用外部库。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503277"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311749"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>管理对工作区、数据和管道的访问
 
@@ -94,21 +94,21 @@ ms.locfileid: "92503277"
 对基础数据的访问控制划分为三个部分：
 
 - 对存储帐户的数据平面访问权限（已在上面的步骤 2 中配置）
-- 对 SQL 数据库的数据平面访问权限（适用于 SQL 池和 SQL 按需版本）
-- 通过存储帐户创建 SQL 按需版本数据库的凭据
+- 对 SQL 数据库的数据平面访问权限（适用于专用 SQL 池和无服务器 SQL 池）
+- 通过存储帐户创建无服务器 SQL 池数据库的凭据
 
 ## <a name="access-control-to-sql-databases"></a>对 SQL 数据库的访问控制
 
 > [!TIP]
 > 需要为每个 SQL 数据库运行以下步骤，以向用户授予对所有 SQL 数据库的访问权限（[服务器级别权限](#server-level-permission)部分中的除外，其中可为用户分配 sysadmin 角色）。
 
-### <a name="sql-on-demand"></a>SQL 按需版本
+### <a name="serverless-sql-pool"></a>无服务器 SQL 池
 
 在本部分中，可以找到有关如何向用户授予对特定数据库的权限或完全服务器权限的示例。
 
 #### <a name="database-level-permission"></a>数据库级别权限
 
-若要向用户授予对单个 SQL 按需版本数据库的访问权限，请执行此示例中的步骤：
+若要向用户授予对单个无服务器 SQL 池数据库的访问权限，请执行此示例中的步骤：
 
 1. 创建登录名
 
@@ -140,14 +140,14 @@ ms.locfileid: "92503277"
 
 #### <a name="server-level-permission"></a>服务器级别权限
 
-若要向用户授予对所有 SQL 按需版本数据库的完全访问权限，请执行此示例中的步骤：
+若要向用户授予对所有无服务器 SQL 池数据库的完全访问权限，请执行此示例中的步骤：
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>SQL 池
+### <a name="dedicated-sql-pool"></a>专用 SQL 池
 
 若要向用户授予对单个 SQL 数据库的访问权限，请执行以下步骤：
 
@@ -167,18 +167,18 @@ ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 
 > [!IMPORTANT]
 > 如果授予 db_owner 权限不符合需要，可为 db_datareader 和 db_datawriter 授予读取/写入权限。  
-> 要使 Spark 用户能够直接使用 Spark 在 SQL 池中读取/写入数据，需要授予 db_owner 权限。
+> 要使 Spark 用户能够直接使用 Spark 在专用 SQL 池中读取/写入数据，需要授予 db_owner 权限。
 
-创建用户后，验证 SQL 按需版本是否可以查询存储帐户。
+创建用户后，验证是否可以使用无服务器 SQL 池查询存储帐户。
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>对工作区管道运行的访问控制
 
 ### <a name="workspace-managed-identity"></a>工作区托管标识
 
 > [!IMPORTANT]
-> 若要成功运行包含引用 SQL 池的数据集或活动的管道，需要直接向工作区标识授予对 SQL 池的访问权限。
+> 若要成功运行包含引用专用 SQL 池的数据集或活动的管道，需要直接向工作区标识授予对 SQL 池的访问权限。
 
-针对每个 SQL 池运行以下命令，以允许工作区托管标识对 SQL 池数据库运行管道：
+针对每个专用 SQL 池运行以下命令，以允许工作区托管标识对 SQL 池数据库运行管道：
 
 ```sql
 --Create user in DB

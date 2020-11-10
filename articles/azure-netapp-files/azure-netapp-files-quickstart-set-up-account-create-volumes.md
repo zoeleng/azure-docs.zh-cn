@@ -8,16 +8,16 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 088961d58cee2f1bb0c6ac042d9d8ee2ad50ba14
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931336"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336429"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>快速入门：设置 Azure NetApp 文件并创建 NFS 卷 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>快速入门：设置 Azure NetApp 文件并创建 NFS 卷
 
-本文介绍如何快速设置 Azure NetApp 文件和创建卷。 
+本文介绍如何快速设置 Azure NetApp 文件和创建卷。
 
 在本快速入门中，你将设置以下项：
 
@@ -28,10 +28,10 @@ ms.locfileid: "91931336"
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="before-you-begin"></a>开始之前 
+## <a name="before-you-begin"></a>开始之前
 
-> [!IMPORTANT] 
-> 你需要被授予对 Azure NetApp 文件服务的访问权限。  若要请求对该服务的访问权限，请参阅 [Azure NetApp 文件候补名单提交页面](https://aka.ms/azurenetappfiles)。  你必须等待来自 Azure NetApp 文件团队的官方确认电子邮件，然后才能继续操作。 
+> [!IMPORTANT]
+> 你需要被授予对 Azure NetApp 文件服务的访问权限。 若要请求对该服务的访问权限，请参阅 [Azure NetApp 文件候补名单提交页面](https://aka.ms/azurenetappfiles)。  你必须等待来自 Azure NetApp 文件团队的官方确认电子邮件，然后才能继续操作。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -69,11 +69,11 @@ ms.locfileid: "91931336"
 
 # <a name="template"></a>[模板](#tab/template)
 
-无。  
+无。
 
-使用 Azure 门户、PowerShell 或 Azure CLI 注册 Azure NetApp 文件和 NetApp 资源提供程序。  
+使用 Azure 门户、PowerShell 或 Azure CLI 注册 Azure NetApp 文件和 NetApp 资源提供程序。
 
-有关详细信息，请参阅[注册 Azure NetApp 文件](azure-netapp-files-register.md)。 
+有关详细信息，请参阅[注册 Azure NetApp 文件](azure-netapp-files-register.md)。
 
 ---
 
@@ -81,7 +81,7 @@ ms.locfileid: "91931336"
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-1. 在 Azure 门户的搜索框中输入“Azure NetApp 文件”，然后从显示的列表中选择“Azure NetApp 文件”。  
+1. 在 Azure 门户的搜索框中输入“Azure NetApp 文件”，然后从显示的列表中选择“Azure NetApp 文件” 。
 
       ![选择“Azure NetApp 文件”](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
@@ -89,13 +89,13 @@ ms.locfileid: "91931336"
 
      ![创建新的 NetApp 帐户](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
-3. 在“新建 NetApp 帐户”窗口中提供以下信息： 
-   1. 输入 **myaccount1** 作为帐户名称。 
+3. 在“新建 NetApp 帐户”窗口中提供以下信息：
+   1. 输入 **myaccount1** 作为帐户名称。
    2. 选择订阅。
-   3. 选择“新建”以创建新的资源组。  输入 **myRG1** 作为资源组名称。 单击“确定”。  
-   4. 选择帐户位置。  
+   3. 选择“新建”以创建新的资源组。  输入 **myRG1** 作为资源组名称。 单击“确定”。 
+   4. 选择帐户位置。
 
-      ![“新建 NetApp 帐户”窗口](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![“新建 NetApp 帐户”窗口](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)
 
       ![“资源组”窗口](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
@@ -109,7 +109,7 @@ ms.locfileid: "91931336"
     $resourceGroup = "myRG1"
     $location = "eastus"
     $anfAccountName = "myaccount1"
-    ``` 
+    ```
 
     > [!NOTE]
     > 有关受支持区域的列表，请参阅[可用产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)。
@@ -123,7 +123,7 @@ ms.locfileid: "91931336"
     ```
 
 2. 使用 [New-AzNetAppFilesAccount](/powershell/module/az.netappfiles/New-AzNetAppFilesAccount) 命令创建 Azure NetApp 文件帐户：
-   
+
     ```powershell-interactive
     New-AzNetAppFilesAccount -ResourceGroupName $resourceGroup -Location $location -Name $anfAccountName
     ```
@@ -136,7 +136,7 @@ ms.locfileid: "91931336"
     RESOURCE_GROUP="myRG1"
     LOCATION="eastus"
     ANF_ACCOUNT_NAME="myaccount1"
-    ``` 
+    ```
 
     > [!NOTE]
     > 有关受支持区域的列表，请参阅[可用产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)。
@@ -152,7 +152,7 @@ ms.locfileid: "91931336"
     ```
 
 3. 使用 [az netappfiles account create](/cli/azure/netappfiles/account#az-netappfiles-account-create) 命令创建 Azure NetApp 文件帐户：
-   
+
     ```azurecli-interactive
     az netappfiles account create \
         --resource-group $RESOURCE_GROUP \
@@ -176,22 +176,22 @@ ms.locfileid: "91931336"
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-1. 在 Azure NetApp 文件管理边栏选项卡中，选择你的 NetApp 帐户 (**myaccount1**)。
+1. 在 Azure NetApp 文件管理边栏选项卡中，选择你的 NetApp 帐户 ( **myaccount1** )。
 
-    ![选择 NetApp 帐户](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)  
+    ![选择 NetApp 帐户](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
 2. 在 NetApp 帐户的 Azure NetApp 文件管理边栏选项卡中，单击“容量池”。 
 
-    ![单击“容量池”](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)  
+    ![单击“容量池”](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)
 
-3. 单击“+ 添加池”。  
+3. 单击“+ 添加池”。 
 
-    ![单击“添加池”](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
+    ![单击“添加池”](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. 提供容量池的信息： 
+4. 提供容量池的信息：
     * 输入 **mypool1** 作为池名称。
-    * 选择“高级”作为服务级别。  
-    * 指定“4 (TiB)”作为池大小。  
+    * 选择“高级”作为服务级别。 
+    * 指定“4 (TiB)”作为池大小。 
     * 使用自动 QoS 类型。
 
 5. 单击“创建”。
@@ -222,7 +222,7 @@ ms.locfileid: "91931336"
     SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-2. 使用 [az netappfiles pool create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create) 创建新的容量池 
+2. 使用 [az netappfiles pool create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create) 创建新的容量池
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -252,16 +252,16 @@ ms.locfileid: "91931336"
 
 1. 在 NetApp 帐户的 Azure NetApp 文件管理边栏选项卡中，单击“卷”。 
 
-    ![单击“卷”](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)  
+    ![单击“卷”](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)
 
 2. 单击“+ 添加卷”。 
 
-    ![单击“添加卷”](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
+    ![单击“添加卷”](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)
 
-3. 在“创建卷”窗口中提供卷的信息： 
-   1. 输入 **myvol1** 作为卷名称。 
-   2. 选择容量池 (**mypool1**)。
-   3. 对配额使用默认值。 
+3. 在“创建卷”窗口中提供卷的信息：
+   1. 输入 **myvol1** 作为卷名称。
+   2. 选择容量池 ( **mypool1** )。
+   3. 对配额使用默认值。
    4. 在“虚拟网络”下，单击“新建”以创建新的 Azure 虚拟网络 (VNet)。   然后填写以下信息：
        * 输入 **myvnet1** 作为 VNet 名称。
        * 指定设置的地址空间，例如 10.7.0.0/16
@@ -269,28 +269,28 @@ ms.locfileid: "91931336"
        * 指定子网地址范围，例如 10.7.0.0/24。 不能与其他资源共享专用子网。
        * 选择“Microsoft.NetApp/volumes”作为子网委托。 
        * 单击“确定”以创建 VNet。 
-   5. 在子网中，选择新建的 VNet (**myvnet1**) 作为委托子网。
+   5. 在子网中，选择新建的 VNet ( **myvnet1** ) 作为委托子网。
 
-      ![“创建卷”窗口](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+      ![“创建卷”窗口](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)
 
-      ![“创建虚拟网络”窗口](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![“创建虚拟网络”窗口](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)
 
-4. 单击“协议”  ，然后完成以下操作： 
-    * 选择“NFS”  作为卷的协议类型。  
-    * 输入 **myfilepath1** 作为文件路径，该路径用于创建卷的导出路径。  
-    * 选择卷的 NFS 版本（**NFSv3** 或 **NFSv4.1**）。  
-      有关 NFS 版本，请参阅[注意事项](azure-netapp-files-create-volumes.md#considerations)和[最佳做法](azure-netapp-files-create-volumes.md#best-practice)。 
-      
-  ![为快速入门指定 NFS 协议](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+4. 单击“协议”  ，然后完成以下操作：
+    * 选择“NFS”  作为卷的协议类型。
+    * 输入 **myfilepath1** 作为文件路径，该路径用于创建卷的导出路径。
+    * 选择卷的 NFS 版本（ **NFSv3** 或 **NFSv4.1** ）。
+      有关 NFS 版本，请参阅[注意事项](azure-netapp-files-create-volumes.md#considerations)和[最佳做法](azure-netapp-files-create-volumes.md#best-practice)。
+
+    ![为快速入门指定 NFS 协议](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. 单击“查看 + 创建”  。
 
-    ![“查看 + 创建”窗口](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
+    ![“查看 + 创建”窗口](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)
 
-6. 查看卷的信息，然后单击“创建”。   
+6. 查看卷的信息，然后单击“创建”。 
     创建的卷将显示在“卷”边栏选项卡中。
 
-    ![已创建卷](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
+    ![已创建卷](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -307,13 +307,13 @@ ms.locfileid: "91931336"
     ```
 
 3. 使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 命令创建虚拟网络。
-    
+
     ```powershell-interactive
     $vnet = New-AzVirtualNetwork -Name "myvnet1" -ResourceGroupName $resourceGroup -Location $location -AddressPrefix "10.7.0.0/16" -Subnet $subnet
     ```
 
 4. 使用 [New-AzNetAppFilesVolume](/powershell/module/az.netappfiles/new-aznetappfilesvolume) 命令创建卷。
-   
+
     ```powershell-interactive
     $volumeSizeBytes = 1099511627776 # 100GiB
     $subnetId = $vnet.Subnets[0].Id
@@ -333,14 +333,14 @@ ms.locfileid: "91931336"
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. 定义一些变量供以后使用。
-    
+
     ```azurecli-interactive
     VNET_NAME="myvnet1"
     SUBNET_NAME="myANFSubnet"
     ```
 
 1. 使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 命令创建没有子网的虚拟网络。
-    
+
     ```azurecli-interactive
     az network vnet create \
         --resource-group $RESOURCE_GROUP \
@@ -362,7 +362,7 @@ ms.locfileid: "91931336"
     ```
 
 3. 使用 [az netappfiles volume create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) 命令创建卷。
-   
+
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
     SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
@@ -385,7 +385,7 @@ ms.locfileid: "91931336"
 
 # <a name="template"></a>[模板](#tab/template)
 
-<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
 下面的代码片段演示如何在 Azure 资源管理器模板（ARM 模板）中设置 VNet，以及如何创建 Azure NetApp 文件卷。 [Microsoft.Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks) 资源用于设置 VNet。 [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) 资源用于创建卷。 若要运行代码，请从 GitHub 存储库下载[完整的 ARM 模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)。
 
@@ -403,50 +403,50 @@ ms.locfileid: "91931336"
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-完成后，如果需要，你可以删除资源组。 删除资源组的操作不可逆。  
+完成后，如果需要，你可以删除资源组。 删除资源组的操作不可逆。
 
 > [!IMPORTANT]
-> 资源组中的所有资源将被永久删除，并且无法撤消。 
+> 资源组中的所有资源将被永久删除，并且无法撤消。
 
-1. 在 Azure 门户的搜索框中输入“Azure NetApp 文件”，然后从显示的列表中选择“Azure NetApp 文件”。  
+1. 在 Azure 门户的搜索框中输入“Azure NetApp 文件”，然后从显示的列表中选择“Azure NetApp 文件” 。
 
-2. 在订阅列表中，单击你要删除的资源组 (myRG1)。 
+2. 在订阅列表中，单击你要删除的资源组 (myRG1)。
 
     ![导航到资源组](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
 
 
 3. 在资源组页面上，单击“删除资源组”。 
 
-    ![突出显示“删除资源组”按钮的屏幕截图。](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![突出显示“删除资源组”按钮的屏幕截图。](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png)
 
     此时会打开一个窗口，其中显示有关将要与资源组一起删除的资源的警告。
 
 4. 输入资源组的名称 (myRG1) 以确认你要永久删除该资源组及其中的所有资源，然后单击“删除”  。
 
-    ![确认删除资源组](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![确认删除资源组](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png )
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-完成后，如果需要，你可以删除资源组。 删除资源组的操作不可逆。  
+完成后，如果需要，你可以删除资源组。 删除资源组的操作不可逆。
 
 > [!IMPORTANT]
 > 资源组中的所有资源将被永久删除，并且无法撤消。
 
 1. 使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 命令删除资源组。
-   
+
     ```powershell-interactive
     Remove-AzResourceGroup -Name $resourceGroup
     ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-完成后，如果需要，你可以删除资源组。 删除资源组的操作不可逆。  
+完成后，如果需要，你可以删除资源组。 删除资源组的操作不可逆。
 
 > [!IMPORTANT]
 > 资源组中的所有资源将被永久删除，并且无法撤消。
 
 1. 使用 [az group delete](/cli/azure/group#az-group-delete) 命令删除资源组。
-   
+
     ```azurecli-interactive
     az group delete \
         --name $RESOURCE_GROUP
@@ -456,13 +456,17 @@ ms.locfileid: "91931336"
 
 无。
 
-使用 Azure portal、PowerShell 或 Azure CLI 删除资源组。   
+使用 Azure portal、PowerShell 或 Azure CLI 删除资源组。
 
 ---
 
-## <a name="next-steps"></a>后续步骤  
+## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [Azure NetApp 文件的存储层次结构](azure-netapp-files-understand-storage-hierarchy.md)   
-> [Azure NetApp 文件的服务级别](azure-netapp-files-service-levels.md)   
+> [Azure NetApp 文件的存储层次结构](azure-netapp-files-understand-storage-hierarchy.md)
+
+> [!div class="nextstepaction"]
+> [Azure NetApp 文件的服务级别](azure-netapp-files-service-levels.md)
+
+> [!div class="nextstepaction"]
 > [创建 NFS 卷](azure-netapp-files-create-volumes.md)

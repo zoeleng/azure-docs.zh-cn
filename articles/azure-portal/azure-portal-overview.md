@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072384"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147039"
 ---
 # <a name="azure-portal-overview"></a>Azure 门户概述
 
@@ -42,7 +42,7 @@ Azure 门户旨在实现复原能力和持续可用性。 每个 Azure 数据中
 
 作为 Azure 服务的新订阅者，[登录到门户](https://portal.azure.com)后，看到的第一个画面就是“Azure 主页”。 在此页面中，可以编译资源来帮助你充分利用 Azure 订阅。 其中包含了免费在线课程、文档、核心服务和有用站点的链接，使你随时掌握和应对组织发生的变化。 为了方便你快速访问正在处理的工作，该页面还会显示最近访问的资源列表。 无法自定义此页面，但可以选择是要将“Azure 主页”还是“Azure 仪表板”用作默认视图。  首次登录时，该页面的顶部会提示你要在哪个位置保存首选项。
 
-![显示默认视图选择器的屏幕截图](./media/azure-portal-overview/azure-portal-default-view.png)
+![显示保存首选项位置的屏幕截图。](./media/azure-portal-overview/azure-portal-default-view.png)
 
 可以在“门户设置”中更改 Azure 门户菜单和 Azure 默认视图。 如果更改所做的选择，会立即应用更改。
 
@@ -64,7 +64,7 @@ Azure 门户菜单和页眉是始终存在的全局元素。 这些持久功能�
 
 ![显示扩展门户菜单的屏幕截图](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|键|说明
+|密钥|说明
 |:---:|---|
 |1|页头。 显示在每个门户页面的顶部，包含全局元素。|
 |2| 全局搜索。 使用搜索栏可以快速查找特定的资源、服务或文档。|

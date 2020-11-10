@@ -1,6 +1,6 @@
 ---
-title: 快速入门：使用 Web 工具在 Azure Synapse Analytics 中创建 Apache Spark 池
-description: 本快速入门介绍如何使用 Web 工具在 Azure Synapse Analytics 中创建 Apache Spark 池，并运行 Spark SQL 查询。
+title: 快速入门：使用 Web 工具创建无服务器 Apache Spark 池
+description: 本快速入门介绍如何使用 Web 工具在 Azure Synapse Analytics 中创建无服务器 Apache Spark 池，以及如何运行 Spark SQL 查询。
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742534"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316133"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>快速入门：使用 Web 工具在 Azure Synapse Analytics 中创建 Apache Spark 池
+# <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>快速入门：使用 Web 工具在 Azure Synapse Analytics 中创建无服务器 Apache Spark 池
 
-本快速入门介绍如何使用 Web 工具在 Azure Synapse 中创建 Apache Spark 池（预览版）。 然后，介绍如何连接到 Apache Spark 池并针对文件和表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Azure Synapse 中 Spark 的信息，请参阅[概述：Azure Synapse 上的 Apache Spark](./spark/apache-spark-overview.md)。
+本快速入门介绍如何使用 Web 工具在 Azure Synapse 中创建无服务器 Apache Spark 池（预览版）。 然后，介绍如何连接到 Apache Spark 池并针对文件和表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Azure Synapse 中 Spark 的信息，请参阅[概述：Azure Synapse 上的 Apache Spark](./spark/apache-spark-overview.md)。
 
 > [!IMPORTANT]
 > 不管是否正在使用 Spark 实例，它们都会按分钟按比例计费。 请务必在用完 Spark 实例后将其关闭，或设置较短的超时。 有关详细信息，请参阅本文的 **清理资源** 部分。
@@ -29,7 +29,7 @@ ms.locfileid: "92742534"
 
 - Azure 订阅 - [创建免费帐户](https://azure.microsoft.com/free/)
 - [Synapse Analytics 工作区](quickstart-create-workspace.md)
-- [Apache Spark 池](quickstart-create-apache-spark-pool-studio.md)
+- [无服务器 Apache Spark 池](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -132,9 +132,12 @@ ms.locfileid: "92742534"
 
 11. 对于前面执行的每个单元，可以选择转到“History Server”和“监视”。 单击相应的链接会转到用户体验的不同组成部分。
 
+> [!NOTE]
+> 某些 [Apache Spark 官方文档](https://spark.apache.org/docs/latest/)依赖于使用 Spark 控制台，但该控制台在 Synapse Spark 中不可用。 请改用[笔记本](quickstart-apache-spark-notebook.md)或 [IntelliJ](./spark/intellij-tool-synapse.md) 体验。
+
 ## <a name="clean-up-resources"></a>清理资源
 
-Azure Synapse 在 Azure Data Lake Storage 中保存数据。 可以安全关闭未在使用的 Spark 实例。 只要 Azure Synapse Apache Spark 池正在运行，即使不使用它，它也会产生费用。 
+Azure Synapse 在 Azure Data Lake Storage 中保存数据。 可以安全关闭未在使用的 Spark 实例。 只要无服务器 Apache Spark 池正在运行，即使不使用它，也会产生费用。 
 
 由于池的费用是存储费用的许多倍，关闭未在使用的 Spark 实例可以节省费用。
 
@@ -142,11 +145,10 @@ Azure Synapse 在 Azure Data Lake Storage 中保存数据。 可以安全关闭�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已了解了如何创建 Azure Synapse Apache Spark 池和运行基本的 Spark SQL 查询。
+本快速入门介绍了如何创建无服务器 Apache Spark 池和运行基本的 Spark SQL 查询。
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [.NET for Apache Spark 文档](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Apache Spark 官方文档](https://spark.apache.org/docs/latest/)
 
->[!NOTE]
-> 某些 Apache Spark 官方文档依赖于使用 Spark 控制台，但该控制台在 Azure Synapse Spark 中不可用。 请改用[笔记本](quickstart-apache-spark-notebook.md)或 [IntelliJ](./spark/intellij-tool-synapse.md) 体验。
+
+

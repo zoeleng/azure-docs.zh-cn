@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/21/2020
-ms.openlocfilehash: 88aaa9ccf3d0c1319637036373463e2a93ccb649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a34b0ae819f7bbb29a0004a89ea5417b52c127e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291310"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392667"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 数据库中的单一数据库或共用数据库
 
@@ -68,7 +68,7 @@ ms.locfileid: "91291310"
 
 - 确保虚拟网络网络安全组规则未阻止到 Azure 数据库迁移服务的以下入站通信端口：443、53、9354、445、12000。 有关 Azure 虚拟网络 NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
 - 配置[针对数据库引擎访问的 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-- 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。
+- 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。 如果默认实例正在侦听其他端口，请将该端口添加到防火墙。
 - 如果使用动态端口运行多个命名 SQL Server 实例，则可能需要启用 SQL Browser 服务并允许通过防火墙访问 UDP 端口 1434，以便 Azure 数据库迁移服务可连接到源服务器上的命名实例。
 - 在源数据库的前面使用了防火墙设备时，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库。
 - 为 Azure SQL 数据库创建服务器级[防火墙规则](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的虚拟网络子网范围。
@@ -204,11 +204,11 @@ ms.locfileid: "91291310"
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>注册 Microsoft.DataMigration 资源提供程序
 
-1. 登录到 Azure 门户，选择“所有服务”，然后选择“订阅”。
+1. 登录到 Azure 门户，选择“所有服务”  ，然后选择“订阅”  。
 
    ![显示门户订阅](media/tutorial-sql-server-to-azure-sql-online/portal-select-subscription1.png)
 
-2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”。
+2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”  。
 
     ![显示资源提供程序](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
@@ -218,7 +218,7 @@ ms.locfileid: "91291310"
 
 ## <a name="create-an-instance"></a>创建实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择**Azure 数据库迁移服务**。
+1. 在 Azure 门户中，选择 **+ 创建资源** ，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务** 。
 
     ![Azure 市场](media/tutorial-sql-server-to-azure-sql-online/portal-marketplace.png)
 
@@ -248,7 +248,7 @@ ms.locfileid: "91291310"
 
 创建服务后，在 Azure 门户中找到并打开它，然后创建一个新的迁移项目。
 
-1. 在 Azure 门户中，选择“所有服务”，搜索 Azure 数据库迁移服务，然后选择“Azure 数据库迁移服务”。
+1. 在 Azure 门户中，选择“所有服务”  ，搜索 Azure 数据库迁移服务，然后选择“Azure 数据库迁移服务”  。
 
     ![查找 Azure 数据库迁移服务的所有实例](media/tutorial-sql-server-to-azure-sql-online/dms-search.png)
 
@@ -267,7 +267,7 @@ ms.locfileid: "91291310"
 
 6. 选择“保存” 。
 
-7. 选择“创建并运行活动”，以便创建项目并运行迁移活动。
+7. 选择“创建并运行活动”，以便创建项目并运行迁移活动。 
 
     ![创建并运行数据库迁移服务活动](media/tutorial-sql-server-to-azure-sql-online/dms-create-and-run-activity.png)
 
@@ -331,11 +331,11 @@ ms.locfileid: "91291310"
 
 完成初始的完整加载以后，数据库会被标记为“直接转换可供执行”。
 
-1. 如果准备完成数据库迁移，请选择“启动直接转换”。
+1. 如果准备完成数据库迁移，请选择“启动直接转换”。 
 
     ![启动直接转换](media/tutorial-sql-server-to-azure-sql-online/dms-start-cutover.png)
 
-2. 确保停止传入源数据库的所有事务；等到“挂起的更改”计数器显示 **0**。
+2. 确保停止传入源数据库的所有事务；等到“挂起的更改”计数器显示 **0** 。
 3. 选择“确认”，然后选择“应用”。
 4. 当数据库迁移状态显示“已完成”后，请将应用程序连接到新的目标 Azure SQL 数据库。
 

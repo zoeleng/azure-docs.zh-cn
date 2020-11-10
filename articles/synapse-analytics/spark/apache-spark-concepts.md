@@ -1,6 +1,6 @@
 ---
 title: Apache Spark 核心概念
-description: 介绍 Azure Synapse Analytics 中的 Apache Spark 以及不同的概念。
+description: 介绍 Azure Synapse Analytics 中 Apache Spark 的核心概念。
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480473"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313395"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Azure Synapse Analytics 中的 Apache Spark 的核心概念
 
@@ -24,7 +24,7 @@ Apache Spark 是并行处理框架，支持使用内存中处理来提升大数�
 
 ## <a name="spark-pools-preview"></a>Spark 池（预览版）
 
-Spark 池（预览版）在 Azure 门户中创建。 Spark 池的定义是，在实例化后，该池可用于创建一个 Spark 实例来处理数据。 Spark 池在创建后只作为元数据存在，不会消耗、运行资源，也不会产生资源费用。 Spark 池具有一系列控制 Spark 实例特征的属性。 这些特征包括但不限于名称、大小、缩放行为、生存时间。
+无服务器 Apache Spark 池（预览版）在 Azure 门户中创建。 Spark 池的定义是，在实例化后，该池可用于创建一个 Spark 实例来处理数据。 Spark 池在创建后只作为元数据存在，不会消耗、运行资源，也不会产生资源费用。 Spark 池具有一系列控制 Spark 实例特征的属性。 这些特征包括但不限于名称、大小、缩放行为、生存时间。
 
 由于创建 Spark 池不会产生相关的费用或资源成本，因此可以使用任意数目的不同配置创建任意数目的 Spark 池。 还可以将权限应用到 Spark 池，使用户只能访问某些池。
 

@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 48e6a2a6bcf20e22edbf0d2f98607b8310d2f22d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91307851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332162"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Node.js 进行连接并查询 Azure Database for MySQL 中的数据
 
@@ -50,7 +50,7 @@ ms.locfileid: "91307851"
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. 运行以下命令安装 **Node.js** 和 **npm**（适用于 Node.js 的包管理器）。
+1. 运行以下命令安装 **Node.js** 和 **npm** （适用于 Node.js 的包管理器）。
 
    ```bash
    sudo apt-get install -y nodejs npm
@@ -66,9 +66,9 @@ ms.locfileid: "91307851"
    ```
 3. 通过检查 npm list 输出文本来验证安装。 随着新修补程序的发布，版本号可能会变化。
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
-1. 输入以下命令安装 **brew**（适用于 Mac OS X 和 **Node.js** 的易用程序包管理器）。
+1. 输入以下命令安装 brew（适用于 macOS 和 Node.js 的易用程序包管理器） 。
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -319,6 +319,16 @@ function deleteData(){
                 else  console.log('Done.') 
         });
 };
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

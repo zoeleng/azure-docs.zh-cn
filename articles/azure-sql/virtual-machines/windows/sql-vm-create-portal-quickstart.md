@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791063"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145848"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：通过 Azure 门户在 Windows 虚拟机上创建 SQL Server 2017
 
@@ -47,7 +47,7 @@ ms.locfileid: "92791063"
 1. 选择“+添加”以打开“选择 SQL 部署选项”页。 可以通过在“SQL 虚拟机”磁贴上选择“显示详细信息”来查看其他信息。
 1. 选择“免费 SQL Server 许可证：Windows Server 2016 上的 SQL Server 2017 Developer”映像。
 
-   ![新搜索窗口](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![显示可在其中选择免费 SQL Server 许可证的屏幕截图：Windows Server 2016 上的 SQL Server 2017 Developer 映像。](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
 1. 选择“创建”。
 

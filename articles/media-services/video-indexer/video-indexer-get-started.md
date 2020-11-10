@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219780"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147277"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>快速入门：如何注册并上传第一个视频
 
@@ -27,8 +27,10 @@ ms.locfileid: "92219780"
 
 若要开始使用视频索引器进行开发，请浏览到[视频索引器](https://www.videoindexer.ai/)网站并注册。
 
+开始使用视频索引器后，所有存储的数据和上传的内容都将使用 Microsoft 托管密钥进行静态加密。
+
 > [!NOTE]
-> 开始使用视频索引器后，所有存储的数据和上传的内容都将使用 Microsoft 托管密钥进行静态加密。
+> 请查看[计划的视频索引器网站身份验证更改](release-notes.md#planned-video-indexer-website-authenticatication-changes)。
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>使用视频索引器网站上传视频
 
@@ -49,12 +51,12 @@ ms.locfileid: "92219780"
 1. 视频上传以后，视频索引器就会开始对视频进行索引编制和分析。 你会看到进度。 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="上载":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="上传进度":::
 1. 当视频索引器分析完成后，你会获得一封电子邮件，其中包含视频链接以及对视频中找到的内容的简短说明。 例如：人员、口语和书面语、主题和命名实体。
 1. 稍后可以在库列表中找到视频并执行不同的操作。 例如：搜索、重新索引、编辑。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="上载":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="已上传内容":::
  
 ## <a name="see-also"></a>另请参阅
 

@@ -1,6 +1,6 @@
 ---
-title: 将查询结果存储到存储中
-description: 在本文中，你将了解如何使用 SQL 按需版本（预览版）将查询结果存储到存储。
+title: 从无服务器 SQL 池存储查询结果
+description: 在本文中，你将了解如何使用无服务器 SQL 池（预览版）将查询结果存储到存储。
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5fda5e7a5caf72df3d4c80e37a684232ca5541
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50897d81ed5ef2fc33e458bd46d9229f6184fea8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289355"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322615"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>通过 Azure Synapse Analytics 使用 SQL 按需版本（预览版）将查询结果存储到存储
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用无服务器 SQL 池（预览版）将查询结果存储到存储
 
-在本文中，你将了解如何使用 SQL 按需版本（预览版）将查询结果存储到存储。
+在本文中，你将了解如何使用无服务器 SQL 池（预览版）将查询结果存储到存储。
 
 ## <a name="prerequisites"></a>先决条件
 

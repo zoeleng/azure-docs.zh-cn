@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075529"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124180"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>快速入门：将功能标志添加到 Spring Boot 应用
 
 在本快速入门中，你要将 Azure 应用程序配置合并到 Spring Boot Web 应用中，以创建功能管理的端到端实现。 可以使用应用程序配置服务集中存储所有功能标志并控制其状态。
 
-Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架。 这些库**不**依赖于任何 Azure 库。 它们可以通过其 Spring Boot 配置提供程序无缝集成到应用程序配置。
+Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架。 这些库 **不** 依赖于任何 Azure 库。 它们可以通过其 Spring Boot 配置提供程序无缝集成到应用程序配置。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -54,7 +54,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 
 ## <a name="add-feature-management"></a>添加功能管理
 
-1. 在本地系统中提取文件后，即可对 Spring Boot 应用程序进行编辑。 在应用的根目录中找到 *pom.xml*。
+1. 在本地系统中提取文件后，即可对 Spring Boot 应用程序进行编辑。 在应用的根目录中找到 *pom.xml* 。
 
 1. 在文本编辑器中打开 pom.xml  文件，将以下内容添加到 `<dependencies>` 列表中：
 
@@ -286,7 +286,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 
 1. 打开浏览器窗口，访问 URL：`http://localhost:8080/welcome`。
 
-    ![本地启动应用快速入门](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![屏幕截图显示一个浏览器窗口，其中显示了“欢迎”消息。](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
 1. 在应用程序配置门户中选择“功能管理器”，并将“Beta”密钥的状态更改为“打开”：   
 
@@ -296,7 +296,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 
 1. 刷新浏览器页面，查看新的配置设置。
 
-    ![本地启动应用快速入门](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![屏幕截图显示一个浏览器窗口，其中显示了“欢迎”消息和标注的 Beta 链接。](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

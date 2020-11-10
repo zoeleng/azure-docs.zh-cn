@@ -1,6 +1,6 @@
 ---
-title: 在 SQL 按需版本（预览版）中创建和使用外部表
-description: 本部分介绍如何在 SQL 按需版本（预览版）中创建和使用外部表。
+title: 在无服务器 SQL 池（预览版）中创建和使用外部表
+description: 本部分介绍如何在无服务器 SQL 池（预览版）中创建和使用外部表。
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289321"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314721"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>通过 Azure Synapse Analytics 在 SQL 按需版本（预览版）中创建和使用外部表
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中通过无服务器 SQL 池（预览版）创建和使用外部表
 
-本部分介绍如何在 SQL 按需版本（预览版）中创建和使用[外部表](develop-tables-external-tables.md)。 如果希望在 SQL 按需版本中控制对外部数据的访问，并且希望将 Power BI 之类的工具与 SQL 按需版本结合使用，则可使用外部表。 外部表可以访问两种类型的存储：
+本部分介绍如何在无服务器 SQL 池（预览版）中创建和使用[外部表](develop-tables-external-tables.md)。 如果希望在无服务器 SQL 池中控制对外部数据的访问，并且希望将 Power BI 之类的工具与无服务器 SQL 池结合使用，则可使用外部表。 外部表可以访问两种类型的存储：
 - 公用存储，用户可访问其中的公用存储文件。
 - 受保护存储，用户使用 SAS 凭据、Azure AD 标识或 Synapse 工作区的托管标识访问存储文件。
 

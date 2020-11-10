@@ -7,27 +7,34 @@ ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 10/16/2020
-ms.openlocfilehash: 221bd8287133c3fe9bb53bd4b480823d971b3e3a
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.date: 10/18/2020
+ms.openlocfilehash: 8820fd7b0812d925af6aca923a2b205d5bc92f3e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166006"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341444"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 .NET (C#) 连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
 本快速入门演示了如何使用 C# 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 C# 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
 
 ## <a name="prerequisites"></a>先决条件
-此快速入门使用以下任意指南中创建的资源作为起点：
-- [创建 DB - 门户](quickstart-create-server-database-portal.md)
-- [创建 DB - CLI](quickstart-create-server-database-azure-cli.md)
+对于本快速入门，你需要：
 
-还需要：
-- 安装 [.NET Framework](https://www.microsoft.com/net/download)。 按照链接文章中的步骤来安装专用于平台（Windows、Ubuntu Linux 或 macOS）的 .NET。 
-- 安装 [Visual Studio](https://www.visualstudio.com/downloads/) 或 Visual Studio Code，用于键入和编辑代码。
-- 添加对 [Npgsql](https://www.nuget.org/packages/Npgsql/) Nuget 包的引用。
+- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://azure.microsoft.com/free)。
+- 使用 [Azure 门户](./quickstart-create-server-database-portal.md) <br/> 或 [Azure CLI](./quickstart-create-server-database-azure-cli.md) 创建 Azure Database for PostgreSQL 单一服务器（如果没有）。
+- 请完成以下操作之一以启用连接，具体取决于你使用的是公共访问还是私有访问。
+
+  |操作| 连接方法|操作指南|
+  |:--------- |:--------- |:--------- |
+  | **配置防火墙规则** | 公用 | [门户](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+  | **配置服务终结点** | 公用 | [门户](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
+  | **配置专用链接** | Private | [门户](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
+
+- 安装适用于平台（Windows、Ubuntu Linux 或 macOS）的 [.NET Framework](https://www.microsoft.com/net/download)。 
+- 安装 [Visual Studio](https://www.visualstudio.com/downloads/) 以生成项目。
+- 在 Visual Studio 中安装 [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet 包。
 
 ## <a name="get-connection-information"></a>获取连接信息
 获取连接到 Azure Database for PostgreSQL 所需的连接信息。 需要完全限定的服务器名称和登录凭据。
@@ -38,10 +45,14 @@ ms.locfileid: "92166006"
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。   如果忘记了密码，也可通过此面板来重置密码。
  :::image type="content" source="./media/connect-csharp/1-connection-string.png" alt-text="Azure Database for PostgreSQL 服务器名称":::
 
-## <a name="connect-create-table-and-insert-data"></a>进行连接，创建表，然后插入数据
-通过以下代码进行连接，然后使用 **CREATE TABLE** 和 **INSERT INTO** SQL 语句加载数据。 代码使用 NpgsqlCommand 类，通过 [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) 方法建立与 PostgreSQL 数据库的连接。 然后，代码使用 [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) 方法来运行数据库命令。 
+## <a name="step-1-connect-and-insert-data"></a>步骤 1：连接并插入数据
+通过以下代码进行连接，然后使用 **CREATE TABLE** 和 **INSERT INTO** SQL 语句加载数据。 代码使用 NpgsqlCommand 类和以下方法： 
+- [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open)，用于与 PostgreSQL 数据库建立连接。
+- [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand)，用于设置 CommandText 属性。
+- [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) 方法，用于运行数据库命令。 
 
-将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
+> [!IMPORTANT]
+> 将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
 
 ```csharp
 using System;
@@ -113,10 +124,17 @@ namespace Driver
 }
 ```
 
-## <a name="read-data"></a>读取数据
-使用以下代码进行连接，并使用 **SELECT** SQL 语句来读取数据。 代码使用 NpgsqlCommand 类，通过 [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) 方法建立到 PostgreSQL 的连接。 然后，代码使用 [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) 方法和 [ExecuteReader()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) 方法运行数据库命令。 接下来，代码使用 [Read()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) 转到结果中的记录。 最后，代码使用 [GetInt32()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) 和 [GetString()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) 分析记录中的值。
+[存在问题？请告诉我们。](https://aka.ms/postgres-doc-feedback)
 
-将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
+## <a name="step-2-read-data"></a>步骤 2：读取数据
+使用以下代码进行连接，并使用 **SELECT** SQL 语句来读取数据。 代码使用 NpgsqlCommand 类和以下方法：
+- [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open)，用于与 PostgreSQL 建立连接。
+- [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) 和 [ExecuteReader()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader)，用于运行数据库命令。
+- [Read()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read)，用于转到结果中的记录。
+- [GetInt32()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) 和 [GetString()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_)，用于分析记录中的值。
+
+> [!IMPORTANT]
+> 将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
 
 ```csharp
 using System;
@@ -179,11 +197,16 @@ namespace Driver
 }
 ```
 
+[存在问题？请告诉我们。](https://aka.ms/postgres-doc-feedback)
 
-## <a name="update-data"></a>更新数据
-使用以下代码进行连接，并使用 UPDATE SQL 语句更新数据****。 代码使用 NpgsqlCommand 类，通过 [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) 方法建立到 PostgreSQL 的连接。 然后，代码使用 [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) 方法来运行数据库命令。
+## <a name="step-3-update-data"></a>步骤 3：更新数据
+使用以下代码进行连接，并使用 UPDATE SQL 语句更新数据。 代码使用 NpgsqlCommand 类和以下方法：
+- [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open)，用于与 PostgreSQL 建立连接。 
+- [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand)，用于设置 CommandText 属性。
+- [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) 方法，用于运行数据库命令。
 
-将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
+> [!IMPORTANT]
+> 将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
 
 ```csharp
 using System;
@@ -239,13 +262,15 @@ namespace Driver
 
 ```
 
+[存在问题？请告诉我们。](https://aka.ms/postgres-doc-feedback)
 
-## <a name="delete-data"></a>删除数据
-使用以下代码进行连接，并使用 DELETE SQL 语句删除数据****。 
+## <a name="step-4-delete-data"></a>步骤 4：删除数据
+使用以下代码进行连接，并使用 DELETE SQL 语句删除数据。 
 
 代码使用 NpgsqlCommand 类，通过 [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) 方法建立与 PostgreSQL 数据库的连接。 然后，代码使用 [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) 方法，设置 CommandText 属性，再调用 [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) 方法来运行数据库命令。
 
-将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
+> [!IMPORTANT]
+> 将 Host、DBName、User 和 Password 参数替换为创建服务器和数据库时指定的值。 
 
 ```csharp
 using System;
@@ -298,6 +323,21 @@ namespace Driver
 
 ```
 
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
+
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
-> [使用导出和导入功能迁移数据库](./howto-migrate-using-export-and-import.md)
+> [使用门户管理 Azure Database for MySQL 服务器](./howto-create-manage-server-portal.md)<br/>
+
+> [!div class="nextstepaction"]
+> [使用 CLI 管理 Azure Database for MySQL 服务器](./how-to-manage-server-cli.md)
+
+[找不到要查找的内容？请告诉我们。](https://aka.ms/postgres-doc-feedback)

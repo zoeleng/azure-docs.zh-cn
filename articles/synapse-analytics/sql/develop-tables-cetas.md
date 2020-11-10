@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93f23cdcfb3fb7107e3b1838b48b3e58ccc2d028
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d0805aaf694f1569e613ab74135c95e454adbdc0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288760"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315064"
 ---
 # <a name="cetas-with-synapse-sql"></a>Synapse SQL 提供的 CETAS
 
-可以在 SQL 池或 SQL 按需版本（预览版）中使用 CREATE EXTERNAL TABLE AS SELECT (CETAS) 来完成以下任务：  
+可在专用 SQL 池或无服务器 SQL 池（预览版）中使用 CREATE EXTERNAL TABLE AS SELECT (CETAS) 来完成以下任务：  
 
 - 创建外部表
 - 将 Transact-SQL SELECT 语句的结果并行导出到：
@@ -27,13 +27,13 @@ ms.locfileid: "91288760"
   - Azure 存储 Blob
   - Azure Data Lake Storage Gen2
 
-## <a name="cetas-in-sql-pool"></a>SQL 池中的 CETAS
+## <a name="cetas-in-dedicated-sql-pool"></a>专用 SQL 池中的 CETAS
 
-对于 SQL 池，CETAS 用法和语法，请查看 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 一文。 此外，有关使用 SQL 池的 CTAS 的指导，请参阅 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 一文。
+对于专用 SQL 池的 CETAS 用法和语法，请查看 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 一文。 此外，有关使用专用 SQL 池的 CTAS 的指导，请参阅 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 一文。
 
-## <a name="cetas-in-sql-on-demand"></a>SQL 按需版本中的 CETAS
+## <a name="cetas-in-serverless-sql-pool"></a>无服务器 SQL 池的 CETAS
 
-使用 SQL 按需版本时，CETAS 用来创建外部表，并将查询结果导出到 Azure 存储 Blob 或 Azure Data Lake Storage Gen2。
+使用无服务器 SQL 池时，CETAS 用来创建外部表，并将查询结果导出到 Azure 存储 Blob 或 Azure Data Lake Storage Gen2。
 
 ## <a name="syntax"></a>语法
 
@@ -56,7 +56,7 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
 
 *[ [ *database_name* . [ *schema_name* ] . ] | *schema_name* . ] *table_name**
 
-要创建的表的一到三部分名称。 对于外部表，SQL 按需版本仅存储表元数据。 不会在 SQL 按需版本中移动或存储任何实际数据。
+要创建的表的一到三部分名称。 对于外部表，无服务器 SQL 池仅存储表元数据。 不会在无服务器 SQL 池中移动或存储任何实际数据。
 
 LOCATION = *'path_to_folder'*
 

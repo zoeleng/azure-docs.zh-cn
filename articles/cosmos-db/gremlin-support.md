@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: sngun
-ms.openlocfilehash: f435185d0f00d8f64425e3f2b7081e0ee9a393ce
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276213"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082991"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin 图形支持并兼容 TinkerPop 功能
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB 支持 [Apache Tinkerpop](https://tinkerpop.apache.org) 的图形遍历语言（称为 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)）。 可以使用 Gremlin 语言创建图形实体（顶点和边缘）、修改这些实体内部的属性、执行查询和遍历，以及删除实体。
 
@@ -167,31 +168,31 @@ Azure Cosmos DB 提供的写入优化引擎默认支持自动对顶点和边缘�
 
 ## <a name="behavior-differences"></a>行为差异
 
-* Azure Cosmos DB Graph 引擎运行 ***广度优先*** 遍历，而 TinkerPop Gremlin 则深度优先。 这种行为在像 Cosmos DB 这样的水平可缩放系统中可实现更好的性能。
+* Azure Cosmos DB Graph 引擎运行“广度优先”遍历，而 TinkerPop Gremlin 则是深度优先。 这种行为在像 Cosmos DB 这样的水平可缩放系统中可实现更好的性能。
 
 ## <a name="unsupported-features"></a>不支持的功能
 
-***[Gremlin 字节码](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** 是与编程语言无关的图遍历规范。 Cosmos DB Graph 尚不支持它。 请使用 `GremlinClient.SubmitAsync()` 并以文本字符串的形式传递遍历。
+[Gremlin 字节码](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)是与编程语言无关的图遍历规范。 Cosmos DB Graph 尚不支持它。 请使用 `GremlinClient.SubmitAsync()` 并以文本字符串的形式传递遍历。
 
-***`property(set, 'xyz', 1)`*** 目前不支持集基数。 请改用 `property(list, 'xyz', 1)`。 若要了解详细信息，请参阅 [TinkerPop 的顶点属性](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)。
+目前不支持 `property(set, 'xyz', 1)` 集基数。 请改用 `property(list, 'xyz', 1)`。 若要了解详细信息，请参阅 [TinkerPop 的顶点属性](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)。
 
 `match()` 步骤当前不可用。 此步骤提供声明性查询功能。
 
-不支持顶点或边上的 ***对象作为属性*** 。 属性只能是基元类型或数组。
+在顶点或边缘，不支持对象作为属性。 属性只能是基元类型或数组。
 
-不支持 ***按数组属性排序*** `order().by(<array property>)`。 只支持按基元类型排序。
+不支持按数组属性排序 `order().by(<array property>)`。 只支持按基元类型排序。
 
-不支持 ***非基元 JSON 类型*** 。 使用 `string`、`number` 或 `true`/`false` 类型。 不支持 `null` 值。 
+不支持非基元 JSON 类型。 使用 `string`、`number` 或 `true`/`false` 类型。 不支持 `null` 值。 
 
-目前不支持 ***GraphSONv3*** 序列化程序。 在连接配置中使用 `GraphSONv2` Serializer、Reader 和 Writer 类。 Azure Cosmos DB Gremlin API 返回的结果的格式与 GraphSON 格式不同。 
+当前不支持 GraphSONv3 序列化程序。 在连接配置中使用 `GraphSONv2` Serializer、Reader 和 Writer 类。 Azure Cosmos DB Gremlin API 返回的结果的格式与 GraphSON 格式不同。 
 
-目前不支持 **Lambda 表达式和函数** 。 这包括 `.map{<expression>}`、`.by{<expression>}` 和 `.filter{<expression>}` 函数。 若要了解详细信息，并了解如何使用 Gremlin 步骤重写这些函数，请参阅[关于 Lambda 的说明](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)。
+当前不支持 Lambda 表达式和函数。 这包括 `.map{<expression>}`、`.by{<expression>}` 和 `.filter{<expression>}` 函数。 若要了解详细信息，并了解如何使用 Gremlin 步骤重写这些函数，请参阅[关于 Lambda 的说明](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)。
 
-* 由于系统具有分布式特性，因此 ***事务*** 不受支持。  在 Gremlin 帐户上配置适当的一致性模型以“读取自己的写入”，并使用乐观并发解决冲突的写入。
+* 由于系统的分布式特性，因此事务不受支持*。  在 Gremlin 帐户上配置适当的一致性模型以“读取自己的写入”，并使用乐观并发解决冲突的写入。
 
 ## <a name="known-limitations"></a>已知的限制
 
-**使用中间遍历 `.V()` 步骤的 Gremlin 查询的索引利用** ：目前，只有遍历的第一次 `.V()` 调用将使用索引来解析附加到它的任何筛选器或谓词。 后续调用将不会访问索引，因为这可能会增加查询的延迟和成本。
+具有中间遍历 `.V()` 步骤的 Gremlin 查询的索引利用率：目前，只有遍历的第一个 `.V()` 调用将使用索引来解析附加到它的任何筛选器或谓词。 后续调用将不会访问索引，因为这可能会增加查询的延迟和成本。
     
     Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 
@@ -219,7 +220,7 @@ Azure Cosmos DB 提供的写入优化引擎默认支持自动对顶点和边缘�
 
     You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
 
-## <a name="next-steps"></a>假设使用默认索引，以 `.V()` 步骤开始的典型读取 Gremlin 查询将在其附加的筛选步骤中使用参数，例如 `.has()` 或 `.where()`，以优化查询的成本和性能。
+## <a name="next-steps"></a>后续步骤
 
-* 例如： 
-* 但是，当 Gremlin 查询中包含多个 `.V()` 步骤时，查询的数据解析可能达不到最优效果。
+* 开始[使用我们的 SDK](create-graph-dotnet.md) 构建图形应用程序 
+* 详细了解 Azure Cosmos DB 中的[图形支持](graph-introduction.md)
