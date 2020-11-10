@@ -81,12 +81,36 @@
       href: publisher-guide-by-offer-type.md
     - name: Azure 应用程序产品/服务
       items:
-        - name: 规划解决方案模板产品/服务
-          href: marketplace-solution-templates.md
-        - name: 规划托管应用程序产品/服务
-          href: marketplace-managed-apps.md
+        - name: 规划 Azure 应用程序产品/服务
+          items:
+            - name: 规划 Azure 应用程序产品/服务
+              href: plan-azure-application-offer.md
+            - name: 规划解决方案模板
+              href: plan-azure-app-solution-template.md
+            - name: 规划托管应用程序
+              href: plan-azure-app-managed-app.md
         - name: 创建和发布 Azure 应用程序产品/服务
-          href: partner-center-portal/create-new-azure-apps-offer.md
+          items:
+            - name: 创建 Azure 应用程序产品/服务
+              href: create-new-azure-apps-offer.md
+            - name: 配置 Azure 应用程序产品/服务属性
+              href: create-new-azure-apps-offer-properties.md
+            - name: 配置 Azure 应用程序产品/服务列表
+              href: create-new-azure-apps-offer-listing.md
+            - name: 添加预览受众
+              href: create-new-azure-apps-offer-preview.md
+            - name: 添加技术细节
+              href: create-new-azure-apps-offer-technical.md
+            - name: 创建计划
+              href: create-new-azure-apps-offer-plans.md
+            - name: 创建解决方案模板计划
+              href: create-new-azure-apps-offer-solution.md
+            - name: 创建托管应用程序计划
+              href: create-new-azure-apps-offer-managed.md
+            - name: 测试和发布 Azure 应用程序产品/服务
+              href: create-new-azure-apps-offer-test-publish.md
+        - name: 营销 Azure 应用程序产品/服务
+          href: create-new-azure-apps-offer-marketing.md
         - name: Azure 应用程序按流量计费
           href: partner-center-portal/azure-app-metered-billing.md
         - name: 处理评审反馈

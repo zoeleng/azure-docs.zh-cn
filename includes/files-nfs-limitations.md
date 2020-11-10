@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10177dd949ac531027e13cf633b11c16674fd4ab
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91640322"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386599"
 ---
 在预览版中，NFS 具有以下限制：
 

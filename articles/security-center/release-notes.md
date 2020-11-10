@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 6de06e4ab9a302517a09b34de56c1b5535b245a9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357804"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372331"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure 安全中心的新增功能
 
@@ -32,6 +32,12 @@ ms.locfileid: "93357804"
 
 
 ## <a name="november-2020"></a>2020 年 11 月
+
+11 月的更新包括：
+
+- [添加了 29 条预览建议，以扩大 Azure 安全基准的覆盖范围](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [向安全中心的法规合规性仪表板添加了 NIST SP 800 171 R2](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>添加了 29 条预览建议，以扩大 Azure 安全基准的覆盖范围
 
@@ -61,10 +67,21 @@ Azure 安全基准是由 Microsoft 创作的特定于 Azure 的一组准则，�
 - [详细了解 Azure Database for PostgreSQL](../postgresql/overview.md)
 
 
+### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>向安全中心的法规合规性仪表板添加了 NIST SP 800 171 R2
+
+NIST SP 800-171 R2 标准现可以内置计划的形式提供，用于安全中心的法规合规性仪表板。 有关控制措施的映射，可参阅 [NIST SP 800-171 R2 法规合规性内置计划的详细信息](../governance/policy/samples/nist-sp-800-171-r2.md)。 
+
+若要将该标准用于订阅并持续监视合规性状态，请按照[自定义法规合规性仪表板中的标准集](update-regulatory-compliance-packages.md)中的说明操作。
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="安全中心法规合规性仪表板中的 NIST SP 800 171 R2 标准":::
+
+有关此符合性标准的详细信息，请参阅 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)。
+
 
 
 ## <a name="october-2020"></a>2020 年 10 月
 
+10月更新包括：
 - [本地和多云计算机的漏洞评估（预览版）](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [添加了 Azure 防火墙建议（预览版）](#azure-firewall-recommendation-added-preview)
 - [“应在 Kubernetes 服务上定义已授权的 IP 范围”建议更新了快速修复](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
