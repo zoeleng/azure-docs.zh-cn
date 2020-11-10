@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369788"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413439"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD 如何为本地工作负荷提供云管控管理
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 是一个综合性的标识即服务， (由�
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>云管理的身份管理的 Azure AD 方法
 
-当组织过渡到云时，他们需要确保他们能够控制其完整环境-更安全、更深入地了解自动化和主动见解所支持的活动。 "**云管理管理**" 说明了组织如何从云中管理和管理其用户、应用程序、组和设备。
+当组织过渡到云时，他们需要确保他们能够控制其完整环境-更安全、更深入地了解自动化和主动见解所支持的活动。 " **云管理管理** " 说明了组织如何从云中管理和管理其用户、应用程序、组和设备。
 
 在这一新式领域，组织需要能够大规模地进行管理，因为 SaaS 应用程序的激增以及协作和外部标识的不断增长。 云的新风险形势意味着组织必须做出更好的响应性-损害云用户的恶意用户可能会影响云和本地应用程序。
 
@@ -77,7 +77,7 @@ Azure AD Premium 还包括 Microsoft Identity Manager，可以从其他本地 HC
 
 Azure AD 可以根据需要 [自动为来宾用户创建 ad 中的帐户](../external-identities/hybrid-cloud-to-on-premises.md) ，从而使业务来宾无需其他密码即可访问本地 ad 集成应用程序。 组织可以 [为来宾用户设置多重身份验证 (MFA) 策略](../external-identities/conditional-access.md)，以便在应用程序代理身份验证期间完成 mfa 检查。 此外，在云 B2B 用户上完成的任何 [访问评审](../governance/manage-guest-access-with-access-reviews.md) 都适用于本地用户。 例如，如果通过生命周期管理策略删除了云用户，则本地用户也会被删除。
 
-**Active Directory 帐户的凭据管理** Azure AD 的自助密码重置功能允许已忘记密码的用户重新进行身份验证并重置其密码，并将更改后的密码 [写入本地 Active Directory](../authentication/concept-sspr-writeback.md)。 密码重置过程还可以使用本地 Active Directory 密码策略：当用户重置其密码时，将对其进行检查，确保它满足本地 Active Directory 策略，然后将其提交到该目录。 自助服务密码重置 [部署计划](https://aka.ms/deploymentplans/sspr) 概述了通过 Web 和 Windows 集成体验向用户推出自助密码重置的最佳实践。
+**Active Directory 帐户的凭据管理** Azure AD 的自助密码重置功能允许已忘记密码的用户重新进行身份验证并重置其密码，并将更改后的密码 [写入本地 Active Directory](../authentication/concept-sspr-writeback.md)。 密码重置过程还可以使用本地 Active Directory 密码策略：当用户重置其密码时，将对其进行检查，确保它满足本地 Active Directory 策略，然后将其提交到该目录。 自助服务密码重置 [部署计划](../authentication/howto-sspr-deployment.md) 概述了通过 Web 和 Windows 集成体验向用户推出自助密码重置的最佳实践。
 
 ![Azure AD SSPR 体系结构](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ Azure AD 可以根据需要 [自动为来宾用户创建 ad 中的帐户](../ext
 
 * 这篇文章将 [应用程序迁移到 Azure Active Directory](https://aka.ms/migrateapps/whitepaper)，这带来了迁移的好处，并介绍了如何在四个清晰概括的阶段规划迁移：发现、分类、迁移和持续管理。 你将指导你了解过程，并将项目分解为易于使用的部分。 整个文档为指向重要资源的链接，可全程为你提供帮助。
 
-* 将 [应用程序身份验证从 Active Directory 联合身份验证服务迁移到 Azure Active Directory](https://aka.ms/migrateapps/adfssolutionguide) 中的解决方案指南更详细地探讨了规划和执行应用程序迁移项目的四个阶段。 在本指南中，你将了解如何将这些阶段应用于将应用程序从 Active Directory 联合身份验证服务 (AD FS) 迁移到 Azure AD 的具体目标。
+* 将 [应用程序身份验证从 Active Directory 联合身份验证服务迁移到 Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) 中的解决方案指南更详细地探讨了规划和执行应用程序迁移项目的四个阶段。 在本指南中，你将了解如何将这些阶段应用于将应用程序从 Active Directory 联合身份验证服务 (AD FS) 迁移到 Azure AD 的具体目标。
 
 * [Active Directory 联合身份验证服务迁移准备情况脚本](https://aka.ms/migrateapps/adfstools)可以在现有的本地 Active Directory 联合身份验证服务 (AD FS) 服务器上运行，以确定要迁移到 Azure AD 的应用程序的准备情况。
 
@@ -111,7 +111,7 @@ Azure AD 可以根据需要 [自动为来宾用户创建 ad 中的帐户](../ext
 
 ## <a name="future-directions"></a>未来发展方向
 
-在混合环境中，Microsoft 的策略是实现部署，其中 **云是标识的控制平面**，本地目录和其他标识系统（如 Active Directory 和其他本地应用程序）是设置具有访问权限的用户的目标。 此策略将继续确保依赖于它们的应用程序和工作负荷中的权限、标识和访问权限。 在此结束状态下，组织将能够完全从云中推动最终用户的工作效率。
+在混合环境中，Microsoft 的策略是实现部署，其中 **云是标识的控制平面** ，本地目录和其他标识系统（如 Active Directory 和其他本地应用程序）是设置具有访问权限的用户的目标。 此策略将继续确保依赖于它们的应用程序和工作负荷中的权限、标识和访问权限。 在此结束状态下，组织将能够完全从云中推动最终用户的工作效率。
 
 ![Azure AD 体系结构](media/cloud-governed-management-for-on-premises/image6.png)
 

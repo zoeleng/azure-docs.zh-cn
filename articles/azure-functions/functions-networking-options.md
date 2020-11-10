@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897069"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413082"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -117,6 +117,9 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
+> [!TIP]
+> 启用虚拟网络触发器可能会影响应用程序的性能，因为应用服务计划实例需要监视触发器来确定何时缩放。 这种影响可能非常小。
+
 版本 2.x 和更高版本的 Functions 运行时支持虚拟网络触发器。 支持以下非 HTTP 触发器类型。
 
 | 分机 | 最低版本 |
@@ -170,6 +173,6 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 * [遵循有关虚拟网络集成入门的教程](./functions-create-vnet.md)
 * [阅读 Functions 网络常见问题解答](./functions-networking-faq.md)
 * [详细了解虚拟网络与应用服务/Functions 的集成](../app-service/web-sites-integrate-with-vnet.md)
-* [了解有关 Azure 中的虚拟网络的详细信息](../virtual-network/virtual-networks-overview.md)
+* [详细了解 Azure 中的虚拟网络](../virtual-network/virtual-networks-overview.md)
 * [在应用服务环境中允许更多的网络功能和控制](../app-service/environment/intro.md)
 * [使用混合连接连接到单独的本地资源而无需更改防火墙](../app-service/app-service-hybrid-connections.md)

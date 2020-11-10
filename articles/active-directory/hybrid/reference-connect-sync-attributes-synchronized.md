@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016072"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413184"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -373,7 +373,7 @@ ms.locfileid: "90016072"
 此组是用作常规工作负荷或应用程序所需的最低属性。 它可以用于另一部分中未列出的工作负荷或非 Microsoft 应用。 它显式用于以下目的：
 
 * Yammer（只使用 User）
-* [SharePoint 等资源提供的混合企业到企业 (B2B) 跨组织协作方案](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [SharePoint 等资源提供的混合企业到企业 (B2B) 跨组织协作方案](/sharepoint/create-b2b-extranet)
 
 如果不使用 Azure AD 目录来支持 Microsoft 365、Dynamics 或 Intune，则可以使用这一组属性。 它包含一小部分核心属性。 请注意，对于某些第三方应用程序的单一登录或预配，还需要配置属性的同步，而不是此处所述的属性。 每个应用程序的 [SaaS 应用教程](../saas-apps/tutorial-list.md) 介绍了应用程序要求。
 
@@ -420,7 +420,7 @@ ms.locfileid: "90016072"
 | msDS-KeyCredentialLink |X |在用户已注册 Windows Hello for Business 后。 | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合写回
-选择启用 **Exchange 混合**部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
+选择启用 **Exchange 混合** 部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
 
 | 属性名称（本地 AD） | 属性名称（连接 UI） | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |---|
@@ -473,4 +473,4 @@ ms.locfileid: "90016072"
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](how-to-connect-sync-whatis.md)配置的详细信息。
 
-了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
+了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。

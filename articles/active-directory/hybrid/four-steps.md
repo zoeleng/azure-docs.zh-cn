@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369771"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412368"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>使用 Azure Active Directory 进行强身份验证的四个步骤
 
@@ -83,7 +83,7 @@ Azure AD 应用程序代理具有以下优势：
 
 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) 可帮助你确定很有用的应用程序，这些应用程序可能批准并添加到企业应用程序库，以便用户受益于 SSO 和条件性访问等功能。
 
-<em>"**Cloud App Security** 可帮助我们以支持有助于保护 Accenture 的基础安全策略的方式正确地使用我们的云和 SaaS 应用程序。"</em> --- [John Blasi，管理总监，信息安全，Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud App Security** 可帮助我们以支持有助于保护 Accenture 的基础安全策略的方式正确地使用我们的云和 SaaS 应用程序。"</em> --- [John Blasi，管理总监，信息安全，Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 除了检测影子 IT 外，MCAS 还可以确定应用程序的风险级别，防止未经授权访问公司数据、可能的数据泄漏和应用程序固有的其他安全风险。
 
@@ -147,7 +147,7 @@ Azure 提供可供你和你的组织使用的报表，以确保用户已注册 M
 
 ### <a name="self-service-app-management"></a>自助服务应用管理
 
-在用户可以从其访问面板中自行发现应用程序之前，你需要启用对你希望允许用户自行发现并请求访问的任何应用程序的 [自助服务应用程序访问权限](../manage-apps/access-panel-manage-self-service-access.md) 。 自助应用程序访问是允许用户自行发现应用程序并可以选择允许业务组批准对这些应用程序的访问权限的一种绝佳方式。 可以允许业务组从其访问面板中管理分配给这些用户的 [密码 Single-Sign](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) 的凭据。
+在用户可以从其访问面板中自行发现应用程序之前，你需要启用对你希望允许用户自行发现并请求访问的任何应用程序的 [自助服务应用程序访问权限](../manage-apps/access-panel-manage-self-service-access.md) 。 自助应用程序访问是允许用户自行发现应用程序并可以选择允许业务组批准对这些应用程序的访问权限的一种绝佳方式。 可以允许业务组从其访问面板中管理分配给这些用户的 [密码 Single-Sign](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) 的凭据。
 
 ### <a name="self-service-group-management"></a>自助组管理
 
@@ -212,7 +212,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 *"借助 Cloud App Security，我们可以快速发现异常并采取措施。"* --- [Eric LePenske，高级经理，信息安全，Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
-## <a name="summary"></a>总结
+## <a name="summary"></a>摘要
 
 实现混合标识解决方案有许多方面，但这四个步骤的清单将帮助你快速完成一个标识基础结构，使用户能够更高效、更安全。
 
@@ -229,7 +229,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="today"></a>今天
 
-|完成了吗？|项目|
+|完成了吗？|Item|
 |:-|:-|
 ||针对组的试验性自助服务密码重置 (SSPR) |
 ||使用 Azure AD Connect Health 监视混合组件|
@@ -239,7 +239,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="next-two-weeks"></a>接下来两周
 
-|完成了吗？|项目|
+|完成了吗？|Item|
 |:-|:-|
 ||使应用可供用户使用|
 ||试点 Azure AD 预配适用于所选的 SaaS 应用|
@@ -249,7 +249,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="next-month"></a>下个月
 
-|完成了吗？|项目|
+|完成了吗？|Item|
 |:-|:-|
 ||监视应用的使用情况以推动见解|
 ||向应用程序进行安全远程访问|
@@ -258,7 +258,7 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ### <a name="next-three-months"></a>接下来三个月
 
-|完成了吗？|项目|
+|完成了吗？|Item|
 |:-|:-|
 ||启用自助服务应用管理|
 ||启用自助服务组管理|
@@ -267,6 +267,6 @@ Azure AD Connect 和 AD FS 是关键组件，可能会中断生命周期管理�
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何使用 Azure Active Directory 的功能和此五步检查列表（ [用于保护标识基础结构的五个步骤](https://aka.ms/securitysteps)）中的功能提高安全状况。
+了解如何使用 Azure Active Directory 的功能和此五步检查列表（ [用于保护标识基础结构的五个步骤](../../security/fundamentals/steps-secure-identity.md)）中的功能提高安全状况。
 
-了解 Azure AD 中的身份功能如何帮助你通过提供解决方案和功能来帮助你加快向云管理管理的过渡，并使组织能够快速将更多的标识管理从传统的本地系统中迁移到 Azure AD- [Azure AD 为本地工作负荷提供云控制管理](https://aka.ms/cloudgoverned)。
+了解 Azure AD 中的身份功能如何帮助你通过提供解决方案和功能来帮助你加快向云管理管理的过渡，并使组织能够快速将更多的标识管理从传统的本地系统中迁移到 Azure AD- [Azure AD 为本地工作负荷提供云控制管理](./cloud-governed-management-for-on-premises.md)。

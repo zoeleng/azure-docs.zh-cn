@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203477"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411382"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>优化 Azure Monitor 中的日志查询
-Azure Monitor 日志使用 [Azure 数据资源管理器 (ADX)](/azure/data-explorer/) 来存储日志数据，并运行查询来分析这些数据。 它为你创建、管理和维护 ADX 群集，并针对你的日志分析工作负荷优化它们。 运行查询时，将对其进行优化，并将其路由到存储着工作区数据的相应 ADX 群集。 Azure Monitor 日志和 Azure 数据资源管理器都使用许多自动查询优化机制。 虽然自动优化已提供了显著的性能提升，但在某些情况下，你还可以显著提高查询性能。 本文介绍了性能注意事项和解决相关问题的几种方法。
+Azure Monitor 日志使用 [Azure 数据资源管理器 (ADX)](/azure/data-explorer/) 来存储日志数据，并运行查询来分析这些数据。 它为你创建、管理和维护 ADX 群集，并针对你的日志分析工作负荷优化它们。 运行查询时，将对其进行优化，并将其路由到存储着工作区数据的相应 ADX 群集。 Azure Monitor 日志和 Azure 数据资源管理器都使用许多自动查询优化机制。 虽然自动优化可显著提高性能，但在某些情况下，你可以极大地提高查询性能。 本文介绍了性能注意事项和解决相关问题的几种方法。
 
 大多数方法对于直接在 Azure 数据资源管理器和 Azure Monitor 日志上运行的查询是通用的，但我们在这里讨论的是几个独特的 Azure Monitor 日志注意事项。 如需更多的 Azure 数据资源管理器优化技巧，请参阅[查询最佳做法](/azure/kusto/query/best-practices)。
 
@@ -133,7 +133,7 @@ SecurityEvent
 
 [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) 和 [summarize](/azure/kusto/query/summarizeoperator) 命令在处理大型数据集时可能会导致 CPU 利用率较高。 它们的复杂性与在汇总中用作 `by` 或用作联接属性的列的可能值的数量（称为“基数”）直接相关。 有关对联接和汇总的说明和优化，请参阅它们的文档文章和优化技巧。
 
-例如，下面的查询产生完全相同的结果，因为 **CounterPath** 始终一对一映射到 **CounterName** 和 **ObjectName**。 第二个查询更为高效，因为聚合维度较小：
+例如，下面的查询产生完全相同的结果，因为 **CounterPath** 始终一对一映射到 **CounterName** 和 **ObjectName** 。 第二个查询更为高效，因为聚合维度较小：
 
 ```Kusto
 //less efficient
@@ -197,7 +197,7 @@ SecurityEvent
 
 处理2个以上的000KB 数据的查询被视为消耗过多资源的查询。 正在处理的查询超过20，000KB 的数据被视为滥用查询，可能会受到限制。
 
-在 Azure Monitor 日志中，**TimeGenerated** 列用作为数据编制索引的方式。 将 **TimeGenerated** 值限制在尽可能窄的范围内会显著限制必须处理的数据量，从而显著提高查询性能。
+在 Azure Monitor 日志中， **TimeGenerated** 列用作为数据编制索引的方式。 将 **TimeGenerated** 值限制在尽可能窄的范围内会显著限制必须处理的数据量，从而显著提高查询性能。
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>避免不必要地使用 search 和 union 运算符
 

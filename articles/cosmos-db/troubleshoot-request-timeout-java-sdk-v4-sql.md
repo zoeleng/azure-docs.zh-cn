@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a805300ac62d0627c9b06188c9764a6887947afe
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340061"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411280"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>诊断和解决 Azure Cosmos DB Java v4 SDK 请求超时异常
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,6 +22,9 @@ ms.locfileid: "93340061"
 
 ## <a name="troubleshooting-steps"></a>疑难解答步骤
 下面的列表包含请求超时异常的已知原因和解决方案。
+
+### <a name="existing-issues"></a>现有问题
+如果看到请求停滞更长的持续时间或更频繁地超时，请将 Java v4 SDK 升级到最新版本。 注意：强烈建议使用版本4.7.0 和更高版本。 有关更多详细信息，请查看 [Java V4 SDK 发行说明](sql-api-sdk-java-v4.md) 。
 
 ### <a name="high-cpu-utilization"></a>CPU 利用率较高
 最常见的情况是 CPU 利用率较高。 为实现最佳延迟，CPU 利用率应大约为 40%。 将时间间隔设为 10 秒来监视最大 CPU 利用率（而不是平均利用率）。 对于可能会为单个查询执行多个连接的跨分区查询，更常见的情况是出现 CPU 峰值。

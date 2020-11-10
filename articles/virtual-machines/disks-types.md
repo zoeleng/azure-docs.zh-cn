@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596775"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413135"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure 有哪些可用的磁盘类型？
 
@@ -23,7 +23,7 @@ Azure 托管磁盘当前提供四种磁盘类型，每种类型都面向特定�
 
 下表提供了对超磁盘、高级固态驱动器 (SSD) 、标准 SSD 和标准硬盘驱动器的标准硬盘驱动器的比较， (硬盘驱动器) 用于决定要使用的内容。
 
-| 详情 | 超级磁盘 | 高级 SSD | 标准 SSD | 标准 HDD |
+| 详细信息 | 超级磁盘 | 高级 SSD | 标准 SSD | 标准 HDD |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |磁盘类型   |SSD   |SSD   |SSD   |HDD   |
 |方案   |IO 密集型工作负荷，例如 [SAP HANA](workloads/sap/hana-vm-operations-storage.md)、顶层数据库 (例如，SQL、Oracle) 和其他事务密集型工作负荷。   |生产和性能敏感型工作负荷   |Web 服务器、不常使用的企业应用程序和开发/测试   |备份、非关键、不常访问   |
@@ -59,6 +59,8 @@ Azure 超级磁盘为 Azure IaaS VM 提供高吞吐量、高 IOPS 和一贯低�
 |256     |76,800         |2,000         |
 |512     |153600         |2,000         |
 |1,024 - 65,536（此范围内的大小以 1 TiB 为增量递增）     |160,000         |2,000         |
+
+超磁盘旨在提供上表99.99% 时间所述的子毫秒延迟和目标 IOPS 和吞吐量。
 
 ### <a name="ga-scope-and-limitations"></a>GA 范围和限制
 
@@ -122,15 +124,15 @@ Azure 标准 HDD 为运行不区分延迟的工作负荷提供可靠、低成本
 - 出站数据传输
 - 事务数
 
-**托管磁盘大小**：托管磁盘按预配大小计费。 Azure 将预配大小映射（向上舍入）到所提供的最接近的磁盘大小。 有关所提供的磁盘大小的详细信息，请参阅前面的表。 每个磁盘将映射到一种受支持的预配磁盘大小套餐并相应地计费。 例如，如果预配了 200 GiB 的标准 SSD，它会映射到 E15 的磁盘大小 (256 GiB)。 任何预配的磁盘根据每月的存储优惠价格按小时计费。 例如，如果在预配 E10 磁盘的 20 小时后删除它，则会以 20 小时计算 E10 产品/服务的费用。 这与写入磁盘的实际数据量无关。
+**托管磁盘大小** ：托管磁盘按预配大小计费。 Azure 将预配大小映射（向上舍入）到所提供的最接近的磁盘大小。 有关所提供的磁盘大小的详细信息，请参阅前面的表。 每个磁盘将映射到一种受支持的预配磁盘大小套餐并相应地计费。 例如，如果预配了 200 GiB 的标准 SSD，它会映射到 E15 的磁盘大小 (256 GiB)。 任何预配的磁盘根据每月的存储优惠价格按小时计费。 例如，如果在预配 E10 磁盘的 20 小时后删除它，则会以 20 小时计算 E10 产品/服务的费用。 这与写入磁盘的实际数据量无关。
 
-**快照**：基于已使用大小对快照计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。
+**快照** ：基于已使用大小对快照计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。
 
 有关快照的详细信息，请参阅[托管磁盘概述](managed-disks-overview.md)中有关快照的部分。
 
-**出站数据传输**：[出站数据传输](https://azure.microsoft.com/pricing/details/bandwidth/)（Azure 数据中心送出的数据）会产生带宽使用费。
+**出站数据传输** ： [出站数据传输](https://azure.microsoft.com/pricing/details/bandwidth/)（Azure 数据中心送出的数据）会产生带宽使用费。
 
-**事务**：会根据你对标准托管磁盘执行的事务数向你收费。 对于标准 SSD，每个小于或等于 256 KiB 吞吐量的 I/O 操作被视为单个 I/O 操作。 大于 256 KiB 吞吐量的 I/O 操作被视为大小为 256 KiB 的多个 I/O。 对于标准 HDD，每个 IO 操作会被视为单个事务，无论 I/O 大小如何。
+**事务** ：会根据你对标准托管磁盘执行的事务数向你收费。 对于标准 SSD，每个小于或等于 256 KiB 吞吐量的 I/O 操作被视为单个 I/O 操作。 大于 256 KiB 吞吐量的 I/O 操作被视为大小为 256 KiB 的多个 I/O。 对于标准 HDD，每个 IO 操作会被视为单个事务，无论 I/O 大小如何。
 
 有关托管磁盘定价的详细信息（包括事务成本），请参阅[托管磁盘定价](https://azure.microsoft.com/pricing/details/managed-disks)。
 

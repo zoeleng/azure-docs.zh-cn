@@ -1,34 +1,38 @@
 ---
-title: 设置诊断
+title: 启用和查询诊断日志
 titleSuffix: Azure Digital Twins
-description: 请参阅如何使用诊断设置启用日志记录。
+description: 请参阅如何使用诊断设置启用日志记录和查询日志以便立即查看。
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091729"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411741"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure 数字孪生故障排除：诊断日志记录
 
-Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指标](troubleshoot-metrics.md) 。 你可以使用这些度量值来评估 Azure 数字孪生服务及其连接到的资源的整体运行状况。 这些面向用户的统计信息可帮助你查看 Azure 数字孪生所发生的情况，并帮助对问题执行根本原因分析，而无需联系 Azure 支持部门。
+Azure 数字孪生可以收集服务实例的日志来监视其性能、访问权限和其他数据。 你可以使用这些日志来了解 Azure 数字孪生实例中发生的情况，并对问题执行根本原因分析，而无需联系 Azure 支持部门。
 
-本文介绍如何从 Azure 数字孪生实例为指标数据启用 **诊断日志记录** 。 您可以使用这些日志来帮助您解决服务问题，并将诊断设置配置为将 Azure 数字孪生指标发送到不同的目标。 有关这些设置的详细信息，请参阅 [*创建诊断设置以将平台日志和指标发送到不同的目标*](../azure-monitor/platform/diagnostic-settings.md)。
+本文介绍如何在 [Azure 门户](https://portal.azure.com)中 [**配置诊断设置**](#turn-on-diagnostic-settings)，以开始从 Azure 数字孪生实例收集日志。 你还可以指定日志的存储位置 (例如 Log Analytics 或所选) 的存储帐户。
 
-## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>启用 Azure 门户的诊断设置
+本文还包含 Azure 数字孪生收集的所有 [日志类别](#log-categories) 和 [日志架构](#log-schemas) 的列表。
 
-下面介绍如何为 Azure 数字孪生实例启用诊断设置：
+设置日志后，还可以 [**查询日志**](#view-and-query-logs) 以快速收集自定义的见解。
+
+## <a name="turn-on-diagnostic-settings"></a>启用诊断设置 
+
+启用诊断设置，开始收集 Azure 数字孪生实例上的日志。 你还可以选择要在其中存储已导出日志的目标。 下面介绍如何为 Azure 数字孪生实例启用诊断设置。
 
 1. 登录到 [Azure 门户](https://portal.azure.com) 并导航到 Azure 数字孪生实例。 可以通过在门户搜索栏中键入其名称来找到它。 
 
 2. 从菜单中选择 " **诊断设置** "，然后单击 " **添加诊断设置** "。
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="显示 &quot;诊断设置&quot; 页和要添加的按钮的屏幕截图":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="显示 &quot;诊断设置&quot; 页和要添加的按钮的屏幕截图" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. 在下面的页面上，填写以下值：
      * **诊断设置名称** ：为诊断设置指定一个名称。
@@ -39,7 +43,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
         - QueryOperation
         - AllMetrics
         
-        有关这些选项的更多详细信息，请参阅下面的 [*类别详细信息*](#category-details) 部分。
+        有关这些类别及其包含的信息的详细信息，请参阅下面的 " [*日志类别*](#log-categories) " 一节。
      * **目标详细信息** ：选择要将日志发送到的位置。 可选择以下三个选项的任意组合：
         - 发送到 Log Analytics
         - 存档到存储帐户
@@ -49,15 +53,17 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
     
 4. 保存新设置。 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="显示 &quot;诊断设置&quot; 页的屏幕截图，其中用户填写了诊断设置名称，并对类别详细信息和目标详细信息进行了一些复选框选择。突出显示 &quot;保存&quot; 按钮。":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="显示 &quot;诊断设置&quot; 页的屏幕截图，其中用户填写了诊断设置名称，并对类别详细信息和目标详细信息进行了一些复选框选择。突出显示 &quot;保存&quot; 按钮。" lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 新设置在大约 10 分钟后生效。 之后，日志会在实例的 " **诊断设置** " 页上显示在配置的目标中。 
 
-## <a name="category-details"></a>类别详细信息
+有关诊断设置及其设置选项的更多详细信息，可以访问 [*创建诊断设置，将平台日志和指标发送到不同的目标*](../azure-monitor/platform/diagnostic-settings.md)。
 
-下面更详细地介绍了在设置诊断设置时，可在 " **类别详细信息** " 下选择的日志类别。
+## <a name="log-categories"></a>日志类别
 
-| 日志类别 | 描述 |
+下面是有关 Azure 数字孪生收集的日志类别的更多详细信息。
+
+| 日志类别 | 说明 |
 | --- | --- |
 | ADTModelsOperation | 记录与模型有关的所有 API 调用 |
 | ADTQueryOperation | 记录与查询相关的所有 API 调用 |
@@ -78,7 +84,7 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
 >[!NOTE]
 > 每个日志类别包含若干个操作/REST API 调用。 在下表中，每个日志类别映射到其下的所有操作/REST API 调用，直到列出下一个日志类别。 
 
-| 日志类别 | Operation | REST API 调用和其他事件 |
+| 日志类别 | 操作 | REST API 调用和其他事件 |
 | --- | --- | --- |
 | ADTModelsOperation | DigitalTwins/模型/写入 | 数字克隆模型更新 API |
 |  | DigitalTwins/模型/读取 | 数字克隆模型按 ID 和列表 Api 获取 |
@@ -222,6 +228,34 @@ Azure 数字孪生收集提供有关资源状态的信息的服务实例的 [指
   }
 }
 ```
+
+## <a name="view-and-query-logs"></a>查看和查询日志
+
+本文前面介绍了如何配置要存储的日志类型，以及如何指定其存储位置。
+
+若要解决此类日志的问题并生成见解，可以生成 **自定义查询** 。 若要开始，你还可以利用服务为你提供的几个示例查询，以解决客户可能遇到的有关其实例的常见问题。
+
+下面介绍如何查询实例的日志。
+
+1. 登录到 [Azure 门户](https://portal.azure.com) 并导航到 Azure 数字孪生实例。 可以通过在门户搜索栏中键入其名称来找到它。 
+
+2. 从菜单中选择 " **日志** "，打开 "日志查询" 页。 页面将打开一个名为 " *查询* " 的窗口。
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="显示 Azure 数字孪生实例的日志页的屏幕截图。它与 &quot;查询&quot; 窗口重叠，其中显示了在不同日志选项后命名的预生成查询，如 DigitalTwin API 滞后时间和模型 API 滞后时间。" lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    这些是为各种日志编写的预生成的示例查询。 您可以选择其中一个查询以将其加载到查询编辑器中，并运行它以查看实例的这些日志。
+
+    您还可以在不运行任何内容的情况下关闭 " *查询* " 窗口，直接转到 "查询编辑器" 页，您可以在其中编写或编辑自定义的查询代码。
+
+3. 在退出 " *查询* " 窗口后，您将看到 "查询编辑器" 主页面。 可在此处查看和编辑示例查询的文本，或者从头开始编写自己的查询。
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="显示 Azure 数字孪生实例的日志页的屏幕截图。&quot;查询&quot; 窗口已消失，相反，有一个列表，其中包含不同的日志、一个显示可编辑的查询代码的编辑窗格和一个显示查询历史记录的窗格。" lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    在左窗格中， 
+    - " *表* " 选项卡显示了可在你的查询中使用的不同 Azure 数字孪生 [日志类别](#log-categories) 。 
+    - " *查询* " 选项卡包含可加载到编辑器中的示例查询。
+    - 利用 " *筛选器* " 选项卡，您可以自定义查询返回的数据的筛选视图。
+
+有关日志查询以及如何编写日志查询的更多详细信息，可以访问 [*Azure Monitor 中日志查询的概述*](../azure-monitor/log-query/log-query-overview.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

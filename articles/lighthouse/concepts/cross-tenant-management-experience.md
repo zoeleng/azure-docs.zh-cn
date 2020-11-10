@@ -1,14 +1,14 @@
 ---
 title: 跨租户管理体验
 description: Azure 委派资源管理可实现跨租户管理体验。
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460659"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413116"
 ---
 # <a name="cross-tenant-management-experiences"></a>跨租户管理体验
 
@@ -104,7 +104,6 @@ Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSu
 
 [Azure Policy](../../governance/policy/index.yml)：
 
-- 符合性快照显示委派订阅中分配的策略的详细信息
 - 在委派的订阅中创建和编辑策略定义
 - 在委派的订阅中分配客户定义的策略定义
 - 客户将看到由服务提供商和自己创建的策略
@@ -157,7 +156,7 @@ Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSu
 
 支持请求：
 
-- 在委派资源的 Azure 门户中[打开支持请求**Help + support** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) ， (选择可用于委派的作用域的支持计划) 
+- 在委派资源的 Azure 门户中 [打开支持请求 **Help + support**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) ， (选择可用于委派的作用域的支持计划) 
 
 ## <a name="current-limitations"></a>当前限制
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962388"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413099"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>预览： Azure 混合权益-它如何应用于 Linux 虚拟机
 
@@ -57,7 +57,7 @@ Azure 混合权益目前处于 Linux Vm 的预览阶段。 获取预览版的访
 1.    注册 [Red Hat 云访问计划](https://aka.ms/rhel-cloud-access)
 1.    启用 Azure 订阅 (的云访问) ，并启用包含你要使用其权益的 Vm 的订阅
 1.    通过 Azure 门户或 Azure CLI 将权益应用于现有 Vm
-1.    使用单独的更新源注册 Vm，接收权益
+1.    可选，使用单独的更新源来注册你的 Vm， (交换机 Vm 可以保持连接到 [RHUI](../workloads/redhat/redhat-rhui.md) 或通过 RHSM 注册) 
 
 ### <a name="suse-customers"></a>SUSE 客户
 
@@ -147,13 +147,14 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 答： Red Hat 云访问订阅注册可能需要一些时间才能从 Red Hat 传播到 Azure。 如果在一个工作日内仍看到此错误，请联系 Microsoft 支持部门。
 
-## <a name="common-errors"></a>常见错误
-本部分包含常见错误和缓解步骤的列表。
+## <a name="common-issues"></a>常见问题
+本部分包含可能遇到的常见问题的列表以及缓解步骤。
 
-| 错误 | 缓解操作 |
+| 错误 | 缓解措施 |
 | ----- | ---------- |
 | "订阅未注册到 Azure 混合权益的 Linux preview。 有关分步说明，请参阅 https://aka.ms/ahb-linux " | 在上填写表单 https://aka.ms/ahb-linux-form ，注册 Azure 混合权益的 Linux 预览。
 | "该操作无法完成，因为我们的记录显示你尚未在 Azure 订阅上成功启用 Red Hat 云访问 ..." | 若要将权益与 RHEL Vm 一起使用，必须先将 Azure 订阅注册 () ，并使用 Red Hat 云访问权限。 访问此链接，了解有关如何注册适用于 Red Hat 云访问的 Azure 订阅的详细信息
+|"用于 Azure 混合权益的选项未显示在门户中" | 这是从共享映像库、快照或捕获的 PAYG 映像创建的 RHEL 和 SLES Vm 的已知问题。 在这种情况下，请使用 "在[Azure CLI 中启用和禁用权益](#enable-and-disable-the-benefit-in-the-azure-cli)" 一节中所述的 CLI 步骤。 若要查看 AHB 的状态，请使用命令 ` az vm get-instance-view -g MyResourceGroup -n MyVm` 。|
 
 ## <a name="next-steps"></a>后续步骤
 * 在 [此处](https://aka.ms/ahb-linux-form)填写表单，开始使用预览版。

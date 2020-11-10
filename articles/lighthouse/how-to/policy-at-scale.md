@@ -1,14 +1,14 @@
 ---
 title: 将 Azure Policy 大规模部署到委托订阅
 description: 了解 Azure Lighthouse 如何允许跨多个租户部署策略定义和策略分配。
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167277"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412062"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>将 Azure Policy 大规模部署到委托订阅
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> 虽然可以跨多个租户部署策略，但目前无法查看这些租户中不符合资源的 [符合性详细信息](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) 。
+
 ## <a name="next-steps"></a>后续步骤
 
 - 了解 [Azure Policy](../../governance/policy/index.yml)。
 - 了解[跨租户管理体验](../concepts/cross-tenant-management-experience.md)。
+- 了解如何 [部署可](deploy-policy-remediation.md) 在委托订阅中修正的策略。

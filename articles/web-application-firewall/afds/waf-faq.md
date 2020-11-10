@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837628"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413065"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure 前门服务上的 Azure Web 应用程序防火墙常见问题解答
 
@@ -64,7 +64,7 @@ Azure 前门是高度可缩放的全球分布式应用程序和内容交付网�
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>是否与前门集成了 DDoS 防护？ 
 
-在 Azure 网络边缘全球分布，Azure 前门可以吸收并在地理上隔离大容量攻击。 你可以创建自定义 WAF 策略，以自动阻止和速率限制具有已知签名) 攻击的 http (。 此外，还可以在部署后端的 VNet 中启用 DDoS 保护标准。 Azure DDoS 保护标准客户可获得更多好处，包括成本保护、SLA 保证，以及从 DDoS 快速响应团队访问专家，以在攻击期间立即获得帮助。
+在 Azure 网络边缘全球分布，Azure 前门可以吸收并在地理上隔离大容量攻击。 你可以创建自定义 WAF 策略，以自动阻止和速率限制具有已知签名) 攻击的 http (。 此外，还可以在部署后端的 VNet 中启用 DDoS 保护标准。 Azure DDoS 保护标准客户可获得更多好处，包括成本保护、SLA 保证，以及从 DDoS 快速响应团队访问专家，以在攻击期间立即获得帮助。 有关详细信息，请参阅 [前门上的 DDoS 防护](../../frontdoor/front-door-ddos.md)。
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>为什么将超出阈值的其他请求传递到我的后端服务器？
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372287"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413218"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>创建 Azure Arc 数据控制器
 
@@ -36,7 +36,8 @@ ms.locfileid: "92372287"
 - 通常使用 kubeadm 部署的开源上游 Kubernetes
 
 > [!IMPORTANT]
-> * Kubernetes 支持的最低版本为 v 1.14。
+> * Kubernetes 支持的最低版本为 v 1.17。
+> * 最小支持的 OCP 版本为4.3。
 > * 请参阅 [连接要求](connectivity.md) ，了解你的环境和 Azure 之间需要哪些连接。
 > * 请参阅 [存储配置指南](storage-configuration.md) 以了解有关如何配置永久性存储的详细信息。
 > * 如果你使用的是 Azure Kubernetes 服务，则群集的工作节点 VM 大小至少应为 **Standard_D8s_v3** 并使用 **高级磁盘。** 群集不应跨多个可用性区域。 
@@ -45,7 +46,7 @@ ms.locfileid: "92372287"
 > [!NOTE]
 > 如果在 Azure 上使用 Red Hat OpenShift 容器平台，建议使用最新的可用版本。
 
-根据你选择的选项，某些工具是 _必需_的，但建议在开始创建 Azure Arc 数据控制器之前 [安装所有客户端工具](./install-client-tools.md) 。
+根据你选择的选项，某些工具是 _必需_ 的，但建议在开始创建 Azure Arc 数据控制器之前 [安装所有客户端工具](./install-client-tools.md) 。
 
 无论你选择哪种选项，在创建过程中，你都需要提供以下信息：
 

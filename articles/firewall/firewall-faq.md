@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611171"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412997"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火墙常见问题解答
 
@@ -40,9 +40,9 @@ Azure 防火墙支持规则和规则集合。 规则集合是一组共享相同�
 
 有三种类型的规则集合：
 
-* *应用程序规则*：配置可从子网访问的完全限定域名 (FQDN)。
-* *网络规则*：配置包含源地址、协议、目标端口和目标地址的规则。
-* *NAT 规则*：将 DNAT 规则配置为允许传入的 Internet 连接。
+* *应用程序规则* ：配置可从子网访问的完全限定域名 (FQDN)。
+* *网络规则* ：配置包含源地址、协议、目标端口和目标地址的规则。
+* *NAT 规则* ：将 DNAT 规则配置为允许传入的 Internet 连接。
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure 防火墙是否支持入站流量筛选？
 
@@ -119,13 +119,13 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>是否在专用网络之间进行 Azure 防火墙出站 SNAT？
 
-如果目标 IP 地址是符合 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) 的专用 IP 范围，Azure 防火墙不会执行 SNAT。 如果组织对专用网络使用公共 IP 地址范围，Azure 防火墙会通过 SNAT 将流量发送到 AzureFirewallSubnet 中的某个防火墙专用 IP 地址。 可以将 Azure 防火墙配置为**不** SNAT 公共 IP 地址范围。 有关详细信息，请参阅 [Azure 防火墙 SNAT 专用 IP 地址范围](snat-private-range.md)。
+如果目标 IP 地址是符合 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) 的专用 IP 范围，Azure 防火墙不会执行 SNAT。 如果组织对专用网络使用公共 IP 地址范围，Azure 防火墙会通过 SNAT 将流量发送到 AzureFirewallSubnet 中的某个防火墙专用 IP 地址。 可以将 Azure 防火墙配置为 **不** SNAT 公共 IP 地址范围。 有关详细信息，请参阅 [Azure 防火墙 SNAT 专用 IP 地址范围](snat-private-range.md)。
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>是否支持强制隧道/链接到网络虚拟设备？
 
 创建新的防火墙时，支持强制隧道。 不能为强制隧道配置现有的防火墙。 有关详细信息，请参阅 [Azure 防火墙强制隧道](forced-tunneling.md)。
 
-Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubnet 知道通过 BGP 的本地网络的默认路由，则必须将其替代为 0.0.0.0/0 UDR，将 NextHopType 值设置为 Internet 以保持 Internet 直接连接   。
+Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubnet 知道通过 BGP 的本地网络的默认路由，则必须将其替代为 0.0.0.0/0 UDR，将 NextHopType 值设置为 Internet 以保持 Internet 直接连接 。
 
 如果你的配置需要通过强制隧道连接到本地网络，并且可以确定 Internet 目标的目标 IP 前缀，则可以通过 AzureFirewallSubnet 上用户定义的路由将本地网络的这些范围配置为下一跃点。 或者，可以使用 BGP 来定义这些路由。
 
@@ -139,9 +139,9 @@ Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubn
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>应用程序规则目标 FQDN 中的通配符有什么作用？
 
-目前只能在 FQDN 的左侧使用通配符。 例如，“*.contoso.com”和“*contoso.com”。
+目前只能在 FQDN 的左侧使用通配符。 例如，* *_. contoso.com_* 和 * *_contoso.com_* 。
 
-如果配置 * **.contoso.com**，则允许 *anyvalue*.contoso.com，但不允许 contoso.com（域顶点）。 如果希望允许域顶点，必须显式将其配置为目标 FQDN。
+如果配置 * *_. contoso.com_* ，则允许 *anyvalue* contoso.com，但不允许 contoso.com (域顶点) 。 如果希望允许域顶点，必须显式将其配置为目标 FQDN。
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>“预配状态:失败”意味着什么？
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>为什么 TCP ping 和类似工具可以成功连接到目标 FQDN，即使 Azure 防火墙上没有允许该流量的规则也是如此？
 
-TCP ping 实际上并未连接到目标 FQDN。 这是因为 Azure 防火墙的透明代理侦听端口 80/443 上的出站流量。 TCP ping 与防火墙建立连接后，防火墙删除数据包并记录连接。 此行为不会对安全性产生任何影响。 但是，为了避免混淆，我们正在调查这种行为的潜在变化。
+TCP ping 实际上并未连接到目标 FQDN。 这是因为 Azure 防火墙的透明代理侦听端口 80/443 上的出站流量。 TCP ping 将与防火墙建立连接，然后该防火墙会丢弃数据包。 此行为不会对安全性产生任何影响。 但是，为了避免混淆，我们正在调查这种行为的潜在变化。
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>IP 组支持的 IP 地址数量是否有限制？
 

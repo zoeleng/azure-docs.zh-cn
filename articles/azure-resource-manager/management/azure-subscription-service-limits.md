@@ -3,12 +3,12 @@ title: Azure 订阅限制和配额
 description: 提供常见的 Azure 订阅和服务限制、配额和约束的列表。 本文包括有关如何增加限制以及最大值的信息。
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950238"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412914"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 
@@ -78,7 +78,7 @@ ms.locfileid: "91950238"
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
 
-## <a name="azure-app-configuration"></a>Azure 应用配置
+## <a name="azure-app-configuration"></a>Azure 应用程序配置
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
@@ -227,7 +227,7 @@ ms.locfileid: "91950238"
 ## <a name="digital-twins-limits"></a>数字孪生限制
 
 > [!NOTE]
-> 此服务的某些区域具有可调整的限制，而其他区域则不具有可调整的限制。 下面的表中显示了可调整的 *？* 列。 当调整该限制时，可 *调整* 的值为 *Yes*。
+> 此服务的某些区域具有可调整的限制，而其他区域则不具有可调整的限制。 下面的表中显示了可调整的 *？* 列。 当调整该限制时，可 *调整* 的值为 *Yes* 。
 
 [!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
@@ -285,7 +285,11 @@ ms.locfileid: "91950238"
 
 ### <a name="virtual-network-gateway-limits"></a>虚拟网络网关限制
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>NAT 网关限制
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>虚拟 WAN 限制
 

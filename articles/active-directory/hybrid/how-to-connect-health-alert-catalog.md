@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e70e2f64c8fc7d3ed63fd9e6fb7ae0f9f3cfe69c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afca8d8fe13042e369b6aa58e527e1c976f143dd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313325"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411569"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health 警报目录 
 
@@ -99,7 +99,7 @@ Azure AD Connect Health 服务发送警报指示标识基础结构运行不正�
 | LanmanServer 服务未运行 | 如果此服务已禁用，显式依赖它的任何服务将无法启动。 | 在受影响的域控制器上，运行“net start LanManServer”<b></b>。 |
 | Kerberos 密钥发行中心服务未运行 | 如果 KDC 服务停止，用户将无法使用 Kerberos v5 身份验证协议通过此 DC 进行身份验证。 | 在受影响的域控制器上，运行“net start kdc”<b></b>。 |
 | DNS 服务未运行 | 如果 DNS 服务停止，将相应服务器用作 DNS 用途的计算机和用户将找不到资源。 | 在受影响的域控制器上，运行“net start dns”<b></b>。 |
-| DC 执行了 USN 回退 | 当发生 USN 回滚时，以前看到了 USN 的目标域控制器不会对对象和属性的修改进行入站复制。 因为这些目标域控制器认为它们是最新的，因此不会在目录服务事件日志中或通过监视和诊断工具报告复制错误。 USN 回滚可能会影响任何分区中的任何对象或属性的复制。 最常见的副作用是在回滚域控制器上创建的用户帐户和计算机帐户在一个或多个复制合作伙伴上不存在。 或者，在回滚域控制器上发起的密码更新在复制合作伙伴上不存在。 | 可以采用两种方法通过 USN 回滚进行恢复： <p>从域中删除域控制器，步骤如下： <ol type="1"><li>从域控制器中删除 Active Directory，以强制使其成为独立服务器。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/332199">332199</a> 使用 Active Directory 安装向导在 Windows Server 2003 和 Windows Server 2000 中强制降级时，域控制器无法正常降级。 </li> <li>关闭已降级的服务器。</li> <li>在运行状况良好的域控制器上，清除降级的域控制器的元数据。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/216498">216498</a> 域控制器降级失败后如何删除 Active Directory 中的数据</li> <li>如果错误还原的域控制器承载着操作主机角色，请将这些角色转移到正常的域控制器。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/255504">255504</a> 使用 Ntdsutil.exe 捕获 FSMO 角色或将其转移到域控制器</li> <li>重启已降级的服务器。</li> <li>如果需要，请在独立服务器上再次安装 Active Directory。</li> <li>如果域控制器以前是全局编录，请将域控制器配置为全局编录。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/313994">313994</a> 如何在 Windows 2000 中创建或移动全局编录</li> <li>如果域控制器以前承载着操作主机角色，请将操作主机角色转移回域控制器。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/255504">255504</a> 使用 Ntdsutil.exe 捕获 FSMO 角色或将其转移到域控制器 还原正常备份的系统状态。</li></ol></p> <p>评估此域控制器是否存在有效的系统状态备份。 如果在错误还原回滚域控制器之前创建了有效的系统状态备份，并且备份包含域控制器上所做的最新更改，请从最新备份还原系统状态。</p> <p>还可以使用快照作为备份来源。 或者，可以按照下面<a href="https://technet.microsoft.com/library/dd363545(WS.10).aspx">这篇文章</a>中的“在无系统状态数据备份情况下还原以前版本的虚拟域控制器 VHD”部分中的步骤操作，将数据库设置为向自己提供新的调用 ID</p></p> |
+| DC 执行了 USN 回退 | 当发生 USN 回滚时，以前看到了 USN 的目标域控制器不会对对象和属性的修改进行入站复制。 因为这些目标域控制器认为它们是最新的，因此不会在目录服务事件日志中或通过监视和诊断工具报告复制错误。 USN 回滚可能会影响任何分区中的任何对象或属性的复制。 最常见的副作用是在回滚域控制器上创建的用户帐户和计算机帐户在一个或多个复制合作伙伴上不存在。 或者，在回滚域控制器上发起的密码更新在复制合作伙伴上不存在。 | 可以采用两种方法通过 USN 回滚进行恢复： <p>从域中删除域控制器，步骤如下： <ol type="1"><li>从域控制器中删除 Active Directory，以强制使其成为独立服务器。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/332199">332199</a> 使用 Active Directory 安装向导在 Windows Server 2003 和 Windows Server 2000 中强制降级时，域控制器无法正常降级。 </li> <li>关闭已降级的服务器。</li> <li>在运行状况良好的域控制器上，清除降级的域控制器的元数据。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/216498">216498</a> 域控制器降级失败后如何删除 Active Directory 中的数据</li> <li>如果错误还原的域控制器承载着操作主机角色，请将这些角色转移到正常的域控制器。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/255504">255504</a> 使用 Ntdsutil.exe 捕获 FSMO 角色或将其转移到域控制器</li> <li>重启已降级的服务器。</li> <li>如果需要，请在独立服务器上再次安装 Active Directory。</li> <li>如果域控制器以前是全局编录，请将域控制器配置为全局编录。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/313994">313994</a> 如何在 Windows 2000 中创建或移动全局编录</li> <li>如果域控制器以前承载着操作主机角色，请将操作主机角色转移回域控制器。 有关详细信息，请单击下面的文章编号，查看相应的 Microsoft 知识库文章： <br><a href="https://support.microsoft.com/kb/255504">255504</a> 使用 Ntdsutil.exe 捕获 FSMO 角色或将其转移到域控制器 还原正常备份的系统状态。</li></ol></p> <p>评估此域控制器是否存在有效的系统状态备份。 如果在错误还原回滚域控制器之前创建了有效的系统状态备份，并且备份包含域控制器上所做的最新更改，请从最新备份还原系统状态。</p> <p>还可以使用快照作为备份来源。 或者，可以按照下面<a href="/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363545(v=ws.10)">这篇文章</a>中的“在无系统状态数据备份情况下还原以前版本的虚拟域控制器 VHD”部分中的步骤操作，将数据库设置为向自己提供新的调用 ID</p></p> |
 
 
 

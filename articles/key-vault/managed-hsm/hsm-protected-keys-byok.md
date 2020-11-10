@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 39486b076f9284436207f823ea48fddc98bb48a0
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 3c727b75e0d1b1e05638617d6e460dade15fc3c5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372840"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413473"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>将受 HSM 保护的密钥导入到托管 HSM (BYOK) 
 
@@ -67,7 +67,8 @@ az login
 |Fortanix|制造商，<br/>HSM 即服务|<ul><li>自防御密钥管理服务 (SDKMS)</li><li>Equinix SmartKey</li></ul>|[将 SDKMS 密钥导出到 BYOK 的云提供程序 - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|制造商|所有具有以下固件版本的 LiquidSecurity HSM<ul><li>固件版本 2.0.4 或更高版本</li><li>固件版本 3.2 或更高版本</li></ul>|[Marvell BYOK 工具和文档](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV（企业密钥管理系统）|多个 HSM 品牌和型号，包括<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>有关详细信息，请参阅 [Cryptomathic 站点](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK 工具和文档](https://www.cryptomathic.com/azurebyok)|
-|Securosys SA|制造商、HSM 即服务|Primus HSM 系列，Securosys 云 HSM|[Primus BYOK 工具和文档](https://www.securosys.com/primus-azure-byok)|
+|Securosys SA|制造商，HSM 即服务|Primus HSM 系列，Securosys Clouds HSM|[Primus BYOK 工具和文档](https://www.securosys.com/primus-azure-byok)|
+|StorMagic|ISV（企业密钥管理系统）|多个 HSM 品牌和型号，包括<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>[有关详细信息，请参阅 StorMagic 站点](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS 和 Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 ||||
 
 

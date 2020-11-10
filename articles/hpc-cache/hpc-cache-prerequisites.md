@@ -4,14 +4,14 @@ description: 使用 Azure HPC 缓存的先决条件
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
-ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344009"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412504"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 缓存的先决条件
 
@@ -59,9 +59,22 @@ Azure HPC 缓存需要具有以下特性的专用子网：
 缓存需要 DNS 来访问其虚拟网络外部的资源。 根据所使用的资源，可能需要设置自定义 DNS 服务器并配置该服务器与 Azure DNS 服务器之间的转发：
 
 * 若要访问 Azure Blob 存储终结点和其他内部资源，需要基于 Azure 的 DNS 服务器。
-* 若要访问本地存储，需配置可解析存储主机名的自定义 DNS 服务器。
+* 若要访问本地存储，需配置可解析存储主机名的自定义 DNS 服务器。 在创建缓存 **之前** ，必须执行此操作。
 
 如果只需要访问 Blob 存储，则可以使用 Azure 提供的默认 DNS 服务器作为缓存。 但是，如果需要访问其他资源，则应创建自定义 DNS 服务器并将其配置为将任何特定于 Azure 的解析请求转发到 Azure DNS 服务器。
+
+若要使用自定义 DNS 服务器，你需要在创建缓存之前执行以下设置步骤：
+
+* 创建将承载 Azure HPC 缓存的虚拟网络。
+* 创建 DNS 服务器。
+* 将 DNS 服务器添加到缓存的虚拟网络中。
+
+  按照以下步骤将 DNS 服务器添加到 Azure 门户中的虚拟网络：
+
+  1. 在 Azure 门户中打开虚拟网络。
+  1. 从侧栏的 " **设置** " 菜单中选择 " **DNS 服务器** "。
+  1. 选择“自定义”
+  1. 在字段中输入 DNS 服务器的 IP 地址。
 
 简单的 DNS 服务器还可用于对所有可用缓存装入点中的客户端连接进行负载均衡。
 
@@ -92,8 +105,8 @@ Azure HPC 缓存需要具有以下特性的专用子网：
 若要创建兼容的存储帐户，请使用以下设置：
 
 * 性能： **标准**
-* 帐户类型： **StorageV2 (常规用途 v2) **
-* 复制： **本地冗余存储 (LRS) **
+* 帐户类型： **StorageV2 (常规用途 v2)**
+* 复制： **本地冗余存储 (LRS)**
 *  (默认) 的访问层： **热**
 
 最好使用与缓存位于同一位置的存储帐户。
@@ -143,7 +156,7 @@ Azure HPC 缓存需要具有以下特性的专用子网：
 * **目录访问：**`showmount`在存储系统中启用命令。 Azure HPC 缓存使用此命令来检查存储目标配置是否指向有效导出，并确保多个装载不会访问相同的子目录 () 发生文件冲突的风险。
 
   > [!NOTE]
-  > 如果你的 NFS 存储系统使用 NetApp 的 ONTAP 9.2 操作系统，请**不要启用 `showmount` **。 [请与 Microsoft 服务和支持部门联系](hpc-cache-support-ticket.md) 以获取帮助。
+  > 如果你的 NFS 存储系统使用 NetApp 的 ONTAP 9.2 操作系统，请 **不要启用 `showmount`** 。 [请与 Microsoft 服务和支持部门联系](hpc-cache-support-ticket.md) 以获取帮助。
 
   有关目录列表访问权限的详细信息，请参阅 NFS 存储目标 [故障排除一文](troubleshoot-nas.md#enable-export-listing)。
 

@@ -10,20 +10,20 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
-keywords: 本地、Docker、容器、Kubernetes
-ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+keywords: 本地, Docker, 容器, Kubernetes
+ms.openlocfilehash: 56d88b9223a80ea9981e8830cac44bac7c6edb3b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368842"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413031"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure 认知服务容器
 
 > [!WARNING]
 > 2020 年 6 月 11 日，Microsoft 宣布在以人权为基础的强有力的法规颁布之前，将不向美国的警察局出售人脸识别技术。 同样地，如果客户是美国警察局、由美国警察局准许使用或针对美国警察局使用 Azure 服务，则这些客户不得使用这类服务中包含的人脸识别特性或功能（例如人脸或视频索引器）。
 
-Azure 认知服务提供了多个 [Docker 容器](https://www.docker.com/what-container) ，使你能够使用 Azure 中的本地可用 api。 使用这些容器，你可以灵活地将认知服务带入你的数据，以满足法规遵从性、安全性或其他操作原因。 
+Azure 认知服务提供了多个 [Docker 容器](https://www.docker.com/what-container)，可让你在本地使用 Azure 中提供的相同 API。 借助这些容器，你能够灵活地将认知服务移至更接近你的数据的位置，以满足合规性、安全性或其他操作目的。 
 
 容器支持目前适用于部分 Azure 认知服务，包括以下部分：
 
@@ -46,9 +46,9 @@ Azure 认知服务提供了多个 [Docker 容器](https://www.docker.com/what-co
 ## <a name="features-and-benefits"></a>功能和优势
 
 - **不可变的基础结构** ：使 DevOps 团队能够利用一组一致且可靠的已知系统参数，同时能够适应变化。 通过容器，可灵活地在可预测生态系统内进行透视，并避免配置偏移。
-- **对数据的控制** ：选择认知服务处理数据的位置。 如果无法将数据发送到云，但需要访问认知服务 API，这可能很重要。 支持混合环境中的一致性 - 跨数据、管理、标识和安全性。
-- **控制模型更新：对** 在其解决方案中部署的模型进行版本控制和更新的灵活性。
-- **可移植体系结构** ：允许创建可在 Azure、本地和边缘部署的可移植应用程序体系结构。 可直接将容器部署到 [Azure Kubernetes 服务](../aks/index.yml)、[Azure 容器实例](../container-instances/index.yml)，或部署到 [Azure Stack](/azure-stack/operator) 的 [Kubernetes](https://kubernetes.io/) 集群。 有关详细信息，请参阅[将 Kubernetes 部署到 Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
+- **对数据的控制** ：选择认知服务处理数据的位置。 如果无法将数据发送到云，但需要访问认知服务 API，则此操作可能很重要。 支持混合环境中的一致性 - 跨数据、管理、标识和安全性。
+- **对模型更新的控制** ：其解决方案中部署的模型的版本控制和更新方面的灵活性。
+- **可移植的体系结构** ：支持创建可在 Azure、本地和边缘部署的可移植应用程序体系结构。 可直接将容器部署到 [Azure Kubernetes 服务](../aks/index.yml)、[Azure 容器实例](../container-instances/index.yml)，或部署到 [Azure Stack](/azure-stack/operator) 的 [Kubernetes](https://kubernetes.io/) 集群。 有关详细信息，请参阅[将 Kubernetes 部署到 Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
 - **高吞吐量/低延迟** ：通过使以物理方式运行的认知服务更深入了解其应用程序逻辑和数据，为客户提供缩放功能，以满足高吞吐量和低延迟扩展要求。 容器不限制每秒综合事务数 (TPS)，如果提供了必要的硬件资源，它还可进行纵向或横向扩展，来应对需求。
 - **可伸缩性** ：随着容器化和容器业务流程软件（如 Kubernetes）的日益普及，可伸缩性已成为技术进步的前沿领域。 基于可缩放的群集的应用程序开发可满足高可用性的需要。
 
@@ -58,7 +58,7 @@ Azure 认知服务容器提供以下一组 Docker 容器，其中每个容器都
 
 | 服务 | 支持的定价层 | 容器 | 描述 |
 |--|--|--|--|
-| [异常探测器][ad-containers] | F0、S0 | **异常情况-探测器** ( [映像](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))   | 可以使用异常检测器 API 来监视并检测与机器学习配合使用的时序数据中的异常。<br>[请求访问权限][request-access] |
+| [异常探测器][ad-containers] | F0、S0 | **异常情况-探测器** ( [映像](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))   | 可以使用异常检测器 API 来监视并检测与机器学习配合使用的时序数据中的异常。<br>[请求访问权限][request-access] |
 | [计算机视觉][cv-containers] | F0、S1 | **阅读** OCR ( [图像](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read))  | "读取 OCR" 容器允许您从图像和文档中提取打印文本和手写文本，支持 JPEG、PNG、BMP、PDF 和 TIFF 文件格式。 有关详细信息，请参阅 [读取 API 文档](./computer-vision/concept-recognizing-text.md)。<br>[请求访问权限][request-access] |
 | [人脸][fa-containers] | F0、S0 | **人脸** | 检测图像中的人脸并标识属性，包括人脸特征（例如，鼻子和眼睛）、性别、年龄和其他计算机预测的面部特征。 除检测外，“人脸”还可以使用置信评分检查同一/不同图像中的两张人脸，或根据数据库比较人脸，以查看是否已存在类似或相同的人脸。 还可以使用共享视觉特征将类似人脸整理为许多组。 |
 | [窗体识别器][fr-containers] | F0、S0 | **表单识别器** | 表单理解应用机器学习技术从表单中识别和提取键值对和表。 |
