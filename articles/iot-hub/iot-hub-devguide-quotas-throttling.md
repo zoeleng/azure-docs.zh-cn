@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547684"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410685"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -69,7 +69,7 @@ IoT 即插即用设备会为每个接口（包括根）发送至少一条遥测�
 
    最后，如果有效负载为 156 KB 到 160 KB，则在中心只能每个单位每秒进行 1 次调用，然后就会达到 160 KB/秒/单位的限制。
 
-*  就 S2 层级的作业设备操作（更新孪生、调用直接方法）来说，  50/秒/单位仅适用于使用作业来调用方法的情况。 如果直接调用直接方法，则适用原始的 24 MB/秒/单位（针对 S2）限制。
+*  对于 *作业设备操作 (更新克隆，为第 S3 层调用直接方法)* ，50/秒/单位仅适用于使用作业调用方法的情况。 如果直接调用直接方法，则适用于 S3) 的原始阻止限制为 24 MB/秒/单位 (。
 
 *  **配额** 是每天可以在中心发送的聚合消息数。  可以在 [IoT 中心定价页](https://azure.microsoft.com/pricing/details/iot-hub/)上的“消息总数/天”列下找到中心的配额限制。
 

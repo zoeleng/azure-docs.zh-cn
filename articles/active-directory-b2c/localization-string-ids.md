@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096192"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410498"
 ---
 # <a name="localization-string-ids"></a>本地化字符串 ID
 
@@ -25,7 +25,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>注册或登录页面元素
 
-以下 Id 用于 ID 为的内容定义 `api.signuporsignin` 和 [自断言技术配置文件](self-asserted-technical-profile.md)。
+以下 ID 用于 ID 为 `api.signuporsignin` 的内容定义和[自断言技术配置文件](self-asserted-technical-profile.md)。
 
 | ID | 默认值 |
 | -- | ------------- |
@@ -47,7 +47,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 | **cancel_message** | 用户忘记了密码 |
 | **button_signin** | 登录 |
 | **social_intro** | 使用社交帐户登录 |
-  **remember_me** |使我保持登录。 |
+  **remember_me** |使我保持登录状态。 |
 | **unknown_error** | 登录时遇到问题。 请稍后重试。 |
 
 下面的示例演示如何在注册或登录页中使用某些用户界面元素：
@@ -87,6 +87,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 | ID | 默认值 |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | 密码不正确。 |
+| **UserMessageIfPasswordExpired**| 你的密码已过期。|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 似乎找不到你的帐户。 |
 | **UserMessageIfOldPasswordUsed** | 你可能使用的是旧密码。 |
 | **DefaultMessage** | 无效的用户名或密码。 |
@@ -122,6 +123,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
     <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
@@ -134,7 +136,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>注册和自断言页用户界面元素
 
-下面是 ID 为的内容定义 `api.localaccountsignup` 或以开头的任何内容定义的 id `api.selfasserted` ，如 `api.selfasserted.profileupdate` 和 `api.localaccountpasswordreset` ，以及 [自断言技术配置文件](self-asserted-technical-profile.md)。
+以下 ID 适用于 ID 为 `api.localaccountsignup` 的内容定义或任何以 `api.selfasserted` 开头的内容定义，例如 `api.selfasserted.profileupdate` 和 `api.localaccountpasswordreset`，以及[自断言技术配置文件](self-asserted-technical-profile.md)。
 
 | ID | 默认值 |
 | -- | ------------- |
@@ -163,7 +165,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 | **ver_but_verify** | 验证验证码 |
 | **alert_no** | 否 |
 | **ver_info_msg** | 验证码已发送到收件箱。 请将其复制到下面的输入框。 |
-| day | 日期 |
+| **day** | 日期 |
 | **ver_fail_throttled** | 用于验证此电子邮件地址的请求过多。 请稍等片刻，然后重试。 |
 | **helplink_text** | 这是什么？ |
 | **ver_fail_retry** | 验证码不正确。 请重试。 |
@@ -193,7 +195,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 ![注册页电子邮件验证 UX 元素](./media/localization-string-ids/localization-email-verification.png)
 
-## <a name="sign-up-and-self-asserted-pages-example"></a>注册和自断言页面示例
+## <a name="sign-up-and-self-asserted-pages-example"></a>注册和自断言页示例
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -247,7 +249,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>电话身份验证页用户界面元素
 
-下面是 ID 为的内容定义 `api.phonefactor` 和 [电话系数技术配置文件](phone-factor-technical-profile.md)的 id。
+以下 ID 适用于 ID 为 `api.phonefactor` 的内容定义以及[电话因素技术配置文件](phone-factor-technical-profile.md)。
 
 | ID | 默认值 |
 | -- | ------------- |
@@ -289,13 +291,13 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 下面的示例演示如何在 MFA 注册页中使用某些用户界面元素：
 
-![电话系数身份验证注册 UX 元素](./media/localization-string-ids/localization-mfa1.png)
+![电话因素身份验证注册 UX 元素](./media/localization-string-ids/localization-mfa1.png)
 
 下面的示例演示如何在 MFA 验证页中使用某些用户界面元素：
 
-![手机因素身份验证验证 UX 元素](./media/localization-string-ids/localization-mfa2.png)
+![电话因素身份验证验证 UX 元素](./media/localization-string-ids/localization-mfa2.png)
 
-## <a name="phone-factor-authentication-page-example"></a>电话系数身份验证页面示例
+## <a name="phone-factor-authentication-page-example"></a>电话因素身份验证页示例
 
 ```xml
 <LocalizedResources Id="api.phonefactor.en">
@@ -343,7 +345,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 ## <a name="verification-display-control-user-interface-elements"></a>验证显示控件用户界面元素
 
-以下是具有[页面布局版本](page-layout.md)2.1.0 或更高版本的[验证显示控件](display-control-verification.md)的 id。
+以下是[页面布局版本](page-layout.md)为 2.1.0 或更高版本的[验证显示控件](display-control-verification.md)的 ID。
 
 | ID | 默认值 |
 | -- | ------------- |
@@ -357,7 +359,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 |but_send_new_code | 发送新验证码|
 |but_change_claims | 更改电子邮件|
 
-### <a name="verification-display-control-example"></a>验证显示控制示例
+### <a name="verification-display-control-example"></a>验证显示控件示例
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -376,9 +378,9 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 </LocalizedResources>
 ```
 
-## <a name="verification-display-control-user-interface-elements-deprecated"></a>验证显示控件 (弃用的用户界面元素) 
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>验证显示控件用户界面元素（已弃用）
 
-以下是具有[页面布局版本](page-layout.md)2.0.0 的[验证显示控件](display-control-verification.md)的 id。
+以下是[页面布局版本](page-layout.md)为 2.0.0 的[验证显示控件](display-control-verification.md)的 ID。
 
 | ID | 默认值 |
 | -- | ------------- |
@@ -390,7 +392,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 |verification_control_but_verify_code |验证验证码 |
 |verification_control_code_sent| 已发送验证码。 请将其复制到下面的输入框。 |
 
-### <a name="verification-display-control-example-deprecated"></a> (弃用) 验证显示控制示例
+### <a name="verification-display-control-example-deprecated"></a>验证显示控件示例（已弃用）
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

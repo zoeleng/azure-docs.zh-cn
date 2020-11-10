@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461644"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410005"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 安全性最佳做法
 在 Azure 上部署应用程序的过程快速、轻松且经济高效。 将云应用程序部署到生产环境前，请先查看有必要遵照和建议的最佳做法列表，了解最好应如何在应用程序中实现群集安全性。
@@ -83,7 +83,7 @@ Service Fabric 是分布式系统平台，可借助它轻松打包、部署和�
 ## <a name="use-x509-certificates"></a>使用 X.509 证书
 始终使用 X.509 证书或 Windows 安全性保护群集。 安全性仅在群集创建时进行配置。 无法在群集创建后启用安全性。
 
-若要指定[群集证书](../../service-fabric/service-fabric-windows-cluster-x509-security.md)，请将 **ClusterCredentialType** 属性的值设置为 X509。 若要为外部连接指定服务器证书，请将 **ServerCredentialType** 属性的值设置为 X509。
+若要指定 [群集证书](../../service-fabric/service-fabric-windows-cluster-x509-security.md)，请将 **ClusterCredentialType** 属性的值设置为 X509。 若要为外部连接指定服务器证书，请将 **ServerCredentialType** 属性的值设置为 X509。
 
 此外，还请遵照以下做法：
 -   使用正确配置的 Windows Server 证书服务为生产群集创建证书。 也可以从核准证书颁发机构 (CA) 获取证书。
@@ -178,6 +178,6 @@ Service Fabric 使用 X.509 证书保护群集，并提供应用程序安全功�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Service Fabric 安全性清单](service-fabric-checklist.md)
+- [Service Fabric 安全性清单](../../service-fabric/service-fabric-best-practices-security.md)
 - 设置 Service Fabric [开发环境](../../service-fabric/service-fabric-get-started.md)。
 - 了解 [Service Fabric 支持选项](../../service-fabric/service-fabric-support.md)。

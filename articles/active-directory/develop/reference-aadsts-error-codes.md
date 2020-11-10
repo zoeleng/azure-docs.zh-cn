@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241321"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410923"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 身份验证和授权错误代码
 
@@ -74,7 +74,7 @@ ms.locfileid: "93241321"
 ## <a name="lookup-current-error-code-information"></a>查找当前错误代码信息
 错误代码和消息可能会更改。  有关最新信息，请查看 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 页，以查找 AADSTS 错误说明、修复程序和一些建议的解决方法。  
 
-针对返回的错误代码的数字部分进行搜索。  例如，如果收到错误代码“AADSTS16000”，则在 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 中搜索“16000”。  还可以通过将错误代码编号添加到 URL [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) 来直接链接到特定错误。
+例如，如果收到错误代码 "AADSTS50058"，则在中搜索 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "50058"。  还可以通过将错误代码编号添加到 URL [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058) 来直接链接到特定错误。
 
 ## <a name="aadsts-error-codes"></a>AADSTS 错误代码
 

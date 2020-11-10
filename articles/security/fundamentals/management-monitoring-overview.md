@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395764"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410328"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全管理和监视概述
 本文概述了 Azure 提供的安全功能和服务，以帮助管理和监视 Azure 云服务和虚拟机。
@@ -48,8 +48,8 @@ ms.locfileid: "91395764"
 
 * [在 Azure 虚拟机上部署反恶意软件解决方案](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [适用于 Azure 云服务和虚拟机的 Microsoft 反恶意软件](antimalware.md)
-* [如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务](/azure/virtual-machines/windows/classic/install-trend)
-* [如何在 Windows VM 上安装和配置 Symantec Endpoint Protection](/azure/virtual-machines/windows/classic/install-symantec)
+* [如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务](../../virtual-machines/extensions/trend.md)
+* [如何在 Windows VM 上安装和配置 Symantec Endpoint Protection](../../virtual-machines/extensions/symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)（用于保护 Azure 虚拟机的新反恶意软件选项）
 
 ## <a name="multi-factor-authentication"></a>多重身份验证
@@ -61,12 +61,12 @@ Azure 多重身份验证是一种需要使用多种验证方法的身份验证�
 了解详细信息：
 
 * [多重身份验证](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [什么是 Azure 多重身份验证？](/azure/active-directory/authentication/multi-factor-authentication)
+* [什么是 Azure 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Azure 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
-可使用 Azure ExpressRoute 通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 通过 ExpressRoute，可以建立与 Microsoft 云服务（如 Azure、Microsoft 365 和 CRM Online）的连接。 连接可以来自：
+可使用 Azure ExpressRoute 通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Azure、Microsoft 365 和 CRM Online 等 Microsoft 云服务建立连接。 连接可以来自：
 
 * 任意位置之间的 (IP VPN) 网络。
 * 点到点以太网。
@@ -112,7 +112,7 @@ Azure AD 标识保护提供了可疑登录活动和潜在漏洞的统一视图�
 
 了解详细信息：
 
-* [Azure Active Directory 标识保护](/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory 标识保护](../../active-directory/identity-protection/overview-identity-protection.md)
 * [第 9 频道：Azure AD 和标识展示：“标识保护”预览](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>安全中心
@@ -129,8 +129,8 @@ Azure 安全中心可帮助防范、检测和应对威胁。 通过安全中心�
 
 了解详细信息：
 
-* [Azure 安全中心简介](../../security-center/security-center-intro.md)
-* [提高 Azure 安全中心中的安全评分](../../security-center/security-center-secure-score.md)
+* [Azure 安全中心简介](../../security-center/security-center-introduction.md)
+* [提高 Azure 安全中心中的安全评分](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

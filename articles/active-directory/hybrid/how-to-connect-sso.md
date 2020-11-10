@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457985"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94407999"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 无缝单一登录
 
@@ -31,12 +31,12 @@ Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可使连接�
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-无缝 SSO 可与[密码哈希同步](how-to-connect-password-hash-synchronization.md)或[传递身份验证](how-to-connect-pta.md)登录方法结合使用。 无缝 SSO _不_适用于 Active Directory 联合身份验证服务 (ADFS)。
+无缝 SSO 可与[密码哈希同步](how-to-connect-password-hash-synchronization.md)或[传递身份验证](how-to-connect-pta.md)登录方法结合使用。 无缝 SSO _不_ 适用于 Active Directory 联合身份验证服务 (ADFS)。
 
 ![无缝单一登录](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->无缝 SSO 只要求用户的设备**已加入域**，但不能在[已加入 Azure AD](../devices/concept-azure-ad-join.md) 或[已加入混合 Azure AD](../devices/concept-azure-ad-join-hybrid.md) 的设备上使用。 已加入 Azure AD、已加入混合 Azure AD 的设备以及已注册到 Azure AD 的设备上的 SSO 基于[主刷新令牌](../devices/concept-primary-refresh-token.md)工作。
+>无缝 SSO 只要求用户的设备 **已加入域** ，但不能在 [已加入 Azure AD](../devices/concept-azure-ad-join.md) 或 [已加入混合 Azure AD](../devices/concept-azure-ad-join-hybrid.md) 的设备上使用。 已加入 Azure AD、已加入混合 Azure AD 的设备以及已注册到 Azure AD 的设备上的 SSO 基于[主刷新令牌](../devices/concept-primary-refresh-token.md)工作。
 
 ## <a name="key-benefits"></a>主要优点
 
@@ -85,7 +85,7 @@ Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可使连接�
 ## <a name="next-steps"></a>后续步骤
 
 - [快速入门](how-to-connect-sso-quick-start.md) - 启动并运行 Azure AD 无缝 SSO。
-- [**部署计划**](https://aka.ms/deploymentplans/sso) - 分步部署计划。
+- [**部署计划**](../manage-apps/plan-sso-deployment.md) - 分步部署计划。
 - [深入技术探究](how-to-connect-sso-how-it-works.md) - 了解此功能如何运作。
 - [**常见问题**](how-to-connect-sso-faq.md) - 常见问题解答。
 - [故障排除](tshoot-connect-sso.md) - 了解如何解决使用此功能时遇到的常见问题。

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055305"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410770"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>语音服务：Docs 中的新增内容
 
@@ -23,9 +23,10 @@ ms.locfileid: "89055305"
 
 ### <a name="service-updates"></a>服务更新
 
-如果想要了解有关语音服务、语音 SDK、语音设备 SDK 或语音 CLI 的更新，请参阅：
+如果要了解有关语音服务、语音 SDK、语音设备 SDK、语音 CLI 或语音容器的更新，请参阅：
 * [语音 SDK 发行说明](releasenotes.md)。
 * [语音设备 SDK 发行说明](devices-sdk-release-notes.md)
+* [认知服务容器发行说明](../containers/container-image-tags.md)
 
 ## <a name="may-2020"></a>2020 年 5 月
 
@@ -59,26 +60,26 @@ ms.locfileid: "89055305"
 
 |ID|用户|说明|已打开|状态|类型|
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|由于缺少机器人的终结点，已丢弃活动|2020-05-31|已关闭|问题|
+|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|由于缺少机器人的终结点，已丢弃活动|2020-05-31|已解决|问题|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|错误的发布机器人步骤|2020-05-31|打开|问题|
 |[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|添加更多有关 PCM 示例格式的文档|2020-05-30|打开|问题|
-|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|标题不匹配侧栏|2020-05-29|已关闭|问题|
-|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-开发|带有波形文件的 CLI 错误|2020-05-28|已关闭|问题|
+|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|标题不匹配侧栏|2020-05-29|已解决|问题|
+|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-开发|带有波形文件的 CLI 错误|2020-05-28|已解决|问题|
 |[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|更新 speech-sdk.md|2020-05-27|打开|拉取请求|
-|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|不受支持的语音名称出现古怪错误|2020-05-20|已关闭|问题|
+|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|不受支持的语音名称出现古怪错误|2020-05-20|已解决|问题|
 |[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|有关语音到文本 api 的文档很差|2020-05-18|打开|问题|
-|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft Cognitiveservices account Speech class SpeechRecognizer，无法收集生成的文本|2020-05-18|已关闭|问题|
-|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|不清除|2020-05-18|已关闭|问题|
-|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|深色主题中不可见的图形|2020-05-17|已关闭|问题|
+|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft Cognitiveservices account Speech class SpeechRecognizer，无法收集生成的文本|2020-05-18|已解决|问题|
+|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|不清除|2020-05-18|已解决|问题|
+|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|深色主题中不可见的图形|2020-05-17|已解决|问题|
 |[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|缺少节？|2020-05-15|打开|问题|
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|运行语音服务容器失败|2020-05-13|打开|问题|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|发音文件示例|2020-05-11|打开|问题|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Java 示例不正确。|2020-05-10|打开|问题|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|无法获取发音评分|2020-05-08|已关闭|问题|
-|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML 文件模板|2020-05-07|已关闭|问题|
-|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C # 示例代码不会提示用户讲话。|2020-05-06|已关闭|问题|
-|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|将 TTS 从 v2.0 升级到 med-v 1。4|2020-05-05|已关闭|拉取请求|
-|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|将自定义 STT 最新版本更新为 v 2.2。0|2020-05-05|已关闭|拉取请求|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|无法获取发音评分|2020-05-08|已解决|问题|
+|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML 文件模板|2020-05-07|已解决|问题|
+|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C # 示例代码不会提示用户讲话。|2020-05-06|已解决|问题|
+|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|将 TTS 从 v2.0 升级到 med-v 1。4|2020-05-05|已解决|拉取请求|
+|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|将自定义 STT 最新版本更新为 v 2.2。0|2020-05-05|已解决|拉取请求|
 |[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|Github 项目的链接已损坏|2020-05-03|打开|问题|
-|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|要定义的属性：适用于 Android 麦克风的最大音频识别时间。 15秒后停止音频识别|2020-05-02|已关闭|问题|
-|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|自定义命令：文档更新|2020-05-01|已关闭|拉取请求|
+|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|要定义的属性：适用于 Android 麦克风的最大音频识别时间。 15秒后停止音频识别|2020-05-02|已解决|问题|
+|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|自定义命令：文档更新|2020-05-01|已解决|拉取请求|

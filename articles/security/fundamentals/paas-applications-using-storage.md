@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402fc1b0b436e7e2061cb2e1a922a75c82ac5235
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87925798"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408050"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>使用 Azure 存储保护 PaaS Web 和移动应用程序的最佳做法
 本文介绍 Azure 存储安全在保护平台即服务 (PaaS) Web 和移动应用程序方面的最佳做法。 这些最佳实践衍生自我们的 Azure 经验和客户经验。
 
 Azure 可以用本地不易实现的方式来部署并使用存储。 通过 Azure 存储，可用相对较少的工作量达到高水平的可伸缩性和可用性。 Azure 存储不仅是 Windows 和 Linux Azure 虚拟机的基础，还可以支持大型分布式应用程序。
 
-Azure 存储提供了以下四种服务：Blob 存储、表存储、队列存储和文件存储。 若要了解详细信息，请参阅 [Microsoft Azure 存储简介](/azure/storage/common/storage-introduction)。
+Azure 存储提供了以下四种服务：Blob 存储、表存储、队列存储和文件存储。 若要了解详细信息，请参阅 [Microsoft Azure 存储简介](../../storage/common/storage-introduction.md)。
 
-[Azure 存储安全指南](/azure/storage/common/storage-security-guide)是有关 Azure存储和安全性的详细信息的重要来源。 本篇最佳做法文章高度概括地介绍了安全指南中的一些概念，并提供了获得详细信息的安全指南及其他来源的链接。
+[Azure 存储安全指南](../../storage/blobs/security-recommendations.md)是有关 Azure存储和安全性的详细信息的重要来源。 本篇最佳做法文章高度概括地介绍了安全指南中的一些概念，并提供了获得详细信息的安全指南及其他来源的链接。
 
 本文将探讨以下最佳做法：
 
@@ -53,10 +53,10 @@ Azure 存储提供了以下四种服务：Blob 存储、表存储、队列存储
 
 通过 SAS 可以用希望的方式共享内容，而无需分配存储帐户密钥。 在应用程序中始终使用 SAS 可以安全地共享存储资源，不会危及存储帐户密钥。
 
-若要了解有关共享访问签名的详细信息，请参阅[使用共享访问签名](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)。 
+若要了解有关共享访问签名的详细信息，请参阅[使用共享访问签名](../../storage/common/storage-sas-overview.md)。 
 
 ## <a name="use-role-based-access-control"></a>使用基于角色的访问控制
-管理访问权限的另一种方法是使用 azure [RBAC)  (基于角色的访问控制 ](/azure/role-based-access-control/overview)。 使用 RBAC 时，可根据了解内容的需要和最低特权的安全原则，专注于为员工提供所需的准确权限。 权限过多，可能会向攻击者公开帐户。 权限太少意味着员工无法有效地完成其工作。 RBAC 通过对 Azure 提供细致的访问管理帮助解决此问题。 对于想要实施数据访问安全策略的组织，这是必须要做的事。
+管理访问的另一种方法是使用 [Azure 基于角色的访问控制](../../role-based-access-control/overview.md) (Azure RBAC)。 使用 RBAC 时，可根据了解内容的需要和最低特权的安全原则，专注于为员工提供所需的准确权限。 权限过多，可能会向攻击者公开帐户。 权限太少意味着员工无法有效地完成其工作。 RBAC 通过对 Azure 提供细致的访问管理帮助解决此问题。 对于想要实施数据访问安全策略的组织，这是必须要做的事。
 
 可以使用 Azure 中的 Azure 内置角色向用户分配权限。 例如，将存储帐户参与者用于需要管理存储帐户的云操作员，并使用经典存储帐户参与者角色来管理经典存储帐户。 如果云操作员需要管理 VM 但不管理他们连接到的虚拟网络或存储帐户，则可以将他们添加到虚拟机参与者角色。
 
@@ -64,19 +64,19 @@ Azure 存储提供了以下四种服务：Blob 存储、表存储、队列存储
 
 若要了解有关 RBAC 的详细信息，请参阅：
 
-- [使用 RBAC 和 Azure 门户管理访问权限](/azure/role-based-access-control/role-assignments-portal)
-- [Azure 内置角色](/azure/role-based-access-control/built-in-roles)
-- [Azure 存储安全指南](/azure/storage/common/storage-security-guide) 
+- [使用 RBAC 和 Azure 门户管理访问权限](../../role-based-access-control/role-assignments-portal.md)
+- [Azure 内置角色](../../role-based-access-control/built-in-roles.md)
+- [Azure 存储安全指南](../../storage/blobs/security-recommendations.md) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>对高价值数据使用客户端加密
 通过客户端加密，可在上传到 Azure 存储之前以编程方式加密传输中的数据，并在检索数据时以编程方式解密数据。 这提供传输中的数据加密，但也提供静态数据加密。 客户端加密是最安全的加密数据方法，但它要求以编程方式更改应用程序，并将密钥管理程序放在正确的位置。
 
-客户端加密还可以对加密密钥进行单独控制。 可生成和管理自己的加密密钥。 客户端加密使用信封技术，其中 Azure 存储客户端库生成内容加密密钥 (CEK)，然后使用密钥加密密钥 (KEK) 包装（加密）密钥。 KEK 由密钥标识符标识，可以是非对称密钥对或对称密钥，还可以在本地托管或存储在 [Azure Key Vault](/azure/key-vault/key-vault-overview) 中。
+客户端加密还可以对加密密钥进行单独控制。 可生成和管理自己的加密密钥。 客户端加密使用信封技术，其中 Azure 存储客户端库生成内容加密密钥 (CEK)，然后使用密钥加密密钥 (KEK) 包装（加密）密钥。 KEK 由密钥标识符标识，可以是非对称密钥对或对称密钥，还可以在本地托管或存储在 [Azure Key Vault](../../key-vault/general/overview.md) 中。
 
-客户端加密内置于 Java 和 .NET 存储客户端库中。 有关在客户端应用程序中加密数据并生成和管理自己的加密密钥的信息，请参阅[适用于 Microsoft Azure 存储的客户端加密和 Azure Key Vault](/azure/storage/common/storage-client-side-encryption)。
+客户端加密内置于 Java 和 .NET 存储客户端库中。 有关在客户端应用程序中加密数据并生成和管理自己的加密密钥的信息，请参阅[适用于 Microsoft Azure 存储的客户端加密和 Azure Key Vault](../../storage/common/storage-client-side-encryption.md)。
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>为静态数据启用存储服务加密
-当启用文件存储的[存储服务加密](/azure/storage/common/storage-service-encryption)时，将使用 AES-256 加密自动加密数据。 Microsoft 处理所有加密、解密和密钥管理。 此功能适用于 LRS 和 GRS 冗余类型。
+当启用文件存储的[存储服务加密](../../storage/common/storage-service-encryption.md)时，将使用 AES-256 加密自动加密数据。 Microsoft 处理所有加密、解密和密钥管理。 此功能适用于 LRS 和 GRS 冗余类型。
 
 ## <a name="next-steps"></a>后续步骤
 

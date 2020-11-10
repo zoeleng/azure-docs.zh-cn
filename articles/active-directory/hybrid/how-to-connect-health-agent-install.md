@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 975933a97b089cb208ecd7ff4461a893364262ff
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: da3ae5e86833eb3e7eb71d7e47cb6f963d37b9cf
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422359"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410719"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理安装
 
@@ -35,7 +35,7 @@ ms.locfileid: "93422359"
 | 要求 | 说明 |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health 是 Azure AD Premium 的一个功能，它需要与 Azure AD Premium 配合使用。 <br /><br />有关详细信息，请参阅[Azure AD Premium](../fundamentals/active-directory-get-started-premium.md)入门 <br />若要免费试用 30 天，请参阅 [开始试用](https://azure.microsoft.com/trial/get-started-active-directory/)。 |
-| 必须是 Azure AD 的全局管理员才能开始使用 Azure AD Connect Health |默认情况下，只有全局管理员才能安装和配置运行状况代理、访问信息，以及在 Azure AD Connect Health 中执行任何操作。 有关详细信息，请参阅 [Administering your Azure AD directory](../fundamentals/active-directory-administer.md)（管理 Azure AD 目录）。 <br /><br /> 使用 azure RBAC)  (azure 基于角色的访问控制，你可以允许 Azure AD Connect Health 到组织中的其他用户的访问。 有关详细信息，请参阅 [适用于 Azure AD Connect Health 的 AZURE RBAC) 的 azure 基于角色的访问控制 (。](how-to-connect-health-operations.md#manage-access-with-azure-rbac) <br /><br />**重要说明：** 在安装代理时使用的帐户必须是工作帐户或学校帐户， 而不能是 Microsoft 帐户。 有关详细信息，请参阅 [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md)（以组织身份注册 Azure） |
+| 必须是 Azure AD 的全局管理员才能开始使用 Azure AD Connect Health |默认情况下，只有全局管理员才能安装和配置运行状况代理、访问信息，以及在 Azure AD Connect Health 中执行任何操作。 有关详细信息，请参阅 [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md)（管理 Azure AD 目录）。 <br /><br /> 使用 azure RBAC)  (azure 基于角色的访问控制，你可以允许 Azure AD Connect Health 到组织中的其他用户的访问。 有关详细信息，请参阅 [适用于 Azure AD Connect Health 的 AZURE RBAC) 的 azure 基于角色的访问控制 (。](how-to-connect-health-operations.md#manage-access-with-azure-rbac) <br /><br />**重要说明：** 在安装代理时使用的帐户必须是工作帐户或学校帐户， 而不能是 Microsoft 帐户。 有关详细信息，请参阅 [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md)（以组织身份注册 Azure） |
 | Azure AD Connect Health 代理已安装在每台目标服务器上 | Azure AD Connect Health 要求在目标服务器上安装和配置 Health 代理，以便接收数据并提供监视和分析功能。 <br /><br />例如，要从 AD FS 基础结构获取数据，必须将代理安装在 AD FS 和 Web 应用程序代理服务器上。 同样，要获取 AD DS 本地基础结构的相关数据，必须将代理安装在域控制器上。 <br /><br /> |
 | Azure 服务终结点的出站连接 | 在安装期间和运行时，代理需要连接到 Azure AD Connect Health 服务终结点。 如果使用防火墙阻止出站连接，请确保在允许列表中添加以下终结点。 请参阅[出站连接终结点](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |基于 IP 地址的出站连接 | 若要了解如何基于 IP 地址在防火墙上进行筛选，请参阅 [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653)（Azure IP 范围）。|

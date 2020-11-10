@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f0fa8e5923639ea74a83a9a775bd5d580234b7ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e2e2797bd01635c4c066a60f379a884e545e5af2
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340118"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409682"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>诊断和排查 Azure Cosmos DB 的“未找到”异常
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -109,3 +109,5 @@ while (invalidItemsIterator.HasMoreResults)
 ## <a name="next-steps"></a>后续步骤
 * [诊断和排查](troubleshoot-dot-net-sdk.md)在使用 Azure Cosmos DB .NET SDK 时遇到的问题。
 * 了解 [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) 和 [.NET v2](performance-tips.md) 的性能准则。
+* [诊断并解决](troubleshoot-java-sdk-v4-sql.md) 使用 Azure Cosmos DB JAVA v4 SDK 时遇到的问题。
+* 了解 [Java V4 SDK](performance-tips-java-sdk-v4-sql.md)的性能准则。

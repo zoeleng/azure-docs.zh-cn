@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中保护 PaaS 数据库 | Microsoft Docs
-description: '了解有关保护 PaaS web 和移动应用程序的 Azure SQL 数据库和 Azure Synapse Analytics 安全最佳做法。 '
+description: '了解 Azure SQL 数据库和 Azure Synapse Analytics有关保护 PaaS Web 和移动应用程序的安全最佳做法。 '
 services: security
 documentationcenter: na
 author: techlake
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462524"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408067"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>在 Azure 中保护 PaaS 数据库的最佳做法
 
-本文将介绍 [AZURE SQL 数据库](../../azure-sql/database/sql-database-paas-overview.md) 的集合，以及用于保护平台即服务 (PaaS) web 和移动应用程序的 [azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 安全最佳做法。 这些最佳实践衍生自我们的 Azure 经验和客户经验。
+在本文中，我们讨论了 [Azure SQL 数据库](../../azure-sql/database/sql-database-paas-overview.md)和 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 关于保护平台即服务 (PaaS) Web 和移动应用程序的一组安全最佳做法。 这些最佳实践衍生自我们的 Azure 经验和客户经验。
 
-Azure SQL 数据库和 Azure Synapse 分析为基于 internet 的应用程序提供关系数据库服务。 让我们看看在 PaaS 部署中使用 Azure SQL 数据库和 Azure Synapse 分析时帮助保护应用程序和数据的服务：
+Azure SQL 数据库和 Azure Synapse Analytics 为基于 Internet 的应用程序提供关系数据库服务。 让我们了解一下在 PaaS 部署中使用 Azure SQL 数据库和 Azure Synapse Analytics 时可帮助保护应用程序与数据的服务：
 
 - Azure Active Directory 身份验证（而不是 SQL Server 身份验证）
 - Azure SQL 防火墙
@@ -34,13 +34,13 @@ Azure SQL 数据库和 Azure Synapse 分析为基于 internet 的应用程序提
 
 ## <a name="use-a-centralized-identity-repository"></a>使用集中式标识存储库
 
-可将 Azure SQL 数据库配置为使用以下两种类型的身份验证之一：
+可将 Azure SQL 数据库配置为使用以下两种身份验证类型之一：
 
 - SQL 身份验证使用用户名和密码。 在为数据库创建服务器时，已指定了一个包含用户名和密码的“服务器管理员”登录名。 借助这些凭据，可以使用数据库所有者的身份通过服务器上任何数据库的身份验证。
 
 - Azure Active Directory 身份验证使用 Azure Active Directory 管理的标识，支持托管域和集成域。 若要使用 Azure Active Directory 身份验证，必须创建名为“Azure AD 管理员”的另一个服务器管理员，用于管理 Azure AD 用户和组。 此管理员还能执行普通服务器管理员可以执行的所有操作。
 
-[Azure Active Directory 身份验证](../../active-directory/develop/authentication-scenarios.md) 是通过使用 AZURE ACTIVE DIRECTORY (AD) 中的标识连接到 Azure SQL 数据库和 Azure Synapse Analytics 的机制。 Azure AD 为 SQL Server 身份验证提供一种替代方法，使你可以阻止用户标识在数据库服务器之间激增。 使用 Azure AD 身份验证可在一个中心位置集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。  
+[Azure Active Directory 身份验证](../../active-directory/develop/authentication-vs-authorization.md)是使用 Azure Active Directory (AD) 中的标识连接到 Azure SQL 数据库和 Azure Synapse Analytics 的一种机制。 Azure AD 为 SQL Server 身份验证提供一种替代方法，使你可以阻止用户标识在数据库服务器之间激增。 使用 Azure AD 身份验证可在一个中心位置集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>与 SQL 身份验证相比使用 Azure AD 的好处
 
@@ -50,13 +50,13 @@ Azure SQL 数据库和 Azure Synapse 分析为基于 internet 的应用程序提
 - 使用包含的数据库用户在数据库级别对标识进行身份验证。
 - 支持对连接到 SQL 数据库的应用程序进行基于令牌的身份验证。
 - 支持使用 Active Directory 联合身份验证服务 (ADFS) 或本机用户/密码身份验证对本地 Azure AD 进行域联合。
-- 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括[多重身份验证 (MFA)](/azure/active-directory/authentication/multi-factor-authentication)。 MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 Azure Synapse Analytics 的通用身份验证](../../azure-sql/database/authentication-mfa-ssms-overview.md)。
+- 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括[多重身份验证 (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md)。 MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 Azure Synapse Analytics 的通用身份验证](../../azure-sql/database/authentication-mfa-ssms-overview.md)。
 
 若要了解有关 Azure AD 身份验证的详细信息，请参阅：
 
-- [使用 Azure Active Directory 身份验证通过 SQL Database、托管实例或 Azure Synapse Analytics 进行身份验证](../../azure-sql/database/authentication-aad-overview.md)
-- [对 Azure Synapse Analytics 进行身份验证](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
-- [使用 Azure AD authentication 对 Azure SQL 数据库进行基于令牌的身份验证支持](../../azure-sql/database/authentication-aad-overview.md)
+- [将 Azure Active Directory 身份验证与 SQL 数据库、托管实例或 Azure Synapse Analytics 结合使用](../../azure-sql/database/authentication-aad-overview.md)
+- [向 Azure Synapse Analytics 进行身份验证](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [使用 Azure AD 身份验证对 Azure SQL 数据库提供基于令牌的身份验证支持](../../azure-sql/database/authentication-aad-overview.md)
 
 > [!NOTE]
 > 若要确保 Azure Active Directory 适用于当前环境，请参阅 [Azure AD 功能和限制](../../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations)。
@@ -74,7 +74,7 @@ SQL 数据库的默认源 IP 地址限制允许从任何 Azure 地址（包括�
 
 ## <a name="encrypt-data-at-rest"></a>静态数据加密
 
-[透明数据加密 (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) 默认已启用。 TDE 以透明方式加密 SQL Server、Azure SQL 数据库和 Azure Synapse Analytics 数据和日志文件。 TDE 可以防范直接访问文件或其备份所造成的安全威胁。 这样就可以实现静态数据加密，且无需更改现有应用程序。 应始终保持启用 TDE；不过，这无法阻止攻击者使用普通的访问路径。 使用 TDE 能够符合各个行业制定的许多法律、法规和准则。
+[透明数据加密 (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) 默认已启用。 TDE 以透明方式加密 SQL Server、Azure SQL 数据库和 Azure Synapse Analytics 的数据和日志文件。 TDE 可以防范直接访问文件或其备份所造成的安全威胁。 这样就可以实现静态数据加密，且无需更改现有应用程序。 应始终保持启用 TDE；不过，这无法阻止攻击者使用普通的访问路径。 使用 TDE 能够符合各个行业制定的许多法律、法规和准则。
 
 Azure SQL 可以管理 TDE 存在的密钥相关问题。 与使用 TDE 时一样，在本地操作以及移动数据库时也必须格外小心，确保能够恢复。 在更复杂的方案中，可以通过可扩展的密钥管理在 Azure Key Vault 中显式管理密钥。 请参阅[使用 EKM 在 SQL Server 上启用 TDE](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm)。 此外，也允许通过 Azure Key Vault BYOK 功能自带密钥 (BYOK)。
 
@@ -86,7 +86,7 @@ Azure SQL 通过 [Always Encrypted](/sql/relational-databases/security/encryptio
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了有关保护 PaaS web 和移动应用程序的 SQL 数据库的集合，以及用于保护 PaaS web 和移动应用程序的 Azure Synapse Analytics 安全最佳做法。 若要了解有关保护 PaaS 部署的详细信息，请参阅：
+本文介绍了 SQL 数据库和 Azure Synapse Analytics 有关保护 PaaS Web 和移动应用程序的一组安全最佳做法。 若要了解有关保护 PaaS 部署的详细信息，请参阅：
 
 - [保护 PaaS 部署](paas-deployments.md)
 - [使用 Azure 应用服务保护 PaaS Web 和移动应用程序](paas-applications-using-app-services.md)

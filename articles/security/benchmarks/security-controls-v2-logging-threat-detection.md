@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360847"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408696"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>安全控制 V2：日志记录和威胁检测
 
@@ -30,7 +30,7 @@ ms.locfileid: "93360847"
 
 此外，还可以使用 Azure Sentinel 构建分析规则，这些规则会在环境中寻找符合特定条件的威胁。 规则匹配时，这些规则会生成事件，以便调查每个事件。 Azure Sentinel 还可以导入第三方威胁情报，以增强其威胁检测功能。 
 
-- [Azure 安全中心的威胁防护](../../security-center/threat-protection.md)
+- [Azure 安全中心的威胁防护](../../security-center/azure-defender.md)
 
 - [Azure 安全中心安全警报参考指南](../../security-center/alerts-reference.md)
 
@@ -73,7 +73,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [启用 Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Azure 安全中心的威胁防护](../../security-center/threat-protection.md)
+- [Azure 安全中心的威胁防护](../../security-center/azure-defender.md)
 
 **责任** ：客户
 
@@ -230,4 +230,3 @@ Azure 中资源生成的所有日志都提供了时间戳，且默认指定时�
 - [应用程序安全性和 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [基础结构和终结点安全性](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

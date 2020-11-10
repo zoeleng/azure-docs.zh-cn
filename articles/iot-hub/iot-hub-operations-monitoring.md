@@ -1,20 +1,20 @@
 ---
 title: Azure IoT 中心操作监视（已弃用）| Microsoft Docs
 description: 如何使用 Azure IoT 中心操作监视功能实时监视 IoT 中心上的操作状态。
-author: nberdy
-manager: briz
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: nberdy
+ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538487"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408118"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT 中心操作监视（已弃用）
 
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>后续步骤
 
-若要进一步探索 IoT 中心的功能，请参阅：
+若要进一步了解如何使用 Azure Monitor 来监视 IoT 中心，请参阅：
 
-* [IoT 中心开发人员指南](iot-hub-devguide.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
 
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
+* [从 IoT 中心操作监视迁移到 Azure Monitor](iot-hub-migrate-to-diagnostics-settings.md)

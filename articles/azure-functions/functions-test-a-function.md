@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 8ff70c14310dd81a051ac27c1d6d59bb3d1deb7b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677604"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409648"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -251,7 +251,7 @@ namespace Functions.Tests
 
 - **Timer_should_log_message** ：此测试创建 `ListLogger` 的实例并将其传递给计时器函数。 运行该函数后，将检查日志以确保存在预期的消息。
 
-如果要在测试中访问应用程序设置，可以使用 [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
+如果要在测试中访问应用程序设置，可以将[inject](./functions-dotnet-dependency-injection.md) `IConfiguration` 具有模拟环境变量值的实例注入函数。
 
 ### <a name="run-tests"></a>运行测试
 

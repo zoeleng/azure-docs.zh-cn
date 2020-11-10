@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b8b4b56693023ede2ccf8ae7eeac7ed5e16824
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c1cdeaa41dda11f2ab520cf8d31ddb2116587082
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216855"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409563"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>为 Azure NetApp 文件配置 NFS 客户端
 
@@ -75,7 +75,10 @@ ms.locfileid: "92216855"
     例如： 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    确保将 `default_realm` 设置为中提供的领域 `/etc/krb5.conf` 。  否则，请将其添加到 `[libdefaults]` 文件中的节下，如以下示例所示：
+    
+    `default_realm = CONTOSO.COM`
 
 7. 重新启动所有 NFS 服务：  
  
@@ -199,7 +202,7 @@ ms.locfileid: "92216855"
 
 5. Ubuntu 18.04 默认情况下使用 chrony。 按照 Ubuntu Bionic 中的配置准则 [进行操作：使用 chrony 配置 NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)。
 
-6. 联接 Active Directory 域：   
+6. 加入 Active Directory 域：   
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  

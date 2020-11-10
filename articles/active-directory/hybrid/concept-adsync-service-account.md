@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144726"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410889"
 ---
 # <a name="adsync-service-account"></a>ADSync 服务帐户
 Azure AD Connect 会安装一个本地服务用于协调 Active Directory 与 Azure Active Directory 之间的同步。  Microsoft Azure AD 同步同步服务 (ADSync) 在本地环境中的服务器上运行。  默认会在“快速”安装中设置该服务的凭据，不过，用户也可以根据组织的安全要求自定义凭据。  这些凭据不会用于连接到本地林或 Azure Active Directory。
@@ -61,7 +61,7 @@ Microsoft 建议在虚拟服务帐户或者独立或组托管服务帐户的上�
 
 解决此问题如果更改了 AdSync 服务登录凭据，则 Microsoft Azure AD 同步加密密钥将不可访问。  如果更改了凭据，请使用“服务”应用程序将登录帐户改回到其原始配置值（例如 NT SERVICE\AdSync），并重启该服务。  这可以使 AdSync 服务立即恢复正常运行。
 
-有关详细信息，请参阅以下[文章](https://go.microsoft.com/fwlink/?linkid=2086764)。
+有关详细信息，请参阅以下[文章](./whatis-hybrid-identity.md)。
 
 ### <a name="example-2"></a>示例 2
 
@@ -69,7 +69,7 @@ Microsoft 建议在虚拟服务帐户或者独立或组托管服务帐户的上�
 
 解决此问题如果更改了 AdSync 服务登录凭据，则 Microsoft Azure AD 同步服务将失去访问本地数据库提供程序的权限。  如果更改了凭据，请使用“服务”应用程序将登录帐户改回到其原始配置值（例如 NT SERVICE\AdSync），并重启该服务。  这可以使 AdSync 服务立即恢复正常运行。
 
-有关详细信息，请参阅以下[文章](https://go.microsoft.com/fwlink/?linkid=2086764)。
+有关详细信息，请参阅以下[文章](./whatis-hybrid-identity.md)。
 
 其他详细信息：提供程序返回了以下错误信息：
  

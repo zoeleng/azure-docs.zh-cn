@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229357"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409784"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虚拟机安全概述
 本文概述了可用于虚拟机的核心 Azure 安全功能。
@@ -51,11 +51,11 @@ Azure 虚拟机让你能够灵活地进行虚拟化，而无需购买和维护�
 了解有关反恶意软件的详细信息以保护虚拟机：
 
 * [在 Azure 虚拟机上部署反恶意软件解决方案](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [如何在 Windows VM 上安装和配置服务型 Trend Micro Deep Security](/azure/virtual-machines/windows/classic/install-trend)
-* [如何在 Windows VM 上安装和配置 Symantec Endpoint Protection](/azure/virtual-machines/windows/classic/install-symantec)
+* [如何在 Windows VM 上安装和配置服务型 Trend Micro Deep Security](../../virtual-machines/extensions/trend.md)
+* [如何在 Windows VM 上安装和配置 Symantec Endpoint Protection](../../virtual-machines/extensions/symantec.md)
 * [Azure 市场中的安全解决方案](https://azure.microsoft.com/marketplace/?term=security)
 
-若要实现更强大的保护，请考虑使用 [Windows Defender 高级威胁防护](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)。 使用 Windows Defender ATP，可以实现：
+若要实现更强大的保护，请考虑使用 [Windows Defender 高级威胁防护](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)。 使用 Windows Defender ATP，可以实现：
 
 * [攻击面减小](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [下一代保护](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -75,22 +75,22 @@ Azure 虚拟机让你能够灵活地进行虚拟化，而无需购买和维护�
 
 提高密钥安全性可增强加密和身份验证保护。 通过将关键密码和密钥存储在 Azure 密钥保管库中，可以简化此类密码和密钥的管理和保护。
 
-密钥保管库提供将你的密钥存储在已通过 FIPS 140-2 Level 2 标准认证的硬件安全性模块 (HSM) 中的选项。 用于备份或 [透明数据加密](https://msdn.microsoft.com/library/bb934049.aspx) 的 SQL Server 加密密钥可以存储在密钥保管库中，此外还可存储应用程序中的任意密钥或机密。 对这些受保护项的权限和访问权限通过 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)进行管理。
+密钥保管库提供将你的密钥存储在已通过 FIPS 140-2 Level 2 标准认证的硬件安全性模块 (HSM) 中的选项。 用于备份或 [透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption) 的 SQL Server 加密密钥可以存储在密钥保管库中，此外还可存储应用程序中的任意密钥或机密。 对这些受保护项的权限和访问权限通过 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)进行管理。
 
 了解详细信息：
 
-* [什么是 Azure 密钥保管库？](/azure/key-vault/key-vault-overview)
-* [Azure 密钥保管库博客](https://blogs.technet.microsoft.com/kv/)
+* [什么是 Azure 密钥保管库？](../../key-vault/general/overview.md)
+* [Azure 密钥保管库博客](/archive/blogs/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>虚拟机磁盘加密
 
-Azure 磁盘加密是用于加密 Windows 和 Linux 虚拟机磁盘的新功能。 Azure 磁盘加密利用 Windows 的行业标准 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 功能和 Linux 的 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) 功能，为 OS 和数据磁盘提供卷加密。
+Azure 磁盘加密是用于加密 Windows 和 Linux 虚拟机磁盘的新功能。 Azure 磁盘加密利用 Windows 的行业标准 [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) 功能和 Linux 的 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) 功能，为 OS 和数据磁盘提供卷加密。
 
 该解决方案与 Azure Key Vault 集成，帮助用户控制和管理 Key Vault 订阅中的磁盘加密密钥和机密。 它可确保虚拟机磁盘上的所有数据在 Azure 存储中静态加密。
 
 了解详细信息：
 
-* [适用于 IaaS VM 的 Azure 磁盘加密](/azure/security/azure-security-disk-encryption-overview)
+* [适用于 IaaS VM 的 Azure 磁盘加密](./azure-disk-encryption-vms-vmss.md)
 * [快速入门：Encrypt a Windows IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)（快速入门：使用 Azure PowerShell 加密 Windows IaaS VM）
 
 ## <a name="virtual-machine-backup"></a>虚拟机备份
@@ -99,8 +99,8 @@ Azure 备份是一种可缩放的解决方案，无需资本投资便可帮助�
 
 了解详细信息：
 
-* [什么是 Azure 备份？](/azure/backup/backup-introduction-to-azure-backup)
-* [Azure 备份服务 - 常见问题解答](/azure/backup/backup-azure-backup-faq)
+* [什么是 Azure 备份？](../../backup/backup-overview.md)
+* [Azure 备份服务 - 常见问题解答](../../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -108,17 +108,17 @@ Azure 备份是一种可缩放的解决方案，无需资本投资便可帮助�
 
 Site Recovery：
 
-* **简化 BCDR 策略**：通过 Site Recovery 可从一个位置轻松处理多个业务工作负荷和应用的复制、故障转移及恢复。 Site Recovery 会协调复制和故障转移，但不会拦截应用程序数据或拥有任何相关信息。
-* **提供灵活的复制**：借助 Site Recovery，可以复制 Hyper-V 虚拟机、VMware 虚拟机和 Windows/Linux 物理服务器上运行的工作负荷。
-* **支持故障转移和恢复**：Site Recovery 提供测试故障转移，既能支持灾难恢复练习，又不会影响生产环境。 还可针对预期会出现的中断运行计划内故障转移，确保不丢失任何数据；或者针对意外灾难运行计划外故障转移，尽量减少数据丢失（具体取决于复制频率）。 故障转移之后，可故障回复到主站点。 Site Recovery 提供包含脚本和 Azure 自动化工作簿的恢复计划，以供你自定义多层应用程序的故障转移和恢复。
-* **消除辅助数据中心**：可复制到辅助本地站点，或复制到 Azure。 使用 Azure 作为灾难恢复的目标可以消除维护辅助站点所带来的成本和复杂性。 复制的数据存储在 Azure 存储中。
-* **与现有 BCDR 技术集成**：Site Recovery 能够与其他应用程序的 BCDR 功能结合使用。 例如，可使用 Site Recovery 来帮助保护公司工作负荷的 SQL Server 后端。 这包括对 SQL Server AlwaysOn 的本机支持以管理可用性组的故障转移。
+* **简化 BCDR 策略** ：通过 Site Recovery 可从一个位置轻松处理多个业务工作负荷和应用的复制、故障转移及恢复。 Site Recovery 会协调复制和故障转移，但不会拦截应用程序数据或拥有任何相关信息。
+* **提供灵活的复制** ：借助 Site Recovery，可以复制 Hyper-V 虚拟机、VMware 虚拟机和 Windows/Linux 物理服务器上运行的工作负荷。
+* **支持故障转移和恢复** ：Site Recovery 提供测试故障转移，既能支持灾难恢复练习，又不会影响生产环境。 还可针对预期会出现的中断运行计划内故障转移，确保不丢失任何数据；或者针对意外灾难运行计划外故障转移，尽量减少数据丢失（具体取决于复制频率）。 故障转移之后，可故障回复到主站点。 Site Recovery 提供包含脚本和 Azure 自动化工作簿的恢复计划，以供你自定义多层应用程序的故障转移和恢复。
+* **消除辅助数据中心** ：可复制到辅助本地站点，或复制到 Azure。 使用 Azure 作为灾难恢复的目标可以消除维护辅助站点所带来的成本和复杂性。 复制的数据存储在 Azure 存储中。
+* **与现有 BCDR 技术集成** ：Site Recovery 能够与其他应用程序的 BCDR 功能结合使用。 例如，可使用 Site Recovery 来帮助保护公司工作负荷的 SQL Server 后端。 这包括对 SQL Server AlwaysOn 的本机支持以管理可用性组的故障转移。
 
 了解详细信息：
 
-* [什么是 Azure Site Recovery？](/azure/site-recovery/site-recovery-overview)
-* [Azure Site Recovery 的工作原理是什么？](/azure/site-recovery/site-recovery-components)
-* [哪些工作负荷受 Azure Site Recovery 保护？](/azure/site-recovery/site-recovery-workload)
+* [什么是 Azure Site Recovery？](../../site-recovery/site-recovery-overview.md)
+* [Azure Site Recovery 的工作原理是什么？](/azure/security/fundamentals/azure-to-azure-architecture)
+* [哪些工作负荷受 Azure Site Recovery 保护？](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>虚拟网络
 
@@ -129,7 +129,7 @@ Azure 虚拟网络是一个构建于物理 Azure 网络结构之上的逻辑构�
 了解详细信息：
 
 * [Azure 网络安全概述](network-overview.md)
-* [虚拟网络概述](/azure/virtual-network/virtual-networks-overview)
+* [虚拟网络概述](../../virtual-network/virtual-networks-overview.md)
 * [Networking features and partnerships for Enterprise scenarios](https://azure.microsoft.com/blog/networking-enterprise/)（网络功能和用于企业方案的合作关系）
 
 ## <a name="security-policy-management-and-reporting"></a>安全策略管理和报告
@@ -138,14 +138,14 @@ Azure 安全中心可帮助防范、检测和应对威胁。 通过安全中心�
 
 安全中心通过以下方式帮助优化和监视虚拟机的安全：
 
-* 为虚拟机提供[安全建议](/azure/security-center/security-center-recommendations)。 示例建议包括：应用系统更新、配置 ACL 终结点、启用反恶意软件、启用网络安全组和应用磁盘加密。
+* 为虚拟机提供[安全建议](../../security-center/security-center-recommendations.md)。 示例建议包括：应用系统更新、配置 ACL 终结点、启用反恶意软件、启用网络安全组和应用磁盘加密。
 * 监视虚拟机的状态。
 
 了解详细信息：
 
-* [Azure 安全中心简介](/azure/security-center/security-center-intro)
-* [Azure 安全中心常见问题解答](/azure/security-center/security-center-faq)
-* [Azure 安全中心规划和操作](/azure/security-center/security-center-planning-and-operations-guide)
+* [Azure 安全中心简介](../../security-center/security-center-introduction.md)
+* [Azure 安全中心常见问题解答](../../security-center/faq-general.md)
+* [Azure 安全中心规划和操作](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>合规性
 

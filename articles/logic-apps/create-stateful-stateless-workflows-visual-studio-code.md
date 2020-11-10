@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322052"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410549"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>通过 Azure 逻辑应用（预览版）扩展在 Visual Studio Code 中创建有状态或无状态工作流
 
@@ -110,9 +110,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 * 你可以将新的 **逻辑应用 (预览版仅)** 资源类型部署到 [Azure 中的高级或应用服务托管计划](#publish-azure) ，或部署到 [Docker 容器](#deploy-docker)，而不是 [集成服务环境 (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 **消耗** 托管计划不受支持，也不能用于部署此资源类型。
 
-* 在 Azure 门户中，无法通过新 **逻辑应用 (预览版)** 资源类型创建新的逻辑应用。 只能在 Visual Studio Code 中创建这些逻辑应用。 但是，将具有此资源类型的逻辑应用从 Visual Studio Code 部署到 Azure 后，可以 [将新工作流添加到这些逻辑应用](#add-workflows)。
-
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备知识
 
 ### <a name="access-and-connectivity"></a>访问和连接
 
@@ -553,7 +551,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
    | 失败 | !["失败" 操作状态的图标][failed-icon] | 操作失败。 |
    | 正在运行 | !["正在运行" 操作状态的图标][running-icon] | 操作当前正在运行。 |
    | 已跳过 | !["跳过" 操作状态的图标][skipped-icon] | 此操作已被跳过，因为前一个操作失败。 操作具有要求在 `runAfter` 当前操作运行之前成功完成前面的操作的条件。 |
-   | 已成功 | !["成功" 操作状态的图标][succeeded-icon] | 操作成功。 |
+   | 成功 | !["成功" 操作状态的图标][succeeded-icon] | 操作成功。 |
    | 已成功重试 | !["已成功重试" 操作状态的图标][succeeded-with-retries-icon] | 操作成功，但仅在一个或多个重试后。 若要查看重试历史记录，请在 "运行历史记录详细信息" 视图中选择该操作，以便可以查看输入和输出。 |
    | 已超时 | !["超时" 操作状态的图标][timed-out-icon] | 由于操作的设置指定的超时限制，操作已停止。 |
    | 等待 | !["等待" 操作状态的图标][waiting-icon] | 适用于正在等待来自调用方的入站请求的 webhook 操作。 |
@@ -774,12 +772,7 @@ Azure 逻辑应用 (预览版) 扩展可在 Visual Studio Code 中为你的本�
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>在门户中查找和管理已部署的逻辑应用
 
-在 Azure 门户中，可以查看 Azure 订阅中的所有已部署逻辑应用，无论它们是原始 **逻辑应用** 资源类型还是 **逻辑应用 (预览版)** 资源类型。 目前，在 Azure 中，每种资源类型都作为单独的类别进行组织和管理。
-
-> [!NOTE]
-> 对于公共预览版，只能在 Azure 门户 **() 预览** 中查看已部署的逻辑应用，而不能 **(预览)** 资源创建新的逻辑应用。 只能在 Visual Studio Code 中创建这些逻辑应用。 但是，可以 [将工作流添加](#add-workflows) 到具有此资源类型的已部署逻辑应用。
-
-若要查找逻辑 **应用 (预览)** 资源类型的逻辑应用，请执行以下步骤：
+在 Azure 门户中，可以查看 Azure 订阅中的所有已部署逻辑应用，无论它们是原始 **逻辑应用** 资源类型还是 **逻辑应用 (预览版)** 资源类型。 目前，在 Azure 中，每种资源类型都作为单独的类别进行组织和管理。 若要查找逻辑 **应用 (预览)** 资源类型的逻辑应用，请执行以下步骤：
 
 1. 在 Azure 门户搜索框中输入 `logic app preview` 。 出现 "结果" 列表时，请在 " **服务** " 下选择 " **逻辑应用 (预览")** 。
 
