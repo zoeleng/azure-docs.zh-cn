@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305473"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442049"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>使用 Azure 资源管理器模板创建 Azure 机器学习的工作区
 
@@ -34,7 +34,7 @@ ms.locfileid: "93305473"
 
 * 某些方案需要你开具支持票证。 这些方案为：
 
-    * __使用客户管理的密钥 (CMK) 启用专用链接的工作区__
+    * __使用客户管理的密钥启用专用链接的工作区__
     * __虚拟网络后的工作区的 Azure 容器注册表__
 
     有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
@@ -170,7 +170,7 @@ New-AzResourceGroupDeployment `
 > [!IMPORTANT]
 > 创建工作区后，无法更改机密数据、加密、密钥保管库 ID 或密钥标识符的设置。 要更改这些值，必须使用新值创建新工作区。
 
-有关详细信息，请参阅[静态加密](concept-enterprise-security.md#encryption-at-rest)。
+有关详细信息，请参阅[静态加密](concept-data-encryption.md#encryption-at-rest)。
 
 > [!IMPORTANT]
 > 在使用此模板之前，订阅必须满足一些特定要求：
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-当使用客户管理的密钥时，Azure 机器学习会创建包含 Cosmos DB 实例的另一个资源组。 有关详细信息，请参阅[静态加密 - Cosmos DB](concept-enterprise-security.md#encryption-at-rest)。
+当使用客户管理的密钥时，Azure 机器学习会创建包含 Cosmos DB 实例的另一个资源组。 有关详细信息，请参阅[静态加密 - Cosmos DB](concept-data-encryption.md#encryption-at-rest)。
 
 你可为数据提供的一个附加配置是将 **confidential_data** 参数设置为 **true** 。 为此，请执行以下操作：
 
@@ -264,7 +264,7 @@ New-AzResourceGroupDeployment `
     > [!IMPORTANT]
     > 创建工作区后，无法更改机密数据、加密、密钥保管库 ID 或密钥标识符的设置。 要更改这些值，必须使用新值创建新工作区。
 
-  有关详细信息，请参阅[静态加密](concept-enterprise-security.md#encryption-at-rest)。
+  有关详细信息，请参阅[静态加密](concept-data-encryption.md#encryption-at-rest)。
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>将工作区部署到虚拟网络后面
 

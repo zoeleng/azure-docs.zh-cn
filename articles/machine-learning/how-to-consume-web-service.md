@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318159"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441981"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署为 Web 服务的 Azure 机器学习模型
 
@@ -46,7 +46,7 @@ ms.locfileid: "93318159"
 * `scoring_uri` - REST API 地址。
 * `swagger_uri` - OpenAPI 规范的地址。 如果已启用自动生成架构，则可以使用此 URI。 有关详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
 
-有多种方法可以检索部署的 web 服务的此信息：
+可通过几种方式检索已部署的 Web 服务的此信息：
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -77,27 +77,27 @@ ms.locfileid: "93318159"
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-如果你知道已部署的服务的名称，请使用 [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) 命令：
+如果知道已部署服务的名称，请使用 [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) 命令：
 
 ```azurecli
 az ml service show -n <service-name>
 ```
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-在 Azure 机器学习 studio 中，选择 " __终结__ 点"、" __实时终结点__ " 和 "终结点名称"。 在终结点的详细信息中， __REST 终结点__ 字段包含计分 URI。 __SWAGGER uri__ 包含 swagger uri。
+在 Azure 机器学习工作室中，选择“终结点”，“实时终结点”，然后选择终结点名称。 在终结点的详细信息中，“REST 终结点”字段包含评分 URI。 __Swagger URI__ 包含 swagger URI。
 
 ---
 
-下表显示了这些 Uri 的外观：
+下表显示了这些 URI 的外观：
 
 | URI 类型 | 示例 |
 | ----- | ----- |
-| 计分 URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
-| Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
+| 评分 URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| Swagger UI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
 
 > [!TIP]
-> 部署的 IP 地址将有所不同。 每个 AKS 群集都将具有自己的 IP 地址，该地址由部署共享到该群集。
+> 你的部署的 IP 地址会有所不同。 每个 AKS 群集都会有自己的 IP 地址，此地址由部署共享到该群集。
 
 ### <a name="secured-web-service"></a>受保护的 Web 服务
 
@@ -119,7 +119,7 @@ Azure 机器学习提供了两种方法来控制对 Web 服务的访问。
 
 将请求发送到由密钥或令牌保护的服务时，请使用 __Authorization__ 标头来传递密钥或令牌。 密钥或令牌的格式必须为 `Bearer <key-or-token>`，其中 `<key-or-token>` 为密钥或令牌值。
 
-密钥和令牌的主要区别在于，密钥是静态的且能手动重新生成，而令牌需要在到期时刷新 。 Azure 容器实例和 Azure Kubernetes 服务部署的 Web 服务支持基于密钥的身份验证，而基于令牌的身份验证仅能用于 Azure Kubernetes 服务部署。 请参阅身份验证[操作说明](how-to-setup-authentication.md#web-service-authentication)，了解更多信息和特定代码示例。
+密钥和令牌的主要区别在于，密钥是静态的且能手动重新生成，而令牌需要在到期时刷新 。 Azure 容器实例和 Azure Kubernetes 服务部署的 Web 服务支持基于密钥的身份验证，而基于令牌的身份验证仅能用于 Azure Kubernetes 服务部署。 有关配置身份验证的详细信息，请参阅为 [部署为 web 服务的模型配置身份验证](how-to-authenticate-web-service.md)。
 
 
 #### <a name="authentication-with-keys"></a>使用密钥进行身份验证

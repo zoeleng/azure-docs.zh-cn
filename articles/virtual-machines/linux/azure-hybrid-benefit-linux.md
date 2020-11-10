@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: mathapli
+ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413099"
+ms.locfileid: "94443426"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>预览： Azure 混合权益-它如何应用于 Linux 虚拟机
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>公共预览版： Azure 混合权益–适用于 Linux 虚拟机的方式
 
 ## <a name="overview"></a>概述
 
@@ -45,30 +45,26 @@ Azure 混合权益适用于所有 RHEL 和 SLES Marketplace PAYG 映像。 此�
 
 ## <a name="how-to-get-started"></a>如何开始使用
 
-Azure 混合权益目前处于 Linux Vm 的预览阶段。 获取预览版的访问权限后，可以使用 Azure 门户或 Azure CLI 启用此权益。
+Azure 混合权益目前处于 Linux Vm 的预览阶段。 获取预览版的访问权限后，可以使用 Azure CLI 启用此权益。
 
-### <a name="preview"></a>预览
+### <a name="public-preview"></a>公共预览版
 
-在此阶段中，你可以通过在 [此处](https://aka.ms/ahb-linux-form)填写表单来获得权益。 填写表单后，将为你的 Azure 订阅 (的) 启用此权益，你将在三个工作日内收到 Microsoft 的确认。
+Linux) Azure 混合权益 (目前处于公开预览阶段。 你可以使用以下步骤来启用 Red Hat 和 SUSE 分发的权益。 
 
 ### <a name="red-hat-customers"></a>Red Hat 客户
 
-1.    填写上述预览请求窗体
 1.    注册 [Red Hat 云访问计划](https://aka.ms/rhel-cloud-access)
 1.    启用 Azure 订阅 (的云访问) ，并启用包含你要使用其权益的 Vm 的订阅
-1.    通过 Azure 门户或 Azure CLI 将权益应用于现有 Vm
-1.    可选，使用单独的更新源来注册你的 Vm， (交换机 Vm 可以保持连接到 [RHUI](../workloads/redhat/redhat-rhui.md) 或通过 RHSM 注册) 
+1.    通过 Azure CLI 将权益应用于现有 Vm
+1.    使用单独的更新源注册 Vm，接收权益
+
 
 ### <a name="suse-customers"></a>SUSE 客户
 
-1.    填写上述预览请求窗体
 1.    向 SUSE 公有云计划注册
-1.    通过 Azure 门户或 Azure CLI 将权益应用于现有 Vm
+1.    通过 Azure CLI 将权益应用于现有 Vm
 1.    使用单独的更新源注册 Vm，接收权益
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>在 Azure 门户中启用和禁用权益
-
-可以通过访问 " **配置** " 边栏选项卡并按照此处的步骤来启用现有 vm 的权益。 在创建 VM 时，可以在新 Vm 上启用权益。
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>在 Azure CLI 中启用和禁用权益
 
@@ -109,12 +105,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>检查 VM 的 AHB 状态
-可以通过以下三种方式查看 VM 的 AHB 状态：使用 Azure CLI 签入门户，或使用 Azure IMDS)  (azure 实例元数据服务。
+可以通过两种方式查看 VM 的 AHB 状态：使用 Azure CLI 或使用 Azure IMDS)  (azure 实例元数据服务。
 
-
-### <a name="portal"></a>门户
-
-查看 "配置" 边栏选项卡并检查 "授权状态"，以查看是否为 VM 启用了 AHB。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -152,9 +144,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 | 错误 | 缓解措施 |
 | ----- | ---------- |
-| "订阅未注册到 Azure 混合权益的 Linux preview。 有关分步说明，请参阅 https://aka.ms/ahb-linux " | 在上填写表单 https://aka.ms/ahb-linux-form ，注册 Azure 混合权益的 Linux 预览。
 | "该操作无法完成，因为我们的记录显示你尚未在 Azure 订阅上成功启用 Red Hat 云访问 ..." | 若要将权益与 RHEL Vm 一起使用，必须先将 Azure 订阅注册 () ，并使用 Red Hat 云访问权限。 访问此链接，了解有关如何注册适用于 Red Hat 云访问的 Azure 订阅的详细信息
-|"用于 Azure 混合权益的选项未显示在门户中" | 这是从共享映像库、快照或捕获的 PAYG 映像创建的 RHEL 和 SLES Vm 的已知问题。 在这种情况下，请使用 "在[Azure CLI 中启用和禁用权益](#enable-and-disable-the-benefit-in-the-azure-cli)" 一节中所述的 CLI 步骤。 若要查看 AHB 的状态，请使用命令 ` az vm get-instance-view -g MyResourceGroup -n MyVm` 。|
 
 ## <a name="next-steps"></a>后续步骤
-* 在 [此处](https://aka.ms/ahb-linux-form)填写表单，开始使用预览版。
+* 了解如何创建和更新 Vm，并 (RHEL_BYOS 中添加许可证类型，SLES_BYOS[在此处使用 Azure 混合权益](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)) Azure CLI。

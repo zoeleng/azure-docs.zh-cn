@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: fac22305e64e2f6bc2ec61bc65f7e92f1b1af1bf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8608da33c747f76452a0106e4e2737849e06a75c
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287532"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443222"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>用于调用 Web API 的桌面应用：获取令牌
 
@@ -1390,5 +1390,4 @@ namespace CommonCacheMsalV3
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [从桌面应用调用 Web API](scenario-desktop-call-api.md)
+转到本方案中的下一篇文章， [从桌面应用调用 WEB API](scenario-desktop-call-api.md)。

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b71c78f484eef0fc4d9c34a2f218a177dbffa0a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787380dbf6f739d4b88f18a836da2146b06024c3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257498"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443137"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>调用 Web API 的桌面应用：应用注册
 
@@ -39,19 +39,19 @@ ms.locfileid: "91257498"
 
 可以在桌面应用程序中使用的重定向 URI 取决于要使用的流。
 
-- 如果使用交互式身份验证或设备代码流，请使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`。 若要实现此配置，请在应用程序的“身份验证”部分中选择相应的 URL。****
+- 如果使用交互式身份验证或设备代码流，请使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`。 若要实现此配置，请在应用程序的“身份验证”部分中选择相应的 URL。 
 
   > [!IMPORTANT]
   > 目前，默认情况下，MSAL.NET 会在 Windows 上运行的桌面应用程序中使用另一重定向 URI (`urn:ietf:wg:oauth:2.0:oob`)。 将来，我们需要更改此默认设置，因此建议你使用 `https://login.microsoftonline.com/common/oauth2/nativeclient`。
 
-- 如果为 macOS 生成本机目标 C 或 Swift 应用，请根据应用程序的捆绑标识符，按以下格式注册重定向 URI： `msauth.<your.app.bundle.id>://auth` 。 `<your.app.bundle.id>`将替换为应用程序的捆绑标识符。
+- 如果针对 macOS 构建本机 Objective-C 或 Swift 应用，请基于应用程序的捆绑包标识符采用以下格式注册重定向 URI：`msauth.<your.app.bundle.id>://auth`。 将 `<your.app.bundle.id>` 替换为应用程序的捆绑包标识符。
 - 如果你的应用仅使用集成 Windows 身份验证或用户名和密码，则不需要为应用程序注册重定向 URI。 这些流前往 Microsoft 标识平台 v2.0 终结点并返回。 不会在任何特定 URI 上调用你的应用程序。
-- 若要使用[后台程序应用](scenario-daemon-overview.md)程序中使用的客户端凭据流来区分[设备代码流](scenario-desktop-acquire-token.md#device-code-flow)、[集成的 Windows 身份验证](scenario-desktop-acquire-token.md#integrated-windows-authentication)，以及机密客户端应用程序的[用户名和密码](scenario-desktop-acquire-token.md#username-and-password)，无需重定向 URI，你需要将其配置为公用客户端应用程序。 为了实现该配置：
+- 若要使用[守护程序应用程序](scenario-daemon-overview.md)中使用的客户端凭据流将[设备代码流](scenario-desktop-acquire-token.md#device-code-flow)、[集成 Windows 身份验证](scenario-desktop-acquire-token.md#integrated-windows-authentication)以及[用户名和密码](scenario-desktop-acquire-token.md#username-and-password)与机密的客户端应用程序（它们都不要求重定向 URI）区分开来，需要将应用程序配置为公共客户端应用程序。 为了实现该配置：
 
-    1. 在 " [Azure 门户](https://portal.azure.com)中，选择" **应用注册**中的应用，然后选择 " **身份验证**"。
-    1. 在 "**高级设置**" "  >  **默认客户端类型**  >  **将应用程序视为公共客户端**" 中，选择 **"是"**。
+    1. 在 [Azure 门户](https://portal.azure.com)中，选择“应用注册”中的应用，然后选择“身份验证” 。
+    1. 在“高级设置” > “默认客户端类型” > “将应用程序视为公共客户端”中，选择“是”   。
 
-        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="在 Azure 门户中的 &quot;身份验证&quot; 窗格上启用公共客户端设置":::
+        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="在 Azure 门户中的“身份验证”窗格上启用公共客户端设置":::
 
 ## <a name="api-permissions"></a>API 权限
 
@@ -59,5 +59,4 @@ ms.locfileid: "91257498"
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [桌面应用：应用配置](scenario-desktop-app-configuration.md)
+转到本方案中的下一篇文章 [应用代码配置](scenario-desktop-app-configuration.md)。

@@ -1,5 +1,5 @@
 ---
-title: 自定义 Azure AD 属性映射 | Microsoft Docs
+title: 教程-自定义 Azure Active Directory 属性映射
 description: 了解 Azure Active Directory 中有哪些针对 SaaS 应用的属性映射，以及如何修改它们来满足业务需求。
 services: active-directory
 author: kenwith
@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 10/26/2020
+ms.topic: tutorial
+ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: MT
+ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364286"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441947"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>教程-为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射
 
 Microsoft Azure AD 支持将用户预配到第三方 SaaS 应用程序，例如 Salesforce、G Suite 等等。 如果为第三方 SaaS 应用程序启用用户预配，Azure 门户将通过属性映射控制其属性值。
 

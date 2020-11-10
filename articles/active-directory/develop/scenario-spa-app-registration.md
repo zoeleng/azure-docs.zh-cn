@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 638ebf8aefc67584805c1402499ca23fc1febb45
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c9fde904d6befebfcfd87b55bd7b2bf4e4c825f2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217195"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443817"
 ---
 # <a name="single-page-application-app-registration"></a>单页应用程序：应用注册
 
@@ -79,7 +79,4 @@ ms.locfileid: "92217195"
 
 ## <a name="next-steps"></a>后续步骤
 
-接下来，配置应用代码，以使用在先前步骤中创建的应用注册：
-
-> [!div class="nextstepaction"]
-> [应用的代码配置](scenario-spa-app-configuration.md)
+接下来，将应用程序的代码配置为使用在前面的步骤中创建的应用注册： [应用的代码配置](scenario-spa-app-configuration.md)。

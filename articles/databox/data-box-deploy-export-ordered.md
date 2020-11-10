@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336831"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442015"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>教程：创建 Azure Data Box (预览版的出口订单) 
 
@@ -82,7 +82,7 @@ Azure Data Box 是一种混合解决方案，可让你将 Azure 中的数据移�
 
 6. 在 " **顺序** " 中，指定 **基本** 订单详细信息。 输入或选择以下信息，然后选择“下一步”。
 
-    |设置  |“值”  |
+    |设置  |值  |
     |---------|---------|
     |订阅     | 系统会根据前面所做的选择自动填充此订阅。|
     |资源组 | 之前选择的资源组。 |

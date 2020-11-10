@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204212"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444055"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>配置调用 Web API 的移动应用
 
@@ -149,8 +149,8 @@ var pca = PublicClientApplicationBuilder
 在 Android 和 iOS 上，中介可以实现：
 
 - **单一登录 (SSO)** ：对于已注册到 Azure Active Directory (Azure AD) 的设备，可以使用 SSO。 使用 SSO 时，用户无需登录到每个应用程序。
-- **设备标识**：此设置启用与 Azure AD 设备相关的条件访问策略。 身份验证过程使用将设备加入工作区时创建的设备证书。
-- **应用程序标识验证**：应用程序在调用中介时会传递其重定向 URL。 然后中介验证该 URL。
+- **设备标识** ：此设置启用与 Azure AD 设备相关的条件访问策略。 身份验证过程使用将设备加入工作区时创建的设备证书。
+- **应用程序标识验证** ：应用程序在调用中介时会传递其重定向 URL。 然后中介验证该 URL。
 
 ### <a name="enable-the-broker-on-xamarin"></a>在 Xamarin 上启用中介
 
@@ -367,5 +367,4 @@ MSAL 使用 `–canOpenURL:` 来检查是否在设备上安装了中介。 在 i
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [获取令牌](scenario-mobile-acquire-token.md)
+若要 [获取令牌](scenario-mobile-acquire-token.md)，请转到本方案中的下一篇文章。

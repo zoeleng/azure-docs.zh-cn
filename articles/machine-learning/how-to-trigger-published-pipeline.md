@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: dabcf30488e45fbe6c7c5b9e5aa0c8bd57f28fd8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146256"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443494"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>从逻辑应用触发机器学习管道的运行
 
@@ -96,7 +96,7 @@ ms.locfileid: "93146256"
 1. 选择“保存”，你的计划现已准备就绪。
 
 > [!IMPORTANT]
-> 如果你使用基于角色的访问控制 (RBAC) 来管理对管道的访问，请 [ (定型或评分设置管道方案的权限) ](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
+> 如果你使用基于角色的访问控制 (RBAC) 来管理对管道的访问，请 [ (定型或评分) 设置管道方案的权限 ](how-to-assign-roles.md#common-scenarios)。
 
 ## <a name="next-steps"></a>后续步骤
 

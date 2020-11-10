@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/09/2020
-ms.openlocfilehash: 7f62aade114613261a22a818ab47e096eb16084b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427966"
+ms.locfileid: "94443375"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 客户管理的密钥 
 
@@ -27,9 +27,10 @@ Azure Monitor 确保所有数据和保存的查询都使用 Microsoft 托管的�
 
 客户托管的密钥功能在专用 Log Analytics 群集上提供。 使用它可以通过 [密码箱](#customer-lockbox-preview) 控制来保护数据，并可让用户随时撤销对数据的访问权限。 过去 14 天内引入的数据也保存在热缓存（受 SSD 支持）中，以实现高效的查询引擎操作。 无论客户托管的密钥配置如何，都可以通过 Microsoft 密钥对此数据进行加密，但对 SSD 数据的控制将遵循 [密钥吊销](#key-revocation)的需要。 我们正在努力在2021的前半个 Customer-Managed 密钥中加密 SSD 数据。
 
-若要验证是否具有在你的区域中预配专用群集所需的容量，我们需要事先允许你的订阅。 开始 Customer-Managed 密钥配置之前，请使用 Microsoft 联系或打开支持请求获取订阅。
-
 [Log Analytics 群集定价模型](./manage-cost-storage.md#log-analytics-dedicated-clusters)使用从 1000 GB/天级别开始的容量预留。
+
+> [!IMPORTANT]
+> 由于临时容量限制，需要在创建群集之前预注册到。 使用你的联系人加入 Microsoft，或打开支持请求来注册你的订阅 Id。
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Customer-Managed 键在 Azure Monitor 中的工作原理
 
@@ -63,11 +64,11 @@ Azure Monitor 利用系统分配的托管标识授予对 Azure Key Vault 的访�
 
 ## <a name="customer-managed-key-provisioning-procedure"></a>Customer-Managed 密钥设置过程
 
-1. 允许订阅--该功能在专用 Log Analytics 群集上提供。 若要验证在你的区域中是否有所需的容量，我们需要事先允许你的订阅。 使用你的 Microsoft 联系人获取允许的订阅。
-2. 创建 Azure Key Vault 和存储密钥
-3. 正在创建群集
-4. 向 Key Vault 授予权限
-5. 链接 Log Analytics 工作区
+1. 注册订阅以允许创建群集
+1. 创建 Azure Key Vault 和存储密钥
+1. 正在创建群集
+1. 向 Key Vault 授予权限
+1. 链接 Log Analytics 工作区
 
 Azure 门户不支持 Customer-Managed 密钥配置，并且预配是通过 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/)、 [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) 或 [REST](https://docs.microsoft.com/rest/api/loganalytics/) 请求执行的。
 
@@ -149,7 +150,6 @@ Authorization: Bearer <token>
 
 > [!IMPORTANT]
 > Customer-Managed 项功能是区域。 Azure Key Vault、群集和链接 Log Analytics 工作区必须位于同一区域中，但它们可以位于不同的订阅中。
-> 若要验证是否具有在你的区域中预配专用群集所需的容量，我们需要事先允许你的订阅。 开始 Customer-Managed 密钥配置之前，请使用 Microsoft 联系或打开支持请求获取订阅。 
 
 ### <a name="storing-encryption-key-kek"></a>存储加密密钥 (KEK)
 
@@ -200,6 +200,25 @@ az monitor log-analytics cluster update --name "cluster-name" --resource-group "
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
+
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
+}
 ```
 
 **响应**
@@ -288,6 +307,11 @@ Log Analytics 中使用的查询语言是有意义的，可以在添加到查询
 
 将 *查询* 的存储帐户链接到工作区- *保存-搜索* 查询保存在存储帐户中。 
 
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
@@ -314,6 +338,11 @@ Content-type: application/json
 **配置 BYOS 查询的日志记录**
 
 将 *警报* 的存储帐户链接到工作区-- *日志警报* 查询保存在存储帐户中。 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"

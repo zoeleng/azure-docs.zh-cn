@@ -9,18 +9,28 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 07/24/2020
-ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
+ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320853"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441693"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理对 Azure 机器学习工作区的访问权限
 
-本文介绍了如何管理对 Azure 机器学习工作区的访问权限。 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md) 用于管理对 Azure 资源的访问权限。 Azure Active Directory 中的用户可获得特定角色，这些角色授予了对资源的访问权限。 Azure 提供内置角色和创建自定义角色的功能。
+本文介绍如何管理 (授权) 到 Azure 机器学习工作区的访问权限。 使用 azure [RBAC)  (azure 基于角色的访问控制](../role-based-access-control/overview.md)来管理对 azure 资源的访问，例如创建新资源或使用现有资源的能力。 Azure Active Directory 中 (Azure AD) 的用户将分配特定角色，这将授予对资源的访问权限。 Azure 提供内置角色和创建自定义角色的功能。
+
+> [!TIP]
+> 尽管本文重点介绍了 Azure 机器学习，但 Azure ML 依赖的单个服务提供了其自己的 RBAC 设置。 例如，使用本文中的信息可以配置谁可以将评分请求提交到在 Azure Kubernetes Service 上部署为 web 服务的模型。 但 Azure Kubernetes 服务提供了其自己的 Azure RBAC 角色集。 有关 Azure 机器学习的服务特定 RBAC 信息，请参阅以下链接：
+>
+> * [控制对 Azure Kubernetes 群集资源的访问](../aks/azure-ad-rbac.md)
+> * [使用 Azure RBAC 进行 Kubernetes 授权](../aks/manage-azure-rbac.md)
+> * [使用 Azure RBAC 访问 blob 数据](/storage/common/storage-auth-aad-rbac-portal.md)
+
+> [!WARNING]
+> 应用某些角色可能会限制 Azure 机器学习 studio 中其他用户的 UI 功能。 例如，如果用户的角色无法创建计算实例，则创建计算实例的选项将无法在 studio 中使用。 此行为是预期行为，并阻止用户尝试尝试返回 "拒绝访问" 错误的操作。
 
 ## <a name="default-roles"></a>默认角色
 
@@ -36,7 +46,7 @@ Azure 机器学习工作区是一种 Azure 资源。 与其他 Azure 资源一�
 > [!IMPORTANT]
 > 在 Azure 中，角色访问的作用域可以限定为多个级别。 例如，对工作区具有所有者访问权限的人可能没有对包含工作区的资源组的所有者访问权限。 有关详细信息，请参阅 [AZURE RBAC 的工作原理](../role-based-access-control/overview.md#how-azure-rbac-works)。
 
-有关特定内置角色的详细信息，请参阅 [Azure 内置角色](../role-based-access-control/built-in-roles.md)。
+当前没有其他特定于 Azure 机器学习的内置角色。 有关内置角色的详细信息，请参阅 [Azure 内置角色](../role-based-access-control/built-in-roles.md)。
 
 ## <a name="manage-workspace-access"></a>管理工作区访问权限
 
@@ -61,27 +71,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 > [!NOTE]
 > “az ml workspace share”命令对 Azure Active Directory B2B 的联合帐户不起作用。 请使用 Azure UI 门户而不是命令。
-
-
-## <a name="azure-machine-learning-operations"></a>Azure 机器学习操作
-
-适用于许多操作和任务的 Azure 机器学习内置操作。 有关完整列表，请参阅 [Azure 资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)。
-
-## <a name="mlflow-operations-in-azure-machine-learning"></a>Azure 机器学习中的 MLflow 操作
-
-此表描述了应添加到为执行 MLflow 操作而创建的自定义角色中的操作的权限范围。
-
-| MLflow 操作 | 范围 |
-| --- | --- |
-| 列出工作区跟踪存储中的所有试验，按 id 获取试验，按名称获取试验 | Microsoft.MachineLearningServices/workspaces/experiments/read |
-| 创建具有名称的实验，在实验上设置标记，还原标记为删除的实验| Microsoft.MachineLearningServices/workspaces/experiments/write | 
-| 删除试验 | Microsoft.MachineLearningServices/workspaces/experiments/delete |
-| 获取运行和相关的数据和元数据，获取给定运行的指定指标的所有值的列表，列出运行的项目 | Microsoft.MachineLearningServices/workspaces/experiments/runs/read |
-| 在实验中创建新运行，删除运行，还原已删除的运行，在当前运行下设置标记，运行时设置标记，删除运行上的标记，日志参数 (键值对) 用于运行，记录一批指标、参数和标记以进行运行，更新运行状态 | Microsoft.MachineLearningServices/workspaces/experiments/runs/write |
-| 按名称获取注册的模型，提取注册表中所有已注册的模型的列表，搜索已注册的模型，为每个请求阶段搜索最新的版本模型，获取已注册的模型的版本，搜索模型版本，获取用于存储模型版本项目的 URI，并按实验 id 搜索运行。 | Microsoft.MachineLearningServices/workspaces/models/read |
-| 创建新的已注册模型，更新已注册的模型名称/说明，重命名现有的已注册模型，创建新版本的模型，更新模型版本的说明，将已注册的模型转换为一个阶段 | Microsoft.MachineLearningServices/workspaces/models/write |
-| 删除已注册的模型及其所有版本，删除已注册模型的特定版本 | Microsoft.MachineLearningServices/workspaces/models/delete |
-
 
 ## <a name="create-custom-role"></a>创建自定义角色
 
@@ -135,12 +124,44 @@ az role definition create --role-definition data_scientist_role.json
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-有关自定义角色的详细信息，请参阅 [Azure 自定义角色](../role-based-access-control/custom-roles.md)。 有关可用于自定义角色的操作（Actions 和 NotActions）的详细信息，请参阅[资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)。
+有关自定义角色的详细信息，请参阅 [Azure 自定义角色](../role-based-access-control/custom-roles.md)。 
 
-## <a name="frequently-asked-questions"></a>常见问题
+### <a name="azure-machine-learning-operations"></a>Azure 机器学习操作
 
+有关可用于自定义角色的操作（Actions 和 NotActions）的详细信息，请参阅[资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)。 你还可以使用以下 Azure CLI 命令来列出操作：
 
-### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>问： 在 Azure 机器学习服务中执行一些常见方案需要哪些权限？
+```azurecli-interactive
+az provider operation show –n Microsoft.MachineLearningServices
+```
+
+## <a name="list-custom-roles"></a>列出自定义角色
+
+在 Azure CLI 中运行以下命令：
+
+```azurecli-interactive
+az role definition list --subscription <sub-id> --custom-role-only true
+```
+
+若要查看特定自定义角色的角色定义，请使用以下 Azure CLI 命令。 的 `<role-name>` 格式应与上述命令返回的格式相同：
+
+```azurecli-interactive
+az role definition list -n <role-name> --subscription <sub-id>
+```
+
+## <a name="update-a-custom-role"></a>更新自定义角色
+
+在 Azure CLI 中运行以下命令：
+
+```azurecli-interactive
+az role definition update --role-definition update_def.json --subscription <sub-id>
+```
+
+你需要对新角色定义的整个作用域具有权限。 例如，如果此新角色的作用域跨三个订阅，则你需要对所有三个订阅都具有权限。 
+
+> [!NOTE]
+> 角色更新可能需要花费 15 分钟到一小时才能应用于该作用域中的所有角色分配。
+
+## <a name="common-scenarios"></a>常见方案
 
 下表汇总了 Azure 机器学习活动以及在最小作用域内执行它们所需的权限。 例如，如果可以使用某个工作区作用域（第 4 列）执行某个活动，自然也可以使用具有该权限的所有更高的作用域：
 
@@ -163,317 +184,288 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 > [!TIP]
 > 如果第一次尝试创建工作区时遇到失败，请确保角色允许 `Microsoft.MachineLearningServices/register/action`。 可以通过此操作将 Azure 机器学习资源提供程序注册到 Azure 订阅。
 
-### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>问： 是否会针对机器学习服务发布 Azure 内置角色？
+### <a name="user-assigned-managed-identity-with-azure-ml-compute-cluster"></a>用户为 Azure ML 计算群集分配的托管标识
 
-我们目前不会针对机器学习服务发布 [Azure 内置角色](../role-based-access-control/built-in-roles.md)。 内置角色在发布后无法更新，我们仍在根据客户方案和反馈改进角色定义。 
+若要将用户分配的标识分配给 Azure 机器学习的计算群集，需要具有写入权限才能创建计算和 [托管标识操作员角色](../role-based-access-control/built-in-roles.md#managed-identity-operator)。 有关具有托管标识的 Azure RBAC 的详细信息，请参阅 [如何管理用户分配的标识](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+
+### <a name="mlflow-operations"></a>MLflow 操作
+
+若要在 Azure 机器学习工作区中执行 MLflow 操作，请使用自定义角色的以下作用域：
+
+| MLflow 操作 | 范围 |
+| --- | --- |
+| 列出工作区跟踪存储中的所有试验，按 ID 获取试验，按名称获取试验 | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
+| 创建试验并命名，为实验设置标签，还原标记为删除的试验| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 
+| 删除试验 | `Microsoft.MachineLearningServices/workspaces/experiments/delete` |
+| 获取运行以及相关的数据和元数据，获取指定运行的指定指标的所有值的列表，列出运行的项目 | `Microsoft.MachineLearningServices/workspaces/experiments/runs/read` |
+| 在试验中新建运行，删除运行，还原已删除的运行，记录当前运行下的指标，为运行设置标签，删除运行上的标签，记录运行所使用的参数（键值对），记录运行的一批指标、参数和标签，更新运行状态 | `Microsoft.MachineLearningServices/workspaces/experiments/runs/write` |
+| 按名称获取注册的模型，提取注册表中所有已注册的模型的列表，搜索已注册的模型，为每个请求阶段搜索最新的版本模型，获取已注册的模型的版本，搜索模型版本，获取用于存储模型版本项目的 URI，并按实验 id 搜索运行。 | `Microsoft.MachineLearningServices/workspaces/models/read` |
+| 创建新的已注册模型，更新已注册的模型名称/说明，重命名现有的已注册模型，创建新版本的模型，更新模型版本的说明，将已注册的模型转换为一个阶段 | `Microsoft.MachineLearningServices/workspaces/models/write` |
+| 删除已注册模型及其所有版本，删除已注册模型的特定版本 | `Microsoft.MachineLearningServices/workspaces/models/delete` |
 
 <a id="customroles"></a>
 
-### <a name="q-are-there-some-custom-role-templates-for-the-most-common-scenarios-in-machine-learning-service"></a>问： 对于机器学习服务中的最常见方案，是否有一些自定义角色模板？
+## <a name="example-custom-roles"></a>示例自定义角色
 
-有。下面的一些常见方案具有建议的自定义角色定义，你可以将其作为基础来定义自己的自定义角色：
+### <a name="data-scientist"></a>数据科学家
 
-* __Data Scientist Custom__ ：允许数据科学家在工作区中执行所有操作，但以下操作 **除外** ：
+允许数据科学家执行工作区内的所有操作， **但** 以下情况除外：
 
-    * 创建计算
-    * 将模型部署到生产 AKS 群集
-    * 在生产环境中部署管道终结点
+* 创建计算
+* 将模型部署到生产 AKS 群集
+* 在生产环境中部署管道终结点
 
-    `data_scientist_custom_role.json` :
-    ```json
-    {
-        "Name": "Data Scientist Custom",
-        "IsCustom": true,
-        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/*/read",
-            "Microsoft.MachineLearningServices/workspaces/*/action",
-            "Microsoft.MachineLearningServices/workspaces/*/delete",
-            "Microsoft.MachineLearningServices/workspaces/*/write"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
-            "Microsoft.Authorization/*",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
-            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
+`data_scientist_custom_role.json` :
+```json
+{
+    "Name": "Data Scientist Custom",
+    "IsCustom": true,
+    "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/*/action",
+        "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/*/write"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+        "Microsoft.Authorization/*",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
 
-* __Data Scientist Restricted Custom__ ：一个限制性更强的角色定义，允许的操作中不包含通配符。 它可以在工作区中执行所有操作，但以下操作 **除外** ：
+### <a name="data-scientist-restricted"></a>数据科学家限制
 
-    * 创建计算
-    * 将模型部署到生产 AKS 群集
-    * 在生产环境中部署管道终结点
+允许的操作中不包含通配符的更受限制的角色定义。 它可以在工作区中执行所有操作，但以下操作 **除外** ：
 
-    `data_scientist_restricted_custom_role.json` :
-    ```json
-    {
-        "Name": "Data Scientist Restricted Custom",
-        "IsCustom": true,
-        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/*/read",
-            "Microsoft.MachineLearningServices/workspaces/computes/start/action",
-            "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
-            "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
-            "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
-            "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
-            "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
-            "Microsoft.MachineLearningServices/workspaces/environments/write",
-            "Microsoft.MachineLearningServices/workspaces/models/write",
-            "Microsoft.MachineLearningServices/workspaces/modules/write",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
-            "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
-            "Microsoft.MachineLearningServices/workspaces/environments/build/action"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/computes/write",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/delete",
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.Authorization/*",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
-            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
-            "Microsoft.MachineLearningServices/workspaces/datastores/write",
-            "Microsoft.MachineLearningServices/workspaces/datastores/delete"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
+* 创建计算
+* 将模型部署到生产 AKS 群集
+* 在生产环境中部署管道终结点
+
+`data_scientist_restricted_custom_role.json` :
+```json
+{
+    "Name": "Data Scientist Restricted Custom",
+    "IsCustom": true,
+    "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/computes/start/action",
+        "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
+        "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
+        "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+        "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+        "Microsoft.MachineLearningServices/workspaces/environments/write",
+        "Microsoft.MachineLearningServices/workspaces/models/write",
+        "Microsoft.MachineLearningServices/workspaces/modules/write",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
+        "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
+        "Microsoft.MachineLearningServices/workspaces/environments/build/action"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/computes/write",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/delete",
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.Authorization/*",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
+        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
+        "Microsoft.MachineLearningServices/workspaces/datastores/write",
+        "Microsoft.MachineLearningServices/workspaces/datastores/delete"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
      
-* __MLflow 数据科学家定制__ ：允许数据科研人员执行所有 MLflow AzureML 支持的操作，但以下情况 **除外** ：
+### <a name="mlflow-data-scientist"></a>MLflow 数据科学家
 
-   * 创建计算
-   * 将模型部署到生产 AKS 群集
-   * 在生产环境中部署管道终结点
+允许数据科学家执行所有 MLflow AzureML 支持的操作， **但** 以下情况除外：
 
-   `mlflow_data_scientist_custom_role.json` :
-   ```json
-   {
-        "Name": "MLFlow Data Scientist Custom",
-        "IsCustom": true,
-        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/experiments/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-            "Microsoft.MachineLearningServices/workspaces/models/read",
-            "Microsoft.MachineLearningServices/workspaces/models/write",
-            "Microsoft.MachineLearningServices/workspaces/models/delete"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
-            "Microsoft.Authorization/*",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
-            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
-            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
-        ],
-     "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```   
+* 创建计算
+* 将模型部署到生产 AKS 群集
+* 在生产环境中部署管道终结点
 
-* __MLOps Custom__ ：允许将角色分配给服务主体，并使用该角色自动执行 MLOps 管道。 例如，若要针对已发布的管道提交运行，可使用以下代码：
+`mlflow_data_scientist_custom_role.json` :
+```json
+{
+    "Name": "MLFlow Data Scientist Custom",
+    "IsCustom": true,
+    "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/experiments/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+        "Microsoft.MachineLearningServices/workspaces/models/read",
+        "Microsoft.MachineLearningServices/workspaces/models/write",
+        "Microsoft.MachineLearningServices/workspaces/models/delete"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+        "Microsoft.Authorization/*",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+        "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```   
 
-    `mlops_custom_role.json` :
-    ```json
-    {
-        "Name": "MLOps Custom",
-        "IsCustom": true,
-        "Description": "Can run pipelines against a published pipeline endpoint",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/read",
-            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
-            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
-            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
-            "Microsoft.MachineLearningServices/workspaces/environments/read",    
-            "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
-            "Microsoft.MachineLearningServices/workspaces/modules/read",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-            "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
-            "Microsoft.MachineLearningServices/workspaces/datastores/read",
-            "Microsoft.MachineLearningServices/workspaces/environments/write",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
-            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
-            "Microsoft.MachineLearningServices/workspaces/environments/build/action",
-            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/computes/write",
-            "Microsoft.MachineLearningServices/workspaces/write",
-            "Microsoft.MachineLearningServices/workspaces/computes/delete",
-            "Microsoft.MachineLearningServices/workspaces/delete",
-            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-            "Microsoft.Authorization/*"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
+### <a name="mlops"></a>MLOps
 
-* __Workspace Admin__ ：允许在工作区范围中执行所有操作，但以下操作 **除外** ：
+允许将角色分配给服务主体，并使用该角色自动执行 MLOps 管道。 例如，若要针对已发布的管道提交运行，可使用以下代码：
 
-    * 创建一个新工作区
-    * 分配订阅或工作区级别配额
+`mlops_custom_role.json` :
+```json
+{
+    "Name": "MLOps Custom",
+    "IsCustom": true,
+    "Description": "Can run pipelines against a published pipeline endpoint",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read",
+        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
+        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
+        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
+        "Microsoft.MachineLearningServices/workspaces/environments/read",    
+        "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
+        "Microsoft.MachineLearningServices/workspaces/modules/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+        "Microsoft.MachineLearningServices/workspaces/datastores/read",
+        "Microsoft.MachineLearningServices/workspaces/environments/write",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+        "Microsoft.MachineLearningServices/workspaces/environments/build/action",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/computes/write",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/delete",
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.Authorization/*"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
 
-    工作区管理员也无法创建新的角色， 而只能在其工作区的作用域内分配现有内置角色或自定义角色：
+### <a name="workspace-admin"></a>工作区管理员
 
-    `workspace_admin_custom_role.json` :
-    ```json
-    {
-        "Name": "Workspace Admin Custom",
-        "IsCustom": true,
-        "Description": "Can perform all operations except quota management and upgrades",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/*/read",
-            "Microsoft.MachineLearningServices/workspaces/*/action",
-            "Microsoft.MachineLearningServices/workspaces/*/write",
-            "Microsoft.MachineLearningServices/workspaces/*/delete",
-            "Microsoft.Authorization/roleAssignments/*"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/write"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
+允许你执行工作区范围内的所有操作，但以下情况 **除外** ：
+
+* 创建一个新工作区
+* 分配订阅或工作区级别配额
+
+工作区管理员也无法创建新的角色， 而只能在其工作区的作用域内分配现有内置角色或自定义角色：
+
+`workspace_admin_custom_role.json` :
+```json
+{
+    "Name": "Workspace Admin Custom",
+    "IsCustom": true,
+    "Description": "Can perform all operations except quota management and upgrades",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/*/action",
+        "Microsoft.MachineLearningServices/workspaces/*/write",
+        "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.Authorization/roleAssignments/*"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/write"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
+```
 
 <a name="labeler"></a>
-* __Labeler Custom__ ：允许你定义一个只能在作用域内标记数据的角色：
+### <a name="data-labeler"></a>数据 labeler
 
-    `labeler_custom_role.json` :
-    ```json
-    {
-        "Name": "Labeler Custom",
-        "IsCustom": true,
-        "Description": "Can label data for Labeling",
-        "Actions": [
-            "Microsoft.MachineLearningServices/workspaces/read",
-            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
-        ],
-        "NotActions": [
-            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
-        ],
-        "AssignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ]
-    }
-    ```
+允许你定义仅限于标记数据的角色：
 
-### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>问： 如何列出我的订阅中的所有自定义角色？
-
-在 Azure CLI 中运行以下命令。
-
-```azurecli-interactive
-az role definition list --subscription <sub-id> --custom-role-only true
+`labeler_custom_role.json` :
+```json
+{
+    "Name": "Labeler Custom",
+    "IsCustom": true,
+    "Description": "Can label data for Labeling",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
+}
 ```
 
-### <a name="q-how-do-i-find-the-operations-supported-by-the-machine-learning-service"></a>问： 如何查找机器学习服务支持的操作？
-
-在 Azure CLI 中运行以下命令。
-
-```azurecli-interactive
-az provider operation show –n Microsoft.MachineLearningServices
-```
-
-还可以在[资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)的列表中找到它们。
-
-
-### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>问： 使用 Azure RBAC 时，有哪些常见注意事项？
+## <a name="troubleshooting"></a>疑难解答
 
 使用 Azure 基于角色的访问控制 (Azure RBAC) 时，请注意以下几点：
 
-- 在 Azure 中创建资源时，例如创建工作区时，你不会直接成为工作区的所有者。 你的角色继承自你在该订阅中获得相应授权的最高作用域角色。 例如，如果你是网络管理员，有权创建机器学习工作区，则会为你分配该工作区的网络管理员角色，而不是所有者角色。
+- 在 Azure 中创建资源（如工作区）时，不会直接成为资源的所有者。 你的角色继承自你在该订阅中获得授权的最高作用域角色。 例如，如果你是网络管理员，并且有权创建机器学习工作区，则会为该工作区分配网络管理员角色，而不是所有者角色。
+
+- 若要在工作区中执行配额操作，需要订阅级别权限。 这意味着，只有当你在订阅作用域具有写入权限时，才能为你的托管计算资源设置订阅级配额或工作区级配额。
+
 - 针对同一 Azure Active Directory 用户的两个角色分配具有冲突的 Actions/NotActions 部分时，如果操作在某个角色的 NotActions 中列出，但也在另一个角色中作为 Actions 列出，则此类操作可能不会生效。 若要详细了解 Azure 如何分析角色分配，请参阅 [Azure RBAC 如何确定用户是否有权访问资源](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+
 - 若要在 VNet 中部署计算资源，需要显式拥有以下操作的权限：
-    - “Microsoft.Network/virtualNetworks/join/action”（在 VNet 资源上）。
-    - “Microsoft.Network/virtualNetworks/subnet/join/action”（在子网资源上）。
+    - `Microsoft.Network/virtualNetworks/join/action` 在 VNet 资源上。
+    - `Microsoft.Network/virtualNetworks/subnet/join/action` 子网资源。
     
     有关 Azure RBAC with 网络的详细信息，请参阅 [联网内置角色](../role-based-access-control/built-in-roles.md#networking)。
 
-- 新的角色分配有时可能需要长达 1 小时才能生效，覆盖整个堆栈的缓存权限。
-
-### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>问： 我需要具有哪些权限才能将用户分配的托管标识用于我的 Amlcompute 群集？
-
-若要在 Amlcompute 群集上分配用户分配的标识，必须具有创建计算所需的写入权限，并且必须具有[“托管标识操作员”角色](../role-based-access-control/built-in-roles.md#managed-identity-operator)。 有关具有托管标识的 Azure RBAC 的详细信息，请参阅 [如何管理用户分配的标识](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
-
-
-### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>问： 工作室门户上是否支持基于角色的访问控制？
-
-Azure 机器学习工作室支持 Azure 基于角色的访问控制 (Azure RBAC)。 
-
-> [!IMPORTANT]
-> 在你为工作区中的数据科学家分配了具有特定权限的自定义角色后，系统会自动对用户隐藏相应的操作（例如添加一个计算按钮）。 隐藏这些项可防止用户在使用它们时看到控件返回来自服务的“未经授权的访问”通知，从而避免混乱。
-
-### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>问： 如何查找我的订阅中某个角色的角色定义？
-
-在 Azure CLI 中运行以下命令。 `<role-name>` 的格式应与上述命令返回的格式相同。
-
-```azurecli-interactive
-az role definition list -n <role-name> --subscription <sub-id>
-```
-
-### <a name="q-how-do-i-update-a-role-definition"></a>问： 如何更新角色定义？
-
-在 Azure CLI 中运行以下命令。
-
-```azurecli-interactive
-az role definition update --role-definition update_def.json --subscription <sub-id>
-```
-
-你需要对新角色定义的整个作用域具有权限。 例如，如果此新角色的作用域跨三个订阅，则你需要对所有三个订阅都具有权限。 
-
-> [!NOTE]
-> 角色更新可能需要花费 15 分钟到一小时才能应用于该作用域中的所有角色分配。
-
-
-### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>问： 在工作区中执行配额操作需要哪些权限？ 
-
-你需要订阅级别权限才能在工作区中执行任何与配额相关的操作。 这意味着，只有当你在订阅作用域具有写入权限时，才能为你的托管计算资源设置订阅级配额或工作区级配额。 
-
+- 在整个堆栈中，新的角色分配可以在缓存的权限上生效，这有时最多需要1小时。
 
 ## <a name="next-steps"></a>后续步骤
 
