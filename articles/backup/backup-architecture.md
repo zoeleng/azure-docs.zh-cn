@@ -3,12 +3,12 @@ title: 体系结构概述
 description: 概述 Azure 备份服务使用的体系结构、组件和流程。
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173270"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427728"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
@@ -22,11 +22,11 @@ Azure 备份可以备份数据、计算机状态，以及本地计算机和 Azur
 
 可以使用许多方法备份计算机和数据：
 
-- **备份本地计算机**：
+- **备份本地计算机** ：
   - 可以使用 Azure 备份 Microsoft Azure 恢复服务 (MARS) 代理直接将本地 Windows 计算机备份到 Azure。 不支持 Linux 计算机。
   - 可将本地计算机备份到备份服务器 - System Center Data Protection Manager (DPM) 或 Microsoft Azure 备份服务器 (MABS)。 然后，可将备份服务器备份到 Azure 中的恢复服务保管库。
 
-- **备份 Azure VM**：
+- **备份 Azure VM** ：
   - 可以直接备份 Azure VM。 Azure 备份会将一个备份扩展安装到 VM 上运行的 Azure VM 代理。 此扩展备份整个 VM。
   - 可以通过运行 MARS 代理来备份 Azure VM 上的特定文件和文件夹。
   - 可将 Azure VM 备份到 Azure 中运行的 MABS，然后可将 MABS 备份到恢复服务保管库。
@@ -45,7 +45,7 @@ Azure 备份将备份数据存储在保管库-恢复服务保管库和备份保�
 - 指定如何复制保管库中的数据以实现冗余：
   - **本地冗余存储 (LRS)** ：若要防范数据中心发生故障，可以使用 LRS。 LRS 将数据复制到存储缩放单元。 [了解详细信息](../storage/common/storage-redundancy.md#locally-redundant-storage)。
   - **异地冗余存储 (GRS)** ：若要防范区域范围的服务中断，可以使用 GRS。 GRS 会将数据复制到次要区域。 [了解详细信息](../storage/common/storage-redundancy.md#geo-redundant-storage)。
-  - **区域冗余存储 (ZRS) **：在 [可用性区域](../availability-zones/az-overview.md#availability-zones)中复制数据，从而在同一区域中保证数据的驻留和复原能力。 [了解详细信息](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **区域冗余存储 (ZRS)** ：在 [可用性区域](../availability-zones/az-overview.md#availability-zones)中复制数据，从而在同一区域中保证数据的驻留和复原能力。 [了解详细信息](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 恢复服务保管库默认使用 GRS。
 
 恢复服务保管库具有以下附加功能：
@@ -87,8 +87,8 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 
 - 数据源 A 由每月备份的 10 个存储块 A1-A10 组成。
 - 第一个月，存储块 A2、A3、A4 和 A9 变化，第二个月，存储块 A5 变化。
-- 对于差异备份，在第二个月，将备份已更改的块 A2、A3、A4 和 A9。 第三个月，会再次备份这些相同的存储块，以及已更改的存储块 A5。 下次进行完整备份之前，将继续对已更改的存储块进行备份。
-- 对于增量备份，在第二个月，块 A2、A3、A4 和 A9 将标记为已更改和已传输。 在第三个月，仅标记已更改的存储块 A5，并进行传输。
+- 对于差异备份，在第二个月内，更改了块 A2、A3、A4 和 A9。 第三个月，会再次备份这些相同的存储块，以及已更改的存储块 A5。 下次进行完整备份之前，将继续对已更改的存储块进行备份。
+- 对于增量备份，在第二个月，将 A2、A3、A4 和 A9 标记为已更改和已传输。 在第三个月，仅标记已更改的存储块 A5，并进行传输。
 
 ![备份方法比较图](./media/backup-architecture/backup-method-comparison.png)
 
@@ -123,6 +123,12 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 - “每月”、“每年”备份点的保留期称为“长期保留 (LTR)”
 - 创建保管库时，还会创建“DefaultPolicy”，“DefaultPolicy”可用于备份资源。
 - 对备份策略保留期所做的任何更改都将以追溯方式应用于除新恢复点以外的所有旧恢复点。
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>策略更改对恢复点的影响
+
+- **保持期增加/减少：** 更改保留期后，新的保留期也会应用于现有的恢复点。 因此，某些恢复点将被清除。 如果保持期增加，则现有恢复点也会增加保留期。
+- **从每天更改为每周：** 当计划的备份从每天更改为每周时，会清除现有的每日恢复点。
+- **从每周更改为每天：** 根据当前的保留策略，将保留现有的每周备份。
 
 ### <a name="additional-reference"></a>其他参考
 

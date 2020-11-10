@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380120"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427796"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics Azure Monitor (预览中的工作区数据导出) 
 使用 Azure Monitor 中的工作区数据导出，你可以在收集数据时，将数据从 Log Analytics 工作区中的选定表连续导出到 Azure 存储帐户或 Azure 事件中心。 Log Analytics 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -58,7 +58,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区中导出
 ## <a name="data-completeness"></a>数据完整性
 当目标不可用时，数据导出将继续重试发送数据最多30分钟。 如果30分钟后仍不可用，则数据将被丢弃，直到目标变为可用。
 
-## <a name="cost"></a>开销
+## <a name="cost"></a>Cost
 数据导出功能当前没有额外的费用。 数据导出的定价将在将来公布，在帐单开始之前提供一项通知。 如果你选择在通知期后继续使用数据导出，将按适用的费率向你收费。
 
 ## <a name="export-destinations"></a>导出目标
@@ -77,10 +77,11 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区中导出
 ### <a name="event-hub"></a>事件中心
 数据将以近乎实时的方式发送到事件中心，因为它达到 Azure Monitor。 将使用名称 *am-* 后跟表名称的每个数据类型来创建事件中心。 例如，表 *SecurityEvent* 将发送到名为 *am-SecurityEvent* 的事件中心。 如果要将导出的数据传递到特定的事件中心，或如果表的名称超过47个字符的限制，则可以提供自己的事件中心名称并将定义的表的所有数据导出到其中。
 
-随着时间的推移，导出的数据量经常增加，需要提高事件中心的规模，以处理更大的传输速率，并避免限制情况和数据延迟。 应该使用事件中心的自动扩展功能来自动增加和增加吞吐量单位数，并满足使用量需求。 有关详细信息，请参阅 [自动增加 Azure 事件中心吞吐量单位](../../event-hubs/event-hubs-auto-inflate.md) 。
+注意事项：
+1. "基本" 事件中心 sku 支持较低的事件大小限制，工作区中的某些日志可能会超出此 [限制](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) 并被删除。 建议使用 "标准" 或 "专用" 事件中心作为导出目标。
+2. 随着时间的推移，导出的数据量经常增加，需要提高事件中心的规模，以处理更大的传输速率，并避免限制情况和数据延迟。 应该使用事件中心的自动扩展功能来自动增加和增加吞吐量单位数，并满足使用量需求。 有关详细信息，请参阅 [自动增加 Azure 事件中心吞吐量单位](../../event-hubs/event-hubs-auto-inflate.md) 。
 
-
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备知识
 下面是在配置 Log Analytics 数据导出之前必须完成的先决条件。
 
 - 存储帐户和事件中心必须已创建，并且必须与 Log Analytics 工作区位于同一区域。 如果需要将数据复制到其他存储帐户，可以使用任何 [Azure 存储冗余选项](../../storage/common/storage-redundancy.md)。  

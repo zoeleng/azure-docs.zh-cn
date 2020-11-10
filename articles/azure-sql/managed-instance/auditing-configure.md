@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780013"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427932"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL 托管实例审核入门
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,7 +118,7 @@ ms.locfileid: "92780013"
         GO
         ```
 
-        继续[创建服务器审核规范或数据库审核规范](#createspec)。
+     1. 继续[创建服务器审核规范或数据库审核规范](#createspec)。
 
    - <a id="blobssms"></a>使用 SQL Server Management Studio 18（预览版）为审核日志配置 Blob 存储：
 

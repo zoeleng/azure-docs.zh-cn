@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380872"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428004"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -28,6 +28,9 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 -   System Center Service Manager
 -   Provance
 -   Cherwell
+
+   >[!NOTE]
+> 从2020年10月 Cherwell 和 Provance ITSM 集成的 Azure 警报将不再为新客户启用。 不支持新的 ITSM 连接。 将支持现有的 ITSM 连接。
 
 通过 ITSMC，你可以：
 
@@ -150,7 +153,8 @@ ITSMC 支持使用以下 ITSM 工具建立的连接：
 
    ![显示 ITSM 票证窗口的屏幕截图。](media/itsmc-overview/itsm-action-configuration.png)
    
-   * 在 "工作项" 下拉列表中选择 "事件" 时：如果为单选按钮选择中的 **每个日志项选择 "创建单独的工作项** "，则每个警报都将创建一个新的工作项。 如果为单选按钮选择中的 **每个配置项目选择 "创建单独的工作项** "，则每个配置项都将有自己的工作项。 
+   * 在 "工作项" 下拉列表中选择 "事件" 时：如果为单选按钮选择中的 **每个日志项选择 "创建单独的工作项** "，则每个警报都将创建一个新的工作项。 如果为单选按钮选择中的 **每个配置项目选择 "创建单独的工作项** "，则每个配置项都将有自己的工作项。
+   ![显示 ITSM 票证窗口的屏幕截图。](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. 选择“确定”。
 

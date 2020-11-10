@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: f2a934702a650ece3d3d50b2eedaa99f65b2eacc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 3fcf63932db0ad9abe5d99c2e4bf084b0acc750c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93144982"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427838"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点 VPN 连接：Azure 门户
 
@@ -25,7 +25,7 @@ ms.locfileid: "93144982"
 
 [!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备知识
 
 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或注册获取[免费帐户](https://azure.microsoft.com/pricing/free-trial)。
 
@@ -35,18 +35,18 @@ ms.locfileid: "93144982"
 
 * **VNet 名称：** VNet1
 * **地址空间：** 10.1.0.0/16<br>对于此示例，我们只使用一个地址空间。 VNet 可以有多个地址空间。
-* **子网名称：** 前端
+* **子网名称：** FrontEnd
 * **子网地址范围：** 10.1.0.0/24
 * **订阅：** 如果有多个订阅，请确保使用正确的订阅。
 * **资源组：** TestRG1
 * **位置：** 美国东部
 * **GatewaySubnet：** 10.1.255.0/27<br>
-*  虚拟网关名称：VNet1GW
+* 虚拟网关名称：VNet1GW
 * **网关类型：** VPN
 * **VPN 类型：** 基于路由
-*  公共 IP 地址名称：VNet1GWpip
-*  连接类型：点到站点
-*  客户端地址池：172.16.201.0/24<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自客户端地址池的 IP 地址。
+* 公共 IP 地址名称：VNet1GWpip
+* 连接类型：点到站点
+* 客户端地址池：172.16.201.0/24<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自客户端地址池的 IP 地址。
 
 ## <a name="1-create-a-virtual-network"></a><a name="createvnet"></a>1.创建虚拟网络
 
@@ -72,11 +72,11 @@ ms.locfileid: "93144982"
 
 Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进行身份验证。 获得根证书后，即可将公钥信息[上传](#uploadfile)到 Azure。 然后，Azure 就会将该根证书视为通过 P2S 连接到虚拟网络时需要使用的“受信任的”证书。 也可从受信任的根证书生成客户端证书，然后将其安装在每个客户端计算机上。 当客户端发起与 VNet 的连接时，需使用客户端证书对客户端进行身份验证。 
 
-### <a name="1-root-certificate"></a><a name="getcer"></a>1. 根证书
+### <a name="generate-a-root-certificate"></a><a name="getcer"></a>生成根证书
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="2-client-certificate"></a><a name="generateclientcert"></a>2. 客户端证书
+### <a name="generate-client-certificates"></a><a name="generateclientcert"></a>生成客户端证书
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -84,46 +84,46 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 
 客户端地址池是指定的专用 IP 地址的范围。 通过点到站点 VPN 进行连接的客户端动态接收此范围内的 IP 地址。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与要连接到其中的 VNet 重叠。 如果配置了多个协议，并且 SSTP 是其中一个协议，则配置的地址池将在配置的协议之间平均分配。
 
-1. 创建虚拟网关后，请导航到虚拟网关页的“设置”  部分。 在 " **设置** " 部分中，选择 " **点到站点配置** "。 选择 " **立即配置** " 以打开 "配置" 页。
+1. 创建虚拟网关后，请导航到虚拟网关页的“设置”部分。 在 " **设置** " 中，选择 " **点到站点配置** "。 选择 " **立即配置** " 以打开 "配置" 页。
 
-   ![“点到站点”页](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-configure.png "立即配置点到站点配置")
-2. 在 " **点到站点配置** " 页上，你可以配置各种设置。 如果在此页上看不到 "隧道类型" 或 "身份验证类型"，则网关将使用基本 SKU。 基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。 如果要使用这些设置，需要使用其他网关 SKU 删除并重新创建网关。
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="&quot;点到站点配置&quot; 页" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
+1. 在 " **点到站点配置** " 页上，你可以配置各种设置。 如果在此页上看不到 "隧道类型" 或 "身份验证类型"，则网关将使用基本 SKU。 基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。 如果要使用这些设置，需要使用其他网关 SKU 删除并重新创建网关。
 
-   [!["点到站点配置" 页](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-address.png "指定地址池")](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-expanded.png#lightbox)
-3. 在 " **地址池** " 框中，添加要使用的专用 IP 地址范围。 VPN 客户端动态接收指定范围内的 IP 地址。 主动/被动配置的最小子网掩码为 29 位，主动/主动配置的最小子网掩码为 28 位。
-4. 转到下一节，配置隧道类型。
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png" alt-text="指定地址池" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png":::
+1. 在 " **地址池** " 框中，添加要使用的专用 IP 地址范围。 VPN 客户端动态接收指定范围内的 IP 地址。 主动/被动配置的最小子网掩码为 29 位，主动/主动配置的最小子网掩码为 28 位。
+1. 请参阅下一节以配置隧道类型。
 
 ## <a name="5-configure-tunnel-type"></a><a name="tunneltype"></a>5. 配置隧道类型
 
-可以选择隧道类型。 隧道选项为 OpenVPN、SSTP 和 IKEv2。
+选择隧道类型。 隧道选项为 OpenVPN、SSTP 和 IKEv2。
 
 * Android 和 Linux 上的 strongSwan 客户端以及 iOS 和 OSX 上的本机 IKEv2 VPN 客户端仅会使用 IKEv2 隧道进行连接。
 * Windows 客户端首先尝试 IKEv2，如果不连接，它们将回退到 SSTP。
 * 可以使用 OpenVPN 客户端连接到 OpenVPN 隧道类型。
 
-![隧道类型](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel.png "指定隧道类型")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel-ike.png" alt-text="隧道类型":::
 
 ## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. 配置身份验证类型
 
 对于 " **身份验证类型** "，请选择 " **Azure 证书** "。
 
-  ![身份验证类型](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "指定身份验证类型")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/azure-certificate.png" alt-text="身份验证类型":::
 
 ## <a name="7-upload-the-root-certificate-public-certificate-data"></a><a name="uploadfile"></a>7. 上传根证书的公共证书数据
 
 可以上传更多受信任的根证书（最多 20 个）。 上传公共证书数据后，Azure 即可使用该数据对已安装客户端证书（根据受信任的根证书生成）的客户端进行身份验证。 将根证书的公钥信息上传到 Azure。
 
-1. 证书在“点到站点配置”页的“根证书”部分添加。 
-2. 请确保已导出了格式为 Base-64 编码的 X.509 (.cer) 文件的根证书。 需要以这种格式导出证书，以便使用文本编辑器打开该证书。
-3. 使用记事本之类的文本编辑器打开该证书。 复制证书数据时，请确保将文本复制为一个无回车符或换行符的连续行。 可能需要在文本编辑器中将视图修改为“显示符号/显示所有字符”以查看回车符和换行符。 仅将以下部分复制为一个连续行：
+1. 证书在“点到站点配置”页的“根证书”部分添加。
+1. 请确保已导出了格式为 Base-64 编码的 X.509 (.cer) 文件的根证书。 需要以这种格式导出证书，以便使用文本编辑器打开该证书。
+1. 使用记事本之类的文本编辑器打开该证书。 复制证书数据时，请确保将文本复制为一个无回车符或换行符的连续行。 可能需要在文本编辑器中将视图修改为“显示符号/显示所有字符”以查看回车符和换行符。 仅将以下部分复制为一个连续行：
 
-   ![证书数据](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "复制根证书数据")
-4. 将证书数据粘贴到“公共证书数据”  字段中。 **命名** 证书，然后选择 " **保存** "。 最多可以添加 20 个受信任的根证书。
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png" alt-text="证书数据" border="false":::
+1. 将证书数据粘贴到“公共证书数据”字段中。 **命名** 证书，然后选择 " **保存** "。 最多可以添加 20 个受信任的根证书。
 
-   ![粘贴证书数据](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png "粘贴证书数据")
-5. 选择页面顶部的 " **保存** " 以保存所有配置设置。
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png" alt-text="粘贴证书数据" border="false":::
+1. 选择页面顶部的 " **保存** " 以保存所有配置设置。
 
-   ![保存配置](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png "保存配置")
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png" alt-text="保存配置" border="false":::
 
 ## <a name="8-install-an-exported-client-certificate"></a><a name="installclientcert"></a>8. 安装导出的客户端证书
 
@@ -151,7 +151,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 请查看[安装 - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
 
-  ![Mac 连接](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "连接")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Mac VPN 客户端连接" border="false":::
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>验证连接
 
@@ -193,9 +193,9 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>删除受信任的根证书
 
-1. 若要删除受信任的根证书，请导航到虚拟网关的“点到站点配置”页。 
-2. 在页面的“根证书”  部分，找到要删除的证书。
-3. 选择证书旁边的省略号，然后选择 "删除"。
+1. 若要删除受信任的根证书，请导航到虚拟网关的“点到站点配置”页。
+1. 在页面的“根证书”部分，找到要删除的证书。
+1. 选择证书旁边的省略号，然后选择 "删除"。
 
 ## <a name="to-revoke-a-client-certificate"></a><a name="revokeclient"></a>吊销客户端证书
 
@@ -208,12 +208,12 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 可以通过将指纹添加到吊销列表来吊销客户端证书。
 
 1. 检索客户端证书指纹。 有关详细信息，请参阅 [如何检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
-2. 将信息复制到一个文本编辑器，删除所有空格，使之成为一个连续的字符串。
-3. 导航到虚拟网关的“点到站点配置”  页。 此页面正是用来[上传受信任的根证书](#uploadfile)的页面。
-4. 在“吊销的证书”  部分，输入证书的友好名称（不必是证书 CN）。
-5. 将指纹字符串复制并粘贴到“指纹”  字段。
-6. 指纹将进行验证，并会自动添加到吊销列表。 屏幕上会显示一条消息，指出列表正在进行更新。 
-7. 更新完成后，不再可以使用证书来连接。 客户端在尝试使用此证书进行连接时，会收到一条消息，指出证书不再有效。
+1. 将信息复制到一个文本编辑器，删除所有空格，使之成为一个连续的字符串。
+1. 导航到虚拟网关的“点到站点配置”页。 此页面正是用来[上传受信任的根证书](#uploadfile)的页面。
+1. 在“吊销的证书”部分，输入证书的友好名称（不必是证书 CN）。
+1. 将指纹字符串复制并粘贴到“指纹”字段。
+1. 指纹将进行验证，并会自动添加到吊销列表。 屏幕上会显示一条消息，指出列表正在进行更新。 
+1. 更新完成后，不再可以使用证书来连接。 客户端在尝试使用此证书进行连接时，会收到一条消息，指出证书不再有效。
 
 ## <a name="point-to-site-faq"></a><a name="faq"></a>点到站点常见问题解答
 

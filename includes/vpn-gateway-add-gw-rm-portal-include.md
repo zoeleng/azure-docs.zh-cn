@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92479529"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427819"
 ---
 1. 在 [Azure 门户](https://portal.azure.com)的“搜索资源、服务和文档(G+/)”中，键入“虚拟网络网关” 。 在搜索结果中找到“虚拟网络网关”，并选中它。
 
@@ -21,12 +21,12 @@ ms.locfileid: "92479529"
 
 1. 在“虚拟网络网关”页上选择“+ 添加” 。 这会打开“创建虚拟网关”页  。
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="搜索字段":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="“虚拟网络网关”页":::
 1. 在“基本信息”选项卡上，填写虚拟网关的值。 
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="搜索字段":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="网关字段":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="搜索字段":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="其他网关字段":::
 
    * 订阅：从下拉列表中选择要使用的订阅。
    * **资源组** ：在此页上选择虚拟网络后，此设置将自动进行填充。
@@ -52,6 +52,6 @@ ms.locfileid: "92479529"
      * **启用主动-主动模式** ：仅当要创建主动-主动网关配置时，才选择“启用主动-主动模式”。 否则，请让此设置保留“禁用”状态。
      * 让“配置 BGP”保留“禁用”状态，除非你的配置特别需要此设置 。 如果确实需要此设置，则默认 ASN 为 65515，但可以更改此值。
 1. 选择“查看 + 创建”  ，运行验证。
-1. 验证通过后，选择“创建”  以部署 VPN 网关。 网关可能需要长达 45 分钟才能完全创建和部署。 可以在网关的“概述”页上查看部署状态。
+1. 验证通过后，选择“创建”  以部署 VPN 网关。
 
-创建网关后，可以通过在门户中查看虚拟网络，来查看已分配给网关的 IP 地址。 网关显示为连接的设备。
+网关可能需要长达 45 分钟才能完全创建和部署。 可以在网关的“概述”页上查看部署状态。 创建网关后，可以通过在门户中查看虚拟网络，来查看已分配给网关的 IP 地址。 网关显示为连接的设备。

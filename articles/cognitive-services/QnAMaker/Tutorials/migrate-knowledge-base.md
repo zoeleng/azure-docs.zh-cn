@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 78e22a9ec150435c1bc83873a2fcf0a00560c0c1
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375952"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427660"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>使用导出-导入迁移知识库
 
@@ -25,7 +25,7 @@ ms.locfileid: "94375952"
 > [!NOTE]
 > 按照以下说明将现有知识库迁移到新的 QnA Maker 托管 (预览版) 。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备知识
 
 * 在开始之前，创建一个[免费帐户](https://azure.microsoft.com/free/cognitive-services/)。
 * 设置新 [QnA Maker 服务](../How-To/set-up-qnamaker-service-azure.md)
@@ -59,12 +59,12 @@ ms.locfileid: "94375952"
 
 **导出**
 
-* [下载知识库 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
+* [下载知识库 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **导入**
 
-* [将 API (重载替换为同一知识库 ID) ](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
-* [用新的知识库 ID 创建 API (负载) ](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [将 API (重载替换为同一知识库 ID) ](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [用新的知识库 ID 创建 API (负载) ](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>聊天日志和变更内容
