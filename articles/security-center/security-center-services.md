@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425157"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445245"
 ---
 # <a name="feature-coverage-for-machines"></a>适用于计算机的功能覆盖范围
 
@@ -35,7 +35,7 @@ ms.locfileid: "92425157"
 |[无文件安全警报](alerts-reference.md#alerts-windows)|✔|✔|✔|是|
 |[基于网络的安全警报](other-threat-protections.md#network-layer)|✔|✔|-|是|
 |[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|是|
-|[本机漏洞评估](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|是|
+|[本机漏洞评估](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|是|
 |[文件完整性监视](security-center-file-integrity-monitoring.md)|✔|✔|✔|是|
 |[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|是|
 |[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|是|
@@ -46,7 +46,7 @@ ms.locfileid: "92425157"
 |安全配置错误评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |磁盘加密评估|✔</br>（适用于[支持的场景](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)）|✔|-|否|
-|第三方漏洞评估|✔|-|-|否|
+|第三方漏洞评估|✔|-|✔|否|
 |[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|否|
 
 
@@ -59,7 +59,7 @@ ms.locfileid: "92425157"
 |[无文件安全警报](alerts-reference.md#alerts-windows)|-|-|-|是|
 |[基于网络的安全警报](other-threat-protections.md#network-layer)|✔|✔|-|是|
 |[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|是|
-|[本机漏洞评估](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|是|
+|[本机漏洞评估](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|是|
 |[文件完整性监视](security-center-file-integrity-monitoring.md)|✔|✔|✔|是|
 |[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|是|
 |[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|是|
@@ -70,7 +70,7 @@ ms.locfileid: "92425157"
 |安全配置错误评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|否|
 |磁盘加密评估|✔</br>（适用于[支持的场景](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)）|✔|-|否|
-|第三方漏洞评估|✔|-|-|否|
+|第三方漏洞评估|✔|-|✔|否|
 |[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|否|
 
 --- 

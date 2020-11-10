@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042909"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445568"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>在 IoT 解决方案中使用 IoT 即插即用模型
 
@@ -20,9 +20,9 @@ ms.locfileid: "92042909"
 
 IoT 解决方案分为两大类别：
 
-- *专门构建的解决方案*适用于将连接到解决方案的 IoT 即插即用设备的一组已知模型。 在开发解决方案时，可以使用这些模型。
+- *专门构建的解决方案* 适用于将连接到解决方案的 IoT 即插即用设备的一组已知模型。 在开发解决方案时，可以使用这些模型。
 
-- *模型驱动*的解决方案可与任何 IoT 即插即用设备的型号一起使用。 构建模型驱动的解决方案更为复杂，但优点在于，您的解决方案适用于将来可能添加的任何设备。 模型驱动的 IoT 解决方案检索模型，并使用它来确定设备实现的遥测、属性和命令。
+- *模型驱动* 的解决方案可与任何 IoT 即插即用设备的型号一起使用。 构建模型驱动的解决方案更为复杂，但优点在于，您的解决方案适用于将来可能添加的任何设备。 模型驱动的 IoT 解决方案检索模型，并使用它来确定设备实现的遥测、属性和命令。
 
 若要使用 IoT 即插即用模型，IoT 解决方案：
 
@@ -121,7 +121,7 @@ content-encoding:utf-8
 
 确定新设备连接的模型 ID 后，请执行以下步骤：
 
-1. 使用模型存储库中的模型 ID 检索模型定义。 有关详细信息，请参阅 [获取模型](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)。
+1. 使用模型存储库中的模型 ID 检索模型定义。 有关详细信息，请参阅 [设备型号存储库](concepts-model-repository.md)。
 
 1. 使用已连接设备的模型定义，可以枚举设备的功能。
 

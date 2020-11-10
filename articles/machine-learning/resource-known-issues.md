@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
-ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314756"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445368"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure 机器学习中的已知问题和故障排除
 
@@ -211,7 +211,7 @@ ms.locfileid: "93314756"
     如果不包含前导正斜杠“/”，则需要为计算目标上的工作目录添加前缀（例如 `/mnt/batch/.../tmp/dataset`），以指示要将数据集装载到的位置。
 
 ### <a name="mount-dataset"></a>装载数据集
-* **数据集初始化失败：正在等待装入点准备就绪** ：已在中添加了重新尝试逻辑 `azureml-sdk >=1.12.0` 以缓解此问题。 如果你在以前的 azureml sdk 版本上，请升级到最新版本。 如果已打开 `azureml-sdk>=1.12.0` ，请重新创建你的环境，以便提供修补程序的最新修补程序。
+* **数据集初始化失败：“等待装入点准备完毕”已超时** ：`azureml-sdk >=1.12.0` 中添加了重试逻辑以缓解问题。 如果使用的是以前的 azureml-sdk 版本，请升级到最新版本。 如果使用的是 `azureml-sdk>=1.12.0`，请重新创建环境，以便获得具有修补程序的最新补丁。
 
 ### <a name="data-labeling-projects"></a>数据标签项目
 
@@ -258,7 +258,20 @@ ms.locfileid: "93314756"
 
 ## <a name="azure-machine-learning-designer"></a>Azure 机器学习设计器
 
-* 计算准备时间很长：
+### <a name="dataset-visualization-in-the-designer"></a>设计器中的数据集可视化
+
+在 " **数据集** 资产" 页或使用 SDK 中注册数据集后，可在 "设计器" 画布左侧列表中的 " **数据集** " 类别下找到它。
+
+但是，当您将数据集拖动到画布并显示可视化效果时，可能是由于以下原因导致的：
+
+- 目前只能在设计器中显示表格数据集。 如果在设计器外部注册文件数据集，则无法在设计器画布中对其进行可视化。
+- 数据集存储在虚拟网络 (VNet) 中。 如果要进行可视化，则需要启用数据存储的工作区托管标识。
+    1. 中转到相关数据存储，然后单击 " **更新凭据** " 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="更新凭据":::
+    1. 选择 **"是"** 以启用工作区托管标识。
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="启用工作区托管标识":::
+
+### <a name="long-compute-preparation-time"></a>计算准备时间很长
 
 第一次连接或创建计算目标可能需要几分钟甚至更长的时间。 
 
@@ -269,7 +282,7 @@ import time
 time.sleep(600)
 ```
 
-* **实时终结点的日志：**
+### <a name="log-for-real-time-endpoints"></a>实时终结点日志
 
 实时终结点的日志是客户数据。 对于实时终结点故障排除，可以使用以下代码来启用日志。 
 
@@ -323,7 +336,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>自动化机器学习
 
-* **最新的 AutoML 依赖项升级到较新的版本将会造成中断兼容性** 问题：从 SDK 的版本1.13.0 开始，模型将不会加载到较旧的 sdk 中，因为我们在以前的包中固定的旧版本之间存在不兼容的情况，并且我们现在固定较新版本。 你将看到错误，例如：
+* **AutoML 依赖项到新版本的最新升级将破坏兼容性** ：从 SDK 1.13.0 版开始，模型将不加载到较旧的 SDK 中，这是因为在之前的包中固定的旧版本与现在固定的更新的版本不兼容。 你将看到错误，例如：
   * 找不到模块：例如 `No module named 'sklearn.decomposition._truncated_svd`
   * 导入错误：例如 `ImportError: cannot import name 'RollingOriginValidator'`
   * 属性错误：例如： `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -343,7 +356,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **预测 R2 评分始终为零** ：如果提供的训练数据的时间序列包含的值与上一个 `n_cv_splits` + `forecasting_horizon` 数据点相同，则会出现此问题。 如果你的时间序列中应有此模式，则可以将主要指标切换为规范化的根本平均平方误差。
+* **预测 R2 评分始终为零** ：如果提供的训练数据的时间序列包含的值与上一个 `n_cv_splits` + `forecasting_horizon` 数据点相同，则会出现此问题。 如果该模式在你的时间序列中是预期的，可将主要指标切换为标准均方根误差。
  
 * **TensorFlow** ：从 SDK 1.5.0 版开始，自动化机器学习默认不安装 TensorFlow 模型。 若要安装 TensorFlow 并将其用于自动化 ML 试验，请通过 CondaDependecies 安装 tensorflow==1.12.0。 
  
@@ -369,7 +382,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     * 通过运行 `conda info` 命令，确保已安装 conda 64 位而不是 32 位。 对于 Windows，`platform` 应为 `win-64`，对于 Mac，应为 `osx-64`。
     * 确保已安装 conda 4.4.10 或更高版本。 可以使用命令 `conda -V` 检查该版本。 如果安装了以前的版本，可以使用以下命令对其进行更新：`conda update conda`。
     * Linux - `gcc: error trying to exec 'cc1plus'`
-      *  如果 `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` 遇到错误，请使用命令安装 build essentials `sudo apt-get install build-essential` 。
+      *  如果遇到 `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` 错误，请使用命令 `sudo apt-get install build-essential` 安装版本要素。
       * 将新名称作为第一个参数传递给 automl_setup 以创建新的 conda 环境。 使用 `conda env list` 查看现有的 conda 环境，并使用 `conda env remove -n <environmentname>` 删除它们。
       
 * **automl_setup_linux.sh 失败** ：如果 automl_setup_linus.sh 在 Ubuntu Linux 上失败，并出现错误：`unable to execute 'gcc': No such file or directory`-
@@ -393,10 +406,10 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   3. 如果正在使用新的订阅、资源组、工作区或区域，请确保再次运行 `configuration.ipynb` 笔记本。 仅当指定订阅下的指定资源组中已存在工作区时，直接更改 config.json 才会生效。
   4. 如果要更改区域，请更改工作区、资源组或订阅。 即使指定的区域不同，`Workspace.create` 也不会创建或更新工作区（如果已存在）。
   
-* **示例笔记本失败** ：如果示例笔记本失败并出现错误，该属性、方法或库不存在：
-  * 确保已在 jupyter 笔记本中选择正确的内核。 内核显示在笔记本页面的右上方。 默认值为 azure_automl。 请注意，内核作为笔记本的一部分进行保存。 因此，如果切换到新的 conda 环境，则必须在笔记本中选择新内核。
+* **示例笔记本失败** ：如果示例笔记本失败，并出现属性、方法或库不存在的错误：
+  * 确保在 Jupyter 笔记本中选择了正确的内核。 内核显示在笔记本页面的右上方。 默认值为 azure_automl。 请注意，内核作为笔记本的一部分进行保存。 因此，如果切换到新的 conda 环境，则必须在笔记本中选择新内核。
       * 对于 Azure Notebooks，它应为 Python 3.6。 
-      * 对于本地 conda 环境，该环境应为在 automl_setup 中指定的 conda 环境名称。
+      * 对于本地 conda 环境，它应为在 automl_setup 中指定的 conda 环境名称。
   * 确保笔记本适用于正在使用的 SDK 版本。 可以通过在 Jupyter 笔记本单元格中执行 `azureml.core.VERSION` 来检查 SDK 版本。 通过单击 `Branch` 按钮，选择 `Tags` 选项卡，然后选择版本，可以从 GitHub 下载以前版本的示例笔记本。
 
 * **Windows 中的 Numpy 导入失败** ：在某些 Windows 环境中，最新的 Python 3.6.8 版本加载 numpy 时会出现错误。 如果出现此问题，请尝试使用 Python 3.6.7 版本。
@@ -452,7 +465,7 @@ kubectl get secret/azuremlfessl -o yaml
 
 ### <a name="detaching-azure-kubernetes-service"></a>分离 Azure Kubernetes 服务
 
-使用用于机器学习的 Azure 机器学习 studio、SDK 或 Azure CLI 扩展分离 AKS 群集不会删除 AKS 群集。 若要删除群集，请参阅 [将 Azure CLI 与 AKS 一起使用](../aks/kubernetes-walkthrough.md#delete-the-cluster)。
+使用 Azure 机器学习工作室、SDK 或适用于机器学习的 Azure CLI 扩展来分离 AKS 群集不会删除 AKS 群集。 若要删除群集，请参阅[结合使用 Azure CLI 和 AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster)。
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 服务中的 Web 服务失败
 

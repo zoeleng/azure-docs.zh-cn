@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 585f5998eb953c8ed90a47922d76f32897c0f915
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285833"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445483"
 ---
 # <a name="secure-access-to-a-key-vault"></a>保护对密钥保管库的访问
 
@@ -26,7 +26,7 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 可通过以下两个接口来控制对密钥保管库的访问： **管理平面** 和 **数据平面** 。 管理平面用于管理密钥保管库本身。 此平面中的操作包括创建和删除密钥保管库、检索密钥保管库属性以及更新访问策略。 数据平面用于处理密钥保管库中存储的数据。 可以添加、删除和修改密钥、机密及证书。
 
-两个平面都使用 [Azure Active Directory (Azure AD ](../../active-directory/fundamentals/active-directory-whatis.md) 身份验证) 。 对于授权，管理平面使用 [基于 Azure 角色的访问控制 (RBAC) ](../../role-based-access-control/overview.md) ，数据平面使用 [Key Vault 访问策略](./assign-access-policy-portal.md) 和 [Azure RBAC Key Vault 数据平面操作 (预览版) ](./rbac-guide.md)。
+两个平面都使用 [Azure Active Directory (Azure AD ](../../active-directory/fundamentals/active-directory-whatis.md) 身份验证) 。 对于授权，管理平面使用 [AZURE rbac)  (azure 基于角色的访问控制 ](../../role-based-access-control/overview.md) ，而数据平面使用 [Key Vault 访问策略](./assign-access-policy-portal.md) 和 [Azure RBAC Key Vault 数据平面操作 (预览版) ](./rbac-guide.md)。
 
 若要在任一平面中访问密钥保管库，所有调用方（用户或应用程序）都必须进行适当的身份验证并拥有适当的授权。 身份验证可确定调用方的身份。 授权可确定调用方能够执行的操作。 使用密钥保管库进行的身份验证可与 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 结合使用，后者负责对任何给定安全主体的标识进行身份验证。
 
@@ -58,7 +58,7 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 ## <a name="resource-endpoints"></a>资源终结点
 
-应用程序通过终结点访问平面。 两个平面的访问控制独立运行。 若要授权应用程序使用密钥保管库中的密钥，可以使用 Key Vault 访问策略或 Azure RBAC（预览版）授予数据平面访问权限。 若要授予用户对密钥保管库属性和标记的读取访问权限，但不授予对数据（密钥、机密或证书）的访问权限，请使用 RBAC 授予管理平面访问权限。
+应用程序通过终结点访问平面。 两个平面的访问控制独立运行。 若要授权应用程序使用密钥保管库中的密钥，可以使用 Key Vault 访问策略或 Azure RBAC（预览版）授予数据平面访问权限。 若要授予用户对 Key Vault 属性和标记的读取访问权限，但不允许访问) 的数据 (密钥、机密或证书，请使用 Azure RBAC 授予管理平面访问权限。
 
 下表显示了用于管理平面和数据平面的终结点。
 
@@ -111,7 +111,7 @@ Azure 基于角色的访问控制是另一种用于控制对 Azure Key Vault 数
 
 使用 Azure RBAC 权限对保管库访问策略的主要优势是集中式访问控制管理，并与 [Privileged Identity Management (PIM) ](../../active-directory/privileged-identity-management/pim-configure.md)集成。 Privileged Identity Management 提供基于时间和基于审批的角色激活，用于缓解所关注资源上出现的访问权限过度、不必要或滥用的风险。
 
-有关使用 RBAC Key Vault 数据平面的详细信息，请参阅 [使用 Azure 基于角色的访问控制 Key Vault 密钥、证书和机密 (预览) ](rbac-guide.md)
+有关使用 Azure RBAC Key Vault 数据平面的详细信息，请参阅 [使用 azure 基于角色的访问控制 Key Vault 密钥、证书和机密 (预览) ](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>防火墙和虚拟网络
 
@@ -200,7 +200,7 @@ Azure 基于角色的访问控制是另一种用于控制对 Azure Key Vault 数
 ## <a name="resources"></a>资源
 
 - [关于 Azure Key Vault](overview.md)
-- Azure Active Directory
+- [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 - [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
 - [Azure RBAC](../../role-based-access-control/overview.md)
 - [专用链接](../../private-link/private-link-overview.md)

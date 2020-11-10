@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380992"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445144"
 ---
 # <a name="hierarchical-state-override"></a>分层状态替代
 
@@ -39,6 +39,13 @@ ms.locfileid: "94380992"
 
   > [!IMPORTANT]
   > 仅当使用“TileBasedComposition”[渲染模式](../../concepts/rendering-modes.md)时，透视效果才起作用。
+
+* **`Shell`** ：几何图形呈现为透明的反饱和 shell。 此模式允许淡出场景的非重要部分，同时仍保留一种形状和相对定位。 若要更改 shell 呈现的外观，请使用 [ShellRenderingSettings](shell-effect.md) 状态。 请参阅下图，了解完全由外壳呈现的汽车模型，但蓝色弹簧除外：
+
+  ![用于淡化特定对象的 Shell 模式](./media/shell.png)
+
+  > [!IMPORTANT]
+  > Shell 效果仅在使用 *TileBasedComposition* [呈现模式](../../concepts/rendering-modes.md) 时有效。
 
 * **`Selected`** ：使用 [选择轮廓](outlines.md)呈现几何。
 
@@ -101,7 +108,7 @@ component->SetState(
 
 `HierarchicalStateOverrideComponent` 本身的实例不会增加很多运行时开销。 但是，保持较低的活动组件数量始终是一个好习惯。 例如，在实现突出显示所选对象的选择系统时，建议在删除突出显示时删除该组件。 无相关功能的组件会迅速累积。
 
-透明渲染比标准渲染在服务器 GPU 上增加了更多工作负载。 如果场景图的大型部分切换到 *see-through* ，且几何结构多个层次可见，则可能会成为性能瓶颈。 这对于具有[选择轮廓](../../overview/features/outlines.md#performance)的对象而言也是如何。
+透明渲染比标准渲染在服务器 GPU 上增加了更多工作负载。 如果场景图的大型部分切换到 *see-through* ，且几何结构多个层次可见，则可能会成为性能瓶颈。 对于具有 [选择轮廓](../../overview/features/outlines.md#performance) 的对象和 [shell 渲染](../../overview/features/shell-effect.md#performance) ，这一点都是有效的。 
 
 ## <a name="api-documentation"></a>API 文档
 

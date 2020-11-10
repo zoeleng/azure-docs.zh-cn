@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423005"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445075"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
@@ -65,64 +65,64 @@ ms.locfileid: "93423005"
 
 ## <a name="2020-10-12"></a>2020-10-12
 
-### <a name="azure-machine-learning-sdk-for-python-v1160"></a>用于 Python 的 Azure 机器学习 SDK 1.16。0
+### <a name="azure-machine-learning-sdk-for-python-v1160"></a>用于 Python 的 Azure 机器学习 SDK v1.16.0
 + **Bug 修复与改进**
   + **azure-cli-ml**
-    + AKSWebservice 和 AKSEndpoints 现在支持 pod 级别的 CPU 和内存资源限制。 可以通过 `--cpu-cores-limit` `--memory-gb-limit` 在适用的 CLI 调用中设置和标志来使用这些可选限制
+    + AKSWebservice 和 AKSEndpoints 现支持 Pod 级别的 CPU 和内存资源限制。 可以通过在适用的 CLI 调用中设置 `--cpu-cores-limit` 和 `--memory-gb-limit` 标志来使用这些可选限制
   + **azureml-core**
-    + 固定 azureml 核心的主要版本
-    + AKSWebservice 和 AKSEndpoints 现在支持 pod 级别的 CPU 和内存资源限制。 有关[Kubernetes 资源和限制](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)的详细信息
-    + 更新 run.log_table 以允许记录单个行。
-    + 添加了静态方法 `Run.get(workspace, run_id)` 以仅检索使用工作区的运行 
-    + 添加了 `Workspace.get_run(run_id)` 用于检索工作区中运行的实例方法
-    + 在运行配置中引入命令属性，使用户能够提交命令，而不是脚本 & 参数。
+    + 固定 azureml-core 直接依赖项的主版本
+    + AKSWebservice 和 AKSEndpoints 现支持 Pod 级别的 CPU 和内存资源限制。 有关详细信息，请参阅 [Kubernetes 资源和限制](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
+    + 更新了 run.log_table 以允许记录各个行。
+    + 添加了静态方法 `Run.get(workspace, run_id)` 以仅使用工作区来检索运行 
+    + 添加了实例方法 `Workspace.get_run(run_id)` 以检索工作区内的运行
+    + 在运行配置中引入命令属性，允许用户提交命令而不是脚本和参数。
   + **azureml-interpret**
-    + 修复了有关 azureml 中 is_raw 标志行为的修复说明
+    + 修复了 azureml-interpret 中的解释客户端 is_raw 标志行为
   + **azureml-sdk**
     + `azureml-sdk` 正式支持 Python 3.8。
   + **azureml-train-core**
-    + 添加 TensorFlow 2.3 特选环境
-    + 在运行配置中引入命令属性，使用户能够提交命令，而不是脚本 & 参数。
+    + 添加了 TensorFlow 2.3 特选环境
+    + 在运行配置中引入命令属性，允许用户提交命令而不是脚本和参数。
   + **azureml-widgets**
-    + 脚本运行小组件的重新设计界面。
+    + 重新设计了脚本运行小组件的界面。
 
 
 ## <a name="2020-09-28"></a>2020-09-28
 
-### <a name="azure-machine-learning-sdk-for-python-v1150"></a>用于 Python 的 Azure 机器学习 SDK 1.15。0
+### <a name="azure-machine-learning-sdk-for-python-v1150"></a>用于 Python 的 Azure 机器学习 SDK v1.15.0
 + **Bug 修复与改进**
   + **azureml-contrib-interpret**
-    + 从 contrib 的说明中移出了酸橙色的说明-解释社区包和图像从 azureml-contrib-解释包中删除
-    + 从 contrib 中删除的可视化仪表板-解释包、解释客户端已移动到 azureml-解释包并弃用 contrib
-    + 为 azureml-解读、azureml-pypi、contrib-解读和 azureml-tensorboard
+    + LIME 解释器已从 azureml-contrib-interpret 迁移到 interpret-community 包，并已从 azureml-contrib-interpret 包中删除映像解释器
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
   + **azureml-contrib-notebook**
-    + 将 nbcovert 依赖项固定到 < 6，以便 papermill 1.x 继续工作。
+    + 将 nbcovert 依赖项固定为 < 6，以便 papermill 1.x 继续正常运行。
   + **azureml-core**
-    + 向 TensorflowConfiguration 和 MpiConfiguration 构造函数添加了参数，以支持更简单的类特性初始化，而无需用户设置每个单独的属性。 添加了 PyTorchConfiguration 类，用于配置 ScriptRunConfig 中的分布式 PyTorch 作业。
-    + 固定 azure 管理资源的版本以修复身份验证错误。
-    + 支持 Triton 没有代码部署
-    + 现在，使用在交互式方案中运行时，将跟踪 Run.start_logging ( # A1 中指定的输出目录。 在调用运行时，将在 ML Studio 中看到跟踪的文件。完成 ( # A1
-    + 在创建数据集期间 `Dataset.Tabular.from_delimited_files` ，可以 `Dataset.Tabular.from_json_lines_files` 通过传递自变量来指定文件编码 `encoding` 。 支持的编码为 "utf8"、"iso88591"、"latin1-general"、"ascii"、utf16 "、" utf32 "、" utf8bom "和" windows1252 "。
-    + 环境对象未传递到 ScriptRunConfig 构造函数时的 Bug 修复。
-    + 已更新运行。取消 ( # A1，以允许从另一台计算机取消本地运行。
+    + 向 TensorflowConfiguration 和 MpiConfiguration 构造函数添加了参数，以便在无需用户设置每个独立属性的情况下，进一步简化对类属性的初始化操作。 添加了 PyTorchConfiguration 类，以在 ScriptRunConfig 中配置分布式 PyTorch 作业。
+    + 固定 azure-mgmt-resource 的版本，以修复身份验证错误。
+    + 支持 Triton 无代码部署
+    + 现在，在交互式场景中使用 run 时，将跟踪 Run.start_logging() 中指定的输出目录。 调用 Run.complete() 后，跟踪的文件将在 ML 工作室上可见
+    + 现在，在使用 `Dataset.Tabular.from_delimited_files` 和 `Dataset.Tabular.from_json_lines_files` 创建数据集期间，可以通过传递 `encoding` 参数来指定文件编码。 支持的编码如下：“utf8”、“iso88591”、“latin1”、“ascii”、“utf16”、“utf32”、“utf8bom”和“windows1252”。
+    + 修复了环境对象未传递到 ScriptRunConfig 构造函数的 bug。
+    + 更新了 Run.cancel() 以允许从其他计算机取消本地运行。
   + **azureml-dataprep**
-    +  修复了数据集装入超时问题。
+    +  修复了数据集安装超时问题。
   + **azureml-explain-model**
-    + 为 azureml-解读、azureml-pypi、contrib-解读和 azureml-tensorboard
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
   + **azureml-interpret**
-    + 从 contrib 中删除的可视化仪表板-解释包、解释客户端已移动到 azureml-解释包并弃用 contrib
-    + azureml-解释更新后的包取决于解读-社区0.15。0
-    + 为 azureml-解读、azureml-pypi、contrib-解读和 azureml-tensorboard
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
+    + 更新了 azureml-interpret，使其依赖于 interpret-community 0.15.0
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
   + **azureml-pipeline-core**
-    +  固定管道问题 `OutputFileDatasetConfig` ：当调用时，如果将 `register_on_complete` `name` 参数设置为预先存在的数据集名称，则系统可能会停止响应。
+    +  修复了 `OutputFileDatasetConfig` 的管道问题，即在 `name` 参数设置为预先存在的数据集名称的情况下调用 `register_on_complete` 时，系统可能会停止响应。
   + **azureml-pipeline-steps**
-    + 已删除过时的 databricks 笔记本。
+    + 删除了过时的 Databricks 笔记本。
   + **azureml-tensorboard**
-    + 为 azureml-解读、azureml-pypi、contrib-解读和 azureml-tensorboard
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
   + **azureml-train-automl-runtime**
-    + 从 contrib 中删除的可视化仪表板-解释包、解释客户端已移动到 azureml-解释包并弃用 contrib
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
   + **azureml-widgets**
-    + 从 contrib 中删除的可视化仪表板-解释包、解释客户端已移动到 azureml-解释包并弃用 contrib
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
 
 ## <a name="2020-09-21"></a>2020-09-21
 
@@ -1084,7 +1084,7 @@ ms.locfileid: "93423005"
 
 + **新功能**
   + 数据集：添加了两个选项 `on_error` 和 `out_of_range_datetime`，以便在数据包含错误值时使 `to_pandas_dataframe` 失败，而不是用 `None` 来填充它们。
-  + 工作区：为包含敏感数据的工作区添加了 `hbi_workspace` 标志，以便启用进一步的加密，并对工作区禁用高级诊断。 我们还添加了为关联的 Cosmos DB 实例使用自己的密钥的支持，若要获得此项支持，可以在创建工作区时指定 `cmk_keyvault` 和 `resource_cmk_uri` 参数，以便在预配工作区时在订阅中创建 Cosmos DB 实例。 [在此处了解详细信息。](./concept-enterprise-security.md#azure-cosmos-db)
+  + 工作区：为包含敏感数据的工作区添加了 `hbi_workspace` 标志，以便启用进一步的加密，并对工作区禁用高级诊断。 我们还添加了为关联的 Cosmos DB 实例使用自己的密钥的支持，若要获得此项支持，可以在创建工作区时指定 `cmk_keyvault` 和 `resource_cmk_uri` 参数，以便在预配工作区时在订阅中创建 Cosmos DB 实例。 [在此处了解详细信息。](./concept-data-encryption.md#azure-cosmos-db)
 
 + **Bug 修复与改进**
   + **azureml-automl-runtime**

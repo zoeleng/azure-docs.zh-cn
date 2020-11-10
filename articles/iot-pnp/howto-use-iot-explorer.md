@@ -1,30 +1,30 @@
 ---
 title: 安装和使用 Azure IoT 浏览器 |Microsoft Docs
-description: 安装 Azure IoT 资源管理器工具，并使用它与连接到 IoT 中心的 IoT 即插即用设备进行交互。
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: 安装 Azure IoT 资源管理器工具，并使用它与连接到 IoT 中心的 IoT 即插即用设备进行交互。 尽管本文重点介绍如何使用 IoT 即插即用设备，但你可以将此工具与连接到中心的任何设备一起使用。
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019148"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445296"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>安装和使用 Azure IoT 浏览器
 
-Azure IoT 浏览器是一种图形工具，用于与 IoT 即插即用设备进行交互和测试。 在本地计算机上安装该工具后，可以使用它来连接到中心。 您可以使用该工具查看设备正在发送的遥测数据，使用设备属性，并调用命令。
+Azure IoT 浏览器是一种图形工具，用于与连接到 IoT 中心的设备进行交互。 本文重点介绍如何使用工具测试 IoT 即插即用设备。 在本地计算机上安装该工具后，可以使用它来连接到中心。 您可以使用该工具查看设备正在发送的遥测数据，使用设备属性，并调用命令。
 
 本文介绍如何：
 
 - 安装和配置 Azure IoT 资源管理器工具。
-- 使用该工具与设备交互并对其进行测试。
+- 使用此工具与即插即用设备交互并测试 IoT。
 
-## <a name="prerequisites"></a>先决条件
+有关使用该工具的更多常规信息，请参阅 GitHub [自述文件](https://github.com/Azure/azure-iot-explorer/blob/master/README.md)。
 
 若要使用 Azure IoT 资源管理器工具，你需要：
 
@@ -40,13 +40,13 @@ Azure IoT 浏览器是一种图形工具，用于与 IoT 即插即用设备进�
 
 ## <a name="use-azure-iot-explorer"></a>使用 Azure IoT 浏览器
 
-对于设备，你可以连接你自己的设备，也可以使用其中一个示例模拟设备。 按照 [以下说明](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) 运行模拟设备示例。
+对于设备，你可以连接你自己的设备，也可以使用其中一个示例模拟设备。 有关使用不同语言编写的一些模拟设备示例，请参阅将 [示例 IoT 即插即用设备应用程序连接到 IoT 中心](quickstart-connect-device-node.md) 快速入门。
 
 ### <a name="connect-to-your-hub"></a>连接到中心
 
-首次运行 Azure IoT 资源管理器时，系统将提示你提供 IoT 中心的连接字符串。 添加连接字符串后，选择 " **连接**"。 通过更新连接字符串，可以使用该工具的设置来切换到另一个 IoT 中心。
+首次运行 Azure IoT 资源管理器时，系统将提示你提供 IoT 中心的连接字符串。 添加连接字符串后，选择 " **连接** "。 通过更新连接字符串，可以使用该工具的设置来切换到另一个 IoT 中心。
 
-IoT 即插即用设备的模型定义存储在公共存储库、连接的设备或本地文件夹中。 默认情况下，该工具会在公共存储库和连接的设备中查找模型定义。 可以在 " **设置**" 中添加和删除源，或配置源的优先级：
+IoT 即插即用设备的模型定义存储在公共存储库、连接的设备或本地文件夹中。 默认情况下，该工具会在公共存储库和连接的设备中查找模型定义。 可以在 " **设置** " 中添加和删除源，或配置源的优先级：
 
 添加源：
 
@@ -74,22 +74,22 @@ IoT 即插即用设备的模型定义存储在公共存储库、连接的设备�
 
 ## <a name="interact-with-a-device"></a>与设备交互
 
-在 " **设备** 列表" 页上，选择 " **设备 ID** " 列中的值，查看已注册设备的详细信息页。 对于每个设备，有两个部分： " **设备** " 和 " **数字**"。
+在 " **设备** 列表" 页上，选择 " **设备 ID** " 列中的值，查看已注册设备的详细信息页。 对于每个设备，有两个部分： " **设备** " 和 " **数字** "。
 
 ### <a name="device"></a>设备
 
-本部分包括 **设备标识**、  **设备**克隆、 **遥测**、 **直接方法**、 **云到设备消息**、 **模块标识**  选项卡。
+本部分包括 **设备标识** 、  **设备** 克隆、 **遥测** 、 **直接方法** 、 **云到设备消息** 、 **模块标识**  选项卡。
 
-- 可以在 "**设备标识**" 选项卡上查看和更新[设备标识](../iot-hub/iot-hub-devguide-identity-registry.md)信息。
-- 可以在 "**设备**克隆" 选项卡上访问[设备](../iot-hub/iot-hub-devguide-device-twins.md)克隆信息。
-- 如果设备已连接并主动发送数据，则可以在 "**遥测**" 选项卡上查看[遥测](../iot-hub/iot-hub-devguide-messages-read-builtin.md)数据。
-- 可以在 "**直接方法**" 选项卡上的设备上调用[直接方法](../iot-hub/iot-hub-devguide-direct-methods.md)。
-- 可以在 "**云到设备的消息**" 选项卡上发送[云到设备的消息](../iot-hub/iot-hub-devguide-messages-c2d.md)。
+- 可以在 " **设备标识** " 选项卡上查看和更新 [设备标识](../iot-hub/iot-hub-devguide-identity-registry.md)信息。
+- 可以在 " **设备** 克隆" 选项卡上访问 [设备](../iot-hub/iot-hub-devguide-device-twins.md)克隆信息。
+- 如果设备已连接并主动发送数据，则可以在 " **遥测** " 选项卡上查看 [遥测](../iot-hub/iot-hub-devguide-messages-read-builtin.md)数据。
+- 可以在 " **直接方法** " 选项卡上的设备上调用 [直接方法](../iot-hub/iot-hub-devguide-direct-methods.md)。
+- 可以在 " **云到设备的消息** " 选项卡上发送 [云到设备的消息](../iot-hub/iot-hub-devguide-messages-c2d.md)。
 - 可以访问 [模块](../iot-hub/iot-hub-devguide-module-twins.md) 克隆信息。
 
 ### <a name="iot-plug-and-play-components"></a>IoT 即插即用组件
 
-如果设备使用 **模型 id**连接到集线器，则该工具将显示 **IoT 即插即用组件** "" 选项卡 ""，您可以在其中查看 **模型 id**。
+如果设备使用 **模型 id** 连接到集线器，则该工具将显示 **IoT 即插即用组件** "选项卡，可以在其中查看 **模型 id** 。
 
 如果 **模型 ID** 在某个已配置的源中可用-公共存储库或本地文件夹，则会显示组件列表。 选择组件会显示可用的属性、命令和遥测数据。
 
@@ -99,13 +99,17 @@ IoT 即插即用设备的模型定义存储在公共存储库、连接的设备�
 
 #### <a name="properties"></a>属性
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="在 Azure IoT 资源管理器中查看组件" 属性 "。
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="在 Azure IoT 资源管理器中查看属性":::
+
+您可以在 " **属性 (只读)** " 选项卡的 "属性" 选项卡上查看接口中定义的只读属性。您可以在 "可写) " 选项卡的 " **属性" (属性** 上更新接口中定义的可写属性：
+
+1. 请 **(可写)** "选项卡中转到" 属性 "。
 1. 单击要更新的属性。
 1. 为属性输入新值。
 1. 预览要发送到设备的有效负载。
 1. 提交更改。
 
-提交更改后，可以跟踪更新状态： **同步**、 **成功**或 **错误**。 完成同步后，会在 **报告的属性** 列中看到属性的新值。 如果在完成同步之前导航到其他页，则该工具在更新完成后仍会通知你。 你还可以使用该工具的通知中心来查看通知历史记录。
+提交更改后，可以跟踪更新状态： **同步** 、 **成功** 或 **错误** 。 完成同步后，会在 **报告的属性** 列中看到属性的新值。 如果在完成同步之前导航到其他页，则该工具在更新完成后仍会通知你。 你还可以使用该工具的通知中心来查看通知历史记录。
 
 #### <a name="commands"></a>命令
 
@@ -122,13 +126,7 @@ IoT 即插即用设备的模型定义存储在公共存储库、连接的设备�
 
 #### <a name="known-issues"></a>已知问题
 
-- IoT Edge 支持：当前版本不会显示设备列表中 IoT Edge 设备。
-- DTDL 语言功能： IoT 浏览器0.12 不完全符合 DTDL v2，不支持的功能包括：
-  - 接口继承 `extends`
-  - Map in map (嵌套地图) 
-  - 数组类型
-  - 自定义架构
-  - 自定义语义类型
+有关该工具的最新版本支持的 IoT 功能的列表，请参阅 [功能列表](https://github.com/Azure/azure-iot-explorer/wiki)。
 
 ## <a name="next-steps"></a>后续步骤
 

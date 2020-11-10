@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539565"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445432"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>升级到 Azure 认知搜索 .NET SDK 版本 11
 
@@ -31,7 +31,7 @@ ms.locfileid: "91539565"
 + 一系列 API 的命名差异，以及简化了某些任务的小的结构差异
 
 > [!NOTE]
-> 有关 .NET SDK 版本 11 中的变更的详细列表，请查看[**更改日志**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)。
+> 有关 .NET SDK 版本 11 中的变更的详细列表，请查看 [**更改日志**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)。
 
 ## <a name="package-and-library-consolidation"></a>包和库合并
 
@@ -49,7 +49,7 @@ ms.locfileid: "91539565"
 |---------------------|------------------------------|------------------------------|
 | 用于查询以及用于填充索引的客户端。 | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
 | 用于索引、分析器、同义词映射的客户端 | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| 用于索引器、数据源、技能组的客户端 | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient（**新增**）](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| 用于索引器、数据源、技能组的客户端 | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient（ **新增** ）](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` 在两个版本中均存在，但支持不同的功能。 在版本 10 中，`SearchIndexClient` 创建索引和其他对象。 在版本 11 中，`SearchIndexClient` 处理现有索引。 为了避免在更新代码时产生混淆，请注意更新客户端引用时的顺序。 按照[升级步骤](#UpgradeSteps)中的顺序进行操作应当有助于缓解任何字符串替换问题。
@@ -169,6 +169,24 @@ Azure 认知搜索客户端库的每个版本都面向 REST API 的一个对应�
    ```
 
 1. 为索引器相关对象添加新的客户端引用。 如果使用的是索引器、数据源或技能组，请将客户端引用更改为 [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient)。 此客户端是版本 11 中的新客户端，之前没有。
+
+1. 重新访问集合。 在新的 SDK 中，如果列表碰巧包含空值，则所有列表均为只读，以避免出现下游问题。 代码更改是向列表中添加项。 例如，您可以按如下所示添加字符串，而不是为 Select 属性赋值：
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
 
 1. 为查询和数据导入更新客户端引用。 应将 [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) 的实例更改为 [SearchClient](/dotnet/api/azure.search.documents.searchclient)。 为了避免名称混乱，请确保在继续下一步之前捕获所有实例。
 

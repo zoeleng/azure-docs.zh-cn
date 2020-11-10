@@ -2,13 +2,13 @@
 title: Azure Migrate 中的 VMware 评估支持
 description: 了解使用 Azure Migrate 服务器评估时的 VMware VM 评估支持。
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/10/2020
+ms.openlocfilehash: 6e033bdf0f1492d6cbb4c41192cca8206816917d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345425"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444939"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 评估支持矩阵 
 
@@ -66,14 +66,14 @@ Azure Migrate 使用 [Azure Migrate 设备](migrate-appliance.md)进行发现和
 
 **支持** | **详细信息**
 --- | ---
-**支持的虚拟机** | 目前，只有 VMware VM 才支持应用发现。 你可以从每个 Azure Migrate 设备发现最多10000个 VMware Vm 上安装的应用。
-**操作系统** | 运行所有 Windows 和 Linux 版本的 Vm 支持应用发现。
+**支持的虚拟机** | 目前，只有 VMware VM 才支持。 你可以从每个 Azure Migrate 设备发现最多10000个 VMware Vm 上安装的应用。
+**操作系统** | 支持运行所有 Windows 和 Linux 版本的 Vm。
 **VM 要求** | 必须在要发现应用的 Vm 上安装并运行 VMware 工具。 <br/><br/> VMware 工具版本必须高于 10.2.0。<br/><br/> VM 必须安装 PowerShell 版本 2.0 或更高版本。
-**发现** | 应用发现是无代理的。 它使用虚拟机来宾凭据，并使用 WMI 和 SSH 调用来远程访问虚拟机。
+**发现** | 有关 VM 上安装的应用的信息将使用 VM 上安装的 VMware 工具从 vCenter Server 收集。 设备使用 vSphere Api 从 vCenter Server 收集应用信息。 应用发现是无代理的。 Vm 上未安装任何内容，且设备不会直接连接到 Vm。 WMI/SSH 应在 Vm 上启用并可用。
 **vCenter** | 用于评估的 vCenter Server 只读帐户，需要为 **虚拟机**  >  **来宾操作** 启用特权，以便与用于应用程序发现的 VM 交互。
 **VM 访问** | 应用发现需要虚拟机上的本地用户帐户才能发现应用程序。<br/><br/> Azure Migrate 当前支持将一个凭据用于所有 Windows 服务器，为所有 Linux 服务器支持一个凭据。<br/><br/> 你为 Windows VM 创建来宾用户帐户，并为所有 Linux VM 创建常规/普通用户帐户（非 sudo 访问权限）。
 **端口访问** | Azure Migrate 设备必须能够连接到运行要在其上发现应用的 Vm 的 ESXi 主机上的 TCP 端口443。 VCenter Server 返回 ESXI 主机连接，以下载包含应用信息的文件。
-**限制** | 对于应用发现，最多可以在每个 Azure Migrate 设备上发现 10,000 个 VM。
+
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>依赖关系分析要求 (无代理) 
@@ -82,17 +82,15 @@ Azure Migrate 使用 [Azure Migrate 设备](migrate-appliance.md)进行发现和
 
 要求 | **详细信息**
 --- | --- 
-**部署前** | 应有 Azure Migrate 项目，并已将服务器评估工具添加到项目中。<br/><br/>  设置 Azure Migrate 设备后，请部署依赖关系可视化，以发现本地 VMware 计算机。<br/><br/> [了解如何](create-manage-projects.md)首次创建项目。<br/> [了解如何](how-to-assess.md)向现有项目添加评估工具。<br/> [了解如何](how-to-set-up-appliance-vmware.md)设置 Azure Migrate 设备来评估 VMware VM。
 **支持的虚拟机** | 目前，只有 VMware VM 才支持。
-**Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2（64 位）。<br/>Microsoft Windows Server 2008 (32) 。 确保安装了 PowerShell。
-**vCenter Server 凭据** | 依赖关系可视化需要 vCenter Server 帐户，帐户具有只读访问权限，并需要为“虚拟机”>“来宾操作”启用的特权。
-**Windows VM 权限** |  对于依赖关系分析，Azure Migrate 设备必须有域管理员帐户或本地管理员帐户，才能访问 Windows VM。
-**Linux VM** | Red Hat Enterprise Linux 7、6、5<br/> Ubuntu Linux 14.04、16.04<br/> Debian 7、8<br/> Oracle Linux 6、7<br/> CentOS 5、6、7。<br/> SUSE Linux Enterprise Server 11 和更高版本
-**Linux 帐户** | 对于依赖项分析，在 Linux 计算机上，Azure Migrate 设备需要 root 用户帐户<br/><br/> 或者，用户帐户需要对 /bin/netstat 和 /bin/ls 文件具有以下权限：CAP_DAC_READ_SEARCH 和 CAP_SYS_PTRACE。 使用以下命令设置这些功能： <br/> sudo setcap CAP_DAC_READ_SEARCH，CAP_SYS_PTRACE = ep/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH，CAP_SYS_PTRACE = ep/bin/netstat
-**必需代理** | 要分析的虚拟机上不需要任何代理。
-**VMware 工具** | 必须在要分析的每个 VM 上安装并运行 VMware 工具（版本高于 10.2）。
-**PowerShell** | Windows VM 必须安装 PowerShell 版本 2.0 或更高版本。
-**端口访问** | 在运行要分析的 VM 的 ESXi 主机上，Azure Migrate 设备必须能够连接到 TCP 端口 443。
+**Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2（64 位）。<br/>Microsoft Windows Server 2008 (32) 。 
+**Linux VM** | Red Hat Enterprise Linux 7、6、5<br/> Ubuntu Linux 14.04、16.04<br/> Debian 7、8<br/> Oracle Linux 6、7<br/> CentOS 5、6、7。<br/> SUSE Linux Enterprise Server 11 及更高版本。
+**VM 要求** | 必须在要分析的 Vm 上安装并运行 VMware Tools (10.2.0) 。<br/><br/> VM 必须安装 PowerShell 版本 2.0 或更高版本。
+**发现方法** |  利用 VM 上安装的 VMware 工具，从 vCenter Server 收集 Vm 之间的依赖关系信息。 设备使用 vSphere Api 从 vCenter Server 中收集信息。 发现是无代理的。 VM 上未安装任何内容，且设备不会直接连接到 Vm。 WMI/SSH 应在 Vm 上启用并可用。
+**vCenter 帐户** | 用于评估 Azure Migrate 的只读帐户需要为 **虚拟机启用 > 来宾操作** 的特权。
+**Windows VM 权限** |  使用 Vm 本地管理员权限 (本地管理员或域) 的帐户。
+**Linux 帐户** | 根用户帐户或对/bin/netstat 和/bin/ls 文件具有以下权限的帐户： CAP_DAC_READ_SEARCH 和 CAP_SYS_PTRACE。<br/><br/> 使用以下命令设置这些功能： <br/><br/> sudo setcap CAP_DAC_READ_SEARCH，CAP_SYS_PTRACE = ep/bin/ls<br/><br/> sudo setcap CAP_DAC_READ_SEARCH，CAP_SYS_PTRACE = ep/bin/netstat
+**端口访问** | Azure Migrate 设备必须能够连接到运行要发现其依赖关系的 Vm 的 ESXI 主机上的 TCP 端口443。 VCenter Server 返回 ESXI 主机连接，以下载包含依赖关系信息的文件。
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>基于代理的)  (依赖关系分析需求

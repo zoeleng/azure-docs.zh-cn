@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 707f4c098eacb0b72a7e12ebf79f9389b91095cc
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d39e34bd85c4524a6f28d188f977a7ab37eecc58
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376513"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445007"
 ---
 # <a name="active-learning-suggestions"></a>活动学习建议
 
@@ -137,9 +137,9 @@ QnA Maker 需要有关哪种答案是最佳答案的明确反馈。 如何确定
 * 业务逻辑，例如确定可接受的分数范围。
 * 用户反馈和业务逻辑的组合。
 
-使用 [训练 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) 将正确答案发送到 QnA Maker，并在用户选择它后发送。
+使用 [训练 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) 将正确答案发送到 QnA Maker，并在用户选择它后发送。
 
-## <a name="next-step"></a>后续步骤
+## <a name="next-step"></a>下一步
 
 > [!div class="nextstepaction"]
 > [查询知识库](query-knowledge-base.md)

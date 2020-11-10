@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151143"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445058"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure 存储的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -167,14 +167,14 @@ Key Vault 集成有两个必需的包：
   * 如果指定为获取密钥，则将调用密钥解析程序。 如果指定了解析程序，但该解析程序不具有密钥标识符的映射，则将引发错误。
 
 ### <a name="requireencryption-mode-v11-only"></a>RequireEncryption 模式仅 (v11) 
-用户可以选择启用一个操作模式，让所有上传和下载都必须加密。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，将导致在客户端上失败。 请求选项对象的 **RequireEncryption** 属性控制此行为。 如果应用程序要加密存储于 Azure 存储中的所有对象，则可以在服务客户端对象的默认请求选项上设置 **RequireEncryption**属性。 例如，将 **CloudBlobClient.DefaultRequestOptions.RequireEncryption** 设置为 **true**，要求对通过该客户端对象执行的所有 blob 操作进行加密。
+用户可以选择启用一个操作模式，让所有上传和下载都必须加密。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，将导致在客户端上失败。 请求选项对象的 **RequireEncryption** 属性控制此行为。 如果应用程序要加密存储于 Azure 存储中的所有对象，则可以在服务客户端对象的默认请求选项上设置 **RequireEncryption** 属性。 例如，将 **CloudBlobClient.DefaultRequestOptions.RequireEncryption** 设置为 **true** ，要求对通过该客户端对象执行的所有 blob 操作进行加密。
 
 
 ### <a name="blob-service-encryption"></a>Blob 服务加密
 
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-创建 **ClientSideEncryptionOptions** 对象，并在创建客户端时使用 **SpecializedBlobClientOptions**进行设置。 不能基于每个 API 设置加密选项。 其他所有事项均由客户端库在内部处理。
+创建 **ClientSideEncryptionOptions** 对象，并在创建客户端时使用 **SpecializedBlobClientOptions** 进行设置。 不能基于每个 API 设置加密选项。 其他所有事项均由客户端库在内部处理。
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -207,9 +207,9 @@ MemoryStream outputStream = new MemoryStream();
 blob.DownloadTo(outputStream);
 ```
 
-**Blobserviceclient 使用**无需应用加密选项。 它们还可以传递到**BlobContainerClient** / 接受**BlobClientOptions**对象的 BlobContainerClient**BlobClient**构造函数中。
+**Blobserviceclient 使用** 无需应用加密选项。 它们还可以传递到 **BlobContainerClient** / 接受 **BlobClientOptions** 对象的 BlobContainerClient **BlobClient** 构造函数中。
 
-如果所需的 **BlobClient** 对象已存在，但没有客户端加密选项，则存在一个扩展方法，用于使用给定的 **ClientSideEncryptionOptions**创建该对象的副本。 此扩展方法避免了从头开始构造新的 **BlobClient** 对象所产生的开销。
+如果所需的 **BlobClient** 对象已存在，但没有客户端加密选项，则存在一个扩展方法，用于使用给定的 **ClientSideEncryptionOptions** 创建该对象的副本。 此扩展方法避免了从头开始构造新的 **BlobClient** 对象所产生的开销。
 
 ```csharp
 using Azure.Storage.Blobs.Specialized;
@@ -247,7 +247,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### <a name="queue-service-encryption"></a>队列服务加密
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
-创建 **ClientSideEncryptionOptions** 对象，并在创建客户端时使用 **SpecializedQueueClientOptions**进行设置。 不能基于每个 API 设置加密选项。 其他所有事项均由客户端库在内部处理。
+创建 **ClientSideEncryptionOptions** 对象，并在创建客户端时使用 **SpecializedQueueClientOptions** 进行设置。 不能基于每个 API 设置加密选项。 其他所有事项均由客户端库在内部处理。
 
 ```csharp
 // Your key and key resolver instances, either through KeyVault SDK or an external implementation
@@ -277,9 +277,9 @@ queue.SendMessage("Hello, World!");
 QueueMessage[] queue.ReceiveMessages(); 
 ```
 
-**QueueServiceClient**无需应用加密选项。 它们还可以传递到接受**QueueClientOptions**对象的**QueueClient**构造函数中。
+**QueueServiceClient** 无需应用加密选项。 它们还可以传递到接受 **QueueClientOptions** 对象的 **QueueClient** 构造函数中。
 
-如果所需的 **QueueClient** 对象已存在，但没有客户端加密选项，则存在一个扩展方法，用于使用给定的 **ClientSideEncryptionOptions**创建该对象的副本。 此扩展方法避免了从头开始构造新的 **QueueClient** 对象所产生的开销。
+如果所需的 **QueueClient** 对象已存在，但没有客户端加密选项，则存在一个扩展方法，用于使用给定的 **ClientSideEncryptionOptions** 创建该对象的副本。 此扩展方法避免了从头开始构造新的 **QueueClient** 对象所产生的开销。
 
 ```csharp
 using Azure.Storage.Queues.Specialized;
@@ -292,7 +292,7 @@ ClientSideEncryptionOptions encryptionOptions;
 QueueClient clientSideEncryptionQueue = plaintextQueue.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-某些用户可能具有队列，其中并非所有接收的消息都可以成功解密，密钥或解析程序必须引发。 在这种情况下，上述示例的最后一行将引发，所有接收的消息都将不可访问。 在这些情况下，可以使用子类 **QueueClientSideEncryptionOptions** 为客户端提供加密选项。 它公开一个事件 **DecryptionFailed** ，每当队列消息无法解密时将触发该事件，只要至少有一个调用已添加到该事件。 可以通过这种方式处理单独失败的消息，并将其从**ReceiveMessages**返回的最终**QueueMessage []** 中进行筛选。
+某些用户可能具有队列，其中并非所有接收的消息都可以成功解密，密钥或解析程序必须引发。 在这种情况下，上述示例的最后一行将引发，所有接收的消息都将不可访问。 在这些情况下，可以使用子类 **QueueClientSideEncryptionOptions** 为客户端提供加密选项。 它公开一个事件 **DecryptionFailed** ，每当队列消息无法解密时将触发该事件，只要至少有一个调用已添加到该事件。 可以通过这种方式处理单独失败的消息，并将其从 **ReceiveMessages** 返回的最终 **QueueMessage []** 中进行筛选。
 
 ```csharp
 // Create your encryption options using the sub-class.
@@ -344,7 +344,7 @@ Debug.Assert(messages.Length == 4)
 ---
 
 ### <a name="table-service-encryption-v11-only"></a>表服务加密 (v11 仅) 
-除了创建加密策略和在请求选项上设置它以外，还必须在 **TableRequestOptions** 中指定 **EncryptionResolver**，或在实体上设置 [EncryptProperty] 特性。
+除了创建加密策略和在请求选项上设置它以外，还必须在 **TableRequestOptions** 中指定 **EncryptionResolver** ，或在实体上设置 [EncryptProperty] 特性。
 
 #### <a name="using-the-resolver"></a>使用解析程序
 
@@ -383,7 +383,7 @@ Debug.Assert(messages.Length == 4)
 ```
 
 #### <a name="using-attributes"></a>使用特性
-如上所述，如果实体实现了 TableEntity，则可以使用 [EncryptProperty] 特性修饰属性，而不用指定 **EncryptionResolver**。
+如上所述，如果实体实现了 TableEntity，则可以使用 [EncryptProperty] 特性修饰属性，而不用指定 **EncryptionResolver** 。
 
 ```csharp
 [EncryptProperty]

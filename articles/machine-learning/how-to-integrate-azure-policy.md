@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 22901c4e8409fc4846c1566a57b2679f4fa92396
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325504"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444552"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>使用 Azure Policy 审核和管理 Azure 机器学习
 
@@ -42,11 +42,11 @@ Azure 机器学习提供了一组策略，可用于 Azure 机器学习的常见�
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>使用客户管理的密钥对工作区进行加密
 
-控制是否应使用客户管理的密钥 (CMK) 对工作区进行加密，或使用 Microsoft 托管的密钥来加密指标和元数据。 有关如何使用 CMK 的详细信息，请参阅企业安全性文章的 [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) 部分。
+控制是否应使用客户管理的密钥加密工作区，或使用 Microsoft 托管密钥来加密度量值和元数据。 有关使用客户托管密钥的详细信息，请参阅数据加密文章的 [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) 部分。
 
-若要配置此策略，请将 effect 参数设置为“审核”或“拒绝” 。 如果设置为“审核”，则无需 CMK 即可创建工作区，并且会在活动日志中创建警告事件。
+若要配置此策略，请将 effect 参数设置为“审核”或“拒绝” 。 如果设置为 " __审核__ "，则可以创建不使用客户管理的密钥的工作区，并且会在活动日志中创建一个警告事件。
 
-如果策略设置为“拒绝”，则无法创建工作区，除非该策略指定了 CMK。 尝试在不使用 CMK 的情况下创建工作区会导致类似于 `Resource 'clustername' was disallowed by policy` 的错误，并且会在活动日志中创建一个错误。 策略标识符也作为此错误的一部分返回。
+如果将策略设置为 " __拒绝__ "，则无法创建工作区，除非它指定了客户管理的密钥。 如果尝试创建的工作区没有客户托管的密钥，会导致类似于的错误 `Resource 'clustername' was disallowed by policy` ，并会在活动日志中创建一个错误。 策略标识符也作为此错误的一部分返回。
 
 ## <a name="workspaces-should-use-private-link"></a>工作区应使用专用链接
 

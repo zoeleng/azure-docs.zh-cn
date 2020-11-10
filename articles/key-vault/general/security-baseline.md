@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48a822adc34019ca2f6a39aa70211cae7fbf6030
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289876"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445517"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault 的 Azure 安全基线
 
@@ -26,7 +26,7 @@ ms.locfileid: "93289876"
 
 有关详细信息，请参阅[安全控制：网络安全性](../../security/benchmarks/security-control-network-security.md)。
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络上使用网络安全组或 Azure 防火墙来保护资源
 
 **指南** ：将 Azure Key Vault 与 Azure Private Link 集成。 
 
@@ -140,7 +140,7 @@ Key Vault 应使用虚拟网络服务终结点
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure 策略示例：
+Azure Policy 示例： 
 
 https://docs.microsoft.com/azure/governance/policy/samples/#networ
 
@@ -232,7 +232,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -252,7 +252,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 ### <a name="26-monitor-and-review-logs"></a>2.6：监视和审查日志
 
-**指南** ：分析和监视日志中的异常行为，并定期查看 Azure Key Vault 保护资源的结果。 使用 Azure Monitor 的 Log Analytics 工作区查看日志并对日志数据执行查询。 或者，可以将数据启用并加入 Azure Sentinel 或第三方 SIEM。 
+**指南** ：分析和监视日志中的异常行为，并定期查看 Azure Key Vault 保护资源的结果。 使用 Azure Monitor 的 Log Analytics 工作区查看日志并对日志数据执行查询。 或者，可以启用数据并将其加入 Azure Sentinel 或第三方 SIEM。 
 
 快速入门：板载 Azure Sentinel：
 
@@ -271,7 +271,7 @@ https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **责任** ：客户
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7：针对异常活动启用警报
+### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7：启用针对异常活动的警报
 
 **指南** ：在 Azure 安全中心中，为 KEY VAULT (ATP) 启用高级威胁防护。 在 Azure Key Vault 中启用诊断设置，并将日志发送到 Log Analytics 工作区。 将 Log Analytics 工作区加入 Azure Sentinel，因为它提供了安全业务流程自动化响应 (SOAR) 解决方案。 这样便可以创建 playbook（自动解决方案）并用于修正安全问题。
 
@@ -312,7 +312,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2：在适用的情况下更改默认密码
 
-**指南** ：不适用;Azure Key Vault 没有默认密码的概念，因为 Active Directory 提供身份验证，并使用基于角色的访问控制来保护身份。
+**指南** ：不适用;Azure Key Vault 没有默认密码的概念，因为 Active Directory 提供身份验证，并使用 Azure RBAC)  (azure 基于角色的访问控制来保护身份。
 
 
 **Azure 安全中心监视** ：不适用
@@ -409,7 +409,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **责任** ：客户
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
+### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录管理帐户的可疑活动并发出警报
 
 **指导** ：当环境中出现可疑或不安全的活动时，可使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 生成日志和警报。 使用 Azure AD 风险检测查看有关风险用户行为的警报和报告。 对于其他日志记录，请将 Azure 安全中心风险检测警报发送到 Azure Monitor，并使用操作组配置自定义警报/通知。
 
@@ -445,7 +445,7 @@ Azure Active Directory 条件访问中的位置条件是什么？： https://doc
 
 ### <a name="39-use-azure-active-directory"></a>3.9：使用 Azure Active Directory
 
-**指南** ：使用 Azure Active Directory (Azure AD) 作为 Azure 资源（如 Key Vault）的中央身份验证和授权系统。 这允许基于角色的访问控制 (RBAC) 管理敏感资源。
+**指南** ：使用 Azure Active Directory (Azure AD) 作为 Azure 资源（如 Key Vault）的中央身份验证和授权系统。 这允许 azure RBAC)  (Azure 基于角色的访问控制来管理敏感资源。
 
  
 
@@ -475,7 +475,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 **责任** ：客户
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11：监视访问已停用帐户的企图
+### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11：监视尝试访问已停用帐户的行为
 
 **指南** ：对 Azure Key Vault 和 Azure Active Directory 启用诊断设置，将所有日志发送到 Log Analytics 工作区。 在 Log Analytics 中配置所需警报（例如尝试访问禁用的机密）。
 
@@ -667,7 +667,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3：部署第三方自动软件修补管理解决方案
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -703,7 +703,7 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **指南** ：使用 Azure 资源关系图可查询和发现所有资源 (包括订阅中) Azure Key Vault 实例。 确保你在租户中拥有适当的（读取）权限，并且可以枚举所有 Azure 订阅，以及订阅中的资源。
 
-快速入门：使用 Azure 资源关系图资源管理器运行第一个资源图形查询：
+快速入门：使用 Azure Resource Graph Explorer 运行第一个 Resource Graph 查询： 
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -825,7 +825,7 @@ Azure Policy 示例： https://docs.microsoft.com/azure/governance/policy/sample
 
 ### <a name="610-implement-approved-application-list"></a>6.10：实施已批准的应用程序列表
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -836,7 +836,7 @@ Azure Policy 示例： https://docs.microsoft.com/azure/governance/policy/sample
 
 **指南** ：通过为 "Microsoft Azure 管理" 应用配置 "阻止访问"，使用 Azure 条件访问限制用户与 Azure 资源管理器 (ARM) 交互的能力。 这可以防止在高安全性环境（如 Key Vault 配置的环境）中创建和更改资源。
 
-使用条件性访问管理对 Azure 管理的访问权限：
+使用条件访问管理对 Azure 管理的访问权限： 
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
@@ -898,7 +898,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2：建立安全的操作系统配置
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -925,7 +925,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4：维护安全的操作系统配置
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -950,7 +950,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -971,7 +971,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8：为操作系统部署系统配置管理工具
 
-**指南** ：不适用；此建议适用于计算资源。
+**指导** ：不适用；此建议适用于计算资源。
 
 
 **Azure 安全中心监视** ：不适用
@@ -1059,7 +1059,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
-**指南** ：不适用；此建议适用于计算资源。 Microsoft 处理底层平台的反恶意软件。
+**指导** ：不适用；此建议适用于计算资源。 Microsoft 处理底层平台的反恶意软件。
 
 
 **Azure 安全中心监视** ：不适用
@@ -1121,7 +1121,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **责任** ：客户
 
-### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2：执行完整系统备份，并备份客户管理的所有密钥
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2：执行完整的系统备份并备份所有客户管理的密钥
 
 **指南** ：通过以下 PowerShell 命令执行 Key Vault 证书、密钥、托管存储帐户和机密的备份：
 
@@ -1151,7 +1151,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **责任** ：客户
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3：验证所有备份，包括客户管理的密钥
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3：验证所有备份，包括客户端管理的密钥
 
 **指南** ：通过以下 PowerShell 命令定期执行 Key Vault 证书、密钥、托管存储帐户和机密的数据还原：
 

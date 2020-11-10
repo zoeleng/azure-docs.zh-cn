@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: a55db6a9db8cc53da15ba6e818db7b78b72cefc9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f7b4a22c0473acb7da0708f095c25b4f3f78fe66
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927730"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445585"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上具有灵活性。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -28,19 +28,55 @@ Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和�
 ## <a name="virtual-network-support"></a>虚拟网络支持
 在创建缓存期间，可在“新建 Azure Redis 缓存”  边栏选项卡中配置虚拟网络 (VNet) 支持。 
 
-1. 若要创建高级缓存，请登录到 [Azure 门户](https://portal.azure.com) ，然后选择 " **创建资源** "。 请注意，除了在 Azure 门户中创建缓存外，还可以使用资源管理器模板、PowerShell 或 Azure CLI 创建缓存。 有关创建 Azure Redis 缓存的详细信息，请参阅[创建缓存](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
+1. 若要创建高级缓存，请登录到 [Azure 门户](https://portal.azure.com)并选择“创建资源”。 请注意：除了在 Azure 门户中创建缓存以外，也可使用资源管理器模板、PowerShell 或 Azure CLI 创建。 有关创建 Azure Redis 缓存的详细信息，请参阅[创建缓存](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="创建资源。":::
    
 2. 在“新建”页上选择“数据库”，然后选择“Azure Cache for Redis”。
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="创建资源。" 选项卡中，配置非 TLS 端口、群集和数据暂留的设置。 
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="选择 Azure Cache for Redis。":::
+
+3. 在“新建 Redis 缓存”页上配置新高级缓存的设置。
+   
+   | 设置      | 建议的值  | 说明 |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **DNS 名称** | 输入任何全局唯一的名称。 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母或连字符。 该名称必须以数字或字母开头和结尾，且不能包含连续的连字符。 缓存实例的主机名是 *\<DNS name> .redis.cache.windows.net* 。 | 
+   | **订阅** | 单击下拉箭头并选择你的订阅。 | 要在其下创建此新的 Azure Cache for Redis 实例的订阅。 | 
+   | **资源组** | 单击下拉箭头并选择一个资源组，或者选择“新建”并输入新的资源组名称。 | 要在其中创建缓存和其他资源的资源组的名称。 将所有应用资源放入一个资源组可以轻松地统一管理或删除这些资源。 | 
+   | **位置** | 单击下拉箭头并选择一个位置。 | 选择与要使用该缓存的其他服务靠近的[区域](https://azure.microsoft.com/regions/)。 |
+   | **缓存类型** | 单击下拉箭头并选择高级缓存来配置高级功能。 有关详细信息，请参阅 [Azure Cache for Redis 定价](https://azure.microsoft.com/pricing/details/cache/)。 |  定价层决定可用于缓存的大小、性能和功能。 有关详细信息，请参阅[用于 Redis 的 Azure 缓存概述](cache-overview.md)。 |
+
+4. 选择“网络”选项卡，或单击页面底部的“网络”按钮 。
+
+5. 在“网络”选项卡中，选择“虚拟网络”作为连接方法 。 若要使用新的虚拟网络，请先创建虚拟网络，方法是执行[使用 Azure 门户创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)或[使用 Azure 门户创建虚拟网络（经典）](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)中的步骤，然后返回“新建 Azure Cache for Redis”边栏选项卡来创建并配置高级缓存。
+
+   > [!IMPORTANT]
+   > 将 Azure Redis 缓存部署到资源管理器 VNet 时，缓存必须位于专用子网中，该子网中只能包含 Azure Redis 缓存实例，而不能包含其他资源。 如果尝试将 Azure Redis 缓存部署到包含其他资源的资源管理器 VNet 子网，部署会失败。
+   > 
+   > 
+
+   | 设置      | 建议的值  | 说明 |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **虚拟网络** | 单击下拉箭头并选择你的虚拟网络。 | 选择与缓存位于同一订阅和位置中的虚拟网络。 | 
+   | **子网** | 单击下拉箭头并选择你的子网。 | 应以 CIDR 表示法表示子网的地址范围（例如 192.168.1.0/24）。 它必须包含在虚拟网络的地址空间中。 | 
+   | **静态 IP 地址** | （可选）输入静态 IP 地址。 | 如果未指定静态 IP，则会自动选择一个 IP 地址。 | 
+
+   > [!IMPORTANT]
+   > Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他三个地址用于 Azure 服务。 有关详细信息，请参阅[使用这些子网中的 IP 地址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+   > 
+   > 除了 Azure VNET 基础结构使用的 IP 地址以外，子网中的每个 Redis 实例为每个分片使用两个 IP 地址，为负载均衡器使用一个额外的 IP 地址。 非群集缓存被视为包含一个分片。
+   > 
+   > 
+
+6. 选择页面底部的“下一步:高级”选项卡，或者单击页面底部的“下一步:高级”按钮。
+
+7. 在高级缓存实例的“高级”选项卡中，配置非 TLS 端口、群集和数据暂留的设置。 
 
 8. 选择页面底部的“下一步:标记”选项卡，或者单击“下一步:标记”按钮。
 
 9. 或者，在“标记”选项卡中，如果希望对资源分类，请输入名称或值。 
 
-10. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
+10. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
 
 11. 显示绿色的“已通过验证”消息后，选择“创建”。
 
@@ -123,7 +159,7 @@ public static ConnectionMultiplexer Connection
 | 6379、6380 |入站 |TCP |与 Redis 的客户端通信、Azure 负载均衡 | （Redis 子网） | （Redis 子网）、虚拟网络、Azure 负载均衡器 <sup>1</sup> |
 | 8443 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 | 8500 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
-| 10221-10231 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网）、Azure 负载均衡器 |
+| 10221-10231 |入站 |TCP |与 Redis 群集的客户端通信、Redis 的内部通信 | （Redis 子网） | (Redis 子网) ，Azure 负载均衡器， (客户端子网)  |
 | 13000-13999 |入站 |TCP |与 Redis 群集的客户端通信、Azure 负载均衡 | （Redis 子网） |虚拟网络、Azure 负载均衡器 |
 | 15000-15999 |入站 |TCP |与 Redis 群集的客户端通信、Azure 负载均衡和异地复制 | （Redis 子网） |虚拟网络、Azure 负载均衡器（地域副本对等子网） |
 | 16001 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
@@ -143,7 +179,7 @@ public static ConnectionMultiplexer Connection
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何验证缓存是否在 VNET 中正常工作？
 
 >[!IMPORTANT]
->连接到 VNET 中托管的 Azure Redis 缓存实例时，缓存客户端必须位于同一 VNET 中，或位于同一 Azure 区域中已启用 VNET 对等互连的 VNET 中。 当前不支持全局 VNET 对等互连。 这包括任何测试应用程序或诊断 ping 工具。 无论客户端应用程序在哪里托管，都必须配置网络安全组，这样客户端的网络流量才能到达 Redis 实例。
+>连接到 VNET 中托管的 Azure Redis 缓存实例时，缓存客户端必须位于同一 VNET 中，或位于同一 Azure 区域中已启用 VNET 对等互连的 VNET 中。 当前不支持全局 VNET 对等互连。 这包括任何测试应用程序或诊断 ping 工具。 无论客户端应用程序在哪里托管，都必须配置网络安全组或其他网络层，以便允许客户端的网络流量到达 Redis 实例。
 >
 >
 

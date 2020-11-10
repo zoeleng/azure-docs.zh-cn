@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257667"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444157"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的守护程序应用 - 代码配置
 
@@ -51,13 +51,13 @@ ms.locfileid: "91257667"
 
 配置文件定义：
 
-- 共同构成 *机构*的云实例和租户 ID。
+- 云实例和租户 ID，它们共同构成了“机构”。
 - 通过应用程序注册获得的客户端 ID。
 - 客户端机密或证书。
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-下面是在文件的 [*appsettings.js*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 中定义配置的示例。 此示例摘自 GitHub 上的 [.Net Core 控制台后台](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 程序代码示例。
+下面是关于在 [appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 文件中定义配置的示例。 此示例摘自 GitHub 上的 [.NET Core 控制台守护程序](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)代码示例。
 
 ```json
 {
@@ -121,7 +121,7 @@ ms.locfileid: "91257667"
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-向应用程序中 [添加 ""](https://www.nuget.org/packages/Microsoft.Identity.Client) ，然后 `using` 在代码中添加一个指令以引用它。
+将 [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 包添加到应用程序，然后在代码中添加一个 `using` 指令以引用它。
 
 在 MSAL.NET 中，机密客户端应用程序通过 `IConfidentialClientApplication` 接口表示。
 
@@ -166,9 +166,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-`Authority`是云实例和租户 ID 的串联，例如 `https://login.microsoftonline.com/contoso.onmicrosoft.com` 或 `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd` 。 在 "[配置文件](#configuration-file)" 部分中显示的 " *appsettings.js*文件" 部分中，这些 `Instance` `Tenant` 值分别由和值表示。
+`Authority` 是云实例和租户 ID 的串联，例如 `https://login.microsoftonline.com/contoso.onmicrosoft.com` 或 `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd`。 在[配置文件](#configuration-file)部分显示的 appsettings.json 文件中，它们分别由 `Instance` 和 `Tenant` 值表示。
 
-在取自上一个代码段的代码示例中， `Authority` 是  [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) 类的属性，定义如下：
+在上一个代码片段的源代码示例中，`Authority` 是 [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) 类的属性，其定义如下：
 
 ```csharp
 /// <summary>
@@ -352,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 获取应用的令牌](./scenario-daemon-acquire-token.md?tabs=dotnet)
+转到此方案中的下一篇文章， [获取该应用的令牌](./scenario-daemon-acquire-token.md?tabs=dotnet)。
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 获取应用的令牌](./scenario-daemon-acquire-token.md?tabs=python)
+转到此方案中的下一篇文章， [获取该应用的令牌](./scenario-daemon-acquire-token.md?tabs=python)。
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 获取应用的令牌](./scenario-daemon-acquire-token.md?tabs=java)
+转到此方案中的下一篇文章， [获取该应用的令牌](./scenario-daemon-acquire-token.md?tabs=java)。
 
 ---

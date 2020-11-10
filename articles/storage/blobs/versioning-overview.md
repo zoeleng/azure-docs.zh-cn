@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425943"
+ms.locfileid: "94444497"
 ---
 # <a name="blob-versioning"></a>Blob 版本控制
 
@@ -38,7 +38,7 @@ Microsoft 建议使用 blob 版本控制来维护以前版本的 blob，以实�
 
 当你创建启用了版本控制的 blob 时，新的 blob 是 (的 blob 的当前版本或基本 blob) 。 如果你随后修改了该 blob，Azure 存储将创建一个在修改之前捕获 blob 状态的版本。 修改后的 blob 将成为新的当前版本。 每次修改 blob 时都会创建一个新版本。
 
-Blob 可能包含无数个版本。 但是，每个 blob 具有大量版本可能会增加 blob 列表操作的延迟。 Microsoft 建议为每个 blob 保留少于1000个版本。 你可以使用生命周期管理来自动删除旧版本。 有关生命周期管理的详细信息，请参阅 [通过自动化 Azure Blob 存储访问层优化成本](storage-lifecycle-management-concepts.md)。
+每个 blob 具有大量版本可能会增加 blob 列表操作的延迟。 Microsoft 建议为每个 blob 保留少于1000个版本。 你可以使用生命周期管理来自动删除旧版本。 有关生命周期管理的详细信息，请参阅 [通过自动化 Azure Blob 存储访问层优化成本](storage-lifecycle-management-concepts.md)。
 
 当删除启用了版本控制的 blob 时，Azure 存储将创建一个在删除之前捕获 blob 状态的版本。 然后，将删除 blob 的当前版本，但 blob 的版本将保持不变，以便可以在需要时重新创建。 
 

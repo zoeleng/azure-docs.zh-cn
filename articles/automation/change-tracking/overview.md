@@ -3,14 +3,14 @@ title: Azure 自动化 - 更改跟踪和库存概述
 description: 本文介绍了更改跟踪和清单功能，可帮助你在环境中识别软件和 Microsoft 服务的更改。
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130334"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445415"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>更改跟踪和库存概述
 
@@ -61,6 +61,16 @@ ms.locfileid: "93130334"
 满足 Log Analytics 代理要求的所有操作系统都支持更改跟踪和库存。 有关 Log Analytics 代理当前支持的 Windows 和 Linux 操作系统版本的列表，请参阅 [支持的操作系统](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) 。
 
 若要了解 TLS 1.2 的客户端要求，请参阅[强制 Azure 自动化执行 TLS 1.2](../automation-managing-data.md#tls-12-enforcement-for-azure-automation)。
+
+### <a name="python-requirement"></a>Python 要求
+
+更改跟踪和清单仅支持 Python2。 如果你的计算机使用的是默认情况下不包括 Python 2 的发行版，则必须安装它。 以下示例命令将在不同的发行版上安装 Python 2。
+
+- Red Hat、CentOS、Oracle：`yum install -y python2`
+- Ubuntu、Debian：`apt-get install -y python2`
+- SUSE: `zypper install -y python2`
+
+Python2 可执行文件必须化名为 *python* 。
 
 ## <a name="network-requirements"></a>网络要求
 

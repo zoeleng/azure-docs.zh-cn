@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337334"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444752"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 安全性和数据保护
 
@@ -63,7 +63,7 @@ Data Box 设备由以下功能提供保护：
 流入和流出 Data Box 的数据由以下功能提供保护：
 
 - 用于静态数据的 AES 256 位加密。
-- 可以为传输中数据使用加密的协议。 建议你在将数据从数据服务器复制时，将 SMB 3.0 与加密配合使用来保护数据。
+- 可以为传输中数据使用加密的协议。 建议你在将数据从数据服务器复制到数据服务器时，将 SMB 3.0 与加密配合使用来保护数据。
 - 将数据上传到 Azure 后，从设备中安全擦除数据。 数据擦除符合 [NIST 800-88r1 标准中 ATA 硬盘驱动器的附录 A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) 中的准则。 数据擦除事件将记录在[订单历史记录](data-box-logs.md#download-order-history)中。
 
 ### <a name="data-box-service-protection"></a>Data Box 服务保护

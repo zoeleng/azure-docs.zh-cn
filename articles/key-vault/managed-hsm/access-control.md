@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784416"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445228"
 ---
 # <a name="managed-hsm-access-control"></a>托管 HSM 访问控制
 
@@ -35,7 +35,7 @@ Azure Key Vault 托管 HSM 是一项保护加密密钥的云服务。 因为此�
 
 创建托管 HSM 时，请求者还会提供数据平面管理员列表， (所有 [安全主体](../../role-based-access-control/overview.md#security-principal) 都) 支持。 只有这些管理员才能访问托管的 HSM 数据平面，以执行关键操作，并管理 (托管 HSM 本地 RBAC) 的数据平面角色分配。
 
-这两个平面的权限模型使用相同的语法 (RBAC) ，但它们在不同的级别强制执行，角色分配使用不同的范围。 管理平面 RBAC 由 Azure 资源管理器强制执行，而数据平面 RBAC 由托管 HSM 本身强制执行。
+这两个平面的权限模型使用相同的语法，但它们是在不同的级别强制执行的，并且角色分配使用不同的范围。 管理平面 Azure RBAC 由 Azure 资源管理器强制执行，而数据平面托管的 HSM 本地 RBAC 由托管 HSM 本身强制执行。
 
 > [!IMPORTANT]
 > 如果授予安全主体管理平面对托管 HSM 的访问权限，则不会向其授予对数据平面的任何访问权限，以访问密钥或数据平面角色分配托管 HSM 本地 RBAC) 。 这种隔离是设计使然，以防止无意中扩展对托管 HSM 中存储的密钥的访问权限。
@@ -67,16 +67,16 @@ Azure Key Vault 托管 HSM 是一项保护加密密钥的云服务。 因为此�
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>管理平面和 Azure RBAC
 
-在管理平面中，使用 Azure RBAC 来授权调用方可以执行的操作。 在 RBAC 模型中，每个 Azure 订阅都有一个 Azure Active Directory 的实例。 可以从此目录向用户、组和应用程序授予访问权限。 授予访问权限以管理 Azure 订阅中使用 Azure 资源管理器部署模型的资源。 若要授予访问权限，请使用 [Azure 门户](https://portal.azure.com/)、[Azure CLI](/cli/azure/install-classic-cli)、[Azure PowerShell](/powershell/azureps-cmdlets-docs) 或 [Azure 资源管理器 REST API](/rest/api/authorization/roleassignments)。
+在管理平面中，使用 Azure RBAC 来授权调用方可以执行的操作。 在 Azure RBAC 模型中，每个 Azure 订阅都有一个 Azure Active Directory 的实例。 可以从此目录向用户、组和应用程序授予访问权限。 授予访问权限以管理 Azure 订阅中使用 Azure 资源管理器部署模型的资源。 若要授予访问权限，请使用 [Azure 门户](https://portal.azure.com/)、[Azure CLI](/cli/azure/install-classic-cli)、[Azure PowerShell](/powershell/azureps-cmdlets-docs) 或 [Azure 资源管理器 REST API](/rest/api/authorization/roleassignments)。
 
-在资源组中创建密钥保管库，并使用 Azure Active Directory 来管理访问权限。 授予用户或组管理资源组中的密钥保管库的权限。 通过分配适当的 RBAC 角色在特定范围级别授予访问权限。 若要授予用户管理密钥保管库的访问权限，请为特定范围的用户分配预定义的 `key vault Contributor` 角色。 可以将以下范围级别分配给 RBAC 角色：
+在资源组中创建密钥保管库，并使用 Azure Active Directory 来管理访问权限。 授予用户或组管理资源组中的密钥保管库的权限。 可通过分配适当的 Azure 角色在特定范围级别授予访问权限。 若要授予用户管理密钥保管库的访问权限，请为特定范围的用户分配预定义的 `key vault Contributor` 角色。 可以将以下范围级别分配给 Azure 角色：
 
-- **管理组** ：在订阅级别分配的 RBAC 角色适用于该管理组中的所有订阅。
-- **订阅** ：在订阅级别分配的 RBAC 角色适用于该订阅中的所有资源组和资源。
-- **资源组** ：在资源组级别分配的 RBAC 角色适用于该资源组中的所有资源。
-- **特定资源** ：为特定资源分配的 RBAC 角色适用于该资源。 在这种情况下，资源是特定的密钥保管库。
+- **管理组** ：在订阅级别分配的 Azure 角色适用于该管理组中的所有订阅。
+- **订阅** ：在订阅级别分配的 Azure 角色适用于该订阅中的所有资源组和资源。
+- **资源组** ：在资源组级别分配的 Azure 角色适用于该资源组中的所有资源。
+- **特定资源** ：为特定资源分配的 Azure 角色适用于该资源。 在这种情况下，资源是特定的密钥保管库。
 
-有多种预定义角色。 如果预定义角色不符合需求，可以定义自己的角色。 有关详细信息，请参阅 [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)。
+有多种预定义角色。 如果预定义角色不符合需求，可以定义自己的角色。 有关详细信息，请参阅 [AZURE RBAC：内置角色](../../role-based-access-control/built-in-roles.md)。
 
 ## <a name="data-plane-and-managed-hsm-local-rbac"></a>数据平面和托管 HSM 本地 RBAC
 
