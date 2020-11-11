@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042623"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490604"
 ---
 # <a name="what-is-risk"></a>什么是风险？
 
@@ -24,10 +24,10 @@ Azure AD Identity Protection 中的风险检测包括任何与目录中的用户
 
 标识保护为组织提供了强大资源的访问权限，可快速查看和响应这些可疑操作。 
 
->**注意：** 仅当使用正确的凭据时，Identity Protection 才会生成风险检测。 如果在登录时使用不正确的凭据，则它不代表凭据泄露的风险。
-
 ![显示风险用户和登录的安全性概述](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> 仅当使用正确的凭据时，Identity Protection 才会生成风险检测。 如果在登录时使用不正确的凭据，则它不代表凭据泄露的风险。
 
 ## <a name="risk-types-and-detection"></a>风险类型和检测
 
@@ -77,6 +77,10 @@ Azure AD Identity Protection 中的风险检测包括任何与目录中的用户
 标识保护将风险分为三个级别：低、中和高。 
 
 虽然 Microsoft 不提供有关风险计算方式的具体详细信息，但可以说每个级别在用户或登录受到攻击时都提供了更高的置信度。 例如，与某用户的一个实例出现不熟悉的登录属性相比，将凭据泄露给另一个用户所带来的威胁性更高。
+
+### <a name="password-hash-synchronization"></a>密码哈希同步
+
+泄露凭据和密码喷涂等风险检测要求存在密码哈希，以便进行检测。 有关密码哈希同步的详细信息，请参阅 [Azure AD Connect 同步实现密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md)一文。
 
 ### <a name="leaked-credentials"></a>凭据泄露
 

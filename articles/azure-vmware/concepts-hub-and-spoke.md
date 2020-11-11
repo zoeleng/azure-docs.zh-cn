@@ -3,12 +3,12 @@ title: 概念-在中心辐射型体系结构中集成 Azure VMware 解决方案�
 description: 了解如何在 Azure 上的中心和辐射型体系结构中集成 Azure VMware 解决方案部署。
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0895e9c97f79e433b0383f0a99fbeeb124fd9064
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674707"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490808"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>在中心和辐射型体系结构中集成 Azure VMware 解决方案
 
@@ -36,30 +36,29 @@ ms.locfileid: "92674707"
 
 该体系结构包括以下主要组件：
 
--   **本地站点：** 客户本地数据中心 (s) 通过 ExpressRoute 连接连接到 Azure。
+- **本地站点：** 客户本地数据中心 (s) 通过 ExpressRoute 连接连接到 Azure。
 
--   **Azure VMware 解决方案私有云：** 由一个或多个 vSphere 群集构成的 Azure VMware 解决方案 SDDC，每个群集最多包含16个节点。
+- **Azure VMware 解决方案私有云：** 由一个或多个 vSphere 群集构成的 Azure VMware 解决方案 SDDC，每个群集最多包含16个节点。
 
--   **ExpressRoute 网关：** 启用 Azure VMware 解决方案私有云之间的通信、中心虚拟网络上的共享服务和在辐射虚拟网络上运行的工作负荷。
+- **ExpressRoute 网关：** 启用 Azure VMware 解决方案私有云之间的通信、中心虚拟网络上的共享服务和在辐射虚拟网络上运行的工作负荷。
 
--   **ExpressRoute Global Reach：** 启用本地与 Azure VMware 解决方案私有云之间的连接。
-
-
-  > [!NOTE]
-  > **S2S VPN 注意事项：** 对于 Azure VMware 解决方案生产部署，不支持 Azure S2S VPN，因为 VMware HCX 的网络要求。 不过，你可以将其用于 PoC 部署。
+- **ExpressRoute Global Reach：** 启用本地与 Azure VMware 解决方案私有云之间的连接。 Azure VMware 解决方案与 Azure fabric 之间的连接仅通过 ExpressRoute Global Reach。 不能选择 ExpressRoute 快速路径以外的任何选项。  不支持 ExpressRoute 直通。
 
 
--   **中心虚拟网络：** 作为与本地网络和 Azure VMware 解决方案私有云的连接的中心点。
+- **S2S VPN 注意事项：** 对于 Azure VMware 解决方案生产部署，不支持 Azure S2S VPN，因为 VMware HCX 的网络要求。 不过，你可以将其用于 PoC 部署。
 
--   **辐射虚拟网络**
 
-    -   **IaaS 分支：** IaaS 辐射托管基于 Azure IaaS 的工作负载，包括 VM 可用性集和虚拟机规模集，以及相应的网络组件。
+- **中心虚拟网络：** 作为与本地网络和 Azure VMware 解决方案私有云的连接的中心点。
 
-    -   **PaaS 分支：** PaaS 分支使用专用寻址来托管 Azure PaaS 服务，感谢 [专用终结点](../private-link/private-endpoint-overview.md) 和 [专用链接](../private-link/private-link-overview.md)。
+- **辐射虚拟网络**
 
--   **Azure 防火墙：** 充当辐射和 Azure VMware 解决方案之间的流量的中心部分。
+    - **IaaS 分支：** IaaS 辐射托管基于 Azure IaaS 的工作负载，包括 VM 可用性集和虚拟机规模集，以及相应的网络组件。
 
--   **应用程序网关：** 公开和保护在 Azure IaaS/PaaS 或 Azure VMware 解决方案虚拟机 (Vm) 上运行的 web 应用。 它与其他服务（例如 API 管理）集成。
+    - **PaaS 分支：** PaaS 分支使用专用寻址来托管 Azure PaaS 服务，感谢 [专用终结点](../private-link/private-endpoint-overview.md) 和 [专用链接](../private-link/private-link-overview.md)。
+
+- **Azure 防火墙：** 充当辐射和 Azure VMware 解决方案之间的流量的中心部分。
+
+- **应用程序网关：** 公开和保护在 Azure IaaS/PaaS 或 Azure VMware 解决方案虚拟机 (Vm) 上运行的 web 应用。 它与其他服务（例如 API 管理）集成。
 
 ## <a name="network-and-security-considerations"></a>网络和安全注意事项
 
@@ -69,12 +68,12 @@ ExpressRoute 连接使流量能够在本地、Azure VMware 解决方案和 Azure
 
 * **本地到 Azure VMware 解决方案流量流**
 
-  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware 解决方案中心和分支集成部署" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="本地到 Azure VMware 解决方案流量流" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Azure VMware 解决方案到中心 VNET 的通信流**
 
-  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware 解决方案中心和分支集成部署" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware 解决方案到中心虚拟网络流量流" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 可以在 [Azure Vmware 解决方案产品文档](./concepts-networking.md)中找到有关 Azure vmware 解决方案网络和连接概念的更多详细信息。
@@ -85,7 +84,7 @@ ExpressRoute 连接使流量能够在本地、Azure VMware 解决方案和 Azure
 
 创建路由表以将流量定向到 Azure 防火墙。  对于辐射虚拟网络，请创建将默认路由设置为 Azure 防火墙内部接口的路由。 这样一来，当虚拟网络中的工作负荷需要访问 Azure VMware 解决方案地址空间时，防火墙就可以对其进行评估，并应用相应的流量规则来允许或拒绝它。  
 
-:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Azure VMware 解决方案中心和分支集成部署" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
+:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="创建路由表以将流量定向到 Azure 防火墙" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
 
 > [!IMPORTANT]
@@ -93,7 +92,7 @@ ExpressRoute 连接使流量能够在本地、Azure VMware 解决方案和 Azure
 
 针对相应的路由表设置特定网络的路由。 例如，路由从辐射工作负荷和其他方法访问 Azure VMware 解决方案管理和工作负荷 IP 前缀。
 
-:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Azure VMware 解决方案中心和分支集成部署" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
+:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="针对相应的路由表设置特定网络的路由" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 使用轮辐和中心内的网络安全组创建更精细的流量分段的二级流量分段。
 
@@ -106,7 +105,7 @@ ExpressRoute 连接使流量能够在本地、Azure VMware 解决方案和 Azure
 
 有关详细信息和要求，请查看 Azure VMware 解决方案特定的 [应用程序网关](./protect-azure-vmware-solution-with-application-gateway.md) 文章。
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware 解决方案中心和分支集成部署" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="使用网络安全组的第二级流量分段" border="false":::
 
 
 ### <a name="jump-box-and-azure-bastion"></a>跳转框和 Azure 堡垒
@@ -122,7 +121,7 @@ ExpressRoute 连接使流量能够在本地、Azure VMware 解决方案和 Azure
 > 不要向跳转盒 VM 提供公共 IP 地址，也不要向公共 internet 公开 3389/TCP 端口。 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure VMware 解决方案中心和分支集成部署" border="false":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure 堡垒中心虚拟网络" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Azure DNS 解析注意事项
@@ -139,11 +138,7 @@ ExpressRoute 连接使流量能够在本地、Azure VMware 解决方案和 Azure
 
 可以使用 Azure 专用 DNS，其中 Azure 专用 DNS 区域链接到虚拟网络。  DNS 服务器用作混合解析程序，并将条件转发到本地或 Azure VMware 解决方案，运行 DNS 并利用客户 Azure 专用 DNS 基础结构。 
 
-Azure DNS 专用区域需要考虑几个注意事项：
-
-* 应为 Azure DNS 启用自动注册，以便为在辐射虚拟网络中部署的 Vm 自动管理 DNS 记录的生命周期。
-* 虚拟网络可链接到的最大专用 DNS 区域数仅为自动注册。
-* 虚拟网络可链接到的专用 DNS 区域的最大数目为1000，且不启用自动注册。
+若要为在辐射虚拟网络中部署的 Vm 自动管理 DNS 记录的生命周期，请启用自动注册。 启用后，最大专用 DNS 区域数仅为1。 如果禁用，则最大数目为1000。
 
 本地和 Azure VMware 解决方案服务器可以配置有条件转发器，以便在 azure 中为 Azure 专用 DNS 区域解析 Vm。
 

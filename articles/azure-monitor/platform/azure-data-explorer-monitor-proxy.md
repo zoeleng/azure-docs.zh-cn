@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8a503a5456fc28bd1b3ebb69c784fc59b3c6e7df
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049733"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491250"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>使用 Azure 数据资源管理器 () 预览版查询 Azure Monitor 中的数据
 Azure 数据资源管理器 proxy 群集可让你在 Azure Monitor 中的 Azure 数据资源管理器、Log Analytics 工作区和经典 Application Insights 应用程序之间执行跨产品查询。 可以将 Azure Monitor 或经典 Application Insights 应用中的 Log Analytics 工作区映射为代理群集。 然后，可以使用 Azure 数据资源管理器工具查询代理群集，并在跨群集查询中引用该群集。 本文介绍了如何连接到代理群集、将代理群集添加到 Azure 数据资源管理器 Web UI，以及如何从 Azure 数据资源管理器对 Log Analytics 工作区或经典 Application Insights 应用运行查询。
@@ -28,16 +28,23 @@ Azure 数据资源管理器 proxy 群集可让你在 Azure Monitor 中的 Azure 
 ## <a name="connect-to-the-proxy"></a>连接到代理
 若要连接 Log Analytics 工作区或经典 Application Insights 应用，请打开[Azure 数据资源管理器 WEB UI](https://dataexplorer.azure.com/clusters)。 在连接到 Log Analytics 或 Application Insights 群集之前，请先确认 Azure 数据资源管理器本机群集（例如 *help* 群集）是否显示在左侧菜单中。
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure 数据资源管理器代理流。" 以建立连接。
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure 数据资源管理器本地群集。":::
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Azure 数据资源管理器代理流。":::
+单击 " **添加群集** "，然后用下列格式之一添加 Log Analytics 或 Application Insights 群集的 URL。 
+    
+* 对于 Log Analytics： `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+* 对于 Application Insights： `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+
+单击 " **添加** " 以建立连接。
+
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="添加群集。":::
  
 > [!NOTE]
 > 如果将某个连接添加到多个代理群集，请为每个代理群集指定不同的名称。 否则它们全部以相同的名称显示在左窗格。
 
 建立连接后，Log Analytics 或 Application Insights 群集将显示在左窗格中，其中包含本机 Azure 数据资源管理器群集。 
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Azure 数据资源管理器代理流。":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics 和 Azure 数据资源管理器群集。":::
  
 > [!NOTE]
 > 可映射的 Azure Monitor 工作区数限制为 100 个。
@@ -63,7 +70,7 @@ Azure 数据资源管理器 proxy 群集可让你在 Azure Monitor 中的 Azure 
 Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
 ```
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Azure 数据资源管理器代理流。":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="查询 Log Analytics 工作区。":::
 
 ### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>跨查询 Log Analytics 或 Application Insights 代理群集和 Azure 数据资源管理器本机群集
 
@@ -78,7 +85,7 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-使用[ `join` 运算符](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)而不是 union，可能需要[提示](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints)才能在 Azure 数据资源管理器本机群集 (上运行它，而不是在代理) 上运行。 
+使用[ `join` 运算符](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor)而不是 union，可能需要[提示](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints)才能在 Azure 数据资源管理器本机群集 (上运行它，而不是在代理) 上运行。 
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>从一个租户中的 Azure 数据资源管理器群集加入另一个租户中的 Azure Monitor 资源的数据
 
@@ -106,7 +113,7 @@ Azure 数据资源管理器代理群集支持 Log Analytics 和 Application Insi
 
 下图描述了一个从 Azure 数据资源管理器 Web UI 查询表格函数的示例。 若要使用此函数，请在“查询”窗口中运行名称。
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Azure 数据资源管理器代理流。":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="查询 Azure 数据资源管理器 Web UI 的表格函数。":::
  
 > [!NOTE]
 > Azure Monitor 仅支持不支持参数的表格函数。
@@ -117,7 +124,7 @@ Azure 数据资源管理器代理群集支持 Log Analytics 和 Application Insi
 
 |语法说明  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| 仅包含此订阅中所定义资源的群集中的数据库（**建议用于跨群集查询**） |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| 仅包含此订阅中所定义资源的群集中的数据库（ **建议用于跨群集查询** ） |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
 | 包含此订阅中所有应用/工作区的群集    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
 |包含订阅中所有应用/工作区且属于此资源组的群集    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
 |仅包含此订阅中定义的资源的群集      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |

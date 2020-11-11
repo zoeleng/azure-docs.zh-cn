@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900282"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491930"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 春季云常见问题解答
 
@@ -73,9 +73,9 @@ Azure Spring Cloud 支持 Java 8 和 11。 请参阅 [Java 运行时和操作系
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>在哪里可以查看春季 Cloud 应用程序日志和指标？
 
-在“应用概述”选项卡和“[Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics)”选项卡中可以找到指标。
+在“应用概述”选项卡和“[Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer)”选项卡中可以找到指标。
 
-Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 存储、EventHub 和 [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries)。 Log Analytics 中的表名为 *AppPlatformLogsforSpring* 。 若要了解如何启用它，请参阅 [诊断服务](diagnostic-services.md)。
+Azure 春季云支持将春季 Cloud 应用程序日志和指标导出到 Azure 存储、EventHub 和 [Log Analytics](../azure-monitor/platform/data-platform-logs.md)。 Log Analytics 中的表名为 *AppPlatformLogsforSpring* 。 若要了解如何启用它，请参阅 [诊断服务](diagnostic-services.md)。
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud 是否支持分布式跟踪？
 

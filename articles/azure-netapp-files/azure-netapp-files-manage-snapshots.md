@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421852"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491641"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>使用 Azure NetApp 文件管理快照
 
@@ -41,7 +41,7 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 
     ![新建快照](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. 单击" **确定** "。 
+4. 单击“确定”。 
 
 ## <a name="manage-snapshot-policies"></a>管理快照策略
 
@@ -97,7 +97,7 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 
     ![每月快照策略](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  单击“保存”。  
+4.  单击“ **保存** ”。  
 
 如果需要创建其他快照策略，请重复步骤3。
 创建的策略将显示在 "快照策略" 页中。
@@ -107,6 +107,8 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 ### <a name="apply-a-snapshot-policy-to-a-volume"></a>将快照策略应用到卷
 
 如果希望卷使用创建的快照策略，需要将策略应用到卷。 
+
+不能将快照策略应用于跨区域复制中的目标卷。  
 
 1.  请在 " **卷** " 页上，右键单击要向其应用快照策略的卷，然后选择 " **编辑** "。
 
@@ -172,6 +174,8 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 装载的卷包含 NFS 客户端中名为 (的快照目录  `.snapshot`) 或 `~snapshot` 客户端可以访问的 SMB 客户端) 中的 (。 快照目录包含对应于卷快照的子目录。 每个子目录都包含快照文件。 如果意外删除或覆盖了某个文件，则可以通过将该文件从快照子目录复制到读写目录，将该文件还原到父读写目录。 
 
 如果在创建卷时选中了 "隐藏快照路径" 复选框，则快照目录将隐藏。 可以通过选择卷来查看卷的 "隐藏快照路径" 状态。 通过单击卷页上的 " **编辑** "，可以编辑 "隐藏快照路径" 选项。  
+
+对于跨区域复制中的目标卷，默认情况下启用隐藏快照路径，并且无法修改设置。
 
 ![编辑卷快照选项](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
@@ -242,7 +246,7 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 
 您可以删除不再需要保留的快照。 
 
-1. 中转到卷的 " **快照** " 菜单。 右键单击要删除的快照。 选择“删除” 。
+1. 中转到卷的 " **快照** " 菜单。 右键单击要删除的快照。 选择“删除”。
 
     ![描述快照右键单击菜单的屏幕截图](../media/azure-netapp-files/snapshot-right-click-menu.png) 
 

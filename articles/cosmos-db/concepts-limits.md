@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319819"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491811"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服务配额
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,9 +43,9 @@ ms.locfileid: "93319819"
 
 Cosmos 容器（或共享吞吐量数据库）的最小吞吐量必须为 400 RU/秒。 随着容器的扩展，支持的最小吞吐量还取决于以下因素：
 
-* 曾经为容器预配的最大吞吐量。 例如，如果吞吐量已增加到 50000 RU/秒，则可能的最低预配吞吐量为 500 RU/秒
-* 容器中的当前存储大小 (GB)。 例如，如果容器有 100 GB 的存储空间，则可能的最低预配吞吐量为 1000 RU/秒
-* 共享吞吐量数据库上的最小吞吐量还取决于曾在共享吞吐量数据库中创建的容器总数，按每个容器 100 RU 来度量。 例如，如果在共享吞吐量数据库中创建了五个容器，则吞吐量必须至少为 500 RU/秒
+* 曾经为容器预配的最大吞吐量。 例如，如果吞吐量已增加到 50000 RU/s，则可能的最低预配吞吐量为 500 RU/秒。
+* 容器中的当前存储大小 (GB)。 例如，如果容器的存储空间为 100 GB，则可能的最低预配吞吐量为 1000 RU/秒。 **注意：** 如果容器或数据库包含的数据超过 1 TB，你的帐户可能符合我们的 ["高存储/低吞吐量" 计划](set-throughput.md#high-storage-low-throughput-program)。
+* 共享吞吐量数据库上的最小吞吐量还取决于曾在共享吞吐量数据库中创建的容器总数，按每个容器 100 RU 来度量。 例如，如果在共享的吞吐量数据库中创建了五个容器，则吞吐量必须至少为 500 RU/s。
 
 可以从 Azure 门户或 SDK 检索容器或数据库的当前和最小吞吐量。 有关详细信息，请参阅[对容器和数据库预配吞吐量](set-throughput.md)。 
 

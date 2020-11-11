@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdddbce3e9eb0a5c933ace186607186265197dc4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123500"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491516"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 
@@ -43,7 +43,7 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 | 无序事件数    | 收到的无序事件的数目，系统根据事件排序策略来删除这些事件，或者为其提供一个经过调整的时间戳。 这可能会受“无序容错时段”设置的影响。 |
 | 输出事件数          | 流分析作业发送到输出目标的数据量，以事件计数来衡量。 |
 | 运行时错误         | 与查询处理相关的错误总数（不包括引入事件或输出结果时发现的错误） |
-| 流单元利用率 %       | 从作业的“比例”选项卡向一个作业分配的流单元利用率。 如果此指标达到 80% 或以上，则很可能会出现事件处理延迟或停止处理的情况。 |
+| 流单元利用率 %       | 如果资源利用率持续超过80%，则水位线延迟会上升，而囤积事件的数量会增加，因此请考虑增加流式处理单位。 "高使用率" 指示作业使用接近分配的最大资源数。 |
 | 水印延迟       | 作业中所有输出的所有分区之间的最大水印延迟。 |
 
 可以使用这些指标来[监视流分析作业的性能](./stream-analytics-set-up-alerts.md#scenarios-to-monitor)。 

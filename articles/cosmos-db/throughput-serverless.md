@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: f6fbd963966dd1a5c433a97cb8d37ae22998be4c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079332"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491182"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>如何在预配吞吐量与无服务器之间进行选择
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -19,9 +19,6 @@ ms.locfileid: "93079332"
 Azure Cosmos DB 提供了两种不同的容量模式：[预配吞吐量](set-throughput.md)和[无服务器](serverless.md)。 在这两种模式下，你可以执行完全相同的数据库操作，但这些操作的收费方式截然不同。 以下视频说明了这些模式之间的核心差异，以及它们如何适应不同类型的工作负荷：
 
 > [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]
-
-> [!NOTE]
-> 目前只有 Azure Cosmos DB Core (SQL) API 支持无服务器。
 
 ## <a name="detailed-comparison"></a>详细比较
 

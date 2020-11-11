@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376632"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491437"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure 队列存储触发器
 
@@ -146,7 +146,7 @@ module.exports = async function (context, message) {
 
 下面的示例演示如何通过触发器读取传递给函数的队列消息。
 
-存储队列触发器在 function.json** 中定义，其中 type** 设置为 `queueTrigger`。
+存储队列触发器在 function.json 中定义，其中 type 设置为 `queueTrigger`。
 
 ```json
 {
@@ -163,7 +163,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-代码* _ \_ _ \_ py*将参数声明为 `func.QueueMessage` ，这允许您在函数中读取队列消息。
+代码 *_\__ \_ py* 将参数声明为 `func.QueueMessage` ，这允许您在函数中读取队列消息。
 
 ```python
 import logging
@@ -313,7 +313,7 @@ public class QueueTriggerDemo {
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**type** | 不适用| 必须设置为 `queueTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|type | 不适用| 必须设置为 `queueTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |**direction**| 不适用 | 只能在 *function.json* 文件中设置。 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
 |**name** | 不适用 |函数代码中包含队列项有效负载的变量的名称。  |
 |**queueName** | **QueueName**| 要轮询的队列的名称。 |
@@ -408,7 +408,7 @@ public class QueueTriggerDemo {
 
 ## <a name="next-steps"></a>后续步骤
 
-- [写入 Blob 存储消息（输出绑定）](./functions-bindings-storage-blob-output.md)
+- [将队列存储消息写入 (输出绑定) ](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

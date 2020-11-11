@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444956"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490961"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>在门户中测试 Azure 流分析作业
 
@@ -101,8 +101,8 @@ Azure 流分析自动从流输入中提取事件。 可以针对默认示例运�
 
 1.  门户测试中不支持时间策略：
 
-   * 无序：将对所有传入事件进行排序。
-   * 延迟到达：由于流分析只能使用现有数据进行测试，因此不会出现延迟到达事件。
+    * 无序：将对所有传入事件进行排序。
+    * 延迟到达：由于流分析只能使用现有数据进行测试，因此不会出现延迟到达事件。
    
 2.  不支持 C# UDF。
 
@@ -112,6 +112,7 @@ Azure 流分析自动从流输入中提取事件。 可以针对默认示例运�
 
 5.  不支持机器学习。
 
+6. 在15分钟的时间段内，示例数据 API 将在五个请求后受到限制。 在15分钟时间段结束后，您可以执行更多示例数据请求。 此限制适用于订阅级别。
 
 ## <a name="troubleshooting"></a>疑难解答
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029455"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491624"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>使用 Azure Monitor 监视 Azure 虚拟机
 本文介绍如何使用 Azure Monitor 从 Azure 虚拟机收集和分析监视数据以维护其运行状况。 可以使用 Azure Monitor 监视虚拟机的可用性和性能，就像监视任何[其他 Azure 资源](monitor-azure-resource.md)一样，但是它们与其他资源不同，因为你还需要监视客户操作和系统以及在其中运行的工作负载。 
@@ -139,7 +139,7 @@ az monitor diagnostic-settings create \
 | 指标 | 打开[指标资源管理器](../platform/metrics-getting-started.md)，并将“范围”设置为“当前虚拟机”。 |
 | 诊断设置 | 为当前虚拟机启用和配置[诊断扩展](../platform/diagnostics-extension-overview.md)。 |
 | 顾问建议 | [Azure 顾问](../../advisor/index.yml)就当前虚拟机所提供的建议。 |
-| 日志 | 打开 [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics)，并将[范围](../log-query/scope.md)设置为“当前虚拟机”。 |
+| 日志 | 打开 [Log Analytics](../log-query/log-analytics-overview.md)，并将[范围](../log-query/scope.md)设置为“当前虚拟机”。 |
 | 连接监视器 | 打开[网络观察程序连接监视器](../../network-watcher/connection-monitor-preview.md)，以监视当前虚拟机和其他虚拟机之间的连接。 |
 
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741071"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490740"
 ---
 # <a name="troubleshoot-azure-rbac"></a>排查 Azure RBAC 的问题
 
@@ -59,7 +59,7 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    如果收到错误“权限不足，无法完成操作”，则很可能是因为 Azure CLI 尝试在 Azure AD 中查找被分派人标识，但服务主体在默认情况下无法读取 Azure AD。
+    如果出现错误 "权限不足，无法完成操作"，则很可能是因为 Azure CLI 正在尝试查找 Azure AD 中的工作负责人标识，并且服务主体在默认情况下无法读取 Azure AD。
 
     可通过两种方式解决此错误。 第一种方法是将[目录读取器](../active-directory/roles/permissions-reference.md#directory-readers)角色分配给服务主体，以便它能够读取目录中的数据。
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- 如果尝试删除订阅的最后一个所有者角色分配，则可能会看到错误 "无法删除最后一个 RBAC 管理员分配"。 不支持删除订阅的最后一个所有者角色分配，以避免 orphaning 订阅。 如果要取消订阅，请参阅 [取消 Azure 订阅](../cost-management-billing/manage/cancel-azure-subscription.md)。
 
 ## <a name="problems-with-custom-roles"></a>自定义角色出现问题
 
@@ -86,7 +87,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>将订阅转移到另一目录
 
-- 如果需要有关如何将订阅传输到不同 Azure AD 目录的步骤，请参阅将 [Azure 订阅转移到不同的 Azure AD 目录](transfer-subscription.md)。
+- 如需了解将订阅转移到另一 Azure AD 目录的步骤，请参阅[将 Azure 订阅转移到另一 Azure AD 目录](transfer-subscription.md)。
 - 如果将订阅转移到另一 Azure AD 目录，所有角色分配将从源 Azure AD 目录中永久删除，而不会迁移到目标 Azure AD 目录。 必须在目标目录中重新创建角色分配。 此外，还需手动重新创建 Azure 资源的托管标识。 有关详细信息，请参阅[托管标识的 FAQ 和已知问题](../active-directory/managed-identities-azure-resources/known-issues.md)。
 - 如果你是 Azure AD 全局管理员并且在目录之间转移某个订阅后对其没有访问权限，请使用“Azure 资源的访问权限管理”开关暂时[提升你的访问权限](elevate-access-global-admin.md)来获取对订阅的访问权限。
 

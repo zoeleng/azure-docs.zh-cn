@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: c703dd4053cc27d469d83d344da910e8e5b23ddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ec260c2e71d1716eb4de9ad25942f61169356dfb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129892"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491335"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>使用托管标识访问 Azure 流分析作业的 Azure SQL 数据库（预览）
 
@@ -123,6 +123,10 @@ GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 1. 选择“添加”>“SQL 数据库”。 在 SQL 数据库输出接收器的输出属性窗口中，从“身份验证模式”下拉列表选择“托管标识”。
 
 1. 填写其余的属性。 若要详细了解如何创建 SQL 数据库输出，请参阅[使用流分析创建 SQL 数据库输出](sql-database-output.md)。 完成后，选择“保存”。 
+
+## <a name="remove-managed-identity"></a>删除托管标识
+
+仅当删除作业时，才会删除为流分析作业创建的托管标识。 如果不删除该作业，则无法删除该托管标识。 如果不再想要使用托管标识，可以更改输出的身份验证方法。 在删除作业之前，托管标识将继续存在，如果你决定再次使用托管标识身份验证，则将使用该标识。
 
 ## <a name="next-steps"></a>后续步骤
 

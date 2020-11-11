@@ -6,12 +6,12 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 8c829f7e4dcca5aa731f505092739146c72bd293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab1171c69dc210051f034e8444c87de5d49a92be
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87041723"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491403"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 Azure 事件中心输出绑定
 
@@ -23,4 +23,4 @@ ms.locfileid: "87041723"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [响应发送到事件中心事件流的事件（触发器）](./functions-bindings-storage-blob-trigger.md)
+- [响应发送到事件中心事件流的事件（触发器）](./functions-bindings-event-hubs-trigger.md)

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130249"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491301"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure 流分析查询的故障排除
 
@@ -50,6 +50,8 @@ ms.locfileid: "93130249"
 ## <a name="resource-utilization-is-high"></a>资源利用率高
 
 确保利用 Azure 流分析中的并行化。 可以学习通过配置输入分区和调整分析查询定义来[使用查询并行化对流分析作业进行缩放](stream-analytics-parallelization.md)。
+
+如果资源利用率持续超过80%，则水位线延迟会上升，而囤积事件的数量会增加，因此请考虑增加流式处理单位。 "高使用率" 指示作业使用接近分配的最大资源数。
 
 ## <a name="debug-queries-progressively"></a>逐步调试查询
 

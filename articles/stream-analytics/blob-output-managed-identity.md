@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348570"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490706"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>使用托管标识在 Azure Blob 存储输出中对 Azure 流分析作业进行身份验证
 
@@ -224,6 +224,10 @@ ms.locfileid: "93348570"
 
    ![启用 VNET 访问权限](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 
+## <a name="remove-managed-identity"></a>删除托管标识
+
+仅当删除作业时，才会删除为流分析作业创建的托管标识。 如果不删除该作业，则无法删除该托管标识。 如果不再想要使用托管标识，可以更改输出的身份验证方法。 在删除作业之前，托管标识将继续存在，如果你决定再次使用托管标识身份验证，则将使用该标识。
+
 ## <a name="limitations"></a>限制
 下面是此功能的当前限制：
 
@@ -238,4 +242,4 @@ ms.locfileid: "93348570"
 ## <a name="next-steps"></a>后续步骤
 
 * [了解 Azure 流分析的输出](./stream-analytics-define-outputs.md)
-* [Azure 流分析自定义 Blob 输出分区](./stream-analytics-custom-path-patterns-blob-storage-output.md)
+* [Azure 流分析自定义 blob 输出分区](./stream-analytics-custom-path-patterns-blob-storage-output.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: cc5702d973150b80188354719333fb7cf22d58b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e5ea4df3de0b8a10c9c1f3b4b27a9e0a19359e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283699"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491199"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>如何配置虚拟机产品/服务属性
 
@@ -23,13 +23,13 @@ ms.locfileid: "92283699"
 选择类别和子类别，将产品/服务置于适当的 Azure Marketplace 搜索区域。 确保在产品/服务说明中介绍产品/服务如何支持这些类别。 选择：
 
 - 至少一个和多达两个类别，包括主类别和辅助类别 (可选) 。
-- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用**"。
+- 每个主节点和/或辅助类别最多包含两个子类别。 如果没有任何子类别适用于你的产品/服务，请选择 " **不适用** "。
 
 请参阅 [产品/服务列表最佳做法](gtm-offer-listing-best-practices.md)中的类别和子类别的完整列表。 虚拟机产品/服务始终显示在 Azure Marketplace 上的 **计算** 类别下。
 
 ## <a name="provide-terms-and-conditions"></a>提供条款和条件
 
-在 **法律**上，提供产品/服务的条款和条件。 可以使用两个选项：
+在 **法律** 上，提供产品/服务的条款和条件。 可以使用两个选项：
 
 - [使用带有可选修正的标准协定](#use-the-standard-contract)
 - [使用自己的条款和条件](#use-your-own-terms-and-conditions)
@@ -43,7 +43,7 @@ ms.locfileid: "92283699"
 1. 选中 " **使用 Microsoft 商业市场的标准合同** " 复选框。
 
    ![演示了如何使用 Microsoft 的 "商用 marketplace 标准合同" 复选框。](partner-center-portal/media/use-standard-contract.png)
-1. 在 **确认** 对话框中，选择 " **接受**"。 可能需要向上滚动才能看到它。
+1. 在 **确认** 对话框中，选择 " **接受** "。 可能需要向上滚动才能看到它。
 1. 选择“保存草稿”，然后继续操作。
 
    > [!NOTE]
@@ -51,7 +51,7 @@ ms.locfileid: "92283699"
 
 ### <a name="add-amendments-to-the-standard-contract-optional"></a>将修正案添加到标准协定 (可选) 
 
-可使用两种类型的修正案： *通用* 和 *自定义*。
+可使用两种类型的修正案： *通用* 和 *自定义* 。
 
 #### <a name="add-universal-amendment-terms"></a>添加通用修订条款
 
@@ -59,11 +59,11 @@ ms.locfileid: "92283699"
 
 #### <a name="add-one-or-more-custom-amendments"></a>添加一个或多个自定义改正
 
-1. 在 **"自定义修正条款"** 下，选择 " **添加自定义修订条款 (最大 10) ** " 链接。
+1. 在 **"自定义修正条款"** 下，选择 " **添加自定义修订条款 (最大 10)** " 链接。
 1. 在 " **自定义修订条款** " 框中，输入修订条款。
 1. 在 " **租户 id** " 框中，输入租户 id。 只有与你为这些自定义术语指定的租户 Id 相关联的客户才能在产品/服务的 Azure 门户中看到它们。
    > [!TIP]
-   > 租户 ID 用于标识 Azure 中的客户。 你可以向你的客户提供此 ID，并可通过转到 [**https://portal.azure.com**](https://portal.azure.com)  >  **Azure Active Directory**  >  **属性**找到它。 目录 ID 值是租户 ID (例如 `50c464d3-4930-494c-963c-1e951d15360e`) 。 你还可以使用[我的 Microsoft Azure 和 Office 365 租户 ID 是什么？](https://www.whatismytenantid.com/)中客户的域名 URL 查找其组织的租户 ID。
+   > 租户 ID 用于标识 Azure 中的客户。 你可以向你的客户提供此 ID，并可通过转到 [**https://portal.azure.com**](https://portal.azure.com)  >  **Azure Active Directory**  >  **属性** 找到它。 目录 ID 值是租户 ID (例如 `50c464d3-4930-494c-963c-1e951d15360e`) 。 你还可以使用[我的 Microsoft Azure 和 Office 365 租户 ID 是什么？](https://www.whatismytenantid.com/)中客户的域名 URL 查找其组织的租户 ID。
 1. 在 " **说明** " 框中，根据需要输入租户 ID 的友好说明。 此说明可帮助您识别修正的目标客户。
 1. 若要添加另一个租户 ID，请选择 " **添加客户的租户 id** " 链接，并重复步骤3和4。 最多可以添加20个租户 Id。
 1. 若要添加其他修正术语，请重复步骤1到5。 每个产品/服务最多可以提供 10 个自定义修订条款。 
@@ -73,13 +73,9 @@ ms.locfileid: "92283699"
 
 你可以选择提供自己的条款和条件，而不是标准协定。 客户必须接受这些条款，才能试用你的产品/服务。
 
-1. 在 " **法律**" 下，请确保清除 " **使用 Microsoft 商业市场的标准合同** " 复选框。
+1. 在 " **法律** " 下，请确保清除 " **使用 Microsoft 商业市场的标准合同** " 复选框。
 1. 在 " **条款和条件** " 框中，输入最多10000个字符的文本。
-
-   > [!NOTE]
-   > 如果需要较长的说明，请输入指向你的条款和条件所在位置的单个 web 地址。 它将作为活动链接向客户显示。
-
-1. 选择 " **保存草稿** "，然后继续下一步选项卡 " **产品/服务**"。
+1. 选择 " **保存草稿** "，然后继续下一步选项卡 " **产品/服务** "。
 
 ## <a name="next-steps"></a>后续步骤
 

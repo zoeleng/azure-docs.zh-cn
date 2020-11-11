@@ -3,12 +3,12 @@ title: 事件传递、托管服务标识和专用链接
 description: 本文介绍如何为 Azure 事件网格主题启用托管服务标识。 用于将事件转发到受支持的目标。
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460914"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491709"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>使用托管标识进行事件传递
 本文介绍了如何为 Azure 事件网格主题或域启用[托管服务标识](../active-directory/managed-identities-azure-resources/overview.md)。 使用它将事件转发到受支持的目标，如服务总线队列和主题、事件中心和存储帐户。
@@ -78,7 +78,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 | Azure Blob 存储 | [存储 Blob 数据参与者](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Azure 队列存储 |[存储队列数据消息发送方](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-azure-roles-on-destinations"></a>将标识添加到目标上的 Azure 角色
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>向目标上的 Azure 角色添加标识
 本部分介绍如何将主题或域的标识添加到 Azure 角色。 
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 门户
@@ -97,7 +97,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 这些步骤与向表中提到的其他角色添加标识相似。 
 
 ### <a name="use-the-azure-cli"></a>使用 Azure CLI
-本部分中的示例演示如何使用 Azure CLI 向 Azure 角色添加标识。 示例命令适用于事件网格主题。 适用于事件网格域的命令也是类似的。 
+本部分中的示例展示了如何使用 Azure CLI 向 Azure 角色添加标识。 示例命令适用于事件网格主题。 适用于事件网格域的命令也是类似的。 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>获取主题的系统标识的主体 ID 
 首先，获取主题的系统托管标识的主体 ID，并将该标识分配给相应的角色。
@@ -285,7 +285,7 @@ az eventgrid event-subscription create
 ## <a name="private-endpoints"></a>专用终结点
 目前不能使用 [专用终结点](../private-link/private-endpoint-overview.md)传递事件。 也就是说，如果你的已交付事件流量不得离开专用 IP 空间，则不支持严格的网络隔离要求。 
 
-但是，如果你的要求以安全方式使用加密通道和发送方的已知标识发送事件 (在这种情况下，事件网格) 使用公共 IP 空间，则可以使用 Azure 事件网格主题或配置了系统管理标识的域将事件传送到事件中心、服务总线或 Azure 存储服务，如本文中所示。 然后，可以使用在虚拟网络上部署的 Azure Functions 或 webhook 中配置的私有链接来请求事件。 请参阅示例：[连接到专用终结点，Azure Functions。](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/)
+但是，如果你的要求以安全方式使用加密通道和发送方的已知标识发送事件 (在这种情况下，事件网格) 使用公共 IP 空间，则可以使用 Azure 事件网格主题或配置了系统管理标识的域将事件传送到事件中心、服务总线或 Azure 存储服务，如本文中所示。 然后，可以使用在虚拟网络上部署的 Azure Functions 或 webhook 中配置的私有链接来请求事件。 请参阅示例： [连接到专用终结点，Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/)。
 
 请注意，在此配置下，流量将从事件网格到事件中心、服务总线或 Azure 存储的公共 IP/internet 进入，但可以对通道进行加密，并使用事件网格的托管标识。 如果将部署到虚拟网络的 Azure Functions 或 webhook 配置为通过专用链接使用事件中心、服务总线或 Azure 存储，则流量的该部分将显然在 Azure 中。
 

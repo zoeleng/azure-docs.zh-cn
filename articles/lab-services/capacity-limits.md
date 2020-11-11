@@ -3,12 +3,12 @@ title: Azure 实验室服务中的容量限制
 description: 了解 Azure 实验室服务)  (虚拟机限制的容量限制。
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9866628cd11ec8df67e6fe16ae8806f0f30ae9a1
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444091"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491012"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Azure 实验室服务中的容量限制
 Azure 实验室服务对 Azure 订阅具有默认容量限制，以遵守 Azure 计算配额限制并减轻欺诈行为。 所有 Azure 订阅都具有初始容量限制，该限制可能因订阅类型、标准计算核心数和 Azure 实验室服务内可用的 GPU 内核而有所不同。 它限制你可以在实验室内创建多少个虚拟机，然后才需要请求增加限制。  
@@ -50,4 +50,5 @@ Azure 实验室服务对 Azure 订阅具有默认容量限制，以遵守 Azure 
 
 ## <a name="next-steps"></a>后续步骤
 请参阅以下文章：
+- [管理员指南-VM 大小调整](administrator-guide.md#vm-sizing)。
 - [常见问题解答](classroom-labs-faq.md)。

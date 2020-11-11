@@ -1,18 +1,17 @@
 ---
-title: 将磁贴添加到 Azure IoT Central 仪表板 |Microsoft Docs
+title: 配置 Azure IoT Central 仪表板 |Microsoft Docs
 description: 作为生成器，了解如何使用磁贴配置默认的 Azure IoT Central 应用程序仪表板。
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376974"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491970"
 ---
 # <a name="configure-the-application-dashboard"></a>配置应用程序仪表板
 
@@ -29,23 +28,26 @@ ms.locfileid: "94376974"
 
 选择 " **编辑** " 或 " **新建** " 后，仪表板处于 *编辑* 模式。 你可以使用 " **编辑仪表板** " 面板中的工具将磁贴添加到仪表板，并在仪表板上自定义和删除磁贴。 例如，若要添加 **遥测** 磁贴以显示由一个或多个设备报告的当前温度：
 
-1. 在 " **编辑仪表板** " 面板中，选择一个 **设备组** 。
-1. 在 " **设备** " 下拉列表中选择一个或多个设备以在磁贴上显示。 现在，你可以看到设备中的可用遥测、属性和命令。
-1. 在 "遥测" 部分选择 " **温度** "，然后选择 " **添加磁贴** "。 现在，磁贴显示在仪表板上，你可以在其中更改可视化效果、调整磁贴的大小并对其进行配置：
+1. 选择 **设备组** ，然后在 " **设备** " 下拉列表中选择你的设备以在磁贴上显示。 现在，你可以看到设备中的可用遥测、属性和命令。
+
+1. 如果需要，可以使用下拉列表选择要在磁贴上显示的遥测值。 您可以通过选择 **+ 遥测** 、 **+ 属性** 或 **+ 云属性** 向磁贴添加更多项。
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="将温度遥测磁贴添加到仪表板":::
 
-在仪表板上添加并自定义磁贴后，请选择 " **保存** "。
+选择要在磁贴上显示的所有值后，单击 " **添加磁贴"。** 该磁贴将显示在仪表板上，你可以在其中更改可视化效果、调整其大小、移动和配置它。
+
+在仪表板上添加并自定义磁贴后，选择 " **保存** " 将更改保存到仪表板，这会使你退出编辑模式。
 
 ## <a name="customize-tiles"></a>自定义磁贴
 
-要在仪表板上自定义磁贴，仪表板必须处于编辑模式。 可用的自定义选项取决于 [磁贴类型](#tile-types)：
+若要编辑磁贴，必须处于编辑模式。  可用的自定义选项取决于 [磁贴类型](#tile-types)：
 
-* 磁贴上的标尺图标使你可以更改可视化效果。 可视化效果包括折线图、上一已知值和热度地图。
+* 磁贴上的标尺图标使你可以更改可视化效果。 可视化效果包括折线图、条形图、饼图、上一个已知值、关键绩效指标 (或 Kpi) 、热图和 maps。
 
 * 利用方形图标可以调整磁贴的大小。
 
 * 齿轮图标使你可以配置可视化效果。 例如，对于折线图视觉对象，可以选择显示图例和轴，并选择要绘制的时间范围。
+
 
 ## <a name="tile-types"></a>磁贴类型
 
@@ -65,7 +67,7 @@ ms.locfileid: "94376974"
 | 热度地图         | 热度地图磁贴显示有关一个或多个设备的信息，表示为颜色。|
 | 上一个已知值 | "最后一个已知值" 磁贴显示一个或多个设备的最新遥测值。 例如，你可以使用此磁贴显示一个或多个设备的最新温度、压力和湿度值。 |
 | 事件历史记录    | “事件历史记录”磁贴显示设备在一段时间内的事件。 例如，你可以使用它来显示最近一小时内一个或多个设备的所有阀打开和关闭事件。|
-| 属性         |  属性磁贴显示一个或多个设备的属性和云属性的当前值。 例如，你可以使用此磁贴来显示设备的属性，例如设备的制造商或固件版本。 |
+| properties         |  属性磁贴显示一个或多个设备的属性和云属性的当前值。 例如，你可以使用此磁贴来显示设备的属性，例如设备的制造商或固件版本。 |
 
 目前，最多可以向支持多个设备的磁贴添加10个设备。
 
@@ -91,11 +93,16 @@ ms.locfileid: "94376974"
 
 添加条件格式规则：
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="显示平均流的条件格式规则的屏幕截图。有三个规则-不小于50是绿色，小于为黄色，超过50的任何内容为红色":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="显示平均流的条件格式规则的屏幕截图。有三个规则-小于20为绿色，小于50为黄色，超过50的任何内容为红色":::
+   
 以下屏幕截图显示了条件格式规则的效果：
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="显示平均水流量磁贴上黄色背景色的屏幕截图。磁贴上的数字为40.84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="显示平均水流量磁贴上红色背景色的屏幕截图。磁贴上的数字为50.54":::
+
+### <a name="tile-formatting"></a>"磁贴" 格式
+此功能在 KPI、LKV 和属性磁贴中提供，可让用户调整字体大小，选择小数精度，使用缩写数值 (例如，格式 1700) 为 1.7 K，或在其磁贴中将字符串值换行。
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="磁贴格式":::
 
 ## <a name="next-steps"></a>后续步骤
 

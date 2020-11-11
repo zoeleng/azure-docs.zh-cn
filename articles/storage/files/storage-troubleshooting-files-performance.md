@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 9dfdbbd982503acc063ff88c74dfccde8677eaac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 4d21bfa69022cbebdcbf80c3bee4aec76bf99c53
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380226"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491114"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>排查 Azure 文件存储性能问题
 
@@ -111,7 +111,7 @@ ms.locfileid: "94380226"
 
 - 如果可能，请避免短时间内在同一目录中使用过多的打开/关闭句柄。
 - 对于 Linux VM，请指定“actimeo=\<sec>”作为装载选项，以增大目录条目缓存超时。 默认情况下，该超时为 1 秒，使用更大的值（例如 3 或 5）可能有所帮助。
-- 对于 Linux VM，请将内核升级到 4.20 或更高版本。
+- 对于 RHEL/CentOS Vm，请将系统升级到 RHEL/CentOS 8.2。 对于其他 Linux Vm，请将内核升级到5.0 或更高版本。
 
 ## <a name="low-iops-on-centosrhel"></a>CentOS/RHEL 上的 IOPS 较低
 

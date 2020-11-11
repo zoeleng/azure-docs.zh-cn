@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323322"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491454"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Azure Functions 的 SignalR 服务输出绑定
 
@@ -116,7 +116,7 @@ module.exports = async function (context, req) {
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -126,9 +126,9 @@ module.exports = async function (context, req) {
 下面是 Python 代码：
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -156,7 +156,7 @@ public SignalRMessage sendMessage(
 
 ## <a name="send-to-a-user"></a>发送给用户
 
-可以设置 SignalR 消息的用户 ID，以便将消息只发送给已针对某个用户进行身份验证的连接**。
+可以设置 SignalR 消息的用户 ID，以便将消息只发送给已针对某个用户进行身份验证的连接。
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -248,7 +248,7 @@ module.exports = async function (context, req) {
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -258,9 +258,9 @@ module.exports = async function (context, req) {
 下面是 Python 代码：
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -291,7 +291,7 @@ public SignalRMessage sendMessage(
 
 ## <a name="send-to-a-group"></a>发送给组
 
-可以设置 SignalR 消息的组名称，以便将消息只发送给已添加到某个组的连接**。
+可以设置 SignalR 消息的组名称，以便将消息只发送给已添加到某个组的连接。
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -383,7 +383,7 @@ module.exports = async function (context, req) {
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -393,9 +393,9 @@ module.exports = async function (context, req) {
 下面是 Python 代码：
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',
@@ -730,7 +730,7 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**type**| 不适用 | 必须设置为 `signalRConnectionInfo`。|
+|type| 不适用 | 必须设置为 `signalRConnectionInfo`。|
 |**direction**| 不适用 | 必须设置为 `in`。|
 |**name**| 不适用 | 变量名称，在连接信息对象的函数代码中使用。 |
 |**hubName**|**HubName**| 此值必须设置为 SignalR 中心（将为其生成连接信息）的名称。|
@@ -743,7 +743,7 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**type**| 不适用 | 必须设置为 `signalR`。|
+|type| 不适用 | 必须设置为 `signalR`。|
 |**direction**| 不适用 | 必须设置为 `out`。|
 |**name**| 不适用 | 变量名称，在连接信息对象的函数代码中使用。 |
 |**hubName**|**HubName**| 此值必须设置为 SignalR 中心（将为其生成连接信息）的名称。|

@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: keferna
-author: keferna
-ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: trkeya
+author: trkeya
+ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125132"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491233"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure 资源管理器测试驱动器
 
@@ -73,11 +73,11 @@ ms.locfileid: "93125132"
 
 ### <a name="accepted-parameter-metadata-types"></a>接受的参数元数据类型
 
-| 元数据类型   | 参数类型  | 描述     | 示例值    |
+| 元数据类型   | 参数类型  | 说明     | 示例值    |
 |---|---|---|---|
 | **baseuri**     | 字符串          | 部署包的基 URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
 | **username**    | 字符串          | 随机的新用户名。| admin68876      |
-| password    | 安全字符串    | 随机的新密码 | Lp!ACS\^2kh     |
+| **password**    | 安全字符串    | 随机的新密码 | Lp!ACS\^2kh     |
 | **会话 id**   | 字符串          | 唯一的测试驱动器会话 ID (GUID)     | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri

@@ -4,15 +4,15 @@ description: 了解如何使用 Marketo CRM 系统管理来自 Microsoft AppSour
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120256"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491069"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>使用 Marketo 管理商业市场潜在顾客
 

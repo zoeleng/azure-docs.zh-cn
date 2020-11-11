@@ -1,6 +1,6 @@
 ---
-title: 使用无服务器 SQL 池处理的数据
-description: 本文档介绍在 data lake 中查询数据时如何计算数据处理量。
+title: 无服务器 SQL 池的成本管理
+description: 本文档介绍如何管理无服务器 SQL 池的成本，以及在 Azure 存储中查询数据时如何计算处理数据。
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,22 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381195"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491558"
 ---
-# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>使用 Azure Synapse Analytics 中的无服务器 SQL 池处理的数据
+# <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中无服务器 SQL 池的成本管理
+
+本文介绍如何在 Azure Synapse Analytics 中评估和管理无服务器 SQL 池的成本：
+- 在发出查询之前估计处理的数据量
+- 使用成本控制功能设置预算
+
+了解 Azure Synapse Analytics 中无服务器 SQL 池的成本仅是 Azure 帐单中每月费用的一部分。 如果你正在使用其他 Azure 服务，则需要为 Azure 订阅中使用的所有 Azure 服务和资源（包括第三方服务）付费。 本文介绍如何在 Azure Synapse 分析中为无服务器 SQL 池规划和管理成本。
+
+## <a name="data-processed"></a>已处理的数据
 
 *处理的数据* 是指系统在运行查询时临时存储的数据量。 处理的数据包括以下数量：
 
@@ -84,6 +92,53 @@ ms.locfileid: "94381195"
 此查询读取整个文件。 此表的存储中文件的总大小为 100 KB。 节点用于处理此表的片段，每个片段的总和在节点之间传输。 最终总和会传输到你的终结点。 
 
 此查询处理的数据略超过 100 KB。 此查询处理的数据量最大舍入为 10 MB，如本文的 [舍入](#rounding) 部分所指定。
+
+## <a name="cost-control"></a>成本控制
+
+利用无服务器 SQL 池中的成本控制功能，您可以为处理的数据量设置预算。 可以将处理的数据量设置为每日、每周和每月处理的数据量（TB）。 同时，可以设置一个或多个预算。 若要配置无服务器 SQL 池的成本控制，可以使用 Synapse Studio 或 T-sql。
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-synapse-studio"></a>在 Synapse Studio 中配置无服务器 SQL 池的成本控制
+ 
+若要为 Synapse Studio 中的无服务器 SQL 池配置成本控制，请在左侧菜单中导航到 "管理项"，而不是选择 "分析池" 下的 "SQL 池项"。 当你悬停到无服务器 SQL 池时，你将看到一个用于成本控制的图标-单击此图标。
+
+![成本控制导航](./media/data-processed/cost-control-menu.png)
+
+单击 "成本控制" 图标后，将显示侧栏：
+
+![成本控制配置](./media/data-processed/cost-control-sidebar.png)
+
+若要设置一个或多个预算，请首先单击要设置的预算的 "启用" 单选按钮，而不是在文本框中输入整数值。 值的单位为 TBs。 配置所需预算后，单击侧栏底部的 "应用" 按钮。 就是这样，现在已设置了预算。
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-t-sql"></a>为 T-sql 中的无服务器 SQL 池配置成本控制
+
+若要为 T-sql 中的无服务器 SQL 池配置成本控制，您需要执行以下一个或多个存储过程。
+
+```sql
+sp_set_data_processed_limit
+    @type = N'daily',
+    @limit_tb = 1
+
+sp_set_data_processed_limit
+    @type= N'weekly',
+    @limit_tb = 2
+
+sp_set_data_processed_limit
+    @type= N'monthly',
+    @limit_tb = 3334
+```
+
+若要查看当前配置，请执行以下 T-sql 语句：
+
+```sql
+SELECT * FROM sys.configurations
+WHERE name like 'Data processed %';
+```
+
+若要查看当前日、周或月中处理的数据量，请执行以下 T-sql 语句：
+
+```sql
+SELECT * FROM sys.dm_external_data_processed
+```
 
 ## <a name="next-steps"></a>后续步骤
 
