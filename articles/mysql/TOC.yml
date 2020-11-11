@@ -471,6 +471,8 @@
               href: flexible-server/concepts-high-availability.md
         - name: 监视和日志
           items:
+            - name: 服务器参数
+              href: flexible-server/concepts-server-parameters.md
             - name: 慢查询日志
               href: flexible-server/concepts-slow-query-logs.md
             - name: 审核日志

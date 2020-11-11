@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator 服务, 翻译文本, 音译文本, 语言检测
-ms.openlocfilehash: 8250141c2baa92478c5929a300ec7b17b8ed7131
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322507"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369522"
 ---
 # <a name="quickstart-get-started-with-translator"></a>快速入门：Translator 入门
 
@@ -105,7 +105,7 @@ ms.locfileid: "93322507"
   <th>说明</th>
   <tr>
     <td>身份验证标头</td>
-    <td>必需的请求标头。<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/>使用认知服务资源时所需的请求头。如果使用翻译器资源，则此为可选。<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>请参阅<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">用于身份验证的可用选项</a>。</td>
+    <td>必需的请求标头。<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/>使用认知服务资源时所需的请求头。如果使用翻译器资源，则此为可选。<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>请参阅<a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -123,7 +123,7 @@ ms.locfileid: "93322507"
 
 ## <a name="keys-and-endpoints"></a>密钥和终结点
 
-为简单起见，此页面上的示例使用了硬编码的密钥和终结点。 请记住 **完成后将密钥从代码中删除** ， **永远不要公开发布该密钥** 。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
+为简单起见，此页面上的示例使用了硬编码的密钥和终结点。 请记住 **完成后将密钥从代码中删除** ， **永远不要公开发布该密钥** 。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](../cognitive-services-security.md)文章。
 
 ## <a name="translate-text"></a>翻译文本 
 
@@ -686,7 +686,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ### <a name="detect-source-language-without-translation"></a>在不进行翻译的情况下检测源语言
 
-可以使用 Translator 服务来检测源文本的语言，而不进行翻译。 为此，需要使用 [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) 终结点。 
+可以使用 Translator 服务来检测源文本的语言，而不进行翻译。 为此，需要使用 [`/detect`](./reference/v3-0-detect.md) 终结点。 
 
 # <a name="c"></a>[C#](#tab/csharp)
 

@@ -15,10 +15,6 @@
       href: virtual-wan-expressroute-portal.md
 - name: 概念
   items:
-    - name: 安全性
-      items:
-        - name: 安全基线
-          href: security-baseline.md
     - name: 远程工作
       items:
         - name: 远程工作支持
@@ -109,6 +105,8 @@
           href: about-vpn-profile-download.md
         - name: 全局和基于中心的配置文件
           href: global-hub-profile.md
+        - name: 配置适用于 Windows 10 的 Azure VPN 客户端
+          href: openvpn-azure-ad-client.md
         - name: 配置 OpenVPN 客户端
           href: howto-openvpn-clients.md?
         - name: 配置 Always On VPN 用户隧道
@@ -119,8 +117,6 @@
           href: openvpn-azure-ad-mfa.md
         - name: 配置 Azure AD 身份验证
           href: virtual-wan-point-to-site-azure-ad.md
-        - name: 配置适用于 Windows 10 的 Azure VPN 客户端
-          href: openvpn-azure-ad-client.md
         - name: 配置多应用程序 Azure AD 身份验证
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: 路由

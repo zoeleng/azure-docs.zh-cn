@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: bb78a60b911823da96c52a104a3e06ecfc634da6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a8a34a483390e12ba49123e26d2071d3aa667c89
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210935"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424656"
 ---
 本快速入门介绍使用语音 SDK 进行说话人识别的基本设计模式，其中包括：
 
@@ -84,11 +84,11 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="helpers":::
 
-在此函数中，使用 [AudioInputStream.createPushStream](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioinputstream?view=azure-node-latest&preserve-view=true#createpushstream-audiostreamformat-) 和 [AudioConfig.fromStreamInput](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true#fromstreaminput-audioinputstream---pullaudioinputstreamcallback-) 方法创建 [AudioConfig](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) 对象。 此 `AudioConfig` 对象表示音频流。 在以下任务中，你将使用其中几个 `AudioConfig` 对象。
+在此函数中，使用 [AudioInputStream.createPushStream](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioinputstream?preserve-view=true&view=azure-node-latest#createpushstream-audiostreamformat-) 和 [AudioConfig.fromStreamInput](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest#fromstreaminput-audioinputstream---pullaudioinputstreamcallback-) 方法创建 [AudioConfig](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest) 对象。 此 `AudioConfig` 对象表示音频流。 在以下任务中，你将使用其中几个 `AudioConfig` 对象。
 
 ## <a name="text-dependent-verification"></a>依赖于文本的验证
 
-说话人验证是确认说话人与已知或已注册的语音匹配的操作。 第一步是注册语音配置文件，以便该服务有可与将来的语音样本进行比较的内容。 在此示例中，使用依赖于文本的策略注册配置文件，该策略需要用于注册和验证的特定密码。 有关支持的密码的列表，请参阅[参考文档](https://docs.microsoft.com/rest/api/speakerrecognition/)。
+说话人验证是确认说话人与已知或已注册的语音匹配的操作。 第一步是注册语音配置文件，以便该服务有可与将来的语音样本进行比较的内容。 在此示例中，使用依赖于文本的策略注册配置文件，该策略需要用于注册和验证的特定密码。 有关支持的密码的列表，请参阅[参考文档](/rest/api/speakerrecognition/)。
 
 ### <a name="textdependentverification-function"></a>TextDependentVerification 函数
 
@@ -96,7 +96,7 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_dependent_verification":::
 
-此函数使用 [VoiceProfileClient.createProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 方法创建 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 对象。 请注意，有三种[类型](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofiletype?view=azure-node-latest&preserve-view=true)的 `VoiceProfile`：
+此函数使用 [VoiceProfileClient.createProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 方法创建 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 对象。 请注意，有三种[类型](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofiletype?preserve-view=true&view=azure-node-latest)的 `VoiceProfile`：
 
 - TextIndependentIdentification
 - TextDependentVerification
@@ -104,7 +104,7 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 在本例中，你将 `VoiceProfileType.TextDependentVerification` 传递到 `VoiceProfileClient.createProfileAsync`。
 
-然后调用接下来要定义的两个 helper 函数 `AddEnrollmentsToTextDependentProfile` 和 `SpeakerVerify`。 最后，调用 [VoiceProfileClient.deleteProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) 以删除配置文件。
+然后调用接下来要定义的两个 helper 函数 `AddEnrollmentsToTextDependentProfile` 和 `SpeakerVerify`。 最后，调用 [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) 以删除配置文件。
 
 ### <a name="addenrollmentstotextdependentprofile-function"></a>AddEnrollmentsToTextDependentProfile 函数
 
@@ -112,7 +112,7 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="add_enrollments_dependent":::
 
-在此函数中，调用之前定义的 `GetAudioConfigFromFile` 函数，以从音频示例创建 `AudioConfig` 对象。 这些音频示例包含一个密码，例如“我的语音是我的通行证，请验证我。” 然后，使用 [VoiceProfileClient.enrollProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 方法注册这些音频示例。
+在此函数中，调用之前定义的 `GetAudioConfigFromFile` 函数，以从音频示例创建 `AudioConfig` 对象。 这些音频示例包含一个密码，例如“我的语音是我的通行证，请验证我。” 然后，使用 [VoiceProfileClient.enrollProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 方法注册这些音频示例。
 
 ### <a name="speakerverify-function"></a>SpeakerVerify 函数
 
@@ -120,9 +120,9 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="speaker_verify":::
 
-在此函数中，使用 [SpeakerVerificationModel.FromProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?view=azure-node-latest&preserve-view=true#fromprofile-voiceprofile-) 方法创建 [SpeakerVerificationModel](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?view=azure-node-latest&preserve-view=true) 对象，从而传入之前创建的 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 对象。
+在此函数中，使用 [SpeakerVerificationModel.FromProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?preserve-view=true&view=azure-node-latest#fromprofile-voiceprofile-) 方法创建 [SpeakerVerificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?preserve-view=true&view=azure-node-latest) 对象，从而传入之前创建的 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 对象。
 
-接下来，调用 [SpeechRecognizer.recognizeOnceAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 方法，验证包含与之前注册的音频示例相同的密码的音频样本。 `SpeechRecognizer.recognizeOnceAsync` 返回一个 [SpeakerRecognitionResult](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?view=azure-node-latest&preserve-view=true) 对象，其 `score` 属性包含介于 0.0-1.0 之间的相似性分数。 `SpeakerRecognitionResult` 对象还包含类型 [ResultReason](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/resultreason?view=azure-node-latest&preserve-view=true) 的 `reason` 属性。 如果验证成功，则 `reason` 属性的值应为 `RecognizedSpeaker`。
+接下来，调用 [SpeechRecognizer.recognizeOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 方法，验证包含与之前注册的音频示例相同的密码的音频样本。 `SpeechRecognizer.recognizeOnceAsync` 返回一个 [SpeakerRecognitionResult](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?preserve-view=true&view=azure-node-latest) 对象，其 `score` 属性包含介于 0.0-1.0 之间的相似性分数。 `SpeakerRecognitionResult` 对象还包含类型 [ResultReason](/javascript/api/microsoft-cognitiveservices-speech-sdk/resultreason?preserve-view=true&view=azure-node-latest) 的 `reason` 属性。 如果验证成功，则 `reason` 属性的值应为 `RecognizedSpeaker`。
 
 ## <a name="text-independent-verification"></a>独立于文本的验证
 
@@ -137,11 +137,11 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_verification":::
 
-与 `TextDependentVerification` 函数一样，此函数使用 [VoiceProfileClient.createProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 方法创建 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 对象。
+与 `TextDependentVerification` 函数一样，此函数使用 [VoiceProfileClient.createProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 方法创建 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 对象。
 
 在本例中，你将 `VoiceProfileType.TextIndependentVerification` 传递到 `createProfileAsync`。
 
-然后，调用两个 helper 函数：`AddEnrollmentsToTextIndependentProfile`（将在下一步定义）和 `SpeakerVerify`（已定义）。 最后，调用 [VoiceProfileClient.deleteProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) 以删除配置文件。
+然后，调用两个 helper 函数：`AddEnrollmentsToTextIndependentProfile`（将在下一步定义）和 `SpeakerVerify`（已定义）。 最后，调用 [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) 以删除配置文件。
 
 ### <a name="addenrollmentstotextindependentprofile"></a>AddEnrollmentsToTextIndependentProfile
 
@@ -149,7 +149,7 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="add_enrollments_independent":::
 
-在此函数中，调用之前定义的 `GetAudioConfigFromFile` 函数，以从音频示例创建 `AudioConfig` 对象。 然后，使用 [VoiceProfileClient.enrollProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 方法注册这些音频示例。
+在此函数中，调用之前定义的 `GetAudioConfigFromFile` 函数，以从音频示例创建 `AudioConfig` 对象。 然后，使用 [VoiceProfileClient.enrollProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-) 方法注册这些音频示例。
 
 ## <a name="speaker-identification"></a>说话人识别
 
@@ -161,11 +161,11 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_indentification":::
 
-与 `TextDependentVerification` 和 `TextIndependentVerification` 函数一样，此函数使用 [VoiceProfileClient.createProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 方法创建 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 对象。
+与 `TextDependentVerification` 和 `TextIndependentVerification` 函数一样，此函数使用 [VoiceProfileClient.createProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) 方法创建 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 对象。
 
 在本例中，你将 `VoiceProfileType.TextIndependentIdentification` 传递到 `VoiceProfileClient.createProfileAsync`。
 
-然后，调用两个 helper 函数：`AddEnrollmentsToTextIndependentProfile`（已定义）和 `SpeakerIdentify`（将在下一步定义）。 最后，调用 [VoiceProfileClient.deleteProfileAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) 以删除配置文件。
+然后，调用两个 helper 函数：`AddEnrollmentsToTextIndependentProfile`（已定义）和 `SpeakerIdentify`（将在下一步定义）。 最后，调用 [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) 以删除配置文件。
 
 ### <a name="speakeridentify-function"></a>SpeakerIdentify 函数
 
@@ -173,10 +173,10 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="speaker_identify":::
 
-在此函数中，使用 [SpeakerIdentificationModel.fromProfiles](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?view=azure-node-latest&preserve-view=true#fromprofiles-voiceprofile---) 方法创建 [SpeakerIdentificationModel](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?view=azure-node-latest&preserve-view=true) 对象，从而传入之前创建的 [VoiceProfile](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?view=azure-node-latest&preserve-view=true) 对象。
+在此函数中，使用 [SpeakerIdentificationModel.fromProfiles](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?preserve-view=true&view=azure-node-latest#fromprofiles-voiceprofile---) 方法创建 [SpeakerIdentificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?preserve-view=true&view=azure-node-latest) 对象，从而传入之前创建的 [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) 对象。
 
-接下来，调用 [SpeechRecognizer.recognizeOnceAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 方法并传入音频示例。
-`SpeechRecognizer.recognizeOnceAsync` 尝试根据用于创建 `SpeakerIdentificationModel` 的 `VoiceProfile` 对象来标识此音频示例的语音。 它返回一个 [SpeakerRecognitionResult](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?view=azure-node-latest&preserve-view=true) 对象，该对象的 `profileId` 属性标识匹配的 `VoiceProfile`（如果有），而 `score` 属性包含介于 0.0-1.0 之间的相似性分数。
+接下来，调用 [SpeechRecognizer.recognizeOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) 方法并传入音频示例。
+`SpeechRecognizer.recognizeOnceAsync` 尝试根据用于创建 `SpeakerIdentificationModel` 的 `VoiceProfile` 对象来标识此音频示例的语音。 它返回一个 [SpeakerRecognitionResult](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?preserve-view=true&view=azure-node-latest) 对象，该对象的 `profileId` 属性标识匹配的 `VoiceProfile`（如果有），而 `score` 属性包含介于 0.0-1.0 之间的相似性分数。
 
 ## <a name="main-function"></a>main 函数
 
@@ -184,4 +184,4 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="main":::
 
-此函数创建一个 [VoiceProfileClient](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest&preserve-view=true) 对象，该对象用于创建、注册和删除语音配置文件。 然后，它调用你之前定义的函数。
+此函数创建一个 [VoiceProfileClient](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest) 对象，该对象用于创建、注册和删除语音配置文件。 然后，它调用你之前定义的函数。

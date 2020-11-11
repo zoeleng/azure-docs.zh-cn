@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 569b9b8b7141c767e8ec7e813029b73c8485dcbd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b7c19c06e663fc959389a26710c5c748a9654e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084669"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369131"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>快速入门：使用 Python 向必应实体搜索 REST API 发送搜索请求
 
@@ -152,5 +152,5 @@ ms.locfileid: "93084669"
 > [!div class="nextstepaction"]
 > [构建单页 Web 应用](../tutorial-bing-entities-search-single-page-app.md)
 
-* [什么是必应实体搜索 API？](../search-the-web.md)
-* [必应实体搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)。
+* [什么是必应实体搜索 API？](../overview.md)
+* [必应实体搜索 API 参考](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)。

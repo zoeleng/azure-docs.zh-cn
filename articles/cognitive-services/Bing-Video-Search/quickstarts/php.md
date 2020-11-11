@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8362f5b4d3436e83cbd033fcc3cd088d52122b58
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094092"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379848"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>快速入门：使用必应视频搜索 REST API 和 PHP 来搜索视频
 
@@ -36,7 +36,7 @@ ms.locfileid: "93094092"
 
 ## <a name="running-the-application"></a>运行应用程序
 
-[必应视频搜索 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 从必应搜索引擎返回结果。
+[必应视频搜索 API](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 从必应搜索引擎返回结果。
 
 1. 通过取消注释 `;extension=php_openssl.dll` 行，在 `php.ini` 文件中启用安全 HTTP 支持，如以下代码中所述。
 2. 在喜欢使用的 IDE 或编辑器中新建一个 PHP 项目。

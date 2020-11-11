@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0e2324f7e524567b07f0228e046605b781bc4916
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135802"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425370"
 ---
 本指南介绍如何安装用于 Python 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。 如果只是需要包名称以便自行开始，请运行 `pip install azure-cognitiveservices-speech`。
 
@@ -90,7 +90,7 @@ import azure.cognitiveservices.speech as speechsdk
 如果有新版本可用，可以使用 `pip install --upgrade azure-cognitiveservices-speech` 命令进行更新。
 通过查看 `azure.cognitiveservices.speech.__version__` 变量来检查当前安装的版本。
 
-如果遇到问题或者缺少某项功能，请查看[支持和帮助选项](~/articles/cognitive-services/speech-service/support.md)。
+如果遇到问题或者缺少某项功能，请查看[支持和帮助选项](../../../../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)。
 
 ## <a name="next-steps"></a>后续步骤
 

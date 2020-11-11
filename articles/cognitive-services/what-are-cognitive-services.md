@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 82531466c80917087ca007900ca79b3485f38a21
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d134532e7f285f391b6791a9fc73d5e3251ddac8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546256"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369403"
 ---
 # <a name="what-are-azure-cognitive-services"></a>什么是 Azure 认知服务？
 
@@ -39,59 +39,59 @@ Azure 认知服务是具有 REST API 和客户端库 SDK 的基于云的服务�
 
 |服务名称|服务说明|
 |:-----------|:------------------|
-|[计算机视觉](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "计算机视觉")|使用计算机视觉服务，你可以访问用于处理图像并返回信息的高级认知算法。|
-|[自定义视觉服务](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "自定义影像服务")|通过自定义视觉服务可以生成自定义图像分类器。|
-|[人脸](https://docs.microsoft.com/azure/cognitive-services/face/ "人脸")| 使用人脸服务可访问高级人脸算法，从而实现人脸属性检测和识别。|
-|[表单识别器](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "表单识别器")|表单识别器从表单文档中识别并提取键值对和表数据；然后输出结构化数据，包括原始文件中的关系。|
-|[墨迹识别器](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "墨迹识别器")（将停用）|使用墨迹识别器可以识别和分析数字墨迹笔划数据、形状和手写内容，并输出包含所有已识别实体的文档结构。|
-|[视频索引器](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "视频索引器")|使用视频索引器从视频中提取见解。|
+|[计算机视觉](./computer-vision/index.yml "计算机视觉")|使用计算机视觉服务，你可以访问用于处理图像并返回信息的高级认知算法。|
+|[自定义视觉服务](./custom-vision-service/overview.md "自定义影像服务")|通过自定义视觉服务可以生成自定义图像分类器。|
+|[人脸](./face/index.yml "人脸")| 使用人脸服务可访问高级人脸算法，从而实现人脸属性检测和识别。|
+|[表单识别器](./form-recognizer/index.yml "表单识别器")|表单识别器从表单文档中识别并提取键值对和表数据；然后输出结构化数据，包括原始文件中的关系。|
+|[墨迹识别器](./ink-recognizer/index.yml "墨迹识别器")（将停用）|使用墨迹识别器可以识别和分析数字墨迹笔划数据、形状和手写内容，并输出包含所有已识别实体的文档结构。|
+|[视频索引器](../media-services/video-indexer/video-indexer-overview.md "视频索引器")|使用视频索引器从视频中提取见解。|
 
 ## <a name="speech-apis"></a>语音 API
 
 |服务名称|服务说明|
 |:-----------|:------------------|
-|[语音服务](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "语音服务")|语音服务将支持语音的功能添加到应用程序。 语音服务包括各种功能，如语音到文本、文本到语音以及语音翻译等。|
+|[语音服务](./speech-service/index.yml "语音服务")|语音服务将支持语音的功能添加到应用程序。 语音服务包括各种功能，如语音到文本、文本到语音以及语音翻译等。|
 <!--
-|[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
-|[Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
-|[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
+|[Speaker Recognition API](./speech-service/speaker-recognition-overview.md "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
+|[Bing Speech](./speech-service/how-to-migrate-from-bing-speech.md "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
+|[Translator Speech](/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
 -->
 ## <a name="language-apis"></a>语言 API
 
 |服务名称|服务说明|
 |:-----------|:------------------|
-|[语言理解 LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "语言理解")|语言理解服务 (LUIS) 使应用程序可以理解用户以自己的语言表达的内容。|
-|[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|通过 QnA Maker，可以从半结构化内容生成问答服务。|
-|[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "文本分析")| 文本分析提供对原始文本的自然语言处理，用于情绪分析、关键短语提取和语言检测。|
-|[翻译](https://docs.microsoft.com/azure/cognitive-services/translator/ "转换器")|“翻译”近乎实时地提供基于机器的文本翻译。|
-| [沉浸式阅读器](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/ "沉浸式阅读器") | 沉浸式阅读器为你的应用程序增加了屏幕阅读和理解功能。 |
+|[语言理解 LUIS](./luis/index.yml "语言理解")|语言理解服务 (LUIS) 使应用程序可以理解用户以自己的语言表达的内容。|
+|[QnA Maker](./qnamaker/index.yml "QnA Maker")|通过 QnA Maker，可以从半结构化内容生成问答服务。|
+|[文本分析](./text-analytics/index.yml "文本分析")| 文本分析提供对原始文本的自然语言处理，用于情绪分析、关键短语提取和语言检测。|
+|[翻译](./translator/index.yml "转换器")|“翻译”近乎实时地提供基于机器的文本翻译。|
+| [沉浸式阅读器](./immersive-reader/index.yml "沉浸式阅读器") | 沉浸式阅读器为你的应用程序增加了屏幕阅读和理解功能。 |
 
 ## <a name="decision-apis"></a>决策 API
 
 |服务名称|服务说明|
 |:-----------|:------------------|
-|[异常检测器](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "异常检测器") |使用异常检测器可以监视并检测时序数据中的异常。|
-|[内容审查器](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "内容审查器")|内容审查器监视可能的冒犯性、不可取和危险内容。|
-|[指标顾问](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor)（预览版） | 指标顾问提供可自定的多变量时序数据义异常情况检测，并提供一个功能齐全的 Web 门户来帮助使用该服务。|
-|[个性化体验创建服务](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "个性化体验创建服务")|个性化体验创建服务可让你选择要显示给用户的最佳体验，并从其实时行为中学习信息。|
+|[异常检测器](./anomaly-detector/index.yml "异常检测器") |使用异常检测器可以监视并检测时序数据中的异常。|
+|[内容审查器](./content-moderator/overview.md "内容审查器")|内容审查器监视可能的冒犯性、不可取和危险内容。|
+|[指标顾问](./metrics-advisor/index.yml)（预览版） | 指标顾问提供可自定的多变量时序数据义异常情况检测，并提供一个功能齐全的 Web 门户来帮助使用该服务。|
+|[个性化体验创建服务](./personalizer/index.yml "个性化体验创建服务")|个性化体验创建服务可让你选择要显示给用户的最佳体验，并从其实时行为中学习信息。|
 
 ## <a name="search-apis"></a>搜索 API
 
 > [!NOTE]
-> 正在查找 [Azure 认知搜索](https://docs.microsoft.com/azure/search/)？ 尽管它对某些任务使用认知服务，但它是一项支持其他方案的不同搜索技术。
+> 正在查找 [Azure 认知搜索](../search/index.yml)？ 尽管它对某些任务使用认知服务，但它是一项支持其他方案的不同搜索技术。
 
 |服务名称|服务说明|
 |:-----------|:------------------|
-|[必应新闻搜索](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "必应新闻搜索")|必应新闻搜索返回确定与用户查询相关的新闻文章列表。|
-|[必应视频搜索](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "必应视频搜索")|必应视频搜索返回确定与用户查询相关的视频列表。|
-|[必应 Web 搜索](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "必应 Web 搜索")|必应 Web 搜索返回确定与用户查询相关的搜索结果列表。|
-|[必应自动建议](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest "必应自动建议")|通过必应自动建议，可向必应发送部分搜索查询词，并取回建议的查询列表。|
-|[必应自定义搜索](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search "必应自定义搜索")|借助必应自定义搜索，可以为关注的主题创建定制的搜索体验。|
-|[必应实体搜索](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "必应实体搜索")|必应实体搜索返回必应确定与用户查询相关的实体的相关信息。|
-|[必应图像搜索](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "必应图像搜索")|必应图像搜索返回确定与用户查询相关的图像显示。|
-|[必应视觉搜索](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "必应视觉搜索")|必应视觉搜索返回有关图像的见解，例如在视觉上相似的图像、在图像中找到的产品的购物来源以及相关的搜索。|
-|[必应当地企业搜索](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "必应当地企业搜索")| 必应当地企业搜索 API 使应用程序可以基于搜索查询查找有关当地企业的联系人和位置信息。|
-|[必应拼写检查](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "必应拼写检查")|使用必应拼写检查，可执行上下文语法和拼写检查。|
+|[必应新闻搜索](/azure/cognitive-services/bing-news-search/ "必应新闻搜索")|必应新闻搜索返回确定与用户查询相关的新闻文章列表。|
+|[必应视频搜索](/azure/cognitive-services/Bing-Video-Search/ "必应视频搜索")|必应视频搜索返回确定与用户查询相关的视频列表。|
+|[必应 Web 搜索](./bing-web-search/index.yml "必应 Web 搜索")|必应 Web 搜索返回确定与用户查询相关的搜索结果列表。|
+|[必应自动建议](/azure/cognitive-services/Bing-Autosuggest "必应自动建议")|通过必应自动建议，可向必应发送部分搜索查询词，并取回建议的查询列表。|
+|[必应自定义搜索](/azure/cognitive-services/bing-custom-search "必应自定义搜索")|借助必应自定义搜索，可以为关注的主题创建定制的搜索体验。|
+|[必应实体搜索](/azure/cognitive-services/bing-entities-search/ "必应实体搜索")|必应实体搜索返回必应确定与用户查询相关的实体的相关信息。|
+|[必应图像搜索](/azure/cognitive-services/bing-image-search "必应图像搜索")|必应图像搜索返回确定与用户查询相关的图像显示。|
+|[必应视觉搜索](/azure/cognitive-services/bing-visual-search "必应视觉搜索")|必应视觉搜索返回有关图像的见解，例如在视觉上相似的图像、在图像中找到的产品的购物来源以及相关的搜索。|
+|[必应当地企业搜索](/azure/cognitive-services/bing-local-business-search/ "必应当地企业搜索")| 必应当地企业搜索 API 使应用程序可以基于搜索查询查找有关当地企业的联系人和位置信息。|
+|[必应拼写检查](/azure/cognitive-services/bing-spell-check/ "必应拼写检查")|使用必应拼写检查，可执行上下文语法和拼写检查。|
 
 ## <a name="development-options"></a>开发选项 
 
@@ -111,7 +111,7 @@ Azure 认知服务是具有 REST API 和客户端库 SDK 的基于云的服务�
 * [Azure 门户](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure 门户")
 * [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
 * [Azure SDK 客户端库](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
-* [Azure 资源管理器 (ARM) 模板](resource-manager-template.md?tabs=portal "Azure 资源管理器 (ARM) 模板")
+* [Azure 资源管理器 (ARM) 模板](./create-account-resource-manager-template.md?tabs=portal "Azure 资源管理器 (ARM) 模板")
 
 <!--
 ## Subscription management

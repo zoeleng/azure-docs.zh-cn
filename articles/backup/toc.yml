@@ -158,6 +158,8 @@
           items:
             - name: 管理 Azure VM 备份
               href: backup-azure-manage-vms.md
+            - name: 管理恢复点
+              href: manage-recovery-points.md
     - name: 备份 Azure VM 上的 SQL Server 数据库
       items:
         - name: 概述

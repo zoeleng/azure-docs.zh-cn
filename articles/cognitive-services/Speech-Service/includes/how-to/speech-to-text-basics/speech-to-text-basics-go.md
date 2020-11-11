@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: b2369e3f941b3d7c86b5c09a11d3e17ade8e99cf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135478"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424797"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 
@@ -23,7 +23,7 @@ ms.locfileid: "93135478"
 
 ## <a name="install-the-speech-sdk"></a>安装语音 SDK
 
-你需要先安装[适用于 Go 的语音 SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Cwindows%2Cjre%2Cbrowser&pivots=programming-language-go)，然后才能执行任何操作。
+你需要先安装[适用于 Go 的语音 SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser)，然后才能执行任何操作。
 
 ## <a name="speech-to-text-from-microphone"></a>从麦克风将语音转换为文本
 

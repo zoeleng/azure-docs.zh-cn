@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217571"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386606"
 ---
 使用必应 Web 搜索客户端库可以轻松地将必应 Web 搜索集成到 C# 应用程序中。 本快速入门介绍如何实例化客户端、发送请求和输出响应。
 
@@ -36,7 +36,7 @@ ms.locfileid: "92217571"
 > [!TIP]
 > 从 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/) 获取作为 Visual Studio 解决方案的最新代码。
 
-第一步是创建新的控制台项目。 如需控制台项目设置方面的帮助，请参阅 [Hello World -- 你的第一个程序（C# 编程指南）](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)。 若要在应用程序中使用必应 Web 搜索 SDK，需使用 NuGet 包管理器来安装 `Microsoft.Azure.CognitiveServices.Search.WebSearch`。
+第一步是创建新的控制台项目。 如需控制台项目设置方面的帮助，请参阅 [Hello World -- 你的第一个程序（C# 编程指南）](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)。 若要在应用程序中使用必应 Web 搜索 SDK，需使用 NuGet 包管理器来安装 `Microsoft.Azure.CognitiveServices.Search.WebSearch`。
 
 [Web 搜索 SDK 包](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)还安装：
 
@@ -424,4 +424,3 @@ dotnet run
 
 > [!div class="nextstepaction"]
 > [认知服务 Node.js SDK 示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

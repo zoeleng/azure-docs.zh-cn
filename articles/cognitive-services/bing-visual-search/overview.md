@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 50db66d54993a4b5ee8afb4756be6b1f4387a1d0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082039"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369335"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>什么是必应视觉搜索 API？
 
@@ -53,7 +53,7 @@ ms.locfileid: "93082039"
 
 必应视觉搜索 API 是一项 RESTful Web 服务，可以轻松地通过任何编程语言调用，只要该语言能够发出 HTTP 请求和分析 JSON 即可。 可以通过 REST API 或 SDK 使用此服务。
 
-1. 创建一个[认知服务帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)用于访问必应搜索 API。 如果没有 Azure 订阅，可以[免费创建一个帐户](https://azure.microsoft.com/free/cognitive-services/)。
+1. 创建一个[认知服务帐户](../cognitive-services-apis-create-account.md)用于访问必应搜索 API。 如果没有 Azure 订阅，可以[免费创建一个帐户](https://azure.microsoft.com/free/cognitive-services/)。
 2. 使用有效的搜索查询向 API 发送请求。
 3. 通过分析返回的 JSON 消息处理 API 响应。
 
@@ -74,8 +74,8 @@ ms.locfileid: "93082039"
 
 ## <a name="see-also"></a>另请参阅
 
-* [图像 - 视觉搜索](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)参考文档介绍了有关终结点、请求标头、响应和查询参数的定义和信息，这些都可以用来请求基于图像的搜索结果。
+* [图像 - 视觉搜索](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)参考文档介绍了有关终结点、请求标头、响应和查询参数的定义和信息，这些都可以用来请求基于图像的搜索结果。
 
 * [必应搜索 API 用法和显示要求](../bing-web-search/use-display-requirements.md)指定了允许用户如何使用通过必应搜索 API 获得的内容和信息。
 
-* 请访问[必应搜索 API 中心页](../bing-web-search/search-the-web.md)，浏览其他可用的 API。
+* 请访问[必应搜索 API 中心页](../bing-web-search/overview.md)，浏览其他可用的 API。

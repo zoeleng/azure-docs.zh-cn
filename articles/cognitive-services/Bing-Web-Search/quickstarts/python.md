@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 9d6de9b29f0e68d48eab0b2c4081470858d3d69c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 63706eefd4f46c055e8bcbd58a86fdded6f3527d
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076429"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381042"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>快速入门：使用 Python 调用必应 Web 搜索 API  
 
@@ -62,7 +62,7 @@ ms.locfileid: "93076429"
 
 此代码使用 `requests` 库调用必应 Web 搜索 API 并将结果作为 JSON 对象返回。 API 密钥是在 `headers` 字典中传入的，搜索词和查询参数是在 `params` 字典中传入的。 
 
-有关选项和参数的完整列表，请参阅[必应 Web 搜索 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)。
+有关选项和参数的完整列表，请参阅[必应 Web 搜索 API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)。
 
 ```python
 import requests

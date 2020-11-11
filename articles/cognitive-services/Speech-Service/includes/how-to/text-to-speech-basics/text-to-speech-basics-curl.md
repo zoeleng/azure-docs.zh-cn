@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 029cb1e59876eb01c609ef8b7ba0412ed35a2a1b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940731"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425428"
 ---
 本快速入门介绍如何使用语音服务和 cURL 将文本转换为语音。
 
@@ -26,7 +26,7 @@ ms.locfileid: "91940731"
 - 你的语音服务区域。
 
 可能还需要更改以下值。
-- `X-Microsoft-OutputFormat` 标头值，该值控制音频输出格式。 可以在[文本转语音 REST API 参考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs)中找到受支持的音频输出格式列表。
+- `X-Microsoft-OutputFormat` 标头值，该值控制音频输出格式。 可以在[文本转语音 REST API 参考](../../../rest-text-to-speech.md#audio-outputs)中找到受支持的音频输出格式列表。
 - 输出的语音。 若要获取适用于语音终结点的语音列表，请参阅下一节。
 - 输出文件。 在此示例中，我们将服务器的响应定向到名为 `output.wav` 的文件中。
 

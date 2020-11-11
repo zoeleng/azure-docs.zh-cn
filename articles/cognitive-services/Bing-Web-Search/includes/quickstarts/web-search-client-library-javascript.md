@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1b0fa12aa00165ad4ddd02d36383b41bdf74f4d8
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377320"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386601"
 ---
 使用必应 Web 搜索客户端库可以轻松地将必应 Web 搜索集成到 Node.js 应用程序中。 本快速入门介绍如何实例化客户端、发送请求和输出响应。
 
@@ -107,4 +107,4 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 
 ## <a name="see-also"></a>另请参阅
 
-* [Azure Node SDK 参考](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)
+* [Azure Node SDK 参考](/javascript/api/@azure/cognitiveservices-websearch/)
