@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aa94c58dfb051eadc0059aa556383260a00b10
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d54e1127207f0593f8d345b266d7db6e92b5c0d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93134886"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335394"
 ---
 # <a name="what-is-identity-lifecycle-management"></a>标识生命周期管理是什么？
 
@@ -70,7 +70,7 @@ Azure AD 当前提供以下功能：
 ## <a name="next-steps"></a>后续步骤 
 
 - [什么是预配？](what-is-provisioning.md)
-- [在 Azure AD 权利管理中管理外部用户的访问权限](/azure/active-directory/governance/entitlement-management-external-users.md)
+- [在 Azure AD 权利管理中管理外部用户的访问权限](/azure/active-directory/governance/entitlement-management-external-users)
 - [HR 驱动的预配是什么？](what-is-hr-driven-provisioning.md)
 - [应用预配是什么？](what-is-app-provisioning.md)
 - [目录间预配是什么？](what-is-inter-directory-provisioning.md)

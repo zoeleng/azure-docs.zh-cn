@@ -1,20 +1,20 @@
 ---
 title: 在 Azure Cosmos DB 中使用 Java 生成图形数据库
 description: 演示一个可以用来连接到 Azure Cosmos DB 并使用 Gremlin 查询其中图形数据的 Java 代码示例。
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
-ms.author: jasonh
+ms.author: chrande
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2ae86f918b1ecaf28d5f0118d90ea6c2389674da
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5a793eb69b344e361679759e46db47c78885831e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129688"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360949"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>快速入门：使用 Java SDK 和 Azure Cosmos DB Gremlin API 构建图形数据库
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.openlocfilehash: 127b491da3e01e88c90e689e7dbcc9052ae4392f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: baeb5fbadfaf128c2c491a1fdb7e880b413878d6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099736"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491063"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>快速入门：从 Azure 门户创建 Azure Cosmos 帐户、数据库、容器和项
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,7 +54,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
     |资源组|资源组名称|选择一个资源组，或者选择“新建”，然后输入新资源组的唯一名称。 |
     |帐户名|唯一的名称|输入标识此 Azure Cosmos 帐户的名称。 由于 documents.azure.com 将追加到所提供的名称以创建 URI，因此，请使用唯一的名称。<br><br>名称只能包含小写字母、数字和连字符 (-)。 它的长度必须介于 3 到 31 个字符之间。|
     |API|要创建的帐户的类型|选择“Core (SQL)”，以便使用 SQL 语法创建文档数据库并进行查询。 <br><br>API 确定要创建的帐户的类型。 Azure Cosmos DB 提供五种 API：适用于文档数据的 Core (SQL) 和 MongoDB、适用于图形数据的 Gremlin、Azure 表和 Cassandra。 目前，你必须为每种 API 创建单独的帐户。 <br><br>[详细了解 SQL API](introduction.md)。|
-    |容量模式|预配吞吐量或无服务器|选择“预配吞吐量”以在[预配吞吐量](set-throughput.md)模式下创建帐户。 选择“无服务器”以在[无服务器](serverless.md)模式下创建帐户。<br><br>**注意** ：无服务器当前仅适用于核心 (SQL) API 帐户。|
+    |容量模式|预配吞吐量或无服务器|选择“预配吞吐量”以在[预配吞吐量](set-throughput.md)模式下创建帐户。 选择“无服务器”以在[无服务器](serverless.md)模式下创建帐户。|
     |应用免费层折扣|应用或不应用|使用 Azure Cosmos DB 免费层，你将在帐户中获得每秒的前 400 RU 免费的吞吐量和 5 GB 的免费存储。 了解[免费层](https://azure.microsoft.com/pricing/details/cosmos-db/)的详细信息。|
     |位置|离用户最近的区域|选择用于托管 Azure Cosmos DB 帐户的地理位置。 使用离用户最近的位置，使他们能够以最快的速度访问数据。|
     |帐户类型|生产或非生产|如果帐户将用于生产工作负荷，请选择“生产”。 如果帐户将用于非生产环境（例如开发、测试、QA 或过渡），请选择“非生产”。 这是一个 Azure 资源标记设置，用于调整门户体验，但不会影响基础 Azure Cosmos DB 帐户。 可以随时更改此值。|
@@ -88,7 +88,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
 可以使用 Azure 门户中的数据资源管理器来创建数据库和容器。 
 
-1.  在 Azure Cosmos DB 帐户页上的左侧导航栏中选择“数据资源管理器”，然后选择“新建容器”。 
+1.  在 Azure Cosmos DB 帐户页上的左侧导航栏中选择“数据资源管理器”，然后选择“新建容器”。   
     
     可能需要向右滚动才能看到“添加容器”窗口。
     

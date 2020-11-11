@@ -1,20 +1,20 @@
 ---
 title: 快速入门：将 Gremlin API 与 Python 配合使用 - Azure Cosmos DB
 description: 本快速入门介绍如何在 Azure 门户和 Python 中使用 Azure Cosmos DB Gremlin API 创建控制台应用程序
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-python
-ms.openlocfilehash: d288b80b646851df9a3900a8ad3e5e0bf1a977ef
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131320"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360184"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>快速入门：在 Azure Cosmos DB 中使用 Python 和 Azure 门户创建图形数据库
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

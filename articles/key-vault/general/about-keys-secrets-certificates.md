@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91296831"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357770"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault 密钥、机密和证书概述
 
@@ -45,10 +46,10 @@ HSM 保护的密钥|/keys|支持|支持
 证书|/certificates|支持|不支持
 存储帐户密钥|/storageaccount|支持|不支持
 |||
-- **加密密钥**：支持多种密钥类型和算法，并支持使用受软件保护的密钥和受 HSM 保护的密钥。 有关详细信息，请参阅[关于密钥](../keys/about-keys.md)。
-- **机密**：提供机密（例如密码和数据库连接字符串）的安全存储。 有关详细信息，请参阅[关于机密](../secrets/about-secrets.md)。
-- **证书**：支持基于密钥和机密并且添加了自动续订功能的证书。 有关详细信息，请参阅[关于证书](../certificates/about-certificates.md)。
-- **Azure 存储帐户密钥**：可以管理 Azure 存储帐户的密钥。 在内部，Key Vault 可以使用 Azure 存储帐户列出（同步）密钥，并定期重新生成（轮换）密钥。 有关详细信息，请参阅[使用 Key Vault 管理存储帐户密钥](../secrets/overview-storage-keys.md)。
+- **加密密钥** ：支持多种密钥类型和算法，并支持使用受软件保护的密钥和受 HSM 保护的密钥。 有关详细信息，请参阅[关于密钥](../keys/about-keys.md)。
+- **机密** ：提供机密（例如密码和数据库连接字符串）的安全存储。 有关详细信息，请参阅[关于机密](../secrets/about-secrets.md)。
+- **证书** ：支持基于密钥和机密并且添加了自动续订功能的证书。 有关详细信息，请参阅[关于证书](../certificates/about-certificates.md)。
+- **Azure 存储帐户密钥** ：可以管理 Azure 存储帐户的密钥。 在内部，Key Vault 可以使用 Azure 存储帐户列出（同步）密钥，并定期重新生成（轮换）密钥。 有关详细信息，请参阅[使用 Key Vault 管理存储帐户密钥](../secrets/overview-storage-keys.md)。
 
 有关 Key Vault 的更多常规信息，请参阅[关于 Azure Key Vault](overview.md)。 有关托管 HSM 池的详细信息，请参阅什么是 [Azure Key Vault 托管 HSM？](../managed-hsm/overview.md)
 
@@ -80,9 +81,9 @@ Key Vault 中的对象通过 URL 唯一标识。 不管地理位置如何，系�
 
 对象标识符具有以下常规格式（具体取决于容器类型）：  
 
-- **对于保管库**：`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **对于保管库** ：`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **对于托管 HSM 池**：`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **对于托管 HSM 池** ：`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > 请参阅[对象类型支持](#object-types)以了解每种容器类型支持的对象类型。

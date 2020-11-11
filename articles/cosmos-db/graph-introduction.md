@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin API 简介
 description: 了解如何在 Azure Cosmos DB 中通过使用 Apache TinkerPop 的 Gremlin 图形查询语言以较低的延迟存储、查询和遍历大量图形。
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: d0bd94037a75db8d69cfd44820a80ae8b403c9ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087394"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357073"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Gremlin API 简介
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

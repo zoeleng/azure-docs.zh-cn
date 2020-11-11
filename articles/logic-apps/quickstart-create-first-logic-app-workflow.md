@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7ec4515d5f1d096cfb83f06c398da4c1254279f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099141"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337451"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>快速入门：创建第一个逻辑应用工作流 - Azure 门户
 
@@ -112,7 +112,7 @@ ms.locfileid: "93099141"
 
 ## <a name="add-the-send-email-action"></a>添加“发送电子邮件”操作
 
-[为逻辑应用添加触发器](#add-rss-trigger)后，必须添加[操作](../logic-apps/logic-apps-overview.md#logic-app-concepts)以确定当逻辑应用检查 RSS 源并出现新项时的响应。 还可以创建具有更复杂的操作的逻辑应用，如[使用逻辑应用、Azure Functions 和 Azure 存储处理电子邮件](/tutorial-process-email-attachments-workflow.md)教程中所述。
+[为逻辑应用添加触发器](#add-rss-trigger)后，必须添加[操作](../logic-apps/logic-apps-overview.md#logic-app-concepts)以确定当逻辑应用检查 RSS 源并出现新项时的响应。 还可以创建具有更复杂的操作的逻辑应用，如[使用逻辑应用、Azure Functions 和 Azure 存储处理电子邮件](/azure/logic-apps/tutorial-process-email-attachments-workflow)教程中所述。
 
 > [!NOTE]
 > 此示例使用 Office 365 Outlook 作为电子邮件服务。 如果在逻辑应用中使用的是其他受支持的电子邮件服务，则用户界面可能会有所不同。 但是，用于连接到其他电子邮件服务的基本概念仍保持不变。

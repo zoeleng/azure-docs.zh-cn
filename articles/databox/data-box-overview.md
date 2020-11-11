@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123556"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336671"
 ---
 # <a name="what-is-azure-data-box"></a>什么是 Azure Data Box？
 
@@ -90,12 +90,12 @@ Data Box 包括以下组件：
 
 * **Data Box 设备** - 提供主存储、管理与云存储通信的物理设备，并有助于确保存储在设备上的所有数据的安全性和机密性。 Data Box 设备的可用存储容量为 80 TB。 
 
-    ![Data Box 的正面和背面](media/data-box-overview/data-box-combined3.png)
+    ![Data Box 的正面和背面](media/data-box-overview/data-box-combined.png)
 
     
 * **Data Box 设备** - Azure 门户的扩展，使用该扩展可以通过 Web 界面（可从不同的地理位置访问该界面）管理 Data Box 设备。 使用 Data Box 服务执行的 Data Box 设备的日常管理。 服务任务包括如何创建和管理订单、查看和管理警报以及管理共享。  
 
-    ![Azure 门户中的 Data Box 服务](media/data-box-overview/data-box-service1.png)
+    ![Azure 门户中的 Data Box 服务](media/data-box-overview/data-box-service.png)
 
     有关详细信息，请转到[使用 Data Box 服务管理 Data Box 设备](data-box-portal-ui-admin.md)。
 
