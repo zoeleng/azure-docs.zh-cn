@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/19/2020
 ms.author: aahi
-ms.openlocfilehash: 172e684c6edbab4d7d47c8cf78e35ae38de3a0af
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 056009c34aec97a8c5c45aea4b93ba41977fa7a6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461781"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518186"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>迁移到文本分析 API 的版本1。x
 
@@ -38,7 +38,7 @@ ms.locfileid: "92461781"
 有关 JSON 响应的示例，请参阅参考文档。
 * [版本 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [版本 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [版本 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+* [版本 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 ### <a name="client-libraries"></a>客户端库
 
@@ -70,7 +70,7 @@ NER
 有关 JSON 响应的示例，请参阅参考文档。
 * [版本 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [版本 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [版本 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
+* [版本 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>客户端库
 
@@ -92,7 +92,7 @@ NER
 有关 JSON 响应的示例，请参阅参考文档。
 * [版本 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [版本 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [版本 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
+* [版本 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Languages)
 
 ### <a name="client-libraries"></a>客户端库
 
@@ -109,7 +109,7 @@ NER
 
 ### <a name="rest-api"></a>REST API
 
-如果你的应用程序使用 REST API，请将其请求终结点更新到 v3 终结点以进行关键短语提取。 例如：`https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+如果你的应用程序使用 REST API，请将其请求终结点更新到 v3 终结点以进行关键短语提取。 例如： `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 有关 JSON 响应的示例，请参阅参考文档。
 * [版本 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)

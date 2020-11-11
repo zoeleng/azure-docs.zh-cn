@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 336e708334778e107331f5f393476c4b3dbb98a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507436"
+ms.locfileid: "94517761"
 ---
 # <a name="identity-model"></a>标识模型
 
@@ -59,3 +59,9 @@ Azure 通信服务的访问密钥的轮替将导致吊销使用以前的访问�
 建议在服务器端服务而不是客户端的应用程序中颁发访问令牌。 原因是，该颁发需要访问密钥或托管标识。 出于安全原因，不建议将访问密钥与客户端的应用程序共享。 客户端应用程序应使用可以对客户端进行身份验证的受信任的服务终结点，并代表其发出访问令牌。 可在 [此处](./client-and-server-architecture.md)找到有关体系结构的更多详细信息。
 
 如果将访问令牌缓存到后备存储，建议使用加密。 访问令牌是敏感数据，如果不受保护，则可将其用于恶意活动。 拥有访问令牌后，即可初始化 SDK 并获取对 API 的访问权限。 可访问的 API 仅基于作用域的访问令牌。 建议仅使用需要的作用域来颁发访问令牌。
+
+## <a name="next-steps"></a>后续步骤
+
+* 有关访问令牌管理的简介，请参阅 [创建和管理访问令牌](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+* 有关身份验证的简介，请参阅对 [Azure 通信服务进行身份验证](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
+* 有关数据驻留和隐私的简介，请参阅 [区域可用性和数据驻留](https://docs.microsoft.com/azure/communication-services/concepts/privacy)

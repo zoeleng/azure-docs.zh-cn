@@ -1,6 +1,6 @@
 ---
 title: 将 CEF 数据连接到 Azure Sentinel Preview |Microsoft Docs
-description: 通过使用 Linux 计算机作为日志转发器，将发送常见事件格式 (CEF) 消息的外部解决方案连接到 Azure Sentinel。
+description: 使用 Linux 计算机作为日志转发器，将发送常见事件格式 (CEF) 消息的外部解决方案连接到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347601"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517965"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>使用通用事件格式连接外部解决方案
 
@@ -27,14 +27,14 @@ ms.locfileid: "93347601"
 
 步骤1： [通过部署 Syslog/CEF 转发器步骤2连接 CEF](connect-cef-agent.md) ： [执行特定于解决方案的步骤](connect-cef-solution-config.md) 步骤3： [验证连接性](connect-cef-verify.md)
 
-本文介绍了连接的工作原理，提供了先决条件，并提供了在安全解决方案上部署代理的步骤，这些解决方案将在 Syslog 之上发送常见事件格式 (CEF) 消息。 
+本文介绍了连接的工作原理，列出了先决条件，并演示了部署安全解决方案机制以发送常见事件格式 (CEF) 消息在 Syslog 顶部的步骤。 
 
 > [!NOTE] 
 > 数据存储在运行 Azure Sentinel 的工作区的地理位置。
 
 若要进行此连接，需要部署 Syslog 转发器服务器，以支持设备与 Azure Sentinel 之间的通信。  服务器由专用 Linux 计算机 (VM 或本地) ，其中安装了适用于 Linux 的 Log Analytics 代理。 
 
-下图说明了 Azure 中 Linux VM 的情况下的设置：
+下图介绍了在 Azure 中使用 Linux VM 时的设置：
 
  ![Azure 中的 CEF](./media/connect-cef/cef-syslog-azure.png)
 
@@ -53,18 +53,18 @@ ms.locfileid: "93347601"
 请确保用作日志转发器的 Linux 计算机运行下列操作系统之一：
 
 - 64 位
-  - CentOS 7 和8，包括子版本不 (6) 
+  - CentOS 7 和8，包括次要版本 (不是 6) 
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 和8，包括子版本 (而不是 6) 
+  - Red Hat Enterprise Linux (RHEL) Server 7 和8，包括次要版本 (而不是 6) 
   - Debian GNU/Linux 8 和 9
   - Ubuntu Linux 14.04 LTS、16.04 LTS 和 18.04 LTS
   - SUSE Linux Enterprise Server 12，15
 
 - 32 位
-  - CentOS 7 和8，包括子版本不 (6) 
+  - CentOS 7 和8，包括次要版本 (不是 6) 
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 和8，包括子版本 (而不是 6) 
+  - Red Hat Enterprise Linux (RHEL) Server 7 和8，包括次要版本 (而不是 6) 
   - Debian GNU/Linux 8 和 9
   - Ubuntu Linux 14.04 LTS 和 16.04 LTS
  
@@ -82,7 +82,7 @@ ms.locfileid: "93347601"
   - 你的计算机上必须具有提升的权限 (sudo) 。 
 
 - 软件要求
-  - 请确保已在计算机上运行 python 2.7。
+  - 请确保在计算机上运行 python 2.7 或3。
 
 ## <a name="next-steps"></a>后续步骤
 
