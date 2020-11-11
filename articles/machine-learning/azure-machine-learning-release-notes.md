@@ -9,18 +9,62 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445075"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489125"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
 本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的 [**主要 sdk For Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 参考页。
 
 请参阅[已知问题列表](resource-known-issues.md)了解已知 bug 和解决方法。
+
+
+## <a name="2020-11-09"></a>2020-11-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>用于 Python 的 Azure 机器学习 SDK 1.18。0
++ **Bug 修复与改进**
+  + **azureml-automl-core**
+    +  通过允许使用高斯杂色填充短时间序列来改善其处理。
+  + **azureml-automl-runtime**
+    + 如果 DateTime 列具有 OutOfBoundsDatetime 值，则引发 ConfigException
+    + 通过允许使用高斯杂色填充短时间序列来改善其处理。
+    + 确保每个文本列都可以根据该文本列中字符串的长度，将字符语法转换用于 n 语法范围
+    + 为用户本地计算上运行的 AutoML 试验提供最佳模式的原始功能说明
+  + **azureml-core**
+    + 固定包： pyjwt，以避免在即将发布的版本中不断地进行请求。
+    + 如果此类试验存在或新试验，则创建试验会返回具有相同名称的活动或上次存档的实验。
+    + 按名称调用 get_experiment 将返回具有给定名称的活动或上次存档的试验。
+    + 用户在重新激活时不能重命名试验。
+    + 改进了错误消息，以便在数据集不正确地传递到试验 (例如 ScriptRunConfig) 时包含潜在修复。 
+    + 的改进文档 `OutputDatasetConfig.register_on_complete` ，包括名称已存在时所发生的行为。
+    + 指定可能与常见环境变量发生冲突的数据集输入和输出名称现在将导致警告
+    + `grant_workspace_access`注册数据存储时的用途参数。 将其设置为 `True` 以从机器学习 Studio 访问虚拟网络后的数据。
+      [了解详细信息](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+    + 已优化链接服务 API。 我们在配置中定义了3个单独的参数 sub_id、rg 和名称，而不是提供资源 Id。
+    + 为了使客户能够自行解决令牌损坏问题，使工作区令牌同步成为一个公共方法。
+    + 此更改允许将空字符串用作 script_param 的值。
+  + **azureml-pipeline-core**
+    + 支持 SynapseCompute 类型和 SynapseSparkStep 的 SDK。 客户可在 synapse spark 池上运行试验和管道运行。
+  + **azureml-pipeline-steps**
+    + 支持 SynapseCompute 类型和 SynapseSparkStep 的 SDK。 客户可在 synapse spark 池上运行试验和管道运行。
+  + **azureml-synapse**
+    + 添加 Synapse 幻和 SparkMonitor，以使用户能够提交 Syanpse 作业并在笔记本中查看作业进度。
+  + **azureml-train-automl-client**
+    +  通过允许使用高斯杂色填充短时间序列来改善其处理。
+  + **azureml-train-automl-runtime**
+    + 如果 DateTime 列具有 OutOfBoundsDatetime 值，则引发 ConfigException
+    + 添加了对在用户本地计算上运行的 AutoML 试验的最佳模型提供原始功能说明的支持
+    + 通过允许使用高斯杂色填充短时间序列来改善其处理。
+  + **azureml-train-core**
+    + 此更改允许将空字符串用作 script_param 的值。
+  + **azureml-train-restclients-hyperdrive**
+    + 自述文件已更改为提供更多上下文
+  + **azureml-widgets**
+    + 向图表/并行坐标库添加字符串支持。
 
 ## <a name="2020-11-05"></a>2020-11-05
 
@@ -29,6 +73,7 @@ ms.locfileid: "94445075"
 图像实例分段 ("数据标签" 中的 "项目类型") 项目类型现在可用，因此用户可以在图像中的对象轮廓周围绘制和批注多边形。 用户将可以为图像中感兴趣的每个对象分配类和多边形。
 
 了解有关 [图像实例分段标记](how-to-label-images.md)的详细信息。
+
 
 
 ## <a name="2020-10-26"></a>2020-10-26

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102198"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366122"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>教程：将图像上传到必应视觉搜索 API
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>显示不同操作的见解
 
-以下函数显示不同操作的见解。 函数将提供可单击的图像或可单击的链接，单击该图像或链接会向你发送一个网页，其中包含有关该图像的详细信息。 此页面由 Bing.com 或图像的原始网站托管。 并非所有见解数据都会显示在此应用程序中。 若要查看某项见解的所有可用字段，请参阅[图像 - 视觉搜索](https://aka.ms/bingvisualsearchreferencedoc)参考。
+以下函数显示不同操作的见解。 函数将提供可单击的图像或可单击的链接，单击该图像或链接会向你发送一个网页，其中包含有关该图像的详细信息。 此页面由 Bing.com 或图像的原始网站托管。 并非所有见解数据都会显示在此应用程序中。 若要查看某项见解的所有可用字段，请参阅[图像 - 视觉搜索](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)参考。
 
 > [!NOTE]
 > 必须在页面中显示最少量的见解信息。 有关详细信息，请参阅[必应搜索 API 的使用和显示要求](../bing-web-search/use-display-requirements.md)。

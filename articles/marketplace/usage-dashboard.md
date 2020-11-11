@@ -1,20 +1,20 @@
 ---
-title: Microsoft 商业 marketplace 分析、Azure Marketplace 和 Microsoft AppSource 中的使用情况仪表板
-description: 了解如何访问所有 VM 套餐使用情况和按流量计费指标。 在合作伙伴中心内转到商业市场下的使用情况仪表板。
+title: 商业 marketplace 分析中的使用情况仪表板 |Azure Marketplace
+description: 了解如何访问发布到 Azure Marketplace 的产品/服务的所有使用情况和计量计费指标。
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414357"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490111"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Microsoft 商业市场分析中的使用情况仪表板
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>商业市场分析中的“使用情况”仪表板
 
 本文提供了有关合作伙伴中心中的使用情况仪表板的信息。 此仪表板显示所有虚拟机 (VM) 在三个不同的选项卡中提供规范化使用情况、原始使用情况和计量计费指标： VM 标准化使用情况、VM 原始使用量和按流量计费的使用情况。
 
@@ -123,11 +123,11 @@ _**表1：数据字典**_
 | MonthStartDate | 月开始日期 | 月开始日期表示采购月份。 |
 | 产品/服务类型 | 产品/服务类型 | 商业 marketplace 产品/服务的类型。 |
 | Azure 许可证类型 | Azure 许可证类型 | 购买 Azure 的客户使用的许可协议类型。 也称为通道。 可能的值为：<ui><li>云解决方案提供商</li><li>Enterprise</li><li>企业通过分销商</li><li>即付即用</li></ul> |
-| 市场许可证类型 | 市场许可证类型 | 商业应用商店的计费方法。 可能的值为：<ul><li>通过 Azure 计费</li><li>自带许可</li><li>Free</li><li>Microsoft as 经销商</li></ul> |
+| 市场许可证类型 | 市场许可证类型 | 商业应用商店的计费方法。 可能的值为：<ul><li>通过 Azure 计费</li><li>自带许可</li><li>免费</li><li>Microsoft as 经销商</li></ul> |
 | SKU | SKU | 与产品/服务关联的计划。 |
 | 客户所在国家/地区 | 客户所在国家/地区 | 客户提供的国家/地区名称。 国家/地区可能不同于客户的 Azure 订阅中的国家/地区。 |
 | 是预览版 SKU | 是预览版 SKU | 此值显示是否已将 SKU 标记为 "预览"。 如果已相应地标记了 SKU，则值为“是”，并且只有你授权的 Azure 订阅可以部署和使用此映像。 如果 SKU 未标识为“预览版”，则值为“否”。 |
-| SKU 计费类型 | SKU 计费类型 | 与产品/服务中的每个 SKU 关联的计费类型。 可能的值为：<ul><li>Free</li><li>已付</li></ul> |
+| SKU 计费类型 | SKU 计费类型 | 与产品/服务中的每个 SKU 关联的计费类型。 可能的值为：<ul><li>免费</li><li>已付</li></ul> |
 | IsInternal | 不推荐使用 | 不推荐使用 |
 | VM 大小 | 虚拟机大小 | 对于基于 VM 的产品/服务类型，此实体表示与产品/服务的 SKU 关联的 VM 大小。 |
 | 云实例名称 | 云实例名称 | 部署 VM 的 Microsoft 云。 |

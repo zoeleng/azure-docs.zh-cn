@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233791"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489516"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>如何：使用条件访问阻止向 Azure AD 进行旧身份验证   
 
@@ -37,7 +37,7 @@ Microsoft 身份安全主管 Alex Weinert 在其 2020 年 3 月 12 日的博客�
 
 ## <a name="prerequisites"></a>先决条件
 
-本文假定您熟悉 Azure AD 条件访问的 [基本概念](overview.md) 。
+本文假设你熟悉 Azure AD 条件访问的[基本概念](overview.md)。
 
 ## <a name="scenario-description"></a>方案描述
 
@@ -116,6 +116,10 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 策略生效可能需要长达 24 小时的时间。
 
 可为 **其他客户端** 条件选择所有可用的授权控件；但是，最终用户体验始终是相同的 - 阻止访问。
+
+### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online 和 B2B 来宾用户
+
+若要阻止 B2B 用户通过旧身份验证访问 SharePoint Online，组织必须使用 PowerShell 命令在 SharePoint 上禁用旧版身份验证 `Set-SPOTenant` ，并将 `-LegacyAuthProtocolsEnabled` 参数设置为 `$false` 。 有关设置此参数的详细信息，请参阅有关[set-spotenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)的 SharePoint PowerShell 参考文档
 
 ## <a name="next-steps"></a>后续步骤
 

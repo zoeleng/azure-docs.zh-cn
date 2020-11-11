@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: b3f46f934241d924789b97c24cf9b68213d94d63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125676"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490077"
 ---
 # <a name="test-drive-technical-configuration"></a>体验版技术配置
 
@@ -98,9 +98,4 @@ Microsoft 可以通过托管和维护服务预配和取消设置，消除设置�
 - [试用版驱动最佳做法](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [概述](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF;请确保弹出窗口阻止程序处于关闭状态) 
 - [更新商业市场中的现有产品/服务](partner-center-portal/update-existing-offer.md)
-
-## <a name="additional-resources"></a>其他资源
-
-## <a name="feedback"></a>反馈
-
-提交和查看[此产品](https://feedback.azure.com/forums/216369-azure-marketplace)的反馈
+- [Azure Marketplace 反馈论坛](https://feedback.azure.com/forums/216369-azure-marketplace)

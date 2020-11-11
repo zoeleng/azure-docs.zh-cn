@@ -4,15 +4,15 @@ description: 了解如何使用 Azure 表存储为 Microsoft AppSource 和 Azure
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 925bc79d54def3f2aec4657196b8cea53704396f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 70ce1807ea6080e3efc0cf3266a9940c9ddb9cd3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130640"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489346"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>使用 Azure 表存储管理商业市场潜在顾客
 
@@ -38,7 +38,7 @@ ms.locfileid: "93130640"
 
 1. 在 Azure 门户的 " **主页** " 页上，选择 " **查看所有资源** " 以访问存储帐户。 也可以从 Azure 门户的左侧菜单栏中选择“所有资源”。
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="创建 Azure 存储帐户的步骤。":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="访问你的 Azure 存储帐户。":::
 
 1. 从“存储帐户”窗格中，选择“访问密钥”，然后复制该密钥的“连接字符串”值 。 保存此值，因为它是需要在发布门户中提供的“存储帐户连接字符串”值，需要提供该值才可接收 Azure 市场产品/服务的潜在顾客。
 
@@ -48,7 +48,7 @@ ms.locfileid: "93130640"
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="创建 Azure 存储帐户的步骤。":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure 存储密钥。":::
 
 
 1. 从“存储帐户”窗格中，选择“表”，然后选择“+ 表”以创建表 。 输入表的名称，然后选择“确定”。 请保存此值，因为如果要将流配置为在收到潜在顾客时接收电子邮件通知，则需要此值。
@@ -185,7 +185,7 @@ ms.locfileid: "93130640"
 
 1. 在“潜在顾客”部分下，选择“连接” 。
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="创建 Azure 存储帐户的步骤。":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="潜在顾客":::
 
 1. 在“连接详细信息”弹出窗口中，为“潜在顾客目标”选择“Azure 表”  。 
      ![潜在顾客管理，连接详细信息](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

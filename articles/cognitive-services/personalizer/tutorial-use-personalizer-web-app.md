@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777252"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363912"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>教程：向 .NET Web 应用添加个性化体验创建服务
 
@@ -216,7 +216,7 @@ HttpRequestFeatures 类库将此字符串通用化为具有多个值的 userAgen
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - 示例后端服务器使用 .NET Core
 * [Node.js](https://nodejs.org/) - 客户端/前端依赖于此应用程序
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 或 [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/) - 使用 Visual Studio 2019 的开发人员环境或 .NET Core CLI 生成和运行应用
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 或 [.NET Core CLI](/dotnet/core/tools/) - 使用 Visual Studio 2019 的开发人员环境或 .NET Core CLI 生成和运行应用
 
 ### <a name="set-up-the-sample"></a>设置示例
 1. 克隆 Azure 个性化体验创建服务示例存储库。
@@ -235,7 +235,7 @@ HttpRequestFeatures 类库将此字符串通用化为具有多个值的 userAgen
 
 1. 在 Azure 门户的“密钥和终结点”选项卡中，找到 `Endpoint` 和 `Key1`/`Key2`（两者均可）。这是你的 `PersonalizerServiceEndpoint` 和 `PersonalizerApiKey`。
 1. 填写 appsettings.json 中的 `PersonalizerServiceEndpoint`。
-1. 按以下一种方式将 `PersonalizerApiKey` 配置为[应用机密](https://docs.microsoft.com/aspnet/core/security/app-secrets)：
+1. 按以下一种方式将 `PersonalizerApiKey` 配置为[应用机密](/aspnet/core/security/app-secrets)：
 
     * 如果使用的是 .NET Core CLI，则可以使用 `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` 命令。
     * 如果使用的是 Visual Studio，则可以右键单击项目，然后选择“管理用户机密”菜单选项来配置个性化体验创建服务密钥。 执行此操作后，Visual Studio 将打开一个 `secrets.json` 文件，你可以在其中添加密钥，如下所示：

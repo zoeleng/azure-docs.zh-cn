@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017652"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368706"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>教程：使用 Azure Databricks 针对流数据进行异常情况检测
 
@@ -47,7 +47,7 @@ ms.locfileid: "92017652"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [Azure 事件中心命名空间](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)和事件中心。
+- [Azure 事件中心命名空间](../../../event-hubs/event-hubs-create.md)和事件中心。
 
 - 用于访问事件中心命名空间的[连接字符串](../../../event-hubs/event-hubs-get-connection-string.md)。 该连接字符串应采用类似于
 
@@ -298,7 +298,7 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-若要运行该 Notebook，请按 **SHIFT + ENTER**。 会显示一个输出，如以下代码片段所示。 输出中的每个事件是已引入事件中心的“赞”的时间戳和数目的组合。
+若要运行该 Notebook，请按 **SHIFT + ENTER** 。 会显示一个输出，如以下代码片段所示。 输出中的每个事件是已引入事件中心的“赞”的时间戳和数目的组合。
 
 ```output
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
@@ -423,7 +423,7 @@ object AnomalyDetector extends Serializable {
 }
 ```
 
-若要运行该 Notebook，请按 **SHIFT + ENTER**。 会显示一个输出，如以下代码片段所示。
+若要运行该 Notebook，请按 **SHIFT + ENTER** 。 会显示一个输出，如以下代码片段所示。
 
 ```scala
 import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
@@ -497,7 +497,7 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
 
 ```
 
-若要运行该 Notebook，请按 **SHIFT + ENTER**。 会显示一个输出，如以下代码片段所示。
+若要运行该 Notebook，请按 **SHIFT + ENTER** 。 会显示一个输出，如以下代码片段所示。
 
 ```scala
 import org.apache.spark.sql.Row

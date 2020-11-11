@@ -11,14 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358093"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489295"
 ---
-# <a name="connect-to-storage-services-azure"></a>连接到存储服务 Azure
+# <a name="connect-to-storage-services-on-azure"></a>连接到 Azure 上的存储服务
 
 本文介绍如何 **通过 Azure 机器学习数据存储连接到 Azure 上的存储服务** 。 数据存储可安全地连接到 Azure 存储服务，而不会损害你的身份验证凭据以及原始数据源的完整性。 它们会存储连接信息，例如与工作区关联的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 中的订阅 ID 和令牌授权，让你能够安全地访问存储，而无需在脚本中对其进行硬编码。 可以使用 [Azure 机器学习 Python SDK](#python) 或 [Azure 机器学习工作室](how-to-connect-data-ui.md)来创建和注册数据存储。
 
@@ -53,7 +53,7 @@ ms.locfileid: "93358093"
     创建工作区时，会将 Azure Blob 容器和 Azure 文件共享作为数据存储自动注册到工作区。 它们分别命名为 `workspaceblobstore` 和 `workspacefilestore`。 `workspaceblobstore` 用于存储工作区项目和机器学习试验日志。 它也已设为 **默认数据存储** ，无法从工作区中删除。 `workspacefilestore` 用于存储通过[计算实例](./concept-compute-instance.md#accessing-files)授权的笔记本和 R 脚本。
     
     > [!NOTE]
-    > 当你在设计器主页中打开一个示例时，Azure 机器学习设计器将自动创建一个名为 **azureml_globaldatasets** 的数据存储。 此数据存储仅包含示例数据集。 请不要将此数据存储用于任何机密数据访问。
+    > Azure 机器学习设计器会在你打开设计器主页中的示例时自动创建一个名为 azureml_globaldatasets 的数据存储。 此数据存储仅包含示例数据集。 请不要将此数据存储用于任何机密数据访问。
 
 <a name="matrix"></a>
 
@@ -72,8 +72,8 @@ ms.locfileid: "93358093"
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](../mysql/overview.md) | SQL 身份验证|  | ✓* | ✓* |✓*|
 [Databricks&nbsp;文件系统](/azure/databricks/data/databricks-file-system)| 无身份验证 | | ✓** | ✓ ** |✓** |
 
-\* MySQL 仅支持管道 [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py)<br />
-\*\* Databricks 仅支持管道 [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py)
+\* 仅管道 [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py) 支持 MySQL<br />
+\*\* 仅管道 [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py) 支持 Databricks
 
 
 ### <a name="storage-guidance"></a>存储指导原则
@@ -88,7 +88,7 @@ ms.locfileid: "93358093"
 
 ### <a name="virtual-network"></a>虚拟网络 
 
-如果你的数据存储帐户在虚拟网络中，则需要执行其他配置步骤来确保 Azure 机器学习能够访问你的数据。 请参阅 [在 Azure 虚拟网络中使用 Azure 机器学习 studio](how-to-enable-studio-virtual-network.md) ，以确保在创建和注册数据存储时应用适当的配置步骤。  
+如果你的数据存储帐户在虚拟网络中，则需要执行其他配置步骤来确保 Azure 机器学习能够访问你的数据。 请参阅[在 Azure 虚拟网络中使用 Azure 机器学习工作室](how-to-enable-studio-virtual-network.md)，以确保在创建和注册数据存储时应用适当的配置步骤。  
 
 ### <a name="access-validation"></a>访问验证
 

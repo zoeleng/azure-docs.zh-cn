@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374586"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489601"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>在 Azure Active Directory 中将静态组成员资格更改为动态
 
@@ -32,24 +32,24 @@ ms.locfileid: "92374586"
 
 ## <a name="change-the-membership-type-for-a-group"></a>更改组的成员资格类型
 
-1. 使用 Azure AD 组织中的全局管理员或用户管理员帐户登录到 [Azure AD 管理中心](https://aad.portal.azure.com) 。
+1. 使用作为 Azure AD 组织中的全局管理员、用户管理员或组管理员的帐户登录到 [Azure AD 管理中心](https://aad.portal.azure.com) 。
 2. 选择“组”。
-3. 在“所有组”**** 列表中，打开要更改的组。
+3. 在“所有组”列表中，打开要更改的组。
 4. 选择“属性”。
-5. 在组的“属性”页中，选择“已分配(静态)”、“动态用户”或“动态设备”作为“成员身份类型”，具体取决于所需的成员身份类型。******** 对于动态成员资格，可以使用规则生成器来选择适用于简单规则的选项，也可以自行编写一项成员资格规则。 
+5. 在组的“属性”页中，选择“已分配(静态)”、“动态用户”或“动态设备”作为“成员身份类型”，具体取决于所需的成员身份类型。 对于动态成员资格，可以使用规则生成器来选择适用于简单规则的选项，也可以自行编写一项成员资格规则。 
 
 以下步骤以示例的方式说明了如何将某个组的用户从静态成员身份更改为动态成员身份。
 
-1. 在所选组的“属性”页中，选择“动态用户”作为“成员身份类型”，然后在说明对组成员身份所做更改的对话框中选择“是”，以便继续操作。************ 
+1. 在所选组的“属性”页中，选择“动态用户”作为“成员身份类型”，然后在说明对组成员身份所做更改的对话框中选择“是”，以便继续操作。 
   
    ![选择“动态用户”作为“成员身份类型”](./media/groups-change-type/select-group-to-convert.png)
   
-2. 选择“添加动态查询”，然后提供规则。****
+2. 选择“添加动态查询”，然后提供规则。
   
    ![输入动态组的规则](./media/groups-change-type/enter-rule.png)
   
-3. 创建规则之后，选择页面底部的“添加查询”****。
-4. 在组的“属性”页上选择“保存”，以便保存所做的更改。******** 组列表中组的“成员身份类型”会立即进行更新。****
+3. 创建规则之后，选择页面底部的“添加查询”。
+4. 在组的“属性”页上选择“保存”，以便保存所做的更改。 组列表中组的“成员身份类型”会立即进行更新。
 
 > [!TIP]
 > 如果所输入的成员资格规则不正确，组转换操作可能会失败。 通知显示在门户的右上角；它包含系统无法接受规则的原因说明。 请仔细阅读，了解如何调整规则才能使其生效。 有关规则语法的示例以及成员资格规则支持的属性、运算符和值的完整列表，请参阅 [Azure Active Directory 中的组的动态成员资格规则](groups-dynamic-membership.md)。
@@ -57,7 +57,7 @@ ms.locfileid: "92374586"
 ## <a name="change-membership-type-for-a-group-powershell"></a>更改组的成员资格类型 (PowerShell)
 
 > [!NOTE]
-> 若要更改动态组属性，需要使用[Azure AD PowerShell 版本 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)的**预览版本中的**cmdlet。 可以从 [PowerShell 库](https://www.powershellgallery.com/packages/AzureADPreview)安装预览版。
+> 若要更改动态组属性，需要使用 [Azure AD PowerShell 版本 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)的 **预览版本中的** cmdlet。 可以从 [PowerShell 库](https://www.powershellgallery.com/packages/AzureADPreview)安装预览版。
 
 下面是在现有组中切换成员身份管理的函数示例。 在此示例中，必须小心正确地操作 GroupTypes 属性，并保留与动态成员身份无关的任何值。
 

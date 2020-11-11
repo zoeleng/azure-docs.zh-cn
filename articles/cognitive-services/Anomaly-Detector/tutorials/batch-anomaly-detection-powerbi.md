@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017618"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368638"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>教程：使用批量检测和 Power BI 将异常可视化
 
@@ -119,7 +119,7 @@ Power BI 会将第一列中的时间戳转换为 `Date/Time` 数据类型。 这
 ## <a name="data-source-privacy-and-authentication"></a>数据源隐私和身份验证
 
 > [!NOTE]
-> 请注意组织的数据隐私和访问政策。 有关详细信息，请参阅 [Power BI Desktop 隐私级别](https://docs.microsoft.com/power-bi/desktop-privacy-levels)。
+> 请注意组织的数据隐私和访问政策。 有关详细信息，请参阅 [Power BI Desktop 隐私级别](/power-bi/desktop-privacy-levels)。
 
 在尝试运行此查询时，可能会出现警告消息，因为此查询使用外部数据源。
 

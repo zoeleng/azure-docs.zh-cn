@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420474"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488394"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本文介绍 Azure Active Directory (Azure AD) Connect 的先决条件和硬件要求。
@@ -102,7 +102,7 @@ Azure AD Connect 服务器包含关键标识数据。 确保对此服务器的�
 ### <a name="connectivity"></a>连接
 * Azure AD Connect 服务器需要 Intranet 和 Internet 的 DNS 解析。 DNS 服务器必须能够将名称解析成本地 Active Directory 以及 Azure AD 终结点。
 * 如果 Intranet 有防火墙，且需要开放 Azure AD Connect 服务器与域控制器之间的端口，请参阅 [Azure AD Connect 端口](reference-connect-ports.md)，了解详细信息。
-* 如果代理或防火墙限制了可访问的 URL，则必须打开 [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中所述的 URL。
+* 如果代理或防火墙限制了可访问的 URL，则必须打开 [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中所述的 URL。 另请参阅 [防火墙或代理服务器上的 Azure 门户 url 的安全安全](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud)。
   * 如果使用的是德国或 Microsoft Azure 政府云中的 Microsoft 云，请参阅 Url 的 [Azure AD Connect 同步服务实例注意事项](reference-connect-instances.md) 。
 * Azure AD Connect（1.1.614.0 版及更高版本）默认情况下使用 TLS 1.2 对同步引擎和 Azure AD 之间的通信进行加密。 如果 TLS 1.2 在基础操作系统上不可用，Azure AD Connect 会递增地回退到较旧的协议（TLS 1.1 和 TLS 1.0）。
 * 在 1.1.614.0 版以前，Azure AD Connect 默认情况下使用 TLS 1.0 对同步引擎和 Azure AD 之间的通信进行加密。 若要更改为 TLS 1.2，请按照[为 Azure AD connect 启用 TLS 1.2](#enable-tls-12-for-azure-ad-connect) 中的步骤进行操作。

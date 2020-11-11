@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095435"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381280"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>教程：使用必应 Web 搜索 API 创建单页应用
 
@@ -36,7 +36,7 @@ ms.locfileid: "93095435"
 > * 管理订阅密钥
 > * 处理错误
 
-要使用此应用，需具备带必应搜索 API 的 [Azure 认知服务帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。
+要使用此应用，需具备带必应搜索 API 的 [Azure 认知服务帐户](../cognitive-services-apis-create-account.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -86,7 +86,7 @@ npm install
 
 ## <a name="query-options"></a>查询选项
 
-HTML 表单包含用于映射到[必应 Web 搜索 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) 中的查询参数的选项。 下表分类介绍了用户可如何使用示例应用筛选搜索结果：
+HTML 表单包含用于映射到[必应 Web 搜索 API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) 中的查询参数的选项。 下表分类介绍了用户可如何使用示例应用筛选搜索结果：
 
 | 参数 | 说明 |
 |-----------|-------------|
@@ -99,7 +99,7 @@ HTML 表单包含用于映射到[必应 Web 搜索 API v7](https://docs.microsof
 | `offset` | 隐藏的字段。 请求中第一个搜索结果的偏移量，它用于进行分页。 通过每个新的请求将其重置为 `0`。 |
 
 > [!NOTE]
-> 必应 Web 搜索 API 提供了额外的查询参数，可帮助优化搜索结果。 本示例仅使用其中一些参数。 有关可用参数的完整列表，请参阅[必应 Web 搜索 API v7 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)。
+> 必应 Web 搜索 API 提供了额外的查询参数，可帮助优化搜索结果。 本示例仅使用其中一些参数。 有关可用参数的完整列表，请参阅[必应 Web 搜索 API v7 参考](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)。
 
 `bingSearchOptions()` 会转换这些选项，使其与必应搜索 API 所要求的格式相一致。
 
@@ -303,7 +303,7 @@ function handleBingResponse() {
 
 ## <a name="display-search-results"></a>显示搜索结果
 
-对于必应 Web 搜索 API 返回的结果，存在[使用和显示要求](useanddisplayrequirements.md)。 由于响应可能包含各种结果类型，因此除了通过顶级 `WebPages` 结合集合进行循环访问，还需其他操作。 相反，该示例应用使用 `RankingResponse` 按规范对结果进行排序。
+对于必应 Web 搜索 API 返回的结果，存在[使用和显示要求](./use-display-requirements.md)。 由于响应可能包含各种结果类型，因此除了通过顶级 `WebPages` 结合集合进行循环访问，还需其他操作。 相反，该示例应用使用 `RankingResponse` 按规范对结果进行排序。
 
 > [!NOTE]
 > 如果只希望具有一个结果类型，请使用 `responseFilter` 查询参数，或考虑使用某个其他必应搜索终结点，例如必应图像搜索。

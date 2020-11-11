@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 1414f2ce53d1764e788749fc2d225c56f624bcdc
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6f92c138a02c9dbdc1d22ca04c733cfbee69dcd0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369998"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488513"
 ---
 # <a name="how-to-configure-your-azure-application-offer-properties"></a>如何配置 Azure 应用程序产品/服务属性
 
@@ -76,10 +76,6 @@ ms.locfileid: "94369998"
 
 1. 在 " **法律** " 下，请确保清除 " **使用 Microsoft 商业市场的标准合同** " 复选框。
 1. 在 " **条款和条件** " 框中，输入最多10000个字符的文本。
-
-   > [!NOTE]
-   > 如果需要较长的说明，请输入指向你的条款和条件所在位置的单个 web 地址。 它将作为活动链接向客户显示。
-
 1. 选择 " **保存草稿** "，然后继续下一个选项卡：产品列表。
 
 ## <a name="next-steps"></a>后续步骤

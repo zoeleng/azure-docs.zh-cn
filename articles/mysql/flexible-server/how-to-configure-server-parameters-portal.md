@@ -5,15 +5,18 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/20/2020
-ms.openlocfilehash: 9568dfc2cfd678d0ce2dea8475328358906e16d1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 11/10/2020
+ms.openlocfilehash: 7733a6211363b4f1c9e9006f757b4d152c7af7f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525062"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489550"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>使用 Azure 门户在 Azure Database for MySQL 灵活的服务器中配置服务器参数
+
+> [!IMPORTANT] 
+> Azure Database for MySQL 灵活服务器当前以公共预览版提供。
 
 你可以使用服务器参数管理 Azure Database for MySQL 灵活的服务器配置。 创建服务器时，将使用默认值和推荐值配置服务器参数。  
 
@@ -26,15 +29,15 @@ ms.locfileid: "92525062"
 
 1. 登录到 [Azure 门户](https://portal.azure.com)，并找到 Azure Database for MySQL 的灵活服务器。
 2. 在 " **设置** " 部分下，单击 " **服务器参数** " 以打开 Azure Database for MySQL 灵活服务器的 "服务器参数" 页。
-[:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="&quot;Azure 门户服务器参数&quot; 页":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Azure 门户中的服务器参数页":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. 找到需要调整的任何服务器参数。 查看“说明”列，了解用途和允许的值。
-[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="&quot;Azure 门户服务器参数&quot; 页":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="枚举下拉按钮":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
 4. 单击“保存”，保存更改。
-[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="&quot;Azure 门户服务器参数&quot; 页":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
-5. 静态参数是需要服务器重启才能生效的参数。 如果要修改静态参数，系统将提示您 **立即重新启动** ，或 **稍后重新启动**。
-[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="&quot;Azure 门户服务器参数&quot; 页":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
-6. 保存参数的新值后，随时可以通过选择“全部重置为默认设置”，将所有设置还原为默认值。
-[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="&quot;Azure 门户服务器参数&quot; 页":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="保存或放弃更改":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
+5. 静态参数是需要服务器重启才能生效的参数。 如果要修改静态参数，系统将提示您 **立即重新启动** ，或 **稍后重新启动** 。
+[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="静态参数保存时重新启动":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
+6. 保存参数的新值后，随时可以通过选择“全部重置为默认设置”，将所有设置还原为默认值。 
+[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="全部重置为默认设置":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
 ## <a name="setting-non-modifiable-server-parameters"></a>设置不可修改的服务器参数
 
@@ -76,7 +79,7 @@ SELECT name FROM mysql.time_zone_name;
 
 可以从 Azure 门户中的“服务器参数”页设置全局级时区。 下面将全局时区值设置为“美国/太平洋”。
 
-[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="&quot;Azure 门户服务器参数&quot; 页":::](./media/how-to-server-parameters/timezone.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="设置时区参数":::](./media/how-to-server-parameters/timezone.png#lightbox)
 
 ### <a name="setting-the-session-level-time-zone"></a>设置会话级时区
 

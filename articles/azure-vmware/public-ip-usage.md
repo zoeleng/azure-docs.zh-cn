@@ -3,12 +3,12 @@ title: 如何使用 Azure VMware 解决方案中的公共 IP 功能
 description: 本文介绍如何使用 Azure 虚拟 WAN 中的公共 IP 功能。
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: f51f00a9adc1fd122e723909ecaa6193c152d496
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 63475b478a951632c068b168353acf2e0bb7061c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912661"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490383"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>如何使用 Azure VMware 解决方案中的公共 IP 功能
 
@@ -54,15 +54,15 @@ Web 服务器接收请求，并将请求的信息或页面回复到防火墙，�
 
 1. 选择 "Azure VMware 解决方案私有云"。
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="选择 &quot;Azure VMware 解决方案私有云&quot;。" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Azure VMware 解决方案私有云的屏幕截图。" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
 1. 在 " **管理** " 下，选择 " **连接** "。
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="在 &quot;管理&quot; 下，选择 &quot;连接&quot;。" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="连接部分的屏幕截图。" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
 1. 选择 " **公共 IP** " 选项卡，然后选择 " **配置** "。
 
-   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="选择 &quot;公共 IP&quot; 选项卡，然后选择 &quot;配置&quot;。" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="显示开始配置公共 IP 的位置的屏幕截图" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
 1. 接受或更改默认值，然后选择 " **创建** "。
 
@@ -87,19 +87,19 @@ Web 服务器接收请求，并将请求的信息或页面回复到防火墙，�
 
 1. 选择已部署的防火墙，然后选择 " **访问 Azure 防火墙管理器" 以配置和管理此防火墙** 。
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="选择已部署的防火墙。" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="显示用于配置和管理防火墙的选项的屏幕截图" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. 选择 " **受保护的虚拟中心** "，然后从列表中选择一个虚拟中心。
 
-   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="选择 &quot;受保护的虚拟中心&quot;，然后从列表中选择一个虚拟中心。" lightbox="media/public-ip-usage/select-virtual-hub.png":::
+   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="防火墙管理器的屏幕截图" lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
 1. 在 "虚拟中心" 页上，选择 " **公共 ip 配置** " 并添加更多公共 ip 地址，然后选择 " **添加** "。 
 
-   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="在 &quot;虚拟中心&quot; 页上，选择 &quot;公共 IP 配置&quot;。" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="如何在防火墙管理器中添加公共 IP 配置的屏幕截图" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
 1. 提供所需的 Ip 数量，然后选择 " **添加** "。
 
-   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="选择 &quot;添加&quot; 并提供所需的 IP 地址数，然后选择 &quot;添加&quot;。" border="true":::
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="添加指定数量的公共 IP 配置的屏幕截图" border="true":::
 
 
 ## <a name="create-firewall-policies"></a>创建防火墙策略
@@ -110,11 +110,11 @@ Web 服务器接收请求，并将请求的信息或页面回复到防火墙，�
 
 1. 选择已部署的防火墙，然后选择 " **访问 Azure 防火墙管理器" 以配置和管理此防火墙** 。
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="选择已部署的防火墙。" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="显示用于配置和管理防火墙的选项的屏幕截图" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. 选择 " **Azure 防火墙策略** "，然后选择 " **创建 azure 防火墙策略** "。
 
-   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="选择 &quot;Azure 防火墙策略&quot;，然后选择 &quot;创建 Azure 防火墙策略&quot;。" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="如何在防火墙管理器中创建防火墙策略的屏幕截图" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
 1. 在 " **基本** 信息" 选项卡下提供所需的详细信息并选择 " **下一步： DNS 设置** "。 
 
@@ -122,7 +122,7 @@ Web 服务器接收请求，并将请求的信息或页面回复到防火墙，�
 
 1. 选择 " **添加规则集合** "，提供以下详细信息并选择 " **添加** "，然后选择 " **下一步：威胁情报** "。
 
-   -  名称
+   -  “属性”
    -  规则集合类型-DNAT
    -  优先级
    -  规则收集操作-允许
@@ -140,15 +140,13 @@ Web 服务器接收请求，并将请求的信息或页面回复到防火墙，�
 
 1. 选择 " **关联虚拟中心** "。
 
-   :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="在 &quot;中心&quot; 选项卡上，选择 &quot;关联虚拟中心&quot;。" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
-
 1. 从列表中选择一个集线器，然后选择 " **添加** "。
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="从列表中选择一个集线器，然后选择 &quot;添加&quot;。" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="显示将转换为 Scecured 虚拟中心的选定集线器的屏幕截图。" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. **选择“下一步:** 标记”。 
 
-1.  (可选) 创建名称/值对来对资源进行分类。 
+1.  (可选) 创建用于对资源进行分类的名称和值对。 
 
 1. 选择 " **下一步"：检查 + 创建** ，然后选择 " **创建** "。
 

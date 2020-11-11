@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b27b7344d84ce1361d8294fa4f3490c50afbb4c3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978928"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489652"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure 认可的 Linux 分发版
 
@@ -70,11 +70,11 @@ Microsoft 为 CoreOS 用户提供了两 (2) 个迁移通道。
 - 由 Kinvolk 提供的 Flatcar（请参阅“由 Kinvolk 提供的 Flatcar Container Linux”条目。）
 - [Fedora Core OS](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/)（客户必须上传自己的映像。 以下是[迁移文档](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)）。
 
-### <a name="credativ"></a>Credativ
+### <a name="credativ"></a>credativ
 
-[https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
 
-Credativ 是一家独立的咨询和服务公司，致力于通过免费软件开发和实施专业解决方案。 Credativ 是获得国际认可的开源领域专业先行者，为许多公司的 IT 部门提供支持。 Credativ 与 Microsoft 合作，目前正在为 Debian 8 (Jessie) 以及 Debian 7 (Wheezy) 之前的版本准备相应的 Debian 映像。 这些映像经过专门的设计，可以在 Azure 上运行并可通过该平台轻松进行管理。 Credativ 还会通过其开源支持中心为 Azure 的 Debian 映像的维护和更新提供长期支持。
+credativ 是一家独立的咨询和服务公司，致力于通过使用免费软件开发和实施专业解决方案。 作为领先的开源专家，credativ 对许多 IT 部门进行了国际识别，使用其支持。 与 Microsoft 一起，credativ 正在准备 Debian 映像。 映像专门设计用于在 Azure 上运行，并可通过平台轻松进行管理。 credativ 还会通过其开源支持中心支持长期维护和更新 Azure 的 Debian 映像。
 
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098989"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379865"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>教程：单页视频搜索应用
 
@@ -47,7 +47,7 @@ ms.locfileid: "93098989"
 
 教程页是完全独立的；它不使用任何外部框架、样式表或图像文件， 而仅使用广泛支持的 JavaScript 语言功能，并且适用于所有主要 Web 浏览器的当前版本。
 
-本教程将讨论源代码的选定部分。 提供了完整的[源代码](tutorial-bing-video-search-single-page-app-source.md)。 若要运行该示例，请将源代码复制并粘贴到文本编辑器中，并将其另存为 `bing.html`。
+本教程将讨论源代码的选定部分。 提供了完整的[源代码]()。 若要运行该示例，请将源代码复制并粘贴到文本编辑器中，并将其另存为 `bing.html`。
 
 ## <a name="app-components"></a>应用组件
 与任何单页 Web 应用一样，本教程应用程序包含以下三个部分：

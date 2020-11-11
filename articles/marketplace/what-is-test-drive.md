@@ -4,15 +4,15 @@ description: Marketplace 测试驱动器功能的说明
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911128"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489958"
 ---
 # <a name="what-is-a-test-drive"></a>什么是体验版？
 
@@ -94,6 +94,6 @@ ms.locfileid: "92911128"
 - [试用版驱动最佳做法](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [概述](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)（PDF；确保弹出窗口阻止程序处于禁用状态）
 
-## <a name="next-step"></a>后续步骤
+## <a name="next-step"></a>下一步
 
 - [体验版技术配置](test-drive-technical-configuration.md)

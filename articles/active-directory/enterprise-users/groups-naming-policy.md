@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374640"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489448"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>在 Azure Active Directory 中对 Microsoft 365 组强制执行命名策略
 
@@ -136,7 +136,7 @@ ms.locfileid: "92374640"
    Connect-AzureAD
    ```
 
-   在打开的“登录到你的帐户”屏幕上，输入管理员帐户和密码以连接到服务，然后选择“登录”********。
+   在打开的“登录到你的帐户”屏幕上，输入管理员帐户和密码以连接到服务，然后选择“登录”。
 
 1. 按照[用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md) 中的步骤为此组织创建组设置。
 
@@ -249,7 +249,6 @@ Outlook iOS 和 Android 应用 | 在 Outlook 应用中创建的组遵循配置�
 Planner | Planner 遵循命名策略。 输入计划名称时，Planner 显示命名策略预览。 创建计划时，如果用户输入自定义阻止字词，会显示一条错误消息。
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement 遵循命名策略。 当用户键入组名或组电子邮件别名时，Dynamics 365 显示命名策略强制使用的名称。 当用户输入自定义阻止字词时，会显示一条错误消息以及阻止字词，以便用户删除它。
 学校数据同步 (SDS) | 通过 SDS 创建的组遵循命名策略，但不会自动应用命名策略。 SDS 管理员必须将前缀和后缀追加需要为其创建组的类名，然后上传到 SDS。 否则，组创建或编辑会失败。
-Outlook Customer Manager (OCM) | Outlook Customer Manager 遵循命名策略，并且命名策略自动应用于在 Outlook Customer Manager 中创建的组。 如果检测到自定义阻止字词，则会阻止在 OCM 中创建组，并阻止用户使用 OCM 应用。
 Classroom 应用 | 在 Classroom 应用中创建的组遵循命名策略，但不会自动应用命名策略，并且在输入教室组名时不会向用户显示命名策略预览。 用户必须输入强制使用的教室组名称（包含前缀和后缀）。 否则，教室组创建或编辑会失败，并出现错误。
 Power BI | Power BI 工作区遵循命名策略。    
 Yammer | 当使用其 Azure Active Directory 帐户登录到 Yammer 的用户创建一个组或编辑组名时，组名将符合命名策略。 这适用于 Microsoft 365 连接组以及所有其他 Yammer 组。<br>如果在命名策略到位之前已创建 Microsoft 365 连接组，则组名将不会自动遵循命名策略。 当用户编辑组名，系统将提示他们添加前缀和后缀。

@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098750"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490349"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB 无服务器（预览版）
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
 ## <a name="using-serverless-resources"></a>使用无服务器资源
 
 无服务器是一种新的 Azure Cosmos 帐户类型，这意味着在创建新帐户时，必须在预配吞吐量与无服务器之间进行选择 。 必须创建新的无服务器帐户，才能开始使用无服务器。 在预览版期间，创建新的无服务器帐户的唯一受支持方法是[使用 Azure 门户](create-cosmosdb-resources-portal.md)。 当前不支持从/向无服务器模式迁移现有帐户。
-
-> [!NOTE]
-> 目前只有 Azure Cosmos DB 核心 (SQL) API 支持无服务器。
 
 任何在无服务器帐户中创建的容器都是无服务器容器。 无服务器容器公开的功能与在预配吞吐量模式下创建的容器相同，因此可以通过完全相同的方式读取、写入和查询数据。 不过，无服务器帐户和容器还具有特定特征：
 

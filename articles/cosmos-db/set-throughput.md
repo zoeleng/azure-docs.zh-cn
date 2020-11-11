@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098767"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490253"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中的预配吞吐量简介
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 如果工作负荷涉及到删除数据库中的所有集合并重新创建集合，则我们建议删除空数据库，再重新创建新的数据库，然后创建集合。 下图显示了物理分区如何托管属于数据库中不同容器的一个或多个逻辑分区：
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="承载一个或多个容器逻辑分区的物理分区" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="承载一个或多个属于不同容器的逻辑分区的物理分区 " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>对数据库和容器设置吞吐量
 
@@ -82,7 +82,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 * 可以创建一个具有标准（手动）预配吞吐量（“K”RU）的名为 *Z* 的 Azure Cosmos 数据库。 
 * 接下来，在该数据库中创建名为 *A* 、 *B* 、 *C* 、 *D* 和 *E* 的五个容器。 创建容器 B 时，请确保启用“为此容器预配专用吞吐量”选项，并在此容器上显式配置“P”个 RU 的预配吞吐量。 只有在创建数据库和容器时，才能配置共享吞吐量和专用吞吐量。 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="承载一个或多个容器逻辑分区的物理分区":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="在容器级别设置吞吐量":::
 
 * “K”RU 吞吐量在 *A* 、 *C* 、 *D* 和 *E* 这四个容器之间共享。提供给 A、C、D 或 E 的确切吞吐量各不相同。    每个容器的吞吐量没有 SLA 的保障。
 * 保证名为 B 的容器始终可以获得“P”RU 吞吐量。  该容器有 SLA 的保障。
@@ -109,7 +109,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 实际的最小 RU/s 可能因帐户配置而异。 但一般情况下，它的最大值为：
 
 * 400 RU/s 
-* 当前存储空间 (GB) * 10 RU/s
+* 如果容器或数据库包含的数据超过 1 TB，则当前存储采用 GB * 10 RU/s (，请参阅 [高存储/低吞吐量计划](#high-storage-low-throughput-program)) 
 * 数据库或容器上预配的最高 RU/s / 100
 * 容器计数 * 100 RU/s（仅限共享吞吐量数据库）
 

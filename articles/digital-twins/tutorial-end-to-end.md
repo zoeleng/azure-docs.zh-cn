@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 689de4d9fbd9eafeda54b8c157e5174d200c93da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324565"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338250"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>教程：扩建端到端解决方案
 
@@ -286,8 +286,8 @@ az iot hub device-identity connection-string show --device-id thermostat67 --hub
 在这个新 Visual Studio 窗口的“解决方案资源管理器”窗格中，选择“DeviceSimulator/AzureIoTHub.cs”，在编辑窗口中将其打开。 将以下连接字符串值更改为前面收集的值：
 
 ```csharp
-connectionString = <Iot-hub-connection-string>
-deviceConnectionString = <device-connection-string>
+iotHubConnectionString = <your-hub-connection-string>
+deviceConnectionString = <your-device-connection-string>
 ```
 
 保存文件。

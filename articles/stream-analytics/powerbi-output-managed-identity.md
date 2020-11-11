@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 29f02f80aa5bff1304dc593d68954e15fe6e66bb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346428"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489499"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>使用托管标识对 Azure 流分析作业进行身份验证，以便 Power BI
 
@@ -209,6 +209,10 @@ POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
     "principalType": "App"
 }
 ```
+
+## <a name="remove-managed-identity"></a>删除托管标识
+
+仅当删除作业时，才会删除为流分析作业创建的托管标识。 如果不删除该作业，则无法删除该托管标识。 如果不再想要使用托管标识，可以更改输出的身份验证方法。 在删除作业之前，托管标识将继续存在，如果你决定再次使用托管标识身份验证，则将使用该标识。
 
 ## <a name="limitations"></a>限制
 此功能的限制如下：

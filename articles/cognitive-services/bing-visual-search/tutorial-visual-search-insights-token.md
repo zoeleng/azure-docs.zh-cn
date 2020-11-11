@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f68618c4387bc5105914eccc4e6149650119fd0f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102173"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366071"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>教程：使用图像见解令牌在前面的搜索结果中查找类似的图像
 
@@ -44,7 +44,7 @@ ms.locfileid: "93102173"
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>从必应图像搜索客户端库获取 ImageInsightsToken
 
-此应用程序使用一个通过[必应图像搜索客户端库](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)获得的 `ImageInsightsToken`。 在新的 C# 控制台应用程序中创建一个客户端，以便使用 `ImageSearchClient()` 来调用 API。 然后，将 `SearchAsync()` 与查询配合使用：
+此应用程序使用一个通过[必应图像搜索客户端库](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)获得的 `ImageInsightsToken`。 在新的 C# 控制台应用程序中创建一个客户端，以便使用 `ImageSearchClient()` 来调用 API。 然后，将 `SearchAsync()` 与查询配合使用：
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -129,7 +129,7 @@ if (visualSearchResults.Tags.Count > 0)
     }
 ```
 
-有关这些数据类型的详细信息，请参阅[图像 - 视觉搜索](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)。
+有关这些数据类型的详细信息，请参阅[图像 - 视觉搜索](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)。
 
 ## <a name="returned-urls"></a>返回的 URL
 

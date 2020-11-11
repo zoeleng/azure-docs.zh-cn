@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932339"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488173"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>创建用于 Azure NetApp 文件的 SMB 卷
 
@@ -74,7 +74,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
 
     关于 AD 站点和服务，请参阅[设计站点拓扑](/windows-server/identity/ad-ds/plan/designing-the-site-topology)。 
     
-* 可以通过选中 "[联接 Active Directory](#create-an-active-directory-connection) " 窗口中的 " **aes 加密**" 框为 SMB 卷启用 aes 加密。 Azure NetApp 文件支持从最低到最安全的)  (DES、Kerberos AES 128 和 Kerberos AES 256 加密类型。 如果启用 AES 加密，则用于联接 Active Directory 的用户凭据必须具有与为 Active Directory 启用的功能匹配的最高对应帐户选项。    
+* 可以通过选中 " [联接 Active Directory](#create-an-active-directory-connection) " 窗口中的 " **aes 加密** " 框为 SMB 卷启用 aes 加密。 Azure NetApp 文件支持从最低到最安全的)  (DES、Kerberos AES 128 和 Kerberos AES 256 加密类型。 如果启用 AES 加密，则用于联接 Active Directory 的用户凭据必须具有与为 Active Directory 启用的功能匹配的最高对应帐户选项。    
 
     例如，如果 Active Directory 只有 AES-128 功能，则必须为用户凭据启用 AES-128 帐户选项。 如果 Active Directory 具有 256 AES 功能，则必须启用 "AES-256 帐户" 选项，该选项也支持 AES 128)  (。 如果 Active Directory 没有任何 Kerberos 加密功能，则默认情况下，Azure NetApp 文件使用 DES。  
 
@@ -82,7 +82,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
 
     ![Active Directory 用户和计算机 MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 
-* Azure NetApp 文件支持 [ldap 签名](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server)，这使得可以在 Azure NetApp 文件服务与目标 [Active Directory 域控制器](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)之间安全传输 ldap 通信。 如果遵循 Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) for LDAP 签名指南，则应通过选中 "[联接 Active Directory](#create-an-active-directory-connection) " 窗口中的 " **ldap 签名**" 框，在 Azure NetApp 文件中启用 ldap 签名功能。 
+* Azure NetApp 文件支持 [ldap 签名](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server)，这使得可以在 Azure NetApp 文件服务与目标 [Active Directory 域控制器](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)之间安全传输 ldap 通信。 如果遵循 Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) for LDAP 签名指南，则应通过选中 " [联接 Active Directory](#create-an-active-directory-connection) " 窗口中的 " **ldap 签名** " 框，在 Azure NetApp 文件中启用 ldap 签名功能。 
 
     [LDAP 通道绑定](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) 配置对 Azure NetApp 文件服务没有影响。 
 
@@ -146,7 +146,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
     * **AD DNS 域名**  
         这是你要联接的 Active Directory 域服务的域名。
     * **AD 站点名称**  
-        这是域控制器发现将被限制到的站点名称。
+        这是域控制器发现将被限制到的站点名称。 这应与 Active Directory 站点和服务中的站点名称匹配。
     * **SMB 服务器(计算机帐户)前缀**  
         这是 Active Directory 中计算机帐户的命名前缀，Azure NetApp 文件将用于创建新帐户。
 
@@ -169,7 +169,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
 
         ![Active Directory AES 加密](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
-        **AES 加密**功能目前处于预览阶段。 如果这是你第一次使用此功能，请在使用此功能前注册它： 
+        **AES 加密** 功能目前处于预览阶段。 如果这是你第一次使用此功能，请在使用此功能前注册它： 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
@@ -178,7 +178,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
         检查功能注册的状态： 
 
         > [!NOTE]
-        > 在**RegistrationState**将 `Registering` 更改为之前，RegistrationState 的状态可能最长为60分钟 `Registered` 。 等到状态 **注册** 后再继续。
+        > 在 **RegistrationState** 将 `Registering` 更改为之前，RegistrationState 的状态可能最长为60分钟 `Registered` 。 等到状态 **注册** 后再继续。
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
@@ -191,7 +191,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
 
         ![Active Directory LDAP 签名](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 
-        **LDAP 签名**功能目前处于预览阶段。 如果这是你第一次使用此功能，请在使用此功能前注册它： 
+        **LDAP 签名** 功能目前处于预览阶段。 如果这是你第一次使用此功能，请在使用此功能前注册它： 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
@@ -200,7 +200,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
         检查功能注册的状态： 
 
         > [!NOTE]
-        > 在**RegistrationState**将 `Registering` 更改为之前，RegistrationState 的状态可能最长为60分钟 `Registered` 。 等到状态 **注册** 后再继续。
+        > 在 **RegistrationState** 将 `Registering` 更改为之前，RegistrationState 的状态可能最长为60分钟 `Registered` 。 等到状态 **注册** 后再继续。
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
@@ -213,7 +213,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
 
         ![Active Directory 备份策略用户](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
-        **备份策略用户**功能目前处于预览阶段。 如果这是你第一次使用此功能，请在使用此功能前注册它： 
+        **备份策略用户** 功能目前处于预览阶段。 如果这是你第一次使用此功能，请在使用此功能前注册它： 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
@@ -222,7 +222,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
         检查功能注册的状态： 
 
         > [!NOTE]
-        > 在**RegistrationState**将 `Registering` 更改为之前，RegistrationState 的状态可能最长为60分钟 `Registered` 。 等到状态 **注册** 后再继续。
+        > 在 **RegistrationState** 将 `Registering` 更改为之前，RegistrationState 的状态可能最长为60分钟 `Registered` 。 等到状态 **注册** 后再继续。
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
@@ -265,7 +265,7 @@ Azure NetApp 文件支持用于 AD 连接的 [Active Directory 域服务](/windo
 
         “可用配额”字段显示了所选容量池中可以用来创建新卷的未使用空间量。 新卷的大小不能超过可用配额。  
 
-    * **吞吐量 (MiB/秒) **   
+    * **吞吐量 (MiB/秒)**   
         如果在手动 QoS 容量池中创建了卷，请指定要用于卷的吞吐量。   
 
         如果卷是在自动 QoS 容量池中创建的，则此字段中显示的值为 (配额 x 服务级别吞吐量) 。   

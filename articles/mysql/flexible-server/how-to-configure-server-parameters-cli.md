@@ -6,16 +6,20 @@ ms.author: ambhatna
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 87ec99a68c538e8133d64351cdecbbf8b10459e6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58e7c024d6494aee745884997e42b527c51ab237
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525053"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489533"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Database for MySQL 灵活的服务器中配置服务器参数
+
+> [!IMPORTANT] 
+> Azure Database for MySQL 灵活服务器当前以公共预览版提供。
+
 可以通过使用 Azure CLI （Azure 命令行实用程序）列出、显示和更新 Azure Database for MySQL 灵活服务器的参数。 创建服务器时，将使用默认值和推荐值配置服务器参数。  
 
 本文介绍如何使用 Azure CLI 列出、显示和更新服务器参数。
@@ -31,7 +35,7 @@ ms.locfileid: "92525053"
 ## <a name="list-server-parameters-for-azure-database-for-mysql-flexible-server"></a>列出 Azure Database for MySQL 灵活服务器的服务器参数
 若要列出服务器中的所有参数及其值，请运行 [az mysql 挠性-server parameters list](/cli/azure/mysql/flexible-server/parameter) 命令。
 
-可以在资源组**myresourcegroup**下列出服务器**mydemoserver.mysql.database.azure.com**的服务器参数。
+可以在资源组 **myresourcegroup** 下列出服务器 **mydemoserver.mysql.database.azure.com** 的服务器参数。
 ```azurecli-interactive
 az mysql flexible-server parameter list --resource-group myresourcegroup --server-name mydemoserver
 ```
@@ -40,14 +44,14 @@ az mysql flexible-server parameter list --resource-group myresourcegroup --serve
 ## <a name="show-server-parameter-details"></a>显示服务器参数详细信息
 若要显示有关某个服务器的特定参数的详细信息，请运行 [az mysql 挠性-server parameter show](/cli/azure/mysql/flexible-server/parameter) 命令。
 
-此示例显示了 "资源组 myresourcegroup" 下服务器**mydemoserver.mysql.database.azure.com**的**慢速 \_ 查询 \_ 日志**服务器参数的详细信息 **。**
+此示例显示了 "资源组 myresourcegroup" 下服务器 **mydemoserver.mysql.database.azure.com** 的 **慢速 \_ 查询 \_ 日志** 服务器参数的详细信息 **。**
 ```azurecli-interactive
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## <a name="modify-a-server-parameter-value"></a>修改服务器参数值
 你还可以修改某个服务器参数的值，该参数将更新 MySQL server 引擎的基础配置值。 若要更新服务器参数，请使用 [az mysql 挠性-server 参数 set](/cli/azure/mysql/flexible-server/parameter) 命令。 
 
-若要更新资源组 myresourcegroup 下的服务器**mydemoserver.mysql.database.azure.com**的**慢速 \_ 查询 \_ 日志**服务器参数 **。**
+若要更新资源组 myresourcegroup 下的服务器 **mydemoserver.mysql.database.azure.com** 的 **慢速 \_ 查询 \_ 日志** 服务器参数 **。**
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver --value ON
 ```
@@ -55,13 +59,13 @@ az mysql flexible-server parameter set --name slow_query_log --resource-group my
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
-此代码将 **慢速 \_ 查询 \_ 日志** 重置为默认值 **OFF**。 
+此代码将 **慢速 \_ 查询 \_ 日志** 重置为默认值 **OFF** 。 
 
 ## <a name="setting-non-modifiable-server-parameters"></a>设置不可修改的服务器参数
 
 如果要更新的服务器参数是不可修改的，则可以选择使用在连接级别设置参数 `init_connect` 。 此项可为每个连接到服务器的客户端设置服务器参数。 
 
-更新 "资源组**myresourcegroup** " 下服务器**mydemoserver.mysql.database.azure.com**的**init \_ connect**服务器参数以设置值（如字符集）。
+更新 "资源组 **myresourcegroup** " 下服务器 **mydemoserver.mysql.database.azure.com** 的 **init \_ connect** 服务器参数以设置值（如字符集）。
 ```azurecli-interactive
 az mysql flexible-server parameter set --name init_connect --resource-group myresourcegroup --server-name mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
 ```
@@ -94,7 +98,7 @@ SELECT name FROM mysql.time_zone_name;
 
 可以使用 [az mysql 挠性-server 参数 set](/cli/azure/mysql/flexible-server/parameter) 命令设置全局级别时区。
 
-以下命令将资源组**myresourcegroup**下的服务器**mydemoserver.mysql.database.azure.com**的**时区服务器参数 \_ **更新为**US/太平洋**。
+以下命令将资源组 **myresourcegroup** 下的服务器 **mydemoserver.mysql.database.azure.com** 的 **时区服务器参数 \_** 更新为 **US/太平洋** 。
 
 ```azurecli-interactive
 az mysql flexible-server parameter set --name time_zone --resource-group myresourcegroup --server-name mydemoserver --value "US/Pacific"

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166924"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366751"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>如何：使用文本分析 API 检测情绪
 
@@ -23,7 +23,7 @@ ms.locfileid: "92166924"
 
 发送情绪分析请求后，API 会在句子和文档级别返回情绪标签（如“消极”、“中性”和“积极”）和置信度分数。
 
-情绪分析支持多种语言，并在预览版中提供了更多的语言。 有关详细信息，请参阅[支持的语言](../text-analytics-supported-languages.md)。
+情绪分析支持多种语言，并在预览版中提供了更多的语言。 有关详细信息，请参阅[支持的语言](../language-support.md)。
 
 ## <a name="sentiment-analysis-versions-and-features"></a>情绪分析版本和功能
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 83db314070f4c8857ebaa10b26d0adf51372776f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447555"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489278"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>将下游 IoT Edge 设备连接到 Azure IoT Edge 网关 (预览) 
 
@@ -43,7 +43,7 @@ ms.locfileid: "94447555"
 
 * 免费或标准 IoT 中心。
 * 至少两个 **IoT Edge 设备** ，一个设备是顶层设备，一个或多个较低层设备。 如果没有可用 IoT Edge 设备，则可以 [在 Ubuntu 虚拟机上运行 Azure IoT Edge](how-to-install-iot-edge-ubuntuvm.md)。
-* 如果使用 Azure CLI 来创建和管理设备，请在安装了 Azure IoT extension 0.9.10 或更高版本的情况下使用 Azure CLI 的版本 v4.0。
+* 如果使用 Azure CLI 来创建和管理设备，请在安装了 Azure IoT extension 0.10.6 或更高版本的情况下使用 Azure CLI 的版本 v4.0。
 
 本文提供详细的步骤和选项，可帮助你为方案创建适当的网关层次结构。 有关指导教程，请参阅 [使用网关创建 IoT Edge 设备的层次结构](tutorial-nested-iot-edge.md)。
 
