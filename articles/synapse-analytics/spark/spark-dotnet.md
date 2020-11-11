@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d0ae4ef48bfb79130180cc477eb2a6fbeb470eb6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310702"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506424"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>将 .NET for Apache Spark 与 Azure Synapse Analytics 配合使用
 
@@ -48,15 +48,15 @@ ms.locfileid: "93310702"
 
     在 Windows 上：
 
-使用类似于 [7-Zip](https://www.7-zip.org/) 或 [WinZip](https://www.winzip.com/)的提取程序将文件提取到带有所有已发布二进制文件的 bin 目录中。
+    使用类似于 [7-Zip](https://www.7-zip.org/) 或 [WinZip](https://www.winzip.com/)的提取程序将文件提取到带有所有已发布二进制文件的 bin 目录中。
 
-     **On Linux:**
+    **在 Linux 上：**
 
-     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+    使用所有已发布的二进制文件打开 bash shell 和 cd，并运行以下命令。
 
-       ```bash
-       zip -r publish.zip
-       ```
+    ```bash
+    zip -r publish.zip
+    ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>Azure Synapse Analytics 笔记本中的 .NET for Apache Spark 
 
