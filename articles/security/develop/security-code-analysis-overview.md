@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4fd8fb2e40fa44c5aec3f14bfd586187c952df0d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: a3af3307892e82ecd0697124954e99837ad5eb9e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422427"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515687"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>关于 Microsoft 安全代码分析
 
@@ -73,7 +73,7 @@ BinSkim 是可移植的可执行文件 (PE) 轻型扫描程序，用于验证编
 
 ### <a name="roslyn-analyzers"></a>Roslyn 分析器
 
-Roslyn 分析器是 Microsoft 的编译器集成工具，用于静态分析托管 c # 和 Visual Basic 代码。 有关详细信息，请参阅 [基于 Roslyn 的分析器](https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/security-warnings)。
+Roslyn 分析器是 Microsoft 的编译器集成工具，用于静态分析托管 c # 和 Visual Basic 代码。 有关详细信息，请参阅 [基于 Roslyn 的分析器](/dotnet/fundamentals/code-analysis/quality-rules/security-warnings)。
 
 ### <a name="tslint"></a>TSLint
 

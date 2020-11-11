@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443426"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516435"
 ---
 # <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>公共预览版： Azure 混合权益–适用于 Linux 虚拟机的方式
 
@@ -53,10 +53,12 @@ Linux) Azure 混合权益 (目前处于公开预览阶段。 你可以使用以�
 
 ### <a name="red-hat-customers"></a>Red Hat 客户
 
-1.    注册 [Red Hat 云访问计划](https://aka.ms/rhel-cloud-access)
-1.    启用 Azure 订阅 (的云访问) ，并启用包含你要使用其权益的 Vm 的订阅
-1.    通过 Azure CLI 将权益应用于现有 Vm
-1.    使用单独的更新源注册 Vm，接收权益
+适用于 RHEL 的 Azure 混合权益适用于具有以下条件的客户：有资格在 Azure 中使用，并且已启用了一个或多个订阅，以便在 Azure 中使用 [Red Hat 云访问](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 计划。 
+
+1.  启用一个或多个合格的 RHEL 订阅，以便在 Azure 中使用 [Red Hat 云访问客户界面](https://access.redhat.com/management/cloud)。
+1.  在 Red Hat 云访问启用过程中提供的 Azure 订阅 () 将被允许使用 Azure 混合权益功能。
+1.  将 Azure 混合权益应用到现有的 RHEL PAYG Vm 以及从 Azure Marketplace PAYG 映像部署的任何新 RHEL Vm。
+1.  按照建议的 [后续步骤](https://access.redhat.com/articles/5419341) 配置 rhel vm 的更新源和 rhel 订阅符合性指南。
 
 
 ### <a name="suse-customers"></a>SUSE 客户
@@ -124,7 +126,19 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="red-hat"></a>Red Hat
 
-若要为 RHEL Vm 使用 Azure 混合权益，必须先向 Red Hat 云访问计划注册。 可以通过此处的 Red Hat 云访问站点来执行此操作。 启用 VM 权益后，必须使用 Red Hat 订阅管理器或 Red Hat 卫星将 VM 注册到自己的更新源。 注册更新将确保仍处于受支持状态。
+使用 RHEL Azure 混合权益的客户同意与 Azure Marketplace RHEL 产品/服务相关的标准 [法律条款](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) 和 [隐私声明](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) 。
+
+使用 RHEL Azure 混合权益的客户有三个选项可用于向这些 Vm 提供软件更新和修补程序：
+
+1.  [Red Hat 更新基础结构 (RHUI) ](../workloads/redhat/redhat-rhui.md) (默认选项) 
+1.  Red Hat 卫星服务器
+1.  Red Hat 订阅管理器
+
+选择 RHUI 选项的客户可以继续使用 RHUI 作为其 AHB RHEL Vm 的主要更新源，而无需将 RHEL 订阅附加到这些 Vm。  选择 RHUI 选项的客户负责确保 RHEL 订阅符合性。
+
+选择 Red Hat 卫星 Server 或 Red Hat 订阅管理器的客户应该删除 RHUI 配置，然后将已启用云访问权限的 RHEL 订阅附加到其 AHB RHEL VM (s) 。  
+
+可在 [此处](https://access.redhat.com/articles/5419341)找到有关 Red Hat 订阅相容性、软件更新和 AHB RHEL vm 的源的详细信息。
 
 ### <a name="suse"></a>SUSE
 

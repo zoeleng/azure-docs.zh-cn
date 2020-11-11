@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744213"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515704"
 ---
 # <a name="step-3-validate-connectivity"></a>步骤3：验证连接性
 
@@ -29,7 +29,7 @@ ms.locfileid: "92744213"
 
 - 您必须具有提升的权限 (日志转发器计算机上的 sudo) 。
 
-- 你必须在日志转发器计算机上安装 **python 2.7** 。<br>
+- 你必须在日志转发器计算机上安装 **python 2.7** 或 **3** 。<br>
 使用 `python –version` 命令检查。
 
 - 在此过程中的某个时间点，可能需要工作区 ID 和工作区主键。 可以在工作区资源的 " **代理管理** " 下找到它们。

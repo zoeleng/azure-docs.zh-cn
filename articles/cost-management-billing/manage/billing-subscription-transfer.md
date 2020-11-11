@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131915"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408136"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>将 Azure 订阅的计费所有权转移到另一帐户
 
@@ -24,7 +24,7 @@ ms.locfileid: "92131915"
 
 若要保留计费所有权，但要更改订阅的类型，请参阅[将 Azure 订阅切换到另一套餐](switch-azure-offer.md)。 若要控制谁可以访问订阅中的资源，请参阅 [Azure 内置角色](../../role-based-access-control/built-in-roles.md)。
 
-如果你是企业协议 (EA) 客户，则你的企业管理员可以在帐户之间转移订阅的计费所有权。 有关详细信息，请参阅[更改帐户所有者](ea-portal-get-started.md#change-account-owner)。
+如果你是企业协议 (EA) 客户，则你的企业管理员可以在帐户之间转移订阅的计费所有权。 有关详细信息，请参阅[更改帐户所有者](ea-portal-administration.md#change-account-owner)。
 
 只有帐户的计费管理员可转移订阅的所有权。
 

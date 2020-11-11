@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913018"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515721"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>威胁建模工具入门
 
 Microsoft Threat Modeling Tool 2018 在 2018 年 9 月作为 GA 发布，是免费的[单击下载](https://aka.ms/threatmodelingtool)版本。 交付机制中的更改使我们能够在客户每次打开该工具时向他们推送最新的改进和 bug 修复，使其更易于维护和使用。
 本文将指导你开始使用 Microsoft SDL 威胁建模方法的过程，并演示如何使用该工具来开发优秀的威胁模型，以作为安全进程的主干。
 
-本文基于 SDL 威胁建模方法的现有认知。 若要快速查看，请参阅 **[威胁建模 Web 应用程序](https://msdn.microsoft.com/library/ms978516.aspx)** 和 2006 年发布的 **[使用 STRIDE 方法发现安全漏洞](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN 文章的存档版本。
+本文基于 SDL 威胁建模方法的现有认知。 若要快速查看，请参阅 **[威胁建模 Web 应用程序](/previous-versions/msp-n-p/ff648006(v=pandp.10))** 和 2006 年发布的 **[使用 STRIDE 方法发现安全漏洞](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN 文章的存档版本。
 
 简而言之，此方法涉及创建关系图、识别威胁、缓解问题和验证每个缓解操作。 下面的关系图重点突出了此过程：
 
