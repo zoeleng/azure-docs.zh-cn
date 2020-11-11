@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88258284"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363827"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>文本分析 API 的数据和速率限制
 <a name="data-limits"></a>
@@ -31,7 +31,7 @@ ms.locfileid: "88258284"
 
 | 限制 | 值 |
 |------------------------|---------------|
-| 单个文档的最大大小 | 5,120 个字符，通过 [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 进行度量。 也适用于运行状况文本分析容器。 |
+| 单个文档的最大大小 | 5,120 个字符，通过 [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) 进行度量。 也适用于运行状况文本分析容器。 |
 | 整个请求的最大大小 | 1MB。 也适用于运行状况文本分析容器。 |
 
 可以在单个请求中发送的最大文档数将取决于所使用的 API 版本和功能。

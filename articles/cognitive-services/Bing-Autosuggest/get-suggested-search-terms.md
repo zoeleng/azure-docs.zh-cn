@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: d55ff4ed8717a449628e94a940c0896d31818da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0187a5d2be6b2f93897fc358e26ad095e5a70f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101929"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364575"
 ---
 # <a name="what-is-bing-autosuggest"></a>什么是必应自动建议？
 
@@ -36,7 +36,7 @@ ms.locfileid: "93101929"
 
 必应自动建议 API 是一项 RESTful Web 服务，可以轻松地通过任何编程语言调用，只要该语言能够发出 HTTP 请求和分析 JSON 即可。
 
-1. 创建可以访问必应搜索 API 的[认知服务 API 帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果没有 Azure 订阅，可以免费[创建一个帐户](https://azure.microsoft.com/free/cognitive-services/)。
+1. 创建可以访问必应搜索 API 的[认知服务 API 帐户](../cognitive-services-apis-create-account.md)。 如果没有 Azure 订阅，可以免费[创建一个帐户](https://azure.microsoft.com/free/cognitive-services/)。
 2. 每次用户在应用程序的搜索框中键入新字符时，都会向此 API 发送请求。
 3. 通过分析返回的 JSON 消息处理 API 响应。
 
@@ -52,11 +52,11 @@ ms.locfileid: "93101929"
 
 若要快速了解如何使用第一个请求，请参阅[创建第一个查询](quickstarts/csharp.md)。
 
-使自己熟悉[必应自动建议 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 参考文档。 此参考文档包含可以用来请求建议查询词的终结点、标头和查询参数的列表，以及响应对象的定义。
+使自己熟悉[必应自动建议 API v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 参考文档。 此参考文档包含可以用来请求建议查询词的终结点、标头和查询参数的列表，以及响应对象的定义。
 
-请访问[必应搜索 API 中心页](../bing-web-search/search-the-web.md)，浏览其他可用的 API。
+请访问[必应搜索 API 中心页](../bing-web-search/overview.md)，浏览其他可用的 API。
 
 
-了解如何使用[必应 Web 搜索 API](../bing-web-search/search-the-web.md) 搜索 Web，并浏览其他[必应搜索 API](../bing-web-search/index.yml)。
+了解如何使用[必应 Web 搜索 API](../bing-web-search/overview.md) 搜索 Web，并浏览其他[必应搜索 API](../bing-web-search/index.yml)。
 
-确保阅读[必应使用和显示要求](./useanddisplayrequirements.md)，以免违反关于搜索结果使用要求的任何规则。
+确保阅读[必应使用和显示要求](../bing-web-search/use-display-requirements.md)，以免违反关于搜索结果使用要求的任何规则。

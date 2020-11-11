@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116760"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371710"
 ---
 [沉浸式阅读器](https://www.onenote.com/learningtools)是一款经过广泛设计的工具，它实现了可靠的技术，旨在提高新的读者、语言学习者和有学习差异（如阅读障碍）的用户的阅读理解能力。 你可在应用程序中使用沉浸式阅读器来隔离文本，以改进焦点、显示常用词的图片、突出显示语音的各个部分、大声朗读所选文本、实时翻译字词和短语等等。
 
@@ -42,7 +42,7 @@ ms.locfileid: "92116760"
 
 ### <a name="configure-authentication-values"></a>配置身份验证值
 
-右键单击 _解决方案资源管理器_ 中的项目，然后选择“管理用户机密”。 这将打开一个名为 _secrets.json_ 的文件。 此文件未签入到源代码管理中。 在[此处](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)了解更多信息。 将 _secrets.json_ 的内容替换为以下内容，并提供在创建沉浸式阅读器资源时给出的值。
+右键单击 _解决方案资源管理器_ 中的项目，然后选择“管理用户机密”。 这将打开一个名为 _secrets.json_ 的文件。 此文件未签入到源代码管理中。 在[此处](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1)了解更多信息。 将 _secrets.json_ 的内容替换为以下内容，并提供在创建沉浸式阅读器资源时给出的值。
 
 ```json
 {
@@ -218,7 +218,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>添加 JavaScript 以处理启动沉浸式阅读器
 
-沉浸式阅读器库提供了启动沉浸式阅读器和呈现沉浸式阅读器按钮等功能。 在[此处](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)了解更多信息。
+沉浸式阅读器库提供了启动沉浸式阅读器和呈现沉浸式阅读器按钮等功能。 在[此处](../../reference.md)了解更多信息。
 
 在 _Views\Home\Index.cshtml_ 的底部，添加以下代码：
 

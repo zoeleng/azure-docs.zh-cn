@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6b715d4b801159b451957c30ee9ef7b406f3a2f4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ee31eac55298c86a7bdd784ea54c9a0c8caa47a4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095367"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364609"
 ---
 # <a name="what-is-bing-local-business-search"></a>什么是必应当地企业搜索？
 
@@ -35,7 +35,7 @@ ms.locfileid: "93095367"
 ## <a name="workflow"></a>工作流
 可以通过任何编程语言调用必应当地企业搜索 API，只要该语言能够发出 HTTP 请求并分析 JSON 响应即可。 可以使用 REST API 访问此服务。
  
-1. 创建可以访问必应搜索 API 的[认知服务 API 帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果没有 Azure 订阅，可以[创建一个免费帐户](https://azure.microsoft.com/free/cognitive-services/)。   
+1. 创建可以访问必应搜索 API 的[认知服务 API 帐户](../cognitive-services-apis-create-account.md)。 如果没有 Azure 订阅，可以[创建一个免费帐户](https://azure.microsoft.com/free/cognitive-services/)。   
 2. URL 对 `q=""` 查询参数的搜索词进行编码。 例如，`q=nearby+restaurant` 或 `q=nearby%20restaurant`。 如果需要，还要设置分页。 
 3. [向必应当地企业搜索 API 发送请求](quickstarts/local-quickstart.md) 
 4. 分析 JSON 响应 
@@ -49,4 +49,4 @@ ms.locfileid: "93095367"
 - [查询和响应](local-search-query-response.md)
 - [当地企业搜索快速入门](quickstarts/local-quickstart.md)
 - [当地企业搜索 API 参考](local-search-reference.md)
-- [使用和显示要求](use-display-requirements.md)
+- [使用和显示要求](../bing-web-search/use-display-requirements.md)

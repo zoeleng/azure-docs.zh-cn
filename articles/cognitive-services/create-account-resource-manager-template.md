@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347890"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363385"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>快速入门：使用 ARM 模板创建认知服务资源
 
@@ -45,13 +45,13 @@ Azure 认知服务是包含 REST API 和客户端库 SDK 的云服务，可帮�
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 模板中定义了一个 Azure 资源：
-* [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts)：创建一个认知服务资源。
+* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts)：创建一个认知服务资源。
 
 ## <a name="deploy-the-template"></a>部署模板
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
-1. 单击“**部署到 Azure**”按钮。
+1. 单击“ **部署到 Azure** ”按钮。
 
     [![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
@@ -73,9 +73,9 @@ Azure 认知服务是包含 REST API 和客户端库 SDK 的云服务，可帮�
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` create 需要使用 Azure CLI 2.6 或更高版本。 使用 `az --version` 可显示版本。 有关详细信息，请参阅[本文档](https://docs.microsoft.com/cli/azure/deployment/group)。
+> `az deployment group` create 需要使用 Azure CLI 2.6 或更高版本。 使用 `az --version` 可显示版本。 有关详细信息，请参阅[本文档](/cli/azure/deployment/group)。
 
-[在本地计算机上](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)使用 Azure 命令行接口 (CLI) 或在浏览器中单击“试用”来运行以下脚本。 输入新资源组的名称和位置（例如 `centralus`）后，系统将使用 ARM 模板在该资源组中部署认知服务资源。 记住此处使用的名称。 该名称稍后将用于部署验证。
+[在本地计算机上](/cli/azure/install-azure-cli?view=azure-cli-latest)使用 Azure 命令行接口 (CLI) 或在浏览器中单击“试用”来运行以下脚本。 输入新资源组的名称和位置（例如 `centralus`）后，系统将使用 ARM 模板在该资源组中部署认知服务资源。 记住此处使用的名称。 该名称稍后将用于部署验证。
 
 
 ```azurecli-interactive
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>后续步骤
 
 * [对 Azure 认知服务的请求进行身份验证](authentication.md)
-* [什么是 Azure 认知服务？](Welcome.md)
+* [什么是 Azure 认知服务？](./what-are-cognitive-services.md)
 * [自然语言支持](language-support.md)
 * [Docker 容器支持](cognitive-services-container-support.md)

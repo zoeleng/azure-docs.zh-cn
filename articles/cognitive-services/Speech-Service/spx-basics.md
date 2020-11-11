@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286683"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422393"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>了解语音 CLI 的基础知识
 
@@ -141,6 +141,18 @@ audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.
 sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
 sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
 ```
+
+## <a name="synthesize-speech-to-a-file"></a>将语音合成到文件中
+
+运行以下命令，将扬声器的输出更改为 `.wav` 文件。
+
+```bash
+spx synthesize --text "The speech synthesizer greets you!" --audio output greetings.wav
+```
+
+语音 CLI 将采用英文向 `greetings.wav` 音频文件生成自然语言。
+在 Windows 中，输入 `start greetings.wav` 可以播放音频文件。
+
 
 ## <a name="batch-text-to-speech-synthesis"></a>批处理文本转语音合成
 

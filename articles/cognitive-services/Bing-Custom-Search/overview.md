@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4490142a278d5e724fade42e697d8cf2206c0da8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077334"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367329"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>什么是必应自定义搜索 API？
 
@@ -50,16 +50,15 @@ ms.locfileid: "93077334"
 
 若要深入了解自定义搜索实例，请参阅[定义自定义搜索实例](define-your-custom-view.md)。
 
-请务必阅读[必应用法和显示要求](./use-and-display-requirements.md)，了解如何在服务和应用程序中使用搜索结果。
+请务必阅读[必应用法和显示要求](../bing-web-search/use-display-requirements.md)，了解如何在服务和应用程序中使用搜索结果。
 
-请访问[必应搜索 API 中心页](../bing-web-search/search-the-web.md)，浏览其他可用的 API。
+请访问[必应搜索 API 中心页](../bing-web-search/overview.md)，浏览其他可用的 API。
 
 了解每个自定义搜索终结点的参考内容。 该参考内容包含用于请求搜索结果的终结点、标头和查询参数。 此外还包含响应对象的定义。
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [自定义搜索 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-- [自定义图像 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
-- [自定义视频 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
-- [自定义自动建议 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
-
+- [自定义搜索 API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [自定义图像 API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [自定义视频 API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [自定义自动建议 API](/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
