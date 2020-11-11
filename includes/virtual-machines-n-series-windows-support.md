@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bfb7d1d52549d7fda9547b65a259fe2ce73f8839
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 22d2ddc65616bbeb0c511afa6f60bc12c6ec67ef
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997877"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482765"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>支持的操作系统和驱动程序
 
@@ -34,12 +34,12 @@ NVIDIA Tesla (CUDA) 的 NC、NCv2、NCv3、NCasT4_v3、ND 和 NDv2 系列 Vm 的
 
 Microsoft 为用作虚拟工作站或虚拟应用程序的 NV 和 NVv3 系列 Vm 重新分发 NVIDIA 网格驱动程序安装程序。 仅在 Azure NV 系列 Vm 上安装这些网格驱动程序，且仅在下表中列出的操作系统上安装。 这些驱动程序包括 Azure 中 GRID Virtual GPU Software 的许可。 无需设置 NVIDIA vGPU 软件许可证服务器。
 
-Azure 重新分发的网格驱动程序不适用于非 NV 系列 Vm，如 NC、NCv2、NCv3、ND 和 NDv2 系列 Vm。
+Azure 重新分发的网格驱动程序不适用于非 NV 系列 Vm，如 NC、NCv2、NCv3、ND 和 NDv2 系列 Vm。 一种例外情况是 NCas_T4_V3 VM 系列，其中网格驱动程序将启用类似于 NV 系列的图形功能。
 
 请注意，Nvidia 扩展将始终安装最新的驱动程序。 我们在此处提供了与旧版本相关的客户的以前版本的链接。
 
 对于 Windows Server 2019、Windows Server 2016 和 Windows 10 (生成 2004) ：
-- [GRID 11 (452.39) ](https://go.microsoft.com/fwlink/?linkid=874181) () 
+- [网格 11.1 (452.39) ](https://go.microsoft.com/fwlink/?linkid=874181) () 
 - [网格 11.0 (451.48) ](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) ()  
 
 对于 Windows Server 2012 R2： 
