@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 07/22/2020
-ms.openlocfilehash: 265828cc34d73409b91c55be64b087d22f1a11f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/10/2020
+ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789584"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506016"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>功能比较：Azure SQL 数据库和 Azure SQL 托管实例
 
@@ -72,7 +72,7 @@ Azure 管理数据库并保证其高可用性。 可能影响高可用性或无�
 | [文件流](/sql/relational-databases/blob/filestream-sql-server) | 否 | [否](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [全文搜索 (FTS)](/sql/relational-databases/search/full-text-search) |  是，但不支持第三方断字符 | 是，但[不支持第三方断字符](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [函数](/sql/t-sql/functions/functions) | 大多数 - 请参阅单个函数 | 是 - 请参阅[存储过程、函数和触发器差异](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
-| [内存中优化](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是 - [仅限“高级”和“业务关键”层级](../in-memory-oltp-overview.md)对非持久性内存中对象（例如表类型）的支持有限 | 是 - [仅限业务关键层](../managed-instance/sql-managed-instance-paas-overview.md) |
+| [内存中优化](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是在 [高级和业务关键服务层](../in-memory-oltp-overview.md)中。</br> 对非持久性 In-Memory OLTP 对象（如 [超大规模服务层](service-tier-hyperscale.md)中的内存优化表变量）的有限支持。| [业务关键服务层](../managed-instance/sql-managed-instance-paas-overview.md)中的是 |
 | [语言元素](/sql/t-sql/language-elements/language-elements-transact-sql) | 大多数 - 请参阅单个元素 |  是 - 请参阅 [T-SQL 差异](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [链接服务器](/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 请参阅[弹性查询](elastic-query-horizontal-partitioning.md) | 是的。 仅适用于没有分布式事务的 [SQL Server 和 SQL 数据库](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers)。 |
 | 从文件（CSV、Excel）中读取数据的[链接服务器](/sql/relational-databases/linked-servers/linked-servers-database-engine)| 否。 使用 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 或 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 来替代 CSV 格式。 | 否。 使用 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 或 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) 来替代 CSV 格式。 在[SQL 托管实例反馈项](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)上跟踪这些请求|

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995727"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506288"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>为用于 VM 的 Azure Monitor 配置 Log Analytics 工作区
 用于 VM 的 Azure Monitor 从 Azure Monitor 中的一个或多个 Log Analytics 工作区收集其数据。 在载入代理之前，必须创建和配置工作区。 本文介绍工作区的要求并对其进行配置以实现用于 VM 的 Azure Monitor。
@@ -20,10 +20,10 @@ ms.locfileid: "91995727"
 ## <a name="overview"></a>概述
 单个订阅可以根据你的需求使用任意数量的工作区，这只是该工作区的唯一要求是位于受支持的位置，并使用 *VMInsights* 解决方案进行配置。
 
-配置工作区后，可以使用任何可用选项在 VM 和 VMMS 上安装所需的代理，并指定工作区以发送其数据。 用于 VM 的 Azure Monitor 将从其订阅中任何已配置的工作区收集数据。
+配置工作区后，可以使用任何可用选项在 VM 和 VMSS 上安装所需的代理，并为其指定一个工作区以发送其数据。 用于 VM 的 Azure Monitor 将从其订阅中任何已配置的工作区收集数据。
 
 > [!NOTE]
-> 使用 Azure 门户在单个 VM 或 VMMS 上启用用于 VM 的 Azure Monitor 时，可以选择现有的工作区或创建一个新的工作区。 如果尚未安装 *VMInsights* 解决方案，则将其安装在此工作区中。 然后，你可以将此工作区用于其他代理。
+> 使用 Azure 门户在单个 VM 或 VMSS 上启用用于 VM 的 Azure Monitor 时，可以选择现有的工作区或创建一个新的工作区。 如果尚未安装 *VMInsights* 解决方案，则将其安装在此工作区中。 然后，你可以将此工作区用于其他代理。
 
 
 ## <a name="create-log-analytics-workspace"></a>创建 Log Analytics 工作区
@@ -41,7 +41,7 @@ ms.locfileid: "91995727"
 * [Azure 门户](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure 资源管理器](../samples/resource-manager-workspace.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>支持的区域
 
@@ -53,7 +53,7 @@ ms.locfileid: "91995727"
 - 美国中南部
 - 美国东部
 - 美国东部 2
-- 美国中部
+- Central US
 - 美国中北部
 - US Gov Az
 - US Gov Va
@@ -80,16 +80,16 @@ ms.locfileid: "91995727"
 ### <a name="azure-portal"></a>Azure 门户
 有三个选项可用于从 Azure 门户配置现有工作区。
 
-若要配置单个工作区，请选择 **其他载入选项** ，然后 **配置工作区**。 选择订阅和工作区，然后单击 " **配置**"。
+若要配置单个工作区，请选择 **其他载入选项** ，然后 **配置工作区** 。 选择订阅和工作区，然后单击 " **配置** "。
 
 [![配置工作区](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
-若要配置多个工作区，请在 "**监视器**" 菜单的 "**虚拟机**" 菜单中选择 "**工作区配置**" 选项卡 Azure 门户。 设置筛选器值以显示现有工作区的列表。 选择要启用的每个工作区旁边的框，然后单击 " **配置选择** "。
+若要配置多个工作区，请在 " **监视器** " 菜单的 " **虚拟机** " 菜单中选择 " **工作区配置** " 选项卡 Azure 门户。 设置筛选器值以显示现有工作区的列表。 选择要启用的每个工作区旁边的框，然后单击 " **配置选择** "。
 
 [![工作区配置](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-使用 Azure 门户在单个 VM 或 VMMS 上启用用于 VM 的 Azure Monitor 时，可以选择现有的工作区或创建一个新的工作区。 如果尚未安装 *VMInsights* 解决方案，则将其安装在此工作区中。 然后，你可以将此工作区用于其他代理。
+使用 Azure 门户在单个 VM 或 VMSS 上启用用于 VM 的 Azure Monitor 时，可以选择现有的工作区或创建一个新的工作区。 如果尚未安装 *VMInsights* 解决方案，则将其安装在此工作区中。 然后，你可以将此工作区用于其他代理。
 
 [![在门户中启用单个 VM](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

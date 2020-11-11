@@ -13,12 +13,14 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 9f063b147fbddaeaa7888af755dba8f325d4fe0f
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 4e06edaf6323c13b3a5af037b5b85b5b0acecc79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899110"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505642"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -103,11 +105,11 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * Python SDK 中不支持 AMQP。
 
-## <a name="example-in-c-using-mqtt-without-an-azure-iot-sdk"></a>使用不带 Azure IoT SDK 的 MQTT 的 C 中的示例
+## <a name="example-in-c-using-mqtt-without-an-azure-iot-sdk"></a>使用 MQTT 而无 Azure IoT SDK 的 C 示例
 
-在 [IOT MQTT 示例存储库](https://github.com/Azure-Samples/IoTMQTTSample)中，你将找到几个 c/c + + 演示项目，其中展示了如何发送遥测消息，并在不使用 Azure IOT C SDK 的情况下接收具有 IoT 中心的事件。 
+在 [IoT MQTT 示例存储库](https://github.com/Azure-Samples/IoTMQTTSample)中，你将发现两个 C/C++ 演示项目，演示如何在不使用 Azure IoT C SDK 的情况下使用 IoT 中心发送遥测消息、接收事件。 
 
-这些示例使用 Eclipse Mosquitto 库向在 IoT 中心内实现的 MQTT Broker 发送消息。
+这些示例使用 Eclipse Mosquitto 库向在 IoT 中心实现的 MQTT 中转站发送消息。
 
 此存储库包含：
 
@@ -119,7 +121,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * DeviceTwinMQTTWin32：包含用于在 Windows 计算机上查询和订阅 Azure IoT 中心内设备的设备孪生事件的代码。
 
-* PnPMQTTWin32：包含将包含 IoT 即插即用设备功能的遥测消息发送到 Azure IoT 中心、在 Windows 计算机上构建和运行的代码。 有关 IoT 的详细信息，请参阅 [即插即用](../iot-pnp/overview-iot-plug-and-play.md)
+* PnPMQTTWin32：包含使用 IoT 即插即用设备功能将遥测消息发送到在 Windows 计算机上生成并运行的 Azure IoT 中心的代码。 有关 IoT 的详细信息，请参阅 [即插即用](../iot-pnp/overview-iot-plug-and-play.md)
 
 **对于 Linux：**
 
@@ -152,7 +154,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > 如果使用 X.509 证书身份验证，则不需要使用 SAS 令牌密码。 有关详细信息，请参阅在 [Azure IoT 中心设置 x.509 安全性](iot-hub-security-x509-get-started.md) ，并按照 [TLS/SSL 配置部分](#tlsssl-configuration)中的代码说明进行操作。
+  > 如果使用 X.509 证书身份验证，则不需要使用 SAS 令牌密码。 有关详细信息，请参阅[在 Azure IoT 中心设置 X.509 安全性](iot-hub-security-x509-get-started.md)，并按照 [TLS/SSL 配置部分](#tlsssl-configuration)中的代码说明进行操作。
 
   有关如何生成 SAS 令牌的详细信息，请参阅[使用 IoT 中心安全令牌](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)的设备部分。
 
@@ -298,7 +300,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 * IoT 中心不会保存 Retain 消息。 如果设备发送的消息的 **保留** 标志设置为1，则 IoT 中心会将 **mqtt** 应用程序属性添加到消息中。 在此情况下，IoT 中心不会存储保留消息，而将其传递到后端应用。
 
-* IoT 中心仅支持每个设备一个活动 MQTT 连接。 代表相同设备 ID 的任何新 MQTT 连接都会导致 IoT 中心删除现有连接。
+* IoT 中心仅支持每个设备一个活动 MQTT 连接。 代表相同设备 ID 的任何新 MQTT 连接都会导致 IoT 中心删除现有连接， **400027 ConnectionForcefullyClosedOnNewConnection** 将记录到 IoT 中心日志中
+
 
 有关详细信息，请参阅[消息传送开发人员指南](iot-hub-devguide-messaging.md)。
 

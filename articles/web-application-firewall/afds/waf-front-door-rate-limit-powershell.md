@@ -7,18 +7,21 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005406"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506407"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>使用 Azure PowerShell 配置 Web 应用程序防火墙速率限制规则
 Azure 前端的 Azure Web 应用程序防火墙 (WAF) 速率限制规则控制在一分钟的时间内客户端允许的请求数。
 本文介绍如何使用 Azure PowerShell 来配置 WAF 速率限制规则，该规则控制允许从客户端到包含 URL 中 */promo* 的 web 应用程序的请求数。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+
+> [!NOTE]
+> 为每个客户端 IP 地址应用速率限制。 如果有多个客户端从不同 IP 地址访问前门，则会应用自己的速率限制。
 
 ## <a name="prerequisites"></a>先决条件
 在开始设置速率限制策略之前，请设置 PowerShell 环境，并创建前门配置文件。
@@ -46,7 +49,7 @@ Install-Module -Name Az.FrontDoor
 ### <a name="create-a-front-door-profile"></a>创建 Front Door 配置文件
 按照[快速入门：创建前门配置文件](../../frontdoor/quickstart-create-front-door.md)中所述的说明创建前门配置文件
 
-## <a name="define-url-match-conditions"></a>定义 url 匹配条件
+## <a name="define-url-match-conditions"></a>定义 URL 匹配条件
 使用 [AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) (URL 定义 url 匹配条件，其中包含/promo) 。
 下面的示例将 */promo* 与 *RequestUri* 变量的值进行匹配：
 
@@ -73,9 +76,7 @@ Install-Module -Name Az.FrontDoor
 
 使用 `Get-AzureRmResourceGroup` 找到包含该 Front Door 配置文件的资源组的名称。 接下来，使用包含前门配置文件的指定资源组中的 [AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) 配置具有自定义速率限制规则的安全策略。
 
-下面的示例使用资源组名称 *myResourceGroupFD1* ，假设已使用 [快速入门：创建前门](../../frontdoor/quickstart-create-front-door.md) 文章中提供的说明创建了前门配置文件。
-
- 使用 [AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)。
+下面的示例使用资源组名称 *myResourceGroupFD1* ，假设已使用 [快速入门：创建前门一](../../frontdoor/quickstart-create-front-door.md) 文中提供的说明创建了前门配置文件，并使用 [AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)。
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `
@@ -87,7 +88,7 @@ Install-Module -Name Az.FrontDoor
 ```
 ## <a name="link-policy-to-a-front-door-front-end-host"></a>将策略链接到前门前端主机
 将安全策略对象链接到现有前门前端主机并更新前门属性。 首先，使用 [AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor) 命令检索前门对象。
-接下来[，使用 AzFrontDoor 命令将前端](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) *WebApplicationFirewallPolicyLink*属性设置为在上一步中创建的 "$ratePolicy" 的*resourceId* 。 
+接下来 [，使用 AzFrontDoor 命令将前端](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) *WebApplicationFirewallPolicyLink* 属性设置为在上一步中创建的 "$ratePolicy" 的 *resourceId* 。 
 
 下面的示例使用资源组名称 *myResourceGroupFD1* ，假设已使用 [快速入门：创建前门](../../frontdoor/quickstart-create-front-door.md) 文章中提供的说明创建了前门配置文件。 此外，在下面的示例中，将 $frontDoorName 替换为前门配置文件的名称。 
 

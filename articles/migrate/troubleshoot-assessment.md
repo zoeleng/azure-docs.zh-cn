@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314744"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505217"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>排查评估/依赖项可视化问题
 
@@ -26,7 +26,7 @@ ms.locfileid: "92314744"
 **问题** | **修补程序**
 --- | ---
 引导类型不受支持 | Azure 不支持具有 EFI 启动类型的虚拟机。 在运行迁移之前，建议将启动类型转换为 BIOS。 <br/><br/>你可以使用 Azure Migrate 服务器迁移来处理此类 Vm 的迁移。 在迁移过程中，它会将 VM 的启动类型转换为 BIOS。
-有条件支持的 Windows 操作系统 | 操作系统已超过其支持的截止日期，需要自定义支持协议 (CSA) ，以 [支持 Azure 中的支持](/troubleshoot/azure/virtual-machines/server-software-support)。 请考虑在迁移到 Azure 之前升级。
+有条件支持的 Windows 操作系统 | 操作系统已超过其支持的截止日期，需要自定义支持协议 (CSA) ，以 [支持 Azure 中的支持](/troubleshoot/azure/virtual-machines/server-software-support)。 请考虑在迁移到 Azure 之前升级。 [查看]() 有关 [准备运行 Windows Server 2003](prepare-windows-server-2003-migration.md) 以迁移到 Azure 的计算机的信息。
 不受支持的 Windows 操作系统 | Azure 仅支持 [所选的 WINDOWS 操作系统版本](/troubleshoot/azure/virtual-machines/server-software-support)。 请考虑在迁移到 Azure 之前升级计算机。
 有条件认可的 Linux OS | Azure 予以认可仅 [选择 LINUX 操作系统版本](../virtual-machines/linux/endorsed-distros.md)。 请考虑在迁移到 Azure 之前升级计算机。 有关更多详细信息，请参阅 [此处](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) 。
 未经认可的 Linux OS | 计算机可能会在 Azure 中启动，但 Azure 不提供操作系统支持。 在迁移到 Azure 之前，请考虑升级到 [认可的 Linux 版本](../virtual-machines/linux/endorsed-distros.md) 。
@@ -48,7 +48,7 @@ ms.locfileid: "92314744"
 由于出现内部错误，无法确定一个或多个磁盘的适用性 | 请尝试为组创建一个新评估。
 由于出现内部错误，无法确定一个或多个网络适配器的适用性 | 请尝试为组创建一个新评估。
 找不到产品/服务币种预订实例的 VM 大小 | 标记为 "不适用" 的计算机，原因是找不到所选 RI、产品/服务和货币组合的 VM 大小。 编辑评估属性以选择有效的组合，并重新计算评估。 
-有条件地准备好 Internet 协议 | 仅适用于 Azure VMware 解决方案 (AVS) 评估。 AVS 不支持 IPv6 internet 地址因素。如果检测到你的计算机有 IPv6，请联系 AVS 团队以获取补救指导。
+有条件地准备好 Internet 协议 | 仅适用于 Azure VMware 解决方案 (AVS) 评估。 AVS 不支持 IPv6 internet 地址因素。 如果检测到你的计算机有 IPv6，请联系 AVS 团队以获取补救指导。
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>在基于导入的 AVS 评估中标记为未知的建议迁移工具
 
@@ -75,7 +75,7 @@ ms.locfileid: "92314744"
 基于评估类型，Azure Migrate Server 评估可能会推荐 Azure VM Sku，其中包含的内核和内存比当前本地分配更多：
 
 - VM SKU 建议取决于评估属性。
-- 这受您在 "服务器评估" 中执行的评估类型的影响： " *基于性能*" 或 *"本地*"。
+- 这受您在 "服务器评估" 中执行的评估类型的影响： " *基于性能* " 或 *"本地* "。
 - 对于基于性能的评估，服务器评估将 (CPU、内存、磁盘和网络利用率) 本地 Vm 的使用率数据，以确定本地 Vm 的正确目标 VM SKU。 在确定有效利用率时，它还添加了舒适因子。
 - 对于本地大小调整，不考虑性能数据，建议根据本地分配使用目标 SKU。
 
@@ -83,7 +83,7 @@ ms.locfileid: "92314744"
 
 我们有一个具有四个核心和 8 GB 内存的本地 VM，其 CPU 50 使用率为50%，内存使用率为%，指定的舒适系数为1.3。
 
--  如果评估为 **"本地**"，则建议使用具有四个核心和 8 GB 内存的 AZURE VM SKU。
+-  如果评估为 **"本地** "，则建议使用具有四个核心和 8 GB 内存的 AZURE VM SKU。
 - 如果评估基于有效的 CPU 和内存利用率，则根据有效的 CPU 和内存利用率 (50% 的4个内核 * 1.3 = 2.6 个核心和50% 的 8 GB 内存 * 1.3 = 5.3 =) ，最便宜的四核 VM SKU (最接近支持的核心计数) 和 8 GB 内存 (最接近支持的内存大小) 建议使用。
 - [详细了解](concepts-assessment-calculation.md#types-of-assessments) 评估大小。
 
@@ -91,8 +91,8 @@ ms.locfileid: "92314744"
 
 Azure Migrate Server 评估可能会根据评估类型建议更大的磁盘。
 - 服务器评估中的磁盘大小调整取决于两个评估属性：大小调整条件和存储类型。
-- 如果大小调整条件是 **基于性能**的，并且存储类型设置为 " **自动**"，则在标识目标磁盘类型 (标准 HDD、标准 SSD 或高级) 时，将考虑磁盘的 IOPS 和吞吐量值。 然后建议使用磁盘类型的磁盘 SKU，建议考虑本地磁盘的大小要求。
-- 如果大小调整条件 **基于性能**并且存储类型为 " **高级**"，则建议使用 Azure 中的高级磁盘 SKU，根据本地磁盘的 IOPS、吞吐量和大小需求进行推荐。 当大小调整条件为 **本地** 且存储类型为 **标准 HDD**、 **标准 SSD**或 **高级**时，将使用相同的逻辑来执行磁盘大小调整。
+- 如果大小调整条件是 **基于性能** 的，并且存储类型设置为 " **自动** "，则在标识目标磁盘类型 (标准 HDD、标准 SSD 或高级) 时，将考虑磁盘的 IOPS 和吞吐量值。 然后建议使用磁盘类型的磁盘 SKU，建议考虑本地磁盘的大小要求。
+- 如果大小调整条件 **基于性能** 并且存储类型为 " **高级** "，则建议使用 Azure 中的高级磁盘 SKU，根据本地磁盘的 IOPS、吞吐量和大小需求进行推荐。 当大小调整条件为 **本地** 且存储类型为 **标准 HDD** 、 **标准 SSD** 或 **高级** 时，将使用相同的逻辑来执行磁盘大小调整。
 
 例如，如果你有一个具有 32 GB 内存的本地磁盘，但该磁盘的聚合读取和写入 IOPS 为 800 IOPS，则服务器评估建议 (高级磁盘，因为) 的 IOPS 要求较高，然后建议一个可支持所需 IOPS 和大小的磁盘 SKU。 本示例中最接近的匹配项将是 P15（256 GB，1100 IOPS）。 尽管本地磁盘所需的大小为 32 GB，服务器评估建议使用较大的磁盘，因为本地磁盘的 IOPS 要求较高。
 
@@ -156,7 +156,7 @@ Azure 政府版不支持基于代理的依赖项分析。 请使用无代理依�
 
 对于 Windows VM：
 1. 在控制面板中，启动 MMA。
-2. 在**Microsoft Monitoring Agent 属性**"  >  **Azure Log Analytics (OMS) **中，确保工作区的**状态**为绿色。
+2. 在 **Microsoft Monitoring Agent 属性** "  >  **Azure Log Analytics (OMS)** 中，确保工作区的 **状态** 为绿色。
 3. 如果状态不是绿色，请尝试删除工作区，并再次将其添加到 MMA。
 
     ![MMA 状态](./media/troubleshoot-assessment/mma-properties.png)
@@ -165,8 +165,8 @@ Azure 政府版不支持基于代理的依赖项分析。 请使用无代理依�
 
 ## <a name="supported-operating-systems"></a>支持的操作系统
 
-- **MMS 代理**：查看支持的 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)和 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 操作系统。
-- **依赖关系代理**：支持的 [Windows 和 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 操作系统。
+- **MMS 代理** ：查看支持的 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)和 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 操作系统。
+- **依赖关系代理** ：支持的 [Windows 和 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 操作系统。
 
 ## <a name="visualize-dependencies-for--hour"></a>可视化 > 小时的依赖项
 
@@ -199,18 +199,18 @@ Azure Migrate 目前支持在“美国东部”、“东南亚”和“西欧”
 
 收集网络流量日志，如下所示：
 
-1. 登录 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.com)。
 2. 按 F12 开始开发人员工具。 如果需要，请清除 "  **在导航上清除条目** " 设置。
 3. 选择 " **网络** " 选项卡，开始捕获网络流量：
-   - 在 Chrome 中，选择“保留日志”****。 记录应自动启动。 红色圆圈表示正在捕获流量。 如果未显示红色圆圈，请选择要开始的黑色圆圈。
+   - 在 Chrome 中，选择“保留日志”。 记录应自动启动。 红色圆圈表示正在捕获流量。 如果未显示红色圆圈，请选择要开始的黑色圆圈。
    - 在 Microsoft Edge 和 Internet Explorer 中，记录应自动启动。 如果没有，请选择绿色的 "播放" 按钮。
 4. 尝试再现该错误。
 5. 在记录过程中遇到错误后，停止记录，并保存一份已记录的活动：
-   - 在 Chrome 中，右键单击并选择 " **另存为 HAR 内容**"。 此操作将日志压缩并导出为 har 文件。
+   - 在 Chrome 中，右键单击并选择 " **另存为 HAR 内容** "。 此操作将日志压缩并导出为 har 文件。
    - 在 Microsoft Edge 或 Internet Explorer 中，选择 " **导出捕获的流量** " 选项。 此操作将压缩并导出日志。
 6. 选择 " **控制台** " 选项卡以检查是否有任何警告或错误。 保存控制台日志：
-   - 在 Chrome 中，右键单击控制台日志中的任意位置。 选择 " **另存为**"、"导出" 和 "压缩日志"。
-   - 在 Microsoft Edge 或 Internet Explorer 中，右键单击错误并选择 " **全部复制**"。
+   - 在 Chrome 中，右键单击控制台日志中的任意位置。 选择 " **另存为** "、"导出" 和 "压缩日志"。
+   - 在 Microsoft Edge 或 Internet Explorer 中，右键单击错误并选择 " **全部复制** "。
 7. 关闭“开发人员工具”。
 
 

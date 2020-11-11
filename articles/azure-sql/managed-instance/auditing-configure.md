@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427932"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505659"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL 托管实例审核入门
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "94427932"
   
 3. 为审核日志创建容器后，可通过两种方式将其配置为审核日志的目标：[使用 T-SQL](#blobtsql)，或[使用 SQL Server Management Studio (SSMS) UI](#blobssms)：
 
-   - <a id="blobtsql"></a>使用 T-SQL 为审核日志配置 Blob 存储：
+   - <a id="blobtsql"></a>**使用 T-sql 为审核日志配置 blob 存储：**
 
      1. 在容器列表中，单击新创建的容器，然后单击“容器属性”。
 
@@ -120,7 +120,7 @@ ms.locfileid: "94427932"
 
      1. 继续[创建服务器审核规范或数据库审核规范](#createspec)。
 
-   - <a id="blobssms"></a>使用 SQL Server Management Studio 18（预览版）为审核日志配置 Blob 存储：
+   - <a id="blobssms"></a>**使用 SQL Server Management Studio 18 配置用于审核日志的 blob 存储：**
 
      1. 使用 SQL Server Management Studio UI 连接到托管实例。
 
@@ -143,8 +143,8 @@ ms.locfileid: "94427932"
         ![选择 Azure 订阅、存储帐户和 Blob 容器](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. 在“创建审核”对话框中单击“确定” 。
-
-4. <a id="createspec"></a>将 Blob 容器配置为审核日志的目标后，创建并启用服务器审核规范或数据库审核规范（就像对 SQL Server 操作一样）：
+     
+     1. <a id="createspec"></a>将 Blob 容器配置为审核日志的目标后，创建并启用服务器审核规范或数据库审核规范（就像对 SQL Server 操作一样）：
 
    - [创建服务器审核规范 T-SQL 指南](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [创建数据库审核规范 T-SQL 指南](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

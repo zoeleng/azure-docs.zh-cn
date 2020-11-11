@@ -3,12 +3,12 @@ title: 如何使用 Azure VMware 解决方案中的公共 IP 功能
 description: 本文介绍如何使用 Azure 虚拟 WAN 中的公共 IP 功能。
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 63475b478a951632c068b168353acf2e0bb7061c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 7ff1debe7b52599a2e4f20378f385359325be2f7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490383"
+ms.locfileid: "94504401"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>如何使用 Azure VMware 解决方案中的公共 IP 功能
 
@@ -39,14 +39,14 @@ ms.locfileid: "94490383"
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="公共 IP 体系结构图" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-体系结构关系图显示了 Azure VMware 解决方案环境中托管的客户 web 服务器，并配置了 RFC1918 专用 IP 地址。  此 web 服务通过虚拟 WAN 公共 IP 功能提供给 internet。  公共 IP 通常是在 Azure 防火墙中转换的目标 NAT。 使用 DNAT 规则时，防火墙策略使用端口将公共 IP 地址请求转换为 (web 服务器) 的专用地址。
+体系结构关系图显示了在 Azure VMware 解决方案环境中托管的 web 服务器，并配置了 RFC1918 专用 IP 地址。  Web 服务通过虚拟 WAN 公共 IP 功能提供给 internet。  公共 IP 通常是在 Azure 防火墙中转换的目标 NAT。 使用 DNAT 规则，防火墙策略会将公共 IP 地址请求转换为使用端口)  (web 服务器的专用地址。
 
 用户请求访问公共 IP 上的防火墙，而该 IP 又使用 Azure 防火墙中的 DNAT 规则转换为专用 IP。 防火墙检查 NAT 表，如果请求与某个条目匹配，则会将流量转发到 Azure VMware 解决方案环境中的已转换地址和端口。
 
 Web 服务器接收请求，并将请求的信息或页面回复到防火墙，然后防火墙将信息转发给公共 IP 地址的用户。
 
 ## <a name="test-case"></a>测试用例
-在这种情况下，必须将 IIS web 服务器发布到 internet。 使用 Azure VMware 解决方案中的公共 IP 功能将网站发布到公共 IP 地址上。  我们将在防火墙上配置 NAT 规则，并通过公共 IP (具有 web 服务器) 的 Vm 访问 Azure VMware 解决方案资源。
+在这种情况下，必须将 IIS web 服务器发布到 internet。 使用 Azure VMware 解决方案中的公共 IP 功能将网站发布到公共 IP 地址上。  我们将在防火墙上配置 NAT 规则，并使用具有公共 IP 的 web 服务器) 访问 Azure VMware 解决方案资源 (Vm。
 
 ## <a name="deploy-virtual-wan"></a>部署虚拟 WAN
 
@@ -122,7 +122,7 @@ Web 服务器接收请求，并将请求的信息或页面回复到防火墙，�
 
 1. 选择 " **添加规则集合** "，提供以下详细信息并选择 " **添加** "，然后选择 " **下一步：威胁情报** "。
 
-   -  “属性”
+   -  名称
    -  规则集合类型-DNAT
    -  优先级
    -  规则收集操作-允许

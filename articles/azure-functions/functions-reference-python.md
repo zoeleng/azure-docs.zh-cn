@@ -4,12 +4,12 @@ description: 了解如何使用 Pythong 开发函数
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358042"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506067"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -312,10 +312,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 默认配置适用于大多数 Azure Functions 应用程序。 不过，你可以通过基于工作负荷配置文件使用配置来提高应用程序吞吐量的性能。 第一步是了解正在运行的工作负荷的类型。
 
-|&nbsp;| I/o 绑定的工作负荷 | CPU 绑定工作负荷 |
+| | I/o 绑定的工作负荷 | CPU 绑定工作负荷 |
 |--| -- | -- |
-|函数应用特征| <ul><li>应用需要处理多个并发调用。</li> <li> 应用处理大量 i/o 事件，例如网络调用和磁盘读/写。</li> </ul>| <ul><li>应用执行长时间运行的计算，例如调整图像大小。</li> <li>应用进行数据转换。</li> </ul> |
-|示例| <ul><li>Web API</li><ul> | <ul><li>数据处理</li><li> 机器学习推理</li><ul>|
+|**函数应用特征**| <ul><li>应用需要处理多个并发调用。</li> <li> 应用处理大量 i/o 事件，例如网络调用和磁盘读/写。</li> </ul>| <ul><li>应用执行长时间运行的计算，例如调整图像大小。</li> <li>应用进行数据转换。</li> </ul> |
+|**示例**| <ul><li>Web API</li><ul> | <ul><li>数据处理</li><li> 机器学习推理</li><ul>|
 
 
 > [!NOTE]
@@ -326,7 +326,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 了解 function app 的工作负荷配置文件后，可以使用以下配置来提高函数的吞吐量性能。
 
-##### <a name="async"></a>异步
+##### <a name="async"></a>Async
 
 由于 [python 是单线程运行时](https://wiki.python.org/moin/GlobalInterpreterLock)，因此用于 python 的主机实例一次只能处理一个函数调用。 对于处理大量 i/o 事件和/或 i/o 绑定的应用程序，你可以通过异步运行函数来显著提高性能。
 

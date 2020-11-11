@@ -5,15 +5,15 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 332841d4ee4791cb8da1620aa292b05bbde74955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d701fe8dc19b3deaa05cf6f10643bdb1059aa1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88162820"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505729"
 ---
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
@@ -23,7 +23,3 @@ ms.locfileid: "88162820"
 | 日志警报 | 每个订阅 512 个活动警报规则。 每项资源 200 个活动警报规则。 | 致电支持人员 |
 | 操作组 |每个订阅 2,000 个操作组。 | 致电支持人员 |
 | 警报规则和操作规则说明长度| 日志搜索警报 4096 个字符<br/>所有其他警报 2048 个字符 | 与默认值相同 |
-| 自动缩放设置 |每个订阅每个区域 100 个。 | 与默认值相同 |
-| 自动缩放配置文件 |每个自动缩放设置 20 个配置文件。 | 与默认值相同 |
-
-

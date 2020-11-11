@@ -3,15 +3,15 @@ title: Windows 虚拟桌面上的 Microsoft 团队-Azure
 description: 如何在 Windows 虚拟桌面上使用 Microsoft 团队。
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131762"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505540"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>在 Windows 虚拟桌面上使用 Microsoft 团队
 
@@ -25,14 +25,13 @@ Windows 虚拟桌面上的 Microsoft 团队支持聊天和协作。 借助媒体
 
 借助 Microsoft 团队的媒体优化，Windows 桌面客户端会在本地处理音频和视频，以供团队调用和会议。 你仍可将 Windows 虚拟桌面上的 Microsoft 团队与其他客户端配合使用，而无需进行优化的呼叫和会议。 所有平台都支持团队聊天和协作功能。 若要在远程会话中重定向本地设备，请查看 [自定义主机池的远程桌面协议属性](#customize-remote-desktop-protocol-properties-for-a-host-pool)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在 Windows 虚拟桌面上使用 Microsoft 团队之前，需要执行以下操作：
 
 - 为 Microsoft 团队[准备你的网络](/microsoftteams/prepare-network/)。
 - 在 Windows 10 或 Windows 10 IoT 企业设备上安装 [Windows 桌面客户端](connect-windows-7-10.md) ，该设备满足 [Windows 电脑上团队](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)的 Microsoft 团队硬件要求。
 -  (VM) 连接到 Windows 10 多会话或 Windows 10 企业版虚拟机。
-- 使用每计算机安装在主机上[下载](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app)并安装团队桌面应用。 Microsoft 团队的媒体优化要求团队桌面应用版本1.3.00.4461 或更高版本。
 
 ## <a name="install-the-teams-desktop-app"></a>安装团队桌面应用
 
@@ -42,7 +41,8 @@ Windows 虚拟桌面上的 Microsoft 团队支持聊天和协作。 借助媒体
 
 若要为团队启用媒体优化，请在主机上设置以下注册表项：
 
-1. 从 "开始" 菜单中，以管理员身份运行 **RegEdit** 。 导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**。
+1. 从 "开始" 菜单中，以管理员身份运行 **RegEdit** 。 导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams** 。 如果 "团队" 键尚不存在，则创建它。
+
 2. 为团队项创建以下值：
 
 | 名称             | 类型   | 数据/值  |
@@ -51,7 +51,7 @@ Windows 虚拟桌面上的 Microsoft 团队支持聊天和协作。 借助媒体
 
 ### <a name="install-the-teams-websocket-service"></a>安装团队 WebSocket 服务
 
-在 VM 映像上安装最新的 [WebSocket 服务](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) 。 如果遇到安装错误，请安装 [最新的 Microsoft Visual C++ 可再发行组件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) ，然后重试。
+在 VM 映像上安装最新的 [远程桌面 WebRTC 重定向程序服务](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) 。 如果遇到安装错误，请安装 [最新的 Microsoft Visual C++ 可再发行组件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) ，然后重试。
 
 #### <a name="latest-websocket-service-versions"></a>最新 WebSocket 服务版本
 
@@ -94,7 +94,7 @@ Windows 虚拟桌面上的 Microsoft 团队支持聊天和协作。 借助媒体
 
         这会将团队安装到32位操作系统上的程序文件 (x86) 文件夹，并安装64位操作系统上的 Program Files 文件夹。 此时，黄金映像设置已完成。 对于非持久设置，需要为每台计算机安装团队。
 
-        安装团队时可以设置两个标志， **ALLUSER = 1** ， **ALLUSERS = 1**。 了解这些参数之间的差异非常重要。 **ALLUSER = 1**参数仅在 VDI 环境中用于指定每台计算机的安装。 可以在非 VDI 和 VDI 环境中使用 **ALLUSERS = 1** 参数。 设置此参数时，团队 Machine-Wide 安装程序将显示在 "控制面板" 的 "程序和功能" 以及 Windows "设置" 中的 "应用 & 功能"。 计算机上具有管理员凭据的所有用户都可以卸载团队。
+        安装团队时可以设置两个标志， **ALLUSER = 1** ， **ALLUSERS = 1** 。 了解这些参数之间的差异非常重要。 **ALLUSER = 1** 参数仅在 VDI 环境中用于指定每台计算机的安装。 可以在非 VDI 和 VDI 环境中使用 **ALLUSERS = 1** 参数。 设置此参数时， **团队 Machine-Wide 安装** 程序将显示在 "控制面板" 的 "程序和功能" 以及 Windows "设置" 中的 "应用 & 功能"。 计算机上具有管理员凭据的所有用户都可以卸载团队。
 
         > [!NOTE]
         > 此时，用户和管理员无法在登录时对团队禁用自动启动。
@@ -114,14 +114,19 @@ Windows 虚拟桌面上的 Microsoft 团队支持聊天和协作。 借助媒体
 
 安装 WebSocket 服务和团队桌面应用后，请按照以下步骤验证是否加载了团队媒体优化：
 
-1. 选择用户配置文件映像，然后选择 " **关于**"。
-2. 选择 " **版本**"。
+1. 退出并重新启动团队应用程序。
 
-      如果已加载媒体优化，则横幅会显示 **优化的 WVD 媒体**。 如果横幅显示 WVD " **未连接媒体**"，请退出团队应用，然后重试。
+2. 选择用户配置文件映像，然后选择 " **关于** "。
 
-3. 选择用户配置文件映像，然后选择 " **设置**"。
+3. 选择 " **版本** "。
 
-      如果已加载媒体优化，则将在 "设备" 菜单中枚举本地可用的音频设备和相机。 如果菜单显示 **远程音频**，请退出团队应用，然后重试。 如果菜单中未显示设备，请检查本地 PC 上的隐私设置。 确保在 "**设置**" "  >  **隐私**  >  "**应用权限**设置 "**允许应用访问你的麦克风**" 设置为 **"开启**"。 断开与远程会话的连接，然后重新连接并再次检查音频和视频设备。 若要通过视频加入呼叫和会议，还必须授予应用访问相机的权限。
+      如果已加载媒体优化，则横幅会显示 **优化的 WVD 媒体** 。 如果横幅显示 WVD " **未连接媒体** "，请退出团队应用，然后重试。
+
+4. 选择用户配置文件映像，然后选择 " **设置** "。
+
+      如果已加载媒体优化，则将在 "设备" 菜单中枚举本地可用的音频设备和相机。 如果菜单显示 **远程音频** ，请退出团队应用，然后重试。 如果菜单中未显示设备，请检查本地 PC 上的隐私设置。 确保在 " **设置** " "  >  **隐私**  >  " **应用权限** 设置 " **允许应用访问你的麦克风** " 设置为 **"开启** "。 断开与远程会话的连接，然后重新连接并再次检查音频和视频设备。 若要通过视频加入呼叫和会议，还必须授予应用访问相机的权限。
+
+      如果未加载优化，请卸载，然后重新安装团队并再次检查。
 
 ## <a name="known-issues-and-limitations"></a>已知问题和限制
 
@@ -152,7 +157,7 @@ Windows 虚拟桌面上的 Microsoft 团队支持聊天和协作。 借助媒体
 
 如果你在 Windows 虚拟桌面环境中遇到团队桌面应用问题，请在主机 VM 上的 **% appdata% \Microsoft\Teams\logs.txt** 下收集客户端日志。
 
-如果在调用和会议时遇到问题，请通过键组合**Ctrl**  +  **Alt**  +  **Shift**  +  **1**收集团队 Web 客户端日志。 日志将写入主机 VM 上的 **%Userprofile%\Downloads\MSTeams Diagnostics 日志 DATE_TIME.txt** 。
+如果在调用和会议时遇到问题，请通过键组合 **Ctrl**  +  **Alt**  +  **Shift**  +  **1** 收集团队 Web 客户端日志。 日志将写入主机 VM 上的 **%Userprofile%\Downloads\MSTeams Diagnostics 日志 DATE_TIME.txt** 。
 
 ## <a name="contact-microsoft-teams-support"></a>联系 Microsoft 团队支持部门
 

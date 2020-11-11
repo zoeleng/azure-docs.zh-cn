@@ -13,12 +13,14 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: f7073fbf39344fe39e179d55a5a8f395a6ba6240
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+- fasttrack-edit
+- iot
+ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357338"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506390"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>监视、诊断和排查 Azure IoT 中心的连接断开问题
 
@@ -159,6 +161,11 @@ AzureDiagnostics
 作为 IoT 解决方案开发人员或操作员，需要注意此行为，以便解释日志中的连接/断开连接事件和相关错误。 如果要更改设备的令牌生命周期或续订行为，请检查设备是否实现了设备克隆设置，或者如何实现此功能。
 
 如果要监视与事件中心的设备连接，请确保以筛选出定期断开连接的方式进行生成，因为需要续订 SAS 令牌。例如，只要断开连接事件后跟某个时间范围内的 connect 事件，则不会触发基于断开连接的操作。
+
+> [!NOTE]
+> IoT 中心仅支持每个设备一个活动 MQTT 连接。 代表相同设备 ID 的任何新 MQTT 连接都会导致 IoT 中心删除现有连接。
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection 将记录到 IoT 中心日志中
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>我尝试了这些步骤，但没有奏效
 

@@ -3,12 +3,12 @@ title: 在 Azure VMware 解决方案中创建 IPSec 隧道
 description: 了解如何创建虚拟 WAN 集线器，以便在 Azure VMware 解决方案中建立 IPSec 隧道。
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: 63318b9fdd0de5e0ce102fafe332f40f595f38f1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9f869f04bf165f4791f13c626b63257ea98a7ca9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357838"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506441"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>在 Azure VMware 解决方案中创建 IPSec 隧道
 
@@ -16,7 +16,7 @@ ms.locfileid: "94357838"
 
 ## <a name="topology"></a>拓扑
 
-![VPN 站点到站点隧道体系结构。](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
+![显示 VPN 站点到站点隧道体系结构的关系图。](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
 
 Azure 虚拟中心包含 Azure VMware 解决方案 ExpressRoute 网关和站点到站点 VPN 网关。 它将本地 VPN 设备与 Azure VMware 解决方案终结点连接。
 
@@ -39,17 +39,17 @@ Azure 虚拟中心包含 Azure VMware 解决方案 ExpressRoute 网关和站点�
    | 类型 | 选择 " **标准** "，它将只允许 VPN 网关流量。  |
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="创建 WAN。":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="显示 Azure 门户中的 &quot;创建 WAN&quot; 页面的屏幕截图。":::
 
 3. 在 Azure 门户中，选择你在上一步中创建的虚拟 WAN，选择 " **创建虚拟中心** "，输入必填字段，然后选择 " **下一步：站点到站点** "。 
 
    | 字段 | 值 |
    | --- | --- |
    | **区域** | 从管理的角度来看，需要选择一个区域。  |
-   | **名称** |    |
+   | **Name** |    |
    | **中心专用地址空间** | 使用 `/24` (最小) 输入子网。  |
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="创建虚拟中心。":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="显示 &quot;创建虚拟中心&quot; 页的屏幕截图。":::
 
 4. 在 " **站点到站点** " 选项卡上，通过从 " **网关刻度单位** " 下拉设置聚合吞吐量来定义站点到站点网关。 
 
@@ -70,14 +70,14 @@ Azure 虚拟中心包含 Azure VMware 解决方案 ExpressRoute 网关和站点�
 2. 在虚拟中心的 **概述** 中，选择 " **连接**  >  **VPN (站点到站点")** ，然后选择 " **创建新的 VPN 站点** "。
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="创建 VPN 站点。":::  
+    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="虚拟中心的 &quot;概述&quot; 页的屏幕截图，其中包含 VPN (站点到站点) 并选择 &quot;创建新的 VPN 站点&quot;。":::  
  
 3. 在 " **基本** 信息" 选项卡上，输入必填字段，然后选择 " **下一步：链接** "。 
 
    | 字段 | 值 |
    | --- | --- |
    | **区域** | 在上一部分中指定的同一区域。  |
-   | **名称** |  |
+   | **Name** |  |
    | **设备供应商** |  |
    | **边界网关协议** | 设置为 " **启用** "，确保 Azure VMware 解决方案和本地服务器在隧道中公布其路由。 如果禁用，必须手动维护需要播发的子网。 如果缺少子网，HCX 将无法形成服务网格。 有关详细信息，请参阅  [关于 AZURE VPN 网关的 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md)。 |
    | **专用地址空间**  | 输入本地 CIDR 块。  它用于在整个隧道中路由所有绑定到本地的流量。  仅当未启用 BGP 时，才需要 CIDR 块。 |
@@ -93,14 +93,14 @@ Azure 虚拟中心包含 Azure VMware 解决方案 ExpressRoute 网关和站点�
 
 2. 选择 VPN 站点名称，然后选择最右侧的省略号 ( ... ) ;然后选择 " **编辑到此集线器的 VPN 连接** "。
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="编辑与此集线器的 VPN 连接。" lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Azure 中的虚拟 WAN 中心站点的屏幕截图，其中显示了所选的省略号，可用于访问编辑与此中心的 VPN 连接。" lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. 编辑 VPN 站点和中心之间的连接，然后选择 " **保存** "。
    - Internet 协议安全 (IPSec) ，请选择 " **自定义** "。
    - 使用基于策略的流量选择器，选择 " **启用** "
    - 指定 **Ike 阶段 1** 和 **ike 阶段 2 (ipsec)** 的详细信息。 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="编辑 VPN 连接"::: 
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="编辑 VPN 连接页的屏幕截图。"::: 
  
     流量选择器或属于基于策略的加密域的子网应为：
     
@@ -122,14 +122,14 @@ Azure 虚拟中心包含 Azure VMware 解决方案 ExpressRoute 网关和站点�
 
     请参阅 Azure VMware 解决方案私有云的 **连接** 部分。 在 " **ExpressRoute** " 选项卡上，选择 " **+ 请求授权密钥** "。 将其命名并选择 " **创建** "。  (创建密钥可能需要大约30秒的时间。 ) 复制 ExpressRoute ID 和授权密钥。 
 
-    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="复制快速路由 ID 和授权密钥。":::
+    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="私有云的连接页的屏幕截图，请求在 &quot;ExpressRoute&quot; 选项卡下选择 &quot;授权密钥&quot;。":::
 
     > [!NOTE]
     > 授权密钥将在一段时间后消失，因此在显示后立即进行复制。
 
 4. 接下来，我们将 Azure VMware 解决方案和 VPN 网关链接在一起的虚拟 WAN 中心。 在 Azure 门户中，打开之前创建的虚拟 WAN。 选择创建的虚拟 WAN 集线器，然后在左窗格中选择 " **ExpressRoute** "。 选择 " **+ 兑换授权密钥** "。
 
-    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="兑换授权密钥。":::
+    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="私有云的 ExpressRoute 页的屏幕截图，其中选择了 &quot;兑换授权密钥&quot;。":::
 
     将授权密钥粘贴到 "身份验证密钥" 字段，并将 ExpressRoute ID 粘贴到 " **对等线路 URI** " 字段。 请确保选择 **"自动将此 ExpressRoute 线路与中心关联"。** 选择 " **添加** " 以建立链接。 
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791590"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505251"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒体服务 v3 发行说明
 
@@ -56,6 +56,11 @@ ms.locfileid: "92791590"
 实时事件支持接收各种输入纵横比。 Stretch 模式允许客户为输出指定拉伸行为。
 
 实时编码现在添加了将固定关键帧间隔碎片输出到0.5 到20秒的功能。
+
+## <a name="accounts"></a>帐户
+
+> [!WARNING]
+> 如果使用 2020-05-01 API 版本创建媒体服务帐户，则该帐户将不能用于 RESTv2 
 
 ## <a name="august-2020"></a>2020 年 8 月
 

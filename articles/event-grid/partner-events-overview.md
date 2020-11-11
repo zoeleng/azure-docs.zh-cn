@@ -2,16 +2,16 @@
 title: Azure 事件网格-合作伙伴事件
 description: 通过 Azure 事件网格将第三方事件网格 SaaS 和 PaaS 合作伙伴的事件直接发送到 Azure 服务。
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102825"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506136"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Azure 事件网格中的合作伙伴事件 (预览) 
-使用 **合作伙伴活动** 功能，第三方 SaaS 提供程序可以从其服务发布事件，使其可供订阅这些事件的使用者使用。 它向第三方事件源提供第一方体验，方法是公开订阅者用于使用事件的 [主题](concepts.md#topics) 类型（ **合作伙伴主题** ）。 它还通过分离事件发布者和订阅服务器所使用的资源的问题和所有权来提供干净的 "发布" 子模型。
+使用 **合作伙伴活动** 功能，第三方 SaaS 提供程序可以从其服务发布事件，以便使用者可以订阅这些事件。 此功能通过公开 [主题](concepts.md#topics) 类型（ **合作伙伴主题** ）向第三方事件源提供第一方体验。 订阅者创建对此主题的订阅以使用事件。 它还通过分离事件发布者和订阅服务器所使用的资源的问题和所有权，来提供干净的 pub 子模型。
 
 > [!NOTE]
 > 如果你是使用事件网格的新手，请参阅 [概述](overview.md)、 [概念](concepts.md)和 [事件处理程序](event-handlers.md)。
@@ -61,7 +61,7 @@ ms.locfileid: "93102825"
 ### <a name="partner-registration"></a>合作伙伴注册
 注册包含与发布者相关的一般信息。 它定义了一种在 "Azure 门户" 中显示的合作伙伴主题，可在用户尝试创建合作伙伴主题时使用。 发布者可能会公开多个或多个合作伙伴主题类型以满足其订户的需求。 也就是说，发布者可以为不同服务中的事件 (的伙伴主题) 类型创建单独的注册。 例如，对于人事资源 (HR) 服务，发布者可以为活动（如已加入员工、员工促销和员工离开公司）定义合作伙伴主题。 
 
-请注意以下几点：
+请记住以下几点：
 
 - 只有 Azure 批准的合作伙伴注册才可见。 
 - 注册是全局的。 也就是说，它们不会关联到特定的 Azure 区域。
@@ -75,6 +75,20 @@ ms.locfileid: "93102825"
 
 ## <a name="resources-managed-by-subscribers"></a>由订阅服务器管理的资源 
 订阅者可以使用发布者定义的合作伙伴主题，它是他们看到和管理的唯一资源类型。 创建合作伙伴主题后，订阅者用户可以创建事件订阅来定义针对 [目标/事件处理程序](overview.md#event-handlers)的筛选规则。 对于订阅者来说，合作伙伴主题及其关联的事件订阅提供了与 [自定义主题](custom-topics.md) 和其相关订阅相同的丰富功能， (的) 具有显著的区别：合作伙伴主题仅支持 [Cloud Events 1.0 架构](cloudevents-schema.md)，该架构提供的功能比其他支持的架构更丰富。
+
+下图显示控制平面操作的流。
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="合作伙伴活动-控制平面流":::
+
+1. 发布者创建 **合作伙伴注册** 。 合作伙伴注册是全局性的。 也就是说，它们不与特定的 Azure 区域相关联。 此步骤是可选的。
+1. 发布者在特定区域中创建 **合作伙伴命名空间** 。
+1. 当订阅服务器1尝试创建合作伙伴主题时，将首先在发布者的 Azure 订阅中创建一个 **事件通道** （事件通道1）。
+1. 然后，在订阅者的 Azure 订阅中创建 **合作伙伴** 主题 "合作伙伴 1"。 订阅者需要激活合作伙伴主题。 
+1. 订户1创建了一个适用于合作伙伴的 **Azure 逻辑应用订阅** 。
+1. 订户1创建了一个到合作伙伴的 **Azure Blob 存储订阅** 。 
+1. 当订阅服务器2尝试创建合作伙伴主题时，将首先在发布者的 Azure 订阅中创建另一个 **事件通道** （事件通道2）。 
+1. 然后，在第二个订阅者的 Azure 订阅中创建 **合作伙伴主题** 2。 订阅者需要激活合作伙伴主题。 
+1. 订户2创建一个 **Azure Functions 订阅** 到合作伙伴的第2方。 
 
 ## <a name="pricing"></a>定价
 合作伙伴主题按使用事件网格时完成的操作数量收费。 有关用作计费和详细价格信息的基础的所有类型的操作的详细信息，请参阅 [事件网格定价](https://azure.microsoft.com/pricing/details/event-grid/)。

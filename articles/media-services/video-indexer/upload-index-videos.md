@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218933"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506169"
 ---
 # <a name="upload-and-index-your-videos"></a>上传视频和编制视频索引  
 
@@ -26,7 +26,7 @@ ms.locfileid: "92218933"
 * 作为请求正文中的字节数组发送视频文件。
 * 提供[资产 ID](../latest/assets-concept.md)，以便使用现有的 Azure 媒体服务资产（仅付费帐户支持此功能）。
 
-当你的视频上传完毕后，视频索引器 (根据需要) 对视频进行编码， (文章) 中所述。 创建视频索引器帐户时，可以选择免费试用帐户（提供特定分钟数的免费索引时间）或付费选项（不受配额的限制）。 使用免费试用版时，视频索引器为网站用户提供最多 600 分钟的免费索引，为 API 用户提供最多 2400 分钟的免费索引。 使用付费选项时，可以[创建连接到 Azure 订阅和 Azure 媒体服务帐户的视频索引器帐户](connect-to-azure.md)。 需要为编制索引的分钟数付费，此外还需要支付媒体帐户相关的费用。 
+当你的视频上传完毕后，视频索引器 (根据需要) 对视频进行编码， (文章) 中所述。 创建视频索引器帐户时，可以选择免费试用帐户（提供特定分钟数的免费索引时间）或付费选项（不受配额的限制）。 使用免费试用版时，视频索引器为网站用户提供最多 600 分钟的免费索引，为 API 用户提供最多 2400 分钟的免费索引。 使用付费选项时，可以[创建连接到 Azure 订阅和 Azure 媒体服务帐户的视频索引器帐户](connect-to-azure.md)。 你为索引分钟数付费，有关详细信息，请参阅 [媒体服务定价](https://azure.microsoft.com/pricing/details/media-services/)。
 
 本文介绍如何通过以下选项上传和索引视频：
 
@@ -72,15 +72,15 @@ ms.locfileid: "92218933"
 > 视频的名称长度不得超过 80 个字符。
 
 1. 登录到[视频索引器](https://www.videoindexer.ai/)网站。
-1. 若要上传视频，请按“上传”按钮或链接。****
+1. 若要上传视频，请按“上传”按钮或链接。 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="上载":::
 1. 视频上传以后，视频索引器就会开始对视频进行索引编制和分析。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="上载":::
-1. 完成分析视频索引器后，会收到一封电子邮件，其中包含指向视频的链接，并简要介绍了视频中的内容。 例如：人物、主题、OCR。
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="上传进度":::
+1. 当视频索引器分析完成后，你会获得一封电子邮件，其中包含视频链接以及对视频中找到的内容的简短说明。 例如：人物、主题、OCR。
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>用 API 上传和索引
 
@@ -118,7 +118,7 @@ ms.locfileid: "92218933"
         
     - 示例： https： \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>说明
+##### <a name="other-considerations"></a>其他注意事项
 
 - 视频索引器返回在原始 URL 中提供的任何现有参数。
 - 提供的 URL 必须进行编码。
@@ -140,7 +140,7 @@ ms.locfileid: "92218933"
 
 #### <a name="priority"></a>priority
 
-视频由视频索引器根据优先级进行索引。 使用 **priority** 参数指定索引优先级。 以下值有效：**Low**（低）、**Normal**（正常，默认值）、**High**（高）。
+视频由视频索引器根据优先级进行索引。 使用 **priority** 参数指定索引优先级。 以下值有效： **Low** （低）、 **Normal** （正常，默认值）、 **High** （高）。
 
 仅付费帐户支持 **Priority** 参数。
 
@@ -148,7 +148,7 @@ ms.locfileid: "92218933"
 
 视频上传以后，视频索引器会选择性地对视频进行编码。 接下来会对视频进行索引编制和分析。 当视频索引器分析完以后，你会获得一个包含视频 ID 的通知。  
 
-使用[上传视频](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)或[重新索引视频](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API 时，一个可选的参数是 `streamingPreset`。 如果将 `streamingPreset` 设置为 `Default`、`SingleBitrate` 或 `AdaptiveBitrate`，则会触发编码过程。 索引编制和编码作业完成以后，视频就会发布，这样你就也可以流式传输视频。 要从其流式传输视频的流式处理终结点必须处于“正在运行”状态。****
+使用[上传视频](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)或[重新索引视频](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API 时，一个可选的参数是 `streamingPreset`。 如果将 `streamingPreset` 设置为 `Default`、`SingleBitrate` 或 `AdaptiveBitrate`，则会触发编码过程。 索引编制和编码作业完成以后，视频就会发布，这样你就也可以流式传输视频。 要从其流式传输视频的流式处理终结点必须处于“正在运行”状态。
 
 对于 SingleBitrate，将根据输出应用标准编码器成本。 如果视频高度大于或等于720，则视频索引器会将其编码为1280x720。 否则，为640x468。
 默认设置为 [内容感知编码](../latest/content-aware-encoding.md)。
@@ -177,7 +177,7 @@ ms.locfileid: "92218933"
 
     * 导航到 https://api-portal.videoindexer.ai/
     * 登录
-    * 中转到**产品**  ->  **授权**  ->  **授权订阅**
+    * 中转到 **产品**  ->  **授权**  ->  **授权订阅**
     * 复制 **主密钥**
 * 视频 URL-要编制索引的视频/音频文件的 URL。 该 URL 必须指向媒体文件（不支持 HTML 页面）。 该文件可以通过作为 URI 的一部分提供的访问令牌进行保护，并且为该文件提供服务的终结点必须使用 TLS 1.2 或更高版本进行保护。 需要对 URL 进行编码。
 

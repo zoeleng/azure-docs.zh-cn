@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441742"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505302"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>为 Windows 虚拟桌面配置图形处理单元 (GPU) 加速
 
@@ -21,9 +21,12 @@ Windows 虚拟桌面支持用于提高应用性能和可伸缩性的 GPU 加速�
 
 按照本文中的说明创建 GPU 优化的 Azure 虚拟机，将其添加到你的主机池，并将其配置为使用 GPU 加速进行渲染和编码。 本文假设你已配置 Windows 虚拟桌面租户。
 
-## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>选择 GPU 优化的 Azure 虚拟机大小
+## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>选择适当的 GPU 优化的 Azure 虚拟机大小
 
-Azure 提供了许多 [GPU 优化的虚拟机大小](/azure/virtual-machines/windows/sizes-gpu)。 主机池的正确选择取决于多种因素，包括特定的应用工作负荷、所需的用户体验质量和成本。 通常，在给定的用户密度下，GPU 的大小越大、功能越强，提供的用户体验就越好。
+选择 Azure 的 [NV 系列](/azure/virtual-machines/nv-series)、 [NVv3](/azure/virtual-machines/nvv3-series)或 [NVv4](/azure/virtual-machines/nvv4-series) 的 VM 大小之一。 这些是针对应用和桌面虚拟化定制的，并使应用和 Windows 用户界面能够进行 GPU 加速。 主机池的正确选择取决于多种因素，包括特定的应用工作负荷、所需的用户体验质量和成本。 通常，更大和更强大的 Gpu 在给定用户的密度下提供更好的用户体验，而较小的小数部分的大小则允许更精细地控制成本和质量。
+
+>[!NOTE]
+>Azure 的 NC、NCv2、NCv3、ND 和 NDv2 系列 Vm 通常不适用于 Windows 虚拟桌面会话主机。 这些 Vm 针对专用、高性能计算或机器学习工具定制，如用 NVIDIA CUDA 构建的工具。 带有 NVIDIA Gpu 的常规应用和桌面加速需要 NVIDIA 网格许可;这是由 Azure 提供的建议 VM 大小，但需要单独排列 NC/ND 系列 Vm。
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>创建主机池、预配虚拟机并配置应用组
 
@@ -40,7 +43,7 @@ Windows 虚拟桌面在以下操作系统中支持 GPU 加速的渲染和编码�
 
 若要在 Windows 虚拟桌面中利用 Azure N 系列 VM 的 GPU 功能，必须安装相应的图形驱动程序。 按照[支持的操作系统和驱动程序](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers)中的说明，以手动方式或使用 Azure VM 扩展安装来自相应显卡供应商的驱动程序。
 
-Windows 虚拟桌面仅支持 Azure 分发的驱动程序。 此外，对于具有 NVIDIA GPU 的 Azure VM，Windows 虚拟桌面仅支持 [NVIDIA GRID 驱动程序](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)。
+Windows 虚拟桌面仅支持 Azure 分发的驱动程序。 对于带有 NVIDIA Gpu 的 Azure NV 系列 Vm，只有 [NVIDIA 网格驱动程序](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)，而不是 nvidia TESLA (CUDA) 驱动程序，支持通用应用和桌面的 GPU 加速。
 
 安装驱动程序后，需要重启 VM。 使用上述说明中的验证步骤确认图形驱动程序已成功安装。
 
