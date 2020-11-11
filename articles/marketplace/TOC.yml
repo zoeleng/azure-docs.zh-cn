@@ -37,6 +37,10 @@
           href: test-drive-technical-configuration.md
         - name: Azure 资源管理器体验版
           href: azure-resource-manager-test-drive.md
+        - name: 托管体验版的详细配置
+          href: test-drive-hosted-detailed-config.md
+        - name: 为托管体验版设置 Azure 订阅
+          href: test-drive-azure-subscription-setup.md
     - name: Azure 合作伙伴和客户使用情况归因
       href: azure-partner-customer-usage-attribution.md
     - name: 市场推广选项
@@ -270,15 +274,15 @@
     - name: 商业市场分析
       href: partner-center-portal/analytics.md
     - name: “摘要”仪表板
-      href: partner-center-portal/summary-dashboard.md
+      href: summary-dashboard.md
     - name: 订单仪表板
-      href: partner-center-portal/orders-dashboard.md
+      href: orders-dashboard.md
     - name: 使用情况仪表板
-      href: partner-center-portal/usage-dashboard.md
-    - name: 客户仪表板
-      href: partner-center-portal/customer-dashboard.md
+      href: usage-dashboard.md
+    - name: “客户”仪表板
+      href: customer-dashboard.md
     - name: 市场见解仪表板
-      href: partner-center-portal/insights-dashboard.md
+      href: insights-dashboard.md
     - name: 下载仪表板
       href: partner-center-portal/downloads-dashboard.md
     - name: 评分和评价仪表板

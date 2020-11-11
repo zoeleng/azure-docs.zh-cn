@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7423114d2da23207dfcc1a329675b8c902b1f320
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287509"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445534"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>对 Azure Key Vault 进行身份验证
 
@@ -62,7 +62,7 @@ ms.locfileid: "93287509"
 
     密钥保管库目前支持[参与者](../../role-based-access-control/built-in-roles.md#key-vault-contributor)角色，该角色允许对密钥保管库资源进行管理操作。 目前还有多个其他角色以预览版提供。 还可以按照 [Azure 自定义角色](../../role-based-access-control/custom-roles.md)中所述创建自定义角色。
 
-    有关角色的一般信息，请参阅[什么是 Azure 基于角色的访问控制 (RBAC)？](../../role-based-access-control/overview.md)。
+    有关角色的一般信息，请参阅[什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)。
 
 
 > [!IMPORTANT]
@@ -125,4 +125,4 @@ ms.locfileid: "93287509"
 - [密钥保管库访问策略故障排除](troubleshooting-access-issues.md)
 - [密钥保管库 REST API 错误代码](rest-error-codes.md)
 - [密钥保管库开发人员指南](developers-guide.md)
-- [什么是 Azure 基于角色的访问控制 (RBAC)？](../../role-based-access-control/overview.md)
+- [什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)

@@ -100,7 +100,7 @@
   items:
     - name: 疑难解答
       items:
-        - name: 获取有关部署或预配失败的帮助
+        - name: 就部署失败发起支持请求
           href: fix-deployment-provisioning-failures.md
     - name: 常见问题解答
       href: faq.md

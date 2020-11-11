@@ -111,7 +111,7 @@
       items:
         - name: 查看 Azure Monitor 中的指标
           href: troubleshoot-metrics.md
-        - name: 启用诊断日志
+        - name: 启用和查询诊断日志
           href: troubleshoot-diagnostics.md
         - name: 启用警报
           href: troubleshoot-alerts.md

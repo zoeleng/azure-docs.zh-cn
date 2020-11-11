@@ -471,7 +471,7 @@
       items:
         - name: 操作监视
           href: iot-hub-operations-monitoring.md
-        - name: 迁移到诊断设置
+        - name: 迁移到 Azure Monitor
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 和 1.1 弃用
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
