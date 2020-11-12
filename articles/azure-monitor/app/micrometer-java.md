@@ -6,17 +6,17 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: 434d978f6a228bad9b142738767500d639017032
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 534452d57884045f90c1d8d3ff44aadc3578cd4f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378867"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542528"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何将 Micrometer 与 Azure Application Insights Java SDK 配合使用
 
 > [!IMPORTANT]
-> 监视 Java 应用程序的建议方法是使用自动检测，无需更改代码。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)的指南进行操作。
+> 监视 Java 应用程序的建议方法是使用自动检测，无需更改代码。 Micrometer 遥测是通过 Application Insights Java 3.0 agent 自动收集的-遵循 [Application Insights java 3.0 代理](./java-in-process-agent.md)的准则。
 
 > [!NOTE]
 > Application Insights Java SDK 不支持弹簧 Webflux-请改用 [Application Insights Java 3.0 代理](./java-in-process-agent.md) 。 

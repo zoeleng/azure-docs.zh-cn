@@ -9,17 +9,16 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-services: active-directory
-ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7c011c55728db53f0c64ac063c3372a610ef8f2f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422597"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542450"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 应用程序管理：新增功能
 
-欢迎使用 Azure Active Directory 应用程序管理文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。 若要了解应用程序管理服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
+欢迎使用 Azure Active Directory 应用程序管理文档中的新增功能。 本文列出了过去三个月内添加的新文档以及有重要更新的文档。 若要了解应用程序管理服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
 
 ## <a name="october-2020"></a>2020 年 10 月
 

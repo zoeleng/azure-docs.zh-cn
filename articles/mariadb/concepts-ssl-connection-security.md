@@ -1,17 +1,17 @@
 ---
 title: SSL/TLS 连接 - Azure Database for MariaDB
 description: 有关配置 Azure Database for MariaDB 和关联应用程序以正确使用 SSL 连接的信息
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 4eb4ad48554b8ca2ce6af9f89652fad685998a2a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d2d916f3cba27f6b38a781b81e403ee9b6f0fab3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126048"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541039"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的 SSL/TLS 连接
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将数据库服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
@@ -20,7 +20,7 @@ Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将数据库服�
 > 根据客户的反馈，我们已在2021年2月15日到 (02/15/2021) 扩展了现有巴尔的摩根 CA 的根证书弃用。
 
 > [!IMPORTANT] 
-> SSL 根证书设置为从2021年2月15日开始过期 (02/15/2021) 。 请更新您的应用程序以使用 [新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅 [计划的证书更新](concepts-certificate-rotation.md)
+> SSL 根证书设置为 2021 年 2 月 15 日 (2021/02/15) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划的证书更新](concepts-certificate-rotation.md)
 
 ## <a name="default-settings"></a>默认设置
 默认情况下，应将数据库服务配置为需要 SSL 连接才可连接到 MariaDB。  建议尽量不要禁用 SSL 选项。
@@ -62,9 +62,9 @@ Azure Database for MariaDB 提供了为客户端连接强制使用 TLS 版本的
 
 ## <a name="cipher-support-by-azure-database-for-mariadb"></a>Azure Database for MariaDB 的密码支持
 
-作为 SSL/TLS 通信的一部分，将验证密码套件，并且仅允许支持密码满足与数据库 serer 的通信。 密码套件验证在 [网关层](concepts-connectivity-architecture.md#connectivity-architecture) 中控制，而不是在节点本身上显式控制。 如果密码套件与下面列出的套件之一不匹配，将拒绝传入的客户端连接。
+作为 SSL/TLS 通信的一部分，密码套件会被验证，并且只有支持密码套件才被允许与数据库服务器通信。 密码套件验证在[网关层](concepts-connectivity-architecture.md#connectivity-architecture)中控制，而不是在节点本身上显式控制。 如果密码套件与下面列出的某个套件不匹配，系统会拒绝传入的客户端连接。
 
-### <a name="cipher-suite-supported"></a>支持密码套件
+### <a name="cipher-suite-supported"></a>支持的密码套件
 
 *   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 *   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256

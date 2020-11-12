@@ -1,24 +1,24 @@
 ---
 title: 使用重定向进行连接 - Azure Database for MySQL
 description: 本文介绍了如何将应用程序配置为使用重定向连接到 Azure Database for MySQL。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bea618b34809544308caba46a0ffbdecee91d69f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86107812"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541804"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>使用重定向连接到 Azure Database for MySQL
 
 本主题介绍了如何使用重定向模式将应用程序连接到 Azure Database for MySQL 服务器。 重定向是为了减小客户端应用程序与 MySQL 服务器之间的网络延迟，因为它允许应用程序直接连接到后端服务器节点。
 
 ## <a name="before-you-begin"></a>开始之前
-登录 [Azure 门户](https://portal.azure.com)。 使用引擎版本 5.6、5.7 或 8.0 创建 Azure Database for MySQL 服务器。 
+登录到 [Azure 门户](https://portal.azure.com)。 使用引擎版本 5.6、5.7 或 8.0 创建 Azure Database for MySQL 服务器。 
 
 有关详细信息，请参阅如何使用 [Azure 门户](quickstart-create-mysql-server-database-using-azure-portal.md)或 [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md) 创建 Azure Database for MySQL 服务器。
 

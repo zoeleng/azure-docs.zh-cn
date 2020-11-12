@@ -1,6 +1,6 @@
 ---
 title: 监视 Azure 机器学习数据引用 |Microsoft Docs
-description: 监视 Azure 机器学习时所需的重要参考资料。 了解 Azure 机器学习收集的数据和资源，以及 Azure Monitor 中可用的资源。 Azure Monitor 收集和显示有关 Azure 机器学习工作区的数据，并允许查看指标、设置警报和分析记录的数据。
+description: 用于监视 Azure 机器学习的参考文档。 了解 & 在 Azure Monitor 中收集和可用的数据。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323944"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540784"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>监视 Azure 机器学习数据引用
 

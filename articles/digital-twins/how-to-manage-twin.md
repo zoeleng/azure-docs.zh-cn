@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360065"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540961"
 ---
 # <a name="manage-digital-twins"></a>管理数字孪生
 
@@ -26,6 +26,10 @@ ms.locfileid: "93360065"
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>管理孪生的方式
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>创建数字输出
 
@@ -167,7 +171,7 @@ foreach (string prop in twin.Contents.Keys)
 数字克隆的已定义属性在数字克隆上作为顶级属性返回。 不属于 DTDL 定义的元数据或系统信息将以 `$` 前缀返回。 元数据属性包括：
 * 此 Azure 数字孪生实例中数字输出的 ID，如 `$dtId` 。
 * `$etag`，由 web 服务器分配的标准 HTTP 字段。
-* 节中的其他属性 `$metadata` 。 其中包括:
+* 节中的其他属性 `$metadata` 。 这些方法包括：
     - 数字克隆的模型的 DTMI。
     - 每个可写属性的同步状态。 这对于设备最为有用，在这种情况下，在设备处于) 脱机状态时，服务和设备可能会 (分叉状态。 目前，此属性仅适用于连接到 IoT 中心的物理设备。 使用元数据部分中的数据，可以了解属性的完整状态以及上次修改的时间戳。 有关同步状态的详细信息，请参阅有关同步设备状态的 [此 IoT 中心教程](../iot-hub/tutorial-device-twins.md) 。
     - 服务特定的元数据，如 IoT 中心或 Azure 数字孪生。 
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 有关序列化帮助器类的详细信息， [*请参阅如何：使用 Azure 数字孪生 api 和 sdk*](how-to-use-apis-sdks.md)。
+
+## <a name="view-all-digital-twins"></a>查看所有数字孪生
+
+若要查看实例中的所有数字孪生，请使用 [查询](how-to-query-graph.md)。 您可以使用 [查询 api](/rest/api/digital-twins/dataplane/query) 或 [CLI 命令](how-to-use-cli.md)来运行查询。
+
+下面是基本查询的正文，该查询将返回实例中所有数字孪生的列表：
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>更新数字孪生
 
@@ -259,7 +274,7 @@ await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
 
 仅当修补程序修改的数字克隆符合新的模型时，此操作才会成功。 
 
-请考虑以下示例：
+请看下面的示例：
 1. 假设有一个数字克隆，其型号为 *foo_old* 。 *foo_old* 定义所需的属性 *质量* 。
 2. 新模型 *foo_new* 定义属性质量并添加新的必需属性 *温度* 。
 3. 修补后，数字克隆必须同时具有质量和温度属性。 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 有关如何同时删除所有孪生的示例，请下载 _Tutorial 中使用的示例应用 [：使用示例客户端应用了解基础知识](tutorial-command-line-app.md)。 *CommandLoop.cs* 文件在函数中执行此 `CommandDeleteAllTwins()` 功能。
 
-## <a name="manage-twins-using-runnable-code-sample"></a>使用可运行代码示例管理孪生
+## <a name="runnable-digital-twin-code-sample"></a>可运行的数字克隆代码示例
 
 您可以使用下面的可运行代码示例创建一个克隆，更新其详细信息，然后删除克隆。 
 
@@ -535,22 +550,6 @@ namespace minimal
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="显示已创建、更新和删除克隆的控制台输出" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>用 CLI 管理孪生
-
-还可以使用 Azure 数字孪生 CLI 管理孪生。 可在 _How 中找到命令 [：使用 Azure 数字孪生 CLI *](how-to-use-cli.md)。
-
-## <a name="view-all-digital-twins"></a>查看所有数字孪生
-
-若要查看实例中的所有数字孪生，请使用 [查询](how-to-query-graph.md)。 您可以使用 [查询 api](/rest/api/digital-twins/dataplane/query) 或 [CLI 命令](how-to-use-cli.md)来运行查询。
-
-下面是基本查询的正文，该查询将返回实例中所有数字孪生的列表：
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>后续步骤
 
-请参阅如何创建和管理数字孪生之间的关系：
-* [*如何：管理包含关系的双子图形*](how-to-manage-graph.md)
+请参阅如何创建和管理数字孪生之间的关系： _ 操作 [*方法：管理包含关系的克隆图形*](how-to-manage-graph.md)

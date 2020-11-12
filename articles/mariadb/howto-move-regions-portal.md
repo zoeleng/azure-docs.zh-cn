@@ -1,18 +1,18 @@
 ---
 title: 移动 Azure 区域 - Azure 门户 - Azure Database for MariaDB
 description: 使用只读副本和 Azure 门户将 Azure Database for MariaDB 服务器从一个 Azure 区域移到另一个 Azure 区域。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425890"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540818"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>使用 Azure 门户将 Azure Database for MariaDB 服务器移到另一个区域
 
@@ -42,7 +42,7 @@ ms.locfileid: "92425890"
 1. 选择“确定”以确认创建该副本。 在创建副本的过程中，数据将从源服务器复制到副本。 创建时间可能会持续几分钟或更长时间，这与源服务器的大小成正比。
 
 >[!NOTE]
-> 创建副本时，它不会继承源服务器的 VNet 服务终结点。 必须单独为副本设置这些规则。
+> 创建副本时，该副本不会继承源服务器的 VNet 服务终结点。 必须单独为副本设置这些规则。
 
 ## <a name="move"></a>移动
 

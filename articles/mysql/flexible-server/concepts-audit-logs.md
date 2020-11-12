@@ -1,17 +1,17 @@
 ---
 title: 审核日志-Azure Database for MySQL-灵活服务器
 description: 介绍 Azure Database for MySQL 灵活的服务器中可用的审核日志。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295983"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542212"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>在 Azure Database for MySQL 灵活的服务器中跟踪包含审核日志的数据库活动
 
@@ -25,7 +25,7 @@ Azure Database for MySQL 灵活的服务器为用户提供了配置审核日志�
 >[!IMPORTANT]
 > 建议仅记录审核所需的事件类型和用户，以确保服务器的性能不会受到严重影响。
 
-默认情况下，审核日志处于禁用状态。 若要启用它们，请将 `audit_log_enabled` 服务器参数设置为 *ON*。 这可以使用 Azure 门户或 Azure CLI 进行配置。 <!-- add link to server parameter-->. 
+默认情况下，审核日志处于禁用状态。 若要启用它们，请将 `audit_log_enabled` 服务器参数设置为 *ON* 。 这可以使用 Azure 门户或 Azure CLI 进行配置。 <!-- add link to server parameter-->. 
 
 可以调整以控制审核日志记录行为的其他参数包括：
 

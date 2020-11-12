@@ -1,17 +1,17 @@
 ---
 title: 重新启动服务器 Azure 门户-Azure Database for MySQL-灵活的服务器
 description: 本文介绍如何使用 Azure 门户重新启动 Azure Database for MySQL 灵活的服务器。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
-ms.openlocfilehash: c44e1da46b969b2d359a225e9d310160ce2092ce
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 88a1524875f168b49f50f1684c650d5bc178bf38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681421"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542654"
 ---
 # <a name="restart-azure-database-for-mysql-flexible-server-using-azure-portal"></a>使用 Azure 门户重新启动 Azure Database for MySQL 灵活的服务器
 本主题介绍如何重新启动 Azure Database for MySQL 灵活的服务器。 出于维护原因，可能需要重启服务器，这会在服务器执行操作时导致短暂中断。
@@ -30,21 +30,21 @@ ms.locfileid: "92681421"
 
 1. 在 Azure 门户中，选择 Azure Database for MySQL 的灵活服务器。
 
-2. 在服务器“概述”页的工具栏中，单击“重启”  。
+2. 在服务器“概述”页的工具栏中，单击“重启”。
 
    :::image type="content" source="./media/how-to-restart-server-portal/2-server.png" alt-text="Azure Database for MySQL -“概述”-“重启”按钮":::
 
-3. 单击“是”以确认重启服务器  。
+3. 单击“是”以确认重启服务器。
 
-   :::image type="content" source="./media/how-to-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL -“概述”-“重启”按钮":::
+   :::image type="content" source="./media/how-to-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL - 重启确认":::
 
 4. 观察到服务器状态更改为“正在重启”。
 
-   :::image type="content" source="./media/how-to-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL -“概述”-“重启”按钮":::
+   :::image type="content" source="./media/how-to-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL - 重启状态":::
 
 5. 确认服务器重启成功。
 
-   :::image type="content" source="./media/how-to-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL -“概述”-“重启”按钮":::
+   :::image type="content" source="./media/how-to-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL - 重启成功":::
 
 ## <a name="next-steps"></a>后续步骤
 

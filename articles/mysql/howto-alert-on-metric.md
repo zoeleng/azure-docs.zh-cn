@@ -1,17 +1,17 @@
 ---
 title: 配置警报指标 - Azure 门户 - Azure Database for MySQL
 description: 本文介绍了如何通过 Azure 门户配置和访问针对 Azure Database for MySQL 的指标警报。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: bb86bc3fbfd4beffdaca713d7989218550841f03
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81003be986524b94e9c4487cd0d8606540445d16
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546885"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542076"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>使用 Azure 门户设置针对 Azure Database for MySQL 指标的警报 
 
@@ -40,23 +40,25 @@ ms.locfileid: "92546885"
 
 4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="添加指标警报窗体":::
 
 5. 在“条件”部分中，选择“添加条件”   。
 
 6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则" ) 和 **频率** 。
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择指标":::
+
+7. 配置警报逻辑，包括“条件”（例如，  “大于”）、“阈值”（例如，  85%）、“时间聚合”、触发警报前必须满足指标规则的“时间段”。（例如，   "过去30分钟" ) 和 **频率** 。
    
    完成后选择“完成”  。
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="选择指标 2":::
 
 8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知   。
 
 9. 使用名称、短名称、订阅和资源组填写“添加操作组”表单。
 
-10. 配置“电子邮件/短信/推送/语音”操作类型  。
+10. 配置“电子邮件/短信/推送/语音”操作类型。
     
     选择“电子邮件 Azure 资源管理器角色”以选择订阅所有者、参与者和读取器来接收通知。
    
@@ -64,11 +66,11 @@ ms.locfileid: "92546885"
 
     完成后选择“确定”  。
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="选择警报规则":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="操作组":::
 
 11. 指定预警规则名称、说明和严重性。
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="选择警报规则"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="操作组 2"::: 
 
 12. 选择“创建警报规则”可以创建警报  。
 

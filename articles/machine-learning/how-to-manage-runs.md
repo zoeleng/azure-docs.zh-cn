@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 2f7d102ad6bf2aba2056456acfe6207a0b0643ba
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357974"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542008"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中启动、监视和取消训练运行
 
@@ -29,6 +29,10 @@ ms.locfileid: "93357974"
 * 取消运行或使其失败。
 * 创建子运行。
 * 标记和查找运行。
+
+> [!TIP]
+> 如果你正在寻找有关监视 Azure 机器学习服务及关联的 Azure 服务的信息，请参阅 [如何监视 Azure 机器学习](monitor-azure-machine-learning.md)。
+> 如果你要查找有关部署为 web 服务或 IoT Edge 模块的监视模型的信息，请参阅 [收集模型数据](how-to-enable-data-collection.md) 和 [用 Application Insights 监视](how-to-enable-app-insights.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -111,7 +115,7 @@ ms.locfileid: "93357974"
     
     # <a name="studio"></a>[工作室](#tab/azure-studio)
     
-    若要开始提交管道，请在设计器中执行以下步骤：
+    若要开始在设计器中提交管道运行，请执行以下步骤：
     
     1. 为管道设置默认计算目标。
     
@@ -187,9 +191,9 @@ ms.locfileid: "93357974"
     
         在试验页中，可以看到活动计算目标数以及每个运行的持续时间。 
     
-    1. 通过选择 "运行比较"、"添加图表" 或 "应用筛选器"，对试验进行自定义。 这些更改可以保存为 **自定义视图** ，以便您可以轻松地返回到您的工作。 具有工作区权限的用户可以编辑或查看自定义视图。 此外，通过在浏览器中复制和粘贴 URL，与其他人共享自定义视图。  
+    1. 通过选择运行比较、添加图表或应用筛选器，对试验进行自定义。 这些更改可以保存为“自定义视图”，以便你轻松返回到你的工作内容。 具有工作区权限的用户可以编辑或查看自定义视图。 此外还可以通过在浏览器中复制和粘贴 URL 与其他人共享自定义视图。  
     
-        :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="屏幕快照：创建自定义视图":::
+        :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="屏幕截图：创建自定义视图":::
     
     1. 选择特定的运行编号。
     

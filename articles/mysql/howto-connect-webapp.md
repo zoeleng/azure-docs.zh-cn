@@ -1,17 +1,17 @@
 ---
 title: 连接到 Azure 应用服务 - Azure Database for MySQL
 description: 有关如何正确地将现有的 Azure 应用服务连接到 Azure Database for MySQL 的说明
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905843"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541498"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>将现有的 Azure 应用服务连接到 Azure Database for MySQL 服务器
 本主题将说明如何将现有的 Azure App Service 连接到 Azure Database for MySQL 服务器。
@@ -29,18 +29,18 @@ Azure Database for MySQL 通过使用防火墙保护数据来确保访问安全�
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure 门户 - 单击连接安全性":::
 
 2. 在“允许访问 Azure 服务”中选择“开”，然后选择“保存”。
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure 门户 - 单击连接安全性":::
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure 门户 - 允许 Azure 访问":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>解决方案 2 - 创建显式允许出站 IP 的防火墙规则
 可显式添加 Azure 应用服务的所有出站 IP。
 
 1. 在应用服务的“属性”边栏选项卡中，查看“出站 IP 地址”  。
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure 门户 - 单击连接安全性":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure 门户 - 查看出站 IP":::
 
 2. 在 MySQL 的“连接安全性”边栏选项卡中，逐个添加出站 IP。
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure 门户 - 单击连接安全性":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure 门户 - 添加显式 IP":::
 
 3. 请记住保存  防火墙规则。
 

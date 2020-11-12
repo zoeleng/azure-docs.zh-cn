@@ -1,19 +1,19 @@
 ---
 title: 教程：设计服务器 - Azure PowerShell - Azure Database for MariaDB
 description: 本教程介绍如何使用 PowerShell 创建和管理 Azure Database for MariaDB 服务器。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 8087da173c8d1df225456aea6efbdbe5ed8c48be
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424921"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542467"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for MariaDB
 

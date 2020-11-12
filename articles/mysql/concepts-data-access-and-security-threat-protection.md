@@ -1,17 +1,17 @@
 ---
 title: 高级威胁防护-Azure Database for MySQL
 description: 了解有关高级威胁防护的概念，它会检测到异常数据库活动，指示数据库存在潜在的安全威胁。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c9e884d153e85e7b68dee38494ac5d6f4271978a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547225"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542569"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database for MySQL 高级威胁防护
 
@@ -23,7 +23,7 @@ Azure Database for MySQL 的高级威胁防护可检测异常活动，指出有�
 高级威胁防护包含在高级数据安全产品/服务中，是一个针对高级安全功能的统一软件包。 可以通过 [Azure 门户](https://portal.azure.com) 或使用 [REST API](/rest/api/mysql)来访问和管理高级威胁防护。 此功能可用于常规用途和内存优化服务器。
 
 > [!NOTE]
-> 高级威胁防护功能在以下 Azure 政府和主权云区域中不  可用：US Gov 德克萨斯州、US Gov 亚利桑那州、US Gov 爱荷华州、US Gov 弗吉尼亚州、US DoD 东部、US DoD 中部、德国中部、德国北部、中国东部、中国东部 2。 请访问[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/)，以了解常规产品可用性。
+> 高级威胁防护功能在以下 Azure 政府和主权云区域中不可用：US Gov 德克萨斯州、US Gov 亚利桑那州、US Gov 爱荷华州、US Gov 弗吉尼亚州、US DoD 东部、US DoD 中部、德国中部、德国北部、中国东部、中国东部 2。 请访问[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/)，以了解常规产品可用性。
 
 
 ## <a name="what-is-advanced-threat-protection"></a>什么是高级威胁防护？

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489125"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542127"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
@@ -107,6 +107,16 @@ ms.locfileid: "94489125"
   + **azureml-train-automl-client**
     + 修复了 get_output 可能会引发 XGBoostError 的问题。
 
+### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Azure 机器学习 Studio 笔记本体验 (年10月更新) 
++ **新功能**
+  + [完全虚拟网络支持](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+  + [焦点模式](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + 保存笔记本-S
+  + 行号
+
++ **Bug 修复与改进**
+  + 提高速度和内核可靠性
+  + Jupyter 小组件 UI 更新
 
 ## <a name="2020-10-12"></a>2020-10-12
 
