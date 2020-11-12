@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760387"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369250"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>托管 HSM 灾难恢复
 
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 此命令的输出会显示创建的托管 HSM 的属性。 两个最重要的属性是：
 
-* **名称**：在本示例中，名称为 ContosoMHSM。 将在其他 Key Vault 命令中使用此名称。
-* **hsmUri**：在本示例中，URI 为“https://contosohsm.managedhsm.azure.net”。 通过其 REST API 使用 HSM 的应用程序必须使用此 URI。
+* **名称** ：在本示例中，名称为 ContosoMHSM。 将在其他 Key Vault 命令中使用此名称。
+* **hsmUri** ：在本示例中，URI 为“https://contosohsm.managedhsm.azure.net”。 通过其 REST API 使用 HSM 的应用程序必须使用此 URI。
 
 Azure 帐户现已获得授权，可在此托管 HSM 上执行任何作业。 到目前为止，尚未授权其他任何人。
 
@@ -107,6 +107,7 @@ az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key Con
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

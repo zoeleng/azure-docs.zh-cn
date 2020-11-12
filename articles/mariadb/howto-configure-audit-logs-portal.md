@@ -1,17 +1,17 @@
 ---
 title: 访问审核日志 - Azure 门户 - Azure Database for MariaDB
 description: 本文介绍如何从 Azure 门户配置和访问 Azure Database for MariaDB 中的审核日志。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: 30ca62305c325943e17ee574873cfbbbaee97f77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f3cda4ed9cdac6f6e03e88601b0a35d5c53faf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113031"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533440"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问审核日志
 
@@ -40,7 +40,7 @@ ms.locfileid: "86113031"
 1. 将 **audit_log_enabled** 参数更新为 ON。
     ![启用审核日志](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. 通过更新 **audit_log_events** 参数，选择要记录的[事件类型](concepts-audit-logs.md#configure-audit-logging)。
+1. 通过更新 **audit_log_events** 参数，选择要记录的 [事件类型](concepts-audit-logs.md#configure-audit-logging)。
     ![审核日志事件](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. 通过更新 **audit_log_exclude_users** 参数添加要从日志记录中排除的 MariaDB 用户。 通过提供 MariaDB 用户名来指定用户。

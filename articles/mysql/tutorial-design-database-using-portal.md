@@ -1,18 +1,18 @@
 ---
 title: 教程：设计服务器 - Azure 门户 - Azure Database for MySQL
 description: 本教程介绍如何使用 Azure 门户创建和管理 Azure Database for MySQL 服务器和数据库。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
-ms.openlocfilehash: f6d0c4167192c42939e16dfd36bdc3eeef4b54b7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7559bc2246ca26cf2b14071396e075b28d2af3a7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543706"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532675"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
@@ -28,6 +28,8 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 > * 查询数据
 > * 更新数据
 > * 还原数据
+
+## <a name="prerequisites"></a>先决条件
 
 如果还没有 Azure 订阅，可以在开始前创建一个[免费 Azure 帐户](https://azure.microsoft.com/free/)。
 
@@ -47,13 +49,13 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 3. 单击“Azure Database for MySQL”  磁贴。 填写 Azure Database for MySQL 窗体。
    
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="导航到 MySQL":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="创建窗体":::
 
     **设置** | **建议的值** | **字段说明**
     ---|---|---
     服务器名称 | 唯一的服务器名称 | 选择用于标识 Azure Database for MySQL 服务器的唯一名称。 例如，mydemoserver。 域名 *.mysql.database.azure.com* 将追加到所提供的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
     订阅 | 订阅 | 选择要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
-    资源组 | myresourcegroup | 提供新的或现有的资源组名称。
+    资源组 |  myresourcegroup | 提供新的或现有的资源组名称。
     选择源 | *空白* | 选择“空白”  可从头开始创建新服务器。 （如果要从现有 Azure Database for MySQL 服务器的异地备份创建服务器，请选择“备份”  ）。
     服务器管理员登录名 | myadmin | 连接到服务器时需使用的登录帐户。 管理员登录名不能是“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”。      
     密码 | *由用户决定* | 为服务器管理员帐户提供新密码。 必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字 (0-9)和非字母数字字符（!, $, #, % 等）。
@@ -62,7 +64,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
     版本 |  最新版本| 最新版本，有特定要求（即需要其他版本）的除外。
     定价层 | **常规用途** 、 **第 5 代** 、 **2 vCore** 、 **5 GB** 、 **7 天** 、 **异地冗余** | 新服务器的计算、存储和备份配置。 选择“定价层”。  接下来，选择“常规用途”  选项卡。“第 5 代”、“2 vCore”、“5 GB”和“7 天”分别是“计算代”、“vCore”、“存储”和“备份保留期”的默认值。         可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从 **备份冗余选项** 中选择“异地冗余”  。 若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="导航到 MySQL":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="定价层":::
 
    > [!TIP]
    > 启用“自动增长”  后，当接近分配的限制时，服务器会增加存储空间，而不会影响工作负荷。
@@ -75,7 +77,7 @@ Azure Databases for MySQL 受防火墙保护。 默认情况下，会拒绝与�
 
 1. 单击新创建的服务器，并单击“连接安全性”  。
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="导航到 MySQL":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="连接安全性":::
 2. 可以“添加我的 IP”  或在此处配置防火墙规则。 创建规则后请记得单击“保存”  。
 现在可以使用 mysql 命令行工具或 MySQL Workbench GUI 工具连接服务器。
 
@@ -89,7 +91,7 @@ Azure Databases for MySQL 受防火墙保护。 默认情况下，会拒绝与�
 1. 在 [Azure 门户](https://portal.azure.com/)中，单击左侧菜单中的“所有资源”  ，键入名称，然后搜索“Azure Database for MySQL 服务器”。 选择服务器名称以查看详细信息。
 
 2. 在“概述”  页上，记下 **服务器名称** 和 **服务器管理员登录名** 。 可以单击每个字段旁边的“复制”按钮，将其复制到剪贴板。
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="导航到 MySQL":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 服务器属性":::
 
 在此示例中，服务器名称是 mydemoserver.mysql.database.azure.com  ，服务器管理员登录名是 myadmin\@mydemoserver  。
 
@@ -168,11 +170,11 @@ SELECT * FROM inventory;
 
 1. 在 Azure 门户中，找到 Azure Database for MySQL。 在“概述”  页上，单击工具栏上的“还原”  。 此时将打开“还原”页。
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="导航到 MySQL":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 还原数据库":::
 
 2. 使用必需信息填充“还原”  窗体。
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="导航到 MySQL":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 还原窗体":::
 
    - **还原点** ：在列出的时间范围内选择要还原到的时间点。 请确保将本地时区转换为 UTC。
    - **还原到新服务器** ：提供一个要还原到的新服务器名称。
@@ -180,6 +182,14 @@ SELECT * FROM inventory;
    - **定价层** ：定价层与源服务器相同，不能更改。
    
 3. 单击“确定”  ，将服务器[还原到删除该表之前的时间点](./howto-restore-server-portal.md)。 还原服务器时将创建服务器的新副本（从指定的时间点开始）。
+
+## <a name="clean-up-resources"></a>清理资源
+
+如果将来不再需要这些资源，可以通过删除资源组或只删除 MySQL 服务器来删除它们。 若要删除资源组，请执行以下步骤：
+1. 在 Azure 门户中，搜索并选择“资源组”。 
+2. 在资源组列表中，选择你的资源组的名称。
+3. 在资源组的概述页面中，选择“删除资源组”。
+4. 在确认对话框中，键入资源组的名称，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

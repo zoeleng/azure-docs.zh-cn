@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216583"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489465"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>教程：使用 Azure Data Share 共享数据  
 
@@ -137,8 +137,15 @@ ms.locfileid: "92216583"
 
 1. 在“查看 + 创建”选项卡中查看包内容、设置、接收者和同步设置。 选择“创建”。
 
-你的 Azure Data Share 现已创建，Data Share 的接收者现已准备好接受你的邀请。 
+你的 Azure Data Share 现已创建，Data Share 的接收者现已准备好接受你的邀请。
+
+## <a name="clean-up-resources"></a>清理资源
+
+当不再需要该资源时，转到“数据共享概述”页面并选择“删除”将其删除 。
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何创建 Azure Data Share 并邀请接收者。 若要了解数据使用者如何接受和接收数据共享，请继续学习[接受和接收数据](subscribe-to-data-share.md)教程。
+本教程介绍了如何创建 Azure Data Share 并邀请接收者。 若要了解数据使用者如何接受和接收数据共享，请继续学习接受和接收数据教程。
+
+> [!div class="nextstepaction"]
+> [教程：使用 Azure Data Share 接受和接收数据](subscribe-to-data-share.md)

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: c08dd1b5b2f90e874f36c6cf01c4cc5f5ae74d17
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636249"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505982"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>使用专用终结点将数据从 Azure Blob 存储安全复制到 SQL 数据库
 
@@ -59,17 +59,17 @@ ms.locfileid: "92636249"
 
 使用以下 SQL 脚本在 SQL 数据库中创建 **dbo.emp** 表：
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## <a name="create-a-data-factory"></a>创建数据工厂
 在此步骤中，请先创建数据工厂，然后启动数据工厂 UI，在该数据工厂中创建一个管道。
@@ -78,13 +78,13 @@ ms.locfileid: "92636249"
 
 1. 在左侧菜单中，选择“创建资源” > “Analytics” > “数据工厂”。
 
-1. 在“新建数据工厂”页的“名称”下输入 **ADFTutorialDataFactory** 。
+1. 在“新建数据工厂”  页的“名称”下输入 **ADFTutorialDataFactory**  。
 
    Azure 数据工厂的名称必须 *全局唯一* 。 如果收到有关名称值的错误消息，请为数据工厂输入其他名称（例如 yournameADFTutorialDataFactory）。 有关数据工厂项目的命名规则，请参阅[数据工厂命名规则](./naming-rules.md)。
 
 1. 选择要在其中创建数据工厂的 Azure **订阅** 。
 
-1. 对于“资源组”，请执行以下步骤之一：
+1. 对于“资源组”，请执行以下步骤之一： 
 
     - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
     - 选择“新建”，并输入资源组的名称。 

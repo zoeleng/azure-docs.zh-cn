@@ -9,24 +9,26 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: b8ca96dd0b11f7a4c76f7a954959ef5005fb4a40
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323977"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533474"
 ---
 # <a name="monitor-azure-machine-learning"></a>监视 Azure 机器学习
 
 当你的关键应用程序和业务流程依赖于 Azure 资源时，你需要监视这些资源的可用性、性能和操作。 本文介绍 Azure 机器学习生成的监视数据，以及如何使用 Azure Monitor 对此数据进行分析和警报。
 
 > [!TIP]
-> 本文档中的信息主要面向管理员，因为它描述了 *工作区* 级别的 Azure 机器学习监视。 如果你是一名数据科学家或开发人员，并且想要监视特定于 *模型定型运行* 的信息，请参阅以下文档：
+> 本文档中的信息主要面向 __管理员__ ，因为它介绍了如何监视 Azure 机器学习服务及关联的 Azure 服务。 如果你是一名 __数据科学家__ 或 __开发人员__ ，并且想要监视特定于 *模型定型运行* 的信息，请参阅以下文档：
 >
 > * [启动、监视和取消训练运行](how-to-manage-runs.md)
 > * [记录训练运行的指标](how-to-track-experiments.md)
 > * [使用 MLflow 跟踪试验](how-to-use-mlflow.md)
 > * [使用 TensorBoard 将运行可视化](how-to-monitor-tensorboard.md)
+>
+> 如果要监视部署为 web 服务或 IoT Edge 模块的模型生成的信息，请参阅[使用 Application Insights](how-to-enable-app-insights.md)[收集模型数据](how-to-enable-data-collection.md)和监视器。
 
 ## <a name="what-is-azure-monitor"></a>说明是 Azure Monitor？
 

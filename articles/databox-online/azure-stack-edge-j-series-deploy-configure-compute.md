@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952159"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504424"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>教程：使用 Azure Stack Edge Pro 转换数据
 
@@ -63,11 +63,11 @@ ms.locfileid: "91952159"
 
     ![开始使用计算 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. 选择“创建”。 创建 IoT 中心资源需要花费几分钟时间。 创建 IoT 中心资源后，“配置计算”磁贴会更新，以显示计算配置。**** 
+4. 选择“创建”。 创建 IoT 中心资源需要花费几分钟时间。 创建 IoT 中心资源后，“配置计算”磁贴会更新，以显示计算配置。 
 
     ![开始使用计算 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. 若要确认是否已配置 Edge 计算角色，请在“配置计算”磁贴上选择“查看计算”。********
+5. 若要确认是否已配置 Edge 计算角色，请在“配置计算”磁贴上选择“查看计算”。
     
     ![开始使用计算 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
@@ -110,7 +110,7 @@ ms.locfileid: "91952159"
     ![添加 Edge 本地共享](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-2.png)
 
   
-3. 选择“添加共享”以查看更新的共享列表。****
+3. 选择“添加共享”以查看更新的共享列表。
 
     ![更新的共享列表](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-3.png) 
  
@@ -121,8 +121,8 @@ ms.locfileid: "91952159"
 
 在此部分中，我们将向[为 Azure Stack Edge Pro 开发 C# 模块](azure-stack-edge-j-series-create-iot-edge-module.md)中创建的 IoT Edge 设备添加一个自定义模块。 此自定义模块从 Edge 设备上的 Edge 本地共享提取文件，并将其移到设备上的 Edge（云）共享。 然后，云共享将文件推送到与该云共享相关联的 Azure 存储帐户。
 
-1. 转到“Edge 计算”>“开始”。 在“添加模块”磁贴上，选择“简单”作为方案类型。******** 选择 **添加** 。
-2. 在“配置和添加模块”边栏选项卡中输入以下值：****
+1. 转到“Edge 计算”>“开始”。 在“添加模块”磁贴上，选择“简单”作为方案类型。 选择 **添加** 。
+2. 在“配置和添加模块”边栏选项卡中输入以下值：
 
     
     |字段  |值  |
@@ -132,7 +132,7 @@ ms.locfileid: "91952159"
     |需要凭据     | 如果选中此项，则会使用用户名和密码来检索具有匹配 URL 的模块。        |
     |输入共享     | 选择一个输入共享。 在本例中，Edge 本地共享是输入共享。 此处使用的模块将文件从 Edge 本地共享移到 Edge 共享，然后，这些文件将从 Edge 共享上传到云中。        |
     |输出共享     | 选择一个输出共享。 在本例中，Edge 共享是输出共享。        |
-    |触发器类型     | 选择“文件”或“计划”。******** 每当发生文件事件（例如，将文件写入输入共享）时，文件触发器就会激发。 计划的触发器根据定义的计划激发。         |
+    |触发器类型     | 选择“文件”或“计划”。 每当发生文件事件（例如，将文件写入输入共享）时，文件触发器就会激发。 计划的触发器根据定义的计划激发。         |
     |触发器名称     | 触发器的唯一名称。         |
     |环境变量| 可帮助定义运行模块的环境的可选信息。   |
 
@@ -148,23 +148,23 @@ ms.locfileid: "91952159"
 
 若要验证模块是否正在运行，请执行以下操作：
 
-1. 选择“添加模块”磁贴。**** 随后会转到“模块”边栏选项卡。**** 在模块列表中，找到已部署的模块。 所添加模块的运行时状态应为“正在运行”。**
+1. 选择“添加模块”磁贴。 随后会转到“模块”边栏选项卡。 在模块列表中，找到已部署的模块。 所添加模块的运行时状态应为“正在运行”。
 
     ![查看已部署模块](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-3.png)
  
-1.   在文件资源管理器中，连接到前面创建的 Edge 本地共享和 Edge 共享。
+1. 在文件资源管理器中，连接到前面创建的 Edge 本地共享和 Edge 共享。
 
     ![验证数据转换](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
-1.   将数据添加到本地共享。
+1. 将数据添加到本地共享。
 
     ![验证数据转换](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
-    数据将移到云共享。
+   数据将移到云共享。
 
     ![验证数据转换](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
-    然后，将数据从云共享推送到存储帐户。 可以使用存储资源管理器查看数据。
+   然后，将数据从云共享推送到存储帐户。 可以使用存储资源管理器查看数据。
 
     <!--![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-5.png)-->
  

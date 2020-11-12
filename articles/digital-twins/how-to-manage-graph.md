@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359572"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533867"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>使用关系管理数字孪生图
 
@@ -25,7 +25,13 @@ Azure 数字孪生的核心是代表您的整个环境的克隆 [图](concepts-t
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>图形管理方法
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+你还可以使用 Azure 数字孪生 (ADT) 资源管理器示例对图形进行更改，这将允许你可视化孪生和 graph，并在幕后使用 SDK。 下一部分将详细介绍此示例。
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>创建关系
@@ -219,7 +225,8 @@ private static async Task DeleteRelationship(DigitalTwinsClient client, string s
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>创建克隆图形 
+
+## <a name="runnable-twin-graph-sample"></a>可运行的克隆图形示例
 
 以下可运行代码片段使用本文中的关系操作来创建数字孪生和关系的克隆图形。
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>用 CLI 管理关系
-
-孪生及其关系也可以使用 Azure 数字孪生 CLI 进行管理。 有关命令，请参阅 [*操作方法：使用 Azure 数字孪生 CLI*](how-to-use-cli.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

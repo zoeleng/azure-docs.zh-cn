@@ -1,7 +1,7 @@
 ---
 title: 在生产模型上收集数据
 titleSuffix: Azure Machine Learning
-description: 了解如何从已部署的 Azure 机器学习模型中收集数据
+description: 了解如何从部署在 Azure Kubernetes Service (AKS) 群集上的 Azure 机器学习模型收集数据。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,14 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357637"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532811"
 ---
 # <a name="collect-data-from-models-in-production"></a>收集生产中模型的数据
-
-
 
 本文演示如何从 Azure Kubernetes 服务 (AKS) 群集上部署的 Azure 机器学习模型中收集数据， 然后将收集的数据存储在 Azure Blob 存储中。
 

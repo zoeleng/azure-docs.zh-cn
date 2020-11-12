@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214900"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532471"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的自定义策略的开发人员说明
 
@@ -108,16 +108,6 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 | [显示控件](display-controls.md) |  |X  |  |  |
 
 
-### <a name="page-layout-versions"></a>页面布局版本
-
-| 功能 | 开发 | 预览 | GA | 说明 |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [JavaScript 支持](javascript-samples.md) |  | X |  |  |
-
 ### <a name="app-ief-integration"></a>App-IEF 集成
 
 | 功能 | 开发 | 预览 | GA | 说明 |
@@ -127,6 +117,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 | 通过 `client_assertion` 将 JSON 插入用户历程 | X |  |  | 即将弃用。 |
 | 将 JSON 作为 `id_token_hint` 插入用户历程 |  | X |  | 用于传递 JSON 的前向方法。 |
 | [向应用程序传递标识提供者令牌](idp-pass-through-custom.md) |  | X |  | 例如，从 Facebook 到应用。 |
+
 
 ### <a name="session-management"></a>会话管理
 

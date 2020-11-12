@@ -9,17 +9,16 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-services: active-directory
-ms.openlocfilehash: 83375eebdbe46fc0132f1fcf0b6d11457aa0e897
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 21307deb509d0735e4367f2b41603086f301bdeb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420999"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533525"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 应用程序预配：新增功能
 
-欢迎使用 Azure Active Directory 应用程序预配文档中的新增功能。 本文列出了在过去三个月内添加的新文档以及有重要更新的文档。 若要了解预配服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
+欢迎使用 Azure Active Directory 应用程序预配文档中的新增功能。 本文列出了过去三个月内添加的新文档以及有重要更新的文档。 若要了解预配服务的新增功能，请参阅 [Azure Active Directory 中的新增功能](../fundamentals/whats-new.md)。
 
 ## <a name="october-2020"></a>2020 年 10 月
 

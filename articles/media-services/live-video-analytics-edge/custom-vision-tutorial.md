@@ -3,12 +3,13 @@ title: 使用 IoT Edge 上的实时视频分析和 Azure 自定义视觉分析�
 description: 了解如何使用 Azure 自定义视觉构建可检测玩具卡车的容器化模型，并使用 Azure IoT Edge 上的 Azure 实时视频分析的 AI 扩展功能在边缘上部署该模型，以便从实时视频流中检测玩具卡车。
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 52678d66bd4a91c9308a3cc48fbf784e89a5cfe8
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+zone_pivot_groups: ams-lva-edge-programming-languages
+ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171508"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358192"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>教程：使用 IoT Edge 上的实时视频分析和 Azure 自定义视觉分析实时视频
 
@@ -16,7 +17,13 @@ ms.locfileid: "92171508"
 
 我们将向你展示如何通过上传和标记一些映像，结合自定义视觉的能力来构建和训练计算机视觉模型。 你不需要了解数据科学、机器学习或 AI。 你还将了解实时视频分析的功能，以便轻松地在边缘上将自定义模型部署为容器并分析模拟的实时视频源。
 
-本教程使用 Azure 虚拟机 (VM) 作为 IoT Edge 设备，并基于用 C# 编写的示例代码。 本教程是在[检测运动并发出事件](detect-motion-emit-events-quickstart.md)快速入门的基础上制作的。
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [header](includes/custom-vision-tutorial/csharp/header.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [header](includes/custom-vision-tutorial/python/header.md)]
+::: zone-end
 
 本教程介绍如何：
 
@@ -29,7 +36,7 @@ ms.locfileid: "92171508"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="suggested-pre-reading"></a>建议的读前准备
+## <a name="suggested-pre-reading"></a>建议的读前准备  
 
 在开始之前，我们建议你通读以下文章：
 
@@ -44,19 +51,16 @@ ms.locfileid: "92171508"
 
 ## <a name="prerequisites"></a>先决条件
 
-本教程的先决条件如下：
 
-* 开发计算机上的 [Visual Studio Code](https://code.visualstudio.com/)，带有 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 和 [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) 扩展。
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
+::: zone-end
 
-    > [!TIP]
-    > 系统可能会提示你安装 Docker。 请忽略该提示。
-* 开发计算机上的 [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)。
-* 请确保你已执行以下操作：
-    
-    * [设置 Azure 资源](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [设置开发环境](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
-
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
+::: zone-end
 ## <a name="review-the-sample-video"></a>观看示例视频
+
 
 本教程使用[玩具汽车推理视频](https://lvamedia.blob.core.windows.net/public/t2.mkv)文件来模拟实时流。 可以通过某个应用程序（例如 [VLC 媒体播放器](https://www.videolan.org/vlc/)）来观看视频。 选择“Ctrl+N”，然后粘贴[玩具汽车推理视频](https://lvamedia.blob.core.windows.net/public/t2.mkv)的链接开始播放。 观看视频时，请注意，在 36 秒标记处，玩具卡车出现在视频中。 自定义模型已经过训练，可以检测到这一特定玩具卡车。 在本教程中，你将使用 IoT Edge 上的实时视频分析来检测此类玩具卡车并将关联的推理事件发布到 IoT Edge 中心。
 
@@ -69,7 +73,7 @@ ms.locfileid: "92171508"
 
 HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图像类型。 然后，它将图像通过 REST 转发到另一个 Edge 模块，该模块在 HTTP 终结点后运行一个 AI 模型。 在此示例中，该 Edge 模块是使用自定义视觉构建的玩具卡车检测器模型。 HTTP 扩展处理器节点收集检测结果并将事件发布到 [Azure IoT 中心接收器](media-graph-concept.md#iot-hub-message-sink)节点。 然后该节点将这些事件发送到 [IoT Edge 中心](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)。
 
-## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>构建并部署自定义视觉玩具检测模型
+## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>构建并部署自定义视觉玩具检测模型 
 
 顾名思义，你可以使用自定义视觉在云中构建你自己的自定义对象检测器或分类器。 它提供了一个简单易用的直观界面，用于构建可通过容器部署在云或边缘上的自定义视觉模型。
 
@@ -83,7 +87,33 @@ HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图�
 完成后，可使用“性能”选项卡上的“导出”按钮将模型导出到 Docker 容器 。请确保选择 Linux 作为容器平台类型。 这是供容器在其上运行的平台。 你下载容器的计算机既可以是 Windows，也可以是 Linux。 以下说明基于下载到 Windows 计算机上的容器文件。
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="显示自定义视觉概述的图。"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="显示选中 Dockerfile 的屏幕。":::
+ 
+1. 你应当已在本地计算机上下载了一个名为 `<projectname>.DockerFile.Linux.zip` 的 zip 文件。 
+1. 检查是否已安装 Docker。 如果未安装，请安装适用于 Windows 桌面的 [Docker](https://docs.docker.com/get-docker/)。
+1. 将下载的文件解压缩到所选位置。 使用命令行转到解压缩的文件夹目录。
+    
+    运行以下命令：
+    
+    1. `docker build -t cvtruck` 
+    
+        此命令会下载许多包、生成 Docker 映像，并将其标记为 `cvtruck:latest`。
+    
+        > [!NOTE]
+        > 如果成功，你应该会看到以下消息：`Successfully built <docker image id>` 和 `Successfully tagged cvtruck:latest`。 如果生成命令失败，请重试。 第一次运行命令时，有时不会下载依赖项包。
+    1. `docker  image ls`
+
+        此命令检查新映像是否在本地注册表中。
+    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
+    
+        此命令应该会将 Docker 的公开端口 (80) 发布到本地计算机的端口 (80)。
+    1. `docker container ls`
+    
+        此命令检查端口映射并检查 Docker 容器是否在你的计算机上成功运行。 输出应类似于以下内容：
+
+        ```
+        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
+        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -97,20 +127,15 @@ HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图�
 
 ## <a name="examine-the-sample-files"></a>检查示例文件
 
-1. 在 Visual Studio Code 中，浏览到 src/edge。 你将看到创建的 .env 文件以及一些部署模板文件。
 
-    部署模板是指具有某些占位符值的边缘设备的部署清单。 该 .env 文件具有这些变量的值。
-1. 接下来，浏览到 src/cloud-to-device-console-app 文件夹。 在这里，你将看到创建的 appsettings.json 文件以及其他一些文件：
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
+::: zone-end
 
-    * c2d-console-app.csproj：这是 Visual Studio Code 的项目文件。
-    * operations.json：该文件列出了你想要程序运行的不同操作。
-    * Program.cs：此示例程序代码：
+::: zone pivot="programming-language-python"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/python/examine-sample-files.md)]
+::: zone-end
 
-        * 加载应用设置。
-        * 调用 IoT Edge 上的实时视频分析模块的直接方法来创建拓扑，实例化图形并激活图形。
-        * 暂停以在“终端”窗口中检查图形输出，并在“输出”窗口中检查发送到 IoT 中心的事件 。
-        * 停用图形实例，删除图形实例，并删除图形拓扑。
-        
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>生成并部署部署清单
 
 1. 在 Visual Studio Code 中，转到 src/cloud-to-device-console-app/operations.json。
@@ -124,7 +149,7 @@ HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图�
 1. 右键单击“src/edge/ deployment.customvision.template.json”文件，然后选择“生成 IoT Edge 部署清单”。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="显示自定义视觉概述的图。":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="显示生成 IoT Edge 部署清单的屏幕截图。":::
   
     此操作应当会在 src/edge/config 文件夹中创建一个名为“deployment.customvision.amd64.json”的清单文件。
 1. 打开“src/edge/ deployment.customvision.template.json”文件并找到 `registryCredentials` JSON 块。 在此块中，你会找到 Azure 容器注册表的地址及其用户名和密码。
@@ -146,11 +171,11 @@ HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图�
 1. 选择左下角“AZURE IOT 中心”窗格旁边的“更多操作”图标，设置 IoT 中心连接字符串 。 可以从 appsettings.json 文件中复制字符串。 （还有一种建议的方法，可确保你通过[选择 IoT 中心命令](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)在 Visual Studio Code 中配置正确的 IoT 中心。）
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="显示自定义视觉概述的图。":::
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="显示设置 IoT 中心连接字符串的屏幕截图。":::
 1. 接下来，右键单击“ src/edge/config/ deployment.customvision.amd64.json”，然后选择“为单个设备创建部署”。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="显示自定义视觉概述的图。":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="显示“为单个设备创建部署”的屏幕截图。":::
 1. 然后，系统会要求你选择 IoT 中心设备。 从下拉列表中选择 lva-sample-device。
 1. 大约 30 秒后，在左下部分刷新 Azure IoT 中心。 应该会得到已部署以下模块的边缘设备：
 
@@ -163,7 +188,7 @@ HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图�
 右键单击实时视频分析设备，并选择“开始监视内置事件终结点”。 需要执行此步骤，以在 Visual Studio Code 的“输出”窗口中监视 IoT 中心事件。
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="显示自定义视觉概述的图。":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="显示开始监视内置事件终结点的屏幕截图。":::
 
 ## <a name="run-the-sample-program"></a>运行示例程序
 
@@ -173,11 +198,42 @@ HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图�
 1. 右键单击并选择“扩展设置”。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="显示自定义视觉概述的图。":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="显示“扩展设置”的屏幕截图。":::
 1. 搜索并启用“显示详细消息”。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示自定义视觉概述的图。"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示“显示详细消息”的屏幕截图。":::
+1. 若要启动调试会话，请选择 F5 键。 你可在“终端”窗口中看到打印的消息。
+1. operations.json 代码首先调用直接方法 `GraphTopologyList` 和 `GraphInstanceList`。 如果你在完成先前的快速入门后清理了资源，则该过程将返回空列表，然后暂停。 若要继续，请选择 Enter 键。
+    
+   “终端”窗口将显示下一组直接方法调用：
+    
+   * 对 `GraphTopologySet` 的调用，该调用使用前面的 `topologyUrl`。
+   * 对 `GraphInstanceSet` 的调用，该调用使用以下正文：
+        
+   ```
+        {
+          "@apiVersion": "1.0",
+          "name": "Sample-Graph-1",
+          "properties": {
+            "topologyName": "CustomVisionWithHttpExtension",
+            "description": "Sample graph description",
+            "parameters": [
+              { 
+                "name": "inferencingUrl",
+                "value": "http://cv:80/image"
+              },
+              {
+                "name": "rtspUrl",
+                "value": "rtsp://rtspsim:554/media/t2.mkv"
+              },
+              {
+                "name": "rtspUserName",
+                "value": "testuser"
+              },
+              {
+                "name": "rtspPassword",
+                "value": "testpassword"
               }
             ]
           }

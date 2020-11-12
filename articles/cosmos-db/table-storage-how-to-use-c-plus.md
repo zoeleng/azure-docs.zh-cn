@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477328"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489873"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -94,11 +95,11 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](https://azure.microsoft.com/downloads/) 一起安装的 Azure 存储模拟器。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用工具。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-若要启动 Azure 存储模拟器，请从 Windows 桌面选择“开始”按钮或 Windows 键。 输入并运行 Microsoft Azure 存储模拟器  。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
+若要启动 Azure 存储模拟器，请从 Windows 桌面选择“开始”按钮或 Windows 键。 输入并运行 Microsoft Azure 存储模拟器。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
 
 ### <a name="retrieve-your-connection-string"></a>检索连接字符串
 

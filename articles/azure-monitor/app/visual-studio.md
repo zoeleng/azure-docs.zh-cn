@@ -4,12 +4,12 @@ description: 调试期间和生产环境中的 Web 应用性能分析和诊断�
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932203"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532896"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>在 Visual Studio 中使用 Azure Application Insights 调试应用程序
 在 Visual Studio（2015 和更高版本）中，可以使用来自 [Azure Application Insights](./app-insights-overview.md) 的遥测，在调试和生产环境中分析 ASP.NET Web 应用中的性能和诊断问题。
@@ -18,7 +18,7 @@ ms.locfileid: "91932203"
 
 若要在应用处于实时生产环境中时对其进行监视，通常可以在 [Azure 门户](https://portal.azure.com)中查看 Application Insights 遥测，可以在该门户中设置警报并应用强大的监视工具。 但是对于调试，也可在 Visual Studio 中搜索和分析遥测。 可使用 Visual Studio 来分析遥测，不管是从生产站点还是从开发计算机上的调试运行均可执行该操作。 如果是后一种情况，则可分析调试运行，即使尚未将 SDK 配置为将遥测发送到 Azure 门户。 
 
-## <a name="debug-your-project"></a><a name="run"></a>调试项目
+## <a name="debug-your-project"></a><a name="run"></a> 调试项目
 使用 F5 在本地调试模式下运行 Web 应用。 打开不同的页以生成一些遥测数据。
 
 在 Visual Studio 中会看到事件计数，这些事件是由项目中的 Application Insights 模块记录的。
@@ -53,12 +53,12 @@ Application Insights 的“搜索”窗口显示已记录的事件。 （如果�
 
 单击异常可获得堆栈跟踪。 如果应用的代码在 Visual Studio 中打开，可从堆栈跟踪单击浏览到相关代码行。
 
-![异常堆栈跟踪](./media/visual-studio/17.png)
+![屏幕截图显示堆栈跟踪中的 "关于" 对象。](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>查看代码中的请求和异常摘要
 在每个处理程序方法上方的 Code Lens 行中，会看到过去 24 小时内由 Application Insights 记录的请求和异常的计数。
 
-![异常堆栈跟踪](./media/visual-studio/21.png)
+![屏幕截图显示上下文对话框中的异常。](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > Code Lens 显示 Application Insights 数据的前提是，已[将应用配置为将遥测发送到 Application Insights 门户](./asp-net.md)。
@@ -92,5 +92,5 @@ Application Insights 的“搜索”窗口显示已记录的事件。 （如果�
 
 ## <a name="next-steps"></a>后续步骤
 
- * 使用**[Application Insights 门户](./overview-dashboard.md)**。 查看仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和导出的遥测数据。 
+ * **[使用 Application Insights 门户](./overview-dashboard.md)** 。 查看仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和导出的遥测数据。 
 

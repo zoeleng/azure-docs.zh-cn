@@ -1,19 +1,19 @@
 ---
 title: 教程：设计服务器 - Azure CLI - Azure Database for MySQL
 description: 本教程介绍如何使用 Azure CLI 从命令行创建和管理 Azure Database for MySQL 服务器和数据库。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 06d8b7cdd6edb6ae3dad27a8a5f50443e3fc8969
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543944"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533587"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
@@ -27,6 +27,8 @@ Azure Database for MySQL 是 Microsoft 云中基于 MySQL Community Edition 数�
 > * 查询数据
 > * 更新数据
 > * 还原数据
+
+## <a name="prerequisites"></a>先决条件
 
 如果还没有 Azure 订阅，可以在开始前创建一个[免费 Azure 帐户](https://azure.microsoft.com/free/)。
 
@@ -196,12 +198,25 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 该命令是同步的，且会在服务器还原后返回。 还原完成后，找到创建的新服务器。 验证数据是否按预期还原。
 
+## <a name="clean-up-resources"></a>清理资源
+如果不需要将这些资源用于其他快速入门/教程，则可通过执行以下命令将其删除： 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+若要删除新创建的服务器，可运行 [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) 命令。
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>后续步骤
 本教程介绍了：
 > [!div class="checklist"]
 > * 创建 Azure Database for MySQL 服务器
 > * 配置服务器防火墙
-> * 使用 [mysql 命令行工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)创建数据库
+> * 使用 mysql 命令行工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据

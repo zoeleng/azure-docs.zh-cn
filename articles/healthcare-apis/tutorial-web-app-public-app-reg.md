@@ -9,19 +9,19 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: c4f6124227f5dd5c7735d300f71d5ae7d0c06b3a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f559c87a5c3285bf966f9389d623b2262e93cbca
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975767"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425807"
 ---
 # <a name="client-application-registration"></a>客户端应用程序注册
 在上一篇教程中，你已部署并设置了 Azure API for FHIR。 既然已设置 Azure API for FHIR，接下来可以注册一个公共客户端应用程序。 可以通读[注册公共客户端应用](register-public-azure-ad-client-app.md)操作指南来了解更多详细信息或进行故障排除，下面重点列出了此教程的主要步骤。
 
 1. 导航到 Azure Active Directory
 1. 选择“应用注册” --> “新建注册”
-1. 命名应用程序，并
+1. 命名应用程序
 1. 选择“公共客户端/本机(移动和桌面)”，然后将重定向 URI 设置为 https://www.getpostman.com/oauth2/callback。
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="“注册应用程序”窗格的屏幕截图，其中显示示例应用程序名称和重定向 URL。":::
@@ -30,7 +30,7 @@ ms.locfileid: "91975767"
 
 注册客户端应用程序后，从“概述”页中复制应用程序（客户端）ID 和租户 ID。 稍后在访问客户端时，将需要这两个值。
 
-:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="“注册应用程序”窗格的屏幕截图，其中显示示例应用程序名称和重定向 URL。":::
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="“客户端应用程序设置”窗格的屏幕截图，其中突出显示了应用程序和目录 ID。":::
 
 ### <a name="connect-with-web-app"></a>与 Web 应用连接
 
@@ -44,7 +44,7 @@ ms.locfileid: "91975767"
 
 1. 选择“访问令牌”和“ID 令牌”复选框 。
 
-   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="“注册应用程序”窗格的屏幕截图，其中显示示例应用程序名称和重定向 URL。":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="应用的“身份验证设置”边栏选项卡的屏幕截图，其中突出显示了添加平台的步骤。":::
 
 ## <a name="add-api-permissions"></a>添加 API 权限
 
@@ -54,7 +54,7 @@ ms.locfileid: "91975767"
 1. 在“我的组织使用的 API”下，搜索 Azure 医疗保健 API。
 1. 选择“user_impersonation”并点击“添加权限” 。
 
-:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="“注册应用程序”窗格的屏幕截图，其中显示示例应用程序名称和重定向 URL。":::
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="添加 API 权限”边栏选项卡的屏幕截图，其中突出显示了添加 API 权限的步骤。":::
 
 ## <a name="next-steps"></a>后续步骤
 你现在已拥有了一个公用客户端应用程序。 在下一教程中，我们将介绍如何通过 Postman 进行测试并获取此应用程序的访问权限。

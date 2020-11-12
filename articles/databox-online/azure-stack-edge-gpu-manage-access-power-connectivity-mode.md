@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933614"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532437"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>为 Azure Stack Edge Pro GPU 管理访问、电源和连接模式
 
@@ -36,7 +36,7 @@ ms.locfileid: "90933614"
 
 请在本地 UI 中执行以下步骤，以更改设备密码。
 
-1. 在本地 web UI 中，请参阅 **维护 > 密码**。
+1. 在本地 web UI 中，请参阅 **维护 > 密码** 。
 2. 依次输入当前密码和新密码。 提供的密码必须是 8 到 16 个字符。 该密码必须包含以下字符中的 3 项：大写字母、小写字母、数字和特殊字符。 确认新密码。
 
     ![更改密码](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/change-password-1.png)
@@ -47,14 +47,14 @@ ms.locfileid: "90933614"
 
 重置工作流不需要用户回忆旧密码，在密码丢失时非常有用。 在 Azure 门户中执行此工作流。
 
-1. 在 Azure 门户中，转到“概述”>“重置管理员密码”。****
+1. 在 Azure 门户中，转到“概述”>“重置管理员密码”。
 
-    ![重置密码](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![屏幕截图显示已选择 "重置设备密码" 的设备。](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
-2. 输入新密码并确认。 提供的密码必须是 8 到 16 个字符。 该密码必须包含以下字符中的 3 项：大写字母、小写字母、数字和特殊字符。 选择“重置”****。
+2. 输入新密码并确认。 提供的密码必须是 8 到 16 个字符。 该密码必须包含以下字符中的 3 项：大写字母、小写字母、数字和特殊字符。 选择“重置”。
 
-    ![重置密码](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![屏幕截图显示 "重置设备密码" 对话框。](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>管理资源访问
 
@@ -114,15 +114,15 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 
 若要更改设备模式，请执行以下步骤：
 
-1. 在设备的本地 web UI 中， **> Cloud**中转到 "配置"。
-2. 从下拉列表中，选择要在其中操作设备的模式。 你可以选择 " **完全连接**"、" **部分连接**" 和 " **完全断开连接**"。 若要在部分离线模式下运行设备，请启用“Azure 门户管理”。****
+1. 在设备的本地 web UI 中， **> Cloud** 中转到 "配置"。
+2. 从下拉列表中，选择要在其中操作设备的模式。 你可以选择 " **完全连接** "、" **部分连接** " 和 " **完全断开连接** "。 若要在部分离线模式下运行设备，请启用“Azure 门户管理”。
 
  
 ## <a name="manage-power"></a>管理电源
 
 可使用本地 Web UI 关闭或重启物理设备。 在重启之前，建议使共享依次在数据服务器和设备上脱机。 此操作可以最大程度地减少发生数据损坏的可能性。
 
-1. 在本地 web UI 中，请参阅 **维护 > 电源**。
+1. 在本地 web UI 中，请参阅 **维护 > 电源** 。
 2. 根据要执行的操作，选择 " **关机** " 或 " **重新启动** "。
 
     ![电源设置](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/shut-down-restart-1.png)
