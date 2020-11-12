@@ -1,19 +1,19 @@
 ---
 title: 配置服务器参数 - Azure PowerShell - Azure Database for MariaDB
 description: 本文介绍如何使用 PowerShell 在 Azure Database for MariaDB 中配置服务参数。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d116bdec2974fa2c39c6a56364e54ca7d776b682
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8ace6306bec4c79cbce0a1572360db1acd2cea97
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426030"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538217"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>使用 PowerShell 在 Azure Database for MariaDB 中配置服务器参数
 

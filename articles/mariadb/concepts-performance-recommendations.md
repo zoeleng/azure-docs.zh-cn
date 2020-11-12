@@ -1,17 +1,17 @@
 ---
 title: 性能建议 - Azure Database for MariaDB
 description: 本文介绍 Azure Database for MariaDB 中的性能建议功能
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 05bc0f1ae50f74cc7c8ab2b236d73bdb4a6fe787
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a20b8a43c8955e1afea7a7157e3e73425fb0d806
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84484716"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540461"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的性能建议
 
@@ -35,7 +35,7 @@ ms.locfileid: "84484716"
 
 “建议”窗口会显示找到的建议的列表，以及生成该建议的相关查询 ID。 有了查询 ID，就可以使用 [mysql.query_store](concepts-query-store.md#mysqlquery_store) 视图来详细了解查询。
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="性能建议登陆页面":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="性能建议新页":::
 
 不会自动应用建议。 若要应用建议，请复制查询文本并从所选的客户端中运行。 记住通过测试和监视来评估建议。
 
@@ -47,7 +47,7 @@ ms.locfileid: "84484716"
 
 ### <a name="query-recommendations"></a>查询建议
 
-查询建议建议对工作负载中的查询进行优化和重写。 通过识别 MariaDB 查询反模式并对其进行语法修复，可以改进耗时查询的性能。 此建议类型需要启用“查询存储”。 查询存储收集查询信息并提供详细的查询运行时和频率统计信息，供分析用来提出建议。
+查询建议建议对工作负载中的查询进行优化和重写。 通过识别 MariaDB 查询反模式并按句法修复它们，可以改进耗时查询的性能。 此建议类型需要启用“查询存储”。 查询存储收集查询信息并提供详细的查询运行时和频率统计信息，供分析用来提出建议。
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解如何在 Azure Database for MariaDB 中进行[监视和优化](concepts-monitoring.md)。

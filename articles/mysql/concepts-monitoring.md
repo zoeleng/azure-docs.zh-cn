@@ -1,18 +1,18 @@
 ---
 title: 监视 - Azure Database for MySQL
 description: 本文介绍了用于对 Azure Database for MySQL 进行监视并发出警报的指标，包括 CPU、存储和连接统计信息。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: b2670862814495ab04f92d8f34a757d3ede6cf4a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5b818068c2aab045b46b34d408a93b7cb3df15c7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546868"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537690"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MySQL 提供了各种指标来帮助用户深入了解服务器的行为。
@@ -36,13 +36,13 @@ ms.locfileid: "92546868"
 |storage_limit|存储限制|字节|此服务器的最大存储。|
 |active_connections|活动连接数|计数|服务器的活动连接数。|
 |connections_failed|失败的连接数|计数|服务器的失败连接数。|
-|seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后源服务器的秒数。 （不适用于基本层服务器）|
+|seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后于源服务器的秒数。 （不适用于基本层服务器）|
 |network_bytes_egress|网络传出|字节|跨活动连接的网络传出。|
 |network_bytes_ingress|网络传入|字节|跨活动连接的网络传入。|
 |backup_storage_used|使用的备份存储|字节|已使用的备份存储量。 此指标表示根据为服务器设置的备份保留期保留的所有完整数据库备份、差异备份和日志备份所消耗的存储的总和。 备份的频率由服务管理，并在[概念文章](concepts-backup.md)中进行了说明。 对于异地冗余存储，备份存储使用率是本地冗余存储的两倍。|
 
 ## <a name="server-logs"></a>服务器日志
-可以在服务器上启用慢查询和审核日志。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要了解有关日志记录的详细信息，请访问 [审核日志](concepts-audit-logs.md) 和 [慢速查询日志](concepts-server-logs.md) 文章。
+可以在服务器上启用慢查询和审核日志。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要详细了解日志记录，请访问[审核日志](concepts-audit-logs.md)和[慢查询日志](concepts-server-logs.md)这两篇文章。
 
 ## <a name="query-store"></a>查询存储
 [查询存储](concepts-query-store.md)是一项跟踪一段时间内查询性能（包括查询运行时统计信息和等待事件）的功能。 此功能将查询运行时性能信息保留在 **mysql** 架构中。 你可以通过各种配置旋钮控制数据的收集和存储。

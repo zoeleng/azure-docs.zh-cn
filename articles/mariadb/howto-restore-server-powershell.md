@@ -1,19 +1,19 @@
 ---
 title: 备份和还原 - Azure PowerShell - Azure Database for MariaDB
 description: 了解如何使用 Azure PowerShell 在 Azure Database for MariaDB 中备份和还原服务器。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0207be2c983fd986d5852403e36462d2d7d2cdda
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424508"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539594"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>如何使用 PowerShell 来备份和还原 Azure Database for MariaDB 服务器
 
@@ -106,7 +106,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-此示例将在 "美国东部" 区域中创建一个名为 **mydemoserver-georestored** 的新服务器，该服务器属于 **myresourcegroup**。 它是第 5 代常规用途服务器，具有 8 个 vCore。 该服务器是基于也在资源组 myresourcegroup 中的 mydemoserver 的异地冗余备份创建的 。
+此示例将在 "美国东部" 区域中创建一个名为 **mydemoserver-georestored** 的新服务器，该服务器属于 **myresourcegroup** 。 它是第 5 代常规用途服务器，具有 8 个 vCore。 该服务器是基于也在资源组 myresourcegroup 中的 mydemoserver 的异地冗余备份创建的 。
 
 若要在与现有服务器不同的资源组创建新服务器，请使用 ResourceGroupName 参数指定新资源组的名称，如以下示例所示：
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 50e4fe1e2573c8566bbdf5697bb81b025a00935c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87cb0f93201b5111e4d5e954ee62451405436fa0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80131740"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538721"
 ---
 # <a name="detect-popular-brands-in-images"></a>检测图像中的流行品牌
 
@@ -74,7 +74,7 @@ ms.locfileid: "80131740"
 
 ## <a name="use-the-api"></a>使用 API
 
-品牌检测功能属于[分析图像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `Brands` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"brands"` 部分内容的字符串。
+品牌检测功能属于[分析图像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `Brands` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"brands"` 部分内容的字符串。
 
 * [快速入门：计算机视觉 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)

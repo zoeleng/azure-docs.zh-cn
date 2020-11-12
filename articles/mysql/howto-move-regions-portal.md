@@ -1,18 +1,18 @@
 ---
 title: 移动 Azure 区域 - Azure 门户 - Azure Database for MySQL
 description: 使用只读副本和 Azure 门户将 Azure Database for MySQL 服务器从一个 Azure 区域移到另一个 Azure 区域。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 279526d31adf25d1f4cd5a6d9b15519679bd88b9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546324"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540223"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>使用 Azure 门户将 Azure Database for MySQL 服务器移到另一个区域
 
@@ -42,7 +42,7 @@ ms.locfileid: "92546324"
 1. 选择“确定”以确认创建该副本。 在创建副本的过程中，数据将从源服务器复制到副本。 创建时间可能会持续几分钟或更长时间，这与源服务器的大小成正比。
 
 >[!NOTE]
-> 创建副本时，它不会继承源服务器的 VNet 服务终结点。 必须单独为副本设置这些规则。
+> 创建副本时，该副本不会继承源服务器的 VNet 服务终结点。 必须单独为副本设置这些规则。
 
 ## <a name="move"></a>移动
 

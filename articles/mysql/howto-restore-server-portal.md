@@ -1,17 +1,17 @@
 ---
 title: 备份和还原 - Azure 门户 - Azure Database for MySQL
 description: 本文介绍如何使用 Azure 门户在 Azure Database for MySQL 中还原服务器。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bc31cf8fee2669634ff366caac77cb090baf075
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902792"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539135"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中备份和还原服务器
 
@@ -30,7 +30,7 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 > 创建服务器后，无法在异地冗余或本地冗余之间切换服务器冗余类型。
 >
 
-通过 Azure 门户创建服务器时，在“定价层”窗口中为服务器选择是进行**本地冗余**备份还是**异地冗余**备份。 也在此窗口中选择“备份保留期” - 希望存储服务器备份多长时间（天数）。
+通过 Azure 门户创建服务器时，在“定价层”窗口中为服务器选择是进行 **本地冗余** 备份还是 **异地冗余** 备份。 也在此窗口中选择“备份保留期” - 希望存储服务器备份多长时间（天数）。
 
    :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="定价层 - 选择备份冗余":::
 
@@ -39,9 +39,9 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 可以通过以下步骤更改服务器上的备份保留期：
 1. 登录到 [Azure 门户](https://portal.azure.com/)。
 2. 选择 Azure Database for MySQL 服务器。 此操作将打开“概述”页。
-3. 在“设置”下，从菜单中选择“定价层”。 使用滑块可以根据需要更改**备份保留期**（7 天到 35 天）。
+3. 在“设置”下，从菜单中选择“定价层”。 使用滑块可以根据需要更改 **备份保留期** （7 天到 35 天）。
 在下面的屏幕截图中，该项已增加到 34 天。
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="定价层 - 选择备份冗余":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="增加的备份保留期":::
 
 4. 单击“确定”确认更改。
 
@@ -57,15 +57,15 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 2. 在服务器“概述”页的工具栏中，选择“还原” 。
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="定价层 - 选择备份冗余":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for MySQL - 概述 -“还原”按钮":::
 
 3. 使用必需信息填写“还原”窗体：
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="定价层 - 选择备份冗余":::
-   - **还原点**：选择要还原到的时间点。
-   - **目标服务器**：提供新服务器的名称。
-   - **位置**：不可选择区域。 默认情况下，此值与源服务器相同。
-   - **定价层**：执行时间点还原时，无法更改这些参数。 此值与源服务器相同。 
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - 还原信息":::
+   - **还原点** ：选择要还原到的时间点。
+   - **目标服务器** ：提供新服务器的名称。
+   - **位置** ：不可选择区域。 默认情况下，此值与源服务器相同。
+   - **定价层** ：执行时间点还原时，无法更改这些参数。 此值与源服务器相同。 
 
 4. 单击“确定”，将服务器还原到某个时间点。 
 
@@ -86,13 +86,13 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 1. 选择门户左上角的“创建资源”按钮 (+)。 选择“数据库” > “Azure Database for MySQL”。
 
-   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="定价层 - 选择备份冗余":::
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="导航到 Azure Database for MySQL。":::
  
 2. 提供新服务器的订阅、资源组和名称。 
 
 3. 选择“备份”作为“数据源”。 此操作将加载一个下拉列表，其中提供已启用“异地冗余备份”的服务器列表。
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="定价层 - 选择备份冗余":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="选择数据源。":::
     
    > [!NOTE]
    > 首次创建服务器时，该服务器可能不会立即可用于异地还原。 填充必需的元数据可能需要几个小时。
@@ -100,21 +100,21 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 4. 选择“备份”下拉列表。
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="定价层 - 选择备份冗余":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="选择“备份”下拉列表。":::
 
 5. 选择要从其还原的源服务器。
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="定价层 - 选择备份冗余":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="选择备份。":::
 
 6. 服务器将默认设置为“vCore 数”、“备份保留期”、“备份冗余选项”、“引擎版本”和“管理凭据”的值。 选择“继续”。 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="定价层 - 选择备份冗余":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="继续进行备份。":::
 
-7. 根据需要填写窗体的其余部分。 可以选择任意**位置**。
+7. 根据需要填写窗体的其余部分。 可以选择任意 **位置** 。
 
-    选择位置后，可以选择“配置服务器”以更新“计算代系”（如果在已选择的区域中可用）、“vCore 数”、“备份保留期”和“备份冗余选项”。 不支持在还原过程中更改**定价层**（“基本”、“常规用途”或“内存优化”）或**存储**大小。
+    选择位置后，可以选择“配置服务器”以更新“计算代系”（如果在已选择的区域中可用）、“vCore 数”、“备份保留期”和“备份冗余选项”。 不支持在还原过程中更改 **定价层** （“基本”、“常规用途”或“内存优化”）或 **存储** 大小。
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="定价层 - 选择备份冗余"::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="填写表单。"::: 
 
 8. 选择“查看 + 创建”，查看所选内容。 
 

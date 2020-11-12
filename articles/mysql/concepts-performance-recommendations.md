@@ -1,17 +1,17 @@
 ---
 title: 性能建议 - Azure Database for MySQL
 description: 本文介绍 Azure Database for MySQL 中的“性能建议”功能
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1445ad3d6be020326c34d60c555c24c435548fd0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485210"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537639"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的性能建议
 
@@ -27,7 +27,7 @@ ms.locfileid: "84485210"
 
 [性能建议](concepts-performance-recommendations.md)功能跨服务器分析工作负载以标识可能会提高性能的索引。
 
-从 MySQL 服务器的 Azure 门户页菜单栏的“智能性能”部分打开**性能建议**。
+从 MySQL 服务器的 Azure 门户页菜单栏的“智能性能”部分打开 **性能建议** 。
 
 :::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="性能建议登陆页面":::
 
@@ -35,7 +35,7 @@ ms.locfileid: "84485210"
 
 “建议”窗口会显示找到的建议的列表，以及生成该建议的相关查询 ID。 有了查询 ID，就可以使用 [mysql.query_store](concepts-query-store.md#mysqlquery_store) 视图来详细了解查询。
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="性能建议登陆页面":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="性能建议新页":::
 
 不会自动应用建议。 若要应用建议，请复制查询文本并从所选的客户端中运行。 记住通过测试和监视来评估建议。
 

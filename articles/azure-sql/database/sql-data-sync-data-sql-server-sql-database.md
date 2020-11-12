@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791420"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540614"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>什么是 Azure SQL 数据同步？
 
@@ -137,7 +137,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 - 对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
 - 表名不能包含可打印字符：！ "# $%" ( ) * +-space
 - 不支持 Azure Active Directory 身份验证。
-- 如果存在具有相同名称但不同架构的表 (例如，dbo. customers 和 sales。客户) 只能将其中一个表添加到同步中。
+- 如果存在名称相同但架构不同的表（例如，dbo.customers 和 sales.customers），则只能将其中一个表添加到同步中。
 - 不支持具有用户定义数据类型的列
 - 不支持在不同订阅之间移动服务器。 
 
@@ -166,7 +166,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 | 同步组中的表                                          | 500                    | 创建多个同步组 |
 | 同步组中的表列                              | 1000                   |                             |
 | 表中的数据行大小                                        | 24MB                  |                             |
-| 最小同步频率间隔                                 | 5 分钟              |                             |
+| 自上次同步开始后 (的最小同步频率间隔)      | 5 分钟              |                             |
 
 > [!NOTE]
 > 如果只有一个同步组，则单个同步组中最多可能有 30 个终结点。 如果有多个同步组，则所有同步组中的终结点总数不能超过 30。 如果数据库属于多个同步组，则该数据库计算为多个终结点，而不是一个。

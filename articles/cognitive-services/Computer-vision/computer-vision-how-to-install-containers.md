@@ -12,12 +12,12 @@ ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: 本地、OCR、Docker、容器
-ms.openlocfilehash: 07440b99d887ee6cb4b6d505ed7fb79f4c12c784
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 33fc13722a4d0f26c71aa85809a605188b610014
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677221"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539003"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a> (预览中安装读取 OCR Docker 容器)  
 
@@ -52,9 +52,9 @@ Read 3.1-preview 容器提供：
 
 |必须|目的|
 |--|--|
-|Docker 引擎| 需要在[主计算机](#the-host-computer)上安装 Docker 引擎。 Docker 提供用于在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上配置 Docker 环境的包。 有关 Docker 和容器的基础知识，请参阅 [Docker 概述](https://docs.docker.com/engine/docker-overview/)。<br><br> 必须将 Docker 配置为允许容器连接 Azure 并向其发送账单数据。 <br><br>  在 Windows 上，还必须将 Docker 配置为支持 Linux 容器。<br><br>|
+|Docker 引擎| 需要在[主计算机](#the-host-computer)上安装 Docker 引擎。 Docker 提供用于在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上配置 Docker 环境的包。 有关 Docker 和容器的基础知识，请参阅 [Docker 概述](https://docs.docker.com/engine/docker-overview/)。<br><br> 必须将 Docker 配置为允许容器连接 Azure 并向其发送账单数据。 <br><br> 在 Windows 上，还必须将 Docker 配置为支持 Linux 容器。<br><br>|
 |熟悉 Docker | 应对 Docker 概念有基本的了解，例如注册表、存储库、容器和容器映像，以及基本的 `docker` 命令的知识。| 
-|计算机视觉资源 |若要使用容器，必须具有：<br><br>Azure 计算机视觉  资源和关联的 API 密钥及终结点 URI。 这两个值都可以在资源的“概述”和“密钥”页上找到，并且是启动容器所必需的。<br><br><bpt id="p1">**</bpt>{API_KEY}<ept id="p1">**</ept>: One of the two available resource keys on the <bpt id="p2">**</bpt>Keys<ept id="p2">**</ept> page<br><br><bpt id="p1">**</bpt>{ENDPOINT_URI}<ept id="p1">**</ept>: The endpoint as provided on the <bpt id="p2">**</bpt>Overview<ept id="p2">**</ept> page|
+|计算机视觉资源 |若要使用容器，必须具有：<br><br>Azure 计算机视觉资源和关联的 API 密钥及终结点 URI。 这两个值都可以在资源的“概述”和“密钥”页上找到，并且是启动容器所必需的。<br><br>**{API_KEY}** ：“密钥”页上提供的两个可用资源密钥中的一个<br><br>**{ENDPOINT_URI}** ：“概述”页上提供的终结点|
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/cognitive-services/)。
 
@@ -72,14 +72,14 @@ Read 3.1-preview 容器提供：
 
 ### <a name="advanced-vector-extension-support"></a>高级矢量扩展支持
 
-主  计算机是运行 docker 容器的计算机。 主机 *必须支持* (AVX2) 的 [高级矢量扩展](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) 。 可使用以下命令检查 Linux 主机是否提供 AVX2 支持：
+主计算机是运行 docker 容器的计算机。 主机 *必须支持* (AVX2) 的 [高级矢量扩展](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) 。 可使用以下命令检查 Linux 主机是否提供 AVX2 支持：
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 
 > [!WARNING]
-> 需要  主计算机来支持 AVX2。 如果没有 AVX2 支持，容器将无法  正常运行。
+> 需要主计算机来支持 AVX2。 如果没有 AVX2 支持，容器将无法正常运行。
 
 ### <a name="container-requirements-and-recommendations"></a>容器要求和建议
 
@@ -207,11 +207,11 @@ ApiKey={API_KEY}
 可以同时使用 `POST /vision/v3.1/read/analyze` 和 `GET /vision/v3.1/read/operations/{operationId}` 操作来异步读取图像，类似于计算机视觉服务使用相应 REST 操作的方式。 异步 POST 方法将返回一个 `operationId`，它用作 HTTP GET 请求的标识符。
 
 
-在 Swagger UI 中，选择 `asyncBatchAnalyze` 以在浏览器中将其展开。 然后选择“试用”  > “选择文件”  。 在本示例中，我们将使用以下图像：
+在 Swagger UI 中，选择 `asyncBatchAnalyze` 以在浏览器中将其展开。 然后选择“试用” > “选择文件”。 在本示例中，我们将使用以下图像：
 
 ![制表符与空格](media/tabs-vs-spaces.png)
 
-异步 POST 成功运行后，它会返回 HTTP 202  状态代码。 作为响应的一部分，有一个 `operation-location` 标头，其中包含请求的结果终结点。
+异步 POST 成功运行后，它会返回 HTTP 202 状态代码。 作为响应的一部分，有一个 `operation-location` 标头，其中包含请求的结果终结点。
 
 ```http
  content-length: 0
@@ -284,11 +284,11 @@ ApiKey={API_KEY}
 
 可以同时使用 `POST /vision/v2.0/read/core/asyncBatchAnalyze` 和 `GET /vision/v2.0/read/operations/{operationId}` 操作来异步读取图像，类似于计算机视觉服务使用相应 REST 操作的方式。 异步 POST 方法将返回一个 `operationId`，它用作 HTTP GET 请求的标识符。
 
-在 Swagger UI 中，选择 `asyncBatchAnalyze` 以在浏览器中将其展开。 然后选择“试用”  > “选择文件”  。 在本示例中，我们将使用以下图像：
+在 Swagger UI 中，选择 `asyncBatchAnalyze` 以在浏览器中将其展开。 然后选择“试用” > “选择文件”。 在本示例中，我们将使用以下图像：
 
 ![制表符与空格](media/tabs-vs-spaces.png)
 
-异步 POST 成功运行后，它会返回 HTTP 202  状态代码。 作为响应的一部分，有一个 `operation-location` 标头，其中包含请求的结果终结点。
+异步 POST 成功运行后，它会返回 HTTP 202 状态代码。 作为响应的一部分，有一个 `operation-location` 标头，其中包含请求的结果终结点。
 
 ```http
  content-length: 0
@@ -370,7 +370,7 @@ ApiKey={API_KEY}
 
 JSON 响应对象具有与异步版本相同的对象图。 如果你是 JavaScript 用户并且需要类型安全，请考虑使用 TypeScript 来强制转换 JSON 响应。
 
-有关示例用例，请  以直观显示其易用性。
+有关示例用例，请<a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">在此处查看 TypeScript 沙盒<span class="docon docon-navigate-external x-hidden-focus"></span></a>，然后选择“运行”以直观显示其易用性。
 
 ## <a name="stop-the-container"></a>停止容器
 
@@ -411,6 +411,6 @@ JSON 响应对象具有与异步版本相同的对象图。 如果你是 JavaScr
 
 * 查看[配置容器](computer-vision-resource-container-config.md)了解配置设置
 * 查看[计算机视觉概述](overview.md)，了解有关识别印刷文本和手写文本的详细信息
-* 有关该容器支持的方法的详细信息，请参阅[计算机视觉 API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)。
+* 有关该容器支持的方法的详细信息，请参阅[计算机视觉 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)。
 * 参阅[常见问题解答 (FAQ)](FAQ.md)，以解决与计算机视觉功能相关的问题。
 * 使用更多[认知服务容器](../cognitive-services-container-support.md)

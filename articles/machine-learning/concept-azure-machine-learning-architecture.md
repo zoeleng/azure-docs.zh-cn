@@ -1,7 +1,7 @@
 ---
 title: 体系结构和重要概念
 titleSuffix: Azure Machine Learning
-description: 了解组成 Azure 机器学习的体系结构、术语和概念。
+description: 本文概要介绍了构成 Azure 机器学习的体系结构、术语和概念。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444776"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540169"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure 机器学习的工作原理：体系结构和概念
 
@@ -267,6 +267,18 @@ Azure IoT Edge 将确保模块正在运行并且监视托管它的设备。
 使用[机器学习管道](concept-ml-pipelines.md)可以创建和管理将各个机器学习阶段整合到一起的工作流。 例如，管道可以包括数据准备、模型训练、模型部署以及推理/评分阶段。 每个阶段可以包含多个步骤，每个步骤都能够以无人参与方式在各种计算目标中运行。 
 
 管道步骤可重用，如果这些步骤的输出没有更改，则无需重新运行前面的步骤即可运行。 例如，如果数据未更改，你可以重新训练模型，不需要重新运行成本高昂的数据准备步骤。 管道还使数据科学家能够展开协作，同时可以处理机器学习工作流的不同环节。
+
+## <a name="monitoring-and-logging"></a>监视和日志记录
+
+Azure 机器学习提供以下监视和日志记录功能：
+
+* 对于 __数据科学家__ ，你可以监视你的实验和记录来自定型运行的信息。 有关详细信息，请参阅以下文章：
+   * [启动、监视和取消训练运行](how-to-manage-runs.md)
+   * [记录训练运行的指标](how-to-track-experiments.md)
+   * [使用 MLflow 对试验进行跟踪](how-to-use-mlflow.md)
+   * [使用 TensorBoard 将运行可视化](how-to-monitor-tensorboard.md)
+* 对于 __管理员__ ，你可以使用 Azure Monitor 来监视有关工作区、相关 Azure 资源以及事件（例如资源创建和删除）的信息。 有关详细信息，请参阅 [如何监视 Azure 机器学习](monitor-azure-machine-learning.md)。
+* 对于 __DevOps__ 或 __MLOps__ ，你可以监视部署为 web 服务或 IoT Edge 模块的模型生成的信息，以确定部署的问题并收集提交给该服务的数据。 有关详细信息，请参阅 [收集模型数据](how-to-enable-data-collection.md) 和 [监视器 Application Insights](how-to-enable-app-insights.md)。
 
 ## <a name="interacting-with-your-workspace"></a>与工作区交互
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441777"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539645"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure 机器学习的企业安全和管理
 
@@ -123,10 +123,11 @@ Azure 机器学习使用各种计算资源和数据存储区。 若要详细了�
 
 有多个 Azure 机器学习的监视方案，具体取决于角色和所监视的内容。
 
-| 角色 | 要使用的监视 |
-| ---- | ----- |
-| Admin、DevOps、MLOps | [Azure Monitor 指标](#azure-monitor)、 [活动日志](#activity-log)、 [漏洞扫描](#vulnerability-scanning) |
-| 数据科研，MLOps | [监视运行](#monitor-runs) |
+| 角色 | 要使用的监视 | 说明 |
+| ---- | ----- | ----- |
+| Admin、DevOps、MLOps | [Azure Monitor 指标](#azure-monitor)、 [活动日志](#activity-log)、 [漏洞扫描](#vulnerability-scanning) | 服务级别信息 |
+| 数据科研，MLOps | [监视运行](#monitor-runs) | 训练运行期间记录的信息 |
+| MLOps | [收集模型数据](how-to-enable-data-collection.md)， [用 Application Insights 进行监视](how-to-enable-app-insights.md) | 部署为 web 服务或 IoT Edge 模块的模型记录的信息|
 
 ### <a name="monitor-runs"></a>监视运行
 

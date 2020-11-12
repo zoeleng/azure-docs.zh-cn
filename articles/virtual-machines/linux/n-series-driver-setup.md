@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b80a09c82b1e932fb93b4c85ee250773aa7d3c38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517253"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539747"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -98,7 +98,9 @@ sudo reboot
   
    sudo reboot
 
-2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required.
+
+Skip this step if you plan to use CentOS 7.8(or higher) as LIS is no longer required for these versions.
 
    ```bash
    wget https://aka.ms/lis
@@ -144,13 +146,13 @@ sudo reboot
 
 要查询 GPU 设备状态，请建立到 VM 的 SSH 连接，并运行与驱动程序一起安装的 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 命令行实用工具。 
 
-如果安装了驱动程序，将看到如下输出。 请注意，除非当前正在 VM 上运行 GPU 工作负荷，否则 GPU-Util 将显示 0%。**** 驱动程序版本和 GPU 详细信息可能与所示的内容不同。
+如果安装了驱动程序，将看到如下输出。 请注意，除非当前正在 VM 上运行 GPU 工作负荷，否则 GPU-Util 将显示 0%。 驱动程序版本和 GPU 详细信息可能与所示的内容不同。
 
 ![NVIDIA 设备状态](./media/n-series-driver-setup/smi.png)
 
 ## <a name="rdma-network-connectivity"></a>RDMA 网络连接
 
-可以在同一可用性集或虚拟机 (VM) 规模集的单个放置组中部署的支持 RDMA 的 N 系列 VM（例如 NC24r）上启用 RDMA 网络连接。 对于使用 Intel MPI 5.x 或更高版本运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 其他要求如下：
+可以在支持 RDMA 的 N 系列 Vm 上启用 RDMA 网络连接，例如，在同一可用性集中部署 NC24r，或在虚拟机 (VM) 规模集内的单个放置组中启用。 对于使用 Intel MPI 5.x 或更高版本运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 其他要求如下：
 
 ### <a name="distributions"></a>分发
 
@@ -264,7 +266,7 @@ sudo reboot
    sudo yum install hyperv-daemons
    ```
 
-2. 禁用 Nouveau 内核驱动程序，该驱动程序与 NVIDIA 驱动程序不兼容。 （只能在 NV 或 NV2 VM 上使用 NVIDIA 驱动程序。）若要执行此操作，请在 `/etc/modprobe.d` 中创建一个名为 `nouveau.conf` 的文件，其中包含以下内容：
+2. 禁用 Nouveau 内核驱动程序，该驱动程序与 NVIDIA 驱动程序不兼容。  (仅使用 NV 或 NV3 Vm 上的 NVIDIA 驱动程序。 ) 为此，请使用 `/etc/modprobe.d` 以下内容在名为的文件中创建一个文件 `nouveau.conf` ：
 
    ```
    blacklist nouveau
@@ -272,7 +274,9 @@ sudo reboot
    blacklist lbm-nouveau
    ```
  
-3. 重新启动 VM、重新进行连接并安装最新[适用于 Hyper-V 和 Azure 的 Linux 集成服务](https://www.microsoft.com/download/details.aspx?id=55106)。
+3. 重新启动 VM、重新进行连接并安装最新[适用于 Hyper-V 和 Azure 的 Linux 集成服务](https://www.microsoft.com/download/details.aspx?id=55106)。 验证 lspci 的结果，检查是否需要 .LIS。 如果所有 GPU 设备都按预期列出，则不需要安装 .LIS。 
+
+跳过此步骤是使用 CentOS/RHEL 7.8 和更高版本。
  
    ```bash
    wget https://aka.ms/lis
@@ -325,7 +329,7 @@ sudo reboot
 
 要查询 GPU 设备状态，请建立到 VM 的 SSH 连接，并运行与驱动程序一起安装的 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 命令行实用工具。 
 
-如果安装了驱动程序，将看到如下输出。 请注意，除非当前正在 VM 上运行 GPU 工作负荷，否则 GPU-Util 将显示 0%。**** 驱动程序版本和 GPU 详细信息可能与所示的内容不同。
+如果安装了驱动程序，将看到如下输出。 请注意，除非当前正在 VM 上运行 GPU 工作负荷，否则 GPU-Util 将显示 0%。 驱动程序版本和 GPU 详细信息可能与所示的内容不同。
 
 ![屏幕截图，显示在查询 GPU 设备状态时的输出。](./media/n-series-driver-setup/smi-nv.png)
  
@@ -373,6 +377,7 @@ fi
 
 * 可以使用 `nvidia-smi` 设置持久性模式，以便在需要查询卡时该命令的输出更快。 若要设置持久性模式，请执行 `nvidia-smi -pm 1`。 请注意，如果重启 VM，此模式设置将消失。 你可以始终将该模式设置编写为在启动时执行。
 * 如果已将 NVIDIA CUDA 驱动程序更新到最新版本，并且发现 RDMA 连接不再工作，请[重新安装 RDMA 驱动程序](#rdma-network-connectivity)以重新建立该连接。 
+* 如果某个 CentOS/RHEL OS 版本 (或内核) 不支持用于 .LIS，则会引发错误 "不支持的内核版本"。 请报告此错误以及 OS 和内核版本。
 
 ## <a name="next-steps"></a>后续步骤
 

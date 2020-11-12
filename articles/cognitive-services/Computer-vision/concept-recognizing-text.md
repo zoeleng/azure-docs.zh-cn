@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 4eb2835bd09e6548149ee90cb7232bf230de0300
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489142"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538744"
 ---
 # <a name="optical-character-recognition-ocr"></a>光学字符识别 (OCR)
 
@@ -186,7 +186,7 @@ Azure 的计算机视觉 API 包含光学字符识别 (OCR) 功能，这些功�
 
 ## <a name="ocr-api"></a>OCR API
 
-[OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 使用较旧的识别模式，仅支持图像，且以同步方式执行，并立即返回检测到的文本。 请参阅 [OCR 支持的语言](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) ，然后阅读 API。
+[OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) 使用较旧的识别模式，仅支持图像，且以同步方式执行，并立即返回检测到的文本。 请参阅 [OCR 支持的语言](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) ，然后阅读 API。
 
 ## <a name="data-privacy-and-security"></a>数据隐私和安全性
 

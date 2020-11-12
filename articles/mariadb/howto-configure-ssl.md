@@ -1,18 +1,18 @@
 ---
 title: 配置 SSL - Azure Database for MariaDB
 description: 介绍了如何正确配置 Azure Database for MariaDB 和关联的应用程序，以正确使用 SSL 连接
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1b7127fd4807e1ddd3d5181d73c7f8e77f10cf77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f505ad3090470d2afeb9b16ffbe5c872cb9586b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055979"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538098"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MariaDB
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Database for MariaDB 服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
@@ -24,7 +24,7 @@ Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Databa
 **对于 Microsoft Internet Explorer 和 Microsoft Edge：** 下载完成之后，将证书重命名为 BaltimoreCyberTrustRoot.crt.pem。
 
 > [!IMPORTANT] 
-> SSL 根证书设置为在10月26日开始过期，2020 (10/26/2020) 。 请更新您的应用程序以使用 [新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅 [计划的证书更新](concepts-certificate-rotation.md)
+> SSL 根证书设置为 2020 年 10 月 26 日 (2020/10/26) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划内证书更新](concepts-certificate-rotation.md)
 
 请参阅以下链接，了解主权云中服务器的证书： [Azure 政府](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)版、 [azure 中国](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)版和 [azure 德国](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt)版。
 
@@ -37,7 +37,7 @@ Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Databa
 
 1. 将“使用 SSL”  字段更新为“必需”。
 
-1. 在“SSL CA 文件:”字段中输入 BaltimoreCyberTrustRoot.crt.pem 的文件位置********。 
+1. 在“SSL CA 文件:”字段中输入 BaltimoreCyberTrustRoot.crt.pem 的文件位置。 
     
     ![保存 SSL 配置](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
@@ -56,11 +56,11 @@ mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p
 ## <a name="enforcing-ssl-connections-in-azure"></a>在 Azure 中强制实施 SSL 连接 
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 门户
-在 Azure 门户中，访问 Azure Database for MariaDB 服务器，并单击“连接安全性”  。 使用切换按钮来启用或禁用“强制实施 SSL 连接”设置，并单击“保存”   。 Microsoft 建议始终启用“强制实施 SSL 连接”设置，以增强安全性****。
-![enable-MariaDB 服务器的 ssl](./media/howto-configure-ssl/enable-ssl.png)
+在 Azure 门户中，访问 Azure Database for MariaDB 服务器，并单击“连接安全性”  。 使用切换按钮来启用或禁用“强制实施 SSL 连接”设置，并单击“保存” 。 Microsoft 建议始终启用“强制实施 SSL 连接”设置，以增强安全性。
+![适用于 MariaDB 服务器的 enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI
-可以通过在 Azure CLI 中分别使用“Enabled”或“Disabled”值来启用或禁用“ssl-enforcement”参数  。
+可以通过在 Azure CLI 中分别使用“Enabled”或“Disabled”值来启用或禁用“ssl-enforcement”参数。
 ```azurecli-interactive
 az mariadb server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
@@ -70,7 +70,7 @@ az mariadb server update --resource-group myresource --name mydemoserver --ssl-e
 ```sql
 status
 ```
-查看输出以确认连接是否已加密，如果已加密，输出应显示为：“SSL:  使用中的密码为 AES256-SHA” 
+查看输出以确认连接是否已加密，如果已加密，输出应显示为：“SSL: 使用中的密码为 AES256-SHA” 
 
 ## <a name="sample-code"></a>代码示例
 若要从应用程序通过 SSL 与 Azure Database for MariaDB 建立安全连接，请参阅以下代码示例：

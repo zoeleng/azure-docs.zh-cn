@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445619"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540121"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>创建和管理 Azure 机器学习工作区 
 
@@ -109,7 +109,7 @@ ms.locfileid: "94445619"
 
 如果在访问订阅时遇到问题，请参阅为 [Azure 机器学习资源和工作流设置身份验证](how-to-setup-authentication.md)，以及 Azure 机器学习笔记本 [中的身份验证](https://aka.ms/aml-notebook-auth) 。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. 使用 Azure 订阅的凭据登录到 [Azure 门户](https://portal.azure.com/)。 
 
@@ -157,7 +157,7 @@ ms.locfileid: "94445619"
 
 Azure 机器学习 Python SDK 提供了 [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) 类，该类可用于 [工作区。创建 ( # B1 ](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) 来创建具有专用终结点的工作区。 此类需要现有虚拟网络。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. 默认的网络配置是使用公用 __终结点，该终结点__ 可在公共 internet 上访问。 若要将对工作区的访问权限限制到已创建的 Azure 虚拟网络，可以改为选择 " __专用终结点__ " (预览 ") 作为 __连接方法__ ，然后使用" __+ 添加__ "配置终结点。   
 
@@ -181,7 +181,7 @@ Azure 机器学习 Python SDK 提供了 [PrivateEndpointConfig](/python/api/azur
 
 1. 在 [Azure 门户](https://portal.azure.com)中，选择包含工作区的资源组。 然后选择名为 __privatelink.api.azureml.ms__ 的专用 DNS 区域资源
 2. 在 " __设置__ " 中，选择 " __虚拟网络链接__ "。
-3. 选择“添加”  。 从 " __添加虚拟网络" 链接__ 页，提供一个唯一的 __链接名称__ ，然后选择要添加的 __虚拟网络__ 。 选择 __"确定"__ 以添加网络链接。
+3. 选择 __添加__ 。 从 " __添加虚拟网络" 链接__ 页，提供一个唯一的 __链接名称__ ，然后选择要添加的 __虚拟网络__ 。 选择 __"确定"__ 以添加网络链接。
 
 有关详细信息，请参阅 [Azure 专用终结点 DNS 配置](../private-link/private-endpoint-dns.md)。
 
@@ -191,7 +191,7 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 
 ### <a name="advanced"></a>高级
 
-默认情况下，工作区的指标和元数据存储在 Microsoft 维护的 Azure Cosmos DB 实例中。 此数据使用 Microsoft 托管的密钥进行加密。
+默认情况下，工作区的元数据存储在 Microsoft 维护的 Azure Cosmos DB 实例中。 此数据使用 Microsoft 托管的密钥进行加密。
 
 若要限制 Microsoft 在你的工作区中收集的数据，请在门户中选择 " __高业务影响" 工作区__ ，或 `hbi_workspace=true ` 在 Python 中进行设置。 有关此设置的详细信息，请参阅 [静态加密](concept-data-encryption.md#encryption-at-rest)。
 
@@ -200,7 +200,7 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 
 #### <a name="use-your-own-key"></a>使用自己的密钥
 
-你可以提供自己的密钥来加密数据。 这样做会创建在 Azure 订阅中存储指标和元数据的 Azure Cosmos DB 实例。
+你可以提供自己的密钥来加密数据。 这样做会创建在 Azure 订阅中存储元数据的 Azure Cosmos DB 实例。
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -236,7 +236,7 @@ from azureml.core import Workspace
 
 ```
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. 选择 " __客户管理的密钥__ "，然后选择 __"单击以选择密钥__ "。
 
@@ -260,7 +260,7 @@ from azureml.core import Workspace
 ws.write_config()
 ```
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 如果计划使用引用此工作区的本地环境中的代码，请从工作区的“概述”部分中选择“下载 config.json”。  
 
@@ -316,7 +316,7 @@ from azureml.core import Workspace
 Workspace.list('<subscription-id>')
 ```
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. 登录到 [Azure 门户](https://portal.azure.com/)。
 
@@ -347,7 +347,7 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
 
 默认操作是不删除与工作区关联的资源，例如容器注册表、存储帐户、密钥保管库和 application insights。  `delete_dependent_resources`如果设置为 True，则也会删除这些资源。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 [Azure 门户](https://portal.azure.com/)中，选择要删除的工作区顶部的“删除”。
 

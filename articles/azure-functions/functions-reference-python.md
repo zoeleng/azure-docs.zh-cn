@@ -4,12 +4,12 @@ description: 了解如何使用 Pythong 开发函数
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506067"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539067"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -723,6 +723,8 @@ Python 函数应用完全支持 CORS。
 * [HTTP 和 Webhook 绑定](functions-bindings-http-webhook.md)
 * [存储绑定](functions-bindings-storage-queue.md)
 * [计时器触发器](functions-bindings-timer.md)
+
+[存在问题？请告诉我们。](https://aka.ms/python-functions-ref-survey)
 
 
 [HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true

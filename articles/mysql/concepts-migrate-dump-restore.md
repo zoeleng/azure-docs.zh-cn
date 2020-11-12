@@ -1,17 +1,17 @@
 ---
 title: 使用转储和还原进行迁移 - Azure Database for MySQL
 description: 本文介绍使用 mysqldump、MySQL Workbench 和 PHPMyAdmin 等工具在 Azure Database for MySQL 中备份和还原数据库的两种常见方式。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128957"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537911"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用转储和还原将 MySQL 数据库迁移到 Azure Database for MySQL
 
@@ -73,7 +73,7 @@ ms.locfileid: "93128957"
 
 将连接信息添加到 MySQL Workbench。
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="在 Azure 门户中找到连接信息":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="MySQL Workbench 连接字符串":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>准备目标 Azure Database for MySQL 服务器以实现快速数据加载
 若要准备目标 Azure Database for MySQL 服务器以实现快速数据加载，需要更改以下服务器参数和配置。

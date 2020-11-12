@@ -1,19 +1,19 @@
 ---
 title: 备份和还原 - Azure PowerShell - Azure Database for MySQL
 description: 了解如何使用 Azure PowerShell 在 Azure Database for MySQL 中备份和还原服务器。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837267"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538999"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>如何使用 PowerShell 来备份和还原 Azure Database for MySQL 服务器
 
@@ -75,9 +75,9 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `Restore-AzMySqlServer` cmdlet 的 PointInTimeRestore 参数集需要以下参数：
 
-| 设置 | 建议的值 | 说明  |
+| 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  源服务器所在的资源组。  |
+| ResourceGroupName |  myresourcegroup |  源服务器所在的资源组。  |
 | 名称 | mydemoserver-restored | 通过还原命令创建的新服务器的名称。 |
 | RestorePointInTime | 2020-03-13T13:59:00Z | 选择要还原的时间点。 此日期和时间必须在源服务器的备份保留期限内。 使用 ISO8601 日期和时间格式。 例如，可以使用自己的本地时区，如 2020-03-13T05:59:00-08:00。 也可以使用 UTC Zulu 格式，如 2018-03-13T13:59:00Z。 |
 | UsePointInTimeRestore | `<SwitchParameter>` | 使用时间点模式还原。 |
@@ -106,7 +106,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-此示例将在 "美国东部" 区域中创建一个名为 **mydemoserver-georestored** 的新服务器，该服务器属于 **myresourcegroup**。 它是第 5 代常规用途服务器，具有 8 个 vCore。 该服务器是基于也在资源组 myresourcegroup 中的 mydemoserver 的异地冗余备份创建的 。
+此示例将在 "美国东部" 区域中创建一个名为 **mydemoserver-georestored** 的新服务器，该服务器属于 **myresourcegroup** 。 它是第 5 代常规用途服务器，具有 8 个 vCore。 该服务器是基于也在资源组 myresourcegroup 中的 mydemoserver 的异地冗余备份创建的 。
 
 若要在与现有服务器不同的资源组创建新服务器，请使用 ResourceGroupName 参数指定新资源组的名称，如以下示例所示：
 
@@ -117,7 +117,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `Restore-AzMySqlServer` cmdlet 的 GeoRestore 参数集需要以下参数：
 
-| 设置 | 建议的值 | 说明  |
+| 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | 新服务器属于的资源组的名称。|
 |名称 | mydemoserver-georestored | 新服务器的名称。 |

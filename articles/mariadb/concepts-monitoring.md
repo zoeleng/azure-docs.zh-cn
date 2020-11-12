@@ -1,18 +1,18 @@
 ---
 title: 监视 - Azure Database for MariaDB
 description: 本文介绍了用于对 Azure Database for MariaDB 进行监视并发出警报的指标，包括 CPU、存储和连接统计信息。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: d2d34e95642308dcdacba20879945f2c965db955
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5790094571563d3ca8576480a6296a73756fb6a6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425197"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540410"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>在 Azure Database for MariaDB 中进行监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MariaDB 提供了各种指标来帮助用户深入了解服务器的行为。
@@ -38,7 +38,7 @@ ms.locfileid: "92425197"
 |storage_limit|存储限制|字节|此服务器的最大存储。|
 |active_connections|活动连接数|计数|服务器的活动连接数。|
 |connections_failed|失败的连接数|计数|服务器的失败连接数。|
-|seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后源服务器的秒数。 （不适用于基本层服务器）|
+|seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后于源服务器的秒数。 （不适用于基本层服务器）|
 |network_bytes_egress|网络传出|字节|跨活动连接的网络传出。|
 |network_bytes_ingress|网络传入|字节|跨活动连接的网络传入。|
 |backup_storage_used|使用的备份存储|字节|已使用的备份存储量。 此指标表示根据为服务器设置的备份保留期保留的所有完整数据库备份、差异备份和日志备份所消耗的存储的总和。 备份的频率由服务管理，并在[概念文章](concepts-backup.md)中进行了说明。 对于异地冗余存储，备份存储使用率是本地冗余存储的两倍。|
