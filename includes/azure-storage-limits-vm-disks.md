@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ffb07220267a2c192b4aad2405185c80bd9abbc0
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755506"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523698"
 ---
 可以将多个数据磁盘附加到 Azure 虚拟机。 根据 VM 数据磁盘的可伸缩性和性能目标，可以确定满足性能和容量要求所需的磁盘数量和类型。
 
@@ -31,7 +31,7 @@ ms.locfileid: "92755506"
 
 **对于标准存储帐户：** 标准存储帐户的总请求率上限为 20,000 IOPS。 在标准存储帐户中，所有虚拟机磁盘的 IOPS 总数不应超过此限制。
   
-    You can roughly calculate the number of highly utilized disks supported by a single Standard storage account based on the request rate limit. For example, for a Basic tier VM, the maximum number of highly utilized disks is about 66, which is 20,000/300 IOPS per disk. The maximum number of highly utilized disks for a Standard tier VM is about 40, which is 20,000/500 IOPS per disk. 
+可以根据请求率的限制，大致计算单个标准存储帐户可支持的重度使用磁盘数。 例如，对于基本层 VM，高使用率的磁盘数上限约为 66，即每个磁盘 20,000/300 IOPS。 对于标准层 VM，高使用率的磁盘数上限约为 40，即每个磁盘 20,000/500 IOPS。 
 
 **对于高级存储帐户：** 高级存储帐户的总吞吐量速率上限为 50 Gbps。 所有 VM 磁盘的总吞吐量不应超过此限制。
 
