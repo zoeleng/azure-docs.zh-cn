@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530062"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423022"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>教程：建立 Azure Functions 专用站点访问
 
@@ -85,7 +85,7 @@ ms.locfileid: "91530062"
     | _名称_ | myResourceGroup-vnet | 可以使用为虚拟网络生成的默认名称。 |
     | _地址范围_ | 10.10.0.0/16 | 为虚拟网络使用单个地址范围。 |
     | _子网名称_ | 教程 | 子网的名称。 |
-    | _地址范围_（子网） | 10.10.1.0/24 | 子网大小定义了可将多少个接口添加到子网。 VM 将使用此子网。 A/24 子网提供 254 个主机地址。 |
+    | _地址范围_ （子网） | 10.10.1.0/24 | 子网大小定义了可将多少个接口添加到子网。 VM 将使用此子网。 A/24 子网提供 254 个主机地址。 |
 
 1. 选择“确定”以创建虚拟网络。
 1. 返回到“网络”选项卡，确保为“公共 IP”选择“无”。
@@ -197,7 +197,7 @@ ms.locfileid: "91530062"
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [命令行](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. 发布 Azure Functions 项目时，请选择前面在本教程中创建的函数应用资源。
 1. 验证是否已部署该函数。

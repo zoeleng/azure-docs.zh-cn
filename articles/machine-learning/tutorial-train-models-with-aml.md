@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535062"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321295"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>教程：使用 MNIST 数据和 scikit-learn 训练图像分类模型 
 
 
-在本教程中，你将在远程计算资源上训练一个机器学习模型。 将在 Python Jupyter Notebook 中使用 Azure 机器学习的训练和部署工作流。  然后可以将 Notebook 用作模板，使用你自己的数据来定型机器学习。 本教程是由两个部分构成的系列教程的第一部分****。  
+在本教程中，你将在远程计算资源上训练一个机器学习模型。 将在 Python Jupyter Notebook 中使用 Azure 机器学习的训练和部署工作流。  然后可以将 Notebook 用作模板，使用你自己的数据来定型机器学习。 本教程是由两个部分构成的系列教程的第一部分。  
 
 本教程将 [MNIST](http://yann.lecun.com/exdb/mnist/) 数据集和 [scikit-learn](https://scikit-learn.org) 与 Azure 机器学习配合使用来训练简单的逻辑回归。 MNIST 是包含 70,000 张灰度图像的常用数据集。 每个图像是 28 x 28 像素的手写数字，代表一个从零到九的数字。 目标是创建多类分类器，以确定给定图像代表的数字。
 
@@ -37,7 +37,7 @@ ms.locfileid: "91535062"
 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
 
 >[!NOTE]
-> 本文中的代码已使用 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 版本 1.13.0 进行测试。
+> 本文中的代码已使用 [Azure 机器学习 SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 版本 1.13.0 进行测试。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,16 +46,16 @@ ms.locfileid: "91535062"
     * 将教程笔记本克隆到工作区中的文件夹。
     * 创建基于云的计算实例。
 
-* 在克隆的 tutorials/image-classification-mnist-data** 文件夹中，打开 img-classification-part1-training.ipynb 笔记本**。 
+* 在克隆的 tutorials/image-classification-mnist-data 文件夹中，打开 img-classification-part1-training.ipynb 笔记本。 
 
 
-如果希望在自己的[本地环境](how-to-configure-environment.md#local)中使用此教程及其附带的 **utils.py** 文件，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上找到它。 运行 `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` 以便安装本教程的依赖项。
+如果希望在自己的 [本地环境](how-to-configure-environment.md#local)中使用此教程及其附带的 **utils.py** 文件，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上找到它。 运行 `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` 以便安装本教程的依赖项。
 
 > [!Important]
 > 本文的其余部分包含的内容与在笔记本中看到的内容相同。  
 >
 > 如果要在运行代码时继续阅读，请立即切换到 Jupyter 笔记本。 
-> 若要在笔记本中运行单个代码单元，请单击代码单元，然后按 **Shift+Enter**。 或者，通过从顶部工具栏中选择“全部运行”**** 来运行整个笔记本。
+> 若要在笔记本中运行单个代码单元，请单击代码单元，然后按 **Shift+Enter** 。 或者，通过从顶部工具栏中选择“全部运行”来运行整个笔记本。
 
 ## <a name="set-up-your-development-environment"></a><a name="start"></a>设置开发环境
 
@@ -84,7 +84,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="connect-to-a-workspace"></a>连接到工作区
 
-从现有工作区创建工作区对象。 `Workspace.from_config()` 读取文件 config.json 并将详细信息加载到一个名为 `ws` 的对象****：
+从现有工作区创建工作区对象。 `Workspace.from_config()` 读取文件 config.json 并将详细信息加载到一个名为 `ws` 的对象：
 
 ```python
 # load workspace configuration from the config.json file in the current folder.
@@ -159,7 +159,7 @@ else:
 
 ### <a name="download-the-mnist-dataset"></a>下载 MNIST 数据集
 
-使用 Azure 开放数据集获取原始 MNIST 数据文件。 [Azure 开放数据集](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)是精选公共数据集，可用于将方案专属特征添加到机器学习解决方案，以提高模型的准确度。 每个数据集都有相应的类（此例中为 `MNIST`），以便以不同的方式检索数据。
+使用 Azure 开放数据集获取原始 MNIST 数据文件。 [Azure 开放数据集](../open-datasets/overview-what-are-open-datasets.md)是精选公共数据集，可用于将方案专属特征添加到机器学习解决方案，以提高模型的准确度。 每个数据集都有相应的类（此例中为 `MNIST`），以便以不同的方式检索数据。
 
 此代码将数据检索为 `FileDataset` 对象，该对象是 `Dataset` 的子类。 `FileDataset` 引用数据存储或公共 URL 中的任何格式的单个或多个文件。 该类可让你通过创建对数据源位置的引用来将文件下载或装载到计算。 此外，你将数据集注册到你的工作区，以便在训练期间轻松检索。
 
@@ -298,7 +298,7 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 + 定型脚本读取参数以查找包含数据的目录。 稍后提交作业时，请参考数据存储获取此参数：```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ 训练脚本将模型保存到一个名为**outputs** 的目录中。 此目录中编写的所有内容都会自动上传到你的工作区。 稍后，你将在本教程从此目录访问模型。 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
++ 训练脚本将模型保存到一个名为 **outputs** 的目录中。 此目录中编写的所有内容都会自动上传到你的工作区。 稍后，你将在本教程从此目录访问模型。 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
 + 训练脚本需要使用文件 `utils.py` 来正确加载数据集。 以下代码将 `utils.py` 复制到 `script_folder` 中，以便可以与远程资源上的训练脚本一起访问该文件。
 
@@ -309,11 +309,11 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 ### <a name="configure-the-training-job"></a>配置训练作业
 
-创建一个 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 对象，以指定训练作业的配置详细信息，包括训练脚本、要使用的环境，以及要在其上运行的计算目标。 通过指定以下内容配置 ScriptRunConfig：
+创建一个 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 对象，以指定训练作业的配置详细信息，包括训练脚本、要使用的环境，以及要在其上运行的计算目标。 通过指定以下内容配置 ScriptRunConfig：
 
 * 包含脚本的目录。 此目录中的所有文件都上传到群集节点以便执行。
 * 计算目标。 在此示例中，将使用所创建的 Azure 机器学习计算群集。
-* 定型脚本名称，train.py****。
+* 定型脚本名称，train.py。
 * 一个环境，其中包含运行脚本所需的库。
 * 训练脚本中的必需参数。
 
@@ -360,7 +360,7 @@ run = exp.submit(config=src)
 run
 ```
 
-由于调用是异步的，因此一旦作业启动，它就会返回“正在准备”或“正在运行”状态**** ****。
+由于调用是异步的，因此一旦作业启动，它就会返回“正在准备”或“正在运行”状态 。
 
 ## <a name="monitor-a-remote-run"></a>监视远程运行
 
@@ -368,21 +368,21 @@ run
 
 等待时会发生以下情况：
 
-- **映像创建**：将创建与 Azure ML 环境指定的 Python 环境匹配的 Docker 映像。 映像将上传到工作区。 创建和上传映像需要大约五分钟****。
+- **映像创建** ：将创建与 Azure ML 环境指定的 Python 环境匹配的 Docker 映像。 映像将上传到工作区。 创建和上传映像需要大约五分钟。
 
   此阶段针对每个 Python 环境发生一次，因为已缓存容器用于后续运行。 映像创建期间，日志将流式传输到运行历史记录。 可以使用这些日志监视映像创建进度。
 
-- **缩放**：如果远程群集需要比当前可用节点更多的节点来执行运行，则会自动添加其他节点。 缩放通常需要大约五分钟****。
+- **缩放** ：如果远程群集需要比当前可用节点更多的节点来执行运行，则会自动添加其他节点。 缩放通常需要大约五分钟。
 
-- **正在运行**：在此阶段，必要的脚本和文件会发送到计算目标。 接着，装载或复制数据存储。 然后，运行 entry_script****。 运行作业时，stdout 和 ./logs 目录会流式传输到运行历史记录**** ****。 可以使用这些日志监视运行进度。
+- **正在运行** ：在此阶段，必要的脚本和文件会发送到计算目标。 接着，装载或复制数据存储。 然后，运行 entry_script。 运行作业时，stdout 和 ./logs 目录会流式传输到运行历史记录 。 可以使用这些日志监视运行进度。
 
-- **后期处理**：运行的 ./outputs 目录将复制到工作区中的运行历史记录，以便可以访问这些结果****。
+- **后期处理** ：运行的 ./outputs 目录将复制到工作区中的运行历史记录，以便可以访问这些结果。
 
 可以通过多种方式查看正在运行的作业的进度。 本教程使用 Jupyter 小组件和 `wait_for_completion` 方法。
 
 ### <a name="jupyter-widget"></a>Jupyter 小组件
 
-使用 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)查看运行进度。 和运行提交一样，该小组件采用异步方式，并每隔 10 到 15 秒提供实时更新，直到完成作业：
+使用 [Jupyter 小组件](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)查看运行进度。 和运行提交一样，该小组件采用异步方式，并每隔 10 到 15 秒提供实时更新，直到完成作业：
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ RunDetails(run).show()
 
 ![Notebook 小组件](./media/tutorial-train-models-with-aml/widget.png)
 
-如果需要取消运行，可以遵照[这些说明](https://aka.ms/aml-docs-cancel-run)。
+如果需要取消运行，可以遵照[这些说明](./how-to-manage-runs.md)。
 
 ### <a name="get-log-results-upon-completion"></a>完成时获取日志结果
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 1c8958062c7430f98db0925c2b3996887bfe5548
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637354"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318250"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>使用 Azure 数据工厂和 Azure Data Share 实现数据集成
 
@@ -346,8 +346,6 @@ ms.locfileid: "92637354"
 
     ![添加数据集 sql](media/lab-data-flow-data-share/add-dataset-sql.png)
 
-> [!NOTE]
-> SQL 数据仓库现称作 Azure Synapse Analytics
 
 1. 在继续操作之前，我们会向你提供一个要运行的脚本。 提供的脚本将在 SQL 数据库中创建一个用户，以允许 Azure Data Share MSI 代表该用户完成身份验证。 
 

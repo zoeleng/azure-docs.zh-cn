@@ -3,19 +3,21 @@ title: 教程：使用 Xamarin 和 Azure Cosmos DB 构建移动应用程序
 description: 教程：介绍如何使用 Azure Cosmos DB 创建 Xamarin iOS、Android 或 Forms 应用程序的教程。 Azure Cosmos DB 是适用于移动应用的快速、全球规模的云数据库。
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2aa4e7d063141f74dc94e5f23cd227fcc16ba84f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ec5888ba596579c6bbbf6891ca5e578e80003d80
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487409"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333267"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>教程：使用 Xamarin 和 Azure Cosmos DB 构建移动应用程序
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -48,7 +50,7 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 ### <a name="get-started"></a>入门
 入门 Azure Cosmos DB 非常简单。 转到 Azure 门户，并创建新的 Azure Cosmos DB 帐户。 单击“快速入门”选项卡。下载已连接到 Azure Cosmos DB 帐户的 Xamarin Forms 待办事项列表示例。 
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="适用于移动应用的 Azure Cosmos DB 功能":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="适用于移动应用的 Azure Cosmos DB 快速入门":::
 
 如果已有一个 Xamarin 应用，则可以添加 [Azure Cosmos DB NuGet 包](sql-api-sdk-dotnet-core.md)。 Azure Cosmos DB 支持 Xamarin.iOS、Xamarin.Android 和 Xamarin Forms 共享库。
 
@@ -86,19 +88,19 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 
 可在 [GitHub 上的资源令牌代理](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems)中找到此模式的完整代码示例。 下图演示了该解决方案：
 
-:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="适用于移动应用的 Azure Cosmos DB 功能" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Azure Cosmos DB 用户和权限中转站" border="false":::
 
 如果希望两个用户能够访问同一个“待办事项列表”，可将其他权限添加到资源令牌代理中的访问令牌。
 
 ### <a name="scale-on-demand"></a>按需缩放
 Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，不用担心是否要预配 VM 或增加核心， 只需告诉 Azure Cosmos DB 应用所需的每秒操作次数（吞吐量）是多少。 可以通过“缩放”选项卡，使用一个名为每秒请求单位数 (RU) 的吞吐量度量值来指定吞吐量。 例如，针对 1-KB 文档执行一次读取操作需要一个 RU。 还可以针对 **吞吐量** 指标添加警报，用于监视流量的增长以及在警报触发时以编程方式更改吞吐量。
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="适用于移动应用的 Azure Cosmos DB 功能":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Azure Cosmos DB 按需缩放吞吐量":::
 
 ### <a name="go-planet-scale"></a>全球规模
 在应用受到广泛欢迎后，可以吸收全球各地的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可将数据持续复制到全球任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="适用于移动应用的 Azure Cosmos DB 功能" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Azure Cosmos DB 跨地理区域缩放" border="false":::
 
 祝贺。 现已完成本解决方案，并使用 Xamarin 和 Azure Cosmos DB 构建了一个移动应用。 遵循类似的步骤使用 Azure Cosmos DB JavaScript SDK 构建 Cordova 应用，或者使用 Azure Cosmos DB REST API 构建本机 iOS/Android 应用。
 

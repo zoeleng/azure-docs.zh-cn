@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 66c725e8d6c28137db5c3220e0a6548714da0911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6d02e620c33610770c71f0c0e3ae68e70ee317
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959521"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397036"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教程：通过 Azure CLI 使用基于 URL 路径的重定向创建应用程序网关
 
-创建[应用程序网关](application-gateway-introduction.md)时可以使用 Azure CLI 配置[基于 URL 路径的路由规则](tutorial-url-route-cli.md)。 在本教程中，使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)创建后端池。 然后创建 URL 路由规则，以确保 Web 流量重定向到相应的后端池。
+创建[应用程序网关](./overview.md)时可以使用 Azure CLI 配置[基于 URL 路径的路由规则](tutorial-url-route-cli.md)。 在本教程中，使用[虚拟机规模集](../virtual-machine-scale-sets/overview.md)创建后端池。 然后创建 URL 路由规则，以确保 Web 流量重定向到相应的后端池。
 
 在本教程中，你将了解如何执行以下操作：
 
@@ -80,7 +80,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
-使用 [az network application-gateway create](/cli/azure/network/application-gateway) 创建名为 myAppGateway 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myPublicIPAddress*。
+使用 [az network application-gateway create](/cli/azure/network/application-gateway) 创建名为 myAppGateway 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myPublicIPAddress* 。
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -103,7 +103,7 @@ az network application-gateway create \
 - *appGatewayBackendPool* - 应用程序网关必须至少具有一个后端地址池。
 - *appGatewayBackendHttpSettings* - 指定将端口 80 和 HTTP 协议用于通信。
 - *appGatewayHttpListener* - 与 *appGatewayBackendPool* 关联的默认侦听器。
-- *appGatewayFrontendIP* - 将 *myAGPublicIPAddress* 分配给 *appGatewayHttpListener*。
+- *appGatewayFrontendIP* - 将 *myAGPublicIPAddress* 分配给 *appGatewayHttpListener* 。
 - *rule1* - 与 *appGatewayHttpListener* 关联的默认路由规则。
 
 
@@ -236,7 +236,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>创建虚拟机规模集
 
-在此示例中，将创建三个虚拟机规模集以支持所创建的三个后端池。 创建的规模集分别名为 *myvmss1*、*myvmss2* 和 *myvmss3*。 每个规模集包含两个在其上安装了 NGINX 的虚拟机实例。
+在此示例中，将创建三个虚拟机规模集以支持所创建的三个后端池。 创建的规模集分别名为 *myvmss1* 、 *myvmss2* 和 *myvmss3* 。 每个规模集包含两个在其上安装了 NGINX 的虚拟机实例。
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -318,4 +318,4 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [详细了解应用程序网关的作用](application-gateway-introduction.md)
+> [详细了解应用程序网关的作用](./overview.md)

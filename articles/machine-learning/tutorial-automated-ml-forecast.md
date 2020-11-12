@@ -10,12 +10,13 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: automl
+ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979080"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356495"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>教程：使用自动化机器学习预测需求
 
@@ -89,7 +90,7 @@ ms.locfileid: "90979080"
 
         1. 此外，对于本示例，请保留“属性”和“类型”的默认值。 
         
-        1. 选择“**下一页**”。
+        1. 选择“ **下一步** ”。
 
     1. 在“确认详细信息”窗体上，确认信息与先前在“基本信息”和“设置和预览”窗体上填充的内容匹配。
 
@@ -125,7 +126,7 @@ ms.locfileid: "90979080"
 
         1. 创建后，从下拉列表中选择新的计算目标。
 
-    1. 选择“**下一页**”。
+    1. 选择“ **下一步** ”。
 
 ## <a name="select-forecast-settings"></a>选择预测设置
 
@@ -144,7 +145,7 @@ ms.locfileid: "90979080"
     主要指标| 对机器学习算法进行度量时依据的评估指标。|规范化均方根误差
     解释最佳模型| 自动显示有关自动化 ML 创建的最佳模型的可解释性。| 启用
     阻止的算法 | 要从训练作业中排除的算法| 极端随机树
-    其他预测设置| 这些设置有助于改善模型的准确度 <br><br> _**预测目标滞后**_：要将目标变量的滞后往后推多久 <br> _**目标滚动窗口**_：指定滚动窗口的大小（例如 *max, min* 和 *sum*），将基于此大小生成特征。 | <br><br>预测目标延隔：&nbsp;&nbsp;无 <br> 目标滚动窗口大小：&nbsp;&nbsp;&nbsp;无
+    其他预测设置| 这些设置有助于改善模型的准确度 <br><br> _**预测目标滞后**_ ：要将目标变量的滞后往后推多久 <br> _**目标滚动窗口**_ ：指定滚动窗口的大小（例如 *max, min* 和 *sum* ），将基于此大小生成特征。 | <br><br>预测目标延隔：&nbsp;&nbsp;无 <br> 目标滚动窗口大小：&nbsp;&nbsp;&nbsp;无
     退出条件| 如果符合某个条件，则会停止训练作业。 |训练作业时间（小时）：&nbsp;&nbsp;3 <br> 指标分数阈值：&nbsp;&nbsp;无
     验证 | 选择交叉验证类型和测试数。|验证类型：<br>k-折交叉验证&nbsp;&nbsp; <br> <br> 验证次数：5
     并发| 每次迭代执行的并行迭代的最大数目| 最大并发迭代次数：&nbsp;&nbsp;6
@@ -156,8 +157,8 @@ ms.locfileid: "90979080"
 若要运行试验，请选择“完成”。 此时会打开“运行详细信息”屏幕，其顶部的运行编号旁边显示了“运行状态”。 此状态随着试验的进行而更新。
 
 >[!IMPORTANT]
-> 准备试验运行时，准备需要 **10-15 分钟**。
-> 运行以后，**每个迭代还需要 2-3 分钟**。  <br> <br>
+> 准备试验运行时，准备需要 **10-15 分钟** 。
+> 运行以后， **每个迭代还需要 2-3 分钟** 。  <br> <br>
 > 在生产环境中，此过程需要一段时间，因此不妨干点其他的事。 在等待过程中，我们建议在“模型”选项卡上开始浏览已完成测试的算法。 
 
 ##  <a name="explore-models"></a>浏览模型
@@ -204,7 +205,7 @@ Azure 机器学习工作室中的自动化机器学习可以通过几个步骤�
     
 部署成功后，即会获得一个正常运行的、可以生成预测结果的 Web 服务。 
 
-转到[**后续步骤**](#next-steps)详细了解如何使用新的 Web 服务，以及如何使用 Power BI 的内置 Azure 机器学习支持来测试预测。
+转到 [**后续步骤**](#next-steps)详细了解如何使用新的 Web 服务，以及如何使用 Power BI 的内置 Azure 机器学习支持来测试预测。
 
 ## <a name="clean-up-resources"></a>清理资源
 

@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 73f5dc6bdc976bd0166cfb1f2621f57f558f944c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478586"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332978"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for PostgreSQL - 单一服务器
 
@@ -216,6 +216,10 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”页更改密码。
 
 还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 必须单独为新服务器设置这些规则。 将从原始服务器还原防火墙规则。
+
+## <a name="clean-up-resources"></a>清理资源
+
+在前面的步骤中，你已在服务器组中创建了 Azure 资源。 如果你认为以后不需要这些资源，请删除该服务器组。 在服务器组的“概述”页中，按“删除”按钮   。 弹出页面上出现提示时，请确认服务器组的名称，然后单击最后一个“删除”按钮  。
 
 ## <a name="next-steps"></a>后续步骤
 

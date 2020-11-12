@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 233af68e4109e53b6bd841f298e9c2728ca5b116
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: baae0f89165e292408150dd419c6de8dc41a320c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313483"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335513"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>教程：将 Abstract 与 Azure Active Directory 集成
 
@@ -103,7 +103,7 @@ ms.locfileid: "92313483"
 
 1. 打开 [Abstract Web 应用](https://app.abstract.com/)。
 2. 转到左侧栏中的“权限”页。 
-3. 在“配置 SSO”部分，  输入**元数据 URL** 和**实体 ID**。
+3. 在“配置 SSO”部分，  输入 **元数据 URL** 和 **实体 ID** 。
 4. 输入你可能有的任何手动例外。 列在手动例外部分的电子邮件会绕过 SSO，能够使用电子邮件和密码登录。 
 5. 单击 **“保存更改”** 。
 
@@ -146,7 +146,7 @@ ms.locfileid: "92313483"
 
 1. 打开 [Abstract Web 应用](https://app.abstract.com/)。
 2. 转到左侧栏中的“权限”页。 
-3. 单击“使用我的帐户测试”。  如果测试失败，请[联系我们的支持团队](https://www.abstract.com/help/contact/)。
+3. 单击“使用我的帐户测试”。  如果测试失败，请[联系我们的支持团队](https://help.abstract.com/hc/)。
 
 >[!Note]
 >需要使用组织的管理员帐户进行身份验证，然后才能访问 Abstract 上的 SSO 设置。

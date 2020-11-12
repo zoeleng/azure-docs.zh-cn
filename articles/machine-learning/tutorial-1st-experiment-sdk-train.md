@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f5c2690ea97136c2b7887a8450c2788e3902d4e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3ba5751e7a0c2369d505535896bbb4ff7523c02
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369954"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314567"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>教程：训练你的第一个机器学习模型（第 3 部分，共 4 部分）
 
@@ -98,7 +98,7 @@ trainset = torchvision.datasets.CIFAR10(
     transform=torchvision.transforms.ToTensor(),
 )
 trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=4, shuffle=True, num_workers=2
+    trainset, batch_size=4, shuffle=True
 )
 
 if __name__ == "__main__":
@@ -220,7 +220,7 @@ if __name__ == "__main__":
       `env = ...`
    :::column-end:::
    :::column span="2":::
-      Azure 机器学习提供了[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)概念来表示一个可重现的、进行了版本控制的 Python 环境，以便用来运行试验。 从本地 Conda 或 pip 环境创建一个环境很简单。
+      Azure 机器学习提供了[环境](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py)概念来表示一个可重现的、进行了版本控制的 Python 环境，以便用来运行试验。 从本地 Conda 或 pip 环境创建一个环境很简单。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -228,7 +228,7 @@ if __name__ == "__main__":
       `config.run_config.environment = env`
    :::column-end:::
    :::column span="2":::
-      将该环境添加到 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)。
+      将该环境添加到 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)。
    :::column-end:::
 :::row-end:::
 
@@ -406,7 +406,7 @@ python 04-run-pytorch.py
 
 在本课程中，你从基本的“Hello world!” 脚本升级成了更逼真的训练脚本，该脚本要求运行特定的 Python 环境。 你了解了如何使用 Azure 机器学习环境将本地 Conda 环境带入云中。 最后，你看到了如何通过几行代码将指标记录到 Azure 机器学习。
 
-创建 Azure 机器学习环境还有其他方法，包括[从 pip 的 requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-) 文件创建，或者[从现有的本地 Conda 环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-)创建。
+创建 Azure 机器学习环境还有其他方法，包括[从 pip 的 requirements.txt](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#from-pip-requirements-name--file-path-) 文件创建，或者[从现有的本地 Conda 环境](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-)创建。
 
 在下一课程中，你将了解如何通过将 CIFAR10 数据集上传到 Azure 来处理 Azure 机器学习中的数据。
 

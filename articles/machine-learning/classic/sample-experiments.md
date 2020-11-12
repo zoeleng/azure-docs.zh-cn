@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: d62b958189ac01f1beabdbf17ee5cc6a08481e23
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: cfee8a32c54bff5aecb1e298db8b4814255418b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362293"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325755"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>根据 Azure AI 库中的工作示例创建 Azure 机器学习工作室（经典）试验
 
-**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -35,7 +35,7 @@ ms.locfileid: "91362293"
 要查看哪些试验可用，请转到“ [库](https://gallery.azure.ai/) ”，并单击页面顶部的“ **试验** ”。
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>查找最新或最受欢迎的试验
-在此页上，可以查看**最近添加**的试验，或向下滚动查看**热门**或最新的**热门 Microsoft 试验**。
+在此页上，可以查看 **最近添加** 的试验，或向下滚动查看 **热门** 或最新的 **热门 Microsoft 试验** 。
 
 ### <a name="look-for-an-experiment-that-meets-specific-requirements"></a>查找满足特定要求的试验
 若要浏览所有试验︰

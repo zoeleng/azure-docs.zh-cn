@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 蓝图示例控件
 description: ISO 27001 蓝图示例的控制映射。 每个控制措施都映射到一个或多个协助评估的 Azure Policy 定义。
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 6e72f8ca25939b1cad8b2a5dc5bd3fc5fc286027
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931948"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420220"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>ISO 27001 蓝图示例的控制映射
 
@@ -65,7 +65,6 @@ Azure 实施 [Azure 基于角色的访问控制 (Azure RBAC)](../../../../role-b
 - 应在对订阅拥有读取权限的帐户上启用 MFA
 - 应对订阅中拥有写入权限的帐户启用 MFA
 - 显示未将密码文件权限设为 0644 的 Linux VM 中的审核结果
-- 部署先决条件以审核未将密码文件权限设置为 0644 的 Linux VM
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 评审用户访问权限
 
@@ -100,11 +99,6 @@ Azure 实施 [Azure 基于角色的访问控制 (Azure RBAC)](../../../../role-b
 - 显示未将最短密码期限设为 1 天的 Windows VM 中的审核结果
 - 显示未将最短密码长度限制为 14 个字符的 Windows VM 中的审核结果
 - 显示允许重用之前的 24 个密码的 Windows VM 中的审核结果
-- 部署先决条件，以便审核未启用密码复杂性设置的 Windows VM
-- 部署先决条件，以便审核未将最长密码期限设为 70 天的 Windows VM
-- 部署先决条件，以便审核未将最短密码期限设为 1 天的 Windows VM
-- 部署先决条件，以便审核未将最短密码长度限制为 14 个字符的 Windows VM
-- 部署先决条件，以便审核允许重用之前的 24 个密码的 Windows VM
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 有关使用加密控制措施的策略
 
@@ -113,7 +107,6 @@ Azure 实施 [Azure 基于角色的访问控制 (Azure RBAC)](../../../../role-b
 - 应该只能通过 HTTPS 访问函数应用
 - 只能通过 HTTPS 访问 Web 应用程序
 - 只能通过 HTTPS 访问 API 应用
-- 部署先决条件，以便审核未存储使用可逆加密的密码的 Windows VM
 - 显示未存储使用可逆加密的密码的 Windows VM 中的审核结果
 - 应在虚拟机上启用磁盘加密
 - 自动化帐户变量应进行加密

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 123e55202de8a33bca88afcfd1f0dc0c7edeae77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372557"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320095"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>教程：使用你自己的数据（第 4 部分，共 4 部分）
 
@@ -202,7 +202,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 `target_path` 值指定 CIFAR10 数据将要上传到的数据存储的路径。
 
 >[!TIP] 
-> 在使用 Azure 机器学习上传数据时，可以使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)来上传临时文件。 如果需要 ETL 工具，可以使用 [Azure 数据工厂](https://docs.microsoft.com/azure/data-factory/introduction)将数据引入 Azure。
+> 在使用 Azure 机器学习上传数据时，可以使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)来上传临时文件。 如果需要 ETL 工具，可以使用 [Azure 数据工厂](../data-factory/introduction.md)将数据引入 Azure。
 
 运行该 Python 文件来上传数据。 （上传速度应该会很快，时间应短于 60 秒。）
 
@@ -271,7 +271,7 @@ if __name__ == "__main__":
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      [数据集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)用于引用上传到 Azure Blob 存储的数据。 数据集是基于数据的抽象层，旨在提高可靠性和可信任性。
+      [数据集](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py)用于引用上传到 Azure Blob 存储的数据。 数据集是基于数据的抽象层，旨在提高可靠性和可信任性。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -279,7 +279,7 @@ if __name__ == "__main__":
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 已修改，包含将传递到 `train.py` 中的参数列表。 `dataset.as_named_input('input').as_mount()` 参数表示指定的目录将会被装载到计算目标。
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 已修改，包含将传递到 `train.py` 中的参数列表。 `dataset.as_named_input('input').as_mount()` 参数表示指定的目录将会被装载到计算目标。
    :::column-end:::
 :::row-end:::
 

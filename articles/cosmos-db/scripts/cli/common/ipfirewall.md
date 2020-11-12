@@ -4,17 +4,17 @@ description: 创建启用 IP 防火墙的 Azure Cosmos 帐户
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: b344f393bf303efe32d3e568d6863a0ed1ea8c2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfa1273716c44aa54cd959c5a8e1d59c163f7b16
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432307"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316812"
 ---
 # <a name="create-an-azure-cosmos-account-with-ip-firewall-using-azure-cli"></a>使用 Azure CLI 创建启用 IP 防火墙的 Azure Cosmos 帐户
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

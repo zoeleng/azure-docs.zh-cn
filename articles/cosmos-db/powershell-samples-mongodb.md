@@ -3,17 +3,19 @@ title: 用于 MongoDB 的 Azure Cosmos DB API 的 Azure PowerShell 示例
 description: 获取 Azure PowerShell 示例以在用于 MongoDB 的 Azure Cosmos DB API 中执行常见任务
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 68c4c2236fa5bd595a64525672809a146edbdc64
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3b401aec29da8702e262e0e8e9467454e77bc16d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282914"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332927"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-api-for-mongodb"></a>用于 MongoDB 的 Azure Cosmos DB API 的 Azure PowerShell 示例
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 下表包含常用于 Azure Cosmos DB 的 Azure PowerShell 脚本的链接。 使用右侧的链接可导航到 API 特定示例。 常见示例在所有 API 间是相同的。 [Azure PowerShell 参考](/powershell/module/az.cosmosdb)中收录了所有 Azure Cosmos DB PowerShell cmdlet 的参考页。 请定期检查 `Az.CosmosDB` 是否有更新。 还可以从我们的 GitHub 存储库 [GitHub 上的 Cosmos DB PowerShell 示例](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb)创建这些适用于 Cosmos DB 的 PowerShell 示例的分支。
 

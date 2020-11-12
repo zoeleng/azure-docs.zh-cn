@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 6b252164027f07e4f26ab84ac12e2425e1da05f5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 737c63c02ea852e8cf17e2d520ca91b05a5ba12b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357279"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325621"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>在 Azure 机器学习工作室（经典）中使用示例数据集
 
-**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [top]: #machine-learning-sample-datasets
@@ -414,4 +414,4 @@ RCV1-V2 路透社新闻数据集中新闻文章的主题分配。 可以分配�
 > [通过示例快速开始试验](sample-experiments.md)
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

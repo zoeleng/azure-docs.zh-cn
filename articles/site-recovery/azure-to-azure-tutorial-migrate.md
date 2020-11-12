@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045340"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394826"
 ---
 # <a name="move-vms-to-another-azure-region"></a>将 VM 移动到另一个 Azure 区域
 
@@ -68,7 +68,7 @@ ms.locfileid: "92045340"
 - 对于 Linux VM，请遵循 Linux 分销商提供的指导，在 VM 上获取最新的受信任根证书和证书吊销列表。
 - 确保未使用身份验证代理来控制要移动的 VM 的网络连接。
 
-- 如果尝试移动的 VM 无法访问 Internet，或使用防火墙代理来控制出站访问，请[检查要求](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)。
+- 如果尝试移动的 VM 无法访问 Internet，或使用防火墙代理来控制出站访问，请[检查要求](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity)。
 
 - 确定源网络布局和当前正在使用的所有资源。 这包括但不限于负载均衡器、网络安全组 (NSG) 和公共 IP。
 
@@ -97,7 +97,7 @@ ms.locfileid: "92045340"
 1. 登录到 [Azure 门户](https://portal.azure.com)
 1. 在搜索中，键入“恢复服务”，然后单击“恢复服务保管库”
 1. 在“恢复服务保管库”菜单中，单击“+添加”。
-1. 在“名称”  中，指定友好名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
+1. 在“名称”  中，指定友好名称 **ContosoVMVault** 。 如果有多个订阅，请选择合适的一个。
 1. 创建资源组 ContosoRG  。
 1. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://azure.microsoft.com/pricing/details/site-recovery/)中的“地域可用性”。
 1. 在“恢复服务保管库”中，选择“ContosoVMVault” > “复制的项” > “+ 复制”   。
@@ -116,7 +116,7 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 1. 对于本教程，接受其他默认设置。
 1. 选择“启用复制”  。 此步骤将启动用于为 VM 启用复制的作业。
 
-    ![启用复制](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>移动
 

@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906694"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321567"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>使用 Azure 机器学习 Visual Studio Code 扩展（预览版）训练和部署图像分类 TensorFlow 模型
 
@@ -57,9 +57,9 @@ ms.locfileid: "90906694"
     > [!div class="mx-imgBorder"]
     > ![创建工作区](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
 
-1. 默认情况下，会生成包含创建日期和时间的名称。 在文本输入框中将名称更改为“TeamWorkspace”，然后按 **Enter**。
+1. 默认情况下，会生成包含创建日期和时间的名称。 在文本输入框中将名称更改为“TeamWorkspace”，然后按 **Enter** 。
 1. 选择“新建资源组”。 
-1. 将资源组命名为“TeamWorkspace-rg”，然后按 **Enter**。 
+1. 将资源组命名为“TeamWorkspace-rg”，然后按 **Enter** 。 
 1. 为工作区选择一个位置。 建议你在选择位置时，确保该位置最靠近你计划部署模型的位置。 例如，“美国西部 2”。
 1. 当系统提示选择工作区类型时，选择“基本”。
 
@@ -97,7 +97,7 @@ ms.locfileid: "90906694"
     > ![创建计算目标](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. 选择“Azure 机器学习计算(AmlCompute)”。 Azure 机器学习计算是一个托管的计算基础结构，可让用户轻松创建能够与工作区中的其他用户一起使用的单节点或多节点计算。
-1. 选择 VM 大小。 从选项列表中选择“Standard_F2s_v2”。 VM 的大小会影响训练模型所需的时间。 有关 VM 大小的详细信息，请参阅 [Azure 中的 Linux 虚拟机大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+1. 选择 VM 大小。 从选项列表中选择“Standard_F2s_v2”。 VM 的大小会影响训练模型所需的时间。 有关 VM 大小的详细信息，请参阅 [Azure 中的 Linux 虚拟机大小](../virtual-machines/sizes.md)。
 1. 将计算命名为“TeamWkspc-com”，然后按 **Enter** 来创建计算。
 
     此时会在 VS Code 中显示一个文件，其中包含如下所示的内容：
@@ -323,7 +323,7 @@ ms.locfileid: "90906694"
     > [!div class="mx-imgBorder"]
     > ![注册模型](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
 
-1. 将模型命名为“MNIST-TensorFlow-model”，然后按 **Enter**。
+1. 将模型命名为“MNIST-TensorFlow-model”，然后按 **Enter** 。
 1. TensorFlow 模型由多个文件组成。 从选项列表中选择“模型文件夹”作为模型路径格式。 
 1. 选择 `azureml_outputs/Run_1/outputs/outputs/model` 目录。
 
@@ -368,9 +368,9 @@ ms.locfileid: "90906694"
     > ![部署模型](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)
 
 1. 选择“Azure 容器实例”。
-1. 将服务命名为“mnist-tensorflow-svc”，然后按 **Enter**。
-1. 选择要在容器中运行的脚本，方法是：在输入框中按 **Enter**，通过浏览方式查找 `mnist-vscode-docs-sample` 目录中的 `score.py` 文件。
-1. 提供运行脚本所需的依赖项，方法是：在输入框中按 **Enter**，通过浏览方式查找 `mnist-vscode-docs-sample` 目录中的 `env.yml` 文件。
+1. 将服务命名为“mnist-tensorflow-svc”，然后按 **Enter** 。
+1. 选择要在容器中运行的脚本，方法是：在输入框中按 **Enter** ，通过浏览方式查找 `mnist-vscode-docs-sample` 目录中的 `score.py` 文件。
+1. 提供运行脚本所需的依赖项，方法是：在输入框中按 **Enter** ，通过浏览方式查找 `mnist-vscode-docs-sample` 目录中的 `env.yml` 文件。
 
     包含模型配置的文件会显示在 Visual Studio Code 中，其内容如下所示：
 
@@ -414,4 +414,3 @@ ms.locfileid: "90906694"
 
 * 若要详细了解如何在 Visual Studio Code 外部使用 Azure 机器学习进行训练，请参阅[教程：使用 Azure 机器学习训练模型](tutorial-train-models-with-aml.md)。
 * 若要详细了解如何在本地编辑、运行和调试代码，请参阅 [Python hello-world 教程](https://code.visualstudio.com/docs/Python/Python-tutorial)。
-
