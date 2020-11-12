@@ -171,7 +171,7 @@
           href: sql/overview-features.md
         - name: 资源消耗模型
           href: sql/resource-consumption-models.md
-        - name: 已处理的数据
+        - name: 无服务器 SQL 池的成本管理
           href: sql/data-processed.md
         - name: 无服务器 SQL 池最佳做法
           href: sql/best-practices-sql-on-demand.md
@@ -210,7 +210,7 @@
           items:
             - name: 概述
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 最佳实践
+            - name: 最佳做法
               href: sql/data-loading-best-practices.md
             - name: 列存储压缩
               href: sql/data-load-columnstore-compression.md
@@ -616,7 +616,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure 文件存储
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL 数据库
+            - name: Azure SQL Database
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure SQL 托管实例
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -996,6 +996,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: REST API
       href: /rest/api/synapse/
+    - name: Microsoft Spark 实用程序
+      href: ./spark/microsoft-spark-utilities.md
     - name: 示例
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: 系统视图

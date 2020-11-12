@@ -178,6 +178,8 @@
           href: connect-threat-intelligence.md
         - name: 连接 Azure Stack VM
           href: connect-azure-stack.md
+        - name: 监视数据连接器运行状况
+          href: monitor-data-connector-health.md
     - name: 启用用户和实体行为分析
       href: enable-entity-behavior-analytics.md
     - name: 管理多个租户 (MSSP)

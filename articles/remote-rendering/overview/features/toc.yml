@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: 轮廓渲染
   href: outlines.md
+- name: Shell 呈现
+  href: shell-effect.md
 - name: 单面渲染
   href: single-sided-rendering.md
 - name: 空间查询

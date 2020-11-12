@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286697"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488530"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 日志记录
 
@@ -93,12 +93,14 @@ ms.locfileid: "93286697"
 | **VaultDelete** |[删除密钥保管库](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[更新密钥保管库](/rest/api/keyvault/vaults) |
 | **VaultList** |[列出资源组中的所有密钥保管库](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[清除已删除的保管库](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |恢复已删除的保管库|
+| **VaultGetDeleted** |[获取已删除的保管库](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[列出已删除的保管库](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[创建密钥](/rest/api/keyvault/createkey) |
 | **KeyGet** |[获取有关密钥的信息](/rest/api/keyvault/getkey) |
 | **KeyImport** |[将密钥导入保管库](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[备份密钥](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[删除密钥](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[还原密钥](/rest/api/keyvault/restorekey) |
 | **KeySign** |[使用密钥签名](/rest/api/keyvault/sign) |
 | **KeyVerify** |[使用密钥验证](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[包装密钥](/rest/api/keyvault/wrapkey) |
@@ -106,14 +108,56 @@ ms.locfileid: "93286697"
 | **KeyEncrypt** |[使用密钥加密](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[使用密钥解密](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[更新密钥](/rest/api/keyvault/updatekey) |
-| **KeyList** |[列出保管库中的密钥](/rest/api/keyvault/vaults) |
+| **KeyList** |[列出保管库中的密钥](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[列出密钥的版本](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[清除密钥](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[备份密钥](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[还原密钥](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[恢复密钥](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[获取已删除的密钥](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[列出保管库中已删除的密钥](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[获取有关证书的信息](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[创建证书](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[将证书导入保管库](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[更新证书](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[列出保管库中的证书](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[列出证书的版本](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[删除证书](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[清除证书](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[备份证书](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[还原证书](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[恢复证书](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[获取已删除的证书](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[列出保管库中已删除的证书](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[获取证书策略](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[更新证书策略](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[创建证书策略](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[获取证书联系人](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[设置证书联系人](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[删除证书联系人](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[获取证书颁发者](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[设置证书颁发者](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[更新证书颁发者](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[删除证书颁发者](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[列出证书颁发者](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |注册证书 |
+| **CertificateRenew** |续订证书 |
+| **CertificatePendingGet** |检索挂起的证书 |
+| **CertificatePendingMerge** |挂起证书合并 |
+| **CertificatePendingUpdate** |挂起证书更新 |
+| **CertificatePendingDelete** |删除挂起的证书 |
 | **SecretSet** |[创建机密](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[获取机密](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[更新机密](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[删除机密](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[列出保管库中的机密](/rest/api/keyvault/vaults) |
+| **SecretList** |[列出保管库中的机密](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[列出机密的版本](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[清除机密](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[备份机密](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[还原机密](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[恢复机密](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[获取已删除的机密](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[列出保管库中已删除的机密](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | 保管库访问策略更改事件已发布 |
 | **SecretNearExpiryEventGridNotification** |机密即将过期事件已发布 |
 | **SecretExpiredEventGridNotification** |机密已过期事件已发布 |

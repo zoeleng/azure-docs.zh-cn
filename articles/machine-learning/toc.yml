@@ -160,6 +160,8 @@
         - name: 企业安全概述
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: 数据加密
+          href: concept-data-encryption.md
         - name: 安全基线
           href: security-baseline.md
     - name: 负责的 ML
@@ -182,14 +184,17 @@
       items:
         - name: 标识和访问管理
           items:
-            - name: 设置身份验证
+            - name: 工作区身份验证
               displayName: 'authentication, auth, oauth'
               href: how-to-setup-authentication.md
-            - name: 管理用户和角色
+            - name: Web 服务身份验证
+              displayName: 'authentication, model, web service'
+              href: how-to-authenticate-web-service.md
+            - name: 管理访问权限（授权）
               href: how-to-assign-roles.md
-            - name: 将托管标识用于访问控制
+            - name: 用于访问控制的托管标识
               href: how-to-use-managed-identities.md
-            - name: 在 AKS 部署中使用 Azure AD 标识
+            - name: AKS 部署中的 Azure AD 标识
               href: how-to-use-azure-ad-identity.md
         - name: 网络安全
           items:

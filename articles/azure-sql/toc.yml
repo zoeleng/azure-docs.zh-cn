@@ -1,7 +1,11 @@
 - name: Azure SQL 文档
   href: index.yml
-- name: 什么是 Azure SQL？
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL
+  items:
+    - name: 什么是 Azure SQL？
+      href: azure-sql-iaas-vs-paas-what-is-overview.md
+    - name: 迁移到 Azure SQL
+      href: migration-guides/index.yml
 - name: 共享 SQL DB 和 SQL MI 文档
   items:
     - name: 购买模型
@@ -301,6 +305,16 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: 将 SQLite 迁移到无服务器
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+    - name: 迁移指南
+      items:
+        - name: 从 DB2
+          href: migration-guides/database/db2-to-sql-database-guide.md
+        - name: 从 SQL Server
+          items:
+            - name: 概述
+              href: migration-guides/database/sql-server-to-sql-database-overview.md
+            - name: Migrate
+              href: migration-guides/database/sql-server-to-sql-database-guide.md
     - name: 概念
       items:
         - name: 连接体系结构
@@ -696,6 +710,18 @@
               href: managed-instance/replication-between-two-instances-configure-tutorial.md
             - name: MI 公网、MI 区域、SQL 子网
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: 迁移指南
+      items:
+        - name: 从 DB2
+          href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+        - name: 从 SQL Server
+          items:
+            - name: 概述
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+            - name: Migrate
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+            - name: 性能基线
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
     - name: 概念
       items:
         - name: 资源限制
@@ -1171,6 +1197,14 @@
               href: 'https://azure.microsoft.com/roadmap/?category=compute'
             - name: Stack Overflow
               href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+    - name: 迁移指南
+      items:
+        - name: 概述
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
+        - name: 从 SQL Server
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: 从 DB2
+          href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
 - name: 参考
   items:
     - name: T-SQL 语言参考

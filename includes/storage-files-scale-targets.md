@@ -4,22 +4,22 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 3d4cc17570057f5f37cf38685847afbe38ea6831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71762010984928b93c19c7256c2ba4f0fe0f64b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606814"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504056"
 ---
-| 资源 | 标准文件共享 | 高级文件共享 |
+| 资源 | 标准文件共享\* | 高级文件共享 |
 |----------|---------------|------------------------------------------|
 | 文件共享的最小大小 | 没有最小值；即用即付 | 100 GiB；未预配 |
-| 文件共享的最大大小 | 100 TiB*、5 TiB | 100 TiB |
+| 文件共享的最大大小 | 100 TiB\*\*，5 TiB | 100 TiB |
 | 文件共享中文件的最大大小 | 1 TiB | 4 TiB |
 | 文件共享中的文件数上限 | 无限制 | 无限制 |
-| 每个共享的最大 IOPS | 10,000 IOPS*、1,000 IOPS 或 100ms 100 个请求 | 100,000 IOPS |
+| 每个共享的最大 IOPS | 10,000 IOPS\*\*，1,000 IOPS 或 100 毫秒内 100 个请求 | 100,000 IOPS |
 | 每个文件共享的存储的访问策略的最大数目 | 5 | 5 |
-| 单个文件共享的目标吞吐量 | 最高 300 MiB/秒*、最高 60 MiB/秒  | 查看高级文件共享流入量和流出量值|
+| 单个文件共享的目标吞吐量 | 最高 300 MiB/秒\*\*，最高 60 MiB/秒，  | 查看高级文件共享流入量和流出量值|
 | 单个文件共享的最大流出量 | 查看标准文件共享目标吞吐量 | 最多 6,204 MiB/秒 |
 | 单个文件共享的最大流入量 | 查看标准文件共享目标吞吐量 | 最多 4,136 MiB/秒 |
 | 每个文件或目录打开图柄的最大数目 | 2,000 个打开句柄 | 2,000 个打开句柄 |
@@ -28,4 +28,6 @@ ms.locfileid: "90606814"
 | 最大路径名组成部分（在路径 \A\B\C\D 中，每个字母是一个组成部分） | 255 个字符 | 255 个字符 |
 | 硬链接限制（仅限 NFS） | 不可用 | 178 |
 
-\* 标准文件共享的默认值为 5 TiB。若要详细了解如何将标准文件共享纵向扩展到 100 TiB，请参阅[启用和创建大型文件共享](../articles/storage/files/storage-files-how-to-create-large-file-share.md)。
+\* 标准文件共享的限制适用于标准文件共享可用的所有三个层：事务优化层、热层和冷层。
+
+\*\* 标准文件共享的默认值为 5 TiB，请参阅[启用和创建大型文件共享](../articles/storage/files/storage-files-how-to-create-large-file-share.md)，了解有关如何将标准文件共享规模增加到最高 100 TiB 的详细信息。

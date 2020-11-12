@@ -29,7 +29,7 @@
 - name: 概念
   items:
     - name: 连接监视器（预览版）
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: 诊断 VM 网络流量筛选器问题
       href: network-watcher-ip-flow-verify-overview.md
     - name: 诊断 NSG 规则和流量筛选
@@ -61,9 +61,9 @@
     - name: 创建连接监视器（预览）
       items:
         - name: 使用 Azure 门户
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: 使用 ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: 使用 PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: 迁移到连接监视器（预览）

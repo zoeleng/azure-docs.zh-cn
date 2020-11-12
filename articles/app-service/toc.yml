@@ -36,6 +36,20 @@
       href: quickstart-multi-container.md
 - name: 教程
   items:
+    - name: 保护访问存储和 Microsoft Graph 的应用
+      items:
+        - name: 概述
+          href: scenario-secure-app-overview.md
+        - name: 设置应用服务身份验证
+          href: scenario-secure-app-authentication-app-service.md
+        - name: 保护访问存储的应用
+          href: scenario-secure-app-access-storage.md
+        - name: 保护以用户身份访问 Microsoft Graph 的应用
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: 保护以应用身份访问 Microsoft Graph 的应用
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: 清理资源
+          href: scenario-secure-app-clean-up-resources.md
     - name: 将应用与 DB 配合使用
       items:
         - name: 将 .NET Core 与 SQL DB 配合使用
