@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 804330d44d63aa70076a7387aacfbbd3b4f742c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49fa928285b29eaff806b009cf327e84e17491c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480983"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098716"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>教程：生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -70,7 +71,7 @@ ms.locfileid: "92480983"
 1. 在“解决方案资源管理器”中，右键单击 Visual Studio 解决方案下方的新控制台应用程序，然后选择“管理 NuGet 包”。
 1. 在“NuGet 包管理器”中选择“浏览”，然后搜索“Microsoft.Azure.Cosmos”。 选择“Microsoft.Azure.Cosmos”，然后选择“安装”。
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="配置项目":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="安装 Azure Cosmos DB 客户端 SDK 的 NuGet":::
 
    Azure Cosmos DB SQL API 客户端库的程序包 ID 是 [Microsoft Azure Cosmos DB 客户端库](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)。
 
@@ -121,7 +122,7 @@ ms.locfileid: "92480983"
 
 1. 打开 [Azure 门户](https://portal.azure.com)。 找到 Azure Cosmos DB 帐户，然后选择“密钥”。
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="配置项目":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="从 Azure 门户获取 Azure Cosmos DB 密钥":::
 
 1. 在 *Program.cs* 中，将 `<your endpoint URL>` 替换为 **URI** 的值。 将 `<your primary key>` 替换为“主密钥”的值。
 
@@ -310,7 +311,7 @@ ms.locfileid: "92480983"
 
 1. 选择 Ctrl+Shift+A，打开“添加新项”。 将新类 `Family.cs` 添加到项目。
 
-    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="配置项目":::
+    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="显示将新的 Family.cs 类添加到项目中的屏幕截图":::
 
 1. 复制 `Family`、`Parent`、`Child`、`Pet` 和 `Address` 类并将其粘贴到 `Family.cs` 中。
 

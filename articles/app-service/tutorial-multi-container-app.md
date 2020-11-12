@@ -4,15 +4,15 @@ description: 了解如何在 Azure 应用服务上构建多容器应用（其中
 keywords: azure 应用服务, web 应用, linux, docker compose, 多容器, 用于容器的 web 应用, 多个容器, 容器, wordpress, azure db for mysql, 包含容器的生产数据库
 author: msangapu-msft
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f2f1713866eb06b4b514ff988ef3e010491e1efc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743448"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131337"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教程：在用于容器的 Web 应用中创建多容器（预览版）应用
 
@@ -151,7 +151,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 在以下命令中，请将 &lt;mysql-server-name> 占位符替换为你的 MySQL 服务器名称（有效字符是 `a-z`、`0-9` 和 `-`）  。 此名称是 MySQL 服务器主机名 (`<mysql-server-name>.database.windows.net`) 的一部分，必须全局唯一。
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen5_1 --version 5.7
 ```
 
 创建服务器可能需要几分钟才能完成。 创建 MySQL 服务器后，Cloud Shell 会显示类似于以下示例的信息：
@@ -262,14 +262,14 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 * [添加 Redis 对象缓存 1.3.8 WordPress 插件。](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [在 WordPress wp-config.php 中使用 Redis 主机名的应用设置。](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-若要使用自定义映像，请更新 docker-compose-wordpress.yml 文件。 在 Cloud Shell 中，键入 `nano docker-compose-wordpress.yml` 打开 nano 文本编辑器。 更改 `image: wordpress` 以使用 `image: microsoft/multicontainerwordpress`。 不再需要数据库容器。 从配置文件中删除 `db`、`environment`、`depends_on` 和 `volumes` 节。 文件应如以下代码所示：
+若要使用自定义映像，请更新 docker-compose-wordpress.yml 文件。 在 Cloud Shell 中，键入 `nano docker-compose-wordpress.yml` 打开 nano 文本编辑器。 更改 `image: wordpress` 以使用 `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`。 不再需要数据库容器。 从配置文件中删除 `db`、`environment`、`depends_on` 和 `volumes` 节。 文件应如以下代码所示：
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -345,7 +345,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -401,13 +401,15 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
 
    redis:
-     image: redis:3-alpine
+     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+     environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```
 

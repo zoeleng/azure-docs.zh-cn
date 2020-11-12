@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 729f5071a4f19bd1ac3d6d4779ad6082e6441f12
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: bf3aa4844d990becc27ede222f2649ccbd3ab91b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089604"
 ---
 # <a name="create-a-container-with-indexing-turned-off-in-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 在 Azure Cosmos DB 帐户中创建一个索引关闭的容器
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,7 +37,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 创建 Cosmos DB 帐户。 |

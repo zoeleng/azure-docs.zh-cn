@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 7/29/2020
-ms.openlocfilehash: 73a105f8f63c655713129d4d3e6211a73c9114d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05a7b6a246cafb4e17103a942918e271f8a8d09c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87433345"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098175"
 ---
 # <a name="create-a-database-with-autoscale-and-shared-collections-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>使用 Azure CLI 为 MongoDB API for Azure Cosmos DB 创建数据库（具有自动缩放功能和共享集合）
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
@@ -36,7 +37,7 @@ az group delete --name $resourceGroupName
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | 创建 Azure Cosmos DB 帐户。 |

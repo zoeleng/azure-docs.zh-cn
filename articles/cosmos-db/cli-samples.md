@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c5ed9af0c133f746f5761d6c41a5fdb9f25589ac
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c7baf4de56edd25537f93095bfa6ae0402214e2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276376"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073167"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>适用于 Azure Cosmos DB Core (SQL) API 的 Azure CLI 示例
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 使用右侧的链接可导航到 API 特定示例。 常见示例在所有 API 间是相同的。 [Azure CLI 参考](/cli/azure/cosmosdb)中收录了所有 Azure Cosmos DB CLI 命令的参考页。 还可以在 [Azure Cosmos DB CLI GitHub 存储库](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)中找到 Azure Cosmos DB CLI 脚本示例。
 
@@ -30,7 +31,7 @@ ms.locfileid: "92276376"
 |任务 | 说明 |
 |---|---|
 | [添加或故障转移区域](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | 添加区域、更改故障转移优先级、触发手动故障转移。|
-| [帐户密钥和连接字符串](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json)  | 列出帐户密钥、只读密钥，重新生成密钥并列出连接字符串。|
+| [帐户密钥和连接字符串](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | 列出帐户密钥、只读密钥，重新生成密钥并列出连接字符串。|
 | [使用 IP 防火墙保护](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| 创建配置了 IP 防火墙的 Cosmos 帐户。|
 | [使用服务终结点保护新帐户](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| 使用服务终结点创建 Cosmos 帐户并确保其安全。|
 | [使用服务终结点保护现有帐户](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| 最终配置子网后，更新 Cosmos 帐户以使用服务终结点进行保护。|

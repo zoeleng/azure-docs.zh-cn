@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2f49f2541ea150719f4145708f1811c8ceed42a4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 66bc69bf1d81c9da9b9da4f670e9c8589c8400ed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282691"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102068"
 ---
 # <a name="create-a-database-and-container-with-autoscale-for-azure-cosmos-db---sql-api"></a>为 Azure Cosmos DB 创建数据库和容器（具有自动缩放功能）- SQL API
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,7 +39,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 创建 Cosmos DB 帐户。 |

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9be92ca8c976de7157f5602699ed64fdce78aaa6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 38ed741401740c60e9bdbe0869caa0f8a6a3c76d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489211"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099294"
 ---
 # <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>创建 Azure Cosmos DB 的数据库和图 - Gremlin API
+[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,7 +37,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 创建 Cosmos DB 帐户。 |

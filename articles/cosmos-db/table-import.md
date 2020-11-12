@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f99d7430b76c0b1c4e9c07835267a4a0807efdb1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e876ca028532bb3721146e90a91d68c4c12bf79f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481357"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096069"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>将数据迁移到 Azure Cosmos DB 表 API 帐户
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 本教程说明如何导入要在 Azure Cosmos DB [表 API](table-introduction.md) 中使用的数据。 如果已将数据存储在 Azure 表存储中，可以使用数据迁移工具或 AzCopy 将数据导入 Azure Cosmos DB 表 API。 如果已将数据存储在 Azure Cosmos DB 表 API（预览版）帐户中，则必须使用数据迁移工具来迁移数据。 
 
@@ -72,7 +73,7 @@ ms.locfileid: "92481357"
 
 在从 Azure 表存储进行导入时，若要检索源连接字符串，请打开 Azure 门户并单击“存储帐户” > “帐户” > “访问密钥”，然后使用复制按钮复制 **连接字符串** 。  
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="显示“存储帐户”>“帐户”>“访问密钥”选项并突出显示“复制”按钮的屏幕截图。":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="HBase 源选项的屏幕截图":::
 
 [示例 Azure 表存储命令](#azure-table-storage)
 

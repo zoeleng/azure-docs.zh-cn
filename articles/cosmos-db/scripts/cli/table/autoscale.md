@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 7/29/2020
-ms.openlocfilehash: 6805d9c464357dfb8b0b0bdd3bdafcfa22399d78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 436fab1b0b0d5392bc7509e72676f0877ce2d83c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87433339"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089451"
 ---
 # <a name="create-an-azure-cosmos-table-api-account-and-table-with-autoscale-using-azure-cli"></a>使用 Azure CLI 创建 Azure Cosmos 表 API 帐户和表（具有自动缩放功能）
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
@@ -36,7 +37,7 @@ az group delete --name $resourceGroupName
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | 创建 Azure Cosmos DB 帐户。 |

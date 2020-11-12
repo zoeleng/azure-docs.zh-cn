@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8bd5bba0f98a872ce31836217aef5605df3b0c41
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 496e9ba375e1c83b0e5c06d5bd746ea7e02b3b14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488174"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099477"
 ---
 # <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帐户的区域
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -40,7 +41,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | 列出 Cosmos DB 帐户或获取指定的 Cosmos DB 帐户。 |

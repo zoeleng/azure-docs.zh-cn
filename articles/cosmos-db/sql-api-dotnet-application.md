@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e1dd1e94bd9747bb0961c09ce2f281c433b4b4fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e4e2ba15dad7459ba3f7926a965292be37249054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488208"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097356"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教程：通过 .NET SDK 开发使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用程序
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -71,7 +72,7 @@ ms.locfileid: "92488208"
 
 1. 在“创建新项目”中，找到并选择适用于 C# 的“ASP.NET Core Web 应用程序”。  选择“下一步”继续。
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="新建 ASP.NET Core Web 应用程序项目":::
 
 1. 在“配置新项目”中，将项目命名为 *todo* ，然后选择“创建”。 
 
@@ -89,7 +90,7 @@ ms.locfileid: "92488208"
 
 1. 在“NuGet 包管理器”中，搜索并选择“Microsoft.Azure.Cosmos”。  选择“安装”。
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="安装 NuGet 包":::
 
    Visual Studio 会下载并安装 Azure Cosmos DB 包及其依赖项。
 
@@ -139,7 +140,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
    * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml* 。
    * 选择 **添加** 。
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="显示“添加 MVC 视图”对话框的屏幕截图":::
 
 1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
 
@@ -200,8 +201,8 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 在“添加 MVC 视图”中进行以下更改：
 
-   * 在“视图名称”框中，键入“索引”。 
-   * 在“模板”框中，选择“列表”。 
+   * 在“视图名称”框中，键入“索引”。
+   * 在“模板”框中，选择“列表”。
    * 在“模型类”框中，选择“项(todo.Models)”。 
    * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml* 。
    * 选择 **添加** 。
@@ -262,7 +263,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 在“添加基架”中，依次选择“MVC 控制器 - 空”、“添加”。  
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="在“添加基架”中选择“MVC 控制器 - 空”":::
 
 1. 将新控制器命名为 *ItemController* 。
 
@@ -280,7 +281,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 在 Visual Studio 中按 F5 即可在调试模式下构建应用程序。 这样应该可以构建应用程序，并启动包含先前看到的空白网格页面的浏览器：
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="按本教程创建的待办事项列表 Web 应用程序的屏幕截图":::
    
    如果应用程序改为打开到主页，请将 `/Item` 追加到 url。
 
@@ -288,11 +289,11 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 选择“创建”  。 应用会将你返回到“索引”视图，项将显示在列表中。 可以在 **To-Do** 列表中额外添加几个项。
 
-    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="“索引”视图的屏幕截图":::
   
 1. 在列表中“项”的旁边选择“编辑”。  应用将会打开“编辑”视图，可在其中更新对象的任何属性，包括“已完成”标志。  如果你依次选择“已完成”、“保存”，则应用会在列表中显示处于已完成状态的“项”。  
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="勾选了“已完成”框的“索引”视图屏幕截图":::
 
 1. 使用 [Cosmos 资源管理器](https://cosmos.azure.com)或 Azure Cosmos DB 仿真器的数据资源管理器来验证 Azure Cosmos DB 服务中数据的状态。
 
@@ -312,7 +313,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 找到你的配置文件，然后选择“确定”。 接下来搜索必需的 Azure 应用服务，然后选择“确定”。
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="Visual Studio 中的“应用服务”对话框":::
 
 另一个选项是创建新的配置文件：
 
@@ -324,7 +325,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 在“应用服务”中，输入 Web 应用名称以及相应的订阅、资源组和托管计划，然后选择“创建”。 
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="按本教程（ASP NET Core MVC 分步教程）创建的待办事项列表 MVC Web 应用程序的屏幕截图":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Visual Studio 中的“创建应用服务”对话框":::
 
 在几秒钟内，Visual Studio 会发布 Web 应用程序并启动浏览器，方便你查看在 Azure 中运行的项目！
 

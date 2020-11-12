@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 774c829b3f9c36cef33f8f334825440b92582f4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485284"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097296"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>教程：使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -67,7 +68,7 @@ ms.locfileid: "92485284"
 
 1. 首先，我们将从创建 Java 项目开始。 启动 Eclipse，并依次单击“文件”、“新建”和“动态 Web 项目”。   如果未看到“动态 Web 项目”作为可用项目列出，请执行下列操作：依次单击“文件”、“新建”和“项目”，展开“Web”，单击“动态 Web 项目”，并单击“下一步”。      
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="我的待办事项列表 Java 应用程序":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="JSP Java 应用程序开发":::
 
 1. 在“项目名称”框中输入项目名称，在“目标运行时”下拉菜单中随意选择一个值（例如 Apache Tomcat v7.0），并单击“完成”。   选择目标运行可通过 Eclipse 在本地运行项目。
 
@@ -75,7 +76,7 @@ ms.locfileid: "92485284"
 
 1. 在“新建 JSP 文件”对话框中，将文件命名为 **index.jsp** 。 将父文件夹保留为 **WebContent** ，如下图所示，然后单击“下一步”。
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="我的待办事项列表 Java 应用程序":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="创建新的 JSP 文件 - Java Web 应用程序教程":::
 
 1. 对于本教程，请在“选择 JSP 模板”对话框中选择“新建 JSP 文件(html)”，并单击“完成”。  
 
@@ -91,7 +92,7 @@ ms.locfileid: "92485284"
 
 1. 如果在步骤 2 中设置了目标运行时，则可以单击“项目”，并单击“运行”，在本地运行 JSP 应用程序： 
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="我的待办事项列表 Java 应用程序":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World - Java 应用程序教程":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>安装 SQL Java SDK
 

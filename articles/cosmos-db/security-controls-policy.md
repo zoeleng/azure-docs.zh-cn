@@ -7,14 +7,15 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: cfa5be6ed7cc933513b4c42a05a7ccdd40e8c13f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1461667c9ba36a7834d78ee91c15b291d455e841
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314358"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097288"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure Policy 法规遵从性控制
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy 中的法规遵从性](../governance/policy/concepts/regulatory-compliance.md)为与不同合规性标准相关的“合规性域”和“安全控制”提供由 Microsoft 创建和管理的计划定义，称为“内置项” 。 此页列出 Azure Cosmos DB 的“符合域”和“安全控件” 。 可以分别为“安全控件”分配内置项，以帮助 Azure 资源符合特定的标准。
 

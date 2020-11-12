@@ -3,17 +3,17 @@ title: 使用 Azure 通知中心和 iOS SDK 向 iOS 发送推送通知
 description: 在本教程，你将学习如何使用 Azure 通知中心和 Apple Push Notification 服务向 iOS 设备发送推送通知。
 author: sethmanheim
 ms.author: sethm
-ms.date: 08/10/2020
+ms.date: 10/30/2020
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 3ec96ff0fdebc0ac862af00c699ec489567a7144
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c920c9b3b28df7f5bf3bf169ef88ab967f23649e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426772"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085371"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 应用发送推送通知
 
@@ -309,4 +309,4 @@ Apple Push Notification 服务 (APNS) 使用证书对推送通知进行身份验
 
 在本教程中，你在 Azure 中创建并配置了一个通知中心，并已它其配置为允许通过 Apple Push Notification 服务 (APNS) 将通知发送到你的应用程序。 接下来，我们将创建一个示例 iOS 应用程序并集成 Azure 通知中心 SDK，使其能够接收通过 Azure 门户发送的推送通知。 根据所选的语言，前往以下教程：
 
-- [教程：使用 Swift 与 iOS 应用集成]()
+- [教程：使用 Azure 通知中心向 iOS 应用发送推送通知](ios-sdk-300.md)

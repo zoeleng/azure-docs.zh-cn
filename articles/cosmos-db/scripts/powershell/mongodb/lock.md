@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: b9b743e9f293455c09557348c53cc76b1f904b0a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 26210b183c48835eeaedc353bab0fd2cde4a2dbb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489126"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089621"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-mongodb-api-database-and-collection-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure Cosmos MongoDB API 数据库和集合创建资源锁
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure 资源**| |
 | [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) | 创建资源锁。 |

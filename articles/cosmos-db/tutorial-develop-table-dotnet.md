@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9001d9982a26875f814b635533bebd7579339fa5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5a3eefdb742d847950819fccfd87b9b5501cbefd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079234"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>通过 .NET SDK 开始使用 Azure Cosmos DB 表 API 和 Azure 表存储
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
@@ -158,7 +159,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 立即生成解决方案并按 F5 运行该项目。 运行项目时，将在命令提示符中看到以下输出：
 
-:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="“连接字符串”窗格中的“主连接字符串”":::
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="来自命令提示符的输出":::
 
 如果收到说明在运行项目时无法找到 Settings.json 文件的错误，可以通过将以下 XML 条目添加到项目设置来解决该问题。 右键单击 CosmosTableSamples，选择“编辑 CosmosTableSamples.csproj”并添加以下 itemGroup： 
 
@@ -171,7 +172,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 ```
 现在可以登录到 Azure 门户，并验证表中是否存在数据。 
 
-:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="“连接字符串”窗格中的“主连接字符串”":::
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="门户中的结果":::
 
 ## <a name="next-steps"></a>后续步骤
 

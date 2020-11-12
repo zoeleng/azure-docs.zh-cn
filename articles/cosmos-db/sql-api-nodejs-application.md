@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097271"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -439,7 +440,7 @@ ms.locfileid: "92478110"
 
 1. 若要在本地计算机上测试应用程序，请在终端中运行 `npm start` 以启动应用程序，然后刷新 `http://localhost:3000` 浏览器页。 该页现在应该如以下屏幕截图所示：
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="了解 Node.js - 浏览器窗口中 Hello World 应用程序的屏幕截图":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="浏览器窗口中“我的待办事项列表”应用程序的屏幕截图":::
 
     > [!TIP]
     > 如果收到有关 layout.jade 文件或 index.jade 文件的缩进错误，请确保这两个文件中的头两行都已经左对齐，没有空格。 如果头两行之前留有空格，请删除这些空格，将这两个文件保存，然后刷新浏览器窗口。 
@@ -448,7 +449,7 @@ ms.locfileid: "92478110"
 
 3. 页面应更新为在 ToDo 列表中显示新建项。
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="了解 Node.js - 浏览器窗口中 Hello World 应用程序的屏幕截图":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="待办事项列表中有新的项的应用程序屏幕截图":::
 
 4. 若要完成任务，请选中“完成”列中的复选框，然后选择“更新任务”。 此时会更新已创建的文档并将其从视图中删除。
 
