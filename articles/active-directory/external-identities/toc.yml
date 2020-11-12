@@ -10,6 +10,8 @@
           href: what-is-b2b.md
         - name: 什么是 Azure AD B2C？
           href: ../../active-directory-b2c/overview.md
+        - name: Docs 中的新增内容
+          href: whats-new-docs.md
     - name: 快速入门
       items:
         - name: 在门户中添加来宾用户

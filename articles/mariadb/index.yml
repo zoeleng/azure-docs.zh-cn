@@ -3,17 +3,17 @@ title: Azure Database for MariaDB 文档
 summary: Azure Database for MariaDB 是基于开源 MariaDB Server 引擎的关系型数据库服务。  它是完全托管的数据库即服务产品，能够处理任务关键型工作负荷，并提供可预测的性能和动态可伸缩性。 利用所选的开源工具和平台，通过 Azure Database for MariaDB 开发应用程序。 参考我们的快速入门、教程和示例了解如何使用 Azure Database for MariaDB。
 metadata:
   description: Azure Database for MariaDB 是 Microsoft 云中的关系型数据库服务，它基于开源 MariaDB 数据库引擎，专为开发人员而构建。
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/05/2019
   ms.service: mariadb
   ms.topic: landing-page
-  ms.openlocfilehash: 3e49a860cca6cb59543f450cda4bda8c6b0c0a38
-  ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+  ms.openlocfilehash: 3c2ea25c4d928071da6f6d3047b58996289aaa13
+  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92428334"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94539798"
 landingContent:
 - title: 关于 Azure Database for MariaDB
   linkLists:

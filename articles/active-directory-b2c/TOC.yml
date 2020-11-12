@@ -7,6 +7,8 @@
       href: overview.md
     - name: 技术和功能概述
       href: technical-overview.md
+    - name: Docs 中的新增内容
+      href: whats-new-docs.md
 - name: 快速入门
   expanded: true
   items:
