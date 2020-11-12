@@ -1,17 +1,17 @@
 ---
 title: 高级威胁防护-Azure Database for MariaDB
 description: 高级威胁防护会检测异常的数据库活动，指出对数据库的潜在安全威胁。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425662"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536184"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB 高级威胁防护
 
@@ -23,7 +23,7 @@ ms.locfileid: "92425662"
 高级威胁防护包含在高级数据安全产品/服务中，是一个针对高级安全功能的统一软件包。 高级威胁防护可通过 [Azure 门户](https://portal.azure.com)进行访问和管理。 此功能可用于常规用途和内存优化服务器。
 
 > [!NOTE]
-> 高级威胁防护功能在以下 Azure 政府和主权云区域中不**** 可用：US Gov 德克萨斯州、US Gov 亚利桑那州、US Gov 爱荷华州、US Gov 弗吉尼亚州、US DoD 东部、US DoD 中部、德国中部、德国北部、中国东部、中国东部 2。 请访问[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/)，以了解常规产品可用性。
+> 高级威胁防护功能在以下 Azure 政府和主权云区域中不可用：US Gov 德克萨斯州、US Gov 亚利桑那州、US Gov 爱荷华州、US Gov 弗吉尼亚州、US DoD 东部、US DoD 中部、德国中部、德国北部、中国东部、中国东部 2。 请访问[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/)，以了解常规产品可用性。
 
 
 ## <a name="what-is-advanced-threat-protection"></a>什么是高级威胁防护？
@@ -34,11 +34,11 @@ ms.locfileid: "92425662"
 
 ## <a name="advanced-threat-protection-alerts"></a>高级威胁防护警报 
 适用于 Azure Database for MariaDB 的高级威胁防护可检测异常活动，这些活动表明访问或利用数据库的异常和潜在有害尝试，并且它可能会触发以下警报：
-- **从异常位置访问**：当 Azure Database for MariaDB 服务器的访问模式发生变化时，用户从异常地理位置登录到 Azure Database for MariaDB 服务器时，将触发此警报。 在某些情况下，警报会检测合法操作（发布新应用程序或开发人员维护）。 在其他情况下，警报会检测恶意操作（以前的员工、外部攻击者）。
-- **从异常的 azure 数据中心访问**：当 Azure Database for MariaDB 服务器的访问模式发生更改，而该服务器在最近一段时间内在此服务器上发现的不寻常的 azure 数据中心登录到服务器时，将触发此警报。 在某些情况下，警报会检测 (新应用程序的合法操作，Power BI) 。 在其他情况下，警报会检测通过 Azure 资源/服务执行的恶意操作（以前的员工、外部攻击者）。
-- **从不熟悉的主体访问**：当 Azure Database for MariaDB 服务器的访问模式发生更改，而用户使用异常的主体 (Azure Database for MariaDB 用户) 登录到服务器时，将触发此警报。 在某些情况下，警报会检测合法操作（发布新应用程序或开发人员维护）。 在其他情况下，警报会检测恶意操作（以前的员工、外部攻击者）。
-- **来自可能有害的应用程序的访问**：当使用可能有害的应用程序访问数据库时，会触发此警报。 在某些情况下，警报会检测操作中的渗透测试。 在其他情况下，警报会检测使用常见攻击工具执行的攻击。
-- **强力 Azure Database for MariaDB 凭据**：当使用不同凭据的失败登录失败时，将触发此警报。 在某些情况下，警报会检测操作中的渗透测试。 在其他情况下，警报会检测暴力破解攻击。
+- **从异常位置访问** ：当 Azure Database for MariaDB 服务器的访问模式发生变化时，用户从异常地理位置登录到 Azure Database for MariaDB 服务器时，将触发此警报。 在某些情况下，警报会检测合法操作（发布新应用程序或开发人员维护）。 在其他情况下，警报会检测恶意操作（以前的员工、外部攻击者）。
+- **从异常的 azure 数据中心访问** ：当 Azure Database for MariaDB 服务器的访问模式发生更改，而该服务器在最近一段时间内在此服务器上发现的不寻常的 azure 数据中心登录到服务器时，将触发此警报。 在某些情况下，警报会检测 (新应用程序的合法操作，Power BI) 。 在其他情况下，警报会检测通过 Azure 资源/服务执行的恶意操作（以前的员工、外部攻击者）。
+- **从不熟悉的主体访问** ：当 Azure Database for MariaDB 服务器的访问模式发生更改，而用户使用异常的主体 (Azure Database for MariaDB 用户) 登录到服务器时，将触发此警报。 在某些情况下，警报会检测合法操作（发布新应用程序或开发人员维护）。 在其他情况下，警报会检测恶意操作（以前的员工、外部攻击者）。
+- **来自可能有害的应用程序的访问** ：当使用可能有害的应用程序访问数据库时，会触发此警报。 在某些情况下，警报会检测操作中的渗透测试。 在其他情况下，警报会检测使用常见攻击工具执行的攻击。
+- **强力 Azure Database for MariaDB 凭据** ：当使用不同凭据的失败登录失败时，将触发此警报。 在某些情况下，警报会检测操作中的渗透测试。 在其他情况下，警报会检测暴力破解攻击。
 
 ## <a name="next-steps"></a>后续步骤
 

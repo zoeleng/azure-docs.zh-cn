@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ee18916a59bb081d65494f46e7aba7c29c7177cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e41eb0f6a61f7b195e251739ae93207c731cac5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71718521"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535871"
 ---
 # <a name="detect-adult-content"></a>检测成人内容
 
@@ -30,12 +30,12 @@ ms.locfileid: "71718521"
 "成人" 分类中有几个不同的类别：
 
 - **成人** 图像定义为本质上是色情的，通常表现裸体和性行为。
-- “不雅”图像的定义为实际具有性暗示且往往包含露骨的描绘性内容（比“成人”图像少）的图像********。
+- “不雅”图像的定义为实际具有性暗示且往往包含露骨的描绘性内容（比“成人”图像少）的图像。
 - **底层** 映像定义为描述血腥的映像。
 
 ## <a name="use-the-api"></a>使用 API
 
-你可以通过 " [分析映像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API" 检测成人内容。 将的值添加 `Adult` 到**visualFeatures**查询参数时，API 会 &mdash; `isAdultContent` `isRacyContent` `isGoryContent` &mdash; 在其 JSON 响应中返回三个布尔属性：和。 此方法还返回相应的属性 &mdash; `adultScore` ，以及 `racyScore` `goreScore` &mdash; 表示每个相应类别的零和一个的置信度得分。
+你可以通过 " [分析映像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API" 检测成人内容。 将的值添加 `Adult` 到 **visualFeatures** 查询参数时，API 会 &mdash; `isAdultContent` `isRacyContent` `isGoryContent` &mdash; 在其 JSON 响应中返回三个布尔属性：和。 此方法还返回相应的属性 &mdash; `adultScore` ，以及 `racyScore` `goreScore` &mdash; 表示每个相应类别的零和一个的置信度得分。
 
 - [快速入门：在 .NET SDK ( 分析映像) ](./quickstarts-sdk/csharp-analyze-sdk.md)
 - [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)

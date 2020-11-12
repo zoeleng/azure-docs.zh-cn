@@ -1,17 +1,17 @@
 ---
 title: 定价层 - Azure Database for MariaDB
 description: 了解 Azure Database for MariaDB 的各种定价层，包括计算代系、存储类型、存储大小、vCore 数、内存和备份保留期。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125775"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536279"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 定价层
 
@@ -68,7 +68,7 @@ ms.locfileid: "92125775"
 | 存储类型 | Azure 高级存储 | Azure 高级存储 |
 | 存储大小 | 32 GB 到 16 TB| 32到 16 TB |
 | 存储增量大小 | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20000 IOPS| 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20000 IOPS |
+| IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS| 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS |
 
 > [!IMPORTANT]
 > 大型存储目前在以下区域中处于公共预览阶段：美国东部、美国东部2、巴西南部、美国中部、美国西部、美国中北部、美国中南部、北欧、西欧、英国南部、英国西部、东南亚、东亚、日本东部、日本西部、韩国中部、韩国南部、澳大利亚东部、澳大利亚东南部、日本东部、澳大利亚东部、澳大利亚东部、加拿大东部、美国西部和加拿大中部。

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 0c697e6332b757e1d135a77b70f33a6e32528309
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358892"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536245"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>使用 Azure 机器学习创建、查看和部署自动化机器学习模型
 
@@ -88,7 +88,7 @@ ms.locfileid: "93358892"
 
     1. “确认详细信息”窗体上总结了先前在“基本信息”和“设置和预览”窗体中填充的信息  。 你还可以使用已启用分析的计算来为数据集创建数据配置文件。 详细了解[数据分析](how-to-connect-data-ui.md#profile)。
 
-        选择“ **下一页** ”。
+        选择“ **下一步** ”。
 1. 新建的数据集出现后，请将其选中。 还可以查看数据集和样本统计信息的预览。 
 
 1. 在“配置运行”窗体中，输入唯一的试验名称。
@@ -113,7 +113,7 @@ ms.locfileid: "93358892"
     >[!NOTE]
     > 计算名称将会指示选择/创建的计算是否已启用分析。 （有关更多详细信息，请参阅[数据分析](how-to-connect-data-ui.md#profile)部分）。
 
-    选择“ **下一页** ”。
+    选择“ **下一步** ”。
 
 1. 在“任务类型和设置”窗体中选择任务类型：分类、回归或预测。 有关详细信息，请参阅[支持的任务类型](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)。
 
@@ -162,6 +162,9 @@ ms.locfileid: "93358892"
 ## <a name="run-experiment-and-view-results"></a>运行试验并查看结果
 
 选择“完成”来运行试验。 试验准备过程可能需要长达 10 分钟的时间。 训练作业可能需要额外的 2 - 3 分钟才能完成每个管道的运行。
+
+> [!NOTE]
+> 自动 ML ML 使用的算法具有固有的随机性，这可能会导致建议的模型中出现略微变化的最终指标分数，例如准确性。 自动 ML 还会对数据执行操作（例如，定型-测试拆分、定型验证拆分或交叉验证，如有必要）。 因此，如果使用相同的配置设置和主要指标多次运行试验，则可能会因这些因素而导致每个试验最终指标分数发生变化。 
 
 ### <a name="view-experiment-details"></a>查看试验详细信息
 

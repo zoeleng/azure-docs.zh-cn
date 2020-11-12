@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444333"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536432"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>如何将 IoT Edge 设备用作网关
 
@@ -45,21 +45,21 @@ IoT Edge 中心模块的作用类似于 IoT 中心，因此可以处理与 IoT �
 
 在透明网关模式下，理论上可以连接到 IoT 中心的设备可以改为连接到网关设备。 下游设备具有其自己的 IoT 中心标识，并使用 MQTT 或 AMQP 协议进行连接。 网关只是在设备与 IoT 中心之间传递通信。 设备和通过 IoT 中心与其交互的用户都不知道网关正在协调它们的通信。 这样缺乏感知意味着网关被认为是“透明”的。
 
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-
-IoT Edge 设备可通过透明网关和常规 IoT 设备进行连接。
-
-<!-- TODO add a downstream IoT Edge device to graphic -->
-
-::: moniker-end
-
 <!-- 1.0.10 -->
 ::: moniker range="iotedge-2018-06"
 
 IoT Edge 设备不能是 IoT Edge 网关的下游。
 
 ![关系图-透明网关模式](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+从版本1.2.0 开始，IoT Edge 设备可通过透明网关进行连接。
+
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
 ::: moniker-end
 
@@ -102,10 +102,22 @@ IoT Edge 设备既可以是父项，也可以是透明网关关系中的子项�
 
 ### <a name="device-capabilities-behind-transparent-gateways"></a>透明网关后面的设备功能
 
-
 所有与 IoT Edge 的消息传递管道一起使用的 IoT 中心基元还支持透明网关方案。 每个 IoT Edge 网关都具有用于通过它的消息的存储和转发功能。
 
 使用下表查看与网关后的设备相比，设备支持不同 IoT 中心功能的方式。
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| 功能 | IoT 设备 | 网关后的 IoT |
+| ---------- | ---------- | -------------------- |
+| [设备到云 (D2C) 消息](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![是-IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![是-子 IoT D2C](./media/iot-edge-as-gateway/check-yes.png) |
+| [云到设备 (C2D) 消息](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![是-IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![是-IoT 子 C2D](./media/iot-edge-as-gateway/check-yes.png) |
+| [直接方法](../iot-hub/iot-hub-devguide-direct-methods.md) | ![是-IoT 直接方法](./media/iot-edge-as-gateway/check-yes.png) | ![是-子 IoT 直接方法](./media/iot-edge-as-gateway/check-yes.png) |
+| [设备孪生](../iot-hub/iot-hub-devguide-device-twins.md) 和 [模块孪生](../iot-hub/iot-hub-devguide-module-twins.md) | ![是-IoT 孪生](./media/iot-edge-as-gateway/check-yes.png) | ![是-子 IoT 孪生](./media/iot-edge-as-gateway/check-yes.png) |
+| [文件上传](../iot-hub/iot-hub-devguide-file-upload.md) | ![是-IoT 文件上传](./media/iot-edge-as-gateway/check-yes.png) | ![无 IoT 子文件上传](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -123,19 +135,6 @@ IoT Edge 设备既可以是父项，也可以是透明网关关系中的子项�
 **容器映像** 可从父设备下载、存储和传送到子设备。
 
 可以将 **blob** （包括支持捆绑和日志）从子设备上传到父设备。
-
-::: moniker-end
-
-<!-- 1.0.10 -->
-::: moniker range="iotedge-2018-06"
-
-| 功能 | IoT 设备 | 网关后的 IoT |
-| ---------- | ---------- | -------------------- |
-| [设备到云 (D2C) 消息](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![是-IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![是-子 IoT D2C](./media/iot-edge-as-gateway/check-yes.png) |
-| [云到设备 (C2D) 消息](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![是-IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![是-IoT 子 C2D](./media/iot-edge-as-gateway/check-yes.png) |
-| [直接方法](../iot-hub/iot-hub-devguide-direct-methods.md) | ![是-IoT 直接方法](./media/iot-edge-as-gateway/check-yes.png) | ![是-子 IoT 直接方法](./media/iot-edge-as-gateway/check-yes.png) |
-| [设备孪生](../iot-hub/iot-hub-devguide-device-twins.md) 和 [模块孪生](../iot-hub/iot-hub-devguide-module-twins.md) | ![是-IoT 孪生](./media/iot-edge-as-gateway/check-yes.png) | ![是-子 IoT 孪生](./media/iot-edge-as-gateway/check-yes.png) |
-| [文件上传](../iot-hub/iot-hub-devguide-file-upload.md) | ![是-IoT 文件上传](./media/iot-edge-as-gateway/check-yes.png) | ![无 IoT 子文件上传](./media/iot-edge-as-gateway/crossout-no.png) |
 
 ::: moniker-end
 

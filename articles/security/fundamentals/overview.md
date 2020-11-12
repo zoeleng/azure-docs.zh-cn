@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408200"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536488"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性简介
 ## <a name="overview"></a>概述
@@ -221,7 +221,7 @@ Azure 网络支持各种安全远程访问方案。 其中包括：
 ### <a name="express-route"></a>Express Route
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) 是专用 WAN 链接，可让用户通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。
 
-![Express Route](./media/overview/azure-security-fig1.png)
+![Express Route](./media/overview/azure-security-figure-1.png)
 
 使用 ExpressRoute 可与 Microsoft Azure、Microsoft 365 和 CRM Online 等 Microsoft 云服务建立连接。 可以从任意位置之间的 (IP VPN) 网络、点到点以太网或在共置设施上通过连接服务提供商的虚拟交叉连接来建立这种连接。
 
@@ -231,7 +231,7 @@ ExpressRoute 连接不会通过公共 Internet，因此可以认为它比基于 
 ### <a name="application-gateway"></a>应用程序网关
 Microsoft [Azure 应用程序网关](../../application-gateway/overview.md)以服务形式提供[应用程序传送控制器 (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller)，借此为应用程序提供第 7 层各种负载均衡功能。
 
-![应用程序网关](./media/overview/azure-security-fig2.png)
+![应用程序网关](./media/overview/azure-security-figure-2.png)
 
 它使用户能够通过将 CPU 密集型 TLS 终止卸载到应用程序网关（也称为“TLS 卸载”或“TLS 桥接”）来优化 Web 场生产率。 它还提供第 7 层其他路由功能，包括传入流量的轮循机制分配、基于 Cookie 的会话相关性、基于 URL 路径的路由，以及在单个应用程序网关后面托管多个网站的能力。 Azure 应用程序网关是第 7 层负载均衡器。
 
@@ -242,7 +242,7 @@ Microsoft [Azure 应用程序网关](../../application-gateway/overview.md)以�
 ### <a name="web-application-firewall"></a>Web 应用程序防火墙
 Web 应用程序防火墙是 [Azure 应用程序网关](../../application-gateway/overview.md)的一项功能，它为使用应用程序网关实现标准应用程序传递控制 (ADC) 功能的 Web 应用程序提供保护。 Web 应用程序防火墙的此功能可以保护 Web 应用程序免受 OWASP 十大常见 Web 漏洞中的大部分漏洞的威胁。
 
-![Web 应用程序防火墙](./media/overview/azure-security-fig1.png)
+![Web 应用程序防火墙](./media/overview/azure-security-figure-3.png)
 
 -   SQL 注入保护
 

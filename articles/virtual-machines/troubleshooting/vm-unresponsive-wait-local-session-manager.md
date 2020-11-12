@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: ae3d35bea1c75c797447100316ceab9a27fcbe48
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f2f0177b5fe8bb97773d297319f6c9196d8178d2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423955"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536228"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager"></a>VM 在等待本地会话管理器时无响应
 
@@ -35,7 +35,7 @@ ms.locfileid: "93423955"
 
 ## <a name="solution"></a>解决方案
 
-在某些情况下，只需等待足够长的时间来完成该过程即可解决问题。 如果 VM 在等待屏幕上的等待时间超过一小时，则应收集内存转储，然后联系 Microsoft 支持部门。
+在某些情况下，只需等待足够长的时间来完成该过程即可解决问题。 如果 VM 未响应并在一小时内保持在等待屏幕上，则应收集内存转储，然后联系 Microsoft 支持部门。
 
 ### <a name="collect-the-memory-dump-file"></a>收集内存转储文件
 

@@ -1,17 +1,17 @@
 ---
 title: Query Performance Insight - Azure Database for MySQL
 description: 本文介绍 Azure Database for MySQL 中的 Query Performance Insight 功能
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30457b950e6400c799f35924e7b2ee90d868a465
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884909"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535174"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的 Query Performance Insight
 
@@ -64,7 +64,7 @@ Azure 门户中的 [Query Performance Insight](concepts-query-performance-insigh
 
 “等待统计信息”视图中显示的查询按指定时间间隔内显示最大等待时间的查询进行分组。
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 长时间运行的查询":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 等待统计信息":::
 
 ## <a name="next-steps"></a>后续步骤
 

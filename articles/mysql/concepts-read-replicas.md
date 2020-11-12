@@ -1,17 +1,17 @@
 ---
-title: 读取副本-Azure Database for MySQL
+title: 只读副本 - Azure Database for MySQL
 description: 了解 Azure Database for MySQL 中的只读副本：选择区域、创建副本、连接副本、监视复制和停止复制。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 10f2158edc12e7242c65a2e8ba58a18d390d47c8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 730b634f23599c5eef8c4c6c988820ae5e4fa9c8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091304"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535106"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -35,12 +35,12 @@ ms.locfileid: "93091304"
 
 由于副本是只读的，它们不能直接缓解主服务器上的写入容量负担。 此功能并非面向写入密集型工作负荷。
 
-只读副本功能使用 MySQL 本机异步复制。 该功能不适用于同步复制方案。 源和副本之间将有可度量的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
+只读副本功能使用 MySQL 本机异步复制。 该功能不适用于同步复制方案。 源与副本之间将会存在明显的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
 
 ## <a name="cross-region-replication"></a>跨区域复制
-你可以在源服务器的其他区域中创建读取副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
+可以在与源服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
 
-你可以在任何 [Azure Database for MySQL 区域](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)中拥有源服务器。  源服务器可以在其配对区域或通用副本区域中拥有副本。 下图显示了根据源区域可用的副本区域。
+任何 [Azure Database for MySQL 区域](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)中都可以有源服务器。  源服务器可以在其配对区域或通用副本区域中拥有副本。 下图显示了根据源区域可用的副本区域。
 
 [:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="读取副本区域":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
@@ -66,9 +66,9 @@ ms.locfileid: "93091304"
 > [!IMPORTANT]
 > 只读副本功能仅适用于“常规用途”或“内存优化”定价层中的 Azure Database for MySQL 服务器。 请确保源服务器位于其中一个定价层中。
 
-如果源服务器没有现有的副本服务器，则会先重新启动源服务器以准备进行复制。
+如果源服务器没有现有的副本服务器，该源服务器会先重启，以便为复制做好自身准备。
 
-启动“创建副本”工作流时，将创建空白的 Azure Database for MySQL 服务器。 新服务器将用源服务器上的数据进行填充。 创建时间取决于源上的数据量以及自上次每周完整备份后的时间。 具体所需时间从几分钟到几小时不等。 副本服务器始终在与源服务器相同的资源组和订阅中创建。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](../azure-resource-manager/management/move-resource-group-and-subscription.md)。
+启动“创建副本”工作流时，将创建空白的 Azure Database for MySQL 服务器。 新服务器中会填充源服务器上的数据。 创建时间取决于源服务器上的数据量，以及自上次每周完整备份以来所经历的时间。 具体所需时间从几分钟到几小时不等。 始终会在与源服务器相同的资源组和订阅中创建副本服务器。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](../azure-resource-manager/management/move-resource-group-and-subscription.md)。
 
 每个副本都启用了存储[自动增长](concepts-pricing-tiers.md#storage-auto-grow)。 自动增长功能允许副本与复制到它的数据保持同步，并防止由于存储空间不足错误而导致的复制中断。
 
@@ -76,9 +76,9 @@ ms.locfileid: "93091304"
 
 ## <a name="connect-to-a-replica"></a>连接到副本
 
-创建副本时，副本会继承源服务器的防火墙规则。 之后，这些规则与源服务器无关。
+创建时，副本会继承源服务器的防火墙规则。 之后，这些规则将独立于源服务器。
 
-副本从源服务器继承管理员帐户。 源服务器上的所有用户帐户都将复制到读取副本。 您只能通过使用源服务器上提供的用户帐户连接到读取副本。
+副本会从源服务器继承管理员帐户。 源服务器上的所有用户帐户都会复制到只读副本。 只能通过使用源服务器上可用的用户帐户来连接到只读副本。
 
 可以使用主机名和有效的用户帐户连接到副本，就像在常规的 Azure Database for MySQL 服务器上连接一样。 对于名称为 **myreplica** 、管理员用户名为 **myadmin** 的服务器，可以使用 mysql CLI 连接到副本：
 
@@ -96,9 +96,9 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
 
 ## <a name="stop-replication"></a>停止复制
 
-您可以停止源和副本之间的复制。 在源服务器和读取副本之间停止复制后，副本将成为独立服务器。 独立服务器中的数据是启动“停止复制”命令时副本上可用的数据。 独立服务器不与源服务器保持同步。
+可以停止源与副本之间的复制。 在源服务器与只读副本之间停止复制后，该副本会成为独立服务器。 独立服务器中的数据是启动“停止复制”命令时副本上可用的数据。 独立服务器不会与源服务器保持同步。
 
-当你选择停止复制到副本时，它将丢失到其以前的源和其他副本的所有链接。 源及其副本之间没有自动故障转移。
+选择停止复制到副本时，它会丢失指向其以前的源和其他副本的所有链接。 在源与其副本之间无法自动进行故障转移。
 
 > [!IMPORTANT]
 > 独立服务器不能再次成为副本。
@@ -108,12 +108,12 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
 
 ## <a name="failover"></a>故障转移
 
-源服务器和副本服务器之间没有自动故障转移。 
+在源服务器和副本服务器之间无法自动进行故障转移。 
 
-由于复制是异步的，因此源和副本之间存在延迟。 延迟量可能会受到许多因素的影响，例如，源服务器上运行的工作负荷的大小和数据中心之间的延迟。 大多数情况下，副本验证在几秒钟到几分钟之间。 可以使用“副本延迟”指标来跟踪实际的副本延迟，该指标适用于每个副本。 该指标显示的是自上次重播事务以来所经历的时间。 建议观察一段时间的副本延迟，以便确定平均延迟。 可以针对副本延迟设置警报，这样，当它超出预期范围时，你就可以采取行动。
+由于复制是异步的，因此在源和副本之间存在滞后时间。 滞后时间量会受到多种因素影响，例如，在源服务器上运行的工作负荷有多大，以及数据中心之间的延迟有多严重。 大多数情况下，副本验证在几秒钟到几分钟之间。 可以使用“副本延迟”指标来跟踪实际的副本延迟，该指标适用于每个副本。 该指标显示的是自上次重播事务以来所经历的时间。 建议观察一段时间的副本延迟，以便确定平均延迟。 可以针对副本延迟设置警报，这样，当它超出预期范围时，你就可以采取行动。
 
 > [!Tip]
-> 如果故障转移到副本，则从源解除链接陈旧副本时的滞后时间将指示丢失的数据量。
+> 如果你故障转移到副本，在取消副本与源的链接时的滞后时间将表明会丢失多少数据。
 
 一旦决定要故障转移到某个副本， 
 
@@ -154,9 +154,9 @@ MySQL 支持两种类型的事务： GTID 事务 (用 GTID) 和匿名事务标�
 > [!NOTE]
 > 运行副本服务器的成本取决于副本服务器的运行区域。
 
-### <a name="source-server-restart"></a>源服务器重新启动
+### <a name="source-server-restart"></a>源服务器重启
 
-为没有现有副本的源创建副本时，会先重新启动源以准备复制的副本。 请考虑这一点并在非高峰期执行这些操作。
+在为没有现有副本的源创建副本时，该源服务器会先重启，以便为复制做好自身准备。 请考虑这一点并在非高峰期执行这些操作。
 
 ### <a name="new-replicas"></a>新副本
 
@@ -164,36 +164,36 @@ MySQL 支持两种类型的事务： GTID 事务 (用 GTID) 和匿名事务标�
 
 ### <a name="replica-configuration"></a>副本配置
 
-副本是使用与主服务器相同的服务器配置创建的。 创建副本后，可以独立于源服务器更改多个设置：计算生成、Vcore、存储和备份保留期。 定价层也可以独立更改，但“基本”层除外。
+副本是使用与主服务器相同的服务器配置创建的。 在创建副本后，可以独立于源服务器更改多项设置：计算代系、vCore 数、存储，以及备份保持期。 定价层也可以独立更改，但“基本”层除外。
 
 > [!IMPORTANT]
 > 将源服务器的配置更新为新值之前，请将副本配置更新为与这些新值相等或更大的值。 此操作可确保副本与主服务器发生的任何更改保持同步。
 
-创建副本时，防火墙规则和参数设置将从源服务器继承到副本。 之后，副本的规则便会独立。
+在创建副本时，防火墙规则和参数设置会从源服务器继承到副本。 之后，副本的规则便会独立。
 
 ### <a name="stopped-replicas"></a>停止的副本
 
-如果停止源服务器和读取副本之间的复制，则已停止的副本将成为接受读取和写入的独立服务器。 独立服务器不能再次成为副本。
+如果停止源服务器与只读副本之间的复制，已停止的副本会成为接受读取和写入操作的独立服务器。 独立服务器不能再次成为副本。
 
-### <a name="deleted-source-and-standalone-servers"></a>删除的源服务器和独立服务器
+### <a name="deleted-source-and-standalone-servers"></a>已删除的源服务器和独立服务器
 
-删除源服务器后，复制将停止到所有读取副本。 这些副本会自动成为独立服务器，并且可以接受读取和写入。 源服务器本身会被删除。
+在删除源服务器时，会对所有只读副本都停止复制。 这些副本会自动成为独立服务器，并且可以接受读取和写入。 源服务器本身会被删除。
 
 ### <a name="user-accounts"></a>用户帐户
 
-源服务器上的用户将复制到读取副本。 只能使用源服务器上提供的用户帐户连接到读取副本。
+源服务器上的用户会复制到只读副本。 只能使用源服务器上可用的用户帐户来连接到只读副本。
 
 ### <a name="server-parameters"></a>服务器参数
 
 为了防止数据不同步并避免潜在的数据丢失或损坏，使用读取副本时，会锁定某些服务器参数以防止其更新。
 
-以下服务器参数在源服务器和副本服务器上都处于锁定状态：
+源服务器和副本服务器上都会锁定以下服务器参数：
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 副本服务器上的 [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 参数处于锁定状态。 
 
-若要在源服务器上更新上述参数之一，请删除副本服务器，更新主副本上的参数值，然后重新创建副本。
+若要在源服务器上更新上述某个参数，请删除副本服务器，更新主服务器上的参数值，然后重新创建副本。
 
 ### <a name="gtid"></a>GTID
 
@@ -209,7 +209,7 @@ MySQL 支持两种类型的事务： GTID 事务 (用 GTID) 和匿名事务标�
 
 - 不支持创建副本服务器的副本。
 - 内存中的表可能会导致副本服务器变得不同步。这是 MySQL 复制技术的限制。 有关详细信息，请阅读 [MySQL 参考文档](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html)中的更多信息。
-- 确保源服务器表具有主键。 缺少主键可能会导致源和副本之间的复制延迟。
+- 请确保源服务器表具有主键。 缺少主键可能会导致源和副本之间出现复制延迟。
 - 查看 [MySQL 文档](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)中 MySQL 复制限制的完整列表
 
 ## <a name="next-steps"></a>后续步骤

@@ -2,27 +2,27 @@
 title: 概念-标识和访问
 description: 了解 Azure VMware 解决方案的标识和访问概念
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/11/2020
+ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674641"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536092"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Azure VMware 解决方案标识概念
 
-部署私有云时，将设置 vCenter 服务器和 NSX-T 管理器。 你使用 vCenter 来管理虚拟机 (VM) 工作负荷。 你使用 NSX-T 管理器来扩展私有云软件定义的网络。
+Azure VMware 解决方案私有云是使用 vCenter 服务器和 NSX-T 管理器预配的。 你使用 vCenter 来管理虚拟机 (VM) 工作负荷。 你使用 NSX-T 管理器来扩展私有云。
 
 访问和身份管理使用 CloudAdmin 组权限，以便对 NSX-T 管理器使用 vCenter 和受限的管理员权限。 它确保私有云平台会自动升级到最新的功能和修补程序。  有关详细信息，请参阅 [私有云升级概念一文][concepts-upgrades]。
 
 ## <a name="vcenter-access-and-identity"></a>vCenter 访问和标识
 
-VCenter 中的权限通过 CloudAdmin 组提供。 该组可以在 vCenter 本地管理，也可以通过与 Azure Active Directory 集成 vCenter LDAP 单一登录。 你能够在部署私有云后启用该集成。
+CloudAdmin 组在 vCenter 中提供权限。 你可以在 vCenter 本地管理组。 另一种方法是通过将 vCenter LDAP 单一登录与 Azure Active Directory 集成。 部署私有云后，启用该集成。 
 
-下表显示了 CloudAdmin 和 CloudGlobalAdmin 权限。
+该表显示了 **CloudAdmin** 和 **CloudGlobalAdmin** 特权。
 
-|  权限集           | CloudAdmin | CloudGlobalAdmin | 注释 |
+|  权限集           | CloudAdmin | CloudGlobalAdmin | 评论 |
 | :---                     |    :---:   |       :---:      |   :--:  |
 |  警报                  | CloudAdmin 用户对 Compute-ResourcePool 和 Vm 中的警报具有所有告警特权。     |          --        |  -- |
 |  自动部署             |  --  |        --        |  Microsoft 进行主机管理。  |
@@ -31,7 +31,7 @@ VCenter 中的权限通过 CloudAdmin 组提供。 该组可以在 vCenter 本�
 |  数据中心              |  --  |        --          |  Microsoft 执行所有数据中心操作。  |
 |  数据存储               | AllocateSpace、Datastore.Config、DeleteFile、FileManagement、、、UpdateVirtualMachineMetadata     |    --    |   -- |
 |  ESX 代理程序管理器       |  --  |         --       |  Microsoft 执行所有操作。  |
-|  Folder                  |  CloudAdmin 用户具有所有文件夹特权。     |  --  |  --  |
+|  文件夹                  |  CloudAdmin 用户具有所有文件夹特权。     |  --  |  --  |
 |  全球                  |  CancelTask、GlobalTag、global. LogEvent、global. ManageCustomFields、ServiceManagers、SetCustomField、temTag、Global.Sys         |                  |    |
 |  主机                    |  Cdb-ik-hbr. HbrManagement      |        --          |  Microsoft 执行所有其他主机操作。  |
 |  InventoryService        |  InventoryService 标记      |        --          |  --  |

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352568"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535327"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>使用 Python 配置自动化 ML 试验
 
@@ -44,7 +44,7 @@ ms.locfileid: "94352568"
 
 * 已安装 Azure 机器学习 Python SDK。
     若要安装该 SDK，你可以： 
-    * 创建一个计算实例，该实例将自动安装 SDK 并针对 ML 工作流进行预先配置。 有关详细信息，请参阅 [创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md) 。 
+    * 创建一个计算实例，该实例将自动安装 SDK 并针对 ML 工作流进行预先配置。 有关详细信息，请参阅[创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)。 
 
     * [自行安装 `automl` 包](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)，其中包括 SDK 的 [默认安装](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py#default-install&preserve-view=true) 。
 
@@ -343,9 +343,12 @@ run = experiment.submit(automl_config, show_output=True)
 
 如果在笔记本中操作，可以在小组件或内联单元中查看训练结果。 有关更多详细信息，请参阅[跟踪和评估模型](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs)。
 
-请参阅 [评估自动化机器学习试验结果](how-to-understand-automated-ml.md) ，获取每次运行所提供的性能图表和指标的定义和示例。 
+请参阅[评估自动化机器学习试验结果](how-to-understand-automated-ml.md)，查看为每次运行提供的性能图表和指标的定义和示例。 
 
 若要获取特征化摘要并了解哪些功能已添加到特定模型，请参阅[特征化透明度](how-to-configure-auto-features.md#featurization-transparency)。 
+
+> [!NOTE]
+> 自动 ML ML 使用的算法具有固有的随机性，这可能会导致建议的模型中出现略微变化的最终指标分数，例如准确性。 自动 ML 还会对数据执行操作（例如，定型-测试拆分、定型验证拆分或交叉验证，如有必要）。 因此，如果使用相同的配置设置和主要指标多次运行试验，则可能会因这些因素而导致每个试验最终指标分数发生变化。 
 
 ## <a name="register-and-deploy-models"></a>注册和部署模型
 
