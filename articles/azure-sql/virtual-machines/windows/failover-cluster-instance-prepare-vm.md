@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164238"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556329"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>为 Azure Vm 上的 FCI (SQL Server 准备虚拟机) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,9 +47,9 @@ ms.locfileid: "92164238"
 
 请仔细选择与预期群集配置匹配的 VM 可用性选项： 
 
- - **Azure 共享磁盘**：使用容错域和更新域设置为1并置于[邻近位置组](../../../virtual-machines/windows/proximity-placement-groups-portal.md)中的[可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)。
- - **高级文件共享**： [可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 或 [可用性区域](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)。 如果选择 "可用性区域" 作为 Vm 的可用性配置，则高级文件共享是唯一的共享存储选项。 
- - **存储空间直通**： [可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)。
+ - **Azure 共享磁盘** ：使用容错域和更新域设置为1并置于 [邻近位置组](../../../virtual-machines/windows/proximity-placement-groups-portal.md)中的 [可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)。
+ - **高级文件共享** ： [可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 或 [可用性区域](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)。 如果选择 "可用性区域" 作为 Vm 的可用性配置，则高级文件共享是唯一的共享存储选项。 
+ - **存储空间直通** ： [可用性集](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)。
 
 >[!IMPORTANT]
 >创建虚拟机后无法设置或更改可用性集。
@@ -71,15 +71,15 @@ ms.locfileid: "92164238"
 
 ## <a name="uninstall-sql-server"></a>卸载 SQL Server
 
-作为 FCI 创建过程的一部分，将 SQL Server 作为群集实例安装到故障转移群集。 *如果在没有 SQL Server 的情况下部署了包含 Azure Marketplace 映像的虚拟机，则可以跳过此步骤。* 如果使用预安装的 SQL Server 部署映像，则需要从 SQL VM 资源提供程序中注销 SQL Server VM，然后卸载 SQL Server。 
+作为 FCI 创建过程的一部分，将 SQL Server 作为群集实例安装到故障转移群集。 *如果在没有 SQL Server 的情况下部署了包含 Azure Marketplace 映像的虚拟机，则可以跳过此步骤。* 如果在预安装 SQL Server 的情况下部署了映像，则需要从 SQL IaaS 代理扩展中注销 SQL Server VM，然后卸载 SQL Server。 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>从 SQL VM 资源提供程序中注销
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>从 SQL IaaS 代理扩展中注销
 
-Azure Marketplace 中的 SQL Server VM 映像将自动注册到 SQL VM 资源提供程序。 在卸载预安装的 SQL Server 实例之前，必须先 [从 SQL VM 资源提供程序中注销每个 SQL Server VM](sql-vm-resource-provider-register.md#unregister-from-rp)。 
+Azure Marketplace 中的 SQL Server VM 映像将自动注册到 SQL IaaS 代理扩展。 在卸载预安装的 SQL Server 实例之前，必须先 [从 SQL IaaS 代理扩展中注销每个 SQL Server VM](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension)。 
 
 ### <a name="uninstall-sql-server"></a>卸载 SQL Server
 
-从资源提供程序中注销后，可以卸载 SQL Server。 在每个虚拟机上执行以下步骤： 
+从扩展中取消注册后，可以卸载 SQL Server。 在每个虚拟机上执行以下步骤： 
 
 1. 使用 RDP 连接到虚拟机。
 
@@ -90,7 +90,7 @@ Azure Marketplace 中的 SQL Server VM 映像将自动注册到 SQL VM 资源提
    1. 在“程序和功能”中，右键单击“Microsoft SQL Server 201_ (64 位)”，然后选择“卸载/更改”  。
    1. 选择“删除”。
    1. 选择默认实例。
-   1. 删除“数据库引擎服务”下的所有功能。 请勿在 " **共享功能**" 下删除任何内容。 此时会显示以下屏幕截图中所示的内容：
+   1. 删除“数据库引擎服务”下的所有功能。 请勿在 " **共享功能** " 下删除任何内容。 此时会显示以下屏幕截图中所示的内容：
 
       ![选择特征](./media/failover-cluster-instance-prepare-vm/03-remove-features.png)
 
@@ -105,11 +105,11 @@ Azure Marketplace 中的 SQL Server VM 映像将自动注册到 SQL VM 资源提
 
 此表详细说明了可能需要打开的端口，具体取决于你的 FCI 配置： 
 
-   | 目的 | 端口 | 说明
+   | 目的 | Port | 说明
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | SQL Server 的默认实例正常使用的端口。 如果使用了库中的某个映像，此端口会自动打开。 </br> </br> **使用者**：所有 FCI 配置。 |
-   | 运行状况探测 | TCP 59999 | 任何打开的 TCP 端口。 将负载均衡器 [运行状况探测](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) 和群集配置为使用此端口。 </br> </br> **使用者**： FCI 和负载均衡器。 |
-   | 文件共享 | UDP 445 | 文件共享服务使用的端口。 </br> </br> **使用者**：包含高级文件共享的 FCI。 |
+   | SQL Server | TCP 1433 | SQL Server 的默认实例正常使用的端口。 如果使用了库中的某个映像，此端口会自动打开。 </br> </br> **使用者** ：所有 FCI 配置。 |
+   | 运行状况探测 | TCP 59999 | 任何打开的 TCP 端口。 将负载均衡器 [运行状况探测](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) 和群集配置为使用此端口。 </br> </br> **使用者** ： FCI 和负载均衡器。 |
+   | 文件共享 | UDP 445 | 文件共享服务使用的端口。 </br> </br> **使用者** ：包含高级文件共享的 FCI。 |
 
 ## <a name="join-the-domain"></a>加入域
 

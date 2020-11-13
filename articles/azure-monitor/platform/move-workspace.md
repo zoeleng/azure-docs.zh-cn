@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
-ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372270"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555526"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>将 Log Analytics 工作区移到其他订阅或资源组
 
@@ -29,14 +29,14 @@ ms.locfileid: "92372270"
 ```
 
 ## <a name="workspace-move-considerations"></a>工作区移动注意事项
-将使用 Log Analytics 工作区移动操作来移动工作区中安装的托管解决方案。 在移动后，连接的代理将保持连接状态并继续向工作区发送数据。 由于移动操作要求工作区中没有任何链接的服务，因此必须删除依赖于该链接的解决方案才能移动工作区。
-
-在取消链接自动化帐户之前必须先删除的解决方案：
-
-- 更新管理
-- 更改跟踪
-- 在非工作时间启动/停止 VM
-- Azure 安全中心
+- 将使用 Log Analytics 工作区移动操作来移动工作区中安装的托管解决方案。 
+- 工作区密钥是在主) 和辅助 (重新生成的。 如果你将工作区密钥作为保管库的密钥，请使用新生成的密钥对其进行更新。 
+- 在移动后，连接的代理将保持连接状态并继续向工作区发送数据。 
+- 由于移动操作要求工作区中没有任何链接的服务，因此必须删除依赖于该链接的解决方案才能移动工作区。 在取消链接自动化帐户之前必须先删除的解决方案：
+  - 更新管理
+  - 更改跟踪
+  - 在非工作时间启动/停止 VM
+  - Azure 安全中心
 
 >[!IMPORTANT]
 > **Azure Sentinel 客户**

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7a7d96c13b47bee9c092be926dc54555979e6c6f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 78b422cd41f4cea72b74257fe70c09471e9d2d5b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790111"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556550"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>用于 Azure 虚拟机（资源管理器）的自动备份 v2
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,13 +43,13 @@ ms.locfileid: "92790111"
 - SQL Server 2016 或更高版本：Developer、Standard 或 Enterprise
 
 > [!NOTE]
-> 有关 SQL Server 2014，请参阅 [SQL Server 2014 的自动备份](automated-backup-sql-2014.md)。
+> 有关 SQL Server 2014，请参阅[适用于 SQL Server 2014 的自动备份](automated-backup-sql-2014.md)。
 
 **数据库配置** ：
 
-- 目标 _用户_ 数据库必须使用完整恢复模式。 系统数据库不需要使用完整恢复模型。 但是，如果需要为模型或 MSDB 创建日志备份，则必须使用完整恢复模型。 有关对备份使用完整恢复模型产生的影响的详细信息，请参阅[使用完整恢复模型的备份](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))。 
-- 已在 [完全管理模式下](sql-vm-resource-provider-register.md#upgrade-to-full)向 SQL VM 资源提供程序注册了 SQL Server VM。 
--  自动备份依赖于完整 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 因此，只有默认实例或单个命名实例的目标数据库支持自动备份。 如果没有默认实例和多个命名实例，则 SQL IaaS 扩展失败，自动备份将不起作用。 
+- 目标用户数据库必须使用完整恢复模式。 系统数据库不需要使用完整恢复模型。 但是，如果需要为模型或 MSDB 创建日志备份，则必须使用完整恢复模型。 有关对备份使用完整恢复模型产生的影响的详细信息，请参阅[使用完整恢复模型的备份](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))。 
+- 已向 [完全管理模式下](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)的 SQL IaaS 代理扩展注册 SQL Server VM。 
+-  自动备份依赖于完整 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 因此，只有默认实例或单个命名实例的目标数据库支持自动备份。 如果没有默认实例，并且存在多个命名实例，则 SQL IaaS 扩展将失败，自动备份将无法工作。 
 
 ## <a name="settings"></a>设置
 下表描述了可为自动备份 v2 配置的选项。 实际配置步骤根据你使用的是 Azure 门户还是 Azure Windows PowerShell 命令而有所不同。

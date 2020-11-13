@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c49f8b2732a1b62760cec69626d56751971e6a44
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789805"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556431"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>如何使用 Azure PowerShell 在 Azure 虚拟机上预配 SQL Server
 
@@ -367,12 +367,17 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 
 ## <a name="install-the-sql-iaas-agent"></a>安装 SQL IaaS 代理
 
-SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)的自动管理功能。 若要在新 VM 上安装代理，并将其注册到资源提供程序，请在创建虚拟机后运行 [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 命令。 指定 SQL Server VM 的许可类型，通过 [Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/)在即用即付或自带许可之间进行选择。 有关许可的详细信息，请参阅[许可模式](licensing-model-azure-hybrid-benefit-ahb-change.md)。 
+SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)的自动管理功能。 若要向扩展注册 SQL Server，请在创建虚拟机后运行 [AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 命令。 指定 SQL Server VM 的许可类型，通过 [Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/)在即用即付或自带许可之间进行选择。 有关许可的详细信息，请参阅[许可模式](licensing-model-azure-hybrid-benefit-ahb-change.md)。 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+可以通过三种方式向扩展注册： 
+- [对于订阅中的所有当前和未来 Vm 自动执行](sql-agent-extension-automatic-registration-all-vms.md)
+- [对于单个 VM 为手动](sql-agent-extension-manually-register-single-vm.md)
+- [批量为多个 Vm 手动](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>停止或删除 VM

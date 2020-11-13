@@ -4,12 +4,12 @@ description: 汇总 Azure 备份服务的支持设置和限制。
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743129"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555430"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 备份的支持矩阵
 
@@ -25,7 +25,7 @@ ms.locfileid: "92743129"
 
 ## <a name="vault-support"></a>保管库支持
 
-Azure 备份使用恢复服务保管库来安排和管理备份。 它还使用保管库来存储备份的数据。
+Azure 备份使用恢复服务保管库来安排和管理以下工作负荷类型的备份-azure vm、Azure Vm 中的 SQL SAP HANA、azure Vm、Azure 文件共享和本地工作负荷使用 Azure 备份代理、Azure 备份服务器和 System Center DPM。 它还使用恢复服务保管库来存储这些工作负荷的备份数据。
 
 下表介绍恢复服务保管库的功能：
 
@@ -128,8 +128,8 @@ Azure 备份支持对备份流量进行压缩，详细情况汇总在下表中�
 
 **计算机** | **压缩到 MABS/DPM (TCP)** | **压缩到保管库 (HTTPS)**
 --- | --- | ---
-**直接备份本地 Windows 计算机** | 不可用 | ![是][green]
-**使用 VM 扩展的 Azure VM 备份** | 不可用 | 不可用
+**直接备份本地 Windows 计算机** | NA | ![是][green]
+**使用 VM 扩展的 Azure VM 备份** | NA | NA
 **使用 MABS/DPM 在本地计算机/Azure 计算机上备份** | ![是][green] | ![是][green]
 
 ## <a name="retention-limits"></a>保留期限制

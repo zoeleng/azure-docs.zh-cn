@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927645"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561091"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>自定义命令的概念和定义
 
@@ -49,17 +49,19 @@ ms.locfileid: "92927645"
 ### <a name="required"></a>必需
 此复选框指示是否需要此参数的值才能执行命令或完成。 如果将参数标记为必需，则必须将响应配置为提示用户提供一个值。
 
+请注意，如果将 **所需的参数** 配置为具有 **默认值** ，则系统仍将显式提示输入参数的值。
+
 ### <a name="type"></a>类型
 自定义命令支持以下参数类型：
 
 * DateTime
 * 地理位置
-* 数字
-* String
+* Number
+* 字符串
 
-所有这些参数类型都支持默认值配置，可以从 Azure 门户进行配置。
+除 Geography 之外的所有这些参数类型都支持默认值配置，你可以在门户中进行配置。
 
-### <a name="configuration"></a>配置
+### <a name="configuration"></a>Configuration
 配置是仅为类型字符串定义的参数属性。 支持以下值：
 
 * **无** 。
@@ -72,7 +74,7 @@ ms.locfileid: "92927645"
 验证是适用于某些参数类型的构造，可让你配置对参数值的约束。 目前，自定义命令支持对以下参数类型进行验证：
 
 * DateTime
-* 数字
+* Number
 
 ## <a name="rules-configuration"></a>规则配置
 自定义命令中的规则由一组条件定义，这些 *条件* 在满足时执行一组 *操作* 。 规则还允许配置 *执行后状态* 和预期下一轮的 *预期* 。
@@ -85,7 +87,7 @@ ms.locfileid: "92927645"
 
 配置为规则一部分的不同操作将按照它们在创作门户中的显示顺序执行。
 
-### <a name="conditions"></a>条件
+### <a name="conditions"></a>Conditions
 条件是执行规则所必须满足的要求。 规则条件可以是以下类型：
 
 * **参数值等于** ：配置的参数值等于特定值。

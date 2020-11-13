@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8119d01ae8e8ed1e809753e433b063a844a2c5c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccd998bc2f6e2771ff4dd1bedfa2213af7573102
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790672"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556571"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虚拟机（资源管理器）的自动备份
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,13 +45,13 @@ ms.locfileid: "92790672"
 - SQL Server 2014 Enterprise
 
 > [!NOTE]
-> 对于 SQL 2016 及更高版本，请参阅 [SQL Server 2016 的自动备份](automated-backup.md)。
+> 有关 SQL 2016 及更高版本，请参阅 [SQL Server 2016 的自动备份](automated-backup.md)。
 
 **数据库配置** ：
 
-- 目标 _用户_ 数据库必须使用完整恢复模式。 系统数据库不需要使用完整恢复模型。 但是，如果需要为模型或 MSDB 创建日志备份，则必须使用完整恢复模型。 如需深入了解完整恢复模式对备份产生的影响，请参阅[完整恢复模式下的备份](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))。 
-- 已在 [完全管理模式下](sql-vm-resource-provider-register.md#upgrade-to-full)向 SQL VM 资源提供程序注册了 SQL Server VM。 
--  自动备份依赖于完整 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 因此，只有默认实例或单个命名实例的目标数据库支持自动备份。 如果没有默认实例和多个命名实例，则 SQL IaaS 扩展失败，自动备份将不起作用。 
+- 目标用户数据库必须使用完整恢复模式。 系统数据库不需要使用完整恢复模型。 但是，如果需要为模型或 MSDB 创建日志备份，则必须使用完整恢复模型。 如需深入了解完整恢复模式对备份产生的影响，请参阅[完整恢复模式下的备份](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))。 
+- 已向 [完全管理模式下](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)的 SQL IaaS 代理扩展注册 SQL Server VM。 
+-  自动备份依赖于完整 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 因此，只有默认实例或单个命名实例的目标数据库支持自动备份。 如果没有默认实例，并且存在多个命名实例，则 SQL IaaS 扩展将失败，自动备份将无法工作。 
 
 ## <a name="settings"></a>设置
 
@@ -61,7 +61,7 @@ ms.locfileid: "92790672"
 | --- | --- | --- |
 | **自动备份** | 启用/禁用（已禁用） | 为运行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM 启用或禁用自动备份。 |
 | **保持期** | 1-30 天（30 天） | 保留备份的天数。 |
-| **存储帐户** | Azure 存储帐户 | 用于在 Blob 存储中存储自动备份文件的 Azure 存储帐户。 会在此位置创建容器，用于存储所有备份文件。 备份文件命名约定包括日期、时间和计算机名称。 |
+| **存储帐户** | Azure 存储帐户 | 用于在 Blob 存储中存储自动备份文件的 Azure 存储帐户。 在此位置创建容器，用于存储所有备份文件。 备份文件命名约定包括日期、时间和计算机名称。 |
 | **加密** | 启用/禁用（已禁用） | 启用或禁用加密。 启用加密时，用于还原备份的证书会使用相同的命名约定存放在同一 `automaticbackup` 容器中的指定存储帐户内。 如果密码发生更改，则使用该密码生成新证书，但旧证书在备份之前仍会还原。 |
 | **密码** | 密码文本 | 加密密钥的密码。 仅当启用了加密时才需要此设置。 若要还原加密的备份，必须具有创建该备份时使用的正确密码和相关证书。 |
 

@@ -4,12 +4,12 @@ description: 了解 Azure 监视器的合作伙伴，以及如何访问相关文
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460079"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555629"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -300,6 +300,16 @@ Sumo Logic 是一项安全的云本机计算机数据分析服务，可实时、
 Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优化性能、成本和符合性。 Turbonomic 可持续优化资产，帮助组织在 Azure 资产方面获得弹性，确保应用程序可以持续获得所需的资源来履行 SLA，同时，对于 IaaS 和 PaaS 层，不需要进一步配置计算、存储和网络资源。 组织可以模拟迁移、合理缩放工作负荷以及淘汰数据中心资源，以便在预算范围内按时可靠迁移到 Azure，同时确保性能和符合性不受影响。 Turbonomic 由 API 驱动，作为 Azure 中和本地的无代理 VM 运行。
 
 [Turbonomic 简介](https://turbonomic.com/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![BMC Helix 徽标](./media/partners/BMCHelix.png)
+
+BMC Helix 是一种自治企业服务和运营 SaaS 平台。 它集成了360度智能，使企业能够主动和预先地发现、监视、服务、修正、优化和交付面向 IT 和业务线的全渠道体验。
+此外，通过将 ITSM 和 IT 运营管理无缝集成 (ITOM) ，BMC Helix 允许 IT 和业务用户消除 IT 小仓库、做出数据驱动的业务决策，并提供业界领先的客户体验。
+客户可以部署 BMC Helix 平台及其选择的云部署–公共、专用或混合。 此外，客户还可以选择 AI/ML 解决方案来利用行业领先的提供商。
+
+[了解有关 BMC Helix 的详细信息](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>后续步骤
 

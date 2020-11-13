@@ -14,12 +14,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4ec7ed958ac045c68fd7b616903f401dd07d8166
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a0ecc36d78ffde002dac971a749889104ff10073
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789822"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556448"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM 上 SQL Server 版本的就地更改
 
@@ -32,7 +32,7 @@ ms.locfileid: "92789822"
 若要对 SQL Server 进行就地升级，请遵循以下条件：
 
 - 需要 SQL Server 所需版本的安装介质。 如果客户有[软件保障](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)，则可以从[批量许可中心](https://www.microsoft.com/Licensing/servicecenter/default.aspx)获取其安装介质。 没有软件保障的客户可以使用 Azure Marketplace SQL Server VM 映像，该映像的 SQL Server 的更高版本 (通常位于 C:\SQLServerFull) 。
-- 版本升级应遵循 [支持升级路径](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15)。
+- 版本升级应遵循 [支持升级路径](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15)。
 
 ## <a name="planning-for-version-change"></a>规划版本更改
 
@@ -40,42 +40,40 @@ ms.locfileid: "92789822"
 
 1. 检查你计划升级到的版本中的新增功能：
 
-   - [SQL 2019](/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15)中的新增功能
-   - [SQL 2017](/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15)中的新增功能
-   - [SQL 2016](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15)中的新增功能
-   - [SQL 2014](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014)中的新增功能
+   - [SQL 2019](/sql/sql-server/what-s-new-in-sql-server-ver15)中的新增功能
+   - [SQL 2017](/sql/sql-server/what-s-new-in-sql-server-2017)中的新增功能
+   - [SQL 2016](/sql/sql-server/what-s-new-in-sql-server-2016)中的新增功能
 
-1. 建议你检查要更改的版本的 [兼容性证书](/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) ，以便可以使用数据库兼容性模式来最大程度地降低升级的影响。
+
+1. 建议你检查要更改的版本的 [兼容性证书](/sql/database-engine/install-windows/compatibility-certification) ，以便可以使用数据库兼容性模式来最大程度地降低升级的影响。
 1. 您可以查看以下文章，以帮助确保成功的结果：
 
    - [视频：现代化 SQL Server |Pam Lahoud & Pedro Lopes |20年通过](https://www.youtube.com/watch?v=5RPkuQHcxxs&feature=youtu.be)
-   - [用于 AB 测试的数据库实验助手](/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
-   - [使用查询优化助手升级数据库](/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
-   - [更改数据库兼容性级别和使用查询存储](/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
+   - [用于 AB 测试的数据库实验助手](/sql/dea/database-experimentation-assistant-overview)
+   - [使用查询优化助手升级数据库](/sql/relational-databases/performance/upgrade-dbcompat-using-qta)
+   - [更改数据库兼容性级别和使用查询存储](/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store)
 
 ## <a name="upgrade-sql-version"></a>升级 SQL 版本
 
 > [!WARNING]
 > 升级版本的 SQL Server 除了重启任何关联的服务（如 Analysis Services 和 R Services）以外，还将重新启动该 SQL Server 服务。
 
-若要升级 SQL Server 的版本，请获取 [支持 SQL Server 升级路径](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) 的更高版本的 SQL Server 安装媒体，然后执行以下步骤：
+若要升级 SQL Server 的版本，请获取 [支持 SQL Server 升级路径](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15) 的更高版本的 SQL Server 安装媒体，然后执行以下步骤：
 
 1. 在开始此过程之前，请备份数据库，包括除 tempdb) 和用户数据库外的系统 (。 你还可以使用 Azure 备份服务创建与应用程序一致的 VM 级别备份。
 1. 从 SQL Server 安装媒体开始 Setup.exe。
 1. 安装向导将启动 SQL Server 安装中心。 若要升级 SQL Server 的现有实例，请在导航窗格中选择 " **安装** "，然后选择 " **从早期版本的 SQL Server 升级** "。
 
-   :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="用于升级 SQL Server 版本的选择&quot;:::
+   :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="用于升级 SQL Server 版本的选择":::
 
-1. 在 &quot; **产品密钥** " 页上，选择一个选项以指示您是升级到 SQL Server 免费版还是您拥有该产品生产版本的 PID 密钥。 有关详细信息，请参阅 [SQL Server 2019 (的版本和支持的功能) ](/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) 和 [支持的版本和版本升级 (SQL Server 2016) ](/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15)。
-1. 选择 " **下一步** "，直到到达 " **升级准备就绪** " 页，然后选择 " **升级** "。 在更改生效时，设置窗口可能会停止响应若干分钟。 **完整** 的页面将确认升级已完成。 有关升级的分步过程，请参阅 [完整的步骤](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure)。
+1. 在 " **产品密钥** " 页上，选择一个选项以指示您是升级到 SQL Server 免费版还是您拥有该产品生产版本的 PID 密钥。 有关详细信息，请参阅 [SQL Server 2019 (的版本和支持的功能) ](/sql/sql-server/editions-and-components-of-sql-server-version-155) 和 [支持的版本和版本升级 (SQL Server 2016) ](/sql/database-engine/install-windows/supported-version-and-edition-upgrades)。
+1. 选择 " **下一步** "，直到到达 " **升级准备就绪** " 页，然后选择 " **升级** "。 在更改生效时，设置窗口可能会停止响应若干分钟。 **完整** 的页面将确认升级已完成。 有关升级的分步过程，请参阅 [完整的步骤](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure)。
 
-   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="用于升级 SQL Server 版本的选择&quot;:::
+   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="完成页":::
 
-1. 在 &quot; **产品密钥** " 部分来更改 SQL VM 实例。
+如果 SQL Server 更改了版本，则除了更改版本以外，还需更新版本，并参考门户中的 " **验证版本和版本** " 部分来更改 SQL VM 实例。
 
-   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="用于升级 SQL Server 版本的选择&quot;:::
-
-1. 在 &quot; **产品密钥** ":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="更改版本元数据":::
 
 ## <a name="downgrade-the-version-of-sql-server"></a>降级 SQL Server 的版本
 
@@ -93,9 +91,7 @@ ms.locfileid: "92789822"
 
    请确保在将此类项作为目标版本、依赖对象和高级选项编写脚本时选择正确的选项。
 
-   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="用于升级 SQL Server 版本的选择&quot;:::
-
-1. 在 &quot; **产品密钥** ":::
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="脚本编写选项":::
 
 1. 完全卸载 SQL Server 和所有关联的服务。
 1. 重启 VM。
@@ -106,20 +102,18 @@ ms.locfileid: "92789822"
 
 ## <a name="verify-the-version-and-edition-in-the-portal"></a>验证门户中的版本和版本
 
-更改 SQL Server 版本后，请再次向 [SQL VM 资源提供程序](sql-vm-resource-provider-register.md) 注册 SQL Server VM，以便可以使用 Azure 门户查看 SQL Server 的版本。 列出的版本号现在应反映 SQL Server 安装的新升级版本。
+更改 SQL Server 版本后，请再次向 [SQL IaaS 代理扩展](sql-agent-extension-manually-register-single-vm.md) 注册 SQL Server VM，以便可以使用 Azure 门户查看 SQL Server 的版本。 列出的版本号现在应反映 SQL Server 安装的新升级版本。
 
-:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="用于升级 SQL Server 版本的选择&quot;:::
-
-1. 在 &quot; **产品密钥** ":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="验证版本":::
 
 > [!NOTE]
-> 如果已向 SQL VM 资源提供程序注册，请 [从 RP 注销](sql-vm-resource-provider-register.md#unregister-from-rp) ，然后再次 [注册 SQL VM 资源](sql-vm-resource-provider-register.md#register-with-rp) ，以便它检测到 VM 上安装的 SQL Server 的正确版本。 这会更新与此 VM 关联的元数据和计费信息。
+> 如果已使用 SQL IaaS 代理扩展注册，请 [从 RP 注销](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) ，然后再次 [注册 SQL VM 资源](sql-agent-extension-manually-register-single-vm.md#register-with-extension) ，以便它检测到 VM 上安装的 SQL Server 的正确版本。 这会更新与此 VM 关联的元数据和计费信息。
 
 ## <a name="remarks"></a>注解
 
 - 建议在升级完成后启动备份/更新统计信息/重建索引/检查一致性。 您还可以检查单独的数据库兼容性级别，以确保它们反映所需的级别。
 - 在 VM 上更新 SQL Server 后，请确保 Azure 门户中 SQL Server 的 **版本** 属性与计费的已安装版本编号匹配。
-- [更改版本](change-sql-server-edition.md#change-edition-in-portal)的功能是 SQL VM 资源提供程序的一项功能。 通过 Azure 门户部署 Azure 市场映像会自动将 SQL Server VM 注册到资源提供程序。 但是，自行安装 SQL Server 的客户必须手动 [注册其 SQL Server VM](sql-vm-resource-provider-register.md)。
+- [更改版本](change-sql-server-edition.md#change-edition-in-portal)的功能是 SQL IaaS 代理扩展的一项功能。 通过 Azure 门户部署 Azure Marketplace 映像会自动向扩展注册 SQL Server VM。 但是，自行安装 SQL Server 的客户必须手动 [注册其 SQL Server VM](sql-agent-extension-manually-register-single-vm.md)。
 - 如果删除 SQL Server VM 资源，则会还原映像的硬编码版本设置。
 
 ## <a name="next-steps"></a>后续步骤

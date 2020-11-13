@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312032"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556023"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>保护 Synapse 工作区（预览） 
 
@@ -31,7 +31,7 @@ ms.locfileid: "93312032"
   - Apache Spark for Azure Synapse Analytics 管理员
 - 对 Azure Data Lake Storage Gen 2 (ADLSGEN2) 中数据的访问控制。
 - 对 Synapse SQL 和 Spark 数据库的访问控制
-- 
+
 ## <a name="steps-to-secure-a-synapse-workspace"></a>保护 Synapse 工作区的步骤
 
 本文档使用标准名称来简化说明。 请将它们替换为你选择的任何名称。
@@ -111,7 +111,7 @@ Synapse 工作区需要访问 STG1 和 CNT1，以便能够运行管道并执行�
 
 每个角色的用户都需要完成以下步骤：
 
-| 数字 | 步骤 | 工作区管理员 | Spark 管理员 | SQL 管理员 |
+| Number | 步骤 | 工作区管理员 | Spark 管理员 | SQL 管理员 |
 | --- | --- | --- | --- | --- |
 | 1 | 将 parquet 文件上传到 CNT1 中 | YES | YES | YES |
 | 2 | 使用无服务器 SQL 池读取 parquet 文件 | YES | 是 | YES |

@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: e8323c5a290ee2a78e2a3a131d50883d5f8c5a28
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 723d93b9a5e986501278bdee35835cfa0c234711
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92330982"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555834"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
 本文介绍如何使用 VNet 到 VNet 连接类型来连接虚拟网络 (VNet)。 虚拟网络可位于不同的区域和不同的订阅中。 从不同的订阅连接 VNet 时，订阅不需要与相同的 Active Directory 租户相关联。 
 
-![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet 到 VNet 关系图":::
 
 本文中的步骤适用于 Azure 资源管理器部署模型，并使用 Azure 门户。 可使用以下文章中所述的选项，通过不同的部署工具或模型创建此配置：
 
@@ -65,7 +65,7 @@ ms.locfileid: "92330982"
 
 可以将 VNet 到 VNet 通信与多站点配置组合使用。 使用这些配置可以建立将跨界连接与虚拟网络间连接相结合的网络拓扑，如下图所示：
 
-![关于连接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "关于连接")
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="VNet 连接关系图":::
 
 本文介绍如何使用 VNet 到 VNet 连接类型来连接 VNet。 遵循这些步骤进行练习时，可以使用以下示例设置值。 示例中的虚拟网络在同一订阅中，但却在不同的资源组中。 如果 VNet 在不同的订阅中，则无法在门户中创建连接。 改用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 或 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)。 有关 VNet 到 VNet 连接的详细信息，请参阅 [VNet 到 VNet 连接常见问题解答](#vnet-to-vnet-faq)。
 
@@ -89,13 +89,13 @@ ms.locfileid: "92330982"
   * **生成** ：第1代
   * **网关类型** ：选择“VPN”。 
   * **VPN 类型** ：选择 " **基于路由** "。
-  * **SKU** ：VpnGw1
+  * **SKU** ： VpnGw1
   * **虚拟网络** ： VNet1
   * **网关子网地址范围** ： 10.1.255.0/27
   * **公共 IP 地址** ：新建
   * **公共 IP 地址名称** ： VNet1GWpip
 
-* **Connection**
+* **连接**
   * **名称** ： VNet1toVNet4
   * **共享密钥** ：可以自己创建共享密钥。 在 VNet 之间建立连接时，上述值必须匹配。 对于本练习，请使用 abc123。
 
@@ -116,14 +116,14 @@ ms.locfileid: "92330982"
   * **资源组** ：美国西部
   * **生成** ：第1代
   * **网关类型** ：选择“VPN”。 
-  *  。
-  * **SKU** ：VpnGw1
+  * **VPN 类型** ：选择“基于路由”。
+  * **SKU** ： VpnGw1
   * **虚拟网络** ： VNet4
   * **网关子网地址范围** ： 10.41.255.0/27
   * **公共 IP 地址** ：新建
   * **公共 IP 地址名称** ： VNet4GWpip
 
-* **Connection**
+* **连接**
   * **名称** ： VNet4toVNet1
   * **共享密钥** ：可以自己创建共享密钥。 在 VNet 之间建立连接时，上述值必须匹配。 对于本练习，请使用 abc123。
 
@@ -157,28 +157,32 @@ ms.locfileid: "92330982"
 
 当 VNet1 和 VNet4 的虚拟网络网关已完成时，可以创建虚拟网络网关连接。 在本部分，请创建从 VNet1 到 VNet4 的连接。 这些步骤仅适用于同一订阅中的 VNet。 如果 Vnet 属于不同的订阅，则必须使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 进行连接。 不过，如果 VNet 位于同一订阅的不同资源组中，则可使用门户来连接它们。
 
-1. 在 Azure 门户中选择“所有资源”，在搜索框中输入“虚拟网络网关”，然后导航到 VNet 的虚拟网络网关。  例如， **VNet1GW** 。 选择 "网关" 打开 " **虚拟网络网关** " 页。
+1. 在 Azure 门户中选择“所有资源”，在搜索框中输入“虚拟网络网关”，然后导航到 VNet 的虚拟网络网关。 例如， **VNet1GW** 。 选择 "网关" 打开 " **虚拟网络网关** " 页。
 1. 在 "网关" 页上，中转到 " **设置->连接** "。 然后选择 " **+ 添加** "。
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="“连接”页&quot;:::
-1. 此时将打开 &quot; **添加连接** " 页。
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="“连接”页":::
+1. 此时将打开 " **添加连接** " 页。
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="“连接”页&quot;:::
-1. 此时将打开 &quot; **添加连接** " **vnet 到 vnet** "。
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="添加连接":::
+
+   在“添加连接”页上，填写用于建立连接的值：
+
+   * **名称** ：输入连接的名称。 例如， *VNet1toVNet4* 。
+
+   * **连接类型** ：从下拉选择 " **vnet 到 vnet** "。
 
    * **第一个虚拟网络网关** ：此字段值会自动填充，因为你要从指定的虚拟网络网关创建此连接。
 
-   * **第二个虚拟网络网关** ：此字段是要创建连接的 VNet 的虚拟网络网关。 选择“选择另一个虚拟网络网关”打开“选择虚拟网络网关”页。 
+   * **第二个虚拟网络网关** ：此字段是要创建连接的 VNet 的虚拟网络网关。 选择“选择另一个虚拟网络网关”打开“选择虚拟网络网关”页。
 
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="“连接”页&quot;:::
-1. 此时将打开 &quot; **添加连接** ":::
+      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="选择网关":::
 
      * 查看此页上列出的虚拟网关。 请注意，仅会列出订阅中的虚拟网络网关。 若要连接到订阅外部的虚拟网络网关，请使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)。
 
      * 选择要连接的虚拟网络网关。
 
    * **共享密钥 (PSK)** ：在此字段中，为连接输入共享密钥。 可以自己生成或创建此密钥。 在站点到站点连接中，使用的密钥与本地设备和虚拟网络网关连接的密钥相同。 此处的概念大致相同，不过，此时不是连接到 VPN 设备，而是连接到另一个虚拟网络网关。
-1. 选择“确定”，保存所做更改  。
+1. 选择“确定”保存更改。
 
 ## <a name="configure-the-vnet4-gateway-connection"></a>配置 VNet4 网关连接
 
@@ -187,17 +191,16 @@ ms.locfileid: "92330982"
 ## <a name="verify-your-connections"></a>验证连接
 
 1. 在 Azure 门户中找到虚拟网络网关。 
-1. 在“虚拟网络网关”页上选择“连接”，查看虚拟网络网关的“连接”页。  建立连接后，会看到 " **状态** " 值更改为 " **已连接** "。
+1. 在“虚拟网络网关”页上选择“连接”，查看虚拟网络网关的“连接”页。 建立连接后，会看到 " **状态** " 值更改为 " **已连接** "。
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="“连接”页&quot;:::
-1. 此时将打开 &quot; **添加连接** " 列下，选择其中一个连接以查看详细信息。 数据开始流动后，会看到“输入数据”和“输出数据”的值。 
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="验证连接":::
+1. 在 " **名称** " 列下，选择其中一个连接以查看详细信息。 数据开始流动后，会看到“输入数据”和“输出数据”的值。
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="“连接”页&quot;:::
-1. 此时将打开 &quot; **添加连接** ":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="屏幕截图显示了一个资源组，其中包含数据的值和数据输出":::
 
 ## <a name="add-additional-connections"></a>添加其他连接
 
-若要添加其他连接，请导航到要从中创建连接的虚拟网络网关，然后选择“连接”。  可以创建另一个 VNet 到 VNet 连接，也可以创建一个 IPsec 站点到站点连接，以便连接到本地位置。 请务必调节“连接类型”  ，使之与要创建的连接类型匹配。 在创建其他连接之前，请验证虚拟网络的地址空间是否不与要连接到的地址空间重叠。 如需创建站点到站点连接的步骤，请参阅[创建站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
+若要添加其他连接，请导航到要从中创建连接的虚拟网络网关，然后选择“连接”。 可以创建另一个 VNet 到 VNet 连接，也可以创建一个 IPsec 站点到站点连接，以便连接到本地位置。 请务必调节“连接类型”，使之与要创建的连接类型匹配。 在创建其他连接之前，请验证虚拟网络的地址空间是否不与要连接到的地址空间重叠。 如需创建站点到站点连接的步骤，请参阅[创建站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
 ## <a name="vnet-to-vnet-faq"></a>VNet 到 VNet 常见问题
 

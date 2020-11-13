@@ -1,7 +1,7 @@
 ---
 title: 构建并训练模型
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 机器学习来训练模型，包括使用 Scikit-learn、TensorFlow 和 PyTorch 等常用框架。 机器学习管道使你可以轻松计划无人参与的运行，使用异类计算环境，并重复使用工作流的某些部分。 运行配置则提供了对运行训练过程的计算目标的精细控制。
+description: 了解如何通过 Azure 机器学习训练模型。 探索不同的培训方法，并为您的项目选择合适的训练方法。
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324824"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555883"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>使用 Azure 机器学习训练模型
 
@@ -144,4 +144,4 @@ R SDK 使你能够将 R 语言与 Azure 机器学习结合使用。 SDK 使用�
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何 [配置训练运行](how-to-set-up-training-targets.md)。
+了解如何[配置训练运行](how-to-set-up-training-targets.md)。

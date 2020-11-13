@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539645"
+ms.locfileid: "94561312"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure 机器学习的企业安全和管理
 
@@ -105,7 +105,13 @@ Azure 机器学习依赖的特定服务（如 Azure 数据存储服务）有自�
 
 若要限制对 Azure 机器学习资源的物理访问，可以使用 Azure 虚拟网络 (VNet) 。 Vnet 允许你创建部分或完全独立于公共 internet 的网络环境。 这会减少解决方案的受攻击面以及数据渗透的几率。
 
-有关详细信息，请参阅[虚拟网络隔离和隐私概述](how-to-network-security-overview.md)。
+有关详细信息，请参阅以下文档：
+
+* [虚拟网络隔离和隐私概述](how-to-network-security-overview.md)
+* [保护工作区资源](how-to-secure-workspace-vnet.md)
+* [保护训练环境](how-to-secure-training-vnet.md)
+* [安全推理环境](how-to-secure-inferencing-vnet.md)
+* [在受保护的虚拟网络中使用 studio](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285373"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556380"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>在 Azure Vm 上创建 FCI 和 Azure 共享磁盘 (SQL Server) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "93285373"
 若要了解详细信息，请参阅 [有关 Azure vm 的 SQL Server FCI](failover-cluster-instance-overview.md) 和 [群集最佳实践](hadr-cluster-best-practices.md)的概述。 
 
 
-## <a name="prerequisites"></a>必备条件 
+## <a name="prerequisites"></a>先决条件 
 
 在完成本文中的说明之前，你应该已经：
 
@@ -153,10 +153,10 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 在“服务器管理器”下，依次选择“工具”、“故障转移群集管理器”。  
 1. 在“故障转移群集管理器”下，依次选择“操作”、“验证配置”。  
-1. 选择“ **下一页** ”。
+1. 选择“ **下一步** ”。
 1. 在“选择服务器或群集”下，输入两个虚拟机的名称。
 1. 在“测试选项”下，选择“仅运行选择的测试”。  
-1. 选择“ **下一页** ”。
+1. 选择“ **下一步** ”。
 1. 在 " **测试选择** " 下，选择 " **存储** " *以外* 的所有测试
 
 ## <a name="test-cluster-failover"></a>测试群集故障转移
@@ -197,7 +197,7 @@ FCI 数据目录需位于 Azure 共享磁盘上。
 
 ## <a name="register-with-the-sql-vm-rp"></a>向 SQL VM RP 注册
 
-若要从门户管理你的 SQL Server VM，请将其注册到 [轻型管理模式](sql-vm-resource-provider-register.md#lightweight-management-mode)下的 SQL VM 资源提供程序 (RP) ，目前，Azure vm 上的 FCI 和 SQL Server 仅支持唯一模式。 
+若要从门户管理你的 SQL Server VM，请在 [轻型管理模式](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)下将其注册到 SQL IaaS 代理扩展 (RP) ，目前，Azure vm 上的 FCI 和 SQL Server 仅支持唯一模式。 
 
 
 使用 PowerShell 在轻型模式下注册 SQL Server VM：  
@@ -217,7 +217,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="limitations"></a>限制
 
-- 仅支持在 [轻型管理模式下](sql-server-iaas-agent-extension-automate-management.md#management-modes) 注册 SQL VM 资源提供程序。
+- 仅支持在 [轻型管理模式下](sql-server-iaas-agent-extension-automate-management.md#management-modes) 注册 SQL IaaS 代理扩展。
 
 ## <a name="next-steps"></a>后续步骤
 

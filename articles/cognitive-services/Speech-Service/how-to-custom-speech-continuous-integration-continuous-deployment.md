@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357465"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555815"
 ---
 # <a name="cicd-for-custom-speech"></a>自定义语音识别的 CI/CD
 
@@ -37,7 +37,7 @@ GitHub 和 Azure DevOps 等 Git 服务器可在发生特定 Git 事件（例如�
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>测试数据更新的 CI 工作流
 
-CI/CD 工作流的主要目的是使用定型数据生成一个新模型，并使用测试数据测试该模型，确定与之前性能最佳的模型（“基准模型”）相比，[字词错误率 (WER)](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) 是否有所改进。 如果新模型的性能更佳，它将成为新的基准模型，将来的模型将与它进行比较。
+CI/CD 工作流的主要目的是使用定型数据生成一个新模型，并使用测试数据测试该模型，确定与之前性能最佳的模型（“基准模型”）相比，[字词错误率 (WER)](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) 是否有所改进。 如果新模型的性能更佳，它将成为新的基准模型，将来的模型将与它进行比较。
 
 测试数据更新的 CI 工作流应使用更新的测试数据重新测试当前的基准模型，计算修改后的 WER。 这可确保在将新模型的 WER 与基准模型的 WER 进行比较时，这两种模型均已针对相同的测试数据进行了测试，并且你正在进行同类比较。
 
@@ -85,7 +85,7 @@ CI/CD 工作流的主要目的是使用定型数据生成一个新模型，并�
 - 将模板存储库复制到 GitHub 帐户，然后为 GitHub Actions CI/CD 工作流创建 Azure 资源和[服务主体](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。
 - 演练[开发内部循环](https://mitchdenny.com/the-inner-loop/)。 从功能分支更新定型数据和测试数据，使用临时开发模型测试更改，并提出拉取请求以提出更改意见并对此进行审查。
 - 在对主分支的拉取请求中更新定型数据后，使用 GitHub Actions CI 工作流定型模型。
-- 执行自动准确性测试，确定模型的 [字词错误率](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER)。 将测试结果存储在 Azure Blob 中。
+- 执行自动准确性测试，确定模型的 [字词错误率](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER)。 将测试结果存储在 Azure Blob 中。
 - 若 WER 得到改进，则执行 CD 工作流以创建一个终结点。
 
 ## <a name="next-steps"></a>后续步骤

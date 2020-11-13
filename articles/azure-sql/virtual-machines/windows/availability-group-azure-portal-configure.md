@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9ecac482c138447a3a9dc99193fb131b688993e4
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790094"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556601"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>使用 Azure 门户为 Azure VM 上的 SQL Server 配置可用性组 (预览)  
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "92790094"
 
 使用 Azure 门户创建新群集或加入现有群集，然后创建可用性组、侦听器和内部负载均衡器。 
 
-此功能目前处于预览状态。 
+此功能目前以预览版提供。 
 
 尽管本文使用 Azure 门户来配置可用性组环境，但也可以使用 [PowerShell 或 Azure CLI](availability-group-az-commandline-configure.md)、 [Azure 快速入门模板](availability-group-quickstart-template-configure.md)或 [手动](availability-group-manually-configure-tutorial.md) 操作。 
 
@@ -38,7 +38,7 @@ ms.locfileid: "92790094"
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
 - 一个具有域控制器的资源组。 
-- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或) 更高版本](./create-sql-vm-portal.md) 在 *同一* 可用性集或 *不同* 的可用性区域中，这些虚拟 [机已在完全可管理性模式下注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md) ，并在每个 VM 上为 SQL Server 服务使用同一域帐户。
+- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或) 更高版本](./create-sql-vm-portal.md) 在 *同一* 可用性集或 *不同* 的可用性区域中，在 [完全可管理性模式下注册到 SQL IaaS 代理扩展](sql-agent-extension-manually-register-single-vm.md) ，并为每个 VM 上的 SQL Server 服务使用同一域帐户。
 - 两个可用的（未被任何实体使用的）IP 地址。 一个用于内部负载均衡器。 另一个用于与可用性组位于同一子网中的可用性组侦听器。 如果使用现有的负载均衡器，则只需一个可用性组侦听器的可用 IP 地址。 
 
 ## <a name="permissions"></a>权限
@@ -50,7 +50,7 @@ ms.locfileid: "92790094"
 
 ## <a name="configure-cluster"></a>配置群集
 
-使用 Azure 门户配置群集。 你可以创建新群集，或者，如果你已有一个现有群集，则可以将其载入 SQL VM 资源提供程序以实现门户可管理性。
+使用 Azure 门户配置群集。 你可以创建新群集，或者，如果你已有一个现有群集，则可以将其加入到 SQL IaaS 代理扩展，以便为门户提供可管理性。
 
 
 ### <a name="create-a-new-cluster"></a>创建新群集
@@ -59,7 +59,7 @@ ms.locfileid: "92790094"
 
 如果还没有现有群集，请使用 Azure 门户执行以下步骤来创建它：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 
+1. 登录 [Azure 门户](https://portal.azure.com)。 
 1. 导航到 [SQL 虚拟机](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 资源。 
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 " **+ 新建 Windows Server 故障转移群集** "，打开 " **配置 Windows 故障转移群集** " 页面。  
@@ -74,7 +74,7 @@ ms.locfileid: "92790094"
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="提供 SQL 服务帐户、群集操作员帐户和群集启动帐户的凭据":::
 
-1. 选择要添加到群集的 SQL Server Vm。 请注意是否需要重新启动，并在一定的情况下继续操作。 只有在完全可管理性模式下注册到 SQL VM 资源提供程序且位于同一位置、域以及与主 SQL Server VM 位于同一虚拟网络上的 Vm 才会可见。 
+1. 选择要添加到群集的 SQL Server Vm。 请注意是否需要重新启动，并在一定的情况下继续操作。 只有在完全可管理性模式下注册到 SQL IaaS 代理扩展且位于同一位置、域以及与主 SQL Server VM 相同的虚拟网络上的 Vm 才可见。 
 1. 选择 " **应用** " 以创建群集。 可以在活动日志中检查部署的状态，可从顶部导航栏中的电铃图标访问该 **活动日志** 。 
 1. 要使故障转移群集受 Microsoft 支持，它必须通过群集验证。 使用首选方法连接到 VM (例如远程桌面协议 (RDP) # A3，并验证群集是否通过验证，然后再继续。 否则，群集将处于不受支持状态。 你可以使用故障转移群集管理器 (FCM) 或以下 PowerShell 命令来验证群集：
 
@@ -90,7 +90,7 @@ ms.locfileid: "92790094"
 
 为此，请执行下列步骤：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 
+1. 登录 [Azure 门户](https://portal.azure.com)。 
 1. 导航到 [SQL 虚拟机](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 资源。 
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 "载入 **现有 Windows Server 故障转移群集** "，打开 " **板载 Windows Server 故障转移群集** " 页面。 
@@ -107,7 +107,7 @@ ms.locfileid: "92790094"
 
 创建或载入群集后，使用 Azure 门户创建可用性组。 为此，请执行下列步骤：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 
+1. 登录 [Azure 门户](https://portal.azure.com)。 
 1. 导航到 [SQL 虚拟机](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 资源。 
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 " **+ 新建 Always On 可用性组** " 以打开 " **创建可用性组** " 页。
@@ -162,7 +162,7 @@ ms.locfileid: "92790094"
 
 若要将更多 SQL Server Vm 添加到群集，请执行以下步骤： 
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。 
+1. 登录 [Azure 门户](https://portal.azure.com)。 
 1. 导航到 [SQL 虚拟机](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 资源。 
 1. 选择 " **设置** " 下的 " **高可用性** "。 
 1. 选择 " **配置 Windows Server 故障转移群集** "，打开 " **配置 Windows Server 故障转移群集** " 页面。 
@@ -185,7 +185,7 @@ ms.locfileid: "92790094"
 
 ## <a name="remove-cluster"></a>删除群集
 
-从群集中删除所有 SQL Server Vm 以销毁该群集，然后从 SQL VM 资源提供程序中删除该群集元数据。 为此，可以使用最新版本的 [Azure CLI](/cli/azure/install-azure-cli) 或 PowerShell。 
+从群集中删除所有 SQL Server Vm 以销毁该群集，然后从 SQL IaaS 代理扩展中删除该群集元数据。 为此，可以使用最新版本的 [Azure CLI](/cli/azure/install-azure-cli) 或 PowerShell。 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -201,7 +201,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 如果这些是群集中的唯一 Vm，则该群集将被销毁。 如果群集中的任何其他 Vm 除了删除的 SQL Server Vm，则不会删除其他 Vm，并且不会销毁群集。 
 
-接下来，从 SQL VM 资源提供程序中删除群集元数据： 
+接下来，从 SQL IaaS 代理扩展中删除群集元数据： 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -229,7 +229,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 如果这些是群集中的唯一 Vm，则该群集将被销毁。 如果群集中的任何其他 Vm 除了删除的 SQL Server Vm，则不会删除其他 Vm，并且不会销毁群集。 
 
 
-接下来，从 SQL VM 资源提供程序中删除群集元数据： 
+接下来，从 SQL IaaS 代理扩展中删除群集元数据： 
 
 ```powershell-interactive
 # Remove the cluster metadata
@@ -250,7 +250,7 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
 若要查看部署的日志，并检查部署历史记录，请执行以下步骤：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 1. 导航到资源组。
 1. 选择“设置”下面的“部署”。
 1. 选择所需的部署以了解有关部署的详细信息。 

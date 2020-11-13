@@ -4,13 +4,13 @@ description: Azure 门户中指定的区域就是你将在其中发布 LUIS 应�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/19/2019
-ms.openlocfilehash: 134f71e957b39cf35b4e45e42c2101fbce233f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277149"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555764"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>创作和发布区域及关联的密钥
 
@@ -23,16 +23,16 @@ ms.locfileid: "91277149"
 
 |LUIS|创作区域|Azure 区域名称|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|美国<br>非欧洲<br>非澳大利亚| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|澳大利亚| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|欧洲|`westeurope`|
+|[www.luis.ai][www.luis.ai] |美国<br>非欧洲<br>非澳大利亚| `westus`|
+|[au.luis.ai][au.luis.ai] |澳大利亚| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] |欧洲|`westeurope`|
 
 创作区域具有[配对故障转移区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>发布区域和 Azure 资源 
-该应用将发布到与 LUIS 门户中添加的 LUIS 资源关联的所有区域。 例如，对于在 [www.luis.ai][www.luis.ai] 上创建的应用，如果你在 **westus** 中创建 LUIS 或认知服务资源并[将其作为资源添加到该应用](luis-how-to-azure-subscription.md)，则该应用将发布到此区域中。
+该应用将发布到与 LUIS 门户中添加的 LUIS 资源关联的所有区域。 例如，对于在 [www.luis.ai][www.luis.ai] 上创建的应用，如果你在 **westus** 中创建 LUIS 或认知服务资源并 [将其作为资源添加到该应用](luis-how-to-azure-subscription.md)，则该应用将发布到此区域中。
 
 ## <a name="public-apps"></a>公共应用
 公共应用在所有区域中发布，以便有基于区域的 LUIS 资源密钥的用户可以在与其资源密钥关联的任何区域中访问该应用。
@@ -92,7 +92,7 @@ https://www.luis.ai 上创建的 LUIS 应用可以发布到除[欧洲](#publishi
 | 北美 |`westus`<br>[www.luis.ai][www.luis.ai] | 美国中西部<br>`westcentralus`    |  `https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 北美 | `westus`<br>[www.luis.ai][www.luis.ai] | 美国西部<br>`westus`  |   `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`  |
 | 北美 |`westus`<br>[www.luis.ai][www.luis.ai] | 美国西部 2<br>`westus2`    |  `https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`  |
-| 南美洲 | `westus`<br>[www.luis.ai][www.luis.ai] | 巴西南部<br>`brazilsouth`    |  `https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| 南美洲 | `westus`<br>[www.luis.ai][www.luis.ai] | Brazil South<br>`brazilsouth`    |  `https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
 ## <a name="endpoints"></a>终结点
 

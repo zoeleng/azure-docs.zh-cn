@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure 静态数据加密 | Microsoft Docs
-description: 本文概述了 Microsoft Azure 静态数据加密及其整体功能和一般注意事项。
+title: Azure 静态数据加密-Azure 安全性
+description: 本文概述了 Azure 静态数据加密、整体功能以及一般注意事项。
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412776"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556618"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 静态数据加密
 
@@ -128,7 +128,7 @@ Microsoft 云服务用于下述所有三个云模型：IaaS、PaaS、SaaS。 下
 
 Azure SQL 数据库目前支持将静态加密用于 Microsoft 托管的服务器端和客户端加密方案。
 
-对服务器加密的支持目前通过名为“透明数据加密”的 SQL 功能来提供。 在 Azure SQL 数据库客户启用 TDE 后，系统会自动为其创建和管理密钥。 可以在数据库和服务器级别启用静态加密。 从 2017 年 6 月开始，会在新创建的数据库上默认启用[透明数据加密 (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)。 Azure SQL 数据库支持 Azure Key Vault 中客户管理的 RSA 2048 位密钥。 有关详细信息，请参阅[使用 Azure SQL 数据库和数据仓库的“创建自己的密钥”支持进行透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current)。
+对服务器加密的支持目前通过名为“透明数据加密”的 SQL 功能来提供。 在 Azure SQL 数据库客户启用 TDE 后，系统会自动为其创建和管理密钥。 可以在数据库和服务器级别启用静态加密。 从 2017 年 6 月开始，会在新创建的数据库上默认启用[透明数据加密 (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)。 Azure SQL 数据库支持 Azure Key Vault 中客户管理的 RSA 2048 位密钥。 有关详细信息，请参阅[使用 Azure SQL 数据库和数据仓库的“创建自己的密钥”支持进行透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql)。
 
 可以通过 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 功能启用对 Azure SQL 数据库数据的客户端加密。 Always Encrypted 使用由客户端创建和存储的密钥。 客户可以将主密钥存储在 Windows 证书存储、Azure Key Vault 或本地硬件安全模块中。 使用 SQL Server Management Studio 时，SQL 用户可以选择想要使用什么密钥来加密哪个列。
 
@@ -140,3 +140,4 @@ Azure SQL 数据库目前支持将静态加密用于 Microsoft 托管的服务�
 
 - 若要详细了解服务管理的密钥和客户管理的密钥，请参阅[数据加密模型](encryption-models.md)。
 - 了解 Azure 如何使用[双重加密](double-encryption.md)来缓解加密数据所带来的威胁。
+- 了解 Microsoft 如何确保主机遍历硬件和固件构建、集成、操作化和维修管道的 [完整性和安全性](platform.md) 。

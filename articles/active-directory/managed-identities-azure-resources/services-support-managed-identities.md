@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eee711917a732bfc24b10db82c75786fd9734b57
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289595"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555679"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支持 Azure 资源托管标识的服务
 
@@ -70,10 +70,20 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 | 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
-| 系统分配 | 预览 | 不可用 | 不可用 | 不可用 | 
+| 系统分配 | 预览 | 不可用 | 不可用 | 不可用 |
 | 用户分配 | 不可用 | 不可用 | 不可用 | 不可用 |
 
 启用 Azure Arc 的 Kubernetes 目前 [支持系统分配的标识](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes)。 所有启用了 Azure Arc 的 Kubernetes 代理使用托管服务标识证书来与 Azure 通信。
+
+### <a name="azure-automanage"></a>Azure 自动管理
+
+| 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
+| --- | :-: | :-: | :-: | :-: |
+| 系统分配 | 预览 | 不可用 | 不可用 | 不可用 |
+| 用户分配 | 不可用 | 不可用 | 不可用 | 不可用 |
+
+如果已将订阅移到新租户，请参阅以下文档来重新配置托管标识：
+* [修复损坏的 Automanage 帐户](../../automanage/repair-automanage-account.md)
 
 ### <a name="azure-blueprints"></a>Azure 蓝图
 
@@ -151,7 +161,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 
 
-### <a name="azure-event-grid"></a>Azure 事件网格 
+### <a name="azure-event-grid"></a>Azure 事件网格
 
 托管标识类型 |所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
@@ -202,7 +212,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 | 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
-| 系统分配 | ![可用][check] | ![可用][check] | 不可用 | 不可用 | 
+| 系统分配 | ![可用][check] | ![可用][check] | 不可用 | 不可用 |
 | 用户分配 | 预览 | 不可用 | 不可用 | 不可用 |
 
 
@@ -222,7 +232,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - [Azure 门户](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager 模板](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
-### <a name="azure-machine-learning"></a>Azure 机器学习 
+### <a name="azure-machine-learning"></a>Azure 机器学习
 
 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
@@ -264,7 +274,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 | 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
-| 系统分配 | ![可用][check] | 不可用 | 不可用 | 不可用 | 
+| 系统分配 | ![可用][check] | 不可用 | 不可用 | 不可用 |
 | 用户分配 | 不可用 | 不可用 | 不可用 | 不可用 |
 
 
@@ -274,7 +284,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | --- | --- | --- | --- |
-| 系统分配 | 在可用 Azure Stack Edge 服务的区域内可用 | 不可用 | 不可用 | 不可用 |
+| 系统分配 | 在提供 Azure Stack Edge 服务的区域中可用 | 不可用 | 不可用 | 不可用 |
 | 用户分配 | 不可用 | 不可用 | 不可用 | 不可用 |
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集
@@ -298,7 +308,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 | 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
-| 系统分配 | ![可用][check] | ![可用][check] | 预览 | 预览 | 
+| 系统分配 | ![可用][check] | ![可用][check] | 预览 | 预览 |
 | 用户分配 | ![可用][check] | ![可用][check] | 预览 | 预览 |
 
 请参阅以下列表来配置 Azure 虚拟机的托管标识（在可用的区域中）：
@@ -315,7 +325,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 | 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
-| 系统分配 | 不可用 | 不可用 | 不可用 | 不可用 | 
+| 系统分配 | 不可用 | 不可用 | 不可用 | 不可用 |
 | 用户分配 | [在支持的区域中可用](../../virtual-machines/windows/image-builder-overview.md#regions) | 不可用 | 不可用 | 不可用 |
 
 若要了解如何在可用) 的区域中为 Azure VM 映像生成器 (配置托管标识，请参阅 [映像生成器概述](../../virtual-machines/windows/image-builder-overview.md#permissions)。

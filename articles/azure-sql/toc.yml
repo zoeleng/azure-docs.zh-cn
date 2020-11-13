@@ -910,7 +910,7 @@
                       href: /sql/machine-learning/security/user-permission?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: 功能
           items:
-            - name: 链接的服务器
+            - name: 链接服务器
               href: /sql/relational-databases/linked-servers/linked-servers-database-engine?toc=%252fazure%252fazure-sql%252ftoc.json
             - name: Service Broker
               href: /sql/database-engine/configure-windows/sql-server-service-broker?toc=%252fazure%252fazure-sql%252ftoc.json
@@ -1059,11 +1059,11 @@
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: 自动注册
-                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
+                      href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
                     - name: 单个 VM
-                      href: virtual-machines/windows/sql-vm-resource-provider-register.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
                     - name: 批量注册多个 VM
-                      href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
             - name: 迁移
               items:
                 - name: SQL Server 数据库到 VM

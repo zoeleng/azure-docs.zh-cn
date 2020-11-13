@@ -1,15 +1,15 @@
 ---
 title: 锁定资源以防止更改
-description: 通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。
+description: 通过对所有用户和角色应用锁来防止用户更新或删除 Azure 资源。
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340135"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555662"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改
 
@@ -74,19 +74,91 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 
 ### <a name="arm-template"></a>ARM 模板
 
-使用资源管理器模板来部署某个锁定时，请根据锁定范围对名称和类型使用不同的值。
+使用 Azure 资源管理器模板 (ARM 模板) 部署锁时，需要知道锁的作用域和部署的范围。 若要在部署范围应用锁（如锁定资源组或订阅），请不要设置作用域属性。 锁定部署范围内的资源时，请设置作用域属性。
 
-对 **资源** 应用锁定时，请使用以下格式：
+以下模板将对其部署到的资源组应用锁定。 请注意，锁资源上没有范围属性，因为锁的作用域与部署范围匹配。 此模板部署在资源组级别。
 
-* name - `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2016-09-01",
+            "name": "rgLock",
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource Group should not be deleted."
+            }
+        }
+    ]
+}
+```
 
-对 **资源组** 或 **订阅** 应用锁定时，请使用以下格式：
+若要创建资源组并对其进行锁定，请在订阅级别部署以下模板。
 
-* name - `{lockName}`
-* type - `Microsoft.Authorization/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "name": "[parameters('rgName')]",
+            "location": "[parameters('rgLocation')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "lockDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/locks",
+                            "apiVersion": "2016-09-01",
+                            "name": "rgLock",
+                            "properties": {
+                                "level": "CanNotDelete",
+                                "notes": "Resource group and its resources should not be deleted."
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
-以下示例演示可创建应用服务计划、网站和网站上的锁的模板。 锁的资源类型是要锁定的资源的资源类型和 **/providers/locks** 。 锁名是通过将包含 **/Microsoft.Authorization/** 的资源名称与锁名连接起来创建的。
+将锁定应用于资源组中的 **资源** 时，请添加作用域属性。 将范围设置为要锁定的资源的名称。
+
+以下示例演示可创建应用服务计划、网站和网站上的锁的模板。 锁定的范围设置为网站。
 
 ```json
 {
@@ -95,6 +167,10 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
   "parameters": {
     "hostingPlanName": {
       "type": "string"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -103,9 +179,9 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "tier": "Free",
         "name": "f1",
@@ -117,9 +193,9 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[variables('siteName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -128,9 +204,10 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
       }
     },
     {
-      "type": "Microsoft.Web/sites/providers/locks",
+      "type": "Microsoft.Authorization/locks",
       "apiVersion": "2016-09-01",
-      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "name": "siteLock",
+      "scope": "[concat('Microsoft.Web/sites/', variables('siteName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
       ],
@@ -142,8 +219,6 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
   ]
 }
 ```
-
-如需在资源组上设置锁定的示例，请参阅[创建资源组并将其锁定](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment)。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

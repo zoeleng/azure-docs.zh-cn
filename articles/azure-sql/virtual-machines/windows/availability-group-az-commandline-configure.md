@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: a85c1326501a362371d3bc961f5c5ae448e8d22e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9129d0cb44aea9b85c5569d4d939c0904c398c07
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790077"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556516"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>使用 PowerShell 或 Az CLI 为 Azure VM 上的 SQL Server 配置可用性组 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "92790077"
 
 - 一个 [Azure 订阅](https://azure.microsoft.com/free/)。
 - 一个具有域控制器的资源组。 
-- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或更高版本](./create-sql-vm-portal.md) ，在 *同一* 可用性集或 *不同* 的可用性区域中) ENTERPRISE edition 已 [注册到 SQL VM 资源提供程序](sql-vm-resource-provider-register.md)。  
+- Azure 中一个或多个已加入域的 [vm 正在运行 SQL Server 2016 (或) 更高版本](./create-sql-vm-portal.md) 在 *同一* 可用性集中或 *不同* 的可用性区域中， [并已注册到 SQL IaaS 代理扩展](sql-agent-extension-manually-register-single-vm.md)。  
 - 最新版本的 [PowerShell](/powershell/scripting/install/installing-powershell) 或 [Azure CLI](/cli/azure/install-azure-cli)。 
 - 两个可用的（未被任何实体使用的）IP 地址。 一个用于内部负载均衡器。 另一个用于与可用性组位于同一子网中的可用性组侦听器。 如果使用现有的负载均衡器，则只需一个可用性组侦听器的可用 IP 地址。 
 
@@ -423,9 +423,9 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 ---
 
 ## <a name="remove-listener"></a>删除侦听器
-如果以后需要删除使用 Azure CLI 配置的可用性组侦听器，则必须通过 SQL VM 资源提供程序执行整个操作。 由于侦听器是通过 SQL VM 资源提供程序注册的，因此仅仅通过 SQL Server Management Studio 删除它是不够的。 
+如果以后需要删除使用 Azure CLI 配置的可用性组侦听器，则必须通过 SQL IaaS 代理扩展。 由于侦听器是通过 SQL IaaS 代理扩展注册的，因此只需通过 SQL Server Management Studio 删除即可。 
 
-最佳方法是在 Azure CLI 中使用以下代码片段，通过 SQL VM 资源提供程序将其删除。 这样就会从 SQL VM 资源提供程序中删除可用性组侦听器元数据。 同时还会从根本上删除可用性组中的侦听器。 
+最佳方法是使用 Azure CLI 中的以下代码片段，通过 SQL IaaS 代理扩展将其删除。 这样做将从 SQL IaaS 代理扩展中删除可用性组侦听器元数据。 同时还会从根本上删除可用性组中的侦听器。 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -451,7 +451,7 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ## <a name="remove-cluster"></a>删除群集
 
-从群集中删除所有节点以销毁该群集，然后从 SQL VM 资源提供程序中删除该群集元数据。 可以通过使用 Azure CLI 或 PowerShell 来执行此操作。 
+从群集中删除所有节点以销毁该群集，然后从 SQL IaaS 代理扩展中删除该群集元数据。 可以通过使用 Azure CLI 或 PowerShell 来执行此操作。 
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -468,7 +468,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 如果这些是群集中的唯一 Vm，则该群集将被销毁。 如果群集中的任何其他 Vm 除了删除的 SQL Server Vm，则不会删除其他 Vm，并且不会销毁群集。 
 
-接下来，从 SQL VM 资源提供程序中删除群集元数据： 
+接下来，从 SQL IaaS 代理扩展中删除群集元数据： 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -497,7 +497,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 
 如果这些是群集中的唯一 Vm，则该群集将被销毁。 如果群集中的任何其他 Vm 除了删除的 SQL Server Vm，则不会删除其他 Vm，并且不会销毁群集。 
 
-接下来，从 SQL VM 资源提供程序中删除群集元数据： 
+接下来，从 SQL IaaS 代理扩展中删除群集元数据： 
 
 ```powershell-interactive
 # Remove the cluster metadata
