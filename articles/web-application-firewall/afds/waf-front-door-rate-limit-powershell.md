@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23b893bad591af5f1e923b68e8d30453f859792b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506407"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563471"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>使用 Azure PowerShell 配置 Web 应用程序防火墙速率限制规则
 Azure 前端的 Azure Web 应用程序防火墙 (WAF) 速率限制规则控制在一分钟的时间内客户端允许的请求数。
@@ -26,9 +26,9 @@ Azure 前端的 Azure Web 应用程序防火墙 (WAF) 速率限制规则控制�
 ## <a name="prerequisites"></a>先决条件
 在开始设置速率限制策略之前，请设置 PowerShell 环境，并创建前门配置文件。
 ### <a name="set-up-your-powershell-environment"></a>设置 PowerShell 环境
-Azure PowerShell 提供一组可以使用 [Azure 资源管理器](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)模型管理 Azure 资源的 cmdlet。 
+Azure PowerShell 提供一组可以使用 [Azure 资源管理器](../../azure-resource-manager/management/overview.md)模型管理 Azure 资源的 cmdlet。 
 
-可以在本地计算机上安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 并在任何 PowerShell 会话中使用它。 按照页面上的说明，用 Azure 凭据登录，并安装 Az PowerShell 模块。
+可以在本地计算机上安装 [Azure PowerShell](/powershell/azure/) 并在任何 PowerShell 会话中使用它。 按照页面上的说明，用 Azure 凭据登录，并安装 Az PowerShell 模块。
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>使用交互式登录对话框连接到 Azure
 ```
@@ -105,6 +105,4 @@ Install-Module -Name Az.FrontDoor
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解 [前门](../../frontdoor/front-door-overview.md)。 
-
-
+- 详细了解 [前门](../../frontdoor/front-door-overview.md)。

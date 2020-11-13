@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413065"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563641"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure 前门服务上的 Azure Web 应用程序防火墙常见问题解答
 
@@ -35,7 +35,7 @@ Azure 前门是高度可缩放的全球分布式应用程序和内容交付网�
 
 ## <a name="does-azure-waf-support-ipv6"></a>Azure WAF 是否支持 IPv6？
 
-是的。 可为 IPv4 和 IPv6 配置 IP 限制。
+是。 可为 IPv4 和 IPv6 配置 IP 限制。
 
 ## <a name="how-up-to-date-are-the-managed-rule-sets"></a>托管规则集的最新版本是什么？
 
@@ -55,7 +55,7 @@ Azure 前门是高度可缩放的全球分布式应用程序和内容交付网�
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>我应该选择哪些 Azure WAF 选项？
 
-在 Azure 中应用 WAF 策略时，有两个选项可供选择。 使用 Azure 前门的 WAF 是一种全球分布的边缘安全解决方案。 使用应用程序网关的 WAF 是一个区域专用解决方案。 建议选择一个基于整体性能和安全要求的解决方案。 有关详细信息，请参阅 [通过 Azure 的应用程序交付套件进行负载平衡](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite)。
+在 Azure 中应用 WAF 策略时，有两个选项可供选择。 使用 Azure 前门的 WAF 是一种全球分布的边缘安全解决方案。 使用应用程序网关的 WAF 是一个区域专用解决方案。 建议选择一个基于整体性能和安全要求的解决方案。 有关详细信息，请参阅 [通过 Azure 的应用程序交付套件进行负载平衡](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md)。
 
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>是否支持所有集成平台中的相同 WAF 功能？

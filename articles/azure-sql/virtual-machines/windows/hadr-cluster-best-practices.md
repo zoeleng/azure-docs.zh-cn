@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786422"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564559"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>群集配置最佳做法（Azure VM 上的 SQL Server）
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ ms.locfileid: "92786422"
 ## <a name="networking"></a>网络
 
 每台服务器 (群集节点上使用单个 NIC) 和单个子网。 Azure 网络具有物理冗余，这使得 Azure 虚拟机来宾群集上不需要其他 Nic 和子网。 群集验证报告将发出警告，指出节点只能在单个网络上访问。 可以在 Azure 虚拟机来宾故障转移群集上忽略此警告。
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>优化故障转移群集网络阈值
+
+使用 SQL Server AlwaysOn 在 Azure Vm 中运行 Windows 故障转移群集节点时，建议将群集设置更改为更宽松的监视状态。  这会使群集更稳定、更可靠。  有关此功能的详细信息，请参阅 [IaaS WITH SQL AlwaysOn-优化故障转移群集网络阈值](/windows-server/troubleshoot/iaas-sql-failover-cluser)。
 
 ## <a name="quorum"></a>Quorum
 
@@ -44,7 +48,7 @@ ms.locfileid: "92786422"
 
 ||[磁盘见证](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[云见证](/windows-server/failover-clustering/deploy-cloud-witness)  |[文件共享见证](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**支持的 OS**| All |Windows Server 2016 及更高版本| All|
+|**支持的 OS**| 全部 |Windows Server 2016 及更高版本| 全部|
 
 
 ### <a name="disk-witness"></a>磁盘见证
@@ -93,7 +97,7 @@ ms.locfileid: "92786422"
 |---------|---------|---------|
 |**最低操作系统版本**| All | Windows Server 2016 |
 |**最低 SQL Server 版本** |All |适用于 FCI 的 SQL Server 2019 CU2 () <br/> AG ) 的 SQL Server 2019 CU8 (|
-|**支持的 HADR 解决方案** | 故障转移群集实例 <br/> 可用性组 (availability group) | 故障转移群集实例 <br/> 可用性组 (availability group)|
+|**支持的 HADR 解决方案** | 故障转移群集实例 <br/> 可用性组 | 故障转移群集实例 <br/> 可用性组|
 
 
 ### <a name="virtual-network-name-vnn"></a>虚拟网络名称 (VNN)

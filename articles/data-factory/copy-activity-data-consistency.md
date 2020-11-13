@@ -11,23 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e7c66518cd62ef1debd8ceb1c38ba93101c8395d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634906"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565647"
 ---
-#  <a name="data-consistency-verification-in-copy-activity-preview"></a>复制活动中的数据一致性验证（预览版）
+#  <a name="data-consistency-verification-in-copy-activity"></a>复制活动中的数据一致性验证
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-当你将数据从源存储移动到目标存储时，Azure 数据工厂复制活动提供了一个选项，供你执行额外的数据一致性验证，以确保数据不仅成功地从源存储复制到目标存储，而且验证了源存储和目标存储之间的一致性。 在数据移动过程中发现不一致的文件后，可以中止复制活动，或者通过启用容错设置跳过不一致的文件来继续复制其余文件。 通过在复制活动中启用会话日志设置，可以获取跳过的文件名称。 
-
-> [!IMPORTANT]
-> 此功能目前处于预览状态，我们正在积极处理以下限制：
->- 当在复制活动中启用会话日志设置以记录跳过的不一致文件时，如果复制活动失败，则无法 100% 保证日志文件的完整性。
->- 会话日志只包含不一致的文件，到目前为止，尚未记录成功复制的文件。
+当你将数据从源存储移动到目标存储时，Azure 数据工厂复制活动提供了一个选项，供你执行额外的数据一致性验证，以确保数据不仅成功地从源存储复制到目标存储，而且验证了源存储和目标存储之间的一致性。 在数据移动过程中发现不一致的文件后，可以中止复制活动，或者通过启用容错设置跳过不一致的文件来继续复制其余文件。 通过在复制活动中启用会话日志设置，可以获取跳过的文件名称。 有关更多详细信息，可以参阅 [复制活动中的会话日志](copy-activity-log.md) 。
 
 ## <a name="supported-data-stores-and-scenarios"></a>支持的数据存储和方案
 
@@ -60,21 +55,27 @@ ms.locfileid: "92634906"
     "skipErrorFile": { 
         "dataInconsistency": true 
     }, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2_storage", 
-            "type": "LinkedServiceReference" 
-        }, 
-        "path": "/sessionlog/" 
-} 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+                "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            }
+        }
+    }
 } 
 ```
 
-属性 | 说明 | 允许的值 | 必须
+属性 | 说明 | 允许的值 | 必选
 -------- | ----------- | -------------- | -------- 
 validateDataConsistency | 如果将此属性设置为 true，则在复制二进制文件时，复制活动将检查从源存储复制到目标存储的每个二进制文件的文件大小、lastModifiedDate 和 MD5 校验和，以确保源存储和目标存储之间的数据一致性。 复制表格数据时，复制活动将检查作业完成后的总行计数，以确保从源中读取的行数与复制到目标的行数和跳过的不兼容行数之和相同。 请注意，启用此选项会影响复制性能。  | True<br/>False（默认值） | 否
 dataInconsistency | SkipErrorFile 属性包中的一个键值对，用于确定是否要跳过不一致的文件。 <br/> -True：要通过跳过不一致的文件来复制其余文件。<br/> -False：找到不一致的文件后要中止复制活动。<br/>请注意，只有在你复制二进制文件并将 validateDataConsistency 设置为 True 时，此属性才有效。  | True<br/>False（默认值） | 否
-logStorageSettings | 一组属性，可以指定这些属性以使会话日志能够记录跳过的文件。 | | 否
+logSettings | 一组属性，可以指定这些属性以使会话日志能够记录跳过的文件。 | | 否
 linkedServiceName | [Azure Blob 存储](connector-azure-blob-storage.md#linked-service-properties)或 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 的链接服务，用于存储会话日志文件。 | `AzureBlobStorage` 或 `AzureBlobFS` 类型链接服务的名称，指代用于存储日志文件的实例。 | 否
 path | 日志文件的路径。 | 指定用于存储日志文件的路径。 如果未提供路径，服务会为用户创建一个容器。 | 否
 
@@ -95,7 +96,7 @@ path | 日志文件的路径。 | 指定用于存储日志文件的路径。 如
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 

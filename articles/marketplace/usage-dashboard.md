@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490111"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565532"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>商业市场分析中的“使用情况”仪表板
 
@@ -122,7 +122,7 @@ _**表1：数据字典**_
 | Marketplace 订阅 Id | 市场订阅 ID | 与客户用于购买商业 marketplace 产品/服务的 Azure 订阅相关联的唯一标识符。 该 ID 以前称为“Azure 订阅 GUID”。 |
 | MonthStartDate | 月开始日期 | 月开始日期表示采购月份。 |
 | 产品/服务类型 | 产品/服务类型 | 商业 marketplace 产品/服务的类型。 |
-| Azure 许可证类型 | Azure 许可证类型 | 购买 Azure 的客户使用的许可协议类型。 也称为通道。 可能的值为：<ui><li>云解决方案提供商</li><li>Enterprise</li><li>企业通过分销商</li><li>即付即用</li></ul> |
+| Azure 许可证类型 | Azure 许可证类型 | 购买 Azure 的客户使用的许可协议类型。 也称为通道。 可能的值为：<ui><li>云解决方案提供商</li><li>企业</li><li>企业通过分销商</li><li>即付即用</li></ul> |
 | 市场许可证类型 | 市场许可证类型 | 商业应用商店的计费方法。 可能的值为：<ul><li>通过 Azure 计费</li><li>自带许可</li><li>免费</li><li>Microsoft as 经销商</li></ul> |
 | SKU | SKU | 与产品/服务关联的计划。 |
 | 客户所在国家/地区 | 客户所在国家/地区 | 客户提供的国家/地区名称。 国家/地区可能不同于客户的 Azure 订阅中的国家/地区。 |

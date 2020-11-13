@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737096"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565919"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>自动备份应用程序配置存储区
 
@@ -37,14 +37,17 @@ ms.locfileid: "92737096"
 
 在本教程中，你将在 `centralus` 区域创建辅助存储，并在 `westus` 区域创建所有其他资源。
 
-## <a name="prerequisites"></a>先决条件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Azure 订阅。 [免费创建一个](https://azure.microsoft.com/free/)。 
+## <a name="prerequisites"></a>先决条件 
+
 - 包含 Azure 开发工作负载的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。
-- [.NET Core SDK](https://dotnet.microsoft.com/download)。
-- Azure CLI 的最新版本（2.3.1 或更高版本）。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 如果使用 Azure CLI，需要先使用 `az login` 登录。 您可以选择使用 Azure Cloud Shell。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [.NET Core SDK](https://dotnet.microsoft.com/download)。
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本教程需要 Azure CLI 版或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

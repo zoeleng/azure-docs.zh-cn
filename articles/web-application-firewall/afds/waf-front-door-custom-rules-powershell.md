@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 40f0195ced375da09891eb577bd81f36b2f37cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a0e262db9f5c37189a589eefc451a88dd5ea8c6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005542"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563403"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>使用 Azure PowerShell 配置 Web 应用程序防火墙策略
 
@@ -27,9 +27,9 @@ Azure Web 应用程序防火墙 (WAF) 策略定义请求到达前门时所需的
 
 ### <a name="set-up-your-powershell-environment"></a>设置 PowerShell 环境
 
-Azure PowerShell 提供一组可以使用 [Azure 资源管理器](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)模型管理 Azure 资源的 cmdlet。 
+Azure PowerShell 提供一组可以使用 [Azure 资源管理器](../../azure-resource-manager/management/overview.md)模型管理 Azure 资源的 cmdlet。 
 
-可以在本地计算机上安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 并在任何 PowerShell 会话中使用它。 按照页面上的说明，用 Azure 凭据登录，并安装 Az PowerShell 模块。
+可以在本地计算机上安装 [Azure PowerShell](/powershell/azure/) 并在任何 PowerShell 会话中使用它。 按照页面上的说明，用 Azure 凭据登录，并安装 Az PowerShell 模块。
 
 #### <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -95,7 +95,7 @@ $myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $reso
 ## <a name="link-policy-to-a-front-door-front-end-host"></a>将策略链接到前门前端主机
 
 将安全策略对象链接到现有前门前端主机并更新前门属性。 首先，使用 [AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor)检索前门对象。
-接下来，使用[AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)将前端*WebApplicationFirewallPolicyLink*属性设置为在上一步中创建的 "$MyWAFPolicy $" 的*resourceId* 。 
+接下来，使用 [AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)将前端 *WebApplicationFirewallPolicyLink* 属性设置为在上一步中创建的 "$MyWAFPolicy $" 的 *resourceId* 。 
 
 下面的示例使用资源组名称 *myResourceGroupFD1* ，假设已使用 [快速入门：创建前门](../../frontdoor/quickstart-create-front-door.md) 文章中提供的说明创建了前门配置文件。 此外，在下面的示例中，将 $frontDoorName 替换为前门配置文件的名称。 
 

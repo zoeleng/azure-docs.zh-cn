@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: shganesh-dev
-ms.author: shganesh
-ms.openlocfilehash: 08a889a0a26f90798f3ac8524cceb6ca83d4955a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414523"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564865"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>商业 marketplace 分析中的客户仪表板
 
@@ -23,7 +23,7 @@ ms.locfileid: "94414523"
 >[!NOTE]
 > 有关分析术语的详细定义，请参阅 [商业市场分析术语和常见问题](./partner-center-portal/faq-terminology.md)。
 
-## <a name="customers-dashboard"></a>客户仪表板
+## <a name="customers-dashboard"></a>“客户”仪表板
 
 客户仪表板显示已获得产品/服务的客户的数据。 你可以查看以下各项的图形表示形式：
 
@@ -157,7 +157,7 @@ _**表1：数据字典**_
 | 客户邮政编码 | 客户邮政编码 | 客户提供的邮政编码。 代码可能与客户的 Azure 订阅中提供的邮政编码不同。 |
 | CustomerCommunicationCulture | 客户通信语言 | 客户的首选通信语言。 |
 | CustomerCountryRegion | 客户所在国家/地区 | 客户提供的国家/地区名称。 国家/地区可能不同于客户的 Azure 订阅中的国家/地区。 |
-| AzureLicenseType | Azure 许可证类型 | 购买 Azure 的客户使用的许可协议类型。 也称为 _通道_ 。 可能的值为：<ul><li>云解决方案提供商</li><li>Enterprise</li><li>企业通过分销商</li><li>即付即用</li></ul> |
+| AzureLicenseType | Azure 许可证类型 | 购买 Azure 的客户使用的许可协议类型。 也称为 _通道_ 。 可能的值为：<ul><li>云解决方案提供商</li><li>企业</li><li>企业通过分销商</li><li>即付即用</li></ul> |
 | PromotionalCustomers | 是促销联系人选择加入 | 此值告知是否客户主动从发布者渠道登记为促销联系人。 目前我们不会向客户提供该选项，因此，在整个板块中都指示了“否”。 部署此功能后，我们将相应地开始更新。 |
 | CustomerState | 客户所在的州/省 | 客户提供的住所的状态。 状态可能与客户的 Azure 订阅中提供的状态不同。 |
 | CommerceRootCustomer | 商业根客户 | 一个计费帐户 ID 可以与多个客户 Id 相关联。<br>计费帐户 ID 和客户 ID 的一个组合可以与多个商业 marketplace 订阅相关联。<br>Commerce Root 客户表示订阅的客户的名称。 |

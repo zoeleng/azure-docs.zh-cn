@@ -6,22 +6,22 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 08/20/2019
+ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736984"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564763"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虚拟机规模集的计划内维护通知
 
 
 Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可靠性、性能及安全性。 更新可能包括修补托管环境或升级以及解除硬件授权。 大多数更新不影响托管的 VM。 但是在以下情况下，更新会影响 VM：
 
-- 如果维护不需重启，Azure 会在更新主机时使用就地迁移来暂停 VM。 无需重启的维护操作会按逐个容错域方式进行应用。 如果接收到任何警告健康状况信号，则进程将停止。
+- 如果维护不需要重新启动，则 Azure 会在更新主机几秒钟后暂停 VM。 这类维护操作由容错域应用于容错域。 如果接收到任何警告健康状况信号，则进程将停止。
 
 - 如果维护需重新启动，系统会告知计划维护的时间。 在这些情况下，系统会提供一个时间窗口（通常为 35 天），方便你在适当的时间自行启动维护。
 
@@ -185,7 +185,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **问：如何收到有关计划内维护的通知？**
 
-**答:** 一次计划内维护是通过将计划设置到一个或多个 Azure 区域启动的。 不久以后，电子邮件通知将发送到订阅所有者（每个订阅一封电子邮件）。 你可以使用活动日志警报为此通知添加通道和收件人。 如果将 VM 部署到其中已经安排有计划内维护的区域，则无法接收通知。 此时而应查看 VM 的维护状态。
+**答:** 一次计划内维护是通过将计划设置到一个或多个 Azure 区域启动的。 不久之后，会向订阅管理员、共同管理员、所有者和参与者发送电子邮件通知， (每个订阅) 一封电子邮件。 可以使用活动日志警报配置此通知的其他通道和收件人。 如果将虚拟机部署到已安排计划内维护的区域，则不会收到通知。 此时而应查看 VM 的维护状态。
 
 **问：我在门户、PowerShell 或 CLI 中看不到任何计划内维护的指示。这是为何？**
 

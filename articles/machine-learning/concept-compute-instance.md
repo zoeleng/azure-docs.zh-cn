@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323071"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563811"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>什么是 Azure 机器学习计算实例？
 
@@ -24,9 +24,9 @@ Azure 机器学习计算实例是面向数据科学家的基于云的托管式�
 
 可以使用计算实例作为在云中进行机器学习的完全配置和托管的开发环境。 还可以在开发和测试中将它们用作训练和推理的计算目标。  
 
-对于生产级模型训练，请使用具有多节点缩放功能的 [Azure 机器学习计算群集](how-to-create-attach-compute-cluster.md) 。 对于生产级模型部署，请使用 [Azure Kubernetes 服务群集](how-to-deploy-azure-kubernetes-service.md)。
+对于生产级模型训练，请使用具有多节点缩放功能的 [Azure 机器学习计算群集](how-to-create-attach-compute-cluster.md)。 对于生产级模型部署，请使用 [Azure Kubernetes 服务群集](how-to-deploy-azure-kubernetes-service.md)。
 
-为了让计算实例 Jupyter 功能可以正常运行，请确保没有禁用 Web 套接字通信。 请确保网络允许 websocket 连接到 *. instances.azureml.net 和 instances.azureml.ms。
+为了让计算实例 Jupyter 功能可以正常运行，请确保没有禁用 Web 套接字通信。 请确保网络允许到 *.instances.azureml.net 和 *.instances.azureml.ms 的 websocket 连接。
 
 ## <a name="why-use-a-compute-instance"></a>为何使用计算实例？
 
@@ -34,12 +34,12 @@ Azure 机器学习计算实例是面向数据科学家的基于云的托管式�
 
 |主要优点|描述|
 |----|----|
-|工作效率|可以在 Azure 机器学习工作室中使用集成的笔记本及以下工具来构建和部署模型：<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio（预览版）<br/>计算实例与 Azure 机器学习工作区和工作室完全集成。 你可以与工作区中的其他数据科学家共享笔记本和数据。<br/> 你还可以将 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) 与计算实例一起使用。
-|无需自行管理且安全|减少安全保护工作，增强企业的安全要求合规性。 计算实例提供可靠的管理策略和安全网络配置，例如：<br/><br/>-从资源管理器模板或 Azure 机器学习 SDK 自动预配<br/>- [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [虚拟网络支持](./how-to-secure-training-vnet.md#compute-instance)<br/>- 用于启用/禁用 SSH 访问的 SSH 策略<br/>已启用 TLS 1.2 |
+|工作效率|可以在 Azure 机器学习工作室中使用集成的笔记本及以下工具来构建和部署模型：<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio（预览版）<br/>计算实例与 Azure 机器学习工作区和工作室完全集成。 你可以与工作区中的其他数据科学家共享笔记本和数据。<br/> 你还可以在计算实例中使用 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630)。
+|无需自行管理且安全|减少安全保护工作，增强企业的安全要求合规性。 计算实例提供可靠的管理策略和安全网络配置，例如：<br/><br/>- 通过资源管理器模板或 Azure 机器学习 SDK 自动预配<br/>- [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [虚拟网络支持](./how-to-secure-training-vnet.md#compute-instance)<br/>- 用于启用/禁用 SSH 访问的 SSH 策略<br/>已启用 TLS 1.2 |
 |已针对 ML 进行了预配置|使用预配置的最新 ML 包、深度学习框架和 GPU 驱动程序完成设置任务，可节省时间。|
 |完全可自定义|支持多种 Azure VM 类型，包括 GPU 和持久性低级自定义，例如，安装相应的包和驱动程序可以轻而易举地实现高级方案。 |
 
-您可以自己 [创建一个计算实例](how-to-create-manage-compute-instance.md?tabs=python#create) ，也可以由管理员 [为您创建一个计算实例](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)。
+你可以自行[创建计算实例](how-to-create-manage-compute-instance.md?tabs=python#create)，也可以让管理员[为你创建计算实例](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)。
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>工具和环境
 
@@ -49,11 +49,11 @@ Azure 机器学习计算实例是面向数据科学家的基于云的托管式�
 
 使用 Azure 机器学习计算实例可以在工作区中的完全集成式笔记本体验中创作、训练和部署模型。
 
-你可以在 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) 使用计算实例作为远程服务器运行 Jupyter 笔记本，无需使用 SSH。 还可以通过 [远程 SSH 扩展](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/)启用 VS Code 集成。
+使用计算实例作为远程服务器，无需 SSH 即可在 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) 中运行 Jupyter 笔记本。 也可以通过[远程 SSH 扩展](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/)启用 VS Code 集成。
 
-可以 [安装包](how-to-create-manage-compute-instance.md#install-packages) 并 [将内核添加](how-to-create-manage-compute-instance.md#add-new-kernels) 到计算实例。  
+可以[安装包](how-to-create-manage-compute-instance.md#install-packages)，然后在计算实例中[添加内核](how-to-create-manage-compute-instance.md#add-new-kernels)。  
 
-以下工具和环境已安装在计算实例上： 
+计算实例上已安装以下工具和环境： 
 
 |常规工具和环境|详细信息|
 |----|:----:|
@@ -110,7 +110,7 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 
 * [创建计算实例](#create)。 
 * 刷新“计算实例”选项卡。
-* 启动、停止和重启计算实例。  只要实例在运行，你就需要为其付费。 不使用计算实例时，请将其停止，以便降低成本。 停止计算实例会将其解除分配。 然后在需要时重启。
+* 启动、停止和重启计算实例。  只要实例在运行，你就需要为其付费。 不使用计算实例时，请将其停止，以便降低成本。 停止计算实例会将其解除分配。 然后在需要时重启。 请注意，停止计算实例将停止计算小时数的计费，但仍会对磁盘、公共 IP 和标准负载均衡器进行计费。
 * 删除计算实例。
 * 筛选计算实例列表，以仅显示已创建的实例。
 
@@ -141,13 +141,13 @@ Azure RBAC 可控制以下操作：
 * 使用 [Azure 机器学习 SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
 * 从 [Azure 机器学习的 CLI 扩展](reference-azure-machine-learning-cli.md#computeinstance)
 
-每个区域中每个区域的专用核心数（适用于计算实例创建）都是统一的，并与 Azure 机器学习定型计算群集配额进行共享。 停止计算实例不会释放配额，因此无法确保你能够重启计算实例。
+对于每个区域每个虚拟机 (VM) 系列配额和创建计算实例时应用的区域总配额，专用内核数一致，且该数量与 Azure 机器学习训练计算群集配额共享。 停止计算实例不会释放配额，因此无法确保你能够重启计算实例。
 
 
-### <a name="create-on-behalf-of-preview"></a>代表 (预览创建) 
+### <a name="create-on-behalf-of-preview"></a>代表他人创建（预览版）
 
-作为管理员，您可以代表数据科学家创建计算实例，并将实例分配给它们：
-* [Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)。  有关如何查找此模板中所需的 TenantID 和 ObjectID 的详细信息，请参阅 [查找身份验证配置的标识对象 id](../healthcare-apis/find-identity-object-ids.md)。  你还可以在 Azure Active Directory 门户中找到这些值。
+作为管理员，你可代表数据科学家创建计算实例，并通过以下方式将实例分配给他们：
+* [Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)。  若要详细了解如何查找此模板中所需的 TenantID 和 ObjectID，请参阅[查找身份验证配置的标识对象 ID](../healthcare-apis/find-identity-object-ids.md)。  也可在 Azure Active Directory 门户中找到这些值。
 * REST API
 
 你为其创建计算实例的数据科研人员需要以下 Azure RBAC 权限： 
@@ -156,7 +156,7 @@ Azure RBAC 可控制以下操作：
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
 
-数据科学家可以启动、停止和重启计算实例。 它们可以使用的计算实例：
+数据科学家可启动、停止和重启计算实例。 他们可将计算实例用于：
 * Jupyter
 * JupyterLab
 * RStudio
@@ -179,7 +179,7 @@ Azure RBAC 可控制以下操作：
 
 计算实例即将取代 Notebook VM。  
 
-任何存储在工作区文件共享中的笔记本文件和工作区数据存储中的数据都可以从计算实例访问。 但是，任何以前安装在笔记本 VM 上的自定义包都需要在计算实例上重新安装。 应用于计算群集创建的配额限制也适用于创建计算实例。
+任何存储在工作区文件共享中的笔记本文件和工作区数据存储中的数据都可以从计算实例访问。 但是，以前安装在 Notebook VM 上的任何自定义包都需要在计算实例上重新安装。 创建计算群集时适用的配额限制在创建计算实例时同样适用。
 
 不能创建新的 Notebook VM。 但你仍然可以访问和使用已创建的 Notebook VM 及其完整功能。 可以在现有 Notebook VM 所在的同一工作区中创建计算实例。
 

@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121983"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565766"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>利用内容类型在应用程序配置中存储 JSON 密钥值
 
@@ -25,9 +25,9 @@ ms.locfileid: "88121983"
 ## <a name="overview"></a>概述
 
 在应用程序配置中，可将 JSON 媒体类型用作键值的内容类型，以获得如下好处：
-- **更简单的数据管理**：在 Azure 门户中，管理键值（如数组）将变得更加容易。
-- **增强的数据导出**：在数据导出过程中将保留基元类型、数组和 JSON 对象。
-- **提供应用程序配置提供程序本机支持**：当应用程序中的“应用程序配置提供程序库”使用具有 JSON 内容类型的键值时，这些键值能够正常运行。
+- **更简单的数据管理** ：在 Azure 门户中，管理键值（如数组）将变得更加容易。
+- **增强的数据导出** ：在数据导出过程中将保留基元类型、数组和 JSON 对象。
+- **提供应用程序配置提供程序本机支持** ：当应用程序中的“应用程序配置提供程序库”使用具有 JSON 内容类型的键值时，这些键值能够正常运行。
 
 #### <a name="valid-json-content-type"></a>有效的 JSON 内容类型
 
@@ -63,13 +63,11 @@ ms.locfileid: "88121983"
 > * 在应用程序中使用 JSON 键值。
 
 
-## <a name="prerequisites"></a>必备条件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/)。
-- Azure CLI 的最新版本（2.10.0 或更高版本）。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 如果使用的是 Azure CLI，则必须先使用 `az login` 进行登录。 可以选择使用 Azure Cloud Shell。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- 本教程需要 Azure CLI 版本的2.10.0 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
 ## <a name="create-an-app-configuration-store"></a>创建应用配置存储区
 
