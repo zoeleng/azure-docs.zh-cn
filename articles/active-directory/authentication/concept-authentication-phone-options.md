@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377745"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593070"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 电话选项中的身份验证方法
 
@@ -32,7 +32,7 @@ ms.locfileid: "93377745"
 
 ## <a name="mobile-phone-verification"></a>手机验证
 
-对于 Azure 多重身份验证或 SSPR，用户可以选择接收短信，其中含有要在登录界面中输入的验证码，或者选择接听电话呼叫，接听后会听到一个提示，提示其输入事先定义的 PIN 码。
+对于 Azure 多重身份验证或 SSPR，用户可以选择接收包含验证码的短信，以便在登录界面中输入或接收电话呼叫。
 
 如果用户不希望在目录中公开其移动电话号码，但想使用该号码来重置密码，则管理员不应在目录中填充该号码。 而是由用户通过组合的安全信息注册 ([https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)) 来填充“身份验证电话”属性。 管理员可在用户的配置文件中看到此信息，但此信息不会发布到其他位置。
 
@@ -46,11 +46,11 @@ Microsoft 不保证相同号码传送的短信或基于语音的 Azure 多重身
 
 ### <a name="phone-call-verification"></a>电话呼叫验证
 
-如果在 SSPR 或 Azure 多重身份验证期间使用电话呼叫验证方法，用户注册的电话号码会接收到一个自动语音呼叫。 为了完成登录过程，系统会提示用户在其键盘上输入其 pin 号码并按 # 键。
+如果在 SSPR 或 Azure 多重身份验证期间使用电话呼叫验证方法，用户注册的电话号码会接收到一个自动语音呼叫。 若要完成登录过程，系统会提示用户在其键盘上按 #。
 
 ## <a name="office-phone-verification"></a>办公电话验证
 
-如果在 SSPR 或 Azure 多重身份验证期间使用电话呼叫验证方法，用户注册的电话号码会接收到一个自动语音呼叫。 为了完成登录过程，系统会提示用户在其键盘上输入其 pin 号码并按 # 键。
+如果在 SSPR 或 Azure 多重身份验证期间使用电话呼叫验证方法，用户注册的电话号码会接收到一个自动语音呼叫。 若要完成登录过程，系统会提示用户在其键盘上按 #。
 
 ## <a name="troubleshooting-phone-options"></a>排查电话选项问题
 
@@ -61,7 +61,7 @@ Microsoft 不保证相同号码传送的短信或基于语音的 Azure 多重身
 * 电话号码错误或国家/地区代码不正确，或混淆个人电话号码和工作电话号码。
    * 对用户对象和配置的身份验证方法进行故障排除。 确保注册了正确的电话号码。
 * 输入了错误的 PIN。
-   * 确认用户使用的是注册帐户时所用的正确的 PIN。
+   * 确认用户已使用为其帐户注册的正确 PIN (仅) MFA 服务器用户。
 * 呼叫被转到语音信箱。
    * 确保用户的电话处于开启状态，并且所需服务在其区域中可用，或使用替代方法。
 * 用户被阻止

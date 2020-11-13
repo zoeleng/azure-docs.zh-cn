@@ -7,26 +7,26 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=4
 ms.devlang: ''
 ms.topic: conceptual
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9f29a891061dc0e6dcfe8c8f6a65f0f190c6afc
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327606"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593580"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Azure SQL 中的加速数据库恢复 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 加速的数据库恢复 (ADR) 是一项 SQL Server 数据库引擎功能，通过重新设计 SQL Server 数据库引擎恢复过程，极大地提高数据库可用性（尤其是存在长期运行的事务时）。 
 
-ADR 目前适用于 Azure SQL 数据库、Azure SQL 托管实例、Azure Synapse Analytics 中的数据库 (预览版) ，以及从 SQL Server 2019 开始的 Azure Vm 的 SQL Server。 
+ADR 目前可用于 Azure SQL 数据库、Azure SQL 托管实例、Azure Synapse Analytics（目前为预览版）中的数据库，以及 Azure VM 上的 SQL Server（从 SQL Server 2019 开始）。 
 
 > [!NOTE] 
-> 默认情况下，ADR 已在 Azure SQL 数据库和 Azure SQL 托管实例中启用，并且不支持其中任何一个产品的 ADR。 
+> 默认情况下，ADR 已在 Azure SQL 数据库和 Azure SQL 托管实例中启用。不支持为任一产品禁用 ADR。 
 
 ## <a name="overview"></a>概述
 

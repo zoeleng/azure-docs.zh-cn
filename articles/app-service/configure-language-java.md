@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744153"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616187"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Java 应用
 
@@ -68,11 +68,11 @@ Azure 应用服务可让 Java 开发人员在完全托管服务中快速生成�
 
 有关详细信息，请参阅[在 Cloud Shell 中流式传输日志](troubleshoot-diagnostic-logs.md#in-cloud-shell)。
 
+::: zone pivot="platform-linux"
+
 ### <a name="ssh-console-access"></a>SSH 控制台访问
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
-
-::: zone pivot="platform-linux"
 
 ### <a name="troubleshooting-tools"></a>故障排除工具
 

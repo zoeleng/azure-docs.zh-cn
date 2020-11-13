@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311560"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616087"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>如何将工作区用于自定义 DNS 服务器
 
-将 Azure 机器学习与虚拟网络一起使用时， [可以通过多种方式来处理 DNS 名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。 默认情况下，Azure 会自动处理工作区和专用终结点的名称解析。 但是， __在使用你自己的自定义 DNS 服务器时__ ，你必须为工作区手动创建 DNS 条目。
+将 Azure 机器学习与虚拟网络一起使用时， [可以通过多种方式来处理 DNS 名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。 默认情况下，Azure 会自动处理工作区和专用终结点的名称解析。 如果你改为 _使用你自己的自定义 DNS 服务器_ _，则必须手动为工作区创建 DNS 条目。
 
 > [!IMPORTANT]
 > 本文仅介绍如何查找 (FQDN) 和 IP 地址的完全限定域名，而不提供有关为这些项配置 DNS 记录的信息。 有关如何添加记录的信息，请参阅 DNS 软件的文档。
@@ -40,13 +40,14 @@ ms.locfileid: "93311560"
 以下列表包含工作区和专用终结点使用 (FQDN) 的完全限定的域名：
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* 如果创建计算实例，还必须为 " `<instance-name>.<region>.instances.azureml.ms` 工作区专用终结点专用 IP" 添加条目。 请注意，只能从虚拟网络内部访问计算实例。
+* 如果创建计算实例，还必须为添加 `<instance-name>.<region>.instances.azureml.ms` 包含工作区专用终结点专用 IP 的条目。
+
+    > [!NOTE]
+    > 只能从虚拟网络内部访问计算实例。
 
 若要在 VNet 中查找 Fqdn 的内部 IP 地址，请使用以下方法之一：
 
@@ -82,8 +83,6 @@ $workspaceDns.CustomDnsConfigs | format-table
 | FQDN | IP 地址 |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

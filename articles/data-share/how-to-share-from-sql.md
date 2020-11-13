@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575896"
+ms.locfileid: "94593733"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>从 Azure SQL 数据库和 Azure Synapse Analytics 共享和接收数据
 
@@ -19,7 +19,7 @@ ms.locfileid: "94575896"
 
 Azure 数据共享支持基于快照的共享 Azure SQL 数据库和 Azure Synapse 分析。 本文介绍如何从这些源共享和接收数据。
 
-Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 共享表或视图， (以前称为 Azure SQL DW) ，以及从 Azure Synapse Analytics (工作区) SQL 池共享表。 数据使用者可以选择接受将数据作为 csv 或 parquet 文件的 Azure Data Lake Storage Gen2 或 Azure Blob 存储，以及作为表的 Azure SQL 数据库和 Azure Synapse 分析。
+Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 中共享表和视图 (以前称为 Azure SQL DW) ，以及从 Azure Synapse Analytics (工作区) 专用 SQL 池共享表。 当前不支持从 Azure Synapse Analytics 共享 (工作区) 无服务器 SQL 池。 数据使用者可以选择接受将数据作为 csv 或 parquet 文件的 Azure Data Lake Storage Gen2 或 Azure Blob 存储，以及作为表的 Azure SQL 数据库和 Azure Synapse 分析。
 
 在将数据接收到 Azure Data Lake Store Gen2 或 Azure Blob 存储时，如果已存在，则完全快照将覆盖目标文件的内容。
 如果将数据接收到 SQL 表中，并且如果目标表尚不存在，则 Azure 数据共享会创建包含源架构的 SQL 表。 如果已存在具有相同名称的目标表，则将删除该目标表并使用最新的完整快照覆盖它。 当前不支持增量快照。
@@ -61,7 +61,7 @@ Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 共�
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>从 Azure Synapse Analytics 共享的先决条件 (工作区) SQL 池
 
-* Azure Synapse Analytics (工作区) 包含要共享的表的 SQL 池中。 当前不支持共享视图。
+* Azure Synapse Analytics (工作区) 包含要共享的表的专用 SQL 池。 当前不支持共享视图。 当前不支持从无服务器 SQL 池进行共享。
 * 在 Synapse 工作区中写入 SQL 池的权限，该权限存在于 *Synapse/工作区/sqlPools/写入* 中。 “参与者”角色有此权限。
 * 用于访问 Synapse 工作区 SQL 池的数据共享资源托管标识的权限。 可以通过以下步骤完成此操作： 
     1. 在 Azure 门户中，导航到 Synapse 工作区。 从左侧导航栏中选择 "SQL Active Directory 管理员"，并将自己设置为 **Azure Active Directory 管理员** 。
@@ -132,7 +132,7 @@ Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 共�
 
     ![AddDatasets](./media/add-datasets.png "添加数据集")    
 
-1. 选择 SQL server 或 Synapse 工作区，在出现提示时提供凭据，然后选择 " **下一步** " 以导航到要共享的对象，然后选择 "添加数据集"。 
+1. 选择 SQL server 或 Synapse 工作区，在出现提示时提供凭据，然后选择 " **下一步** " 以导航到要共享的对象，然后选择 "添加数据集"。 你可以从 Azure SQL 数据库和 Azure Synapse Analytics 中选择表和视图， (以前的 Azure SQL DW) 或 Azure Synapse Analytics (工作区中的表) 专用 SQL 池。 
 
     ![SelectDatasets](./media/select-datasets-sql.png "选择数据集")    
 
@@ -201,7 +201,7 @@ Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 共�
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>将数据接收到 Azure Synapse Analytics (工作区) SQL 池的先决条件
 
-* Azure Synapse Analytics (工作区) SQL 池。
+* Azure Synapse Analytics (工作区) 专用 SQL 池。 当前不支持将数据接收到无服务器的 SQL 池中。
 * 在 Synapse 工作区中写入 SQL 池的权限，该权限存在于 *Synapse/工作区/sqlPools/写入* 中。 “参与者”角色有此权限。
 * 用于访问 Synapse 工作区 SQL 池的数据共享资源托管标识的权限。 可以通过以下步骤完成此操作： 
     1. 在 Azure 门户中，导航到 Synapse 工作区。 从左侧导航栏中选择 "SQL Active Directory 管理员"，并将自己设置为 **Azure Active Directory 管理员** 。
@@ -302,7 +302,7 @@ Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 共�
 | 小数 |小数 |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 图像 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |小数 |
 | nchar |String, Char[] |

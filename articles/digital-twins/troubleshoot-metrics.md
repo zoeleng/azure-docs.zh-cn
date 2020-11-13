@@ -5,14 +5,14 @@ description: 请参阅如何 Azure Monitor 查看 Azure 数字孪生指标。
 author: baanders
 ms.author: baanders
 ms.date: 8/4/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46e053856b05f5a009eb1ae8bc6a7246dfb6167e
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091695"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616682"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure 数字孪生：度量值疑难解答
 
@@ -55,7 +55,7 @@ Azure 数字孪生提供了多个指标，可让你概括了解实例及其关�
 
 | 指标 | 指标显示名称 | 计价单位 | 聚合类型| 说明 | 维度 |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | API 请求 | Count | 总计 | 为数字孪生读取、写入、删除和查询操作发出的 API 请求数。 |  验证 <br>运作 <br>协议 <br>状态代码， <br>状态代码类， <br>状态文本 |
+| ApiRequests | API 请求 | 计数 | 总计 | 为数字孪生读取、写入、删除和查询操作发出的 API 请求数。 |  验证 <br>运作 <br>协议 <br>状态代码， <br>状态代码类， <br>状态文本 |
 | ApiRequestsFailureRate | API 请求失败率 | 百分比 | 平均值 | 服务为你的实例接收到内部错误 (500) 响应代码的 API 请求百分比，用于数字孪生的读取、写入、删除和查询操作。 | 验证 <br>运作 <br>协议 <br>状态代码， <br>状态代码类， <br>状态文本
 | ApiRequestsLatency | API 请求延迟 | 毫秒 | 平均值 | API 请求的响应时间。 这是指从 Azure 数字孪生收到请求到服务发送数字孪生读取、写入、删除和查询操作的成功/失败结果起的时间。 | 验证 <br>运作 <br>协议 |
 
@@ -68,9 +68,9 @@ Azure 数字孪生提供了多个指标，可让你概括了解实例及其关�
 
 | 指标 | 指标显示名称 | 计价单位 | 聚合类型| 说明 | 维度 |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | 计费 API 操作 | Count | 总计 | 针对 Azure 数字孪生服务发出的所有 API 请求计数的计费指标。 | 计量 Id |
-| BillingMessagesProcessed | 已处理计费消息 | Count | 总计 | 从 Azure 数字孪生发送到外部终结点的消息数的计费指标。<br><br>若要将单个消息视为计费，则有效负载不得超过 1 KB。 大于该值的负载将被视为 1 KB 递增的附加消息 (因此，介于1和 2 KB 之间的消息将被视为2条消息，介于2到 3 KB 之间将为3条消息，依此类推) 。<br>此限制也适用于响应，因此，在响应正文中返回 1.5 KB 的调用将按2个操作计费。 | 计量 Id |
-| BillingQueryUnits | 计费查询单位 | Count | 总计 | 查询单位数，即，用于执行查询的服务资源使用情况的内部计算度量值。 还有一个帮助器 API 可用于测量查询单位： [QueryChargeHelper 类](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | 计量 Id |
+| BillingApiOperations | 计费 API 操作 | 计数 | 总计 | 针对 Azure 数字孪生服务发出的所有 API 请求计数的计费指标。 | 计量 Id |
+| BillingMessagesProcessed | 已处理计费消息 | 计数 | 总计 | 从 Azure 数字孪生发送到外部终结点的消息数的计费指标。<br><br>若要将单个消息视为计费，则有效负载不得超过 1 KB。 大于该值的负载将被视为 1 KB 递增的附加消息 (因此，介于1和 2 KB 之间的消息将被视为2条消息，介于2到 3 KB 之间将为3条消息，依此类推) 。<br>此限制也适用于响应，因此，在响应正文中返回 1.5 KB 的调用将按2个操作计费。 | 计量 Id |
+| BillingQueryUnits | 计费查询单位 | 计数 | 总计 | 查询单位数，即，用于执行查询的服务资源使用情况的内部计算度量值。 还有一个帮助器 API 可用于测量查询单位： [QueryChargeHelper 类](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | 计量 Id |
 
 #### <a name="ingress-metrics"></a>入口指标
 
@@ -78,7 +78,7 @@ Azure 数字孪生提供了多个指标，可让你概括了解实例及其关�
 
 | 指标 | 指标显示名称 | 计价单位 | 聚合类型| 说明 | 维度 |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | 入口事件 | Count | 总计 | 传入的遥测事件数到 Azure 数字孪生。 | 结果 |
+| IngressEvents | 入口事件 | 计数 | 总计 | 传入的遥测事件数到 Azure 数字孪生。 | 结果 |
 | IngressEventsFailureRate | 入口事件失败率 | 百分比 | 平均值 | 服务为其返回内部错误 (500) 响应代码的传入遥测事件的百分比。 | 结果 |
 | IngressEventsLatency | 入口事件滞后时间 | 毫秒 | 平均值 | 当某个事件已准备就绪，可供 Azure 数字孪生出口时的时间，服务将发送成功/失败结果。 | 结果 |
 
@@ -88,7 +88,7 @@ Azure 数字孪生提供了多个指标，可让你概括了解实例及其关�
 
 | 指标 | 指标显示名称 | 计价单位 | 聚合类型| 说明 | 维度 |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | 路由的消息 | Count | 总计 | 路由到终结点 Azure 服务（如事件中心、服务总线或事件网格）的消息数。 | 终结点类型， <br>结果 |
+| MessagesRouted | 路由的消息 | 计数 | 总计 | 路由到终结点 Azure 服务（如事件中心、服务总线或事件网格）的消息数。 | 终结点类型， <br>结果 |
 | RoutingFailureRate | 路由失败率 | 百分比 | 平均值 | 导致错误的事件百分比，因为这些事件从 Azure 数字孪生路由到终结点 Azure 服务（如事件中心、服务总线或事件网格）。 | 终结点类型， <br>结果 |
 | RoutingLatency | 路由延迟 | 毫秒 | 平均值 | 在事件从 Azure 数字孪生路由到终结点（例如事件中心、服务总线或事件网格）发送到该服务之间所经过的时间。 | 终结点类型， <br>结果 |
 

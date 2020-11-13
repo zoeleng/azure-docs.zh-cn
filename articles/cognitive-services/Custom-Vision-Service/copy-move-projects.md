@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 548d936538a909da10796d0377f119826582c420
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900322"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616053"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>复制并移动自定义视觉项目
 
@@ -30,7 +30,7 @@ ms.locfileid: "92900322"
 
 - 两个 Azure 自定义视觉资源。 如果没有这些资源，请参阅 "Azure 门户"，并 [创建新自定义视觉资源](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true)。
 - 自定义视觉资源的定型密钥和终结点 Url。 可以在 Azure 门户上资源的 " **概述** " 选项卡中找到这些值。
-- 创建自定义视觉项目。 有关如何执行此操作的说明，请参阅 [生成分类器](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier) 。
+- 创建自定义视觉项目。 有关如何执行此操作的说明，请参阅 [生成分类器](./getting-started-build-a-classifier.md) 。
 
 ## <a name="process-overview"></a>过程概述
 

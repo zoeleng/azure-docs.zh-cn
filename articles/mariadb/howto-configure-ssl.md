@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7f505ad3090470d2afeb9b16ffbe5c872cb9586b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8f541e2302bc1f1de132de76e0638f9843d7003f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538098"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592475"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MariaDB
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Database for MariaDB 服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
@@ -23,8 +23,11 @@ Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Databa
 从 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 下载通过 SSL 与 Azure Database for MariaDB 服务器通信所需的证书，再将证书文件保存到本地驱动器（例如，本教程使用 c:\ssl）。
 **对于 Microsoft Internet Explorer 和 Microsoft Edge：** 下载完成之后，将证书重命名为 BaltimoreCyberTrustRoot.crt.pem。
 
+>[!NOTE]
+> 根据客户的反馈，我们已在2021年2月15日到 (02/15/2021) 扩展了现有巴尔的摩根 CA 的根证书弃用。
+
 > [!IMPORTANT] 
-> SSL 根证书设置为 2020 年 10 月 26 日 (2020/10/26) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划内证书更新](concepts-certificate-rotation.md)
+> SSL 根证书设置为 2021 年 2 月 15 日 (2021/02/15) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划内证书更新](concepts-certificate-rotation.md)
 
 请参阅以下链接，了解主权云中服务器的证书： [Azure 政府](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)版、 [azure 中国](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)版和 [azure 德国](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt)版。
 

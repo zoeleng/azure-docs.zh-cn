@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: 98f2a8fb0ce48dab0e1e5f7610d73d55526969eb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675102"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594277"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>为 Azure SQL 数据库配置故障转移组
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -364,7 +364,7 @@ ms.locfileid: "92675102"
 如果尚未配置 [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)，则可使用 Azure 门户或 PowerShell 创建主虚拟网关。
 
 > [!NOTE]
-> 网关的 SKU 会影响吞吐量性能。 本文将使用最基本的 SKU () 部署网关 `HwGw1` 。 部署更高的 SKU（示例：`VpnGw3`）可实现更高的吞吐量。 有关所有可用选项，请参阅[网关 SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
+> 网关的 SKU 会影响吞吐量性能。 本文使用最基本的 SKU (`HwGw1`) 来部署网关。 部署更高的 SKU（示例：`VpnGw3`）可实现更高的吞吐量。 有关所有可用选项，请参阅[网关 SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -383,7 +383,7 @@ ms.locfileid: "92675102"
 
    下表显示了主托管实例的网关所需的值：
 
-    | **字段** | 值 |
+    | **字段** | Value |
     | --- | --- |
     | **订阅** |  主托管实例所在的订阅。 |
     | **名称** | 虚拟网络网关的名称。 |
@@ -445,7 +445,7 @@ ms.locfileid: "92675102"
 
 下表显示了辅助托管实例的网关所需的值：
 
-   | **字段** | 值 |
+   | **字段** | Value |
    | --- | --- |
    | **订阅** |  辅助托管实例所在的订阅。 |
    | **名称** | 虚拟网络网关的名称，例如 `secondary-mi-gateway`。 |
@@ -663,12 +663,12 @@ ms.locfileid: "92675102"
 
 使用专用链接，可以将逻辑服务器关联到虚拟网络和子网中的特定专用 IP 地址。 
 
-若要将私有链接与故障转移组一起使用，请执行以下操作：
+若要将专用链接用于故障转移组，请执行以下操作：
 
-1. 确保主服务器和辅助服务器在配对的 [区域](../../best-practices-availability-paired-regions.md)中。 
-1. 在每个区域中创建虚拟网络和子网，以承载主服务器和辅助服务器的专用终结点，以使它们具有不重叠的 IP 地址空间。 例如，主虚拟网络地址范围为 10.0.0.0/16，辅助虚拟网络地址范围为 10.0.0.1/16。 有关虚拟网络地址范围的详细信息，请参阅博客 [设计 Azure 虚拟网络](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/)。
+1. 请确保主服务器和辅助服务器位于[配对区域](../../best-practices-availability-paired-regions.md)中。 
+1. 在每个区域中创建虚拟网络和子网，以托管主服务器和辅助服务器的专用终结点，使其的 IP 地址空间不重叠。 例如，主虚拟网络地址范围 10.0.0.0/16 与辅助虚拟网络地址范围 10.0.0.1/16 重叠。 有关虚拟网络地址范围的详细信息，请参阅博客：[设计 Azure 虚拟网络](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/)。
 1. [为主服务器创建专用终结点和 Azure 专用 DNS 区域](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint)。 
-1. 同时为辅助服务器创建专用终结点，但这次请选择重复使用为主服务器创建的同一专用 DNS 区域。 
+1. 同时为辅助服务器创建专用终结点，但这次选择重复使用为主服务器创建的同一专用 DNS 区域。 
 1. 建立专用链接后，可以按照本文前面所述的步骤创建故障转移组。 
 
 

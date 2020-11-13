@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424591"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616172"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>教程 - 使用 Azure AD 生成 SCIM 终结点并配置用户预配
 
@@ -88,7 +88,8 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642)、[7643](https://tools
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>表 2：默认用户属性映射
 然后，可以使用下表了解应用程序所需的属性如何映射到 Azure AD 和 SCIM RFC 中的属性。 可以[自定义](customize-application-attributes.md)在 Azure AD 和 SCIM 终结点之间映射属性的方式。 请注意，不需要同时支持用户和组，也不需要同时支持以下所示的所有属性。 在考虑如何将 Azure AD 中的属性经常映射到 SCIM 协议中的属性时，它们可以作为参考。 
@@ -126,7 +127,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642)、[7643](https://tools
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-SCIM RFC 中定义了多个终结点。 可以从 /User 终结点开始，然后从该处扩展。 /Schemas 终结点在使用自定义属性或架构频繁更改时非常有用。 它使客户端能够自动检索最新的架构。 /Bulk 终结点在支持组时特别有用。 下表描述了 SCIM 标准中定义的各种终结点。 /Schemas 终结点在使用自定义属性或架构频繁更改时非常有用。 它使客户端能够自动检索最新的架构。 /Bulk 终结点在支持组时特别有用。 下表描述了 SCIM 标准中定义的各种终结点。 
+SCIM RFC 中定义了多个终结点。 可以从 /User 终结点开始，然后从该处扩展。 /Schemas 终结点在使用自定义属性或架构频繁更改时非常有用。 它使客户端能够自动检索最新的架构。 /Bulk 终结点在支持组时特别有用。 下表描述了 SCIM 标准中定义的各种终结点。
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>表 4：确定要开发的终结点
 |ENDPOINT|DESCRIPTION|

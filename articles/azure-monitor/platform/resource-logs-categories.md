@@ -4,12 +4,12 @@ description: Azure Monitor 参考：了解 Azure 资源日志支持的服务和�
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fd6f07151c93b64c150f01e5c0b5c7f4cffed85
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318294"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593002"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 资源日志支持的类别
 
@@ -497,7 +497,6 @@ ms.locfileid: "87318294"
 |Category|类别显示名称|
 |---|---|
 |NetworkSecurityGroupEvent|网络安全组事件|
-|NetworkSecurityGroupFlowEvent|网络安全组规则流事件|
 |NetworkSecurityGroupRuleCounter|网络安全组规则计数器|
 
 
@@ -712,7 +711,7 @@ ms.locfileid: "87318294"
 ## <a name="next-steps"></a>后续步骤
 
 * [详细了解资源日志](./platform-logs-overview.md)
-* [将资源日志流式传输到**事件中心**](./resource-logs.md#send-to-azure-event-hubs)
+* [将资源日志流式传输到 **事件中心**](./resource-logs.md#send-to-azure-event-hubs)
 * [使用 Azure Monitor REST API 更改资源日志诊断设置](/rest/api/monitor/diagnosticsettings)
 * [使用 Log Analytics 分析 Azure 存储中的日志](./resource-logs.md#send-to-log-analytics-workspace)
 

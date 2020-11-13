@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 1c08ba51b815386783c3412e9238d2e96da03ff9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 92ef5b372113d0d226335b8ec464a75a5a684bc3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377666"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592900"
 ---
 # <a name="one-vs-one-multiclass"></a>一对一多类
 
@@ -31,6 +31,8 @@ ms.locfileid: "94377666"
 从本质上讲，该模块创建了一组个体模型，然后合并结果，从而创建预测所有类的单一模型。 任何二元分类器均可用作一对一模型的基础。  
 
 例如，假设您配置一个 [双类支持向量机](two-class-support-vector-machine.md) 模型，并将其作为输入提供给一对一多类模块。 该模块将为输出类的所有成员创建双类支持向量机模型。 然后，它将应用一对一方法以合并所有类的结果。  
+
+模块使用 spark-sklearn 的 OneVsOneClassifier，可在 [此处](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html)了解更多详细信息。
 
 ## <a name="how-to-configure-the-one-vs-one-multiclass-classifier"></a>如何配置一对一多类分类器  
 

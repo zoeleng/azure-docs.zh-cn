@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 32748a996e0622c4b75d887aebf8a1805c5368bd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3056c500453c2249d66a05079334851c851df33
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319083"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616614"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>在 Azure 机器学习中创建和使用软件环境
 
@@ -114,7 +114,7 @@ myenv.docker.enabled = True
 
 #### <a name="use-a-prebuilt-docker-image"></a>使用预生成的 Docker 映像
 
-默认情况下，服务会自动使用一个基于 Ubuntu Linux 的 [基础映像](https://github.com/Azure/AzureML-Containers)，特别是由定义的一个映像 `azureml.core.environment.DEFAULT_CPU_IMAGE` 。 然后，它将安装由提供的 Azure ML 环境定义的任何指定的 Python 包。 还可以使用[自定义 Docker 基础映像](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image)。
+默认情况下，服务会自动使用一个基于 Ubuntu Linux 的[基础映像](https://github.com/Azure/AzureML-Containers)，具体来说就是 `azureml.core.environment.DEFAULT_CPU_IMAGE` 定义的映像。 然后，它将安装由提供的 Azure ML 环境定义的任何指定的 Python 包。 容器 [存储库](https://github.com/Azure/AzureML-Containers)中提供了其他 AZURE ML CPU 和 GPU 基本映像。 还可以使用[自定义 Docker 基础映像](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image)。
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -173,7 +173,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 ```
 
 > [!WARNING]
-> 如果在 Docker 映像中安装了某些 Python 依赖项，但忘记设置 `user_managed_dependencies=True` ，则这些包在执行环境中将不存在，从而导致运行时失败。 默认情况下，Azure ML 会使用你指定的依赖项构建一个 Conda 环境，并会在该环境中执行运行，而不是使用你在基础映像上安装的任何 Python 库。
+> 如果在 Docker 映像中安装了某些 Python 依赖项，但忘了设置 `user_managed_dependencies=True`，则执行环境中不会存在这些包，并会因此导致运行时失败。 默认情况下，Azure ML 会使用你指定的依赖项构建一个 Conda 环境，并会在该环境中执行运行，而不是使用你在基础映像上安装的任何 Python 库。
 
 #### <a name="retrieve-image-details"></a>检索映像详细信息
 
@@ -183,7 +183,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 details = environment.get_image_details(workspace=ws)
 ```
 
-若要从执行运行的环境中获取映像详细信息，请使用以下代码：
+若要从运行执行时自动保存的环境中获取映像详细信息，请使用以下代码：
 
 ```python
 details = run.get_environment().get_image_details(workspace=ws)
@@ -210,7 +210,7 @@ newenv = Environment.load_from_directory(path="path-to-source-directory")
 
 ### <a name="implicitly-use-the-default-environment"></a>隐式使用默认环境
 
-如果在提交运行之前未在脚本运行配置中指定环境，则会为你创建一个默认环境。
+如果在提交运行之前未在脚本运行配置中指定环境，系统会自动创建一个默认环境。
 
 ```python
 from azureml.core import ScriptRunConfig, Experiment, Environment
@@ -404,7 +404,7 @@ service = Model.deploy(
 
 ## <a name="create-and-manage-environments-with-the-cli"></a>使用 CLI 创建和管理环境
 
-[Azure 机器学习 CLI](reference-azure-machine-learning-cli.md) 具备 Python SDK 的大部分功能。 可以使用它来创建和管理环境。 本节中讨论的命令演示了基本功能。
+[Azure 机器学习 CLI](reference-azure-machine-learning-cli.md) 具备 Python SDK 的大部分功能。 可以使用它来创建和管理环境。 本部分所讨论的命令演示了基本功能。
 
 以下命令为指定目录中的默认环境定义创建基架文件。 这些文件是 JSON 文件。 其工作方式类似于 SDK 中的相应类。 可以使用这些文件创建采用自定义设置的新环境。 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: a864717304dacaf6cf4c77c92050827af619ed39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: cfd28171524ada5f5feea9e18e4b88a291254e88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736676"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616784"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>语音服务的语言和语音支持
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| 语言                          | Locale | 自定义                                   |
+| 语言                          | 区域设置 (BCP-47)  | 自定义                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |阿拉伯语(巴林)，现代标准  |`ar-BH` | 语言模型                                   |
 |阿拉伯语（埃及）                     |`ar-EG` | 语言模型                                   |
@@ -136,7 +136,7 @@ Microsoft 语音 SDK 和 REST API 支持以下语音，其中的每种语音都�
 
 有关区域可用性的详细信息，请参阅[区域](regions.md#standard-and-neural-voices)。
 
-|语言  | Locale           | 性别 | 语音名称 | 风格支持 |
+|语言  | 区域设置 (BCP-47)           | 性别 | 语音名称 | 风格支持 |
 |--|--|--|--|--|
 | 阿拉伯语（埃及） | `ar-EG` | Female | `ar-EG-SalmaNeural` | 常规 |
 | 阿拉伯语（沙特阿拉伯） | `ar-SA` | 女 | `ar-SA-ZariyahNeural` | 常规 |
@@ -219,7 +219,7 @@ Microsoft 语音 SDK 和 REST API 支持以下语音，其中的每种语音都�
 
 提供超过 75 种标准语音，涉及超过 45 种语言和区域设置，允许用户将文本转换为合成语音。 有关区域可用性的详细信息，请参阅[区域](regions.md#standard-and-neural-voices)。
 
-| 语言 | Locale | 性别 | 语音名称 |
+| 语言 | 区域设置 (BCP-47)  | 性别 | 语音名称 |
 |--|--|--|--|
 | 阿拉伯语（阿拉伯）  |  `ar-EG`  |  Female  |  `ar-EG-Hoda`|
 | 阿拉伯语（沙特阿拉伯）  |  `ar-SA`  |  男  |  `ar-SA-Naayf`|
@@ -397,7 +397,7 @@ Microsoft 语音 SDK 和 REST API 支持以下语音，其中的每种语音都�
 
 请参阅下表，了解各种说话人识别 API 支持的语言。 请参阅[概述](speaker-recognition-overview.md)，了解有关说话人识别的其他信息。
 
-| 语言 | Locale | 依赖于文本的验证 | 独立于文本的验证 | 独立于文本的识别 |
+| 语言 | 区域设置 (BCP-47)  | 依赖于文本的验证 | 独立于文本的验证 | 独立于文本的识别 |
 |----|----|----|----|----|
 |英语（美国）  |  zh-CN  |  是  |  是  |  是 |
 |中文(普通话，简体) | zh-CN     |     不适用 |     是 |     是|

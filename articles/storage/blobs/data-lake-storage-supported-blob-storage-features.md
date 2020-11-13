@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579209"
+ms.locfileid: "94594209"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中可用的 Blob 存储功能
 
@@ -52,8 +52,8 @@ Blob 存储功能（如 [诊断日志记录](../common/storage-analytics-logging
 |自定义域|尚不支持|尚不支持|[将自定义域映射到 Azure Blob 存储终结点](storage-custom-domain-name.md)|
 |加密范围|尚不支持|尚不支持|[创建和管理加密范围（预览）](encryption-scope-manage.md)|
 |更改源|尚不支持|尚不支持|[Azure Blob 存储中的更改源支持](storage-blob-change-feed.md)|
-|对象复制|尚不支持|尚不支持|[为块 blob 配置对象复制（预览）](object-replication-configure.md)|
-|Blob 版本控制|尚不支持|尚不支持|[启用和管理 blob 版本控制 (预览) ](versioning-enable.md)|
+|对象复制|尚不支持|尚不支持|[为块 blob 配置对象复制](object-replication-configure.md)|
+|Blob 版本控制|尚不支持|尚不支持|[启用和管理 blob 版本控制](versioning-enable.md)|
 
 <div id="blob-container-ACL"><sup>1</sup> 你可以在容器的根文件夹上设置 ACL，但不能在容器本身上设置 ACL。</div><br>
 

@@ -4,14 +4,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: mathoma
+ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: ad6e444f9672fbe521e9c6963649d250830154d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84032668"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593938"
 ---
 在此步骤中，你将创建[逻辑 SQL 服务器](../database/logical-servers.md)和使用 AdventureWorksLT 示例数据的[单一数据库](../database/single-database-overview.md)。 可以通过使用 Azure 门户菜单和屏幕，或通过在 Azure Cloud Shell 中使用 Azure CLI 或 PowerShell 脚本来创建数据库。
 
@@ -36,8 +36,8 @@ ms.locfileid: "84032668"
 1. 在“资源组”下选择“新建”，输入“MyResourceGroup”，然后选择“确定” 。
 1. 在“数据库详细信息”下，为“数据库名称”输入“mySampleDatabase”。
 1. 对于“服务器”，选择“新建”，并按如下所示在“新服务器”窗体中填写信息：
-   - **服务器名称**：输入“mysqlserver”和一些字符以实现唯一性。
-   - **服务器管理员登录名**：输入“azureuser”。
+   - **服务器名称** ：输入“mysqlserver”和一些字符以实现唯一性。
+   - **服务器管理员登录名** ：输入“azureuser”。
    - 密码：输入符合要求的密码，然后在“确认密码”字段中再次输入该密码。
    - 位置：单击下拉箭头并选择一个位置，例如“(美国)美国东部”。
 
@@ -147,13 +147,13 @@ az sql db create \
 
 前面的代码使用以下 Azure CLI 命令：
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | 将订阅设置为当前的活动订阅。 |
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | 将订阅设置为当前的活动订阅。 |
 | [az group create](/cli/azure/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 创建托管数据库和弹性池的服务器。 |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | 创建服务器级防火墙规则。 |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | 创建数据库。 |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | 创建数据库。 |
 
 若要查看更多 Azure SQL Database Azure CLI 示例，请参阅 [Azure CLI 示例](../database/az-cli-script-samples-content-guide.md)。
 
@@ -235,7 +235,7 @@ az sql db create \
 
 前面的代码使用以下 PowerShell 命令：
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 创建托管数据库和弹性池的服务器。 |

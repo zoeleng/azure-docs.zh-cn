@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371675"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616767"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Hive 活动转换数据 
 > [!div class="op_single_selector" title1="转换活动"]
@@ -26,8 +26,8 @@ ms.locfileid: "92371675"
 > * [MapReduce 活动](data-factory-map-reduce.md)
 > * [Hadoop 流式处理活动](data-factory-hadoop-streaming-activity.md)
 > * [Spark 活动](data-factory-spark.md)
-> * [Azure 机器学习 Studio (经典) 批处理执行活动](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure 机器学习 Studio (经典) 更新资源活动](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure 机器学习工作室（经典）批处理执行活动](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure 机器学习工作室（经典）更新资源活动](data-factory-azure-ml-update-resource-activity.md)
 > * [存储过程活动](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 活动](data-factory-usql-activity.md)
 > * [.NET 自定义活动](data-factory-use-custom-activities.md)
@@ -72,7 +72,7 @@ ms.locfileid: "92371675"
 }
 ```
 ## <a name="syntax-details"></a>语法详细信息
-| 属性 | 描述 | 必须 |
+| 属性 | 说明 | 必需 |
 | --- | --- | --- |
 | name |活动名称 |是 |
 | description |描述活动用途的文本 |否 |
@@ -97,7 +97,7 @@ ms.locfileid: "92371675"
 .....
 ```
 
-用于处理此数据的 **Hive 脚本**：
+用于处理此数据的 **Hive 脚本** ：
 
 ```
 DROP TABLE IF EXISTS HiveSampleIn; 
@@ -132,7 +132,7 @@ FROM HiveSampleIn Group by ProfileID
 4. 将 Hive 查询作为文件复制到步骤 2 中配置的 Azure Blob 存储。 如果承载数据的存储不同于承载此查询文件的存储，则创建单独的 Azure 存储链接服务，并在活动中引用它。 使用 **scriptPath** 指定 hive 查询文件的路径，使用 **scriptLinkedService** 指定包含脚本文件的 Azure 存储。 
    
    > [!NOTE]
-   > 还可以通过使用**脚本**属性在活动定义中提供 Hive 脚本内联。 不建议使用此方法，因为需要转义 JSON 文档内的脚本中的所有特殊字符，并且可能会导致调试问题。 最佳做法是遵循步骤 #4。
+   > 还可以通过使用 **脚本** 属性在活动定义中提供 Hive 脚本内联。 不建议使用此方法，因为需要转义 JSON 文档内的脚本中的所有特殊字符，并且可能会导致调试问题。 最佳做法是遵循步骤 #4。
    > 
    > 
 5. 创建 HDInsightHive 活动的管道。 活动处理/转换数据。

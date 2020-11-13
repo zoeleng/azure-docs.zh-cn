@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577215"
+ms.locfileid: "94592424"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share 中支持的数据存储
 
@@ -55,7 +55,7 @@ Azure 数据共享支持从 Azure Data Lake Gen1 和 Azure Data Lake Gen2 共享
 有关详细信息 [，请参阅共享和接收来自 Azure Blob 存储的数据和 Azure Data Lake Storage](how-to-share-from-storage.md) 。
 
 ## <a name="share-from-a-sql-based-source"></a>从基于 SQL 的源共享
-Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 共享表或视图， (以前称为 Azure SQL DW) ，以及从 Azure Synapse Analytics (工作区) SQL 池共享表。 数据使用者可以选择接受将数据作为 csv 或 parquet 文件的 Azure Data Lake Storage Gen2 或 Azure Blob 存储，以及作为表的 Azure SQL 数据库和 Azure Synapse 分析。
+Azure 数据共享支持从 Azure SQL 数据库和 Azure Synapse Analytics 中共享表和视图 (以前称为 Azure SQL DW) ，以及从 Azure Synapse Analytics (工作区) 专用 SQL 池共享表。 当前不支持从 Azure Synapse Analytics 共享 (工作区) 无服务器 SQL 池。 数据使用者可以选择接受将数据作为 csv 或 parquet 文件的 Azure Data Lake Storage Gen2 或 Azure Blob 存储，以及作为表的 Azure SQL 数据库和 Azure Synapse 分析。
 
 在将数据接收到 Azure Data Lake Store Gen2 或 Azure Blob 存储时，如果已存在，则完全快照将覆盖目标文件的内容。
 当将数据接收到表中，并且如果目标表尚不存在，Azure 数据共享将创建包含源架构的 SQL 表。 如果已存在具有相同名称的目标表，则将删除该目标表并使用最新的完整快照覆盖它。 当前不支持增量快照。

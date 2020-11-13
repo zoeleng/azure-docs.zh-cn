@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 55083da596f15409ed460e498438f9eaea10dfa8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633223"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593750"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure 数据工厂中创建 Azure-SSIS 集成运行时
 
@@ -31,7 +31,7 @@ ms.locfileid: "92633223"
 
 [预配 Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md) 教程介绍了如何通过 Azure 门户或数据工厂应用创建 Azure-SSIS IR。 该教程还介绍了如何选择性地使用 Azure SQL 数据库服务器或托管实例来承载 SSISDB。 本文对该教程的基础上有所延伸，介绍如何执行以下可选任务：
 
-- 将 Azure SQL 数据库服务器与 IP 防火墙规则/虚拟网络服务终结点一起使用，或者将托管实例用于专用终结点来托管 SSISDB。 作为先决条件，需要配置虚拟网络权限和设置，才能让 Azure-SSIS IR 加入虚拟网络。
+- 使用具有IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的托管实例来承载 SSISDB。 作为先决条件，需要配置虚拟网络权限和设置，才能让 Azure-SSIS IR 加入虚拟网络。
 
 - 对数据工厂的托管标识使用 Azure Active Directory (Azure AD) 身份验证，以连接到 Azure SQL 数据库服务器或托管实例。 作为先决条件，需要将数据工厂的托管标识添加为可创建 SSISDB 实例的数据库用户。
 
@@ -53,9 +53,9 @@ ms.locfileid: "92633223"
 
   - 系统可以代表你创建 SSISDB 实例作为单一数据库、创建此实例作为弹性池的一部分，或者在托管实例中创建。 可以在公用网络中访问或者通过加入虚拟网络来访问该实例。 有关在 SQL 数据库与 SQL 托管实例之间进行选择以托管 SSISDB 的指导，请参阅本文中的[比较 SQL 数据库与 SQL 托管实例](#comparison-of-sql-database-and-sql-managed-instance)部分。 
   
-    如果将具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或带有专用终结点的 SQL 托管实例用于托管 SSISDB，或者需要访问本地数据而不配置自承载 IR，则需要将 Azure-SSIS IR 加入虚拟网络。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。
+    如果使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的 SQL 托管实例来承载 SSISDB，或者需要在未配置自承载 IR 的情况下访问本地数据，则需要将 Azure-SSIS IR 加入虚拟网络。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。
 
-  - 确认为数据库服务器启用了“允许访问 Azure 服务”设置。 将 Azure SQL 数据库服务器与 IP 防火墙规则/虚拟网络服务终结点或带有专用终结点的 SQL 托管实例一起使用来托管 SSISDB 时，此设置不适用。 有关详细信息，请参阅[保护 Azure SQL 数据库的安全](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules)。 若要通过 PowerShell 来启用此设置，请参阅 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)。
+  - 确认为数据库服务器启用了“允许访问 Azure 服务”设置。 使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的 SQL 托管实例来承载 SSISDB 时，此设置并不适用。 有关详细信息，请参阅[保护 Azure SQL 数据库的安全](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules)。 若要通过 PowerShell 来启用此设置，请参阅 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)。
 
   - 将客户端计算机的 IP 地址或一系列包括客户端计算机 IP 地址的 IP 地址添加到数据库服务器的防火墙设置中的客户端 IP 地址列表。 有关详细信息，请参阅 [Azure SQL 数据库服务器级和数据库级防火墙规则](../azure-sql/database/firewall-configure.md)。
 
@@ -65,7 +65,7 @@ ms.locfileid: "92633223"
 
 - **Azure 资源管理器虚拟网络（可选）** 。 如果下列条件中至少有一个属实，则必须配置 Azure 资源管理器虚拟网络：
 
-  - 正在具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器上托管 SSISDB，或使用专用终结点托管实例。
+  - 在具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的托管实例上承载 SSISDB。
 
   - 需要从 SSIS 包连接到本地据存储，该包运行在没有配置自承载 IR 的 Azure-SSIS IR 上。
 
@@ -84,7 +84,7 @@ ms.locfileid: "92633223"
 | **计划** | SQL Server 代理不可用。<br/><br/>请参阅[在数据工厂管道中计划包执行](/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)。| 可以使用托管实例代理。 |
 | **身份验证** | 可以使用包含的数据库用户创建 SSISDB 实例。该用户是 **db_owner** 角色的成员，代表具有数据工厂托管标识的任意 Azure AD 组。<br/><br/>请参阅[在 Azure SQL 数据库服务器中启用 Azure AD 身份验证以创建 SSISDB](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)。 | 可以使用代表数据工厂托管标识的包含的数据库用户创建 SSISDB 实例。 <br/><br/>请参阅[在 Azure SQL 托管实例中启用 Azure AD 身份验证以创建 SSISDB](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance)。 |
 | **服务层** | 在 Azure SQL 数据库服务器上创建 Azure-SSIS IR 时，可以选择 SSISDB 的服务层级。 有多个服务层级。 | 在托管实例上创建 Azure-SSIS IR 时，无法选择 SSISDB 的服务层级。 托管实例上的所有数据库共享分配给该实例的相同资源。 |
-| **虚拟网络** | 如果使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器，则 Azure-SSIS IR 可以加入 Azure 资源管理器虚拟网络。 | 如果将托管实例用于专用终结点，则 Azure-SSIS IR 可以加入 Azure 资源管理器虚拟网络。 在未为托管实例启用公共终结点的情况下，虚拟网络是必需的。<br/><br/>如果将 Azure-SSIS IR 加入与托管实例相同的虚拟网络，请确保 Azure-SSIS IR 与托管实例位于不同的子网中。 如果将 Azure-SSIS IR 加入与托管实例不同的虚拟网络，我们建议使用虚拟网络对等互连或网络间的连接。 请参阅 [将应用程序连接到 Azure SQL 数据库托管实例](../azure-sql/managed-instance/connect-application-instance.md)。 |
+| **虚拟网络** | 如果使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器，则 Azure-SSIS IR 可以加入 Azure 资源管理器虚拟网络。 | 如果将托管实例与专用终结点结合使用，则 Azure-SSIS IR 可加入 Azure 资源管理器虚拟网络。 在未为托管实例启用公共终结点的情况下，虚拟网络是必需的。<br/><br/>如果将 Azure-SSIS IR 加入与托管实例相同的虚拟网络，请确保 Azure-SSIS IR 与托管实例位于不同的子网中。 如果将 Azure-SSIS IR 加入与托管实例不同的虚拟网络，我们建议使用虚拟网络对等互连或网络间的连接。 请参阅[将应用程序连接到 Azure SQL 数据库托管实例](../azure-sql/managed-instance/connect-application-instance.md)。 |
 | **分布式事务** | 通过弹性事务支持此功能。 不支持 Microsoft 分布式事务处理协调器 (MSDTC) 事务。 如果 SSIS 包使用 MSDTC 协调分布式事务，请考虑迁移到 Azure SQL 数据库弹性事务。 有关详细信息，请参阅[跨云数据库的分布式事务](../azure-sql/database/elastic-transactions-overview.md)。 | 不支持。 |
 | | | |
 
@@ -128,7 +128,7 @@ ms.locfileid: "92633223"
 
    7. 对于“节省资金”，请选择适用于集成运行时的“Azure 混合权益”选项：“是”或“否”。 如果需要自带具有软件保障的 SQL Server 许可证，以便充分利用使用混合权益带来的成本节省，请选择“是”。
 
-   8. 选择“ **下一页** ”。
+   8. 选择“ **下一步** ”。
 
 #### <a name="deployment-settings-page"></a>“部署设置”页
 
@@ -166,6 +166,9 @@ ms.locfileid: "92633223"
 
 如果适用，请选择“测试连接”，如果成功，请选择”下一步” 。
 
+> [!NOTE]
+   > 如果使用 Azure SQL 数据库服务器来托管 SSISDB，则默认情况下，你的数据将存储在异地冗余存储中以供备份。 如果你不希望将数据复制到其他区域，请按照说明 [使用 PowerShell 配置备份存储冗余](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell)。
+   
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>创建 Azure-SSIS IR 包存储
 
 在“集成运行时设置”窗格的“部署设置”页中，如果要使用 Azure-SSIS IR 包存储来管理部署到 MSDB、文件系统或 Azure 文件存储中的包（包部署模型），请选中“创建包存储以管理部署到由 Azure SQL 托管实例托管的文件系统/Azure 文件/SQL Server 数据库 (MSDB) 中的包”复选框  。
@@ -253,7 +256,7 @@ ms.locfileid: "92633223"
 
    1. 选中“选择 Azure-SSIS 集成运行时要加入到的 VNet，允许 ADF 创建特定的网络资源，并提供自己的静态公共 IP 地址(可选)”复选框，选择是否要将集成运行时加入虚拟网络。 
 
-      如果你使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或使用专用终结点托管 SSISDB 的托管实例，则选择此项; 如果你需要访问本地数据 (（即，你的 SSIS 包中的本地数据源或目标，则) ，而无需配置自承载 IR。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。 
+      如果使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的托管实例来承载 SSISDB，或者需要在不配置自承载 IR 的情况下访问本地数据（即，SSIS 包中包含本地数据源或目标），请选择此项。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。 
 
       如果选中该复选框，请完成以下步骤。
 
@@ -265,9 +268,9 @@ ms.locfileid: "92633223"
 
       1. 对于“类型”，请选择虚拟网络的类型：“经典”或“Azure 资源管理器”。 我们建议选择 Azure 资源管理器虚拟网络，因为经典虚拟网络在不久后将被弃用。
 
-      1. 对于“VNet 名称”，请选择虚拟网络的名称。 它应与包含虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的托管实例一起用于托管 SSISDB。 或者，它应该是连接到本地网络的同一个虚拟网络。 否则，它可以是为 Azure-SSIS IR 提供你自己的静态公共 IP 地址的任何虚拟网络。
+      1. 对于“VNet 名称”，请选择虚拟网络的名称。 它应该与用于承载 SSISDB 的具有虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的托管实例所用的虚拟网络相同。 或者，它应该是连接到本地网络的同一个虚拟网络。 否则，它可以是为 Azure-SSIS IR 提供你自己的静态公共 IP 地址的任何虚拟网络。
 
-      1. 对于“子网名称”，请选择虚拟网络的子网名称。 它应该包含用于承载 SSISDB 的虚拟网络服务终结点的 Azure SQL 数据库服务器所用的虚拟网络相同。 它应与用于托管实例的托管实例的子网不同，后者用于托管 SSISDB。 否则，它可以是为 Azure-SSIS IR 提供你自己的静态公共 IP 地址的任何子网。
+      1. 对于“子网名称”，请选择虚拟网络的子网名称。 它应该包含用于承载 SSISDB 的虚拟网络服务终结点的 Azure SQL 数据库服务器所用的虚拟网络相同。 或者，它应该与用于承载 SSISDB 的具有专用终结点的托管实例所用的子网不同。 否则，它可以是为 Azure-SSIS IR 提供你自己的静态公共 IP 地址的任何子网。
 
       1. 选中“为 Azure-SSIS Integration Runtime 提供静态公共 IP 地址”复选框，以选择是否要为 Azure-SSIS IR 提供自己的静态公共 IP 地址，以便可以在数据源的防火墙中允许这些地址。
 
@@ -473,7 +476,7 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 如果不使用 SSISDB，则可以省略 `CatalogServerEndpoint`、`CatalogPricingTier` 和 `CatalogAdminCredential` 参数。
 
-如果不使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的托管实例来托管 SSISDB，或者需要访问本地数据，则可以省略 `VNetId` 和 `Subnet` 参数或为它们传递空值。 如果将自承载 IR 配置为 Azure-SSIS IR 的代理以访问本地数据，则也可以忽略这些参数。 否则不能省略这些参数，且必须传递虚拟网络配置中的有效值。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。
+如果不使用具有 IP 防火墙规则/虚拟网络服务终结点的 Azure SQL 数据库服务器或具有专用终结点的托管实例来承载 SSISDB，或者如果需要访问本地数据，则可省略 `VNetId` 和 `Subnet` 参数，或传递这些参数的空值。 如果将自承载 IR 配置为 Azure-SSIS IR 的代理以访问本地数据，则也可以忽略这些参数。 否则不能省略这些参数，且必须传递虚拟网络配置中的有效值。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。
 
 如果使用托管实例来承载 SSISDB，则可以省略 `CatalogPricingTier` 参数，或传递该参数的空值。 否则不能省略此参数，且必须传递 Azure SQL 数据库支持的定价层列表中的有效值。 有关详细信息，请参阅 [SQL 数据库资源限制](../azure-sql/database/resource-limits-logical-server.md)。
 

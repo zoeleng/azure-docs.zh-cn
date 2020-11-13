@@ -8,17 +8,19 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85c9111b0b16667e847aaf70d746e87fe524ef87
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506169"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592917"
 ---
 # <a name="upload-and-index-your-videos"></a>上传视频和编制视频索引  
+
+当你的视频上传完毕后，视频索引器 (根据需要) 对视频进行编码， (文章) 中所述。 创建视频索引器帐户时，可以选择免费试用帐户（提供特定分钟数的免费索引时间）或付费选项（不受配额的限制）。 使用免费试用版时，视频索引器为网站用户提供最多 600 分钟的免费索引，为 API 用户提供最多 2400 分钟的免费索引。 使用付费选项时，可以[创建连接到 Azure 订阅和 Azure 媒体服务帐户的视频索引器帐户](connect-to-azure.md)。 你为索引分钟数付费，有关详细信息，请参阅 [媒体服务定价](https://azure.microsoft.com/pricing/details/media-services/)。
 
 使用视频索引器 API 上传视频时，有以下上传选项： 
 
@@ -26,34 +28,10 @@ ms.locfileid: "94506169"
 * 作为请求正文中的字节数组发送视频文件。
 * 提供[资产 ID](../latest/assets-concept.md)，以便使用现有的 Azure 媒体服务资产（仅付费帐户支持此功能）。
 
-当你的视频上传完毕后，视频索引器 (根据需要) 对视频进行编码， (文章) 中所述。 创建视频索引器帐户时，可以选择免费试用帐户（提供特定分钟数的免费索引时间）或付费选项（不受配额的限制）。 使用免费试用版时，视频索引器为网站用户提供最多 600 分钟的免费索引，为 API 用户提供最多 2400 分钟的免费索引。 使用付费选项时，可以[创建连接到 Azure 订阅和 Azure 媒体服务帐户的视频索引器帐户](connect-to-azure.md)。 你为索引分钟数付费，有关详细信息，请参阅 [媒体服务定价](https://azure.microsoft.com/pricing/details/media-services/)。
-
 本文介绍如何通过以下选项上传和索引视频：
 
-* [视频索引器网站](#website) 
-* [视频索引器 API](#apis)
-
-## <a name="uploading-considerations-and-limitations"></a>上传注意事项和限制
- 
-- 视频的名称长度不得超过 80 个字符。
-- 根据 URL（首选方式）上传视频时，必须使用 TLS 1.2（或更高版本）保护终结点。
-- 对于 URL 选项，上传大小限制为 30GB。
-- 请求 URL 的长度限制为 6144 个字符，其中查询字符串 URL 的长度限制为 4096 个字符。
-- 对于字节数组选项，上传大小限制为 2GB。
-- 字节组选项会在 30 分钟后超时。
-- 参数中提供的 URL `videoURL` 需要进行编码。
-- 为媒体服务资产编制索引与从 URL 进行索引的限制相同。
-- 对于单个文件，视频索引器的最大持续时间限制为 4 小时。
-- URL 需要可供访问（例如公共 URL）。 
-
-    如果是专用 URL，则需要在请求中提供访问令牌。
-- URL 必须指向有效的媒体文件，而不是指向网页的链接，例如指向页面的链接 `www.youtube.com` 。
-- 在付费帐户中，每分钟最多可以上传 50 部电影，试用帐户每分钟最多上传 5 部电影。
-
-> [!Tip]
-> 建议使用 .NET framework 版本 4.6.2. 或更高版本，因为较旧的 .NET framework 不会默认为 TLS 1.2。
->
-> 如果必须使用较旧的 .NET framework，请在进行 REST API 调用之前在代码中添加一行：  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+* [视频索引器网站](#upload-and-index-a-video-using-the-video-indexer-website) 
+* [视频索引器 API](#upload-and-index-with-api)
 
 ## <a name="supported-file-formats-for-video-indexer"></a>视频索引器支持的文件格式
 
@@ -66,7 +44,7 @@ ms.locfileid: "94506169"
 - 你始终可以从视频索引器中删除视频和音频文件以及从中提取的任何元数据和见解。 从视频索引器中删除某个文件后，该文件及其元数据和见解将从视频索引器中永久删除。 但是，如果你在 Azure 存储中实施了自己的备份解决方案，则该文件将保留在 Azure 存储中。
 - 视频的持久性是相同的，无论是通过视频索引器网站还是使用上传 API 完成上传。
    
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>使用视频索引器网站上传视频并为其编制索引
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a>使用视频索引器网站上传视频并为其编制索引
 
 > [!NOTE]
 > 视频的名称长度不得超过 80 个字符。
@@ -82,7 +60,7 @@ ms.locfileid: "94506169"
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="上传进度":::
 1. 当视频索引器分析完成后，你会获得一封电子邮件，其中包含视频链接以及对视频中找到的内容的简短说明。 例如：人物、主题、OCR。
 
-## <a name="upload-and-index-with-api"></a><a name="apis"></a>用 API 上传和索引
+## <a name="upload-and-index-with-api"></a>用 API 上传和索引
 
 使用上 [传视频](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API，根据 URL 上传和索引视频。 下面的代码示例包含注释掉的代码，该代码演示如何上传字节数组。 
 
@@ -359,11 +337,33 @@ public class AccountContractSlim
 
 上传操作可能会返回下表中列出的状态代码。
 
-|状态代码|ErrorType（在响应正文中）|说明|
+|状态代码|ErrorType（在响应正文中）|描述|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|相同的视频已在给定帐户的处理进度中。|
 |400|VIDEO_ALREADY_FAILED|不到 2 小时前，相同的视频已在给定帐户中处理失败。 API 客户端应至少等待 2 小时才能重新上传视频。|
 |429||每分钟允许5次上载的试用帐户。 每分钟允许上传50个付费帐户。|
+
+## <a name="uploading-considerations-and-limitations"></a>上传注意事项和限制
+ 
+- 视频的名称长度不得超过 80 个字符。
+- 根据 URL（首选方式）上传视频时，必须使用 TLS 1.2（或更高版本）保护终结点。
+- 对于 URL 选项，上传大小限制为 30GB。
+- 请求 URL 的长度限制为 6144 个字符，其中查询字符串 URL 的长度限制为 4096 个字符。
+- 对于字节数组选项，上传大小限制为 2GB。
+- 字节组选项会在 30 分钟后超时。
+- 参数中提供的 URL `videoURL` 需要进行编码。
+- 为媒体服务资产编制索引与从 URL 进行索引的限制相同。
+- 对于单个文件，视频索引器的最大持续时间限制为 4 小时。
+- URL 需要可供访问（例如公共 URL）。 
+
+    如果是专用 URL，则需要在请求中提供访问令牌。
+- URL 必须指向有效的媒体文件，而不是指向网页的链接，例如指向页面的链接 `www.youtube.com` 。
+- 在付费帐户中，每分钟最多可以上传 50 部电影，试用帐户每分钟最多上传 5 部电影。
+
+> [!Tip]
+> 建议使用 .NET framework 版本 4.6.2. 或更高版本，因为较旧的 .NET framework 不会默认为 TLS 1.2。
+>
+> 如果必须使用较旧的 .NET framework，请在进行 REST API 调用之前在代码中添加一行：  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="next-steps"></a>后续步骤
 

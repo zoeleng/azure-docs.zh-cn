@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: af2a58ecb97e4c62f437d0c693ec79a4b5f618b0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4903f1e48eb2f33c68d62c635201474b841ed146
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579226"
+ms.locfileid: "94591506"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Azure Database for MySQL 版本控制策略
 
@@ -22,7 +22,7 @@ ms.locfileid: "94579226"
 
 Azure Database for MySQL 支持以下数据库版本。
 
-| 版本 | 单台服务器 | 灵活服务器（预览版） |
+| Version | 单台服务器 | 灵活服务器（预览版） |
 | ----- | :------: | :----: |
 | MySQL 8 | X |  | 
 | MySQL 5。7 | X | X |
@@ -30,7 +30,7 @@ Azure Database for MySQL 支持以下数据库版本。
 
 
 ## <a name="major-version-support"></a>主要版本支持
-将支持 MySQL 的每个主要版本，Azure Database for MySQL 从 Azure 开始支持版本到版本被 MySQL 社区淘汰，如 [版本控制策略](https://en.wikipedia.org/wiki/mysql)中所述。
+将支持 MySQL 的每个主要版本，Azure Database for MySQL 从 Azure 开始支持版本到版本被 MySQL 社区淘汰，如 [版本控制策略](https://www.mysql.com/support/eol-notice.html)中所述。
 
 ## <a name="minor-version-support"></a>次版本支持
 在定期维护过程中，Azure Database for MySQL 会自动执行到 Azure 首选 MySQL 版本的次要版本升级。 
@@ -38,7 +38,7 @@ Azure Database for MySQL 支持以下数据库版本。
 ## <a name="major-version-retirement-policy"></a>主要版本停用策略
 下表提供了 MySQL 主要版本的停用详细信息。 这些日期遵循 [MySQL 版本控制策略](https://www.mysql.com/support/eol-notice.html)。
 
-| 版本 | 新增功能 | Azure 支持开始日期 | 停用日期|
+| Version | 新增功能 | Azure 支持开始日期 | 停用日期|
 | ----- | ----- | ------ | ----- |
 | [MySQL 5。6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [功能](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 2018 年 3 月 20 日 | 2021年2月
 | [MySQL 5。7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [功能](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | 2018 年 3 月 20 日 | 2023年10月

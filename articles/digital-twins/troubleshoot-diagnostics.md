@@ -5,14 +5,14 @@ description: 请参阅如何使用诊断设置启用日志记录和查询日志�
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411741"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616648"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure 数字孪生故障排除：诊断日志记录
 

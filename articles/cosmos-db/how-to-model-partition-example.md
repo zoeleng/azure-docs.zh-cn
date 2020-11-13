@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342141"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616240"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,8 @@ ms.locfileid: "93342141"
 本文基于多个 Azure Cosmos DB 概念，例如[数据建模](modeling-data.md)、[分区](partitioning-overview.md)和[预配吞吐量](request-units.md)，演示如何完成一个真实数据设计练习。
 
 如果你平时主要使用关系数据库，可能在设计数据模型方面已经形成了自己的习惯和直觉。 由于具体的约束，加上 Azure Cosmos DB 的独特优势，其中的大部分最佳做法不能产生很好的效果，甚至可能会生成欠佳的解决方案。 本文旨在引导你完成 Azure Cosmos DB 中的真实用例建模的整个过程，包括项的建模，以及实体共置和容器分区。
+
+[下载或查看社区生成的源代码](https://github.com/jwidmer/AzureCosmosDbBlogExample) ，其中阐释了本文中的概念。 此代码示例由社区参与者提供，Azure Cosmos DB 团队不支持其维护。
 
 ## <a name="the-scenario"></a>方案
 

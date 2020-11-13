@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: ba690f2ce9cdd8beb49f1821ea8b6a3cd73e3066
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c1a20f35884e03d5fae53e5465e96c275a39131e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447561"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593342"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>教程：针对自动用户预配配置 GitHub 自动曝光
 
-本教程介绍了需要在 GitHub 自动曝光和 Azure Active Directory (Azure AD) 中执行的步骤，以配置自动用户预配。 配置后，Azure AD 会使用 Azure AD 预配服务自动将用户和组预配和取消预配到 GitHub 自动曝光。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
+本教程介绍了需要在 GitHub 自动曝光和 Azure Active Directory (Azure AD) 中执行的步骤，以配置自动用户预配。 配置后，Azure AD 使用 Azure AD 预配服务自动预配用户和/或组，并将其预配到 GitHub 自动曝光。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
 
 
 ## <a name="capabilities-supported"></a>支持的功能
@@ -47,7 +47,7 @@ ms.locfileid: "94447561"
 2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
 3. 确定要 [在 Azure AD 和 GitHub 自动曝光之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
 
-## <a name="step-2-configure-github-ae-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 GitHub 自动曝光以支持 Azure AD 的预配
+## <a name="step-2-configure-github-ae-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 GitHub 自动曝光以支持 Azure AD 的预配
 
 了解如何 [在此处](https://docs.github.com/github-ae@latest/admin/authentication/configuring-user-provisioning-for-your-enterprise)启用 GitHub AE 的预配。
 
@@ -57,11 +57,11 @@ ms.locfileid: "94447561"
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
-使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
+Azure AD 预配服务允许你确定将根据分配给应用程序的人员，或基于用户和/或组的属性进行预配的用户的范围。 如果选择将根据分配预配到你的应用的用户的范围，则可以使用以下 [步骤](../manage-apps/assign-user-or-group-access-portal.md) 将用户和/或组分配到应用程序。 如果选择仅基于用户和/或组的属性设置的用户的作用域，则可以使用 [此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
 
 * 将用户分配到 GitHub 自动曝光时，必须选择 "默认" **访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
 
-* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
+* 先小部分测试。 使用少量的用户和/或组进行测试，然后再向所有人推出。 如果设置的作用域设置为 "分配的用户和/或组"，则可以通过将一个或两个用户和/或组分配到应用来对此进行控制。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-github-ae"></a>步骤 5。 配置 GitHub 自动曝光的自动用户预配 
@@ -125,7 +125,7 @@ ms.locfileid: "94447561"
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和组启动初始同步周期 。 初始周期执行的时间比后续周期长，只要 Azure AD 预配服务正在运行，后续周期大约每隔 40 分钟就会进行一次。 
+此操作将启动 " **设置** " 部分的 " **范围** " 中定义的所有用户和/或组的初始同步循环。 初始周期执行的时间比后续周期长，只要 Azure AD 预配服务正在运行，后续周期大约每隔 40 分钟就会进行一次。 
 
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
 配置预配后，请使用以下资源来监视部署：

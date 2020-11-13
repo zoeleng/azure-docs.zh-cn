@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/25/2020
-ms.openlocfilehash: cf8ce541c069f78adbb138fa38e2efc506e095ea
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/12/2020
+ms.openlocfilehash: 6c5badf4760bff559fb050278df84c7ad6e703bd
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675194"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616937"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>使用集成服务环境 (ISE) 从 Azure 逻辑应用连接到 Azure 虚拟网络
 
@@ -196,7 +196,7 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
    | **位置** | 是 | <*Azure-datacenter-region*> | 要在其中部署环境的 Azure 数据中心区域 |
    | **SKU** | 是 | “高级”或“开发人员（无 SLA）”  | 要创建和使用的 ISE SKU。 有关这些 SKU 之间的差异，请参阅 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)。 <p><p>**重要说明** ：此选项仅在创建 ISE 时可用，以后不能更改。 |
    | **额外容量** | 高级： <br>是 <p><p>开发人员： <br>不适用 | 高级： <br>0 到 10 <p><p>开发人员： <br>不适用 | 用于此 ISE 资源的额外处理单元的数量。 若要在创建后添加容量，请参阅[添加 ISE 容量](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)。 |
-   | 访问终结点 | 是 | “内部”或“外部”  | 用于 ISE 的访问终结点的类型。 这些终结点确定 ISE 中逻辑应用上的请求或 Webhook 触发器是否可以接收来自虚拟网络外部的调用。 <p><p>你的选择还会影响在逻辑应用运行历史记录中查看和访问输入和输出的方式。 有关详细信息，请参阅 [ISE 终结点访问](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)。 <p><p>**重要说明** ：只能在创建 ISE 的过程中选择访问终结点，以后不能更改此选项。 |
+   | 访问终结点 | 是 | “内部”或“外部”  | 用于 ISE 的访问终结点的类型。 这些终结点确定 ISE 中逻辑应用上的请求或 Webhook 触发器是否可以接收来自虚拟网络外部的调用。 <p><p>例如，如果要使用以下基于 webhook 的触发器，请确保选择 " **外部** "： <p><p>-Azure DevOps <br>-Azure 事件网格 <br>-Common Data Service <br>-Office 365 <br>-SAP (ISE 版本)  <p><p>你的选择还会影响在逻辑应用运行历史记录中查看和访问输入和输出的方式。 有关详细信息，请参阅 [ISE 终结点访问](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)。 <p><p>**重要说明** ：只能在创建 ISE 的过程中选择访问终结点，以后不能更改此选项。 |
    | **虚拟网络** | 是 | <Azure-virtual-network-name> | 要注入环境以便该环境中的逻辑应用可以访问虚拟网络的 Azure 虚拟网络。 如果没有网络，请先[创建 Azure 虚拟网络](../virtual-network/quick-create-portal.md)。 <p><p>**重要说明** ：创建 ISE 时可以仅执行此注入。 |
    | **子网** | 是 | <*subnet-resource-list*> | ISE 需要四个 *空白* 子网，这些子网是在 ISE 中创建和部署资源所必需的，由内部逻辑应用组件（如连接器和缓存）用于性能。 <p>**重要提示** ：请确保 [先查看子网要求，然后再继续执行这些步骤，以创建子网](#create-subnet)。 |
    |||||
@@ -205,7 +205,7 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
 
    **创建子网**
 
-   ISE 需要四个 *空* 子网，这些子网是在 ISE 中创建和部署资源所必需的，由内部逻辑应用组件（如连接器和缓存）用于性能。 创建环境后无法更改这些子网地址。 如果通过 Azure 门户创建并部署了 ISE，请确保不要将这些子网委托给任何 Azure 服务。 但是，如果通过 REST API、Azure PowerShell 或 Azure 资源管理器模板创建并部署了 ISE，则需要将一个空子网 [委托](../virtual-network/manage-subnet-delegation.md) 给 `Microsoft.integrationServiceEnvironment` 。 有关详细信息，请参阅 [添加子网委派](../virtual-network/manage-subnet-delegation.md)。
+   ISE 需要四个 *空白* 子网，这些子网是在 ISE 中创建和部署资源所必需的，由内部逻辑应用组件（如连接器和缓存）用于性能。 创建环境后无法更改这些子网地址。 如果通过 Azure 门户创建并部署了 ISE，请确保不要将这些子网委托给任何 Azure 服务。 但是，如果通过 REST API、Azure PowerShell 或 Azure 资源管理器模板创建并部署了 ISE，则需要将一个空子网 [委托](../virtual-network/manage-subnet-delegation.md) 给 `Microsoft.integrationServiceEnvironment` 。 有关详细信息，请参阅 [添加子网委派](../virtual-network/manage-subnet-delegation.md)。
 
    每个子网都需要满足以下要求：
 
@@ -277,6 +277,21 @@ ISE 增加了对运行持续时间、存储保留、吞吐量、HTTP 请求和�
    > 请参阅[删除虚拟网络](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)。
 
 1. 如果部署完成后 Azure 未自动转到你的环境，可以选择“转到资源”来查看该环境。
+
+1. 对于具有 *外部* 终结点访问权限的 ISE，需要创建网络安全组（如果尚未安装），并添加入站安全规则以允许来自托管连接器出站 IP 地址的流量。 若要设置此规则，请执行以下步骤：
+
+   1. 在 ISE 菜单上的 " **设置** " 下，选择 " **属性** "。
+
+   1. 在 " **连接器传出 ip 地址** " 下，复制公共 ip 地址范围，此范围也出现在本文中、 [限制和配置-出站 ip 地址](../logic-apps/logic-apps-limits-and-config.md#outbound)。
+
+   1. 创建网络安全组（如果尚未创建）。
+   
+   1. 根据以下信息，为你复制的公共出站 IP 地址添加入站安全规则。 有关详细信息，请参阅 [教程：使用 Azure 门户使用网络安全组筛选网络流量](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group)。
+
+      | 目的 | 源服务标记或 IP 地址 | 源端口 | 目标服务标记或 IP 地址 | 目标端口 | 说明 |
+      |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+      | 允许来自连接器出站 IP 地址的流量 | <*连接器-公共-出站 IP 地址*> | * | 具有 ISE 子网的虚拟网络的地址空间 | * | |
+      |||||||
 
 1. 要检查 ISE 的网络运行状况，请参阅[管理集成服务环境](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)。
 
