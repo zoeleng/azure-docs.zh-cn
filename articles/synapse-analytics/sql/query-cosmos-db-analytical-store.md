@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310314"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579379"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>在 Azure Synapse 链接 (预览版中利用无服务器 SQL 池查询 Azure Cosmos DB 数据) 
 
@@ -42,7 +42,9 @@ OPENROWSET(
 Azure Cosmos DB 连接字符串指定 Azure Cosmos DB 帐户名称、数据库名称、数据库帐户主密钥以及要运行的可选区域名称 `OPENROWSET` 。 
 
 > [!IMPORTANT]
-> 请确保在后使用别名 `OPENROWSET` 。 如果未指定别名 after 函数，则会出现一个 [已知问题](#known-issues) ，导致 Synapse 无服务器 SQL 终结点出现连接问题 `OPENROWSET` 。
+> 请确保使用某种 UTF-8 数据库排序规则 (例如 `Latin1_General_100_CI_AS_SC_UTF8`) ，因为 Cosmos DB 分析存储中的字符串值将编码为 utf-8 文本。
+> 文件中的文本编码与排序规则之间的不匹配可能会导致意外的文本转换错误。
+> 您可以使用以下 T-sql 语句轻松更改当前数据库的默认排序规则： `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 连接字符串具有以下格式：
 ```sql
@@ -256,7 +258,7 @@ Azure Cosmos DB SQL (Core) API 的帐户支持 number、string、boolean、null�
 | --- | --- |
 | 布尔 | bit |
 | Integer | bigint |
-| 十进制 | float |
+| 小数 | FLOAT |
 | 字符串 | varchar (UTF8 数据库排序规则)  |
 |  (ISO 格式字符串的日期时间)  | varchar (30)  |
 | Unix 时间戳 (日期时间)  | bigint |
@@ -338,8 +340,8 @@ GROUP BY geo_id
 
 ## <a name="known-issues"></a>已知问题
 
-- **必须** 在函数 (之后指定别名 `OPENROWSET` ，例如 `OPENROWSET (...) AS function_alias`) 。 省略别名可能会导致连接问题，Synapse 无服务器 SQL 终结点可能暂时不可用。 此问题将在11月2020中解决。
 - 无服务器 SQL 池为 [Azure Cosmos DB 完全保真架构](#full-fidelity-schema) 提供的查询体验是临时行为，将根据预览反馈进行更改。 不要依赖于在 `OPENROWSET` 公共预览期间不含子句的函数提供的架构， `WITH` 因为查询体验可能与基于客户反馈的定义完善的架构相一致。 请联系 [Synapse 链接产品团队](mailto:cosmosdbsynapselink@microsoft.com) 提供反馈。
+- 如果 `OPENROSET` 列排序规则没有 utf-8 编码，则无服务器 SQL 池将不会返回编译时错误。 您可以 `OPENROWSET` 使用以下 t-sql 语句轻松更改当前数据库中运行的所有函数的默认排序规则： `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 下表列出了可能的错误和故障排除操作：
 

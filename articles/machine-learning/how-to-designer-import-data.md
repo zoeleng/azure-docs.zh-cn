@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554710"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591982"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>将数据导入到 Azure 机器学习设计器
 
@@ -53,6 +53,8 @@ ms.locfileid: "94554710"
 ### <a name="use-a-dataset"></a>使用数据集
 
 可在模块面板中的“数据集”下找到已注册的数据集。 若要使用某个数据集，请将其拖放到管道画布上。 然后，将该数据集的输出端口连接到画布中的其他模块。 
+
+如果注册文件数据集，则数据集的输出端口类型为 **AnyDirectory** 。 如果注册表格数据集，则为 **DataFrameDirectory** 的输出端口类型。 请注意，如果将数据集的输出端口连接到设计器中的其他模块，则需要对齐数据集和模块的端口类型。
 
 ![屏幕截图，其中显示了设计器面板中已保存数据集的位置](media/how-to-designer-import-data/use-datasets-designer.png)
 

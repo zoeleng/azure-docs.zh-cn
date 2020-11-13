@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306865"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579345"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>使用无服务器 SQL 池 (预览) 在 Azure Synapse Analytics 中查询 Parquet 文件
 
@@ -36,6 +36,11 @@ from openrowset(
 ```
 
 请确保访问此文件。 如果文件受 SAS 密钥或自定义 Azure 标识保护，则需要为 [sql 登录设置服务器级别凭据](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)。
+
+> [!IMPORTANT]
+> 请确保使用某种 UTF-8 数据库排序规则 (例如 `Latin1_General_100_CI_AS_SC_UTF8`) ，因为 PARQUET 文件中的字符串值使用 utf-8 编码进行编码。
+> PARQUET 文件中的文本编码与排序规则不匹配可能会导致意外的转换错误。
+> 您可以使用以下 T-sql 语句轻松更改当前数据库的默认排序规则： `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>数据源使用情况
 
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> 请确保 explicilty 指定某些 UTF-8 排序规则 (例如， `Latin1_General_100_CI_AS_SC_UTF8`) 对于子句中的所有字符串列， `WITH` 或者在数据库级别设置某些 utf-8 排序规则。
+> 文件中的文本编码与字符串列排序规则中的文本编码不匹配可能会导致意外的转换错误。
+> 您可以使用以下 T-sql 语句轻松更改当前数据库的默认排序规则： `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> 可以使用以下定义轻松地对双列类型设置排序规则： `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
 
 在以下部分中，可以了解如何查询各种类型的 PARQUET 文件。
 

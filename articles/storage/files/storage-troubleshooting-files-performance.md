@@ -1,20 +1,20 @@
 ---
 title: Azure 文件共享性能故障排除指南
-description: 排查 Azure 文件的已知性能问题。 遇到这些问题时，找出潜在的原因和相关解决方法。
+description: 排查 Azure 文件共享的已知性能问题。 遇到这些问题时，找出潜在的原因和相关解决方法。
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 52376cabfd837ad7435c8e9c992fe000e0521247
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 4d89fb4bcedb58aa156e75aaefc87479797dcd37
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561108"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577966"
 ---
-# <a name="troubleshoot-azure-file-share-performance-issues"></a>排查 Azure 文件共享性能问题
+# <a name="troubleshoot-azure-file-shares-performance-issues"></a>排查 Azure 文件共享性能问题
 
 本文列出了与 Azure 文件共享相关的一些常见问题。 当遇到这些问题时，它将提供可能的原因和解决方法。
 

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413082"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578804"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -30,18 +30,36 @@ ms.locfileid: "94413082"
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>入站 IP 限制
+## <a name="inbound-access-restrictions"></a>入站访问限制
 
-可以使用 IP 限制来定义被允许或拒绝访问应用的 IP 地址的优先级排序列表。 该列表可以包含 IPv4 和 IPv6 地址。 如果存在一个或多个条目，则列表末尾会存在一个隐式的“拒绝所有”。 IP 限制适用于所有函数托管选项。
+可以使用访问限制来定义允许或拒绝其访问应用的 IP 地址的优先级排序列表。 此列表可以包含 IPv4 和 IPv6 地址，或使用 [服务终结点](#use-service-endpoints)的特定虚拟网络子网。 如果存在一个或多个条目，则列表末尾会存在一个隐式的“拒绝所有”。 IP 限制适用于所有函数托管选项。
+
+[高级](functions-premium-plan.md)、[消费](functions-scale.md#consumption-plan)和[应用服务](functions-scale.md#app-service-plan)提供了访问限制。
 
 > [!NOTE]
-> 如果进行了网络限制，则只能从虚拟网络内部使用门户编辑器，或者在已将用于访问 Azure 门户的计算机的 IP 地址加入安全收件人列表之后使用该编辑器。 不过，仍然可以从任何计算机访问“平台功能”选项卡上的任何功能。
+> 在设置了网络限制后，你只能从虚拟网络内部部署，或者在将用于访问 "安全收件人" 列表中的 Azure 门户的计算机的 IP 地址。 不过，你仍然可以使用门户管理该函数。
 
 若要了解详细信息，请参阅 [Azure 应用服务静态访问限制](../app-service/app-service-ip-restrictions.md)。
 
-## <a name="private-site-access"></a>专用站点访问
+### <a name="use-service-endpoints"></a>使用服务终结点
+
+使用服务终结点可以限制对所选 Azure 虚拟网络子网的访问。 若要限制对特定子网的访问，请使用 **虚拟网络** 类型创建限制规则。 然后，可以选择要允许或拒绝访问的订阅、虚拟网络和子网。 
+
+如果未对所选子网启用服务终结点，则会自动启用这些终结点，除非选中 " **忽略缺少的 Microsoft Web 服务终结点** " 复选框。 你可能想要在应用程序上启用服务终结点而不是子网的方案主要取决于你是否有权在子网上启用它们。 
+
+如果需要其他人在子网上启用服务终结点，请选中 " **忽略缺少的 Microsoft Web 服务终结点** " 复选框。 将为服务终结点配置应用，以便在以后的子网中启用它们。 
+
+!["添加 IP 限制" 窗格的屏幕截图，其中选择了虚拟网络类型。](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+不能使用服务终结点限制对在应用服务环境中运行的应用程序的访问。 如果你的应用处于应用服务环境中，你可以通过应用 IP 访问规则来控制对它的访问。 
+
+若要了解如何设置服务终结点，请参阅 [建立 Azure Functions 专用站点访问](functions-create-private-site-access.md)。
+
+## <a name="private-endpoint-connections"></a>专用终结点连接
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+若要调用具有专用终结点连接的其他服务（如存储或服务总线），请确保将应用程序配置为对 [专用终结点进行出站调用](#private-endpoints)。
 
 ## <a name="virtual-network-integration"></a>虚拟网络集成
 
@@ -80,7 +98,7 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 1. 在受保护的存储帐户中[创建文件共享](../storage/files/storage-how-to-create-file-share.md#create-file-share)。
 1. 为存储帐户启用服务终结点或专用终结点。  
     * 如果使用服务终结点，请确保启用专用于 function app 的子网。
-    * 如果使用专用终结点，请确保创建 DNS 记录并将应用配置为 [使用专用终结点终结](#azure-dns-private-zones) 点。  存储帐户需要 `file` 和子资源的专用终结点 `blob` 。  如果使用某些功能（如 Durable Functions），则还需要 `queue` `table` 通过专用终结点连接来访问。
+    * 如果使用专用终结点，请确保创建 DNS 记录并将应用配置为 [使用专用终结点终结](#azure-dns-private-zones) 点。  存储帐户将需要用于和子资源的专用终结 `file` 点 `blob` 。  如果使用某些功能（如 Durable Functions），则还 `queue` 需要 `table` 通过专用终结点连接来访问。
 1.  (可选) 将文件和 blob 内容从函数应用存储帐户复制到受保护的存储帐户和文件共享。
 1. 复制此存储帐户的连接字符串。
 1. 将函数应用的 " **配置** " 下的 **应用程序设置** 更新为以下内容：

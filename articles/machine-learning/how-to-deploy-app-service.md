@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: bea3270821888334ed876bb827dab56b4c206b6a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325247"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578019"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>将机器学习模型部署到 Azure 应用服务（预览版）
 
@@ -75,7 +75,7 @@ ms.locfileid: "93325247"
 这些实体被封装到推理配置中。 推理配置引用入口脚本和其他依赖项。
 
 > [!IMPORTANT]
-> 创建用于 Azure 应用服务的推理配置时，必须使用 [Environment](//python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
+> 创建用于 Azure 应用服务的推理配置时，必须使用 [Environment](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ ms.locfileid: "93325247"
 
 ## <a name="create-the-image"></a>创建映像
 
-若要创建部署到 Azure 应用服务的 Docker 映像，请使用 [Model.package](//python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)。 下面的代码片段演示如何从模型和推理配置生成新的映像：
+若要创建部署到 Azure 应用服务的 Docker 映像，请使用 [Model.package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)。 下面的代码片段演示如何从模型和推理配置生成新的映像：
 
 > [!NOTE]
 > 该代码片段假定 `model` 包含已注册的模型，并且 `inference_config` 包含推理环境的配置。 有关详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。

@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e87be0db65cf12a265566e0c05815722ce3cc609
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337570"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578869"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>使用 Azure Pipelines 生成和部署 HPC 解决方案
 
@@ -43,7 +43,7 @@ Azure Pipelines 提供了一系列新式 CI/CD 过程，用于生成、部署、
 
 * arm-templates 文件夹，其中包含大量 Azure 资源管理器模板。 本文介绍了这些模板。
 * client-application 文件夹，这是示例[使用 ffmpeg 进行 Azure Batch .NET 文件处理](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)的副本。 本文不需要这样做。
-* **Hpc 应用程序** 文件夹，是 [Ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z)的 Windows 64 位版本。
+* **Hpc 应用程序** 文件夹，是 [Ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08)的 Windows 64 位版本。
 * 管道文件夹。 此文件夹包含一个 YAML 文件，其中概述了生成过程。 本文对此进行了讨论。
 
 本部分假定你熟悉版本控制和资源管理器模板设计。 如果你不熟悉这些概念，请参阅以下页面获取详细信息。

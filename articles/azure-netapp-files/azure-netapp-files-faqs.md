@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089309"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591540"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>有关 Azure NetApp 文件的常见问题解答
 
@@ -29,7 +29,7 @@ ms.locfileid: "92089309"
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>NFS 数据路径是否通过 Internet？  
 
-否。 NFS 数据路径不通过 Internet。 Azure NetApp 文件是一个 Azure 本机服务，该服务部署到 Azure 虚拟网络 (VNet) 服务可用。 Azure NetApp 文件使用委托子网，并直接在 VNet 中预配网络接口。 
+错误。 NFS 数据路径不通过 Internet。 Azure NetApp 文件是一个 Azure 本机服务，该服务部署到 Azure 虚拟网络 (VNet) 服务可用。 Azure NetApp 文件使用委托子网，并直接在 VNet 中预配网络接口。 
 
 有关详细信息，请参阅 [Azure NetApp 文件的准则网络规划](./azure-netapp-files-network-topologies.md) 。  
 
@@ -48,7 +48,7 @@ ms.locfileid: "92089309"
 
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>能否为 Azure NetApp 文件卷设置或选择自己的 IP 地址？  
 
-否。 IP 分配给 Azure NetApp 文件卷是动态的。 不支持静态 IP 分配。 
+错误。 IP 分配给 Azure NetApp 文件卷是动态的。 不支持静态 IP 分配。 
 
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Azure NetApp 文件是否支持双堆栈 (IPv4 和 IPv6) VNet？
 
@@ -150,7 +150,7 @@ Azure NetApp 文件支持 SMB 2.1 和 SMB 3.1 (，其中包括对 SMB 3.0) 的�
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>支持多少个 Active Directory 连接？
 
-即使 AD 连接在不同的 NetApp 帐户中，Azure NetApp 文件也不支持单个 *区域*中 (ad) 连接的多个 Active Directory。 但是，只要 AD 连接位于不同的区域，就可以在单个 *订阅*中拥有多个 ad 连接。 如果在单个区域中需要多个 AD 连接，则可以使用单独的订阅来执行此操作。 
+即使 AD 连接在不同的 NetApp 帐户中，Azure NetApp 文件也不支持单个 *区域* 中 (ad) 连接的多个 Active Directory。 但是，只要 AD 连接位于不同的区域，就可以在单个 *订阅* 中拥有多个 ad 连接。 如果在单个区域中需要多个 AD 连接，则可以使用单独的订阅来执行此操作。 
 
 AD 连接是按 NetApp 帐户配置的;AD 连接仅在创建它的 NetApp 帐户中可见。
 
@@ -174,16 +174,6 @@ SMB 客户端报告的卷大小是 Azure NetApp 文件量可以增长到的最�
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
 
-## <a name="dual-protocol-faqs"></a>双重协议常见问题
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>我尝试使用 "root" 和本地用户访问 UNIX 系统上具有 NTFS 安全样式的双协议卷。 为什么会出现 "权限被拒绝" 错误？   
-
-有关解决方法，请参阅 [排查双协议卷问题](troubleshoot-dual-protocol-volumes.md) 。
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>尝试创建双重协议卷时，为什么创建过程失败，并出现错误 "无法验证 LDAP 配置，更正 LDAP 配置后重试"？  
-
-有关解决方法，请参阅 [排查双协议卷问题](troubleshoot-dual-protocol-volumes.md) 。
-
 ## <a name="capacity-management-faqs"></a>容量管理常见问题
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>如何实现监视 Azure NetApp 文件的容量池和容量的使用情况？ 
@@ -192,7 +182,7 @@ Azure NetApp 文件提供容量池和卷使用情况指标。 你还可以使用
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>是否可以通过 Azure 存储资源管理器管理 Azure NetApp 文件？
 
-否。 Azure 存储资源管理器不支持 Azure NetApp 文件。
+错误。 Azure 存储资源管理器不支持 Azure NetApp 文件。
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>如何实现确定目录是否接近限制大小？
 
@@ -200,7 +190,7 @@ Azure NetApp 文件提供容量池和卷使用情况指标。 你还可以使用
 
 对于 320 MB 的目录，块数为655360，每个块的大小为512个字节。   (，即 320x1024x1024/512 )   
 
-例如：
+示例：
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin
@@ -249,11 +239,11 @@ NetApp 提供基于 SaaS 的解决方案，即 [Netapp 云同步](https://cloud.
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>Azure Data Box 是否支持迁移？
 
-否。 Azure Data Box 目前不支持 Azure NetApp 文件。 
+错误。 Azure Data Box 目前不支持 Azure NetApp 文件。 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>是否支持通过 Azure 导入/导出服务进行迁移？
 
-否。 Azure 导入/导出服务目前不支持 Azure NetApp 文件。
+错误。 Azure 导入/导出服务目前不支持 Azure NetApp 文件。
 
 ## <a name="next-steps"></a>后续步骤  
 

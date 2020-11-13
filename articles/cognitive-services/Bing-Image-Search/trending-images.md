@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 9163868848f2fdbd535a6b601077be570b0b01bf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20050cb373456296ef573368e6b289ec4b7d946d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076718"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591880"
 ---
 # <a name="get-trending-images-from-the-web"></a>从 Web 获取热门图像
 
 > [!WARNING]
-> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
-> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
-> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 2020 年 10 月 30 日开始，必应搜索的任何新实例都需按照[此处](https://aka.ms/cogsvcs/bingmove)所述的过程进行预配。
+> 使用认知服务进行预配的必应搜索 API 将在未来三年或在企业协议结束前（以先发生者为准）得到支持。
+> 有关迁移说明，请参阅[必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 要获取今天的热门图像，请发送以下 GET 请求：  
 
@@ -44,7 +44,7 @@ Host: api.cognitive.microsoft.com
 - en-AU（英语，澳大利亚）  
 - zh-CN（中文，中国）
 
-响应包含 [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) 对象，该对象按类别列出图像。 使用类别的 `title` 将图像分组到用户体验中。 可能每天更改类别。  
+响应包含 [TrendingImages](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) 对象，该对象按类别列出图像。 使用类别的 `title` 将图像分组到用户体验中。 可能每天更改类别。  
 
 ```json
 {
@@ -93,9 +93,9 @@ Host: api.cognitive.microsoft.com
 }  
 ```  
 
-每个磁贴包含用于获取相关图像的图像和选项。 要获取相关图像，你可以使用查询 `text` 来调用[图像搜索 API](./search-the-web.md)，并自行显示相关图像。 或者，你可以使用 `webSearchUrl` 中的 URL 将用户转到必应图像搜索结果页面，其中包含相关图像。
+每个磁贴包含用于获取相关图像的图像和选项。 要获取相关图像，你可以使用查询 `text` 来调用[图像搜索 API](./overview.md)，并自行显示相关图像。 或者，你可以使用 `webSearchUrl` 中的 URL 将用户转到必应图像搜索结果页面，其中包含相关图像。
 
-如果调用图像搜索 API 来获取相关图像，请将 [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) 查询参数设置为 `id` 字段中的 ID。 指定 ID 可确保响应包含图像（它是响应中的第一个图像）及其相关图像。 另外，将 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) 查询参数设置为 `query` 对象的 `text` 字段中的文本。
+如果调用图像搜索 API 来获取相关图像，请将 [id](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) 查询参数设置为 `id` 字段中的 ID。 指定 ID 可确保响应包含图像（它是响应中的第一个图像）及其相关图像。 另外，将 [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) 查询参数设置为 `query` 对象的 `text` 字段中的文本。
 
 以下示例显示如何使用图像 ID 在先前的热门图像 API 响应中获取 Smith 先生的相关图像。
 
@@ -106,4 +106,4 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```  
+```

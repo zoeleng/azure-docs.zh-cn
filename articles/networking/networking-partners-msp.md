@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 8abaf177344b5c5b33037050be7db62a54694c42
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 78a79c84060fe6dc8b94e4b977ddaea8b5408ee0
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461509"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577883"
 ---
 # <a name="about-azure-networking-msp-partners"></a>关于 Azure 网络 MSP 合作伙伴
 
@@ -43,7 +43,7 @@ Azure 网络 MSP 是一组专门的托管服务提供商，可解决云和混合
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[适用于 Azure 的 Infosys 集成+](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Azure 网络评估 -5 天](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/)|[云就绪 - 2 小时评估](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|[液体托管 ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/liquidtelecommunicationsoperationslimited.42cfee0b-8f07-4948-94b0-c9fc3e1ddc42?tab=Overview)||||
-|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Azure 托管服务（按 Macquarie）云](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview); [Azure 通过 Macquarie 云服务扩展](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.azure_extend?tab=Overview)||[通过 Macquarie 云安装 SD-WAN Virtual Edge](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Azure 托管服务（按 Macquarie）云](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview); [Azure 通过 Macquarie 云服务扩展](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.azure_extend?tab=Overview)||[通过 Macquarie 云安装 SD-WAN Virtual Edge](https://azuremarketplace.microsoft.com/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Megaport](https://www.megaport.com/services/microsoft-expressroute/)||[mcr](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/megaport1582290752989.megaport_mcr?tab=Overview)||||
 |[Nokia](https://www.nokia.com/networks/services/managed-services/)|||[NBConsult Nokia NUAGE SDWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nbconsult1588859334197.nbconsult-nokia-nuage?tab=Overview); [NUAGE SD-WAN 2.0 Azure 虚拟 WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nokiaofamericacorporation1591716055441.nuage_sd-wan_2-0_azure_virtual_wan?tab=Overview)|[Nokia 4G & 5G 专用无线 (NDAC) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nokiaofamericacorporation1591716055441.ndac_5g-ready_private_wireless?tab=Overview)|
 |[NTT 有限公司](https://www.nttglobal.net/)||[NTT 托管 ExpressRoute 服务](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttglobalnetworks1592424806122.ntt_managed_expressroute_service?tab=Overview);[NTT 托管 IP VPN 服务](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttglobalnetworks1592424806122.ntt_managed_ip_vpn_service?tab=Overview)|[NTT 托管的 SD-WAN 服务](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttglobalnetworks1592424806122.ntt_mng_sdwan_1?tab=Overview)|||

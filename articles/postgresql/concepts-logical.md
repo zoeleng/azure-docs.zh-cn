@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421799"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591523"
 ---
 # <a name="logical-decoding"></a>逻辑解码
  
@@ -37,7 +37,6 @@ ms.locfileid: "93421799"
 * **副本** - 比“关闭”详细。 这是运行[只读副本](concepts-read-replicas.md)所需的最低日志记录级别。 此设置是大多数服务器上的默认设置。
 * **逻辑** - 比“副本”详细。 这是运行逻辑解码所需的最低日志记录级别。 使用此设置时，只读副本也可以运行。
 
-更改此参数后，需要重启服务器。 在内部，此参数设置 Postgres 参数 `wal_level`、`max_replication_slots` 和 `max_wal_senders`。
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI
 

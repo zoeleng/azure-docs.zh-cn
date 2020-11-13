@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100062"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579305"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>通过自动化 Azure Blob 存储访问层优化成本
 
@@ -76,17 +76,26 @@ ms.locfileid: "93100062"
 
 1. 选择 " **添加规则** "，并在 **详细信息** 窗体上命名规则。 还可以设置 **规则范围** 、 **Blob 类型** 和 **blob 子类型** 值。 下面的示例将范围设置为筛选 blob。 这将导致添加 " **筛选器集** " 选项卡。
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="生命周期管理在 Azure 门户中添加规则详细信息页&quot;:::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="生命周期管理在 Azure 门户中添加规则详细信息页":::
 
-1. 选择 &quot; **基本 blob** " 以设置规则的条件。 在以下示例中，如果 Blob 有 30 天未修改，它们将转移到冷存储。
+1. 选择 " **基本 blob** " 以设置规则的条件。 在以下示例中，如果 Blob 有 30 天未修改，它们将转移到冷存储。
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="生命周期管理在 Azure 门户中添加规则详细信息页&quot;:::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Azure 门户中的生命周期管理基础 blob 页":::
 
-1. 选择 &quot; **基本 blob** " 开头的 blob。
+   " **上次访问** 时间" 选项在以下区域的预览中提供：
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="生命周期管理在 Azure 门户中添加规则详细信息页&quot;:::
+    - 法国中部
+    - 加拿大东部
+    - 加拿大中部
 
-1. 选择 &quot; **基本 blob** ":::
+   > [!IMPORTANT]
+   > 上次访问时间跟踪预览版仅适用于非生产。 生产服务级别协议 (SLA) 当前不可用。
+   
+   若要使用 " **上次访问** 时间" 选项，请在 "Azure 门户的" **生命周期管理** "页上选择" **访问跟踪已启用** "。 有关 **最后访问** 的选项的详细信息，请参阅 [基于上次访问日期移动数据 (预览)](#move-data-based-on-last-accessed-date-preview)。
+
+1. 如果在 " **详细信息** " 页上选择了 " **使用筛选器限制 blob** "，请选择 " **筛选器集** " 添加可选筛选器。 下面的示例筛选 *mylifecyclecontainer* 容器中以 "log" 开头的 blob。
+
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Azure 门户中的生命周期管理筛选器集页":::
 
 1. 选择“添加”以添加新策略。
 
@@ -321,7 +330,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 生命周期管理支持对 blob、以前的 blob 版本和 blob 快照进行分层和删除。 为基本 blob、以前的 blob 版本或 blob 快照上的每个规则定义至少一个操作。
 
-| 操作                      | 基本 Blob                                  | 快照      | Version
+| 操作                      | 基本 Blob                                  | 快照      | 版本
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | 对 `blockBlob` 支持                  | 支持     | 支持     |
 | enableAutoTierToHotFromCool | 对 `blockBlob` 支持                  | 不支持 | 不支持 |
@@ -430,7 +439,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 如果你的存储帐户是常规用途 v1 帐户，请使用 Azure 门户升级到常规用途 v2 帐户。
 
-目前尚不支持已启用分层命名空间以与 Azure Data Lake Storage Gen2 一起使用的存储帐户。
+现在支持启用了分层命名空间以与 Azure Data Lake Storage Gen2 一起使用的存储帐户。
 
 #### <a name="pricing-and-billing"></a>定价和计费
 

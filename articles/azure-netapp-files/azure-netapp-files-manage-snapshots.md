@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491641"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591729"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>使用 Azure NetApp 文件管理快照
 
@@ -97,7 +97,7 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 
     ![每月快照策略](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  单击“ **保存** ”。  
+4.  单击“保存”  。  
 
 如果需要创建其他快照策略，请重复步骤3。
 创建的策略将显示在 "快照策略" 页中。
@@ -144,6 +144,17 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 
     ![快照策略删除确认](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>编辑 "隐藏快照路径" 选项
+"隐藏快照路径" 选项控制卷的快照路径是否可见。 在创建 [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) 或 [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) 卷的过程中，可以选择指定是否隐藏快照路径。 然后，可以根据需要编辑 "隐藏快照路径" 选项。  
+
+> [!NOTE]
+> 对于跨区域复制中的 [目标卷](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) ，默认情况下启用 "隐藏快照路径" 选项，并且不能修改此设置。 
+
+1. 若要查看卷的 "隐藏快照路径" 选项设置，请选择该卷。 " **隐藏快照路径** " 字段显示是否启用了选项。   
+    ![描述 "隐藏快照路径" 字段的屏幕截图。](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. 若要编辑 "隐藏快照路径" 选项，请在 "卷" 页上单击 " **编辑** "，并根据需要修改 " **隐藏快照路径** " 选项。   
+    ![描述 "编辑卷快照" 选项的屏幕截图。](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>将快照还原到新卷
 
 目前，只能将快照还原到新卷。 
@@ -173,11 +184,7 @@ Azure NetApp 文件支持创建按需快照，并使用快照策略来计划自�
 
 装载的卷包含 NFS 客户端中名为 (的快照目录  `.snapshot`) 或 `~snapshot` 客户端可以访问的 SMB 客户端) 中的 (。 快照目录包含对应于卷快照的子目录。 每个子目录都包含快照文件。 如果意外删除或覆盖了某个文件，则可以通过将该文件从快照子目录复制到读写目录，将该文件还原到父读写目录。 
 
-如果在创建卷时选中了 "隐藏快照路径" 复选框，则快照目录将隐藏。 可以通过选择卷来查看卷的 "隐藏快照路径" 状态。 通过单击卷页上的 " **编辑** "，可以编辑 "隐藏快照路径" 选项。  
-
-对于跨区域复制中的目标卷，默认情况下启用隐藏快照路径，并且无法修改设置。
-
-![编辑卷快照选项](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+如果看不到快照目录，则可能是由于当前启用了 "隐藏快照路径" 选项而隐藏。 可以 [编辑 "隐藏快照路径" 选项](#edit-the-hide-snapshot-path-option) 以禁用它。  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>使用 Linux NFS 客户端还原文件 
 

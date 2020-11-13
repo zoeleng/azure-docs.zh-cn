@@ -10,23 +10,23 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: b7037804f1a0984cee2d1756adf80bfe2eec3918
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3057a118117f4f293ec5f90405a4bbd82d7a353d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095521"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592067"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>必应图像搜索 API 的语言和区域支持
 
 > [!WARNING]
-> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 **2020 年10月 30** 日起，需要按照 [此处](https://aka.ms/cogsvcs/bingmove)所述的过程设置必应搜索的任何新实例。
-> 在接下来的三年中，将支持使用认知服务进行预配的必应搜索 API，或者在企业协议结束后（以先发生者为准）。
-> 有关迁移说明，请参阅 [必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
+> 必应搜索 API 将从认知服务迁移到必应搜索服务。 从 2020 年 10 月 30 日开始，必应搜索的任何新实例都需按照[此处](https://aka.ms/cogsvcs/bingmove)所述的过程进行预配。
+> 使用认知服务进行预配的必应搜索 API 将在未来三年或在企业协议结束前（以先发生者为准）得到支持。
+> 有关迁移说明，请参阅[必应搜索服务](https://aka.ms/cogsvcs/bingmigration)。
 
 必应图像搜索 API 支持超过 36 个国家/地区，其中很多具有多种语言。 使用查询指定国家/地区主要用于根据对该国家/地区的兴趣来优化搜索结果。 此外，结果可能包含指向必应的链接，这些链接可能会根据指定的国家/地区或语言本地化必应用户体验。
 
-要指定国家/地区和语言，请将 `mkt`（市场）查询参数设置为下面的“市场”表中的一个代码  。 市场同时指定国家/地区和语言。 如果用户希望以其他语言查看显示文本，请将 `setLang` 查询参数设置为相应的语言代码。
+要指定国家/地区和语言，请将 `mkt`（市场）查询参数设置为下面的“市场”表中的一个代码。 市场同时指定国家/地区和语言。 如果用户希望以其他语言查看显示文本，请将 `setLang` 查询参数设置为相应的语言代码。
 
 另外，也可以使用 `cc` 查询参数指定国家/地区。 如果指定了国家/地区，还必须使用 `Accept-Language` HTTP 标头指定一个或多个语言代码。 支持的语言因国家/地区而异；“市场”表中提供了每个国家/地区适用的语言。
 
@@ -89,8 +89,8 @@ ms.locfileid: "93095521"
 |比利时|荷兰语|nl-BE|
 |比利时|法语|fr-BE|
 |巴西|葡萄牙语|pt-BR|
-|加拿大|英语|en-CA|
-|加拿大|法语|fr-CA|
+|Canada|英语|en-CA|
+|Canada|法语|fr-CA|
 |智利|西班牙语|es-CL|
 |丹麦|丹麦语|da-DK|
 |芬兰|芬兰语|fi-FI|
@@ -101,7 +101,7 @@ ms.locfileid: "93095521"
 |印度尼西亚|英语|en-ID|
 |意大利|意大利语|it-IT|
 |日本|日语|ja-JP|
-|韩国|韩语|ko-KR|
+|韩国|朝鲜语|ko-KR|
 |马来西亚|英语|en-MY|
 |墨西哥|西班牙语|es-MX|
 |荷兰|荷兰语|nl-NL|
@@ -124,4 +124,4 @@ ms.locfileid: "93095521"
 |美国|西班牙语|es-US|
 
 ## <a name="next-steps"></a>后续步骤
-有关必应新闻搜索终结点的详细信息，请参阅[新闻图像搜索 API v7 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)。
+有关必应新闻搜索终结点的详细信息，请参阅[新闻图像搜索 API v7 参考](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)。

@@ -12,19 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: fe4b2925a34ae7c06bb0b597f0bcdcc3f4d80896
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e5219e1c87221ade8da68c21209f41b4d6139be2
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363215"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579073"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>动态更改卷的服务级别
 
 > [!IMPORTANT] 
-> 此功能的公共预览版注册已暂停，直到进一步通知。 
+> * 此功能的公共预览版注册已暂停，直到进一步通知。 
+> * 当前不支持动态更改复制目标卷的服务级别。
 
 可以通过将卷移到使用所需的 [服务级别](azure-netapp-files-service-levels.md) 的其他容量池来更改现有卷的服务级别。 这种针对卷的就地服务级别更改不需要迁移数据， 它也不会影响对卷的访问。  
 

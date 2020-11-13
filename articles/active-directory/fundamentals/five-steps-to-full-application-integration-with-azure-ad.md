@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601242"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577637"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>将所有应用与 Azure AD 集成的五个步骤
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD) 包含了包含数千个预先集成的应用�
 
 接下来，发现员工经常使用的应用程序，并确定如何将工作与 Azure AD 进行集成。
 
-你可以使用 Microsoft Cloud App Security&#39;的 [Cloud discovery 工具](/cloud-app-security/tutorial-shadow-it) 开始发现和管理 &quot; &quot; 网络中的影子 IT (也就是说，不是由 IT 部门) 管理的应用程序。 你可以 [使用 Microsoft Defender 高级威胁防护 (ATP) ](/cloud-app-security/wdatp-integration) 来简化和扩展发现过程。
+你可以使用 Microsoft Cloud App Security&#39;的 [Cloud discovery 工具](/cloud-app-security/tutorial-shadow-it) 开始发现和管理 &quot; &quot; 网络中的影子 IT (也就是说，不是由 IT 部门) 管理的应用程序。 你可以 [使用 Microsoft Defender 高级威胁防护 (ATP) ](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 来简化和扩展发现过程。
 
 此外，你可以使用 Azure 门户中的 " [AD FS 应用程序活动" 报表](../manage-apps/migrate-adfs-application-activity.md) 来发现组织中的所有 AD FS 应用、登录到这些应用的唯一用户的数量，以及将其与 Azure AD 集成的兼容性。
 

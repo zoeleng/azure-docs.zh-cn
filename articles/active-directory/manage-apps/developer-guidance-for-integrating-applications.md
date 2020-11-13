@@ -12,22 +12,22 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605084"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578308"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>为 Azure Active Directory 开发业务线应用
-本指南概述了如何为 Azure Active Directory (AD) 开发业务线 (LoB) 应用程序。目标受众是 Active Directory/Microsoft 365 全局管理员。
+本指南简要介绍了如何开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序，目标受众为 Active Directory/Microsoft 365 全局管理员。
 
 ## <a name="overview"></a>概述
-构建与 Azure AD 集成的应用程序可为组织中的用户提供 Microsoft 365 的单一登录。 在 Azure AD 中拥有应用程序可让用户控制应用程序的身份验证策略。 若要详细了解条件访问以及如何使用多重身份验证 (MFA) 保护应用，请参阅[配置访问规则](../conditional-access/app-based-mfa.md)。
+通过构建与 Azure AD 集成的应用程序，可让组织的用户使用 Microsoft 365 进行单一登录。 在 Azure AD 中拥有应用程序可让用户控制应用程序的身份验证策略。 若要详细了解条件访问以及如何使用多重身份验证 (MFA) 保护应用，请参阅[配置访问规则](../conditional-access/app-based-mfa.md)。
 
 注册应用程序以使用 Azure Active Directory。 注册应用程序意味着开发人员可以使用 Azure AD 对用户进行身份验证并请求访问用户资源（如电子邮件、日历和文档）。
 
-目录的任何成员（不是来宾）都可以注册应用程序，也称为*创建应用程序对象*。
+目录的任何成员（不是来宾）都可以注册应用程序，也称为 *创建应用程序对象* 。 如果无法注册应用程序，则表示目录的全局管理员限制了此功能，因此你可能需要与他们联系以 [获取正确的权限](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) 才能注册应用程序。 若要详细了解如何限制用户的详细信息，请参阅 [Azure Active Directory 中的委派应用注册权限](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications)。
 
 注册应用程序后，可让任何用户执行以下操作：
 

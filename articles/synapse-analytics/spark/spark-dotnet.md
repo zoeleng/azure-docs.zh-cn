@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0ae4ef48bfb79130180cc477eb2a6fbeb470eb6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 9fbf4eab55ec2cf8e4f0e27969ca4a22eb1f27ad
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506424"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578606"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>将 .NET for Apache Spark 与 Azure Synapse Analytics 配合使用
 
-[.NET for Apache Spark](https://dot.net/spark) 提供针对 Spark 的免费开源跨平台 .NET 支持。 
+[.Net for Apache Spark](https://dot.net/spark) 为 Spark 提供了免费、 [开源](https://github.com/dotnet/spark)和跨平台的 .net 支持。 
 
 它为 Spark 提供 .NET 绑定，使你可以通过 c # 和 F # 访问 Spark Api。 对于 Apache Spark 的 .NET，还可以为用 .NET 编写的 Spark 编写和执行用户定义函数。 使用 .NET APIs for Spark，你可以在分析数据时访问 Spark DataFrame 的所有方面，包括 Spark SQL、增量 Lake 和结构化流式处理。
 
@@ -70,7 +70,13 @@ ms.locfileid: "94506424"
 
 若要在 Azure Synapse Analytics 笔记本中使用 .NET 进行 Apache Spark，请选择 **.Net Spark (c # )** 作为内核，并将笔记本附加到现有的无服务器 Apache Spark 池。
 
-.NET Spark 笔记本基于 .NET 交互式体验并提供了交互式 C# 体验，能够直接将 .NET for Spark 与已预定义的 Spark 会话变量 `spark` 配合使用。
+.NET Spark 笔记本基于 [.net 交互式](https://github.com/dotnet/interactive) 体验，提供交互式 c # 体验，能够将 .Net 用于 spark，并已预定义了 spark 会话变量 `spark` 。
+
+### <a name="install-nuget-packages-in-notebooks"></a>在笔记本中安装 NuGet 包
+
+你可以通过在 NuGet 包的名称前面使用符号，将你选择的 NuGet 包安装到你的笔记本中 `#r` 。 下图显示了一个示例：
+
+![显示使用 #r 安装 Spark .NET 笔记本 NuGet 包的屏幕截图](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>.NET for Apache Spark C# 内核功能
 
@@ -80,14 +86,15 @@ ms.locfileid: "94506424"
 * 简单的 C# 语句（例如分配、输出到控制台、引发异常，等等）。
 * 多行 C# 代码块（例如 if 语句、foreach 循环、类定义，等等）。
 * 对标准 C# 库（例如 System、LINQ、Enumerables，等等）的访问权限。
-* 支持 [C# 8.0 语言功能](/dotnet/csharp/whats-new/csharp-8?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)。
-* 预定义的变量“spark”，使你能够访问 Apache Spark 会话。
-* 支持定义[可在 Apache Spark 内运行的 .NET 用户定义函数](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql)。
+* 支持 C# 8.0 语言功能。
+* `spark` 作为预定义的变量，以使你能够访问 Apache Spark 会话。
+* 支持定义[可在 Apache Spark 内运行的 .NET 用户定义函数](/dotnet/spark/how-to-guides/udf-guide)。 建议 [在 .net 中编写和调用 udf 以 Apache Spark 交互式环境](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue) ，以了解如何在 .net 中使用 udf 提供 Apache Spark 交互式体验。
 * 支持通过 `XPlot.Plotly` 库使用不同的图表（例如折线图、条形图或直方图）和布局（例如单一布局、重叠布局，等等）来可视化 Spark 作业的输出。
 * 能够在 C# 笔记本中包括 NuGet 程序包。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [.NET for Apache Spark 文档](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [.NET for Apache Spark 文档](/dotnet/spark/)
+* [.NET for Apache Spark 交互式指南](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 * [.NET Interactive](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)

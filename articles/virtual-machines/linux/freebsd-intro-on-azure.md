@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 39564a34eb7a57cbd20e37b90d064917d5bf3b7a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 23f14e14bea665f838919ae357d11db32bddfa7f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337523"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579413"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure 上的 FreeBSD 简介
 本文提供有关在 Azure 中运行 FreeBSD 虚拟机的概述。
@@ -119,4 +119,4 @@ $ sudo <COMMAND>
 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.2 存在[已知问题](https://github.com/Azure/WALinuxAgent/pull/517)，此问题会导致 Azure 上的 FreeBSD VM 预配失败。 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.3 及更高版本已修复此问题。 
 
 ## <a name="next-steps"></a>后续步骤
-* 转到 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)创建 FreeBSD VM。
+* 转到 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/thefreebsdfoundation.freebsd-12_1?tab=Overview)创建 FreeBSD VM。

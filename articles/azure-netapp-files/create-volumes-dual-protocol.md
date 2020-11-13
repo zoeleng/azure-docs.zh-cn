@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963510"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591642"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>为 Azure NetApp 文件创建双重协议 (NFSv3 和 SMB) 卷
 
 Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协议创建卷。 本文介绍如何创建使用 NFSv3 和 SMB 的双重协议的卷，并支持 LDAP 用户映射。  
 
 
-## <a name="before-you-begin"></a>开始之前 
+## <a name="before-you-begin"></a>在开始之前 
 
 * 你必须已创建容量池。  
     请参阅 [设置容量池](azure-netapp-files-set-up-capacity-pool.md)。   
@@ -37,7 +37,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
 
 * 确保满足 [Active Directory 连接的要求](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)。 
 * 在 DNS 服务器上创建反向查找区域，然后在该反向查找区域中的 AD 主机计算机 (PTR) 记录中添加一个指针。 否则，双协议卷创建将会失败。
-* 确保 NFS 客户端是最新的，并且运行最新的操作系统更新。
+* 确保 NFS 客户端是最新的，并且正在运行操作系统的最新更新。
 * 确保 Active Directory (AD) LDAP 服务器已在 AD 上启动并运行。 为此，可以在 AD 计算机上安装和配置 [Active Directory 轻型目录服务 (AD LDS) ](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 角色。
 * 确保使用 [Active Directory 证书服务 (AD CS) ](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) 角色在 ad 上创建证书颁发机构 (ca) ，以生成和导出自签名根 CA 证书。   
 * 双协议卷当前不支持 Azure Active Directory 域服务 (AADDS) 。  
@@ -58,7 +58,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
 
     ![导航到卷](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  在 "创建卷" 窗口中，单击 " **创建**"，并在 "基本信息" 选项卡下提供以下字段的信息：   
+2.  在 "创建卷" 窗口中，单击 " **创建** "，并在 "基本信息" 选项卡下提供以下字段的信息：   
     * **卷名称**      
         指定要创建的卷的名称。   
 
@@ -74,7 +74,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
 
         “可用配额”字段显示了所选容量池中可以用来创建新卷的未使用空间量。 新卷的大小不能超过可用配额。  
 
-    * **吞吐量 (MiB/秒) **   
+    * **吞吐量 (MiB/秒)**   
         如果在手动 QoS 容量池中创建了卷，请指定要用于卷的吞吐量。   
 
         如果卷是在自动 QoS 容量池中创建的，则此字段中显示的值为 (配额 x 服务级别吞吐量) 。   
@@ -88,7 +88,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
         指定要用于卷的子网。  
         你指定的子网必须委派给 Azure NetApp 文件。 
         
-        如果尚未委派子网，可以在“创建卷”页面上单击“新建”。**** 然后，在“创建子网”页面中，指定子网信息，并选择“Microsoft.NetApp/卷”来为 Azure NetApp 文件委派子网。 在每个 Vnet 中，只能将一个子网委托给 Azure NetApp 文件。   
+        如果尚未委派子网，可以在“创建卷”页面上单击“新建”。 然后，在“创建子网”页面中，指定子网信息，并选择“Microsoft.NetApp/卷”来为 Azure NetApp 文件委派子网。 在每个 Vnet 中，只能将一个子网委托给 Azure NetApp 文件。   
  
         ![创建卷](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -101,7 +101,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
         ![显示高级选择](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 3. 单击“协议”  ，然后完成以下操作：  
-    * 选择 " **双协议 (NFSv3 和 SMB) ** 作为卷的协议类型。   
+    * 选择 " **双协议 (NFSv3 和 SMB)** 作为卷的协议类型。   
 
     * 从下拉列表中选择 " **Active Directory** 连接"。  
     使用的 Active Directory 必须具有服务器根 CA 证书。 
@@ -135,7 +135,7 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
 
     ![证书导出向导](../media/azure-netapp-files/certificate-export-wizard.png)
 
-4. 中转到双重协议卷的 NetApp 帐户，单击 **Active Directory 连接**"，然后使用" **加入 Active Directory** "窗口上传根 CA 证书：  
+4. 中转到双重协议卷的 NetApp 帐户，单击 **Active Directory 连接** "，然后使用" **加入 Active Directory** "窗口上传根 CA 证书：  
 
     ![服务器根 CA 证书](../media/azure-netapp-files/server-root-ca-certificate.png)
 
@@ -161,5 +161,5 @@ Azure NetApp 文件支持使用 NFS (NFSv3 和 NFSv 4.1) 、SMBv3 或双重协�
 
 ## <a name="next-steps"></a>后续步骤  
 
-* [双重协议常见问题](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [为 Azure NetApp 文件配置 NFS 客户端](configure-nfs-clients.md)
+* [双重协议卷故障排除](troubleshoot-dual-protocol-volumes.md)

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 66da9124a6b46fa34d0a13c8992cd3141b095422
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370023"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579481"
 ---
 # <a name="configure-a-managed-application-plan"></a>配置托管应用程序计划
 
@@ -114,7 +114,7 @@ ms.locfileid: "94370023"
 
 ### <a name="assign-a-version-number-for-the-package"></a>为包分配版本号
 
-在 " **版本** " 框中提供技术配置的当前版本。 每次将更改发布到此页时，都会递增此版本。 版本号的格式必须为：整数。 例如，`1.0.2` 。
+在 " **版本** " 框中提供技术配置的当前版本。 每次将更改发布到此页时，都会递增此版本。 版本号的格式必须为：整数。 例如 `1.0.2`。
 
 ### <a name="upload-a-package-file"></a>上传包文件
 
@@ -138,7 +138,7 @@ ms.locfileid: "94370023"
 - 在 **完整** 模式下，如果未在的 [mainTemplate.js](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md)中定义资源，则客户重新部署应用程序将导致删除托管资源组中的资源。
 - 在 **增量** 模式下，应用程序的重新部署会使现有资源保持不变。
 
-若要详细了解部署模式，请参阅 [Azure 资源管理器部署模式](/azure/azure-resource-manager/deployment-modes.md)。
+若要详细了解部署模式，请参阅 [Azure 资源管理器部署模式](/azure/azure-resource-manager/deployment-modes)。
 
 ### <a name="provide-a-notification-endpoint-url"></a>提供通知终结点 URL
 

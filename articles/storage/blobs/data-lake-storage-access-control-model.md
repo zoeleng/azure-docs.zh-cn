@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 099d79e63795a88a66ef1ec65aa1bfd97037191e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134145"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578642"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制模型
 
@@ -37,17 +37,17 @@ Azure RBAC 使用角色分配向 [安全主体](https://docs.microsoft.com/azure
 
 以下角色允许安全主体访问存储帐户中的数据。 
 
-|角色|描述|
+|角色|说明|
 |--|--|
 | [存储 Blob 数据所有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | 对 Blob 存储容器和数据的完全访问权限。 此访问权限允许安全主体设置项的所有者，以及修改所有项的 Acl。 |
 | [存储 Blob 数据参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | 读取、写入和删除对 Blob 存储容器和 blob 的访问权限。 此访问不允许安全主体设置项的所有权，但它可以修改安全主体拥有的项的 ACL。 |
 | [存储 Blob 数据读者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | 读取和列出 Blob 存储容器和 blob。 |
 
-[所有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)、[参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)、[读取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)者和[存储帐户参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)等角色允许安全主体来管理存储帐户，但不提供对该帐户中数据的访问权限。 但是，这些角色 (排除 **读取器**) 可以获取对存储密钥的访问权限，这些访问权限可用于各种客户端工具来访问数据。
+[所有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)、[参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)、[读取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)者和[存储帐户参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)等角色允许安全主体来管理存储帐户，但不提供对该帐户中数据的访问权限。 但是，这些角色 (排除 **读取器** ) 可以获取对存储密钥的访问权限，这些访问权限可用于各种客户端工具来访问数据。
 
 ## <a name="access-control-lists-acls"></a>访问控制列表 (ACL)
 
-Acl 使你能够对目录和文件应用 "更精细的访问" 级别。 *Acl*是包含一系列*ACL 条目*的权限构造。 每个 ACL 条目将安全主体与访问级别相关联。  若要了解详细信息，请参阅 [Azure Data Lake Storage Gen2 中 (acl) 的访问控制列表](data-lake-storage-access-control.md)。
+Acl 使你能够对目录和文件应用 "更精细的访问" 级别。 *Acl* 是包含一系列 *ACL 条目* 的权限构造。 每个 ACL 条目将安全主体与访问级别相关联。  若要了解详细信息，请参阅 [Azure Data Lake Storage Gen2 中 (acl) 的访问控制列表](data-lake-storage-access-control.md)。
 
 ## <a name="how-permissions-are-evaluated"></a>如何评估权限
 
@@ -71,38 +71,38 @@ Acl 使你能够对目录和文件应用 "更精细的访问" 级别。 *Acl*是
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>权限表：结合 Azure RBAC 和 ACL
 
-下表显示了如何合并 Azure RBAC 角色和 ACL 条目，以便安全主体可以执行 " **操作** " 列中列出的操作。 此表显示一个表示虚拟目录层次结构的每个级别的列。 容器的根目录有一列 (`/`) ，一个名为 **俄勒冈**的子目录，一个名为 " **上海**" 的俄勒冈目录的子目录，以及名为 " **Data.txt**" 的 "上" 目录中的文本文件。 在这些列中显示的是授予权限所需的 ACL 条目的 [简短](data-lake-storage-access-control.md#short-forms-for-permissions) 形式。 如果执行操作不需要 ACL 条目，则列中将**显示 (** _不适用_) 。
+下表显示了如何合并 Azure RBAC 角色和 ACL 条目，以便安全主体可以执行 " **操作** " 列中列出的操作。 此表显示一个表示虚拟目录层次结构的每个级别的列。 容器的根目录有一列 (`/`) ，一个名为 **俄勒冈** 的子目录，一个名为 " **上海** " 的俄勒冈目录的子目录，以及名为 " **Data.txt** " 的 "上" 目录中的文本文件。 在这些列中显示的是授予权限所需的 ACL 条目的 [简短](data-lake-storage-access-control.md#short-forms-for-permissions) 形式。 如果执行操作不需要 ACL 条目，则列中将 **显示 (** _不适用_ ) 。
 
 |    操作             | 分配的 RBAC 角色               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
-| Read Data.txt            |   存储 Blob 数据所有者        | 空值      | 空值      | 空值       | 空值    |  
-|                          |   存储 Blob 数据参与者  | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据读取者       | 空值      | 空值      | 空值       | 不可用    |
+| Read Data.txt            |   存储 Blob 数据所有者        | 不可用      | 不可用      | 不可用       | 不可用    |  
+|                          |   存储 Blob 数据参与者  | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据读取者       | 不可用      | 不可用      | 不可用       | 不可用    |
 |                          |   None                           | `--X`    | `--X`    | `--X`     | `R--`  |
-| Append to Data.txt       |   存储 Blob 数据所有者        | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据参与者  | 空值      | 空值      | 空值       | 空值    |
+| Append to Data.txt       |   存储 Blob 数据所有者        | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据参与者  | 不可用      | 不可用      | 不可用       | 不可用    |
 |                          |   存储 Blob 数据读取者       | `--X`    | `--X`    | `--X`     | `-W-`  |
 |                          |   无                           | `--X`    | `--X`    | `--X`     | `RW-`  |
-| Delete Data.txt          |   存储 Blob 数据所有者        | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据参与者  | 空值      | 空值      | 空值       | 空值    |
+| Delete Data.txt          |   存储 Blob 数据所有者        | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据参与者  | 不可用      | 不可用      | 不可用       | 不可用    |
 |                          |   存储 Blob 数据读取者       | `--X`    | `--X`    | `-WX`     | 不可用    |
-|                          |   None                           | `--X`    | `--X`    | `-WX`     | 空值    |
-| Create Data.txt          |   存储 Blob 数据所有者        | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据参与者  | 空值      | 空值      | 空值       | 空值    |
+|                          |   None                           | `--X`    | `--X`    | `-WX`     | 不可用    |
+| Create Data.txt          |   存储 Blob 数据所有者        | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据参与者  | 不可用      | 不可用      | 不可用       | 不可用    |
 |                          |   存储 Blob 数据读取者       | `--X`    | `--X`    | `-WX`     | 不可用    |
-|                          |   None                           | `--X`    | `--X`    | `-WX`     | 空值    |
-| List /                   |   存储 Blob 数据所有者        | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据参与者  | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据读取者       | 空值      | 空值      | 空值       | 不可用    |
-|                          |   None                           | `R-X`    | 空值      | 空值       | 空值    |
-| List /Oregon/            |   存储 Blob 数据所有者        | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据参与者  | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据读取者       | 空值      | 空值      | 空值       | 不可用    |
-|                          |   None                           | `--X`    | `R-X`    | 空值       | 空值    |
-| List /Oregon/Portland/   |   存储 Blob 数据所有者        | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据参与者  | 空值      | 空值      | 空值       | 空值    |
-|                          |   存储 Blob 数据读取者       | 空值      | 空值      | 空值       | 不可用    |
-|                          |   None                           | `--X`    | `--X`    | `R-X`     | 空值    |
+|                          |   None                           | `--X`    | `--X`    | `-WX`     | 不可用    |
+| List /                   |   存储 Blob 数据所有者        | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据参与者  | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据读取者       | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   None                           | `R-X`    | 不可用      | 不可用       | 不可用    |
+| List /Oregon/            |   存储 Blob 数据所有者        | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据参与者  | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据读取者       | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   None                           | `--X`    | `R-X`    | 不可用       | 不可用    |
+| List /Oregon/Portland/   |   存储 Blob 数据所有者        | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据参与者  | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   存储 Blob 数据读取者       | 不可用      | 不可用      | 不可用       | 不可用    |
+|                          |   None                           | `--X`    | `--X`    | `R-X`     | 不可用    |
 
 
 > [!NOTE] 
@@ -114,7 +114,7 @@ Acl 使你能够对目录和文件应用 "更精细的访问" 级别。 *Acl*是
 
 ## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Azure RBAC 角色分配和 ACL 条目的限制
 
-通过使用组，您不太可能超过每个订阅的角色分配的最大数目，以及每个文件或目录的 ACl 条目的最大数量。 下表介绍了这些限制。
+通过使用组，您不太可能超过每个订阅的角色分配的最大数目，以及每个文件或目录的 ACL 条目的最大数量。 下表介绍了这些限制。
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 

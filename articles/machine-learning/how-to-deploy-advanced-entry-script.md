@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b05891500ae5fd66e5ec2381066ccd1d26aa7ec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325557"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578053"
 ---
 # <a name="advanced-entry-script-authoring"></a>高级入口脚本创作
 
@@ -28,7 +28,10 @@ ms.locfileid: "93325557"
 
 ## <a name="automatically-generate-a-swagger-schema"></a>自动生成 Swagger 架构
 
-若要为 Web 服务自动生成架构，请在一个已定义的类型对象的构造函数中提供输入和/或输出的示例。 该类型和示例用于自动创建架构。 Azure 机器学习随后会在部署过程中创建 Web 服务的 [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) 规范。
+若要为 Web 服务自动生成架构，请在一个已定义的类型对象的构造函数中提供输入和/或输出的示例。 该类型和示例用于自动创建架构。 Azure 机器学习随后会在部署过程中创建 Web 服务的 [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) 规范。 
+
+> [!WARNING]
+> 对于示例输入或输出，不得使用敏感或私有数据。 AML 托管的推断的 Swagger 页公开示例数据。 
 
 当前支持以下类型：
 
@@ -328,7 +331,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ## <a name="next-steps"></a>后续步骤
 
-* [排查部署失败的问题](how-to-troubleshoot-deployment.md)
+* [排查部署失败问题](how-to-troubleshoot-deployment.md)
 * [部署到 Azure Kubernetes 服务](how-to-deploy-azure-kubernetes-service.md)
 * [创建客户端应用程序以使用 Web 服务](how-to-consume-web-service.md)
 * [更新 Web 服务](how-to-deploy-update-web-service.md)

@@ -4,19 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 5e0cff7bde6e80a776d694820ca7b69dafa7c0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d66e7f497f85141de172c59b67676e1bb93955e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648811"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578803"
 ---
-专用站点访问是指使应用只能从专用网络（例如 Azure 虚拟网络）进行访问。
+Azure 专用终结点是一种网络接口，你可通过该接口私密安全地连接到由 Azure 专用链接提供支持的服务。  专用终结点使用虚拟网络中的专用 IP 地址，从而将该服务有效地引入虚拟网络。
 
-* 配置服务终结点时，可在[高级](../articles/azure-functions/functions-premium-plan.md)、[消耗](../articles/azure-functions/functions-scale.md#consumption-plan)和[应用服务](../articles/azure-functions/functions-scale.md#app-service-plan)计划中获取专用站点访问。
-    * 可以在“平台功能” > “网络” > “配置访问限制” > “添加规则”下为每个应用配置服务终结点。 现在可以选择虚拟网络作为规则类型。
-    * 有关详细信息，请参阅[虚拟网络服务终结点](../articles/virtual-network/virtual-network-service-endpoints-overview.md)。
-    * 请记住，使用服务终结点时，即使配置了虚拟网络集成，你的函数也还是对 Internet 具有完全出站访问权限。
-* 还可在配置了内部负载均衡器 (ILB) 的应用服务环境中获取专用站点访问。 有关详细信息，请参阅[在应用服务环境中创建和使用内部负载均衡器](../articles/app-service/environment/create-ilb-ase.md)。
+你可以为 [高级](../articles/azure-functions/functions-premium-plan.md) 和 [应用服务](../articles/azure-functions/functions-scale.md#app-service-plan) 计划中托管的函数使用专用终结点。
 
-若要了解如何设置专用站点访问，请参阅[建立 Azure Functions 专用站点访问](../articles/azure-functions/functions-create-private-site-access.md)。
+为函数创建入站专用终结点连接时，还需要一个 DNS 记录来解析专用地址。  默认情况下，在使用 Azure 门户创建专用终结点时，将为你创建专用 DNS 记录。
+
+若要了解详细信息，请参阅 [使用 Web 应用的专用终结点](../articles/app-service/networking/private-endpoint.md)。

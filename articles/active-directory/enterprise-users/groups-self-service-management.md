@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4651d15fb765182c788733c0542480805387871
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f1730507c022d57495efa56c98215ff72d07e180
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374578"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578172"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>在 Azure Active Directory 中设置自助服务组管理 
 
@@ -49,10 +49,10 @@ ms.locfileid: "92374578"
 1. 将“限制对访问面板中组的访问”设置为“否” 。
 1. 如果将“用户可以在 Azure 门户中创建安全组”或“用户可以在 Azure 门户中创建 Microsoft 365 组”设置为
 
-    - **是**：Azure AD 组织中的所有用户均可以创建新的安全组，并可以将成员添加到这些组。 这些新组也会显示在其他所有用户的“访问面板”中。 如果组的策略设置允许，其他用户可以创建加入这些组的请求
-    - **否**：用户无法创建组，也无法更改其拥有的现有组。 不过，他们仍然可以管理这些组的成员身份，并审批其他用户加入其组的请求。
+    - **是** ：Azure AD 组织中的所有用户均可以创建新的安全组，并可以将成员添加到这些组。 这些新组也会显示在其他所有用户的“访问面板”中。 如果组的策略设置允许，其他用户可以创建加入这些组的请求
+    - **否** ：用户无法创建组，也无法更改其拥有的现有组。 不过，他们仍然可以管理这些组的成员身份，并审批其他用户加入其组的请求。
 
-你还可以使用“可以将成员分配为 Azure 门户中组所有者的所有者”和“可以将成员分配为 Azure 门户中组所有者的所有者”，来实现对用户的自助服务组管理的更精细访问控制。
+你还可以使用 **可在 Azure 门户中将成员分配为组所有者的所有者** ，为你的用户提供对自助服务组管理的更精细的访问控制。
 
 当用户可以创建组时，组织中的所有用户均可以创建新组，然后作为默认所有者将成员添加到这些组。 不能指定可以创建自己的组的个人。 指定个人只能用于将其他组成员设为组所有者。
 

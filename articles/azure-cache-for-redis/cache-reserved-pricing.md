@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543519"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578699"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>预付 Azure Cache for Redis 计算资源的预留容量
 
@@ -22,7 +22,7 @@ ms.locfileid: "92543519"
 可以在 [Azure 门户](https://portal.azure.com/)中为 Redis 保留容量购买 Azure 缓存。 购买保留容量：
 
 * 对于至少一个企业或个人订阅，你必须以即用即付费率作为所有者角色。
-* 对于企业订阅，必须在  。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
+* 对于企业订阅，必须在 [EA 门户](https://ea.azure.com/)中启用“添加预留实例”。 或者，如果禁用了该设置，则必须是订阅的 EA 管理员。
 * 对于云解决方案提供商 (CSP) 程序，只有管理代理或销售代理可以为 Redis 保留容量购买 Azure Cache。
 
 有关企业客户和即用即付客户如何针对预订购买付费的详细信息，请参阅 [了解企业注册的 azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 和 [了解即用即付订阅的 azure 保留使用情况](../cost-management-billing/reservations/understand-reserved-instance-usage.md)。
@@ -36,6 +36,8 @@ ms.locfileid: "92543519"
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>为 Redis 保留容量购买 Azure 缓存
+
+可以在 [Azure 门户](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/)中购买保留 VM 实例。 通过[提前付款或按月付款](../cost-management-billing/reservations/monthly-payments-reservations.md)的方式为预留付款。
 
 1. 登录 [Azure 门户](https://portal.azure.com/)。
 2. 选择“所有服务” > “预订”。

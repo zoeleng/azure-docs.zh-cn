@@ -1,6 +1,6 @@
 ---
-title: 通过 Azure PowerShell 在 Azure Stack Edge Pro GPU 设备上部署 Vm
-description: 介绍如何使用 Azure PowerShell 在 Azure Stack Edge Pro 设备上创建和管理虚拟机 (Vm) 。
+title: 通过 Azure PowerShell 脚本在 Azure Stack Edge Pro GPU 设备上部署 Vm
+description: 介绍如何使用 Azure PowerShell 脚本在 Azure Stack Edge Pro 设备上创建和管理 (Vm) 的虚拟机。
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd877a91c7c082ce7845394f2636857f33b7940f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890642"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578750"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>通过 Azure PowerShell 脚本在 Azure Stack Edge Pro GPU 设备上部署 Vm
 
@@ -21,7 +21,7 @@ ms.locfileid: "90890642"
 
 本教程介绍如何使用 Azure PowerShell 脚本在 Azure Stack Edge Pro 设备上创建和管理 VM。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 使用此脚本开始在 Azure Stack Edge Pro 设备上创建和管理 VM 之前，需要确保已完成以下步骤中列出的先决条件：
 
@@ -31,7 +31,7 @@ ms.locfileid: "90890642"
 
 2. 已启用计算网络接口。 此网络接口 IP 用于为 VM 部署创建虚拟交换机。 下列步骤将为你演示此过程：
 
-    1. 请参阅 **计算设置**。 选择将用于创建虚拟交换机的网络接口。
+    1. 请参阅 **计算设置** 。 选择将用于创建虚拟交换机的网络接口。
 
         > [!IMPORTANT] 
         > 只能为计算配置一个端口。

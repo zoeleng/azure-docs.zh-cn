@@ -4,12 +4,12 @@ description: '了解如何开发使用 C # 的 Azure 功能。'
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380957"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578767"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -17,12 +17,13 @@ ms.locfileid: "94380957"
 
 本文介绍了如何在 .NET 类库中使用 C# 开发 Azure Functions。
 
+作为 c # 开发人员，你可能还会对以下文章之一感兴趣：
+
+| 入门 | 概念| 引导式学习/示例 |
+| -- | -- | -- | 
+| <ul><li>[使用 Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[使用 Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[使用命令行工具](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[托管选项](functions-scale.md)</li><li>[性能注意事项](functions-best-practices.md)</li><li>[Visual Studio 开发](functions-develop-vs.md)</li><li>[依赖关系注入](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[创建无服务器应用程序](/learn/paths/create-serverless-applications/)</li><li>[C# 示例](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 Azure Functions 支持 C# 和 C# 脚本编程语言。 如果要寻找有关[在 Azure 门户中使用 C#](functions-create-function-app-portal.md) 的指南，请参阅 [C# 脚本 (.csx) 开发人员参考](functions-reference-csharp.md)。
-
-本文假设你已阅读了以下文章：
-
-* [Azure Functions 开发人员指南](functions-reference.md)
-* [Azure Functions Visual Studio 2019 工具](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>支持的版本
 
