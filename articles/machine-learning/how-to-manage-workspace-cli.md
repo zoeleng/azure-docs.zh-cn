@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: dc5dcf20b8c4fb1dae971b9bda4ef1a7552ce9d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534732"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576268"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>使用 Azure CLI 创建 Azure 机器学习工作区
 
@@ -103,7 +103,7 @@ az group create --name <resource-group-name> --location <location>
 }
 ```
 
-要详细了解如何使用资源组，请参阅 [az group](//cli/azure/group?preserve-view=true&view=azure-cli-latest)。
+要详细了解如何使用资源组，请参阅 [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest)。
 
 ### <a name="automatically-create-required-resources"></a>自动创建所需的资源
 
@@ -150,7 +150,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 * `--pe-auto-approval`：是否应自动批准与工作区的专用终结点连接。
 * `--pe-resource-group`：要在其中创建专用终结点的资源组。 必须是包含虚拟网络的同一个组。
 * `--pe-vnet-name`：要在其中创建专用终结点的现有虚拟网络。
-* `--pe-subnet-name`：要在其中创建专用终结点的子网的名称。 默认值是 `default`。
+* `--pe-subnet-name`：要在其中创建专用终结点的子网的名称。 默认值为 `default`。
 
 有关将专用终结点和虚拟网络与工作区结合使用的详细信息，请参阅 [虚拟网络隔离和隐私概述](how-to-network-security-overview.md)。
 

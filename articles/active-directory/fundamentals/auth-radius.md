@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 的 RADIUS 身份验证
-description: 实现此身份验证模式的体系结构指南
+description: 有关 Azure Active Directory 的 RADIUS 身份验证实现的体系结构指南。
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff6210741d87602b4f695633b11d2641a6bb6781
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 155b359c109de948ab9b9d6862ef7507ee76f619
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114163"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576806"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Azure Active Directory 的 RADIUS 身份验证
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) 启用基于 RADIUS 的系统的多重身份�
 
 Windows NPS 服务器会根据 Active Directory 对用户的凭据进行身份验证，然后将多重身份验证请求发送到 Azure。 然后，用户在其移动身份验证器上收到质询。 成功后，将允许客户端应用程序连接到该服务。 
 
-## <a name="usewhen"></a>何时使用： 
+## <a name="use-when"></a>何时使用： 
 
 需要向应用程序添加多重身份验证，如
 *  (VPN) 的虚拟专用网络
@@ -45,19 +45,19 @@ Windows NPS 服务器会根据 Active Directory 对用户的凭据进行身份�
 ![体系结构图](./media/authentication-patterns/radius-auth.png)
 
 
-## <a name="componentsofthe-system"></a>系统的组件 
+## <a name="components-of-the-system"></a>系统的组件 
 
-* **客户端应用程序 (VPN 客户端) **：向 RADIUS 客户端发送身份验证请求。
+* **客户端应用程序 (VPN 客户端)** ：向 RADIUS 客户端发送身份验证请求。
 
-* **RADIUS 客户端**：转换来自客户端应用程序的请求，并将其发送到安装了 NPS 扩展的 RADIUS 服务器。
+* **RADIUS 客户端** ：转换来自客户端应用程序的请求，并将其发送到安装了 NPS 扩展的 RADIUS 服务器。
 
-* **Radius 服务器**：连接 Active Directory 以执行 RADIUS 请求的主要身份验证。 成功后，会将请求传递到 Azure 多重身份验证 NPS 扩展。
+* **Radius 服务器** ：连接 Active Directory 以执行 RADIUS 请求的主要身份验证。 成功后，会将请求传递到 Azure 多重身份验证 NPS 扩展。
 
-* **NPS 扩展**：触发对 Azure 多重身份验证进行辅助身份验证的请求。 如果成功，NPS 扩展将向 RADIUS 服务器提供包含由 Azure 的安全令牌服务颁发的多重身份验证声明的安全令牌，从而完成身份验证请求。
+* **NPS 扩展** ：触发对 Azure 多重身份验证进行辅助身份验证的请求。 如果成功，NPS 扩展将向 RADIUS 服务器提供包含由 Azure 的安全令牌服务颁发的多重身份验证声明的安全令牌，从而完成身份验证请求。
 
-* **Azure 多重身份验证**：与 Azure AD 通信以检索用户的详细信息，并使用用户配置的验证方法执行辅助身份验证。
+* **Azure 多重身份验证** ：与 Azure AD 通信以检索用户的详细信息，并使用用户配置的验证方法执行辅助身份验证。
 
-## <a name="implementradiuswith-azure-ad"></a>通过 Azure AD 实现 RADIUS 
+## <a name="implement-radius-with-azure-ad"></a>通过 Azure AD 实现 RADIUS 
 
 * [使用 NPS 提供 Azure 多重身份验证功能](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
 

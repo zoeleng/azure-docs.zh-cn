@@ -14,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 08d3d5bcdace113d3319b5af6375fff21405159a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 21562bc17d4bfd4913c9085755d962382d207c79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790009"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566786"
 ---
-# <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>教程：在 Azure 虚拟机上 SQL Server 创建可用性组的先决条件
+# <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>教程：在 Azure 虚拟机中的 SQL Server 上创建可用性组的先决条件
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -33,11 +33,11 @@ ms.locfileid: "92790009"
 
 下图演示了在本教程中构建的内容。
 
-![可用性组 (availability group)](./media/availability-group-manually-configure-prerequisites-tutorial-/00-EndstateSampleNoELB.png)
+![可用性组](./media/availability-group-manually-configure-prerequisites-tutorial-/00-EndstateSampleNoELB.png)
 
 ## <a name="review-availability-group-documentation"></a>查看可用性组文档
 
-本教程假设你已基本了解 SQL Server AlwaysOn 可用性组。 如果你不熟悉此技术，请参阅 [Always On 可用性组 (SQL Server 概述) ](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)。
+本教程假设你已基本了解 SQL Server AlwaysOn 可用性组。 若不熟悉此技术，请参阅 [Always On 可用性组概述 (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)。
 
 
 ## <a name="create-an-azure-account"></a>创建 Azure 帐户
@@ -120,7 +120,7 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 
     请记下已创建的子网。
 
-   ![请注意已创建的子网](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![请记下已创建的子网](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. 若要创建第二个子网，请选择“+ 子网”。
 6. 在“添加子网”中，通过在“名称”下键入 **sqlsubnet** 配置子网。 Azure 自动指定一个有效的 **地址范围** 。 请确认此地址范围中至少有 10 个地址。 生产环境中可能需要更多地址。
@@ -196,7 +196,7 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 | **大小** |DS1_V2 |
 | **存储** | **使用托管磁盘** - **是** |
 | **虚拟网络** |autoHAVNET |
-| **子网** |admin |
+| **子网** |管理员 |
 | **公共 IP 地址** |*与 VM 同名* |
 | **网络安全组** |*与 VM 同名* |
 | **可用性集** |adavailabilityset </br>**容错域** :2 </br>**更新域** :2|
@@ -244,7 +244,7 @@ Azure 会创建虚拟机。
 12. 在“所有服务器任务详细信息”对话框的“操作”栏中，选择“将此服务器提升为域控制器”。  
 13. 在“Active Directory 域服务配置向导”中，使用以下值：
 
-    | **第** | 设置 |
+    | **Page** | 设置 |
     | --- | --- |
     | **部署配置** |**添加新林**<br/> **根域名** = corp.contoso.com |
     | **域控制器选项** |**DSRM 密码** = Contoso!0000<br/>**确认密码** = Contoso!0000 |
@@ -388,12 +388,16 @@ Azure 会创建虚拟机。
 
    本教程为虚拟机使用公共 IP 地址。 使用公共 IP 地址可以通过 Internet 直接远程连接到虚拟机，从而使配置过程更加轻松。 在生产环境中，Microsoft 建议仅使用专用 IP 地址，以减少 SQL Server 实例 VM 资源的漏洞涉及面。
 
+* **网络-每个服务器建议一个 NIC** 
+
+每台服务器 (群集节点上使用单个 NIC) 和单个子网。 Azure 网络具有物理冗余，这使得 Azure 虚拟机来宾群集上不需要其他 Nic 和子网。 群集验证报告将发出警告，指出节点只能在单个网络上访问。 可以在 Azure 虚拟机来宾故障转移群集上忽略此警告。
+
 ### <a name="create-and-configure-the-sql-server-vms"></a>创建并配置 SQL Server VM
 
 接下来，创建三台 VM - 两台 SQL Server VM 和一台用于其他群集节点的 VM。 若要创建每台 VM，请返回到“SQL-HA-RG”资源组，然后选择“添加”。 搜索相应的库项，选择“虚拟机”，然后选择“从库中”。 参考下表中的信息创建 VM：
 
 
-| 页 | VM1 | VM2 | VM3 |
+| Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | 选择相应的库项 |**Windows Server 2016 Datacenter** |**Windows Server 2016 上的 SQL Server 2016 SP1 Enterprise** |**Windows Server 2016 上的 SQL Server 2016 SP1 Enterprise** |
 | 虚拟机配置 **基本信息** |**名称** = cluster-fsw<br/>**用户名** = DomainAdmin<br/>**密码** = Contoso!0000<br/>**订阅** = 自己的订阅<br/>**资源组** = SQL-HA-RG<br/>**位置** = 你的 Azure 位置 |**名称** = sqlserver-0<br/>**用户名** = DomainAdmin<br/>**密码** = Contoso!0000<br/>**订阅** = 自己的订阅<br/>**资源组** = SQL-HA-RG<br/>**位置** = 你的 Azure 位置 |**名称** = sqlserver-1<br/>**用户名** = DomainAdmin<br/>**密码** = Contoso!0000<br/>**订阅** = 自己的订阅<br/>**资源组** = SQL-HA-RG<br/>**位置** = 你的 Azure 位置 |
@@ -424,7 +428,7 @@ Azure 会创建虚拟机。
 
 ## <a name="add-accounts"></a>添加帐户
 
-在每个 VM 上将安装帐户添加为管理员，将权限授予 SQL Server 中的安装帐户和本地帐户，并更新 SQL Server 服务帐户。 
+在每个 VM 上以管理员身份添加安装帐户，向 SQL Server 中的安装帐户和本地帐户授予权限，并更新 SQL Server 服务帐户。 
 
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>将 Corp\Install 用户添加为每个群集 VM 上的管理员
 
@@ -463,7 +467,7 @@ Azure 会创建虚拟机。
 
 1. 输入域管理员的网络凭据。
 
-1. 使用 (CORP\install) 的安装帐户。
+1. 使用安装帐户 (CORP\install)。
 
 1. 将该登录名设置为 **sysadmin** 固定服务器角色的成员。
 
@@ -531,6 +535,10 @@ Azure 会创建虚拟机。
   >[!NOTE]
   > 现在，此步骤以及实际将 SQL Server VM 加入故障转移群集的操作可通过 [Azure SQL VM CLI](./availability-group-az-commandline-configure.md) 和 [Azure 快速启动模板](availability-group-quickstart-template-configure.md)自动执行。
   >
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>优化故障转移群集网络阈值
+
+使用 SQL Server AlwaysOn 在 Azure Vm 中运行 Windows 故障转移群集节点时，建议将群集设置更改为更宽松的监视状态。  这会使群集更稳定、更可靠。  有关此功能的详细信息，请参阅 [IaaS WITH SQL AlwaysOn-优化故障转移群集网络阈值](/windows-server/troubleshoot/iaas-sql-failover-cluser)。
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a>在每个 SQL Server VM 上配置防火墙

@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108807"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566480"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 
@@ -26,7 +26,7 @@ Azure Monitor 现在支持[新型指标警报类型](./alerts-overview.md)，它
 ## <a name="metrics-and-dimensions-supported"></a>指标和维度支持
 新型指标警报支持针对使用维度的指标发出警报。 可以使用维度将指标筛选到适当级别。 所有受支持的指标以及适用的维度都可以从 [Azure Monitor - 指标资源管理器](./metrics-charts.md)中进行浏览和可视化。
 
-下面是新型警报支持的 Azure Monitor 指标源的完整列表：
+下面是较新警报支持的 Azure Monitor 指标源的完整列表：
 
 |资源类型  |支持维度 |多资源警报| 可用指标|
 |---------|---------|-----|----------|

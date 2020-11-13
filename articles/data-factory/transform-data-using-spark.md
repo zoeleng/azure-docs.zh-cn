@@ -1,6 +1,6 @@
 ---
 title: 使用 Spark 活动转换数据
-description: 了解如何通过使用 Spark 活动从 Azure 数据工厂管道运行 Spark 程序来转换数据。
+description: 了解如何使用 Spark 活动通过 Azure 数据工厂管道运行 Spark 程序来转换数据。
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: d8cc934ebe8b465bc43e37d0d3a3fc58feda8c0a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cac64b17e7aad9aa2bf88386f21d5f82b3013fa3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637711"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566769"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换数据
 > [!div class="op_single_selector" title1="选择所使用的数据工厂服务版本："]
@@ -59,7 +59,7 @@ ms.locfileid: "92637711"
 
 下表描述了 JSON 定义中使用的 JSON 属性：
 
-| properties              | 说明                              | 必选 |
+| 属性              | 说明                              | 必需 |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | 管道中活动的名称。    | 是      |
 | description           | 描述活动用途的文本。  | 否       |
@@ -79,15 +79,15 @@ ms.locfileid: "92637711"
 
 在 HDInsight 链接服务引用的 Azure Blob 存储中创建以下文件夹结构。 然后，将依赖文件上传到 **entryFilePath** 表示的根文件夹中的相应子文件夹。 例如，将 python 文件上传到根文件夹的 pyFiles 子文件夹，将 jar 文件上传到根文件夹的 jars 子文件夹。 在运行时，数据工厂服务需要 Azure Blob 存储中的以下文件夹结构：     
 
-| 路径                  | 说明                              | 必选 | 类型   |
+| 路径                  | 描述                              | 必需 | 类型   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`（根）            | Spark 作业在存储链接服务中的根路径 | 是      | Folder |
+| `.`（根）            | Spark 作业在存储链接服务中的根路径 | 是      | 文件夹 |
 | &lt;用户定义&gt; | 指向 Spark 作业入口文件的路径 | 是      | 文件   |
-| ./jars                | 此文件夹下的所有文件将上传并放置在群集的 java 类路径中 | 否       | Folder |
-| ./pyFiles             | 此文件夹下的所有文件将上传并放置在群集的 PYTHONPATH 中 | 否       | Folder |
-| ./files               | 此文件夹下的所有文件将上传并放置在执行器工作目录中 | 否       | Folder |
-| ./archives            | 此文件夹下的所有文件未经压缩 | 否       | Folder |
-| ./logs                | 包含 Spark 群集的日志的文件夹。 | 否       | Folder |
+| ./jars                | 此文件夹下的所有文件将上传并放置在群集的 java 类路径中 | 否       | 文件夹 |
+| ./pyFiles             | 此文件夹下的所有文件将上传并放置在群集的 PYTHONPATH 中 | 否       | 文件夹 |
+| ./files               | 此文件夹下的所有文件将上传并放置在执行器工作目录中 | 否       | 文件夹 |
+| ./archives            | 此文件夹下的所有文件未经压缩 | 否       | 文件夹 |
+| ./logs                | 包含 Spark 群集的日志的文件夹。 | 否       | 文件夹 |
 
 以下示例显示了一个在 HDInsight 链接服务引用的 Azure Blob 存储中包含两个 Spark 作业文件的存储。
 

@@ -7,12 +7,12 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 10/14/2020
 ms.author: victorh
-ms.openlocfilehash: 789a60c80d14301c107824d178a3566d358d287f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056389"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566565"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Azure Web 应用程序防火墙 (WAF) 策略概述
 
@@ -57,7 +57,7 @@ Adatum.com/payments URI 是需要注意的地方。 因此，请在该 URI 上�
 
 ## <a name="existing-waf-configurations"></a>现有的 WAF 配置
 
-所有新的 Web 应用程序防火墙的 WAF 设置 (自定义规则、托管规则集配置、排除项等。 ) 存在于 WAF 策略中。 如果你有现有的 WAF，则这些设置可能仍存在于你的 WAF 配置中。 有关移动到新 WAF 策略的详细信息，请将 [WAF Config 迁移到 WAF 策略](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy)。 
+所有新的 Web 应用程序防火墙的 WAF 设置 (自定义规则、托管规则集配置、排除项等。 ) 存在于 WAF 策略中。 如果你有现有的 WAF，则这些设置可能仍存在于你的 WAF 配置中。 有关移动到新 WAF 策略的详细信息，请将 [WAF Config 迁移到 WAF 策略](./migrate-policy.md)。 
 
 
 ## <a name="next-steps"></a>后续步骤

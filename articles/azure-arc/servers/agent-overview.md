@@ -3,19 +3,19 @@ title: Connected Machine Windows 代理概述
 description: 本文详细概述了可用的支持 Azure Arc 的服务器代理，它支持监视混合环境中托管的虚拟机。
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370162"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577577"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>支持 Azure Arc 的服务器代理概述
 
 通过启用了 Azure Arc 的服务器连接的计算机代理，你可以管理在公司网络或其他云提供商的 Azure 外部托管的 Windows 和 Linux 计算机。 本文提供该代理的详细概述、系统和网络要求以及不同的部署方法。
 
 >[!NOTE]
->从2020年9月版中启用了 Azure Arc 的服务器的通用版开始，Azure 连接的计算机代理的所有预发行版本 (代理，版本低于 1.0) 将于**2021 年2月2日****弃用**。  此时间范围允许你升级到版本1.0 或更高版本，然后，预发行的代理将无法再与启用了 Azure Arc 的服务器服务通信。
+>从2020年9月版中启用了 Azure Arc 的服务器的通用版开始，Azure 连接的计算机代理的所有预发行版本 (代理，版本低于 1.0) 将于 **2021 年2月2日****弃用** 。  此时间范围允许你升级到版本1.0 或更高版本，然后，预发行的代理将无法再与启用了 Azure Arc 的服务器服务通信。
 
 ## <a name="agent-component-details"></a>代理组件详细信息
 
@@ -58,9 +58,9 @@ Azure Connected Machine 代理正式支持以下版本的 Windows 和 Linux 操�
 
 ### <a name="required-permissions"></a>所需的权限
 
-* 若要将计算机加入，你必须是 **Azure Connected Machine 加入**角色的成员。
+* 若要将计算机加入，你必须是 **Azure Connected Machine 加入** 角色的成员。
 
-* 若要读取、修改、重新载入和删除计算机，你是 **Azure 连接的计算机资源管理员** 角色的成员。 
+* 若要读取、修改和删除计算机，你是 **Azure 连接的计算机资源管理员** 角色的成员。 
 
 ### <a name="azure-subscription-and-service-limits"></a>Azure 订阅和服务限制
 
@@ -68,7 +68,7 @@ Azure Connected Machine 代理正式支持以下版本的 Windows 和 Linux 操�
 
 ### <a name="transport-layer-security-12-protocol"></a>传输层安全性1.2 协议
 
-为了确保传输到 Azure 的数据的安全性，我们强烈建议你将计算机配置为使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管目前出于向后兼容，这些协议仍可正常工作，但我们**不建议使用**。
+为了确保传输到 Azure 的数据的安全性，我们强烈建议你将计算机配置为使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管目前出于向后兼容，这些协议仍可正常工作，但我们 **不建议使用** 。
 
 |平台/语言 | 支持 | 更多信息 |
 | --- | --- | --- |

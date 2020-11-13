@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 51249c68407f6b4ca7793b2fdeceab5aa4f7bc5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396883"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575979"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>排查应用程序网关中的应用服务问题
 
@@ -93,7 +93,7 @@ X-Powered-By: ASP.NET
 
 必须拥有一个自定义域并执行以下过程：
 
-- 将该域注册到应用服务的自定义域列表。 必须在自定义域中创建一个指向应用服务 FQDN 的 CNAME。 有关详细信息，请参阅[将现有的自定义 DNS 名称映射到 Azure 应用服务](//azure/app-service/app-service-web-tutorial-custom-domain)。
+- 将该域注册到应用服务的自定义域列表。 必须在自定义域中创建一个指向应用服务 FQDN 的 CNAME。 有关详细信息，请参阅[将现有的自定义 DNS 名称映射到 Azure 应用服务](/azure/app-service/app-service-web-tutorial-custom-domain)。
 
     ![应用服务自定义域列表](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

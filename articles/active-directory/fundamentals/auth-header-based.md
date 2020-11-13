@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 的基于标头的身份验证
-description: 实现此身份验证模式的体系结构指南
+description: 有关通过 Azure Active Directory 实现基于标头的身份验证的体系结构指南。
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114143"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577152"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Azure Active Directory 的基于标头的身份验证
 
@@ -34,17 +34,17 @@ ms.locfileid: "92114143"
 
 ## <a name="components-of-system"></a>系统组件
 
-* **用户**：访问应用程序代理提供的旧版应用程序。
+* **用户** ：访问应用程序代理提供的旧版应用程序。
 
-* **Web 浏览器**：用户与之交互的组件，用于访问应用程序的外部 URL。
+* **Web 浏览器** ：用户与之交互以访问应用程序外部 URL 的组件。
 
-* **Azure AD**：对用户进行身份验证。 
+* **Azure AD** ：对用户进行身份验证。 
 
-* **应用程序代理服务**：充当反向代理，用于将请求从用户发送到本地应用程序。 它驻留在 Azure AD 中，还可以强制实施任何条件性访问策略。
+* **应用程序代理服务** ：充当反向代理，用于将请求从用户发送到本地应用程序。 它驻留在 Azure AD 中，还可以强制实施任何条件性访问策略。
 
-* **应用程序代理连接器**：在 Windows server 上安装在本地，以提供与应用程序的连接。 它仅使用出站连接。 返回 Azure AD 的响应。
+* **应用程序代理连接器** ：在 Windows server 上安装在本地，以提供与应用程序的连接。 它仅使用出站连接。 返回 Azure AD 的响应。
 
-* **旧版应用**程序：从应用程序代理接收用户请求的应用程序。 旧应用程序接收所需的 HTTP 标头，以设置会话并返回响应。 
+* **旧版应用** 程序：从应用程序代理接收用户请求的应用程序。 旧应用程序接收所需的 HTTP 标头，以设置会话并返回响应。 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>实现基于标头的身份验证和 Azure AD
 

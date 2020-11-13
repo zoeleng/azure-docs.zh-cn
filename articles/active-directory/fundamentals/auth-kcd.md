@@ -1,6 +1,6 @@
 ---
 title: Kerberos 约束委派与 Azure Active Directory
-description: 实现此身份验证模式的体系结构指南
+description: 有关通过 Azure Active Directory 实现 Kerberos 约束委派的体系结构指南。
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114144"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577118"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Windows 身份验证-Kerberos 约束委派与 Azure Active Directory
 
@@ -36,19 +36,19 @@ Azure Active Directory 应用程序代理可以提供单一登录 (SSO) 和远�
 
 ## <a name="components-of-system"></a>系统组件
 
-* **用户**：访问应用程序代理提供的旧版应用程序。
+* **用户** ：访问应用程序代理提供的旧版应用程序。
 
-* **Web 浏览器**：用户与之交互的组件，用于访问应用程序的外部 URL。
+* **Web 浏览器** ：用户与之交互以访问应用程序外部 URL 的组件。
 
-* **Azure AD**：对用户进行身份验证。 
+* **Azure AD** ：对用户进行身份验证。 
 
-* **应用程序代理服务**：充当反向代理，用于将请求从用户发送到本地应用程序。 它位于 Azure AD。 应用程序代理还可以强制实施任何条件性访问策略。
+* **应用程序代理服务** ：充当反向代理，用于将请求从用户发送到本地应用程序。 它位于 Azure AD。 应用程序代理还可以强制实施任何条件性访问策略。
 
-* **应用程序代理连接器**：在 Windows server 上安装在本地，以提供与应用程序的连接。 返回 Azure AD 的响应。 与 Active Directory 执行 KCD 协商，模拟用户以获取应用程序的 Kerberos 令牌。
+* **应用程序代理连接器** ：在 Windows server 上安装在本地，以提供与应用程序的连接。 返回 Azure AD 的响应。 与 Active Directory 执行 KCD 协商，模拟用户以获取应用程序的 Kerberos 令牌。
 
-* **Active Directory**：将应用程序的 Kerberos 令牌发送到应用程序代理连接器。
+* **Active Directory** ：将应用程序的 Kerberos 令牌发送到应用程序代理连接器。
 
-* **旧版应用**程序：从应用程序代理接收用户请求的应用程序。 旧应用程序将响应返回到应用程序代理连接器。
+* **旧版应用** 程序：从应用程序代理接收用户请求的应用程序。 旧应用程序将响应返回到应用程序代理连接器。
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>通过 Azure AD (KCD) 实现 Windows 身份验证
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 的基于密码的身份验证
-description: 实现此身份验证模式的体系结构指南
+description: 有关通过 Azure Active Directory 实现基于密码的身份验证的体系结构指南。
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114084"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576926"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Azure Active Directory 的基于密码的身份验证
 
@@ -35,13 +35,13 @@ ms.locfileid: "92114084"
 
 ## <a name="components-of-system"></a>系统组件
 
-* **用户**：从 "我的应用程序" 或通过直接访问站点来访问基于格式的应用程序。 
+* **用户** ：从 "我的应用程序" 或通过直接访问站点来访问基于格式的应用程序。 
 
-* **Web 浏览器**：用户与之交互的组件，用于访问应用程序的外部 URL。 用户通过 MyApps 扩展访问基于窗体的应用程序。 
+* **Web 浏览器** ：用户与之交互以访问应用程序外部 URL 的组件。 用户通过 MyApps 扩展访问基于窗体的应用程序。 
 
-* **MyApps 扩展**：标识已配置的基于密码的 SSO 应用程序，并向登录表单提供凭据。 在 web 浏览器上安装 MyApps 扩展。 
+* **MyApps 扩展** ：标识已配置的基于密码的 SSO 应用程序，并向登录表单提供凭据。 在 web 浏览器上安装 MyApps 扩展。 
 
-* **Azure AD**：对用户进行身份验证。
+* **Azure AD** ：对用户进行身份验证。
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>实现 Azure AD 的基于密码的 SSO
 

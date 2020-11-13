@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure 虚拟 WAN 和安全中心与中国互连
-description: 了解如何使用 Azure 虚拟 WAN 和安全中心与中国互连。
+description: 了解如何使用 Azure 虚拟 WAN 和安全中心与中国互连
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2595eaf1e373c3a15014d0bc684d6e3914a665
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399102"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566633"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>使用 Azure 虚拟 WAN 和安全中心与中国互连
 
@@ -97,7 +97,7 @@ ExpressRoute Global Reach 在某些区域不可用。 例如，如果需要与�
 
 ## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Microsoft 365 的安全 Internet 分类
 
-另一个注意事项是网络安全性，以及中国、虚拟 WAN 建立的主干组件与客户主干网络之间的入口点的日志记录。 在大多数情况下，需要通过接入点连接到香港的 Internet 才能直接访问 Microsoft 边缘网络。为此，Microsoft 365 服务会使用 Azure Front Door 服务器。
+另一个注意事项是网络安全性，以及中国和虚拟 WAN 建立的主干组件与客户主干网之间的入口点的日志记录。 在大多数情况下，需要通过接入点连接到香港的 Internet 才能直接访问 Microsoft 边缘网络。为此，Microsoft 365 服务会使用 Azure Front Door 服务器。
 
 对于使用虚拟 WAN 的两种方案，可以利用 [Azure 虚拟 WAN 保护的中心](../firewall-manager/secured-virtual-hub.md)。 使用 Azure 防火墙管理器可将常规虚拟 WAN 中心更改为受保护的中心，然后在该中心内部署和管理 Azure 防火墙。
 
@@ -109,9 +109,9 @@ ExpressRoute Global Reach 在某些区域不可用。 例如，如果需要与�
 
 根据你选择如何与香港建立连接，整体体系结构可能略有不同。 本部分介绍采用不同 VPN 或 SDWAN 和/或 ExpressRoute 组合的三种可用体系结构。
 
-所有这些选项都使用 Azure 虚拟广域网保护的集线器来实现香港的直接 Microsoft 365 连接性。 这些体系结构还支持 [Microsoft 365 多地域](/microsoft-365/enterprise/microsoft-365-multi-geo) 的符合性要求，并在下一个 Azure 前门位置附近保存该流量。 因此，它也会改善中国境外的 Microsoft 365 使用。
+所有这些选项都利用由 Azure 虚拟 WAN 保护的中心在香港建立直接的 Microsoft 365 连接。 这些体系结构还支持 [Microsoft 365 多地域](/microsoft-365/enterprise/microsoft-365-multi-geo) 的符合性要求，并在下一个 Azure 前门位置附近保存该流量。 因此，它也会改善中国境外的 Microsoft 365 使用。
 
-将 Azure 虚拟 WAN 与 Internet 连接结合使用时，每个连接都可以受益于其他服务，例如 [Microsoft Azure 对等互连服务 (MAPS)](https://docs.microsoft.com/azure/peering-service/about)。 MAPS 的构建可以优化从第三方 Internet 服务提供商发往 Microsoft 全球网络的流量。
+将 Azure 虚拟 WAN 与 Internet 连接结合使用时，每个连接都可以受益于其他服务，例如 [Microsoft Azure 对等互连服务 (MAPS)](../peering-service/about.md)。 MAPS 的构建可以优化从第三方 Internet 服务提供商发往 Microsoft 全球网络的流量。
 
 ### <a name="option-1-sdwan-or-vpn"></a><a name="option-1"></a>方法 1：SDWAN 或 VPN
 
@@ -151,4 +151,4 @@ ExpressRoute Global Reach 在某些区域不可用。 例如，如果需要与�
 
 * [配置虚拟 WAN 保护的中心](../firewall-manager/secure-cloud-network.md)
 
-* [Azure 对等互连服务预览版概述](https://docs.microsoft.com/azure/peering-service/about)
+* [Azure 对等互连服务预览版概述](../peering-service/about.md)

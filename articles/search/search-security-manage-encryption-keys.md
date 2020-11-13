@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287148"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575860"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>在 Azure 认知搜索中配置客户管理的密钥以用于数据加密
 
@@ -41,7 +41,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 如果你使用的是其他区域，或在8月1日之前创建的服务，则 CMK 加密仅限于数据磁盘，不包括服务使用的临时磁盘。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 此方案中使用了以下工具和服务。
 
@@ -169,9 +169,11 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 > [!Important]
 > Azure 认知搜索中已加密的内容配置为使用特定 **版本** 的特定 Azure Key Vault 密钥。 如果你更改密钥或版本，必须先将索引或同义词映射更新为使用新的密钥/版本， **然后** 删除以前的密钥/版本。 否则会使该索引或同义词映射变得不可用，因为在失去密钥访问权限后无法解密内容。
 
+<a name="encrypt-content"></a>
+
 ## <a name="5---encrypt-content"></a>5 - 加密内容
 
-若要在索引或同义词映射上添加客户托管的密钥，请使用 REST API 或 SDK 来创建其定义包括的对象 `encryptionKey` 。
+若要在索引、数据源、技能组合、索引器或同义词图上添加客户托管的密钥，必须使用 [搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/) 或 SDK。 门户不会公开同义词映射或加密属性。 使用有效的 API 索引时，数据源、技能集、索引器和同义词映射支持顶级 **encryptionKey** 属性。
 
 此示例使用 REST API，其中包含 Azure Key Vault 和 Azure Active Directory 的值：
 
@@ -192,6 +194,12 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 > [!Note]
 > 这些 Key Vault 详细信息都不被视为机密，在 Azure 门户中浏览到相关的 Azure Key Vault 密钥页即可轻松检索这些信息。
 
+## <a name="example-index-encryption"></a>示例：索引加密
+
+使用 [Create Index Azure 认知搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)创建加密索引。 使用 `encryptionKey` 属性指定要使用的加密密钥。
+> [!Note]
+> 这些 Key Vault 详细信息都不被视为机密，在 Azure 门户中浏览到相关的 Azure Key Vault 密钥页即可轻松检索这些信息。
+
 ## <a name="rest-examples"></a>REST 示例
 
 此部分显示已加密索引和同义词映射的完整 JSON
@@ -202,7 +210,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 ```json
 {
- "name": "hotels",  
+ "name": "hotels",
  "fields": [
   {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
   {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
@@ -231,19 +239,19 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 ### <a name="synonym-map-encryption"></a>同义词映射加密
 
-通过 REST API 创建新的同义词映射的详细信息可在 " [创建同义词映射" (REST API ") ](/rest/api/searchservice/create-synonym-map)中找到，这里的唯一区别在于将加密密钥详细信息指定为同义词映射定义的一部分： 
+使用 [创建同义词映射 Azure 认知搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)创建加密同义词映射。 使用 `encryptionKey` 属性指定要使用的加密密钥。
 
 ```json
-{   
-  "name" : "synonymmap1",  
-  "format" : "solr",  
+{
+  "name" : "synonymmap1",
+  "format" : "solr",
   "synonyms" : "United States, United States of America, USA\n
   Washington, Wash. => WA",
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -252,6 +260,86 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 ```
 
 现在，可以发送同义词映射创建请求，然后开始正常使用同义词映射。
+
+## <a name="example-data-source-encryption"></a>示例：数据源加密
+
+使用 [Create Data source (Azure 认知搜索 REST API) ](https://docs.microsoft.com/rest/api/searchservice/create-data-source)创建加密数据源。 使用 `encryptionKey` 属性指定要使用的加密密钥。
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+你现在可以发送数据源创建请求，然后开始正常使用它。
+
+## <a name="example-skillset-encryption"></a>示例：技能组合加密
+
+使用 [Create 技能组合 Azure 认知搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset)创建加密的技能组合。 使用 `encryptionKey` 属性指定要使用的加密密钥。
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+你现在可以发送技能组合创建请求，然后开始正常使用它。
+
+## <a name="example-indexer-encryption"></a>示例：索引器加密
+
+使用 [Create 索引器 Azure 认知搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/create-indexer)创建加密索引器。 使用 `encryptionKey` 属性指定要使用的加密密钥。
+
+```json
+{
+  "name": "indexer1",
+  "dataSourceName": "datasource1",
+  "skillsetName": "skillset1",
+  "parameters": {
+      "configuration": {
+          "imageAction": "generateNormalizedImages"
+      }
+  },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+你现在可以发送索引器创建请求，然后开始正常使用它。
 
 >[!Important]
 > 尽管 `encryptionKey` 不能添加到现有搜索索引或同义词映射，但是可以通过为三个密钥保管库详细信息中的任意一个提供不同的值来进行更新 (例如，更新) 的密钥版本。 更改为新的 Key Vault 项或新的密钥版本时，在删除以前的 key\version. **之前** ，必须先更新使用该密钥的任何搜索索引或同义词映射，以使用新的 key\version 否则会使该索引或同义词映射变得不可用，因为在失去密钥访问权限后无法解密内容。 尽管稍后还原密钥保管库访问权限会还原内容访问。
@@ -265,7 +353,6 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 通常情况下，托管标识使搜索服务能够进行 Azure Key Vault 身份验证，而无需在代码中存储凭据 (ApplicationID 或 ApplicationSecret) 。 此类托管标识的生命周期与只包含一个托管标识的搜索服务的生命周期密切相关。 有关托管标识工作方式的详细信息，请参阅 [什么是 Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)。
 
 1. 使搜索服务成为受信任的服务。
-
    ![打开系统分配的托管标识](./media/search-managed-identities/turn-on-system-assigned-identity.png "打开系统分配的托管标识")
 
 1. 在 Azure Key Vault 中设置访问策略时，请选择 "受信任的搜索服务" 作为主体 (而不是 AD 注册应用程序) 。 按照 grant access key 权限步骤中的说明，将相同的权限分配 (多个获取、包装、解包) 。

@@ -2,28 +2,30 @@
 title: 如何启用 Azure VMware 解决方案资源
 description: 了解如何提交支持请求以启用 Azure VMware 解决方案资源。 你还可以在现有的 Azure VMware 解决方案私有云中请求更多节点。
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: dc90a322b5592ca7f400a82deca65ea753711c27
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/12/2020
+ms.openlocfilehash: 7c805e9e622f55593ff1fbb72a355d233b7e3618
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948725"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576372"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>如何启用 Azure VMware 解决方案资源
-了解如何提交支持请求以启用 Azure VMware 解决方案资源。 你还可以在现有的 Azure VMware 解决方案私有云中请求更多节点。
+了解如何提交支持请求以启用 [Azure VMware 解决方案](introduction.md) 资源。 你还可以在现有的 Azure VMware 解决方案私有云中请求更多节点。
 
 ## <a name="eligibility-criteria"></a>资格条件
 
-* 你需要与 Microsoft [ (EA) 的 Azure 企业协议 ](../cost-management-billing/manage/ea-portal-agreements.md) 。
-* 需要 Azure 订阅中的 Azure 帐户。
+需要 Azure 订阅中的 Azure 帐户。 Azure 订阅必须符合下列条件之一：
+
+* Azure 企业协议中的订阅 [ (EA ](../cost-management-billing/manage/ea-portal-agreements.md) 与 Microsoft) 。
+* 云解决方案提供商 (CSP) Azure 计划下的托管订阅。
 
 
-## <a name="enable-azure-vmware-solution-resource"></a>启用 Azure VMware 解决方案资源
+## <a name="enable-azure-vmware-solution-for-ea-customers"></a>为 EA 客户启用 Azure VMware 解决方案
 在创建 Azure VMware 解决方案资源之前，你需要提交一个支持票证来分配你的节点。 支持团队收到你的请求后，最多需要五个工作日来确认你的请求并分配你的节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。
 
 
-1. 在 Azure 门户中，在 " **帮助 + 支持**" 下创建 **[新的支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)** ，并为票证提供以下信息：
+1. 在 Azure 门户中，在 " **帮助 + 支持** " 下创建 **[新的支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)** ，并为票证提供以下信息：
    - **问题类型：** 技术方面
    - **订阅：** 选择你的订阅
    - **服务：** 所有服务 > Azure VMware 解决方案
@@ -56,3 +58,25 @@ ms.locfileid: "91948725"
    ```
 
    有关注册资源提供程序的其他方式，请参阅 [Azure 资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md)。
+
+## <a name="enable-azure-vmware-solution-for-csp-customers"></a>为 CSP 客户启用 Azure VMware 解决方案 
+
+Csp 必须使用 [Microsoft 合作伙伴中心](https://partner.microsoft.com) 为其客户启用 Azure VMware 解决方案。 
+
+1. 在 " **合作伙伴中心** "，选择 " **CSP** " 以访问 " **客户** " 区域。
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Microsoft 合作伙伴中心客户区域" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+
+1. 选择您的客户，然后选择 " **添加产品** "。
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Microsoft 合作伙伴中心" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+
+1. 选择 " **Azure 计划** "，然后选择 " **添加到购物车** "。 
+
+1. 查看并完成客户的 Azure 计划订阅的常规设置。 有关详细信息，请参阅 [Microsoft 合作伙伴中心文档](https://docs.microsoft.com/partner-center/azure-plan-manage)。
+
+配置 Azure 计划并将所需的 RBAC 权限设置为 CSP 后，你将使用类似的过程来启用 Azure 计划订阅的配额。 添加到 Azure 计划后，客户或合作伙伴管理员可通过 Azure 门户部署 Azure VMware 解决方案私有云。 
+
+## <a name="next-steps"></a>后续步骤
+
+启用 Azure VMware 解决方案资源并准备好适当的网络后，可以 [创建私有云](tutorial-create-private-cloud.md)。

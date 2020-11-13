@@ -1,6 +1,6 @@
 ---
 title: 从映像版本创建托管磁盘
-description: 使用共享映像库中的映像版本创建托管磁盘。
+description: 从共享映像库中的映像版本创建托管磁盘。
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 5873f28fed492f9ef906a9d7c1364d8ae07033a7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1fbdae2480caef5bf1d190124ca3be6c5b97a2f9
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336055"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576353"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>从映像版本创建托管磁盘
 
@@ -23,7 +23,7 @@ ms.locfileid: "93336055"
 
 ## <a name="cli"></a>CLI
 
-使用 [az sig image 版本列表](/cli/azure/sig/image-version.md#az_sig_image_version_list)列出库中的映像版本。 在此示例中，我们将查找属于 *myGallery* 映像库中的 *myImageDefinition* 映像定义的所有映像版本。
+使用 [az sig image 版本列表](/cli/azure/sig/image-version#az_sig_image_version_list)列出库中的映像版本。 在此示例中，我们将在 myGallery 映像库中查找 myImageDefinition 映像定义中包含的所有映像版本。
 
 ```azurecli-interactive
 az sig image-version list \
@@ -33,7 +33,7 @@ az sig image-version list \
    -o table
 ```
 
-将 `source` 变量设置为映像版本的 ID，然后使用 [az disk create](/cli/azure/disk.md#az_disk_create) 创建托管磁盘。 
+将 `source` 变量设置为映像版本的 ID，然后使用 [az disk create](//cli/azure/disk#az_disk_create) 创建托管磁盘。 
 
 在此示例中，我们将导出映像版本的 OS 磁盘，以在名为 *myResourceGroup* 的资源组中创建名为 *myManagedOSDisk**的托管* 磁盘。 
 
@@ -65,7 +65,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceId,ResourceGroupName
 ```
 
-获取所需的所有信息后，可以使用 [AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) 获取要使用的源映像版本，并将其分配给变量。 在本示例中，我们将在 `myResourceGroup` 资源组的 `myGallery` 源库中，获取 `myImageDefinition` 定义的 `1.0.0` 映像版本。
+获得全部所需信息后，可以使用 [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) 来获取要使用的源映像版本并将其分配给变量。 在本示例中，我们将在 `myResourceGroup` 资源组的 `myGallery` 源库中，获取 `myImageDefinition` 定义的 `1.0.0` 映像版本。
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -117,6 +117,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## <a name="next-steps"></a>后续步骤
 
-你还可以使用 [Azure CLI](image-version-managed-image-cli.md) 或 [PowerShell](image-version-managed-image-powershell.md)从托管磁盘创建映像版本。
+还可以使用 [Azure CLI](image-version-managed-image-cli.md) 或 [PowerShell](image-version-managed-image-powershell.md) 从托管磁盘创建映像版本。
 
 

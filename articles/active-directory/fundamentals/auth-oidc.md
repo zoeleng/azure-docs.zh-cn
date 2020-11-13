@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 的 OpenID Connect 身份验证
-description: 实现此身份验证模式的体系结构指南
+title: 使用 Azure Active Directory 进行 OpenID Connect 身份验证
+description: 有关通过 Azure Active Directory 实现 OpenID Connect 身份验证的体系结构指南。
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,38 +13,38 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f2ad3b5e86eebfc2d6f1f42f8a2ab0520144b5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114085"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576982"
 ---
-# <a name="openid-connect-authentication-with-azure-active-directory"></a>Azure Active Directory 的 OpenID Connect 身份验证
+# <a name="openid-connect-authentication-with-azure-active-directory"></a>使用 Azure Active Directory 进行 OpenID Connect 身份验证
 
-OpenID Connect (OIDC) 是基于 OAuth2 协议的身份验证协议 (用于授权) 。 OIDC 使用来自 OAuth2 的标准化消息流来提供标识服务。 
+OpenID Connect (OIDC) 是基于 OAuth2 协议（用于授权）的身份验证协议。 OIDC 使用来自 OAuth2 的标准化消息流来提供标识服务。 
 
-OIDC 的设计目标是 "尽可能简单、复杂的"。 OIDC 使开发人员能够跨网站和应用程序进行身份验证，而无需拥有和管理密码文件。 这为应用生成器提供了一种安全的方法，用于验证当前使用浏览器的用户身份或连接到应用程序的本机应用。
+OIDC 的设计目标是“使简单的事情保持简单，使复杂的事情成为可能”。 OIDC 使开发人员可以跨网站和应用对其用户进行身份验证，而不必拥有和管理密码文件。 这为应用生成器提供了一种安全的方式来验证当前使用浏览器或本机应用连接到该应用程序的的人员的身份。
 
-用户的身份验证必须在将检查用户的会话或凭据的标识提供程序上进行。 为此，需要一个受信任的代理。 本机应用通常会出于此目的启动系统浏览器。 嵌入的视图被视为不受信任，因为没有任何内容可阻止应用程序对用户密码进行侦听。 
+用户的身份验证必须在标识提供者中进行，用户的会话或凭据将在其中进行检查。 为此，需要一个受信任的代理。 本机应用通常会因此启动系统浏览器。 嵌入式视图被视为不受信任，因为没有任何设置可阻止应用对用户密码进行窥探。 
 
-除了身份验证外，还可以要求用户提供许可。 许可是用户允许应用程序访问受保护资源的显式权限。 同意与身份验证不同，因为只需为资源提供一次同意。 许可保持有效，直到用户或管理员手动撤消授予。 
+除了进行身份验证外，还可以要求用户提供同意。 同意是用户允许应用程序访问受保护资源的显式权限。 同意与身份验证不同，因为只需为资源提供一次同意。 同意将一直有效，直到用户或管理员手动撤销授权为止。 
 
 ## <a name="use-when"></a>何时使用
 
-需要用户同意和 web 登录。
+需要征得用户同意并进行 Web 登录。
 
 ![体系结构图](./media/authentication-patterns/oidc-auth.png)
 
 ## <a name="components-of-system"></a>系统组件
 
-* **User**：从应用程序请求服务。
+* **用户** ：从应用程序请求服务。
 
-* **受信任的代理**：用户与之交互的组件。 此受信任的代理通常是 web 浏览器。
+* **受信任的代理** ：用户与之交互的组件。 这个受信任的代理通常是 Web 浏览器。
 
-* **应用**程序：应用程序或资源服务器是资源或数据所在的位置。 它信任标识提供程序来安全地对受信任的代理进行身份验证和授权。 
+* **应用程序** ：应用程序或资源服务器是资源或数据所在的位置。 它信任标识提供者以安全方式对受信任的代理进行身份验证和授权。 
 
-* **Azure AD**： OIDC 提供程序，也称为标识提供程序，安全管理与用户的信息、其访问以及流中各方之间的信任关系有关的任何内容。 它将对用户的身份进行身份验证、授予和吊销对资源的访问权限，以及颁发令牌。 
+* **Azure AD** ：OIDC 提供程序（也称为标识提供者）会安全地管理与用户信息、用户访问权限及流中各方之间的信任关系有关的任何事情。 它会对用户的身份进行验证、授予和吊销对资源的访问权限，以及颁发令牌。 
 
 ## <a name="implement-oidc-with-azure-ad"></a>通过 Azure AD 实现 OIDC
 
@@ -56,6 +56,6 @@ OIDC 的设计目标是 "尽可能简单、复杂的"。 OIDC 使开发人员能
 
 * [在 Azure Active Directory B2C 中使用 OpenID Connect 进行 Web 登录](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect) 
 
-* [使用 OpenID Connect 和 Azure AD 保护应用程序的安全](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
+* [使用 OpenID Connect 和 Azure AD 保护应用程序](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
 
  

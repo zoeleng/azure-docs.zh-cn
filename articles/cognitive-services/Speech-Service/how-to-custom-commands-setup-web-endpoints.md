@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341951"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566242"
 ---
 # <a name="set-up-web-endpoints"></a>设置 Web 终结点
 
@@ -54,7 +54,7 @@ ms.locfileid: "92341951"
     > - 若要确保标头值在示例终结点中具有唯一性，请使用 applicationId 的前 8 位
     > - 在实际中，Web 终结点可以是管理设备的 [IoT 中心](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) 的终结点
 
-1. 单击“ **保存**”。
+1. 单击“ **保存** ”。
 
 ## <a name="call-web-endpoints"></a>调用 Web 终结点
 
@@ -125,14 +125,14 @@ ms.locfileid: "92341951"
     1. 将下面的 JSON 复制到“活动内容”
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
-    > [!div class="mx-imgBorder"]
-    > ![成功时发送活动](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
 现在，只有当对 Web 终结点的请求成功时才向客户端发送活动。
 
@@ -207,3 +207,4 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 
 > [!div class="nextstepaction"]
 > [以远程技能导出自定义命令应用程序](./how-to-custom-commands-integrate-remote-skills.md)
+

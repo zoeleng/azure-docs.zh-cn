@@ -2,14 +2,14 @@
 title: 常见问题
 description: 提供有关 Azure VMware 解决方案的一些常见问题的解答。
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487782"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577509"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>有关 Azure VMware 解决方案的常见问题
 
@@ -45,7 +45,7 @@ ms.locfileid: "94487782"
 
 #### <a name="can-i-migrate-vsphere-vms-from-on-premises-environments-to-azure-vmware-solution-private-clouds"></a>能否将 vSphere Vm 从本地环境迁移到 Azure VMware 解决方案私有云？
 
-是的。 如果满足标准跨 vCenter [vMotion 要求](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) ，则可以使用 VM 迁移和 VMotion 将 vm 移到私有云。
+是。 如果满足标准跨 vCenter [vMotion 要求](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) ，则可以使用 VM 迁移和 VMotion 将 vm 移到私有云。
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>本地环境中是否需要特定版本的 vSphere？
 
@@ -74,7 +74,7 @@ ms.locfileid: "94487782"
 Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet 公开 Azure VMware 解决方案。 不能使用 Azure 堡垒连接到 Azure VMware 解决方案 Vm，因为它们不是 Azure IaaS 对象。
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Azure 负载均衡器是否可用于 Azure VMware 解决方案 Vm？
-不是。 Azure 负载均衡器内部仅支持 Azure IaaS Vm。 Azure 负载均衡器不支持基于 IP 的后端池;只有 azure 虚拟机或虚拟机规模集对象（其中 Azure VMware 解决方案 Vm 不是 Azure 对象）。
+错误。 Azure 负载均衡器内部仅支持 Azure IaaS Vm。 Azure 负载均衡器不支持基于 IP 的后端池;只有 azure 虚拟机或虚拟机规模集对象（其中 Azure VMware 解决方案 Vm 不是 Azure 对象）。
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>是否可以使用现有 ExpressRoute 网关连接到 Azure VMware 解决方案？
 是的，可以使用现有的 ExpressRoute 网关连接到 Azure VMware 解决方案，前提是它不超过每个虚拟网络的四个 ExpressRoute 线路的限制。  但是，若要通过 ExpressRoute 从本地访问 Azure VMware 解决方案，必须具有 ExpressRoute Global Reach，因为 ExpressRoute 网关不提供其连接线路之间的传递路由。
@@ -119,7 +119,7 @@ Azure VMware 解决方案中的每个 ESXi 主机都配置了 4 25 Gbps Nic，�
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>SNMP 基础结构日志是否共享？
 
-不是。
+错误。
 
 ## <a name="hosts-clusters-and-private-clouds"></a>主机、群集和私有云
 
@@ -196,7 +196,7 @@ Azure VMware 解决方案中的每个 ESXi 主机都配置了 4 25 Gbps Nic，�
 
 
 #### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>Azure VMware 解决方案可以使用 Azure 虚拟 WAN 托管 ExpressRoute 网关吗？
-是的。
+是。
 
 #### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>能否通过 ExpressRoute Global Reach 上的 Azure 虚拟 WAN 在本地与 Azure VMware 解决方案之间建立传输连接？
 Azure 虚拟 WAN 不提供两个已连接的 ExpressRoute 线路和非虚拟 WAN ExpressRoute 网关之间的可传递路由。 使用 ExpressRoute Global Reach 允许在本地与 Azure VMware 解决方案之间建立连接，但会通过 Microsoft 的全球网络而不是虚拟 WAN 集线器进行连接。
@@ -229,9 +229,15 @@ Azure 虚拟 WAN 不提供两个已连接的 ExpressRoute 线路和非虚拟 WAN
 
 有关定价的一般问题，请参阅 Azure VMware 解决方案 [定价](https://azure.microsoft.com/pricing/details/azure-vmware) 页。 
 
+#### <a name="can-azure-vmware-solution-be-purchased-through-a-microsoft-csp"></a>Azure VMware 解决方案是否可以通过 Microsoft CSP 购买？
+
+是的，客户可以在由 CSP 管理的 Azure 订阅中部署 Azure VMware 解决方案。
+
 #### <a name="who-supports-azure-vmware-solution"></a>谁支持 Azure VMware 解决方案？
 
-Microsoft 提供对 Azure VMware 解决方案的支持。 你可以提交 [支持请求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
+Microsoft 提供对 Azure VMware 解决方案的支持。 你可以提交 [支持请求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。 
+
+对于 CSP 托管订阅，解决方案提供商提供的第一个级别的支持方式与 CSP 用于其他 Azure 服务的方式相同。
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>需要哪些帐户才能创建 Azure VMware 解决方案私有云？
 
@@ -246,6 +252,10 @@ Microsoft 和 Red Hat 共享集成的定位支持团队，为在 Azure 平台上
 Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX Enterprise Edition (EE)。 虽然适用于 Azure VMware 解决方案的 VMware HCX EE 处于预览状态，但它是免费的功能/服务，并受预览版服务条款和条件的约束。 在 VMware HCX EE 服务正式发布后，你会收到一个 30 天的通知，指出计费将会进行切换。 你可以关闭或退出服务。
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>如何实现请求 Azure VMware 解决方案的主机配额增加？
+
+对于 CSP 托管订阅，客户必须对合作伙伴执行请求，并且合作伙伴团队将与 Microsoft 合作，以便为订阅增加配额。 
+
+对于 EA 订阅，客户必须遵循此过程。
 
 * 你需要与 Microsoft [ (EA) 的 Azure 企业协议 ](../cost-management-billing/manage/ea-portal-agreements.md) 。
 * 需要 Azure 订阅中的 Azure 帐户。
@@ -283,9 +293,12 @@ Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX 
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
 
 
 ## Customer communication

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e074be91f343e04ba3049aea51f83f7f6364cdb0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564032"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576438"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>设置 Azure App Service 访问限制
 
@@ -179,7 +179,7 @@ ms.locfileid: "94564032"
 访问限制也适用于与应用服务计划具有相同功能的函数应用。 启用访问限制后，还会为任何不允许的 Ip 禁用 Azure 门户代码编辑器。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Functions 的访问限制](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)  
+[Azure Functions 的访问限制](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
 [应用程序网关与服务终结点的集成](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
