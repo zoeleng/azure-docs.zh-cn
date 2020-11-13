@@ -2128,7 +2128,7 @@
           href: myday-provision-tutorial.md
     - name: N - Z
       items:
-        - name: Netskope 管理员控制台
+        - name: Netskope 用户身份验证
           href: netskope-administrator-console-provisioning-tutorial.md
         - name: New Relic（按组织）
           href: new-relic-by-organization-provisioning-tutorial.md

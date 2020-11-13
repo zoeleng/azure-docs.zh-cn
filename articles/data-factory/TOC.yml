@@ -255,7 +255,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure 文件存储
           href: connector-azure-file-storage.md
-        - name: Azure SQL 数据库
+        - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Azure SQL 托管实例
           href: connector-azure-sql-managed-instance.md
@@ -451,6 +451,8 @@
           href: copy-activity-fault-tolerance.md
         - name: 数据一致性验证
           href: copy-activity-data-consistency.md
+        - name: 复制活动日志
+          href: copy-activity-log.md
         - name: 格式和压缩支持（旧版）
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: 转换数据

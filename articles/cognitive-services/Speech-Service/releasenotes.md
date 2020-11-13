@@ -11,20 +11,34 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 01c9cbe0438ee0efeece4c7e6b17e9607db4c4cc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2586b3aab9d1fb8e7ae12aea540df19ff6c37556
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356682"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553652"
 ---
 # <a name="speech-service-release-notes"></a>语音服务发行说明
+
+## <a name="text-to-speech-2020-october-release"></a>文本到语音转换 2020-10 月发行版
+
+**新功能**
+- 来自支持新 `newscast` 样式。 请参阅[如何在 SSML 中使用说话风格](speech-synthesis-markup.md#adjust-speaking-styles)。
+- **神经语音升级到 HiFiNet vocoder，其音频保真更高，合成速度更快** 。 这为其方案依赖于 wi-fi 音频或长交互的客户带来了益处，包括视频配音、音频书籍或在线教育材料。 [阅读有关此案例的详细信息，倾听我们的技术社区博客上的语音示例](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **[自定义语音](https://speech.microsoft.com/customvoice)  &  [音频内容创建工作室](https://speech.microsoft.com/audiocontentcreation)本地化为17个区域设置** 。 用户可以轻松地将 UI 切换为本地语言，以获得更好的体验。   
+- **音频内容创建** ：为 XiaoxiaoNeural 添加了样式度控件;优化自定义中断功能以包含50ms 的增量中断。 
+
+**一般性的 TTS 语音质量改进**
+- 提高了 (错误率降低的单词级别的发音准确度 `pl-PL` ： 51% ) 和 `fi-FI` (错误率降低： 58% ) 
+- 改进了 `ja-JP` 字典方案的单字阅读。 将发音错误减小了80%。
+- `zh-CN-XiaoxiaoNeural`：改进了情绪/CustomerService/Newscast/文字/生气风格的语音质量。
+- `zh-CN`：改进了 Erhua 发音和淡音和精致的空间诗体论，大大提高了 intelligibility。 
 
 ## <a name="speech-sdk-1140-2020-october-release"></a>Speech SDK 1.14.0： 2020-10 月发行版
 
 **注意** ：Windows 版语音 SDK 依赖于 Visual Studio 2015、2017 和 2019 的共享 Microsoft Visual C++ Redistributable。 可从[此处](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)下载。
 
-**新增功能**
+**新功能**
 - **Linux** ：添加了对 Debian 10 和 UBUNTU 20.04 LTS 的支持。
 - **Python/目标-C** ：添加了对 API 的支持 `KeywordRecognizer` 。 [此处](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics)提供了文档。
 - **C + +/Java/C #** ：添加了对 `HttpHeader` 通过设置任何键/值的支持 `ServicePropertyChannel::HttpHeader` 。
@@ -71,13 +85,25 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 ## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>语音 CLI (也称为 SPX) ： 2020-10 月发行版
 SPX 是用于在不编写代码的情况下使用 Azure 语音服务的命令行界面。 [在此处](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics)下载最新版本。 <br>
 
-**新增功能**
+**新功能**
 - `spx csr dataset upload --kind audio|language|acoustic` –从本地数据（而不仅仅是从 Url）创建数据集。
 - `spx csr evaluation create|status|list|update|delete` -将新模型与基准事实/其他模型进行比较。
 - `spx * list` –支持非分页体验 (不需要--top X--skip X) 。
 - `spx * --http header A=B` –支持自定义标头 (为 Office 添加了自定义身份验证) 。 
 - `spx help` –改进后的文本和反向文本颜色 (蓝色) 编码。
 
+## <a name="text-to-speech-2020-september-release"></a>文本到语音转换 2020-九月版本
+
+### <a name="new-features"></a>新增功能
+
+* **神经 TTS** 
+    * **扩展以支持18种新语言/区域设置。** 它们是保加利亚语、捷克语、德语 (奥地利) 、德语 (瑞士) 、希腊语、英语 (爱尔兰) 、法语 (瑞士) 、希伯来语、克罗地亚语、匈牙利语、印度尼西亚语、马来语、罗马尼亚语、斯洛伐克语、斯洛文尼亚语、泰卢固语和越南语。 
+    * **发布了14个新语音，以丰富现有语言的各种语言。** 请参阅 [完整语言和语音列表](language-support.md#neural-voices)。
+    * **和语音的新说话样式 `en-US` `zh-CN` 。** 来自是新的英语 (US) ，它支持聊天机器人、客户服务和助理样式。 在我们的 zh-chs voice，XiaoXiao 中提供了10个新的说话风格。 此外，XiaoXiao 神经语音支持 `StyleDegree` 优化。 请参阅[如何在 SSML 中使用说话风格](speech-synthesis-markup.md#adjust-speaking-styles)。
+
+* **容器：在公共预览版中发布的神经 TTS 容器，提供14种语言版本的16个声音。** 详细了解 [如何部署用于神经 TTS 的语音容器](speech-container-howto.md)  
+
+阅读 [Ignite 2020 的 TTS 更新的完整公告](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544) 
 
 ## <a name="text-to-speech-2020-august-release"></a>文本转语音 2020 年 8 月发行版
 
@@ -263,7 +289,7 @@ SPX 是用于在不编写代码的情况下使用 Azure 语音服务的命令行
     -   `spx help batch examples`
     -   `spx help csr examples`
 
-**新增功能**
+**新功能**
 -   **C \# ，c + +** ：演讲者识别预览版：此功能使演讲者识别 (说？ ) 并且扬声器验证 (是他们宣称的演讲者？ ) 。 首先[请参阅 "](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/speaker-recognition-overview)[演讲者识别基础" 文章](https://docs.microsoft.com/azure/cognitive-services/speech-service/speaker-recognition-basics)或[API 参考文档](https://docs.microsoft.com/rest/api/speakerrecognition/)。
 
 **Bug 修复**

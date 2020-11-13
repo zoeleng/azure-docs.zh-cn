@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 131deabfbd29e4d55a3f34252e3ba68261872ca0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ae89091eb57eade39f8b7581fc5df7ad449e8590
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785487"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553550"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>使用 Azure Site Recovery 将 SQL Server VM 移到 Azure 中的另一个区域
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -73,7 +73,7 @@ ms.locfileid: "92785487"
 
 以下步骤演示如何使用 Azure Site Recovery 将数据复制到目标区域。 在源区域以外的任何区域中创建恢复服务保管库。 
 
-1. 登录 [Azure 门户](https://portal.azure.com)。 
+1. 登录到 [Azure 门户](https://portal.azure.com)。 
 1. 从导航窗格的左上角选择“创建资源”。 
 1. 选择“IT 和管理工具”，然后选择“备份和 Site Recovery” 。 
 1. 在“基本”选项卡上的“项目详细信息”下，在目标区域中创建新的资源组或在目标区域中选择现有的资源组 。 
@@ -131,7 +131,7 @@ ms.locfileid: "92785487"
 1. 可以从上一节中监视故障转移测试时查看的同一“Site Recovery 作业”页监视故障转移过程。 
 1. 该作业完成后，检查 SQL Server VM 是否按预期显示在目标区域中。 
 1. 导航回保管库，依次选择“复制的项”、“SQL Server VM”和“提交”以完成到目标区域的移动过程 。 请等待提交作业完成。 
-1. 将 SQL Server VM 注册到 SQL VM 资源提供程序，以在 Azure 门户中启用 SQL 虚拟机可管理性以及与资源提供程序关联的功能。 有关详细信息，请参阅 [向 SQL VM 资源提供程序注册 SQL Server VM](sql-vm-resource-provider-register.md)。 
+1. 向 SQL IaaS 代理扩展注册 SQL Server VM，以在 Azure 门户中启用 **SQL 虚拟机** 可管理性以及与该扩展相关联的功能。 有关详细信息，请参阅 [向 SQL IaaS 代理扩展注册 SQL Server VM](sql-agent-extension-manually-register-single-vm.md)。 
 
   > [!WARNING]
   > 只有应用一致的快照才能保证 SQL Server 数据一致性。 最新处理的快照不能用于 SQL Server 故障转移，因为故障恢复快照不能保证 SQL Server 数据一致性。 

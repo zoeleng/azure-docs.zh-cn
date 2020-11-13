@@ -1,7 +1,7 @@
 ---
-title: 将数据导入设计器
+title: 将数据导入设计器中
 titleSuffix: Azure Machine Learning
-description: 了解如何将数据从各种数据源导入 Azure 机器学习设计器中。
+description: 了解如何使用 Azure 机器学习数据集和导入数据模块将数据导入到 Azure 机器学习设计器中。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985613"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554710"
 ---
-# <a name="import-data-into-azure-machine-learning-designer"></a>将数据导入 Azure 机器学习设计器
+# <a name="import-data-into-azure-machine-learning-designer"></a>将数据导入到 Azure 机器学习设计器
 
 在本文中，你将了解如何在设计器中导入自己的数据，以创建自定义解决方案。 可以通过两种方式将数据导入到设计器中： 
 
 * **Azure 机器学习数据集** - 在 Azure 机器学习中注册 [数据集](concept-data.md#datasets)，以启用可帮助你管理数据的高级功能。
-* **导入数据模块** - 使用[导入数据](algorithm-module-reference/import-data.md)模块直接访问联机数据源中的数据。
+* **导入数据模块** - 使用 [导入数据](algorithm-module-reference/import-data.md)模块直接访问联机数据源中的数据。
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -38,27 +38,27 @@ ms.locfileid: "90985613"
 
 1. 选择输出你要注册的数据的模块。
 
-1. 在 "属性" 窗格中，选择 "**输出 + 日志**" "  >  **注册数据集**"。
+1. 在“属性”窗格中，选择“输出 + 日志” > “注册数据集” 。
 
     ![屏幕截图，其中显示了如何导航到“注册数据集”选项](media/how-to-designer-import-data/register-dataset-designer.png)
 
-如果模块输出数据为表格格式，则必须选择将输出注册为 **文件数据集** 或 **表格数据集**。
+如果模块输出数据为表格格式，则必须选择将输出注册为“文件数据集”或“表格数据集” 。
 
- - **文件数据集** 将模块的输出文件夹注册为文件数据集。 Output 文件夹包含设计器在内部使用的数据文件和元文件。 如果要继续在设计器中使用已注册的数据集，请选择此选项。 
+ - 文件数据集将模块的输出文件夹注册为文件数据集。 输出文件夹包含设计器在内部使用的数据文件和元文件。 如果要继续在设计器中使用已注册的数据集，请选择此选项。 
 
- - **表格数据集** 仅将模块的输出数据文件注册为表格数据集。 此格式可以由其他工具轻松使用，例如自动机器学习或 Python SDK。 如果计划在设计器外使用注册的数据集，请选择此选项。  
+ - 表格数据集仅将模块的输出数据文件注册为表格数据集。 自动机器学习或 Python SDK 等其他工具可轻松使用此格式。 如果计划在设计器之外使用已注册的数据集，请选择此选项。  
 
 
 
 ### <a name="use-a-dataset"></a>使用数据集
 
-可在模块面板的 " **数据集**" 下找到已注册的数据集。 若要使用某个数据集，请将其拖放到管道画布上。 然后，将该数据集的输出端口连接到画布中的其他模块。 
+可在模块面板中的“数据集”下找到已注册的数据集。 若要使用某个数据集，请将其拖放到管道画布上。 然后，将该数据集的输出端口连接到画布中的其他模块。 
 
 ![屏幕截图，其中显示了设计器面板中已保存数据集的位置](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> 设计器支持 [数据集版本控制](how-to-version-track-datasets.md)。 在数据集模块的属性面板中指定数据集版本。
+> 设计器支持[数据集版本控制](how-to-version-track-datasets.md)。 在数据集模块的属性面板中指定数据集版本。
 
 
 ## <a name="import-data-using-the-import-data-module"></a>使用“导入数据”模块导入数据
@@ -107,4 +107,4 @@ ms.locfileid: "90985613"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中学习设计器基础知识 [：通过设计器预测汽车价格](tutorial-designer-automobile-price-train-score.md)。
+请通过[教程：使用设计器预测汽车价格](tutorial-designer-automobile-price-train-score.md)了解设计器的基础知识。

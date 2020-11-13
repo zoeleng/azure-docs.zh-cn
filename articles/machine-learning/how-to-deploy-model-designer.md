@@ -1,7 +1,7 @@
 ---
 title: 使用工作室部署在设计器中训练的模型
 titleSuffix: Azure Machine Learning
-description: 使用 Azure 机器学习工作室部署在设计器中训练的模型。
+description: 使用 Azure 机器学习 studio 部署机器学习模型，而无需编写代码。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927577"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554676"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>使用工作室部署在设计器中训练的模型
 
@@ -26,7 +26,7 @@ ms.locfileid: "92927577"
 
 1. 注册已训练的模型。
 1. 下载模型的输入脚本和 conda 依赖项文件。
-1.  (可选) 配置项脚本。
+1. （可选）配置入口脚本。
 1. 将模型部署到计算目标。
 
 还可以直接在设计器中部署模型，以跳过模型注册和文件下载步骤。 这对于快速部署非常有用。 有关详细信息，请参阅[通过设计器部署模型](tutorial-designer-automobile-price-deploy.md)。
@@ -37,14 +37,14 @@ ms.locfileid: "92927577"
 
 * [一个 Azure 机器学习工作区](how-to-manage-workspace.md)
 
-* 包含以下模块之一的已完成训练管道：
+* 已完成的包含下列模块之一的训练管道：
     - [“定型模型”模块](./algorithm-module-reference/train-model.md)
     - [“训练异常情况检测模型”模块](./algorithm-module-reference/train-anomaly-detection-model.md)
-    - [训练聚类模型模块](./algorithm-module-reference/train-clustering-model.md)
-    - [训练 Pytorch 模型模块](./algorithm-module-reference/train-pytorch-model.md)
-    - [训练 SVD 推荐器模块](./algorithm-module-reference/train-svd-recommender.md)
-    - [定型 Vowpal Wabbit 模块](./algorithm-module-reference/train-vowpal-wabbit-model.md)
-    - [训练范围 & 深度模型模块](./algorithm-module-reference/train-wide-and-deep-recommender.md)
+    - [“训练聚类分析模型”模块](./algorithm-module-reference/train-clustering-model.md)
+    - [“训练 Pytorch 模型”模块](./algorithm-module-reference/train-pytorch-model.md)
+    - [“训练 SVD 推荐器”模块](./algorithm-module-reference/train-svd-recommender.md)
+    - [“训练 Vowpal Wabbit 模型”模块](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [“训练宽度和深度模型”模块](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## <a name="register-the-model"></a>注册模型
 
@@ -146,7 +146,7 @@ print(f'Inference result = {score_result}')
 
 ### <a name="consume-computer-vision-related-real-time-endpoints"></a>使用与计算机视觉相关的实时终结点
 
-使用与计算机视觉相关的实时终结点时，需要将图像转换为字节，因为 web 服务仅接受字符串作为输入。 下面是示例代码：
+使用与计算机视觉相关的实时终结点时，需要将图像转换为字节，因为 Web 服务仅接受字符串作为输入。 以下是示例代码：
 
 ```python
 import base64

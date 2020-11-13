@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093062"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553686"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions 的零停机时间部署
 
@@ -54,7 +54,7 @@ Durable Functions 的[可靠执行模型](./durable-functions-orchestrations.md)
 
 1. 对于每个槽，请创建新的应用设置，例如 `DurableManagementStorage`。 将其值设置为不同存储帐户的连接字符串。 Durable Functions 扩展使用这些存储帐户来实现[可靠执行](./durable-functions-orchestrations.md)。 对每个槽使用单独的存储帐户。 不要将此设置标记为部署槽设置。
 
-1. 在函数应用的 [host.json 文件的 durableTask 节](durable-functions-bindings.md#hostjson-settings)中，将 `azureStorageConnectionStringName` 指定为在步骤 3 中创建的应用设置的名称。
+1. 在函数应用host.js的 [ "durableTask" 部分](durable-functions-bindings.md#hostjson-settings)中，指定 " `connectionStringName` (耐用的 2.x) " 或 " `azureStorageConnectionStringName` (持久的 1.x) " 作为在步骤3中创建的应用设置的名称。
 
 下图显示了部署槽和存储帐户的所述配置。 在这种可能的部署前方案中，函数应用版本 2 在生产槽中运行，而版本 1 保留在过渡槽中。
 
@@ -71,7 +71,10 @@ Durable Functions 的[可靠执行模型](./durable-functions-orchestrations.md)
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }
@@ -132,7 +135,7 @@ Azure Pipelines 会在部署开始之前检查函数应用是否存在正在运�
 
 此策略最复杂。 但是，它可用于在运行的业务流程之间没有时间间隔的函数应用。
 
-对于此策略，必须在 Durable Functions 的前面创建一个应用程序路由器。** 此路由器可通过 Durable Functions 实现。 路由器的责任如下：
+对于此策略，必须在 Durable Functions 的前面创建一个应用程序路由器。 此路由器可通过 Durable Functions 实现。 路由器的责任如下：
 
 * 部署函数应用。
 * 管理 Durable Functions 的版本。 

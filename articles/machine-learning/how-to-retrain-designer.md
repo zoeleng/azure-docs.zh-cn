@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 机器学习设计器重新定型模型
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure 机器学习设计器中通过已发布的管道重新训练模型。
+description: 了解如何在 Azure 机器学习设计器中通过已发布的管道重新训练机器学习模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905681"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554795"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>与 Azure 机器学习设计器重新定型模型
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>使用 Azure 机器学习设计器重新训练模型
 
 
 本操作说明文章介绍了如何使用 Azure 机器学习设计器重新训练机器学习模型。 你将使用已发布的管道自动执行工作流，并设置参数以使用新数据训练模型。 
@@ -33,15 +33,15 @@ ms.locfileid: "90905681"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 机器学习工作区
-* 完成本操作方法系列的第1部分， [在设计器中转换数据](how-to-designer-transform-data.md)
+* 请完成此操作说明系列的第 1 部分：[在设计器中转换数据](how-to-designer-transform-data.md)
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-本文还假定您已了解如何在设计器中生成管道。 如需了解引导式简介，请完成[教程](tutorial-designer-automobile-price-train-score.md)。 
+本文还假设你对在设计器中生成管道有一定的了解。 如需了解引导式简介，请完成[教程](tutorial-designer-automobile-price-train-score.md)。 
 
 ### <a name="sample-pipeline"></a>示例管道
 
-本文中使用的管道是设计器主页中的示例管道 [收入预测](samples-designer.md#classification) 的更改版本。 该管道使用[导入数据](algorithm-module-reference/import-data.md)模块，而不是用于演示如何使用自己的数据训练模型的示例数据集。
+本文中使用的管道是设计器主页中的修改版示例管道：[收入预测](samples-designer.md#classification)。 该管道使用[导入数据](algorithm-module-reference/import-data.md)模块，而不是用于演示如何使用自己的数据训练模型的示例数据集。
 
 ![屏幕截图显示了修改后的示例管道，并使用方框突出显示“导入数据”模块](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "90905681"
 设计器会将所有管道输出（包括定型的模型）保存到默认工作区存储帐户。 你也可以直接在设计器中访问定型的模型：
 
 1. 等待管道完成运行。
-1. 选择**训练模型**模块。
+1. 选择 **训练模型** 模块。
 1. 在画布右侧的模块详细信息窗格中，选择“输出 + 日志”。
 1. 在“其他输出”中可以找到模型以及运行日志。
 1. 或者，也可选择“查看输出”图标。 在这里，可以按照对话框中的说明直接导航到数据存储。 
@@ -102,9 +102,9 @@ ms.locfileid: "90905681"
 
 现在你已经有了一个已发布的训练管道，接下来就可以使用它来根据新数据重新训练模型。 你可以从工作室工作区或以编程方式通过管道终结点提交运行。
 
-### <a name="submit-runs-by-using-the-studio-portal"></a>使用 studio 门户提交运行
+### <a name="submit-runs-by-using-the-studio-portal"></a>使用工作室门户提交运行
 
-使用以下步骤从 studio 门户提交参数化管道终结点：
+使用以下步骤通过工作室门户提交参数化管道终结点运行：
 
 1. 转到工作室工作区中的“终结点”页。
 1. 选择“管道终结点”选项卡。然后，选择管道终结点。

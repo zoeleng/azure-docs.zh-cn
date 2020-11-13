@@ -180,6 +180,21 @@
               href: app/pricing.md
             - name: 日志数据使用情况和成本
               href: platform/manage-cost-storage.md
+    - name: Azure Monitor 指标
+      items:
+        - name: 概述
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: 指标资源管理器
+          items:
+            - name: 指标资源管理器入门
+              href: platform/metrics-getting-started.md
+            - name: 指标资源管理器的高级功能
+              href: platform/metrics-charts.md
+            - name: 指标图表示例
+              href: platform/metric-chart-samples.md
+            - name: 排查指标图表问题
+              href: platform/metrics-troubleshoot.md
     - name: Azure Monitor 日志
       items:
         - name: 概述
@@ -262,21 +277,10 @@
               href: platform/logs-export-logic-app.md
             - name: 使用数据资源管理器查询已导出的数据
               href: platform/azure-data-explorer-query-storage.md
-    - name: Azure Monitor 指标
-      items:
-        - name: 概述
-          displayname: Metrics
-          href: platform/data-platform-metrics.md
-        - name: 指标资源管理器
-          items:
-            - name: 指标资源管理器入门
-              href: platform/metrics-getting-started.md
-            - name: 指标资源管理器的高级功能
-              href: platform/metrics-charts.md
-            - name: 指标图表示例
-              href: platform/metric-chart-samples.md
-            - name: 排查指标图表问题
-              href: platform/metrics-troubleshoot.md
+            - name: 发送到 Excel
+              href: log-query/log-excel.md
+            - name: 发送到 Power BI
+              href: log-query/log-powerbi.md
     - name: 平台日志
       items:
         - name: 概述
@@ -575,12 +579,16 @@
                   displayname: 'ilogger, logging, log'
                   href: app/ilogger.md
             - name: ASP.NET
-              displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-              href: app/asp-net.md
-            - name: 非 HTTP 应用/后台应用
+              items:
+                - name: ASP.NET 应用监视
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: 排查 ASP.NET 问题
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: 非 HTTP/后台应用
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: .NET 控制台
+            - name: ASP.NET 控制台
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -590,18 +598,10 @@
                   href: app/java-get-started.md
                 - name: 日志跟踪
                   href: app/java-trace-logs.md
-                - name: Unix 指标
-                  href: app/java-collectd.md
                 - name: 依赖项
                   href: app/java-agent.md
                 - name: 筛选遥测数据
                   href: app/java-filter-telemetry.md
-                - name: Micrometer 指标
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Spring Boot 应用
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                 - name: 疑难解答
                   href: app/java-troubleshoot.md
             - name: Node.js
@@ -637,8 +637,6 @@
             - name: Application Insights API 摘要
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
-            - name: 排查 ASP.NET 问题
-              href: app/asp-net-troubleshoot-no-data.md
             - name: 删除 Application Insights
               href: app/remove-application-insights.md
         - name: 无代码监视
@@ -1241,6 +1239,8 @@
               href: app/release-notes.md
             - name: Web 应用扩展
               href: app/web-app-extension-release-notes.md
+            - name: 快照调试器
+              href: app/snapshot-collector-release-notes.md
         - name: 数据模型
           items:
             - name: 概述
@@ -1323,6 +1323,11 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault 分析（已弃用）
           href: insights/azure-key-vault-deprecated.md
+        - name: Unix 指标
+          href: app/java-collectd.md
+        - name: Micrometer 指标
+          displayname: java
+          href: app/micrometer-java.md
         - name: 视图
           items:
             - name: 视图设计器
