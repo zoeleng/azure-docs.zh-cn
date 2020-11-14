@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: b8c12048283cb8cc4220cb325762b272cde4a68f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92541309"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
@@ -45,9 +45,9 @@ ms.locfileid: "92541309"
 
 * **资源组：** TestRG1
 * **名称：** VNet1
-* **区域：** (us) 美国东部
+* **区域：** （美国）美国东部
 * **IPv4 地址空间：** 10.1.0.0/16
-* **子网名称：** 前端
+* **子网名称：** FrontEnd
 * **子网地址空间：** 10.1.0.0/24
 
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
@@ -71,13 +71,13 @@ ms.locfileid: "92541309"
 * **网关类型：** VPN
 * **VPN 类型：** 基于路由
 * **SKU：** VpnGw1
-* **生成：** Generation1.xml
+* **代系：** 第 1 代
 * **虚拟网络：** VNet1
 * **网关子网地址范围：** 10.1.255.0/27
-* **公共 IP 地址：** 新建
-*  公共 IP 地址名称：VNet1GWpip
-* **启用主动-主动模式：** Disabled
-* **配置 BGP：** Disabled
+* **公共 IP 地址** ：新建
+* 公共 IP 地址名称：VNet1GWpip
+* **启用主动-主动模式：** 已禁用
+* **配置 BGP：** 已禁用
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 

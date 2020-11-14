@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593070"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628112"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 电话选项中的身份验证方法
 
@@ -56,6 +56,8 @@ Microsoft 不保证相同号码传送的短信或基于语音的 Azure 多重身
 
 如果在使用 Azure AD 的手机身份验证时出现问题，请查看以下故障排除步骤：
 
+* "你已经达到了对验证调用的限制" 或 "在登录时遇到了对文本验证代码的限制" 错误消息
+   * 使用 Microsoft 验证器应用或验证码完成身份验证，或稍后重试。
 * 单个设备上阻止了呼叫方 ID。
    * 查看设备上配置的任何被阻拦的号码。
 * 电话号码错误或国家/地区代码不正确，或混淆个人电话号码和工作电话号码。

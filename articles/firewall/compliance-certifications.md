@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa61046ee87c1cac3c8a8bb93ed97b577019e016
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85602714"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628435"
 ---
 # <a name="azure-firewall-certifications"></a>Azure 防火墙认证
 
@@ -48,7 +48,7 @@ Azure 防火墙是支付卡行业 (PCI) 、服务组织控件 (SOC) 、国际标
 - GLBA（美国）
 - 德国 C5
 - GxP（FDA 21 CFR 第 11 部分）
-- HIPPA
+- HIPAA
 - 高科技法案 (US) 
 - HITRUST
 - ISO 20000-1:2011

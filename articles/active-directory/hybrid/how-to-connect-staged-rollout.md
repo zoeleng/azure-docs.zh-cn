@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278575"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628894"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>使用分阶段推出迁移到云身份验证（预览）
 
@@ -38,14 +38,14 @@ ms.locfileid: "89278575"
 -   你拥有具有联合域的 Azure Active Directory (Azure AD) 租户。
 
 -   你已决定改用以下两个选项之一：
-    - **选项 A**  - *密码哈希同步 (同步) *  + *无缝单一登录 (SSO) *。  有关详细信息，请参阅 [什么是密码哈希同步](whatis-phs.md) 以及 [什么是无缝 SSO](how-to-connect-sso.md)
-    - **选项 B**  - *传递身份验证*  + *无缝 SSO*。  有关详细信息，请参阅 [什么是直通身份验证](how-to-connect-pta.md)  
+    - **选项 A**  - *密码哈希同步 (同步)*  + *无缝单一登录 (SSO)* 。  有关详细信息，请参阅 [什么是密码哈希同步](whatis-phs.md) 以及 [什么是无缝 SSO](how-to-connect-sso.md)
+    - **选项 B**  - *传递身份验证*  + *无缝 SSO* 。  有关详细信息，请参阅 [什么是直通身份验证](how-to-connect-pta.md)  
     
     尽管无缝 SSO 是可选的，但我们建议使用它，为运行着公司网络中加入域的计算机的用户提供无提示登录体验。
 
 -   你已配置了要迁移到云身份验证的用户所需的所有相应租户品牌和条件访问策略。
 
--   如果你计划使用 Azure 多重身份验证，我们建议你使用 " [自助密码重置" 的组合注册 (SSPR) 和多重身份验证](../authentication/concept-registration-mfa-sspr-combined.md) ，让你的用户注册其身份验证方法一次。
+-   如果你计划使用 Azure 多重身份验证，我们建议你使用 " [自助密码重置" 的组合注册 (SSPR) 和多重身份验证](../authentication/concept-registration-mfa-sspr-combined.md) ，让你的用户注册其身份验证方法一次。 注意-在过渡推出期间，使用 SSPR 重置密码或使用 MyProfile 页面更改密码 Azure AD Connect 需要同步新的密码哈希，重置后可能需要2分钟的时间。
 
 -   若要使用分阶段推出功能，你必须是租户的全局管理员。
 
@@ -95,7 +95,7 @@ ms.locfileid: "89278575"
 
 ## <a name="pre-work-for-password-hash-sync"></a>密码哈希同步的准备工作
 
-1. 从 ** Azure AD Connect [可选功能](how-to-connect-install-custom.md#optional-features)页启用密码哈希同步。 
+1. 从 Azure AD Connect 中的 " [可选功能](how-to-connect-install-custom.md#optional-features)" 页启用 *密码哈希同步* 。 
 
    ![Azure Active Directory Connect 中“可选功能”页的屏幕截图](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -109,11 +109,11 @@ ms.locfileid: "89278575"
 
 1. 识别运行 Windows Server 2012 R2 或更高版本的服务器，你希望在该服务器上运行直通身份验证代理。 
 
-   请勿选择 Azure AD Connect 服务器。 确保服务器已加入域，可以通过 Active Directory 对选定用户进行身份验证，并且可以在出站端口和 URL 上与 Azure AD 通信。 有关详细信息，请参阅[快速入门：Azure AD 无缝单一登录](how-to-connect-sso-quick-start.md)中的“步骤 1：检查先决条件”部分。
+   请勿选择 Azure AD Connect 服务器。  确保服务器已加入域，可以通过 Active Directory 对选定用户进行身份验证，并且可以在出站端口和 URL 上与 Azure AD 通信。 有关详细信息，请参阅[快速入门：Azure AD 无缝单一登录](how-to-connect-sso-quick-start.md)中的“步骤 1：检查先决条件”部分。
 
-1. [下载 Azure AD Connect 身份验证代理](https://aka.ms/getauthagent)，并将其安装在服务器上。 
+1. [下载 Azure AD Connect 身份验证代理](https://aka.ms/getauthagent)，并将其安装在服务器上。 
 
-1. 若要启用 [高可用性](how-to-connect-sso-quick-start.md)，请在其他服务器上安装额外的身份验证代理。
+1. 若要启用 [高可用性](how-to-connect-sso-quick-start.md)，请在其他服务器上安装其他身份验证代理。
 
 1. 请确保已正确配置[智能锁定设置](../authentication/howto-password-smart-lockout.md)。 这样做有助于确保用户的本地 Active Directory 帐户不会被恶意行为者锁定。
 
@@ -121,25 +121,25 @@ ms.locfileid: "89278575"
 
 ## <a name="pre-work-for-seamless-sso"></a>无缝 SSO 的准备工作
 
-使用 PowerShell 在 ** Active Directory 林中启用无缝 SSO。 如果有多个 Active Directory 林，请分别为每个林启用它。仅对选中要进行分阶段推出的用户触发无缝 ** SSO。 这不会影响现有联合设置。
+使用 PowerShell 在 Active Directory 林中启用 *无缝 SSO* 。 如果有多个 Active Directory 林，请为每个林单独启用它。 仅为选择进行分阶段推出的用户触发 *无缝 SSO* 。 这不会影响现有联合设置。
 
 通过执行以下操作，启用无缝 SSO：
 
 1. 登录到 Azure AD Connect 服务器。
 
-2. 转到 ** %programfiles%\\Microsoft Azure Active Directory Connect 文件夹。
+2. 请中转到 *% programfiles% \\ Microsoft Azure Active Directory Connect* 文件夹。
 
-3. 使用以下命令导入无缝 SSO PowerShell 模块： 
+3. 使用以下命令导入无缝 SSO PowerShell 模块： 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. 以管理员身份运行 PowerShell。 在 PowerShell 中，调用 `New-AzureADSSOAuthenticationContext`。 此命令将打开一个窗格，你可以在其中输入租户的全局管理员凭据。
+4. 以管理员身份运行 PowerShell。 在 PowerShell 中，调用 `New-AzureADSSOAuthenticationContext`。 此命令将打开一个窗格，你可以在其中输入租户的全局管理员凭据。
 
-5. 调用 `Get-AzureADSSOStatus | ConvertFrom-Json`。 此命令将显示一个已在其上启用此功能的 Active Directory 林列表（请查看“域”列表）。 默认情况下，它在租户级别设置为 false。
+5. 调用 `Get-AzureADSSOStatus | ConvertFrom-Json`。 此命令将显示一个已在其上启用此功能的 Active Directory 林列表（请查看“域”列表）。 默认情况下，它在租户级别设置为 false。
 
    ![Windows PowerShell 输出示例](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. 调用 `$creds = Get-Credential`。 出现提示时，输入目标 Active Directory 林的域管理员凭据。
+6. 调用 `$creds = Get-Credential`。 出现提示时，输入目标 Active Directory 林的域管理员凭据。
 
 7. 调用 `Enable-AzureADSSOForest -OnPremCredentials $creds`。 此命令从本地域控制器为无缝 SSO 所需的 Active Directory 林创建 AZUREADSSOACC 计算机帐户。
 

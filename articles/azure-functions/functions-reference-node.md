@@ -3,14 +3,14 @@ title: Azure Functions JavaScript 开发者参考
 description: 了解如何使用 JavaScript 开发函数。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422546"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628826"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -508,12 +508,20 @@ FUNCTIONS_WORKER_PROCESS_COUNT 适用于 Functions 在横向扩展应用程序�
 | Functions 版本 | Node 版本 (Windows) | Node 版本 (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2（运行时锁定） | 不适用 |
-| 2.x  | ~8<br/>~10（建议）<br/>~12<sup>*</sup> | ~8（建议）<br/>~10  |
-| 3.x | ~10<br/>~12（建议）  | ~10<br/>~12（建议） |
+| 2.x  | `~8`<br/>`~10` (建议) <br/>`~12` | `node|8`<br/>`node|10` (建议)   |
+| 3.x | `~10`<br/>`~12` (建议) <br/>`~14`（预览版）  | `node|10`<br/>`node|12` (建议) <br/>`node|14`（预览版） |
 
-<sup>*</sup>Functions 运行时 2.x 版当前支持 Node ~12。 但是，为了获得最佳性能，我们建议将 Function 运行时 3.x 版与 Node ~12 一起使用。 
+可以通过从任何函数进行日志记录来查看运行时所使用的当前版本 `process.version` 。
 
-可以通过查看上述应用设置或打印任何函数的 `process.version` 来查看运行时正在使用的当前版本。 通过将 WEBSITE_NODE_DEFAULT_VERSION [应用设置](functions-how-to-use-azure-function-app-settings.md#settings)设为受支持的 LTS 版本（例如 `~10`）来针对 Azure 中的版本。
+### <a name="setting-the-node-version"></a>设置节点版本
+
+对于 Windows function apps，请将 `WEBSITE_NODE_DEFAULT_VERSION` [应用设置](functions-how-to-use-azure-function-app-settings.md#settings) 设置为受支持的 LTS 版本（例如），从而在 Azure 中定位版本 `~12` 。
+
+对于 Linux function apps，请运行以下 Azure CLI 命令更新节点版本。
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>依赖项管理
 若要在 JavaScript 代码中使用社区库（如下面的示例所示），需要确保在 Azure 中的 Function App 上安装所有依赖项。

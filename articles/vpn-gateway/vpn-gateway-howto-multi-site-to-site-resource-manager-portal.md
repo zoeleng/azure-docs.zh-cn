@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
 ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92890136"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>将其他 S2S 连接添加到 VNet： Azure 门户
@@ -43,14 +43,12 @@ ms.locfileid: "92890136"
 1. 选择 " **所有资源** "，从资源列表中找到 **虚拟网络网关** 并将其选中。
 1. 在 " **虚拟网关** " 页上，选择 " **连接** "。
 
-   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connections.png" alt-text="VPN 网关连接&quot;:::
-1. 在 &quot; **连接** &quot; 页上，选择 &quot; **+ 添加** &quot;。
-1. 这将打开 &quot; **添加连接** " 页。
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connections.png" alt-text="VPN 网关连接":::
+1. 在 " **连接** " 页上，选择 " **+ 添加** "。
+1. 这将打开 " **添加连接** " 页。
 
-   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="VPN 网关连接&quot;:::
-1. 在 &quot; **连接** &quot; 页上，选择 &quot; **+ 添加** &quot;。
-1. 这将打开 &quot; **添加连接** ":::
-1. 在“添加连接”页面上，填写以下字段  ：
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="“添加连接”页":::
+1. 在“添加连接”页面上，填写以下字段：
 
    * **名称：** 想与其建立连接的站点的名称。
    * **连接类型：** 选择“站点到站点(IPsec)”。
@@ -60,9 +58,13 @@ ms.locfileid: "92890136"
 1. 对于 " **本地网络网关** " 字段，请选择 " **_选择本地网络网关_ " *。这将打开 "* 选择本地网络网关"** 页。
 1. 选择 " **+ 新建** " 打开 " **创建本地网络网关** " 页。
 
-   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="VPN 网关连接&quot;:::
-1. 在 &quot; **连接** &quot; 页上，选择 &quot; **+ 添加** &quot;。
-1. 这将打开 &quot; **添加连接** " 页上的 **"确定"** 以保存更改。
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="“创建本地网络网关”页":::
+1. 在“创建本地网络网关”页面上，填写以下字段：
+
+   * **名称：** 要分配给本地网络网关资源的名称。
+   * **终结点：** 要连接到的站点上的 VPN 设备的公共 IP 地址，或终结点的 FQDN。
+   * **地址空间：** 要路由到新本地网络站点的地址空间。
+1. 选择 " **创建本地网络网关** " 页上的 **"确定"** 以保存更改。
 
 ## <a name="add-the-shared-key"></a><a name="part3"></a>添加共享密钥
 

@@ -9,13 +9,13 @@ ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92328416"
 ---
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 1. 在“搜索资源、服务和文档(G+/)”中，键入“虚拟网络”。  
 
    ![查找“虚拟网络”资源页](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "查找“虚拟网络”资源页")

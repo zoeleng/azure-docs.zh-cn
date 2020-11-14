@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 08/27/2020
-ms.openlocfilehash: 9f58d03e2cfa7e1ab9c359cdb6600c42c8970a9a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/02/2020
+ms.openlocfilehash: a9d2c10d665af6899ec79312353676467a623735
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125795"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628877"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>在合作伙伴中心管理商业市场帐户
 
@@ -40,13 +40,13 @@ ms.locfileid: "93125795"
 
 ### <a name="open-developer-settings"></a>打开开发人员设置
 
-帐户设置位于合作伙伴中心的[商业市场仪表板](https://partner.microsoft.com/dashboard/commercial-marketplace)的右上角。 选择齿轮图标（位于仪表板的右上角附近），然后选择“开发人员设置” **** 。
+在合作伙伴中心的 " [商用 marketplace" 仪表板](https://partner.microsoft.com/dashboard/commercial-marketplace) 中，选择右上角的 " **设置** (齿轮" 图标) ，然后选择 " **开发人员设置** "。
 
 ![合作伙伴中心的“帐户设置”菜单](./media/dashboard-developer-settings.png)
 
-在“帐户设置”中，你将能够查看：
+在 " **帐户设置** " 中，可以查看：
 - 帐户详细信息：帐户类型和帐户状态
-- 发布者 ID：卖家 ID、用户 ID、发布者 ID、Azure AD 租户等。
+- **发布者** id：卖方 ID、用户 Id、发布者 id、Azure AD 租户等
 - 联系人信息：发布者显示名称、卖家联系人姓名、电子邮件、电话和地址
 - 跟踪 GUID：任何跟踪 GUID 都与你的帐户关联
 

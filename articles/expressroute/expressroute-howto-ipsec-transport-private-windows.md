@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92208237"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>配置 ExpressRoute 专用对等互连的 IPsec 传输模式

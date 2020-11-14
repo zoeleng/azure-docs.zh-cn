@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 92a6fef3305891b47c4dc2e0f0432e1079df5a69
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "71266514"
 ---
 虚拟网络网关使用称作“网关子网”的特定子网。 网关子网是虚拟网络 IP 地址范围的一部分，该范围是在配置虚拟网络时指定的。 网关子网包含虚拟网络网关资源和服务使用的 IP 地址。 

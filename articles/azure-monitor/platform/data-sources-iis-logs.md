@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/13/2020
+ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461186"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628741"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 代理收集 IIS 日志
 Internet Information Services (IIS) 将用户活动存储在日志文件中，该文件可由 Log Analytics 代理收集并存储在 [Azure Monitor 日志](data-platform.md)中。
@@ -26,17 +26,19 @@ Azure Monitor 会从 IIS 创建的日志文件中收集条目，因此，必须[
 
 Azure Monitor 仅支持以 W3C 格式存储的 IIS 日志文件，不支持自定义字段或 IIS 高级日志记录。 Azure Monitor 不会收集 NCSA 或 IIS 本机格式的日志。
 
-在 Azure Monitor 从 Log Analytics 代理的 " [高级设置" 菜单](agent-data-sources.md#configuring-data-sources) 中配置 IIS 日志。  只需选择**收集 W3C 格式 IIS 日志文件**，即可完成配置。
+在 Azure Monitor 从 Log Analytics 代理的 " [高级设置" 菜单](agent-data-sources.md#configuring-data-sources) 中配置 IIS 日志。  只需选择 **收集 W3C 格式 IIS 日志文件** ，即可完成配置。
 
 
 ## <a name="data-collection"></a>数据收集
-每次日志时间戳更改时，Azure Monitor 都会从每个代理收集 IIS 日志条目。 每 **5 分钟**读取一次日志。 如果由于任何原因，IIS 在创建新文件时未在滚动更新时间之前更新时间戳，则会在创建新文件后收集条目。 新文件创建的频率由 IIS 站点的“日志文件滚动更新计划”**** 设置控制，默认情况下为每天一次。 如果设置为“每小时”****，则 Azure Monitor 每小时收集一次日志。 如果设置为“每日”****，则 Azure Monitor 每 24 小时收集一次日志。
+每次日志时间戳更改时，Azure Monitor 都会从每个代理收集 IIS 日志条目。 每 **5 分钟** 读取一次日志。 如果由于任何原因，IIS 在创建新文件时未在滚动更新时间之前更新时间戳，则会在创建新文件后收集条目。 新文件创建的频率由 IIS 站点的“日志文件滚动更新计划”设置控制，默认情况下为每天一次。 如果设置为“每小时”，则 Azure Monitor 每小时收集一次日志。 如果设置为“每日”，则 Azure Monitor 每 24 小时收集一次日志。
 
+> [!IMPORTANT]
+> 建议将 **日志文件滚动更新计划** 设置为 **每小时** 一次。 如果将其设置为 " **每日** "，则可能会遇到数据高峰，因为它每天只收集一次。
 
 ## <a name="iis-log-record-properties"></a>IIS 日志记录属性
-IIS 日志记录的类型为 **W3CIISLog**，并具有下表中的属性：
+IIS 日志记录的类型为 **W3CIISLog** ，并具有下表中的属性：
 
-| 属性 | 说明 |
+| Property | 说明 |
 |:--- |:--- |
 | Computer |从中收集事件的计算机的名称。 |
 | cIP |客户端的 IP 地址。 |

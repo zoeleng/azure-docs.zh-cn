@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "87088387"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
@@ -33,11 +33,11 @@ ms.locfileid: "87088387"
 
 1. 在 Visual Studio 2019 中打开自己的 Web 应用解决方案。
 2. 在解决方案资源管理器中右键单击该项目，并选择“发布...”。
-3. 使用页面右侧的箭头滚动浏览发布选项，直到出现“Microsoft Azure 虚拟机”。   
+3. 使用页面右侧的箭头滚动浏览发布选项，直到出现“Microsoft Azure 虚拟机”。  
 
    ![发布页 - 右侧箭头]
 
-4. 选择“Microsoft Azure 虚拟机”图标，然后选择“发布”。 
+4. 选择“Microsoft Azure 虚拟机”图标，然后选择“发布”。
 
    ![发布页 -“Microsoft Azure 虚拟机”图标]
 

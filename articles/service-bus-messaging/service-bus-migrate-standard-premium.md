@@ -4,10 +4,10 @@ description: 有关将现有 Azure 服务总线标准命名空间迁移到高级
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "85340738"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>将现有 Azure 服务总线标准命名空间迁移到高级层

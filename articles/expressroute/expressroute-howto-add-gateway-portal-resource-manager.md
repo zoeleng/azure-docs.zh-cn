@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91761766"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>教程：使用 Azure 门户配置 ExpressRoute 的虚拟网络网关
@@ -58,9 +58,9 @@ ms.locfileid: "91761766"
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="添加网关子网":::
 
-1. 子网的“名称”  自动填充为值“GatewaySubnet”。 Azure 需要此值才能识别作为网关子网的子网。 调整自动填充的地址范围值，使其符合配置要求。 建议使用 /27 或更大（/26、/25 等）创建网关子网。 然后，单击“确定”来保存这些值并创建网关子网。
+1. 子网的“名称”自动填充为值“GatewaySubnet”。 Azure 需要此值才能识别作为网关子网的子网。 调整自动填充的地址范围值，使其符合配置要求。 建议使用 /27 或更大（/26、/25 等）创建网关子网。 然后，单击“确定”来保存这些值并创建网关子网。
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="添加网关子网":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="添加子网":::
 
 ## <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
@@ -81,13 +81,13 @@ ms.locfileid: "91761766"
 
 1. 依次选择“查看 + 创建”和“创建”，开始创建网关 。 此时会验证设置并部署网关。 创建虚拟网络网关可能需要多达 45 分钟才能完成。
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="添加网关子网":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="“创建虚拟网关”页字段":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
 如果不再需要 ExpressRoute 网关，请在虚拟网络资源组中找到该网关，然后选择“删除”。 请确保该网关没有任何到线路的连接。
 
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="添加网关子网":::
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="删除虚拟网络网关":::
 
 ## <a name="next-steps"></a>后续步骤
 创建 VNet 网关后，可将 VNet 链接到 ExpressRoute 线路。 

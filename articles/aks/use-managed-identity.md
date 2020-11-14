@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371454"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627874"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes 服务中使用托管标识
 
@@ -27,7 +27,6 @@ ms.locfileid: "92371454"
 ## <a name="limitations"></a>限制
 
 * 具有托管标识的 AKS 群集只能在群集创建过程中启用。
-* 现有 AKS 群集无法迁移到托管标识。
 * 在群集升级操作期间，托管标识暂时不可用。
 * 不支持启用了托管标识的群集的租户移动/迁移。
 * 如果群集启用了 `aad-pod-identity`，节点托管标识 (NMI) pod 将修改节点的 iptable，以拦截对 Azure 实例元数据终结点的调用。 此配置意味着对元数据终结点发出的任何请求都将被 NMI 拦截，即使 pod 不使用 `aad-pod-identity`。 可以将 AzurePodIdentityException CRD 配置为通知 `aad-pod-identity` 应在不使用 NMI 进行出任何处理的情况下，代理与 CRD 中定义的标签匹配的 pod 所发起的对元数据终结点的任何请求。 应通过配置 AzurePodIdentityException CRD 在 `aad-pod-identity` 中排除在 _kube-system_ 命名空间中具有 `kubernetes.azure.com/managedby: aks` 标签的系统 pod。 有关详细信息，请参阅[禁用特定 pod 或应用程序的 aad-pod-identity](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)。
@@ -106,6 +105,23 @@ az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>将基于服务主体的现有 AKS 群集更新为托管标识
+
+你现在可以使用以下 CLI 命令来更新具有托管标识的 AKS 群集。
+
+首先，更新系统分配的标识：
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+然后，更新用户分配的标识：
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> 系统分配或用户分配的标识已更新到托管标识后，请 `az nodepool upgrade --node-image-only` 在节点上执行，以完成对托管标识的更新。
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>自带控制平面 MI (预览) 
 使用自定义控制平面标识，可以在创建群集之前将访问权限授予现有标识。 这可以实现以下方案：将自定义 VNET 或 outboundType 与托管标识结合使用。

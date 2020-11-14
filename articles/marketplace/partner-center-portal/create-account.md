@@ -1,19 +1,19 @@
 ---
-title: 在合作伙伴中心创建商业 marketplace 帐户
+title: 在合作伙伴中心为 Azure Marketplace 创建商业 marketplace 帐户
 description: 了解如何在合作伙伴中心创建 Microsoft 商业 marketplace 帐户。
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: deb64d1c8268268061a8121151c00ccb55902274
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130453"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628775"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>在合作伙伴中心创建商业 marketplace 帐户
 
@@ -22,7 +22,7 @@ ms.locfileid: "93130453"
 >[!NOTE]
 >如果云合作伙伴门户 (CPP) 中有帐户，则将其移动到合作伙伴中心。 不需要创建新帐户。 有关详细信息，请参阅 [从云合作伙伴门户移动的发布者](#publishers-who-moved-from-the-cloud-partner-portal)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>在开始之前
 
 若要在合作伙伴中心创建帐户，请确保满足以下先决条件。 我们将在帐户创建过程中验证此信息。
 
@@ -65,9 +65,9 @@ ms.locfileid: "93130453"
     > [!IMPORTANT]
     > 若要接受这些条款，你必须有权代表你的公司进行操作。
 
-    注册后，你将转到 "商业市场概述" 页。 "商用 marketplace" 帐户将显示在左窗格中。 
-    
-1. 若要验证 "商用 marketplace" 帐户是否列出为 "已注册"，请选择 " **设置** " "  >  **合作伙伴设置**  >  **程序** "。
+    注册后，你将转到 "商业市场概述" 页。 "商用 marketplace" 帐户将显示在左窗格中。
+
+1. 若要验证 "商用 marketplace" 帐户是否列出为 "已注册"，请在 " **开发人员设置** 程序" > 右上角选择 " **设置** (齿轮" 图标)  >  **Programs** 。
 
 你现在已在合作伙伴中心创建了一个商业应用商店帐户。 继续向 [商业市场添加新的发布服务器](#add-new-publishers-to-the-commercial-marketplace-program)。
 
@@ -91,19 +91,19 @@ ms.locfileid: "93130453"
 > 你必须具有 **帐户管理员** 或 **全局管理员** 角色才能登录到 Microsoft 合作伙伴网络。
 
 1. 通过 Microsoft 合作伙伴网络帐户登录到 [合作伙伴中心](https://partner.microsoft.com/dashboard/) 。
-1. 选择 " **设置** " "  >  **合作伙伴设置** " "程序" "  >  **Programs**  >  **入门** "。
+1. 选择 " **设置** " "  >  **开发人员设置**  >  **程序** " "  >  **入门** "。
 
    Microsoft 合作伙伴网络检测订阅，并显示 " **发布服务器配置文件** " 窗格。
-   
+
 1. 输入公司名称和 MPN ID。
 1. 阅读 [Microsoft 发行者协议](https://go.microsoft.com/fwlink/?LinkID=699560)中的条款和条件，然后选择 " **接受并继续** " 完成注册。
 
     > [!IMPORTANT]
     > 若要接受这些条款，你必须有权代表你的公司进行操作。
 
-    注册后，你将转到 "商业市场概述" 页。 "商用 marketplace" 帐户将显示在左窗格中。 
-    
-1. 若要验证 "商用 marketplace" 帐户是否列出为 "已注册"，请选择 " **设置** " "  >  **合作伙伴设置**  >  **程序** "。
+    注册后，你将转到 "商业市场概述" 页。 "商用 marketplace" 帐户将显示在左窗格中。
+
+1. 若要验证商业 marketplace 帐户是否列出为已注册，请选择 " **设置** " "  >  **开发人员设置**  >  **程序** "。
 
 你现在已在合作伙伴中心创建了一个商业应用商店帐户。 继续向 [商业市场添加新的发布服务器](#add-new-publishers-to-the-commercial-marketplace-program)。
 
@@ -112,9 +112,9 @@ ms.locfileid: "93130453"
 >[!NOTE]
 >若要使用登录所用的帐户注册商业市场，需要在合作伙伴中心中注册公司帐户。 如果已使用个人帐户注册，则商业市场注册将显示在新帐户下。
 >
->个人帐户适用于自行工作的开发人员。 公司帐户适用于组织和企业。 公司帐户允许你使用其他功能提交应用。 
+>个人帐户适用于自行工作的开发人员。 公司帐户适用于组织和企业。 公司帐户允许你使用其他功能提交应用。
 >
-> 若要确定你是否有权为你的公司设置帐户，则在注册后，需要对公司帐户进行其他验证。 此验证可能需要几天到几周的时间，并且通常包含公司电话呼叫。 这两种类型的帐户都允许您提交应用程序、外接程序和服务。 有关详细信息，请参阅 [帐户类型、位置和费用](/windows/uwp/publish/account-types-locations-and-fees)。
+> 若要确定你是否有权为你的公司设置帐户，则在注册后，需要对公司帐户进行其他验证。 此验证可能需要几天到几周的时间，并且通常包含公司电话呼叫。 这两种类型的帐户都允许您提交应用程序、外接程序和服务。 有关详细信息，请参阅 [帐户类型、位置和费用](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)。
 
 当你向开发人员计划的帐户注册商业 marketplace 计划时，可以在合作伙伴中心的左窗格中查看所有现有程序注册。
 
@@ -126,9 +126,9 @@ ms.locfileid: "93130453"
     >[!Important]
     > 若要接受这些条款，你必须有权代表你的公司进行操作。
 
-    注册后，你将转到 "商业市场概述" 页。 "商用 marketplace" 帐户将显示在左窗格中。 
-    
-1. 若要验证 "商用 marketplace" 帐户是否列出为 "已注册"，请选择 " **设置** " "  >  **合作伙伴设置**  >  **程序** "。
+    注册后，你将转到 "商业市场概述" 页。 "商用 marketplace" 帐户将显示在左窗格中。
+
+1. 若要验证商业 marketplace 帐户是否列出为已注册，请选择 " **设置** " "  >  **开发人员设置**  >  **程序** "。
 
 你现在已在合作伙伴中心创建了一个商业应用商店帐户。 有关添加发布者的帮助，请继续向 [商业应用商店添加新的发布服务器](#add-new-publishers-to-the-commercial-marketplace-program)。
 
@@ -142,7 +142,7 @@ ms.locfileid: "93130453"
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>向商用 marketplace 计划添加新发布者
 
-组织可以有多个发布者与一个商业 marketplace 帐户关联。 现有用户可以通过选择 " **帐户设置** " "发布者" "  >  **Publishers**  >  **添加发布者** "，在登录合作伙伴中心后添加更多的发布者。
+组织可以有多个发布者与一个商业 marketplace 帐户关联。 现有用户可以通过选择 " **设置** " "  >  **开发人员设置** " "发布者" "  >  **Publisher**  >  **添加发布者** "，在登录到合作伙伴中心
 
 >[!NOTE]
 >在添加新发布服务器之前，请先登录到合作伙伴中心，然后选择 " **帐户设置** " "发布者"，查看现有发布者列表  >  **Publishers** 。

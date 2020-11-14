@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006034"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628792"
 ---
 # <a name="tls-support-in-iot-hub"></a>IoT 中心的 TLS 支持
 
@@ -107,4 +107,4 @@ IoT Edge 设备可以配置为在与 IoT 中心通信时使用 TLS 1.2。 为此
 
 ## <a name="device-authentication"></a>设备身份验证
 
-成功进行 TLS 握手后，IoT 中心可以使用对称密钥或 x.509 证书对设备进行身份验证。 对于基于证书的身份验证，这可以是任何 x.509 证书，包括 ECC。 IoT 中心根据你提供)  (CA 的指纹或证书颁发机构验证证书。 IoT 中心尚不支持基于 x.509 的相互身份验证 (mTLS) 。 若要了解详细信息，请参阅 [支持的 x.509 证书](iot-hub-devguide-security.md#supported-x509-certificates)。
+成功进行 TLS 握手后，IoT 中心可以使用对称密钥或 x.509 证书对设备进行身份验证。 对于基于证书的身份验证，这可以是任何 x.509 证书，包括 ECC。 IoT 中心根据你提供)  (CA 的指纹或证书颁发机构验证证书。 若要了解详细信息，请参阅 [支持的 x.509 证书](iot-hub-devguide-security.md#supported-x509-certificates)。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129586"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628282"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>如何规划虚拟机产品/服务
 
@@ -100,7 +100,7 @@ Vm 完全启用了商务，使用即用即付或自带许可证 (BYOL) 许可模
 
 可以通过将映像和定价作为私有计划发布，将 VM 的发现和部署限制为一组特定的客户。 专用计划可为你的最接近客户创建专用产品/服务的功能，并提供自定义的软件和条款。 这些自定义条款可在一系列场景中提供助力，包括使用特殊定价和条款的现场导向型交易以及对限制性版本软件的早期访问。 利用私有计划，你可以向一组有限的客户提供具体的定价或产品。
 
-有关详细信息，请参阅[Azure marketplace 上](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace)[的商业 marketplace 产品/服务](plans-pricing.md)和专用产品/服务的计划和定价。
+有关详细信息，请参阅[Microsoft 商业应用商店中](private-offers.md)[的商业 marketplace 产品/服务](plans-pricing.md)和专用产品/服务的计划和定价。
 
 ## <a name="test-drives"></a>体验版
 

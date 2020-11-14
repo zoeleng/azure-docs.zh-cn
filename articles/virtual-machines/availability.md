@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972520"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628758"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Azure 中虚拟机的可用性选项
 
@@ -55,7 +55,7 @@ Azure 平台进行定期维护时，此方法可确保至少有一个应用程�
 
 
 ## <a name="availability-sets"></a>可用性集
-可用性集是数据中心内的 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 的要求。 可用性集本身是免费的，只需为创建的每个 VM 实例付费。 当单个 VM 使用 [Azure 高级 SSD](./disks-types.md#premium-ssd) 时，Azure SLA 适用于计划外维护事件。
+可用性集是 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 的要求。 可用性集本身是免费的，只需为创建的每个 VM 实例付费。 当单个 VM 使用 [Azure 高级 SSD](./disks-types.md#premium-ssd) 时，Azure SLA 适用于计划外维护事件。
 
 在可用性集中，VM 自动分布到这些容错域中。 此方法可限制潜在物理硬件故障、网络中断或断电的影响。
 

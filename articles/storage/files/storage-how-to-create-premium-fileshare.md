@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 75ba8e1e2037ba8ef249b548dfb38e5fd1618cb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ec8e4a945f8b8277d05c11bf3673d2e4ab15f9a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564179"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626786"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>如何创建 Azure 高级文件共享
 
@@ -24,8 +24,8 @@ ms.locfileid: "90564179"
 ## <a name="prerequisites"></a>先决条件
 
 - 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。
-- 如果你打算使用 Azure CLI，请[安装最新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
-- 如果你打算使用 Azure PowerShell 模块，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0)。
+- 如果你打算使用 Azure CLI，请[安装最新版本](/cli/azure/install-azure-cli?view=azure-cli-latest)。
+- 如果你打算使用 Azure PowerShell 模块，请[安装最新版本](/powershell/azure/install-az-ps?view=azps-4.6.0)。
 
 ## <a name="create-a-filestorage-storage-account"></a>创建 FileStorage 存储帐户
 

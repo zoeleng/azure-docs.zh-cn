@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408400"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628214"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 支持策略
 
@@ -23,6 +23,7 @@ Azure Red Hat OpenShift 4 群集的某些配置可能会影响群集的可支持
 ## <a name="cluster-configuration-requirements"></a>群集配置要求
 
 * 所有 OpenShift 群集操作员都必须处于托管状态。 可以通过运行 `oc get clusteroperators` 来返回群集操作员的列表。
+* 群集必须至少有一个辅助角色节点。 不要将群集辅助角色缩放为零。
 * 请勿删除或修改群集 Prometheus 和 Alertmanager 服务。
 * 请勿删除“服务 Alertmanager”规则。
 * 请勿删除或修改 Azure Red Hat OpenShift 服务日志记录 (mdsd pod)。
