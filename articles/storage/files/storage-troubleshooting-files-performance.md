@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4d89fb4bcedb58aa156e75aaefc87479797dcd37
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577966"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630135"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>排查 Azure 文件共享性能问题
 
@@ -22,7 +22,7 @@ ms.locfileid: "94577966"
 
 ### <a name="cause-1-share-was-throttled"></a>原因 1：共享受限
 
-当达到文件共享的每秒 i/o 操作数 (IOPS) 、入口或出口限制时，将会限制请求。 若要了解标准文件共享和高级文件共享的限制，请参阅[文件共享和文件缩放目标](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)。
+当达到文件共享的每秒 i/o 操作数 (IOPS) 、入口或出口限制时，将会限制请求。 若要了解标准文件共享和高级文件共享的限制，请参阅[文件共享和文件缩放目标](./storage-files-scale-targets.md#file-share-and-file-scale-targets)。
 
 若要确认共享是否受到限制，可以访问和使用门户中的 Azure 指标。
 
@@ -45,8 +45,8 @@ ms.locfileid: "94577966"
 
 ### <a name="solution"></a>解决方案
 
-- 如果使用的是标准文件共享，请在存储帐户上启用 [大型文件](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) 共享。 大型文件共享支持每个共享最多 10,000 IOPS。
-- 如果使用的是高级文件共享，请增加预配的文件共享大小，以增加 IOPS 限制。 若要了解详细信息，请参阅 [Azure 文件规划指南](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)中的 "了解高级文件共享的预配" 部分。
+- 如果使用的是标准文件共享，请在存储帐户上启用 [大型文件](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) 共享。 大型文件共享支持每个共享最多 10,000 IOPS。
+- 如果使用的是高级文件共享，请增加预配的文件共享大小，以增加 IOPS 限制。 若要了解详细信息，请参阅 [Azure 文件规划指南](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares)中的 "了解高级文件共享的预配" 部分。
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>原因2：元数据或命名空间繁重的工作负荷
 

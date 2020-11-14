@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738846"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629455"
 ---
 # <a name="how-to-create-an-nfs-share"></a>如何创建 NFS 共享
 
@@ -38,7 +38,7 @@ Azure 文件共享是位于云中的完全托管文件共享。 它们可以使�
     - [在 Linux 上配置点到站点 (P2S) 用于 Azure 文件的 VPN](storage-files-configure-p2s-vpn-linux.md)。
     - [配置站点到站点 VPN 以用于 Azure 文件](storage-files-configure-s2s-vpn.md)。
     - 配置 [ExpressRoute](../../expressroute/expressroute-introduction.md)。
-- 如果你打算使用 Azure CLI，请[安装最新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+- 如果你打算使用 Azure CLI，请[安装最新版本](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="register-the-nfs-41-protocol"></a>注册 NFS 4.1 协议
 
@@ -82,7 +82,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 ## <a name="create-an-nfs-share"></a>创建 NFS 共享
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 现在，你已创建 FileStorage 帐户并配置了网络，接下来可以创建一个 NFS 文件共享。 此过程类似于创建 SMB 共享，在创建共享时选择 **NFS** 而不是 **smb** 。
 
@@ -96,7 +96,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
     - 根 squash-远程超级用户 (根) 以 root 身份接收访问权限。
     - 所有 squash-所有用户访问映射到 UID (65534) 和 GID (65534) 。
     
-1. 选择“创建”  。
+1. 选择“创建”。
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="文件共享创建边栏选项卡的屏幕截图":::
 
@@ -110,7 +110,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   若要升级 PowerShell 版本，请参阅[升级现有的 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   若要升级 PowerShell 版本，请参阅[升级现有的 Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
 1. 安装最新版本的 PowershellGet 模块。
 
@@ -126,7 +126,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   有关如何安装 PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   有关如何安装 PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-az-ps?view=azps-3.0.0)
    
 1. 若要使用 Azure PowerShell 模块创建高级文件共享，请使用 [AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet。
 

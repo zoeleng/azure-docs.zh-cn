@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319797"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629336"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 
@@ -41,7 +41,7 @@ Azure 文件为客户端应用程序提供两个主要方法：服务器消息�
 
 API | 何时使用 | 说明
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 应用程序： <ul><li>需要使用 SMB 读取/写入文件</li><li>是否在可以通过端口 445 访问 Azure 文件帐户的设备上运行</li><li>不需要管理文件共享的任何管理设置</li></ul> | 一般情况下，通过 SMB 使用 Azure 文件存储实现的文件 I/O 与使用任何网络文件共享或本地存储设备实现的 I/O 相同。 有关 .NET 中的许多功能（包括文件 I/O）的简介，请参阅[控制台应用程序](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)教程。
+[System.IO](/dotnet/api/system.io) | 应用程序： <ul><li>需要使用 SMB 读取/写入文件</li><li>是否在可以通过端口 445 访问 Azure 文件帐户的设备上运行</li><li>不需要管理文件共享的任何管理设置</li></ul> | 一般情况下，通过 SMB 使用 Azure 文件存储实现的文件 I/O 与使用任何网络文件共享或本地存储设备实现的 I/O 相同。 有关 .NET 中的许多功能（包括文件 I/O）的简介，请参阅[控制台应用程序](/dotnet/csharp/tutorials/console-teleprompter)教程。
 [Azure。文件共享](/dotnet/api/azure.storage.files.shares) | 应用程序： <ul><li>由于防火墙或 ISP 约束，无法使用 SMB 在端口 445 上访问 Azure 文件存储</li><li>需要管理功能，例如能够设置文件共享的配额或创建共享访问签名</li></ul> | 本文演示如何通过 REST（而不是 SMB）将 `Azure.Storage.Files.Shares` 用于文件 I/O 以及如何管理文件共享。
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>创建控制台应用程序，并获取程序集
@@ -70,7 +70,7 @@ API | 何时使用 | 说明
 可以使用 NuGet 获取包。 执行以下步骤:
 
 1. 在“解决方案资源管理器”中，右键单击你的项目并选择“管理 NuGet 包”   。
-1. 在“NuGet 包管理器”中选择“浏览”。   然后搜索并选择 " **Azure Core**"，并选择 " **安装**"。
+1. 在“NuGet 包管理器”中选择“浏览”。   然后搜索并选择 " **Azure Core** "，并选择 " **安装** "。
 
    此步骤将安装该包及其依赖项。
 
@@ -135,7 +135,7 @@ API | 何时使用 | 说明
 
 ## <a name="add-using-directives"></a>添加 using 指令
 
-在 **解决方案资源管理器**中，打开 *Program.cs* 文件，并将以下 using 指令添加到文件顶部。
+在 **解决方案资源管理器** 中，打开 *Program.cs* 文件，并将以下 using 指令添加到文件顶部。
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -316,7 +316,7 @@ if (share.Exists())
 
 从 Azure 文件客户端库的版本1.x 开始，可以将一个文件复制到另一个文件，将一个文件复制到一个 blob，或将一个 blob 复制到一个文件中。
 
-还可以使用 AzCopy 将一个文件复制到另一个文件或将一个 Blob 复制到一个文件，反之亦然。 请参阅 [AzCopy 入门](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+还可以使用 AzCopy 将一个文件复制到另一个文件或将一个 Blob 复制到一个文件，反之亦然。 请参阅 [AzCopy 入门](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)。
 
 > [!NOTE]
 > 如果将一个 Blob 复制到一个文件，或将一个文件复制到一个 Blob，必须使用共享访问签名 (SAS) 授予对源对象的访问权限，即使是在同一存储帐户内进行复制。
@@ -624,8 +624,8 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 ### <a name="tooling-support-for-file-storage"></a>文件存储的工具支持
 
-- [AzCopy 入门](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [在 Windows 中排查 Azure 文件问题](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [AzCopy 入门](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [在 Windows 中排查 Azure 文件问题](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>参考
 

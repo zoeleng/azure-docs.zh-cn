@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785606"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628911"
 ---
 # <a name="migrate-to-azure-file-shares"></a>迁移到 Azure 文件共享
 
@@ -117,13 +117,13 @@ Microsoft 和其他工具提供了多个文件复制工具。 若要为迁移方
 
 | 建议 | 工具 | 支持 Azure 文件共享 | 保存文件保真 |
 | :-: | :-- | :---- | :---- |
-|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | 。 可以将 Azure 文件共享装载为网络驱动器。 | 完全保真。 * |
+|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | 支持。 可以将 Azure 文件共享装载为网络驱动器。 | 完全保真。 * |
 |![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure 文件同步 | 本机集成到 Azure 文件共享中。 | 完全保真。 * |
 |![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| 存储迁移服务 | 间接支持。 在 SMS 目标服务器上，可以将 Azure 文件共享装载为网络驱动器。 | 完全保真。 * |
-|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy 版本10.4 或更高版本| 。 | 完全保真。 * |
-|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | 。 | DataBox 现在完全支持元数据。 [Data Box 还可以与 Azure 文件同步结合使用](storage-sync-offline-data-transfer.md)。 |
-|![不完全推荐](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure 存储资源管理器，版本1.14 | 。 | 不复制 Acl。 支持时间戳。  |
-|![不推荐](media/storage-files-migration-overview/circle-red-x.png)| Azure 数据工厂 | 。 | 不复制元数据。 |
+|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy 版本10.4 或更高版本| 支持。 | 完全保真。 * |
+|![是，建议使用](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | 支持。 | DataBox 现在完全支持元数据。 [Data Box 还可以与 Azure 文件同步结合使用](storage-sync-offline-data-transfer.md)。 |
+|![不完全推荐](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure 存储资源管理器，版本1.14 | 支持。 | 不复制 Acl。 支持时间戳。  |
+|![不推荐](media/storage-files-migration-overview/circle-red-x.png)| Azure 数据工厂 | 支持。 | 不复制元数据。 |
 |||||
 
 *\* 完全保真：满足或超过 Azure 文件共享功能。*
@@ -134,7 +134,7 @@ Microsoft 和其他工具提供了多个文件复制工具。 若要为迁移方
 
 #### <a name="robocopy-from-microsoft-corporation"></a>Microsoft Corporation 的 RoboCopy
 
-RoboCopy 是最适用于文件迁移的工具之一。 它作为 Windows 的一部分提供。 主 [RoboCopy 文档](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) 是此工具的众多选项的有用资源。
+RoboCopy 是最适用于文件迁移的工具之一。 它作为 Windows 的一部分提供。 主 [RoboCopy 文档](/windows-server/administration/windows-commands/robocopy) 是此工具的众多选项的有用资源。
 
 #### <a name="treesize-from-jam-software-gmbh"></a>Database 从卡纸软件 GmbH
 

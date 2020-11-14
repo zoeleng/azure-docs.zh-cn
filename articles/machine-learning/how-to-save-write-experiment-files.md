@@ -1,7 +1,7 @@
 ---
 title: 保存和写入试验文件的位置
 titleSuffix: Azure Machine Learning
-description: 了解保存试验输入文件以及写入输出文件的位置，以防止出现存储空间上限错误和试验延迟。
+description: 了解保存输入和输出文件的位置，以防止出现存储限制错误和试验延迟。
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 0dab99c902269f7d598eedb8c2fa23bbed3948c4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49e1e9efbd6f59bd037a8033f83836bf7fc71c43
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325353"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630322"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>保存和写入 Azure 机器学习试验文件的位置
 
@@ -79,4 +79,4 @@ Jupyter 笔记本| 创建 `.amlignore` 文件或将笔记本移动到新的空�
 
 * 详细了解如何[访问数据存储中的数据](how-to-access-data.md)。
 
-* 详细了解如何 [创建用于模型定型和部署的计算目标](how-to-create-attach-compute-studio.md)
+* 详细了解[创建用于模型训练和部署的计算目标](how-to-create-attach-compute-studio.md)

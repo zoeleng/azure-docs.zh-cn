@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85c9111b0b16667e847aaf70d746e87fe524ef87
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592917"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630254"
 ---
 # <a name="upload-and-index-your-videos"></a>上传视频和编制视频索引  
 
@@ -66,7 +66,7 @@ ms.locfileid: "94592917"
 
 ### <a name="configurations-and-params"></a>配置和参数
 
-本部分介绍某些可选参数以及何时需设置它们。
+本部分介绍某些可选参数以及何时需设置它们。 有关最新的参数信息，请参阅 [上传视频](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API。
 
 #### <a name="externalid"></a>externalID 
 
@@ -85,7 +85,7 @@ ms.locfileid: "94592917"
         |state|视频状态|  
     - 示例： https： \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&状态 = 已处理
 - 在视频中标识的人：
-  - 属性
+  - “属性”
     
       |名称|说明|
       |---|---|
@@ -337,7 +337,7 @@ public class AccountContractSlim
 
 上传操作可能会返回下表中列出的状态代码。
 
-|状态代码|ErrorType（在响应正文中）|描述|
+|状态代码|ErrorType（在响应正文中）|说明|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|相同的视频已在给定帐户的处理进度中。|
 |400|VIDEO_ALREADY_FAILED|不到 2 小时前，相同的视频已在给定帐户中处理失败。 API 客户端应至少等待 2 小时才能重新上传视频。|

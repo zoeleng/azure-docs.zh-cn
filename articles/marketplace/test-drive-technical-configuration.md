@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504826"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629897"
 ---
 # <a name="test-drive-technical-configuration"></a>体验版技术配置
 
@@ -98,5 +98,5 @@ Microsoft 可以通过托管和维护服务预配和取消设置，消除设置�
 ## <a name="next-steps"></a>后续步骤
 
 - [试用版驱动最佳做法](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [概述](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF;请确保弹出窗口阻止程序处于关闭状态) 
+- [概述](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)（PDF；确保弹出窗口阻止程序处于禁用状态）
 - [更新商业市场中的现有产品/服务](partner-center-portal/update-existing-offer.md)

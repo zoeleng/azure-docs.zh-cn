@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394860"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629659"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>适用于 FHIR 的 Azure IoT 连接器（预览版）数据流
 
-本文概述了用于 FHIR * 的 Azure IoT 连接器中的数据流。 你将了解 Azure IoT Connector for FHIR 中用于将设备数据转换为基于 FHIR 的 [观察](https://www.hl7.org/fhir/observation.html) 资源的不同数据处理阶段。
+本文概述了 Azure IoT Connector 中的数据流，以获取快速的医疗保健互操作性资源 (FHIR&#174;) *。 你将了解 Azure IoT Connector for FHIR 中用于将设备数据转换为基于 FHIR 的 [观察](https://www.hl7.org/fhir/observation.html) 资源的不同数据处理阶段。
 
 ![适用于 FHIR 的 Azure IoT 连接器数据流](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -64,6 +64,4 @@ ms.locfileid: "93394860"
 >[!div class="nextstepaction"]
 >[适用于 FHIR 的 Azure IoT 连接器映射模板](iot-mapping-templates.md)
 
-*在 Azure 门户中，适用于 FHIR 的 Azure IoT 连接器称为 IoT Connector（预览版）。
-
-FHIR 是 HL7 的注册商标，经 HL7 许可使用。
+* 在 Azure 门户中，用于 FHIR 的 Azure IoT 连接器称为 IoT 连接器 (预览版) 。 FHIR 是 HL7 的注册商标，用于 HL7 的权限。 

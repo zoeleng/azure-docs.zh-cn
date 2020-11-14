@@ -1,21 +1,21 @@
 ---
-title: 显示和配置适用于 FHIR 的 Azure IoT 连接器 (预览) 指标
+title: 显示和配置适用于 FHIR 的 Azure IoT 连接器（预览版）指标
 description: 本文介绍如何显示和配置适用于 FHIR (预览版) 指标的 Azure IoT 连接器。
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 9a4e2c4dfe8a9de28688afe0dd036cecb7ce2b39
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 79a7b18986f4bed503cd5493a7d74325a13fe535
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381212"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630509"
 ---
-# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>显示和配置适用于 FHIR 的 Azure IoT 连接器 (预览) 指标 
+# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>显示和配置适用于 FHIR 的 Azure IoT 连接器（预览版）指标 
 
 在本文中，你将了解如何显示和配置 Azure IoT 连接器，以便为快速医疗保健互操作性资源 (FHIR&#174;) * 度量值进行显示和配置。
 
@@ -41,6 +41,9 @@ ms.locfileid: "94381212"
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="&quot;IoT 连接器&quot; 窗格的屏幕截图，显示 &quot;Connector 1&quot; 的时间段的 &quot;1 小时&quot; 行图。" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metric-types-for-azure-iot-connector-for-fhir-preview"></a>适用于 FHIR 的 Azure IoT Connector 的指标类型 (预览版)  
+
+> [!TIP]
+> 若要了解 Azure IoT Connector for FHIR 中的数据流，请查看适用于 [FHIR 的 Azure Iot 连接器 (预览) ](./iot-data-flow.md) 数据流和 [用于 FHIR 的 azure iot 连接器 (预览) 故障排除指南](./iot-troubleshoot-guide.md) ，详细了解错误消息和修补程序。
 
 下表列出了可以显示的 IoT 连接器指标：
 

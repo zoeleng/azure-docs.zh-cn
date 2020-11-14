@@ -1,23 +1,23 @@
 ---
-title: 通过诊断设置导出用于 FHIR (预览) 指标的 Azure IoT 连接器
+title: 通过“诊断”设置导出 Azure IoT Connector for FHIR（预览版）指标
 description: 本文介绍如何通过诊断设置导出适用于 FHIR (preview) 指标的 Azure IoT 连接器
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 14fd5378f37ebfc20b2d7084c08f15ea8f7a00b2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394248"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630526"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>通过诊断设置导出用于 FHIR (预览) 指标的 Azure IoT 连接器
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>通过“诊断”设置导出 Azure IoT Connector for FHIR（预览版）指标
 
-本文介绍如何导出适用于 FHIR * 度量值日志的 Azure IoT 连接器。 启用指标日志记录的功能是 Azure 门户中的 [**诊断设置**](../azure-monitor/platform/diagnostic-settings.md) 。 
+在本文中，你将了解如何为快速医疗保健互操作性资源（ (FHIR&#174;) * 指标日志）导出 Azure IoT 连接器。 启用指标日志记录的功能是 Azure 门户中的 [**诊断设置**](../azure-monitor/platform/diagnostic-settings.md) 。 
 
 > [!TIP]
 > 按照在用于 [FHIR 的 AZURE API 和用于 FHIR 的 Azure IoT 连接器中的启用诊断日志记录中](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) 的指南设置审核日志记录。
@@ -60,6 +60,4 @@ ms.locfileid: "93394248"
 >[!div class="nextstepaction"]
 >[适用于 FHIR 常见问题的 Azure IoT 连接器](fhir-faq.md)
 
-*在 Azure 门户中，适用于 FHIR 的 Azure IoT 连接器称为 IoT Connector（预览版）。
-
-FHIR 是 HL7 的注册商标，经 HL7 许可使用。
+* 在 Azure 门户中，用于 FHIR 的 Azure IoT 连接器称为 IoT 连接器 (预览版) 。 FHIR 是 HL7 的注册商标，用于 HL7 的权限。

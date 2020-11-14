@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322205"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630271"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 和8600迁移到 Azure 文件同步
 
@@ -45,7 +45,7 @@ StorSimple 8000 系列将在2022年12月 [结束](https://support.microsoft.com/
 
 Azure 文件共享公开了一系列全新的机会来构建文件服务部署。 Azure 文件共享只是云中的一个 SMB 共享，你可以设置以使用户使用熟悉的 Kerberos 身份验证和现有 NTFS 权限直接通过 SMB 协议进行访问， (文件和文件夹 Acl) 本机工作。 详细了解 [如何对 Azure 文件共享进行基于标识的访问](storage-files-active-directory-overview.md)。
 
-[Azure 文件同步](https://aka.ms/AFS)直接访问的替代方法。Azure 文件同步是 StorSimple 的直接模拟功能，用于在本地缓存经常使用的文件。
+[Azure 文件同步](./storage-sync-files-planning.md)直接访问的替代方法。Azure 文件同步是 StorSimple 的直接模拟功能，用于在本地缓存经常使用的文件。
 
 Azure 文件同步是一种 Microsoft 云服务，基于两个主要组件：
 
@@ -56,7 +56,7 @@ Azure 文件共享在存储的文件（如属性、权限和时间戳）上保�
 
 本文重点介绍迁移步骤。 如果要在迁移之前了解 Azure 文件同步的详细信息，请参阅以下文章：
 
-* [Azure 文件同步概述](https://aka.ms/AFS "概述")
+* [Azure 文件同步概述](./storage-sync-files-planning.md "概述")
 * [Azure 文件同步部署指南](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>StorSimple 服务数据加密密钥
@@ -163,7 +163,7 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 * 如果需要 [高级 Azure 文件共享的性能](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)，请选择 "高级存储"。
 * 为常规用途文件服务器工作负荷（包括热数据和存档数据）选择 "标准存储"。 如果在云中共享中的唯一工作负荷将 Azure 文件同步，请选择 "标准存储"。
 
-#### <a name="account-kind"></a>帐户种类
+#### <a name="account-kind"></a>帐户类型
 
 * 对于标准存储，请选择 *StorageV2 (常规用途 v2)* 。
 * 对于高级文件共享，请选择 " *FileStorage* "。
@@ -244,7 +244,7 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
         ![StorSimple 8000 系列迁移作业。](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "数据转换服务作业的新作业创建窗体的屏幕截图。")
     :::column-end:::
     :::column:::
-        **作业定义名称**</br>此名称应指示你要移动的文件集。 为其提供类似于 Azure 文件共享的名称是一种很好的做法。 </br></br>**作业运行的位置**</br>选择区域时，必须选择与 StorSimple 存储帐户相同的区域，如果该帐户不可用，则必须选择该区域。 </br></br><h3>源</h3>**源订阅**</br>选择要在其中存储 StorSimple 设备管理器资源的订阅。 </br></br>**StorSimple 资源**</br>选择你的 StorSimple 设备管理器你的设备已注册到。 </br></br>**服务数据加密密钥**</br>请查看 [本文前面的部分](#storsimple-service-data-encryption-key) ，以防找不到记录中的密钥。 </br></br>**设备**</br>选择包含要迁移的卷的 StorSimple 设备。 </br></br>**数据量(Volume)**</br>选择源卷。 稍后你将决定是否要将整个卷或子目录迁移到目标 Azure 文件共享中。 </br></br><h3>目标</h3>选择 "订阅"、"存储帐户" 和 "Azure 文件共享" 作为此迁移作业的目标。
+        **作业定义名称**</br>此名称应指示你要移动的文件集。 为其提供类似于 Azure 文件共享的名称是一种很好的做法。 </br></br>**作业运行的位置**</br>选择区域时，必须选择与 StorSimple 存储帐户相同的区域，如果该帐户不可用，则必须选择该区域。 </br></br><h3>源</h3>**源订阅**</br>选择要在其中存储 StorSimple 设备管理器资源的订阅。 </br></br>**StorSimple 资源**</br>选择你的 StorSimple 设备管理器你的设备已注册到。 </br></br>**服务数据加密密钥**</br>请查看 [本文前面的部分](#storsimple-service-data-encryption-key) ，以防找不到记录中的密钥。 </br></br>**设备**</br>选择包含要迁移的卷的 StorSimple 设备。 </br></br>**量**</br>选择源卷。 稍后你将决定是否要将整个卷或子目录迁移到目标 Azure 文件共享中。 </br></br><h3>Target</h3>选择 "订阅"、"存储帐户" 和 "Azure 文件共享" 作为此迁移作业的目标。
     :::column-end:::
 :::row-end:::
 
@@ -385,7 +385,7 @@ StorSimple 在卷级别上提供差异备份。 Azure 文件共享还具有这�
 * [如何配置 Windows P2S VPN](storage-files-configure-p2s-vpn-windows.md)
 * [如何配置 Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
 * [如何配置 DNS 转发](storage-files-networking-dns.md)
-* [配置 DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [配置 DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -535,7 +535,7 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 
 如果你有一个 DFS-N 部署，则可以将 DFN-Namespaces 指向新的服务器文件夹位置。 如果你没有 DFS-N 部署，并且你在本地使用 Windows Server 实例前端了8100或8600设备，则可以将该服务器从域中取出。 然后，该域加入启用了新 Azure 文件同步的 Windows Server 实例。 在此过程中，请为服务器提供与旧服务器相同的服务器名称和共享名称，以便对用户、组策略和脚本的剪切不变。
 
-详细了解 [DFS-N](https://aka.ms/AzureFiles/Namespaces)。
+详细了解 [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)。
 
 ## <a name="deprovision"></a>预配
 
@@ -561,7 +561,7 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 
 ## <a name="next-steps"></a>后续步骤
 
-* 更熟悉 [Azure 文件同步： aka.ms/AFS](https://aka.ms/AFS)。
+* 更熟悉 [Azure 文件同步： aka.ms/AFS](./storage-sync-files-planning.md)。
 * 了解 [云分层](storage-sync-cloud-tiering.md) 策略的灵活性。
 * 在 Azure 文件共享上[启用 Azure 备份](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane)，以安排快照并定义备份保留计划。
 * 如果在 Azure 门户中看到某些文件未同步，请参阅 [故障排除指南](storage-sync-files-troubleshoot.md) 以获取解决这些问题的步骤。

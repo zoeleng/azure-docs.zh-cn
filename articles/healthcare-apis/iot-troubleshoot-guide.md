@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540937"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630492"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>适用于 FHIR 的 Azure IoT 连接器 (预览版) 故障排除指南
 
-本文提供了用于排查 FHIR * 错误消息和条件的常见 Azure IoT 连接器的步骤。  
+本文提供了针对快速医疗保健互操作性资源（ (FHIR&#174;) * 错误消息和条件）进行故障排除的常见 Azure IoT 连接器的步骤。  
 
 你还将了解如何创建 Azure IoT 连接器的副本用于 FHIR 转换映射 JSON (例如： Device and FHIR) 。  
 
@@ -102,7 +102,7 @@ ms.locfileid: "94540937"
 
 |数据流阶段|说明|
 |---------------|-----------|
-|安装|特定于设置 IoT 连接器实例的操作|
+|设置|特定于设置 IoT 连接器实例的操作|
 |标准化|设备数据被规范化的数据流阶段|
 |分组|对标准化数据进行分组的数据流阶段|
 |FHIRConversion|将分组标准化数据转换为 FHIR 资源的数据流阶段|
@@ -191,6 +191,4 @@ ms.locfileid: "94540937"
 >[!div class="nextstepaction"]
 >[适用于 FHIR 常见问题的 Azure IoT 连接器](fhir-faq.md)
 
-*在 Azure 门户中，适用于 FHIR 的 Azure IoT 连接器称为 IoT Connector（预览版）。
-
-FHIR 是 HL7 的注册商标，经 HL7 许可使用。
+* 在 Azure 门户中，用于 FHIR 的 Azure IoT 连接器称为 IoT 连接器 (预览版) 。 FHIR 是 HL7 的注册商标，用于 HL7 的权限。

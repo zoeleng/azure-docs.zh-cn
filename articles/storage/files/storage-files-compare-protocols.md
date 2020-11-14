@@ -8,20 +8,20 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568465"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629302"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 文件共享协议
 
-Azure 文件提供了两个用于连接和装载 Azure 文件共享的协议。 [服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 和 [网络文件系统 (NFS) 协议](https://en.wikipedia.org/wiki/Network_File_System) (预览版) 。 Azure 文件目前不支持多协议访问，因此共享只能是 NFS 共享或 SMB 共享。 出于此原因，我们建议在创建 Azure 文件共享之前，确定哪种协议最适合你的需求。
+Azure 文件提供了两个用于连接和装载 Azure 文件共享的协议。 [服务器消息块 (SMB) 协议](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 和 [网络文件系统 (NFS) 协议](https://en.wikipedia.org/wiki/Network_File_System) (预览版) 。 Azure 文件目前不支持多协议访问，因此共享只能是 NFS 共享或 SMB 共享。 出于此原因，我们建议在创建 Azure 文件共享之前，确定哪种协议最适合你的需求。
 
 ## <a name="differences-at-a-glance"></a>差异概览
 
-|Feature  |NFS (预览)   |SMB  |
+|功能  |NFS (预览)   |SMB  |
 |---------|---------|---------|
 |访问协议     |NFS 4。1         |SMB 2.1，SMB 3。0         |
 |支持的 OS     |Linux 内核版本 4.3 +         |Windows 2008 R2 +、Linux 内核版本 4.11 +         |
@@ -64,7 +64,7 @@ Azure 文件的 NFS 适用于：
 - [专用终结点](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN 网关](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [) VPN 的点到站点 (P2S](../../vpn-gateway/point-to-site-about.md)
-    - [站点到站点](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [站点到站点](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [受限的公共终结点](storage-files-networking-overview.md#storage-account-firewall-settings)
 

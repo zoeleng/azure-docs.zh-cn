@@ -8,12 +8,12 @@ ms.date: 09/19/2017
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2c80d741ca1cf0b4d66bc18488af8ef1da44fd14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 977777aff4aa32bf6876e1d573970d71ec71584e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462592"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629761"
 ---
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "89462592"
 * 上传、下载和删除文件
 
 > [!Note]  
-> 由于 Azure 文件可以通过 SMB 进行访问，因此可以编写应用程序，通过标准的 Java I/O 类来访问 Azure 文件共享。 本文介绍如何编写使用 Azure 存储 Java SDK 的应用程序，该 SDK 使用 [Azure 文件 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) 与 Azure 文件通信。
+> 由于 Azure 文件可以通过 SMB 进行访问，因此可以编写应用程序，通过标准的 Java I/O 类来访问 Azure 文件共享。 本文介绍如何编写使用 Azure 存储 Java SDK 的应用程序，该 SDK 使用 [Azure 文件 REST API](/rest/api/storageservices/file-service-rest-api) 与 Azure 文件通信。
 
 ## <a name="create-a-java-application"></a>创建 Java 应用程序
 若要生成示例，需要 Java 开发工具包 (JDK) 和[用于 Java 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-java)。 此外，应该已经创建了一个 Azure 存储帐户。
@@ -88,7 +88,7 @@ CloudFileClient fileClient = storageAccount.createCloudFileClient();
 CloudFileShare share = fileClient.getShareReference("sampleshare");
 ```
 
-实际创建共享时，请使用 CloudFileShare 对象的 **createIfNotExists**方法。
+实际创建共享时，请使用 CloudFileShare 对象的 **createIfNotExists** 方法。
 
 ```java
 if (share.createIfNotExists()) {
@@ -96,7 +96,7 @@ if (share.createIfNotExists()) {
 }
 ```
 
-而在目前，**share** 保留对名为 **sampleshare** 的共享的引用。
+而在目前， **share** 保留对名为 **sampleshare** 的共享的引用。
 
 ## <a name="delete-an-azure-file-share"></a>删除 Azure 文件共享
 删除共享时，可针对 CloudFileShare 对象调用 **deleteIfExists** 方法。 以下是具有此类功能的示例代码。
@@ -229,7 +229,7 @@ if ( file.deleteIfExists() ) {
 * [用于 Java 的 Azure 存储 SDK](https://github.com/azure/azure-storage-java)
 * [用于 Android 的 Azure 存储 SDK](https://github.com/azure/azure-storage-android)
 * [Azure 存储客户端 SDK 参考](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [Azure 存储空间服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
-* [使用 AzCopy 命令行实用工具传输数据](../common/storage-use-azcopy.md)
+* [Azure 存储空间服务 REST API](/rest/api/storageservices/)
+* [Azure 存储团队博客](/archive/blogs/windowsazurestorage/)
+* [使用 AzCopy 命令行实用工具传输数据](../common/storage-use-azcopy-v10.md)
 * [排查 Azure 文件问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

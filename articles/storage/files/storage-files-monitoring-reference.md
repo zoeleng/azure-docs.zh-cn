@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: c6f4b932bb8f16af3c0368ab219bd8a12bf2face
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f6dc523050fdcdbf54a6b9864f0a752698a85eed
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357974"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628928"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure 文件监视数据引用
 
@@ -36,7 +36,7 @@ Azure 文件在 Azure Monitor 中提供了以下容量指标。
 
 #### <a name="azure-files"></a>Azure 文件
 
-下表显示了 [Azure 文件指标](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices)。
+下表显示了 [Azure 文件指标](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices)。
 
 | 指标 | 说明 |
 | ------------------- | ----------------- |

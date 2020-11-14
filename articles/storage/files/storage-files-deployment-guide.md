@@ -7,22 +7,22 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034492"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629234"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
 [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
 
 强烈建议在按照本文中的步骤操作之前，阅读[规划 Azure 文件部署](storage-files-planning.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 本文假设你已完成下列步骤：
 
-- 在所需区域创建了具有所需复原和加密选项的 Azure 存储帐户。 有关如何创建存储帐户的分步说明，请参阅[创建存储帐户](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+- 在所需区域创建了具有所需复原和加密选项的 Azure 存储帐户。 有关如何创建存储帐户的分步说明，请参阅[创建存储帐户](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)。
 - 在存储帐户中创建了具有所需配额的 Azure 文件共享。 有关如何创建文件共享的分步说明，请参阅[创建文件共享](storage-how-to-create-file-share.md)。
 
 ## <a name="transfer-data-into-azure-files"></a>将数据传输到 Azure 文件
@@ -63,7 +63,7 @@ Azure 文件同步也可用于将数据迁移到 Azure 文件共享，即使长�
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    可以指定同一存储帐户的多个共享。 有关详细信息，请参阅[准备数据集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+    可以指定同一存储帐户的多个共享。 有关详细信息，请参阅[准备数据集 CSV 文件](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)。
 
 5. 创建驱动器集 CSV 文件。 驱动器集 CSV 文件可列出本地导出代理可用的磁盘。 例如，以下驱动器集 CSV 文件可列出用于本地导出作业的 `X:`、`Y:` 和 `Z:` 驱动器：
 
@@ -74,7 +74,7 @@ Azure 文件同步也可用于将数据迁移到 Azure 文件共享，即使长�
     Z,Format,SilentMode,Encrypt,
     ```
     
-    有关详细信息，请参阅[准备驱动器集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+    有关详细信息，请参阅[准备驱动器集 CSV 文件](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)。
 
 6. 使用 [WAImportExport 工具](https://www.microsoft.com/download/details.aspx?id=55280)将数据复制到一个或多个硬盘驱动器。
 
@@ -102,12 +102,12 @@ Robocopy 是 Windows 和 Windows Server 自带的一款知名复制工具。 Rob
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopy 提供丰富的选项，用户可根据需要修改复制行为。 有关详细信息，请查看 [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) 手册页。
+    Robocopy 提供丰富的选项，用户可根据需要修改复制行为。 有关详细信息，请查看 [Robocopy](/windows-server/administration/windows-commands/robocopy) 手册页。
 
 ### <a name="azcopy"></a>AzCopy
 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令在 Azure 文件和 Azure Blob 存储中复制/粘贴数据。 AzCopy 操作简单：
 
-1. 下载[最新版本的 AzCopy on Windows](https://aka.ms/downloadazcopy) 或 [AzCopy on Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy)。
+1. 下载[最新版本的 AzCopy on Windows](https://aka.ms/downloadazcopy) 或 [AzCopy on Linux](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json#download-azcopy)。
 2. 在命令行处使用 `azcopy` 将数据移动到 Azure 文件共享。 对于 Windows，其语法如下： 
 
     ```
@@ -120,7 +120,7 @@ AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简�
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy 提供丰富的选项，用户可根据需要修改复制行为。 有关详细信息，请参阅 [AzCopy on Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 和 [AzCopy on Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+    AzCopy 提供丰富的选项，用户可根据需要修改复制行为。 有关详细信息，请参阅 [AzCopy 入门](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)。
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>在所需电脑或服务器上自动装载
 要替换本地文件共享，最好在将要使用的计算机上预先装载共享。 可在一系列计算机上自动完成此操作。

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: bfd67688ce30b62002e26cea9f7be4df1cb6e622
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ef80d26336ddbe3c015dfcde0c5ed29b762f39b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126441"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629710"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>如何在 Azure Marketplace 上创建虚拟机产品/服务
 
@@ -20,15 +20,15 @@ ms.locfileid: "93126441"
 
 在开始之前，请 [在合作伙伴中心创建一个商用 marketplace 帐户](partner-center-portal/create-account.md)。 确保帐户已注册加入商业市场计划。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>在开始之前
 
-如果尚未这样做，请查看 [规划虚拟机产品/服务](marketplace-virtual-machines.md)。 它将介绍虚拟机的技术要求，并列出创建产品/服务时所需的信息和资产。 
+如果尚未这样做，请查看 [规划虚拟机产品/服务](marketplace-virtual-machines.md)。 它将介绍虚拟机的技术要求，并列出创建产品/服务时所需的信息和资产。
 
 ## <a name="create-a-new-offer"></a>创建新套餐
 
 1. 登录[合作伙伴中心](https://partner.microsoft.com/dashboard/home)。
 2. 在左侧窗格中，选择“商业市场” > “概述”。
-3. 在“概述”页上，选择“新建产品/服务”  > “Azure 虚拟机”。
+3. 在 " **概述** " 页上，选择 " **+ 新建产品/服务** " "  >  **Azure 虚拟机** "。
 
     ![显示左窗格菜单选项和“新建产品/服务”按钮的屏幕截图。](./media/create-vm/new-offer-azure-virtual-machine.png)
 
@@ -45,6 +45,8 @@ ms.locfileid: "93126441"
 
 - 此名称不用于 Azure 市场。 它不同于向客户显示的产品/服务名称和其他值。
 
+选择“创建”，以生成产品/服务，并继续操作。 合作伙伴中心打开 " **产品/服务设置** " 页。
+
 ## <a name="enable-a-test-drive-optional"></a> (可选) 启用测试驱动器
 
 测试驱动器是向潜在客户展示您的产品/服务的一种很好的方式，通过在固定的小时数内提供对预配置环境的访问权限。 提供一个测试驱动器将导致转换速率增加，并生成高度合格的潜在顾客。 若要了解有关测试驱动器的详细信息，请参阅 [什么是测试驱动器？](./what-is-test-drive.md)。
@@ -52,16 +54,14 @@ ms.locfileid: "93126441"
 > [!TIP]
 > 测试驱动器与免费试用版不同。 可以提供测试驱动器、免费试用版或同时提供两者。 它们都向客户提供固定时间段的解决方案。 但在实际实施方案中，一个测试驱动器还包括一项针对您的产品关键功能的动手自学教程。
 
-**启用测试驱动器**
-1.  在 " **测试驱动器** " 下，选中 " **启用测试驱动器** " 复选框。
-1.  从显示的列表中选择 "测试驱动器" 类型。
+若要启用某个测试驱动器，请选中 " **启用测试驱动器** " 复选框。 稍后将配置该测试驱动器。 使用测试驱动器，需要配置 CRM (参阅下一部分) 。
 
-## <a name="configure-lead-management"></a>配置潜在顾客管理
+## <a name="configure-customer-leads-management"></a>配置客户主管管理
 
-将产品/服务发布到合作伙伴中心的商业市场时，将其连接到客户关系管理 (CRM) 系统。 这样，只要有人对你的产品表示兴趣或使用你的产品，你就可以收到客户的联系信息。 如果要启用测试驱动器，则需要连接到 CRM (参阅前面的) 部分。 否则，连接到 CRM 是可选的选项。
+当你使用合作伙伴中心向商业市场发布产品/服务时，请将其连接到客户关系管理 (CRM) 系统。 这样，只要有人表示有兴趣购买或使用产品，你就会收到客户的联系信息。 如果要启用测试驱动器，则需要连接到 CRM (参阅前面的) 部分。 否则，连接到 CRM 是可选的选项。
 
 1. 在 " **客户主管** " 下，选择 " **连接** " 链接。
-1. 在 " **连接详细信息** " 对话框中，从列表中选择潜在顾客目标。
+1. 在 " **连接详细信息** " 对话框中，选择潜在顾客目标。
 1. 填写显示的字段。 有关详细步骤，请参阅以下文章：
 
    - [将你的产品/服务配置为将潜在顾客发送到 Azure 表](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
@@ -71,15 +71,11 @@ ms.locfileid: "93126441"
    - [配置你的产品/服务以将潜在顾客发送到 Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. 若要验证提供的配置，请选择 " **验证** " 链接。
-1. 若要关闭对话框，请选择 **"确定"** 。
+1. 选择“连接”。
 
-## <a name="resell-through-csps"></a>通过 CSP 转售
-
-可通过向[云解决方案提供商](https://azure.microsoft.com/offers/ms-azr-0145p/) (CSP) 计划中的合作伙伴提供产品/服务来扩展其覆盖范围。 所有自带许可 (BYOL) 计划将自动选择加入该计划。 还可选择加入到非 BYOL 计划。
-
-选择“创建”，以生成产品/服务，并继续操作。
+选择 " **保存草稿** "，然后继续到左侧菜单的 " **属性** " 中的下一个选项卡。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [配置虚拟机产品/服务属性](azure-vm-create-properties.md)
+- [如何配置虚拟机产品/服务属性](azure-vm-create-properties.md)
 - [套餐列出最佳做法](gtm-offer-listing-best-practices.md)

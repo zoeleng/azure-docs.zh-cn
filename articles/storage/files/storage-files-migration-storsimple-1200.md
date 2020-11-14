@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510347"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630475"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 到 Azure 文件同步的迁移
 
@@ -32,7 +32,7 @@ Azure 文件同步是一种 Microsoft 云服务，基于两个主要组件：
 
 本文重点介绍迁移步骤。 如果要在迁移之前详细了解 Azure 文件同步，我们建议阅读以下文章：
 
-* [Azure 文件同步-概述](https://aka.ms/AFS "概述")
+* [Azure 文件同步-概述](./storage-sync-files-planning.md "概述")
 * [Azure 文件同步-部署指南](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>迁移目标
@@ -155,7 +155,7 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
       /MIR
    :::column-end:::
    :::column span="1":::
-      允许按顺序在同一目标/目标上多次运行此 RoboCopy 命令。 它标识在之前已复制的内容并将其省略。 仅会处理自上次运行后发生的更改、添加和*删除*操作。 如果命令之前未运行，则不会省略任何内容。 对于仍在使用和变化的源位置，这是一个很好的选择。
+      允许按顺序在同一目标/目标上多次运行此 RoboCopy 命令。 它标识在之前已复制的内容并将其省略。 仅会处理自上次运行后发生的更改、添加和 *删除* 操作。 如果命令之前未运行，则不会省略任何内容。 对于仍在使用和变化的源位置，这是一个很好的选择。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,20 +210,20 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 可以尝试并行运行其中几个副本。 建议一次处理一个 Azure 文件共享的作用域。
 
 > [!WARNING]
-> 将所有数据从 StorSimple 移到 Windows Server 并完成迁移后：返回到 Azure 门户中的 ***所有***  同步组，并将 "云分层卷可用空间百分比" 值调整为更适合缓存利用率的内容，例如20%。 
+> 将所有数据从 StorSimple 移到 Windows Server 并完成迁移后：返回到 Azure 门户中的 **所有** _ 同步组，并将云分层卷可用空间百分比值调整为更适合缓存利用率的内容，例如20%。 
 
 云分层卷可用空间策略作用于可能有多个服务器终结点从中同步的卷级别。 如果忘记调整甚至一个服务器终结点上的可用空间，同步将继续应用最严格的规则，并尝试保留99% 的可用磁盘空间，从而使本地缓存不会像预期的那样运行。 除非您的目标只包含一个只包含很少访问的存档数据的卷的命名空间。
 
 ## <a name="troubleshoot"></a>疑难解答
 
-最可能遇到的问题是 RoboCopy 命令在 Windows Server 端上失败并出现 *"卷已满"* 。 如果是这样，下载速度可能比上传速度更好。 云分层每小时进行一次，用于从已同步的本地 Windows Server 磁盘撤走内容。
+最可能遇到的问题是，RoboCopy 命令在 Windows Server 端上出现 "卷已满" * 的情况下失败。 如果是这样，下载速度可能比上传速度更好。 云分层每小时进行一次，用于从已同步的本地 Windows Server 磁盘撤走内容。
 
 让同步进度和云分层释放磁盘空间。 您可以在 Windows Server 上的文件资源管理器中观察。
 
 当你的 Windows 服务器有足够的可用容量时，重新运行该命令将解决此问题。 如果遇到这种情况，您可以放心地继续操作。 再次运行该命令是一个后果。
 
 还可以遇到其他 Azure 文件同步问题。
-如果出现这种情况，请查看 **Azure 文件同步故障排除指南的链接**。
+如果出现这种情况，请查看 **Azure 文件同步故障排除指南的链接** 。
 
 ## <a name="relevant-links"></a>相关链接
 
@@ -233,6 +233,6 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 
 Azure 文件同步内容：
 
-* [AFS 概述](https://aka.ms/AFS)
+* [AFS 概述](./storage-sync-files-planning.md)
 * [AFS 部署指南](storage-files-deployment-guide.md)
 * [AFS 故障排除](storage-sync-files-troubleshoot.md)

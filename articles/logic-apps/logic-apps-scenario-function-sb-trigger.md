@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure Functions 调用逻辑应用
-description: 通过侦听 Azure 服务总线，创建调用或触发逻辑应用的 Azure 函数
+description: 使用 Azure Functions 和 Azure 服务总线调用或触发逻辑应用
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013769"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629727"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>使用 Azure Functions 和 Azure 服务总线调用或触发逻辑应用
 
-当需要部署长时间运行的侦听器或任务时，可以使用 [Azure Functions](../azure-functions/functions-overview.md) 来触发逻辑应用。 例如，可以创建一个在 [Azure 服务总线](../service-bus-messaging/service-bus-messaging-overview.md) 队列上侦听的 azure 函数，并立即将逻辑应用作为推送触发器。
+当需要部署长时间运行的侦听器或任务时，可以使用 [Azure Functions](../azure-functions/functions-overview.md) 来触发逻辑应用。 例如，可以创建一个函数，用于侦听 [Azure 服务总线](../service-bus-messaging/service-bus-messaging-overview.md) 队列，并立即以推送触发器的形式触发逻辑应用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -24,7 +24,7 @@ ms.locfileid: "89013769"
 
 * Azure 服务总线命名空间。 若没有命名空间，请[先创建命名空间](../service-bus-messaging/service-bus-create-namespace-portal.md)。
 
-* 一个 Azure 函数应用，它是 Azure Functions 的容器。 若没有函数应用，请[先创建函数应用](../azure-functions/functions-create-first-azure-function.md)，并确保选择 .NET 作为运行时堆栈。
+* 函数应用，它是函数的容器。 若没有函数应用，请[先创建函数应用](../azure-functions/functions-create-first-azure-function.md)，并确保选择 .NET 作为运行时堆栈。
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 
@@ -50,7 +50,7 @@ ms.locfileid: "89013769"
 
    1. 在请求触发器中，选择“使用示例有效负载生成架构”。
 
-   1. 在 " **输入或粘贴示例 JSON 负载**" 下，输入示例负载，然后选择 " **完成**"。
+   1. 在 " **输入或粘贴示例 JSON 负载** " 下，输入示例负载，然后选择 " **完成** "。
 
       ![输入示例有效负载](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "89013769"
 
    ![为触发器生成的回调 URL](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>创建 Azure 函数
+## <a name="create-a-function"></a>创建函数
 
 接下来，创建一个充当触发器并侦听队列的函数。
 
@@ -106,11 +106,11 @@ ms.locfileid: "89013769"
 
 1. 根据你是创建新的函数应用（在其中选择 .NET 作为运行时堆栈）还是使用现有的函数应用来选择此模板。
 
-   * 对于新的函数应用，请选择此模板：**服务总线队列触发器**
+   * 对于新的函数应用，请选择此模板： **服务总线队列触发器**
 
      ![为新的函数应用选择模板](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
 
-   * 对于现有的函数应用，请选择此模板：**服务总线队列触发器 - C#**
+   * 对于现有的函数应用，请选择此模板： **服务总线队列触发器 - C#**
 
      ![为现有的函数应用选择模板](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: 1c02f9de5b41d58e40001ba103191f3ef015f5c5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534900"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629948"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>使用外部元数据存储 - Azure HDInsight
 
@@ -65,9 +65,9 @@ HDInsight 还支持自定义元存储，建议对生产群集使用此项：
 
 在为 HDInsight 群集设置自定义 Hive 元存储之前，需创建 Azure SQL 数据库或有一个现有的 Azure SQL 数据库。  有关详细信息，请参阅 [快速入门：在 AZURE SQL 数据库中创建单个数据库](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)。
 
-创建群集时，HDInsight 服务需要连接到外部元存储并验证你的凭据。 配置 Azure SQL 数据库防火墙规则以允许 Azure 服务和资源访问服务器。 通过选择“设置服务器防火墙”  来在 Azure 门户中启用此选项。 然后选择 **No** " **拒绝公共网络访问** " 下面的 **"是"** ，在 " **允许 azure 服务和资源" 访问此服务器** 以获取 azure SQL 数据库。 有关详细信息，请参阅[创建和管理 IP 防火墙规则](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+创建群集时，HDInsight 服务需要连接到外部元存储并验证你的凭据。 配置 Azure SQL 数据库防火墙规则以允许 Azure 服务和资源访问服务器。 通过选择“设置服务器防火墙”来在 Azure 门户中启用此选项。 然后选择 **No** " **拒绝公共网络访问** " 下面的 **"是"** ，在 " **允许 azure 服务和资源" 访问此服务器** 以获取 azure SQL 数据库。 有关详细信息，请参阅[创建和管理 IP 防火墙规则](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-不支持使用 SQL 存储的专用终结点。
+仅在通过 ResourceProviderConnection 创建的群集上支持 SQL 存储的专用终结点 `outbound` 。 若要了解详细信息，请参阅此 [documentationa](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link)。
 
 ![“设置服务器防火墙”按钮](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
@@ -75,7 +75,7 @@ HDInsight 还支持自定义元存储，建议对生产群集使用此项：
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>在群集创建期间选择自定义元存储
 
-可以随时将群集指向之前创建的 Azure SQL 数据库。 若要通过门户创建群集，请从“存储”>“元存储设置”  指定该选项。
+可以随时将群集指向之前创建的 Azure SQL 数据库。 若要通过门户创建群集，请从“存储”>“元存储设置”指定该选项。
 
 ![HDInsight Hive 元数据存储 Azure 门户](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 

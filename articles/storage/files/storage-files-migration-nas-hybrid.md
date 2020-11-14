@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510299"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629200"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>使用 Azure 文件同步从网络附加存储迁移 (NAS) 到混合云部署
 
@@ -151,7 +151,7 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
       /MIR
    :::column-end:::
    :::column span="1":::
-      允许按顺序在同一目标/目标上多次运行此 RoboCopy 命令。 它标识在之前已复制的内容并将其省略。 仅会处理自上次运行后发生的更改、添加和*删除*操作。 如果命令之前未运行，则不会省略任何内容。 对于仍在使用和变化的源位置， */MIR* 标志是一个极佳的选项。
+      允许按顺序在同一目标/目标上多次运行此 RoboCopy 命令。 它标识在之前已复制的内容并将其省略。 仅会处理自上次运行后发生的更改、添加和 *删除* 操作。 如果命令之前未运行，则不会省略任何内容。 对于仍在使用和变化的源位置， */MIR* 标志是一个极佳的选项。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,13 +208,13 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 可以尝试并行运行其中几个副本。 建议一次处理一个 Azure 文件共享的作用域。
 
 > [!WARNING]
-> 将所有数据从 NAS 移动到 Windows Server 并完成迁移后：返回到 Azure 门户中的 ***所有***  同步组，并将云分层可用空间百分比值调整为更适合缓存利用率的内容（如20%）。 
+> 将所有数据从 NAS 移动到 Windows Server 并完成迁移后：返回到 Azure 门户中的 **所有** _ 同步组，并将云分层卷可用空间百分比值调整为更适合缓存利用率的内容，例如20%。 
 
 云分层卷可用空间策略作用于可能有多个服务器终结点从中同步的卷级别。 如果忘记调整甚至一个服务器终结点上的可用空间，同步将继续应用最严格的规则，并尝试保留99% 的可用磁盘空间，从而使本地缓存不会像预期的那样运行。 除非您的目标只是只包含很少访问的卷的命名空间、存档数据，并且您保留另一方案的存储空间的剩余部分。
 
 ## <a name="troubleshoot"></a>疑难解答
 
-最可能遇到的问题是 RoboCopy 命令在 Windows Server 端上失败并出现 *"卷已满"* 。 云分层每小时进行一次，用于从已同步的本地 Windows Server 磁盘撤走内容。 其目标是在卷上达到99% 的可用空间。
+最可能遇到的问题是，RoboCopy 命令在 Windows Server 端上出现 "卷已满" * 的情况下失败。 云分层每小时进行一次，用于从已同步的本地 Windows Server 磁盘撤走内容。 其目标是在卷上达到99% 的可用空间。
 
 让同步进度和云分层释放磁盘空间。 您可以在 Windows Server 上的文件资源管理器中观察。
 
@@ -226,6 +226,6 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 
 有关 Azure 文件共享和 Azure 文件同步的详细信息，请阅读。以下文章可帮助了解高级选项、最佳做法和故障排除帮助。 这些文章链接到相应的 [Azure 文件共享文档](storage-files-introduction.md) 。
 
-* [AFS 概述](https://aka.ms/AFS)
+* [AFS 概述](./storage-sync-files-planning.md)
 * [AFS 部署指南](storage-files-deployment-guide.md)
 * [AFS 故障排除](storage-sync-files-troubleshoot.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: d8b36676c9b95992bdcf382c1f474b56e30ad3fb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3973e32fdc724bd3c0894d6aaf2eb06ad3ba3adc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535546"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629931"
 ---
 # <a name="archived-release-notes"></a>已存档的发行说明
 
@@ -21,40 +21,70 @@ ms.locfileid: "92535546"
 
 Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和 Apache Spark 分析服务之一。
 
-## <a name="release-date-09282020"></a>发布日期：09/28/2020
+## <a name="release-date-10082020"></a>发行日期：2020/10/08
 
 此版本适用于 HDInsight 3.6 和 HDInsight 4.0。 HDInsight 发行版在几天后即会在所有区域中推出。 此处的发行日期是指在第一个区域中的发行日期。 如果看不到以下更改，请耐心等待，几天后发行版会在你所在的区域推出。
 
 ### <a name="new-features"></a>新增功能
-#### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>使用 HDInsight 4.0 的交互式查询的自动缩放现已正式发布
-交互式查询群集类型的自动缩放现已正式发布 (适用于 HDInsight 4.0 的 GA) 。 4.0 年 8 2020 月27日之后创建的所有交互式查询群集都将为自动缩放提供 GA 支持。
-
-#### <a name="hbase-cluster-supports-premium-adls-gen2"></a>HBase 群集支持高级 ADLS Gen2
-HDInsight 现在支持将高级 ADLS Gen2 作为 HDInsight HBase 3.6 和4.0 群集的主要存储帐户。 与 [加速写入](./hbase/apache-hbase-accelerated-writes.md)一起，你可以为 HBase 群集提供更好的性能。
-
-#### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Azure 容错域上的 Kafka 分区分布
-容错域是 Azure 数据中心基础硬件的逻辑分组。 每个容错域共享公用电源和网络交换机。 在 HDInsight Kafka 可以将所有分区副本存储在同一容错域中。 从此版本开始，HDInsight 现在支持基于 Azure 容错域自动分发 Kafka 分区。 
-
-#### <a name="encryption-in-transit"></a>传输中加密
-客户可以通过使用 IPSec 加密和平台托管密钥，在群集节点之间传输加密。 可以在创建群集时启用此选项。 查看有关 [如何在传输中启用加密的](./domain-joined/encryption-in-transit.md)更多详细信息。
-
-#### <a name="encryption-at-host"></a>主机加密
-当你在主机上启用加密时，存储在 VM 主机上的数据将静态加密，并加密为存储服务。 在此版本中，可以在创建群集时，在 **临时数据磁盘上的主机上启用加密** 。 仅在 [有限区域中的特定 VM sku](../virtual-machines/disks-enable-host-based-encryption-portal.md)上支持在主机上加密。 HDInsight 支持 [以下节点配置和 sku](./hdinsight-supported-node-configuration.md)。 有关 [如何在主机上启用加密的](./disk-encryption.md#encryption-at-host-using-platform-managed-keys)详细信息，请参阅。
+#### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>没有公共 IP 和专用链接的 HDInsight 专用群集（预览版）
+HDInsight 现支持创建没有公共 IP 和专用链接（用于访问相应群集）的群集（处于预览状态）。 客户可以使用新的高级网络设置来创建没有公共 IP 的完全独立的群集，并可以使用自己的专用终结点来访问该群集。 
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>迁移到 Azure 虚拟机规模集
-HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本开始，该服务将逐步迁移到 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。 整个过程可能需要几个月的时间。 迁移你的区域和订阅后，新创建的 HDInsight 群集将在无需客户操作的虚拟机规模集上运行。 不需要进行重大更改。
+HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本开始，该服务将逐渐迁移到 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。 整个过程可能需要几个月。 迁移区域和订阅后，新创建的 HDInsight 群集将在虚拟机规模集上运行，而无需客户执行任何操作。 预计不会有中断性变更。
 
 ### <a name="deprecation"></a>弃用
-此版本没有弃用。
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>弃用 HDInsight 3.6 ML 服务群集
+HDInsight 3.6 ML 服务群集类型将于 2020 年 12 月 31 日终止支持。 之后，客户将不会创建新的 3.6 ML 服务群集。 现有群集将在没有 Microsoft 支持的情况下按原样运行。 请在[此处](./hdinsight-component-versioning.md#available-versions)检查 HDInsight 版本的有效期限和群集类型。
 
 ### <a name="behavior-changes"></a>行为更改
-此版本没有行为更改。
+此版本没有行为变更。
+
+### <a name="upcoming-changes"></a>即将推出的更改
+即将发布的版本中将推出以下变更。
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>能够为 Spark、Hadoop 和 ML 服务选择不同的 Zookeeper 虚拟机大小
+目前，HDInsight 不支持为 Spark、Hadoop 和 ML 服务群集类型自定义 Zookeeper 节点大小。 默认情况下为 A2_v2/A2 虚拟机大小（免费提供）。 在即将发布的版本中，可以选择最适合自己方案的 Zookeeper 虚拟机大小。 虚拟机大小不是 A2_v2/A2 的 Zookeeper 节点需要付费。 A2_v2 和 A2 虚拟机仍免费提供。
+
+### <a name="bug-fixes"></a>Bug 修复
+HDInsight 会持续改善群集的可靠性和性能。 
+
+### <a name="component-version-change"></a>组件版本更改
+此发行版未发生组件版本更改。 可以在[此文档](./hdinsight-component-versioning.md)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
+
+## <a name="release-date-09282020"></a>发行日期：2020/09/28
+
+此版本适用于 HDInsight 3.6 和 HDInsight 4.0。 HDInsight 发行版在几天后即会在所有区域中推出。 此处的发行日期是指在第一个区域中的发行日期。 如果看不到以下更改，请耐心等待，几天后发行版会在你所在的区域推出。
+
+### <a name="new-features"></a>新增功能
+#### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>对于 HDInsight 4.0，Interactive Query 的自动缩放现已正式发布
+对于 HDInsight 4.0，Interactive Query 群集类型的自动缩放现已正式发布 (GA)。 2020 年 8 月 27 日之后创建的所有 Interactive Query 4.0 群集都将对自动缩放功能提供 GA 支持。
+
+#### <a name="hbase-cluster-supports-premium-adls-gen2"></a>HBase 群集支持高级 ADLS Gen2
+HDInsight 现在支持将高级 ADLS Gen2 作为 HDInsight HBase 3.6 和 4.0 群集的主要存储帐户。 不仅可以[加速写入](./hbase/apache-hbase-accelerated-writes.md)，还可以获得更佳的 HBase 群集性能。
+
+#### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Azure 容错域上的 Kafka 分区分发
+容错域是 Azure 数据中心基础硬件的逻辑分组。 每个容错域共享公用电源和网络交换机。 对之前的 HDInsight，Kafka 可能将所有分区副本存储在同一容错域中。 从此版本开始，HDInsight 现支持根据 Azure 容错域自动分发 Kafka 分区。 
+
+#### <a name="encryption-in-transit"></a>传输中加密
+客户可以使用 IPSec 加密和平台管理的密钥在群集节点之间启用传输中加密。 可以在创建群集时启用此选项。 查看有关[如何启用传输中加密的更多详细信息](./domain-joined/encryption-in-transit.md)。
+
+#### <a name="encryption-at-host"></a>主机加密
+启用主机加密时，存储在 VM 主机上的数据将静态加密，且已加密的数据将流向存储服务。 在此版本中，可以在创建群集时在临时数据磁盘上启用主机加密。 只有[有限区域中的某些 VM SKU](../virtual-machines/disks-enable-host-based-encryption-portal.md) 上支持主机加密。 HDInsight 支持[以下节点配置和 SKU](./hdinsight-supported-node-configuration.md)。 查看有关[如何启用主机加密](./disk-encryption.md#encryption-at-host-using-platform-managed-keys)的更多详细信息。
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>迁移到 Azure 虚拟机规模集
+HDInsight 目前使用 Azure 虚拟机来预配群集。 从此版本开始，该服务将逐渐迁移到 [Azure 虚拟机规模集](../virtual-machine-scale-sets/overview.md)。 整个过程可能需要几个月。 迁移区域和订阅后，新创建的 HDInsight 群集将在虚拟机规模集上运行，而无需客户执行任何操作。 预计不会有中断性变更。
+
+### <a name="deprecation"></a>弃用
+此版本没有任何弃用功能。
+
+### <a name="behavior-changes"></a>行为更改
+此版本没有行为变更。
 
 ### <a name="upcoming-changes"></a>即将推出的更改
 即将发布的版本中将推出以下变更。
 
 #### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>能够为 Spark、Hadoop 和 ML 服务选择不同的 Zookeeper SKU
-HDInsight 目前不支持更改 Spark、Hadoop 和 ML 服务群集类型的 Zookeeper SKU。 它为 Zookeeper 节点使用 A2_v2/A2 SKU，客户无需对此付费。 在即将推出的版本中，客户可以根据需要更改 Spark、Hadoop 和 ML 服务的 Zookeeper SKU。 会对不使用 A2_v2/A2 SKU 的 Zookeeper 节点收取费用。 默认 SKU 仍为 A2_V2/A2 并免费。
+HDInsight 目前不支持更改 Spark、Hadoop 和 ML 服务群集类型的 Zookeeper SKU。 它为 Zookeeper 节点使用 A2_v2/A2 SKU，客户无需对此付费。 在即将发布的版本中，客户可以按需更改 Spark、Hadoop 和 ML 服务的 Zookeeper SKU。 会对不使用 A2_v2/A2 SKU 的 Zookeeper 节点收取费用。 默认 SKU 仍为 A2_V2/A2 并免费。
 
 ### <a name="bug-fixes"></a>Bug 修复
 HDInsight 会持续改善群集的可靠性和性能。 
@@ -114,7 +144,7 @@ HDInsight 会持续改善群集的可靠性和性能。
 
 ### <a name="known-issues"></a>已知问题
 
-Azure 门户中已解决了问题，即用户使用 SSH 身份验证类型的公钥创建 Azure HDInsight 群集时遇到错误。 当用户单击“查看 + 创建”时，他们将收到错误“不得包含 SSH 用户名中的任意三个连续字符。” 此问题已修复，但可能要求你通过按 CTRL + F5 加载更正的视图来刷新浏览器缓存。 解决此问题的方法是使用 ARM 模板创建群集。 
+Azure 门户中已修复了一个问题，即用户在使用 SSH 身份验证类型的公钥创建 Azure HDInsight 群集时会遇到错误。 当用户单击“查看 + 创建”时，他们将收到错误“不得包含 SSH 用户名中的任意三个连续字符。” 此问题已修复，但可能要求你通过按 CTRL + F5 加载更正的视图来刷新浏览器缓存。 解决此问题的方法是使用 ARM 模板创建群集。 
 
 ## <a name="release-date-07132020"></a>发行日期：2020/07/13
 
@@ -235,7 +265,7 @@ Kafka 版本已从 2.1.0 升级到 2.1.1。
 ### <a name="deprecation"></a>弃用
 此版本无弃用。 若要为即将到来的弃用做好准备，请参阅[即将推出的变更](#upcoming-changes)。
 
-### <a name="behavior-changes"></a>行为更改
+### <a name="behavior-changes"></a>行为变更
 此版本无行为变更。 若要为即将推出的更改做好准备，请参阅[即将推出的更改](#upcoming-changes)。
 
 ### <a name="upcoming-changes"></a>即将推出的更改
@@ -291,7 +321,7 @@ HDInsight 会持续改善群集的可靠性和性能。
 ### <a name="deprecation"></a>弃用
 此版本无弃用。 若要为即将到来的弃用做好准备，请参阅[即将推出的变更](#upcoming-changes)。
 
-### <a name="behavior-changes"></a>行为更改
+### <a name="behavior-changes"></a>行为变更
 此版本无行为变更。 若要为即将到来的行为变更做好准备，请参阅[即将推出的变更](#upcoming-changes)。
 
 ### <a name="upcoming-changes"></a>即将推出的更改
@@ -518,7 +548,7 @@ Apache Storm 和机器学习服务在 HDInsight 4.0 中不可用。
 
 新的更新和功能划分为以下类别：
 
-*  ***更新 Hadoop 和其他开源项目** _ –除了跨20多个开源项目的1000多个 bug 修复外，此更新还包含新版本的 _ *Spark (2.3)* * 和 **Kafka (1.0)** 。
+*  ***更新 Hadoop 和其他开源项目** _ - 除了超过 20 个开源项目的 1000 多个 bug 修复，此更新还包含 _Spark (2.3)* 和 Kafka (1.0) 的新版本。
 
     a.  [**Apache Spark 2.3 中的新增功能**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -526,9 +556,9 @@ Apache Storm 和机器学习服务在 HDInsight 4.0 中不可用。
 
 *  ***将 R Server 9.1 更新到机器学习服务 9.3** _ –在此版本中，我们将向数据科学家和工程师提供最优秀的开源，其中包含算法创新和易用性，并以 Apache Spark 的速度提供其首选语言。 此版本扩展了 R Server 的功能，添加了对 Python 的支持，群集名称因而从 R Server 更改为 ML Services。 
 
-_ * **支持 Azure Data Lake Storage Gen2** _ – HDInsight 将支持 Azure Data Lake Storage Gen2 的预览版本。 在可用区域中，客户可以选择将 ADLS Gen2 帐户作为 HDInsight 群集的主要存储或辅助存储。
+_  * **支持 Azure Data Lake Storage Gen2** _ - HDInsight 将支持 Azure Data Lake Storage Gen2 的预览版本。 在可用区域中，客户可以选择将 ADLS Gen2 帐户作为 HDInsight 群集的主要存储或辅助存储。
 
-_ * **HDInsight 企业安全性套餐更新 (预览版)** _ – (预览版) [虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md) 支持 Azure Blob 存储、ADLS Gen1、Cosmos DB 和 azure DB。
+_  * **HDInsight 企业安全性套餐更新（预览版）** _ -（预览版） [虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)支持 Azure Blob 存储、ADLS Gen1、Cosmos DB 和 Azure DB。
 
 ### <a name="component-versions"></a>组件版本
 
@@ -726,7 +756,7 @@ HDP 2.6.4 提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
 除以下修补程序以外，此版本还提供 Hive 1.2.1 和 Hive 2.1.0：
 
-_ *Hive 1.2.1 Apache 修补程序：**
+_Hive 1.2.1 Apache 修补程序：*
 
 -   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697)：ObjectInspectorConvertors\#UnionConvertor 执行错误的转换。
 

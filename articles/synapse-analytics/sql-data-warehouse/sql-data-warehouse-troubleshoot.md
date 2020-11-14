@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340271"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630050"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中的 Synapse SQL 故障排除
 
@@ -39,6 +39,12 @@ ms.locfileid: "93340271"
 | Visual Studio 对象资源管理器缺少 Azure AD 用户           | 这是一个已知问题。  解决方法是在 [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 中查看这些用户。  请参阅 [Azure Synapse 的身份验证](sql-data-warehouse-authentication.md) ，了解有关将 Azure Active Directory 与专用 SQL 池配合使用的详细信息。 |
 | 使用脚本向导进行手动脚本编写或通过 SSMS 进行连接时出现缓慢、未响应或产生错误的情况 | 请确保已在 master 数据库中创建用户。 在脚本选项中，还应确保将引擎版本设置为 "Microsoft Azure Synapse Analytics Edition"，并将引擎类型设置为 "Microsoft Azure SQL 数据库"。 |
 | 在 SSMS 中生成脚本失败                               | 如果 "生成依赖对象的脚本" 选项设置为 "True"，则为专用 SQL 池生成脚本失败。 解决方法是，用户必须手动转到“工具”->“选项”->“SQL Server 对象资源管理器”->“为从属选项生成脚本”并设置为 false |
+
+## <a name="data-ingestion-and-preparation"></a>数据引入和准备
+
+| 问题                                                        | 解决方法                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| 使用 CETAS 导出空字符串将导致 Parquet 和 ORC 文件中出现 NULL 值。 注意如果要从不具有 NULL 约束的列中导出空字符串，则 CETAS 将导致拒绝记录，导出可能会失败。 | 删除 CETAS 的 SELECT 语句中的空字符串或有问题的列。 |
 
 ## <a name="performance"></a>性能
 
