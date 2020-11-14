@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594260"
+ms.locfileid: "94616818"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>使用 NSG 访问和 Azure Bastion
 
@@ -40,7 +40,7 @@ _ **入口流量：**
 
    * **来自公共 Internet 的入口流量：** Azure Bastion 将创建一个公共 IP，需要在该公共 IP 上启用端口 443，用于入口流量。 不需要在 AzureBastionSubnet 上打开端口 3389/22。
    * **来自 Azure Bastion 控制平面的入口流量：** 对于控制平面连接，请启用从 GatewayManager 服务标记进行的端口 443 入站。 这使控制平面（即网关管理器）能够与 Azure Bastion 通信。
-   * **传入来自 Azure Loadbalancer 的流量：** 对于运行状况探测，启用 **AzureLoadBalancer** 服务标记中的端口443入站。 这将启用 azure 负载均衡器，以检测后端的连接问题。
+   * **传入来自 Azure 负载均衡器的流量：** 对于运行状况探测，请从 **AzureLoadBalancer** 服务标记中启用端口443入站。 这使得 Azure 负载均衡器能够检测连接 
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="屏幕截图显示 Azure Bastion 连接的入站安全规则。":::
