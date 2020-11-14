@@ -55,7 +55,7 @@
               href: QuickStarts/CSharp-hand-text.md
             - name: Java
               href: QuickStarts/java-hand-text.md
-            - name: JavaScript
+            - name: Javascript
               href: QuickStarts/javascript-hand-text.md
             - name: Python
               href: QuickStarts/python-hand-text.md
@@ -85,12 +85,14 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: 概念
   items:
-    - name: 内容标记
-      href: concept-tagging-images.md
+    - name: 光学字符识别 (OCR)
+      href: concept-recognizing-text.md
     - name: 对象检测
       href: concept-object-detection.md
     - name: 品牌检测
       href: concept-brand-detection.md
+    - name: 内容标记
+      href: concept-tagging-images.md
     - name: 图像分类
       href: concept-categorizing-images.md
     - name: 图像说明
@@ -105,8 +107,6 @@
       href: concept-detecting-color-schemes.md
     - name: 智能裁剪的缩略图
       href: concept-generating-thumbnails.md
-    - name: 光学字符识别 (OCR)
-      href: concept-recognizing-text.md
     - name: 成人内容检测
       href: concept-detecting-adult-content.md
 - name: 负责任的 AI

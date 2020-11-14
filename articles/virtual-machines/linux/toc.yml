@@ -45,7 +45,7 @@
     - name: 13 - 监视 VM
       href: tutorial-monitor.md
     - name: 14 - 管理 VM 安全性
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15a - 通过 Jenkins 生成
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 15b - 将 Jenkins 与 Azure DevOps 集成
@@ -687,7 +687,15 @@
         - name: 时间同步
           href: time-sync.md
         - name: 标记 VM
-          href: tag.md
+          items:
+            - name: CLI
+              href: ../tag-cli.md
+            - name: 门户
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: 模板
+              href: ../tag-template.md
         - name: 在 VM 上运行脚本
           href: run-scripts-in-vm.md
           items:
