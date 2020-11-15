@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: 了解如何配置 Azure Dev Spaces 以使用自定义 traefik 入口控制器并使用该入口控制器配置 HTTPS
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes 服务, 容器, Helm, 服务网格, 服务网格路由, kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fb45c310d306813dc10b667db6ce36048eccf217
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2dcb549078f1f0f5f7168960864d564fd0c169fc
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746121"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636820"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>使用自定义 traefik 入口控制器并配置 HTTPS
 
@@ -53,7 +53,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 为 traefik 入口控制器创建 Kubernetes 命名空间，并使用安装它 `helm` 。
 
 > [!NOTE]
-> 如果 AKS 群集未启用 RBAC，请删除 *--set RBAC. enabled = true* 参数。
+> 如果 AKS 群集未启用 Kubernetes RBAC，请删除 *--set rbac. enabled = true* 参数。
 
 ```console
 kubectl create ns traefik
@@ -223,7 +223,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 删除以前的 *traefik* *ClusterRole* 和 *ClusterRoleBinding* ，然后将 traefik 升级到使用 HTTPS `helm` 。
 
 > [!NOTE]
-> 如果 AKS 群集未启用 RBAC，请删除 *--set RBAC. enabled = true* 参数。
+> 如果 AKS 群集未启用 Kubernetes RBAC，请删除 *--set rbac. enabled = true* 参数。
 
 ```console
 kubectl delete ClusterRole traefik

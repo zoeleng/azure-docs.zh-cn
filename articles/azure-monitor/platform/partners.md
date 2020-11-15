@@ -4,12 +4,12 @@ description: 了解 Azure 监视器的合作伙伴，以及如何访问相关文
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555629"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636735"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -46,6 +46,16 @@ AppDynamics Application Performance Management (APM) 可让应用程序所有者
 可针对 Azure Monitor 警报创建 JIRA 票证。
 
 [Azure Monitor 的 Atlassian 文档](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![BMC Helix 徽标](./media/partners/BMCHelix.png)
+
+BMC Helix 是一种自治企业服务和运营 SaaS 平台。 它集成了360度智能，使企业能够主动和预先地发现、监视、服务、修正、优化和交付面向 IT 和业务线的全渠道体验。
+此外，通过将 ITSM 和 IT 运营管理无缝集成 (ITOM) ，BMC Helix 允许 IT 和业务用户消除 IT 小仓库、做出数据驱动的业务决策，并提供业界领先的客户体验。
+客户可以部署 BMC Helix 平台及其选择的云部署–公共、专用或混合。 此外，客户还可以选择 AI/ML 解决方案来利用行业领先的提供商。
+
+[了解有关 BMC Helix 的详细信息](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -301,15 +311,6 @@ Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优
 
 [Turbonomic 简介](https://turbonomic.com/)
 
-## <a name="bmc-helix"></a>BMC Helix
-
-![BMC Helix 徽标](./media/partners/BMCHelix.png)
-
-BMC Helix 是一种自治企业服务和运营 SaaS 平台。 它集成了360度智能，使企业能够主动和预先地发现、监视、服务、修正、优化和交付面向 IT 和业务线的全渠道体验。
-此外，通过将 ITSM 和 IT 运营管理无缝集成 (ITOM) ，BMC Helix 允许 IT 和业务用户消除 IT 小仓库、做出数据驱动的业务决策，并提供业界领先的客户体验。
-客户可以部署 BMC Helix 平台及其选择的云部署–公共、专用或混合。 此外，客户还可以选择 AI/ML 解决方案来利用行业领先的提供商。
-
-[了解有关 BMC Helix 的详细信息](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>后续步骤
 

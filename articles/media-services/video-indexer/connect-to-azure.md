@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 0d954123b0d48a4b78c0dcda98898b7ab539d502
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3f159a11dc9607daf479c13f6612cab0175dae0c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504497"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634882"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>创建连接到 Azure 的视频索引器帐户
 
@@ -193,6 +193,10 @@ ms.locfileid: "94504497"
 
     请参阅 [媒体服务帐户创建模板](https://github.com/Azure-Samples/media-services-v3-arm-templates)的示例。
 1. [通过 Media Services 和 Azure AD 应用程序调用创建帐户](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)。
+
+## <a name="clean-up-resources"></a>清理资源
+
+完成本教程后，请删除你不打算使用的资源。
 
 ## <a name="next-steps"></a>后续步骤
 

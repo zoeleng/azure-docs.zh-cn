@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: 了解如何排查和解决在启用和使用 Azure Dev Spaces 时遇到的常见问题
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes 服务, 容器, Helm, 服务网格, 服务网格路由, kubectl, k8s '
-ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a30ae2d78d682427cf53c8f98b0ca70b441d72e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364161"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636803"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 故障排除
 
@@ -160,7 +160,7 @@ Container image build failed
 
 ### <a name="existing-dockerfile-not-used-to-build-a-container"></a>现有 Dockerfile 没有用于生成容器
 
-Azure Dev Spaces 可以配置为指向项目中的特定 _Dockerfile_。 如果 Azure Dev Spaces 看起来并未使用预期的 Dockerfile 来生成容器，可能需要显式指示 Azure Dev Spaces 要使用哪个 Dockerfile。 
+Azure Dev Spaces 可以配置为指向项目中的特定 _Dockerfile_ 。 如果 Azure Dev Spaces 看起来并未使用预期的 Dockerfile 来生成容器，可能需要显式指示 Azure Dev Spaces 要使用哪个 Dockerfile。 
 
 若要修复此问题，请打开 Azure Dev Spaces 在项目中生成的 azds.yaml 文件。 将 configurations: develop: build: dockerfile 更新为指向要使用的 Dockerfile。 例如：
 
@@ -459,7 +459,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="new-pods-arent-starting"></a>新的 Pod 没有启动
 
-由于对群集中“群集管理员”角色的 RBAC 权限更改，Kubernetes 初始值设定项无法为新的 Pod 应用 PodSpec。 新的 Pod 还可能有无效的 PodSpec（例如，与 Pod 关联的服务帐户已不存在）。 若要查看由于初始值设定项问题而处于“挂起”状态的 Pod，请使用 `kubectl get pods` 命令：
+由于对群集中 *群集管理* 角色的 Kubernetes RBAC 权限更改，Kubernetes 初始值设定项不能将 PodSpec 应用于新的 pod。 新的 Pod 还可能有无效的 PodSpec（例如，与 Pod 关联的服务帐户已不存在）。 若要查看由于初始值设定项问题而处于“挂起”状态的 Pod，请使用 `kubectl get pods` 命令：
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -488,7 +488,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 在重新安装控制器后，重新部署你的 Pod。
 
-### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>用于调用 Dev Spaces 控制器和 API 的 RBAC 权限不正确
+### <a name="incorrect-azure-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>用于调用开发共享空间控制器和 Api 的 Azure RBAC 权限不正确
 
 访问 Azure Dev Spaces 控制器的用户必须有权读取 AKS 群集上的管理员 kubeconfig。 例如，[内置的 Azure Kubernetes 服务群集管理员角色](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)中包含此权限。 访问 Azure Dev Spaces 控制器的用户还必须具有该控制器的 *参与者* 或 *所有者* Azure 角色。 若要详细了解如何更新用户对 AKS 群集的权限，请单击[此处](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)。
 
@@ -504,7 +504,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
     * 对于“角色”，选择“参与者”或“所有者”。
     * 对于“分配访问权限至”，选择“Azure AD 用户、组或服务主体” 。
     * 对于“选择”，搜索要向其授予权限的用户。
-1. 单击“ *保存*”。
+1. 单击“ *保存* ”。
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>对与 Dev Spaces 服务关联的公用 URL 进行 DNS 名称解析失败
 
@@ -530,7 +530,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 可能会在尝试访问服务时看到此错误。 例如，可能会在浏览器中访问服务的 URL 时看到此错误。 此错误表示容器端口不可用。 这可能是由于以下原因所致：
 
 * 容器仍在生成和部署过程中。 如果先运行 `azds up` 或启动调试器，然后在成功部署容器之前尝试访问容器，则会出现此问题。
-* 端口配置在 _Dockerfile_、Helm 图表以及任何用于打开端口的服务器代码中不一致。
+* 端口配置在 _Dockerfile_ 、Helm 图表以及任何用于打开端口的服务器代码中不一致。
 
 解决此问题：
 

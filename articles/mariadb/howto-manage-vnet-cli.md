@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7af824d7cdf0c668e4513cd450a1815b88568b3e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540886"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635239"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for MariaDB VNet 服务终结点
 
@@ -32,9 +32,9 @@ ms.locfileid: "94540886"
 
 ## <a name="configure-vnet-service-endpoints"></a>配置 VNet 服务终结点
 
-[az network vnet](/cli/azure/network/vnet?view=azure-cli-latest) 命令用于配置虚拟网络。
+[az network vnet](/cli/azure/network/vnet) 命令用于配置虚拟网络。
 
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) 命令选择帐户下的特定订阅 ID。 用订阅的 **az login** 输出中的 **id** 属性代替订阅 id 占位符。
+如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/azure/account#az-account-set) 命令选择帐户下的特定订阅 ID。 用订阅的 **az login** 输出中的 **id** 属性代替订阅 id 占位符。
 
 - 该帐户必须拥有创建虚拟网络和服务终结点所需的必要权限。
 

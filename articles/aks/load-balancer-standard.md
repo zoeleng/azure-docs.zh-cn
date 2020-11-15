@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070497"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634865"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用公共标准负载均衡器
 
-Azure 负载均衡器是开放式系统互连 (OSI) 模型的 L4，支持入站和出站场景。 负载均衡器将抵达负载均衡器前端的入站流量分配到后端池实例。
+Azure 负载均衡器位于支持入站和出站方案 (OSI) 型号的开放系统互连。 负载均衡器将抵达负载均衡器前端的入站流量分配到后端池实例。
 
 公共负载均衡器与 AKS 集成时有两个用途：
 
@@ -93,13 +93,13 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 
 与所有负载均衡器规则一样，出站规则遵循负载均衡和入站 NAT 规则的类似语法：
 
-***前端 IP + 参数 + 后端池***
+***前端 IP + 参数 + 后端池**
 
 出站规则为后端池识别的、要转换为前端的所有虚拟机配置出站 NAT。 参数针对出站 NAT 算法提供更精细的控制。
 
 尽管出站规则只能配合单个公共 IP 地址使用，但出站规则减轻了缩放出站 NAT 的负担。 规划大规模部署场景时可以使用多个 IP 地址，并可以使用出站规则来缓解容易出现 SNAT 耗尽的模式。 前端提供的每个附加 IP 地址可提供 64,000 个临时端口，供负载均衡器用作 SNAT 端口。 
 
-结合默认创建的受管理出站公共 IP 使用标准 SKU 负载均衡器时，可以使用 `load-balancer-managed-ip-count` 参数来调整受管理出站公共 IP 的数量。
+使用具有默认创建的托管出站公共 IP 的标准 SKU 负载均衡器时，可以使用 `load-balancer-managed-ip-count` 参数缩放托管出站公共 IP 的数量。
 
 若要更新现有群集，请运行以下命令。 还可以在创建群集时设置此参数，以获得多个托管出站公共 IP。
 
@@ -110,7 +110,7 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2*。 
+以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2* 。 
 
 还可以在创建群集时，通过追加 `--load-balancer-managed-outbound-ip-count` 参数并将其设置为所需的值，使用 `load-balancer-managed-ip-count` 参数来设置托管出站公共 IP 的初始数量 。 托管出站公共 IP 的默认数量为 1。
 
@@ -264,9 +264,9 @@ az aks update \
 - 为 *allocatedOutboundPorts* 指定的值还必须是 8 的倍数。
 - 你必须有足够的出站 IP 容量，具体取决于节点 VM 和所需的已分配出站端口的数量。 若要验证是否有足够的出站 IP 容量，请使用以下公式： 
  
-*outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*。
+*outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts* 。
  
-例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort*，则至少需要有 3 个 *outboundIP*。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
+例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort* ，则至少需要有 3 个 *outboundIP* 。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
 
 - 将 *IdleTimeoutInMinutes* 设置为默认值 30 分钟之外的值时，请考虑你的工作负荷多长时间将需要出站连接。 还要考虑在 AKS 外部使用的“标准”SKU 负载平衡器的默认超时值是 4 分钟。 如果 *idletimeoutminutes* 值较准确地反映你的具体 AKS 工作负载，则有助于降低由于绑定不再使用的连接而导致的 SNAT 耗尽。
 

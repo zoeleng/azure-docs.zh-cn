@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578804"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636463"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -97,8 +97,8 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 1. 创建或配置其他存储帐户。  这将是我们用服务终结点保护的存储帐户，并连接我们的函数。
 1. 在受保护的存储帐户中[创建文件共享](../storage/files/storage-how-to-create-file-share.md#create-file-share)。
 1. 为存储帐户启用服务终结点或专用终结点。  
-    * 如果使用服务终结点，请确保启用专用于 function app 的子网。
-    * 如果使用专用终结点，请确保创建 DNS 记录并将应用配置为 [使用专用终结点终结](#azure-dns-private-zones) 点。  存储帐户将需要用于和子资源的专用终结 `file` 点 `blob` 。  如果使用某些功能（如 Durable Functions），则还 `queue` 需要 `table` 通过专用终结点连接来访问。
+    * 如果使用专用终结点连接，则存储帐户将需要用于和子资源的专用终结点 `file` `blob` 。  如果使用某些功能（如 Durable Functions），则还 `queue` 需要 `table` 通过专用终结点连接来访问。
+    * 如果使用服务终结点，请为存储帐户启用专用于 function app 的子网。
 1.  (可选) 将文件和 blob 内容从函数应用存储帐户复制到受保护的存储帐户和文件共享。
 1. 复制此存储帐户的连接字符串。
 1. 将函数应用的 " **配置** " 下的 **应用程序设置** 更新为以下内容：
@@ -106,6 +106,9 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 到受保护的存储帐户的连接字符串。
     - `WEBSITE_CONTENTSHARE` 在受保护的存储帐户中创建的文件共享的名称。
     - 使用的名称和值创建一个新设置 `WEBSITE_CONTENTOVERVNET` `1` 。
+    - 如果存储帐户使用的是专用终结点连接，请验证或添加以下设置
+        - `WEBSITE_VNET_ROUTE_ALL` 值为的 `1` 。
+        - `WEBSITE_DNS_SERVER` 值为 `168.63.129.16` 
 1. 保存应用程序设置。  
 
 函数应用将重新启动，并将立即连接到受保护的存储帐户。

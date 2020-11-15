@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 4f83500e539ff5254db290d156dfcf50ea60de14
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 236a604c2c1cecfb18a2d82c3796a88cc4341a34
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372551"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636378"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>计算机上适用于 SQL server 的 Azure Defender 
 
@@ -48,7 +48,7 @@ ms.locfileid: "94372551"
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>步骤 1。 在 SQL server 的主机上预配 Log Analytics 代理：
 
-- **在 AZURE vm 上 SQL Server** -如果 SQL 计算机托管在 azure vm 上，则可 [自动预配 Log Analytics 代理](security-center-enable-data-collection.md#workspace-configuration)。 或者，你可以按照手动过程来加入 [你的 Azure Stack vm](quickstart-onboard-machines.md#onboard-your-azure-stack-vms)。
+- **在 AZURE vm 上 SQL Server** -如果 SQL 计算机托管在 azure vm 上，则可以 [启用自动预配 Log Analytics 代理 <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma)。 或者，你可以按照手动过程来加入 [你的 Azure Stack vm](quickstart-onboard-machines.md#onboard-your-azure-stack-vms)。
 - **SQL Server 在 Azure arc 上** -如果你的 SQL Server 由启用了 [Azure arc](../azure-arc/index.yml) 的服务器管理，则可以使用安全中心建议部署 Log Analytics 代理 "Log Analytics 代理应安装在基于 Windows 的 Azure Arc 计算机上 (预览版) "。 或者，可以遵循 [Azure Arc 文档](../azure-arc/servers/manage-vm-extensions.md)中所述的安装方法。
 
 - **SQL Server 本地** -如果你的 SQL Server 托管在不带 Azure Arc 的本地 Windows 计算机上，则有两个选项可用于将其连接到 azure：

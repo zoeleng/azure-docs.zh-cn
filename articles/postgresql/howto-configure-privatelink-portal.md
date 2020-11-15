@@ -6,18 +6,18 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 98d3beef72d314f93f6a2bc580b1dd5de5735f23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242460"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636259"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>使用门户创建和管理 Azure Database for PostgreSQL（单一服务器）的专用链接
 
 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure 资源（例如虚拟机 (VM)）能够以私密方式来与专用链接资源通信。  本文介绍如何使用 Azure 门户在 Azure 虚拟网络和带有 Azure 专用终结点的 Azure Database for PostgreSQL 单一服务器中创建 VM。
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 > [!NOTE]
 > 专用链接功能仅适用于“常规用途”或“内存优化”定价层中的 Azure Database for PostgreSQL 服务器。 请确保数据库服务器位于其中一个定价层中。
@@ -107,7 +107,7 @@ ms.locfileid: "93242460"
 
 1. 在“Azure Database for PostgreSQL 部署选项”中，选择“单一服务器”并提供以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | **项目详细信息** | |
     | 订阅 | 选择订阅。 |
@@ -118,11 +118,11 @@ ms.locfileid: "93242460"
     | 密码 | 输入所选密码。 密码长度必须至少为 8 个字符，且符合定义的要求。 |
     | 位置 | 选择要让 PostgreSQL 服务器驻留在其中的 Azure 区域。 |
     |版本  | 选择所需的 PostgreSQL 服务器的数据库版本。|
-    | 计算 + 存储| 根据工作负荷选择服务器所需的定价层。 |
+    | 计算 + 存储| 根据工作负载选择服务器所需的定价层。 |
     |||
  
 7. 选择“确定” 。 
-8. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
+8. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
 9. 当看到 验证通过的 消息时，选择“创建”。 
 10. 看到“验证通过”消息时选择“创建”。 
 
@@ -130,7 +130,7 @@ ms.locfileid: "93242460"
 
 在本部分，我们将创建一个 PostgreSQL 服务器并在其中添加专用终结点。 
 
-1. 在 Azure 门户中的屏幕的左上方，选择“创建资源” > “网络” > “专用链接”  。
+1. 在 Azure 门户屏幕的左上方，选择“创建资源” > “网络” > “专用链接”  。
 2. 在“专用链接中心 - 概述”中的“与服务建立专用连接”选项的旁边，选择“启动”。  
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="专用链接概述":::
@@ -173,13 +173,13 @@ ms.locfileid: "93242460"
     > [!Note] 
     > 为服务使用预定义的专用 DNS 区域，或提供首选的 DNS 区域名称。 有关详细信息，请参阅 [Azure 服务 DNS 区域配置](../private-link/private-endpoint-dns.md) 。
 
-1. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
+1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
 2. 看到“验证通过”消息时，选择“创建” 。 
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="创建的专用链接":::
 
     > [!NOTE] 
-    > 客户 DNS 设置中的 FQDN 未解析为已配置的专用 IP。 你必须为已配置的 FQDN 设置一个 DNS 区域，如[此处](../dns/dns-operations-recordsets-portal.md)所示。
+    > 客户 DNS 设置中的 FQDN 未解析为已配置的专用 IP。 必须为配置的 FQDN 设置一个 DNS 区域，如[此处](../dns/dns-operations-recordsets-portal.md)所示。
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>使用远程桌面 (RDP) 连接到 VM
 
@@ -201,7 +201,7 @@ ms.locfileid: "93242460"
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定” 。
+1. 选择“确定”  。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
@@ -222,11 +222,11 @@ ms.locfileid: "93242460"
     Address:  10.1.3.4
     ```
 
-3. 使用任何可用的客户端测试 PostgreSQL 服务器的专用链接连接。 在以下示例中，我使用了 [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) 来执行该操作。
+3. 使用任何可用的客户端测试 PostgreSQL 服务器的专用链接连接。 在以下示例中，我使用了 [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) 来执行该操作。
 
 4. 在“新建连接”中，输入或选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 服务器类型| 选择“PostgreSQL”。|
     | 服务器名称| 选择 *mydemopostgresserver.privatelink.postgres.database.azure.com* |

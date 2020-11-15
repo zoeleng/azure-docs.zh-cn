@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6071a3675b1ad6aa5d49395fb9050c941af9be0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 043a2481647076abb5a6e242ffa2ea8b3f282c4d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532741"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637160"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>适用于 Azure Database for MariaDB 的 Azure 安全基线
 
@@ -26,7 +26,7 @@ ms.locfileid: "92532741"
 
 有关详细信息，请参阅[安全控制：网络安全性](../security/benchmarks/security-control-network-security.md)。
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络上使用网络安全组或 Azure 防火墙来保护资源
 
 **指南** ：配置专用终结点 Azure Database for MariaDB 的专用链接。 使用专用链接可以通过专用终结点连接到 Azure 中的各种 PaaS 服务。 Azure 专用链接实质上是将 Azure 服务引入专用虚拟网络 (VNet) 中。 虚拟网络和 MariaDB 实例之间的流量通过 Microsoft 主干网络。
 
@@ -232,7 +232,7 @@ Azure 安全中心监视：不可用
 
 ### <a name="26-monitor-and-review-logs"></a>2.6：监视和审查日志
 
-**指南** ：分析和监视 MariaDB 实例中的日志，以了解异常行为。 使用 Azure Monitor 的 Log Analytics 工作区查看日志并对日志数据执行查询。 或者，可以将数据启用并加入 Azure Sentinel 或第三方 SIEM。
+**指南** ：分析和监视 MariaDB 实例中的日志，以了解异常行为。 使用 Azure Monitor 的 Log Analytics 工作区查看日志并对日志数据执行查询。 或者，可以启用数据并将其加入 Azure Sentinel 或第三方 SIEM。
 
 如何加入 Azure Sentinel： https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
@@ -244,7 +244,7 @@ Azure 安全中心监视：不可用
 
 **责任** ：客户
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7：针对异常活动启用警报
+### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7：启用针对异常活动的警报
 
 **指南** ：为 MariaDB 启用高级威胁防护。 适用于 Azure Database for MariaDB 的高级威胁防护可检测异常活动，这些活动表明访问或利用数据库的异常和潜在有害尝试。
 
@@ -350,7 +350,7 @@ Azure 安全中心监视：不可用
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
-**指导** ：使用配置了 MFA 的 PAW（特权访问工作站）来登录并配置 Azure 资源。
+**指南** ：将 PAW（特权访问工作站）与为登录和配置 Azure 资源而配置的 MFA 结合使用。
 
 了解特权访问工作站： https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
@@ -360,7 +360,7 @@ Azure 安全中心监视：不可用
 
 **责任** ：客户
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
+### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录管理帐户的可疑活动并发出警报
 
 **指导** ：为 MariaDB 启用高级威胁防护，以生成可疑活动的警报。
 
@@ -410,7 +410,7 @@ Azure AD 身份验证不能用于直接访问 MariaDB 数据平面，但是，�
 
 **责任** ：客户
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11：监视访问已停用帐户的企图
+### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11：监视尝试访问已停用帐户的行为
 
 **指南** ：启用 MariaDB 和 Azure Active Directory 的诊断设置，将所有日志发送到 Log Analytics 工作区。 配置所需的警报 (如 Log Analytics 工作区中) 身份验证尝试失败。
 
@@ -818,9 +818,9 @@ Microsoft 管理 MariaDB 的底层基础结构，并实施了严格控制来防�
 
 **指南** ：如果将自定义 Azure 策略定义用于 Azure Database for MariaDB 服务器和相关资源，请使用 Azure Repos 安全地存储和管理你的代码。
 
-如何在 Azure DevOps 中存储代码： https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
+[如何在 Azure DevOps 中存储代码](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-Azure Repos 文档： https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true
+[Azure Repos 文档](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure 安全中心监视** ：不适用
 
@@ -968,7 +968,7 @@ Microsoft 反恶意软件会在支持 Azure 服务（例如，Azure 应用服务
 
 **责任** ：共享
 
-### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2：执行完整的系统备份并备份所有客户托管密钥
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2：执行完整的系统备份并备份所有客户管理的密钥
 
 **指南** ： Azure Database for MariaDB 自动创建服务器备份并将其存储在用户配置的本地冗余或异地冗余存储中。 备份可以用来将服务器还原到某个时间点。  备份和还原是任何业务连续性策略的基本组成部分，因为它们可以保护数据免遭意外损坏或删除。
 

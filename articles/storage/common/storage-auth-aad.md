@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d03496634c5d30d30b23a76b5b47b1e810af288
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787578"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635392"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授予对 Blob 和队列的访问权限
 
@@ -79,11 +79,11 @@ Azure 门户可以使用 Azure AD 帐户或帐户访问密钥来访问 Azure 存
 
 若要使用 Azure AD 帐户通过 Azure 门户访问 Blob 或队列数据，需要拥有访问 Blob 和队列数据的权限，另外还需要拥有在 Azure 门户中浏览存储帐户资源的权限。 Azure 存储提供的内置角色授予对 Blob 和队列资源的访问权限，但不授予对存储帐户资源的权限。 出于此原因，访问门户还需要分配范围为存储帐户或更高级别的 Azure 资源管理器角色，例如[读取者](../../role-based-access-control/built-in-roles.md#reader)角色。 “读取者”角色授予限制性最高的权限，但也接受可授予存储帐户管理资源访问权限的其他 Azure 资源管理器角色。 若要详细了解如何使用 Azure AD 帐户将 Azure 门户中的数据访问的权限分配给用户，请参阅 [使用 Azure 门户分配 Azure 角色以访问 blob 和队列数据](storage-auth-aad-rbac-portal.md)。
 
-当你导航到容器或队列时，Azure 门户会指示当前正在使用哪种授权方案。 有关门户中的数据访问的详细信息，请参阅在 [Azure 门户中选择如何授予对 blob 数据的访问权限](../blobs/authorize-blob-access-portal.md) ，以及 [如何在 Azure 门户中授予对队列数据的访问权限](../queues/authorize-queue-access-portal.md)。
+当你导航到容器或队列时，Azure 门户会指示当前正在使用哪种授权方案。 有关门户中的数据访问的详细信息，请参阅在 [Azure 门户中选择如何授予对 blob 数据的访问权限](../blobs/authorize-data-operations-portal.md) ，以及 [如何在 Azure 门户中授予对队列数据的访问权限](../queues/authorize-data-operations-portal.md)。
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>通过 PowerShell 或 Azure CLI 访问数据
 
-Azure CLI 和 PowerShell 支持使用 Azure AD 凭据登录。 登录后，会话将在这些凭据下运行。 有关详细信息，请参阅[使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据](../blobs/authorize-active-directory-powershell.md)。
+Azure CLI 和 PowerShell 支持使用 Azure AD 凭据登录。 登录后，会话将在这些凭据下运行。 有关详细信息，请参阅[使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据](../blobs/authorize-data-operations-powershell.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

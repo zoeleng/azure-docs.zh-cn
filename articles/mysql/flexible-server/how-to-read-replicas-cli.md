@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: acbb0d5b643919d7fa1bf3966532ebd83129fc2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 151b72eb11600713b115d45e5927d8170a519ad1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795128"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635766"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for MySQL 灵活的服务器中创建和管理读取副本
 
@@ -29,13 +29,13 @@ ms.locfileid: "92795128"
 
 ### <a name="prerequisites"></a>先决条件
 
-- [安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [安装 Azure CLI 2.0](/cli/azure/install-azure-cli)
 - 将用作源服务器 [Azure Database for MySQL 灵活的服务器](quickstart-create-server-cli.md) 。
 
 ### <a name="create-a-read-replica"></a>创建只读副本
 
 > [!IMPORTANT]
-> 为没有现有副本的源创建副本时，会先重新启动源以准备复制的副本。 请考虑这一点并在非高峰期执行这些操作。
+> 如果为没有现有副本的源服务器创建副本，源服务器将首先重启，以便为复制做好准备。 请考虑这一点并在非高峰期执行这些操作。
 
 可以使用以下命令创建只读副本服务器：
 
@@ -58,7 +58,7 @@ az mysql flexible-server replica list --server-name mydemoserver --resource-grou
 ### <a name="stop-replication-to-a-replica-server"></a>停止复制到副本服务器
 
 > [!IMPORTANT]
-> 停止复制到服务器操作不可逆。 源和副本之间的复制停止后，无法撤消。 然后，副本服务器将成为独立服务器，并且现在支持读取和写入。 此服务器不能再次成为副本服务器。
+> 停止复制到服务器操作不可逆。 一旦源服务器和副本服务器之间的复制停止，将无法撤消它。 然后，副本服务器将成为独立服务器，并且现在支持读取和写入。 此服务器不能再次成为副本服务器。
 
 可以使用以下命令停止复制到只读副本服务器：
 

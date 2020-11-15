@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899253"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636912"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 设备上的 Kubernetes
 
@@ -67,7 +67,7 @@ Kubernetes 网络允许配置 Kubernetes 网络内的通信，包括容器到容
 
 ## <a name="access-monitoring"></a>访问，监视
 
-Azure Stack Edge Pro 设备上的 Kubernetes 群集允许 (RBAC) 基于角色的访问控制。 有关详细信息，请参阅 [Azure Stack Edge Pro 设备上的 Kubernetes 群集的基于角色的访问控制](azure-stack-edge-gpu-kubernetes-rbac.md)。
+Azure Stack Edge Pro 设备上的 Kubernetes 群集允许 Kubernetes Kubernetes RBAC)  (基于角色的访问控制。 有关详细信息，请参阅 [Azure Stack Edge PRO GPU 设备上基于角色的访问控制 Kubernetes](azure-stack-edge-gpu-kubernetes-rbac.md)。
 
 还可以通过 Kubernetes 仪表板监视群集和资源的运行状况。 容器日志也可用。 有关详细信息，请参阅 [使用 Kubernetes 仪表板监视 Azure Stack Edge Pro 设备上的 Kubernetes 群集运行状况](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)。
 

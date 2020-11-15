@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 30cdc9924d41fdbe27156fcf90688d4baf440487
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209620"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636854"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>在 Azure HDInsight 中通过 Confluent 架构注册表 Apache Kafka
 
@@ -34,19 +34,19 @@ Kafka 架构注册表提供插入 Apache Kafka 客户端的序列化程序，这
 
 1. 选择下面的“部署到 Azure”按钮以登录到 Azure，并打开资源管理器模板。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/schema-registry/hdi-deploy-to-azure1.png"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
 
 1. 在 "自定义部署" 模板上，按如下所述填充字段：
 
-    |属性 |说明 |
+    |Property |说明 |
     |---|---|
     |订阅|从下拉列表中选择用于此群集的 Azure 订阅。|
-    |资源组|从下拉列表中选择现有资源组，或选择“新建”。|
+    |资源组|从下拉列表中选择现有资源组，或选择“新建”  。|
     |区域|从下拉列表中，选择在其中创建群集的区域。|
     |群集名称|输入任何全局唯一的名称。 或者原样保留以使用默认名称。|
-    |群集登录用户名|提供用户名，默认值为 **admin**。|
+    |群集登录用户名|提供用户名，默认值为 **admin** 。|
     |群集登录密码|提供密码。|
-    |SSH 用户名|提供用户名，默认值为 **sshuser**。|
+    |SSH 用户名|提供用户名，默认值为 **sshuser** 。|
     |SSH 密码|提供密码。|
 
     将其他字段保留原样。 选择“查看 + 创建”以继续。
@@ -59,7 +59,7 @@ Kafka 架构注册表提供插入 Apache Kafka 客户端的序列化程序，这
 
 架构注册需要知道 Zookeeper 服务可以与 HDInsight Kafka 群集进行交互。 按照以下步骤获取 Zookeeper 仲裁的详细信息。
 
-1. 使用 [ssh 命令](../hdinsight-hadoop-linux-use-ssh-unix.md) 连接到群集边缘节点。 编辑以下命令（将 CLUSTERNAME 替换为群集的名称），然后输入该命令：
+1. 使用 [ssh 命令](../hdinsight-hadoop-linux-use-ssh-unix.md) 连接到群集边缘节点。 编辑以下命令，将 CLUSTERNAME 替换为群集的名称，然后输入该命令：
 
     ```cmd
     ssh sshuser@schema-registry.CLUSTERNAME-ssh.azurehdinsight.net
@@ -113,7 +113,7 @@ Kafka 架构注册表提供插入 Apache Kafka 客户端的序列化程序，这
     debug=true
     ```
 
-1. 要保存文件，请使用 **Ctrl + X**、**Y**，并按 **Enter**。
+1. 要保存文件，请使用 **Ctrl + X** 、 **Y** ，并按 **Enter** 。
 
 1. 启动架构注册表并使其指向使用更新后的架构注册表属性文件。 执行以下命令：
 
@@ -215,7 +215,7 @@ Kafka 架构注册表提供插入 Apache Kafka 客户端的序列化程序，这
     }
     ```
 
-    使用以下命令启动 **Kafka Avro 控制台制造**者：
+    使用以下命令启动 **Kafka Avro 控制台制造** 者：
 
     ```bash
     /usr/bin/kafka-avro-console-producer     --broker-list $KAFKABROKERS     --topic agkafkaschemareg     --property parse.key=true --property key.schema='{"type" : "int", "name" : "id"}'     --property value.schema='{ "type" : "record", "name" : "example_schema", "namespace" : "com.example", "fields" : [ { "name" : "cust_id", "type" : "int", "doc" : "Id of the customer account" }, { "name" : "year", "type" : "int", "doc" : "year of expense" }, { "name" : "expenses", "type" : {"type": "array", "items": "float"}, "doc" : "Expenses for the year" } ], "doc:" : "A basic schema for storing messages" }'

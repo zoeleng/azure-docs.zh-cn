@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3618ba28403882ee1f949a2bbc97e586674b3772
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317562"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635275"
 ---
 # <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>使用 Azure Synapse Studio 中的 SQL 脚本 (预览版) 
 
@@ -73,6 +73,18 @@ Azure Synapse Studio (预览版) 提供了一个 SQL 脚本 web 界面供你编�
 通过右键单击 SQL 数据库的节点来浏览可用的手势。
  
 ![新建脚本数据库](media/author-sql-script/new-script-database.png)
+
+## <a name="create-folders-and-move-sql-scripts-into-a-folder"></a>创建文件夹并将 SQL 脚本移动到文件夹中
+
+从 "开发 SQL 脚本" 下的 "操作" 菜单中，从 "开发 SQL 脚本" 下的 "操作" 菜单中选择 "新建文件夹"。 并在弹出窗口中键入新文件夹的名称。 
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+
+若要将 SQL 脚本移动到文件夹中，您可以选择该 sql 脚本，然后从 "操作" 菜单中选择 "移到"。 然后在新窗口中查找目标文件夹，并将 sql 脚本移动到选定文件夹中。你还可以快速地将 sql 脚本拖放到文件夹中。  
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-move-folder.png)
 
 ## <a name="next-steps"></a>后续步骤
 

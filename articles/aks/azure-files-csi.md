@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745792"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636974"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>使用 azure 文件容器存储接口 (CSI) Azure Kubernetes Service 中的驱动程序 (AKS)  (预览版) 
 
@@ -212,7 +212,7 @@ Filesystem                                                                      
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-状态显示为“已注册”需要几分钟时间  。 使用 [az feature list][az-feature-list] 命令验证注册状态：
+状态显示为“已注册”需要几分钟时间。 使用 [az feature list][az-feature-list] 命令验证注册状态：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [创建一个 `Premium_LRS`](../storage/files/storage-how-to-create-premium-fileshare.md)具有以下配置的 Azure 存储帐户支持 NFS 共享：
 - 帐户类型： FileStorage
 - 需要安全传输 (仅启用 HTTPS 流量) ： false
-- 选择防火墙和虚拟网络中代理节点的虚拟网络
+- 选择防火墙和虚拟网络中代理节点的虚拟网络-因此，你可能更愿意在 MC_ 资源组中创建存储帐户。
 
 ### <a name="create-nfs-file-share-storage-class"></a>创建 NFS 文件共享存储类
 
@@ -239,7 +239,7 @@ az provider register --namespace Microsoft.Storage
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> 请注意，由于 NFS 文件共享是高级帐户，因此最小文件共享大小为100GB。 如果创建的 PVC 的存储大小较小，则可能会遇到 "无法创建文件共享 ..." 错误size (5) ... "。
+
 
 ## <a name="windows-containers"></a>Windows 容器
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242171"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636191"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>使用 CLI 创建和管理 Azure Database for PostgreSQL（单一服务器）的专用链接
 
@@ -67,6 +67,7 @@ az vm create \
   --name myVm \
   --image Win2019Datacenter
 ```
+
  记下 VM 的公共 IP 地址。 在下一步中，此地址将用于从 Internet 连接到 VM。
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>创建 Azure Database for PostgreSQL（单一服务器） 
@@ -99,6 +100,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>配置专用 DNS 区域 
 为 PostgreSQL 服务器域创建专用 DNS 区域，并创建一个与虚拟网络关联的链接。 
+
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -126,7 +128,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE]
 > 在某些情况下，Azure Database for PostgreSQL 和 VNet 子网位于不同的订阅中。 在这些情况下，必须确保以下配置：
-> - 请确保两个订阅都注册了 Microsoft.DBforPostgreSQL 资源提供程序。 有关详细信息，请参阅[资源管理器注册][resource-manager-portal]
+> - 请确保两个订阅都注册了 Microsoft.DBforPostgreSQL 资源提供程序。 有关详细信息，请参阅 [资源提供程序](../azure-resource-manager/management/resource-providers-and-types.md)。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
@@ -134,11 +136,11 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 1. 在门户的搜索栏中，输入 *myVm* 。
 
-1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开   。
+1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开 。
 
 1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp* ) 文件，并将其下载到计算机。
 
-1. 打开 downloaded.rdp  文件。
+1. 打开 downloaded.rdp 文件。
 
     1. 出现提示时，选择“连接”  。
 
@@ -147,7 +149,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定”  。
+1. 选择“确定” 。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
@@ -159,27 +161,28 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 2. 输入  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`。 
 
-    将收到类似于下面的消息：
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
-    Address:  10.1.3.4
-    ```
+   将收到类似于下面的消息：
 
-3. 使用任何可用的客户端测试 PostgreSQL 服务器的专用链接连接。 在以下示例中，我使用了 [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) 来执行该操作。
+   ```azurepowershell
+   Server:  UnKnown
+   Address:  168.63.129.16
+   Non-authoritative answer:
+   Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
+   Address:  10.1.3.4
+   ```
+
+3. 使用任何可用的客户端测试 PostgreSQL 服务器的专用链接连接。 下面的示例使用 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) 执行此操作。
 
 4. 在“新建连接”中，输入或选择以下信息：
 
-    | 设置 | Value |
-    | ------- | ----- |
-    | 服务器类型| 选择“PostgreSQL”。|
-    | 服务器名称| 选择 *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | 用户名 | 以 username@servername 形式输入用户名，这是在 PostgreSQL 服务器创建过程中提供的。 |
-    |密码 |输入创建 PostgreSQL 服务器期间提供的密码。 |
-    |SSL|选择“必需”。|
-    ||
+   | 设置 | 值 |
+   | ------- | ----- |
+   | 服务器类型| 选择“PostgreSQL”。|
+   | 服务器名称| 选择 *mydemopostgresserver.privatelink.postgres.database.azure.com* |
+   | 用户名 | 以 username@servername 形式输入用户名，这是在 PostgreSQL 服务器创建过程中提供的。 |
+   |密码 |输入创建 PostgreSQL 服务器期间提供的密码。 |
+   |SSL|选择“必需”。|
+   ||
 
 5. 选择“连接”。
 
@@ -198,6 +201,3 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 - 了解[什么是 Azure 专用终结点的](../private-link/private-endpoint-overview.md)详细信息
-
-<!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
