@@ -11,18 +11,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 0a3aa0c26ddb515b8096cce909ca074f6f24a333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732abed830afdb759ed52fd933673edd8e5cade6
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86250475"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638727"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>添加缓存以提高 Azure API 管理中的性能
 
-API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减少 API 延迟、带宽消耗和不经常更改数据的 web 服务负载。
+API 管理中的 Api 和操作可以配置响应缓存。 响应缓存可以显著减少 api 调用方的延迟，并为 API 提供程序提供后端负载。
+
+> [!IMPORTANT]
+> 内置缓存是易失性的，由同一区域中的所有单元共享在同一 API 管理服务中。
 
 若要更详细地了解缓存，请参阅 [API 管理缓存策略](api-management-caching-policies.md)和 [Azure API 管理中的自定义缓存](api-management-sample-cache-by-key.md)。
 
@@ -52,7 +55,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 中登录 Azure 门户。
 2. 浏览到自己的 APIM 实例。
-3. 选择 " **API** " 选项卡。
+3. 选择“API”选项卡。
 4. 在 API 列表中单击“演示会议 API”。
 5. 选择“GetSpeakers”。
 6. 选择屏幕顶部的“设计”选项卡。
@@ -76,7 +79,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
    <cache-store duration="20" />
    ```
 
-    **持续时间**指定缓存响应的到期时间间隔。 此示例中的时间间隔为 **20** 秒。
+    **持续时间** 指定缓存响应的到期时间间隔。 此示例中的时间间隔为 **20** 秒。
 
 > [!TIP]
 > 如果使用的是外部缓存，如[在 Azure API 管理中使用外部 Azure Redis 缓存](api-management-howto-cache-external.md)中所述，可能需要指定缓存策略的 `caching-type` 属性。 有关更多详细信息，请参阅 [API 管理缓存策略](api-management-caching-policies.md)。

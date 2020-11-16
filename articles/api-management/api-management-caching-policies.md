@@ -11,17 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: e939e3e6eb686894094c77f62ed815d0ebb5a24f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358433"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638880"
 ---
 # <a name="api-management-caching-policies"></a>API 管理缓存策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-policies.md)。
+
+> [!IMPORTANT]
+> 内置缓存是易失性的，由同一区域中的所有单元共享在同一 API 管理服务中。
 
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> 缓存策略
 

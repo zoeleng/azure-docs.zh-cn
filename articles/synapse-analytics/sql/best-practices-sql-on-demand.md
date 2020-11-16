@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd0ba19739b75e72541ac84d6b1696ab2819dee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317426"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638863"
 ---
 # <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中无服务器 SQL 池 (预览版) 的最佳实践
 
@@ -127,13 +127,17 @@ FROM
 
 查询 CSV 文件时，可以使用性能优化的分析器。 有关详细信息，请参阅 [PARSER_VERSION](develop-openrowset.md)。
 
+## <a name="manually-create-statistics-for-csv-files"></a>手动为 CSV 文件创建统计信息
+
+无服务器 SQL 池依赖统计信息来生成最佳查询执行计划。 需要时，将自动为 Parquet 文件中的列创建统计信息。 此时，不会为 CSV 文件中的列自动创建统计信息，应为查询中使用的列手动创建统计信息，尤其是在 DISTINCT、JOIN、WHERE、ORDER BY 和 GROUP BY 中使用的列。 有关详细信息，请查看 [无服务器 SQL 池中的统计](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) 信息。
+
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>使用 CETAS 增强查询性能和联接
 
 [CETAS](develop-tables-cetas.md) 是无服务器 SQL 池中可用的最重要的功能之一。 CETAS 是一种并行操作，用于创建外部表元数据，并将 SELECT 查询结果导出到存储帐户中的一组文件。
 
 可以使用 CETAS 将查询的常用部分（如联接的引用表）存储到一组新的文件中。 接下来，可以联接到这一个外部表，而不是在多个查询中重复常用联接。
 
-随着 CETAS 生成 Parquet 文件，统计信息将会在第一个查询以此外部表为目标时自动创建，从而提升性能。
+当 CETAS 生成 Parquet 文件时，当第一个查询针对此外部表时，将自动创建统计信息，从而提高了以 CETAS 生成的面向表的后续查询的性能。
 
 ## <a name="azure-ad-pass-through-performance"></a>Azure AD 直通性能
 

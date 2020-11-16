@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341832"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638782"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>常见问题解答 - 有关数据收集、代理和工作区的问题
 
@@ -109,14 +109,19 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 选择现有 Log Analytics 工作区的具体步骤：
 
-1. 在“安全策略 - 数据收集”下，选择“使用另一个工作区”。
+1. 从安全中心的菜单中，选择“定价和设置”。
+1. 选择相关订阅。
+1. 打开 " **自动设置** " 页，
+1. 对于 Log Analytics 代理，选择 " **编辑配置** "。 
 
-    ![使用另一个工作区][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="要在使用自动部署时使用的 Log Analytics 代理的配置" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. 从下拉菜单中，选择一个工作区，用于存储所收集的数据。
+1. 选择 " **将 Azure Vm 连接到不同的工作区** "，并选择现有的工作区。
 
-    > [!NOTE]
-    > 下拉菜单中只显示用户有权访问且 Azure 订阅包含的工作区。
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="选择要向其报告的 Log Analytics 代理的非默认工作区" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > 此列表仅包含你有权访问的工作区和 Azure 订阅中的工作区。
 
 1. 选择“保存”。 系统会询问是否要重新配置受监视的 VM。
 
@@ -126,7 +131,6 @@ Windows 或 Linux IaaS VM 的合格条件如下：
     > [!NOTE]
     > 如果选择“是”，不得删除安全中心创建的任何工作区，除非所有 VM 都已重新连接到新的目标工作区。 如果过早删除工作区，此操作将会失败。
 
-    - 若要取消该操作，请选择“取消”。
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>如果 Log Analytics 代理已作为扩展安装到 VM 上，会怎样？<a name="mmaextensioninstalled"></a>
 
@@ -162,14 +166,19 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 ## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>如何停止自动安装代理和创建工作区？
 
-可以在安全策略中为订阅禁用自动预配，但不建议这样做。 禁用自动预配会限制安全中心的建议和警报。 禁用自动预配的具体步骤：
+可以在安全策略中为订阅禁用自动预配，但不建议这样做。 关闭自动设置会限制安全中心的建议和警报。 禁用自动预配的具体步骤：
 
-1. 如果订阅已启用 Azure Defender，请打开该订阅的安全策略，并选择 " **Azure defender**"。
+1. 从安全中心的菜单中，选择“定价和设置”。
+1. 选择相关订阅。
+1. 如果订阅已启用 Azure Defender，请打开 **Azure defender 计划** ，并选择 " **azure defender** "。
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="启用或禁用 Azure Defender":::
 
-1. 接下来，在“安全策略 - 数据收集”页上选择“关”，禁用自动预配。
-   ![数据收集][2]
+1. 从 " **自动设置** " 页中，选择 "笔" 并在 "  **安全策略-数据收集** " 页中关闭自动设置。
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="为 Log Analytics 代理启用自动部署":::
+
+1. 选择“保存”。
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>是否应选择禁用自动安装代理和创建工作区？
@@ -232,13 +241,11 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 如果已启用该功能，但现在想禁用它：
 
-1. 从 [Azure 门户](https://portal.azure.com)打开“安全中心”，然后选择“安全策略” 。
+1. 在 [Azure 门户](https://portal.azure.com)中打开 " **安全中心** "，然后选择 " **定价和设置** "。
 
 1. 选择要禁用自动预配的订阅。
 
-    系统将打开“安全策略 - 数据收集”。
-
-1. 在“自动设置”下，选择“关闭” 。
+1. 在 " **自动预配** " 下，关闭 Log Analytics 代理的切换。
 
 
 ## <a name="how-do-i-enable-data-collection"></a>如何启用数据收集？
