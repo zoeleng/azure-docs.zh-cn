@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: ed34bf755023ab866e95c51aca6d1bfb1dd7bf71
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099447"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653328"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 标记概述
 
@@ -30,8 +30,8 @@ FQDN 标记表示与已知的 Microsoft 服务关联的一组完全限定的域�
 
 |FQDN 标记  |说明  |
 |---------|---------|
-|Windows 更新     |允许出站访问 Microsoft 更新，如[如何为软件更新配置防火墙](https://docs.microsoft.com/mem/configmgr/sum/get-started/install-a-software-update-point)中所述。|
-|Windows 诊断|允许出站访问所有 [Windows 诊断终结点](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)。|
+|Windows 更新     |允许出站访问 Microsoft 更新，如[如何为软件更新配置防火墙](/mem/configmgr/sum/get-started/install-a-software-update-point)中所述。|
+|Windows 诊断|允许出站访问所有 [Windows 诊断终结点](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)。|
 |Microsoft 主动保护服务 (MAPS)|允许出站访问 [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/)。|
 |应用服务环境 (ASE)|允许出站访问 ASE 平台流量。 此标记未涵盖由 ASE 创建的特定于客户的存储和 SQL 终结点。 这些应通过[服务终结点](../virtual-network/tutorial-restrict-network-access-to-resources.md)启用或手动添加。<br><br>有关将 Azure 防火墙与 ASE 集成的详细信息，请参阅[锁定应用服务环境](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)。|
 |Azure 备份|允许对 Azure 备份服务进行出站访问。|
@@ -40,7 +40,7 @@ FQDN 标记表示与已知的 Microsoft 服务关联的一组完全限定的域�
 |Azure Kubernetes 服务 (AKS)|允许出站访问 AKS。 有关详细信息，请参阅[使用 Azure 防火墙保护 Azure Kubernetes 服务 (AKS) 部署](protect-azure-kubernetes-service.md)。|
 
 > [!NOTE]
-> 在应用程序规则中选择 FQDN 标记时，“协议:端口”字段必须设置为 **https** 。
+> 在应用程序规则中选择 FQDN 标记时，“协议:端口”字段必须设置为 **https**。
 
 ## <a name="next-steps"></a>后续步骤
 

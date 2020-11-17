@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412997"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653413"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火墙常见问题解答
 
@@ -40,9 +40,9 @@ Azure 防火墙支持规则和规则集合。 规则集合是一组共享相同�
 
 有三种类型的规则集合：
 
-* *应用程序规则* ：配置可从子网访问的完全限定域名 (FQDN)。
-* *网络规则* ：配置包含源地址、协议、目标端口和目标地址的规则。
-* *NAT 规则* ：将 DNAT 规则配置为允许传入的 Internet 连接。
+* *应用程序规则*：配置可从子网访问的完全限定域名 (FQDN)。
+* *网络规则*：配置包含源地址、协议、目标端口和目标地址的规则。
+* *NAT 规则*：将 DNAT 规则配置为允许传入的 Internet 连接。
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure 防火墙是否支持入站流量筛选？
 
@@ -50,7 +50,7 @@ Azure 防火墙支持入站和出站筛选。 入站保护通常用于非 HTTP/S
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Azure 防火墙支持哪些日志记录和分析服务？
 
-Azure 防火墙与 Azure Monitor 集成，可用于查看和分析防火墙日志。 日志可发送到 Log Analytics、Azure 存储或事件中心。 它们可在 Log Analytics 中进行分析，也可通过 Excel 和 Power BI 等不同工具进行分析。 有关详细信息，请参阅[教程：监视 Azure 防火墙日志](tutorial-diagnostics.md)。
+Azure 防火墙与 Azure Monitor 集成，可用于查看和分析防火墙日志。 日志可发送到 Log Analytics、Azure 存储或事件中心。 它们可在 Log Analytics 中进行分析，也可通过 Excel 和 Power BI 等不同工具进行分析。 有关详细信息，请参阅[教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)。
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Azure 防火墙的工作原理与市场中现有的服务（例如 NVA）有何不同？
 
@@ -139,9 +139,9 @@ Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubn
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>应用程序规则目标 FQDN 中的通配符有什么作用？
 
-目前只能在 FQDN 的左侧使用通配符。 例如，* *_. contoso.com_* 和 * *_contoso.com_* 。
+目前只能在 FQDN 的左侧使用通配符。 例如，**_. contoso.com_* 和 **_contoso.com_*。
 
-如果配置 * *_. contoso.com_* ，则允许 *anyvalue* contoso.com，但不允许 contoso.com (域顶点) 。 如果希望允许域顶点，必须显式将其配置为目标 FQDN。
+如果配置 **_. contoso.com_*，则允许 *anyvalue* contoso.com，但不允许 contoso.com (域顶点) 。 如果希望允许域顶点，必须显式将其配置为目标 FQDN。
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>“预配状态:失败”意味着什么？
 
@@ -217,7 +217,7 @@ TCP ping 实际上并未连接到目标 FQDN。 这是因为 Azure 防火墙的�
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Azure 防火墙的 TCP 空闲超时是多长时间？
 
-网络防火墙的标准行为是确保 TCP 连接保持活动状态，并在没有活动时迅速将其关闭。 Azure 防火墙 TCP 空闲超时为 4 分钟。 此设置不可配置。 如果处于非活动状态的时间超过超时值，则不能保证维持 TCP 或 HTTP 会话。 常见的做法是使用 TCP 保持连接状态。 这种做法可以使连接状态保持更长时间。 有关详细信息，请参阅 [.NET 示例](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_)。
+网络防火墙的标准行为是确保 TCP 连接保持活动状态，并在没有活动时迅速将其关闭。 Azure 防火墙 TCP 空闲超时为 4 分钟。 此设置不可配置。 如果处于非活动状态的时间超过超时值，则不能保证维持 TCP 或 HTTP 会话。 常见的做法是使用 TCP 保持连接状态。 这种做法可以使连接状态保持更长时间。 有关详细信息，请参阅 [.NET 示例](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_)。
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>是否可以在不使用公共 IP 地址的情况下部署 Azure 防火墙？
 
