@@ -3,12 +3,12 @@ title: 更改 Azure Service Fabric 群集设置
 description: 本文介绍可以自定义的结构设置和结构升级策略。
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055114"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648219"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
 本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.com)或使用 Azure 资源管理器模板自定义设置。 有关详细信息，请参阅[升级 Azure 群集配置](service-fabric-cluster-config-upgrade-azure.md)。 对于独立群集，可通过更新 ClusterConfig.json 文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -243,7 +243,7 @@ ms.locfileid: "89055114"
 |QuorumLossWaitDuration | 以秒为单位的时间，默认值为 MaxValue |静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 QuorumLossWaitDuration。 |
 |ReplicaDropWaitDurationInSeconds|int，默认值为 600|静态|调用数据丢失 api 时使用此参数。 该参数控制内部调用删除副本后系统等待副本删除的时间。 |
 |ReplicaRestartWaitDuration |以秒为单位的时间，默认值为 60 分钟|静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 ReplicaRestartWaitDuration。 |
-|StandByReplicaKeepDuration| 以秒为单位的时间，默认值为 (60*24*7) 分钟 |静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 StandByReplicaKeepDuration。 |
+|StandByReplicaKeepDuration| 以秒为单位的时间，默认值为 (60 *24* 7) 分钟 |静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 StandByReplicaKeepDuration。 |
 |StoredActionCleanupIntervalInSeconds | Int，默认值为 3600 |静态|这是清理存储的频率。 仅会删除处于终态和至少在 CompletedActionKeepDurationInSeconds 以前完成的操作。 |
 |StoredChaosEventCleanupIntervalInSeconds | Int，默认值为 3600 |静态|这是审核存储（以进行清理）的频率，如果事件数量超过 30000，则开始执行清理。 |
 |TargetReplicaSetSize |Int，默认值为 0 |静态|NOT_PLATFORM_UNIX_START，FaultAnalysisService 的 TargetReplicaSetSize。 |
@@ -423,14 +423,14 @@ ms.locfileid: "89055114"
 |AzureStorageMaxConnections | Int，默认值为 5000 |动态|最大并发 Azure 存储连接数。 |
 |AzureStorageMaxWorkerThreads | Int，默认值为 25 |动态|最大并行工作线程数。 |
 |AzureStorageOperationTimeout | 以秒为单位的时间，默认值为 6000 |动态|指定以秒为单位的时间范围。 完成 xstore 操作的超时时间。 |
-|CleanupApplicationPackageOnProvisionSuccess|bool，默认值为 FALSE |动态|成功预配时启用或禁用应用程序包的自动清理。
-
-*最佳做法是使用 `true` 。* | |CleanupUnusedApplicationTypes |Bool，默认值为 FALSE |动态 |如果启用此配置，则允许自动注销未使用的应用程序类型版本，跳过最新的三个未使用的版本，从而修整映像存储占用的磁盘空间。 将在成功预配结束时对该特定应用类型触发自动清理；对于所有应用程序类型，自动清理也将每天定期运行一次。 要跳过的未使用的版本数量可通过参数“MaxUnusedAppTypeVersionsToKeep”进行配置。 
-
-*最佳做法是使用 `true` 。*
-| |DisableChecksumValidation |Bool，默认值为 false |Static |此配置允许我们在应用程序预配期间启用或禁用校验和验证。 | |DisableServerSideCopy |Bool，默认值为 false |Static |此配置在应用程序预配期间启用或禁用 ImageStore 上应用程序包的服务器端副本。 | |ImageCachingEnabled |Bool，默认值为 true |Static |此配置允许我们启用或禁用缓存。 | |ImageStoreConnectionString |SecureString |Static |ImageStore 的根的连接字符串。 | |ImageStoreMinimumTransferBPS |Int，默认值为 1024 |动态 |群集和 ImageStore 之间的最小传输速率。 此值用于确定访问外部 ImageStore 时的超时时间。 仅当群集和 ImageStore 之间的延迟较高时可更改此值，以允许群集获得更多的时间从外部 ImageStore 进行下载。 | |MaxUnusedAppTypeVersionsToKeep |Int，默认值为 3 |动态 |此配置定义用于清除的未使用的应用程序类型版本数。 仅在启用参数 CleanupUnusedApplicationTypes 后，此参数才适用。
-
-*通常，最佳做法是使用默认 (`3`) 。*|
+|CleanupApplicationPackageOnProvisionSuccess|bool，默认值为 FALSE |动态|成功预配时启用或禁用应用程序包的自动清理。<br/> *最佳做法是使用 `true` 。*
+|CleanupUnusedApplicationTypes|布尔值，默认为 FALSE |动态|如果启用，此配置允许自动取消注册未使用的应用程序类型版本，这会跳过最近三个未使用的版本，然后释放图像存储所占用的磁盘空间。 将在成功预配结束时对该特定应用类型触发自动清理；对于所有应用程序类型，自动清理也将每天定期运行一次。 要跳过的未使用的版本数量可通过参数“MaxUnusedAppTypeVersionsToKeep”进行配置。 <br/> *最佳做法是使用 `true` 。*
+|DisableChecksumValidation | Bool，默认值为 false |静态| 通过此配置可在应用程序预配过程中启用或禁用校验和验证。 |
+|DisableServerSideCopy | Bool，默认值为 false |静态|此配置可以在应用程序预配过程中启用或禁用 ImageStore 上应用程序包的服务器端副本。 |
+|ImageCachingEnabled | Bool，默认值为 true |静态|通过此配置可启用或禁用缓存。 |
+|ImageStoreConnectionString |SecureString |静态|ImageStore 的根的连接字符串。 |
+|ImageStoreMinimumTransferBPS | Int，默认值为 1024 |动态|群集和 ImageStore 之间的最小传输速率。 此值用于确定访问外部 ImageStore 时的超时时间。 仅当群集和 ImageStore 之间的延迟较高时可更改此值，以允许群集获得更多的时间从外部 ImageStore 进行下载。 |
+|MaxUnusedAppTypeVersionsToKeep | Int，默认值为 3 |动态|此配置会定义要跳过清理操作的未使用的应用程序类型版本数。 仅在启用参数 CleanupUnusedApplicationTypes 后，此参数才适用。 <br/>*通常，最佳做法是使用默认 (`3`) 。小于1的值无效。*|
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
@@ -794,7 +794,7 @@ ms.locfileid: "89055114"
 |UpgradeApplication |string，默认值为“Admin” |动态| 用于启动或中断应用程序升级的安全性配置。 |
 |UpgradeComposeDeployment|string，默认值为“Admin”| 动态|升级组合部署 |
 |UpgradeFabric |string，默认值为“Admin” |动态| 用于启动群集升级的安全性配置。 |
-|上载 |string，默认值为“Admin” | 动态|用于映像存储客户端上传操作的安全性配置。 |
+|上传 |string，默认值为“Admin” | 动态|用于映像存储客户端上传操作的安全性配置。 |
 
 ## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
 
@@ -890,7 +890,7 @@ ms.locfileid: "89055114"
 |PlacementConstraints | string，默认值为“” |静态| UpgradeOrchestrationService 的 PlacementConstraints。 |
 |QuorumLossWaitDuration | 以秒为单位的时间，默认值为 MaxValue |静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 QuorumLossWaitDuration。 |
 |ReplicaRestartWaitDuration | 以秒为单位的时间，默认值为 60 分钟|静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 ReplicaRestartWaitDuration。 |
-|StandByReplicaKeepDuration | 以秒为单位的时间，默认值为 60*24*7 分钟 |静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 StandByReplicaKeepDuration。 |
+|StandByReplicaKeepDuration | 以秒为单位的时间，默认值为 60 *24* 7 分钟 |静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 StandByReplicaKeepDuration。 |
 |TargetReplicaSetSize |Int，默认值为 0 |静态 |UpgradeOrchestrationService 的 TargetReplicaSetSize。 |
 |UpgradeApprovalRequired | Bool，默认值为 false | 静态|此设置可让升级代码需要管理员批准才能继续操作。 |
 

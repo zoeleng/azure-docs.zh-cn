@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3fc54829be301c063440bd3508472287b6db265
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86146666"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648294"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>使用 Azure PowerShell 添加或删除 Azure 角色分配
 
@@ -32,7 +32,7 @@ ms.locfileid: "86146666"
 若要添加或删除角色分配，必须拥有以下权限：
 
 - `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](built-in-roles.md#user-access-administrator)或[所有者](built-in-roles.md#owner)
-- Azure Cloud Shell 或[Azure PowerShell](/powershell/azure/install-az-ps) [中的 PowerShell](/azure/cloud-shell/overview)
+- Azure Cloud Shell 或[Azure PowerShell](/powershell/azure/install-az-ps) [中的 PowerShell](../cloud-shell/overview.md)
 
 ## <a name="get-object-ids"></a>获取对象 ID
 
@@ -58,7 +58,7 @@ Get-AzADGroup -SearchString <group_name_in_quotes>
 
 ### <a name="application"></a>应用程序
 
-若要获取 Azure AD 服务主体的对象ID（应用程序使用的标识），可以使用 [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)。 对于服务主体，请使用对象 ID，而**不**是使用应用程序 ID。
+若要获取 Azure AD 服务主体的对象ID（应用程序使用的标识），可以使用 [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)。 对于服务主体，请使用对象 ID，而 **不** 是使用应用程序 ID。
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
@@ -112,7 +112,7 @@ CanDelegate        : False
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -Scope <resource_group_name/resource/management groups>
 ```
 
-以下示例将[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色分配给 *pharma-sales* 资源组范围内的 alain\@example.com 用户。 要获取唯一角色 ID，可以使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)，也可以参阅 [Azure 内置角色](built-in-roles.md)。
+以下示例将 [虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色分配给 *pharma-sales* 资源组范围内的 alain\@example.com 用户。 要获取唯一角色 ID，可以使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)，也可以参阅 [Azure 内置角色](built-in-roles.md)。
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales

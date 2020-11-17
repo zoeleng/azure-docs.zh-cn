@@ -4,12 +4,12 @@ description: 本文介绍在不将 kubectl 与适用于容器的 Azure Monitor �
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116708"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648100"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>如何设置实时数据（预览版）功能
 
@@ -19,7 +19,7 @@ ms.locfileid: "87116708"
 
 - 没有启用 Kubernetes RBAC 授权的 AKS
 - 启用了 Kubernetes RBAC 授权的 AKS
-    - 配置了群集角色绑定 **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)** 的 AKS
+    - 配置了群集角色绑定 **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)** 的 AKS
 - 启用了基于 SAML 的 Azure Active Directory (AD) 单一登录的 AKS
 
 这些说明要求对 Kubernetes 群集具有管理访问权限，在配置为使用 Azure Active Directory (AD) 进行用户身份验证的情况下，要求对 Azure AD 具有管理访问权限。
@@ -39,18 +39,18 @@ ms.locfileid: "87116708"
 Azure 门户会提示你验证你用于 Azure Active Directory 群集的登录凭据，并将你重定向到你在创建群集期间设置（并在本文中重新配置）的客户端注册。 此行为类似于 `kubectl` 所需的身份验证过程。
 
 >[!NOTE]
->对你的群集的授权由 Kubernetes 以及为它配置的安全模型管理。 访问此功能的用户需要有权下载 Kubernetes 配置 (*kubeconfig*)，类似于运行 `az aks get-credentials -n {your cluster name} -g {your resource group}`。 如果启用了 Azure RBAC 并且 AKS 群集未启用 RBAC 授权，则此配置文件包含 **Azure Kubernetes 服务群集用户角色**的授权和身份验证令牌。 当为 AKS 启用了 Azure Active Directory (AD) 基于 SAML 的单一登录时，它包含有关 Azure AD 的信息和客户端注册详细信息。
+>对你的群集的授权由 Kubernetes 以及为它配置的安全模型管理。 访问此功能的用户需要有权下载 Kubernetes 配置 (*kubeconfig*)，类似于运行 `az aks get-credentials -n {your cluster name} -g {your resource group}`。 如果启用了 Azure RBAC 并且 AKS 群集未启用 RBAC 授权，则此配置文件包含 **Azure Kubernetes 服务群集用户角色** 的授权和身份验证令牌。 当为 AKS 启用了 Azure Active Directory (AD) 基于 SAML 的单一登录时，它包含有关 Azure AD 的信息和客户端注册详细信息。
 
 >[!IMPORTANT]
->此功能的用户需要具有群集的 [Azure Kubernetes 群集用户角色](../../role-based-access-control/built-in-roles.md)才能下载 `kubeconfig` 并使用此功能。 用户**不**需要具有群集的参与者访问权限便可使用此功能。
+>此功能的用户需要具有群集的 [Azure Kubernetes 群集用户角色](../../role-based-access-control/built-in-roles.md)才能下载 `kubeconfig` 并使用此功能。 用户 **不** 需要具有群集的参与者访问权限便可使用此功能。
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>将 clusterMonitoringUser 用于启用了 RBAC 的群集
 
-AKS 添加了一个名为 **clusterMonitoringUser** 的新的 Kubernetes 群集角色绑定，这样就不需要在进行[启用 RBAC](#configure-kubernetes-rbac-authorization) 的授权后应用额外的配置更改来允许 Kubernetes 用户角色绑定 **clusterUser** 对实时数据（预览版）功能进行访问。 此群集角色绑定具有现成的所有必需权限，可以访问 Kubernetes API 和用于使用实时数据（预览版）功能的终结点。
+AKS 添加了一个名为 **clusterMonitoringUser** 的新的 Kubernetes 群集角色绑定，这样就不需要在进行 [启用 RBAC](#configure-kubernetes-rbac-authorization) 的授权后应用额外的配置更改来允许 Kubernetes 用户角色绑定 **clusterUser** 对实时数据（预览版）功能进行访问。 此群集角色绑定具有现成的所有必需权限，可以访问 Kubernetes API 和用于使用实时数据（预览版）功能的终结点。
 
 为了通过此新用户使用实时数据（预览版）功能，你需要是 AKS 群集资源上的[参与者](../../role-based-access-control/built-in-roles.md#contributor)角色的成员。 当启用了适用于容器的 Azure Monitor 时，默认情况下，它配置为使用此用户进行身份验证。 如果群集中不存在 clusterMonitoringUser 角色绑定，则会改用 **clusterUser** 进行身份验证。
 
-AKS 在 2020 年 1 月发布了此新的角色绑定，因此在 2020 年 1 月之前创建的群集没有此项。 如果你有一个在 2020 年 1 月之前创建的群集，可以通过在该现有群集上执行 PUT 操作将新的 **clusterMonitoringUser** 添加到该群集，也可以通过在群集上执行任何会在群集上执行 PUT 操作的其他操作（例如更新群集版本）来这样做。
+AKS 在 2020 年 1 月发布了此新的角色绑定，因此在 2020 年 1 月之前创建的群集没有此项。 如果你有在2020年1月之前创建的群集，则可以通过在群集上执行 PUT 操作来将新的 **clusterMonitoringUser** 添加到现有群集，或在群集上执行执行 put 操作的群集上的任何其他操作，例如更新群集版本。
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>未启用 RBAC 的 Kubernetes 群集
 
@@ -136,7 +136,7 @@ AKS 在 2020 年 1 月发布了此新的角色绑定，因此在 2020 年 1 月�
 >[!IMPORTANT]
 >如果你为其授予 RBAC 绑定的用户在同一个 Azure AD 租户中，请根据 userPrincipalName 分配权限。 如果该用户位于不同的 Azure AD 租户中，请查询并使用 objectId 属性。
 
-有关配置 AKS 群集 **ClusterRoleBinding** 的更多帮助信息，请参阅[创建 RBAC 绑定](../../aks/azure-ad-integration-cli.md#create-rbac-binding)。
+有关配置 AKS 群集 **ClusterRoleBinding** 的更多帮助信息，请参阅 [创建 RBAC 绑定](../../aks/azure-ad-integration-cli.md#create-rbac-binding)。
 
 ## <a name="next-steps"></a>后续步骤
 

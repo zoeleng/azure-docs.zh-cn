@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226941"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650083"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>云预配故障排除
 
@@ -47,11 +47,11 @@ ms.locfileid: "89226941"
 1. 在左侧选择“Azure Active Directory” > “Azure AD Connect”。 在中心位置选择“管理预配(预览版)”。
 1. 在“Azure AD 预配(预览版)”屏幕上，选择“查看所有代理”。
 
-   ![查看所有代理](media/how-to-install/install7.png)</br>
+   ![查看所有代理](media/how-to-install/install-7.png)</br>
  
 1. 在 " **本地预配代理** " 屏幕上，可以看到已安装的代理。 验证相关代理是否存在并标记为 " *正常*"。
 
-   ![“本地预配代理”屏幕](media/how-to-install/install8.png)</br>
+   ![“本地预配代理”屏幕](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>验证端口
 
@@ -59,13 +59,13 @@ ms.locfileid: "89226941"
 
 此测试验证代理是否可以通过端口443与 Azure 通信。 打开浏览器，并从安装了代理的服务器中转到上一个 URL。
 
-![验证端口可访问性](media/how-to-install/verify2.png)
+![验证端口可访问性](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>在本地服务器上
 
 若要验证代理是否正在运行，请执行以下步骤。
 
-1. 在安装了代理的服务器上，通过导航到**服务**或通过转到 "**开始**  >  **运行**  >  **services.msc**" 打开服务。
+1. 在安装了代理的服务器上，通过导航到 **服务** 或通过转到 "**开始**  >  **运行**  >  **services.msc**" 打开服务。
 1. 确保“Microsoft Azure AD Connect 代理更新程序”和“Microsoft Azure AD Connect 预配代理”包含在“服务”中，并且其状态为“正在运行”。
 
    ![“服务”屏幕](media/how-to-troubleshoot/troubleshoot1.png)
@@ -99,7 +99,7 @@ ms.locfileid: "89226941"
 
 此问题通常是由于代理无法连接到混合标识服务所导致，并且需要你配置 HTTP 代理。 若要解决此问题，请配置出站代理。 
 
-预配代理支持使用出站代理。 可以通过编辑代理配置文件 *C:\Program Files\Microsoft Azure AD Connect 预配 Agent\AADConnectProvisioningAgent.exe.config*来配置它。将以下行添加到该文件末尾紧靠结束 `</configuration>` 标记之前。
+预配代理支持使用出站代理。 可以通过编辑代理配置文件 *C:\Program Files\Microsoft Azure AD Connect 预配 Agent\AADConnectProvisioningAgent.exe.config* 来配置它。将以下行添加到该文件末尾紧靠结束 `</configuration>` 标记之前。
 将变量 `[proxy-server]` 和替换 `[proxy-port]` 为你的代理服务器名称和端口值。
 
 ```xml
@@ -124,7 +124,7 @@ ms.locfileid: "89226941"
 
 ### <a name="log-files"></a>日志文件
 
-默认情况下，代理发出最少的错误消息和堆栈跟踪信息。 可以在 *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect 预配 Agent\Trace*文件夹中找到这些跟踪日志。
+默认情况下，代理发出最少的错误消息和堆栈跟踪信息。 可以在 *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect 预配 Agent\Trace* 文件夹中找到这些跟踪日志。
 
 若要收集用于排查代理相关问题的其他详细信息，请执行以下步骤。
 

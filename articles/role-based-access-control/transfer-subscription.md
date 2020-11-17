@@ -1,5 +1,5 @@
 ---
-title: 将 Azure 订阅转移到不同的 Azure AD 目录
+title: 将 Azure 订阅转移到其他 Azure AD 目录
 description: 了解如何将 Azure 订阅和已知相关资源转移到其他 Azure Active Directory (Azure AD) 目录。
 services: active-directory
 author: rolyon
@@ -10,21 +10,21 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545338"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648236"
 ---
-# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>将 Azure 订阅转移到不同的 Azure AD 目录
+# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>将 Azure 订阅转移到其他 Azure AD 目录
 
 组织可能具有多个 Azure 订阅。 每个订阅都与特定 Azure Active Directory (Azure AD) 目录相关联。 为了简化管理，你可能希望将订阅转移到其他 Azure AD 目录。 将订阅转移到其他 Azure AD 目录时，某些资源不会转移到目标目录。 例如，Azure 基于角色的访问控制 (Azure RBAC) 中的所有角色分配和自定义角色将从源目录中永久删除，不会转移到目标目录。
 
 本文介绍将订阅转移到其他 Azure AD 目录并在转移后重新创建一些资源时可以遵循的基本步骤。
 
 > [!NOTE]
-> 对于 Azure 云解决方案提供程序 (CSP) 订阅，不支持更改订阅的 Azure AD 目录。
+> 对于 Azure 云解决方案提供商 (CSP) 订阅，不支持更改订阅的 Azure AD 目录。
 
 ## <a name="overview"></a>概述
 
@@ -74,9 +74,9 @@ ms.locfileid: "92545338"
 | Azure Data Lake Storage Gen1 | “是” | “是” |  | 必须重新创建任何 ACL。 |
 | Azure 文件 | 是 | 是 |  | 必须重新创建任何 ACL。 |
 | Azure 文件同步 | 是 | 是 |  |  |
-| Azure 托管磁盘 | 是 | 是 |  |  如果你使用磁盘加密集来使用客户管理的密钥来加密托管磁盘，则必须禁用并重新启用与磁盘加密集相关联的系统分配的标识。 您必须重新创建角色分配，即，对密钥保管库中的磁盘加密集再次授予所需权限。 |
+| Azure 托管磁盘 | 是 | 是 |  |  如果使用磁盘加密集通过客户管理的密钥对托管磁盘进行加密，则必须先禁用再重新启用与磁盘加密集关联的系统分配标识。 你必须重新创建角色分配，即，向密钥保管库中的磁盘加密集再次授予所需权限。 |
 | Azure Kubernetes 服务 | 是 | 是 |  |  |
-| Azure Policy | 是 | 否 | 所有 Azure 策略对象，包括自定义定义、分配、免除和符合性数据。 | 必须 [导出](../governance/policy/how-to/export-resources.md)、导入和重新分配定义。 然后，创建新的策略分配以及所需的任何 [策略例外](../governance/policy/concepts/exemption-structure.md)。 |
+| Azure Policy | 是 | 否 | 所有 Azure Policy 对象，包括自定义定义、分配、豁免和符合性数据。 | 必须 [导出](../governance/policy/how-to/export-resources.md)、导入和重新分配定义。 然后，创建新的策略分配以及所需的任何 [策略例外](../governance/policy/concepts/exemption-structure.md)。 |
 | Azure Active Directory 域服务 | 是 | 否 |  |  |
 | 应用注册 | “是” | 是 |  |  |
 
@@ -87,7 +87,7 @@ ms.locfileid: "92545338"
 
 若要完成这些步骤，需要：
 
-- [Bash Azure Cloud Shell](/azure/cloud-shell/overview) 或 [Azure CLI](/cli/azure)
+- [Bash Azure Cloud Shell](../cloud-shell/overview.md) 或 [Azure CLI](/cli/azure)
 - 要在源目录中转移的订阅的帐户管理员
 - 目标目录中的[所有者](built-in-roles.md#owner)角色
 
@@ -109,9 +109,9 @@ ms.locfileid: "92545338"
     az account set --subscription "Marketing"
     ```
 
-### <a name="install-the-azure-resource-graph-extension"></a>安装 Azure 资源图扩展
+### <a name="install-the-azure-resource-graph-extension"></a>安装 Azure Resource Graph 扩展
 
- 使用用于 [Azure 资源关系](../governance/resource-graph/index.yml)图的 Azure CLI *扩展，可以* 使用 [Az graph](/cli/azure/ext/resource-graph/graph) 命令查询由 Azure 资源管理器管理的资源。 后续步骤中需要使用此命令。
+ 借助 [Azure Resource Graph](../governance/resource-graph/index.yml) 的 Azure CLI 扩展 resource-graph，你可以使用 [az graph](/cli/azure/ext/resource-graph/graph) 命令来查询由 Azure 资源管理器管理的资源。 后续步骤中需要使用此命令。
 
 1. 使用 [az extension list](/cli/azure/extension#az_extension_list) 查看是否安装了 resource-graph 扩展。
 

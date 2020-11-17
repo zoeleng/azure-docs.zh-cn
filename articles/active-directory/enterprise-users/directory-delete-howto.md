@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 189eaf3a08ce0e8411ce67170fdf1a895cbc56d2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374667"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647709"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>在 Azure Active Directory 中删除一个租户
 
@@ -123,19 +123,19 @@ Deleted | 数据已删除 | 用户无法访问自助服务注册产品、文件�
 
 2. 选择“许可证”，然后选择“自助服务注册产品”。 可以从基于席位的订阅中单独查看所有自助服务注册产品。 选择要永久删除的产品。 下面是 Microsoft Power BI 中的一个示例：
 
-    ![显示 "许可证-自助注册产品" 页的屏幕截图。](./media/directory-delete-howto/licenses-page.png)
+    ![显示“许可证 - 自助服务注册产品”页面的屏幕截图。](./media/directory-delete-howto/licenses-page.png)
 
 3. 选择“删除”以删除产品并接受数据立即删除且不可撤销的条款。 此删除操作将删除所有用户并将删除组织对该产品的访问权限。 单击“是”以继续执行删除操作。  
 
-    ![屏幕截图，显示 "许可证-自助注册产品" 页，其中显示了 "删除自助服务注册产品" 窗口。](./media/directory-delete-howto/delete-product.png)
+    ![显示“许可证 - 自助服务注册产品”页面的屏幕截图，其中“删除自助服务注册产品”窗口处于打开状态。](./media/directory-delete-howto/delete-product.png)
 
 4. 如果选择“是”，将启动对自助服务产品的删除。 会通知你正在执行删除操作。  
 
-    ![显示 "许可证-自助注册产品" 页的屏幕截图，其中显示了 "正在进行删除" 通知。](./media/directory-delete-howto/progress-message.png)
+    ![显示“许可证 - 自助服务注册产品”页面的屏幕截图，其中显示了“正在进行删除”通知。](./media/directory-delete-howto/progress-message.png)
 
 5. 现在，自助服务注册产品状态已更改为“已删除”。 刷新页面时，该产品应该已从“自助服务注册产品”页中删除。  
 
-    ![屏幕截图，显示 "许可证-自助注册产品" 页面，该页面在右侧显示 "自助注册产品已删除" 窗格。](./media/directory-delete-howto/product-deleted.png)
+    ![显示“许可证 - 自助服务注册产品”页面的屏幕截图，其中右侧显示了“已删除自助服务注册产品”窗格。](./media/directory-delete-howto/product-deleted.png)
 
 6. 删除所有产品后，可再次登录 Azure AD 管理中心，这里应没有必需的操作，也没有产品影响你删除组织。 你应该可以成功删除 Azure AD 组织。
 
