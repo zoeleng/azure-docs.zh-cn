@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575962"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647658"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>在 Azure AD B2C 中注册 SAML 应用程序
 
@@ -131,7 +131,7 @@ Azure AD B2C 通过以下两种方式之一实现 SAML 互操作性：
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
-        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>-->
+        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml</Item>-->
       </Metadata>
       <CryptographicKeys>
         <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -260,7 +260,7 @@ Azure AD B2C 通过以下两种方式之一实现 SAML 互操作性：
 
 保存更改并上传新的策略文件。 上传两个策略（扩展和信赖方文件）后，打开 Web 浏览器并导航到策略元数据。
 
-Azure AD B2C 策略 IDP 元数据是 SAML 协议中用于公开 SAML 标识提供者配置的信息。 元数据定义服务的位置，例如登录和注销、证书、登录方法和其他信息。 以下 URL 提供了 Azure AD B2C 策略元数据。 将替换 `tenant-name` 为 Azure AD B2C 租户的名称，将替换为 `policy-name` 该策略的名称 (ID) B2C_1A_SAML2_signup_signin，例如：
+Azure AD B2C 策略 IDP 元数据是 SAML 协议中用于公开 SAML 标识提供者配置的信息。 元数据定义服务的位置，例如登录和注销、证书、登录方法和其他信息。 以下 URL 提供了 Azure AD B2C 策略元数据。 将替换 `tenant-name` 为 Azure AD B2C 租户的名称，将替换为 `policy-name` 该策略的名称 (ID) B2C_1A_signup_signin_saml，例如：
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -270,7 +270,7 @@ Azure AD B2C 策略 IDP 元数据是 SAML 协议中用于公开 SAML 标识提�
 
 ### <a name="41-register-your-application-in-azure-ad-b2c"></a>4.1 在 Azure AD B2C 中注册应用程序
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录 [Azure 门户](https://portal.azure.com)。
 1. 在顶部菜单中选择“目录 + 订阅”筛选器，然后选择包含Azure AD B2C 租户的目录。
 1. 在左侧菜单中，选择“Azure AD B2C”。 或者，选择“所有服务”并搜索并选择“Azure AD B2C”。
 1. 选择“应用注册”，然后选择“新建注册” 。
@@ -339,9 +339,9 @@ Azure AD B2C 策略 IDP 元数据是 SAML 协议中用于公开 SAML 标识提�
 
 通常需要以下部分或全部内容：
 
-* **元数据** ：`https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **颁发者** ： SAML 请求 `issuer` 值必须与 `identifierUris` 应用程序注册清单的元素中配置的其中一个 uri 匹配。 如果 `issuer` 元素中不存在 SAML 请求名称 `identifierUris` ，请 [将其添加到应用程序注册清单](#identifieruris)。 例如 `https://contoso.onmicrosoft.com/app-name`。 
-* **登录 url/saml 终结点/Saml url** ：检查 XML 元素 Azure AD B2C SAML 策略元数据文件中的值 `<SingleSignOnService>`
+* **元数据**：`https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **颁发者**： SAML 请求 `issuer` 值必须与 `identifierUris` 应用程序注册清单的元素中配置的其中一个 uri 匹配。 如果 `issuer` 元素中不存在 SAML 请求名称 `identifierUris` ，请 [将其添加到应用程序注册清单](#identifieruris)。 例如，`https://contoso.onmicrosoft.com/app-name`。 
+* **登录 url/saml 终结点/Saml url**：检查 XML 元素 Azure AD B2C SAML 策略元数据文件中的值 `<SingleSignOnService>`
 * **证书：** 为 B2C_1A_SamlIdpCert ，但没有私钥。 若要获取证书的公钥：
 
     1. 请转到上面指定的元数据 URL。
@@ -428,7 +428,7 @@ https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic
 
 1. 下载 [SAML-SP 启动的登录示例策略](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. 更新 `TenantId` 以匹配租户名称，例如 contoso.b2clogin.com
-1. 保留策略名称 B2C_1A_SAML2_signup_signin
+1. 保留策略名称 *B2C_1A_signup_signin_saml*
 
 ## <a name="supported-and-unsupported-saml-modalities"></a>受支持的和不支持的 SAML 形式
 

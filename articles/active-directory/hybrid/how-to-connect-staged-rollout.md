@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628894"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646570"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>使用分阶段推出迁移到云身份验证（预览）
 
@@ -38,8 +38,8 @@ ms.locfileid: "94628894"
 -   你拥有具有联合域的 Azure Active Directory (Azure AD) 租户。
 
 -   你已决定改用以下两个选项之一：
-    - **选项 A**  - *密码哈希同步 (同步)*  + *无缝单一登录 (SSO)* 。  有关详细信息，请参阅 [什么是密码哈希同步](whatis-phs.md) 以及 [什么是无缝 SSO](how-to-connect-sso.md)
-    - **选项 B**  - *传递身份验证*  + *无缝 SSO* 。  有关详细信息，请参阅 [什么是直通身份验证](how-to-connect-pta.md)  
+    - **选项 A**  - *密码哈希同步 (同步)*  + *无缝单一登录 (SSO)*。  有关详细信息，请参阅 [什么是密码哈希同步](whatis-phs.md) 以及 [什么是无缝 SSO](how-to-connect-sso.md)
+    - **选项 B**  - *传递身份验证*  + *无缝 SSO*。  有关详细信息，请参阅 [什么是直通身份验证](how-to-connect-pta.md)  
     
     尽管无缝 SSO 是可选的，但我们建议使用它，为运行着公司网络中加入域的计算机的用户提供无提示登录体验。
 
@@ -95,7 +95,7 @@ ms.locfileid: "94628894"
 
 ## <a name="pre-work-for-password-hash-sync"></a>密码哈希同步的准备工作
 
-1. 从 Azure AD Connect 中的 " [可选功能](how-to-connect-install-custom.md#optional-features)" 页启用 *密码哈希同步* 。 
+1. 从 Azure AD Connect 中的 "[可选功能](how-to-connect-install-custom.md#optional-features)" 页启用 *密码哈希同步*。 
 
    ![Azure Active Directory Connect 中“可选功能”页的屏幕截图](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -178,6 +178,7 @@ ms.locfileid: "94628894"
    >[!NOTE]
    >将自动为组中成员启用分阶段推出。 分阶段推出不支持嵌套和动态组。
    >添加新组时， (组中的用户将更新为新组的最多200个用户) 将更新为使用托管身份验证 immidiatly。 编辑组 (在) 添加或删除用户时，更改可能需要长达24小时才能生效。
+   >仅当用户在无缝 SSO 组中以及 PTA 或 PHS 组中时，才会应用无缝 SSO。
 
 ## <a name="auditing"></a>审核
 
@@ -239,7 +240,7 @@ A:是的，可以在生产租户中使用此功能，但建议首先在测试租
 
 **问：此功能能否用于维持永久“共存状态”，即某些用户使用联合身份验证、其他用户使用云身份验证的情况？**
 
-A:不能，此功能设计用于从联合身份验证分阶段迁移到云身份验证，最终会全部转换为云身份验证。 建议不要使用永久混合状态，因为这种方法可能导致意外的身份验证流。
+答：不能，此功能设计用于测试云身份验证。 成功测试几个用户组后，应将其剪切到云身份验证。 建议不要使用永久混合状态，因为这种方法可能导致意外的身份验证流。
 
 **问：可以使用 PowerShell 执行分阶段推出吗？**
 

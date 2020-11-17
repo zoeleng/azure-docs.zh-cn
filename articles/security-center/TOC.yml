@@ -87,7 +87,7 @@
       href: security-center-powershell-onboarding.md
     - name: 为管理组启用安全中心
       href: onboard-management-group.md
-    - name: 配置数据收集
+    - name: 配置自动预配
       href: security-center-enable-data-collection.md
     - name: 设置电子邮件通知
       href: security-center-provide-security-contact-details.md

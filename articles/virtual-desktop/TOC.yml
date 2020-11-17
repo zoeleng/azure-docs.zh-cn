@@ -112,12 +112,22 @@
   items:
     - name: 身份验证
       href: authentication.md
-    - name: 安全 URL 列表
-      href: safe-url-list.md
     - name: Windows 虚拟桌面环境
       href: environment-setup.md
-    - name: 确定用户连接延迟
-      href: connection-latency.md
+    - name: 网络连接
+      items:
+        - name: 了解网络连接
+          href: network-connectivity.md
+        - name: RDP 短路径
+          href: shortpath.md
+        - name: 实现服务质量 (QoS)
+          href: rdp-quality-of-service-qos.md
+        - name: 安全 URL 列表
+          href: safe-url-list.md
+        - name: 带宽注意事项
+          href: rdp-bandwidth.md
+        - name: 确定用户连接延迟
+          href: connection-latency.md
     - name: Windows 虚拟桌面中的委托访问
       href: delegated-access-virtual-desktop.md
     - name: 主机池负载均衡方法
@@ -168,8 +178,6 @@
       href: linux-overview.md
     - name: 支持的 RDP 文件设置
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: 网络指南
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: 虚拟机大小调整指南
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azure 命令行接口 (CLI)

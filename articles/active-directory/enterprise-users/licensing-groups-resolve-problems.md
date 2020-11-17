@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374546"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647027"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>识别和解决 Azure Active Directory 中组的许可证分配问题
 
@@ -87,7 +87,7 @@ Azure Active Directory (Azure AD) 中基于组的许可引入了处于许可错�
 
 ## <a name="usage-location-isnt-allowed"></a>不允许的使用位置
 
-**问题：** 由于当地法律和法规方面的原因，某些 Microsoft 服务不能在所有位置使用。 必须先为用户指定“使用位置”属性，才能将许可证分配给用户。 可以在 Azure 门户的 "**用户**  >  **配置文件**  >  **编辑**" 部分下指定位置。
+**问题：** 由于当地法律和法规方面的原因，某些 Microsoft 服务不能在所有位置使用。 必须先为用户指定“使用位置”属性，才能将许可证分配给用户。 可以在 Azure 门户中的“用户” > “配置文件” > “编辑”部分下指定位置。
 
 当 Azure AD 尝试向使用位置不受支持的用户分配组许可证时，该操作会失败，并且会记录用户发生的此项错误。
 

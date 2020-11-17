@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372331"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636108"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure 安全中心的新增功能
 
@@ -37,7 +37,8 @@ ms.locfileid: "94372331"
 
 - [添加了 29 条预览建议，以扩大 Azure 安全基准的覆盖范围](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [向安全中心的法规合规性仪表板添加了 NIST SP 800 171 R2](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-
+- [建议列表现包含筛选器](#recommendations-list-now-includes-filters)
+- [自动预配体验得到改进和扩展](#auto-provisioning-experience-improved-and-expanded)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>添加了 29 条预览建议，以扩大 Azure 安全基准的覆盖范围
 
@@ -78,6 +79,30 @@ NIST SP 800-171 R2 标准现可以内置计划的形式提供，用于安全中�
 有关此符合性标准的详细信息，请参阅 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)。
 
 
+### <a name="recommendations-list-now-includes-filters"></a>建议列表现包含筛选器
+
+现在，你可以根据一系列条件筛选安全建议列表。 在以下示例中，已筛选建议列表，用于显示满足以下条件的建议：
+
+- 正式发布（即非预览）
+- 适用于存储帐户
+- 支持快速修复修正
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="建议列表的筛选器":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>自动预配体验得到改进和扩展
+
+通过在新的和现有的 Azure VM 上安装所需的扩展，使 VM 能够受益于安全中心的保护，自动预配功能有助于降低管理开销。 
+
+随着 Azure 安全中心的发展，更多的扩展得到了开发，安全中心可以监视更大的资源类型列表。 自动预配工具现已扩展，可通过利用 Azure Policy 的功能来支持其他扩展和资源类型。
+
+你现在可配置以下项的自动预配：
+
+- Log Analytics 代理
+- （新）适用于 Kubernetes 的 Azure Policy 加载项
+- （新）Microsoft Dependency Agent
+
+有关详细信息，请参阅[从 Azure 安全中心自动预配代理和扩展](security-center-enable-data-collection.md)。
 
 ## <a name="october-2020"></a>2020 年 10 月
 

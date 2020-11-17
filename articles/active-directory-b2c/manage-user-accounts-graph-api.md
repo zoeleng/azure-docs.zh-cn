@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921395"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647607"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>使用 Microsoft Graph 管理 Azure AD B2C 用户帐户
 
@@ -53,7 +53,7 @@ Microsoft Graph 允许通过在 Microsoft Graph API 中提供创建、读取、�
 
 客户帐户（可以是使用者、合作伙伴或居民）可与以下标识类型相关联：
 
-- **本地**标识 - 将用户名和密码存储在 Azure AD B2C 目录本地。 我们通常将此类标识称为“本地帐户”。
+- **本地** 标识 - 将用户名和密码存储在 Azure AD B2C 目录本地。 我们通常将此类标识称为“本地帐户”。
 - **联合** 身份（也称为 *社交* 或 *企业* 帐户），用户的标识由 Facebook、Microsoft、ADFS 或 Salesforce 等联合标识提供者进行管理。
 
 具有客户帐户的用户可以使用多个标识进行登录。 例如，使用用户名、电子邮件、员工 ID、政府 ID 等。 一个帐户可以有多个密码相同的本地和社交标识。
@@ -64,7 +64,7 @@ Microsoft Graph 允许通过在 Microsoft Graph API 中提供创建、读取、�
 |:---------------|:--------|:----------|
 |signInType|string| 指定目录中的用户登录类型。 对于本地帐户：`emailAddress`、`emailAddress1`、`emailAddress2`、`emailAddress3`、`userName`，或所需的任何其他类型。 社交帐户必须设置为 `federated`。|
 |颁发者|string|指定标识的颁发者。 对于本地帐户（其 **signInType** 不是 `federated`），此属性是本地 B2C 租户的默认域名，例如 `contoso.onmicrosoft.com`。 对于社会身份 (，其中 **signInType** 为  `federated`) ，该值为颁发者的名称，例如 `facebook.com`|
-|issuerAssignedId|string|指定由颁发者分配给用户的唯一标识符。 **issuer** 和 **issuerAssignedId** 的组合在租户中必须唯一。 对于本地帐户，当 **signInType** 设置为 `emailAddress` 或 `userName` 时，它表示用户的登录名。<br>如果 **signInType** 设置为： <ul><li>`emailAddress`（或以 `emailAddress` 开头，例如 `emailAddress1`），则 **issuerAssignedId** 必须是有效的电子邮件地址</li><li>`userName`（或任何其他值），则 **issuerAssignedId** 必须是有效的[电子邮件地址本地部分](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`，则 **issuerAssignedId** 表示联合帐户唯一标识符</li></ul>|
+|issuerAssignedId|string|指定由颁发者分配给用户的唯一标识符。 **issuer** 和 **issuerAssignedId** 的组合在租户中必须唯一。 对于本地帐户，当 **signInType** 设置为 `emailAddress` 或 `userName` 时，它表示用户的登录名。<br>如果 **signInType** 设置为： <ul><li>`emailAddress`（或以 `emailAddress` 开头，例如 `emailAddress1`），则 **issuerAssignedId** 必须是有效的电子邮件地址</li><li>`userName`（或任何其他值），则 **issuerAssignedId** 必须是有效的 [电子邮件地址本地部分](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`，则 **issuerAssignedId** 表示联合帐户唯一标识符</li></ul>|
 
 以下 Identities 属性包含一个本地帐户标识、一个电子邮件地址和一个社交标识，它们均可用作登录名。 
 
@@ -145,7 +145,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 1. 使用 `dotnet` 命令运行应用程序：
 
     ```console
-    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
 应用程序将显示可执行的命令列表。 例如，获取所有用户、获取单个用户、删除用户、更新用户的密码和批量导入。
