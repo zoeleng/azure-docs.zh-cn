@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概述
   items:
-    - name: 什么是流分析？
+    - name: 欢迎使用流分析
       href: stream-analytics-introduction.md
     - name: 流分析群集
       href: cluster-overview.md

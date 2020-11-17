@@ -130,6 +130,8 @@
             - name: 排查 Synapse Studio 连接问题
               href: troubleshoot/troubleshoot-synapse-studio-powershell.md
               displayname: powershell
+            - name: 排查 Synapse Studio 与存储之间的连接问题
+              href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
     - name: 操作指南
       items:
         - name: 安全

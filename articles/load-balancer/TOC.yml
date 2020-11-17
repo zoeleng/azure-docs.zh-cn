@@ -67,9 +67,9 @@
       href: load-balancer-ha-ports-overview.md
     - name: 多个前端
       href: load-balancer-multivip-overview.md
-    - name: 出站代理
+    - name: 用于出站连接到 Internet 的 SNAT
       href: load-balancer-outbound-connections.md
-    - name: 出站规则
+    - name: 配置出站规则
       href: outbound-rules.md
     - name: 在空闲超时的情况下重置 TCP
       href: load-balancer-tcp-reset.md

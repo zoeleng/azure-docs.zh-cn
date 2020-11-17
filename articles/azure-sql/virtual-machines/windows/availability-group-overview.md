@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146682"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504384"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM 上的 SQL Server 的 Always On 可用性组
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,13 +72,13 @@ DNN 侦听器是 Azure 中推荐的 HADR 连接解决方案，它可简化部署
 
 有多个选项来将可用性组部署到 Azure VM 上的 SQL Server，某些选项的自动化程度比其他的高。 
 
-下表提供了可用选项的比较： 
+下表提供了可用选项的比较：
 
-| |**[Azure 门户](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[快速启动模板](availability-group-quickstart-template-configure.md)**|**[手动](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure 门户 | Azure CLI / PowerShell | 快速入门模板 | 手动 |
+|---------|---------|---------|---------|---------|
 |**SQL Server 版本** |2016+ |2016+|2016+|2012+|
 |**SQL Server 版本** |Enterprise |Enterprise |Enterprise |Enterprise、Standard|
-|**Windows Server 版本**| 2016+ | 2016+ | 2016+ | All| 
+|**Windows Server 版本**| 2016+ | 2016+ | 2016+ | All|
 |**为你创建群集**|是|是 | 是 |否|
 |**为你创建可用性组** |是 |否|否|否|
 |**分开创建侦听器和负载均衡器** |否|否|否|是|
@@ -90,9 +90,8 @@ DNN 侦听器是 Azure 中推荐的 HADR 连接解决方案，它可简化部署
 |**在同一区域中具有多个地区的 DR**|是|是|是|是|
 |**不带 AD 的分布式 AG**|否|否|否|是|
 |**不带群集的分布式 AG** |否|否|否|是|
-||||||
 
-
+有关详细信息，请参阅 [Azure 门户](availability-group-azure-portal-configure.md)、[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)、[快速启动模板](availability-group-quickstart-template-configure.md)和[手册](availability-group-manually-configure-prerequisites-tutorial.md)。
 
 ## <a name="considerations"></a>注意事项 
 

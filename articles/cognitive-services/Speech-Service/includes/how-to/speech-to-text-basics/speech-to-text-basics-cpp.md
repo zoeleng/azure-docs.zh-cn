@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 6240cdb184e0e226e5d407c8d24fed7395a285c2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 434548d7d00468605ad0f1a52af99fbc4278adc1
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135979"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482718"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 
@@ -31,7 +31,7 @@ ms.locfileid: "93135979"
 
 ## <a name="create-a-speech-configuration"></a>创建语音配置
 
-若要使用语音 SDK 调用语音服务，需要创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)。 此类包含有关你的订阅的信息，例如你的密钥和关联的区域、终结点、主机或授权令牌。 通过使用密钥和区域创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)。 请查看[区域支持](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk)页，找到你的区域标识符。
+若要使用语音 SDK 调用语音服务，需要创建 [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig)。 此类包含有关你的订阅的信息，例如你的密钥和关联的区域、终结点、主机或授权令牌。 通过使用密钥和区域创建 [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig)。 请参阅[查找密钥和区域](../../../overview.md#find-keys-and-region)页面，查找密钥区域对。
 
 ```cpp
 using namespace std;
@@ -40,7 +40,7 @@ using namespace Microsoft::CognitiveServices::Speech;
 auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 ```
 
-可以通过以下其他几种方法初始化 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)：
+可以通过以下其他几种方法初始化 [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig)：
 
 * 使用终结点：传入语音服务终结点。 密钥或授权令牌是可选的。
 * 使用主机：传入主机地址。 密钥或授权令牌是可选的。
@@ -51,7 +51,7 @@ auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<
 
 ## <a name="recognize-from-microphone"></a>从麦克风识别
 
-若要使用设备麦克风识别语音，需使用 `FromDefaultMicrophoneInput()` 创建 `AudioConfig`。 然后初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)，传递 `audioConfig` 和 `config`。
+若要使用设备麦克风识别语音，需使用 `FromDefaultMicrophoneInput()` 创建 `AudioConfig`。 然后初始化 [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer)，传递 `audioConfig` 和 `config`。
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -68,7 +68,7 @@ cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 
 ## <a name="recognize-from-file"></a>从文件识别
 
-如果要从音频文件（而不是使用麦克风）识别语音，则仍需要创建 `AudioConfig`。 但创建 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) 时，需要调用 `FromWavFileInput()`（而不是调用 `FromDefaultMicrophoneInput()`）并传递文件路径。
+如果要从音频文件（而不是使用麦克风）识别语音，则仍需要创建 `AudioConfig`。 但创建 [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig) 时，需要调用 `FromWavFileInput()`（而不是调用 `FromDefaultMicrophoneInput()`）并传递文件路径。
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -82,17 +82,17 @@ cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 
 ## <a name="recognize-speech"></a>识别语音
 
-用于 C++ 的语音 SDK 的[识别器类](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)公开了一些可用于语音识别的方法。
+用于 C++ 的语音 SDK 的[识别器类](/cpp/cognitive-services/speech/speechrecognizer)公开了一些可用于语音识别的方法。
 
 ### <a name="single-shot-recognition"></a>单步识别
 
-单步识别可异步识别单个言语。 单个言语的结束是通过在结束时倾听静音或处理最长 15 秒音频时确定的。 下面是使用 [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) 进行异步单步识别的示例：
+单步识别可异步识别单个言语。 单个言语的结束是通过在结束时倾听静音或处理最长 15 秒音频时确定的。 下面是使用 [`RecognizeOnceAsync`](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) 进行异步单步识别的示例：
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();
 ```
 
-需要编写一些代码来处理结果。 此示例计算 [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason)：
+需要编写一些代码来处理结果。 此示例计算 [`result->Reason`](/cpp/cognitive-services/speech/recognitionresult#reason)：
 
 * 输出识别结果：`ResultReason::RecognizedSpeech`
 * 如果没有识别匹配项，请通知用户：`ResultReason::NoMatch`
@@ -126,9 +126,9 @@ switch (result->Reason)
 
 ### <a name="continuous-recognition"></a>连续识别
 
-连续识别涉及的方面比单步识别多一点。 它要求你订阅 `Recognizing`、`Recognized` 和 `Canceled` 事件以获取识别结果。 若要停止识别，必须调用 [StopContinuousRecognitionAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync)。 下面是有关如何对音频输入文件执行连续识别的示例。
+连续识别涉及的方面比单步识别多一点。 它要求你订阅 `Recognizing`、`Recognized` 和 `Canceled` 事件以获取识别结果。 若要停止识别，必须调用 [StopContinuousRecognitionAsync](/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync)。 下面是有关如何对音频输入文件执行连续识别的示例。
 
-首先，我们将定义输入并初始化一个 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)：
+首先，我们将定义输入并初始化一个 [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer)：
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -141,12 +141,12 @@ auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
 promise<void> recognitionEnd;
 ```
 
-我们将订阅从 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 发送的事件。
+我们将订阅从 [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer) 发送的事件。
 
-* [`Recognizing`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizing)：事件信号，包含中间识别结果。
-* [`Recognized`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognized)：事件信号，包含最终识别结果（指示成功的识别尝试）。
-* [`SessionStopped`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped)：事件信号，指示识别会话的结束（操作）。
-* [`Canceled`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#canceled)：事件信号，包含已取消的识别结果（指示因直接取消请求或者传输或协议失败导致的识别尝试取消）。
+* [`Recognizing`](/cpp/cognitive-services/speech/asyncrecognizer#recognizing)：事件信号，包含中间识别结果。
+* [`Recognized`](/cpp/cognitive-services/speech/asyncrecognizer#recognized)：事件信号，包含最终识别结果（指示成功的识别尝试）。
+* [`SessionStopped`](/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped)：事件信号，指示识别会话的结束（操作）。
+* [`Canceled`](/cpp/cognitive-services/speech/asyncrecognizer#canceled)：事件信号，包含已取消的识别结果（指示因直接取消请求或者传输或协议失败导致的识别尝试取消）。
 
 ```cpp
 recognizer->Recognizing.Connect([](const SpeechRecognitionEventArgs& e)
@@ -187,7 +187,7 @@ recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
     });
 ```
 
-完成所有设置后，可以调用 [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync)。
+完成所有设置后，可以调用 [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync)。
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
@@ -204,7 +204,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 
 使用连续识别时，可以使用相应的“启用听写”功能启用听写处理。 此模式将导致语音配置实例解释句子结构的单词说明（如标点符号）。 例如，言语“你居住在城镇吗问号”会被解释为文本“你居住在城镇吗？”。
 
-若要启用听写模式，请在 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) 上使用 [`EnableDictation`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation) 方法。
+若要启用听写模式，请在 [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) 上使用 [`EnableDictation`](/cpp/cognitive-services/speech/speechconfig#enabledictation) 方法。
 
 ```cpp
 config->EnableDictation();
@@ -212,13 +212,13 @@ config->EnableDictation();
 
 ## <a name="change-source-language"></a>更改源语言
 
-语音识别的常见任务是指定输入（或源）语言。 让我们看看如何将输入语言更改为德语。 在代码中找到 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)，并直接在其下方添加此行。
+语音识别的常见任务是指定输入（或源）语言。 让我们看看如何将输入语言更改为德语。 在代码中找到 [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig)，并直接在其下方添加此行。
 
 ```cpp
 config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) 是采用字符串作为实参的形参。 可以提供受支持的[区域设置/语言](../../../language-support.md)的列表中的任何值。
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) 是采用字符串作为实参的形参。 可以提供受支持的[区域设置/语言](../../../language-support.md)的列表中的任何值。
 
 ## <a name="improve-recognition-accuracy"></a>提高识别准确度
 
@@ -227,9 +227,9 @@ config->SetSpeechRecognitionLanguage("de-DE");
 > [!IMPORTANT]
 > 短语列表功能仅以英语提供。
 
-若要使用短语列表，请首先创建一个 [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar) 对象，然后使用 [`AddPhrase`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar#addphrase) 添加特定的单词和短语。
+若要使用短语列表，请首先创建一个 [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) 对象，然后使用 [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase) 添加特定的单词和短语。
 
-对 [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar) 所做的任何更改都将在下一次识别或重新连接到语音服务之后生效。
+对 [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar) 所做的任何更改都将在下一次识别或重新连接到语音服务之后生效。
 
 ```cpp
 auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);

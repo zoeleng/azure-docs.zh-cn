@@ -4,13 +4,13 @@ description: 本教程介绍如何使用主动学习改善知识库的质量。 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.openlocfilehash: 42b50fcf0df27ddbc3e587a7d8e038e4979935ae
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.date: 11/09/2020
+ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777411"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376292"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>教程：将知识库添加到 Power Virtual Agents
 创建和扩展 [Power Virtual Agents](https://powervirtualagents.microsoft.com/) 机器人，以从知识库提供答案。
@@ -52,7 +52,7 @@ ms.locfileid: "91777411"
     * 生成代理主题。
     * （对 Power Automate 流）调用操作。
 * 在 [Power Automate](https://us.flow.microsoft.com/) 门户中：
-    * 搜索_使用 QnA Maker 生成答案_模板
+    * 搜索 _使用 QnA Maker 生成答案_ 模板
     * 使用模板配置流，以使用 [QnA Maker 的 GenerateAnswer](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)。
         * QnA Maker 发布的知识库信息：
             * 知识库 ID
@@ -125,7 +125,7 @@ ms.locfileid: "91777411"
 
 1. 选择流向“消息”框的“+”连接器，然后选择“调用操作”。
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="对话流的部分屏幕截图，其中突出显示了“删除”选项。":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="“调用操作”的部分屏幕截图。":::
 
 1. 选择“创建流”。 该过程会将你转到 Power Automate 门户。
 
@@ -135,9 +135,12 @@ ms.locfileid: "91777411"
 
     Power Automate 将打开一个新模板。 你将不会使用此新模板。
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="对话流的部分屏幕截图，其中突出显示了“删除”选项。":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="使用新流模板的 Power Automate 的部分屏幕截图。":::
 
 ## <a name="create-a-power-automate-flow-to-connect-to-your-knowledge-base"></a>创建 Power Automate 流以连接到知识库
+
+> [!NOTE]
+> 目前 Power Automate 模板不支持 QnA Maker 托管（预览版）终结点。 若要将 QnA Maker 托管（预览版）知识库添加到 Power Automate，请跳过此步骤并手动向其添加终结点。 
 
 以下过程创建一个 Power Automate 流，该流可以：
 * 提取传入的用户文本，并将其发送到 QnA Maker。
@@ -149,12 +152,12 @@ ms.locfileid: "91777411"
 
 1. 在 QnA Maker 流的新屏幕上，选择“继续”。
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="对话流的部分屏幕截图，其中突出显示了“删除”选项。":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="QnA Maker 模板流的部分屏幕截图，其中突出显示了“继续”按钮。":::
 
-1. 选择“生成答案”操作框，然后填写标题为“[创建并发布知识库](#create-and-publish-a-knowledge-base)”的上一节中的 QnA Maker 设置。 下图中的**服务主机**是指你的知识库托管**主机**，格式为 `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker`。
+1. 选择“生成答案”操作框，然后填写标题为“[创建并发布知识库](#create-and-publish-a-knowledge-base)”的上一节中的 QnA Maker 设置。 下图中的 **服务主机** 是指你的知识库托管 **主机**，格式为 `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker`。
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="对话流的部分屏幕截图，其中突出显示了“删除”选项。":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="QnA Maker 模板流的部分屏幕截图，其中突出显示了“生成答案(预览)”。":::
 
 1. 选择“保存”以保存流。
 
@@ -190,11 +193,11 @@ ms.locfileid: "91777411"
 
 1. 从“流”弹出窗口，选择名为“使用 QnA Maker 知识库生成答案...”的新流。新操作将显示在该流中。
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="对话流的部分屏幕截图，其中突出显示了“删除”选项。":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="添加 QnA Maker 流后，Power Virtual Agent 主题对话画布的部分屏幕截图。":::
 
 1. 若要正确地将输入变量设置为 QnA Maker 操作，请选择“选择变量”，然后选择“bot.UnrecognizedTriggerPhrase”。
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="对话流的部分屏幕截图，其中突出显示了“删除”选项。":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="选择输入变量的 Power Virtual Agent 主题对话画布的部分屏幕截图。":::
 
 
 1. 若要正确地将输出变量设置为 QnA Maker 操作，请在“消息”操作中选择“UnrecognizedTriggerPhrase”、选择要插入变量 `{x}` 的图标，然后选择”FinalAnswer”。
@@ -221,7 +224,7 @@ ms.locfileid: "91777411"
     |5|是|回复 `Can I help with anything else?`|
     |6|如何提高查询预测的吞吐量性能？|此问题会触发回退操作，而该操作会将文本发送到知识库以提供答案。 然后会显示答案。 单个操作的绿色复选标记指示每个操作成功完成。|
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="对话流的部分屏幕截图，其中突出显示了“删除”选项。":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="带有画布的聊天机器人的屏幕截图，其中针对成功操作指示绿色复选标记。":::
 
 ## <a name="publish-your-bot"></a>发布机器人
 

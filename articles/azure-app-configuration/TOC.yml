@@ -106,8 +106,10 @@
           href: concept-disaster-recovery.md
 - name: 操作指南
   items:
-    - name: 为一部分用户启用某一功能
+    - name: 为一部分用户启用功能
       href: howto-feature-filters-aspnet-core.md
+    - name: 为指定用户/组启用功能
+      href: howto-targetingfilter-aspnet-core.md
     - name: 对每个环境配置使用标签
       href: howto-labels-aspnet-core.md
     - name: 导入或导出配置数据

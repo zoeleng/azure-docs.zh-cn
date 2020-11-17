@@ -47,7 +47,7 @@ ms.locfileid: "94593342"
 2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
 3. 确定要 [在 Azure AD 和 GitHub 自动曝光之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
 
-## <a name="step-2-configure-github-ae-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 GitHub 自动曝光以支持 Azure AD 的预配
+## <a name="step-2-configure-github-ae-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 GitHub 自动曝光以支持 Azure AD 的预配
 
 了解如何 [在此处](https://docs.github.com/github-ae@latest/admin/authentication/configuring-user-provisioning-for-your-enterprise)启用 GitHub AE 的预配。
 
@@ -74,7 +74,7 @@ Azure AD 预配服务允许你确定将根据分配给应用程序的人员，�
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择 " **GitHub 自动曝光** "。
+2. 在应用程序列表中，选择 " **GitHub 自动曝光**"。
 
     ![应用程序列表中的 GitHub 自动曝光链接](common/all-applications.png)
 
@@ -96,7 +96,7 @@ Azure AD 预配服务允许你确定将根据分配给应用程序的人员，�
 
 7. 选择“保存”。
 
-8. 在 " **映射** " 部分下，选择 "将 **Azure Active Directory 用户同步** 到 **GitHub 自动曝光** "。
+8. 在 " **映射** " 部分下，选择 "将 **Azure Active Directory 用户同步** 到 **GitHub 自动曝光**"。
 
 9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 GitHub AE 的用户属性。 选为 " **匹配** " 属性的属性用于匹配 GitHub AE 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，将需要确保 GITHUB 自动曝光 API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
@@ -113,11 +113,11 @@ Azure AD 预配服务允许你确定将根据分配给应用程序的人员，�
 
 10. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-11. 若要为 GitHub 自动曝光启用 Azure AD 预配服务，请在 " **设置** " 部分中将设置 **状态** 更改为 **"打开** "。
+11. 若要为 GitHub 自动曝光启用 Azure AD 预配服务，请在 "**设置**" 部分中将设置 **状态** 更改为 **"打开**"。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-12. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 GitHub 自动曝光的用户和/或组。
+12. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 GitHub 自动曝光的用户和/或组。
 
     ![预配范围](common/provisioning-scope.png)
 
@@ -125,7 +125,7 @@ Azure AD 预配服务允许你确定将根据分配给应用程序的人员，�
 
     ![保存预配配置](common/provisioning-configuration-save.png)
 
-此操作将启动 " **设置** " 部分的 " **范围** " 中定义的所有用户和/或组的初始同步循环。 初始周期执行的时间比后续周期长，只要 Azure AD 预配服务正在运行，后续周期大约每隔 40 分钟就会进行一次。 
+此操作将启动 "**设置**" 部分的 "**范围**" 中定义的所有用户和/或组的初始同步循环。 初始周期执行的时间比后续周期长，只要 Azure AD 预配服务正在运行，后续周期大约每隔 40 分钟就会进行一次。 
 
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
 配置预配后，请使用以下资源来监视部署：
