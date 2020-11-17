@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367727"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651934"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 应用程序代理中的通配符应用程序
 
@@ -72,7 +72,7 @@ Azure Active Directory (Azure AD) 中配置大量的本地应用程序后，如�
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-若要确认是否已正确配置 CNAME，可以在某个目标终结点上使用 [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)，例如 `expenses.adventure-works.com`。  响应应包含已提到的别名 (`<yourAADTenantId>.tenant.runtime.msappproxy.net`)。
+若要确认是否已正确配置 CNAME，可以在某个目标终结点上使用 [nslookup](/windows-server/administration/windows-commands/nslookup)，例如 `expenses.adventure-works.com`。  响应应包含已提到的别名 (`<yourAADTenantId>.tenant.runtime.msappproxy.net`)。
 
 ## <a name="considerations"></a>注意事项
 
@@ -84,7 +84,7 @@ Azure Active Directory (Azure AD) 中配置大量的本地应用程序后，如�
 
 ![对于内部 URL，请使用格式 http (s) ：//*。 \<域>](./media/application-proxy-wildcard/22.png)
 
-配置**外部 URL** 时，必须使用以下格式：`https://*.<custom domain>`
+配置 **外部 URL** 时，必须使用以下格式：`https://*.<custom domain>`
 
 ![对于外部 URL，请使用格式 https://*。 \<自定义域>](./media/application-proxy-wildcard/21.png)
 
@@ -110,7 +110,7 @@ Azure Active Directory (Azure AD) 中配置大量的本地应用程序后，如�
 在 [MyApps 面板](https://myapps.microsoft.com)中，通配符应用程序只是以一个磁贴表示。 此磁贴默认已隐藏。 若要显示该磁贴并让用户首先看到特定的页面：
 
 1. 遵照有关[设置主页 URL](application-proxy-configure-custom-home-page.md) 的指导。
-1. 在应用程序属性页上将“显示应用程序”设置为“true”。********
+1. 在应用程序属性页上将“显示应用程序”设置为“true”。
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos 约束委派
 
@@ -169,11 +169,11 @@ Azure Active Directory (Azure AD) 中配置大量的本地应用程序后，如�
 
 根据[所述的步骤](application-proxy-add-on-premises-application.md)，此方案需要以下设置：
 
-- 在“内部 URL”中，设置 **finance** 而不是通配符。****
+- 在“内部 URL”中，设置 **finance** 而不是通配符。
 
     ![示例：在内部 URL 中设置财务，而不是通配符](./media/application-proxy-wildcard/52.png)
 
-- 在“外部 URL”中，设置 **finance** 而不是通配符。****
+- 在“外部 URL”中，设置 **finance** 而不是通配符。
 
     ![示例：设置外部 URL 中的财务，而不是通配符](./media/application-proxy-wildcard/53.png)
 
@@ -191,5 +191,5 @@ Azure Active Directory (Azure AD) 中配置大量的本地应用程序后，如�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解有关 **自定义域**的详细信息，请参阅使用 [Azure AD 应用程序代理中的自定义域](application-proxy-configure-custom-domain.md)。
-- 若要了解有关 **发布应用程序**的详细信息，请参阅 [使用 Azure AD 应用程序代理发布应用程序](application-proxy-add-on-premises-application.md)
+- 若要了解有关 **自定义域** 的详细信息，请参阅使用 [Azure AD 应用程序代理中的自定义域](application-proxy-configure-custom-domain.md)。
+- 若要了解有关 **发布应用程序** 的详细信息，请参阅 [使用 Azure AD 应用程序代理发布应用程序](application-proxy-add-on-premises-application.md)

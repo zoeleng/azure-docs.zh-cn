@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbe37938249ee02c7deb4081a96aa1be2d8b7cb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1ccd17dc4112bd286257a6ed95ecc55dd13af428
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374659"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650744"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a> (预览) 验证动态组成员身份规则 Azure Active Directory
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 现在提供了在公共预览版 (中验证�
 
 ## <a name="step-by-step-walk-through"></a>循序渐进的演练
 
-若要开始，请转到**Azure Active Directory**  >  **组**。 选择现有动态组，或创建新的动态组，并单击 "动态成员身份规则"。 然后，你可以看到 " **验证规则** " 选项卡。
+若要开始，请转到 **Azure Active Directory**  >  **组**。 选择现有动态组，或创建新的动态组，并单击 "动态成员身份规则"。 然后，你可以看到 " **验证规则** " 选项卡。
 
 ![找到 "验证规则" 选项卡，然后从现有规则开始](./media/groups-dynamic-rule-validation/validate-tab.png)
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 现在提供了在公共预览版 (中验证�
 
 ![查看规则验证的结果](./media/groups-dynamic-rule-validation/validate-tab-results.png)
 
-结果指示用户是否为组的成员。 如果规则无效或出现网络问题，结果将显示为 " **未知**"。 如果是 **未知**的，详细的错误消息将说明所需的问题和操作。
+结果指示用户是否为组的成员。 如果规则无效或出现网络问题，结果将显示为 " **未知**"。 如果是 **未知** 的，详细的错误消息将说明所需的问题和操作。
 
 ![查看规则验证结果的详细信息](./media/groups-dynamic-rule-validation/validate-tab-view-details.png)
 

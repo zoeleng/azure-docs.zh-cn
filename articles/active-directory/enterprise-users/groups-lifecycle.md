@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f3544d81059cd4c25c584d8af1b6fcd45a41b8bb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374647"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650710"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>为 Microsoft 365 组配置过期策略
 
@@ -83,9 +83,9 @@ ms.locfileid: "92374647"
     - 指定当组没有所有者时续订和过期通知应发送到的电子邮件地址。
     - 选择过期的 Microsoft 365 组。 可以为以下内容设置过期时间：
       - **全部** Microsoft 365 组
-      - **所选**Microsoft 365 组的列表
+      - **所选** Microsoft 365 组的列表
       - **无** 以限制所有组的过期时间
-    - 设置完成后，选择“保存”来保存设置****。
+    - 设置完成后，选择“保存”来保存设置。
 
 > [!NOTE]
 > - 首次设置过期时，超过过期时间间隔的任何组都将设置为35天直到过期，除非自动续订了组或所有者续订了组。

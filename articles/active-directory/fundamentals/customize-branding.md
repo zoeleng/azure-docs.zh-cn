@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "89565848"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650217"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>将品牌添加到组织的 Azure Active Directory 登录页面
 使用组织的徽标和自定义颜色方案，在 Azure Active Directory (Azure AD) 登录页面上提供一致外观和体验。 当用户登录到组织的基于 web 的应用（如 Microsoft 365）时，将显示登录页，该应用使用 Azure AD 作为标识提供者。
 
 >[!NOTE]
->添加自定义品牌要求使用 Azure Active Directory Premium 1、Premium 2 或 Basic 版本，或者使用 Microsoft 365 许可证。 有关许可和版本的详细信息，请参阅[注册 Azure AD Premium](active-directory-get-started-premium.md)。<br><br>在中国，使用 Azure Active Directory 全球实例的客户可以使用 Azure AD 高级和基本版。 中国区 21Vianet 运营的 Azure 服务目前不支持 Azure AD Premium 和 Azure AD Basic 版本。 有关详细信息，请通过 [Azure Active Directory 论坛](https://feedback.azure.com/forums/169401-azure-active-directory/)与我们联系。
+>添加自定义品牌要求您拥有 Azure Active Directory Premium 1 或 Premium 2 许可证。 有关许可和版本的详细信息，请参阅[注册 Azure AD Premium](active-directory-get-started-premium.md)。<br><br>Azure AD Premium 版本适用于中国的全球 Azure Active Directory 的客户。 中国世纪互联运营的 Azure 服务当前不支持 Azure AD Premium 版本。 有关详细信息，请通过 [Azure Active Directory 论坛](https://feedback.azure.com/forums/169401-azure-active-directory/)与我们联系。
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>自定义 Azure AD 登录页面
 可以自定义 Azure AD 登录页面，这些页面会在用户登录到组织的特定于租户的应用时显示（例如 `https://outlook.com/contoso.com`），或者在传递域变量时显示（例如 `https://passwordreset.microsoftonline.com/?whr=contoso.com`）。
@@ -86,7 +86,7 @@ ms.locfileid: "89565848"
     
         - **方形徽标，深色主题。** 与上面的方形徽标图像相同。 当在深色背景下使用（例如在开箱即用体验 (OOBE) 中使用已加入 Windows 10 Azure AD 的屏幕）时，此徽标图像取代方形徽标图像。  如果徽标在白色、深蓝和黑色背景上看起来很好，则不需要添加此图像。 
         
-        - **显示保持登录状态的选项。** 你可以选择让用户保持登录到 Azure AD，直到显式注销。如果选择 " **否** "，则隐藏此选项，用户必须在每次关闭并重新打开浏览器时登录。
+        - **显示保持登录状态的选项。** 你可以选择让用户保持登录到 Azure AD，直到显式注销。如果选择 " **否**"，则隐藏此选项，用户必须在每次关闭并重新打开浏览器时登录。
 
             此功能只能用于默认署名对象，而不能用于任何特定于语言的对象。 若要详细了解如何配置选项并对其进行故障排除，请参阅 [为 Azure AD 帐户配置 "保持登录状态？" 提示](keep-me-signed-in.md)
         

@@ -7,31 +7,27 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74754c973dbe11d954a1714e9a98d99de639acd4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651135"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 云预配先决条件
 本文指导如何选择 Azure Active Directory (Azure AD) Connect 云预配并将其作为标识解决方案。
-
-
 
 ## <a name="cloud-provisioning-agent-requirements"></a>云预配代理要求
 需要以下内容才能使用 Azure AD Connect 云预配：
     
 - 不是来宾用户的 Azure AD 租户的混合标识管理员帐户。
 - 使用 Windows 2012 R2 或更高版本的预配代理的本地服务器。  此服务器应该是基于 [Active Directory 管理层模型](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)的第0层服务器。
+- 域管理员或企业管理员凭据，以创建 Azure AD Connect 的云同步 gMSA (组托管服务帐户) 运行代理服务。
 - 本地防火墙配置。
-
->[!NOTE]
->当前只能在英文版服务器上安装预配代理。 在非英文版服务器上安装英文语言包不是一个有效的解决方法，并且会导致代理安装失败。 
 
 本文档的其余部分提供了有关这些先决条件的分步说明。
 
@@ -57,7 +53,9 @@ ms.locfileid: "89226890"
         | --- | --- |
         | **80** | 下载证书吊销列表 (CRL) 的同时验证 TLS/SSL 证书。  |
         | **443** | 处理与服务的所有出站通信。 |
+        |**8082**|如果要配置其管理 API，则需要安装。  如果安装了代理，则可以删除此端口，如果不打算使用 API，则可以将其删除。   |
         | **8080**（可选） | 如果端口 443 不可用，代理将每隔 10 分钟通过端口 8080 报告其状态。 此状态显示在 Azure AD 门户上。 |
+   
      
    - 如果防火墙根据原始用户强制实施规则，请打开这些端口以允许来自作为网络服务运行的 Windows 服务的流量。
    - 如果防火墙或代理允许指定安全后缀，请将连接添加到 \*.msappproxy.net 和 \*.servicebus.windows.net。 否则，请允许访问每周更新的 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)。
@@ -66,6 +64,17 @@ ms.locfileid: "89226890"
 
 >[!NOTE]
 > 不支持在 Windows Server Core 上安装云预配代理。
+
+## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
+组托管服务帐户是一种托管的域帐户，它提供自动密码管理，简化的服务主体名称 (SPN) 管理、将管理委派给其他管理员以及在多个服务器上扩展此功能的能力。  Azure AD Connect 云同步支持，并使用 gMSA 来运行代理。  在安装过程中，系统会提示你输入管理凭据，以便创建此帐户。  该帐户将显示为 (domain\provAgentgMSA $) 。  有关 gMSA 的详细信息，请参阅 [组托管服务帐户](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+### <a name="prerequisites-for-gmsa"></a>GMSA 的先决条件：
+1.  GMSA 域的林中的 Active Directory 架构需要更新到 Windows Server 2012
+2.  域控制器上的[POWERSHELL RSAT 模块](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools)
+3.  域中至少有一个域控制器必须运行 Windows Server 2012。
+4.  要安装代理的已加入域的服务器必须是 Windows Server 2012 或更高版本。
+
+有关如何升级现有代理以使用 gMSA 帐户的步骤，请参阅 [组托管服务帐户](how-to-install.md#group-managed-service-accounts)。
 
 
 ### <a name="additional-requirements"></a>其他需求
@@ -90,6 +99,8 @@ ms.locfileid: "89226890"
     ```
 
 1. 重新启动服务器。
+
+
 
 
 ## <a name="next-steps"></a>后续步骤 

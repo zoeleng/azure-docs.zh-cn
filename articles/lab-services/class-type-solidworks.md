@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290733"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651798"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>使用 SOLIDWORKS 设置工程类的实验室
 
@@ -24,18 +24,18 @@ ms.locfileid: "87290733"
 
 SOLIDWORKS 网络许可要求你已在许可证服务器上安装并激活 SolidNetWork License Manager。  此许可证服务器通常位于本地网络或 Azure 中的专用网络中。  有关如何在服务器上设置 SolidNetWork 许可证管理器的详细信息，请参阅 SOLIDWORKS 安装指南中的 [安装和激活许可证管理](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) 器。  对此进行设置时，请记住使用的 **端口号** 和 [**序列号**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) ，因为在后续步骤中将需要它们。
 
-设置许可证服务器后，需要对 [虚拟网络 (VNet) ](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) 到 [实验室帐户](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)。  必须在创建实验室之前完成网络对等互连，以便实验室虚拟机可以访问许可证服务器，以及其他方法。
+设置许可证服务器后，需要对 [虚拟网络 (VNet) ](./how-to-connect-peer-virtual-network.md) 到 [实验室帐户](./tutorial-setup-lab-account.md)。  必须在创建实验室之前完成网络对等互连，以便实验室虚拟机可以访问许可证服务器，以及其他方法。
 
 > [!NOTE]
-> 你应验证是否在防火墙上打开了适当的端口，以便允许实验室虚拟机与许可证服务器之间的通信。  例如，请参阅有关为 [Windows 防火墙修改许可证管理器计算机端口](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) 的说明，其中显示了如何将入站和出站规则添加到许可证服务器的防火墙。  你可能还需要打开实验室虚拟机的端口。  有关此操作的详细信息，请参阅有关 [实验室的防火墙设置](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) 一文中的步骤，包括如何获取实验室的公共 IP 地址。
+> 你应验证是否在防火墙上打开了适当的端口，以便允许实验室虚拟机与许可证服务器之间的通信。  例如，请参阅有关为 [Windows 防火墙修改许可证管理器计算机端口](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) 的说明，其中显示了如何将入站和出站规则添加到许可证服务器的防火墙。  你可能还需要打开实验室虚拟机的端口。  有关此操作的详细信息，请参阅有关 [实验室的防火墙设置](./how-to-configure-firewall-settings.md) 一文中的步骤，包括如何获取实验室的公共 IP 地址。
 
 ## <a name="lab-configuration"></a>实验室配置
 
-若要设置此实验室，需要一个 Azure 订阅和实验室帐户才能开始使用。 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/)。 获取 Azure 订阅后，可以在 Azure 实验室服务中创建新的实验室帐户。 有关创建新实验室帐户的详细信息，请参阅有关 [如何设置实验室帐户](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)的教程。 你还可以使用现有的实验室帐户。
+若要设置此实验室，需要一个 Azure 订阅和实验室帐户才能开始使用。 如果没有 Azure 订阅，请在开始之前先创建一个[免费帐户](https://azure.microsoft.com/free/)。 获取 Azure 订阅后，可以在 Azure 实验室服务中创建新的实验室帐户。 有关创建新实验室帐户的详细信息，请参阅有关 [如何设置实验室帐户](./tutorial-setup-lab-account.md)的教程。 你还可以使用现有的实验室帐户。
 
 ### <a name="lab-account-settings"></a>实验室帐户设置
 
-为实验室帐户启用下表中所述的设置。 有关如何启用 marketplace 映像的详细信息，请参阅有关 [如何指定可用于实验室创建者的 marketplace 映像](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)的文章。
+为实验室帐户启用下表中所述的设置。 有关如何启用 marketplace 映像的详细信息，请参阅有关 [如何指定可用于实验室创建者的 marketplace 映像](./specify-marketplace-images.md)的文章。
 
 | 实验室帐户设置 | Instructions |
 | ------------------- | ------------ |
@@ -50,14 +50,14 @@ SOLIDWORKS 网络许可要求你已在许可证服务器上安装并激活 Solid
 
 | 实验室设置 | 值/说明 |
 | ------------ | ------------------ |
-|虚拟机大小| **小型 GPU (可视化) **。  此 VM 最适合用于使用框架（如 OpenGL 和 DirectX）进行远程可视化、流式处理、游戏、编码。|  
+|虚拟机大小| **小型 GPU (可视化)**。  此 VM 最适合用于使用框架（如 OpenGL 和 DirectX）进行远程可视化、流式处理、游戏、编码。|  
 |虚拟机映像| Windows 10 专业版|
 
 > [!NOTE]
-> **小型 GPU (可视化) **虚拟机大小配置为实现高性能的图形体验。  有关此虚拟机大小的详细信息，请参阅有关 [如何使用 gpu 设置实验室](./how-to-setup-lab-gpu.md)的文章。
+> **小型 GPU (可视化)** 虚拟机大小配置为实现高性能的图形体验。  有关此虚拟机大小的详细信息，请参阅有关 [如何使用 gpu 设置实验室](./how-to-setup-lab-gpu.md)的文章。
 
 > [!WARNING]
-> 在创建实验室**之前**，不要忘记将实验室帐户的虚拟网络与许可证服务器的虚拟网络[对等](https://www.mathworks.com/support/requirements/matlab-system-requirements.html)。
+> 在创建实验室 **之前**，不要忘记将实验室帐户的虚拟网络与许可证服务器的虚拟网络 [对等](https://www.mathworks.com/support/requirements/matlab-system-requirements.html)。
 
 ## <a name="template-virtual-machine-configuration"></a>模板虚拟机配置
 
@@ -78,7 +78,7 @@ SOLIDWORKS 网络许可要求你已在许可证服务器上安装并激活 Solid
 
 ## <a name="cost"></a>成本
 
-我们来介绍此类的可能的成本估算。 此估计不包括运行许可证服务器的成本。 我们将使用一类25名学生。 计划的类时间有20小时。 此外，每个学生在计划的类时间之外为家庭作业或分配获取10小时配额。 我们选择的虚拟机大小为 **小 GPU (可视化) **，即160实验室单元。
+我们来介绍此类的可能的成本估算。 此估计不包括运行许可证服务器的成本。 我们将使用一类25名学生。 计划的类时间有20小时。 此外，每个学生在计划的类时间之外为家庭作业或分配获取10小时配额。 我们选择的虚拟机大小为 **小 GPU (可视化)**，即160实验室单元。
 
 25名学生 \* (20 个计划小时 + 10 个配额小时) \* 160 实验室单位 * 0.01 美元/小时 = 1200.00 usd
 

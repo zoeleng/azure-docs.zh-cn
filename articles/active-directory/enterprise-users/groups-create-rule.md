@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f9fcdd2ce17e967be432f8edc910dcf2fcdbed3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374664"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650897"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>在 Azure Active Directory 中创建或更新动态组
 
@@ -48,18 +48,18 @@ Azure AD 提供了一个规则生成器，用于更快地创建和更新重要�
 
 1. 使用 Azure AD 组织中 "全局管理员"、"Intune 管理员" 或 "用户管理员" 角色中的帐户登录到 [Azure AD 管理中心](https://aad.portal.azure.com) 。
 1. 搜索并选择 " **组**"。
-1. 选择“所有组”****，然后选择“新组”****。
+1. 选择“所有组”，然后选择“新组”。
 
    ![选择用于添加新组的命令](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
-1. 在“组”页面上，输入新组的名称和说明。**** 为用户或设备选择“成员身份类型”，然后选择“添加动态查询”。******** 规则生成器支持最多五个表达式。 若要添加五个以上的表达式，必须使用文本框。
+1. 在“组”页面上，输入新组的名称和说明。 为用户或设备选择“成员身份类型”，然后选择“添加动态查询”。 规则生成器支持最多五个表达式。 若要添加五个以上的表达式，必须使用文本框。
 
    ![显示 "所有组" 页面并选择 "新组" 操作的屏幕截图。](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. 查看适用于成员身份查询的自定义扩展属性：
-   1. 选择“获取自定义扩展属性”****
-   1. 输入应用程序 ID，然后选择“刷新属性”****。
-1. 创建规则之后，选择“保存”****。
+   1. 选择“获取自定义扩展属性”
+   1. 输入应用程序 ID，然后选择“刷新属性”。
+1. 创建规则之后，选择“保存”。
 1. 在“新建组”页中，选择“创建”以创建该组。  
 
 如果输入的规则无效，则会在门户的 Azure 通知中显示一个说明，指出为何系统无法处理规则。 请仔细阅读，了解如何修复规则。
@@ -74,8 +74,8 @@ Azure AD 提供了一个规则生成器，用于更快地创建和更新重要�
    ![为动态组添加成员身份规则](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 1. 查看适用于你的成员身份规则的自定义扩展属性：
-   1. 选择“获取自定义扩展属性”****
-   1. 输入应用程序 ID，然后选择“刷新属性”****。
+   1. 选择“获取自定义扩展属性”
+   1. 输入应用程序 ID，然后选择“刷新属性”。
 1. 更新规则后，请选择 " **保存**"。
 
 ## <a name="turn-on-or-off-welcome-email"></a>打开或关闭欢迎电子邮件
@@ -84,11 +84,11 @@ Azure AD 提供了一个规则生成器，用于更快地创建和更新重要�
 
 ## <a name="check-processing-status-for-a-rule"></a>检查规则的处理状态
 
-可在组的“概述”页上查看成员资格处理状态和上次更新日期****。
+可在组的“概述”页上查看成员资格处理状态和上次更新日期。
   
   ![显示动态组状态](./media/groups-create-rule/group-status.png)
 
-“成员资格处理”状态会显示以下几种状态消息****：
+“成员资格处理”状态会显示以下几种状态消息：
 
 - **正在评估**：已收到组更改，正在评估更新。
 - **正在处理**：正在进行更新。
@@ -96,13 +96,13 @@ Azure AD 提供了一个规则生成器，用于更快地创建和更新重要�
 - **处理错误**：无法完成处理，因为评估成员身份规则时出错。
 - **更新已暂停**：管理员暂停了动态成员资格规则更新。 MembershipRuleProcessingState 设置为“已暂停”。
 
-“上次更新的成员资格”状态会显示以下几种状态消息****：
+“上次更新的成员资格”状态会显示以下几种状态消息：
 
 - &lt;**日期和时间** &gt; ：上次更新成员身份的时间。
 - **正在进行**：目前正在进行更新。
 - **未知**：无法检索上次更新时间。 该组可能是新的。
 
-如果在处理特定组的成员资格规则时出错误，则该组的“概述”页顶部会显示警报****。 如果在组织内的所有组中无法处理任何挂起的动态成员身份更新，则会在 **所有组**的顶部显示警报。
+如果在处理特定组的成员资格规则时出错误，则该组的“概述”页顶部会显示警报。 如果在组织内的所有组中无法处理任何挂起的动态成员身份更新，则会在 **所有组** 的顶部显示警报。
 
 ![正在处理错误消息警报](./media/groups-create-rule/processing-error.png)
 

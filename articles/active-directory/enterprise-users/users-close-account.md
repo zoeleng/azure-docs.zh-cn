@@ -3,22 +3,22 @@ title: 关闭非托管 Azure AD 组织中的工作或学校帐户
 description: 如何在非托管 Azure Active Directory 中关闭工作或学校帐户。
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 11/20/2020
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 142143f96314539051ea44c00c6ff95cb2650566
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374522"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650200"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>关闭非托管 Azure AD 组织中的工作或学校帐户
 
@@ -28,7 +28,7 @@ ms.locfileid: "92374522"
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="before-you-begin"></a>准备工作
+## <a name="before-you-begin"></a>准备阶段
 
 你应确认以下各项，然后才能关闭你的帐户：
 
@@ -45,7 +45,7 @@ ms.locfileid: "92374522"
 
 1. 使用你要关闭的帐户登录以 [关闭你的帐户](https://go.microsoft.com/fwlink/?linkid=873123)。
 
-1. 在 **我的数据请求**中，选择 " **关闭帐户**"。
+1. 在 **我的数据请求** 中，选择 " **关闭帐户**"。
 
     ![我的数据请求-关闭帐户](./media/users-close-account/close-account.png)
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: troubleshooting
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d114896319929a0506f0201905d72d081b6408a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374569"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650506"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>排查和解决组问题
 
@@ -51,7 +51,7 @@ ms.locfileid: "92374569"
 
 **我在组上配置了一个规则，但该组中的成员身份未更新**<br/>
 1. 验证规则中的 "用户" 或 "设备" 属性的值。 确保有满足此规则的用户。 对于设备，请检查设备属性，以确保所有已同步的属性包含预期值。<br/>
-2. 检查成员身份处理状态以确认是否已完成。 您可以在组的 "**概述**" 页上检查[成员身份处理状态](groups-create-rule.md#check-processing-status-for-a-rule)和上次更新日期。
+2. 检查成员身份处理状态以确认是否已完成。 您可以在组的 "**概述**" 页上检查 [成员身份处理状态](groups-create-rule.md#check-processing-status-for-a-rule)和上次更新日期。
 
 如果一切看上去正常，请为要填充的组预留一些时间。 根据 Azure AD 组织的规模，组可能最多需要24小时才能首次填充或在规则更改之后进行填充。
 

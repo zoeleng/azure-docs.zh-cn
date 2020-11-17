@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759923"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651849"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>了解和解决 Azure Active Directory 应用程序代理 CORS 问题
 
-[ (CORS) ](https://www.w3.org/TR/cors/)   跨域资源共享有时可能会对通过 Azure Active Directory 应用程序代理发布的应用和 Api 提出挑战。 本文讨论 Azure AD 应用程序代理 CORS 问题和解决方案。
+[ (CORS) 跨域资源共享 ](https://www.w3.org/TR/cors/) 有时会对通过 Azure Active Directory 应用程序代理发布的应用和 api 提出挑战。 本文讨论 Azure AD 应用程序代理 CORS 问题和解决方案。
 
 浏览器安全性通常会阻止网页向另一个域发出 AJAX 请求。 此限制称为 *相同源策略*，可防止恶意站点读取另一个站点中的敏感数据。 但是，有时你可能希望让其他站点调用你的 web API。 CORS 是一种 W3C 标准，可让服务器放宽相同的源策略，并允许一些跨域请求，同时拒绝其他请求。
 
@@ -52,7 +52,7 @@ ms.locfileid: "84759923"
 
 ## <a name="cors-challenges-with-application-proxy"></a>应用程序代理的 CORS 挑战
 
-以下示例显示了一个典型的 Azure AD 应用程序代理 CORS 方案。 内部服务器承载**CORSWebService** web API 控制器，以及调用**CORSWebService**的**CORSWebClient** 。 有一个从 **CORSWebClient** 到 **CORSWebService**的 AJAX 请求。
+以下示例显示了一个典型的 Azure AD 应用程序代理 CORS 方案。 内部服务器承载 **CORSWebService** web API 控制器，以及调用 **CORSWebService** 的 **CORSWebClient** 。 有一个从 **CORSWebClient** 到 **CORSWebService** 的 AJAX 请求。
 
 ![本地同一源请求](./media/application-proxy-understand-cors-issues/image1.png)
 
@@ -66,13 +66,13 @@ ms.locfileid: "84759923"
 
 ### <a name="option-1-set-up-a-custom-domain"></a>选项1：设置自定义域
 
-使用 Azure AD 应用程序代理 [自定义域](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) 从同一源发布，无需对应用程序源、代码或标头进行任何更改。 
+使用 Azure AD 应用程序代理 [自定义域](./application-proxy-configure-custom-domain.md) 从同一源发布，无需对应用程序源、代码或标头进行任何更改。 
 
 ### <a name="option-2-publish-the-parent-directory"></a>选项2：发布父目录
 
 发布这两个应用的父目录。 如果 web 服务器上只有两个应用，则此解决方案特别适用。 不是单独发布每个应用，而是发布公共父目录，这会产生相同的源。
 
-以下示例显示 CORSWebClient 应用的门户 Azure AD 应用程序代理 "页。  当 **内部 URL** 设置为 *contoso.com/CORSWebClient*时，该应用无法对 *contoso.com/CORSWebService* 目录进行成功请求，因为它们是跨域的。 
+以下示例显示 CORSWebClient 应用的门户 Azure AD 应用程序代理 "页。  当 **内部 URL** 设置为 *contoso.com/CORSWebClient* 时，该应用无法对 *contoso.com/CORSWebService* 目录进行成功请求，因为它们是跨域的。 
 
 ![单独发布应用](./media/application-proxy-understand-cors-issues/image4.png)
 
@@ -114,7 +114,7 @@ Content-length：17
 
 无法解决某些 CORS 问题，例如当应用重定向到 *login.microsoftonline.com* 进行身份验证时，访问令牌过期。 否则，CORS 调用将失败。 此方案的一种解决方法是扩展访问令牌的生存期，以防止它在用户会话期间过期。 有关如何执行此操作的详细信息，请参阅 [Azure AD 中的可配置令牌生存期](../develop/active-directory-configurable-token-lifetimes.md)。
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 - [教程：在 Azure Active Directory 中添加一个本地应用程序以通过应用程序代理进行远程访问](application-proxy-add-on-premises-application.md) 
 - [计划 Azure AD 应用程序代理部署](application-proxy-deployment-plan.md) 
-- [通过 Azure Active Directory 应用程序代理远程访问本地应用程序](application-proxy.md) 
+- [通过 Azure Active Directory 应用程序代理远程访问本地应用程序](application-proxy.md)

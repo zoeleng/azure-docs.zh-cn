@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 179ad1e552899f8fa92b8191fe78223458f87104
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f202bebd2c9ab6147d8a37fc6109b915065068aa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374551"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650336"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>如何将具有单个许可证的用户迁移到组以获取许可
 
@@ -55,15 +55,15 @@ ms.locfileid: "92374551"
 
 可能的迁移过程如下：
 
-1. 使用 Azure 门户将 Office 365 E3 许可证分配到 Azure AD 中的“所有用户”组****。
+1. 使用 Azure 门户将 Office 365 E3 许可证分配到 Azure AD 中的“所有用户”组。
 
-1. 确认为所有用户完成了许可证分配。 转到该组的概述页，选择“许可证”，并检查“许可证”边栏选项卡顶部的处理状态。********
+1. 确认为所有用户完成了许可证分配。 转到该组的概述页，选择“许可证”，并检查“许可证”边栏选项卡顶部的处理状态。
 
    - 查看“已向所有用户应用最新的许可证更改”，确认处理已完成。
 
    - 查看顶部的通知，了解可能未成功为其分配许可证的用户。 某些用户的许可证是否已用完？ 某些用户的许可证计划是否有冲突，从而导致他们无法继承组许可证？
 
-1. 定点检查某些用户，确认是否为他们应用了直接许可证和组许可证。 转到用户的“配置文件”页，选择“许可证”，并检查许可证的状态。****
+1. 定点检查某些用户，确认是否为他们应用了直接许可证和组许可证。 转到用户的“配置文件”页，选择“许可证”，并检查许可证的状态。
 
    - 下面是迁移期间预期的用户状态：
 
@@ -71,7 +71,7 @@ ms.locfileid: "92374551"
 
      这种状态可以确认用户既有直接许可证，也有继承的许可证。 我们会看到已分配 Office 365 E3。
 
-   - 选择每个许可证可查看启用了哪些服务。 若要验证直接许可证和组许可证是否为用户启用完全相同的服务，请选择“分配”****。
+   - 选择每个许可证可查看启用了哪些服务。 若要验证直接许可证和组许可证是否为用户启用完全相同的服务，请选择“分配”。
 
 1. 确认直接许可证和组许可证相同后，可以开始删除用户的直接许可证。 一开始可以试着在门户中删除单个用户的许可证，并运行自动化脚本批量删除许可证。 下面是通过门户删除同一用户的直接许可证的示例。 请注意，许可证状态将保持不变，但我们不再会看到直接分配。
 

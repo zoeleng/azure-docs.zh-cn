@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66c7229c7e6d32bbec9a7659329aff7a90e7887d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: b3f4315f6ef1590c222866fe57644ea75efa4ce7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393602"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650948"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
 
@@ -73,7 +73,7 @@ ms.locfileid: "93393602"
 
 可以在 [Azure AD 管理中心](https://aad.portal.azure.com)使用 **ForceDelete** 来强制删除域名，或使用 [Microsoft 图形 API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true) 执行此操作。 这些选项使用异步操作，并将自定义域名（例如“user@contoso.com”）中的所有引用更新为类似于“user@contoso.onmicrosoft.com”的初始默认域名称。
 
-若要在 Azure 门户中调用 **ForceDelete** ，必须确保对该域名的引用少于 1000 个，并且必须在 [Exchange 管理中心](https://outlook.office365.com/ecp/)更新或删除预配服务是 Exchange 的所有引用。 这包括支持 Exchange 邮件的安全组和分发列表；有关详细信息，请参阅[删除支持邮件的安全组](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)。 此外，如果存在以下任一情况，则 **ForceDelete** 操作不会成功：
+若要在 Azure 门户中调用 **ForceDelete**，必须确保对该域名的引用少于 1000 个，并且必须在 [Exchange 管理中心](https://outlook.office365.com/ecp/)更新或删除预配服务是 Exchange 的所有引用。 这包括支持 Exchange 邮件的安全组和分发列表；有关详细信息，请参阅[删除支持邮件的安全组](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)。 此外，如果存在以下任一情况，则 **ForceDelete** 操作不会成功：
 
 * 通过 Microsoft 365 域订阅服务购买了域
 * 你是代表另一客户组织的合作伙伴管理员

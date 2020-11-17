@@ -12,28 +12,28 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357906"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651543"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>登录到基于 SAML 的单一登录配置的应用时出现的问题
 若要解决下面的登录问题，建议执行以下操作来更好地诊断和自动执行解决步骤：
 
-- 安装 " [我的应用" 安全浏览器扩展](access-panel-extension-problem-installing.md) 以帮助 Azure Active Directory (Azure AD) ，以便在使用 Azure 门户中的测试体验时提供更好的诊断和解决方法。
-- 使用 Azure 门户中的 "应用配置" 页上的测试体验再现此错误。 详细了解如何 [调试基于 SAML 的单一登录应用程序](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- 安装 " [我的应用" 安全浏览器扩展](./access-panel-deployment-plan.md) 以帮助 Azure Active Directory (Azure AD) ，以便在使用 Azure 门户中的测试体验时提供更好的诊断和解决方法。
+- 使用 Azure 门户中的 "应用配置" 页上的测试体验再现此错误。 详细了解如何 [调试基于 SAML 的单一登录应用程序](./debug-saml-sso-issues.md)
 
-如果在 Azure 门户中使用 "我的应用" 安全浏览器扩展的 [测试体验](../azuread-dev/howto-v1-debug-saml-sso-issues.md) ，则无需手动执行以下步骤来打开 "基于 SAML 的单一登录配置" 页。
+如果在 Azure 门户中使用 "我的应用" 安全浏览器扩展的 [测试体验](./debug-saml-sso-issues.md) ，则无需手动执行以下步骤来打开 "基于 SAML 的单一登录配置" 页。
 
 若要打开 "基于 SAML 的单一登录配置" 页：
 1.  打开 [**Azure 门户**](https://portal.azure.com/) 并以 **全局管理员** 或 **Coadmin** 登录。
-1.  通过选择主左侧导航菜单顶部的 " **所有服务** " 打开 **Azure Active Directory 扩展** 。
+1.  通过选择主左侧导航菜单顶部的 "**所有服务**" 打开 **Azure Active Directory 扩展**。
 1.  在筛选器搜索框中键入 **"Azure Active Directory"** ，并选择 **Azure Active Directory** 项目。
 1.  从 Azure Active Directory 左侧导航菜单中选择 " **企业应用程序** "。
 1.  选择“所有应用程序”，查看所有应用程序的列表。
-    如果看不到要在此处显示的应用程序，请使用 " **所有应用程序" 列表** 顶部的 " **筛选器** " 控件，并将 " **显示** " 选项设置为 " **所有应用程序** "。
+    如果看不到要在此处显示的应用程序，请使用 "**所有应用程序" 列表** 顶部的 "**筛选器**" 控件，并将 "**显示**" 选项设置为 "**所有应用程序**"。
 1.  选择要配置为单一登录的应用程序。
 1. 加载应用程序后，在应用程序的左侧导航菜单中选择 " **单一登录** "。
 1. 选择 "基于 SAML 的 SSO"。
@@ -88,7 +88,7 @@ Azure AD 不支持应用程序针对单一登录所发送的 SAML 请求。 常�
 
 **分辨率**
 
-1. 捕获 SAML 请求。 按照教程 [如何在 Azure AD 中调试基于 SAML 的单一登录应用程序](../azuread-dev/howto-v1-debug-saml-sso-issues.md) ，了解如何捕获 saml 请求。
+1. 捕获 SAML 请求。 按照教程 [如何在 Azure AD 中调试基于 SAML 的单一登录应用程序](./debug-saml-sso-issues.md) ，了解如何捕获 saml 请求。
 1. 联系应用程序供应商并共享以下信息：
     - SAML 请求
     - [Azure AD 单一登录 SAML 协议要求](../develop/single-sign-on-saml-protocol.md)
@@ -118,8 +118,8 @@ Azure AD 不支持应用程序针对单一登录所发送的 SAML 请求。 常�
 **分辨率**
 
 若要删除并创建新证书，请按照以下步骤操作：
-1. 在 "基于 SAML 的 SSO 配置" 屏幕上，选择 " **saml 签名证书** " 部分下的 " **创建新证书** "。
-1. 选择 "到期日期"，然后单击 " **保存** "。
+1. 在 "基于 SAML 的 SSO 配置" 屏幕上，选择 " **saml 签名证书**" 部分下的 "**创建新证书**"。
+1. 选择 "到期日期"，然后单击 " **保存**"。
 1. 选中 " **使新证书处于活动状态** " 以替代活动证书。 然后，单击窗格顶部的“保存”并选择接受以激活滚动更新证书。
 1. 在 " **SAML 签名证书** " 部分下，单击 " **删除** " 以删除 **未使用** 的证书。
 
@@ -145,7 +145,7 @@ Azure AD 无法识别 HTTP 请求中的 URL 参数中的 SAML 请求。 如果�
 
 删除为应用程序配置的未使用的答复 Url。
 
-在 "基于 SAML 的 SSO 配置" 页上的 " **回复 URL (断言使用者服务 URL")** 部分中，删除系统创建的未使用或默认的回复 url。 例如，`https://127.0.0.1:444/applications/default.aspx` 。
+在 "基于 SAML 的 SSO 配置" 页上的 " **回复 URL (断言使用者服务 URL")** 部分中，删除系统创建的未使用或默认的回复 url。 例如，`https://127.0.0.1:444/applications/default.aspx`。
 
 
 ## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>使用服务进行身份验证的用户不匹配请求的身份验证方法的身份验证方法
@@ -174,5 +174,5 @@ Azure AD 无法识别 HTTP 请求中的 URL 参数中的 SAML 请求。 如果�
 
 ## <a name="next-steps"></a>后续步骤
 - [应用程序管理的快速入门系列](add-application-portal-assign-users.md)
-- [如何在 Azure AD 中调试对应用程序进行基于 SAML 的单一登录](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Azure AD 单一登录 SAML 协议要求](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [如何在 Azure AD 中调试对应用程序进行基于 SAML 的单一登录](./debug-saml-sso-issues.md)
+- [Azure AD 单一登录 SAML 协议要求](../develop/single-sign-on-saml-protocol.md)

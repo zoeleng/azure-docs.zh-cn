@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604319"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651271"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>在 Azure Active Directory 中管理应用的用户分配
 
@@ -58,7 +58,7 @@ ms.locfileid: "90604319"
 若要了解如何使用 Azure 门户分配或取消分配用户或组，请参阅 [应用程序管理中的快速入门系列](add-application-portal-assign-users.md)。
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>使用图形 API 为应用分配或取消分配用户和组
-可以使用图形 API 为应用分配或取消分配用户和组。 若要了解详细信息，请参阅[应用角色分配](https://docs.microsoft.com/graph/api/resources/approleassignment)。
+可以使用图形 API 为应用分配或取消分配用户和组。 若要了解详细信息，请参阅[应用角色分配](/graph/api/resources/approleassignment)。
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>使用 PowerShell 将用户和组分配给应用
 1. 以提升的权限打开 Windows PowerShell 命令提示符。
@@ -81,11 +81,11 @@ ms.locfileid: "90604319"
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-有关如何将用户分配到应用程序角色的详细信息，请参阅 [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0) 的文档。
+有关如何将用户分配到应用程序角色的详细信息，请参阅 [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0) 的文档。
 
 若要将组分配到企业应用，必须将 `Get-AzureADUser` 替换为 `Get-AzureADGroup`，并将 `New-AzureADUserAppRoleAssignment` 替换为 `New-AzureADGroupAppRoleAssignment`。
 
-有关如何将组分配到应用程序角色的详细信息，请参阅 [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0) 的文档。
+有关如何将组分配到应用程序角色的详细信息，请参阅 [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0) 的文档。
 
 ### <a name="example"></a>示例
 
@@ -154,6 +154,6 @@ ms.locfileid: "90604319"
 ## <a name="next-steps"></a>后续步骤
 
 - [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [删除企业应用的用户或组分配](remove-user-or-group-access-portal.md)
+- [删除企业应用的用户或组分配]()
 - [禁用企业应用的用户登录](disable-user-sign-in-portal.md)
-- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
+- [Change the name or logo of an enterprise app](./add-application-portal-configure.md)

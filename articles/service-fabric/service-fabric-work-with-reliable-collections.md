@@ -3,12 +3,12 @@ title: 使用可靠集合
 description: 了解有关在 Azure Service Fabric 应用程序中使用可靠集合的最佳做法。
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255789"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651900"
 ---
 # <a name="working-with-reliable-collections"></a>使用可靠集合
 Service Fabric 通过可靠集合向 .NET 开发人员提供有状态的编程模型。 具体而言，Service Fabric 提供可靠字典和可靠队列类。 在使用这些类时，状态是分区的（实现伸缩性）、复制的（实现可用性），并在分区内进行事务处理（实现 ACID 语义）。 让我们看一下可靠字典对象的典型用法，并看一看它究竟在做些什么。
@@ -35,6 +35,7 @@ catch (TimeoutException)
 {
    // choose how to handle the situation where you couldn't get a lock on the file because it was 
    // already in use. You might delay and retry the operation
+   await Task.Delay(100);
 }
 ```
 

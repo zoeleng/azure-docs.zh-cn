@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374553"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650574"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>按 Azure Active Directory 中的组成员资格将许可证分配给用户
 
@@ -83,7 +83,7 @@ ms.locfileid: "92374553"
 
 1. 转到“Azure Active Directory” > “组”，并找到已将许可证分配到的组。
 1. 在该组页上，选择“许可证”。 页面顶部的通知显示无法为 10 个用户分配许可证。 打开此通知可以看到该组中处于许可错误状态的所有用户的列表。
-1. “失败的分配”列告知无法向这些用户分配这两个产品许可证。 “故障的首要原因”列包含失败的原因。 在此示例中，原因是**冲突的服务计划**。
+1. “失败的分配”列告知无法向这些用户分配这两个产品许可证。 “故障的首要原因”列包含失败的原因。 在此示例中，原因是 **冲突的服务计划**。
 
    ![无法分配的许可证](./media/licensing-groups-assign/failed-assignments.png)
 

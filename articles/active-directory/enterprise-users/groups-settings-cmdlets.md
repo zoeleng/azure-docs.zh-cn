@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 696bf37f308c16a1e77b06614f272ba971e6615d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374638"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650540"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>用于配置组设置的 Azure Active Directory cmdlet
 
@@ -28,7 +28,7 @@ ms.locfileid: "92374638"
 > [!IMPORTANT]
 > 某些设置需要 Azure Active Directory Premium P1 许可证。 有关详细信息，请参阅[模板设置](#template-settings)表。
 
-有关如何防止非管理员用户创建安全组的详细信息，请 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` 按照 [set-msolcompanysettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)中的说明进行设置。
+有关如何防止非管理员用户创建安全组的详细信息，请按照 [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 中所述内容设置 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。
 
 Microsoft 365 组设置使用 Settings 对象和 SettingsTemplate 对象配置。 起初，目录中不会显示任何设置对象，因为目录配置为默认设置。 若要更改默认设置，必须使用设置模板创建新的设置对象。 设置模板由 Microsoft 定义。 有几个不同的设置模板。 若要配置目录的 Microsoft 365 组设置，请使用名为“Group.Unified”的模板。 若要针对单个组配置 Microsoft 365 组设置，请使用名为“Group.Unified.Guest”的模板。 此模板用于管理对 Microsoft 365 组的来宾访问权限。 
 

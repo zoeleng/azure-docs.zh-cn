@@ -7,33 +7,33 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86b3b44e480ccdc823853b5c790cad02a0821795
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 046a19d41364f7e4db3edcb011c8c65519924b3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374636"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650319"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中基于组的许可的 PowerShell 和 Graph 示例
 
-基于组的许可的全部功能可通过 [Azure 门户](https://portal.azure.com)提供，目前，可以使用现有的 [MSOnline PowerShell cmdlet](/powershell/module/msonline) 和 Microsoft Graph 执行一些有用的任务。 本文档提供了可执行的任务示例。
+基于组的许可的完整功能可通过 [Azure 门户](https://portal.azure.com)获得，目前存在一些有用的任务，可以使用现有的 [MSOnline PowerShell cmdlet](/powershell/module/msonline) 和 Microsoft Graph 执行这些任务。 本文档提供了可执行的任务示例。
 
 > [!NOTE]
-> 在开始运行 cmdlet 之前，请确保先通过运行 cmdlet 连接到你的组织 `Connect-MsolService` 。
+> 开始运行 cmdlet 前，请先运行 `Connect-MsolService` cmdlet，确保连接到组织。
 
 > [!WARNING]
 > 此示例代码用于演示目的。 如果想要在环境中使用，请考虑先进行小规模的测试，或者在单独的测试组织中测试。 可能需要根据具体的环境需求调整该代码。
 
 ## <a name="assign-licenses-to-a-group"></a>将许可证分配给组
 
-使用以下示例将许可证分配给组，方法是使用 Microsoft Graph：
+使用以下示例通过使用 Microsoft Graph 将许可证分配给组：
 
 ```
 POST https://graph.microsoft.com/v1.0/groups/1ad75eeb-7e5a-4367-a493-9214d90d54d0/assignLicense
@@ -483,7 +483,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>删除具有组许可证的用户的直接许可证
 
-此脚本的目的是从已从组继承相同许可证的用户中删除不必要的直接许可证;例如，在 [过渡到基于组的许可](licensing-groups-migrate-users.md)的过程中。
+此脚本的目的是从用户（已从组继承相同许可证）删除不必要的直接许可证；例如，作为[转换到基于组的许可](licensing-groups-migrate-users.md)的一部分。
 > [!NOTE]
 > 请务必先验证要删除的直接许可证没有比继承许可证启用更多的服务功能。 否则，删除直接许可证可能会禁用用户对服务和数据的访问。 当前无法借助 PowerShell 检查通过继承许可证与直接许可证启用了哪些服务。 在该脚本中，我们将指定要从组继承的服务的最低级别，并且将针对其进行检查，以确保用户不会意外丢失对服务的访问。
 
@@ -655,7 +655,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> 请在运行上述脚本之前，更新变量的值 `$skuId` ，并 `$groupId` 根据测试环境删除直接许可证。 
+> 在运行上述脚本之前，请根据测试环境更新变量 `$skuId` 和 `$groupId` 的值，这些变量用于删除直接许可证。 
 
 ## <a name="next-steps"></a>后续步骤
 

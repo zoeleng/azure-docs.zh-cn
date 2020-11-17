@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759532"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651577"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>应用页面在用户登录后显示错误消息
 
@@ -29,7 +29,7 @@ ms.locfileid: "84759532"
 
 应用不接受来自 Azure AD 的响应有几个可能的原因。 如果错误消息未清楚地确定响应中缺少的内容，请尝试以下操作：
 
--   如果应用是 Azure AD 库，请验证是否遵循 [了如何在 Azure AD 中调试对应用程序进行基于 SAML 的单一登录](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)中的步骤。
+-   如果应用是 Azure AD 库，请验证是否遵循 [了如何在 Azure AD 中调试对应用程序进行基于 SAML 的单一登录](./debug-saml-sso-issues.md)中的步骤。
 
 -   使用 [Fiddler](https://www.telerik.com/fiddler) 之类的工具来捕获 SAML 请求、响应和令牌。
 
@@ -50,7 +50,7 @@ ms.locfileid: "84759532"
 5. 选择 " **所有应用程序** " 以查看应用列表。
 
    > [!NOTE]
-   > 如果看不到所需的应用，请使用 "**所有应用程序" 列表**顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
+   > 如果看不到所需的应用，请使用 "**所有应用程序" 列表** 顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
 
 6. 选择要为其配置单一登录的应用程序。
 
@@ -62,7 +62,7 @@ ms.locfileid: "84759532"
 
    1. 选择 " **添加属性**"。 输入 **名称**，并从下拉列表中选择 **值** 。
 
-   1.  选择“保存” 。 你将在表中看到新属性。
+   1.  选择“保存”。 你将在表中看到新属性。
 
 9. 保存配置。
 
@@ -72,7 +72,7 @@ ms.locfileid: "84759532"
 
 登录到应用程序失败，因为 SAML 响应缺少某个属性（如角色）。 否则，该应用程序将失败，因为该应用需要一个不同的格式或 **值 (用户** 标识符) 属性。
 
-如果使用 [Azure AD 自动用户预配](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 在应用中创建、维护和删除用户，请验证是否已将用户预配到 SaaS 应用。 有关详细信息，请参阅 [未将用户预配到 Azure AD 库应用程序](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)。
+如果使用 [Azure AD 自动用户预配](../app-provisioning/user-provisioning.md) 在应用中创建、维护和删除用户，请验证是否已将用户预配到 SaaS 应用。 有关详细信息，请参阅 [未将用户预配到 Azure AD 库应用程序](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)。
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>将属性添加到 Azure AD 应用配置
 
@@ -89,7 +89,7 @@ ms.locfileid: "84759532"
 5. 选择 " **所有应用程序** " 以查看应用列表。
 
    > [!NOTE]
-   > 如果看不到所需的应用，请使用 "**所有应用程序" 列表**顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
+   > 如果看不到所需的应用，请使用 "**所有应用程序" 列表** 顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
 
 6. 选择要为 SSO 配置的应用。
 
@@ -99,9 +99,9 @@ ms.locfileid: "84759532"
 
 ## <a name="change-the-nameid-format"></a>更改 NameID 格式
 
-如果应用程序需要另一种格式的 **nameid** (用户标识符) 属性，请参阅 [编辑 NameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) 以更改 nameid 格式。
+如果应用程序需要另一种格式的 **nameid** (用户标识符) 属性，请参阅 [编辑 NameID](../develop/active-directory-saml-claims-customization.md#editing-nameid) 以更改 nameid 格式。
 
-Azure AD 根据所选值或 SAML AuthRequest 中的应用请求的格式，为 **NameID** 属性 (用户标识符) 选择格式。 有关详细信息，请参阅 [单一登录 SAML 协议](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy)的 "NameIDPolicy" 部分。
+Azure AD 根据所选值或 SAML AuthRequest 中的应用请求的格式，为 **NameID** 属性 (用户标识符) 选择格式。 有关详细信息，请参阅 [单一登录 SAML 协议](../develop/single-sign-on-saml-protocol.md#nameidpolicy)的 "NameIDPolicy" 部分。
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>应用需要为 SAML 响应使用不同的签名方法
 
@@ -118,7 +118,7 @@ Azure AD 根据所选值或 SAML AuthRequest 中的应用请求的格式，为 *
 5. 选择 " **所有应用程序** " 以查看应用列表。
 
    > [!NOTE]
-   > 如果看不到所需的应用程序，请使用 "**所有应用程序" 列表**顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
+   > 如果看不到所需的应用程序，请使用 "**所有应用程序" 列表** 顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
 
 6. 选择要为其配置单一登录的应用程序。
 
@@ -151,7 +151,7 @@ Azure AD 根据所选值或 SAML AuthRequest 中的应用请求的格式，为 *
 5. 选择 " **所有应用程序** " 以查看应用程序的列表。
 
    > [!NOTE]
-   > 如果看不到所需的应用程序，请使用 "**所有应用程序" 列表**顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
+   > 如果看不到所需的应用程序，请使用 "**所有应用程序" 列表** 顶部的 "**筛选器**" 控件。 将 " **显示** " 选项设置为 "所有应用程序"。
 
 6. 选择要为其配置单一登录的应用。
 
@@ -164,4 +164,4 @@ Azure AD 根据所选值或 SAML AuthRequest 中的应用请求的格式，为 *
    用户下次登录到应用时，Azure AD 将使用 SHA-1 算法对 SAML 令牌进行签名。
 
 ## <a name="next-steps"></a>后续步骤
-[如何在 Azure AD 中调试对应用程序进行基于 SAML 的单一登录](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)。
+[如何在 Azure AD 中调试对应用程序进行基于 SAML 的单一登录](./debug-saml-sso-issues.md)。
