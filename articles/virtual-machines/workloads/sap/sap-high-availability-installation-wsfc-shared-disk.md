@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963629"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682632"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>在 Azure 中，使用 Windows 故障转移群集和共享磁盘为 SAP ASCS/SCS 实例安装 SAP NetWeaver HA
 
@@ -149,7 +149,7 @@ ms.locfileid: "91963629"
 
 本文介绍如何通过使用 Windows Server 故障转移群集和群集共享磁盘，群集化 SAP ASCS/SCS 实例，在 Azure 中配置高可用性 SAP 系统。 如 [体系结构指南：使用群集共享磁盘在 Windows 故障转移群集上群集 SAP ASCS/SCS 实例][sap-high-availability-guide-wsfc-shared-disk]中所述，有两种备用 *群集共享磁盘*：
 
-- [Azure 共享磁盘](../../windows/disks-shared.md)
+- [Azure 共享磁盘](../../disks-shared.md)
 - 使用 [SIOS DataKeeper 群集 Edition](https://us.sios.com/products/datakeeper-cluster/) 创建将模拟群集共享磁盘的镜像存储 
 
 ## <a name="prerequisites"></a>先决条件
@@ -250,7 +250,7 @@ ms.locfileid: "91963629"
 但是，这在某些群集配置中由于只有一个实例处于活动状态而不起作用。 其他实例处于被动状态，并且无法接受任何工作负荷。 当 Azure 内部负载均衡器检测到哪个实例处于活动状态，并且仅面向活动实例时，探测功能会很有帮助。  
 
 > [!IMPORTANT]
-> 在此示例配置中， **ProbePort** 设置为 620**Nr**。 对于编号为 **00** 的 SAP ASCS 实例，该实例为 620**00**。 需要调整配置，使其与 SAP 实例编号和 SAP SID 匹配。
+> 在此示例配置中， **ProbePort** 设置为 620 **Nr**。 对于编号为 **00** 的 SAP ASCS 实例，该实例为 620 **00**。 需要调整配置，使其与 SAP 实例编号和 SAP SID 匹配。
 
 若要添加探测端口，请在其中一个群集 Vm 上运行此 PowerShell 模块：
 

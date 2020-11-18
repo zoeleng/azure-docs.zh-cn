@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: fdbef15bb7831fedd7c375d565e0cde10f9b9a9e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f229075d0bad4f9522e02e30bdabc1d42bb086cf
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380426"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684179"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS-托管 Azure Active Directory 集成
 
@@ -18,14 +18,14 @@ AKS 托管 Azure AD 集成旨在简化 Azure AD 集成体验，其中用户以�
 
 ## <a name="azure-ad-authentication-overview"></a>Azure AD 身份验证概述
 
-群集管理员可以根据用户标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (RBAC)。 使用 OpenID Connect 向 AKS 群集提供 Azure AD 身份验证。 OpenID Connect 是构建在 OAuth 2.0 协议顶层的标识层。 有关 OpenID Connect 的详细信息，请参阅 [Open ID Connect 文档][open-id-connect]。
+群集管理员可以根据用户的标识或目录组成员身份，配置 Kubernetes 基于角色的访问控制 (Kubernetes RBAC) 。 使用 OpenID Connect 向 AKS 群集提供 Azure AD 身份验证。 OpenID Connect 是构建在 OAuth 2.0 协议顶层的标识层。 有关 OpenID Connect 的详细信息，请参阅 [Open ID Connect 文档][open-id-connect]。
 
 有关详细信息，请参阅 [Azure Active Directory 集成概念文档](concepts-identity.md#azure-active-directory-integration)中的 Azure AD 集成流。
 
 ## <a name="limitations"></a>限制 
 
 * 无法禁用 AKS 管理的 Azure AD 集成
-* AKS 管理的 Azure AD 集成不支持非 RBAC 启用的群集
+* AKS 管理的 Azure AD 集成不支持非 Kubernetes RBAC 启用的群集
 * 不支持更改与 AKS 托管 Azure AD 集成关联的 Azure AD 租户
 
 ## <a name="prerequisites"></a>先决条件
@@ -48,7 +48,7 @@ kubelogin --version
 对于其他操作系统，请遵循[这些说明](https://kubernetes.io/docs/tasks/tools/install-kubectl/)。
 
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>在开始之前
 
 对于群集，需要 Azure AD 组。 此组需要作为群集的管理员组，以便授予群集管理员权限。 您可以使用现有的 Azure AD 组，或创建一个新组。 记录 Azure AD 组的对象 ID。
 
@@ -136,7 +136,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>在现有群集上启用 AKS 管理的 Azure AD 集成
 
-可以在现有 RBAC 启用的群集上启用 AKS 管理的 Azure AD 集成。 确保将管理组设置为在群集上保留访问权限。
+可以在现有的启用了 Kubernetes RBAC 的群集上启用 AKS 管理的 Azure AD 集成。 确保将管理组设置为在群集上保留访问权限。
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]

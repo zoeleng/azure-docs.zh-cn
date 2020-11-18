@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 3854e7f3c19f1724a2df1508c9fa519809e07ba9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2c5c017ac0faf443a38fc43dfd27c7e776cb52a0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658666"
+ms.locfileid: "94683325"
 ---
 # <a name="application-gateway-high-traffic-support"></a>应用程序网关高流量支持
 
@@ -30,6 +30,8 @@ ms.locfileid: "94658666"
 ### <a name="set-your-instance-count-based-on-your-peak-cpu-usage"></a>根据高峰 CPU 使用率设置实例计数
 如果你使用的是 v1 SKU 网关，则可以将应用程序网关设置为最多32个实例进行缩放。 在过去一个月内查看应用程序网关的 CPU 利用率，查看是否有超过80% 的任何峰值，作为监视的指标。 建议你根据高峰使用情况设置实例计数，并使用10% 到20% 的额外缓冲区来计算流量峰值。
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization-inline.png" alt-text="V1 CPU 利用率指标" lightbox="./media/application-gateway-covid-guidelines/v1-cpu-utilization-exp.png":::
+
 ### <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>请使用 v2 SKU 而不是 v1，因为前者具有自动缩放功能，且性能更有优势
 v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的增加而纵向扩展。 与 v1 相比，它还提供其他重要性能优势，例如，TLS 卸载性能要高出 5 倍、部署和更新时间更快、支持区域冗余等。 有关详细信息，请参阅我们的 [v2 文档](./application-gateway-autoscaling-zone-redundant.md) ，并参阅 v1 到 v2 的 [迁移文档](./migrate-v1-v2.md) ，了解如何将现有 v1 SKU 网关迁移到 v2 sku。 
 
@@ -41,6 +43,8 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 
 请确保在子网中检查子网大小和可用 IP 地址计数，并基于该数量设置最大实例数。 如果子网没有足够的空间来容纳空间，则必须在具有足够容量的相同或不同子网中重新创建网关。 
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="V2 自动缩放配置" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
+
 ### <a name="set-your-minimum-instance-count-based-on-your-average-compute-unit-usage"></a>基于平均计算单位使用情况设置最小实例计数
 
 对于应用程序网关 v2 SKU，自动缩放需要6到7分钟的时间来横向扩展和预配可供接收流量的其他实例集。 在此之前，如果流量出现短暂的高峰，则现有的网关实例可能会受到严重影响，这可能会导致意外的延迟或流量损失。 
@@ -48,6 +52,8 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 建议将最小实例计数设置为最佳级别。 例如，如果你需要50实例来处理高峰负载的流量，则最好将最小25设置为30，而不是 <10，这样，即使在出现短暂的突发流量时，应用程序网关也能处理此问题，并为自动缩放提供足够的时间来响应和生效。
 
 检查过去一个月的计算单元指标。 计算单位指标是网关 CPU 使用率的表示形式，根据高峰用量除以10，可以设置所需的最小实例数。 请注意，1个应用程序网关实例最少可处理10个计算单元
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics-inline.png" alt-text="V2 计算单元指标" lightbox="./media/application-gateway-covid-guidelines/compute-unit-metrics-exp.png":::
 
 ## <a name="manual-scaling-for-application-gateway-v2-sku-standard_v2waf_v2"></a>应用程序网关 v2 SKU 的手动缩放 (Standard_v2/WAF_v2) 
 
@@ -79,6 +85,17 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 
 当失败请求度量值交叉阈值时创建警报。 你应在生产中看到网关，以确定静态阈值或对警报使用动态阈值。
 
+### <a name="example-setting-up-an-alert-for-more-than-100-failed-requests-in-the-last-5-minutes"></a>示例：在过去5分钟内为超过100个失败请求设置警报
+
+此示例演示如何使用 Azure 门户在过去5分钟超过100的失败请求计数时设置警报。
+1. 导航到应用程序网关。
+2. 在左侧面板中，选择“监视”选项卡下的“指标” 。 
+3. 添加 **失败请求** 的指标。
+4. 单击 " **新建警报规则** " 并定义条件和操作
+5. 单击 " **创建警报规则** " 以创建并启用警报
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts-inline.png" alt-text="V2 创建警报" lightbox="./media/application-gateway-covid-guidelines/create-alerts-exp.png":::
+
 ## <a name="alerts-for-application-gateway-v2-sku-standard_v2waf_v2"></a>适用于应用程序网关 v2 SKU 的警报 (Standard_v2/WAF_v2) 
 
 ### <a name="alert-if-compute-unit-utilization-crosses-75-of-average-usage"></a>计算单元利用率超过平均使用量的75% 时发出警报 
@@ -91,9 +108,9 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 1. 导航到应用程序网关。
 2. 在左侧面板中，选择“监视”选项卡下的“指标” 。 
 3. 为“平均当前计算单位数”添加一个指标。 
-![设置 WAF 指标](./media/application-gateway-covid-guidelines/waf-setup-metrics.png)
 4. 如果已将最小实例计数设置为平均 CU 用量，请继续设置在使用了最小实例数的 75% 时发出警报。 例如，如果平均用量为 10 个 CU，则设置在使用了 7.5 个 CU 时发出警报。 这会在用量不断增大时发出警报，并让你从容应对。 如果你认为这种流量将会持续，可以提高最小值，以提醒自己该流量可能会不断增大。 
-![设置 WAF 警报](./media/application-gateway-covid-guidelines/waf-setup-monitoring-alert.png)
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert-inline.png" alt-text="V2 计算单元警报" lightbox="./media/application-gateway-covid-guidelines/compute-unit-alert-exp.png":::
 
 > [!NOTE]
 > 你可以根据自己对潜在流量高峰的敏感程度，设置在 CU 用量百分比降低或提高时发出警报。
@@ -122,8 +139,8 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 
 此间隔时间是根据从应用程序网关收到 HTTP 请求的第一个字节的时间，到将最后一个响应字节发送到客户端的时间计算的。 如果后端响应延迟比平时更常见，则应该创建警报。 例如，他们可以将此设置为在整个时间延迟从常用值增加30% 时发出警报。
 
-## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>为 WAF 设置地理筛选和机器人防护来阻止攻击
-如果需要在应用程序的前面使用额外的安全层，请为 WAF 功能使用应用程序网关 WAF_v2 SKU。 可将 v2 SKU 配置为仅允许从给定的国家/地区访问你的应用程序。 设置一个 WAF 自定义规则，使其基于地理位置明确允许或阻止流量。 有关详细信息，请参阅[地理位置筛选自定义规则](../web-application-firewall/ag/geomatch-custom-rules.md)和[如何通过 PowerShell 在应用程序网 WAF_v2 中配置自定义规则](../web-application-firewall/ag/configure-waf-custom-rules.md)。
+## <a name="set-up-waf-with-geo-filtering-and-bot-protection-to-stop-attacks"></a>设置 WAF，通过地理筛选和机器人保护来停止攻击
+如果需要在应用程序的前面使用额外的安全层，请为 WAF 功能使用应用程序网关 WAF_v2 SKU。 可将 v2 SKU 配置为仅允许从给定的国家/地区访问你的应用程序。 设置 WAF 自定义规则，以便根据地理位置明确地允许或阻止流量。 有关详细信息，请参阅 [geo 筛选自定义规则](../web-application-firewall/ag/geomatch-custom-rules.md) 以及 [如何通过 PowerShell 在应用程序网关上配置自定义规则 WAF_v2 SKU](../web-application-firewall/ag/configure-waf-custom-rules.md)。
 
 启用机器人防护以阻止已知恶意的机器人。 这应该可以减少进入应用程序的流量。 有关详细信息，请参阅[机器人防护和设置说明](../web-application-firewall/ag/configure-waf-custom-rules.md)。
 

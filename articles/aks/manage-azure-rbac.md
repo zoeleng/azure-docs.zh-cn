@@ -1,5 +1,5 @@
 ---
-title: 在 Kubernetes 中通过 Azure 管理 RBAC
+title: 在 Kubernetes 中通过 Azure 管理 Azure RBAC
 titleSuffix: Azure Kubernetes Service
 description: 了解如何使用 azure RBAC 通过 Azure Kubernetes 服务 (AKS) 进行 Kubernetes 授权。
 services: container-service
@@ -7,23 +7,23 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346037"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684213"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>使用 Azure RBAC 进行 Kubernetes 授权（预览）
 
 现在，你可以在 [Azure Active Directory (Azure AD) 和 AKS 之间充分利用集成身份验证](managed-aad.md)。 启用后，此集成允许客户将 Azure AD 用户、组或服务主体用作 Kubernetes RBAC 中的主题，请参阅 [此处](azure-ad-rbac.md)的详细信息。
-此功能使你不必单独管理 Kubernetes 的用户标识和凭据。 但是，你仍需要单独设置和管理 Azure RBAC 和 Kubernetes RBAC。 有关 AKS 上的身份验证、授权和 RBAC 的详细信息，请参阅 [此处](concepts-identity.md)。
+此功能使你不必单独管理 Kubernetes 的用户标识和凭据。 但是，你仍需要单独设置和管理 Azure RBAC 和 Kubernetes RBAC。 有关 AKS 上的 RBAC 身份验证和授权的详细信息，请参阅 [此处](concepts-identity.md)。
 
 本文档介绍一种新的方法，允许跨 Azure 资源、AKS 和 Kubernetes 资源实现统一的管理和访问控制。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>在开始之前
 
-通过 Azure 管理 Kubernetes 资源的 RBAC 功能，你可以选择使用 Azure 或本机 Kubernetes 机制管理群集资源的 RBAC。 启用后，将由 Azure RBAC 专门验证 Azure AD 主体，同时 Kubernetes RBAC 以独占方式验证常规 Kubernetes 用户和服务帐户。 有关 AKS 上的身份验证、授权和 RBAC 的详细信息，请参阅 [此处](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)。
+通过 Azure 管理 Kubernetes 资源的 RBAC 功能，你可以选择使用 Azure 或本机 Kubernetes 机制管理群集资源的 RBAC。 启用后，将由 Azure RBAC 专门验证 Azure AD 主体，同时 Kubernetes RBAC 以独占方式验证常规 Kubernetes 用户和服务帐户。 有关 AKS 上的 RBAC 身份验证和授权的详细信息，请参阅 [此处](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)。
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -272,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在此处](concepts-identity.md)了解有关 AKS Authentication、AUTHORIZATION 和 RBAC 的详细信息。
+- [在此处](concepts-identity.md)了解有关 AKS Authentication、Authorization、Kubernetes RBAC 和 Azure rbac 的详细信息。
 - [在此处](../role-based-access-control/overview.md)阅读有关 Azure RBAC 的详细信息。
 - 在 [此处](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)了解有关可用于以粒度定义 Kubernetes 授权的自定义 Azure 角色的所有操作的详细信息。
 

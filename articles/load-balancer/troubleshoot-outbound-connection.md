@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628989"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684827"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 排查出站连接故障
 
@@ -44,7 +44,7 @@ ms.locfileid: "91628989"
 临时端口有 4 分钟的空闲超时（不可调整）。 如果重试太过积极，则消耗没有机会进行自行清除。 因此，应用程序停用事务的方式和频率对于设计至关重要。
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>向每个 VM 分配公共 IP
-分配公共 IP 地址会将方案更改为 [VM 的公共 IP](load-balancer-outbound-connections.md)。 用于各 VM 的公共 IP 的所有临时端口都可供 VM 使用。 与使用与相应后端池关联的所有 Vm 共享公共 IP 的临时端口的方案相反 (。 ) 需要考虑一些权衡，如公共 IP 地址的额外成本和筛选大量单个 IP 地址的潜在影响。
+分配公共 IP 地址会将方案更改为 [VM 的公共 IP](load-balancer-outbound-connections.md)。 用于各 VM 的公共 IP 的所有临时端口都可供 VM 使用。 （与以下方案相反：公共 IP 的临时端口与同相应后端池关联的 VM 的所有临时端口共享）。需要在某些方面作出一些权衡，比如公共 IP 地址的额外成本和将大量个人 IP 地址列入筛选所产生的潜在影响方面。
 
 >[!NOTE] 
 >此选项不适用于 Web 辅助角色。
@@ -63,7 +63,7 @@ ms.locfileid: "91628989"
 如果横向扩展到后端池较大的下一层，并且需要重新分配已分配端口，则部分出站连接可能会超时。  如果仅使用部分 SNAT 端口，则在后端池较大的下一层中横向扩展无意义。  每次移动到后端池的下一层时，半数现有端口将重新分配。  如果不希望发生此行为，则需要将部署规划为层大小。  或者确保应用程序可以根据需要进行检测和重试。  TCP keepalive 可以帮助检测 SNAT 端口何时由于被重新分配而不再工作。
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>保持 keepalive 重置出站空闲超时
-出站连接有 4 分钟的空闲超时。 此超时可通过[出站规则](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout)进行调整。 还可以使用传输（例如，TCP Keepalives）或应用程序层 Keepalives 刷新空闲流，并在必要时重置此空闲超时。  
+出站连接有 4 分钟的空闲超时。 此超时可通过[出站规则](outbound-rules.md)进行调整。 还可以使用传输（例如，TCP Keepalives）或应用程序层 Keepalives 刷新空闲流，并在必要时重置此空闲超时。  
 
 使用 TCP keepalive 时，在连接的一端启用它们就足够了。 例如，若要重置流的空闲计时器，在服务器端启用它们就足够了，没有必要在两端都启动 TCP keepalive。  应用程序层（包括数据库客户端-服务器配置）也存在类似的概念。  检查服务器端对于特定于应用程序的 keepalive 存在哪些选项。
 

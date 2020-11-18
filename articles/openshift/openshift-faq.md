@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816229"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683499"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift 常见问题
 
@@ -41,7 +41,7 @@ Azure Red Hat OpenShift 3.11 的每节点上限为50，每个节点限制为20�
 
 ### <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>群集是否可以跨多个 Azure 区域具有计算节点？
 
-不是。 Azure Red Hat OpenShift 群集中的所有节点都必须源自同一 Azure 区域。
+不能。 Azure Red Hat OpenShift 群集中的所有节点都必须源自同一 Azure 区域。
 
 ### <a name="can-a-cluster-be-deployed-across-multiple-availability-zones"></a>是否可以跨多个可用性区域部署群集？
 
@@ -49,7 +49,7 @@ Azure Red Hat OpenShift 3.11 的每节点上限为50，每个节点限制为20�
 
 ### <a name="are-control-plane-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>控制平面节点与 Azure Kubernetes Service (AKS) 相比是否抽象？
 
-不是。 所有资源（包括群集主节点）都在您的客户订阅中运行。 这些类型的资源置于只读资源组中。
+不能。 所有资源（包括群集主节点）都在您的客户订阅中运行。 这些类型的资源置于只读资源组中。
 
 ### <a name="does-the-cluster-reside-in-a-customer-subscription"></a>群集是否位于客户订阅中？ 
 
@@ -186,13 +186,13 @@ oc adm policy \
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>IaaS) 中 (哪些 UNIX 权限可用于主机/基础节点/应用节点？
 
-对于4.x 群集，可以通过群集管理角色访问节点。 有关详细信息，请参阅 [RBAC 概述](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)。
+对于4.x 群集，可以通过群集管理角色访问节点。 有关详细信息，请参阅 [KUBERNETES RBAC 概述](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)。
 
 对于3.11 群集，禁止访问节点。
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>我们有哪些 OCP 权限？ 群集管理？ 项目-管理员？
 
-对于4.x 群集，群集管理角色可用。 有关详细信息，请参阅 [RBAC 概述](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)。
+对于4.x 群集，群集管理角色可用。 有关详细信息，请参阅 [KUBERNETES RBAC 概述](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)。
 
 有关3.11 群集的详细信息，请参阅 [群集管理概述](https://docs.openshift.com/aro/admin_guide/index.html) 。
 
@@ -222,4 +222,4 @@ oc adm policy \
 
 ## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>ARO 是否将任何客户数据存储在群集区域之外？
 
-不是。 在 ARO 群集中创建的所有数据都保留在群集的区域内。
+不能。 在 ARO 群集中创建的所有数据都保留在群集的区域内。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309071"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685165"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>监视媒体服务指标和诊断日志 Azure Monitor
 
@@ -67,8 +67,8 @@ ms.locfileid: "93309071"
 |请求|请求|提供由流式处理终结点提供服务的 HTTP 请求总数。|
 |流出量|流出量|每个流式处理终结点每分钟流出的字节总数。|
 |SuccessE2ELatency|成功端到端延迟|从流式处理终结点收到请求，到发送最后一个响应字节的持续时间。|
-|CPU 使用率| 高级流式处理终结点的 CPU 使用率。 此数据不可用于标准流式处理终结点。 |
-|出口带宽 | 出口带宽（位/秒）。|
+|CPU 使用率| | 高级流式处理终结点的 CPU 使用率。 此数据不可用于标准流式处理终结点。 |
+|出口带宽 | | 出口带宽（位/秒）。|
 
 ### <a name="metrics-are-useful"></a>度量值非常有用
 

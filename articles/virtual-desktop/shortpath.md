@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aee3f5602d0bd1ff12717d903d662ce4605de61d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660944"
+ms.locfileid: "94683754"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 虚拟桌面 RDP Shortpath (预览版) 
 
@@ -99,7 +99,7 @@ New-ItemProperty -Path $WinstationsKey -Name 'UdpPortNumber' -ErrorAction:Silent
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'fUseUdpPortRedirector' -Value 1 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'UdpPortNumber' -Value 3390 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 ```
@@ -139,7 +139,7 @@ New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action 
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 $gpoSession = Open-NetGPO -PolicyStore "$domainName\$policyName"
 New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-Shortpath-UDP'  -PolicyStore PersistentStore -Profile Domain, Private -Service TermService -Protocol udp -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True
 ```
@@ -247,7 +247,7 @@ Get-Process -id (Get-NetUDPEndpoint  -LocalPort 3390 -LocalAddress 0.0.0.0).Owni
 2. 导航到 " **计算机配置" > 管理模板 > Windows 组件 "> 远程桌面服务 > 远程桌面连接主机 > 连接**"。
 3. 将 **"选择 RDP 传输协议"** 设置设置为 "**仅 TCP** "
 
-## <a name="feedback"></a>反馈
+## <a name="public-preview-feedback"></a>公开预览版反馈
 
 我们想要倾听你对此公共预览版的体验！
 * 对于问题、请求、评论和其他反馈，请 [使用此反馈表单](https://aka.ms/RDPShortpathFeedback)。

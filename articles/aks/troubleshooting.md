@@ -4,12 +4,12 @@ description: 了解如何排查和解决在使用 Azure Kubernetes 服务 (AKS) 
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286773"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684162"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -46,7 +46,7 @@ ms.locfileid: "93286773"
    1. 如果使用的是 Kubenet，当 `number of free IPs in the subnet` 小于 `number of buffer nodes needed to upgrade` 时就会发生这种情况。
    1. 如果使用的是 Azure CNI，当 `number of free IPs in the subnet` 小于 `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` 时就会发生这种情况。
    
-   默认情况下，AKS 群集将最大冲击 (升级缓冲区) 一个 (1) 的值，但可以通过设置 [节点池的最大浪涌值](upgrade-cluster.md#customize-node-surge-upgrade-preview) 来自定义此升级行为，这将增加完成升级所需的可用 ip 的数目。
+   默认情况下，AKS 群集将最大冲击 (升级缓冲区) 一个 (1) 的值，但可以通过设置 [节点池的最大浪涌值](upgrade-cluster.md#customize-node-surge-upgrade) 来自定义此升级行为，这将增加完成升级所需的可用 ip 的数目。
 
 1. AKS 创建或 AKS Nodepool 添加
    1. 如果使用的是 Kubenet，当 `number of free IPs in the subnet` 小于 `number of nodes requested for the node pool` 时就会发生这种情况。
@@ -86,13 +86,13 @@ AKS 具有 HA 控制平面，可以根据内核数进行垂直缩放，以确保
 
 这些超时可能与被阻止节点之间的内部流量有关。 验证此流量是否未被阻止，例如通过群集节点子网上的[网络安全组](concepts-security.md#azure-network-security-groups)来这样做。
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>我想尝试在现有群集上启用基于角色的访问控制 (RBAC)。 该如何操作？
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>我尝试启用现有群集上的 Kubernetes 基于角色的访问控制 (Kubernetes RBAC) 。 该如何操作？
 
-目前不支持在现有群集上启用基于角色的访问控制 (RBAC)，必须在创建新群集时对其进行设置。 在使用 CLI、门户或 `2020-03-01` 之后的 API 版本时，默认会启用 RBAC。
+此时，启用 Kubernetes 基于角色的访问控制 (不支持现有群集上的 Kubernetes RBAC) ，因此在创建新群集时必须设置此项。 默认情况下，在使用 CLI、门户或 API 版本时，将默认启用 Kubernetes RBAC `2020-03-01` 。
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我创建了启用了 RBAC 的群集，现在，我在 Kubernetes 仪表板上看到了很多警告。 仪表板以前在没有任何警告的情况下工作。 我该怎么办？
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我创建了一个启用了 Kubernetes RBAC 的群集，现在，在 Kubernetes 仪表板上看到了许多警告。 仪表板以前在没有任何警告的情况下工作。 我该怎么办？
 
-出现警告的原因是群集启用了 RBAC，并且现在默认限制对仪表板的访问。 一般来说，此方法比较棒，因为仪表板默认公开给群集的所有用户可能会导致安全威胁。 如果仍想要启用仪表板，请遵循此[博客文章](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)中的步骤进行操作。
+出现警告的原因是：群集已启用 Kubernetes RBAC，并且默认情况下会限制仪表板的访问权限。 一般来说，此方法比较棒，因为仪表板默认公开给群集的所有用户可能会导致安全威胁。 如果仍想要启用仪表板，请遵循此[博客文章](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)中的步骤进行操作。
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>无法使用 Kubectl 日志获取日志或无法连接到 API 服务器。 我收到“来自服务器的错误：拨号后端时出错: 拨打 tcp...”。 我该怎么办？
 
@@ -365,7 +365,7 @@ initContainers:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 和更高版本 | 0777 |
 
-可以对存储类对象指定装载选项。 以下示例设置 *0777* ：
+可以对存储类对象指定装载选项。 以下示例设置 *0777*：
 
 ```yaml
 kind: StorageClass
@@ -404,7 +404,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 此错误是由使用 cifs/SMB 协议的 Azure 文件存储插件造成的。 使用 cifs/SMB 协议时，在装载后无法更改文件和目录权限。
 
-若要解决此问题，请结合 Azure 磁盘插件使用 *subPath* 。 
+若要解决此问题，请结合 Azure 磁盘插件使用 *subPath*。 
 
 > [!NOTE] 
 > 对于 ext3/4 磁盘类型，格式化磁盘后会出现一个 lost+found 目录。

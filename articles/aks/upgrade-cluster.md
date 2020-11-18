@@ -3,13 +3,13 @@ title: 升级 Azure Kubernetes 服务 (AKS) 群集
 description: 了解如何升级 Azure Kubernetes 服务 (AKS) 群集以获取最新的功能和安全更新。
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461441"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683227"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升级 Azure Kubernetes 服务 (AKS) 群集
 
@@ -51,7 +51,7 @@ default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>自定义节点浪涌升级 (预览版) 
+## <a name="customize-node-surge-upgrade"></a>自定义节点浪涌升级
 
 > [!Important]
 > 节点浪涌需要针对每个升级操作请求的最大浪涌计数的订阅配额。 例如，具有5个节点池（每个节点的计数为4个节点）的群集总共包含20个节点。 如果每个节点池的最大电涌值为50%，则需要10个节点 (2 个节点的附加计算和 IP 配额，) 需要完成升级。
@@ -66,21 +66,7 @@ AKS 接受整数值和最大冲击的百分比值。 整数（如 "5"）指示�
 
 在升级过程中，最大电涌值最小为1，最大值可以等于节点池中的节点数。 你可以设置较大的值，但在升级时，最大的最大可用节点数不会高于池中的节点数。
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>设置用于自定义节点浪涌升级的预览功能
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-注册需要花费几分钟时间。 使用以下命令验证该功能是否已注册：
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-预览期间，需要使用 *aks* CLI 扩展来使用最大冲击。 使用 [az extension add][az-extension-add] 命令，然后使用 [az extension update][az-extension-update] 命令来查找任何可用的更新：
+在 CLI 版本 2.16.0 + 之前，需要使用 *aks* CLI 扩展才能使用最大冲击。 使用 [az extension add][az-extension-add] 命令，然后使用 [az extension update][az-extension-update] 命令来查找任何可用的更新：
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>升级 AKS 群集
 
-如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 会将一个新的缓冲区节点 (或任意数量的节点添加到运行指定 Kubernetes 版本的群集的 [最大浪涌](#customize-node-surge-upgrade-preview)) 中。 然后，它将 [cordon 并排出][kubernetes-drain] 其中一个旧节点，以最大程度地降低运行应用程序的中断 (如果使用的是最大冲击，则它将 [cordon 并][kubernetes-drain] 与) 指定的缓冲区节点数量同时排出任意数量的节点。 完全排出旧节点后，将重置映像接收新版本，并将成为要升级的以下节点的缓冲节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。 在该过程结束时，将删除最后一个排出节点，并保留现有的代理节点计数。
+如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 会将一个新的缓冲区节点 (或任意数量的节点添加到运行指定 Kubernetes 版本的群集的 [最大浪涌](#customize-node-surge-upgrade)) 中。 然后，它将 [cordon 并排出][kubernetes-drain] 其中一个旧节点，以最大程度地降低运行应用程序的中断 (如果使用的是最大冲击，则它将 [cordon 并][kubernetes-drain] 与) 指定的缓冲区节点数量同时排出任意数量的节点。 完全排出旧节点后，将重置映像接收新版本，并将成为要升级的以下节点的缓冲节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。 在该过程结束时，将删除最后一个排出节点，并保留现有的代理节点计数。
 
 ```azurecli-interactive
 az aks upgrade \

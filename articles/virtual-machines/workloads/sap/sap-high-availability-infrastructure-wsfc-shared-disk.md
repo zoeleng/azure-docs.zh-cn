@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4538654b255aad99ff00477134c9eeb5845e50d6
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167332"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682751"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>针对 SAP ASCS/SCS 使用 Windows 故障转移群集和共享磁盘准备 SAP HA 的 Azure 基础结构
 
@@ -165,7 +165,7 @@ ms.locfileid: "92167332"
 本文介绍了在 Windows 故障转移群集上使用 *群集共享磁盘* 作为群集化 sap ASCS 实例的选项来准备 Azure 基础结构以在 Windows 故障转移群集上安装和配置高可用性 SAP ASCS/SCS 实例所采取的步骤。
 文档中提供了两种 *群集共享磁盘* 备选方案：
 
-- [Azure 共享磁盘](../../windows/disks-shared.md)
+- [Azure 共享磁盘](../../disks-shared.md)
 - 使用 [SIOS DataKeeper 群集 Edition](https://us.sios.com/products/datakeeper-cluster/) 创建将模拟群集共享磁盘的镜像存储 
 
 所提供的配置依赖于 [Azure 邻近组 (PPG) ](./sap-proximity-placement-scenarios.md) ，以实现 SAP 工作负荷的最佳网络延迟。 文档不涵盖数据库层。  
@@ -213,17 +213,17 @@ SAP ASCS、SAP SCS 和新的 SAP ERS2 使用虚拟主机名和虚拟 IP 地址�
 - 后端配置  
     添加所有虚拟机，这些虚拟机应作为 () SCS/ERS 群集的一部分。 在此示例中，Vm **pr1-ascs-10** 和 **pr1-ascs**。
 - 探测端口
-    - 端口 620**nr** 保留协议 (默认选项 "TCP) ，Interval (5) ，不正常阈值 (2) 
-- 负载均衡规则
+    - 端口 620 **nr** 保留协议 (默认选项 "TCP) ，Interval (5) ，不正常阈值 (2) 
+- 负载均衡算法
     - 如果使用“标准负载均衡器”，请选择“HA 端口”
     - 如果使用“基本负载均衡器”，请为以下端口创建负载均衡规则
-        - 32**nr** TCP
-        - 36**nr** TCP
-        - 39**nr** TCP
-        - 81**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 36 **nr** TCP
+        - 39 **nr** TCP
+        - 81 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - 请确保 "空闲超时" (分钟) 设置为 "最大值 30"，并启用 "浮动 IP (直接服务器返回) "。
 
@@ -237,17 +237,17 @@ SAP ASCS、SAP SCS 和新的 SAP ERS2 使用虚拟主机名和虚拟 IP 地址�
   Vm 已添加到 ILB 后端池。  
 
 - 第二个探测端口
-    - 端口 621**nr**  
+    - 端口 621 **nr**  
     保留协议 (的默认选项 "TCP) ，Interval (5) ，不正常阈值 (2) 
 
 - 第二级负载平衡规则
     - 如果使用“标准负载均衡器”，请选择“HA 端口”
     - 如果使用“基本负载均衡器”，请为以下端口创建负载均衡规则
-        - 32**nr** TCP
-        - 33**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 33 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - 请确保 "空闲超时" (分钟) 设置为 "最大值 30"，并启用 "浮动 IP (直接服务器返回) "。
 
@@ -466,13 +466,13 @@ SAP ASCS、SAP SCS 和新的 SAP ERS2 使用虚拟主机名和虚拟 IP 地址�
 
    _SIOS DataKeeper 安装的第一页_
 
-2. 在对话框中，选择“是”****。
+2. 在对话框中，选择“是”。
 
    ![图 32：DataKeeper 通知将会禁用服务][sap-ha-guide-figure-3032]
 
    _DataKeeper 通知你将禁用某个服务_
 
-3. 在对话框中，建议选中“域或服务器帐户”****。
+3. 在对话框中，建议选中“域或服务器帐户”。
 
    ![图 33：用户为 SIOS DataKeeper 选中的选项][sap-ha-guide-figure-3033]
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: e7c9f9b158d01204536712f8024ed098cd7a5037
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372866"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684349"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) 扩展生命周期支持
 本文提供针对 Red Hat Enterprise 映像的扩展生命周期支持的信息：
@@ -29,7 +29,7 @@ ms.locfileid: "94372866"
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>使用 (ELS) 外接程序支持 Red Hat Enterprise Linux 扩展生命周期的额外费用是什么？
 
-|VM 大小|额外的充电时间范围| (USD 的其他货币金额) | 注释|
+|VM 大小|额外的充电时间范围| (USD 的其他货币金额) | 说明|
 |---|---|---|---|
 | 小型虚拟来宾 ( # B0 = 4 核心)  | 每小时额外费用 | TBC | |
 |  | 每月额外费用 | TBC | 对于预订实例 |
@@ -40,7 +40,7 @@ ms.locfileid: "94372866"
 
 #### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a> (ELS) 存储库中添加扩展生命周期支持的过程是继续接收软件维护 (bug 和安全修补程序) 并支持 Red Hat Enterprise Linux 6？
 
-即将注册 ELS 的端到端过程将在此处 (最晚15月15日 2020) 。
+即将注册 ELS 的端到端过程将在此处 (最晚30年11月 2020) 。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660349"
+ms.locfileid: "94684196"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用公共标准负载均衡器
 
@@ -225,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-此示例假设为群集中的每个节点提供 4000 个分配的出站端口以及 7 个 IP，则你会得到以下结果：每个节点 4000 个端口 * 100 个节点 = 400,000 个总端口 < = 448,000 个总端口 = 7 个 IP * 每个 IP 64,000 端口。 这样你便可安全地缩放到 100 个节点，并执行默认升级操作。 为升级和其他操作所需的其他节点分配足够的端口至关重要。 AKS 默认为一个缓冲区节点用于升级，在此示例中，这要求在任何给定时间点有 4000 个可用端口。 如果使用 [maxSurge 值](upgrade-cluster.md#customize-node-surge-upgrade-preview)，请将每个节点的出站端口乘以 maxSurge 值。
+此示例假设为群集中的每个节点提供 4000 个分配的出站端口以及 7 个 IP，则你会得到以下结果：每个节点 4000 个端口 * 100 个节点 = 400,000 个总端口 < = 448,000 个总端口 = 7 个 IP * 每个 IP 64,000 端口。 这样你便可安全地缩放到 100 个节点，并执行默认升级操作。 为升级和其他操作所需的其他节点分配足够的端口至关重要。 AKS 默认为一个缓冲区节点用于升级，在此示例中，这要求在任何给定时间点有 4000 个可用端口。 如果使用 [maxSurge 值](upgrade-cluster.md#customize-node-surge-upgrade)，请将每个节点的出站端口乘以 maxSurge 值。
 
 要安全地超过 100 个节点，必须添加更多 IP。
 

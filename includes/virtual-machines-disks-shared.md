@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451455"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684425"
 ---
 Azure 共享磁盘是 Azure 托管磁盘的一项新功能，可用于将托管磁盘同时附加到 (Vm) 的多个虚拟机。 通过将托管磁盘附加到多个 VM，可以向 Azure 部署新的群集应用程序或迁移现有的群集应用程序。
 
@@ -54,9 +54,9 @@ WSFC 上运行的热门应用程序包括：
 ### <a name="linux"></a>Linux
 
 支持 Azure 共享磁盘：
-- [SUSE SLE for SAP 和 SUSE SLE HA 15 SP1 及更高版本](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [SUSE SLE for SAP 和 SUSE SLE HA 15 SP1 及更高版本](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18.04 及更高版本](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [任何 RHEL 8 版本上的 RHEL 开发人员预览版](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [任何 RHEL 8 版本上的 RHEL 开发人员预览版](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Linux 群集可以利用群集管理器，例如 [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker)。 Pacemaker 基于 [Corosync](http://corosync.github.io/corosync/) 构建，可为部署在高可用环境中的应用程序启用群集通信。 一些常见的群集文件系统包括 [ocfs2](https://oss.oracle.com/projects/ocfs2/) 和 [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2)。 可以使用 SCSI 永久保留 (SCSI PR) 和/或 STONITH 块设备 (SBD) 的群集模型，以便 arbitrating 访问磁盘。 使用 SCSI PR 时，可以使用 [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) 和 [sg_persist](https://linux.die.net/man/8/sg_persist)等实用工具来处理预留和注册。
@@ -131,19 +131,19 @@ Linux 群集可以利用群集管理器，例如 [Pacemaker](https://wiki.cluste
 
 以下是使用群集共享卷的 2 节点 WSFC 的示例。 使用此配置时，两个 Vm 都同时具有对磁盘的写入访问权限，这将导致在 `ReadWrite` 两个 vm 之间剥离中止，而 `ReadOnly` 不使用限制。
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="描述预订持有者、注册和其他的 &quot;ReadOnly&quot; 或 &quot;读/写&quot; 访问权限的表的图像。":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV 双节点超级性能示例":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>无群集共享卷的双节点群集
 
 以下是未使用群集共享卷的 2 节点 WSFC 的示例。 使用此配置时，只有一个 VM 对磁盘具有写入访问权限。 这会导致 `ReadWrite` 限制仅用于主 VM，并且 `ReadOnly` 仅辅助副本使用限制。
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="描述预订持有者、注册和其他的 &quot;ReadOnly&quot; 或 &quot;读/写&quot; 访问权限的表的图像。":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV 双节点无 csv 超级磁盘示例":::
 
 ##### <a name="four-node-linux-cluster"></a>四节点 Linux 群集
 
 下面是具有一个编写器和三个横向扩展读取器的 4 节点 Linux 群集的示例。 使用此配置时，只有一个 VM 对磁盘具有写入访问权限。 这会导致 `ReadWrite` 限制仅用于主 vm，并且 `ReadOnly` 由辅助 vm 拆分限制。
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="描述预订持有者、注册和其他的 &quot;ReadOnly&quot; 或 &quot;读/写&quot; 访问权限的表的图像。":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="四节点超级限制示例":::
 
 #### <a name="ultra-pricing"></a>超高定价
 

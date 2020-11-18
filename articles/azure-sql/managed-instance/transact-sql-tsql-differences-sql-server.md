@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649307"
+ms.locfileid: "94684911"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server 与 Azure SQL 托管实例之间的 T-SQL 差异
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -521,7 +521,7 @@ SQL 托管实例中的链接服务器支持有限数量的目标：
 - 在“常规用途”层级上，`tempdb` 的最大文件大小不能超过 24 GB 每核心。 在“业务关键”层级上，最大 `tempdb` 大小根据 SQL 托管实例存储大小受到限制。 在“常规用途”层级上，`Tempdb` 日志文件大小限制为 120 GB。 如果某些查询需要在 `tempdb` 中为每个核心提供 24 GB 以上的空间，或者生成 120 GB 以上的日志数据，则这些查询可能会返回错误。
 - `Tempdb` 始终拆分为12个数据文件：1个主文件（也称为 master、数据文件和11个非主数据文件）。 无法更改文件结构，并且无法将新文件添加到 `tempdb` 。 
 - 不支持[内存优化的 `tempdb` 元数据](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)（一个新的 SQL Server 2019 内存中数据库功能）。
-- 在模型数据库中创建的对象不能在 `tempdb` 重新启动或故障转移后在中自动创建，因为不 `tempdb` 会从复制的模型数据库获取其初始对象列表。 
+- 在模型数据库中创建的对象不能在 `tempdb` 重新启动或故障转移后在中自动创建，因为不 `tempdb` 会从模型数据库获取其初始对象列表。 必须在 `tempdb` 每次重新启动或故障转移后手动创建对象。
 
 ### <a name="msdb"></a>MSDB
 

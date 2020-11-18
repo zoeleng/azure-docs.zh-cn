@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318447"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682768"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>设置客户管理的密钥，以便在 Azure 逻辑应用中 (ISEs) 为 integration service 环境加密静态数据
 
@@ -25,7 +25,7 @@ Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../s
 
 * 目前，对 ISE 的客户托管密钥支持仅在以下 Azure 区域提供：美国西部2、美国东部和美国中南部
 
-* *只能在创建 ISE 时*指定客户托管的密钥，而不能在以后创建 ISE。 创建 ISE 后，不能禁用此密钥。 目前，不支持轮换 ISE 的客户托管密钥。
+* *只能在创建 ISE 时* 指定客户托管的密钥，而不能在以后创建 ISE。 创建 ISE 后，不能禁用此密钥。 目前，不支持轮换 ISE 的客户托管密钥。
 
 * 若要支持客户管理的密钥，ISE 要求需要启用 [系统分配的托管标识](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 。 此标识允许 ISE 验证对其他 Azure Active Directory 中的资源的访问权限， (Azure AD) 租户，以便无需使用凭据进行登录。
 
@@ -39,15 +39,15 @@ Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../s
 
 * 已启用 **软删除** 且 **未清除** 属性的 Azure 密钥保管库
 
-  有关启用这些属性的详细信息，请参阅 [Azure Key Vault 软删除概述](../key-vault/general/soft-delete-overview.md) 和 [配置 Azure Key Vault 的客户托管密钥](../storage/common/customer-managed-keys-configure-key-vault.md)。 如果你不熟悉 Azure Key Vault，请参阅 [如何使用 Azure 门户创建密钥保管库](../key-vault/secrets/quick-create-portal.md#create-a-vault) ，或使用 Azure PowerShell 命令 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)。
+  有关启用这些属性的详细信息，请参阅 [Azure Key Vault 软删除概述](../key-vault/general/soft-delete-overview.md) 和 [配置 Azure Key Vault 的客户托管密钥](../storage/common/customer-managed-keys-configure-key-vault.md)。 如果你不熟悉 [Azure Key Vault](../key-vault/general/overview.md)，请学习如何使用 [Azure 门户](../key-vault/general/quick-create-portal.md)、 [Azure CLI](../key-vault/general/quick-create-cli.md)或 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)创建密钥保管库。
 
 * 在密钥保管库中，使用以下属性值创建的密钥：
 
-  | properties | 值 |
+  | 属性 | “值” |
   |----------|-------|
   | **键类型** | RSA |
   | **RSA 密钥大小** | 2048 |
-  | **已启用** | 是 |
+  | **Enabled** | 是 |
   |||
 
   ![创建客户管理的加密密钥](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -76,7 +76,7 @@ Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../s
 > 删除虚拟网络时，请确保没有资源仍处于连接状态。 
 > 请参阅[删除虚拟网络](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)。
 
-### <a name="request-header"></a>请求标头
+### <a name="request-header"></a>请求头
 
 在请求标头中，包括以下属性：
 
@@ -219,7 +219,7 @@ Azure 逻辑应用依赖 Azure 存储来存储和自动[加密静态数据](../s
 
       ![选择 "密钥管理" > "密钥权限"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. 对于 " **选择主体**"，请选择 " **未**选择"。 **主体**窗格打开后，在 "搜索" 框中，找到并选择你的 ISE。 完成后，选择 "**选择**  >  **添加**"。
+   1. 对于 " **选择主体**"，请选择 " **未** 选择"。 **主体** 窗格打开后，在 "搜索" 框中，找到并选择你的 ISE。 完成后，选择 "**选择**  >  **添加**"。
 
       ![选择要用作主体的 ISE](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

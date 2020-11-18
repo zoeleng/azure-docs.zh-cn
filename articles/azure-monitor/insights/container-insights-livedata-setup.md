@@ -4,12 +4,12 @@ description: 本文介绍在不将 kubectl 与适用于容器的 Azure Monitor �
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6fdd2d0a97357a2126ff37c0840b1f7da2859da5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648100"
+ms.locfileid: "94682666"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>如何设置实时数据（预览版）功能
 
@@ -136,7 +136,7 @@ AKS 在 2020 年 1 月发布了此新的角色绑定，因此在 2020 年 1 月�
 >[!IMPORTANT]
 >如果你为其授予 RBAC 绑定的用户在同一个 Azure AD 租户中，请根据 userPrincipalName 分配权限。 如果该用户位于不同的 Azure AD 租户中，请查询并使用 objectId 属性。
 
-有关配置 AKS 群集 **ClusterRoleBinding** 的更多帮助信息，请参阅 [创建 RBAC 绑定](../../aks/azure-ad-integration-cli.md#create-rbac-binding)。
+有关配置 AKS 群集 **ClusterRoleBinding** 的其他帮助，请参阅 [创建 Kubernetes RBAC 绑定](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding)。
 
 ## <a name="next-steps"></a>后续步骤
 
