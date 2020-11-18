@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132561"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844704"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>授予创建 Azure Enterprise 订阅（预览版）所需的访问权限
 
@@ -23,7 +23,7 @@ ms.locfileid: "92132561"
 
 ## <a name="grant-access"></a>授予访问权限
 
-若要[在注册帐户下创建订阅](programmatically-create-subscription.md)，用户必须在该帐户上具有 Azure RBAC [所有者角色](../../role-based-access-control/built-in-roles.md#owner)。 可按照以下步骤为用户或用户组授予注册帐户上的 Azure RBAC 所有者角色：
+若要[在注册帐户下创建订阅](programmatically-create-subscription-enterprise-agreement.md)，用户必须在该帐户上具有 Azure RBAC [所有者角色](../../role-based-access-control/built-in-roles.md#owner)。 可按照以下步骤为用户或用户组授予注册帐户上的 Azure RBAC 所有者角色：
 
 1. 获取要授权访问的注册帐户的对象 ID
 
@@ -174,7 +174,7 @@ ms.locfileid: "92132561"
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    用户成为注册帐户的 Azure RBAC 所有者后，就可[以编程方式在该帐户下创建订阅](programmatically-create-subscription.md)。 委托用户创建的订阅仍有作为服务管理员的原始帐户所有者，但它默认情况下也有作为 Azure RBAC 所有者的委托用户。
+    用户成为注册帐户的 Azure RBAC 所有者后，就可[以编程方式在该帐户下创建订阅](programmatically-create-subscription-enterprise-agreement.md)。 委托用户创建的订阅仍有作为服务管理员的原始帐户所有者，但它默认情况下也有作为 Azure RBAC 所有者的委托用户。
 
     ---
 
@@ -193,7 +193,7 @@ ms.locfileid: "92132561"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 既然用户或服务主体有权创建订阅，你可以使用该标识[以编程方式创建 Azure Enterprise 订阅](programmatically-create-subscription.md)。
+* 既然用户或服务主体有权创建订阅，你可以使用该标识[以编程方式创建 Azure Enterprise 订阅](programmatically-create-subscription-enterprise-agreement.md)。
 * 有关使用 .NET 创建订阅的示例，请参阅 [GitHub 上的示例代码](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core)。
 * 若要了解有关 Azure 资源管理器及其 API 的详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/management/overview.md)。
 * 要详细了解如何使用管理组管理大量订阅，请参阅[使用 Azure 管理组整理资源](../../governance/management-groups/overview.md)
