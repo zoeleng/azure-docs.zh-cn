@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27395fe377972f51c849f8a61f51a628612ed54d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b951dab1ad01187c7612fad047bc52eb6aa9700e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202661"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701868"
 ---
 # <a name="textures"></a>纹理
 
@@ -26,7 +26,7 @@ ms.locfileid: "92202661"
 
 ## <a name="supported-texture-formats"></a>支持的纹理格式
 
-为 ARR 指定的所有纹理都必须采用 [DDS 格式](https://en.wikipedia.org/wiki/DirectDraw_Surface)。 最好使用纹理图和纹理压缩。 若要自动执行转换过程，请参阅 [TexConv 命令行工具](../resources/tools/tex-conv.md)。
+为 ARR 指定的所有纹理都必须采用 [DDS 格式](https://en.wikipedia.org/wiki/DirectDraw_Surface)。 最好使用纹理图和纹理压缩。
 
 ## <a name="loading-textures"></a>加载纹理
 

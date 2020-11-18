@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517149"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701562"
 ---
 # <a name="design-secure-applications-on-azure"></a>在 Azure 上设计安全的应用程序
 本文介绍了在为云设计应用程序时需要考虑的安全活动和控制措施。 介绍了在 Microsoft [安全开发生命周期 (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) 的要求和设计阶段需要考虑的培训资源以及安全问题和概念。 目标是帮助你定义可用于设计更安全应用程序的活动和 Azure 服务。
@@ -217,7 +217,7 @@ Azure 提供了可用来托管网站和 Web 应用程序的其他服务。 大�
 
 [最小特权](https://en.wikipedia.org/wiki/Principle_of_least_privilege)的概念意味着向用户提供完成其工作所需的准确级别的访问和控制。
 
-软件开发人员是否需要域管理员权限？ 管理助理是否需要访问其个人电脑上的管理控制措施？ 评估对软件的访问没有什么不同。 如果在应用程序中使用[基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md) 为用户提供不同的能力和授权，则不会让每个人都可以访问所有内容。 通过将访问权限限定为每个角色必需的权限，可以限制出现安全问题的风险。
+软件开发人员是否需要域管理员权限？ 管理助理是否需要访问其个人电脑上的管理控制措施？ 评估对软件的访问没有什么不同。 如果使用 azure [基于角色的访问控制 (AZURE RBAC) ](../../role-based-access-control/overview.md) 为用户授予应用程序中的不同功能和颁发机构，则不会为每个人授予所有内容的访问权限。 通过将访问权限限定为每个角色必需的权限，可以限制出现安全问题的风险。
 
 确保你的应用程序在其整个访问模式中强制实施[最低权限](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications)。
 

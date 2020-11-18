@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a193fdf82ed5e9a785c6c01db4931fb05e9aaac7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 58c07654c174f5b94512574cb4c279d35897dc71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205738"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701936"
 ---
 # <a name="sky-reflections"></a>天空反射
 
@@ -95,7 +95,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
 
 ## <a name="sky-texture-types"></a>天空纹理类型
 
-可以使用[立体地图](https://en.wikipedia.org/wiki/Cube_mapping)和 *2D 纹理*作为环境地图。
+可以使用 [立体地图](https://en.wikipedia.org/wiki/Cube_mapping)和 *2D 纹理* 作为环境地图。
 
 所有纹理都必须采用[支持的纹理格式](../../concepts/textures.md#supported-texture-formats)。 不需要为天空纹理提供 mipmap。
 
@@ -146,4 +146,3 @@ Azure 远程渲染提供了几个始终可用的内置环境地图。 所有内�
 * [光线](../../overview/features/lights.md)
 * [材料](../../concepts/materials.md)
 * [纹理](../../concepts/textures.md)
-* [TexConv 命令行工具](../../resources/tools/tex-conv.md)

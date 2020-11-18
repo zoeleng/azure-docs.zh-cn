@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408916"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701042"
 ---
 # <a name="security-control-v2-data-protection"></a>安全控制 V2：数据保护
 
@@ -34,9 +34,9 @@ ms.locfileid: "94408916"
 
 - [如何实现 Azure SQL 数据发现](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**责任** ：共享
+**责任**：共享
 
-**客户安全利益干系人** （ [了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人**（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [应用程序安全性和 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -50,19 +50,19 @@ ms.locfileid: "94408916"
 |--|--|--|--|
 | DP-2 | 13.2、2.10 | SC-7、AC-4 |
 
-使用 Azure 基于角色的访问控制 (Azure RBAC)、基于网络的访问控制以及 Azure 服务中的特定控制（例如 SQL 和其他数据库中的加密）来限制访问，从而保护敏感数据。 
+通过使用 azure 基于角色的访问控制来限制对敏感数据的访问， (azure RBAC) 、基于网络的访问控制和 Azure 服务中的特定控件 (例如，SQL 中的加密和) 中的其他数据库。 
 
 为了确保一致的访问控制，所有类型的访问控制都应符合企业分段策略。 企业分段策略还应根据敏感的或业务关键型的数据和系统的位置来确定。
 
 对于 Microsoft 管理的基础平台，Microsoft 会将所有客户内容视为敏感数据，全方位防范客户数据丢失和泄露。 为了确保 Azure 中的客户数据始终安全，Microsoft 实施了一些默认的数据保护控制机制和功能。
 
-- [Azure 基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md)
+- [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [了解 Azure 中的客户数据保护](../fundamentals/protection-customer-data.md)
 
-**责任** ：共享
+**责任**：共享
 
-**客户安全利益干系人** （ [了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人**（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [应用程序安全性和 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -88,7 +88,7 @@ Azure 信息保护 (AIP) 提供的监视功能针对已分类并标记的信息�
 
 - [启用 Azure 存储 ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**责任** ：共享
+**责任**：共享
 
 客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -116,7 +116,7 @@ Azure 信息保护 (AIP) 提供的监视功能针对已分类并标记的信息�
 
 - [传输中的 Azure 数据的双重加密](../fundamentals/double-encryption.md#data-in-transit)
 
-**责任** ：共享
+**责任**：共享
 
 客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -146,7 +146,7 @@ Azure 信息保护 (AIP) 提供的监视功能针对已分类并标记的信息�
 
 - [Azure 中的静态数据双重加密](../fundamentals/double-encryption.md#data-at-rest)
 
-**责任** ：共享
+**责任**：共享
 
 客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

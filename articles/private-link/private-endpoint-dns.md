@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369958"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734372"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 专用终结点 DNS 配置
 
@@ -25,9 +25,11 @@ ms.locfileid: "92369958"
 - **使用主机文件（仅建议用于测试）** 。 可以使用虚拟机上的主机文件来替代 DNS。  
 - **使用专用 DNS 区域**。 可使用[专用 DNS 区域](../dns/private-dns-privatednszone.md)来替代特定专用终结点的 DNS 解析。 可将专用 DNS 区域链接到虚拟网络，以解析特定的域。
 - **使用 DNS 转发器（可选）** 。 可使用 DNS 转发器来替代特定专用链接资源的 DNS 解析。 如果 [DNS 服务器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)托管在虚拟网络上，可以创建 DNS 转发规则，以使用专用 DNS 区域来简化所有专用链接资源的配置。
- 
+
 > [!IMPORTANT]
 > 不建议替代正在用于解析公共终结点的区域。 在不 DNS 转发到公共 DNS 的情况下，与资源的连接无法正确解析。 若要避免出现问题，请创建不同的域名，或对以下每个服务采用建议的名称。 
+
+
 
 ## <a name="azure-services-dns-zone-configuration"></a>Azure 服务 DNS 区域配置
 Azure 服务将在公共 DNS 服务上创建一个规范名称 DNS 记录 (CNAME)，以将解析重定向到建议的专用域名。 可以用专用终结点的专用 IP 地址替代解析。 
@@ -93,6 +95,8 @@ DNS 是通过成功解析专用终结点 IP 地址使应用程序正常工作的
 - [使用 DNS 转发器的本地工作负荷](#on-premises-workloads-using-a-dns-forwarder)
 - [使用 DNS 转发器的虚拟网络和本地工作负载](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
+> [!NOTE]
+> [Azure 防火墙 DNS 代理](../firewall/dns-settings.md#dns-proxy) 可用作 [本地工作](#on-premises-workloads-using-a-dns-forwarder) 负荷的 dns 转发器和 [使用 dns 转发器的虚拟网络工作负荷](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)。
 
 ## <a name="virtual-network-workloads-without-custom-dns-server"></a>不带自定义 DNS 服务器的虚拟网络工作负荷
 
@@ -123,7 +127,7 @@ DNS 是通过成功解析专用终结点 IP 地址使应用程序正常工作的
 
 在此方案中，存在一个[中心辐射型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)网络拓扑，辐射网络共享一个专用终结点，所有辐射虚拟网络链接到同一专用 DNS 区域。 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="单个虚拟网络和 Azure 提供的 DNS":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="具有 Azure 提供的 DNS 的中心辐射型拓扑":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>使用 DNS 转发器的本地工作负荷
 
@@ -144,7 +148,7 @@ DNS 是通过成功解析专用终结点 IP 地址使应用程序正常工作的
 
 下图显示了一个本地网络的 DNS 解析序列，该本地网络使用部署在 Azure 中的 DNS 转发器，而解析由[链接到虚拟网络](../dns/private-dns-virtual-network-links.md)的专用 DNS 区域进行：
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="单个虚拟网络和 Azure 提供的 DNS":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="使用 Azure DNS 的本地网络":::
 
 可以为已有 DNS 解决方案的本地网络扩展此配置。 需要配置本地 DNS 解决方案，以便通过引用 Azure 中部署的 DNS 转发器的 [条件转发器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) ，将 dns 流量转发到 Azure DNS。
 
@@ -164,7 +168,7 @@ DNS 是通过成功解析专用终结点 IP 地址使应用程序正常工作的
 > [!IMPORTANT]
 > 条件转发必须指向建议的[公共 DNS 区域转发器](#azure-services-dns-zone-configuration)。 例如： `database.windows.net` 而不是 **privatelink**. database.windows.net。
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="单个虚拟网络和 Azure 提供的 DNS":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="本地转发到 Azure DNS":::
 
 ## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>使用 DNS 转发器的虚拟网络和本地工作负载
 
@@ -191,7 +195,7 @@ DNS 是通过成功解析专用终结点 IP 地址使应用程序正常工作的
 
 下图显示了使用 Azure 中部署的 DNS 转发器的本地和虚拟网络中的 DNS 解析序列，其中的解决方案是通过 [链接到虚拟网络](../dns/private-dns-virtual-network-links.md)的专用 DNS 区域进行的：
 
-:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="单个虚拟网络和 Azure 提供的 DNS":::
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="混合方案":::
 
 ## <a name="next-steps"></a>后续步骤
 - [了解专用终结点](private-endpoint-overview.md)

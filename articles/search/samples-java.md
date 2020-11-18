@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: babd40e0e3a3b7a254a8410313c5d4e3bb2832f0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 26e30b42906a3d8d7a3fcdc013537104a85f32fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686679"
+ms.locfileid: "94701851"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>适用于 Azure 认知搜索的 Java 代码示例
 
@@ -47,5 +47,5 @@ ms.locfileid: "94686679"
 
 | 示例 | 说明 | 
 |---------|-------------|
-| [起步](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart) | [快速入门的源代码：创建搜索索引](search-get-started-javascript.md)。 此示例调用 REST Api。 |
+| [起步](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/quickstart) | [快速入门的源代码：在 Java 中创建搜索索引](search-get-started-java.md)。 此示例调用 REST Api。 |
 | [搜索-java-索引器-演示](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | 演示 Java 中的 Azure Cosmos DB 索引器。 此示例调用 REST Api。 |

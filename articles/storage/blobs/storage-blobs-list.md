@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660757"
+ms.locfileid: "94701307"
 ---
 # <a name="list-blobs-with-net"></a>使用 .NET 列出 blob
 
@@ -64,6 +64,10 @@ ms.locfileid: "94660757"
 - 如果使用的是 .NET v12 SDK，请为 [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) 枚举指定 Metadata  值。
 
 - 如果使用的是 .NET v11 SDK，请为 [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) 枚举指定 Metadata  值。 Azure 存储包含每个返回的 Blob 的元数据，因此在此上下文中，无需同时调用 **FetchAttributes** 方法之一即可检索 Blob 元数据。
+
+### <a name="list-blob-versions-or-snapshots"></a>列出 blob 版本或快照
+
+若要通过 .NET v12 客户端库列出 blob 版本或快照，请在 "**版本**" 或 "**快照**" 字段中指定 [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates)参数。 版本和快照从最旧到最新列出。 有关列出版本的详细信息，请参阅 [列出 blob 版本](versioning-enable.md#list-blob-versions)。
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>平面列表与分层列表
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: dd9e67b8cea88421986d4ca9e3545c6dce618672
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626395"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737007"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>对 Azure 文件同步进行故障排除
 使用 Azure 文件同步，即可将组织的文件共享集中在 Azure 文件中，同时又不失本地文件服务器的灵活性、性能和兼容性。 Azure 文件同步可将 Windows Server 转换为 Azure 文件共享的快速缓存。 可以使用 Windows Server 上可用的任意协议本地访问数据，包括 SMB、NFS 和 FTPS。 并且可以根据需要在世界各地具有多个缓存。
@@ -134,7 +134,7 @@ Reset-StorageSyncServer
 1. 在 Azure 门户中，选择“资源组”。
 2. 选择存储帐户所在的资源组，再选择“访问控制(IAM)”。
 3. 选择“角色分配”选项卡。
-4. 为用户帐户选择 **角色** （例如“所有者”或“参与者”）。
+4. 为用户帐户选择 **角色**（例如“所有者”或“参与者”）。
 5. 在“资源提供程序”列表中，选择“Microsoft 授权”。  
     * “角色分配”应具有“读取”和“写入”权限。  
     * “角色定义”应具有“读取”和“写入”权限。  
@@ -154,7 +154,7 @@ Reset-StorageSyncServer
 发生此错误的原因是，Azure 文件同步不支持具有压缩的“系统卷信息”文件夹的卷上的服务器终结点。 要解决此问题，请解压缩“系统卷信息”文件夹。 如果“系统卷信息”文件夹是在该卷上唯一压缩的文件夹，请执行以下步骤：
 
 1. 下载 [PsExec](/sysinternals/downloads/psexec) 工具。
-2. 在提升的命令提示符处运行以下命令，以启动在系统帐户下运行的命令提示符： **PsExec.exe -i -s -d cmd**
+2. 在提升的命令提示符处运行以下命令，以启动在系统帐户下运行的命令提示符：**PsExec.exe -i -s -d cmd**
 3. 在系统帐户下运行的命令提示符处，键入以下命令，然后按 Enter：   
     cd /d "drive letter:\System Volume Information"  
     compact /u /s
@@ -852,10 +852,10 @@ PerItemErrorCount: 1006.
 若要解决此问题，请执行以下步骤：
 
 1. 下载 [Psexec](/sysinternals/downloads/psexec) 工具。
-2. 在提升的命令提示符处运行以下命令，以使用系统帐户启动命令提示符： **PsExec.exe -i -s -d cmd** 
-3. 在命令提示符（在系统帐户下运行）处运行以下命令，确认 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹： **cacls "驱动器号:\system volume information" /T /C**
-4. 如果 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹，请运行以下命令： **cacls  "驱动器号:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
-    - 如果步骤 4 失败并出现访问被拒绝错误，请运行以下命令来获取 System Volume Information 文件夹的所有权，然后重复步骤 4： **takeown /A /R /F "驱动器号:\System Volume Information"**
+2. 在提升的命令提示符处运行以下命令，以使用系统帐户启动命令提示符：**PsExec.exe -i -s -d cmd** 
+3. 在命令提示符（在系统帐户下运行）处运行以下命令，确认 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹：**cacls "驱动器号:\system volume information" /T /C**
+4. 如果 NT AUTHORITY\SYSTEM 帐户无权访问服务器终结点所在卷上的 System Volume Information 文件夹，请运行以下命令：**cacls  "驱动器号:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
+    - 如果步骤 4 失败并出现访问被拒绝错误，请运行以下命令来获取 System Volume Information 文件夹的所有权，然后重复步骤 4：**takeown /A /R /F "驱动器号:\System Volume Information"**
 
 <a id="-2134375810"></a>**由于已删除并重新创建 Azure 文件共享，同步失败。**  
 
@@ -1004,7 +1004,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**确保 Azure 文件同步有权访问存储帐户。**  
 # <a name="portal"></a>[门户](#tab/azure-portal)
 1. 在左侧的目录上单击“访问控制(IAM)”。
-1. 单击“角色分配”选项卡以列出有权访问你的存储帐户的用户和应用程序（ *服务主体* ）。
+1. 单击“角色分配”选项卡以列出有权访问你的存储帐户的用户和应用程序（*服务主体*）。
 1. 使用“读取器和数据访问”角色验证列表中是否显示“Microsoft.StorageSync”或“混合文件同步服务”（旧应用程序名称）。 
 
     ![存储帐户访问控制选项卡中的“混合文件同步服务”服务主体的屏幕截图](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
@@ -1266,7 +1266,24 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 如果问题未得到解决，请运行 AFSDiag 工具，并将其 .zip 文件输出发送到分配给你的用例的支持工程师做进一步诊断。
 
-若要运行 AFSDiag，请执行以下步骤：
+若要运行 AFSDiag，请执行以下步骤。
+
+对于代理版本 v11 和更高版本：
+1. 打开权限提升的 PowerShell 窗口并运行以下命令（在每条命令后面按 Enter）：
+
+    > [!NOTE]
+    >AFSDiag 会在收集日志之前在其中创建输出目录和临时文件夹，并将在执行后删除临时文件夹。 指定不包含数据的输出位置。
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. 重现问题。 完成后，输入 **D**。
+3. 随即会将一个包含日志和跟踪文件的 .zip 文件保存到指定的输出目录。 
+
+对于 v10 和更早版本的代理：
 1. 创建用于保存 AFSDiag 输出的目录（例如，C:\Output）。
     > [!NOTE]
     >AFSDiag 会在收集日志之前删除输出目录中的所有内容。 指定不包含数据的输出位置。
@@ -1278,10 +1295,11 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
     Debug-Afs c:\output # Note: Use the path created in step 1.
     ```
 
-3. 对于 Azure 文件同步内核模式跟踪级别，请输入 **1** （除非指定为创建更详细的跟踪）并按 Enter。
-4. 对于 Azure 文件同步用户模式跟踪级别，请输入 **1** （除非指定为创建更详细的跟踪）并按 Enter。
-5. 重现问题。 完成后，输入 **D** 。
+3. 对于 Azure 文件同步内核模式跟踪级别，请输入 **1**（除非指定为创建更详细的跟踪）并按 Enter。
+4. 对于 Azure 文件同步用户模式跟踪级别，请输入 **1**（除非指定为创建更详细的跟踪）并按 Enter。
+5. 重现问题。 完成后，输入 **D**。
 6. 随即会将一个包含日志和跟踪文件的 .zip 文件保存到指定的输出目录。
+
 
 ## <a name="see-also"></a>另请参阅
 - [监视 Azure 文件同步](storage-sync-files-monitoring.md)

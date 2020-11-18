@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9af6311165f50023cfca8f9253f77b4c84c25dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7589b13dc517a23e8d9d65907fb3342e4e2490a9
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500923"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734331"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>在 Azure CLI 中使用网络安全组筛选网络流量
 
@@ -33,12 +33,11 @@ ms.locfileid: "87500923"
 * 将虚拟机 (VM) 部署到子网中
 * 测试流量筛选器
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 
-
+- 本文要求 Azure CLI 版本2.0.28 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
 

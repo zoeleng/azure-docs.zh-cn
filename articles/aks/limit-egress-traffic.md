@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380205"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701596"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>控制 Azure Kubernetes 服务 (AKS) 中群集节点的出口流量
 
@@ -209,8 +209,10 @@ _ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 
 | FQDN                                          | 端口      | 用途      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 此地址用于正确操作 Azure Policy。 （AKS 中目前为预览版） |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 此地址用于从 GitHub 请求内置策略，以确保正确操作 Azure Policy。 （AKS 中目前为预览版） |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | 此地址用于请求 Kubernetes 策略，并向策略服务报告群集相容性状态。 |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | 此地址用于拉取内置策略的网关守卫项目。 |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 此地址用于正确操作 Azure Policy。  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 此地址用于从 GitHub 请求内置策略，以确保正确操作 Azure Policy。 |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy 加载项，用于向应用程序见解终结点发送遥测数据。 |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>使用 Azure 防火墙限制出口流量

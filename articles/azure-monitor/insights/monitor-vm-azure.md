@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491624"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738095"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>使用 Azure Monitor 监视 Azure 虚拟机
 本文介绍如何使用 Azure Monitor 从 Azure 虚拟机收集和分析监视数据以维护其运行状况。 可以使用 Azure Monitor 监视虚拟机的可用性和性能，就像监视任何[其他 Azure 资源](monitor-azure-resource.md)一样，但是它们与其他资源不同，因为你还需要监视客户操作和系统以及在其中运行的工作负载。 
@@ -207,7 +207,7 @@ Azure Monitor 中的[警报](../platform/alerts-overview.md)会在监视数据�
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Heartbeat
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701127"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>在 Azure 认知搜索中创建基本搜索索引
 
@@ -59,18 +59,18 @@ ms.locfileid: "88932876"
 
    ![“添加索引”页，其中按数据类型显示了属性](media/search-what-is-an-index//field-definitions.png "“添加索引”页，其中按数据类型显示了属性")
 
-1. 使用[获取索引 (REST API)](/rest/api/searchservice/get-index) 和 [Postman](search-get-started-postman.md) 等 Web 测试工具下载索引架构。 现在你有可以为代码进行调整的索引的 JSON 表示形式。
+1. 使用[获取索引 (REST API)](/rest/api/searchservice/get-index) 和 [Postman](search-get-started-rest.md) 等 Web 测试工具下载索引架构。 现在你有可以为代码进行调整的索引的 JSON 表示形式。
 
 1. [加载索引和数据](search-what-is-data-import.md)。 Azure 认知搜索接受 JSON 文档。 若要以编程方式加载数据，可以在请求有效负载中使用包含 JSON 文档的 Postman。 如果无法轻松将数据表示为 JSON，此步骤耗费的精力是最大的。 
 
     将索引随数据一并加载后，对现有字段执行的大多数编辑操作都需要删除和重新生成索引。
 
-1. 查询索引，检查结果，并进一步迭代索引架构，直到开始看到预期的结果。 可以使用[**搜索资源管理器**](search-explorer.md)或 Postman 来查询索引。
+1. 查询索引，检查结果，并进一步迭代索引架构，直到开始看到预期的结果。 可以使用 [**搜索资源管理器**](search-explorer.md)或 Postman 来查询索引。
 
 在开发过程中，规划频繁的重新生成。 由于物理结构是在服务中创建的，对现有的字段定义进行的许多更改，都必须[删除并重新创建索引](search-howto-reindex.md)。 可以考虑使用一部分数据来加快重新生成的速度。 
 
 > [!Tip]
-> 建议在索引设计和数据导入中都使用代码（而不是门户方法）。 如果开发项目仍处于早期阶段，[Postman 和 REST API](search-get-started-postman.md) 等备选工具也有助于完成概念证明测试。 可对请求正文中的索引定义进行增量更改，然后将请求发送到服务，以使用更新的架构重新创建索引。
+> 建议在索引设计和数据导入中都使用代码（而不是门户方法）。 作为一种替代方法，当开发项目仍处于初期阶段时， [Postman 和 Visual Studio Code](search-get-started-rest.md) 之类的工具对于概念验证测试非常有用。 可对请求正文中的索引定义进行增量更改，然后将请求发送到服务，以使用更新的架构重新创建索引。
 
 ## <a name="index-schema"></a>索引架构
 
@@ -197,7 +197,7 @@ ms.locfileid: "88932876"
 |“sortable” |默认情况下，系统按分数对结果进行排序，但可以配置基于文档中字段的排序。 `Collection(Edm.String)` 类型的字段不能为“sortable”。 |  
 |“facetable” |通常用于包括了按类别（例如特定城市中的宾馆）的命中次数的搜索结果呈现中。 此选项无法与 `Edm.GeographyPoint` 类型的字段一起使用。 `Edm.String` 类型的字段为可筛选，“sortable”或“facetable”字段的长度最多可以是 32 千字节。 有关详细信息，请参阅[创建索引 (REST API)](/rest/api/searchservice/create-index)。|  
 |“key” |文档在索引内的唯一标识符。 必须仅选择单个字段作为键字段，并且它必须是 `Edm.String` 类型的。|  
-|“retrievable” |决定了是否可以在搜索结果中返回此字段。 当希望将某个字段（例如“利润”）用作筛选器、排序或评分机制，但不希望该字段显示给最终用户时，这很有用。** 对于 `key` 字段，此属性必须为 `true`。|  
+|“retrievable” |决定了是否可以在搜索结果中返回此字段。 当希望将某个字段（例如“利润”）用作筛选器、排序或评分机制，但不希望该字段显示给最终用户时，这很有用。 对于 `key` 字段，此属性必须为 `true`。|  
 
 尽管可以随时添加新字段，但在索引的生存期内现有字段定义将被锁定。 因此，开发人员通常使用门户创建简单索引、测试创意，或者使用门户页面来查找设置。 如果采用基于代码的方式以便可以轻松重新生成索引，那么对索引进行频繁迭代的设计就更为高效。
 

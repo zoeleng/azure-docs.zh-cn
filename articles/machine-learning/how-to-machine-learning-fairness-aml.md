@@ -1,26 +1,24 @@
 ---
 title: 在 Python 中评估机器学习模型的公平性（预览版）
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure 机器学习中评估模型的公平性
+description: 了解如何使用 Fairlearn 和 Azure 机器学习 Python SDK 评估和缓解机器学习模型的公平。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701178"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>将 Azure 机器学习与 Fairlearn 开源程序包配合使用来评估机器学习模型的公平性（预览版）
-
-
 
 在本操作指南中，你将了解如何将 [Fairlearn](https://fairlearn.github.io/) 开源 Python 程序包与 Azure 机器学习配合使用来执行以下任务：
 
@@ -306,7 +304,7 @@ pip install fairlearn==0.4.6
     ```
 
 
-    与上一部分类似，你可以在 Azure 机器学习工作室中遵循上述路径之一（使用 **试验** 或 **模型** ）来访问可视化结果仪表板，并比较两个模型的公平性和性能。
+    与上一部分类似，你可以在 Azure 机器学习工作室中遵循上述路径之一（使用 **试验** 或 **模型**）来访问可视化结果仪表板，并比较两个模型的公平性和性能。
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>上传未修正和已修正公平性见解
