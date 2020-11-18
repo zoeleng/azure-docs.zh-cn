@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684502"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843989"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -76,7 +76,7 @@ ms.locfileid: "94684502"
 
 设置 VM 诊断的专用存储帐户。
 
-托管磁盘支持哪类基于角色的访问控制？
+**托管磁盘可以使用哪种类型的 Azure 基于角色的访问控制支持？**
 
 托管磁盘支持三个密钥默认角色：
 
@@ -473,15 +473,15 @@ Azure 全球、 Microsoft Azure 政府和 Azure 中国世纪互联涵盖的所�
 
 **是否可以将多个虚拟网络链接到相同的磁盘访问对象？**
 
-不能。 目前，只能将磁盘访问对象链接到一个虚拟网络。
+不是。 目前，只能将磁盘访问对象链接到一个虚拟网络。
 
 **是否可以将虚拟网络链接到其他订阅中的磁盘访问对象？**
 
-不能。 目前，可以将磁盘访问对象链接到同一订阅中的虚拟网络。
+不是。 目前，可以将磁盘访问对象链接到同一订阅中的虚拟网络。
 
 **是否可以将虚拟网络链接到其他订阅中的磁盘访问对象？**
 
-不能。 目前，可以将磁盘访问对象链接到同一订阅中的虚拟网络。
+不是。 目前，可以将磁盘访问对象链接到同一订阅中的虚拟网络。
 
 **可以同时发生多少次使用同一磁盘访问对象的导出或导入？**
 
@@ -489,11 +489,11 @@ Azure 全球、 Microsoft Azure 政府和 Azure 中国世纪互联涵盖的所�
 
 **是否可以使用磁盘/快照的 SAS URI 来下载与该磁盘关联的专用终结点的子网中的 VM 的基础 VHD？**
 
-是。
+是的。
 
 **是否可以使用磁盘/快照的 SAS URI 下载 VM 的基础 VHD，该虚拟机不在与该磁盘关联的专用终结点的子网中。**
 
-不能。
+不是。
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果未在此处找到相关问题怎么办？
 

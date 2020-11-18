@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009250"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843632"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>在 Windows 虚拟桌面中创建租户和主机池 (经典) 
 
@@ -26,7 +26,7 @@ ms.locfileid: "88009250"
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>获取 Windows 10 企业多会话映像
 
-若要使用 Windows 10 企业多会话映像，请转到 Azure Marketplace，选择 "**入门**  >  **Microsoft Windows 10** > 和[Windows 10 Enterprise for Virtual 台式电脑，版本 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)。
+若要使用 Windows 10 企业多会话映像，请转到 Azure Marketplace，选择 "**入门**  >  **Microsoft Windows 10** > 和 [Windows 10 Enterprise for Virtual 台式电脑，版本 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)。
 
 > [!div class="mx-imgBorder"]
 > ![为虚拟桌面选择 Windows 10 企业版（版本1809）的屏幕截图。](../media/AzureMarketPlace.png)
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>错误：用户需要 Azure 多重身份验证(MFA)
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>错误：用户需要 (MFA Azure AD 多重身份验证) 
 
 > [!div class="mx-imgBorder"]
 > ![部署的屏幕截图失败，因为缺少多重身份验证 (MFA) ](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**原因：** 指定的 Windows 虚拟桌面租户管理员需要 Azure 多重身份验证 (MFA) 才能登录。
+**原因：** 指定的 Windows 虚拟桌面租户管理员需要 Azure AD 多重身份验证 (MFA) 登录。
 
 **修复：** 按照 [教程：使用 PowerShell 创建服务主体和角色分配](create-service-principal-role-powershell.md)中的步骤，创建服务主体，并为其分配一个适用于 Windows 虚拟桌面租户的角色。 在验证是否可以使用服务主体登录到 Windows 虚拟桌面后，重新运行 Azure Marketplace 产品/服务或 GitHub Azure 资源管理器模板，具体取决于所使用的方法。 按照以下说明为方法输入正确的参数。
 
@@ -408,7 +408,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 **原因：** 在 WVD Marketplace 模板中，UI 只显示至少与模板中指定的 Vm 总数相同的 IP 地址的子网。 子网中的实际可用 IP 地址数只需等于正在部署的新 Vm 的数目，但当前 UI 无法计算此值。
 
-**修复：** 你可以指定一个子网，其中至少有与不使用 Marketplace UI 所添加的 Vm 数一样多的 IP 地址，可以通过在[使用 GitHub 中的基础 ARM 模板](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool)重新部署[现有部署](expand-existing-host-pool-2019.md#redeploy-from-azure)或部署时，在 "**existingSubnetName**" 参数中指定子网名称来完成此操作。
+**修复：** 你可以指定一个子网，其中至少有与不使用 Marketplace UI 所添加的 Vm 数一样多的 IP 地址，可以通过在 [使用 GitHub 中的基础 ARM 模板](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool)重新部署 [现有部署](expand-existing-host-pool-2019.md#redeploy-from-azure)或部署时，在 "**existingSubnetName**" 参数中指定子网名称来完成此操作。
 
 ## <a name="next-steps"></a>后续步骤
 

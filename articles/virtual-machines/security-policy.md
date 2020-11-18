@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977742"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843547"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>在 Azure 中保护和使用虚拟机上的策略
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) 中的 Azure 资源托管标识功能可以解
 
 可以使用 [Azure 策略](../governance/policy/overview.md)为组织的 [Windows VM](./windows/policy.md) 和 [Linux VM](./linux/policy.md) 定义所需行为。 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。
 
-## <a name="role-based-access-control"></a>基于角色的访问控制
+## <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
 
 使用 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md)，可以在团队中对职责进行分配，仅将执行作业所需的最低访问权限授予 VM 上的用户。 可以仅允许某些操作，而不是向 VM 上的每个人授予不受限制的权限。 可以使用 [Azure CLI](/cli/azure/role) 或 [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) 为 [Azure 门户](../role-based-access-control/role-assignments-portal.md)中的 VM 配置访问控制。
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 13540f6a4c2e80da390298f7deaf050cd913487f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e5b54f0eb3f068e1697b8541373ed84692448a59
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320048"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844823"
 ---
 # <a name="monitoring-azure-table-storage"></a>监视 Azure 表存储
 
@@ -50,7 +50,7 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
 
 如果需要，可以继续使用经典指标和日志。 实际上，经典指标和日志可与 Azure Monitor 中的指标和日志同时使用。 在 Azure 存储终止旧指标和日志的服务之前，支持范围保持不变。
 
-## <a name="collection-and-routing"></a>集合和路由
+## <a name="collection-and-routing"></a>收集和路由
 
 平台指标和活动日志是自动收集的，但可以使用诊断设置将其路由到其他位置。 
 
@@ -77,14 +77,14 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
 
 2. 导航到自己的存储帐户。
 
-3. 在 " **监视** " 部分中，单击 " **诊断设置" (预览 ")** 。
+3. 在 " **监视** " 部分中，单击 " **诊断设置" (预览 ")**。
 
    > [!div class="mx-imgBorder"]
    > ![门户 - 诊断日志](media/monitor-table-storage/diagnostic-logs-settings-pane.png)   
 
 4. 选择 " **表** " 作为要为其启用日志的存储类型。
 
-5. 单击“添加诊断设置”  。
+5. 单击“添加诊断设置”。
 
    > [!div class="mx-imgBorder"]
    > ![门户-资源日志-添加诊断设置](media/monitor-table-storage/diagnostic-logs-settings-pane-2.png)
@@ -526,7 +526,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 你可以在 **日志搜索** 栏中输入一些查询，以帮助你监视表存储。 这些查询使用[新语言](../../azure-monitor/log-query/log-query-overview.md)。
 
 > [!IMPORTANT]
-> 从存储帐户资源组菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前资源组。 这意味着日志查询只包含来自该资源组的数据。 如果要运行的查询包含来自其他资源或来自其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 " **日志** "。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../../azure-monitor/log-query/scope.md)。
+> 从存储帐户资源组菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前资源组。 这意味着日志查询只包含来自该资源组的数据。 如果要运行的查询包含来自其他资源或来自其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 "**日志**"。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../../azure-monitor/log-query/scope.md)。
 
 使用以下查询可帮助你监视 Azure 存储帐户：
 

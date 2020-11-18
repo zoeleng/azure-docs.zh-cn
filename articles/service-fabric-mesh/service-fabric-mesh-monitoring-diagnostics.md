@@ -5,13 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
-ms.custom: mvc, devcenter
-ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: eda0b62729343b0a138d027548d8750b1e0fc74f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248401"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844397"
 ---
 # <a name="monitoring-and-diagnostics"></a>监视和诊断
 Azure Service Fabric 网格是一个完全托管的服务，由此开发者可部署微服务应用程序，而无需管理虚拟机、存储或网络。 Service Fabric 网格的监控和诊断分为三大类型诊断数据：
@@ -51,11 +51,11 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 | AllocatedMemory | 按 Azure 资源管理器模板分配的内存 | MB |
 | ActualCpu | CPU 使用率 | Millicores |
 | ActualMemory | 内存使用率 | MB |
-| ContainerStatus | 0-无效：容器状态未知 <br> 1-挂起：容器已计划启动 <br> 2-正在启动：容器处于启动过程中 <br> 3-已启动：容器已成功启动 <br> 4-正在停止：正在停止容器 <br> 5-已停止：容器已成功停止 | 不适用 |
-| ApplicationStatus | 0-未知：状态不可检索 <br> 1-准备就绪：应用程序正在成功运行 <br> 2-正在升级：正在进行升级 <br> 3-正在创建：正在创建应用程序 <br> 4-正在删除：正在删除应用程序 <br> 5-失败：应用程序部署失败 | 不适用 |
-| ServiceStatus | 0-无效：服务当前没有运行状况状态 <br> 1-正常：服务正常  <br> 2-警告：可能有问题需要调查 <br> 3-错误：需要调查的内容有误 <br> 4-未知：状态不可检索 | 不适用 |
-| ServiceReplicaStatus | 0-无效：副本当前不具有运行状况状态 <br> 1-正常：服务正常  <br> 2-警告：可能有问题需要调查 <br> 3-错误：需要调查的内容有误 <br> 4-未知：状态不可检索 | 不适用 | 
-| RestartCount | 容器重启次数 | 不适用 |
+| ContainerStatus | 0-无效：容器状态未知 <br> 1-挂起：容器已计划启动 <br> 2-正在启动：容器处于启动过程中 <br> 3-已启动：容器已成功启动 <br> 4-正在停止：正在停止容器 <br> 5-已停止：容器已成功停止 | 空值 |
+| ApplicationStatus | 0-未知：状态不可检索 <br> 1-准备就绪：应用程序正在成功运行 <br> 2-正在升级：正在进行升级 <br> 3-正在创建：正在创建应用程序 <br> 4-正在删除：正在删除应用程序 <br> 5-失败：应用程序部署失败 | 空值 |
+| ServiceStatus | 0-无效：服务当前没有运行状况状态 <br> 1-正常：服务正常  <br> 2-警告：可能有问题需要调查 <br> 3-错误：需要调查的内容有误 <br> 4-未知：状态不可检索 | 空值 |
+| ServiceReplicaStatus | 0-无效：副本当前不具有运行状况状态 <br> 1-正常：服务正常  <br> 2-警告：可能有问题需要调查 <br> 3-错误：需要调查的内容有误 <br> 4-未知：状态不可检索 | 空值 | 
+| RestartCount | 容器重启次数 | 空值 |
 
 > [!NOTE]
 > ServiceStatus 和 ServiceReplicaStatus 值与 Service Fabric 中的 [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) 相同。 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8dc99cda4128635e619afec5ed725da16bbd81ed
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629880"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843819"
 ---
 # <a name="monitoring-azure-files"></a>监视 Azure 文件
 
@@ -46,7 +46,7 @@ Azure 文件收集与其他 Azure 资源相同的监视数据，如 [监视 Azur
 
 Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户。 Azure Monitor 不支持经典存储帐户。 如果要使用经典存储帐户上的指标或日志，则需要迁移到 Azure 资源管理器存储帐户。 请参阅[迁移到 Azure 资源管理器](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)。
 
-## <a name="collection-and-routing"></a>集合和路由
+## <a name="collection-and-routing"></a>收集和路由
 
 平台指标和活动日志是自动收集的，但可以使用诊断设置将其路由到其他位置。 
 
@@ -75,14 +75,14 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
 
 2. 导航到自己的存储帐户。
 
-3. 在 " **监视** " 部分中，单击 " **诊断设置" (预览 ")** 。
+3. 在 " **监视** " 部分中，单击 " **诊断设置" (预览 ")**。
 
    > [!div class="mx-imgBorder"]
    > ![门户 - 诊断日志](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
 
 4. 选择 " **文件** " 作为要为其启用日志的存储类型。
 
-5. 单击“添加诊断设置”  。
+5. 单击“添加诊断设置”。
 
    > [!div class="mx-imgBorder"]
    > ![门户-资源日志-添加诊断设置](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
@@ -514,7 +514,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 下面是一些可以在 **日志搜索** 栏中输入以帮助你监视 Azure 文件的查询。 这些查询使用[新语言](../../azure-monitor/log-query/log-query-overview.md)。
 
 > [!IMPORTANT]
-> 从存储帐户资源组菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前资源组。 这意味着日志查询只包含来自该资源组的数据。 如果要运行的查询包含来自其他资源或来自其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 " **日志** "。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../../azure-monitor/log-query/scope.md)。
+> 从存储帐户资源组菜单中选择 **日志** 时，会打开 Log Analytics 并将查询范围设置为当前资源组。 这意味着日志查询只包含来自该资源组的数据。 如果要运行的查询包含来自其他资源或来自其他 Azure 服务的数据，请从 " **Azure Monitor** " 菜单中选择 "**日志**"。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../../azure-monitor/log-query/scope.md)。
 
 使用以下查询来帮助你监视 Azure 文件共享：
 
@@ -559,7 +559,7 @@ StorageFileLogs
 
 ## <a name="alerts"></a>警报
 
-在监视数据中发现重要情况时，Azure Monitor 警报会主动通知你。 它们允许你确定和解决你的系统中的问题，然后客户就会注意到它们。 你可以对 [指标](../../azure-monitor/platform/alerts-metric-overview.md)、 [日志](../../azure-monitor/platform/alerts-unified-log.md)和 [活动日志](../../azure-monitor/platform/activity-log-alerts.md)设置警报。 
+在监视数据中发现重要情况时，Azure Monitor 警报会主动通知你。 有了警报，你就可以在客户注意到你的系统中的问题之前确定和解决它们。 可以在[指标](../../azure-monitor/platform/alerts-metric-overview.md)、[日志](../../azure-monitor/platform/alerts-unified-log.md)和[活动日志](../../azure-monitor/platform/activity-log-alerts.md)上设置警报。 
 
 下表列出了一些要监视的示例方案和用于警报的适当指标：
 
@@ -573,9 +573,9 @@ StorageFileLogs
 
 1. 在 Azure 门户 中转到自己的存储帐户。 
 
-2. 单击 " **警报** "，然后单击 " **+ 新建警报规则** "。
+2. 单击 " **警报** "，然后单击 " **+ 新建警报规则**"。
 
-3. 单击 " **编辑资源** "，选择 **文件资源类型** ，然后单击 " **完成** "。 
+3. 单击 " **编辑资源**"，选择 **文件资源类型** ，然后单击 " **完成**"。 
 
 4. 单击 " **选择条件** " 并为警报提供以下信息： 
 
@@ -585,7 +585,7 @@ StorageFileLogs
 
 5. 单击 " **选择操作组** "，并将操作组 (电子邮件、短信等 ) 添加到警报，方法是选择现有操作组或创建新的操作组。
 
-6. 填写警报 **详细信息** ，如 **警报规则名称** 、 **描述** 和 **严重性** 。
+6. 填写警报 **详细信息** ，如 **警报规则名称**、 **描述** 和 **严重性**。
 
 7. 单击“创建警报规则”以创建警报。
 
@@ -595,7 +595,7 @@ StorageFileLogs
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>如何创建文件共享受到限制时的警报
 
 1. 在 Azure 门户 中转到自己的存储帐户。
-2. 在 " **监视** " 部分中，单击 " **警报** "，然后单击 " **+ 新建警报规则** "。
+2. 在 " **监视** " 部分中，单击 " **警报**"，然后单击 " **+ 新建警报规则**"。
 3. 单击“编辑资源”，为存储帐户选择“文件资源类型”，然后单击“完成”。 例如，如果存储帐户名称为，则 `contoso` 选择 `contoso/file` 资源。
 4. 单击“选择条件”以添加条件。
 5. 你将看到存储帐户支持的信号列表，请选择“事务”指标。
@@ -603,7 +603,7 @@ StorageFileLogs
 7. 单击“维度值”下拉列表，并选择“SuccessWithThrottling”（对于 SMB）或“ClientThrottlingError”（对于 REST）。
 
    > [!NOTE]
-   > 如果 SuccessWithThrottling 或 ClientThrottlingError 维度值未列出，则意味着资源尚未受到限制。 若要添加维度值，请单击 " **维度值** " 下拉箭头旁边的 " **添加自定义值** "，键入 " **SuccessWithThrottling** " 或 " **ClientThrottlingError** "，然后单击 **"确定"** ，然后重复步骤 #7。
+   > 如果 SuccessWithThrottling 或 ClientThrottlingError 维度值未列出，则意味着资源尚未受到限制。 若要添加维度值，请单击 "**维度值**" 下拉箭头旁边的 "**添加自定义值**"，键入 " **SuccessWithThrottling** " 或 " **ClientThrottlingError**"，然后单击 **"确定"** ，然后重复步骤 #7。
 
 8. 单击“维度名称”下拉列表并选择“文件共享”。
 9. 单击“维度值”下拉列表，并选择要对其发出警报的文件共享。
@@ -617,26 +617,26 @@ StorageFileLogs
     > 如果你使用的是静态阈值，并且文件共享当前受到限制，则可通过指标图表来确定合理的阈值。 如果使用的是动态阈值，则指标图表将显示基于最新数据计算出的阈值。
 
 11. 单击“选择操作组”，通过选择现有操作组或创建新的操作组，将一个操作组（电子邮件、短信等）添加到警报中。
-12. 填写警报 **详细信息** ，如 **警报规则名称** 、* * 说明和 **严重性** 。
+12. 填写警报 **详细信息** ，如 **警报规则名称**、* * 说明和 **严重性**。
 13. 单击“创建警报规则”以创建警报。
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>如何在 Azure 文件共享大小为容量的80% 时创建警报
 
 1. 在 Azure 门户 中转到自己的存储帐户。
-2. 在 " **监视** " 部分中，单击 " **警报** "，然后单击 " **+ 新建警报规则** "。
+2. 在 " **监视** " 部分中，单击 " **警报** "，然后单击 " **+ 新建警报规则**"。
 3. 单击“编辑资源”，为存储帐户选择“文件资源类型”，然后单击“完成”。 例如，如果存储帐户名称为，则 `contoso` 选择 `contoso/file` 资源。
 4. 单击“选择条件”以添加条件。
 5. 你会看到存储帐户支持的信号列表，请选择 " **文件容量** " 指标。
-6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享** "。
+6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享**"。
 7. 单击“维度值”下拉列表，并选择要对其发出警报的文件共享。
 
    > [!NOTE]
    > 如果文件共享是标准文件共享，请选择“所有当前值和将来值”。 “维度值”下拉列表不会列出文件共享，因为每共享指标不可用于标准文件共享。 标准文件共享的警报基于存储帐户中的所有文件共享。 因为每共享指标不可用于标准文件共享，所以建议为每个存储帐户使用一个文件共享。
 
 8. 输入 **阈值** （以字节为单位）。 例如，如果文件共享大小为 100 TiB，并且你希望在文件共享大小为容量80% 时收到警报，则阈值为87960930222080。
-9. 定义其余的 **警报参数** (聚合粒度和计算频率) 并单击 " **完成** "。
+9. 定义其余的 **警报参数** (聚合粒度和计算频率) 并单击 " **完成**"。
 10. 单击“选择操作组”，通过选择现有操作组或创建新的操作组，将一个操作组（电子邮件、短信等）添加到警报中。
-11. 填写警报 **详细信息** ，如 **警报规则名称** 、* * 说明和 **严重性** 。
+11. 填写警报 **详细信息** ，如 **警报规则名称**、* * 说明和 **严重性**。
 12. 单击“创建警报规则”以创建警报。
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>如果 Azure 文件共享出口在一天内超过 500 GiB，如何创建警报
@@ -646,17 +646,17 @@ StorageFileLogs
 3. 单击“编辑资源”，为存储帐户选择“文件资源类型”，然后单击“完成”。 例如，如果存储帐户名称为“contoso”，则选择“contoso/文件”资源。
 4. 单击“选择条件”以添加条件。
 5. 你会看到存储帐户支持的信号列表，请选择 **出口** 指标。
-6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享** "。
+6. 在 " **配置信号逻辑** " 边栏选项卡上，单击 " **维度名称** " 下拉箭头，然后选择 " **文件共享**"。
 7. 单击“维度值”下拉列表，并选择要对其发出警报的文件共享。
 
    > [!NOTE]
    > 如果文件共享是标准文件共享，请选择“所有当前值和将来值”。 “维度值”下拉列表不会列出文件共享，因为每共享指标不可用于标准文件共享。 标准文件共享的警报基于存储帐户中的所有文件共享。 因为每共享指标不可用于标准文件共享，所以建议为每个存储帐户使用一个文件共享。
 
 8. 为 "阈值" 输入 **536870912000** 字节。 
-9. 单击 " **聚合粒度** " 下拉箭头，然后选择 " **24 小时** "。
-10. 选择 **评估频率** ，并 **单击 "完成** "。
+9. 单击 " **聚合粒度** " 下拉箭头，然后选择 " **24 小时**"。
+10. 选择 **评估频率** ，并 **单击 "完成**"。
 11. 单击“选择操作组”，通过选择现有操作组或创建新的操作组，将一个操作组（电子邮件、短信等）添加到警报中。
-12. 填写警报 **详细信息** ，如 **警报规则名称** 、* * 说明和 **严重性** 。
+12. 填写警报 **详细信息** ，如 **警报规则名称**、* * 说明和 **严重性**。
 13. 单击“创建警报规则”以创建警报。
 
 ## <a name="next-steps"></a>后续步骤

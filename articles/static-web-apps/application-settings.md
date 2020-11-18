@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-js
-ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 00502c97e3fc06972c27cedf565d77b52f558795
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250022"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844806"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>为 Azure 静态 Web 应用预览版配置应用程序设置
 
@@ -144,7 +144,7 @@ Azure CLI 命令需要一些特定于帐户的值才能运行上传。 在静态
 2. 资源组名称
 3. 订阅 ID
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Azure 静态 Web 应用配置视图":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Azure 静态 Web 应用概述":::
 
 4. 从终端或命令行执行以下命令。 确保将 `<YOUR_STATIC_SITE_NAME>`、`<YOUR_RESOURCE_GROUP_NAME>` 和 `<YOUR_SUBSCRIPTION_ID>` 的占位符替换为“概述”窗口中的值。
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 739245a8a17c97f3a8081cfee7e7bb31e4135952
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993483"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843972"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure 上的 Oracle VM 映像及其部署
 
@@ -109,10 +109,6 @@ Microsoft Azure 是一种用于运行 Oracle Database 的已授权云环境。 �
 Oracle 数据库通常需要更高端存储器和 IO。 出于此原因，建议对这些工作负荷使用[内存优化 VM](../../sizes-memory.md)。 若要进一步优化工作负荷，建议将[受约束的核心 vCPU](../../constrained-vcpu.md) 用于需要高端存储器、存储和 I/O 带宽，但不需要高核心计数的 Oracle Database 工作负荷。
 
 将 Oracle 软件和工作负荷从本地迁移到 Microsoft Azure 时，Oracle 提供了许可移动性，如 [Azure 上的 Oracle 常见问题解答](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)中所述
-
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-
-Oracle Real 应用程序群集 (Oracle RAC) 用于减少本地多节点群集配置中单一节点的故障。 它依赖于网络多播和共享磁盘这两项本地技术，而这两项技术并非源自超大规模公有云环境。 如果数据库解决方案需要 Azure 中的 Oracle RAC，则需要第三方软件来实现这些技术。 有关 Oracle RAC 的详细信息，请参阅 [FlashGrid SkyCluster 页](https://www.flashgrid.io/oracle-rac-in-azure/)。
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>高可用性和灾难恢复注意事项
 

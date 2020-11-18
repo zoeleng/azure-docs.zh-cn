@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 ms.date: 10/30/2020
-ms.openlocfilehash: ed2ce13ab10c09dc738e522566742078819e8341
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 4c0d12e4c37476b9ae71962251105ef92aa39120
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148382"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845197"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>为与企业安全性套餐 Active Directory 集成配置 HDInsight 群集
 
@@ -62,7 +62,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ```
 
 > [!NOTE]  
-> 只有租户管理员有权启用 Azure AD DS。 如果群集存储是 Azure Data Lake Storage Gen1 或 Gen2，则必须只对需要使用基本 Kerberos 身份验证访问群集的用户禁用 Azure 多重身份验证。
+> 只有租户管理员有权启用 Azure AD DS。 如果群集存储 Azure Data Lake Storage Gen1 或 Gen2，则必须仅针对将需要使用基本 Kerberos 身份验证来访问群集的用户禁用 Azure AD 多重身份验证。
 >
 > 可以使用[受信任 IP](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 或[条件访问](../../active-directory/conditional-access/overview.md)仅在特定用户访问 HDInsight 群集的虚拟网络 IP 范围时对其禁用多重身份验证。 如果使用条件访问，请确保在 HDInsight 虚拟网络上启用了 Active Directory 服务终结点。
 >
@@ -136,11 +136,11 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 创建带有 ESP 的 HDInsight 群集时，必须提供以下参数：
 
-* **群集管理员用户** ：从同步的 Azure AD DS 实例中为你的群集选择管理员。 此域帐户必须已同步并在 Azure AD DS 中可用。
+* **群集管理员用户**：从同步的 Azure AD DS 实例中为你的群集选择管理员。 此域帐户必须已同步并在 Azure AD DS 中可用。
 
-* **群集访问组** ：你要同步其用户且其用户有权访问群集的安全组应该在 Azure AD DS 中可用。 例如，HiveUsers 组。 有关详细信息，请参阅[在 Azure Active Directory 中创建组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
+* **群集访问组**：你要同步其用户且其用户有权访问群集的安全组应该在 Azure AD DS 中可用。 例如，HiveUsers 组。 有关详细信息，请参阅[在 Azure Active Directory 中创建组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-* **LDAPS URL** ：例如 `ldaps://contoso.com:636`。
+* **LDAPS URL**：例如 `ldaps://contoso.com:636`。
 
 创建新群集时，可以从 **用户分配的托管标识** 下拉列表中选择已创建的托管标识。
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 28b3bc5adfc3c2e83de658947193b6046a455c32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00594c3ec060076ad249af7e93e0a3d5a1eccdb4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231497"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845146"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>网络观察程序的 Azure 安全基线
 
@@ -22,7 +22,7 @@ ms.locfileid: "89231497"
 
 有关详细信息，请参阅 [Azure 安全基线概述](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)。
 
-## <a name="network-security"></a>网络安全
+## <a name="network-security"></a>网络安全性
 
 有关详细信息，请参阅[安全控制：网络安全](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)。
 
@@ -234,7 +234,7 @@ ms.locfileid: "89231497"
 
 **指导**：维护对 Azure 网络观察程序的控制平面（例如 Azure 门户）拥有管理访问权限的用户帐户的清单。 若要使用网络观察程序功能，登录 Azure 时所使用的帐户必须分配给所有者、参与者或网络参与者内置角色，或分配给某个自定义角色（已向该角色分配了为特定网络观察程序功能列出的操作）。
 
-你可以使用订阅 Azure 门户中 (IAM) 窗格的 "标识和访问控制" 来配置 Azure RBAC)  (基于角色的访问控制。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。
+可以在 Azure 门户中为你的订阅使用“标识和访问控制(IAM)”窗格来配置 Azure 基于角色的访问控制 (Azure RBAC)。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。
 
 * [了解 Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -291,11 +291,11 @@ ms.locfileid: "89231497"
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
-**指导**：使用启用了 Azure 多重身份验证 (MFA) 的特权访问工作站 (PAW) 来登录和配置 Azure Sentinel 相关的资源。
+**指南**：将特权访问工作站 (PAW) 与 Azure AD 多重身份验证 (MFA) 一起使用，以便登录和配置 Azure Sentinel 相关资源。
 
 * [特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [规划基于云的 Azure 多重身份验证部署](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [规划基于云的 Azure AD 多重身份验证部署](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Azure 安全中心监视**：不适用
 
@@ -445,7 +445,7 @@ ms.locfileid: "89231497"
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指南**：你可以使用订阅 Azure 门户中 (IAM) 窗格中的 "标识和访问控制" 来配置 azure RBAC)  (基于角色的访问控制。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
+**指导**：可以在 Azure 门户中为你的订阅使用“标识和访问控制(IAM)”窗格来配置 Azure 基于角色的访问控制 (Azure RBAC)。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
 
 若要使用网络观察程序功能，登录 Azure 时所使用的帐户必须分配给所有者、参与者或网络参与者内置角色，或分配给某个自定义角色（已向该角色分配了为特定网络观察程序功能列出的操作）。
 

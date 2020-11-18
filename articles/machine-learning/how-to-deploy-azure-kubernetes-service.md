@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy
+ms.custom: how-to, contperfq1, deploy, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2ac565b8c6dfce52daeadd20cf3357bc22cd281
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325183"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843802"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>将模型部署到 Azure Kubernetes 服务群集
 
@@ -154,7 +154,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 > [!IMPORTANT]
 > * **不要为模型部署启用 Kubernetes 水平 Pod 自动缩放程序 (HPA)** 。 这样做会导致两个自动缩放组件相互竞争。 Azureml-fe 设计用于自动缩放由 Azure ML 部署的模型，其中，HPA 必须根据 CPU 使用率或自定义指标配置等一般指标推测或估算模型利用率。
 > 
-> * **Azureml-fe 不会缩放 AKS 群集中的节点数** ，因为这可能会导致成本意外增加。 相反，它会在物理群集边界内 **缩放模型的副本数** 。 如果你需要缩放群集中的节点数，则可以手动缩放群集，或[配置 AKS 群集自动缩放程序](../aks/cluster-autoscaler.md)。
+> * **Azureml-fe 不会缩放 AKS 群集中的节点数**，因为这可能会导致成本意外增加。 相反，它会在物理群集边界内 **缩放模型的副本数**。 如果你需要缩放群集中的节点数，则可以手动缩放群集，或[配置 AKS 群集自动缩放程序](../aks/cluster-autoscaler.md)。
 
 可以通过为 AKS Web 服务设置 `autoscale_target_utilization`、`autoscale_min_replicas` 和 `autoscale_max_replicas` 来控制自动缩放。 以下示例演示了如何启用自动缩放：
 
@@ -194,7 +194,7 @@ replicas = ceil(concurrentRequests / maxReqPerContainer)
 
 使用终结点以受控的方式分析和提升模型版本。 最多可以在一个终结点后方部署六个版本。 终结点提供以下功能：
 
-* 配置 __发送到每个终结点的评分流量百分比__ 。 例如，将 20% 的流量路由到终结点“test”，将 80% 路由到“production”。
+* 配置 __发送到每个终结点的评分流量百分比__。 例如，将 20% 的流量路由到终结点“test”，将 80% 路由到“production”。
 
     > [!NOTE]
     > 如果不按 100% 的流量计算，则所有剩余百分比的流量将路由到默认终结点版本。 例如，如果将终结点版本“test”配置为获取 10% 的流量，将“prod”配置为 30%，则剩余的 60% 将发送到默认终结点版本。

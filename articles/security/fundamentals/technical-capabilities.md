@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 575486a89cd078325b76fa684ff9bd3d59a619c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696092"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844261"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全技术功能
 本文介绍了 Azure 中的安全服务，这些服务可帮助保护云中的数据、资源和应用程序，并满足业务的安全需求。
@@ -92,7 +92,7 @@ Azure Active Directory (Azure AD) 在安全方面的益处包括以下能力：
 
 #### <a name="multi-factor-authentication"></a>多重身份验证
 
-[Azure 多重身份验证 (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) 是需要使用多种验证方法的身份验证方法，为用户登录和事务又增加了一层至关重要的安全保障。 [MFA 可帮助保护](../../active-directory/authentication/concept-mfa-howitworks.md)对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码和第三方 OAuth 令牌）来提供强身份验证。
+[Azure AD 多重身份验证 (MFA) ](../../active-directory/authentication/concept-mfa-howitworks.md) 是一种需要使用多种验证方法并向用户登录和事务添加关键的第二层安全性的身份验证方法。 [MFA 可帮助保护](../../active-directory/authentication/concept-mfa-howitworks.md)对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码和第三方 OAuth 令牌）来提供强身份验证。
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全监控、警报和基于机器学习的报告
 

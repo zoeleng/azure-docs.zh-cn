@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410362"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843683"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 标识管理安全概述
 
@@ -79,13 +79,13 @@ Azure AD 将本地 Active Directory 环境扩展到云，让用户不仅能够�
 
 ## <a name="multi-factor-authentication"></a>多重身份验证
 
-Azure 多重身份验证是需要使用多个验证方法的身份验证方法，为用户登录和事务额外提供一层重要的安全保障。 多重身份验证可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码以及第三方 OAuth 令牌）来提供强身份验证。
+Azure AD 多重身份验证是一种需要使用多种验证方法并向用户登录和事务添加关键的第二层安全性的身份验证方法。 多重身份验证可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码以及第三方 OAuth 令牌）来提供强身份验证。
 
 了解详细信息：
 
 * [多重身份验证](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [什么是 Azure 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Azure 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [什么是 Azure AD 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC
 
@@ -107,11 +107,11 @@ Azure RBAC 是在 Azure 资源管理器基础上构建的授权系统，针对 A
 
 在 Azure 门户中，报告分为以下类别：
 
-* **异常报告** ：包含我们发现存在异常的登录事件。 我们的目标是让你知道这类活动，并让你能够确定事件是否可疑。
-* **集成式应用程序报告** ：就组织如何使用云应用程序提供见解。 Azure AD 提供与数千个云应用程序的集成。
-* **错误报告** ：指示在为外部应用程序预配帐户时可能发生的错误。
-* **用户特定的报告** ：显示特定用户的设备登录活动数据。
-* **活动日志** ：包含过去 24 小时、过去 7 天或过去 30 天内的所有已审核事件的记录，以及组活动更改记录、密码重置和注册活动记录。
+* **异常报告**：包含我们发现存在异常的登录事件。 我们的目标是让你知道这类活动，并让你能够确定事件是否可疑。
+* **集成式应用程序报告**：就组织如何使用云应用程序提供见解。 Azure AD 提供与数千个云应用程序的集成。
+* **错误报告**：指示在为外部应用程序预配帐户时可能发生的错误。
+* **用户特定的报告**：显示特定用户的设备登录活动数据。
+* **活动日志**：包含过去 24 小时、过去 7 天或过去 30 天内的所有已审核事件的记录，以及组活动更改记录、密码重置和注册活动记录。
 
 了解详细信息：
 

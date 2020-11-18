@@ -4,12 +4,12 @@ description: 了解如何从 Jupyter 笔记本访问文件、REST Api、数据�
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: b2254e6d966ca3281cd9c8b0771cb77fb6dede33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a833ff914c1ee53f024147371977ac1caa3800dc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846609"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842866"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>在笔记本中访问云数据
 
@@ -46,7 +46,7 @@ if response.status_code == 200:
 
 您可以使用 pyodbc 或 pymssql 库的帮助访问 SQL 数据库或 SQL 托管实例中的数据库。
 
-[使用 Python 查询 AZURE sql 数据库](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) 提供有关在 sql 数据库中创建包含 AdventureWorks 数据的数据库的说明，并演示如何查询这些数据。 本文的示例 Notebook 中显示了相同的代码。
+[使用 Python 查询 AZURE sql 数据库](../azure-sql/database/connect-query-python.md) 提供有关在 sql 数据库中创建包含 AdventureWorks 数据的数据库的说明，并演示如何查询这些数据。 本文的示例 Notebook 中显示了相同的代码。
 
 ## <a name="azure-storage"></a>Azure 存储
 
@@ -61,11 +61,11 @@ Azure 存储提供了几种不同类型的非关系存储，具体取决于你�
 
 Azure Cosmos DB 为 JSON 文档提供了完全索引的 NoSQL 存储。 以下文章提供了许多使用 Python 的 Cosmos DB 的不同方法：
 
-- [使用 Python 生成 SQL API 应用](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [使用 Azure Cosmos DB 的 API for MongoDB 构建 Flask 应用](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [使用 Python 和 Gremlin API 创建图形数据库](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [使用 Python 和 Azure Cosmos DB 构建 Cassandra 应用](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [使用 Python 和 Azure Cosmos DB 生成表 API 应用](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [使用 Python 生成 SQL API 应用](../cosmos-db/create-sql-api-python.md)
+- [使用 Azure Cosmos DB 的 API for MongoDB 构建 Flask 应用](../cosmos-db/create-mongodb-flask.md)
+- [使用 Python 和 Gremlin API 创建图形数据库](../cosmos-db/create-graph-python.md)
+- [使用 Python 和 Azure Cosmos DB 构建 Cassandra 应用](../cosmos-db/create-cassandra-python.md)
+- [使用 Python 和 Azure Cosmos DB 生成表 API 应用](../cosmos-db/table-storage-how-to-use-python.md)
 
 使用 Cosmos DB 时，可以使用 [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) 库。
 
@@ -73,9 +73,9 @@ Azure Cosmos DB 为 JSON 文档提供了完全索引的 NoSQL 存储。 以下�
 
 Azure 提供了许多可以使用的其他数据库类型。 以下文章提供了从 Python 访问这些数据库的指导：
 
-- [Azure Database for PostgreSQL：使用 Python 进行连接并查询数据](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [快速入门：将 Azure Redis 缓存与 Python 配合使用](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database for MySQL：使用 Python 进行连接并查询数据](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database for PostgreSQL：使用 Python 进行连接并查询数据](../postgresql/connect-python.md)
+- [快速入门：将 Azure Redis 缓存与 Python 配合使用](../azure-cache-for-redis/cache-python-get-started.md)
+- [Azure Database for MySQL：使用 Python 进行连接并查询数据](../mysql/connect-python.md)
 - [Azure 数据工厂](https://azure.microsoft.com/services/data-factory/)
   - [Azure 数据工厂的复制向导](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

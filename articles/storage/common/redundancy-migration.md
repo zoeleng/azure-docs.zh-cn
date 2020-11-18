@@ -10,13 +10,13 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330285"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844006"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>更改存储帐户的复制方式
 
@@ -123,19 +123,19 @@ ZRS 仅支持常规用途 v2 帐户，因此请确保在将实时迁移请求提
 
 可以通过 [Azure 支持门户](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)请求实时迁移。 在门户中，选择要转换为 ZRS 的存储帐户。
 
-1. 选择 " **新建支持请求** "。
+1. 选择 " **新建支持请求**"。
 2. 根据帐户信息完成 **基本** 操作： 
-    - **问题类型** ：选择 " **技术** "。
-    - **服务** ：选择 **"我的服务" 和 "** **存储帐户管理** "。
-    - **资源** ：选择要转换为 ZRS 的资源。
-3. 选择“下一步”。
+    - **问题类型**：选择 " **技术**"。
+    - **服务**：选择 **"我的服务" 和 "** **存储帐户管理**"。
+    - **资源**：选择要转换为 ZRS 的资源。
+3. 选择“**下一页**”。
 4. 在“问题”部分指定以下值：
-    - **严重性** ：保留默认值。
-    - **问题类型** ：选择“数据迁移”。
-    - **类别** ：选择 **迁移到 ZRS** 。
-    - **标题** ：键入描述性的标题，例如“ZRS 帐户迁移”。
-    - **详细信息** ：在 " **详细** 信息" 框中键入其他详细信息，例如，我想要从区域中的 [LRS，GRS] 迁移到 ZRS \_ \_ 。
-5. 选择“下一步”。
+    - **严重性**：保留默认值。
+    - **问题类型**：选择“数据迁移”。
+    - **类别**：选择 **迁移到 ZRS**。
+    - **标题**：键入描述性的标题，例如“ZRS 帐户迁移”。
+    - **详细信息**：在 "**详细** 信息" 框中键入其他详细信息，例如，我想要从区域中的 [LRS，GRS] 迁移到 ZRS \_ \_ 。
+5. 选择“**下一页**”。
 6. 检查“联系信息”边栏选项卡中的联系信息是否正确。
 7. 选择“创建”。
 
@@ -157,7 +157,7 @@ ZRS 仅支持常规用途 v2 帐户，因此请确保在将实时迁移请求提
 
 ZRS 经典版以异步方式在一到两个区域中的数据中心之间复制数据。 除非 Microsoft 发起了到次要区域的故障转移，否则复制的数据可能不可用。 ZRS 经典版帐户无法与 LRS、GRS 或 RA-GRS 相互转换。 ZRS 经典版帐户也不支持指标或日志记录。
 
-ZRS 经典版仅适用于常规用途 V1 (GPv1) 存储帐户中的 **块 Blob** 。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](storage-account-overview.md)。
+ZRS 经典版仅适用于常规用途 V1 (GPv1) 存储帐户中的 **块 Blob**。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](storage-account-overview.md)。
 
 若要手动将 ZRS 帐户数据迁移到 LRS、GRS、GRS 或 ZRS 经典帐户，请使用以下工具之一： AzCopy、Azure 存储资源管理器、PowerShell 或 Azure CLI。 此外，可以使用某个 Azure 存储客户端库生成自己的迁移解决方案。
 
@@ -165,7 +165,7 @@ ZRS 经典版仅适用于常规用途 V1 (GPv1) 存储帐户中的 **块 Blob** 
 
 # <a name="portal"></a>[门户](#tab/portal)
 
-若要升级到 Azure 门户中的 ZRS，请导航到该帐户的 **配置** 设置，然后选择 " **升级** "：
+若要升级到 Azure 门户中的 ZRS，请导航到该帐户的 **配置** 设置，然后选择 " **升级**"：
 
 ![在门户中将 ZRS 经典版升级到 ZRS](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 

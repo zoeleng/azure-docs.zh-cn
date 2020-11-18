@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a015c3881e2fa51ecfaaba57e6bb6262194012d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3932a1dee0eee16e7d64ff4c6085919d85b431ab
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367867"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843258"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>适用于虚拟机规模集的 Azure 安全基线
 
@@ -500,7 +500,7 @@ ms.locfileid: "92367867"
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13：在支持场合下为 Microsoft 提供对相关客户数据的访问权限
 
-**指南**：在 Microsoft 需要访问客户数据的支持方案中 (例如) 在支持请求期间，使用 Azure 虚拟机客户密码箱查看和批准或拒绝客户数据访问请求。
+**指导**：在 Microsoft 需要访问客户数据的支持方案中（例如，在支持请求期间需要这样做），请使用 Azure 虚拟机客户密码箱来审核和批准/拒绝客户数据访问请求。
 
 * [了解客户密码箱](../security/fundamentals/customer-lockbox-overview.md)
 
@@ -634,7 +634,7 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2：部署自动操作系统修补管理解决方案
 
-**指南**：为受支持的操作系统版本或共享映像库中存储的自定义映像启用自动 OS 升级。
+**指导**：为受支持的操作系统版本或共享映像库中存储的自定义映像启用自动 OS 升级。
 
 * [Azure 中虚拟机规模集的自动 OS 升级](./virtual-machine-scale-sets-automatic-upgrade.md)
 
@@ -974,7 +974,7 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 * [如何与 Azure 托管标识集成](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [如何创建 Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [如何向 Key Vault 进行身份验证](../key-vault/general/authentication.md)
 

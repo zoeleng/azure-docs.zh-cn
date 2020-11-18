@@ -7,19 +7,19 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911811"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843513"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>在加密设备上配置 LVM 和 RAID
 
 本文分步介绍了如何在加密设备上 (LVM) 和 RAID 执行逻辑卷管理。 此过程适用于以下环境：
 
-- Linux 分布
+- Linux 发行版
     - RHEL 7.6 +
     - Ubuntu 18.04 +
     - SUSE 12 +
@@ -287,7 +287,7 @@ cat /etc/fstab
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>在加密层之上配置 LVM
 #### <a name="create-the-physical-volumes"></a>创建物理卷
-您将收到一条警告，询问您是否可以擦除文件系统签名。 继续输入 **y** ，或使用 **echo "y"** ，如下所示：
+您将收到一条警告，询问您是否可以擦除文件系统签名。 继续输入 **y**，或使用 **echo "y"** ，如下所示：
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052

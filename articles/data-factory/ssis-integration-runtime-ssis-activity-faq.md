@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632203"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844176"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>排查 SSIS Integration Runtime 中的包执行问题
 
@@ -39,7 +39,7 @@ ms.locfileid: "92632203"
 * SSIS Integration Runtime 与数据源或目标之间的网络不稳定，当连接跨区域或者是在本地与 Azure 之间建立的时尤其如此。 执行以下步骤，在 SSIS 包中应用重试模式：
   * 确保 SSIS 包在失败时可以重新运行，且不产生负面影响（例如数据丢失或数据重复）。
   * 在“常规”选项卡上配置“执行 SSIS 包”活动的“重试”和“重试间隔”。   ![在“常规”选项卡上设置属性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
-  * 对于 ADO.NET 和 OLE DB 源或目标组件，请在 SSIS 包或 SSIS 活动的连接管理器中设置 **ConnectRetryCount** 和 **ConnectRetryInterval** 。
+  * 对于 ADO.NET 和 OLE DB 源或目标组件，请在 SSIS 包或 SSIS 活动的连接管理器中设置 **ConnectRetryCount** 和 **ConnectRetryInterval**。
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>错误消息：“ADO NET 源无法获取连接 '...'”， 同时显示“在与 SQL Server 建立连接时出现网络相关或特定于实例的错误。 找不到或无法访问服务器。”
 
@@ -109,7 +109,7 @@ ms.locfileid: "92632203"
 
 * 确保 SSIS 包在失败时可以重新运行，且不产生负面影响（例如数据丢失或数据重复）。
 * 在“常规”选项卡上配置“执行 SSIS 包”活动的“重试”和“重试间隔”。   ![在“常规”选项卡上设置属性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
-* 对于 ADO.NET 和 OLE DB 源或目标组件，请在 SSIS 包或 SSIS 活动的连接管理器中设置 **ConnectRetryCount** 和 **ConnectRetryInterval** 。
+* 对于 ADO.NET 和 OLE DB 源或目标组件，请在 SSIS 包或 SSIS 活动的连接管理器中设置 **ConnectRetryCount** 和 **ConnectRetryInterval**。
 
 ### <a name="error-message-there-is-no-active-worker"></a>错误消息：“没有任何活动的辅助角色。”
 
@@ -121,14 +121,14 @@ ms.locfileid: "92632203"
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>错误消息：“Microsoft OLE DB Provider for Analysis Services。 ‘Hresult:0x80004005 说明:’COM 错误:COM 错误: mscorlib；某个调用的目标引发了异常”
 
-一种潜在原因是为 Azure Analysis Services 身份验证配置了已启用 Azure 多重身份验证的用户名或密码。 SSIS Integration Runtime 不支持这种身份验证。 尝试使用服务主体进行 Azure Analysis Services 身份验证：
+一个可能的原因是为启用了 Azure AD 多重身份验证的用户名或密码配置了 Azure Analysis Services 身份验证。 SSIS Integration Runtime 不支持这种身份验证。 尝试使用服务主体进行 Azure Analysis Services 身份验证：
 
 1. 请根据[使用服务主体进行自动化](../analysis-services/analysis-services-service-principal.md)中所述准备服务主体。
 2. 在连接管理器中，配置“使用特定的用户名和密码”：将“AppID”设为用户名，将“clientSecret”设为密码。  
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>错误消息：使用托管标识时发生错误“ADONET 源无法获取连接 {GUID} 并出现以下错误消息:用户 'NT AUTHORITY\ANONYMOUS LOGON' 登录失败”
 
-如果参数 *ConnectUsingManagedIdentity* 为 **True** ，请确保不要将连接管理器的身份验证方法配置为“Active Directory密码身份验证”。 可将其配置为“SQL 身份验证”，设置了 *ConnectUsingManagedIdentity* 时会忽略此配置。
+如果参数 *ConnectUsingManagedIdentity* 为 **True**，请确保不要将连接管理器的身份验证方法配置为“Active Directory密码身份验证”。 可将其配置为“SQL 身份验证”，设置了 *ConnectUsingManagedIdentity* 时会忽略此配置。
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>错误消息：“0xC020801F 出现在...，OData 源 [...]:无法从运行时连接管理器获取托管连接”
 

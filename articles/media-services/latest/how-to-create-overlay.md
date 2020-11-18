@@ -6,18 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 6c93408bce8da9f8cd0e4a0d0bab615e2bd362dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 743fe146042c7b52394cc4ee8ced49a0f540e79c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267320"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844278"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>如何使用 Media Encoder Standard 创建覆盖
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以下格式：png、jpg、gif 和 bmp。
+使用 Media Encoder Standard 可以将图像、音频文件或其他视频覆盖到其他视频。 输入必须仅指定一个文件。 可以指定 JPG、PNG、GIF 或 BMP 格式的图像文件，或者指定音频文件 (如 WAV、MP3、WMA 或 M4A 文件) 或视频文件）。
+
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -32,7 +33,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
     "AccountName": "",
     "ArmAadAudience": "https://management.core.windows.net/",
     "ArmEndpoint": "https://management.azure.com/",
-    "Region": "",
+    "Location": "",
     "ResourceGroup": "",
     "SubscriptionId": ""
     }

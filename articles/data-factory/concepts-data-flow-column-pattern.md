@@ -6,28 +6,28 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027119"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844994"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>使用映射数据流中的列模式
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-多个映射数据流转换允许您基于模式而不是硬编码的列名称引用模板列。 此匹配称为 *列模式* 。 您可以根据名称、数据类型、流、源或位置定义模式来匹配列，而不需要精确的字段名。 在以下两种情况下，列模式很有用：
+多个映射数据流转换允许您基于模式而不是硬编码的列名称引用模板列。 此匹配称为 *列模式*。 您可以根据名称、数据类型、流、源或位置定义模式来匹配列，而不需要精确的字段名。 在以下两种情况下，列模式很有用：
 
 * 如果传入源字段经常更改，例如更改文本文件或 NoSQL 数据库中的列的大小写。 此方案称为 [架构偏差](concepts-data-flow-schema-drift.md)。
 * 如果要对一大组列执行常见操作， 例如，想要将其列名中包含 "total" 的每个列转换为 double。
 
-列模式当前在派生列、聚合、选择和接收器转换中可用。
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>派生列和聚合中的列模式
 
-若要在派生列、聚合或窗口转换中添加列模式，请单击列列表上方的 " **添加** " 或现有派生列旁边的加号图标。 选择 " **添加列模式** "。
+若要在派生列、聚合或窗口转换中添加列模式，请单击列列表上方的 " **添加** " 或现有派生列旁边的加号图标。 选择 " **添加列模式**"。
 
 ![屏幕截图显示添加列模式的加号图标。](media/data-flow/add-column-pattern.png "列模式")
 
@@ -43,11 +43,17 @@ Match 条件下的两个表达式框指定受影响的列的新名称和值。 �
 
 ![屏幕截图显示 "输出架构" 选项卡。](media/data-flow/columnpattern3.png "列模式")
 
+### <a name="hierarchical-pattern-matching"></a>分层模式匹配
+
+您还可以在复杂的层次结构内生成模式匹配。 展开 `Each MoviesStruct that matches` 要在其中提示你输入数据流中的每个层次结构的部分。 然后，你可以为所选层次结构中的属性生成匹配模式。
+
+![屏幕截图显示层次结构列模式。](media/data-flow/patterns-hierarchy.png "层次结构中的列模式")
+
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Select 和 sink 中基于规则的映射
 
 映射源中的列并选择转换时，可以添加固定映射或基于规则的映射。 根据列的、、、 `name` `type` `stream` `origin` 和进行匹配 `position` 。 可以有固定和基于规则的映射的任意组合。 默认情况下，每列大于50的所有投影都将默认为基于规则的映射，该映射在每个列上都匹配并输出输入名称。 
 
-若要添加基于规则的映射，请单击 " **添加映射** "，然后选择 " **基于规则的映射** "。
+若要添加基于规则的映射，请单击 " **添加映射** "，然后选择 " **基于规则的映射**"。
 
 ![屏幕截图显示从添加映射中选择的基于规则的映射。](media/data-flow/rule2.png "基于规则的映射")
 
@@ -77,7 +83,7 @@ Match 条件下的两个表达式框指定受影响的列的新名称和值。 �
 
 ## <a name="pattern-matching-expression-values"></a>模式匹配表达式的值。
 
-* `$$` 在运行时转换为每个匹配项的名称或值
+* `$$` 在运行时转换为每个匹配项的名称或值。 `$$`将视为等效于 `this` 。
 * `name` 表示每个传入列的名称
 * `type` 表示每个传入列的数据类型
 * `stream` 表示与流中的每个流或转换相关联的名称。

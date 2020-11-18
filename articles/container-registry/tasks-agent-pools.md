@@ -3,13 +3,13 @@ title: 使用专用池运行任务-任务
 description: 在注册表中设置专用的计算池 (代理池) ，以运行 Azure 容器注册表任务。
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997206"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844908"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>在专用代理池上运行 ACR 任务
 
@@ -93,20 +93,20 @@ az acr agentpool update \
 
 任务代理池需要访问以下 Azure 服务。 必须将以下防火墙规则添加到任何现有的网络安全组或用户定义的路由。
 
-| 方向 | 协议 | 源         | Source Port | 目标          | 目标端口 | 已使用    |
+| 方向 | 协议 | 源         | Source Port | 目标          | Dest Port | 已使用    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
-| 出站  | TCP      | VirtualNetwork | 任意         | AzureKeyVault        | 443       | 默认值 |
-| 出站  | TCP      | VirtualNetwork | 任意         | 存储              | 443       | 默认值 |
-| 出站  | TCP      | VirtualNetwork | 任意         | EventHub             | 443       | 默认值 |
-| 出站  | TCP      | VirtualNetwork | 任意         | AzureActiveDirectory | 443       | 默认值 |
-| 出站  | TCP      | VirtualNetwork | 任意         | AzureMonitor         | 443       | 默认值 |
+| 出站  | TCP      | VirtualNetwork | 任意         | AzureKeyVault        | 443       | 默认 |
+| 出站  | TCP      | VirtualNetwork | 任意         | 存储              | 443       | 默认 |
+| 出站  | TCP      | VirtualNetwork | 任意         | EventHub             | 443       | 默认 |
+| 出站  | TCP      | VirtualNetwork | 任意         | AzureActiveDirectory | 443       | 默认 |
+| 出站  | TCP      | VirtualNetwork | 任意         | AzureMonitor         | 443       | 默认 |
 
 > [!NOTE]
 > 如果任务需要公共 internet 上的其他资源，请添加相应的规则。 例如，需要其他规则来运行 docker 生成任务，该任务可从 Docker 中心提取基本映像，或还原 NuGet 包。
 
 ### <a name="create-pool-in-vnet"></a>在 VNet 中创建池
 
-以下示例在网络*myvnet*的*mysubnet*子网中创建代理池：
+以下示例在网络 *myvnet* 的 *mysubnet* 子网中创建代理池：
 
 ```azurecli
 # Get the subnet ID

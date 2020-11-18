@@ -6,25 +6,25 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830294"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843156"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>使用 Azure 数据科学虚拟机
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-默认情况下，项目在 **免费计算** 层上运行，其限制为 4 gb 的内存和 1 GB 的数据，以防止滥用。 可以使用在 Azure 订阅中预配的其他虚拟机来绕过这些限制。 为此，最佳选择是使用 **适用于 Linux (Ubuntu) ** 映像的 DATA SCIENCE VIRTUAL MACHINE (DSVM) Azure Data Science Virtual Machine。 此类 DSVM 预配置了 Azure Notebooks 所需的一切，并自动显示在 Azure Notebooks 的 " **运行** " 下拉列表中。
+默认情况下，项目在 **免费计算** 层上运行，其限制为 4 gb 的内存和 1 GB 的数据，以防止滥用。 可以使用在 Azure 订阅中预配的其他虚拟机来绕过这些限制。 为此，最佳选择是使用 **适用于 Linux (Ubuntu)** 映像的 DATA SCIENCE VIRTUAL MACHINE (DSVM) Azure Data Science Virtual Machine。 此类 DSVM 预配置了 Azure Notebooks 所需的一切，并自动显示在 Azure Notebooks 的 " **运行** " 下拉列表中。
 
 > [!Note]
 > 仅在用 Linux Ubuntu 映像上创建的 Dsvm 支持 Azure Notebooks。 笔记本在 Windows 2012、Windows 2016 或 Linux CentOS 映像上不受支持。
 
 ## <a name="create-a-dsvm-instance"></a>创建 DSVM 实例
 
-要创建新的 DSVM 实例，请按照[创建 Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)上的说明进行操作。 有关详细信息（包括定价详细信息），请参阅 [数据科学虚拟机](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)。
+要创建新的 DSVM 实例，请按照[创建 Ubuntu Data Science VM](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md)上的说明进行操作。 有关详细信息（包括定价详细信息），请参阅 [数据科学虚拟机](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)。
 
 ## <a name="connect-to-the-dsvm"></a>连接到 DSVM
 
@@ -68,4 +68,4 @@ DSVM 版本19.06.15 或更高版本支持文件系统访问。 若要检查版�
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解 [Azure 数据科学虚拟机简介](/azure/machine-learning/data-science-virtual-machine/overview)中的 dsvm。
+详细了解 [Azure 数据科学虚拟机简介](../machine-learning/data-science-virtual-machine/overview.md)中的 dsvm。

@@ -3,12 +3,12 @@ title: 常见问题 - Azure 事件中心 | Microsoft Docs
 description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 41b010315adaf5a0eca2939b1d42fe4d7c159628
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909703"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843037"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -42,13 +42,13 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://azure.microsoft.com/regions/)页。  
 
-### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>能否使用单个高级消息队列协议 (AMQP) 连接来发送和接收多个事件中心？
+### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>是否可以使用单个高级消息队列协议 (AMQP) 连接来与多个事件中心相互收发数据？
 
 可以，但前提是所有事件中心都在同一个命名空间中。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
 
-事件中心标准版目前支持的最长保留期为七天。 事件中心不应作为永久性的数据存储。 大于24小时的保留期适用于将事件流重播到相同系统中的情况。 例如，为了训练或验证现有数据的新机器学习模型。 如果需要将消息保留七天以上，请启用事件中心的[事件中心捕获](event-hubs-capture-overview.md)功能，将数据从事件中心提取到所选的存储帐户或 Azure Data Lake 服务帐户。 启用捕获功能需要支付费用，具体因购买的吞吐量单位而异。
+事件中心标准版目前支持的最长保留期为七天。 事件中心不应作为永久性的数据存储。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形。 例如，基于现有数据训练或验证新机器学习模型。 如果需要将消息保留七天以上，请启用事件中心的[事件中心捕获](event-hubs-capture-overview.md)功能，将数据从事件中心提取到所选的存储帐户或 Azure Data Lake 服务帐户。 启用捕获功能需要支付费用，具体因购买的吞吐量单位而异。
 
 可以在存储帐户上配置已捕获数据的保留期。 Azure 存储的“生命周期管理”功能为常规用途 v2 和 blob 存储帐户提供了基于规则的丰富策略。 可使用该策略将数据转移到适当的访问层，或在数据的生命周期结束时使数据过期。 有关详细信息，请参阅[管理 Azure Blob 存储生命周期](../storage/blobs/storage-lifecycle-management-concepts.md)。 
 
@@ -56,13 +56,13 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 事件中心向 [Azure Monitor](../azure-monitor/overview.md) 发出详尽指标用于提供资源的状态。 此外，参考指标不仅可以在命名空间级别，而且还能在实体级别评估事件中心服务的总体运行状况。 了解 [Azure 事件中心](event-hubs-metrics-azure-monitor.md)提供哪些监视功能。
 
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Azure 事件中心将客户数据存储在何处？
-Azure 事件中心存储客户数据。 事件中心会自动将此数据存储在单个区域中，因此，此服务会自动满足区域数据派驻要求，其中包括 [信任中心](https://azuredatacentermap.azurewebsites.net/)中指定的区域数据。
+Azure 事件中心将存储客户数据。 事件中心会自动将此数据存储在单个区域中，因此此服务会自动满足区域内数据驻留要求，包括[信任中心](https://azuredatacentermap.azurewebsites.net/)内指定的要求。
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>需要在防火墙上打开哪些端口？ 
-可以将以下协议与 Azure 服务总线配合使用，以便发送和接收消息：
+可以将以下协议与 Azure 事件中心配合使用来发送和接收事件：
 
-- AMQP
-- HTTP
+- 高级消息队列协议 1.0 (AMQP) 
+- 超文本传输协议1.1，TLS (HTTPS) 
 - Apache Kafka
 
 请查看下表，了解需要打开哪些出站端口，以便使用这些协议与 Azure 事件中心通信。 
@@ -70,8 +70,21 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
 | 协议 | 端口 | 详细信息 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 和 5672 | 请参阅 [AMQP 协议指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP、HTTPS | 80、443 |  |
+| HTTPS | 443 | 此端口用于 HTTP/REST API 和 AMQP over Websocket。 |
 | Kafka | 9093 | 请参阅[使用 Kafka 应用程序中的事件中心](event-hubs-for-kafka-ecosystem-overview.md)
+
+当在端口5671上使用 AMQP 时，还需要使用 HTTPS 端口进行出站通信，因为在使用) 通过 HTTPS 运行时，客户端 Sdk 执行多个管理操作并从 Azure Active Directory (获取令牌。 
+
+正式的 Azure Sdk 通常使用 AMQP 协议从事件中心发送和接收事件。 AMQP-over Websocket 协议选项通过端口 TCP 443 运行，就像 HTTP API 一样，但在功能上与纯 AMQP 相同。 此选项的初始连接延迟较高，因为在共享 HTTPS 端口时要权衡额外的握手往返和额外的开销。 如果选择了此模式，则 TCP 端口443足以用于通信。 以下选项允许选择 "纯 AMQP" 或 "AMQP" Websocket 模式：
+
+| 语言 | 选项   |
+| -------- | ----- |
+| .NET     | [EventHubsTransportType. AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true)或[EventHubsTransportType](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true)的[EventHubConnectionOptions TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true)属性 |
+| Java     | [eventhubs. EventProcessorClientBuilder. Transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) [AmqpTransportType. AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) 或 [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
+| 节点  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) 具有 `webSocketOptions` 属性。 |
+| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) ， [Amqp](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) 或 [TransportType AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+
+
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>需要允许哪些 IP 地址？
 若要查找要添加到允许列表以进行连接的正确 IP 地址，请执行以下步骤：
@@ -102,10 +115,10 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
     > [!NOTE]
     > `nslookup` 命令返回的 IP 地址不是静态 IP 地址。 但是，在删除基础部署或将其移至其他群集之前，该地址保持不变。
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>在哪里可以找到客户端 IP 发送或接收到命名空间的消息？
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>在哪里可以找到向命名空间发送消息或从命名空间接收消息的客户端 IP？
 首先，在命名空间上启用 [IP 筛选](event-hubs-ip-filtering.md)。 
 
-然后，按照[启用诊断日志](event-hubs-diagnostic-logs.md#enable-diagnostic-logs)中的说明，为[事件中心虚拟网络连接事件](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema)启用诊断日志。 你将看到拒绝连接的 IP 地址。
+然后，按照[启用诊断日志](event-hubs-diagnostic-logs.md#enable-diagnostic-logs)中的说明，为[事件中心虚拟网络连接事件](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema)启用诊断日志。 你将看到连接遭到拒绝的 IP 地址。
 
 ```json
 {
@@ -121,7 +134,7 @@ Azure 事件中心存储客户数据。 事件中心会自动将此数据存储�
 ```
 
 > [!IMPORTANT]
-> 仅当命名空间允许 (IP 筛选器规则) 中的 **特定 ip 地址** 进行访问时，才会生成虚拟网络日志。 如果你不想使用这些功能限制对命名空间的访问，但仍希望获取虚拟网络日志来跟踪连接到事件中心命名空间的客户端的 IP 地址，则可以使用以下解决方法：启用 IP 筛选，并将总可寻址 IPv4 范围 (1.0.0.0/1-255.0.0.0/1) 。 事件中心不支持 IPv6 地址范围。 
+> 只有当命名空间允许从特定的 IP 地址（IP 筛选器规则）进行访问时，才会生成虚拟网络日志。 如果不希望使用这些功能限制对命名空间的访问，但仍希望获取虚拟网络日志来跟踪连接到事件中心命名空间的客户端的 IP 地址，则可以使用以下解决方法：启用 IP 筛选并添加整个可寻址 IPv4 范围 (1.0.0.0/1 - 255.0.0.0/1)。 事件中心不支持 IPv6 地址范围。 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka 集成
 
@@ -139,7 +152,7 @@ sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-示例：
+例如：
 
 ```properties
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093
@@ -148,7 +161,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-注意：如果 sasl.jaas.config 不是框架中受支持的配置，请查找用于设置 SASL 用户名和密码的配置，并改为使用这些配置。 将用户名设置为 $ConnectionString，将密码设置为事件中心连接字符串。
+注意：如果 sasl.jaas.config 框架中不是受支持的配置，请查找用于设置 SASL 用户名和密码的配置并改为使用它们。 将用户名设置为 $ConnectionString，将密码设置为事件中心连接字符串。
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>事件中心的消息/事件大小是多少？
 事件中心允许的最大消息大小为 1 MB。
@@ -187,17 +200,17 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 入口和出口配额是分开强制实施的，因此，任何发送方都不会使事件耗用速度减慢，并且接收方也无法阻止事件发送到事件中心。
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>可保留/选择的吞吐量单位数是否有限制？
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>可预留/选择的吞吐量单位数量是否有限制？
 
-在 Azure 门户中创建基本或标准层命名空间时，可以为命名空间最多选择20个 Tu。 若要将其 **准确** 提升为 40 tu，请提交  [支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。  
+在 Azure 门户中创建基本层或标准层命名空间时，最多可以为命名空间选择 20 个 TU。 若要将其 **准确** 提升为 40 tu，请提交  [支持请求](../azure-portal/supportability/how-to-create-azure-support-request.md)。  
 
-1. 在 " **事件总线命名空间** " 页上，从左侧菜单中选择 " **新建支持请求** "。 
-1. 在 " **新建支持请求** " 页上，执行以下步骤：
-    1. **总而言之** ，用几个词来描述问题。 
-    1. 对于“问题类型”，请选择“配额”。  
-    1. 对于 **问题子类型** ，选择 " **请求增加或减少吞吐量单位** "。 
+1. 在“事件总线命名空间”页面上，选择左侧菜单上的“新建支持请求” 。 
+1. 在“新建支持请求”页面上，按照以下步骤操作：
+    1. 对于“摘要”，用几句话描述这个问题。 
+    1. 对于“问题类型”，请选择“配额”。 
+    1. 对于“问题子类型”，选择“吞吐量单位增加或减少请求” 。 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="支持请求页面":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="“支持请求”页面":::
 
 如果超出 40 TU，事件中心可提供名为“事件中心专用群集”的基于资源/容量的模型。 专用群集按容量单位 (CU) 销售。 有关详细信息，请参阅 [事件中心专用层-概述](event-hubs-dedicated-overview.md)。
 
@@ -216,7 +229,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ## <a name="partitions"></a>分区
 
 ### <a name="how-many-partitions-do-i-need"></a>需要多少分区？
-分区数在创建时指定，并且必须介于1到32之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 有关分区的详细信息，请参阅[分区](event-hubs-features.md#partitions)。
+分区数在创建时指定，并且必须介于 1 和 32 之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 有关分区的详细信息，请参阅[分区](event-hubs-features.md#partitions)。
 
 你可能希望在创建时将其设置为最高可能值，即 32。 请记住，拥有多个分区将导致事件发送到多个分区而不保留顺序，除非你将发送方配置为仅发送到 32 个分区中的一个分区，剩下的 31 个分区是冗余分区。 在前一种情况下，必须跨所有 32 个分区读取事件。 在后一种情况下，除了必须在事件处理器主机上进行额外配置外，没有明显的额外成本。
 
@@ -224,18 +237,18 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 但是，如果有一个模型，其中应用程序具有到特定分区的关联性，则增加分区数可能对你没有任何益处。 有关详细信息，请参阅[可用性和一致性](event-hubs-availability-and-consistency.md)。
 
-### <a name="increase-partitions"></a>增加分区
-可以通过提交支持请求来请求将分区计数提高到 40 (精确) 。 
+### <a name="increase-partitions"></a>增加分区数
+通过提交支持请求，你可以请求将分区计数增加到 40（精确）。 
 
-1. 在 " **事件总线命名空间** " 页上，从左侧菜单中选择 " **新建支持请求** "。 
-1. 在 " **新建支持请求** " 页上，执行以下步骤：
-    1. **总而言之** ，用几个词来描述问题。 
-    1. 对于“问题类型”，请选择“配额”。  
-    1. 对于 **问题子类型** ，选择 " **请求进行分区更改** "。 
+1. 在“事件总线命名空间”页面上，选择左侧菜单上的“新建支持请求” 。 
+1. 在“新建支持请求”页面上，按照以下步骤操作：
+    1. 对于“摘要”，用几句话描述这个问题。 
+    1. 对于“问题类型”，请选择“配额”。 
+    1. 对于“问题子类型”，选择“分区更改请求” 。 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="支持请求页面":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="增加分区计数":::
 
-分区计数可以增加到完全40。 在这种情况下，还必须将 Tu 数增加到40。 如果稍后决定将 TU 限制降低到 <= 20，则最大分区限制也会减少到32。 
+分区计数可以增加到正好 40 个。 在这种情况下，TU 的数量也必须增加到 40 个。 如果你稍后决定将 TU 限制降低到 <= 20 个，那么最大分区限制也将减少到 32 个。 
 
 分区减少不会影响现有事件中心，因为分区是在事件中心级别应用的，并且在创建该中心后它们是不可变的。 
 
@@ -257,7 +270,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 发送到事件中心的每个事件均计为一条可计费消息。 *入口事件* 定义为小于等于 64 KB 的数据单位。 任何小于等于 64 KB 的事件均被视为一个计费事件。 如果该事件大于 64 KB，则根据事件大小按 64 KB 的倍数来计算计费事件的数量。 例如，发送到事件中心的 8-KB 事件按一个事件计费，而发送到事件中心的 96-KB 的消息则按两个事件计费。
 
-从事件中心耗用的事件，以及管理操作和控制调用（例如检查点），不统计为计费入口事件，但会累计，上限为吞吐量单位限额。
+从事件中心使用的事件，以及管理操作和控制调用（例如检查点）不计为计费入口事件，但会累计到吞吐量单位限额。
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>中转连接费用是否适用于事件中心？
 
@@ -298,12 +311,12 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
-### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>使用 Azure Blob 存储作为检查点存储时，如何以特定版本的 Azure 存储 SDK 为目标？
-如果在 Azure Stack Hub 上运行此代码，则将遇到运行时错误，除非你面向特定的存储 API 版本。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack 中心可能支持的存储 Blob SDK 版本不同于 Azure 上通常可用的版本。 如果正在将 Azure Blob 存储用作检查点存储，请检查[支持用于你的 Azure Stack Hub 版本的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version)，并在你的代码中面向该版本。 
+### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>当使用 Azure Blob 存储作为检查点存储时，我如何以特定版本的 Azure Storage SDK 为目标？
+如果在 Azure Stack 集线器上运行此代码，则会遇到运行时错误，除非你面向特定的存储 API 版本。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack Hub 支持的存储 Blob SDK 版本可能与 Azure 上通常提供的版本不同。 如果使用 Azure 博客存储作为检查点存储，请查看 [Azure Stack 中心生成的受支持的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version) ，并将该版本定位到你的代码中。 
 
-例如，如果在 Azure Stack Hub 版本2005上运行，则存储服务的最高可用版本为2019-02-02 版。 默认情况下，事件中心 SDK 客户端库使用 Azure 上的最高可用版本（在 SDK 发布时为 2019-07-07）。 在这种情况下，除了执行本部分中的步骤以外，还需要添加相关代码，将存储服务 API 版本 2019-02-02 作为目标。 有关如何以特定存储 API 版本为目标的示例，请参阅 c #、Java、Python 和 JavaScript/TypeScript 的以下示例。  
+例如，如果在 Azure Stack Hub 版本 2005 上运行，则存储服务的最高可用版本为版本 2019-02-02。 默认情况下，事件中心 SDK 客户端库使用 Azure 上的最高可用版本（在 SDK 发布时为 2019-07-07）。 在这种情况下，除了执行本部分中的步骤以外，还需要添加代码以面向存储服务 API 版本2019-02-02。 如需通过示例来了解如何以特定的存储 API 版本为目标，请参阅以下 C#、Java、Python 和 JavaScript/TypeScript 示例。  
 
-有关如何从代码面向特定存储 API 版本的示例，请参阅 GitHub 上的以下示例： 
+如需通过示例来了解如何从代码中以特定存储 API 版本为目标，请参阅 GitHub 上的以下示例： 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)

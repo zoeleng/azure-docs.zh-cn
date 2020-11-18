@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: ffd72ffb02e4875305177cf12fd19f538735b7d6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659914"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844227"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
@@ -386,9 +386,11 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>以递归方式设置 ACL
 
-*设置* acl 时，将 **替换** 整个 acl，包括它的所有条目。 如果要更改安全主体的权限级别，或将新的安全主体添加到 ACL 而不影响其他现有项，则应改为 *更新* acl。 若要更新 ACL 而不是替换它，请参阅本文的 " [以递归方式更新 acl](#update-an-acl-recursively) " 部分。   
+*设置* acl 时，将 **替换** 整个 acl，包括它的所有条目。 如果要更改安全主体的权限级别，或将新的安全主体添加到 ACL 而不影响其他现有项，则应改为 *更新* acl。 若要更新 ACL 而不是替换它，请参阅本文的 " [以递归方式更新 acl](#update-an-acl-recursively) " 部分。  
 
-本部分包含有关如何设置 ACL 的示例 
+如果选择 *设置* ACL，则必须为拥有的用户添加一个条目，为拥有的组添加一个条目，并为所有其他用户添加一个条目。 若要了解有关拥有用户、拥有组和所有其他用户的详细信息，请参阅 [用户和标识](data-lake-storage-access-control.md#users-and-identities)。 
+
+本部分包含有关如何设置 ACL 的示例。
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

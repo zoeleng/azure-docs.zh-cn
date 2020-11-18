@@ -11,23 +11,23 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: adc0547e36e9cf996a87c2683b4830541b8cd360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442100"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843921"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>为 Azure 机器学习资源和工作流设置身份验证
 
 
 了解如何设置 Azure 机器学习工作区的身份验证。 Azure 机器学习工作区的身份验证基于大多数情况 __Azure Active Directory__ (Azure AD) 。 通常，在连接到工作区时，可以使用三个身份验证工作流：
 
-* __交互式__ ：你可以使用 Azure Active Directory 中的帐户直接进行身份验证，或者使用它来获取用于身份验证的令牌。 在 _试验和迭代开发_ 期间使用交互式身份验证。 交互式身份验证使你能够根据每个用户的需要控制对资源 (（如 web 服务) ）的访问。
+* __交互式__：你可以使用 Azure Active Directory 中的帐户直接进行身份验证，或者使用它来获取用于身份验证的令牌。 在 _试验和迭代开发_ 期间使用交互式身份验证。 交互式身份验证使你能够根据每个用户的需要控制对资源 (（如 web 服务) ）的访问。
 
-* __服务主体__ ：在 Azure Active Directory 中创建一个服务主体帐户，并使用它来进行身份验证或获取令牌。 当你需要 _自动过程向服务进行身份验证_ 而无需用户交互时，可以使用服务主体。 例如连续集成和部署脚本，它可以在训练代码每次发生更改时对模型进行训练和测试。
+* __服务主体__：在 Azure Active Directory 中创建一个服务主体帐户，并使用它来进行身份验证或获取令牌。 当你需要 _自动过程向服务进行身份验证_ 而无需用户交互时，可以使用服务主体。 例如连续集成和部署脚本，它可以在训练代码每次发生更改时对模型进行训练和测试。
 
-* __托管标识__ ：在 _azure 虚拟机上_ 使用 Azure 机器学习 SDK 时，可以使用 azure 的托管标识。 此工作流允许 VM 使用托管标识连接到工作区，而无需在 Python 代码中存储凭据或提示用户进行身份验证。 还可以将 Azure 机器学习计算群集配置为在 _训练模型_ 时使用托管标识访问工作区。
+* __托管标识__：在 _azure 虚拟机上_ 使用 Azure 机器学习 SDK 时，可以使用 azure 的托管标识。 此工作流允许 VM 使用托管标识连接到工作区，而无需在 Python 代码中存储凭据或提示用户进行身份验证。 还可以将 Azure 机器学习计算群集配置为在 _训练模型_ 时使用托管标识访问工作区。
 
 > [!IMPORTANT]
 > 无论使用何种身份验证工作流，Azure RBAC)  (基于角色的访问控制可用于确定允许访问资源的访问权限级别 (授权) 范围。 例如，管理员或自动化过程可能具有创建计算实例的权限，但不使用它，而数据科学家可以使用它，但不能删除或创建计算实例。 有关详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
@@ -50,7 +50,7 @@ ms.locfileid: "94442100"
 若要使用服务主体 (SP) ，必须首先创建 SP，并向其授予对工作区的访问权限。 如前所述，Azure RBAC)  (Azure 基于角色的访问控制可用于控制访问权限，因此，你还必须确定授予 SP 的访问权限。
 
 > [!IMPORTANT]
-> 使用服务主体时，请向它授予它所用于的 __任务所需的最低访问权限__ 。 例如，如果服务主体仅用于读取 Web 部署的访问令牌，则不要向服务主体授予所有者或参与者访问权限。
+> 使用服务主体时，请向它授予它所用于的 __任务所需的最低访问权限__。 例如，如果服务主体仅用于读取 Web 部署的访问令牌，则不要向服务主体授予所有者或参与者访问权限。
 >
 > 授予最低访问权限的原因是服务主体使用密码进行身份验证，并且该密码可以存储为自动化脚本的一部分。 如果密码泄漏，由于用户仅拥有执行特定任务所需的最低访问权限，因此可最大程度地减少对 SP 的恶意使用。
 
@@ -141,7 +141,7 @@ ms.locfileid: "94442100"
 
 1. [为 VM 上的 Azure 资源启用系统分配的托管标识](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)。
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择你的工作区，然后选择 " __访问控制 (IAM)__ "、" __添加角色分配__ "，然后从 " __分配访问权限__ " 下拉列表中选择 " __虚拟机__ "。 最后，选择 VM 的标识。
+1. 在 [Azure 门户](https://portal.azure.com)中，选择你的工作区，然后选择 "__访问控制 (IAM)__"、"__添加角色分配__"，然后从 "__分配访问权限__" 下拉列表中选择 "__虚拟机__"。 最后，选择 VM 的标识。
 
 1. 选择要分配给此标识的角色。 例如，参与者或自定义角色。 有关详细信息，请参阅 [控制对资源的访问](how-to-assign-roles.md)。
 
@@ -154,7 +154,7 @@ ms.locfileid: "94442100"
 ## <a name="use-interactive-authentication"></a>使用交互式身份验证
 
 > [!IMPORTANT]
-> 交互式身份验证使用浏览器并需要 Cookie（包括第三方 Cookie）。 如果已禁用 Cookie，则可能会收到“我们无法为你登录”之类的错误。 如果已启用 [Azure 多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md)，则也可能出现此错误。
+> 交互式身份验证使用浏览器并需要 Cookie（包括第三方 Cookie）。 如果已禁用 Cookie，则可能会收到“我们无法为你登录”之类的错误。 如果已启用 [Azure AD 多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md)，则也可能发生此错误。
 
 文档和样本中的大多数示例都使用交互式身份验证。 例如，当使用 SDK 时，有两个函数调用会自动提示你使用基于 UI 的身份验证流：
 

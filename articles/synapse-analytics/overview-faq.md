@@ -2,19 +2,19 @@
 title: 常见问题解答 - Azure Synapse Analytics（工作区预览版）
 description: Azure Synapse Analytics（工作区预览版）的常见问题解答
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7e8ea231dd6db9eab6cf9115f6ce2e62893371a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 530ebe09ee0ca44b0a5fbd4b8da2784e2c7ae7ea
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305405"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843887"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics（工作区预览版）常见问题解答
 
@@ -101,8 +101,6 @@ Apache Spark 的另一个用例是使数据科学家能够：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [创建工作区](quickstart-create-workspace.md)
-- [使用 Synapse Studio](quickstart-synapse-studio.md)
-- [创建专用 SQL 池](quickstart-create-sql-pool-portal.md)
-- [使用无服务器 SQL 池](quickstart-sql-on-demand.md)
-- [创建无服务器 Apache Spark 池](quickstart-create-apache-spark-pool-portal.md) 
+* [Azure Synapse Analytics 入门](get-started.md)
+* [创建工作区](quickstart-create-workspace.md)
+* [使用无服务器 SQL 池](quickstart-sql-on-demand.md)

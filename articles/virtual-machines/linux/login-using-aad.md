@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 882df9d0dcb01d6321455b845fed087a5e14ccc6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002325"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843069"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>预览：使用 Azure Active Directory 身份验证登录到 Azure 中的 Linux 虚拟机
 
@@ -46,8 +46,8 @@ ms.locfileid: "88002325"
 | CentOS | CentOS 6，CentOS 7 |
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
-| RedHat Enterprise Linux | RHEL 6 和 RHEL 7 | 
-| SUSE Linux Enterprise Server | SLES 12 |
+| RedHat Enterprise Linux 7 | RHEL 6 和 RHEL 7 | 
+| SUSE Linux 企业服务器 | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS、Ubuntu Server 16.04 和 Ubuntu Server 18.04 |
 
 
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-成功将扩展安装到 VM 后，会显示 "*成功*" 的*provisioningState* 。 VM 需要运行的 VM 代理来安装扩展。 有关详细信息，请参阅 [VM 代理概述](../extensions/agent-windows.md)。
+成功将扩展安装到 VM 后，会显示 "*成功*" 的 *provisioningState* 。 VM 需要运行的 VM 代理来安装扩展。 有关详细信息，请参阅 [VM 代理概述](../extensions/agent-windows.md)。
 
 ## <a name="configure-role-assignments-for-the-vm"></a>为 VM 配置角色分配
 
@@ -119,9 +119,9 @@ Azure RBAC) 策略的 azure 基于角色的访问控制 (确定可登录到 VM �
 - **虚拟机用户登录名**：分配了此角色的用户可以使用常规用户权限登录到 Azure 虚拟机。
 
 > [!NOTE]
-> 若要允许用户通过 SSH 登录到 VM，必须分配“虚拟机管理员登录名”或“虚拟机用户登录名”角色。**** 分配了 VM“所有者”或“参与者”角色的 Azure 用户**** 不会自动获得通过 SSH 登录到 VM 的权限。
+> 若要允许用户通过 SSH 登录到 VM，必须分配“虚拟机管理员登录名”或“虚拟机用户登录名”角色。 分配了 VM“所有者”或“参与者”角色的 Azure 用户不会自动获得通过 SSH 登录到 VM 的权限。
 
-以下示例使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 为当前的 Azure 用户分配登录到 VM 所需的“虚拟机管理员登录名”角色。** 活动 Azure 帐户的用户名是使用 [az account show](/cli/azure/account#az-account-show) 获得的，而 *scope* 则设置为在前面的步骤中使用 [az vm show](/cli/azure/vm#az-vm-show) 创建的 VM。 还可以在资源组或订阅级别分配范围，并应用普通的 Azure RBAC 继承权限。 有关详细信息，请参阅 [AZURE RBAC](../../role-based-access-control/overview.md)
+以下示例使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 为当前的 Azure 用户分配登录到 VM 所需的“虚拟机管理员登录名”角色。 活动 Azure 帐户的用户名是使用 [az account show](/cli/azure/account#az-account-show) 获得的，而 *scope* 则设置为在前面的步骤中使用 [az vm show](/cli/azure/vm#az-vm-show) 创建的 VM。 还可以在资源组或订阅级别分配范围，并应用普通的 Azure RBAC 继承权限。 有关详细信息，请参阅 [AZURE RBAC](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -138,7 +138,7 @@ az role assignment create \
 
 有关如何使用 Azure RBAC 管理对 Azure 订阅资源的访问的详细信息，请参阅使用 [Azure CLI](../../role-based-access-control/role-assignments-cli.md)、 [Azure 门户](../../role-based-access-control/role-assignments-portal.md)或 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)。
 
-也可对 Azure AD 进行配置，要求特定的用户通过多重身份验证登录到 Linux 虚拟机。 有关详细信息，请参阅[云中的 Azure 多重身份验证入门](../../active-directory/authentication/howto-mfa-getstarted.md)。
+也可对 Azure AD 进行配置，要求特定的用户通过多重身份验证登录到 Linux 虚拟机。 有关详细信息，请参阅 [在云中 Azure AD 多重身份验证入门](../../active-directory/authentication/howto-mfa-getstarted.md)。
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>登录到 Linux 虚拟机
 
@@ -162,7 +162,7 @@ ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 
 关闭浏览器窗口，返回到 SSH 提示符窗口，然后按 **Enter** 键。 
 
-现在，你已使用分配的角色权限（例如“VM 用户”或“VM 管理员”）登录到 Azure Linux 虚拟机。**** 如果为用户帐户分配了 *虚拟机管理员登录* 角色，则可以使用 `sudo` 来运行需要 root 权限的命令。
+现在，你已使用分配的角色权限（例如“VM 用户”或“VM 管理员”）登录到 Azure Linux 虚拟机。 如果为用户帐户分配了 *虚拟机管理员登录* 角色，则可以使用 `sudo` 来运行需要 root 权限的命令。
 
 ## <a name="sudo-and-aad-login"></a>Sudo 和 AAD 登录名
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2a1396f67c94b34b4fdef0bdaf7e01770da91246
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ccc39513505f299e85cbc270e2daeafeac6ca6fd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331509"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845180"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>事件网格的 Azure 安全基线
 
@@ -24,9 +24,9 @@ Microsoft Azure 事件网格的 Azure 安全基线包含的建议可帮助你提
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1：保护虚拟网络中的 Azure 资源
 
-**指南**：你可以使用专用终结点，以允许直接从虚拟网络将事件传入到事件网格主题和域，而无需通过公共 internet。 为事件网格主题或域创建专用终结点时，它会在 VNet 中的客户端和事件网格资源之间提供安全连接。 专用终结点是从虚拟网络的 IP 地址范围分配的 IP 地址。 专用终结点与事件网格服务之间的连接使用安全的专用链接。
+**指导**：使用专用终结点，可以允许事件通过专用链接安全地从虚拟网络直接进入事件网格主题和域，而无需通过公共 Internet。 为事件网格主题或域创建专用终结点时，它会在 VNet 上的客户端与事件网格资源之间提供安全连接。 从虚拟网络的 IP 地址范围为专用终结点分配 IP 地址。 专用终结点与事件网格服务之间的连接使用安全的专用链接。
 
-Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访问控制。 使用基于 IP 的控制，可以将主题和域的发布者限制为一组经过批准的计算机和云服务。 此功能是对事件网格支持的身份验证机制的补充。 
+对于将内容发布到主题和域的操作，Azure 事件网格还支持进行基于公共 IP 的访问控制。 使用基于 IP 的控制，可以将主题和域的发布者限制为一组经过批准的计算机和云服务。 此功能是对事件网格支持的身份验证机制的补充。 
 
 - [有关事件网格专用终结点的更多详细信息](network-security.md#private-endpoints)
 
@@ -44,9 +44,9 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2：监视和记录虚拟网络、子网和 NIC 的配置与流量
 
-**指南**：使用 Azure 安全中心并按照网络保护建议来帮助保护 Azure 中的事件网格资源。 如果使用 Azure 虚拟机访问事件网格资源，请启用网络安全组 (NSG) 流日志，并将日志发送到存储帐户以获取流量
+**指导**：使用 Azure 安全中心并遵循网络保护建议来保护 Azure 中的事件网格资源。 如果使用 Azure 虚拟机来访问事件网格资源，请启用网络安全组 (NSG) 流日志，并将日志发送到存储帐户进行流量
 
-审核.
+审核。
 
 - [如何启用 NSG 流日志](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -84,11 +84,11 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="15-record-network-packets"></a>1.5：记录网络数据包
 
-**指南**：如果你使用 Azure 虚拟机来访问事件网格资源，请启用网络安全组 (NSG) 流日志并将日志发送到存储帐户以进行流量审核。 还可以将 NSG 流日志发送到 Log Analytics 工作区，并使用流量分析来提供对 Azure 云中的流量流的见解。 流量分析的优势包括能够可视化网络活动、识别热点、识别安全威胁、了解流量流模式，以及查明网络不当配置。
+**指导**：如果使用 Azure 虚拟机来访问事件网格资源，请启用网络安全组 (NSG) 流日志，并将日志发送到存储帐户进行流量审核。 还可以将 NSG 流日志发送到 Log Analytics 工作区，并使用流量分析来提供对 Azure 云中的流量流的见解。 流量分析的优势包括能够可视化网络活动、识别热点、识别安全威胁、了解流量流模式，以及查明网络不当配置。
 
-注意如果为事件网格创建专用终结点，则默认情况下禁用网络策略，因此以上工作流可能不起作用。
+请注意，为事件网格创建专用终结点时，默认情况下会禁用网络策略，因此以上工作流可能不起作用。
 
-如果需要调查异常活动，请启用网络观察程序数据包捕获。
+启用网络观察程序数据包捕获（如果调查异常活动时有此需要）。
 
 - [如何启用 NSG 流日志](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -126,7 +126,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8：最大程度地降低网络安全规则的复杂性和管理开销
 
-**指南**：对于需要访问 Azure 事件网格资源的虚拟网络中的资源，可以使用虚拟网络服务标记来定义网络安全组或 Azure 防火墙上的网络访问控制。 创建安全规则时，可以使用服务标记代替特定的 IP 地址。 通过在规则的相应 "源" 或 "目标" 字段中指定服务标记名称 (例如 AzureEventGrid) ，可以允许或拒绝相应服务的流量。 Microsoft 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记。
+**指导**：对于虚拟网络中需要访问 Azure 事件网格资源的资源，请在网络安全组或 Azure 防火墙上使用虚拟网络服务标记来定义网络访问控制。 创建安全规则时，可以使用服务标记代替特定的 IP 地址。 通过在规则的相应源字段或目标字段中指定服务标记名（例如，AzureEventGrid），可以允许或拒绝相应服务的流量。 Microsoft 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记。
 
 - [如何使用 Azure 事件网格服务标记](network-security.md#service-tags)
 
@@ -138,9 +138,9 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9：维护网络设备的标准安全配置
 
-**指南**：定义和实现与 Azure 事件网格命名空间和 azure 策略关联的网络资源的标准安全配置。 使用 "EventGrid" 和 "Microsoft 网络" 命名空间中的 Azure 策略别名创建自定义策略，以便审核或强制执行事件网格资源的网络配置。 
+**指导**：使用 Azure Policy 为与 Azure 事件网格命名空间关联的网络资源定义和实施标准安全配置。 在“Microsoft.EventGrid”和“Microsoft.Network”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施事件网格资源的网络配置。 
 
-你还可以使用与 Azure 事件网格相关的内置策略定义，例如：-Azure 事件网格域应使用专用链接-Azure 事件网格主题应使用专用 linksAzure
+你还可以使用与 Azure 事件网格相关的内置策略定义，例如：- Azure 事件网格域应使用专用链接；- Azure 事件网格主题应使用专用链接
 - [事件网格资源的内置策略](../governance/policy/samples/built-in-policies.md#event-grid)
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
@@ -151,7 +151,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10：阐述流量配置规则
 
-**指南**：对与 Azure 事件网格资源关联的网络资源使用标记，以便以逻辑方式将它们组织到分类。
+**指导**：对与 Azure 事件网格资源关联的网络资源使用标记，以便按逻辑将这些资源组织成某种分类。
 
 - [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
@@ -161,7 +161,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11：使用自动化工具来监视网络资源配置和检测更改
 
-**指南**：使用 Azure 活动日志监视网络资源配置，并检测与 Azure 事件网格相关的网络资源的更改。 在 Azure Monitor 中创建当关键网络资源发生更改时触发的警报。
+**指导**：使用 Azure 活动日志监视网络资源配置，并检测与 Azure 事件网格相关的网络资源的更改。 在 Azure Monitor 中创建当关键网络资源发生更改时触发的警报。
 
 - [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
@@ -177,7 +177,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="22-configure-central-security-log-management"></a>2.2：配置中心安全日志管理
 
-**指南**：通过 Azure Monitor 引入日志来聚合由 Azure 事件网格生成的安全数据。 在 Azure Monitor 中，使用 Log Analytics 工作区来查询和执行分析，并使用存储帐户进行长期/存档存储。 或者，可以启用数据并将其加入 Azure Sentinel 或第三方安全事件和事件管理 (SIEM)。
+**指导**：通过 Azure Monitor 引入日志来聚合 Azure 事件网格生成的安全数据。 在 Azure Monitor 中，使用 Log Analytics 工作区来查询和执行分析，并使用存储帐户进行长期/存档存储。 或者，可以启用数据并将其加入 Azure Sentinel 或第三方安全事件和事件管理 (SIEM)。
 
 - [如何为 Azure 事件网格启用诊断日志](diagnostic-logs.md)
 
@@ -189,7 +189,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3：为 Azure 资源启用审核日志记录
 
-**指南**：诊断设置允许事件网格用户在存储帐户、事件中心或 Log Analytics 工作区中捕获和查看发布和传递失败日志。
+**指导**：事件网格用户可以通过诊断设置在以下任一位置捕获和查看“发布和传递失败”日志：存储帐户、事件中心或 Log Analytics 工作区。
 
 - [为 Azure 事件网格主题或域启用诊断日志](enable-diagnostic-logs-topic.md)
 
@@ -207,7 +207,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5：配置安全日志存储保留期
 
-**指南**：在 Azure Monitor 中，根据组织的符合性规定，设置与 Azure 事件网格资源关联的 Log Analytics 工作区的日志保持期。
+**指导**：在 Azure Monitor 中，根据组织的合规性规定，为与 Azure 事件网格资源关联的 Log Analytics 工作区设置日志保留期。
 
 - [如何设置日志保留参数](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -217,13 +217,13 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="26-monitor-and-review-logs"></a>2.6：监视和审查日志
 
-**指南**：分析和监视日志中的异常行为，并定期查看 Azure 事件网格中的结果。 使用 Azure Monitor 和 Log Analytics 工作区查看日志并对日志数据执行查询。
+**指导**：分析和监视日志中的异常行为，并定期审查来自 Azure 事件网格的结果。 使用 Azure Monitor 和 Log Analytics 工作区查看日志并对日志数据执行查询。
 
 或者，可以启用数据并将其加入 Azure Sentinel 或第三方 SIEM。 
 
 - [为 Azure 事件网格主题或域启用诊断日志](enable-diagnostic-logs-topic.md)
 
-- [如何在 Log Analytics 工作区中执行 Azure 事件网格查询](diagnostic-logs.md)
+- [如何在 Log Analytics 工作区中对 Azure 事件网格执行查询](diagnostic-logs.md)
 
 - [如何加入 Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -237,7 +237,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7：针对异常活动启用警报
 
-**指南**：对事件网格启用诊断设置，以便访问发布和传递失败日志。 活动日志自动可用，包括事件源、日期、用户、时间戳、源地址、目标地址和其他有用元素。 可以将日志发送到 Log Analytics 工作区。 将 Azure 安全中心与 Log Analytics 结合使用，以便在安全日志和事件中发现异常活动时进行监视和警报。 
+**指导**：在事件网格上启用诊断设置，以便访问“发布和传递失败”日志。 活动日志自动可用，包括事件源、日期、用户、时间戳、源地址、目标地址和其他有用元素。 你可以将日志发送到 Log Analytics 工作区。 使用 Azure 安全中心和 Log Analytics 监视安全日志和事件中的异常活动并发出警报。 
 
 你还可以创建有关 Azure 事件网格指标和活动日志操作的警报。 可以针对 Azure 事件网格资源（主题和域）的发布和交付这两种指标创建警报。 
 
@@ -259,7 +259,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8：集中管理反恶意软件日志记录
 
-**指南**：不适用;Azure 事件网格不处理或产生与反恶意软件相关的日志。
+**指导**：不适用；Azure 事件网格不会处理或生成与反恶意软件相关的日志。
 
 **Azure 安全中心监视**：不适用
 
@@ -267,7 +267,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="29-enable-dns-query-logging"></a>2.9：启用 DNS 查询日志记录
 
-**指南**：不适用;Azure 事件网格不会处理或产生与 DNS 相关的日志。
+**指导**：不适用；Azure 事件网格不会处理或生成与 DNS 相关的日志。
 
 **Azure 安全中心监视**：不适用
 
@@ -287,7 +287,7 @@ Azure 事件网格还支持用于发布到主题和域的基于 IP 的公共访�
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
-**指南**：通过 Azure 事件网格，可以控制提供给不同用户执行各种管理操作（如列出事件订阅、创建新用户和生成密钥）的访问级别。 事件网格使用 azure RBAC)  (Azure 基于角色的访问控制。 事件网格支持内置角色和自定义角色。
+**指导**：借助 Azure 事件网格，可以控制授予不同用户用来执行各种管理操作的访问级别，例如列出事件订阅、创建新的事件订阅及生成密钥。 事件网格使用 azure RBAC)  (Azure 基于角色的访问控制。 事件网格支持内置角色和自定义角色。
 
 Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管理对 Azure 资源的访问权限。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。
 
@@ -303,7 +303,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2：在适用的情况下更改默认密码
 
-**指南**：通过 AZURE ACTIVE DIRECTORY (AD) 控制对事件网格资源的访问管理。 Azure AD 没有默认密码。
+**指导**：对事件网格资源的访问管理是通过 Azure Active Directory (AD) 控制的。 Azure AD 没有默认密码。
 
 **Azure 安全中心监视**：不适用
 
@@ -313,9 +313,9 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 **指南**：围绕专用管理帐户的使用创建标准操作程序。
 
-你还可以使用 Azure AD Privileged Identity Management 和 Azure 资源管理器启用实时访问。
+还可以通过使用 Azure AD Privileged Identity Management 和 Azure 资源管理器来启用即时访问权限。
 
-事件网格可以为 Azure 事件网格主题或域启用托管服务标识，并使用它将事件转发到受支持的目标，例如服务总线队列和主题、事件中心和存储帐户。  (SAS) 令牌的共享访问签名用于将事件发布到 Azure 事件网格。 使用这些帐户创建有关事件访问、转发和发布的标准操作过程。
+事件网格可以为 Azure 事件网格主题或域启用托管服务标识，并使用该标识将事件转发到支持的目标，如服务总线队列和主题、事件中心和存储帐户。 共享访问签名 (SAS) 令牌用于将事件发布到 Azure 事件网格。 使用这些帐户创建有关事件访问、转发和发布的标准操作过程。
 
 - [对目标为事件处理程序的事件传递进行身份验证（Azure 事件网格）](security-authentication.md)
 
@@ -329,7 +329,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4：将单一登录 (SSO) 与 Azure Active Directory 配合使用
 
-**指南**：不适用;事件网格服务不支持 SSO。
+**指导**：不适用；事件网格服务不支持 SSO。
 
 **Azure 安全中心监视**：不适用
 
@@ -337,7 +337,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5：对所有基于 Azure Active Directory 的访问使用多重身份验证
 
-**指南**：不适用;事件网格服务不使用多重身份验证
+**指导**：不适用；事件网格服务不使用多重身份验证
 
 **Azure 安全中心监视**：不适用
 
@@ -345,7 +345,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
-**指南**：不适用;无事件网格方案需要特权访问工作站。 
+**指导**：不适用；事件网格方案不需要特权访问工作站。 
 
 **Azure 安全中心监视**：不适用
 
@@ -365,7 +365,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3.8：仅从批准的位置管理 Azure 资源
 
-**指导**：不适用。 事件网格不使用 Azure AD 对事件发布客户端进行身份验证;它通过 SAS 密钥支持身份验证。
+**指导**：不适用。 事件网格不使用 Azure AD 对事件发布客户端进行身份验证；它支持通过 SAS 密钥进行身份验证。
 
 **Azure 安全中心监视**：不适用
 
@@ -375,7 +375,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 **指导**：使用 Azure Active Directory (Azure AD) 作为中心身份验证和授权系统。 Azure AD 通过对静态数据和传输中数据使用强加密来保护数据。 Azure AD 还会对用户凭据进行加盐、哈希处理和安全存储操作。
 
-事件网格可以为 Azure 事件网格主题或域启用托管服务标识，并使用它将事件转发到受支持的目标，例如服务总线队列和主题、事件中心和存储帐户。  (SAS) 令牌的共享访问签名用于将事件发布到 Azure 事件网格。 
+事件网格可以为 Azure 事件网格主题或域启用托管服务标识，并使用该标识将事件转发到支持的目标，如服务总线队列和主题、事件中心和存储帐户。 共享访问签名 (SAS) 令牌用于将事件发布到 Azure 事件网格。 
 
 - [对目标为事件处理程序的事件传递进行身份验证（Azure 事件网格）](security-authentication.md)
 
@@ -391,7 +391,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 **指南**：Azure AD 提供日志来帮助发现过时的帐户。 此外，请使用 Azure AD 标识和访问评审来有效管理组成员身份、对企业应用程序的访问以及角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。 
  
-当环境中发生可疑活动或不安全活动时，使用 Azure Active Directory (AD) Privileged Identity Management (PIM) 用于生成日志和警报。
+当环境中出现可疑或不安全的活动时，可使用 Azure Active Directory (AD) Privileged Identity Management (PIM) 生成日志和警报。
 
 - [了解 Azure AD 报告](../active-directory/reports-monitoring/index.yml)
 
@@ -433,7 +433,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13：在支持场合下为 Microsoft 提供对相关客户数据的访问权限
 
-**指南**：不适用;事件网格服务目前不支持客户密码箱。
+**指导**：不适用；事件网格服务目前不支持客户密码箱。
 
 **Azure 安全中心监视**：不适用
 
@@ -471,7 +471,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3：监视和阻止未经授权的敏感信息传输
 
-**指南**：对于由 microsoft 管理的底层平台，microsoft 将所有客户内容视为敏感数据，并在很大程度上防范客户数据丢失和公开。 为了确保 Azure 中的客户数据保持安全，Microsoft 实施并维护了一套可靠的数据保护控制措施和功能。
+**指导**：对于由 Microsoft 管理的基础平台，Microsoft 会将所有客户内容都视为敏感信息，竭尽全力防范客户数据丢失和泄露。 为了确保 Azure 中的客户数据保持安全，Microsoft 实施并维护了一套可靠的数据保护控制措施和功能。
 
 - [了解 Azure 中的客户数据保护](../security/fundamentals/protection-customer-data.md)
 
@@ -481,7 +481,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4：加密传输中的所有敏感信息
 
-**指南**： Azure 事件网格需要 https 才能发布，并支持使用 https 将事件传递到 webhook 终结点。 在 Azure Global 中，事件网格支持1.1 和1.2 版本的 TLS，但我们强烈建议使用1.2 版本。 在中国的国内云（如 Azure 政府版和由中国的世纪互联运营的 Azure）中，事件网格仅支持1.2 版本的 TLS。 
+**指导**：Azure 事件网格需要使用 HTTPS 进行发布操作，并支持使用 HTTPS 将事件传递到 Webhook 终结点。 在 Azure Global 中，事件网格支持 1.1 和 1.2 版本的 TLS，但我们强烈建议使用 1.2 版本。 在国家云（例如 Azure 政府和由中国的世纪互联运营的 Azure）中，事件网格仅支持 1.2 版本的 TLS。 
 
 **Azure 安全中心监视**：不适用
 
@@ -489,7 +489,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5：使用有效的发现工具识别敏感数据
 
-**指南**： Azure 事件网格尚不支持数据标识、分类和丢失防护功能。 如有必要，请实现第三方解决方案。
+**指导**：数据标识、分类和丢失防护功能尚不适用于 Azure 事件网格。 可以根据合规性需要实施第三方解决方案。
 
 对于由 Microsoft 管理的基础平台，Microsoft 会将所有客户内容都视为敏感信息，竭尽全力防范客户数据丢失和泄露。 为了确保 Azure 中的客户数据保持安全，Microsoft 实施并维护了一套可靠的数据保护控制措施和功能。
 
@@ -501,7 +501,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6：使用 Azure RBAC 管理对资源的访问
 
-**指南**： Azure 事件网格支持使用 AZURE ACTIVE DIRECTORY (AD) 向事件网格资源的请求授权。 使用 Azure AD，你可以使用 Azure RBAC)  (Azure 基于角色的访问控制向安全主体（可以是用户或应用程序服务主体）授予权限。
+**指导**：Azure 事件网格支持使用 Azure Active Directory (AD) 对事件网格资源请求进行授权。 可以通过 Azure AD 使用 Azure 基于角色的访问控制 (Azure RBAC) 向安全主体授予权限，该安全主体可能是用户，也可能是应用程序服务主体。
 
 - [授权访问事件网格资源](security-authorization.md)
 
@@ -511,7 +511,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9：记录对关键 Azure 资源的更改并对此类更改发出警报
 
-**指南**：将 Azure Monitor 与 azure 活动日志结合使用，为 Azure 事件网格资源的生产实例以及其他关键或相关资源的发生更改创建警报。
+**指导**：将 Azure Monitor 与 Azure 活动日志结合使用，以创建在 Azure 事件网格资源的生产实例和其他关键资源或相关资源发生更改时发出的警报。
 
 - [如何针对 Azure 活动日志事件创建警报](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -664,7 +664,7 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
  
  
  
-- [ 如何配置条件性访问以阻止访问 Azure 资源管理器](../role-based-access-control/conditional-access-azure-management.md)
+- [如何配置条件访问来阻止对 Azure 资源管理器的访问](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -692,9 +692,9 @@ Azure RBAC) 的 azure 基于角色的访问控制 (允许通过角色分配管�
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
-**指南**：为 Azure 事件网格服务定义和实现 azure 策略的标准安全配置。 使用 "EventGrid" 命名空间中的 Azure 策略别名创建自定义策略，以便审核或强制执行 Azure 事件网格服务的配置。
+**指导**：通过 Azure Policy 为 Azure 事件网格服务定义和实现标准安全配置。 使用“Microsoft.EventGrid”命名空间中的 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure 事件网格服务的配置。
 
-Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，应查看该模板，以确保在部署之前配置满足组织的安全要求。
+Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 格式导出模板，应该对其进行检查，以在部署前确保配置满足组织的安全要求。
 
 - [如何查看可用的 Azure Policy 别名](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -736,7 +736,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5：安全存储 Azure 资源的配置
 
-**指南**：如果对事件网格或相关资源使用自定义 Azure 策略定义，请使用 Azure Repos 安全地存储和管理代码。
+**指导**：如果对事件网格或相关资源使用自定义 Azure Policy 定义，请使用 Azure Repos 安全地存储和管理代码。
 
 - [如何在 Azure DevOps 中存储代码](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
@@ -756,7 +756,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7：部署 Azure 资源的配置管理工具
 
-**指南**：使用 "EventGrid" 命名空间中的 Azure 策略别名创建自定义策略，以对系统配置进行警报、审核和强制执行。 另外，开发一个用于管理策略例外的流程和管道。
+**指导**：在“Microsoft.EventGrid”命名空间中使用 Azure Policy 别名创建自定义策略，以审核、强制实施系统配置并对其发出警报。 另外，开发一个用于管理策略例外的流程和管道。
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -794,7 +794,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11：安全管理 Azure 机密
 
-**指南**：事件网格使用共享访问签名 (SAS) 令牌将事件发布到事件网格主题或域。 生成仅可访问有限时间范围内所需资源的 SAS 令牌。
+**指导**：事件网格使用共享访问签名 (SAS) 令牌将事件发布到事件网格主题或域中。 生成只能访问在有限时间范围内需要的资源的 SAS 令牌。
 
 将托管标识与 Azure Key Vault 结合使用，以简化云应用程序的机密管理。
 
@@ -802,7 +802,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 - [如何使用 Azure 资源的托管标识](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [如何创建 Key Vault](../key-vault/general/quick-create-portal.md)
 
 - [如何向 Key Vault 进行身份验证](../key-vault/general/authentication.md)
 
@@ -814,7 +814,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12：安全自动管理标识
 
-**指南**：事件网格可以为 Azure 事件网格主题或域启用托管服务标识。 使用它将事件转发到受支持的目标，如服务总线队列和主题、事件中心和存储帐户。
+**指导**：事件网格可以为 Azure 事件网格主题或域启用托管服务标识。 使用它将事件转发到受支持的目标，如服务总线队列和主题、事件中心和存储帐户。
 
 - [使用托管标识进行事件传递](managed-service-identity.md)
 
@@ -838,7 +838,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2：预先扫描要上传到非计算 Azure 资源的文件
 
-**指南**：在支持 azure 服务的基础主机上启用了 Microsoft 反恶意软件 (例如，Azure 事件网格) ，但它不会在客户内容上运行。
+**指导**：Microsoft 反恶意软件已在支持 Azure 服务（例如，Azure 事件网格）的基础主机上启用，但它不会针对客户内容运行。
 
 你需要负责预先扫描要上传到非计算 Azure 资源的任何内容。 Microsoft 无法访问客户数据，因此无法代表你对客户内容执行反恶意软件扫描。
 
@@ -852,7 +852,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
-**指南**：事件网格具有自动异地灾难恢复 (GeoDR 的元数据) ，不仅适用于新的，但所有现有域、主题和事件订阅。 在整个 Azure 区域出现故障时，事件网格已将所有与事件相关的基础结构元数据同步到配对的区域。
+**指导**：事件网格可以针对新的和现有的所有域、主题和事件订阅提供元数据自动异地灾难恢复 (GeoDR) 功能。 在整个 Azure 区域出现故障时，事件网格已将所有与事件相关的基础结构元数据同步到配对的区域。
 
 - [Azure 事件网格中的服务器端异地灾难恢复](geo-disaster-recovery.md)
 
@@ -862,7 +862,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2：执行完整系统备份，并备份客户管理的所有密钥
 
-**指南**：事件网格具有自动异地灾难恢复 (GeoDR 的元数据) ，不仅适用于新的，但所有现有域、主题和事件订阅。 在整个 Azure 区域出现故障时，事件网格已将所有与事件相关的基础结构元数据同步到配对的区域。
+**指导**：事件网格可以针对新的和现有的所有域、主题和事件订阅提供元数据自动异地灾难恢复 (GeoDR) 功能。 在整个 Azure 区域出现故障时，事件网格已将所有与事件相关的基础结构元数据同步到配对的区域。
 
 目前，事件网格不支持客户管理的密钥。 
 
@@ -874,7 +874,7 @@ Azure 资源管理器可以 JavaScript 对象表示法 (JSON) 中导出模板，
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3：验证所有备份，包括客户管理的密钥
 
-**指南**：事件网格具有自动异地灾难恢复 (GeoDR 的元数据) ，不仅适用于新的，但所有现有域、主题和事件订阅。 在整个 Azure 区域出现故障时，事件网格已将所有与事件相关的基础结构元数据同步到配对的区域。
+**指导**：事件网格可以针对新的和现有的所有域、主题和事件订阅提供元数据自动异地灾难恢复 (GeoDR) 功能。 在整个 Azure 区域出现故障时，事件网格已将所有与事件相关的基础结构元数据同步到配对的区域。
 
 目前，事件网格不支持客户管理的密钥。 
 

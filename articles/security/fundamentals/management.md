@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412759"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844857"
 ---
 # <a name="security-management-in-azure"></a>Azure 中的安全管理
 Azure 订阅者可从多个设备管理他们的云环境，这些设备包括管理工作站、开发人员电脑，甚至是具有特定于任务的权限的特权最终用户设备。 在某些情况下，可通过基于 Web 的控制台（例如 [Azure 门户](https://azure.microsoft.com/features/azure-portal/)）来执行管理功能。 在其他情况下，可能存在通过虚拟专用网络 (VPN)、终端服务、客户端应用程序协议或（以编程方式）通过 Azure 服务管理 API (SMAPI) 从本地系统直接连接到 Azure。 此外，客户端终结点（例如平板电脑或智能手机）可以加入域或者受到隔离且不受管理。
@@ -112,7 +112,7 @@ Azure 提供了安全机制来帮助管理员管理 Azure 云服务和虚拟机�
 * 将 RD 网关加入管理员工作站所在的同一个[管理域](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10))。 在具有对 Azure AD 的单向信任的域中使用站点到站点 IPsec VPN 或 ExpressRoute 时，或者要联合本地 AD DS 实例与 Azure AD 之间的凭据时，就必须这样做。
 * 配置[客户端连接授权策略](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11))，以让 RD 网关验证客户端计算机名称是否有效（已加入域）并可以访问 Azure 门户。
 * 针对 [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) 使用 IPsec 以进一步防止管理流量遭到窃听和令牌失窃，或考虑使用通过 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) 隔离的 Internet 链接。
-* 针对通过 RD 网关登录的管理员启用多重身份验证（通过 [Azure 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)）或智能卡身份验证。
+* 启用多重身份验证 (通过 [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)) 或通过 RD 网关登录的管理员的智能卡身份验证。
 * 在 Azure 中配置源 [IP 地址限制](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/)或[网络安全组](../../virtual-network/network-security-groups-overview.md)，将允许的管理终结点数降到最低。
 
 ## <a name="security-guidelines"></a>安全指导原则

@@ -10,13 +10,13 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9c742ca2fd9779589a3c8aea7f030460c5db8b5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 2f57e801720c6b546a58b216422629d192e8d2e6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994136"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843309"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>用 Azure Key Vault 托管 HSM (预览版中存储的客户托管密钥配置加密) 
 
@@ -31,7 +31,7 @@ Azure 存储对静态存储帐户中的所有数据进行加密。 默认情况�
 
 首先，将系统分配的托管标识分配给存储帐户。 你将使用此托管标识向存储帐户授予访问托管 HSM 的权限。 有关系统分配的托管标识的详细信息，请参阅 [Azure 资源的托管标识是什么？](../../active-directory/managed-identities-azure-resources/overview.md)。
 
-若要使用 Azure CLI 分配托管标识，请调用 [az storage account update](/cli/azure/storage/account#az-storage-account-update)。 请记住，用自己的值替换括号中的占位符值：
+若要使用 Azure CLI 分配托管标识，请调用 [az storage account update](/cli/azure/storage/account#az-storage-account-update)。 请记得将括号中的占位符值替换为你自己的值：
 
 ```azurecli
 az storage account update \

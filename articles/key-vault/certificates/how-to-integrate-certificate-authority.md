@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289545"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844499"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>将 Key Vault 与 DigiCert 证书颁发机构集成
 
@@ -31,9 +31,9 @@ Azure 密钥保管库用户可以直接从其 Key Vault 生成 DigiCert 证书�
 
 要完成本指南，必须备好以下资源。
 * 一个 Key Vault。 可以使用现有的 Key Vault，或者遵循以下快速入门之一中的步骤创建一个新的 Key Vault：
-   - [使用 Azure CLI 创建 Key Vault](../secrets/quick-create-cli.md)
-   - [使用 Azure PowerShell 创建 Key Vault](../secrets/quick-create-powershell.md)
-   - [使用 Azure 门户创建 Key Vault](../secrets/quick-create-portal.md)
+   - [使用 Azure CLI 创建 Key Vault](../general/quick-create-cli.md)
+   - [使用 Azure PowerShell 创建 Key Vault](../general/quick-create-powershell.md)
+   - [使用 Azure 门户创建 Key Vault](../general/quick-create-portal.md)
 *   需要激活 DigiCert CertCentral 帐户。 [注册](https://www.digicert.com/account/signup/) CertCentral 帐户。
 *   帐户中的管理员级别权限。
 
@@ -57,10 +57,10 @@ Azure 密钥保管库用户可以直接从其 Key Vault 生成 DigiCert 证书�
  ![添加证书颁发机构](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  在“创建证书颁发机构”屏幕上，选择以下值：
     -   名称：添加可识别的颁发者名称。 示例 DigicertCA
-    -   **提供程序** ：从菜单中选择“DigiCert”。
-    -   **帐户 ID** ：输入你的 DigiCert CertCentral 帐户 ID
-    -   **帐户密码** ：输入在 DigiCert CertCentral 帐户中生成的 API 密钥
-    -   **组织 ID** ：输入从 DigiCert CertCentral 帐户收集的 OrgID 
+    -   **提供程序**：从菜单中选择“DigiCert”。
+    -   **帐户 ID**：输入你的 DigiCert CertCentral 帐户 ID
+    -   **帐户密码**：输入在 DigiCert CertCentral 帐户中生成的 API 密钥
+    -   **组织 ID**：输入从 DigiCert CertCentral 帐户收集的 OrgID 
     -   单击“创建”。
    
 6.  你会看到 DigicertCA 现已添加到证书颁发机构列表中。
@@ -89,7 +89,7 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 必须对密钥保管库使用唯一的名称。 在本指南中，“Contoso-Vaultname”是 Key Vault 的名称。
 
 - “保管库名称”Contoso-Vaultname。
-- 资源组名称 **ContosoResourceGroup** 。
+- 资源组名称 **ContosoResourceGroup**。
 - “位置”EastUS。
 
 ```azurepowershell-interactive

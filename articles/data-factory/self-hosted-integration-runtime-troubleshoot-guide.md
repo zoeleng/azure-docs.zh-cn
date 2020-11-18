@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928104"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844034"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -34,7 +34,7 @@ ms.locfileid: "92928104"
 
     ![发送日志](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. 您可以选择要发送的日志。 对于 *自承载 ir* ，你可以上载与失败的活动或自承载 ir 节点上的所有日志相关的日志。 对于 *共享 IR* ，只能上载与失败的活动相关的日志。
+1. 您可以选择要发送的日志。 对于 *自承载 ir*，你可以上载与失败的活动或自承载 ir 节点上的所有日志相关的日志。 对于 *共享 IR*，只能上载与失败的活动相关的日志。
 
     ![选择日志](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -47,6 +47,21 @@ ms.locfileid: "92928104"
 
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>自承载 IR 一般性故障或错误
+
+### <a name="out-of-memory-issue"></a>内存不足问题
+
+#### <a name="symptoms"></a>症状
+
+尝试运行具有链接 IR 或自承载 IR 的查找活动时出现 "OutOfMemoryException" 问题。
+
+#### <a name="cause"></a>原因
+
+如果 IR 计算机目前的内存使用率很高，则新活动可满足 OOM (OutOfMemory) 问题。 此问题可能是由于并发活动执行较大规模引起的，并且错误是由设计决定的。
+
+#### <a name="resolution"></a>解决方法
+
+请检查 IR 节点上的资源使用情况和并发活动执行情况。 调整活动运行的内部和触发时间，以避免在同一 IR 节点上同时执行太多的操作。
+
 
 ### <a name="tlsssl-certificate-issue"></a>TLS/SSL 证书问题
 
@@ -404,6 +419,47 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 意外改动了某些系统文件或注册表
 
 
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>IR 服务帐户无法获取证书访问权限
+
+#### <a name="symptoms"></a>症状
+
+通过 Microsoft Integration Runtime 配置管理器安装自承载 IR 时，会生成包含受信任的 CA 的证书。 无法应用证书来加密两个节点之间的通信。 
+
+错误信息如下所示： 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![未能授予 IR 服务帐户证书访问权限](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>原因
+
+证书正在使用不受支持的 (密钥存储提供程序) 的 KSP。 SHIR 仅支持 (加密服务提供程序) 证书的 CSP。
+
+#### <a name="resolution"></a>解决方法
+
+对于这种情况，建议使用 CSP 证书。
+
+**解决方案1：** 使用以下命令导入证书：
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![使用 certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**解决方案2：** 证书的转换：
+
+openssl pkcs12-in xxxx_new .\xxxx.pfx-password pass：*\<EnterPassword>*
+
+openssl pkcs12-out xxxx_new-out xxxx_new .pfx
+
+转换前后：
+
+![证书更改之前](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![证书更改后](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+
 ## <a name="self-hosted-ir-connectivity-issues"></a>自承载 IR 连接问题
 
 ### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>自承载集成运行时无法连接到云服务
@@ -549,7 +605,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 然后，你可以通过删除筛选器来获取客户端与数据工厂服务器之间的对话。
 
     ![获取对话](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
-- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据 [此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的 **默认 TTL 和跃点限制值** （摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
+- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据 [此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的 **默认 TTL 和跃点限制值**（摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
 
     默认 TTL 和跃点限制值在不同的操作系统中有所不同，下面是一些操作系统的默认值：
     - Linux 内核 2.4 (circa 2001)：对于 TCP、UDP 和 ICMP，该值为 255
@@ -616,11 +672,11 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
     ![TCP 4 握手工作流](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
 
-### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>接收电子邮件以更新网络配置，以允许与新的 IP 地址进行通信
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>接收电子邮件以更新网络配置，以允许与新 IP 地址进行通信
 
 #### <a name="email-notification-from-microsoft"></a>来自 Microsoft 的电子邮件通知
 
-你可能会收到以下电子邮件通知，建议你更新网络配置，以允许与 Azure 数据工厂的新 IP 地址进行通信，2020年11月8日：
+你可能会收到以下电子邮件通知，该通知建议于 2020 年 11 月 8 日之前更新网络配置，以允许与 Azure 数据工厂的新 IP 地址进行通信：
 
    ![电子邮件通知](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
@@ -637,7 +693,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 ##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>方案2：自承载 Integration Runtime 在客户管理的 Azure 虚拟网络内的 Azure VM 上运行的出站通信
 如何确定是否受影响：
 - 检查包含自承载 Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不会产生任何影响。
-- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。 
+- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围包含在现有服务标记之内。 
  ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 - 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式启用了出站 IP 地址的允许列表，则会受到影响。
 
@@ -645,7 +701,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>方案3：来自客户托管的 Azure 虚拟网络中 SSIS Integration Runtime 的出站通信
 - 检查包含 SSIS Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不会产生任何影响。
-- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围处于 "现有服务" 标记下。
+- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围包含在现有服务标记之内。
 - 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置上显式启用了出站 IP 地址的允许列表，则会受到影响。
 
 受影响的操作：通知网络基础结构团队更新 Azure 虚拟网络配置上的 NSG 规则，以使用2020年11月8日的最新数据工厂 IP 地址。  若要下载最新的 IP 地址，请参阅 " [服务标记 IP 范围下载" 链接](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)。

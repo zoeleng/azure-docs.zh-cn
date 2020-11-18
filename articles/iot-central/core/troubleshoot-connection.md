@@ -7,13 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.custom: device-developer
-ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: device-developer, devx-track-azurecli
+ms.openlocfilehash: f4f35aed10465fb06460f2818a876444bf989e01
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424474"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843955"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>排查设备中的数据未在 Azure IoT Central 中显示的原因
 
@@ -132,7 +132,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | 设备预配状态 | 说明 | 可能的缓解 |
 | - | - | - |
-| 已预配 | 无立即识别的问题。 | 不适用 |
+| 已预配 | 无立即识别的问题。 | 空值 |
 | 已注册 | 设备尚未连接到 IoT Central。 | 检查设备日志是否存在连接问题。 |
 | 已阻止 | 设备被阻止连接到 IoT Central。 | 设备被阻止连接到 IoT Central 应用程序。 在 IoT Central 中取消阻止设备，然后重试。 若要了解详细信息，请参阅 [阻止设备](concepts-get-connected.md#device-status-values)。 |
 | 审批 | 设备未批准。 | 未批准设备连接到 IoT Central 应用程序。 批准 IoT Central 中的设备，然后重试。 若要了解详细信息，请参阅 [批准设备](concepts-get-connected.md#connect-without-registering-devices) |
@@ -202,7 +202,7 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-如果希望使用 GUI，请使用 IoT Central **原始数据** 视图，查看是否没有建模。 **原始数据**视图不会检测设备是否发送格式错误的 JSON。
+如果希望使用 GUI，请使用 IoT Central **原始数据** 视图，查看是否没有建模。 **原始数据** 视图不会检测设备是否发送格式错误的 JSON。
 
 :::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="原始数据视图的屏幕截图":::
 

@@ -16,12 +16,13 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+- devx-track-azurecli
+ms.openlocfilehash: 8627681d843d15658882529424375486a4cdb1b9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912134"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845163"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中心的访问权限
 
@@ -43,7 +44,7 @@ ms.locfileid: "92912134"
 
 可以通过以下方式授予 [权限](#iot-hub-permissions) ：
 
-* **IoT 中心级别的共享访问策略** 。 共享访问策略可以授予任意[权限](#iot-hub-permissions)组合。 可使用 [IoT 中心资源 REST API](/rest/api/iothub/iothubresource) 或使用 [az iot 中心策略](/cli/azure/iot/hub/policy) CLI 以编程方式在 [Azure 门户](https://portal.azure.com)中定义策略。 新建的 IoT 中心有以下默认策略：
+* **IoT 中心级别的共享访问策略**。 共享访问策略可以授予任意[权限](#iot-hub-permissions)组合。 可使用 [IoT 中心资源 REST API](/rest/api/iothub/iothubresource) 或使用 [az iot 中心策略](/cli/azure/iot/hub/policy) CLI 以编程方式在 [Azure 门户](https://portal.azure.com)中定义策略。 新建的 IoT 中心有以下默认策略：
   
   | 共享访问策略 | 权限 |
   | -------------------- | ----------- |
@@ -53,7 +54,7 @@ ms.locfileid: "92912134"
   | registryRead | **RegistryRead** 权限 |
   | registryReadWrite | **RegistryRead** 和 **RegistryWrite** 权限 |
 
-* **每个设备的安全凭据** 。 每个 IoT 中心都包含一个 [标识注册表](iot-hub-devguide-identity-registry.md)。对于此标识注册表中的每个设备，可配置安全凭据，授予局限于相应设备终结点的 **DeviceConnect** 权限。
+* **每个设备的安全凭据**。 每个 IoT 中心都包含一个 [标识注册表](iot-hub-devguide-identity-registry.md)。对于此标识注册表中的每个设备，可配置安全凭据，授予局限于相应设备终结点的 **DeviceConnect** 权限。
 
 例如，在典型的 IoT 解决方案中：
 
@@ -116,7 +117,7 @@ HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身�
 
 ## <a name="scope-iot-hub-level-credentials"></a>设置 IoT 中心级凭据的范围
 
-可通过使用受限资源 URI 创建令牌，设置 IoT 中心级安全策略的范围。 例如，要从设备发送从设备到云的消息的终结点是 **/devices/{deviceId}/messages/events** 。 还可以使用包含 **DeviceConnect** 权限的 IoT 中心级别共享访问策略对 resourceURI 为 **/devices/{deviceId}** 的令牌进行签名。 此方法会创建一个令牌，该令牌仅可用于代表设备 **deviceId** 发送消息。
+可通过使用受限资源 URI 创建令牌，设置 IoT 中心级安全策略的范围。 例如，要从设备发送从设备到云的消息的终结点是 **/devices/{deviceId}/messages/events**。 还可以使用包含 **DeviceConnect** 权限的 IoT 中心级别共享访问策略对 resourceURI 为 **/devices/{deviceId}** 的令牌进行签名。 此方法会创建一个令牌，该令牌仅可用于代表设备 **deviceId** 发送消息。
 
 此机制类似于[事件中心发布者策略](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)，可用于实施自定义身份验证方法。
 
@@ -144,13 +145,13 @@ IoT 中心还允许设备使用 [X.509 证书](iot-hub-devguide-security.md#supp
 
 | Value | 说明 |
 | --- | --- |
-| {signature} |HMAC-SHA256 签名字符串的格式为： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要说明** ：密钥是从 base64 解码得出的，用作执行 HMAC-SHA256 计算的密钥。 |
+| {signature} |HMAC-SHA256 签名字符串的格式为： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要说明**：密钥是从 base64 解码得出的，用作执行 HMAC-SHA256 计算的密钥。 |
 | {resourceURI} |使用此令牌可以访问的终结点的 URI 前缀（根据分段）以 IoT 中心的主机名开头（无协议）。 例如 `myHub.azure-devices.net/devices/device1` |
 | {expiry} |从纪元 1970 年 1 月 1日 00:00:00 UTC 时间至今秒数的 UTF8 字符串。 |
 | {URL-encoded-resourceURI} |小写资源 URI 的小写 URL 编码 |
 | {policyName} |此令牌所引用的共享访问策略名称。 如果此令牌引用设备注册表凭据，则空缺。 |
 
-**有关前缀的说明** ：URI 前缀是按分段而不是按字符计算的。 例如，`/a/b` 是 `/a/b/c` 的前缀，而不是 `/a/bc` 的前缀。
+**有关前缀的说明**：URI 前缀是按分段而不是按字符计算的。 例如，`/a/b` 是 `/a/b/c` 的前缀，而不是 `/a/bc` 的前缀。
 
 以下 Node.js 代码片段显示名为 **generateSasToken** 的函数，该函数通过输入 `resourceUri, signingKey, policyName, expiresInMins` 计算令牌。 以下各节将详细讲解如何初始化不同令牌用例的不同输入。
 
@@ -377,13 +378,13 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 支持的证书包括：
 
-* **现有的 X.509 证书** 。 设备可能已有与之关联的 X.509 证书。 设备可以使用此证书向 IoT 中心进行身份验证。 适用于指纹或 CA 身份验证。 
+* **现有的 X.509 证书**。 设备可能已有与之关联的 X.509 证书。 设备可以使用此证书向 IoT 中心进行身份验证。 适用于指纹或 CA 身份验证。 
 
-* **CA 签名的 X.509 证书** 。 若要识别设备并通过 IoT 中心对其进行身份验证，可使用由证书颁发机构 (CA) 生成和签名的 X.509 证书。 适用于指纹或 CA 身份验证。
+* **CA 签名的 X.509 证书**。 若要识别设备并通过 IoT 中心对其进行身份验证，可使用由证书颁发机构 (CA) 生成和签名的 X.509 证书。 适用于指纹或 CA 身份验证。
 
-* **自行生成和自签名的 X-509 证书** 。 设备制造商或内部部署人员可以生成这些证书，并将相应的私钥（和证书）存储在设备上。 可以将工具（如 [OpenSSL](https://www.openssl.org/) 和 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 实用程序）用于此目的。 仅适用于指纹身份验证。
+* **自行生成和自签名的 X-509 证书**。 设备制造商或内部部署人员可以生成这些证书，并将相应的私钥（和证书）存储在设备上。 可以将工具（如 [OpenSSL](https://www.openssl.org/) 和 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 实用程序）用于此目的。 仅适用于指纹身份验证。
 
-设备可以使用 X.509 证书或安全令牌进行身份验证，但不能同时使用这两者。 使用 x.509 证书身份验证时，请确保已准备好在现有证书过期后处理证书滚动更新的策略。
+设备可以使用 X.509 证书或安全令牌进行身份验证，但不能同时使用这两者。 使用 X.509 证书身份验证时，请确保已准备好能够在现有证书过期后处理证书滚动更新的策略。
 
 使用 X.509 CA 身份验证的设备不支持以下功能：
 

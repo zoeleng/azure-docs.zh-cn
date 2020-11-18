@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9476b7278cbe64bf90911c3b85a09922a1afbf1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970004"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843938"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨
 
@@ -48,7 +48,7 @@ ms.locfileid: "91970004"
 * 规划在非工作时间迁移，以便应对迁移期间可能发生的任何意外失败。
 * 使用 PowerShell、命令行接口 (CLI) 命令或 REST API 下载当前的 VM 配置，以便能够在完成准备步骤之后轻松进行验证。
 * 先更新用于处理资源管理器部署模型的自动化和操作化脚本，再开始迁移。 也可以选择在资源处于准备就绪状态时执行 GET 操作。
-* 在迁移完成之后，评估经典部署模型中 IaaS 资源上配置的基于角色的访问控制 (RBAC) 策略并准备好计划。
+* 评估 Azure RBAC) 策略的基于角色的访问控制 (在经典部署模型中的 IaaS 资源上配置的 Azure RBAC 策略，并在迁移完成后进行规划。
 
 迁移工作流如下所示：
 

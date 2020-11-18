@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 36d3fdbe05a4fac63415e34aea879a9ef576b725
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6c2a15ac8d0863539ca878a048940b19794e920d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127091"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842901"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>适用于 Azure Data Box 的 Azure 安全基线
 
@@ -22,7 +22,7 @@ ms.locfileid: "92127091"
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全
+## <a name="network-security"></a>网络安全性
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -216,7 +216,7 @@ ms.locfileid: "92127091"
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
-**指南**：维护对你的 Azure Data Box 具有管理访问权限的用户帐户的清单。 你可以使用订阅 Azure 门户中 (IAM) 窗格的 "标识和访问控制" 来配置 Azure RBAC)  (基于角色的访问控制。 这些角色将应用于 Active Directory 中的用户、组、服务主体和托管标识。在首次创建订单时，你可以控制谁可以访问你的订单。 在不同范围中设置 Azure 角色，以控制对 Data Box 顺序的访问。 Azure 角色确定对操作子集的访问（读写、只读、读写）的类型。
+**指南**：维护对你的 Azure Data Box 具有管理访问权限的用户帐户的清单。 可以在 Azure 门户中为你的订阅使用“标识和访问控制(IAM)”窗格来配置 Azure 基于角色的访问控制 (Azure RBAC)。 这些角色将应用于 Active Directory 中的用户、组、服务主体和托管标识。在首次创建订单时，你可以控制谁可以访问你的订单。 在不同范围中设置 Azure 角色，以控制对 Data Box 顺序的访问。 Azure 角色确定对操作子集的访问（读写、只读、读写）的类型。
 
 * [了解自定义角色](../role-based-access-control/custom-roles.md)
 
@@ -271,11 +271,11 @@ ms.locfileid: "92127091"
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
-**指南**：使用具有 Azure 多重 (身份验证的特权访问工作站 (PAW) 启用了 MFA) ，以便登录并配置 Azure Data Box 订单。
+**指南**：) 启用了 Azure AD 多重身份 (验证，则使用特权访问工作站 (PAW）登录并配置) 订单。
 
 * [特权访问工作站](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [规划基于云的 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+* [规划基于云的 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：不适用
 

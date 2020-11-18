@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1160bc43db0dc9ec1714b1766c8cadf09660e291
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566616"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844552"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Red Hat Enterprise Linux 就地升级
 
@@ -124,8 +124,8 @@ Consult the pre-upgrade report for details and possible remediation.
 ============================================================
 ```
 **解决方案**\
-在中启用根访问 `/etc/sshd_conf` 。
-这是由于未按照 `/etc/sshd_conf` "[升级准备](#preparations-for-the-upgrade)" 一节中的启用根 ssh 访问的原因。 
+在中启用根访问 `/etc/sshd_config` 。
+这是由于未按照 `/etc/sshd_config` "[升级准备](#preparations-for-the-upgrade)" 一节中的启用根 ssh 访问的原因。 
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解 [Azure 中的 Red Hat 映像](./redhat-images.md)。
