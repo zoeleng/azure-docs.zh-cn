@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964870"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839567"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>在 Azure Active Directory 中规划无密码 authentication 部署
 
@@ -51,10 +51,10 @@ Microsoft 提供了三种无密码的身份验证选项，涵盖了许多情况�
 
 Microsoft 的无密码身份验证方法可实现不同的方案。 请考虑你的组织需要、先决条件以及每种身份验证方法的功能，以选择你的无密码 authentication 战略。 建议使用 Windows 10 设备的每个组织都使用 Windows Hello for Business。 然后，将电话登录 (与 Microsoft Authenticator 应用) 或安全密钥一起添加到其他方案。
 
-| 方案 | 电话身份验证 | 安全密钥 | Windows Hello for Business |
+| 方案 | 电话身份验证 | 安全密钥 | Windows Hello 企业版 |
 | --- | --- | --- | --- |
 | **计算机登录**： <br> 从分配的 Windows 10 设备 | **否** | **是** <br> 带生物识别、PIN | **是**<br>带有生物识别识别和或 PIN |
-| **计算机登录**： <br> 从共享 Windows 10 设备 | **否** | **是** <br> 带生物识别、PIN  | **否** |
+| **计算机登录**： <br> 从共享 Windows 10 设备 | **否** | **是** <br> 带生物识别、PIN  | 否 |
 | **Web 应用登录**： <br>从用户专用计算机 | **是** | **是** <br> 已通过计算机登录启用对应用的单一登录 | **是**<br> 已通过计算机登录启用对应用的单一登录 |
 | **Web 应用登录**： <br> 从移动设备或非 windows 设备 | **是** | **否** | **是** |
 | **计算机登录**： <br> 非 Windows 计算机 | **是** | **是** | **是** |
@@ -67,9 +67,9 @@ Microsoft 的无密码身份验证方法可实现不同的方案。 请考虑你
 
 | 先决条件 | Authenticator 应用 | FIDO2 安全密钥 |
 | --- | --- | --- |
-| 已启用[Azure 多重身份验证和自助服务密码重置 (SSPR) 的组合注册](howto-registration-mfa-sspr-combined.md) | √ | √ |
-| [用户可以执行 Azure 多重身份验证](howto-mfa-getstarted.md) | √ | √ |
-| [用户已注册 Azure 多重身份验证和 SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| 已启用[Azure AD 多重身份验证和自助服务密码重置 (SSPR) 的组合注册](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [用户可以执行 Azure AD 多重身份验证](howto-mfa-getstarted.md) | √ | √ |
+| [用户已注册 Azure AD 多重身份验证和 SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [用户已将其移动设备注册到 Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 版本1809或更高版本，使用受支持的浏览器（如 Microsoft Edge 或 Mozilla Firefox） <br>  (版本67或更高版本) 。 <br> *Microsoft 建议采用版本1903或更高版本来提供本机支持*。 |   | √ |
 | 兼容的 FIDO2 安全密钥。 确保使用的是 [经过 Microsoft 测试和验证](./concept-authentication-passwordless.md) 的 FIDO2 安全设备或其他兼容的 FIDO2 安全设备。 |   | √ |
@@ -78,9 +78,9 @@ Microsoft 的无密码身份验证方法可实现不同的方案。 请考虑你
 
 Windows Hello 的先决条件非常依赖于你是在本地、混合还是仅限云的配置中进行部署。 有关详细信息，请参阅 [Windows Hello 企业版先决条件的完整列表](/windows/security/identity-protection/hello-for-business/hello-identity-verification)。
 
-### <a name="azure-multi-factor-authentication"></a>Azure 多重身份验证
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD 多重身份验证
 
-用户将其无密码方法注册为 Azure 多因素身份验证注册流的一部分。 使用用户名和密码以及另一个注册方法的多重身份验证可以作为回退，以防它们在某些情况下无法使用其电话或安全密钥。
+用户将其无密码方法注册为 Azure AD 多重身份验证注册流的一部分。 使用用户名和密码以及另一个注册方法的多重身份验证可以作为回退，以防它们在某些情况下无法使用其电话或安全密钥。
 
 ### <a name="licensing"></a>许可 
 无密码 authentication 无需额外付费，不过某些先决条件可能需要高级订阅。 [Azure Active Directory 许可页面](https://azure.microsoft.com/pricing/details/active-directory/)中提供详细的功能和许可信息。 
@@ -109,7 +109,7 @@ Windows Hello 的先决条件非常依赖于你是在本地、混合还是仅限
 
 ### <a name="plan-communications"></a>规划沟通
 
-通信对于任何新服务的成功至关重要。 主动传达用户体验如何更改、何时发生更改，以及如何在遇到问题时获得支持。
+沟通对于任何新服务的成功都至关重要。 主动传达用户体验如何更改、何时发生更改，以及如何在遇到问题时获得支持。
 
 与最终用户的通信应包含以下信息：
 
@@ -140,7 +140,7 @@ Microsoft Authenticator 应用可从 Google Play 或 Apple App Store 免费下�
 
 **AD FS 集成** -当用户启用 Microsoft Authenticator 无密码凭据时，针对该用户的身份验证将默认为发送批准通知。 混合租户中的用户被阻止定向到 ADFS 进行登录，除非他们选中 "改用密码"。 此过程还会绕过任何本地条件性访问策略和传递身份验证流。 但是，如果指定了 *login_hint* ，则用户将转发到 ADFS，并跳过使用无密码凭据的选项。
 
-**Azure 多重身份验证服务器** -通过组织的本地 Azure MFA 服务器启用多重身份验证的最终用户可以创建和使用单个无密码手机登录凭据。 如果用户尝试使用凭据升级多个 Microsoft Authenticator) 的 (，则此更改可能会导致错误。
+**Azure AD 多重身份验证服务器** -通过组织的本地 Azure MFA 服务器启用多重身份验证的最终用户可以创建和使用单个无密码手机登录凭据。 如果用户尝试使用凭据升级多个 Microsoft Authenticator) 的 (，则此更改可能会导致错误。
 
 **设备注册** -若要使用验证器应用进行无密码身份验证，设备必须在 Azure AD 租户中注册，并且不能是共享设备。 设备只能在单个租户中注册。 此限制意味着使用验证器应用的手机登录仅支持一个工作或学校帐户。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964632"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839295"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>启用无密码安全密钥登录 (预览) 
 
@@ -29,7 +29,7 @@ ms.locfileid: "91964632"
 
 ## <a name="requirements"></a>要求
 
-- [Azure 多重身份验证](howto-mfa-getstarted.md)
+- [Azure AD 多重身份验证](howto-mfa-getstarted.md)
 - 启用 [组合安全信息注册预览](concept-registration-mfa-sspr-combined.md)
 - 兼容的 [FIDO2 安全密钥](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN 需要 Windows 10 版本1903或更高版本 * *
@@ -51,7 +51,7 @@ ms.locfileid: "91964632"
 ### <a name="enable-fido2-security-key-method"></a>启用 FIDO2 安全密钥方法
 
 1. 登录 [Azure 门户](https://portal.azure.com)。
-1. 浏览到**Azure Active Directory**  >  **安全**  >  **身份验证**方法 "  >  **身份验证方法策略 (预览版) **。
+1. 浏览到 **Azure Active Directory**  >  **安全**  >  **身份验证** 方法 "  >  **身份验证方法策略 (预览版)**。
 1. 在 "方法 **FIDO2 安全密钥**" 下，选择以下选项：
    1. **启用** -是或否
    1. **目标** -所有用户或选择用户
@@ -59,11 +59,11 @@ ms.locfileid: "91964632"
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>FIDO2 安全密钥的用户注册和管理
 
-1. 浏览到 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 。
+1. 浏览到 [https://myprofile.microsoft.com](https://myprofile.microsoft.com)。
 1. 如果尚未登录，请登录。
 1. 单击 " **安全信息**"。
-   1. 如果用户已注册至少一个 Azure 多重身份验证方法，则可以立即注册 FIDO2 安全密钥。
-   1. 如果它们没有注册至少一个 Azure 多重身份验证方法，则它们必须添加一个。
+   1. 如果用户已注册至少一个 Azure AD 多重身份验证方法，则可以立即注册 FIDO2 安全密钥。
+   1. 如果它们没有注册至少一个 Azure AD 多重身份验证方法，则它们必须添加一个。
 1. 通过单击 " **添加方法** " 并选择 " **安全密钥**" 来添加 FIDO2 安全密钥。
 1. 选择 " **USB 设备** " 或 " **NFC 设备**"。
 1. 准备好密钥，然后选择 " **下一步**"。
@@ -105,4 +105,4 @@ ms.locfileid: "91964632"
 
 [了解有关设备注册的详细信息](../devices/overview.md)
 
-[了解 Azure 多重身份验证](../authentication/howto-mfa-getstarted.md)
+[详细了解 Azure AD 多重身份验证](../authentication/howto-mfa-getstarted.md)

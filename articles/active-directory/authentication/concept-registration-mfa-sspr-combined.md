@@ -1,6 +1,6 @@
 ---
-title: SSPR 和 Azure 多重身份验证的组合注册-Azure Active Directory
-description: 了解 Azure Active Directory 的组合注册体验，让用户注册 Azure 多重身份验证和自助服务密码重置
+title: SSPR 和 Azure AD 多重身份验证的组合注册-Azure Active Directory
+description: 了解 Azure Active Directory 的组合注册体验，让用户注册 Azure AD 多重身份验证和自助服务密码重置
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378000"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839788"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 概述的组合安全信息注册
 
-在进行合并注册之前，用户分别注册了 Azure 多重身份验证和自助式密码重置 (SSPR) 的身份验证方法。 人们搞糊涂，使用了类似的方法进行多重身份验证和 SSPR，但他们不得不注册这两种功能。 现在，通过组合注册，用户可以注册一次，并获得多重身份验证和 SSPR 的优势。
+在组合注册之前，用户会为 Azure AD 多重身份验证和自助服务密码重置 (SSPR) 单独注册身份验证方法。 人们搞糊涂，使用了类似的方法进行多重身份验证和 SSPR，但他们不得不注册这两种功能。 现在，通过组合注册，用户可以注册一次，并获得多重身份验证和 SSPR 的优势。
 
 > [!NOTE]
 > 自2020年8月15日起，将自动为所有新的 Azure AD 租户启用合并注册。
@@ -56,7 +56,7 @@ Azure AD 组合的安全信息注册当前不适用于 Azure 德国或 Azure 中
 | Microsoft Authenticator | 是 (最多 5)  | 否 | 是 |
 | 其他验证器应用 | 是 (最多 5)  | 否 | 是 |
 | 硬件令牌 | 否 | 否 | 是 |
-| 电话 | 是 | 是 | 是 |
+| 电话号码 | 是 | 是 | 是 |
 | 备用号码 | 是 | 是 | 是 |
 | 办公电话 | 是 | 是 | 是 |
 | 电子邮件 | 是 | 是 | 是 |
@@ -142,8 +142,8 @@ Azure AD 组合的安全信息注册当前不适用于 Azure 德国或 Azure 中
 
 ## <a name="next-steps"></a>后续步骤
 
-若要开始使用，请参阅 [启用自助密码重置](tutorial-enable-sspr.md) 和 [启用 Azure 多重身份验证](tutorial-enable-azure-mfa.md)的教程。
+若要开始使用，请参阅 [启用自助服务密码重置](tutorial-enable-sspr.md) 和 [启用 Azure AD 多重身份验证](tutorial-enable-azure-mfa.md)的教程。
 
 了解如何 [在租户中启用组合注册](howto-registration-mfa-sspr-combined.md) ，或 [强制用户重新注册身份验证方法](howto-mfa-userdevicesettings.md#manage-user-authentication-options)。
 
-你还可以查看 [Azure 多重身份验证和 SSPR 的可用方法](concept-authentication-methods.md)。
+你还可以查看 [Azure AD 多重身份验证和 SSPR 的可用方法](concept-authentication-methods.md)。

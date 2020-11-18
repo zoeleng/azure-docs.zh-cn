@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965550"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840094"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>自助式密码重置常见问题解答
 
@@ -38,7 +38,7 @@ ms.locfileid: "91965550"
 
   > **答:** 是的。 只要已经启用密码重置功能并且用户已获得许可，他们就可以访问密码重置注册门户(https://aka.ms/ssprsetup) 来注册其身份验证信息。 用户也可通过访问面板 (https://myapps.microsoft.com) 来注册。 若要通过访问面板来注册，需选择个人资料图片，然后选择“个人资料”，再选择“注册密码重置”选项。 
   >
-  > 如果启用 [组合注册](concept-registration-mfa-sspr-combined.md)，用户可以同时注册 SSPR 和 Azure 多重身份验证。
+  > 如果启用 [组合注册](concept-registration-mfa-sspr-combined.md)，则用户可以同时注册 SSPR 和 Azure AD 多重身份验证。
 * **问：如果为某个组启用密码重置，然后决定为每个人启用它，我的用户是否需要重新注册？**
 
   > **答:** 不是。 已填充身份验证数据的用户不需要重新注册。
@@ -192,7 +192,7 @@ ms.locfileid: "91965550"
 
 * **问：我的用户应当到何处去更改其密码？**
 
-  > **答:** 用户可以在能够看到其个人资料图片或图标的任何位置（例如在其 [Office 365](https://portal.office.com) 门户或[访问面板](https://myapps.microsoft.com)体验的右上角）更改其密码。 用户可以从[访问面板个人资料页](https://account.activedirectory.windowsazure.com/r#/profile)更改其密码。 如果用户的密码已过期，还可以在 Azure AD 登录页上自动要求他们更改其密码。 最后，如果用户希望更改其密码，可以直接浏览到 [Azure AD 密码更改门户](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)。
+  > **答:** 用户可以在能够看到其个人资料图片或图标的任何位置（例如在其 [Office 365](https://portal.office.com) 门户或 [访问面板](https://myapps.microsoft.com)体验的右上角）更改其密码。 用户可以从[访问面板个人资料页](https://account.activedirectory.windowsazure.com/r#/profile)更改其密码。 如果用户的密码已过期，还可以在 Azure AD 登录页上自动要求他们更改其密码。 最后，如果用户希望更改其密码，可以直接浏览到 [Azure AD 密码更改门户](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)。
   >
   >
 * **问：当用户的本地密码过期时，他们是否可以在 Office 门户中收到通知？**
@@ -243,7 +243,7 @@ ms.locfileid: "91965550"
 
 * **问：密码写回如何在后台工作？**
 
-  > **答:** 请参阅[密码写回的工作原理](./tutorial-enable-sspr-writeback.md)一文，了解有关启用密码写回时发生的情况以及数据如何通过系统流回本地环境的说明。
+  > **答:** 请参阅 [密码写回的工作原理](./tutorial-enable-sspr-writeback.md)一文，了解有关启用密码写回时发生的情况以及数据如何通过系统流回本地环境的说明。
   >
   >
 * **问：密码写回需要多长时间才工作？是否和使用密码哈希同步一样也存在同步延迟？**

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964904"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839584"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>身份验证方法的使用情况和见解（预览版）
 
-借助使用情况和见解，可以了解针对 Azure 多重身份验证和自助式密码重置等功能的身份验证方法在组织中的运行方式。 此报告功能可让组织了解正在注册哪些方法，以及这些方法的使用方式。
+使用情况 & insights 使你可以了解 Azure AD 多重身份验证和自助服务密码重置等功能的身份验证方法在你的组织中的工作方式。 此报告功能可让组织了解正在注册哪些方法，以及这些方法的使用方式。
 
 ## <a name="permissions-and-licenses"></a>权限和许可证
 
@@ -31,7 +31,7 @@ ms.locfileid: "91964904"
 - 安全管理员
 - 报告读者
 
-访问使用情况和见解无需获得额外的许可。 可在 [Azure Active Directory 定价站点](https://azure.microsoft.com/pricing/details/active-directory/)上找到 Azure 多重身份验证和自助式密码重置 (SSPR) 许可信息。
+访问使用情况和见解无需获得额外的许可。 Azure AD 多重身份验证和自助服务密码重置 (SSPR) 许可信息可在 [Azure Active Directory 定价站点](https://azure.microsoft.com/pricing/details/active-directory/)上找到。
 
 ## <a name="how-it-works"></a>工作原理
 
@@ -92,7 +92,7 @@ ms.locfileid: "91964904"
 
 这些报告中显示的数据最长会延迟 60 分钟。 Azure 门户中存在一个“上次刷新时间”字段，用于标识数据的更新程度。
 
-使用情况和见解数据不能取代 Azure 多重身份验证活动报告，也不能取代 Azure AD 登录报告中包含的信息。
+"使用情况" 和 "见解" 数据不能替代 Azure AD 多重身份验证活动报告或 Azure AD 登录报告中包含的信息。
 
 当前无法筛选报表并排除外部用户。
 

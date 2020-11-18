@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592951"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839516"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>使用 Microsoft Authenticator 应用 (预览版启用无密码登录) 
 
@@ -32,11 +32,11 @@ ms.locfileid: "94592951"
 2. 选择“批准”。
 3. 提供其 PIN 或生物识别。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要将无密码 phone 登录与 Microsoft Authenticator 应用一起使用，必须满足以下先决条件：
 
-- Azure 多重身份验证，允许将推送通知作为验证方法。
+- Azure AD 多重身份验证，允许将推送通知作为验证方法。
 - 已在运行 iOS 8.0 或更高版本或者 Android 6.0 或更高版本的设备上安装最新版本的 Microsoft Authenticator。
 
 > [!NOTE]
@@ -57,18 +57,18 @@ Azure AD 允许选择在登录过程中可使用的身份验证方法。 然后�
 若要为无密码 phone 登录启用身份验证方法，请完成以下步骤：
 
 1. 使用 *全局管理员* 帐户登录到 [Azure 门户](https://portal.azure.com)。
-1. 搜索并选择 " *Azure Active Directory* "，然后浏览到 " **安全**  >  **身份验证方法** " "  >  **身份验证方法" " (预览")**
-1. 在 " **无密码手机登录** " 下，选择以下选项：
+1. 搜索并选择 " *Azure Active Directory*"，然后浏览到 "**安全**  >  **身份验证方法**" "  >  **身份验证方法" " (预览")**
+1. 在 " **无密码手机登录**" 下，选择以下选项：
    1. **启用** -是或否
    1. **目标** -所有用户或选择用户
-1. 若要应用新策略，请选择 " **保存** "。
+1. 若要应用新策略，请选择 " **保存**"。
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Microsoft Authenticator 的用户注册和管理
 
 用户通过执行以下步骤，注册 Azure AD 的无密码 authentication 方法：
 
 1. 浏览到 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)。
-1. 登录，然后通过选择 " **添加方法 > 验证器应用** " 添加验证器应用，然后选择 " **添加** "。
+1. 登录，然后通过选择 " **添加方法 > 验证器应用**" 添加验证器应用，然后选择 " **添加**"。
 1. 按照说明在设备上安装和配置 Microsoft Authenticator 应用。
 1. 选择 **"完成"** 以完成身份验证器配置。
 1. 在 **Microsoft Authenticator** 中，从注册帐户的下拉菜单中选择 " **启用手机登录** "。
@@ -89,9 +89,9 @@ Azure AD 允许选择在登录过程中可使用的身份验证方法。 然后�
 用户首次启动电话登录过程时，用户将执行以下步骤：
 
 1. 在登录页面输入用户名。
-2. 选择 " **下一步** "。
-3. 如有必要，选择 **其他登录方式** 。
-4. 选择 **"在我的 Microsoft Authenticator 应用上批准请求"** 。
+2. 选择 " **下一步**"。
+3. 如有必要，选择 **其他登录方式**。
+4. 选择 **"在我的 Microsoft Authenticator 应用上批准请求"**。
 
 然后，用户将看到一个数字。 应用会提示用户进行身份验证，方法是选择适当的数字，而不是输入密码。
 
@@ -118,7 +118,7 @@ Azure AD 允许选择在登录过程中可使用的身份验证方法。 然后�
 
 当用户启用了任何无密码凭据后，Azure AD 登录过程将停止使用登录 \_ 提示。 因此，该过程不再向用户加速联合登录位置。
 
-此逻辑通常会阻止混合租户中的用户被定向到 Active Directory 联合身份验证服务 (AD FS) 进行登录验证。 但是，用户仍保留单击 " **使用密码** " 的选项。
+此逻辑通常会阻止混合租户中的用户被定向到 Active Directory 联合身份验证服务 (AD FS) 进行登录验证。 但是，用户仍保留单击 " **使用密码**" 的选项。
 
 ### <a name="azure-mfa-server"></a>Azure MFA 服务器
 
@@ -141,4 +141,4 @@ Azure AD 允许选择在登录过程中可使用的身份验证方法。 然后�
 
 - [了解无密码 authentication 的工作原理](concept-authentication-passwordless.md)
 - [了解设备注册](../devices/overview.md#getting-devices-in-azure-ad)
-- [了解 Azure 多重身份验证](../authentication/howto-mfa-getstarted.md)
+- [了解 Azure AD 多重身份验证](../authentication/howto-mfa-getstarted.md)
