@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c5c536b95360c536998a5de87e9307918b15630
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913953"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685981"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Key Vault 虚拟机扩展
 
@@ -27,7 +27,7 @@ ms.locfileid: "92913953"
 - Windows Server 2016
 - Windows Server 2012
 
-使用 Windows Server 2019 core 安装，已上传并转换为要在 Azure 中使用的自定义本地 VM 上还支持 Key Vault VM extensio。
+使用 Windows Server 2019 core 安装，将上传并转换为要在 Azure 中使用的自定义本地 VM 上还支持 Key Vault VM 扩展。
 
 ### <a name="supported-certificate-content-types"></a>支持的证书内容类型
 
@@ -35,9 +35,9 @@ ms.locfileid: "92913953"
 - PEM
 
 ## <a name="prerequisities"></a>先决条件
-  - Key Vault 具有证书的实例。 请参阅 [创建 Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
-  - VM/VMSS 必须已分配 [托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-  - 必须使用 `get` VM/VMSS 托管标识的机密和权限设置 Key Vault 访问策略， `list` 才能检索密钥的证书部分。 请参阅[如何向 Key Vault 进行身份验证](/azure/key-vault/general/authentication)和[分配 Key Vault 访问策略](/azure/key-vault/general/assign-access-policy-cli)。
+  - 具有证书的 Key Vault 实例。 请参阅[创建 Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+  - VM/VMSS 必须已分配[托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  - 必须使用机密 `get` 和 `list` 权限为 VM/VMSS 托管标识设置 Key Vault 访问策略，以检索证书的机密部分。 请参阅[如何向 Key Vault 进行身份验证](/azure/key-vault/general/authentication)和[分配 Key Vault 访问策略](/azure/key-vault/general/assign-access-policy-cli)。
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -97,7 +97,7 @@ ms.locfileid: "92913953"
 | certificateStoreName | MY | 字符串 |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine 或 CurrentUser（区分大小写） | string |
-| requiredInitialSync | 是 | boolean |
+| requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | 字符串数组
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
@@ -110,7 +110,7 @@ ms.locfileid: "92913953"
 虚拟机扩展的 JSON 配置必须嵌套在模板的虚拟机资源片段中，具体来说是嵌套在虚拟机模板的 `"resources": []` 对象中，对于虚拟机规模集而言，是嵌套在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 对象下。
 
  > [!NOTE]
-> VM 扩展需要分配系统或用户托管标识，才能向密钥保管库进行身份验证。  请参阅 [如何对 Key Vault 进行身份验证并分配 Key Vault 访问策略。](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> VM 扩展需要分配有系统或用户托管标识，才能向 Key Vault 进行身份验证。  请参阅[如何向 Key Vault 进行身份验证和分配 Key Vault 访问策略。](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 > 
 
 ```json
@@ -224,7 +224,7 @@ ms.locfileid: "92913953"
 ### <a name="frequently-asked-questions"></a>常见问题
 
 * 可设置的 observedCertificates 数是否有限制？
-  不可以，Key Vault VM 扩展对 observedCertificates 数没有限制。
+  没有，Key Vault VM 扩展对 observedCertificates 数没有限制。
 
 ### <a name="troubleshoot"></a>疑难解答
 

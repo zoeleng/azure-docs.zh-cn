@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973438"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693387"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>教程：使用推送 API 优化索引编制
 
@@ -73,7 +73,7 @@ API 调用需要服务 URL 和访问密钥。 搜索服务是使用这二者创�
 
 1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥 。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-   ![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "获取 HTTP 终结点和访问密钥")
+   ![获取 HTTP 终结点和访问密钥](media/search-get-started-rest/get-url-key.png "获取 HTTP 终结点和访问密钥")
 
 ## <a name="2---set-up-your-environment"></a>2 - 设置环境
 
@@ -162,7 +162,7 @@ List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 Azure 认知搜索支持使用以下 API 将单个或多个文档加载到索引中：
 
 + [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)（添加、更新或删除文档 (REST API)）
-+ [IndexDocumentsAction 类](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet)或 [IndexDocumentsBatch 类](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [IndexDocumentsAction 类](/dotnet/api/azure.search.documents.models.indexdocumentsaction)或 [IndexDocumentsBatch 类](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 分批为文档编制索引可显著提高索引编制性能。 这些批中的每一批最多可以包含 1000 个文档或大约 16 MB。
 

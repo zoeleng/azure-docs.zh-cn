@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682904"
+ms.locfileid: "94693437"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>在 Azure 认知搜索中配置客户管理的密钥以用于数据加密
 
@@ -52,7 +52,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 应该有一个可创建加密对象的搜索应用程序。 在此代码中，你将引用密钥保管库密钥并 Active Directory 注册信息。 此代码可以是工作应用，也可以是代码示例，如 [c # 代码示例 DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)。
 
 > [!TIP]
-> 你可以使用 [Postman](search-get-started-postman.md) 或 [Azure PowerShell](./search-get-started-powershell.md) 调用创建包含加密密钥参数的索引和同义词映射的 REST api。 目前，门户尚不支持将键添加到索引或同义词映射。
+> 你可以使用 [Postman 或 Visual Studio Code](search-get-started-rest.md)或 [Azure PowerShell](./search-get-started-powershell.md)来调用创建包含加密密钥参数的索引和同义词映射的 REST api。 目前，门户尚不支持将键添加到索引或同义词映射。
 
 ## <a name="1---enable-key-recovery"></a>1 - 启用密钥恢复
 

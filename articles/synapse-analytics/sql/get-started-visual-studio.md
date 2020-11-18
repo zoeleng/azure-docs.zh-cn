@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311077"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686151"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 连接到 Synapse SQL
 
@@ -52,9 +52,9 @@ ms.locfileid: "93311077"
    
     ![连接到服务器](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **服务器名称** ：输入前面标识的 **服务器名称** 。
-   * **身份验证** ：选择“SQL Server 身份验证”或“Active Directory 集成身份验证”：
-   * **用户名** 和 **密码** ：如果在上面选择了“SQL Server 身份验证”，请输入用户名和密码。
+   * **服务器名称**：输入前面标识的 **服务器名称** 。
+   * **身份验证**：选择“SQL Server 身份验证”或“Active Directory 集成身份验证”：
+   * **用户名** 和 **密码**：如果在上面选择了“SQL Server 身份验证”，请输入用户名和密码。
    * 单击“连接”。
 5. 要浏览，请展开 Azure SQL 服务器。 可以查看与服务器关联的数据库。 展开 AdventureWorksDW 以查看示例数据库中的表。
    

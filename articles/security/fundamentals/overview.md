@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536488"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693726"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性简介
 ## <a name="overview"></a>概述
@@ -141,8 +141,8 @@ Application Insights 可创建图表和表格来显示多种信息，例如，�
 ## <a name="storage"></a>存储
 本部分提供了关于 Azure 存储安全中主要特性的其他信息以及有关这些功能的摘要信息。
 
-### <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
-可以使用基于角色的访问控制 (RBAC) 来保护存储帐户。 对于想要实施数据访问安全策略的组织而言，必须根据[需知原则](https://en.wikipedia.org/wiki/Need_to_know)和[最低权限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全原则限制访问权限。 这些访问权限是通过将相应的 Azure 角色分配给特定范围内的组和应用程序来授予的。 可以使用[Azure 内置角色](../../role-based-access-control/built-in-roles.md)（例如存储帐户参与者）将权限分配给用户。 可通过基于角色的访问控制 (RBAC)，控制借助 [Azure 资源管理器](../../storage/blobs/security-recommendations.md)模型访问存储帐户的存储密钥的情况。
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure 基于角色的访问控制 (Azure RBAC)
+可以使用 Azure RBAC)  (azure 基于角色的访问控制来保护存储帐户。 对于想要实施数据访问安全策略的组织而言，必须根据[需知原则](https://en.wikipedia.org/wiki/Need_to_know)和[最低权限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全原则限制访问权限。 这些访问权限是通过将相应的 Azure 角色分配给特定范围内的组和应用程序来授予的。 可以使用[Azure 内置角色](../../role-based-access-control/built-in-roles.md)（例如存储帐户参与者）将权限分配给用户。 可以通过 Azure RBAC 控制使用 [azure 资源管理器](../../storage/blobs/security-recommendations.md) 模型对存储帐户的存储密钥的访问权限。
 
 ### <a name="shared-access-signature"></a>共享访问签名
 [共享访问签名 (SAS)](../../storage/common/storage-sas-overview.md) 用于对存储帐户中的资源进行委托访问。 使用 SAS，意味着可以授权客户端在指定时间段内，以一组指定权限有限访问存储帐户中的对象。 可以授予这些有限的权限，而不必共享帐户访问密钥。
@@ -336,7 +336,7 @@ Microsoft 在其产品和服务中使用多种安全实践和技术来管理标�
 
 -   [基于令牌的身份验证](../../active-directory/develop/authentication-vs-authorization.md)启用通过 Azure Active Directory 进行身份验证。
 
--   [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/built-in-roles.md) 能够根据用户分配的角色来授予访问权限，从而轻松为用户仅提供执行作业所需的访问量。 可以根据组织的业务模型和风险允许范围自定义 RBAC。
+-   [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/built-in-roles.md) 能够根据用户分配的角色来授予访问权限，从而轻松为用户仅提供执行作业所需的访问量。 你可以根据组织的业务模型自定义 Azure RBAC 并降低风险。
 
 -   [集成标识管理（混合标识）](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md)能够保持对用户在内部数据中心和云平台中的访问控制，并为所有资源的身份验证和授权创建单个用户标识。
 

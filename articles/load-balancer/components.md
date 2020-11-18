@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317446"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685505"
 ---
 # <a name="azure-load-balancer-components"></a>Azure 负载均衡器组件
 
@@ -92,7 +92,7 @@ IP 地址的性质决定了所创建的负载均衡器的类型。 选择“专�
 2. 源端口
 3. 目标 IP 地址
 4. 目标端口
-5. 协议
+5. protocol
 
 HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部网络虚拟设备 (NVA) 的高可用性和缩放。 当大量端口必须进行负载均衡时，此功能可以帮助完成。
 
@@ -139,7 +139,7 @@ HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部�
 - 请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)，开始使用负载均衡器。
 - 详细了解 [Azure 负载均衡器](load-balancer-overview.md)。
 - 了解[公共 IP 地址](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- 了解[专用 IP 地址](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+- 了解[专用 IP 地址](../virtual-network/private-ip-addresses.md)
 - 了解如何使用[标准负载均衡器和可用性区域](load-balancer-standard-availability-zones.md)。
 - 了解有关[标准负载均衡器诊断](load-balancer-standard-diagnostics.md)的信息。
 - 了解如何[在空闲时重置 TCP](load-balancer-tcp-reset.md)。

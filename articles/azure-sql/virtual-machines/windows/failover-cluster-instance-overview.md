@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556357"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685930"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server 故障转移群集实例 (FCI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ Azure 虚拟机上的 SQL Server 故障转移群集实例支持对群集仲裁�
 
 Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，它适用于 SQL Server 故障转移群集实例的部署： 
 
-||[Azure 共享磁盘](../../../virtual-machines/windows/disks-shared.md)|[高级文件共享](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[存储空间直通 (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure 共享磁盘](../../../virtual-machines/disks-shared.md)|[高级文件共享](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[存储空间直通 (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**最低操作系统版本**| All |Windows Server 2012|Windows Server 2016|
 |**最低 SQL Server 版本**|All|SQL Server 2012|SQL Server 2016|
@@ -58,7 +58,7 @@ Azure VM 上的 SQL Server 提供各种选项用作共享存储解决方案，�
 
 ### <a name="azure-shared-disks"></a>Azure 共享磁盘
 
-[Azure 共享磁盘](../../../virtual-machines/windows/disks-shared.md)是 [Azure 托管磁盘](../../../virtual-machines/managed-disks-overview.md)的一项功能。 Windows Server 故障转移群集支持将 Azure 共享磁盘与故障转移群集实例一起使用。 
+[Azure 共享磁盘](../../../virtual-machines/disks-shared.md)是 [Azure 托管磁盘](../../../virtual-machines/managed-disks-overview.md)的一项功能。 Windows Server 故障转移群集支持将 Azure 共享磁盘与故障转移群集实例一起使用。 
 
 **支持的操作系统**：All   
 **支持的 SQL 版本**：All     

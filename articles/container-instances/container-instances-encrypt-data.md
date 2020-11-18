@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091349"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686270"
 ---
 # <a name="encrypt-deployment-data"></a>加密部署数据
 
@@ -59,7 +59,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ### <a name="create-a-key-vault-resource"></a>创建 Key Vault 资源
 
-使用 [Azure 门户](../key-vault/secrets/quick-create-portal.md#create-a-vault)、[CLI](../key-vault/secrets/quick-create-cli.md) 或 [PowerShell](../key-vault/secrets/quick-create-powershell.md) 创建一个 Azure Key Vault。 
+使用 [Azure 门户](../key-vault/general/quick-create-portal.md)、 [Azure CLI](../key-vault/general/quick-create-cli.md)或 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)创建 Azure Key Vault。
 
 对于 Key Vault 的属性，请使用以下指导原则： 
 * 姓名：必须提供唯一的名称。 
@@ -83,7 +83,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 * 生成密钥后，返回到 Key Vault 资源边栏选项卡，在“设置”下单击“访问策略”。 
 * 在 Key Vault 的“访问策略”页上，单击“添加访问策略”。 
-* 设置“密钥权限”以包括“获取”和“解包密钥”![设置密钥权限](./media/container-instances-encrypt-data/set-key-permissions.png)   
+* 设置 *密钥权限* 以包含 **Get** 和 **解包密钥** ![ 设置密钥权限](./media/container-instances-encrypt-data/set-key-permissions.png)
 * 对于“选择主体”，请选择“Azure 容器实例服务”  
 * 在底部单击“添加”  
 

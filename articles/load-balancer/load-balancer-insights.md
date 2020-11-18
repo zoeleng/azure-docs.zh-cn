@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897580"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686236"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>使用见解监视和配置 Azure 负载均衡器
 
-通过 [Azure Monitor 网络](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview)，你可以为负载均衡器提供功能依赖关系可视化和预配置的度量值仪表板。 这些视觉对象可帮助您做出明智的设计决策，并快速地本地化、诊断和解决任何错误。
+通过 Azure Monitor 网络，你可以为负载均衡器提供功能依赖关系可视化和预配置的度量值仪表板。 这些视觉对象可帮助您做出明智的设计决策，并快速地本地化、诊断和解决任何错误。
 
 >[!NOTE] 
 >请注意，此功能处于预览阶段，并且功能依赖关系视图和预配置的仪表板可能会更改以改善此体验
