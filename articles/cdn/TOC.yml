@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: 概念
   items:
+    - name: 安全性
+      items:
+        - name: 安全基线
+          href: security-baseline.md
     - name: 缓存工作原理
       href: cdn-how-caching-works.md
     - name: 中国内容分发
