@@ -4,12 +4,12 @@ description: 了解如何通过命令行创建 TypeScript 函数，然后将本�
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 11a1094ff389463045da567fe129d7eccff5ea9e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 981c96bb8775a3fdd3f951d079cd7ad285d09680
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424609"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637024"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>快速入门：在 Azure 中通过命令行创建 TypeScript 函数
 
@@ -155,10 +155,12 @@ ms.locfileid: "93424609"
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location 'West Europe'
     ```
     
     [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet 可在 Azure 中创建函数应用。 如果使用的是 Node.js 10，请将 `-RuntimeVersion` 更改为 `10`。
+
+    ---
         
     在上一个示例中，请将 `<STORAGE_NAME>` 替换为在上一步骤中使用的帐户的名称，并将 `<APP_NAME>` 替换为适合自己的全局唯一名称。 `<APP_NAME>` 也是函数应用的默认 DNS 域。 
     

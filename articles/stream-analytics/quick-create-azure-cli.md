@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 8c2e7b6a02c0a0fea32fb1effb30b682971c3f6f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348763"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646621"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure 流分析作业
 
@@ -23,41 +23,11 @@ ms.locfileid: "93348763"
 
 ## <a name="before-you-begin"></a>开始之前
 
-* 如果还没有 Azure 订阅，可以创建一个[免费帐户](https://azure.microsoft.com/free/)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prepare-your-environment"></a>准备环境
-
-1. 登录。
-
-   如果使用的是 CLI 的本地安装，请使用 [az login](/cli/azure/reference-index#az-login) 命令登录。
-
-    ```azurecli
-    az login
-    ```
-
-    遵循终端中显示的步骤完成身份验证过程。
-
-2. 安装 Azure CLI 扩展。
-
-   使用 Azure CLI 的扩展引用时，必须先安装该扩展。  借助 Azure CLI 扩展，可访问尚未在核心 CLI 中提供的试验性和预发布的命令。  若要详细了解包含更新和卸载的扩展，请参阅[使用 Azure CLI 的扩展](/cli/azure/azure-cli-extensions-overview)。
-
-   运行以下命令，安装[流分析扩展](/cli/azure/ext/stream-analytics/stream-analytics)：
-
-    ```azurecli
-    az extension add --name stream-analytics
-    ```
-
-   运行以下命令，安装 [Azure IoT 扩展](/cli/azure/ext/azure-iot)：
-
-    ```azurecli
-    az extension add --name azure-iot
-    ```
-
-3. 创建资源组。
-
-   必须将所有 Azure 资源部署到资源组。 使用资源组可以组织和管理相关的 Azure 资源。
+- 创建资源组。 必须将所有 Azure 资源部署到资源组。 使用资源组可以组织和管理相关的 Azure 资源。
 
    对于本快速入门，请使用以下 [az group create](/cli/azure/group#az-group-create) 命令在 eastus 位置创建名为 streamanalyticsrg 的资源组 ：
 
@@ -270,7 +240,7 @@ az stream-analytics job start
 
 若不再需要资源组、流式处理作业以及所有相关资源，请将其删除。 删除作业可避免对作业使用的流单元进行计费。 如果计划在将来使用该作业，可以跳过删除它的操作，暂时只需停止该作业。 如果不打算继续使用该作业，请运行以下 cmdlet，删除本快速入门创建的所有资源：
 
-```powershell
+```azurecli
 az group delete \
     --name streamanalyticsrg \
     --no-wait

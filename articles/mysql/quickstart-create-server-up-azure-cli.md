@@ -1,19 +1,19 @@
 ---
 title: 快速入门：使用 az mysql up 创建 Azure Database for MySQL
 description: 有关使用 Azure CLI（命令行接口）up 命令创建 Azure Database for MySQL 服务器的快速入门指南。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534033"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542161"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>快速入门：使用简单的 Azure CLI 命令 az mysql up 创建 Azure Database for MySQL（预览）
 

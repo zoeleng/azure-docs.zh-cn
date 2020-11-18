@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1cf6c6516e01774d0345a3f75f6f1c2826451dce
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 68a308952b63d15aa6db90021400f826ef575c0c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289871"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537180"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>使用 Azure 门户限制通过专用链接对托管磁盘的导入/导出访问
 
@@ -27,9 +27,6 @@ ms.locfileid: "93289871"
 
 [!INCLUDE [virtual-machines-disks-private-links-limitations](../../includes/virtual-machines-disks-private-links-limitations.md)]
 
-## <a name="regional-availability"></a>区域可用性
-
-[!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
 
 ## <a name="create-a-disk-access-resource"></a>创建磁盘访问资源
 

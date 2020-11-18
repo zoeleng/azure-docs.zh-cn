@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dcf05f829cfcdc79fcd7be903b96fb601c095a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7a594d42485510a525ce4e3c7f03b432554100f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378565"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650591"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>为 Azure Active Directory 中的组命名策略
 
@@ -34,26 +34,26 @@ ms.locfileid: "92378565"
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>在 Azure 门户中配置组命名策略
 
 1. 使用用户管理员帐户登录到 [Azure AD 管理中心](https://aad.portal.azure.com)。
-1. 选择“组”，然后选择“命名策略”，以便打开“命名策略”页。 
+1. 选择“组”，然后选择“命名策略”，以便打开“命名策略”页。
 
     ![在管理中心打开“命名策略”页](./media/groups-quickstart-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>查看或编辑前后缀命名策略
 
-1. 在“命名策略”页上，选择“组命名策略”。 
+1. 在“命名策略”页上，选择“组命名策略”。
 1. 可以单独查看或编辑当前的前缀或后缀命名策略，只需选择需要在命名策略中强制实施的属性或字符串即可。
-1. 若要从列表中删除某个前缀或后缀，请选择该前缀或后缀，然后选择“删除”。  可以同时删除多个项。
-1. 选择“保存”，以便对策略所做的更改生效。 
+1. 若要从列表中删除某个前缀或后缀，请选择该前缀或后缀，然后选择“删除”。 可以同时删除多个项。
+1. 选择“保存”，以便对策略所做的更改生效。
 
 ### <a name="view-or-edit-the-custom-blocked-words"></a>查看或编辑自定义阻止字词
 
-1. 在“命名策略”页上，选择“阻止字词”。 
+1. 在“命名策略”页上，选择“阻止字词”。
 
     ![编辑并上传命名策略的阻止字词列表](./media/groups-quickstart-naming-policy/blockedwords.png)
 
-1. 查看或编辑自定义阻止字词的当前列表，方法是选择“下载”。 
+1. 查看或编辑自定义阻止字词的当前列表，方法是选择“下载”。
 1. 上传自定义阻止字词的新列表，方法是选择文件图标。
-1. 选择“保存”，以便对策略所做的更改生效。 
+1. 选择“保存”，以便对策略所做的更改生效。
 
 就这么简单。 现已设置了命名策略，并添加了自定义阻止字词。
 
@@ -61,7 +61,7 @@ ms.locfileid: "92378565"
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>使用 Azure 门户删除命名策略
 
-1. 在“命名策略”页上，选择“删除策略”。 
+1. 在“命名策略”页上，选择“删除策略”。
 1. 确认删除之后，将会删除命名策略，包括所有前缀-后缀命名策略和任何自定义阻止字词。
 
 ## <a name="next-steps"></a>后续步骤

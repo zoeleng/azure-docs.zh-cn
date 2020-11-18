@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314901"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553669"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>通过 Synapse SQL 使用外部表
 
@@ -323,7 +323,7 @@ column_name <data_type>
 
 要创建的表的一到三部分名称。 对于外部表，无服务器 SQL 池仅存储表元数据。 不会在无服务器 SQL 池中移动或存储任何实际数据。
 
-<column_definition>, ... *n* ]
+<column_definition>, ...*n* ]
 
 CREATE EXTERNAL TABLE 支持配置列名、数据类型、为 Null 性和排序规则的功能。 不能对外部表使用 DEFAULT CONSTRAINT。
 
@@ -332,7 +332,7 @@ CREATE EXTERNAL TABLE 支持配置列名、数据类型、为 Null 性和排序�
 
 从 Parquet 文件读取数据时，可以仅指定所要读取的列，并跳过其余的列。
 
-LOCATION = ' *folder_or_filepath* '
+LOCATION = '*folder_or_filepath*'
 
 为 Azure Blob 存储中的实际数据指定文件夹或文件路径和文件名。 位置从根文件夹开始。 根文件夹是外部数据源中指定的数据位置。
 
@@ -388,8 +388,6 @@ SELECT TOP 1 * FROM census_external_table
 - 必须有权访问工作区，并且至少对 ADLS Gen2 帐户具有存储 Blob 数据参与者 ARM 访问角色
 
 - 必须至少拥有在 SQL 池或 SQL OD 中创建和查询外部表的[权限](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true)
-
-- 与 ADLS Gen2 帐户关联的链接服务必须有权访问文件。 例如，如果链接服务身份验证机制为“托管标识”，则工作区托管标识必须至少对存储帐户拥有存储 Blob 读取者权限
 
 在“数据”面板中，选择要从其创建外部表的文件：
 > [!div class="mx-imgBorder"]

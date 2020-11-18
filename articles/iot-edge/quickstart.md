@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1c4ac7d36b568f68c67a99d078fd65515bbb21b0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5f6d768e3d863d52cfc91beb799d86fcd854af16
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747707"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517591"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入门：将第一个 IoT Edge 模块部署到虚拟 Windows 设备
 
@@ -94,7 +94,7 @@ IoT Edge 设备：
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   如果由于订阅中已经有一个免费的中心而出现错误，请将 SKU 更改为 **S1** 。 如果出现一条错误，指示 IoT 中心名称不可用，则表明他人已使用具有该名称的中心。 请尝试一个新名称。
+   如果由于订阅中已经有一个免费的中心而出现错误，请将 SKU 更改为 **S1**。 如果出现一条错误，指示 IoT 中心名称不可用，则表明他人已使用具有该名称的中心。 请尝试一个新名称。
 
 ## <a name="register-an-iot-edge-device"></a>注册 IoT Edge 设备
 
@@ -116,7 +116,7 @@ IoT Edge 设备：
 2. 查看设备的连接字符串，该字符串将物理设备与其在 IoT 中心的标识链接在一起。 它包含 IoT 中心名称、设备名称，以及用于对这两者之间的连接进行身份验证的共享密钥。
 
    ```azurecli-interactive
-   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. 复制 JSON 输出中 `connectionString` 键的值并保存。 该值为设备连接字符串。 在下一部分配置 IoT Edge 运行时中，将用到此连接字符串。
@@ -128,7 +128,7 @@ IoT Edge 设备：
 在 IoT Edge 设备上安装 Azure IoT Edge 运行时，并使用设备连接字符串对其进行配置。
 ![关系图 - 在设备上启动运行时](./media/quickstart/start-runtime.png)
 
-IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时， *IoT Edge 安全守护程序* 就会启动。 *IoT Edge 代理* 管理 IoT Edge 设备上模块（包括 IoT Edge 中心）的部署和监视。 *IoT Edge 中心* 处理 IoT Edge 设备模块之间以及设备和 IoT 中心之间的通信。
+IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时，*IoT Edge 安全守护程序* 就会启动。 *IoT Edge 代理* 管理 IoT Edge 设备上模块（包括 IoT Edge 中心）的部署和监视。 *IoT Edge 中心* 处理 IoT Edge 设备模块之间以及设备和 IoT 中心之间的通信。
 
 安装脚本还包含一个名为 Moby 的容器引擎，用于管理 IoT Edge 设备上的容器映像。
 

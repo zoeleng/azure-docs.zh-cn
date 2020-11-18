@@ -1,19 +1,19 @@
 ---
 title: 快速入门：创建服务器 - Azure PowerShell - Azure Database for MariaDB
 description: 本快速入门介绍如何使用 PowerShell 在 Azure 资源组中创建 Azure Database for MariaDB 服务器。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7db89d315e0df51aad7f4660ec5da64425eae2aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424434"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537792"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure Database for MariaDB 服务器
 
@@ -70,7 +70,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 | SslEnforcement             | 已启用          | 是否应该为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | 服务器的存储容量（以 MB 为单位）。 有效的 StorageInMb 最小为 5120 MB，以 1024 MB 为增量递增。 有关存储大小限制的详细信息，请参阅 [Azure Database for MariaDB 定价层](./concepts-pricing-tiers.md)。                                                                               |
 | 版本                    | 5.7              | MariaDB 主版本。                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | 管理员的登录用户名。 不能是 **azure_superuser** 、 **admin** 、 **administrator** 、 **root** 、 **guest** 或 **public** 。                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | 管理员的登录用户名。 不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | 管理员用户的密码，采用安全字符串格式。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字和非字母数字字符。                                       |
 
 Sku 参数值遵循 pricing-tier\_compute-generation\_vCores 约定，如以下示例所示 。

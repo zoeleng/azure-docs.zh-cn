@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412917"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635579"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB（3.6 版本）：支持的功能和语法
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -576,7 +576,7 @@ Cosmos DB 支持基于文档时间戳的生存时间 (TTL)。 转到 [Azure 门�
 
 ## <a name="user-and-role-management"></a>用户和角色管理
 
-Cosmos DB 尚不支持用户和角色。 不过 Cosmos DB 支持基于角色的访问控制 (RBAC) 以及读写和只读密码/密钥，可通过 [Azure 门户](https://portal.azure.com)（连接字符串页面）获取这些内容。
+Cosmos DB 尚不支持用户和角色。 不过 Cosmos DB 支持 Azure 基于角色的访问控制 (Azure RBAC) 以及读写和只读密码/密钥，可通过 [Azure 门户](https://portal.azure.com)（连接字符串页面）获取这些内容。
 
 ## <a name="replication"></a>复制
 

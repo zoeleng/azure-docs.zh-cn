@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c0edd85ea4478ac95ea854b73717056d52a9098b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378615"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647556"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助注册？
 
@@ -35,9 +35,9 @@ ms.locfileid: "92378615"
 
 ## <a name="terms-and-definitions"></a>术语和定义
 
-* **自助注册** ：这是用户注册云服务并让系统根据其电子邮件域在 Azure AD 中自动为其创建标识的方法。
-* **非托管 Azure AD 目录** ：在其中创建标识的目录。 非托管目录是没有全局管理员的目录。
-* **电子邮件验证的用户** ：Azure AD 中的一种用户帐户类型。 在注册自助服务产品后自动创建标识的用户称为电子邮件验证的用户。 电子邮件验证的用户是目录的常规成员，带有 creationmethod=EmailVerified 标记。
+* **自助注册**：这是用户注册云服务并让系统根据其电子邮件域在 Azure AD 中自动为其创建标识的方法。
+* **非托管 Azure AD 目录**：在其中创建标识的目录。 非托管目录是没有全局管理员的目录。
+* **电子邮件验证的用户**：Azure AD 中的一种用户帐户类型。 在注册自助服务产品后自动创建标识的用户称为电子邮件验证的用户。 电子邮件验证的用户是目录的常规成员，带有 creationmethod=EmailVerified 标记。
 
 ## <a name="how-do-i-control-self-service-settings"></a>如何控制自助服务设置？
 

@@ -1,18 +1,18 @@
 ---
 title: 快速入门：创建 Azure DB for MariaDB - ARM 模板
 description: 本快速入门文章介绍如何使用 Azure 资源管理器模板创建 Azure DB for MariaDB 服务器。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/14/2020
-ms.openlocfilehash: dc3999193356dd9cddc52b9873d22b4172c0030c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: de6df8349025c3e87e5b005196008053039fa49f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042494"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537118"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>快速入门：使用 ARM 模板创建 Azure Database for MariaDB 服务器
 
@@ -80,20 +80,20 @@ Azure Database for MariaDB 是一种托管服务，可用于在云中运行、�
 
 4. 根据需要更改其他默认设置：
 
-    * **订阅** ：要用于服务器的 Azure 订阅。
-    * **SKU 容量** ：vCore 容量，值可以是 2（默认值）、4、8、16、32 或 64     。
-    * **SKU 名称** ：SKU 层前缀、SKU 系列和 SKU 容量，以下划线联接，例如 B_Gen5_1、GP_Gen5_2（默认值）或 MO_Gen5_32  。
+    * **订阅**：要用于服务器的 Azure 订阅。
+    * **SKU 容量**：vCore 容量，值可以是 2（默认值）、4、8、16、32 或 64     。
+    * **SKU 名称**：SKU 层前缀、SKU 系列和 SKU 容量，以下划线联接，例如 B_Gen5_1、GP_Gen5_2（默认值）或 MO_Gen5_32  。
     * **SKU 大小(MB)** ：Azure Database for MariaDB 服务器的存储大小，以 MB 为单位（默认值为 51200）。
-    * **SKU 层** ：部署层，例如“基本”、“常规用途”（默认值）或“内存优化”  。
-    * **SKU 系列** ：“Gen4”或“Gen5”（默认值），表示服务器部署的硬件代系 。
-    * **Mariadb 版本** ：要部署的 MariaDB 服务器版本，例如 10.2 或 10.3（默认值） 。
-    * **备份保留天数** ：异地冗余备份的所需保留期，以天为单位（默认值为 7）。
-    * **异地冗余备份** ：“已启用”或“已禁用”（默认值），具体取决于异地灾难恢复 (Geo-DR) 要求 。
-    * **虚拟网络名称** ：虚拟网络的名称（默认值为 azure_mariadb_vnet）。
-    * **子网名称** ：子网的名称（默认值为 azure_mariadb_subnet）。
-    * **虚拟网络规则名称** ：允许子网的虚拟网络规则的名称（默认值为 AllowSubnet）。
-    * **VNet 地址前缀** ：虚拟网络的地址前缀（默认值为 10.0.0.0/16）。
-    * **子网前缀** ：子网的地址前缀（默认值为 10.0.0.0/16）。
+    * **SKU 层**：部署层，例如“基本”、“常规用途”（默认值）或“内存优化”  。
+    * **SKU 系列**：“Gen4”或“Gen5”（默认值），表示服务器部署的硬件代系 。
+    * **Mariadb 版本**：要部署的 MariaDB 服务器版本，例如 10.2 或 10.3（默认值） 。
+    * **备份保留天数**：异地冗余备份的所需保留期，以天为单位（默认值为 7）。
+    * **异地冗余备份**：“已启用”或“已禁用”（默认值），具体取决于异地灾难恢复 (Geo-DR) 要求 。
+    * **虚拟网络名称**：虚拟网络的名称（默认值为 azure_mariadb_vnet）。
+    * **子网名称**：子网的名称（默认值为 azure_mariadb_subnet）。
+    * **虚拟网络规则名称**：允许子网的虚拟网络规则的名称（默认值为 AllowSubnet）。
+    * **VNet 地址前缀**：虚拟网络的地址前缀（默认值为 10.0.0.0/16）。
+    * **子网前缀**：子网的地址前缀（默认值为 10.0.0.0/16）。
 
 5. 阅读条款和条件，并选择“我同意上述条款和条件”。
 

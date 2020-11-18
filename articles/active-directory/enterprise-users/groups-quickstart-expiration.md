@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 842cd92e451b8d959dcf04135da504d7cf85a16e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378599"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647199"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>将 Azure Active Directory 中的 Microsoft 365 组设置为过期
 
@@ -45,17 +45,17 @@ ms.locfileid: "92378599"
 
 1. 使用用户管理员帐户登录到 [Azure 门户](https://portal.azure.com)。
 
-2. 依次选择“组”、“常规”。 
+2. 依次选择“组”、“常规”。
   
    ![自助组设置页](./media/groups-quickstart-expiration/self-service-settings.png)
 
-3. 将“用户可创建 Microsoft 365 组”设置为“是”  。
+3. 将“用户可创建 Microsoft 365 组”设置为“是”。
 
-4. 设置完成后，选择“保存”以保存组设置  。
+4. 设置完成后，选择“保存”以保存组设置。
 
 ## <a name="set-group-expiration"></a>设置组过期
 
-1. 登录到  。
+1. 登录到 [Azure 门户](https://portal.azure.com)，选择“Azure Active Directory” > “组” > “过期”打开过期设置。
   
    ![组过期设置页](./media/groups-quickstart-expiration/expiration-settings.png)
 
@@ -63,9 +63,9 @@ ms.locfileid: "92378599"
 
 3. 提供当组没有所有者时用于发送过期通知的电子邮件地址。
 
-4. 在本快速入门中，请将“为这些 Microsoft 365 组启用到期功能”设置为“所有”  。
+4. 在本快速入门中，请将“为这些 Microsoft 365 组启用到期功能”设置为“所有”。
 
-5. 设置完成后，选择“保存”来保存过期设置  。
+5. 设置完成后，选择“保存”来保存过期设置。
 
 就这么简单！ 在本快速入门中，你已成功设置所选 Microsoft 365 组的过期策略。
 
@@ -74,13 +74,13 @@ ms.locfileid: "92378599"
 ### <a name="to-remove-the-expiration-policy"></a>删除过期策略
 
 1. 确保已使用 Azure AD 组织的全局管理员帐户登录到 [Azure 门户](https://portal.azure.com)。
-2. 选择“Azure Active Directory”  >  “组” >  “过期”。
-3. 将“为这些 Microsoft 365 组启用到期功能”设置为“无”  。
+2. 选择“Azure Active Directory” > “组” > “过期”。
+3. 将“为这些 Microsoft 365 组启用到期功能”设置为“无”。
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>为组禁用创建用户的功能
 
-1. 选择“Azure Active Directory”  >  “组” >  “常规”。 
-2. 将“用户可以在 Azure 门户中创建 Microsoft 365 组”设置为“否”  。
+1. 选择“Azure Active Directory” > “组” > “常规”。 
+2. 将“用户可以在 Azure 门户中创建 Microsoft 365 组”设置为“否”。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506339"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541838"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>快速入门：使用 Synapse Studio 创建专用 SQL 池
 
@@ -110,6 +110,7 @@ Azure Synapse Analytics 提供了各种分析引擎，可帮助你引入、转�
 1. 确认删除，然后按“删除”按钮。
 1. 成功完成此过程后，工作区资源中将不再列出该专用 SQL 池。
 
-## <a name="next-steps"></a>后续步骤 
+## <a name="next-steps"></a>后续步骤
+ 
 - 请参阅[快速入门：创建 Apache Spark 笔记本](quickstart-apache-spark-notebook.md)。
 - 请参阅[快速入门：使用 Azure 门户创建专用 SQL 池](quickstart-create-sql-pool-portal.md)。

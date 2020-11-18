@@ -4,12 +4,12 @@ description: 了解如何创建 Python 函数，然后使用 Visual Studio Code 
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5733af8a62373d8763899d6b98393cd6ba0823a9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4d37acfddeb5f5b6220e7082e729a7d6e6dfe66b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424598"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542416"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>快速入门：在 Azure 中使用 Visual Studio Code 创建 Python 函数
 
@@ -122,6 +122,8 @@ ms.locfileid: "93424598"
 
 > [!div class="nextstepaction"]
 > [连接到 Azure 存储队列](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
+
+[存在问题？请告诉我们。](https://aka.ms/python-functions-qs-survey)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

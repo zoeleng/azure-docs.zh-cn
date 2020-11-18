@@ -1,19 +1,19 @@
 ---
 title: 快速入门：使用 C++ 进行连接 - Azure Database for MySQL
 description: 本快速入门提供一个 C++ 代码示例，使用该示例可连接到 Azure Database for MySQL 并查询其中的数据。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 28957235dc5c90beebf834101a481187909ab6bb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e8b2842300e43a9de88cc0b9b3ae9ce6cd754612
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535837"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Connector/C++ 在 Azure Database for MySQL 中进行连接并查询数据
 

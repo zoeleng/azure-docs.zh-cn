@@ -1,19 +1,19 @@
 ---
 title: 快速入门：使用 Node.js 进行连接 - Azure Database for MySQL
 description: 本快速入门提供多个 Node.js 代码示例，使用这些示例可连接到适用于 MySQL 的 Azure 数据库并查询其中的数据。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332162"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535650"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Node.js 进行连接并查询 Azure Database for MySQL 中的数据
 
@@ -50,7 +50,7 @@ ms.locfileid: "93332162"
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. 运行以下命令安装 **Node.js** 和 **npm** （适用于 Node.js 的包管理器）。
+1. 运行以下命令安装 **Node.js** 和 **npm**（适用于 Node.js 的包管理器）。
 
    ```bash
    sudo apt-get install -y nodejs npm

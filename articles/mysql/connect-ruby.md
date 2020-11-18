@@ -1,19 +1,19 @@
 ---
 title: 快速入门：使用 Ruby 进行连接 - Azure Database for MySQL
 description: 本快速入门提供多个 Ruby 代码示例，使用这些示例可连接到适用于 MySQL 的 Azure 数据库并查询其中的数据。
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 20e51100eba595f9261be24e0e3675aa565479cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337293"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535548"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Ruby 连接到 Azure Database for MySQL 并查询其中的数据
 
