@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515909"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359470"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>教程：为 Slack 配置自动用户预配
 
@@ -73,22 +73,22 @@ ms.locfileid: "92515909"
 
 3. 选择“预配”选项卡。
 
-    ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
+    ![“管理”选项的屏幕截图，其中突出显示了“预配”选项。](common/provisioning.png)
 
 4. 将“预配模式”设置为“自动”。
 
-    ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
+    ![“预配模式”下拉列表的屏幕截图，其中突出显示了“自动”选项。](common/provisioning-automatic.png)
 
-5. 在“管理员凭据”**** 部分下，单击“授权”****。 这会在新的浏览器窗口中打开“Slack 授权”对话框。
+5. 在“管理员凭据”部分下，单击“授权”。 这会在新的浏览器窗口中打开“Slack 授权”对话框。
 
     ![屏幕截图显示了“授权管理员凭据”按钮。](media/slack-provisioning-tutorial/authorization.png)
 
 
-6. 在新窗口中，使用团队管理员帐户登录到 Slack。 在显示的授权对话框中，选择要启用预配的 Slack 团队，并选择“授权”****。 完成后，返回到 Azure 门户完成预配配置。
+6. 在新窗口中，使用团队管理员帐户登录到 Slack。 在显示的授权对话框中，选择要启用预配的 Slack 团队，并选择“授权”。 完成后，返回到 Azure 门户完成预配配置。
 
     ![授权对话框](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. 在 Azure 门户中，单击“测试连接”**** 以确保 Azure AD 可以连接到 Slack 应用。 如果连接失败，请确保 Slack 帐户具有团队管理员权限，并重试“授权”步骤。
+7. 在 Azure 门户中，单击“测试连接”以确保 Azure AD 可以连接到 Slack 应用。 如果连接失败，请确保 Slack 帐户具有团队管理员权限，并重试“授权”步骤。
 
 8. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中“发生故障时发送电子邮件通知”复选框 。
 
@@ -96,9 +96,9 @@ ms.locfileid: "92515909"
 
 9. 选择“保存”。
 
-10. 在“映射”部分下，选择“将 Azure Active Directory 用户同步到 Slack”****。
+10. 在“映射”部分下，选择“将 Azure Active Directory 用户同步到 Slack”。
 
-11. 在“属性映射”**** 部分中，查看将从 Azure AD 同步到 Slack 的用户属性。 请注意，选为**匹配**属性的属性用于匹配 Slack 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
+11. 在“属性映射”部分中，查看将从 Azure AD 同步到 Slack 的用户属性。 请注意，选为 **匹配** 属性的属性用于匹配 Slack 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
 
    |Attribute|类型|
    |---|---|
@@ -134,7 +134,7 @@ ms.locfileid: "92515909"
 
 12. 在“映射”部分下，选择“将 Azure Active Directory 组同步到 Slack” 。
 
-13. 在“属性映射”**** 部分中，查看将从 Azure AD 同步到 Slack 的组属性。 请注意，选为**匹配**属性的属性用于在更新操作中匹配 Slack 中的组。 选择“保存”按钮以提交任何更改。
+13. 在“属性映射”部分中，查看将从 Azure AD 同步到 Slack 的组属性。 请注意，选为 **匹配** 属性的属性用于在更新操作中匹配 Slack 中的组。 选择“保存”按钮以提交任何更改。
 
       |Attribute|类型|
       |---|---|
@@ -143,7 +143,7 @@ ms.locfileid: "92515909"
 
 14. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-15. 要为 Slack 启用 Azure AD 预配服务，请在“设置”**** 部分中将“预配状态”更改**** 为“启用”****
+15. 要为 Slack 启用 Azure AD 预配服务，请在“设置”部分中将“预配状态”更改为“启用”
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
@@ -172,11 +172,11 @@ ms.locfileid: "92515909"
 
   * 支持非英语字符、空格、大写。 
   
-  * 允许使用的标点符号包括句点、下划线、连字符、撇号、括号（例如 ( [ { } ] )****）和分隔符（例如 , / ;****）。
+  * 允许使用的标点符号包括句点、下划线、连字符、撇号、括号（例如 ( [ { } ] )）和分隔符（例如 , / ;）。
   
   * displayName 属性不能包含“@”字符。 如果包含“@”，则可能会在预配日志中找到已跳过的事件，其描述为“AttributeValidationFailed”。
 
-  * 仅当在 Slack 的工作区/组织中配置了这两个设置时才进行更新 - **启用配置文件同步**和**用户无法更改其显示名称**。
+  * 仅当在 Slack 的工作区/组织中配置了这两个设置时才进行更新 - **启用配置文件同步** 和 **用户无法更改其显示名称**。
 
 * Slack 的 **userName** 属性必须小于 21 个字符并具有唯一值。
 

@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 47427f8d3690218060fd1e6221b1b089c68d6e1d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426980"
+ms.locfileid: "94441828"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>使用 Key Vault 和 Azure CLI 管理存储帐户密钥
 
@@ -34,11 +34,11 @@ Azure 存储帐户使用由帐户名和密钥构成的凭据。 密钥是自动�
 
 Azure AD 允许使用应用程序标识或用户标识（而不是存储帐户凭据）对客户端应用程序进行身份验证。 在 Azure 上运行时，可以使用 [Azure AD 托管标识](../../active-directory/managed-identities-azure-resources/index.yml)。 托管标识消除了客户端身份验证的需要，并可以在应用程序中存储凭据，或者将凭据与应用程序一同存储。
 
-Azure AD 使用同样受 Key Vault 支持的基于角色的访问控制 (RBAC) 来管理授权。
+Azure AD 使用同样受 Key Vault 支持的 Azure 基于角色的访问控制 (Azure RBAC) 来管理授权。
 
 ## <a name="service-principal-application-id"></a>服务主体应用程序 ID
 
-Azure AD 租户为每个已注册的应用程序提供[服务主体](../../active-directory/develop/developer-glossary.md#service-principal-object)。 该服务主体充当应用程序 ID，通过 RBAC 设置访问其他 Azure 资源的授权期间，将使用它。
+Azure AD 租户为每个已注册的应用程序提供[服务主体](../../active-directory/develop/developer-glossary.md#service-principal-object)。 此服务主体充当应用程序 ID，该 ID 在授权设置过程中用于通过 Azure RBAC 访问其他 Azure 资源。
 
 Key Vault 是已在所有 Azure AD 租户中预先注册的 Microsoft 应用程序。 Key Vault 注册到每个 Azure 云中的同一个应用程序 ID 下。
 

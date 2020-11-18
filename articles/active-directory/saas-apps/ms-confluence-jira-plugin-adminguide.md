@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515673"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359151"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>将 Atlassian Jira 和 Confluence 与 Azure Active Directory 结合使用的管理员指南
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 单一登录 (SSO) 插件可让 Microsoft Azur
 
 ## <a name="how-it-works"></a>工作原理
 
-当用户登录到 Atlassian Jira 或 Confluence 应用程序时，登录页上会显示“使用 Azure AD 登录”按钮。**** 当用户选择该按钮时，系统会要求他们使用 Azure AD 组织登录页（即工作或学校帐户）登录。
+当用户登录到 Atlassian Jira 或 Confluence 应用程序时，登录页上会显示“使用 Azure AD 登录”按钮。 当用户选择该按钮时，系统会要求他们使用 Azure AD 组织登录页（即工作或学校帐户）登录。
 
 用户通过身份验证后，应该可以登录到应用程序。 如果他们已使用其工作或学校帐户的 ID 和密码进行身份验证，则会直接登录到应用程序。 
 
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) 单一登录 (SSO) 插件可让 Microsoft Azur
 > [!NOTE]
 > 用户预配不是通过该插件完成的。
 
-## <a name="audience"></a>目标受众
+## <a name="audience"></a>读者
 
 Jira 和 Confluence 管理员可以使用该插件来启用通过 Azure AD 进行的 SSO。
 
@@ -89,19 +89,19 @@ Jira 和 Confluence 管理员可以使用该插件来启用通过 Azure AD 进�
 
 1. 以管理员身份登录到 Jira 或 Confluence 实例。
 
-2. 转到 Jira/Confluence 管理控制台，并选择“加载项”。****
+2. 转到 Jira/Confluence 管理控制台，并选择“加载项”。
 
-3. 从 microsoft 下载中心下载适用于 Confluence 的 Jira microsoft saml sso 插件的[microsoft saml sso 插件](https://www.microsoft.com/download/details.aspx?id=56506) /  [Microsoft SAML SSO Plugin for Confluence](https://www.microsoft.com/download/details.aspx?id=56503)。
+3. 从 Microsoft 下载中心下载[适用于 Jira 的 Microsoft SAML SSO 插件](https://www.microsoft.com/download/details.aspx?id=56506)/ [适用于 Confluence 的 Microsoft SAML SSO 插件](https://www.microsoft.com/download/details.aspx?id=56503)。
 
    相应的插件版本随即显示在搜索结果中。
 
 4. 选择插件和通用插件管理器 (UPM) 并安装。
 
-插件安装后，会显示在“管理加载项”的“用户安装的加载项”部分。********
+插件安装后，会显示在“管理加载项”的“用户安装的加载项”部分。
 
 ## <a name="plug-in-configuration"></a>插件配置
 
-在开始使用插件之前，必须对其进行配置。 选择插件，选择“配置”按钮，并提供配置详细信息。****
+在开始使用插件之前，必须对其进行配置。 选择插件，选择“配置”按钮，并提供配置详细信息。
 
 下图显示了 Jira 和 Confluence 中的配置屏幕：
 
@@ -109,11 +109,11 @@ Jira 和 Confluence 管理员可以使用该插件来启用通过 Azure AD 进�
 
 * **元数据 URL**：用于从 Azure AD 获取联合元数据的 URL。
 
-* **标识符**：由 Azure AD 用来验证请求源的 URL。 此值映射到 Azure AD 中的“标识符”元素。**** 插件会将此 URL 自动派生为 https:// *\<domain:port>* /。
+* **标识符**：由 Azure AD 用来验证请求源的 URL。 此值映射到 Azure AD 中的“标识符”元素。 插件自动派生此 URL，其格式为 https://\<domain:port>/。
 
-* **回复 URL**：启动 SAML 登录的标识提供者 (IdP) 中的回复 URL。 此值映射到 Azure AD 中的“回复 URL”元素。**** 插件会将此 URL 自动派生为 https:// *\<domain:port>* /plugins/servlet/saml/auth。
+* **回复 URL**：启动 SAML 登录的标识提供者 (IdP) 中的回复 URL。 此值映射到 Azure AD 中的“回复 URL”元素。 插件自动派生此 URL，其格式为 https://\<domain:port>/plugins/servlet/saml/auth。
 
-* **登录 URL**：启动 SAML 登录的 IdP 中的登录 URL。 此值映射到 Azure AD 中的“登录”元素。**** 插件会将此 URL 自动派生为 https:// *\<domain:port>* /plugins/servlet/saml/auth。
+* **登录 URL**：启动 SAML 登录的 IdP 中的登录 URL。 此值映射到 Azure AD 中的“登录”元素。 插件自动派生此 URL，其格式为 https://\<domain:port>/plugins/servlet/saml/auth。
 
 * **IdP 实体 ID**：IdP 使用的实体 ID。 解析元数据 URL 时会填充此框。
 
@@ -135,7 +135,7 @@ Jira 和 Confluence 管理员可以使用该插件来启用通过 Azure AD 进�
 
 * **启用单一注销**：如果希望在用户从 Jira 或 Confluence 注销时你要从 Azure AD 注销，请选中此选项。
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 * **收到多个证书错误**：登录到 Azure AD，并删除针对应用提供的多个证书。 确保只存在一个证书。
 
@@ -177,7 +177,7 @@ Jira 和 Confluence 管理员可以使用该插件来启用通过 Azure AD 进�
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>此插件是否支持云版本？
 
-不能。 此插件仅支持 Jira 和 Confluence 的本地版本。
+否。 此插件仅支持 Jira 和 Confluence 的本地版本。
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>此插件支持 Jira 和 Confluence 的哪些版本？
 
@@ -221,7 +221,7 @@ Jira 和 Confluence 管理员可以使用该插件来启用通过 Azure AD 进�
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>此插件是否可以与除 Azure AD 之外的 IdP 配合工作？
 
-不能。 它仅可与 Azure AD 配合工作。
+否。 它仅可与 Azure AD 配合工作。
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>此插件与哪个版本的 SAML 配合工作？
 
@@ -229,12 +229,12 @@ Jira 和 Confluence 管理员可以使用该插件来启用通过 Azure AD 进�
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>此插件是否执行用户预配？
 
-不能。 此插件仅提供基于 SAML 2.0 的 SSO。 在进行 SSO 登录前，必须将用户预配到应用程序中。
+否。 此插件仅提供基于 SAML 2.0 的 SSO。 在进行 SSO 登录前，必须将用户预配到应用程序中。
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>此插件是否支持 Jira 和 Confluence 的群集版本？
 
-不能。 此插件与 Jira 和 Confluence 的本地版本配合工作。
+否。 此插件与 Jira 和 Confluence 的本地版本配合工作。
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>此插件是否可以与 Jira 和 Confluence 的 HTTP 版本配合工作？
 
-不能。 此插件仅可与已启用 HTTPS 的安装配合工作。
+否。 此插件仅可与已启用 HTTPS 的安装配合工作。

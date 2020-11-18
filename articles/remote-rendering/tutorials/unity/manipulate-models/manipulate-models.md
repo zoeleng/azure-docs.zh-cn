@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203834"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565964"
 ---
 # <a name="tutorial-manipulating-models"></a>教程：操作模型
 
@@ -308,7 +308,7 @@ AppMenu 具有一个子菜单“模型工具”，可实现用于与模型绑定
 
 在单击时发送光线投射请求是查询远程对象的有效策略。 但是，这不是理想的用户体验，因为是光标与框碰撞体发生碰撞，而不是模型本身。
 
-还可以创建一个新的 MRTK 指针，该指针在远程会话中更频繁地投射光线。 虽然这是一种更复杂的方法，但用户体验会更好。 此策略超出了本教程的范围，但可以在“展示”应用中查看此方法的示例，可通过 [ARR 示例存储库](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase)获取。
+还可以创建一个新的 MRTK 指针，该指针在远程会话中更频繁地投射光线。 虽然这是一种更复杂的方法，但用户体验会更好。 此策略超出了本教程的范围，但可以在“展示”应用中查看此方法的示例，可通过 [ARR 示例存储库](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase)获取。
 
 如果在 RemoteRayCastPointerHandler 中成功完成光线投射，则会从 `OnRemoteEntityClicked` Unity 事件发出命中的 `Entity`。 为了响应该事件，我们将创建一个帮助程序脚本，用于接受 `Entity` 并对其执行操作。 首先让脚本将 `Entity` 的名称打印到调试日志。
 

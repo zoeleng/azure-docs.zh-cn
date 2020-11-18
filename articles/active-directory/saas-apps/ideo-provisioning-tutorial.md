@@ -1,6 +1,6 @@
 ---
-title: 教程：为 IDEO 配置自动用户预配 Azure Active Directory |Microsoft Docs
-description: 了解如何配置 Azure Active Directory 以自动将用户帐户预配到 IDEO 以及取消其预配。
+title: 教程：使用 Azure Active Directory 为 IDEO 配置自动用户预配 | Microsoft Docs
+description: 了解如何将 Azure Active Directory 配置为自动将用户帐户预配到 IDEO 和取消其预配。
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: 50b0cbe5a29dbfe9bd74974ecf362a0032594965
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 10b7b79ba5081e6133f2e5e94840eddfe403caef
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460401"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357143"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>教程：为 IDEO 配置自动用户预配
 
-本教程的目的是演示要在 IDEO 和 Azure Active Directory (Azure AD) 中执行的步骤，以将 Azure AD 自动预配和取消预配到 IDEO。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。
+本教程的目的是演示要将 Azure AD 配置为自动将用户和/或组预配到 IDEO 以及取消其预配需在 IDEO 和 Azure Active Directory (Azure AD) 中执行的步骤。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../app-provisioning/user-provisioning.md)。
 
 > [!NOTE]
 > 此连接器目前以公共预览版提供。 若要详细了解 Microsoft Azure 预览版功能的一般使用条款，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -29,10 +29,10 @@ ms.locfileid: "92460401"
 ## <a name="capabilities-supported"></a>支持的功能
 > [!div class="checklist"]
 > * 在 IDEO 中创建用户
-> * 当用户不再需要访问权限时，删除 IDEO 中的用户
+> * 在用户不再有访问需求的情况下，在 IDEO 中删除用户
 > * 使用户属性在 Azure AD 和 IDEO 之间保持同步
 > * 在 IDEO 中预配组和组成员身份
-> * 单一登录到 IDEO (建议) 
+> * 单一登录到 IDEO（推荐）
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,56 +41,56 @@ ms.locfileid: "92460401"
 * [Azure AD 租户](../develop/quickstart-create-new-tenant.md)。
 * 具有配置预配[权限](../users-groups-roles/directory-assign-admin-roles.md)的 Azure AD 用户帐户（例如应用程序管理员、云应用程序管理员、应用程序所有者或全局管理员）。
 * [IDEO 租户](https://www.shape.space/product/pricing)
-* IDEO 上的用户帐户 |具有管理员权限的形状。
+* IDEO | Shape 中具有管理员权限的用户帐户。
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 规划预配部署
 1. 了解[预配服务的工作原理](../app-provisioning/user-provisioning.md)。
 2. 确定谁在[预配范围](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中。
-3. 确定要 [在 Azure AD 与 IDEO 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
+3. 确定[在 Azure AD 与 IDEO 之间映射](../app-provisioning/customize-application-attributes.md)的数据。 
 
-## <a name="step-2-configure-ideo-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 IDEO 以支持 Azure AD 的预配
+## <a name="step-2-configure-ideo-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 IDEO 以支持通过 Azure AD 进行预配
 
-在将 IDEO 配置为 Azure AD 的自动用户预配之前，需要从 IDEO 检索一些设置信息。
+在使用 Azure AD 为 IDEO 配置自动用户预配之前，需要从 IDEO 检索一些预配信息。
 
-* 对于 **密钥令牌** ，请联系 IDEO 支持团队 productsupport@ideo.com 。 此值将在 Azure 门户的 IDEO 应用程序的 "预配" 选项卡的 " **机密令牌** " 字段中输入。 
+* 若要获取“机密令牌”，请通过 productsupport@ideo.com 联系 IDEO 支持团队。 将在 Azure 门户中 IDEO 应用程序“预配”选项卡的“机密令牌”字段输入此值。 
 
 ## <a name="step-3-add-ideo-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加 IDEO
 
-从 Azure AD 应用程序库中添加 IDEO，开始管理预配到 IDEO。 如果以前为 SSO 设置了 IDEO，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。
+从 Azure AD 应用程序库添加 IDEO，开始管理 IDEO 的预配。 如果以前为 SSO 设置过 IDEO，则可以使用同一应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)所述的范围筛选器。 
 
-* 将用户和组分配到 IDEO 时，必须选择 " **默认" 访问权限**以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
+* 将用户和组分配到 IDEO 时，必须选择“默认访问”以外的角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](../develop/howto-add-app-roles-in-azure-ad-apps.md)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)。 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-ideo"></a>步骤 5。 配置 IDEO 的自动用户预配 
 
-本部分将指导你完成以下步骤：配置 Azure AD 预配服务，以便基于 Azure AD 中的用户和/或组分配在 IDEO 中创建、更新和禁用用户和/或组。
+本部分介绍了如何配置 Azure AD 预配服务以基于 Azure AD 中的用户和/或组分配在 IDEO 中创建、更新以及禁用用户和/或组。
 
-### <a name="to-configure-automatic-user-provisioning-for-ideo-in-azure-ad"></a>若要在 Azure AD 中配置 IDEO 的自动用户预配：
+### <a name="to-configure-automatic-user-provisioning-for-ideo-in-azure-ad"></a>要在 Azure AD 中为 IDEO 配置自动用户预配，请执行以下操作：
 
 1. 登录 [Azure 门户](https://portal.azure.com)。 依次选择“企业应用程序”、“所有应用程序” 。
 
     ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
 
-2. 在应用程序列表中，选择 " **IDEO**"。
+2. 在应用程序列表中，选择“IDEO”。
 
     ![应用程序列表中的 IDEO 链接](common/all-applications.png)
 
 3. 选择“预配”  选项卡。
 
-    ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
+    ![“管理”选项的屏幕截图，其中突出显示了“预配”选项。](common/provisioning.png)
 
 4. 将“预配模式”  设置为“自动”  。
 
-    ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
+    ![“预配模式”下拉列表的屏幕截图，其中突出显示了“自动”选项。](common/provisioning-automatic.png)
 
-5. 在 "**管理员凭据**" 部分下，在 "**租户 url** " 和 "**机密令牌**" 字段中输入之前从 IDEO 支持团队检索的**SCIM 2.0 基 URL 和访问令牌**值。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 IDEO。 如果连接失败，请确保 IDEO 帐户具有管理员权限，然后重试。
+5. 在“管理员凭据”部分中，分别在“租户 URL”和“机密令牌”字段中输入之前从 IDEO 支持团队检索到的 SCIM 2.0 基 URL 和访问令牌值   。 单击“测试连接”以确保 Azure AD 可以连接到 IDEO。 如果连接失败，请确保 IDEO 帐户具有管理员权限，然后重试。
 
     ![租户 URL + 令牌](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -100,9 +100,9 @@ ms.locfileid: "92460401"
 
 7. 单击“ **保存**”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 IDEO**"。
+8. 在“映射”部分下，选择“将 Azure Active Directory 用户同步到 IDEO” 。
 
-9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 IDEO 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 IDEO 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
+9. 在“属性映射”部分中，查看从 Azure AD 同步到 IDEO 的用户属性。 选为“匹配”属性的特性用于匹配 IDEO 中的用户帐户以执行更新操作。 选择“保存”按钮以提交任何更改。
 
    |Attribute|类型|
    |---|---|
@@ -112,9 +112,9 @@ ms.locfileid: "92460401"
    |name.givenName|字符串|
    |name.familyName|字符串|
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 IDEO**"。
+10. 在“映射”部分下，选择“将 Azure Active Directory 组同步到 IDEO” 。
    
-11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 ideo 的组属性。 选为 " **匹配** " 属性的特性用于匹配 IDEO 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
+11. 在“属性映射”部分中，查看从 Azure AD 同步到 IDEO 的组属性。 选为“匹配”属性的特性用于匹配 IDEO 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
       |Attribute|类型|
       |---|---|
@@ -123,11 +123,11 @@ ms.locfileid: "92460401"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为 IDEO 启用 Azure AD 预配服务，请在 "**设置**" 部分中将 "**预配状态**" 更改为 **"打开**"。
+13. 要为 IDEO 启用 Azure AD 预配服务，请在“设置”部分将“预配状态”更改为“启用”  。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 "**设置**" 部分的 "**范围**" 中选择所需的值，定义要预配到 IDEO 的用户和/或组。
+14. 通过在“设置”部分的“范围”中选择所需的值，定义要预配到 IDEO 的用户和/或组 。
 
     ![预配范围](common/provisioning-scope.png)
 
@@ -146,7 +146,7 @@ ms.locfileid: "92460401"
 
 ## <a name="change-log"></a>更改日志
 
-* 06/15/2020-为组（而不是 PUT）使用修补程序操作添加了支持。
+* 2020/06/15 - 添加了支持以针对组使用 PATCH 操作（而不是 PUT）。
 
 ## <a name="additional-resources"></a>其他资源
 

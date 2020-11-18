@@ -1,6 +1,6 @@
 ---
-title: 教程：为 Clarizen 配置自动用户预配 Azure Active Directory |Microsoft Docs
-description: 了解如何从 Azure AD 自动预配和取消预配用户帐户。
+title: 教程：使用 Azure Active Directory 为 Clarizen One 配置自动用户预配 | Microsoft Docs
+description: 了解如何将用户帐户从 Azure AD 自动预配到 Clarizen One 及如何取消预配。
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,99 +12,99 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 133e12450f01e14f2204810f0d24cd28b5f948f8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: MT
+ms.openlocfilehash: 9335869797509171c71caffb0062aeccca207803
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795120"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358909"
 ---
-# <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>教程：为 Clarizen 配置自动用户预配
+# <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>教程：为 Clarizen One 配置自动用户预配
 
-本教程介绍了需要在 Clarizen 中执行的步骤和 Azure Active Directory (Azure AD) 配置自动用户预配。 配置后，Azure AD 将使用 Azure AD 预配服务自动预配和取消预配用户和组，使其 [Clarizen](https://www.clarizen.com/) 。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
-
+本教程介绍了在 Clarizen One 和 Azure Active Directory (Azure AD) 中配置自动用户预配需执行的步骤。 配置后，Azure AD 会使用 Azure AD 预配服务自动将用户和组预配到 [Clarizen One](https://www.clarizen.com/) 以及将其取消预配。 有关此服务的功能、工作原理以及常见问题的信息，请参阅[使用 Azure AD 自动将用户预配到软件即服务 (SaaS) 应用程序和取消预配](../manage-apps/user-provisioning.md)。
 
 ## <a name="capabilities-supported"></a>支持的功能
+
 > [!div class="checklist"]
-> * 在 Clarizen 中创建用户
-> * 如果用户不需要访问权限，请删除 Clarizen 中的用户
-> * 使用户属性在 Azure AD 和 Clarizen 之间保持同步
-> * 预配 Clarizen 中的组和组成员身份
-> * [单一登录](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) 到 Clarizen 一个 (建议) 
+> * 在 Clarizen One 中创建用户。
+> * 在用户不再有访问需求的情况下，在 Clarizen One 中删除用户。
+> * 使用户属性在 Azure AD 和 Clarizen One 之间保持同步。
+> * 在 Clarizen One 中预配组和组成员身份。
+> * 建议[单一登录 (SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) 到 Clarizen One。
 
 ## <a name="prerequisites"></a>先决条件
 
 本教程中概述的方案假定你已具有以下先决条件：
 
-* [Azure AD 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Azure AD 中[有权](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)配置预配的用户帐户（例如应用管理员、云应用管理员、应用所有者或全局管理员）。 
-* Clarizen 中的用户帐户，其中包含 **集成用户** 和 **Lite 管理员**[权限](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support)。
+* [Azure AD 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)。
+* Azure AD 中拥有配置预配的[权限](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)的用户帐户。 示例有应用程序管理员、云应用程序管理员、应用程序所有者或全局管理员。
+* Clarizen One 中拥有集成用户和精简管理员 [权限](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support)的用户帐户。
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 规划预配部署
+
 1. 了解[预配服务的工作原理](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
-2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
-3. 确定要 [在 Azure AD 与 Clarizen 之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
+1. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
+1. 确定[在 Azure AD 与 Clarizen One 之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。
 
-## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 Clarizen 以支持 Azure AD 的预配
-1. 根据 Clarizen 的一个环境和数据中心，从以下四个租户 Url 中选择一个：
+## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 Clarizen One 以支持通过 Azure AD 进行预配
+
+1. 根据 Clarizen One 环境和数据中心，选择以下四个租户 URL 中的一个：
       * 美国生产数据中心： https://servicesapp2.clarizen.com/scim/v2
-      * 欧盟生产数据中心： https://serviceseu1.clarizen.com/scim/v2
-      * 美国沙箱数据中心： https://servicesapp.clarizentb.com/scim/v2
-      * 欧盟沙箱数据中心： https://serviceseu.clarizentb.com/scim/v2
+      * 欧洲生产数据中心： https://serviceseu1.clarizen.com/scim/v2
+      * 美国沙盒数据中心： https://servicesapp.clarizentb.com/scim/v2
+      * 欧洲沙盒数据中心： https://serviceseu.clarizentb.com/scim/v2
 
-2. 生成 [API 密钥](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support)。 此值将输入到 Azure 门户中的 Clarizen 应用程序的 "预配" 选项卡的 " **机密令牌** " 字段中。
+1. 生成 [API 密钥](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support)。 将在 Azure 门户中 Clarizen One 应用程序“预配”选项卡上的“机密令牌”框中输入此值 。
 
-## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库中添加 Clarizen
+## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库中添加 Clarizen One
 
-从 Azure AD 应用程序库中添加 Clarizen，开始管理预配到 Clarizen。 如果以前为 SSO 设置了 Clarizen，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)详细了解如何从库中添加应用程序。 
+从 Azure AD 应用程序库中添加 Clarizen One，开始管理到 Clarizen One 的预配。 如果以前为 Clarizen One 设置过 SSO，则可以使用同一应用程序。 最初测试集成时，请创建单独的应用。 若要了解有关如何从库中添加应用程序的详细信息，请参阅[向 Azure AD 租户添加应用程序](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)。
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中
 
-使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
+使用 Azure AD 预配服务，可以根据对应用程序的分配或是用户或组的属性来限定谁在预配范围内。 如果选择根据分配来限定要将谁预配到应用，请按照[在 Azure Active Directory 中管理应用的用户分配](../manage-apps/assign-user-or-group-access-portal.md)中的步骤将用户和组分配到应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，请使用[使用范围筛选器进行基于属性的应用程序预配](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。
 
-* 将用户和组分配到 Clarizen 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
+* 将用户和组分配到 Clarizen One 时，必须选择“默认访问”以外的角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加更多角色。
+* 先小部分测试。 在向所有用户推出之前，先对一小部分用户和组进行测试。 如果预配范围设置为分配的用户和组，可以通过将一两个用户或组分配到应用来维持控制。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。
 
-* 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
+## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>步骤 5。 配置到 Clarizen One 的自动用户预配
 
+本部分介绍了如何配置 Azure AD 预配服务以基于 Azure AD 中的用户或组分配在 TestApp 中创建、更新和禁用用户或组。
 
-## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>步骤 5。 配置 Clarizen 的自动用户预配 
+### <a name="configure-automatic-user-provisioning-for-clarizen-one-in-azure-ad"></a>在 Azure AD 中为 Clarizen One 配置自动用户预配
 
-本部分介绍了如何配置 Azure AD 预配服务以基于 Azure AD 中的用户和/或组分配在 TestApp 中创建、更新和禁用用户和/或组。
+1. 登录 [Azure 门户](https://portal.azure.com)。 选择“企业应用程序” > “所有应用程序”   。
 
-### <a name="to-configure-automatic-user-provisioning-for-clarizen-one-in-azure-ad"></a>若要在 Azure AD 中为 Clarizen 配置自动用户预配：
+    ![显示“企业应用程序”窗格的屏幕截图。](common/enterprise-applications.png)
 
-1. 登录 [Azure 门户](https://portal.azure.com)。 依次选择“企业应用程序”、“所有应用程序” 。
+1. 在应用程序列表中，选择“Clarizen One”。
 
-    ![“企业应用程序”边栏选项卡](common/enterprise-applications.png)
+    ![显示应用程序列表中的 Clarizen One 链接的屏幕截图。](common/all-applications.png)
 
-2. 在应用程序列表中，选择 " **Clarizen** "。
+1. 选择“预配”  选项卡。
 
-    ![应用程序列表中的 Clarizen 链接](common/all-applications.png)
+    ![显示“预配”选项卡的屏幕截图。](common/provisioning.png)
 
-3. 选择“预配”选项卡。
+1. 将“预配模式”设置为“自动”。
 
-    ![“预配”选项卡](common/provisioning.png)
+    ![显示“预配”选项卡“自动”选项的屏幕截图。](common/provisioning-automatic.png)
 
-4. 将“预配模式”设置为“自动”。
+1. 在“管理员凭据”部分，输入 Clarizen One 租户 URL 和机密令牌  。 选择“测试连接”以确保 Azure AD 可以连接到 Clarizen One。 如果连接失败，请确保 Clarizen One 帐户具有管理员权限，然后重试。
 
-    ![自动设置选项卡](common/provisioning-automatic.png)
+    ![显示“机密令牌”框的屏幕截图。](common/provisioning-testconnection-tenanturltoken.png)
 
-5. 在 " **管理员凭据** " 部分中，输入 Clarizen 一个租户 URL 和机密令牌。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 Clarizen。 如果连接失败，请确保 Clarizen 一个帐户具有管理员权限，然后重试。
+1. 在“通知电子邮件”框中输入应接收预配错误通知的人员或组的电子邮件地址。 选中“发生故障时发送电子邮件通知”复选框。
 
-    ![令牌](common/provisioning-testconnection-tenanturltoken.png)
+    ![显示“通知电子邮件”框的屏幕截图。](common/provisioning-notification-email.png)
 
-6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中“发生故障时发送电子邮件通知”复选框 。
+1. 选择“保存”。
 
-    ![通知电子邮件](common/provisioning-notification-email.png)
+1. 在“映射”部分下，选择“将 Azure Active Directory 用户同步到 Clarizen One” 。
 
-7. 选择“保存”。
-
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 Clarizen** "。
-
-9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Clarizen 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 Clarizen 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，将需要确保 CLARIZEN 一个 API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
+1. 在“属性映射”部分中，查看从 Azure AD 同步到 Clarizen One 的用户属性。 选为“匹配”属性的特性用于匹配 Clarizen One 中的用户帐户以执行更新操作。 如果更改[匹配目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，则必须确保 Clarizen One API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
    |Attribute|类型|
    |---|---|
@@ -113,15 +113,15 @@ ms.locfileid: "92795120"
    |活动|Boolean|
    |title|字符串|
    |emails[type eq "work"].value|字符串|
-   |电子邮件 [类型 eq "home"]。值|字符串|
-   |电子邮件 [type eq "other"]。值|字符串|
+   |emails[type eq "home"].value|字符串|
+   |emails[type eq "other"].value|字符串|
    |preferredLanguage|字符串|
    |name.givenName|字符串|
    |name.familyName|字符串|
    |name.formatted|字符串|
    |name.honorificPrefix|String|
-   |名称. honorificSuffix|字符串|
-   |地址 [type eq "other"]。格式|字符串|
+   |name.honorificSuffix|字符串|
+   |addresses[type eq "other"].formatted|字符串|
    |addresses[type eq "work"].formatted|字符串|
    |addresses[type eq "work"].country|字符串|
    |addresses[type eq "work"].region|字符串|
@@ -131,14 +131,14 @@ ms.locfileid: "92795120"
    |phoneNumbers[type eq "work"].value|字符串|
    |phoneNumbers[type eq "mobile"].value|字符串|
    |phoneNumbers[type eq "fax"].value|字符串|
-   |phoneNumbers [type eq "home"]。值|字符串|
-   |phoneNumbers [type eq "other"]。值|字符串|
-   |phoneNumbers [type eq "呼机"]。值|字符串|
+   |phoneNumbers[type eq "home"].value|字符串|
+   |phoneNumbers[type eq "other"].value|字符串|
+   |phoneNumbers[type eq "pager"].value|字符串|
    |externalId|字符串|
    |nickName|String|
    |区域设置|字符串|
-   |role [primary eq "True"。类型]|字符串|
-   |角色 [主 eq "True"。值]|字符串|
+   |roles[primary eq"True".type]|字符串|
+   |roles[primary eq"True".value]|字符串|
    |timezone|字符串|
    |userType|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|字符串|
@@ -148,9 +148,9 @@ ms.locfileid: "92795120"
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|字符串|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|字符串|
 
-10. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 组" 以 Clarizen 一个组** 。
+1. 在“映射”部分下，选择“将 Azure Active Directory 组同步到 Clarizen One” 。
 
-11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Clarizen 的组属性。 选为 " **匹配** " 属性的特性用于匹配 Clarizen 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
+1. 在“属性映射”部分中，查看从 Azure AD 同步到 Clarizen One 的组属性。 选为“匹配”属性的特性用于匹配 Clarizen One 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
       |Attribute|类型|
       |---|---|
@@ -158,41 +158,41 @@ ms.locfileid: "92795120"
       |externalId|字符串|
       |members|参考|
 
-12. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
+1. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中的说明。
 
-13. 若要为 Clarizen 启用 Azure AD 预配服务，请在 " **设置** " 部分中将设置 **状态** 更改为 **"打开** "。
+1. 若要为 Clarizen One 启用 Azure AD 预配服务，请在“设置”部分中将“预配状态”更改为“启用”。  
 
-    ![预配状态已打开](common/provisioning-toggle-on.png)
+    ![显示“预配状态”切换为“启用”的屏幕截图。](common/provisioning-toggle-on.png)
 
-14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 Clarizen 的用户和/或组。
+1. 通过在“设置”部分的“范围”中选择所需的值，定义要预配到 Clarizen One 的用户或组 。
 
-    ![预配范围](common/provisioning-scope.png)
+    ![显示预配范围的屏幕截图。](common/provisioning-scope.png)
 
-15. 已准备好预配时，单击“保存”  。
+1. 准备好预配时，选择“保存”。
 
-    ![保存预配配置](common/provisioning-configuration-save.png)
+    ![显示保存预配配置的屏幕截图。](common/provisioning-configuration-save.png)
 
-此操作会对“设置”部分的“范围”中定义的所有用户和组启动初始同步周期 。 初始周期执行的时间比后续周期长，只要 Azure AD 预配服务正在运行，后续周期大约每隔 40 分钟就会进行一次。 
+此操作会对“设置”部分的“范围”中定义的所有用户和组启动初始同步周期 。 初始周期执行的时间比后续周期长，只要 Azure AD 预配服务正在运行，后续周期大约每隔 40 分钟就会进行一次。
 
 ## <a name="step-6-monitor-your-deployment"></a>步骤 6. 监视部署
-配置预配后，请使用以下资源来监视部署：
 
-1. 通过[预配日志](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)来确定哪些用户已预配成功或失败
-2. 检查[进度栏](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)来查看预配周期的状态以及完成进度
-3. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 有关隔离状态的详细信息，请访问[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)。  
+配置预配后，请使用以下资源来监视部署。
 
-## <a name="troubleshooting-tips"></a>故障排查提示
-将用户分配到 Clarizen 一个库应用时，请仅选择 " **用户** 角色"。 下面显示的角色无效。
+1. 通过[预配日志](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)来确定哪些用户已预配成功或失败。
+1. 检查[进度栏](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)以查看预配周期的状态以及完成进度。
+1. 如果怀疑预配配置处于非正常状态，则应用程序将进入隔离状态。 若要了解有关隔离状态的详细信息，请参阅[隔离状态下的应用程序预配](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)。
 
-* 管理员 (管理员) 
+## <a name="troubleshooting-tips"></a>故障排除提示
+
+将用户分配到 Clarizen One 库应用时，请仅选择“用户”角色。 以下角色无效：
+
+* 管理员 (admin)
 * 电子邮件报告用户
 * 外部用户
-* 金融用户
+* 财务用户
 * 社交用户
 * 超级用户
-* & 支出用户的时间
-
-
+* 时间和支出用户
 
 ## <a name="additional-resources"></a>其他资源
 

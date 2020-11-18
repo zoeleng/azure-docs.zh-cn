@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 011071c9aa1722b8f1cf81ec8d9ef88e8d91ea03
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503753"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359045"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>教程：为 Hootsuite 配置自动用户预配
 
@@ -49,7 +49,7 @@ ms.locfileid: "92503753"
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库中添加 Hootsuite
 
-从 Azure AD 应用程序库中添加 Hootsuite，开始管理到 Hootsuite 的预配。 如果以前为 SSO 设置了 Hootsuite，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。 
+从 Azure AD 应用程序库中添加 Hootsuite，开始管理到 Hootsuite 的预配。 如果之前为 Hootsuite 设置过 SSO，可使用同一应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](../manage-apps/add-application-portal.md)详细了解如何从库中添加应用程序。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
@@ -78,17 +78,17 @@ ms.locfileid: "92503753"
 
 3. 选择“预配”选项卡。单击“入门”。
 
-    ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
+    ![“管理”选项的屏幕截图，其中突出显示了“预配”选项。](common/provisioning.png)
 
     ![“开始”边栏选项卡](./media/hootsuite-provisioning-tutorial/get-started.png)
 
 4. 将“预配模式”设置为“自动”。
 
-    ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
+    ![“预配模式”下拉列表的屏幕截图，其中突出显示了“自动”选项。](common/provisioning-automatic.png)
 
 5. 在“管理员凭据”部分下，在“租户 URL”中输入 `https://platform.hootsuite.com/scim/v2`。 输入前面在“步骤 2”中检索到的长生存期机密令牌值。 单击“测试连接”以确保 Azure AD 可以连接到 Hootsuite。 如果连接失败，请确保 Hootsuite 帐户具有管理员权限，然后重试。
 
-    ![屏幕截图显示 "管理员凭据" 对话框，你可以在其中输入租户 U R L 和机密令牌。](./media/hootsuite-provisioning-tutorial/provisioning.png)
+    ![屏幕截图显示“管理员凭据”对话框，可在该框中输入租户 URL 和机密令牌。](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
 6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中“发生故障时发送电子邮件通知”复选框 。
 
@@ -111,9 +111,9 @@ ms.locfileid: "92503753"
    |name.givenName|字符串|
    |name.familyName|字符串|
 
-10. 在 " **映射** " 部分下，选择 " **同步 Azure Active Directory 组**"。
+10. 在“映射”部分下，选择“同步 Azure Active Directory 组” 。
 
-11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 Hootsuite 的组属性。 选为 " **匹配** " 属性的特性用于匹配 Hootsuite 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
+11. 在“特性映射”部分中，查看从 Azure AD 同步到 Hootsuite 的组特性。 选为“匹配”属性的特性用于匹配 Hootsuite 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
       |Attribute|类型|
       |---|---|
@@ -146,8 +146,8 @@ ms.locfileid: "92503753"
 
 ## <a name="change-log"></a>更改日志
 
-* 10/22/2020-添加了对用户特性 "givenName" 和 "familyName" 的支持。 已为用户删除自定义扩展属性 "organizationIds" 和 "Teamid"。
-添加了对组属性 "displayName"、"members" 和 "externalId" 的支持。
+* 10/22/2020 -添加了对用户特性“name.givenName”和“name.familyName”的支持。 为用户删除了自定义扩展特性“organizationIds”和“teamIds”。
+添加了对组特性“displayName”、“members”、和“externalId”的支持。
 
 ## <a name="additional-resources"></a>其他资源
 

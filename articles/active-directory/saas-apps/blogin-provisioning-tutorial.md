@@ -1,6 +1,6 @@
 ---
-title: 教程：为 BlogIn 配置自动用户预配 Azure Active Directory |Microsoft Docs
-description: 了解如何自动将用户 Azure AD 帐户预配到 BlogIn 以及取消其预配。
+title: 教程：使用 Azure Active Directory 为 BlogIn 配置自动用户预配 | Microsoft Docs
+description: 了解如何将用户帐户从 Azure AD 自动预配到 BlogIn 及如何取消预配。
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,28 +12,28 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4b77208ca7869288ac13e28c6535b1b3972aa22c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
-ms.translationtype: MT
+ms.openlocfilehash: f50c8d612ca088c97754b1eb90ed049113e33c6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928730"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358191"
 ---
 # <a name="tutorial-configure-blogin-for-automatic-user-provisioning"></a>教程：为 BlogIn 配置自动用户预配
 
-本教程介绍了需要在 BlogIn 和 Azure Active Directory (Azure AD) 中执行的步骤，以配置自动用户预配。 配置后，Azure AD 使用 Azure AD 预配服务自动设置用户和组并取消其预配到 [BlogIn](https://blogin.co/) 。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
+本教程介绍了在 BlogIn 和 Azure Active Directory (Azure AD) 中配置自动用户预配需执行的步骤。 配置后，Azure AD 会使用 Azure AD 预配服务自动将用户和组预配到 [BlogIn](https://blogin.co/) 并自动取消预配。 有关此服务的功能、工作原理以及常见问题的重要详细信息，请参阅[使用 Azure Active Directory 自动将用户预配到 SaaS 应用程序和取消预配](../manage-apps/user-provisioning.md)。 
 
 
 ## <a name="capabilities-supported"></a>支持的功能
 > [!div class="checklist"]
 > * 在 BlogIn 中创建用户
-> * 当用户不再需要访问权限时，删除 BlogIn 中的用户
+> * 在用户不再有访问需求的情况下，在 BlogIn 中删除用户
 > * 使用户属性在 Azure AD 和 BlogIn 之间保持同步
 > * 在 BlogIn 中预配组和组成员身份
-> * [单一登录](https://docs.microsoft.com/azure/active-directory/saas-apps/blogin-tutorial) 到 BlogIn (建议) 
+> * [单一登录](https://docs.microsoft.com/azure/active-directory/saas-apps/blogin-tutorial)到 BlogIn（推荐）
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,33 +41,33 @@ ms.locfileid: "92928730"
 
 * [Azure AD 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Azure AD 中[有权](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)配置预配的用户帐户（例如应用管理员、云应用管理员、应用所有者或全局管理员）。 
-* 具有管理员角色的 BlogIn 中的用户帐户。
+* BlogIn 中具有管理员角色的用户帐户。
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>步骤 1。 规划预配部署
 1. 了解[预配服务的工作原理](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
 2. 确定谁在[预配范围](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)中。
-3. 确定要 [在 Azure AD 与 BlogIn 之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
+3. 确定[在 Azure AD 与 BlogIn 之间映射](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)的数据。 
 
-## <a name="step-2-configure-blogin-to-support-provisioning-with-azure-ad"></a>步骤 2. 配置 BlogIn 以支持 Azure AD 的预配
+## <a name="step-2-configure-blogin-to-support-provisioning-with-azure-ad"></a>步骤 2。 配置 BlogIn 以支持通过 Azure AD 进行预配
 
-若要在 **BlogIn** 上配置用户设置，请登录到 BlogIn 帐户，然后执行以下步骤：
+若要在 BlogIn 上配置用户预配，请登录到 BlogIn 帐户并执行以下步骤：
 
-1. 导航到 " **设置** " "  >  **用户身份验证** " "  >  **配置 SSO & 用户预配** "。
-2. 切换到 " **用户预配** " 选项卡，并将用户预配状态更改为 **"开** "。
-3. 单击“保存更改”按钮。 首次保存时，将生成 **机密 (持有者) 令牌** 。
-4. 将 **基本 (租户) URL** 和 **机密 (持有者) 令牌** 值。 这些值将在 Azure 门户的 BlogIn 应用程序的 "设置" 选项卡的 "租户 URL" 和 "机密令牌" 字段中输入。
+1. 导航到“设置” > “用户身份验证” > “配置 SSO 和用户预配”  。
+2. 切换到“用户预配”选项卡，并将“用户预配状态”更改为“启用” 。
+3. 单击“保存更改”按钮。 首次保存时，将生成“机密(持有者)令牌”。
+4. 复制“基(租户) URL”和“机密(持有者)令牌”值 。 在 Azure 门户的 BlogIn 应用程序的“预配”选项卡中，将这些值输入“租户 URL”和“机密令牌”字段。
 
-有关在 BlogIn 上设置用户预配的更详细说明，请参阅 [通过 SCIM 设置用户预配](https://blogin.co/blog/set-up-user-provisioning-via-scim-254/)。 如果你有任何疑问或需要帮助，请联系 [BlogIn 支持团队](mailto:support@blogin.co) 。
+有关在 BlogIn 上设置用户预配的更详细说明，请参阅[通过 SCIM 设置用户预配](https://blogin.co/blog/set-up-user-provisioning-via-scim-254/)。 如果有任何疑问或需要帮助，请联系 [BlogIn 支持团队](mailto:support@blogin.co)。
 
 ## <a name="step-3-add-blogin-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加 BlogIn
 
-从 Azure AD 应用程序库中添加 BlogIn，开始管理预配到 BlogIn。 如果以前为 SSO 设置了 BlogIn，则可以使用相同的应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)详细了解如何从库中添加应用程序。 
+从 Azure AD 应用程序库添加 BlogIn，开始管理 BlogIn 的预配。 如果以前为 SSO 设置过 BlogIn，则可以使用同一应用程序。 但建议你在最初测试集成时创建一个单独的应用。 可在[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)详细了解如何从库中添加应用程序。 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>步骤 4. 定义谁在预配范围中 
 
 使用 Azure AD 预配服务，可以根据对应用程序的分配和/或用户/组的属性来限定谁在预配范围内。 如果选择根据分配来查看要将谁预配到应用，则可以使用以下[步骤](../manage-apps/assign-user-or-group-access-portal.md)将用户和组分配给应用程序。 如果选择仅根据用户或组的属性来限定要对谁进行预配，可以使用[此处](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)所述的范围筛选器。 
 
-* 将用户和组分配到 BlogIn 时，必须选择 " **默认" 访问权限** 以外的其他角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
+* 将用户和组分配到 BlogIn 时，必须选择“默认访问”以外的角色。 具有“默认访问”角色的用户将从预配中排除，并在预配日志中被标记为未有效授权。 如果应用程序上唯一可用的角色是默认访问角色，则可以[更新应用程序清单](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)以添加其他角色。 
 
 * 先小部分测试。 在向全员推出之前，请先使用少量的用户和组进行测试。 如果预配范围设置为分配的用户和组，则可以先尝试将一两个用户或组分配到应用。 当预配范围设置为所有用户和组时，可以指定[基于属性的范围筛选器](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)。 
 
@@ -76,7 +76,7 @@ ms.locfileid: "92928730"
 
 本部分介绍了如何配置 Azure AD 预配服务以基于 Azure AD 中的用户和/或组分配在 TestApp 中创建、更新和禁用用户和/或组。
 
-### <a name="to-configure-automatic-user-provisioning-for-blogin-in-azure-ad"></a>若要在 Azure AD 中配置 BlogIn 的自动用户预配：
+### <a name="to-configure-automatic-user-provisioning-for-blogin-in-azure-ad"></a>若要在 Azure AD 中为 BlogIn 配置自动用户预配，请执行以下操作：
 
 1. 登录 [Azure 门户](https://portal.azure.com)。 依次选择“企业应用程序”、“所有应用程序” 。
 
@@ -92,11 +92,11 @@ ms.locfileid: "92928730"
 
 4. 将“预配模式”设置为“自动”。
 
-    ![自动设置选项卡](common/provisioning-automatic.png)
+    ![“预配”选项卡“自动”](common/provisioning-automatic.png)
 
-5. 在 " **管理员凭据** " 部分中，输入你的 BLOGIN 租户 URL 和机密令牌。 单击 " **测试连接** " 以确保 Azure AD 可以连接到 Clarizen。 如果连接失败，请确保 Clarizen 帐户具有管理员权限，然后重试。
+5. 在“管理员凭据”部分，输入 BlogIn 租户 URL 和机密令牌。 单击“测试连接”以确保 Azure AD 可以连接到 Clarizen。 如果连接失败，请确保 Clarizen 帐户具有管理员权限，然后重试。
 
-    ![令牌](common/provisioning-testconnection-tenanturltoken.png)
+    ![标记](common/provisioning-testconnection-tenanturltoken.png)
 
 6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中“发生故障时发送电子邮件通知”复选框 。
 
@@ -104,9 +104,9 @@ ms.locfileid: "92928730"
 
 7. 选择“保存”。
 
-8. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 用户同步到 BlogIn** "。
+8. 在“映射”部分下，选择“将 Azure Active Directory 用户同步到 BlogIn” 。
 
-9. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 BlogIn 的用户属性。 选为 " **匹配** " 属性的特性用于匹配 BlogIn 中的用户帐户以执行更新操作。 如果选择更改 [匹配的目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，将需要确保 BlogIn API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
+9. 在“属性映射”部分中，查看从 Azure AD 同步到 BlogIn 的用户属性。 选为“匹配”属性的特性用于匹配 BlogIn 中的用户帐户以执行更新操作。 如果选择更改[匹配目标属性](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)，则需要确保 BlogIn API 支持基于该属性筛选用户。 选择“保存”按钮以提交任何更改。
 
    |Attribute|类型|
    |---|---|
@@ -119,9 +119,9 @@ ms.locfileid: "92928730"
    |name.formatted|字符串|
    |phoneNumbers[type eq "work"].value|字符串|
 
-10. 在 " **映射** " 部分下，选择 " **将 Azure Active Directory 组同步到 BlogIn** "。
+10. 在“映射”部分下，选择“将 Azure Active Directory 组同步到 BlogIn” 。
 
-11. 在 " **属性映射** " 部分中，查看从 Azure AD 同步到 BlogIn 的组属性。 选为 " **匹配** " 属性的特性用于匹配 BlogIn 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
+11. 在“属性映射”部分中，查看从 Azure AD 同步到 BlogIn 的组属性。 选为“匹配”属性的特性用于匹配 BlogIn 中的组以执行更新操作。 选择“保存”按钮以提交任何更改。
 
       |Attribute|类型|
       |---|---|
@@ -130,11 +130,11 @@ ms.locfileid: "92928730"
 
 12. 若要配置范围筛选器，请参阅[范围筛选器教程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的以下说明。
 
-13. 若要为 BlogIn 启用 Azure AD 预配服务，请在 " **设置** " 部分中将 " **预配状态** " 更改为 **"打开** "。
+13. 若要为 BlogIn 启用 Azure AD 预配服务，请在“设置”部分中将“预配状态”更改为“启用”  。
 
     ![预配状态已打开](common/provisioning-toggle-on.png)
 
-14. 通过在 " **设置** " 部分的 " **范围** " 中选择所需的值，定义要预配到 BlogIn 的用户和/或组。
+14. 通过在“设置”部分的“范围”中选择所需的值，定义要预配到 BlogIn 的用户和/或组 。
 
     ![预配范围](common/provisioning-scope.png)
 

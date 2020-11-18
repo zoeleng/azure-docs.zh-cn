@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b592591f3d2190fdcc9ed7b3b12b2eca20a25a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675829"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359776"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>教程：为 ServiceNow 配置自动用户预配
 
@@ -56,13 +56,13 @@ ms.locfileid: "92675829"
 
    ![ServiceNow 管理员角色](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. 检查以确保在 ServiceNow 中 **禁用** 了以下设置：
+3. 检查以确保以下设置在 ServiceNow 为“禁用”状态：
 
-   1. 选择 " **系统安全**  >  **高级安全设置** "  >  **要求对传入架构请求进行基本身份验证** 。
-   2. 选择 " **系统属性** "  >  **Web 服务**  >  **需要对传入 SOAP 请求进行基本授权** 。
+   1. 选择“系统安全性” > “高安全性设置” > “需要对传入的 SCHEMA 请求进行基本身份验证”  。
+   2. 选择“系统属性” > “Web 服务” > “需要对传入的 SOAP 请求进行基本授权”  。
      
    > [!IMPORTANT]
-   > 如果 *启用* 了这些设置，则设置引擎将无法与 ServiceNow 通信。
+   > 如果启用这些设置，则预配的引擎将无法与 ServiceNow 通信。
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>步骤 3. 从 Azure AD 应用程序库添加 ServiceNow
 
@@ -93,15 +93,15 @@ ms.locfileid: "92675829"
 
 3. 选择“预配”选项卡。
 
-    ![带有称为 "预配" 选项的 "管理" 选项的屏幕截图。](common/provisioning.png)
+    ![“管理”选项的屏幕截图，其中突出显示了“预配”选项。](common/provisioning.png)
 
 4. 将“预配模式”  设置为“自动”  。
 
-    ![具有 "自动" 选项的 "预配模式" 下拉列表屏幕截图。](common/provisioning-automatic.png)
+    ![“预配模式”下拉列表的屏幕截图，其中突出显示了“自动”选项。](common/provisioning-automatic.png)
 
 5. 在“管理员凭据”部分中，输入 ServiceNow 管理员凭据和用户名。 单击“测试连接”以确保 Azure AD 可以连接到 ServiceNow。 如果连接失败，请确保 ServiceNow 帐户具有管理员权限，然后重试。
 
-    ![屏幕截图显示 "服务设置" 页，您可以在其中输入管理凭据。](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![显示“预配服务”页的屏幕截图，你可以在其中输入“管理员凭据”。](./media/servicenow-provisioning-tutorial/provisioning.png)
 
 6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中“发生故障时发送电子邮件通知”复选框 。
 
@@ -149,10 +149,10 @@ ms.locfileid: "92675829"
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   此错误表示与 ServiceNow 实例通信时出现问题。 仔细检查以确保在 ServiceNow 中 *禁用* 了以下设置：
+   此错误表示与 ServiceNow 实例通信时出现问题。 仔细检查以确保以下设置在 ServiceNow 中为“禁用”状态：
    
-   1. 选择 " **系统安全**  >  **高级安全设置** "  >  **要求对传入架构请求进行基本身份验证** 。
-   2. 选择 " **系统属性** "  >  **Web 服务**  >  **需要对传入 SOAP 请求进行基本授权** 。
+   1. 选择“系统安全性” > “高安全性设置” > “需要对传入的 SCHEMA 请求进行基本身份验证”  。
+   2. 选择“系统属性” > “Web 服务” > “需要对传入的 SOAP 请求进行基本授权”  。
 
 ## <a name="additional-resources"></a>其他资源
 
