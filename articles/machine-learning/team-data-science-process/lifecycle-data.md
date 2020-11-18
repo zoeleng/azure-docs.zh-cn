@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fffb52e333bea1b2be11b127a9eab6656dc1d1f5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311871"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740322"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Team Data Science Process 的数据采集和理解阶段
 
@@ -48,9 +48,7 @@ ms.locfileid: "93311871"
 设置该过程，将数据从源位置移动到要运行定型和预测等分析操作的目标位置。 要了解如何使用各种 Azure 数据服务移动数据的技术详细信息和选项，请参阅[将数据加载到存储环境以进行分析](ingest-data.md)。 
 
 ### <a name="explore-the-data"></a>浏览数据
-在对模型定型之前，需要对数据进行深刻理解。 实际的数据集通常比较杂乱，缺少值或存在大量其他差异。 可使用数据汇总和可视化来审核数据的质量，并提供处理数据所需的信息，然后进行建模。 此过程通常是迭代的。
-
-TDSP 提供名为 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 的自动化实用工具，以帮助实现数据的可视化并准备数据摘要报表。 建议首先从 IDEAR 开始浏览数据，这样有助于以交互方式开始了解数据，而无需进行编码。 然后即可编写用于数据浏览和可视化的自定义代码。 有关清理数据的指南，请参阅[用于准备数据以增强机器学习的任务](prepare-data.md)。  
+在对模型定型之前，需要对数据进行深刻理解。 实际的数据集通常比较杂乱，缺少值或存在大量其他差异。 可使用数据汇总和可视化来审核数据的质量，并提供处理数据所需的信息，然后进行建模。 此过程通常是迭代的。 有关清理数据的指南，请参阅[用于准备数据以增强机器学习的任务](prepare-data.md)。  
 
 对清理后数据的质量感到满意后，下一步是更好地理解数据中固有的模式。 此数据分析有助于为目标选择并开发合适的预测模型。 查找表明数据与目标的连接情况的证据。 然后确定在进行后续建模步骤时是否有足够的数据可用。 同样，此过程通常是迭代的。 可能需要查找包含更准确或更相关数据的新数据源，以增加在上一阶段中最初标识的数据集。 
 
@@ -66,9 +64,9 @@ TDSP 提供名为 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/mas
 ## <a name="artifacts"></a>项目
 以下是此阶段中的可交付结果：
 
-   * [数据质量报表](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md)：此报表包含数据摘要、每个属性和目标之间的关系、变量排名等。 作为 TDSP 一部分提供的 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 工具可在任何表格数据集（例如，CSV 文件或关系表）上快速生成此报表。 
-   * **解决方案体系结构** ：解决方案体系结构可以是生成模型后数据管道的关系图或说明，该数据管道用于对新数据进行评分或预测。 它还包含要基于新数据重新定型模型的管道。 使用 TDSP 目录结构模板时，将此文档存储到[项目](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project)目录中。
-   * **检查点决策** ：开始完整的功能设计和建模前，可以重新评估项目，以确定预期值是否足以继续投入资金。 例如，用户可能已准备好继续进行项目，但需要收集更多数据或由于没有数据可以回答问题而放弃项目。
+   * [数据质量报表](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md)：此报表包含数据摘要、每个属性和目标之间的关系、变量排名等。 
+   * **解决方案体系结构**：解决方案体系结构可以是生成模型后数据管道的关系图或说明，该数据管道用于对新数据进行评分或预测。 它还包含要基于新数据重新定型模型的管道。 使用 TDSP 目录结构模板时，将此文档存储到[项目](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project)目录中。
+   * **检查点决策**：开始完整的功能设计和建模前，可以重新评估项目，以确定预期值是否足以继续投入资金。 例如，用户可能已准备好继续进行项目，但需要收集更多数据或由于没有数据可以回答问题而放弃项目。
 
 ## <a name="next-steps"></a>后续步骤
 

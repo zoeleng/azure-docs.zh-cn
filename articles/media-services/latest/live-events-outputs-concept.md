@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a74dcb3cae74605e747a63f8fbb102404d8cc80e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337417"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741818"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>媒体服务中的实时事件和实时输出
 
@@ -28,7 +28,7 @@ ms.locfileid: "94337417"
 使用 Azure 媒体服务可将实时事件传送到 Azure 云中的客户。 若要在媒体服务 v3 中设置实时传送视频流事件，需了解本文中所述的概念。
 
 > [!TIP]
-> 对于从媒体服务 v2 Api 迁移的客户， **live 事件** 实体将替换 v2 中的 **通道** **，并替换** **program** 。
+> 对于从媒体服务 v2 Api 迁移的客户， **live 事件** 实体将替换 v2 中的 **通道** **，并替换** **program**。
 
 ## <a name="live-events"></a>直播活动
 
@@ -38,9 +38,9 @@ ms.locfileid: "94337417"
 
 可以将 [实时事件](/rest/api/media/liveevents) 设置为 *传递* (本地实时编码器将多比特率流发送) 或 *实时编码* ， (本地实时编码器发送单比特率流) 。 这些类型是在创建期间使用 [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype) 设置的：
 
-* **LiveEventEncodingType.None** ：本地实时编码器发送多比特率流。 引入流通过实时事件而不进行任何进一步处理。 也称为“直通模式”。
-* **LiveEventEncodingType** ：本地实时编码器将单比特率流发送到实时事件，媒体服务将创建多比特率流。 如果贡献源的分辨率为 720p 或更高，则 **Default720p** 预设将编码一组 6 分辨率/比特率对。
-* **LiveEventEncodingType. Premium1080p** ：本地实时编码器将单比特率流发送到实时事件，媒体服务将创建多比特率流。 Default1080p 预设指定分辨率/比特率对的输出集。
+* **LiveEventEncodingType.None**：本地实时编码器发送多比特率流。 引入流通过实时事件而不进行任何进一步处理。 也称为“直通模式”。
+* **LiveEventEncodingType**：本地实时编码器将单比特率流发送到实时事件，媒体服务将创建多比特率流。 如果贡献源的分辨率为 720p 或更高，则 **Default720p** 预设将编码一组 6 分辨率/比特率对。
+* **LiveEventEncodingType. Premium1080p**：本地实时编码器将单比特率流发送到实时事件，媒体服务将创建多比特率流。 Default1080p 预设指定分辨率/比特率对的输出集。
 
 ### <a name="pass-through"></a>直通
 
@@ -64,7 +64,7 @@ ms.locfileid: "94337417"
 
 使用实时编码时，可发送的贡献源最高分辨率只能是 1080p，帧速率是 30 帧/秒，采用 H.264/AVC 视频编解码器，以及 AAC（AAC-LC、HE-AACv1 或 HE-AACv2）音频编解码器。 请注意，传递实时事件可支持最大为 4K 60 帧/秒的分辨率。 有关详细信息，请参阅 [实时事件类型比较](live-event-types-comparison.md)。
 
-实时编码器的输出中包含的分辨率和比特率由预设确定。 如果使用 **Standard** 实时编码器 (LiveEventEncodingType.Standard)， *Default720p* 预设将指定一组 6 分辨率/比特率对，其最高分辨率为 720p，最高比特率为 3.5 Mbps，最低分辨率为 192p，最低比特率为 200 kbps。 否则，如果使用 **Premium1080p** 实时编码器 (LiveEventEncodingType.Premium1080p)， *Default1080p* 预设将指定一组 6 分辨率/比特率对，其最高分辨率为 1080p，最高比特率为 3.5 Mbps，最低分辨率为 180p，最低比特率为 200 kbps。 有关信息，请参阅[系统预设](live-event-types-comparison.md#system-presets)。
+实时编码器的输出中包含的分辨率和比特率由预设确定。 如果使用 **Standard** 实时编码器 (LiveEventEncodingType.Standard)，*Default720p* 预设将指定一组 6 分辨率/比特率对，其最高分辨率为 720p，最高比特率为 3.5 Mbps，最低分辨率为 192p，最低比特率为 200 kbps。 否则，如果使用 **Premium1080p** 实时编码器 (LiveEventEncodingType.Premium1080p)，*Default1080p* 预设将指定一组 6 分辨率/比特率对，其最高分辨率为 1080p，最高比特率为 3.5 Mbps，最低分辨率为 180p，最低比特率为 200 kbps。 有关信息，请参阅[系统预设](live-event-types-comparison.md#system-presets)。
 
 > [!NOTE]
 > 如果需要自定义实时编码预设，请通过 Azure 门户开具支持票证。 指定所需的分辨率和比特率的表。 确认只有一个层的分辨率为 720p（如果请求 Standard 实时编码器的预设）或 1080p（如果请求 Premium1080p 实时编码器的预设），且最多有 6 个层。
@@ -136,7 +136,7 @@ ms.locfileid: "94337417"
     虚模式是使用硬件广播编码器且不希望在启动实时事件时重新配置其编码器的大型媒体广播程序的首选模式。 这些广播公司需要一个不随时间变化的预测性引入 URL。
 
     > [!NOTE]
-    > 在 Azure 门户中，虚 URL 的名称为 " *Static hostname prefix* "。
+    > 在 Azure 门户中，虚 URL 的名称为 "*Static hostname prefix*"。
 
     若要在 API 中指定此模式，请在创建时将 `useStaticHostName` 设为 `true`（默认值为 `false`）。 当 `useStaticHostname` 设置为 true 时，将 `hostnamePrefix` 指定分配给实时事件预览和摄取终结点的主机名的第一部分。 最终主机名将是此前缀、媒体服务帐户名称和 Azure 媒体服务数据中心的简短代码的组合。
 
@@ -150,13 +150,13 @@ ms.locfileid: "94337417"
     |---|---|---|
     |REST|[properties.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vanity-url](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.md?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>实时引入 URL 命名规则
 
 * 下面的随机  字符串是一个 128 位的十六进制数字（由 32 个 0-9 a-f 字符组成）。
-* *访问令牌* ：使用虚模式时设置的有效 GUID 字符串。 例如，`"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`。
-* *流名称* ：指示特定连接的流名称。 流名称值通常由使用的实时编码器添加。 可将实时编码器配置为使用任何名称来描述连接，例如：“video1_audio1”、“video2_audio1”、“stream”。
+* *访问令牌*：使用虚模式时设置的有效 GUID 字符串。 例如，`"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`。
+* *流名称*：指示特定连接的流名称。 流名称值通常由使用的实时编码器添加。 可将实时编码器配置为使用任何名称来描述连接，例如：“video1_audio1”、“video2_audio1”、“stream”。
 
 #### <a name="non-vanity-url"></a>非虚 URL
 

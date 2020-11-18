@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333114"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744529"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>有关 ARM 模板的常见问题解答
 
@@ -68,7 +68,7 @@ ms.locfileid: "91333114"
 
 * **是否可以在 ARM 模板中创建订阅？**
 
-  不可以，但我们正努力开发此功能。
+  是的，有关详细信息，请参阅 [以编程方式创建具有最新 api 的 Azure 订阅](../../cost-management-billing/manage/programmatically-create-subscription.md)。
 
 * **如何在部署模板之前对其进行测试？**
 
@@ -88,7 +88,7 @@ ms.locfileid: "91333114"
 
 * **我听说你正在研究一种新的模板语言。在哪里可以找到有关它的详细信息？**
 
-  若要预览新语言，请参阅 [Project Bicep 存储库](https://github.com/Azure/bicep)。 若要及时了解新语言，请 [注册通知](https://aka.ms/armLangUpdates)。
+  若要预览新语言，请参阅 [Bicep 项目存储库](https://github.com/Azure/bicep)。 若要随时了解新语言，请[注册获取通知](https://aka.ms/armLangUpdates)。
 
 * **是否有支持在 YAML 中创建模板的计划？**
 
@@ -104,13 +104,13 @@ ms.locfileid: "91333114"
 
 ## <a name="template-specs"></a>模板规格
 
-* **如何加入模板规格的预览版本？**
+* **如何开始模板规范的预览版本？**
 
-  [加入模板规格的等待列表](https://aka.ms/templateSpecsWaitlist)。
+  安装最新版本的 PowerShell 或 Azure CLI。 对于 Azure PowerShell，请使用 [5.0.0 或更高版本](/powershell/azure/install-az-ps)。 对于 Azure CLI，请使用 [2.14.2 或更高版本](/cli/azure/install-azure-cli)。
 
 * **模板规格和 Azure 蓝图有何关系？**
 
-  Azure 蓝图通过将 `blueprint definition` 资源替换为 `template spec` 资源在其实现中使用模板规格。 我们将提供迁移路径，以将蓝图定义转换为模板规格，但仍支持蓝图定义 API。 没有对 `blueprint assignment` 资源进行更改。 蓝图仍是在 Azure 中构建受治理环境的用户体验。
+  Azure 蓝图通过将 `blueprint definition` 资源替换为 `template spec` 资源在其实现中使用模板规格。 我们将提供迁移路径，将蓝图定义转换为模板规范，但仍支持蓝图定义 Api。 没有对 `blueprint assignment` 资源进行更改。 蓝图仍是在 Azure 中构建受治理环境的用户体验。
 
 * **模板规格是否会替换链接模板？**
 

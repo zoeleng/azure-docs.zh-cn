@@ -2,32 +2,32 @@
 title: 模板规格概述
 description: 介绍如何创建模板规格并与组织中的其他用户共享。
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728465"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747394"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure 资源管理器模板规格（预览版）
 
-模板规范是用于存储 azure 资源管理器模板的资源类型 (ARM 模板在 Azure 中) ，供以后部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 就像任何其他 Azure 资源一样，你可以使用 Azure 基于角色的访问控制 (Azure RBAC) 来共享模板规范。
+模板规格是一种资源类型，用于在 Azure 中存储 Azure 资源管理器模板（ARM 模板），以便之后进行部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 与其他任何 Azure 资源一样，也可使用 Azure 基于角色的访问控制 (Azure RBAC) 来共享模板规格。
 
-对于模板规格， **templateSpecs/** 资源类型为资源类型。 它包含一个主模板和任意数量的链接模板。 Azure 将模板规格安全存储在资源组中。 模板规格支持[版本控制](#versioning)。
+Microsoft.Resources/templateSpecs 是模板规格的资源类型。 它包含一个主模板和任意数量的链接模板。 Azure 将模板规格安全存储在资源组中。 模板规格支持[版本控制](#versioning)。
 
 若要部署模板规格，请使用标准 Azure 工具（如 PowerShell）、Azure CLI、Azure 门户、REST 和其他受支持的 SDK 和客户端。 请使用针对模板使用的相同命令。
 
 > [!NOTE]
-> 模板规格当前提供预览版。 若要使用它，必须[注册等待列表](https://aka.ms/templateSpecOnboarding)。
+> 模板规格当前提供预览版。 若要使用它，必须安装最新版本的 PowerShell 或 Azure CLI。 对于 Azure PowerShell，请使用 [5.0.0 或更高版本](/powershell/azure/install-az-ps)。 对于 Azure CLI，请使用 [2.14.2 或更高版本](/cli/azure/install-azure-cli)。
 
 ## <a name="why-use-template-specs"></a>为什么使用模板规格？
 
 如果 GitHub 存储库或存储帐户中当前有模板，在尝试共享和使用这些模板时会遇到一些困难。 如果用户要部署这些模板，要么模板必须是本地模板，要么它的 URL 必须是可公开访问的。 为应对此限制，你可能要与需要部署模板的用户共享该模板的副本，或者开放对存储库或存储帐户的访问权限。 如果用户拥有模板的本地副本，这些副本最终可能会与原始模板有所不同。 当将存储库或存储帐户设置为可公开访问时，可能会导致非预期用户能够访问模板。
 
-使用模板规格的好处是，可以创建规范化的模板并与组织中的团队共享。 模板规范是安全的，因为它们适用于 Azure 资源管理器进行部署，但没有 Azure RBAC 权限的用户无法访问。 用户只需具有模板规格的读取访问权限即可部署模板，因此可以在不允许其他人进行修改的情况下共享该模板。
+使用模板规格的好处是，可以创建规范化的模板并与组织中的团队共享。 模板规格是安全的，因为 Azure 资源管理器可使用它进行部署，而没有 Azure RBAC 权限的用户则无法访问。 用户只需具有模板规格的读取访问权限即可部署模板，因此可以在不允许其他人进行修改的情况下共享该模板。
 
 模板规格中包含的模板应由组织中的管理员按照组织的要求和指南进行验证。
 

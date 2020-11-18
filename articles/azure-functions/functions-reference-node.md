@@ -3,14 +3,14 @@ title: Azure Functions JavaScript 开发者参考
 description: 了解如何使用 JavaScript 开发函数。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628826"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743314"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -134,11 +134,11 @@ module.exports = async function (context, req) {
    ```
 
 ### <a name="outputs"></a>Outputs
-函数可通过多种方式写入输出（`direction === "out"` 的绑定）。 在所有情况下， *function.json* 中定义的绑定属性 `name` 对应于函数中所写入到的对象成员的名称。 
+函数可通过多种方式写入输出（`direction === "out"` 的绑定）。 在所有情况下，*function.json* 中定义的绑定属性 `name` 对应于函数中所写入到的对象成员的名称。 
 
 可通过以下方式之一将数据分配到输出绑定（不要结合使用这些方法）：
 
-- **_[有多个输出时建议使用]_ 返回对象。** 如果使用异步函数/返回 Promise 的函数，可以返回分配有输出数据的对象。 在以下示例中， *function.json* 中的输出绑定名为“httpResponse”和“queueOutput”。
+- **_[有多个输出时建议使用]_ 返回对象。** 如果使用异步函数/返回 Promise 的函数，可以返回分配有输出数据的对象。 在以下示例中，*function.json* 中的输出绑定名为“httpResponse”和“queueOutput”。
 
   ```javascript
   module.exports = async function(context) {
@@ -317,7 +317,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 > [!NOTE]  
-> 不要使用 `console.log` 来编写跟踪输出。 因为 `console.log` 的输出是在函数应用级别捕获的，所以它不会绑定到特定的函数调用，并且不会显示在特定函数的日志中。 此外，Functions 运行时的 1.x 版本不支持使用 `console.log` 写入到控制台。
+> 请勿使用 `console.log` 来写入跟踪输出。 因为 `console.log` 的输出是在函数应用级别捕获的，所以它不会绑定到特定的函数调用，并且不会显示在特定函数的日志中。 此外，Functions 运行时的 1.x 版本不支持使用 `console.log` 写入到控制台。
 
 ### <a name="trace-levels"></a>跟踪级别
 
@@ -325,10 +325,10 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 | 方法                 | 说明                                |
 | ---------------------- | ------------------------------------------ |
-| **error( _message_ )**   | 将错误级别的事件写入到日志。   |
-| **warn( _message_ )**    | 将警告级别的事件写入到日志。 |
-| **info( _message_ )**    | 向信息级日志记录或更低级别进行写入。    |
-| **verbose( _message_ )** | 向详细级日志记录进行写入。           |
+| **error(_message_)**   | 将错误级别的事件写入到日志。   |
+| **warn(_message_)**    | 将警告级别的事件写入到日志。 |
+| **info(_message_)**    | 向信息级日志记录或更低级别进行写入。    |
+| **verbose(_message_)** | 向详细级日志记录进行写入。           |
 
 以下示例在警告跟踪级别（而不是信息级别）写入同一个日志：
 
@@ -358,7 +358,7 @@ context.log.warn("Something has happened. " + context.invocationId);
 }  
 ```
 
-**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_ 。 有关详细信息，请参阅 [host.json v1.x 参考](functions-host-json-v1.md)。
+**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_。 有关详细信息，请参阅 [host.json v1.x 参考](functions-host-json-v1.md)。
 
 ---
 
@@ -563,21 +563,42 @@ module.exports = function(context) {
 
 ## <a name="environment-variables"></a>环境变量
 
-在 Functions 中，服务连接字符串等[应用设置](functions-app-settings.md)在执行过程中将公开为环境变量。 可以使用 `process.env` 访问这些设置，如此处 `context.log()` 的第二和第三个调用中所示，其中记录了 `AzureWebJobsStorage` 和 `WEBSITE_SITE_NAME` 环境变量：
+在本地和云环境中将自己的环境变量添加到函数应用，如操作机密 (连接字符串、密钥和终结点) 或环境设置 (如事件探查变量) 。 `process.env`在函数代码中使用访问这些设置。
+
+### <a name="in-local-development-environment"></a>在本地开发环境中
+
+在本地运行时，"函数" 项目包含一个文件，在该[ `local.settings.json` 文件](/functions-run-local.md?tabs=node#local-settings-file)中，你可以在对象中存储环境变量 `Values` 。 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>在 Azure 云环境中
+
+在 Azure 中运行时，function app 使你可以设置使用 [应用程序设置](functions-app-settings.md)（如服务连接字符串），并在执行过程中将这些设置公开为环境变量。 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>使用代码访问环境变量
+
+使用将应用程序设置作为环境变量进行访问 `process.env` ，如下面的第二个和第三次调用， `context.log()` 我们记录 `AzureWebJobsStorage` 和 `WEBSITE_SITE_NAME` 环境变量的位置：
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-在本地运行时，可从 [local.settings.json](functions-run-local.md#local-settings-file) 项目文件读取应用设置。
 
 ## <a name="configure-function-entry-point"></a>配置函数入口点
 

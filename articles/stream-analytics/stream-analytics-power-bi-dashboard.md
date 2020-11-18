@@ -6,17 +6,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 8/6/2020
-ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/16/2020
+ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123457"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745354"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>流分析和 Power BI：针对流式处理数据的实时分析仪表板
 
-Azure 流分析使你可以利用其中一种领先的商业智能工具 [Microsoft Power BI](https://powerbi.com/)。 本文将介绍如何使用 Power BI 作为 Azure 流分析作业的输出，以创建商业智能工具。 此外，还将介绍如何创建和使用实时仪表板。
+Azure 流分析使你可以利用其中一种领先的商业智能工具 [Microsoft Power BI](https://powerbi.com/)。 本文将介绍如何使用 Power BI 作为 Azure 流分析作业的输出，以创建商业智能工具。 你还将了解如何创建和使用实时仪表板，该仪表板会在流分析作业中持续更新。
 
 本文是流分析[实时欺诈检测](stream-analytics-real-time-fraud-detection.md)教程的延续。 本文是在该教程中所创建工作流的基础上编写的，并添加了 Power BI 输出，以便可视化流分析作业检测到的欺诈性电话呼叫。 
 
@@ -64,7 +64,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
 数据集是使用以下设置创建的；
 
 * **defaultRetentionPolicy：BasicFIFO** - 数据为 FIFO，最多 200,000 行。
-* **defaultMode: pushStreaming** - 数据集支持流磁贴和基于报表的传统视觉对象（即推送）。
+* **defaultMode：混合** 数据集支持流式处理磁贴， (也称为推送) 和传统的基于报表的视觉对象。 对于推送内容，在这种情况下，数据将在流分析作业中连续更新，无需计划从 Power BI 端进行刷新。
 
 目前，无法其他标志创建数据集。
 
@@ -102,7 +102,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. 单击“ **保存** ”。
+4. 单击“ **保存**”。
 
 
 ## <a name="test-the-query"></a>测试查询
@@ -176,7 +176,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
 
     * 转到“可视化效果类型”后，选择“折线图” 。 
     * 添加轴，然后选择“windowend”。 
-    * 添加值，然后选择“fraudulentcalls”  。
+    * 添加值，然后选择“fraudulentcalls”。
     * 对于“要显示的时间窗口”，请选择最近 10 分钟。
 
       ![在 Power BI 中创建折线图磁贴](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)

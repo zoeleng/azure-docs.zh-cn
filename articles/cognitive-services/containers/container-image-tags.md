@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0efb278c217ede94f67b47250633622501a24414
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ba51776942ad28fc8d4b0db7dd2d0e162e5322b5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412538"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743331"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Azure 认知服务容器图像标记和发行说明
 
@@ -261,7 +261,7 @@ Azure 认知服务提供了许多容器映像。 容器注册表和相应的存�
 
 此容器具有以下可用的区域设置。
 
-| V 2.6.0 的区域设置           | 说明                                    |
+| V 2.6.0 的区域设置           | 备注                                    |
 |-----------------------------|:-----------------------------------------|
 | `ar-ae`                     | 具有区域设置的容器映像 `ar-AE` 。 |
 | `ar-eg`                     | 具有区域设置的容器映像 `ar-EG` 。 |
@@ -321,7 +321,7 @@ Azure 认知服务提供了许多容器映像。 容器注册表和相应的存�
 
 此容器具有以下可用的区域设置。
 
-| V 2.5.0 的区域设置           | 说明                                    |
+| V 2.5.0 的区域设置           | 备注                                    |
 |-----------------------------|:-----------------------------------------|
 | `ar-ae`                     | 具有区域设置的容器映像 `ar-AE` 。 |
 | `ar-eg`                     | 具有区域设置的容器映像 `ar-EG` 。 |
@@ -574,6 +574,39 @@ Azure 认知服务提供了许多容器映像。 容器注册表和相应的存�
 
 此容器映像具有以下可用标记。 你还可以 [在 MCR 上找到标记](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list)的完整列表。
 
+
+# <a name="latest-version"></a>[最新版本](#tab/current)
+
+发行说明 `v1.3.0` ：
+* 神经文本到语音转换容器现已正式发布。 
+
+| 映像标记                                  | 说明                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | 具有 `en-US` 区域设置和 `en-US-AriaNeural` 语音的容器映像。      |
+| `1.3.0-amd64-<locale-and-voice>`    | `<locale>`使用下面列出的一个可用区域设置替换。 例如，`1.3.0-amd64-en-us-arianeural`。 |
+
+
+| v 1.3.0 区域设置和语音           | 说明                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-katjaneural`                 | 具有 `de-DE` 区域设置和 `de-DE-KatjaNeural` 语音的容器映像。     |
+| `en-au-natashaneural`               | 具有 `en-AU` 区域设置和 `en-AU-NatashaNeural` 语音的容器映像。   |
+| `en-ca-claraneural`                 | 具有 `en-CA` 区域设置和 `en-CA-ClaraNeural` 语音的容器映像。     |
+| `en-gb-libbyneural`                 | 具有 `en-GB` 区域设置和 `en-GB-LibbyNeural` 语音的容器映像。     |
+| `en-gb-mianeural`                   | 具有 `en-GB` 区域设置和 `en-GB-MiaNeural` 语音的容器映像。       |
+| `en-us-arianeural`                  | 具有 `en-US` 区域设置和 `en-US-AriaNeural` 语音的容器映像。      |
+| `en-us-guyneural`                   | 具有 `en-US` 区域设置和 `en-US-GuyNeural` 语音的容器映像。       |
+| `es-es-elviraneural`                | 具有 `es-ES` 区域设置和 `es-ES-ElviraNeural` 语音的容器映像。    |
+| `es-mx-dalianeural`                 | 具有 `es-MX` 区域设置和 `es-MX-DaliaNeural` 语音的容器映像。     |
+| `fr-ca-sylvieneural`                | 具有 `fr-CA` 区域设置和 `fr-CA-SylvieNeural` 语音的容器映像。    |
+| `fr-fr-deniseneural`                | 具有 `fr-FR` 区域设置和 `fr-FR-DeniseNeural` 语音的容器映像。    |
+| `it-it-elsaneural`                  | 具有 `it-IT` 区域设置和 `it-IT-ElsaNeural` 语音的容器映像。      |
+| `ja-jp-nanamineural`                | 具有 `ja-JP` 区域设置和 `ja-JP-NanamiNeural` 语音的容器映像。    |
+| `ko-kr-sunhineural`                 | 具有 `ko-KR` 区域设置和 `ko-KR-SunHiNeural` 语音的容器映像。     |
+| `pt-br-franciscaneural`             | 具有 `pt-BR` 区域设置和 `pt-BR-FranciscaNeural` 语音的容器映像。 |
+| `zh-cn-xiaoxiaoneural`              | 具有 `zh-CN` 区域设置和 `zh-CN-XiaoxiaoNeural` 语音的容器映像。  |
+
+# <a name="previous-version"></a>[先前版本](#tab/previous)
+
 | 映像标记                                  | 说明                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | 具有 `en-US` 区域设置和 `en-US-AriaNeural` 语音的容器映像。      |
@@ -599,6 +632,8 @@ Azure 认知服务提供了许多容器映像。 容器注册表和相应的存�
 | `ko-kr-sunhineural-preview`                 | 具有 `ko-KR` 区域设置和 `ko-KR-SunHiNeural` 语音的容器映像。     |
 | `pt-br-franciscaneural-preview`             | 具有 `pt-BR` 区域设置和 `pt-BR-FranciscaNeural` 语音的容器映像。 |
 | `zh-cn-xiaoxiaoneural-preview`              | 具有 `zh-CN` 区域设置和 `zh-CN-XiaoxiaoNeural` 语音的容器映像。  |
+
+---
 
 ## <a name="speech-language-detection"></a>语音语言检测
 

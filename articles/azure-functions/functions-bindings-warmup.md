@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f3aa2d727805d3843e07c524bc36878df55eebb
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206580"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743553"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 预热触发器
 
@@ -96,8 +96,6 @@ function.json  文件如下所示：
 ```
 
 [配置](#trigger---configuration)部分解释了这些属性。
-
-下面是绑定到 `HttpRequest` 的 C# 脚本代码：
 
 ```cs
 public static void Run(ILogger log)
@@ -231,7 +229,7 @@ Java 中不支持将预热触发器用作属性。
 |---------|---------|----------------------|
 | **type** | 不适用| 必需 - 必须设置为 `warmupTrigger`。 |
 | **direction** | 不适用| 必需 - 必须设置为 `in`。 |
-| name | 不适用| 必需 - 函数代码中使用的变量名称。|
+| **name** | 不适用| 必需 - 函数代码中使用的变量名称。|
 
 ## <a name="trigger---usage"></a>触发器 - 用法
 

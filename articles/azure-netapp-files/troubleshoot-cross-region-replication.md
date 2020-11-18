@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708638"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745677"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>跨区域复制故障排除
 
@@ -50,6 +50,7 @@ ms.locfileid: "90708638"
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     验证复制是否已损坏，或者它未初始化且空闲 (初始化失败) 。    |
 |     `Cannot delete   source replication`    |     不允许从源端删除复制。 请确保从目标端删除复制。    |
+| `Volume with replication cannot be deleted`  |  请在删除卷之前删除复制。 请参阅 [删除复制](cross-region-replication-delete.md)。 此操作要求在删除卷的复制之前中断对等互连。 
 
 ## <a name="errors-resyncing-volume"></a>错误重新同步卷
 
