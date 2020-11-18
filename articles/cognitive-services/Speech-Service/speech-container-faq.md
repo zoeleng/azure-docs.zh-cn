@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918462"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653532"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>语音服务容器常见问题 (常见问题) 
 
@@ -43,7 +43,7 @@ ms.locfileid: "88918462"
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-最后，你可以使用变量在 *单个* 容器中设置所需的解码器数目 `DECODER MAX_COUNT` 。 基本上，我们应该从你的 SKU 开始 (CPU/内存) ，我们可以建议如何充分利用它。 一个很好的起点是指推荐的主机资源规格。
+您可以使用变量在 *单个* 容器中设置所需的解码器数目 `DECODER MAX_COUNT` 。 基本上，我们应该从你的 SKU 开始 (CPU/内存) ，我们可以建议如何充分利用它。 一个很好的起点是指推荐的主机资源规格。
 
 <br>
 </details>
@@ -290,7 +290,7 @@ WebSocket
 
 你是否能帮助填充以下测试指标，包括要测试的函数，以及如何测试 SDK 和 REST Api？ 特别是 "交互式" 和 "对话" 中的差异，我在现有的文档/示例中看不到这些差异。
 
-| 端点                                                | 功能测试                                                   | SDK 中 IsInRole 中的声明 | REST API |
+| 终结点                                                | 功能测试                                                   | SDK 中 IsInRole 中的声明 | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | 文本 (文本到语音转换的合成)                                   |     | 是      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | 认知服务本地听写 v1 websocket 终结点        | 是 | 否       |
@@ -395,7 +395,7 @@ Doc 指出要公开其他端口，但 LUIS 容器仍在侦听端口5000？
 
 **答案：** 与我们的最新 `en-US` 信息，我们建议使用超过6个并发请求的更多 docker 容器。 它获取的 crazier 超过16个内核，并且 (NUMA) 节点敏感的情况下，它将成为非一致性内存访问。 下表描述了每个语音容器的最小和建议的资源分配。
 
-# <a name="speech-to-text"></a>[语音到文本](#tab/stt)
+# <a name="speech-to-text"></a>[语音转文本](#tab/stt)
 
 | 容器      | 最小值             | 建议         |
 |----------------|---------------------|---------------------|
@@ -407,7 +407,7 @@ Doc 指出要公开其他端口，但 LUIS 容器仍在侦听端口5000？
 |-----------------------|---------------------|---------------------|
 | 自定义语音转文本 | 2核，2 GB 内存 | 4核，4 GB 内存 |
 
-# <a name="text-to-speech"></a>[文本到语音转换](#tab/tts)
+# <a name="text-to-speech"></a>[文本转语音](#tab/tts)
 
 | 容器      | 最小值             | 建议         |
 |----------------|---------------------|---------------------|
@@ -419,7 +419,7 @@ Doc 指出要公开其他端口，但 LUIS 容器仍在侦听端口5000？
 |-----------------------|---------------------|---------------------|
 | 自定义文本到语音转换 | 单核，2-GB 内存 | 2核，3 GB 内存 |
 
-***
+**_
 
 - 每个核心必须至少为 2.6 GHz 或更快。
 - 对于文件，限制将在语音 SDK 中，在 2x (前5秒的音频) 不会受到限制。
@@ -438,7 +438,7 @@ Doc 指出要公开其他端口，但 LUIS 容器仍在侦听端口5000？
 <b>语音容器是否支持标点符号？</b>
 </summary>
 
-**答案：** 本地容器中提供了大写 (故障) 。 标点依赖于语言，不支持某些语言，包括中文和日语。
+_ *答：** 故障本地容器中提供了大写 (可用的) 。 标点依赖于语言，不支持某些语言，包括中文和日语。
 
 对于现有容器，我们 *确实* 支持隐式和基本标点，但 `off` 默认情况下为。 这意味着你可以获取 `.` 示例中的字符，但不能获取 `。` 字符。 若要启用此隐式逻辑，下面是一个示例，说明如何使用我们的语音 SDK 在 Python 中执行此操作， (它在其他语言中是类似的) ：
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **答案：** 我们不支持在 "语音到文本" 容器中 REST API，仅通过语音 SDK 支持 Websocket。 请始终参阅正式文档，请参阅 [查询预测终结点](speech-container-howto.md#query-the-containers-prediction-endpoint)。
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> 为什么容器作为非根用户运行？由于此原因，可能会发生什么问题？</b>
+</summary>
+
+**答案：** 请注意，容器中的默认用户为非根用户。 这可以防止进程转义容器和获取对主机节点的提升权限。 默认情况下，某些平台（如 OpenShift 容器平台）已经通过使用任意分配的用户 ID 运行容器来实现此目的。 对于这些平台，非根用户需要具有写入任何需要写入的外部映射的卷的权限。 例如，日志记录文件夹或自定义模型下载文件夹。
 <br>
 </details>
 

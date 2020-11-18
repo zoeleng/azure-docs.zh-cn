@@ -1,5 +1,5 @@
 ---
-title: 从客户端应用程序更新命令
+title: 从客户端应用更新命令
 titleSuffix: Azure Cognitive Services
 description: 从客户端应用程序更新命令
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 290f9ee9c23071ac56b1ff0c65ddc03decbc7344
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571159"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654333"
 ---
 # <a name="update-a-command-from-the-client"></a>从客户端更新命令
 
@@ -51,9 +51,9 @@ ms.locfileid: "94571159"
 
 允许查看此活动的关键属性。
 
-| Attribute | 说明 |
+| 属性 | 说明 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| type | 该活动的类型为 "事件"，事件的名称必须为 "RemoteUpdate"。 |
+| **type** | 该活动的类型为 "事件"，事件的名称必须为 "RemoteUpdate"。 |
 | **value** | 属性 "value" 包含更新当前命令所需的属性。 |
 | **updatedCommand** | 特性 "updatedCommand" 包含命令的名称，"updatedParameters" 是带有参数名称及其更新值的映射。 |
 | **cancel** | 如果需要取消正在进行的命令，请将属性 "cancel" 设置为 true。 |
@@ -121,17 +121,30 @@ ms.locfileid: "94571159"
 若要测试此方案，请在当前的应用程序中创建新的命令。
 1. 创建名为 GetDeviceInfo 的新命令。
 1. 添加包含 "获取设备信息" 的示例句子。
-1. 在完成规则 "完成" 中，添加 "发送语音响应" 操作。
+1. 在完成规则 "完成" 中，添加包含 clientContext 特性的 "发送语音响应" 操作。
     > ![通过上下文发送语音响应](media/custom-commands/send-speech-response-context.png)
-1. 保存并训练您的应用程序。
-1. 测试应用程序。
+1. 保存、定型和测试您的应用程序。
+1. 进入测试窗口后，发送活动以更新客户端上下文。
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. 发送文本 "获取设备信息"。
     > ![发送客户端上下文活动](media/custom-commands/send-client-context-activity.png)
 
 请注意几个事项。
 1. 只需在启动连接) 后 (最好地发送此活动。
-1. 您可以使用 ClientContext 的复杂对象。
-1. 你可以在语音响应中使用 ClientContext，以便发送活动和调用 web 终结点。
-
+1. 您可以使用 clientContext 的复杂对象。
+1. 你可以在语音响应中使用 clientContext，以便发送活动和调用 web 终结点。
 
 ## <a name="next-steps"></a>后续步骤
 

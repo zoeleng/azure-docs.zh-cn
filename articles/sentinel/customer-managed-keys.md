@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427048"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655266"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>设置 Azure Sentinel 客户托管密钥
 
 本文介绍了为 Azure Sentinel 配置客户托管密钥 (CMK) 的背景信息和步骤。 通过使用 CMK，可使用创建或拥有的 Azure Key Vault 密钥，在所有相关的存储资源中对所有保存或发送到 Azure Sentinel 的数据进行加密。
 
 > [!NOTE]
-> - Azure Sentinel CMK 功能仅提供给 **新客户** 。
+> - Azure Sentinel CMK 功能仅提供给 **新客户**。
 >
 > - 此功能的访问权限由 Azure 功能注册控制。 你可以通过联系来请求访问权限 azuresentinelCMK@microsoft.com 。 将根据可用容量批准挂起的请求。
 >
@@ -59,7 +59,7 @@ Azure Sentinel 解决方案将多个存储资源用于日志收集和功能，�
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>步骤 1：创建 Azure Key Vault 和存储密钥
 
-1.  [创建 Azure Key Vault 资源](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal)，然后生成或导入用于数据加密的密钥。
+1.  [创建 Azure Key Vault 资源](/azure-stack/user/azure-stack-key-vault-manage-portal)，然后生成或导入用于数据加密的密钥。
     > [!NOTE]
     >  必须将 Azure Key Vault 配置为可恢复，以保护密钥和访问。
 
@@ -132,6 +132,5 @@ Azure Sentinel 和 Log Analytics 支持密钥轮换。 当用户在 Key Vault �
 ## <a name="next-steps"></a>后续步骤
 本文档介绍了如何在 Azure Sentinel 中设置客户托管密钥。 要详细了解 Azure Sentinel，请参阅以下文章：
 - 了解如何[洞悉数据和潜在威胁](quickstart-get-visibility.md)。
-- 开始[使用 Azure Sentinel 检测威胁](tutorial-detect-threats.md)。
+- 开始[使用 Azure Sentinel 检测威胁](./tutorial-detect-threats-built-in.md)。
 - [使用工作簿](tutorial-monitor-your-data.md)监视数据。
-

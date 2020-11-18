@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400145"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654977"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>使用 Azure 防火墙保护 Windows 虚拟桌面部署
 
@@ -22,7 +22,7 @@ Windows 虚拟桌面是在 Azure 上运行的桌面和应用虚拟化服务。 �
 
 遵循本文中的指导原则，使用 Azure 防火墙为 Windows 虚拟桌面主机池提供额外的保护。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 
  - 已部署的 Windows 虚拟桌面环境和主机池。
@@ -63,7 +63,7 @@ Windows 虚拟桌面是在 Azure 上运行的桌面和应用虚拟化服务。 �
 
 根据你的组织需求，你可能想要为你的最终用户启用安全的出站 Internet 访问。 如果允许的目标列表定义完善， (例如， [Microsoft 365 访问](/microsoft-365/enterprise/microsoft-365-ip-web-service)) 可以使用 Azure 防火墙应用程序和网络规则来配置所需的访问权限。 这会将最终用户流量直接路由到 Internet，以获得最佳性能。
 
-如果要使用现有的本地安全 web 网关筛选出站用户 Internet 流量，则可以使用显式代理配置来配置 web 浏览器或 Windows 虚拟机主机池上运行的其他应用程序。 例如，请参阅 [如何使用 Microsoft Edge 命令行选项配置代理设置](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings)。 这些代理设置只影响最终用户的 Internet 访问，从而允许 Windows 虚拟桌面平台出站流量直接通过 Azure 防火墙。
+如果要使用现有的本地安全 web 网关筛选出站用户 Internet 流量，则可以使用显式代理配置来配置 web 浏览器或 Windows 虚拟机主机池上运行的其他应用程序。 例如，请参阅 [如何使用 Microsoft Edge 命令行选项配置代理设置](/deployedge/edge-learnmore-cmdline-options-proxy-settings)。 这些代理设置只影响最终用户的 Internet 访问，从而允许 Windows 虚拟桌面平台出站流量直接通过 Azure 防火墙。
 
 ## <a name="additional-considerations"></a>其他注意事项
 

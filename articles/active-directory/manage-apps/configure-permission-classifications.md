@@ -1,6 +1,6 @@
 ---
-title: Azure AD 配置权限分类
-description: 了解如何管理委托的权限分类。
+title: 使用 Azure AD 配置权限分类
+description: 了解如何管理委托权限分类。
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427668"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654671"
 ---
 # <a name="configure-permission-classifications"></a>配置权限分类
 
@@ -28,13 +28,13 @@ ms.locfileid: "92427668"
 目前仅支持“影响较低”这一权限分类。 只有无需管理员同意的委托权限可被分类为“影响较低”。
 
 > [!TIP]
-> 执行基本登录所需的最小权限是 `openid` 、 `profile` 、 `email` `User.Read` 和 `offline_access` ，它们都是对 Microsoft Graph 的所有委派的权限。 使用这些权限时，应用程序可以读取已登录用户的完整配置文件详细信息，即使用户不再使用该应用程序，也可以保留此访问。
+> 执行基本登录所需的最小权限是 `openid`、`profile`、`email`、`User.Read` 和 `offline_access`，它们是 Microsoft Graph 上的所有委托的权限。 应用可通过这些权限读取已登录用户的完整个人资料详细信息，即使用户不再使用该应用，也可保留此访问。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 按照以下步骤使用 Azure 门户对权限进行分类：
 
-1. 以 "[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)"、"[应用程序管理员](../roles/permissions-reference.md#application-administrator)" 或 "[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)" 身份登录到[Azure 门户](https://portal.azure.com)
+1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.com)
 1. 选择“Azure Active Directory” > “企业应用程序” > “同意和权限” > “权限分类”   。
 1. 选择“添加权限”，再将一个权限分类为“影响较小”。
 1. 选择 API，然后选择委托的权限。
@@ -45,7 +45,7 @@ ms.locfileid: "92427668"
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-可使用最新的 Azure AD PowerShell 预览版模块 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 对权限进行分类。 权限分类是在发布权限的 API 的 ServicePrincipal 对象上配置的。
+可使用最新的 Azure AD PowerShell 预览版模块 [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 对权限进行分类。 权限分类是在发布权限的 API 的 ServicePrincipal 对象上配置的。
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>列出 API 的当前权限分类
 
@@ -63,7 +63,7 @@ ms.locfileid: "92427668"
        -ServicePrincipalId $api.ObjectId | Format-Table Id, PermissionName, Classification
    ```
 
-#### <a name="classify-a-permission-as-low-impact"></a>将权限分类为 "影响较小"
+#### <a name="classify-a-permission-as-low-impact"></a>将权限分类为“影响较小”
 
 1. 检索 API 的 ServicePrincipal 对象。 在这里，我们将检索 Microsoft Graph API 的 ServicePrincipal 对象：
 
@@ -88,7 +88,7 @@ ms.locfileid: "92427668"
       -Classification "low"
    ```
 
-#### <a name="remove-a-delegated-permission-classification"></a>删除委托的权限分类
+#### <a name="remove-a-delegated-permission-classification"></a>删除委托权限分类
 
 1. 检索 API 的 ServicePrincipal 对象。 在这里，我们将检索 Microsoft Graph API 的 ServicePrincipal 对象：
 
@@ -123,7 +123,7 @@ ms.locfileid: "92427668"
 * [配置管理员同意工作流](configure-admin-consent-workflow.md)
 * [了解如何管理对应用程序的同意并评估同意请求](manage-consent-requests.md)
 * [向应用程序授予租户范围的管理许可](grant-admin-consent.md)
-* [Microsoft 标识平台中的权限和许可](../develop/active-directory-v2-scopes.md)
+* [Microsoft 标识平台中的权限和许可](../develop/v2-permissions-and-consent.md)
 
 获取帮助或查找问题的答案：
 * [StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

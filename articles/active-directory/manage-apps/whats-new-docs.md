@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 7c011c55728db53f0c64ac063c3372a610ef8f2f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542450"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654003"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 应用程序管理：新增功能
 
@@ -70,7 +70,7 @@ ms.locfileid: "94542450"
 - [什么是单一登录 (SSO)？](what-is-single-sign-on.md)
 - [对 Azure Active Directory 中拥有过度特权的或可疑的应用程序采取措施](manage-application-permissions.md)
 - [快速入门：在 Azure Active Directory (Azure AD) 租户中配置应用程序的属性](add-application-portal-configure.md)
-- [使用 Microsoft Graph API 为应用自动配置基于 SAML 的单一登录 (SSO)](application-saml-sso-configure-api.md)
+- [使用 Microsoft Graph API 为应用自动配置基于 SAML 的单一登录 (SSO)](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>2020 年 7 月
