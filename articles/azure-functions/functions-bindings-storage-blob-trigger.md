@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213946"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832987"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure Blob 存储触发器
 
@@ -20,6 +20,16 @@ ms.locfileid: "88213946"
 Azure Blob 存储触发器需要使用常规用途存储帐户。 还支持具有 [分层命名空间](../storage/blobs/data-lake-storage-namespace.md) 的存储 V2 帐户。 若要使用仅限 Blob 的帐户，或者，如果应用程序有特殊需求，请查看使用此触发器的替代方法。
 
 若要了解设置和配置详细信息，请参阅[概述](./functions-bindings-storage-blob.md)。
+
+## <a name="polling"></a>轮询
+
+轮询在检查日志和运行定期容器扫描之间起到混合作用。 每次以 10,000 个为一组扫描 Blob，并在间隔之间使用继续标记。
+
+> [!WARNING]
+> 此外，[将“尽力”创建存储日志](/rest/api/storageservices/About-Storage-Analytics-Logging)。 不保证捕获所有事件。 在某些情况下可能会遗漏某些日志。
+> 
+> 如果需要更快或更可靠的 blob 处理，在创建 blob 时，请考虑创建[队列消息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然后，使用[队列触发器](functions-bindings-storage-queue.md)而不是 Blob 触发器来处理 Blob。 另一个选项是使用事件网格；请参阅教程[使用事件网格自动调整上传图像的大小](../event-grid/resize-images-on-storage-blob-upload-event.md)。
+>
 
 ## <a name="alternatives"></a>备选方法
 
@@ -80,7 +90,7 @@ blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创�
 
 blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创建一个[绑定表达式](./functions-bindings-expressions-patterns.md)，可以在函数代码中使用它来访问触发 blob 的文件名。 有关详细信息，请参阅本文下文中的 [Blob 名称模式](#blob-name-patterns)。
 
-有关 *function.json* 文件属性的详细信息，请参阅解释了这些属性的[配置](#configuration)部分。
+有关 *function.json* 文件属性的详细信息，请参阅解释了这些属性的 [配置](#configuration)部分。
 
 下面是绑定到 `Stream` 的 C# 脚本代码：
 
@@ -127,7 +137,7 @@ function.json 文件如下所示：
 
 blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创建一个[绑定表达式](./functions-bindings-expressions-patterns.md)，可以在函数代码中使用它来访问触发 blob 的文件名。 有关详细信息，请参阅本文下文中的 [Blob 名称模式](#blob-name-patterns)。
 
-有关 *function.json* 文件属性的详细信息，请参阅解释了这些属性的[配置](#configuration)部分。
+有关 *function.json* 文件属性的详细信息，请参阅解释了这些属性的 [配置](#configuration)部分。
 
 JavaScript 代码如下所示：
 
@@ -162,7 +172,7 @@ function.json 文件如下所示：
 
 blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创建一个[绑定表达式](./functions-bindings-expressions-patterns.md)，可以在函数代码中使用它来访问触发 blob 的文件名。 有关详细信息，请参阅本文下文中的 [Blob 名称模式](#blob-name-patterns)。
 
-有关 *function.json* 文件属性的详细信息，请参阅解释了这些属性的[配置](#configuration)部分。
+有关 *function.json* 文件属性的详细信息，请参阅解释了这些属性的 [配置](#configuration)部分。
 
 下面是 Python 代码：
 
@@ -277,7 +287,7 @@ Python 不支持特性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**type** | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|type | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |**direction** | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 |
 |**路径** | **BlobPath** |要监视的[容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)。  可以是某种 [Blob 名称模式](#blob-name-patterns)。 |
@@ -413,16 +423,6 @@ Blob 触发器可在内部使用队列，因此并发函数调用的最大数量
 [消耗计划](functions-scale.md#how-the-consumption-and-premium-plans-work)将虚拟机 (VM) 上的函数应用限制为 1.5 GB 内存。 内存由每个并发执行函数实例和函数运行时本身使用。 如果 blob 触发的函数将整个 blob 加载到内存中，该函数使用的仅用于 blob 的最大内存为 24 * 最大 blob 大小。 例如，包含 3 个由 blob 触发的函数的函数应用和默认设置，其每 VM 最大并发为 3*24 = 72 个函数调用。
 
 JavaScript 和 Java 函数会将整个 blob 加载到内存中，并且如果绑定到 `string` 或 `Byte[]`，则 C# 函数也会如此。
-
-## <a name="polling"></a>轮询
-
-轮询在检查日志和运行定期容器扫描之间起到混合作用。 每次以 10,000 个为一组扫描 Blob，并在间隔之间使用继续标记。
-
-> [!WARNING]
-> 此外，[将“尽力”创建存储日志](/rest/api/storageservices/About-Storage-Analytics-Logging)。 不保证捕获所有事件。 在某些情况下可能会遗漏某些日志。
-> 
-> 如果需要更快或更可靠的 blob 处理，在创建 blob 时，请考虑创建[队列消息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然后，使用[队列触发器](functions-bindings-storage-queue.md)而不是 Blob 触发器来处理 Blob。 另一个选项是使用事件网格；请参阅教程[使用事件网格自动调整上传图像的大小](../event-grid/resize-images-on-storage-blob-upload-event.md)。
->
 
 ## <a name="next-steps"></a>后续步骤
 

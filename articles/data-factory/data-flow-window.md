@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: 896254a5577dad1bdcf474b963b9544029a4c81a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/16/2020
+ms.openlocfilehash: 8f0d10b6ed69cd31249447b59114c590bdbeb078
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040113"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832358"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>映射数据流中的窗口转换
 
@@ -22,6 +22,8 @@ ms.locfileid: "93040113"
 在窗口转换中，将定义数据流中基于窗口的列的聚合。 在表达式生成器中，可以定义基于数据或时间窗口（SQL OVER 子句）的不同类型的聚合，如 LEAD、LAG、NTILE、CUMEDIST、RANK 等。 输出中将生成包含这些聚合的新字段。 还可以包含可选的分组字段。
 
 ![屏幕截图显示菜单中选择的窗口。](media/data-flow/windows1.png "windows 1")
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IAVu]
 
 ## <a name="over"></a>Over
 为窗口转换设置列数据的分区。 SQL 等效项是 SQL 中 Over 子句中的 ```Partition By```。 如果希望创建用于分区的计算或表达式，可以将鼠标悬停在列名上并选择“计算列”。

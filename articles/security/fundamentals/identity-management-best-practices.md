@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 886597e5490acb94f43d840dc5a3d22092e45849
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698747"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832596"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 标识管理和访问控制安全最佳实践
 
@@ -157,7 +157,7 @@ ms.locfileid: "94698747"
 
 建议对所有用户要求进行双重验证。 这包括组织中的管理员和其他人员，如果他们的帐户泄露，可能会产生重大影响（例如，财务官员）。
 
-要求双重验证有多种选项。 最佳选项取决于你的目标、正在运行的 Azure AD 版本以及许可计划。 请参阅[如何要求对用户进行双重验证](../../active-directory/authentication/howto-mfa-userstates.md)了解最佳选项。 有关许可和定价的详细信息，请参阅 [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) 和 [Azure 多重身份验证](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)定价页。
+要求双重验证有多种选项。 最佳选项取决于你的目标、正在运行的 Azure AD 版本以及许可计划。 请参阅[如何要求对用户进行双重验证](../../active-directory/authentication/howto-mfa-userstates.md)了解最佳选项。 有关许可证和定价的详细信息，请参阅 [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) 和 [Azure AD 多重身份验证](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 定价页。
 
 以下是启用双重验证的选项和优势：
 
@@ -170,14 +170,14 @@ ms.locfileid: "94698747"
 此方法可用于所有许可层，但不能与现有的条件访问策略混合使用。 你可以在 [Azure AD 安全默认值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)中找到更多信息
 
 **选项 2**：[通过更改用户状态启用多重身份验证](../../active-directory/authentication/howto-mfa-userstates.md)。   
-**优势**：这是要求进行双重验证的传统方法。 它适用于[云中的 Azure 多重身份验证和 Azure 多重身份验证服务器](../../active-directory/authentication/concept-mfa-howitworks.md)。 使用此方法要求用户在每次登录时都执行双重验证，并且会替代条件访问策略。
+**优势**：这是要求进行双重验证的传统方法。 它适用于 [云中的 Azure AD 多重身份验证和 Azure 多重身份验证服务器](../../active-directory/authentication/concept-mfa-howitworks.md)。 使用此方法要求用户在每次登录时都执行双重验证，并且会替代条件访问策略。
 
-若要确定需要在哪里启用多重身份验证，请参阅 [Azure MFA 的哪个版本适合我的组织？](../../active-directory/authentication/concept-mfa-howitworks.md)。
+若要确定需要启用多因素身份验证的位置，请参阅 [哪个版本的 AZURE AD MFA 适用于组织？](../../active-directory/authentication/concept-mfa-howitworks.md)。
 
 **选项 3**：[使用条件访问策略启用多重身份验证](../../active-directory/authentication/howto-mfa-getstarted.md)。
 **优势**：借助此选项，可以使用 [条件访问](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)在特定条件下提示进行双重验证。 特定条件可以是用户从不同位置、不受信任的设备或你认为存在风险的应用程序登录。 定义要求双重验证的特定条件可以避免不断提示用户这种令人不快的用户体验。
 
-这是为用户启用双重验证最灵活的方式。 启用条件访问策略只适用于云中的 Azure 多重身份验证，这是 Azure AD 的一项高级功能。 有关此方法的详细信息，请参阅[部署基于云的 Azure 多重身份验证](../../active-directory/authentication/howto-mfa-getstarted.md)。
+这是为用户启用双重验证最灵活的方式。 启用条件性访问策略仅适用于云中 Azure AD 多重身份验证，并且是 Azure AD 的高级功能。 可以在 [部署基于云的 Azure AD 多重身份验证](../../active-directory/authentication/howto-mfa-getstarted.md)中找到有关此方法的详细信息。
 
 选项 4：通过评估[基于风险的条件访问策略](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md)，使用条件访问策略启用多重身份验证。   
 **优势**：此选项使你能够：
@@ -269,7 +269,7 @@ ms.locfileid: "94698747"
 **最佳做法**：要求所有关键管理员帐户都是无密码的（首选），或要求进行多重身份验证。
 **详细信息**：使用 [Microsoft Authenticator 应用](../../active-directory/authentication/howto-authentication-passwordless-phone.md)登录任何 Azure AD 帐户，而不需要使用密码。 与 [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 一样，Microsoft Authenticator 使用基于密钥的身份验证来启用与设备绑定的用户凭据，并使用生物识别身份验证或 PIN。
 
-对于永久分配给一个或多个 Azure AD 管理员角色的所有个人用户，要求其在登录时进行多重身份验证：全局管理员、特权角色管理员、Exchange Online 管理员和 SharePoint Online 管理员。 [为管理员帐户启用多重身份验证](../../active-directory/authentication/howto-mfa-userstates.md)，并确保管理员帐户用户已注册。
+对于永久分配给一个或多个 Azure AD 管理员角色的单个用户，要求在登录时进行 Azure AD 多重身份验证：全局管理员、特权角色管理员、Exchange Online 管理员和 SharePoint Online 管理员。 [为管理员帐户启用多重身份验证](../../active-directory/authentication/howto-mfa-userstates.md)，并确保管理员帐户用户已注册。
 
 **最佳做法**：对于关键管理员帐户，需要有不允许执行生产任务（例如，浏览和电子邮件）的管理工作站。 这会保护你的管理员帐户免受使用浏览和电子邮件的攻击途径的侵害，并大大降低发生重大事件的风险。
 **详细信息**：使用管理工作站。 选择工作站安全级别：

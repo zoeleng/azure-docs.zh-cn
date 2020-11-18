@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370247"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832426"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a> (预览) ，管理和查找包含 Blob 索引标记的 Azure Blob 数据
 
@@ -44,7 +44,7 @@ Blob 索引标记允许：
 - *日志/2020/01/01/logfile.txt*
 
 
-这些 blob 使用 *容器/虚拟文件夹/blob 名称*的前缀进行分隔。 你可以将 `Project = Contoso` 这五个 blob 上的索引标记属性设置为在一起，同时保留其当前的前缀组织。 添加索引标记后，无需通过公开使用索引筛选和查找数据的功能来移动数据。
+这些 blob 使用 *容器/虚拟文件夹/blob 名称* 的前缀进行分隔。 你可以将 `Project = Contoso` 这五个 blob 上的索引标记属性设置为在一起，同时保留其当前的前缀组织。 添加索引标记后，无需通过公开使用索引筛选和查找数据的功能来移动数据。
 
 ## <a name="setting-blob-index-tags"></a>设置 blob 索引标记
 
@@ -115,7 +115,7 @@ Blob 索引标记作为 subresource 与 blob 数据一起存储，可独立于�
 
 下表显示了的所有有效运算符 `Find Blobs by Tags` ：
 
-|  运算符  |  描述  | 示例 |
+|  运算符  |  说明  | 示例 |
 |------------|---------------|---------|
 |     =      |     Equal     | `"Status" = 'In Progress'` |
 |     >      |  大于 | `"Date" > '2018-06-18'` |
@@ -140,7 +140,7 @@ Blob 索引标记作为 subresource 与 blob 数据一起存储，可独立于�
 
 下表显示了条件运算的有效运算符：
 
-|  运算符  |  描述  | 示例 |
+|  运算符  |  说明  | 示例 |
 |------------|---------------|---------|
 |     =      |     等于     | `"Status" = 'In Progress'` |
 |     <>     |   不等于   | `"Status" <> 'Done'` |
@@ -164,7 +164,7 @@ Blob 索引标记不仅有助于对 blob 数据进行分类、管理和搜索，
 
 您可以将 blob 索引匹配设置为生命周期规则中的独立筛选器集，以便对标记的数据应用操作。 也可以组合使用前缀和 blob 索引来匹配更具体的数据集。 在生命周期规则中指定多个筛选器将应用逻辑 AND 运算。 仅当 *所有* 筛选条件匹配时，此操作才适用。
 
-以下示例生命周期管理规则适用于名为 *videofiles*的容器中的块 blob。 仅当数据与的 blob 索引标记条件匹配时，才将规则层用于存档存储 `"Status" == 'Processed' AND "Source" == 'RAW'` 。
+以下示例生命周期管理规则适用于名为 *videofiles* 的容器中的块 blob。 仅当数据与的 blob 索引标记条件匹配时，才将规则层用于存档存储 `"Status" == 'Processed' AND "Source" == 'RAW'` 。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
@@ -247,7 +247,7 @@ Blob 索引标记是 blob 数据的 subresource。 具有权限的用户或用�
 
 | 权限 | URI 符号 | 允许的操作                |
 |------------|------------|-----------------------------------|
-| 索引标记 |     t      | 获取和设置 blob 的索引标记 |
+| 索引标记 |     T      | 获取和设置 blob 的索引标记 |
 
 #### <a name="container-sas"></a>容器 SAS
 
@@ -265,7 +265,7 @@ Blob 索引标记和元数据都可以将任意用户定义的键/值属性与 b
 
 下表总结了 metadata 和 blob 索引标记之间的差异：
 
-|              |   元数据   |   Blob 索引标记  |
+|              |   Metadata   |   Blob 索引标记  |
 |--------------|--------------|--------------------|
 | **限制**      | 无数值限制，总共 8 KB，不区分大小写 | 每个 blob 最大10个标记，每个标记768字节，区分大小写 |
 | **更新**    | 在存档层上不允许，将 `Set Blob Metadata` 替换所有现有元数据，并 `Set Blob Metadata` 更改 blob 的上次修改时间 | 允许用于所有访问层， `Set Blob Tags` 替换所有现有标记， `Set Blob Tags` 不会更改 blob 的上次修改时间 |
@@ -327,6 +327,7 @@ az provider register --namespace 'Microsoft.Storage'
 - 当筛选的作用域限定为单个容器时， `@container` 只有在筛选表达式中的所有索引标记都是相等检查 (key = value) 时，才能传递。
 - 将 range 运算符与条件一起使用时 `AND` ，只能指定同一索引标记键名称 (`"Age" > '013' AND "Age" < '100'`) 。
 - 版本控制和 blob 索引不受支持。 Blob 索引标记保留用于版本，但不会传递到 blob 索引引擎。
+- 没有用于确定索引标记是否已编制索引的 API。
 - 不支持帐户故障转移。 Blob 索引在故障转移后可能不会正确更新。
 - 生命周期管理仅支持具有 blob 索引匹配的相等性检查。
 - `Copy Blob` 不会将 blob 索引标记从源 blob 复制到新的目标 blob。 你可以指定要在复制操作过程中应用于目标 blob 的标记。

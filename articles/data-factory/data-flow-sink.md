@@ -4,17 +4,16 @@ description: 了解如何在映射数据流中配置接收器转换。
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427269"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832477"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>映射数据流中的接收器转换
 
@@ -65,13 +64,9 @@ Azure 数据工厂可以访问90多个 [本机连接器](connector-overview.md)�
 
 ![显示接收器设置的屏幕截图。](media/data-flow/sink-settings.png "显示接收器设置的屏幕截图。")
 
-**架构偏差** ： [架构偏差](concepts-data-flow-schema-drift.md) 是指在无需显式定义列更改的情况下，数据工厂以本机方式处理数据流中的灵活架构的能力。 启用 " **允许架构偏移** " 可以在接收器数据架构中定义的内容的基础上写入其他列。
+**架构偏差**： [架构偏差](concepts-data-flow-schema-drift.md) 是指在无需显式定义列更改的情况下，数据工厂以本机方式处理数据流中的灵活架构的能力。 启用 " **允许架构偏移** " 可以在接收器数据架构中定义的内容的基础上写入其他列。
 
-**验证架构** ：如果选择 "验证架构"，则在源投影中找不到传入源架构的任何列或数据类型不匹配时，数据流将失败。 使用此设置可强制源数据满足定义投影的协定。 这在数据库源方案中非常有用，用来指示列名称或类型已更改。
-
-**使用 TempDB：** 默认情况下，在加载过程中，数据工厂将使用一个全局临时表来存储数据。 您也可以取消选中 "使用 TempDB" 选项，并将临时保存表存储在用于该接收器的数据库中的用户数据库中。
-
-![使用临时数据库](media/data-flow/tempdb.png "使用临时数据库")
+**验证架构**：如果选择 "验证架构"，则在源投影中找不到传入源架构的任何列或数据类型不匹配时，数据流将失败。 使用此设置可强制源数据满足定义投影的协定。 这在数据库源方案中非常有用，用来指示列名称或类型已更改。
 
 ## <a name="cache-sink"></a>缓存接收器
 
@@ -94,13 +89,13 @@ Azure 数据工厂可以访问90多个 [本机连接器](connector-overview.md)�
 
 ## <a name="field-mapping"></a>字段映射
 
-与选择转换类似，在接收器的 " **映射** " 选项卡上，您可以决定写入哪些传入列。 默认情况下，映射所有输入列，包括偏移列。 此行为称为 *automapping* 。
+与选择转换类似，在接收器的 " **映射** " 选项卡上，您可以决定写入哪些传入列。 默认情况下，映射所有输入列，包括偏移列。 此行为称为 *automapping*。
 
 关闭 automapping 时，可以添加基于列的固定映射或基于规则的映射。 通过基于规则的映射，可以编写具有模式匹配的表达式。 固定映射映射逻辑列名和物理列名。 有关基于规则的映射的详细信息，请参阅 [映射数据流中的列模式](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink)。
 
 ## <a name="custom-sink-ordering"></a>自定义接收器排序
 
-默认情况下，数据按非确定性顺序写入多个接收器。 当转换逻辑完成时，执行引擎会并行写入数据，并且每次运行的接收器排序可能会有所不同。 若要指定确切的接收顺序，请在数据流的 " **常规** " 选项卡上启用 **自定义接收器排序** 。 启用后，按顺序按递增顺序写入接收器。
+默认情况下，数据按非确定性顺序写入多个接收器。 当转换逻辑完成时，执行引擎会并行写入数据，并且每次运行的接收器排序可能会有所不同。 若要指定确切的接收顺序，请在数据流的 "**常规**" 选项卡上启用 **自定义接收器排序**。 启用后，按顺序按递增顺序写入接收器。
 
 ![显示自定义接收器排序的屏幕截图。](media/data-flow/custom-sink-ordering.png "显示自定义接收器排序的屏幕截图。")
 
@@ -109,9 +104,14 @@ Azure 数据工厂可以访问90多个 [本机连接器](connector-overview.md)�
 
 ![自定义接收器排序](media/data-flow/cache-2.png "自定义接收器排序")
 
+## <a name="error-row-handling"></a>行处理时出错
+
+写入数据库时，某些数据行可能因目标设置的约束而失败。 默认情况下，数据流运行在它获取的第一个错误时将失败。 在某些连接器中，可以选择 **"出错时继续"** ，即使单个行出现错误，也可以使数据流完成。 目前，此功能仅适用于 Azure SQL 数据库。 有关详细信息，请参阅 [AZURE SQL DB 中的错误行处理](connector-azure-sql-database.md#error-row-handling)。
+
 ## <a name="data-preview-in-sink"></a>接收器中的数据预览
 
 在调试群集上提取数据预览时，不会将任何数据写入接收器。 将返回数据的外观的快照，但不会向目标写入任何内容。 若要测试将数据写入接收器，请从管道画布运行管道调试。
 
 ## <a name="next-steps"></a>后续步骤
+
 创建数据流后，请将数据流 [活动添加到管道](concepts-data-flow-overview.md)。

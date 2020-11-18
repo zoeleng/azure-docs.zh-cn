@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517710"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832524"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全框架：身份验证 | 缓解措施
 
@@ -30,7 +30,7 @@ ms.locfileid: "94517710"
 | **Web 应用程序**    | <ul><li>[考虑使用标准身份验证机制向 Web 应用程序进行身份验证](#standard-authn-web-app)</li><li>[应用程序必须安全处理失败的身份验证方案](#handle-failed-authn)</li><li>[启用升级或自适应的身份验证](#step-up-adaptive-authn)</li><li>[确保适当锁定管理界面](#admin-interface-lockdown)</li><li>[安全实施忘记密码功能](#forgot-pword-fxn)</li><li>[确保实施密码和帐户策略](#pword-account-policy)</li><li>[实施控制来防止用户名枚举](#controls-username-enum)</li></ul> |
 | **Database** | <ul><li>[尽可能使用 Windows 身份验证连接到 SQL Server](#win-authn-sql)</li><li>[尽可能使用 Azure Active Directory 身份验证连接到 SQL 数据库](#aad-authn-sql)</li><li>[使用 SQL 身份验证模式时，确保对 SQL Server 实施帐户和密码策略](#authn-account-pword)</li><li>[不要在包含的数据库中使用 SQL 身份验证](#autn-contained-db)</li></ul> |
 | **Azure 事件中心** | <ul><li>[结合 SaS 令牌使用每个设备的身份验证凭据](#authn-sas-tokens)</li></ul> |
-| **Azure 信任边界** | <ul><li>[启用面向 Azure 管理员的多重身份验证](#multi-factor-azure-admin)</li></ul> |
+| **Azure 信任边界** | <ul><li>[为 Azure 管理员启用 Azure AD 多重身份验证](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric 信任边界** | <ul><li>[限制对 Service Fabric 群集的匿名访问](#anon-access-cluster)</li><li>[确保 Service Fabric 的客户端到节点证书不同于节点到节点证书](#fabric-cn-nn)</li><li>[使用 AAD 在 Service Fabric 群集中对客户端进行身份验证](#aad-client-fabric)</li><li>[确保从批准的证书颁发机构 (CA) 获取 Service Fabric 证书](#fabric-cert-ca)</li></ul> |
 | **标识服务器** | <ul><li>[使用标识服务器支持的标准身份验证方案](#standard-authn-id)</li><li>[使用可缩放的替代方案覆盖默认的标识服务器令牌缓存](#override-token)</li></ul> |
 | **计算机信任边界** | <ul><li>[确保部署的应用程序的二进制文件经过数字签名](#binaries-signed)</li></ul> |
@@ -173,7 +173,7 @@ ms.locfileid: "94517710"
 | **参考**              | [事件中心身份验证和安全模型概述](../../event-hubs/authenticate-shared-access-signature.md) |
 | **步骤** | <p>事件中心安全模型基于共享访问签名 (SAS) 令牌与事件发布者的组合。 发布者名称表示接收令牌的 DeviceID。 它可以帮助将生成的令牌与相应的设备相关联。</p><p>所有消息在服务端标记为发起方，用于检测有效负载中原点欺骗的企图。 对设备进行身份验证时，将生成一个对应于唯一发布者的基于设备的 SaS 令牌。</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>为 Azure 管理员启用 Azure 多重身份验证
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>为 Azure 管理员启用 Azure AD 多重身份验证
 
 | 标题                   | 详细信息      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517710"
 | **SDL 阶段**               | 部署 |
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [什么是 Azure 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **参考**              | [什么是 Azure AD 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **步骤** | <p>多重身份验证 (MFA) 是要求使用多种验证方法的身份验证方法，为用户登录和事务额外提供一层重要的安全保障。 它的工作原理是需要以下两种或多种验证方法：</p><ul><li>用户知道的某样东西（通常为密码）</li><li>用户具有的某样东西（无法轻易复制的可信设备，如电话）</li><li>自身的特征（生物辨识系统）</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>限制对 Service Fabric 群集的匿名访问

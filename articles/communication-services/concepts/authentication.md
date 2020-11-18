@@ -9,18 +9,18 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202950"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832800"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 通信服务的身份验证
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-本文提供了有关使用 *访问密钥* 和 *用户访问令牌*对 Azure 通信服务的客户端进行身份验证的信息。 需要对每个与 Azure 通信服务的客户端交互进行身份验证。
+本文提供了有关使用 *访问密钥* 和 *用户访问令牌* 对 Azure 通信服务的客户端进行身份验证的信息。 需要对每个与 Azure 通信服务的客户端交互进行身份验证。
 
 下表介绍了 Azure 通信服务客户端库支持哪些身份验证选项：
 
@@ -33,8 +33,8 @@ ms.locfileid: "92202950"
 
 下面简要介绍每个授权选项：
 
-- 用于 SMS 和管理操作的**访问密钥**身份验证。 访问密钥身份验证适用于在受信任的服务环境中运行的应用程序。 若要使用访问密钥进行身份验证，客户端将生成 [基于哈希的消息身份验证代码 (HMAC) ](https://en.wikipedia.org/wiki/HMAC) ，并将其包括在 `Authorization` 每个 HTTP 请求的标头中。 有关详细信息，请参阅 [使用访问密钥进行身份验证](#authenticate-with-an-access-key)。
-- 用于聊天和呼叫的**用户访问令牌**身份验证。 用户访问令牌允许客户端应用程序直接对 Azure 通信服务进行身份验证。 这些令牌是在你创建的服务器端令牌预配服务上生成的。 然后，将它们提供给使用令牌初始化聊天和调用客户端库的客户端设备。 有关详细信息，请参阅 [使用用户访问令牌进行身份验证](#authenticate-with-a-user-access-token)。
+- 用于 SMS 和管理操作的 **访问密钥** 身份验证。 访问密钥身份验证适用于在受信任的服务环境中运行的应用程序。 若要使用访问密钥进行身份验证，客户端将生成 [基于哈希的消息身份验证代码 (HMAC) ](https://en.wikipedia.org/wiki/HMAC) ，并将其包括在 `Authorization` 每个 HTTP 请求的标头中。 有关详细信息，请参阅 [使用访问密钥进行身份验证](#authenticate-with-an-access-key)。
+- 用于聊天和呼叫的 **用户访问令牌** 身份验证。 用户访问令牌允许客户端应用程序直接对 Azure 通信服务进行身份验证。 这些令牌是在你创建的服务器端令牌预配服务上生成的。 然后，将它们提供给使用令牌初始化聊天和调用客户端库的客户端设备。 有关详细信息，请参阅 [使用用户访问令牌进行身份验证](#authenticate-with-a-user-access-token)。
 
 ## <a name="authenticate-with-an-access-key"></a>使用访问密钥进行身份验证
 
@@ -72,11 +72,11 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
 
 用户访问令牌允许客户端应用程序直接对 Azure 通信服务进行身份验证。 若要实现此目的，你应该设置一个可信服务，该服务对你的应用程序用户进行身份验证，并使用管理客户端库颁发用户访问令牌。 请访问 [客户端和服务器体系结构](./client-and-server-architecture.md) 概念文档，以了解有关体系结构注意事项的详细信息。
 
-`CommunicationClientCredential`类包含用于向客户端库提供用户访问令牌凭据并管理其生命周期的逻辑。
+`CommunicationUserCredential`类包含用于向客户端库提供用户访问令牌凭据并管理其生命周期的逻辑。
 
 ### <a name="initialize-the-client-libraries"></a>初始化客户端库
 
-若要初始化需要用户访问令牌身份验证的 Azure 通信服务客户端库，请首先创建类的实例 `CommunicationClientCredential` ，然后使用它来初始化 API 客户端。
+若要初始化需要用户访问令牌身份验证的 Azure 通信服务客户端库，请首先创建类的实例 `CommunicationUserCredential` ，然后使用它来初始化 API 客户端。
 
 以下代码片段演示了如何使用用户访问令牌初始化聊天客户端库：
 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506288"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747683"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>为用于 VM 的 Azure Monitor 配置 Log Analytics 工作区
 用于 VM 的 Azure Monitor 从 Azure Monitor 中的一个或多个 Log Analytics 工作区收集其数据。 在载入代理之前，必须创建和配置工作区。 本文介绍工作区的要求并对其进行配置以实现用于 VM 的 Azure Monitor。
@@ -53,7 +53,7 @@ ms.locfileid: "94506288"
 - 美国中南部
 - 美国东部
 - 美国东部 2
-- Central US
+- 美国中部
 - 美国中北部
 - US Gov Az
 - US Gov Va
@@ -78,13 +78,13 @@ ms.locfileid: "94506288"
 > 将 *VMInsights* 解决方案添加到工作区时，所有连接到该工作区的现有虚拟机都将开始向 InsightsMetrics 发送数据。 在将 Dependency Agent 添加到连接到工作区的现有虚拟机之前，不会收集其他数据类型的数据。
 
 ### <a name="azure-portal"></a>Azure 门户
-有三个选项可用于从 Azure 门户配置现有工作区。
+有三个选项可用于使用 Azure 门户配置现有工作区。 如下所述。
 
-若要配置单个工作区，请选择 **其他载入选项** ，然后 **配置工作区** 。 选择订阅和工作区，然后单击 " **配置** "。
+若要配置单个工作区，请选择 **其他载入选项** ，然后 **配置工作区**。 选择订阅和工作区，然后单击 " **配置**"。
 
 [![配置工作区](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
-若要配置多个工作区，请在 " **监视器** " 菜单的 " **虚拟机** " 菜单中选择 " **工作区配置** " 选项卡 Azure 门户。 设置筛选器值以显示现有工作区的列表。 选择要启用的每个工作区旁边的框，然后单击 " **配置选择** "。
+若要配置多个工作区，请在 "**监视器**" 菜单的 "**虚拟机**" 菜单中选择 "**工作区配置**" 选项卡 Azure 门户。 设置筛选器值以显示现有工作区的列表。 选择要启用的每个工作区旁边的框，然后单击 " **配置选择** "。
 
 [![工作区配置](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 

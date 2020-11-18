@@ -1,17 +1,17 @@
 ---
-title: Azure Functions 中的流执行日志
-description: 115-145 个字符，包括空格。 此摘要显示在搜索结果中。
+title: 在 Azure Functions 中流式传输执行日志
+description: 115-145 个字符（包括空格）。 此摘要显示在搜索结果中。
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 61756afb5111da3d5573e967a6ca13f25354aef5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: 68b9d567fe0f2959c809a25c3669b9529cf093b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216090"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832873"
 ---
-# <a name="enable-streaming-execution-logs-in-azure-functions"></a>在 Azure Functions 中启用流式执行日志
+# <a name="enable-streaming-execution-logs-in-azure-functions"></a>在 Azure Functions 中启用流式传输执行日志功能
 
 开发应用程序时，通常需要了解在 Azure 中运行时近实时地写入日志的内容。
 
@@ -19,7 +19,7 @@ ms.locfileid: "92216090"
 
 * **内置日志流式处理**：借助应用服务平台即可查看应用程序日志文件流。 这等效于在[本地开发](functions-develop-local.md)期间调试函数时以及在门户中使用“测试”选项卡时所显示的输出。 此时将显示所有基于日志的信息。 有关详细信息，请参阅[流式处理日志](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 这种流式处理方法仅支持单个实例，不能用于在消耗计划中的 Linux 上运行的应用。
 
-* **实时指标流**：当函数应用[连接到 Application Insights](configure-monitoring.md#enable-application-insights-integration) 时，可以使用[实时指标流](../azure-monitor/app/live-stream.md)在 Azure 门户中近实时地查看日志数据和其他指标。 当监视在多个实例或消耗计划中的 Linux 上运行的函数时，请使用此方法。 此方法使用[抽样数据](configure-monitoring.md#configure-sampling)。
+* **实时指标流**：当函数应用 [连接到 Application Insights](configure-monitoring.md#enable-application-insights-integration) 时，可以使用 [实时指标流](../azure-monitor/app/live-stream.md)在 Azure 门户中近实时地查看日志数据和其他指标。 当监视在多个实例或消耗计划中的 Linux 上运行的函数时，请使用此方法。 此方法使用[抽样数据](configure-monitoring.md#configure-sampling)。
 
 可以在门户和大多数本地开发环境中查看日志流。 
 
@@ -75,4 +75,4 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 ## <a name="next-steps"></a>后续步骤
 
 + [监视 Azure Functions](functions-monitoring.md)
-+ [分析 Application Insights 中的 Azure Functions 遥测](analyze-telemetry-data.md)
++ [在 Application Insights 中分析 Azure Functions 遥测数据](analyze-telemetry-data.md)

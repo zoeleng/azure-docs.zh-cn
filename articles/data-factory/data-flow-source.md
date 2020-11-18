@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: a8890db90fa9f76b676a5fb944f74a773b00c8cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80280702748040e12d1d3d048644e6a16c926256
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737517"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832370"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>映射数据流中的源转换
 
@@ -50,6 +50,7 @@ ms.locfileid: "92737517"
 | [Azure SQL 数据库](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL 托管实例 (预览版) ](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ | 
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 特定于这些连接器的设置位于 " **源选项** " 选项卡上。有关这些设置的信息和数据流脚本示例位于连接器文档中。
@@ -64,13 +65,13 @@ Azure 数据工厂可以访问90多个 [本机连接器](connector-overview.md)�
 
 ![显示 "源设置" 选项卡的屏幕截图。](media/data-flow/source1.png "显示 "源设置" 选项卡的屏幕截图。")
 
-**输出流名称** ：源转换的名称。
+**输出流名称**：源转换的名称。
 
-**源类型** ：选择是要使用内联数据集还是现有数据集对象。
+**源类型**：选择是要使用内联数据集还是现有数据集对象。
 
-**测试连接** ：测试数据流的 Spark 服务是否可以成功连接到源数据集中使用的链接服务。 要启用此功能，调试模式必须为 on。
+**测试连接**：测试数据流的 Spark 服务是否可以成功连接到源数据集中使用的链接服务。 要启用此功能，调试模式必须为 on。
 
-**架构偏差** ： [架构偏差](concepts-data-flow-schema-drift.md) 是指在无需显式定义列更改的情况下，数据工厂以本机方式处理数据流中的灵活架构的能力。
+**架构偏差**： [架构偏差](concepts-data-flow-schema-drift.md) 是指在无需显式定义列更改的情况下，数据工厂以本机方式处理数据流中的灵活架构的能力。
 
 * 如果源列经常更改，请选中 " **允许架构偏差** " 复选框。 此设置允许所有传入的源字段流过到接收器的转换。
 
@@ -78,9 +79,9 @@ Azure 数据工厂可以访问90多个 [本机连接器](connector-overview.md)�
 
 **验证架构：** 如果选择了 " **验证架构** "，则当传入的源数据与数据集的已定义架构不匹配时，数据流将无法运行。
 
-**跳过行计数** ： " **跳过行计数** " 字段指定要在数据集的开头忽略多少行。
+**跳过行计数**： " **跳过行计数** " 字段指定要在数据集的开头忽略多少行。
 
-**采样** ：启用 **采样** 以限制源中的行数。 当你在源中测试数据或对数据进行采样以便进行调试时，请使用此设置。
+**采样**：启用 **采样** 以限制源中的行数。 当你在源中测试数据或对数据进行采样以便进行调试时，请使用此设置。
 
 若要验证是否正确配置了源，请打开调试模式并提取数据预览。 有关详细信息，请参阅 [调试模式](concepts-data-flow-debug-mode.md)。
 
@@ -105,7 +106,7 @@ Azure 数据工厂可以访问90多个 [本机连接器](connector-overview.md)�
 
 ### <a name="import-schema"></a>导入架构
 
-选择 " **投影** " 选项卡上的 " **导入架构** " 按钮，以使用活动调试群集创建架构投影。 它在每个源类型中可用。 在此处导入架构将覆盖数据集中定义的投影。 数据集对象不会更改。
+选择 "**投影**" 选项卡上的 "**导入架构**" 按钮，以使用活动调试群集创建架构投影。 它在每个源类型中可用。 在此处导入架构将覆盖数据集中定义的投影。 数据集对象不会更改。
 
 导入架构在支持复杂数据结构的数据集（如 Avro 和 Azure Cosmos DB）中十分有用，不需要架构定义存在于数据集中。 对于内联数据集，导入架构是唯一一种引用列元数据的方法，无需架构偏移。
 

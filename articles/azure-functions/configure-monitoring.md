@@ -1,70 +1,70 @@
 ---
 title: 为 Azure Functions 配置监视
-description: 了解如何将 function app 连接到 Application Insights 进行监视，以及如何配置数据收集。
+description: 了解如何将函数应用连接到 Application Insights 以进行监视，以及如何配置数据收集。
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217178"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833072"
 ---
-# <a name="how-to-configure-monitoring-for-azure-functions"></a>如何配置 Azure Functions 的监视
+# <a name="how-to-configure-monitoring-for-azure-functions"></a>如何为 Azure Functions 配置监视
 
-Azure Functions 与 Application Insights 集成，使你能够更好地监视函数应用。 Application Insights 是 Azure Monitor 的一项功能，它是一种可扩展的应用程序性能管理， (APM) 服务，该服务可收集函数应用生成的数据，包括应用程序写入日志的信息。 创建函数应用时，通常会启用 Application Insights 集成。 如果应用没有设置检测密钥，则必须首先 [启用 Application Insights 集成](#enable-application-insights-integration)。 
+Azure Functions 与 Application Insights 集成，从而使你能够更好地监视函数应用。 Application Insights（Azure Monitor 的一项功能）是一种可扩展的应用程序性能管理 (APM) 服务，该服务收集函数应用生成的数据，包括应用写入日志的信息。 通常，在创建函数应用时会启用 Application Insights 集成。 如果应用未设置检测密钥，必须先[启用 Application Insights 集成](#enable-application-insights-integration)。 
 
-可以使用 Application Insights 而无需任何自定义配置。 默认配置可能会产生大量数据。 如果使用的是 Visual Studio Azure 订阅，可能会达到 Application Insights 的数据上限。 若要详细了解 Application Insights 成本，请参阅 [管理 Application Insights 的使用情况和成本](../azure-monitor/app/pricing.md)。
+可以使用 Application Insights 而无需任何自定义配置。 默认配置可能会产生大量数据。 如果使用的是 Visual Studio Azure 订阅，可能会达到 Application Insights 的数据上限。 若要详细了解 Application Insights 成本，请参阅[管理 Application Insights 的使用情况和成本](../azure-monitor/app/pricing.md)。
 
 本文后面的部分将介绍如何配置和自定义函数发送到 Application Insights 的数据。 对于函数应用，在 [host.json] 文件中配置日志记录。 
 
 > [!NOTE]
-> 您可以使用专门配置的应用程序设置来表示特定环境的 host.js文件中的特定设置。 这使你可以有效地更改设置 host.js，而不必在项目中重新发布文件 host.js。 若要了解详细信息，请参阅 [覆盖值 host.js](functions-host-json.md#override-hostjson-values)。
+> 可以使用专门配置的应用程序设置来表示针对特定环境的 host.json 文件中的特定设置。 这使你可以有效地更改 host.json 设置，而不必在项目中重新发布 host.json 文件。 若要了解详细信息，请参阅[替代 host.json 值](functions-host-json.md#override-hostjson-values)。
 
 ## <a name="configure-categories"></a>配置类别
 
-对于每个日志，Azure Functions 记录器都包含一个类别。 类别指示运行时代码或函数代码的哪个部分编写日志。 版本1.x 和更高版本之间的类别有所不同。 下表描述了运行时创建的日志的主要类别。 
+对于每个日志，Azure Functions 记录器都包含一个类别。 类别指示运行时代码或函数代码的哪个部分编写日志。 版本 1.x 和更高版本中的类别有所不同。 下表描述了运行时创建的日志的主要类别。 
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 | 类别 | 表 | 说明 |
 | ----- | ----- | ----- |
-| **`Function.<YOUR_FUNCTION_NAME>`** | **项**| 系统会自动收集一些服务的依赖关系数据。 如果成功运行，则这些日志位于 `Information` 级别。 若要了解详细信息，请参阅 [依赖关系](functions-monitoring.md#dependencies)。 在级别记录异常 `Error` 。 运行时还会创建 `Warning` 级别日志，例如将队列消息发送到 [有害队列](functions-bindings-storage-queue-trigger.md#poison-messages)的时间。 | 
-| **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 和 JavaScript Sdk 使你可以收集自定义指标并记录自定义事件。 若要了解详细信息，请参阅 [自定义遥测数据](functions-monitoring.md#custom-telemetry-data)。|
-| **`Function.<YOUR_FUNCTION_NAME>`** | **traces**| 包括特定函数运行的已启动和已完成的日志。 如果成功运行，则这些日志位于 `Information` 级别。 在级别记录异常 `Error` 。 运行时还会创建 `Warning` 级别日志，例如将队列消息发送到 [有害队列](functions-bindings-storage-queue-trigger.md#poison-messages)的时间。 | 
-| **`Function.<YOUR_FUNCTION_NAME>.User`** | **traces**| 用户生成的日志，可以是任何日志级别。 若要详细了解如何从函数写入日志，请参阅 [写入日志](functions-monitoring.md#writing-to-logs)。 | 
-| **`Host.Aggregator`** | **customMetrics** | 这些运行时生成的日志提供了 [可配置](#configure-the-aggregator) 时间段内函数调用的计数和平均值。 默认时段为 30 秒或 1,000 个结果，以先满足的条件为准。 示例包括运行数、成功率和持续时间。 所有这些日志均在 `Information` 级别编写。 如果在 `Warning` 或更高级别进行筛选，则不会看到任何这些数据。 |
+| **`Function.<YOUR_FUNCTION_NAME>`** | **依赖项**| 系统会自动收集一些服务的依赖项数据。 对于成功运行，这些日志处于 `Information` 级别。 若要了解详细信息，请参阅[依赖项](functions-monitoring.md#dependencies)。 异常记录在 `Error` 级别。 运行时还会创建 `Warning` 级别日志，例如将队列消息发送到[病毒队列](functions-bindings-storage-queue-trigger.md#poison-messages)时。 | 
+| **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | 使用 C# 和 JavaScript SDK，可以收集自定义指标并记录自定义事件。 若要了解详细信息，请参阅[自定义遥测数据](functions-monitoring.md#custom-telemetry-data)。|
+| **`Function.<YOUR_FUNCTION_NAME>`** | **traces**| 包括针对特定函数运行的函数已启动和已完成日志。 对于成功运行，这些日志处于 `Information` 级别。 异常记录在 `Error` 级别。 运行时还会创建 `Warning` 级别日志，例如将队列消息发送到[病毒队列](functions-bindings-storage-queue-trigger.md#poison-messages)时。 | 
+| **`Function.<YOUR_FUNCTION_NAME>.User`** | **traces**| 用户生成的日志，可以是任何日志级别。 若要详细了解如何从函数写入日志，请参阅[写入日志](functions-monitoring.md#writing-to-logs)。 | 
+| **`Host.Aggregator`** | **customMetrics** | 这些运行时生成的日志在一段[可配置](#configure-the-aggregator)的时间内提供函数调用的计数和平均值。 默认时段为 30 秒或 1,000 个结果，以先满足的条件为准。 示例包括运行数、成功率和持续时间。 所有这些日志均在 `Information` 级别编写。 如果在 `Warning` 或更高级别进行筛选，则不会看到任何这些数据。 |
 | **`Host.Results`** | **requests** | 这些运行时生成的日志指示函数是成功还是失败。 所有这些日志均在 `Information` 级别编写。 如果在 `Warning` 或更高级别进行筛选，则不会看到任何这些数据。 |
-| **`Microsoft`** | **traces** | 完全限定的日志类别，反映了主机调用的 .NET 运行时组件。  |
-| **`Worker`** | **traces** | Non-.NET 语言的语言辅助进程生成的日志。 语言辅助角色日志还可以记录在 `Microsoft.*` 类别中，例如 `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` 。 这些日志在级别上写入 `Information` 。|
+| **`Microsoft`** | **traces** | 反映主机调用的 .NET 运行时组件的完全限定的日志类别。  |
+| **`Worker`** | **traces** | 语言工作进程为非 .NET 语言生成的日志。 语言工作日志也可以记录在 `Microsoft.*` 类别中，例如 `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher`。 这些日志在 `Information` 级别写入。|
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
 | 类别 | 表 | 说明 |
 | ----- | ----- | ----- |
-| **`Function`** | **traces**| 用户生成的日志，可以是任何日志级别。 若要详细了解如何从函数写入日志，请参阅 [写入日志](functions-monitoring.md#writing-to-logs)。 | 
-| **`Host.Aggregator`** | **customMetrics** | 这些运行时生成的日志提供了 [可配置](#configure-the-aggregator) 时间段内函数调用的计数和平均值。 默认时段为 30 秒或 1,000 个结果，以先满足的条件为准。 示例包括运行数、成功率和持续时间。 所有这些日志均在 `Information` 级别编写。 如果在 `Warning` 或更高级别进行筛选，则不会看到任何这些数据。 |
-| **`Host.Executor`** | **traces** | 包括 **已启动的函数** 和用于特定函数运行的 **函数完成** 日志。 对于成功运行，这些日志属于 `Information` 级别。 异常在 `Error` 级别记录。 运行时还会创建 `Warning` 级别日志，例如将队列消息发送到 [有害队列](functions-bindings-storage-queue-trigger.md#poison-messages)的时间。  |
+| **`Function`** | **traces**| 用户生成的日志，可以是任何日志级别。 若要详细了解如何从函数写入日志，请参阅[写入日志](functions-monitoring.md#writing-to-logs)。 | 
+| **`Host.Aggregator`** | **customMetrics** | 这些运行时生成的日志在一段[可配置](#configure-the-aggregator)的时间内提供函数调用的计数和平均值。 默认时段为 30 秒或 1,000 个结果，以先满足的条件为准。 示例包括运行数、成功率和持续时间。 所有这些日志均在 `Information` 级别编写。 如果在 `Warning` 或更高级别进行筛选，则不会看到任何这些数据。 |
+| **`Host.Executor`** | **traces** | 包括用于特定函数运行的“函数已启动”和“函数已完成”日志 。 对于成功运行，这些日志属于 `Information` 级别。 异常在 `Error` 级别记录。 运行时还会创建 `Warning` 级别日志，例如将队列消息发送到[病毒队列](functions-bindings-storage-queue-trigger.md#poison-messages)时。  |
 | **`Host.Results`** | **requests** | 这些运行时生成的日志指示函数是成功还是失败。 所有这些日志均在 `Information` 级别编写。 如果在 `Warning` 或更高级别进行筛选，则不会看到任何这些数据。 |
 
 ---
 
-**Table**列指示 Application Insights 日志写入哪个表。 
+表列指示将日志写入 Application Insights 中的哪个表。 
 
 ## <a name="configure-log-levels"></a>配置日志级别
 
 [!INCLUDE [functions-log-levels](../../includes/functions-log-levels.md)]
 
-对于每个类别，均可以指示要发送的最小日志级别。 根据 [函数运行时版本](functions-versions.md)的不同，设置 host.js会有所不同。 
+对于每个类别，均可以指示要发送的最小日志级别。 host.json 设置因 [Functions 运行时版本](functions-versions.md)而异。 
 
-下面的示例基于以下规则定义日志记录：
+下面的示例根据以下规则定义日志记录：
 
-+ 对于或的 `Host.Results` 日志 `Function` ，仅在 `Error` 或更高级别上记录事件。 
-+ 对于日志 `Host.Aggregator` ，请记录所有生成的指标 (`Trace`) 。
-+ 对于所有其他日志（包括用户日志），只记录 `Information` 级别和更高的事件。
++ 对于 `Host.Results` 或 `Function` 的日志，仅记录 `Error` 或更高级别的事件。 
++ 对于 `Host.Aggregator` 的日志，记录所有生成的指标 (`Trace`)。
++ 对于所有其他日志（包括用户日志），仅记录 `Information` 级别及更高级别的事件。
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 ```json
 {
@@ -99,9 +99,9 @@ Azure Functions 与 Application Insights 集成，使你能够更好地监视函
 
 ---
 
-如果 [ 上的host.js] 包含以同一字符串开头的多个日志，则首先匹配定义更多的日志。 请考虑以下示例，该示例记录运行时中的所有内容，但 `Host.Aggregator` `Error` 级别除外：
+如果 [host.json] 包含以相同字符串开头的多个日志，则首先匹配定义更多的日志。 考虑以下示例，该示例在运行时中记录 `Error` 级别上除 `Host.Aggregator` 之外的所有内容：
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 ```json
 {
@@ -136,7 +136,7 @@ Azure Functions 与 Application Insights 集成，使你能够更好地监视函
 
 ---
 
-您可以使用日志级别设置来 `None` 阻止为某个类别写入任何日志。 
+可以使用日志级别设置 `None` 来阻止为某个类别写入任何日志。 
 
 ## <a name="configure-the-aggregator"></a>配置聚合器
 
@@ -155,7 +155,7 @@ Azure Functions 与 Application Insights 集成，使你能够更好地监视函
 
 Application Insights 具有[采样](../azure-monitor/app/sampling.md)功能，可以防止在峰值负载时为已完成的执行生成过多的遥测数据。 当传入执行的速率超过指定的阈值时，Application Insights 开始随机忽略某些传入执行。 每秒执行的最大次数的默认设置为 20（版本 1.x 中为 5）。 可以在 [host.json](./functions-host-json.md#applicationinsights) 中配置采样。  下面是一个示例：
 
-# <a name="v2x"></a>[v2. x +](#tab/v2)
+# <a name="v2x"></a>[v2.x+](#tab/v2)
 
 ```json
 {
@@ -172,7 +172,7 @@ Application Insights 具有[采样](../azure-monitor/app/sampling.md)功能，�
 ```
 
 
-可以从采样中排除某些类型的遥测数据。 在此示例中，类型和的数据 `Request` `Exception` 已从采样中排除。 这可以确保在其他类型的遥测仍受采样的情况下记录 (请求) 和异常的 *所有* 函数执行。 
+可以从采样中排除某些类型的遥测。 在此示例中，采样中排除了类型为 `Request` 和 `Exception` 的数据。 这可确保记录所有函数执行（请求）和异常，而其他类型的遥测仍会受到采样的限制。 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)  
 
@@ -194,9 +194,9 @@ Application Insights 具有[采样](../azure-monitor/app/sampling.md)功能，�
 
 _此功能为预览版。_ 
 
-可以让 [Azure Functions 缩放控制器](./functions-scale.md#runtime-scaling) 向 Application Insights 或 Blob 存储发送日志，以便更好地了解规模控制器为 function app 做出的决策。
+可以让 [Azure Functions 缩放控制器](./functions-scale.md#runtime-scaling)将日志发出到 Application Insights 或 Blob 存储，以便更好地了解缩放控制器为函数应用做出的决策。
 
-若要启用此功能，请将名为的应用程序设置添加 `SCALE_CONTROLLER_LOGGING_ENABLED` 到 function app 设置。 此设置的值必须采用基于以下规范的 `<DESTINATION>:<VERBOSITY>` 格式：
+若要启用此功能，请将名为 `SCALE_CONTROLLER_LOGGING_ENABLED` 的应用程序设置添加到函数应用设置中。 此设置的值必须采用基于以下规范的 `<DESTINATION>:<VERBOSITY>` 格式：
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
@@ -243,9 +243,9 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>添加到现有函数应用 
 
-如果未使用 function app 创建 Application Insights 资源，请使用以下步骤来创建资源。 然后，可以添加该资源中的检测密钥，作为函数应用中的[应用程序设置](functions-how-to-use-azure-function-app-settings.md#settings)。
+如果未使用函数应用创建 Application Insights 资源，请使用以下步骤创建资源。 然后，可以添加该资源中的检测密钥，作为函数应用中的[应用程序设置](functions-how-to-use-azure-function-app-settings.md#settings)。
 
-1. 在 [Azure 门户](https://portal.azure.com)中，搜索并选择 " **function app**"，然后选择函数应用。 
+1. 在 [Azure 门户](https://portal.azure.com)中，搜索并选择“函数应用”，然后选择你的函数应用。 
 
 1. 选择窗口顶部的“未配置 Application Insights”横幅。 如果看不到此横幅，则应用可能已启用 Application Insights。
 
@@ -258,13 +258,13 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
     | **新资源名称** | 唯一的应用名称 | 使用与函数应用相同的名称是最方便的，该名称在订阅中必须独一无二。 | 
     | **位置** | 西欧 | 尽可能使用函数应用所在的同一[区域](https://azure.microsoft.com/regions/)，或与该区域接近的区域。 |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="从门户启用 Application Insights":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="创建 Application Insights 资源":::
 
 1. 选择“应用”。 
 
    Application Insights 资源在与函数应用相同的资源组和订阅中创建。 创建资源后，关闭 Application Insights 窗口。
 
-1. 在函数应用中，选择“设置”下的“配置”，然后选择“应用程序设置”。   如果看到名为 `APPINSIGHTS_INSTRUMENTATIONKEY` 的设置，则表明已为在 Azure 中运行的函数应用启用 Application Insights 集成。 如果由于某种原因而不存在此设置，请使用 Application Insights 检测密钥来添加它作为值。
+1. 在函数应用中，选择“设置”下的“配置”，然后选择“应用程序设置”。   如果看到名为 `APPINSIGHTS_INSTRUMENTATIONKEY` 的设置，则表明已为在 Azure 中运行的函数应用启用 Application Insights 集成。 如果出于某种原因，该设置不存在，请使用 Application Insights 检测密钥作为值来添加该设置。
 
 > [!NOTE]
 > 早期版本的 Functions 使用了内置监视功能，现不再建议使用该功能。 为此类函数应用启用 Application Insights 集成时，还必须[禁用内置日志记录功能](#disable-built-in-logging)。  
@@ -277,10 +277,10 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关监视的详细信息，请参阅：
+若要详细了解监视，请参阅：
 
 + [监视 Azure Functions](functions-monitoring.md)
-+ [分析 Application Insights 中 Azure Functions 遥测数据](analyze-telemetry-data.md)
++ [在 Application Insights 中分析 Azure Functions 遥测数据](analyze-telemetry-data.md)
 + [Application Insights](/azure/application-insights/)
 
 
