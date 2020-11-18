@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002285"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842628"
 ---
 # <a name="security-best-practices"></a>安全最佳做法
 
@@ -70,7 +70,7 @@ Windows 虚拟桌面具有许多内置的安全控件。 在本部分中，你�
 
 ### <a name="require-multi-factor-authentication"></a>需要多重身份验证
 
-对于 Windows 虚拟桌面中的所有用户和管理员都需要多重身份验证，可以提高整个部署的安全性。 若要了解详细信息，请参阅 [为 Windows 虚拟桌面启用 Azure 多重身份验证](set-up-mfa.md)。
+对于 Windows 虚拟桌面中的所有用户和管理员都需要多重身份验证，可以提高整个部署的安全性。 若要了解详细信息，请参阅 [为 Windows 虚拟桌面启用 Azure AD 多重身份验证](set-up-mfa.md)。
 
 ### <a name="enable-conditional-access"></a>启用条件性访问
 

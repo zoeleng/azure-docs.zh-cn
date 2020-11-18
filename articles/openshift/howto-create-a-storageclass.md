@@ -7,13 +7,13 @@ ms.date: 10/16/2020
 author: grantomation
 ms.author: b-grodel
 keywords: aro，openshift，az aro，red hat，cli，azure 文件
-ms.custom: mvc
-ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: a3e2a994311334d410aeffd55e7f6febaa85d6e4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747877"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842662"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>在 Azure Red Hat OpenShift 4 上创建 Azure 文件存储 StorageClass
 
@@ -25,7 +25,7 @@ ms.locfileid: "92747877"
 
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.6.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 将 Azure Red Hat OpenShift 4 群集部署到订阅中，请参阅 [创建 Azure Red Hat OpenShift 4 群集](tutorial-create-cluster.md)
 
@@ -135,7 +135,7 @@ test.txt 文件也将通过 Azure 门户中的存储资源管理器可见。
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何使用 Microsoft Azure 文件和 Azure Red Hat OpenShift 4 创建动态永久性存储。 你已了解如何：
+本文介绍了如何使用 Microsoft Azure 文件和 Azure Red Hat OpenShift 4 创建动态永久性存储。 你已了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建存储帐户

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: cfa6dcb0b1fc173bdf3612308227b8309491e9fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312741"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842696"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>为 Azure 机器学习工作区配置 Azure 专用链接
 
@@ -39,7 +39,7 @@ ms.locfileid: "93312741"
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>创建使用专用终结点的工作区
 
-使用以下方法之一创建具有专用终结点的工作区。 上述每种方法都 __需要一个现有的虚拟网络__ ：
+使用以下方法之一创建具有专用终结点的工作区。 上述每种方法都 __需要一个现有的虚拟网络__：
 
 > [!TIP]
 > 如果要同时创建工作区、专用终结点和虚拟网络，请参阅 [使用 Azure 资源管理器模板创建 Azure 机器学习的工作区](how-to-create-workspace-template.md)。
@@ -113,10 +113,10 @@ az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-在门户的 "Azure 机器学习" 工作区中，选择 " __专用终结点连接__ "，然后选择 " __+ 专用终结点__ "。 使用字段创建新的专用终结点。
+在门户的 "Azure 机器学习" 工作区中，选择 " __专用终结点连接__ "，然后选择 " __+ 专用终结点__"。 使用字段创建新的专用终结点。
 
 * 选择 __区域__ 时，请选择虚拟网络所在的区域。 
-* 选择 __资源类型__ 时，请使用 __MachineLearningServices/工作区__ 。 
+* 选择 __资源类型__ 时，请使用 __MachineLearningServices/工作区__。 
 * 将 __资源__ 设置为你的工作区名称。
 
 最后，选择 " __创建__ " 以创建专用终结点。
@@ -146,7 +146,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-在门户的 "Azure 机器学习" 工作区中，选择 " __专用终结点连接__ "，然后选择要删除的终结点。 最后，选择 " __删除__ "。
+在门户的 "Azure 机器学习" 工作区中，选择 " __专用终结点连接__"，然后选择要删除的终结点。 最后，选择 " __删除__"。
 
 ---
 

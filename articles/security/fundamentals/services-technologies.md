@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700753"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842730"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 上可用的安全服务和技术
 
@@ -71,7 +71,7 @@ ms.locfileid: "94700753"
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|一个基于云的身份验证存储库，它支持基于云的多租户目录和 Azure 中的多标识管理服务。  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|一项标识管理服务，帮助控制客户使用基于 Azure 的应用程序时如何注册、登录和管理其配置文件。   |
 | [Azure Active Directory 域服务](../../active-directory-domain-services/overview.md)| Active Directory 域服务基于云的托管版本。 |
-| [Azure 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)| 一项安全性设置，它会采用几种形式的身份验证和验证，再允许访问安全信息。 |
+| [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)| 一项安全性设置，它会采用几种形式的身份验证和验证，再允许访问安全信息。 |
 
 ## <a name="backup-and-disaster-recovery"></a>备份和灾难恢复
 |服务|说明|

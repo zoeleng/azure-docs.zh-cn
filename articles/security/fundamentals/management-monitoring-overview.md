@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 3520cbafc0e9eebfd6057fe92579a45873b25734
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698745"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842747"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全管理和监视概述
 本文概述了 Azure 提供的安全功能和服务，以帮助管理和监视 Azure 云服务和虚拟机。
@@ -54,15 +54,15 @@ Azure RBAC) 的 azure 基于角色的访问控制 (提供 Azure 资源的详细�
 
 ## <a name="multi-factor-authentication"></a>多重身份验证
 
-Azure 多重身份验证是一种需要使用多种验证方法的身份验证方法。 它为用户登录和事务添加了关键的附加安全层。
+Azure AD 多重身份验证是一种需要使用多个验证方法的身份验证方法。 它为用户登录和事务添加了关键的附加安全层。
 
 多重身份验证可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码）和第三方 OATH 令牌来提供强大的身份验证。
 
 了解详细信息：
 
 * [多重身份验证](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [什么是 Azure 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Azure 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [什么是 Azure AD 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
