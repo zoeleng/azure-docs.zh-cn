@@ -8,38 +8,33 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1ddc8c2b9531dd78c1c6746e28b8ff5864af563e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331941"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659448"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL 服务器
 
 本快速入门教程介绍如何在 [Azure Cloud Shell](https://shell.azure.com) 中使用 [Azure CLI](/cli/azure/get-started-with-azure-cli)在 5 分钟内创建单个 Azure Database for PostgreSQL 服务器。 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-> [!TIP]
-> 请考虑使用更简单的 [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
+- 本文需要 Azure CLI 版本 2.0 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
-## <a name="prerequisites"></a>先决条件
-本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
+    > [!TIP]
+    >  请考虑使用更简单的 [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
 
-需要使用 [az login](/cli/azure/reference-index#az-login) 命令登录到你的帐户。 请注意 id 属性，该属性指的是 Azure 帐户的订阅 ID 。 
+- 使用 [az account set](/cli/azure/account) 命令选择帐户下的特定订阅 ID。
 
-```azurecli-interactive
-az login
-```
+    - 记下 az login 输出中的 id 值，以用作命令中 subscription 参数的值  。 
 
-使用 [az account set](/cli/azure/account) 命令选择帐户下的特定订阅 ID。 记下 az login 输出中的 id 值，以用作命令中 subscription 参数的值  。 
+        ```azurecli
+        az account set --subscription <subscription id>
+        ```
 
-```azurecli
-az account set --subscription <subscription id>
-```
-
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/azure/account#az-account-list)。
+    - 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/azure/account#az-account-list)。
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
 

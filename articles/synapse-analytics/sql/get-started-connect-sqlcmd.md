@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 10f15ec2108e897164206543358d7a9e7bd40f64
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316498"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686134"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>使用 sqlcmd 连接到 Synapse SQL
 
@@ -28,7 +28,7 @@ ms.locfileid: "93316498"
 在 Synapse SQL 中，可以使用 [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 命令行实用程序连接并查询无服务器 SQL 池（预览版）和专用 SQL 池。  
 
 ## <a name="1-connect"></a>1.连接
-若要开始使用 [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)，请打开命令提示符并输入 **sqlcmd** ，后跟 Synapse SQL 数据库的连接字符串。 连接字符串需要以下参数：
+若要开始使用 [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)，请打开命令提示符并输入 **sqlcmd**，后跟 Synapse SQL 数据库的连接字符串。 连接字符串需要以下参数：
 
 * **服务器 (-S)：** 采用 `<`Server Name`>`.database.windows.net 格式的服务器
 * **数据库 (-d)：** 数据库名称

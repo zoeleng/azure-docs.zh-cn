@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656728"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835656"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>规划应用程序部署 Azure Active Directory
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 我的应用是一种基于 web 的门户，�
 * 发现并访问其公司的所有 Azure AD 连接的资源，例如应用程序
 * 请求访问新的应用和组
 * 管理其他人对这些资源的访问权限
-* 管理自助服务密码重置和 Azure 多重身份验证设置
+* 管理自助服务密码重置和 Azure AD 多重身份验证设置
 * 管理其设备
 
 它还允许管理员管理：
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) 我的应用是一种基于 web 的门户，�
 
 我的应用程序是免费的，不需要任何许可证即可在基本级别使用。 但是，目录中的对象数以及要部署的其他功能可能需要额外的许可证。 某些具有许可要求的常见 Azure AD 情况包括以下安全功能：
 
-* [Azure 多重身份验证](../authentication/concept-mfa-howitworks.md)
+* [Azure AD 多重身份验证](../authentication/concept-mfa-howitworks.md)
 * [基于组的成员身份](../fundamentals/active-directory-manage-groups.md)
 * [自助式密码重置](../authentication/tutorial-enable-sspr.md)
 * [Azure Active Directory 标识保护](../identity-protection/overview-identity-protection.md)
@@ -312,4 +312,4 @@ Azure AD 将大多数审核数据保持30天。 可以通过 Azure 管理门户�
 你可以使用 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 来管理你的角色，以便为具有目录权限的用户提供其他审核、控制和访问评审。
 
 ## <a name="next-steps"></a>后续步骤
-[规划 Azure 多重身份验证的部署](../authentication/howto-mfa-getstarted.md)
+[规划 Azure AD 多重身份验证的部署](../authentication/howto-mfa-getstarted.md)

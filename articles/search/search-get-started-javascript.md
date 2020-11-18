@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795515"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698890"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>快速入门：使用 JavaScript SDK 创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795515"
 > * [门户](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
-使用[适用于 Azure 认知搜索 的 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) 在 JavaScript 中创建一个 Node.js 应用程序用于创建、加载和查询搜索索引。
+使用[适用于 Azure 认知搜索 的 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) 在 JavaScript 中创建一个 Node.js 应用程序用于创建、加载和查询搜索索引。
 
 本文演示如何逐步创建应用程序。 或者，可以[下载源代码和数据](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11)，并从命令行运行应用程序。
 
@@ -58,7 +58,7 @@ ms.locfileid: "92795515"
 
 2. 在“设置” > “密钥”中，获取管理员密钥以获得针对服务的完全权限，需要该密钥才可创建或删除对象 。 有两个可互换的主要密钥和辅助密钥。 可以使用其中任意一个。
 
-   ![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "获取 HTTP 终结点和访问密钥")
+   ![获取 HTTP 终结点和访问密钥](media/search-get-started-rest/get-url-key.png "获取 HTTP 终结点和访问密钥")
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -80,7 +80,7 @@ ms.locfileid: "92795515"
     ```
      接受默认值，但“许可证”除外，其值应设置为“MIT”。 
 
-3. 安装 `@azure/search-documents`，这是[适用于 Azure 认知搜索的 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)。
+3. 安装 `@azure/search-documents`，这是[适用于 Azure 认知搜索的 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme)。
 
     ```cmd
     npm install @azure/search-documents
@@ -169,7 +169,7 @@ main().catch((err) => {
 
 ## <a name="1---create-index"></a>1 - 创建索引 
 
-创建文件 **hotels_quickstart_index.json** 。  此文件定义 Azure 认知搜索如何处理要在下一步骤中加载的文档。 每个字段由 `name` 标识，采用指定的 `type`。 每个字段还包含一系列索引属性，这些属性指定 Azure 认知搜索是否可以根据字段进行搜索、筛选、排序和分面。 大多数字段采用简单数据类型，但有些字段（例如 `AddressType`）采用复杂类型，可让你在索引中创建丰富的数据结构。  可以详细了解[支持的数据类型](/rest/api/searchservice/supported-data-types)和[索引属性](./search-what-is-an-index.md#index-attributes)。 
+创建文件 **hotels_quickstart_index.json**。  此文件定义 Azure 认知搜索如何处理要在下一步骤中加载的文档。 每个字段由 `name` 标识，采用指定的 `type`。 每个字段还包含一系列索引属性，这些属性指定 Azure 认知搜索是否可以根据字段进行搜索、筛选、排序和分面。 大多数字段采用简单数据类型，但有些字段（例如 `AddressType`）采用复杂类型，可让你在索引中创建丰富的数据结构。  可以详细了解[支持的数据类型](/rest/api/searchservice/supported-data-types)和[索引属性](./search-what-is-an-index.md#index-attributes)。 
 
 将以下内容添加到 **hotels_quickstart_index.json** 或 [下载文件](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json)。 
 

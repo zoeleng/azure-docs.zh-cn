@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261404"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683006"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>快速入门：使用门户上传、编码和流式传输内容
 
@@ -54,7 +54,7 @@ ms.locfileid: "91261404"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[创建媒体服务帐户](create-account-howto.md#use-the-azure-portal)
+[创建媒体服务帐户](create-account-howto.md)
 
 ## <a name="upload"></a>上载
 

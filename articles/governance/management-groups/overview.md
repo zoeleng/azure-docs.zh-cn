@@ -1,15 +1,15 @@
 ---
 title: 使用管理组来组织资源 - Azure 治理
 description: 了解管理组、其权限的工作方式以及如何使用它们。
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951870"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699587"
 ---
 # <a name="what-are-azure-management-groups"></a>什么是 Azure 管理组？
 
@@ -150,7 +150,7 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (Azure RBAC)](../
 
 例如，让我们看看某个视觉对象的层次结构的一小部分。
 
-:::image type="complex" source="./media/subtree.png" alt-text="示例管理组层次结构的图。" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="部分示例管理组层次结构的图。" border="false":::
    该图重点介绍了具有子 IT 和营销管理组的根管理组。 IT 管理组具有一个名为“生产”的子管理组，而营销管理组则具有两个免费试用版子订阅。
 :::image-end:::
 
@@ -171,7 +171,11 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (Azure RBAC)](../
  - 在新角色的可分配范围中，只能定义一个管理组。 设置此限制是为了减少出现角色定义和角色分配不关联的情况的次数。 将进行了角色分配的订阅或管理组移到另一个没有该角色定义的父项时，会出现此情况。  
  - 不能在管理组自定义角色中定义资源提供程序数据平面操作。 存在此限制是因为，在更新数据平面资源提供程序时存在延迟问题。
    我们会解决此延迟问题，并会在角色定义中禁用这些操作以降低风险。
- - Azure 资源管理器不验证管理组是否存在于角色定义的可分配范围中。 即使存在拼写错误或者列出的管理组 ID 不正确，仍会创建角色定义。  
+ - Azure 资源管理器不验证管理组是否存在于角色定义的可分配范围中。 即使存在拼写错误或者列出的管理组 ID 不正确，仍会创建角色定义。
+
+> [!IMPORTANT]
+> 将管理组添加到 `AssignableScopes` 的功能目前为预览版。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。
+> 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="moving-management-groups-and-subscriptions"></a>移动管理组和订阅 
 
@@ -194,7 +198,7 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (Azure RBAC)](../
 
 [Azure 活动日志](../../azure-monitor/platform/platform-logs-overview.md)支持管理组。 可以搜索到与其他 Azure 资源相同的中心位置中的管理组发生的所有事件。 例如，可以看到对特定管理组所做的所有角色分配或策略分配更改。
 
-:::image type="content" source="./media/al-mg.png" alt-text="示例管理组层次结构的图。" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="与所选管理组相关的活动日志和操作的屏幕截图。" border="false":::
 
 如果要在 Azure 门户外针对管理组进行查询，管理组的目标范围将如下所示： **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** 。
 

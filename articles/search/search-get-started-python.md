@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: e4141bc4887a166876d1fc4590b73f382abd0b95
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dca53dc27eacc5c7e04bbf6cb5df82a8e8da0dfc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936667"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694544"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>快速入门：在 Python 中使用 Jupyter Notebook 创建 Azure 认知搜索索引
 
@@ -23,7 +23,7 @@ ms.locfileid: "88936667"
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](./search-get-started-powershell.md)
 > * [C#](./search-get-started-dotnet.md)
-> * [Postman (REST)](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 > * [门户](search-get-started-portal.md)
 > 
 
@@ -47,7 +47,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "获取 HTTP 终结点和访问密钥")
+![获取 HTTP 终结点和访问密钥](media/search-get-started-rest/get-url-key.png "获取 HTTP 终结点和访问密钥")
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 

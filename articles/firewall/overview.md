@@ -9,12 +9,12 @@ ms.custom: mvc, contperfq1
 ms.date: 11/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 07c0169dcbadc6dc8ae293d69e197c2cd1ec2275
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489788"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658377"
 ---
 # <a name="what-is-azure-firewall"></a>什么是 Azure 防火墙？
 
@@ -47,7 +47,7 @@ Azure 防火墙存在以下已知问题：
 
 |问题  |说明  |缓解措施  |
 |---------|---------|---------|
-针对非 TCP/UDP 协议（例如 ICMP）的网络筛选规则不适用于 Internet 绑定的流量|针对非 TCP/UDP 协议的网络筛选规则不支持公共 IP 地址的 SNAT。 在分支子网与 VNet 之间支持非 TCP/UDP 协议。|Azure 防火墙使用[目前不支持 IP 协议 SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 的标准负载均衡器。 我们正在探索如何在将来的版本中推出支持此方案的选项。|
+针对非 TCP/UDP 协议（例如 ICMP）的网络筛选规则不适用于 Internet 绑定的流量|针对非 TCP/UDP 协议的网络筛选规则不支持公共 IP 地址的 SNAT。 在分支子网与 VNet 之间支持非 TCP/UDP 协议。|Azure 防火墙使用[目前不支持 IP 协议 SNAT](../load-balancer/load-balancer-overview.md) 的标准负载均衡器。 我们正在探索如何在将来的版本中推出支持此方案的选项。|
 |缺少对 ICMP 的 PowerShell 和 CLI 支持|Azure PowerShell 和 CLI 不支持使用 ICMP 作为网络规则中的有效协议。|仍然可以通过门户和 REST API 使用 ICMP 作为协议。 我们正在致力于在不久之后在 PowerShell 和 CLI 中添加 ICMP。|
 |FQDN 标记要求设置 protocol: port|带有 FQDN 标记的应用程序规则需要 port:protocol 定义。|可以将 **https** 用作 port: protocol 值。 我们正在致力于使此字段在使用了 FQDN 标记时可选。|
 |不支持将防火墙移动到不同的资源组或订阅|不支持将防火墙移动到不同的资源组或订阅。|我们已计划提供此功能的支持。 若要将防火墙移动到不同的资源组或订阅，必须删除当前实例并在新的资源组或订阅中重新创建它。|
@@ -61,7 +61,7 @@ Azure 防火墙存在以下已知问题：
 |主动 FTP 不受支持|在 Azure 防火墙上禁用主动 FTP，防范使用 FTP PORT 命令进行的 FTP 弹跳攻击。|可以改用被动 FTP。 仍需在防火墙上显式打开 TCP 端口 20 和 21。
 |SNAT 端口使用率指标显示 0%|即使使用 SNAT 端口，Azure 防火墙 SNAT 端口使用率指标也可能显示 0%。 在这种情况下，将此指标用作防火墙运行状况指标的一部分会导致不正确的结果。|此问题已修复，预计在 2020 年 5 月推出生产版。 在某些情况下，重新部署防火墙即可解决此问题，但存在偶然性。 可以只使用防火墙运行状况状态来查找 *status=degraded* 而非 *status=unhealthy*，但这是一种权宜解决方法。 端口耗尽会显示为“已降级”。 “不正常”保留给将来使用，到时会有更多指标影响防火墙运行状况。
 |在启用了强制隧道的情况下不支持 DNAT|由于采用非对称路由，在启用了强制隧道的情况下部署的防火墙无法支持从 Internet 进行入站访问。|这种限制是根据非对称路由设计的。 入站连接的返回路径通过本地防火墙，而该防火墙看不到已建立的连接。
-|出站被动 FTP 可能不适用于具有多个公共 IP 的防火墙，具体取决于你的 FTP 服务器配置。|被动 FTP 为控制通道和数据通道建立不同的连接。 当具有多个公共 IP 地址的防火墙发送出站数据时，它会随机选择一个公共 IP 地址作为源 IP 地址。 当数据和控制通道使用不同的源 IP 地址时，FTP 可能会失败，具体取决于你的 FTP 服务器配置。|规划显式 SNAT 配置。 同时，你可将 FTP 服务器配置为接受来自不同源 IP 地址的数据和控制通道（请参阅 [IIS 的示例](https://docs.microsoft.com/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity)）。 或者，请考虑在此情况中使用单个 IP 地址。|
+|出站被动 FTP 可能不适用于具有多个公共 IP 的防火墙，具体取决于你的 FTP 服务器配置。|被动 FTP 为控制通道和数据通道建立不同的连接。 当具有多个公共 IP 地址的防火墙发送出站数据时，它会随机选择一个公共 IP 地址作为源 IP 地址。 当数据和控制通道使用不同的源 IP 地址时，FTP 可能会失败，具体取决于你的 FTP 服务器配置。|规划显式 SNAT 配置。 同时，你可将 FTP 服务器配置为接受来自不同源 IP 地址的数据和控制通道（请参阅 [IIS 的示例](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity)）。 或者，请考虑在此情况中使用单个 IP 地址。|
 |入站被动 FTP 可能无法工作，具体取决于你的 FTP 服务器配置 |被动 FTP 为控制通道和数据通道建立不同的连接。 Azure 防火墙上的入站连接经过 SNAT 转换为防火墙的某个专用 IP 地址，以确保对称路由。 当数据和控制通道使用不同的源 IP 地址时，FTP 可能会失败，具体取决于你的 FTP 服务器配置。|保留原始源 IP 地址的操作正在接受调查。 在此期间，你可将 FTP 服务器配置为接受来自不同源 IP 地址的数据和控制通道。|
 |NetworkRuleHit 指标缺少协议维度|ApplicationRuleHit 指标允许基于筛选的协议，但相应的 NetworkRuleHit 指标中缺少此功能。|我们正在研究修复措施。|
 |不支持端口介于 64000 和 65535 之间的 NAT 规则|Azure 防火墙允许网络和应用程序规则中 1-65535 范围内的任何端口，但是 NAT 规则仅支持 1-63999 范围内的端口。|这是当前的一项限制。

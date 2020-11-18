@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 12190a50579bf5b87685fc4b19ec7b2907e5ee9c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e1fa97fb8a3dcae3a78ba0bc85cf59db2c167dea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547038"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696772"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -297,7 +297,7 @@ $rule =
 New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 >[!NOTE]
->后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](../virtual-network/nat-overview.md)**
 
 
 ### <a name="create-load-balancer-resource"></a>创建负载均衡器资源
@@ -399,7 +399,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 ### <a name="create-virtual-machines"></a>创建虚拟机
 
-使用 [New-AzureRmNetworkInterface](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [New-AzureRmNetworkInterface](/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -832,7 +832,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>创建虚拟机
 
-使用 [New-AzureRmNetworkInterface](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [New-AzureRmNetworkInterface](/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -914,7 +914,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ## <a name="install-iis"></a>安装 IIS
 
-使用 [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) 安装自定义脚本扩展。 
+使用 [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension?view=latest) 安装自定义脚本扩展。 
 
 该扩展运行 PowerShell Add-WindowsFeature Web-Server 以安装 IIS Web 服务器，然后更新 Default.htm 页以显示 VM 的主机名：
 
@@ -986,7 +986,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -Networ
 
 ### <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1074,5 +1074,3 @@ Remove-AzResourceGroup -Name $rg
 若要详细了解 Azure 负载均衡器，请继续学习
 > [!div class="nextstepaction"]
 > [什么是 Azure 负载均衡器？](load-balancer-overview.md)
-
-

@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311118"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686202"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 Synapse SQL
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ ms.locfileid: "93311118"
   
     ![连接到服务器 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **服务器名称** ：输入前面标识的 **服务器名称** 。
-   * **身份验证** ：选择一个身份验证类型，例如“SQL Server 身份验证”或“Active Directory 集成身份验证”。
-   * **用户名** 和 **密码** ：如果在上面选择了“SQL Server 身份验证”，请输入用户名和密码。
+   * **服务器名称**：输入前面标识的 **服务器名称** 。
+   * **身份验证**：选择一个身份验证类型，例如“SQL Server 身份验证”或“Active Directory 集成身份验证”。
+   * **用户名** 和 **密码**：如果在上面选择了“SQL Server 身份验证”，请输入用户名和密码。
 
 1. 在“对象资源管理器”中展开你的 Azure SQL Server。 可以查看与服务器关联的数据库，例如示例 AdventureWorksDW 数据库。 可以展开数据库来查看表：
    
@@ -72,9 +72,9 @@ ms.locfileid: "93311118"
    
     ![连接到服务器 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **服务器名称** ：输入前面标识的 **服务器名称** 。
-   * **身份验证** ：选择一个身份验证类型，例如“SQL Server 身份验证”或“Active Directory 集成身份验证”：
-   * **用户名** 和 **密码** ：如果在上面选择了“SQL Server 身份验证”，请输入用户名和密码。
+   * **服务器名称**：输入前面标识的 **服务器名称** 。
+   * **身份验证**：选择一个身份验证类型，例如“SQL Server 身份验证”或“Active Directory 集成身份验证”：
+   * **用户名** 和 **密码**：如果在上面选择了“SQL Server 身份验证”，请输入用户名和密码。
    * 选择“连接” 。
 
 4. 要浏览，请展开 Azure SQL 服务器。 可以查看与服务器关联的数据库。 展开“demo”以查看示例数据库中的内容。

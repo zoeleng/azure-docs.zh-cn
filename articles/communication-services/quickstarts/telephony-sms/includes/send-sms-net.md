@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c8bce6afd914a22be80a57ae234e39161d182b7f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499128"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816847"
 ---
 通过使用通信服务 C# 短信客户端库来发送短信，开启 Azure 通信服务使用旅程。
 
@@ -41,7 +41,7 @@ ms.locfileid: "92499128"
 
 ### <a name="create-a-new-c-application"></a>新建 C# 应用程序
 
-在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `SmsQuickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目： **Program.cs** 。
+在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `SmsQuickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：**Program.cs**。
 
 ```console
 dotnet new console -o SmsQuickstart
@@ -59,7 +59,7 @@ dotnet build
 仍在应用程序目录中时，使用 `dotnet add package` 命令安装适用于 .NET 包的 Azure 通信服务短信客户端库。
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 ```
 
 将 `using` 指令添加到 Program.cs 顶部以包括 `Azure.Communication` 命名空间。

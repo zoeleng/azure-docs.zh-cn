@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0dfb5a68149f4745d17581dcefed6aedcf394106
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35dc088909522494d6c1cf4c94f9342c95fda59a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487698"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698404"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -421,7 +421,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic3 -LoadBa
 ```
 ### <a name="create-virtual-machines"></a>创建虚拟机
 
-使用 [New-AzureRmNetworkInterface](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [New-AzureRmNetworkInterface](/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1079,7 +1079,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>创建虚拟机
 
-使用 [New-AzureRmNetworkInterface](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [New-AzureRmNetworkInterface](/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1191,7 +1191,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ## <a name="install-iis"></a>安装 IIS
 
-使用 [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) 安装自定义脚本扩展。 
+使用 [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) 安装自定义脚本扩展。 
 
 该扩展运行 PowerShell Add-WindowsFeature Web-Server 以安装 IIS Web 服务器，然后更新 Default.htm 页以显示 VM 的主机名：
 
@@ -1242,7 +1242,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
 
-使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址：
+使用 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址：
 
 ```azurepowershell-interactive
   ## Variables for command. ##
@@ -1281,5 +1281,3 @@ Remove-AzResourceGroup -Name $rg
 若要详细了解 Azure 负载均衡器，请继续学习
 > [!div class="nextstepaction"]
 > [什么是 Azure 负载均衡器？](load-balancer-overview.md)
-
-

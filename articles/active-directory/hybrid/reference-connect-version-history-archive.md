@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0adf548b009ad6fe0c85501b9777ff23723b3e24
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 859a4f199e65dd0c3aee9424029f6060683d5fbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413405"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836081"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect：版本发布历史记录存档
 
@@ -212,8 +212,8 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 设备写回配置现在仅在 Azure AD Connect 向导中进行管理。
 - 添加了名为 ADSyncTools.psm1 的新 PowerShell 模块，可用于 SQL 连接问题故障排除和各种其他疑难解答实用工具。 在[此处](tshoot-connect-tshoot-sql-connectivity.md)阅读有关 ADSyncTools 模块的详细信息。 
 - 添加了新的“配置设备选项”任务。 可使用该任务来配置以下两个操作： 
-  - **混合 Azure AD 加入** ：如果你的环境具有本地 AD 占用空间并且你希望利用 Azure Active Directory 提供的功能所带来的优势，则可选择实现混合 Azure AD 加入设备。 这些设备同时加入到本地 Active Directory 和 Azure Active Directory。
-  - **设备写回** ：设备写回用于在设备上启用对 AD FS（2012 R2 或更高版本）保护设备的基于条件的访问
+  - **混合 Azure AD 加入**：如果你的环境具有本地 AD 占用空间并且你希望利用 Azure Active Directory 提供的功能所带来的优势，则可选择实现混合 Azure AD 加入设备。 这些设备同时加入到本地 Active Directory 和 Azure Active Directory。
+  - **设备写回**：设备写回用于在设备上启用对 AD FS（2012 R2 或更高版本）保护设备的基于条件的访问
 
     >[!NOTE] 
     > - 通过自定义同步选项启用设备写回的选项将灰显。 
@@ -364,16 +364,16 @@ Azure AD Connect 版本 1.1.654.0（以及更高版本）中已添加了一项�
 
 类型     | 名称                          | 访问               | 应用于
 ---------|-------------------------------|----------------------|--------------|
-允许    | SYSTEM                        | 完全控制         | 此对象  |
-允许    | 企业管理员             | 完全控制         | 此对象  |
-允许    | 域管理员                 | 完全控制         | 此对象  |
-允许    | 管理员                | 完全控制         | 此对象  |
-允许    | 企业域控制器 | 列出内容        | 此对象  |
-允许    | 企业域控制器 | 读取所有属性  | 此对象  |
-允许    | 企业域控制器 | 读取权限     | 此对象  |
-允许    | 经过身份验证的用户           | 列出内容        | 此对象  |
-允许    | 经过身份验证的用户           | 读取所有属性  | 此对象  |
-允许    | 经过身份验证的用户           | 读取权限     | 此对象  |
+Allow    | SYSTEM                        | 完全控制         | 此对象  |
+Allow    | 企业管理员             | 完全控制         | 此对象  |
+Allow    | 域管理员                 | 完全控制         | 此对象  |
+Allow    | 管理员                | 完全控制         | 此对象  |
+Allow    | 企业域控制器 | 列出内容        | 此对象  |
+Allow    | 企业域控制器 | 读取所有属性  | 此对象  |
+Allow    | 企业域控制器 | 读取权限     | 此对象  |
+Allow    | 经过身份验证的用户           | 列出内容        | 此对象  |
+Allow    | 经过身份验证的用户           | 读取所有属性  | 此对象  |
+Allow    | 经过身份验证的用户           | 读取权限     | 此对象  |
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>PowerShell 脚本增强预先存在的服务帐户
 
@@ -608,7 +608,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 ### <a name="pass-through-authentication"></a>直通身份验证
 
 #### <a name="new-features-and-improvements"></a>新增功能和改进
-* 直通身份验证所需代理的名称已从 *Microsoft Azure AD 应用程序代理连接器* 更改为 *Microsoft Azure AD Connect 身份验证代理* 。
+* 直通身份验证所需代理的名称已从 *Microsoft Azure AD 应用程序代理连接器* 更改为 *Microsoft Azure AD Connect 身份验证代理*。
 
 * 启用直通身份验证不再会默认启用密码哈希同步。
 
@@ -776,7 +776,7 @@ Azure AD Connect 同步
 
 Azure AD Connect 同步
 * 同步规则更改 – 实现了以下同步规则更改：
-  * 如果属性有 15 个以上的值，更新的默认同步规则设置为不导出属性 **userCertificate** 和 **userSMIMECertificate** 。
+  * 如果属性有 15 个以上的值，更新的默认同步规则设置为不导出属性 **userCertificate** 和 **userSMIMECertificate**。
   * AD 属性 **employeeID** 和 **msExchBypassModerationLink** 现在包含在默认同步规则集中。
   * AD 属性 **photo** 已从默认同步规则集中删除。
   * 将 **preferredDataLocation** 添加到元节架构，并 Azure AD 连接器架构。 客户想要在 Azure AD 中更新任一属性可以实现自定义同步规则，可以这样做。 
@@ -1023,7 +1023,7 @@ AD FS 管理
 **新功能：**
 
 * 适用于快速设置客户的[自动升级](how-to-connect-install-automatic-upgrade.md)功能。
-* 使用安装向导中的 Azure 多重身份验证和 Privileged Identity Management 来提供全局管理员支持。
+* 使用安装向导中 Azure AD 多重身份验证和 Privileged Identity Management 来支持全局管理员。
   * 如果使用多重身份验证，则代理也需要允许发往 https://secure.aadcdn.microsoftonline-p.com 的流量。
   * 需要将 https://secure.aadcdn.microsoftonline-p.com 添加到受信任的站点列表，这样多重身份验证才能正常工作。
 * 允许在初始安装之后更改用户的登录方法。

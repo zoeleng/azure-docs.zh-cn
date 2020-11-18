@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44f6ba313ab57933a1078e96533c88cc4b4b59b3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6ac76b3d3cc8fb27734730275836fba0dbfb08fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490843"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700301"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -159,10 +159,10 @@ ms.locfileid: "92490843"
     
     | 设置 | Value |
     | ------- | ----- |
-    | 名称 | 输入 **myHealthProbe** 。 |
+    | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
-    | 端口 | 输入 **80** 。|
-    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔** （以秒为单位）。 |
+    | 端口 | 输入 **80**。|
+    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔**（以秒为单位）。 |
     | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
     | | |
 
@@ -187,12 +187,12 @@ ms.locfileid: "92490843"
     
     | 设置 | Value |
     | ------- | ----- |
-    | 名称 | 输入 **myHTTPRule** 。 |
+    | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
     | 前端 IP 地址 | 选择“LoadBalancerFrontEnd” |
     | 协议 | 选择“TCP”。 |
-    | 端口 | 输入 **80** 。|
-    | 后端端口 | 输入 **80** 。 |
+    | 端口 | 输入 **80**。|
+    | 后端端口 | 输入 **80**。 |
     | 后端池 | 选择“myBackendPool”。|
     | 运行状况探测 | 选择“myHealthProbe”。 |
     | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |
@@ -202,7 +202,7 @@ ms.locfileid: "92490843"
 4. 将剩余的字段保留默认设置，然后选择“确定”。
 
 >[!NOTE]
->后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>创建后端服务器
 
@@ -401,11 +401,11 @@ ms.locfileid: "92490843"
     
     | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHealthProbe** 。 |
+    | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
-    | 端口 | 输入 **80** 。|
+    | 端口 | 输入 **80**。|
     | 路径 | 输入“/” |
-    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔** （以秒为单位）。 |
+    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔**（以秒为单位）。 |
     | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
 
 3. 选择“确定” 。
@@ -429,12 +429,12 @@ ms.locfileid: "92490843"
     
     | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHTTPRule** 。 |
+    | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
     | 前端 IP 地址 | 选择“LoadBalancerFrontEnd” |
     | 协议 | 选择“TCP”。 |
-    | 端口 | 输入 **80** 。|
-    | 后端端口 | 输入 **80** 。 |
+    | 端口 | 输入 **80**。|
+    | 后端端口 | 输入 **80**。 |
     | 后端池 | 选择“myBackendPool”。|
     | 运行状况探测 | 选择“myHealthProbe”。 |
     | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |
@@ -635,4 +635,4 @@ ms.locfileid: "92490843"
 
 若要详细了解 Azure 负载均衡器，请继续学习
 > [!div class="nextstepaction"]
-> [什么是 Azure 负载均衡器？](load-balancer-overview.md) 
+> [什么是 Azure 负载均衡器？](load-balancer-overview.md)

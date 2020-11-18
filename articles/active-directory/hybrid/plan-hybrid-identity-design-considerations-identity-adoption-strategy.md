@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294855"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836183"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>定义混合标识采用策略
 在此任务中，你将根据所述的业务要求，为混合标识解决方案定义混合标识采用策略：
@@ -176,7 +176,7 @@ Microsoft 有三个主要集成方案，分别为云标识、同步标识和联�
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>定义多重身份验证策略
-此任务将定义要使用的多重身份验证策略。  Azure 多重身份验证有两个不同的版本。  其中一个版本是基于云的身份验证，另一个版本是使用 Azure MFA 服务器进行本地身份验证。  根据上面所做的评估，可以确定哪一项是策略的正确解决方案。  使用下表确定哪个设计选项最符合公司的安全要求：
+此任务将定义要使用的多重身份验证策略。  Azure AD 多因素身份验证提供了两个不同的版本。  其中一个版本是基于云的身份验证，另一个版本是使用 Azure MFA 服务器进行本地身份验证。  根据上面所做的评估，可以确定哪一项是策略的正确解决方案。  使用下表确定哪个设计选项最符合公司的安全要求：
 
 多重身份验证设计选项：
 

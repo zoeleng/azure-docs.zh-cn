@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f7d9389eb0a0118f2c1be8375531f58b6bed94b6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5f19b55a955b8e3e1500cf14fa221b46808ac857
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488089"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698285"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共负载均衡器，以便对 VM 进行负载均衡
 
@@ -60,7 +60,7 @@ ms.locfileid: "92488089"
     | 公共 IP 地址 | 选择“新建”。 若要使用现有的公共 IP，请选择“使用现有项”。 |
     | 公共 IP 地址名称 | 在文本框中键入 myPublicIP。|
     | 可用性区域 | 选择“区域冗余”以创建弹性负载均衡器。 若要创建区域负载均衡器，请选择特定的区域：1、2 或 3 |
-    | 添加一个公共 IPv6 地址 | 请选择“否”。 </br> 有关 IPv6 地址和负载均衡器的详细信息，请参阅[什么是适用于 Azure 虚拟网络的 IPv6？](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | 添加一个公共 IPv6 地址 | 请选择“否”。 </br> 有关 IPv6 地址和负载均衡器的详细信息，请参阅[什么是适用于 Azure 虚拟网络的 IPv6？](../virtual-network/ipv6-overview.md)  |
 
 3. 接受剩余设置的默认值，然后选择“查看 + 创建”。
 
@@ -102,10 +102,10 @@ ms.locfileid: "92488089"
     
     | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHealthProbe** 。 |
+    | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
-    | 端口 | 输入 **80** 。|
-    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔** （以秒为单位）。 |
+    | 端口 | 输入 **80**。|
+    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔**（以秒为单位）。 |
     | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
     | | |
 
@@ -130,12 +130,12 @@ ms.locfileid: "92488089"
     
     | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHTTPRule** 。 |
+    | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
     | 前端 IP 地址 | 选择“LoadBalancerFrontEnd” |
     | 协议 | 选择“TCP”。 |
-    | 端口 | 输入 **80** 。|
-    | 后端端口 | 输入 **80** 。 |
+    | 端口 | 输入 **80**。|
+    | 后端端口 | 输入 **80**。 |
     | 后端池 | 选择“myBackendPool”。|
     | 运行状况探测 | 选择“myHealthProbe”。 |
     | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |
@@ -341,7 +341,7 @@ ms.locfileid: "92488089"
     | 公共 IP 地址 | 选择“新建”。 若要使用现有的公共 IP，请选择“使用现有项”。 |
     | 公共 IP 地址名称 | 在文本框中键入 myPublicIP。|
     | 分配 | 选择“动态” |
-    | 添加一个公共 IPv6 地址 | 请选择“否”。 </br> 有关 IPv6 地址和负载均衡器的详细信息，请参阅[什么是适用于 Azure 虚拟网络的 IPv6？](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | 添加一个公共 IPv6 地址 | 请选择“否”。 </br> 有关 IPv6 地址和负载均衡器的详细信息，请参阅[什么是适用于 Azure 虚拟网络的 IPv6？](../virtual-network/ipv6-overview.md)  |
 
 3. 接受剩余设置的默认值，然后选择“查看 + 创建”。
 
@@ -440,11 +440,11 @@ ms.locfileid: "92488089"
     
     | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHealthProbe** 。 |
+    | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
-    | 端口 | 输入 **80** 。|
+    | 端口 | 输入 **80**。|
     | 路径 | 输入“/” |
-    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔** （以秒为单位）。 |
+    | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔**（以秒为单位）。 |
     | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
 
 3. 选择“确定” 。
@@ -468,12 +468,12 @@ ms.locfileid: "92488089"
     
     | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 **myHTTPRule** 。 |
+    | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
     | 前端 IP 地址 | 选择“LoadBalancerFrontEnd” |
     | 协议 | 选择“TCP”。 |
-    | 端口 | 输入 **80** 。|
-    | 后端端口 | 输入 **80** 。 |
+    | 端口 | 输入 **80**。|
+    | 后端端口 | 输入 **80**。 |
     | 后端池 | 选择“myBackendPool”。|
     | 运行状况探测 | 选择“myHealthProbe”。 |
     | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |

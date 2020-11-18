@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463750"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835894"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>模拟 Identity Protection 中的风险检测
 
@@ -40,12 +40,12 @@ ms.locfileid: "84463750"
 完成以下过程需要使用：
 
 - [Tor 浏览器](https://www.torproject.org/projects/torbrowser.html.en)，用于模拟匿名 IP 地址。 如果组织限制使用 Tor 浏览器，则可能需要使用虚拟机。
-- 尚未注册 Azure 多重身份验证的测试帐户。
+- 尚未注册 Azure AD 多重身份验证的测试帐户。
 
 **若要模拟从匿名 IP 登录，请执行以下步骤**：
 
 1. 使用 [Tor 浏览器](https://www.torproject.org/projects/torbrowser.html.en)，导航到 [https://myapps.microsoft.com](https://myapps.microsoft.com)。   
-2. 输入要在**从匿名 IP 地址登录**报告中显示的帐户的凭据。
+2. 输入要在 **从匿名 IP 地址登录** 报告中显示的帐户的凭据。
 
 登录会在 10 - 15 分钟内显示在“标识保护”仪表板上。 
 
@@ -61,7 +61,7 @@ ms.locfileid: "84463750"
 完成以下过程需要使用具有以下特征的用户帐户：
 
 - 至少 30 天的登录历史记录。
-- Azure 多重身份验证已启用。
+- 已启用 Azure AD 多重身份验证。
 
 **若要模拟从不熟悉的位置登录，请执行以下步骤**：
 
@@ -93,13 +93,13 @@ ms.locfileid: "84463750"
 若要测试用户风险安全策略，请执行以下步骤：
 
 1. 导航到 [Azure 门户](https://portal.azure.com)。
-1. 浏览到**Azure Active Directory**  >  **安全**  >  **概述**。
+1. 浏览到 **Azure Active Directory**  >  **安全**  >  **概述**。
 1. 选择 " **配置用户风险策略**"。
-   1. 在**分配**下
+   1. 在 **分配** 下
       1. **用户** -选择 " **所有用户** " **，或选择 "个人和组** " （如果限制你的部署）。
          1. 还可以选择从策略中排除用户。
-      1. **条件**  - **用户风险**Microsoft 建议将此选项设置为 "**高**"。
-   1. **控件**下面
+      1. **条件**  - **用户风险** Microsoft 建议将此选项设置为 "**高**"。
+   1. **控件** 下面
       1. **访问** -Microsoft 的建议是 **允许访问** 并 **需要更改密码**。
    1. **强制执行策略**  - **关闭**
    1. **保存** -此操作将返回到 " **概述** " 页。
@@ -113,13 +113,13 @@ ms.locfileid: "84463750"
 若要测试登录风险策略，请执行以下步骤：
 
 1. 导航到 [Azure 门户](https://portal.azure.com)。
-1. 浏览到**Azure Active Directory**  >  **安全**  >  **概述**。
+1. 浏览到 **Azure Active Directory**  >  **安全**  >  **概述**。
 1. 选择 " **配置登录风险策略"**。
-   1. 在**分配**下
+   1. 在 **分配** 下
       1. **用户** -选择 " **所有用户** " **，或选择 "个人和组** " （如果限制你的部署）。
          1. 还可以选择从策略中排除用户。
-      1. **条件**  - **登录风险**Microsoft 建议将此选项设置为 "**中" 和 "上**"。
-   1. **控件**下面
+      1. **条件**  - **登录风险** Microsoft 建议将此选项设置为 "**中" 和 "上**"。
+   1. **控件** 下面
       1. **访问** -Microsoft 的建议是 **允许访问** 并 **需要多重身份验证**。
    1. **强制执行策略**  - **开启**
    1. **保存** -此操作将返回到 " **概述** " 页。

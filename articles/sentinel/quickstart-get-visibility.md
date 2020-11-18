@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516947"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660808"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>快速入门：Azure Sentinel 入门
 
@@ -38,15 +38,15 @@ ms.locfileid: "92516947"
 
 概述页的主体提供工作区安全状态的概览：
 
-- **一段时间的事件和警报数** ：列出事件数，以及基于这些事件创建的警报数。 如果看到了异常的高峰，应会看到相应的警报 - 如果出现事件高峰时发生了某种异常，但未看到警报，则可能需要引以关注。
+- **一段时间的事件和警报数**：列出事件数，以及基于这些事件创建的警报数。 如果看到了异常的高峰，应会看到相应的警报 - 如果出现事件高峰时发生了某种异常，但未看到警报，则可能需要引以关注。
 
-- **潜在的恶意事件** ：检测到来自已知恶意的源的流量时，Azure Sentinel 会在地图上发出警报。 橙色表示入站流量：有人正在尝试从已知恶意的 IP 地址访问你的组织。 如果看到出站（红色）活动，表示网络中的数据正在从你的组织流向已知恶意的 IP 地址。
+- **潜在的恶意事件**：检测到来自已知恶意的源的流量时，Azure Sentinel 会在地图上发出警报。 橙色表示入站流量：有人正在尝试从已知恶意的 IP 地址访问你的组织。 如果看到出站（红色）活动，表示网络中的数据正在从你的组织流向已知恶意的 IP 地址。
 
    ![恶意流量映射](./media/qs-get-visibility/map.png)
 
-- **最新事件** ：查看最近的事件、其严重性及其关联的警报数。 如果特定类型的警报出现突发性的高峰，可能意味着某种攻击正在活跃地进行。 例如，如果 Microsoft Defender for Identity（之前称为 Azure ATP）中突然引发了多达 20 个传递哈希事件，可能意味着某人正在试图攻击你。
+- **最新事件**：查看最近的事件、其严重性及其关联的警报数。 如果特定类型的警报出现突发性的高峰，可能意味着某种攻击正在活跃地进行。 例如，如果 Microsoft Defender for Identity（之前称为 Azure ATP）中突然引发了多达 20 个传递哈希事件，可能意味着某人正在试图攻击你。
 
-- **数据源异常** ：Microsoft 的数据分析师创建了模型用于不间断地搜索数据源中数据的异常。 如果未出现任何异常，则不会显示任何信息。 如果检测到异常，则你应该进行深入调查，以确定发生了什么情况。 例如，单击“Azure 活动”中的高峰。 可以单击“图表”了解高峰是何时发生的，然后筛选在该时间段发生的活动，以确定哪些因素造成了高峰。
+- **数据源异常**：Microsoft 的数据分析师创建了模型用于不间断地搜索数据源中数据的异常。 如果未出现任何异常，则不会显示任何信息。 如果检测到异常，则你应该进行深入调查，以确定发生了什么情况。 例如，单击“Azure 活动”中的高峰。 可以单击“图表”了解高峰是何时发生的，然后筛选在该时间段发生的活动，以确定哪些因素造成了高峰。
 
    ![异常数据源](./media/qs-get-visibility/anomolies.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "92516947"
 1. 在“设置”下，选择“工作簿”。 在“已安装”下，可以看到所有已安装的工作簿。 在“全部”下，可以看到可供安装的整个内置工作簿库。 
 2. 搜索特定的工作簿以查看整个列表，以及每个工作簿的功能说明。 
 3. 假设你使用 Azure AD，若要正常运行 Azure Sentinel，我们建议至少安装以下工作簿：
-   - **Azure AD** ：使用以下两项中的一个或两个：
+   - **Azure AD**：使用以下两项中的一个或两个：
        - “Azure AD 登录”可分析不同时间的登录活动，以确定是否存在异常。 此工作簿按应用程序、设备和位置列出失败的登录，使你能够即时注意到有异常情况发生。 请注意是否出现了多个失败的登录活动。 
        - “Azure AD 审核日志”可分析管理活动，例如用户更改（添加、删除等）、组创建和修改。  
 
@@ -66,7 +66,7 @@ ms.locfileid: "92516947"
       ![Palo Alto 仪表板](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-可以通过编辑主要查询![查询编辑按钮](./media/qs-get-visibility/edit-query-button.png)来自定义工作簿。 可以单击按钮 ![Log Analytics 按钮](./media/qs-get-visibility/go-to-la-button.png)转到 [Log Analytics 以编辑查询](../azure-monitor/log-query/get-started-portal.md)；可以选择省略号 (...) 并选择“自定义磁贴数据”，以编辑主要时间筛选器，或者从工作簿中删除特定的磁贴。
+可以通过编辑主要查询![查询编辑按钮](./media/qs-get-visibility/edit-query-button.png)来自定义工作簿。 可以单击按钮 ![Log Analytics 按钮](./media/qs-get-visibility/go-to-la-button.png)转到 [Log Analytics 以编辑查询](../azure-monitor/log-query/log-analytics-tutorial.md)；可以选择省略号 (...) 并选择“自定义磁贴数据”，以编辑主要时间筛选器，或者从工作簿中删除特定的磁贴。
 
 有关使用查询的详细信息，请参阅[教程：Log Analytics 中的视觉数据](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -119,7 +119,7 @@ AuditLogs
 
 创建新的检测时，请利用 Microsoft 安全研究人员为你连接的数据源量身定制的内置检测。
 
-若要查看所有现成的检测，请转到 **Analytics** ，然后转到“规则模板”。 此选项卡包含所有的 Azure Sentinel 内置规则。
+若要查看所有现成的检测，请转到 **Analytics**，然后转到“规则模板”。 此选项卡包含所有的 Azure Sentinel 内置规则。
 
    ![使用 Azure Sentinel 通过内置检测来查找威胁](media/tutorial-detect-built-in/view-oob-detections.png)
 
@@ -129,4 +129,3 @@ AuditLogs
 本快速入门介绍了如何开始使用 Azure Sentinel。 请继续学习有关[如何检测威胁](tutorial-detect-threats-built-in.md)的教程。
 > [!div class="nextstepaction"]
 > [创建自定义威胁检测规则](tutorial-detect-threats-custom.md)，以便自动针对威胁做出响应。
-

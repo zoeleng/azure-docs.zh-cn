@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b33f3e58f82d52e77437c29f7e5219926b2578c3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106971"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660655"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>快速入门：载入 Azure Sentinel
 
@@ -32,7 +32,7 @@ ms.locfileid: "92106971"
 
 - 如果没有可用的 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- Log Analytics 工作区。 了解如何[创建 Log Analytics 工作区](../log-analytics/log-analytics-quick-create-workspace.md)。 有关 Log Analytics 工作区的详细信息，请参阅[设计 Azure 监视日志部署](../azure-monitor/platform/design-logs-deployment.md)。
+- Log Analytics 工作区。 了解如何[创建 Log Analytics 工作区](../azure-monitor/learn/quick-create-workspace.md)。 有关 Log Analytics 工作区的详细信息，请参阅[设计 Azure 监视日志部署](../azure-monitor/platform/design-logs-deployment.md)。
 
 - 若要启用 Azure Sentinel，需要获取 Azure Sentinel 工作区所在订阅的参与者权限。 
 - 若要使用 Azure Sentinel，需要获取工作区所属资源组的“参与者”或“读取者”权限。
