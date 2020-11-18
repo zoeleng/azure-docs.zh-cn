@@ -6,13 +6,13 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 1e6bace9652ff68bb4cc28d482016b7e7510154b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150193"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833548"
 ---
 # <a name="use-an-app-service-environment"></a>使用应用服务环境
 

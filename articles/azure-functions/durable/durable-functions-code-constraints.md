@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392610"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833089"
 ---
 # <a name="orchestrator-function-code-constraints"></a>业务流程协调程序函数代码约束
 
@@ -30,8 +30,8 @@ Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩�
 
 | API 类别 | Reason | 解决方法 |
 | ------------ | ------ | ---------- |
-| 日期和时间  | 返回当前日期或时间的 API 是非确定性的，因为每次重播时它们返回的值都不相同。 | `CurrentUtcDateTime`在 .net 中使用 api，在 JavaScript 中使用 api， `currentUtcDateTime` 或 `current_utc_datetime` 在 Python 中使用 api，这些 api 可安全地重播。 |
-| GUID 和 UUID  | 返回随机 GUID 或 UUID 的 API 是非确定性的，因为每次重播时它们生成的值都不相同。 | 使用 .NET 中的 `NewGuid` 或 JavaScript 中的 `newGuid` 安全地生成随机 GUID。 |
+| 日期和时间  | 返回当前日期或时间的 API 是非确定性的，因为每次重播时它们返回的值都不相同。 | 使用 .NET 中的 [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) 属性、 `currentUtcDateTime` JavaScript 中的 api 或 `current_utc_datetime` Python 中可安全重播的 api。 |
+| GUID 和 UUID  | 返回随机 GUID 或 UUID 的 API 是非确定性的，因为每次重播时它们生成的值都不相同。 | 使用 .NET 或 JavaScript 中的 [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) `newGuid` 安全地生成随机 guid。 |
 | 随机数 | 返回随机数的 API 是非确定性的，因为每次重播时它们生成的值都不相同。 | 使用活动函数将随机数返回给业务流程。 就重播来说，活动函数的返回值始终是安全的。 |
 | 绑定 | 输入和输出绑定通常会执行 I/O 操作，是非确定性的。 即使是[业务流程客户端](durable-functions-bindings.md#orchestration-client)和[实体客户端](durable-functions-bindings.md#entity-client)绑定，也不得由业务流程协调程序函数直接使用。 | 在客户端或活动函数中使用输入和输出绑定。 |
 | 网络 | 网络调用涉及外部系统，是非确定性的。 | 使用活动函数进行网络调用。 如果需要从业务流程协调程序函数进行 HTTP 调用，则也可使用[持久性 HTTP API](durable-functions-http-features.md#consuming-http-apis)。 |
@@ -57,7 +57,7 @@ Durable Task Framework 会尝试检测上述规则的违规。 如果发现违�
 > [!NOTE]
 > 本部分介绍 Durable Task Framework 的内部实现详细信息。 在不了解这些信息的情况下也可以使用 Durable Functions。 本部分旨在帮助读者了解重播行为。
 
-可在业务流程协调程序函数中安全等待的任务有时称为“持久任务”。 这些任务由 Durable Task Framework 创建和管理。 示例包括 .NET 业务流程协调程序函数中的 **CallActivityAsync** 、 **WaitForExternalEvent** 和 **CreateTimer** 返回的任务。
+可在业务流程协调程序函数中安全等待的任务有时称为“持久任务”。 这些任务由 Durable Task Framework 创建和管理。 示例包括 .NET 业务流程协调程序函数中的 **CallActivityAsync**、**WaitForExternalEvent** 和 **CreateTimer** 返回的任务。
 
 可以在 .NET 中使用 `TaskCompletionSource` 对象的列表对这些持久任务进行内部管理。 在重播期间，这些任务在业务流程协调程序代码执行过程中予以创建。 在调度程序枚举相应历史记录事件时，这些任务将会完成。
 

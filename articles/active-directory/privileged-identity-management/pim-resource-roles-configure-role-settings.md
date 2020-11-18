@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8458fc11f5e836e290c593d3ad4983f44e6abf6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4ded81389fae5954c0e488f634945b4f1c1fe4c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370366"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834748"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>在 Privileged Identity Management 中配置 Azure 资源角色设置
 
@@ -95,7 +95,7 @@ ms.locfileid: "92370366"
 
 ## <a name="require-multi-factor-authentication"></a>需要多重身份验证
 
-Privileged Identity Management 提供了两种不同的可选 Azure 多重身份验证强制执行方案。
+Privileged Identity Management 为两个不同方案提供了 Azure AD 多重身份验证的可选强制。
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>要求在活动分配时进行多重身份验证
 
@@ -105,7 +105,7 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>要求在激活时进行多重身份验证
 
-可以要求符合角色条件的用户证明他们正在使用 Azure 多重身份验证，然后他们才能激活。 多重身份验证能够以合理的确定性确保用户是其本人。 强制执行此选项可以在用户帐户可能已遭入侵的情况下保护关键资源。
+你可以要求具有角色的用户证明他们使用的用户 Azure AD 多重身份验证才能激活。 多重身份验证能够以合理的确定性确保用户是其本人。 强制执行此选项可以在用户帐户可能已遭入侵的情况下保护关键资源。
 
 若要在激活前要求进行多重身份验证，请选中“在激活时要求进行多重身份验证”  框。
 

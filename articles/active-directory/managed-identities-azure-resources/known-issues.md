@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: has-adal-ref, devx-track-azurecli
+ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665287"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835401"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 资源托管标识的 FAQ 和已知问题
 
@@ -129,7 +129,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
  - 对于系统分配的托管标识：禁用并重新启用。 
  - 对于用户分配的托管标识：删除、重新创建并重新将其附加到所需的资源（例如虚拟机）
 
-有关详细信息，请参阅将 [Azure 订阅转移到其他 Azure AD 目录](../../role-based-access-control/transfer-subscription.md)。
+有关详细信息，请参阅[将 Azure 订阅转移到其他 Azure AD 目录](../../role-based-access-control/transfer-subscription.md)。
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>将用户分配的托管标识移动到其他资源组/订阅
 

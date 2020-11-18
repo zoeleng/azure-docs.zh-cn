@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee1734e61ffe59fccf3ad35c1f0c607882f7f40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659191"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835503"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>使用 AD FS 应用程序活动报告 (预览版) 将应用程序迁移到 Azure AD
 
@@ -76,7 +76,7 @@ AD FS 应用程序活动数据适用于分配了下列任意管理角色的用�
 
 |结果  |通过/警告/失败  |说明  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> 至少检测到 AdditionalAuthentication 的一个非可迁移规则。       | 通过/警告          | 依赖方包含用于提示进行多重身份验证 (MFA) 的规则。 若要移动到 Azure AD，请将这些规则转换为条件访问策略。 如果你使用的是本地 MFA，则建议移动到 Azure MFA。 [了解有关条件性访问的详细信息](../authentication/concept-mfa-howitworks.md)。        |
+|Test-ADFSRPAdditionalAuthenticationRules <br> 至少检测到 AdditionalAuthentication 的一个非可迁移规则。       | 通过/警告          | 依赖方包含用于提示进行多重身份验证 (MFA) 的规则。 若要移动到 Azure AD，请将这些规则转换为条件访问策略。 如果你使用的是本地 MFA，则建议移动到 Azure AD MFA。 [了解有关条件性访问的详细信息](../authentication/concept-mfa-howitworks.md)。        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> 信赖方的 AdditionalWSFedEndpoint 设置为 true。       | 通过/失败          | AD FS 中的信赖方允许多个 WS-Fed 断言终结点。目前 Azure AD 仅支持一个。如果有这样的情况，该结果会阻止迁移，请 [告诉我们](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)。     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> 依赖方已设置 AllowedAuthenticationClassReferences。       | 通过/失败          | 通过 AD FS 中的此设置，你可以指定应用程序是否配置为仅允许某些身份验证类型。 建议使用条件性访问来实现此功能。 如果有这样的情况，该结果会阻止迁移，请 [告诉我们](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication)。  [了解有关条件性访问的详细信息](../authentication/concept-mfa-howitworks.md)。          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | 通过/失败          | 通过 AD FS 中的此设置，你可以指定应用程序是否配置为忽略 SSO cookie 并 **始终提示进行身份验证**。 在 Azure AD 中，可以使用条件性访问策略来管理身份验证会话，以实现类似的行为。 [详细了解如何使用条件访问配置身份验证会话管理](../conditional-access/howto-conditional-access-session-lifetime.md)。          |

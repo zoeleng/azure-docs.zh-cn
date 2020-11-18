@@ -13,18 +13,18 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369822"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835367"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中分配 Azure AD 角色
 
-使用 Azure Active Directory (Azure AD)，全局管理员可以完成**永久性的** Azure AD 管理员角色分配。 可以使用 [Azure 门户](../roles/permissions-reference.md)或 [PowerShell 命令](/powershell/module/azuread#directory_roles)创建这些角色分配。
+使用 Azure Active Directory (Azure AD)，全局管理员可以完成 **永久性的** Azure AD 管理员角色分配。 可以使用 [Azure 门户](../roles/permissions-reference.md)或 [PowerShell 命令](/powershell/module/azuread#directory_roles)创建这些角色分配。
 
-Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理员进行永久管理员角色分配。 此外，特权角色管理员可将用户设置为 Azure AD 管理员角色的**合格**用户。 符合条件的管理员可在需要时激活角色，在完成任务后，其权限随即失效。
+Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理员进行永久管理员角色分配。 此外，特权角色管理员可将用户设置为 Azure AD 管理员角色的 **合格** 用户。 符合条件的管理员可在需要时激活角色，在完成任务后，其权限随即失效。
 
 ## <a name="determine-your-version-of-pim"></a>确定 PIM 版本
 
@@ -49,9 +49,9 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 选择“Azure AD 角色”。
 
-1. 选择“角色”，查看 Azure AD 权限的角色列表****。
+1. 选择“角色”，查看 Azure AD 权限的角色列表。
 
-    ![已选择 "添加分配" 操作的 "角色" 页的屏幕截图。](./media/pim-how-to-add-role-to-user/roles-list.png)
+    ![已选择“添加分配”操作的“角色”页的屏幕截图。](./media/pim-how-to-add-role-to-user/roles-list.png)
 
 1. 选择“添加分配”以打开“添加分配”页。 
 
@@ -111,11 +111,11 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 选择要更新或删除的角色。
 
-1. 在“合格角色”**** 或“活动角色”**** 选项卡上查找角色分配。
+1. 在“合格角色”或“活动角色”选项卡上查找角色分配。
 
     ![更新或删除角色分配](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
-1. 选择“更新”**** 或“删除”**** 以更新或删除角色分配。
+1. 选择“更新”或“删除”以更新或删除角色分配。
 
 # <a name="previous-version"></a>[先前版本](#tab/previous)
 
@@ -123,35 +123,35 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 遵循以下步骤可使用户符合 Azure AD 管理员角色的条件。
 
-1. 选择“角色”**** 或“成员”****。
+1. 选择“角色”或“成员”。
 
     ![打开 Azure AD 角色](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
-1. 选择“添加成员”打开“添加受管理成员”********。
+1. 选择“添加成员”打开“添加受管理成员”。
 
-1. 依次选择“选择角色”、要管理的角色、“选择”。********
+1. 依次选择“选择角色”、要管理的角色、“选择”。
 
     ![选择角色](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
-1. 依次选择“选择成员”****、要分配给角色的用户、“选择”****。
+1. 依次选择“选择成员”、要分配给角色的用户、“选择”。
 
     ![选择要分配的用户或组](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. 在“添加受管理成员”中，选择“确定”，将该用户添加到角色********。
+1. 在“添加受管理成员”中，选择“确定”，将该用户添加到角色。
 
 1. 在角色列表中，选择刚刚分配的角色以查看成员列表。
 
-     分配角色后，选择的用户将显示在**符合**该角色条件的成员列表中。
+     分配角色后，选择的用户将显示在 **符合** 该角色条件的成员列表中。
 
     ![符合角色条件的用户](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. 用户符合角色的条件后，请告诉他们，可以按照[在 Privileged Identity Management 中激活 Azure AD 角色](pim-how-to-activate-role.md)中的说明来激活该角色。
 
-    符合条件的管理员在激活期间需要注册 Azure 多重身份验证。 如果用户无法注册 MFA 或使用 Microsoft 帐户（例如 @outlook.com），则需要将其设置为永久充当其角色。
+    要求符合条件的管理员在激活过程中注册 Azure AD 多重身份验证。 如果用户无法注册 MFA 或使用 Microsoft 帐户（例如 @outlook.com），则需要将其设置为永久充当其角色。
 
 ## <a name="make-a-role-assignment-permanent"></a>将角色分配设为永久
 
-默认情况下，新用户只符合 Azure AD 管理员角色的条件**。 若要将某个角色分配设为永久，请执行以下步骤。
+默认情况下，新用户只符合 Azure AD 管理员角色的条件。 若要将某个角色分配设为永久，请执行以下步骤。
 
 1. 打开“Azure AD Privileged Identity Management”。
 
@@ -161,13 +161,13 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
     ![成员列表](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. 选择要设为永久的**符合条件**的角色。
+1. 选择要设为永久的 **符合条件** 的角色。
 
-1. 依次选择“更多”****、“永久保留”****。
+1. 依次选择“更多”、“永久保留”。
 
     ![将角色分配设为永久](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
-    该角色现在会列为**永久**角色。
+    该角色现在会列为 **永久** 角色。
 
     ![已做出永久性更改的成员列表](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
@@ -187,11 +187,11 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 选择要删除的角色分配。
 
-1. 依次选择“更多”、“删除”********。
+1. 依次选择“更多”、“删除”。
 
     ![删除角色](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
-1. 在要求确认的消息中，选择“是”****。
+1. 在要求确认的消息中，选择“是”。
 
     ![确认删除](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
@@ -205,27 +205,27 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 以全局管理员身份登录到 Azure 门户。
 
-1. 选择“所有服务”****，然后选择“订阅”****。
+1. 选择“所有服务”，然后选择“订阅”。
 
 1. 选择订阅。
 
-1. 选择“访问控制(IAM)”****。
+1. 选择“访问控制(IAM)”。
 
-1. 选择“角色分配”****，以在订阅范围查看角色分配的当前列表。
+1. 选择“角色分配”，以在订阅范围查看角色分配的当前列表。
 
    ![订阅的“访问控制(IAM)”边栏选项卡](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
-1. 检查 **MS-PIM** 服务主体是否已分配有“用户访问管理员”**** 角色。
+1. 检查 **MS-PIM** 服务主体是否已分配有“用户访问管理员”角色。
 
-1. 如果不是，则选择“添加角色分配”以打开“添加角色分配”窗格********。
+1. 如果不是，则选择“添加角色分配”以打开“添加角色分配”窗格。
 
-1. 在“角色”**** 下拉列表中，选择“用户访问管理员”**** 角色。
+1. 在“角色”下拉列表中，选择“用户访问管理员”角色。
 
-1. 在“选择”**** 列表中，找到并选择“MS-PIM”**** 服务主体。
+1. 在“选择”列表中，找到并选择“MS-PIM”服务主体。
 
    ![“添加角色分配”窗格 - 为 MS-PIM 服务主体添加权限](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
-1. 选择“保存”**** 以分配角色。
+1. 选择“保存”以分配角色。
 
    过一会后，MS-PIM 服务主体将分配有在订阅范围内的“用户访问管理员”角色。
 

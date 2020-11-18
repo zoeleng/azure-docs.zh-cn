@@ -5,13 +5,13 @@ keywords: azure 应用服务, web 应用, 应用设置, 环境变量
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152043"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833650"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 门户中配置应用服务应用
 
@@ -86,29 +86,29 @@ ms.locfileid: "92152043"
 
 ### <a name="automate-app-settings-with-the-azure-cli"></a>通过 Azure CLI 自动执行应用设置
 
-您可以使用 Azure CLI 从命令行创建和管理设置。
+可使用 Azure CLI 从命令行创建和管理设置。
 
-- 使用 [az webapp config 应用设置设置](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set)值来为设置赋值：
+- 使用 [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 为设置分配一个值：
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
     ```
         
-    替换为 `<setting-name>` 设置的名称，将替换为 `<value>` 要赋给它的值。 如果该设置尚不存在，此命令将创建它。
+    将 `<setting-name>` 替换为设置的名称，并将 `<value>` 替换为要分配给它的值。 此方法会创建设置（如果尚不存在）。
     
-- 用 [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list)显示所有设置及其值：
+- 使用 [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list) 显示所有设置及其值：
     
     ```azurecli-interactive
     az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
     ```
     
-- 删除包含 [az webapp config 应用设置](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete)的一个或多个设置：
+- 使用 [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete) 删除一个或多个设置：
 
     ```azurecli-interactive
     az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
     ```
     
-    替换为以 `<names>` 空格分隔的设置名称列表。
+    将 `<names>` 替换为用空格分隔的设置名称列表。
 
 ## <a name="configure-connection-strings"></a>配置连接字符串
 
@@ -192,7 +192,7 @@ ms.locfileid: "92152043"
 
 - **堆栈设置**：用于运行应用的软件堆栈，包括语言和 SDK 版本。
 
-    对于 Linux 应用和自定义容器应用，可以选择语言运行时版本，并设置可选的 **启动命令** 或启动命令文件。
+    对于 Linux 应用和自定义容器应用，可选择语言运行时版本，并设置启动命令文件或可选的启动命令。
 
     ![Linux 容器的常规设置](./media/configure-common/open-general-linux.png)
 
@@ -208,7 +208,7 @@ ms.locfileid: "92152043"
     > 大多数新型浏览器仅支持通过 TLS 的 HTTP/2 协议，而非加密流量继续使用 HTTP/1.1。 若要确保客户端浏览器使用 HTTP/2 连接到应用，请保护自定义 DNS 名称。 有关详细信息，请参阅[在 Azure 应用服务中使用 TLS/SSL 绑定保护自定义 DNS 名称](configure-ssl-bindings.md)。
     - **ARR 相关性**：在多实例部署中，请确保在会话的整个生存期内，将客户端路由到同一实例。 对于无状态应用程序，请将此选项设置为“关闭”。 
 - **调试**：为 [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)、[ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) 或 [Node.js](configure-language-nodejs.md#debug-remotely) 应用启用远程调试。 此选项在 48 小时后会自动关闭。
-- **传入的客户端证书**：要求在[相互身份验证](app-service-web-configure-tls-mutual-auth.md)中使用客户端证书。
+- **传入的客户端证书**：要求在 [相互身份验证](app-service-web-configure-tls-mutual-auth.md)中使用客户端证书。
 
 ## <a name="configure-default-documents"></a>配置默认文档
 

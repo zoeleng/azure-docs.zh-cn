@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014896"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833786"
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 
@@ -28,13 +28,13 @@ Azure Analysis Services 支持 [Azure AD B2B 协作](../active-directory/externa
 
 所有 3 个客户端库均支持 Azure AD 交互流和非交互式身份验证方法。 可在利用 AMOMD 和 MSOLAP 的应用程序中使用两种非交互式方法，即 Active Directory 密码和 Active Directory 集成身份验证方法。 这两种方法绝对不会产生弹出式对话框。
 
-客户端应用程序（如 Excel 和 Power BI Desktop）和工具（如适用于 Visual Studio 的 SSMS 和 Analysis Services 项目扩展）更新到最新版时，会安装最新版本的库。 每月更新 Power BI Desktop、SSMS 和 Analysis Services 项目扩展。 Excel 已 [更新 Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516)。 Microsoft 365 更新的频率较低，某些组织使用延迟通道，这意味着更新最多可推迟三个月。
+客户端应用程序（如 Excel 和 Power BI Desktop）和工具（如适用于 Visual Studio 的 SSMS 和 Analysis Services 项目扩展）更新到最新版时，会安装最新版本的库。 每月更新 Power BI Desktop、SSMS 和 Analysis Services 项目扩展。 Excel [随 Microsoft 365 一起更新](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516)。 Microsoft 365 更新频率较低，并且某些组织会使用延期频道，这意味着将更新最多延迟 3 个月。
 
 根据使用的客户端应用程序或工具，身份验证类型和登录方式可能有所不同。 每个应用程序可能支持连接到云服务（如 Azure Analysis Services）的不同功能。
 
-Power BI Desktop、Visual Studio 和 SSMS 支持 Active Directory 通用身份验证，该通用身份验证是一种交互式方法，还支持 Azure 多重身份验证 (MFA)。 Azure MFA 可帮助保护对数据和应用程序的访问，同时提供简单的登录过程。 它通过多个验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。 **建议使用通用身份验证**。
+Power BI Desktop、Visual Studio 和 SSMS 支持 Active Directory 通用身份验证，这种交互式方法还支持 Azure AD 多因素身份验证 (MFA) 。 Azure AD MFA 可帮助保护对数据和应用程序的访问，同时提供简单的登录过程。 它通过多个验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。 **建议使用通用身份验证**。
 
-如果使用 Windows 帐户登录到 Azure 并且通用身份验证未选中或不可用 (Excel)，则需要 [Active Directory 联合身份验证服务 (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)。 使用联合身份验证、Azure AD 和 Microsoft 365 用户使用本地凭据进行身份验证，并可以访问 Azure 资源。
+如果使用 Windows 帐户登录到 Azure 并且通用身份验证未选中或不可用 (Excel)，则需要 [Active Directory 联合身份验证服务 (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)。 使用联合身份验证时，Azure AD 和 Microsoft 365 用户使用本地凭据进行身份验证，并且可以访问 Azure 资源。
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
@@ -44,7 +44,7 @@ Azure Analysis Services 服务器通过以下方式支持来自 [SSMS V17.1](/sq
 
 *  支持邀请 Azure B2B 来宾用户加入 Azure AS 租户。 连接到服务器时，来宾用户必须选择 Active Directory 通用身份验证。
 
-*  支持多重身份验证 (MFA)。 Azure MFA 有助于通过一系列验证选项来保护对数据和应用程序的访问：电话呼叫、短信、含有 PIN 码的智能卡或移动应用通知。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
+*  支持多重身份验证 (MFA)。 Azure AD MFA 可以通过一系列验证选项来保护对数据和应用程序的访问：电话呼叫、短信、带 pin 码的智能卡或移动应用通知。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -60,9 +60,9 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 
 ## <a name="user-permissions"></a>用户权限
 
-**服务器管理员**特定于 Azure Analysis Services 服务器实例。 他们通过连接 Azure 门户、SSMS 和 Visual Studio 等工具，执行诸如添加数据库和管理用户角色等任务。 默认情况下，创建服务器的用户将被自动添加为 Analysis Services 服务器管理员。 可使用 Azure 门户或 SSMS 添加其他管理员。 在相同订阅中，服务器管理员必须具有 Azure AD 租户中的帐户。 若要了解详细信息，请参阅[管理服务器管理员](analysis-services-server-admins.md)。 
+**服务器管理员** 特定于 Azure Analysis Services 服务器实例。 他们通过连接 Azure 门户、SSMS 和 Visual Studio 等工具，执行诸如添加数据库和管理用户角色等任务。 默认情况下，创建服务器的用户将被自动添加为 Analysis Services 服务器管理员。 可使用 Azure 门户或 SSMS 添加其他管理员。 在相同订阅中，服务器管理员必须具有 Azure AD 租户中的帐户。 若要了解详细信息，请参阅[管理服务器管理员](analysis-services-server-admins.md)。 
 
-**数据库用户**通过使用 Excel 或 Power BI 等客户端应用程序，连接模型数据库。 必须将用户添加到数据库角色。 数据库角色为数据库确定管理员、进程或读取权限。 具有管理员权限的数据库用户与服务器管理员不同，请务必了解这一点。 但默认情况下，服务器管理员也是数据库管理员。 若要了解详细信息，请参阅[管理数据库角色和用户](analysis-services-database-users.md)。
+**数据库用户** 通过使用 Excel 或 Power BI 等客户端应用程序，连接模型数据库。 必须将用户添加到数据库角色。 数据库角色为数据库确定管理员、进程或读取权限。 具有管理员权限的数据库用户与服务器管理员不同，请务必了解这一点。 但默认情况下，服务器管理员也是数据库管理员。 若要了解详细信息，请参阅[管理数据库角色和用户](analysis-services-database-users.md)。
 
 **Azure 资源所有者**。 资源所有者管理 Azure 订阅的资源。 资源所有者可通过以下方式在订阅中向“所有者角色”或“参与者角色”添加 Azure AD 用户标识：在 Azure 门户中使用“访问控制”或使用 Azure 资源管理器模板。 
 

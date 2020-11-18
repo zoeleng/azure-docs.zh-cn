@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961884"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833803"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure 应用服务 Windows 版上节点应用程序的最佳做法和故障排除指南
 
@@ -121,13 +121,13 @@ IIS 的默认行为是在刷新之前或直到响应结束时（以较早出现�
 
 许多应用程序想要在其定期操作中进行出站连接。 例如，请求传入时，节点应用程序会想连接别处的 REST API，并获取一些信息来处理请求。 建议在进行 http 或 https 调用时使用保持连接代理。 可在进行这些出站调用时，使用 agentkeepalive 模块作为保持连接代理。
 
-agentkeepalive 模块确保在 Azure Web 应用 VM 上重复使用套接字。 在每个出站请求中创建新套接字会增大应用程序的开销。 让应用程序对出站请求重复使用套接字可确保应用程序不会超过为每个 VM 分配的 maxSockets。 对于 Azure 应用服务的建议是将 agentKeepAlive maxSockets 值设置为每个 VM 总共 160 个套接字（4 个 node.exe 实例 \* 每个实例 40 个 maxSockets）。
+agentkeepalive 模块确保在 Azure Web 应用 VM 上重复使用套接字。 在每个出站请求中创建新套接字会增大应用程序的开销。 让应用程序对出站请求重复使用套接字可确保应用程序不会超过为每个 VM 分配的 maxSockets。 Azure App Service 上的建议是将 agentKeepAlive maxSockets 值设置为 \* 每个 VM 每个 node.exe 32 maxSockets/instance) 128 插槽的 (4 个实例。
 
 [agentKeepALive 配置](https://www.npmjs.com/package/agentkeepalive)示例：
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000

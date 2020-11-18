@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393449"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834704"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 存储报告数据多长时间？
 
@@ -65,7 +65,7 @@ ms.locfileid: "93393449"
 | :--                    | :--           | :--                 | :--                 |
 | 审核日志             | 7 天        | 30 天             | 30 天             |
 | 登录               | 7 天        | 30 天             | 30 天             |
-| Azure MFA 使用情况        | 30 天       | 30 天             | 30 天             |
+| Azure AD MFA 使用情况        | 30 天       | 30 天             | 30 天             |
 
 通过使用 Azure Monitor 将审核和登录活动数据路由到 Azure 存储帐户，可以使这些活动数据的保留时间长于上述默认保留期限。 有关详细信息，请参阅[将 Azure AD 日志存档到 Azure 存储帐户](quickstart-azure-monitor-route-logs-to-storage-account.md)。
 
@@ -80,6 +80,6 @@ ms.locfileid: "93393449"
 
 ### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>获得 Azure AD Premium 许可证后是否能查看上个月的数据？
 
-**不** ，不可以。 对于免费版本，Azure 最多可存储7天的活动数据。 这意味着，当你从免费版切换到高级版时，最多只能看到7天的数据。
+**不**，不可以。 对于免费版本，Azure 最多可存储7天的活动数据。 这意味着，当你从免费版切换到高级版时，最多只能看到7天的数据。
 
 ---
