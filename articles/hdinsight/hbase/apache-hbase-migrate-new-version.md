@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 3e35dc35746f08f48150a738b927433065fc1c67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8ce25780e197c26e0e5b102670e093031e1a2582
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910264"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697656"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>将 Apache HBase 群集迁移到新版本
 
@@ -191,7 +191,7 @@ ms.locfileid: "92910264"
    hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
    ```
     
-1. 在新 HDInsight 群集上登录到 Ambari。 将 `fs.defaultFS` HDFS 设置更改为指向原始群集所用的容器名称。 此设置位于“HDFS”>“配置”>“高级”>“高级 core-site”下。 
+1. 在新 HDInsight 群集上登录到 Ambari。 将 `fs.defaultFS` HDFS 设置更改为指向原始群集所用的容器名称。 此设置位于“HDFS”>“配置”>“高级”>“高级 core-site”下。
 
    ![在 Ambari 中单击“服务”>“HDFS”>“配置”>“停止”](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
@@ -223,9 +223,9 @@ ms.locfileid: "92910264"
    hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
    ```
    
-1. 若要将 HDInsight 3.6 升级到 4.0，请按以下步骤操作，否则请跳到步骤 10：
+1. 如果要将 HDInsight 3.6 升级到4.0，请遵循以下步骤，否则请跳到步骤13：
 
-    1. 选择“服务”  >  “重启所有必需服务”，以便重启 Ambari 中的所有必需服务。
+    1. 选择“服务” > “重启所有必需服务”，以便重启 Ambari 中的所有必需服务。
     1. 停止 HBase 服务。
     1. 通过 SSH 连接到 Zookeeper 节点，执行 [zkCli](https://github.com/go-zkcli/zkcli) 命令 `rmr /hbase-unsecure`，以便从 Zookeeper 中删除 HBase 根 znode。
     1. 重启 HBase。

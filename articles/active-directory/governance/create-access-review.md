@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f0627b809f56b813052cc763e6ff961f31aa02
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362767"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697129"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>在 Azure AD 访问评审中创建对组和应用程序的访问评审
 
@@ -36,6 +36,8 @@ ms.locfileid: "92362767"
 
 - Azure AD Premium P2
 - 全局管理员或用户管理员
+-  (预览) Microsoft 365 组的资源所有者可以在他们拥有的 Microsoft 365 组上创建审阅
+-  (预览) Azure AD 安全组的资源所有者可以在他们拥有的 Azure AD 安全组上创建审阅
 
 有关详细信息，请参阅[许可证要求](access-reviews-overview.md#license-requirements)。
 
@@ -120,7 +122,7 @@ ms.locfileid: "92362767"
 若要详细了解删除不能再访问你组织中资源的来宾用户的最佳做法，请阅读标题为[使用 Azure AD Identity Governance 评审和删除不再具有资源访问权限的外部用户](access-reviews-external-users.md)的文章。
 
 >[!NOTE]
-> 只有你之前已将评审作用域设置为“仅来宾用户”时，应用于被拒绝用户的操作才起作用（请参阅**创建一个或多个访问评审**部分的步骤 8）
+> 只有你之前已将评审作用域设置为“仅来宾用户”时，应用于被拒绝用户的操作才起作用（请参阅 **创建一个或多个访问评审** 部分的步骤 8）
 
 ### <a name="advanced-settings"></a>高级设置
 
@@ -143,7 +145,7 @@ ms.locfileid: "92362767"
 
 ## <a name="start-the-access-review"></a>启动访问评审
 
-指定访问评审的设置后，单击“启动”。**** 访问评审将显示在列表中，并带有其状态指示器。
+指定访问评审的设置后，单击“启动”。 访问评审将显示在列表中，并带有其状态指示器。
 
 ![访问评审及其状态的列表](./media/create-access-review/access-reviews-list.png)
 
@@ -164,7 +166,7 @@ ms.locfileid: "92362767"
 |已自动评审 | 系统已为未评审的所有用户记录了决定。 如果启用了“自动应用”，则评审可以进入“正在应用”阶段了。 |
 |正在应用 | 对于已批准的用户，访问权限不会更改。 |
 |已应用 | 已经从源或目录删除拒绝的用户（如果有）。 |
-|Failed | 查看无法进行。 此错误可能与删除租户、许可证更改或其他内部租户更改相关。 |
+|失败 | 查看无法进行。 此错误可能与删除租户、许可证更改或其他内部租户更改相关。 |
 
 ## <a name="create-reviews-via-apis"></a>通过 API 创建评审
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072078"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698064"
 ---
 # <a name="configure-an-aks-cluster"></a>配置 AKS 群集
 
@@ -78,27 +78,28 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 如果要使用 AKS Ubuntu 16.04 映像创建节点池，可以通过省略自定义标记来执行此操作 `--aks-custom-headers` 。
 
+## <a name="container-runtime-configuration"></a>容器运行时配置
 
-## <a name="container-runtime-configuration-preview"></a>容器运行时配置 (预览) 
+容器运行时是在节点上执行容器和管理容器映像的软件。 运行时有助于抽象地消除 sys 调用或操作系统 (OS) 特定功能，以在 Linux 或 Windows 上运行容器。 使用 Kubernetes 1.19 版节点池和更高版本的 AKS 群集 `containerd` 作为其容器运行时。 使用 Kubernetes 之前1.19 节点池的 AKS 群集使用 [小鲸鱼](https://mobyproject.org/) (上游 docker) 作为其容器运行时。
 
-容器运行时是在节点上执行容器和管理容器映像的软件。 运行时有助于抽象地消除 sys 调用或操作系统 (OS) 特定功能，以在 Linux 或 Windows 上运行容器。 如今，AKS 使用 [小鲸鱼](https://mobyproject.org/) (上游 docker) 作为其容器运行时。 
-    
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) 是 [OCI](https://opencontainers.org/) (开放容器计划) 兼容核心容器运行时，它提供执行容器和管理节点上的映像所需的最小功能集。 它在2017年3月 (CNCF) [捐赠](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) 了云本机计算基础。 目前，AKS 使用的当前小鲸鱼版本已经利用了，并构建在之上 `containerd` ，如上所述。 
+[`Containerd`](https://containerd.io/) 是 [OCI](https://opencontainers.org/) (开放容器计划) 兼容核心容器运行时，它提供执行容器和管理节点上的映像所需的最小功能集。 它在2017年3月 (CNCF) [捐赠](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) 了云本机计算基础。 AKS 使用的当前小鲸鱼版本已经利用了，并建立在之上 `containerd` ，如上所示。
 
-对于基于 containerd 的节点和节点池， `dockershim` kubelet 将直接 `containerd` 通过 CRI (容器运行时) 接口与 Docker CRI 实现相比，在流上删除额外的跃点，而不是与通信。 因此，你将看到更好的 pod 启动延迟，更少的资源 (CPU 和内存) 使用量。
+对于 `containerd` 基于的节点和节点池， `dockershim` kubelet 将直接 `containerd` 通过 CRI (容器运行时接口与容器运行时) 接口进行通信，而与 Docker CRI 实现相比，在流上删除额外的跃点。 因此，你将看到更好的 pod 启动延迟，更少的资源 (CPU 和内存) 使用量。
 
 通过 `containerd` 将用于 AKS 节点，容器运行时可以降低 pod 启动延迟，并减少节点资源消耗。 这些改进是通过此新体系结构实现的，其中，kubelet 直接 `containerd` 通过 CRI 插件直接与插件进行交互，而在小鲸鱼/docker 体系结构中，kubelet 会在 `dockershim` 到达之前与 docker 引擎通信 `containerd` ，因此在流上具有额外的跃点。
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` 适用于 AKS 中的每个 GA 版本和 kubernetes 的每个上游 kubernetes 版本，并支持所有 kubernetes 和 AKS 功能。
+`Containerd` 适用于 AKS 中的每个 GA 版本和 Kubernetes 以上的每个上游 Kubernetes 版本，并支持所有 Kubernetes 和 AKS 功能。
 
 > [!IMPORTANT]
-> 在 `containerd` AKS 上公开发布后，它将成为新群集上的容器运行时默认和唯一的选项。 你仍可以在旧的受支持版本上使用小鲸鱼 nodepools 和群集，直到这些版本停止支持。 
+> 在 Kubernetes v 1.19 或更高版本上为 `containerd` 其容器运行时创建节点池的群集。 节点池在受支持的 Kubernetes 版本上的群集的 `Moby` 容器运行时低于1.19 接收，但在 `ContainerD` 节点池 Kubernetes 版本更新为 v 1.19 或更高版本后，将更新为。 你仍可以 `Moby` 在旧的受支持版本上使用节点池和群集，直到这些版本停止支持。
 > 
-> 建议在 `containerd` 升级或创建具有此容器运行时的新群集之前，在节点池上测试工作负荷。
+> 强烈建议在 `containerD` 使用1.19 或更高版本的群集之前，在 AKS 节点池上测试工作负荷。
+
+以下部分将介绍如何通过 `containerD` 使用容器运行时配置预览，在尚未使用 Kubernetes 1.19 版或更高版本的群集上使用和测试 AKS。
 
 ### <a name="use-containerd-as-your-container-runtime-preview"></a>使用 `containerd` 作为容器运行时 (预览) 
 

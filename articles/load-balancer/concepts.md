@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3f8c288f950f34e1764c50e8eb74a8a73b39b3d7
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315305"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698523"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure 负载均衡器算法
 
@@ -63,4 +63,4 @@ ms.locfileid: "92315305"
 - 详细了解 [Azure 负载均衡器](load-balancer-overview.md)。
 - 了解[运行状况探测](load-balancer-custom-probe-overview.md)。
 - 了解有关[标准负载均衡器诊断](load-balancer-standard-diagnostics.md)的信息。
-- 详细了解[网络安全组](../virtual-network/security-overview.md)。
+- 详细了解[网络安全组](../virtual-network/network-security-groups-overview.md)。

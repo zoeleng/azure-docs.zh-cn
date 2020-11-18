@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935596"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698319"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>公共基本负载均衡器的 Azure Monitor 日志
 
 可以在 Azure 中使用不同类型的日志对基本负载均衡器进行管理和故障排除。 可通过门户访问其中某些日志。 可以将日志流式传输到事件中心或 Log Analytics 工作区。 所有日志都可从 Azure Blob 存储提取并在 Excel 和 Power BI 等各种工具中查看。  可从下表了解有关各种类型日志的详细信息。
 
-* **活动日志：** 可以使用[查看活动日志以监视对资源的操作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)，查看提交到 Azure 订阅的所有活动及其状态。 活动日志默认情况下启用，并且可以在 Azure 门户中查看。
+* **活动日志：** 可以使用 [查看活动日志以监视对资源的操作](../azure-resource-manager/management/view-activity-logs.md)，查看提交到 Azure 订阅的所有活动及其状态。 活动日志默认情况下启用，并且可以在 Azure 门户中查看。
 * **警报事件日志：** 可以使用此日志查看负载均衡器引发的警报。 每隔五分钟收集一次负载均衡器的状态。 仅在引发了负载均衡器警报事件的情况下，才会向此日志写入相关内容。
 * **运行状况探测日志：** 可以使用此日志查看运行状况探测器检测到的问题，例如后端池中由于运行状况探测失败未从负载均衡器接收请求的实例数。 当运行状况探测状态发生更改时，将写入此日志。
 
@@ -35,7 +35,7 @@ ms.locfileid: "88935596"
 
 每个 Resource Manager 资源都会自动启用活动日志记录。 需启用事件和运行状况探测日志记录才能开始收集通过这些日志提供的数据。 使用以下步骤启用日志记录。
 
-登录到 [Azure 门户](https://portal.azure.com)。 如果用户还没有负载均衡器，请先 [创建负载均衡器](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) ，并继续。
+登录到 [Azure 门户](https://portal.azure.com)。 如果用户还没有负载均衡器，请先 [创建负载均衡器](./quickstart-load-balancer-standard-public-portal.md) ，并继续。
 
 1. 在门户中，单击“资源组”。
 2. 选择负载均衡器所在的 **\<resource-group-name>** 。
@@ -49,7 +49,7 @@ ms.locfileid: "88935596"
    * **发送到 Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>存档到存储帐户
-    此进程需要已创建好的存储帐户。  若要创建存储帐户，请参阅[创建存储帐户](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    此进程需要已创建好的存储帐户。  若要创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md?tabs=azure-portal)
 
     1. 选中“存档到存储帐户”旁的复选框。
     2. 选择“配置”，打开“选择存储帐户”窗格 。
@@ -58,7 +58,7 @@ ms.locfileid: "88935596"
     5. 选择“确定”。
 
     ### <a name="stream-to-an-event-hub"></a>流式传输到事件中心
-    此进程需要已创建好的事件中心。  若要创建事件中心，请参阅[快速入门：使用 Azure 门户创建事件中心](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+    此进程需要已创建好的事件中心。  若要创建事件中心，请参阅[快速入门：使用 Azure 门户创建事件中心](../event-hubs/event-hubs-create.md)
 
     1. 选中“流式传输到事件中心”旁的复选框
     2. 选择“配置”，打开“选择事件中心”窗格 。
@@ -68,7 +68,7 @@ ms.locfileid: "88935596"
     6. 选择“确定”。
 
     ### <a name="send-to-log-analytics"></a>发送到 Log Analytics
-    此进程需要已创建并配置好的 Log Analytics 工作区。  若要创建 Log Analytics 工作区，请参阅[在 Azure 门户中创建 Log Analytics 工作区](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    此进程需要已创建并配置好的 Log Analytics 工作区。  若要创建 Log Analytics 工作区，请参阅[在 Azure 门户中创建 Log Analytics 工作区](../azure-monitor/learn/quick-create-workspace.md)
 
     1. 选择“发送到 Log Analytics”旁的复选框。
     2. 在下拉框中，选择 Log Analytics 工作区所在的“订阅”。
@@ -86,7 +86,7 @@ ms.locfileid: "88935596"
 
 ## <a name="activity-log"></a>活动日志
 
-默认生成活动日志。 日志在 Azure 的事件日志存储区中保留 90 天。 若要了解这些日志的详细信息，请阅读[查看活动日志以监视对资源的操作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)一文。
+默认生成活动日志。 日志在 Azure 的事件日志存储区中保留 90 天。 若要了解这些日志的详细信息，请阅读[查看活动日志以监视对资源的操作](../azure-resource-manager/management/view-activity-logs.md)一文。
 
 ## <a name="archive-to-storage-account-logs"></a>存档到存储帐户日志
 
@@ -171,7 +171,7 @@ JSON 输出在属性字段显示了探测运行状况的基本信息。 “dipDo
 将诊断信息流式传输到事件中心后，可以通过 Azure Monitor 集成将其用于第三方 SIEM 工具中的集中式日志分析。 有关详细信息，请参阅[将 Azure 监视数据流式传输到事件中心](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>发送到 Log Analytics
-Azure 中的资源可以将其诊断信息直接发送到 Log Analytics 工作区，在此工作区中，可以针对信息运行复杂的查询以进行故障排除和分析。  有关详细信息，请参阅[在 Azure Monitor 的 Log Analytics 工作区中收集 Azure 资源日志](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
+Azure 中的资源可以将其诊断信息直接发送到 Log Analytics 工作区，在此工作区中，可以针对信息运行复杂的查询以进行故障排除和分析。  有关详细信息，请参阅[在 Azure Monitor 的 Log Analytics 工作区中收集 Azure 资源日志](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 ## <a name="next-steps"></a>后续步骤
 

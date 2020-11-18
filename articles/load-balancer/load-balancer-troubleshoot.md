@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 22922972049ec78cc26f4d060fa1981d1f23a3ce
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a1a8df6d503ec5f5bf9c1e739e5ecf6486a85776
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697414"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>排查 Azure 负载均衡器问题
 
@@ -35,7 +35,7 @@ ms.locfileid: "92912440"
 
 验证及解决方法
 
-**默认情况下** ，标准 ilb 是安全的。 基本 Ilb 允许通过 *隐藏* 的公共 IP 地址连接到 internet。 对于生产工作负荷，这并不是推荐，因为 IP 地址既不是静态的，也不是通过你拥有的 Nsg 进行锁定。 如果最近从基本 ILB 移到了标准 ILB，则 [应通过 nsg](egress-only.md) 锁定 IP 来显式创建公共 ip。 你还可以使用子网中的 [NAT 网关](../virtual-network/nat-overview.md) 。
+**默认情况下**，标准 ilb 是安全的。 基本 Ilb 允许通过 *隐藏* 的公共 IP 地址连接到 internet。 对于生产工作负荷，这并不是推荐，因为 IP 地址既不是静态的，也不是通过你拥有的 Nsg 进行锁定。 如果最近从基本 ILB 移到了标准 ILB，则 [应通过 nsg](egress-only.md) 锁定 IP 来显式创建公共 ip。 你还可以使用子网中的 [NAT 网关](../virtual-network/nat-overview.md) 。
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>故障描述：负载均衡器后端的 VM 不响应运行状况探测
 后端服务器必须通过探测检查后，才可加入负载均衡器集。 有关运行状况探测的详细信息，请参阅[了解负载均衡器探测](load-balancer-custom-probe-overview.md)。 
@@ -87,7 +87,7 @@ ms.locfileid: "92912440"
         - 如果在后端池 VM 中未观察到传入数据包，可能是某个网络安全组或 UDR 错误配置阻止了流量。 
         - 如果在后端池 VM 中未观察到传出数据包，需检查 VM 是否存在任何不相关的问题（例如，应用程序阻止探测端口）。 
     - 验证在到达负载均衡器之前，探测数据包是否强制发送到其他目标（可能通过 UDR 设置发送）。 这会使流量永远无法达到后端 VM。 
-* 更改探测类型（例如从 HTTP 到 TCP），并在网络安全组 ACL 和防火墙中配置相应端口，以验证问题是否与探测响应的配置有关。 有关运行状况探测配置的详细信息，请参阅[终结点负载均衡运行状况探测配置](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)。
+* 更改探测类型（例如从 HTTP 到 TCP），并在网络安全组 ACL 和防火墙中配置相应端口，以验证问题是否与探测响应的配置有关。 有关运行状况探测配置的详细信息，请参阅[终结点负载均衡运行状况探测配置](/archive/blogs/mast/endpoint-load-balancing-heath-probe-configuration-details)。
 
 ## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>故障描述：负载均衡器后端的 VM 不响应已配置数据端口上的通信
 
@@ -133,7 +133,7 @@ ms.locfileid: "92912440"
 
 如果在 VNet 中配置了内部负载均衡器，并且某个参与的后端 VM 正在尝试访问内部负载均衡器前端，则当将流映射到原始 VM 时会发生故障。 不支持这种情况。
 
-解决方案：有几种方法来取消阻止此方案，包括使用代理。 评估应用程序网关或其他第三方代理服务器（例如 nginx 或 haproxy）。 有关应用程序网关的详细信息，请参阅[应用程序网关概述](../application-gateway/application-gateway-introduction.md)
+解决方案：有几种方法来取消阻止此方案，包括使用代理。 评估应用程序网关或其他第三方代理服务器（例如 nginx 或 haproxy）。 有关应用程序网关的详细信息，请参阅[应用程序网关概述](../application-gateway/overview.md)
 
 **详细信息** 内部负载均衡器不会将出站发起连接转换为内部负载均衡器的前端，因为两者都位于专用 IP 地址空间中。 公共负载均衡器提供从虚拟网络内部专用 IP 地址到公共 IP 地址的[出站连接](load-balancer-outbound-connections.md)。 对于内部负载均衡器，此方法可以避免不需要转换的唯一内部 IP 地址空间内发生 SNAT 端口耗尽。
 
@@ -143,11 +143,11 @@ ms.locfileid: "92912440"
 
 此方案的缺点在于，当流返回到发起该流的同一后端时将出现间歇性的连接超时。 常见的解决方法包括：在内部负载均衡器后插入代理层并使用直接服务器返回 (DSR) 样式规则。 有关详细信息，请参阅 [Azure 负载均衡器的多个前端](load-balancer-multivip-overview.md)。
 
-可以将内部负载均衡器与任何第三方代理相结合，或使用内部[应用程序网关](../application-gateway/application-gateway-introduction.md)替代 HTTP/HTTPS 的代理方案。 尽管可以使用公共负载均衡器来缓解此问题，但最终的方案很容易导致 [SNAT 耗尽](load-balancer-outbound-connections.md)。 除非有精心的管理，否则应避免此第二种方法。
+可以将内部负载均衡器与任何第三方代理相结合，或使用内部[应用程序网关](../application-gateway/overview.md)替代 HTTP/HTTPS 的代理方案。 尽管可以使用公共负载均衡器来缓解此问题，但最终的方案很容易导致 [SNAT 耗尽](load-balancer-outbound-connections.md)。 除非有精心的管理，否则应避免此第二种方法。
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>故障描述：无法更改已在后端池中部署了 VM 规模集的负载均衡器的现有 LB 规则的后端端口。 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>原因：无法针对 VM 规模集引用的负载均衡器的运行状况探测所使用的负载均衡规则修改后端端口。
-**解决方案** ：若要更改端口，可以通过更新 VM 规模集来删除运行状况探测，更新端口，然后重新配置运行状况探测。
+**解决方案**：若要更改端口，可以通过更新 VM 规模集来删除运行状况探测，更新端口，然后重新配置运行状况探测。
 
 ## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>故障描述：从负载均衡器的后端池中删除 VM 后，仍有少量流量通过负载均衡器。 
 ### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>原因：从后端池中删除的 VM 不应再接收流量。 少量的网络流量可能与 Azure 中的存储、DNS 和其他功能有关。 
@@ -172,4 +172,3 @@ ms.locfileid: "92912440"
 ## <a name="next-steps"></a>后续步骤
 
 如果上述步骤无法解决问题，请开具[支持票证](https://azure.microsoft.com/support/options/)。
-

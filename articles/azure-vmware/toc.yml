@@ -44,6 +44,8 @@
       href: concepts-identity.md
     - name: 基于角色的访问控制
       href: concepts-role-based-access-control.md
+    - name: 监视和修复私有云
+      href: concepts-monitor-repair-private-cloud.md
     - name: 私有云升级
       href: concepts-upgrades.md
 - name: 操作指南

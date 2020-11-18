@@ -1,7 +1,7 @@
 ---
 title: 连接到 Visual Studio Code 中的计算实例（预览）
 titleSuffix: Azure Machine Learning
-description: 了解如何连接到 Visual Studio Code 中的 Azure 机器学习计算实例
+description: 了解如何连接到 Visual Studio Code 中的 Azure 机器学习计算实例，以运行交互式 Jupyter Notebook 和远程开发工作负荷。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 09/03/2020
-ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708367"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697572"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>连接到 Visual Studio Code 中的 Azure 机器学习计算实例（预览）
 
@@ -77,8 +77,8 @@ ms.locfileid: "91708367"
 
 1. 前往 https://ml.azure.com/，转到 Azure 机器学习工作室。
 2. 选择[工作区](concept-workspace.md)。
-1. 单击“计算实例”选项卡****。
-1. 在“应用程序 URI”列中，单击要用作远程计算的计算实例的 SSH 链接********。 
+1. 单击“计算实例”选项卡。
+1. 在“应用程序 URI”列中，单击要用作远程计算的计算实例的 SSH 链接。 
 1. 请记下对话框中的 IP 地址和 SSH 端口。 
 1. 将私钥保存到本地计算机上的 ~/.ssh/ 目录中。例如，打开新文件的编辑器，然后将密钥粘贴进来： 
 
@@ -146,7 +146,7 @@ Host azmlci1
 
 1. 右键单击刚创建的 SSH 主机配置。
 
-1. 选择“连接到当前窗口中的主机”****。 
+1. 选择“连接到当前窗口中的主机”。 
 
 从这里开始，你会完全在计算实例上操作，可以编辑、调试、使用 git、使用扩展等，就和使用本地 Visual Studio Code 时一样。
 

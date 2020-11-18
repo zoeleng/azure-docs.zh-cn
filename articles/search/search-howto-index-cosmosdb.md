@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: aed1aa03527481014a63c636181725b91b17a1e8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372367"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697299"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 认知搜索中的索引器为 Cosmos DB 数据编制索引 
 
@@ -74,8 +74,8 @@ Azure 认知搜索中的 Cosmos DB 索引器可以抓取通过不同协议访问
 
 + **Cosmos DB 帐户** 应采用以下格式之一：
     1. Cosmos DB 的主或辅助连接字符串具有以下格式： `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` 。
-        + 对于 3.2 和 3.6 版 **MongoDB 集合** ，请对 Azure 门户中的 Cosmos DB 帐户使用以下格式：`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
-        + 对于 **Gremlin 图和 Cassandra 表** ，请注册 [受限索引器预览版](https://aka.ms/azure-cognitive-search/indexer-preview)以获取预览版的访问权限，以及有关如何设置凭据格式的信息。
+        + 对于 3.2 和 3.6 版 **MongoDB 集合**，请对 Azure 门户中的 Cosmos DB 帐户使用以下格式：`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
+        + 对于 **Gremlin 图和 Cassandra 表**，请注册 [受限索引器预览版](https://aka.ms/azure-cognitive-search/indexer-preview)以获取预览版的访问权限，以及有关如何设置凭据格式的信息。
     1.  具有以下格式的托管标识连接字符串不包括帐户密钥： `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)` 。 若要使用此连接字符串格式，请按照有关 [使用托管标识设置与 Cosmos DB 数据库的索引器连接](search-howto-managed-identities-cosmos-db.md)的说明进行操作。
 
 + “数据库”是帐户中的现有数据库。 
@@ -137,7 +137,7 @@ Azure 认知搜索中的 Cosmos DB 索引器可以抓取通过不同协议访问
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - 汇编请求的输入
 
-对于每个请求，必须提供 Azure 认知搜索的服务名称和管理密钥（在 POST 标头中），以及 Blob 存储的存储帐户名称和密钥。 可以使用 [Postman](search-get-started-postman.md) 将 HTTP 请求发送到 Azure 认知搜索。
+对于每个请求，必须提供 Azure 认知搜索的服务名称和管理密钥（在 POST 标头中），以及 Blob 存储的存储帐户名称和密钥。 可以使用 [Postman 或 Visual Studio Code](search-get-started-rest.md) 将 HTTP 请求发送到 Azure 认知搜索。
 
 将以下四个值复制到记事本中，以便将其粘贴到请求：
 
@@ -185,8 +185,8 @@ Azure 认知搜索中的 Cosmos DB 索引器可以抓取通过不同协议访问
 |---------|-------------|
 | name | 必需。 选择任意名称来表示你的数据源对象。 |
 |type| 必需。 必须是 `cosmosdb`。 |
-|**凭据** | 必需。 必须遵循 Cosmos DB 连接字符串格式或托管标识连接字符串格式。<br/><br/>对于 **SQL 集合** ，连接字符串可以采用以下格式之一： <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>具有以下格式的托管标识连接字符串不包括帐户密钥： `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` 。 若要使用此连接字符串格式，请按照有关 [使用托管标识设置与 Cosmos DB 数据库的索引器连接](search-howto-managed-identities-cosmos-db.md)的说明进行操作。<br/><br/>对于版本3.2 和版本 3.6 **MongoDB 集合** ，请使用以下格式的连接字符串： <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>具有以下格式的托管标识连接字符串不包括帐户密钥： `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` 。 若要使用此连接字符串格式，请按照有关 [使用托管标识设置与 Cosmos DB 数据库的索引器连接](search-howto-managed-identities-cosmos-db.md)的说明进行操作。<br/><br/>对于 **Gremlin 图和 Cassandra 表** ，请注册 [受限索引器预览版](https://aka.ms/azure-cognitive-search/indexer-preview)以获取预览版的访问权限，以及有关如何设置凭据格式的信息。<br/><br/>避免在终结点 URL 中包含端口号。 如果包含端口号，Azure 认知搜索将无法为 Azure Cosmos DB 数据库编制索引。|
-| **容器** | 包含下列元素： <br/>**名称** ：必需。 指定要编制索引的数据库集合的 ID。<br/>**查询** ：可选。 可以指定一个查询来将一个任意 JSON 文档平整成 Azure 认知搜索可编制索引的平面架构。<br/>对于 MongoDB API、Gremlin API 和 Cassandra API，不支持查询。 |
+|**凭据** | 必需。 必须遵循 Cosmos DB 连接字符串格式或托管标识连接字符串格式。<br/><br/>对于 **SQL 集合**，连接字符串可以采用以下格式之一： <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>具有以下格式的托管标识连接字符串不包括帐户密钥： `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` 。 若要使用此连接字符串格式，请按照有关 [使用托管标识设置与 Cosmos DB 数据库的索引器连接](search-howto-managed-identities-cosmos-db.md)的说明进行操作。<br/><br/>对于版本3.2 和版本 3.6 **MongoDB 集合** ，请使用以下格式的连接字符串： <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>具有以下格式的托管标识连接字符串不包括帐户密钥： `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` 。 若要使用此连接字符串格式，请按照有关 [使用托管标识设置与 Cosmos DB 数据库的索引器连接](search-howto-managed-identities-cosmos-db.md)的说明进行操作。<br/><br/>对于 **Gremlin 图和 Cassandra 表**，请注册 [受限索引器预览版](https://aka.ms/azure-cognitive-search/indexer-preview)以获取预览版的访问权限，以及有关如何设置凭据格式的信息。<br/><br/>避免在终结点 URL 中包含端口号。 如果包含端口号，Azure 认知搜索将无法为 Azure Cosmos DB 数据库编制索引。|
+| **容器** | 包含下列元素： <br/>**名称**：必需。 指定要编制索引的数据库集合的 ID。<br/>**查询**：可选。 可以指定一个查询来将一个任意 JSON 文档平整成 Azure 认知搜索可编制索引的平面架构。<br/>对于 MongoDB API、Gremlin API 和 Cassandra API，不支持查询。 |
 | **dataChangeDetectionPolicy** | 推荐。 请参阅[为已更改的文档编制索引](#DataChangeDetectionPolicy)部分。|
 |**dataDeletionDetectionPolicy** | 可选。 请参阅[为已删除的文档编制索引](#DataDeletionDetectionPolicy)部分。|
 
@@ -194,7 +194,7 @@ Azure 认知搜索中的 Cosmos DB 索引器可以抓取通过不同协议访问
 可以指定一个 SQL 查询来平展嵌套的属性或数组、投影 JSON 属性并筛选要编制索引的数据。 
 
 > [!WARNING]
-> **MongoDB API** 、 **Gremlin API** 和 **Cassandra API** 不支持自定义查询：必须将 `container.query` 参数设置为 null，或将其省略。 如果需要使用自定义查询，请在[用户之声](https://feedback.azure.com/forums/263029-azure-search)上告知我们。
+> **MongoDB API**、**Gremlin API** 和 **Cassandra API** 不支持自定义查询：必须将 `container.query` 参数设置为 null，或将其省略。 如果需要使用自定义查询，请在[用户之声](https://feedback.azure.com/forums/263029-azure-search)上告知我们。
 
 示例文档：
 

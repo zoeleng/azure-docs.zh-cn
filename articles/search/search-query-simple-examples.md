@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740677"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697248"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>在 Azure 认知搜索中创建简单的查询
 
@@ -27,7 +27,7 @@ ms.locfileid: "91740677"
 
 下面的示例使用“纽约工作岗位”搜索索引，它包含基于[纽约市开放数据](https://nycopendata.socrata.com/)计划提供的数据集得出的岗位。 此数据不应认为是最新或完整数据。 该索引位于 Microsoft 提供的一项沙盒服务上，也就是说无需 Azure 订阅或 Azure 认知搜索即可试用这些查询。
 
-要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅[快速入门：使用 Postman 探索 Azure 认知搜索 REST API](search-get-started-postman.md)。
+要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅 [快速入门：浏览 Azure 认知搜索 REST API](search-get-started-rest.md)。
 
 ### <a name="set-the-request-header"></a>设置请求标头
 
@@ -43,7 +43,7 @@ ms.locfileid: "91740677"
 
 请求是一个与包含 Azure 认知搜索终结点和搜索字符串的 URL 配对的 GET 命令。
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 请求标头设置参数" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 请求标头获取" border="false":::
 
 URL 组合具备以下元素：
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 此查询的响应应与以下屏幕截图类似。
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman 请求标头设置参数" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman 示例响应" border="false":::
 
 你可能已经注意到响应中的搜索分数。 由于搜索不是全文搜索或者没有应用条件，因此不存在排名时评分统统为 1。 对于不带条件的空搜索，按任意顺序返回行。 包括实际条件时，能看到搜索分数变成有意义的值。
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 如果一起使用，则会先对整个索引应用 filter，再对筛选结果执行 search。 filter 可减少 search 查询需要处理的文档集，因此是一种非常有用的技术，可用于提高查询性能。
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Postman 请求标头设置参数" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="筛选器查询响应" border="false":::
 
 若要使用 GET 在 Postman 中尝试此查询，可以粘贴以下字符串：
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Postman 请求标头设置参数" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="数字范围的范围筛选器" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Postman 请求标头设置参数" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="文本范围的范围筛选器" border="false":::
 
 也可以使用 GET 在 Postman 中尝试这些查询：
 
@@ -194,7 +194,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 
 > [!NOTE]
-> 基于值的范围分面是常见的搜索应用程序要求。 有关为分面导航结构生成筛选器的详细信息和示例，请参阅[*如何实现分面导航*中的“基于范围的筛选器”](search-faceted-navigation.md#filter-based-on-a-range)。
+> 基于值的范围分面是常见的搜索应用程序要求。 有关为分面导航结构生成筛选器的详细信息和示例，请参阅 [*如何实现分面导航* 中的“基于范围的筛选器”](search-faceted-navigation.md#filter-based-on-a-range)。
 
 ## <a name="example-5-geo-search"></a>示例 5：地理搜索
 
@@ -251,14 +251,14 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Postman 请求标头设置参数" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="搜索模式 - any" border="false":::
 
 若将 searchMode 更改为 `all`，会强制累积条件并返回一个较小的结果集，它只有 21 个文档，其文档数是包含完整短语“fire department”的文档减去 Metrotech Center 工作岗位数之差。
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Postman 请求标头设置参数" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="搜索模式 - all" border="false":::
 
 ## <a name="example-8-structuring-results"></a>示例 8：构建结果
 
