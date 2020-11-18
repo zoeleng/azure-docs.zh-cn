@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744064"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696007"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>为 Azure 应用服务配置 Node.js 应用
 
@@ -84,6 +84,36 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > 应在项目的 `package.json` 中设置 Node.js 版本。 部署引擎在一个单独的容器中运行，该容器包含所有受支持的 Node.js 版本。
 
 ::: zone-end
+
+## <a name="get-port-number"></a>获取端口号
+
+Node.js 应用需要侦听正确的端口才能接收传入的请求。
+
+::: zone pivot="platform-windows"  
+
+在 Windows 上的应用服务中，Node.js 应用程序是 [IISNode](https://github.com/Azure/iisnode)托管的，你的 Node.js 应用程序应侦听变量中指定的端口 `process.env.PORT` 。 下面的示例演示如何在简单的快速应用程序中执行此操作：
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+应用服务 `PORT` 在 Node.js 容器中设置环境变量，并将传入请求转发到容器的该端口号。 若要接收请求，应用应使用侦听该端口 `process.env.PORT` 。 下面的示例演示如何在简单的快速应用程序中执行此操作：
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
 
 ::: zone pivot="platform-linux"
 
@@ -164,7 +194,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 你还可以配置具有以下扩展名的自定义启动文件：
 
 - .js 文件
-- 扩展名为 *.json* 、 *.config.js* 、 *.yaml* 或 *.yml* 的 [PM2 文件](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)
+- 扩展名为 *.json*、 *.config.js*、 *.yaml* 或 *.yml* 的 [PM2 文件](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)
 
 若要添加自定义起始文件，请在 [Cloud Shell](https://shell.azure.com)中运行以下命令：
 
@@ -237,7 +267,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 # ----------
 ```
 
-该节在末尾处运行 `npm install --production`。 在 `Deployment` 节的末尾添加运行必需工具所需的代码节
+该节在末尾处运行 `npm install --production`。 在 `Deployment` 节的末尾添加运行必需工具所需的代码节：
 
 - [Bower](#bower)
 - [Gulp](#gulp)

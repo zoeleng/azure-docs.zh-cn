@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735913"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696857"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>使用 Azure CLI 创建使用 IPv6 的公共负载均衡器
 
@@ -48,17 +48,17 @@ Azure load balancer 是位于第 4 层 (TCP, UDP) 的负载均衡器。 该负�
 
 创建并配置以下对象以部署负载均衡器：
 
-* **前端 IP 配置** ：包含传入网络流量的公共 IP 地址。
-* **后端地址池** ：包含从负载均衡器接收网络流量的虚拟机网络接口 (NIC)。
-* **负载均衡规则** ：所含规则可将负载均衡器上的公共端口映射到后端地址池的端口上。
-* **入站 NAT 规则** ：所含网络地址转换 (NAT) 规则可将负载均衡器上的公共端口映射到后端地址池中特定虚拟机的端口。
-* **探测器** ：包含用于检查后端地址池中虚拟机实例的可用性的运行状况探测器
+* **前端 IP 配置**：包含传入网络流量的公共 IP 地址。
+* **后端地址池**：包含从负载均衡器接收网络流量的虚拟机网络接口 (NIC)。
+* **负载均衡规则**：所含规则可将负载均衡器上的公共端口映射到后端地址池的端口上。
+* **入站 NAT 规则**：所含网络地址转换 (NAT) 规则可将负载均衡器上的公共端口映射到后端地址池中特定虚拟机的端口。
+* **探测器**：包含用于检查后端地址池中虚拟机实例的可用性的运行状况探测器
 
 ## <a name="set-up-azure-cli"></a>设置 Azure CLI
 
 本示例在 PowerShell 命令窗口中运行 Azure CLI 工具。 此处没有使用 Azure PowerShell cmdlet，而是使用 PowerShell 的脚本功能来改善可读性与重用性。
 
-1. 按照链接的文章中的步骤[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，然后登录到 Azure 帐户。
+1. 按照链接的文章中的步骤[安装和配置 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)，然后登录到 Azure 帐户。
 
 2. 设置要与 Azure CLI 命令结合使用的 PowerShell 变量：
 
@@ -122,7 +122,7 @@ Azure load balancer 是位于第 4 层 (TCP, UDP) 的负载均衡器。 该负�
     > [!IMPORTANT]
     > 负载均衡器使用公共 IP 的域标签作为其完全限定的域名 (FQDN)。 这与经典部署不同，后者使用云服务名称作为负载均衡器 FQDN。
     >
-    > 在本示例中，FQDN 为 *contoso09152016.southcentralus.cloudapp.azure.com* 。
+    > 在本示例中，FQDN 为 *contoso09152016.southcentralus.cloudapp.azure.com*。
 
 ## <a name="create-front-end-and-back-end-pools"></a>创建前端和后端池
 
@@ -284,7 +284,7 @@ Azure load balancer 是位于第 4 层 (TCP, UDP) 的负载均衡器。 该负�
     ```
 
     > [!WARNING]
-    > 本示例为 VM 使用了明文用户名和密码。 以明文形式使用这些凭据时请保持适当的谨慎。 有关在 PowerShell 中更安全处理凭据的方法，请参阅 [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet。
+    > 本示例为 VM 使用了明文用户名和密码。 以明文形式使用这些凭据时请保持适当的谨慎。 有关在 PowerShell 中更安全处理凭据的方法，请参阅 [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) cmdlet。
 
 2. 创建可用性集：
 
@@ -299,5 +299,3 @@ Azure load balancer 是位于第 4 层 (TCP, UDP) 的负载均衡器。 该负�
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

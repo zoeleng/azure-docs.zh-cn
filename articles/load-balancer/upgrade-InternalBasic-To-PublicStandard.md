@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078755"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696245"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>升级 Azure 内部负载均衡器 - 需要出站连接
-[Azure 标准负载均衡器](load-balancer-overview.md)通过区域冗余提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](https://docs.microsoft.com/azure/load-balancer/skus#skus)。 由于标准内部负载均衡器不提供出站连接，因此我们提供了一个解决方案，改为创建标准公共负载均衡器。
+[Azure 标准负载均衡器](load-balancer-overview.md)通过区域冗余提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](./skus.md#skus)。 由于标准内部负载均衡器不提供出站连接，因此我们提供了一个解决方案，改为创建标准公共负载均衡器。
 
 升级分为四个阶段：
 
@@ -109,16 +109,16 @@ ms.locfileid: "87078755"
     >对于使用公共 IP 的 VM，在不保证 IP 地址相同的情况下，需要先创建标准 IP 地址。 将 VM 与基本 IP 取消关联，并将 VM 关联到新建的标准 IP 地址。 然后，即可按照说明将 VM 添加到标准负载均衡器的后端池。 
 
 * **创建要添加到新建标准公共负载均衡器的后端池的新 VM**。
-    * 在[此处](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines)可以找到有关如何创建 VM 并将关联到标准负载均衡器的详细说明。
+    * 在[此处](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines)可以找到有关如何创建 VM 并将关联到标准负载均衡器的详细说明。
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>为出站连接创建出站规则
 
-按照[说明](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration)创建出站规则，以便执行以下操作：
+按照[说明](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration)创建出站规则，以便执行以下操作：
 * 从头开始定义出站 NAT。
 * 缩放和优化现有出站 NAT 的行为。
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>为 VM 创建 NSG 规则，避免与 Internet 通信
-若要避免 Internet 流量到达 VM，可以在 VM 的网络接口上创建 [NSG 规则](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)。
+若要避免 Internet 流量到达 VM，可以在 VM 的网络接口上创建 [NSG 规则](../virtual-network/manage-network-security-group.md)。
 
 ## <a name="common-questions"></a>常见问题
 

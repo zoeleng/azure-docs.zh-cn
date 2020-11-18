@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 PodSecurity
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900097"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695990"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>预览 - 在 Azure Kubernetes 服务 (AKS) 中使用 Pod 安全策略保护群集
 
 > [!WARNING]
-> **本文档中所述的功能，pod 安全策略 (预览) ，已设置为弃用，并且将不再在2021年2月1日之后提供，** 以支持 [AKS 的 Azure 策略](use-pod-security-on-azure-policy.md)。 弃用日期已从2020年10月15日之前的日期扩展。
+> **本文档中所述的功能 "pod 安全策略 (预览") 设置为 "弃用"，在5月31日之后将不再提供 2021** ，以支持 [AKS 的 Azure 策略](use-pod-security-on-azure-policy.md)。 弃用日期已从2020年10月15日之前的日期扩展。
 >
 > 弃用 Pod 安全策略（预览版）之后，必须在使用已弃用功能的任何现有群集上禁用该功能，以执行将来的群集升级并保留在 Azure 支持范围内。
 >
@@ -52,7 +52,7 @@ az extension update --name aks-preview
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-状态显示为“已注册”需要几分钟时间  。 可以使用 [az feature list][az-feature-list] 命令检查注册状态：
+状态显示为“已注册”需要几分钟时间。 可以使用 [az feature list][az-feature-list] 命令检查注册状态：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"

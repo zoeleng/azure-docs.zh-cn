@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410567"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696211"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公有云中的隔离
 
@@ -38,7 +38,7 @@ ms.locfileid: "94410567"
 
 ### <a name="azure-tenancy"></a>Azure 租户
 
-Azure 租户（Azure 订阅）是指 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 中的“客户/账单”关系和唯一的[租户](../../active-directory/develop/quickstart-create-new-tenant.md)。 Microsoft Azure 中的租户级别隔离是使用 Azure Active Directory 及其提供的[基于角色的控制](../../role-based-access-control/overview.md)实现的。 每个 Azure 订阅都会与一个 Azure Active Directory (AD) 目录关联。
+Azure 租户（Azure 订阅）是指 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 中的“客户/账单”关系和唯一的[租户](../../active-directory/develop/quickstart-create-new-tenant.md)。 Microsoft Azure 中的租户级隔离使用 Azure Active Directory 和 Azure 提供的 [基于角色的访问控制](../../role-based-access-control/overview.md) 实现。 每个 Azure 订阅都会与一个 Azure Active Directory (AD) 目录关联。
 
 该目录中的用户、组和应用程序可以管理 Azure 订阅中的资源。 可以使用 Azure 门户、Azure 命令行工具及 Azure 管理 API 来分配这些访问权限。 从逻辑上讲，Azure AD 租户是使用安全边界隔离的，这样，任何客户都不能访问或入侵联合租户，而无论其行为是恶意的还是偶然的。 在“裸机”服务器上运行的 Azure AD 是在分隔的网络段中隔离的，主机级别数据包筛选和 Windows 防火墙在该网络段中阻止不需要的连接和流量。
 
@@ -52,7 +52,7 @@ Azure 租户（Azure 订阅）是指 [Azure Active Directory](../../active-direc
 
 - 限制了对危及 Azure AD 服务的服务器的物理访问，以及对 Azure 后端系统的直接访问。
 
-- Azure AD 用户无权访问物理资产或位置，因此他们不可能绕过下述逻辑 RBAC 策略检查。
+- Azure AD 用户无权访问物理资产或位置，因此，他们不可能跳过以下所述的逻辑 Azure RBAC 策略检查。
 
 为了满足诊断和维护需求，需要使用采用实时特权提升系统的操作模型。 Azure AD Privileged Identity Management (PIM) 引入了有资格管理员的概念。[有资格管理员](../../active-directory/privileged-identity-management/pim-configure.md)应是不时（但不是每天）需要特权访问的用户。 该角色处于非活动状态，直到用户需要访问权限，然后他们完成激活过程，并在预定的时间内成为活动管理员。
 
@@ -80,7 +80,7 @@ Azure RBAC 有三种适用于所有资源类型的基本角色：
 
 可以通过 Azure 中的其他 Azure 角色对特定的 Azure 资源进行管理。 例如，虚拟机参与者角色允许用户创建和管理虚拟机。 但不会向用户授予对虚拟机连接的 Azure 虚拟网络或子网的访问权限。
 
-[RBAC 内置角色](../../role-based-access-control/built-in-roles.md)列出了 Azure 中可用的角色。 它指定每个内置角色向用户授予的操作和范围。 若要定义自己的角色以便进一步控制，请参阅如何生成 [Azure RBAC 中的自定义角色](../../role-based-access-control/custom-roles.md)。
+[Azure 内置角色](../../role-based-access-control/built-in-roles.md) 列出了 azure 中可用的角色。 它指定每个内置角色向用户授予的操作和范围。 若要定义自己的角色以便进一步控制，请参阅如何生成 [Azure RBAC 中的自定义角色](../../role-based-access-control/custom-roles.md)。
 
 Azure Active Directory 的其他部分功能包括:
 
@@ -194,7 +194,7 @@ Azure 虚拟机监控程序、根 OS/FA 和客户 VM/GA 的集合包含一个计
 
 ![使用存储访问控制的隔离](./media/isolation-choices/azure-isolation-fig9.png)
 
-可以通过 [SAS（共享访问签名）](../../storage/common/storage-sas-overview.md)令牌来控制 **对 Azure 存储数据（包括表）的访问权限** ，该令牌可授予限定的访问权限。 SAS 是根据查询模板 (URL) 创建的，且使用 [SAK（存储帐户密钥）](/previous-versions/azure/reference/ee460785(v=azure.100))进行签名。 可以将该[签名 URL](../../storage/common/storage-sas-overview.md) 提供给另一个进程（即委托进程），后者随后可以填充查询的详细信息并发出存储服务请求。 使用 SAS，可以向客户端授予基于时间的访问权限，无需泄露存储帐户的密钥。
+可以通过 [SAS（共享访问签名）](../../storage/common/storage-sas-overview.md)令牌来控制 **对 Azure 存储数据（包括表）的访问权限**，该令牌可授予限定的访问权限。 SAS 是根据查询模板 (URL) 创建的，且使用 [SAK（存储帐户密钥）](/previous-versions/azure/reference/ee460785(v=azure.100))进行签名。 可以将该[签名 URL](../../storage/common/storage-sas-overview.md) 提供给另一个进程（即委托进程），后者随后可以填充查询的详细信息并发出存储服务请求。 使用 SAS，可以向客户端授予基于时间的访问权限，无需泄露存储帐户的密钥。
 
 使用 SAS，意味着可以授权客户端在指定时间段内，以一组指定权限有限访问存储帐户中的对象。 可以授予这些有限的权限，而不必共享帐户访问密钥。
 
@@ -311,7 +311,7 @@ Azure 部署具有多层网络隔离。 下图显示了 Azure 提供给客户的
 
 ![网络隔离](./media/isolation-choices/azure-isolation-fig13.png)
 
-**流量隔离** ： [虚拟网络](../../virtual-network/virtual-networks-overview.md)是 Azure 平台上的流量隔离边界。 一个虚拟网络中的虚拟机 (VM) 无法与不同虚拟网络中的 VM 直接通信，即使这两个虚拟网络是由同一个客户所创建。 隔离是一个非常关键的属性，可确保客户 VM 与通信在虚拟网络中保持私密性。
+**流量隔离**：[虚拟网络](../../virtual-network/virtual-networks-overview.md)是 Azure 平台上的流量隔离边界。 一个虚拟网络中的虚拟机 (VM) 无法与不同虚拟网络中的 VM 直接通信，即使这两个虚拟网络是由同一个客户所创建。 隔离是一个非常关键的属性，可确保客户 VM 与通信在虚拟网络中保持私密性。
 
 [子网](../../virtual-network/virtual-networks-overview.md)基于 IP 范围在虚拟网络中提供额外的隔离层。 使用虚拟网络中的 IP 地址，可以将虚拟网络划分成多个子网，以方便进行组织和提高安全性。 部署到 VNet 的子网（不管是相同的子网还是不同的子网）中的 VM 和 PaaS 角色实例可以互相通信，不需任何额外的配置。 还可以配置[网络安全组 (NSG)](../../virtual-network/virtual-networks-overview.md)，以便根据 NSG 的访问控制列表 (ACL) 中配置的规则允许或拒绝到某个 VM 实例的网络流量。 NSG 可以与子网或该子网中的各个 VM 实例相关联。 当 NSG 与子网关联时，ACL 规则将应用于该子网中的所有 VM 实例。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 1f81285e869bd2c65cce29766de0b2bd39a627f6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557605"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696109"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Azure 汽油上的虚拟机监控程序安全性
 
@@ -26,7 +26,7 @@ Azure 虚拟机监控程序的构建目的是考虑以下安全目标：
 | 隔离 | 安全策略不要求在 Vm 之间传输信息。 此约束要求 Virtual Machine Manager (VMM) 和硬件中的功能，以便隔离内存、设备、网络和托管资源（如持久化数据）。 |
 | VMM 完整性 | 为了实现整体系统完整性，将建立和维护各个虚拟机监控程序组件的完整性。 |
 | 平台完整性 | 虚拟机监控程序的完整性取决于它所依赖的硬件和软件的完整性。 尽管虚拟机监控程序无法直接控制平台的完整性，但 Azure 依赖于硬件和固件机制（如 [Cerberus](project-cerberus.md) 芯片）来保护和检测底层平台完整性。 如果平台完整性受到危害，则会阻止 VMM 和来宾运行。 |
-| 受限访问 | 只有通过安全连接进行连接的授权管理员才能执行管理功能。 最小特权原则是通过基于角色的访问控制 (RBAC) 机制强制实施的。 |
+| 受限访问 | 只有通过安全连接进行连接的授权管理员才能执行管理功能。 最小特权原则由 Azure 基于角色的访问控制 (Azure RBAC) 机制强制实施。 |
 | 审核 | Azure 允许审核功能捕获和保护有关系统上发生的情况的数据，以便以后可以对其进行检查。 |
 
 Microsoft 对 Azure 虚拟机监控程序和虚拟化子系统进行强化的方法可分为以下三个类别。
@@ -71,5 +71,5 @@ Azure 虚拟机监控程序强制执行以下两个安全边界：
 - [固件安全性](firmware.md)
 - [安全启动](secure-boot.md)
 - [标准启动和主机证明](measured-boot-host-attestation.md)
-- [项目 Cerberus](project-cerberus.md)
+- [Cerberus 项目](project-cerberus.md)
 - [静态加密](encryption-atrest.md)

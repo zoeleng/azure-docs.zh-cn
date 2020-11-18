@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685505"
+ms.locfileid: "94693760"
 ---
 # <a name="azure-load-balancer-components"></a>Azure 负载均衡器组件
 
@@ -128,7 +128,7 @@ HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部�
 
 ## <a name="limitations"></a>限制
 
-- 了解负载均衡器[限制](https://aka.ms/lblimits) 
+- 了解负载均衡器[限制](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 - 负载均衡器针对特定的 TCP 或 UDP 协议提供了负载均衡和端口转发。 负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。
 - 从后端 VM 到内部负载均衡器前端的出站流将会失败。
 - 负载均衡器规则不能跨越两个虚拟网络。  前端及其后端实例必须位于同一个虚拟网络中。  
@@ -138,12 +138,12 @@ HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部�
 
 - 请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)，开始使用负载均衡器。
 - 详细了解 [Azure 负载均衡器](load-balancer-overview.md)。
-- 了解[公共 IP 地址](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+- 了解[公共 IP 地址](../virtual-network/virtual-network-public-ip-address.md)
 - 了解[专用 IP 地址](../virtual-network/private-ip-addresses.md)
 - 了解如何使用[标准负载均衡器和可用性区域](load-balancer-standard-availability-zones.md)。
 - 了解有关[标准负载均衡器诊断](load-balancer-standard-diagnostics.md)的信息。
 - 了解如何[在空闲时重置 TCP](load-balancer-tcp-reset.md)。
 - 了解[具有 HA 端口负载均衡规则的标准负载均衡器](load-balancer-ha-ports-overview.md)。
-- 详细了解[网络安全组](../virtual-network/security-overview.md)。
-- 详细了解[负载均衡器限制](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)。
-- 了解如何使用[端口转发](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)。
+- 详细了解[网络安全组](../virtual-network/network-security-groups-overview.md)。
+- 详细了解[负载均衡器限制](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)。
+- 了解如何使用[端口转发](./tutorial-load-balancer-port-forwarding-portal.md)。

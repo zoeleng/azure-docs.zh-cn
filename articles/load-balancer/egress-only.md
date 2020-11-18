@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038180"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694987"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>仅出站的负载均衡器配置
 
@@ -76,7 +76,7 @@ ms.locfileid: "88038180"
     | 名称             | 输入“myVNet”                                    |
     | 区域           | 选择 **美国东部 2** |
 
-3. 选择“IP 地址”选项卡，或选择页面底部的“下一步:IP 地址”按钮。
+3. 选择“IP 地址”选项卡  ，或选择页面底部的“下一步:  IP 地址”按钮。
 
 4. 在“IP 地址”  选项卡上，输入以下信息：
 
@@ -95,7 +95,7 @@ ms.locfileid: "88038180"
 
 7. 选择“保存” 。
 
-8. 选择“安全”**** 选项卡。
+8. 选择“安全”选项卡。
 
 9. 在“BastionHost”下，选择“启用” 。 输入此信息：
 
@@ -116,7 +116,7 @@ ms.locfileid: "88038180"
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
@@ -140,7 +140,7 @@ ms.locfileid: "88038180"
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-----|------------|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -153,7 +153,7 @@ ms.locfileid: "88038180"
 
 6. 在“管理”选项卡中，选择或输入：
     
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **Monitoring** |  |
     | 启动诊断 | 选择“关闭” |
@@ -177,7 +177,7 @@ ms.locfileid: "88038180"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | “值”                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择在上一步中创建的 myResourceGroupLB。|
@@ -199,7 +199,7 @@ ms.locfileid: "88038180"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | “值”                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中输入 myResourceGroupLB 。|
@@ -316,4 +316,4 @@ ms.locfileid: "88038180"
 - 了解 [Azure 负载均衡器](load-balancer-overview.md)。
 - 了解 [Azure 中的出站连接](load-balancer-outbound-connections.md)。
 - 负载均衡器[常见问题解答](load-balancer-faqs.md)。
-- 了解 [Azure 堡垒](https://docs.microsoft.com/azure/bastion/bastion-overview)
+- 了解 [Azure 堡垒](../bastion/bastion-overview.md)

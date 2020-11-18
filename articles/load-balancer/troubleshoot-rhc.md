@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855253"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696313"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>排查资源运行状况、前端和后端可用性问题 
 
@@ -52,7 +52,7 @@ ms.locfileid: "88855253"
   * 如果你发现存在此 NSG 问题，请移动现有的 Allow 规则，或创建一个新的高优先级规则以允许 AzureLoadBalancer 流量
 * 检查 OS。 确保你的 VM 正在侦听探测端口，并查看其 OS 防火墙规则，以确保它们没有阻止来自 IP 地址 168.63.129.16 的探测流量。
   * 可以通过在 Windows 命令提示符中运行 netstat -a 或在 Linux 终端中运行 netstat -l 来检查侦听端口
-* 请勿在负载均衡器的后端池中放置防火墙 NVA VM，请使用[用户定义的路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined)通过防火墙将流量路由到后端实例
+* 请勿在负载均衡器的后端池中放置防火墙 NVA VM，请使用[用户定义的路由](../virtual-network/virtual-networks-udr-overview.md#user-defined)通过防火墙将流量路由到后端实例
 * 请确保使用正确的协议。如果使用 HTTP 来探测侦听非 HTTP 应用程序的端口，则探测会失败
 
 如果已按此清单检查完毕，但仍然发现运行状况探测失败，则可能存在影响实例的探测服务的罕见平台问题。 在这种情况下，Azure 会为你提供支持。系统会向我们的团队发送自动警报，因此可以快速解决所有平台问题。
@@ -61,5 +61,3 @@ ms.locfileid: "88855253"
 
 * [详细了解 Azure 负载均衡器运行状况探测](load-balancer-custom-probe-overview.md)
 * [详细了解 Azure 负载均衡器指标](load-balancer-standard-diagnostics.md)
-
-

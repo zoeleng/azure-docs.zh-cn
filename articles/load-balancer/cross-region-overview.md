@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398005"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695055"
 ---
 # <a name="cross-region-load-balancer-preview"></a>跨区域负载均衡器 (预览) 
 
@@ -74,7 +74,7 @@ Azure 跨区域负载均衡器使用异地邻近性负载平衡算法来做出�
 
 区域负载均衡器的已配置负载分配模式用于在多个区域负载均衡器用于地域邻近性时做出最终路由决策。
 
-有关详细信息，请参阅[配置 Azure 负载均衡器的分配模式](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode)。
+有关详细信息，请参阅[配置 Azure 负载均衡器的分配模式](./load-balancer-distribution-mode.md)。
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>能够在单个终结点后扩展/缩减
@@ -84,7 +84,7 @@ Azure 跨区域负载均衡器使用异地邻近性负载平衡算法来做出�
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>静态 IP
-跨区域负载均衡器附带了静态公共 IP，可确保 IP 地址保持不变。 若要了解有关静态 IP 的详细信息，请参阅 [此处](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
+跨区域负载均衡器附带了静态公共 IP，可确保 IP 地址保持不变。 若要了解有关静态 IP 的详细信息，请参阅 [此处](../virtual-network/public-ip-addresses.md#allocation-method)
 
 ### <a name="client-ip-preservation"></a>客户端 IP 保留
 跨区域负载均衡器是第4层直通网络负载均衡器。 此传递将保留数据包的原始 IP。  原始 IP 可用于在虚拟机上运行的代码。 此保存使你可以应用特定于 IP 地址的逻辑。
@@ -100,8 +100,8 @@ Azure 跨区域负载均衡器使用异地邻近性负载平衡算法来做出�
 * 美国东部 2
 * 美国西部
 * 西欧
-* 东南亚
-* Central US
+* Southeast Asia
+* 美国中部
 * 北欧
 * 东亚
 
@@ -124,7 +124,7 @@ Azure 跨区域负载均衡器使用异地邻近性负载平衡算法来做出�
 * 美国中南部 
 * 美国西部 2 
 * 英国南部 
-* 东南亚 
+* Southeast Asia 
 * 美国中北部 
 * 日本东部 
 * 东亚 

@@ -1,22 +1,22 @@
 ---
 title: 使用自定义 Docker 映像部署模型
 titleSuffix: Azure Machine Learning
-description: 了解如何在部署 Azure 机器学习模型时使用自定义 Docker 基础映像。 虽然 Azure 机器学习提供了默认的基础映像，但你也可以使用自己的基础映像。
+description: 了解如何使用自定义 Docker 基本映像部署 Azure 机器学习模型。 虽然 Azure 机器学习提供了默认的基础映像，但你也可以使用自己的基础映像。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 63089e853be825f9399081f2d39845e22b18ed2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325172"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695344"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自定义 Docker 基础映像部署模型
 

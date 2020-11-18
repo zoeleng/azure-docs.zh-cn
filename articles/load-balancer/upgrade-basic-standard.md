@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809339"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696177"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>升级 Azure 公共负载均衡器
-[Azure 标准负载均衡器](load-balancer-overview.md)通过区域冗余提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](https://docs.microsoft.com/azure/load-balancer/skus#skus)。
+[Azure 标准负载均衡器](load-balancer-overview.md)通过区域冗余提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](./skus.md#skus)。
 
 升级分为三个阶段：
 
@@ -34,7 +34,7 @@ ms.locfileid: "84809339"
 
 ### <a name="caveatslimitations"></a>注意事项/限制
 
-* 脚本仅支持公共负载均衡器升级。 若要进行内部基本负载均衡器升级，请参阅[此页](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard)以获取说明。
+* 脚本仅支持公共负载均衡器升级。 若要进行内部基本负载均衡器升级，请参阅[此页](./upgrade-basicinternal-standard.md)以获取说明。
 * 标准负载均衡器使用新的公共地址。 不能将与现有基本负载均衡器关联的 IP 地址无缝移动到标准负载均衡器，因为它们具有不同的 Sku。
 * 如果在不同的区域中创建标准负载均衡器，则无法将旧区域中的 Vm 关联到新创建的标准负载均衡器。 若要克服此限制，请确保在新区域中创建新的 VM。
 * 如果负载均衡器没有任何前端 IP 配置或后端池，则运行脚本时可能会遇到错误。 请确保负载均衡器不是空的。
@@ -108,11 +108,11 @@ ms.locfileid: "84809339"
     >对于使用公共 IP 的 VM，在不保证 IP 地址相同的情况下，需要先创建标准 IP 地址。 将 VM 与基本 IP 取消关联，并将 VM 关联到新建的标准 IP 地址。 然后，即可按照说明将 VM 添加到标准负载均衡器的后端池。 
 
 * **创建要添加到新建标准公共负载均衡器的后端池的新 VM**。
-    * 在[此处](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines)可以找到有关如何创建 VM 并将关联到标准负载均衡器的详细说明。
+    * 在[此处](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines)可以找到有关如何创建 VM 并将关联到标准负载均衡器的详细说明。
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>为出站连接创建出站规则
 
-按照[说明](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration)创建出站规则，以便执行以下操作：
+按照[说明](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration)创建出站规则，以便执行以下操作：
 * 从头开始定义出站 NAT。
 * 缩放和优化现有出站 NAT 的行为。
 

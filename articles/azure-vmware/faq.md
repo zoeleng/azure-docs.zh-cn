@@ -1,15 +1,15 @@
 ---
-title: 常见问题
+title: 常见问题解答
 description: 提供有关 Azure VMware 解决方案的一些常见问题的解答。
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577509"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695095"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>有关 Azure VMware 解决方案的常见问题
 
@@ -74,7 +74,7 @@ ms.locfileid: "94577509"
 Azure 堡垒是推荐用于连接到跳转盒的服务，以防止向 internet 公开 Azure VMware 解决方案。 不能使用 Azure 堡垒连接到 Azure VMware 解决方案 Vm，因为它们不是 Azure IaaS 对象。
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Azure 负载均衡器是否可用于 Azure VMware 解决方案 Vm？
-错误。 Azure 负载均衡器内部仅支持 Azure IaaS Vm。 Azure 负载均衡器不支持基于 IP 的后端池;只有 azure 虚拟机或虚拟机规模集对象（其中 Azure VMware 解决方案 Vm 不是 Azure 对象）。
+不能。 Azure 负载均衡器内部仅支持 Azure IaaS Vm。 Azure 负载均衡器不支持基于 IP 的后端池;只有 azure 虚拟机或虚拟机规模集对象（其中 Azure VMware 解决方案 Vm 不是 Azure 对象）。
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>是否可以使用现有 ExpressRoute 网关连接到 Azure VMware 解决方案？
 是的，可以使用现有的 ExpressRoute 网关连接到 Azure VMware 解决方案，前提是它不超过每个虚拟网络的四个 ExpressRoute 线路的限制。  但是，若要通过 ExpressRoute 从本地访问 Azure VMware 解决方案，必须具有 ExpressRoute Global Reach，因为 ExpressRoute 网关不提供其连接线路之间的传递路由。
@@ -115,11 +115,11 @@ Azure VMware 解决方案中的每个 ESXi 主机都配置了 4 25 Gbps Nic，�
 
 #### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>重复值设置的正确存储策略是什么？
 
-使用 VM 模板的 *thin_provision* 存储策略。  默认值为 *thick_provision* 。
+使用 VM 模板的 *thin_provision* 存储策略。  默认值为 *thick_provision*。
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>SNMP 基础结构日志是否共享？
 
-错误。
+不能。
 
 ## <a name="hosts-clusters-and-private-clouds"></a>主机、群集和私有云
 
@@ -253,7 +253,7 @@ Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX 
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>如何实现请求 Azure VMware 解决方案的主机配额增加？
 
-对于 CSP 托管订阅，客户必须对合作伙伴执行请求，并且合作伙伴团队将与 Microsoft 合作，以便为订阅增加配额。 
+对于 CSP 托管订阅，客户必须对合作伙伴执行请求，并且合作伙伴团队将与 Microsoft 合作，以便为订阅增加配额。 有关详细信息，请参阅 [如何启用 Azure VMware 解决方案资源一文](enable-azure-vmware-solution.md) 了解详细信息。 
 
 对于 EA 订阅，客户必须遵循此过程。
 
@@ -263,7 +263,7 @@ Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX 
 在创建 Azure VMware 解决方案资源之前，必须提交支持票证来分配节点。 最多需要五个工作日内确认请求并分配节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。
 
 
-1. 在 Azure 门户中，在 " **帮助 + 支持** " 下创建 **[新的支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)** ，并为票证提供以下信息：
+1. 在 Azure 门户中，在 " **帮助 + 支持**" 下创建 **[新的支持请求](https://rc.portal.azure.com/#create/Microsoft.Support)** ，并为票证提供以下信息：
    - **问题类型：** 技术方面
    - **订阅：** 选择你的订阅
    - **服务：** 所有服务 > Azure VMware 解决方案
@@ -299,6 +299,10 @@ Azure VMware 解决方案以预览版功能/服务的形式提供了 VMware HCX 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
 Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution does not offer multi-tenancy.
 
 
 ## Customer communication

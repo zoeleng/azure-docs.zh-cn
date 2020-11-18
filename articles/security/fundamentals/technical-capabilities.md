@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696092"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全技术功能
 本文介绍了 Azure 中的安全服务，这些服务可帮助保护云中的数据、资源和应用程序，并满足业务的安全需求。
@@ -156,9 +156,9 @@ Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者�
 
 ![受保护的资源访问](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-使用 RBAC，可以在团队中实现职责分离，仅向用户授予执行作业所需的访问权限。 而不是向每个人提供对 Azure 订阅或资源的无限权限，可以仅允许某些操作。 例如，使用 RBAC 允许一个员工管理订阅中的虚拟机，而允许另一个员工管理同一订阅中的 SQL 数据库。
+使用 Azure RBAC，可以在团队中实现职责分离，仅向用户授予他们执行作业所需的访问权限。 而不是向每个人提供对 Azure 订阅或资源的无限权限，可以仅允许某些操作。 例如，使用 Azure RBAC 允许一个员工管理订阅中的虚拟机，另一个员工可以管理同一订阅中的 SQL 数据库。
 
-![Azure 中受保护的资源访问 (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![使用 Azure RBAC 进行安全的资源访问](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>数据安全与加密
 
@@ -394,17 +394,17 @@ Azure 操作安全性建立在一个框架上，该框架融合了通过 Microso
 
 - **页面查看次数和负载性能** - 由用户的浏览器报告。
 
-- **来自网页的 AJAX 调用** ：速率、响应时间和失败率。
+- **来自网页的 AJAX 调用**：速率、响应时间和失败率。
 
 - **用户和会话计数。**
 
-- Windows 或 Linux 服务器计算机中的 **性能计数器** ，例如 CPU、内存和网络使用情况。
+- Windows 或 Linux 服务器计算机中的 **性能计数器**，例如 CPU、内存和网络使用情况。
 
-- Docker 或 Azure 中的 **主机诊断** 。
+- Docker 或 Azure 中的 **主机诊断**。
 
-- 应用中的 **诊断跟踪日志** - 可以将跟踪事件与请求相关联。
+- 应用中的 **诊断跟踪日志**- 可以将跟踪事件与请求相关联。
 
-- 在客户端或服务器代码中自行编写的 **自定义事件和指标** ，用于跟踪业务事件（例如销售的商品或赢得的游戏）。
+- 在客户端或服务器代码中自行编写的 **自定义事件和指标**，用于跟踪业务事件（例如销售的商品或赢得的游戏）。
 
 应用程序的体系结构通常由许多组件构成 – 其中可能包括虚拟机、存储帐户、虚拟网络、Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 可以使用 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 将解决方案中的资源作为一个组进行处理。
 
@@ -422,7 +422,7 @@ Azure 操作安全性建立在一个框架上，该框架融合了通过 Microso
 
 - 可以定义各资源之间的依赖关系，使其按正确的顺序进行部署。
 
-- 可以将访问控制应用到资源组中的所有服务，因为基于角色的访问控制 (RBAC) 已在本机集成到管理平台。
+- 可以将访问控制应用到资源组中的所有服务，因为 Azure RBAC) 的基于角色的访问控制 (本机集成到管理平台。
 
 - 可以将标记应用到资源，以逻辑方式组织订阅中的所有资源。
 

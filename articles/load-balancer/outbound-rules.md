@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 98bc962c0c57716cee9339056b0793bfe4bcb0ea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683108"
+ms.locfileid: "94694722"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>使用 Azure 负载均衡器配置出站规则
 
@@ -60,7 +60,7 @@ ms.locfileid: "94683108"
 
 使用多个 IP 地址来规划大规模方案。 使用出站规则来缓解 [SNAT 耗尽](troubleshoot-outbound-connection.md#snatexhaust)的情况。 
 
-你还可以直接在出站规则中使用[公共 IP 前缀](https://aka.ms/lbpublicipprefix)。 
+你还可以直接在出站规则中使用[公共 IP 前缀](./load-balancer-outbound-connections.md#outboundrules)。 
 
 公共 IP 前缀增强了部署的缩放。 可以将前缀添加到源自 Azure 资源的流的允许列表中。 可以在负载均衡器中配置引用公共 IP 地址前缀所需的前端 IP 配置。  
 
@@ -74,7 +74,7 @@ ms.locfileid: "94683108"
 
 负载均衡器的默认行为是在达到了出站空闲超时时以静默方式丢弃流。 `enableTCPReset` 参数可以让应用程序的行为和控制更具可预测性。 此参数指示在发生出站空闲超时时是否要发送双向 TCP 重置 (TCP RST)。 
 
-查看[在空闲超时时 TCP 重置](https://aka.ms/lbtcpreset)，了解详细信息，包括区域可用性。
+查看[在空闲超时时 TCP 重置](./load-balancer-tcp-reset.md)，了解详细信息，包括区域可用性。
 
 ## <a name="securing-and-controlling-outbound-connectivity-explicitly"></a><a name="preventoutbound"></a>显式保护和控制出站连接
 
@@ -91,9 +91,9 @@ ms.locfileid: "94683108"
 >[!IMPORTANT]
 > 如果将此参数设置为 true，但没有任何出站规则来定义出站连接，则虚拟机将不会建立出站连接。  VM或应用程序的某些操作可能依赖于公网连接。 请务必了解方案的依赖关系，并考虑此项更改造成的影响。
 
-有时，让 VM 创建出站流是不合需要的。 可能需要对哪些目标接收出站流或哪些目标启动入站流进行管理。 使用[网络安全组](../virtual-network/security-overview.md)可管理 VM 访问的目标。 使用 NSG 可对哪些公共目标启动入站流进行管理。
+有时，让 VM 创建出站流是不合需要的。 可能需要对哪些目标接收出站流或哪些目标启动入站流进行管理。 使用[网络安全组](../virtual-network/network-security-groups-overview.md)可管理 VM 访问的目标。 使用 NSG 可对哪些公共目标启动入站流进行管理。
 
-将 NSG 应用于负载均衡的 VM 时，需要注意[服务标记](../virtual-network/security-overview.md#service-tags)和[默认安全规则](../virtual-network/security-overview.md#default-security-rules)。 
+将 NSG 应用于负载均衡的 VM 时，需要注意[服务标记](../virtual-network/network-security-groups-overview.md#service-tags)和[默认安全规则](../virtual-network/network-security-groups-overview.md#default-security-rules)。 
 
 请确保 VM 可以接收来自 Azure 负载均衡器的运行状况探测请求。
 
@@ -159,7 +159,7 @@ ms.locfileid: "94683108"
 如果尝试根据公共 IP 地址数提供超过可用的 [SNAT](load-balancer-outbound-connections.md)端口，则配置操作将被拒绝。 例如，如果为每个 VM 提供了10000个端口，而后端池中有7个 Vm 共享单个公共 IP，则配置将被拒绝。 7 乘以 10,000 超出了 64,000 个端口的限制。 将更多的公共 IP 地址添加到出站规则的前端即可实现该方案。 
 
 
-将端口数指定为 0 即可恢复到[默认端口分配](load-balancer-outbound-connections.md#preallocatedports)。 前 50 个 VM 实例会获得 1024 个端口，而 51-100 个 VM 实例会获得 512 个端口，以此类推，直到最大实例数。 有关默认 SNAT 端口分配的详细信息，请参阅 [SNAT 端口分配表](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)。
+将端口数指定为 0 即可恢复到[默认端口分配](load-balancer-outbound-connections.md#preallocatedports)。 前 50 个 VM 实例会获得 1024 个端口，而 51-100 个 VM 实例会获得 512 个端口，以此类推，直到最大实例数。 有关默认 SNAT 端口分配的详细信息，请参阅 [SNAT 端口分配表](./load-balancer-outbound-connections.md#preallocatedports)。
 
 
 ### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>方案3：仅启用出站
@@ -211,7 +211,7 @@ ms.locfileid: "94683108"
 对于内部标准负载均衡器，出站连接不可用，除非已通过实例级公共 Ip 或虚拟网络 NAT 显式声明，或将后端池成员与仅出站负载平衡器配置相关联。 
 
 
-有关详细信息，请参阅[仅出站的负载均衡器配置](https://docs.microsoft.com/azure/load-balancer/egress-only)。
+有关详细信息，请参阅[仅出站的负载均衡器配置](./egress-only.md)。
 
 
 
@@ -253,4 +253,3 @@ ms.locfileid: "94683108"
 
 - 详细了解 [Azure 标准负载均衡器](load-balancer-overview.md)
 - 请参阅 [Azure 负载均衡器常见问题解答](load-balancer-faqs.md)
-

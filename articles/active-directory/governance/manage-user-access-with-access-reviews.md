@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001adaff1fed901638276e548ac1d5fdb41bdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc12b4cb7e97a0808405baebc64ca83cdb742bf1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798301"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696942"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>使用 Azure AD 访问评审管理用户访问权限
 
@@ -30,7 +30,7 @@ ms.locfileid: "87798301"
 > [!NOTE]
 > 如果仅评审来宾用户的访问权限，而无需评审所有用户的访问权限，请参阅[使用访问评审管理来宾用户访问权限](manage-guest-access-with-access-reviews.md)。 如果要查看用户对管理角色（如全局管理员）的成员身份，请参阅 [在 Azure AD Privileged Identity Management 中启动访问评审](../privileged-identity-management/pim-how-to-start-security-review.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - Azure AD Premium P2
 
@@ -44,7 +44,7 @@ ms.locfileid: "87798301"
 
 2. 决定是由每个用户评审自己的访问权限，还是由一个或多个用户评审每个人的访问权限。
 
-3. 以全局管理员或用户管理员身份，转到[“标识监管”页](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
+3. 在以下角色之一中：全局管理员、用户管理员或 (预览) 要查看的组的 M365 或 AAD 安全组所有者，请参阅 " [标识管理" 页](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
 4. 创建访问评审。 有关详细信息，请参阅[创建组或应用程序的访问评审](create-access-review.md)。
 

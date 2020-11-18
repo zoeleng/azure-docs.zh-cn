@@ -1,23 +1,22 @@
 ---
 title: 关于 Azure 机器学习环境
 titleSuffix: Azure Machine Learning
-description: 在本文中，你将了解机器学习环境的优点，在该环境中可以创建跨各种计算目标的可重复、可审核且可移植的机器学习依赖项定义。
+description: 了解机器学习环境，该环境启用各种计算目标的可重复、可审核的 & 便携机器学习依赖项定义。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322183"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695378"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>什么是 Azure 机器学习环境？
-
 
 Azure 机器学习环境封装了一个供你在其中进行机器学习训练的环境。 此类学习环境指定了与训练和评分脚本有关的 Python 包、环境变量和软件设置。 它们还指定运行时（Python、Spark 或 Docker）。 环境是机器学习工作区中受管理且版本受控的实体，可用于创建跨各种计算目标的可再现、可审核且可移植的机器学习工作流。
 
