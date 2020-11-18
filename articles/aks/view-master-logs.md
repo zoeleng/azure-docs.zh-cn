@@ -4,12 +4,12 @@ description: 了解如何启用和查看 Azure Kubernetes 服务 (AKS) 中 Kuber
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 82570606aee294aafe7da5ffaf581b11b6775073
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a0e58174c38ec19d42f524b9bc94247e05296467
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899931"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682224"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
@@ -17,7 +17,7 @@ ms.locfileid: "92899931"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文要求在 Azure 帐户中运行一个现有的 AKS 群集。 如果还没有 AKS 群集，请使用 [Azure CLI][cli-quickstart] 或 [Azure 门户][portal-quickstart]创建一个。 Azure Monitor 日志适用于支持 RBAC 和不支持 RBAC 的 AKS 群集。
+本文要求在 Azure 帐户中运行一个现有的 AKS 群集。 如果还没有 AKS 群集，请使用 [Azure CLI][cli-quickstart] 或 [Azure 门户][portal-quickstart]创建一个。 Azure Monitor 日志适用于 Kubernetes RBAC、Azure RBAC 和启用非 RBAC 的 AKS 群集。
 
 ## <a name="enable-resource-logs"></a>启用资源日志
 
@@ -25,22 +25,22 @@ ms.locfileid: "92899931"
 
 Azure Monitor 日志是在 Azure 门户中启用和管理的。 若要为 AKS 群集中的 Kubernetes 主组件启用日志收集，请在 Web 浏览器中打开 Azure 门户并完成以下步骤：
 
-1. 选择 AKS 群集的资源组，例如 *myResourceGroup* 。 不要选择包含单个 AKS 群集资源的资源组，例如 *MC_myResourceGroup_myAKSCluster_eastus* 。
+1. 选择 AKS 群集的资源组，例如 *myResourceGroup*。 不要选择包含单个 AKS 群集资源的资源组，例如 *MC_myResourceGroup_myAKSCluster_eastus*。
 1. 在左侧选择“诊断设置”。
-1. 选择 AKS 群集（如 *myAKSCluster* ），然后选择 " **添加诊断设置** "。
+1. 选择 AKS 群集（如 *myAKSCluster*），然后选择 " **添加诊断设置**"。
 1. 输入名称（例如 myAKSClusterLogs），然后选择“发送到 Log Analytics”选项。
 1. 选择现有工作区或者创建新的工作区。 如果创建工作区，请提供工作区名称、资源组和位置。
-1. 在可用日志列表中，选择要启用的日志。 在此示例中，启用 *kube-audit* 和 *kube* 日志。 常见日志包括 kube-apiserver、kube-controller-manager 和 kube-scheduler。 启用 Log Analytics 工作区后，可以返回并更改收集的日志。
+1. 在可用日志列表中，选择要启用的日志。 对于本示例，请启用 kube-audit 和 kube-audit-admin 日志 。 常见日志包括 kube-apiserver、kube-controller-manager 和 kube-scheduler。 启用 Log Analytics 工作区后，可以返回并更改收集的日志。
 1. 准备就绪后，选择“保存”以启用收集选定日志。
 
 ## <a name="log-categories"></a>日志类别
 
-除了 Kubernetes 编写的条目，项目的审核日志还包含来自 AKS 的条目。
+除了 Kubernetes 编写的条目，项目的审核日志还包含 来自 AKS 的条目。
 
-审核日志分为三个类别： *kube-audit* 、 *kube* 和 *guard* 。
+审核日志分为三个类别： *kube-audit*、 *kube* 和 *guard*。
 
-- *Kube* 类别包含每个审核事件的所有审核日志数据，包括 *get* 、 *list* 、 *create* 、 *update* 、 *delete* 、 *patch* 和 *post* 。
-- *Kube* 类别是 *kube-audit* 日志类别的子集。 *kube-* 通过从日志中排除 *get* 和 *list* 审核事件，管理员可以显著减少日志的数量。
+- kube-audit 类别包含每个审核事件的所有审核日志数据，包括 get、list、create、update、delete、patch 和 post       。
+- kube-audit-admin 类别是 kube-audit 日志类别的子集 。 kube-audit-admin 通过从日志中排除 get 和 list 审核事件，大大减少了日志数量  。
 - *防护* 类别是托管 Azure AD 和 Azure RBAC 审核。 对于托管 Azure AD：中的标记，用户信息为 out。对于 Azure RBAC：向内和向外访问评审。
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>在 AKS 群集上计划测试 pod
@@ -80,7 +80,7 @@ pod/nginx created
 启用并显示诊断日志可能需要长达10分钟的时间。
 
 > [!NOTE]
-> 如果需要所有审核日志数据以实现符合性或其他目的，请收集该数据并将其存储在廉价存储（如 blob 存储）中。 使用 *kube* 日志类别收集并保存一组有意义的审核日志数据，以便进行监视和警报。
+> 如果需要将所有审核日志数据用于实现合规性或其他目的，请收集这些数据并将其存储在成本较低的存储（例如 blob 存储）中。 使用 kube-audit-admin 日志类别收集和保存有意义的审核日志数据集，以便进行监视和发出警报。
 
 在 Azure 门户中导航到 AKS 群集，然后选择左侧的“日志”。 关闭“示例查询”窗口（如果出现了此窗口）。
 
@@ -101,7 +101,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-若要查看 *kube* 日志，请在文本框中输入以下查询：
+若要查看 kube-audit-admin 日志，请在文本框中输入以下查询：
 
 ```
 AzureDiagnostics
@@ -109,7 +109,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-在此示例中，查询在 *kube* 中显示所有创建作业。可能返回了很多结果，若要将查询范围缩小到查看有关上一步骤中创建的 NGINX pod 的日志，请添加其他 *where* 语句来搜索 *NGINX* ，如下面的示例查询中所示。
+在本例中，查询显示了 kube-audit-admin 中的所有创建作业。返回的结果可能很多，若要缩小查询范围，以便查看上一步创建的 NGINX Pod 的相关日志，请另外添加一个 where 语句来搜索 nginx，如以下示例查询所示 。
 
 ```
 AzureDiagnostics

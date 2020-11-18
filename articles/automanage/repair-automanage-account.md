@@ -1,6 +1,6 @@
 ---
 title: 修复损坏的 Azure Automanage 帐户
-description: 了解如何修复损坏的 Automanage 帐户
+description: 如果最近将包含 Automanage 帐户的订阅移动到新租户，则需要对其进行重新配置。 本文介绍了如何操作。
 author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -8,24 +8,24 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: ad54b37da8a4945162b507232f33083890ec1fff
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557569"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681833"
 ---
-# <a name="repair-a-broken-automanage-account"></a>修复损坏的 Automanage 帐户
-[Automanage 帐户](./automanage-virtual-machines.md#automanage-account)是安全上下文或用于执行自动操作的标识。 如果最近将包含 Automanage 帐户的订阅移动到新租户，则需要重新配置 Automanage 帐户。 若要重新配置你的 Automanage 帐户，你将需要重置标识类型并为该帐户分配适当的角色。
+# <a name="repair-an-automanage-account"></a>修复 Automanage 帐户
+你的 [Azure Automanage 帐户](./automanage-virtual-machines.md#automanage-account) 是在其下执行自动操作的安全上下文或标识。 如果最近将包含 Automanage 帐户的订阅移动到新租户，则需要重新配置该帐户。 若要对其进行重新配置，需要重置标识类型并为该帐户分配适当的角色。
 
-## <a name="step-1-reset-automanage-account-identity-type"></a>步骤1：重置 Automanage 帐户标识类型
-请在下面的 "Azure 资源管理器 (ARM) " 模板中重置 Automanage 帐户标识类型。 将该文件保存在本地 `armdeploy.json` 或类似的。 记下你的 Automanage 帐户名称和位置，因为这些是 ARM 模板中的必需参数。
+## <a name="step-1-reset-the-automanage-account-identity-type"></a>步骤1：重置 Automanage 帐户标识类型
+使用以下 Azure 资源管理器 (ARM) 模板重置 Automanage 帐户标识类型。 将该文件在本地保存为 armdeploy.js或类似名称。 记下你的 Automanage 帐户名称和位置，因为它们是 ARM 模板中的必需参数。
 
-1. 使用下面的模板创建新的 ARM 部署，并使用 `identityType = None`
-    * 你可以使用 Azure CLI 执行此操作 `az deployment sub create` 。 在此处了解有关 `az deployment sub` 命令[here](https://docs.microsoft.com/cli/azure/deployment/sub)的详细信息。
-    * 您也可以使用该模块通过 PowerShell 执行此操作 `New-AzDeployment` 。 在此处了解有关 `New AzDeployment` 模块[here](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment)的详细信息。
+1. 使用以下模板创建资源管理器部署。 请使用 `identityType = None`。
+    * 您可以使用在 Azure CLI 中创建部署 `az deployment sub create` 。 有关详细信息，请参阅 [az deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub)。
+    * 你可以使用模块在 PowerShell 中创建部署 `New-AzDeployment` 。 有关详细信息，请参阅 [AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment)。
 
-1. 再次运行同一 ARM 模板 `identityType = SystemAssigned`
+1. 再次运行相同的 ARM 模板 `identityType = SystemAssigned` 。
 
 ```json
 {
@@ -59,24 +59,24 @@ ms.locfileid: "94557569"
 ```
 
 ## <a name="step-2-assign-appropriate-roles-for-the-automanage-account"></a>步骤2：为 Automanage 帐户分配适当的角色
-Automanage 帐户需要订阅上包含 Automanage 所管理的 Vm 的参与者和资源策略参与者角色。 你可以使用 Azure 门户、ARM 模板或 Azure CLI 分配这些角色。
+Automanage 帐户需要订阅上包含 Automanage 所管理的 Vm 的参与者和资源策略参与者角色。 可以使用 Azure 门户、ARM 模板或 Azure CLI 来分配这些角色。
 
-如果你使用的是 ARM 模板或 Azure CLI，则你将需要 "主体 ID" (（也称为 "对象 ID") 为你的 Automanage 帐户） (如果你使用 Azure 门户) ，则不需要这样做。 你可以使用以下方法查找 Automanage 帐户的主体 ID (对象 ID) ：
+如果使用的是 ARM 模板或 Azure CLI，则需要主体 ID (也称为 Automanage 帐户的对象 ID) 。  (如果使用 Azure 门户，则不需要 ID。 ) 可以使用以下方法找到此 ID：
 
 - [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp)：使用命令 `az ad sp list --display-name <name of your Automanage Account>` 。
 
-- Azure 门户：导航到 **Azure Active Directory** 并按名称搜索你的 Automanage 帐户。 在 " **企业应用程序** " 下，选择显示的 Automanage 帐户名称。
+- Azure 门户：中转到 **Azure Active Directory** 并按名称搜索你的 Automanage 帐户。 在 " **企业应用程序**" 下，选择显示的 Automanage 帐户名称。
 
 ### <a name="azure-portal"></a>Azure 门户
-1. 在 " **订阅** " 下，导航到包含 Automanaged vm 的订阅。
-1. 导航到 **(IAM) 的访问控制** 。
-1. 单击 " **添加角色分配** "。
-1. 选择 " **参与者** " 角色，然后键入 Automanage 帐户的名称。
-1. 按“保存”。
-1. 重复步骤3-5，这一次请与 **资源策略参与者** 角色一起工作。
+1. 在 " **订阅**" 下，前往包含 automanaged vm 的订阅。
+1. 请 **访问 (IAM) 的 "访问控制**"。
+1. 选择 " **添加角色分配**"。
+1. 选择 " **参与者** " 角色，并输入 Automanage 帐户的名称。
+1. 选择“保存”。
+1. 重复步骤3到5，这一次使用 **资源策略参与者** 角色。
 
 ### <a name="arm-template"></a>ARM 模板
-运行以下 ARM 模板。 你将需要 Automanage 帐户的主体 ID-上述用于获取主体 ID 的步骤。 在出现提示时输入。
+运行以下 ARM 模板。 需要 Automanage 帐户的主体 ID。 本部分的开头介绍了获取此方法的步骤。 在出现提示时输入 ID。
 
 ```json
 {
@@ -121,10 +121,10 @@ Automanage 帐户需要订阅上包含 Automanage 所管理的 Vm 的参与者�
 运行以下命令：
 
 ```azurecli
-az role assignment create --assignee-object-id <your Automanage Account's object id> --role "Contributor" --scope /subscriptions/<your subscription id>
+az role assignment create --assignee-object-id <your Automanage Account Object ID> --role "Contributor" --scope /subscriptions/<your subscription ID>
 
-az role assignment create --assignee-object-id <your Automanage Account's object id> --role "Resource Policy Contributor" --scope /subscriptions/<your subscription id>
+az role assignment create --assignee-object-id <your Automanage Account Object ID> --role "Resource Policy Contributor" --scope /subscriptions/<your subscription ID>
 ```
 
 ## <a name="next-steps"></a>后续步骤
-[在此处](./automanage-virtual-machines.md)了解有关 Azure Automanage 的详细信息。
+[了解有关 Azure Automanage 的详细信息](./automanage-virtual-machines.md)

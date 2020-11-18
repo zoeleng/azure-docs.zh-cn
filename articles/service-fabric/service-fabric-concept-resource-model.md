@@ -4,12 +4,12 @@ description: 本文概述如何使用 Azure 资源管理器管理 Azure Service 
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258742"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681680"
 ---
 # <a name="service-fabric-application-resource-model"></a>Service Fabric 应用程序资源模型
 
@@ -55,7 +55,7 @@ ms.locfileid: "86258742"
 可以通过将公共访问级别设置为“专用”来保护群集中的资源。 可以通过多种方式授予访问权限：
 
 * 使用 [Azure Active Directory](../storage/common/storage-auth-aad-app.md) 授予对 Blob 和队列的访问权限。
-* [在 Azure 门户中使用 RBAC](../storage/common/storage-auth-aad-rbac-portal.md) 授予对 Azure Blob 和队列数据的访问权限。
+* [在 Azure 门户中使用 AZURE RBAC](../storage/common/storage-auth-aad-rbac-portal.md)授予对 azure blob 和队列数据的访问权限。
 * 使用[共享访问签名](/rest/api/storageservices/delegate-access-with-shared-access-signature)委派访问权限。
 
 以下屏幕截图中的示例使用对 Blob 的匿名读取访问。
