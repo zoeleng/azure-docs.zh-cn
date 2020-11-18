@@ -1,6 +1,6 @@
 ---
-title: Azure MFA 用户数据收集-Azure Active Directory
-description: Azure 多重身份验证借助哪些信息来对用户进行身份验证？
+title: Azure AD MFA 用户数据收集-Azure Active Directory
+description: 通过 Azure AD 多重身份验证来帮助对用户进行身份验证的信息是什么？
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,26 +11,26 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ec8eddf55c6b3e90b56501a2e3b657bef6fc8c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed0d4b754911dda49776379fb318390eae411000
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964190"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839006"
 ---
-# <a name="azure-multi-factor-authentication-user-data-collection"></a>Microsoft Azure 多重身份验证用户数据收集
+# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Azure AD 多重身份验证用户数据收集
 
-本文档介绍在需要删除 Azure 多重身份验证服务器 (MFA) 和 Azure MFA（基于云的）收集的用户信息时，如何查找这些信息。
+本文档介绍了如何查找 Azure 多重身份验证服务器 (MFA Server) 的用户信息，并在你想要删除它的情况下 Azure AD MFA (基于云的) 。
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="information-collected"></a>收集的信息
 
-MFA 服务器、NPS 扩展和 Windows Server 2016 Azure MFA AD FS 适配器收集以下信息，并将其存储 90 天。
+MFA 服务器、NPS 扩展和 Windows Server 2016 Azure AD MFA AD FS 适配器收集以下信息并将其存储90天。
 
 身份验证尝试（用于报告和故障排除）：
 
-- Timestamp
+- 时间戳
 - 用户名
 - 名字
 - 姓氏
@@ -71,7 +71,7 @@ MFA 服务器、NPS 扩展和 Windows Server 2016 Azure MFA AD FS 适配器收�
 激活（尝试在 Microsoft Authenticator 移动应用中激活帐户）：
 - 用户名
 - 帐户名
-- Timestamp
+- 时间戳
 - 获取激活码结果
 - 激活成功
 - 激活错误
@@ -89,7 +89,7 @@ MFA 服务器、NPS 扩展和 Windows Server 2016 Azure MFA AD FS 适配器收�
 - 国家/地区代码
 - 电话号码
 - 带格式的电话号码
-- 扩展名
+- 分机
 - 清理分机号
 - 已阻止
 - 阻止原因
@@ -109,7 +109,7 @@ MFA 服务器、NPS 扩展和 Windows Server 2016 Azure MFA AD FS 适配器收�
 - 国家/地区代码
 - 电话号码
 - 带格式的电话号码
-- 扩展名
+- 分机
 - 清理分机号
 - 绕过原因
 - 完成时间戳
@@ -135,7 +135,7 @@ MFA 服务器、NPS 扩展和 Windows Server 2016 Azure MFA AD FS 适配器收�
 
 在 MFA 服务器 8.0 或更高版本中，管理员可以使用以下过程导出用户的所有数据：
 
-- 登录到 MFA 服务器，导航到“用户”选项卡，选择相关的用户，然后单击“编辑”按钮。******** 拍摄每个选项卡的屏幕截图 (Alt-PrtScn)，为用户提供其当前 MFA 设置。
+- 登录到 MFA 服务器，导航到“用户”选项卡，选择相关的用户，然后单击“编辑”按钮。 拍摄每个选项卡的屏幕截图 (Alt-PrtScn)，为用户提供其当前 MFA 设置。
 - 在 MFA 服务器的命令行中运行以下命令（请根据安装更改路径 (`C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>`)），以生成 JSON 格式的文件。
 - 管理员也可以使用 Web 服务 SDK GetUserGdpr 操作作为选项，导出针对给定用户收集的所有 MFA 云服务信息，或将其合并到更大的报告解决方案。
 - 搜索 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` 和 "" 的任何备份 \<username> (在搜索) 中包含引号，以查找正在添加或更改的用户记录的所有实例。
@@ -163,26 +163,26 @@ MFA 服务器、NPS 扩展和 Windows Server 2016 Azure MFA AD FS 适配器收�
 
 - 完全删除这些数据最长可能需要 30 天。
 
-## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>从 Windows Server 2016 Azure MFA AD FS 适配器收集数据
+## <a name="gather-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>从 Windows Server 2016 Azure AD MFA AD FS 适配器收集数据
 
 使用 [Microsoft 隐私门户](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)发出导出请求。 
 
 - MFA 信息将包含在导出中，可能需要几个小时甚至几天才能完成导出。
 - AD FS 跟踪/调试事件日志（如果已启用）中出现的用户名被视为有效，并与导出中提供的信息重复。
 
-## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>从 Windows Server 2016 Azure MFA AD FS 适配器删除数据
+## <a name="delete-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>从 Windows Server 2016 Azure AD MFA AD FS 适配器中删除数据
 
 使用 [Microsoft 隐私门户](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)发出“帐户关闭”请求，以删除针对此用户收集的所有 MFA 云服务信息。
 
 - 完全删除这些数据最长可能需要 30 天。
 
-## <a name="gather-data-for-azure-mfa"></a>收集 Azure MFA 的数据
+## <a name="gather-data-for-azure-ad-mfa"></a>收集 Azure AD MFA 的数据
 
 使用 [Microsoft 隐私门户](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)发出导出请求。
 
 - MFA 信息将包含在导出中，可能需要几个小时甚至几天才能完成导出。
 
-## <a name="delete-data-for-azure-mfa"></a>删除 Azure MFA 的数据
+## <a name="delete-data-for-azure-ad-mfa"></a>删除 Azure AD MFA 的数据
 
 使用 [Microsoft 隐私门户](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)发出“帐户关闭”请求，以删除针对此用户收集的所有 MFA 云服务信息。
 

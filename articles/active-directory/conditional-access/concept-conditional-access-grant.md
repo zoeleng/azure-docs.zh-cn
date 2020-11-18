@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042804"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837645"
 ---
 # <a name="conditional-access-grant"></a>条件访问：授予
 
@@ -34,9 +34,9 @@ ms.locfileid: "93042804"
 
 在授予访问权限时，管理员可以选择强制实施一项或多项控制。 这些控制包括以下选项： 
 
-- [需要多重身份验证（Azure 多重身份验证）](../authentication/concept-mfa-howitworks.md)
+- [需要多重身份验证 (Azure AD 多重身份验证) ](../authentication/concept-mfa-howitworks.md)
 - [要求设备标记为符合 (Microsoft Intune) ](/intune/protect/device-compliance-get-started)
-- [要求使用已建立混合 Azure AD 联接的设备](../devices/concept-azure-ad-join-hybrid.md)
+- [需要混合 Azure AD 联接设备](../devices/concept-azure-ad-join-hybrid.md)
 - [“需要已批准的客户端应用”](app-based-conditional-access.md)
 - [需要应用保护策略](app-protection-based-conditional-access.md)
 - [要求更改密码](#require-password-change)
@@ -50,7 +50,7 @@ ms.locfileid: "93042804"
 
 ### <a name="require-multi-factor-authentication"></a>需要多重身份验证
 
-选中此复选框会要求用户执行 Azure 多重身份验证。 在[规划基于云的 Azure 多重身份验证部署](../authentication/howto-mfa-getstarted.md)一文中可以找到有关部署 Azure 多重身份验证的详细信息。
+选中此复选框将要求用户执行 Azure AD 多重身份验证。 有关部署 Azure AD 多重身份验证的详细信息，请参阅 [规划基于云的 Azure AD 多重身份验证部署](../authentication/howto-mfa-getstarted.md)一文。
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>要求将设备标记为合规
 

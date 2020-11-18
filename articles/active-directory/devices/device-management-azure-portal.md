@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ab17e5c0a024fec938f1b588cc4ce69bf16a878
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083246"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837356"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>使用 Azure 门户管理设备标识
 
@@ -39,14 +39,14 @@ Azure AD 提供了一个用于管理设备标识的中心位置。
 你可以使用以下步骤访问设备门户：
 
 1. 登录 [Azure 门户](https://portal.azure.com)。
-1. 浏览到 **Azure Active Directory**  >  **设备** "。
+1. 浏览到 **Azure Active Directory**  >  **设备**"。
 
 ## <a name="manage-devices"></a>管理设备
 
 在 Azure AD 中，有两个管理设备的位置：
 
 - **Azure 门户**  > **Azure Active Directory**  > **设备**
-- **Azure 门户**  > **Azure Active Directory**  > **用户** > 选择用户 > **设备**
+- **Azure 门户**  > **Azure Active Directory**  > **用户**> 选择用户 >**设备**
 
 这两个选项使管理员能够：
 
@@ -111,7 +111,7 @@ Azure AD 提供了一个用于管理设备标识的中心位置。
   
 ### <a name="view-or-copy-bitlocker-keys"></a>查看或复制 BitLocker 密钥
 
-您可以查看和复制 BitLocker 密钥，以允许用户恢复加密的驱动器。 这些密钥仅适用于已加密并将其密钥存储在 Azure AD 中的 Windows 设备。 通过选择 " **显示恢复密钥** " 访问设备的详细信息时，可以找到这些密钥。 选择 " **显示恢复密钥** " 将生成一个审核日志，您可以在该类别中找到该日志 `KeyManagement` 。
+您可以查看和复制 BitLocker 密钥，以允许用户恢复加密的驱动器。 这些密钥仅适用于已加密并将其密钥存储在 Azure AD 中的 Windows 设备。 通过选择 " **显示恢复密钥**" 访问设备的详细信息时，可以找到这些密钥。 选择 " **显示恢复密钥** " 将生成一个审核日志，您可以在该类别中找到该日志 `KeyManagement` 。
 
 ![查看 BitLocker 密钥](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
@@ -140,7 +140,7 @@ Azure AD 提供了一个用于管理设备标识的中心位置。
 ![启用筛选预览功能](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
 1. 登录 [Azure 门户](https://portal.azure.com)。
-1. 浏览到 **Azure Active Directory**  >  **设备** "。
+1. 浏览到 **Azure Active Directory**  >  **设备**"。
 1. 选择显示的标题， **尝试新的设备筛选改进。单击以启用预览。**
 
 你现在可以 **将筛选器添加** 到 " **所有设备** " 视图。
@@ -158,22 +158,22 @@ Azure AD 提供了一个用于管理设备标识的中心位置。
 
 ![与 Azure AD 相关的设备设置](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
-- **用户可以将设备加入到 Azure AD** -此设置使你能够选择可将其设备注册为 Azure AD 加入设备的用户。 默认值是 **All** 。
+- **用户可以将设备加入到 Azure AD** -此设置使你能够选择可将其设备注册为 Azure AD 加入设备的用户。 默认值是 **All**。
 
 > [!NOTE]
 > **用户可以将设备加入到 Azure AD** 设置仅适用于 Windows 10 上的 Azure AD 加入。
 
 - **已加入 Azure AD 设备上的其他本地管理员** - 可选择具有此设备的本地管理员权限的用户。 将这些用户添加到 Azure AD 中的 " *设备管理员* " 角色。 默认情况下，Azure AD 中的全局管理员和设备所有者均具有本地管理员权限。 此选项属于高级版功能，通过 Azure AD Premium 或企业移动性套件 (EMS) 提供。
-- **用户可能将其设备注册到 Azure AD** -需要配置此设置，以允许向 Azure AD 注册 Windows 10 个人、IOS、Android 和 macOS 设备。 如果选择 " **无** "，则不允许设备注册 Azure AD。 注册 Microsoft Intune 或移动设备管理 (MDM) Microsoft 365 需要注册。 如果已配置其中的任一服务，则会选中“全部”且“无”不可用。
-- **需要多重身份验证才能加入设备** -可以选择是否要求用户提供附加身份验证因素，以将其设备加入 Azure AD。 默认值为 No。 在注册设备时，建议要求多重身份验证。 为此设备启用多重身份验证前，必须确保已针对注册其设备的用户配置多重身份验证。 有关各种 Azure 多重身份验证服务的详细信息，请参阅 [Azure 多重身份验证入门](../authentication/concept-mfa-howitworks.md)。 
+- **用户可能将其设备注册到 Azure AD** -需要配置此设置，以允许向 Azure AD 注册 Windows 10 个人、IOS、Android 和 macOS 设备。 如果选择 " **无**"，则不允许设备注册 Azure AD。 注册 Microsoft Intune 或移动设备管理 (MDM) Microsoft 365 需要注册。 如果已配置其中的任一服务，则会选中“全部”且“无”不可用。
+- **需要多重身份验证才能加入设备** -可以选择是否要求用户提供附加身份验证因素，以将其设备加入 Azure AD。 默认值为 No。 在注册设备时，建议要求多重身份验证。 为此设备启用多重身份验证前，必须确保已针对注册其设备的用户配置多重身份验证。 有关不同 Azure AD 多重身份验证服务的详细信息，请参阅 [Azure AD 多重身份验证](../authentication/concept-mfa-howitworks.md)入门。 
 
 > [!NOTE]
 > **需要多重身份验证加入设备** "设置适用于 Azure AD 联接或 Azure AD 注册的设备。 此设置不适用于混合 Azure AD 连接设备。
 
-- **最大设备数** -通过此设置，可以选择用户可以在 Azure AD 中具有的 Azure AD 联接或 Azure AD 注册设备的最大数量。 如果用户达到此配额，则必须先删除一个或多个现有设备，然后才可添加其他设备。 默认值为 **50** 。
+- **最大设备数** -通过此设置，可以选择用户可以在 Azure AD 中具有的 Azure AD 联接或 Azure AD 注册设备的最大数量。 如果用户达到此配额，则必须先删除一个或多个现有设备，然后才可添加其他设备。 默认值为 **50**。
 
 > [!NOTE]
-> " **最大设备数** " 设置适用于 Azure AD 联接或注册 Azure AD 的设备。 此设置不适用于混合 Azure AD 连接设备。
+> "**最大设备数**" 设置适用于 Azure AD 联接或注册 Azure AD 的设备。 此设置不适用于混合 Azure AD 连接设备。
 
 - [企业状态漫游](enterprise-state-roaming-overview.md)
 

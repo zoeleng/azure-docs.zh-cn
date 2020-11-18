@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366320"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837475"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>计划条件访问部署
 
@@ -73,7 +73,7 @@ Microsoft 提供了标准的条件策略（称为[安全默认值](../fundamenta
 * [How to deploy Conditional Access?](https://youtu.be/c_izIRNJNuk)（如何部署条件访问？）
 * [How to roll out CA policies to end users?](https://youtu.be/0_Fze7Zpyvc)（如何向最终用户推出 CA 策略？）
 * [Conditional Access with device controls](https://youtu.be/NcONUf-jeS4)（使用设备控件的条件访问）
-* [Conditional Access with Azure MFA](https://youtu.be/Tbc-SU97G-w)（使用 Azure MFA 的条件访问）
+* [使用 Azure AD MFA 的条件性访问](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)（企业移动性 + 安全性中的条件访问）
 
 
@@ -262,7 +262,7 @@ CA 策略是 if-then 语句：如果满足分配条件，则应用这些访问�
 
 * 何时应用（如果适用）
 
-![显示策略命名标准的屏幕截图。](media/plan-conditional-access/11.png)
+![显示策略的命名标准的屏幕截图。](media/plan-conditional-access/11.png)
 
 示例：对于从外部网络访问 Dynamics CRP 应用的营销用户要求 MFA 的策略可能是：
 
@@ -376,7 +376,7 @@ Azure Active Directory 允许你创建[命名位置](location-condition.md)。 �
 
 测试计划非常重要，它可以在预期结果与实际结果之间进行比较。 进行测试之前，始终应该持有某种预期。 下表概述了示例测试用例。 根据 CA 策略的配置方式调整方案和预期结果。
 
-| 策略| 场景| 预期结果 |
+| 策略| 方案| 预期结果 |
 | - | - | - |
 | [在非工作时间要求执行 MFA](untrusted-networks.md)| 经授权的用户在受信任的位置/工作时登录到应用| 不提示用户执行 MFA |
 | [在非工作时间要求执行 MFA](untrusted-networks.md)| 经授权的用户不在受信任的位置/工作时登录到应用| 提示用户执行 MFA，他们可以成功登录 |
@@ -444,7 +444,7 @@ Azure Active Directory 允许你创建[命名位置](location-condition.md)。 �
 
 使用以下管理选项来控制和管理 CA 策略：
 
-![屏幕截图显示了用于 C 策略的管理选项，其中包括命名位置、自定义控件、使用条款、V P N 连接性以及所选的经典策略。](media/plan-conditional-access/manage-access.png)
+![显示用于 CA 策略的“管理”选项的屏幕截图，其中包括命名位置、自定义控件、使用条款、VPN 连接性以及所选的经典策略。](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>命名位置

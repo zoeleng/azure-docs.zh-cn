@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70777c80cdee99f13050d7cd342f22d59da13d73
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3da7c3afa6b414e3d7df3bb58766d1ab7657dbc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964102"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838955"
 ---
 # <a name="configure-mfa-server-settings"></a>配置 MFA 服务器设置
 
 本文可帮助你管理 Azure 门户中的 Azure MFA 服务器设置。
 
 > [!IMPORTANT]
-> 从 2019 年 7 月 1 日开始，Microsoft 将不再为新部署提供 MFA 服务器。 希望用户执行多重身份验证的新客户应使用基于云的 Azure 多重身份验证。 在 7 月 1 日之前激活了 MFA 服务器的现有客户可以像平时一样下载最新版本、将来的更新以及生成激活凭据。
+> 从 2019 年 7 月 1 日开始，Microsoft 将不再为新部署提供 MFA 服务器。 希望其用户需要多重身份验证的新客户应使用基于云的 Azure AD 多重身份验证。 在 7 月 1 日之前激活了 MFA 服务器的现有客户可以像平时一样下载最新版本、将来的更新以及生成激活凭据。
 
 以下 MFA 服务器设置可用：
 

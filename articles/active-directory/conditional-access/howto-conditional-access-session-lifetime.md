@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503804"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837458"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>使用条件访问配置身份验证会话管理
 
@@ -85,12 +85,12 @@ ms.locfileid: "92503804"
 
 ## <a name="configuring-authentication-session-controls"></a>配置身份验证会话控制
 
-条件访问是一项 Azure AD Premium 功能，要求安装高级版许可证。 如果要了解有关条件性访问的详细信息，请参阅 [什么是 Azure Active Directory 中的条件性访问？](overview.md#license-requirements)
+条件访问是一项 Azure AD Premium 功能，要求安装高级版许可证。 若要了解有关条件访问的详细信息，请参阅[什么是 Azure Active Directory 中的条件访问？](overview.md#license-requirements)
 
 > [!WARNING]
 > 如果使用的是公共预览版中的 [可配置令牌生存期](../develop/active-directory-configurable-token-lifetimes.md) 功能，请注意，我们不支持为同一用户或应用组合创建两种不同的策略：一个使用此功能，另一个具有可配置的令牌生存期功能。 Microsoft 计划在2021年1月30日为刷新和会话令牌生存期停用可配置的令牌生存期功能，并将其替换为条件访问身份验证会话管理功能。  
 >
-> 在启用登录频率之前，请确保租户中禁用了其他重新身份验证设置。 如果已启用 "记住受信任的设备上的 MFA"，请确保在使用登录频率之前禁用该功能，因为这两个设置一起使用可能会导致用户意外提示。 若要了解有关重新验证提示和会话生存期的详细信息，请参阅文章： [优化重新验证提示和了解 Azure 多重身份验证的会话生存期](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md)。
+> 在启用登录频率之前，请确保租户中禁用了其他重新身份验证设置。 如果已启用 "记住受信任的设备上的 MFA"，请确保在使用登录频率之前禁用该功能，因为这两个设置一起使用可能会导致用户意外提示。 若要了解有关重新验证提示和会话生存期的详细信息，请参阅文章： [优化重新验证提示和了解 Azure AD 多重身份验证的会话生存期](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md)。
 
 ### <a name="policy-1-sign-in-frequency-control"></a>策略1：登录频率控制
 
@@ -102,7 +102,7 @@ ms.locfileid: "92503804"
 
 1. 中转到 "**访问控制**  >  "**会话**，并单击 "**登录频率**"
 1. 在第一个文本框中输入所需的天数和小时值
-1. 从下拉列表中选择“小时”或“天”的值********
+1. 从下拉列表中选择“小时”或“天”的值
 1. 保存策略
 
 ![为登录频率配置的条件访问策略](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)

@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d28ecfeb9312a6bf5a0b37e07919f9d781de50ea
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1ba0d359079a8999b3c4f2a41f4beadb835ccacc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968576"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838223"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Azure MFA 服务器和第三方 VPN 解决方案的高级方案
 
 Azure 多重身份验证服务器 (Azure MFA 服务器) 可用于与各种第三方 VPN 解决方案无缝连接。 本文重点介绍 Cisco &reg; ASA vpn 设备、Citrix NETSCALER SSL VPN 设备和刺柏网络 Secure Access/脉冲 Secure Connect SECURE SSL VPN 设备。 我们创建了配置指南来处理这三个常用设备。 Azure MFA 服务器还可与其他使用 RADIUS、LDAP、IIS 或基于声明的身份验证的其他系统集成，以 AD FS。 可以在 [AZURE MFA 服务器配置](howto-mfaserver-deploy.md#next-steps)中找到更多详细信息。
 
 > [!IMPORTANT]
-> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure 多重身份验证。
+> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure AD 多重身份验证。
 >
-> 若要开始执行基于云的 MFA，请参阅 [教程：通过 Azure 多重身份验证保护用户登录事件](tutorial-enable-azure-mfa.md)。
+> 若要开始执行基于云的 MFA，请参阅 [教程：通过 Azure AD 多重身份验证保护用户登录事件](tutorial-enable-azure-mfa.md)。
 >
 > 如果你使用基于云的 MFA，请参阅将 [VPN 基础结构与 AZURE MFA 集成](howto-mfa-nps-extension-vpn.md)。
 >

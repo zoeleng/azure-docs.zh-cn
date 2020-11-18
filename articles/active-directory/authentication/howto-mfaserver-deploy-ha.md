@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a685706b09610dc298854093bb242f0bdcf8cf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 267a543e771f33f0cfe1fac7abe225e3db2a8e3f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964088"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838734"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>配置 Azure 多重身份验证服务器以实现高可用性
 
 若要使用 Azure 服务器 MFA 部署实现高可用性，需要部署多个 MFA 服务器。 本部分提供有关可在 Azure MFS 服务器部署中实现高可用性目标的负载均衡设计的信息。
 
 > [!IMPORTANT]
-> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure 多重身份验证。
+> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure AD 多重身份验证。
 >
-> 若要开始执行基于云的 MFA，请参阅 [教程：通过 Azure 多重身份验证保护用户登录事件](tutorial-enable-azure-mfa.md)。
+> 若要开始执行基于云的 MFA，请参阅 [教程：通过 Azure AD 多重身份验证保护用户登录事件](tutorial-enable-azure-mfa.md)。
 >
 > 在2019年7月1日之前激活 MFA 服务器的现有客户，可以下载最新版本、将来的更新，并照常生成激活凭据。
 
@@ -70,9 +70,9 @@ MFA 服务器是装有 Azure 多重身份验证软件的 Windows 服务器。 MF
    ![Azure MFA 服务器 - 应用服务器 HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > 由于 RPC 使用动态端口，我们不建议在防火墙中开放 RPC 可能使用的动态端口范围。 如果在 MFA 应用程序服务器**之间**部署了防火墙，应该将 MFA 服务器配置为在静态端口上通信，以便在从属服务器与主服务器之间传输复制流量，同时，请在防火墙中开放该端口。 可以通过在 ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` 中创建名为 ```Pfsvc_ncan_ip_tcp_port``` 的 DWORD 注册表值并将其设置为可用的静态端口，来强制使用静态端口。 连接始终由 MFA 从属服务器向主服务器发起，只需在主服务器上开放静态端口，但由于随时可将从属服务器提升为主服务器，因此，应在所有 MFA 服务器上设置静态端口。
+   > 由于 RPC 使用动态端口，我们不建议在防火墙中开放 RPC 可能使用的动态端口范围。 如果在 MFA 应用程序服务器 **之间** 部署了防火墙，应该将 MFA 服务器配置为在静态端口上通信，以便在从属服务器与主服务器之间传输复制流量，同时，请在防火墙中开放该端口。 可以通过在 ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` 中创建名为 ```Pfsvc_ncan_ip_tcp_port``` 的 DWORD 注册表值并将其设置为可用的静态端口，来强制使用静态端口。 连接始终由 MFA 从属服务器向主服务器发起，只需在主服务器上开放静态端口，但由于随时可将从属服务器提升为主服务器，因此，应在所有 MFA 服务器上设置静态端口。
 
-2. 两台用户门户/MFA 移动应用服务器（MFA-UP-MAS1 和 MFA-UP-MAS2）已在**有状态**配置 (mfa.contoso.com) 中经过负载均衡。 请记住，粘性会话是负载均衡 MFA 用户门户和移动应用服务的一项要求。
+2. 两台用户门户/MFA 移动应用服务器（MFA-UP-MAS1 和 MFA-UP-MAS2）已在 **有状态** 配置 (mfa.contoso.com) 中经过负载均衡。 请记住，粘性会话是负载均衡 MFA 用户门户和移动应用服务的一项要求。
    ![Azure MFA 服务器 - 用户门户和移动应用服务 HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)
 3. ADFS 服务器场经过负载均衡，通过外围网络中负载均衡的 ADFS 代理发布到 Internet。 每台 ADFS 服务器借助 ADFS 代理，使用负载均衡的单个 URL (mfaapp.contoso.com) 通过 TCP 端口 443 来与 Azure MFA 服务器通信。
 

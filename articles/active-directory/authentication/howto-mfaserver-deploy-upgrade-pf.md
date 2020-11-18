@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e7c0399cce45b36a96bedb14d225490d48ee049
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f08bf985c4d1a5d85cd82cd03e19f5b2f310f4d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966876"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838563"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>将 PhoneFactor 代理升级到 Azure 多重身份验证服务器
 
 若要将 PhoneFactor Agent v5.x 或更低版本升级到 Azure 多重身份验证服务器，请先卸载 PhoneFactor 代理及关联的组件。 然后即可安装多重身份验证服务器及其关联组件。
 
 > [!IMPORTANT]
-> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure 多重身份验证。
+> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure AD 多重身份验证。
 >
-> 若要开始执行基于云的 MFA，请参阅 [教程：通过 Azure 多重身份验证保护用户登录事件](tutorial-enable-azure-mfa.md)。
+> 若要开始执行基于云的 MFA，请参阅 [教程：通过 Azure AD 多重身份验证保护用户登录事件](tutorial-enable-azure-mfa.md)。
 >
 > 在2019年7月1日之前激活 MFA 服务器的现有客户，可以下载最新版本、将来的更新，并照常生成激活凭据。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85e8cb63cd06027754628dcf61aad0ac72b8233b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6fa06133c7793cd5f7d14ba587f9f50b523b0299
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967012"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838751"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>将 Azure 多重身份验证服务器配置为与 Windows Server 中的 AD FS 配合使用
 
@@ -25,11 +25,11 @@ ms.locfileid: "91967012"
 本文介绍如何将 Azure 多重身份验证服务器与 Windows Server 2012 R2 或 Windows Server 2016 中的 AD FS 配合使用。 请阅读如何 [将 Azure 多重身份验证服务器与 AD FS 2.0 配合使用来保护云资源和本地资源](howto-mfaserver-adfs-2.md)，了解详细信息。
 
 > [!IMPORTANT]
-> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure 多重身份验证。
+> 从2019年7月1日起，Microsoft 不再为新部署提供 MFA 服务器。 希望在登录事件期间 (MFA) 需要多重身份验证的新客户应使用基于云的 Azure AD 多重身份验证。
 >
 > 若要开始执行基于云的 MFA，请参阅 [教程：通过 Azure 多重身份验证保护用户登录事件](tutorial-enable-azure-mfa.md)。
 >
-> 如果你使用基于云的 MFA，请参阅 [使用 Azure 多重身份验证保护云资源和 AD FS](howto-mfa-adfs.md)。
+> 如果你使用基于云的 MFA，请参阅 [使用 Azure AD 多重身份验证和 AD FS 保护云资源](howto-mfa-adfs.md)。
 >
 > 在2019年7月1日之前激活 MFA 服务器的现有客户，可以下载最新版本、将来的更新，并照常生成激活凭据。
 
@@ -164,7 +164,7 @@ ms.locfileid: "91967012"
 
 1. 在 MFA 服务器界面中打开 AD FS 部分，然后选中“启用日志记录”复选框。
 2. 在每个 AD FS 服务器上，使用 **regedit.exe** 创建值为 `C:\Program Files\Multi-Factor Authentication Server\` 的字符串值注册表项 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath`（或所选其他目录）。  **请注意，尾随反斜杠很重要。**
-3. 创建 `C:\Program Files\Multi-Factor Authentication Server\Logs` 目录（或**步骤 2** 中提到的其他目录）。
+3. 创建 `C:\Program Files\Multi-Factor Authentication Server\Logs` 目录（或 **步骤 2** 中提到的其他目录）。
 4. 在 AD FS 服务帐户的 Logs 目录上授予“修改”访问权限。
 5. 重启 AD FS 服务。
 6. 验证 `MultiFactorAuthAdfsAdapter.log` 文件是否已在 Logs 目录中创建。

@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure 多重身份验证的身份验证方法-Azure Active Directory
-description: 了解如何配置 Azure 多重身份验证的 Azure Active Directory 用户设置
+title: 管理 Azure AD 多重身份验证的身份验证方法-Azure Active Directory
+description: 了解如何为 Azure AD 多重身份验证配置 Azure Active Directory 用户设置
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1117b5194dae92a8025594ed71fc629670d875cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378035"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838921"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>管理 Azure 多重身份验证的用户身份验证方法
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>管理 Azure AD 多重身份验证的用户身份验证方法
 
 Azure AD 中的用户有两组不同的联系信息：  
 
 - 公共个人资料联系人信息，在用户配置文件中管理并对组织的成员可见。 对于从本地 Active Directory 同步的用户，此信息在本地 Windows Server Active Directory 域服务中进行管理。
 - 身份验证方法，始终保密并仅用于身份验证，包括多重身份验证 (MFA) 。 管理员可以在用户的身份验证方法边栏选项卡中管理这些方法，用户可以在 "我的帐户" 的 "安全信息" 页中管理其方法。
 
-为用户管理 Azure 多重身份验证方法时，身份验证管理员可以： 
+为用户管理 Azure AD 多重身份验证方法时，身份验证管理员可以： 
 
 1. 添加特定用户的身份验证方法，包括用于 MFA 的电话号码。
 1. 重置用户密码。
@@ -44,12 +44,12 @@ Azure AD 中的用户有两组不同的联系信息：
 
 通过 Azure 门户添加用户的身份验证方法：  
 
-1. 登录到 **Azure 门户** 。 
-1. 浏览到 **Azure Active Directory** "  >  **Users**  >  **所有用户** "。 
-1. 选择要为其添加身份验证方法的用户，然后选择 " **身份验证方法** "。  
-1. 在窗口顶部，选择 " **+ 添加身份验证方法** "。
+1. 登录到 **Azure 门户**。 
+1. 浏览到 **Azure Active Directory**"  >  **Users**  >  **所有用户**"。 
+1. 选择要为其添加身份验证方法的用户，然后选择 " **身份验证方法**"。  
+1. 在窗口顶部，选择 " **+ 添加身份验证方法**"。
    1. 选择 (电话号码或电子邮件) 的方法。 电子邮件可用于自密码重置，但不能用于身份验证。 添加电话号码时，请选择电话号码，并输入有效格式 (例如 + 1 4255551234) 的电话号码。
-   1. 选择“添加”  。
+   1. 选择 **添加** 。
 
 > [!NOTE]
 > 预览体验允许管理员为用户添加任何可用的身份验证方法，而原始体验仅允许更新手机和备用电话方法。
@@ -116,6 +116,6 @@ Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthentic
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何配置单个用户设置。 若要配置整体 Azure 多重身份验证服务设置，请参阅[配置 Azure 多重身份验证设置](howto-mfa-mfasettings.md)。
+本文介绍了如何配置单个用户设置。 若要配置整体 Azure AD 多重身份验证服务设置，请参阅 [配置 Azure AD 多重身份验证设置](howto-mfa-mfasettings.md)。
 
-如果用户需要帮助，请参阅 [Azure 多重身份验证的用户指南](../user-help/multi-factor-authentication-end-user-first-time.md)。
+如果用户需要帮助，请参阅 [Azure AD 多重身份验证的用户指南](../user-help/multi-factor-authentication-end-user-first-time.md)。

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363719"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838071"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>规划 Azure Active Directory 自助式密码重置部署
 
@@ -115,7 +115,7 @@ Azure Active Directory 按用户许可，这意味着，每个用户需要为其
 
 Microsoft 建议组织为 SSPR 和多重身份验证启用组合注册体验。 启用此组合注册体验后，用户只需选择其注册信息一次即可启用这两项功能。
 
-组合注册体验不需要组织同时启用 SSPR 和 Azure 多重身份验证。 组合注册可为组织提供更好的用户体验。 有关详细信息，请参阅[组合安全信息注册](concept-registration-mfa-sspr-combined.md)
+组合注册体验不需要组织同时启用 SSPR 和 Azure AD 多重身份验证。 组合注册可为组织提供更好的用户体验。 有关详细信息，请参阅[组合安全信息注册](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-deployment-project"></a>规划部署项目
 
@@ -200,7 +200,7 @@ Microsoft 建议组织为 SSPR 和多重身份验证启用组合注册体验。 
 
 ### <a name="password-writeback"></a>密码写回
 
-**密码写回**与 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 一同启用，可以实时将云中的密码重置写回到现有的本地目录。 有关详细信息，请参阅[什么是密码写回？](./concept-sspr-writeback.md)
+**密码写回** 与 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 一同启用，可以实时将云中的密码重置写回到现有的本地目录。 有关详细信息，请参阅[什么是密码写回？](./concept-sspr-writeback.md)
 
 我们建议使用以下设置：
 
@@ -321,9 +321,9 @@ Azure AD 可以通过审核和报告提供有关 SSPR 性能的附加信息。
 
 ### <a name="authentication-methods--usage-and-insights"></a>身份验证方法 - 使用情况和见解
 
-使用[使用情况和见解](./howto-authentication-methods-usage-insights.md)可以了解针对 Azure MFA 和 SSPR 等功能的身份验证方法在组织中的运作方式。 此报告功能可让组织了解注册的方法，以及这些方法的用法。
+[使用情况和见解](./howto-authentication-methods-usage-insights.md) 使你可以了解 Azure AD MFA 和 SSPR 等功能的身份验证方法在你的组织中的工作方式。 此报告功能可让组织了解注册的方法，以及这些方法的用法。
 
-### <a name="troubleshoot"></a>故障排除
+### <a name="troubleshoot"></a>疑难解答
 
 * 参阅[排查自助式密码重置问题](./active-directory-passwords-troubleshoot.md) 
 
