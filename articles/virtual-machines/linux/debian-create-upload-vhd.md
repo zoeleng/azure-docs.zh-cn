@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: 80272896bd314a1f5f05094afa83568e077ab480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d4d055c0cd20d1b9598c408753334458d709276
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368194"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660621"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>为 Azure 准备 Debian VHD
 ## <a name="prerequisites"></a>必备条件
@@ -58,7 +58,7 @@ ms.locfileid: "87368194"
     # sudo update-grub
     ```
 
-6. 将 Debian 的 Azure 存储库添加到 Debian 8 或 9 的 /etc/apt/sources.list 中：
+6. 将 Debian 的 Azure 存储库添加到/etc/apt/sources.list （Debian 8、9或10）：
 
     **Debian 8.x "Jessie"**
 
@@ -85,7 +85,18 @@ ms.locfileid: "87368194"
     deb http://debian-archive.trafficmanager.net/debian stretch-backports main
     deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
     ```
-
+    
+    **Debian 8.x "Buster"**
+    ```config-grub
+    deb http://debian-archive.trafficmanager.net/debian buster main
+    deb-src http://debian-archive.trafficmanager.net/debian buster main
+    deb http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb-src http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-backports main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-backports main
+    ```
 
 7. 安装 Azure Linux 代理：
 

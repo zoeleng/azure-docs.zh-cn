@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用标准 SKU 公共负载均衡器来公开服务。
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634865"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660349"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用公共标准负载均衡器
 
@@ -87,6 +87,9 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 * 自定义分配给群集的每个节点的出站端口数
 * 为空闲连接配置超时设置
 
+> [!IMPORTANT]
+> 只有一个出站 IP 选项 (托管 ip，自带 IP 或 IP 前缀) 可在给定时间使用。
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>缩放受管理出站公共 IP 的数量
 
 除了入站连接以外，Azure 负载均衡器还提供从虚拟网络的出站连接。 使用出站规则可以更方便地配置公共标准负载均衡器的出站网络地址转换。
@@ -110,7 +113,7 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2* 。 
+以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2*。 
 
 还可以在创建群集时，通过追加 `--load-balancer-managed-outbound-ip-count` 参数并将其设置为所需的值，使用 `load-balancer-managed-ip-count` 参数来设置托管出站公共 IP 的初始数量 。 托管出站公共 IP 的默认数量为 1。
 
@@ -120,10 +123,11 @@ az aks update \
 
 AKS 创建的公共 IP 被视为受 AKS 管理的资源。 这意味着该公共 IP 的生命周期由 AKS 管理，并且用户不需要直接对公共 IP 资源执行操作。 或者，你可以在群集创建时分配自己的自定义公共 IP 或公共 IP 前缀。 还可以在现有群集的负载均衡器属性上更新自定义 IP。
 
-> [!NOTE]
-> 自定义公共 IP 地址必须由用户创建和拥有。 由 AKS 创建的托管公共 IP 地址不能重新用于自带的自定义 IP，因为它可能会导致管理冲突。
+使用自己的公共 IP 或前缀的要求：
 
-在执行此操作前，请确保满足配置出站 IP 或出站 IP 前缀所需的[先决条件和限制](../virtual-network/public-ip-address-prefix.md#constraints)。
+- 自定义公共 IP 地址必须由用户创建和拥有。 由 AKS 创建的托管公共 IP 地址不能重新用于自带的自定义 IP，因为它可能会导致管理冲突。
+- 必须确保 AKS 群集标识 (服务主体或托管标识) 有权访问出站 IP。 根据 [所需的公共 IP 权限列表](kubernetes-service-principal.md#networking)。
+- 请确保满足配置出站 IP 或出站 IP 前缀所需的 [先决条件和限制](../virtual-network/public-ip-address-prefix.md#constraints) 。
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>使用自己的出站公共 IP 更新群集
 
@@ -264,9 +268,9 @@ az aks update \
 - 为 *allocatedOutboundPorts* 指定的值还必须是 8 的倍数。
 - 你必须有足够的出站 IP 容量，具体取决于节点 VM 和所需的已分配出站端口的数量。 若要验证是否有足够的出站 IP 容量，请使用以下公式： 
  
-*outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts* 。
+*outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*。
  
-例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort* ，则至少需要有 3 个 *outboundIP* 。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
+例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort*，则至少需要有 3 个 *outboundIP*。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
 
 - 将 *IdleTimeoutInMinutes* 设置为默认值 30 分钟之外的值时，请考虑你的工作负荷多长时间将需要出站连接。 还要考虑在 AKS 外部使用的“标准”SKU 负载平衡器的默认超时值是 4 分钟。 如果 *idletimeoutminutes* 值较准确地反映你的具体 AKS 工作负载，则有助于降低由于绑定不再使用的连接而导致的 SNAT 耗尽。
 

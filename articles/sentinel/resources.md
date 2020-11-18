@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 50b88b4af6ea8479097b88b51fe7acfbea355ab8
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392310"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660638"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>使用 Azure Sentinel 的有用资源
 
@@ -92,4 +92,4 @@ Azure Sentinel 的审核日志保留在 [Azure 活动日志](../azure-monitor/pl
 
 
 ## <a name="next-steps"></a>后续步骤
-在本文档中，你获得了在使用 Azure Sentinel 时非常有用的资源列表。 你会在 [Microsoft Azure 安全和合规性博客](https://docs.microsoft.com/archive/blogs/azuresecurity/)上找到有关 Azure 安全性和符合性的其他信息。
+在本文档中，你获得了在使用 Azure Sentinel 时非常有用的资源列表。 你会在 [Microsoft Azure 安全和合规性博客](/archive/blogs/azuresecurity/)上找到有关 Azure 安全性和符合性的其他信息。

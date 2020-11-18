@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427779"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660383"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure Monitor 日志管理使用情况和成本    
 
@@ -46,15 +46,15 @@ Log Analytics 的默认定价是基于引入的数据量的即用即付模型，
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics 专用群集
 
-Log Analytics 专用群集是收集到单个托管 Azure 数据资源管理器群集中的工作区集合，用于支持高级方案，例如[客户托管的密钥](customer-managed-keys.md)。  Log Analytics 专用群集使用容量保留定价模型，该模型必须至少配置为 1000 GB/天。 与即用即付定价相比，此容量级别有25% 的折扣。 将按即用即付费率对超出预留级别的任何使用量进行计费。 在增加预留级别后，群集产能预留具有 31 天的承诺期。 套餐周期期间，不能减少产能预留级别，但可以随时增加。 当工作区与群集关联时，将使用配置的容量预留级别在群集级别上完成这些工作区的数据引入计费。 详细了解[创建 Log Analytics 群集](customer-managed-keys.md#create-cluster)并[将工作区与其关联](customer-managed-keys.md#link-workspace-to-cluster)。 [Azure Monitor 定价页]( https://azure.microsoft.com/pricing/details/monitor/)上提供了容量保留定价信息。  
+Log Analytics 专用群集是收集到单个托管 Azure 数据资源管理器群集中的工作区集合，用于支持高级方案，例如[客户托管的密钥](customer-managed-keys.md)。  Log Analytics 专用群集使用容量保留定价模型，该模型必须至少配置为 1000 GB/天。 与即用即付定价相比，此容量级别有25% 的折扣。 将按即用即付费率对超出预留级别的任何使用量进行计费。 在增加预留级别后，群集产能预留具有 31 天的承诺期。 套餐周期期间，不能减少产能预留级别，但可以随时增加。 当工作区与群集关联时，将使用配置的容量预留级别在群集级别上完成这些工作区的数据引入计费。 详细了解[创建 Log Analytics 群集](customer-managed-keys.md#create-cluster)并[将工作区与其关联](customer-managed-keys.md#link-workspace-to-cluster)。 有关产能预留的定价信息，请参阅 [Azure Monitor 定价页]( https://azure.microsoft.com/pricing/details/monitor/)。  
 
-群集容量预留级别通过使用下的参数以编程方式通过 Azure 资源管理器进行配置 `Capacity` `Sku` 。 `Capacity` 指定 GB 为单位，并且值可以为 1000 GB/天或更大，增量为 100 GB/天。 这是 [Azure Monitor 客户管理的密钥](customer-managed-keys.md#create-cluster)的详细信息。 如果群集需要的预留超过 2000 GB/天，请通过 [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) 联系我们。
+群集产能预留级别将使用 `Sku` 下的 `Capacity` 参数以编程方式通过 Azure 资源管理器进行配置。 `Capacity` 指定 GB 为单位，并且值可以为 1000 GB/天或更大，增量为 100 GB/天。 这是 [Azure Monitor 客户管理的密钥](customer-managed-keys.md#create-cluster)的详细信息。 如果群集需要的预留超过 2000 GB/天，请通过 [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) 联系我们。
 
 对于群集上的使用情况，有两种计费模式。 `billingType`[配置群集](customer-managed-keys.md#customer-managed-key-operations)时，可以通过参数指定这些参数。 这两种模式是： 
 
-1. **群集** ：在此情况下（其为默认情况），引入数据的计费在群集级别完成。 将聚合与群集关联的每个工作区中的引入数据数量，以计算群集的每日账单。 请注意，在跨群集中所有工作区的聚合数据聚合之前，将在工作区级别应用基于 [Azure 安全中心](../../security-center/index.yml)的按节点分配。 
+1. **群集**：在此情况下（其为默认情况），引入数据的计费在群集级别完成。 将聚合与群集关联的每个工作区中的引入数据数量，以计算群集的每日账单。 请注意，在跨群集中所有工作区的聚合数据聚合之前，将在工作区级别应用基于 [Azure 安全中心](../../security-center/index.yml)的按节点分配。 
 
-2. **工作区** ：群集的产能预留成本按比例分配给群集中的工作区（在考虑了为每个工作区从 [Azure 安全中心](../../security-center/index.yml)进行每节点分配之后。）如果某一天引入到工作区中的总数据量低于产能预留，则每个工作区都按有效的每 GB 产能预留费率对其引入数据计费，方法是对引入数据按产能预留的一部分进行计费，产能预留的未使用部分计费到群集资源。 如果某一天引入到工作区中的总数据量高于产能预留，则每个工作区将基于其当天引入数据的一部分按产能预留的一部分进行计费，且每个工作区都将对高于产能预留的引入数据的一部分进行计费。 如果某一天引入到工作区中的总数据量超出产能预留，则不会计费到群集资源。
+2. **工作区**：群集的产能预留成本按比例分配给群集中的工作区（在考虑了为每个工作区从 [Azure 安全中心](../../security-center/index.yml)进行每节点分配之后。）如果某一天引入到工作区中的总数据量低于产能预留，则每个工作区都按有效的每 GB 产能预留费率对其引入数据计费，方法是对引入数据按产能预留的一部分进行计费，产能预留的未使用部分计费到群集资源。 如果某一天引入到工作区中的总数据量高于产能预留，则每个工作区将基于其当天引入数据的一部分按产能预留的一部分进行计费，且每个工作区都将对高于产能预留的引入数据的一部分进行计费。 如果某一天引入到工作区中的总数据量超出产能预留，则不会计费到群集资源。
 
 在群集计费选项中，数据保留按工作区计费。 请注意，群集计费在创建群集时开始，无论工作区是否已关联到群集。 另请注意，与群集关联的工作区不再具有定价层。
 
@@ -210,10 +210,10 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 每个工作区在一天的不同小时均应用其每日上限。 重置时间显示在“每日上限”页中（见下文）。 无法配置此重置时间。 
 
-达到每日限制后，在当天的剩余时间会停止收集应计费数据类型。 应用每日上限时的固有延迟意味着应用上限不会精确到指定的每日上限级别。 选定 Log Analytics 工作区的页面顶部会显示警告横幅，同时会将一个操作事件发送到“LogManagement”类别下的“操作”表。 在“每日限制设置时间”定义的重置时间过后，数据收集将会恢复。 我们建议基于此操作事件定义一个警报规则，并将其配置为在达到每日数据限制时发出通知。 
+达到每日限制后，在当天的剩余时间会停止收集应计费数据类型。 应用每日上限时的固有延迟意味着应用上限不会精确到指定的每日上限级别。 选定 Log Analytics 工作区的页面顶部会显示警告横幅，同时会将一个操作事件发送到“LogManagement”类别下的“操作”表。 在“每日限制设置时间”定义的重置时间过后，数据收集将会恢复。 建议基于此操作事件定义警报规则，配置为在达到每日数据限制时发出通知 (参见 [下面](#alert-when-daily-cap-reached)) 。 
 
 > [!NOTE]
-> 每日上限无法以精确到指定的每日上限的级别停止数据收集，且可能出现某些多余的数据，尤其是在工作区接收大量数据的情况下。  
+> 每日上限无法以精确到指定的每日上限的级别停止数据收集，且可能出现某些多余的数据，尤其是在工作区接收大量数据的情况下。 请参阅 [下面](#view-the-effect-of-the-daily-cap) 的查询，该查询有助于研究每日上限行为。 
 
 > [!WARNING]
 > 除了在2017年6月19日之前安装了 Azure 安全中心的工作区之外，每日上限不会停止从 Azure 前哨或 Azure 安全中心收集数据。 
@@ -234,6 +234,20 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
     
 可以通过 ARM 配置每日上限，方法是在 `WorkspaceCapping` 下设置 `dailyQuotaGb` 参数，如[工作区 - 创建或更新](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping)中所述。 
 
+### <a name="view-the-effect-of-the-daily-cap"></a>查看每日上限的效果
+
+若要查看每日上限的影响，请务必考虑每日上限中未包含的安全数据类型，以及工作区的重置时间。 每日 cap 重置时间在 **每日上限** 页中可见。  以下查询可用于跟踪每日上限重置之间每日上限的数据量。 在此示例中，工作区的重置小时为14:00。  需要为工作区更新此。
+
+```kusto
+let DailyCapResetHour=14;
+Usage
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable
+| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+```
+
 ### <a name="alert-when-daily-cap-reached"></a>达到每日上限时发出警报
 
 尽管在达到数据限制阈值时，Azure 门户中会显示视觉提示，但此行为不一定符合需要立即关注的操作问题的处理方式。  若要接收警报通知，可以在 Azure Monitor 中创建一个新的警报规则。  有关详细信息，请参阅[如何创建、查看和管理警报](alerts-metric.md)。
@@ -243,7 +257,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 - 目标：选择 Log Analytics 资源
 - 条件： 
    - 信号名称：自定义日志搜索
-   - 搜索查询： `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+   - 搜索查询：`_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
    - 依据：结果数
    - 条件：大于
    - 阈值：0
@@ -432,7 +446,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 > 请谨慎使用这些 `find` 查询，因为跨数据类型执行扫描会[占用大量资源](../log-query/query-optimization.md#query-performance-pane)。 如果你不需要每个订阅、资源组或资源名称的结果，则基于使用情况数据类型查询。
 
 > [!WARNING]
-> 使用情况数据类型的某些字段虽然仍在架构中，但已弃用，其值将不再填充。 这些是 **计算机** 以及与引入相关的字段（ **TotalBatches** 、 **BatchesWithinSla** 、 **BatchesOutsideSla** 、 **BatchesCapped** 和 **AverageProcessingTimeMs** ）。
+> 使用情况数据类型的某些字段虽然仍在架构中，但已弃用，其值将不再填充。 这些是 **计算机** 以及与引入相关的字段（**TotalBatches**、**BatchesWithinSla**、**BatchesOutsideSla**、**BatchesCapped** 和 **AverageProcessingTimeMs**）。
 
 
 ### <a name="querying-for-common-data-types"></a>针对常见数据类型进行查询

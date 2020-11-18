@@ -8,17 +8,17 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: f348a8d8755402d6426f19eabc432f54e3fb8e42
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630543"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659652"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>适用于 FHIR 的 Azure IoT 连接器（预览版）映射模版
 本文详细介绍了如何使用映射模板为快速医疗保健互操作性资源配置 Azure IoT 连接器 (FHIR&#174;) *。
 
-适用于 FHIR 的 Azure IoT 连接器需要两种基于 JSON 的映射模板。 第一种类型 " **设备映射** " 负责映射发送到 `devicedata` Azure 事件中心终结点的设备负载。 它提取类型、设备标识符、度量日期时间和度量值 (s) 。 第二种类型 **FHIR 映射** 控制 FHIR 资源的映射。 它允许配置观察期长度、FHIR 用于存储值的数据类型，以及术语代码 (s) 。 
+适用于 FHIR 的 Azure IoT 连接器需要两种基于 JSON 的映射模板。 第一种类型 " **设备映射**" 负责映射发送到 `devicedata` Azure 事件中心终结点的设备负载。 它提取类型、设备标识符、度量日期时间和度量值 (s) 。 第二种类型 **FHIR 映射** 控制 FHIR 资源的映射。 它允许配置观察期长度、FHIR 用于存储值的数据类型，以及术语代码 (s) 。 
 
 映射模板基于其类型组合到 JSON 文档中。 然后，这些 JSON 文档将添加到 Azure IoT 连接器，以便通过 Azure 门户进行 FHIR。 设备映射文档是通过配置 **设备映射** 页添加的，FHIR 映射文档通过 **配置 FHIR 映射** 页添加。
 
@@ -28,7 +28,7 @@ ms.locfileid: "94630543"
 ## <a name="device-mapping"></a>设备映射
 设备映射提供了用于将设备内容提取为常见格式以供进一步评估的映射功能。 收到的每条消息都针对所有模板进行评估。 此方法允许将单个入站消息投影到多个出站消息，这些出站消息稍后会映射到 FHIR 中的不同观察。 结果是一个规范化数据对象，表示由模板分析的一个或哪些值。 规范化数据模型具有几个必需的属性，这些属性必须进行查找和提取：
 
-| Property | 描述 |
+| 属性 | 描述 |
 | - | - |
 |**Type**|要对度量值进行分类的名称/类型。 此值用于绑定到所需的 FHIR 映射模板。  可以将多个模板输出到同一个类型，使你能够将不同表示形式的不同表示形式映射到单个常见输出。|
 |**OccurenceTimeUtc**|测量发生的时间。|
@@ -60,19 +60,19 @@ ms.locfileid: "94630543"
 ```
 
 ### <a name="mapping-with-json-path"></a>与 JSON 路径映射
-目前支持的两种设备内容模板类型依赖于 JSON 路径来匹配所需的模板和提取的值。 可在 [此处](https://goessner.net/articles/JsonPath/)找到有关 JSON 路径的详细信息。 这两种模板类型使用 [json .net 实现](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) 来解析 json 路径表达式。
+目前支持的三种设备内容模板类型依赖于 JSON 路径来匹配所需的模板和提取的值。 可在 [此处](https://goessner.net/articles/JsonPath/)找到有关 JSON 路径的详细信息。 所有三种模板类型使用 [json .net 实现](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) 来解析 json 路径表达式。
 
 #### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
 JsonPathContentTemplate 允许使用 JSON 路径从事件中心消息中匹配和提取值。
 
-| Property | 说明 |<div style="width:150px">示例</div>
+| 属性 | 说明 |<div style="width:150px">示例</div>
 | --- | --- | --- 
 |**TypeName**|与与模板匹配的度量值关联的类型。|`heartrate`
 |**TypeMatchExpression**|针对事件中心有效负载计算的 JSON 路径表达式。 如果找到匹配的 JToken，则将模板视为匹配项。 所有后续表达式都将针对此处匹配的提取的 JToken 进行计算。|`$..[?(@heartRate)]`
 |**TimestampExpression**|用于提取度量值的 OccurenceTimeUtc 的时间戳值的 JSON 路径表达式。|`$.endDate`
 |**DeviceIdExpression**|用于提取设备标识符的 JSON 路径表达式。|`$.deviceId`
-|**PatientIdExpression**|*可选* ：用于提取患者标识符的 JSON 路径表达式。|`$.patientId`
-|**EncounterIdExpression**|*可选* ：用于提取遇到的标识符的 JSON 路径表达式。|`$.encounterId`
+|**PatientIdExpression**|*可选*：用于提取患者标识符的 JSON 路径表达式。|`$.patientId`
+|**EncounterIdExpression**|*可选*：用于提取遇到的标识符的 JSON 路径表达式。|`$.encounterId`
 |**值 []。ValueName**|与后续表达式提取的值关联的名称。 用于绑定 FHIR 映射模板中所需的值/组件。 |`hr`
 |**值 []。ValueExpression**|用于提取所需值的 JSON 路径表达式。|`$.heartRate`
 |**值 []。必填**|将要求值存在于有效负载中。  如果找不到，则不会生成度量，将引发 InvalidOperationException。|`true`
@@ -251,10 +251,12 @@ JsonPathContentTemplate 允许使用 JSON 路径从事件中心消息中匹配�
     }
 }
 ```
+
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
+
 IotJsonPathContentTemplate 类似于 JsonPathContentTemplate，但 DeviceIdExpression 和 TimestampExpression 不是必需的。
 
-使用此模板时的假设是使用 [Azure IoT 中心设备 sdk](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks)发送正在评估的消息。 使用这些 Sdk 时，设备标识 (假设 Azure Iot 中心/中心的设备标识符注册为目标 FHIR 服务器上的设备资源的标识符) 并且消息的时间戳是已知的。 如果使用的是 Azure IoT 中心设备 Sdk，但在消息正文中使用自定义属性来获取设备标识或度量时间戳，则仍可使用 JsonPathContentTemplate。
+使用此模板时的假设是使用 [Azure IoT 中心设备 sdk](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 发送评估的消息，或将  [数据导出 (](../iot-central/core/howto-export-data-legacy.md) [azure IoT Central](../iot-central/core/overview-iot-central.md)的旧) 功能。 使用这些 Sdk 时，设备标识 (假设 Azure Iot 中心/中心的设备标识符注册为目标 FHIR 服务器上的设备资源的标识符) 并且消息的时间戳是已知的。 如果使用的是 Azure IoT 中心设备 Sdk，但在消息正文中使用自定义属性来获取设备标识或度量时间戳，则仍可使用 JsonPathContentTemplate。
 
 *注意：使用 IotJsonPathContentTemplate 时，TypeMatchExpression 应将整个消息解析为 JToken。请参阅以下示例。* 
 ##### <a name="examples"></a>示例
@@ -332,13 +334,108 @@ IotJsonPathContentTemplate 类似于 JsonPathContentTemplate，但 DeviceIdExpre
 }
 ```
 
+#### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
+
+IotCentralJsonPathContentTemplate 也不需要 DeviceIdExpression 和 TimestampExpression，并且在通过[Azure IoT Central](../iot-central/core/overview-iot-central.md)的 "[导出数据](../iot-central/core/howto-export-data.md)" 功能发送评估的消息时使用。 使用此功能时，设备标识 (假设 Azure Iot Central 中的设备标识符注册为目标 FHIR 服务器上的设备资源的标识符) 并且消息的时间戳是已知的。 如果正在使用 Azure IoT Central 的数据导出功能，但在消息正文中使用自定义属性作为设备标识或度量时间戳，则仍可使用 JsonPathContentTemplate。
+
+*注意：使用 IotCentralJsonPathContentTemplate 时，TypeMatchExpression 应将整个消息解析为 JToken。请参阅以下示例。* 
+##### <a name="examples"></a>示例
+---
+**心率**
+
+*Message*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "HeartRate": "88",
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*模板*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.HeartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+---
+**血压**
+
+*Message*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "BloodPressure": {
+            "Diastolic": "87",
+            "Systolic": "123"
+        }
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*模板*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "bloodPressure",
+        "typeMatchExpression": "$..[?(@telemetry.BloodPressure.Diastolic && @telemetry.BloodPressure.Systolic)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Diastolic",
+                "valueName": "bp_diastolic"
+            },
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Systolic",
+                "valueName": "bp_systolic"
+            }
+        ]
+    }
+}
+```
+
 ## <a name="fhir-mapping"></a>FHIR 映射
 将设备内容提取到规范化模型后，将根据设备标识符、测量类型和时间段收集和分组数据。 此分组的输出将发送到 FHIR 资源 ([观察](https://www.hl7.org/fhir/observation.html) 当前) 。 此处的 FHIR 映射模板控制如何将数据映射到 FHIR 观察。 是否应为某个时间点或一小时内的某个时间点创建观察值？ 应将哪些代码添加到观察？ 该值应表示为 [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) 还是 [数量](https://www.hl7.org/fhir/datatypes.html#Quantity)？ 这些数据类型都是 FHIR 映射配置控件的选项。
 
 ### <a name="codevaluefhirtemplate"></a>CodeValueFhirTemplate
 目前，CodeValueFhirTemplate 是 FHIR 映射中目前支持的唯一模板。  它允许您定义代码、有效期以及观察值。 支持多个值类型： [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData)、 [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept)和 [数量](https://www.hl7.org/fhir/datatypes.html#Quantity)。 与这些可配置值一起，会自动处理观察资源的标识符，并将其链接到正确的设备和患者资源。
 
-| Property | 说明 
+| 属性 | 说明 
 | --- | ---
 |**TypeName**| 此模板应绑定到的度量类型。 应至少有一个输出此类型的设备映射模板。
 |**PeriodInterval**|创建的观察应表示的时间段。 支持的值为 0 (实例) ，60 (一小时) ，1440 (日) 。
@@ -357,7 +454,7 @@ IotJsonPathContentTemplate 类似于 JsonPathContentTemplate，但 DeviceIdExpre
 #### <a name="sampleddata"></a>SampledData
 表示 [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR 数据类型。观察度量值将写入到一个时间点开始的值流，并使用定义的时间范围递增。 如果不存在任何值， `E` 将写入数据流。 如果该时间段是在数据流中占用相同位置的两个值，则使用最新的值。 当更新使用 SampledData 的观察时，将应用相同的逻辑。
 
-| Property | 说明 
+| 属性 | 说明 
 | --- | ---
 |**DefaultPeriod**|要使用的默认时间段（以毫秒为单位）。 
 |**单位**|要在 SampledData 的原点设置的单位。 
@@ -365,7 +462,7 @@ IotJsonPathContentTemplate 类似于 JsonPathContentTemplate，但 DeviceIdExpre
 #### <a name="quantity"></a>数量
 表示 FHIR 数据类型的 [数量](http://hl7.org/fhir/datatypes.html#Quantity) 。 如果组中存在多个值，则仅使用第一个值。 当新值到达时，如果映射到相同的观察值，则会覆盖旧值。
 
-| Property | 说明 
+| 属性 | 说明 
 | --- | --- 
 |**单位**| 单位表示。
 |**代码**| 单元的编码形式。
@@ -374,7 +471,7 @@ IotJsonPathContentTemplate 类似于 JsonPathContentTemplate，但 DeviceIdExpre
 ### <a name="codeableconcept"></a>CodeableConcept
 表示 [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR 数据类型。 不使用实际值。
 
-| Property | 说明 
+| 属性 | 说明 
 | --- | --- 
 |**Text**|纯文本表示形式。 
 |**代码**|要应用于所创建的观察的一个或多个 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 。

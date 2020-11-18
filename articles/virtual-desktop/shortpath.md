@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 548393353d38082c175cde20eef1e93017cdd31a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639149"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660944"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 虚拟桌面 RDP Shortpath (预览版) 
 
@@ -109,15 +109,15 @@ Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Ser
 若要允许 RDP Shortpath 的入站网络流量，请使用组策略管理 MMC 管理单元中的 "具有高级安全性的 Windows Defender 防火墙" 节点创建防火墙规则。
 
 1. 打开 " [高级安全 Windows Defender 防火墙](/windows/security/threat-protection/windows-firewall/open-the-group-policy-management-console-to-windows-firewall-with-advanced-security)" 组策略管理控制台。
-2. 在导航窗格中，选择 " **入站规则** "。
-3. 选择 " **操作** "，然后选择 " **新建规则** "。
-4. 在新建入站规则向导的 " **规则类型** " 页上，选择 " **自定义** "，然后选择 " **下一步** "。
-5. 在 " **程序** " 页上，选择 " **此程序路径** "，然后键入 "% SystemRoot% \system32\svchost.exe"，然后选择 " **下一步** "。
+2. 在导航窗格中，选择 " **入站规则**"。
+3. 选择 " **操作**"，然后选择 " **新建规则**"。
+4. 在新建入站规则向导的 " **规则类型** " 页上，选择 " **自定义**"，然后选择 " **下一步**"。
+5. 在 " **程序** " 页上，选择 " **此程序路径**"，然后键入 "% SystemRoot% \system32\svchost.exe"，然后选择 " **下一步**"。
 6. 在 " **协议和端口** " 页上，选择 UDP 协议类型。 在 **本地端口** 中，选择 "特定端口"，然后键入3390。
-7. 在“作用域”页面上，你可以指定该规则仅适用于在此页面上输入的 IP 地址中进出的网络流量。 根据设计需要配置，然后选择 " **下一步** "。
-8. 在 " **操作** " 页上，选择 " **允许连接** "，然后选择 " **下一步** "。
-9. 在 " **配置文件** " 页上，选择此规则应用到的网络位置类型，然后选择 " **下一步** "。
-10. 在 " **名称** " 页上，键入规则的名称和描述，然后选择 " **完成** "。
+7. 在“作用域”页面上，你可以指定该规则仅适用于在此页面上输入的 IP 地址中进出的网络流量。 根据设计需要配置，然后选择 " **下一步**"。
+8. 在 " **操作** " 页上，选择 " **允许连接**"，然后选择 " **下一步**"。
+9. 在 " **配置文件** " 页上，选择此规则应用到的网络位置类型，然后选择 " **下一步**"。
+10. 在 " **名称** " 页上，键入规则的名称和描述，然后选择 " **完成**"。
 
 可以验证新规则是否与以下屏幕截图匹配： :::image type="content" source="media/rdp-shortpath-firewall-general-tab.png" alt-text="用于 RDP Shortpath 网络连接的防火墙配置的 &quot;常规&quot; 选项卡的屏幕截图" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
 
@@ -150,10 +150,11 @@ New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action 
 按照 [网络安全组文档](../virtual-machines/windows/nsg-quickstart-portal.md) 创建允许具有以下参数的流量的入站安全规则：
 
 * **源**  - **任何** 或客户端所在的 IP 范围
-* **源端口范围** -* *\** _ _ **目标**  -  **任意**
+* **源端口范围**-* *\** _ _ **目标**  -  **任意**
+* **目标端口范围**  - **3390**
 * **协议**  - **UDP**
 * **操作**  - **允许**
-* 根据需要更改 **优先级** 。 优先级会影响应用规则的顺序：数值越小，越先应用规则。
+* 根据需要更改 **优先级**。 优先级会影响应用规则的顺序：数值越小，越先应用规则。
 * **Name** -- **RDP Shortpath**
 
 ### <a name="disabling-rdp-shortpath-for-a-specific-subnet"></a>禁用特定子网的 RDP Shortpath
@@ -234,17 +235,22 @@ Get-Process -id (Get-NetUDPEndpoint  -LocalPort 3390 -LocalAddress 0.0.0.0).Owni
 
 若要为特定客户端禁用 RDP Shortpath，可以使用以下组策略禁用 UDP 支持：
 
-1. 在客户端上，运行 **gpedit.msc** 。
-2. 导航到 " **计算机配置" > 管理模板 > Windows 组件 "> 远程桌面服务 > 远程桌面连接客户端** 。
-3. 将 **"在客户端上关闭 UDP"** 设置设置为 " **已启用** "
+1. 在客户端上，运行 **gpedit.msc**。
+2. 导航到 " **计算机配置" > 管理模板 > Windows 组件 "> 远程桌面服务 > 远程桌面连接客户端**。
+3. 将 **"在客户端上关闭 UDP"** 设置设置为 "**已启用**"
 
 ### <a name="disabling-rdp-shortpath-on-the-session-host"></a>在会话主机上禁用 RDP Shortpath
 
 若要为特定的会话主机禁用 RDP Shortpath，可以使用以下组策略禁用 UDP 支持：
 
-1. 在会话主机上运行 **gpedit.msc** 。
-2. 导航到 " **计算机配置" > 管理模板 > Windows 组件 "> 远程桌面服务 > 远程桌面连接主机 > 连接** "。
-3. 将 **"选择 RDP 传输协议"** 设置设置为 " **仅 TCP** "
+1. 在会话主机上运行 **gpedit.msc**。
+2. 导航到 " **计算机配置" > 管理模板 > Windows 组件 "> 远程桌面服务 > 远程桌面连接主机 > 连接**"。
+3. 将 **"选择 RDP 传输协议"** 设置设置为 "**仅 TCP** "
+
+## <a name="feedback"></a>反馈
+
+我们想要倾听你对此公共预览版的体验！
+* 对于问题、请求、评论和其他反馈，请 [使用此反馈表单](https://aka.ms/RDPShortpathFeedback)。
 
 ## <a name="next-steps"></a>后续步骤
 

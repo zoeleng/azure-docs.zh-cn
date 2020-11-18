@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093287"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660757"
 ---
 # <a name="list-blobs-with-net"></a>使用 .NET 列出 blob
 
@@ -51,11 +51,7 @@ ms.locfileid: "92093287"
 
 ### <a name="manage-how-many-results-are-returned"></a>管理要返回的结果数
 
-默认情况下，列表操作一次最多返回 5000 个结果，但你可以指定你所希望的每个列表操作返回的结果数。 本文演示的示例说明了如何执行此操作。
-
-如果列表操作返回的 blob 超过 5000 个，或者可用的 blob 数超过指定的数量，Azure 存储会返回继续标记，并显示 blob 列表。 继续标记是一个不透明值，可用于从 Azure 存储中检索下一组结果。
-
-在代码中检查继续标记的值，以确定它是否为 null。 如果继续标记为 null，则表示结果集是完整的。 如果继续标记不为 null，则再次调用列出操作，并传入继续标记以检索下一组结果，直到继续标记为 null。
+默认情况下，列表操作一次最多返回 5000 个结果，但你可以指定你所希望的每个列表操作返回的结果数。 本文中介绍的示例说明了如何在页中返回结果。
 
 ### <a name="filter-results-with-a-prefix"></a>使用前缀筛选结果
 
@@ -63,7 +59,7 @@ ms.locfileid: "92093287"
 
 ### <a name="return-metadata"></a>返回元数据
 
-可以返回包含结果的 blob 元数据。 
+可以返回包含结果的 blob 元数据。
 
 - 如果使用的是 .NET v12 SDK，请为 [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) 枚举指定 Metadata  值。
 
@@ -90,6 +86,10 @@ Azure 存储中的 Blob 以平面范式进行组织，而不是以分层范式�
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+如果列表操作返回的 blob 超过 5000 个，或者可用的 blob 数超过指定的数量，Azure 存储会返回继续标记，并显示 blob 列表。 继续标记是一个不透明值，可用于从 Azure 存储中检索下一组结果。
+
+在代码中检查继续标记的值，以确定它是否为 null。 如果继续标记为 null，则表示结果集是完整的。 如果继续标记不为 null，则再次调用列出操作，并传入继续标记以检索下一组结果，直到继续标记为 null。
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)

@@ -3,12 +3,12 @@ title: 适用于 Azure 实验室服务的加速实验室设置指南
 description: 本指南可帮助实验室创建者快速设置实验室帐户以在学校中使用。
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f7423a76fd3ceb238c8c5c1a4ea794ff83b28b4a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 8ef168aefb69df32f57b623bb488adbb97cbd411
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491658"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659669"
 ---
 # <a name="lab-setup-guide"></a>实验室设置指南
 
@@ -40,7 +40,7 @@ ms.locfileid: "94491658"
 - GPU 大小，以便学生可以使用计算机密集型类型的应用程序。 例如，此选项通常与人工智能和机器学习一起使用。
 
 有关选择合适的 VM 大小的指南，请阅读以下文章：
-- [VM 大小调整](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing)
+- [VM 大小调整](./administrator-guide.md#vm-sizing)
 - [从物理实验室迁移到 Azure 实验室服务](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
 > [!NOTE]
@@ -55,13 +55,13 @@ ms.locfileid: "94491658"
 ### <a name="how-will-costs-be-controlled"></a>如何控制成本？
 实验室服务使用即用即付定价模型，这意味着只需为实验室 VM 的运行时间付款。 若要控制成本，你有三个通常一起使用的选项：
 
-- **计划** ：计划使你可以自动控制实验室的 VM 的启动和关闭时间。
+- **计划**：计划使你可以自动控制实验室的 VM 的启动和关闭时间。
 - 配额：配额控制学生在计划时间之外有权访问 VM 的小时数。  当学生使用其 VM 并达到其配额时，VM 会自动关闭。  除非增加了配额，否则学生无法重新启动 VM。
-- **自动关闭** ：启用后，自动关闭设置会导致在学生与远程桌面协议 (RDP) 会话断开连接后，Windows vm 自动关闭。 默认情况下，此设置处于禁用状态。
+- **自动关闭**：启用后，自动关闭设置会导致在学生与远程桌面协议 (RDP) 会话断开连接后，Windows vm 自动关闭。 默认情况下，此设置处于禁用状态。
 
 有关详细信息，请阅读以下文章：
-- [估算成本](https://docs.microsoft.com/azure/lab-services/cost-management-guide#estimate-the-lab-costs)
-- [管理成本](https://docs.microsoft.com/azure/lab-services/cost-management-guide#manage-costs)
+- [估算成本](./cost-management-guide.md#estimate-the-lab-costs)
+- [管理成本](./cost-management-guide.md#manage-costs)
 
 ### <a name="how-will-students-save-their-work"></a>学生如何保存其工作？
 每个学生都分配有自己的 VM（在实验室的生存期内分配给他们）。 他们可以选择：
@@ -75,7 +75,7 @@ ms.locfileid: "94491658"
 > 若要确保学生在实验室外部以及课程结束之后可继续访问其保存的工作，建议学生将其工作保存到外部存储库。
 
 ### <a name="how-will-students-connect-to-their-vm"></a>学生如何连接到其 VM？
-若要通过 RDP 连接到 Windows VM，建议学生使用 [Microsoft 远程桌面客户端](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)。 远程桌面客户端支持 Mac、Chromebook 和 Windows。
+若要通过 RDP 连接到 Windows VM，建议学生使用 [Microsoft 远程桌面客户端](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)。 远程桌面客户端支持 Mac、Chromebook 和 Windows。
 
 对于 Linux VM，学生可以使用 SSH 或 RDP。 若要让学生使用 RDP 进行连接，必须安装并配置必要的 RDP 和 GUI 包。
 
@@ -83,47 +83,47 @@ ms.locfileid: "94491658"
 Azure 实验室服务与 Microsoft 团队集成，使教职员可以在团队内创建和管理其实验室。  同样，学生可以访问团队内的实验室。
 
 有关详细信息，请参阅以下文章：
-- [Microsoft 团队内的 Azure 实验室服务](https://docs.microsoft.com/azure/lab-services/lab-services-within-teams-overview)
+- [Microsoft 团队内的 Azure 实验室服务](./lab-services-within-teams-overview.md)
 
 ## <a name="set-up-your-lab"></a>设置实验室
 
 了解课程实验室的要求之后，便可以对它进行设置了。 按照此部分中的链接了解如何设置实验室。  请注意，根据是否在团队内使用实验室，提供了不同的步骤。
 
 1. 创建实验室。 请参阅创建实验室教程：
-    - [创建教室实验室](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) 来了解相关说明。
-    - [从 Teams 创建实验室](https://docs.microsoft.com/azure/lab-services/how-to-get-started-create-lab-within-teams)
+    - [创建教室实验室](./tutorial-setup-classroom-lab.md#create-a-classroom-lab) 来了解相关说明。
+    - [从 Teams 创建实验室](./how-to-get-started-create-lab-within-teams.md)
 
     > [!NOTE]
-    > 如果课程需要嵌套虚拟化，请参阅[启用嵌套虚拟化](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm)中的步骤。
+    > 如果课程需要嵌套虚拟化，请参阅[启用嵌套虚拟化](./how-to-enable-nested-virtualization-template-vm.md)中的步骤。
 
 1. 自定义映像并发布实验室 VM。 连接到称为模板 VM 的特殊 VM。 请参阅以下指南中的步骤：
-    - [创建和管理模板 VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
-    - [使用共享映像库](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-shared-image-gallery)
+    - [创建和管理模板 VM](./tutorial-setup-classroom-lab.md#publish-the-template-vm)
+    - [使用共享映像库](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
-    > 如果在使用 Windows，还应参阅[准备 Windows 模板 VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template) 中的说明。 这些说明包括设置 OneDrive 和 Office 以供学生使用的步骤。
+    > 如果在使用 Windows，还应参阅[准备 Windows 模板 VM](./how-to-prepare-windows-template.md) 中的说明。 这些说明包括设置 OneDrive 和 Office 以供学生使用的步骤。
 
 1. 管理 VM 池和容量。 可以根据课程需要轻松增加或缩减 VM 容量。 请记住，增加 VM 容量可能需要几个小时，因为正在设置新的虚拟机。 请参阅以下文章中的步骤：
-    - [设置和管理 VM 池](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords)
-    - [管理团队实验室服务中的 VM 池](https://docs.microsoft.com/azure/lab-services/how-to-manage-vm-pool-within-teams)
+    - [设置和管理 VM 池](./how-to-set-virtual-machine-passwords.md)
+    - [管理团队实验室服务中的 VM 池](./how-to-manage-vm-pool-within-teams.md)
 
 1. 添加和管理实验室用户。 若要将用户添加到实验室，请参阅以下教程中的步骤：
-   - [将用户添加到实验室](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#add-users-to-the-lab)
-   - [向用户发送邀请](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
-   - [管理团队的实验室服务用户列表](https://docs.microsoft.com/azure/lab-services/how-to-manage-user-lists-within-teams)
+   - [将用户添加到实验室](./tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+   - [向用户发送邀请](./tutorial-setup-classroom-lab.md#send-invitation-emails-to-users)
+   - [管理团队的实验室服务用户列表](./how-to-manage-user-lists-within-teams.md)
 
-    有关学生可以使用的帐户类型的信息，请参阅[学生帐户](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts)。
+    有关学生可以使用的帐户类型的信息，请参阅[学生帐户](./how-to-configure-student-usage.md#student-accounts)。
   
 1. 设置成本控制。 控制实验室的成本、设置计划、配额和自动关闭。 参阅以下教程：
 
-   - [设置日程安排](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
+   - [设置日程安排](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
 
         > [!NOTE]
         > VM 可能需要几分钟才能启动，具体取决于所安装的操作系统类型。 若要确保实验室 VM 在计划时间内可随时使用，建议提前 30 分钟启动 VM。
 
-   - [为用户设置配额](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)和[为特定用户设置额外配额](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
+   - [为用户设置配额](./how-to-configure-student-usage.md#set-quotas-for-users)和[为特定用户设置额外配额](./how-to-configure-student-usage.md#set-additional-quotas-for-specific-users)
   
-   - [启用在断开连接时自动关闭](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+   - [启用在断开连接时自动关闭](./how-to-enable-shutdown-disconnect.md)
 
         > [!NOTE]
         > 计划和配额不适用于模板 VM，但自动关闭设置适用于这种 VM。 
@@ -132,9 +132,9 @@ Azure 实验室服务与 Microsoft 团队集成，使教职员可以在团队内
         > 
         > 模板 VM 在运行时会产生成本，因此，请确保在不需要运行模板 VM 时将它关闭。
 
-    - [在团队内创建和管理实验室服务计划](https://docs.microsoft.com/azure/lab-services/how-to-create-schedules-within-teams) 
+    - [在团队内创建和管理实验室服务计划](./how-to-create-schedules-within-teams.md) 
 
-1. 使用仪表板。 有关说明，请参阅[使用实验室的仪表板](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard)。
+1. 使用仪表板。 有关说明，请参阅[使用实验室的仪表板](./use-dashboard.md)。
 
     > [!NOTE]
     > 仪表板中显示的估计成本是针对学生使用实验室所预计的最大成本。 例如，不会对学生未使用的配额时数向你收费。 估计成本 *不会* 反映使用模板 VM、共享图像库或实验室创建者启动用户计算机的任何费用。

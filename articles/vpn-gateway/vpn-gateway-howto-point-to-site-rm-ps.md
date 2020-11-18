@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ed0a60c88c33af70b7d780d6c4735c5f8e65b35b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145865"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660400"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点 VPN 连接：PowerShell
 
@@ -69,7 +69,7 @@ $DNS = "10.2.1.4"
    New-AzResourceGroup -Name $RG -Location $Location
    ```
 
-1. 为虚拟网络创建子网配置，并将其命名为 *前端* 和 *GatewaySubnet* 。 这些前缀必须是已声明的 VNet 地址空间的一部分。
+1. 为虚拟网络创建子网配置，并将其命名为 *前端* 和 *GatewaySubnet*。 这些前缀必须是已声明的 VNet 地址空间的一部分。
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
@@ -110,8 +110,8 @@ $DNS = "10.2.1.4"
 
 在此步骤中，将为 VNet 配置和创建虚拟网络网关。
 
-* -GatewayType 必须是 **Vpn** ，且-VpnType 必须是 **RouteBased** 。
-* -VpnClientProtocol 用来指定要启用的隧道的类型。 隧道选项为 **OpenVPN、SSTP** 和 **IKEv2** 。 可以选择启用其中之一或任何受支持的组合。 如果要启用多个类型，请以逗号分隔的形式指定名称。 不能同时启用 OpenVPN 和 SSTP。 Android 和 Linux 上的 strongSwan 客户端以及 iOS 和 OSX 上的本机 IKEv2 VPN 客户端仅会使用 IKEv2 隧道进行连接。 Windows 客户端会首先尝试 IKEv2，如果不能连接，则会回退到 SSTP。 可以使用 OpenVPN 客户端连接到 OpenVPN 隧道类型。
+* -GatewayType 必须是 **Vpn** ，且-VpnType 必须是 **RouteBased**。
+* -VpnClientProtocol 用来指定要启用的隧道的类型。 隧道选项为 **OpenVPN、SSTP** 和 **IKEv2**。 可以选择启用其中之一或任何受支持的组合。 如果要启用多个类型，请以逗号分隔的形式指定名称。 不能同时启用 OpenVPN 和 SSTP。 Android 和 Linux 上的 strongSwan 客户端以及 iOS 和 OSX 上的本机 IKEv2 VPN 客户端仅会使用 IKEv2 隧道进行连接。 Windows 客户端会首先尝试 IKEv2，如果不能连接，则会回退到 SSTP。 可以使用 OpenVPN 客户端连接到 OpenVPN 隧道类型。
 * 虚拟网关“基本”SKU 不支持 IKEv2、OpenVPN 或 RADIUS 身份验证。 如果计划让 Mac 客户端连接到虚拟网络，请不要使用基本 SKU。
 * VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md)。 本示例使用 IKEv2。
 
@@ -229,7 +229,7 @@ $profile.VPNProfileSASUrl
 ### <a name="mac-vpn-client"></a>Mac VPN 客户端
 
 在“网络”对话框中，找到要使用的客户端配置文件，单击“连接”。 
-请查看[安装 - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
+请查看[安装 - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
 
   ![Mac 连接](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -237,7 +237,7 @@ $profile.VPNProfileSASUrl
 
 这些说明适用于 Windows 客户端。
 
-1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all* 。
+1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
 2. 查看结果。 请注意，收到的 IP 地址是在配置中指定的点到站点 VPN 客户端地址池中的地址之一。 结果与以下示例类似：
 
    ```
@@ -324,7 +324,7 @@ $profile.VPNProfileSASUrl
 
 **若要撤消：**
 
-1. 检索客户端证书指纹。 有关详细信息，请参阅 [如何检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
+1. 检索客户端证书指纹。 有关详细信息，请参阅 [如何检索证书的指纹](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate)。
 
 1. 将信息复制到一个文本编辑器，删除所有空格，使之成为一个连续的字符串。 该字符串在下一步声明为变量。
 
@@ -385,6 +385,6 @@ $profile.VPNProfileSASUrl
 
 ## <a name="next-steps"></a>后续步骤
 
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.microsoft.com/azure/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](../index.yml)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/network-overview.md)。
 
 有关 P2S 故障排除信息，请参阅[故障排除：Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595353"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660604"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>远程工作：用于远程工作的网络虚拟设备 (NVA) 的注意事项
 
@@ -30,7 +30,7 @@ Azure 市场中的所有主流 NVA 供应商应已提供有关在部署其解决
 
 - **容量和并发用户数** - 此数字对于点到站点 VPN 用户尤为重要，因为每个连接的用户将创建一个加密的（IPSec 或 SSL VPN）隧道。  
 - **聚合吞吐量** - 需要多大的聚合带宽才能为所需数目的用户提供远程访问。
-- **所需的 VM 大小** - 始终应使用 NVA 供应商建议的 VM 大小。  对于点到站点 VPN，如果你有大量的并发用户连接，则应使用较大的 VM 大小，例如 [Dv2 和 DSv2 系列](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Dv2 和 Dsv2 系列") VM。 这些 VM 往往配备了更多的 vCPU，可以处理更多的并发 VPN 会话。  除了提供更多的虚拟核心以外，Azure 中较大 VM 提供的聚合带宽容量也要高于较小的 VM。
+- **所需的 VM 大小** - 始终应使用 NVA 供应商建议的 VM 大小。  对于点到站点 VPN，如果你有大量的并发用户连接，则应使用较大的 VM 大小，例如 [Dv2 和 DSv2 系列](../virtual-machines/dv2-dsv2-series.md "Dv2 和 Dsv2 系列") VM。 这些 VM 往往配备了更多的 vCPU，可以处理更多的并发 VPN 会话。  除了提供更多的虚拟核心以外，Azure 中较大 VM 提供的聚合带宽容量也要高于较小的 VM。
     > **重要提示：** 每家供应商以不同的方式利用资源。  如果你不确定要使用哪种实例大小来适应预估的用户负载，应直接联系软件供应商，请他们提供建议。
 - **实例数** - 如果预期会出现大量的用户和连接，纵向扩展 NVA 实例大小可实现的效果存在限制。  请考虑部署多个 VM 实例。
 - **IPSec VPN 与 SSL VPN** - 一般情况下，IPSec VPN 实现的性能要优于 SSL VPN 实现。  

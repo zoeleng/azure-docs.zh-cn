@@ -4,12 +4,12 @@ description: 本文介绍了使用 Azure 备份来备份 Azure VM 上的 SAP HAN
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 641bba6b947731e0f55bc79828101f84d5b780fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 181d006d0d1f0e5c2f099507be493ced2ce9280b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515774"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659737"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>针对备份 Azure VM 上的 SAP HANA 数据库的支持矩阵
 
@@ -30,7 +30,7 @@ Azure 备份支持将 SAP HANA 数据库备份到 Azure。 本文总结了在使
 | **HANA 实例**         | 单个 Azure VM 上的单个 SAP HANA 实例 - 仅限纵向扩展 | 单个 VM 上的多个 SAP HANA 实例                  |
 | **HANA 数据库类型**    | 1\.x 上的单一数据库容器 (SDC)、2.x 上的多数据库容器 (MDC) | HANA 1.x 中的 MDC                                              |
 | **HANA 数据库大小**     | 大小不超过 2 TB 的 HANA 数据库（这不是 HANA 系统的内存大小）               |                                                              |
-| **备份类型**           | 完整备份、差异备份和日志备份                          | 增量、快照                                       |
+| **备份类型**           | 完整备份、差异备份、增量 (预览) 和日志备份                          |  快照                                       |
 | **还原类型**          | 请参阅 SAP HANA 说明 [1642148](https://launchpad.support.sap.com/#/notes/1642148)，了解支持的还原类型 |                                                              |
 | **备份限制**          | 对于每个 SAP HANA 实例，最高可达 2 TB 的完整备份大小 (软限制)          |                                                              |
 | **特殊配置** |                                                              | SAP HANA + 动态分层 <br>  通过 LaMa 进行克隆        |

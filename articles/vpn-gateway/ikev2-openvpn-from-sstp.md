@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59aa6f5560917651d8f60c667145b0953bf72ef5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442167"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660859"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>从 SSTP 过渡到 OpenVPN 协议或 IKEv2
 
@@ -58,9 +58,9 @@ IKEv2 使用非标准 UDP 端口，因此，你需要确保这些端口未在用
 
 ![点到站点](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-配置网关后，在[部署并配置 OpenVPN 客户端](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients)之前，现有客户端将无法进行连接。
+配置网关后，在[部署并配置 OpenVPN 客户端](./vpn-gateway-howto-openvpn-clients.md)之前，现有客户端将无法进行连接。
 
-如果使用的是 Windows 10，则还可以使用[适用于 Windows 的 Azure VPN 客户端](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+如果使用的是 Windows 10，则还可以使用[适用于 Windows 的 Azure VPN 客户端](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)
 
 
 ## <a name="frequently-asked-questions"></a>常见问题

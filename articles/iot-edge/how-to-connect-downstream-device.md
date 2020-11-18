@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 979ed3d21986ad43d805446a520a59333a6798ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149322"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659635"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>将下游设备连接到 Azure IoT Edge 网关
 
@@ -133,7 +133,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 本部分提供用于将 Azure IoT NodeJS 设备客户端连接到 IoT Edge 网关的示例应用程序。 对于 NodeJS 应用程序，必须按如下所示在应用程序级别安装根 CA 证书。 NodeJS 应用程序不使用系统的证书存储。
 
-1. 从[适用于 Node.js 的 Azure IoT 设备 SDK 示例存储库](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)获取 **edge_downstream_device.js** 的示例。
+1. 从 [适用于 Node.js 的 Azure IoT 设备 SDK 示例存储库](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)获取 **edge_downstream_device.js** 的示例。
 2. 查看 **readme.md** 文件，确保满足运行该示例的所有先决条件。
 3. 在 edge_downstream_device.js 文件中，更新 **connectionString** 和 **edge_ca_cert_path** 变量。
 4. 参阅 SDK 文档，获取有关如何在设备上运行该示例的说明。
@@ -163,10 +163,11 @@ var options = {
 
 本部分介绍用于将 Azure IoT C 设备客户端连接到 IoT Edge 网关的示例应用程序。 C SDK 可以配合许多 TLS 库（包括 OpenSSL、WolfSSL 和 Schannel）运行。 有关详细信息，请参阅 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)。
 
-1. 从[适用于 C 的 Azure IoT 设备 SDK 示例](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)获取 **iotedge_downstream_device_sample** 应用程序。
+1. 从 [适用于 C 的 Azure IoT 设备 SDK 示例](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)获取 **iotedge_downstream_device_sample** 应用程序。
 2. 查看 **readme.md** 文件，确保满足运行该示例的所有先决条件。
 3. 在 iotedge_downstream_device_sample.c 文件中，更新 **connectionString** 和 **edge_ca_cert_path** 变量。
 4. 参阅 SDK 文档，获取有关如何在设备上运行该示例的说明。
+
 
 适用于 C 的 Azure IoT 设备 SDK 提供一个用于在设置客户端时注册 CA 证书的选项。 此操作不会在任何位置安装证书，而是使用内存中证书的字符串格式。 建立连接时，将向底层 TLS 堆栈提供已保存的证书。
 
@@ -174,13 +175,16 @@ var options = {
 (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
 ```
 
+>[!NOTE]
+> 如果使用 [托管](https://github.com/Azure/azure-iot-sdk-c#packages-and-libraries) 包或库，则在设置客户端时注册 CA 证书的方法可能会更改。 例如， [基于 ARDUINO IDE 的库](https://github.com/azure/azure-iot-arduino) 需要将 CA 证书添加 [到全局证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) 文件中定义的证书数组，而不是使用 `IoTHubDeviceClient_LL_SetOption` 操作。  
+
 在 Windows 主机上，如果你不使用 OpenSSL 或其他 TLS 库，则 SDK 默认使用 Schannel。 要使 Schannel 正常工作，应在 Windows 证书存储中安装 IoT Edge 根 CA 证书，而不要使用 `IoTHubDeviceClient_SetOption` 操作进行设置。
 
 ### <a name="java"></a>Java
 
 本部分介绍用于将 Azure IoT Java 设备客户端连接到 IoT Edge 网关的示例应用程序。
 
-1. 从[适用于 Java 的 Azure IoT 设备 SDK 示例](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)获取 **Send-event** 的示例。
+1. 从 [适用于 Java 的 Azure IoT 设备 SDK 示例](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)获取 **Send-event** 的示例。
 2. 查看 **readme.md** 文件，确保满足运行该示例的所有先决条件。
 3. 参阅 SDK 文档，获取有关如何在设备上运行该示例的说明。
 

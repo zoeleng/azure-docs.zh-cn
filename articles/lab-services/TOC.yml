@@ -167,7 +167,7 @@
 - name: 参考
   items:
     - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/labservices/'
+      href: /rest/api/labservices/
     - name: Az.LabServices PowerShell 模块（预览版）
       href: reference-powershell-module.md
 - name: 资源

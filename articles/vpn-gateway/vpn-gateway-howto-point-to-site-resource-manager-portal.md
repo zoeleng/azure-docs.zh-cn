@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: c9a77fc8d6e832165a78b9d83cc0a22b31b65362
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: fc4ed7b295ce8a109d2f7c5614440637b2ab855a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555974"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660791"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点 VPN 连接：Azure 门户
 
@@ -86,7 +86,7 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 
 客户端地址池是指定的专用 IP 地址的范围。 通过点到站点 VPN 进行连接的客户端动态接收此范围内的 IP 地址。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与要连接到其中的 VNet 重叠。 如果配置了多个协议，并且 SSTP 是其中一个协议，则配置的地址池将在配置的协议之间平均分配。
 
-1. 创建虚拟网关后，请导航到虚拟网关页的“设置”部分。 在 " **设置** " 中，选择 " **点到站点配置** "。 选择 " **立即配置** " 以打开 "配置" 页。
+1. 创建虚拟网关后，请导航到虚拟网关页的“设置”部分。 在 " **设置**" 中，选择 " **点到站点配置**"。 选择 " **立即配置** " 以打开 "配置" 页。
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="&quot;点到站点配置&quot; 页" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
 1. 在 " **点到站点配置** " 页上，你可以配置各种设置。 如果在此页上看不到 "隧道类型" 或 "身份验证类型"，则网关将使用基本 SKU。 基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。 如果要使用这些设置，需要使用其他网关 SKU 删除并重新创建网关。
@@ -107,7 +107,7 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 
 ## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. 配置身份验证类型
 
-对于 " **身份验证类型** "，请选择 " **Azure 证书** "。
+对于 " **身份验证类型**"，请选择 " **Azure 证书**"。
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/azure-certificate.png" alt-text="身份验证类型":::
 
@@ -120,7 +120,7 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 1. 使用记事本之类的文本编辑器打开该证书。 复制证书数据时，请确保将文本复制为一个无回车符或换行符的连续行。 可能需要在文本编辑器中将视图修改为“显示符号/显示所有字符”以查看回车符和换行符。 仅将以下部分复制为一个连续行：
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png" alt-text="证书数据" border="false":::
-1. 将证书数据粘贴到“公共证书数据”字段中。 **命名** 证书，然后选择 " **保存** "。 最多可以添加 20 个受信任的根证书。
+1. 将证书数据粘贴到“公共证书数据”字段中。 **命名** 证书，然后选择 " **保存**"。 最多可以添加 20 个受信任的根证书。
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png" alt-text="粘贴证书数据" border="false":::
 1. 选择页面顶部的 " **保存** " 以保存所有配置设置。
@@ -149,9 +149,9 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>从 Mac VPN 客户端进行连接
 
-从 "网络" 对话框中，找到要使用的客户端配置文件，指定 " [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac)中的设置，然后选择" **连接** "。
+从 "网络" 对话框中，找到要使用的客户端配置文件，指定 " [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac)中的设置，然后选择" **连接**"。
 
-请查看[安装 - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
+请查看[安装 - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Mac VPN 客户端连接" border="false":::
 
@@ -159,7 +159,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 这些说明适用于 Windows 客户端。
 
-1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all* 。
+1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
 2. 查看结果。 请注意，收到的 IP 地址是在配置中指定的点到站点 VPN 客户端地址池中的地址之一。 结果与以下示例类似：
 
    ```
@@ -209,7 +209,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 可以通过将指纹添加到吊销列表来吊销客户端证书。
 
-1. 检索客户端证书指纹。 有关详细信息，请参阅 [如何检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
+1. 检索客户端证书指纹。 有关详细信息，请参阅 [如何检索证书的指纹](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate)。
 1. 将信息复制到一个文本编辑器，删除所有空格，使之成为一个连续的字符串。
 1. 导航到虚拟网关的“点到站点配置”页。 此页面正是用来[上传受信任的根证书](#uploadfile)的页面。
 1. 在“吊销的证书”部分，输入证书的友好名称（不必是证书 CN）。
@@ -222,6 +222,6 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.microsoft.com/azure/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](../index.yml)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/network-overview.md)。
 
 有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

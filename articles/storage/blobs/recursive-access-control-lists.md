@@ -9,18 +9,18 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff86b95f9d6a02c9ea24837b782ce729cdcacded
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577135"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659914"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
 ACL 继承已可用于在父目录下创建的新子项。 你现在还可以以递归方式为父目录的现有子项添加、更新和删除 ACL，而不必为每个子项单独进行这些更改。
 
-[库](#libraries)  | [示例](#code-samples)  | [最佳做法](#best-practice-guidelines)  | [提供反馈](#provide-feedback)
+[库](#libraries) | [示例](#code-samples) | [最佳做法](#best-practice-guidelines)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -426,13 +426,13 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 ```
 
 > [!NOTE]
-> 如果要设置 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如，`default:user::rwx` 或 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`。 
+> 如果要设置 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如 `default:user::rwx` 或 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`。 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
 通过调用 **DataLakeDirectoryClient.SetAccessControlRecursiveAsync** 方法以递归方式设置 ACL。 将[PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的[列表](/dotnet/api/system.collections.generic.list-1)传递给此方法。 每个 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) 定义一个 ACL 条目。 
 
-如果要设置 **默认** 的 ACL 项，则可将 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope)属性设置为 **true** 。 
+如果要设置 **默认** 的 ACL 项，则可将 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope)属性设置为 **true**。 
 
 此示例设置名为 `my-parent-directory` 的目录的 ACL。 此方法接受一个名为的布尔参数 `isDefaultScope` ，该参数指定是否设置默认 ACL。 在 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的构造函数中使用该参数。 ACL 的条目为拥有用户授予 "读取"、"写入" 和 "执行" 权限，为 "拥有" 组提供 "仅读" 和 "执行" 权限，并使所有人都无法访问。 此示例中的最后一个 ACL 条目为对象 ID 为“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”的特定用户提供读取和执行权限。
 
@@ -476,7 +476,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool is
 
 通过调用 **DataLakeDirectoryClient. setAccessControlRecursive** 方法以递归方式设置 ACL。 将[PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)对象的[列表](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)传递给此方法。 每个 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) 定义一个 ACL 条目。 
 
-如果要设置 **默认** ACL 条目，则可以调用 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法，并传入值 **true** 。 
+如果要设置 **默认** ACL 条目，则可以调用 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法，并传入值 **true**。 
 
 此示例设置名为 `my-parent-directory` 的目录的 ACL。 此方法接受一个名为的布尔参数 `isDefaultScope` ，该参数指定是否设置默认 ACL。 该参数在每次调用 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法时使用。 ACL 的条目为拥有用户授予 "读取"、"写入" 和 "执行" 权限，为 "拥有" 组提供 "仅读" 和 "执行" 权限，并使所有人都无法访问。 此示例中的最后一个 ACL 条目为对象 ID 为“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”的特定用户提供读取和执行权限。
 
@@ -619,13 +619,13 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> 如果要更新 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`。
+> 如果要更新 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如，`default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`。
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
 通过调用 **DataLakeDirectoryClient.UpdateAccessControlRecursiveAsync** 方法以递归方式更新 ACL。  将[PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的[列表](/dotnet/api/system.collections.generic.list-1)传递给此方法。 每个 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) 定义一个 ACL 条目。 
 
-如果要更新 **默认** ACL 条目，则可以将 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope)属性设置为 **true** 。 
+如果要更新 **默认** ACL 条目，则可以将 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope)属性设置为 **true**。 
 
 此示例以写入权限更新某个 ACL 条目。 此方法接受一个名为的布尔参数 `isDefaultScope` ，该参数指定是否更新默认 ACL。 在 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的构造函数中使用该参数。
 
@@ -658,7 +658,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, boo
 
 通过调用 **DataLakeDirectoryClient. updateAccessControlRecursive** 方法以递归方式更新 ACL。  将[PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)对象的[列表](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)传递给此方法。 每个 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) 定义一个 ACL 条目。 
 
-如果要更新 **默认** ACL 条目，则可以使用 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法，并将值传递给 **true** 。 
+如果要更新 **默认** ACL 条目，则可以使用 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法，并将值传递给 **true**。 
 
 此示例以写入权限更新某个 ACL 条目。 此方法接受一个名为的布尔参数 `isDefaultScope` ，该参数指定是否更新默认 ACL。 在对 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法的调用中使用该参数。 
 
@@ -760,13 +760,13 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> 如果要删除 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如 `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`。
+> 如果要删除 **默认** ACL 条目，请将前缀添加 `default:` 到每个条目。 例如，`default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`。
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
 通过调用 **DataLakeDirectoryClient.RemoveAccessControlRecursiveAsync** 方法删除 ACL 条目。 将[PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的[列表](/dotnet/api/system.collections.generic.list-1)传递给此方法。 每个 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) 定义一个 ACL 条目。 
 
-如果要删除 **默认** ACL 条目，则可将 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的 [属性 namedobject.defaultscope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope)属性设置为 **true** 。 
+如果要删除 **默认** ACL 条目，则可将 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的 [属性 namedobject.defaultscope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope)属性设置为 **true**。 
 
 此示例从名为 `my-parent-directory` 的目录的 ACL 中删除 ACL 条目。 此方法接受一个名为的布尔参数 `isDefaultScope` ，该参数指定是否从默认 ACL 中删除该项。 在 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)的构造函数中使用该参数。
 
@@ -796,7 +796,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isD
 
 通过调用 **DataLakeDirectoryClient. removeAccessControlRecursive** 方法删除 ACL 项。 将[PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)对象的[列表](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)传递给此方法。 每个 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) 定义一个 ACL 条目。 
 
-如果要删除 **默认** ACL 条目，则可以使用 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法，并将值传递给 **true** 。  
+如果要删除 **默认** ACL 条目，则可以使用 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法，并将值传递给 **true**。  
 
 此示例从名为 `my-parent-directory` 的目录的 ACL 中删除 ACL 条目。 此方法接受一个名为的布尔参数 `isDefaultScope` ，该参数指定是否从默认 ACL 中删除该项。 在对 [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)的 **setDefaultScope** 方法的调用中使用该参数。
 
@@ -1046,7 +1046,7 @@ public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
 
 ### <a name="java"></a>[Java](#tab/java)
 
-若要确保进程无间断完成，请调用 [PathSetAccessControlRecursiveOptions](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)对象的 **setContinueOnFailure** 方法，并将值传递给 **true** 。
+若要确保进程无间断完成，请调用 [PathSetAccessControlRecursiveOptions](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html)对象的 **setContinueOnFailure** 方法，并将值传递给 **true**。
 
 此示例以递归方式设置 ACL 项。 如果此代码遇到权限错误，则会记录该错误并继续执行。 此示例将故障数输出到控制台。 
 
@@ -1152,12 +1152,6 @@ def continue_on_failure():
 #### <a name="acl-limits"></a>ACL 限制
 
 可应用于目录或文件的 ACL 的最大数目为 32 个访问 ACL 和 32 个默认 ACL。 有关详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
-
-<a id="provide-feedback"></a>
-
-### <a name="provide-feedback-or-report-issues"></a>提供反馈或报告问题
-
-你可以在上提供反馈或报告问题  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) 。
 
 ## <a name="see-also"></a>另请参阅
 

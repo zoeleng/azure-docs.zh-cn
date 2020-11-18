@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 11/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 62640aa02c76c13b2c49b2e33aea742f6b8a09e4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628335"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660230"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
 
@@ -25,7 +25,7 @@ ms.locfileid: "94628335"
 
 将网络流量路由到用作子网默认网关的防火墙时，网络流量受到配置的防火墙规则的控制。
 
-在本文中，你将创建一个包含三个子网的简化 VNet，以便于部署。 对于生产部署，我们建议使用[中心辐射模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中，防火墙在其自身的 VNet 中。 工作负荷服务器在包含一个或多个子网的同一区域中的对等 VNet 内。
+在本文中，你将创建一个包含三个子网的简化 VNet，以便于部署。 对于生产部署，我们建议使用[中心辐射模型](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中，防火墙在其自身的 VNet 中。 工作负荷服务器在包含一个或多个子网的同一区域中的对等 VNet 内。
 
 * **AzureFirewallSubnet** - 防火墙在此子网中。
 * **Workload-SN** - 工作负荷服务器在此子网中。 此子网的网络流量通过防火墙。
@@ -49,7 +49,7 @@ ms.locfileid: "94628335"
 
 ## <a name="prerequisites"></a>先决条件
 
-此过程要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 验证 PowerShell 版本以后，请运行 `Connect-AzAccount`，以便创建与 Azure 的连接。
+此过程要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-Az-ps)。 验证 PowerShell 版本以后，请运行 `Connect-AzAccount`，以便创建与 Azure 的连接。
 
 ## <a name="set-up-the-network"></a>设置网络
 
@@ -253,4 +253,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>后续步骤
 
-* [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+* [教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)

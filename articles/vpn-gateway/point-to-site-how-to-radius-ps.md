@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: bce381ba4916bc58d2c7acf8d69b323dbdf972aa
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64a4eb1b473c8944dadea4e1ee4323dfe4e9bcde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544777"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661114"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 身份验证配置 VNet 的点到站点连接：PowerShell
 
@@ -119,7 +119,7 @@ RADIUS 服务器可以驻留在本地或 Azure VNet 中。 在身份验证期间
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. 为虚拟网络创建子网配置，并将其命名为 *FrontEnd* 、 *BackEnd* 和 *GatewaySubnet* 。 这些前缀必须是已声明的 VNet 地址空间的一部分。
+2. 为虚拟网络创建子网配置，并将其命名为 *FrontEnd*、*BackEnd* 和 *GatewaySubnet*。 这些前缀必须是已声明的 VNet 地址空间的一部分。
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -152,7 +152,7 @@ RADIUS 服务器可以驻留在本地或 Azure VNet 中。 在身份验证期间
 2. 将 VPN 网关配置为 RADIUS 上的 RADIUS 客户端。 添加此 RADIUS 客户端时，请指定创建的虚拟网络 GatewaySubnet。 
 3. 设置 RADIUS 服务器后，获取 RADIUS 服务器的 IP 地址和共享机密，RADIUS 客户端将使用这些信息来与 RADIUS 服务器通信。 如果 RADIUS 服务器在 Azure VNet 中，请使用 RADIUS 服务器 VM 的 CA IP。
 
-[网络策略服务器 (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) 一文提供了有关为 AD 域身份验证配置 Windows RADIUS 服务器 (NPS) 的指导。
+[网络策略服务器 (NPS)](/windows-server/networking/technologies/nps/nps-top) 一文提供了有关为 AD 域身份验证配置 Windows RADIUS 服务器 (NPS) 的指导。
 
 ## <a name="4-create-the-vpn-gateway"></a>4.<a name="creategw"></a>创建 VPN 网关
 
@@ -258,7 +258,7 @@ VPN 客户端配置可让设备通过 P2S 连接来与 VNet 建立连接。  �
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>验证连接
 
-1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all* 。
+1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
 2. 查看结果。 请注意，收到的 IP 地址是在配置中指定的点到站点 VPN 客户端地址池中的地址之一。 结果与以下示例类似：
 
    ```
@@ -292,4 +292,4 @@ VPN 客户端配置可让设备通过 P2S 连接来与 VNet 建立连接。  �
 
 ## <a name="next-steps"></a>后续步骤
 
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.microsoft.com/azure/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](../index.yml)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/network-overview.md)。

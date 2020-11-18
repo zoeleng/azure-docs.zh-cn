@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491471"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660213"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>有关 Microsoft 商用 marketplace 的常见问题
 
@@ -87,7 +87,7 @@ Azure 市场包括 IT 和开发人员解决方案，这些解决方案是基于 
 
 作为发布者，你需要为软件解决方案设置使用条款，客户必须接受这些条款后才能完成购买流程。 为了简化和加速这一流程，我们提供了一份标准协定，你可以选择将其包含在你的条款和条件中。 这样，客户可以一次性查看标准协定，获得法律和采购团队的批准，然后集中精力审阅针对每个产品/服务改动的条款。
 
-你可以创建适用于所有客户的更改，也可以针对特定客户进行更改。 你还可以完全自定义条款和条件，并可将其输入到文本框或托管在将显示为网址的网站上。
+你可以创建适用于所有客户的更改，也可以针对特定客户进行更改。 你还可以完全自定义你的条款和条件，这些条款和条件可输入到合作伙伴中心的文本框中。
 
 要了解详细信息，请参阅 [Microsoft 商业市场的标准协定](standard-contract.md)。
 
@@ -102,7 +102,7 @@ Azure 市场包括 IT 和开发人员解决方案，这些解决方案是基于 
 - 管理员：提供管理目录中的合作伙伴中心用户的权限，以及创建和更新产品/服务的权限。
 - 开发人员：允许用户创建和更新产品/服务。
 - 财务参与者：提供查看付款报告的权限。
-- *所有者* ：可以设置付款帐户和税务配置文件。 默认情况下，接受发布者协议的用户将成为所有者。
+- *所有者*：可以设置付款帐户和税务配置文件。 默认情况下，接受发布者协议的用户将成为所有者。
 
 必须具有 Azure Active Directory (Azure AD) 全局管理员权限，才能在基础目录中创建新用户帐户或邀请来宾帐户。 合作伙伴中心将 Azure AD 应用于标识模型，组织的 Azure AD 实例通常由其 IT 或安全团队管理和控制。
 

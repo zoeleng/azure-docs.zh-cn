@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377675"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660842"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>使用 REST API 管理 Azure Sentinel 中的搜寻和 livestream 查询
 
 Azure Sentinel 是 Azure Monitor Log Analytics 上构建的，它使你可以使用 Log Analytics "REST API 来管理搜寻和 livestream 查询。 本文档演示如何使用 REST API 创建和管理搜寻查询。  以这种方式创建的查询将显示在 Azure Sentinel UI 中。
 
-有关 [保存的搜索 API](https://docs.microsoft.com/rest/api/loganalytics/savedsearches)的更多详细信息，请参阅权威 REST API 参考。
+有关 [保存的搜索 API](/rest/api/loganalytics/savedsearches)的更多详细信息，请参阅权威 REST API 参考。
 
 ## <a name="api-examples"></a>API 示例
 
@@ -48,7 +48,7 @@ Azure Sentinel 是 Azure Monitor Log Analytics 上构建的，它使你可以使
 
 此示例演示如何创建或更新给定 Azure Sentinel 工作区的搜寻查询。  对于 livestream 查询，请将 *"category"： "搜寻查询"* 替换为 **请求正文** 中的 *"Category"： "livestream 查询"* ： 
 
-#### <a name="request-header"></a>请求标头
+#### <a name="request-header"></a>请求头
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId} _

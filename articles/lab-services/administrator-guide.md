@@ -3,12 +3,12 @@ title: Azure 实验室服务 - 管理员指南 | Microsoft Docs
 description: 本指南可帮助使用 Azure 实验室服务创建和管理实验室帐户的管理员。
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 8670a9d56575dbfb6d3e565ec97191581dc612a8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1fadc58926b00c75ab888dad86e45b181059a38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491029"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659839"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure 实验室服务 - 管理员指南
 管理大学云资源的信息技术 (IT) 管理员通常负责为学校设置实验室帐户。 设置实验室帐户后，实验室帐户中包含的管理员或教师创建实验室。 本文简要概述了所涉及的 Azure 资源以及创建这些资源的指导。
@@ -19,7 +19,7 @@ ms.locfileid: "94491029"
 - 实验室帐户、共享映像库和映像版本在订阅中进行托管。
 - 你可以使实验室帐户和共享映像库处于相同的资源组中。 在此图中，它们处于不同的资源组中。
 
-有关体系结构的更多详细信息，请阅读文章： [实验室体系结构基础知识](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals)
+有关体系结构的更多详细信息，请阅读文章： [实验室体系结构基础知识](./classroom-labs-fundamentals.md)
 
 ## <a name="subscription"></a>订阅
 你的大学具有一个或多个 Azure 订阅。 订阅用于为其中使用的所有 Azure 资源\服务（包括实验室帐户）管理计费和安全性。
@@ -58,7 +58,7 @@ ms.locfileid: "94491029"
 
 - 按实验室帐户的单独预算
   
-    你可能需要更清晰的预算，而不是通过单个实验室帐户报告所有实验室成本。 例如，可以为大学的数学系、计算机科学系等创建实验室帐户，以便将不同院系的预算分开。  随后可以使用 [Azure 成本管理](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)查看每个单独实验室帐户的成本。
+    你可能需要更清晰的预算，而不是通过单个实验室帐户报告所有实验室成本。 例如，可以为大学的数学系、计算机科学系等创建实验室帐户，以便将不同院系的预算分开。  随后可以使用 [Azure 成本管理](../cost-management-billing/cost-management-billing-overview.md)查看每个单独实验室帐户的成本。
 
 - 将实验室与 active\production 试点实验室分隔
   
@@ -119,7 +119,7 @@ ms.locfileid: "94491029"
 | 资源组 | 包含一个或多个实验室帐户以及一个或多个共享映像库 | \<organization short name\>-\<environment\>-rg<ul><li>“组织短名称”标识资源组支持的组织的名称</li><li>“环境”标识资源的环境，如 Pilot 或 Production</li><li>Rg 表示资源类型：资源组。</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | 实验室帐户 | 包含一个或多个实验室 | \<organization short name\>-\<environment\>-la<ul><li>“组织短名称”标识资源组支持的组织的名称</li><li>“环境”标识资源的环境，如 Pilot 或 Production</li><li>La 表示资源类型：实验室帐户。</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | 实验室 | 包含一个或多个 VM |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>“课程名称”标识实验室支持的课程的名称。</li><li>“时间范围”标识在其中提供课程的时间范围。</li>“教师标识符”标识拥有实验室的教师。</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| 共享映像库 | 包含一个或多个 VM 映像版本 | \<organization short name\>库 | contosouniversitylabsgallery |
+| 共享映像库 | 包含一个或多个 VM 映像版本 | \<organization short name\>图库 | contosouniversitylabsgallery |
 
 有关命名其他 Azure 资源的详细信息，请参阅 [Azure 资源的命名约定](/azure/architecture/best-practices/naming-conventions)。
 
@@ -141,18 +141,18 @@ ms.locfileid: "94491029"
 
   - 实验室帐户对等互连到虚拟网络 (VNet)
   
-    当实验室帐户和 VNet 处于同一个区域时，帐户可以[与 VNet 对等互连](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network)。  使用 VNet 对等互连实验室帐户时，会自动在实验室帐户和 VNet 所在的同一区域中创建实验室。
+    当实验室帐户和 VNet 处于同一个区域时，帐户可以[与 VNet 对等互连](./how-to-connect-peer-virtual-network.md)。  使用 VNet 对等互连实验室帐户时，会自动在实验室帐户和 VNet 所在的同一区域中创建实验室。
 
     > [!NOTE]
-    > 实验室帐户与 VNet 对等互连时，会禁用设置“允许实验室创建者选取实验室位置”。 可以在以下文章中找到有个此设置的其他信息：[允许实验室创建者选取实验室的位置](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)。
+    > 实验室帐户与 VNet 对等互连时，会禁用设置“允许实验室创建者选取实验室位置”。 可以在以下文章中找到有个此设置的其他信息：[允许实验室创建者选取实验室的位置](./allow-lab-creator-pick-lab-location.md)。
     
-  - * * 没有 VNet 为对等互连 * *_，并且_* 不允许使用实验室创建者选取实验室 location_ *
+  - * * 没有 VNet 为对等互连 **_，并且_* 不允许使用实验室创建者选取实验室 location_ *
   
-    如果没有具有实验室帐户 **的 VNet 对等互连** *，并且* [**不** 允许实验室创建者选取实验室位置](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)，则会在具有可用 VM 容量的区域中自动创建实验室。  具体而言，Azure 实验室服务会在[与实验室帐户处于同一地域的区域](https://azure.microsoft.com/global-infrastructure/regions)中查找可用性。
+    如果没有具有实验室帐户 **的 VNet 对等互连** *，并且* [**不** 允许实验室创建者选取实验室位置](./allow-lab-creator-pick-lab-location.md)，则会在具有可用 VM 容量的区域中自动创建实验室。  具体而言，Azure 实验室服务会在[与实验室帐户处于同一地域的区域](https://azure.microsoft.com/global-infrastructure/regions)中查找可用性。
 
-  - * * 没有 VNet 为对等互连 * *_，并且_* 允许使用 _ 实验室创建者选取实验室 location_ *
+  - * * 没有 VNet 为对等互连 **_，并且_* 允许使用 _ 实验室创建者选取实验室 location_ *
        
-    如果没有与 VNet 对等互连，并且[允许实验室创建者选取实验室位置](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)，则实验室创建者可以选择的位置基于可用容量。
+    如果没有与 VNet 对等互连，并且[允许实验室创建者选取实验室位置](./allow-lab-creator-pick-lab-location.md)，则实验室创建者可以选择的位置基于可用容量。
 
 > [!NOTE]
 > 若要帮助确保某个社区有足够的 VM 容量，请务必先通过实验室帐户或是在创建实验室时请求容量。
@@ -169,18 +169,18 @@ ms.locfileid: "94491029"
 
 | 大小 | 规格 | 系列 | 建议用途 |
 | ---- | ----- | ------ | ------------- |
-| 小型| <ul><li>2 个核心</li><li>3.5 GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 此大小最适用于命令行、打开 Web 浏览器、低流量 Web 服务器、中小型数据库。 |
-| 中型 | <ul><li>4 个核心</li><li>7 GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 此大小最适用于关系数据库、内存中缓存和分析。 |
-| 中等(嵌套虚拟化) | <ul><li>4 个核心</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 此大小最适用于关系数据库、内存中缓存和分析。
-| 大型 | <ul><li>8 核</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | 此大小最适用于需要 CPU 更快、本地磁盘性能更佳、大型数据库、大型内存缓存的应用程序。  此大小还支持嵌套虚拟化。 |
-| 大型(嵌套虚拟化) | <ul><li>8 核</li><li>32 GB RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 此大小最适用于需要 CPU 更快、本地磁盘性能更佳、大型数据库、大型内存缓存的应用程序。 |
-| 小型 GPU (可视化) | <ul><li>6 个核心</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | 此大小最适合使用框架（如 OpenGL 和 DirectX）进行远程可视化、流式处理、游戏和编码。 |
-| 小型 GPU (计算) | <ul><li>6 个核心</li><li>56 GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |此大小最适用于计算密集型应用程序（如人工智能和深度学习）。 |
-| 中等 GPU (可视化) | <ul><li>12 个核心</li><li>112 GB RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 此大小最适合使用框架（如 OpenGL 和 DirectX）进行远程可视化、流式处理、游戏和编码。 |
+| 小型| <ul><li>2 个核心</li><li>3.5 GB RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 此大小最适用于命令行、打开 Web 浏览器、低流量 Web 服务器、中小型数据库。 |
+| 中型 | <ul><li>4 个核心</li><li>7 GB RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 此大小最适用于关系数据库、内存中缓存和分析。 |
+| 中等(嵌套虚拟化) | <ul><li>4 个核心</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | 此大小最适用于关系数据库、内存中缓存和分析。
+| 大型 | <ul><li>8 核</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | 此大小最适用于需要 CPU 更快、本地磁盘性能更佳、大型数据库、大型内存缓存的应用程序。  此大小还支持嵌套虚拟化。 |
+| 大型(嵌套虚拟化) | <ul><li>8 核</li><li>32 GB RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | 此大小最适用于需要 CPU 更快、本地磁盘性能更佳、大型数据库、大型内存缓存的应用程序。 |
+| 小型 GPU (可视化) | <ul><li>6 个核心</li><li>56 GB RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | 此大小最适合使用框架（如 OpenGL 和 DirectX）进行远程可视化、流式处理、游戏和编码。 |
+| 小型 GPU (计算) | <ul><li>6 个核心</li><li>56 GB RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |此大小最适用于计算密集型应用程序（如人工智能和深度学习）。 |
+| 中等 GPU (可视化) | <ul><li>12 个核心</li><li>112 GB RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | 此大小最适合使用框架（如 OpenGL 和 DirectX）进行远程可视化、流式处理、游戏和编码。 |
 
 ## <a name="manage-identity"></a>管理标识
 
-使用 azure [RBAC)  (基于角色的访问控制 ](https://docs.microsoft.com/azure/role-based-access-control/overview)，可以分配以下角色以授予对实验室帐户和实验室的访问权限：
+使用 azure [RBAC)  (基于角色的访问控制 ](../role-based-access-control/overview.md)，可以分配以下角色以授予对实验室帐户和实验室的访问权限：
 
 - 实验室帐户所有者
 
@@ -200,7 +200,7 @@ ms.locfileid: "94491029"
 
 - **实验室创建者**
 
-    若要在实验室帐户中创建实验室，教师必须是 **实验室创建者** 角色的成员。  当教师创建实验室时，它们会自动作为实验室的所有者添加。  请参阅有关如何[将用户添加到实验室创建者角色](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role)的教程。 
+    若要在实验室帐户中创建实验室，教师必须是 **实验室创建者** 角色的成员。  当教师创建实验室时，它们会自动作为实验室的所有者添加。  请参阅有关如何[将用户添加到实验室创建者角色](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)的教程。 
 
 - **Lab owner\contributor**
   
@@ -217,7 +217,7 @@ ms.locfileid: "94491029"
 下面是一些有助于分配角色的提示：
    - 通常，只有管理员才应该是实验室帐户的所有者或参与者角色的成员；可以有多个所有者\参与者。
    - 使教师能够创建新的实验室并管理他们创建的实验室;只需分配对 **实验室创建者** 角色的访问权限。
-   - 为教师授予管理特定实验室的能力，但 *不* 允许创建新的实验室;应为他们将管理的每个实验室分配 **所有者** 或 **参与者** 角色的访问权限。  例如，你可能想要允许教授和教授助手共同拥有实验室。  请参阅有关如何 [将用户作为所有者添加到实验室](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner)的指南。
+   - 为教师授予管理特定实验室的能力，但 *不* 允许创建新的实验室;应为他们将管理的每个实验室分配 **所有者** 或 **参与者** 角色的访问权限。  例如，你可能想要允许教授和教授助手共同拥有实验室。  请参阅有关如何 [将用户作为所有者添加到实验室](./how-to-add-user-lab-owner.md)的指南。
 
 ## <a name="pricing"></a>定价
 
@@ -274,4 +274,3 @@ ms.locfileid: "94491029"
 - [实验室设置指南](setup-guide.md)
 - [实验室成本管理](cost-management-guide.md)
 - [在团队内使用 Azure 实验室服务](lab-services-within-teams-overview.md)
-

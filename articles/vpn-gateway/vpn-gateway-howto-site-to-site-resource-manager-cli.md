@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 83ae4185d22a6578130ca96c06ac1e5d0c25b375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2c5afbaa9ee9d531c6995fdeeab7bf38bf1e2d55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541360"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660961"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 创建具有站点到站点 VPN 连接的虚拟网络
 
@@ -141,8 +141,8 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 
 使用以下值：
 
-* 站点到站点配置的 *--gateway-type* 为 *Vpn* 。 网关类型永远是你要实现的配置的特定类型。 有关详细信息，请参阅[网关类型](vpn-gateway-about-vpn-gateway-settings.md#gwtype)。
-* *--vpn-type* 可以是 *RouteBased* （在某些文档中称为动态网关）或 *PolicyBased* （在某些文档中称为静态网关）。 具体设置取决于要连接到的设备的要求。 有关 VPN 网关类型的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md#vpntype)。
+* 站点到站点配置的 *--gateway-type* 为 *Vpn*。 网关类型永远是你要实现的配置的特定类型。 有关详细信息，请参阅[网关类型](vpn-gateway-about-vpn-gateway-settings.md#gwtype)。
+* *--vpn-type* 可以是 *RouteBased*（在某些文档中称为动态网关）或 *PolicyBased*（在某些文档中称为静态网关）。 具体设置取决于要连接到的设备的要求。 有关 VPN 网关类型的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md#vpntype)。
 * 选择要使用的网关 SKU。 某些 SKU 存在配置限制。 有关详细信息，请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
 使用 [az network vnet-gateway create](/cli/azure/network/vnet-gateway) 命令创建 VPN 网关。 如果使用“--no-wait”参数运行该命令，则不会显示任何反馈或输出。 此参数允许在后台创建网关。 创建网关大约需要 45 分钟时间。
@@ -196,10 +196,10 @@ az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --
 
 ## <a name="next-steps"></a>后续步骤
 
-* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.microsoft.com/azure/)。
+* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](../index.yml)。
 * 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 * 有关强制隧道的信息，请参阅 [关于强制隧道](vpn-gateway-forced-tunneling-rm.md)。
 * 有关高可用性主动-主动连接的信息，请参阅[高可用性跨界连接与 VNet 到 VNet 连接](vpn-gateway-highlyavailable.md)。
-* 有关网络 Azure CLI 命令的列表，请参阅 [Azure CLI](https://docs.microsoft.com/cli/azure/network)。
+* 有关网络 Azure CLI 命令的列表，请参阅 [Azure CLI](/cli/azure/network)。
 * 有关使用 Azure 资源管理器模板创建站点到站点 VPN 连接的信息，请参阅 [创建站点到站点 Vpn 连接](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)。
 * 有关使用 Azure 资源管理器模板创建 vnet 到 vnet VPN 连接的信息，请参阅 [部署 HBase 异地复制](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。

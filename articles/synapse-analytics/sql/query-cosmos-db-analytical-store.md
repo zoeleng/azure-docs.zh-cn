@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579379"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661012"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>在 Azure Synapse 链接 (预览版中利用无服务器 SQL 池查询 Azure Cosmos DB 数据) 
 
@@ -25,7 +25,7 @@ Synapse 无服务器 SQL 池允许分析以近乎实时的方式启用了 [Azure
 在本文中，你将学习如何编写包含无服务器 SQL 池的查询，该查询将从启用 Synapse 链接的 Azure Cosmos DB 容器中查询数据。 然后，你可以在 [本](./tutorial-data-analyst.md) 教程中详细了解如何通过 Azure Cosmos DB 容器构建无服务器 SQL 池视图并将其连接到 Power BI 模型。 
 
 > [!IMPORTANT]
-> 本教程使用具有 [Azure Cosmos DB 定义完善的架构](../../cosmos-db/analytical-store-introduction.md#schema-representation)的容器。 无服务器 SQL 池为 [Azure Cosmos DB 完全保真架构](#full-fidelity-schema) 提供的查询体验是临时性的行为，将根据预览反馈进行更改。 不要依赖于函数的结果集架构 `OPENROWSET` `WITH` ，该架构从具有完全保真架构的容器中读取数据，因为查询体验可能更改并与定义完善的架构对齐。 请在 [Azure Synapse Analytics 反馈论坛](https://feedback.azure.com/forums/307516-azure-synapse-analytics) 上发布反馈，或联系 [synapse 链接产品团队](mailto:cosmosdbsynapselink@microsoft.com) 以提供反馈。
+> 本教程使用具有 [Azure Cosmos DB 定义完善的架构](../../cosmos-db/analytical-store-introduction.md#schema-representation)的容器。 无服务器 SQL 池为 [Azure Cosmos DB 完全保真架构](#full-fidelity-schema) 提供的查询体验是临时性的行为，将根据预览反馈进行更改。 不要依赖于函数的结果集架构 `OPENROWSET` ，不使用 `WITH` 从具有完全保真架构的容器读取数据的子句，因为查询体验可能与定义的架构匹配，并根据定义完善的架构更改。 请在 [Azure Synapse Analytics 反馈论坛](https://feedback.azure.com/forums/307516-azure-synapse-analytics) 中发布你的反馈，或联系 [Synapse 链接产品团队](mailto:cosmosdbsynapselink@microsoft.com) 以提供反馈。
 
 ## <a name="overview"></a>概述
 
@@ -258,7 +258,7 @@ Azure Cosmos DB SQL (Core) API 的帐户支持 number、string、boolean、null�
 | --- | --- |
 | 布尔 | bit |
 | Integer | bigint |
-| 小数 | FLOAT |
+| 小数 | float |
 | 字符串 | varchar (UTF8 数据库排序规则)  |
 |  (ISO 格式字符串的日期时间)  | varchar (30)  |
 | Unix 时间戳 (日期时间)  | bigint |
