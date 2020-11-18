@@ -5,19 +5,19 @@ description: 了解如何在配置 Azure AD 后使用 Azure Active Directory 身
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 99af4d5711c70523053b37e19b08173f32bd117b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9ef15bf595d84613b5f41a73e5526cb0fe79d5b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841404"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>使用 Azure SQL 配置和管理 Azure AD 身份验证
 
@@ -298,7 +298,7 @@ Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Serve
 > [!NOTE]
 > Azure PowerShell 命令 ```Set-AzSqlServerActiveDirectoryAdministrator``` 不会阻止你为不受支持的用户预配 Azure AD 管理员。 可以预配不受支持的用户，但其无法连接到数据库。
 
-以下示例使用可选的 **ObjectID** ：
+以下示例使用可选的 **ObjectID**：
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" `
@@ -306,7 +306,7 @@ Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Serve
 ```
 
 > [!NOTE]
-> 当 **DisplayName** 不唯一时，需要使用 Azure AD **ObjectID** 。 若要检索 **ObjectID** 和 **DisplayName** 值，请使用 Azure 经典门户的 Active Directory 部分，并查看用户或组的属性。
+> 当 **DisplayName** 不唯一时，需要使用 Azure AD **ObjectID**。 若要检索 **ObjectID** 和 **DisplayName** 值，请使用 Azure 经典门户的 Active Directory 部分，并查看用户或组的属性。
 
 以下示例返回有关服务器的当前 Azure AD 管理员的信息：
 
@@ -343,7 +343,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 在应用程序或用户要使用 Azure AD 标识连接到 SQL 数据库或 Azure Synapse 的所有客户端计算机上，必须安装以下软件：
 
 - .NET Framework 4.6 或更高版本（在 [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) 上提供）。
-- 适用于 SQL Server 的 Azure Active Directory 身份验证库 ( *ADAL.DLL* )。 下面是下载链接，用于安装包含 *ADAL.DLL* 库的最新 SSMS、ODBC 和 OLE DB 驱动程序。
+- 适用于 SQL Server 的 Azure Active Directory 身份验证库 (*ADAL.DLL*)。 下面是下载链接，用于安装包含 *ADAL.DLL* 库的最新 SSMS、ODBC 和 OLE DB 驱动程序。
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
@@ -353,7 +353,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 - 安装最新版 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 或 [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) 符合 .NET Framework 4.6 要求。
   - SSMS 安装 *ADAL.DLL* 的 x86 版本。
   - SSDT 安装 *ADAL.DLL* 的 amd64 版本。
-  - [Visual Studio 下载](https://www.visualstudio.com/downloads/download-visual-studio-vs)提供的最新 Visual Studio 符合 .NET Framework 4.6 要求，但并未安装必需的 amd64 版 *ADAL.DLL* 。
+  - [Visual Studio 下载](https://www.visualstudio.com/downloads/download-visual-studio-vs)提供的最新 Visual Studio 符合 .NET Framework 4.6 要求，但并未安装必需的 amd64 版 *ADAL.DLL*。
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>创建映射到 Azure AD 标识的包含的用户
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410056"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842016"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>保护标识基础结构的五个步骤
 
@@ -48,7 +48,7 @@ ms.locfileid: "94410056"
 
 在开始实施此查检表之前，请确保在阅读此查检表时不会受到攻击。 首先需要保护自己的特权帐户。
 
-获得特权帐户控制权的攻击者可以执行巨大的破坏，因此先行保护这些帐户至关重要。 使用 [Azure AD 安全默认值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)或[条件访问](../../active-directory/conditional-access/plan-conditional-access.md)启用 [Azure 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA)，并要求组织中的所有管理员执行 MFA。 如果尚未实施 MFA，请立即实施！ 因为 MFA 非常重要。
+获得特权帐户控制权的攻击者可以执行巨大的破坏，因此先行保护这些帐户至关重要。 使用[Azure AD 安全性默认值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)或[条件性访问](../../active-directory/conditional-access/plan-conditional-access.md)，为组织中的所有管理员启用和要求[AZURE AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) 。 如果尚未实施 MFA，请立即实施！ 因为 MFA 非常重要。
 
 准备好了吗？ 让我们开始阅读查检表。
 
@@ -59,9 +59,9 @@ ms.locfileid: "94410056"
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>确保组织使用强身份验证
 
-根据密码被猜出、钓鱼、被恶意软件盗窃或重复使用的频率，必须使用某种形式的强凭据来保护密码 – 详细了解 [Azure 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
+考虑到密码被猜中、钓鱼、被恶意软件盗用或重复使用的频率，使用某种形式的强凭据备份密码非常重要-详细了解 [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
 
-若要轻松启用基本级别的身份安全，可以将“一键式启用”与 [Azure AD 安全默认值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)结合使用。 安全默认值为租户中的所有用户强制使用 Azure MFA，并阻止租户范围内的旧协议的登录。
+若要轻松启用基本级别的身份安全，可以将“一键式启用”与 [Azure AD 安全默认值](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)结合使用。 安全默认值为租户中的所有用户强制实施 Azure AD MFA，并阻止来自租户范围内的传统协议的登录。
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>开始禁止使用经常受到攻击的密码，摒弃传统的复杂性规则和过期规则。
 

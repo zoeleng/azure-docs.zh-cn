@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259045"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840428"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>有关配置 TypingDNA 与 Azure Active Directory B2C 的教程
 
 在本演练中，了解如何将 Azure Active Directory B2C online 付款应用与 TypingDNA 应用集成在一起。 通过使用 TypingDNA 应用，Azure AD B2C 客户可以通过击键动态和强大的客户身份验证来符合 [支付服务指令 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) (PSD2) 交易要求。 [在此处](https://www.typingdna.com/)查找有关 TypingDNA 的详细信息。
 
- Azure AD B2C 使用 TypingDNA 的技术捕获用户键入特性，并记录和分析它们，以熟悉每个身份验证。 这会添加一个与身份验证风险有关的保护层，并评估风险级别。 Azure AD B2C 可以通过调用 Azure MFA、强制电子邮件验证或方案的任何其他自定义逻辑，来调用其他机制，以便进一步满怀信心地提供用户的身份。
+ Azure AD B2C 使用 TypingDNA 的技术捕获用户键入特性，并记录和分析它们，以熟悉每个身份验证。 这会添加一个与身份验证风险有关的保护层，并评估风险级别。 Azure AD B2C 可以通过调用 Azure AD MFA、强制电子邮件验证或方案的任何其他自定义逻辑来调用其他机制，以便进一步满怀信心地提供用户的身份。
 
 >[!NOTE]
 > 此示例策略基于 [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) starter pack。
@@ -113,7 +113,7 @@ REST API 调用在中进行建模 `validationTechnicalProfiles` `LocalAccountSig
 
 - API 计算后 `net_score` ，应将布尔声明返回到 B2C `promptMFA` 。
 
-- 在 `promptMFA` 前置条件中使用声明来有条件地执行 AZURE MFA。
+- 在 `promptMFA` 前置条件中使用声明来有条件地执行 AZURE AD MFA。
 
 ```xml
 
@@ -154,7 +154,7 @@ REST API 调用在中进行建模 `validationTechnicalProfiles` `LocalAccountSig
 ## <a name="onboard-with-typingdna"></a>内置 TypingDNA
 
 1. [在此处](https://www.typingdna.com/)注册 TypingDNA
-2. 登录到 TypingDNA 仪表板，获取 **api 密钥** 和 **api**密钥。 稍后会在 API 界面设置中进行此设置
+2. 登录到 TypingDNA 仪表板，获取 **api 密钥** 和 **api** 密钥。 稍后会在 API 界面设置中进行此设置
 
 ## <a name="integrate-typingdna-with-azure-ad-b2c"></a>将 TypingDNA 与 Azure AD B2C 集成
 
@@ -162,7 +162,7 @@ REST API 调用在中进行建模 `validationTechnicalProfiles` `LocalAccountSig
 2. 将和中的所有实例替换为 `apiKey` `apiSecret` 你的 TypingDNA 仪表板中的凭据，并在 [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) 解决方案中
 3. 按照[此处](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)的 CORS 要求，在所选的提供程序上托管 HTML 文件
 4. 将 `api.selfasserted.tdnasignup` 文件中的和内容定义的 loaduri 来元素 `api.selfasserted.tdnasignin` 分别替换 `TrustFrameworkExtensions.xml` 为托管的 HTML 文件的 URI。
-5. 在 **Azure 门户**的 "Azure AD" 边栏选项卡中的 "标识体验框架" 下创建 B2C 策略项。 使用 `Generate` 选项并将此密钥命名为 `tdnaHashedId` 。
+5. 在 **Azure 门户** 的 "Azure AD" 边栏选项卡中的 "标识体验框架" 下创建 B2C 策略项。 使用 `Generate` 选项并将此密钥命名为 `tdnaHashedId` 。
 6. 替换策略文件中的 TenantId
 7. 将所有 TypingDNA REST API 技术配置文件中的 ServiceURLs 替换 (TDNA-VerifyUser，rest-TDNA-SaveUser，REST-TDNA-CheckUser) ，并将其用于 [TYPINGDNA api](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface)。
 8. 将 [策略文件](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/policy) 上传到你的租户。

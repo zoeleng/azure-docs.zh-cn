@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215478"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840604"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 中的 OAuth 2.0 隐式流的单页登录
 
@@ -26,9 +26,9 @@ ms.locfileid: "92215478"
 - 许多授权服务器与标识提供者不支持跨源资源共享 (CORS) 请求。
 - 重定向离开应用的完整网页浏览器可能会对用户体验具有侵略性。
 
-支持单页应用程序的建议方法是 [使用 PKCE) 的 OAuth 2.0 授权代码流 (](./authorization-code-flow.md)。
+支持单页应用程序的推荐方法是 [OAuth 2.0 授权代码流（使用 PKCE）](./authorization-code-flow.md)。
 
-某些框架（如 [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)1.x）仅支持隐式授予流。 在这些情况下，Azure Active Directory B2C (Azure AD B2C) 支持 OAuth 2.0 授权隐式授权流。 三个流在 [OAuth 2.0 规范的4.2 节](https://tools.ietf.org/html/rfc6749)中进行了介绍。 在隐式流中，应用直接从 Azure Active Directory (Azure AD) 授权终结点接收令牌，无需任何服务器到服务器的交换。 所有身份验证逻辑和会话处理全部在 JavaScript 客户端中通过页面重定向或弹框执行。
+某些框架（如 [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)）仅支持隐式授权流。 在这些情况下，Azure Active Directory B2C (Azure AD B2C) 支持 OAuth 2.0 授权隐式授权流。 有关该流的说明，请参阅 [OAuth 2.0 规范第 4.2 节](https://tools.ietf.org/html/rfc6749)。 在隐式流中，应用直接从 Azure Active Directory (Azure AD) 授权终结点接收令牌，无需任何服务器到服务器的交换。 所有身份验证逻辑和会话处理全部在 JavaScript 客户端中通过页面重定向或弹框执行。
 
 Azure AD B2C 扩展了标准 OAuth 2.0 隐式流，使其功能远远超出了简单的身份验证和授权。 Azure AD B2C 引入了[策略参数](user-flow-overview.md)。 通过该策略参数，可以使用 OAuth 2.0 向应用添加策略，例如注册、登录和配置文件管理用户流。 在本文的示例 HTTP 请求中，将使用 **{租户}. onmicrosoft** 作为示例。 如果你有一个租户并且还创建了用户流，请将 `{tenant}` 替换为该租户的名称。
 
@@ -53,7 +53,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| 参数 | 必须 | 说明 |
+| 参数 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 |{tenant}| 是 | Azure AD B2C 租户的名称|
 |{policy}| 是| 要运行的用户流。 指定在 Azure AD B2C 租户中创建的用户流的名称。 例如：`b2c_1_sign_in`、`b2c_1_sign_up` 或 `b2c_1_edit_profile`。 |
@@ -90,7 +90,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | 访问令牌有效的时间长度（以秒为单位）。 |
 | scope | 令牌的有效范围。 还可使用范围来缓存令牌，以供以后使用。 |
 | id_token | 应用请求的 ID 令牌。 可以使用 ID 令牌验证用户的标识，开始与用户建立会话。 有关 ID 令牌及其内容的详细信息，请参阅 [Azure AD B2C 令牌参考](tokens-overview.md)。 |
-| state | 如果请求中包含 `state` 参数，则响应中应显示相同的值。 应用需验证请求和响应中的 `state` 值是否相同。 |
+| state | 如果请求中包含 `state` 参数，响应中就应该出现相同的值。 应用需验证请求和响应中的 `state` 值是否相同。 |
 
 ### <a name="error-response"></a>错误响应
 错误响应也可能发送到重定向 URI，让应用能够对其进行适当处理：
@@ -106,7 +106,7 @@ error=access_denied
 | --------- | ----------- |
 | error | 一个代码，用于对发生的错误类型进行分类。 |
 | error_description | 帮助识别身份验证错误根本原因的特定错误消息。 |
-| state | 如果请求中包含 `state` 参数，则响应中应显示相同的值。 应用需验证请求和响应中的 `state` 值是否相同。|
+| state | 如果请求中包含 `state` 参数，响应中就应该出现相同的值。 应用需验证请求和响应中的 `state` 值是否相同。|
 
 ## <a name="validate-the-id-token"></a>验证 ID 令牌
 
@@ -137,11 +137,11 @@ https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/disco
 * 验证 `aud` 声明以确保已为应用颁发 ID 令牌。 其值应为应用的应用程序 ID。
 * 验证 `iat` 和 `exp` 声明以确保 ID 令牌未过期。
 
-[OpenID Connect Core 规范](https://openid.net/specs/openid-connect-core-1_0.html)中详细说明了应执行的更多验证。你可能还需要根据你的方案验证其他声明。 一些常见的验证包括：
+其他一些需要执行的验证在 [OpenID Connect 核心规范](https://openid.net/specs/openid-connect-core-1_0.html)中有详细说明。根据情况，可能还希望验证其他声明。 一些常见的验证包括：
 
 * 确保用户或组织已注册应用。
 * 确保用户拥有正确的授权和权限。
-* 确保执行了一定强度的身份验证，例如使用 Azure 多重身份验证。
+* 确保发生了某种程度的身份验证，例如通过使用 Azure AD 多重身份验证。
 
 有关 ID 令牌中声明的详细信息，请参阅 [Azure AD B2C 令牌参考](tokens-overview.md)。
 
@@ -168,18 +168,18 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 参数 | 必需？ | 说明 |
 | --- | --- | --- |
-|{tenant}| 必须 | Azure AD B2C 租户的名称|
+|{tenant}| 必需 | Azure AD B2C 租户的名称|
 {policy}| 必须| 要运行的用户流。 指定在 Azure AD B2C 租户中创建的用户流的名称。 例如：`b2c_1_sign_in`、`b2c_1_sign_up` 或 `b2c_1_edit_profile`。 |
-| client_id |必须 |在 [Azure 门户](https://portal.azure.com)中分配给应用的应用程序 ID。 |
+| client_id |必需 |在 [Azure 门户](https://portal.azure.com)中分配给应用的应用程序 ID。 |
 | response_type |必须 |必须包含 OpenID Connect 登录的 `id_token` 。  也可能包含响应类型 `token`。 如果在此处使用 `token`，应用能够立即从授权终结点接收访问令牌，而无需向授权终结点发出第二次请求。 如果使用 `token` 响应类型，`scope` 参数必须包含一个范围，以指出要对哪个资源发出令牌。 |
 | redirect_uri |建议 |应用的重定向 URI，应用可在其中发送和接收身份验证响应。 它必须与门户中注册的其中一个重定向 URI 完全匹配，否则必须经过 URL 编码。 |
 | scope |必须 |范围的空格分隔列表。  若要获取令牌，请包含相应资源所需的所有范围。 |
 | response_mode |建议 |指定用于将生成的令牌送回到应用的方法。 对于隐式流，请使用 `fragment`。 可以指定其他两种模式（`query` 和 `form_post`），但在隐式流中不起作用。 |
 | state |建议 |随令牌响应返回的请求中所包含的值。  它可以是你想要使用的任何内容的字符串。  随机生成的唯一值通常用于防止跨站点请求伪造攻击。  它还可用于在身份验证请求发生前，对有关用户在应用中的状态信息进行编码。 例如，用户之前所在的页面或视图。 |
-| nonce |必须 |由应用生成且包含在请求中的值，以声明方式包含在生成的 ID 令牌 中。  然后，应用可以验证此值，以减少令牌重播攻击。 此值通常是随机产生的唯一字符串，可识别请求的来源。 |
-| prompt |必须 |若要刷新并获取隐藏的 iframe 中的令牌，请使用 `prompt=none` 以确保 iframe 会立即返回，而不会停滞在登录页面上。 |
-| login_hint |必须 |若要刷新并获取隐藏的 iframe 中的令牌，请在此提示中加入用户的用户名，以便区分用户在给定时间内可能具有的多个会话。 可以使用 `preferred_username` 声明从以前的登录名中提取用户名（需要使用 `profile` 范围来接收 `preferred_username` 声明）。 |
-| domain_hint |必须 |可以是 `consumers` 或 `organizations`。  若要刷新并获取隐藏的 iframe 中的令牌，请在请求中包含 `domain_hint` 值。  从以前登录名的 ID 令牌中提取 `tid` 声明，以确定要使用的值（需要使用 `profile` 范围来接收 `tid` 声明）。 如果 `tid` 声明值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，请使用 `domain_hint=consumers`。  否则使用 `domain_hint=organizations`。 |
+| nonce |必需 |由应用生成且包含在请求中的值，以声明方式包含在生成的 ID 令牌 中。  然后，应用可以验证此值，以减少令牌重播攻击。 此值通常是随机产生的唯一字符串，可识别请求的来源。 |
+| prompt |必需 |若要刷新并获取隐藏的 iframe 中的令牌，请使用 `prompt=none` 以确保 iframe 会立即返回，而不会停滞在登录页面上。 |
+| login_hint |必需 |若要刷新并获取隐藏的 iframe 中的令牌，请在此提示中加入用户的用户名，以便区分用户在给定时间内可能具有的多个会话。 可以使用 `preferred_username` 声明从以前的登录名中提取用户名（需要使用 `profile` 范围来接收 `preferred_username` 声明）。 |
+| domain_hint |必需 |可以是 `consumers` 或 `organizations`。  若要刷新并获取隐藏的 iframe 中的令牌，请在请求中包含 `domain_hint` 值。  从以前登录名的 ID 令牌中提取 `tid` 声明，以确定要使用的值（需要使用 `profile` 范围来接收 `tid` 声明）。 如果 `tid` 声明值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，请使用 `domain_hint=consumers`。  否则使用 `domain_hint=organizations`。 |
 
 通过设置 `prompt=none` 参数，此请求会立即成功或立即失败，并返回到应用程序。  成功的响应会通过 `response_mode` 参数中指定的方法，发送到位于所指示的重定向 URI 的应用。
 
@@ -199,7 +199,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |应用请求的令牌。 |
 | token_type |令牌类型始终是“持有者”。 |
-| state |如果请求中包含 `state` 参数，则响应中应显示相同的值。 应用需验证请求和响应中的 `state` 值是否相同。 |
+| state |如果请求中包含 `state` 参数，响应中就应该出现相同的值。 应用需验证请求和响应中的 `state` 值是否相同。 |
 | expires_in |访问令牌有效的时间长度（以秒为单位）。 |
 | scope |访问令牌有效的范围。 |
 
@@ -223,7 +223,7 @@ error=user_authentication_required
 ID 令牌和访问令牌在较短时间后都会过期。 应用必须准备好定期刷新这些令牌。  若要刷新任一类型的令牌，请使用 `prompt=none` 参数控制 Azure AD 步骤，执行我们在先前示例中使用的同一隐藏的 iframe 请求。  若要接收新的 `id_token` 值，请务必使用 `response_type=id_token` 和 `scope=openid`，以及 `nonce` 参数。
 
 ## <a name="send-a-sign-out-request"></a>发送注销请求
-如果要从应用中注销用户，请将用户重定向到 Azure AD 以注销。如果你不重定向用户，则他们可以在不输入其凭据的情况下重新进行身份验证，而无需再次输入其凭据，因为他们具有 Azure AD 的有效单一登录会话。
+如果想要从应用中注销用户，请将用户重定向到 Azure AD 进行注销。如果不对用户进行重定向，用户可能不需要输入其凭据就能重新通过应用的身份验证，因为他们与 Azure AD 之间仍然存在有效的单一登录会话。
 
 只需将用户重定向到[验证 ID 令牌](#validate-the-id-token)中所述的相同 OpenID Connect 元数据文档中列出的 `end_session_endpoint`。 例如：
 
@@ -231,7 +231,7 @@ ID 令牌和访问令牌在较短时间后都会过期。 应用必须准备好�
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| 参数 | 必须 | 说明 |
+| 参数 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | {tenant} | 是 | Azure AD B2C 租户的名称 |
 | {policy} | 是 | 想要用于从应用程序中注销用户的用户流。 |
@@ -245,11 +245,11 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## <a name="next-steps"></a>后续步骤
 
-### <a name="code-sample-azure-ad-b2c-with-microsoft-authentication-library-for-javascript"></a>代码示例：与适用于 JavaScript 的 Microsoft 身份验证库 Azure AD B2C
+### <a name="code-sample-azure-ad-b2c-with-microsoft-authentication-library-for-javascript"></a>代码示例：Azure AD B2C（带有适用于 JavaScript 的 Microsoft 身份验证库）
 
-[利用 msal.js Azure AD B2C (GitHub 构建的单页面应用程序][github-msal-js-example]) 
+[使用 msal.js 为 Azure AD B2C 构建的单页应用程序][github-msal-js-example] (GitHub)
 
-GitHub 上的此示例旨在帮助你开始在使用 [msal.js][github-msal-js] 生成的简单 web 应用程序中 Azure AD B2C，并使用弹出式样式身份验证。
+GitHub 上的此示例旨在帮助你在以 [msal.js][github-msal-js] 构建的简单 Web 应用程序中开始使用 Azure AD B2C，以及使用弹出式身份验证。
 
 <!-- Links - EXTERNAL -->
 [github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp

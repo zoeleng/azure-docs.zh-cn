@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: ad9c64f2846b59fcc833ad56c4da378f7819dae3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ef5f81090f4d06f15f1a7263699961cd360e12e5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747415"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842186"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>快速入门：从 Android 设备发送 IoT 遥测数据
 
@@ -37,15 +37,7 @@ ms.locfileid: "92747415"
 
 * 端口 8883 在防火墙中处于打开状态。 本快速入门中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>添加 Azure IoT 扩展
-
-运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IoT 扩展会将 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 特定的命令添加到 Azure CLI。
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -59,17 +51,17 @@ az extension add --name azure-iot
 
 1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
-   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyAndroidDevice** ：这是所注册的设备的名称。 建议使用 **MyAndroidDevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyAndroidDevice**：这是所注册的设备的名称。 建议使用 **MyAndroidDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
-2. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的 _设备连接字符串_ ：
+2. 在 Azure Cloud Shell 中运行以下命令，以获取刚注册设备的 _设备连接字符串_：
 
-    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
@@ -85,7 +77,7 @@ az extension add --name azure-iot
 
 1. 在 Android Studio 中打开 GitHub 示例 Android 项目。 此项目位于克隆的或下载的 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存储库副本的以下目录中：\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample。
 
-2. 在 Android Studio 中打开示例项目的 *gradle.properties* ，将 **Device_Connection_String** 占位符替换为此前记下的设备连接字符串。
+2. 在 Android Studio 中打开示例项目的 *gradle.properties*，将 **Device_Connection_String** 占位符替换为此前记下的设备连接字符串。
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
@@ -112,7 +104,7 @@ az extension add --name azure-iot
 
 1. 通过 Azure Cloud Shell 运行以下命令以建立连接并从 IoT 中心读取消息：
 
-   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table

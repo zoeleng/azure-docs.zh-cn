@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: bef6e6c5ef795c192a846700fc046aa20274502d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673410"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841642"
 ---
-# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>使用 Azure 多重身份验证连接到 Azure SQL 数据库
+# <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>通过 Azure AD 多重身份验证连接到 Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-本文提供了用于连接到 Azure SQL 数据库的 C# 程序。 该程序使用支持 [Azure 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)的交互模式身份验证。
+本文提供了用于连接到 Azure SQL 数据库的 C# 程序。 该程序使用交互式模式身份验证，该身份验证支持 [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
 
 有关 SQL 工具的多重身份验证支持的详细信息，请参阅 [SQL Server Data Tools (SSDT) 中的 Azure Active Directory 支持](/sql/ssdt/azure-active-directory)。
 
@@ -39,7 +39,7 @@ ms.locfileid: "92673410"
 
 * 一个对话框，它要求提供系统已发送到手机的多重身份验证验证码。
 
-有关如何将 Azure AD 配置为要求多重身份验证的信息，请参阅[云中的 Azure 多重身份验证入门](../../active-directory/authentication/howto-mfa-getstarted.md)。
+有关如何配置 Azure AD 以要求多重身份验证的信息，请参阅 [云中的 Azure AD 多重身份验证](../../active-directory/authentication/howto-mfa-getstarted.md)入门。
 
 有关这些对话框的屏幕截图，请参阅[为 SQL Server Management Studio 和 Azure AD 配置多重身份验证](authentication-mfa-ssms-configure.md)。
 
@@ -56,7 +56,7 @@ ms.locfileid: "92673410"
 
 若要使用 Azure AD 身份验证，必须将 C# 程序注册为 Azure AD 应用程序。 只有 Azure AD 管理员或者分配有 Azure AD“应用程序开发人员”角色的用户才能注册应用。 有关分配角色的详细信息，请参阅[使用 Azure Active Directory 将管理员和非管理员角色分配给用户](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)。
 
-完成应用注册后，会生成并显示一个 **应用程序 ID** 。 程序中必须包含此 ID 才能建立连接。
+完成应用注册后，会生成并显示一个 **应用程序 ID**。 程序中必须包含此 ID 才能建立连接。
 
 注册应用程序并为其设置所需的权限：
 
@@ -152,7 +152,7 @@ ms.locfileid: "92673410"
 
 示例 C# 程序依赖于 [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL 程序集。
 
-若要安装此包，请在 Visual Studio 中选择“项目” > “管理 NuGet 包”。  搜索并安装 **Microsoft.IdentityModel.Clients.ActiveDirectory** 。
+若要安装此包，请在 Visual Studio 中选择“项目” > “管理 NuGet 包”。  搜索并安装 **Microsoft.IdentityModel.Clients.ActiveDirectory**。
 
 这是 C# 源代码的示例。
 

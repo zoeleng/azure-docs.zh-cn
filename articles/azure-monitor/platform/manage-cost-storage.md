@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b66d0f20959d196fddeb8356d8171573f1243b58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660383"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842271"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure Monitor 日志管理使用情况和成本    
 
@@ -627,7 +627,7 @@ union *
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>使用 Log Analytics 的数据传输费用
 
-向 Log Analytics 发送数据可能会产生数据带宽费用。 如 [Azure 带宽定价页](https://azure.microsoft.com/pricing/details/bandwidth/)中所述，位于两个区域内的 Azure 服务之间的数据传输按出站数据传输以正常费率计费。 入站数据传输是免费的。 但是，与 Log Analytics 数据引入的成本相比，这项费用微不足道（几个百分点）。 因此，控制 Log Analytics 的成本需要专注于[引入的数据量](#understanding-ingested-data-volume)。 
+将数据发送到 Log Analytics 可能会导致数据带宽收费，但其限制为 Log Analytics 在使用诊断设置时或与 Azure Sentinel 内置的其他连接器一起使用的虚拟机。 如 [Azure 带宽定价页](https://azure.microsoft.com/pricing/details/bandwidth/)中所述，位于两个区域内的 Azure 服务之间的数据传输按出站数据传输以正常费率计费。 入站数据传输是免费的。 但是，与 Log Analytics 数据引入的成本相比，这项费用微不足道（几个百分点）。 因此，控制 Log Analytics 的成本需要专注于[引入的数据量](#understanding-ingested-data-volume)。 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>排查 Log Analytics 不再收集数据的原因

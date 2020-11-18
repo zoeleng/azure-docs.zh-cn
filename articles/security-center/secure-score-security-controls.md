@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: bcbad58935300c765fdcccb1701b64f239de43fd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: fd01e7e6853d69889d0ffba3d8775a0fd92f7cd2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357872"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842526"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure 安全中心的安全评分
 
@@ -29,7 +29,7 @@ Azure 安全中心有两个主要目标：
 - 帮助您了解当前的安全性情况
 - 帮助你高效有效地提高安全性
 
-安全中心的核心功能使你能够实现这些目标，这是 **安全分数** 。
+安全中心的核心功能使你能够实现这些目标，这是 **安全分数**。
 
 安全中心会持续评估资源、订阅和组织的安全问题。 然后，它将所有调查结果汇总成一个分数，让你可以一目了然地了解当前的安全状况：分数越高，识别出的风险级别就越低。
 
@@ -88,7 +88,7 @@ Azure 安全中心有两个主要目标：
 
 使用 ARG 为多个订阅访问安全分数：
 
-1. 在 Azure 门户中，打开 **Azure 资源图资源管理器** 。
+1. 在 Azure 门户中，打开 **Azure 资源图资源管理器**。
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="正在启动 Azure 资源图资源管理器 * * 建议页" :::
 
@@ -112,7 +112,7 @@ Azure 安全中心有两个主要目标：
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. 选择 " **运行查询** "。
+1. 选择 " **运行查询**"。
 
 ## <a name="how-your-secure-score-is-calculated"></a>如何计算安全功能分数 
 
@@ -128,8 +128,8 @@ Azure 安全中心有两个主要目标：
 
 此控制（应用系统更新）的最高分始终为 6 分。 此示例中一共有 50 个资源。 因此，我们将最高分除以 50，结果是每个资源贡献 0.12 分。 
 
-* **可能增加的分数** （0.12 x 8 个运行不正常的资源 = 0.96）- 该控制中剩余可增加的分数。 如果修正此控制中的所有建议，分数将增加 2%（本例中为 0.96 分，四舍五入为 1 分）。 
-* **当前分数** （0.12 x 42 个正常运行的资源 = 5.04）- 此控制的当前分数。 每个控制都为总分贡献分数。 在此示例中，该控制为当前安全总分贡献了 5.04 分。
+* **可能增加的分数**（0.12 x 8 个运行不正常的资源 = 0.96）- 该控制中剩余可增加的分数。 如果修正此控制中的所有建议，分数将增加 2%（本例中为 0.96 分，四舍五入为 1 分）。 
+* **当前分数**（0.12 x 42 个正常运行的资源 = 5.04）- 此控制的当前分数。 每个控制都为总分贡献分数。 在此示例中，该控制为当前安全总分贡献了 5.04 分。
 * **最高分** - 完成某个控制中的所有建议后可获得的最高分数。 控制的最高分表明该控制的相对重要性。 可使用最高分值来会审要优先处理的问题。 
 
 
@@ -242,7 +242,7 @@ Azure 安全中心有两个主要目标：
     <td class="tg-lboi"; width=55%>- 应在 Azure SQL Database 服务器上启用高级数据安全<br>- 应对计算机上的 SQL Server 启用高级数据安全<br>- 应对虚拟机启用高级威胁防护<br>- 应在 Azure 应用服务计划上启用高级威胁防护<br>- 应对 Azure 存储帐户启用高级威胁防护<br>- 应对 Azure Kubernetes 服务的群集启用高级威胁防护<br>- 应对 Azure 容器注册表的注册表启用高级威胁防护<br>- 应对 Azure Key Vault 的保管库启用高级威胁防护</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">实施安全最佳做法（最高 0 分）</p></strong>新式安全做法“假定突破”网络边界。 因此，此控制中的许多最佳做法都集中在标识管理上。<br>丢失密钥和凭据是一个常见问题。 <a href="/azure/key-vault/key-vault-overview">Azure 密钥保管库</a>通过加密密钥、.pfx 文件和密码来保护密钥和机密。<br>虚拟专用网 (VPN) 是访问虚拟机的一种安全方法。 如果 VPN 不可用，请使用复杂的密码和双重身份验证（例如 <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Azure 多重身份验证</a>）。 双重身份验证避开了固有的仅依赖用户名和密码的弱点。<br>使用强身份验证和授权平台是另一种最佳做法。 组织可以使用联合标识来委派授权标识的管理。 当员工离职，需要撤销其访问权限时，这一点也很重要。</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">实施安全最佳做法（最高 0 分）</p></strong>新式安全做法“假定突破”网络边界。 因此，此控制中的许多最佳做法都集中在标识管理上。<br>丢失密钥和凭据是一个常见问题。 <a href="/azure/key-vault/key-vault-overview">Azure 密钥保管库</a>通过加密密钥、.pfx 文件和密码来保护密钥和机密。<br>虚拟专用网 (VPN) 是访问虚拟机的一种安全方法。 如果 Vpn 不可用，则使用复杂的密码和双因素身份验证，例如 <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Azure AD 多重身份验证</a>。 双重身份验证避开了固有的仅依赖用户名和密码的弱点。<br>使用强身份验证和授权平台是另一种最佳做法。 组织可以使用联合标识来委派授权标识的管理。 当员工离职，需要撤销其访问权限时，这一点也很重要。</td>
     <td class="tg-lboi"; width=55%>- 最多只能为订阅指定 3 个所有者<br>- 应从订阅中删除拥有读取权限的外部帐户<br>- 应在对订阅拥有读取权限的帐户上启用 MFA<br>- 应限制对具有防火墙和虚拟网络配置的存储帐户的访问<br>- 应从事件中心命名空间中删除 RootManageSharedAccessKey 以外的所有授权规则<br>- 应为 SQL Server 预配 Azure Active Directory 管理员<br>- 应对托管实例启用高级数据安全<br>- 应定义事件中心实例上的授权规则<br>- 应将存储帐户迁移到新的 Azure 资源管理器资源<br>- 应将虚拟机迁移到新的 Azure 资源管理器资源<br>- 子网应与网络安全组关联<br>- [预览版]应启用 Windows 攻击防护 <br>- [预览版]应安装来宾配置代理<br>- 应使用网络安全组来保护非面向 Internet 的虚拟机<br>- 应为虚拟机启用 Azure 备份<br>- 应为 Azure Database for MariaDB 启用异地冗余备份<br>- 应为 Azure Database for MySQL 启用异地冗余备份<br>- 应为 Azure Database for PostgreSQL 启用异地冗余备份<br>- PHP 应更新为 API 应用的最新版本<br>- PHP 应更新到 web 应用的最新版本<br>- Java 应更新为 API 应用的最新版本<br>- Java 应更新为 function app 的最新版本<br>- Java 应更新到 web 应用的最新版本<br>- Python 应更新为 API 应用的最新版本<br>- Python 应更新为函数应用的最新版本<br>- Python 应更新到 web 应用的最新版本<br>- 应将 SQL server 的审核保留至少设置为90天</td>
   </tr>
 </tbody>

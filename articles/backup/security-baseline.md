@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842152"
 ---
 # <a name="azure-security-baseline-for-backup"></a>备份的 Azure 安全基线
 
@@ -298,11 +298,11 @@ ms.locfileid: "92174123"
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5：对所有基于 Azure Active Directory 的访问使用多重身份验证
 
-**指导**：在 Azure 备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用 Azure 多重身份验证相当于增加了一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
+**指导**：在 Azure 备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用 Azure AD 多重身份验证会添加一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
 
 - [Azure 备份中的多重身份验证](./backup-azure-security-feature.md)
 
-- [规划基于云的 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+- [规划基于云的 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：是
 
@@ -310,17 +310,17 @@ ms.locfileid: "92174123"
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
-**指导**：使用配置了 Azure 多重身份验证 (MFA) 的特权访问工作站 (PAW) 来登录和配置启用了 Azure 备份的资源。
+**指南**：将特权访问工作站 (PAW) 与 Azure AD 多因素身份验证 (MFA) 配置为登录并配置支持 Azure 备份的资源。
 
 - [特权访问工作站](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [规划基于云的 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+- [规划基于云的 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：不适用
 
 **责任**：客户
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
+### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录管理帐户的可疑活动并发出警报
 
 **指导**：当环境中出现可疑或不安全的活动时，可使用 Azure Active Directory (AD) Privileged Identity Management (PIM) 生成日志和警报。
 
@@ -632,7 +632,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 **指导**：使用 Azure Policy 对可以在订阅中创建的资源类型施加限制。
 
-使用 Azure Resource Graph 查询/发现订阅中的资源。  确保环境中存在的所有 Azure 资源已获得批准。
+使用 Azure Resource Graph 查询/发现订阅中的资源。  确保环境中的所有 Azure 资源均已获得批准。
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

@@ -3,16 +3,16 @@ title: 'Log Analytics Azure Monitor (预览中的工作区数据导出) '
 description: 使用 Log Analytics 数据导出功能，可以将所选表中的数据从 Log Analytics 工作区连续导出到 Azure 存储帐户或 Azure 事件中心（在收集时）。
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427796"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841801"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics Azure Monitor (预览中的工作区数据导出) 
 使用 Azure Monitor 中的工作区数据导出，你可以在收集数据时，将数据从 Log Analytics 工作区中的选定表连续导出到 Azure 存储帐户或 Azure 事件中心。 Log Analytics 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -58,15 +58,15 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区中导出
 ## <a name="data-completeness"></a>数据完整性
 当目标不可用时，数据导出将继续重试发送数据最多30分钟。 如果30分钟后仍不可用，则数据将被丢弃，直到目标变为可用。
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>成本
 数据导出功能当前没有额外的费用。 数据导出的定价将在将来公布，在帐单开始之前提供一项通知。 如果你选择在通知期后继续使用数据导出，将按适用的费率向你收费。
 
 ## <a name="export-destinations"></a>导出目标
 
 ### <a name="storage-account"></a>存储帐户
-数据每小时发送到存储帐户。 数据导出配置为存储帐户中的每个表创建一个容器， *名称后跟该表的名称。* 例如，表 *SecurityEvent* 将发送到名为 *SecurityEvent 的* 容器。
+数据每小时发送到存储帐户。 数据导出配置为存储帐户中的每个表创建一个容器，*名称后跟该表的名称。* 例如，表 *SecurityEvent* 将发送到名为 *SecurityEvent 的* 容器。
 
-存储帐户 blob 路径为 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces//y =/m = \<workspace\> \<four-digit numeric year\> \<two-digit numeric month\> /d = \<two-digit numeric day\> /h =/m = \<two-digit 24-hour clock hour\> 00/PT1H.json* 。 由于追加 blob 仅限于存储中的50K 写入，因此，如果追加数较高，则导出的 blob 的数目可能会延长。 在这种情况下，blob 的命名模式将是 PT1H_ # json，其中 # 是增量 blob 计数。
+存储帐户 blob 路径为 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces//y =/m = \<workspace\> \<four-digit numeric year\> \<two-digit numeric month\> /d = \<two-digit numeric day\> /h =/m = \<two-digit 24-hour clock hour\> 00/PT1H.json*。 由于追加 blob 仅限于存储中的50K 写入，因此，如果追加数较高，则导出的 blob 的数目可能会延长。 在这种情况下，blob 的命名模式将是 PT1H_ # json，其中 # 是增量 blob 计数。
 
 存储帐户数据格式为 [JSON 行](diagnostic-logs-append-blobs.md)。 这意味着每个记录都由一个换行符分隔，无外部记录数组，JSON 记录之间没有逗号。 
 
@@ -81,7 +81,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区中导出
 1. "基本" 事件中心 sku 支持较低的事件大小限制，工作区中的某些日志可能会超出此 [限制](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) 并被删除。 建议使用 "标准" 或 "专用" 事件中心作为导出目标。
 2. 随着时间的推移，导出的数据量经常增加，需要提高事件中心的规模，以处理更大的传输速率，并避免限制情况和数据延迟。 应该使用事件中心的自动扩展功能来自动增加和增加吞吐量单位数，并满足使用量需求。 有关详细信息，请参阅 [自动增加 Azure 事件中心吞吐量单位](../../event-hubs/event-hubs-auto-inflate.md) 。
 
-## <a name="prerequisites"></a>必备知识
+## <a name="prerequisites"></a>先决条件
 下面是在配置 Log Analytics 数据导出之前必须完成的先决条件。
 
 - 存储帐户和事件中心必须已创建，并且必须与 Log Analytics 工作区位于同一区域。 如果需要将数据复制到其他存储帐户，可以使用任何 [Azure 存储冗余选项](../../storage/common/storage-redundancy.md)。  
@@ -100,7 +100,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区中导出
 
 - Microsoft.Insights
 
-此资源提供程序可能已注册到大多数 Azure Monitor 用户。 若要验证，请在 Azure 门户中转到 **订阅** 。 选择订阅，然后单击菜单的 " **设置** " 部分中的 " **资源提供程序** "。 找到 " **Microsoft Insights** "。 如果其 **状态为 "已注册"** ，则已注册。 如果没有，请单击 " **注册** " 以注册它。
+此资源提供程序可能已注册到大多数 Azure Monitor 用户。 若要验证，请在 Azure 门户中转到 **订阅** 。 选择订阅，然后单击菜单的 "**设置**" 部分中的 "**资源提供程序**"。 找到 " **Microsoft Insights**"。 如果其 **状态为 "已注册"**，则已注册。 如果没有，请单击 " **注册** " 以注册它。
 
 你还可以使用任何可用的方法来注册资源提供程序，如 [Azure 资源提供程序和类型](../../azure-resource-manager/management/resource-providers-and-types.md)中所述。 下面是使用 PowerShell 的示例命令：
 
@@ -109,7 +109,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>允许受信任的 Microsoft 服务
-如果已将存储帐户配置为允许从所选网络进行访问，则需要添加例外，以允许 Azure Monitor 写入帐户。 在存储帐户的 **防火墙和虚拟网络** 中，选择 " **允许受信任的 Microsoft 服务访问此存储帐户** "。
+如果已将存储帐户配置为允许从所选网络进行访问，则需要添加例外，以允许 Azure Monitor 写入帐户。 在存储帐户的 **防火墙和虚拟网络** 中，选择 " **允许受信任的 Microsoft 服务访问此存储帐户**"。
 
 [![存储帐户防火墙和虚拟网络](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
@@ -400,7 +400,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | NWConnectionMonitorTestResult | |
 | NWConnectionMonitorTestResult | |
 | OfficeActivity | 部分支持。 通过 webhook 从 Office 365 到 Log Analytics 将一些数据引入。 当前未导出此数据。 |
-| 操作 | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前未导出此数据。 |
+| Operation | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前未导出此数据。 |
 | 性能 | 部分支持。 目前仅支持 windows 性能数据。 当前未导出 linux 性能数据。 |
 | ProtectionStatus | |
 | SCCMAssessmentRecommendation | |

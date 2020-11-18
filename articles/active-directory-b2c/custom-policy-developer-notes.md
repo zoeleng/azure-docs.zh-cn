@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532471"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840723"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的自定义策略的开发人员说明
 
@@ -98,7 +98,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 | 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [电话因素身份验证](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA 身份验证](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA 身份验证](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [一次性密码](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) 用作本地目录 |  |  | X |  |
 | 用于电子邮件验证的 Azure 电子邮件子系统 |  |  | X |  |

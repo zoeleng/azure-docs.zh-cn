@@ -5,27 +5,27 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 802c126548a6fa7062a262e2f939c9a214480794
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789635"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841098"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL 数据库和 Azure Synapse IP 防火墙规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-例如，在 Azure SQL 数据库或名为 *mysqlserver* 的 Azure Synapse Analytics 中创建新服务器时，服务器级防火墙会阻止对服务器 (的公共终结点的所有访问，可在 *mysqlserver.database.windows.net* ) 访问。 为简单起见，在提到 SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）时，本文将其统称为“SQL 数据库”。
+例如，在 Azure SQL 数据库或名为 *mysqlserver* 的 Azure Synapse Analytics 中创建新服务器时，服务器级防火墙会阻止对服务器 (的公共终结点的所有访问，可在 *mysqlserver.database.windows.net*) 访问。 为简单起见，在提到 SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）时，本文将其统称为“SQL 数据库”。
 
 > [!IMPORTANT]
-> 本文不适用于 *Azure SQL 托管实例* 。 有关网络配置的信息，请参阅[将应用程序连接到 Azure SQL 托管实例](../managed-instance/connect-application-instance.md)。
+> 本文不适用于 *Azure SQL 托管实例*。 有关网络配置的信息，请参阅[将应用程序连接到 Azure SQL 托管实例](../managed-instance/connect-application-instance.md)。
 >
 > Azure Synapse 只支持服务器级别 IP 防火墙规则。 不支持数据库级 IP 防火墙规则。
 
@@ -144,7 +144,7 @@ IP 地址用户是否需要访问所有数据库？
 
 #### <a name="from-the-server-overview-page"></a>从服务器概述页
 
-此时会打开服务器的概述页。 它显示完全限定的服务器名称 (例如 *mynewserver20170403.database.windows.net* ) ，并提供进一步配置的选项。
+此时会打开服务器的概述页。 它显示完全限定的服务器名称 (例如 *mynewserver20170403.database.windows.net*) ，并提供进一步配置的选项。
 
 1. 若要在此页中设置服务器级规则，请在左侧的“设置”菜单中选择“防火墙”。 
 
@@ -174,7 +174,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-若要删除服务器级 IP 防火墙规则，请执行 *sp_delete_firewall_rule* 存储过程。 以下示例删除规则 *ContosoFirewallRule* ：
+若要删除服务器级 IP 防火墙规则，请执行 *sp_delete_firewall_rule* 存储过程。 以下示例删除规则 *ContosoFirewallRule*：
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'

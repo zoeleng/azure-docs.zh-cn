@@ -11,12 +11,12 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387637"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840536"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理用户数据
 
@@ -52,7 +52,7 @@ Azure AD B2C 用户数据仅限于：
 
 在下面的导出数据流示例中，由应用程序执行的所述步骤也能由目录中的后端进程或具有管理员角色的用户执行：
 
-1. 用户登录到应用程序。 如果需要，Azure AD B2C 将使用 Azure 多重身份验证强制执行身份验证。
+1. 用户登录到应用程序。 如果需要，Azure AD B2C 通过 Azure AD 多重身份验证强制执行身份验证。
 2. 应用程序使用用户凭据来调用 Microsoft Graph API 操作，以检索用户属性。 Microsoft Graph API 以 JSON 格式提供属性数据。 可以将 ID 令牌内容设置为包括用户的所有个人数据，具体取决于架构。
 3. 应用程序检索用户审核活动。 Microsoft Graph API 向应用程序提供事件数据。
 4. 应用程序聚合数据，并使其可供用户使用。

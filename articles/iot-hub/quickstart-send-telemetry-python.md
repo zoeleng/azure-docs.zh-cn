@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/16/2020
-ms.openlocfilehash: ad7fb6098d3fb347f6bb31264fdc72dc7650c1a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1261f54739d4689878dcb8657361582164a1a23e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748564"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842084"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Python)
 
@@ -38,15 +38,7 @@ ms.locfileid: "92748564"
 
 * 端口 8883 在防火墙中处于打开状态。 本快速入门中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>添加 Azure IoT 扩展
-
-运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IoT 扩展会将特定于 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 的命令添加到 Azure CLI。
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -60,17 +52,17 @@ az extension add --name azure-iot
 
 1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
-    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-    **MyPythonDevice** ：这是所注册的设备的名称。 建议使用 **MyPythonDevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+    **MyPythonDevice**：这是所注册的设备的名称。 建议使用 **MyPythonDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
-1. 在 Azure Cloud Shell 中运行以下命令，以获取已注册设备的 _设备连接字符串_ ：
+1. 在 Azure Cloud Shell 中运行以下命令，以获取已注册设备的 _设备连接字符串_：
 
-    **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
+    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
@@ -84,7 +76,7 @@ az extension add --name azure-iot
 
 1. 还需要使用与事件中心兼容的终结点、与事件中心兼容的路径和 IoT 中心的服务主密钥，确保后端应用程序能连接到 IoT 中心并检索消息  。 以下命令可检索 IoT 中心的这些值：
 
-   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -104,7 +96,7 @@ az extension add --name azure-iot
 
 1. 在所选文本编辑器中打开 SimulatedDevice.py 文件。
 
-    将 `CONNECTION_STRING` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.py** 。
+    将 `CONNECTION_STRING` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 **SimulatedDevice.py**。
 
 1. 在本地终端窗口中，运行以下命令，为模拟设备应用程序安装所需的库：
 
@@ -133,7 +125,7 @@ az extension add --name azure-iot
 
 2. 在所选的文本编辑器中打开 read_device_to_cloud_messages_sync.py 文件。 更新以下变量并保存对文件所做的更改。
 
-    | 变量 | Value |
+    | 变量 | 值 |
     | -------- | ----------- |
     | `EVENTHUB_COMPATIBLE_ENDPOINT` | 将变量的值替换为之前记下的与事件中心兼容的终结点。 |
     | `EVENTHUB_COMPATIBLE_PATH`     | 将变量的值替换为之前记下的与事件中心兼容的路径。 |

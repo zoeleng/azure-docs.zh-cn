@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 3b81572266f6ee5bd90662a98988d41479f399cc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675011"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841121"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>使用多重 Azure Active Directory 身份验证
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,13 +41,13 @@ Azure AD 有两种非交互式身份验证模型，它们可用于许多不同�
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-同时支持 Azure 多重身份验证 (MFA) 的交互式方法是： 
+交互式方法还支持 (MFA) Azure AD 多重身份验证： 
 
 - `Azure Active Directory - Universal with MFA`
 
-Azure MFA 可满足用户简单登录过程的需求，同时可帮助保护数据访问权限和应用程序。 它利用一系列简单的验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证，用户可以根据自己的偏好选择所用的方法。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
+Azure AD MFA 可帮助保护对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它利用一系列简单的验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证，用户可以根据自己的偏好选择所用的方法。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
 
-有关 Azure 多重身份验证的说明，请参阅[多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
+有关 Azure AD 多重身份验证的说明，请参阅 [多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
 有关配置步骤，请参阅[配置 SQL Server Management Studio 的 Azure SQL 数据库多重身份验证](authentication-mfa-ssms-configure.md)。
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD 域名称或租户 ID 参数
@@ -58,7 +58,7 @@ Azure MFA 可满足用户简单登录过程的需求，同时可帮助保护数�
 
 
 1. 在 SSMS 中打开一个连接。 输入服务器名称，然后选择“Azure Active Directory - 通用且具有 MFA 支持”身份验证。 添加要用于登录的“用户名”。
-1. 选择“选项”框，然后转到“连接属性”选项卡。在“连接到数据库”对话框中，针对你的数据库填写对话框。 选中“AD 域名或租户 ID”  框，然后提供身份验证机构，如域名 ( **contosotest.onmicrosoft.com** ) 或租户 ID 的 GUID。 
+1. 选择“选项”框，然后转到“连接属性”选项卡。在“连接到数据库”对话框中，针对你的数据库填写对话框。 选中“AD 域名或租户 ID”  框，然后提供身份验证机构，如域名 (**contosotest.onmicrosoft.com**) 或租户 ID 的 GUID。 
 
    ![“连接属性”选项卡的屏幕截图，其中突出显示了“连接到数据库”和“AD 域名或租户 ID”的设置。](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
@@ -100,4 +100,4 @@ Azure AD 作为来宾用户的 Azure AD B2B 方案支持的用户 (查看 [AZURE
 - [将 BACPAC 文件导入到新数据库](database-import.md)  
 - [将数据库导出到 BACPAC 文件](database-export.md)  
 - C# 接口 [IUniversalAuthProvider 接口](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- 使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证时，从 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms) 开始提供 ADAL 跟踪功能。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别” **中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。
+- 使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证时，从 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms) 开始提供 ADAL 跟踪功能。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。

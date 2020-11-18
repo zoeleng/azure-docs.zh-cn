@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a2c39d9809204328a6eba30c073b1fa81795924a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575945"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840281"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的语言自定义
 
@@ -28,9 +28,9 @@ ms.locfileid: "94575945"
 
 可能不需要对客户看到的语言拥有这种控制度。 如果未提供 `ui_locales` 参数，客户的体验由其浏览器设置确定。 仍可以控制要将用户流翻译成哪种语言，只需将该语言添加为支持的语言即可。 如果客户浏览器设置为显示你不希望支持的语言，则将改为显示你在受支持区域性中选为默认的语言。
 
-* **ui-locales 指定的语言** ：启用语言自定义后，用户流将翻译成此处指定的语言。
-* **浏览器请求的语言** ：如果未指定 `ui_locales` 参数，用户流将翻译成浏览器请求的语言（ *如果该语言受支持* ）。
-* **策略默认语言** ：如果浏览器未指定语言，或者指定了不支持的语言，用户流将翻译成用户流默认语言。
+* **ui-locales 指定的语言**：启用语言自定义后，用户流将翻译成此处指定的语言。
+* **浏览器请求的语言**：如果未指定 `ui_locales` 参数，用户流将翻译成浏览器请求的语言（*如果该语言受支持*）。
+* **策略默认语言**：如果浏览器未指定语言，或者指定了不支持的语言，用户流将翻译成用户流默认语言。
 
 > [!NOTE]
 > 如果使用自定义用户属性，需要提供自己的翻译。 有关详细信息，请参阅[自定义字符串](#customize-your-strings)。
@@ -200,7 +200,7 @@ Chrome 和 Firefox 都会请求其设置的语言。 如果支持该语言，将
 
 ## <a name="supported-languages"></a>支持的语言
 
-Azure AD B2C 包括对以下语言的支持。 用户流语言由 Azure AD B2C 提供。 多重身份验证 (MFA) 通知语言由 [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md) 提供。
+Azure AD B2C 包括对以下语言的支持。 用户流语言由 Azure AD B2C 提供。 多重身份验证 (MFA) 通知语言由 [AZURE AD MFA](../active-directory/authentication/concept-mfa-howitworks.md)提供。
 
 | 语言              | 语言代码 | 用户流         | MFA 通知  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

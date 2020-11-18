@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745354"
+ms.locfileid: "94842475"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>流分析和 Power BI：针对流式处理数据的实时分析仪表板
 
@@ -221,7 +221,7 @@ Azure 流分析使你可以利用其中一种领先的商业智能工具 [Micros
 ```
 
 ### <a name="renew-authorization"></a>续订授权
-如果自作业创建后或上次身份验证后更改了密码，需要重新对 Power BI 帐户进行身份验证。 如果在 Azure Active Directory (Azure AD) 租户中配置了多重身份验证，还需要每两周续订一次 Power BI 授权。 如果不续订，操作日志中会出现缺少作业输出或者 `Authenticate user error` 之类的表现。
+如果自作业创建后或上次身份验证后更改了密码，需要重新对 Power BI 帐户进行身份验证。 如果 Azure Active Directory (Azure AD) 租户上配置 Azure AD 多重身份验证，则还需要每两周续订 Power BI 授权。 如果不续订，操作日志中会出现缺少作业输出或者 `Authenticate user error` 之类的表现。
 
 同样，如果作业在令牌过期后启动，则会发生错误且作业将失败。 若要解决此问题，请停止正在运行的作业并转到 Power BI 输出。 为了避免数据丢失，请选择“续订授权”链接，并从“上次停止时间”重新启动作业。 
 

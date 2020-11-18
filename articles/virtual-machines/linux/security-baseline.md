@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205143"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842407"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>适用于 Linux 虚拟机的 Azure 安全基线
 
@@ -978,7 +978,7 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 * [如何与 Azure 托管标识集成](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [如何创建 Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [如何创建 Key Vault](../../key-vault/general/quick-create-portal.md)
 
 * [如何向 Key Vault 进行身份验证](../../key-vault/general/authentication.md)
 

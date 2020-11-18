@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850925"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842129"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>创建不具有公共 IP 地址的 Azure Batch 池
 
@@ -34,7 +34,7 @@ ms.locfileid: "91850925"
 - **一个 Azure VNet**。 如果要在 [虚拟网络](batch-virtual-network.md)中创建池，请遵循以下要求和配置。 若要提前准备具有一个或多个子网的 VNet，可以使用 Azure 门户、Azure PowerShell、Azure 命令行接口 (CLI) 或其他方法。
   - VNet 必须与用于创建池的 Batch 帐户位于同一订阅和区域中。
   - 为池指定的子网必须提供足够的未分配 IP 地址来容纳面向该池的 VM 的数量；即，池的 `targetDedicatedNodes` 和 `targetLowPriorityNodes` 属性的总和。 如果子网没有足够的未分配 IP 地址，池将分配部分计算节点，并发生调整大小错误。
-  - 必须禁用专用链接服务和终结点网络策略。 这可以通过使用 Azure CLI 来完成： ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - 必须禁用专用链接服务和终结点网络策略。 这可以通过使用 Azure CLI 来完成： ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > 对于每个100专用节点或低优先级节点，Batch 分配一个专用链接服务和一个负载均衡器。 这些资源受订阅的[资源配额](../azure-resource-manager/management/azure-subscription-service-limits.md)限制。 对于较大的池，你可能需要为这些资源中的一个或多个 [请求增加配额](batch-quota-limit.md#increase-a-quota) 。 此外，不应将资源锁应用于由 Batch 创建的任何资源，因为这样可以防止由于用户启动的操作（如删除池或调整为零）而清理资源。
@@ -52,9 +52,9 @@ ms.locfileid: "91850925"
 1. 在“池”窗口中，选择“添加”。 
 1. 在“添加池”窗口中，从“映像类型”下拉列表中选择要使用的选项。 
 1. 选择正确的映像 **发布者/产品/服务/Sku** 。
-1. 指定剩余的必需设置，包括 **节点大小**、 **目标专用节点**和 **低优先级节点**，以及任何所需的可选设置。
+1. 指定剩余的必需设置，包括 **节点大小**、 **目标专用节点** 和 **低优先级节点**，以及任何所需的可选设置。
 1. 根据需要选择要使用的虚拟网络和子网。 此虚拟网络必须与要创建的池位于同一资源组中。
-1. 在 " **IP 地址" 设置类型**中，选择 " **NoPublicIPAddresses**"。
+1. 在 " **IP 地址" 设置类型** 中，选择 " **NoPublicIPAddresses**"。
 
 ![选择了 NoPublicIPAddresses 的 "添加池" 屏幕屏幕截图。](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 

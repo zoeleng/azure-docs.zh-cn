@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab28c7c592c270cb7b5ba6afa6145bdcfed89099
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bf249046a30e023a2d7b596fb6424c7005c2a875
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658921"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841931"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Azure Sentinel 的 azure 安全基线
 
@@ -163,11 +163,11 @@ ms.locfileid: "94658921"
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6：使用由 Azure 管理的安全工作站执行管理任务
 
-**指导**：使用启用了 Azure 多重身份验证 (MFA) 的特权访问工作站 (PAW) 来登录和配置 Azure Sentinel 相关的资源。 
+**指南**：将特权访问工作站 (PAW) 与 Azure AD 多重身份验证 (MFA) 一起使用，以便登录和配置 Azure Sentinel 相关资源。 
 
 - [特权访问工作站](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [规划基于云的 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+- [规划基于云的 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -299,7 +299,7 @@ ms.locfileid: "94658921"
 
 **指南**： Azure 中尚不提供数据标识、分类和丢失防护功能。 如果需要出于合规性目的使用这些功能，请实施第三方解决方案。
 
-对于 Microsoft 管理的底层平台，Microsoft 会将所有客户内容视为敏感数据，并会全方位地防范客户数据丢失和遭到透露。 为了确保 Azure 中的客户数据保持安全，Microsoft 已实施并维护一套可靠的数据保护控制机制和功能。
+对于 Microsoft 管理的底层平台，Microsoft 会将所有客户内容视为敏感数据，并会全方位地防范客户数据丢失和遭到透露。 为了确保 Azure 中的客户数据保持安全，Microsoft 实施并维护了一套可靠的数据保护控制措施和功能。
 
 - [了解 Azure 中的客户数据保护](../security/fundamentals/protection-customer-data.md)
 

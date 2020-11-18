@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695327"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841982"
 ---
 # <a name="securing-paas-deployments"></a>保护 PaaS 部署
 
@@ -82,14 +82,14 @@ PaaS 与传统本地部署之间的另一个重大差别在于，前者为主要
 **最佳做法**：通过使用可以直接远程管理这些 VM 的管理接口来保护混合 PaaS 和 IaaS 服务上的 VM 管理接口。   
 **详细信息**：可以使用远程管理协议，如 [SSH](https://en.wikipedia.org/wiki/Secure_Shell)、 [RDP](https://support.microsoft.com/kb/186607)和 [PowerShell 远程处理](/powershell/module/microsoft.powershell.core/enable-psremoting) 。 通常，我们建议不要从 Internet 启用对 VM 的直接远程访问。
 
-如果可以，请使用替代方法，例如在 Azure 虚拟网络中使用虚拟专用网络。 如果无法使用替代方法，请确保使用复杂的通行短语，并使用双重身份验证（例如 [Azure 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)）。
+如果可以，请使用替代方法，例如在 Azure 虚拟网络中使用虚拟专用网络。 如果其他方法不可用，请确保使用复杂的密码和双因素身份验证 (例如 [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)) 。
 
 **最佳做法**：使用强身份验证和授权平台。   
 **详细信息**：在 Azure AD 而不是自定义用户存储中使用联合标识。 使用联合标识时，可以利用基于平台的方法，将已获授权的标识的管理权限委托给合作伙伴。 如果员工离职后，需要通过多个标识和授权系统反映该信息，则联合标识方法就特别重要。
 
 使用平台提供的身份验证和授权机制，而不要使用自定义代码。 原因是开发自定义身份验证代码可能很容易出错。 大部分开发人员都不是安全专家，不太可能会注意到身份验证和授权的细微之处与最新开发情况。 商业代码（例如 Microsoft 编写的代码）通常会接受广泛的安全性评审。
 
-使用双重身份验证。 双重身份验证是最新的身份验证和授权标准，它避免了用户名与密码类型的身份验证所固有的安全漏洞。 需要访问 Azure 管理界面（门户/远程 PowerShell）和面向客户的服务的应用程序应设计并配置为使用 [Azure 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
+使用双重身份验证。 双重身份验证是最新的身份验证和授权标准，它避免了用户名与密码类型的身份验证所固有的安全漏洞。 应将对 Azure 管理 (门户/远程 PowerShell) 接口和面向客户的服务的访问权限设计并配置为使用 [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
 
 使用 OAuth2 和 Kerberos 等标准身份验证协议。 这些协议经过广泛的同行评审，有时可实现为平台库的一部分用于身份验证和授权。
 

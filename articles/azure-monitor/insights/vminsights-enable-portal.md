@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328133"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842303"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>在 Azure 门户中为单个虚拟机或虚拟机规模集启用 Azure Monitor
 本文介绍如何使用 Azure 门户为虚拟机或虚拟机规模集启用用于 VM 的 Azure Monitor。 此过程可用于以下操作：
@@ -20,14 +20,14 @@ ms.locfileid: "87328133"
 - Azure 虚拟机规模集
 - 与 Azure Arc 连接的混合虚拟机
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - [创建并配置 Log Analytics 工作区](vminsights-configure-workspace.md)。 或者，您可以在此过程中创建新的工作区。
 - 请参阅 [支持的操作系统](vminsights-enable-overview.md#supported-operating-systems) ，以确保正在启用的虚拟机或虚拟机规模集的操作系统受支持。 
 
 ## <a name="enable-azure-monitor-for-vms"></a>启用用于 VM 的 Azure Monitor
 
-从 Azure 门户中，选择 " **虚拟机**"、" **虚拟机规模集**" 或 "虚拟机" **-"Azure Arc** "，然后从列表中选择一个资源。 在菜单的 " **监视** " 部分，选择 " **见解** "，然后选择 " **启用**"。 下面的示例演示了 Azure 虚拟机，但是菜单与 Azure 虚拟机规模集或 Azure Arc 类似。
+从 Azure 门户中，选择 " **虚拟机**"、" **虚拟机规模集**" 或 " **服务器-Azure Arc** "，然后从列表中选择一个资源。 在菜单的 " **监视** " 部分，选择 " **见解** "，然后选择 " **启用**"。 下面的示例演示了 Azure 虚拟机，但是菜单与 Azure 虚拟机规模集或 Azure Arc 类似。
 
 ![为 VM 启用用于 VM 的 Azure Monitor](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "87328133"
 在执行配置时，你将收到状态消息。
 
 >[!NOTE]
->如果对虚拟机规模集使用手动升级模式，请升级实例以完成设置。 可以从“设置”部分的“实例”页启动升级。********
+>如果对虚拟机规模集使用手动升级模式，请升级实例以完成设置。 可以从“设置”部分的“实例”页启动升级。
 
 ![启用用于 VM 的 Azure Monitor 来监视部署处理](media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 

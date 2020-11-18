@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7819c934ab97d597d52d4809c11e5c59fb87c89a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410498"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840656"
 ---
 # <a name="localization-string-ids"></a>本地化字符串 ID
 
@@ -27,33 +27,44 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 以下 ID 用于 ID 为 `api.signuporsignin` 的内容定义和[自断言技术配置文件](self-asserted-technical-profile.md)。
 
-| ID | 默认值 |
-| -- | ------------- |
-| **local_intro_email** | 使用现有帐户登录 |
-| **logonIdentifier_email** | 电子邮件地址 |
-| **requiredField_email** | 请输入电子邮件地址 |
-| **invalid_email** | 请输入有效的电子邮件地址 |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
-| **local_intro_username** | 使用用户名登录 |
-| **logonIdentifier_username** | 用户名 |
-| **requiredField_username** | 请输入用户名 |
-| **password** | 密码 |
-| **requiredField_password** | 请输入密码 |
-| **invalid_password** | 你输入的密码格式不正确。 |
-| **forgotpassword_link** | 忘记密码了? |
-| **createaccount_intro** | 没有帐户？ |
-| **createaccount_link** | 立即注册 |
-| **divider_title** | OR |
-| **cancel_message** | 用户忘记了密码 |
-| **button_signin** | 登录 |
-| **social_intro** | 使用社交帐户登录 |
-  **remember_me** |使我保持登录状态。 |
-| **unknown_error** | 登录时遇到问题。 请稍后重试。 |
+| ID | 默认值 | 页面布局版本 |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | 忘记密码了? | `All` |
+| **createaccount_intro** | 没有帐户？ | `All` |
+| **button_signin** | 登录 | `All` |
+| **social_intro** | 使用社交帐户登录 | `All` |
+| **remember_me** |使我保持登录状态。 | `All` |
+| **unknown_error** | 登录时遇到问题。 请稍后重试。 | `All` |
+| **divider_title** | OR | `All` |
+| **local_intro_email** | 使用现有帐户登录 | `< 2.0.0` |
+| **logonIdentifier_email** | 电子邮件地址 | `< 2.0.0` |
+| **requiredField_email** | 请输入电子邮件地址 | `< 2.0.0` |
+| **invalid_email** | 请输入有效的电子邮件地址 | `< 2.0.0` |
+| **email_pattern** | ^ [A-za-z0-9.！# $% & "" \* +/=？ ^ \_ \` { \| } ~-] + @ [a-za-z0-9-] + (？： \\ . [-zA-A-za-z0-9-] +) \* $ |`< 2.0.0` |
+| **local_intro_username** | 使用用户名登录 | `< 2.0.0` |
+| **logonIdentifier_username** | 用户名 | `< 2.0.0` |
+| **requiredField_username** | 请输入用户名 | `< 2.0.0` |
+| **password** | 密码 | `< 2.0.0` |
+| **requiredField_password** | 请输入密码 | `< 2.0.0` |
+| **createaccount_link** | 立即注册 | `< 2.0.0` |
+| **cancel_message** | 用户忘记了密码 | `< 2.0.0` |
+| **invalid_password** | 你输入的密码格式不正确。 | `< 2.0.0` |
+| **createaccount_one_link** | 立即注册 | `>= 2.0.0` |
+| **createaccount_two_links** | 注册 {0} 或 {1} | `>= 2.0.0` |
+| **createaccount_three_links** | 注册 {0} 、 {1} 或 {2} | `>= 2.0.0` |
+| **local_intro_generic** | 登录 {0} | `>= 2.1.0` |
+| **requiredField_generic** | 请输入 {0} | `>= 2.1.0` |
+| **invalid_generic** | 请输入有效的 {0} | `>= 2.1.1` |
+| **目** | 登录 | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * 如的占位符 {0} 将自动填充为的 `DisplayName` 值 `ClaimType` 。 
+> * 若要了解如何进行本地化 `ClaimType` ，请参阅 [注册或登录示例](#signupsigninexample)。
 
 下面的示例演示如何在注册或登录页中使用某些用户界面元素：
 
-![注册或登录页面 UX 元素](./media/localization-string-ids/localization-susi.png)
-
+![注册或登录页面 UX 元素](./media/localization-string-ids/localization-susi-2.png)
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>注册或登录标识提供者
 
@@ -95,32 +106,28 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 | **UserMessageIfUserAccountLocked** | 帐户暂时锁定以防止未经授权的使用。 请稍后再试。 |
 | **AADRequestsThrottled** | 目前请求过多。 请等待一段时间，然后重试。 |
 
+<a name="signupsigninexample"></a>
 ### <a name="sign-up-or-sign-in-example"></a>注册或登录示例
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">Email Address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_email">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">Username</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="password">Password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_link">Sign up now</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_username">Please enter your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has forgotten their password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_password">The password you entered is not in the expected format.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_username">Sign in with your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_email">Sign in with your existing account</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_email">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
     <!-- Uncomment the remember_me only if the keep me signed in is activated. 
     <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-    <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
@@ -433,9 +440,9 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 </LocalizedResources>
 ```
 
-## <a name="azure-mfa-error-messages"></a>Azure MFA 错误消息
+## <a name="azure-ad-mfa-error-messages"></a>Azure AD MFA 错误消息
 
-以下是 [Azure MFA 技术配置文件](multi-factor-auth-technical-profile.md)错误消息的 ID：
+下面是 [AZURE AD MFA 技术配置文件](multi-factor-auth-technical-profile.md) 的 id 错误消息：
 
 | ID | 默认值 |
 | -- | ------------- |
@@ -446,7 +453,7 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 |UserMessageIfThrottled | 请求被阻止，请稍后重试。|
 |UserMessageIfWrongCodeEntered|输入的代码错误，请重试。|
 
-### <a name="azure-mfa-example"></a>Azure MFA 示例
+### <a name="azure-ad-mfa-example"></a>Azure AD MFA 示例
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

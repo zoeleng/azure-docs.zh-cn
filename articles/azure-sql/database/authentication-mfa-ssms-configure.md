@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 2de48946088316e9070e13396f124148a4ff6099
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 094e40fe55e1ba51b0539d740ecb449a8327d6a6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675026"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841234"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>为 SQL Server Management Studio 和 Azure AD 配置多重身份验证
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,8 +29,8 @@ ms.locfileid: "92675026"
 
 ## <a name="configuration-steps"></a>配置步骤
 
-1. **配置 Azure Active Directory** - 有关详细信息，请参阅 [管理 Azure AD 目录](/previous-versions/azure/azure-services/hh967611(v=azure.100))、 [将本地标识与 Azure Active Directory 集成](../../active-directory/hybrid/whatis-hybrid-identity.md)、 [将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、 [Microsoft Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)和 [使用 Windows PowerShell 管理 Azure AD](/previous-versions/azure/jj151815(v=azure.100))。
-2. **配置 MFA** - 有关分步说明，请参阅 [什么是 Azure 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)、 [Azure SQL 数据库和数据仓库的条件性访问 (MFA)](conditional-access-configure.md)。  (完全条件访问需要高级 Azure Active Directory。 标准 Azure AD 提供有限 MFA。）
+1. **配置 Azure Active Directory** - 有关详细信息，请参阅 [管理 Azure AD 目录](/previous-versions/azure/azure-services/hh967611(v=azure.100))、[将本地标识与 Azure Active Directory 集成](../../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[Microsoft Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)和 [使用 Windows PowerShell 管理 Azure AD](/previous-versions/azure/jj151815(v=azure.100))。
+2. **配置 MFA** -有关分步说明，请参阅 [使用 Azure SQL 数据库和数据仓库](conditional-access-configure.md)的 [Azure AD 多重身份验证是什么？](../../active-directory/authentication/concept-mfa-howitworks.md)、条件性访问 (MFA) 。  (完全条件访问需要高级 Azure Active Directory。 标准 Azure AD 提供有限 MFA。）
 3. **配置 Azure AD 身份验证** - 有关分步说明，请参阅 [使用 Azure Active Directory 身份验证连接到 SQL 数据库、SQL 托管实例或 Azure Synapse](authentication-aad-overview.md)。
 4. **下载 SSMS** - 在客户端计算机上，从 [下载 SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) 下载最新的 SSMS。
 
@@ -81,4 +81,4 @@ ms.locfileid: "92675026"
 - 有关多重身份验证的概述，请参阅 [SQL 数据库、SQL 托管实例和 Azure Synapse 的通用身份验证（SSMS 对 MFA 的 支持）](../database/authentication-mfa-ssms-overview.md)。  
 - 授予其他人对数据库的访问权限：[SQL 数据库身份验证和授权：授予访问权限](logins-create-manage.md)  
 - 确保其他人可以通过防火墙进行连接：[通过 Azure 门户配置服务器级防火墙规则](./firewall-configure.md)  
-- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别” **中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。
+- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。

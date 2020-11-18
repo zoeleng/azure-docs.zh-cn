@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150526"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841914"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor 中的监视解决方案
 
@@ -111,11 +111,11 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 1. 安装 Azure CLI
 
-   需要[安装 Azure CLI](/cli/azure/install-azure-cli)，然后才能运行 CLI 引用命令。  如果愿意，还可以使用 Azure Cloud Shell 来完成本文中的步骤。  Azure Cloud Shell 是一种通过浏览器使用的交互式 Shell 环境。  使用以下方法之一开始 Cloud Shell：
+   需要[安装 Azure CLI](/cli/azure/install-azure-cli)，然后才能运行 CLI 引用命令。  如果愿意，还可以使用 Azure Cloud Shell 来完成本文中的步骤。  Azure Cloud Shell 是一种可以通过浏览器使用的交互式 shell 环境。  使用下列方法之一开始使用 Cloud Shell：
 
-   - 通过转到打开 Cloud Shell [https://shell.azure.com](https://shell.azure.com)
+   - 通过转到 [https://shell.azure.com](https://shell.azure.com) 打开 Cloud Shell
 
-   - 选择菜单栏上[Azure 门户](https://portal.azure.com)中右上角的 " **Cloud Shell** " 按钮
+   - 选择 [Azure 门户](https://portal.azure.com)右上角菜单栏上的 Cloud Shell 按钮
 
 1. 登录。
 
@@ -173,14 +173,14 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 
 1. 安装 Azure PowerShell
 
-   在运行 Azure PowerShell reference 命令之前，需要 [安装 Azure PowerShell](/powershell/azure/install-az-ps) 。 如果愿意，还可以使用 Azure Cloud Shell 来完成本文中的步骤。 Azure Cloud Shell 是一种通过浏览器使用的交互式 Shell 环境。 使用以下方法之一开始 Cloud Shell：
+   在运行 Azure PowerShell reference 命令之前，需要 [安装 Azure PowerShell](/powershell/azure/install-az-ps) 。 如果愿意，还可以使用 Azure Cloud Shell 来完成本文中的步骤。 Azure Cloud Shell 是一种可以通过浏览器使用的交互式 shell 环境。 使用下列方法之一开始使用 Cloud Shell：
 
-   - 通过转到打开 Cloud Shell [https://shell.azure.com](https://shell.azure.com)
+   - 通过转到 [https://shell.azure.com](https://shell.azure.com) 打开 Cloud Shell
 
-   - 选择菜单栏上[Azure 门户](https://portal.azure.com)中右上角的 " **Cloud Shell** " 按钮
+   - 选择 [Azure 门户](https://portal.azure.com)右上角菜单栏上的 Cloud Shell 按钮
 
    > [!IMPORTANT]
-   > **MonitoringSolutions** PowerShell 模块为预览版时，必须使用 cmdlet 单独安装它 `Install-Module` 。 此 PowerShell 模块公开上市后，它将成为未来 Az PowerShell 模块版本的一部分，并且默认情况下在 Azure Cloud Shell 中可用。
+   > **MonitoringSolutions** PowerShell 模块为预览版时，必须使用 cmdlet 单独安装它 `Install-Module` 。 此 PowerShell 模块正式发布后，它会包含在将来的 Az PowerShell 模块发行版中，并在 Azure Cloud Shell 中默认提供。
 
    ```azurepowershell-interactive
    Install-Module -Name Az.MonitoringSolutions

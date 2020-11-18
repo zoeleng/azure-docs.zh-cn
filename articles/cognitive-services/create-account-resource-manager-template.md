@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363385"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842101"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>快速入门：使用 ARM 模板创建认知服务资源
 
@@ -51,7 +51,7 @@ Azure 认知服务是包含 REST API 和客户端库 SDK 的云服务，可帮�
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
-1. 单击“ **部署到 Azure** ”按钮。
+1. 单击“**部署到 Azure**”按钮。
 
     [![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 

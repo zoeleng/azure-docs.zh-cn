@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653787"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841897"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 常见问题解答
 
@@ -81,7 +81,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ### <a name="how-do-i-retrieve-log-data"></a>如何检索日志数据？
 可使用以 Kusto 查询语言 (KQL) 编写的日志查询从 Log Analytics 工作区检索所有数据。 你可编写自己的查询，也可使用包含特定应用程序或服务的日志查询的解决方案和见解。 请参阅 [Azure Monitor 中的日志查询概述](log-query/log-query-overview.md)。
-
+p
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>能否从 Log Analytics 工作区中删除数据？
 根据数据的 [保留期](platform/manage-cost-storage.md#change-the-data-retention-period)，将数据从工作区中删除。 出于隐私或合规性原因，可以删除特定数据。 有关详细信息，请参阅 [如何导出和删除私有数据](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) 。
 
@@ -154,7 +154,7 @@ Azure 诊断扩展适用于 Azure 虚拟机，它将数据收集到 Azure Monito
 * 正在收集的日志和性能计数器的数量
 * 日志中的数据量
 
-有关详细信息，请参阅[使用 Azure Monitor 日志管理使用情况和成本](platform/manage-cost-storage.md)。
+有关详细信息，请参阅[通过 Azure Monitor 日志管理使用情况和成本](platform/manage-cost-storage.md)。
 
 对于能够运行 WireData 代理的计算机，可以使用以下查询了解正在发送的数据量：
 
@@ -594,10 +594,6 @@ OpenTelemetry 收集器在其 [GitHub 自述文件](https://github.com/open-tele
 
 
 ## <a name="azure-monitor-for-containers"></a>用于容器的 Azure Monitor
-
-### <a name="health-feature-is-in-private-preview"></a>运行状况功能现为个人预览版
-
-我们计划进行一系列的更改，目的是增添功能并处理你的反馈。 运行状况功能将在 2020 年6 月底转为个人预览版；有关其他信息，请查看下列 [Azure 更新公告](https://azure.microsoft.com/updates/ci-health-limited-preview/)。
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>节点视图下的“其他进程”表示什么？
 

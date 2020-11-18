@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8fe6c7ead587d58775984854260bd071215e42
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eab1a3f81666cd3bddea9954f210e5825a538356
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965567"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840111"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Azure Active Directory Microsoft Authenticator 应用中的身份验证方法
 
-Microsoft Authenticator 应用为你 Azure AD 的工作或学校帐户或 Microsoft 帐户提供额外的安全级别，并且适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 和 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)。 使用 Microsoft Authenticator 应用，用户可以在登录期间以无密码方式进行身份验证，或在自助服务密码重置 (SSPR) 或 Azure 多重身份验证事件期间将这种方式作为附加的身份验证选项使用。
+Microsoft Authenticator 应用为你 Azure AD 的工作或学校帐户或 Microsoft 帐户提供额外的安全级别，并且适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 和 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)。 在 Microsoft Authenticator 应用程序中，用户可以在登录过程中以无密码的方式进行身份验证，或者在自助服务密码重置 (SSPR) 或 Azure AD 多重身份验证事件期间作为附加验证选项进行身份验证。
 
 用户可能会通过移动应用收到通知，并在其中批准或拒绝，或使用 Authenticator 应用生成可在登录界面中输入的 OATH 验证码。 如果同时启用了通知和验证码，注册 Authenticator 应用的用户可以使用任一方法验证其身份。
 
