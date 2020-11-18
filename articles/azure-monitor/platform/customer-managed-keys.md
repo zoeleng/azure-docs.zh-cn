@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443375"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873516"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 客户管理的密钥 
 
@@ -21,13 +21,15 @@ ms.locfileid: "94443375"
 
 ## <a name="customer-managed-key-overview"></a>客户托管的密钥概述
 
-[静态加密](../../security/fundamentals/encryption-atrest.md) 是组织中常见的隐私和安全要求。 可以让 Azure 完全管理静态加密，同时可以使用各种选项来严格管理加密或加密密钥。
+[静态加密](../../security/fundamentals/encryption-atrest.md)是组织中常见的隐私和安全要求。 可以让 Azure 完全管理静态加密，同时可以使用各种选项来严格管理加密密钥和加密密钥。
 
-Azure Monitor 确保所有数据和保存的查询都使用 Microsoft 托管的密钥 (MMK) 进行静态加密。 Azure Monitor 还提供了使用自己的密钥进行加密的选项，该密钥存储在 [Azure Key Vault](../../key-vault/general/overview.md) 中，并由存储用于数据加密。 密钥可以是 [软件或硬件 HSM 保护的](../../key-vault/general/overview.md)。 Azure Monitor 使用加密与 [Azure 存储加密](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) 的运行方式相同。
+Azure Monitor 确保使用 Microsoft 管理的密钥 (MMK) 静态加密所有数据和保存的查询。 Azure Monitor 还提供了使用自己的密钥进行加密的选项，该密钥存储在 [Azure Key Vault](../../key-vault/general/overview.md) 中，并为你提供随时撤销对数据的访问权限的控制。 Azure Monitor 进行加密的操作与[Azure 存储加密](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption)的操作相同。
 
-客户托管的密钥功能在专用 Log Analytics 群集上提供。 使用它可以通过 [密码箱](#customer-lockbox-preview) 控制来保护数据，并可让用户随时撤销对数据的访问权限。 过去 14 天内引入的数据也保存在热缓存（受 SSD 支持）中，以实现高效的查询引擎操作。 无论客户托管的密钥配置如何，都可以通过 Microsoft 密钥对此数据进行加密，但对 SSD 数据的控制将遵循 [密钥吊销](#key-revocation)的需要。 我们正在努力在2021的前半个 Customer-Managed 密钥中加密 SSD 数据。
+Customer-Managed 密钥在提供更高保护级别和控制的专用 Log Analytics 群集上传递。 引入到专用群集的数据将被加密两次-一次是在使用 Microsoft 托管密钥或客户托管密钥的服务级别，一次使用两种不同的加密算法和两个不同的密钥。 [双加密](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) 可防止其中一个加密算法或密钥泄露的情况。 在这种情况下，额外的加密层将继续保护你的数据。 专用群集还允许通过 [密码箱](#customer-lockbox-preview) 控制来保护数据。
 
-[Log Analytics 群集定价模型](./manage-cost-storage.md#log-analytics-dedicated-clusters)使用从 1000 GB/天级别开始的容量预留。
+过去 14 天内引入的数据也保存在热缓存（受 SSD 支持）中，以实现高效的查询引擎操作。 无论客户托管的密钥配置如何，都可以通过 Microsoft 密钥对此数据进行加密，但对 SSD 数据的控制将遵循 [密钥吊销](#key-revocation)的需要。 我们正在努力在2021的前半个 Customer-Managed 密钥中加密 SSD 数据。
+
+[Log Analytics 群集定价模型](./manage-cost-storage.md#log-analytics-dedicated-clusters)使用 1000 GB/天起的容量预留。
 
 > [!IMPORTANT]
 > 由于临时容量限制，需要在创建群集之前预注册到。 使用你的联系人加入 Microsoft，或打开支持请求来注册你的订阅 Id。
@@ -58,15 +60,15 @@ Azure Monitor 利用系统分配的托管标识授予对 Azure Key Vault 的访�
 
 - Log Analytics 群集存储帐户为每个存储帐户生成唯一的加密密钥，这称为 AEK。
 - AEK 用于派生 Dek，后者是用于对写入磁盘的每个数据块进行加密的密钥。
-- 在 Key Vault 中配置密钥并在群集中引用密钥时，Azure 存储向 Azure Key Vault 发送请求，以包装和解包 AEK 以执行数据加密和解密操作。
+- 在 Key Vault 中配置密钥并在群集中引用它时，Azure 存储会将请求发送到 Azure Key Vault 以包装和解包 AEK，从而执行数据加密和解密操作。
 - 你的 KEK 绝不会离开你的 Key Vault，在使用 HSM 密钥的情况下，它绝不会离开硬件。
-- Azure 存储使用与 *群集* 资源关联的托管标识，通过 Azure Active Directory 对 Azure Key Vault 进行身份验证和访问。
+- Azure 存储使用与群集资源关联的托管标识通过 Azure Active Directory 对 Azure Key Vault 进行身份验证和访问。
 
 ## <a name="customer-managed-key-provisioning-procedure"></a>Customer-Managed 密钥设置过程
 
 1. 注册订阅以允许创建群集
 1. 创建 Azure Key Vault 和存储密钥
-1. 正在创建群集
+1. 创建群集
 1. 向 Key Vault 授予权限
 1. 链接 Log Analytics 工作区
 
@@ -74,82 +76,23 @@ Azure 门户不支持 Customer-Managed 密钥配置，并且预配是通过 [Pow
 
 ### <a name="asynchronous-operations-and-status-check"></a>异步操作和状态检查
 
-某些配置步骤是异步运行的，因为它们无法快速完成。 在配置中使用 REST 请求时，响应最初返回 HTTP 状态代码 200 (OK) 并在接受时使用 *Azure AsyncOperation* 属性标头：
+某些配置步骤是异步运行的，因为它们无法快速完成。 使用 REST 时，响应最初返回 HTTP 状态代码 200 (OK) 并在接受时使用 *Azure AsyncOperation* 属性标头：
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-然后，可以通过将 GET 请求发送到 *AsyncOperation* 标头值来检查异步操作的状态：
+若要查看异步操作的状态，请向 Azure-AsyncOperation 标头值发送 GET 请求：
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-响应包含有关操作及其状态的信息。 可以是以下之一：
-
-正在执行操作
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-正在执行密钥标识符更新操作
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-正在进行群集删除--删除具有链接工作区的群集时，将为每个工作区异步执行取消链接操作，操作可能需要一段时间。
-当你删除没有链接工作区的群集时，这并不相关，在这种情况下，将立即删除群集。
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-操作完成
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-操作失败
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+`status`In 响应包含可以是以下之一： "正在进行"、"更新"、"删除"、"已成功" 或 "失败" （包括错误代码）。
 
 ### <a name="allowing-subscription"></a>允许订阅
 
 > [!IMPORTANT]
-> Customer-Managed 项功能是区域。 Azure Key Vault、群集和链接 Log Analytics 工作区必须位于同一区域中，但它们可以位于不同的订阅中。
+> Customer-Managed 项功能是区域。 Azure Key Vault、群集和链接的 Log Analytics 工作区必须位于同一区域，但可以位于不同订阅。
 
 ### <a name="storing-encryption-key-kek"></a>存储加密密钥 (KEK)
 
@@ -164,7 +107,7 @@ Authorization: Bearer <token>
 
 ### <a name="create-cluster"></a>创建群集
 
-按照 [专用群集一文](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster)中所述的过程进行操作。 
+请遵循[“专用群集”一文](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster)中说明的过程。 
 
 > [!IMPORTANT]
 > 复制并保存响应，因为你在后续步骤中需要详细信息。
@@ -180,19 +123,19 @@ Authorization: Bearer <token>
 
 需要“获取”权限，才能验证是否已将 Key Vault 配置为可恢复以保护密钥以及对 Azure Monitor 数据的访问。
 
-### <a name="update-cluster-with-key-identifier-details"></a>更新具有密钥标识符详细信息的群集
+### <a name="update-cluster-with-key-identifier-details"></a>为群集更新密钥标识符详细信息
 
-群集上的所有操作都需要 Microsoft.operationalinsights/群集/写入操作权限。 可以通过包含/write 操作的所有者或参与者或 *通过包含 microsoft.operationalinsights/action Log Analytics 参与者角色* 授予此权限。
+对群集的所有操作均需要 Microsoft.OperationalInsights/clusters/write 操作权限。 可以通过包含 /写入操作的所有者或参与者或包含 Microsoft.OperationalInsights/ 操作的 Log Analytics 参与者角色授予此权限。
 
-此步骤将使用要用于数据加密的密钥和版本更新 Azure Monitor 存储。 更新后，将使用新密钥来包装并解包存储密钥 (AEK) 。
+此步骤使用要用于数据加密的密钥和版本更新 Azure Monitor 存储。 更新后，新密钥将用于包装和解包到存储密钥 (AEK)。
 
 在 Azure Key Vault 中选择密钥的当前版本，以获取密钥标识符详细信息。
 
 ![授予 Key Vault 权限](media/customer-managed-keys/key-identifier-8bit.png)
 
-在具有密钥标识符详细信息的群集中更新 KeyVaultProperties。
+为群集中的 KeyVaultProperties 更新密钥标识符详细信息。
 
-此操作是异步操作，可能需要一段时间才能完成。
+该操作是异步操作，可能需要一段时间才能完成。
 
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
@@ -225,7 +168,7 @@ Content-type: application/json
 
 完成密钥标识符的传播需要几分钟。 可以通过两种方式检查更新状态：
 1. 从响应中复制 Azure-AsyncOperation URL 值，并进行[异步操作状态检查](#asynchronous-operations-and-status-check)。
-2. 在群集上发送 GET 请求，并查看 *KeyVaultProperties* 属性。 你最近更新的密钥标识符详细信息应返回到响应中。
+2. 在群集上发送 GET 请求，然后查看 KeyVaultProperties 属性。 你最近更新的密钥标识符详细信息应返回到响应中。
 
 密钥标识符更新完成后，对 GET 请求的响应应如下所示： 200 OK 和 header
 ```json
@@ -259,21 +202,21 @@ Content-type: application/json
 
 ### <a name="link-workspace-to-cluster"></a>将工作区链接到群集
 
-需要对工作区和群集具有 "写入" 权限才能执行此操作，包括以下操作：
+需要具有对工作区和群集的“写入”权限才能执行此操作，其中包括以下操作：
 
 - 在工作区中：Microsoft.OperationalInsights/workspaces/write
-- 在群集中： Microsoft.operationalinsights/群集/写入
+- 在群集中：Microsoft.OperationalInsights/clusters/write
 
 > [!IMPORTANT]
-> 完成 Log Analytics 群集的预配后才应执行此步骤。 如果在设置之前链接工作区和引入数据，引入数据将被删除，并且将无法恢复。
+> 完成 Log Analytics 群集的预配后才应执行此步骤。 如果在预配前链接工作区并引入数据，则引入的数据将被删除，并且无法恢复。
 
 此操作是异步操作，可能需要一段时间才能完成。
 
-按照 [专用群集一文](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster)中所述的过程进行操作。
+请遵循[“专用群集”一文](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster)中说明的过程。
 
 ## <a name="key-revocation"></a>密钥吊销
 
-可以通过禁用密钥，或在 Key Vault 中删除群集的访问策略，来撤销对数据的访问权限。 Log Analytics 群集存储在一小时或更短时间内将始终遵循关键权限的更改，并且存储将变得不可用。 与群集链接的工作区的任何新数据引入会被删除且不可恢复，数据不可访问，对这些工作区的查询会失败。 以前引入数据将保留在存储中，只要群集和工作区不会被删除。 不可访问的数据由数据保留策略管理，并在保留期截止时被清除。 
+可以通过禁用密钥，或删除 Key Vault 中的群集访问策略来撤销对数据的访问。 Log Analytics 群集存储在一小时或更短时间内将始终遵循关键权限的更改，并且存储将变得不可用。 与群集链接的工作区中引入的任何新数据都将被删除，并且无法恢复，数据将不可访问，针对这些工作区的查询将会失败。 只要不删除群集和工作区，之前引入的数据就会保留在存储中。 不可访问的数据由数据保留策略管理，并在保留期截止时被清除。 
 
 过去 14 天内引入的数据也保存在热缓存（SSD 提供支持）中，以实现高效的查询引擎操作。 它将在进行密钥吊销操作后被删除，并且也变得不可访问。
 
@@ -281,31 +224,31 @@ Content-type: application/json
 
 ## <a name="key-rotation"></a>密钥轮换
 
-Customer-Managed 密钥轮换要求在 Azure Key Vault 中使用新密钥版本对群集进行显式更新。 按照 "通过密钥标识符详细信息更新群集" 步骤中的说明进行操作。 如果未更新群集中的新密钥标识符详细信息，Log Analytics 群集存储将继续使用以前的密钥进行加密。 如果在更新群集中的新密钥之前禁用或删除了旧密钥，则会进入 [密钥吊销](#key-revocation) 状态。
+Customer-Managed 密钥轮换要求在 Azure Key Vault 中使用新密钥版本对群集进行显式更新。 按照“为群集更新密钥标识符详细信息”步骤中的说明进行操作。 如果未在群集中更新新密钥标识符详细信息，Log Analytics 群集存储将继续使用之前的密钥进行加密。 如果在更新群集中的新密钥之前禁用或删除旧密钥，则你将进入[密钥吊销](#key-revocation)状态。
 
 进行密钥轮换操作后，所有数据都将保持可访问，因为数据始终使用帐户加密密钥 (AEK) 进行加密，而 AEK 目前使用 Key Vault 中的新密钥加密密钥 (KEK) 版本进行加密。
 
 ## <a name="customer-managed-key-for-queries"></a>查询的 Customer-Managed 键
 
-Log Analytics 中使用的查询语言是有意义的，可以在添加到查询或查询语法中的注释中包含敏感信息。 某些组织要求将此类信息保护 Customer-Managed 密钥策略下，并且需要保存用密钥加密的查询。 Azure Monitor 使你能够在连接到工作区时，将 *已保存的搜索* 和 *日志警报* 查询存储在你自己的存储帐户中。 
+Log Analytics 中使用的查询语言可以实现丰富的表达，并且可以在添加到查询的注释中或查询语法中包含敏感信息。 某些组织要求将此类信息保护 Customer-Managed 密钥策略下，并且需要保存用密钥加密的查询。 使用 Azure Monitor 可以在连接到工作区时将采用密钥加密的已存搜索查询和日志警报查询存储到你自己的存储帐户 。 
 
 > [!NOTE]
-> Log Analytics 查询可以保存在不同的存储中，具体取决于所使用的方案。 在以下情况下，查询将在 Microsoft key (MMK) 保持加密，而不考虑 Customer-Managed 密钥配置： Azure Monitor 中的工作簿、Azure 仪表板、Azure 逻辑应用、Azure Notebooks 和自动化 Runbook。
+> 根据所使用的方案，可将 Log Analytics 查询保存到各种存储。 在以下情况下，查询将在 Microsoft key (MMK) 保持加密，而不考虑 Customer-Managed 密钥配置： Azure Monitor 中的工作簿、Azure 仪表板、Azure 逻辑应用、Azure Notebooks 和自动化 Runbook。
 
-当你将自己的存储 (BYOS) 并将其链接到你的工作区时，该服务会将 *已保存的搜索* 和 *日志警报* 查询上载到你的存储帐户。 这意味着，你可以使用与加密 Log Analytics 群集中的数据或其他密钥相同的密钥来控制存储帐户和 [静态加密策略](../../storage/common/customer-managed-keys-overview.md) 。 但是，你将负责与该存储帐户关联的成本。 
+自带存储 (BYOS) 并将其链接到工作区时，该服务会将已存搜索查询和日志警报查询上传到存储帐户 。 这意味着，你可以使用与加密 Log Analytics 群集中的数据或其他密钥相同的密钥来控制存储帐户和 [静态加密策略](../../storage/common/customer-managed-keys-overview.md) 。 但需支付与该存储帐户相关的费用。 
 
 **为查询设置 Customer-Managed 键之前的注意事项**
-* 你需要对工作区和存储帐户具有 "写入" 权限
-* 请确保在 Log Analytics 工作区所在的同一区域中创建存储帐户
-* 存储中的 *保存搜索* 被视为服务项目，其格式可能会更改
-* 现有的 *保存搜索* 将从工作区中删除。 复制并在配置之前保存所需的任何 *搜索* 。 可以使用 [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)查看 *已保存的搜索*
-* 查询历史记录不受支持，您将无法看到您运行的查询
-* 可以将单个存储帐户链接到工作区以便保存查询，但可用于 *保存的搜索* 和 *日志警报* 查询
-* 不支持固定到仪表板
+* 需拥有对工作区和存储帐户的“写入”权限
+* 确保在 Log Analytics 工作区所在区域创建存储帐户
+* 存储中的保存搜索视为服务项目，并且其格式可能会发生变化
+* 从工作区删除现有的保存搜索。 复制配置之前需要的所有保存搜索。 可以使用 [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch) 查看 *已存搜索*
+* 不支持查询历史记录，因此无法查看已运行的查询
+* 可以出于保存查询的目的将单个存储帐户链接到工作区，且该帐户可同时用于已存搜索查询和日志警报查询 
+* 不支持“固定到仪表板”
 
-**为保存的搜索查询配置 BYOS**
+**为已存搜索查询配置 BYOS**
 
-将 *查询* 的存储帐户链接到工作区- *保存-搜索* 查询保存在存储帐户中。 
+将“查询”的存储帐户链接到工作区 - 已存搜索查询保存在存储帐户中 。 
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
@@ -333,11 +276,11 @@ Content-type: application/json
 }
 ```
 
-配置完成后，任何新 *保存的搜索* 查询都将保存在存储中。
+完成配置后，所有新的已存搜索查询将保存在存储中。
 
-**配置 BYOS 查询的日志记录**
+**为日志警报查询配置 BYOS**
 
-将 *警报* 的存储帐户链接到工作区-- *日志警报* 查询保存在存储帐户中。 
+将“警报”的存储帐户链接到工作区 - 日志警报查询保存在存储帐户中 。 
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
@@ -365,12 +308,12 @@ Content-type: application/json
 }
 ```
 
-配置后，任何新的警报查询都将保存在存储中。
+完成配置后，所有新的日志警报查询将保存在存储中。
 
-## <a name="customer-lockbox-preview"></a>客户密码箱 (预览版) 
-密码箱使你可以在支持请求期间批准或拒绝 Microsoft 工程师请求访问你的数据。
+## <a name="customer-lockbox-preview"></a>客户密码箱（预览版）
+通过密码箱，可以在支持请求期间批准或拒绝 Microsoft 工程师的数据访问请求。
 
-在 Azure Monitor 中，对链接到 Log Analytics 专用群集的工作区中的数据具有此控制。 密码箱控件适用于存储在 Log Analytics 专用群集中的数据，在此群集中，它在受密码保护的订阅下群集的存储帐户中保持隔离。  
+在 Azure Monitor 中，对 Log Analytics 专用群集所链接的工作区中的数据也可以实现上述操作。 密码箱适用于 Log Analytics 专用群集中存储的数据，在群集中这些数据以隔离形式存在于受密码箱保护的订阅下的群集存储帐户中。  
 
 了解有关[Microsoft Azure 客户密码箱的](../../security/fundamentals/customer-lockbox-overview.md)详细信息
 
@@ -443,11 +386,11 @@ Content-type: application/json
     
   **响应**
     
-  与在 "资源组" 中的 "群集" 相同的响应，但在订阅范围内。
+  与“资源组的群集”的响应相同，但在订阅范围内。
 
-- **更新群集中的 *容量预留***
+- 更新群集中的容量预留
 
-  当链接工作区的数据量随着时间推移而更改，并且你想要适当地更新产能预留级别时。 按照 [更新群集](#update-cluster-with-key-identifier-details) 操作，提供新的容量价值。 它可以在1000到 3000 GB 的范围内，在100的范围内。 如果每日级别高于 3000 GB，请联系你的 Microsoft 联系人以启用它。 请注意，不需要提供完整的 REST 请求正文，而应包含 sku：
+  链接工作区的数据量随时间变化时，建议适当地更新容量预留级别。 按照[更新群集](#update-cluster-with-key-identifier-details)中的步骤进行操作，并提供新的容量值。 它可以在每天 1,000 到 3,000 GB 范围内，并以 100 为度。 如果级别高于每日 3,000 GB，请联系 Microsoft 联系人实现该级别。 请注意，无需提供完整的 REST 请求正文，但应包含 sku：
 
   ```azurecli
   az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
@@ -470,13 +413,13 @@ Content-type: application/json
   }
   ```
 
-- **更新群集中的 *billingType***
+- 更新群集中的 billingType
 
-  *BillingType* 属性确定群集及其数据的计费归属：
+  billingType 属性可确定群集及其数据的计费归属：
   - 群集（默认）-- 计费归属于承载群集资源的订阅
   - 工作区 -- 计费按比例归属于承载工作区的订阅
   
-  按照 [更新群集](#update-cluster-with-key-identifier-details) 操作并提供新的 billingType 值。 请注意，无需提供完整的 REST 请求正文，但应包含 billingType：
+  按照[更新群集](#update-cluster-with-key-identifier-details)中的步骤进行操作，并提供新的 billingType 值。 请注意，无需提供完整的 REST 请求正文，但应包含 billingType：
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -492,7 +435,7 @@ Content-type: application/json
 
 - **取消链接工作区**
 
-  需要对工作区和群集具有 "写入" 权限才能执行此操作。 你随时可以从群集中取消链接工作区。 取消链接操作后的新引入数据存储在 Log Analytics 存储中，并通过 Microsoft 密钥进行加密。 只要预配和配置了有效 Key Vault 密钥，就可以在无缝取消链接之前和之后查询已引入到工作区的数据。
+  你需要对工作区具有“写入”权限，并且需要群集才能执行此操作。 可以随时取消工作区与群集的链接。 进行解除链接操作后的新引入数据存储在 Log Analytics 存储中，并使用 Microsoft 密钥进行加密。 只要使用有效的 Key Vault 密钥预配和配置了群集，就可以在解除链接前后无缝查询工作区中引入的数据。
 
   此操作是异步操作，可能需要一段时间才能完成。
 
@@ -511,7 +454,7 @@ Content-type: application/json
 
   - **检查工作区链接状态**
   
-  对工作区执行 Get 操作，并观察 " *功能* " 下的响应中是否存在 *clusterResourceId* 属性。 链接的工作区将具有 *clusterResourceId* 属性。
+  对工作区执行 Get 操作，并观察功能下的响应中是否存在 clusterResourceId 属性 。 链接的工作区将具有 clusterResourceId 属性。
 
   ```azurecli
   az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
@@ -523,9 +466,9 @@ Content-type: application/json
 
 - **删除群集**
 
-  需要对群集具有 "写入" 权限才能执行此操作。 执行软删除操作可以在14天内恢复你的群集（包括其数据），不管是有意还是无意删除。 群集名称在软删除期间仍然保留，因此无法使用该名称创建新群集。 软删除期结束后，群集名称将被释放，并且群集及其数据将被永久删除且不可恢复。 删除操作时，任何链接的工作区都将从群集中取消链接。 新引入数据存储在 Log Analytics 存储中，并使用 Microsoft 密钥进行加密。 
+  你需要对群集具有“写入”权限才能执行此操作。 如果执行的是软删除操作，则不管该删除操作是有意还是无意，均可在 14 天内恢复群集及其 14 天内的数据。 软删除期间，群集名称保持为预留，并且无法新建同名群集。 软删除结束后将释放群集名称，并将永久删除群集和数据，不可恢复。 执行删除操作后，所有的链接工作区都将与群集断开链接。 新引入数据存储在 Log Analytics 存储中，并使用 Microsoft 密钥进行加密。 
   
-  取消链接操作是异步的，最长可能需要90分钟才能完成。
+  解除链接操作是异步操作，可能需要长达 90 分钟才能完成。
 
   ```azurecli
   az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
@@ -542,29 +485,29 @@ Content-type: application/json
   
 - **恢复群集和数据** 
   
-  在过去14天内删除的群集处于软删除状态，可以使用其数据进行恢复。 由于所有工作区都未取消群集删除的链接，因此需要在群集恢复后重新链接工作区。 恢复操作当前由产品组手动执行。 使用你的 Microsoft 渠道或打开支持请求以恢复已删除的群集。
+  过去 14 天内删除的群集处于软删除状态，因此该群集资源及其数据均可恢复。 由于所有工作区都未取消群集删除的链接，因此需要在群集恢复后重新链接工作区。 恢复操作当前由产品组手动执行。 使用你的 Microsoft 渠道或打开支持请求以恢复已删除的群集。
 
 ## <a name="limitations-and-constraints"></a>限制和约束
 
 - 专用 Log Analytics 群集支持 Customer-Managed 密钥，适用于每天发送1TB 或更多的客户。
 
-- 每个区域和订阅的群集的最大数目为2
+- 每个区域和每个订阅的群集的最大数目为 2
 
 - 与群集关联的最大工作区为1000
 
-- 可以将工作区链接到群集，然后将其取消链接。 特定工作区的工作区链接操作数在30天内限制为2。
+- 可以将工作区链接到群集，然后将其取消链接。 在 30 天内，工作区与特定工作区的链接数限制为 2。
 
-- 只有在验证 Log Analytics 群集预配完成后，才能执行到群集的工作区链接。  完成预配之前发送到工作区的数据将被删除，并且无法恢复。
+- 验证是否完成 Log Analytics 群集预配之后，工作区才能与群集链接。  完成预配之前发送到工作区的数据将被删除，并且无法恢复。
 
 - 在配置时间之后 Customer-Managed 密钥加密适用于新的引入数据。 在配置之前引入的数据将通过 Microsoft 密钥进行加密。 可以无缝地在 Customer-Managed 密钥配置之前和之后查询数据引入。
 
-- 必须将 Azure Key Vault 配置为可恢复。 默认情况下，这些属性不会启用，应该使用 CLI 或 PowerShell 进行配置：<br>
+- Azure Key Vault 必须配置为可恢复。 默认情况下，这些属性不会启用，并且应使用 CLI 或 PowerShell 对其进行配置：<br>
   - [软删除](../../key-vault/general/soft-delete-overview.md)
-  - 即使在软删除后，也应打开[清除保护](../../key-vault/general/soft-delete-overview.md#purge-protection)，以防强制删除密钥/保管库。
+  - 应打开[清除保护](../../key-vault/general/soft-delete-overview.md#purge-protection)防止在软删除后强行删除机密/保管库。
 
-- 目前不支持群集移动到另一个资源组或订阅。
+- 目前不支持将群集移动到另一个资源组或订阅。
 
-- Azure Key Vault、群集和链接的工作区必须位于同一区域，并且在同一 Azure Active Directory 中 (Azure AD) 租户，但它们可以在不同的订阅中。
+- Azure Key Vault、群集和链接的工作区必须位于同一区域和同一 Azure Active Directory (Azure AD) 租户，但可以位于不同订阅。
 
 - 如果将群集链接到其他群集，则工作区链接将失败。
 
@@ -579,58 +522,58 @@ Content-type: application/json
 
   - Key Vault 访问速率 -- Azure Monitor 存储为实现包装和解包操作而访问 Key Vault 的频率介于 6 到 60 秒之间。
 
-- 如果创建群集并立即指定 KeyVaultProperties，则操作可能会失败，因为在向群集分配系统标识之前无法定义访问策略。
+- 如果创建群集并立即指定 KeyVaultProperties，则操作可能会失败，因为将系统标识分配给群集后才能定义访问策略。
 
-- 如果使用 KeyVaultProperties 更新现有群集并且 Key Vault 中缺少 "Get" 密钥访问策略，则操作将失败。
+- 如果使用 KeyVaultProperties 更新现有的群集，并且 Key Vault 中缺少“Get”密钥访问策略，则该操作将失败。
 
-- 如果在创建群集时出现冲突，则可能是你在过去14天内删除了群集，并且该群集位于软删除期间。 群集名称在软删除期间仍然保留，因此无法使用该名称创建新群集。 在永久删除群集后，该名称将在软删除期间释放。
+- 如果在创建群集时出现冲突，则可能是你在过去14天内删除了群集，并且该群集位于软删除期间。 软删除期间，群集名称保持为预留，并且无法新建同名群集。 永久删除群集时，名称将在软删除期结束后释放。
 
-- 如果在操作过程中更新群集，操作将失败。
+- 如果在操作过程中更新群集，则该操作将失败。
 
-- 如果无法部署群集，请验证 Azure Key Vault、群集和链接 Log Analytics 工作区是否位于同一区域。 可以位于不同的订阅。
+- 如果无法部署群集，请验证 Azure Key Vault、群集和链接的 Log Analytics 工作区是否位于同一区域。 可以位于不同的订阅。
 
-- 如果你 Key Vault 更新密钥版本，但未更新群集中的新密钥标识符详细信息，Log Analytics 群集将继续使用以前的密钥，你的数据将变得不可访问。 更新群集中的新密钥标识符详细信息，恢复数据引入和查询数据。
+- 如果在 Key Vault 中更新密钥版本，但未更新群集中的新密钥标识符详细信息，则 Log Analytics 群集将继续使用之前的密钥，并且数据将变得不可访问。 更新群集中的新密钥标识符详细信息以恢复数据引入和数据查询功能。
 
-- 某些操作很长，可能需要一段时间才能完成，这些操作包括群集创建、群集密钥更新和群集删除。 可以通过两种方式检查操作状态：
-  1. 使用 REST 时，从响应中复制 "Azure-AsyncOperation URL" 值并按照 [异步操作状态检查操作](#asynchronous-operations-and-status-check)。
-  2. 向群集或工作区发送 GET 请求并观察响应。 例如，未链接的工作区在 *功能* 下将不具有 *clusterResourceId* 。
+- 部分操作较为耗时，可能需要一段时间才能完成 - 包括群集创建、群集密钥更新和群集删除。 可以通过两种方式检查操作状态：
+  1. 使用 REST 时，从响应中复制 Azure-AsyncOperation URL 值，并进行[异步操作状态检查](#asynchronous-operations-and-status-check)。
+  2. 将 GET 请求发送到群集或工作区，然后观察响应。 例如，未链接的工作区在“功能”下没有 clusterResourceId 。
 
-- 与客户管理的密钥相关的支持和帮助，请在 Microsoft 中使用你的联系人信息。
+- 如果区域中有双加密，则会自动为从10月2020创建的群集配置[双加密](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)。 如果创建群集并收到错误 "<region name> 不支持对群集进行双加密。"，则仍可以创建群集，但禁用了双重加密。 创建群集后，无法启用或禁用此功能。 若要在区域中不支持双加密时创建群集，请 `"properties": {"isDoubleEncryptionEnabled": false}` 在 REST 请求正文中添加。
 
 - 错误消息
   
   群集创建：
-  -  400--群集名称无效。 群集名称可以包含字符 a-z、a-z、0-9 和长度3-63。
-  -  400--请求正文为 null 或格式不正确。
-  -  400--SKU 名称无效。 将 SKU 名称设置为 capacityReservation。
-  -  400-已提供容量，但 SKU 不可 capacityReservation。 将 SKU 名称设置为 capacityReservation。
-  -  400--SKU 中缺少容量。 在 100 (GB) 的步骤中，将 "容量" 值设置为1000或更高。
-  -  400--SKU 中的容量不在范围内。 应为最小1000，最大可达工作区中 "使用量和预估成本" 下提供的最大容量。
-  -  400--容量已锁定30天。 更新后30天内允许减少容量。
-  -  400--未设置 SKU。 在 100 (GB) 的步骤中，将 SKU 名称设置为 capacityReservation，并将容量值设置为1000或更高。
-  -  400--Identity 为 null 或为空。 设置 systemAssigned 类型的标识。
-  -  400--KeyVaultProperties 在创建时设置。 群集创建后更新 KeyVaultProperties。
-  -  400--操作无法立即执行。 异步操作的状态不是 "成功"。 群集必须在执行任何更新操作之前完成其操作。
+  -  400 -- 群集名称无效。 群集名称可包含字符 a-z、A-Z、0-9，且长度为 3-63。
+  -  400 -- 请求的正文为 Null 或格式错误。
+  -  400 -- SKU 名称无效。 将 SKU 名称设置为 CapacityReservation。
+  -  400 -- 提供了容量，但 SKU 不是 capacityReservation。 将 SKU 名称设置为 CapacityReservation。
+  -  400 -- SKU 容量不足。 将“容量”值设置为 1000 或更高（以 100 (GB) 为度）。
+  -  400 -- SKU 中的容量不在范围内。 应介于 1000 到最大允许容量之间，最大允许容量可在工作区中的“用量和预估成本”下找到。
+  -  400 -- 容量锁定 30 天。 更新后 30 天内允许减少容量。
+  -  400 -- 未设置 SKU。 将 SKU 名称设置为 CapacityReservation，将“容量”值设置为 1000 或更高（以 100 (GB) 为增加幅度）。
+  -  400 -- 标识为 Null 或为空。 设置具有 systemAssigned 类型的标识。
+  -  400 -- KeyVaultProperty 是创建时设置的。 创建群集后更新 KeyVaultProperties。
+  -  400 -- 现在无法执行操作。 异步操作处于非成功状态。 群集必须完成其操作，才能执行任意更新操作。
 
   群集更新
-  -  400--群集处于删除状态。 正在进行异步操作。 群集必须在执行任何更新操作之前完成其操作。
-  -  400--KeyVaultProperties 不为空，但格式不正确。 请参阅 [密钥标识符更新](#update-cluster-with-key-identifier-details)。
-  -  400--未能验证 Key Vault 中的密钥。 可能是由于权限不足或键不存在。 验证是否在 Key Vault 中 [设置了密钥和访问策略](#grant-key-vault-permissions) 。
-  -  400--密钥不可恢复。 必须将 "Key Vault" 设置为 "软删除" 和 "清除保护"。 请参阅 [Key Vault 文档](../../key-vault/general/soft-delete-overview.md)
-  -  400--操作无法立即执行。 等待异步操作完成，然后重试。
-  -  400--群集处于删除状态。 等待异步操作完成，然后重试。
+  -  400 -- 群集处于正在删除状态。 正在执行异步操作。 群集必须完成其操作，才能执行任意更新操作。
+  -  400 -- KeyVaultProperties 不为空，但格式错误。 请参阅[密钥标识符更新](#update-cluster-with-key-identifier-details)。
+  -  400 -- 无法验证 Key Vault 中的密钥。 可能是由于权限不足或密钥不存在。 验证是否在 Key Vault 中[设置密钥和访问策略](#grant-key-vault-permissions)。
+  -  400 -- 密钥不可恢复。 Key Vault 必须设置为“软删除”和“清除保护”。 请参阅 [Key Vault 文档](../../key-vault/general/soft-delete-overview.md)
+  -  400 -- 现在无法执行操作。 等待异步操作完成，然后重试。
+  -  400 -- 群集处于正在删除状态。 等待异步操作完成，然后重试。
 
-  群集 Get：
-    -  404--找不到群集，群集可能已被删除。 如果尝试创建具有该名称的群集并且发生冲突，则群集在软删除中14天。 你可以联系支持人员来恢复它，或使用其他名称创建一个新群集。 
+  群集获取：
+    -  404 -- 找不到群集，群集可能已删除。 如果尝试使用该名称创建群集但发生冲突，则该群集将处于软删除状态，为期 14 天。 可以联系支持人员将其恢复，也可以使用其他名称创建新群集。 
 
   群集删除
-    -  409--在处于预配状态时无法删除群集。 等待异步操作完成，然后重试。
+    -  409 -- 处于预配状态时无法删除群集。 等待异步操作完成，然后重试。
 
   工作区链接：
-  -  404--找不到工作区。 您指定的工作区不存在或已被删除。
-  -  409--工作区链接或取消链接操作正在处理中。
-  -  400--找不到群集，你指定的群集不存在或已被删除。 如果尝试创建具有该名称的群集并且发生冲突，则群集在软删除中14天。 可以联系支持人员来恢复。
+  -  404 -- 找不到工作区。 指定的工作区不存在或已被删除。
+  -  409 -- 正在执行工作区链接或取消链接操作。
+  -  400 -- 找不到群集，指定的群集不存在或已被删除。 如果尝试使用该名称创建群集但发生冲突，则该群集将处于软删除状态，为期 14 天。 可以联系支持人员将其恢复。
 
   工作区取消链接：
-  -  404--找不到工作区。 您指定的工作区不存在或已被删除。
-  -  409--工作区链接或取消链接操作正在处理中。
+  -  404 -- 找不到工作区。 指定的工作区不存在或已被删除。
+  -  409 -- 正在执行工作区链接或取消链接操作。

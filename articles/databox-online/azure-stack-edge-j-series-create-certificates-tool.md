@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891097"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874468"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>使用 Azure Stack 中心就绪检查程序工具为 Azure Stack Edge Pro 创建证书 
 
@@ -37,12 +37,12 @@ ms.locfileid: "90891097"
 - VPN 证书
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要为 Azure Stack Edge Pro 设备部署创建 Csr，请确保： 
 
 - 你有运行 Windows 10 或 Windows Server 2016 或更高版本的客户端。 
-- 已从此系统上 [的 PowerShell 库中](https://aka.ms/AzsReadinessChecker) 下载了 Microsoft Azure Stack 集线器就绪检查器工具1.2002.1133.85。 可能需要搜索此包。 只有此版本的工具才能为 Azure Stack Edge Pro 设备创建证书。
+- 您已从该系统上 [的 PowerShell 库](https://aka.ms/AzsReadinessChecker) 下载了 Microsoft Azure Stack 集线器就绪检查器工具。
 - 你具有以下证书信息：
   - 设备名称
   - 节点序列号
@@ -56,7 +56,7 @@ ms.locfileid: "90891097"
 2. 安装 Azure Stack 集线器就绪检查程序工具。 在 PowerShell 提示符下，键入： 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     若要验证已安装的版本，请键入：  

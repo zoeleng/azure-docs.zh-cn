@@ -4,12 +4,12 @@ description: 使用 Azure Application Insights 数据自动化自定义每日/�
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827726"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873704"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>使用 Azure Application Insights 数据自动化自定义报表
 
@@ -31,7 +31,7 @@ ms.locfileid: "91827726"
 
 可以[采用编程方式查询 Application Insights](https://dev.applicationinsights.io/) 数据，按计划生成自定义报表。 以下选项有助于快速开始：
 
-* [使用 Microsoft Flow 自动化报表](../platform/logicapp-flow-connector.md)
+* [自动执行具有电源自动功能的报表](../platform/logicapp-flow-connector.md)
 * [使用逻辑应用自动化报表](automate-with-logic-apps.md)
 * 在监视方案中使用“Application Insights 计划摘要”[Azure Function](../../azure-functions/functions-create-first-azure-function.md) 模板。 此函数使用 SendGrid 传递电子邮件。 
 
@@ -83,7 +83,7 @@ availabilityResults
 4. 选择“Application Insights 计划的摘要模板”。
 
      > [!NOTE]
-     > 默认情况下，使用运行时版本 3.x 创建函数应用。 必须[以 Azure Functions 运行时版本](../../azure-functions/set-runtime-version.md) **1.x** 为目标才能使用 Application Insights 计划摘要模板。 转到“配置”>“函数运行时设置”以更改运行时版本。 ![运行时屏幕截图](./media/automate-custom-reports/change-runtime-v.png)
+     > 默认情况下，使用运行时版本 3.x 创建函数应用。 必须 [以 Azure Functions 运行时版本](../../azure-functions/set-runtime-version.md) **1.x** 为目标才能使用 Application Insights 计划摘要模板。 转到“配置”>“函数运行时设置”以更改运行时版本。 ![运行时屏幕截图](./media/automate-custom-reports/change-runtime-v.png)
 
    ![“新建函数 Application Insights 模板”屏幕截图](./media/automate-custom-reports/function-app-04.png)
 

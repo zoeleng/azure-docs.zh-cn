@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: cffc15974bf5a016a4584f5c5f3dcc8a185c9824
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: c13c4410852d97f0bf4548578f40a5cc560804d7
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397325"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874587"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>在使用应用程序网关入口控制器的 AKS 群集中启用多命名空间支持
 
@@ -40,7 +40,7 @@ AGIC 版本 0.7 将继续专门观察 `default` 命名空间，除非在 Helm �
 ## <a name="conflicting-configurations"></a>有冲突的配置
 多个带有命名空间的[入口资源](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource)可能会指示 AGIC 为单个应用程序网关创建有冲突的配置。 （例如，两个入口声明同一个域。）
 
-在层次结构的顶层 - **侦听器** （IP 地址、端口和主机）和 **路由规则** （绑定侦听器、后端池和 HTTP 设置）可由多个命名空间/入口创建和共享。
+在层次结构的顶层 - **侦听器**（IP 地址、端口和主机）和 **路由规则**（绑定侦听器、后端池和 HTTP 设置）可由多个命名空间/入口创建和共享。
 
 另一方面 - 路径、后端池、HTTP 设置和 TLS 证书只能由一个命名空间创建，重复项将被删除。
 
@@ -147,7 +147,7 @@ spec:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

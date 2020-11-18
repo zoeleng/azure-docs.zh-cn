@@ -4,15 +4,15 @@ description: 了解如何在 Azure Functions 中使用计时器触发器。
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833004"
+ms.locfileid: "94874077"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器
 
@@ -299,11 +299,11 @@ Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来�
 
 |类型  |示例  |何时触发  |
 |---------|---------|---------|
-|一个具体值 |<nobr>"0 5 * * * *"</nobr>|在 hh:05:00，其中 hh 表示每小时（每小时一次）|
-|所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|在每天的5： mm：00，其中 mm 是小时的每分钟 (在指定小时内60次) |
-|一个范围（`-` 运算符）|<nobr>"5-7 * * * * *"</nobr>|在 hh:mm:05、hh:mm:06 和 hh:mm:07，其中 hh:mm 表示每小时的每分钟（每分钟 3 次）|
-|一组值（`,` 运算符）|<nobr>"5,8,10 * * * * *"</nobr>|在 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh:mm 表示每小时的每分钟（每分钟 3 次）|
-|一个间隔值（`/` 运算符）|<nobr>"0 */5 * * * *"</nobr>|在 hh:00:00、hh:05:00、hh:10:00，依此类推，直到 hh:55:00，其中 hh 表示每小时（每小时 12 次）|
+|一个具体值 |<nobr>`0 5 * * * *`</nobr>| 每小时的第一天的每小时一次 |
+|所有值 (`*`)|<nobr>`0 * 5 * * *`</nobr>| 每分钟的时间（从小时5开始） |
+|一个范围（`-` 运算符）|<nobr>`5-7 * * * * *`</nobr>| 每隔一小时的每分钟在每分钟的第5到7秒的三倍 |
+|一组值（`,` 运算符）|<nobr>`5,8,10 * * * * *`</nobr>| 每隔一小时的每分钟在每分钟的第5、8和10秒内运行三次 |
+|一个间隔值（`/` 运算符）|<nobr>`0 */5 * * * *`</nobr>| 每小时12次，每隔5分钟的第二个小时，每隔一小时 |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来�
 
 以下是一些可用于 Azure Functions 中计时器触发器的 NCRONTAB 表达式示例。
 
-|示例|何时触发  |
-|---------|---------|
-|`"0 */5 * * * *"`|每五分钟一次|
-|`"0 0 * * * *"`|每小时一次（在每小时的开头）|
-|`"0 0 */2 * * *"`|每两小时一次|
-|`"0 0 9-17 * * *"`|从上午 9 点到下午 5 点每小时一次|
-|`"0 30 9 * * *"`|每天上午 9:30|
-|`"0 30 9 * * 1-5"`|每个工作日的上午 9:30|
-|`"0 30 9 * Jan Mon"`|在一月份每星期一的上午 9:30|
+| 示例            | 何时触发                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | 每五分钟一次            |
+| `0 0 * * * *`      | 每小时一次（在每小时的开头）      |
+| `0 0 */2 * * *`    | 每两小时一次               |
+| `0 0 9-17 * * *`   | 从上午 9 点到下午 5 点每小时一次  |
+| `0 30 9 * * *`     | 每天上午 9:30               |
+| `0 30 9 * * 1-5`   | 每个工作日的上午 9:30           |
+| `0 30 9 * Jan Mon` | 在一月份每星期一的上午 9:30 |
 
 > [!NOTE]
-> NCRONTAB 表达式需要六字段格式。 Azure 不支持五字段 cron 表达式。
+> NCRONTAB 表达式需要 **六个字段** 格式。 第六个字段位置是秒的值，该值置于表达式的开头。 Azure 不支持五字段 cron 表达式。
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB 时区
 

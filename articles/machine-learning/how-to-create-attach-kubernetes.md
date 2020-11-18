@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8b3ab965c5a85bd6f25e5325fdca24026aec787
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318062"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873822"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>创建并附加 Azure Kubernetes 服务群集
 
@@ -44,7 +44,7 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
     授权 IP 范围仅适用于标准负载均衡器。
 
-- 如果要使用专用 AKS 群集 (使用 Azure Private Link) ，则必须先创建群集，然后 **将其附加** 到工作区。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
+- 如果要使用专用 AKS 群集（使用 Azure 专用链接），则必须先创建群集，然后再将其附加到工作区。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
 
 - AKS 群集的计算名称在 Azure ML 工作区中必须是唯一的。
     - 名称是必须提供的，且长度必须介于 3 到 24 个字符之间。
@@ -147,7 +147,7 @@ Result
 
 ## <a name="create-a-new-aks-cluster"></a>创建新的 AKS 群集
 
-**时间估计** ：大约 10 分钟。
+**时间估计**：大约 10 分钟。
 
 对于工作区而言，创建或附加 AKS 群集是一次性过程。 可以将此群集重复用于多个部署。 如果删除该群集或包含该群集的资源组，则在下次需要进行部署时必须创建新群集。 可将多个 AKS 群集附加到工作区。
 
@@ -279,12 +279,12 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 
 ---
 
-## <a name="detach-an-aks-cluster"></a>分离 AKS 群集
+## <a name="detach-an-aks-cluster"></a>拆离 AKS 群集
 
-若要从工作区中分离群集，请使用以下方法之一：
+若要从工作区拆离群集，请使用以下方法之一：
 
 > [!WARNING]
-> 使用用于机器学习的 Azure 机器学习 studio、SDK 或 Azure CLI 扩展分离 AKS 群集不 **会删除 AKS 群集** 。 若要删除群集，请参阅 [将 Azure CLI 与 AKS 一起使用](../aks/kubernetes-walkthrough.md#delete-the-cluster)。
+> 使用 Azure 机器学习工作室、SDK 或适用于机器学习的 Azure CLI 扩展来拆离 AKS 群集不会删除 AKS 群集。 若要删除群集，请参阅[将 Azure CLI 与 AKS 配合使用](../aks/kubernetes-walkthrough.md#delete-the-cluster)。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -294,17 +294,18 @@ aks_target.detach()
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要将现有群集分离到工作区，请使用以下命令。 将替换为 `myaks` AKS 群集作为附加到的工作区的名称。 将 `myresourcegroup` 替换为包含工作区的资源组。 将 `myworkspace` 替换为工作区名称。
+若要将现有群集与工作区拆离，请使用以下命令。 将 `myaks` 替换为 AKS 群集附加到工作区时采用的名称。 将 `myresourcegroup` 替换为包含工作区的资源组。 将 `myworkspace` 替换为工作区名称。
 
 ```azurecli
 az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 ```
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-在 Azure 机器学习 studio 中，选择 " __计算__ "、" __推理群集__ " 和要删除的群集。 使用 " __分离__ " 链接分离群集。
+在 Azure 机器学习工作室中，选择“计算”、“推理群集”以及要删除的群集。 使用“拆离”链接拆离群集。
 
 ## <a name="next-steps"></a>后续步骤
 
+* [使用 Azure RBAC 进行 Kubernetes 授权](../aks/manage-azure-rbac.md)
 * [部署模型的方式和位置](how-to-deploy-and-where.md)
 * [将模型部署到 Azure Kubernetes 服务群集](how-to-deploy-azure-kubernetes-service.md)

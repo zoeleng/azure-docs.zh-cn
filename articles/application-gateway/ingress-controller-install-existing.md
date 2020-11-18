@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397393"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874502"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>安装使用现有应用程序网关的应用程序网关入口控制器 (AGIC)
 
@@ -34,7 +34,7 @@ AGIC 监视 Kubernetes [入口](https://kubernetes.io/docs/concepts/services-net
 - 已在 AKS 群集上安装 [AAD Pod Identity](https://github.com/Azure/aad-pod-identity)
 - [Cloud Shell](https://shell.azure.com/) 是 Azure Shell 环境， `az` 安装了 CLI、 `kubectl` 和 `helm` 。 需要使用这些工具来运行下面所述的命令。
 
-在安装 AGIC 之前，请 __备份应用程序网关的配置__ ：
+在安装 AGIC 之前，请 __备份应用程序网关的配置__：
   1. 使用 [Azure 门户](https://portal.azure.com/)导航到 `Application Gateway` 实例
   2. 在 `Export template` 中单击 `Download`
 
@@ -46,7 +46,7 @@ AGIC 监视 Kubernetes [入口](https://kubernetes.io/docs/concepts/services-net
 
 1. 安装 [Helm](../aks/kubernetes-helm.md) 并运行以下命令来添加 `application-gateway-kubernetes-ingress` Helm 包：
 
-    - 已启用 RBAC 的 AKS 群集 
+    - *已启用 KUBERNETES RBAC* AKS 群集
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -54,7 +54,7 @@ AGIC 监视 Kubernetes [入口](https://kubernetes.io/docs/concepts/services-net
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - 已禁用 RBAC 的 AKS 群集 
+    - *已禁用 KUBERNETES RBAC* AKS 群集
 
     ```bash
     helm init
@@ -187,7 +187,7 @@ armAuth:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     
@@ -237,7 +237,7 @@ armAuth:
 ## <a name="multi-cluster--shared-application-gateway"></a>多群集/共享应用程序网关
 默认情况下，AGIC 对它所链接到的应用程序网关拥有完全所有权。 AGIC 0.8.0 和更高版本可与其他 Azure 组件共享单个应用程序网关。 例如，我们可以对虚拟机规模集上托管的某个应用以及某个 AKS 群集使用同一个应用程序网关。
 
-在启用此设置之前，请 __备份应用程序网关的配置__ ：
+在启用此设置之前，请 __备份应用程序网关的配置__：
   1. 使用 [Azure 门户](https://portal.azure.com/)导航到 `Application Gateway` 实例
   2. 在 `Export template` 中单击 `Download`
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561312"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873890"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure 机器学习的企业安全和管理
 
@@ -30,8 +30,8 @@ ms.locfileid: "94561312"
 
 对 Azure 机器学习资源的大多数身份验证使用 Azure Active Directory 的 (Azure AD) 进行身份验证，并使用基于角色的访问控制 (Azure RBAC) 进行授权。 例外情况如下：
 
-* __Ssh__ ：可以启用对某些计算资源（例如 Azure 机器学习计算实例）的 SSH 访问。 SSH 访问使用基于密钥的身份验证。 有关创建 SSH 密钥的详细信息，请参阅 [创建和管理 ssh 密钥](../virtual-machines/linux/create-ssh-keys-detailed.md)。 有关启用 SSH 访问的信息，请参阅 [创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)。
-* __部署为 web 服务的模型__ ： web 服务部署可以使用基于 __密钥__ 或 __令牌__ 的访问控制。 键为静态字符串。 使用 Azure AD 帐户检索令牌。 有关详细信息，请参阅为 [部署为 web 服务的模型配置身份验证](how-to-authenticate-web-service.md)。
+* __Ssh__：可以启用对某些计算资源（例如 Azure 机器学习计算实例）的 SSH 访问。 SSH 访问使用基于密钥的身份验证。 有关创建 SSH 密钥的详细信息，请参阅 [创建和管理 ssh 密钥](../virtual-machines/linux/create-ssh-keys-detailed.md)。 有关启用 SSH 访问的信息，请参阅 [创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)。
+* __部署为 web 服务的模型__： web 服务部署可以使用基于 __密钥__ 或 __令牌__ 的访问控制。 键为静态字符串。 使用 Azure AD 帐户检索令牌。 有关详细信息，请参阅为 [部署为 web 服务的模型配置身份验证](how-to-authenticate-web-service.md)。
 
 Azure 机器学习依赖的特定服务（如 Azure 数据存储服务）有自己的身份验证和授权方法。 有关存储服务身份验证的详细信息，请参阅 [连接到存储服务](how-to-access-data.md)。
 
@@ -76,6 +76,8 @@ Azure 机器学习依赖的特定服务（如 Azure 数据存储服务）有自�
 
 如果内置角色不符合你的需求，可以创建自定义角色。 自定义角色控制工作区内的所有操作，例如创建计算、提交运行、注册数据存储或部署模型。 自定义角色可以对工作区的各种资源（如群集、数据存储、模型和终结点）拥有读取、写入或删除权限。 可以使角色在特定工作区级别、特定资源组级别或特定订阅级别可用。 有关详细信息，请参阅[管理 Azure 机器学习工作区中的用户和角色](how-to-assign-roles.md)。
 
+若要详细了解如何将 RBAC 与 Kubernetes 结合使用，请参阅 [Azure Role-Based 访问控制 Kubernetes 授权](../aks/manage-azure-rbac.md)。
+
 > [!IMPORTANT]
 > Azure 机器学习依赖于其他 Azure 服务，例如 Azure Blob 存储和 Azure Kubernetes 服务。 每个 Azure 服务都有其自己的 Azure RBAC 配置。 若要实现所需级别的访问控制，可能需要同时对 Azure 机器学习和用于 Azure 机器学习的服务应用 Azure RBAC 配置。
 
@@ -97,7 +99,7 @@ Azure 机器学习依赖的特定服务（如 Azure 数据存储服务）有自�
 
 不建议管理员撤销托管标识对上表中所述资源的访问权限。 可以使用重新同步密钥操作来恢复访问权限。
 
-对于每个工作区区域，Azure 机器学习将在订阅中创建一个拥有参与者级别访问权限的附加应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头）。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 Azure 机器学习可以通过这些应用程序来帮助你管理计算资源。
+Azure 机器学习将在订阅中为每个工作区区域创建一个额外的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头），该应用程序具有参与者级别的访问权限。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 通过这些应用程序，Azure 机器学习可帮助管理计算资源。
 
 （可选）可以配置自己的托管标识，以便与 Azure 虚拟机配合使用，并 Azure 机器学习计算群集。 使用 VM 时，可使用托管标识从 SDK 访问工作区，而不是单个用户的 Azure AD 帐户。 使用计算群集时，托管标识用于访问运行训练作业的用户可能无权访问的资源，例如安全数据存储。 有关详细信息，请参阅 [Azure 机器学习工作区的身份验证](how-to-setup-authentication.md)。
 
@@ -185,8 +187,8 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 
 [Azure Policy](../governance/policy/index.yml) 是一种管理工具，你可用它来确保 Azure 资源符合你的策略。 通过 Azure 机器学习，你可分配以下策略：
 
-* **客户管理的密钥** ：审核或强制执行工作区是否必须使用客户管理的密钥。
-* **专用链接** ：审核工作区是否使用专用终结点与虚拟网络进行通信。
+* **客户管理的密钥**：审核或强制执行工作区是否必须使用客户管理的密钥。
+* **专用链接**：审核工作区是否使用专用终结点与虚拟网络进行通信。
 
 有关 Azure Policy 的详细信息，请参阅 [Azure Policy 文档](../governance/policy/overview.md)。
 

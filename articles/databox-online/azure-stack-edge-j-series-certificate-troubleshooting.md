@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568346"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874247"
 ---
 # <a name="troubleshooting-certificate-errors"></a>证书错误疑难解答
 
@@ -46,6 +46,7 @@ ms.locfileid: "91568346"
 | CertificateManagement_MissingServerOid | 使用者名称的证书没有 {0} 服务器身份验证 OID。 检查证书属性，如果需要，请引入新证书。|
 | CertificateManagement_NameMismatch | 证书类型不匹配。 应为范围： {0} ，找到 {1} 。 上传适当的证书。|
 | CertificateManagement_NoPrivateKeyPresent | 使用者名称的证书 {0} 没有私钥。 上载包含私钥的 .pfx 证书。|
+| CertificateManagement_NoRSACryptoPrivateKey | 具有使用者名称的证书的私钥 {0} 不可访问。 请确保使用的是受支持的证书。 仅支持 Microsoft RSA/Schannel 加密提供程序。 |
 | CertificateManagement_NotSelfSignedCertificate | 使用者名称的证书 {0} 不是自签名证书。 根证书应自签名 |
 | CertificateManagement_NotSupportedOnVirtualAppliance | 虚拟设备上不支持此操作。 此错误表示仅在战术性云设备中运行 Data Box Gateway 进行签名。 通过 Windows PowerShell 管理设备时出现此错误。|
 | CertificateManagement_SelfSignedCertificate | 使用者名称的证书 {0} 是自签名证书。 上传正确签名的证书。|
@@ -57,6 +58,8 @@ ms.locfileid: "91568346"
 | CertificateImportFailure | {0}节点上未导入具有指纹的证书 {1} 。 如果问题持续出现，请联系 Microsoft 支持。 |
 | CertificateApplyFailure | {0}节点上未应用具有指纹的证书 {1} 。 如果问题持续出现，请联系 Microsoft 支持。|
 | NodeNotReachable | 无法在上验证证书 {0} 。 检查系统硬件和软件运行状况。|
+| 获取错误代码 | 此证书的私钥不可访问。 请确保使用的是受支持的证书。 仅支持 Microsoft RSA/Schannel 加密提供程序。 |
+
 
 ## <a name="next-steps"></a>后续步骤
 

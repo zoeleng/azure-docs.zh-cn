@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361159"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873805"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -81,9 +81,9 @@ ms.locfileid: "93361159"
 
    ![Azure 机器学习：机器学习计算虚拟网络设置](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
-1. 将模型作为 web 服务部署到 AKS 时，将创建一个计分终结点来处理推断请求。 如果要从虚拟网络外部调用，请确保控制虚拟网络的 NSG 组为评分终结点的 IP 地址启用了入站安全规则。
+1. 将模型作为 Web 服务部署到 AKS 时，将创建一个评分终结点来处理推理请求。 若要从虚拟网络外部调用评分终结点，确保用于控制虚拟网络的 NSG 组包含一条已为该终结点的 IP 地址启用的入站安全规则。
 
-    若要查找评分终结点的 IP 地址，请查看已部署服务的评分 URI。 有关查看计分 URI 的详细信息，请参阅 [使用部署为 web 服务的模型](how-to-consume-web-service.md#connection-information)。
+    若要查找评分终结点的 IP 地址，请查看已部署服务的评分 URI。 有关查看评分 URI 的详细信息，请参阅[使用部署为 Web 服务的模型](how-to-consume-web-service.md#connection-information)。
 
    > [!IMPORTANT]
    > 保留 NSG 的默认出站规则。 有关详细信息，请参阅[安全组](../virtual-network/network-security-groups-overview.md#default-security-rules)中的“默认安全规则”。
@@ -91,7 +91,7 @@ ms.locfileid: "93361159"
    [![入站安全规则](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
     > [!IMPORTANT]
-    > 用于计分终结点的图像中显示的 IP 地址将不同于你的部署。 尽管所有部署都将同一 IP 共享到一个 AKS 群集，但每个 AKS 群集都有不同的 IP 地址。
+    > 图像中显示的评分终结点的 IP 地址将因你的部署而异。 尽管一个 AKS 群集的所有部署都将共享同一 IP，但每个 AKS 群集都有不同的 IP 地址。
 
 也可以使用 Azure 机器学习 SDK 在虚拟网络中添加 Azure Kubernetes 服务。 如果虚拟网络中已有一个 AKS 群集，请根据[如何部署到 AKS](how-to-deploy-and-where.md) 中所述，将此群集附加到工作区。 以下代码在名为 `mynetwork` 的虚拟网络的 `default` 子网中创建新的 AKS 实例：
 
@@ -114,6 +114,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 ```
 
 创建过程完成后，可在虚拟网络后面的 AKS 群集上运行推理或模型评分。 有关详细信息，请参阅[如何部署 AKS](how-to-deploy-and-where.md)。
+
+若要详细了解如何在 Kubernetes 中使用 Role-Based 访问控制，请参阅 [使用 AZURE RBAC 进行 Kubernetes 授权](../aks/manage-azure-rbac.md)。
 
 ## <a name="network-contributor-role"></a>网络参与者角色
 
@@ -151,8 +153,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 有两种方法可以将往返于 AKS 群集的流量隔离到虚拟网络：
 
-* __私有 AKS 群集__ ：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
-* __内部 AKS 负载均衡器__ ：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
+* __私有 AKS 群集__：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
+* __内部 AKS 负载均衡器__：此方法将部署到 AKS 的终结点配置为在虚拟网络中使用专用 IP。
 
 > [!WARNING]
 > 内部负载均衡器不适用于使用 kubenet 的 AKS 群集。 如果要同时使用内部负载均衡器和专用 AKS 群集，请使用 Azure Container 网络接口 (CNI) 配置专用 AKS 群集。 有关详细信息，请参阅 [在 Azure Kubernetes Service 中配置 AZURE CNI 网络](../aks/configure-azure-cni.md)。
@@ -177,7 +179,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 > [!IMPORTANT]
 > 在 Azure 机器学习工作室中创建 Azure Kubernetes 服务群集时，无法启用专用 IP。 使用 Python SDK 或 Azure CLI 扩展进行机器学习时，可以创建一个具有内部负载均衡器的 AKS 群集。
 
-以下示例演示如何使用 SDK 和 CLI __创建具有专用 IP/内部负载均衡器的新 AKS 群集__ ：
+以下示例演示如何使用 SDK 和 CLI __创建具有专用 IP/内部负载均衡器的新 AKS 群集__：
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -3,12 +3,12 @@ title: 概念-私有云和群集
 description: 了解 Azure VMware 解决方案软件定义的数据中心和 vSphere 群集的主要功能。
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337315"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874009"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 解决方案私有云和群集概念
 
@@ -59,7 +59,7 @@ Azure VMware 解决方案私有云群集中使用的 VMware 软件的当前软�
 
 对于私有云中的任何新群集，软件版本均与当前运行的版本匹配。 对于订阅中的任何新私有云，将安装软件堆栈的最新版本。
 
-可以在 [升级概念](concepts-upgrades.md) 一文中找到有关 Azure VMware 解决方案平台软件的常规升级策略和过程。
+你可以找到 [私有云更新和升级](concepts-upgrades.md)中所述的 Azure VMware 解决方案平台软件的常规升级策略和过程。
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>主机维护和生命周期管理
 

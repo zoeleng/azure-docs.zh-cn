@@ -5,14 +5,14 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a7d29d8487c6be6915ae4171b3759f0980f5448
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007785"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874349"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>在可用性区域之间启用 Azure VM 灾难恢复
 
@@ -67,7 +67,7 @@ Site Recovery 服务通过在计划内和计划外的停机期间保持业务应
 
 在将区域部署到 Vm 的区域灾难恢复之前，请务必确保 VM 上启用的其他功能可与区域进行互操作，以便进行灾难恢复。
 
-|Feature  | 支持声明  |
+|功能  | 支持声明  |
 |---------|---------|
 |经典 VM   |     不支持    |
 |ARM Vm    |    支持    |
@@ -106,7 +106,7 @@ Site Recovery 服务通过在计划内和计划外的停机期间保持业务应
 
 7. 单击 "下一步：审核 + 开始复制"，然后单击 "开始复制"。
 
-## <a name="faqs"></a>常见问题解答
+## <a name="faqs"></a>常见问题
 
 **1. 区域到灾难恢复的区域的定价如何？**
 区域到区域灾难恢复的定价与 Azure 到 Azure 灾难恢复的定价相同。 可在 [此处](https://azure.microsoft.com/pricing/details/site-recovery/) 和 [此处](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/)找到有关定价页面的更多详细信息。 请注意，要在区域灾难恢复中看到的出口费用将低于区域进行灾难恢复。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2468bde9dd969ad604f96835a3dc0bfad06c1cd2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8f2498dbb3a555db262c591c9badacbe0e4e2548
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844653"
+ms.locfileid: "94874655"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure 机器学习的 Azure 安全基线
 
@@ -529,6 +529,7 @@ Azure 机器学习在 Azure 机器学习中为常见管理方案提供内置角�
 **指导**：Azure 机器学习支持使用 Azure Active Directory (Azure AD) 授权对机器学习资源的请求。 可以通过 Azure AD 使用 Azure 基于角色的访问控制 (RBAC) 授予对安全主体的访问权限，该安全主体可能是用户，也可能是应用程序服务主体。
 
 - [管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)
+- [使用 Azure RBAC 进行 Kubernetes 授权](../aks/manage-azure-rbac.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -911,6 +912,8 @@ Azure 机器学习完全支持用于跟踪工作的 Git 存储库；你可以将
 - [如何配置 Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [共享映像库概述](../virtual-machines/windows/shared-image-galleries.md)
+
+- [使用 Azure RBAC 进行 Kubernetes 授权](../aks/manage-azure-rbac.md)
 
 **Azure 安全中心监视**：不适用
 

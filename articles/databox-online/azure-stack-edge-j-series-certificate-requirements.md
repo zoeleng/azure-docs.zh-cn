@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891378"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874230"
 ---
 # <a name="certificate-requirements"></a>证书要求
 
@@ -30,12 +30,13 @@ ms.locfileid: "90891378"
 * 证书的 " *颁发给：* " 字段不得与 " *颁发者：* " 字段相同，因为根 CA 证书除外。
 
 
-
 ## <a name="certificate-algorithms"></a>证书算法
 
 证书算法必须具有以下要求：
 
 * 证书必须使用 RSA 密钥算法。
+
+* 仅支持具有 Microsoft RSA/Schannel 加密提供程序的 RSA 证书。
 
 * 证书签名算法不能为 SHA1。
 
@@ -74,13 +75,15 @@ Azure Stack Edge Pro 设备上安装的 PFX 证书应满足以下要求：
 
 * 证书的 PFX 加密应当为 3DES。 这是从 Windows 10 客户端或 Windows Server 2016 证书存储导出时使用的默认加密。 有关与3DES 相关的详细信息，请参阅 [三重 DES](https://en.wikipedia.org/wiki/Triple_DES)。
 
-* 证书 PFX 文件的 "*密钥用法*" 字段中必须具有有效的*数字签名*和*KeyEncipherment*值。
+* 证书 PFX 文件的 "*密钥用法*" 字段中必须具有有效的 *数字签名* 和 *KeyEncipherment* 值。
 
-* 在 "*增强型密钥用法*" 字段中，证书 PFX 文件必须具有*服务器身份验证 (1.3.6.1.5.5.7.3.1) *和*客户端身份验证 (1.3.6.1.5.5.7.3.2) *的值。
+* 在 "*增强型密钥用法*" 字段中，证书 PFX 文件必须具有 *服务器身份验证 (1.3.6.1.5.5.7.3.1)* 和 *客户端身份验证 (1.3.6.1.5.5.7.3.2)* 的值。
 
 * 如果使用的是 Azure Stack 准备情况检查程序工具，则在部署时所有证书 PFX 文件的密码必须相同。 有关详细信息，请参阅 [使用 Azure Stack 中心就绪检查程序工具为 Azure Stack Edge Pro 创建证书](azure-stack-edge-j-series-create-certificates-tool.md)。
 
 * 证书 PFX 的密码必须是复杂密码。 请记下此密码，因为它用作部署参数。
+
+* 仅对 Microsoft RSA/Schannel 加密提供程序使用 RSA 证书。
 
 有关详细信息，请参阅 [导出具有私钥的 PFX 证书](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)。
 

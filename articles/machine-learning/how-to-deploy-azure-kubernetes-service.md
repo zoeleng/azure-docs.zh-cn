@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: f2ac565b8c6dfce52daeadd20cf3357bc22cd281
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e041b69d8fc256ff5fe759be9716db032540f2cb
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843802"
+ms.locfileid: "94873788"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>将模型部署到 Azure Kubernetes 服务群集
 
@@ -333,6 +333,7 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级�
 
 ## <a name="next-steps"></a>后续步骤
 
+* [使用 Azure RBAC 进行 Kubernetes 授权](../aks/manage-azure-rbac.md)
 * [使用 Azure 虚拟网络保护推理环境](how-to-secure-inferencing-vnet.md)
 * [如何使用自定义 Docker 映像部署模型](how-to-deploy-custom-docker-image.md)
 * [部署疑难解答](how-to-troubleshoot-deployment.md)
